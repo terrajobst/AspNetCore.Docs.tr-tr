@@ -1,6 +1,6 @@
 ---
 uid: visual-studio/overview/2013/using-browser-link
-title: Visual Studio 2013'te tarayıcı bağlantısı kullanarak | Microsoft Docs
+title: Visual Studio 2013'te tarayıcı bağlantısı kullanma | Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
@@ -9,104 +9,103 @@ ms.date: 10/04/2013
 ms.topic: article
 ms.assetid: 46cbfe20-b4dc-449b-9016-80657dd44fbe
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/using-browser-link
 msc.type: authoredcontent
-ms.openlocfilehash: e5a13405a303580ec8c1d4cdacafc26c6f8ff34a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 96add0de1c1e4366353137898f1ba102aec7f754
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28044116"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37399327"
 ---
 <a name="using-browser-link-in-visual-studio-2013"></a>Visual Studio 2013'te tarayıcı bağlantısı kullanma
 ====================
-tarafından [CAN Wasson](https://github.com/MikeWasson)
+tarafından [Mike Wasson](https://github.com/MikeWasson)
 
-Tarayıcı bağlantısı, geliştirme ortamı ve bir veya daha fazla web tarayıcıları arasında bir iletişim kanalı oluşturur Visual Studio 2013'te yeni bir özelliktir. Tarayıcılar arası test etmek için faydalı olan bazı tarayıcılar, web uygulamanızda aynı anda yenilemek için tarayıcı bağlantısı kullanabilirsiniz.
+Tarayıcı bağlantısı, geliştirme ortamı ve bir veya daha fazla web tarayıcıları arasında bir iletişim kanalı oluşturan Visual Studio 2013'te yeni bir özelliktir. Çapraz tarayıcı test etmek için faydalı olan bazı tarayıcılarda, web uygulamanızın tek bir seferde yenilemek için tarayıcı bağlantısını kullanabilirsiniz.
 
 - [Tarayıcı Yenile](#browser-refresh)
-- [Tarayıcı bağlantısı panoyu görüntüleme](#dashboard)
-- [Tarayıcı bağlantısı statik HTML dosyaları için etkinleştirme](#static-html)
-- [Disabling Browser Link](#disabling)
+- [Tarayıcı bağlantı Panosu görüntüleme](#dashboard)
+- [Statik HTML dosyaları için tarayıcı bağlantısını etkinleştirme](#static-html)
+- [Tarayıcı bağlantısı devre dışı bırakma](#disabling)
 - [Nasıl çalışır?](#how-it-works)
 
 <a id="browser-refresh"></a>
 ## <a name="browser-refresh"></a>Tarayıcı Yenile
 
-Tarayıcıyı yenilemek ile Visual Studio tarayıcı bağlantısı üzerinden bağlanan birden çok tarayıcı yenileyebilirsiniz.
+Tarayıcıyı yenileyin ile Visual Studio tarayıcı bağlantısı aracılığıyla bağlı birden çok tarayıcı yenileyebilirsiniz.
 
-Tarayıcıyı yenilemek kullanmak için ilk proje şablonları birini kullanarak bir ASP.NET uygulaması oluşturun. Uygulama hata ayıklama F5 tuşuna basarak veya araç çubuğunda ok simgesini tıklatarak:
+Tarayıcıyı yenileyin kullanmak için ilk proje şablonlarını kullanarak bir ASP.NET uygulaması oluşturun. Uygulama, F5 tuşuna basarak veya araç çubuğunda ok simgesine tıklayarak hata ayıklama:
 
 ![](using-browser-link/_static/image1.png)
 
-Hata ayıklama için belirli bir tarayıcı seçmek için açılır de kullanabilirsiniz.
+Hata ayıklama için belirli bir tarayıcı seçmek için açılan listeyi de kullanabilirsiniz.
 
 ![](using-browser-link/_static/image2.png)
 
-Birden çok tarayıcı ile hata ayıklamak için seçin **Gözat ile**. İçinde **Gözat ile** iletişim kutusunda, birden fazla tarayıcı seçmek için CTRL tuşunu basılı tutun. Tıklatın **Gözat** seçili tarayıcılarla hata ayıklamak için. Dış Visual Studio'dan bir tarayıcıyı başlatın ve uygulamayı URL'ye gidin tarayıcı bağlantısı de çalışır.
+Birden çok tarayıcı ile hata ayıklamak için seçin **şununla Gözat**. İçinde **şununla Gözat** iletişim kutusunda birden fazla tarayıcı seçmek için CTRL tuşunu basılı tutun. Tıklayın **Gözat** seçili tarayıcıları ile hata ayıklamak için. Visual Studio dışında bir tarayıcıdan başlatın ve uygulama URL'sine gidin, tarayıcı bağlantısı da çalışır.
 
 ![](using-browser-link/_static/image3.png)
 
-Tarayıcı bağlantısı denetimleri döngüsel oku simgesiyle açılır bulunur. Ok simgesi **yenileme** düğmesi.
+Tarayıcı bağlantısı denetimleri yuvarlak ok simgesi açılan listesi bulunur. Ok simgesi **Yenile** düğmesi.
 
 ![](using-browser-link/_static/image4.png)
 
-Hangi tarayıcılar bağlı olduğunu görmek için fare üzerine gelerek **yenileme** hata ayıklama sırasında düğmesi. Bağlı tarayıcıları bir araç ipucu penceresinde görüntülenir.
+Hangi tarayıcılar bağlı olduğunu görmek için fareyi üzerine **Yenile** hata ayıklama sırasında düğmesi. Bağlı tarayıcıların bir araç ipucu penceresi gösterilir.
 
 ![](using-browser-link/_static/image5.png)
 
-Bağlı tarayıcı yenilemek için tıklatın **yenileme** düğmesini tıklatın veya CTRL + ALT + ENTER tuşuna basın. Örneğin, aşağıdaki ekran görüntüsünde ı MVC 5 proje şablonu kullanılarak oluşturulan bir ASP.NET projesi gösterir. Üst iki tarayıcılarında çalışan uygulama görebilirsiniz. Alt kısmındaki projeyi Visual Studio'da açın.
+Bağlı tarayıcıyı yenilemek için şuna tıklayın **Yenile** düğmesine veya CTRL + ALT + ENTER tuşlarına basın. Örneğin, aşağıdaki ekran görüntüsünde MVC 5 proje şablonunu kullanarak oluşturduğum bir ASP.NET projesi gösterir. Üstteki iki tarayıcılarında çalışan uygulama görebilirsiniz. Altındaki Proje Visual Studio'da açın.
 
 ![](using-browser-link/_static/image6.png)
 
-Visual Studio'da değiştirdim &lt;h1&gt; başlık için giriş sayfası:
+Visual Studio'da değiştirdim &lt;h1&gt; giriş sayfası başlığı:
 
 ![](using-browser-link/_static/image7.png)
 
-I tıklandığında **yenileme** düğmesi, her iki tarayıcı pencerelerini değişikliği görünen:
+Ne zaman tıkladım **Yenile** düğmesi, değişikliği hem de Tarayıcı pencerelerinde görüntülenmektedir:
 
 ![](using-browser-link/_static/image8.png)
 
 **Notlar**
 
-- Tarayıcı bağlantısını etkinleştirmek için ayarlanmış `debug=true` içinde [ &lt;derleme&gt; ](https://msdn.microsoft.com/library/s10awwz0(v=vs.85).aspx) projenin Web.config dosyasında öğesi.
-- Uygulama localhost üzerinde çalışmalıdır.
-- Uygulama, .NET 4.0 veya üzeri hedeflemesi gerekir.
+- Tarayıcı bağlantısını etkinleştirmek için ayarlanmış `debug=true` içinde [ &lt;derleme&gt; ](https://msdn.microsoft.com/library/s10awwz0(v=vs.85).aspx) projenin Web.config dosyasında öğe.
+- Uygulamayı, komut localhost üzerinde çalıştırılması gerekir.
+- Uygulama, .NET 4.0 veya üzerini hedeflemelidir.
 
 <a id="dashboard"></a>
-## <a name="viewing-the-browser-link-dashboard"></a>Tarayıcı bağlantısı panoyu görüntüleme
+## <a name="viewing-the-browser-link-dashboard"></a>Tarayıcı bağlantı Panosu görüntüleme
 
-Tarayıcı bağlantısı Panosu tarayıcı bağlantısı bağlantılar hakkında bilgi gösterir. Panoyu görüntülemek için tarayıcı bağlantısı açılır menüsünü seçin (yanında küçük oka **yenileme** düğmesi). Ardından **tarayıcı bağlantı Pano**.
+Tarayıcı bağlantı Panosu, tarayıcı bağlantısı bağlantıları hakkındaki bilgileri gösterir. Panoyu görüntülemek için tarayıcı bağlantısı açılan menüyü seçin (yanındaki küçük ok **Yenile** düğmesi). Ardından **tarayıcı bağlantı Panosu**.
 
 ![](using-browser-link/_static/image9.png)
 
-Pano bağlı tarayıcılar ve her tarayıcı gittiğinizde URL listeler.
+Pano, bağlı tarayıcıların ve istediğiniz her tarayıcıda gezinen URL listeler.
 
 ![](using-browser-link/_static/image10.png)
 
-**Önkoşullar** bölümünde bu proje için tarayıcı bağlantısını etkinleştirmek için gereken adımlar gösterilir. Örneğin, aşağıdaki ekran görüntüsünde, "hata ayıklama" false olarak Web.config dosyasında ayarlandığı bir proje gösterir.
+**Önkoşulları** bölümünde o proje için tarayıcı bağlantısını etkinleştirmek için gerekli tüm adımları gösterilir. Örneğin, aşağıdaki ekran görüntüsünde, "debug" false olarak Web.config dosyasında ayarlandığı bir proje gösterir.
 
 ![](using-browser-link/_static/image11.png)
 
 <a id="static-html"></a>
-## <a name="enabling-browser-link-for-static-html-files"></a>Tarayıcı bağlantısı statik HTML dosyaları için etkinleştirme
+## <a name="enabling-browser-link-for-static-html-files"></a>Statik HTML dosyaları için tarayıcı bağlantısını etkinleştirme
 
-Statik HTML dosyaları için tarayıcı bağlantısını etkinleştirmek için aşağıdaki Web.config dosyanıza ekleyin.
+Statik HTML dosyaları için tarayıcı bağlantısını etkinleştirmek için Web.config dosyasına aşağıdakileri ekleyin.
 
 [!code-xml[Main](using-browser-link/samples/sample1.xml)]
 
-Projenizi yayımladığınızda, performansı artırmak için bu ayarı kaldırın.
+Projenizi yayımladığınızda performansla ilgili nedenlerden dolayı bu ayarı kaldırın.
 
 <a id="disabling"></a>
 ## <a name="disabling-browser-link"></a>Tarayıcı bağlantısı devre dışı bırakma
 
-Tarayıcı bağlantısı varsayılan olarak etkindir. Devre dışı bırakmak birkaç yolu vardır:
+Tarayıcı bağlantısı varsayılan olarak etkindir. Devre dışı bırakmak için birkaç yol vardır:
 
-- Tarayıcı bağlantısı açılır menüde işaretini **tarayıcı bağlantısını etkinleştirmek**. 
+- Tarayıcı bağlantısı açılan menüde'seçeneğinin işaretini kaldırın **tarayıcı bağlantısını etkinleştir**. 
 
     ![](using-browser-link/_static/image12.png)
-- Web.config dosyasında "vs: EnableBrowserLink" "false" değeri ile appSettings bölümünde adlı bir anahtar ekleyin. 
+- Web.config dosyasında "vs: EnableBrowserLink" değer "false" ile appSettings bölümündeki adlı bir anahtar ekleyin. 
 
     [!code-xml[Main](using-browser-link/samples/sample2.xml)]
 - Web.config dosyasında hata ayıklama false olarak ayarlayın. 
@@ -116,10 +115,10 @@ Tarayıcı bağlantısı varsayılan olarak etkindir. Devre dışı bırakmak bi
 <a id="how-it-works"></a>
 ## <a name="how-does-it-work"></a>Nasıl çalışır?
 
-Tarayıcı bağlantısını kullanan [SignalR](../../../signalr/index.md) Visual Studio ve tarayıcı arasındaki iletişim kanalını oluşturmak için. Tarayıcı bağlantısı etkin olduğunda, Visual Studio'nun birden çok istemci (tarayıcı) bağlanabileceği bir SignalR sunucusu olarak görev yapar. Tarayıcı bağlantısı, bir HTTP modülü ASP.NET ile de kaydeder. Bu modül özel yerleştirir &lt;betik&gt; sunucudan her sayfa isteği içine başvuruları. Komut dosyası başvuruları tarayıcıda "Kaynağı görüntüle" seçerek görebilirsiniz.
+Tarayıcı bağlantısı kullanan [SignalR](../../../signalr/index.md) Visual Studio ile tarayıcı arasında bir iletişim kanalı oluşturmak için. Tarayıcı bağlantısı etkin olduğunda, Visual Studio için birden çok istemci (tarayıcı) bağlanabilen bir SignalR sunucusu olarak görev yapar. Tarayıcı bağlantısı, ASP.NET ile bir HTTP modülü de kaydeder. Bu modül özel eklediği &lt;betik&gt; sunucudan her sayfa isteği halinde başvuruları. Komut dosyası başvuruları, tarayıcıda "Kaynağı görüntüle" seçeneğini belirleyerek görebilirsiniz.
 
 ![](using-browser-link/_static/image13.png)
 
-Kaynak dosyalarınız değiştirilmez. HTTP modülü, komut dosyası başvuruları dinamik olarak yerleştirir.
+Kaynak dosyalarını değiştirilmez. HTTP modülü, komut dosyası başvuruları dinamik olarak ekler.
 
-Gözatıcı kod tüm JavaScript olduğundan, tüm tarayıcılarla çalışır, [SignalR destekleyen](../../../signalr/overview/getting-started/supported-platforms.md), tüm tarayıcı eklentisi gerektirmeden.
+Tarayıcı tarafı kod, tüm JavaScript olduğundan, tüm tarayıcılarla çalışır, [SignalR destekler](../../../signalr/overview/getting-started/supported-platforms.md), herhangi bir tarayıcı eklentisini gerektirmeden.

@@ -1,42 +1,41 @@
 ---
 uid: web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-filtering-with-a-dropdownlist-datalist-cs
-title: Ana/ayrıntı ile DropDownList (C#) filtreleme | Microsoft Docs
+title: Ana/ayrıntı filtreleme (C#) bir DropDownList ile | Microsoft Docs
 author: rick-anderson
-description: Bu öğreticide, tek bir web sayfasındaki 'ana' kaydeder ve bir DataList arak Göster için görüntülenecek DropDownLists kullanarak ana/ayrıntı raporları görüntülemek nasıl bakın …
+description: Bu öğreticide tek bir web sayfasındaki 'master' kayıtları ve DataList arak Göster için görüntülenecek DropDownList kullanarak ana/ayrıntı raporları görüntülemek nasıl görüyoruz...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/18/2007
 ms.topic: article
 ms.assetid: 07fa47ae-e491-4a2f-b265-d342b9ddef46
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-filtering-with-a-dropdownlist-datalist-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c84902ccf028c976246380abfaebb6a76c573603
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 8af99dec92050f6d3b64919d06e7bc0ddc19e083
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30880680"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37389680"
 ---
-<a name="masterdetail-filtering-with-a-dropdownlist-c"></a>Ana/ayrıntı filtreleme ile DropDownList (C#)
+<a name="masterdetail-filtering-with-a-dropdownlist-c"></a>Ana/ayrıntı filtreleme bir DropDownList ile (C#)
 ====================
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Örnek uygulamayı indirin](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_33_CS.exe) veya [PDF indirin](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/datatutorial33cs1.pdf)
+[Örnek uygulamayı indirin](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_33_CS.exe) veya [PDF olarak indirin](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/datatutorial33cs1.pdf)
 
-> Bu öğreticide tek web sayfasında "ana" kaydeder ve "Ayrıntılar" görüntülemek için bir DataList görüntülenecek DropDownLists kullanarak ana/ayrıntı raporları görüntülemek nasıl bakın.
+> Bu öğreticide tek web sayfasında "ana" kayıtları ve "details" görüntülemek için bir DataList görüntülenecek DropDownList kullanarak ana/ayrıntı raporları görüntülemek nasıl görüyoruz.
 
 
 ## <a name="introduction"></a>Giriş
 
-GridView önceki kullanarak oluşturduğumuz ilk ana/ayrıntı raporu [ana/ayrıntı filtreleme ile bir DropDownList](../masterdetail/master-detail-filtering-with-a-dropdownlist-cs.md) öğreticide, bazı "ana" kayıt kümesi göstererek başlar. Kullanıcı daha sonra ana kayıtları birine ana kayıt "ayrıntılarını." böylece görüntüleme ayrıntıya inebilir Ana/ayrıntı raporlar-çok ilişkileri Görselleştirme ve özellikle "geniş" tabloları (olanları sütunları pek çok) ayrıntılı bilgileri görüntülemek için ideal seçim içindir. Biz, önceki eğitimlerine GridView ve DetailsView denetimlerini kullanarak ana/ayrıntı raporları uygulamak nasıl incelediniz. Bu öğretici ve sonraki iki, biz durum, DataList kullanarak odaklanmasına ancak bu kavramlar yeniden gözden geçirin ve bunun yerine yineleyici denetler.
+GridView önceki bölümlerinde kullanarak oluşturduğumuz ilk ana/ayrıntı raporu [ana/ayrıntı filtreleme ile bir DropDownList](../masterdetail/master-detail-filtering-with-a-dropdownlist-cs.md) öğretici, bazı "ana" kayıt kümesini göstererek başlar. Kullanıcı daha sonra bir ana kayıtlar, böylece ana kayıt "ayrıntılarını." görüntüleme detaya gidebilirsiniz Ana/ayrıntı raporları bir-çok ilişkileri görselleştirmek için ve özellikle "geniş" tabloları (olanları çok sütun) öğesinden ayrıntılı bilgiler görüntülemek için ideal seçenektir. Biz nasıl uygulanacağını önceki öğreticilerde GridView ve DetailsView denetimlerini kullanarak ana/ayrıntı raporları incelediniz. Bu öğreticide ve sonraki iki, biz DataList kullanma odak ancak bu kavramlar edilemeyeceğini ve yineleyici yerine denetler.
 
-Bu öğreticide, bir DataList görüntülenen "Ayrıntılar" kayıt "ana" kayıtlarıyla içerecek şekilde bir DropDownList kullanarak göreceğiz.
+Bu öğreticide, içinde bir DataList görüntülenen "details" kayıt "ana" kayıtlarla içerecek şekilde bir DropDownList kullanarak inceleyeceğiz.
 
-## <a name="step-1-adding-the-masterdetail-tutorial-web-pages"></a>1. adım: ana/ayrıntı öğretici Web sayfaları ekleme
+## <a name="step-1-adding-the-masterdetail-tutorial-web-pages"></a>1. adım: ana/ayrıntı Eğitmen Web sayfaları ekleme
 
-Şimdi biz Bu öğretici başlamadan önce ilk ASP.NET sayfaları biz Bu öğreticide ve DataList ve yineleyici denetimlerini kullanarak ana/ayrıntı raporları ile ilgili sonraki iki gerekir ve klasörü eklemek için bir dakikanızı ayırın. Başlangıç adlı projeye yeni bir klasör oluşturarak `DataListRepeaterFiltering`. Ardından, aşağıdaki beş ASP.NET sayfaları tümünün ana sayfa kullanacak şekilde yapılandırılmış olan bu klasöre eklemek `Site.master`:
+Biz bu öğreticiye başlamadan önce öncelikle Bu öğretici ve DataList ve Repeater denetimleri kullanarak ana/ayrıntı raporlarla ilgili sonraki iki gerekir ASP.NET sayfaları ve klasörü eklemek için bir zaman ayırabiliriz. Adlı projede yeni bir klasör oluşturarak başlayın `DataListRepeaterFiltering`. Ardından, tüm bunları ana sayfaya kullanacak şekilde yapılandırılmış olması ve bu klasörü için aşağıdaki beş ASP.NET sayfaları ekleyin `Site.master`:
 
 - `Default.aspx`
 - `FilterByDropDownList.aspx`
@@ -47,18 +46,18 @@ Bu öğreticide, bir DataList görüntülenen "Ayrıntılar" kayıt "ana" kayıt
 
 ![DataListRepeaterFiltering bir klasör oluşturun ve öğretici ASP.NET sayfaları ekleme](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image1.png)
 
-**Şekil 1**: oluşturmak bir `DataListRepeaterFiltering` klasörü ve öğretici ASP.NET sayfaları ekleme
+**Şekil 1**: oluşturma bir `DataListRepeaterFiltering` klasörü ve öğretici ASP.NET sayfaları ekleyin
 
 
-Ardından, açık `Default.aspx` sayfasında ve sürükleyin `SectionLevelTutorialListing.ascx` kullanıcı denetiminden `UserControls` tasarım yüzeyine klasör. Bu kullanıcı, içinde oluşturduğumuz denetimi [ana sayfalar ve Site gezintisi](../introduction/master-pages-and-site-navigation-cs.md) öğretici, site haritası numaralandırır ve madde işaretli listede geçerli bölümünden öğreticileri görüntüler.
+Ardından, açık `Default.aspx` sürükleyin ve sayfa `SectionLevelTutorialListing.ascx` kullanıcı denetimi `UserControls` tasarım yüzeyine klasör. Bu kullanıcı, oluşturduğumuz denetimini [ana sayfalar ve Site gezintisi](../introduction/master-pages-and-site-navigation-cs.md) öğretici, site haritası numaralandırır ve madde işaretli listede geçerli bölümdeki öğreticiler görüntüler.
 
 
 [![İçin Default.aspx SectionLevelTutorialListing.ascx kullanıcı denetimi Ekle](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image3.png)](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image2.png)
 
-**Şekil 2**: eklemek `SectionLevelTutorialListing.ascx` kullanıcı denetimine `Default.aspx` ([tam boyutlu görüntüyü görüntülemek için tıklatın](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image4.png))
+**Şekil 2**: ekleme `SectionLevelTutorialListing.ascx` kullanıcı denetimine `Default.aspx` ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image4.png))
 
 
-Madde işaretli liste görünümünü olması için biz oluşturma, ana/ayrıntı öğreticileri biz bunları site haritası eklemeniz gerekir. Açık `Web.sitemap` dosya ve sonra "Görüntüleyen veri ile DataList ve yineleyici" site haritası düğümü biçimlendirme aşağıdaki biçimlendirme ekleyin:
+Madde işaretli liste görünümünü sahip olmak için biz oluşturursunuz, ana/ayrıntı öğreticiler site eşlemesinin ekleneceği ihtiyacımız var. Açık `Web.sitemap` dosya ve sonra "Görüntüleyen veri ile DataList ve Repeater" site haritası düğüm biçimlendirmeyi aşağıdaki işaretlemeyi ekleyin:
 
 [!code-xml[Main](master-detail-filtering-with-a-dropdownlist-datalist-cs/samples/sample1.xml)]
 
@@ -68,76 +67,76 @@ Madde işaretli liste görünümünü olması için biz oluşturma, ana/ayrınt�
 **Şekil 3**: yeni ASP.NET sayfaları dahil etmek için Site Haritası güncelleştir
 
 
-## <a name="step-2-displaying-the-categories-in-a-dropdownlist"></a>2. adım: bir DropDownList kategorileri görüntüleme
+## <a name="step-2-displaying-the-categories-in-a-dropdownlist"></a>2. adım: bir DropDownList içinde kategorilerini görüntüleme
 
-Bizim ana/ayrıntı raporu görüntülenen seçilen liste öğesi'nin ürünleriyle bir DropDownList kategorilerde listeleyecek DataList sayfasında aşağı daha fazla. Ardından, bize, önünde ilk görev bir DropDownList görüntülenen kategorileri sağlamaktır. Başlangıç açarak `FilterByDropDownList.aspx` sayfasındaki `DataListRepeaterFiltering` klasörü ve sayfanın tasarımcıya araç kutusu'ndan bir DropDownList sürükleyin. Ardından, DropDownList's ayarlayın `ID` özelliğine `Categories`. DropDownList'ın Akıllı Etiket Veri Kaynağı Seç bağlantısından tıklayın ve adlı yeni bir ObjectDataSource oluşturma `CategoriesDataSource`.
-
-
-[![CategoriesDataSource adlı yeni bir ObjectDataSource ekleme](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image7.png)](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image6.png)
-
-**Şekil 4**: yeni ObjectDataSource adlandırılmış eklemek `CategoriesDataSource` ([tam boyutlu görüntüyü görüntülemek için tıklatın](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image8.png))
+Bir DropDownList kategorileri görüntülenen seçili liste öğesinin ürünleri ile ana/ayrıntı raporumuzun listeler başka bir DataList sayfasında aşağı. Ardından bize önce ilk görev bir DropDownList içinde görüntülenen kategorileri sağlamaktır. Başlangıç açarak `FilterByDropDownList.aspx` sayfasını `DataListRepeaterFiltering` klasör ve bir DropDownList sayfanın Tasarımcısı araç kutusundan sürükleyin. Ardından, DropDownList'ın ayarlamak `ID` özelliğini `Categories`. Akıllı etiket DropDownList'ın veri kaynağı Seç bağlantıdan tıklayın ve adlı yeni bir ObjectDataSource oluşturma `CategoriesDataSource`.
 
 
-Yeni ObjectDataSource çağırılır gibi yapılandırma `CategoriesBLL` sınıfının `GetCategories()` yöntemi. Hala hangi veri kaynağı alanı DropDownList görüntüleneceğini ve hangi belirtmek için ihtiyacımız ObjectDataSource yapılandırdıktan sonra bir her liste öğesi için değer olarak ilişkili olmalıdır. Sahip `CategoryName` görüntü olarak alan ve `CategoryID` her liste öğesi için değer olarak.
+[![CategoriesDataSource adlı yeni bir ObjectDataSource Ekle](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image7.png)](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image6.png)
+
+**Şekil 4**: yeni ObjectDataSource adlandırılmış ekleme `CategoriesDataSource` ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image8.png))
 
 
-[![CategoryName alan ve kullanım adlı kullanıcı, Categoryıd'si DropDownList görünen değere sahip](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image10.png)](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image9.png)
-
-**Şekil 5**: DropDownList görüntü sahip `CategoryName` alan ve kullanım `CategoryID` değeri olarak ([tam boyutlu görüntüyü görüntülemek için tıklatın](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image11.png))
+Bu çağırır gibi yeni ObjectDataSource yapılandırma `CategoriesBLL` sınıfın `GetCategories()` yöntemi. Biz yine de hangi veri kaynağı alanı DropDownList içinde görüntülenmesi gerekir ve hangi belirtmenize gerek ObjectDataSource yapılandırdıktan sonra bir her liste öğesi için bir değer olarak ilişkili olmalıdır. Sahip `CategoryName` görüntü olarak alan ve `CategoryID` değeri her liste öğesi olarak.
 
 
-Kayıtlardan doldurulur DropDownList denetimi bu noktada sahibiz `Categories` tablosu (tüm yaklaşık altı saniye içinde gerçekleştirilir). Şekil 6 bizim ilerleme bugüne kadarki bir tarayıcıdan görüntülendiğinde gösterir.
+[![CategoryName alan ve kullanım CategoryID DropDownList görünen değere sahip](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image10.png)](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image9.png)
+
+**Şekil 5**: DropDownList görüntülemesi `CategoryName` alan ve kullanım `CategoryID` değeri ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image11.png))
 
 
-[![Geçerli kategorileri bir aşağı açılır listeler](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image13.png)](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image12.png)
+Kayıtlardan doldurulur bir DropDownList denetimi bu noktada sahibiz `Categories` tablo (tümü yaklaşık altı saniyeler içinde gerçekleştirilir). Şekil 6 ilerlememizin şimdiye kadarki bir tarayıcıdan görüntülendiğinde gösterir.
 
-**Şekil 6**: A aşağı açılan listeler geçerli kategorileri ([tam boyutlu görüntüyü görüntülemek için tıklatın](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image14.png))
+
+[![Bir açılan geçerli kategorileri listeler](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image13.png)](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image12.png)
+
+**Şekil 6**: bir açılan listeler geçerli kategorilerin ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image14.png))
 
 
 ## <a name="step-2-adding-the-products-datalist"></a>2. adım: ürünleri DataList ekleme
 
-Bizim ana/ayrıntı raporu son adımda seçilen kategori ile ilişkili ürün listesi var. Bunu başarmak için sayfaya bir DataList ekleyin ve adlı yeni bir ObjectDataSource oluşturma `ProductsByCategoryDataSource`. Sahip `ProductsByCategoryDataSource` denetim almak, verileri `ProductsBLL` sınıfının `GetProductsByCategoryID(categoryID)` yöntemi. Bu ana/ayrıntı raporu salt okunur olduğundan, (hiçbiri) INSERT, UPDATE ve DELETE sekmeleri seçeneğini seçin.
+Ana/ayrıntı raporumuzun son adımda, seçilen kategori ile ilişkili ürün listesi sağlamaktır. Bunu gerçekleştirmek için bir DataList sayfaya ekleyin ve adlı yeni bir ObjectDataSource oluşturma `ProductsByCategoryDataSource`. Sahip `ProductsByCategoryDataSource` denetimi alma, verileri `ProductsBLL` sınıfın `GetProductsByCategoryID(categoryID)` yöntemi. Bu ana/ayrıntı raporu salt okunur olduğundan, INSERT, UPDATE ve DELETE sekmeleri (hiçbiri) seçeneğini belirleyin.
 
 
-[![GetProductsByCategoryID(categoryID) yöntemini seçin](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image16.png)](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image15.png)
+[![GetProductsByCategoryID(categoryID) yöntemi seçin](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image16.png)](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image15.png)
 
-**Şekil 7**: seçin `GetProductsByCategoryID(categoryID)` yöntemi ([tam boyutlu görüntüyü görüntülemek için tıklatın](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image17.png))
-
-
-İleri'yi tıklatmadan sonra ObjectDataSource Sihirbazı bize kaynağı değeri ile ister `GetProductsByCategoryID(categoryID)` yöntemin *`categoryID`* parametresi. Seçili değerini kullanacak şekilde `categories` DropDownList öğesi kümesine parametre kaynak denetimi ve ControlId `Categories`.
+**Şekil 7**: seçin `GetProductsByCategoryID(categoryID)` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image17.png))
 
 
-[![Adlı kullanıcı, Categoryıd'si parametresi kategorileri DropDownList değerine ayarlayın](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image19.png)](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image18.png)
-
-**Şekil 8**: ayarlamak *`categoryID`* parametre değerine `Categories` DropDownList ([tam boyutlu görüntüyü görüntülemek için tıklatın](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image20.png))
+İleri'yi tıklatmadan sonra ObjectDataSource Sihirbazı'nı bize değeri kaynağını ister `GetProductsByCategoryID(categoryID)` yöntemin *`categoryID`* parametresi. Seçili değerini kullanacak şekilde `categories` DropDownList öğesi denetimi ve ControlId için parametre kaynağı ayarla `Categories`.
 
 
-Veri Kaynağı Yapılandırma Sihirbazı tamamlandıktan sonra Visual Studio otomatik olarak oluşturacak bir `ItemTemplate` adını ve her veri alanı değerini görüntüler DataList için. Şimdi kullanmayı DataList geliştirmek bir `ItemTemplate` yalnızca ürün adı, kategori, tedarikçi, birim ve fiyat ile birlikte başına miktar görüntüleyen bir `SeparatorTemplate` , yerleştirir bir `<hr>` her bir öğe arasındaki öğesi. I kullanacağım `ItemTemplate` gelen bir örnekte [DataList ve yineleyici denetimleri ile veri görüntüleme](../displaying-data-with-the-datalist-and-repeater/displaying-data-with-the-datalist-and-repeater-controls-cs.md) öğretici ancak kullanımında en görsel olarak çekici Bul ne olursa olsun şablon biçimlendirme kullanmak boş.
+[![CategoryID parametresi kategorileri DropDownList değerine ayarlayın.](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image19.png)](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image18.png)
 
-Bu değişiklikleri yaptıktan sonra DataList ve alt ObjectDataSource'nın biçimlendirme aşağıdakine benzer görünmelidir:
+**Şekil 8**: ayarlayın *`categoryID`* parametre değerine `Categories` DropDownList ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image20.png))
+
+
+Veri Kaynağı Yapılandırma Sihirbazı tamamlandıktan sonra Visual Studio otomatik olarak oluşturacak bir `ItemTemplate` adını ve her veri alanının değerini görüntüler DataList için. Şimdi kullanmayı DataList geliştiren bir `ItemTemplate` yalnızca ürün adı, kategori, tedarikçi, birim ve fiyat ile birlikte başına miktarını görüntüler bir `SeparatorTemplate` , ekler bir `<hr>` her bir öğe arasındaki öğesi. Kullanmak şuraya atlıyorum `ItemTemplate` içinde bir örnekten [DataList ve Repeater denetimleri ile verileri görüntüleme](../displaying-data-with-the-datalist-and-repeater/displaying-data-with-the-datalist-and-repeater-controls-cs.md) Öğreticisi, ancak genel görünüm en görsel olarak çekici bulmak istediğiniz şablon biçimlendirme ücretsiz.
+
+Bu değişiklikleri yaptıktan sonra DataList ve kendi ObjectDataSource biçimlendirme aşağıdakine benzer görünmelidir:
 
 [!code-aspx[Main](master-detail-filtering-with-a-dropdownlist-datalist-cs/samples/sample2.aspx)]
 
-Bir tarayıcıda bizim ilerleme kullanıma için bir dakikanızı ayırın. İlk sayfasını ziyaret ettiğinizde, seçilen kategoriye (Meşrubat) ait bu ürünlerden (Şekil 9'da gösterildiği gibi) görüntülenir, ancak DropDownList değiştirme veri güncelleştirmez. Geri gönderimin DataList güncelleştirmek oluşması gereken olmasıdır. Bunu ya da geçebiliriz gerçekleştirmek için DropDownList's ayarlamak `AutoPostBack` özelliğine `true` veya bir düğme Web denetimi sayfasına ekleyin. Bu öğretici için ı DropDownList's ayarlamak için tercih `AutoPostBack` özelliğine `true`.
+Bir tarayıcıda ilerlememizin kullanıma için bir dakikanızı ayırın. Sayfa ilk ziyaret edildiğinde, seçilen kategori (İçecekler) ait bu ürünlerin (Şekil 9'da gösterildiği gibi) görüntülenir, ancak veri DropDownList değiştirme güncelleştirmez. DataList güncelleştirmek bir geri gönderme gerçekleşmelidir olmasıdır. Ya da yapabiliriz bunu sağlamak için DropDownList'ın ayarlamak `AutoPostBack` özelliğini `true` veya düğme Web Denetimi sayfaya ekleyin. Bu öğreticide, ı DropDownList'ın ayarlanacak bıraktınız `AutoPostBack` özelliğini `true`.
 
 Şekil 9 ve 10 eylem ana/ayrıntı raporu gösterilmektedir.
 
 
-[![İlk sitesini ziyaret ettiğinde içecek ürünleri görüntülenir](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image22.png)](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image21.png)
+[![Sayfa ilk ziyaret edildiğinde, içecek ürünleri görüntülenir](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image22.png)](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image21.png)
 
-**Şekil 9**: ilk sitesini ziyaret ettiğinde içecek ürünleri görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklatın](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image23.png))
+**Şekil 9**: sayfa ilk ziyaret edildiğinde, içecek ürünleri görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image23.png))
 
 
-[![Yeni bir ürün (üretim) otomatik olarak seçme DataList güncelleştirme geri gönderme neden olur.](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image25.png)](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image24.png)
+[![DataList güncelleştiriliyor, bir geri gönderme neden yeni bir ürün (ürün) otomatik olarak seçme](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image25.png)](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image24.png)
 
-**Şekil 10**: yeni bir ürün (üretim) otomatik olarak belirlenmesi DataList güncelleştirme geri gönderme neden olur ([tam boyutlu görüntüyü görüntülemek için tıklatın](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image26.png))
+**Şekil 10**: yeni bir ürün (ürün) otomatik olarak seçilmesi DataList güncelleştiriliyor, bir geri gönderme neden olur ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image26.png))
 
 
 ## <a name="adding-a----choose-a-category----list-item"></a>"--Bir kategori seçin--" liste öğesi ekleme
 
-İlk kez ziyaret eden `FilterByDropDownList.aspx` DropDownList'ın ilk liste öğesi (Meşrubat) DataList içecek ürünleri gösteren varsayılan olarak, seçili kategorileri sayfa. İçinde *ana/ayrıntı filtreleme ile bir DropDownList* öğreticide eklediğimiz "--bir kategori seçin--" seçeneği, varsayılan olarak seçilidir ve, seçili olduğunda, görüntülenen DropDownList *tüm* , veritabanındaki ürün. Her ürün satır küçük bir miktar ekran Gayrimenkul sürdü gibi bu tür bir yaklaşım GridView, ürünlerinde listelerken yönetilebilir. DataList ile ancak, bir çok daha büyük öbek ekranın her ürünün bilgileri kullanır. Hala şimdi "--bir kategori seçin--" seçeneğini ekleyin ve varsayılan olarak seçili olması, ancak hiç ürün gösterir, tüm ürünleri göster sahip olmak yerine seçili olduğunda, şimdi onu şekilde yapılandırın.
+İlk ziyaret edildiğinde `FilterByDropDownList.aspx` DropDownList'ın ilk liste öğesinin (İçecekler) içinde DataList içecek ürünleri gösteren varsayılan olarak seçili kategorileri sayfa. İçinde *ana/ayrıntı filtreleme ile bir DropDownList* öğreticide eklediğimiz bir "--bir kategori seçin--" seçeneği, varsayılan olarak seçilidir ve, seçildiğinde görüntülenen DropDownList *tüm* , veritabanında ürünleri. Küçük bir miktar ekran gerçek boyutunuzu her ürün satır sürdü gibi bu tür bir yaklaşım, GridView ürünleri listelerken yönetilebilir. DataList'i ile ancak çok daha büyük öbek ekranın her ürünün bilgi tüketir. Yine de şimdi "--bir kategori seçin--" bir seçenek ekleyin ve varsayılan olarak seçili olması, ancak hiçbir ürünleri gösterir şekilde tüm ürünleri göster yerine seçili olduğunda, şimdi yapılandırın.
 
-DropDownList için yeni bir liste öğesi eklemek için Özellikler penceresini gidin ve içinde üç noktaya tıklayın `Items` özelliği. İle yeni bir liste öğesi ekleme `Text` "--bir kategori seçin--" ve `Value` `0`.
+DropDownList'e yeni bir liste öğesi eklemek için özellikler penceresine gidin ve içinde üç noktaya tıklayarak `Items` özelliği. İle yeni bir liste öğesi ekleme `Text` "--bir kategori seçin--" ve `Value` `0`.
 
 
 ![Ekleme bir](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image27.png)
@@ -145,43 +144,43 @@ DropDownList için yeni bir liste öğesi eklemek için Özellikler penceresini 
 **Şekil 11**: "--bir kategori seçin--" liste öğesi ekleme
 
 
-Alternatif olarak, aşağıdaki biçimlendirme DropDownList ekleyerek liste öğesi ekleyebilirsiniz:
+Alternatif olarak, aşağıdaki biçimlendirme DropDownList'e ekleyerek liste öğesi ekleyebilirsiniz:
 
 [!code-aspx[Main](master-detail-filtering-with-a-dropdownlist-datalist-cs/samples/sample3.aspx)]
 
-Ayrıca, DropDownList denetimin ayarlamak ihtiyacımız `AppendDataBoundItems` için `true` çünkü bunu ayarlanmışsa `false` (varsayılan), kategoriler DropDownList ObjectDataSource bağlı herhangi bir el ile eklenen listeyi üzerine öğeler.
+Ayrıca, DropDownList denetimin ayarlamak ihtiyacımız `AppendDataBoundItems` için `true` çünkü bu ayarlanırsa `false` (varsayılan), kategorileri ObjectDataSource DropDownList'e bağlandığında bunlar herhangi bir el ile eklenen listeyi şunun üzerine yazacağız öğeleri.
 
 
 ![AppendDataBoundItems özelliğini True olarak ayarlayın](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image28.png)
 
-**Şekil 12**: ayarlamak `AppendDataBoundItems` özelliğinin True
+**Şekil 12**: ayarlayın `AppendDataBoundItems` özelliği true
 
 
-Değer seçtik nedeni `0` değerini sistemiyle kategori yok olduğundan "--bir kategori seçin--" listesi için öğedir `0`, "--bir kategori seçin--" liste öğesi seçildiğinde bu nedenle hiçbir ürün kaydı döndürülür. Bunu doğrulamak için bir tarayıcı aracılığıyla sayfasını ziyaret edin için bir dakikanızı ayırın. Şekil 13 gösterildiği başlangıçta sayfanın görüntüleme "--bir kategori seçin--" liste öğesi seçildiğinde ve hiç ürün görüntülenir.
+Değer seçtik nedeni `0` değerini sistemiyle kategori olduğundan için "--bir kategori seçin--" listesi öğesidir `0`, "--bir kategori seçin--" liste öğesi seçildiğinde bu nedenle hiçbir ürün kayıtlar döndürülür. Bunu doğrulamak için bir tarayıcı aracılığıyla sayfayı ziyaret etmek için bir dakikanızı ayırarak. Şekil 13 gösterildiği başlangıçta sayfa görüntüleme "--bir kategori seçin--" liste öğesi seçildiğinden ve ürün görüntülenir.
 
 
 [![Zaman](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image30.png)](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image29.png)
 
-**Şekil 13**: "--bir kategori seçin--" liste öğesi seçildiğinde, yok ürünleri görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklatın](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image31.png))
+**Şekil 13**: "--bir kategori seçin--" liste öğesi seçildiğinde, yok ürünleri görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](master-detail-filtering-with-a-dropdownlist-datalist-cs/_static/image31.png))
 
 
-Bunun yerine görüntüleyecektir varsa *tüm* "--bir kategori seçin--" seçeneği seçildiğinde, ürünlerin değeri kullanın `-1` yerine. Akıllı duruma okuyucu o arka planda geri çağırma *ana/ayrıntı filtreleme ile bir DropDownList* biz güncelleştirilmiş öğretici `ProductsBLL` sınıfının `GetProductsByCategoryID(categoryID)` yöntemi böylece, bir *`categoryID`* değeri `-1` dönen kayıt tüm ürün, geçirildi.
+Bunun yerine görüntüleyebilir, *tüm* "--bir kategori seçin--" seçeneği seçildiğinde, ürünlerin, değerini kullanın. `-1` yerine. Kurnaz Okuyucu, arka planda geri çağırma *ana/ayrıntı filtreleme ile bir DropDownList* güncelleştirdik öğretici `ProductsBLL` sınıfın `GetProductsByCategoryID(categoryID)` yöntemi için bir *`categoryID`* değerini `-1` , tüm ürün kayıtları döndürüldü geçirildi.
 
 ## <a name="summary"></a>Özet
 
-Hiyerarşik olarak ilgili verileri görüntülerken, bu genellikle alınacağı kullanıcı hiyerarşinin en üst verilerden harcadığı başlatmak ve ayrıntılara detaya ana/ayrıntı raporları kullanarak verileri sunmak için yardımcı olur. Bu öğreticide seçili kategorinin ürünleri gösteren bir basit ana/ayrıntı raporu oluşturma incelendi. Bu, kategoriler ve seçili kategorisine ait ürünleri için DataList listesi için bir DropDownList kullanarak gerçekleştirilmiştir.
+Hiyerarşik olarak ilgili verileri görüntülerken, bu genellikle, kullanıcı verileri hiyerarşisinin üstünde harcadığı başlatabilir ve aşağı detaylarına ana/ayrıntı raporları kullanarak verileri sunmak için yardımcı olur. Bu öğreticide, seçilen kategori ürünleri gösteren bir basit ana/ayrıntı rapor oluşturmaya incelenir. Bu bir DropDownList kategorileri ve DataList Seçili kategoriye ait olan ürünlerin listesini kullanarak gerçekleştirilebilir.
 
-Sonraki öğreticide ana ve ayrıntı kayıtları iki sayfalara ayırarak adresindeki göreceğiz. İlk sayfa "ana" kayıtların listesini, ayrıntılarını görüntülemek için bir bağlantı görüntülenir. Bağlantıyı tıklatmak seçili ana kaydı için ayrıntıları görüntüleyecek ikinci sayfasında, kullanıcıya whisk.
+İki sayfada ana ve ayrıntıları kayıtları ayırarak sonraki öğreticide inceleyeceğiz. İlk sayfa, "ana" kayıtlarını içeren bir liste, ayrıntılarını görüntülemek için bir bağlantı ile görüntülenir. Bağlantısına tıklayarak, seçili ana kaydın ayrıntılarını görüntüler ikinci sayfasında kullanıcıya whisk.
 
-Mutluluk programlama!
+Mutlu programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar yedi ASP/ASP.NET kitaplardan ve poshbeauty.com sitesinin [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileriyle beri 1998'de çalışmaktadır. Scott, bağımsız Danışman, Eğitimci ve yazıcı çalışır. En son nitelemiştir olan [ *Unleashed'i öğretin kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). He adresinden ulaşılabilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
-## <a name="special-thanks-to"></a>Özel teşekkürler...
+## <a name="special-thanks-to"></a>Özel performanstan...
 
-Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama İnceleme Randy Etikan oluştu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Bu öğretici serisinde, birçok yararlı Gözden Geçiren tarafından gözden geçirildi. Bu öğretici için müşteri adayı İnceleme Randy Etikan oluştu. Yaklaşan My MSDN makaleleri gözden geçirme ilgileniyor musunuz? Bu durumda, bir satır bana bırak [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Next](master-detail-filtering-acess-two-pages-datalist-cs.md)

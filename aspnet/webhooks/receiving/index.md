@@ -1,24 +1,23 @@
 ---
 uid: webhooks/receiving/index
-title: ASP.NET alırken ve işleme Web Kancalarını - | Microsoft Docs
+title: ASP.NET alma ve işleme Web kancaları - | Microsoft Docs
 author: rick-anderson
-description: Alma ve ASP.NET Web Kancalarını işleme hakkında makaleler
+description: Alma ve ASP.NET Web kancaları işleme hakkında makaleler
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
 ms.assetid: b22046f9-c7a1-4d46-a80c-c7d2e35aad3b
 ms.technology: ''
-ms.prod: .net-framework
-ms.openlocfilehash: fde3b6c27bbb8f23be8df650637fd7c85f2f2285
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ea67a9b8e50a789715f951f700a4239f667547ba
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26573255"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37402250"
 ---
-# <a name="aspnet-webhooks---receiving-and-processing"></a>ASP.NET alırken ve işleme Web Kancalarını-
+# <a name="aspnet-webhooks---receiving-and-processing"></a>ASP.NET alma ve işleme Web kancaları-
 
-* [Web kancası alıcıları](receivers.md)
-* [Web kancası işleme](handlers.md)
+* [Web kancası alıcılar](receivers.md)
+* [İşleme Web kancaları](handlers.md)
 * [Alıcı bağımlılıkları](dependencies.md)

@@ -9,39 +9,38 @@ ms.date: 09/09/2011
 ms.topic: article
 ms.assetid: 666407bb-81de-4319-89ba-0302c382a208
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc4-beta-release-notes
 msc.type: content
-ms.openlocfilehash: d29f09d726e835c1eb1fc38e643a4bfe7f00f61c
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 62bd641b1c5c926ec33ed3948854365aea99e979
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/10/2018
-ms.locfileid: "30899622"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37390614"
 ---
 <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
 ====================
 > Bu belgede bu sürüm Visual Studio 2010 için ASP.NET MVC 4 Beta açıklanmaktadır.
 > 
 > > [!NOTE]
-> > Bu en son sürüm değil. ASP.NET MVC 4 RC sürüm notları kullanılabilir [burada](mvc4-release-notes.md).
+> > Bu, en son sürüm değil. ASP.NET MVC 4 RC sürüm notları kullanılabilir [burada](mvc4-release-notes.md).
 
 
 - [Yükleme notları](#_Toc303253802)
 - [Belgeler](#_Toc303253803)
 - [Destek](#_Toc303253804)
 - [Yazılım gereksinimleri](#_Toc303253805)
-- [ASP.NET MVC 4 için bir ASP.NET MVC 3 projesinin yükseltme](#_Toc303253806)
+- [Bir ASP.NET MVC 3 projesini ASP.NET MVC 4 için yükseltme](#_Toc303253806)
 - [ASP.NET MVC 4 Beta sürümündeki yeni özellikler](#_Toc303253807)
 
     - [ASP.NET Web API](#_Toc317096197)
-    - [ASP.NET tek sayfa uygulaması](#_Toc317096198)
+    - [ASP.NET tek sayfalı uygulama](#_Toc317096198)
     - [Varsayılan proje şablonları geliştirmeler](#_Toc303253808)
     - [Mobil proje şablonu](#_Toc303253809)
     - [Görüntü modları](#_Toc303253810)
     - [jQuery Mobile, görünüm değiştirici ve tarayıcı geçersiz kılma](#_Toc303253811)
-    - [Visual Studio'da kod oluşturma için tarif](#_Toc303253812)
-    - [Zaman uyumsuz denetleyicileri görev desteği](#_Toc303253813)
+    - [Visual Studio'da kod üretimi yönelik tarifleri](#_Toc303253812)
+    - [Görev zaman uyumsuz denetleyicileri desteği](#_Toc303253813)
     - [Azure SDK](#_Toc303253814)
     - [Bilinen sorunlar ve yeni değişiklikler](#_Toc303253815)
 
@@ -50,271 +49,271 @@ ms.locfileid: "30899622"
 
 Visual Studio 2010 için ASP.NET MVC 4 Beta yüklenebilir [ASP.NET MVC 4 giriş sayfası](../mvc/mvc4.md) Web Platformu Yükleyicisi'ni kullanarak.
 
-ASP.NET MVC 4 Beta yüklemeden önce ASP.NET MVC 4 önceden yüklenmiş tüm önizlemesini kaldırmanız gerekir.
+ASP.NET MVC 4 Beta yüklemeden önce ASP.NET MVC 4 önceden yüklenmiş tüm önizlemeleri kaldırmanız gerekir.
 
-Bu sürüm, .NET Framework 4.5 Developer Preview ile uyumlu değil. ASP.NET MVC 4 Beta yüklemeden önce .NET 4.5 Developer Preview kaldırmanız gerekir.
+Bu sürümde, .NET Framework 4.5 Developer Preview ile uyumlu değil. ASP.NET MVC 4 Beta yüklemeden önce .NET 4.5 Geliştirici önizlemesi kaldırmanız gerekir.
 
-ASP.NET MVC 4 yüklenebilir ve yan yana çalıştırabilirsiniz ASP.NET MVC 3.
+ASP.NET MVC 4 yüklenebilir ve yan yana çalıştırabilirsiniz ASP.NET MVC 3 ile.
 
 <a id="_Toc303253803"></a>
 ## <a name="documentation"></a>Belgeler
 
-ASP.NET MVC için belgeleri MSDN Web sitesinde şu URL'de bulunmaktadır:
+ASP.NET MVC için belgeleri MSDN Web sitesinde şu URL'den ulaşabilirsiniz:
 
 [https://go.microsoft.com/fwlink/?LinkID=243043](https://go.microsoft.com/fwlink/?LinkID=243043)
 
-Öğreticiler ve diğer bilgileri ASP.NET MVC hakkında ASP.NET Web sitesi MVC 4 sayfasında kullanılabilir ([https://www.asp.net/mvc/mvc4](../mvc/mvc4.md)).
+Öğreticiler ve ASP.NET MVC hakkında diğer bilgiler Web sitesinin ASP.NET MVC 4 sayfasında kullanılabilir ([https://www.asp.net/mvc/mvc4](../mvc/mvc4.md)).
 
 <a id="_Toc303253804"></a>
 ## <a name="support"></a>Destek
 
-Bu bir önizleme sürümüdür ve resmi olarak desteklenmez. Bu sürüm ile birlikte çalışma hakkında sorularınız varsa, bunları ASP.NET MVC forumuna gönderin ([https://forums.asp.net/1146.aspx](https://forums.asp.net/1146.aspx)), burada ASP.NET topluluk üyeleri resmi olmayan destek sık sağlayabilir.
+Bu bir önizleme sürümüdür ve resmi olarak desteklenmez. Bu sürümle birlikte çalışma hakkında sorularınız varsa, bunları ASP.NET MVC foruma ([https://forums.asp.net/1146.aspx](https://forums.asp.net/1146.aspx)), burada ASP.NET topluluk üyelerinin resmi olmayan destek sık sağlayabilir.
 
 <a id="_Toc303253805"></a>
 ## <a name="software-requirements"></a>Yazılım Gereksinimleri
 
-Visual Studio için ASP.NET MVC 4 bileşenleri PowerShell 2.0 ve Visual Studio 2010 Service Pack 1 veya Visual Web Developer Express 2010 Service Pack 1 gerektirir.
+ASP.NET MVC 4 bileşenleri Visual Studio için PowerShell 2.0 ve hizmet paketi 1 ile Visual Studio 2010 veya Visual Web Developer Express 2010 Service Pack 1 gerektirir.
 
 <a id="_Toc303253806"></a>
-## <a name="upgrading-an-aspnet-mvc-3-project-to-aspnet-mvc-4"></a>ASP.NET MVC 4 için bir ASP.NET MVC 3 projesinin yükseltme
+## <a name="upgrading-an-aspnet-mvc-3-project-to-aspnet-mvc-4"></a>Bir ASP.NET MVC 3 projesini ASP.NET MVC 4 için yükseltme
 
-ASP.NET MVC 4, ASP.NET MVC 4 için ASP.NET MVC 3 uygulama yükseltme zamanı seçerken esneklik aynı bilgisayarda ASP.NET MVC 3 yan yana yüklenebilir.
+ASP.NET MVC 4, aynı bilgisayarda bir ASP.NET MVC 3 uygulama ASP.NET MVC 4 Yükseltme zamanı seçme esnekliği sağlayan ASP.NET MVC 3 ile yan yana yüklenebilir.
 
-Yükseltmek için en basit yolu, yeni ASP.NET MVC 4 proje ve kopya oluşturmak için tüm görünümleri, denetleyicileri, kod ve içerik dosyaları var olan MVC 3 projeden yeni projeye ve ardından derlemeyi güncelleştirmek için eski proje eşleşecek şekilde yeni projede başvurur ' dir. MVC 3 projesinin Web.config dosyasında değişiklik yaptıysanız, MVC 4 proje Web.config dosyasına de bu değişiklikleri birleştirmeniz gerekir.
+Yükseltmek için en basit yolu, yeni bir ASP.NET MVC 4 projesi ve kopya oluşturmak için tüm görünümleri, denetleyicisi, kod ve içerik dosyaları var olan MVC 3 projeden yeni projeye ve derlemeyi güncelleştirmek için eski proje eşleştirmek için yeni proje başvuruları ' dir. MVC 3 projesini Web.config dosyasında değişiklik yaptıysanız, MVC 4 proje içinde Web.config dosyasına da bu değişiklikleri birleştirmeniz gerekir.
 
-El ile sürüm 4 varolan bir ASP.NET MVC 3 uygulamaya yükseltmek için aşağıdakileri yapın:
+Mevcut bir ASP.NET MVC 3 uygulama sürüm 4 için el ile yükseltmek için aşağıdakileri yapın:
 
-1. (Bir olduğundan proje, görünümler klasöründe, diğeri her alanı projenizdeki görünümleri klasöründeki kökündeki) projedeki tüm Web.config dosyasında aşağıdaki metni, her örneği değiştirin:
+1. (Var. bir proje, görünümleri klasöründe, diğeri görünümleri klasöründe, projenizdeki her bölgenin kökünde) projedeki tüm Web.config dosyalarında aşağıdaki metni her örneğini değiştirin:
 
     [!code-console[Main](mvc4-beta-release-notes/samples/sample1.cmd)]
 
     Aşağıdaki karşılık gelen metinle:
 
     [!code-console[Main](mvc4-beta-release-notes/samples/sample2.cmd)]
-2. Kök Web.config dosyasında güncelleştirme *webPages:Version* "2.0.0.0" öğesine ve yeni bir ekleme *PreserveLoginUrl* "true" değerini sahip anahtarı:
+2. Kök Web.config dosyasında güncelleştirme *webPages:Version* "2.0.0.0" öğesine ve yeni bir *PreserveLoginUrl* "true" değerini anahtar:
 
     [!code-xml[Main](mvc4-beta-release-notes/samples/sample3.xml)]
-3. Çözüm Gezgini'nde referansı silme *System.Web.Mvc* (işaret ettiği sürüm 3 DLL). Bir başvuru ekleyin *System.Web.Mvc* (v4.0.0.0). Özellikle, derleme başvurularını güncelleştirmek için aşağıdaki değişiklikleri yapın. Ayrıntıları aşağıdadır:
+3. Solution Explorer'da, başvurusunu silmek *System.Web.Mvc* (işaret ettiği için sürüm 3 DLL). Ardından bir başvuru ekleyin *System.Web.Mvc* (v4.0.0.0). Özellikle, derleme başvurularını güncelleştirmek için aşağıdaki değişiklikleri yapın. Ayrıntılar aşağıda verilmiştir:
 
-    1. Çözüm Gezgini'nde, aşağıdaki derlemeler başvuruları silin: 
+    1. Çözüm Gezgini'nde, aşağıdaki derlemelere başvuruları silin: 
 
         - *System.Web.Mvc*(v3.0.0.0)
         - *System.Web.WebPages*(v1.0.0.0)
         - *System.Web.Razor*(v1.0.0.0)
         - *System.Web.WebPages.Deployment*(v1.0.0.0)
         - *System.Web.WebPages.Razor*(v1.0.0.0)
-    2. Aşağıdaki derlemelerine başvurular ekleyin: 
+    2. Bir aşağıdaki derlemelere başvurular ekleyin: 
 
         - *System.Web.Mvc*(v4.0.0.0)
         - *System.Web.WebPages*(v2.0.0.0)
         - *System.Web.Razor*(v2.0.0.0)
         - *System.Web.WebPages.Deployment*(v2.0.0.0)
         - *System.Web.WebPages.Razor*(v2.0.0.0)
-4. Çözüm Gezgini'nde proje adına sağ tıklayın ve sonra projeyi seçin. Daha sonra yeniden adına sağ tıklayın ve Düzenle'yi seçin *ProjectName*.csproj.
+4. Çözüm Gezgini'nde proje adına sağ tıklayın ve ardından projeyi seçin. Sonra adı tekrar sağ tıklayıp Düzen *ProjectName*.csproj.
 5. Bulun *ProjectTypeGuids* öğesi ve {E3E379DF-F4C6-4180-9B81-6769533ABE47} {E53F8FEA-EAE0-44A6-8774-FFD645390401} değiştirin.
-6. Değişiklikleri kaydetmek, düzenlemekte olduğunuz projesi (.csproj) dosyasını kapatın, projeye sağ tıklayın ve sonra projeyi yeniden yükle seçin.
-7. Proje ASP.NET MVC'ın önceki sürümlerini kullanan derlenmiş tüm üçüncü taraf kitaplıklar başvuruyorsa, kök Web.config dosyasını açın ve aşağıdaki üç ekleyin *bindingRedirect* altında öğelerin  *Yapılandırma* bölümü: 
+6. Değişiklikleri kaydedin, düzenlemekte olduğunuz proje (.csproj) dosyayı kapatın, projeye sağ tıklayın ve ardından projeyi seçin.
+7. ASP.NET MVC'ın önceki sürümleri kullanılarak derlenmiş herhangi bir üçüncü taraf kitaplıklar proje başvuru yapıyorsa, kök Web.config dosyasını açın ve aşağıdaki üç Ekle *bindingRedirect* altındaki öğeleri  *Yapılandırma* bölümü: 
 
     [!code-xml[Main](mvc4-beta-release-notes/samples/sample4.xml)]
 
 <a id="_Toc303253807"></a>
 ## <a name="new-features-in-aspnet-mvc-4-beta"></a>ASP.NET MVC 4 Beta sürümündeki yeni özellikler
 
-Bu bölümde tanıtılmıştır özellikleri açıklanmıştır ASP.NET MVC 4 Beta sürümünde.
+Bu bölümde sunulan özellikler açıklanır ASP.NET MVC 4 Beta sürümünde.
 
 <a id="_Toc317096197"></a>
 ### <a name="aspnet-web-api"></a>ASP.NET Web API
 
-HTTP Hizmetleri oluşturmak için yeni bir çerçeve tarayıcılar ve mobil cihazlar dahil olmak üzere istemcileri geniş bir yelpazedeki ulaşabilir, ASP.NET MVC 4 şimdi ASP.NET Web API içerir. ASP.NET Web API de RESTful hizmetlerini geliştirmek için ideal bir platformdur.
+ASP.NET MVC 4, ASP.NET Web API artık içerir, HTTP Hizmetleri oluşturmaya yarayan yeni bir çerçeve istemciler tarayıcılar ve mobil cihazlar dahil olmak üzere geniş bir yelpazede ulaşabilirsiniz. ASP.NET Web API aynı zamanda RESTful hizmetleri oluşturmak için ideal bir platformdur.
 
-ASP.NET Web API aşağıdaki özellikleri destekler:
+ASP.NET Web API desteği için aşağıdaki özellikleri içerir:
 
-- **Modern HTTP programlama modeli:** doğrudan erişmek ve HTTP istekleri ve yeni, kesin türü belirtilmiş HTTP nesne modelini kullanarak, Web API'leri yanıtları değiştirmek. Aynı programlama modeli ve HTTP ardışık düzen yeni HttpClient türü istemcinize simetrik olarak kullanılabilir.
-- **Tam yollar için destek**: Web API artık her zaman bir rota parametrelerinin ve sınırlamalar da dahil olmak üzere Web yığını parçası olan rota özellikler kümesini destekler. Ayrıca, artık [HttpPost] gibi öznitelikleri uygulamak gereken şekilde eylemlerine eşleme kuralları için tam destek, sınıflar ve yöntemler vardır.
-- **İçerik anlaşması**: istemci ve sunucu birlikte API'den döndürülen veriler için doğru biçimde belirlemek için çalışabilir. Biz XML, JSON ve Form URL'SİNİN kodlanmış biçimleri için varsayılan destek sağlar ve bu destek, kendi biçimlendiricileri ekleyerek genişletebilir veya hatta varsayılan içerik anlaşması stratejisi değiştirin.
-- **Model bağlama ve doğrulama:** Model bağlayıcıları çeşitli kısımlarını bir HTTP isteği verileri ayıklar ve bu ileti bölümleri Web API eylemleri tarafından kullanılan .NET nesnelerini dönüştürmek için kolay bir yol sağlar.
-- **Filtreler:** Web API'leri artık [Authorize] özniteliği gibi bilinen filtreler gibi filtreler destekler. Yazar ve Eylemler, yetkilendirme ve özel durum işleme için kendi filtreleri takın.
-- **Sorgu oluşturma:** yalnızca Iqueryable döndürerek&lt;T&gt;, Web API OData URL kurallarına sorgulama destekleyecektir.
-- **Geliştirilmiş HTTP ayrıntıları edilebilirliğini:** statik bağlam nesneleri ayar HTTP ayrıntıları yerine Web API Eylemler artık HttpRequestMessage ve bilgisayarın HttpResponseMessage örnekleri ile çalışabilirsiniz. Bu nesneler genel sürümleri HTTP türlerine ek olarak, özel türleriyle çalışmasına izin vermek için de mevcut.
-- **Ters çevirmeyi denetim (IOC) DependencyResolver aracılığıyla geliştirilmiş:** Web API artık MVC'nin bağımlılık çözümleyici tarafından uygulanan hizmet bulucu deseni birçok farklı tesisler için örnek elde için kullanır.
-- **Kod tabanlı yapılandırma:** , config bırakarak dosyaları temizleme, Web API yapılandırmasını yalnızca kod üzerinden gerçekleştirilir.
-- **Kendini barındırma:** Web API'leri barındırılması IIS yanı sıra kendi işleminde hala gücünden yolların ve diğer Web API özelliklerini kullanırken.
+- **Modern HTTP programlama modeli:** doğrudan erişmek ve HTTP isteklerini ve yanıtlarını yeni, kesin türü belirtilmiş HTTP nesne modelini kullanarak Web API'leri. Aynı programlama modeli ve HTTP ardışık düzen, simetrik istemci yeni bir HttpClient türü aracılığıyla kullanılabilir.
+- **Tam yollar için destek**: Web API'leri, artık her zaman Rota parametrelerinin ve kısıtlamalar dahil olmak üzere Web yığının bir bölümü olan yol özellikleri kümesini destekler. Ayrıca, artık [HttpPost] gibi öznitelikleri uygulamak gereken şekilde eylemleri eşleme kuralları için tam destek, sınıflar ve yöntemler vardır.
+- **İçerik anlaşması**: istemci ve sunucu birlikte API'den döndürülen veriler için doğru biçimde belirlemek için çalışabilir. Form URL'SİNİN kodlanmış biçimleri XML ve JSON için varsayılan desteği sunuyoruz ve kendi biçimlendiricileri ekleyerek bu desteğini genişletmek veya varsayılan içerik anlaşması stratejisi bile değiştirin.
+- **Model bağlama ve doğrulama:** Model bağlayıcıları bir HTTP isteğinin çeşitli parçalarını verileri ayıklamak ve ileti bölümlerinde Web API eylemlerini tarafından kullanılan .NET nesnelerine dönüştürmek için kolay bir yol sağlar.
+- **Filtreler:** Web API'leri artık [Authorize] özniteliği gibi iyi bilinen filtreler dahil olmak üzere, filtreleri destekler. Yazar ve eylem, yetkilendirme ve özel durum işleme için kendi filtrelerinizi takın.
+- **Sorgu oluşturma:** yalnızca Iqueryable döndürerek&lt;T&gt;, Web API'niz ile OData URL kurallarına sorgulama destekleyecektir.
+- **Gelişmiş HTTP ayrıntıları edilebilirliğini:** statik bağlam nesneleri ayar HTTP ayrıntıları yerine Web API eylemlerini artık HttpRequestMessage ve HttpResponseMessage örnekleri ile çalışabilirsiniz. Bu nesneler genel sürümlerini HTTP türlerine ek olarak, özel türler ile çalışmanıza izin vermek için de mevcuttur.
+- **Ters çevirmeyi denetim (IOC) DependencyResolver aracılığıyla geliştirilmiş:** Web API artık MVC'nin bağımlılık çözümleyici tarafından uygulanan hizmet bulucu deseni örnekleri için birçok farklı olanakları elde etmek için kullanır.
+- **Kod tabanlı yapılandırma:** bırakarak, yapılandırma dosyalarını temizlemek, Web API configuration, yalnızca kod gerçekleştirilir.
+- **Barındırma:** Web API'leri barındırılabilir IIS yanı sıra kendi işleminizde yollar'ın tüm gücünden ve diğer özellikleri Web API'sinin hala kullanırken.
 
-ASP.NET Web API hakkında daha fazla ayrıntı için lütfen adresi ziyaret edin [ https://www.asp.net/web-api ](../web-api/index.md).
+ASP.NET Web API hakkında daha fazla bilgi edinmek için lütfen [ https://www.asp.net/web-api ](../web-api/index.md).
 
 <a id="_Toc317096198"></a>
-### <a name="aspnet-single-page-application"></a>ASP.NET tek sayfa uygulaması
+### <a name="aspnet-single-page-application"></a>ASP.NET tek sayfalı uygulama
 
-ASP.NET MVC 4 artık JavaScript ve Web API'leri kullanarak önemli istemci tarafı etkileşimler ile tek sayfa uygulamaları oluşturmak için deneyimi erken bir önizlemesini içerir. Bu destek içerir:
+ASP.NET MVC 4, JavaScript ve Web API'leri kullanarak önemli istemci tarafı etkileşimler ile tek sayfa uygulamaları oluşturmaya yönelik deneyiminin önizlemesini erkenden artık içerir. Bu destek içerir:
 
-- Önbelleğe alınan veriler ile daha zengin yerel etkileşim için JavaScript kitaplıkları kümesi
-- İş ve DAL destek birimi için ek Web API bileşenleri
-- Hızlıca başlamak için yapı iskelesi ile bir MVC proje şablonu
+- Önbelleğe alınmış verileri yerel daha zengin etkileşim için JavaScript kitaplıkları kümesi
+- İş ve DAL destek birimi için ek Web API'si bileşenleri
+- Hızlıca kullanmaya başlamak için yapı iskelesi MVC proje şablonuyla
 
-ASP.NET MVC 4'te tek sayfa uygulaması hakkında daha fazla ayrıntı desteği için lütfen şu adresi ziyaret [ https://www.asp.net/single-page-application ](../single-page-application/index.md).
+ASP.NET MVC 4'te tek sayfalı uygulama hakkında daha fazla ayrıntı desteği için lütfen [ https://www.asp.net/single-page-application ](../single-page-application/index.md).
 
 <a id="_Toc303253808"></a>
 ### <a name="enhancements-to-default-project-templates"></a>Varsayılan proje şablonları geliştirmeler
 
-Yeni ASP.NET MVC 4 proje oluşturmak için kullanılan şablon daha modern görünümlü bir Web sitesi oluşturmak için güncelleştirilmiştir:
+Yeni ASP.NET MVC 4 projeleri oluşturmak için kullanılan şablon daha modern görünümlü bir Web sitesi oluşturmak için güncelleştirilmiştir:
 
 ![](mvc4-beta-release-notes/_static/image1.png)
 
-Yüzeysel geliştirmeleri yanı sıra var. Yeni şablon işlevleri geliştirilmiştir. Şablon hem masaüstü tarayıcıları, hem de mobil tarayıcılar hiçbir özelleştirme gerektirmeden iyi aramak için Uyarlamalı işleme adında bir teknik kullanır.
+Yüzeysel iyileştirmelerinin yanı sıra yeni şablonu işlevindeki var. geliştirdi. Şablon iyi masaüstü tarayıcıları ve mobil tarayıcılar özelleştirme olmadan aramak için Uyarlamalı işleme olarak adlandırılan tekniği kullanır.
 
 ![](mvc4-beta-release-notes/_static/image2.png)
 
-Eylem Uyarlamalı işlemede görmek için mobil öykünücü kullanın veya yalnızca masaüstü tarayıcı penceresini daha küçük olacak şekilde yeniden boyutlandırmayı deneyin. Tarayıcı penceresini küçük aldığında, sayfanın düzenini değiştirir.
+Uyarlamalı işleme iş başında görmek için mobil öykünücü kullanın veya yalnızca daha küçük olacak şekilde Masaüstü tarayıcı penceresini yeniden boyutlandırmayı deneyin. Tarayıcı penceresini yeterince aldığında sayfasının düzenini değiştirir.
 
-Başka bir varsayılan proje şablonu için daha zengin bir kullanıcı Arabirimi sağlamak için JavaScript kullanımını yeniliktir. Şablonda kullanılan oturum açma ve kaydetme bağlantılar zengin oturum açma ekranı sunmak için kullanıcı Arabirimi iletişim kutusu jQuery kullanma örnekleri şunlardır:
+Varsayılan proje şablonu için başka bir geliştirme, JavaScript daha zengin bir kullanıcı Arabirimi sağlamak için kullanılır. Şablonda kullanılan oturum açma ve kaydetme bağlantıları, zengin bir oturum açma ekranı göstermek için jQuery kullanıcı Arabirimi iletişim kutusu kullanma örnekleri şunlardır:
 
 ![](mvc4-beta-release-notes/_static/image3.png)
 
 <a id="_Toc303253809"></a>
 ### <a name="mobile-project-template"></a>Mobil proje şablonu
 
-Yeni bir proje başlatıyorsanız ve tablet tarayıcılar ve mobil için özel olarak bir site oluşturmak isterseniz, yeni mobil uygulama proje şablonu kullanabilirsiniz. Bu jQuery Mobile, dokunma özelliği iyileştirilmiş bir kullanıcı Arabirimi oluşturmak için bir açık kaynak kitaplığı temel alır:
+Yeni bir proje başlatılıyor ve tablet tarayıcılar ve mobil için özel bir site oluşturmak istiyorsanız, yeni mobil uygulaması proje şablonu kullanabilirsiniz. Bu, jQuery Mobile, dokunma özelliği iyileştirilmiş bir kullanıcı Arabirimi oluşturmak için bir açık kaynak kitaplığı, dayalıdır:
 
 ![](mvc4-beta-release-notes/_static/image4.png)
 
-Bu şablon Internet uygulama şablonu aynı uygulama yapısını içerir (ve denetleyici kodlarının neredeyse aynıdır), ancak iyi görünür ve iyi dokunma tabanlı mobil cihazlarda hareket etmesi için jQuery Mobile'ı kullanmaya stili. Yapı ve mobil UI stil hakkında daha fazla bilgi için bkz: [jQuery mobil proje Web sitesi](http://jquerymobile.com/).
+Bu şablon Internet uygulama şablonu aynı uygulama yapısını içerir (ve denetleyici kodlarının neredeyse aynıdır), ancak düzgün görünmesini ve davranmasını dokunmatik tabanlı mobil cihazlarda jQuery Mobile kullanılarak stil uygulanmış. Yapısı ve stil mobil kullanıcı Arabirimi hakkında daha fazla bilgi için bkz. [jQuery Mobile proje Web sitesi](http://jquerymobile.com/).
 
-Mobil iyileştirilmiş görünümlerine eklemek istediğiniz veya tek bir site oluşturmak istiyorsanız, masaüstü ve mobil tarayıcılar farklı stilde görünümlerine hizmet veren bir masaüstü odaklı siteniz varsa, yeni görüntü modları özelliğini kullanabilirsiniz. (Sonraki bölüme bakın.)
+Mobil için iyileştirilmiş görünümlerine eklemek istediğiniz veya tek bir site oluşturmak istiyorsanız farklı bir stilde görünümleri Masaüstü ve mobil tarayıcılara hizmet veren bir masaüstü odaklı site zaten varsa, yeni görüntü modları özelliğini kullanabilirsiniz. (Sonraki bölüme bakın.)
 
 <a id="_Toc303253810"></a>
 ### <a name="display-modes"></a>Görüntü modları
 
-Yeni görüntü modları özelliği isteği yapan tarayıcının bağlı olarak görünümleri seçin bir uygulama sağlar. Örneğin, bir masaüstü tarayıcısı giriş sayfası isterse, uygulama Views\Home\Index.cshtml şablonu kullanabilir. Bir mobil tarayıcı giriş sayfası isterse, uygulama Views\Home\Index.mobile.cshtml şablonu döndürebilir.
+Yeni görüntü modları özelliği isteği yapan tarayıcının bağlı olarak görünümleri seçin bir uygulama sağlar. Örneğin, bir masaüstü tarayıcısı giriş sayfasını isterse, uygulama Views\Home\Index.cshtml şablonu kullanabilir. Bir mobil tarayıcıda giriş sayfası isterse, uygulama Views\Home\Index.mobile.cshtml şablon döndürebilir.
 
-Ayrıca düzenleri ve kısmi belirli tarayıcı türleri için geçersiz kılınabilir. Örneğin:
+Ayrıca düzenleri ve kısmi bölümleri için belirli bir tarayıcı türleri geçersiz kılınabilir. Örneğin:
 
-- Görünümler/paylaşılan klasörünü hem içeriyorsa \_Layout.cshtml ve \_Layout.mobile.cshtml şablonları, uygulama kullanacağı varsayılan \_mobil tarayıcılar ve gelenisteklerisırasındaLayout.mobile.cshtml\_Diğer istekleri sırasında Layout.cshtml.
-- Her ikisi de bir klasör içeriyorsa, \_MyPartial.cshtml ve \_MyPartial.mobile.cshtml, yönerge @Html.Partial("\_MyPartial") kılacak \_MyPartial.mobile.cshtml mobil gelen istekleri sırasında Tarayıcılar ve \_diğer istekleri sırasında MyPartial.cshtml.
+- Görünümler/paylaşılan klasörünüzde her ikisi de varsa \_Layout.cshtml ve \_Layout.mobile.cshtml şablonları, uygulamayı kullanacağı varsayılan \_Layout.mobile.cshtml mobil tarayıcılar ve gelenisteklerisırasında\_Layout.cshtml diğer istekleri sırasında.
+- Her ikisi de bir klasör içeriyorsa \_MyPartial.cshtml ve \_MyPartial.mobile.cshtml, yönerge @Html.Partial("\_MyPartial") işlenir \_MyPartial.mobile.cshtml mobil gelen istekleri sırasında Tarayıcılar ve \_MyPartial.cshtml diğer istekleri sırasında.
 
-Daha özel görünümler, düzenler veya diğer aygıtlar için kısmi görünümleri oluşturmak istiyorsanız, yeni bir kaydedebilirsiniz *DefaultDisplayMode* örneği, bir istek belirli koşullar sağladığında aramak için ad belirtin. Örneğin, aşağıdaki kodu ekleyebilirsiniz *uygulama\_Başlat* "iPhone" dizesi Apple iPhone tarayıcı bir istekte bulunduğunda, geçerli bir görüntü modu kaydetmek için Global.asax dosyasındaki yöntemi:
+Daha özel görünümler, düzenler veya diğer cihazlar için kısmi görünümler oluşturmak istiyorsanız, yeni bir kaydedebilirsiniz *DefaultDisplayMode* , bir istek belirli koşullar sağladığında aramak için ad belirtmek için örneği. Örneğin, aşağıdaki kodu ekleyebilirsiniz *uygulama\_Başlat* dize "iPhone" Apple iPhone tarayıcı bir istekte bulunduğunda, geçerli bir görüntü modu kaydetmek için Global.asax dosyasındaki yöntemi:
 
 [!code-csharp[Main](mvc4-beta-release-notes/samples/sample5.cs)]
 
-Bir Apple iPhone tarayıcı bir istekte bulunduğunda bu kodu çalıştıktan sonra uygulamanız görünümler/paylaşılan kullanacak\\(varsa) _Layout.iPhone.cshtml düzeni.
+Bir Apple iPhone tarayıcı bir istekte bulunduğunda bu kod çalıştırıldıktan sonra görünümler/paylaşılan uygulamanızın kullanacağı\\_Layout.iPhone.cshtml Düzen (varsa).
 
 <a id="_Toc303253811"></a>
 ### <a name="jquery-mobile-the-view-switcher-and-browser-overriding"></a>jQuery Mobile, görünüm değiştirici ve tarayıcı geçersiz kılma
 
-jQuery Mobile, dokunma özelliği iyileştirilmiş web kullanıcı Arabirimi oluşturmak için bir açık kaynak kitaplığıdır. JQuery Mobile'ı ASP.NET MVC 4 uygulamayla kullanmak istiyorsanız, indirin ve başlamanıza yardımcı olacak bir NuGet paketi yükleyin. Visual Studio Paket Yöneticisi Konsolu'ndan yüklemek için aşağıdaki komutu yazın:
+jQuery Mobile, dokunma özelliği iyileştirilmiş web kullanıcı arabirimini oluşturmaya yönelik bir açık kaynak kitaplığıdır. JQuery Mobile ile bir ASP.NET MVC 4 uygulama kullanmak istiyorsanız, indirin ve başlamanıza yardımcı olacak bir NuGet paketini yükleyin. Visual Studio Paket Yöneticisi konsolunu yüklemek için aşağıdaki komutu yazın:
 
 [!code-powershell[Main](mvc4-beta-release-notes/samples/sample6.ps1)]
 
-Bu, jQuery Mobile ve aşağıdakiler de dahil olmak üzere bazı yardımcı dosyaları yükler:
+Bu, jQuery Mobile ve aşağıdakiler dahil olmak üzere bazı yardımcı dosyalar da yükler:
 
-- Görünümler/paylaşılan/\_jQuery Mobile tabanlı bir düzen Layout.Mobile.cshtml.
+- Görünümler/paylaşılan/\_jQuery Mobile tabanlı bir düzen olan Layout.Mobile.cshtml.
 - Görünümler/paylaşılan oluşan bir görünüm değiştiricibileşeni/\_ViewSwitcher.cshtml kısmi Görünüm ve ViewSwitcherController.cs denetleyicisi.
 
-Paketi yükledikten sonra bir mobil tarayıcı kullanarak uygulamanızı çalıştırın (veya eşdeğer Firefox gibi [kullanıcı aracısı değiştirici](http://chrispederick.com/work/user-agent-switcher/) eklenti). JQuery Mobile Düzen işlemesi nedeniyle sayfalarınızı oldukça farklı görünüyor görürsünüz ve stil oluşturma. Bu yararlanmak için aşağıdakileri yapabilirsiniz:
+Paketi yükledikten sonra bir mobil tarayıcı kullanarak uygulamanızı çalıştırın (veya eşdeğer Firefox gibi [kullanıcı aracısı değiştirici](http://chrispederick.com/work/user-agent-switcher/) eklenti). JQuery Mobile Düzen hallettiğinden sayfalarınıza oldukça farklı görünmesini görürsünüz ve stil oluşturma. Bu yararlanmak için bunu yapabilirsiniz:
 
-- Mobile özgü görünüm geçersiz kılmaları altında açıklandığı gibi oluşturmak [görüntü modları](#_Toc303253810) önceki (örneğin, Views\Home\Index.cshtml mobil tarayıcılar için geçersiz kılmak için Views\Home\Index.mobile.cshtml oluşturma).
-- Okuma [jQuery mobil belgelerine](http://jquerymobile.com/) mobil görünümlerde dokunma özelliği iyileştirilmiş kullanıcı Arabirimi öğeleri ekleme hakkında daha fazla bilgi için.
+- Altında açıklandığı gibi Mobile özgü görünüm geçersiz kılmaları oluşturma [görüntü modları](#_Toc303253810) daha önce (örneğin, Views\Home\Index.cshtml mobil tarayıcılar için geçersiz kılmak için Views\Home\Index.mobile.cshtml oluşturma).
+- Okuma [jQuery Mobile belgeleri](http://jquerymobile.com/) mobil görünümlerde dokunma özelliği iyileştirilmiş kullanıcı Arabirimi öğeleri ekleme hakkında daha fazla bilgi için.
 
-Bir mobil iyileştirilmiş web sayfaları için metni bir şey Masaüstü görünümünde veya kullanıcıların bir masaüstü sürümüne geçiş sağlayan sitenin tam modu gibi olan bağlantı eklemek için kuralıdır. JQuery.Mobile.MVC paketi bu amaç için bir örnek görünüm değiştirici bileşeni içerir. Görünümler/paylaşılan varsayılan olarak kullanılan\\_Layout.Mobile.cshtml Görünüm ve sayfa işlendiğinde şöyle görünür:
+Mobil için iyileştirilmiş web sayfaları için bir kuralı metni bir şey Masaüstü görünüm veya kullanıcıların bir masaüstü sürümüne geçiş olanak sağlayan tam site modu gibi olan bir bağlantı eklemektir. JQuery.Mobile.MVC paketi bu amaç için bir örnek görünüm değiştirici bileşeni içerir. Görünümler/paylaşılan varsayılan olarak kullanılan\\_Layout.Mobile.cshtml görünümü ve sayfa işlendiğinde şöyle görünür:
 
 ![](mvc4-beta-release-notes/_static/image5.png)
 
-Ziyaretçilerin bağlantıya tıklarsanız, aynı sayfa Masaüstü sürümüne geçiş.
+Ziyaretçiler bağlantıya tıklarsanız, aynı sayfada Masaüstü sürümüne geçiş.
 
-Masaüstü düzeninizi görünüm değiştirici varsayılan olarak dahil edilmez çünkü ziyaretçileri mobil moduna almanın bir yolu olmaz. Bunu etkinleştirmek için aşağıdaki başvurusunu ekleyin  *\_ViewSwitcher* Masaüstü düzeninizi yalnızca içinde *&lt;gövde&gt;* öğe:
+Varsayılan olarak, masaüstü düzeni görünüm değiştirici içermez çünkü ziyaretçiler mobil moduna almanın bir yolu olmaz. Bunu etkinleştirmek için şu başvuruyu ekleyin  *\_ViewSwitcher* Masaüstü düzeninizi yalnızca içinde *&lt;gövdesi&gt;* öğesi:
 
 [!code-cshtml[Main](mvc4-beta-release-notes/samples/sample7.cshtml)]
 
-Görünüm değiştirici tarayıcı geçersiz kılma adlı yeni bir özellik kullanır. Bu özellik bunların çıkıyormuş gibi istekleri kabul uygulamanızı sağlar olandan farklı bir tarayıcıdan (kullanıcı aracısı) gerçekte gelen oldukları. Aşağıdaki tabloda tarayıcı geçersiz kılma sağlayan yöntemler listelenmiştir.
+Görünüm değiştirici tarayıcı geçersiz kılma adlı yeni bir özellik kullanır. Bu özellik bunların çıkıyormuş gibi istekleri kabul uygulamanızı olanak sağlar. olandan farklı bir tarayıcıdan (kullanıcı aracısı) gerçekte gelen oldukları. Tarayıcı geçersiz kılma sağlayan yöntemler aşağıdaki tabloda listelenmiştir.
 
 | `HttpContext.SetOverriddenBrowser(userAgentString)` | İsteğin asıl kullanıcı aracısı değerini belirtilen kullanıcı aracısını kullanarak geçersiz kılar. |
 | --- | --- |
-| `HttpContext.GetOverriddenUserAgent()` | Geçersiz kılma belirtilmişse isteğin Kullanıcı aracısını geçersiz kılma değeri veya asıl kullanıcı aracısı dizesi döndürür. |
-| `HttpContext.GetOverriddenBrowser()` | Döndürür bir *HttpBrowserCapabilitiesBase* istek için ayarlanmış kullanıcı aracısı karşılık gelen örnek (gerçek veya geçersiz kılınan). Bu değer gibi özellikleri almak için kullanabileceğiniz *IsMobileDevice*. |
-| `HttpContext.ClearOverriddenBrowser()` | Geçerli istek için hiçbir geçersiz kılınan Kullanıcı aracısını kaldırır. |
+| `HttpContext.GetOverriddenUserAgent()` | Geçersiz kılma belirtilmemişse, isteğin Kullanıcı aracısını geçersiz kılma değerini veya asıl kullanıcı aracısı dizesi döndürür. |
+| `HttpContext.GetOverriddenBrowser()` | Döndürür bir *HttpBrowserCapabilitiesBase* istek için ayarlanan kullanıcı aracısı karşılık gelen bir örneği (gerçek ya da geçersiz kılınan). Bu değer gibi özellikleri almak için kullanabileceğiniz *IsMobileDevice*. |
+| `HttpContext.ClearOverriddenBrowser()` | Geçerli istek için herhangi bir geçersiz kılınan Kullanıcı aracısını kaldırır. |
 
-Tarayıcı geçersiz kılmak, ASP.NET MVC 4 çekirdek özelliğidir ve jQuery.Mobile.MVC paket yüklemeyin olsa bile kullanılabilir. Ancak, yalnızca görünüm, Düzen ve kısmi görünüm seçimi etkiler — bağımlı herhangi bir ASP.NET özelliği etkilemez *Request.Browser* nesnesi.
+Tarayıcı geçersiz kılmak, ASP.NET MVC 4 çekirdek özelliğidir ve jQuery.Mobile.MVC paketi yüklemezseniz bile kullanılabilir. Ancak, yalnızca görüntüleme, Düzen ve kısmi görünüm seçimi etkiler; bağlı olduğu diğer ASP.NET özelliğini etkilemez *Request.Browser* nesne.
 
-Varsayılan olarak, kullanıcı aracısı geçersiz kılma tanımlama bilgisi kullanılarak depolanır. Geçersiz kılma başka bir yerde (örneğin, bir veritabanında) depolamak istiyorsanız, varsayılan sağlayıcı değiştirebilirsiniz (*BrowserOverrideStores.Current*). Bu sağlayıcı için belgeleri ASP.NET MVC daha sonraki bir sürümüne eşlik etmek üzere kullanılabilir.
+Varsayılan olarak bir tanımlama bilgisi kullanarak kullanıcı aracısını geçersiz kılma depolanır. Geçersiz kılma başka bir yerde (örneğin, bir veritabanındaki) depolamak istiyorsanız, varsayılan sağlayıcı değiştirebilirsiniz (*BrowserOverrideStores.Current*). Bu sağlayıcı için belgeler, ASP.NET MVC daha yeni bir sürümünü eşlik eden kullanıma sunulacaktır.
 
 <a id="_Toc303253812"></a>
-### <a name="recipes-for-code-generation-in-visual-studio"></a>Visual Studio'da kod oluşturma için tarif
+### <a name="recipes-for-code-generation-in-visual-studio"></a>Visual Studio'da kod üretimi yönelik tarifleri
 
-NuGet kullanarak yükleyebileceğiniz paketleri tabanlı çözüm özgü kodu oluşturmak Visual Studio yeni tarif özelliği sağlar. Tarif framework yerleşik kod oluşturucuları Ekle, alan, denetleyici Ekle, Görünüm Ekle için değiştirip için de kullanabilirsiniz kod oluşturma eklenti yazmak geliştiriciler için kolaylaştırır. Tarif NuGet paketleri olarak dağıtılan olduğundan kolayca kaynak denetimine iade ve projedeki tüm geliştiriciler ile otomatik olarak paylaşılan. Bir çözüm başına temelinde ayrıca kullanılabilir.
+NuGet kullanarak yükleyebileceğiniz paketleri dayalı çözüme özel kod oluşturmak Visual Studio yeni tarifleri özelliği sağlar. Tarif framework, geliştiricilerin yerleşik kod oluşturucuları alanı ekleyin, denetleyici Ekle ve Görünüm Ekle değiştirmek için kullanabileceğiniz kod üretimi eklentiler yazma kolaylaştırır. Tarif içeren NuGet paketleri olarak dağıtıldığından, kolayca kaynak denetimine iade ve projedeki tüm geliştiriciler için otomatik olarak paylaşıldığı. Ayrıca çözüm başına olarak kullanılabilir.
 
 <a id="_Toc303253813"></a>
-### <a name="task-support-for-asynchronous-controllers"></a>Zaman uyumsuz denetleyicileri görev desteği
+### <a name="task-support-for-asynchronous-controllers"></a>Görev zaman uyumsuz denetleyicileri desteği
 
-Bir nesne türü döndüren olarak tek yöntemleri zaman uyumsuz eylem yöntemleri şimdi yazabilirsiniz *görev* veya *görev&lt;ActionResult&gt;*.
+Zaman uyumsuz eylem yöntemi artık bir nesne türü döndüren olarak tek yöntemler yazabilirsiniz *görev* veya *görev&lt;actionresult öğesini&gt;*.
 
-Örneğin, Visual C# 5 kullanıyorsanız (veya kullanarak [Async CTP'nin](https://msdn.microsoft.com/vstudio/async.aspx)), şuna benzeyen bir zaman uyumsuz eylem yöntemini oluşturabilirsiniz:
+Örneğin, Visual C# 5 kullanıyorsanız (veya bu adı kullanıyor [zaman uyumsuz CTP](https://msdn.microsoft.com/vstudio/async.aspx)), şuna benzeyen bir zaman uyumsuz eylem yöntemini oluşturabilirsiniz:
 
 [!code-csharp[Main](mvc4-beta-release-notes/samples/sample8.cs)]
 
-Önceki eylem yöntemindeki çağrıları *newsService.GetHeadlinesAsync* ve *sportsService.GetScoresAsync* zaman uyumsuz olarak adlandırılır ve iş parçacığı havuzunun bir iş parçacığından engellemez.
+Önceki eylem yöntemine çağrıları *newsService.GetHeadlinesAsync* ve *sportsService.GetScoresAsync* zaman uyumsuz olarak adlandırılır ve bir iş parçacığı havuzu iş parçacığından engellemez.
 
-Döndüren zaman uyumsuz eylem yöntemleri *görev* örnekleri de zaman aşımları destekler. Eylem yöntemi edilebilen yapmak için türünde bir parametre eklemek *CancellationToken* eylem yöntemi imzası. Aşağıdaki örnek, bir zaman aşımı süresi (milisaniye) 2500 sahip ve görüntüleyen bir zaman uyumsuz eylem yöntemini gösterir. bir *süresi sona erdi* zaman aşımı olursa istemciye görüntüleyin.
+Döndüren zaman uyumsuz eylem yöntemleri *görev* örnekleri de zaman aşımlarını destekler. Eylem yönteminizi edilebilen türünde bir parametre ekleyin *CancellationToken* işlem metodu imzası. Aşağıdaki örnek, bir zaman aşımı değerini milisaniye 2500 olan ve görüntüleyen bir zaman uyumsuz eylem yöntemini gösterir. bir *zaman aşımına uğradı* bir zaman aşımı oluşması durumunda istemciye görüntüleyin.
 
 [!code-csharp[Main](mvc4-beta-release-notes/samples/sample9.cs)]
 
 <a id="_Toc303253814"></a>
 ### <a name="azure-sdk"></a>Azure SDK
 
-ASP.NET MVC 4 Beta Windows Azure SDK'sını Eylül 2011 1.5 sürümünü destekler.
+ASP.NET MVC 4 Beta Windows Azure SDK'sı Eylül 2011 1.5 sürümünü destekler.
 
 <a id="_Toc303253815"></a>
 ## <a name="known-issues-and-breaking-changes"></a>Bilinen sorunlar ve yeni değişiklikler
 
-- **ASP.NET MVC 4 Beta yükledikten sonra Visual Studio 2010 Service Pack 1 CSHTML/VBHTML Düzenleyicisi CSHTML/VBHTML düzenleyicisinde parçacığını veya JavaScript içindeki cshtml veya vbhtml dosyaları yazdıktan sonra uzun süre duraklatın.** Bu, az önce oluşturduğunuz ve henüz derlenmiş ASP.NET MVC 4 uygulamalarında oluşur.
+- **ASP.NET MVC 4 Beta yükledikten sonra Visual Studio 2010 Service Pack 1 CSHTML VBHTML Düzenleyicisi CSHTML/VBHTML düzenleyicide kod parçacığı veya JavaScript içindeki cshtml veya vbhtml dosyaları yazdıktan sonra uzun bir süre duraklatmak.** Bu, az önce oluşturduğunuz ve henüz derlenmiş ASP.NET MVC 4 uygulamalarda oluşur.
 
-    Derlemeleri bin klasöründe almak için projeyi derlemek için geçici bir çözüm değildir. Not, bin klasöründen derlemeler kaldıran projeyi temizleyin, düzenleyici sorun geri dönün.
+    Geçici çözüm bin klasöründe derlemeler için projenin derlemektir. Unutmayın, bin klasöründen derlemeleri kaldıran projeyi Temizle, düzenleyici sorun geri dönün.
 
-    Bu bir sonraki sürümde düzeltilecektir.
-- **C# proje şablonları için Visual Studio 11 Beta Global.asax.cs yanlış bağlantı dizesinde içerir.** Uygulama içinde belirtilen varsayılan bağlantı\_Visual Studio 11 Beta'da oluşturulan projeleri atlanmayan bir ters eğik çizgi içeren bir yerel veritabanı bağlantı dizesi içeren için başlangıç yöntemi (\) karakter. Bu, bir SqlException oluşturan bir Entity Framework DbContext erişim girişimleri sırasında bağlantı hatası sonuçlanır.
+    Bu, sonraki sürümde düzeltilecektir.
+- **Visual Studio 11 Beta için C# proje şablonları, bir Global.asax.cs yanlış bağlantı dizesini içerir.** Uygulamada belirtilen varsayılan bağlantı\_projeleri Visual Studio 11 Beta'da oluşturulan atlanmayan bir ters eğik çizgi içeren bir LocalDB bağlantı dizesi içeriyor yöntemi Başlat (\) karakter. Bu, bir SqlException oluşturan bir Entity Framework DbContext erişim girişimleri sırasında bağlantı hatası sonuçlanır.
 
-    Bu sorunu düzeltmek için uygulama ters eğik çizgi karakteri kaçış\_şu şekilde görünmesi Global.asax.cs yöntemi Başlat:
+    Bu sorunu düzeltmek için uygulama ters eğik çizgi karakteri kaçış\_şu şekilde okunması Global.asax.cs yöntemi başlatın:
 
     [!code-csharp[Main](mvc4-beta-release-notes/samples/sample10.cs)]
-- **.NET 4.5 hedef ASP.NET MVC 4 uygulamaları .NET 4.0 altında çalıştırdığınızda System.Net.Http.dll derleme erişme girişimi sırasında bir FileLoadException durum oluşturur.** ASP.NET MVC 4 uygulamaları .NET 4.5 altında oluşturulan içeren bir bağlama hangi bildiren bir FileLoadException sonuçlanır yeniden yönlendirme "yükleyemedi dosya veya derleme 'System.Net.Http' ya da bağımlılıklarından biri." uygulamanın ne zaman .NET 4.0 yüklü bir sistem üzerinde yürütülür. Bu sorunu düzeltmek için web.config dosyasından aşağıdaki bağlama yeniden yönlendirmesinin kaldırın:
+- **.NET 4.5 hedefleyen bir ASP.NET MVC 4 uygulamaları, .NET 4.0 altında çalıştırdığınızda System.Net.Http.dll derleme erişim girişimi sırasında bir FileLoadException durum oluşturur.** .NET 4.5 altında oluşturulan ASP.NET MVC 4 uygulamalarını içeren bir bağlama, bildiren bir FileLoadException neden olabilecek bir yeniden yönlendirme "yükleyemedi dosyası veya bütünleştirilmiş kod 'System.Net.Http' veya bağımlılıklarından biri." Uygulama bir sistemde .NET 4.0 yüklü olduğunda yürütülür. Bu sorunu düzeltmek için aşağıdaki bağlama yeniden yönlendirmesi, web.config dosyasından kaldırın:
 
     [!code-xml[Main](mvc4-beta-release-notes/samples/sample11.xml)]
 
-    Derleme bağlama öğesi değiştirilmiş web.config dosyasında aşağıdaki gibi görünmelidir:
+    Derleme bağlama öğesi değiştirilmiş Web.config dosyasında aşağıdaki gibi görünmelidir:
 
     [!code-xml[Main](mvc4-beta-release-notes/samples/sample12.xml)]
-- <strong>Visual Basic projeleri "Denetleyici Ekle" öğesini şablonunda çağrıldığında yanlış bir ad alanı oluşturur</strong><strong>gelen bir alanı içinde.</strong> Visual Basic kullanan ASP.NET MVC projesindeki bir alan için bir denetleyici eklediğinizde öğe şablonu yanlış ad alanı Denetleyicisi'nde ekler. Denetleyicideki tüm eylem gittiğinizde sonuç "dosya bulunamadı" hatası verilir.  
+- <strong>Visual Basic projelerinde "Denetleyici Ekle" öğe şablonu çağrıldığında hatalı bir ad alanı oluşturur</strong><strong>gelen bir alanı içinde.</strong> Visual Basic kullanan ASP.NET MVC projesinde bir alan için bir denetleyici eklediğinizde, öğe şablonu yanlış ad alanı Denetleyicisi'nde ekler. Denetleyicideki tüm eylem gittiğinizde bir "dosya bulunamadı" hatası sonucudur.  
   
-  Oluşturulan ad alanı her şeyi kök ad alanı sonra atlar. Örneğin, oluşturulan ad alanıdır *RootNamespace* olmalıdır, ancak *RootNamespace.Areas.AreaName.Controllers* .
-- **Razor görüntüleme Altyapısı'deki son değişiklikler.** Yeniden yazımı Razor ayrıştırıcısı, bir parçası olarak, aşağıdaki türlerden sıradan kaldırıldığını *System.Web.Mvc.Razor*: 
+  Oluşturulan ad alanı, her şeyin kök ad sonra atlar. Örneğin, oluşturulan ad alanıdır *RootNamespace* olmalıdır, ancak *RootNamespace.Areas.AreaName.Controllers* .
+- **Razor görünüm altyapısını bozucu değişiklikler.** Sıradan bir yeniden yazma, Razor ayrıştırıcısı bir parçası olarak, aşağıdaki türleri kaldırıldığını *System.Web.Mvc.Razor*: 
 
     - *ModelSpan*
     - *MvcVBRazorCodeGenerator*
     - *MvcCSharpRazorCodeGenerator*
     - *MvcVBRazorCodeParser*
 
-  Aşağıdaki yöntemlerden ayrıca kaldırıldı: 
+  Aşağıdaki yöntemleri de kaldırıldı: 
 
     - *MvcCSharpRazorCodeParser.ParseInheritsStatement(System.Web.Razor.Parser.CodeBlockInfo)*
     - *MvcWebPageRazorHost.DecorateCodeGenerator(System.Web.Razor.Generator.RazorCodeGenerator)*
     - *MvcVBRazorCodeParser.ParseInheritsStatement(System.Web.Razor.Parser.CodeBlockInfo)*
-- **Bir ASP.NET MVC 4 uygulamaları/bin dizininde WebMatrix.WebData.dll dahil edilirse, form kimlik doğrulaması için URL kazanır.** (Örneğin, "ASP.NET Web sayfaları ile Razor sözdizimi" dağıtılabilir bağımlılıklar ekleme iletişim kullanırken seçerek) uygulamanıza WebMatrix.WebData.dll derleme ekleme/account/oturum açma kimlik doğrulaması oturum açma yeniden yönlendirme kılar yerine / Hesap/ASP.NET MVC hesap denetleyicisi varsayılan beklendiği gibi oturum açın. Bu davranışı önlemek ve web.config kimlik bölümünde belirtilen URL zaten kullanmak için PreserveLoginUrl adlı appSetting ekleyin ve bunu true olarak ayarlayın: 
+- **Bir ASP.NET MVC 4 uygulamaları/bin dizininde WebMatrix.WebData.dll eklendiğinde, form kimlik doğrulaması URL'sini kazanır.** (Örneğin, "ASP.NET Web sayfaları ile Razor sözdizimi" dağıtılabilir bağımlılıkları ekleme iletişim kullanırken seçerek) WebMatrix.WebData.dll derlemeyi uygulamanıza ekleme/hesabı/oturum açma kimlik doğrulaması oturum açma yeniden yönlendirme kılar yerine / hesabı/varsayılan olarak ASP.NET MVC hesap denetleyicisi beklendiği gibi oturum açın. Bu davranışı engellemek ve web.config kimlik doğrulaması bölümünde belirtilen URL zaten kullanmak üzere PreserveLoginUrl adlı bir uygulama ayarı ekleme ve true olarak ayarlayın: 
 
     [!code-xml[Main](mvc4-beta-release-notes/samples/sample13.xml)]
-- **Visual Studio 2010 ve Visual Web Developer 2010 yan yana yüklemeler için ASP.NET MVC 4 yüklemeye çalışırken yüklemek NuGet Paket Yöneticisi başarısız.** Her iki sürümü Visual Studio'nun zaten yüklendikten sonra Visual Studio 2010 ve Visual Web Developer 2010 ASP.NET MVC 4 yan yana çalıştırmak için ASP.NET MVC 4 yüklemeniz gerekir.
-- **Önkoşullar zaten kaldırdınız ASP.NET MVC 4 kaldırma başarısız olur.** ASP.NET MVC düzgün bir şekilde kaldırmak için 4you ASP.NET MVC 4 Visual Studio kaldırmadan önce kaldırmanız gerekir.
-- **Varsayılan Web API projesi çalıştırmaya yanlış yok RegisterApis yöntemini kullanarak yollar ekleme kullanıcıya doğrudan yönergeleri gösterir.** ASP.NET yönlendirme tablosunu kullanarak RegisterRoutes yönteminde yollar eklenmesi gerekir.
-- **ASP.NET MVC 4 Beta yükleme, ASP.NET MVC 3 RTM uygulamaları keser.** Oluşturulan ASP.NET MVC 3 uygulamaları RTM'ye (ASP.NET MVC 3 araçları güncelleştirme sürümüyle değil) yayın gerektiren aşağıdaki değişiklikleri yana birimi ASP.NET MVC 4 Beta ile çalışması için. Proje derleme hataları bu güncelleştirmeleri sonuçları yapmadan oluşturma. 
+- **NuGet Paket Yöneticisi, Visual Studio 2010 ve Visual Web Developer 2010 'un yan yana yüklemeleri için ASP.NET MVC 4 yüklenmeye çalışılırken yükleme başarısız olur.** Visual Studio 2010 ve Visual Web Developer 2010 ASP.NET MVC 4 ile yan yana çalıştırmak için her iki Visual Studio sürümü zaten yükledikten sonra ASP.NET MVC 4 yüklemeniz gerekir.
+- **Önkoşullar zaten kaldırılmış ASP.NET MVC 4 kaldırma başarısız olur.** ASP.NET MVC düzgün bir şekilde kaldırmak için 4you Visual Studio kaldırmadan önce ASP.NET MVC 4 kaldırmalısınız.
+- **Varsayılan Web API projesi çalıştırmaya yanlış yok RegisterApis yöntemi kullanılarak yollar eklemek için kullanıcı doğrudan yönergeleri gösterir.** ASP.NET yönlendirme tablosunu kullanarak RegisterRoutes yöntemi yollar eklenmesi gerekir.
+- **ASP.NET MVC 4 Beta yükleme, ASP.NET MVC 3 RTM uygulamaları keser.** Oluşturulmuş uygulamaları ASP.NET MVC 3 RTM'ye (değil ile ASP.NET MVC 3 araçları güncelleştirme sürüm) sürüm gerektiren aşağıdaki değişiklikleri yan yana ASP.NET MVC 4 Beta ile çalışmak için. Proje derleme hataları bu güncelleştirmeleri sonuçları yapmadan oluşturma. 
 
     **Gerekli güncelleştirmeleri**
 
-  1. Kök Web.config dosyasında yeni Ekle *&lt;appSettings&gt;* anahtar girişle *webPages:Version* ve değeri *1.0.0.0*.
+  1. Kök Web.config dosyasında yeni bir ekleme *&lt;appSettings&gt;* anahtarla giriş *webPages:Version* ve değer *1.0.0.0*.
 
       [!code-xml[Main](mvc4-beta-release-notes/samples/sample14.xml)]
-  2. Çözüm Gezgini'nde proje adına sağ tıklayın ve sonra projeyi seçin. Daha sonra yeniden adına sağ tıklayın ve Düzenle'yi seçin *ProjectName*.csproj.
-  3. Aşağıdaki derleme başvurularını bulun: 
+  2. Çözüm Gezgini'nde proje adına sağ tıklayın ve ardından projeyi seçin. Sonra adı tekrar sağ tıklayıp Düzen *ProjectName*.csproj.
+  3. Aşağıdaki derleme başvurularının bulun: 
 
       [!code-xml[Main](mvc4-beta-release-notes/samples/sample15.xml)]
 
       Bunları aşağıdakiyle değiştirin:
 
       [!code-xml[Main](mvc4-beta-release-notes/samples/sample16.xml)]
-  4. Değişiklikleri kaydetmek, düzenlemekte olduğunuz ve projeye sağ tıklayın ve yeniden yükle seçeneğini belirleyin (.csproj) proje dosyasını kapatın.
+  4. Değişiklikleri kaydedin, düzenleme ve projeye sağ tıklayın ve yeniden seçin proje (.csproj) dosyasını kapatın.

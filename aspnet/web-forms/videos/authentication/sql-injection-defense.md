@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/authentication/sql-injection-defense
-title: SQL ekleme savunma | Microsoft Docs
+title: SQL ekleme koruması | Microsoft Docs
 author: JoeStagner
-description: Bir SQL ekleme güvenlik açığı uygulamanızda, tüm gün zarar. Bu videoda, Microsoft'un Joe Stagner nasıl SQL ekleme saldırıları happ kullanabilir açıklar...
+description: Uygulamanızı SQL ekleme güvenlik açığı, tüm gün sicil. Bu videoda, SQL ekleme saldırılarına karşı happ nasıl için Microsoft'un ALi Stagner açıklar...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/29/2009
 ms.topic: article
 ms.assetid: b9fb1e01-06d9-43d9-9e8f-5fa1e4c6a211
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/authentication/sql-injection-defense
 msc.type: video
-ms.openlocfilehash: 9b22721032a12f0a566c3837b80ef4f4fbb41960
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: ddddefa83c268a93225fcfe6c406c26bf3dea369
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30889975"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37393869"
 ---
-<a name="sql-injection-defense"></a>SQL ekleme savunma
+<a name="sql-injection-defense"></a>SQL ekleme koruması
 ====================
-tarafından [CAN Stagner](https://github.com/JoeStagner)
+tarafından [ALi Stagner](https://github.com/JoeStagner)
 
-Bir SQL ekleme güvenlik açığı uygulamanızda, tüm gün zarar. Bu videoda, Microsoft'un Joe Stagner SQL ekleme saldırıları nasıl gerçekleşebilir, hatalı guy bunlarla yapabileceklerinizi ve ASP.NET uygulamanızın SQL ekleme güvenlik açıklarından korunmasına nasıl açıklanmaktadır.
+Uygulamanızı SQL ekleme güvenlik açığı, tüm gün sicil. Bu videoda, SQL ekleme saldırılarına karşı nasıl gerçekleşebilir, kötü bir adam ile neler yapabileceğinizi ve nasıl ASP.NET uygulamanızı SQL ekleme güvenlik açıklarına karşı korumak Microsoft'un ALi Stagner açıklar.
 
-[&#9654;(25 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/sql-injection-defense)
+[&#9654;(25 dakika) videosunu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/sql-injection-defense)
 
 > [!div class="step-by-step"]
 > [Önceki](creating-inactive-users.md)

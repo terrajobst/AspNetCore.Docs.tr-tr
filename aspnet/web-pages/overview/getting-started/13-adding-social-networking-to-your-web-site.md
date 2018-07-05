@@ -1,114 +1,113 @@
 ---
 uid: web-pages/overview/getting-started/13-adding-social-networking-to-your-web-site
-title: Sosyal ağ eklemek için ASP.NET Web sayfaları (Razor) siteleri | Microsoft Docs
+title: Sosyal ağ ekleme için ASP.NET Web sayfaları (Razor) siteler | Microsoft Docs
 author: tfitzmac
-description: Bu bölümde, sitenizi Sosyal Ağ Hizmetleri ile tümleştirmek açıklanmaktadır. Bu bölümde, Web sitenizin yer işareti/bağlantı kişilere öğreneceksiniz...
+description: Bu bölümde, sitenize sosyal ağ hizmetleriyle tümleştirmeye yönelik açıklanmaktadır. Bu bölümde, Web sitenizi yer işareti/bağlantı kişilere öğreneceksiniz...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/21/2014
 ms.topic: article
 ms.assetid: 03c342f9-b35c-4d7c-b9ed-cd9aaaffedb6
 ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/13-adding-social-networking-to-your-web-site
 msc.type: authoredcontent
-ms.openlocfilehash: 2d1f0074edf473c4be06adaa32598dd828a7552c
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 4f987c9022056ddfa3cdcac746f688f562d9003e
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30899349"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37398407"
 ---
 <a name="adding-social-networking-to-aspnet-web-pages-razor-sites"></a>ASP.NET Web sayfaları (Razor) siteleri sosyal ağ ekleme
 ====================
-tarafından [zel FitzMacken](https://github.com/tfitzmac)
+tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
-> Bu makalede, sosyal ağ bağlantıları Facebook, Twitter, Reddit ve Digg için bir ASP.NET Web sayfaları (Razor) Web sayfalarında nasıl ekleneceğini ve Twitter akışlarını, Xbox oyuncu kartları ve Gravatar görüntüleri dahil olmak üzere nasıl açıklanmaktadır.
+> Bu makalede, sosyal ağ bağlantıları Facebook, Twitter, Reddit ve Digg için bir ASP.NET Web sayfaları (Razor) Web sitesi sayfalarına ekleme ve Twitter feed'lerine ve Xbox oyuncu kartları Gravatar görüntülerini ekleme açıklanmaktadır.
 > 
 > Öğrenecekleriniz:
 > 
 > - Yer işareti/sitenizi bağlantı kişilere nasıl.
 > - Bir Twitter akışı ekleme.
-> - Bir Facebook ekleme **gibi** düğmesi sayfalara.
-> - Gravatar.com resimleri işlemek nasıl.
-> - Sitenizde Xbox oyuncu kartı görüntülemek nasıl.
+> - Bir Facebook ekleme **gibi** sayfalara düğmesi.
+> - Gravatar.com görüntülerin nasıl.
+> - Sitenizde bir Xbox oyuncu kartını görüntülemek nasıl.
 >   
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Öğreticide kullanılan yazılım sürümleri
+> ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
 > 
 > 
 > - ASP.NET Web sayfaları (Razor) 2
-> - ASP.NET Web Yardımcısı kitaplığı (NuGet paketi)
+> - ASP.NET Web yardımcı kitaplık (NuGet paketi)
 >   
 > 
-> Bu öğreticide, ASP.NET Web Pages 3 ile ASP.NET Web Yardımcısını kitaplığını kullanan bölümleri dışında de çalışır.
+> Bu öğretici ile ASP.NET Web Pages 3, ASP.NET Web Yardımcısı kitaplığını kullanan bölümleri dışında da çalışır.
 
 
 <a id="Linking_Your_Website"></a>
-## <a name="linking-your-website-on-social-networking-sites"></a>Web sitenizi sosyal ağ sitelerinde bağlama
+## <a name="linking-your-website-on-social-networking-sites"></a>Sosyal ağ sitelerine sitenizde bağlama
 
-Kişiler, sitenizde bir şey istiyorsanız, genellikle arkadaşlarınızla paylaşmak isterler. Bu kişiler Digg, Reddit, Facebook, Twitter veya benzer siteleri sayfasında paylaşmak için tıklatabilirsiniz (simgeler) karakterlerin görüntüleyerek kolayca yapabilirsiniz.
+Kişiler, sitenizdeki bir şey istiyorsanız, bunlar genellikle arkadaşlarınızla paylaşmak istiyorsunuz. Bu kişiler, Digg, Reddit, Facebook, Twitter veya benzer siteleri sayfada paylaşmak için tıklayabileceği karakterleri (simge) görüntüleyerek kolayca yapabilirsiniz.
 
-Bu karakterlerin görüntülemek için add `LinkSharecode` bir sayfaya Yardımcısı. Sayfanızı ziyaret eden kişiler tek tek bir karakter tıklatabilirsiniz. Bunlar, sosyal ağ sitesiyle bir hesabınız varsa, bunlar sayfanıza bir bağlantı sonra bu sitede nakledebilirsiniz.
+Bu karakterleri görüntülenecek ekleme `LinkSharecode` yardımcı olacak bir sayfa. Sayfanızı ziyaret eden kişiler, bireysel bir karakter tıklayabilirsiniz. Bunlar, sosyal ağ sitesine bir hesabınız varsa, bunlar sitede ardından sayfanıza bir bağlantı gönderebilirsiniz.
 
 ![Resim 1](13-adding-social-networking-to-your-web-site/_static/image1.jpg)
 
-1. ASP.NET Web Yardımcıları kitaplığı açıklandığı gibi Web sitenize ekleyin [yükleme Yardımcıları bir ASP.NET Web Pages sitesinde](https://go.microsoft.com/fwlink/?LinkId=252372), kendisine - henüz eklediyseniz adlı bir sayfa oluşturma *ListLinkShare.cshtml* ve Ekle Aşağıdaki biçimlendirmede:
+1. ASP.NET Web Yardımcıları kitaplığı açıklandığı Web sitenize ekleyin [yükleme Yardımcıları bir ASP.NET Web sayfaları sitesinde](https://go.microsoft.com/fwlink/?LinkId=252372), zaten halen - eklemediyseniz adlı bir sayfa oluşturun *ListLinkShare.cshtml* ekleyin Aşağıdaki biçimlendirmede:
 
     [!code-cshtml[Main](13-adding-social-networking-to-your-web-site/samples/sample1.cshtml)]
 
-    Bu örnekte, zaman `LinkShare` Yardımcısı çalıştığında, sayfa başlığı, sosyal ağ sitesine sayfa başlığı sırayla geçirmeden bir parametre olarak geçirilir. Ancak, istediğiniz herhangi bir dize geçirebilirdiniz. Bu örnek ayrıca hangi sosyal ağ sitelerine listeye dahil belirtir. Siteniz için uygun olan sosyal ağ sitelerine belirtebilirsiniz.
-2. Çalıştırma *ListLinkShare.cshtml* sayfasını bir tarayıcıda. (Emin olun sayfa seçildiğinde, **dosyaları** çalıştırmadan önce onu çalışma.)
-3. Oturum açtıysanız sitelerden biri karaktere'ı tıklatın. Bağlantıyı sayfaya bir bağlantı burada paylaşabilirsiniz seçili sosyal ağ sitesinde alır. Reddit bağlantısını tıklatırsanız, örneğin, gittiğiniz `submit to reddit` Reddit Web sayfasında.
+    Bu örnekte, zaman `LinkShare` Yardımcısını çalıştırmaları, sayfa başlığı, sırayla sosyal ağ sitesine sayfa başlığının geçen bir parametre olarak geçirilir. Ancak, istediğiniz herhangi bir dize içinde geçirebiliriz. Bu örnek ayrıca listesinde içermek için hangi sosyal ağ sitelerine belirtir. İlgili sitenize sosyal ağ sitelerine belirtebilirsiniz.
+2. Çalıştırma *ListLinkShare.cshtml* sayfasını bir tarayıcıda. (Emin sayfanın içinde seçili **dosyaları** çalıştırmadan önce çalışma alanı.)
+3. Bir yazıtipi için Kayıtlısınız sitelerden birine tıklayın. Bağlantı sayfasına bağlantı paylaşabileceğiniz seçili sosyal ağ sitesinde götürür. Reddit bağlantıya tıklarsanız, örneğin, adresine yönlendirilirsiniz `submit to reddit` Reddit sitesinde sayfasında.
 
      ![Resim 2](13-adding-social-networking-to-your-web-site/_static/image2.jpg)
 
 <a id="Adding_a_Twitter_Feed"></a>
 ## <a name="adding-a-twitter-feed"></a>Bir Twitter ekleme akışı
 
-Twitter API'si geçerli sürümü ile uyumlu olan bir Twitter Yardımcısı kullanma hakkında daha fazla bilgi için bkz: [Twitter Yardımcısı](../ui-layouts-and-themes/twitter-helper.md). Bu örnek nasıl birden çok sayfa kodundan kolayca yeniden kullanabilirsiniz şekilde kendi yardımcı yazılacağını gösterir.
+Twitter API'si geçerli sürümü ile uyumlu bir Twitter Yardımcısı'nı kullanma hakkında daha fazla bilgi için bkz: [Twitter Yardımcısı](../ui-layouts-and-themes/twitter-helper.md). Bu örnekte, kolayca birçok sayfalarından kodunu yeniden kullanabilmesi kendi Yardımcısı yazma işlemi gösterilmektedir.
 
 <a id="Displaying_a_Facebook_Button"></a>
 ## <a name="displaying-a-facebook-quotlikequot-button"></a>Bir Facebook görüntüleme &quot;gibi&quot; düğmesi
 
-Bazı durumlarda, sizin için en iyi seçenek Yardımcısı üzerinde güvenmek yerine sosyal ağ sağlayıcı doğrudan kod elde etmektir. Sosyal ağ sağlayıcısına seçeneklerini yardımcı güncelleştirilmiş daha hızlı güncelleştirmeleri olursa bu özellikle doğrudur.
+Bazı durumlarda, en iyi seçenek, üzerinde bir yardımcı güvenmek yerine sosyal ağ sağlayıcısına doğrudan kod elde etmektir. Sosyal ağ sağlayıcısına seçeneklerini yardımcı güncelleştirilir daha hızlı güncelleştiriyorsa bu özellikle doğrudur.
 
-Facebook özellikleri (örneğin, LIKE düğmesi) sitenize eklemek için gelen kod parçacıkları alabilirsiniz [developers.facebook.com](https://developers.facebook.com/) site. Facebook sitesinde sitenize ilgili bir kod parçacığı oluşturmak için kendi araçlarını kullanın.
+Facebook özellikleri (örneğin, sıra Beğen düğmesi) sitenize eklemek için kod parçacıkları'nden alabilirsiniz [developers.facebook.com](https://developers.facebook.com/) site. Facebook sitede, site için ilgili kod parçacığı oluşturmak için kendi araçlarını kullanın.
 
-Aşağıdaki vurgulanmış kodu developers.facebook.com sitesinde gibi düğmesi aracından alınan kodudur. Kendi uygulama kimliğini sağlamanız gerekiyor.
+Aşağıdaki vurgulanmış kodu developers.facebook.com sitesinde düğmesi gibi aracından alınan kodudur. Kendi uygulama kimliğini sağlamanız gerekir
 
 [!code-html[Main](13-adding-social-networking-to-your-web-site/samples/sample2.html?highlight=7-14,16-17)]
 
 <a id="Rendering_a_Gravatar_Image"></a>
 ## <a name="rendering-a-gravatar-image"></a>Gravatar görüntü işleme
 
-A *Gravatar* (bir &quot;genel tanınan avatar&quot;) birden çok Web sitelerinde, avatar kullanılabilecek bir görüntü &#8212; diğer bir deyişle, temsil eden bir görüntü. Örneğin, bir Gravatar kişisel bir blog açıklamasında bir forum gönderisi olarak belirleyin ve benzeri. (Kendi Gravatar Gravatar Web sitesindeki kaydedebilirsiniz [ http://www.gravatar.com/ ](http://www.gravatar.com/).) Kişilerin adlarını veya e-posta adreslerini yanındaki resimleri, Web sitenizde görüntülemek istiyorsanız, Gravatar yardımcıyı kullanabilirsiniz.
+A *Gravatar* (bir &quot;genel tanınan avatar&quot;) birden çok Web sitelerinde avatarınız kullanılabilecek bir görüntü &#8212; diğer bir deyişle, gösteren görüntü. Örneğin, bir Gravatar bir kişi bir forum gönderisi, blog açıklamasında tanımlamak ve benzeri. (Gravatar Web sitesinden kendi Gravatar kaydedebilirsiniz [ http://www.gravatar.com/ ](http://www.gravatar.com/).) Web sitenizde kişilerin adları veya e-posta adreslerinin yanındaki görüntüleri görüntülemek istiyorsanız, Gravatar yardımcıyı kullanabilirsiniz.
 
-Bu örnekte, kendiniz temsil eden tek bir Gravatar kullanıyorsunuz. Bir Gravatar kullanmak için başka bir sitenizde kaydettiğinizde, Gravatar adreslerini belirtin kişilere yoludur. (Kaydetmek kişilere öğrenebilirsiniz [güvenlik ekleme ve bir ASP.NET Web sayfaları Site üyeliği](https://go.microsoft.com/fwlink/?LinkId=202904).) Bu kullanıcı bilgilerini görüntüleme olduğunda, daha sonra yalnızca Gravatar kullanıcının adını burada görüntülemek için ekleyebilirsiniz.
+Bu örnekte, kendiniz temsil eden tek bir Gravatar kullanıyorsanız. Bir Gravatar kullanmak için başka bir sitenizde'na kaydederken Gravatar adresini belirtin kişilere yoludur. (Kaydetmek kişilere öğrenebilirsiniz [güvenlik ekleme ve bir ASP.NET Web sayfaları sitesinde üyelik](https://go.microsoft.com/fwlink/?LinkId=202904).) Kullanıcı bilgilerini görüntüleme olduğunda, ardından yalnızca Gravatar kullanıcının adını burada görüntülemek için ekleyebilirsiniz.
 
-1. ASP.NET Web Yardımcıları kitaplığı açıklandığı gibi Web sitenize ekleyin [yükleme Yardımcıları bir ASP.NET Web Pages sitesinde](https://go.microsoft.com/fwlink/?LinkId=252372), henüz yapmadıysanız.
-2. Adlı yeni bir web sayfası oluşturun *Gravatar.cshtml*.
+1. ASP.NET Web Yardımcıları kitaplığı açıklandığı Web sitenize ekleyin [yükleme Yardımcıları bir ASP.NET Web sayfaları sitesinde](https://go.microsoft.com/fwlink/?LinkId=252372), henüz yapmadıysanız.
+2. Adlı yeni bir web sayfası oluşturma *Gravatar.cshtml*.
 3. Aşağıdaki biçimlendirmede dosyaya ekleyin: 
 
     [!code-cshtml[Main](13-adding-social-networking-to-your-web-site/samples/sample3.cshtml)]
 
-    `Gravatar.GetHtml` Yöntemi Gravatar görüntü sayfasında görüntülenir. Görüntü boyutunu değiştirmek için ikinci parametre olarak bir sayı içerebilir. Varsayılan boyut 80'dir. 80'den az yapma görüntünün küçük numaralandırır. 80'den büyük sayılar görüntü büyütün.
-4. İçinde `Gravatar.GetHtml` yöntemleri Değiştir `<Your Gravatar account here>` Gravatar hesabınız için kullandığınız e-posta adresine sahip. (Gravatar hesabınız yoksa, mu birinin e-posta adresini kullanabilirsiniz.)
-5. Sayfayı tarayıcınızda çalıştırın. Sayfasında, belirttiğiniz e-posta adresi için iki Gravatar görüntü görüntüler. İkinci görüntünün ilk küçüktür. 
+    `Gravatar.GetHtml` Yöntemi Gravatar görüntü sayfasında görüntüler. Görüntü boyutunu değiştirmek için ikinci parametre olarak bir sayı içerebilir. Varsayılan boyutu 80'dir. 80'den az yapma görüntüyü daha küçük sayılar. Görüntü 80 büyük sayılar büyütün.
+4. İçinde `Gravatar.GetHtml` yöntemlerini değiştirin `<Your Gravatar account here>` Gravatar hesabınız için kullandığınız e-posta adresi. (Bir Gravatar hesabınız yoksa, mu kişinin e-posta adresini kullanabilirsiniz.)
+5. Sayfayı tarayıcınızda çalıştırın. Sayfa, belirttiğiniz e-posta adresi için iki Gravatar görüntülerini görüntüler. İkinci görüntü, daha küçük. 
 
     ![Resim 4](13-adding-social-networking-to-your-web-site/_static/image3.jpg)
 
 <a id="Displaying_an_Xbox_Gamer_Card"></a>
-## <a name="displaying-an-xbox-gamer-card"></a>Xbox oyuncu kartı görüntüleme
+## <a name="displaying-an-xbox-gamer-card"></a>Xbox oyuncu kart görüntüleme
 
-Kişiler çevrimiçi oyunlar Microsoft Xbox yürütürken, her kullanıcı bir benzersiz kimliği vardır. İstatistikleri her Player kendi saygınlığı, oyuncu puanı gösterilir ve son oynanan oyunları bir oyuncu kartı biçiminde saklanır. Oyuncu Xbox değilseniz, size oyuncu kartınız sitenizdeki sayfalarında kullanarak gösterebilir `GamerCard` Yardımcısı.
+Kişiler Microsoft Xbox çevrimiçi oyun, her kullanıcının benzersiz bir kimliğe sahiptir. İstatistikleri kendi saygınlığı, oyuncu puanı gösterir ve oyunlar oynatılan bir oyuncu kart biçiminde her oyuncu için tutulur. Xbox oyuncu kullanıyorsanız, oyuncu kartınız sitenizde sayfalarında kullanarak gösterebilirsiniz `GamerCard` Yardımcısı.
 
-1. ASP.NET Web Yardımcıları kitaplığı açıklandığı gibi Web sitenize ekleyin [yükleme Yardımcıları bir ASP.NET Web Pages sitesinde](https://go.microsoft.com/fwlink/?LinkId=252372), henüz yapmadıysanız.
-2. Adlı yeni bir sayfa oluşturma *XboxGamer.cshtml* ve aşağıdaki biçimlendirmeyi ekleyin.
+1. ASP.NET Web Yardımcıları kitaplığı açıklandığı Web sitenize ekleyin [yükleme Yardımcıları bir ASP.NET Web sayfaları sitesinde](https://go.microsoft.com/fwlink/?LinkId=252372), henüz yapmadıysanız.
+2. Adlı yeni bir sayfa oluşturun *XboxGamer.cshtml* ve aşağıdaki işaretlemeyi ekleyin.
 
     [!code-cshtml[Main](13-adding-social-networking-to-your-web-site/samples/sample4.cshtml)]
 
-    Kullandığınız `GamerCard.GetHtml` özelliği görüntülenecek oyuncu kartı için diğer ad belirtin.
+    Kullandığınız `GamerCard.GetHtml` özelliği görüntülenecek oyuncu kart için bir diğer ad belirtin.
 3. Sayfayı tarayıcınızda çalıştırın. Sayfa belirttiğiniz Xbox oyuncu kartı görüntüler.
 
     ![Resim 5](13-adding-social-networking-to-your-web-site/_static/image4.jpg)

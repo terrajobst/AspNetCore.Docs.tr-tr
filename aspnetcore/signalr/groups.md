@@ -1,35 +1,35 @@
 ---
-title: SignalR alanındaki kullanıcılar ve grupları yönetme
+title: SignalR öğesindeki kullanıcılar ve Gruplar'ı yönetme
 author: rachelappel
-description: ASP.NET Core SignalR kullanıcı ve Grup Yönetimi genel bakış.
+description: ASP.NET Core SignalR kullanıcı ve Grup yönetimine genel bakış.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: rachelap
 ms.custom: mvc
 ms.date: 06/04/2018
 uid: signalr/groups
-ms.openlocfilehash: f7d60a906fc238f79c76fd2a4ee693417a348825
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 3e5e310c84bc3ed5790d5b67a917bd54162ea163
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272087"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37402531"
 ---
-# <a name="manage-users-and-groups-in-signalr"></a>SignalR alanındaki kullanıcılar ve grupları yönetme
+# <a name="manage-users-and-groups-in-signalr"></a>SignalR öğesindeki kullanıcılar ve Gruplar'ı yönetme
 
 Tarafından [Brennan Conroy](https://github.com/BrennanConroy)
 
 SignalR iletileri belirli bir kullanıcıyla ilişkili tüm bağlantıları gönderilmesi gibi adlı gruplarına bağlantılar sağlar.
 
-[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/groups/sample/) [(nasıl indirileceğini)](xref:tutorials/index#how-to-download-a-sample)
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/groups/sample/) [(karşıdan yükleme)](xref:tutorials/index#how-to-download-a-sample)
 
-## <a name="users-in-signalr"></a>SignalR kullanıcılar
+## <a name="users-in-signalr"></a>Signalr'da kullanıcılar
 
-SignalR belirli bir kullanıcıyla ilişkili tüm bağlantılara ileti göndermenizi sağlar. Varsayılan olarak SignalR kullanır `ClaimTypes.NameIdentifier` gelen `ClaimsPrincipal` kullanıcı tanımlayıcısı olarak bağlantı ile ilişkili. Tek bir kullanıcı bir SignalR uygulaması birden çok bağlantı olabilir. Örneğin, bir kullanıcının telefon yanı sıra Masaüstü üzerinde bağlı. Her cihaz için ayrı bir SignalR bağlantısı olsa da, aynı kullanıcıyla ilişkili tüm. Kullanıcıya bir ileti gönderilir, o kullanıcıyla ilişkili bağlantılarının tümünü iletiyi alır.
+SignalR, belirli bir kullanıcıyla ilişkili tüm bağlantılara ileti göndermek sağlar. Varsayılan olarak, SignalR kullanır `ClaimTypes.NameIdentifier` gelen `ClaimsPrincipal` kullanıcı tanımlayıcısı olarak bağlantı ile ilişkili. Tek bir kullanıcı bir SignalR uygulama birden fazla bağlantı olabilir. Örneğin, bir kullanıcının telefon numaraları yanı sıra Masaüstü bağlı. Her cihaz için ayrı bir SignalR bağlantı olsa da, bunlar aynı kullanıcıyla ilişkili tüm. Kullanıcıya bir ileti gönderildiğinde, tüm bu kullanıcı ile ilişkili bağlantıları iletisi alırsınız. Kullanıcı tanımlayıcısı için bir bağlantı tarafından erişilebilen `Context.UserIdentifier` hub'ınızdaki özelliği.
 
-Kullanıcı tanımlayıcısı geçirerek belirli bir kullanıcıya bir ileti gönderme `User` aşağıdaki örnekte gösterildiği gibi hub yönteminin işlev:
+Kullanıcı tanımlayıcısı için geçirerek belirli bir kullanıcıya bir ileti gönder `User` aşağıdaki örnekte gösterildiği gibi hub yönteminizi işlev:
 
 > [!NOTE]
-> Kullanıcı Kimliği büyük/küçük harf duyarlıdır.
+> Kullanıcı tanımlayıcısı büyük/küçük harf duyarlıdır.
 
 ```csharp
 public Task SendPrivateMessage(string user, string message)
@@ -38,22 +38,22 @@ public Task SendPrivateMessage(string user, string message)
 }
 ```
 
-Kullanıcı tanımlayıcısı oluşturarak özelleştirilebilir bir `IUserIdProvider`ve içinde kaydetme `ConfigureServices`.
+Kullanıcı tanımlayıcısı oluşturarak özelleştirilebilir bir `IUserIdProvider`ve onu kaydetme `ConfigureServices`.
 
 [!code-csharp[UserIdProvider](groups/sample/customuseridprovider.cs?range=4-10)]
 
 [!code-csharp[Configure service](groups/sample/startup.cs?range=21-22,39-42)]
 
 > [!NOTE]
-> Özel SignalR hizmetlerinizi kaydetmeden önce AddSignalR çağrılmalıdır.
+> AddSignalR özel SignalR hizmetlerinizi kaydetmeden önce çağrılmalıdır.
 
-## <a name="groups-in-signalr"></a>SignalR grupları
+## <a name="groups-in-signalr"></a>Signalr'da gruplarla
 
-Bir grup adı ile ilişkili bağlantıları koleksiyonudur. İletiler, bir grup içindeki tüm bağlantılar için gönderilebilir. Bir bağlantı veya birden çok bağlantı grupları uygulama tarafından yönetildiğinden göndermek için önerilen yöntem gruplarıdır. Bir bağlantı birden çok grupların üyesi olabilir. Bu gruplar bir sohbet uygulaması gibi bir şey için burada her alan bir grup olarak temsil edilebilir ideal hale getirir. Bağlantıları eklenebilir ya da grupları kaldırılmasını `AddToGroupAsync` ve `RemoveFromGroupAsync` yöntemleri.
+Bir grubu, bir ad ile ilişkili bağlantılar koleksiyonudur. Bir gruptaki tüm bağlantılara ileti gönderilebilir. Grupları bir bağlantı veya birden çok bağlantı grupları uygulama tarafından yönetildiği göndermek için önerilen yoldur. Bir bağlantı, birden çok grubunun bir üyesi olabilir. Bu grup için bir sohbet uygulaması gibi burada her odanın bir grup olarak temsil edilebilir ideal hale getirir. Bağlantılar için eklendiğinde veya grupları kaldırıldığında `AddToGroupAsync` ve `RemoveFromGroupAsync` yöntemleri.
 
 [!code-csharp[Hub methods](groups/sample/hubs/chathub.cs?range=15-27)]
 
-Bir bağlantı bağlandığında grup üyeliği korunur değil. Bağlantı yeniden kurulduğunda gruba katılmaya gerekir. Bu bilgiler uygulamanın birden çok sunucuya ölçeklendirilir kullanılabilir olmadığından bir grubun üyelerini saymak mümkün değildir.
+Bir bağlantı bağlandığında, grup üyeliği korunmaz. Bağlantı yeniden kurulduğunda gruba katılabilir gerekir. Bu bilgiler uygulamanın birden çok sunucuya ölçeklendirilirse kullanılabilir olmadığından, bir grubun üyelerinin sayısı mümkün değildir.
 
 > [!NOTE]
 > Grup adları büyük/küçük harfe duyarlıdır.

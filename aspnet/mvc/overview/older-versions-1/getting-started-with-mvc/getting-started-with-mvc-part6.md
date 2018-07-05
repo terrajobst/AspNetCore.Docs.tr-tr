@@ -1,71 +1,70 @@
 ---
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part6
-title: Ekleme bir yöntem ve görünüm oluşturun | Microsoft Docs
+title: Ekleme bir yöntem oluşturma ve oluşturma görünümü | Microsoft Docs
 author: shanselman
-description: ASP.NET MVC temelleri tanıtır bir başlangıç Öğreticisi budur. Okuyan ve yazan bir veritabanından basit bir web uygulaması oluşturun.
+description: ASP.NET MVC ile ilgili temel bilgileri tanıtan bir başlangıç Öğreticisi budur. Okuyan ve yazan bir veritabanından basit bir web uygulaması oluşturun.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/14/2010
 ms.topic: article
 ms.assetid: a3a90963-0286-4fa0-9b3d-c230cc18b0a3
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part6
 msc.type: authoredcontent
-ms.openlocfilehash: 48e656a0c394b9db5baaec9c557ec38c4020d41b
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 976df78ea22c30c094f70a57792d287f15d2c62d
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/10/2018
-ms.locfileid: "30867989"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37400914"
 ---
-<a name="adding-a-create-method-and-create-view"></a>Ekleme bir yöntem ve görünüm oluşturun
+<a name="adding-a-create-method-and-create-view"></a>Ekleme bir yöntem oluşturma ve oluşturma görünümü
 ====================
 tarafından [Scott Hanselman](https://github.com/shanselman)
 
-> ASP.NET MVC temelleri tanıtır bir başlangıç Öğreticisi budur. Okuyan ve yazan bir veritabanından basit bir web uygulaması oluşturacaksınız. Ziyaret [ASP.NET MVC öğrenme Merkezi](../../../index.md) diğer ASP.NET MVC öğreticiler ve örnekleri bulunamadı.
+> ASP.NET MVC ile ilgili temel bilgileri tanıtan bir başlangıç Öğreticisi budur. Okuyan ve yazan bir veritabanından basit bir web uygulaması oluşturacaksınız. Ziyaret [ASP.NET MVC eğitim Merkezi](../../../index.md) diğer ASP.NET MVC, öğreticilerimiz ve örneklerimizden bulunacak.
 
 
-Bu bölümde biz kullanıcıların yeni filmler bizim veritabanında oluşturmak gerekli destek uygulamak için adımıdır. Biz, filmler/Oluştur URL eylemi uygulayarak gerçekleştirirsiniz.
+Bu bölümde yeni filmler veritabanımızda yer oluşturmak için kullanıcıları etkinleştirmek için gereken destek uygulamak için kullanacağız. Biz, filmler/Create URL eylemi uygulayarak yaparsınız.
 
-Film/Oluştur URL uygulama iki aşamalı bir işlemdir. Bir kullanıcı ilk filmler/Oluştur URL'yi ziyaret ettiğinde, yeni bir filmi girmek için doldurmak bir HTML formuna göstermek istiyoruz. Kullanıcı verileri sunucuya geri gönderileri ve formu gönderdiğinde, daha sonra gönderilen içeriği almak ve Veritabanımıza kaydetmek istiyoruz.
+Filmler/Create URL'sini uygulama iki adımlı bir işlemdir. Bir kullanıcı ilk filmler/Create URL'sini ziyaret ettiğinde, yeni bir film girmek için doldurun bir HTML formuna göstermek istiyoruz. Kullanıcı gönderileri sunucuya verileri yedekleyin ve formu gönderdiğinde, ardından, gönderilen içeriği almak ve bizim veritabanına kaydetmek istiyoruz.
 
-Biz bu iki adımı iki Create() yöntemleri içinde bizim MoviesController sınıf içinde uygulama. Bir yöntemi gösterir &lt;form&gt; kullanıcı yeni bir filmi oluşturmak için doldurmak olduğunu. İkinci yöntem kullanıcı gönderdiğinde gönderilen veri işleme işleyecek &lt;form&gt; yedekleme sunucusuna ve bizim veritabanı içinde yeni bir filmi kaydedin.
+Biz bizim MoviesController sınıfı içinde iki Create() yöntemler içindeki iki adımları uygulayacaksınız. Bir yöntemi gösterir &lt;form&gt; kullanıcı yeni bir film oluşturmak için doldurun. İkinci yöntem, kullanıcı gönderdiğinde gönderilen verilerin işlenmesi işleyecek &lt;form&gt; tekrar sunucuya ve yeni bir film veritabanımızdaki içinde kaydedin.
 
-Aşağıdaki kod olduğundan bu uygulanacak bizim MoviesController sınıf ekleyeceğiz:
+Aşağıdaki kodu Bunu uygulamak için sunduğumuz MoviesController sınıf ekleyeceğiz:
 
 [!code-csharp[Main](getting-started-with-mvc-part6/samples/sample1.cs)]
 
-Yukarıdaki kod tüm bizim denetleyiciyle yapmamız gereken kod içerir.
+Yukarıdaki kod içinde Denetleyicimizin yapmamız gereken kodu içerir.
 
-Şimdi bir form kullanıcıya görüntülenecek kullanacağız Create VIEW şablonu şimdi uygulayın. Biz ilk oluşturma yöntemini sağ tıklayın ve film formumuzun görünüm şablonu oluşturmak için "Görünüm Ekle" seçin.
+Şimdi bir form kullanıcıya görüntülenecek kullanacağız Görünüm Oluştur şablonu hemen uygulayın. Biz ilk oluşturma yönteminde sağ tıklayın ve film formumuzu görünüm şablonu oluşturmak için "Görünüm Ekle"'ı seçin.
 
-Biz biz "Film" şablonu görüntüleme geçirmek için Görünüm veri sınıfı giderek ve "Şablon"Oluştur"iskele" istediğimizi belirten seçersiniz.
+Biz şablonu görüntüle "Film" geçirmek için Görünüm veri sınıfı gitme ve "Şablon"Oluştur"iskelesini" istediğimizi belirten seçeneğini belirleyeceğiz.
 
 [![Görünüm Ekle](getting-started-with-mvc-part6/_static/image2.png)](getting-started-with-mvc-part6/_static/image1.png)
 
-Ekle düğmesine tıkladıktan sonra şablonu \Movies\Create.aspx görüntüleme sizin için oluşturulur. "Oluştur" "içeriğini görüntüleme" aşağı açılır listeden seçilmediğinden Görünüm Ekle iletişim kutusu otomatik olarak "bazı varsayılan içerik bize için iskele kurulmuş". Bir HTML yapı iskelesi oluşturulmuş &lt;form&gt;, doğrulama hatası için bir yer iletileri Git ve yapı iskelesi filmler hakkında bilir olduğundan, etiket ve alanları bizim sınıfın her bir özellik için oluşturulduğu.
+Ekle düğmesine tıkladıktan sonra \Movies\Create.aspx görünümü şablon sizin için oluşturulur. "Oluştur" "içeriği görüntüleme" açılan listeden seçilmediğinden Görünüm Ekle iletişim kutusu otomatik olarak "bazı varsayılan içerik bizim için iskele kurulmuş". Bir HTML yapı iskelesi oluşturulmuş &lt;form&gt;gitmek için bir alan doğrulama hatası iletileri ve yapı iskelesi filmler hakkında bilmesi olduğundan, etiket ve alanları bizim sınıfın her bir özellik için oluşturulan.
 
 [!code-aspx[Main](getting-started-with-mvc-part6/samples/sample2.aspx)]
 
-Şimdi Veritabanımıza Kimliğini otomatik olarak bir filmi sağlandığından, bu alanları bu başvuru modeli kaldırın. Bizim oluşturma görünümünden kimliği. Sonra 7 satırları kaldırmak &lt;gösterge&gt;alanları&lt;/legend&gt; biz istemediğiniz ID alanı gösterdikleri gibi.
+Şimdi veritabanımızdaki bir kimliği otomatik olarak bir filmi sağlandığından, bu alanlar, başvuru modeli kaldırın. Bizim Oluştur görünümünün kimliği. Sonra 7 satırları kaldırmak &lt;gösterge&gt;alanları&lt;/legend&gt; biz istemiyorsanız, kimlik alanının gösterildiği gibi.
 
-Şimdi yeni bir filmi oluşturabilir ve veritabanına ekleyin. Biz uygulamayı yeniden çalıştırarak bunu ve ziyaret "/ filmler" "Oluştur" bağlantı URL'si ve tıklatın yeni film eklemek için.
+Şimdi artık yeni bir film oluşturabilir ve veritabanına ekleyin. Biz bunu uygulamayı yeniden çalıştırarak ve ziyaret edin "/ filmler" URL'si ve tıklayın "Oluştur" bağlantısını yeni bir film eklemek için.
 
-[![Oluşturma - Windows Internet Explorer](getting-started-with-mvc-part6/_static/image4.png)](getting-started-with-mvc-part6/_static/image3.png)
+[![Oluştur - Windows Internet Explorer](getting-started-with-mvc-part6/_static/image4.png)](getting-started-with-mvc-part6/_static/image3.png)
 
-Biz Oluştur düğmesine tıkladığınızda, size geri (HTTP POST) yeni oluşturduğumuz /Movies/Create yöntemi için bu formu verileri nakil. Yalnızca zaman sistemi otomatik olarak "numTimes" ve "name" parametre URL dışında sürdü ve daha önce bir yöntem parametrelerine eşlenen gibi sistem otomatik olarak bir GÖNDERİYE Form alanlarını alın ve nesneye eşleştirebilirsiniz. Bu durumda, "ReleaseDate" ve "Title" gibi HTML alanlarındaki değerleri otomatik olarak bir filmi yeni bir örneğini doğru özelliklerini yerleştirilecek.
+Biz Oluştur düğmesine tıkladığınızda, size geri (HTTP POST) oluşturduğumuz /Movies/Create yöntemi için bu formdaki verileri gönderme. Yalnızca zaman sistem otomatik olarak URL dışında "numTimes" ve "name" parametresi sürdü ve daha önce bir yöntem parametreleri eşlenen gibi sistem otomatik olarak Form alanlarını bir YAYININDAN alın ve bunları bir nesneye eşleyin. Bu durumda, "ReleaseDate" ve "Title" gibi HTML alanlarındaki değerleri otomatik olarak bir filmi yeni bir örneğini doğru özelliklerine yerleştirilir.
 
-At ikinci oluşturma yöntemi bizim MoviesController yeniden bakalım. Bağımsız değişken olarak bir "Film" nesnesi nasıl sürdüğünü dikkat edin:
+İkinci oluşturma yöntemi bizim MoviesController yeniden göz atalım. Bağımsız değişken olarak bir "Film" nesnesini nasıl sürdüğünü dikkat edin:
 
 [!code-csharp[Main](getting-started-with-mvc-part6/samples/sample3.cs)]
 
-Bu film nesnesi sonra bizim Create eylem yöntemi [HttpPost] sürümüne geçirildi ve veritabanına kaydedilir ve geri kaydedilen sonuç film listesinde gösterecektir İNDİS() eylem yöntemi için kullanıcı yönlendirilir:
+Bu film nesne ardından bizim oluşturma eylem yöntemi [HttpPost] sürümüne geçirildi ve veritabanına kaydedilir ve kullanıcı kaydedilen sonuç film listesinde gösteren geri İNDİS() eylem yöntemine yeniden yönlendirildi:
 
 [![Film listesi - Windows Internet Explorer](getting-started-with-mvc-part6/_static/image6.png)](getting-started-with-mvc-part6/_static/image5.png)
 
-Bizim filmler ancak doğru olduğundan ve veritabanının bize bir filmi başlığı ile kaydetmek izin vermiyor denetleniyor değil. Şu hata oluştu, veritabanı önce kullanıcı söyleyebilirsiniz iyi olacaktır. Biz bu sonraki uygulamamız için doğrulama desteği ekleyerek gerçekleştirirsiniz.
+Bizim filmler ancak doğru olduğundan ve veritabanının bir filmi başlığı ile kaydetmek bize izin vermiyor denetimi değildir. Biz bir hata oluşturdu, veritabanı önce kullanıcı söyleyebilirsiniz iyi olurdu. Biz bu İleri uygulamamıza doğrulama desteği ekleyerek yaparsınız.
 
 > [!div class="step-by-step"]
 > [Önceki](getting-started-with-mvc-part5.md)
-> [sonraki](getting-started-with-mvc-part7.md)
+> [İleri](getting-started-with-mvc-part7.md)

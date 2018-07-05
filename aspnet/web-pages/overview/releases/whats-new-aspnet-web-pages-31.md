@@ -9,30 +9,29 @@ ms.date: 01/20/2014
 ms.topic: article
 ms.assetid: 97ac3da0-2141-4904-aa05-27e280db1e4e
 ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/releases/whats-new-aspnet-web-pages-31
 msc.type: authoredcontent
-ms.openlocfilehash: 82f77e8481cb04a68d81c1ef78c65f0b033410ae
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3ccbe87e980acf7b11da1e4b54f8b2bb01157fe0
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26573159"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37400084"
 ---
-<a name="whats-new-in-aspnet-web-pages-31"></a>ASP.NET Web sayfaları 3.1 yenilikler nelerdir?
+<a name="whats-new-in-aspnet-web-pages-31"></a>ASP.NET Web sayfaları 3.1 yenilikler
 ====================
 tarafından [Microsoft](https://github.com/microsoft)
 
 Bu konuda, ASP.NET Web sayfaları 3.1 için Yenilikler açıklanmaktadır.
 
-Bu sürüm hataları düzeltir ve yeni özellikler sunmaz.
+Bu sürüm, hataları düzeltir ve yeni özellikler sunmaz.
 
 <a id="download"></a>
 ## <a name="download"></a>İndir
 
-Çalışma zamanı özellikleri NuGet galerisinde NuGet paketlerini olarak yayımlanmıştır. Tüm çalışma zamanı paketleri izleyin [anlamsal sürüm oluşturma](http://semver.org/) belirtimi. En son ASP.NET Web sayfaları 3.1 RTM paketini aşağıdaki sürümü vardır: "3.1.2". Yükleme veya güncelleştirme bu paketleri yoluyla [NuGet](http://www.nuget.org/packages/Microsoft.AspNet.WebPages/). Sürüm, karşılık gelen yerelleştirilmiş NuGet paketlerini de içerir.
+Çalışma zamanı özellikleri, NuGet galerisindeki NuGet paketleri olarak kullanıma sunulur. Tüm çalışma zamanı paketlerini izleyin [Semantic Versioning](http://semver.org/) belirtimi. ASP.NET Web sayfaları 3.1 RTM paketi en son sürümü var: "3.1.2". Yükleme veya güncelleştirme yoluyla bu paketleri [NuGet](http://www.nuget.org/packages/Microsoft.AspNet.WebPages/). Sürüm, karşılık gelen yerelleştirilmiş NuGet paketleri de içerir.
 
-Yükleme veya NuGet Paket Yöneticisi konsolu kullanılarak yayımlanan NuGet paketlerini güncelleştirin:
+NuGet Paket Yöneticisi konsolu kullanarak için kullanıma sunulan NuGet paketlerini güncelleştirin ya da yükleyin:
 
 [!code-console[Main](whats-new-aspnet-web-pages-31/samples/sample1.cmd)]
 

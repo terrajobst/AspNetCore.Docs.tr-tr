@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-10
-title: Azure Azure App Service'e uygulama yayımlama | Microsoft Docs
+title: Azure App Service'e Azure uygulama yayımlama | Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
@@ -9,54 +9,53 @@ ms.date: 06/16/2014
 ms.topic: article
 ms.assetid: 10fd812b-94d6-4967-be97-a31ce9c45e2c
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-10
 msc.type: authoredcontent
-ms.openlocfilehash: cc8a9199144e9fac041435938ea8899374ea199f
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 0290b392c1b292d0f3cc080dbfa25ec6103b2751
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30867820"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37400810"
 ---
-<a name="publish-the-app-to-azure-azure-app-service"></a>Azure Azure App Service'e uygulamayı yayımlama
+<a name="publish-the-app-to-azure-azure-app-service"></a>Uygulamayı Azure Azure App Service'e yayımlama
 ====================
-tarafından [CAN Wasson](https://github.com/MikeWasson)
+tarafından [Mike Wasson](https://github.com/MikeWasson)
 
-[Tamamlanan projenizi indirin](https://github.com/MikeWasson/BookService)
+[Projeyi yükle](https://github.com/MikeWasson/BookService)
 
-Son adım olarak, uygulamayı Azure'a yayımlayacak. Çözüm Gezgini'nde projeye sağ tıklayın ve seçin **Yayımla**.
+Son adım olarak, uygulamayı azure'a yayımlayacaksınız. Çözüm Gezgini'nde projeye sağ tıklayıp seçin **Yayımla**.
 
 ![](part-10/_static/image1.png)
 
-Tıklatarak **Yayımla** çağırır **Web'i Yayımla** iletişim. İşaretlendiğinde, **buluttaki konağa** zaman ilk proje sonra bağlantı oluşturulur ve ayarlar zaten yapılandırılmış. Bu durumda, yalnızca tıklatın **ayarları** sekmesinde ve denetleyin &quot;Code First Migrations yürütme&quot;. (Onay kaydetmedi **buluttaki konağa** başında sonra adımları [sonraki bölümde](#new-website).)
+Tıklayarak **Yayımla** çağırır **Web'i Yayımla** iletişim. İşaretlediyseniz **buluttaki konak** zaman önce proje sonra bağlantı oluşturduğunuz ve ayarları zaten yapılandırıldı. Bu durumda, tıklamanız yeterlidir **ayarları** denetleyin ve sekme &quot;yürütme Code First Migrations&quot;. (Siz işaretlerseniz **buluttaki konak** başında, ardından adımları izleyin [sonraki bölümde](#new-website).)
 
 [![](part-10/_static/image3.png)](part-10/_static/image2.png)
 
-Uygulama dağıtmak için **Yayımla**. Yayımlama sürüyor görüntüleyebilirsiniz **Web yayımlama etkinliğini** penceresi. (Gelen **Görünüm** menüsünde, select **diğer pencereler**seçeneğini belirleyip **Web yayımlama etkinliğini**.)
+Uygulamayı dağıtmak için **Yayımla**. Yayımlama ilerleme durumunu görüntüleyebileceğiniz **Web yayımlama etkinliği** penceresi. (Gelen **görünümü** menüsünde **diğer Windows**, ardından **Web yayımlama etkinliği**.)
 
 ![](part-10/_static/image4.png)
 
-Visual Studio uygulama dağıtma sona erdiğinde, varsayılan tarayıcı otomatik olarak dağıtılan Web sitesinin URL'sini açar ve oluşturduğunuz uygulama bulutta şu anda çalışıyor. Tarayıcı adres çubuğundaki URL'yi site Internet'ten yüklü olduğunu gösterir.
+Visual Studio uygulama dağıtımı tamamlandığında, varsayılan tarayıcı otomatik olarak dağıtılan Web sitesinin URL'sini açar ve oluşturduğunuz uygulama artık bulutta çalışıyor. Tarayıcı adres çubuğundaki URL, Internet'ten site yüklendiği gösterir.
 
 [![](part-10/_static/image6.png)](part-10/_static/image5.png)
 
 <a id="new-website"></a>
 ## <a name="deploying-to-a-new-website"></a>Yeni bir Web sitesine dağıtma
 
-Değil onay **buluttaki konağa** ilk proje oluşturduğunuzda, yeni bir web uygulaması artık yapılandırabilirsiniz. Çözüm Gezgini'nde projeye sağ tıklayın ve seçin **Yayımla**. Seçin **profil** sekmesinde **Microsoft Azure Web siteleri**. Azure için şu anda imzalı değil, oturum açmak için istenir.
+Değil kontrol ettiniz, **buluttaki konak** proje ilk oluşturulduğunda, yeni bir web uygulaması artık yapılandırabilirsiniz. Çözüm Gezgini'nde projeye sağ tıklayıp seçin **Yayımla**. Seçin **profili** sekmesine **Microsoft Azure Web siteleri**. Azure'da şu anda oturum açmadıysanız, oturum açmanız istenir.
 
 [![](part-10/_static/image8.png)](part-10/_static/image7.png)
 
-İçinde **mevcut Web siteleri** iletişim kutusunda, tıklatın **yeni**.
+İçinde **var olan Web siteleri** iletişim kutusunda, tıklayın **yeni**.
 
 ![](part-10/_static/image9.png)
 
-Bir site adı girin. Azure aboneliğinizi ve bölge seçin. Altında **veritabanı sunucusu**seçin **Create New Server**, var olan bir sunucu veya seçin. **Oluştur**'u tıklatın.
+Bir site adı girin. Azure aboneliğinizi ve bölgeyi seçin. Altında **veritabanı sunucusu**seçin **yeni sunucu oluşturma**, veya mevcut bir sunucu seçin. **Oluştur**'u tıklatın.
 
 [![](part-10/_static/image11.png)](part-10/_static/image10.png)
 
-' I tıklatın **ayarları** sekmesinde ve denetleme &quot;Code First Migrations yürütme&quot;. Ardından **Yayımla**.
+Tıklayın **ayarları** denetleyin ve sekme &quot;Code First Migrations yürütme&quot;. Ardından **Yayımla**.
 
 > [!div class="step-by-step"]
 > [Önceki](part-9.md)
