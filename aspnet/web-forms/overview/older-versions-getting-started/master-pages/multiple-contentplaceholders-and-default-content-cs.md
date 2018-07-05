@@ -1,191 +1,190 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/master-pages/multiple-contentplaceholders-and-default-content-cs
-title: Birden çok ContentPlaceHolders için ve varsayılan içerik (C#) | Microsoft Docs
+title: Birden çok ContentPlaceHolder ve varsayılan içerik (C#) | Microsoft Docs
 author: rick-anderson
-description: Ana sayfaya birden çok içerik yer tutucu ekleme ve bunun yanı sıra içinde içerik yer tutucu varsayılan içeriği belirtmek nasıl inceler.
+description: Ana sayfaya birden çok içerik yer tutucu ekleme ve bunun yanı sıra varsayılan içeriği içerik yer tutucu belirtmek nasıl inceler.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/21/2008
 ms.topic: article
 ms.assetid: b9b9798b-027d-46cc-9636-473378e437ac
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/multiple-contentplaceholders-and-default-content-cs
 msc.type: authoredcontent
-ms.openlocfilehash: b60017c21b4cf45081893af08e68186009475fd2
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 19c9d03d9aacdf842fb12bd16c83859ec4299d68
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30889062"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37390100"
 ---
-<a name="multiple-contentplaceholders-and-default-content-c"></a>Birden çok ContentPlaceHolders için ve varsayılan içerik (C#)
+<a name="multiple-contentplaceholders-and-default-content-c"></a>Birden çok ContentPlaceHolder ve varsayılan içerik (C#)
 ====================
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Kodu indirme](http://download.microsoft.com/download/e/e/f/eef369f5-743a-4a52-908f-b6532c4ce0a4/ASPNET_MasterPages_Tutorial_02_CS.zip) veya [PDF indirin](http://download.microsoft.com/download/8/f/6/8f6349e4-6554-405a-bcd7-9b094ba5089a/ASPNET_MasterPages_Tutorial_02_CS.pdf)
+[Kodu indir](http://download.microsoft.com/download/e/e/f/eef369f5-743a-4a52-908f-b6532c4ce0a4/ASPNET_MasterPages_Tutorial_02_CS.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/8/f/6/8f6349e4-6554-405a-bcd7-9b094ba5089a/ASPNET_MasterPages_Tutorial_02_CS.pdf)
 
-> Ana sayfaya birden çok içerik yer tutucu ekleme ve bunun yanı sıra içinde içerik yer tutucu varsayılan içeriği belirtmek nasıl inceler.
+> Ana sayfaya birden çok içerik yer tutucu ekleme ve bunun yanı sıra varsayılan içeriği içerik yer tutucu belirtmek nasıl inceler.
 
 
 ## <a name="introduction"></a>Giriş
 
-Önceki öğreticide biz nasıl etkinleştir ana sayfa incelenmesi tutarlı bir site genelinde düzen oluşturmak için ASP.NET geliştiricilerinin. Ana sayfalar, tüm içerik sayfalarını ortak biçimlendirme ve sayfa tarafından temelinde özelleştirilebilir bölgeleri tanımlayın. Önceki öğreticide oluşturduğumuz basit bir ana sayfa (`Site.master`) ve iki içerik sayfalarının (`Default.aspx` ve `About.aspx`). Adlı iki ContentPlaceHolders için ana sayfamızı oluşmuştur `head` ve `MainContent`, içinde bulunan `<head>` öğesi ve Web formu, sırasıyla. İçerik sayfaları her iki içerik denetimleri alırken, biz yalnızca karşılık gelen bir işaretleme belirtilen `MainContent`.
+Önceki öğreticide size nasıl etkinleştir ana sayfa incelenirken tutarlı site geneli bir düzen oluşturmak için ASP.NET geliştiricilerine. Ana sayfalar, tüm içerik sayfalarını yaygın biçimlendirme hem bir sayfa tarafından temelinde özelleştirilebilir bölgeleri tanımlayın. Önceki öğreticide oluşturduğumuz basit bir ana sayfa (`Site.master`) ve iki içerik sayfalarının (`Default.aspx` ve `About.aspx`). Ana sayfamızı adlı iki ContentPlaceHolder toplamda `head` ve `MainContent`, içinde bulunan `<head>` öğesi ve Web formu, sırasıyla. İçerik sayfaları her iki içerik denetimleri almışken için karşılık gelen bir biçimlendirme yalnızca belirlemiş `MainContent`.
 
-İki ContentPlaceHolder denetimlerinde tarafından yi gibi `Site.master`, bir ana sayfa birden fazla ContentPlaceHolders için içerebilir. Daha ana sayfa ContentPlaceHolder denetimleri için varsayılan biçimlendirmesini belirtebilir. Bir içerik sayfasını sonra isteğe bağlı olarak, kendi biçimlendirme belirtebilir veya varsayılan biçimlendirme kullanın. Bu öğreticide ana sayfasında birden çok içerik denetimlerini kullanarak arayın ve varsayılan biçimlendirme ContentPlaceHolder denetimlerinde tanımlamak bkz.
+İki ContentPlaceHolder denetimleri tarafından yi gibi `Site.master`, bir ana sayfa birden çok ContentPlaceHolder içerebilir. Bunun da ötesinde, ana sayfaya ContentPlaceHolder denetimler için varsayılan biçimlendirme belirtebilirsiniz. Bir içerik sayfasının sonra isteğe bağlı olarak kendi biçimlendirme belirtebilir veya varsayılan biçimlendirme kullanın. Bu öğreticide birden çok içerik denetimi kullanarak ana sayfasında bakın ve varsayılan biçimlendirme ContentPlaceHolder denetimleri tanımlamak bkz.
 
-## <a name="step-1-adding-additional-contentplaceholder-controls-to-the-master-page"></a>1. adım: Ana sayfaya ek ContentPlaceHolder denetimleri ekleme
+## <a name="step-1-adding-additional-contentplaceholder-controls-to-the-master-page"></a>1. adım: Ek ContentPlaceHolder denetimleri ana sayfasına ekleme
 
-Birçok Web sitesi tasarımı ekranında bir sayfa tarafından temelinde özelleştirilmiş çeşitli alanları içerir. `Site.master`, önceki öğreticide oluşturduğumuz ana sayfa içeren tek bir ContentPlaceHolder adlı Web formu içinde `MainContent`. Özellikle, bu ContentPlaceHolder içinde bulunduğu `mainContent` `<div>` öğesi.
+Birçok Web sitesi tasarımı ekranında bir sayfa tarafından temelinde özelleştirilmiş çeşitli alanları içerir. `Site.master`, önceki öğreticide oluşturduğumuz ana sayfayı içeren tek bir ContentPlaceHolder adlandırılan Web formu içinde `MainContent`. Özellikle, bu ContentPlaceHolder içinde bulunduğu `mainContent` `<div>` öğesi.
 
 Şekil 1 gösterir `Default.aspx` bir tarayıcıdan görüntülendiğinde. Kırmızı daire içinde karşılık gelen sayfaya özgü biçimlendirme bölgedir `MainContent`.
 
 
-[![Daire içinde Bölge alanı şu anda özelleştirilebilir bir sayfa tarafından temelinde gösterir](multiple-contentplaceholders-and-default-content-cs/_static/image2.png)](multiple-contentplaceholders-and-default-content-cs/_static/image1.png)
+[![Daire içinde Bölge alanı şu anda özelleştirilebilir sayfa tarafından temelinde gösterir](multiple-contentplaceholders-and-default-content-cs/_static/image2.png)](multiple-contentplaceholders-and-default-content-cs/_static/image1.png)
 
-**Şekil 01**: Circled Bölge alanı şu anda özelleştirilebilir bir sayfa tarafından temelinde gösterir ([tam boyutlu görüntüyü görüntülemek için tıklatın](multiple-contentplaceholders-and-default-content-cs/_static/image3.png))
-
-
-Şekil 1'de gösterilen bölge ek olarak, biz de dersleri ve haber altındaki sol sütunda sayfaya özgü öğeleri eklemek gerektiğini düşünün bölümler. Bunu başarmak için başka bir ContentPlaceHolder denetimi ana sayfaya ekleriz. Takip açmak `Site.master` ana sayfa Visual Web Developer ve ContentPlaceHolder denetimi tasarımcıya araç sonra haber bölümüne sürükleyin. ContentPlaceHolder's ayarlamak `ID` için `LeftColumnContent`.
+**Şekil 01**: sayfa tarafından temelinde alanı şu anda özelleştirilebilir Circled bölgenizi görebilirsiniz ([tam boyutlu görüntüyü görmek için tıklatın](multiple-contentplaceholders-and-default-content-cs/_static/image3.png))
 
 
-[![Ana sayfanın sol sütunda ContentPlaceHolder denetim ekleme](multiple-contentplaceholders-and-default-content-cs/_static/image5.png)](multiple-contentplaceholders-and-default-content-cs/_static/image4.png)
-
-**Şekil 02**: ana sayfanın sol sütun ContentPlaceHolder denetim ekleme ([tam boyutlu görüntüyü görüntülemek için tıklatın](multiple-contentplaceholders-and-default-content-cs/_static/image6.png))
+Şekil 1'de gösterilen bölge yanı sıra, biz de sayfaya özgü öğeleri dersler ve haber altındaki sol sütuna eklemeniz gerektiğini Imagine bölümler. Bunu yapmak için biz ContentPlaceHolder denetimi başka bir ana sayfaya ekleyin. Örneği takip etmek için açık `Site.master` ana sayfa Visual Web Developer ve ardından ContentPlaceHolder denetimi araç kutusundan tasarımcıya sonra Haberler bölümü sürükleyin. ContentPlaceHolder'ın ayarlamak `ID` için `LeftColumnContent`.
 
 
-Eklenmesi ile `LeftColumnContent` ContentPlaceHolder ana sayfaya biz tanımlayabilirsiniz içerik bu bölge için bir sayfa tarafından temelinde içerik ekleyerek sayfasında özelliği kontrol `ContentPlaceHolderID` ayarlanır `LeftColumnContent`. Adım 2. Bu işlem inceleyeceğiz.
+[![Ana sayfanın sol sütuna ContentPlaceHolder denetim ekleme](multiple-contentplaceholders-and-default-content-cs/_static/image5.png)](multiple-contentplaceholders-and-default-content-cs/_static/image4.png)
 
-## <a name="step-2-defining-content-for-the-new-contentplaceholder-in-the-content-pages"></a>2. adım: İçerik yeni ContentPlaceHolder için içerik sayfalarına tanımlama
+**Şekil 02**: ana sayfanın sol sütuna ContentPlaceHolder denetim ekleme ([tam boyutlu görüntüyü görmek için tıklatın](multiple-contentplaceholders-and-default-content-cs/_static/image6.png))
 
-Yeni bir içerik sayfa Web sitesine eklerken, Visual Web Developer içerik otomatik olarak oluşturur. her ContentPlaceHolder seçili ana sayfa içinde sayfa denetiminde. Eklenen bir `LeftColumnContent` ana sayfamızı 1. adımda yeni ASP.NET sayfaları şimdi ContentPlaceHolder üç içerik denetimleri vardır.
 
-Bunu göstermek için yeni bir içerik sayfasını adlı kök dizinine ekleme `MultipleContentPlaceHolders.aspx` için bağlı `Site.master` ana sayfa. Visual Web Developer bu sayfa ile aşağıdaki bildirim temelli biçimlendirme oluşturur:
+Ek olarak `LeftColumnContent` ContentPlaceHolder ana sayfaya tanımlarız içerik bu bölge için bir sayfa tarafından temelinde içerik ekleyerek sayfasında ayarlanmış denetim `ContentPlaceHolderID` ayarlanır `LeftColumnContent`. Bu işlem 2. adım inceleyeceğiz.
+
+## <a name="step-2-defining-content-for-the-new-contentplaceholder-in-the-content-pages"></a>2. adım: Yeni ContentPlaceHolder içeriği içerik sayfalarında tanımlama
+
+Yeni bir içerik sayfası Web sitesine eklerken, Visual Web Developer içerik otomatik olarak oluşturur. seçilen ana sayfasında her ContentPlaceHolder sayfasını denetimi. Eklenen bir `LeftColumnContent` ContentPlaceHolder bizim ana sayfaya, adım 1 ' yeni ASP.NET sayfaları artık üç içerik denetimleri vardır.
+
+Bunu açıklamak üzere; adlı kök dizinine yeni bir içerik sayfası Ekle `MultipleContentPlaceHolders.aspx` bağlanan `Site.master` ana sayfa. Visual Web Developer bu sayfa aşağıdaki bildirim temelli biçimlendirme oluşturur:
 
 [!code-aspx[Main](multiple-contentplaceholders-and-default-content-cs/samples/sample1.aspx)]
 
-İçerik denetimi başvuran içine bazı içerikler girin `MainContent` ContentPlaceHolders için (`Content2`). Ardından, aşağıdaki biçimlendirme eklemek `Content3` içerik denetimi (hangi başvuruları `LeftColumnContent` ContentPlaceHolder):
+İçerik denetimi başvuru içine bazı içeriğini girin `MainContent` ContentPlaceHolder (`Content2`). Ardından, aşağıdaki biçimlendirme eklemek `Content3` içerik denetimi (başvuran `LeftColumnContent` ContentPlaceHolder):
 
 [!code-html[Main](multiple-contentplaceholders-and-default-content-cs/samples/sample2.html)]
 
-Bu biçimlendirme eklendikten sonra bir tarayıcı aracılığıyla sayfasını ziyaret edin. Şekil 3'te gösterildiği gibi biçimlendirme yerleştirilen `Content3` içerik denetimi (kırmızı daire içinde) haber bölümü altındaki sol sütunda görüntülenir. İşaretleme yerleştirilen `Content2` (mavi renkte yuvarlak içine alınmıştır) sayfasının sağ kısmında görüntülenir.
+Bu işaretleme ekledikten sonra bir tarayıcı aracılığıyla sayfasını ziyaret edin. Şekil 3'te gösterildiği gibi biçimlendirme yerleştirilen `Content3` içerik denetimi sol sütunda (kırmızı daire içinde) Haberler bölümü altında görüntülenir. Biçimlendirme yerleştirilen `Content2` (mavi daire içinde) sayfanın sağ tarafında görüntülenir.
 
 
-[![Sol sütunda şimdi sayfaya özgü haber bölümü altındaki içeriği](multiple-contentplaceholders-and-default-content-cs/_static/image8.png)](multiple-contentplaceholders-and-default-content-cs/_static/image7.png)
+[![Sol sütunda Haberler bölümü altındaki sayfaya özel içeriği artık içerir.](multiple-contentplaceholders-and-default-content-cs/_static/image8.png)](multiple-contentplaceholders-and-default-content-cs/_static/image7.png)
 
-**Şekil 03**: sol sütun şimdi içeren sayfaya özgü içerik altındaki haber bölümü ([tam boyutlu görüntüyü görüntülemek için tıklatın](multiple-contentplaceholders-and-default-content-cs/_static/image9.png))
+**Şekil 03**: sol sütunu artık içeren sayfaya özgü içerik altındaki Haberler bölümü ([tam boyutlu görüntüyü görmek için tıklatın](multiple-contentplaceholders-and-default-content-cs/_static/image9.png))
 
 
-### <a name="defining-content-in-existing-content-pages"></a>Var olan içerik sayfalarında içerik tanımlama
+### <a name="defining-content-in-existing-content-pages"></a>Mevcut içerik sayfalarındaki tanımlayan içeriği
 
-Yeni bir içerik sayfasını otomatik olarak oluşturma, 1. adımda eklediğimiz ContentPlaceHolder denetimi içerir. Ancak, iki mevcut içerik sayfaları - `About.aspx` ve `Default.aspx` -içerik denetimi için sizde `LeftColumnContent` ContentPlaceHolder. Bu iki varolan sayfalarındaki bu ContentPlaceHolder için içeriği belirtmek için size bir içerik denetimi kendisini eklemeniz gerekir.
+Yeni içerik sayfası otomatik olarak oluşturma, 1. adımda eklediğimiz ContentPlaceHolder denetimi içerir. Ancak iki mevcut içerik sayfalarımızın - `About.aspx` ve `Default.aspx` -için bir içerik denetimi sizde `LeftColumnContent` ContentPlaceHolder. Bu iki mevcut sayfalarında bu ContentPlaceHolder için içeriği belirtmek için size bir içerik denetimi kendimize eklemeniz gerekir.
 
-Çoğu ASP.NET Web denetimleri, bir içerik denetimi öğesi Visual Web Developer araç içermez. Biz el ile kaynak görünüme içerik denetimin bildirim temelli biçimlendirmede yazabilirsiniz, ancak daha kolay ve hızlı bir yaklaşım Tasarım görünümüne kullanmaktır. Açık `About.aspx` sayfasında ve Tasarım görünümüne geçin. Şekil 4'te gösterildiği gibi `LeftColumnContent` ContentPlaceHolder Tasarım görünümünde görüntülenir; üzerine fare, gördüğü başlık okur: "LeftColumnContent (ana)." "Ana" ekleme başlığında bu ContentPlaceHolder için sayfada tanımlı hiçbir içerik denetimi gösterir. Söz konusu olduğu gibi ContentPlaceHolder için içerik denetimi varsa `MainContent`, başlığını okuyun: "*ContentPlaceHolderID* (özel)."
+Çoğu ASP.NET Web denetimleri farklı olarak, Visual Web Developer araç içerik denetimi öğesi içermiyor. Biz el ile kaynak görünüme içerik denetiminin bildirim temelli işaretlemede yazabilirsiniz, ancak daha kolay ve hızlı bir yaklaşım Tasarım görünümünde kullanmaktır. Açık `About.aspx` sayfasında ve Tasarım görünümüne geçin. Şekil 4'te gösterildiği gibi `LeftColumnContent` üzerine fare, gördüğü başlık okur; ContentPlaceHolder Tasarım görünümünde görüntülenir: "LeftColumnContent (ana)." "Ana" eklenmesi başlık, sayfada bu ContentPlaceHolder için tanımlı hiçbir içerik denetimi olduğunu gösterir. İçin olduğu gibi ContentPlaceHolder için bir içerik denetimi varsa `MainContent`, başlık okuyacaksa: "*ContentPlaceHolderID* (özel)."
 
-İçerik denetimi için eklemek için `LeftColumnContent` için ContentPlaceHolder `About.aspx`, ContentPlaceHolder'ın akıllı etiket genişletin ve oluşturmak özel içerik bağlantısına tıklayın.
+İçin bir içerik denetimi eklemek için `LeftColumnContent` ContentPlaceHolder için `About.aspx`ContentPlaceHolder'ın akıllı etiket genişletin ve özel içerik oluşturma bağlantısına tıklayın.
 
 
 [![LeftColumnContent ContentPlaceHolder About.aspx Tasarım görünümünü gösterir](multiple-contentplaceholders-and-default-content-cs/_static/image11.png)](multiple-contentplaceholders-and-default-content-cs/_static/image10.png)
 
-**Şekil 04**: Tasarım görünümünü `About.aspx` gösterir `LeftColumnContent` ContentPlaceHolder ([tam boyutlu görüntüyü görüntülemek için tıklatın](multiple-contentplaceholders-and-default-content-cs/_static/image12.png))
+**Şekil 04**: Tasarım görünümü `About.aspx` gösterir `LeftColumnContent` ContentPlaceHolder ([tam boyutlu görüntüyü görmek için tıklatın](multiple-contentplaceholders-and-default-content-cs/_static/image12.png))
 
 
-Özel içerik oluşturma bağlantı tıklatıldığında oluşturur gerekli içerik denetim sayfası ve kümeleri kendi `ContentPlaceHolderID` ContentPlaceHolder'ın özelliğine `ID`. Örneğin, özel içeriği Oluştur bağlantısını tıklatarak `LeftColumnContent` bölgede `About.aspx` sayfaya aşağıdaki bildirim temelli biçimlendirme ekler:
+Özel içerik oluşturma bağlantısını oluşturur gerekli içerik denetimi sayfası ve kümeleri kendi `ContentPlaceHolderID` ContentPlaceHolder'ın özelliğini `ID`. Örneğin, özel içerik oluşturma bağlantısına tıklayarak `LeftColumnContent` bölgede `About.aspx` sayfaya aşağıdaki bildirim temelli biçimlendirme ekler:
 
 [!code-aspx[Main](multiple-contentplaceholders-and-default-content-cs/samples/sample3.aspx)]
 
 ### <a name="omitting-content-controls"></a>İçerik denetimleri atlama
 
-ASP.NET, tüm içerik sayfalarının ana sayfa içinde tanımlanan her ContentPlaceHolder için içerik denetimleri içerir gerektirmez. İçerik denetimi atlanırsa, ASP.NET altyapısı ana sayfasında ContentPlaceHolder içinde tanımlanan biçimlendirme kullanır. Bu biçimlendirme ContentPlaceHolder 's adlandırılır *varsayılan içerik* ve burada içeriği için bazı bölge sayfaları, çoğu arasında ortak ancak gerekiyor küçük bir sayfa sayısı için özelleştirilmiş senaryolarda kullanışlıdır. 3. adım ana sayfanın belirtilmesini varsayılan içeriğinde araştırır.
+Tüm içerik sayfalarının ana sayfasında tanımlanan her ContentPlaceHolder için içerik denetimleri içeren ASP.NET gerektirmez. Bir içerik denetimi atlanırsa, ASP.NET altyapısı ContentPlaceHolder ana sayfaya'içinde tanımlanan biçimlendirme kullanır. Bu işaretleme ContentPlaceHolder ın adlandırılır *varsayılan içerik* ve içeriği için bazı bölge sayfaları, çoğu arasında ortak olan ancak gereken yere sayfaları için az sayıda özelleştirilmesi gereken senaryolarda yararlıdır. 3. adım belirten varsayılan içerik ana sayfasında keşfediyor.
 
-Şu anda `Default.aspx` için iki içerik denetimi içeren `head` ve `MainContent` ContentPlaceHolders için; içerik denetimi için yok `LeftColumnContent`. Sonuç olarak, ne zaman `Default.aspx` işlenen `LeftColumnContent` ContentPlaceHolder'ın varsayılan içerik kullanılır. Herhangi bir varsayılan içerik için bu ContentPlaceHolder tanımlamak henüz çünkü net biçimlendirme yok Bu bölgede yayınlanır etkisidir. Bu davranış doğrulamak için ziyaret `Default.aspx` bir tarayıcı aracılığıyla. Şekil 5 gösterildiği gibi biçimlendirme yok haber bölümü altındaki sol sütunda yayınlanır.
+Şu anda `Default.aspx` için iki içerik denetimlerini içeren `head` ve `MainContent` ContentPlaceHolder; için bir içerik denetimi yok `LeftColumnContent`. Sonuç olarak, `Default.aspx` işlenen `LeftColumnContent` ContentPlaceHolder'ın varsayılan içerik kullanılır. Herhangi bir varsayılan içerik için bu ContentPlaceHolder tanımlamak henüz, net etkisiyle biçimlendirme yok Bu bölge için yayıldığını olmasıdır. Bu davranış doğrulamak için ziyaret edin `Default.aspx` bir tarayıcı aracılığıyla. Şekil 5 gösterildiği gibi biçimlendirme yok sol sütunda Haberler bölümü altında yayınlanır.
 
 
 [![İçerik için LeftColumnContent ContentPlaceHolder işlenir](multiple-contentplaceholders-and-default-content-cs/_static/image14.png)](multiple-contentplaceholders-and-default-content-cs/_static/image13.png)
 
-**Şekil 05**: Hayır içerik işlenen için `LeftColumnContent` ContentPlaceHolder ([tam boyutlu görüntüyü görüntülemek için tıklatın](multiple-contentplaceholders-and-default-content-cs/_static/image15.png))
+**Şekil 05**: içerik yok işlenen için `LeftColumnContent` ContentPlaceHolder ([tam boyutlu görüntüyü görmek için tıklatın](multiple-contentplaceholders-and-default-content-cs/_static/image15.png))
 
 
-## <a name="step-3-specifying-default-content-in-the-master-page"></a>3. adım: Varsayılan içerik ana sayfasında belirtme
+## <a name="step-3-specifying-default-content-in-the-master-page"></a>3. adım: Varsayılan içerik ana sayfada belirtme
 
-Bazı Web sitesi tasarımları içerikleri bir veya iki özel durumlar dışında sitedeki tüm sayfalar için aynı olan bir bölge içerir. Kullanıcı hesaplarını destekleyen bir Web sitesi göz önünde bulundurun. Bu tür bir site ziyaretçilerini siteye imzalamak için kendi kimlik bilgilerini girebilecekleri bir oturum açma sayfası gerektirir. Oturum açma işlemine hızlandırmak için Web tasarımcılarına kullanıcı adı ve parola metin kutuları açıkça oturum açma sayfasını ziyaret edin gerek kalmadan oturum açmasına olanak vermek için her sayfanın sol alt köşesindeki içerebilir. Bu kullanıcı adı ve parola metin kutuları çoğu sayfalarında yararlı olsa da, bunlar zaten metin kutuları için kullanıcının kimlik bilgilerini içeren oturum açma sayfasındaki gereksizdir.
+Bazı Web sitesi tasarımları bir veya iki özel durum dışında sitedeki tüm sayfalar için aynı içeriğe sahip olan bir bölge içerir. Kullanıcı hesaplarını destekleyen bir Web sitesi göz önünde bulundurun. Böyle bir siteyi siteye ziyaretçileri oturum açmak için kimlik bilgilerini girebilecekleri bir oturum açma sayfası gerektirir. Oturum açma işlemi hızlandırmak için Web tasarımcılarına kullanıcı adı ve parola metin kutuları açıkça oturum açma sayfasını ziyaret etmesine gerek kalmadan oturum açmasına izin vermek için her sayfanın sol alt köşesindeki içerebilir. Bu kullanıcı adı ve parola metin kutuları çoğu sayfalarındaki faydalı olsa da, yedekli oturum açma sayfasında, zaten metin kutuları için kullanıcının kimlik bilgilerini içerir.
 
-Bu tasarım uygulamak için ana sayfanın sol üst köşesinde ContentPlaceHolder denetimi oluşturabilirsiniz. Kendi sol üst köşedeki kullanıcı adı ve parola metin kutuları görüntülemek için gereken her bir sayfa için bu ContentPlaceHolder içerik denetimi oluşturun ve ancak gerekli arabirimi ekleyin. Diğer taraftan, oturum açma sayfasına ya da bu ContentPlaceHolder için içerik denetimi ekleme atlayın veya içerik oluşturacak denetimi ile tanımlanan biçimlendirme yok. Bu yaklaşımın bir dezavantajı, biz (dışında oturum açma sayfası) sitesine eklediğimiz her sayfada kullanıcı adı ve parola metin kutuları eklemek anımsamak zorunda ' dir. Bu sorun için istiyor. Biz bu metin kutuları bir sayfaya veya iki eklemek unuttunuz olasılığınız ya da kötüsü, biz arabirimi doğru uygulayabilir değil (belki de iki yerine yalnızca bir metin eklemek).
+Bu tasarımı uygulamanız için ana sayfanın sol alt köşesinde ContentPlaceHolder denetimi oluşturabilirsiniz. Kullanıcı adı ve parola metin kutuları, sol üst köşedeki görüntülemek için gereken her sayfa içerik denetimi oluşturmak için bu ContentPlaceHolder ve ancak gerekli arabirimi ekleyin. Öte yandan, oturum açma sayfası bu ContentPlaceHolder için içerik denetimi ekleme ya da atlamak veya içerik oluşturacak denetimi ile tanımlanmış bir biçimlendirme yok. Bu yaklaşımın bir dezavantajı, biz (oturum açma sayfası dışında) bir siteye eklediğimiz her sayfa için kullanıcı adı ve parola metin kutuları eklemeyi unutmayın sahip olduğunu belirtir. Bu sorun için istiyor. Biz büyük olasılıkla bir sayfa ya da iki bu metin kutuları ekleyin veya daha da kötüsü, biz arabirimi doğru şekilde uygulamıyor olabilir (belki de iki yerine yalnızca bir metin kutusu ekleme).
 
-Kullanıcı adı ve parola metin kutuları ContentPlaceHolder'ın varsayılan içerik tanımlamak daha iyi bir çözümdür. Bunu yaparak, biz yalnızca bu kullanıcı adı ve parola metin kutuları gösterme bu birkaç sayfaları varsayılan içerikte geçersiz kılmanız gerekir (oturum açma sayfası, örneğin). ContentPlaceHolder denetimi için belirten varsayılan içerik göstermek için şimdi yalnızca tartışılan senaryo uygulayın.
+Kullanıcı adı ve parola metin kutuları ContentPlaceHolder'ın varsayılan içerik olarak tanımlamak daha iyi bir çözümdür. Bunu yaptığınızda, yalnızca bu kullanıcı adı ve parola metin kutuları görüntülenmez birkaç bu sayfalarda varsayılan içerik geçersiz kılmak ihtiyacımız (oturum açma sayfası, örneği için). ContentPlaceHolder denetimi belirten varsayılan içeriğini göstermek için şimdi yalnızca açıklanan senaryo uygulayın.
 
 > [!NOTE]
-> Bu öğreticinin geri kalanında sol sütunda tüm sayfaları ancak oturum açma sayfası için bir oturum açma arabirimi eklemek için Web sitesi güncelleştirir. Ancak, Bu öğretici kullanıcı hesaplarını desteklemek için Web sitesi yapılandırma inceleyin değil. Bu konu hakkında daha fazla bilgi için bkz my [form kimlik doğrulaması, yetkilendirme, kullanıcı hesapları ve rolleri](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md) öğreticileri.
+> Bu öğreticinin geri kalanında sol sütunda, ancak oturum açma sayfasına tüm sayfalar için bir oturum açma arabirimi eklemek için Web sitemizi güncelleştirir. Ancak, Bu öğretici, kullanıcı hesapları desteklemek için Web sitesi yapılandırma incelemez. Bu konu hakkında daha fazla bilgi için benim [form kimlik doğrulaması, yetkilendirme, kullanıcı hesaplarını ve rolleri](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md) öğreticiler.
 
 
-### <a name="adding-a-contentplaceholder-and-specifying-its-default-content"></a>Bir ContentPlaceHolder ekleme ve varsayılan içeriği belirtme
+### <a name="adding-a-contentplaceholder-and-specifying-its-default-content"></a>Ekleme bir ContentPlaceHolder ve varsayılan içeriği belirtme
 
-Açık `Site.master` ana sayfa ve sol sütunda arasında aşağıdaki biçimlendirme eklemek `DateDisplay` etiket ve dersleri bölümünde:
+Açık `Site.master` ana sayfa ve sol sütunu arasında aşağıdaki işaretlemeyi ekleyin `DateDisplay` etiket ve dersleri bölümü:
 
 [!code-aspx[Main](multiple-contentplaceholders-and-default-content-cs/samples/sample4.aspx)]
 
-Bu biçimlendirme ekledikten sonra ana sayfanızın Tasarım görünümü Şekil 6 benzer görünmelidir.
+Bu işaretleme ekledikten sonra ana sayfa Tasarım görünümü Şekil 6'ya benzer görünmelidir.
 
 
-[![Ana sayfa bir oturum açma denetimi içerir](multiple-contentplaceholders-and-default-content-cs/_static/image17.png)](multiple-contentplaceholders-and-default-content-cs/_static/image16.png)
+[![Ana sayfada bir oturum açma denetimi içerir.](multiple-contentplaceholders-and-default-content-cs/_static/image17.png)](multiple-contentplaceholders-and-default-content-cs/_static/image16.png)
 
-**Şekil 06**: ana sayfa bir oturum açma denetimi içerir ([tam boyutlu görüntüyü görüntülemek için tıklatın](multiple-contentplaceholders-and-default-content-cs/_static/image18.png))
+**Şekil 06**: ana sayfada bir oturum açma denetimi içerir ([tam boyutlu görüntüyü görmek için tıklatın](multiple-contentplaceholders-and-default-content-cs/_static/image18.png))
 
 
-Bu ContentPlaceHolder `QuickLoginUI`, bir oturum açma Web denetimi varsayılan içeriği olarak sahiptir. Oturum açma denetimi kullanıcıdan kullanıcı adı ve parola oturum aç düğmesine yanı sıra için bir kullanıcı arabirimi görüntüler. Oturum Aç düğmesine tıklatıldığında, oturum açma denetimi dahili olarak kullanıcının kimlik bilgilerini üyelik API'sine karşı doğrular. Bu oturum açma denetimi uygulamada kullanmak için daha sonra üyelik kullanacak şekilde yapılandırmanız gerekir. Bu konu, Bu öğretici kapsamında değildir; başvurmak my [form kimlik doğrulaması, yetkilendirme, kullanıcı hesapları ve rolleri](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md) öğreticileri kullanıcı hesaplarını destekleyen bir web uygulaması oluşturma hakkında daha fazla bilgi için.
+Bu ContentPlaceHolder `QuickLoginUI`, bir oturum açma Web denetimi varsayılan içeriği olarak vardır. Oturum açma denetimi için kullanıcı adı ve parola ile oturum aç düğmesine birlikte kullanıcıdan bir kullanıcı arabirimi görüntüler. Oturum Aç düğmesine tıklandıktan sonra oturum açma denetimi dahili olarak bir kullanıcının kimlik bilgilerini üyelik API'si karşı doğrular. Bu oturum açma denetimi uygulamada kullanmak için daha sonra sitenizi üyelik kullanacak şekilde yapılandırmanız gerekir. Bu öğreticinin kapsamı dışındadır konudur; başvurmak my [form kimlik doğrulaması, yetkilendirme, kullanıcı hesaplarını ve rolleri](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md) öğreticileri kullanıcı hesaplarını destekleyen bir web uygulaması oluşturma hakkında daha fazla bilgi için.
 
-Oturum açma denetimin davranışını veya görünümünü özelleştirmek çekinmeyin. İki özelliklerini ayarladığınız: `TitleText` ve `FailureAction`. `TitleText` "Oturum açma için" varsayılan olarak, özellik değeri, denetimin kullanıcı arabirimi üst kısmında görüntülenir. Böylece "Oturum Aç" metin olarak görüntüler bu özellik ayarladığınız bir `<h3>` öğesi. `FailureAction` Özelliği kullanıcının kimlik bilgileri geçersiz olduğunda yapılması gerekenler gösterir. Değeri varsayılan olarak `Refresh`, kullanıcı aynı sayfa üzerinde bırakır ve oturum açma denetimi içinde bir hata iletisi görüntüler. Kendisine değiştirdiyseniz `RedirectToLoginPage`, gönderdiği kullanıcı oturum açma sayfası geçersiz kimlik bilgileri durumunda. Oturum açma sayfasına ek yönergeler ve kolayca sol sütuna uyar olmayan seçenekler içerebileceğinden bir kullanıcı başka bir sayfaya ancak başarısız oturum açma girişiminde bulunduğunda, kullanıcı oturum açma sayfasına göndermek istemiyorum. Örneğin, oturum açma sayfasına Unutulan parolayı almaya veya yeni bir hesap oluşturmak için seçenekleri içeriyor olabilir.
+Oturum açma denetimin görünümünü veya davranışını özelleştirmek çekinmeyin. İki özelliklerini ayarladığınız: `TitleText` ve `FailureAction`. `TitleText` "Oturum açın" varsayılan olarak, özellik değeri, denetimin kullanıcı arabirimi üst kısmında görüntülenir. "Oturum açma" metin olarak görüntülenir, böylece bu özellik ayarladığınız bir `<h3>` öğesi. `FailureAction` Özelliği kullanıcının kimlik bilgileri geçersiz olduğunda yapılması gerekenler gösterir. Bu değeri varsayılan olarak `Refresh`, aynı sayfada kullanıcı ayrılsa ve oturum açma denetimi içinde bir hata iletisi görüntüler. Kendisine değiştirdiniz `RedirectToLoginPage`, gönderdiği kullanıcı oturum açma sayfası URL'sini geçersiz kimlik bilgileri durumunda. Oturum açma sayfasına ek yönergeleri ve kolayca sol sütuna yerleştirin değil seçenekleri içerebileceğinden, bir kullanıcı başka bir sayfaya ancak başarısız oturum açma girişiminde bulunduğunda, kullanıcı oturum açma sayfasına göndermek ister. Örneğin, oturum açma sayfasına Unutulan parolayı almak veya yeni bir hesap oluşturmak için seçenekleri içeriyor olabilir.
 
-### <a name="creating-the-login-page-and-overriding-the-default-content"></a>Oturum açma sayfasına oluşturma ve varsayılan içerik geçersiz kılma
+### <a name="creating-the-login-page-and-overriding-the-default-content"></a>Oturum açma sayfası oluşturma ve varsayılan içerik geçersiz kılma
 
-Ana sayfa ile tam bizim sonraki adıma oturum açma sayfasına oluşturmaktır. Bir ASP.NET sayfası, sitenizin kök dizinine adlı Ekle `Login.aspx`, kendisine bağlama `Site.master` ana sayfa. Bunun yapılması oluşturacak bir sayfa ile dört içerik denetimleri, her ContentPlaceHolders için tanımlanan `Site.master`.
+Ana sayfa ile tam sonraki adımımız oturum açma sayfasına oluşturmaktır. Bir ASP.NET sayfasını adlı sitenizin kök dizinine ekleme `Login.aspx`, kendisine bağlamayı `Site.master` ana sayfa. Bunun yapılması oluşturur bir sayfa ile dört içerik denetimlerini, her ContentPlaceHolder tanımlanan `Site.master`.
 
-Bir oturum açma denetimine ekleme `MainContent` içerik denetimi. Benzer şekilde, herhangi bir içerik eklemekten çekinmeyin `LeftColumnContent` bölge. Ancak, içerik denetimi için bıraktığınızdan emin olun `QuickLoginUI` ContentPlaceHolder boş. Bu, oturum açma denetimi oturum açma sayfasının sol sütununda görünmüyor garanti eder.
+Bir oturum açma denetimine ekleme `MainContent` içerik denetimi. Benzer şekilde, herhangi bir içerik eklemekten çekinmeyin `LeftColumnContent` bölge. Ancak, içerik denetimi için bıraktığınızdan emin olun `QuickLoginUI` ContentPlaceHolder boş. Bu, Denetim, oturum açma sayfasının sol sütununda görünmüyor oturum açma garanti eder.
 
-İçerik için tanımlama sonra `MainContent` ve `LeftColumnContent` bölgeler, oturum açma sayfanızın bildirim temelli biçimlendirme görünmelidir aşağıdakine benzer:
+İçeriğini tanımlayan sonra `MainContent` ve `LeftColumnContent` bölgeler, oturum açma sayfanızın bildirim temelli biçimlendirme görünmelidir aşağıdakine benzer:
 
 [!code-aspx[Main](multiple-contentplaceholders-and-default-content-cs/samples/sample5.aspx)]
 
-Şekil 7 bir tarayıcıdan görüntülendiğinde bu sayfada görüntülenir. Bu sayfa için içerik denetimi belirttiğinden `QuickLoginUI` ContentPlaceHolder, bu geçersiz kılmaları ana sayfasında belirtilen varsayılan içeriği. Ana sayfanın Tasarım görünümü (bkz. Şekil 6) Bu sayfada işlenmez görüntülenen oturum açma denetimi net etkisidir.
+Şekil 7, bir tarayıcıdan görüntülendiğinde bu sayfada görüntülenir. Bu sayfa için içerik denetimi belirttiğinden `QuickLoginUI` ContentPlaceHolder, ana sayfada belirtilen varsayılan içeriği geçersiz. Ana sayfa Tasarım görünümü (bkz. Şekil 6) Bu sayfada işlenmez görüntülenen oturum açma denetimi net etkisidir.
 
 
 [![Oturum açma sayfasına QuickLoginUI ContentPlaceHolder'ın varsayılan içerik Represses](multiple-contentplaceholders-and-default-content-cs/_static/image20.png)](multiple-contentplaceholders-and-default-content-cs/_static/image19.png)
 
-**Şekil 07**: oturum açma sayfası Represses `QuickLoginUI` ContentPlaceHolder'ın varsayılan içerik ([tam boyutlu görüntüyü görüntülemek için tıklatın](multiple-contentplaceholders-and-default-content-cs/_static/image21.png))
+**Şekil 07**: oturum açma sayfası Represses `QuickLoginUI` ContentPlaceHolder'ın varsayılan içerik ([tam boyutlu görüntüyü görmek için tıklatın](multiple-contentplaceholders-and-default-content-cs/_static/image21.png))
 
 
-### <a name="using-the-default-content-in-new-pages"></a>Yeni sayfaların varsayılan içeriği kullanma
+### <a name="using-the-default-content-in-new-pages"></a>Yeni sayfalarında varsayılan içerik kullanma
 
-Sol sütunda oturum açma sayfası dışındaki tüm sayfalar için oturum açma denetimi göstermek istiyoruz. Bunun için oturum açma sayfasına hariç tüm içerik sayfalarının içerik denetimi için atlayın `QuickLoginUI` ContentPlaceHolder. İçerik denetimi kaldırarak ContentPlaceHolder'ın varsayılan içerik yerine kullanılır.
+Oturum açma denetimi sol sütunda oturum açma sayfası dışındaki tüm sayfalar için gösterilecek istiyoruz. Bunu başarmak için oturum açma sayfasına hariç tüm içerik sayfalarının için bir içerik denetimi atlarsanız `QuickLoginUI` ContentPlaceHolder. Bir içerik denetimi gt;(yok) ContentPlaceHolder'ın varsayılan içerik yerine kullanılacaktır.
 
-Varolan de içerik sayfalarında - `Default.aspx`, `About.aspx`, ve `MultipleContentPlaceHolders.aspx` -içerik denetimi için içermez `QuickLoginUI` ana sayfaya ContentPlaceHolder denetleyen eklediğimiz önce oluşturuldukları olduğundan. Bu nedenle, bu varolan sayfalar güncelleştirilmesi gerekmez. Ancak, içerik denetimi için Web sitesine eklenen yeni sayfalar dahil `QuickLoginUI` varsayılan ContentPlaceHolder. Bu nedenle, bu kaldırılacak hatırlamasını sahibiz içerik eklediğimiz yeni bir içerik sayfası (ContentPlaceHolder'ın varsayılan içerik, geçersiz kılmak oturum açma sayfası olarak söz konusu olduğunda istiyoruz sürece) her zaman denetler.
+Mevcut içerik sayfalarımızın - `Default.aspx`, `About.aspx`, ve `MultipleContentPlaceHolders.aspx` -için bir içerik denetimi içermez `QuickLoginUI` ana sayfaya ContentPlaceHolder denetleyen ekledik önce oluşturuldukları olduğundan. Bu nedenle, bu varolan sayfalar güncelleştirilmesi gerekmez. Ancak, Web sitesine eklenen yeni sayfa için içerik denetimi dahil `QuickLoginUI` ContentPlaceHolder, varsayılan olarak. Bu nedenle, bunları kaldırmak basitçe hatırlanan sahibiz içerik denetimlerini her zaman eklediğimiz yeni bir içerik sayfası (biz ContentPlaceHolder'ın varsayılan içerik, geçersiz kılmak oturum açma sayfası olarak söz konusu olduğunda istemediğiniz sürece).
 
-İçerik denetimi kaldırmak için el ile bildirim temelli biçimlendirme kaynağı görünümünden silebilir veya, Tasarım görünümünden Yöneticisi'nin içerik bağlantısı varsayılan seçin, akıllı etiket gelen. İçerik denetimi her iki yaklaşım kaldırır sayfayı ve üretir aynı etkili net.
+İçerik denetimi kaldırmak için el ile bildirim temelli biçimlendirme kaynağı görünümünden silin veya, varsayılan asıl içerik bağlantısı için Tasarım Görünümü'nden seçin akıllı etiketinde. Her iki yöntemle içerik denetimi kaldırır sayfası ve üretir aynı ağ etkisi.
 
-Şekil 8 gösterir `Default.aspx` bir tarayıcıdan görüntülendiğinde. Sözcüğünün `Default.aspx` yalnızca kendi bildirim temelli biçimlendirme - biri için belirtilen iki içerik denetimlerine sahip `head` için bir tane `MainContent`. Sonuç olarak, içerik için varsayılan `LeftColumnContent` ve `QuickLoginUI` ContentPlaceHolders için görüntülenir.
+Şekil 8 gösterir `Default.aspx` bir tarayıcıdan görüntülendiğinde. Bu geri çağırma `Default.aspx` yalnızca iki içerik denetimi, bildirim temelli biçimlendirme - biri için belirtilen sahip `head` , diğeri `MainContent`. Sonuç olarak, içerik için varsayılan `LeftColumnContent` ve `QuickLoginUI` ContentPlaceHolder görüntülenir.
 
 
-[![Varsayılan içerik LeftColumnContent ve QuickLoginUI ContentPlaceHolders için görüntülenir](multiple-contentplaceholders-and-default-content-cs/_static/image23.png)](multiple-contentplaceholders-and-default-content-cs/_static/image22.png)
+[![Varsayılan içerik LeftColumnContent ve QuickLoginUI ContentPlaceHolder görüntülenir](multiple-contentplaceholders-and-default-content-cs/_static/image23.png)](multiple-contentplaceholders-and-default-content-cs/_static/image22.png)
 
-**Şekil 08**: varsayılan içerik için `LeftColumnContent` ve `QuickLoginUI` ContentPlaceHolders için görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklatın](multiple-contentplaceholders-and-default-content-cs/_static/image24.png))
+**Şekil 08**: varsayılan içerik için `LeftColumnContent` ve `QuickLoginUI` ContentPlaceHolder görüntülenir ([tam boyutlu görüntüyü görmek için tıklatın](multiple-contentplaceholders-and-default-content-cs/_static/image24.png))
 
 
 ## <a name="summary"></a>Özet
 
-ASP.NET ana sayfa modeli ContentPlaceHolders için ana sayfasında bir rastgele sayı olanak sağlar. Dahası ContentPlaceHolders için karşılık gelen olması durumunda yayılan varsayılan içerik dahil içerik, içerik sayfasındaki denetimi. Bu öğreticide ana sayfasında ek ContentPlaceHolder denetimleri içerir ve bu yeni ContentPlaceHolders için hem yeni hem de mevcut ASP.NET sayfaları için içerik denetimleri tanımlamak gördük. Biz de varsayılan belirtme burada aksi özelleştirmek için sayfaları gereksinimlerini nadiren yalnızca belirli bir bölgedeki içerik standartlaştırılmış senaryolarda yararlı olduğu ContentPlaceHolder'içerik arama.
+ASP.NET ana sayfa modeli ContentPlaceHolder tercihe bağlı sayıda ana sayfasında olanak sağlar. Daha fazla nedir, karşılık gelen olduğu durumlarda yayılan varsayılan içerik ContentPlaceHolder dahil içerik sayfası denetiminde içerik. Bu öğreticide ana sayfasında ek ContentPlaceHolder denetimler ekleme ve bu yeni ContentPlaceHolder içinde yeni ve varolan ASP.NET sayfaları için içerik denetimleri tanımlama gördük. Ayrıca varsayılan belirtme burada sayfalarını gerekir aksi özelleştirme nadiren yalnızca içeriği belirli bir bölgede standart senaryolarda yararlı olan bir ContentPlaceHolder'içerik incelemiştik.
 
-Sonraki öğreticide biz inceleyeceğiz `head` daha ayrıntılı ContentPlaceHolder bildirimli olarak ve program aracılığıyla başlık, meta etiketler ve diğer HTML üstbilgileri bir sayfa tarafından temelinde nasıl tanımlanacağı görme.
+Sonraki öğreticide inceleyeceğiz `head` başlık, meta etiketler ve diğer HTML üst bilgilerini bildirimli ve programlı olarak sayfa sayfa olarak tanımlamak görmeden ContentPlaceHolder daha ayrıntılı olarak.
 
-Mutluluk programlama!
+Mutlu programlama!
 
 ### <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar birden çok ASP/ASP.NET books ve 4GuysFromRolla.com kurucusu, 1998 itibaren Microsoft Web teknolojileri ile çalışmaktadır. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 3.5 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Tan adresindeki ulaşılabilir [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) veya kendi blog aracılığıyla [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar 1998'de bu yana birden çok ASP/ASP.NET books ve poshbeauty.com sitesinin 4GuysFromRolla.com, Microsoft Web teknolojileri ile çalışmaktadır. Scott, bağımsız Danışman, Eğitimci ve yazıcı çalışır. En son nitelemiştir olan [ *Unleashed'i öğretin kendiniz ASP.NET 3.5 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Scott, konumunda ulaşılabilir [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) veya kendi blog'da aracılığıyla [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Özel teşekkürler
 
-Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama İnceleme Suchi Banerjee oluştu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
+Bu öğretici serisinde, birçok yararlı Gözden Geçiren tarafından gözden geçirildi. Bu öğretici için müşteri adayı İnceleme Suchi Banerjee oluştu. Yaklaşan My MSDN makaleleri gözden geçirme ilgileniyor musunuz? Bu durumda, bir satır bana bırak [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
 
 > [!div class="step-by-step"]
 > [Önceki](creating-a-site-wide-layout-using-master-pages-cs.md)
-> [sonraki](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs.md)
+> [İleri](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs.md)

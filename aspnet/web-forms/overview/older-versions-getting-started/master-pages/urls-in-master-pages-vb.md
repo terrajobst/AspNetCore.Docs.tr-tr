@@ -2,193 +2,192 @@
 uid: web-forms/overview/older-versions-getting-started/master-pages/urls-in-master-pages-vb
 title: Ana sayfalar (VB) URL'lerinde | Microsoft Docs
 author: rick-anderson
-description: Ana sayfaya URL'lerde ana sayfa dosyanın içerik sayfadan farklı göreli dizinde olması nedeniyle nasıl bölünebilir giderir. Yeniden Temellendirme adresindeki görünüyor...
+description: İçerik sayfası farklı bir göreli dizine işlemlerle ana sayfa dosyası nedeniyle nasıl URL'lerde ana sayfa sonu yöneliktir. Yeniden Temellendirme sırasında görünüyor...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2008
 ms.topic: article
 ms.assetid: 43d1e83c-0092-4dcf-977c-e709c4dce7c3
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/urls-in-master-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e1d4b2d66bedfb5f3d7d8c61265944a82605e77e
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 9094c6c2b1700f22fe29d8b341444e1178c9015f
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30888077"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37395136"
 ---
-<a name="urls-in-master-pages-vb"></a>Ana sayfalar (VB) URL'leri
+<a name="urls-in-master-pages-vb"></a>URL'lerde ana sayfalar (VB)
 ====================
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Kodu indirme](http://download.microsoft.com/download/e/e/f/eef369f5-743a-4a52-908f-b6532c4ce0a4/ASPNET_MasterPages_Tutorial_04_VB.zip) veya [PDF indirin](http://download.microsoft.com/download/8/f/6/8f6349e4-6554-405a-bcd7-9b094ba5089a/ASPNET_MasterPages_Tutorial_04_VB.pdf)
+[Kodu indir](http://download.microsoft.com/download/e/e/f/eef369f5-743a-4a52-908f-b6532c4ce0a4/ASPNET_MasterPages_Tutorial_04_VB.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/8/f/6/8f6349e4-6554-405a-bcd7-9b094ba5089a/ASPNET_MasterPages_Tutorial_04_VB.pdf)
 
-> Ana sayfaya URL'lerde ana sayfa dosyanın içerik sayfadan farklı göreli dizinde olması nedeniyle nasıl bölünebilir giderir. URL'ler aracılığıyla yeniden Temellendirme adresindeki arar ~ Tanımlayıcı Sözdizimi ve ResolveUrl ve ResolveClientUrl programlı olarak kullanma. (Ayrıca bakın
+> İçerik sayfası farklı bir göreli dizine işlemlerle ana sayfa dosyası nedeniyle nasıl URL'lerde ana sayfa sonu yöneliktir. URL'ler aracılığıyla yeniden Temellendirme sırasında görünür ~ bildirim temelli söz dizimi ve ResolveUrl ve ResolveClientUrl programlı olarak kullanma. (Ayrıca bakın
 
 
 ## <a name="introduction"></a>Giriş
 
-Tüm örneklerde bugüne kadarki içeriği ve ana sayfa (Web sitesinin kök klasöründe) aynı klasörde bulunan gördük. Ancak ana ve içerik sayfalarına aynı klasörde neden olmalıdır bir neden yoktur. Bu gibi durumlarda, içerik sayfaları kesinlikle alt klasörler oluşturabilirsiniz. Benzer şekilde, oluşturacağınız bir `~/MasterPages/` sitenizin ana sayfalar nereye klasör.
+Tüm örneklerde şimdiye kadar içeriği ve ana sayfalar (Web sitesinin kök klasöründe) aynı klasörde bulunan gördük. Ancak ana ve içerik sayfaları aynı klasörde neden olmalıdır bir neden yoktur. Bu gibi durumlarda, içerik sayfalarını kesinlikle alt klasörler oluşturabilirsiniz. Benzer şekilde, oluşturacağınız bir `~/MasterPages/` sitenizin ana sayfalar yerleştirdiğiniz bir klasör.
 
-İçeriği ve ana sayfalar farklı klasörlerde yerleştirme ile olası bir sorunu bozuk URL'leri içerir. Ana sayfanın göreli URL köprüler, görüntüleri veya diğer öğeler içeriyorsa, bağlantı için farklı bir klasörde bulunan içerik sayfaları geçersiz olacaktır. Bu öğreticide, geçici çözümler yanı sıra bu sorunun kaynağı inceleyeceğiz.
+İçeriği ve ana sayfalar farklı klasörlerde yerleştirme bir olası sorun, bozuk bir URL içerir. Ana sayfanın göreli URL'ler köprüler, görüntüleri veya diğer öğeleri içeriyorsa, bağlantı için farklı bir klasörde bulunan içerik sayfalarını geçersiz olacaktır. Bu öğreticide geçici çözümlerin yanı sıra bu sorunun kaynağını inceleyeceğiz.
 
-## <a name="the-problem-with-relative-urls"></a>Göreli URL sorun
+## <a name="the-problem-with-relative-urls"></a>Göreli URL'ler ile ilgili sorun
 
-Bir URL bir web sayfasında olarak kabul edilir bir *göreli URL* gösterdiği için kaynak konumunu Web sitesinin klasör yapısını web sayfasının konuma göre ise. Önde gelen eğik çizgiyle başlamıyor herhangi bir URL'yi (`/`) veya bir protokol (gibi `http://`) URL içeren web sayfasını konumuna bağlı tarayıcı tarafından çözümlendiğinden görelidir.
+Bir web sayfasındaki bir URL olduğu söylenir bir *göreli URL* gösterdiği için kaynak konumu Web sitesinin klasörü yapısı içinde web sayfasının konumu göreli ise. Önde gelen eğik çizgiyle başlamıyor herhangi bir URL (`/`) veya bir protokol (gibi `http://`) URL'sini içeren web sayfasını konumunu temel alarak tarayıcı tarafından çözümlendiğinden görelidir.
 
-Örneğin, bizim Web sitesi olan bir `~/Images/` tek bir görüntü dosyası klasörüyle `PoweredByASPNET.gif`. Ana sayfa dosyası `Site.master` sahip bir `<img>` öğesinde `footerContent` aşağıdaki biçimlendirme bölgesiyle:
+Örneğin, Web sitemizi sahip bir `~/Images/` tek bir görüntü dosyası klasörü `PoweredByASPNET.gif`. Ana sayfa dosyası `Site.master` sahip bir `<img>` öğesinde `footerContent` aşağıdaki işaretlemeyle bölgesi:
 
 
 [!code-html[Main](urls-in-master-pages-vb/samples/sample1.html)]
 
-`src` Öznitelik değerinde `<img>` öğesi olduğundan göreli bir URL ile başlamıyor `/` veya `http://`. Kısacası, `src` öznitelik değeri belirten konum tarayıcıya `Images` alt klasör adında bir dosya için `PoweredByASPNET.gif`.
+`src` Öznitelik değeri `<img>` öğesi, göreli bir URL ile başlamıyor çünkü `/` veya `http://`. Kısacası, `src` öznitelik değeri, aranacak tarayıcı söyler `Images` adlı bir dosya için alt `PoweredByASPNET.gif`.
 
-Bir içerik sayfasını ziyaret ederken yukarıdaki biçimlendirme doğrudan tarayıcıya gönderilir. Ziyaret etmek için bir dakikanızı ayırın `About.aspx` ve tarayıcıya gönderilen HTML kaynağını görüntüleyin. Ana sayfaya tam aynı biçimlendirmede tarayıcıya gönderilip gönderilmediğini bulacaksınız.
+Bir içerik sayfasını ziyaret ederek, yukarıdaki biçimlendirme doğrudan tarayıcıya gönderilir. Ziyaret etmek için birkaç dakikanızı `About.aspx` ve tarayıcıya gönderilen HTML kaynağını görüntülemek. Ana sayfanın tam aynı işaretlemede tarayıcıya gönderilip gönderilmediğini de bulabilirsiniz.
 
 
 [!code-html[Main](urls-in-master-pages-vb/samples/sample2.html)]
 
-İçerik sayfasını Kök klasörde ise (olduğu gibi `About.aspx`) her şeyi olduğundan beklendiği gibi çalıştığını bir `Images` kök klasörüne göreli alt klasör. İçerik sayfasını ana sayfa değerinden farklı bir klasörde ise ancak şeyler bölünme. Bunu göstermek için adlı bir alt klasör oluşturun `Admin`. Ardından, adlandırılmış bir içerik sayfasını eklemek `Default.aspx` için `Admin` klasörü, yeni sayfaya bağlamak emin `Site.master` ana sayfa.
+İçerik sayfası kök klasöründe ise (olduğu gibi `About.aspx`) her şey olmadığı için beklendiği gibi çalışır bir `Images` kök klasörüne göreli alt klasör. Farklı bir klasöre ana sayfadan içerik sayfası varsa ancak şeyler parçalara ayırın. Bunu açıklamak üzere; adlı bir alt klasör oluşturmak `Admin`. Ardından, bir içerik sayfasının adlandırılmış ekleme `Default.aspx` için `Admin` yeni sayfaya bağlamak sağlamaktan klasöründe `Site.master` ana sayfa.
 
 > [!NOTE]
-> İçinde [ *başlık, Meta etiketler ve diğer HTML üstbilgileri ana sayfasında belirtme* ](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb.md) adlı bir özel ana sayfa sınıf oluşturduğumuz öğretici `BasePage` içerik sayfasının başlığı otomatik olarak ayarlanır (varsa, açıkça atandı değil). Öğesinden türetilen yeni oluşturulan sayfanın arka plandaki kod sınıfı unutmayın `BasePage` böylece bu işlevselliği kullanabilir.
+> İçinde [ *ana sayfada başlık, Meta etiketler ve diğer HTML üst bilgilerini belirtme* ](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb.md) adlı bir özel taban sayfası sınıfı oluşturduk öğretici `BasePage` içerik sayfasının başlığı otomatik olarak ayarlanır (varsa, açıkça atanan değil). Yeni oluşturulan sayfa arka plan kod sınıfı türetilen unutmayın `BasePage` böylece bu işlevleri kullanabilir.
 
 
-Bu içerik sayfasını oluşturduktan sonra Çözüm Gezgini Şekil 1'e benzer görünmelidir.
+Bu içerik sayfası oluşturduktan sonra çözüm Gezgininizde Şekil 1'e benzer görünmelidir.
 
 
-![Yeni bir klasör ve ASP.NET sayfası projeye eklendi](urls-in-master-pages-vb/_static/image1.png)
+![Yeni klasör ve ASP.NET sayfası projeye eklenmiş olan](urls-in-master-pages-vb/_static/image1.png)
 
-**Şekil 01**: yeni bir klasör ve ASP.NET sayfası projeye eklendi
+**Şekil 01**: yeni bir klasör ve ASP.NET sayfası projeye eklenmiş olan
 
 
-Ardından, güncelleştirme `Web.sitemap` dosyasını yeni bir içerecek şekilde `<siteMapNode>` bu ders için girişi. Aşağıdaki XML tam gösterir `Web.sitemap` şimdi üçüncü eklenmesi içeren biçimlendirme `<siteMapNode>` öğesi.
+Ardından, güncelleştirme `Web.sitemap` yeni bir dosyaya `<siteMapNode>` bu dersin girişi. Aşağıdaki XML tam gösterir `Web.sitemap` artık üçüncü eklenmesini de içeren bir biçimlendirme `<siteMapNode>` öğesi.
 
 
 [!code-xml[Main](urls-in-master-pages-vb/samples/sample3.xml)]
 
-Yeni oluşturulan `Default.aspx` sayfa içinde dört ContentPlaceHolders için karşılık gelen dört içerik denetimleri olması gerektiğini `Site.master`. İçerik denetimi başvuruda bulunan bazı metin eklemek `MainContent` ContentPlaceHolder ve ardından bir tarayıcı aracılığıyla sayfasını ziyaret edin. Şekil 2'de görüldüğü gibi tarayıcı bulunamıyor `PoweredByASPNET.gif` görüntü dosyası. Burada neler olup bittiğini?
+Yeni oluşturulan `Default.aspx` sayfa içinde dört ContentPlaceHolder karşılık gelen dört içerik denetimleri olmalıdır `Site.master`. İçerik denetimi başvuru için metin ekleyin `MainContent` ContentPlaceHolder ve sonra da bir tarayıcı aracılığıyla sayfasını ziyaret edin. Şekil 2 gösterildiği gibi tarayıcı bulunamıyor `PoweredByASPNET.gif` görüntü dosyası. Ne anlama geliyor?
 
-`~/Admin/Default.aspx` İçerik sayfası aynı HTML gönderilir `footerContent` haliyle bölge `About.aspx` sayfa:
+`~/Admin/Default.aspx` İçerik sayfası aynı HTML gönderilir `footerContent` haliyle bölge `About.aspx` sayfası:
 
 
 [!code-html[Main](urls-in-master-pages-vb/samples/sample4.html)]
 
-Çünkü `<img>` öğenin `src` özniteliği bir göreli URL, aranacak tarayıcısı çalışır bir `Images` klasörüne web sayfasının klasör konumu görelidir. Tarayıcı için görüntü dosyası başka bir deyişle, arıyor `Admin/Images/PoweredByASPNET.gif`.
+Çünkü `<img>` öğenin `src` özniteliği bir göreli URL, aranacak tarayıcısı çalışır bir `Images` klasörüyle ilgili web sayfasının klasör konumu. Tarayıcı için resim dosyası başka bir deyişle, arayan `Admin/Images/PoweredByASPNET.gif`.
 
 
-[![PoweredByASPNET.gif görüntü dosyası bulunamıyor](urls-in-master-pages-vb/_static/image3.png)](urls-in-master-pages-vb/_static/image2.png)
+[![PoweredByASPNET.gif resim dosyası bulunamıyor](urls-in-master-pages-vb/_static/image3.png)](urls-in-master-pages-vb/_static/image2.png)
 
-**Şekil 02**: `PoweredByASPNET.gif` görüntü dosyası bulunamadı ([tam boyutlu görüntüyü görüntülemek için tıklatın](urls-in-master-pages-vb/_static/image4.png))
+**Şekil 02**: `PoweredByASPNET.gif` görüntü dosyası bulunamıyor. ([tam boyutlu görüntüyü görmek için tıklatın](urls-in-master-pages-vb/_static/image4.png))
 
 
-### <a name="replacing-relative-urls-with-absolute-urls"></a>Göreli URL mutlak URL'ler ile değiştirme
+### <a name="replacing-relative-urls-with-absolute-urls"></a>Mutlak URL'ler ile göreli URL'leri değiştirme
 
-Göreli bir URL tersidir bir *mutlak URL*, eğik çizgiyle başlayan bir olduğu (`/`) veya bir protokol gibi `http://`. Mutlak bir URL bilinen bir sabit noktasından bir kaynağın konumu belirttiğinden, aynı mutlak URL Web sitesinin klasör yapısını web sayfasının konumda bağımsız olarak herhangi bir web sayfasında geçersiz.
+Bir göreli URL tersidir bir *mutlak URL*, eğik çizgiyle başlayan bir olduğu (`/`) veya bir protokol gibi `http://`. Bilinen bir sabit noktaya ait kaynak konumunu mutlak bir URL belirttiğinden aynı mutlak URL Web sitesinin klasörü yapısı içinde web sayfasının konumdan bağımsız olarak herhangi bir web sayfası geçersiz.
 
-Şekil 2'de gösterilen kopuk resmi düzeltmek için güncelleştirmek ihtiyacımız `<img>` öğenin `src` göreli bir yerine mutlak bir URL kullanır, böylece özniteliği. Doğru mutlak URL belirlemek için Web sitenizin web sayfalarında birini ziyaret edin ve adres çubuğunu inceleyin. Şekil 2 Adres çubuğunda gösterildiği gibi web uygulamasının tam yolu olan `http://localhost:3908/ASPNET_MasterPages_Tutorial_04_VB/`. Bu nedenle, güncelleştiriyoruz `<img>` öğenin `src` özniteliği ya da, aşağıdaki iki mutlak URL'ler:
+Şekil 2'de gösterilen bozuk görüntü sorunu gidermek için güncelleştirilecek ihtiyacımız `<img>` öğenin `src` göreli bir yerine mutlak bir URL kullanır, böylece öznitelik. Doğru mutlak URL belirlemek için sitenizin web sayfalarını ziyaret edin ve adres çubuğuna inceleyin. Şekil 2 Adres çubuğunda gösterildiği gibi web uygulamasının tam yolu olan `http://localhost:3908/ASPNET_MasterPages_Tutorial_04_VB/`. Bu nedenle, biz güncelleştirebilir `<img>` öğenin `src` özniteliği ya da aşağıdaki iki mutlak URL'ler için:
 
 - `/ASPNET_MasterPages_Tutorial_04_VB/Images/PoweredByASPNET.gif`
 - `http://localhost:3908/ASPNET_MasterPages_Tutorial_04_VB/Images/PoweredByASPNET.gif`
 
-Güncelleştirme için bir dakikanızı ayırın `<img>` öğenin `src` yukarıda gösterilen biçimlerden birini kullanarak mutlak URL özniteliğini ve ziyaret edip `~/Admin/Default.aspx` bir tarayıcı aracılığıyla sayfa. Bu süre tarayıcı doğru bir şekilde bulmak ve görüntülemek `PoweredByASPNET.gif` görüntü dosyası (bkz: Şekil 3).
+Güncelleştirmek için bir dakikanızı ayırın `<img>` öğenin `src` yukarıda gösterilen biçimlerden birini kullanarak mutlak URL özniteliğini ve ziyaret edip `~/Admin/Default.aspx` tarayıcısından sayfası. Tarayıcı doğru bir şekilde bulmak ve görüntülemek, bu kez `PoweredByASPNET.gif` görüntü dosyası (bkz: Şekil 3).
 
 
 [![Şimdi görüntülenen PoweredByASPNET.gif görüntüsüdür](urls-in-master-pages-vb/_static/image6.png)](urls-in-master-pages-vb/_static/image5.png)
 
-**Şekil 03**: `PoweredByASPNET.gif` görüntüdür şimdi görüntülenen ([tam boyutlu görüntüyü görüntülemek için tıklatın](urls-in-master-pages-vb/_static/image7.png))
+**Şekil 03**: `PoweredByASPNET.gif` görüntü hizmetidir şimdi görüntülenen ([tam boyutlu görüntüyü görmek için tıklatın](urls-in-master-pages-vb/_static/image7.png))
 
 
-Mutlak URL kodlamak çalışırken, sıkı bir şekilde, HTML Web sitesinin sunucu ve değişebilir klasör konumuna couples. Mutlak bir URL biçiminde kullanarak `http://localhost:3908/...` localhost önceki bağlantı noktası numarası Visual Studio'nun yerleşik ASP.NET Geliştirme Web sunucusu her başlatıldığında otomatik olarak seçilir kırılır olmasıdır. Benzer şekilde, `http://localhost` parçası olduğunda yalnızca geçerli yerel olarak test etme. Kod bir üretim ortamına dağıtıldığında, URL temel başka bir gibi değişir `http://www.yourserver.com`. Mutlak URL biçiminde `/ASPNET_MasterPages_Tutorial_04_VB/...` görmemeleri bu uygulama yolu geliştirme ve üretim sunucuları arasında değiştiğinden de aynı brittleness düşebilir.
+Mutlak URL kodlamak çalışırken, sıkı bir şekilde HTML Web sitesinin sunucu ve değişebilir klasör konumu, couples. Formun mutlak bir URL kullanarak `http://localhost:3908/...` localhost önceki bağlantı noktası numarası otomatik olarak Visual Studio'nun yerleşik ASP.NET Geliştirme Web sunucusu her başlatıldığında seçilen kırılır olmasıdır. Benzer şekilde, `http://localhost` bölümü, yalnızca geçerli yerel olarak test ederken. Kodu bir üretim sunucusuna dağıtıldıktan sonra URL'si temeli başka bir şeye gibi değişecektir `http://www.yourserver.com`. Mutlak bir URL biçiminde `/ASPNET_MasterPages_Tutorial_04_VB/...` aktardığınızda genellikle bu uygulama yolu geliştirme ve üretim sunucuları arasında değiştiğinden de aynı brittleness olumsuz etkilenir.
 
-İyi haber, ASP.NET çalışma zamanında geçerli bir göreli URL oluşturmak için bir yöntem sunar ' dir.
+Güzel bir haberimiz var ASP.NET çalışma zamanı, geçerli bir göreli URL oluşturmak için bir yöntem sahip olmasıdır.
 
 ## <a name="usingandresolveclienturl"></a>Kullanarak`~`ve`ResolveClientUrl`
 
-Bunun yerine mutlak bir URL sabit kod daha tilde kullanmak sayfa geliştiricilerin ASP.NET sağlar (`~`) web uygulamasının kök belirtmek için. Örneğin, bu öğreticide daha önce gösterimi kullandım `~/Admin/Default.aspx` başvurmak için metin `Default.aspx` sayfasındaki `Admin` klasör. `~` Belirten `Admin` web uygulamasının kökünün alt klasördür.
+Bunun yerine sabit bir mutlak URL kod daha tilde kullanmak sayfa geliştiricilerin ASP.NET sağlar (`~`) web uygulamasının kökünü belirtmek için. Örneğin, bu öğreticide daha önce bu gösterim kullandım `~/Admin/Default.aspx` başvurmak için metin `Default.aspx` sayfasını `Admin` klasör. `~` Belirten `Admin` web uygulamasının kök alt klasörüdür.
 
-`Control` Sınıfının [ `ResolveClientUrl` yöntemi](https://msdn.microsoft.com/library/system.web.ui.control.resolveclienturl.aspx) bir URL alır ve denetim yer aldığı web sayfası için uygun bir göreli URL değiştirir. Örneğin, arama `ResolveClientUrl("~/Images/PoweredByASPNET.gif")` gelen `About.aspx` döndürür `Images/PoweredByASPNET.gif`. Buradan çağırma `~/Admin/Default.aspx`, ancak döndürür `../Images/PoweredByASPNET.gif`.
+`Control` Sınıfın [ `ResolveClientUrl` yöntemi](https://msdn.microsoft.com/library/system.web.ui.control.resolveclienturl.aspx) bir URL alır ve denetimi yer aldığı web sayfası için uygun bir göreli URL değiştirir. Örneğin, çağırma `ResolveClientUrl("~/Images/PoweredByASPNET.gif")` gelen `About.aspx` döndürür `Images/PoweredByASPNET.gif`. Buradan çağırma `~/Admin/Default.aspx`, ancak döndürür `../Images/PoweredByASPNET.gif`.
 
 > [!NOTE]
-> Tüm ASP.NET sunucu denetimleri türetin çünkü `Control` sınıfı, tüm sunucu denetimleri erişiminiz `ResolveClientUrl` yöntemi. Hatta `Page` sınıfı türer `Control` sınıfı, bu yöntem, ASP.NET sayfaları arka plan kodu sınıflardan doğrudan kullanabileceğiniz anlamına gelir.
+> Tüm ASP.NET sunucu denetimleri türetmek için `Control` sınıfı, tüm sunucu denetimleri erişiminiz `ResolveClientUrl` yöntemi. Hatta `Page` sınıf türetilir `Control` sınıfı, bu yöntem, ASP.NET sayfalarının arka plan kod sınıflardan doğrudan kullanabileceğiniz anlamına gelir.
 
 
 ### <a name="usingin-the-declarative-markup"></a>Kullanarak`~`tanımlayıcı biçimlendirme
 
-Birkaç ASP.NET Web denetimleri URL ile ilgili özellikleri içerir: HyperLink denetiminin bir `NavigateUrl` özellik; denetiminin görüntü bir `ImageUrl` özellik; ve benzeri. İşlendiğinde, bu denetimlerin URL ile ilgili özellik değerlerine geçirmek `ResolveClientUrl`. Sonuç olarak, bu özellikler içeriyorsa bir `~` kök web uygulamasının belirtmek için URL geçerli bir göreli URL değiştirilecek.
+Çeşitli ASP.NET Web denetimleri URL ile ilgili özellikleri içerir: HyperLink denetim sahip bir `NavigateUrl` özelliği; görüntü denetiminin bir `ImageUrl` özelliği; ve benzeri. İşlendiğinde, bu denetimler için URL ile ilgili özellik değerlerini geçirmek `ResolveClientUrl`. Sonuç olarak, bu özellikleri içeren bir `~` web uygulamasının kökünü belirtmek için URL'nin geçerli bir göreli URL değiştirilecek.
 
-Yalnızca ASP.NET sunucu denetimleri dönüştürme göz önünde bulundurmanız `~` URL ile ilgili özelliklerindeki. Varsa bir `~` statik HTML biçimlendirmede gibi görünen `<img src="~/Images/PoweredByASPNET.gif" />`, ASP.NET altyapısı gönderir `~` HTML içeriğini geri kalanı ile birlikte tarayıcıya. Tarayıcı varsayar `~` URL bir parçasıdır. Örneğin, tarayıcı işaretleme alırsa `<img src="~/Images/PoweredByASPNET.gif" />` adlı bir alt klasör olduğunu varsayar `~` bir alt klasörle `Images` görüntü dosyasını içeren `PoweredByASPNET.gif`.
+ASP.NET sunucu denetimleri dönüştüren göz önünde bulundurun `~` kendi URL ile ilgili özellikleri. Varsa bir `~` statik HTML biçimlendirmeyi aşağıdaki gibi görünür `<img src="~/Images/PoweredByASPNET.gif" />`, ASP.NET altyapısı gönderir `~` tarayıcıya HTML içeriği geri kalanıyla birlikte. Tarayıcı varsayar `~` URL'nin bir parçasıdır. Örneğin, tarayıcıyı işaretleme alırsa `<img src="~/Images/PoweredByASPNET.gif" />` adlı bir alt klasör olduğunu varsayar `~` bir alt klasörle `Images` görüntü dosyasını içeren `PoweredByASPNET.gif`.
 
-Görüntüyü biçimlendirme düzeltmek için `Site.master`, varolan `<img>` bir ASP.NET Web resim denetimi ile öğe. Görüntü Web denetimin ayarlamak `ID` için `PoweredByImage`, kendi `ImageUrl` özelliğine `~/Images/PoweredByASPNET.gif`ve kendi `AlternateText` "ASP.NET tarafından desteklenen!" özelliği
+Görüntü biçimlendirme içinde düzeltmek için `Site.master`, varolan `<img>` bir ASP.NET Web resim denetimi ile öğe. Görüntü Web denetimin ayarlamak `ID` için `PoweredByImage`, kendi `ImageUrl` özelliğini `~/Images/PoweredByASPNET.gif`ve onun `AlternateText` "ASP.NET tarafından desteklenen!" özelliği
 
 
 [!code-aspx[Main](urls-in-master-pages-vb/samples/sample5.aspx)]
 
-Ana sayfaya bu değişikliği yaptıktan sonra yeniden ziyaret `~/Admin/Default.aspx` yeniden sayfa. Bu süre `PoweredByASPNET.gif` görüntü dosyası sayfasında görünür (bkz: Şekil 3). Ne zaman görüntü denetimi Web çizilir, kullanır `ResolveClientUrl` çözümlemeye yöntemi kendi `ImageUrl` özellik değeri. İçinde `~/Admin/Default.aspx` `ImageUrl` uygun göreli bir URL HTML kaynak gösterir aşağıdaki kod parçası dönüştürülür:
+Ana sayfaya bu değişikliği yaptıktan sonra yeniden ziyaret `~/Admin/Default.aspx` yeniden sayfa. Bu süre `PoweredByASPNET.gif` görüntü dosyası sayfasında görünür (bkz: Şekil 3). Ne zaman Web resim denetimi işlenen, kullandığı `ResolveClientUrl` çözümlenecek yöntemi kendi `ImageUrl` özellik değeri. İçinde `~/Admin/Default.aspx` `ImageUrl` HTML kaynak programlarını aşağıdaki kod parçacığı ilgili göreli bir URL dönüştürülür:
 
 
 [!code-html[Main](urls-in-master-pages-vb/samples/sample6.html)]
 
 > [!NOTE]
-> Web URL tabanlı denetim özelliklerini kullanılan yanı sıra `~` çağrılırken de kullanılabilir `Response.Redirect` ve `Server.MapPath` yöntemleri, diğerlerinin yanı sıra. Ayrıca, `ResolveClientUrl` yöntemi çağrılabilir doğrudan bir ASP.NET ya da ana sayfanın bildirim temelli biçimlendirme, gerekirse; bkz [Fritz çoklu kare](https://www.pluralsight.com/blogs/fritz/)ın blog girdisi [kullanma `ResolveClientUrl` biçimlendirmede](https://www.pluralsight.com/blogs/fritz/archive/2006/02/06/18596.aspx).
+> URL tabanlı Web denetim özelliklerini kullanılan yanı sıra `~` çağırırken de kullanılabilir `Response.Redirect` ve `Server.MapPath` yöntemleri, diğerlerinin yanı sıra. Ayrıca, `ResolveClientUrl` yöntemi çağrılabilir doğrudan bir ASP.NET ya da ana sayfanın bildirim temelli biçimlendirme, gerekirse; bkz [Fritz çoklu kare](https://www.pluralsight.com/blogs/fritz/)ın blog girişine [kullanma `ResolveClientUrl` biçimlendirmede](https://www.pluralsight.com/blogs/fritz/archive/2006/02/06/18596.aspx).
 
 
-## <a name="fixing-the-master-pages-remaining-relative-urls"></a>Ana sayfanın göreli URL kalan çözme
+## <a name="fixing-the-master-pages-remaining-relative-urls"></a>Ana sayfanın göreli URL'ler kalan düzeltme
 
-Ek olarak `<img>` öğesinde `footerContent` biz yalnızca sabit, ana sayfa uygulamamızla gerektiren bir daha göreli URL içerir. `topContent` Bölge içerir "Ana sayfa için gösteren öğreticileri," bağlantı `Default.aspx`.
+Ek olarak `<img>` öğesinde `footerContent` yalnızca düzelttik, ana sayfa uygulamamızla gerektirir daha göreli bir URL içerir. `topContent` Bölge içeren "Ana sayfa işaret öğreticiler," bağlantı `Default.aspx`.
 
 
 [!code-html[Main](urls-in-master-pages-vb/samples/sample7.html)]
 
-Bu URL göreli olduğundan, kullanıcıya göndereceğiniz `Default.aspx` ziyaret içerik sayfasının klasörde sayfa. Bu bağlantı için her zaman noktası sağlamak için `Default.aspx` ihtiyacımız değiştirmek için kök klasöründe `<a>` bir köprü Web bir öğesiyle denetim biz kullanabilirsiniz `~` gösterimi.
+Bu URL, göreli olduğundan, bu kullanıcıya gönderecek `Default.aspx` içerik sayfasını ziyaret klasöründe sayfası. Bu bağlantı için her zaman noktası olmasını `Default.aspx` ihtiyacımız değiştirmek için kök klasöründe `<a>` köprü Web öğesi denetim kullanabiliriz `~` gösterimi.
 
-Kaldırma `<a>` öğesi biçimlendirme ve onun yerine bir köprü denetim ekleyin. Köprü ayarlamak `ID` için `lnkHome`, kendi `NavigateUrl` özelliğine `~/Default.aspx`ve kendi `Text` özelliğini "Ana sayfa öğreticileri."
+Kaldırma `<a>` öğenin biçimlendirmesi ve bunun yerine bir HyperLink denetimi ekleyebilirsiniz. Köprü ayarlamak `ID` için `lnkHome`, kendi `NavigateUrl` özelliğini `~/Default.aspx`ve onun `Text` özelliğini "Ana sayfa öğreticiler."
 
 
 [!code-aspx[Main](urls-in-master-pages-vb/samples/sample8.aspx)]
 
-İşte bu kadar! Bu noktada tüm ana sayfamızı URL'lerinde düzgün klasörleri bakılmaksızın bir içerik sayfasını tarafından ana sayfa ve içerik sayfasını işlendiğinde dayalı bulunur.
+İşte bu kadar! Bu noktada tüm ana sayfamızı URL'lerinde düzgün klasörleri bağımsız olarak içerik sayfası ile ana sayfa ve içerik sayfa işlendiğinde dayalı olarak yer alır.
 
 ### <a name="automatic-url-resolution-in-theheadsection"></a>Otomatik URL'sini çözümlemesinde`<head>`bölümü
 
-İçinde [ *bir Site genelinde düzenini kullanarak ana sayfalar oluşturma* ](creating-a-site-wide-layout-using-master-pages-vb.md) eklediğimiz öğretici bir `<link>` için `Styles.css` dosyasını `<head>` bölge:
+İçinde [ *bir Site genelinde düzenini kullanarak ana sayfa oluşturma* ](creating-a-site-wide-layout-using-master-pages-vb.md) öğreticide eklediğimiz bir `<link>` için `Styles.css` dosyası `<head>` bölgesi:
 
 
 [!code-aspx[Main](urls-in-master-pages-vb/samples/sample9.aspx)]
 
-Sırada `<link>` öğenin `href` özniteliği göreli, uygun bir yol çalışma zamanında otomatik olarak dönüştürülür. Biz anlatıldığı gibi [ *başlık, Meta etiketler ve diğer HTML üstbilgileri ana sayfasında belirtme* ](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb.md) öğretici, `<head>` bölgedir değiştirmek için sağlayan gerçekte bir sunucu tarafı denetimi işlendiğinde iç denetimlerinden içerikleri.
+Sırada `<link>` öğenin `href` özniteliktir göreli, otomatik olarak uygun bir yolu, çalışma zamanında dönüştürülür. Açıkladığımız gibi [ *ana sayfada başlık, Meta etiketler ve diğer HTML üst bilgilerini belirtme* ](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb.md) öğreticide `<head>` bölgedir değiştirmenizi sağlayan gerçekten sunucu tarafı denetimlerdir, işlendiğinde, iç denetimlerinin içeriği.
 
-Bunu doğrulamak için yeniden ziyaret `~/Admin/Default.aspx` sayfasında ve tarayıcıya gönderilen HTML kaynağını görüntülemek. Aşağıdaki kod parçacığında gösterildiği gibi `<link>` öğenin `href` öznitelik için uygun bir göreli URL, otomatik olarak da değiştirildi `../Styles.css`.
+Bunu doğrulamak için yeniden ziyaret `~/Admin/Default.aspx` sayfasında ve tarayıcıya gönderilen HTML kaynağını görüntülemek. Aşağıdaki kod parçacığında gösterildiği gibi `<link>` öğenin `href` özniteliği için uygun bir göreli URL, otomatik olarak da değiştirilmiş `../Styles.css`.
 
 
 [!code-html[Main](urls-in-master-pages-vb/samples/sample10.html)]
 
 ## <a name="summary"></a>Özet
 
-Ana sayfalar çok sık bağlantılar, görüntüler ve URL aracılığıyla belirtilmelidir diğer dış kaynaklara içerir. İçerik sayfaları ve ana sayfa aynı klasörde mevcut olmayabilir olduğundan göreli URL'ler kullanarak abstain önemlidir. Sabit kodlanmış mutlak URL'ler kullanmak mümkün olsa da, bu nedenle sıkı bir şekilde yapılması mutlak bir URL için web uygulaması couples. Taşıma veya bir web uygulaması - dağıtılırken genellikle yaptığı gibi bir mutlak URL - değişirse geri dönün ve mutlak URL'ler güncelleştirme hatırlamak zorunda kalırsınız.
+Ana sayfalar, bağlantılar, resimler ve URL ile belirtilen diğer dış kaynaklara çok sık içerir. Ana sayfa ve içerik sayfalarındaki aynı klasörde mevcut olmayabilir çünkü göreli URL'ler kullanarak abstain önemlidir. Sabit kodlanmış mutlak URL'ler kullanmak mümkün olsa da, bu nedenle sıkı bir şekilde yapılması web uygulaması için mutlak URL couples. Taşıma veya bir web uygulaması - dağıtılırken sık yaptığı gibi bir mutlak URL - değişirse geri dönün ve mutlak URL'ler güncelleştirme hatırlamak zorunda kalırsınız.
 
-İdeal yaklaşım tilde kullanmaktır (`~`) uygulama kökü belirtmek için. URL ile ilgili Özellikler içeren ASP.NET Web denetimleri eşleme `~` çalışma zamanında uygulama kök dizini. Dahili olarak, Web denetimleri kullanın `Control` sınıfının `ResolveClientUrl` geçerli bir göreli URL üretmek için yöntem. Bu yöntem ortak ve her sunucu denetiminden kullanılabilir değildir (de dahil olmak üzere `Page` sınıfı), bunu programlı olarak, arka plan kodu sınıflardan gerekirse kullanabilirsiniz.
+İdeal yaklaşım tilde kullanmaktır (`~`) uygulama kökünü belirtmek için. Eşleme URL ile ilgili özellikleri içeren ASP.NET Web denetimleri `~` için çalışma zamanında uygulama kökü. Dahili olarak, Web denetimleri kullanın `Control` sınıfın `ResolveClientUrl` geçerli bir göreli URL üretmek için yöntemi. Bu yöntem, genel ve her sunucu denetimi kullanılabilir (dahil olmak üzere `Page` sınıfı), bu nedenle onu programlı bir şekilde, arka plan kod sınıflardan gerekirse kullanabilirsiniz.
 
-Mutluluk programlama!
+Mutlu programlama!
 
 ### <a name="further-reading"></a>Daha Fazla Bilgi
 
-Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
+Bu öğreticide ele alınan konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [ASP.NET ana sayfalar](http://www.odetocode.com/Articles/419.aspx)
-- [URL bir ana sayfa yeniden Temellendirme](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/masterpages/default.aspx#urls)
+- [ASP.NET ana sayfaları](http://www.odetocode.com/Articles/419.aspx)
+- [URL bir ana sayfasında ReBase işlemi gerçekleştiriliyor.](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/masterpages/default.aspx#urls)
 - [Kullanarak `ResolveClientUrl` biçimlendirme](https://www.pluralsight.com/blogs/fritz/archive/2006/02/06/18596.aspx)
 
 ### <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar birden çok ASP/ASP.NET books ve 4GuysFromRolla.com kurucusu, 1998 itibaren Microsoft Web teknolojileri ile çalışmaktadır. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 3.5 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Tan adresindeki ulaşılabilir [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) veya kendi blog aracılığıyla [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar 1998'de bu yana birden çok ASP/ASP.NET books ve poshbeauty.com sitesinin 4GuysFromRolla.com, Microsoft Web teknolojileri ile çalışmaktadır. Scott, bağımsız Danışman, Eğitimci ve yazıcı çalışır. En son nitelemiştir olan [ *Unleashed'i öğretin kendiniz ASP.NET 3.5 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Scott, konumunda ulaşılabilir [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) veya kendi blog'da aracılığıyla [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Özel teşekkürler
 
-My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
+Yaklaşan My MSDN makaleleri gözden geçirme ilgileniyor musunuz? Bu durumda, bir satır bana bırak [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
 
 > [!div class="step-by-step"]
 > [Önceki](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb.md)
-> [sonraki](control-id-naming-in-content-pages-vb.md)
+> [İleri](control-id-naming-in-content-pages-vb.md)

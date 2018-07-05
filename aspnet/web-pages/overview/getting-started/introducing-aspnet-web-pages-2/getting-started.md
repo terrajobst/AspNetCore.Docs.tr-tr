@@ -1,56 +1,55 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/getting-started
-title: ASP.NET Web sayfaları Başlarken - giriş | Microsoft Docs
+title: Karşınızda ASP.NET Web sayfaları - kullanmaya başlama | Microsoft Docs
 author: tfitzmac
-description: WebMatrix, artık bir tümleşik geliştirme ortamı olarak ASP.NET Web sayfaları için önerilir. Visual Studio veya Visual Studio kodunu kullanın. Bu kılavuz bir...
+description: WebMatrix, artık bir tümleşik geliştirme ortamı olarak ASP.NET Web sayfaları için önerilir. Visual Studio veya Visual Studio Code'u kullanın. Bu kılavuz bir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/28/2015
 ms.topic: article
 ms.assetid: a36d3bdf-ef1b-47a4-b932-3a0cf4cad716
 ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: 5fd67a230f76774e102094f42426b8bb126c0cc6
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 3717fe230f818f251ac5d0378701c28f6b427df8
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30898105"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37382078"
 ---
-<a name="introducing-aspnet-web-pages---getting-started"></a>ASP.NET Web sayfalarını - Başlarken tanıtma
+<a name="introducing-aspnet-web-pages---getting-started"></a>Karşınızda ASP.NET Web sayfaları - kullanmaya başlama
 ====================
-tarafından [zel FitzMacken](https://github.com/tfitzmac)
+tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
 > > [!NOTE] 
 > > 
-> > WebMatrix, artık bir tümleşik geliştirme ortamı olarak ASP.NET Web sayfaları için önerilir. Kullanım [Visual Studio](../program-asp-net-web-pages-in-visual-studio.md) veya [Visual Studio Code](https://code.visualstudio.com/).
+> > WebMatrix, artık bir tümleşik geliştirme ortamı olarak ASP.NET Web sayfaları için önerilir. Kullanım [Visual Studio](../program-asp-net-web-pages-in-visual-studio.md) veya [Visual Studio Code'u](https://code.visualstudio.com/).
 > 
 > 
-> Bu yönerge ve uygulama size genel bir bakış, ASP.NET Web sayfaları (sürüm 2 veya sonrası) ve Razor sözdizimi, dinamik Web siteleri oluşturmak için basit bir çerçeve. Aynı zamanda, WebMatrix, sayfaları ve siteleri oluşturmak için bir araç sunar.
+> Bu kılavuzu ve uygulama size bir ASP.NET Web sayfaları (sürüm 2 veya sonraki sürümler), genel bakış ve Razor sözdizimi, dinamik Web siteleri oluşturmak için basit bir çerçeve. WebMatrix, sayfalar ve site oluşturmak için bir araç da tanıtılmaktadır.
 > 
-> **Düzey**: ASP.NET Web sayfaları için yeni.  
+> **Düzey**: yeni ASP.NET Web sayfaları için.  
 > **Kabul becerileri**: HTML, temel geçişli stil sayfaları (CSS).
 > 
 > Kümenin ilk öğreticide öğreneceksiniz:
 > 
-> - İçin nedir ve ne ASP.NET Web sayfaları teknolojidir.
-> - WebMatrix nedir.
+> - İçin nedir ve hangi ASP.NET Web Pages teknolojidir.
+> - WebMatrix nedir?
 > - Her şeyi yükleme.
 > - WebMatrix kullanarak Web sitesi oluşturma
 >   
 > 
-> Özellikler/teknolojilerini ele alınan:
+> Ele alınan özelliklerin/teknolojiler:
 > 
 > - Microsoft Web Platformu yükleyicisi.
 > - WebMatrix.
 > - *.cshtml* sayfaları
 >   
 > 
-> Can Pope ilk olarak Bu öğretici yazıldı. Zel FitzMacken için Microsoft WebMatrix 3 güncelleştirildi.
+> Mike Pope, bu öğreticide ilk olarak yazıldı. Tom FitzMacken Microsoft WebMatrix 3'için güncelleştirildi.
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Öğreticide kullanılan yazılım sürümleri
+> ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
 > 
 > 
 > - ASP.NET Web sayfaları (Razor) 2
@@ -59,236 +58,236 @@ tarafından [zel FitzMacken](https://github.com/tfitzmac)
 
 ## <a name="what-should-you-know"></a>Bilmeniz gerekenler?
 
-Alışık olduğunuz varsayılarak:
+Biz, alışık olduğunuz varsayılır:
 
-- **HTML**. Hiçbir ayrıntılı uzmanlık gereklidir. HTML açıklayan çalışmaz, ancak biz de karmaşık bir şey kullanmayın. Burada yararlı oldukları düşünüyoruz HTML öğreticileri bağlantılar sağlarız.
-- **Geçişli stil sayfaları (CSS)**. Aynı HTML ile.
-- **Temel veritabanı fikirleri**. Artık veriler için bir elektronik tablo kullanılan ve sıralanmış ve uzmanlık düzeyini verileri, filtre, biz Bu öğretici kümesi için genellikle varsayılarak.
+- **HTML**. Hiçbir kapsamlı uzmanlığını gereklidir. Biz HTML açıklayan olmaz, ancak biz de karmaşık bir şey kullanmayın. Burada yararlı oldukları düşünüyoruz HTML öğreticiler bağlantılarını sağlarız.
+- **Geçişli stil sayfaları (CSS)**. Aynı HTML.
+- **Temel veritabanı fikirleri**. Bu öğretici kümesi için biz genellikle, Elektronik tablolardaki verileri için kullanılan ve sıralanmış ve uzmanlık düzeyi verilere, filtre varsayılır.
 
-Biz de temel programlama öğrenme ilgilenen varsayılarak. ASP.NET Web sayfaları adlı C# programlama diliyle kullanın. Programlama, yalnızca bu ilgi içindeki tüm arka plan olması gerekmez. Bir web sayfasında önce tüm JavaScript hiç yazdıysanız arka plan Eskinin açıyor.
+Biz de, temel programlama edinmek istiyorsanız da varsayılır. ASP.NET Web Pages adlı C# programlama dilini kullanın. Programlama, yalnızca bir ilgi içindeki herhangi bir arka plana sahip gerekmez. Bir web sayfasında önce hiç olmadığı kadar herhangi bir JavaScript yazdıysanız, arka plan bolca aradığınızı bulacaksınız.
 
-Biz yeni programcıları hızlıca Getir sırada ile programlama hakkında bilginiz varsa, bu öğreticiyi tamamlarken belirlenir fark edebilirsiniz Not yavaş taşır. Biz ilk birkaç öğreticileri aldıkça, yine de olacaktır açıklamak için daha az temel programlama ve şeyler bir daha hızlı klibi taşınır.
+Ancak biz kısa sürede yeni programcılar Getir ile programlama hakkında bilginiz varsa, Bu öğretici başlangıçta kümesine bulabilirsiniz, Not yavaş taşır. İlk birkaç öğreticiler aldığımız gibi yine de olmayacaktır açıklayın daha az temel programlama ve şeyler bir daha hızlı klibi taşınır.
 
-## <a name="what-do-you-need"></a>Ne ihtiyacınız var?
+## <a name="what-do-you-need"></a>Ne gerekiyor?
 
 İşte gerekenler:
 
 - Windows 8, Windows 7, Windows Server 2008 veya Windows Server 2012 çalıştıran bir bilgisayar.
-- Canlı bir Internet bağlantısı.
+- Canlı bir internet bağlantısı.
 - Yönetici ayrıcalıkları (yükleme işlemi için gereklidir).
 
 ## <a name="what-is-aspnet-web-pages"></a>ASP.NET Web sayfaları nedir?
 
-ASP.NET Web sayfaları, dinamik web sayfaları oluşturmak için kullanabileceğiniz bir çerçevedir. Basit bir HTML web sayfası statik; içeriği sayfa sabit HTML biçimlendirmesi tarafından belirlenir. ASP.NET Web sayfaları ile oluşturduğunuz gelenler dinamik sayfalar kod kullanarak hızla, sayfa içeriği oluşturmanızı sağlar.
+ASP.NET Web sayfaları, dinamik web sayfaları oluşturmak için kullanabileceğiniz bir altyapısıdır. Basit bir HTML web sayfası statiktir; içeriği, sayfaya sabit HTML biçimlendirme tarafından belirlenir. Dinamik sayfaları, ASP.NET Web sayfaları ile oluşturduğunuz benzer kod kullanarak hızla, sayfa içeriğini oluşturmanızı sağlar.
 
-Dinamik sayfalar, her türlü şey yapmanıza olanak tanır. Bir kullanıcı girişi için form kullanarak isteyin ve sonra ne sayfasını görüntüler veya nasıl göründüğünü değiştirin. Bir kullanıcıdan bilgi alın, bir veritabanına kaydetme ve daha sonra listesi. Sitenizden e-posta gönderebilirsiniz. (Örneğin, bir eşleme hizmeti) Web'de diğer hizmetlerle etkileşim ve bu kaynaklardan bilgi tümleştirmek sayfaları üretir.
+Dinamik sayfalar çok şey yapmanıza olanak tanır. Bir kullanıcı giriş formu kullanarak isteyin ve ne sayfası görüntüler veya şöyle değiştirin. Bir kullanıcıdan bilgi al, bir veritabanına kaydetme ve daha sonra liste. Sitenizden e-posta gönderebilirsiniz. Diğer Hizmetleri Web (örneğin, bir eşleme hizmeti) ile etkileşim kurabilir ve bu kaynaklardan bilgi tümleştirme sayfaları oluşturmak.
 
 ## <a name="what-is-webmatrix"></a>WebMatrix nedir?
 
-WebMatrix tümleşen bir web sayfası Düzenleyicisi, veritabanı yardımcı programı, sayfalar ve Internet'e Web sitenizi yayımlama özellikleri test etmek için bir web sunucusu bir araçtır. WebMatrix ücretsiz ve yüklemek kolay ve kullanımı kolay olur. (Ayrıca PHP gibi diğer teknolojileri yanı sıra, yalnızca düz HTML sayfaları için çalışır.)
+WebMatrix tümleşen bir web sayfası Düzenleyicisi, bir veritabanı yardımcı programı, sayfalarını ve Web sitenizi Internet'e yayımlama özelliklerini test etmek için bir web sunucusu bir araçtır. WebMatrix, ücretsiz ve kolay yükleme ve kullanımı kolay. (Ayrıca PHP gibi diğer teknolojileri yanı sıra, yalnızca düz HTML sayfaları için çalışır.)
 
-Gerçekte yok *sahip* WebMatrix ASP.NET Web sayfaları ile çalışmak için kullanılacak. Sayfaları bir metin kullanarak Düzenleyicisi oluşturabilir örneğin ve erişimi olan bir web sunucusu kullanarak sayfaları test. Bu öğreticileri boyunca WebMatrix kullanacak şekilde ancak, WebMatrix tümünü çok, kolaylaştırır.
+Aslında yoksa *sahip* WebMatrix ASP.NET Web sayfaları ile çalışmak için kullanılacak. Sayfaları metin kullanarak Düzenleyicisi, oluşturabilir ve erişimi olan bir web sunucusunu kullanarak sayfaları test. Bu öğretici boyunca WebMatrix kullanabilirsiniz ancak WebMatrix tüm çok, kolaylaştırır.
 
-## <a name="about-these-tutorials"></a>Bu öğreticiler hakkında
+## <a name="about-these-tutorials"></a>Bu öğreticileri hakkında
 
-Bu öğretici ASP.NET Web sayfalarının nasıl kullanılacağını giriş kümesidir. Bu Tanıtım öğretici kümesinde toplam 9 öğreticileri vardır. Gerçek, profesyonel görünümlü Web siteleri oluşturmak için ASP.NET Web sayfaları yeni başlayan alan bir dizi öğretici kümeleri parçası kullanıcının.
+Bu öğretici kümesi, ASP.NET Web sayfalarının nasıl kullanılacağını giriş niteliğindedir. Bu giriş niteliğindeki öğretici kümesinde toplam 9 öğreticiler vardır. ASP.NET Web Pages Acemi kullanıcıdan gerçek ve profesyonel görünümlü bir Web siteleri oluşturmak için gereken bir dizi öğretici kümeleri gereksinimlerimizim bir parçasıdır.
 
-Bu ilk öğreticide, ASP.NET Web sayfaları ile çalışma konusunda temelleri gösteren concentrates ayarlayın. İşiniz bittiğinde, burada bunu sona erer ve daha ayrıntılı olarak, Web sayfaları keşfedin almak ek öğretici kümeleri ile çalışabilirsiniz.
+Bu ilk öğreticide, ASP.NET Web sayfaları ile çalışmaya ilişkin temel bilgileri gösteren concentrates ayarlayın. İşiniz bittiğinde, burada bunu sona erer ve, Web sayfalarını daha derinlemesine keşfedin öğrenilip ek öğretici kümeleri ile çalışabilirsiniz.
 
-Biz kasıtlı olarak hakkında ayrıntılı açıklamalar kolay gidin. Ve bir şey gösteriyoruz olduğunda, Bu öğretici kümesi için her zaman düşünüyoruz şekilde anlaşılması kolay seçeneğini belirledik. Sonraki öğretici kümeleri daha kapsamlı gidin ve daha verimli ya da daha esnek yaklaşımlar (aynı zamanda daha eğlenceli) gösterir. Ancak bu öğreticiler öncelikle temel kavramları anlamanız gerekir.
+Biz kasıtlı olarak üzerinde ayrıntılı açıklamalar kolay gidin. Ve bir şeyi göstereceğiz her durumda, Bu öğretici kümesi için size her zaman düşünüyoruz bir şekilde anlaşılması kolay seçin. Sonraki öğretici kümeleri, daha ayrıntılı gidin ve daha verimli ya da daha esnek yaklaşımları (Ayrıca daha eğlenceli) gösterir. Ancak bu öğreticileri öncelikle temellerini anlamanız gerekir.
 
-Bu özellikler, ASP.NET Web sayfaları yalnızca başladıktan öğretici kümesi kapsar:
+Bu özellikler, ASP.NET Web sayfaları yalnızca başlangıç öğretici kümesi içerir:
 
-- Giriş ve yüklü her şeyi alınıyor. (Makaleyi okuduğunuz öğreticide olmasıdır.)
+- Giriş ve yüklü olan her şeyi alma. (Bu makaleyi okuduğunuz öğreticide içindir.)
 - ASP.NET Web sayfaları Programlama temelleri.
 - Veritabanı oluşturma.
-- Oluşturma ve bir kullanıcı giriş formunu işleme.
-- Ekleme, güncelleştirme ve veritabanındaki verileri silme.
+- Oluşturma ve bir kullanıcı giriş formu işleme.
+- Ekleme, güncelleştirme, veritabanındaki verileri siliniyor.
 
 ## <a name="what-will-you-create"></a>Ne oluşturacaksınız?
 
-Bu öğretici ayarlayın ve sonraki olanları istediğiniz filmler listelediğiniz yerde bir Web sitesi Uzayda Döndür. Film girin, bunları düzenleyin ve bunları listesinde görebilirsiniz. Bu öğretici kümesinde oluşturacaksınız sayfaları birkaç şunlardır. Birinci oluşturacağınız sayfa listeleme film gösterir:
+Bu öğreticide ayarlayabilir ve sonraki olanları çalışmalarınızı istediğiniz film burada listeleyebilirsiniz bir Web sitesi. Filmler girin, düzenleyebilir ve bunları listelemek mümkün olacaktır. Bu öğretici kümesinde oluşturacaksınız sayfaları birkaç aşağıda verilmiştir. İlki, oluşturacağınız sayfa listeleme film gösterir:
 
-![Film listesini gösteren tamamladı film uygulaması](getting-started/_static/image1.png)
+![Film listesini gösteren bitirdi film uygulaması](getting-started/_static/image1.png)
 
-Ve yeni film bilgileri sitenize eklemenize olanak sağlayan sayfa şöyledir:
+Ve İşte yeni film bilgileri sitenize eklemenize olanak sağlayan sayfası:
 
-![Film ekleme sayfasını gösteren tamamlanmış film uygulaması](getting-started/_static/image2.png)
+![Ekleme film sayfasını gösteren tamamlanmış film uygulaması](getting-started/_static/image2.png)
 
-Bu sonraki öğretici kümeleri yapı ayarlayın ve resimleri karşıya yükleme, oturum açma kişiler izin vererek, e-posta göndermek ve sosyal medya ile tümleştirme gibi daha fazla işlevsellik ekleyin.
+Bu sonraki öğretici kümeleri yapı ayarlayın ve resimleri karşıya yükleme, oturum kişilere izin vererek, e-posta göndermek ve sosyal medya ile tümleştirme gibi daha fazla işlevsellik ekler.
 
 ## <a name="see-this-app-running-on-azure"></a>Azure üzerinde çalışan bu uygulamayı bakın
 
-Canlı web uygulaması çalışan tamamlanmış site görmek ister misiniz? Aşağıdaki düğmeyi tıklatarak, uygulama tam sürümü Azure hesabınızda dağıtabilirsiniz.
+Canlı web uygulaması olarak çalışan tamamlanmış site görmek ister misiniz? Aşağıdaki düğmeye tıklayarak Azure hesabınızda bir tam sürümü uygulama dağıtabilirsiniz.
 
 [![](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/?WT.mc_id=deploy_azure_aspnet&repository=https://github.com/tfitzmac/WebPagesMovies)
 
-Bu çözüm Azure'a dağıtmak için bir Azure hesabınız olmalıdır. Bir hesap zaten yoksa, aşağıdaki seçenekler vardır:
+Bu çözüm, Azure'a dağıtmak için bir Azure hesabına ihtiyacınız var. Bir hesap zaten yoksa, aşağıdaki seçenekleriniz:
 
-- [Ücretsiz bir Azure hesabı açabilirsiniz](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604) -krediler alırsınız, ücretli Azure hizmetlerini denemek için kullanabileceğiniz ve hatta kullanıldıktan sonra en fazla hesabı tutabilir ve ücretsiz Azure hizmetlerini kullanabilirsiniz.
-- [MSDN abone Avantajlarınızı etkinleştirebilir](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604) -MSDN aboneliğiniz size kredi verir Ücretli Azure hizmetlerinizi kullanabildiğiniz her ay.
+- [Ücretsiz bir Azure hesabı açabilirsiniz](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604) -KREDİLERİ edinin, ücretli Azure hizmetlerini denemek için kullanabileceğiniz ve hatta kullanıldıktan sonra en fazla hesabı tutabilir ve ücretsiz Azure hizmetlerini kullanabilirsiniz.
+- [MSDN abone Avantajlarınızı etkinleştirebilir](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604) -MSDN aboneliğiniz size kredi verir, ücretli Azure hizmetlerinizi kullanabildiğiniz her ay.
 
 ## <a name="installing-everything"></a>Her şeyi yükleme
 
-Her şeyi, Microsoft Web Platformu Yükleyicisi'ni kullanarak yükleyebilirsiniz. Aslında, yükleyici yükleyin ve şey yüklemek için kullanın.
+Her şey, Microsoft Web Platformu Yükleyicisi'ni kullanarak yükleyebilirsiniz. Aslında, yükleyici yükleme ve diğer her şey yüklemek için kullanın.
 
-Web sayfaları kullanmak için olması en az olması yüklü SP3 ile Windows XP veya Windows Server 2008 veya üstü.
+Web sayfaları kullanmak için sahip en az zorunda yüklü SP3, Windows XP veya Windows Server 2008 veya üstü.
 
-Üzerinde [Web Pages sayfası](../../../index.md) ASP.NET Web sitesi tıklatın **yükleme**.
+Üzerinde [Web Pages sayfası](../../../index.md) ASP.NET Web sitesini, tıklayın **yükleme**.
 
-![ASP.NET Web sitesi gösteren &quot;Webmatrix'i yükleyin&quot; düğmesi](getting-started/_static/image3.png)
+![ASP.NET Web sitesini gösteren &quot;Webmatrix'i yükleyin&quot; düğmesi](getting-started/_static/image3.png)
 
-Lisans koşullarını ve WebMatrix yüklemeden önce gizlilik bildirimini kabul istenir.
+Lisans koşullarını ve gizlilik bildirimi, WebMatrix yüklemeden önce kabul istenir.
 
 ![yüklemeye başlamak için koşulu kabul](getting-started/_static/image4.png)
 
-Tıklatın **çalıştırmak** yükleme başlatılamadı. (Yükleyici kaydetmek istiyorsanız, tıklatın **kaydetmek** ve kaydettiğiniz bu klasörden yükleyiciyi çalıştırın.)
+Tıklayın **çalıştırma** yüklemeyi başlatmak için. (Yükleyici kaydetmek istiyorsanız, tıklayın **Kaydet** ve ardından kaydettiğiniz bu klasörden yükleyiciyi çalıştırın.)
 
 ![](getting-started/_static/image5.png)
 
-Web Platformu yükleyicisi görünür, WebMatrix yüklemek için hazır. **Yükle**'ye tıklatın.
+Web Platformu yükleyicisi görüntülenir, WebMatrix yüklemek için hazır. **Yükle**'ye tıklatın.
 
 ![](getting-started/_static/image6.png)
 
-Yükleme işleminin ne onu bilgisayarınıza yüklemek üzere olduğunu rakamları ve işlemi başlatır. Ne tam olarak yüklü olması gereken bağlı olarak, işlem herhangi bir yere birkaç dakika sonra birkaç dakika sürebilir. Seçin **kabul ediyorum** lisans koşullarını kabul etmek için.
+Yükleme işlemi, ne, bilgisayarınıza yüklemek sahip rakamları ve işlemini başlatır. Hangi tam olarak yüklenmesi gerekir bağlı olarak, işlem her yerde birkaç dakika için birkaç dakika sürebilir. Seçin **kabul ediyorum** lisans koşullarını kabul etmek için.
 
 ## <a name="hello-webmatrix"></a>Merhaba, WebMatrix
 
-Yükleme işlemi tamamlandığında, WebMatrix otomatik olarak başlatabilirsiniz. Windows, gelen içermiyorsa **Başlat** menüsü, başlatma **Microsoft WebMatrix**.
+İşlem tamamlandığında, yükleme işlemi otomatik olarak WebMatrix başlatabilirsiniz. Windows gelen eşleşmiyorsa **Başlat** menüsü, başlatma **Microsoft WebMatrix**.
 
-WebMatrix ilk kez başlattığınızda, Microsoft Azure için Microsoft hesabınızla oturum açmak için bir fırsat verilir. Oturum açma tarafından 10 ücretsiz web uygulamaları Azure aracılığıyla alırsınız. Bu ücretsiz web uygulamaları uygulamalarınızı test etmek için kolay bir yol sağlamak. Zaten bir Azure hesabınız yoksa, ancak bir MSDN aboneliğiniz varsa, şunları yapabilirsiniz [MSDN abonelik Avantajlarınızı etkinleştirebilir](https://www.windowsazure.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604). Aksi takdirde, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz [Azure ücretsiz deneme sürümü](https://azure.microsoft.com/free/?WT.mc_id=A443DD604).
+WebMatrix için ilk kez başlattığınızda, Microsoft Azure için Microsoft hesabınızla oturum açmak için bir fırsat sunulur. Oturum açarak Azure üzerinden 10 ücretsiz web uygulaması elde edersiniz. Bu ücretsiz web apps, uygulamalarınızı test etmek için kullanışlı bir yol sağlar. Bir Azure hesabınız yoksa, ancak bir MSDN aboneliğiniz varsa [MSDN abonelik Avantajlarınızı etkinleştirin](https://www.windowsazure.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604). Aksi takdirde, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz [Azure ücretsiz deneme sürümü](https://azure.microsoft.com/free/?WT.mc_id=A443DD604).
 
-Bu öğretici ile devam etmek şu anda oturum gerekmez. Şimdi oturum değil, daha sonra oturum açmak için seçeneği hala gerekir. Son [konu](publishing.md) Bu öğreticide serisi için Azure Web sitenizi dağıtmak alınmaktadır; bu nedenle, bu konuda tamamlamak oturum açmanız.
+Bu öğretici ile devam etmek şu anda oturum gerekmez. Artık oturum değil ise, yine de daha sonra oturum açmayı seçeneğine sahip olursunuz. Son [konu](publishing.md) Bu öğreticide serisi Azure'da Web sitenizi dağıtmak nasıl etkinleştireceğinizi de açıklar; bu nedenle, bu konuyu tamamlamak oturum açmanız.
 
-Bu noktada, ya da, Microsoft hesabı veya Seç oturum açmanız **şimdi değil** alt köşedeki.
+Bu noktada, ya da, Microsoft hesabı ile veya select oturum **şimdi değil** sağ alt köşedeki.
 
 ![Oturum Aç](getting-started/_static/image7.png)
 
-Başlamak için boş bir Web sitesi oluşturmak ve bir sayfa ekleyin. Sonraki Öğreticide bu kümesindeki yerleşik Web şablonlarından birini yürütmek.
+Başlamak için boş bir Web sitesi oluşturma ve bir sayfa ekleyin. Bir sonraki Öğreticide bu yerleşik Web şablonlarından biriyle oynatın.
 
-Başlangıç penceresinde **yeni**.
+Başlangıç pencerede **yeni**.
 
 ![WebMatrix başlangıç ekranı](getting-started/_static/image8.png)
 
-Önceden oluşturulmuş dosyalar ve farklı türde Web siteleri için sayfaları şablonlarıdır. Tüm varsayılan olarak kullanılabilir şablonları görmek için Şablon Galerisi seçeneğini belirleyin.
+Önceden oluşturulmuş dosyalar ve sayfalar için Web siteleri farklı türde şablonlardır. Tüm varsayılan olarak kullanılabilir şablonları görmek için Şablon Galerisi seçeneğini seçin.
 
-![Select Şablon Galerisi](getting-started/_static/image9.png)
+![Şablon Galerisi seçin](getting-started/_static/image9.png)
 
-İçinde **Hızlı Başlangıç** penceresinde, seçin **boş Site** gelen **ASP.NET** grup ve "WebPagesMovies" Yeni sitesini adlandırın.
+İçinde **Hızlı Başlangıç** penceresinde **boş Site** gelen **ASP.NET** grubu ve yeni site "WebPagesMovies" olarak adlandırın.
 
-![WebMatrix hızlı başlangıç penceresinde seçili boş Site şablonuyla](getting-started/_static/image10.png)
+![Boş Site şablonu seçili penceresiyle WebMatrix hızlı başlangıç](getting-started/_static/image10.png)
 
 **İleri**'ye tıklayın.
 
-Microsoft hesabınızda oturum açmanızdan, Azure'da site oluşturma fırsatınız olur. Varsayılan adı sitenizin adını temel alarak **WebPagesMovies.azurewebsites.net** önerilir; ancak, bu adı Windows Azure üzerinde kullanılabilir değil ünlem gösterir. Kolaylık olması için seçin **atla** Azure üzerinde şu anda web sitesi oluşturma atlamak için. Bu seri biz site Azure'a yayımlayacak.
+Microsoft hesabınızda oturum açmanızdan, Azure'da site oluşturma fırsatı verilir. Varsayılan adını sitenizin adına dayalı **WebPagesMovies.azurewebsites.net** önerilir; ancak, bu adı Windows Azure üzerinde kullanılabilir değil ünlem gösterir. Kolaylık olması için seçin **atla** Azure'da web sitesi oluşturma, şu anda atlamak için. Bu seri için Azure site yayımlarız.
 
-![Azure sitesi oluştur](getting-started/_static/image11.png)
+![Azure site oluşturma](getting-started/_static/image11.png)
 
-WebMatrix oluşturur ve site açar:
+WebMatrix oluşturur ve bu sitenin açılır:
 
-![Yeni WebPagesMovies sitesini Webmatrix'te açın](getting-started/_static/image12.png)
+![Webmatrix'te yeni WebPagesMovies sitesini açın](getting-started/_static/image12.png)
 
-En üstte bir hızlı erişim araç çubuğu ve Şerit yoktur. Altındaki sol çalışma alanı seçicisinde görevleri arasında geçiş Burada gördüğünüz (**Site**, **dosyaları**, **veritabanları**, **raporları**). Sağ tarafta içerik bölmesinde Düzenleyicisi ve raporları içindir. Ve alt arasında bazen iletiler için bir bildirim çubuğu görürsünüz.
+En üstünde, hızlı erişim araç çubuğu ve bir Şerit yoktur. Alt sol, çalışma alanı Seçici görevler arasında geçiş Burada gördüğünüz (**Site**, **dosyaları**, **veritabanları**, **raporları**). Sağ tarafta içerik bölmesinde Düzenleyicisi ve raporları içindir. Ve alt arasında bazen iletiler için bir bildirim çubuğu göreceksiniz.
 
-Hakkında daha fazla WebMatrix ve özelliklerini bu öğreticileri ilerledikçe öğreneceksiniz.
+Hakkında daha fazla WebMatrix ve özelliklerini bu öğreticileri gibi öğreneceksiniz.
 
-## <a name="creating-a-web-page"></a>Web sayfası oluşturma
+## <a name="creating-a-web-page"></a>Bir Web sayfası oluşturma
 
-WebMatrix ve ASP.NET Web sayfaları konusunda bilgi sahibi olmak için basit bir sayfa oluşturacaksınız.
+WebMatrix ve ASP.NET Web sayfaları ile ilgili bilgi sahibi olmak için basit bir sayfa oluşturacaksınız.
 
-Çalışma alanı seçicisinde seçin **dosyaları** çalışma. Bu çalışma alanı, dosyalar ve klasörlerle çalışmanıza olanak tanır. Sol bölmede, sitenizin dosya yapısı gösterir. Dosya ile ilgili görevleri göstermek için Şerit değişir.
+Çalışma alanı seçiciden seçin **dosyaları** çalışma. Bu çalışma alanı, dosyalar ve klasörler ile çalışmanıza olanak tanır. Sol bölmede, sitenizin dosya yapısı gösterilmektedir. Dosya ile ilgili görevleri göstermek için Şerit değişir.
 
-![WebMatrix çalışma dosyası](getting-started/_static/image13.png)
+![Webmatrix'te dosya çalışma](getting-started/_static/image13.png)
 
 Şeritte altında oku **yeni** ve ardından **yeni dosya**.
 
-![Kullanarak &quot;yeni&quot; yeni bir dosya oluşturmak için Şerit'te komutu](getting-started/_static/image14.png)
+![Kullanarak &quot;yeni&quot; yeni bir dosya oluşturmak için Şeritte komutu](getting-started/_static/image14.png)
 
-WebMatrix dosya türlerinin bir listesini görüntüler. Seçin **CSHTML**hem de **adı** "HelloWorld" yazın. Bir ASP.NET Web Pages sayfası CSHTML sayfasıdır.
+WebMatrix, dosya türlerinin bir listesini görüntüler. Seçin **CSHTML**hem de **adı** "HelloWorld" yazın. Bir ASP.NET Web Pages sayfasında CSHTML sayfasıdır.
 
-![HelloWorld.cshtml adlı yeni bir CSHTML sayfa oluşturma](getting-started/_static/image15.png)
+![HelloWorld.cshtml adlı yeni bir CSHTML sayfası oluşturma](getting-started/_static/image15.png)
 
 **Tamam**'ı tıklatın.
 
-WebMatrix, sayfa oluşturur ve Düzenleyicisi'nde açar.
+WebMatrix sayfası oluşturur ve düzenleyicide açılır.
 
 ![WebMatrix Düzenleyicisi'nde yeni HelloWorld sayfası](getting-started/_static/image16.png)
 
-Gördüğünüz gibi sayfa şöyle üst blok dışında sıradan HTML biçimlendirmesi çoğunlukla içerir:
+Gördüğünüz gibi sayfa şuna benzer bir üst bloğu dışında sıradan HTML biçimlendirmesi çoğunlukla içerir:
 
 [!code-cshtml[Main](getting-started/samples/sample1.cshtml)]
 
-Bu kod, ekleme için kısa bir süre içinde anlatıldığı gibi.
+Bu kısa bir süre içinde anlatıldığı gibi kodu eklemek için.
 
-Dikkat sayfasının farklı bölümleri &mdash; öğe adları, öznitelikleri ve metin artı üst blok — farklı renkler tüm yazılımında. Bu adlı *sözdizimi vurgulama*, ve her şeyi açık tutmak kolaylaştırır. WebMatrix web sayfalarında çalışmak kolaylaştırır özelliklerden biridir.
+Dikkat sayfasının farklı bölümlerini &mdash; öğe adları, öznitelikleri ve metnin yanı sıra üst kısmındaki blok — tüm de farklı renklerde. Bu adlandırılır *söz dizimi vurgulama*, ve her şeyi NET tutmak kolaylaştırır. Webmatrix'te web sayfalarıyla çalışma kolaylaştırır özelliklerden biridir.
 
-İçerik için ekleme `<head>` ve `<body>` aşağıdaki örnekte gibi öğeler. (İstediğiniz yaparsanız, yalnızca aşağıdaki bloğu kopyalayın ve tüm mevcut sayfa bu kod ile değiştirin.)
+İçin içerik ekleme `<head>` ve `<body>` aşağıdaki örnekte gibi öğeler. (İsterseniz, yalnızca aşağıdaki bloğunu kopyalayın ve mevcut sayfanın tamamını şu kodla değiştirin.)
 
 [!code-cshtml[Main](getting-started/samples/sample2.cshtml)]
 
-Hızlı Erişim Araç veya **dosya** menüsünde tıklatın **kaydetmek**.
+Hızlı Erişim Araç çubuğu veya **dosya** menüsünde tıklatın **Kaydet**.
 
 ![WebMatrix hızlı erişim araç çubuğunda Kaydet düğmesi](getting-started/_static/image17.png)
 
-## <a name="testing-the-page"></a>Sayfa test etme
+## <a name="testing-the-page"></a>Sayfasını test etme
 
-İçinde **dosyaları** çalışma alanında, sağ *HelloWorld.cshtml* sayfasında ve ardından **başlatma tarayıcıda**.
+İçinde **dosyaları** çalışma alanında, sağ *HelloWorld.cshtml* sayfasında ve ardından **tarayıcıda Başlat**.
 
 ![WebMatrix Şeritte Çalıştır düğmesini kullanarak bir sayfa çalıştırma](getting-started/_static/image18.png)
 
-WebMatrix, bilgisayarınızdaki sayfaları test etmek için kullanabileceğiniz bir yerleşik web sunucusu (IIS Express) başlatır. (WebMatrix, IIS Express, test edebilirsiniz önce sayfanızı bir web sunucusuna herhangi bir yerde yayımlamanız gerekir.) Sayfa varsayılan tarayıcınızda görüntülenir.
+WebMatrix, bilgisayarınızda sayfaları test etmek için kullanabileceğiniz bir yerleşik web sunucusu (IIS Express) başlatır. (Webmatrix'te IIS Express, test edebilirsiniz önce sayfanıza bir web sunucusuna yere yayımlamanız gerekir.) Sayfa varsayılan tarayıcınızda görüntülenir.
 
-![&quot;Merhaba Dünya&quot; tarayıcıda çalışan sayfası](getting-started/_static/image19.png)
+![&quot;Merhaba Dünya&quot; sayfasını tarayıcıda çalışıyor](getting-started/_static/image19.png)
 
-Webmatrix'te bir sayfayı test ettiğinizde, tarayıcıda URL şöyle olduğuna dikkat edin `http://localhost:33651/HelloWorld.cshtml.` adı *localhost* sayfa kendi bilgisayarınızda bir web sunucusu tarafından hizmet verilen anlamına gelir, yerel bir sunucuya başvuruyor. WebMatrix belirtildiği gibi bir sayfa başlattığında çalıştırılan IIS Express adlı bir web sunucusu programı içerir.
+Webmatrix'te bir sayfayı test ettiğinizde, tarayıcı URL aşağıdakine benzer olduğunu fark `http://localhost:33651/HelloWorld.cshtml.` adı *localhost* sayfa kendi bilgisayarınızda bir web sunucusu tarafından sunulan, yani, yerel bir sunucuya ifade eder. WebMatrix, belirtildiği gibi bir sayfa başlatıldığında çalıştırılan IIS Express adlı bir web sunucusu programı içerir.
 
-Sonra sayı *localhost* (örneğin, *localhost:33651*) başvurduğu bir *bağlantı noktası numarası* bilgisayarınızda. "Bu belirli Web sitesi için IIS Express kullanan kanal" sayısıdır. Bağlantı noktası numarası rastgele 1024 ile 65536 aralığından sitenizi oluşturmak ve oluşturduğunuz her site için farklı seçilir. (Kendi site test ettiğinizde, bağlantı noktası numarasını neredeyse kesinlikle 33561 daha farklı bir numara olacaktır.) Her Web sitesi için farklı bir bağlantı noktası kullanarak, IIS Express için Konuşmayı sitelerinizi hangisinin düz kullanmaya devam edebilir.
+Sonra sayı *localhost* (örneğin, *localhost:33651*) başvurduğu bir *bağlantı noktası numarası* bilgisayarınızda. Bu "IIS Express kullandığından bu belirli bir Web sitesi için kanal" sayısıdır. Bağlantı noktası numarasını rastgele bir aralıktan 1024 ile 65536 sitenizi oluşturmak ve oluşturduğunuz her site için farklı seçilir. (Kendi site test ettiğinizde, bağlantı noktası numarasını neredeyse kesindir 33561 değerinden farklı bir numara olacaktır.) Her Web sitesi için farklı bir bağlantı noktası kullanarak IIS Express için Bahsediyor sitelerinizi hangisinin düz tutabilirsiniz.
 
-Artık görmek sitenizi bir ortak web sunucusuna yayımladığınızda sonraki *localhost* URL. Bu noktada, daha genel bir URL gibi görürsünüz `http://myhostingsite/mywebsite/HelloWorld.cshtml` veya ne olursa olsun sayfasıdır. Bu öğretici serisinde daha sonra bir site yayımlama hakkında daha fazla bilgi edineceksiniz.
+Artık bkz: Genel web sunucusuna, sitenizi yayımladığınızda sonraki *localhost* URL. Bu noktada, gibi daha genel bir URL göreceğiniz `http://myhostingsite/mywebsite/HelloWorld.cshtml` veya herhangi bir sayfa. Bu öğretici serisinde daha sonra bir site yayımlama hakkında daha fazla bilgi edineceksiniz.
 
-## <a name="adding-some-server-side-code"></a>Bazı sunucu tarafı kod ekleme
+## <a name="adding-some-server-side-code"></a>Bazı sunucu tarafındaki kod ekleme
 
 Tarayıcıyı kapatın ve WebMatrix sayfasına geri dönün.
 
-Aşağıdaki kod gibi görünüyor. böylece bir satır kod bloğunu ekleyin:
+Şu kod gibi görünüyor. böylece kod bloğu için bir satır ekleyin:
 
 [!code-cshtml[Main](getting-started/samples/sample3.cshtml)]
 
-Biraz Razor kodunun budur. Geçerli tarih ve saati alır ve bu değeri içine yerleştirir büyük olasılıkla boş olduğundan bir *değişkeni* adlı `currentDateTime`. Daha fazla okuyacaksınız sonraki öğretici Razor söz dizimi hakkında.
+Razor kod biraz budur. Geçerli tarih ve saati alır ve bu değeri içine yerleştirir büyük olasılıkla boş olduğundan bir *değişkeni* adlı `currentDateTime`. Daha fazla bilgi edinin sonraki öğreticide Razor söz dizimi hakkında.
 
-Sayfasının gövdesindeki sonra `<p>Hello World!</p>` öğesi, aşağıdakileri ekleyin:
+Sayfanın gövdesindeki sonra `<p>Hello World!</p>` öğesi, aşağıdakileri ekleyin:
 
 [!code-html[Main](getting-started/samples/sample4.html)]
 
-Bu kod, yerleştirin değerini alır `currentDateTime` üst değişken ve sayfanın biçimlendirmesine ekler. `@` Karakteri sayfasında ASP.NET Web Pages kodunu işaretler.
+Bu kod içine yerleştirdiğiniz değeri alır `currentDateTime` üst değişken ve sayfanın biçimlendirmesine ekler. `@` ASP.NET Web Pages kod sayfasında karakter işaretler.
 
-(Sayfanın çalıştırılmadan önce WebMatrix değişiklikleri sizin için kaydeder) sayfasını tekrar çalıştırın. Bu süre, tarih ve saat sayfasında görürsünüz.
+(Sayfa çalıştırılmadan önce WebMatrix değişiklikleri sizin için kaydeder) sayfasını tekrar çalıştırın. Bu kez tarih ve saat sayfasında bakın.
 
-![&quot;Merhaba Dünya&quot; tarayıcı dinamik olarak üretilen zaman görüntü ile çalışan sayfası](getting-started/_static/image20.png)
+![&quot;Merhaba Dünya&quot; tarayıcı dinamik olarak üretilen bir saati görüntüleme ile çalışan sayfası](getting-started/_static/image20.png)
 
-Birkaç dakika bekleyin ve sonra tarayıcıda sayfayı yenileyin. Tarih ve saat gösterimi güncelleştirilir.
+Birkaç dakika bekleyin ve ardından sayfanın tarayıcıda yenileyin. Tarih ve saat görüntüleme güncelleştirilir.
 
-Tarayıcıda, sayfa kaynağında arayın. Aşağıdaki biçimlendirmede gibi görünüyor:
+Tarayıcıda, sayfa kaynağında arayın. Aşağıdaki biçimlendirme gibi görünüyor:
 
 [!code-html[Main](getting-started/samples/sample5.html)]
 
-Dikkat `@{ }` üst blok değil vardır. Ayrıca tarih ve saat gösterimi gerçek bir karakter dizesi gösterdiğine dikkat edin (`1/18/2012 2:49:50 PM` veya herhangi) değil `@currentDateTime` vardı gibi *.cshtml* sayfası. İşte, sayfa çalıştırdığınızda, ASP.NET ile işaretlenmiş tüm kodu (çok az bu durumda) işlenen ne `@`. Kod çıkışı üretir ve bu çıkışı sayfasına eklenmiştir.
+Dikkat `@{ }` üst blok değil vardır. Ayrıca, tarih ve saat görüntüleme gerçek bir karakter dizesi gösterir dikkat edin (`1/18/2012 2:49:50 PM` veya) değil `@currentDateTime` olduğu gibi *.cshtml* sayfası. İşte sayfa çalıştırdığınızda, ASP.NET ile işaretlenmiş tüm kod (çok az bu durumda) işlenen ne `@`. Çıkış kodu üretir ve bu çıkışı sayfasına eklenir.
 
 ## <a name="this-is-what-aspnet-web-pages-are-about"></a>ASP.NET Web sayfaları üzeresiniz budur
 
-ASP.NET Web sayfaları dinamik web içeriği üretir okurken ne Burada gördüğünüz olur. Yeni oluşturduğunuz sayfa önce gördünüz aynı HTML biçimlendirmesi içerir. Ayrıca, her türlü görevleri gerçekleştirebilir kod de içerebilir. Bu örnekte, geçerli tarih ve saati alma Önemsiz görevini yaptınız. Gördüğünüz gibi sayfasında bir çıktı oluşturmak için HTML kod intersperse. Birisi isteğinde bulunduğunda bir *.cshtml* sayfasını tarayıcıda, ASP.NET web sunucusu elinizde hala durumdayken sayfasını işler. ASP.NET kodunun çıkış (varsa) sayfasına HTML olarak ekler. Kod işlem tamamlandığında, ASP.NET ortaya çıkacak sayfasında tarayıcıya gönderir. Tüm tarayıcı hiç alır HTML olabilir. Bir diyagram şöyledir:
+ASP.NET Web Pages dinamik web içeriği üretir okuduğunuzda ne Burada gördüğünüz olur. Yeni oluşturduğunuz sayfasında önce gördüğünüz aynı HTML biçimlendirmeyi içerir. Ayrıca, çok çeşitli görevler gerçekleştiren kod de içerebilir. Bu örnekte, geçerli tarih ve saat almaya ilişkin basit bir görev yaptım. Gördüğünüz gibi HTML sayfasındaki çıktı üretmek için kod aralarına koyabilirsiniz. Birisi istediğinde bir *.cshtml* sayfasını tarayıcıda, ASP.NET web sunucusunun hala kişiye olsa sayfa işler. ASP.NET kodun çıktısı (varsa) sayfasına HTML olarak ekler. Kod işlem tamamlandığında, ASP.NET elde edilen sayfanın tarayıcısına gönderir. Tüm tarayıcı hiç olmadığı kadar alır HTML budur. Bir diyagramda şu şekildedir:
 
 ![Kavramsal akışı nasıl ASP.NET HTML dinamik olarak oluşturur](getting-started/_static/image21.png)
 
-Düşünce basittir ancak kodu gerçekleştirebileceğiniz birçok ilginç görevleri vardır ve hangi dinamik olarak HTML içeriğini sayfaya ekleyebileceğiniz ilginç birçok yolu vardır. Ve ASP.NET *.cshtml* herhangi bir HTML sayfası gibi sayfaları da tarayıcının kendi (JavaScript ve jQuery kodu) çalışan bir kod içerir. Tüm bunlar Bu öğretici kümesi ve sonraki olanları ele alacağız.
+Basit bir uygulamadır ancak kod gerçekleştirebileceğiniz birçok ilgi çekici görevleri vardır ve hangi dinamik olarak HTML içeriği sayfaya ekleyebileceğiniz birçok ilgi çekici yolu vardır. Ve ASP.NET *.cshtml* sayfaları, herhangi bir HTML sayfası gibi tarayıcı kendisi (JavaScript ve jQuery kodu) çalışan kod da içerebilir. Tüm bunlar, Bu öğretici kümesinde ve sonraki olanları hakkında bilgi edineceksiniz.
 
 ## <a name="coming-up-next"></a>Sıradaki gelen
 
-Bu serideki sonraki öğretici ASP.NET Web sayfaları biraz daha programlama keşfedin.
+Bu serideki sonraki öğretici, ASP.NET Web Pages biraz daha programlama keşfedin.
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-[ASP.NET Web sitesi sıfırdan oluşturma](https://www.microsoft.com/web/post/create-an-aspnet-website-from-scratch). Bu, özellikle bir öğreticidir WebMatrix (ASP.NET Web sayfaları değil) kullanma hakkında. Bu biraz bazı ek özelliklerini Bu öğretici kümesinde kapak olmaz WebMatrix hakkında daha fazla ayrıntı girmeyeceğini.
+[Sıfırdan ASP.NET Web sitesi oluşturma](https://www.microsoft.com/web/post/create-an-aspnet-website-from-scratch). Bu, özellikle bir öğretici WebMatrix (ASP.NET Web sayfaları değil) kullanarak hakkında. Bu biraz bazı ek özellikleri Bu öğretici kümesinde ele olmaz WebMatrix hakkında daha fazla ayrıntı geçerlidir.
 
 > [!div class="step-by-step"]
 > [Next](intro-to-web-pages-programming.md)

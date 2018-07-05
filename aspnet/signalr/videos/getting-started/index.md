@@ -1,27 +1,26 @@
 ---
 uid: signalr/videos/getting-started/index
-title: ASP.NET SignalR videolar | Microsoft Docs
+title: ASP.NET SignalR videoları | Microsoft Docs
 author: rick-anderson
-description: Bu, arka plan videolar verin ve SignalR kullanarak web uygulamalarına gerçek zamanlı işlevsellik eklemek için uygulama örnekleri.
+description: Bu, arka plan videoları verin ve web uygulamalarına gerçek zamanlı işlevsellik eklemek için SignalR kullanarak uygulama örnekleri.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/12/2012
 ms.topic: article
 ms.assetid: d8d03cc9-13bc-4921-9aca-3dfbda53660d
 ms.technology: dotnet-signalr
-ms.prod: .net-framework
 msc.legacyurl: /signalr/videos/getting-started
 msc.type: chapter
-ms.openlocfilehash: 509d5475650e758960da3116b53cd21c0b628edf
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b2ec0a16bd3635aa2252ca0506fa482ab18e6275
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26565992"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37400978"
 ---
-<a name="aspnet-signalr-videos"></a>ASP.NET SignalR videolar
+<a name="aspnet-signalr-videos"></a>ASP.NET SignalR videoları
 ====================
-> Bu, arka plan videolar verin ve SignalR kullanarak web uygulamalarına gerçek zamanlı işlevsellik eklemek için uygulama örnekleri.
+> Bu, arka plan videoları verin ve web uygulamalarına gerçek zamanlı işlevsellik eklemek için SignalR kullanarak uygulama örnekleri.
 
 
-- [SignalR ve Web yuvaları](signalr-and-web-sockets.md)
+- [SignalR ve Web Yuvaları](signalr-and-web-sockets.md)

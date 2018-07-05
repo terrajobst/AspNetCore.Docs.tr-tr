@@ -1,187 +1,186 @@
 ---
 uid: whitepapers/what-is-new-in-aspnet-mvc
-title: ASP.NET MVC 2 yenilikler | Microsoft Docs
+title: ASP.NET MVC 2 sürümündeki yenilikler | Microsoft Docs
 author: rick-anderson
-description: Bu belgede, yeni özellikler ve geliştirmeler ASP.NET MVC 2'de tanıtılan açıklanmaktadır. Bu belge da indirme için kullanılabilir.
+description: Bu belgede, yeni özellikler ve geliştirmeler, ASP.NET MVC 2'de sunulmuştur açıklanmaktadır. Bu belge ayrıca yükleme için kullanılabilir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/20/2010
 ms.topic: article
 ms.assetid: 69a8d6f8-4b10-4602-8822-2d6c05fc432b
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /whitepapers/what-is-new-in-aspnet-mvc
 msc.type: content
-ms.openlocfilehash: 808f51b48b31e21848d76e7ded436ca1b17901d2
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 51349c9967890675b4e13a6710572c1cea7d9337
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
-ms.locfileid: "28885238"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37400437"
 ---
-<a name="whats-new-in-aspnet-mvc-2"></a>ASP.NET MVC 2 yenilikler nelerdir?
+<a name="whats-new-in-aspnet-mvc-2"></a>ASP.NET MVC 2 sürümündeki yenilikler
 ====================
-> Bu belgede, yeni özellikler ve geliştirmeler ASP.NET MVC 2'de tanıtılan açıklanmaktadır. Bu belgede de kullanılabilir [indirin](https://download.microsoft.com/download/F/1/6/F16F9AF9-8EF4-4845-BC97-639791D5699C/WhatIsNewInMVC_2.pdf)
+> Bu belgede, yeni özellikler ve geliştirmeler, ASP.NET MVC 2'de sunulmuştur açıklanmaktadır. Bu belge için de kullanılabilir olan [indirin](https://download.microsoft.com/download/F/1/6/F16F9AF9-8EF4-4845-BC97-639791D5699C/WhatIsNewInMVC_2.pdf)
 
 
 [Giriş](#_TOC1)   
-[ASP.NET MVC 2 bir ASP.NET MVC 1,0 proje yükseltme](#_TOC2)   
+[ASP.NET MVC 2'için bir ASP.NET MVC 1.0 projesini yükseltme](#_TOC2)   
 [Yeni Özellikler](#_TOC3)   
 [Şablonlu Yardımcılar](#_TOC3_1)   
 [Alanları](#_TOC3_2)   
 [Zaman uyumsuz denetleyicileri için destek](#_TOC3_3)   
-[Eylem-yöntem parametrelerini DefaultValueAttribute desteği](#_TOC3_4)   
-[Model bağlayıcıları ile ikili veri bağlama için destek](#_TOC3_5)   
+[DefaultValueAttribute eylem-yöntem parametreleri için destek](#_TOC3_4)   
+[Model bağlayıcıları ile ikili veri bağlama desteği](#_TOC3_5)   
 [ModelMetadata ve ModelMetadataProvider sınıfları](#_TOC3_6)   
-[DataAnnotations öznitelikleri için destek](#_TOC3_7)   
+[DataAnnotations öznitelikler için destek](#_TOC3_7)   
 [Model Doğrulayıcı sağlayıcıları](#_TOC3_8)   
 [İstemci tarafı doğrulama](#_TOC3_9)   
 [Visual Studio 2010 için yeni kod parçacıkları](#_TOC3_10)   
 [Yeni RequireHttpsAttribute eylem filtresi](#_TOC3_11)   
-[HTTP yöntemini fiil geçersiz kılma](#_TOC3_12)   
+[HTTP yöntemi fiili geçersiz kılma](#_TOC3_12)   
 [Şablonlu Yardımcılar için yeni HiddenInputAttribute sınıfı](#_TOC3_13)   
-[Model düzeyi hataları görüntüleme Html.ValidationSummary yardımcı yöntemi](#_TOC3_14)   
-[Visual Studio özel olan kodu oluştur T4 şablonlarında .NET Framework'ün hedef sürümüne](#_TOC3_15)[API geliştirmeleri](#_TOC4)  
-[Yeni değişiklikler](#_TOC5)  
+[Html.ValidationSummary yardımcı yöntem Model düzeyi hataları görüntüleyebilirsiniz.](#_TOC3_14)   
+[T4 şablonları Visual Studio code'da oluşturmak özel olan .NET Framework hedef sürümü için](#_TOC3_15)[API geliştirmeleri](#_TOC4)  
+[Bozucu değişiklikler](#_TOC5)  
 [Sorumluluk reddi](#_TOC6)  
 
-## <a id="_TOC1"></a>Giriş
+## <a id="_TOC1"></a>  Giriş
 
-ASP.NET MVC 2 ASP.NET MVC 1.0 oluşturur ve çok sayıda geliştirmeleri ve verimliliği artırma odaklı özellikleri sunar. Tüm Bilgi Bankası, becerileri, kod ve ASP.NET MVC 1.0 için Uzantılar uygulamaya devam etmek için bu sürümde ASP.NET MVC 1.0 ile uyumludur.
+ASP.NET MVC 2, ASP.NET MVC 1.0 oluşturur ve çok sayıda geliştirmeleri ve üretkenliği artırmak odaklı özellikleri sunar. Bu sürüm, tüm Bilgi Bankası, yetenekler, kod ve ASP.NET MVC 1.0 için uzantıları uygulamaya devam etmek için ASP.NET MVC 1.0 ile uyumludur.
 
-ASP.NET MVC hakkında daha fazla bilgi için aşağıdaki kaynaklara ziyaret edin:
+ASP.NET MVC hakkında daha fazla bilgi için aşağıdaki kaynakları ziyaret edin:
 
-- [MSDN'deki ASP.NET MVC belgelere](https://go.microsoft.com/fwlink/?LinkId=159758)
+- [MSDN'de ASP.NET MVC belgeleri](https://go.microsoft.com/fwlink/?LinkId=159758)
 - [ASP.NET MVC Web sitesi](https://asp.net/mvc/)
 - [ASP.NET MVC forumları](https://forums.asp.net/1146.aspx)
 
-## <a id="_TOC2"></a>ASP.NET MVC 2 bir ASP.NET MVC 1,0 proje yükseltme
+## <a id="_TOC2"></a>  ASP.NET MVC 2'için bir ASP.NET MVC 1.0 projesini yükseltme
 
-ASP.NET MVC 2 ASP.NET MVC 2 ASP.NET MVC 1.0 uygulamaya yükseltme zamanı seçerken uygulama geliştiricilerin esneklik aynı sunucuda ASP.NET MVC 1. 0'yan yana yüklenebilir. Belge yükseltme hakkında daha fazla bilgi için bkz [bir ASP.NET MVC 1.0 uygulaması için ASP.NET MVC 2 yükseltme](https://go.microsoft.com/fwlink/?LinkID=185459).
+ASP.NET MVC 2, bir ASP.NET MVC 1.0 uygulamasını ASP.NET MVC 2 Yükseltme zamanı seçme içinde uygulama geliştiricilerin esneklik aynı sunucuda ASP.NET MVC 1.0 ile yan yana yüklenebilir. Yükseltme hakkında daha fazla bilgi için bkz [bir ASP.NET MVC 1.0 uygulamasını ASP.NET MVC 2 yükseltme](https://go.microsoft.com/fwlink/?LinkID=185459).
 
-## <a id="_TOC3"></a>Yeni Özellikler
+## <a id="_TOC3"></a>  Yeni Özellikler
 
-Bu bölümde tanıtılmıştır özellikleri açıklanmıştır MVC 2 sürümünde.
+Bu bölümde sunulan özellikler açıklanır MVC 2 sürümündeki.
 
-### <a id="_TOC3_1"></a>Şablonlu Yardımcılar
+### <a id="_TOC3_1"></a>  Şablonlu Yardımcılar
 
-Şablonlu Yardımcılar veri türleriyle görüntüleme ve düzenleme için otomatik olarak ilişkilendirmek HTML öğeleri sağlar. Örneğin, veri türü System.DateTime bir görünümde görüntülendiğinde, tarih seçici UI öğesi otomatik olarak oluşturulabilir. Bu alan şablonları ASP.NET dinamik veri nasıl benzer. Daha fazla bilgi için bkz: [kullanarak verileri görüntülemek için şablonlu Yardımcılar](https://go.microsoft.com/fwlink/?LinkId=159062) MSDN Web sitesinde.
+Şablonlu yardımcılar, düzenleme için otomatik olarak ilişkilendirme HTML öğeleri sağlar ve veri türleriyle görüntüler. Örneğin, tür System.DateTime Veri Görünümü'nde görüntülendiğinde, bir tarih seçici UI öğesi otomatik olarak oluşturulabilir. Bu, ASP.NET dinamik veri alanı şablonları nasıl çalıştığını için benzer. Daha fazla bilgi için [verileri görüntülemek için şablonlu Yardımcılar kullanarak](https://go.microsoft.com/fwlink/?LinkId=159062) MSDN Web sitesinde.
 
-### <a id="_TOC3_2"></a>Alanları
+### <a id="_TOC3_2"></a>  Alanları
 
-Alanları büyük bir Web uygulaması karmaşıklığını yönetmek için birden çok daha küçük bölümlere büyük bir proje düzenlemenize olanak tanır. Her bölümde ("alanı") genellikle büyük bir Web sitesi ayrı bir bölümünü temsil eder ve ilgili ayarlar denetleyicilerinin ve görünümlerin gruplandırmak için kullanılır. Daha fazla bilgi için bkz: [izlenecek yol: bir ASP.NET MVC uygulaması tarafından alanları düzenleme](https://go.microsoft.com/fwlink/?LinkId=158978) MSDN Web sitesinde.
+Alanları büyük bir Web uygulaması karmaşıklığını yönetmek için birden çok daha küçük bölümlere büyük bir projenin düzenlemenize olanak tanır. Her bölüm ("alanı"), genellikle büyük bir Web sitesi ayrı bir bölümünü temsil eder ve ilgili ayarlar denetleyicileri ve görünümlerinin gruplandırmak için kullanılır. Daha fazla bilgi için [izlenecek yol: bir ASP.NET MVC uygulaması alanları tarafından düzenleme](https://go.microsoft.com/fwlink/?LinkId=158978) MSDN Web sitesinde.
 
-Çözüm Gezgini'nde yeni bir alan oluşturmak için projeye sağ tıklayın, Ekle ve alan'ı tıklatın. Bu alan adını isteyen bir iletişim kutusu görüntüler. Alan adı girdikten sonra Visual Studio projesi için yeni bir alan ekler.
+Çözüm Gezgini içinde yeni bir alan oluşturmak için projeye sağ tıklayın ve Ekle'yi tıklatın alan'ye tıklayın. Bu alan adı için soran bir iletişim kutusu görüntüler. Alan adı girdikten sonra Visual Studio projesine yeni bir alan ekler.
 
-Aşağıdaki şekilde, yönetici ve bloglar iki alana sahip bir proje için bir örnek düzeni gösterilir.
+Aşağıdaki şekilde, yönetim ve bloglar iki alana sahip bir proje için bir örnek düzeni gösterilir.
 
 ![](what-is-new-in-aspnet-mvc/_static/image1.png)
 
-Bir alanı oluşturduğunuzda, Visual Studio için her alan AreaRegistration türeyen bir sınıf ekler. Bu sınıf, alan ve onun yollar kaydetmek için aşağıdaki örnekte gösterildiği gibi gereklidir:
+Bir alanı oluşturduğunuzda, Visual Studio her alana AreaRegistration türeyen bir sınıf ekler. Bu sınıf, alan ve onun yollar kaydetmek için aşağıdaki örnekte gösterildiği gibi gereklidir:
 
 [!code-csharp[Main](what-is-new-in-aspnet-mvc/samples/sample1.cs)]
 
-ASP.NET MVC 2 için varsayılan proje şablonu Global.asax dosyası için kod RegisterAllAreas yöntemine bir çağrı içerir. Bu yöntem her bir alan AreaRegistration sınıfından türetilen tüm türler için arayan, türünün bir örneğini oluşturarak ve ardından RegisterArea yöntemi örneğinde çağırarak tarafından projede kaydeder. Aşağıdaki örnekte, bunun nasıl yapılacağı gösterilmektedir.
+ASP.NET MVC 2 için varsayılan proje şablonu Global.asax dosyası için kodu RegisterAllAreas yönteme bir çağrı içerir. Bu yöntem her alanı AreaRegistration sınıfından türetilen tüm türler için arayan, türün bir örneğini örnekleme ve RegisterArea çalışma metodunu örneğinde projede kaydeder. Aşağıdaki örnek nasıl yapıldığını gösterir.
 
 [!code-csharp[Main](what-is-new-in-aspnet-mvc/samples/sample2.cs)]
 
-Ad alanı RegisterArea yönteminde bağlam çağırarak belirtmezseniz. Namespaces.Add yöntemi, kayıt sınıfı ad alanı, varsayılan olarak kullanılır.
+Ad alanı RegisterArea yöntemi bağlamı çağırarak belirtmezseniz. Namespaces.Add yöntemi, kayıt sınıfın ad alanı varsayılan olarak kullanılır.
 
-### <a id="_TOC3_3"></a>Zaman uyumsuz denetleyicileri için destek
+### <a id="_TOC3_3"></a>  Zaman uyumsuz denetleyicileri için destek
 
-ASP.NET MVC 2 isteklerini zaman uyumsuz olarak işlemek denetleyicileri artık izin verir. Sık engellemeyen ortaklarınıza yerine çağırmak için (örneğin, ağ istekleri) engelleme işlemlerini çağırma sunucuları izin vererek bu performans artışları için yol açabilir. Daha fazla bilgi için bkz: [ASP.NET MVC uygulamasında zaman uyumsuz bir denetleyiciyi kullanarak](https://msdn.microsoft.com/library/ee728598(v=VS.100).aspx) MSDN'de konu.
+ASP.NET MVC 2 denetleyicileri isteklerini zaman uyumsuz olarak işlemek artık izin verir. Bu performans kazancı elde edildi sık engelleyici olmayan ortaklarınıza yerine çağırmak için (örneğin, ağ istekleri) engelleme işlemleri çağırmak sunucuları vererek açabilir. Daha fazla bilgi için [ASP.NET MVC'de zaman uyumsuz bir denetleyiciyi kullanarak](https://msdn.microsoft.com/library/ee728598(v=VS.100).aspx) MSDN'de konu.
 
-### <a id="_TOC3_4"></a>Eylem-yöntem parametrelerini DefaultValueAttribute desteği
+### <a id="_TOC3_4"></a>  DefaultValueAttribute eylem-yöntem parametreleri için destek
 
-The System.ComponentModel.DefaultValueAttribute class allows a default value to be supplied for the argument parameter to an action method. Örneğin, aşağıdaki varsayılan yol tanımlanır varsayın:
+Bir eylem yöntemi için bağımsız değişken parametresi için sağlanan için varsayılan bir değer System.ComponentModel.DefaultValueAttribute sınıfı sağlar. Örneğin, aşağıdaki varsayılan rota tanımlandığını varsayar:
 
 [!code-json[Main](what-is-new-in-aspnet-mvc/samples/sample3.json)]
 
-Ayrıca aşağıdaki denetleyici ve eylem yöntemi tanımlanır varsayın:
+Ayrıca aşağıdaki denetleyici ve eylem yöntemi tanımlandığını varsayar:
 
 [!code-csharp[Main](what-is-new-in-aspnet-mvc/samples/sample4.cs)]
 
-Aşağıdaki isteği hiçbirini URL'leri yukarıdaki örnekte tanımlanan görünüm eylem yöntemi çağırır.
+Aşağıdaki isteği birini URL'leri yukarıdaki örnekte tanımlanan görünüm eylem yöntemini çağırır.
 
 - / Makale/görünüm/123
-- / Makale/görünüm/123? sayfa = 1 (etkin önceki istek aynı)
-- /Article/View/123?page=2
+- / Makale/görünüm/123? sayfa = 1 (etkili bir şekilde önceki istek aynı)
+- / Makale/görünüm/123? sayfa = 2
 
-Sayfa bağımsız değişken değeri sağlanmamış bir null değer türü olduğundan DefaultValueAttribute öznitelik olmadan, yukarıdaki listede ilk URL, işe.
+Sayfa değişkeni değeri sağlanmadı atanamayan değer türü olduğundan DefaultValueAttribute özniteliği olmadan önceki listede ilk URL, çalışmaz.
 
-Kodunuzu Visual Basic 2010 veya Visual C# 2010 yazılmışsa, aşağıdaki örnekte gösterildiği gibi isteğe bağlı parametreler DefaultValueAttribute özniteliği yerine kullanabilirsiniz:
+Kodunuzu Visual Basic 2010 veya Visual C# 2010'yazılmışsa, isteğe bağlı parametreler yerine DefaultValueAttribute öznitelik, aşağıdaki örnekte gösterildiği gibi kullanabilirsiniz:
 
 [!code-vb[Main](what-is-new-in-aspnet-mvc/samples/sample5.vb)]
 
-### <a id="_TOC3_5"></a>Model bağlayıcıları ile ikili veri bağlama için destek
+### <a id="_TOC3_5"></a>  Model bağlayıcıları ile ikili veri bağlama desteği
 
-İkili değerler base-64 olarak kodlanmış dize olarak kodlamak iki yeni aşırı Html.Hidden Yardımcısı, vardır:
+İkili değerleri base-64 kodlu dize olarak kodlama iki yeni aşırı Html.Hidden Yardımcısı'nın vardır:
 
 [!code-csharp[Main](what-is-new-in-aspnet-mvc/samples/sample6.cs)]
 
-Bir genel görünümünde bir nesne için bir zaman damgası katıştırmak için kullanılır. Örneğin, uygulamanızın aşağıdaki ürün nesnesi şunlar olabilir:
+Bir genel görünümünde bir nesne için bir zaman damgası eklemek için kullanılır. Örneğin, uygulamanız aşağıdaki ürün nesne içerebilir:
 
 [!code-csharp[Main](what-is-new-in-aspnet-mvc/samples/sample7.cs)]
 
-Bir düzen formu zaman damgası özelliği aşağıdaki örnekte gösterildiği gibi bu formda işleyebilir:
+Düzenleme formu zaman damgası özelliği formunda aşağıdaki örnekte gösterildiği gibi işleyebilir:
 
 [!code-aspx[Main](what-is-new-in-aspnet-mvc/samples/sample8.aspx)]
 
-Bu biçimlendirme, aşağıdaki örneğe benzer base-64 olarak kodlanmış bir dize olarak zaman damgası değere sahip gizli bir input öğesi oluşturur:
+Bu işaretleme, aşağıdaki örneğe benzer base-64 kodlu bir dize olarak zaman damgası değere sahip gizli bir input öğesi oluşturur:
 
 [!code-html[Main](what-is-new-in-aspnet-mvc/samples/sample9.html)]
 
-Bu form ürün türünde bir bağımsız değişken sahip bir eylem yöntemi aşağıdaki örnekte gösterildiği gibi gönderilen:
+Bu formu ürünü türünde bir bağımsız değişken olan bir eylem yöntemine aşağıdaki örnekte gösterildiği gibi gönderilen:
 
 [!code-csharp[Main](what-is-new-in-aspnet-mvc/samples/sample10.cs)]
 
-Gönderilen base-64 olarak kodlanmış dize bir bayt dizisine dönüştürülür çünkü eylem yönteminde zaman damgası özelliği doğru olarak doldurulur.
+Eylem yöntemine gönderilen base-64 kodlanmış dizeyi bir bayt dizisine dönüştürülür çünkü zaman damgası özelliği doğru bir şekilde doldurulur.
 
-### <a id="_TOC3_6"></a>ModelMetadata ve ModelMetadataProvider sınıfları
+### <a id="_TOC3_6"></a>  ModelMetadata ve ModelMetadataProvider sınıfları
 
-ModelMetadataProvider sınıfı bir görünüm içindeki model meta verilerini almak için bir Özet sağlar. MVC 2 System.ComponentModel.DataAnnotations ad alanındaki öznitelikler tarafından kullanıma sunulan meta veriler kullanılabilir hale getirir ve varsayılan bir sağlayıcı içerir. Veritabanları veya XML dosyaları gibi diğer veri depolarına meta verilerini sağlamak meta veri sağlayıcılar oluşturmak mümkündür.
+ModelMetadataProvider sınıfı bir görünüm içindeki model için meta verileri almak için bir Özet sağlar. MVC 2 varsayılan sağlayıcı System.ComponentModel.DataAnnotations ad alanı öznitelikleri tarafından kullanıma sunulan meta verileri kullanıma sunduğu içerir. Veritabanları veya XML dosyaları gibi diğer veri depolarından meta verilerini sağlamak meta veri sağlayıcıları oluşturmak mümkündür.
 
-ViewDataDictionary sınıfı modelden ModelMetadataProvider sınıfı tarafından ayıklanan meta verileri içeren bir ModelMetadata nesnesi kullanıma sunar. Bu meta verileri kullanabilir ve bunların çıktısı buna uygun olarak ayarlamak şablonlu Yardımcılar sağlar.
+ViewDataDictionary sınıfı modelden ModelMetadataProvider sınıfı tarafından ayıklanan meta veriler içeren bir ModelMetadata nesnesi gösterir. Bu, bu meta veriler kullanma ve çıktılarını uygun şekilde ayarlamak şablonlu Yardımcılar sağlar.
 
 Daha fazla bilgi için belgelerine bakın [ModelMetadata](https://msdn.microsoft.com/library/system.web.mvc.modelmetadataprovider(VS.100).aspx) ve [ModelMetadataProvider](https://msdn.microsoft.com/library/system.web.mvc.modelmetadataprovider(VS.100).aspx) sınıfları.
 
-### <a id="_TOC3_7"></a>DataAnnotations öznitelikleri için destek
+### <a id="_TOC3_7"></a>  DataAnnotations öznitelikler için destek
 
-ASP.NET MVC 2 destekler (System.ComponentModel.DataAnnotations ad alanında tanımlı) RangeAttribute, RequiredAttribute, StringLengthAttribute ve RegexAttribute doğrulama öznitelikleri kullanarak giriş sağlamak için bir model bağladığınızda doğrulama.
+ASP.NET MVC 2 destekler (System.ComponentModel.DataAnnotations ad alanında tanımlanan) RangeAttribute, RequiredAttribute StringLengthAttribute ve RegexAttribute doğrulama öznitelikleri kullanarak giriş sağlamak için bir model için bağladığınızda doğrulama.
 
-Daha fazla bilgi için bkz: [nasıl yapılır: Model verileri kullanarak DataAnnotations özniteliklerini doğrula](https://go.microsoft.com/fwlink/?LinkId=159063) MSDN Web sitesinde. Bu öznitelikler kullanımını gösteren bir örnek proje adresten indirilebilir [https://go.microsoft.com/fwlink/?LinkId=157753](https://go.microsoft.com/fwlink/?LinkId=157753).
+Daha fazla bilgi için [nasıl yapılır: Model veri kullanarak DataAnnotations öznitelikleri doğrulama](https://go.microsoft.com/fwlink/?LinkId=159063) MSDN Web sitesinde. Bu öznitelikler kullanımını gösteren bir örnek proje adresten indirilebilir [ https://go.microsoft.com/fwlink/?LinkId=157753 ](https://go.microsoft.com/fwlink/?LinkId=157753).
 
-### <a id="_TOC3_8"></a>Model Doğrulayıcı sağlayıcıları
+### <a id="_TOC3_8"></a>  Model Doğrulayıcı sağlayıcıları
 
-Model doğrulama sağlayıcısı sınıfı model için doğrulama mantığını sağlayan bir Özet gösterir. ASP.NET MVC System.ComponentModel.DataAnnotations ad alanında yer alan doğrulama özniteliklerini temel alarak bir varsayılan sağlayıcı içerir. Özel doğrulama kuralları ve özel doğrulama kuralları eşlemelerini modele tanımlayın kendi doğrulama sağlayıcılarının de oluşturabilirsiniz. Daha fazla bilgi için belgelerine bakın [ModelValidatorProvider](https://msdn.microsoft.com/library/system.web.mvc.ModelValidatorProvider(VS.100).aspx) sınıfı.
+Model doğrulama sağlayıcı sınıf, model için doğrulama mantığı sağlar bir soyutlamayı temsil eder. ASP.NET MVC için varsayılan bir sağlayıcı System.ComponentModel.DataAnnotations ad alanında bulunan doğrulama öznitelikleri temel alan içerir. Modeline özel doğrulama kurallarını ve özel doğrulama kuralları eşlemelerini tanımlayan kendi doğrulama sağlayıcılarının da oluşturabilirsiniz. Daha fazla bilgi için belgelerine bakın [ModelValidatorProvider](https://msdn.microsoft.com/library/system.web.mvc.ModelValidatorProvider(VS.100).aspx) sınıfı.
 
-### <a id="_TOC3_9"></a>İstemci tarafı doğrulama
+### <a id="_TOC3_9"></a>  İstemci tarafı doğrulama
 
-Model Doğrulayıcı sağlayıcı sınıfı doğrulama meta verileri JSON seri hale getirilmiş ve istemci tarafı doğrulama kitaplığı tarafından tüketilen veri biçiminde tarayıcıya gösterir. ASP.NET MVC 2 bir istemci doğrulama kitaplığını ve daha önce not ettiğiniz DataAnnotations ad alanı doğrulama öznitelikleri destekleyen bağdaştırıcısı içerir. Sağlayıcı sınıfı JSON verilerini ve alternatif kitaplığı çağrılarını işleyen bir bağdaştırıcı yazarak diğer istemci doğrulama kitaplıklarını kullanmanızı sağlar.
+Model Doğrulayıcı sağlayıcı sınıfı, tarayıcının istemci tarafı doğrulama kitaplığı tarafından tüketilebilecek bir JSON ile seri hale getirilmiş veri biçiminde doğrulama meta verileri gösterir. ASP.NET MVC 2, istemci doğrulama kitaplığı ve daha önce not ettiğiniz DataAnnotations ad alanı doğrulama özniteliklerinin destekleyen bağdaştırıcısı içerir. Sağlayıcı sınıfı JSON verilerini ve diğer kitaplık çağrılarını işleyen bir bağdaştırıcı yazarak diğer istemci doğrulama kitaplıklarını kullanmanızı sağlar.
 
-### <a id="_TOC3_10"></a>Visual Studio 2010 için yeni kod parçacıkları
+### <a id="_TOC3_10"></a>  Visual Studio 2010 için yeni kod parçacıkları
 
-HTML kod parçacıkları ASP.NET MVC 2 için bir dizi Visual Studio 2010 ile yüklenir. Araçlar menüsünde bu parçacıkları listesini görüntülemek için kod parçacıkları Yöneticisi'ni seçin. Dil için HTML seçin ve konum için ASP.NET MVC 2'yi seçin. Kod parçacıkları kullanma hakkında daha fazla bilgi için Visual Studio belgelerine bakın.
+Bir HTML kod parçacıkları için ASP.NET MVC 2 ile Visual Studio 2010 yüklenir. Araçlar menüsünde bu kod parçacıklarının listesini görüntülemek için kod parçacıkları Yöneticisi'ni seçin. Dil için HTML seçin ve konum için ASP.NET MVC 2'yi seçin. Kod parçacıkları kullanma hakkında daha fazla bilgi için Visual Studio belgelerine bakın.
 
-### <a id="_TOC3_11"></a>Yeni RequireHttpsAttribute eylem filtresi
+### <a id="_TOC3_11"></a>  Yeni RequireHttpsAttribute eylem filtresi
 
-ASP.NET MVC 2 eylem yöntemleri ve denetleyicileri uygulanan yeni bir RequireHttpsAttribute sınıfı içerir. Varsayılan olarak, filtre SSL - HTTP isteği için SSL etkin (HTTPS) eşdeğer yönlendirir.
+ASP.NET MVC 2, eylem yöntemleri ve denetleyicileri için uygulanan yeni bir RequireHttpsAttribute sınıfı içerir. Varsayılan olarak, filtre SSL etkin (HTTPS) eşdeğer bir SSL - HTTP isteği yönlendirir.
 
-### <a id="_TOC3_12"></a>HTTP yöntemini fiil geçersiz kılma
+### <a id="_TOC3_12"></a>  HTTP yöntemi fiili geçersiz kılma
 
-REST mimari stil kullanarak bir Web sitesi oluşturduğunuzda, HTTP fiilleri bir kaynak için gerçekleştirilecek eylemi belirlemek için kullanılır. REST dahil olmak üzere, ortak HTTP fiilleri tam aralığını Al koy, POST ve silme uygulamaları destekleyen gerektirir.
+REST mimari stil kullanarak bir Web sitesi oluşturduğunuzda, HTTP fiilleri bir kaynak için gerçekleştirilecek eylemi belirlemek için kullanılır. REST uygulamaları dahil olmak üzere, ortak HTTP fiilleri tam aralığının Al koy, Gönder ve Sil desteği gerektirir.
 
-ASP.NET MVC 2 eylem yöntemleri ve bu özellik kısaltılmış sözdizimi uygulayabilirsiniz yeni öznitelikler içerir. Bu öznitelikler HTTP fiiline bağlı bir eylem yöntemini seçmek ASP.NET MVC etkinleştirin. Aşağıdaki örnekte, bir POST isteği ilk eylem yöntemini çağırır ve bir PUT İsteği ikinci eylem yöntemini çağırır.
+ASP.NET MVC 2, eylem yöntemleri ve bu özellik kısaltılmış sözdizimi uygulanabilir yeni öznitelikler içerir. Bu öznitelikler, ASP.NET MVC, HTTP fiiline bağlı bir eylem yöntemini seçmek etkinleştirin. Aşağıdaki örnekte, bir POST isteği ilk eylem yöntemini çağırır ve bir PUT İsteği ikinci eylem yöntemini çağırır.
 
 [!code-csharp[Main](what-is-new-in-aspnet-mvc/samples/sample11.cs)]
 
-ASP.NET MVC önceki sürümlerinde, bu eylem yöntemleri aşağıdaki örnekte gösterildiği gibi daha ayrıntılı sözdizimi gereklidir:
+ASP.NET MVC eski sürümleri, aşağıdaki örnekte gösterildiği gibi daha ayrıntılı sözdizimi, bu eylem yöntemleri gereklidir:
 
 [!code-csharp[Main](what-is-new-in-aspnet-mvc/samples/sample12.cs)]
 
-Yalnızca GET ve POST HTTP fiilleri tarayıcılar desteklediği için farklı bir fiil gerektiren bir eylem göndermek mümkün değildir. Bu nedenle tüm RESTful istekleri yerel olarak desteklemesi olası değil.
+Tarayıcıları yalnızca GET ve sonrası HTTP fiilleri desteklediğinden, farklı bir eylem gerektiren bir eylem mümkün değildir. Bu nedenle tüm RESTful istekleri yerel olarak destekleyen mümkün değildir.
 
-Ancak, RESTful destek istekleri gönderme işlemleri, ASP.NET MVC 2 sırasında tanıtır yeni bir HttpMethodOverride HTML yardımcı yöntemi. Bu yöntem herhangi bir HTTP yöntemini etkili bir şekilde benzetmek form neden olan gizli bir input öğesi oluşturur. Örneğin, HttpMethodOverride HTML yardımcı yöntemi kullanarak, bir form gönderme görünür olabilir PUT veya silme isteği olabilir. HttpMethodOverride davranışını aşağıdaki öznitelikleri etkiler:
+Ancak, RESTful desteklemek için istekleri gönderme işlemleri, ASP.NET MVC 2 sırasında tanıtır yeni HttpMethodOverride HTML yardımcı yöntemi. Bu yöntem herhangi bir HTTP yöntemini etkili bir şekilde benzetmek form neden olan gizli bir input öğesi oluşturur. Örneğin, HttpMethodOverride HTML yardımcı yöntemi kullanarak, bir form gönderimi görünür olabilir bir PUT ya da DELETE isteği. Aşağıdaki öznitelikler HttpMethodOverride davranışını etkiler:
 
 - HttpPostAttribute
 - HttpPutAttribute
@@ -189,123 +188,123 @@ Ancak, RESTful destek istekleri gönderme işlemleri, ASP.NET MVC 2 sırasında 
 - HttpDeleteAttribute
 - AcceptVerbsAttribute
 
-Gizli bir input öğesi, X-HTTP-Method-Override adını ve değerini benzetmek için HTTP fiili ayarlamak sahiptir. Geçersiz kılma değeri da bir HTTP üstbilgisi veya bir sorgu dizesi değeri bir ad/değer çifti olarak belirtilebilir.
+Gizli bir input öğesi, X-HTTP-Method-Override adını ve değerini benzetmek için HTTP fiili için ayarlanmış ' var. Geçersiz kılma değeri de bir HTTP üst bilgisinde veya bir sorgu dizesi değeri bir ad/değer çifti olarak belirtilebilir.
 
-Geçersiz kılma, yalnızca bir POST isteği gerçek istek olduğunda kullanılabilir. Geçersiz kılma değeri başka bir HTTP fiili kullanan istekleri için yoksayılacak.
+Geçersiz kılma, yalnızca bir POST isteği gerçek istek olduğunda kullanılabilir. Geçersiz kılma değeri herhangi bir HTTP fiili kullanan istekleri yoksayılacak.
 
-### <a id="_TOC3_13"></a>Şablonlu Yardımcılar için yeni HiddenInputAttribute sınıfı
+### <a id="_TOC3_13"></a>  Şablonlu Yardımcılar için yeni HiddenInputAttribute sınıfı
 
-Gizli bir input öğesi model Düzenleyicisi şablonunda görüntülenirken oluşturulması gerekip gerekmediğini belirtmek için bir model özelliğine yeni HiddenInputAttribute öznitelik uygulayabilirsiniz. (Öznitelik HiddenInput örtük bir UIHint değerini ayarlar). Özniteliğin DisplayValue özellik değeri düzenleyicisinde görüntülenip görüntülenmeyeceğini belirtin ve görüntü modları olanak sağlar. DisplayValue false olarak ayarlandığında, hiçbir şey görünmez, normalde bir alanını çevreleyen HTML biçimlendirmesi bile. DisplayValue için varsayılan değer doğrudur.
+Gizli bir input öğesi modeli bir düzenleyici şablonunda görüntülenirken oluşturulması gerekip gerekmediğini belirtmek için bir model özelliğine yeni HiddenInputAttribute öznitelik uygulayabilirsiniz. (Öznitelik, bir örtük HiddenInput UIHint değeri ayarlar). Özniteliğin DisplayValue özellik değer Düzenleyicisi'nde görüntülenip görüntülenmeyeceğini belirtin ve görüntü modları sağlar. DisplayValue false olarak ayarlandığında, hiçbir şey görüntülenmez, normalde bir alanını çevreleyen HTML biçimlendirmeyi bile. DisplayValue için varsayılan değer doğrudur.
 
 HiddenInputAttribute özniteliği aşağıdaki senaryolarda kullanabilirsiniz:
 
-- Ne zaman kullanıcıları bir nesnenin Kimliğini Düzenle bir görünüm sağlar ve eski kimliği içerir ve böylece denetleyiciye geri geçirilen gizli bir input öğesi sağlamak için değer de görüntülemek gereklidir.
-- Bir görünüm izin verdiğinde kullanıcıların hiçbir zaman, zaman damgası özelliği gibi görüntülenmesi gereken ikili bir özelliğini düzenleyin. Bu durumda (örneğin, değer ve etiket) çevresindeki HTML biçimlendirmesi ve değer görüntülenmez.
+- Ne zaman bir görünüm kullanıcılar bir nesnenin Kimliğini düzenlemenize olanak tanır ve eski kimliği alır ve böylece denetleyiciye geri geçirilen gizli bir input öğesi sağlamak için değer de görüntülemek gereklidir.
+- Bir görünüm sağlar, hiçbir zaman, bir zaman damgası özelliği gibi görüntülenmesi gereken bir ikili özellik kullanıcıları düzenleyebilirsiniz. Bu durumda, çevreleyen HTML biçimlendirmesi (örneğin, değer ve etiket) ve değer görüntülenmez.
 
 Aşağıdaki örnek HiddenInputAttribute sınıfının nasıl kullanılacağını gösterir.
 
 [!code-csharp[Main](what-is-new-in-aspnet-mvc/samples/sample13.cs)]
 
-Öznitelik ayarlandığında true (veya hiçbir parametre belirtilen), aşağıdakiler gerçekleşir:
+Öznitelik ayarlandığında true (veya parametre belirtilmediğinde), aşağıdakiler gerçekleşir:
 
-- Görüntüleme şablonları, bir etiket oluşturulur ve değeri kullanıcıya görüntülenir.
-- Düzenleyici şablonlarındaki bir etiket oluşturulur ve değeri gizli bir input öğesi içinde işlenir.
+- Görüntüleme şablonları, bir etiket oluşturulur ve kullanıcıya değeri görüntülenir.
+- Düzenleyici şablonları, bir etiket oluşturulur ve değerini gizli bir input öğesi içinde işlenir.
 
-Özniteliği false olarak ayarlandığında, aşağıdakiler gerçekleşir:
+Öznitelik false olarak ayarlandığında, aşağıdakiler gerçekleşir:
 
-- Görüntü şablonlarında hiçbir şey bu alan için işlenir.
-- Düzenleyici şablonlarındaki hiçbir etiket oluşturulur ve değeri gizli bir input öğesi içinde işlenir.
+- Bu alan için görüntüleme şablonları hiçbir şey işlenir.
+- Düzenleyici şablonları herhangi bir etiket oluşturulur ve değerini gizli bir input öğesi içinde işlenir.
 
-### <a id="_TOC3_14"></a>Model düzeyi hataları görüntüleme Html.ValidationSummary yardımcı yöntemi
+### <a id="_TOC3_14"></a>  Html.ValidationSummary yardımcı yöntem Model düzeyi hataları görüntüleyebilirsiniz.
 
-Her zaman tüm doğrulama hataları yerine Html.ValidationSummary yardımcı yöntemi yalnızca model düzeyi hataları görüntülemek için yeni bir seçenek vardır. Bu doğrulama özetinin görüntülenecek model düzeyi hataları ve her alanın yanındaki görüntülenecek alan özgü hataları sağlar.
+Her zaman tüm doğrulama hatalarını yerine Html.ValidationSummary yardımcı yöntemi yalnızca model düzeyi hataları görüntülemek için yeni bir seçenek vardır. Bu, doğrulama özetinin görüntülenecek model düzeyi hataları ve her alanın yanındaki görüntülenecek alan özgü hataları sağlar.
 
-### <a id="_TOC3_15"></a>Visual Studio özel olan kodu oluştur T4 şablonlarında .NET Framework'ün hedef sürüm
+### <a id="_TOC3_15"></a>  T4 şablonları Visual Studio code'da oluşturmak özel olan .NET Framework hedef sürümü için
 
-Yeni bir özellik için T4 dosyalarını uygulama tarafından kullanılan .NET Framework sürümünü belirten bir ASP.NET MVC T4 ana bilgisayardan kullanılabilir. Bu kod ve .NET Framework sürümü için belirli biçimlendirme oluşturmak T4 şablonları sağlar. Visual Studio 2008'de her zaman .NET 3.5 değeridir. Visual Studio 2010'da, .NET 3.5 veya .NET 4 değerdir.
+Yeni bir özellik için T4 dosyaları uygulama tarafından kullanılan .NET Framework sürümünü belirten bir ASP.NET MVC T4 ana bilgisayardan kullanılabilir. Bu kod ve .NET Framework sürümüne özeldir biçimlendirme oluşturmak T4 şablonları sağlar. Visual Studio 2008'de her zaman .NET 3.5 değerdir. Visual Studio 2010'da .NET 3.5 ya da .NET 4 değerdir.
 
-## <a id="_TOC4"></a>API geliştirmeleri
+## <a id="_TOC4"></a>  API geliştirmeleri
 
-Bu bölümde, mevcut ASP.NET MVC türleri ve üyeleri değişiklikler açıklanmaktadır.
+Bu bölümde, mevcut bir ASP.NET MVC türleri ve üyeleri değişiklikler açıklanmaktadır.
 
-- Korumalı bir sanal CreateActionInvoker yöntemi Controller sınıfında eklendi. Bu yöntem denetleyicisi ActionInvoker özelliği tarafından çağrılır ve çağırıcı yavaş örnek oluşturma için hiç çağırıcı zaten ayarladıysanız sağlar.
-- Korumalı bir sanal HandleUnauthorizedRequest yöntem AuthorizeAttribute sınıfında eklendi. Yetkilendirme başarısız olduğunda davranışını denetlemek için AuthorizeAttribute öğesinden türetilen filtreler sağlar.
-- Add (dize anahtar, nesne değeri) yöntemini ValueProviderDictionary sınıfında eklendi. Bu sözlük Başlatıcısı sözdizimi ValueProviderDictionary için aşağıdaki örnekte olduğu gibi kullanmanıza olanak sağlar:
+- Korumalı bir sanal CreateActionInvoker yöntemi Controller sınıfında eklendi. Bu yöntem, denetleyici ActionInvoker özelliği tarafından çağrılır ve yavaş çağırıcı örneklemesi için hiçbir Başlatıcı zaten ayarlanmışsa sağlar.
+- Korumalı bir sanal HandleUnauthorizedRequest yöntem AuthorizeAttribute sınıfı eklendi. Bu yetkilendirme başarısız olduğunda davranışını denetlemek için AuthorizeAttribute öğesinden türetilen filtreler sağlar.
+- Add (dize anahtar, nesne değeri) metodu ValueProviderDictionary sınıfı eklendi. Bu sözlük Başlatıcısı sözdizimi ValueProviderDictionary için aşağıdaki örnekte olduğu gibi kullanmanıza olanak sağlar:
 
 [!code-csharp[Main](what-is-new-in-aspnet-mvc/samples/sample14.cs)]
 
-- Get eklenen\_nesne Sys.Mvc.AjaxContext sınıfında yöntemi. Get için benzer bir JavaScript yöntemini budur\_alma yanıtın içerik türü application/json, şeklindedir, ancak veri yöntemi\_nesne JSON nesnesi döndürür.
-- Bir ActionDescriptor'özelliği yetkilendirme bağlamı sınıfında eklendi.
-- Özelliği mevcut olduğunda bir kimlik özelliği içerdiğinden model bağlama sırasında sorunları çözmek çalışmak için kullanılan bir UrlParameter.Optional belirteci eklenen da form post. Daha ayrıntılı bilgi için bkz: Giriş [ASP.NET MVC 2 isteğe bağlı URL parametreleri](http://haacked.com/archive/2010/02/12/asp-net-mvc-2-optional-url-parameters.aspx) Phil Haack'ın blogunda.
+- Bir get eklenen\_nesne Sys.Mvc.AjaxContext sınıfında yöntemi. Get için benzer bir JavaScript yöntemini budur\_get veri yöntemi, yanıtın içerik türü application/json olup olmadığını ancak\_nesnesini JSON nesnesi döndürür.
+- AuthorizationContext sınıfında ActionDescriptor'özelliği eklendi.
+- Eklenen özellik eksik olduğunda, bir kimlik özelliği içerdiğinden bir model bağlama sırasında sorunlarına geçici çözümler bulmak için kullanılan bir UrlParameter.Optional belirteç formu gönderisinde. Daha fazla ayrıntı için bkz: Giriş [ASP.NET MVC 2 isteğe bağlı URL parametrelerini](http://haacked.com/archive/2010/02/12/asp-net-mvc-2-optional-url-parameters.aspx) Phil Haack'ın blogunda.
 
-## <a id="_TOC5"></a>Yeni değişiklikler
+## <a id="_TOC5"></a>  Bozucu değişiklikler
 
-Aşağıdaki değişiklikler mevcut ASP.NET MVC 1.0 uygulamalarda hatalara neden olabilir.
+Aşağıdaki değişiklikler, mevcut bir ASP.NET MVC 1.0 uygulamalarda hatalara neden olabilir.
 
-#### <a name="change-in-property-validation-behavior-for-classes-that-implement-idataerrorinfo"></a>IDataErrorInfo uygulayan sınıflar için özellik doğrulama davranışını değiştirme
+#### <a name="change-in-property-validation-behavior-for-classes-that-implement-idataerrorinfo"></a>IDataErrorInfo uygulayan sınıflar için özellik doğrulama davranışını değiştir
 
-IDataErrorInfo doğrulama gerçekleştirmek için kullandığınız model nesneleri için yeni bir değer kümesi bağımsız olarak her özellik doğrulanır. ASP.NET MVC 1. 0'yeni değerleri olan özellikler doğrulandı. Tüm özellik doğrulayıcıları başarılı olursa ASP.NET MVC 2'de IDataErrorInfo hata özelliği adı verilir.
+IDataErrorInfo doğrulama gerçekleştirmek için kullandığınız model nesneleri için yeni bir değer kümesi bağımsız olarak her özelliğin doğrulanır. ASP.NET MVC 1.0, yeni değerleri olan özellikler doğrulandı. Tüm özellik doğrulayıcıları başarılı olursa ASP.NET MVC 2'de IDataErrorInfo hata özelliği adı verilir.
 
 #### <a name="iis-script-mapping-script-is-no-longer-available-in-the-installer"></a>IIS komut dosyası eşleme komut dosyası yükleyici artık kullanılamıyor
 
-IIS komut dosyası eşleme komut Klasik modda IIS 6 ve IIS 7 için betik eşlemeleri yapılandırmak için kullanılan bir komut satırı komut dosyasıdır. Komut dosyası eşleme betik Visual Studio geliştirme sunucusu kullanıyorsanız veya IIS 7 tümleşik modunda kullanırsanız, gerekli değildir. Komut dosyaları desteklenmeyen ayrı bir yükleme olarak kullanılabilir [ASP.NET WebStack](https://github.com/aspnet/AspNetWebStack).
+IIS komut dosyası eşleme komut betik eşlemeleri Klasik modda IIS 6 ve IIS 7 için yapılandırmak için kullanılan bir komut satırı komut dosyasıdır. Visual Studio geliştirme sunucusu kullanıyorsanız veya tümleşik modda IIS 7 kullanıyorsanız, komut dosyası eşleme betiği gerekli değildir. Komut dosyalarını, desteklenmeyen ayrı bir indirme olarak kullanılabilir [ASP.NET WebStack](https://github.com/aspnet/AspNetWebStack).
 
 #### <a name="the-htmlsubstitute-helper-method-in-mvc-futures-is-no-longer-available"></a>MVC vadeli Html.Substitute yardımcı yönteminin artık kullanılamıyor
 
-MVC görünüm altyapıları işleme davranışlarındaki değişiklikler, nedeniyle Html.Substitute yardımcı yöntem çalışmaz ve kaldırıldı.
+MVC görünüm altyapıları işleme davranışını değişiklikleri nedeniyle Html.Substitute yardımcı yöntem çalışmaz ve kaldırıldı.
 
-#### <a name="the-ivalueprovider-interface-replaces-all-uses-of-idictionary"></a>IDictionary tüm kullanımlarını IValueProvider arabirimi değiştirir
+#### <a name="the-ivalueprovider-interface-replaces-all-uses-of-idictionary"></a>IDictionary tüm kullanımları IValueProvider arabirimi değiştirir
 
-IDictionary MVC 1.0 artık kabul her özellik veya yöntem bağımsız IValueProvider kabul eder. Bu değişiklik, özel değer sağlayıcıları veya özel model bağlayıcıları içeren uygulamaları etkiler. Özellikleri ve bu değişiklikten etkilenen yöntemleri örnekleri şunlardır:
+IDictionary MVC 1.0 artık kabul her bir özellik veya yöntem bağımsız IValueProvider kabul eder. Bu değişiklik, yalnızca özel değer sağlayıcıları ya da özel model bağlayıcılarını içeren uygulamaları etkiler. Özellikler ve yöntemler bu değişiklikten etkilenen örnekleri şunları içerir:
 
-- ValueProvider özelliği ControllerBase ve ModelBindingContext sınıflarının.
-- Denetleyici sınıfı TryUpdateModel yöntemleri.
+- ControllerBase ve ModelBindingContext sınıfları ValueProvider özelliği.
+- Denetleyici sınıfının TryUpdateModel yöntemleri.
 
-#### <a name="new-css-classes-were-added-in-the-sitecss-file"></a>Yeni CSS sınıfları Site.css dosyasında eklendi
+#### <a name="new-css-classes-were-added-in-the-sitecss-file"></a>Site.css dosyasında yeni CSS sınıfları eklendi
 
-ASP.NET MVC proje şablonları Site.css dosyasında doğrulama işlevselliği ve şablonlu Yardımcılar tarafından kullanılan yeni stiller içerecek şekilde güncelleştirildi.
+ASP.NET MVC proje şablonları Site.css dosyasında doğrulama işlevleri ve şablonlu Yardımcılar tarafından kullanılan yeni stiller içerecek şekilde güncelleştirildi.
 
-#### <a name="helpers-now-return-an-mvchtmlstring-object"></a>Yardımcıları şimdi MvcHtmlString nesneyi geri dön
+#### <a name="helpers-now-return-an-mvchtmlstring-object"></a>Yardımcıları artık MvcHtmlString nesneyi döndürür
 
-ASP.NET 4'te yeni HTML kodlaması ifade sözdizimini yararlanmak için dönüş türü için HTML Yardımcıları MvcHtmlString yerine bir dize sunulmuştur. ASP.NET 3.5 ASP.NET MVC 2 ve yeni Yardımcıları kullanırsanız, HTML kodlaması sözdizimi yararlanmak mümkün olmaz; Yeni sözdizimi, ASP.NET 4'te ASP.NET MVC 2 çalıştırdığınızda kullanılabilir.
+ASP.NET 4'te yeni HTML kodlaması ifade sözdizimi yararlanmak için dönüş türü için HTML Yardımcıları MvcHtmlString bir dize yerine sunulmuştur. ASP.NET MVC 2 ve yeni Yardımcıları ASP.NET 3.5 kullanırsanız, HTML kodlaması söz dizimi yararlanmak mümkün olmayacaktır; Yeni sözdizimi yalnızca, ASP.NET 4'te ASP.NET MVC 2'ı çalıştırdığınızda kullanılabilir.
 
 #### <a name="jsonresult-now-responds-only-to-http-post-requests"></a>JsonResult artık yalnızca HTTP POST isteklerini yanıtlar
 
-Varsayılan olarak, bilgilerin açıklanması olası sahip saldırılar ele geçirme JSON azaltmak için JsonResult sınıfı yalnızca HTTP POST isteklerini yanıtlar. AJAX GET çağrıları bir JsonResult nesnesi döndüren eylem yöntemleri için POST kullanmayı değiştirilmelidir. Gerekirse, yeni JsonResult JsonRequestBehavior özelliğini ayarlayarak bu davranışı geçersiz kılabilirsiniz. Olası yararlanma hakkında daha fazla bilgi için blog gönderisine bakın [JSON ele geçirme](http://haacked.com/archive/2009/06/25/json-hijacking.aspx) Phil Haack'ın blogunda.
+Varsayılan olarak, bilgilerin açıklanması, olası sahip saldırıları ele geçirme JSON azaltmak için JsonResult sınıfı yalnızca HTTP POST istekleri yanıtlar. AJAX almak bir JsonResult nesnesi döndüren eylem yöntemleri çağrısına POST kullanacak şekilde değiştirilmelidir. Gerekirse, yeni JsonResult JsonRequestBehavior özelliğini ayarlayarak bu davranışı geçersiz kılabilirsiniz. Olası yararlanma hakkında daha fazla bilgi için blog gönderisine bakın [JSON ele geçirme](http://haacked.com/archive/2009/06/25/json-hijacking.aspx) Phil Haack'ın blogunda.
 
-#### <a name="model-and-modeltype-property-setters-on-modelbindingcontext-are-obsolete"></a>Model ve ModelType özellik ayarlayıcıları ModelBindingContext üzerinde geçersiz
+#### <a name="model-and-modeltype-property-setters-on-modelbindingcontext-are-obsolete"></a>Model ve ModelType özellik ayarlayıcılarına ModelBindingContext üzerinde geçersizdir
 
-Yeni bir ayarlanabilir ModelMetadata özelliği ModelBindingContext sınıfı eklendi. Yeni özellik modeli ve ModelType özellikleri yalıtır. Model ve ModelType özellikleri artık kullanılmıyor olsa da, geriye dönük uyumluluk için özellik alıcıları çalışmaya; Bunlar, ModelMetadata özellik değerini almak için temsilci.
+Yeni bir ayarlanabilir ModelMetadata özelliği ModelBindingContext sınıfı eklendi. Yeni özellik, modelin hem ModelType özelliklerini kapsüller. Geriye dönük uyumluluk için Model ve ModelType özellikleri artık kullanılmıyor olsa da, özellik alıcıları hala çalışır; Bunlar ModelMetadata özelliğin değerini almak için temsilci.
 
-#### <a name="changes-to-the-defaultcontrollerfactory-class-break-custom-controller-factories-that-derive-from-it"></a>Bu sınıftan türetilen özel denetleyici üreteçlerini DefaultControllerFactory sınıfı değişiklikler bölün
+#### <a name="changes-to-the-defaultcontrollerfactory-class-break-custom-controller-factories-that-derive-from-it"></a>Değişiklikleri DefaultControllerFactory sınıf türetmeniz özel denetleyici üreteçlerini Kes
 
-DefaultControllerFactory sınıfı bir RequestContext özelliği kaldırarak giderilmiştir. Bu özellik yerine istek bağlamı örneği sanal korumalı GetControllerInstance ve GetControllerType yöntemleri geçirilir. Bu değişiklik DefaultControllerFactory türetilen özel denetleyici üreteçlerini etkiler.
+RequestContext özelliği kaldırarak DefaultControllerFactory sınıfı düzeltildi. Bu özellik yerine istek bağlamı örneği sanal korumalı GetControllerInstance ve GetControllerType yöntemler geçirilir. Bu değişiklik DefaultControllerFactory türetilen özel denetleyici üreteçlerini etkiler.
 
-Özel denetleyici üreteçlerini, genellikle ASP.NET MVC için bağımlılık ekleme uygulamaları sağlamak için kullanılır. ASP.NET MVC 2 desteklemek için özel denetleyici üreteçlerini güncelleştirmek için yöntem imzası veya imzaları yeni imzalar eşleşecek şekilde değiştirin ve isteği bağlam parametresi yerine özelliğini kullanın.
+Özel denetleyici üreteçlerini, genellikle bağımlılık ekleme için ASP.NET MVC uygulamaları sağlamak için kullanılır. ASP.NET MVC 2 desteklemek için özel denetleyici üreteçlerini güncelleştirmek için yöntem imzası veya imzaları yeni imzalar eşleşecek şekilde değiştirin ve isteği bağlam parametresi yerine özelliğini kullanın.
 
-#### <a name="area-is-a-now-a-reserved-route-value-key"></a>"Alanı" artık ayrılan rota değeri anahtarıdır
+#### <a name="area-is-a-now-a-reserved-route-value-key"></a>"Alanı" artık ayrılmış yol değeri bir anahtardır
 
-Rota değerleri dizesi "alanı", "denetleyici" ve "eylem" biçiminde ASP.NET MVC uygulamasında özel bir anlamı artık sahiptir. HTML Yardımcıları "alanı" içeren bir rota değeri sözlüğü sağlandıysa Yardımcıları artık "alanı" sorgu dizesinde ekleyeceği olduğunu olduğu bir çıkarımında bulunulur.
+Rota değerleri dize "alanı", "controller" ve "action" yolla ASP.NET MVC'de özel anlamı artık sahiptir. Bir olduğu çıkarımında HTML Yardımcıları "alanı" içeren bir rota değeri sözlüğü ile sağlanırsa, Yardımcıları artık "alanı" sorgu dizesinde ekleyeceği emin olur.
 
-Alanları özelliğini kullanıyorsanız, {alanı} yönlendirme URL'si bir parçası olarak kullanmayacak şekilde emin olun.
+Alanlar özelliğini kullanıyorsanız, {alan} rota URL'nizi bir parçası olarak kullanmayı emin olun.
 
 
-## <a id="_TOC6"></a>Sorumluluk reddi
+## <a id="_TOC6"></a>  Sorumluluk reddi
 
-Bu ön belge ve burada açıklanan yazılım son ticari sürümünden önce önemli ölçüde değişebilir.
+Bu, Başlangıç belgesi ve burada açıklanan yazılım son ticari sürümünden önce önemli ölçüde değiştirilebilir.
 
-Bu belgede yer alan bilgileri yayımlandığı tarih itibariyle açıklanan sorunları, Microsoft Corporation'ın geçerli görünümde temsil eder. Microsoft değişen piyasa koşullarına yanıt vermesi gerektiğinden Microsoft tarafında taahhüdü olarak yorumlanmamalıdır ve Microsoft belgenin yayımlanma tarihinden sonra sunulan bilgilerin doğruluğu garanti edemez.
+Bu belgede yer alan bilgileri, Microsoft Corporation'ın geçerli görünümü tarih itibariyle doğrudur ele alınan sorunlar temsil eder. Microsoft'un değişen piyasa koşullarına yanıt vermesi gerekir çünkü Microsoft tarafında taahhüdü olarak yorumlanmamalıdır ve Microsoft yayın tarihinden sonra sunulan bilgilerin doğruluğunu garanti edemez.
 
-Bu teknik incelemede yalnızca bilgilendirme amaçlıdır. MICROSOFT HİÇBİR AÇIK, ZIMNİ VEYA NİZAMİ BU BELGEDEKİ BİLGİLER GARANTİDE BULUNMAZ.
+Bu teknik incelemeyi yalnızca bilgilendirme amaçlıdır. MICROSOFT HİÇBİR EXPRESS, ZIMNİ VEYA YASAL BU BELGEDEKİ BİLGİLER GARANTİDE BULUNMAZ.
 
-İlgili tüm telif hakkı yasalarına uymak kullanıcının sorumluluğundadır. Telif Hakkı altındaki sınırlamaksızın, bu belgenin hiçbir bölümü çoğaltılamaz, depolanan ya da bir geri alma sisteminde sunulan ya da herhangi bir yöntem (elektronik, mekanik, fotokopi, kayıt veya diğer) veya herhangi bir amaçla aktarılan, Microsoft Corporation'ın izni hızlı yazılır.
+İlgili tüm telif hakkı yasalara uymak kullanıcının sorumluluğundadır. Telif Hakkı altındaki sınırlamaksızın, bu belgenin hiçbir bölümü çoğaltılamaz, depolanan veya bir sistemde saklanamaz ya da herhangi bir yolla (elektronik, mekanik, fotokopi, kaydı veya diğer) veya herhangi bir amaçla, Microsoft Corporation'ın izni hızlı yazılır.
 
-Microsoft, patentler, patent uygulamaları, ticari markalar, telif hakkı veya bu belgedeki konuyla ilgili diğer fikri mülkiyet hakları sahip olabilir. Microsoft'tan herhangi yazılı Lisans sözleşmesindeki, bu belgeyi bulundurmak, herhangi bir lisans bu patentler, ticari markaları, telif hakkı veya diğer fikri mülkiyet hakkı sağlamaz açıkça belirtilmediği sürece.
+Microsoft'un patentleri, patent başvuruları, ticari markaları, telif hakları veya diğer fikri mülkiyet hakları bu belgedeki konuyla ilgili olabilir. Microsoft'tan bir yazılı lisans anlaşmasında bu belgenin bulundurmak, herhangi bir lisans bu patentlere, ticari markaları, telif hakları veya diğer fikri mülkiyet sağlamazsa açıkça belirtilmediği sürece.
 
-Aksi belirtilmediği sürece, örnek şirketler, kuruluşlar, ürünler, etki alanı adları, e-posta adresleri, logolar, kişiler, yerler ve olaylar burada olan kurgusal ve tüm gerçek şirket, kuruluş, ürün, etki alanı adı, e-posta ile ilişki gösterilen adresi, logo, kişi, yer veya olay amaçlanmamıştır veya çıkarılmamalıdır.
+Aksi belirtilmediği sürece, örnek şirketler, kuruluşlar, ürünler, etki alanı adları, e-posta adresleri, logolar, kişiler, yerler ve olaylar burada olduğunu hayal ve tüm gerçek şirket, kuruluş, ürün, etki alanı adı, e-posta ile hiçbir ilişki adı geçen adresi, logo, kişi, yer veya olay amaçlanmamıştır veya çıkarılmamalıdır.
 
 © 2010 Microsoft Corporation. Tüm hakları saklıdır.
 
-Microsoft ve Windows kayıtlı ticari markaları ya da Microsoft Corporation'ın ABD'de ve/veya diğer ülkelerdeki ticari markalarıdır.
+Microsoft ve Windows tescilli veya Amerika Birleşik Devletleri ve/veya diğer ülkelerde Microsoft Corporation'ın ticari olan.
 
-Burada sözü edilen gerçek şirketler ve ürünler adları, ticari markalar ilgili sahiplerinin olabilir.
+Burada sözü edilen gerçek şirketler ve ürünler ticari markalar kendi sahiplerinin olabilir.

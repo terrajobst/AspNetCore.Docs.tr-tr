@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-4
-title: Varlık İlişkileriyle işleme | Microsoft Docs
+title: Varlık ilişkilerini işleme | Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
@@ -9,29 +9,28 @@ ms.date: 06/16/2014
 ms.topic: article
 ms.assetid: d2f5710c-23c7-40a5-9cd9-5d0516570cba
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-4
 msc.type: authoredcontent
-ms.openlocfilehash: 3c82724739b8ccb7c6b13788a5420af1e61c990b
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 7759b828068d99f9975d56671e427ccf6e94aef6
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30872695"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37400959"
 ---
-<a name="handling-entity-relations"></a>İşleme varlık ilişkileri
+<a name="handling-entity-relations"></a>Varlık ilişkilerini işleme
 ====================
-tarafından [CAN Wasson](https://github.com/MikeWasson)
+tarafından [Mike Wasson](https://github.com/MikeWasson)
 
-[Tamamlanan projenizi indirin](https://github.com/MikeWasson/BookService)
+[Projeyi yükle](https://github.com/MikeWasson/BookService)
 
-Bu bölümde bazı ayrıntılarını nasıl EF ilgili varlıklar yükler ve model sınıflarınızı döngüsel Gezinti özellikleri nasıl ele alınacağını açıklar. (Bu bölümde arka plan bilgi sağlar ve öğreticiyi tamamlamak için gerekli değildir. İsterseniz, geçin [bölümü 5.](part-5.md).)
+Bu bölümde bazı ayrıntılar EF ilgili varlıkları nasıl yükler ve model sınıflarınızı döngüsel Gezinti özelliklerini nasıl ele alınacağını açıklar. (Bu bölümde arka plan bilgileri sağlar ve bu öğreticiyi tamamlamak için gerekli değildir. Tercih ederseniz, atlamak [5. bölüm.](part-5.md).)
 
-## <a name="eager-loading-versus-lazy-loading"></a>Eager karşı geç yükleme yükleniyor
+## <a name="eager-loading-versus-lazy-loading"></a>Eager yavaş yükleme karşılaştırması yükleniyor
 
-EF ilişkisel veritabanı ile kullanırken, nasıl EF ilgili verileri yükler anlamak önemlidir.
+EF sahip ilişkisel bir veritabanı kullanılırken EF ilgili verileri nasıl yükler anlamak önemlidir.
 
-EF oluşturur SQL sorgularını görmek yararlıdır. SQL izleme için aşağıdaki kod satırını ekleyin `BookServiceContext` Oluşturucusu:
+EF oluşturur SQL sorgularını görmek kullanışlıdır. SQL izleme için aşağıdaki kod satırını ekleyin. `BookServiceContext` Oluşturucusu:
 
 [!code-csharp[Main](part-4/samples/sample1.cs)]
 
@@ -39,25 +38,25 @@ EF oluşturur SQL sorgularını görmek yararlıdır. SQL izleme için aşağıd
 
 [!code-console[Main](part-4/samples/sample2.cmd)]
 
-Geçerli AuthorId defteri içeriyor olsa bile Yazar özelliği null olduğunu görebilirsiniz. EF ilgili Yazar varlıklar yüklenmemesi olmasıdır. SQL sorgusunun izleme günlüğü bu onaylar:
+Kitap geçerli AuthorId içerse Yazar özelliği null olduğunu görebilirsiniz. EF ilgili Yazar varlıkları yüklenmemesi olmasıdır. İzleme günlüğü SQL sorgusu bu onaylar:
 
 [!code-console[Main](part-4/samples/sample3.sql)]
 
-SELECT deyimi Books tablosundan alır ve yazar tablo başvurmuyor.
+SELECT deyimi Books tablosundan alır ve yazar tabloya başvurmuyor.
 
-Başvuru için işte yönteminde `BooksController` books listesini döndürür sınıfı.
+Başvuru için işte yöntemi `BooksController` kitap listesi döndüren sınıfı.
 
 [!code-csharp[Main](part-4/samples/sample4.cs)]
 
-Biz JSON verilerini bir parçası olarak yazar nasıl döndürebilir görelim. Entity Framework ilgili veri yüklemek için üç yol vardır: istekli yükleme, yavaş yükleniyor ve açık yükleniyor. Nasıl çalıştığını anlamak önemlidir dengelemeler ile her tekniği vardır.
+Biz Yazar JSON verilerini bir parçası olarak nasıl döndürebilir görelim. Entity Framework ilgili verileri yüklemek için üç yol vardır: açık yükleme istekli yükleme ve yavaş yükleniyor. Nasıl çalıştığını anlamak önemlidir her yöntem ile dengelemeleri vardır.
 
-### <a name="eager-loading"></a>İstekli yükleniyor
+### <a name="eager-loading"></a>İstekli yükleme
 
-İle *istekli yükleme*, EF ilgili varlıklar ilk veritabanı sorgusunun bir parçası olarak yükler. İstekli yükleme gerçekleştirmek için kullanın **System.Data.Entity.Include** genişletme yöntemi.
+İle *istekli yükleme*, EF ilgili varlıkları ilk veritabanı sorgusunun bir parçası olarak yükler. İstekli yükleme gerçekleştirmek için **System.Data.Entity.Include** genişletme yöntemi.
 
 [!code-csharp[Main](part-4/samples/sample5.cs)]
 
-Bu sorguda Yazar verileri içerecek şekilde EF bildirir. Şimdi, bu değişikliği yapmak ve uygulama çalıştırırsanız, JSON verilerini şöyle görünür:
+Bu sorguda Yazar verileri içerecek şekilde EF bildirir. Şimdi, bu değişikliği yapın ve uygulamayı çalıştırın, JSON verilerini şöyle görünür:
 
 [!code-console[Main](part-4/samples/sample6.cmd)]
 
@@ -67,52 +66,52 @@ Bu sorguda Yazar verileri içerecek şekilde EF bildirir. Şimdi, bu değişikli
 
 ### <a name="lazy-loading"></a>Yavaş yükleniyor
 
-Bu varlık için gezinme özelliği başvuru yapıldı zaman yavaş yükleniyor ile EF ilgili varlık otomatik olarak yükler. Yavaş yükleniyor etkinleştirmek için gezinti özelliği sanal olun. Örneğin, kitap sınıfında:
+Söz konusu varlığa ilişkin gezinme özelliğini başvurusu kaldırıldığında yavaş yükleniyor ile EF ilgili varlık otomatik olarak yükler. Yavaş yükleniyor etkinleştirmek için gezinme özelliği sanal olun. Örneğin, kitap sınıfında:
 
 [!code-csharp[Main](part-4/samples/sample8.cs?highlight=6)]
 
-Şimdi aşağıdaki kodu göz önünde bulundurun:
+Aşağıdaki kodu göz önünde bulundurun:
 
 [!code-csharp[Main](part-4/samples/sample9.cs)]
 
-Yavaş yükleniyor etkinleştirildiğinde, erişme `Author` özellikte `books[0]` yazarına veritabanını sorgulamak EF neden olur.
+Gecikmeli yükleme etkinleştirildiğinde erişme `Author` özelliği `books[0]` Yazar veritabanını sorgulamak EF neden olur.
 
-EF ilgili varlık alır her zaman bir sorgu gönderdiğinden yavaş yükleniyor birden çok veritabanı dönüşle gerektirir. Genellikle, seri hale nesneler için devre dışı yavaş yükleniyor istersiniz. Tüm ilgili varlıklar yüklenirken tetikler model üzerinde özelliklerini okumak seri hale getirici sahiptir. Örneğin, burada alırken SQL sorguları EF defterleri listesi etkin yavaş yükleniyor ile serileştirir. EF üç yazarlar için üç ayrı sorgulara yapar görebilirsiniz.
+EF isteğe bağlı olarak her bir ilgili varlığı alır bir sorgu gönderdiğinden yavaş yükleniyor birden çok veritabanı dönüşle gerektirir. Genellikle, seri hale getirme nesneleri için devre dışı yavaş yükleniyor istersiniz. Tüm özellikler ilgili varlıkları yükleme tetikler modeli okumak seri hale getirici sahiptir. Örneğin, EF kitap listesi ile yavaş yükleniyor etkin serileştiren olduğunda SQL sorguları aşağıdadır. EF üç yazarlar için üç ayrı sorgular yapar görebilirsiniz.
 
 [!code-console[Main](part-4/samples/sample10.sql)]
 
-Ne zaman yavaş yükleniyor kullanmak isteyebilirsiniz zamanlar hala vardır. İstekli yükleme çok karmaşık bir birleşim oluşturmak EF neden olabilir. Veya küçük bir alt veri kümesine ilgili varlıklar gerekebilir ve yavaş yükleniyor daha verimli olacaktır.
+Karşılaşılmaya devam süreleri, yavaş yükleniyor kullanmak isteyebilirsiniz. İstekli yükleme çok karmaşık bir birleştirme oluşturulacak EF neden olabilir. İlgili varlıkları verilerin küçük bir kısmı için ihtiyacınız olabilecek veya yavaş yükleniyor daha verimli olacaktır.
 
-Seri hale getirme sorunları önlemek için bir veri aktarımı nesneleri (DTOs) yerine varlık nesnesi seri hale getirmek için yoludur. Bu yaklaşım makalenin sonraki bölümlerinde göster.
+Serileştirme sorunları önlemek için bir veri aktarımı nesneleri (Dto) yerine varlık nesneleri serileştirmek için yoludur. Bu yaklaşım makalenin sonraki bölümlerinde aktaracağınızı göstereceğiz.
 
-### <a name="explicit-loading"></a>Açık yükleniyor
+### <a name="explicit-loading"></a>Açık yükleme
 
-Kod içinde açıkça ilgili verileri almak açık yükleme yavaş yüklemeye benzerdir; bir gezinti özelliğine erişirken otomatik olarak gerçekleşmez. Açık yükleme zaman ilgili verileri yüklemek daha fazla denetim sağlar, ancak ek kod gerektirir. Açık yükleme hakkında daha fazla bilgi için bkz: [yüklenirken ilgili varlıklar](https://msdn.microsoft.com/data/jj574232#explicit).
+Kod içinde açıkça ilgili verileri alma açık yükleme yavaş yükleniyor için benzer; bir gezinti özelliğine erişirken otomatik olarak gerçekleşmez. Açık yükleme ilgili verileri yüklemek ne zaman üzerinde daha fazla denetim verir ancak ek bir kod gerektirir. Açık yükleme hakkında daha fazla bilgi için bkz: [ilgili varlıkları yükleme](https://msdn.microsoft.com/data/jj574232#explicit).
 
-## <a name="navigation-properties-and-circular-references"></a>Gezinti özellikleri ve dairesel başvurular
+## <a name="navigation-properties-and-circular-references"></a>Gezinti özellikleri ve döngüsel başvurular
 
-Kitap ve yazar modelleri tanımlandığında, t bir gezinti özelliği tanımlanan `Book` kitap yazarı ilişki sınıfı ancak t bir gezinti özelliği ters yönde tanımlamıyor.
+Ben kitap ve yazma modelleri tanımlandığında, ben bir gezinti özelliği tanımlanmış `Book` kitap yazarı ilişki sınıfı ancak ben bir gezinti özelliği diğer yönde tanımlamıyor.
 
 Karşılık gelen gezinme özelliğini eklerseniz ne olur `Author` sınıfı?
 
 [!code-csharp[Main](part-4/samples/sample11.cs?highlight=7)]
 
-Modelleri seri ne yazık ki, bu bir sorun oluşturur. İlgili verileri yüklerseniz, döngüsel bir nesne grafiğinin oluşturur.
+Ne yazık ki, modeli seri olduğunda bu sorun oluşturur. İlgili verileri yükleme, döngüsel Nesne grafiği oluşturur.
 
 ![](part-4/_static/image1.png)
 
-Grafik serileştirmek JSON veya XML biçimlendiricisi çalıştığında, bir özel durum oluşturur. İki biçimlendiricileri farklı özel durum iletileri durum. JSON biçimlendirici örnek aşağıda verilmiştir:
+Grafik seri hale getirmek JSON veya XML biçimlendiricisi çalıştığında bir özel durum oluşturur. İki biçimlendiricileri farklı bir özel durum iletileri görüntülemeyi tercih edebilirsiniz. JSON biçimlendirici için bir örnek aşağıda verilmiştir:
 
 [!code-console[Main](part-4/samples/sample12.cmd)]
 
-XML biçimlendirici şöyledir:
+XML biçimlendirici şu şekildedir:
 
 [!code-xml[Main](part-4/samples/sample13.xml)]
 
-Bir çözüm, sonraki bölümde açıklanmaktadır DTOs kullanmaktır. Alternatif olarak, grafik döngüleri işlemek için JSON ve XML biçimlendiricileri yapılandırabilirsiniz. Daha fazla bilgi için bkz: [işleme döngüsel nesne başvuruları](../../formats-and-model-binding/json-and-xml-serialization.md#handling_circular_object_references).
+Tek bir çözüm, sonraki bölümde açıklayan ı Dto'lar kullanmaktır. Alternatif olarak, JSON ve XML biçimlendiricileri grafı döngüler işlemek için yapılandırabilirsiniz. Daha fazla bilgi için [işleme döngüsel nesne başvuruları](../../formats-and-model-binding/json-and-xml-serialization.md#handling_circular_object_references).
 
-Bu öğretici için gerekli olmayan `Author.Book` bırakılabilir için gezinme özelliği.
+Bu öğreticide, ihtiyacınız olmayan `Author.Book` bırakılabilir için gezinme özelliği.
 
 > [!div class="step-by-step"]
 > [Önceki](part-3.md)
-> [sonraki](part-5.md)
+> [İleri](part-5.md)

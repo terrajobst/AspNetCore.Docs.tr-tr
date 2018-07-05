@@ -2,39 +2,38 @@
 uid: mvc/overview/older-versions-1/nerddinner/index
 title: NerdDinner | Microsoft Docs
 author: rick-anderson
-description: ASP.NET MVC 1 kullanılarak NerdDinner.com Web sitesi oluşturma. ASP.NET MVC 3 sürümü için Github'da nerddinner ziyaret edin.
+description: Kullanarak ASP.NET MVC 1 NerdDinner.com Web sitesi oluşturmayı öğrenin. ASP.NET MVC 3 sürümü için Github'da nerddinner ziyaret edin.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/28/2011
 ms.topic: article
 ms.assetid: 6edfe14c-415a-4281-b6fa-69e9b38a82c8
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner
 msc.type: chapter
-ms.openlocfilehash: e4791f1fa7d5a23fdd688c294836971735070afc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a0f67178745b6239d759ebcd486ed3942b19a0eb
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26564531"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37388444"
 ---
 <a name="nerddinner"></a>NerdDinner
 ====================
-> ASP.NET MVC 1 kullanılarak NerdDinner.com Web sitesi oluşturma. ASP.NET MVC sürümü için lütfen ziyaret [github'da NerdDinner](https://github.com/AspNetMVPSamples/NerdDinner).
+> Kullanarak ASP.NET MVC 1 NerdDinner.com Web sitesi oluşturmayı öğrenin. ASP.NET MVC sürüm için lütfen [github'da NerdDinner](https://github.com/AspNetMVPSamples/NerdDinner).
 
 
-- [NerdDinner Öğreticisi Tanıtımı](introducing-the-nerddinner-tutorial.md)
-- [Yeni bir ASP.NET MVC projesi oluşturma](create-a-new-aspnet-mvc-project.md)
-- [Bir veritabanı oluşturun](create-a-database.md)
-- [İş kuralı doğrulamaları ile bir Model oluşturma](build-a-model-with-business-rule-validations.md)
-- [Denetleyicileri ve görünümleri listeleme/Ayrıntılar UI uygulamak için kullanın](use-controllers-and-views-to-implement-a-listingdetails-ui.md)
-- [CRUD sağlayın (oluşturma, okuma, güncelleştirme, silme) veri Form girişi desteği](provide-crud-create-read-update-delete-data-form-entry-support.md)
-- [Kullanım ViewData ve uygulama ViewModel sınıfları](use-viewdata-and-implement-viewmodel-classes.md)
-- [Ana sayfaları ve kısmi kullanarak kullanıcı Arabirimi yeniden kullanma](re-use-ui-using-master-pages-and-partials.md)
-- [Uygulama verimli veri disk belleği](implement-efficient-data-paging.md)
-- [Güvenli kimlik doğrulama ve yetkilendirme kullanarak uygulamaları](secure-applications-using-authentication-and-authorization.md)
-- [Dinamik güncelleştirmeleri göndermek için AJAX kullanma](use-ajax-to-deliver-dynamic-updates.md)
-- [AJAX senaryolarında eşleme uygulamak için kullanın](use-ajax-to-implement-mapping-scenarios.md)
-- [Otomatik birim testi etkinleştir](enable-automated-unit-testing.md)
-- [NerdDinner satın alın](nerddinner-wrap-up.md)
+- [NerdDinner Öğreticisine Giriş](introducing-the-nerddinner-tutorial.md)
+- [Yeni ASP.NET MVC Projesi Oluşturma](create-a-new-aspnet-mvc-project.md)
+- [Veritabanı Oluşturma](create-a-database.md)
+- [İş Kuralı Doğrulamaları ile Model Oluşturma](build-a-model-with-business-rule-validations.md)
+- [Denetleyicileri ve Görünümleri Kullanarak Listeleme/Ayrıntılar Kullanıcı Arabirimi Uygulama](use-controllers-and-views-to-implement-a-listingdetails-ui.md)
+- [CRUD (Oluşturma, Okuma, Güncelleştirme, Silme) Veri Formu Giriş Desteği Sağlama](provide-crud-create-read-update-delete-data-form-entry-support.md)
+- [ViewData Kullanma ve ViewModel Sınıfları Uygulama](use-viewdata-and-implement-viewmodel-classes.md)
+- [Ana Sayfaları ve Kısmi Bölümleri Kullanarak Kullanıcı Arabirimini Yeniden Kullanma](re-use-ui-using-master-pages-and-partials.md)
+- [Verimli Veri Sayfalama Uygulama](implement-efficient-data-paging.md)
+- [Kimlik Doğrulama ve Yetkilendirme Kullanarak Uygulamaların Güvenliğini Sağlama](secure-applications-using-authentication-and-authorization.md)
+- [AJAX Kullanarak Dinamik Güncelleştirmeler Sunma](use-ajax-to-deliver-dynamic-updates.md)
+- [AJAX Kullanarak Eşleme Senaryoları Uygulama](use-ajax-to-implement-mapping-scenarios.md)
+- [Otomatik Birim Testini Etkinleştirme](enable-automated-unit-testing.md)
+- [NerdDinner Sarmalama](nerddinner-wrap-up.md)

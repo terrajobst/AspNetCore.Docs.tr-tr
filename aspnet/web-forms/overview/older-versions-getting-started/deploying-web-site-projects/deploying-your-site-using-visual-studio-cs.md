@@ -1,161 +1,160 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-visual-studio-cs
-title: Visual Studio (C#) kullanarak, sitenizi dağıtma | Microsoft Docs
+title: Sitenizi Visual Studio (C#) kullanarak dağıtma | Microsoft Docs
 author: rick-anderson
-description: Visual Studio, bir Web sitesi dağıtmak için Araçlar içerir. Bu araçları hakkında daha fazla Bu öğreticide öğrenin.
+description: Visual Studio, bir Web sitesine dağıtmaya yönelik araçlar içerir. Bu araçlar hakkında daha fazla, bu öğreticide öğrenin.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2009
 ms.topic: article
 ms.assetid: cde4ee53-a5d0-4937-a54b-67877e8266c3
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-visual-studio-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f06e2fe1fdfb03b106466a1792f6381495f76096
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: d549c615ea822d58ae71876ff3acd28c5f773d8a
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30888831"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37399766"
 ---
-<a name="deploying-your-site-using-visual-studio-c"></a>Visual Studio (C#) kullanarak, sitenizi dağıtma
+<a name="deploying-your-site-using-visual-studio-c"></a>Sitenizi Visual Studio (C#) kullanarak dağıtma
 ====================
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Kodu indirme](http://download.microsoft.com/download/4/5/F/45F815EC-8B0E-46D3-9FB8-2DC015CCA306/ASPNET_Hosting_Tutorial_04_CS.zip) veya [PDF indirin](http://download.microsoft.com/download/E/8/9/E8920AE6-D441-41A7-8A77-9EF8FF970D8B/aspnet_tutorial04_DeployingViaVS_cs.pdf)
+[Kodu indir](http://download.microsoft.com/download/4/5/F/45F815EC-8B0E-46D3-9FB8-2DC015CCA306/ASPNET_Hosting_Tutorial_04_CS.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/E/8/9/E8920AE6-D441-41A7-8A77-9EF8FF970D8B/aspnet_tutorial04_DeployingViaVS_cs.pdf)
 
-> Visual Studio, bir Web sitesi dağıtmak için Araçlar içerir. Bu araçları hakkında daha fazla Bu öğreticide öğrenin.
+> Visual Studio, bir Web sitesine dağıtmaya yönelik araçlar içerir. Bu araçlar hakkında daha fazla, bu öğreticide öğrenin.
 
 
 ## <a name="introduction"></a>Giriş
 
-Bir web ana makine sağlayıcısı için basit bir ASP.NET web uygulaması dağıtma sırasında önceki öğretici arama. Özellikle, bir FTP istemcisi FileZilla gibi gerekli dosyaları geliştirme ortamından üretim ortamına aktarmak için nasıl kullanılacağı gösterilmiştir Öğreticisi. Visual Studio web ana bilgisayar sağlayıcısına dağıtım kolaylaştırmak için yerleşik araçlar da sağlar. Bu öğretici iki bu araçların inceler: taşıyabileceğiniz dosyaları FTP veya FrontPage Server Extensions; kullanarak bir uzak web sunucusuna gelen ve giden kopya Web sitesi aracı ve tüm Web sitesi, belirtilen bir konuma kopyalar. yayımlama aracı.
+Önceki öğreticide, bir web ana bilgisayar sağlayıcısı için basit bir ASP.NET web uygulaması dağıtma attınız. Özellikle, FileZilla gibi FTP istemcisi gerekli dosyaları geliştirme ortamından üretim ortamına aktarmak için nasıl kullanılacağını gösterdi öğretici. Visual Studio yerleşik bir web ana bilgisayar sağlayıcısına dağıtımına etmeye de sunar. Bu öğreticide iki araçlarının inceler: yere taşıyabilirsiniz dosyaları uzak web sunucusuna FTP veya FrontPage Server Extensions; kullanarak gelen ve giden Web sitesini kopyalama aracı ve tüm Web sitesi belirtilen konuma kopyalar Yayımla aracı.
 
 
 > [!NOTE]
-> Visual Studio tarafından sunulan diğer dağıtımla ilgili araçları dahil [Web Kurulum projeleri](https://msdn.microsoft.com/library/wx3b589t.aspx) ve [Web dağıtım projeleri](https://www.microsoft.com/downloads/details.aspx?FamilyId=0AA30AE8-C73B-4BDD-BB1B-FE697256C459&amp;displaylang=en) eklenti. Web Kurulum projeleri, Web sitesinin içeriğini ve tek bir MSI dosyası yapılandırma bilgilerini paketi. Bu seçenek en intranet içinde dağıtılan Web siteleri için veya müşterilerin kendi web sunucularına yükleme önceden paketlenmiş web uygulaması satmak şirketler için yararlıdır. Web dağıtım projeleri geliştirme ortamlarını ve üretim ortamları için bir Visual Studio belirterek yapılandırma farklarını kolaylaştıran eklentisini derlemeler eklentidir. Web Kurulum projeleri Bu öğretici serisinde açıklanmamaktadır; Web dağıtım projeleri özetlenir [ *ortak yapılandırma farklılıkları arasında geliştirme ve üretim* ](common-configuration-differences-between-development-and-production-cs.md) Öğreticisi.
+> Visual Studio tarafından sunulan diğer dağıtımıyla ilgili araçlar içerir [Web Kurulum projeleri](https://msdn.microsoft.com/library/wx3b589t.aspx) ve [Web dağıtımı projeleri](https://www.microsoft.com/downloads/details.aspx?FamilyId=0AA30AE8-C73B-4BDD-BB1B-FE697256C459&amp;displaylang=en) eklenti. Web Kurulum projeleri, bir Web sitesinin içeriği ve yapılandırma bilgilerini tek bir MSI dosyasına paketleyin. Bu seçenek, bir intranet içinde dağıtılan Web siteleri için veya satış müşterilerin kendi web sunucularına yükleyin bir önceden paketlenmiş web uygulaması şirketler için en yararlı olur. Web dağıtımı projeleri geliştirme ortamları ve üretim ortamları için bir Visual Studio belirten yapılandırma farklardan kolaylaştıran Eklenti derlemeleri eklentidir. Bu öğretici serisinde Web Kurulum projeleri ele alınmamaktadır; Web dağıtımı projeleri özetlenir [ *yaygın yapılandırma farklılıkları arasında geliştirme ve üretim* ](common-configuration-differences-between-development-and-production-cs.md) öğretici.
 
 
-## <a name="deploying-your-site-using-the-copy-web-site-tool"></a>Kopyalama Web sitesi Aracı'nı kullanarak sitenizi dağıtma
+## <a name="deploying-your-site-using-the-copy-web-site-tool"></a>Sitenizi kopyalama Web sitesi Aracı'nı kullanarak dağıtma
 
-Visual Studio'nun Web sitesini kopyalama aracı, tek başına bir FTP istemcisi için işlevselliği benzer. Buna koysalar kopyalama Web sitesi aracı, FTP veya FrontPage Server Extensions üzerinden uzak bir web sitesine bağlanmak sağlar. Benzer şekilde FileZilla'nın kullanıcı arabirimi, Web sitesini kopyalama kullanıcı arabirimi iki bölmeden oluşur: Bu dosyaları hedef sunucuda sağ bölmede listeleyen sırada sol bölmede yerel dosyaları listelenmektedir.
+Visual Studio Web sitesini kopyalama aracı, tek başına bir FTP istemcisi için işlevselliği benzerdir. Buna koysalar Web sitesini kopyalama aracı Uzak web sitesi FTP veya FrontPage Server Extensions bağlanmanıza olanak sağlar. Benzer şekilde FileZilla'nın kullanıcı arabirimi, Web sitesini kopyalama kullanıcı arabirimi iki bölmeden oluşur: Bu dosyalar hedef sunucuda sağ bölmede listeler sırada sol bölmede yerel dosyaları listeler.
 
 > [!NOTE]
-> Web sitesini kopyalama aracı yalnızca Web sitesi projeleri için kullanılabilir. Visual Studio, bir Web uygulaması projesi ile çalışırken bu araç sunar.
+> Web sitesini kopyalama aracı, yalnızca Web sitesi projeleri için kullanılabilir. Visual Studio, bir Web uygulaması projesi ile çalışırken bu aracı sağlar.
 
-Üretim için kitap gözden geçirme uygulamayı yayımlamak için Web sitesini kopyalama aracını kullanarak bir bakalım. Web sitesini kopyalama aracı yalnızca Web sitesi projesini modelini kullanmanız projelerle çalıştığından biz yalnızca BookReviewsWSP projeyle bu aracı kullanarak inceleyebilirsiniz. Bu projeyi açın.
+Üretim için kitap gözden geçirme uygulamayı yayımlamak için Web sitesini kopyalama Aracı'nı kullanarak bir göz atalım. Web sitesini kopyalama aracı yalnızca Web sitesi proje modeli kullandığınız projeleriyle çalışır çünkü biz yalnızca bu araçla BookReviewsWSP projeyle inceleyebilirsiniz. Bu projeyi açın.
 
-(Bu simgeyi Şekil 1'de daire içine alınmıştır) Çözüm Gezgini'nde Web sitesini kopyalama simgesini tıklatarak Web sitesini kopyalama aracı proje başlatın; Alternatif olarak, Web sitesi menüsünden Web sitesini kopyalama seçeneği seçebilirsiniz. Her iki yaklaşım Şekil 1'de gösterilen Web sitesini kopyalama kullanıcı arabirimi başlatır; Şekil 1 yalnızca sol bölmesinde, bir uzak sunucuya bağlanmak henüz çünkü doldurulur.
-
-
-[![Kopyalama Web sitesi aracın kullanıcı arabirimidir bölünmüş içine iki bölme](deploying-your-site-using-visual-studio-cs/_static/image2.png)](deploying-your-site-using-visual-studio-cs/_static/image1.png)
-
-**Şekil 1**: kopyasını Web sitesini aracın kullanıcı arabirimidir bölünmüş içine iki bölme ([tam boyutlu görüntüyü görüntülemek için tıklatın](deploying-your-site-using-visual-studio-cs/_static/image3.png))
+Çözüm Gezgini'nde (Bu simgeyi Şekil 1'de daire içine alınmıştır) Web sitesine Kopyala simgesine tıklayarak Web sitesini kopyalama aracı proje başlatın; Alternatif olarak, Web sitesini kopyalama seçeneği Web sitesi menüsünden seçebilirsiniz. Her iki yöntemle Şekil 1'de gösterilen kopyalama Web sitesi kullanıcı arabirimi başlatır; Şekil 1 yalnızca sol bölmede, uzak bir sunucuya bağlanmak henüz çünkü doldurulur.
 
 
-İlk web ana bilgisayar sağlayıcısına bağlanmak için ihtiyacımız sitemizi dağıtmak için. Web sitesini kopyalama kullanıcı arabirimi üstündeki Bağlan düğmesini tıklatın. Bu, Şekil 2'de gösterilen açık Web sitesi iletişim kutusunu görüntüler.
+[![Kopyalama Web sitesi Aracı'nın kullanıcı arabirimidir iki bölme halinde ayrılmış](deploying-your-site-using-visual-studio-cs/_static/image2.png)](deploying-your-site-using-visual-studio-cs/_static/image1.png)
 
-Sol taraftan dört seçenekten birini seçerek hedef Web sitesine bağlanabilir:
+**Şekil 1**: kopyalama Web sitesi Aracı'nın kullanıcı arabirimidir iki bölme halinde ayrılmış ([tam boyutlu görüntüyü görmek için tıklatın](deploying-your-site-using-visual-studio-cs/_static/image3.png))
 
-- **Dosya sistemi** -sitenizi bir klasör veya ağ paylaşımına erişilebilir bilgisayarınızdan dağıtmak için bu seçeneği kullanın.
-- **Yerel IIS** -site bilgisayarınızda yüklü IIS web sunucusu dağıtmak için bu seçeneği kullanın.
+
+Sitemizi dağıtmak için öncelikle web ana bilgisayar sağlayıcıya bağlanmak ihtiyacımız var. Web sitesini kopyalama kullanıcı arabiriminin üst Bağlan düğmesine tıklayın. Bu, Şekil 2'de gösterilen Web sitesini aç iletişim kutusunu görüntüler.
+
+Hedef Web sitesine soldan dört seçenekten birini belirleyerek bağlanabilirsiniz:
+
+- **Dosya sistemi** -sitenizi bir klasör veya ağ paylaşımına erişilebilir bilgisayarınızdan dağıtmak için bu seçeneği belirleyin.
+- **Yerel IIS** -site bilgisayarınızda yüklü IIS web sunucusuna dağıtmak için bu seçeneği kullanın.
 - **FTP sitesi** -Uzak web sitesine FTP kullanarak bağlanın.
-- **Uzak Site** -FrontPage Server Extensions kullanarak uzak bir Web sitesine bağlanın.
+- **Uzak Site** -FrontPage Server Extensions'ı kullanarak uzak bir Web sitesine bağlayın.
 
-Çoğu web ana bilgisayar sağlayıcıları FTP destekler, ancak daha az FrontPage Server Extensions destek sunar. Bu nedenle, g FTP sitesi seçeneğinin seçili, ardından bağlantı bilgilerini Şekil 2'de gösterildiği gibi girilmelidir.
+Çoğu web ana bilgisayar sağlayıcıları FTP desteklese de, daha az FrontPage Server Extensions destek sunar. Bu nedenle, ı FTP sitesi seçeneğini seçtiyseniz, ardından bağlantı bilgilerini Şekil 2'de gösterildiği gibi girilmelidir.
 
 
 [![Hedef Web sitesi belirtin](deploying-your-site-using-visual-studio-cs/_static/image5.png)](deploying-your-site-using-visual-studio-cs/_static/image4.png)
 
-**Şekil 2**: Hedef Web sitesi belirtin ([tam boyutlu görüntüyü görüntülemek için tıklatın](deploying-your-site-using-visual-studio-cs/_static/image6.png))
+**Şekil 2**: hedef siteyi belirtin ([tam boyutlu görüntüyü görmek için tıklatın](deploying-your-site-using-visual-studio-cs/_static/image6.png))
 
 
-Bağlandıktan sonra Web sitesini kopyalama Aracı'nı sağ bölmede uzak sitedeki dosyalarını yükler ve her dosyanın durumunu gösterir: yeni, Deleted, değiştirilen veya Unchanged. Uzak site veya tersi bir yerel siteden bir dosyayı kopyalayabilirsiniz.
+Web sitesini kopyalama aracı bağlandıktan sonra sağ bölmede uzak sitede dosyalarını yükler ve her dosyanın durumunu gösterir: yeni, Deleted, değiştirilen veya Unchanged. Uzak site veya tersi bir yerel siteden bir dosyaya kopyalayabilirsiniz.
 
-Yeni bir ekleyelim sayfasında BookReviewsWSP projeye ve ardından dağıtmanız eylem Web sitesini kopyalama aracında görebiliriz. Visual Studio'da adlı kök dizininde yeni bir ASP.NET sayfası oluşturma `Privacy.aspx`. Ana sayfayı kullanmak sayfası `Site.master` ve bu sayfaya, sitenin gizlilik ilkesi ekleyin. Bu sayfayı oluşturulduktan sonra Şekil 3'te Visual Studio gösterir.
-
-
-[![Adlı yeni bir sayfa ekleyin &lt;kod&gt;Privacy.aspx&lt;/kod&gt; Web sitesinin kök klasörü için](deploying-your-site-using-visual-studio-cs/_static/image8.png)](deploying-your-site-using-visual-studio-cs/_static/image7.png)
-
-**Şekil 3**: adlı yeni bir sayfa ekleyin `Privacy.aspx` Web sitenizin kök klasörüne ([tam boyutlu görüntüyü görüntülemek için tıklatın](deploying-your-site-using-visual-studio-cs/_static/image9.png))
+Yeni bir ekleyelim sayfasında BookReviewsWSP projeye ve ardından dağıtın Web sitesini kopyalama Aracı'nda eylem görebiliriz. Yeni bir ASP.NET sayfası adlı kök dizininde Visual Studio'da oluşturma `Privacy.aspx`. Ana sayfayı kullanmak sayfası `Site.master` ve bu sayfaya sitenizin gizlilik ilkesi ekleyin. Bu sayfa oluşturulduktan sonra Şekil 3, Visual Studio gösterir.
 
 
-Ardından, kopyalama Web sitesi kullanıcı arabirimine döndür. Şekil 4'te gösterildiği gibi sol bölmede şimdi yeni dosyalar - içeren `Policy.aspx` ve `Policy.aspx.cs`. Daha, bu dosyaları bir ok simgesine ve durumu, yerel sitede ancak uzak site bulunduğunu belirten yeni bir işaretlenir.
+[![Adlı yeni bir sayfa ekleyin &lt;kod&gt;Privacy.aspx&lt;/code&gt; Web sitesinin kök klasör](deploying-your-site-using-visual-studio-cs/_static/image8.png)](deploying-your-site-using-visual-studio-cs/_static/image7.png)
+
+**Şekil 3**: adlı yeni bir sayfa ekleyin `Privacy.aspx` Web sitesinin kök klasöre ([tam boyutlu görüntüyü görmek için tıklatın](deploying-your-site-using-visual-studio-cs/_static/image9.png))
 
 
-[![Yeni kopya Web sitesi Aracı'nı içerir &lt;kod&gt;Privacy.aspx&lt;/kod&gt; , sol bölmedeki sayfası](deploying-your-site-using-visual-studio-cs/_static/image11.png)](deploying-your-site-using-visual-studio-cs/_static/image10.png)
-
-**Şekil 4**: yeni kopyasını Web sitesini Aracı'nı içeren `Privacy.aspx` , sol bölmedeki sayfa ([tam boyutlu görüntüyü görüntülemek için tıklatın](deploying-your-site-using-visual-studio-cs/_static/image12.png))
+Ardından, kopyalama Web sitesi kullanıcı arabirimine döndürür. Şekil 4'te gösterildiği gibi sol bölmede şimdi yeni dosyalar - içerir `Policy.aspx` ve `Policy.aspx.cs`. Bunun da ötesinde, bu dosyaları bir ok simgesi ve durumu, yerel site ancak uzak site bulunduğunu belirten yeni bir işaretlenir.
 
 
-Yeni dağıtmak için dosyaları bunları seçin ve ardından uzak siteye aktarmak için ok simgesine tıklayın. Transfer tamamlandıktan sonra `Policy.aspx` ve `Policy.aspx.cs` dosyaları mevcut Unchanged durum yerel ve uzak sitelerle üzerinde.
+[![Yeni kopya Web sitesi Aracı'nı içeren &lt;kod&gt;Privacy.aspx&lt;/code&gt; sayfasında, sol bölmedeki](deploying-your-site-using-visual-studio-cs/_static/image11.png)](deploying-your-site-using-visual-studio-cs/_static/image10.png)
 
-Yeni dosyaları listeleme yanı sıra yerel ve uzak siteleri arasında farklılık herhangi bir dosya kopyalama Web sitesi aracı vurgular. Bu eylem görmek için dönmek `Privacy.aspx` sayfasında ve birkaç sözcük gizlilik ilkesi ekleyin. Sayfayı kaydedin ve ardından Web sitesini kopyalama Aracı'na dönün. Şekil 5 gösterildiği gibi `Privacy.aspx` sayfası sol bölmede, değiştirilen uzak site ile eşit olduğunu belirten bir durumu içerir.
-
-
-[![Kopyalama Web sitesi aracı belirten &lt;kod&gt;Privacy.aspx&lt;/kod&gt; sayfa değiştirildi](deploying-your-site-using-visual-studio-cs/_static/image14.png)](deploying-your-site-using-visual-studio-cs/_static/image13.png)
-
-**Şekil 5**: kopyalama Web sitesi aracı belirten `Privacy.aspx` sayfa değiştirildi ([tam boyutlu görüntüyü görüntülemek için tıklatın](deploying-your-site-using-visual-studio-cs/_static/image15.png))
+**Şekil 4**: yeni kopyalama Web sitesi Aracı'nı içeren `Privacy.aspx` sayfasında, sol bölmedeki ([tam boyutlu görüntüyü görmek için tıklatın](deploying-your-site-using-visual-studio-cs/_static/image12.png))
 
 
-Web sitesini kopyalama aracı ayrıca bir dosyayı son kopyalama işlemi bu yana silinmiş olmadığını gösterir. Silme `Privacy.aspx` yerel proje ve yenileme kopyalama Web sitesi aracı. `Privacy.aspx` Ve `Privacy.aspx.cs` dosyaları sol bölmede listelenen kalır, ancak son kopyalama işlemi bu yana kaldırılmış olduğunu gösteren silinmiş durumuna sahip.
+Yeni dağıtmak için dosyaları, bunları seçin ve ardından uzak siteye aktarmak ok simgesine tıklayın. Transfer tamamlandıktan sonra `Policy.aspx` ve `Policy.aspx.cs` dosyaları mevcut durumu Unchanged yerel ve uzak sitelerle üzerinde.
 
-## <a name="publishing-a-web-application"></a>Bir Web uygulaması yayımlama
-
-Visual Studio içinde web uygulamanızı dağıtmak için başka bir yapı menüsü üzerinden erişilebilen yayımlama seçeneğini kullanmak için yoludur. Yayımla seçeneği açıkça uygulama derler ve tüm gerekli dosyaları belirtilen uzak site kadar kopyalar. Kısa süre içinde anlatıldığı gibi Yayımla Web sitesini kopyalama aracı daha fazla Küt uçlu seçenektir. Web sitesini kopyalama aracı, yerel ve uzak siteleri dosyalarda incelemenize olanak tanır ve karşıya yükleme veya gerektiği gibi tek tek dosyaları indirme izin verir kullanılabilirken Yayımla seçeneği tüm web uygulamasına dağıtır.
+Yeni dosyaları listeleme yanı sıra Web sitesini kopyalama aracı yerel ve uzak siteler arasında farklı dosyalar vurgular. Bu uygulamada görmek için dönüş `Privacy.aspx` sayfasında ve birkaç daha fazla sözcük gizlilik ilkesine ekleyin. Sayfayı kaydedin ve ardından Web sitesini kopyalama aracı için döndürür. Şekil 5 gösterildiği gibi `Privacy.aspx` sayfası sol bölmede, değiştirilen uzak site ile eşitlenmemiş olduğunu belirten bir durumu içerir.
 
 
-Tüm gerekli dosyaları belirtilen uzak siteye kopyalamaya ek olarak Yayımla seçeneği de açıkça uygulama derler. Web uygulaması projelerine olmasına gerek o açıkça derlenmiş, Web uygulaması projelerinde Yayımla seçeneği kullanılabilir hiç şaşırtıcı olarak gelmelidir. Ne biraz şaşırtıcı olabilir Yayımla seçeneği de Web sitesi projeleri için kullanılabilir olmasıdır. İçinde belirtildiği gibi [ *belirleme dosyaları gerekenler dağıtılacağını için* ](determining-what-files-need-to-be-deployed-cs.md) öğretici, Web sitesi projeleri açıkça derlenmesi denen bir işlem aracılığıyla *ön derleme*. Bu öğretici, Web Uygulama projeleri ile yayımlama seçeneğini kullanarak odaklanır; bir sonraki öğretici, bu noktada Web sitesi projeleri ile yayımlama seçeneğini kullanarak aramak için getireceğiz ön derleme inceleyeceksiniz.
+[![Kopyalama Web sitesi Aracı'nı gösterir &lt;kod&gt;Privacy.aspx&lt;/code&gt; sayfa değiştirildi](deploying-your-site-using-visual-studio-cs/_static/image14.png)](deploying-your-site-using-visual-studio-cs/_static/image13.png)
+
+**Şekil 5**: kopyalama Web sitesi Aracı'nı gösterir `Privacy.aspx` sayfa değiştirildi ([tam boyutlu görüntüyü görmek için tıklatın](deploying-your-site-using-visual-studio-cs/_static/image15.png))
+
+
+Web sitesini kopyalama aracı, ayrıca bir dosyanın son kopyalama işleminden beri silinip silinmediğini gösterir. Silme `Privacy.aspx` yerel proje ve yenileme Web sitesini kopyalama aracı. `Privacy.aspx` Ve `Privacy.aspx.cs` dosyaları sol bölmede listelenen kalır, ancak son kopyalama işleminden beri kaldırılan olduğunu belirten silindi durumunda.
+
+## <a name="publishing-a-web-application"></a>Web uygulaması yayımlama
+
+Web uygulamanızı Visual Studio'dan dağıtmak için başka bir yolu yapı menüsü aracılığıyla erişilebilir Yayımla seçeneğini kullanmaktır. Yayımla seçeneği açıkça uygulamayı derler ve tüm gerekli dosyaları belirtilen uzak site kadar kopyalar. Kısa bir süre içinde anlatıldığı gibi Yayımla Web sitesini kopyalama aracı daha fazla Küt uçlu bir seçenektir. Web sitesini kopyalama aracı yerel ve uzak siteleri dosyalarda incelemenize olanak sağlar ve karşıya yükleme veya gerektiği gibi tek tek dosyaları indirme izin verir ancak Yayımla seçeneği tüm web uygulaması dağıtır.
+
+
+Tüm gerekli dosyaları belirtilen uzak siteye kopyalamaya ek olarak Yayımla seçeneğinin de açıkça uygulamayı derler. Web Uygulama projeleri olmasına gerek koşuluyla, açıkça derlenmiş, Web uygulaması projelerinde yayımlama seçeneği kullanılabilir süpriz olarak gelmelidir. Ne biraz şaşırtıcı olabilir Yayımla seçeneğini de Web sitesi projeleri için kullanılabiliyor. Belirtilen [ *belirleme dosyaları gerekenler dağıtılabilir için* ](determining-what-files-need-to-be-deployed-cs.md) Öğreticisi, Web sitesi projeleri açıkça derlenmesi olarak adlandırılan bir işlem aracılığıyla *önceden derleme*. Bu öğreticide, Web Uygulama projeleri ile yayımlama seçeneğini kullanmaya odaklanmıştır; bir sonraki öğretici, önceden derleme, bu noktada Web sitesi projeleri ile yayımlama seçeneğini kullanarak aramak için getireceğiz inceleyeceksiniz.
 
 > [!NOTE]
-> Yayımla seçeneği Web sitesi projeleri ve Web Uygulama projeleri için Visual Studio'da kullanılabilir olsa da, Visual Web Developer yalnızca Web Uygulama projeleri yayımlama seçeneği sunar.
+> Yayımla seçeneği varken Web sitesi projeleri hem de Web Uygulama projeleri için Visual Studio'da Visual Web Developer yalnızca Web Uygulama projeleri için yayımla seçeneğini sunar.
 
 
-Yayımla seçeneği kullanılarak Kitap incelemeleri uygulamasını dağıtma sırasında bakalım. Visual Studio'da BookReviewsWAP (Web uygulaması projesi) açarak başlayın. Yayımla Menüsü'nden yapı BookReviewsWAP projesini seçin. Bu hedef konumu, (bkz. Şekil 6) diğer yapılandırma seçenekleri arasında isteyen bir iletişim kutusu açar. Çok gibi Web sitesini kopyalama aracı ile bir yerel klasör, yerel bir Web sitesi IIS'de, FrontPage Server Extensions veya FTP sunucusu adresi destekleyen uzak bir Web sitesine işaret eden bir konum girebilirsiniz. Uzak web sunucusundaki dosyaları ile dağıtılan dosyaları değiştirmek mi, yoksa tüm yayımlamadan önce uzak site içeriğini silmek için seçebilirsiniz. Kopyalanıp kopyalanmayacağını belirtebilirsiniz:
+Yayımla seçeneğini kullanarak Kitap incelemeleri uygulamayı dağıtmayı bakalım. Visual Studio'da BookReviewsWAP (Web uygulaması projesi) açarak işleme başlayın. Yayımla Menüsü'nden yapı BookReviewsWAP projesini seçin. Bu hedef konumu (bkz. Şekil 6) diğer yapılandırma seçenekleri arasından için soran bir iletişim kutusu getirir. Çok gibi Web sitesini kopyalama aracı ile bir yerel klasör, yerel bir Web sitesi IIS'de, FrontPage Server Extensions veya FTP sunucu adresi destekleyen uzak bir Web sitesi işaret eden bir konuma girebilirsiniz. Dosyaları uzak web sunucusu üzerinde dağıtılan dosyalarla değiştirin veya tüm yayımlamadan önce uzak sitede içeriği silmek için seçebilirsiniz. Ayrıca, kopyalanıp kopyalanmayacağını da belirtebilirsiniz:
 
-- Yalnızca gereksiz kaynak kodu ve projeyle ilişkili dosyaları atlayarak uygulamayı çalıştırmak için gerekli proje dosyaları.
+- Yalnızca gereksiz kaynak kodu ve proje ile ilgili dosyaları atlayarak uygulamasını çalıştırmak için gerekli proje dosyaları.
 - Çözüm dosyası gibi tüm kaynak kodu dosyaları içeren proje dosyalarını ve Visual Studio proje dosyaları.
 - Bunlar projeye dahil bağımsız olarak kaynak proje klasöründeki tüm dosyaları kopyalar kaynak proje klasöründeki tüm dosyalar.
 
-Ayrıca içeriğini karşıya yüklemek için bir seçenek olan `App_Data` klasör.
+İçeriği karşıya yüklemek için bir seçenek de mevcuttur `App_Data` klasör.
 
 
 [![Hedef Web sitesi belirtin](deploying-your-site-using-visual-studio-cs/_static/image17.png)](deploying-your-site-using-visual-studio-cs/_static/image16.png)
 
-**Şekil 6**: Hedef Web sitesi belirtin ([tam boyutlu görüntüyü görüntülemek için tıklatın](deploying-your-site-using-visual-studio-cs/_static/image18.png))
+**Şekil 6**: hedef siteyi belirtin ([tam boyutlu görüntüyü görmek için tıklatın](deploying-your-site-using-visual-studio-cs/_static/image18.png))
 
 
-Kitap gözden geçirme uygulama için Uzak site kopyalama Web sitesi aracı yoluyla BookReviewsWSP proje kopyalarken dağıtılan dosyalarını içerir. Bu nedenle, şimdi tüm var olan içerik silerek Başlat Yayımla seçeneğiniz vardır. Ayrıca, şirketinizdeki yalnızca üretim ortamını gereksiz kaynak kodu ve proje dosyalarını içeren alanınızda karışıklık yerine gerekli dosyaları kopyalayın. Bu seçenekleri belirttikten sonra Yayımla düğmesine tıklayın. Sonraki birkaç saniye boyunca Visual Studio gerekli dosyaları hedef siteye çıktı penceresinde ilerleme durumunu görüntüleme dağıtır.
+Kitap İnceleme uygulama için Uzak site BookReviewsWSP projenin Web sitesini kopyalama aracı aracılığıyla kopyalarken dağıtılan dosyaları içerir. Bu nedenle, şimdi tüm varolan içeriğin silerek Başlat yayınlama seçeneğiniz vardır. Ayrıca, şimdi yalnızca üretim ortamını gereksiz kaynak kodu ve proje dosyaları ile yığılmak yerine gerekli dosyaları kopyalayın. Bu seçenekleri belirttikten sonra Yayımla düğmesine tıklayın. Sonraki birkaç saniye içinde Visual Studio gerekli dosyaları hedef sitenin, çıktı penceresinde, ilerleme durumunu görüntüleme dağıtır.
 
-Yayımlama işlemi tamamlandıktan sonra Şekil 7 FTP sitesinde dosyaları gösterir. Yalnızca biçimlendirme sayfalar ve gerekli sunucu tarafı ve istemci tarafı destek dosyalarını karşıya olduğunu unutmayın.
-
-
-[![Yalnızca gerekli dosyalar üretim ortamına yayımlanan](deploying-your-site-using-visual-studio-cs/_static/image20.png)](deploying-your-site-using-visual-studio-cs/_static/image19.png)
-
-**Şekil 7**: yalnızca gerekli dosyalar olan yayımlanan üretim ortamına ([tam boyutlu görüntüyü görüntülemek için tıklatın](deploying-your-site-using-visual-studio-cs/_static/image21.png))
+Şekil 7, yayımlama işlemi tamamlandıktan sonra FTP sitesindeki dosyaları gösterir. Yalnızca işaretleme sayfaları ve gereken sunucu tarafı ve istemci tarafı destek dosyalarını yüklenmiş unutmayın.
 
 
-Yayımla seçeneği, kopyalama Web sitesi aracı daha az nuanced bir araçtır. Yayımla seçeneği Web sitesini kopyalama aracı yerel ve uzak siteleri dosyalarda inceleyin ve bunların nasıl farklı görmenizi sağlar ancak böyle bir arabirim sağlar. Ayrıca, Web sitesini kopyalama Aracı'nı yükleyerek veya tek tek dosyaların silinmesi bir kerelik değişiklik yapmanızı sağlar. Yayımla seçeneği gibi hassas bir denetim izin verme; Bunun yerine, yayımlar *tüm* uygulama. Bu davranış, Artıları ve eksileri vardır. Artı tarafında önemli bir dosyayı karşıya yüklemeyi unutulması olmaz Yayımla seçeneği kullanılırken bildirin. Ancak çok büyük bir Web sitesine - küçük değişiklikler yaptıysanız yayımlama seçeneğiyle birlikte bu sayfayı veya değiştirilmiş olan iki güncelleştirilemiyor, ancak tüm site Visual Studio dağıtır; bunun yerine, bekleyin gerekir ne olacağını düşünün.
+[![Yalnızca gerekli dosyalar üretim ortamına yayımlandı](deploying-your-site-using-visual-studio-cs/_static/image20.png)](deploying-your-site-using-visual-studio-cs/_static/image19.png)
 
-Seyrek orada içerikleri geliştirme ortamlarını ve üretim arasında farklılık gösterir. bazı dosyalar için değil. Uygulamanın yapılandırma dosyasına anahtar örnektir `Web.config`. Yayımla seçeneği doğrudan web uygulama dosyaları kopyaladığı için üretim ortamı özelleştirilmiş yapılandırma dosyalarını geliştirme ortamında sürümüyle değiştirir. Sonraki öğretici, bu konuda daha fazla inceler ve bu farklara varken bir web uygulaması dağıtımı için ipuçları sunar.
+**Şekil 7**: yalnızca gerekli dosyalar yayımlandı üretim ortamına ([tam boyutlu görüntüyü görmek için tıklatın](deploying-your-site-using-visual-studio-cs/_static/image21.png))
+
+
+Yayımla seçeneği, Web sitesini kopyalama aracı daha az incelikli bir araçtır. Yayımla seçeneği, Web sitesini kopyalama aracı yerel ve uzak sitelerdeki dosyalarını inceleme ve bunların nasıl değişiklik gösterdiği görmenizi sağlar ancak böyle bir arabirim sağlar. Ayrıca, Web sitesini kopyalama Aracı'nı yükleyerek veya tek tek dosyaları silme tek seferlik değişiklikler yapmanızı sağlar. Yayımla seçeneği gibi hassas bir denetim olanak tanımaz; Bunun yerine, yayımlar *tüm* uygulama. Bu davranış, kendi Artıları ve eksileri vardır. Artı tarafında önemli bir dosyayı karşıya yüklemek için unutarak olmaz Yayımla seçeneğini kullanırken bildirin. Ancak, çok büyük bir Web sitesine - küçük bir değişiklik yaptıysanız yayımlama seçeneğiyle birlikte bu sayfayı veya değiştirilmiş olan iki güncelleştirilemiyor ancak bunun yerine Visual Studio tüm site dağıtır sırada beklemelisiniz ne olacağını düşünün.
+
+İçerikleri üretim ve geliştirme ortamları arasında farklılık gösterir. bazı dosyalar burada sık sık değil. Bir uygulamanın yapılandırma dosyası, anahtar örnektir `Web.config`. Yayımla seçeneği körüne web uygulama dosyaları kopyaladığı için sürüm geliştirme ortamında üretim ortamının özelleştirilmiş yapılandırma dosyalarını yazar. Sonraki öğretici, bu konuda daha fazla inceler ve böyle farklılıklar da mevcut bir web uygulaması dağıtımı için ipuçları sunar.
 
 ## <a name="summary"></a>Özet
 
-Bir Web sitesi dağıtımı için gerekli dosyaları geliştirme ortamından üretim ortamına kopyalama içerir. Önceki öğretici FileZilla gibi bir FTP istemcisi kullanarak dosyaları aktarmak nasıl oluşturulacağını gösterir. Bu öğreticide Visual Studio içindeki iki dağıtım araçları incelenmesi: Web sitesini kopyalama aracı ve Yayımla seçeneği. Web sitesini kopyalama aracı, yerel bilgisayarda ve karşıya yükleme veya iki bilgisayar arasında dosya indirme daha kolay hale getirir belirtilen bir uzak bilgisayar dosyaları listeleme bir iki paned arabirimine sahiptir, bir FTP istemcisi için benzerdir. Yayımla seçeneği açıkça Proje derlenir ve tüm uygulama belirtilen hedefe dağıtır daha Küt uçlu bir araçtır.
+Bir Web sitesi dağıtımı için gerekli dosyaları geliştirme ortamından üretim ortamına kopyalanmasıdır. Önceki öğreticide FileZilla gibi FTP istemcisi kullanarak dosyaları aktarma nasıl oluşturulacağını gösterir. Bu öğreticide iki dağıtım araçları Visual Studio'da inceledi: Web sitesini kopyalama Aracı'nı ve yayımlama seçeneği. Web sitesini kopyalama aracı, dosyaları yerel bilgisayarda ve karşıya yükleme veya indirme iki bilgisayar arasında dosyaları kolaylaştırır belirtilen bir uzak bilgisayar listeleme iki paned bir arabirimi vardır, bir FTP istemcisi için benzerdir. Yayımla seçeneği, açıkça projeyi derler ve sonra tüm uygulama belirtilen hedefe dağıtır daha Küt uçlu bir araçtır.
 
-Mutluluk programlama!
+Mutlu programlama!
 
 ### <a name="further-reading"></a>Daha Fazla Bilgi
 
-Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
+Bu öğreticide ele alınan konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [Web sitesi kopyasını Web sitesini aracı ile kopyalama](https://msdn.microsoft.com/library/1cc82atw.aspx)
-- [Ne I: dağıtmak kopyalama Web sitesi Aracı'nı kullanarak bir Web sitesi](../../../videos/how-do-i/how-do-i-deploy-a-web-site-using-the-copy-web-site-tool.md) (Video)
+- [Web sitesi kopyalama Web sitesi Aracı'nı kullanarak kopyalama](https://msdn.microsoft.com/library/1cc82atw.aspx)
+- [Ne ı: dağıtma kopyalama Web sitesi Aracı'nı kullanarak bir Web sitesi](../../../videos/how-do-i/how-do-i-deploy-a-web-site-using-the-copy-web-site-tool.md) (Video)
 - [Nasıl yapılır: Web Uygulama projeleri yayımlama](https://msdn.microsoft.com/library/aa983453.aspx)
 - [Nasıl yapılır: Web siteleri yayımlama](https://msdn.microsoft.com/library/20yh9f1b.aspx)
 - [Kurulum ve dağıtım projeleri Visual Studio'da](https://msdn.microsoft.com/library/wx3b589t.aspx)
 
 > [!div class="step-by-step"]
 > [Önceki](deploying-your-site-using-an-ftp-client-cs.md)
-> [sonraki](common-configuration-differences-between-development-and-production-cs.md)
+> [İleri](common-configuration-differences-between-development-and-production-cs.md)

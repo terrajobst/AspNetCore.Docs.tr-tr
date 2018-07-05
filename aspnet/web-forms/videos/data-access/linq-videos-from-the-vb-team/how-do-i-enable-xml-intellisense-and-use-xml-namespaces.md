@@ -1,32 +1,31 @@
 ---
 uid: web-forms/videos/data-access/linq-videos-from-the-vb-team/how-do-i-enable-xml-intellisense-and-use-xml-namespaces
-title: "[Nasıl stop yaparım] XML IntelliSense'i etkinleştirme ve XML ad alanları kullanılsın mı? | Microsoft Docs"
+title: "[Bunu nasıl yaparım:] XML IntelliSense'i etkinleştirme ve XML ad alanlarını? | Microsoft Docs"
 author: bethmassi
-description: Visual Basic geliştiricileri XML şemaları kullanarak IntelliSense'i etkinleştirme ve XML ad alanları sorgulama ve XML belgeleri oluşturma nasıl kullanıldığını öğreneceksiniz.
+description: Visual Basic geliştiricileri şemaları kullanarak XML IntelliSense'i etkinleştirme ve XML ad alanları XML belgeleri oluşturma ve sorgulama nasıl kullanıldığını öğreneceksiniz.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/15/2007
 ms.topic: article
 ms.assetid: cdccd601-c0fe-4e56-9c38-7ef027de3481
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/data-access/linq-videos-from-the-vb-team/how-do-i-enable-xml-intellisense-and-use-xml-namespaces
 msc.type: video
-ms.openlocfilehash: ebcee538a74b466e65907880e84677c587081d0b
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: e4de1242f66791f71564272f6878c3b1fe849cab
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30885903"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37398439"
 ---
-<a name="how-do-i-enable-xml-intellisense-and-use-xml-namespaces"></a>[Nasıl stop yaparım] XML IntelliSense'i etkinleştirme ve XML ad alanları kullanılsın mı?
+<a name="how-do-i-enable-xml-intellisense-and-use-xml-namespaces"></a>[Bunu nasıl yaparım:] XML IntelliSense'i etkinleştirme ve XML ad alanlarını?
 ====================
-tarafından [Ayşe Massi](https://github.com/bethmassi)
+tarafından [Beth Massi](https://github.com/bethmassi)
 
-Visual Basic geliştiricileri XML şemaları kullanarak IntelliSense'i etkinleştirme ve XML ad alanları sorgulama ve XML belgeleri oluşturma nasıl kullanıldığını öğreneceksiniz.
+Visual Basic geliştiricileri şemaları kullanarak XML IntelliSense'i etkinleştirme ve XML ad alanları XML belgeleri oluşturma ve sorgulama nasıl kullanıldığını öğreneceksiniz.
 
-[&#9654;(13 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-enable-xml-intellisense-and-use-xml-namespaces)
+[&#9654;Videoyu (13 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-enable-xml-intellisense-and-use-xml-namespaces)
 
 > [!div class="step-by-step"]
 > [Önceki](how-do-i-get-started-with-linq-to-xml.md)
-> [sonraki](how-do-i-create-xml-documents-from-sql-data.md)
+> [İleri](how-do-i-create-xml-documents-from-sql-data.md)

@@ -1,313 +1,312 @@
 ---
 uid: web-forms/overview/older-versions-security/membership/user-based-authorization-cs
-title: Kullanıcı tabanlı bir yetkilendirme (C#) | Microsoft Docs
+title: Kullanıcı tabanlı yetkilendirme (C#) | Microsoft Docs
 author: rick-anderson
-description: Bu öğreticide sayfalarına erişimi sınırlandırma ve sayfa düzeyinde işlevselliği teknikleri çeşitli kısıtlayarak ele alacağız.
+description: Bu öğreticide sayfalarına erişimi sınırlandırma ve çeşitli teknikler aracılığıyla sayfa düzeyi işlevselliği kısıtlayarak atacağız.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/18/2008
 ms.topic: article
 ms.assetid: 3c815a9e-2296-4b9b-b945-776d54989daa
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/user-based-authorization-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9a0d476ffaf1f176c21b245520fa943f66e8c0d5
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 5ab8fb2782cf9d29c9912fa81158c50a9d8d8af5
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/10/2018
-ms.locfileid: "30891925"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37396801"
 ---
-<a name="user-based-authorization-c"></a>Kullanıcı tabanlı bir yetkilendirme (C#)
+<a name="user-based-authorization-c"></a>Kullanıcı tabanlı yetkilendirme (C#)
 ====================
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Kodu indirme](http://download.microsoft.com/download/3/f/5/3f5a8605-c526-4b34-b3fd-a34167117633/ASPNET_Security_Tutorial_07_CS.zip) veya [PDF indirin](http://download.microsoft.com/download/3/f/5/3f5a8605-c526-4b34-b3fd-a34167117633/aspnet_tutorial07_UserAuth_cs.pdf)
+[Kodu indir](http://download.microsoft.com/download/3/f/5/3f5a8605-c526-4b34-b3fd-a34167117633/ASPNET_Security_Tutorial_07_CS.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/3/f/5/3f5a8605-c526-4b34-b3fd-a34167117633/aspnet_tutorial07_UserAuth_cs.pdf)
 
-> Bu öğreticide sayfalarına erişimi sınırlandırma ve sayfa düzeyinde işlevselliği teknikleri çeşitli kısıtlayarak ele alacağız.
+> Bu öğreticide sayfalarına erişimi sınırlandırma ve çeşitli teknikler aracılığıyla sayfa düzeyi işlevselliği kısıtlayarak atacağız.
 
 
 ## <a name="introduction"></a>Giriş
 
-Kullanıcı hesapları teklif çoğu web uygulamaları belirli ziyaretçileri site belirli sayfalara erişimini kısıtlamak için bölümünde bunu. Birçok çevrimiçi messageboard sitelerdeki Örneğin, tüm kullanıcılar - anonim ve kimliği doğrulanmış - messageboard's gönderileri görüntüleyebilirsiniz, ancak yalnızca kimliği doğrulanmış kullanıcıların yeni bir posta oluşturmak için web sayfasını ziyaret. Ve yalnızca belirli bir kullanıcı (veya belirli bir kullanıcı kümesini) erişilebilen yönetim sayfaları olabilir. Ayrıca, sayfa düzeyinde işlevselliği bir kullanıcı tarafından temelinde farklı olabilir. Bu arabirim anonim ziyaretçilere değildir, ancak gönderileri listesini görüntülerken, kimliği doğrulanmış kullanıcıların her post derecelendirme için bir arabirim gösterilir.
+Kullanıcı hesaplarını teklif çoğu web uygulaması bölümünde belirli ziyaretçiler site belirli sayfalara erişimini kısıtlamak için bunu yapın. Birçok çevrimiçi messageboard siteler, örneğin, tüm kullanıcılar - anonim ve kimliği doğrulanmış - messageboard'ın gönderileri görüntüleyebilir, ancak yalnızca kimliği doğrulanmış kullanıcıların yeni bir gönderi oluşturmak için web sayfasını ziyaret edebilirsiniz. Ve yalnızca belirli bir kullanıcı (veya belirli bir kullanıcı kümesini) erişilebilen yönetim sayfaları olabilir. Ayrıca, sayfa düzeyi işlevi, bir kullanıcı tarafından temelinde farklı olabilir. Bu arabirim anonim ziyaretçilere değildir, ancak gönderilerinin listesini görüntülerken, kimliği doğrulanmış kullanıcılar her bir gönderi değerlendirme için bir arabirim gösterilir.
 
-ASP.NET, kullanıcı tabanlı bir yetkilendirme kurallarını tanımlamak kolaylaştırır. Yalnızca biçimlendirme biraz ile `Web.config`, belirli web sayfalarına ya da tüm dizinleri kilitlenebilir aşağı böylece yalnızca belirtilen bir kullanıcılar alt kümesine erişilebilir. Sayfa düzeyi işlevselliği açmak veya kapatmak programlı ve bildirim temelli araçlarla şu anda oturum açmış olan kullanıcının dayanan açılabilir.
+ASP.NET kullanıcı tabanlı yetkilendirme kurallarını tanımlamak kolaylaştırır. Yalnızca bir bit biçimlendirme içinde `Web.config`, belirli web sayfaları veya tüm dizinleri kilitlenebilir aşağı yalnızca belirtilen bir kullanıcı alt erişilebilir ve böylelikle. Sayfa düzeyi işlevselliği açıp programlı ve bildirim temelli bulunamazsınız şu anda oturum açmış olan kullanıcının temel alınarak kapatılabilir.
 
-Bu öğreticide sayfalarına erişimi sınırlandırma ve sayfa düzeyinde işlevselliği teknikleri çeşitli kısıtlayarak ele alacağız. Haydi başlayalım!
+Bu öğreticide sayfalarına erişimi sınırlandırma ve çeşitli teknikler aracılığıyla sayfa düzeyi işlevselliği kısıtlayarak atacağız. Haydi başlayalım!
 
 ## <a name="a-look-at-the-url-authorization-workflow"></a>URL yetkilendirme iş akışı bakma
 
-' Da anlatıldığı gibi [ *form kimlik doğrulaması bir genel bakış* ](../introduction/an-overview-of-forms-authentication-cs.md) ASP.NET kaynak isteği olay sayısı, yaşam döngüsü sırasında başlatır için ASP.NET çalışma zamanı bir isteği işlerken öğretici. *HTTP modülleri* kodu isteği yaşam döngüsü belirli bir olaya yanıt yürütüldüğünde yönetilen sınıflarıdır. ASP.NET birkaç önemli görevleri arka planda gerçekleştirmek HTTP Modülleri ile birlikte gelir.
+Bölümünde açıklandığı gibi [ *form kimlik doğrulaması bir genel bakış* ](../introduction/an-overview-of-forms-authentication-cs.md) öğretici, ASP.NET çalışma zamanı bir isteği işlerken için bir ASP.NET kaynak isteği olay sayısı sırasında yaşam döngüsü başlatır. *HTTP modüllerinden* yönetilen sınıflar, kod, istek yaşam döngüsü içinde belirli bir olaya yanıt olarak yürütülür. ASP.NET, birkaç önemli görevleri arka planda gerçekleştirmek HTTP Modülleri ile birlikte gelir.
 
-Bu tür bir HTTP modülü [ `FormsAuthenticationModule` ](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx). Önceki öğreticileri, sunucunun birincil işlevi anlatıldığı gibi `FormsAuthenticationModule` geçerli isteğin kimliğini belirlemektir. Bu, bir tanımlama bilgisinde bulunan veya URL içinde katıştırılmış forms kimlik doğrulaması bileti inceleyerek gerçekleştirilir. Bu kimliği gerçekleşir sırasında [ `AuthenticateRequest` olay](https://msdn.microsoft.com/library/system.web.httpapplication.authenticaterequest.aspx).
+Bir HTTP modülü [ `FormsAuthenticationModule` ](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx). Önceki öğreticilerde, sunucunun birincil işlevi açıklandığı gibi `FormsAuthenticationModule` geçerli isteğin kimliğini belirlemektir. Bu, bir tanımlama bilgisinde bulunan veya URL içinde gömülü forms kimlik doğrulaması bileti inceleyerek gerçekleştirilir. Bu kimliği sırasında gerçekleşir [ `AuthenticateRequest` olay](https://msdn.microsoft.com/library/system.web.httpapplication.authenticaterequest.aspx).
 
-Başka bir önemli HTTP modülü [ `UrlAuthorizationModule` ](https://msdn.microsoft.com/library/system.web.security.urlauthorizationmodule.aspx), yanıt olarak gerçekleştirilen [ `AuthorizeRequest` olay](https://msdn.microsoft.com/library/system.web.httpapplication.authorizerequest.aspx) (sonra gerçekleşir `AuthenticateRequest` olay). `UrlAuthorizationModule` Yapılandırma biçimlendirmede inceler `Web.config` geçerli kimlik belirtilen sayfasını ziyaret etmek için yetkili olup olmadığını belirlemek için. Bu işlem olarak adlandırılır *URL yetkilendirmesi*.
+Başka bir önemli HTTP modülü [ `UrlAuthorizationModule` ](https://msdn.microsoft.com/library/system.web.security.urlauthorizationmodule.aspx), yanıt olarak harekete [ `AuthorizeRequest` olay](https://msdn.microsoft.com/library/system.web.httpapplication.authorizerequest.aspx) (sonra gerçekleşir `AuthenticateRequest` olay). `UrlAuthorizationModule` Yapılandırma işaretlemede inceler `Web.config` geçerli kimliğini belirtilen sayfayı ziyaret etmek için yetkili olup olmadığını belirlemek için. Bu işlem olarak adlandırılır *URL yetkilendirmesi*.
 
-Biz 1. adımda, URL yetkilendirme kuralları için söz dizimi ancak daha önce şimdi inceleyeceğiz tahminde bulunduğunu görmek `UrlAuthorizationModule` istek veya yetkili bağlı olarak yapar. Varsa `UrlAuthorizationModule` istek yetki sonra hiçbir şey yapmaz ve istek kendi yaşam döngüsü devam eder belirler. Ancak, istek ise *değil* yetkili ve sonra `UrlAuthorizationModule` yaşam döngüsü durdurur ve bildirir `Response` dönmek için nesne bir [HTTP 401 Yetkisiz](http://www.checkupdown.com/status/E401.html) durumu. Forms kimlik doğrulaması kullanırken bu HTTP 401 durum hiçbir zaman istemciye çünkü döndürülür, `FormsAuthenticationModule` bir HTTP durumu 401 değiştirir kendisine algılar bir [HTTP 302 yeniden yönlendirme](http://www.checkupdown.com/status/E302.html) oturum açma sayfası.
+1. adımında, URL yetkilendirme kuralları için söz dizimi ancak daha önce şimdi inceleyeceğiz visualize Ara `UrlAuthorizationModule` istek veya yetkili bağlı olarak yapar. Varsa `UrlAuthorizationModule` isteğin yetkilendirilip sonra hiçbir şey yapmaz ve isteği yaşam döngüsü devam belirler. Ancak, istek *değil* yetki sonra `UrlAuthorizationModule` yaşam döngüsü durdurur ve bildirir `Response` döndürülecek nesne bir [HTTP 401 Yetkisiz](http://www.checkupdown.com/status/E401.html) durumu. Forms kimlik doğrulaması kullanırken bu HTTP 401 durum hiçbir zaman istemciye göremediğinden döndürülür, `FormsAuthenticationModule` bir HTTP durum 401 değiştirir kendisine algılar bir [HTTP 302 yeniden yönlendirme](http://www.checkupdown.com/status/E302.html) oturum açma sayfası.
 
-Şekil 1'iş akışı ASP.NET ardışık düzenini gösterir `FormsAuthenticationModule`ve `UrlAuthorizationModule` yetkisiz bir istek geldiğinde. Özellikle, Şekil 1 tarafından anonim bir ziyaretçi için bir istek gösterir `ProtectedPage.aspx`, anonim kullanıcılara erişimini engellediği bir sayfa olduğu. Ziyaretçi anonimdir beri `UrlAuthorizationModule` isteğini durdurur ve bir HTTP 401 yetkilendirilmedi durum döndürür. `FormsAuthenticationModule` Oturum açma sayfasının 302 yeniden yönlendirme 401 durum dönüştürür. Kullanıcı oturum açma sayfasına doğrulandıktan sonra kendisinin yönlendirilir `ProtectedPage.aspx`. Bu süre `FormsAuthenticationModule` kullanıcı kendi kimlik doğrulama bileti tabanlı tanımlar. Ziyaretçi kimlik doğrulaması, `UrlAuthorizationModule` sayfaya erişim verir.
+Şekil 1, iş akışını ve ASP.NET ardışık düzenini gösterir `FormsAuthenticationModule`ve `UrlAuthorizationModule` yetkisiz bir istek geldiğinde. Özellikle, Şekil 1 tarafından anonim bir ziyaretçi için bir istek gösterir `ProtectedPage.aspx`, anonim kullanıcılar için erişimi engelleyen bir sayfa olduğu. Ziyaretçi anonim olduğundan `UrlAuthorizationModule` isteğini durdurur ve bir HTTP 401 yetkilendirilmedi durum döndürür. `FormsAuthenticationModule` Oturum açma sayfasının 302 yeniden yönlendirme 401 durum dönüştürür. Kullanıcı oturum açma sayfası doğrulandıktan sonra kendisi için yönlendirilir `ProtectedPage.aspx`. Bu süre `FormsAuthenticationModule` kullanıcının kendi kimlik doğrulama anahtarı üzerinde tanımlar. Ziyaretçi doğrulanır, `UrlAuthorizationModule` sayfasına erişme izni verir.
 
 
 [![Form kimlik doğrulaması ve URL yetkilendirme iş akışı](user-based-authorization-cs/_static/image2.png)](user-based-authorization-cs/_static/image1.png)
 
-**Şekil 1**: URL yetkilendirme iş akışını ve Forms kimlik doğrulaması ([tam boyutlu görüntüyü görüntülemek için tıklatın](user-based-authorization-cs/_static/image3.png))
+**Şekil 1**: form kimlik doğrulaması ve URL yetkilendirme iş akışı ([tam boyutlu görüntüyü görmek için tıklatın](user-based-authorization-cs/_static/image3.png))
 
 
-Şekil 1 anonim bir ziyaretçi, anonim kullanıcılar için kullanılabilir olmayan bir kaynağa erişmeyi denediğinde oluşan etkileşimler gösterilmektedir. Böyle bir durumda anonim ziyaretçi aynen sorgu dizesinde belirtilen ziyaret denediğiniz sayfa ile oturum açma sayfasına yönlendirilir. Kullanıcı başarıyla oturum açtıktan sonra aynen otomatik olarak kendisi başlangıçta görüntülemek için çalışıyordu kaynak yeniden yönlendirilir.
+Şekil 1, anonim bir ziyaretçi, anonim kullanıcılar için kullanılabilir olmayan bir kaynağa erişmeye çalıştığında oluşan etkileşimler gösterilmektedir. Böyle bir durumda, anonim ziyaretçi Filiz sorgu dizesinde belirtilen ziyaret denediğiniz sayfa ile oturum açma sayfasına yönlendirilir. Kullanıcı başarıyla oturum açtıktan sonra o otomatik olarak Filiz görüntülemek için başlangıçta çalışıyordu kaynağa geri yönlendirilirsiniz.
 
-Anonim kullanıcılar tarafından yetkisiz istek yapıldığında, bu iş akışı basittir ve ziyaretçi ne olduğunu anlamak kolaydır ve neden. Ancak, şunları aklınızda tutun içinde `FormsAuthenticationModule` yönlendirir *herhangi* tarafından kimliği doğrulanmış bir kullanıcı bir istekte olsa bile kullanıcı oturum açma sayfasına yetkisiz. Kimliği doğrulanmış bir kullanıcı aynen yetkilisi eksik sayfasını ziyaret edin girişiminde bulunursa bu kafa karıştırıcı bir kullanıcı deneyimi neden olabilir.
+Anonim kullanıcılar tarafından yetkisiz istek yapıldığında, bu iş akışı oldukça basittir ve ziyaretçi ne olduğunu anlamak kolaydır ve neden. Ancak, şunları aklınızda tutun içinde `FormsAuthenticationModule` yönlendireceği *herhangi* bile tarafından kimliği doğrulanmış bir kullanıcı bir istekte kullanıcı oturum açma sayfasına yetkisiz. Kimliği doğrulanmış bir kullanıcının kendisi yetkilisi bulunmayan bir sayfayı ziyaret etmek çalışırsa bu kafa karıştırıcı bir kullanıcı deneyimi neden olabilir.
 
-Bizim Web sitesinin yapılandırılan URL yetkilendirme kurallarını olduğunu düşünün gibi ASP.NET sayfası `OnlyTito.aspx` accessibly yalnızca Tito oluştu. Şimdi, Sam sitesini ziyaret, oturum açan ve ziyaret girişiminde düşünün `OnlyTito.aspx`. `UrlAuthorizationModule` İsteği yaşam döngüsü durdurmak ve bir HTTP 401 Yetkisiz duruma dönmesi hangi `FormsAuthenticationModule` algılar ve ardından Sam oturum açma sayfasına yeniden yönlendir. SAM zaten oturum açtıktan sonra yine de aynen oturum açma sayfasına yeniden aynen neden gönderildi merak ediyor olabilirsiniz. Aynen her oturum açma kimlik bilgileri şekilde kayıp ya da aynen geçersiz kimlik bilgileri girilen neden. Kendi kimlik bilgileri oturum açma sayfasından SAM reenters varsa aynen (yeniden) olarak oturum açmış ve olması için yeniden yönlendirilen `OnlyTito.aspx`. `UrlAuthorizationModule` Sam olamaz bu sayfasını ziyaret edin ve oturum açma sayfasına aynen döndürülür algılar.
+Web URL yetkilendirme kurallarını yapılandırılmış olduğunu hayal gibi ASP.NET sayfasını `OnlyTito.aspx` accessibly yalnızca Tito için oluştu. Şimdi, Sam sitesini ziyaret, oturum açan ve ziyaret dener Imagine `OnlyTito.aspx`. `UrlAuthorizationModule` Durdurma isteği yaşam döngüsünün ve bir HTTP 401 yetkilendirilmedi durum döndürür, `FormsAuthenticationModule` algılar ve ardından Sam oturum açma sayfasına yönlendir. SAM zaten oturum açtıktan sonra Filiz oturum açma sayfasına Filiz neden gönderildi merak ediyor olabilirsiniz. Filiz, her oturum açma kimlik bilgileri şekilde kayıp veya Filiz geçersiz kimlik bilgileri girilen neden. Oturum açma sayfasından kendi kimlik bilgilerini SAM çıkıldığında Filiz (yeniden) olarak oturum açmış ve yeniden yönlendirileceği `OnlyTito.aspx`. `UrlAuthorizationModule` Sam olamaz bu sayfayı ziyaret edin ve oturum açma sayfasına Filiz döndürülecek algılar.
 
-Şekil 2 kafa karıştırıcı bu iş akışı gösterilmektedir.
-
-
-[![Varsayılan iş akışı için kafa karıştırıcı bir döngü yol açabilir](user-based-authorization-cs/_static/image5.png)](user-based-authorization-cs/_static/image4.png)
-
-**Şekil 2**: varsayılan iş akışı açabilir kafa karıştırıcı döngüsü ([tam boyutlu görüntüyü görüntülemek için tıklatın](user-based-authorization-cs/_static/image6.png))
+Şekil 2, bu karmaşık iş akışı gösterilmektedir.
 
 
-Şekil 2'de gösterilen iş akışı hızla bile çoğu bilgisayar deneyimli ziyaretçi befuddle. 2. adım döngüsünde kafa karıştırıcı Bunu önlemenin yolu ele alacağız.
+[![Varsayılan iş akışı için kafa karıştırıcı bir döngüye neden olabilir](user-based-authorization-cs/_static/image5.png)](user-based-authorization-cs/_static/image4.png)
+
+**Şekil 2**: varsayılan iş akışı açabilir kafa karıştırıcı bir döngüsü ([tam boyutlu görüntüyü görmek için tıklatın](user-based-authorization-cs/_static/image6.png))
+
+
+Şekil 2'de gösterilen iş akışı, hızlı bir şekilde bile çoğu bilgisayar deneyimli ziyaretçi befuddle. 2. adım döngüsünde kafa karıştırıcı Bunu önlemenin yolu atacağız.
 
 > [!NOTE]
-> ASP.NET, geçerli kullanıcının belirli bir web sayfasını erişebileceğini belirlemek için iki mekanizma kullanır: URL yetkilendirme ve dosya yetkilendirme. Dosya yetkilendirmesi tarafından gerçekleştirilir [ `FileAuthorizationModule` ](https://msdn.microsoft.com/library/system.web.security.fileauthorizationmodule.aspx), istenen dosya ACL'leri danışmanlık tarafından yetkilisi belirler. ACL'ler Windows hesaplarına uygulanan izinleri olduğundan dosya yetkilendirme Windows kimlik doğrulaması ile en yaygın olarak kullanılır. Forms kimlik doğrulaması kullanırken, tüm işletim sistemi ve dosya sistemi düzeyinde istekleri sitesini ziyaret kullanıcıya bakılmaksızın aynı Windows hesabına göre çalıştırılır. Bu öğretici seri form kimlik doğrulamasını odaklanır olduğundan, biz dosya yetkilendirme ele değil.
+> ASP.NET, geçerli kullanıcının belirli bir web sayfasına erişip erişemeyeceğini belirlemek için iki mekanizma kullanır: URL yetkilendirmesi ve dosya yetkilendirme. Dosya Yetkilendirme tarafından gerçekleştirilen [ `FileAuthorizationModule` ](https://msdn.microsoft.com/library/system.web.security.fileauthorizationmodule.aspx), istenen dosyaları ACL'leri consulting tarafından yetkilisi belirler. ACL'ler Windows hesapları için geçerli izinleri olduğundan dosya yetkilendirmesi, Windows kimlik doğrulaması ile en yaygın olarak kullanılır. Forms kimlik doğrulaması kullanırken, tüm işletim sistemi ve dosya sistemi düzeyinde istekleri sitesinden kullanıcı bağımsız olarak aynı Windows hesabı tarafından yürütülür. Bu öğretici serisinde, form kimlik doğrulamasını odaklanır olduğundan, biz dosya yetkilendirmesi görüştükten değil.
 
 
 ### <a name="the-scope-of-url-authorization"></a>URL yetkilendirme kapsamı
 
-`UrlAuthorizationModule` Olan yönetilen ASP.NET çalışma zamanı parçası olan kod. Microsoft'un 7 sürümü önce [Internet Information Services (IIS)](https://www.iis.net/) web sunucusuna IIS HTTP ardışık düzen ve ASP.NET zamanının ardışık düzen arasında farklı bir engel oldu. Kısa içinde IIS 6 ve önceki sürümlerinde, ASP. NET'in `UrlAuthorizationModule` bir istek IIS ASP.NET çalışma yetkisi aktarıldığında yalnızca yürütür. Varsayılan olarak, IIS statik içeriğin kendisini - HTML sayfaları ve CSS, JavaScript ve görüntü dosyaları - gibi işler ve ASP.NET çalışma zamanı uzantısına sahip bir sayfa olduğunda isteklerini kapatmak yalnızca aktarır `.aspx`, `.asmx`, veya `.ashx` isteniyor.
+`UrlAuthorizationModule` Olan yönetilen koddan ASP.NET çalışma zamanı bir parçasıdır. Microsoft'un sürümünden önceki 7 [Internet Information Services (IIS)](https://www.iis.net/) web sunucusu IIS HTTP ardışık düzen ve ASP.NET çalışma zamanının işlem hattı arasındaki farklı bir engel oldu. Kısacası, IIS 6 ve önceki sürümlerinde, ASP. NET `UrlAuthorizationModule` yalnızca IIS ASP.NET çalışma zamanı için bir istek aktarıldığında yürütür. Varsayılan olarak, IIS statik içeriğin kendisini - HTML sayfaları, CSS, JavaScript ve görüntü dosyaları - gibi işler ve yalnızca izin isteklerini bir uzantıya sahip bir sayfa, ASP.NET çalışma zamanı uygulamalı `.aspx`, `.asmx`, veya `.ashx` istenir.
 
-IIS 7, ancak, tümleşik IIS ve ASP.NET için işlem hatları sağlar. Bazı yapılandırma ayarlarıyla çağırmak için IIS 7 Kurulumu `UrlAuthorizationModule` için *tüm* istekleri, URL yetkilendirme kuralları için herhangi bir türde dosyaları tanımlanabilir anlamına gelir. Ayrıca, IIS 7 kendi URL yetkilendirme altyapısı içerir. ASP.NET tümleştirme ve IIS 7'in yerel URL yetkilendirme işlevselliği hakkında daha fazla bilgi için bkz: [anlama IIS7 URL yetkilendirmesi](https://www.iis.net/articles/view.aspx/IIS7/Managing-IIS7/Configuring-Security/URL-Authorization/Understanding-IIS7-URL-Authorization). Shahram Khosravi'nın defterinin bir kopya için daha kapsamlı bir görünüm ASP.NET ve IIS 7 tümleştirme sırasında çekme *Professional IIS 7 ve ASP.NET tümleşik programlama* (ISBN: 978 0470152539).
+IIS 7'de, işlem hatları ancak tümleşik IIS ve ASP.NET için izin verir. IIS 7'ı çağırmak için birkaç yapılandırma ayarlarıyla ayarlayabilirsiniz `UrlAuthorizationModule` için *tüm* istekleri, yani URL yetkilendirme kuralları için herhangi bir türde dosyalar tanımlanabilir. Ayrıca, IIS 7 kendi URL yetkilendirme altyapısı içerir. ASP.NET tümleştirmesi ve IIS 7'ın yerel URL yetkilendirme işlevselliği hakkında daha fazla bilgi için bkz. [anlama IIS7 URL yetkilendirmesi](https://www.iis.net/articles/view.aspx/IIS7/Managing-IIS7/Configuring-Security/URL-Authorization/Understanding-IIS7-URL-Authorization). Shahram Khosravi'nın kitabın bir kopya için daha ayrıntılı bir görünüm, ASP.NET ve IIS 7 tümleştirme çekme *Professional IIS 7 ve ASP.NET tümleşik programlama* (ISBN: 978 0470152539).
 
-Buna koysalar IIS 7'den önceki sürümleri, URL yetkilendirme kuralları yalnızca ASP.NET çalışma zamanı tarafından işlenen kaynaklarına uygulanır. Ancak, IIS 7 ile IIS yerel URL yetkilendirme özelliğini kullanmak veya ASP tümleştirme için mümkündür. NET'in `UrlAuthorizationModule` IIS HTTP ardışık düzenine böylece tüm isteklere bu işlevselliği genişletme.
+Buna koysalar önce IIS 7 sürümlerinde, URL yetkilendirme kuralları yalnızca ASP.NET çalışma zamanı tarafından işlenen kaynaklara uygulanır. Ancak IIS 7 ile IIS yerel URL yetkilendirme özelliğini kullanmayı veya ASP tümleştirmek için mümkündür. NET `UrlAuthorizationModule` IIS HTTP ardışık düzene başvurulabilir, böylece tüm istekler için bu işlevi olur.
 
 > [!NOTE]
-> Bazı nasıl Zarif henüz önemli farklılıklar vardır ASP. NET'in `UrlAuthorizationModule` ve IIS 7'in URL yetkilendirme özelliği yetkilendirme kurallarını işleme. Bu öğretici IIS 7'in URL yetkilendirme işlevselliği veya nasıl karşılaştırılan yetkilendirme kuralları ayrıştırır farklar inceleyin değil `UrlAuthorizationModule`. Bu konular hakkında daha fazla bilgi için MSDN'de veya, IIS 7 belgelerine başvurun [www.iis.net](https://www.iis.net/).
+> Nasıl bazı küçük ancak önemli farklar vardır ASP. NET `UrlAuthorizationModule` ve IIS 7'in URL yetkilendirme özelliği yetkilendirme kurallarını işleme. Bu öğreticide, IIS 7'in URL yetkilendirme işlevselliği ya da bunu karşılaştırıldığında yetkilendirme kuralları nasıl ayrıştırır fark incelemez `UrlAuthorizationModule`. Bu konular hakkında daha fazla bilgi için MSDN'de veya, IIS 7 belgelerine başvurun [www.iis.net](https://www.iis.net/).
 
 
 ## <a name="step-1-defining-url-authorization-rules-inwebconfig"></a>1. adım: URL yetkilendirme kuralları tanımlama`Web.config`
 
-`UrlAuthorizationModule` Uygulamanın yapılandırma dosyasındaki tanımlanan URL yetkilendirme kuralları göre belirli bir kimlik için istenen kaynak için erişim vermek veya reddetmek belirler. Yetkilendirme kuralları içinde yazıldığından [ `<authorization>` öğesi](https://msdn.microsoft.com/library/8d82143t.aspx) biçiminde `<allow>` ve `<deny>` alt öğeleri. Her `<allow>` ve `<deny>` alt öğesi belirtebilirsiniz:
+`UrlAuthorizationModule` Uygulama yapılandırmasında tanımlı URL yetkilendirme kurallarına göre belirli bir kimlik için istenen kaynağa erişim vermek veya reddetmek belirler. Yetkilendirme kuralları, İl [ `<authorization>` öğesi](https://msdn.microsoft.com/library/8d82143t.aspx) biçiminde `<allow>` ve `<deny>` alt öğeleri. Her `<allow>` ve `<deny>` alt öğesi belirtebilirsiniz:
 
 - Belirli bir kullanıcı
-- Kullanıcıların virgülle ayrılmış bir listesi
+- Kullanıcıları içeren bir virgülle ayrılmış liste
 - Bir soru işareti (?) tarafından belirtilen tüm anonim kullanıcılar
-- Tüm kullanıcılar, bir yıldız işaretiyle gösterilir (\*)
+- Bir yıldız işaretiyle gösterilen tüm kullanıcılar (\*)
 
-Aşağıdaki biçimlendirmede URL yetkilendirme kuralları kullanıcıların Tito ve Scott verin ve diğerlerini reddetmek için nasıl kullanılacağı gösterilmektedir:
+Aşağıdaki biçimlendirmede Tito ve Scott kullanıcıların ve diğerlerini reddetme URL yetkilendirme kuralları nasıl kullanıldığı gösterilmektedir:
 
 [!code-xml[Main](user-based-authorization-cs/samples/sample1.xml)]
 
-`<allow>` Öğesi tanımlar hangi kullanıcıların - Tito ve Scott - izin verilen sırada `<deny>` öğesi bildirir *tüm* kullanıcılar engellenir.
+`<allow>` Öğe tanımlar hangi kullanıcıların - Tito ve Scott - izin verilir ancak `<deny>` öğe bildirir *tüm* kullanıcılar engellenir.
 
 > [!NOTE]
-> `<allow>` Ve `<deny>` öğeleri rolleri için yetkilendirme kuralları da belirtebilirsiniz. Rol tabanlı bir yetkilendirme gelecekteki öğreticideki inceleyeceğiz.
+> `<allow>` Ve `<deny>` öğeleri rolleri için yetkilendirme kuralları da belirtebilirsiniz. Rol tabanlı yetkilendirme bir sonraki öğreticide inceleyeceğiz.
 
 
-Aşağıdaki ayar (anonim ziyaretçiler dahil) Sam dışındaki bir kişiye erişim verir:
+Şu ayar erişim Sam (anonim ziyaretçiler dahil) dışındaki bir kişiye verir:
 
 [!code-xml[Main](user-based-authorization-cs/samples/sample2.xml)]
 
-Yalnızca kimliği doğrulanan kullanıcılar izin vermek için tüm anonim kullanıcılar için erişimini engellediği aşağıdaki yapılandırmayı kullanın:
+Yalnızca kimliği doğrulanmış kullanıcılara izin vermek için tüm anonim kullanıcılar için erişimini engellediği aşağıdaki yapılandırmayı kullanın:
 
 [!code-xml[Main](user-based-authorization-cs/samples/sample3.xml)]
 
-Yetkilendirme kuralları içinde tanımlanan `<system.web>` öğesinde `Web.config` ve web uygulamasında ASP.NET kaynakların tümünü uygulanır. Bir uygulama görmemeleri, farklı yetkilendirme kuralları için farklı bölümlere sahiptir. Örneğin, bir e-ticaret sitesinde tüm ziyaretçiler ürün tekrar kullanmanıza, ürün incelemeleri bkz, katalogda arama ve benzeri. Ancak, yalnızca kimliği doğrulanan kullanıcılar checkout veya birinin sevkiyat geçmişini yönetmek için sayfaları ulaşabilir. Ayrıca, yalnızca site yöneticileri gibi select kullanıcılar tarafından erişilebilen site bölümlerini olabilir.
+Yetkilendirme kuralları içinde tanımlanan `<system.web>` öğesinde `Web.config` ve tüm web uygulamasındaki ASP.NET kaynakları için geçerlidir. Aktardığınızda genellikle, bir uygulamanın farklı bölümleri için farklı bir yetkilendirme kuralları vardır. Örneğin, bir e-ticaret sitesinde tüm ziyaretçiler ürünleri tekrar kullanmanıza, ürün incelemeleri görmek, katalogda arama ve benzeri. Ancak, yalnızca kimliği doğrulanmış kullanıcıların kullanıma alma veya birinin sevkiyat geçmişini yönetmek için sayfa ulaşabilir. Üstelik, yalnızca site Yöneticiler gibi belirli kullanıcılar tarafından erişilebilir olan bazı bölümleri site olabilir.
 
-ASP.NET, site için farklı dosya ve klasörler için farklı yetkilendirme kurallarını tanımlamak kolaylaştırır. Kök klasör belirtilen yetkilendirme kuralları `Web.config` dosya geçerli sitedeki tüm ASP.NET kaynaklarına. Ancak, bu varsayılan yetkilendirme ayarları için belirli bir klasör ekleyerek geçersiz kılınabilir bir `Web.config` ile bir `<authorization>` bölümü.
+ASP.NET, sitedeki farklı dosyalar ve klasörler için farklı bir yetkilendirme kuralları tanımlamak kolaylaştırır. Kök klasör belirtilen yetkilendirme kuralları `Web.config` dosya geçerli sitedeki tüm ASP.NET kaynaklara. Ancak, bu varsayılan yetkilendirme ayarları için belirli bir klasöre ekleyerek geçersiz kılınabilir bir `Web.config` ile bir `<authorization>` bölümü.
 
-Şimdi yalnızca kimliği doğrulanan kullanıcılar ASP.NET sayfaları ziyaret edebileceği Web sitemizi güncelleştirmek `Membership` klasör. Bunu eklemek için ihtiyacımız gerçekleştirmek için bir `Web.config` dosya `Membership` klasörü ve anonim kullanıcıların engellemek için yetkilendirme ayarlarını ayarlayın. Sağ `Membership` Çözüm Gezgininde klasör bağlam menüsünde Yeni Öğe Ekle menü seçeneğini belirleyin ve adlı yeni bir Web yapılandırma dosyası ekleme `Web.config`.
+Yalnızca kimliği doğrulanmış kullanıcılar ASP.NET sayfaları ziyaret edebilir, böylece Web sitemizi güncelleştirelim `Membership` klasör. İhtiyacımız eklemek için bunu sağlamak için bir `Web.config` dosyasını `Membership` klasörü ve anonim kullanıcılar reddetmeye yönelik yetkilendirme ayarlarını ayarlayın. Sağ `Membership` Çözüm Gezgini'nde klasörü yeni öğe Ekle menüsü bağlam menüsünden seçin ve adlı yeni bir Web yapılandırma dosyası ekleme `Web.config`.
 
 
-[![Üyelik klasörüne bir Web.config dosyası ekleyin](user-based-authorization-cs/_static/image8.png)](user-based-authorization-cs/_static/image7.png)
+[![Üyelik klasöre bir Web.config dosyası ekleyin](user-based-authorization-cs/_static/image8.png)](user-based-authorization-cs/_static/image7.png)
 
-**Şekil 3**: ekleme bir `Web.config` dosya `Membership` klasörü ([tam boyutlu görüntüyü görüntülemek için tıklatın](user-based-authorization-cs/_static/image9.png))
+**Şekil 3**: ekleme bir `Web.config` dosyasını `Membership` klasörü ([tam boyutlu görüntüyü görmek için tıklatın](user-based-authorization-cs/_static/image9.png))
 
 
 Bu noktada, projenizin iki içermelidir `Web.config` dosyaları: biri kök dizin, diğeri de `Membership` klasör.
 
 
-[![Uygulamanızı şimdi iki Web.config dosyaları içermelidir](user-based-authorization-cs/_static/image11.png)](user-based-authorization-cs/_static/image10.png)
+[![Uygulamanızı şimdi iki Web.config dosyası içermelidir](user-based-authorization-cs/_static/image11.png)](user-based-authorization-cs/_static/image10.png)
 
-**Şekil 4**: Bilgisayarınızı uygulama gereken şimdi içeren iki `Web.config` dosyaları ([tam boyutlu görüntüyü görüntülemek için tıklatın](user-based-authorization-cs/_static/image12.png))
+**Şekil 4**: bilgisayarınızı uygulaması gereken artık içeren iki `Web.config` dosyaları ([tam boyutlu görüntüyü görmek için tıklatın](user-based-authorization-cs/_static/image12.png))
 
 
-Yapılandırma dosyasında güncelleştirme `Membership` anonim kullanıcılara erişimi olan yasaklar şekilde klasör.
+Yapılandırma dosyasında güncelleştirme `Membership` olan anonim kullanıcılara erişimi engeller. Bu nedenle bir klasör.
 
 [!code-xml[Main](user-based-authorization-cs/samples/sample4.xml)]
 
-Tüm olan İşte bu kadar!
+Tüm İşte bu kadar kolay!
 
-Bu değişiklik test etmek için bir tarayıcıda giriş sayfasını ziyaret edin ve kaydedilir emin olun. Tüm ziyaretçiler izin vermek için bir ASP.NET uygulaması varsayılan davranışını olduğundan ve kök dizinin için yetkilendirme değişiklikleri siz istemediyseniz bu yana `Web.config` dosya, biz anonim bir ziyaretçi olarak kök dizindeki dosyaların ziyaret etmek kullanabilirsiniz.
+Bu değişiklik test etmek için bir tarayıcıda giriş sayfasını ziyaret edin ve oturum emin olun. Tüm ziyaretçilerin izin vermek için bir ASP.NET uygulaması'nın varsayılan davranışını olduğundan ve biz kök dizinin herhangi bir yetkilendirme değişiklik yapmadım beri `Web.config` dosya, biz, anonim bir ziyaretçi olarak kök dizindeki dosyaların ziyaret etmek kullanabilirsiniz.
 
-Sol sütunda bulunan kullanıcı hesapları oluşturma bağlantıyı tıklatın. Bu, olanak sürecek `~/Membership/CreatingUserAccounts.aspx`. Bu yana `Web.config` dosyasını `Membership` klasörü tanımlayan anonim erişimi engellemek için yetkilendirme kuralları `UrlAuthorizationModule` isteğini durdurur ve bir HTTP 401 yetkilendirilmedi durum döndürür. `FormsAuthenticationModule` Bu oturum açma sayfasına gönderdiğiniz bir 302 yeniden yönlendirme durum değiştirir. Sayfa biz erişmeye çalıştığınız olduğunu unutmayın (`CreatingUserAccounts.aspx`) oturum açma sayfasına geçirilen `ReturnUrl` sorgu dizesi parametresi.
-
-
-[![URL yetkilendirme kuralları engelle anonim erişim itibaren biz oturum açma sayfasına yeniden yönlendirilir](user-based-authorization-cs/_static/image14.png)](user-based-authorization-cs/_static/image13.png)
-
-**Şekil 5**: URL yetkilendirme kuralları için anonim erişimi engelle olduğundan, biz oturum açma sayfasına yönlendirilirsiniz ([tam boyutlu görüntüyü görüntülemek için tıklatın](user-based-authorization-cs/_static/image15.png))
+Sol sütunda bulunan kullanıcı hesapları oluşturma bağlantısına tıklayın. Bu gideceksiniz `~/Membership/CreatingUserAccounts.aspx`. Bu yana `Web.config` dosyası `Membership` klasör anonim erişimi engellemek için yetkilendirme kuralları tanımlar `UrlAuthorizationModule` isteğini durdurur ve bir HTTP 401 yetkilendirilmedi durum döndürür. `FormsAuthenticationModule` Bu oturum açma sayfasına gönderdiğiniz bir 302 yeniden yönlendirme durum değiştirir. Sayfa biz erişmeye çalıştığınız olduğunu unutmayın (`CreatingUserAccounts.aspx`) oturum açma sayfası geçirilen `ReturnUrl` sorgu dizesi parametresi.
 
 
-Başarıyla oturum açtıktan sonra biz yönlendirilirsiniz `CreatingUserAccounts.aspx` sayfası. Bu süre `UrlAuthorizationModule` biz artık anonim olmadığı için sayfa erişimi verir.
+[![URL yetkilendirme kuralları engelle anonim erişimi beri biz oturum açma sayfasına yönlendirilirsiniz](user-based-authorization-cs/_static/image14.png)](user-based-authorization-cs/_static/image13.png)
 
-### <a name="applying-url-authorization-rules-to-a-specific-location"></a>URL yetkilendirme kuralları belirli bir konuma yeniden uygulama
+**Şekil 5**: URL yetkilendirme kuralları anonim erişimi engelle olduğundan, biz oturum açma sayfasına yönlendirilir ([tam boyutlu görüntüyü görmek için tıklatın](user-based-authorization-cs/_static/image15.png))
 
-Tanımlanan yetkilendirme ayarları `<system.web>` bölümünü `Web.config` bu dizinde ve alt dizinlerinde ASP.NET kaynakların tümünü uygulamak (Aksi halde bir başkası tarafından geçersiz kılınmış kadar `Web.config` dosyası). Bazı durumlarda, ancak biz tüm ASP.NET kaynakları belirli bir dizinde bir veya iki belirli sayfalara dışında belirli yetkilendirme yapılandırmasına sahip olmak isteyebilirsiniz. Bu ekleyerek sağlanabilir bir `<location>` öğesinde `Web.config`, yetkilendirme kuralları farklı dosyasına işaret eden ve benzersiz yetkilendirme kurallarını okuduğunuzu tanımlama.
 
-Kullanarak göstermeye `<location>` öğesinin belirli bir kaynak için yapılandırma ayarları geçersiz kılar, şimdi yalnızca Tito ziyaret edebilirsiniz yetkilendirme ayarlarını özelleştirmek için `CreatingUserAccounts.aspx`. Bunu başarmak için add bir `<location>` öğesine `Membership` klasörün `Web.config` dosya ve onun biçimlendirmesini şuna benzeyen şekilde güncelleştirin:
+Başarıyla oturum açtıktan sonra biz yönlendirilirsiniz `CreatingUserAccounts.aspx` sayfası. Bu süre `UrlAuthorizationModule` biz artık anonim olmadığı için sayfa erişme izni verir.
+
+### <a name="applying-url-authorization-rules-to-a-specific-location"></a>Belirli bir konuma URL yetkilendirme kuralları uygulama
+
+Tanımlanan yetkilendirme ayarları `<system.web>` bölümünü `Web.config` Bu dizindeki ve alt dizinlerinde tüm ASP.NET kaynakları için geçerlidir (bir başkası tarafından kılınmadıkları kadar `Web.config` dosya). Bazı durumlarda, ancak biz tüm ASP.NET kaynakları belirli bir dizinde bir veya iki belirli bir sayfa dışında bir özel yetkilendirme yapılandırmasına sahip olmak isteyebilirsiniz. Bu ekleyerek gerçekleştirilebilir bir `<location>` öğesinde `Web.config`, yetkilendirme kuralları farklı bir dosyaya işaret ve sıralamadaki benzersiz yetkilendirme kurallarını tanımlama.
+
+Kullanarak göstermek için `<location>` belirli bir kaynak için yapılandırma ayarları geçersiz kılar, yalnızca Tito ziyaret edebilir, böylece şimdi yetkilendirme ayarlarını özelleştirmek için öğe `CreatingUserAccounts.aspx`. Bunu gerçekleştirmek için ekleme bir `<location>` öğesine `Membership` klasörün `Web.config` dosya ve aşağıdaki gibi görünüyor. böylece, biçimlendirme güncelleştirin:
 
 [!code-xml[Main](user-based-authorization-cs/samples/sample5.xml)]
 
-`<authorization>` Öğesinde `<system.web>` varsayılan URL yetkilendirme kuralları için ASP.NET kaynaklarında tanımlar `Membership` klasörde ve alt klasörlerinde. `<location>` Öğesi belirli bir kaynak için bu kurallarını geçersiz kılmasına izin verir. Yukarıdaki biçimlendirmede `<location>` öğesi başvuruları `CreatingUserAccounts.aspx` sayfasında ve kendi yetkilendirme kuralları Tito, izin gibi belirtir ancak Reddet diğerlerinin.
+`<authorization>` Öğesinde `<system.web>` ASP.NET kaynaklar için varsayılan URL yetkilendirme kuralları tanımlar; `Membership` klasör ve alt klasörleri. `<location>` Öğesi bize bu kuralları belirli bir kaynak için geçersiz kılmak sağlar. Yukarıdaki biçimlendirmede `<location>` öğesi başvuruları `CreatingUserAccounts.aspx` sayfasında ve kendi yetkilendirme gibi Tito, izin verecek kuralları belirtir ancak Reddet diğer herkes.
 
-Bu yetkilendirme değişiklik sınamak için anonim kullanıcı olarak Web sitesini ziyaret ederek'ı başlatın. Herhangi bir sayfayı ziyaret edin çalışırsanız `Membership` klasörü gibi `UserBasedAuthorization.aspx`, `UrlAuthorizationModule` isteği reddeder ve oturum açma sayfasına yeniden yönlendirilir. Söyleyin, Scott olarak oturum açtıktan sonra herhangi bir sayfayı ziyaret edebilirsiniz `Membership` klasörü *dışında* için `CreatingUserAccounts.aspx`. Ziyaret çalışılıyor `CreatingUserAccounts.aspx` herkes oturum açmış ancak oturum açma sayfasına yönlendirerek Tito yetkisiz erişim girişimini sonuçlanır.
+Bu yetkilendirme değişiklik test etmek için anonim kullanıcı olarak Web sitesini ziyaret ederek başlayın. Herhangi bir sayfayı ziyaret etmek çalışırsanız `Membership` klasörü gibi `UserBasedAuthorization.aspx`, `UrlAuthorizationModule` isteği reddeder ve oturum açma sayfasına yönlendirilir. Söyleyin, Scott, oturum açtıktan sonra herhangi bir sayfayı ziyaret edebilirsiniz `Membership` klasör *dışında* için `CreatingUserAccounts.aspx`. Ziyaret etmeye çalışırken `CreatingUserAccounts.aspx` herkes oturum açmış ancak Tito, yetkisiz erişim girişimi oturum açma sayfasına yönlendirerek sonuçlanacak.
 
 > [!NOTE]
-> `<location>` Öğesi yapılandırma dışında görünmelidir `<system.web>` öğesi. Ayrı bir kullanmanıza gerek `<location>` yetkilendirme ayarlarını geçersiz kılmak istediğiniz her kaynak için öğesi.
+> `<location>` Öğesi yapılandırma dışında görünmelidir `<system.web>` öğesi. Ayrı bir kullanmanız gereken `<location>` yetkilendirme ayarlarını geçersiz kılmak istediğiniz her kaynak için öğesi.
 
 
-### <a name="a-look-at-how-theurlauthorizationmoduleuses-the-authorization-rules-to-grant-or-deny-access"></a>Göz nasıl`UrlAuthorizationModule`erişim vermek veya reddetmek için yetkilendirme kuralları kullanır
+### <a name="a-look-at-how-theurlauthorizationmoduleuses-the-authorization-rules-to-grant-or-deny-access"></a>Göz nasıl`UrlAuthorizationModule`vermek veya erişimini engellemek için yetkilendirme kuralları kullanır.
 
-`UrlAuthorizationModule` URL yetkilendirmesi çözümleyerek belirli bir URL için belirli bir kimliğe yetkilendirmek için birer birer ilk makineden başlatma ve aşağı kendi şekilde çalışan, kuralları olup olmadığını belirler. Bir eşleşme olarak kullanıcı verilen veya erişimi reddedilen, açıksa bağlı olarak eşleşmenin bir `<allow>` veya `<deny>` öğesi. <strong>Eşleşme bulunamazsa, kullanıcıya erişim verilir.</strong> Erişimi kısıtlamak istiyorsanız, bu nedenle, onu kullanmanız zorunludur bir `<deny>` öğesi URL yetkilendirme yapılandırma son öğesi olarak. <strong>Atlarsanız bir</strong><strong>`<deny>`</strong><strong>öğesi, tüm kullanıcılara erişim verilecektir.</strong>
+`UrlAuthorizationModule` URL yetkilendirmesi analiz ederek belirli bir kimlik için belirli bir URL yetkilendirmek için ilk projeden başlatma ve kapalı yolu çalışma teker teker kuralları olup olmadığını belirler. Bir eşleşme bulunduğu sürece kullanıcı izni veya erişimi reddedilen, açıksa bağlı olarak eşleşmenin bir `<allow>` veya `<deny>` öğesi. <strong>Eşleşme bulunursa, kullanıcıya erişim izni verilir.</strong> Erişimi kısıtlamak istiyorsanız, bu nedenle, bunu kullanmanız zorunludur bir `<deny>` son URL yetkilendirme yapılandırma öğesi olarak öğesi. <strong>Atlarsanız bir</strong><strong>`<deny>`</strong><strong>öğesi, tüm kullanıcıların erişim verilecek.</strong>
 
-Tarafından kullanılan işlem daha iyi anlamak için `UrlAuthorizationModule` yetkilisi belirlemek için şu arama sırasında bu adımda URL yetkilendirme kuralları örneği göz önünde bulundurun. İlk kural bir `<allow>` öğesi Tito ve Scott erişim sağlar. İkinci kuralları bir `<deny>` herkese erişimini engellediği öğesi. Anonim kullanıcı ziyaret, `UrlAuthorizationModule` isteyen tarafından başlatır anonim Scott veya Tito? Belli ki, yanıt yok, olduğundan, ikinci kural devam eder. Herkes kümesinde anonim mi? Bu yana yanıt Evet, işte `<deny>` kural yürürlükte koyun ve ziyaretçi oturum açma sayfasına yeniden yönlendirilir. Benzer şekilde, Jisun ziyaret, `UrlAuthorizationModule` istemekle olan Jisun başlatır Scott veya Tito? Aynen, olmadığından `UrlAuthorizationModule` olan Jisun kümesi herkes, ikinci soruyu devam eder? Aynen, çok, erişim reddedildi depoladığından, olduğundan. Son olarak, Tito ziyaret eder, ilk sorusu sorulmuş `UrlAuthorizationModule` İleticiden olumlu bir yanıt olduğundan, Tito erişimi verilir.
+Tarafından kullanılan işlem daha iyi anlamak için `UrlAuthorizationModule` yetkilisi belirlemek için URL yetkilendirme kuralları incelemiştik Bu adımda örneği göz önünde bulundurun. İlk kuralı bir `<allow>` Tito ve Scott erişim veren öğesi. İkinci kuralları bir `<deny>` herkese erişimini engellediği öğesi. Anonim kullanıcı ziyaret ederse `UrlAuthorizationModule` isteyen ile başlar, anonim Scott veya Tito? Kuşkusuz, yanıt yok, olduğundan, ikinci kuralı geçer. Herkes kümesinde anonim mi? Bu yana yanıtı Evet, işte `<deny>` kural yürürlükte yerleştirin ve ziyaretçi oturum açma sayfasına yönlendirilir. Benzer şekilde, Jisun ziyaret, `UrlAuthorizationModule` sorarak, olan Jisun başlar Scott veya Tito? Filiz, olmadığından `UrlAuthorizationModule` herkes kümesi olan Jisun ilgili ikinci sorunun devam eder mi? Filiz, çok, erişim reddedildi Filiz, olduğundan. Son olarak, Tito ziyaret ederse, ilk sorusu sorulmuş `UrlAuthorizationModule` olduğundan bir olumlu yanıt Tito erişim izni verilir.
 
-Bu yana `UrlAuthorizationModule` işlemleri yetkilendirme kuralları yukarıdan aşağıya doğru durdurma hiçbir eşleşme en az yayına önce gelen daha belirli kurallar sağlamak önemlidir. Diğer bir deyişle, Jisun ve anonim kullanıcılar yasaklamaz, ancak diğer tüm kimliği doğrulanmış kullanıcıların yetkilendirme kurallarını tanımlamak için en belirgin kuralla - etkileyen bir Jisun - Başlat ve daha az belirli kuralları - olanlar diğer tüm izin vererek devam Kimliği doğrulanmış kullanıcılar, ancak tüm anonim kullanıcılar engelleme. Aşağıdaki URL yetkilendirme kuralları ilk Jisun engelleme ve herhangi bir anonim kullanıcı engelleme bu ilkeyi uygular. Jisun dışındaki herhangi bir kimliği doğrulanmış kullanıcı erişimi olduğundan sağlanacak hiçbirini `<deny>` deyimleri eşleşir.
+Bu yana `UrlAuthorizationModule` işlemleri yetkilendirme kuralları yukarıdan aşağıya doğru durdurma, herhangi bir eşleşme less yazımına özgü olanlardan önce gelen daha belirli kuralların sağlamak önemlidir. Diğer bir deyişle, Jisun ve anonim kullanıcılar yasaklar, ancak diğer tüm kimliği doğrulanmış kullanıcıların yetkilendirme kurallarını tanımlamak için en belirgin kuralı - bir etkileyen Jisun - başlatın ve ardından az belirli kurallar için - bu diğer tüm izin vererek devam edin Kimliği doğrulanmış kullanıcılar, ancak tüm anonim kullanıcılar engelleme. İlk Jisun engelleme ve sonra herhangi bir anonim kullanıcı engelleme Bu ilke aşağıdaki URL yetkilendirme kuralları uygular. Jisun dışında herhangi bir kimliği doğrulanmış kullanıcı erişimi olduğundan verilecek hiçbirini `<deny>` deyimleri eşleşir.
 
 [!code-xml[Main](user-based-authorization-cs/samples/sample6.xml)]
 
 ## <a name="step-2-fixing-the-workflow-for-unauthorized-authenticated-users"></a>2. adım: iş akışı yetkisiz, kimliği doğrulanmış kullanıcılar için düzeltme
 
-Biz A bakabilir URL yetkilendirme iş akışı bölümü, bu öğreticide daha önce açıklandığı gibi dilediğiniz zaman bir yetkisiz isteği transpires, `UrlAuthorizationModule` isteğini durdurur ve bir HTTP 401 yetkilendirilmedi durum döndürür. Bu 401 durum değiştiren `FormsAuthenticationModule` kullanıcı oturum açma sayfasına yeniden gönderir durum 302 yeniden yönlendirme. Kullanıcının kimliği doğrulanır olsa bile bu iş akışı yetkisiz herhangi bir istek üzerinde oluşur.
+Dilediğiniz zaman bir konum URL yetkilendirme iş akışı bölümü, bu öğreticinin önceki kısımlarındaki ele aldığımız gibi yetkisiz bir isteği transpires, `UrlAuthorizationModule` isteğini durdurur ve bir HTTP 401 yetkilendirilmedi durum döndürür. Bu 401 durum değiştiren `FormsAuthenticationModule` bir 302 yeniden yönlendirme kullanıcı oturum açma sayfasına gönderir durumu. Kullanıcının kimliği doğrulanır bile yetkisiz hiçbir istek üzerinde bu iş akışı gerçekleşir.
 
-Kimliği doğrulanmış bir kullanıcı oturum açma sayfasına döndürme sisteme zaten oturum olduğundan bunları işlemlerini birbirine karıştırmaktadır olasılığı yüksektir. Biraz iş ile Biz bu iş akışı, bunların sınırlı bir sayfaya erişmeye çalıştınız açıklayan bir sayfaya yetkisiz isteklerde kimliği doğrulanmış kullanıcıları yönlendirerek artırabilir.
+Kimliği doğrulanmış bir kullanıcı oturum açma sayfasına döndüren, sisteme zaten oturum olduğundan bunları karıştırılabilir olasıdır. Biraz iş ile bu iş akışı, kısıtlanmış bir sayfaya erişmeye çalıştınız açıklayan bir sayfaya yetkisiz isteğinde bulunan kimliği doğrulanmış kullanıcılar yönlendirerek geliştirebiliriz.
 
-Başlangıç adlı web uygulamasının kök klasöründe yeni bir ASP.NET sayfası oluşturarak `UnauthorizedAccess.aspx`; bu sayfayla ilişkilendirilecek unutmayın `Site.master` ana sayfa. Bu sayfayı oluşturduktan sonra başvuran içerik denetimi kaldırılmaya `LoginContent` ContentPlaceHolder ana sayfa varsayılan böylece içerik görüntülenir. Sonra durumu, yani açıklayan bir ileti ekleyin kullanıcı korunan bir kaynağa erişme girişiminde bulunuldu. Bu tür bir ileti ekledikten sonra `UnauthorizedAccess.aspx` sayfanın bildirim temelli biçimlendirme aşağıdakine benzer görünmelidir:
+Adlı web uygulamasının kök klasöründe yeni bir ASP.NET sayfası oluşturarak başlayın `UnauthorizedAccess.aspx`; bu sayfayla ilişkilendirilecek unutmayın `Site.master` ana sayfa. Bu sayfa oluşturduktan sonra başvuran içerik denetimi kaldırın `LoginContent` ContentPlaceHolder ana sayfaya varsayılan böylece içerik görüntülenir. Ardından, duruma, yani açıklayan bir ileti ekleyin kullanıcı korunan bir kaynağa erişmeye çalıştı. Böyle bir ileti ekledikten sonra `UnauthorizedAccess.aspx` bildirim temelli biçimlendirme sayfanın aşağıdakine benzer görünmelidir:
 
 [!code-aspx[Main](user-based-authorization-cs/samples/sample7.aspx)]
 
-Şimdi bir yetkisiz isteği kimliği doğrulanmış bir kullanıcı tarafından gerçekleştirilirse gönderilirler böylece iş akışını değiştirmek ihtiyacımız `UnauthorizedAccess.aspx` sayfası yerine oturum açma sayfası. Yetkisiz istekler oturum açma sayfasına yönlendirir mantığı içinde özel bir yöntem kaçınma `FormsAuthenticationModule` Biz bu davranış özelleştiremezsiniz şekilde sınıfı. Biz, ancak ne kendi mantığımızı kullanıcıya yönlendiren oturum açma sayfasına eklemektir `UnauthorizedAccess.aspx`gerekirse.
+Artık bir yetkisiz isteği kimliği doğrulanmış bir kullanıcı tarafından gerçekleştirilen varsa bunlar için gönderilir, böylece iş akışını değiştirmek ihtiyacımız `UnauthorizedAccess.aspx` oturum açma sayfası yerine sayfası. Yetkisiz istekler için oturum açma sayfasına yönlendiren mantığı, özel bir yöntem içinde gömülü `FormsAuthenticationModule` sınıfı için Biz bu davranışı özelleştiremezsiniz. Biz, ancak yapabileceklerinizi kendi mantıksal oturum açma sayfası URL'sini, kullanıcı tarafından yeniden yönlendiren eklemektir `UnauthorizedAccess.aspx`, gerekirse.
 
-Zaman `FormsAuthenticationModule` yetkisiz bir ziyaretçi yönlendiren isteğe bağlı olarak oturum açma sayfasına adıyla querystring istenen, yetkisiz URL'sine ekler `ReturnUrl`. Örneğin, yetkisiz bir kullanıcının ziyaret çalışıldı `OnlyTito.aspx`, `FormsAuthenticationModule` bunları yeniden yönlendirme `Login.aspx?ReturnUrl=OnlyTito.aspx`. Bu nedenle, oturum açma sayfasını içeren bir sorgu dizesi sahip kimliği doğrulanmış bir kullanıcı tarafından ulaşıldığında `ReturnUrl` parametresi sonra biz biliyorsanız bu kimliği doğrulanmamış bir kullanıcı yalnızca aynen yetkilendirilmemiş görüntülemek için bir sayfasını ziyaret denediğini. Böyle bir durumda, kendisi için yeniden yönlendirme istiyoruz `UnauthorizedAccess.aspx`.
+Zaman `FormsAuthenticationModule` yetkisiz bir ziyaretçi yönlendiren bu ada sahip bir sorgu dizesi istenen, yetkisiz URL'sine oturum açma sayfasına ekler `ReturnUrl`. Örneğin, yetkisiz bir kullanıcı ziyaret çalışıldı `OnlyTito.aspx`, `FormsAuthenticationModule` için bunları yönlendirmek `Login.aspx?ReturnUrl=OnlyTito.aspx`. Bu nedenle, oturum açma sayfasını içeren bir sorgu dizesi ile kimliği doğrulanmış bir kullanıcı tarafından ulaşılırsa `ReturnUrl` parametresi, ardından biz biliyorsanız bu kimliği doğrulanmamış bir kullanıcı yalnızca kendisi yetkili değil görüntülemek için bir sayfayı ziyaret etmek çalıştığının. Böyle bir durumda olduğunu düşündüğü yeniden yönlendirme istiyoruz `UnauthorizedAccess.aspx`.
 
-Bunu başarmak için oturum açma sayfasına ait aşağıdaki kodu ekleyin `Page_Load` olay işleyicisi:
+Bunu yapmak için oturum açma sayfasına ait aşağıdaki kodu ekleyin `Page_Load` olay işleyicisi:
 
 [!code-csharp[Main](user-based-authorization-cs/samples/sample8.cs)]
 
-Yukarıdaki kod kimliği doğrulanmış, yetkisiz kullanıcılara yönlendiren `UnauthorizedAccess.aspx` sayfası. Bu eylem mantığında görmek için anonim bir ziyaretçi olarak sitesini ziyaret edin ve sol sütunda kullanıcı hesapları oluşturma bağlantıyı tıklatın. Bu, olanak sürecek `~/Membership/CreatingUserAccounts.aspx` biz yapılandırılmış yalnızca 1. adımda erişimine izin vermek için Tito sayfasını. Anonim kullanıcılar yasaklanmış olduğundan, `FormsAuthenticationModule` bize oturum açma sayfasına yönlendirir.
+Kimliği doğrulanmış, yetkisiz kullanıcılara Yukarıdaki kod yönlendiren `UnauthorizedAccess.aspx` sayfası. Bu mantıksal iş başında görmek için anonim bir ziyaretçi olarak sitesini ziyaret edin ve sol sütunda kullanıcı hesapları oluşturma bağlantısına tıklayın. Bu gideceksiniz `~/Membership/CreatingUserAccounts.aspx` Tito için erişime izin vermek, adım 1'de biz yalnızca yapılandırılmış sayfası. Anonim kullanıcılar yasaklanmış olduğundan `FormsAuthenticationModule` bize oturum açma sayfasına yönlendirir.
 
-Bu noktada anonim gerçekleştiriyoruz, bu nedenle `Request.IsAuthenticated` döndürür `false` ve biz yönlendirilir değil `UnauthorizedAccess.aspx`. Bunun yerine, oturum açma sayfası görüntülenir. Tito Bruce'a gibi başka bir kullanıcı olarak oturum açın. Uygun kimlik bilgilerini girdikten sonra oturum açma sayfasında üzerine bize yeniden yönlendirir `~/Membership/CreatingUserAccounts.aspx`. Ancak, bu sayfayı yalnızca Tito için erişilebilir olduğundan, biz görüntülemek için yetkisiz ve derhal oturum açma sayfasına dönersiniz. Bu süre, ancak `Request.IsAuthenticated` döndürür `true` (ve `ReturnUrl` sorgu dizesi parametresi var.), böylece biz yönlendirilirsiniz `UnauthorizedAccess.aspx` sayfası.
-
-
-[![Kimlik doğrulaması, yetkisiz kullanıcılar için UnauthorizedAccess.aspx yönlendirilir](user-based-authorization-cs/_static/image17.png)](user-based-authorization-cs/_static/image16.png)
-
-**Şekil 6**: kimlik doğrulaması, yetkisiz kullanıcıların yönlendirilirsiniz `UnauthorizedAccess.aspx` ([tam boyutlu görüntüyü görüntülemek için tıklatın](user-based-authorization-cs/_static/image18.png))
+Bu noktada anonim duyuyoruz, bu nedenle `Request.IsAuthenticated` döndürür `false` ve şu şekilde yönlendirilmez `UnauthorizedAccess.aspx`. Bunun yerine, oturum açma sayfası görüntülenir. Bruce gibi bir Tito başka bir kullanıcı olarak oturum açın. Oturum açma sayfasında uygun kimlik bilgilerini girdikten sonra bize geri yeniden yönlendirmeleri `~/Membership/CreatingUserAccounts.aspx`. Ancak, bu sayfa yalnızca Tito için erişilebilir olduğundan, biz görüntülemek için yetkisiz ve en kısa sürede oturum açma sayfasına dönersiniz. Bu kez, ancak `Request.IsAuthenticated` döndürür `true` (ve `ReturnUrl` querystring parametresi var), böylece biz yönlendirilirsiniz `UnauthorizedAccess.aspx` sayfası.
 
 
-Özelleştirilmiş bu iş akışı, Şekil 2'de gösterilen döngüsü kestirmeler tarafından daha duyarlı ve basit bir kullanıcı deneyimi sunar.
+[![Kimliği doğrulanmış ve yetkisiz kullanıcılar için UnauthorizedAccess.aspx yönlendirilir](user-based-authorization-cs/_static/image17.png)](user-based-authorization-cs/_static/image16.png)
 
-## <a name="step-3-limiting-functionality-based-on-the-currently-logged-in-user"></a>3. adım: üzerinde şu anda oturum açmış olan kullanıcının tabanlı işlevsellik sınırlama
+**Şekil 6**: kimliği doğrulanmış, yetkisiz kullanıcıların yönlendirileceği `UnauthorizedAccess.aspx` ([tam boyutlu görüntüyü görmek için tıklatın](user-based-authorization-cs/_static/image18.png))
 
-URL yetkilendirmesi, kaba yetkilendirme kurallarını belirtmek kolaylaştırır. Adım 1'de gördüğümüz gibi URL yetkilendirmesi ile biz temellerini hangi kimlikleri izin verilen ve hangilerinin belirli bir sayfa veya tüm sayfaların bir klasörde görüntüleme reddedilir durumu. Bazı senaryolarda, ancak biz tüm kullanıcıların bir sayfasını ziyaret edin, ancak bunu ziyaret kullanıcıyı temel alarak sayfanın işlevselliği sınırlamak için izin vermek isteyebilirsiniz.
 
-Ürünlerini gözden geçirmek kimliği doğrulanmış ziyaretçileri izin veren bir e-ticaret Web sitesi durumunu göz önünde bulundurun. Adsız bir kullanıcı bir ürün sayfasını ziyaret ettiğinde, yalnızca ürün bilgileri görür ve bir gözden geçirme bırakın fırsatı verilmedi. Ancak, aynı sayfasını ziyaret kimliği doğrulanmış bir kullanıcı gözden geçirme arabirimi görür. Kimliği doğrulanmış kullanıcının henüz bu ürünün gözden değil, bunları bir gözden geçirme göndermek arabirimi sağlayacağı; Aksi takdirde, bunları önceden gönderilmiş gözden gösterir. Bu senaryo bir adım almak için daha fazla ürün sayfasını ek bilgileri göster ve e-ticaret şirket için çalışan kullanıcılar için genişletilmiş özellikler sunar. Örneğin, ürün sayfasını bir stok stoktaki listelemek ve ürünün fiyat ve bir çalışan tarafından ziyaret edildiğinde açıklama düzenlemek için seçenekleri içerir.
+Bu özelleştirilmiş iş akışı, Şekil 2'de gösterilen döngüsü kestirmeler tarafından daha mantıklı ve basit bir kullanıcı deneyimi sunar.
 
-Bu tür ince çizgisi yetkilendirme kuralları, bildirimli olarak veya program aracılığıyla (ya da iki şunların bir birleşimi yoluyla) uygulanabilir. Sonraki bölümde ince çizgisi yetkilendirme LoginView denetimi aracılığıyla uygulama göreceğiz. Programlı teknikleri inceleyeceksiniz. Biz ince çizgisi yetkilendirme kurallarını uygulayarak en bakabilirsiniz önce ancak biz öncelikle bir sayfa, ziyaret eden kullanıcının olan işlevsellik bağlıdır oluşturmanız gerekir.
+## <a name="step-3-limiting-functionality-based-on-the-currently-logged-in-user"></a>3. adım: şu anda oturum açmış kullanıcıya bağlı işlevselliğini sınırlama
 
-GridView içinde belirli bir dizindeki dosyaları listeleyen bir sayfa oluşturalım. Her dosyanın adı, boyutu ve diğer bilgileri listeleyen yanı sıra, GridView LinkButtons iki sütunları içerir: biri başlıklı görünümü ve bir başlıklı silme. Görünüm LinkButton tıkladıysanız, seçilen dosya içeriğini görüntülenir; Dosya Sil LinkButton tıkladıysanız silinir. Görünüm ve delete işlevselliğini tüm kullanıcılar için kullanılabilir olacak şekilde, başlangıçta bu sayfayı oluşturalım. Kullanarak, biz nasıl etkinleştirileceği veya sayfasını ziyaret kullanıcıyı temel alarak bu özellikleri devre dışı bırakılacağı görürsünüz LoginView denetimi ve program aracılığıyla sınırlama işlevselliği bölümler.
+URL yetkilendirmesi, kaba yetkilendirme kurallarını belirtmek kolaylaştırır. 1. adımda gördüğümüz gibi URL yetkilendirmesi ile biz temellerini hangi kimlikleri izin verilir ve belirli bir sayfa ya da tüm sayfaların bir klasörde görüntüleme hangilerinin engellendi durumu. Bazı senaryolarda, ancak biz bir sayfasını ziyaret edin, ancak bunu ziyaret kullanıcıya bağlı olarak sayfanın işlevselliğini sınırlamak tüm kullanıcıların isteyebilirsiniz.
+
+Ürünlerini gözden geçirmek kimliği doğrulanmış ziyaretçiler izin veren bir e-ticaret Web sitesinin durumu göz önünde bulundurun. Adsız bir kullanıcı bir ürün sayfasını ziyaret ettiğinde, yalnızca ürün bilgilerini görür ve İnceleme yazmalarını fırsatı verilmedi. Ancak, aynı sayfasını ziyaret ederek bir kimliği doğrulanmış kullanıcı, gözden geçirme arabirimi görür. Kimliği doğrulanmış kullanıcı henüz bu ürün gözden geçirilmedi, bunları bir gözden geçirmeyi göndermek arabirim etkinleştirmez; Aksi takdirde, bunları önceden gönderilmiş gözden geçirmelerini gösterebilir. Bu senaryo, bir aşamaya geçmeye daha fazla ürün sayfası ek bilgiler gösterilir ve e-ticaret şirketin çalışan kullanıcılar için genişletilmiş özellikler sunar. Örneğin, ürün sayfası bir stok envanterinde listelemek ve ürünün fiyatı ve bir çalışan tarafından ziyaret edildiğinde açıklamasını düzenlemel seçenekleri içerir.
+
+Bu tür hedeflemediğinizden yetkilendirme kuralları, bildirimli olarak veya program aracılığıyla (veya ikisinin birleşimi aracılığıyla) uygulanabilir. Sonraki bölümde LoginView denetimi ile hedeflemediğinizden yetkilendirme gerçekleştirme göreceğiz. Programlama teknikleri inceleyeceksiniz. Biz hedeflemediğinizden yetkilendirme kuralları uygulamayı göz atmadan önce ancak biz öncelikle bir sayfa, ziyaret kullanıcı olan işlevselliği bağlıdır oluşturmanız gerekir.
+
+GridView içinde belirli bir dizindeki dosyaları listeler bir sayfa oluşturalım. Her dosyanın adı, boyutu ve diğer bilgileri listelemek yanı sıra, GridView LinkButtons, iki sütun içerecektir: bir başlıklı görünümü ve bir başlıklı silme. Görünüm Linkbutton'a tıklandı Seçili dosyanın içeriğini görüntülenir; Silme Linkbutton'a tıklandı, dosya silinir. Görünüm ve delete işlevlerini tüm kullanıcılar tarafından kullanılabilir, başlangıçta bu sayfayı oluşturalım. Kullanarak, biz etkinleştirme veya sayfasını ziyaret ederek kullanıcıya dayanarak bu özellikleri devre dışı bırakma görebilir LoginView denetimi ve programlı bir şekilde sınırlama işlevselliği bölümleri.
 
 > [!NOTE]
-> Yaklaşık yapı duyuyoruz ASP.NET sayfası GridView denetimi dosyaların bir listesini görüntülemek için kullanır. Form kimlik doğrulaması, yetkilendirme, kullanıcı hesapları ve rolleri serisi odaklanan Bu öğretici itibaren çalışmalar GridView denetimini ele çok fazla süre beklemesini istemiyorum. Bu öğretici bu sayfası ayarlama belirli adım adım yönergeler sağlar, ancak bunu neden belirli seçimler yapılan veya ne işlenmiş çıktı etkisi belirli özelliklere sahip ayrıntılarını içine inceleyin değil. GridView denetiminin kapsamlı incelenmesi için başvurun my *[, ASP.NET 2.0 verilerle çalışma](../../data-access/index.md)* öğretici serisi.
+> İlgili yapı duyuyoruz ASP.NET sayfası bir GridView denetimi dosyaların bir listesini görüntülemek için kullanır. Seri form kimlik doğrulaması, yetkilendirme, kullanıcı hesaplarını ve rolleri üzerinde odaklanır. Bu öğreticide bu yana GridView denetiminde iç işleyişini tartışma çok fazla vakit geçirmeyi istemiyorum. Bu öğretici, bu sayfası ayarlama belirli adım adım yönergeler sağlar. ancak, bazı seçenekler neden yapıldığı veya hangi işlenmiş çıktı belirli özellikleri etkili sahip detayına anlamak için delve değil. GridView denetiminde tam incelenmesi için başvurun my *[ASP.NET 2.0 verilerle çalışmaya](../../data-access/index.md)* öğretici serisi.
 
 
-Başlangıç açarak `UserBasedAuthorization.aspx` dosyasını `Membership` klasörü ve GridView denetim adlı sayfası ekleme `FilesGrid`. GridView kullanıcının akıllı etiketten alanları iletişim kutusunu başlatmak için sütunları Düzenle bağlantısına tıklayın. Buradan, sol alt köşedeki otomatik oluşturma alanları onay kutusunun işaretini kaldırın. Ardından, üst sol Köşeden (seçin ve Sil düğmeleri CommandField türü'nün altında bulunabilir) seçme düğmesi, bir Delete düğmesi ve iki BoundFields ekleyin. Select düğmenin ayarlamak `SelectText` özelliğini görünümü ve ilk BoundField'ın `HeaderText` ve `DataField` özellikleri adı. İkinci BoundField's ayarlamak `HeaderText` bayt cinsinden boyutu özelliğine kendi `DataField` uzunluğu özelliğine kendi `DataFormatString` {0: N0} özelliğine ve onun `HtmlEncode` özelliğini false olarak ayarlayın.
+Başlangıç açarak `UserBasedAuthorization.aspx` dosyası `Membership` klasör ve bir GridView denetimi adlı sayfasına ekleme `FilesGrid`. GridView'ın akıllı etiketten alanları iletişim kutusunu başlatmak için sütunları Düzenle bağlantısına tıklayın. Buradan, sol alt köşedeki otomatik oluştur alanların onay kutusunun işaretini kaldırın. Ardından, iki BoundFields seçme düğmesi ve Sil düğmesine (seçin ve Sil düğmeleri CommandField türü altında bulunabilir) sol üst köşesindeki ekleyin. Select düğmenin ayarlamak `SelectText` görüntüleyin ve ilk BoundField'ın özelliğini `HeaderText` ve `DataField` adı özellikleri. İkinci BoundField's ayarlayın `HeaderText` bayt cinsinden boyut özelliği, `DataField` uzunluk özelliğine kendi `DataFormatString` özelliğini {0:N0} ve kendi `HtmlEncode` özelliğini False olarak.
 
-GridView'ın sütunları yapılandırdıktan sonra alanları iletişim kutusunu kapatmak için Tamam'ı tıklatın. GridView ait Özellikler penceresinden ayarlamak `DataKeyNames` özelliğine `FullName`. Bu noktada GridView'ın bildirim temelli biçimlendirme, aşağıdaki gibi görünmelidir:
+Sloupce prvku GridView yapılandırdıktan sonra alanlar iletişim kutusunu kapatmak için Tamam'a tıklayın. GridView'ın Özellikler penceresinde ayarlayın `DataKeyNames` özelliğini `FullName`. Bu noktada GridView'ın bildirim temelli biçimlendirme, aşağıdaki gibi görünmelidir:
 
 [!code-aspx[Main](user-based-authorization-cs/samples/sample9.aspx)]
 
-Oluşturulan GridView'ın biçimlendirme ile biz belirli bir dizindeki dosyaları almak ve bunları bağlamak için GridView kod yazmaya hazırsınız. Sayfanın aşağıdaki kodu ekleyin `Page_Load` olay işleyicisi:
+Oluşturulan GridView'ın işaretleme ile belirli bir dizindeki dosyaları almak ve bunları GridView'a bağlama kod yazmaya hazırız. Aşağıdaki kodu ekleyin sayfanın `Page_Load` olay işleyicisi:
 
 [!code-csharp[Main](user-based-authorization-cs/samples/sample10.cs)]
 
-Yukarıdaki kod kullanan [ `DirectoryInfo` sınıfı](https://msdn.microsoft.com/library/system.io.directoryinfo.aspx) uygulamanın kök klasördeki dosyaların listesini elde edilir. [ `GetFiles()` Yöntemi](https://msdn.microsoft.com/library/system.io.directoryinfo.getfiles.aspx) tüm dosyaları dizinde bir dizi döndürür [ `FileInfo` nesneleri](https://msdn.microsoft.com/library/system.io.fileinfo.aspx), ardından GridView bağlı. `FileInfo` Nesneye sahip bir sınıflama özelliklerinin gibi `Name`, `Length`, ve `IsReadOnly`, diğerlerinin yanı sıra. Bildirim temelli biçimlendirmeden gördüğünüz GridView yalnızca görüntüler `Name` ve `Length` özellikleri.
+Yukarıdaki kod [ `DirectoryInfo` sınıfı](https://msdn.microsoft.com/library/system.io.directoryinfo.aspx) uygulamanın kök klasördeki dosyaların listesi elde etmek için. [ `GetFiles()` Yöntemi](https://msdn.microsoft.com/library/system.io.directoryinfo.getfiles.aspx) tüm dosyaları dizindeki bir dizi döndürür [ `FileInfo` nesneleri](https://msdn.microsoft.com/library/system.io.fileinfo.aspx), ardından GridView'a bağlı. `FileInfo` Nesne olan özellikleri kaynaklardan gibi `Name`, `Length`, ve `IsReadOnly`, diğerlerinin yanı sıra. GridView, bildirim temelli biçimlendirmeden görebileceğiniz gibi yalnızca görüntüler `Name` ve `Length` özellikleri.
 
 > [!NOTE]
-> `DirectoryInfo` Ve `FileInfo` içinde bulunan sınıflar [ `System.IO` ad alanı](https://msdn.microsoft.com/library/system.io.aspx). Bu nedenle, bu sınıf adları ad alanı adları ile yazdığınızdan veya sınıf dosyasına içeri aktarılan ad alanınız için her iki gereksinim olur (aracılığıyla `using System.IO`).
+> `DirectoryInfo` Ve `FileInfo` sınıflar bulunur [ `System.IO` ad alanı](https://msdn.microsoft.com/library/system.io.aspx). Bu nedenle, bu sınıf adlarını kendi ad alanı adları ile yazdığınızdan veya sınıf dosyasına içeri aktarılan ad alanının gerek ya da olur (aracılığıyla `using System.IO`).
 
 
-Bu sayfa bir tarayıcı aracılığıyla ziyaret etmek için bir dakikanızı ayırın. Bu uygulamanın kök dizininde bulunan dosyaların listesini görüntüler. Herhangi bir görünüm veya silme LinkButtons tıklatarak geri gönderimin neden olur, ancak biz için henüz olduğunuz için hiçbir eylem meydana gelir gerekli olay işleyicileri oluşturma.
+Bir tarayıcı aracılığıyla bu sayfayı ziyaret etmek için bir dakikamızı ayıralım. Uygulamanın kök dizininde bulunan dosyaların listesini görüntüler. Herhangi bir görünüm veya silme LinkButtons tıklayarak geri göndermeye neden olur, ancak henüz için yaptığımız çünkü hiçbir eylem meydana gelir gerekli olay işleyicilerini oluşturma.
 
 
-[![GridView Web uygulamasının kök dizindeki dosyaların listeler](user-based-authorization-cs/_static/image20.png)](user-based-authorization-cs/_static/image19.png)
+[![GridView Web uygulamasının kök dizindeki dosyaları listeler.](user-based-authorization-cs/_static/image20.png)](user-based-authorization-cs/_static/image19.png)
 
-**Şekil 7**: GridView Web uygulamasının kök dizindeki dosyaların listeler ([tam boyutlu görüntüyü görüntülemek için tıklatın](user-based-authorization-cs/_static/image21.png))
+**Şekil 7**: GridView Web uygulamasının kök dizindeki dosyaları listeler ([tam boyutlu görüntüyü görmek için tıklatın](user-based-authorization-cs/_static/image21.png))
 
 
-Seçilen dosya içeriğini görüntülemek için bir yol ihtiyacımız var. Visual Studio'ya dönmek ve adlı bir metin kutusu ekleyin `FileContents` GridView üstünde. Ayarlama, `TextMode` özelliğine `MultiLine` ve kendi `Columns` ve `Rows` özellikleri % 95 ve 10, sırasıyla.
+Seçili dosya içeriğini görüntülemek için bir yol ihtiyacımız var. Visual Studio'ya geri dönün ve adlı bir metin kutusu ekleme `FileContents` yukarıda GridView. Ayarlayın, `TextMode` özelliğini `MultiLine` ve kendi `Columns` ve `Rows` % 95 ve 10, özellikleri sırasıyla.
 
 [!code-aspx[Main](user-based-authorization-cs/samples/sample11.aspx)]
 
-Ardından, olay işleyicisi GridView için 's oluşturmak [ `SelectedIndexChanged` olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selectedindexchanged.aspx) ve aşağıdaki kodu ekleyin:
+Ardından, GridView için ait bir olay işleyicisi oluşturun [ `SelectedIndexChanged` olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selectedindexchanged.aspx) ve aşağıdaki kodu ekleyin:
 
 [!code-csharp[Main](user-based-authorization-cs/samples/sample12.cs)]
 
-Bu kodu GridView's kullanır `SelectedValue` seçilen dosyanın tam dosya adını belirlemek için özellik. Dahili olarak, `DataKeys` koleksiyonu almak için başvurulmaktadır `SelectedValue`, GridView's ayarladığınız zorunludur `DataKeyNames` özelliği daha önce bu adımda anlatıldığı gibi adı. [ `File` Sınıfı](https://msdn.microsoft.com/library/system.io.file.aspx) bir dizeye sonra atanan seçilen dosyanın içeriğini okumak için kullanılan `FileContents` TextBox'ın `Text` özelliği, dolayısıyla sayfada seçilen dosyanın içeriğini görüntüleme.
+GridView'ın bu kodu kullanan `SelectedValue` seçili dosyasının tam dosya adını belirlemek için özellik. Dahili olarak `DataKeys` koleksiyonu almak için başvuruluyor `SelectedValue`, kesinlik temelli GridView'ın ayarlayın, bu nedenle `DataKeyNames` özelliğini bu adımda açıklandığı gibi ad. [ `File` Sınıfı](https://msdn.microsoft.com/library/system.io.file.aspx) ardından öğesine atanan bir dizeye Seçili dosyanın içeriğini okumak için kullanılan `FileContents` metin kutusunun `Text` böylece sayfasında seçilen dosyanın içeriğini görüntüleme özelliği.
 
 
-[![Seçili dosyanın içeriğini metin kutusunda görüntülenir](user-based-authorization-cs/_static/image23.png)](user-based-authorization-cs/_static/image22.png)
+[![Seçilen dosyanın içeriğinin metin kutusunda görüntülenir.](user-based-authorization-cs/_static/image23.png)](user-based-authorization-cs/_static/image22.png)
 
-**Şekil 8**: seçilen dosyanın içeriğini metin kutusunda görüntülenir ([tam boyutlu görüntüyü görüntülemek için tıklatın](user-based-authorization-cs/_static/image24.png))
+**Şekil 8**: seçilen dosyanın içeriğinin metin kutusunda görüntülenen ([tam boyutlu görüntüyü görmek için tıklatın](user-based-authorization-cs/_static/image24.png))
 
 
 > [!NOTE]
-> HTML biçimlendirmesini içeren bir dosyanın içeriğini görüntüleyin ve görüntülemek veya dosya silme denemesi, alacak bir `HttpRequestValidationException` hata. Bu durum, web sunucusuna gönderilen geri göndermede TextBox'ın içeriği kaynaklanır. Varsayılan olarak, ASP.NET başlatır bir `HttpRequestValidationException` HTML biçimlendirmesi gibi potansiyel olarak tehlikeli olabilecek geri gönderme içerik algılandığında hata. Bu hata oluşmasını devre dışı bırakmak için sayfa için istek doğrulamayı ekleyerek devre dışı `ValidateRequest="false"` için `@Page` yönergesi. Hangi önlemleri iyi ne zaman almanız gereken olarak istek doğrulama yararları hakkında daha fazla bilgi için devre dışı bırakma okuma [istek doğrulama - komut dosyası saldırılarını önleme](https://asp.net/learn/whitepapers/request-validation/).
+> HTML biçimlendirmesini içeren bir dosyanın içeriğini görüntüleyin ve sonra görüntülemek veya bir dosyayı silmek çalışırsanız, alacak bir `HttpRequestValidationException` hata. Bu durum, web sunucusuna gönderilen geri göndermede metin kutusunun içeriğini kaynaklanır. Varsayılan olarak, ASP.NET başlatan bir `HttpRequestValidationException` HTML biçimlendirmeyi gibi geri gönderme tehlikeli olabilecek içeriğe algılandığında bir hata oluştu. Bu hatanın oluşmasını devre dışı bırakmak için sayfa için istek doğrulamayı ekleyerek devre dışı `ValidateRequest="false"` için `@Page` yönergesi. İyi hangi, ne zaman önlem almalısınız olarak istek doğrulamasının avantajları hakkında daha fazla bilgi için devre dışı bırakma okuma [istek doğrulama - betik saldırılarını önleme](https://asp.net/learn/whitepapers/request-validation/).
 
 
-Son olarak, aşağıdaki kod ile olay işleyicisi GridView için 's eklemek [ `RowDeleting` olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rowdeleting.aspx):
+Son olarak, bir olay işleyicisi aşağıdaki kodla GridView için ait ekleme [ `RowDeleting` olay](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rowdeleting.aspx):
 
 [!code-csharp[Main](user-based-authorization-cs/samples/sample13.cs)]
 
-Kod silmek için dosyanın tam adını görüntüler `FileContents` TextBox *olmadan* gerçekten dosyası siliniyor.
+Kod silmek için dosyasının tam adı görüntüler `FileContents` TextBox *olmadan* gerçekten dosyası siliniyor.
 
 
-[![Sil düğmesini tıklatarak gerçekte dosyayı silmez](user-based-authorization-cs/_static/image26.png)](user-based-authorization-cs/_static/image25.png)
+[![Sil düğmesine tıklanarak gerçekten dosya silmez](user-based-authorization-cs/_static/image26.png)](user-based-authorization-cs/_static/image25.png)
 
-**Şekil 9**: Dosya Sil düğmesine gerçekte silmez'yı tıklayarak ([tam boyutlu görüntüyü görüntülemek için tıklatın](user-based-authorization-cs/_static/image27.png))
+**Şekil 9**: dosyayı Sil düğmesini gerçekten silinmez tıklayarak ([tam boyutlu görüntüyü görmek için tıklatın](user-based-authorization-cs/_static/image27.png))
 
 
-1. adımda biz URL yetkilendirme kuralları, anonim kullanıcılar sayfalarında görüntülemesini engellemek için yapılandırılmış `Membership` klasör. Daha iyi ince çizgisi kimlik doğrulaması göstermesi için şirketinizdeki ziyaret etmek anonim kullanıcıların `UserBasedAuthorization.aspx` sayfasında, ancak işlevselliği sınırlıdır. Tüm kullanıcılar tarafından erişilebilmesi için bu sayfayı açmak için aşağıdakileri ekleyin `<location>` öğesine `Web.config` dosyasını `Membership` klasörü:
+1. adımda size URL yetkilendirme kuralları, anonim kullanıcılar sayfalarında görüntülemesini engellemek için yapılandırılmış `Membership` klasör. Daha iyi hedeflemediğinizden kimlik doğrulaması göstermesi için şimdi ziyaret etmek anonim kullanıcıların `UserBasedAuthorization.aspx` sayfasında, ancak sınırlı işlevsellikle. Tüm kullanıcılar tarafından erişilebilir için bu sayfayı açın, aşağıdaki ekleyin `<location>` öğesine `Web.config` dosyası `Membership` klasörü:
 
 [!code-xml[Main](user-based-authorization-cs/samples/sample14.xml)]
 
-Bunu ekledikten sonra `<location>` öğesi, site dışında açarak yeni URL yetkilendirme kuralları sınayın. Anonim kullanıcı olarak, ziyaret izni verilmesi gerekip `UserBasedAuthorization.aspx` sayfası.
+Bunu ekledikten sonra `<location>` öğesi, oturum açtıktan sonra site dışı yeni URL yetkilendirme kuralları test edin. Anonim kullanıcı olarak, ziyaret etmek için izin `UserBasedAuthorization.aspx` sayfası.
 
-Şu anda, herhangi bir doğrulanmış veya anonim kullanıcı ziyaret edebilirsiniz `UserBasedAuthorization.aspx` sayfasında ve görüntülemek veya dosyaları silin. Böylece yalnızca kimliği doğrulanmış kullanıcılar bir dosyanın içeriğini görüntüleyebilir ve yalnızca Tito bir dosyayı silebilirsiniz olalım. Bu tür ince çizgisi yetkilendirme kuralları, bildirimli olarak, program aracılığıyla veya her iki yöntemlerinin bir birleşimini aracılığıyla uygulanabilir. Bir dosyanın içeriğini görüntüleyebilecek sınırlamak için bildirim temelli bir yaklaşım kullanalım; bir dosyayı silebilirsiniz sınırı programlı yaklaşım kullanacağız.
+Şu anda, herhangi bir kimliği doğrulanmış veya anonim kullanıcı ziyaret edebilirsiniz `UserBasedAuthorization.aspx` sayfasında görüntüleyebilir veya dosyaları silin. Şimdi yalnızca kimliği doğrulanmış kullanıcılar bir dosyanın içeriğini görüntüleyebilir ve bir dosyayı yalnızca Tito silebilirsiniz olun. Bu tür hedeflemediğinizden yetkilendirme kuralları, bildirimli olarak, programlı olarak veya her iki yöntem de bir birleşimi yoluyla uygulanabilir. Şimdi bir dosyanın içeriğini görüntüleyebilecek kişileri sınırlandırmak için bildirim temelli bir yaklaşım kullanın; bir dosyayı silebilirsiniz sınırı programlı yaklaşımı kullanacağız.
 
-### <a name="using-the-loginview-control"></a>LoginView denetimi kullanma
+### <a name="using-the-loginview-control"></a>Bir LoginView denetimi kullanma
 
-Geçmiş eğitimlerine anlatıldığı gibi LoginView denetimi kimliği doğrulanmış ve anonim kullanıcılar için farklı arabirimlerini görüntülemek için yararlıdır ve anonim kullanıcılar için erişilebilir değil işlevselliği gizlemek için kolay bir yol sunar. Anonim kullanıcılar görüntüleyemez veya dosyaları silin olduğundan, yalnızca göstermek ihtiyacımız `FileContents` sayfa kimliği doğrulanmış bir kullanıcı tarafından ziyaret edildiğinde metin kutusu. Bunu başarmak için sayfaya LoginView denetim ekleme, adlandırın `LoginViewForFileContentsTextBox`ve taşıma `FileContents` TextBox'ın bildirim temelli biçimlendirme LoginView denetimin içine `LoggedInTemplate`.
+Önceki öğreticilerde anlatıldığı gibi LoginView denetimi kimliği doğrulanmış ve anonim kullanıcılar için farklı arabirimler görüntülemek için yararlıdır ve anonim kullanıcılar için erişilebilir değil işlevselliği gizlemek için kolay bir yolunu sunar. Anonim kullanıcılar görüntüleyemez veya dosyaları silme yalnızca gösterilecek gerekir `FileContents` sayfa kimliği doğrulanmış bir kullanıcı tarafından ziyaret edildiğinde metin. Bunu başarmak için sayfaya bir LoginView denetimi ekleyin, adlandırın `LoginViewForFileContentsTextBox`ve taşıma `FileContents` LoginView denetimin içine bildirim temelli biçimlendirme metin kutusunun `LoggedInTemplate`.
 
 [!code-aspx[Main](user-based-authorization-cs/samples/sample15.aspx)]
 
-Web denetimleri (link)'ın şablonlarındaki artık arka plan kodu sınıfından doğrudan erişilebilir. Örneğin, `FilesGrid` GridView'ın `SelectedIndexChanged` ve `RowDeleting` olay işleyicileri şu anda başvuru `FileContents` TextBox denetimi koduyla ister:
+Web denetimleri LoginView'ın şablonlarında artık arka plan kod sınıftan doğrudan erişilebilir. Örneğin, `FilesGrid` GridView'ın `SelectedIndexChanged` ve `RowDeleting` olay işleyicileri şu anda başvuru `FileContents` TextBox denetimi ile kod gibi:
 
 [!code-csharp[Main](user-based-authorization-cs/samples/sample16.cs)]
 
-Ancak, bu kod artık geçerli değil. Taşıyarak `FileContents` metin kutusuna `LoggedInTemplate` TextBox doğrudan erişilemez. Bunun yerine, biz kullanmalısınız `FindControl("controlId")` programlı olarak denetimi başvurmak için yöntem. Güncelleştirme `FilesGrid` TextBox başvurmak için olay işleyicileri sözlüğüdür:
+Ancak, bu kod artık geçerli değil. Taşıyarak `FileContents` TextBox'a `LoggedInTemplate` TextBox doğrudan erişilemez. Bunun yerine, biz kullanmalısınız `FindControl("controlId")` programlı olarak denetim başvurusu yapmak için yöntemi. Güncelleştirme `FilesGrid` TextBox başvurmak için olay işleyicileri şu şekilde:
 
 [!code-csharp[Main](user-based-authorization-cs/samples/sample17.cs)]
 
-TextBox (link) için 's taşıdıktan `LoggedInTemplate` ve sayfanın kodunu kullanarak metin kutusuna referansı güncelleme `FindControl("controlId")` deseni, bir anonim kullanıcı olarak sayfasını ziyaret edin. Şekil 10 gösterildiği gibi `FileContents` TextBox görüntülenmez. Ancak, görünümü LinkButton hala görüntülenir.
+TextBox LoginView için 's taşıdıktan `LoggedInTemplate` ve sayfanın kodunu kullanarak metin kutusu başvuru güncelleştirme `FindControl("controlId")` desen, bir anonim kullanıcı olarak sayfasını ziyaret edin. Şekil 10 gösterildiği gibi `FileContents` metin kutusu görüntülenmez. Ancak, görünümü LinkButton gösterilmeye devam eder.
 
 
-[![LoginView denetimi yalnızca kimliği doğrulanmış kullanıcılar için FileContents TextBox işler](user-based-authorization-cs/_static/image29.png)](user-based-authorization-cs/_static/image28.png)
+[![Bir LoginView denetimi yalnızca kimliği doğrulanmış kullanıcılar için FileContents TextBox işler](user-based-authorization-cs/_static/image29.png)](user-based-authorization-cs/_static/image28.png)
 
-**Şekil 10**: LoginView denetimi yalnızca işler `FileContents` TextBox kimliği doğrulanmış kullanıcılar için ([tam boyutlu görüntüyü görüntülemek için tıklatın](user-based-authorization-cs/_static/image30.png))
+**Şekil 10**: LoginView denetimi yalnızca işler `FileContents` kimliği doğrulanmış kullanıcılar için metin ([tam boyutlu görüntüyü görmek için tıklatın](user-based-authorization-cs/_static/image30.png))
 
 
-Anonim kullanıcılar için görünümü düğmesini gizlemek için bir GridView alan TemplateField'a dönüştürmek için yoludur. Bu görünüm LinkButton için bildirim temelli biçimlendirme içeren bir şablon oluşturur. Ardından TemplateField LoginView denetimi ekleyebilir ve LinkButton (link)'ın içinde yerleştirin `LoggedInTemplate`, böylece anonim ziyaretçiler görünüm düğmesinden gizleme. Bunu gerçekleştirmek için alanları iletişim kutusunu başlatmak için GridView kullanıcının akıllı etiket sütunları düzenleme bağlantısını tıklayın. Ardından, sol alt köşesinde listesinden Seç düğmesini seçin ve bu alan TemplateField bağlantısına dönüştürme'ye tıklayın. Bunun yapılması alanın bildirim temelli biçimlendirmeden değiştirir:
+Anonim kullanıcılar için Görüntüle düğmesi gizlemek için bir GridView alanın bir TemplateField dönüştürmek için yoludur. Bu görünüm LinkButton için bildirim temelli biçimlendirme içeren bir şablon oluşturur. Ardından bir LoginView denetimi için TemplateField ekleyebilir ve LoginView'ın içinde LinkButton yerleştirin `LoggedInTemplate`, böylece anonim ziyaretçilerden Görüntüle düğmesini gizleme. Bunu gerçekleştirmek için alanları iletişim kutusunu başlatmak için akıllı etiketinde GridView'ın sütunları Düzenle bağlantısına tıklayın. Ardından, sol alt köşesine listeden seç düğmesini seçin ve bu alan TemplateField bağlantısına Dönüştür'e tıklayın. Bunun yapılması, alanın bildirim temelli biçimlendirmeden değiştirin:
 
 [!code-aspx[Main](user-based-authorization-cs/samples/sample18.aspx)]
 
@@ -315,106 +314,106 @@ Anonim kullanıcılar için görünümü düğmesini gizlemek için bir GridView
 
 [!code-aspx[Main](user-based-authorization-cs/samples/sample19.aspx)]
 
-Bu noktada, biz TemplateField bir LoginView ekleyebilirsiniz. Aşağıdaki biçimlendirmede yalnızca kimliği doğrulanmış kullanıcılar için Görünüm LinkButton görüntüler.
+Bir LoginView TemplateField için bu noktada, ekleyebiliriz. Aşağıdaki biçimlendirme yalnızca kimliği doğrulanmış kullanıcılar için Görünüm LinkButton görüntüler.
 
 [!code-aspx[Main](user-based-authorization-cs/samples/sample20.aspx)]
 
-Şekil 11 gösterildiği gibi sonuç görünümü LinkButtons sütun içinde gizli olsa bile oldukça görünüm olarak sütun hala görüntülendiğini değil. Biz ne tüm GridView Sütun (ve yalnızca LinkButton) gizlemek sonraki bölümde ele alacağız.
+Şekil 11 gösterildiği gibi sonuç sütundaki görünümü LinkButtons gizli olsa bile oldukça görünüm olarak sütunu yine de görüntülendiğini değil. Biz tüm GridView Sütun (ve yalnızca LinkButton) gizlemek sonraki bölümde konuları ele alınacaktır.
 
 
-[![LoginView denetimi görünüm LinkButtons anonim ziyaretçiler için gizler.](user-based-authorization-cs/_static/image32.png)](user-based-authorization-cs/_static/image31.png)
+[![Bir LoginView denetimi görünümü LinkButtons anonim ziyaretçiler için gizler.](user-based-authorization-cs/_static/image32.png)](user-based-authorization-cs/_static/image31.png)
 
-**Şekil 11**: LoginView denetimi görünüm LinkButtons anonim ziyaretçiler için gizler ([tam boyutlu görüntüyü görüntülemek için tıklatın](user-based-authorization-cs/_static/image33.png))
+**Şekil 11**: LoginView denetimi görünümü LinkButtons anonim ziyaretçiler için gizler. ([tam boyutlu görüntüyü görmek için tıklatın](user-based-authorization-cs/_static/image33.png))
 
 
-### <a name="programmatically-limiting-functionality"></a>Program aracılığıyla sınırlama işlevi
+### <a name="programmatically-limiting-functionality"></a>Program aracılığıyla işlevselliğini sınırlama
 
-Bazı durumlarda, bildirim temelli teknikleri bir sayfaya işlevselliği sınırlamak için yeterli değil. Örneğin, belirli sayfa işlevselliği kullanılabilirliğini sayfasını ziyaret kullanıcı anonim veya kimliği doğrulanmış olup ötesinde ölçütleri bağımlı olabilir. Böyle durumlarda, çeşitli kullanıcı arabirimi öğeleri görüntülenir veya programlama yollarla gizlenir.
+Bazı durumlarda, bildirim temelli teknikleri bir sayfaya işlevselliğini sınırlama için yetersizdir. Örneğin, belirli sayfa işlevselliği kullanılabilirliğini sayfasını ziyaret ederek kullanıcı anonim veya kimliği doğrulanmış olup ötesinde ölçütlere bağımlı olabilir. Bu gibi durumlarda, çeşitli kullanıcı arabirimi öğeleri görüntülenir veya programlı yollarla gizlenir.
 
-Program aracılığıyla işlevselliği sınırlamak için iki görevleri gerçekleştirmek ihtiyacımız var:
+Program aracılığıyla için işlevselliği sınırlamanızı için biz iki görev gerçekleştirmeniz gerekir:
 
-1. Sayfasını ziyaret kullanıcı işlevselliği erişip erişemeyeceğini belirler ve
-2. Program aracılığıyla kullanıcının söz konusu işlevine erişimi olup tabanlı kullanıcı arabirimi değiştirin.
+1. Sayfasını ziyaret ederek kullanıcı işlevselliği erişip erişemeyeceğini belirlemek ve
+2. Kullanıcı söz konusu işlevlerine erişimi olup olmamasına bağlı kullanıcı arabirimi programlı olarak değiştirin.
 
-Bu iki görevler uygulama göstermek için şimdi yalnızca GridView dosyaları silmek Tito izin verir. Bizim ilk, ardından sayfasını ziyaret Tito olup olmadığını belirlemek için bir görevdir. Belirlendikten sonra biz GridView'ın sütun Sil (göstermek veya gizlemek) gerekir. GridView'ın sütunları üzerinden erişilebilir kendi `Columns` özellik; bir sütun ise yalnızca işlenen kendi `Visible` özelliği ayarlanmış `true` (varsayılan).
+Uygulama bu iki görevleri göstermek için şimdi yalnızca GridView dosyaları silmek Tito izin verir. Bizim ilk, ardından sayfasını ziyaret ederek Tito olup olmadığını belirlemek için bir görevdir. Belirlendikten sonra biz GridView'ın sütun Sil (gizlemek veya göstermek) gerekir. Sloupce prvku GridView üzerinden erişilebilir, `Columns` özelliği; bir sütun ise yalnızca işlenen kendi `Visible` özelliği `true` (varsayılan).
 
-Aşağıdaki kodu ekleyin `Page_Load` GridView veri bağlama önce olay işleyicisi:
+Aşağıdaki kodu ekleyin `Page_Load` GridView'a veri bağlama öncesi olay işleyicisi:
 
 [!code-csharp[Main](user-based-authorization-cs/samples/sample21.cs)]
 
-Biz anlatıldığı gibi [ *form kimlik doğrulaması bir genel bakış* ](../introduction/an-overview-of-forms-authentication-cs.md) öğretici, `User.Identity.Name` kimliğin adını döndürür. Bu, oturum açma denetimi girilen kullanıcı adının karşılık gelir. Sayfanın, GridView'ın ikinci sütun ziyaret Tito olup olmadığını `Visible` özelliği ayarlanmış `true`; Aksi takdirde ayarlanır `false`. Net sonucudur birisi Tito dışındaki başka bir kimliği doğrulanmış kullanıcı veya anonim bir kullanıcı, sayfayı ziyaret ettiğinde Sütun Sil (bkz. Şekil 12); işlenmez Sütun Sil Tito sayfasını ziyaret ettiğinde, ancak varsa (bkz. Şekil 13).
+Açıkladığımız gibi [ *form kimlik doğrulaması bir genel bakış* ](../introduction/an-overview-of-forms-authentication-cs.md) öğreticide `User.Identity.Name` kimliğin adını döndürür. Bu oturum açma denetimine girilen kullanıcı adına karşılık gelir. Sayfa, ikinci sütun GridView'ın ziyaret Tito olup olmadığını `Visible` özelliği `true`; Aksi takdirde ayarlanmış `false`. Net sonucudur Tito dışındaki biri tarafından başka bir kimliği doğrulanmış kullanıcı veya anonim bir kullanıcı sayfasını ziyaret ettiğinde Sütun Sil (bkz: Şekil 12); işlenmez Sütun Sil Tito sayfasını ziyaret ettiğinde, ancak varsa (bkz. Şekil 13).
 
 
-[![Değil çizilir zaman ziyaret tarafından birisi dışında Tito (örneğin, Bruce'a) Sil sütundur](user-based-authorization-cs/_static/image35.png)](user-based-authorization-cs/_static/image34.png)
+[![Silme değil işlenen, ziyaret edilen tarafından birisi dışında Tito (örneğin, Bruce) sütunudur](user-based-authorization-cs/_static/image35.png)](user-based-authorization-cs/_static/image34.png)
 
-**Şekil 12**: Sil sütundur değil çizilir zaman ziyaret tarafından birisi dışında Tito (örneğin, Bruce'a) ([tam boyutlu görüntüyü görüntülemek için tıklatın](user-based-authorization-cs/_static/image36.png))
+**Şekil 12**: silme Sloupec je değil işlenen, ziyaret edilen tarafından birisi dışında Tito (örneğin, Bruce) ([tam boyutlu görüntüyü görmek için tıklatın](user-based-authorization-cs/_static/image36.png))
 
 
-[![Sütun Sil Tito için işlenir](user-based-authorization-cs/_static/image38.png)](user-based-authorization-cs/_static/image37.png)
+[![Sütun Sil Tito için işlenen](user-based-authorization-cs/_static/image38.png)](user-based-authorization-cs/_static/image37.png)
 
-**Şekil 13**: Column silmek için Tito çizilir ([tam boyutlu görüntüyü görüntülemek için tıklatın](user-based-authorization-cs/_static/image39.png))
+**Şekil 13**: Sütun Sil Tito için işlenen ([tam boyutlu görüntüyü görmek için tıklatın](user-based-authorization-cs/_static/image39.png))
 
 
 ## <a name="step-4-applying-authorization-rules-to-classes-and-methods"></a>4. adım: Sınıflar ve yöntemler için yetkilendirme kuralları uygulama
 
-Adım 3'te anonim kullanıcılar bir dosyanın içeriğini görüntülemesine izin verilmeyen ve tüm kullanıcılar, ancak Tito dosyaları silme yasaktır. Bu, bildirim temelli ve programlama teknikleri aracılığıyla yetkisiz ziyaretçiler için ilişkili kullanıcı arabirimi öğelerini gizleme tarafından gerçekleştirilmiştir. Basit Bizim örneğimizde, kullanıcı arabirimi öğeleri doğru gizleme açık, ancak ne oluştu daha karmaşık siteleri olabilir; burada aynı işlevleri gerçekleştirmek için birçok farklı yolu? Tüm geçerli kullanıcı arabirimi öğeleri devre dışı bırakmak veya gizlemek unutursanız yetkisiz kullanıcılara bu işlevselliği sınırlama içinde ne olur?
+Adım 3'teki bir dosyanın içeriğini görüntüleme anonim kullanıcıların izin verilmeyen ve tüm kullanıcılar ancak Tito dosyaları silmesi yasaklanmış. Bu, bildirim temelli ve programlı teknikleri aracılığıyla yetkisiz ziyaretçiler için ilişkili kullanıcı arabirimi öğelerini gizleyerek gerçekleştirilmiştir. Basit Bizim örneğimizde, kullanıcı arabirimi öğeleri doğru gizleme açık, ancak ne hakkında olduğu siteler daha karmaşık olabilir burada aynı işlevleri gerçekleştirmek için çeşitli yollar? Tüm geçerli kullanıcı arabirimi öğeleri devre dışı bırakmak veya gizlemek unutursanız yetkisiz kullanıcılara işlevselliğini sınırlama içinde ne olur?
 
-Bu sınıf veya yöntemin ile işaretleme işlevsellik belirli bir parçasını yetkisiz kullanıcılar tarafından erişilen emin olmak için kolay bir yoludur [ `PrincipalPermission` özniteliği](https://msdn.microsoft.com/library/system.security.permissions.principalpermissionattribute.aspx). .NET çalışma zamanı sınıf kullanır veya yöntemlerinden birini yürütür, geçerli güvenlik bağlamı sınıf kullanın veya yöntemi yürütme izni olduğundan emin olmak için denetler. `PrincipalPermission` Özniteliği üzerinden biz tanımlayabilirsiniz bu kurallar bir mekanizma sağlar.
+Bu sınıf ya da yöntemiyle donatmak için işlevsellik belirli bir parçasını yetkisiz kullanıcılar tarafından erişilmediğinden emin olmak için kolay bir yol olan [ `PrincipalPermission` özniteliği](https://msdn.microsoft.com/library/system.security.permissions.principalpermissionattribute.aspx). .NET çalışma zamanı kullanan bir sınıf veya yöntemlerinden birini yürütür, geçerli güvenlik bağlamı sınıfı kullanın veya yöntem yürütme izni olduğundan emin olmak için kontrol eder. `PrincipalPermission` Özniteliği yoluyla tanımlarız bu kuralları bir mekanizma sağlar.
 
-Kullanarak gösterelim `PrincipalPermission` GridView'ın öznitelikte `SelectedIndexChanged` ve `RowDeleting` anonim kullanıcılar ve Tito, kullanıcılar tarafından yürütme sırasıyla engellemek için olay işleyicileri. Yapmamız gereken tek şey her işlev tanımı üzerinde uygun özniteliği ekleyin:
+Kullanarak gösterelim `PrincipalPermission` GridView'ın özniteliği `SelectedIndexChanged` ve `RowDeleting` yürütme anonim ve Tito, dışındaki kullanıcılar tarafından sırasıyla önlemek için olay işleyicileri. Yapmamız gereken şey her işlev tanımı üzerine uygun özniteliğini ekleyin:
 
 [!code-csharp[Main](user-based-authorization-cs/samples/sample22.cs)]
 
-Öznitelik için `SelectedIndexChanged` yalnızca kimliği doğrulanmış kullanıcılar olay işleyicisi belirtir, burada özniteliği olarak olay işleyicisi yürütebilir `RowDeleting` olay işleyicisi yürütme Tito için sınırlar.
+Öznitelik için `SelectedIndexChanged` yalnızca kimliği doğrulanmış kullanıcılar olay işleyicisi belirtir olay işleyicisi, burada özniteliği olarak yürütebilir `RowDeleting` olay işleyicisi yürütme Tito için sınırlar.
 
-Tito başka bir kullanıcı bu şekilde, yürütmeyi denediğinde, `RowDeleting` olay işleyicisi veya doğrulanmamış bir kullanıcı yürütme girişimlerini `SelectedIndexChanged` .NET çalışma zamanı olay işleyicisi yükseltmek bir `SecurityException`.
+Tito başka bir kullanıcı bu şekilde, yürütme girişiminde bulunursa `RowDeleting` olay işleyicisi veya doğrulanmamış bir kullanıcı yürütme girişimlerini `SelectedIndexChanged` .NET çalışma zamanı olay işleyicisi yükseltmek bir `SecurityException`.
 
 
-[![Güvenlik bağlamı yöntemi yürütmek için yetkili değil, bir SecurityException oluşturulur](user-based-authorization-cs/_static/image41.png)](user-based-authorization-cs/_static/image40.png)
+[![Güvenlik bağlamı metodunu yürütmek için yetkili değil, bir SecurityException oluşturulur](user-based-authorization-cs/_static/image41.png)](user-based-authorization-cs/_static/image40.png)
 
-**Şekil 14**: güvenlik bağlamını yöntemi yürütmek için yetkili değil, bir `SecurityException` atılır ([tam boyutlu görüntüyü görüntülemek için tıklatın](user-based-authorization-cs/_static/image42.png))
+**Şekil 14**: metodunu yürütmek için güvenlik içeriğini Yetkilendirilmemişse bir `SecurityException` oluşturulur ([tam boyutlu görüntüyü görmek için tıklatın](user-based-authorization-cs/_static/image42.png))
 
 
 > [!NOTE]
-> Birden çok güvenlik kapsamları bir sınıf veya yöntemin erişmesine izin vermek için sınıf veya yöntemin ile işaretleme bir `PrincipalPermission` özniteliği için her güvenlik bağlamı. Diğer bir deyişle, Tito ve Bruce'a yürütmek izin vermek için `RowDeleting` olay işleyicisi ekleme *iki* `PrincipalPermission` öznitelikleri:
+> Birden fazla güvenlik bağlamı bir sınıfta veya yöntemde erişmesine izin vermek için sınıf ya da yöntem ile donatmak bir `PrincipalPermission` her güvenlik bağlamının özniteliği. Diğer bir deyişle, Tito ve Bruce yürütmesine izin verecek şekilde `RowDeleting` olay işleyicisi ekleme *iki* `PrincipalPermission` öznitelikleri:
 
 
 [!code-csharp[Main](user-based-authorization-cs/samples/sample23.cs)]
 
-Birçok uygulama, ASP.NET sayfaları ek olarak, iş mantığı ve verileri erişim katmanları gibi çeşitli katmanları içeren bir mimari de vardır. Bu katmanlar genellikle sınıf kitaplıkları uygulanır ve sınıfları ve iş mantığı ve verileri ilgili işlevleri gerçekleştirmek için yöntemleri sunar. `PrincipalPermission` Özniteliği bu katmanlara yetkilendirme kuralları uygulamak için yararlıdır.
+ASP.NET sayfaları yanı sıra birçok uygulama ayrıca iş mantığı ve veri erişim katmanları gibi çeşitli katmanları içeren bir mimari var. Bu katman, genellikle sınıf kitaplıkları uygulanır ve sınıflar ve iş mantığı ve verileri ilgili işlevleri gerçekleştirmek için yöntemler sağlar. `PrincipalPermission` Özniteliği, bu katmanlara yetkilendirme kurallarını uygulamak için kullanışlıdır.
 
-Kullanma hakkında daha fazla bilgi için `PrincipalPermission` sınıflar ve yöntemler yetkilendirme kuralları tanımlamak, başvurmak için öznitelik [Scott Guthrie](https://weblogs.asp.net/scottgu/)'s blog girdisi [iş ve veri kullanan katmanlar içinyetkilendirmekurallarıekleme`PrincipalPermissionAttributes` ](https://weblogs.asp.net/scottgu/archive/2006/10/04/Tip_2F00_Trick_3A00_-Adding-Authorization-Rules-to-Business-and-Data-Layers-using-PrincipalPermissionAttributes.aspx).
+Kullanma hakkında daha fazla bilgi için `PrincipalPermission` başvurmak yetkilendirme kuralları sınıfları ve yöntemleri tanımlamak için öznitelik [Scott Guthrie](https://weblogs.asp.net/scottgu/)ın blog girişine [iş ve veri katmanları kullanarak Yetkilendirmekurallarıekleme`PrincipalPermissionAttributes` ](https://weblogs.asp.net/scottgu/archive/2006/10/04/Tip_2F00_Trick_3A00_-Adding-Authorization-Rules-to-Business-and-Data-Layers-using-PrincipalPermissionAttributes.aspx).
 
 ## <a name="summary"></a>Özet
 
-Bu öğreticide kullanıcı tabanlı yetkilendirme kuralları uygulamak ne arama. ASP göz ile başlatıldı. NET'in URL yetkilendirme çerçevesi. Her isteğin, ASP.NET altyapısı üzerinde `UrlAuthorizationModule` kimliğini istenen kaynağa erişmek için yetkili olup olmadığını belirlemek için uygulamanın yapılandırma dosyasındaki tanımlanan URL yetkilendirme kurallarını denetler. Kısacası, URL yetkilendirmesi, belirli bir dizindeki tüm sayfalar için veya belirli bir sayfa için yetkilendirme kuralları belirtmek kolaylaştırır.
+Bu öğreticide kullanıcı tabanlı yetkilendirme kurallarını uygulamak nasıl incelemiştik. ASP göz ile Başladık. NET URL yetkilendirme çerçevesi. Her isteğin, ASP.NET altyapısı üzerinde `UrlAuthorizationModule` kimlik istenen kaynağa erişim için yetki verilip verilmediğini belirlemek için uygulama yapılandırmasında tanımlı URL yetkilendirme kurallarını denetler. Kısacası, URL yetkilendirmesi, belirli bir dizindeki tüm sayfaları veya belirli bir sayfa için yetkilendirme kuralları belirtmek kolaylaştırır.
 
-URL yetkilendirme framework bir sayfa tarafından temelinde yetkilendirme kurallarını uygular. URL yetkilendirmesi ile isteyen kimliğini belirli bir kaynağa erişim yetkisi. Birçok senaryo, ancak daha fazla ince çizgisi yetkilendirme kuralları için çağırın. Kimin bir sayfa erişim izni tanımlamanın yerine, biz herkes bir sayfa erişim sağlar, ancak farklı verileri gösterir veya sayfasını ziyaret kullanıcı bağlı olarak farklı işlevler sunar gerekebilir. Sayfa düzeyinde yetkilendirme çoğunlukla, yetkisiz kullanıcıların yasaklanmış işlevselliği erişimini engellemek için belirli bir kullanıcı arabirimi öğelerini gizleme kapsar. Ayrıca, sınıflar ve belirli kullanıcılar için yöntemlerini yürütülmesi için erişimi kısıtlamak için öznitelikleri kullanmak da mümkündür.
+URL yetkilendirme framework sayfa tarafından temelinde yetkilendirme kuralları geçerlidir. URL yetkilendirmesi ile isteyen kimliği veya belirli bir kaynağa erişim yetkisi. Birçok senaryo için daha fazla hedeflemediğinizden yetkilendirme kuralları ancak çağırın. Kimin bir sayfaya erişmeye izin tanımlamak yerine biz herkesin bir sayfaya erişmeye olanak tanır ancak farklı verileri görüntüleme veya sayfasını ziyaret ederek kullanıcı bağlı olarak farklı işlevsellik sunabilir gerekebilir. Sayfa düzeyinde yetkilendirme, genellikle yetkisiz kullanıcıların izin verilmeyen işlevselliği erişimini engellemek için belirli bir kullanıcı arabirimi öğeleri gizleme içerir. Ayrıca, sınıflar ve yürütülmesini metotlarını belirli kullanıcılar için erişimi kısıtlamak için öznitelikleri kullanmak da mümkündür.
 
-Mutluluk programlama!
+Mutlu programlama!
 
 ### <a name="further-reading"></a>Daha Fazla Bilgi
 
-Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
+Bu öğreticide ele alınan konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 - [İş ve veri katmanlarını kullanmak için yetkilendirme kuralları ekleme `PrincipalPermissionAttributes`](https://weblogs.asp.net/scottgu/archive/2006/10/04/Tip_2F00_Trick_3A00_-Adding-Authorization-Rules-to-Business-and-Data-Layers-using-PrincipalPermissionAttributes.aspx)
 - [ASP.NET yetkilendirmesi](https://msdn.microsoft.com/library/wce3kxhd.aspx)
-- [IIS6 ve IIS7 güvenlik arasındaki değişiklikleri](https://www.iis.net/articles/view.aspx/IIS7/Managing-IIS7/Configuring-Security/Changes-between-IIS6-and-IIS7-Security)
-- [Belirli dosya ve alt dizinleri yapılandırma](https://msdn.microsoft.com/library/6hbkh9s7.aspx)
-- [Kullanıcıyı temel alarak bir sınırlama veri değişikliği işlevi](../../data-access/editing-inserting-and-deleting-data/limiting-data-modification-functionality-based-on-the-user-cs.md)
-- [LoginView denetimi QuickStarts](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/login/loginview.aspx)
+- [IIS6 IIS7 güvenlik arasındaki değişiklikleri](https://www.iis.net/articles/view.aspx/IIS7/Managing-IIS7/Configuring-Security/Changes-between-IIS6-and-IIS7-Security)
+- [Belirli dosyaları ve alt dizinleri yapılandırma](https://msdn.microsoft.com/library/6hbkh9s7.aspx)
+- [Kullanıcıya bağlı olarak veri değişikliği işlevselliğini sınırlama](../../data-access/editing-inserting-and-deleting-data/limiting-data-modification-functionality-based-on-the-user-cs.md)
+- [LoginView denetimi hızlı Başlangıçlar](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/login/loginview.aspx)
 - [IIS7 URL yetkilendirmesi anlama](https://www.iis.net/articles/view.aspx/IIS7/Managing-IIS7/Configuring-Security/URL-Authorization/Understanding-IIS7-URL-Authorization)
 - [`UrlAuthorizationModule` Teknik belgeler](https://msdn.microsoft.com/library/system.web.security.urlauthorizationmodule.aspx)
 - [ASP.NET 2.0 verilerle çalışma](../../data-access/index.md)
 
 ### <a name="about-the-author"></a>Yazar hakkında
 
-Scott Mitchell, birden çok ASP/ASP.NET books yazar ve 4GuysFromRolla.com, kurucusu 1998 itibaren Microsoft Web teknolojileri ile çalışmaktadır. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri  *[kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Tan adresindeki ulaşılabilir [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) veya kendi blog aracılığıyla [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
+Scott Mitchell, birden çok ASP/ASP.NET Books yazar ve poshbeauty.com sitesinin 4GuysFromRolla.com, Microsoft Web teknolojileriyle beri 1998'de çalışmaktadır. Scott, bağımsız Danışman, Eğitimci ve yazıcı çalışır. En son nitelemiştir olan  *[Unleashed'i öğretin kendiniz ASP.NET 2.0 24 saat içindeki](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Scott, konumunda ulaşılabilir [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) veya kendi blog'da aracılığıyla [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Özel teşekkürler
 
-Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
+Bu öğretici serisinde, birçok yararlı Gözden Geçiren tarafından gözden geçirildi. Yaklaşan My MSDN makaleleri gözden geçirme ilgileniyor musunuz? Bu durumda, bir satır bana bırak [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
 
 > [!div class="step-by-step"]
 > [Önceki](validating-user-credentials-against-the-membership-user-store-cs.md)
-> [sonraki](storing-additional-user-information-cs.md)
+> [İleri](storing-additional-user-information-cs.md)

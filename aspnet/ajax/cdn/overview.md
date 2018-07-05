@@ -9,163 +9,163 @@ ms.date: 10/14/2017
 ms.topic: article
 ms.assetid: 8935bf14-ca6d-4a4e-9dbe-b96ce74cef49
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /ajax/cdn
 msc.type: content
-ms.openlocfilehash: bc5f40746ad6b1ed8a74bcb75def9ff8f08fb789
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: bf770191e013487927d3f947dfb29f7ea5b11390
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/10/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37403099"
 ---
 <a name="microsoft-ajax-content-delivery-network"></a>Microsoft Ajax içerik teslim ağı
 ====================
 > [!WARNING]
-> Üretim uygulamaları sıkı bir bağımlılık CDN varlıklar almamalıdır. Uygulamaları başvurulan CDN varlık için test ve CDN kullanılabilir değilse, bir geri dönüş varlık kullanmanız gerekir. 
+> Üretim uygulamaları, sabit bir bağımlılık CDN varlıklar üzerinde almamalıdır. Uygulamaları test başvurulan CDN varlık için ve CDN mevcut olmadığında, bir geri dönüş varlığını kullanan gerekir. 
 >
-> Microsoft Ajax CDN Azure CDN kullanarak özellik hiçbir SLA sahiptir.
+> Microsoft Ajax CDN, Azure CDN kullanarak sunmayan SLA yoktur.
 >
-> Kullanım [bu GitHub sorunu](https://github.com/aspnet/Docs/issues/5832) Microsoft Ajax CDN ile sorunları bildirmek için.
+> Kullanım [bu GitHub sorunu](https://github.com/aspnet/Docs/issues/5832) Microsoft Ajax CDN ile yaşayabileceğiniz sorunları.
 
 ## <a name="table-of-contents"></a>İçindekiler tablosu
 
 **[ajax.microsoft.com AJAX.aspnetcdn.com için yeniden adlandırıldı](#ajaxmicrosoftcom_renamed_to_ajaxaspnetcdncom_18)**  
 **[Visual Studio .vsdoc desteği](#Visual_Studio_vsdoc_Support_19)**  
 **[ASP.NET Ajax CDN kullanma](#Using_ASPNET_Ajax_from_the_CDN_20)**  
-**[CDN jQuery kullanma](#Using_jQuery_from_the_CDN_21)**  
-**[JQuery UI CDN kullanma](#Using_jQuery_UI_from_the_CDN_22)**  
-**[CDN üçüncü taraf dosyaları](#Third-Party_Files_on_the_CDN_23)**  
+**[JQuery CDN kullanma](#Using_jQuery_from_the_CDN_21)**  
+**[JQuery kullanıcı Arabirimi CDN kullanma](#Using_jQuery_UI_from_the_CDN_22)**  
+**[Üçüncü taraf CDN dosyaları](#Third-Party_Files_on_the_CDN_23)**  
   
- [CDN üzerinde jQuery sürümleri](#jQuery_Releases_on_the_CDN_0)  
- [CDN üzerinde jQuery geçirmek sürümleri](#jQuery_Migrate_Releases_on_the_CDN_1)  
- [jQuery UI sürümleri CDN üzerinde](#jQuery_UI_Releases_on_the_CDN_2)  
- [jQuery CDN üzerinde doğrulama sürümleri](#jQuery_Validation_Releases_on_the_CDN_3)  
- [jQuery Mobile sürümleri CDN üzerinde](#jQuery_Mobile_Releases_on_the_CDN_4)  
- [jQuery CDN üzerinde şablonları sürümleri](#jQuery_Templates_Releases_on_the_CDN_5)  
- [jQuery CDN üzerinde döngüsü sürümleri](#jQuery_Cycle_Releases_on_the_CDN_6)  
- [jQuery CDN üzerinde DataTables sürümleri](#jQuery_DataTables_Releases_on_the_CDN_7)  
- [CDN üzerinde Modernizr sürümleri](#Modernizr_Releases_on_the_CDN_8)  
- [CDN üzerinde JSHint sürümleri](#JSHint_Releases_on_the_CDN_10)  
- [CDN üzerinde Boşaltılan sürümleri](#Knockout_Releases_on_the_CDN_11)  
- [CDN üzerinde sürümleri globalize](#Globalize_Releases_on_the_CDN_12)  
- [CDN üzerinde sürümleri yanıt](#Respond_Releases_on_the_CDN_13)  
- [CDN üzerinde önyükleme sürümleri](#Bootstrap_Releases_on_the_CDN_14)  
- [CDN üzerinde önyükleme TouchCarousel sürümleri](#BootstrapTouchCarousel_Releases_on_the_CDN_18)  
- [CDN üzerinde Hammer.js sürümleri](#Hammerjs_Releases_on_the_CDN_19)  
- [ASP.NET Web formları ve CDN üzerinde Ajax sürümleri](#ASPNET_Web_Forms_and_Ajax_Releases_on_the_CDN_15)  
- [ASP.NET MVC üzerinde CDN serbest bırakır](#ASPNET_MVC_Releases_on_the_CDN_16)  
- [ASP.NET SignalR üzerinde CDN serbest bırakır](#ASPNET_SignalR_Releases_on_the_CDN_17)
+ [CDN üzerinde jQuery yayınlar](#jQuery_Releases_on_the_CDN_0)  
+ [CDN üzerinde jQuery geçirme yayınlar](#jQuery_Migrate_Releases_on_the_CDN_1)  
+ [jQuery kullanıcı Arabirimi yayınlar CDN hakkında](#jQuery_UI_Releases_on_the_CDN_2)  
+ [jQuery doğrulama yayınlar CDN hakkında](#jQuery_Validation_Releases_on_the_CDN_3)  
+ [jQuery Mobile yayınlar CDN hakkında](#jQuery_Mobile_Releases_on_the_CDN_4)  
+ [jQuery şablonları yayınlar CDN hakkında](#jQuery_Templates_Releases_on_the_CDN_5)  
+ [jQuery döngüsü yayınlar CDN hakkında](#jQuery_Cycle_Releases_on_the_CDN_6)  
+ [DataTable yayınlar CDN üzerinde jQuery](#jQuery_DataTables_Releases_on_the_CDN_7)  
+ [CDN üzerinde Modernizr yayınlar](#Modernizr_Releases_on_the_CDN_8)  
+ [CDN üzerindeki JSHint yayınlar](#JSHint_Releases_on_the_CDN_10)  
+ [Knockout yayınlar CDN hakkında](#Knockout_Releases_on_the_CDN_11)  
+ [CDN yayınlara globalize](#Globalize_Releases_on_the_CDN_12)  
+ [CDN yayınlara yanıt](#Respond_Releases_on_the_CDN_13)  
+ [Önyükleme yayınlar CDN hakkında](#Bootstrap_Releases_on_the_CDN_14)  
+ [Önyükleme TouchCarousel yayınlar CDN hakkında](#BootstrapTouchCarousel_Releases_on_the_CDN_18)  
+ [CDN üzerinde Hammer.js yayınlar](#Hammerjs_Releases_on_the_CDN_19)  
+ [ASP.NET Web Forms ve Ajax yayınlar CDN hakkında](#ASPNET_Web_Forms_and_Ajax_Releases_on_the_CDN_15)  
+ [ASP.NET MVC CDN'de serbest bırakır.](#ASPNET_MVC_Releases_on_the_CDN_16)  
+ [ASP.NET SignalR CDN'de serbest bırakır.](#ASPNET_SignalR_Releases_on_the_CDN_17)
 
-Microsoft Ajax içerik teslim ağı (CDN) jQuery gibi popüler üçüncü taraf JavaScript kitaplıklarını barındırır ve bunları Web uygulamalarınızın kolayca eklemenize olanak tanır. Örneğin, basitçe ekleyerek bu CDN üzerinde barındırılan jQuery kullanmaya başlayabilmeniz için bir &lt;betik&gt; etiketi sayfanıza ajax.aspnetcdn.com için işaret eder.
+Microsoft Ajax Content Delivery Network (CDN), jQuery gibi popüler üçüncü taraf JavaScript kitaplıklarını barındırır ve bunları, Web uygulamalarınıza kolayca eklemenizi sağlar. Örneğin, yalnızca ekleyerek bu CDN'de barındırılan jQuery kullanmaya başlayabilirsiniz bir &lt;betik&gt; ajax.aspnetcdn.com için işaret eden sayfanıza etiketi.
 
-CDN yararlanarak, Ajax uygulamalarınızın performansını önemli ölçüde artırabilir. CDN içeriğini tüm dünyada bulunan sunucuları önbelleğe alınır. Ayrıca, CDN farklı etki alanlarında bulunan web siteleri için önbelleğe alınan üçüncü taraf JavaScript dosyaları yeniden tarayıcılar sağlar.
+CDN avantajlarından yararlanarak, Ajax uygulamalarınızın performansını önemli ölçüde artırabilir. CDN içeriğini, tüm dünyada bulunan sunucularda önbelleğe alınır. Ayrıca, CDN önbelleğe alınan üçüncü taraf web siteleri, farklı etki alanlarında bulunan JavaScript dosyaları yeniden tarayıcılar sağlar.
 
-Güvenli Yuva Katmanı'ni kullanarak bir web sayfası hizmet gerekebileceği CDN SSL (HTTPS) destekler.
+CDN SSL (HTTPS), Güvenli Yuva Katmanı'nı kullanarak bir web sayfası hizmet gerektiği durumlarda destekler.
 
-CDN yüklenmiş ve size bu kitaplıkları sahibi tarafından lisanslanır aşağıdaki üçüncü taraf betik kitaplıkları barındırır:
+CDN, karşıya yüklediğiniz ve sizin için bu kitaplıkları sahipleri tarafından lisanslanır aşağıdaki üçüncü taraf betik kitaplıkları barındırır:
 
 - jQuery (www.jquery.com)
-- jQuery UI (www.jqueryui.com)
+- jQuery kullanıcı Arabirimi (www.jqueryui.com)
 - jQuery Mobile (www.jquerymobile.com)
-- jQuery doğrulama (www.jquery.com)
-- jQuery Cycle (www.malsup.com/jquery/cycle/)
-- jQuery DataTables)http://datatables.net/)
+- jQuery doğrulaması (www.jquery.com)
+- jQuery döngüsü (www.malsup.com/jquery/cycle/)
+- jQuery DataTable)http://datatables.net/)
 
-Microsoft Ajax CDN Ayrıca, Microsoft tarafından yüklenen aşağıdaki kitaplıkları içerir:
+Microsoft Ajax CDN ayrıca Microsoft tarafından karşıya yüklenen aşağıdaki kitaplıklarını içerir:
 
-- ASP.NET Ajax'ı
+- ASP.NET Ajax
 - ASP.NET MVC JavaScript dosyaları
 - ASP.NET SignalR JavaScript dosyaları
 
-Microsoft, bu CDN üzerinde barındırılan herhangi bir üçüncü taraf kitaplıklar sahipliğini talep değil. Telif hakkı sahipleri kitaplıkları, size bu kitaplıklar lisans. Karşıdan yükleme ve bu tür kitaplıklarını kullanma gerekebilir herhangi bir hakka yalnızca ilgili telif hakkı sahipleri tarafından verilir. Bunlar Microsoft kitaplıkları olduğundan, Microsoft bu CDN üzerinde barındırılan üçüncü taraf kitaplıklar için hiçbir garanti vermez veya fikri mülkiyet hakları lisansları (zımni hiçbir patent hakları dahil) sağlar.
+Microsoft, bu CDN'de barındırılan herhangi bir üçüncü taraf kitaplıkların mülkiyeti üzerine hak iddia değil. Telif hakkı sahipleri kitaplıkları, bu kitaplıklara lisans. Tür kitaplıkları indirip olabilecek herhangi bir hakkı, yalnızca ilgili telif hakkı sahipleri tarafından verilir. Bunlar Microsoft kitaplıkları olmadığından, Microsoft bu CDN'de barındırılan üçüncü taraf kitaplıklar için hiçbir garanti veya fikri mülkiyet hakları lisansları (zımni hiçbir patent hakkı dahil) sağlar.
 
-JavaScript kitaplığı göndermek istiyor ve kitaplığınızın üst JavaScript kitaplıklarını biri (listelenen gibi http://trends.builtwith.com) veya uzantıları/plugins (a) popüler; veya (b) ASP.NET üzerinde kullanım için kullanışlı sonra lütfen başvurun bu kitaplıklarına AjaxCDNSubmission@Microsoft.com.
+JavaScript Kitaplığı'nıza göndermek istediğiniz ve kitaplığınıza ilk JavaScript kitaplıklarını biridir (listelenmiş olarak http://trends.builtwith.com) veya uzantıları/eklentileri (a) popüler; veya (b) ASP.NET kullanmak faydalı sonra lütfen başvurun bu kitaplıklara AjaxCDNSubmission@Microsoft.com.
 
 <a id="ajaxmicrosoftcom_renamed_to_ajaxaspnetcdncom_18"></a>
 
 ## <a name="ajaxmicrosoftcom-renamed-to-ajaxaspnetcdncom"></a>ajax.microsoft.com AJAX.aspnetcdn.com için yeniden adlandırıldı
 
-CDN microsoft.com etki alanı adını kullanmak için kullanılan ve aspnetcdn.com etki alanı adını kullanmak üzere değiştirildi. Bu değişiklik, bir tarayıcı microsoft.com etki alanı başvurulduğunda tüm tanımlama bilgilerini bu etki alanından her istek ile kablo üzerinden göndermeden çünkü performansı artırmak için yapılmıştır. Microsoft.com dışında bir etki alanı adı için adlandırarak performans çok % 25 olarak artırılabilir. Not ajax.microsoft.com çalışmaya devam eder ancak ajax.aspnetcdn.com önerilir.
+CDN microsoft.com etki alanı adını kullanmak için kullanılan ve aspnetcdn.com etki alanı adını kullanacak şekilde değiştirildi. Bir tarayıcı microsoft.com etki alanı başvurulduğunda, tanımlama bilgilerini bu etki alanından her istekle kablo üzerinden gönderir gibi olduğundan, performansı artırmak için bu değişiklik yapılmıştır. Microsoft.com dışındaki bir etki alanı adı için yeniden adlandırarak performans tarafından % 25 daha fazla artırılabilir. Not ajax.microsoft.com çalışmaya devam eder ancak ajax.aspnetcdn.com tavsiye edilir.
 
 - Eski biçimi: https://ajax.microsoft.com/ajax/jQuery/jquery-1.8.0.js
-- Yeni biçimi: https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js
+- Yeni biçim: https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js
 
 <a id="Visual_Studio_vsdoc_Support_19"></a>
 
 ## <a name="visual-studio-vsdoc-support"></a>Visual Studio .vsdoc desteği
 
-.Vsdoc dosyaları düzgün VS 2008 SP1'e sahip olduğunuzdan emin olmanız gerekir Visual Studio 2008 ile kullanmak için yüklenir ve vsdoc dosyaları düzeltmesinin yüklü. Bunlar buradan edinebilirsiniz:
+.Vsdoc dosyaları VS 2008 SP1'e sahip olduğunuzdan emin olmak için gereken Visual Studio 2008 ile düzgün bir şekilde kullanmak için yüklü ve vsdoc dosyaları düzeltmesinin yüklü. Bu uygulamaya buradan edinebilirsiniz:
 
-- [Visual Studio 2008 SP1'i karşıdan](https://www.microsoft.com/downloads/en/details.aspx?FamilyId=FBEE1648-7106-44A7-9649-6D9F6D58056E&amp;displaylang=en "Visual Studio 2008 SP1'i Yükle")
-- [Visual Studio 2008 SP1 için .vsdoc Düzeltme karşıdan](https://code.msdn.microsoft.com/KB958502/Release/ProjectReleases.aspx?ReleaseId=1736 ".vsdoc düzeltme için Visual Studio 2008 SP1 yükle")
+- [Visual Studio 2008 SP1'i indirmek](https://www.microsoft.com/downloads/en/details.aspx?FamilyId=FBEE1648-7106-44A7-9649-6D9F6D58056E&amp;displaylang=en "Visual Studio 2008 SP1'i indirin")
+- [Visual Studio 2008 SP1 için .vsdoc düzeltmeyi indirmek](https://code.msdn.microsoft.com/KB958502/Release/ProjectReleases.aspx?ReleaseId=1736 ".vsdoc düzeltme için Visual Studio 2008 SP1 indirin")
 
-Visual Studio 2010 ek düzeltme eklerinin olmadan .vsdoc dosyalarını destekler.
+Visual Studio 2010, ek düzeltme eklerinin olmadan .vsdoc dosyalarını destekler.
 
 <a id="Using_ASPNET_Ajax_from_the_CDN_20"></a>
 
 ## <a name="using-aspnet-ajax-from-the-cdn"></a>ASP.NET Ajax CDN kullanma
 
-ASP.NET 4 kullanırken, ASP.NET framework komut dosyaları için tüm istekleri için CDN yönlendirebilirsiniz. Yerel web sunucunuzun yerine CDN komut dosyaları alma önemli ölçüde ortak ASP.NET Web siteleri performansını artırabilir.
+ASP.NET 4 kullanırken, ASP.NET framework komut dosyaları için tüm istekler için CDN yönlendirebilirsiniz. Betikleri yerel web sunucunuzun yerine CDN alınırken genel ASP.NET Web sitesi performansını önemli ölçüde artırabilir.
 
-Microsoft Ajax CDN ile tüm ASP.NET framework betik isteklerini yeniden yönlendirmek için ScriptManager EnableCDN özelliğini kullanın:
+Microsoft Ajax CDN için tüm ASP.NET framework betik istekleri yeniden yönlendirmek için ScriptManager EnableCDN özelliğini kullanın:
 
 [!code-aspx[Main](overview/samples/sample1.aspx)]
 
 <a id="Using_jQuery_from_the_CDN_21"></a>
 
-## <a name="using-jquery-from-the-cdn"></a>CDN jQuery kullanma
+## <a name="using-jquery-from-the-cdn"></a>JQuery CDN kullanma
 
-Aşağıdaki betik öğesi bir sayfaya ekleyerek Web uygulamanızda CDN üzerinde barındırılan jQuery betikleri kullanabilirsiniz:
+Bir sayfaya aşağıdaki betiği öğesi ekleyerek Web uygulamanızda CDN'de barındırılan jQuery betikleri kullanabilirsiniz:
 
 [!code-html[Main](overview/samples/sample2.html)]
 
-CDN alabileceğiniz jQuery komut dosyasının küçültülmüş sürümünü de içerir. aşağıdaki öğeyi kullanarak:
+CDN edinebilirsiniz jQuery betik küçültülmüş sürümünü de içerir. aşağıdaki öğesini kullanarak:
 
 [!code-html[Main](overview/samples/sample3.html)]
 
-CDN kullanılamaz durumda, kendi Web sitesinde bir yerel yol veritabanından jQuery yükleme için geri dönüş sayfanıza izin vermek için hemen CDN başvuran öğesinden sonra aşağıdaki öğeyi ekleyin:
+CDN kullanılamaz durumda, jQuery, kendi Web sitesinde bir yerel yolundan yüklenirken için geri dönüş sayfanıza izin vermek için öğenin CDN başvuran hemen sonra aşağıdaki öğeyi ekleyin:
 
 [!code-html[Main](overview/samples/sample4.html)]
 
-Aşağıdaki örnek sayfasına bir düğme tıklatıldığında div öğesinin içeriğini görüntülemek için jQuery kitaplığı (ile yerel bir kopya için geri dönüş) CDN sürümünü kullanır.
+Aşağıdaki örnek sayfası, bir düğmeye tıklandığında bir div öğesine içeriğini görüntülemek için jQuery kitaplığı (ile yerel bir kopya için geri dönüş) CDN sürümünü kullanır.
 
 [!code-html[Main](overview/samples/sample5.html)]
 
-JQuery hakkında daha fazla bilgi ve ziyaret ederek jQuery yerel bir kopyasını indirin [jQuery](http://jquery.com/) Web sitesi.
+JQuery hakkında daha fazla bilgi edinin ve jQuery yerel bir kopyasını indirin ederek [jQuery](http://jquery.com/) Web sitesi.
 
 <a id="Using_jQuery_UI_from_the_CDN_22"></a>
 
-## <a name="using-jquery-ui-from-the-cdn"></a>JQuery UI CDN kullanma
+## <a name="using-jquery-ui-from-the-cdn"></a>JQuery kullanıcı Arabirimi CDN kullanma
 
-CDN jQuery kullanıcı Arabirimi kitaplığı da barındırır. JQuery kullanıcı Arabirimi kitaplığı zengin bir pencere öğeleri ve ASP.NET uygulamalarınızın kullanabilirsiniz efektler içerir. Örneğin, aşağıdaki sayfayı açılır takvimi görüntülemek için bir ASP.NET Web Forms uygulama bağlamında jQuery UI Datepicker nasıl kullanabileceğiniz gösterilmektedir:
+CDN ayrıca jQuery kullanıcı Arabirimi kitaplığı barındırır. JQuery kullanıcı Arabirimi kitaplığı zengin bir pencere öğeleri ve ASP.NET uygulamalarınızda kullanabileceğiniz etkileri içerir. Örneğin, aşağıdaki sayfa açılır takvimi görüntülemek için bir ASP.NET Web Forms uygulaması bağlamında jQuery UI Datepicker nasıl kullanabileceğinizi gösteren:
 
 [!code-aspx[Main](overview/samples/sample6.aspx)]
 
-Klavyenizi kullanarak metin kutusuna odağı taşıdığınızda, bir takvim görüntülenir:
+Klavyenizi kullanarak metin kutusu için odağı taşıyın, bir takvim görüntülenir:
 
-![Oluşturulan DatePicker popup Takvim](overview/_static/image1.png)
+![DatePicker oluşturulan açılan takvimi](overview/_static/image1.png)
 
-Yukarıdaki kod CDN üç dosyaları içermelidir dikkat edin:
+Yukarıdaki kodda CDN üç dosyayı içermelidir dikkat edin:
 
-- JQuery Kitaplığı &mdash; jQuery kullanıcı Arabirimi kitaplığı jQuery kitaplıkta bağlıdır. JQuery kullanıcı Arabirimi kitaplığı eklemeden önce jQuery kitaplığı sayfanıza eklemeniz gerekir.
-- JQuery kullanıcı Arabirimi Kitaplığı &mdash; jQuery kullanıcı Arabirimi kitaplığı tüm jQuery UI etkiler ve yukarıdaki sayfa kullanılan Datepicker pencere gibi pencere öğeleri içerir.
-- JQuery UI tema &mdash; farklı temaları jQuery UI destekler. Yukarıdaki sayfa Redmond temayı içeri aktarmak için bir CSS dosyası için bir bağlantı içerir.
+- JQuery Kitaplığı &mdash; jQuery kullanıcı Arabirimi kitaplığı jQuery kitaplık bağlıdır. JQuery kullanıcı Arabirimi kitaplığı eklemeden önce sayfanıza jQuery kitaplığa eklemeniz gerekir.
+- JQuery kullanıcı Arabirimi Kitaplığı &mdash; tüm pencere öğeleri gibi yukarıdaki kullanılan Datepicker pencere öğesi ve jQuery UI etkileri jQuery kullanıcı Arabirimi kitaplığı içerir.
+- JQuery kullanıcı Arabirimi teması &mdash; farklı Temalar jQuery kullanıcı Arabirimi destekler. Yukarıdaki sayfayı Redmond temayı içeri aktarmak için bir CSS dosyası için bir bağlantı içerir.
 
-Tüm standart jQuery UI temaları CDN üzerinde barındırılır. [Bu sayfayı ziyaret](jquery-ui/cdnjqueryui1910.md "jQuery UI 1.8.10 Microsoft Ajax CDN üzerinde") her tema için küçük resimler görüntülemek için.
+Tüm standart jQuery kullanıcı Arabirimi teması, CDN'de barındırılan. [Bu sayfayı ziyaret](jquery-ui/cdnjqueryui1910.md "kullanıcı Arabirimi 1.8.10 Microsoft Ajax CDN üzerinde jQuery") her teması için küçük resimleri görüntülemek için.
 
 JQuery kullanıcı Arabirimi Kitaplığı hakkında daha fazla bilgi edinmek için resmi ziyaret [jQuery UI Web sitesi](http://jQueryUI.com "jQuery UI Web sitesi").
 
 <a id="Third-Party_Files_on_the_CDN_23"></a>
 
-## <a name="third-party-files-on-the-cdn"></a>CDN üçüncü taraf dosyaları
+## <a name="third-party-files-on-the-cdn"></a>Üçüncü taraf CDN dosyaları
 
-CDN en popüler üçüncü taraf JavaScript kitaplıklarını bazıları barındırır. Microsoft, bu CDN üzerinde barındırılan herhangi bir üçüncü taraf kitaplıklar sahipliğini talep değil. Telif hakkı sahipleri kitaplıkları, size bu kitaplıklar lisans. Karşıdan yükleme ve bu tür kitaplıklarını kullanma gerekebilir herhangi bir hakka yalnızca ilgili telif hakkı sahipleri tarafından verilir. Bunlar Microsoft kitaplıkları olduğundan, Microsoft bu CDN üzerinde barındırılan üçüncü taraf kitaplıklar için hiçbir garanti vermez veya fikri mülkiyet hakları lisansları (zımni hiçbir patent hakları dahil) sağlar.
+CDN, en popüler üçüncü taraf JavaScript kitaplıkları bazıları barındırır. Microsoft, bu CDN'de barındırılan herhangi bir üçüncü taraf kitaplıkların mülkiyeti üzerine hak iddia değil. Telif hakkı sahipleri kitaplıkları, bu kitaplıklara lisans. Tür kitaplıkları indirip olabilecek herhangi bir hakkı, yalnızca ilgili telif hakkı sahipleri tarafından verilir. Bunlar Microsoft kitaplıkları olmadığından, Microsoft bu CDN'de barındırılan üçüncü taraf kitaplıklar için hiçbir garanti veya fikri mülkiyet hakları lisansları (zımni hiçbir patent hakkı dahil) sağlar.
 
 <a id="jQuery_Releases_on_the_CDN_0"></a>
 
-### <a name="jquery-releases-on-the-cdn"></a>CDN üzerinde jQuery sürümleri
+### <a name="jquery-releases-on-the-cdn"></a>CDN üzerinde jQuery yayınlar
 
-JQuery aşağıdaki sürümleri CDN üzerinde barındırılan:
+JQuery aşağıdaki sürümleri, CDN'de barındırılan:
 
 #### <a name="jquery-version-331"></a>jQuery sürüm 3.3.1
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.js
@@ -175,7 +175,7 @@ JQuery aşağıdaki sürümleri CDN üzerinde barındırılan:
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.slim.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.slim.min.map
 
-#### <a name="jquery-version-321"></a>jQuery sürüm 3.2.1
+#### <a name="jquery-version-321"></a>3.2.1 jQuery sürümü
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.map
@@ -192,7 +192,7 @@ JQuery aşağıdaki sürümleri CDN üzerinde barındırılan:
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.slim.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.slim.min.map
 
-#### <a name="jquery-version-311"></a>jQuery sürüm 3.1.1
+#### <a name="jquery-version-311"></a>3.1.1 jQuery sürümü
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js
@@ -249,7 +249,7 @@ JQuery aşağıdaki sürümleri CDN üzerinde barındırılan:
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.0.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.0.min.map
 
-#### <a name="jquery-version-214"></a>jQuery sürüm 2.1.4
+#### <a name="jquery-version-214"></a>jQuery sürüm larını 2.1.4
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.4.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.4.min.js
@@ -261,7 +261,7 @@ JQuery aşağıdaki sürümleri CDN üzerinde barındırılan:
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.3.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.3.min.map
 
-#### <a name="jquery-version-212"></a>jQuery sürüm 2.1.2
+#### <a name="jquery-version-212"></a>jQuery sürüm 2.1.2'ye
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.2.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.2.min.js
@@ -279,7 +279,7 @@ JQuery aşağıdaki sürümleri CDN üzerinde barındırılan:
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.0-vsdoc.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.0.min.map
 
-#### <a name="jquery-version-203"></a>jQuery sürüm 2.0.3
+#### <a name="jquery-version-203"></a>jQuery sürüm 2.0.3 sürümünü
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js
@@ -409,7 +409,7 @@ JQuery aşağıdaki sürümleri CDN üzerinde barındırılan:
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2-vsdoc.js
 
-#### <a name="jquery-version-181"></a>jQuery sürüm 1.8.1
+#### <a name="jquery-version-181"></a>jQuery sürümü 1.8.1
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.1.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.1.min.js
@@ -456,7 +456,7 @@ JQuery aşağıdaki sürümleri CDN üzerinde barındırılan:
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.2.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.2-vsdoc.js
 
-#### <a name="jquery-version-161"></a>jQuery sürüm 1.6.1
+#### <a name="jquery-version-161"></a>jQuery sürümü 1.6.1
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.1.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.1.min.js
@@ -468,13 +468,13 @@ JQuery aşağıdaki sürümleri CDN üzerinde barındırılan:
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6-vsdoc.js
 
-#### <a name="jquery-version-152"></a>jQuery sürüm 1.5.2
+#### <a name="jquery-version-152"></a>1.5.2 jQuery sürümü
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.5.2.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.5.2.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.5.2-vsdoc.js
 
-#### <a name="jquery-version-151"></a>jQuery sürüm 1.5.1
+#### <a name="jquery-version-151"></a>1.5.1 jQuery sürümü
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.5.1.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.5.1.min.js
@@ -524,9 +524,9 @@ JQuery aşağıdaki sürümleri CDN üzerinde barındırılan:
 
 <a id="jQuery_Migrate_Releases_on_the_CDN_1"></a>
 
-### <a name="jquery-migrate-releases-on-the-cdn"></a>CDN üzerinde jQuery geçirmek sürümleri
+### <a name="jquery-migrate-releases-on-the-cdn"></a>CDN üzerinde jQuery geçirme yayınlar
 
-JQuery geçirme aşağıdaki sürümleri CDN üzerinde barındırılan:
+JQuery geçirme aşağıdaki sürümleri, CDN'de barındırılan:
 
 #### <a name="jquery-migrate-version-300"></a>jQuery sürüm 3.0.0 geçirme
 
@@ -538,7 +538,7 @@ JQuery geçirme aşağıdaki sürümleri CDN üzerinde barındırılan:
 - https://ajax.aspnetcdn.com/ajax/jquery.migrate/jquery-migrate-1.2.1.js
 - https://ajax.aspnetcdn.com/ajax/jquery.migrate/jquery-migrate-1.2.1.min.js
 
-jQuery sürüm 1.2.0 geçirme
+jQuery sürümü 1.2.0 geçirme
 
 - https://ajax.aspnetcdn.com/ajax/jquery.migrate/jquery-migrate-1.2.0.js
 - https://ajax.aspnetcdn.com/ajax/jquery.migrate/jquery-migrate-1.2.0.min.js
@@ -553,114 +553,114 @@ jQuery sürüm 1.2.0 geçirme
 - https://ajax.aspnetcdn.com/ajax/jquery.migrate/jquery-migrate-1.1.0.js
 - https://ajax.aspnetcdn.com/ajax/jquery.migrate/jquery-migrate-1.1.0.min.js
 
-#### <a name="jquery-migrate-version-100"></a>jQuery sürümü 1.0.0 geçirme
+#### <a name="jquery-migrate-version-100"></a>jQuery sürüm 1.0.0 geçirme
 
 - https://ajax.aspnetcdn.com/ajax/jquery.migrate/jquery-migrate-1.0.0.js
 - https://ajax.aspnetcdn.com/ajax/jquery.migrate/jquery-migrate-1.0.0.min.js
 
 <a id="jQuery_UI_Releases_on_the_CDN_2"></a>
 
-### <a name="jquery-ui-releases-on-the-cdn"></a>jQuery UI sürümleri CDN üzerinde
+### <a name="jquery-ui-releases-on-the-cdn"></a>jQuery kullanıcı Arabirimi yayınlar CDN hakkında
 
-JQuery kullanıcı Arabirimi kitaplığı aşağıdaki sürümleri, bu CDN üzerinde barındırılır. Dosyaların gerçek listesini görmek için her bağlantıyı tıklatın.
+Bu CDN üzerinde jQuery kullanıcı Arabirimi kitaplığı aşağıdaki sürümleri barındırılır. Dosyaların gerçek listesini görmek için her bir bağlantıya tıklayın.
 
-- [jQuery UI 1.12.1](jquery-ui/cdnjqueryui1121.md "jQuery UI 1.12.1 Microsoft Ajax CDN üzerinde")
-- [jQuery UI 1.12.0](jquery-ui/cdnjqueryui1120.md "jQuery UI 1.12.0 Microsoft Ajax CDN üzerinde")
-- [jQuery UI 1.11.4](jquery-ui/cdnjqueryui1114.md "jQuery UI 1.11.4 Microsoft Ajax CDN üzerinde")
-- [jQuery UI 1.11.3](jquery-ui/cdnjqueryui1113.md "jQuery UI 1.11.3 Microsoft Ajax CDN üzerinde")
-- [jQuery UI 1.11.2](jquery-ui/cdnjqueryui1112.md "jQuery UI 1.11.2 Microsoft Ajax CDN üzerinde")
-- [jQuery UI 1.11.1](jquery-ui/cdnjqueryui1111.md "jQuery UI 1.11.1 Microsoft Ajax CDN üzerinde")
-- [jQuery UI 1.11.0](jquery-ui/cdnjqueryui1110.md "jQuery UI 1.11.0 Microsoft Ajax CDN üzerinde")
-- [jQuery UI 1.10.4](jquery-ui/cdnjqueryui1104.md "jQuery UI 1.10.4 Microsoft Ajax CDN üzerinde")
-- [jQuery UI 1.10.3](jquery-ui/cdnjqueryui1103.md "jQuery UI 1.10.3 Microsoft Ajax CDN üzerinde")
-- [jQuery UI 1.10.2](jquery-ui/cdnjqueryui1102.md "jQuery 1.10.2 UI Microsoft Ajax CDN")
-- [jQuery UI 1.10.1](jquery-ui/cdnjqueryui1101.md "jQuery UI 1.10.1 Microsoft Ajax CDN üzerinde")
-- [jQuery UI 1.10.0](jquery-ui/cdnjqueryui1100.md "jQuery UI 1.10.0 Microsoft Ajax CDN üzerinde")
-- [jQuery UI 1.9.2](jquery-ui/cdnjqueryui192.md "jQuery UI 1.9.2 Microsoft Ajax CDN üzerinde")
-- [jQuery UI 1.9.1](jquery-ui/cdnjqueryui191.md "jQuery UI 1.9.1 Microsoft Ajax CDN üzerinde")
-- [jQuery UI 1.9.0](jquery-ui/cdnjqueryui190.md "jQuery UI 1.9.0 Microsoft Ajax CDN üzerinde")
-- [jQuery UI 1.8.24](jquery-ui/cdnjqueryui1824.md "jQuery UI 1.8.24 Microsoft Ajax CDN üzerinde")
-- [jQuery UI 1.8.23](jquery-ui/cdnjqueryui1823.md "jQuery UI 1.8.23 Microsoft Ajax CDN üzerinde")
-- [jQuery UI 1.8.22](jquery-ui/cdnjqueryui1822.md "jQuery UI 1.8.22 Microsoft Ajax CDN üzerinde")
-- [jQuery UI 1.8.21](jquery-ui/cdnjqueryui1821.md "jQuery UI 1.8.21 Microsoft Ajax CDN üzerinde")
-- [jQuery UI 1.8.20](jquery-ui/cdnjqueryui1820.md "jQuery UI 1.8.20 Microsoft Ajax CDN üzerinde")
-- [jQuery UI 1.8.19](jquery-ui/cdnjqueryui1819.md "jQuery UI 1.8.19 Microsoft Ajax CDN üzerinde")
-- [jQuery UI 1.8.18](jquery-ui/cdnjqueryui1818.md "jQuery UI 1.8.18 Microsoft Ajax CDN üzerinde")
-- [jQuery UI 1.8.17](jquery-ui/cdnjqueryui1817.md "jQuery UI 1.8.17 Microsoft Ajax CDN üzerinde")
-- [jQuery UI 1.8.16](jquery-ui/cdnjqueryui1816.md "jQuery UI 1.8.16 Microsoft Ajax CDN üzerinde")
-- [jQuery UI 1.8.15](jquery-ui/cdnjqueryui1815.md "jQuery UI 1.8.15 Microsoft Ajax CDN üzerinde")
-- [jQuery UI 1.8.14](jquery-ui/cdnjqueryui1814.md "jQuery UI 1.8.14 Microsoft Ajax CDN üzerinde")
-- [jQuery UI 1.8.13](jquery-ui/cdnjqueryui1813.md "jQuery UI 1.8.13 Microsoft Ajax CDN üzerinde")
-- [jQuery UI 1.8.12](jquery-ui/cdnjqueryui1812.md "jQuery UI 1.8.12 Microsoft Ajax CDN üzerinde")
-- [jQuery UI 1.8.11](jquery-ui/cdnjqueryui1811.md "jQuery UI 1.8.11 Microsoft Ajax CDN üzerinde")
-- [jQuery UI 1.8.10](jquery-ui/cdnjqueryui1910.md "jQuery UI 1.8.10 Microsoft Ajax CDN üzerinde")
-- [jQuery UI 1.8.9](jquery-ui/cdnjqueryui189.md "jQuery UI 1.8.9 Microsoft Ajax CDN üzerinde")
-- [jQuery UI 1.8.8](jquery-ui/cdnjqueryui188.md "jQuery UI 1.8.8 Microsoft Ajax CDN üzerinde")
-- [jQuery UI 1.8.7](jquery-ui/cdnjqueryui187.md "jQuery UI 1.8.7 Microsoft Ajax CDN üzerinde")
-- [jQuery UI 1.8.6](jquery-ui/cdnjqueryui186.md "jQuery UI 1.8.6 Microsoft Ajax CDN üzerinde")
-- [jQuery UI 1.8.5](jquery-ui/cdnjqueryui185.md "jQuery UI 1.8.5")
+- [jQuery kullanıcı Arabirimi 1.12.1](jquery-ui/cdnjqueryui1121.md "kullanıcı Arabirimi 1.12.1 Microsoft Ajax CDN üzerinde jQuery")
+- [jQuery kullanıcı Arabirimi 1.12.0](jquery-ui/cdnjqueryui1120.md "kullanıcı Arabirimi 1.12.0 Microsoft Ajax CDN üzerinde jQuery")
+- [jQuery kullanıcı Arabirimi 1.11.4](jquery-ui/cdnjqueryui1114.md "kullanıcı Arabirimi 1.11.4 Microsoft Ajax CDN üzerinde jQuery")
+- [jQuery kullanıcı Arabirimi 1.11.3](jquery-ui/cdnjqueryui1113.md "kullanıcı Arabirimi 1.11.3 Microsoft Ajax CDN üzerinde jQuery")
+- [jQuery kullanıcı Arabirimi 1.11.2](jquery-ui/cdnjqueryui1112.md "kullanıcı Arabirimi 1.11.2 Microsoft Ajax CDN üzerinde jQuery")
+- [jQuery kullanıcı Arabirimi 1.11.1](jquery-ui/cdnjqueryui1111.md "kullanıcı Arabirimi 1.11.1 Microsoft Ajax CDN üzerinde jQuery")
+- [jQuery kullanıcı Arabirimi 1.11.0](jquery-ui/cdnjqueryui1110.md "kullanıcı Arabirimi 1.11.0 Microsoft Ajax CDN üzerinde jQuery")
+- [jQuery kullanıcı Arabirimi 1.10.4](jquery-ui/cdnjqueryui1104.md "kullanıcı Arabirimi 1.10.4 Microsoft Ajax CDN üzerinde jQuery")
+- [jQuery kullanıcı Arabirimi 1.10.3](jquery-ui/cdnjqueryui1103.md "kullanıcı Arabirimi 1.10.3 Microsoft Ajax CDN üzerinde jQuery")
+- [jQuery kullanıcı Arabirimi 1.10.2](jquery-ui/cdnjqueryui1102.md "kullanıcı Arabirimi 1.10.2 Microsoft Ajax CDN üzerinde jQuery")
+- [jQuery kullanıcı Arabirimi 1.10.1](jquery-ui/cdnjqueryui1101.md "kullanıcı Arabirimi 1.10.1 Microsoft Ajax CDN üzerinde jQuery")
+- [jQuery kullanıcı Arabirimi 1.10.0](jquery-ui/cdnjqueryui1100.md "kullanıcı Arabirimi 1.10.0 Microsoft Ajax CDN üzerinde jQuery")
+- [jQuery kullanıcı Arabirimi 1.9.2](jquery-ui/cdnjqueryui192.md "kullanıcı Arabirimi 1.9.2 Microsoft Ajax CDN üzerinde jQuery")
+- [jQuery kullanıcı Arabirimi 1.9.1](jquery-ui/cdnjqueryui191.md "kullanıcı Arabirimi 1.9.1 Microsoft Ajax CDN üzerinde jQuery")
+- [jQuery kullanıcı Arabirimi 1.9.0](jquery-ui/cdnjqueryui190.md "kullanıcı Arabirimi 1.9.0 Microsoft Ajax CDN üzerinde jQuery")
+- [jQuery kullanıcı Arabirimi 1.8.24](jquery-ui/cdnjqueryui1824.md "kullanıcı Arabirimi 1.8.24 Microsoft Ajax CDN üzerinde jQuery")
+- [jQuery kullanıcı Arabirimi 1.8.23](jquery-ui/cdnjqueryui1823.md "kullanıcı Arabirimi 1.8.23 Microsoft Ajax CDN üzerinde jQuery")
+- [jQuery kullanıcı Arabirimi 1.8.22](jquery-ui/cdnjqueryui1822.md "kullanıcı Arabirimi 1.8.22 Microsoft Ajax CDN üzerinde jQuery")
+- [jQuery kullanıcı Arabirimi 1.8.21](jquery-ui/cdnjqueryui1821.md "kullanıcı Arabirimi 1.8.21 Microsoft Ajax CDN üzerinde jQuery")
+- [jQuery kullanıcı Arabirimi 1.8.20](jquery-ui/cdnjqueryui1820.md "kullanıcı Arabirimi 1.8.20 Microsoft Ajax CDN üzerinde jQuery")
+- [jQuery kullanıcı Arabirimi 1.8.19](jquery-ui/cdnjqueryui1819.md "kullanıcı Arabirimi 1.8.19 Microsoft Ajax CDN üzerinde jQuery")
+- [jQuery kullanıcı Arabirimi 1.8.18](jquery-ui/cdnjqueryui1818.md "kullanıcı Arabirimi 1.8.18 Microsoft Ajax CDN üzerinde jQuery")
+- [jQuery kullanıcı Arabirimi 1.8.17](jquery-ui/cdnjqueryui1817.md "kullanıcı Arabirimi 1.8.17 Microsoft Ajax CDN üzerinde jQuery")
+- [jQuery kullanıcı Arabirimi 1.8.16](jquery-ui/cdnjqueryui1816.md "kullanıcı Arabirimi 1.8.16 Microsoft Ajax CDN üzerinde jQuery")
+- [jQuery kullanıcı Arabirimi 1.8.15](jquery-ui/cdnjqueryui1815.md "kullanıcı Arabirimi 1.8.15 Microsoft Ajax CDN üzerinde jQuery")
+- [jQuery kullanıcı Arabirimi 1.8.14](jquery-ui/cdnjqueryui1814.md "kullanıcı Arabirimi 1.8.14 Microsoft Ajax CDN üzerinde jQuery")
+- [jQuery kullanıcı Arabirimi 1.8.13](jquery-ui/cdnjqueryui1813.md "kullanıcı Arabirimi 1.8.13 Microsoft Ajax CDN üzerinde jQuery")
+- [jQuery kullanıcı Arabirimi 1.8.12](jquery-ui/cdnjqueryui1812.md "kullanıcı Arabirimi 1.8.12 Microsoft Ajax CDN üzerinde jQuery")
+- [jQuery kullanıcı Arabirimi 1.8.11](jquery-ui/cdnjqueryui1811.md "kullanıcı Arabirimi 1.8.11 Microsoft Ajax CDN üzerinde jQuery")
+- [jQuery kullanıcı Arabirimi 1.8.10](jquery-ui/cdnjqueryui1910.md "kullanıcı Arabirimi 1.8.10 Microsoft Ajax CDN üzerinde jQuery")
+- [jQuery kullanıcı Arabirimi 1.8.9](jquery-ui/cdnjqueryui189.md "kullanıcı Arabirimi 1.8.9 Microsoft Ajax CDN üzerinde jQuery")
+- [jQuery kullanıcı Arabirimi 1.8.8](jquery-ui/cdnjqueryui188.md "kullanıcı Arabirimi 1.8.8 Microsoft Ajax CDN üzerinde jQuery")
+- [jQuery kullanıcı Arabirimi 1.8.7](jquery-ui/cdnjqueryui187.md "kullanıcı Arabirimi 1.8.7 Microsoft Ajax CDN üzerinde jQuery")
+- [jQuery kullanıcı Arabirimi 1.8.6](jquery-ui/cdnjqueryui186.md "kullanıcı Arabirimi 1.8.6 Microsoft Ajax CDN üzerinde jQuery")
+- [jQuery kullanıcı arabirimi 1.8.5](jquery-ui/cdnjqueryui185.md "jQuery kullanıcı arabirimi 1.8.5")
 
 <a id="jQuery_Validation_Releases_on_the_CDN_3"></a>
 
-### <a name="jquery-validation-releases-on-the-cdn"></a>jQuery CDN üzerinde doğrulama sürümleri
+### <a name="jquery-validation-releases-on-the-cdn"></a>jQuery doğrulama yayınlar CDN hakkında
 
-JQuery doğrulama kitaplığı aşağıdaki sürümleri, bu CDN üzerinde barındırılır. Dosyaların gerçek listesini görmek için her bağlantıyı tıklatın.
+Bu CDN üzerinde jQuery doğrulama Kitaplığı'nın aşağıdaki sürümleri barındırılır. Dosyaların gerçek listesini görmek için her bir bağlantıya tıklayın.
 
-- [jQuery doğrulama 1.17.0](jquery-validate/cdnjqueryvalidate1170.md "jQuery doğrulama 1.17.0")
-- [jQuery doğrulama 1.16.0](jquery-validate/cdnjqueryvalidate1160.md "jQuery doğrulama 1.16.0")
-- [jQuery doğrulama 1.15.1](jquery-validate/cdnjqueryvalidate1151.md "jQuery doğrulama 1.15.1")
-- [jQuery doğrulama 1.15.0](jquery-validate/cdnjqueryvalidate1150.md "jQuery doğrulama 1.15.0")
-- [jQuery doğrulama 1.14.0](jquery-validate/cdnjqueryvalidate1140.md "jQuery doğrulama 1.14.0")
-- [jQuery doğrulama 1.13.1](jquery-validate/cdnjqueryvalidate1131.md "jQuery doğrulama 1.13.1")
-- [jQuery doğrulama 1.13.0](jquery-validate/cdnjqueryvalidate1130.md "jQuery doğrulama 1.13.0")
-- [jQuery doğrulama 1.12.0](jquery-validate/cdnjqueryvalidate1120.md "jQuery doğrulama 1.12.0")
-- [jQuery doğrulama 1.11.1](jquery-validate/cdnjqueryvalidate1111.md "jQuery doğrulama 1.11.1")
-- [jQuery doğrulama 1.11.0](jquery-validate/cdnjqueryvalidate111.md "jQuery doğrulama 1.11.0")
-- [jQuery doğrulama 1.10.0](jquery-validate/cdnjqueryvalidate110.md "jQuery doğrulama 1.10.0")
-- [jQuery doğrulama 1.9](jquery-validate/cdnjqueryvalidate19.md "jquery.validate sürüm 1.9")
-- [jQuery doğrulama 1.8.1](jquery-validate/cdnjqueryvalidate181.md "jquery.validate sürüm 1.8.1")
-- [jQuery doğrulama 1.8](jquery-validate/cdnjqueryvalidate18.md "jquery.validate sürüm 1,8")
-- [jQuery doğrulama 1.7](jquery-validate/cdnjqueryvalidate17.md "jquery.validate sürüm 1.7")
+- [jQuery doğrulama 1.17.0](jquery-validate/cdnjqueryvalidate1170.md "jQuery doğrulaması 1.17.0")
+- [jQuery doğrulama 1.16.0](jquery-validate/cdnjqueryvalidate1160.md "jQuery doğrulaması 1.16.0")
+- [jQuery doğrulama 1.15.1](jquery-validate/cdnjqueryvalidate1151.md "jQuery doğrulaması 1.15.1")
+- [jQuery doğrulama 1.15.0](jquery-validate/cdnjqueryvalidate1150.md "jQuery doğrulaması 1.15.0")
+- [jQuery doğrulama 1.14.0](jquery-validate/cdnjqueryvalidate1140.md "jQuery doğrulaması 1.14.0")
+- [jQuery doğrulama 1.13.1](jquery-validate/cdnjqueryvalidate1131.md "jQuery doğrulaması 1.13.1")
+- [jQuery doğrulama 1.13.0](jquery-validate/cdnjqueryvalidate1130.md "jQuery doğrulaması 1.13.0")
+- [jQuery doğrulama 1.12.0](jquery-validate/cdnjqueryvalidate1120.md "jQuery doğrulaması 1.12.0")
+- [jQuery doğrulama 1.11.1](jquery-validate/cdnjqueryvalidate1111.md "jQuery doğrulaması 1.11.1")
+- [jQuery doğrulama 1.11.0](jquery-validate/cdnjqueryvalidate111.md "jQuery doğrulaması 1.11.0")
+- [jQuery doğrulama 1.10.0](jquery-validate/cdnjqueryvalidate110.md "jQuery doğrulaması 1.10.0")
+- [jQuery doğrulama 1.9](jquery-validate/cdnjqueryvalidate19.md "jquery.validate sürümü 1.9")
+- [jQuery doğrulama 1.8.1](jquery-validate/cdnjqueryvalidate181.md "jquery.validate sürümü 1.8.1")
+- [jQuery doğrulama 1.8](jquery-validate/cdnjqueryvalidate18.md "jquery.validate sürümü 1.8")
+- [jQuery doğrulama 1.7](jquery-validate/cdnjqueryvalidate17.md "jquery.validate sürümü 1.7")
 - [jQuery doğrulama 1.6](jquery-validate/cdnjqueryvalidate16.md "jQuery doğrulama 1.6")
 - [jQuery doğrulama 1.5.5](jquery-validate/cdnjqueryvalidate155.md "jQuery doğrulama 1.5.5")
 
 <a id="jQuery_Mobile_Releases_on_the_CDN_4"></a>
 
-### <a name="jquery-mobile-releases-on-the-cdn"></a>jQuery Mobile sürümleri CDN üzerinde
+### <a name="jquery-mobile-releases-on-the-cdn"></a>jQuery Mobile yayınlar CDN hakkında
 
-JQuery Mobile kitaplığı aşağıdaki sürümleri, bu CDN üzerinde barındırılır. Dosyaların gerçek listesini görmek için her bağlantıyı tıklatın.
+Bu CDN üzerinde jQuery Mobile Kitaplığı'nın aşağıdaki sürümleri barındırılır. Dosyaların gerçek listesini görmek için her bir bağlantıya tıklayın.
 
-- [jQuery Mobile 1.4.5](jquery-mobile/cdnjquerymobile145.md "jQuery Mobile 1.4.5 Microsoft Ajax CDN")
-- [jQuery Mobile 1.4.2](jquery-mobile/cdnjquerymobile142.md "jQuery Mobile 1.4.2 Microsoft Ajax CDN")
-- [jQuery Mobile 1.4.1](jquery-mobile/cdnjquerymobile141.md "jQuery Mobile 1.4.1 Microsoft Ajax CDN")
-- [jQuery Mobile 1.4.0](jquery-mobile/cdnjquerymobile140.md "jQuery Mobile 1.4.0 Microsoft Ajax CDN")
-- [jQuery Mobile 1.3.2](jquery-mobile/cdnjquerymobile132.md "jQuery Mobile 1.3.2 Microsoft Ajax CDN")
-- [jQuery Mobile 1.3.1](jquery-mobile/cdnjquerymobile131.md "jQuery Mobile 1.3.1 Microsoft Ajax CDN")
-- [jQuery Mobile 1.3.0](jquery-mobile/cdnjquerymobile130.md "jQuery Mobile 1.3.0 Microsoft Ajax CDN")
-- [jQuery Mobile 1.2.0](jquery-mobile/cdnjquerymobile120.md "jQuery Mobile 1.2.0 Microsoft Ajax CDN")
-- [jQuery Mobile 1.1.2](jquery-mobile/cdnjquerymobile112.md "jQuery Mobile 1.1.2 Microsoft Ajax CDN")
-- [jQuery Mobile 1.1.1](jquery-mobile/cdnjquerymobile111.md "jQuery Mobile 1.1.1 Microsoft Ajax CDN")
-- [jQuery Mobile 1.1.0](jquery-mobile/cdnjquerymobile110.md "jQuery Mobile 1.1.0 Microsoft Ajax CDN")
-- [jQuery Mobile 1.1.0 RC 2](jquery-mobile/cdnjquerymobile110rc2.md "jQuery Mobile 1.1.0 RC2 için Microsoft Ajax CDN")
-- [jQuery Mobile 1.0.1](jquery-mobile/cdnjquerymobile101.md "jQuery Mobile 1.0.1 Microsoft Ajax CDN")
-- [jQuery Mobile 1.0](jquery-mobile/cdnjquerymobile10.md "jQuery Mobile 1.0 Microsoft Ajax CDN")
-- [jQuery Mobile 1.0 RC 2](jquery-mobile/cdnjquerymobile10rc2.md "jQuery Mobile 1.0 RC2 için Microsoft Ajax CDN üzerinde")
-- [jQuery Mobile 1.0 RC 1](jquery-mobile/cdnjquerymobile10rc1.md "jQuery Mobile 1.0 RC1 için Microsoft Ajax CDN üzerinde")
+- [jQuery Mobile 1.4.5](jquery-mobile/cdnjquerymobile145.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.4.5")
+- [jQuery Mobile 1.4.2](jquery-mobile/cdnjquerymobile142.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.4.2")
+- [jQuery Mobile 1.4.1](jquery-mobile/cdnjquerymobile141.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.4.1")
+- [jQuery Mobile 1.4.0](jquery-mobile/cdnjquerymobile140.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.4.0")
+- [jQuery Mobile 1.3.2](jquery-mobile/cdnjquerymobile132.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.3.2")
+- [jQuery Mobile 1.3.1](jquery-mobile/cdnjquerymobile131.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.3.1")
+- [jQuery Mobile 1.3.0](jquery-mobile/cdnjquerymobile130.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.3.0")
+- [jQuery Mobile 1.2.0](jquery-mobile/cdnjquerymobile120.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.2.0")
+- [jQuery Mobile 1.1.2](jquery-mobile/cdnjquerymobile112.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.1.2")
+- [jQuery Mobile 1.1.1](jquery-mobile/cdnjquerymobile111.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.1.1")
+- [jQuery Mobile 1.1.0](jquery-mobile/cdnjquerymobile110.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.1.0")
+- [jQuery Mobile 1.1.0 RC 2](jquery-mobile/cdnjquerymobile110rc2.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.1.0 RC2")
+- [jQuery Mobile 1.0.1](jquery-mobile/cdnjquerymobile101.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.0.1")
+- [jQuery Mobile 1.0](jquery-mobile/cdnjquerymobile10.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.0")
+- [jQuery Mobile 1.0 RC 2](jquery-mobile/cdnjquerymobile10rc2.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.0 RC2")
+- [jQuery Mobile 1.0 RC 1](jquery-mobile/cdnjquerymobile10rc1.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.0 RC1")
 - [jQuery Mobile 1.0 beta 3](jquery-mobile/cdnjquerymobile10b3.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.0 Beta 3")
 
 <a id="jQuery_Templates_Releases_on_the_CDN_5"></a>
 
-### <a name="jquery-templates-releases-on-the-cdn"></a>jQuery CDN üzerinde şablonları sürümleri
+### <a name="jquery-templates-releases-on-the-cdn"></a>jQuery şablonları yayınlar CDN hakkında
 
-JQuery şablonları eklentisi aşağıdaki sürümleri, bu CDN üzerinde barındırılır. Dosyaların gerçek listesini görmek için her bağlantıyı tıklatın.
+Bu CDN üzerinde jQuery şablonları eklentisi aşağıdaki sürümleri barındırılır. Dosyaların gerçek listesini görmek için her bir bağlantıya tıklayın.
 
 - [jQuery şablonları Beta 1](jquery-templates/cdnjquerytemplatesbeta1.md "jQuery şablonları Beta 1")
 
 <a id="jQuery_Cycle_Releases_on_the_CDN_6"></a>
 
-### <a name="jquery-cycle-releases-on-the-cdn"></a>jQuery CDN üzerinde döngüsü sürümleri
+### <a name="jquery-cycle-releases-on-the-cdn"></a>jQuery döngüsü yayınlar CDN hakkında
 
-JQuery döngüsü eklentisi aşağıdaki sürümleri, bu CDN üzerinde barındırılır. Dosyaların gerçek listesini görmek için her bağlantıyı tıklatın.
+Bu CDN üzerinde jQuery döngüsü eklentisi aşağıdaki sürümleri barındırılır. Dosyaların gerçek listesini görmek için her bir bağlantıya tıklayın.
 
 - [jQuery döngüsü 2.99](jquery-cycle/cdnjquerycycle299.md "jQuery döngüsü 2.99")
 - [jQuery döngüsü 2.94](jquery-cycle/cdnjquerycycle294.md "jQuery döngüsü 2.94")
@@ -668,24 +668,24 @@ JQuery döngüsü eklentisi aşağıdaki sürümleri, bu CDN üzerinde barındı
 
 <a id="jQuery_DataTables_Releases_on_the_CDN_7"></a>
 
-### <a name="jquery-datatables-releases-on-the-cdn"></a>jQuery CDN üzerinde DataTables sürümleri
+### <a name="jquery-datatables-releases-on-the-cdn"></a>DataTable yayınlar CDN üzerinde jQuery
 
-JQuery DataTables eklentisi aşağıdaki sürümleri, bu CDN üzerinde barındırılır. Dosyaların gerçek listesini görmek için her bağlantıyı tıklatın.
+Bu CDN üzerinde jQuery DataTable eklentisi aşağıdaki sürümleri barındırılır. Dosyaların gerçek listesini görmek için her bir bağlantıya tıklayın.
 
-- [jQuery DataTables 1.10.5](jquery-datatables/cdnjquerydatatables105.md "jQuery DataTables 1.10.5")
+- [jQuery DataTable 1.10.5](jquery-datatables/cdnjquerydatatables105.md "jQuery DataTable 1.10.5")
 - [jQuery DataTables 1.10.4](jquery-datatables/cdnjquerydatatables104.md "jQuery DataTables 1.10.4")
-- [jQuery DataTables 1.9.4](jquery-datatables/cdnjquerydatatables194.md "jQuery DataTables 1.9.4")
-- [jQuery DataTables 1.9.3](jquery-datatables/cdnjquerydatatables193.md "jQuery DataTables 1.9.3")
-- [jQuery DataTables 1.9.2](jquery-datatables/cdnjquerydatatables192.md "jQuery DataTables 1.9.2")
-- [jQuery DataTables 1.9.1](jquery-datatables/cdnjquerydatatables191.md "jQuery DataTables 1.9.1")
-- [jQuery DataTables 1.9.0](jquery-datatables/cdnjquerydatatables190.md "jQuery DataTables 1.9.0")
-- [jQuery DataTables 1.8.2](jquery-datatables/cdnjquerydatatables182.md "jQuery DataTables 1.8.2")
+- [jQuery DataTable 1.9.4](jquery-datatables/cdnjquerydatatables194.md "jQuery DataTable 1.9.4")
+- [jQuery DataTable 1.9.3](jquery-datatables/cdnjquerydatatables193.md "jQuery DataTable 1.9.3")
+- [jQuery DataTable 1.9.2](jquery-datatables/cdnjquerydatatables192.md "jQuery DataTable 1.9.2")
+- [jQuery DataTable 1.9.1](jquery-datatables/cdnjquerydatatables191.md "jQuery DataTable 1.9.1")
+- [jQuery DataTable 1.9.0](jquery-datatables/cdnjquerydatatables190.md "jQuery DataTable 1.9.0")
+- [jQuery DataTable 1.8.2](jquery-datatables/cdnjquerydatatables182.md "jQuery DataTable 1.8.2")
 
 <a id="Modernizr_Releases_on_the_CDN_8"></a>
 
-### <a name="modernizr-releases-on-the-cdn"></a>CDN üzerinde Modernizr sürümleri
+### <a name="modernizr-releases-on-the-cdn"></a>CDN üzerinde Modernizr yayınlar
 
-Aşağıdaki sürümleri [Modernizr](http://www.modernizr.com "Modernizr") CDN üzerinde barındırılan:
+Aşağıdaki sürümleri [Modernizr](http://www.modernizr.com "Modernizr") CDN'de barındırılan:
 
 - https://ajax.aspnetcdn.com/ajax/modernizr/modernizr-2.8.3.js
 - https://ajax.aspnetcdn.com/ajax/modernizr/modernizr-2.7.2.js
@@ -696,17 +696,17 @@ Aşağıdaki sürümleri [Modernizr](http://www.modernizr.com "Modernizr") CDN �
 
 <a id="JSHint_Releases_on_the_CDN_10"></a>
 
-### <a name="jshint-releases-on-the-cdn"></a>CDN üzerinde JSHint sürümleri
+### <a name="jshint-releases-on-the-cdn"></a>CDN üzerindeki JSHint yayınlar
 
-Aşağıdaki sürümleri [JSHint](http://www.jshint.com "JSHint") CDN üzerinde barındırılan:
+Aşağıdaki sürümleri [JSHint](http://www.jshint.com "JSHint") CDN'de barındırılan:
 
 - https://ajax.aspnetcdn.com/ajax/jshint/r07/jshint.js
 
 <a id="Knockout_Releases_on_the_CDN_11"></a>
 
-### <a name="knockout-releases-on-the-cdn"></a>CDN üzerinde Boşaltılan sürümleri
+### <a name="knockout-releases-on-the-cdn"></a>Knockout yayınlar CDN hakkında
 
-Aşağıdaki sürümleri [Boşaltılan](http://www.knockoutjs.com "Boşaltılan") CDN üzerinde barındırılan:
+Aşağıdaki sürümleri [Knockout](http://www.knockoutjs.com "Knockout") CDN'de barındırılan:
 
 - https://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js
 - https://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.debug.js
@@ -731,11 +731,11 @@ Aşağıdaki sürümleri [Boşaltılan](http://www.knockoutjs.com "Boşaltılan"
 
 <a id="Globalize_Releases_on_the_CDN_12"></a>
 
-### <a name="globalize-releases-on-the-cdn"></a>CDN üzerinde sürümleri globalize
+### <a name="globalize-releases-on-the-cdn"></a>CDN yayınlara globalize
 
-Aşağıdaki sürümleri [Globalize](https://github.com/jquery/globalize "Globalize") CDN üzerinde barındırılan:
+Aşağıdaki sürümleri [Globalize](https://github.com/jquery/globalize "Globalize") CDN'de barındırılan:
 
-#### <a name="globalize-version-100"></a>Sürümü 1.0.0 globalize
+#### <a name="globalize-version-100"></a>Sürüm 1.0.0 globalize
 
 - https://ajax.aspnetcdn.com/ajax/globalize/1.0.0/globalize.js
 - https://ajax.aspnetcdn.com/ajax/globalize/1.0.0/node-main.js
@@ -755,13 +755,13 @@ Aşağıdaki sürümleri [Globalize](https://github.com/jquery/globalize "Global
     - tüm kültürler
 - https://ajax.aspnetcdn.com/ajax/globalize/0.1.1/cultures/globalize.culture.{culture-code}.js
 
-    - "{Kodu kültür}" istenen kültürü kod ile değiştirin, örneğin globalize.culture.en GB.js== Microsoft CDN üzerinde dosyaları bu == kitaplıkları, Microsoft tarafından karşıya.
+    - "{Kodu kültüre}" istenen kültürü kod ile değiştirin, örneğin globalize.culture.en GB.js== Microsoft CDN'de dosyaları bu == kitaplıkları Microsoft tarafından karşıya yüklendi.
 
 <a id="Respond_Releases_on_the_CDN_13"></a>
 
-### <a name="respond-releases-on-the-cdn"></a>CDN üzerinde sürümleri yanıt
+### <a name="respond-releases-on-the-cdn"></a>CDN yayınlara yanıt
 
-Aşağıdaki sürümleri [ https://github.com/scottjehl/Respond ] (https://github.com/scottjehl/Respond " https://github.com/scottjehl/Respond ") yanıt CDN üzerinde barındırılan:
+Aşağıdaki sürümleri [ https://github.com/scottjehl/Respond ] (https://github.com/scottjehl/Respond " https://github.com/scottjehl/Respond ") yanıt CDN'de barındırılan:
 
 #### <a name="respond-version-142"></a>Sürüm 1.4.2 yanıt
 
@@ -784,19 +784,19 @@ Aşağıdaki sürümleri [ https://github.com/scottjehl/Respond ] (https://githu
 - https://ajax.aspnetcdn.com/ajax/respond/1.4.0/respond.matchmedia.addListener.js
 - https://ajax.aspnetcdn.com/ajax/respond/1.4.0/respond.matchmedia.addListener.min.js
 
-#### <a name="respond-version-130"></a>Sürüm 1.3.0 yanıt
+#### <a name="respond-version-130"></a>Yanıt sürüm 1.3.0
 
 - https://ajax.aspnetcdn.com/ajax/respond/1.3.0/respond.js
 
-#### <a name="respond-version-120"></a>Sürüm 1.2.0 yanıt
+#### <a name="respond-version-120"></a>Yanıt sürümü 1.2.0
 
 - https://ajax.aspnetcdn.com/ajax/respond/1.2.0/respond.js
 
 <a id="Bootstrap_Releases_on_the_CDN_14"></a>
 
-### <a name="bootstrap-releases-on-the-cdn"></a>CDN üzerinde önyükleme sürümleri
+### <a name="bootstrap-releases-on-the-cdn"></a>Önyükleme yayınlar CDN hakkında
 
-Aşağıdaki sürümleri [getbootstrap.com](http://getbootstrap.com "getbootstrap.com") önyükleme CDN üzerinde barındırılan:
+Aşağıdaki sürümleri [getbootstrap.com](http://getbootstrap.com "getbootstrap.com") bootstrap, CDN'de barındırılır:
 
 #### <a name="bootstrap-version-400"></a>Önyükleme sürüm 4.0.0
 
@@ -805,11 +805,12 @@ Aşağıdaki sürümleri [getbootstrap.com](http://getbootstrap.com "getbootstra
 - https://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/css/bootstrap.css
 - https://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/css/bootstrap.css.map
 - https://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/css/bootstrap.min.css
-- https://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/fonts/glyphicons-halflings-regular.eot
-- https://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/fonts/glyphicons-halflings-regular.svg
-- https://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/fonts/glyphicons-halflings-regular.ttf
-- https://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/fonts/glyphicons-halflings-regular.woff
-- https://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/fonts/glyphicons-halflings-regular.woff2
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/css/bootstrap-grid.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/css/bootstrap-grid.min.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/css/bootstrap-grid.css.map
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/css/bootstrap-reboot.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/css/bootstrap-reboot.min.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/css/bootstrap-reboot.css.map
 
 #### <a name="bootstrap-version-337"></a>Önyükleme sürüm 3.3.7
 
@@ -875,7 +876,7 @@ Aşağıdaki sürümleri [getbootstrap.com](http://getbootstrap.com "getbootstra
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.4/fonts/glyphicons-halflings-regular.woff
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.4/fonts/glyphicons-halflings-regular.woff2
 
-#### <a name="bootstrap-version-332"></a>Önyükleme sürüm 3.3.2
+#### <a name="bootstrap-version-332"></a>3.3.2 önyükleme sürümü
 
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.js
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js
@@ -936,7 +937,7 @@ Aşağıdaki sürümleri [getbootstrap.com](http://getbootstrap.com "getbootstra
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.2.0/fonts/glyphicons-halflings-regular.ttf
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.2.0/fonts/glyphicons-halflings-regular.woff
 
-#### <a name="bootstrap-version-311"></a>Önyükleme sürüm 3.1.1
+#### <a name="bootstrap-version-311"></a>3.1.1 önyükleme sürümü
 
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.1.1/bootstrap.js
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.1.1/bootstrap.min.js
@@ -992,7 +993,7 @@ Aşağıdaki sürümleri [getbootstrap.com](http://getbootstrap.com "getbootstra
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.0.2/fonts/glyphicons-halflings-regular.ttf
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.0.2/fonts/glyphicons-halflings-regular.woff
 
-#### <a name="bootstrap-version-301"></a>Önyükleme sürüm 3.0.1
+#### <a name="bootstrap-version-301"></a>Önyükleme 3.0.1 sürümü
 
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.0.1/bootstrap.js
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.0.1/bootstrap.min.js
@@ -1042,22 +1043,22 @@ Aşağıdaki sürümleri [getbootstrap.com](http://getbootstrap.com "getbootstra
 
 <a id="BootstrapTouchCarousel_Releases_on_the_CDN_18"></a>
 
-### <a name="bootstrap-touchcarousel-releases-on-the-cdn"></a>CDN üzerinde önyükleme TouchCarousel sürümleri
+### <a name="bootstrap-touchcarousel-releases-on-the-cdn"></a>Önyükleme TouchCarousel yayınlar CDN hakkında
 
-Aşağıdaki sürümleri [ https://github.com/ixisio/bootstrap-touch-carousel ] (https://github.com/ixisio/bootstrap-touch-carousel " https://github.com/ixisio/bootstrap-touch-carousel ") önyükleme TouchCarousel sürümleri CDN üzerinde barındırılan:
+Aşağıdaki sürümleri [ https://github.com/ixisio/bootstrap-touch-carousel ] (https://github.com/ixisio/bootstrap-touch-carousel " https://github.com/ixisio/bootstrap-touch-carousel ") önyükleme TouchCarousel yayınlar CDN'de barındırılan:
 
-#### <a name="bootstrap-touchcarousel-version-080"></a>Önyükleme TouchCarousel sürüm 0.8.0
+#### <a name="bootstrap-touchcarousel-version-080"></a>Önyükleme TouchCarousel 0.8.0 sürümü
 
 - https://ajax.aspnetcdn.com/ajax/bootstrap-touch-carousel/0.8.0/css/bootstrap-touch-carousel.css
 - https://ajax.aspnetcdn.com/ajax/bootstrap-touch-carousel/0.8.0/js/bootstrap-touch-carousel.js
 
 <a id="Hammerjs_Releases_on_the_CDN_19"></a>
 
-### <a name="hammerjs-releases-on-the-cdn"></a>CDN üzerinde Hammer.js sürümleri
+### <a name="hammerjs-releases-on-the-cdn"></a>CDN üzerinde Hammer.js yayınlar
 
-Aşağıdaki sürümleri [ http://hammerjs.github.io/ ] (http://hammerjs.github.io/ " http://hammerjs.github.io/ ") Hammer.js sürümleri CDN üzerinde barındırılan:
+Aşağıdaki sürümleri [ http://hammerjs.github.io/ ] (http://hammerjs.github.io/ " http://hammerjs.github.io/ ") Hammer.js yayınlar CDN'de barındırılan:
 
-#### <a name="hammerjs-version-204"></a>Hammer.js sürüm 2.0.4
+#### <a name="hammerjs-version-204"></a>2.0.4 Hammer.js sürümü
 
 - https://ajax.aspnetcdn.com/ajax/hammer.js/2.0.4/hammer.js
 - https://ajax.aspnetcdn.com/ajax/hammer.js/2.0.4/hammer.min.js
@@ -1065,9 +1066,9 @@ Aşağıdaki sürümleri [ http://hammerjs.github.io/ ] (http://hammerjs.github.
 
 <a id="ASPNET_Web_Forms_and_Ajax_Releases_on_the_CDN_15"></a>
 
-### <a name="aspnet-web-forms-and-ajax-releases-on-the-cdn"></a>ASP.NET Web formları ve CDN üzerinde Ajax sürümleri
+### <a name="aspnet-web-forms-and-ajax-releases-on-the-cdn"></a>ASP.NET Web Forms ve Ajax yayınlar CDN hakkında
 
-ASP.NET Ajax kitaplığı aşağıdaki sürümleri üzerinde CDN barındırılır. Dosyaların gerçek listesini görmek için her bağlantıyı tıklatın.
+ASP.NET Ajax Kitaplığı'nın aşağıdaki sürümleri, CDN'de barındırılan. Dosyaların gerçek listesini görmek için her bir bağlantıya tıklayın.
 
 - [ASP.NET Web Forms ve Ajax sürüm 4.5.2](cdnajax452.md "ASP.NET Web Forms ve Ajax 4.5.2")
 - [ASP.NET Web Forms ve Ajax sürüm 4](cdnajax4.md "ASP.NET Web Forms ve Ajax 4")
@@ -1075,9 +1076,9 @@ ASP.NET Ajax kitaplığı aşağıdaki sürümleri üzerinde CDN barındırılı
 
 <a id="ASPNET_MVC_Releases_on_the_CDN_16"></a>
 
-### <a name="aspnet-mvc-releases-on-the-cdn"></a>ASP.NET MVC üzerinde CDN serbest bırakır
+### <a name="aspnet-mvc-releases-on-the-cdn"></a>ASP.NET MVC CDN'de serbest bırakır.
 
-Aşağıdaki ASP.NET MVC JavaScript dosyaları bu CDN üzerinde barındırılan:
+Aşağıdaki ASP.NET MVC JavaScript dosyaları üzerinde bu CDN barındırılır:
 
 #### <a name="aspnet-mvc-523"></a>ASP.NET MVC 5.2.3
 
@@ -1103,8 +1104,12 @@ Aşağıdaki ASP.NET MVC JavaScript dosyaları bu CDN üzerinde barındırılan:
 
 - https://ajax.aspnetcdn.com/ajax/mvc/3.0/jquery.unobtrusive-ajax.js
 - https://ajax.aspnetcdn.com/ajax/mvc/3.0/jquery.unobtrusive-ajax.min.js
+- https://ajax.aspnetcdn.com/ajax/jquery.unobtrusive-ajax/3.2.5/jquery.unobtrusive-ajax.js
+- https://ajax.aspnetcdn.com/ajax/jquery.unobtrusive-ajax/3.2.5/jquery.unobtrusive-ajax.min.js 
 - https://ajax.aspnetcdn.com/ajax/mvc/3.0/jquery.validate.unobtrusive.js
 - https://ajax.aspnetcdn.com/ajax/mvc/3.0/jquery.validate.unobtrusive.min.js
+- https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.10/jquery.validate.unobtrusive.js 
+- https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.10/jquery.validate.unobtrusive.min.js
 - https://ajax.aspnetcdn.com/ajax/mvc/3.0/MicrosoftMvcAjax.js
 - https://ajax.aspnetcdn.com/ajax/mvc/3.0/MicrosoftMvcAjax.debug.js
 
@@ -1120,9 +1125,9 @@ Aşağıdaki ASP.NET MVC JavaScript dosyaları bu CDN üzerinde barındırılan:
 
 <a id="ASPNET_SignalR_Releases_on_the_CDN_17"></a>
 
-### <a name="aspnet-signalr-releases-on-the-cdn"></a>ASP.NET SignalR üzerinde CDN serbest bırakır
+### <a name="aspnet-signalr-releases-on-the-cdn"></a>ASP.NET SignalR CDN'de serbest bırakır.
 
-Aşağıdaki ASP.NET SignalR JavaScript dosyaları bu CDN üzerinde barındırılan:
+Aşağıdaki ASP.NET SignalR JavaScript dosyaları üzerinde bu CDN barındırılır:
 
 #### <a name="aspnet-signalr-222"></a>ASP.NET SignalR 2.2.2
 
@@ -1189,4 +1194,4 @@ Aşağıdaki ASP.NET SignalR JavaScript dosyaları bu CDN üzerinde barındırı
 - https://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-1.0.1.min.js
 - https://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-1.0.1.js
 
-CDN kullanım koşulları hakkında daha fazla bilgi için bkz: [Microsoft Ajax CDN Kullanım Koşulları'nı](https://www.asp.net/terms-of-use "Microsoft Ajax CDN Kullanım Koşulları'nı").
+CDN kullanım koşulları hakkında daha fazla bilgi için bkz: [Microsoft Ajax CDN kullanım koşulları](https://www.asp.net/terms-of-use "Microsoft Ajax CDN kullanım koşulları").
