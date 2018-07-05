@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/views/dynamic-v-strongly-typed-views
-title: Dinamik v. Görünümleri'kesin türü belirtilmiş | Microsoft Docs
+title: Dinamik ve Kesin tür belirtilmiş görünümleri | Microsoft Docs
 author: Rick-Anderson
 description: ''
 ms.author: aspnetcontent
@@ -9,41 +9,40 @@ ms.date: 01/27/2011
 ms.topic: article
 ms.assetid: 0cbd88da-0da6-4605-b222-2835c6478304
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/views/dynamic-v-strongly-typed-views
 msc.type: authoredcontent
-ms.openlocfilehash: 8a96d43e04a0a50d5176c10c26aa49918a0e56ef
-ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
+ms.openlocfilehash: 7622ca8248374da27f4190075df5a6bfc32bb2e6
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "26565533"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37389093"
 ---
-<a name="dynamic-v-strongly-typed-views"></a>Dinamik v. Kesin türü belirtilmiş görünümleri
+<a name="dynamic-v-strongly-typed-views"></a>Dinamik ve Kesin türü belirtilmiş görünümler
 ====================
-tarafından [Rick Anderson](https://github.com/Rick-Anderson)
+Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
-ASP.NET MVC 3'te bir görünüm için bir denetleyicisinden bilgi aktarmak için üç yolu vardır:
+ASP.NET MVC 3'te bir görünüm için bir denetleyiciden bilgi geçirmek için üç yolu vardır:
 
-1. Kesin türü belirtilmiş model nesnesi.
+1. Kesin olarak belirlenmiş model nesnesi.
 2. Dinamik tür olarak (kullanarak @model dinamik)
 3. Görünüm paketini kullanma
 
-Karşılaştırmak ve dinamik ve kesin türü belirtilmiş görünümleri karşıtlık için basit bir MVC 3 üst Blog uygulaması yazılmış. Denetleyici bloglar basit bir listesi ile başlar:
+Ben karşılaştırın ve dinamik ve kesin türü belirtilmiş görünümleri için basit bir MVC 3 üst Blog uygulaması yazmamış. Denetleyici basit bir listesini blogları ile başlar:
 
 [!code-csharp[Main](dynamic-v-strongly-typed-views/samples/sample1.cs)]
 
-IndexNotStonglyTyped() yönteminde sağ tıklayın ve Razor görünüm ekleyin.
+IndexNotStonglyTyped() yönteminde sağ tıklayın ve bir Razor görünüm ekleyin.
 
 [![8475.NotStronglyTypedView [1]](dynamic-v-strongly-typed-views/_static/image2.png)](dynamic-v-strongly-typed-views/_static/image1.png)
 
-Emin olun **kesin türü belirtilmiş görünüm oluşturmak** kutusu işaretli değildir. Sonuçta elde edilen görünümü çok içermiyor:
+Emin **kesin türü belirtilmiş görünüm oluşturmak** kutunun işaretli değil. Ekranda çok içermiyor:
 
 [!code-cshtml[Main](dynamic-v-strongly-typed-views/samples/sample2.cshtml)]
 
 [!code-cshtml[Main](dynamic-v-strongly-typed-views/samples/sample3.cshtml)]
 
-Biz dinamik ve kesin türü belirtilmiş görünümleri kullandığımızdan, IntelliSense bize yardımcı değil. Tamamlanan kodu aşağıda gösterilmiştir:
+Dinamik ve bir kesin türü belirtilmiş görünüm kullandığımızdan, IntelliSense bize yardımcı olmaz. Tamamlanan kodu aşağıda gösterilmiştir:
 
 [!code-cshtml[Main](dynamic-v-strongly-typed-views/samples/sample4.cshtml)]
 
@@ -54,12 +53,12 @@ Kesin türü belirtilmiş görünüm şimdi ekleyeceğiz. Denetleyici için aşa
 [!code-csharp[Main](dynamic-v-strongly-typed-views/samples/sample5.cs)]
 
 
-Tam olarak aynı dönüş View(topBlogs) olduğuna dikkat edin; olmayan-kesin türü belirtilmiş görünüm çağırın. İçinde sağ tıklayın *StonglyTypedIndex()* seçip **Görünüm Ekle**. Bu süre seçin **Blog** Model sınıfı ve seçin **listesi** İskele şablon olarak.
+Tam olarak aynı dönüş View(topBlogs) olduğuna dikkat edin; kesin olmayan türü belirtilmiş görünüm çağırın. İçine sağ tıklayın *StonglyTypedIndex()* seçip **Görünüm Ekle**. Bu süre seçin **Blog** seçin ve Model sınıfı **listesi** İskele şablon olarak.
 
 [![5658.StrongView [1]](dynamic-v-strongly-typed-views/_static/image6.png)](dynamic-v-strongly-typed-views/_static/image5.png)
 
-İçinde yeni şablonu görüntüleme IntelliSense desteği alın.
+Yeni Görünüm şablon içinde size IntelliSense desteği alın.
 
 [![7002.intellesince [1]](dynamic-v-strongly-typed-views/_static/image8.png)](dynamic-v-strongly-typed-views/_static/image7.png)
 
-C# projesinde indirilen [burada](https://blogs.msdn.com/cfs-file.ashx/__key/CommunityServer-Blogs-Components-WeblogFiles/00-00-01-11-73-SSMS/1817.Mvc3ViewDemo.zip).
+C# projesi indirilebilir [burada](https://blogs.msdn.com/cfs-file.ashx/__key/CommunityServer-Blogs-Components-WeblogFiles/00-00-01-11-73-SSMS/1817.Mvc3ViewDemo.zip).

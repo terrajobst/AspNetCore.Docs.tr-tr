@@ -1,69 +1,68 @@
 ---
 uid: web-forms/overview/presenting-and-managing-data/model-binding/sorting-paging-and-filtering-data
-title: Sıralama, disk belleği ve model bağlama ve web forms ile veri filtreleme | Microsoft Docs
+title: Sıralama, sayfalama ve model bağlama ve web forms ile verileri filtreleme | Microsoft Docs
 author: tfitzmac
-description: Bu öğretici seri model bağlama kullanarak bir ASP.NET Web Forms projesi ile temel yönlerini gösterir. Model bağlama verileri etkileşim daha fazla düz - sağlar...
+description: Bu öğretici serisinde, model bağlama kullanarak bir ASP.NET Web formları projesi ile temel yönlerini gösterir. Model bağlama veri etkileşimi daha fazla düz - sağlar...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/27/2014
 ms.topic: article
 ms.assetid: 266e7866-e327-4687-b29d-627a0925e87d
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/sorting-paging-and-filtering-data
 msc.type: authoredcontent
-ms.openlocfilehash: d63ebecadd392877e4cb1d1dffe9db2d1d231190
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 7529c811e6196327094f8f735de1bd65be76ee3a
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30885412"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37398313"
 ---
-<a name="sorting-paging-and-filtering-data-with-model-binding-and-web-forms"></a>Sıralama, disk belleği ve model bağlama ve web forms ile verileri filtreleme
+<a name="sorting-paging-and-filtering-data-with-model-binding-and-web-forms"></a>Sıralama, sayfalama ve model bağlama ve web forms ile verileri filtreleme
 ====================
-tarafından [zel FitzMacken](https://github.com/tfitzmac)
+tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
-> Bu öğretici seri model bağlama kullanarak bir ASP.NET Web Forms projesi ile temel yönlerini gösterir. Model bağlama verileri etkileşim daha düz iletme ile veri kaynağı nesneleri (örneğin, ObjectDataSource veya SqlDataSource) ilgilenme daha kolaylaştırır. Bu seri tanıtım malzemeleri ile başlar ve sonraki öğreticileri, daha gelişmiş kavramları taşır.
+> Bu öğretici serisinde, model bağlama kullanarak bir ASP.NET Web formları projesi ile temel yönlerini gösterir. Model bağlama, daha doğru verilerle ilgili kaynak nesne (örneğin, ObjectDataSource veya SqlDataSource) daha veri etkileşim sağlar. Bu seri, tanıtım malzemeleri ile başlar ve sonraki öğreticilerde için daha gelişmiş kavramlar taşır.
 > 
-> Bu öğretici, sıralama, disk belleği ve model bağlama aracılığıyla verileri filtreleme nasıl ekleneceğini gösterir.
+> Bu öğreticide, sıralama, sayfalama ve model bağlama aracılığıyla veri filtreleme nasıl ekleneceğini gösterir.
 > 
-> Bu öğretici ilk oluşturulan proje inşa edilmiştir [bölümü](retrieving-data.md) dizi.
+> Bu öğreticide oluşturduğunuz ilk proje geliştirir [bölümü](retrieving-data.md) dizi.
 > 
-> Yapabilecekleriniz [karşıdan](https://go.microsoft.com/fwlink/?LinkId=286116) C# veya vb tamamlanmış projede İndirilebilir kod, Visual Studio 2012 veya Visual Studio 2013 ile çalışır. Bu öğreticide gösterilen Visual Studio 2013 şablon biraz farklıdır Visual Studio 2012 şablonu kullanır.
+> Yapabilecekleriniz [indirme](https://go.microsoft.com/fwlink/?LinkId=286116) tam projeyi C# veya vb İndirilebilir kod, Visual Studio 2012 veya Visual Studio 2013 ile çalışır. Bu öğreticide gösterilen Visual Studio 2013 şablonundan biraz farklıdır Visual Studio 2012 şablonu kullanır.
 
 
-## <a name="what-youll-build"></a>Yapı
+## <a name="what-youll-build"></a>Derleme
 
 Bu öğreticide, gerekir:
 
-1. Sıralama ve verilerin disk belleği etkinleştir
-2. Kullanıcı tarafından seçime dayalı veri filtreleme etkinleştir
+1. Verileri sayfalama ve sıralamayı etkinleştir
+2. Kullanıcı tarafından bir seçimine göre veri filtreleme etkinleştir
 
 ## <a name="add-sorting"></a>Sıralama Ekle
 
-GridView sıralama etkinleştirme çok kolaydır. Student.aspx dosyasında sadece ayarlanan **AllowSorting** için **true** GridView içinde. Ayarlanacak gerekmez bir **SortExpression** DataField otomatik olarak kullanılan her sütun için değer. GridView sorguyu seçili değeriyle verileri sıralama içerecek şekilde değiştirir. Aşağıda vurgulanan kod sıralamayı etkinleştirmek yapmanız gereken ek gösterir.
+GridView ' ' sıralama etkinleştirmek çok kolaydır. Student.aspx dosyasında ayarlamanız yeterlidir **AllowSorting** için **true** GridView içinde. Ayarlanacak gerekmez bir **SortExpression** DataField otomatik olarak kullanılan her sütun için değer. GridView sorguyu verileri seçilen değere göre sıralama içerecek şekilde değiştirir. Aşağıdaki vurgulanmış kodu sıralamayı etkinleştirmek yapmanız gereken ek gösterir.
 
 [!code-aspx[Main](sorting-paging-and-filtering-data/samples/sample1.aspx?highlight=5)]
 
-Web uygulamasını çalıştırın ve sıralama Öğrenci kayıtlarını farklı sütunlardaki değerleri sınayın.
+Web uygulamasını çalıştırmak ve sıralama Öğrenci kayıtları farklı sütundaki değerleri sınayın.
 
 ![Sıralama öğrenciler](sorting-paging-and-filtering-data/_static/image2.png)
 
-## <a name="add-paging"></a>disk belleği ekleme
+## <a name="add-paging"></a>Sayfalama ekleme
 
-Disk belleği etkinleştirme ayrıca çok kolaydır. GridView, ayarlamak **AllowPaging** özelliğine **true** ve **PageSize** istediğiniz her bir sayfasında görüntülenecek kayıt sayısını özelliğine. Bu öğreticide, 4'e ayarlayabilirsiniz.
+Disk belleği etkinleştirme de çok kolaydır. GridView ' ayarlayın **AllowPaging** özelliğini **true** ayarlayıp **PageSize** özelliğini istediğiniz her sayfada görüntülenecek kayıt sayısı. Bu öğreticide, 4'e ayarlayabilirsiniz.
 
 [!code-aspx[Main](sorting-paging-and-filtering-data/samples/sample2.aspx?highlight=5)]
 
-Web uygulamasını çalıştırmak ve kayıtları tek bir sayfada görüntülenen en fazla 4 kayıtlarla birden çok sayfa ayrılır artık dikkat edin.
+Web uygulamasını çalıştırın ve kayıtları üzerinde birden çok sayfada tek bir sayfada görüntülenen en fazla 4 kayıtlarla ayrılır artık dikkat edin.
 
-![disk belleği ekleme](sorting-paging-and-filtering-data/_static/image4.png)
+![sayfalama ekleme](sorting-paging-and-filtering-data/_static/image4.png)
 
-Ertelenmiş sorgu yürütme uygulama verimliliğini artırır. GridView, tüm veri kümesinin alınıyor yerine, yalnızca geçerli sayfa için kayıtları almaya yönelik sorgu değiştirir.
+Ertelenen sorgu yürütme uygulama verimliliğini artırır. Tüm veri kümesini almak yerine, yalnızca geçerli sayfa için kayıtları almak için sorgu GridView değiştirir.
 
-## <a name="filter-records-by-user-selection"></a>Kullanıcı seçime göre filtre kayıtları
+## <a name="filter-records-by-user-selection"></a>Kayıtları kullanıcı seçime göre filtre uygula
 
-Model bağlama bir model bağlama yönteminde bir parametre için değer ayarlamak nasıl tanımlamanızı sağlayan birkaç öznitelik ekler. Bu öznitelikler bulunan **System.Web.ModelBinding** ad alanı. Bunlara aşağıdakiler dahildir:
+Model bağlama bir model bağlama yöntemin bir parametresinin değeri ayarlamak nasıl atamak sağlayan birkaç öznitelik ekler. Bu öznitelikler bulunan **System.Web.ModelBinding** ad alanı. Bunlara aşağıdakiler dahildir:
 
 - Denetim
 - Tanımlama bilgisi
@@ -72,35 +71,35 @@ Model bağlama bir model bağlama yönteminde bir parametre için değer ayarlam
 - QueryString
 - Routedata öğesi
 - Oturum
-- UserProfile
+- Kullanıcı profili
 - Görünüm durumu
 
-Bu öğretici kapsamında, hangi kayıtların GridView görüntüleneceğini filtrelemek için bir denetimin değeri kullanır. Ekleyeceksiniz **denetim** özniteliğine daha önce oluşturduğunuz sorgu yöntemi. İçinde bir [daha sonra](using-query-string-values-to-retrieve-data.md) öğretici, uygulanacaktır **QueryString** öznitelik parametre değeri bir sorgu dizesi değerinden geldiğini belirtmek için bir parametre.
+Bu öğreticide, bir denetimin değeri içinde GridView kayıtları filtrelemek için kullanır. Ekleyeceksiniz **denetimi** sorgu yöntemine daha önce oluşturduğunuz özniteliği. İçinde bir [daha sonra](using-query-string-values-to-retrieve-data.md) öğreticide uygulanacaktır **QueryString** parametre değeri bir sorgu dizesi değerinden geldiğini belirtmek üzere bir parametre özniteliği.
 
-İlk olarak, bir açılır listeyi filtrelemek için hangi Öğrenciler gösterilen ValidationSummary ekleyin.
+İlk olarak, ValidationSummary bir açılan listeden filtreleme için hangi Öğrenciler gösterilen ekleyin.
 
 [!code-aspx[Main](sorting-paging-and-filtering-data/samples/sample3.aspx?highlight=3-11)]
 
-Arka plan kod dosyasına denetimden bir değer almasını select yöntemini değiştirin ve parametresinin adı değeri sağlayan denetimi adına ayarlayın.
+Arka plan kod dosyasında, bir değer denetiminden almak için select yöntemi değiştirin ve parametre adı değeri sağlayan denetimin adına ayarlayın.
 
-Eklemelisiniz bir **kullanarak** bildirimi **System.Web.ModelBinding** denetim özniteliği çözümlemek için ad alanı.
+Eklemelisiniz bir **kullanarak** bildirimi **System.Web.ModelBinding** denetim özniteliği çözmek için ad alanı.
 
 [!code-csharp[Main](sorting-paging-and-filtering-data/samples/sample4.cs)]
 
-Aşağıdaki kod döndürülen verileri aşağı açılan listeden değere göre filtre uygulamak için yeniden çalışılan seçme yöntemini gösterir. Bir parametre değeri bu parametre için aynı ada sahip bir denetiminden geldiğini belirten önce bir denetim özniteliği ekleniyor.
+Aşağıdaki kod, aşağı açılan listeden değere göre döndürülen verileri filtrelemek için yeniden çalışılan select yöntemi gösterir. Bu parametre için değer aynı ada sahip bir denetimden gelen bir parametre belirtir. önce bir denetim özniteliği ekleniyor.
 
 [!code-csharp[Main](sorting-paging-and-filtering-data/samples/sample5.cs)]
 
-Web uygulamasını çalıştırın ve açılır listeden Öğrenciler listesini filtrelemek için farklı değerler seçin.
+Web uygulamasını çalıştırın ve aşağı açılan listeden Öğrenciler listesine filtre uygulamak için farklı değerler seçin.
 
 ![Filtre Öğrenciler](sorting-paging-and-filtering-data/_static/image6.png)
 
 ## <a name="conclusion"></a>Sonuç
 
-Bu öğreticide, sıralama ve verilerin sayfalama etkinleştirilir. Ayrıca verileri denetim değeriyle filtreleme etkin.
+Bu öğreticide, sıralama ve veri disk belleği etkin. Ayrıca, bir denetimin değeri tarafından verileri filtreleme etkin.
 
-Sonraki [öğretici](integrating-jquery-ui.md) dinamik veri şablonuna JQuery UI pencere öğesi tümleştirerek UI ekleyeceksiniz.
+Sonraki [öğretici](integrating-jquery-ui.md) kullanıcı arabirimini dinamik veri şablona JQuery kullanıcı Arabirimi pencere öğesi tümleştirerek ekleyeceksiniz.
 
 > [!div class="step-by-step"]
 > [Önceki](updating-deleting-and-creating-data.md)
-> [sonraki](integrating-jquery-ui.md)
+> [İleri](integrating-jquery-ui.md)

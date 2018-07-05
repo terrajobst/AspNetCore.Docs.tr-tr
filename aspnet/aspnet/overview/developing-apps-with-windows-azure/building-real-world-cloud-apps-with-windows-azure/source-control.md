@@ -1,227 +1,226 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
-title: Kaynak denetimi (Azure ile gerçek bulut uygulamaları derleme) | Microsoft Docs
+title: Kaynak denetimi (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma) | Microsoft Docs
 author: MikeWasson
-description: Yapı gerçek dünya ile bulut uygulamaları Azure e-kitap Scott Guthrie tarafından geliştirilen bir sunu temel alır. 13 desenleri ve kendisi için yöntemler açıklanmaktadır...
+description: Gerçek dünya ile bulut uygulamaları oluşturma Azure e-kitap Scott Guthrie tarafından geliştirilen bir sunuma dayalıdır. Bu, 13 desenler ve kendisi için uygulamalar açıklanmaktadır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/23/2015
 ms.topic: article
 ms.assetid: 2a0370d3-c2fb-4bf3-88b8-aad5a736c793
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
 msc.type: authoredcontent
-ms.openlocfilehash: 0022458fa89a3be7ee8303750ad0e072df3b1bab
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 12c695b65a21452fdc4a31e821854253bccec0d7
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30875701"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37368981"
 ---
-<a name="source-control-building-real-world-cloud-apps-with-azure"></a>Kaynak denetimi (Azure ile gerçek bulut uygulamaları derleme)
+<a name="source-control-building-real-world-cloud-apps-with-azure"></a>Kaynak denetimi (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma)
 ====================
-tarafından [CAN Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [zel Dykstra](https://github.com/tdykstra)
+tarafından [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
 
-[İndirme proje düzelt](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitap indirin](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
+[İndirme proje düzelt](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitabı indirin](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
-> **Yapı gerçek dünya bulut uygulamalarını Azure ile** e-kitap Scott Guthrie tarafından geliştirilen bir sunu dayanır. 13 desenleri açıklar ve yardımcı olacak yöntemler bulutu için web uygulamaları geliştirme başarılı. E-kitap hakkında daha fazla bilgi için bkz: [ilk bölüm](introduction.md).
+> **Yapı gerçek dünyaya yönelik bulut uygulamaları Azure ile** e-kitap, Scott Guthrie tarafından geliştirilen bir sunuma dayalıdır. 13 desenleri açıklar ve web uygulamaları bulut için geliştirme başarılı yardımcı olabilecek uygulamalar. E-kitabı hakkında daha fazla bilgi için bkz. [ilk bölüm](introduction.md).
 
 
-Kaynak Denetimi tüm bulut geliştirme projeleri için yalnızca takım ortamlarda önemlidir. Kaynak kodu düzenleme düşündüğünüz olmayacaktır veya bile bir Word belgesi bir geri alma işlevini ve otomatik yedeklemeler ve kaynak denetimi olmadan bir proje düzeyinde bile daha uzun bir şeyler yanlış gittiğinde kaydetmek üzere bu işlevler sağlar. Bulut kaynak denetimi Hizmetleri ile artık karmaşık kurulum hakkında endişelenmeniz gerekmez ve en fazla 5 kullanıcılar ücretsiz Visual Studio Online kaynak denetimi kullanabilirsiniz.
+Kaynak Denetimi tüm bulut geliştirme projeleri için yalnızca takım ortamları için gereklidir. Kaynak kod düzenleme düşündüğünüz mıydı veya bile bir Word belgesi bir geri alma işlevini ve otomatik yedeklemeler ve kaynak denetimi olmadan, bir şeyler yanlış gittiğinde daha fazla zaman kaydetmek üzere bir proje düzeyinde bu işlevleri sunar. Bulut kaynak denetimi hizmetleriyle artık karmaşık kurulum hakkında endişelenmeniz gerekmez ve en fazla 5 kullanıcı ücretsiz Visual Studio Online kaynak denetimini kullanabilirsiniz.
 
-Bu bölümde ilk bölümü göz önünde bulundurmanız üç anahtar en iyi uygulamalar açıklanmaktadır:
+Bu bölümün ilk bölümünü akılda tutulması gereken üç anahtar en iyi uygulamalar açıklanmaktadır:
 
-- [Kaynak kodu olarak Otomasyon betikleri kabul](#scripts) ve sürümü, uygulama kodunuzun birlikte bunları.
-- [Gizli anahtarları hiçbir zaman denetleme](#secrets) (kimlik bilgileri gibi hassas verileri) kaynak kodu havuzunda.
+- [Otomasyon betikleri kaynak kod olarak işleyin](#scripts) ve sürüm uygulama kodunuz ile bunları.
+- [Gizli dizileri hiçbir zaman denetleme](#secrets) (kimlik bilgileri gibi hassas veriler) içine kaynak kodu deposu.
 - [Kaynak dalları ayarlamak](#devops) DevOps iş akışını etkinleştirmek için.
 
-Bölümün geri kalanında bu düzenlerin Visual Studio, Azure ve Visual Studio Online bazı örnek uygulamaları sağlar:
+Bölümün geri kalanında bu desenleri Visual Studio, Azure ve Visual Studio Online'nın bazı örnek uygulamalar sunar:
 
-- [Kaynak denetimi Visual Studio komut dosyaları ekleyin](#vsscripts)
-- [Gizli verileri Azure depolama](#appsettings)
-- [Visual Studio ve Visual Studio Online kullanım Git](#gittfs)
+- [Betikleri Visual Studio kaynak denetimine Ekle](#vsscripts)
+- [Hassas verileri Azure'da Store](#appsettings)
+- [Visual Studio ve Visual Studio Team Services Git kullan](#gittfs)
 
 <a id="scripts"></a>
-## <a name="treat-automation-scripts-as-source-code"></a>Kaynak kodu olarak kabul Otomasyon betikleri
+## <a name="treat-automation-scripts-as-source-code"></a>Otomasyon betikleri kaynak kod olarak işleyin
 
-Bir bulut proje üzerinde çalışırken şeyler sık değişen ve müşteriler tarafından bildirilen sorunlar için hızlıca tepki kullanabilmek ister. Hızlı bir şekilde yanıt içerir Otomasyon betikleri kullanarak açıklandığı gibi [her şeyi otomatikleştirmek](automate-everything.md) bölüm. Ortamınızı oluşturmak için kullandığınız komut dosyalarının tümü dağıtmak üzere ölçeği onu, vb. ile uygulama kaynak kodunuzu eşitlenmiş olması gerekir.
+Bir bulut proje üzerinde çalışırken şeyler sık değiştiriyorsunuz demektir ve müşteriler tarafından bildirilen sorunları hızlı bir şekilde tepki yönetebilmek istiyorsunuz. Hızlı bir şekilde yanıt içerir Otomasyon betikleri kullanarak açıklandığı şekilde [her şeyi otomatikleştirin](automate-everything.md) bölüm. Ortamınızı oluşturmak için kullandığınız komut dosyaları dağıtmak için ölçek vs., uygulama kaynak kodu ile eşitlenmiş olması gerekir.
 
-Komut dosyaları kod ile eşitlenmiş tutmak için kaynak denetim sisteminiz depolar. Değişiklikleri geri alma veya geliştirme kodundan farklı olan üretim kodu için bir hızlı düzeltme yapmak gerekiyorsa hangi ayarları değiştirilmiş olabilir veya hangi ekip üyelerinin ihtiyacınız olan sürümü kopyalarını aşağı izlemek çalışılırken zaman kaybı gerekmez. Bu gereksinim duyduğunuz komut dosyaları, bunlar için gereksinim duyduğunuz ve tüm ekip üyeleri aynı kodlarla çalıştığınız garanti kod temeli ile senkronize yararlandığından emin. Test etme ve düzeltme üretim ya da yeni özelliği development dağıtımını otomatik hale getirmek gerekip gerekmediğini güncelleştirilmesi gereken kod için doğru komut sahip olacaksınız.
+Betikleri kod ile eşitlenmiş tutmak için kaynak denetim sisteminiz depolayın. Değişiklikleri geri alma veya geliştirme kodundan farklı üretim kodu için bir hızlı düzeltme yapmak gerekiyorsa hangi ayarları değiştirildi veya ihtiyacınız olan sürümü kopyalarını hangi takım üyelerinin olması aşağı izlemek çalışılırken zaman kaybı gerekmez. Gereksinim duyduğunuz betikleri için ihtiyaç duyduğunuz ve tüm takım üyeleri aynı komut dosyalarıyla çalışıyorsanız yararlandığından emin kod tabanı ile eşitleme halindeki yararlandığından emin. Test ve üretim ya da yeni özellik geliştirme için bir düzeltme dağıtımını otomatik hale getirmek ihtiyacınız olsun, güncelleştirilmesi gerekiyor kodu için doğru betiği sahip olacaksınız.
 
 <a id="secrets"></a>
-## <a name="dont-check-in-secrets"></a>Gizli anahtarları denetlemez
+## <a name="dont-check-in-secrets"></a>Gizli dizileri denetleme
 
-Kaynak kodu deposu, parolalar gibi hassas veriler için uygun şekilde güvenli bir yerde olması için çok fazla kişi için bu genellikle erişilebilir. Komut dosyaları parolalar gibi gizli kullanır, böylece kaynak kodunda kaydedileceği yok ve başka bir yere, parolaları depolamak bu ayarları Parametreleştirme.
+Kaynak kodu deposu, parolalar gibi hassas veriler için uygun güvenli bir yerde olması için de çok kişi genellikle erişilebilir. Betikleri parolalar gibi gizli diziler kullanır, bu ayarlar kaynak kodunda kaydedileceği yoktur ve başka bir yerde, gizli dizileri depolamak parametreleştirin.
 
-Örneğin, Azure sağlar içeren dosyaları indirme yayımlama profilleri oluşturulmasını otomatik hale getirmek için yayımlama ayarları. Bu dosyalar kullanıcı adları ve parolalar Azure hizmetlerinizi yönetmeye yetkilidir içerir. Bu kullanırsanız, yayımlama profillerini oluşturmak için yöntemi ve bu dosyaları kaynak denetimine iade ederseniz deponuza erişimi olan herkes bu kullanıcı adları ve parolalar görebilirsiniz. Güvenli parola yayımlama profili kendisi şifrelenir ve olduğundan depolayabileceğiniz bir *. pubxml.user* varsayılan kaynak denetiminde dahil edilmeyen dosyası.
+Örneğin, içeren dosyaları indirme sağlar yayımlama profilleri oluşturulmasını otomatik hale getirmek için yayımlama ayarları. Bu dosyalar, kullanıcı adları ve parolalar Azure hizmetlerinizi yönetmek üzere yetkilendirilen içerir. Bu kullanırsanız yöntemi oluşturmak için yayımlama profillerini ve bu dosyaları kaynak denetimine iade ederseniz deponuzu erişimi olan herkes bu kullanıcı adları ve parolalar görebilirsiniz. Güvenli parola yayımlama profili kendisi şifrelenir ve olduğundan depolayabileceğiniz bir *. pubxml.user* dosya, varsayılan olarak kaynak denetiminde yer almaz.
 
 <a id="devops"></a>
-## <a name="structure-source-branches-to-facilitate-devops-workflow"></a>DevOps iş akışını kolaylaştırmak için kaynak dalları yapısı
+## <a name="structure-source-branches-to-facilitate-devops-workflow"></a>DevOps iş akışı kolaylaştırmak için kaynak dal yapısı
 
-Dalları depoda yerini nasıl yapabileceğinize hem yeni özellikler geliştirmeye ve üretimde sorunları giderin yeteneğinizi etkiler. Orta çok takımlar kullanım boyutta bir desen şöyledir:
+Deponuzdaki dallar nasıl uygulayacağınıza hem yeni özellikler geliştirmek ve üretimde sorunları giderin etkiler. Çok sayıda Orta takımlar kullanım boyutta bir düzen aşağıdaki gibidir:
 
 ![Kaynak dal yapısı](source-control/_static/image1.png)
 
-Ana dala her zaman üretim kodu eşleşir. Ana altındaki dalları farklı aşamalar geliştirme yaşam döngüsü karşılık gelir. Burada yeni özellikler uygular geliştirme şube olur. Küçük bir takım için yalnızca ana ve geliştirme olabilir, ancak genellikle kişilerin geliştirme ve Yöneticisi arasında hazırlama dal olmasını öneririz. Bir güncelleştirme üretime taşınmadan önce son tümleştirme test hazırlama kullanabilirsiniz.
+Ana dal her zaman üretimde kod eşleşir. Ana altındaki dalları farklı aşamalar için geliştirme yaşam döngüsünde karşılık gelir. Burada, yeni özellikler uygulamadan geliştirme daldır. Küçük bir takımda, yalnızca ana ve geliştirme olabilir, ancak genellikle kişiler hazırlama bir dal ana geliştirme arasındaki olmasını öneririz. Hazırlama, üretim için bir güncelleştirme taşınmadan önce son tümleştirme test etmek için kullanabilirsiniz.
 
-Büyük ekipler için her yeni özellik için ayrı dalları olabilir; daha küçük bir takım için herkes geliştirme dala denetimi olabilir.
+Büyük takımlar için ayrı dallarda her yeni özellik de bulunabilir. daha küçük bir takım için herkesi geliştirme dalına iade olabilir.
 
-Özellik A hazır, birleştirme olduğunda her bir özellik için bir dalı varsa, kaynak kod değişikliklerini geliştirme içine dal ve diğer özellik dala aşağı. Birleştirme işlemi bu kaynak kodu zaman alabilir ve tutarken özellikleri ayrı çalışan önlemek için bazı ekipler olarak adlandırılan alternatif uygulamak *[özelliğini değiştirir](http://en.wikipedia.org/wiki/Feature_toggle)* (da bilinir*özellik bayrakları*). Bu, tüm özellikler için kod tümünün aynı dalda olmakla birlikte, etkinleştirme veya kodda anahtarlarını kullanarak her bir özellik devre dışı anlamına gelir. Örneğin, özellik A Düzelt uygulama görevler için yeni bir alan ve önbelleğe alma işlevselliği özellik B ekler varsayalım. Her iki özellik için kod Geliştirme dalında olabilir, ancak uygulama yalnızca görünen true ve bu değişken ayarlandığında yeni alanın yalnızca farklı değişken ayarlandığında önbelleğe alma kullanacağı true. Özellik A yükseltilmesi hazır değil, ancak özellik B hazırdır, tüm üretim koda özelliği A anahtarıyla yükseltebilirsiniz ve özellik B açın. Sonra son özellik A ve bunu daha sonra tüm hiçbir kaynak kodu birleştirme ile yükseltin.
+Özellik A hazır, birleştirme olduğunda her bir özellik için bir dal varsa, kaynak kodu değişiklikleri geliştirme dalı ve diğer özellik dalları aşağı. Bu kaynak kodu birleştirme işlemi uzun sürebilir ve tutarken özellikler ayrı çalışan önlemek için bazı takımlar olarak adlandırılan alternatif uygulama *[özelliğini değiştirir](http://en.wikipedia.org/wiki/Feature_toggle)* (da bilinir*özellik bayrakları*). Bu, tüm özellikler için kodun tümü aynı dala olmakla birlikte, etkinleştirme veya kodda anahtarlar kullanarak her bir özellik devre dışı anlamına gelir. Örneğin, özellik A Düzelt uygulama görevleri için yeni bir alandır ve özellik B önbelleğe alma işlevsellik ekler varsayalım. Her iki özellik için kod Geliştirme dalında olabilir, ancak uygulama olacak yalnızca görünen yeni alan true ve bu değişken ayarlandığında yalnızca farklı değişken ayarlandığında önbelleğe alma kullanacak true. Özellik A yükseltilecek hazır değil, ancak özellik B hazır, tüm kod üretim özellik A anahtarıyla yükseltebilirsiniz ve özellik B açın. Son özellik A ve bunu daha sonra tüm hiçbir kaynak kod birleştirme ile yükseltin.
 
-Özellikleri dalları veya değiştirme düğmelerini kullanın ya da kullanmayın, böyle bir dallanma yapısı üretime geliştirme kodunuzdan Çevik ve tekrarlanabilir bir yolla akış sağlar.
+Özellikleri için dalları veya değiştirir kullanıp kullanmamanızdan, bunun gibi dallanan bir yapı, Çevik ve tekrarlanabilir bir şekilde kodunuzu geliştirmeden üretime akış olanak tanır.
 
-Bu yapı müşteri geri bildirimi hızlıca tepki sağlar. Üretim için bir hızlı düzeltme yapmanız gerekirse, bunu da verimli bir şekilde Çevik bir şekilde yapabilirsiniz. Bir dal asıl veya hazırlama dışına oluşturabilirsiniz ve hazır olduğunda Master'a yukarı birleştirme ve aşağı geliştirme ve özellik dalları içine.
+Bu yapı Ayrıca, müşteri geri bildirimlerini hızlı bir şekilde tepki vermek sağlar. Üretim için bir hızlı düzeltme yapmanız gerekirse, bunu da verimli bir şekilde Çevik bir şekilde yapabilirsiniz. Bir dal ana ya da hazırlık dışına oluşturabilirsiniz ve hazır olduğunda, ana dala yukarı birleştirme ve aşağı halinde geliştirme ve özellik dalları.
 
-![Düzeltme şube](source-control/_static/image2.png)
+![Düzeltme dal](source-control/_static/image2.png)
 
-Bir dallanma yapısıyla bu gibi kendi üretim ve geliştirme dalları ayrılması, bir üretim sorunu, bir üretim düzeltme yanı sıra yeni özellik kodu yükseltmek kullanılmasının konumda koyabilirsiniz. Yeni özellik kodu tam olarak test edilmiş ve hazır üretim olmayabilir ve hazır değil değişiklikleri yedekleme iş çok yapmak zorunda kalabilirsiniz. Veya değişiklikleri test ve bunları dağıtmak hazır hale getirmek için düzeltme gecikme olabilir.
+Bir dallandırma yapısını bu gibi üretim ve geliştirme dalı, kendi ayırma ile bir üretim sorun, üretim düzeltmenizi birlikte yeni bir özellik kod yükseltmek zorunda konuma yerleştirebilirsiniz. Yeni özellik kodu tam olarak test edilmiş ve kullanıma hazır hale üretim olmayabilir ve birçok iş hazır olmayan değişiklikleri yedekleme yapmak zorunda kalabilirsiniz. Veya düzeltmenizi değişiklikleri test etmek ve dağıtmak hazırlanma için gecikme olabilir.
 
-Sonraki Visual Studio, Azure ve Visual Studio Online bu üç desenleri uygulamak örnekler görürsünüz. Ayrıntılı adım adım how-to--BT yönergeler yerine örnekler şunlardır; Tüm gerekli içeriği sağlayın ayrıntılı yönergeler için bkz: [kaynakları](#resources) bölümün sonunda bölüm.
+Sonra Visual Studio, Azure ve Visual Studio Online bu üç desenleri uygulamak örnekler göreceksiniz. Ayrıntılı yardım-How-to--BT yönergeler yerine örnekler şunlardır; Tüm gerekli içeriği sağlayan ayrıntılı yönergeler için bkz. [kaynakları](#resources) bölümün sonuna bölümü.
 
 <a id="vsscripts"></a>
-## <a name="add-scripts-to-source-control-in-visual-studio"></a>Kaynak denetimi Visual Studio komut dosyaları ekleyin
+## <a name="add-scripts-to-source-control-in-visual-studio"></a>Betikleri Visual Studio kaynak denetimine Ekle
 
-(Kaynak denetiminde projenizi olduğunu varsayarak) Visual Studio Çözüm klasörü ekleyerek kaynak denetimine Visual Studio komut dosyaları ekleyebilirsiniz. Bunu yapmanın bir yolu burada verilmiştir.
+Bir Visual Studio Çözüm klasörü (kaynak denetiminde projenizin olduğunu varsayarak) ekleyerek Visual Studio kaynak denetimine komut dosyaları ekleyebilirsiniz. Bunu yapmanın bir yolu aşağıda verilmiştir.
 
-Çözüm klasörünüzdeki komut dosyaları için bir klasör oluşturun (olan aynı klasörü, *.sln* dosyası).
+Çözüm klasörünüz komut dosyaları için bir klasör oluşturun (olan aynı klasörü, *.sln* dosyası).
 
 ![Otomasyon klasörü](source-control/_static/image3.png)
 
-Komut dosyalarını klasörüne kopyalayın.
+Komut dosyaları klasöre kopyalayın.
 
-![Otomasyon klasör içeriklerini](source-control/_static/image4.png)
+![Otomasyon klasör içeriği](source-control/_static/image4.png)
 
-Visual Studio'da Çözüm klasörü projeye ekleyin.
+Visual Studio'da bir çözüm klasörü projeye ekleyin.
 
 ![Yeni Çözüm klasörü menü seçimi](source-control/_static/image5.png)
 
 Ve çözüm klasörüne komut dosyalarını ekleyin.
 
-![Varolan öğeyi menü seçimi Ekle](source-control/_static/image6.png)
+![Menü seçimini Varolan Öğe Ekle](source-control/_static/image6.png)
 
-![Var olan öğe Ekle iletişim kutusu](source-control/_static/image7.png)
+![Varolan Öğe Ekle iletişim kutusu](source-control/_static/image7.png)
 
-Komut dosyalarını projenizde şimdi bulunur ve kaynak denetimi karşılık gelen kaynak kod değişiklikleri birlikte bunların sürüm değişiklikleri izleme.
+Komut dosyaları artık projenize eklenir ve kaynak denetimi sürümü değişikliklerini karşılık gelen kaynak kodu değişiklikleri birlikte izlemektir.
 
 <a id="appsettings"></a>
-## <a name="store-sensitive-data-in-azure"></a>Gizli verileri Azure depolama
+## <a name="store-sensitive-data-in-azure"></a>Hassas verileri Azure'da Store
 
-Uygulamanız bir Azure Web sitesinde çalıştırırsanız, kaynak denetiminde kimlik bilgilerini depolama önlemek için bir Azure yerine depolamaya yoludur.
+Uygulamanızı bir Azure Web sitesinde çalıştırırsanız, kimlik bilgilerinin kaynak denetiminde depolanmasını önlemek için bir bunun yerine Azure'a depolamak için yoludur.
 
-Örneğin, düzeltme uygulama parolaları, ürün ve Azure depolama hesabınıza erişim sağlayan bir anahtarı olan kendi Web.config dosyası iki bağlantı dizeleri depolar.
+Örneğin, düzeltme uygulama parolaları, ürün ve Azure depolama hesabınıza erişim sağlayan bir anahtarı olan, Web.config dosyasını iki bağlantı dizesi depolar.
 
 [!code-xml[Main](source-control/samples/sample1.xml?highlight=2-3,11)]
 
-Bu ayarlar için gerçek üretim değerleri moduna geçirilirse, *Web.config* dosyası veya bunları içine *Web.Release.config* dağıtımı sırasında eklemek için Web.config dönüştürmesi yapılandırmak için bir dosya Bunlar kaynak deposunda depolanması. Veritabanı bağlantı dizelerini üretime girerseniz, yayımlama profili, parola olacaktır, *.pubxml* dosya. (Dışlama *.pubxml* dosyası kaynak denetiminden ancak, diğer tüm dağıtım ayarları paylaşımı yararı kaybetmeniz.)
+Bu ayarları için gerçek üretim değerleri'put, *Web.config* dosyası veya bunları içine girdiğiniz *Web.Release.config* dağıtımı sırasında eklenecek bir Web.config dönüşümü yapılandırmak için bir dosya Bunlar kaynak depoda saklanan. Veritabanı bağlantı dizelerini üretime girerseniz, yayımlama profilini, parola olacaktır, *.pubxml* dosya. (Dışlama *.pubxml* dosyası kaynak denetiminden, ancak daha sonra diğer tüm dağıtım ayarları paylaşımı avantajı kaybedersiniz.)
 
-Azure için bir alternatif sunar **appSettings** ve bağlantı dizeleri bölümlerini *Web.config* dosya. İlgili bölümü işte **yapılandırma** sekmesini Azure Yönetim Portalı'nda bir web sitesi için:
+Azure için bir alternatif sunar **appSettings** ve bağlantı dizeleri bölümlerini *Web.config* dosya. İlgili bölümü işte **yapılandırma** Azure Yönetim Portalı'nda bir web sitesi için sekmesinde:
 
 ![appSettings ve Portalı'nda connectionStrings](source-control/_static/image8.png)
 
-Bu web sitesi ve uygulama çalıştığında bir projeyi dağıttığınızda, Web.config dosyasında ne olursa olsun değerlerdir Azure'da depoladığınız ne olursa olsun değerlerini geçersiz kılar.
+Bu web sitesi ve uygulama çalıştığında bir proje dağıtma, Azure'da depoladığınız hangi değerleri ne olursa olsun değerler Web.config dosyasında geçersiz kılar.
 
-Yönetim Portalı ya da komut dosyaları kullanarak Azure'da bu değerleri ayarlayabilirsiniz. İçinde gördüğünüz ortamı oluşturma Otomasyon betiğini [her şeyi otomatikleştirmek](automate-everything.md) bölüm bir Azure SQL veritabanı oluşturur, depolama ve SQL veritabanı bağlantı dizelerini alır ve bu Sırları web siteniz için ayarları depolar.
+Yönetim Portalı veya komut dosyaları kullanarak Azure'da bu değerleri ayarlayabilirsiniz. Ortam oluşturma Otomasyon betiği, gördüğünüz [her şeyi otomatikleştirin](automate-everything.md) bölüm bir Azure SQL veritabanı oluşturur, depolama ve SQL veritabanı bağlantı dizelerini alır ve ayarlar web siteniz için gizli dizileri depolar.
 
 [!code-powershell[Main](source-control/samples/sample2.ps1)]
 
 [!code-powershell[Main](source-control/samples/sample3.ps1)]
 
-Böylece gerçek değerler için kaynak deposu kalıcı yoktur, betikler parametreli dikkat edin.
+Böylece gerçek değerler için kaynak deposu kalıcı yoksa, komut dosyaları parametreli dikkat edin.
 
-Geliştirme ortamınızı yerel olarak çalıştırdığınızda, uygulama yerel Web.config dosyanızın bağlantınızı bir yerel veritabanı SQL Server veritabanında dize noktalarına okur ve *uygulama\_veri* web projenizin klasör. Uygulamayı Azure'da çalıştırdığınızda ve uygulama bu değerleri Web.config dosyasını okumaya çalışır ne geri alır ve kullanır ne gerçekte Web.config dosyasında değil Web sitesi için depolanan değerleri şunlardır.
+Yerel olarak geliştirme ortamınızda çalıştırdığınızda, uygulamayı yerel Web.config dosyanızı ve bağlantı dizesi bir SQL Server LocalDB veritabanına işaret okur *uygulama\_veri* web projenizin klasör. Uygulamasını Azure'da çalıştırmak ve uygulamanın Web.config dosyasından bu değerleri okumaya çalışır ne geri alır ve kullandığı konusunda ne gerçekten Web.config dosyasında değil Web sitesi için depolanan değerleri.
 
 <a id="gittfs"></a>
-## <a name="use-git-in-visual-studio-and-visual-studio-online"></a>Visual Studio ve Visual Studio Online kullanım Git
+## <a name="use-git-in-visual-studio-and-visual-studio-online"></a>Visual Studio ve Visual Studio Team Services Git kullan
 
-Daha önce sunulan DevOps dallanma yapısı uygulamak için herhangi bir kaynak denetimi ortam kullanabilirsiniz. Dağıtılmış takımlar için bir [dağıtılmış sürüm denetim sistemi](http://en.wikipedia.org/wiki/Distributed_revision_control) (DVCS) iş en iyi; diğer ekipler için bir [Merkezi sistem](http://en.wikipedia.org/wiki/Revision_control) daha iyi çalışabilir.
+Herhangi bir kaynak denetimi ortam, daha önce sunulan DevOps dallandırma yapısını yürütmek için kullanabilirsiniz. Dağıtılmış ekiplerin bir [dağıtılmış sürüm denetim sistemi](http://en.wikipedia.org/wiki/Distributed_revision_control) (DVCS) en iyi şekilde çalışabilir; diğer takımlar için bir [Merkezi sistem](http://en.wikipedia.org/wiki/Revision_control) daha iyi çalışabilir.
 
-[Git](http://git-scm.com/) olan bir DVCS çok popüler duruma olduğu. Kaynak denetimi için Git kullandığınızda, yerel bilgisayarınızda tüm geçmişiyle deposuyla eksiksiz bir kopyasına sahip. Birçok kişi daha kolay olduğundan ağa bağlı değilseniz--görevlerini gerçekleştirmeye devam edebilir, çalışmaya devam etmek için kaydeder ve geri almaların, oluşturma ve dalları geçin ve benzeri olduğunu tercih eder. Hatta ağa bağlı değilseniz, daha kolay ve hızlı dalları oluşturmak ve her şeyin yerel olduğunda dalları geçiş yapmak. Yerel işlemeleri ve geri almaların diğer geliştiriciler üzerinde bir etkisi olmadan da yapabilirsiniz. Ve sunucuya göndermeden önce işlemeleri toplu.
+[Git](http://git-scm.com/) olan bir DVCS duruma çok popüler olduğundan. Kaynak denetimi için Git kullandığınızda, yerel bilgisayarınızda deponun tüm geçmişiyle birlikte eksiksiz bir kopyasına sahip. Çoğu kişi daha kolay olduğundan, ağa bağlı değilsiniz--görevlerini gerçekleştirmeye devam edebilir, çalışmaya devam etmek için işleme ve geri almaların, oluşturma ve dallar arasında geçiş vb., tercih eder. Ağa bağlı olmasanız bile, daha kolay ve hızlı dalları oluşturmak ve her şeyin yerel olduğunda dallar arasında geçiş. Diğer geliştiriciler bir etkisi olmadan yerel işlemeleri ve geri alma işlemleri de yapabilirsiniz. Ve bunları server için göndermeden önce işlemeler toplu iş.
 
-[Microsoft Visual Studio Online](https://www.visualstudio.com/)(VSO), önceden Team Foundation Service, olarak bilinen sunar hem Git ve [Team Foundation sürüm denetimi](https://msdn.microsoft.com/library/ms181237(v=vs.120).aspx) (TFVC'yi; merkezi kaynak denetimi). Burada Microsoft Azure grubundaki bazı ekipler merkezi kaynak denetimi, dağıtılmış, bazı kullanın ve bazı (bazı projeler için merkezi ve diğer projeler için Dağıtılmış) bir karışımını kullanın. En fazla 5 kullanıcılar için ücretsiz VSO hizmetidir. Ücretsiz bir plandan için kaydolabilirsiniz [burada](https://go.microsoft.com/fwlink/?LinkId=307137).
+[Microsoft Visual Studio Online](https://www.visualstudio.com/)(VSO), eski adıyla Team Foundation Hizmeti bilinen hem Git sunar ve [Team Foundation sürüm denetimi](https://msdn.microsoft.com/library/ms181237(v=vs.120).aspx) (TFVC; merkezi kaynak denetimi). Burada Microsoft Azure grubundaki bazı ekipler merkezi kaynak denetimi, dağıtılmış, bazı kullanın ve bazı (bazı projeler için merkezi ve diğer projelere dağıtılmış) bir karışımını kullanın. En fazla 5 kullanıcı için ücretsiz VSO hizmetidir. Ücretsiz bir plan için kaydolabilirsiniz [burada](https://go.microsoft.com/fwlink/?LinkId=307137).
 
-Visual Studio 2013 içeren yerleşik birinci sınıf [Git desteğini](https://msdn.microsoft.com/library/hh850437.aspx); hızlı İşte, nasıl çalıştığını demo.
+Visual Studio 2013, birinci sınıf yerleşik içerir [Git desteği](https://msdn.microsoft.com/library/hh850437.aspx); hızlı İşte nasıl çalıştığını, tanıtım.
 
-Proje Visual Studio 2013'te açık çözümde sağ **Çözüm Gezgini**ve seçin **kaynak denetimine Çözüm Ekle**.
+Proje Visual Studio 2013'te açık çözüme sağ **Çözüm Gezgini**ve **kaynak denetimine Çözüm Ekle**.
 
 ![Kaynak Denetimine Çözüm Ekle](source-control/_static/image9.png)
 
-Visual Studio TFVC'yi (merkezi sürüm denetimi) veya Git kullanmak isteyip istemediğinizi sorar.
+Visual Studio (merkezi sürüm denetimi) TFVC veya Git kullanmak isteyip istemediğinizi sorar.
 
-![Kaynak denetimi seçin](source-control/_static/image10.png)
+![Kaynak Denetimi Seç](source-control/_static/image10.png)
 
-Ne zaman Git seçin ve tıklatın **Tamam**, Visual Studio çözüm klasöründe yeni bir yerel Git deposu oluşturur. Yeni bir havuz henüz hiç dosya yok; bunları depoya Git işleme yaparak eklemeniz gerekir. Çözüme sağ **Çözüm Gezgini**ve ardından **yürütme**.
+Ne zaman Git seçin ve tıklayın **Tamam**, Visual Studio çözüm klasörünüzde yeni yerel Git deposu oluşturur. Yeni depo henüz hiç dosya yok; Git işleme yaparak depoya eklemeniz gerekir. Çözüme sağ **Çözüm Gezgini**ve ardından **işleme**.
 
-![Tamamlama](source-control/_static/image11.png)
+![İşleme](source-control/_static/image11.png)
 
-Visual Studio otomatik olarak yürütülmesi için proje dosyalarının tümünü aşamaları ve bunları listeler **Takım Gezgini** içinde **dahil edilen değişiklikler** bölmesi. (Varsa bazı kaydetmedi yürütmede dahil etmek istediğiniz, bunları seçebilirsiniz sağ tıklayın ve ardından tıklatın **hariç**.)
+Visual Studio otomatik olarak tüm proje dosyaları işleme için aşamaları ve bunları listeler **Takım Gezgini** içinde **dahil edilen değişiklikler** bölmesi. (Varsa bazı yaramadı kaydetme işlemine dahil etmek istediğiniz, bunları seçebilirsiniz sağ tıklatın seçeneğine tıklayıp **hariç**.)
 
 ![Ekip Gezgini](source-control/_static/image12.png)
 
-Yürütme yorum girip __iade **tamamlama**, Visual Studio yürütme yürütür ve yürütme kimliği görüntüler
+İşleme yorum girip __iade **işleme**, Visual Studio işleme yürütür ve işleme kimliği görüntüler
 
 ![Takım Gezgini değişiklikleri](source-control/_static/image13.png)
 
-Artık böylece ne depoya farklı biraz kod değiştirirseniz, farklar kolayca görüntüleyebilirsiniz. Sağ değiştirdiyseniz, bir dosya seçin **Unmodified ile karşılaştırmak**, ve kaydedilmemiş değişikliklerinizi gösterir karşılaştırma görüntü alın.
+Şimdi bazı kod değiştirirseniz, böylece hangi havuzda farklı farkları kolayca görüntüleyebilirsiniz. Sağ tıklama değiştirdiğinizi, bir dosya seçin **Unmodified ile karşılaştırma**, işlenmemiş değişikliğiniz gösteren bir karşılaştırma görüntü alın.
 
-![Değiştirilmemiş ile karşılaştırın](source-control/_static/image14.png)
+![Değiştirilmemişle Karşılaştır](source-control/_static/image14.png)
 
-![Diff gösteren değişiklikleri](source-control/_static/image15.png)
+![Fark gösteren değişiklikleri](source-control/_static/image15.png)
 
-Kolayca yapıyorsanız ve iade etme hangi değişiklikleri görebilirsiniz.
+Hangi değişiklik yapıyorsanız ve bunları iade kolayca görebilirsiniz.
 
-Bir dal yapmanız –, Visual Studio'da çok yapabilirsiniz varsayalım. İçinde **Takım Gezgini**, tıklatın **dalı**.
+Bir dal – yapmanız varsayalım Visual Studio'da çok bunu yapabilirsiniz. İçinde **Takım Gezgini**, tıklayın **yeni dal**.
 
-![Takım Gezgini dalı](source-control/_static/image16.png)
+![Takım Gezgini yeni dal](source-control/_static/image16.png)
 
-Bir dal adı girin, tıklatın **oluşturma şube**, ve seçtiyseniz, **Checkout şube**, Visual Studio dalı otomatik olarak denetler.
+Dal adı girin, tıklayın **dal oluşturma**, ve seçtiyseniz **dalı Kullanıma Al**, Visual Studio otomatik olarak yeni bir dalı kullanıma denetler.
 
-![Takım Gezgini dalı](source-control/_static/image17.png)
+![Takım Gezgini yeni dal](source-control/_static/image17.png)
 
-Şimdi dosyalara değişiklikleri yapın ve bu dala iade etme. Ve kolayca dalları ve Visual Studio arasında otomatik olarak hangisi dal dosyaları kullanıma eşitlemeler geçiş yapabilirsiniz. Bu örnekte, web sayfası başlık olarak  *\_Layout.cshtml* "Sıcak düzeltme 1" HotFix1 dala değiştirildi.
+Şimdi, dosyalarda değişiklik yapmadan ve bu dala iade. Ve kolayca dallar arasında Visual Studio otomatik olarak hangi dalda dosyaları kullanıma aldığınız eşitlemeler geçiş yapabilirsiniz. Bu örnekte, web sayfası başlık olarak  *\_Layout.cshtml* "Sık erişimli düzeltme 1" HotFix1 dala değiştirildi.
 
 ![Hotfix1 dal](source-control/_static/image18.png)
 
-Asıl geri geçiş yaparsanız dal, içeriğini  *\_Layout.cshtml* dosyası otomatik olarak geri döndürüyoruz ne ana dala oldukları için.
+Ana dala geçiş yaparsanız dal, içeriğini  *\_Layout.cshtml* dosya otomatik olarak geri ana dalda nedir için.
 
 ![Ana dal](source-control/_static/image19.png)
 
-Bu basit bir örnek nasıl hızlı bir şekilde bir dal oluşturun ve dallar arasında ileri ve geri çevir. Bu özellik dal yapısını kullanarak bir yüksek oranda Çevik iş akışı sağlar ve Otomasyon betikleri sunulan [her şeyi otomatikleştirmek](automate-everything.md) bölüm. Örneğin, olabilir Geliştirme dalında çalışma, ana dışına düzeltme dal oluşturun, geçiş yeni dala, var. istediğiniz değişiklikleri yapın ve bunları yürütmek ve geliştirme dala geçiş ve yaptığınız işe devam.
+Bu basit bir örneğini nasıl hızlı bir şekilde bir dal oluşturabilir ve dallar arasında ileri ve geri çevir. Bu özellik, dal yapısını kullanarak yüksek oranda Çevik bir iş akışı sağlar ve Otomasyon betikleri kısmında sunulmuştur [her şeyi otomatikleştirin](automate-everything.md) bölüm. Örneğin, olabilir Geliştirme dalında çalışmaya, ana dışına düzeltme dal oluşturma, yeni dala geçiş, değişiklikleriniz var. olmak bunları işleyin ve ardından geliştirme dala geçiş ve yaptığınız işe devam.
 
-Ne Burada gördüğünüz Visual Studio'da yerel bir Git deposu ile nasıl çalıştığıyla olur. Bir ekip ortamında, genellikle aynı zamanda değişiklikleri için ortak bir depo iletin. Visual Studio Araçları uzak bir Git deposuna noktası sağlar. Bu amaç için Github.com'u kullanabilir veya kullanabileceğiniz [Visual Studio Online Git](https://msdn.microsoft.com/library/hh850437.aspx) tüm diğer Visual Studio Online özelliklerine sahip iş öğesi ve hata izleme gibi tümleşik.
+Ne Burada gördüğünüz, Visual Studio'da yerel bir Git deposu ile nasıl çalıştığıyla olur. Bir ekip ortamında, genellikle de değişiklikleri bir ortak depoya. Visual Studio Araçları da uzak bir Git deposuna işaret edecek şekilde etkinleştirin. Bu amaçla GitHub.com kullanabilir veya kullanabileceğiniz [Visual Studio Online'da Git](https://msdn.microsoft.com/library/hh850437.aspx) tüm diğer Visual Studio Online özelliklerine sahip iş öğesi ve hata izleme gibi tümleşik.
 
-Çevik bir dallanma stratejisi Elbette uygulayabilirsiniz tek yolu değil. Merkezi kaynak denetimi deponuza kullanarak aynı Çevik iş akışı etkinleştirebilirsiniz.
+Bu, Çevik bir dallanma stratejisi Elbette uygulayabileceğiniz tek yolu değildir. Merkezi kaynak denetim deposu ile aynı Çevik iş akışlarının etkinleştirebilirsiniz.
 
 ## <a name="summary"></a>Özet
 
-Değişiklik ve güvenli ve tahmin edilebilir bir yolla Canlı Al ne kadar hızlı göre kaynak denetim sisteminiz başarısını ölçün. Kendinizi günde bir veya iki üzerinde el ile test etme yapmak zorunda olduğundan değişiklik yapmak Korkmuş bulursanız, dakika veya en kötü artık bir saatten daha değişiklik yapabilen process-wise veya test-wise yapmanız gereken kendinize sorun. Sürekli tümleştirme ve şu konulara değineceğiz kesintisiz teslim uygulamak için bunu yönelik bir strateji olan [sonraki bölümde](continuous-integration-and-continuous-delivery.md).
+Kaynak denetimi sisteminiz ne kadar hızlı bir değişiklik yapın ve güvenli ve öngörülebilir bir şekilde Canlı alma göre başarısını ölçün. Kendiniz çünkü bir veya iki üzerinde el ile test etme, gün yapmanız gereken değişiklik Korkmuş görürseniz, dakika veya en kötü artık bir saatten daha yüksek bir değişikliği yapmanızı sağlayan process-wise veya test-wise yapmak zorunda kendiniz isteyebilir. Sürekli tümleştirme ve sürekli teslim, şu konulara değineceğiz uygulamak için bunu bir strateji olduğunu [sonraki bölümde](continuous-integration-and-continuous-delivery.md).
 
 <a id="resources"></a>
 ## <a name="resources"></a>Kaynaklar
 
-[Visual Studio Online](https://www.visualstudio.com/) portal, belgeler ve Destek Hizmetleri sağlar ve bir hesap için kaydolabilirsiniz. Visual Studio 2012 sahip ve Git kullanmak istiyorsanız, bkz: [Git için Visual Studio Araçları](https://visualstudiogallery.msdn.microsoft.com/abafc7d6-dcaa-40f4-8a5e-d6724bdb980c).
+[Visual Studio Online](https://www.visualstudio.com/) portal, belgeler ve Destek Hizmetleri sağlar ve bir hesap için kaydolabilirsiniz. Visual Studio 2012 yüklü ve Git kullanmak istiyorsanız, bkz. [Git için Visual Studio Araçları](https://visualstudiogallery.msdn.microsoft.com/abafc7d6-dcaa-40f4-8a5e-d6724bdb980c).
 
-TFVC'yi (merkezi sürüm denetimi) ve Git (dağıtılmış sürüm denetim) hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
+(Merkezi sürüm denetimi) TFVC ve Git (dağıtılmış sürüm denetimi) hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [Hangi sürüm denetimi sistemini kullanmalıyım: TFVC'yi veya Git?](https://msdn.microsoft.com/library/vstudio/ms181368.aspx#tfvc_or_git_summary) MSDN belgelerine TFVC'yi ve Git arasındaki farklar özetlemeye tablo içerir.
-- [İyi, Team Foundation Server ister ve Git istiyor, ancak daha iyi olduğu?](https://blogs.msdn.com/b/visualstudiouk/archive/2013/08/05/well-i-like-team-foundation-server-and-i-like-git-but-which-is-better.aspx) Git ve TFVC'yi karşılaştırması.
+- [Hangi sürüm denetimi sistemini kullanmalıyım: TFVC veya Git?](https://msdn.microsoft.com/library/vstudio/ms181368.aspx#tfvc_or_git_summary) MSDN belgeleri, TFVC ve Git arasındaki farklar özetleyen bir tablo içerir.
+- [İyi istiyorum Team Foundation Server ve Git istiyorum, ancak daha iyi olduğu?](https://blogs.msdn.com/b/visualstudiouk/archive/2013/08/05/well-i-like-team-foundation-server-and-i-like-git-but-which-is-better.aspx) Git ve TFVC karşılaştırması.
 
-Dallara ayırma stratejileri hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
+Dallanma stratejisi hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [Team Foundation Server 2012 ile yayın işlem hattı oluşturma](https://msdn.microsoft.com/library/dn449957.aspx). Microsoft Patterns and Practices belgeleri. Bölüm 6 dallanma stratejileri bir tartışma için bkz. WYSIWG özelliği özelliği dallar arasında geçiş yapar ve özellikler için dalları kullandıysanız, bunları kısa süreli (saatlerce veya günlerce en çok) tutma savunan.
-- [Sürüm denetimi kılavuzu](https://aka.ms/vsarsolutions). Dallara ayırma stratejileri tarafından ALM Rangers yol. Dal oluşturma Strategies.pdf yüklemeleri sekmesinde bakın.
-- [Özellik değiştirme düğmelerini ile yazılım geliştirme](https://msdn.microsoft.com/magazine/dn683796.aspx). MSDN dergisi makalesi.
-- [Özellik geçiş](http://martinfowler.com/bliki/FeatureToggle.html). Giriş özellik değiştirir / özellik Martin Fowler'ın blogunda işaretler.
-- [Değiştirme düğmelerini vs özellik dalları özellik](http://geekswithblogs.net/Optikal/archive/2013/02/10/152069.aspx). Başka bir blog gönderisi hakkında Dylan Smith tarafından özelliğini değiştirir.
+- [Team Foundation Server 2012 ile yayın işlem hattı oluşturma](https://msdn.microsoft.com/library/dn449957.aspx). Microsoft Patterns ve uygulamalar belgeleri. Bölüm 6 dallanma stratejileri hakkında ayrıntılı bilgi için bkz. Danışmanları özelliği özellik dalları geçer ve özellikler için dalları kullandıysanız, kısa süreli (saatler veya günler en çok) başvurularınızı sorunlarınızda.
+- [Sürüm denetimi kılavuzu](https://aka.ms/vsarsolutions). Dallanma stratejisi için tarafından ALM Rangers Kılavuzu. Dallanma Strategies.pdf üzerinde indirmeler sekmesine bakın.
+- [Yazılım Geliştirme özelliği veya ile](https://msdn.microsoft.com/magazine/dn683796.aspx). MSDN dergisi makalesi.
+- [Özelliği Aç/Kapat](http://martinfowler.com/bliki/FeatureToggle.html). Giriş özellik geçer / Martin Fowler'ın blogunda özellik bayrakları.
+- [Geçiş yapar ve özellik dalları özellik](http://geekswithblogs.net/Optikal/archive/2013/02/10/152069.aspx). Başka bir blog gönderisi hakkında Dylan Smith tarafından özelliğini değiştirir.
 
-Kaynak denetimi depoları tutulmalıdır değil gizli bilgileri işler hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
+Kaynak Denetim depolarından tutulmalıdır değil hassas bilgilerin nasıl yönetileceği hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [En iyi uygulamalar parolalar ve diğer hassas verileri ASP.NET ve Azure uygulama hizmeti dağıtmak için](../../../../identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md).
-- [Azure Web siteleri: Nasıl uygulama dizeleri ve bağlantı dizeleri çalışma](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/). Geçersiz kılar Azure özelliğini açıklar `appSettings` ve `connectionStrings` verileri *Web.config* dosya.
-- [Özel yapılandırma ve uygulama ayarları, Azure Web siteleri - Stefan Schackow ile](https://azure.microsoft.com/documentation/videos/configuration-and-app-settings-of-azure-web-sites/).
+- [Parolalar ve diğer hassas verileri ASP.NET ve Azure App Service'e dağıtmak için en iyi yöntemler](../../../../identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md).
+- [Azure Web siteleri: Nasıl uygulama dizeleri ve bağlantı dizeleri çalışma](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/). Geçersiz kılan Azure özelliği açıklayan `appSettings` ve `connectionStrings` verilerinde *Web.config* dosya.
+- [Özel yapılandırma ve uygulama ayarları, Azure Web Siteleri'yle - Stefan Schackow](https://azure.microsoft.com/documentation/videos/configuration-and-app-settings-of-azure-web-sites/).
 
-Kaynak denetimi dışında tutma önemli bilgiler için diğer yöntemler hakkında daha fazla bilgi için bkz: [ASP.NET MVC: tutmak özel ayarları dışı kaynak denetimi](http://typecastexception.com/post/2014/04/06/ASPNET-MVC-Keep-Private-Settings-Out-of-Source-Control.aspx).
+Kaynak denetimi dışında tutma önemli bilgiler için diğer yöntemler hakkında daha fazla bilgi için bkz: [ASP.NET MVC: tutmak özel ayarları dışında kaynak denetimine](http://typecastexception.com/post/2014/04/06/ASPNET-MVC-Keep-Private-Settings-Out-of-Source-Control.aspx).
 
 > [!div class="step-by-step"]
 > [Önceki](automate-everything.md)
-> [sonraki](continuous-integration-and-continuous-delivery.md)
+> [İleri](continuous-integration-and-continuous-delivery.md)

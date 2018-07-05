@@ -1,142 +1,141 @@
 ---
-title: Bir MVC uygulamasına bir görünümü ekleme
+title: Bir MVC uygulaması için bir görünüm ekleme
 author: Rick-Anderson
-description: Bir MVC uygulamasına bir görünümü ekleme
+description: Bir MVC uygulaması için bir görünüm ekleme
 ms.author: riande
 manager: wpickett
 ms.date: 09/1721/2017
 ms.topic: article
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 uid: mvc/overview/getting-started/introduction/adding-a-view
-ms.openlocfilehash: 21db97e635b5db580df31f46ca7f8b60a80d6f94
-ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
+ms.openlocfilehash: a6046d467dbd36f4f3ca5721a3b7c7424e18e00a
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "30873436"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37370289"
 ---
-<a name="adding-a-view"></a>Bir görünümü ekleme
+<a name="adding-a-view"></a>Görünüm ekleme
 ====================
-tarafından [Rick Anderson](https://github.com/Rick-Anderson)
+Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 
 [!INCLUDE [Tutorial Note](sample/code-location.md)]
 
-Bu bölümde değiştirme oluşturacağız `HelloWorldController` sınıfı şablon dosyalarını düzgün bir şekilde kapsülleyen bir istemci HTML yanıtlarını oluşturma işlemine görünümünü kullanın. 
+Bu bölümde, değiştirilecek yedekleyeceksiniz `HelloWorldController` sınıfının şablon dosyalarını indrebilirsiniz kapsülleyen bir istemci HTML yanıtlarını oluşturma işlemi görünümünü kullanın. 
 
-Görünüm şablonu kullanarak bir dosyaya oluşturacaksınız [Razor görüntüleme altyapısı](../../../../web-pages/overview/getting-started/introducing-razor-syntax-c.md). Razor tabanlı görünümü şablonları bir *.cshtml* dosya uzantısı ve C# kullanarak çıktısını HTML oluşturmak için zarif bir yolunu sağlar. Razor karakter ve bir görünüm şablon yazarken gereken tuş vuruşları sayısını en aza indirir ve iş akışı kodlama hızlı, sıvı sağlar.
+Görünüm şablonu kullanarak dosyanın oluşturacaksınız [Razor görünüm altyapısı](../../../../web-pages/overview/getting-started/introducing-razor-syntax-c.md). Razor tabanlı bir görünüm şablonları bir *.cshtml* dosya uzantısı ve C# kullanarak çıktısını HTML oluşturmak için zarif bir yol sağlar. Razor karakterler ve bir şablonu görüntüleme yazarken gerekli tuş vuruşları sayısını en aza indirir ve iş akışı kodlama daha hızlı bir akış sağlar.
 
-Şu anda `Index` yöntemi controller sınıfında sabit kodlanmış olduğunu belirten bir ileti ile bir dize döndürür. Değişiklik `Index` döndürülecek yöntemi bir `View` nesnesi, aşağıdaki kodda gösterildiği gibi:
+Şu anda `Index` yöntemi controller sınıfında sabit kodlu olduğunu belirten bir ileti içeren bir dize döndürür. Değişiklik `Index` döndürülecek yöntemi bir `View` aşağıdaki kodda gösterildiği gibi nesne:
 
 [!code-csharp[Main](adding-a-view/samples/sample1.cs?highlight=1,3)]
 
-`Index` Yukarıdaki yöntemi tarayıcıya bir HTML yanıtı oluşturmak için bir görünüm şablonu kullanır. Denetleyici yöntemlerine (olarak da bilinen [eylem yöntemleri](http://rachelappel.com/asp.net-mvc-actionresults-explained)), gibi `Index` yukarıdaki genellikle döndürme bir [ActionResult](https://msdn.microsoft.com/library/system.web.mvc.actionresult.aspx) (veya türetilmiş bir sınıf [ActionResult](https://msdn.microsoft.com/library/system.web.mvc.actionresult.aspx)), olmayan ilkel türler, string ister.
+`Index` Yukarıdaki yöntemi, bir tarayıcıya HTML yanıtı oluşturmak için bir görünüm şablonu kullanır. Denetleyici yöntemlerinde (olarak da bilinen [eylem yöntemleri](http://rachelappel.com/asp.net-mvc-actionresults-explained)), gibi `Index` yukarıdaki yöntemi genellikle iade bir [actionresult öğesini](https://msdn.microsoft.com/library/system.web.mvc.actionresult.aspx) (veya türetilmiş bir sınıf [ActionResult](https://msdn.microsoft.com/library/system.web.mvc.actionresult.aspx)), gibi dize olmayan ilkel türler.
 
-Sağ tıklayın *Views\HelloWorld* klasörü ve tıklatın **Ekle**, ardından **MVC 5 Düzen (Razor) olan görünüm sayfası**.
+Sağ tıklayın *Views\HelloWorld* klasörü ve tıklatın **Ekle**, ardından **MVC 5 görünüm sayfası (Razor)**.
   
 ![](adding-a-view/_static/image1.png)   
   
-İçinde **öğesi için ad belirtmek** iletişim kutusunda, girin *dizin*ve ardından **Tamam**.  
+İçinde **öğe için ad belirtmek** iletişim kutusuna *dizin*ve ardından **Tamam**.  
   
 ![](adding-a-view/_static/image2.png)  
   
-İçinde **düzen sayfası seçin** iletişim kutusunda, varsayılanı kabul  **\_Layout.cshtml** tıklatıp **Tamam**.  
+İçinde **yerleşim sayfası seçin** iletişim kutusunda varsayılan değerleri kabul  **\_Layout.cshtml** tıklatıp **Tamam**.  
   
 ![](adding-a-view/_static/image3.png)  
   
-Yukarıdaki iletişim *görünümler/paylaşılan* klasörü, sol bölmede seçilidir. Başka bir klasöre özel yerleşim dosya'i seçebilirsiniz. Biz Düzen dosyası hakkında daha sonra öğreticide konuşun
+Yukarıdaki iletişim *görünümler/paylaşılan* sol bölmede seçili klasör. Özel düzen dosyası başka bir klasöre olsaydı seçebilirsiniz. Öğreticinin ilerleyen bölümlerinde Düzen dosyası hakkında konuşacağız
 
 *MvcMovie\Views\HelloWorld\Index.cshtml* dosyası oluşturulur.
 
 ![](adding-a-view/_static/image4.png)
 
-Aşağıdaki vurgulanmış biçimlendirmeyi ekleyin.
+Vurgulanan aşağıdaki işaretlemeyi ekleyin.
 
 [!code-cshtml[Main](adding-a-view/samples/sample2.cshtml?highlight=4-11)]
 
-Sağ tıklayın *Index.cshtml* dosya ve seçin **tarayıcıda görüntüle**.
+Sağ tıklayın *Index.cshtml* seçin ve dosya **tarayıcıda görüntüle**.
 
 ![PI](adding-a-view/_static/image5.png)
 
-Ayrıca sağ tıklayabilir, *Index.cshtml* dosya ve seçin **sayfa denetçisi görünümünde.** Bkz: [sayfa denetçisi öğretici](../../views/using-page-inspector-in-aspnet-mvc.md) daha fazla bilgi için.
+Sağ tıklayabilir *Index.cshtml* seçin ve dosya **sayfa denetçisi görünümünde.** Bkz: [sayfa denetçisi öğretici](../../views/using-page-inspector-in-aspnet-mvc.md) daha fazla bilgi için.
 
-Alternatif olarak, uygulamayı çalıştırın ve Gözat `HelloWorld` denetleyici (`http://localhost:xxxx/HelloWorld`). `Index` Denetleyicinizi yönteminde kadar iş yapmak olmadı; yalnızca bir deyim çalışan `return View()`, hangi belirtilen tarayıcı yanıta işlemek için yöntemi bir görünüm şablon dosyası kullanmanız gerekir. Kullanılacak görünüm şablonu dosyasının adı açıkça belirtmediğiniz olduğundan, ASP.NET MVC kullanarak varsayılan *Index.cshtml* görünüm dosyasında *\Views\HelloWorld* klasör. Aşağıdaki görüntü dizesini gösterir &quot;bizim görünüm şablondan Hello!&quot; görünümünde sabit kodlanmış.
+Alternatif olarak, uygulamayı çalıştırmak ve göz atın `HelloWorld` denetleyici (`http://localhost:xxxx/HelloWorld`). `Index` Denetleyicinizin yöntemi kadar iş yapmak istemediğiniz; yalnızca bir deyim çalıştırdığınız `return View()`, hangi belirtilen tarayıcı yanıt işlemek için yöntemi bir görünüm şablon dosyası kullanmanız gerekir. Kullanılacak görünüm şablon dosyası adı açıkça belirtmediğiniz için ASP.NET MVC kullanarak varsayılan *Index.cshtml* görünümü dosyasında *\Views\HelloWorld* klasör. Dize aşağıdaki resimde gösterilmektedir &quot;bizim görünümü şablondan Merhaba!&quot; görünümünde sabit kodlanmış.
 
 ![](adding-a-view/_static/image6.png)
 
-Oldukça iyi görünür. Ancak, tarayıcının başlık çubuğunda gösterdiğine dikkat edin &quot;Index - My ASP.NET Uy "ve"Uygulama adı"büyük bağlantı sayfanın üst kısmında diyor Tarayıcı pencerenizi nasıl küçük yaptığınız bağlı olarak üç çubukları görmek için üst sağ tıklatın gerekebilir için **giriş**, **hakkında**, **kişi**, **Kaydetmek** ve **oturum** bağlantılar.
+Oldukça iyi görünüyor. Tarayıcının başlık çubuğunda gösterilir, ancak, fark &quot;Index - My ASP.NET Uy "ve büyük bağlantı sayfanın üstündeki"Uygulama adı"diyor. Tarayıcı pencerenizin nasıl küçük yaptığınız bağlı olarak görmek için sağ üst köşedeki üç çubuğa tıklayın gerekebilir için **giriş**, **hakkında**, **kişi**, **Kaydetme** ve **oturum** bağlantıları.
 
-## <a name="changing-views-and-layout-pages"></a>Görünümleri ve Düzen sayfaları değiştirme
+## <a name="changing-views-and-layout-pages"></a>Görünümlere ve sayfalara düzenini değiştirme
 
-İlk olarak, değiştirmek istediğiniz &quot;uygulama adı&quot; sayfanın üst kısmındaki bağlantı. Metnin her sayfaya yaygındır. Uygulamadaki her sayfada görünse bile projesinde, yalnızca tek bir yerde gerçekten uygulanır. Git */görünümler/paylaşılan* klasöründe **Çözüm Gezgini** açarak  *\_Layout.cshtml* dosya. Bu dosya adında bir *düzen sayfası* ve paylaşılan klasörde diğer tüm sayfalar kullanın.
+İlk olarak, değiştirmek istediğiniz &quot;uygulama adı&quot; sayfanın üstündeki bağlantısı. Metnin her sayfaya yaygındır. Uygulamadaki her sayfada görünmesine rağmen gerçekte projesinde, yalnızca tek bir yerde uygulanır. Git */görünümler/paylaşılan* klasöründe **Çözüm Gezgini** açın  *\_Layout.cshtml* dosya. Bu dosya adında bir *düzen sayfası* ve diğer tüm sayfalar kullanan paylaşılan klasöründe bulunur.
 
 ![_LayoutCshtml](adding-a-view/_static/image7.png)
 
-Düzen şablonları, tek bir yerde, sitenizin HTML kapsayıcı düzeni belirtin ve sitenizin birden çok sayfada üzerinden uygulanan olanak sağlar. Bul `@RenderBody()` satır. `RenderBody` olan burada tüm görünüm özgü sayfaları, bir yer tutucu oluşturmak Göster, &quot;Sarmalanan&quot; düzeni sayfasında. Örneğin, **hakkında** bağlantı *Views\Home\About.cshtml* görünümü içinde işlenir `RenderBody` yöntemi.
+Düzen şablonları, tek bir yerde sitenizin HTML kapsayıcı düzenini belirtin ve sitenizde birden çok sayfada geçerli olanak sağlar. Bulma `@RenderBody()` satır. `RenderBody` olduğundan burada tüm görünüm özel sayfalar, yer tutucu oluşturma Göster, &quot;sarmalanmış&quot; Düzen sayfasında. Örneğin, **hakkında** bağlantı *Views\Home\About.cshtml* görünümü içinde işlenir `RenderBody` yöntemi.
 
-Title öğesi içeriğini değiştirin. Değişiklik [ActionLink](https://msdn.microsoft.com/library/dd504972(v=vs.108).aspx) Düzen şablonu içinde &quot;uygulama adı&quot; için &quot;MVC film&quot; ve denetleyicisinden `Home` için `Movies`. Tam yerleşimi dosya aşağıda gösterilmiştir:
+Title öğesi içeriğini değiştirin. Değişiklik [ActionLink](https://msdn.microsoft.com/library/dd504972(v=vs.108).aspx) Düzen şablonu içinde &quot;uygulama adı&quot; için &quot;MVC film&quot; ve denetleyicisinden `Home` için `Movies`. Tam Düzen dosyası aşağıda gösterilmiştir:
 
 [!code-cshtml[Main](adding-a-view/samples/sample3.cshtml?highlight=6,20)]
 
-Uygulama ve şimdi yazacaktır bildirimi çalıştırmak &quot;MVC film &quot;. Tıklatın **hakkında** bağlantı ve bakın nasıl bu sayfada görüntülenir &quot;MVC film&quot;, çok. Düzen şablonda değişiklik kez bulduk ve sahip sitesindeki tüm sayfalara yansıtacak yeni başlığı.
+Artık diyor dikkat edin ve uygulama çalıştırma &quot;MVC film &quot;. Tıklayın **hakkında** bağlantı ve bkz bu sayfaya nasıl görüneceğini &quot;MVC film&quot;, çok. Biz Düzen şablonda değişiklik kez sunmayı başarabilseydiniz nasıl olurdu ve sahip sitesindeki tüm sayfalara yansıtan yeni başlığı.
 
 ![](adding-a-view/_static/image8.png)
 
-Ne zaman önce oluşturduğumuz *Views\HelloWorld\Index.cshtml* dosya, aşağıdaki kod içeriyor:
+Ne zaman önce oluşturduğumuz *Views\HelloWorld\Index.cshtml* dosya, aşağıdaki kodda yer:
 
 [!code-cshtml[Main](adding-a-view/samples/sample4.cshtml)]
 
-Yukarıdaki Razor kod açıkça düzen sayfası ayarlıyor. İncelemek *görünümleri\\_ViewStart.cshtml* dosyası tam aynı Razor biçimlendirme içeriyor. *[Görünümleri\\_ViewStart.cshtml](https://weblogs.asp.net/scottgu/archive/2010/10/22/asp-net-mvc-3-layouts.aspx)* dosyası tüm görünümleri kullanacağı ortak yerleşim tanımlar, out veya bu koddan kaldırma bu nedenle yorum yapabileceği *Views\HelloWorld\ Index.cshtml* dosya.
+Razor kodu açıkça düzen sayfası ayarlıyor. İncelemek *görünümleri\\_ViewStart.cshtml* dosya, tam olarak aynı Razor işaretlemesi içerir. *[Görünümleri\\_ViewStart.cshtml](https://weblogs.asp.net/scottgu/archive/2010/10/22/asp-net-mvc-3-layouts.aspx)* dosyası, tüm görünümlere kullanacağı ortak düzenini tanımlar, bu nedenle, out ya da bu koddan kaldırdığınızdan açıklama satırı haline getirebilirsiniz *Views\HelloWorld\ Index.cshtml* dosya.
 
 [!code-cshtml[Main](adding-a-view/samples/sample5.cshtml?highlight=1-3)]
 
-Kullanabileceğiniz `Layout` farklı bir görünümü ayarlayın veya ayarlamak özellik `null` herhangi bir düzen dosyası kullanılacak şekilde.
+Kullanabileceğiniz `Layout` farklı düzeni görünümünde veya ayarlamak, özellik `null` hiçbir Düzen dosyası yeniden kullanılacak şekilde.
 
-Şimdi, dizin görünümünün başlığı değiştirelim.
+Şimdi, dizin görünümünün başlık değiştirelim.
 
-Açık *MvcMovie\Views\HelloWorld\Index.cshtml*. Bir değişiklik yapmak için iki yerde vardır: ilk olarak, metin görünür tarayıcının başlık ve ardından ikincil üstbilgisinde ( `<h2>` öğesi). Hangi bölümünün uygulamanın hangi bit kod değişiklikleri görebilmeleri biraz farklı yapmanız.
+Açık *MvcMovie\Views\HelloWorld\Index.cshtml*. Değişiklik yapmak için iki yerde vardır: ilk olarak, metni görüntülenir tarayıcı başlık ve ikincil üst bilgisindeki ( `<h2>` öğesi). Uygulamanın hangi parçası hangi bit kod değişiklikleri görebilmeniz için biraz daha farklı yapmanız.
 
 [!code-cshtml[Main](adding-a-view/samples/sample6.cshtml?highlight=2,5)]
 
-HTML Başlığı görüntülemek için ayarlar yukarıdaki kodu belirtmek için bir `Title` özelliği `ViewBag` nesne (olduğu içinde *Index.cshtml* şablonu görüntüle). Dikkat Düzen şablonunu ( *görünümler/paylaşılan\\_Layout.cshtml* ) bu değeri kullanır `<title>` öğesi bir parçası olarak `<head>` bölümünde daha önce değiştirilmiş HTML.
+HTML Başlığı görüntülemek için kod kümeleri üstündeki belirtmek için bir `Title` özelliği `ViewBag` nesne (içinde *Index.cshtml* şablonu görüntüleme). Dikkat Düzen şablonunu ( *görünümler/paylaşılan\\_Layout.cshtml* ) bu değeri kullanır `<title>` öğesi bir parçası olarak `<head>` bölümünde daha önce değiştirilen HTML.
 
 [!code-cshtml[Main](adding-a-view/samples/sample7.cshtml?highlight=6)]
 
-Bu kullanarak `ViewBag` yaklaşımı, kolayca iletebilir diğer parametreleri şablonu görüntüleme ve düzeni dosyanız arasında.
+Bunu kullanarak `ViewBag` yaklaşımı, kolayca geçirebilirsiniz diğer parametreler, Düzen dosyası şablonu görüntüleme arasında.
 
-Uygulamayı çalıştırın. Tarayıcı başlığı, birincil başlık ve ikincil başlıklar değişmiş dikkat edin. (Değişiklikleri tarayıcıda görmüyorsanız, önbelleğe alınmış içeriği görüntülüyor olabilirsiniz. Yüklenecek sunucudan yanıt zorlamak için tarayıcınızda CTRL + F5'e basın.) Tarayıcı başlığı ile oluşturulan `ViewBag.Title` biz kümesinde *Index.cshtml* görüntülemek şablonu ve ek &quot;-film uygulaması&quot; düzeni dosyasına eklendi.
+Uygulamayı çalıştırın. Tarayıcı başlığı, başlığı birincil ve ikincil başlıklar değiştirildi dikkat edin. (Tarayıcı değişiklikleri görmüyorsanız, önbelleğe alınmış içerikleri görüntülüyor olabilirsiniz. Tarayıcınızda yüklenmesine sunucudan yanıt zorlamak için CTRL + F5'e basın.) Tarayıcı başlığı ile oluşturulan `ViewBag.Title` biz kümesinde *Index.cshtml* şablonu ve ek görüntüleme &quot;-film uygulaması&quot; Düzen dosyasında eklendi.
 
-Ayrıca dikkat edin nasıl içerik *Index.cshtml* görünüm şablonu birleştirilmiş ile  *\_Layout.cshtml* şablonu görüntüleme ve tek bir HTML yanıtını tarayıcıya gönderildi. Düzen şablonları, uygulamanızdaki sayfaların tümünü uygulamak değişiklik gerçekten kolay hale getirir.
+Ayrıca dikkat edin nasıl içeriği *Index.cshtml* görünüm şablonu ile birleştirilmiş  *\_Layout.cshtml* şablonu görüntüleme ve tek bir HTML yanıtını tarayıcıya gönderilen. Düzen şablonları gerçekten tüm uygulamanızdaki sayfaların uygulanacak değişiklikler yapmak kolaylaştırır.
 
 ![](adding-a-view/_static/image9.png)
 
-Bizim az biti &quot;veri&quot; (Bu durumda &quot;bizim görünüm şablondan Hello!&quot; ileti) sabit kodlanmış, ancak olduğu. MVC uygulaması bir &quot;V&quot; (Görünüm) ve aldığınız bir &quot;C&quot; (denetleyicisi), ancak hiçbir &quot;M&quot; (henüz model). Kısa bir süre sonra size bir veritabanı oluşturun ve ondan model verileri almak nasıl yol.
+Bizim küçük bit &quot;veri&quot; (Bu durumda &quot;bizim görünümü şablondan Merhaba!&quot; ileti) sabit kodlanmıştır, ancak olduğu. MVC uygulama bir &quot;V&quot; (view) ve kendinizi bir &quot;C&quot; (denetleyicisi), ancak hiçbir &quot;M&quot; (henüz model). Kısa bir süre içinde bir veritabanı oluşturun ve ondan model verileri almak nasıl gösterilecektir.
 
-## <a name="passing-data-from-the-controller-to-the-view"></a>Denetleyici geçirme verileri görüntülemek için
+## <a name="passing-data-from-the-controller-to-the-view"></a>Görünüm denetleyicisinden veri geçirme
 
-Bir veritabanına gidin ve modelleri hakkında konuşun önce ancak şimdi ilk bilgi denetleyicisinden bir görünüme geçirme hakkında konuşun. Denetleyici sınıfları, gelen bir URL isteğine yanıt olarak çağrılır. Denetleyici gelen tarayıcı işleyen kodu istekleri, bir veritabanından veri alır ve sonuçta ne tür bir tarayıcıya göndermek için yanıt verirse yazma burada sınıfıdır. Görünüm şablonları daha sonra bir denetleyicisinden oluşturur ve tarayıcıya bir HTML yanıtını biçimlendirmek için kullanılabilir.
+Bir veritabanına gidin ve modelleri hakkında konuşmak önce ilk görünümü denetleyicisi bilgi geçirme hakkında konuşalım. Denetleyici sınıflarına gelen bir URL isteğine yanıt olarak çağrılır. Denetleyici sınıfı Burada, istekleri, bir veritabanından veri alır ve sonuçta ne tür bir tarayıcıya gönderilecek yanıt verirse gelen tarayıcı işleyen kodu yazdığınız yerdedir. Görünüm şablonları oluşturmak ve bir HTML yanıtını tarayıcıya biçimlendirmek için bir denetleyiciden sonra kullanılabilir.
 
-Denetleyicileri sırada tarayıcı yanıta işlemek bir şablonu görüntüleme için hangi veri veya nesneler gerekli sağlamak için sorumludur. En iyi yöntem: **şablonu görüntüleme hiçbir zaman iş mantığı gerçekleştirmek veya bir veritabanı ile doğrudan etkileşim**. Bunun yerine, şablonu görüntüleme için denetleyici tarafından sağlanan verileri ile çalışması gerekir. Bu koruma &quot;sorunları ayrılması&quot; tutan kodunuzu temiz, test edilebilir ve daha korunabilir.
+Denetleyicileri, seçtiğiniz veri veya nesneleri tarayıcı yanıt işlemek bir şablonu görüntüleme için sırayla gerekli sağlamaktan sorumludur. En iyi yöntem: **şablonu görüntüle hiçbir zaman iş mantığını gerçekleştirebilirsiniz veya bir veritabanıyla doğrudan etkileşim**. Bunun yerine, bir şablonu görüntüleme için denetleyici tarafından sağlanan veri ile çalışması gerekir. Bu koruma &quot;görev ayrımı nettir&quot; yardımcı olur, kodunuzu temiz, test edilebilir ve daha sürdürülebilir tutun.
 
-Şu anda `Welcome` eylem yönteminde `HelloWorldController` sınıfını alır bir `name` ve `numTimes` parametresi ve çıkışları doğrudan tarayıcıya değerleri. Bu yanıt dize olarak işleme denetleyiciniz yerine bir görünüm şablonu kullanmayı denetleyicisi değiştirelim. Şablonu görüntüleme yanıtı oluşturmak için uygun veri bitleri denetleyicisinden görünüme iletmek gerektiği anlamına gelir dinamik bir yanıt oluşturur. Bu şablonu görüntüleme gereksinimlerinize dinamik veri (parametre) put denetleyicisi sağlayarak yapmak bir `ViewBag` şablonu görüntüle daha sonra erişebilirsiniz nesnesi.
+Şu anda `Welcome` eylem yönteminde `HelloWorldController` sınıfı alır bir `name` ve `numTimes` parametresi ve çıkışları doğrudan tarayıcıya değerleri. Bu yanıt dize olarak işleme denetleyiciniz yerine denetleyici görünüm şablonu kullanmayı değiştirelim. Şablonu Görüntüle yanıtı oluşturmak için uygun veri bitleri denetleyicisinden görünüme iletmek gerektiği anlamına gelir dinamik bir yanıt oluşturur. Şablonu görüntüleme, gereken dinamik (Parametreler) verilerinizden denetleyicisi sağlayarak bunu yapabilirsiniz bir `ViewBag` görünüm şablonu erişebiliyorsa nesne.
 
-Geri dönüp *HelloWorldController.cs* dosya ve değişiklik `Welcome` ekleme yöntemi bir `Message` ve `NumTimes` değeri `ViewBag` nesnesi. `ViewBag` istediğiniz ona koyabilirsiniz yani dinamik bir nesne değil; `ViewBag` nesnesi içindeki put kadar tanımlı hiçbir özellik sahiptir. [ASP.NET MVC model bağlama sistem](http://odetocode.com/Blogs/scott/archive/2009/04/27/6-tips-for-asp-net-mvc-model-binding.aspx) adlandırılmış parametreleri otomatik olarak eşlenir (`name` ve `numTimes`) Sorgu dizesinden yönteminizi parametrelere adres çubuğundaki. Tam *HelloWorldController.cs* dosya şu şekilde görünür:
+Geri dönüp *HelloWorldController.cs* dosya ve değiştirme `Welcome` yöntemi eklemek için bir `Message` ve `NumTimes` değerini `ViewBag` nesne. `ViewBag` inovasyonunuz ne olursa olsun istediğiniz şekilde koyabilirsiniz anlamına gelir. bir dinamik Nesne sınıflandırabilirsiniz. `ViewBag` nesnesi içine yerleştirin kadar tanımlı hiçbir özellik sahiptir. [ASP.NET MVC model bağlama sistemi](http://odetocode.com/Blogs/scott/archive/2009/04/27/6-tips-for-asp-net-mvc-model-binding.aspx) adlandırılmış parametreleri otomatik olarak eşlenir (`name` ve `numTimes`) Sorgu dizesinden yönteminizi parametrelere adres çubuğundaki. Tam *HelloWorldController.cs* dosya şu şekilde görünür:
 
 [!code-csharp[Main](adding-a-view/samples/sample8.cs)]
 
-Şimdi `ViewBag` nesnesi görünümüne otomatik olarak geçirilen verileri içerir. Ardından, bir Hoş Geldiniz görünüm şablonu gerekiyor! İçinde **yapı** menüsünde, select **yapı çözümü** (veya Ctrl + Shift + B) proje derlenmiş emin olmak için. Sağ tıklayın *Views\HelloWorld* klasörü ve tıklatın **Ekle**, ardından **MVC 5 Düzen (Razor) olan görünüm sayfası**.
+Artık `ViewBag` nesnesi görünüme otomatik olarak iletilen verileri içerir. Ardından, bir şablonu Hoş Geldiniz görüntüleme gerekir! İçinde **derleme** menüsünde **Çözümü Derle** (veya Ctrl + Shift + B) proje derlendiğinde emin olmak için. Sağ tıklayın *Views\HelloWorld* klasörü ve tıklatın **Ekle**, ardından **MVC 5 görünüm sayfası (Razor)**.
   
 ![](adding-a-view/_static/image10.png)   
   
-İçinde **öğesi için ad belirtmek** iletişim kutusunda, girin *Hoş Geldiniz*ve ardından **Tamam**.   
+İçinde **öğe için ad belirtmek** iletişim kutusuna *Hoş Geldiniz*ve ardından **Tamam**.   
   
-İçinde **düzen sayfası seçin** iletişim kutusunda, varsayılanı kabul  **\_Layout.cshtml** tıklatıp **Tamam**.  
+İçinde **yerleşim sayfası seçin** iletişim kutusunda varsayılan değerleri kabul  **\_Layout.cshtml** tıklatıp **Tamam**.  
   
 ![](adding-a-view/_static/image11.png)   
 
 *MvcMovie\Views\HelloWorld\Welcome.cshtml* dosyası oluşturulur.
 
-Biçimlendirme Değiştir *Welcome.cshtml* dosya. Bildiren bir döngü oluşturacaksınız &quot;Hello&quot; sayıda kullanıcı onu gerektiğini söyler. Tam *Welcome.cshtml* dosya aşağıda gösterilmektedir.
+Biçimlendirmeyi Değiştir *Welcome.cshtml* dosya. Bildiren bir döngü oluşturursunuz &quot;Hello&quot; sayıda kullanıcı olması gerektiği söyler. Tam *Welcome.cshtml* dosya aşağıda gösterilmektedir.
 
 [!code-cshtml[Main](adding-a-view/samples/sample9.cshtml)]
 
@@ -144,14 +143,14 @@ Uygulamayı çalıştırın ve aşağıdaki URL'ye gidin:
 
 `http://localhost:xx/HelloWorld/Welcome?name=Scott&numtimes=4`
 
-Şimdi veri URL'den alınır ve denetleyici kullanmaya geçirilen [model Bağlayıcısı](http://odetocode.com/Blogs/scott/archive/2009/04/27/6-tips-for-asp-net-mvc-model-binding.aspx). Verileri denetleyicisi paketleri bir `ViewBag` nesnesini ve nesne görünümüne geçirir. Görünümü sonra verileri HTML olarak kullanıcıya görüntüler.
+Şimdi veri URL'den gerçekleştirilen ve denetleyicisi kullanarak geçirilen [model bağlayıcı](http://odetocode.com/Blogs/scott/archive/2009/04/27/6-tips-for-asp-net-mvc-model-binding.aspx). Denetleyici verileri paketleri bir `ViewBag` nesne ve Görünüm nesnesi geçer. Görünüm ardından veriler kullanıcıya HTML olarak görüntüler.
 
 ![](adding-a-view/_static/image12.png)
 
-Yukarıdaki örnekte, kullandık bir `ViewBag` denetleyicisinden bir görünüme veri iletmek için nesne. Öğreticide daha sonra bir denetleyicisinden bir görünüme veri iletmek için bir görünüm modeli kullanacağız. Veri geçirme görünüm modeli yaklaşım görünüm paketi genellikle çok tercih edilen yaklaşımdır. Blog girişine bakın [dinamik V kesin türü belirtilmiş görünümleri](https://blogs.msdn.com/b/rickandy/archive/2011/01/28/dynamic-v-strongly-typed-views.aspx) daha fazla bilgi için. 
+Yukarıdaki örnekte kullandık bir `ViewBag` denetleyicisinden bir görünüme veri iletmek için nesne. Öğreticinin sonraki bölümlerinde bir denetleyiciden bir görünüme veri iletmek için bir görünüm modeli kullanacağız. Veri geçirme görünüm modeli yaklaşım görünümü paketi üzerinde genellikle çok tercih edilen yaklaşımdır. Blog girişine bakın [dinamik V kesin türü belirtilmiş görünümleri](https://blogs.msdn.com/b/rickandy/archive/2011/01/28/dynamic-v-strongly-typed-views.aspx) daha fazla bilgi için. 
 
-Bir tür iyi, bir &quot;M&quot; modeli, ancak veritabanı türü değil. Ne biz öğrendiğinize ve film bir veritabanı oluşturmak atalım.
+Bir gelen kutusu, bir &quot;M&quot; modeli, ancak veritabanı türü değil. Ne biz öğrendiniz ve film veritabanı oluşturma ele alalım.
 
 > [!div class="step-by-step"]
 > [Önceki](adding-a-controller.md)
-> [sonraki](adding-a-model.md)
+> [İleri](adding-a-model.md)

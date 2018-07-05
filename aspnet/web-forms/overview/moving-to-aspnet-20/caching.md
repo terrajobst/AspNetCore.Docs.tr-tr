@@ -2,75 +2,74 @@
 uid: web-forms/overview/moving-to-aspnet-20/caching
 title: Önbelleğe alma | Microsoft Docs
 author: microsoft
-description: İyi gerçekleştiren bir ASP.NET uygulaması için önbelleğe alma anlaşılması önemlidir. ASP.NET 1.x sunulan önbelleğe alma için; üç farklı seçenekler önbelleğe alma çıkışını...
+description: İyi performans gösteren bir ASP.NET uygulaması için önbelleğe alma anlamak önemlidir. ASP.NET önbelleğe alma için; üç farklı seçenek 1.x sunulan çıktı, önbelleği...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
 ms.topic: article
 ms.assetid: 2bb109d2-e299-46ea-9054-fa0263b59165
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/caching
 msc.type: authoredcontent
-ms.openlocfilehash: 90faaae75cc85585efa05e6e50eabe8c990d076e
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 4f52a88680db54de6271b17bd52cbdace66425e9
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/10/2018
-ms.locfileid: "30891886"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37387705"
 ---
 <a name="caching"></a>Önbelleğe alma
 ====================
 tarafından [Microsoft](https://github.com/microsoft)
 
-> İyi gerçekleştiren bir ASP.NET uygulaması için önbelleğe alma anlaşılması önemlidir. ASP.NET 1.x sunulan önbelleğe alma için; üç farklı seçenekler çıktı önbelleği, parça ve önbellek API.
+> İyi performans gösteren bir ASP.NET uygulaması için önbelleğe alma anlamak önemlidir. ASP.NET önbelleğe alma için; üç farklı seçenek 1.x sunulan Çıktı önbelleğe alma, parça ve API önbellek.
 
 
-İyi gerçekleştiren bir ASP.NET uygulaması için önbelleğe alma anlaşılması önemlidir. ASP.NET 1.x sunulan önbelleğe alma için; üç farklı seçenekler çıktı önbelleği, parça ve önbellek API. ASP.NET 2.0 üçünü de bu yöntemleri sunar, ancak bazı önemli ek özellikler ekler. Geliştiriciler artık özel önbellek bağımlılıkları da oluşturma seçeneğiniz vardır ve birkaç yeni önbellek bağımlılıkları vardır. Önbelleğe alma yapılandırması, ASP.NET 2. 0'da bir önemli ölçüde iyileştirilmiştir.
+İyi performans gösteren bir ASP.NET uygulaması için önbelleğe alma anlamak önemlidir. ASP.NET önbelleğe alma için; üç farklı seçenek 1.x sunulan Çıktı önbelleğe alma, parça ve API önbellek. Bu yöntemlerin üç ASP.NET 2.0 sunar ancak bazı önemli ek özelliklerini ekler. Geliştiriciler artık özel önbellek bağımlılıklar oluşturma seçeneğiniz vardır ve birkaç yeni önbellek bağımlılıkları vardır. Önbelleğe alma yapılandırmasını, ASP.NET 2. 0'da bir önemli ölçüde geliştirildi.
 
 ## <a name="new-features"></a>Yeni Özellikler
 
 ## <a name="cache-profiles"></a>Önbellek profilleri
 
-Önbellek profilleri, geliştiricilerin belirli sayfalara uygulanabilir belirli önbellek ayarlarını tanımlamak olanak sağlar. Örneğin, önbellekten 12 saat sonra süresi bazı sayfaları varsa, bu sayfalara uygulanabilir bir önbellek profili kolayca oluşturabilirsiniz. Yeni bir önbellek profili eklemek için kullanın &lt;outputCacheSettings&gt; yapılandırma dosyasındaki bölüm. Örneğin, adında bir önbellek profili yapılandırma aşağıdadır *twoday* 12 saatlik bir önbellek süresi yapılandırır.
+Önbellek profilleri belirli sayfalara uygulanabilen özel önbellek ayarları tanımlamak geliştiricilerin sağlar. Örneğin, önbellekten 12 saat sonra süresi dolmuş olmamalıdır bazı sayfaları varsa, bu sayfalara uygulanabilir bir önbellek profili kolayca oluşturabilirsiniz. Yeni bir önbellek profili eklemek için &lt;outputCacheSettings&gt; yapılandırma dosyasının bir bölümünde. Örneğin, adında bir önbellek profili yapılandırması aşağıda verilmiştir *twoday* , 12 saatlik bir önbellek süresi yapılandırır.
 
 [!code-xml[Main](caching/samples/sample1.xml)]
 
-Bu önbellek profili için belirli bir sayfa uygulamak için aşağıda gösterildiği gibi @ OutputCache yönergesinin CacheProfile özniteliğini kullanın:
+Belirli bir sayfada bu önbellek profili uygulamak için @ OutputCache yönergesi CacheProfile öznitelik aşağıda gösterildiği gibi kullanın:
 
 [!code-aspx[Main](caching/samples/sample2.aspx)]
 
 ## <a name="custom-cache-dependencies"></a>Özel önbellek bağımlılıkları
 
-ASP.NET 1.x geliştiriciler için özel önbellek bağımlılıkları cried. ASP.NET 1.x, CacheDependency sınıfı ondan kendi sınıflardan türetme gelen önlenmiş geliştiricilerin korumalı. ASP.NET 2. 0'da, bu sınırlama kaldırılır ve geliştiricilerin kendi özel önbellek bağımlılıkları geliştirmek boş. CacheDependency sınıfı dosyaları, dizinleri veya önbellek anahtarlarını göre özel önbellek bağımlılığı oluşturulmasını sağlar.
+ASP.NET 1.x geliştiriciler için özel bir önbellek bağımlılıklarını cried. ASP.NET'te 1.x, CacheDependency sınıfı önlenmiş geliştiriciler kendi sınıf türetmeniz gelen korumalı. ASP.NET 2. 0'da, bu sınırlama kaldırılır ve geliştiricilerin kendi özel önbellek bağımlılıklarını geliştirmek ücretsiz olarak kullanabilirsiniz. CacheDependency sınıf dosyaları, dizinleri veya önbellek anahtarları dayalı özel önbellek bağımlılığı oluşturulmasını sağlar.
 
-Örneğin, aşağıdaki kod, Web uygulaması kök dizininde bulunan stuff.xml adlı bir dosya dayalı yeni bir özel önbellek bağımlılığı oluşturur:
+Örneğin, aşağıdaki kod, Web uygulamasının kök dizininde bulunan stuff.xml adlı bir dosyaya dayalı yeni bir özel önbellek bağımlılığı oluşturur:
 
 [!code-csharp[Main](caching/samples/sample3.cs)]
 
 Bu senaryoda, stuff.xml dosyası değiştiğinde, önbelleğe alınan öğe geçersiz kılınır.
 
-Önbellek anahtarlarını kullanan bir özel önbellek bağımlılığı oluşturmak mümkündür. Bu yöntemi kullanarak, önbellek anahtarını kaldırılmasını önbelleğe alınan veri geçersiz kılar. Aşağıdaki örnekte bu gösterilmektedir:
+Önbellek anahtarları kullanarak özel bir önbellek bağımlılık oluşturmak mümkündür. Bu yöntemi kullanarak, önbellek anahtarını kaldırılmasını önbelleğe alınmış veriyi geçersiz kılar. Aşağıdaki örnek bunu göstermektedir:
 
 [!code-csharp[Main](caching/samples/sample4.cs)]
 
-Yukarıdaki eklenmiş öğesi geçersiz kılmak için basitçe önbellek anahtarı olarak davranacak şekilde önbelleğine eklenmiş öğeyi kaldırın.
+Yukarıda eklenen öğeyi geçersiz kılmak için basitçe önbellek anahtarı davranacak şekilde önbelleğe eklenen öğeyi kaldırın.
 
 [!code-csharp[Main](caching/samples/sample5.cs)]
 
-Önbellek anahtarı olarak davranan öğenin anahtarı önbelleği anahtarları diziye eklenen değer ile aynı olması gerektiğini unutmayın.
+Önbellek anahtarı davranan öğenin anahtarı önbellek anahtarları diziye eklenen değer ile aynı olması gerektiğini unutmayın.
 
-## <a name="polling-based-sql-cache-dependenciesemalso-called-table-based-dependenciesem"></a>Yoklama tabanlı SQL önbellek bağımlılıkları<em>(tablo tabanlı bağımlılıklar olarak da bilinir)</em>
+## <a name="polling-based-sql-cache-dependenciesemalso-called-table-based-dependenciesem"></a>SQL önbellek bağımlılıklarını yoklama tabanlı<em>(tablo tabanlı bağımlılıkları olarak da bilinir)</em>
 
-SQL Server 7 ve 2000 yoklama tabanlı modelini SQL önbellek bağımlılıkları için kullanın. Yoklama tabanlı modeli tetikleyici tablodaki verileri değiştirdiğinizde tetikleyen bir veritabanı tablosu kullanır. Güncelleştirmeleri tetikleyen bir **changeId** bildirim tablosundaki ASP.NET düzenli olarak denetler. Varsa **changeId** alan güncelleştirildi, ASP.NET bilir veri değişmiş ve önbelleğe alınan veri geçersiz kılar.
+SQL Server 7 ve 2000 yoklama tabanlı bir modeli SQL önbellek bağımlılıklarını için kullanın. Yoklama tabanlı modeli tablosundaki verileri değiştirdiğinizde tetikleyen bir veritabanı tablosunda bir tetikleyici kullanır. Güncelleştirmeleri tetiklemek bir **Changeıd** bildirim tablosundaki ASP.NET düzenli olarak denetler. Varsa **Changeıd** alan güncelleştirildi, ASP.NET bilir verileri değiştirildi ve önbelleğe alınmış verileri çıkarır.
 
 > [!NOTE]
-> SQL Server 2005 yoklama tabanlı modeli de kullanabilirsiniz, ancak yoklama tabanlı modeli en verimli modeli olmadığından, SQL Server 2005'te (daha sonra açıklanan) bir sorgu tabanlı modelini kullanmak için önerilir.
+> SQL Server 2005 yoklama tabanlı modeli de kullanabilirsiniz, ancak yoklama tabanlı modeli en verimli modeli olmadığından, bu (daha sonra açıklanmıştır) ve sorgu tabanlı bir modeli SQL Server 2005 ile kullanmanız önerilir.
 
 
-Doğru çalışması için yoklama tabanlı modeli kullanarak bir SQL önbellek bağımlılığı tabloları bildirimleri etkinleştirilmiş olmalıdır. Bu program aracılığıyla SqlCacheDependencyAdmin sınıfı kullanılarak gerçekleştirilebilir veya aspnet kullanarak\_regsql.exe yardımcı programı.
+Düzgün çalışması için yoklama tabanlı modeli kullanarak bir SQL önbellek bağımlılığı, tabloları bildirimleri etkinleştirilmiş olması gerekir. Bu program aracılığıyla SqlCacheDependencyAdmin sınıfı kullanarak gerçekleştirilebilir veya ASP.NET kullanarak\_regsql.exe yardımcı programı.
 
-Aşağıdaki komut satırını Ürünler tablosuna adlı bir SQL Server örneği üzerinde bulunan Northwind veritabanı kaydeder *dbase* SQL için önbellek bağımlılığı.
+Aşağıdaki komut satırını adlı bir SQL Server örneğinde bulunan Northwind veritabanındaki Ürünler tablosuna kaydeder *dbase* SQL bağımlılık önbellek.
 
 [!code-console[Main](caching/samples/sample6.cmd)]
 
@@ -78,88 +77,88 @@ Yukarıdaki komutta kullanılan komut satırı anahtarları bir açıklaması ve
 
 | **Komut satırı anahtarı** | **Amaç** |
 | --- | --- |
-| -S *server* | Sunucu adını belirtir. |
-| -ed | Veritabanı için SQL önbellek bağımlılığı etkin olması gerektiğini belirtir. |
-| -d *veritabanı\_adı* | SQL önbellek bağımlılığı için etkinleştirilmelidir veritabanı adını belirtir. |
-| -E | Bu aspnet belirtir\_regsql veritabanına bağlanırken Windows kimlik doğrulaması kullanmanız. |
-| -et | Bir veritabanı tablosu SQL önbellek bağımlılığı etkinleştiriyorsanız belirtir. |
-| -t *tablo\_adı* | SQL önbellek bağımlılığı için etkinleştirmek için veritabanı tablosunun adını belirtir. |
+| -S *sunucusu* | Sunucu adını belirtir. |
+| -ed | SQL önbellek bağımlılık için veritabanı etkin olması gerektiğini belirtir. |
+| -d *veritabanı\_adı* | SQL önbellek bağımlılık için etkinleştirilmesi gereken veritabanı adını belirtir. |
+| -E | Bu aspnet belirtir\_regsql veritabanına bağlanırken Windows kimlik doğrulaması kullanmalıdır. |
+| -et | SQL önbellek bağımlılığı bir veritabanı tablosu etkinleştirdiğini belirtir. |
+| -t *tablo\_adı* | SQL önbellek bağımlılığında etkinleştirmek için veritabanı tablosunun adını belirtir. |
 
 > [!NOTE]
-> Diğer anahtarlar için aspnet kullanılabilir\_regsql.exe. Tam bir listesi için ASP.NET çalıştıran\_regsql.exe-? bir komut satırından.
+> ASP.NET için kullanılabilir diğer anahtarlar vardır\_regsql.exe. Tam listesi için ASP.NET çalıştıran\_regsql.exe-? komut satırından.
 
 
-Bu komut çalıştırıldığında aşağıdaki değişiklikler SQL Server veritabanına yapılır:
+Bu komut çalıştırıldığında aşağıdaki değişiklikler SQL Server veritabanına yapılan:
 
-- Bir **AspNet\_SqlCacheTablesForChangeNotification** tablo eklenir. Bu tablo bir SQL önbellek bağımlılığı etkin veritabanındaki her tablo için bir satır içerir.
-- Aşağıdaki saklı yordamlar veritabanı içinde oluşturulur:
+- Bir **AspNet\_SqlCacheTablesForChangeNotification** tablo eklenir. Bu tablo, bir SQL önbellek bağımlılık etkin veritabanındaki her tablo için bir satır içerir.
+- Aşağıdaki saklı yordamlara içinde bir veritabanı oluşturulur:
 
 
-| AspNet\_SqlCachePollingStoredProcedure | AspNet sorgular\_SqlCacheTablesForChangeNotification tablo ve SQL önbellek bağımlılığı ve her tablo için changeId değeri için etkinleştirilen tüm tabloları döndürür. Bu saklı yordam, veri değişip değişmediğini için yoklama için kullanılır. |
+| AspNet\_SqlCachePollingStoredProcedure | ASP.NET sorgular\_SqlCacheTablesForChangeNotification tablo ve SQL önbellek bağımlılığı ve her tablo için Changeıd değeri için etkinleştirilen tüm tabloları döndürür. Bu saklı yordam için yoklama veri değiştiğini belirlemek üzere kullanılır. |
 | --- | --- |
-| AspNet\_SqlCacheQueryRegisteredTablesStoredProcedure | Tüm AspNet sorgulayarak SQL önbellek bağımlılığı için etkinleştirilmiş tablolar döndürür\_SqlCacheTablesForChangeNotification tablo ve tüm tablolar için SQL etkin döndürür Önbelleğe bağımlılığı. |
-| AspNet\_SqlCacheRegisterTableStoredProcedure | Bildirim tablosunda gerekli girişini ekleyerek SQL önbellek bağımlılığı tablosunu kaydeder ve tetikleyici ekler. |
-| AspNet\_SqlCacheUnRegisterTableStoredProcedure | Bildirim tablosunda giriş kaldırarak SQL önbellek bağımlılığı tablosunu kaydını siler ve tetikleyici kaldırır. |
-| AspNet\_SqlCacheUpdateChangeIdStoredProcedure | Bildirim tablosu değişen tablo changeId artırılarak güncelleştirir. ASP.NET veri değişip değişmediğini için bu değeri kullanır. Aşağıda gösterildiği gibi bu saklı yordam tablo etkinleştirildiğinde oluşturulan tetik tarafından yürütülür. |
+| AspNet\_SqlCacheQueryRegisteredTablesStoredProcedure | Tüm ASP.NET sorgulayarak SQL önbellek bağımlılık için etkinleştirilmiş tablolar döndürür\_bağımlılık önbelleğe SqlCacheTablesForChangeNotification tablo ve tüm tabloları SQL için etkin döndürür. |
+| AspNet\_SqlCacheRegisterTableStoredProcedure | SQL önbellek bağımlılığı tablosunu bildirim tablosunda gerekli giriş ekleyerek kaydeder ve tetikleyici ekler. |
+| AspNet\_SqlCacheUnRegisterTableStoredProcedure | SQL önbellek bağımlılığı bir tablo girişi bildirim tablosunda kaldırarak kaydını siler ve tetikleyici kaldırır. |
+| AspNet\_SqlCacheUpdateChangeIdStoredProcedure | Bildirim tablosu değişen tablosu için Changeıd artırılarak güncelleştirir. ASP.NET veri değiştiğini belirlemek üzere bu değeri kullanır. Aşağıda gösterildiği gibi bu saklı yordam tablosu etkinleştirildiğinde oluşturulmuş tetikleyicisi tarafından yürütülür. |
 
 
-- SQL Server tetikleyici adlı ***tablo\_adı *\_AspNet\_SqlCacheNotification\_tetikleyici** tablo için oluşturulur. Bu tetikleyici AspNet yürütür\_tablosunda bir INSERT, UPDATE veya DELETE gerçekleştirildiğinde SqlCacheUpdateChangeIdStoredProcedure.
-- SQL Server rolü adlı **aspnet\_ChangeNotification\_ReceiveNotificationsOnlyAccess** veritabanına eklenir.
+- Bir SQL Server tetikleyici adlı ***tablo\_adı *\_AspNet\_SqlCacheNotification\_tetikleyici** tablo için oluşturulur. Bu tetikleyiciyi yürütür AspNet\_tablosunda bir INSERT, UPDATE veya DELETE işlemi yapıldığında SqlCacheUpdateChangeIdStoredProcedure.
+- Bir SQL Server rolü adlı **aspnet\_ChangeNotification\_ReceiveNotificationsOnlyAccess** veritabanına eklenir.
 
-**Aspnet\_ChangeNotification\_ReceiveNotificationsOnlyAccess** SQL Server rolü AspNet yürütme izinlerine sahip\_SqlCachePollingStoredProcedure. Doğru çalışması yoklama modeli için sırayla aspnet işlem hesabınızı eklemelisiniz\_ChangeNotification\_ReceiveNotificationsOnlyAccess rol. Aspnet\_regsql.exe aracı değil bunu sizin için.
+**Aspnet\_ChangeNotification\_ReceiveNotificationsOnlyAccess** SQL Server rolü için ASP.NET EXEC izinlere sahip\_SqlCachePollingStoredProcedure. Düzgün çalışması yoklama modeli için sırayla aspnet için işlem hesabınızı eklemeniz gerekir\_ChangeNotification\_ReceiveNotificationsOnlyAccess rol. ASP.NET\_regsql.exe aracı değil bunu sizin için.
 
-### <a name="configuring-polling-based-sql-cache-dependencies"></a>Yoklama tabanlı SQL önbellek bağımlılıkları yapılandırma
+### <a name="configuring-polling-based-sql-cache-dependencies"></a>Yoklama tabanlı SQL önbellek bağımlılıklarını yapılandırma
 
-Yoklama tabanlı SQL önbellek bağımlılıkları yapılandırmak için gereken birkaç adım vardır. İlk adım, veritabanı ve tablo yukarıda açıklandığı gibi sağlamaktır. Bu adım tamamlandıktan sonra yapılandırmasını geri kalanı aşağıdaki gibidir:
+SQL önbellek bağımlılıklarını yoklama tabanlı yapılandırma için gerekli olan birkaç adım vardır. İlk adım, veritabanı ve tablonun yukarıda açıklanan şekilde etkinleştirmektir. Bu adım tamamlandıktan sonra yapılandırmasını geri kalanını aşağıdaki gibidir:
 
 - ASP.NET yapılandırma dosyası yapılandırma.
 - SqlCacheDependency yapılandırma
 
 ### <a name="configuring-the-aspnet-configuration-file"></a>ASP.NET yapılandırma dosyasını yapılandırma
 
-Bir önceki modüldeki anlatıldığı gibi bir bağlantı dizesi ekleme yanı sıra da yapılandırmalısınız bir &lt;önbellek&gt; öğesi ile bir &lt;sqlCacheDependency&gt; aşağıda gösterildiği gibi öğe:
+Önceki bir modülde açıklandığı gibi bir bağlantı dizesi eklemenin yanı sıra yapılandırmanız da gerekir bir &lt;önbellek&gt; öğesi ile bir &lt;sqlCacheDependency&gt; aşağıda gösterildiği gibi bir öğe:
 
 [!code-xml[Main](caching/samples/sample7.xml)]
 
-Bu yapılandırma üzerinde bir SQL önbellek bağımlılığı etkinleştirir *pubs* veritabanı. PollTime özniteliği Not &lt;sqlCacheDependency&gt; öğesi varsayılan olarak 60000 milisaniye veya 1 dakika. (Bu değer 500'den az milisaniye olamaz.) Bu örnekte, &lt;ekleme&gt; öğeyi yeni bir veritabanı ekler ve 9000000 milisaniye ayarı pollTime geçersiz kılar.
+Bu yapılandırma üzerinde bir SQL önbellek bağımlılık sağlar. *pubs* veritabanı. PollTime özniteliği Not &lt;sqlCacheDependency&gt; öğesi varsayılan olarak 60000 milisaniye veya 1 dakika. (Bu değer 500'den az milisaniye olamaz.) Bu örnekte, &lt;ekleme&gt; öğe yeni bir veritabanı ekler ve 9000000 milisaniye ayarı pollTime geçersiz kılar.
 
 #### <a name="configuring-the-sqlcachedependency"></a>SqlCacheDependency yapılandırma
 
-Sonraki adım SqlCacheDependency yapılandırmaktır. SqlDependency özniteliğinin değeri @ Outcache yönergesinde gibi belirtmek için bunu yapmaya yönelik en kolay yolu şöyledir:
+Sonraki adım, SqlCacheDependency yapılandırmaktır. SqlDependency özniteliğinin değeri @ Outcache yönergesinde gibi belirtmek için bunu yapmaya yönelik en kolay yolu verilmiştir:
 
 [!code-aspx[Main](caching/samples/sample8.aspx)]
 
-Yukarıdaki @ OutputCache yönergesinde SQL önbellek bağımlılığı için yapılandırılmış *yazarlar* tablosundaki *pubs* veritabanı. Noktalı virgülle ayrılarak birden çok bağımlılıkları yapılandırılabilir sözlüğüdür:
+SQL önbellek bağımlılık yapılandırıldı yukarıdaki @ OutputCache yönergesinde *yazarlar* tablosundaki *pubs* veritabanı. Noktalı virgülle ayrılarak birden çok bağımlılıkları yapılandırılabilir şu şekilde:
 
 [!code-aspx[Main](caching/samples/sample9.aspx)]
 
-SqlCacheDependency yapılandırma başka bir program aracılığıyla bunu yöntemdir. Aşağıdaki kod yeni bir SQL önbellek bağımlılık oluşturur *yazarlar* tablosundaki *pubs* veritabanı.
+SqlCacheDependency yapılandırma başka bir program aracılığıyla Bunu yapmak için yöntemdir. Aşağıdaki kod, üzerinde yeni bir SQL önbellek bağımlılık oluşturur. *yazarlar* tablosundaki *pubs* veritabanı.
 
 [!code-csharp[Main](caching/samples/sample10.cs)]
 
-Program aracılığıyla SQL önbellek bağımlılığı tanımlama avantajlarını oluşabilecek özel durumlar işleyebilir biridir. Bildirim için etkinleştirilmemiş bir veritabanı için SQL önbellek bağımlılık tanımlamak çalışırsanız, örneğin, bir **DatabaseNotEnabledForNotificationException** özel durum. Bu durumda, çağırarak veritabanı bildirimleri için etkinleştirmeyi deneyebilirsiniz **SqlCacheDependencyAdmin.EnableNotifications** yöntemi ve veritabanı adını geçirme.
+SQL önbellek bağımlılık program aracılığıyla tanımlama avantajları oluşabilecek özel durumları işleyebilir biridir. Örneğin, bir bildirim için etkinleştirilmemiş bir veritabanı için SQL önbellek bağımlılık tanımlama denerseniz bir **DatabaseNotEnabledForNotificationException** özel durumu oluşturulur. Bu durumda, veritabanını bildirimleri çağırarak etkinleştirmek üzere deneyebilirsiniz **SqlCacheDependencyAdmin.EnableNotifications** yöntemi ve veritabanı adını geçirerek.
 
-Benzer şekilde, bildirim için etkinleştirilmemiş bir tablo için bir SQL önbellek bağımlılığı tanımlamak çalışırsanız bir **TableNotEnabledForNotificationException** oluşturulur. Ardından çağırabilirsiniz **SqlCacheDependencyAdmin.EnableTableForNotifications** tablo adını ve veritabanı adını geçirme yöntemi.
+Benzer şekilde, bildirim için etkinleştirilmemiş bir tablo için bir SQL önbellek bağımlılık tanımlama denerseniz bir **TableNotEnabledForNotificationException** oluşturulur. Ardından çağırabilirsiniz **SqlCacheDependencyAdmin.EnableTableForNotifications** yöntemi tablo adını ve veritabanı adını geçirerek.
 
-Aşağıdaki kod örneği düzgün özel durum işleme SQL önbellek bağımlılığı yapılandırırken nasıl yapılandırılacağı gösterilmektedir.
+Aşağıdaki kod örneği, özel durum işleme, önbellek SQL bağımlılığı yapılandırırken düzgün şekilde yapılandırmak nasıl gösterir.
 
 [!code-csharp[Main](caching/samples/sample11.cs)]
 
 Daha fazla bilgi: [https://msdn.microsoft.com/library/t9x04ed2.aspx](https://msdn.microsoft.com/library/t9x04ed2.aspx)
 
-## <a name="query-based-sql-cache-dependencies-sql-server-2005-only"></a>Sorgu tabanlı SQL önbellek bağımlılıkları (yalnızca SQL Server 2005)
+## <a name="query-based-sql-cache-dependencies-sql-server-2005-only"></a>Sorgu tabanlı SQL önbellek bağımlılıklarını (yalnızca SQL Server 2005)
 
-SQL Server 2005 SQL önbellek bağımlılığı için kullanılırken, yoklama tabanlı modeli gerekli değildir. SQL Server 2005 ile kullanıldığında, SQL önbellek bağımlılıkları (başka bir yapılandırma gereklidir) SQL Server örneğine SQL bağlantıları üzerinden doğrudan iletişim kurmasına SQL Server 2005 sorgu bildirimleri kullanarak.
+SQL Server 2005, SQL önbellek bağımlılığında kullanırken, yoklama tabanlı modeli gerekli değildir. SQL Server 2005 ile kullanıldığında, SQL önbellek bağımlılıklarını (başka bir yapılandırma gereklidir) SQL Server örneğine SQL bağlantı üzerinden doğrudan iletişim kurmasına kullanarak SQL Server 2005 sorgu bildirimleri.
 
-Bu nedenle bildirimli olarak ayarlayarak yapmak için sorgu tabanlı bildirim etkinleştirmek için en basit yolu olan **SqlCacheDependency** özniteliği için veri kaynağı nesnesinin **CommandNotification** ve ayarını**EnableCaching** özniteliğini **doğru**. Bu yöntemi kullanarak, kod gereklidir. Bir komut sonucunu karşı veri kaynağı değişiklikleri yürütülen önbellek verilerini geçersiz kılacak.
+Böylece bildirimli olarak ayarlayarak yapmak için sorgu tabanlı bildirimini etkinleştirmek için en kolay yolu olan **SqlCacheDependency** özniteliği için veri kaynağı nesnesinin **CommandNotification** ve ayarını**EnableCaching** özniteliğini **true**. Bu yöntemi kullanarak, kod gereklidir. Bir komutun sonucuna ilişkin kaynak değişiklikleri veri karşı yürütülen önbellek verileri geçersiz kılar.
 
 Aşağıdaki örnek, bir veri kaynağı denetimi SQL önbellek bağımlılığı yapılandırır:
 
 [!code-aspx[Main](caching/samples/sample12.aspx)]
 
-Sorgu içinde belirtilmişse bu durumda, **SelectCommand** daha farklı bir sonuç vermedi başlangıçta döndürür, önbelleğe alınan sonuçları geçersiz.
+Belirtilen sorgu, bu durumda **SelectCommand** daha farklı bir sonuç vermedi ilk değerini döndürür, önbelleğe alınan sonuçları geçersiz.
 
-Tüm veri kaynaklarınız için SQL önbellek bağımlılıkları ayarlayarak etkinleştirilmiş olması da belirtebilirsiniz **SqlDependency** özniteliği **@ OutputCache** için yönerge **CommandNotification** . Aşağıdaki örnekte bu gösterilmektedir.
+Tüm veri kaynaklarınız ayarlayarak SQL önbellek bağımlılıklarını için etkinleştirilmesi belirtebilirsiniz **SqlDependency** özniteliği **@ OutputCache** yönergesini **CommandNotification** . Aşağıdaki örnek bunu göstermektedir.
 
 [!code-aspx[Main](caching/samples/sample13.aspx)]
 
@@ -167,7 +166,7 @@ Tüm veri kaynaklarınız için SQL önbellek bağımlılıkları ayarlayarak et
 > SQL Server 2005'te sorgu bildirimleri hakkında daha fazla bilgi için SQL Server Books Online'a bakın.
 
 
-Sorgu tabanlı SQL önbellek bağımlılığı yapılandırma başka bir yöntem Bunu yapmak için program aracılığıyla SqlCacheDependency sınıfı kullanmaktır. Aşağıdaki kod örneği, nasıl yapıldığını gösterir.
+SQL önbellek sorgu tabanlı bağımlılık yapılandırma başka bir yöntem Bunu yapmak için program aracılığıyla SqlCacheDependency sınıfı kullanmaktır. Aşağıdaki kod örneği, nasıl gerçekleştirilir gösterilmektedir.
 
 [!code-csharp[Main](caching/samples/sample14.cs)]
 
@@ -175,147 +174,147 @@ Daha fazla bilgi: [https://msdn.microsoft.com/library/default.asp?url=/library/e
 
 ## <a name="post-cache-substitution"></a>Sonrası önbellek değiştirme
 
-Bir sayfanın önbelleğe alma, bir Web uygulaması performansını önemli ölçüde artırabilir. Ancak, bazı durumlarda önbelleğe alınacak sayfa çoğu ve bazı parçaları dinamik olarak sayfada gerekir. Örneğin, ayarlanmış süreyle tamamen statik haberleri sayfasında oluşturursanız, önbelleğe alınacak sayfanın tamamını ayarlayabilirsiniz. Her sayfa isteğinde değiştirilen dönen bir ad başlık eklemek istiyorsanız, tanıtım içeren sayfanın parçası dinamik olması gerekir. Bir sayfayı önbelleğe ancak bazı içerikler dinamik yedek olanak tanımak için ASP.NET sonrası önbellek değişim kullanabilirsiniz. Sonrası önbellek değiştirme ile tüm çıktı önbelleği muaf olarak işaretlenmiş belirli bölümlerle önbelleği sayfasıdır. Ad başlıkları örnekte AdRotator denetimi, böylece ads dinamik olarak oluşturulan her kullanıcı için ve her sayfa yenileme sonrası önbellek değiştirme yararlanmak sağlar.
+Bir sayfanın önbelleğe alma, bir Web uygulamasının performansını önemli ölçüde artırabilir. Ancak, bazı durumlarda önbelleğe alınması için sayfanın en fazla ve bazı parçaları dinamik olarak sayfada gerekir. Örneğin, belirlenen sürelerle tamamen statik bir sayfa haberleri, oluşturursanız, önbelleğe alınacak sayfanın tamamını ayarlayabilirsiniz. Her sayfa isteğinde değiştirilmiş bir döndürme ad başlık eklemek istiyorsanız, tanıtım içeren sayfasının parçası, dinamik olması gerekir. Bir sayfanın önbelleğe ancak bazı içerikleri dinamik yedek olanak tanımak için ASP.NET sonrası önbellek değişim kullanabilirsiniz. Sonrası önbellek değiştirme ile tüm çıktı önbelleği önbellek dışında tut olarak işaretlenmiş belirli bölümlerle sayfasıdır. Ad başlıklar örnekte AdRotator denetimi reklamlar her sayfa yenileme ve her kullanıcı için dinamik olarak oluşturulan sonrası önbellek değiştirme yararlanmak sağlar.
 
 Sonrası önbellek değiştirme uygulamak için üç yolu vardır:
 
 - Bildirimli olarak, değişim denetimi kullanma.
-- Program aracılığıyla, değişim denetimi API kullanma.
-- Örtük olarak, AdRotator denetim kullanma.
+- Değişim Denetimi API'si programlı olarak kullanma.
+- Örtülü olarak AdRotator denetim kullanma.
 
 ### <a name="substitution-control"></a>Değişim Denetimi
 
-ASP.NET değişim denetimi, dinamik olarak oluşturulan yerine önbelleğe alınmış önbelleğe alınan bir sayfanın bölümünü belirtir. Değişim Denetimi sayfasında görünmesi dinamik içerik istediğiniz konuma yerleştirin. Çalışma zamanında, değişim denetimi MethodName özelliğiyle belirttiğiniz bir yöntemi çağırır. Yöntemi, değişim denetimi içeriğini değiştiren bir dize döndürmesi gerekir. Yöntem statik yöntem içeren sayfa veya UserControl denetiminin üzerinde olmalıdır. Böylece sayfa istemcide önbelleğe alınmamış değişim denetimi kullanarak sunucu önbelleğe alınabilirliğini için değiştirilecek istemci tarafı önbelleğe alınabilirliğini neden olur. Bu sayfaya gelecekteki isteklerin dinamik içeriği yeniden oluşturmak için yöntemi çağırın sağlar.
+ASP.NET Değişim Denetimi dinamik olarak oluşturulan yerine önbelleğe önbelleğe alınmış bir sayfaya bir bölümünü belirtir. Değişim Denetimi sayfasında, dinamik içerik görünmesini istediğiniz konuma yerleştirin. Çalışma zamanında, değişim denetimi MethodName özellik belirttiğiniz bir yöntemi çağırır. Yöntemi daha sonra Değişim Denetimi içeriğini değiştirir bir dize döndürmelidir. Yöntemi, bir statik yöntem içeren sayfa ya da UserControl denetimi olması gerekir. Böylece sayfa istemcide önbelleğe alınmamış değişim denetimi kullanmak için sunucu önbelleğe alınabilirliğini, değiştirilecek, istemci tarafı önbelleğe alınabilirliğini neden olur. Bu, gelecek istekleri sayfasına dinamik içeriği yeniden oluşturmak için bir yöntemi çağırmanızı sağlar.
 
-### <a name="substitution-api"></a>Değiştirme API
+### <a name="substitution-api"></a>API değiştirme
 
-Dinamik içerik önbelleğe alınmış bir sayfa için programlı olarak oluşturmak için çağırabilirsiniz [WriteSubstitution](https://msdn.microsoft.com/library/system.web.httpresponse.writesubstitution.aspx) bir yöntemin adını parametre olarak geçirme sayfa kodunuzdaki yöntemi. Tek bir dinamik içerik oluşturulmasını işleyen yöntem alır [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.aspx) parametre ve bir dize döndürür. Dönüş dizesi, belirli bir konumda değiştirilecektir içeriktir. Değişim Denetimi bildirimli olarak kullanmak yerine WriteSubstitution yöntemini çağıran bir avantajı, sayfa veya UserControl nesnesinin statik bir yöntemi çağırmak yerine herhangi bir rastgele nesne yöntemi çağırabilirsiniz olmasıdır.
+Önbelleğe alınmış bir sayfaya dinamik içerik programlı olarak oluşturmak için çağırabilirsiniz [WriteSubstitution](https://msdn.microsoft.com/library/system.web.httpresponse.writesubstitution.aspx) yöntemi, sayfa kodunuzda bir parametre olarak bir yöntemin adını geçirerek. Dinamik içerik oluşturulmasını işleyen yöntem tek bir alan [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.aspx) parametresi bir dize döndürür. Dönüş dizesi belirtilen konumda değiştirilecektir içeriktir. Değişim Denetimi bildirimli olarak kullanmak yerine WriteSubstitution yöntemini çağıran bir avantajı, sayfayı ya da UserControl nesnesinin statik bir yöntemi çağırmak yerine rastgele herhangi bir nesne bir yöntem çağırabilirsiniz olmasıdır.
 
-Böylece sayfa istemcide önbelleğe alınmamış WriteSubstitution yöntemini çağıran sunucu önbelleğe alınabilirliğini için değiştirilecek istemci tarafı önbelleğe alınabilirliğini neden olur. Bu sayfaya gelecekteki isteklerin dinamik içeriği yeniden oluşturmak için yöntemi çağırın sağlar.
+Böylece sayfa istemcide önbelleğe alınmamış WriteSubstitution yöntemini çağırmak için sunucu önbelleğe alınabilirliğini, değiştirilecek, istemci tarafı önbelleğe alınabilirliğini neden olur. Bu, gelecek istekleri sayfasına dinamik içeriği yeniden oluşturmak için bir yöntemi çağırmanızı sağlar.
 
 ### <a name="adrotator-control"></a>AdRotator denetimi
 
-Sunucu denetimi uygulayan AdRotator sonrası önbellek değiştirme için dahili olarak destekler. Sayfanızda bir AdRotator kontrolü yerleştirirseniz, ana sayfa olup önbelleğe bağımsız olarak her isteği benzersiz reklamları işlemez. Sonuç olarak, bir AdRotator denetimini içeren bir yalnızca önbelleğe alınmış sunucu tarafı sayfasıdır.
+Sunucu denetimi uygular AdRotator sonrası önbellek değişim için dahili olarak destekler. Bir AdRotator denetimini sayfanızda yerleştirirseniz, benzersiz olup olmadığını üst sayfası önbelleğe alınır bağımsız olarak her isteğin reklamları işlenir. Sonuç olarak, bir AdRotator denetimini içeren bir yalnızca önbelleğe alınmış sunucu tarafı sayfasıdır.
 
 ## <a name="controlcachepolicy-class"></a>ControlCachePolicy sınıfı
 
-Kullanıcı denetimleri kullanarak önbelleğe alma parça programsal denetim için ControlCachePolicy sınıfı sağlar. ASP.NET katıştırır kullanıcı denetimleri içinde bir [BasePartialCachingControl](https://msdn.microsoft.com/library/system.web.ui.basepartialcachingcontrol.aspx) örneği. BasePartialCachingControl sınıfı önbelleğe alma etkin çıktısı bir kullanıcı denetimi temsil eder.
+Kullanıcı denetimleri kullanarak önbelleğe alma parça programlı denetim için ControlCachePolicy sınıfı sağlar. ASP.NET katıştırır kullanıcı denetimleri içinde bir [BasePartialCachingControl](https://msdn.microsoft.com/library/system.web.ui.basepartialcachingcontrol.aspx) örneği. BasePartialCachingControl sınıfı, önbelleğe alma etkin çıkış bir kullanıcı denetimi temsil eder.
 
-Eriştiğinizde [BasePartialCachingControl.CachePolicy](https://msdn.microsoft.com/library/system.web.ui.basepartialcachingcontrol.cachepolicy.aspx) özelliği bir [PartialCachingControl](https://msdn.microsoft.com/library/system.web.ui.partialcachingcontrol.aspx) denetim, geçerli bir ControlCachePolicy nesnesi her zaman alacak. Ancak, erişim [UserControl.CachePolicy](https://msdn.microsoft.com/library/system.web.ui.usercontrol.cachepolicy.aspx) özelliği bir [UserControl](https://msdn.microsoft.com/library/system.web.ui.usercontrol.aspx) denetimi, alırsanız geçerli bir ControlCachePolicy nesnesi yalnızca kullanıcı denetimi zaten tarafından kaydırılan bir BasePartialCachingControl denetim. Bunu sarmalanmamış ilişkili BasePartialCachingControl olmadığından işlemek çalıştığınızda özellik tarafından döndürülen ControlCachePolicy nesne bu özel durumlar atar. UserControl örneği özel durumlar oluşturmadan önbelleğe alma destekleyip desteklemediğini belirlemek için incelemek [SupportsCaching](https://msdn.microsoft.com/library/system.web.ui.controlcachepolicy.supportscaching.aspx) özelliği.
+Eriştiğinizde [BasePartialCachingControl.CachePolicy](https://msdn.microsoft.com/library/system.web.ui.basepartialcachingcontrol.cachepolicy.aspx) özelliği bir [PartialCachingControl](https://msdn.microsoft.com/library/system.web.ui.partialcachingcontrol.aspx) denetimi her zaman geçerli bir ControlCachePolicy nesnesi elde edersiniz. Ancak, erişirseniz [UserControl.CachePolicy](https://msdn.microsoft.com/library/system.web.ui.usercontrol.cachepolicy.aspx) özelliği bir [UserControl](https://msdn.microsoft.com/library/system.web.ui.usercontrol.aspx) denetimi, geçerli bir ControlCachePolicy nesnesi yalnızca kullanıcı denetimi zaten tarafından Sarmalanan olmadığını alır bir BasePartialCachingControl denetimi. Sarmalanmamış, ilişkili bir BasePartialCachingControl olmadığından işlemeden denediğinizde özelliği tarafından döndürülen ControlCachePolicy nesne özel durumlar. Özel durum oluşmadan önbelleğe alma bir UserControl örneği destekleyip desteklemediğini belirlemek için inceleyin [SupportsCaching](https://msdn.microsoft.com/library/system.web.ui.controlcachepolicy.supportscaching.aspx) özelliği.
 
-ControlCachePolicy sınıfını kullanarak çıktı önbelleğe almayı etkinleştirmek çeşitli yollardan biri. Aşağıdaki liste, çıktı önbelleğe almayı etkinleştirmek için kullanabileceğiniz yöntemleri açıklar:
+ControlCachePolicy sınıfını kullanarak çıktı önbelleği etkinleştirebilirsiniz çeşitli yollardan biridir. Aşağıdaki listede, çıkış önbelleğe almayı etkinleştirmek için kullanabileceğiniz yöntemler açıklanmaktadır:
 
-- Kullanım [@ OutputCache](https://msdn.microsoft.com/library/hdxfb6cy.aspx) etkinleştirmek için yönergesi çıktı bildirim temelli senaryolarda önbelleğe alma.
-- Kullanım [PartialCachingAttribute](https://msdn.microsoft.com/library/system.web.ui.partialcachingattribute.aspx) bir arka plan kod dosyasına bir kullanıcı denetimi için önbelleğe almayı etkinleştirmek için öznitelik.
-- Önceki yöntemlerden birini kullanarak önbelleği etkin ve dinamik olarak kullanılarakyüklenenBasePartialCachingControlörnekleriyleiçindeçalıştığınızıprogramlısenaryolardaönbellekayarlarınıbelirtmekiçinControlCachePolicysınıfınıkullanmak[System.Web.UI.TemplateControl.LoadControl](https://msdn.microsoft.com/library/system.web.ui.templatecontrol.loadcontrol.aspx) yöntemi.
+- Kullanım [@ OutputCache](https://msdn.microsoft.com/library/hdxfb6cy.aspx) yönergesi etkinleştirmek için çıktı bildirim temelli bir senaryoda önbelleğe alma.
+- Kullanım [PartialCachingAttribute](https://msdn.microsoft.com/library/system.web.ui.partialcachingattribute.aspx) bir arka plan kod dosyasında bir kullanıcı denetimi için önbelleğe almayı etkinleştirmek için özniteliği.
+- Önceki yöntemlerden birini kullanarak önbelleği etkin ve kullanarakdinamikolarakyüklenenBasePartialCachingControlörnekleriyleiçindeçalıştığınızprogramlamasenaryolarındaönbellekayarlarınıbelirtmekiçinControlCachePolicysınıfıkullanın[System.Web.UI.TemplateControl.LoadControl](https://msdn.microsoft.com/library/system.web.ui.templatecontrol.loadcontrol.aspx) yöntemi.
 
-Bir ControlCachePolicy örneği başarıyla yalnızca Init ve PreRender aşamalarını denetim yaşam döngüsü arasında değişebilir. Sonra PreRender aşama ControlCachePolicy nesne değiştirirseniz, Denetim oluşturulduğunda yapılan değişiklikler gerçekte (Denetim işleme aşamasında önbelleğe alınır) önbellek ayarları olamaz etkilediğinden ASP.NET bir özel durum oluşturur. Gerçekte işlendiğinde son olarak, bir kullanıcı denetimi örneği (ve bu nedenle, ControlCachePolicy nesnesi) yalnızca programlı değişikliği yapmak için kullanılabilir.
+ControlCachePolicy örneği başarıyla yalnızca Init ve PreRender aşamalarını denetim yaşam döngüsü arasında değişebilir. PreRender aşamadan sonra ControlCachePolicy nesne değiştirirseniz, ASP.NET denetimi oluşturulduğunda yapılan değişiklikler önbellek ayarları (Denetim işleme aşamasında önbelleğe alınır) gerçekte etkilemez çünkü özel durum oluşturur. Aslında işlendiğinde son olarak, bir kullanıcı denetimi örneği (ve bu nedenle ControlCachePolicy nesne) yalnızca programsal olarak için kullanılabilir.
 
-## <a name="changes-to-caching-configuration---the-ltcachinggt-element"></a>Değişiklikleri önbelleğe alma yapılandırması için - &lt;önbelleğe alma&gt; öğesi
+## <a name="changes-to-caching-configuration---the-ltcachinggt-element"></a>Önbelleğe alma yapılandırmasını - değişiklikleri &lt;önbelleğe alma&gt; öğesi
 
-ASP.NET 2.0 önbelleğe alma yapılandırması için bazı değişiklikler vardır. &lt;Önbelleğe alma&gt; öğesi ASP.NET 2. 0 ' yenidir ve yapılandırma dosyasında önbelleğe alma yapılandırma değişiklikleri yapmasını sağlar. Aşağıdaki öznitelikler kullanılabilir.
+Önbelleğe alma yapılandırmasını ASP.NET 2.0 için bazı değişiklikler vardır. &lt;Önbelleğe alma&gt; öğesi ASP.NET 2.0 sürümünde yenidir ve yapılandırma dosyasında önbelleğe alma yapılandırma değişiklikleri yapmanızı sağlar. Aşağıdaki öznitelikler kullanılabilir.
 
-| **Element** | **Açıklama** |
+| **Öğesi** | **Açıklama** |
 | --- | --- |
-| **cache** | İsteğe bağlı öğe. Genel Uygulama önbellek ayarlarını tanımlar. |
-| **outputCache** | İsteğe bağlı öğe. Uygulama çapında çıkış önbelleği ayarlarını belirtir. |
-| **outputCacheSettings** | İsteğe bağlı öğe. Uygulama sayfalarına uygulanan çıkış önbelleği ayarlarını belirtir. |
-| **sqlCacheDependency** | İsteğe bağlı öğe. Bir ASP.NET uygulaması için SQL önbellek bağımlılıkları yapılandırır. |
+| **Önbellek** | İsteğe bağlı öğe. Genel Uygulama önbellek ayarlarını tanımlar. |
+| **outputCache** | İsteğe bağlı öğe. Birçok farklı uygulama çıktı önbellek ayarlarını belirtir. |
+| **outputCacheSettings** | İsteğe bağlı öğe. Uygulama sayfaları uygulanabilir çıktı önbellek ayarlarını belirtir. |
+| **sqlCacheDependency** | İsteğe bağlı öğe. SQL önbellek bağımlılıklarını ASP.NET uygulaması için yapılandırır. |
 
 ### <a name="the-ltcachegt-element"></a>&lt;Önbellek&gt; öğesi
 
-Aşağıdaki öznitelikler kullanılabilir &lt;önbellek&gt; öğe:
+Aşağıdaki öznitelikler kullanılabilir &lt;önbellek&gt; öğesi:
 
 | **Özniteliği** | **Açıklama** |
 | --- | --- |
-| **disableMemoryCollection** | İsteğe bağlı **Boolean** özniteliği. Alır veya makine bellek baskısı altında olduğunda oluşan önbellek koleksiyonu devre dışı olup olmadığını belirten bir değer ayarlar. |
-| **disableExpiration** | İsteğe bağlı **Boolean** özniteliği. Alır veya önbellek süre sonu devre dışı olup olmadığını belirten bir değer ayarlar. Devre dışı bırakıldığında, önbelleğe alınmış öğeleri son kullanma tarihi ve önbellek süresi dolan öğelerinin arka plan atma meydana gelmez. |
-| **privateBytesLimit** | İsteğe bağlı **Int64** özniteliği. Alır veya öğeleri temizlemeye önbellek başlamadan önce bir uygulamanın özel bayt en büyük boyutunu süresi belirten ve bellek boşaltma denemesinde bir değer ayarlar. Bu sınır, hem önbelleği tarafından kullanılan bellek, hem de çalışan uygulama normal bellek ek yükünü içerir. Sıfır ayarı ASP.NET bellek geri kazanma başlatmak ne zaman belirlemek için kendi buluşsal yöntemler kullanacağını gösterir. |
-| **percentagePhysicalMemoryUsedLimit** | İsteğe bağlı **Int32** özniteliği. Maksimum önbellek temizlemeye başlamadan önce bir uygulama tarafından kullanılabilecek bir makinenin fiziksel bellek yüzdesi öğeleri süresi belirten ve önbellek tarafından kullanılan her iki bellek bu bellek kullanımını içeren belleği geri çalışılırken bir değeri alır veya ayarlar çalışan uygulama normal bellek kullanımı. Sıfır ayarı ASP.NET bellek geri kazanma başlatmak ne zaman belirlemek için kendi buluşsal yöntemler kullanacağını gösterir. |
-| **privateBytesPollTime** | İsteğe bağlı **TimeSpan** özniteliği. Alır veya uygulamanın özel bayt bellek kullanımı için yoklama zaman aralığı belirten bir değer ayarlar. |
+| **disableMemoryCollection** | İsteğe bağlı **Boole** özniteliği. Alır veya makine bellek baskısı altında olduğunda oluşan önbelleği koleksiyonu devre dışı bırakılıp bırakılmadığını belirten bir değer ayarlar. |
+| **disableExpiration** | İsteğe bağlı **Boole** özniteliği. Alır veya önbellek sona erme devre dışı bırakılıp bırakılmadığını belirten bir değer ayarlar. Devre dışı bırakıldığında, önbelleğe alınmış öğeleri süresinin sona ermediğinden ve süresi dolmuş önbellek öğelerin arka plan atma oluşmaz. |
+| **privateBytesLimit** | İsteğe bağlı **Int64** özniteliği. Alır veya ayarlar belirten öğeleri temizlemeye önbellek başlamadan önce bir uygulamanın özel baytlar en büyük boyutunu süresi ve belleği geri kazanmak çalışan bir değer. Bu sınır, hem önbelleği tarafından kullanılan bellek, hem de çalışan uygulama normal bellek ek yükünü içerir. Sıfır ayarı, ASP.NET başlangıç belleği geri kazanmak ne zaman belirlemek için buluşsal yöntemler, kendi kullanacağını gösterir. |
+| **percentagePhysicalMemoryUsedLimit** | İsteğe bağlı **Int32** özniteliği. Öğeleri temizlemeye önbellek başlamadan önce bir uygulama tarafından tüketilebilecek bir makinenin fiziksel bellek en yüksek yüzdesi süresi belirten ve önbelleği tarafından kullanılan her iki bellek bu bellek kullanımını içeren belleği geri kazanmak çalışan bir değeri alır veya ayarlar çalışan uygulamayı normal bellek kullanımı. Sıfır ayarı, ASP.NET başlangıç belleği geri kazanmak ne zaman belirlemek için buluşsal yöntemler, kendi kullanacağını gösterir. |
+| **privateBytesPollTime** | İsteğe bağlı **TimeSpan** özniteliği. Alır veya ayarlar uygulamanın özel bayt bellek kullanımı için yoklama zaman aralığını belirten bir değer. |
 
 ### <a name="the-ltoutputcachegt-element"></a>&lt;OutputCache&gt; öğesi
 
-Aşağıdaki öznitelikler kullanılabilir &lt;outputCache&gt; öğesi.
+Aşağıdaki öznitelikler için kullanılabilir &lt;outputCache&gt; öğesi.
 
 
 |       <strong>Özniteliği</strong>        |                                                                                                                                                                                                                                                       <strong>Açıklama</strong>                                                                                                                                                                                                                                                       |
 |-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|   <strong>enableOutputCache</strong>    |                                                                                                                                                          İsteğe bağlı <strong>Boolean</strong> özniteliği. Sayfa çıktısı önbelleğini etkinleştirir/devre dışı bırakır. Devre dışı bırakılırsa, hiç sayfa Program erişimini ya da bildirim temelli ayarlarından bağımsız olarak önbelleğe alınır. Varsayılan değer <strong>doğru</strong>.                                                                                                                                                           |
-|  <strong>enableFragmentCache</strong>   |                                                İsteğe bağlı <strong>Boolean</strong> özniteliği. Uygulama parçası önbelleğini etkinleştirir/devre dışı bırakır. Devre dışı bırakılırsa, hiç sayfa bağımsız olarak, önbelleğe alınan [@ OutputCache](https://msdn.microsoft.com/library/hdxfb6cy.aspx) yönergesi veya kullanılan profili önbelleğe alma. Tarayıcı istemcilerinin yanı sıra Yukarı Akış proxy sunucuları sayfa çıktısını önbelleğe almaya çalışmamalısınız belirten bir önbellek-control üstbilgisi içerir. Varsayılan değer <strong>false</strong>.                                                 |
-| <strong>sendCacheControlHeader</strong> |                                                                                                                                                      İsteğe bağlı <strong>Boolean</strong> özniteliği. Belirten değeri alır veya ayarlar olup olmadığını <strong>önbellek-denetimi: özel</strong> üstbilgisi varsayılan olarak çıktı önbelleği modülü tarafından gönderilir. Varsayılan değer <strong>false</strong>.                                                                                                                                                      |
-|      <strong>omitVaryStar</strong>      | İsteğe bağlı <strong>Boolean</strong> özniteliği. Bir Http gönderme etkinleştirir/devre dışı bırakır "<strong>ayırmayı: \</ strong ><em>" yanıt üstbilgisi. False, varsayılan ayarı olan bir "</em>* ayırmayı: \* <strong>" üstbilgisi çıktı önbelleği sayfaları için gönderilir. Ayırmayı üstbilgi gönderildiğinde için farklı verir önbelleğe alınacak sürümleri temel ayırmayı üstbilgisinde belirtilen bağlıdır. Örneğin, <em>ayırmayı: kullanıcı-aracıları</em> isteği vermeden kullanıcı aracısı temel bir sayfanın farklı sürümlerini depolar. Varsayılan değer ** false</strong>. |
+|   <strong>enableOutputCache</strong>    |                                                                                                                                                          İsteğe bağlı <strong>Boole</strong> özniteliği. Sayfa çıktı önbelleğini etkinleştirir/devre dışı bırakır. Devre dışı bırakılırsa, sayfa Program erişimini ya da bildirim temelli ayarlarından bağımsız olarak önbelleğe alınır. Varsayılan değer <strong>true</strong>.                                                                                                                                                           |
+|  <strong>enableFragmentCache</strong>   |                                                İsteğe bağlı <strong>Boole</strong> özniteliği. Uygulama parçası önbelleğini etkinleştirir/devre dışı bırakır. Devre dışı bırakılmışsa, sayfa yok bağımsız olarak, önbelleğe alınmaz [@ OutputCache](https://msdn.microsoft.com/library/hdxfb6cy.aspx) yönergesi veya kullanılan profilini önbelleğe alma. Yukarı Akış proxy sunucularının yanı sıra, tarayıcı istemcileri için sayfa çıktısını önbelleğe çalışmaması gerektiğini gösteren bir cache-control üst bilgisi içerir. Varsayılan değer <strong>false</strong>.                                                 |
+| <strong>sendCacheControlHeader</strong> |                                                                                                                                                      İsteğe bağlı <strong>Boole</strong> özniteliği. Belirten bir değeri alır veya ayarlar olmadığını <strong>önbellek-denetimi: özel</strong> üst bilgisi, varsayılan olarak çıktı önbelleği modülü tarafından gönderilir. Varsayılan değer <strong>false</strong>.                                                                                                                                                      |
+|      <strong>omitVaryStar</strong>      | İsteğe bağlı <strong>Boole</strong> özniteliği. Bir Http gönderme etkinleştirir/devre dışı bırakır "<strong>ayırmayı: \</ strong ><em>" yanıt üst bilgisi. Varsayılan ayar FALSE ile bir "</em>* ayırmayı: \* <strong>" üst bilgisi, çıktı önbelleği sayfaları için gönderilir. Vary üstbilgisi gönderildiğinde için farklı izin önbelleğe alınacak sürümleri temel noktalarda üstbilgisinde belirtilen bağlı. Örneğin, <em>ayırmayı: kullanıcı-aracıları</em> Talep veren kullanıcı aracısı dayalı bir sayfa farklı sürümlerini depolar. Varsayılan değer: ** false</strong>. |
 
 ### <a name="the-ltoutputcachesettingsgt-element"></a>&lt;OutputCacheSettings&gt; öğesi
 
-&lt;OutputCacheSettings&gt; öğesi için daha önce açıklandığı gibi önbellek profilleri oluşturulmasını sağlar. Tek alt öğesi için &lt;outputCacheSettings&gt; öğesi &lt;outputCacheProfiles&gt; önbellek profilleri yapılandırma öğesi.
+&lt;OutputCacheSettings&gt; öğesi için daha önce açıklandığı gibi önbellek profillerinin oluşturulmasını sağlar. Yalnızca bir alt öğe için &lt;outputCacheSettings&gt; öğesi &lt;outputCacheProfiles&gt; önbellek profilleri yapılandırma öğesi.
 
 ### <a name="the-ltsqlcachedependencygt-element"></a>&lt;SqlCacheDependency&gt; öğesi
 
-Aşağıdaki öznitelikler kullanılabilir &lt;sqlCacheDependency&gt; öğesi.
+Aşağıdaki öznitelikler için kullanılabilir &lt;sqlCacheDependency&gt; öğesi.
 
 | **Özniteliği** | **Açıklama** |
 | --- | --- |
-| **Etkin** | Gerekli **Boolean** özniteliği. Değişiklikler için yoklanıyor olup olmadığını gösterir. |
-| **pollTime** | İsteğe bağlı **Int32** özniteliği. SqlCacheDependency değişiklikleri için veritabanı tablosunu yokladığında frekansı ayarlar. Bu değer, birbirini izleyen yoklamalar arasındaki milisaniye sayısı karşılık gelir. 500'den az milisaniye olarak ayarlanamaz. Varsayılan değer 1 dakikadır. |
+| **Etkin** | Gerekli **Boole** özniteliği. Değişiklikler için yoklanıyor olup olmadığını gösterir. |
+| **pollTime** | İsteğe bağlı **Int32** özniteliği. SqlCacheDependency veritabanı tablosu değişiklikleri için yoklama sıklığı ayarlar. Bu değer, birbirini izleyen yoklamalar arasındaki milisaniye sayısını karşılık gelir. 500'den az milisaniye ayarlanamaz. Varsayılan değer 1 dakikadır. |
 
 ### <a name="more-information"></a>Daha fazla bilgi
 
-Önbellek yapılandırma ile ilgili farkında olmanız gereken bazı ek bilgi yok.
+Önbelleği yapılandırma ile ilgili farkında olmanız gereken bazı ek bilgiler yok.
 
-- Çalışan işlem özel bayt sayısı sınırı ayarlanmamışsa önbellek aşağıdaki sınırları birini kullanın: 
+- Çalışan işlem özel baytlar sınırı ayarlanmazsa, önbellek aşağıdaki sınırlar birini kullanır: 
 
-    - x86 2 GB: 800 MB ya da fiziksel RAM, %60 küçüktür
-    - x86 3 GB: 1800 MB ya da fiziksel RAM, %60 küçüktür
-    - x 64: 1 terabayttan küçük ya da fiziksel RAM, %60 küçüktür
-- Her iki alt özel işlemi, bayt sınırlamak ve &lt;privateBytesLimit önbelleğe /&gt; , önbellek, en az iki kullanacağınız ayarlanmıştır.
-- Gibi 1.x, biz önbellek girişlerinin bırakın ve GC çağırın. İki nedenden dolayı Topla: 
+    - x86 2 GB: 800 MB veya fiziksel RAM, 60 oranında küçüktür
+    - x86 3 GB: 1800 MB veya fiziksel RAM, 60 oranında küçüktür
+    - x 64: 1 terabayt ya da fiziksel RAM'in %60 küçüktür
+- Her iki çalışan özel işlemi, bayt kısıtlamak ve &lt;privateBytesLimit önbellek /&gt; , önbellek, en az iki kullanacağı ayarlanmıştır.
+- Tıpkı 1.x, biz önbellek girişlerinin bırakın ve GC çağırın. İki nedenden dolayı Topla: 
 
-    - Özel bayt sınıra yakın çok duyuyoruz
+    - Özel bayt sınırına yakın çok duyuyoruz
     - Yakın veya % 10'dan kullanılabilir bellek
-- Etkili bir şekilde kırpma devre dışı bırakın ve önbellek için yetersiz bellek koşulları ayarlayarak &lt;percentagePhysicalMemoryUseLimit önbelleğe /&gt; 100.
-- 1.x 2.0 kırpma ve toplama çağrıları, askıya alınır son GC. Toplama özel bayt veya (önbellek) bellek sınırı % 1'den fazla tarafından yönetilen yığınların boyutunu azaltın değil.
+- Etkili bir şekilde kesim devre dışı bırakın ve önbellek düşük bellek koşullarını ayarlayarak &lt;percentagePhysicalMemoryUseLimit önbellek /&gt; 100.
+- 1.x, 2.0 kırpma ve toplama çağrıları, askıya alırız son GC. Toplama veya özel bayt (önbellek) bellek sınırının % 1'den fazla tarafından yönetilen yığınlar boyutunu azaltın değil.
 
-## <a name="lab1-custom-cache-dependencies"></a>Lab1: Özel önbellek bağımlılıkları
+## <a name="lab1-custom-cache-dependencies"></a>Lab1: Özel önbellek bağımlılıklarını
 
 1. Yeni bir Web sitesi oluşturun.
 2. Cache.xml adlı yeni bir XML dosyası ekleyin ve Web uygulaması kök dizinine kaydedin.
 3. Aşağıdaki kod sayfasına ekleme\_yük default.aspx plan kod yöntemi: 
 
     [!code-csharp[Main](caching/samples/sample15.cs)]
-4. Kaynak görünümünde default.aspx üstüne aşağıdakileri ekleyin: 
+4. Kaynak Görünümü'nde default.aspx en üstüne aşağıdakileri ekleyin: 
 
     [!code-aspx[Main](caching/samples/sample16.aspx)]
-5. Default.aspx göz atın. Ne zaman dediği?
-6. Tarayıcıyı yenileyin. Ne zaman dediği?
+5. Default.aspx göz atın. Ne zaman söylüyor?
+6. Tarayıcıyı yenileyin. Ne zaman söylüyor?
 7. Cache.XML açın ve aşağıdaki kodu ekleyin: 
 
     [!code-xml[Main](caching/samples/sample17.xml)]
 8. Cache.XML kaydedin.
-9. Tarayıcınızı yenileyin. Ne zaman dediği?
-10. Önceden önbelleğe alınan değer yerine zaman neden güncelleştirilmiş açıklamaktadır:
+9. Tarayıcınızı yenileyin. Ne zaman söylüyor?
+10. Daha önce önbelleğe alınmış değerler yerine zaman neden güncelleştirilmiş açıklar:
 
-## <a name="lab-2-using-polling-based-cache-dependencies"></a>Laboratuvar 2: Yoklama tabanlı önbelleği bağımlılıklarını kullanma
+## <a name="lab-2-using-polling-based-cache-dependencies"></a>Laboratuvar 2: Yoklama temelli önbellek bağımlılıklarını kullanma
 
-Bu Laboratuvar GridView ve DetailsView denetimi aracılığıyla Northwind veritabanında veri düzenleme için izin veren önceki modüldeki oluşturulan proje kullanır.
+Bu Laboratuvar GridView ve DetailsView denetimi aracılığıyla Northwind veritabanındaki verilerin düzenleme için izin veren önceki modülde oluşturduğunuz proje kullanır.
 
-1. Projeyi Visual Studio 2005'te açın.
-2. Aspnet çalıştırmak\_veritabanı ve Ürünler tablosuna etkinleştirmek için Northwind veritabanı karşı regsql yardımcı programı. Gelen bir Visual Studio komut istemi aşağıdaki komutu kullanın: 
+1. Visual Studio 2005'te projeyi açın.
+2. ASP.NET çalıştırma\_veritabanı ve ürünler tablosu etkinleştirmek için Northwind veritabanı karşı regsql yardımcı programı. Gelen bir Visual Studio komut istemi aşağıdaki komutu kullanın: 
 
     [!code-console[Main](caching/samples/sample18.cmd)]
-3. Aşağıdaki web.config dosyanıza ekleyin: 
+3. Web.config dosyasına aşağıdakileri ekleyin: 
 
     [!code-xml[Main](caching/samples/sample19.xml)]
-4. ShowData.aspx adlı yeni bir webform ekleyin.
-5. Aşağıdaki @ outputcache yönergesindeki showdata.aspx sayfasına ekleyin: 
+4. ShowData.aspx adlı yeni bir Web formu ekleyin.
+5. Aşağıdaki @ outputcache yönergesi showdata.aspx sayfasına ekleyin: 
 
     [!code-aspx[Main](caching/samples/sample20.aspx)]
-6. Aşağıdaki kod sayfasına ekleme\_showdata.aspx yükünü: 
+6. Aşağıdaki kod sayfasına ekleme\_showdata.aspx yükü: 
 
     [!code-html[Main](caching/samples/sample21.html)]
-7. Yeni bir SqlDataSource denetimi için showdata.aspx ekleyin ve Northwind veritabanı bağlantısı kullanacak şekilde yapılandırın. İleri'yi tıklatın.
-8. ProductName ve ProductID onay kutularını seçin ve İleri'yi tıklatın.
-9. Son'u tıklatın.
+7. Showdata.aspx için yeni bir SqlDataSource denetimi ekleyin ve Northwind veritabanı bağlantısı kullanacak şekilde yapılandırın. İleri'ye tıklayın.
+8. ProductName ve ProductID onay kutularını seçin ve İleri'ye tıklayın.
+9. Son'a tıklayın.
 10. Yeni GridView showdata.aspx sayfasına ekleyin.
-11. SqlDataSource1 aşağı açılır listeden seçin.
+11. SqlDataSource1 açılan listeden seçin.
 12. Kaydet ve showdata.aspx göz atın. Görüntülenen süreyi not edin.

@@ -2,33 +2,32 @@
 uid: aspnet/overview/owin-and-katana/index
 title: OWIN ve Katana | Microsoft Docs
 author: rick-anderson
-description: Katana oluşturma ve .NET OWIN tabanlı web uygulamaları için açık Web Arabirimi'ni barındıran bileşenleri esnek kümesidir.
+description: Katana bileşenlerini oluşturmak ve .NET OWIN tabanlı web uygulamaları için açık Web Arabirimi'ni barındıran için esnek bir kümesidir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/30/2013
 ms.topic: article
 ms.assetid: 37e005e9-2f1c-4039-b6ef-15612e0fdbc9
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana
 msc.type: chapter
-ms.openlocfilehash: a97cf97328ea6e4f7fe527ea7c9068ec60341d0b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9944fd64c0bd08f14badbc903b519ddff2fc9aa2
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26563637"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37385725"
 ---
 <a name="owin-and-katana"></a>OWIN ve Katana
 ====================
-> Katana oluşturma ve .NET OWIN tabanlı web uygulamaları için açık Web Arabirimi'ni barındıran bileşenleri esnek kümesidir.
+> Katana bileşenlerini oluşturmak ve .NET OWIN tabanlı web uygulamaları için açık Web Arabirimi'ni barındıran için esnek bir kümesidir.
 
 
-- [Proje Katana genel bakış](an-overview-of-project-katana.md)
-- [OWIN ve Katana ile çalışmaya başlama](getting-started-with-owin-and-katana.md)
-- [Katana örnekleri](katana-samples.md)
-- [OWIN başlangıç sınıfı algılama](owin-startup-class-detection.md)
-- [Katana Windows kimlik doğrulamasını etkinleştirme](enabling-windows-authentication-in-katana.md)
-- [IIS tümleşik ardışık düzende OWIN ara yazılımı](owin-middleware-in-the-iis-integrated-pipeline.md)
-- [OWIN OAuth 2.0 yetkilendirme sunucusu](owin-oauth-20-authorization-server.md)
-- [Konak bir Azure çalışan rolünde OWIN](host-owin-in-an-azure-worker-role.md)
+- [Project Katana’ya Genel Bakış](an-overview-of-project-katana.md)
+- [OWIN ve Katana ile Çalışmaya Başlama](getting-started-with-owin-and-katana.md)
+- [Katana Örnekleri](katana-samples.md)
+- [OWIN Başlangıç Sınıfı Algılama](owin-startup-class-detection.md)
+- [Katana’da Windows Kimlik Doğrulamasını Etkinleştirme](enabling-windows-authentication-in-katana.md)
+- [IIS Tümleşik İşlem Hattında OWIN Ara Yazılımı](owin-middleware-in-the-iis-integrated-pipeline.md)
+- [OWIN OAuth 2.0 Yetkilendirme Sunucusu](owin-oauth-20-authorization-server.md)
+- [Azure Çalışan Rolünde OWIN Barındırma](host-owin-in-an-azure-worker-role.md)

@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/supporting-odata-query-options
-title: ASP.NET Web API 2 OData sorgu seçeneklerini destekleyen | Microsoft Docs
+title: ASP.NET Web API 2 OData sorgu seçeneklerini destekleme | Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
@@ -9,107 +9,106 @@ ms.date: 02/04/2013
 ms.topic: article
 ms.assetid: 50e6e62b-e72e-4a29-8293-4b67377bd21f
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/supporting-odata-query-options
 msc.type: authoredcontent
-ms.openlocfilehash: 004c029db6f01627f7cadff26aaf5554ce2b93a5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3ce2b38a13e8684a88bb0ce6183671fae98795c7
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26566712"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37380849"
 ---
 <a name="supporting-odata-query-options-in-aspnet-web-api-2"></a>ASP.NET Web API 2 OData sorgu seçeneklerini destekleme
 ====================
-tarafından [CAN Wasson](https://github.com/MikeWasson)
+tarafından [Mike Wasson](https://github.com/MikeWasson)
 
-OData OData sorgusu değiştirmek için kullanılan parametreleri tanımlar. İstemci bu parametreler isteğin URI sorgu dizesinde gönderir. Örneğin, sonuçları sıralamak için bir istemci $orderby parametresini kullanır:
+OData OData sorgu değiştirmek için kullanılan parametreleri tanımlar. İstemci, bu parametreleri istek URI sorgu dizesinde gönderir. Örneğin, sonuçları sıralamak için bir istemci $orderby parametresini kullanır:
 
 `http://localhost/Products?$orderby=Name`
 
-Bu parametreler OData belirtimi çağırır *sorgu seçenekleri*. Herhangi bir Web API denetleyicisi için OData sorgu seçeneklerini projenizi & #8212 etkinleştirebilirsiniz; Denetleyici bir OData uç nokta olması gerekmez. Bu, herhangi bir Web API uygulama sıralama ve filtreleme gibi özellikleri eklemek için kolay bir yol sağlar.
+Bu parametreleri OData belirtiminden çağırır *sorgu seçenekleri*. Projenizdeki herhangi bir Web API denetleyicisi için OData sorgu seçenekleri etkinleştirebilirsiniz &#8212; denetleyici bir OData uç nokta olması gerekmez. Bu, filtreleme ve sıralama için herhangi bir Web API'sini uygulama gibi özellikleri eklemek için kullanışlı bir yol sağlar.
 
-Lütfen konusunu okuyun sorgu seçeneklerini etkinleştirmeden önce [OData güvenlik rehberi](odata-security-guidance.md).
+Lütfen bu makaleyi okuyun, sorgu seçeneklerini etkinleştirmeden önce [OData güvenlik rehberi](odata-security-guidance.md).
 
-- [OData sorgu seçeneklerini etkinleştirme](#enable)
+- [OData sorgu seçenekleri etkinleştirme](#enable)
 - [Örnek sorgular](#examples)
 - [Sunucu tabanlı disk belleği](#server-paging)
-- [Sorgu seçeneklerini sınırlama](#limiting_query_options)
-- [Sorgu seçeneklerini doğrudan çağırma](#ODataQueryOptions)
+- [Sorgu seçenekleri sınırlama](#limiting_query_options)
+- [Sorgu seçenekleri doğrudan çağırma](#ODataQueryOptions)
 - [Sorgu doğrulama](#query-validation)
 
 <a id="enable"></a>
-## <a name="enabling-odata-query-options"></a>OData sorgu seçeneklerini etkinleştirme
+## <a name="enabling-odata-query-options"></a>OData sorgu seçenekleri etkinleştirme
 
-Web API aşağıdaki OData sorgu seçeneklerini destekler:
+Web API'si, aşağıdaki OData sorgu seçeneklerini destekler:
 
 | Seçenek | Açıklama |
 | --- | --- |
 | $expand | İlgili varlıklar satır içi genişletir. |
-| $filter | Boole bir koşula göre sonuçları filtreler. |
-| $inlinecount | Sunucunun yanıt olarak eşleşen varlıkları toplam sayısı dahil söyler. (Sunucu tarafı disk belleği için kullanışlıdır.) |
+| $filter | Sonuçları bir Boolean koşulu temel alarak filtreler. |
+| $inlinecount | Sunucu yanıt olarak eşleşen varlıkların toplam sayısı dahil etmek anlatır. (Sunucu tarafı disk belleği için kullanışlıdır.) |
 | $orderby | Sonuçları sıralar. |
-| $select | Yanıta eklenecek hangi özelliklerin seçer. |
-| $skip | İlk n sonuçları atlar. |
-| $top | Yalnızca ilk n sonuçları döndürür. |
+| $select | Yanıta dahil etmek için hangi özelliklerin seçer. |
+| $skip | İlk n sonuç atlar. |
+| $top | Yalnızca ilk n sonuç döndürür. |
 
-OData sorgu seçeneklerini kullanmak için bunları açıkça etkinleştirmelisiniz. Bunları tüm uygulama için genel etkinleştirmek ya da bunları belirli denetleyicileri veya belirli eylemler için etkinleştirebilirsiniz.
+OData sorgu seçeneklerini kullanmak için bunları açıkça etkinleştirmeniz gerekir. Bunları etkinleştirmek için uygulamanın tamamını veya belirli denetleyicileri veya belirli eylemler için etkinleştirin.
 
-OData sorgu seçeneklerinin genel etkinleştirmek için arama **EnableQuerySupport** üzerinde **HttpConfiguration** başlangıçta sınıfı:
+OData sorgu seçeneklerini etkinleştirmek istiyorsanız arama **EnableQuerySupport** üzerinde **HttpConfiguration** başlangıçta sınıfı:
 
 [!code-csharp[Main](supporting-odata-query-options/samples/sample1.cs)]
 
-**EnableQuerySupport** yöntemi genel döndürür her denetleyici eylemi için sorgu seçeneklerini etkinleştirir bir **Iqueryable** türü. Sorgu seçenekleri tüm uygulama için etkinleştirilmiş istemiyorsanız, bunları belirli denetleyici eylemleri için ekleyerek etkinleştirebilirsiniz **[Queryable]** özniteliği eylem yöntemine.
+**EnableQuerySupport** yöntem sorgu seçenekleri için genel olarak döndüren bir denetleyici eylemi sağlar bir **Iqueryable** türü. Uygulamanın tamamı için etkin sorgu seçenekleri istemiyorsanız, bunları belirli bir denetleyici eylemleri için ekleyerek etkinleştirebilirsiniz **[Queryable]** özniteliği eylem yöntemine.
 
 [!code-csharp[Main](supporting-odata-query-options/samples/sample2.cs)]
 
 <a id="examples"></a>
 ## <a name="example-queries"></a>Örnek sorgular
 
-Bu bölümde OData sorgu Seçenekleri'ni kullanarak olası sorgu türleri gösterilmiştir. OData belgelerine sorgu seçeneklerini hakkında belirli Ayrıntılar için başvurmak [www.odata.org](http://www.odata.org/).
+Bu bölümde, OData sorgu seçeneklerini kullanarak olası sorgu türleri gösterilmektedir. Sorgu seçenekleri hakkındaki özel ayrıntılar için OData belgelerine bakın [www.odata.org](http://www.odata.org/).
 
-$ Hakkında bilgi için'ni genişletin ve bkz $select [$select kullanarak $genişletin ve ASP.NET Web API OData $value](using-select-expand-and-value.md).
+$ Hakkında bilgi için genişletin ve bkz $select, [$select kullanarak $expand ve ASP.NET Web API OData $value](using-select-expand-and-value.md).
 
 **İstemci tabanlı disk belleği**
 
-Büyük varlık kümeleri için istemci sonuç sayısını sınırlamak isteyebilirsiniz. Örneğin, bir istemci, 10 girişleri sonraki sonuç sayfasını almak için "İleri" bağlantıları ile her defasında gösterebilir. Bunu yapmak için istemci $top ve $skip seçenekleri kullanır.
+Büyük varlık kümeleri için istemci sonuçları sayısını sınırlamak isteyebilirsiniz. Örneğin, bir istemci, sonraki sonuç sayfasını almak için "İleri" bağlantıları ile bir kerede 10 girişleri gösterebilir. Bunu yapmak için istemci $top ve $skip seçeneklerini kullanır.
 
 `http://localhost/Products?$top=10&$skip=20`
 
-Döndürülecek giriş sayısı üst sınırı $top seçeneği sunar ve atlamak için girdi sayısı $skip seçeneği sunar. Önceki örnekte girişleri ile 30 21 getirir.
+En fazla girdi sayısı bu değeri döndürmek için $top seçeneği sunar ve atlanacak girdi sayısı $skip seçeneği sunar. Önceki örnekte girişleri 21 ile 30 getirir.
 
 **Filtreleme**
 
-$Filter seçeneği Boole ifadesi uygulayarak filtre sonuçları bir istemci olanak sağlar. Filtre ifadeleri oldukça güçlü; mantıksal ve aritmetik işleçler, dize işlevleri ve tarih işlevleri içerirler.
+$Filter seçeneği bir Boole ifadesi uygulayarak, sonuçları filtrelemek için bir istemci olanak tanır. Filtre ifadeleri oldukça güçlü; Bunlar, mantıksal ve aritmetik işleçler, dize işlevleri ve tarih işlevleri içerir.
 
-| Kategori olan tüm ürünleri "Toys" eşit döndür. | `http://localhost/Products?$filter=Category`EQ 'Toys' |
+| Kategorisindeki tüm ürünler "Toys" eşit döndürür. | `http://localhost/Products?$filter=Category` EQ 'Toys' |
 | --- | --- |
-| Fiyat 10'dan küçük olan tüm ürünleri döndür. | `http://localhost/Products?$filter=Price`lt 10 |
-| Mantıksal işleçler: tüm ürünleri dönüş burada fiyat > 5 ve fiyat = < = 15. | `http://localhost/Products?$filter=Price`Ge 5 ve fiyat le 15 |
+| Fiyat 10'dan küçük olan tüm ürünleri döndürür. | `http://localhost/Products?$filter=Price` lt 10 |
+| Mantıksal işleçler: tüm ürünleri döndürmek burada fiyat > 5 ve fiyat = < = 15. | `http://localhost/Products?$filter=Price` Ge 5 ve fiyat le 15 |
 | Dize işlevleri: "zz" olan tüm ürünleri adını döndürür. | `http://localhost/Products?$filter=substringof('zz',Name)` |
-| Date işlevleri: 2005'ten sonra ReleaseDate olan tüm ürünleri döndürür. | `http://localhost/Products?$filter=year(ReleaseDate)`gt 2005 |
+| Tarih işlevleri: 2005'ten sonra tüm ürünleriyle ReleaseDate döndürür. | `http://localhost/Products?$filter=year(ReleaseDate)` gt 2005 |
 
 **Sıralama**
 
-Sonuçları sıralamak için $orderby filtresi kullanın.
+Sonuçları sıralamak için $orderby filtreyi kullanın.
 
 | Fiyat göre sıralayın. | `http://localhost/Products?$orderby=Price` |
 | --- | --- |
-| Azalan düzende (en yüksek, düşüğe) fiyat göre sıralayın. | `http://localhost/Products?$orderby=Price desc` |
-| Kategoriye göre sıralayın ve ardından fiyat kategorilerde azalan sıralamada. | `http://localhost/odata/Products?$orderby=Category,Price desc` |
+| Fiyat (yüksekten en düşüğe) azalan düzende sırala. | `http://localhost/Products?$orderby=Price desc` |
+| Kategoriye göre sıralayın ve ardından fiyat kategorilerde azalan düzende sırala. | `http://localhost/odata/Products?$orderby=Category,Price desc` |
 
 <a id="server-paging"></a>
 ## <a name="server-driven-paging"></a>Sunucu tabanlı disk belleği
 
-Veritabanınızı milyonlarca kayıt varsa, bunları göndermek istemediğiniz tüm bir yükte. Bunu önlemek için sunucunun tek bir yanıt olarak gönderir girişleri sayısını sınırlayabilirsiniz. Sunucu disk belleği etkinleştirmek için ayarlanmış **PageSize** özelliğinde **Queryable** özniteliği. Değer döndürmek için giriş sayısı üst sınırı ' dir.
+Veritabanınızı milyonlarca kayıt varsa, bunları göndermek istemiyorsanız bir yük içinde tüm. Bunu önlemek için sunucu, tek bir yanıtta gönderen giriş sayısını sınırlayabilirsiniz. Sunucu disk belleği'ni etkinleştirmek için **PageSize** özelliğinde **Queryable** özniteliği. En fazla girdi sayısı bu değeri döndürülecek değerdir.
 
 [!code-csharp[Main](supporting-odata-query-options/samples/sample3.cs)]
 
-Denetleyicinizi OData biçimi döndürürse, yanıt gövdesi verilerin bir sonraki sayfasına bir bağlantı içerir:
+Denetleyicinizi OData biçimi döndürürse, yanıt gövdesi veri sonraki sayfaya bir bağlantı içerir:
 
 [!code-json[Main](supporting-odata-query-options/samples/sample4.json?highlight=8)]
 
-İstemci, bir sonraki sayfada getirmek için bu bağlantıyı kullanabilirsiniz. İstemci sonuç kümesinde girişleri toplam sayısını öğrenmek için "inlinecount" $inlinecount sorgu seçeneği değerine sahip ayarlayabilirsiniz.
+İstemci, bir sonraki sayfayı almak için bu bağlantıyı kullanabilirsiniz. İstemci sonuç kümesinde girişleri toplam sayısını öğrenmek $inlinecount sorgu seçeneği değerine sahip "inlinecount" ayarlayabilirsiniz.
 
 `http://localhost/Products?$inlinecount=allpages`
 
@@ -118,69 +117,69 @@ Değer "inlinecount" toplam sayı bu sayıyı yanıta eklenecek sunucunun bildir
 [!code-json[Main](supporting-odata-query-options/samples/sample5.json?highlight=3)]
 
 > [!NOTE]
-> Sonraki sayfa bağlantılar ve satır içi sayı OData biçimini gerektirir. OData sayısı ve bağlantıyı tutmak için yanıt gövdesinde özel alanlar tanımlar nedenidir.
+> Sonraki sayfa bağlantıları hem de satır içi sayı OData biçimini gerektirir. OData sayısı ve bağlantı tutacak yanıt gövdesi içinde özel alanlar tanımlar nedenidir.
 
 
-OData olmayan biçimleri için sonraki sayfa bağlantılar ve satır içi sayısı, sorgu sonuçlarında kaydırma tarafından desteklemek hala mümkündür bir **PageResult&lt;T&gt;**  nesnesi. Ancak, biraz daha fazla kod gerektirir. Aşağıda bir örnek verilmiştir:
+OData olmayan biçimleri için sonraki sayfa ve satır içi bağlantıları sayısı, sorgu sonuçlarında sarmalama tarafından desteklemek için tanımlanabilir bir **PageResult&lt;T&gt;**  nesne. Ancak, biraz daha fazla kod gerektirir. Aşağıda bir örnek verilmiştir:
 
 [!code-csharp[Main](supporting-odata-query-options/samples/sample6.cs)]
 
-JSON yanıt örnek aşağıda verilmiştir:
+Bir örnek JSON yanıtı aşağıda verilmiştir:
 
 [!code-json[Main](supporting-odata-query-options/samples/sample7.json)]
 
 <a id="limiting_query_options"></a>
-## <a name="limiting-the-query-options"></a>Sorgu seçeneklerini sınırlama
+## <a name="limiting-the-query-options"></a>Sorgu seçenekleri sınırlama
 
-Sorgu seçeneklerini istemci çok sayıda sunucu üzerinde çalışan sorgu üzerinde denetim sağlar. Bazı durumlarda, güvenlik veya performans nedenleriyle kullanılabilir seçenekler sınırlamak isteyebilirsiniz. **[Queryable]** özniteliği bazı yerleşik özelliklerinde bu. İşte bazı örnekler.
+Sorgu seçenekleri istemci çok fazla sunucuda çalıştırılan sorguyu üzerinde denetim sağlar. Bazı durumlarda, güvenlik veya performans nedenleriyle kullanılabilir seçenekler sınırlamak isteyebilirsiniz. **[Queryable]** özniteliği bazı yerleşik özelliklerinde bu. Bazı örnekleri aşağıda verilmiştir.
 
-Yalnızca $skip ve $top, disk belleği ve hiçbir şey desteklemek için izin ver:
+Yalnızca $skip ve $top, sayfalama ve başka hiçbir şey desteklemek için izin ver:
 
 [!code-csharp[Main](supporting-odata-query-options/samples/sample8.cs)]
 
-Veritabanında oluşturulmuyor özellikleri sıralama önlemek belirli özellik yalnızca tarafından sıralanmasına izin ver:
+Veritabanında oluşturulmuyor özellikleri sıralama önlemek belirli özellikleri yalnızca tarafından sıralanmasına izin vermek:
 
 [!code-csharp[Main](supporting-odata-query-options/samples/sample9.cs)]
 
-"Eq" mantıksal işlevi ancak diğer mantıksal işlevleri izin ver:
+"Eq" mantıksal işlevi ancak diğer mantıksal işlevler izin ver:
 
 [!code-csharp[Main](supporting-odata-query-options/samples/sample10.cs)]
 
-Hiçbir aritmetik işleçler izin verme:
+Tüm aritmetik işleçlere izin verme:
 
 [!code-csharp[Main](supporting-odata-query-options/samples/sample11.cs)]
 
-Oluşturarak seçenekleri genel kısıtlayabilirsiniz bir **QueryableAttribute** örneği ve kendisine geçirme **EnableQuerySupport** işlevi:
+Oluşturarak, genel bir seçenekler kısıtlayabilirsiniz bir **Queryableattribute'taki** örneği ve aktarması **EnableQuerySupport** işlevi:
 
 [!code-csharp[Main](supporting-odata-query-options/samples/sample12.cs)]
 
 <a id="ODataQueryOptions"></a>
-## <a name="invoking-query-options-directly"></a>Sorgu seçeneklerini doğrudan çağırma
+## <a name="invoking-query-options-directly"></a>Sorgu seçenekleri doğrudan çağırma
 
-Kullanmak yerine **[Queryable]** özniteliğinin, sorgu seçeneklerini doğrudan denetleyicinizi çağırabilirsiniz. Bunu yapmak için add bir **ODataQueryOptions** denetleyicisi yöntemine parametre. Bu durumda, gerekmeyen **[Queryable]** özniteliği.
+Yerine **[Queryable]** özniteliği doğrudan denetleyicinizin sorgu seçeneklerini çağırabilirsiniz. Bunu yapmak için bir **ODataQueryOptions** denetleyici yöntemin parametre. Bu durumda, ihtiyacınız olmayan **[Queryable]** özniteliği.
 
 [!code-csharp[Main](supporting-odata-query-options/samples/sample13.cs)]
 
-Web API doldurur **ODataQueryOptions** URI'den sorgu dizesi. Geçişi sorgu uygulamak için bir **Iqueryable** için **ApplyTo** yöntemi. Başka bir yöntem **Iqueryable**.
+Web API doldurur **ODataQueryOptions** URI'SİNDEN sorgu dizesi. Sorgu uygulamak için başarılı bir **Iqueryable** için **ApplyTo** yöntemi. Başka bir yöntem döndürür **Iqueryable**.
 
-Sahip değilse Gelişmiş senaryolar için bir **Iqueryable** sorgu sağlayıcısı inceleyin **ODataQueryOptions** ve başka bir forma sorgu seçeneklerini çevir. (Örneğin, RaghuRam Nadiminti'nın blog gönderisi bkz [çevirme OData sorgularını hql'e](https://blogs.msdn.com/b/webdev/archive/2013/02/25/translating-odata-queries-to-hql.aspx), ayrıca içeren bir [örnek](http://aspnet.codeplex.com/SourceControl/changeset/view/75a56ec99968#Samples/WebApi/NHibernateQueryableSample/Readme.txt).)
+Yoksa, Gelişmiş senaryolar için bir **Iqueryable** sorgu sağlayıcısı inceleyebilirsiniz **ODataQueryOptions** ve başka bir forma sorgu seçenekleri. (Örneğin, RaghuRam Nadiminti'nın blog yayınına bakın [çevirme OData sorgularını hql'e](https://blogs.msdn.com/b/webdev/archive/2013/02/25/translating-odata-queries-to-hql.aspx), da içeren bir [örnek](http://aspnet.codeplex.com/SourceControl/changeset/view/75a56ec99968#Samples/WebApi/NHibernateQueryableSample/Readme.txt).)
 
 <a id="query-validation"></a>
 ## <a name="query-validation"></a>Sorgu doğrulama
 
-**[Queryable]** özniteliği yürütmeden önce sorgu doğrular. Doğrulama adımı başlığında gerçekleştirilen **QueryableAttribute.ValidateQuery** yöntemi. Doğrulama işlemini de özelleştirebilirsiniz.
+**[Queryable]** özniteliği sorgu yürütülmeden önce doğrular. Doğrulama adımını içinde gerçekleştirilen **QueryableAttribute.ValidateQuery** yöntemi. Doğrulama işlemi ayrıca özelleştirebilirsiniz.
 
-Ayrıca bkz. [OData güvenlik rehberi](odata-security-guidance.md).
+Ayrıca bkz: [OData güvenlik rehberi](odata-security-guidance.md).
 
-Geçersiz kılma sınıfları almak için diğer bir deyişle, Doğrulayıcı birini ilk olarak, tanımlanan **Web.Http.OData.Query.Validators** ad alanı. Örneğin, aşağıdaki Doğrulayıcı sınıfını $orderby seçeneği için 'desc' seçeneği devre dışı bırakır.
+Geçersiz kılma sınıfları almak için diğer bir deyişle, Doğrulayıcı birini ilk olarak tanımlanan **Web.Http.OData.Query.Validators** ad alanı. Örneğin, aşağıdaki Doğrulayıcı sınıfını $orderby seçeneği için 'desc' seçeneğini devre dışı bırakır.
 
 [!code-csharp[Main](supporting-odata-query-options/samples/sample14.cs)]
 
-Bir alt **[Queryable]** geçersiz kılmak için öznitelik **ValidateQuery** yöntemi.
+Alt **[Queryable]** geçersiz kılmak için öznitelik **ValidateQuery** yöntemi.
 
 [!code-csharp[Main](supporting-odata-query-options/samples/sample15.cs)]
 
-Ardından, özel öznitelik ya da genel olarak ayarlamak veya denetleyicisi başına:
+Ardından, özel özniteliği ayarlayın ya da genel olarak veya denetleyici başına:
 
 [!code-csharp[Main](supporting-odata-query-options/samples/sample16.cs)]
 

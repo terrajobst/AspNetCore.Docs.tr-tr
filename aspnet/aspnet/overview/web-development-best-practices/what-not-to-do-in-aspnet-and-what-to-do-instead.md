@@ -1,48 +1,47 @@
 ---
 uid: aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet-and-what-to-do-instead
-title: ASP.NET yapmanız gerekenler ve bunun yerine yapmanız gerekenler | Microsoft Docs
+title: ASP.NET'te yapılmaması gerekenler ve bunların yerine yapılması gerekenler | Microsoft Docs
 author: tfitzmac
-description: Bu konuda kişiler ASP.NET web projeleri içinde birçok ortak hataları açıklanmaktadır. Bu commo önlemek için ne yapması gerektiğini yönelik öneriler sağlar...
+description: Bu konuda, ASP.NET web projeleri içinde kişi olun birkaç yaygın hataları açıklanır. Bu, bu or önlemek için ne yapmanız gerektiğini yönelik öneriler sağlar...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/08/2014
 ms.topic: article
 ms.assetid: c39b9965-545c-4b04-8f55-21be7f28a9e5
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet-and-what-to-do-instead
 msc.type: authoredcontent
-ms.openlocfilehash: 829f3a024bc15bec8b60b91193ba9bca37b78009
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: bf46d0b4997d9816071df20fb1884dd76dce8903
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28034926"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37371888"
 ---
-<a name="what-not-to-do-in-aspnet-and-what-to-do-instead"></a>ASP.NET yapmanız gerekenler ve bunun yerine yapmanız gerekenler
+<a name="what-not-to-do-in-aspnet-and-what-to-do-instead"></a>ASP.NET'te yapılmaması gerekenler ve bunların yerine yapılması gerekenler
 ====================
-tarafından [zel FitzMacken](https://github.com/tfitzmac)
+tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
-> Bu konuda kişiler ASP.NET web projeleri içinde birçok ortak hataları açıklanmaktadır. Bu ortak hataları önlemek için ne yapması gerektiğini yönelik öneriler sağlar. Bağlı olduğu bir [sunu](http://vimeo.com/68390507) tarafından **Damian Edirneli** Norveççe geliştiriciler konferansında.
+> Bu konuda, ASP.NET web projeleri içinde kişi olun birkaç yaygın hataları açıklanır. Bu, bu yaygın hataları önlemek için ne yapmanız gerektiğini yönelik öneriler sağlar. Bağlı olduğu bir [sunu](http://vimeo.com/68390507) tarafından **Damian Edwards** Norveç Geliştiriciler Konferansı'konumunda.
 
 
 ## <a name="disclaimer"></a>Sorumluluk reddi
 
-Bu konu, uygulamanızı güvenli ve etkin olduğundan emin olmak için tam bir kılavuz tasarlanmamıştır. Hala güvenlik ve performans için bu konudaki belirtilmeyen en iyi uygulamaları izlemeniz gerekir. Yalnızca .NET sınıfları ve işlemleri ile ilgili sık karşılaşılan hatalardan kaçınmanızı nasıl olabileceğini gösteriyor.
+Bu konu, güvenli ve verimli uygulama olduğundan emin olmak için tam bir kılavuz olarak tasarlanmamıştır. Yine de güvenlik ve performans için bu konudaki belirtilmeyen en iyi uygulamaları izlemeniz gerekir. Yalnızca, .NET sınıfları ve işlemleri ile ilgili yaygın hataları önlemek nasıl önerir.
 
 ## <a name="overview"></a>Genel Bakış
 
 Bu konu aşağıdaki bölümleri içermektedir:
 
-- [Standartları uyumluluğu](#standards)
+- [Uyumluluk standartları](#standards)
 
-    - [Denetim bağdaştırıcıları](#adapters)
+    - [Denetim bağdaştırıcılarını](#adapters)
     - [Stil özellikleri denetimlerinde](#styleprop)
-    - [Sayfa ve denetim geri aramalar](#callback)
-    - [Tarayıcı yetenek algılama](#browsercap)
+    - [Sayfa ve denetim geri çağırmaları](#callback)
+    - [Tarayıcı özelliği algılama](#browsercap)
 - [Güvenlik](#security)
 
-    - [İstek doğrulama](#validation)
+    - [İsteği doğrulama](#validation)
     - [Cookieless form kimlik doğrulaması ve oturum](#cookieless)
     - [EnableViewStateMac](#viewstatemac)
     - [Orta güven](#medium)
@@ -52,58 +51,58 @@ Bu konu aşağıdaki bölümleri içermektedir:
 
     - [PreSendRequestHeaders ve PreSendRequestContent](#presend)
     - [Web Forms ile zaman uyumsuz sayfası olayları](#asyncevents)
-    - [Yangın ve unut çalışma](#fire)
+    - [İş Başlat ve unut](#fire)
     - [İstek Varlık gövdesi](#requestentity)
     - [Response.Redirect ve Response.End](#redirect)
     - [EnableViewState ve ViewStateMode](#viewstatemode)
     - [SqlMembershipProvider](#sqlprovider)
-    - [Uzun çalışan istekler (> 110 saniye)](#long)
+    - [Uzun çalışan istek (> 110 saniye)](#long)
 
 <a id="standards"></a>
 
-## <a name="standards-compliance"></a>Standartları uyumluluğu
+## <a name="standards-compliance"></a>Uyumluluk standartları
 
 <a id="adapters"></a>
 
-### <a name="control-adapters"></a>Denetim bağdaştırıcıları
+### <a name="control-adapters"></a>Denetim bağdaştırıcılarını
 
-Öneri: denetim bağdaştırıcıları Uyarlamalı işleme için kullanmayı ve CSS medya sorgular ve standartlarıyla uyumlu HTML yerine kullanın.
+Öneri: Uyarlamalı işleme için Denetim bağdaştırıcılarını kullanma durdurun ve CSS medya sorgular ve standartlara uygun HTML kullanın.
 
-Denetimleri bağdaştırıcıları farklı cihaz ve ortamlar için özelleştirilmiş sunu kodu oluşturmak için .NET 2.0 tanıtıldı. Şimdi, Uyarlamalı bu işleme HTML ve CSS ile gerçekleştirilebilir. Denetim bağdaştırıcıları kullanmayı ve varolan tüm bağdaştırıcıları CSS ve HTML dönüştürün.
+.NET 2. 0'ı farklı cihaz ve ortamları için özelleştirildiğinden sunu kod işlemek için denetimleri bağdaştırıcıları sunulur. Şimdi, Uyarlamalı bu işleme, CSS ve HTML ile gerçekleştirilebilir. Denetim bağdaştırıcılarını kullanmayı bırakmak ve herhangi bir mevcut bağdaştırıcıları için CSS ve HTML dönüştürme gerekir.
 
-Daha fazla bilgi için bkz: [Media Queries](http://www.w3.org/TR/css3-mediaqueries/) ve [nasıl yapılır: Mobil sayfalara eklemek bilgisayarınızı ASP.NET Web Forms / MVC uygulaması](../../../whitepapers/add-mobile-pages-to-your-aspnet-web-forms-mvc-application.md).
+Daha fazla bilgi için [Media Queries](http://www.w3.org/TR/css3-mediaqueries/) ve [nasıl yapılır: Mobil sayfalara ekleme bilgisayarınızı ASP.NET Web Forms / MVC uygulaması](../../../whitepapers/add-mobile-pages-to-your-aspnet-web-forms-mvc-application.md).
 
 <a id="styleprop"></a>
 
 ### <a name="style-properties-on-controls"></a>Stil özellikleri denetimlerinde
 
-Öneri: denetim biçimlendirmede stili değerleri ayarlama durdurun ve CSS stil biçimlendirme değerlerini ayarlayın.
+Öneri: denetim işaretlemede stil değerlerini ayarlama durdurun ve CSS stil sayfalarını biçimlendirme değerlerini ayarlayın.
 
-Web sunucusu denetimleri satır içi stil özelliklerini ayarlamak için kullanılan özellikler düzinelerce içerir. Örneğin, bir denetim için metin rengini ForeColor özelliği ayarlar. CSS stil sayfaları aracılığıyla daha verimli bir şekilde bu aynı etkiyi gerçekleştirebilirsiniz. Stil sayfaları, stil değerleri merkezileştirmek ve uygulamanızı boyunca bu değerler ayarlama önlemek etkinleştirin.
+Satır içi stil özellikleri ayarlamak için kullanılan özellikler onlarca Web sunucusu denetimleri içerir. Örneğin, bir denetim için metin rengi ForeColor özelliği ayarlar. CSS stil sayfaları ile daha verimli bir şekilde bu aynı etkiyi gerçekleştirebilirsiniz. Stil sayfaları, stil değer merkezileştirebilir ve uygulamanızda bu değerleri ayarlamaktan kaçının sağlar.
 
-Aşağıdaki örnek, bir CSS sınıfı kırmızı kümeleri metne gösterir.
+Aşağıdaki örnek, bir CSS sınıfı kırmızı kümeleri metni gösterir.
 
 [!code-css[Main](what-not-to-do-in-aspnet-and-what-to-do-instead/samples/sample1.css)]
 
-Sonraki örnek nasıl dinamik olarak CSS sınıfı uygulanacağını gösterir.
+Sonraki örnekte, CSS sınıfı dinamik olarak uygulanacak gösterilmektedir.
 
 [!code-csharp[Main](what-not-to-do-in-aspnet-and-what-to-do-instead/samples/sample2.cs)]
 
 <a id="callback"></a>
 
-### <a name="page-and-control-callbacks"></a>Sayfa ve denetim geri aramalar
+### <a name="page-and-control-callbacks"></a>Sayfa ve denetim geri çağırmaları
 
-Öneri: sayfa ve denetim geri aramalar kullanarak durdurun ve bunun yerine aşağıdakilerden herhangi birini kullanın: AJAX, UpdatePanel, MVC eylem yöntemleri, Web API veya SignalR.
+Öneri: sayfa ve denetim geri çağırmaları kullanmayı ve aşağıdakilerden birini kullanın: AJAX, UpdatePanel, MVC eylem yöntemleri, Web API'sini veya SignalR.
 
-ASP.NET önceki sürümlerde sayfa ve denetim geri çağırma yöntemlerini, tam bir sayfayı yenilemeyi olmadan web sayfasının parçası güncelleştirmek etkin. Kısmi Sayfa güncelleştirmelerini aracılığıyla şimdi gerçekleştirebileceğiniz [AJAX](../../../ajax/index.md), [UpdatePanel](https://msdn.microsoft.com/library/bb386454.aspx), [MVC](../../../mvc/index.md), [Web API](../../../web-api/index.md) veya [SignalR](../../../signalr/index.md). Kolay URL'ler ile sorunlara neden olabilir çünkü geri çağırma yöntemlerini kullanarak ve yönlendirme durdurmanız gerekir. Varsayılan olarak, denetimleri geri arama yöntemleri etkinleştirmeyin, ancak bir denetim'deki bu özellik etkinleştirildiğinde, onu devre dışı bırakmanız gerekir.
+ASP.NET önceki sürümlerinde, geri çağırma yöntemleri sayfası ve denetim web sitesine ait bir sayfanın tamamını yenilemeden güncelleştirmek etkin. Kısmi Sayfa güncelleştirmelerini aracılığıyla artık gerçekleştirebilirsiniz [AJAX](../../../ajax/index.md), [UpdatePanel](https://msdn.microsoft.com/library/bb386454.aspx), [MVC](../../../mvc/index.md), [Web API](../../../web-api/index.md) veya [SignalR](../../../signalr/index.md). Kolay URL'lerle sorunlara neden olabilir çünkü geri çağırma yöntemleri kullanılarak ve yönlendirme durdurmanız gerekir. Varsayılan olarak, denetimleri geri çağırma yöntemleri etkinleştirmeyin, ancak denetimi içinde bu özellik etkinleştirilirse, bunu devre dışı.
 
 <a id="browsercap"></a>
 
-### <a name="browser-capability-detection"></a>Tarayıcı yetenek algılama
+### <a name="browser-capability-detection"></a>Tarayıcı özelliği algılama
 
-Öneri: statik tarayıcı yetenek algılama kullanarak durdurun ve bunun yerine dinamik özellik algılama kullanın.
+Öneri: statik tarayıcı özelliği algılama kullanarak durdurun ve bunun yerine dinamik özellik algılama kullanın.
 
-ASP.NET önceki sürümlerinde desteklenen özellikler her tarayıcı için bir XML dosyasında depolanırdı. Statik bir arama yoluyla algılama özelliğini desteği en iyi yaklaşım değildir. Şimdi, dinamik olarak bir desteklenen bir tarayıcıdan özellikler gibi bir özellik algılama framework kullanarak algılayabilir [Modernizr](http://modernizr.com/). Özellik algılama yöntemi veya özelliği kullanmaya çalışıyor ve tarayıcı istenen sonucu üretilen olmadığını görmek için denetimi destek belirler. Varsayılan olarak, Web uygulaması şablonlarında Modernizr dahil edilir.
+ASP.NET önceki sürümlerinde desteklenen özellikler her tarayıcıda bir XML dosyasında saklanır. Statik bir arama yoluyla algılama özelliği desteği en iyi yaklaşım değildir. Şimdi, dinamik olarak bir desteklenen bir tarayıcıdan özellikleri gibi bir özellik algılama altyapısı kullanarak algılayabilir [Modernizr](http://modernizr.com/). Özellik algılama yöntemi veya özelliği kullanmak çalışıyor ve tarayıcı istenen sonucu üretilen varsa bkz denetleniyor destek belirler. Varsayılan olarak, Web uygulaması şablonları Modernizr dahildir.
 
 <a id="security"></a>
 
@@ -111,43 +110,43 @@ ASP.NET önceki sürümlerinde desteklenen özellikler her tarayıcı için bir 
 
 <a id="validation"></a>
 
-### <a name="request-validation"></a>İstek doğrulama
+### <a name="request-validation"></a>İsteği doğrulama
 
-Öneri: kullanıcı girişi doğrulayın ve çıktı kullanıcılardan kodlayın.
+Öneri: kullanıcı girişini doğrulamak ve kullanıcıların çıkış kodlayın.
 
-İstek doğrulama, her isteği inceler ve algılanan tehdit bulunursa istek durdurur ASP.NET özelliğidir. Uygulamanızı siteler arası komut dosyası saldırılarına karşı güvenliğini sağlamak için istek doğrulamayı bağlı değil. Bunun yerine, kullanıcıların gelen tüm girdiyi doğrulayın ve çıktı kodlayın. Sınırlı bazı durumlarda giriş doğrulamak için normal ifadeleri kullanabilirsiniz, ancak doğrulamanız gerekir daha karmaşık durumlarda değerle eşleşiyorsa belirleyen .NET sınıfları kullanarak kullanıcı girişini izin verilen değerler.
+İstek doğrulamanın, her isteği inceler ve algılanan bir tehdit bulunursa istek durduran ASP.NET özelliğidir. Uygulamanızı siteler arası betik saldırılara karşı güvenli hale getirmek için istek doğrulamayı bağlı değil. Bunun yerine, kullanıcılardan gelen tüm girişini doğrulamak ve çıkış kodlayın. Sınırlı bazı durumlarda, giriş doğrulamak için normal ifadeleri kullanabilirsiniz, ancak daha karmaşık durumlarda, doğrulamalıdır değerle eşleşiyorsa belirleyen .NET sınıflarını kullanarak kullanıcı girişi izin verilen değerler.
 
-Aşağıdaki örnek, bir statik yöntem URI sınıfında bir kullanıcı tarafından sağlanan URI geçerli olup olmadığını belirlemek için nasıl kullanılacağını gösterir.
+Aşağıdaki örnek, statik bir yöntem URI sınıfında bir kullanıcı tarafından sağlanan URI geçerli olup olmadığını belirlemek için nasıl kullanılacağını gösterir.
 
 [!code-csharp[Main](what-not-to-do-in-aspnet-and-what-to-do-instead/samples/sample3.cs)]
 
-Ancak, yeterince URI doğrulamak için ayrıca belirtir emin olmak için kontrol `http` veya `https`. Aşağıdaki örnek, URI geçerli olduğunu doğrulamak için örnek yöntemleri kullanır.
+Ancak, URI yeterince doğrulamak için Ayrıca, belirttiğinden emin olun için denetleme yapmalıdır `http` veya `https`. Aşağıdaki örnek, URI geçerli olduğunu doğrulamak için örnek yöntemler kullanır.
 
 [!code-csharp[Main](what-not-to-do-in-aspnet-and-what-to-do-instead/samples/sample4.cs)]
 
-HTML olarak kullanıcı girişini işleme veya kullanıcı girişi bir SQL sorgusuna dahil olmak üzere önce kötü amaçlı kod dahil değildir emin olmak için değerleri kodlayın.
+Kötü amaçlı kod dahil edilmez emin olmak için değerleri HTML olarak kullanıcı girişini işleme veya bir SQL sorgusunun kullanıcı girişi dahil olmak üzere önce kodlayın.
 
-HTML için değer ile biçimlendirmede kodlamak &lt;%: %&gt; aşağıda gösterildiği gibi sözdizimi.
+HTML için biçimlendirme değer kodlama &lt;%: %&gt; söz dizimi, aşağıda gösterildiği gibi.
 
 [!code-aspx[Main](what-not-to-do-in-aspnet-and-what-to-do-instead/samples/sample5.aspx?highlight=1)]
 
-Veya, Razor sözdizimini HTML ile kodlamak @, aşağıda gösterildiği gibi.
+Veya, HTML, Razor sözdizimini ile kodlama @, aşağıda gösterildiği gibi.
 
 [!code-cshtml[Main](what-not-to-do-in-aspnet-and-what-to-do-instead/samples/sample6.cshtml?highlight=1)]
 
-Sonraki örnekte gösterildiği nasıl arka plan kodu değerinde HTML olarak kodlayın.
+Sonraki örnekte gösterildiği nasıl, arka plan kod içinde bir değer için HTML kodlayın.
 
 [!code-csharp[Main](what-not-to-do-in-aspnet-and-what-to-do-instead/samples/sample7.cs)]
 
-Güvenli bir şekilde SQL komutları için bir değer kodlamak için komut parametreleri gibi kullandığınız [SqlParameter](https://msdn.microsoft.com/library/system.data.sqlclient.sqlparameter.aspx). <a id="cookieless"></a>
+Güvenli bir şekilde SQL komutları için bir değer kodlamak için komut parametreleri gibi kullanın [SqlParameter](https://msdn.microsoft.com/library/system.data.sqlclient.sqlparameter.aspx). <a id="cookieless"></a>
 
 ### <a name="cookieless-forms-authentication-and-session"></a>Cookieless form kimlik doğrulaması ve oturum
 
 Öneri: tanımlama bilgileri gerektirir.
 
-Kimlik doğrulama bilgilerini sorgu dizesinde geçirme güvenli değildir. Bu nedenle, uygulamanızın kimlik doğrulamasını içerdiğinde tanımlama bilgileri gerektirir. Tanımlama bilgisi gizli bilgileri depoluyorsa, tanımlama bilgisi için SSL gerektirme göz önünde bulundurun.
+Sorgu dizesinde kimlik doğrulama bilgilerini bu işleve geçirerek güvenli değildir. Uygulamanız kimlik doğrulaması içerdiğinde, bu nedenle, tanımlama bilgileri gerektirir. Tanımlama bilgisi duyarlı bilgi içermiyorsa, tanımlama bilgisi için SSL kullanılmasını gerekli tutmayı dikkate alın.
 
-Aşağıdaki örnekte, form kimlik doğrulamasını SSL üzerinden aktarılan bir tanımlama bilgisi gerektirdiğini Web.config dosyasında belirtebilir gösterilmektedir.
+Aşağıdaki örnek, form kimlik doğrulaması, SSL üzerinden iletilen bir tanımlama bilgisi gerektiren Web.config dosyasında belirlemek gösterilmektedir.
 
 [!code-xml[Main](what-not-to-do-in-aspnet-and-what-to-do-instead/samples/sample8.xml)]
 
@@ -157,11 +156,11 @@ Aşağıdaki örnekte, form kimlik doğrulamasını SSL üzerinden aktarılan bi
 
 Öneri: Hiçbir zaman false olarak ayarlanmış.
 
-Varsayılan olarak EnbableViewStateMac ayarlanır true. Görünüm durumu, uygulamanızın kullanmıyor olsa bile EnableViewStateMac false olarak ayarlamayın. Bu değer false olarak ayarlanırsa, uygulamanızı siteler arası komut dosyası karşı savunmasız hale getirir.
+Varsayılan olarak, EnbableViewStateMac ayarlanır true. Uygulama görünüm durumunu kullanmıyor olsa bile, EnableViewStateMac false olarak ayarlı değil. Bu değerin false olarak ayarlanması, uygulamanızı siteler arası betik karşı savunmasız hale getirir.
 
-ASP.NET 4.5.2 ile başlayarak, çalışma zamanı zorlar **EnableViewStateMac = true**. False olarak ayarlanmış olsa bile, çalışma zamanı bu değer yoksayar ve değer kümesiyle true olarak devam eder. Daha fazla bilgi için bkz: [ASP.NET 4.5.2 ve EnableViewStateMac](https://blogs.msdn.com/b/webdev/archive/2014/05/07/asp-net-4-5-2-and-enableviewstatemac.aspx).
+ASP.NET 4.5.2 ile başlayarak, çalışma zamanı zorlar **EnableViewStateMac = true**. False olarak ayarlanmış olsa bile, çalışma zamanı bu değeri yoksayar ve true olarak değer kümesi ile devam eder. Daha fazla bilgi için [ASP.NET 4.5.2 ve EnableViewStateMac](https://blogs.msdn.com/b/webdev/archive/2014/05/07/asp-net-4-5-2-and-enableviewstatemac.aspx).
 
-Aşağıdaki örnek, EnableViewStateMac true olarak ayarlanması gösterilmektedir. Gerçekte bu değer varsayılan olarak true olduğundan true olarak ayarlamak gerekmez. Ancak, false olarak herhangi bir sayfasında uygulamanızda ayarlarsanız, bu değer hemen düzeltmeniz gerekir.
+Aşağıdaki örnek, EnableViewStateMac true olarak ayarlamak gösterilmektedir. Aslında bu değer varsayılan olarak true olduğundan true olarak ayarlamak gerekmez. Ancak, bunu false olarak herhangi bir sayfa üzerinde uygulamanızda ayarladıysanız, bu değer hemen düzeltmeniz gerekir.
 
 [!code-aspx[Main](what-not-to-do-in-aspnet-and-what-to-do-instead/samples/sample9.aspx)]
 
@@ -169,9 +168,9 @@ Aşağıdaki örnek, EnableViewStateMac true olarak ayarlanması gösterilmekted
 
 ### <a name="medium-trust"></a>Orta güven
 
-Öneri: Orta güven (veya başka bir güven düzeyinde) bir güvenlik sınırı bağlı değil.
+Öneri: Orta güven (veya herhangi bir güven düzeyi) bir güvenlik sınırı olarak güvenmeyin.
 
-Kısmi güven uygulamanız yeterli koruma sağlamaz ve kullanılmamalıdır. Bunun yerine, tam güven kullanın ve güvenilmeyen uygulamalarını ayrı uygulama havuzlarında yalıtma. Ayrıca, her bir uygulama havuzunun benzersiz bir kimlik altında çalıştırın. Daha fazla bilgi için bkz: [ASP.NET kısmi güven garanti etmez uygulama yalıtımı](https://support.microsoft.com/kb/2698981).
+Kısmi güven yeterince uygulamanızı korumaz ve kullanılmamalıdır. Bunun yerine tam güven ve ayrı uygulama havuzlarında güvenilmeyen uygulamaları ayırmak. Ayrıca, her bir uygulama havuzunun benzersiz bir kimlik altında çalıştırın. Daha fazla bilgi için [ASP.NET kısmi güven uygulama yalıtımı garantilemez](https://support.microsoft.com/kb/2698981).
 
 <a id="appsettings"></a>
 
@@ -179,7 +178,7 @@ Kısmi güven uygulamanız yeterli koruma sağlamaz ve kullanılmamalıdır. Bun
 
 Öneri: güvenlik ayarlarını devre dışı bırakmayın &lt;appSettings&gt; öğesi.
 
-AppSettings öğe güvenlik güncelleştirmeleri için gerekli olan birden fazla değer içeriyor. Değil, değiştirmek veya bu değerleri devre dışı bırakmak gerekir. Bir güncelleştirme dağıtırken bu değerleri devre dışı bırakmanız gerekir, hemen dağıtımını tamamladıktan sonra yeniden etkinleştirin.
+AppSettings öğesi, güvenlik güncelleştirmeleri için gerekli olan birçok değerlerini içerir. Değil, değiştirmek veya bu değerleri devre dışı bırakmak gerekir. Bir güncelleştirme dağıtımı sırasında bu değerleri devre dışı bırakmanız gerekir, hemen dağıtımını tamamladıktan sonra yeniden etkinleştirin.
 
 Ayrıntılar için bkz [ASP.NET appSettings öğesi](https://msdn.microsoft.com/library/hh975440.aspx).
 
@@ -187,11 +186,11 @@ Ayrıntılar için bkz [ASP.NET appSettings öğesi](https://msdn.microsoft.com/
 
 ### <a name="urlpathencode"></a>UrlPathEncode
 
-Öneri: Kullanmak [UrlEncode](https://msdn.microsoft.com/library/zttxte6w.aspx) yerine.
+Öneri: Kullanın [UrlEncode](https://msdn.microsoft.com/library/zttxte6w.aspx) yerine.
 
-UrlPathEncode yöntemi çok özel tarayıcı uyumluluk sorunu gidermek için .NET Framework eklendi. Yeterli bir URL kodlama değil ve uygulamanızı siteler arası komut dosyası korumaz. Hiçbir zaman uygulamanızda kullanmalısınız. Bunun yerine, kullanın [UrlEncode](https://msdn.microsoft.com/library/zttxte6w.aspx).
+UrlPathEncode yöntemi, bir çok özel tarayıcı uyumluluk sorunu çözmek için .NET Framework eklendi. Bir URL yeterince kodlamaz ve uygulamanızı siteler arası komut dosyası oluşturmaya karşı koruma sağlamaz. Bunu uygulamanızda hiçbir zaman kullanmalısınız. Bunun yerine, [UrlEncode](https://msdn.microsoft.com/library/zttxte6w.aspx).
 
-Aşağıdaki örnek, bir köprü denetim için bir sorgu dizesi parametresi olarak kodlanmış bir URL geçirmek gösterilmiştir.
+Aşağıdaki örnek, bir hyperlink denetimi için bir sorgu dizesi parametresi olarak kodlanmış bir URL geçirilecek gösterilmektedir.
 
 [!code-csharp[Main](what-not-to-do-in-aspnet-and-what-to-do-instead/samples/sample10.cs)]
 
@@ -203,39 +202,39 @@ Aşağıdaki örnek, bir köprü denetim için bir sorgu dizesi parametresi olar
 
 ### <a name="presendrequestheaders-and-presendrequestcontent"></a>PreSendRequestHeaders ve PreSendRequestContent
 
-Öneri: Bu olayları ile yönetilen modüller kullanmayın. Bunun yerine, gerekli görev gerçekleştirmek için yerel bir IIS modül yazma. Bkz: [yerel kodlu HTTP modülleri oluşturma](https://msdn.microsoft.com/library/ms693629.aspx).
+Öneri: Bu olayları ile yönetilen modülleri kullanmayın. Bunun yerine, gerekli görev gerçekleştirmek için yerel bir IIS modül yazın. Bkz: [yerel kodlu HTTP modülleri oluşturma](https://msdn.microsoft.com/library/ms693629.aspx).
 
-Kullanabileceğiniz [PreSendRequestHeaders](https://msdn.microsoft.com/library/system.web.httpapplication.presendrequestheaders.aspx) ve [PreSendRequestContent](https://msdn.microsoft.com/library/system.web.httpapplication.presendrequestcontent.aspx) yerel IIS modülleri olan olaylar.
+Kullanabileceğiniz [PreSendRequestHeaders](https://msdn.microsoft.com/library/system.web.httpapplication.presendrequestheaders.aspx) ve [PreSendRequestContent](https://msdn.microsoft.com/library/system.web.httpapplication.presendrequestcontent.aspx) yerel IIS modülleri ile olayları.
 > [!WARNING]
-> Kullanmayın `PreSendRequestHeaders` ve `PreSendRequestContent` uygulamak yönetilen modüller ile `IHttpModule`. Bu özellikleri ayarlama ile zaman uyumsuz istekleri sorunlara neden olabilir. Uygulama istenen yönlendirme (ARR) ve websockets birleşimi w3wp çökmesine neden olabilir erişim ihlali özel durumlara neden olabilir. Örneğin, iiscore! W3_CONTEXT_BASE::GetIsLastNotification + iiscore.dll 68 bir erişim ihlali özel durumu (0xC0000005) neden.
+> Kullanmayın `PreSendRequestHeaders` ve `PreSendRequestContent` uygulayan yönetilen modülleri ile `IHttpModule`. Bu özellikleri ayarlama ile zaman uyumsuz istekler sorunlara neden olabilir. Uygulama istenen yönlendirme (ARR) ve websockets birleşimi w3wp kilitlenmesine neden olabilecek erişim ihlali özel durumlara neden olabilir. Örneğin, iiscore! Bir erişim ihlali özel durumu (0xC0000005) W3_CONTEXT_BASE::GetIsLastNotification + iiscore.dll, 68 oldu.
 
 <a id="asyncevents"></a>
 
 ### <a name="asynchronous-page-events-with-web-forms"></a>Web Forms ile zaman uyumsuz sayfası olayları
 
-Sayfa yaşam döngüsü olayları için void yöntemleri zaman uyumsuz yazma Web formlarında öneri: Kaçının ve bunun yerine kullanın [Page.RegisterAsyncTask](https://msdn.microsoft.com/library/system.web.ui.page.registerasynctask.aspx) zaman uyumsuz kodu.
+Öneri: Sayfa yaşam döngüsü olayları için void metotları zaman uyumsuz yazma Web formlarında önlemek ve bunun yerine kullanın [Page.RegisterAsyncTask](https://msdn.microsoft.com/library/system.web.ui.page.registerasynctask.aspx) zaman uyumsuz kod için.
 
-Bir sayfa olayla işaretlediğinizde **zaman uyumsuz** ve **void**, zaman uyumsuz kod bittiği olmadığını belirleyemez. Bunun yerine, Page.RegisterAsyncTask zaman uyumsuz kod kendi tamamlama izlemenize olanak sağlayan bir şekilde çalıştırmak için kullanın.
+Bir sayfa olay ile işaretlediğinizde **zaman uyumsuz** ve **void**, zaman uyumsuz kodun bittiği olmadığını belirleyemez. Bunun yerine, Page.RegisterAsyncTask tamamlanmasını izlemek sağlayan bir şekilde zaman uyumsuz kodu çalıştırmak için kullanın.
 
-Aşağıdaki örnekte gösterildiği düğmesine bir zaman uyumsuz kod içeren işleyicisi'ı tıklatın. Bu örnek bir dize değeri zaman uyumsuz olarak okumak önerilen bir uygulama olarak değil de yalnızca zaman uyumsuz bir görevi basitleştirilmiş bir örneği olarak sağlanan içerir.
+Aşağıdaki örnekte gösterildiği bir düğme içeren zaman uyumsuz kod işleyicisi'a tıklayın. Bu örnek bir dize değeri zaman uyumsuz olarak okuma önerilen uygulama değil de, yalnızca bir Basitleştirilmiş zaman uyumsuz bir görev örneği olarak sağlanan içerir.
 
 [!code-csharp[Main](what-not-to-do-in-aspnet-and-what-to-do-instead/samples/sample11.cs)]
 
-Zaman uyumsuz görevleri kullanıyorsanız, Http Çalışma zamanı hedef framework 4.5 Web.config dosyasında ayarlayın. Hedef framework 4.5 kapatır yeni eşitleme bağlamda ayarı .NET 4. 5 ' eklendi. Bu değer varsayılan Visual Studio 2012'de yeni projeler olarak ayarlanmış, ancak var olan bir proje ile çalışıyorsanız ayarlanmış olmaması.
+Zaman uyumsuz görevler kullanıyorsanız, Http Çalışma zamanı hedef Framework'ü Web.config dosyasında 4.5 olarak ayarlayın. Hedef framework 4.5 kapatır için yeni eşitleme kapsamının üzerinde ayarı .NET 4.5 eklendi. Bu değer yeni projeler Visual Studio 2012'de varsayılan olarak ayarlanmış, ancak mevcut bir projeyi ile çalışıyorsanız ayarlanmış olması değil.
 
 [!code-xml[Main](what-not-to-do-in-aspnet-and-what-to-do-instead/samples/sample12.xml)]
 
 <a id="fire"></a>
 
-### <a name="fire-and-forget-work"></a>Yangın ve unut çalışma
+### <a name="fire-and-forget-work"></a>İş Başlat ve unut
 
-Öneri: (Bu tür ThreadPool.QueueUserWorkItem yöntemi çağırma veya sürekli olarak bir temsilci çağıran bir zamanlayıcı oluşturma) iş yangın ve unut başlatma ASP.NET içindeki bir isteği işlerken kaçının.
+Öneri:, (böyle ThreadPool.QueueUserWorkItem yöntemi çağrılırken veya sürekli bir temsilci çağıran bir zamanlayıcı oluşturma) iş Başlat ve unut başlatma ASP.NET içinde bir isteği işlerken kaçının.
 
-Uygulamanız ASP.NET içinde çalışan yangın ve unut iş varsa, uygulamanızın eşitlenmemiş alabilirsiniz. Herhangi bir zamanda uygulama etki alanı, devam eden işlem artık uygulama geçerli durumunu eşleşmeyebilir anlamı yok edilmesi.
+Uygulamanızın içinde ASP.NET çalışan Başlat ve unut iş varsa, uygulamanızı eşitlenmemiş alabilirsiniz. Herhangi bir zamanda uygulamanın geçerli durumu, devam eden işlemini artık eşleşmiyor olabilir yani uygulama etki alanı edilebilir.
 
-Bu tür iş ASP.NET dışında taşımanız gerekir. Web işleri, Windows hizmeti veya çalışan rolü, Azure'da devam eden iş gerçekleştirmek için kullanın ve başka bir işlemden bu kodu çalıştırın.
+Bu tür iş ASP.NET dışında taşımanız gerekir. Web işleri, Windows hizmeti veya çalışan rolü, Azure'da devam eden çalışmayı gerçekleştirmek için kullanın ve kodun başka bir işlemden çalıştırın.
 
-ASP.NET içine bu iş gerçekleştirmeniz gerekirse, adlı Nuget paketi ekleyebilirsiniz [WebBackgrounder](http://www.nuget.org/packages/webbackgrounder) kodu çalıştırmak için.
+ASP.NET içine bu iş, gerçekleştirmeniz gerekirse adlı Nuget paketi ekleyebilirsiniz [WebBackgrounder](http://www.nuget.org/packages/webbackgrounder) kodu çalıştırmak için.
 
 <a id="requestentity"></a>
 
@@ -243,54 +242,54 @@ ASP.NET içine bu iş gerçekleştirmeniz gerekirse, adlı Nuget paketi ekleyebi
 
 Öneri: olay işleyicinin yürütmeden önce Request.Form veya Request.InputStream okuma kaçının.
 
-En kısa Request.Form veya Request.InputStream okumalısınız olduğu işleyicinin sırasında yürütme olay. MVC, işleyici denetleyicisidir ve eylem yöntemi çalıştığında execute etkinliğidir. Web Forms işleyici sayfasıdır ve Page.Init olay başlatıldığında execute etkinliğidir. Execute olay'den önceki istek Varlık gövdesi okuma, isteğin işlenmesi müdahale.
+Erken Request.Form veya Request.InputStream okumalıdır olan işleyicinin sırasında yürütme olay. Mvc'de denetleyicisi işleyici ve eylem yöntemi çalıştığında yürütme etkinliğidir. Web Forms, işleyici sayfasıdır ve Page.Init olay oluşturulduğunda yürütme etkinliğidir. Yürütme Olay'den önceki istek Varlık gövdesi okuma isteğin işlenmesi müdahale.
 
-Execute olayından önce istek Varlık gövdesi okuma gerekiyorsa kullanın ya da [Request.GetBufferlessInputStream](https://msdn.microsoft.com/library/ff406798.aspx) veya [Request.GetBufferedInputStream](https://msdn.microsoft.com/library/system.web.httprequest.getbufferedinputstream.aspx). GetBufferlessInputStream kullandığınızda ham akış istekten alma ve tüm istek işleme sorumluluğunu üstlenmesini. Bunlar ASP.NET tarafından doldurulduğunu değil çünkü GetBufferlessInputStream çağrıldıktan sonra Request.Form ve Request.InputStream kullanılabilir değil. GetBufferedInputStream kullandığınızda, gelen isteği akış bir kopyasını alın. ASP.NET diğer kopya doldurur çünkü Request.Form ve Request.InputStream isteği daha sonra hala kullanılabilir durumdadır.
+Yürütme olayından önce istek Varlık gövdesi okuma gerekiyorsa kullanın [Request.GetBufferlessInputStream](https://msdn.microsoft.com/library/ff406798.aspx) veya [Request.GetBufferedInputStream](https://msdn.microsoft.com/library/system.web.httprequest.getbufferedinputstream.aspx). GetBufferlessInputStream kullandığınızda, ham akışı istekten alma ve tüm istek işlemeye sorumluluğunu. Bunlar ASP.NET tarafından doldurulduğunu değil çünkü GetBufferlessInputStream çağrıldıktan sonra Request.Form ve Request.InputStream kullanılabilir değil. GetBufferedInputStream kullandığınızda, istekten akışın bir kopyasını alın. ASP.NET dolduran başka bir kopyası olduğundan Request.Form ve Request.InputStream isteği daha sonra yine kullanılabilir durumdadır.
 
 <a id="redirect"></a>
 
 ### <a name="responseredirect-and-responseend"></a>Response.Redirect ve Response.End
 
-Öneri: iş parçacığı çağrıldıktan sonra nasıl işleneceğini farklar haberdar [Response.Redirect(String)](https://msdn.microsoft.com/library/t9dwyts4.aspx).
+Öneri: iş parçacığı çağırdıktan sonra nasıl işlendiğini fark dikkat [Response.Redirect(String)](https://msdn.microsoft.com/library/t9dwyts4.aspx).
 
-[Response.Redirect(String)](https://msdn.microsoft.com/library/t9dwyts4.aspx) yöntemi Response.End yöntemini çağırır. Zaman uyumlu bir işlemde hemen durdurmak geçerli iş parçacığının Request.Redirect çağırma neden olur. İstek için kod yürütme devam eder ancak, zaman uyumsuz bir işlem Response.Redirect çağırma geçerli iş parçacığının abort değil. Zaman uyumsuz bir işlem görevi kod yürütmeyi durdurmaya yönteminden döndürmelidir.
+[Response.Redirect(String)](https://msdn.microsoft.com/library/t9dwyts4.aspx) yöntemi Response.End yöntemini çağırır. Bir zaman uyumlu işlemde Request.Redirect çağırma hemen iptal etmek geçerli iş parçacığının neden olur. İstek için kod yürütme devam eder ancak zaman uyumsuz bir işlemde Response.Redirect çağırma geçerli iş parçacığını iptal değil. Zaman uyumsuz bir işlemde görevi kod yürütmeyi durdurmak için yöntemden döndürmesi gerekir.
 
-MVC projesinde Response.Redirect çağırmalısınız değil. Bunun yerine, bir RedirectResult döndürür.
+Bir MVC projesinde, Response.Redirect çağırmamanız gerekir. Bunun yerine, bir RedirectResult döndürür.
 
 <a id="viewstatemode"></a>
 
 ### <a name="enableviewstate-and-viewstatemode"></a>EnableViewState ve ViewStateMode
 
-Öneri: Görünüm durumu üzerinde denetimleri kullanın ayrıntılı bir denetim sağlamak için EnableViewState yerine kullanım ViewStateMode.
+Öneri: Görünüm durumu üzerinde denetimleri kullanma ayrıntılı bir denetim sağlamak için EnableViewState yerine kullanım ViewStateMode.
 
-Sayfa yönergesi false EnableViewState ayarladığınızda, Görünüm durumu sayfa dahilindeki tüm denetimler için devre dışıdır ve etkinleştirilemez. Görünüm durumu yalnızca, sayfadaki bazı denetimler için etkinleştirmek istiyorsanız, ViewStateMode sayfa için devre dışı olarak ayarlayın.
+Yanlış sayfa yönergesinde EnableViewState ayarladığınızda, Görünüm durumu sayfa içindeki tüm denetimler için devre dışıdır ve etkinleştirilemez. Görünüm durumu sayfanızın belirli denetimler için etkinleştirmek istiyorsanız, ViewStateMode sayfa için devre dışı olarak ayarlanabilir.
 
 [!code-aspx[Main](what-not-to-do-in-aspnet-and-what-to-do-instead/samples/sample13.aspx)]
 
-Ardından, ViewStateMode gerçekten görünüm durumu gereken denetimlere etkin olarak ayarlayın.
+Ardından, ViewStateMode görünüm durumu gerektiren denetimlere etkin olarak ayarlayın.
 
 [!code-aspx[Main](what-not-to-do-in-aspnet-and-what-to-do-instead/samples/sample14.aspx)]
 
-Yalnızca ihtiyaç denetimleri için görünüm durumuna etkinleştirerek, web sayfaları için görünüm durumuna boyutunu küçültebilirsiniz.
+Yalnızca gerekli denetimleri için görünüm durumuna etkinleştirerek, web sayfaları için Görünüm durumu boyutunu küçültebilirsiniz.
 
 <a id="sqlprovider"></a>
 
 ### <a name="sqlmembershipprovider"></a>SqlMembershipProvider
 
-Öneri: Evrensel sağlayıcıları kullanır.
+Öneri: Evrensel sağlayıcıları kullanın.
 
-SqlMembershipProvider geçerli proje şablonlarını almıştır [ASP.NET Evrensel Sağlayıcılar](http://www.nuget.org/packages/Microsoft.AspNet.Providers), olduğu bir NuGet paketi olarak kullanılabilir. Şablonlar önceki bir sürümüyle oluşturulmuş bir projede SqlMembershipProvider kullanıyorsanız, Evrensel sağlayıcıları geçmelisiniz. Evrensel sağlayıcıları Entity Framework tarafından desteklenen tüm veritabanları ile çalışır.
+Geçerli proje şablonlarında SqlMembershipProvider ile değiştirilmiştir [ASP.NET Evrensel sağlayıcıları](http://www.nuget.org/packages/Microsoft.AspNet.Providers), olduğu bir NuGet paketi olarak kullanılabilir. SqlMembershipProvider şablonları önceki bir sürümüyle oluşturulmuş bir projede kullanıyorsanız, Evrensel sağlayıcıları geçer. Evrensel sağlayıcıları, Entity Framework tarafından desteklenen tüm veritabanları ile çalışır.
 
-Daha fazla bilgi için bkz: [ASP.NET Evrensel Sağlayıcılar Tanıtımı](http://www.hanselman.com/blog/IntroducingSystemWebProvidersASPNETUniversalProvidersForSessionMembershipRolesAndUserProfileOnSQLCompactAndSQLAzure.aspx).
+Daha fazla bilgi için [Karşınızda ASP.NET Evrensel sağlayıcıları](http://www.hanselman.com/blog/IntroducingSystemWebProvidersASPNETUniversalProvidersForSessionMembershipRolesAndUserProfileOnSQLCompactAndSQLAzure.aspx).
 
 <a id="long"></a>
 
-### <a name="long-running-requests-110-seconds"></a>Uzun süre çalışan istekler (> 110 saniye)
+### <a name="long-running-requests-110-seconds"></a>Uzun süren istekleri (> 110 saniye)
 
-Öneri: Kullanmak [WebSockets](https://msdn.microsoft.com/library/system.net.websockets.websocket.aspx) veya [SignalR](../../../signalr/index.md) bağlanan istemciler ve zaman uyumsuz g/ç işlemleri kullanın.
+Öneri: Kullanın [WebSockets](https://msdn.microsoft.com/library/system.net.websockets.websocket.aspx) veya [SignalR](../../../signalr/index.md) bağlı istemcileri ve zaman uyumsuz g/ç işlemleri kullanın.
 
-Uzun süre çalışan istekler öngörülemeyen sonuçlara ve performansın web uygulamanızda neden olabilir. Bir istek için varsayılan zaman aşımı ayarını 110 saniyedir. ASP.NET oturum durumu uzun süre çalışan istekle kullanıyorsanız, oturum nesnesi üzerinde kilit 110 saniye sonra serbest bırakır. Ancak, uygulamanızın oturum nesnesi üzerinde bir işlemi gerçekleştiriyor kilidi serbest ve işlemi başarıyla tamamlanmayabilir olabilir. İlk istek çalışırken kullanıcıdan ikinci bir isteği engellenirse, ikinci bir istek tutarsız bir duruma Session nesnesinde erişebilir.
+Uzun süreli istekler web uygulamanızda öngörülemeyen sonuçlara ve performansın düşmesine neden olabilir. Bir istek için varsayılan zaman aşımı ayarını 110 saniyedir. ASP.NET oturum durumu uzun süre çalışan istekle kullanıyorsanız, 110 saniye sonra oturum nesnesi üzerindeki kilidi serbest bırakır. Ancak, uygulamanız oturum nesnesinde bir işlem ortasında kilidi serbest bırakılır ve işlem başarıyla tamamlanmayabilir olabilir. İlk istek çalışırken kullanıcı ikinci bir isteği engellenirse, ikinci isteği tutarsız bir duruma oturum nesnesinde erişebilir.
 
-Uygulamanızı durdurma (veya zaman uyumlu) g/ç işlemleri içeriyorsa, uygulama yanıt vermeyen olacaktır.
+Uygulamanızın g/ç işlemleri engelleme (veya zaman uyumlu) içeriyorsa, uygulamanın yanıt veremez olacaktır.
 
-Performansı artırmak için .NET Framework zaman uyumsuz g/ç işlemleri kullanın. Ayrıca, WebSockets veya SignalR sunucuya bağlanan istemciler için kullanın. Bu özellikler, uzun süredir çalışan istekleri verimli bir şekilde işlemek üzere tasarlanmıştır.
+Performansı artırmak için .NET Framework zaman uyumsuz g/ç işlemleri kullanın. Ayrıca, WebSockets veya SignalR sunucuya bağlanan istemciler için kullanın. Bu özellikler, uzun süre çalışan istekleri verimli bir şekilde işlemek üzere tasarlanmıştır.

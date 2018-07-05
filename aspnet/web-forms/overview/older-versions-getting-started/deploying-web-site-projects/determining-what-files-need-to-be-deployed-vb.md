@@ -1,195 +1,194 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/determining-what-files-need-to-be-deployed-vb
-title: Dosyaları olması için gerekenler belirleniyor dağıtılan (VB) | Microsoft Docs
+title: Hangi dosyaları olarak dağıtılması gerektiğini belirleme (VB) | Microsoft Docs
 author: rick-anderson
-description: Dosyaları geliştirme ortamından üretim ortamına dağıtılması için gerekenler kısmen olup ASP.NET uygulaması bize oluşturulduğuna bağlı...
+description: Dosyalarını geliştirme ortamından üretim ortamına dağıtılması için gerekenler bölümü olup ASP.NET uygulaması bize oluşturulduğuna bağlı...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2009
 ms.topic: article
 ms.assetid: ea918f62-c9d6-4a7f-9bc6-e054d3764b2c
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/determining-what-files-need-to-be-deployed-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 4b9fcdbaaa0c2a6d7610339ecb6018a0fe6895f4
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 89b45bff705996b799242ad55f156083f310af97
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30889923"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37380395"
 ---
-<a name="determining-what-files-need-to-be-deployed-vb"></a>Dağıtılan (VB) dosyaları olması için gerekenler belirleniyor
+<a name="determining-what-files-need-to-be-deployed-vb"></a>Hangi dosyaları olarak dağıtılması gerektiğini belirleme (VB)
 ====================
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Kodu indirme](http://download.microsoft.com/download/4/5/F/45F815EC-8B0E-46D3-9FB8-2DC015CCA306/ASPNET_Hosting_Tutorial_02_VB.zip) veya [PDF indirin](http://download.microsoft.com/download/E/8/9/E8920AE6-D441-41A7-8A77-9EF8FF970D8B/aspnet_tutorial02_FilesToDeploy_vb.pdf)
+[Kodu indir](http://download.microsoft.com/download/4/5/F/45F815EC-8B0E-46D3-9FB8-2DC015CCA306/ASPNET_Hosting_Tutorial_02_VB.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/E/8/9/E8920AE6-D441-41A7-8A77-9EF8FF970D8B/aspnet_tutorial02_FilesToDeploy_vb.pdf)
 
-> Dosyaları geliştirme ortamından üretim ortamına dağıtılması için gerekenler kısmen olup ASP.NET uygulaması Web sitesi modeli veya Web uygulama modelini kullanarak oluşturulduğuna bağlı. Bu iki proje modelleri ve dağıtım projesi modeli nasıl etkilediği hakkında daha fazla bilgi edinin.
+> Dosyalarını geliştirme ortamından üretim ortamına dağıtılması gerekir bölümü olup ASP.NET uygulaması Web sitesi modeli veya Web uygulama modelini kullanarak oluşturulduğuna bağlı. Bu iki proje modelleri ve proje modeli dağıtım nasıl etkilediği hakkında daha fazla bilgi edinin.
 
 
 ## <a name="introduction"></a>Giriş
 
-ASP.NET web uygulaması dağıtma, ASP.NET ile ilgili dosyaları geliştirme ortamından üretim ortamına kopyalama kapsar. ASP.NET ile ilgili dosyaları ASP.NET web sayfası biçimlendirme ve kod ve istemci ve sunucu tarafı dosyalarını destekler. İstemci tarafı destek dosyaları, web sayfaları tarafından başvurulan ve doğrudan tarayıcıya - görüntüleri, CSS dosyaları ve JavaScript dosyaları, örneğin gönderilen bu dosyalarıdır. Sunucu tarafı destek dosyalarını sunucu tarafında bir isteği işlemek için kullanılan içerir. Bu yapılandırma dosyaları, web Hizmetleri, sınıf dosyaları, yazılan veri kümeleri ve LINQ için diğerlerinin yanı sıra SQL dosyaları içerir.
+Bir ASP.NET web uygulaması dağıtma, ASP.NET ile ilgili dosyaları geliştirme ortamından üretim ortamına kopyalamayı kapsar. ASP.NET ile ilgili dosyaları içeren ASP.NET web sayfası biçimlendirme ve kodu ve istemci ve sunucu tarafı dosyalarını destekler. İstemci tarafı desteği, bu dosyaları web sayfalarınıza tarafından başvurulan ve doğrudan tarayıcıya - görüntüler, CSS dosyaları ve JavaScript dosyaları, örneğin gönderilen dosyalarıdır. Sunucu tarafı destek dosyalarını sunucu tarafında bir isteği işlemek için kullanılan içerir. Bu yapılandırma dosyaları, web Hizmetleri, sınıf dosyaları, yazılan veri kümeleri ve LINQ için diğerlerinin yanı sıra SQL dosyaları içerir.
 
-Genel olarak, tüm istemci-tarafı destek dosyalarını geliştirme ortamından üretim ortamına kopyalanmış olmalıdır, ancak hangi sunucu tarafı destek dosyalarını kopyalanan olup, açıkça sunucu tarafı kodu derlemeye (bir derlediğinizüzerindebağlıdır`.dll` dosya) veya otomatik olarak oluşturulan bu derlemeler sorunlarınız varsa. Bu öğretici, dosyaları açıkça otomatik olarak gerçekleşir bu derleme adımı sahip karşı bir bütünleştirilmiş kod derleme yapılırken dağıtılması için gerekenler vurgular.
+Genel olarak, tüm istemci tarafı destek dosyalarını geliştirme ortamından üretim ortamına kopyalanacağını, ancak hangi sunucu tarafı destek dosyalarını kopyalanmasını olup, açıkça sunucu tarafı kodu bir derlemeye (bir derlemiyorsanızüzerindebağlıdır`.dll` dosyası) veya otomatik olarak oluşturulan bu derlemeleri yaşıyorsanız. Bu öğreticide, dosyaları açıkça otomatik olarak gerçekleşir. Bu derleme adım sahip karşı bir bütünleştirilmiş kod derleme yaparken dağıtılması için gerekenler vurgular.
 
-## <a name="explicit-compilation-versus-automatic-compilation"></a>Açık derleme otomatik derleme ile karşılaştırması
+## <a name="explicit-compilation-versus-automatic-compilation"></a>Açık derlemesini otomatik derleme ile karşılaştırması
 
-ASP.NET web sayfaları bildirim temelli biçimlendirme ve kaynak koduna ayrılır. HTML, bildirim temelli biçimlendirme bölümü içeren Web denetimleri ve veri bağlama söz dizimi; Visual Basic veya C# kod içinde yazılmış olay işleyicileri kod bölümü içerir. Biçimlendirme ve kodun bölümlerini genellikle farklı dosyalarıyla ayrılır: `WebPage.aspx` sırasında bildirim temelli biçimlendirmesini içeren `WebPage.aspx.vb` kodu barındırır.
+ASP.NET web sayfaları, bildirim temelli işaretleme ve kaynak koda ayrılır. HTML, bildirim temelli biçimlendirme bölümü içeren Web denetimleri ve veri bağlama söz dizimi; kod bölümü, Visual Basic veya C# kod halinde yazılmış olay işleyicilerini içerir. İşaretleme ve kod bölümlerini genellikle farklı dosyalarına ayrılır: `WebPage.aspx` sırasında bildirim temelli biçimlendirmesini içeren `WebPage.aspx.vb` kod barındırır.
 
-Adlı bir ASP.NET sayfasının göz önünde bulundurun `Clock.aspx` geçerli tarih ve saat Sayfa yüklediğinde, metin özelliği ayarlanmış bir etiket denetimi içerir. Bildirim temelli biçimlendirme bölümü (içinde `Clock.aspx`) için bir etiket Web denetimi - biçimlendirme içerecektir `<asp:Label runat="server" id="TimeLabel" />` - kod bölümü sırasında (içinde `Clock.aspx.vb`) olması gereken bir `Page_Load` olay işleyicisi aşağıdaki kod ile:
+Adlı bir ASP.NET sayfasına göz önünde bulundurun `Clock.aspx` geçerli tarih ve saat Sayfa yüklediğinde, metin özelliği ayarlanmış bir etiket denetimi içerir. Bildirim temelli biçimlendirme bölümü (içinde `Clock.aspx`) - etiket Web denetimi için biçimlendirme içerecektir `<asp:Label runat="server" id="TimeLabel" />` - kod bölümü sırasında (içinde `Clock.aspx.vb`) olması gereken bir `Page_Load` olay işleyicisi aşağıdaki kod ile:
 
 [!code-vb[Main](determining-what-files-need-to-be-deployed-vb/samples/sample1.vb)]
 
-Bu sayfa, sayfanın kod bölümü için bir istek hizmet vermek ASP.NET altyapısı için sırayla ( *`WebPage`* `.aspx.vb` dosyası) ilk derlenmiş gerekir. Bu derleme açıkça veya otomatik olarak ortaya çıkabilir.
+Bu sayfa, sayfanın kod bölümü için bir isteğe hizmet vermek ASP.NET altyapısının sırayla ( *`WebPage`* `.aspx.vb` dosya) ilk olarak derlenmesi gerekir. Bu derleme, açıkça ya da otomatik olarak gerçekleşebilir.
 
-Derleme açıkça olur sonra tüm uygulamanın kaynak kodu bir veya daha fazla derlemeye derlenmiş (`.dll` dosyaları) uygulama içinde bulunan `Bin` dizin. Elde edilen otomatik olarak oluşturulan daha sonra derleme otomatik olarak derlemedir, varsayılan olarak, olursa yerleştirilen `Temporary ASP.NET Files` bulunabilir klasörü `%WINDOWS%\Microsoft.NET\Framework\<version>`, bu konum aracılığıyla yapılandırılabilir olsa da [ &lt; derleme&gt; öğesi](https://msdn.microsoft.com/library/s10awwz0.aspx) içinde `Web.config`. Açık derleme ile bir derlemeye ASP.NET uygulama kodu derlemek için bazı işlemler yapması gerekir ve bu adımı dağıtımdan önce gerçekleşir. Kaynak ilk erişildiğinde otomatik derleme ile web sunucusu üzerinde derleme işlemi gerçekleşir.
+Derleme açıkça olur sonra tüm uygulamanın kaynak kodu, bir veya daha fazla derlemeye derlenen (`.dll` dosyaları) içinde uygulamanın bulunan `Bin` dizin. Ortaya çıkan otomatik olarak oluşturulan daha sonra derleme olduğundan, varsayılan olarak, derleme otomatik olarak gerçekleşir, bulundukları `Temporary ASP.NET Files` klasörü altında bulunabilir `%WINDOWS%\Microsoft.NET\Framework\<version>`, bu konuma aracılığıyla yapılandırılabilir olsa [ &lt; derleme&gt; öğesi](https://msdn.microsoft.com/library/s10awwz0.aspx) içinde `Web.config`. Açık derleme ile ASP.NET uygulama kodu bir derlemeye derlemek için bazı işlemler yapması gerekir ve bu adımı dağıtımdan önce gerçekleşir. Kaynağa erişildiğinde otomatik derleme ile derleme işlemi web sunucusunda gerçekleşir.
 
-Hangi derleme modeli bağımsız olarak kullanırsanız, tüm ASP.NET sayfaları biçimlendirme kısmı ( `WebPage.aspx` dosyaları) üretim ortamına kopyalanması gerekir. Açık derleme ile derlemelerde yukarı kopyalamanız gerekir. `Bin` klasörü, ancak gerekmez ASP.NET sayfaları kod bölümleri kopyalayın ( `WebPage.aspx.vb` dosyaları). Otomatik derleme ile böylece kodu varsa ve sayfayı ziyaret edildiğinde otomatik olarak derlenebilir kod bölümü dosyaları kopyalamanız gerekir. Her ASP.NET web sayfası biçimlendirme bölümünü içeren bir `@Page` yönerge özelliklere sahip olan sayfa ilişkili kodu zaten açıkça derlenmiş olduğu veya olup, otomatik olarak derlenmesi için gerekli olduğunu gösteriyor. Sonuç olarak, üretim ortamında ya da derleme modeli ile sorunsuz bir şekilde çalışabilir ve açık veya otomatik derleme kullanıldığını belirtmek için özel yapılandırma ayarları uygulamak gerekmez.
+Bağımsız olarak hangi derleme modeli kullandığınız, tüm ASP.NET sayfaları biçimlendirme bölümü ( `WebPage.aspx` dosyaları) üretim ortamına kopyalanması gerekir. Derlemeleri kopyalamak ihtiyacınız ile açık derlemesini `Bin` klasör, ancak gerekmez ASP.NET sayfaları kod bölümlerini kopyalayın ( `WebPage.aspx.vb` dosyaları). Otomatik derleme ile kod mevcut olduğundan ve sayfanın sitesini ziyaret ettiğinizde otomatik olarak derlenebilir kod bölümü dosyaları kopyalamanız gerekir. Her bir ASP.NET web sayfası biçimlendirme bölümünü içeren bir `@Page` yönerge özelliklere sahip olan sayfanın ilişkili kod zaten açıkça derlenmiş durumdadır ya da otomatik olarak derlenmesine ihtiyacı olup olmadığını gösterir. Sonuç olarak, üretim ortamına ya da derleme modeli ile sorunsuz bir şekilde çalışabilir ve açık veya otomatik derleme kullanıldığını belirtmek için hiçbir özel yapılandırma ayarları uygulamak gerekmez.
 
-Tablo 1 otomatik derleme karşı açık derlemesini kullanırken dağıtmak için farklı dosyalar özetler. Derleme bağımsız olarak model kullandığınız not derlemelerde her zaman dağıtmalısınız `Bin` bu klasörü varsa klasör. `Bin` Klasör web uygulamaya özgü açık derlemesini modeli kullanılırken derlenmiş kaynak kodunu içeren derlemelerini içerir. `Bin` Dizini de içeren diğer projeler derlemelerden ve kullanarak açık kaynaklı veya üçüncü taraf derlemeler ve bu üretim sunucusunda olması gerekir. Bu nedenle, genel altın kural, kopyalama `Bin` dağıtırken üretim klasöre. (Otomatik derleme modelini kullanarak ve tüm dış derlemeler kullanmıyorsanız durumunda sizi bir `Bin` sorunsuz dizin -!)
+Tablo 1, otomatik derleme ve açık derlemesini kullanırken dağıtmak için farklı dosyalar özetler. Derleme bakılmaksızın modeli kullandığınız not derlemeler her zaman dağıtmalısınız `Bin` bu klasör varsa klasörü. `Bin` Klasörünü içeren web uygulaması için belirli açık derlemesini modeli kullanılırken derlenmiş kaynak kodunu içeren derlemeler. `Bin` Dizin de içeren derlemeleri diğer projelerden ve kullanarak açık kaynak veya üçüncü taraf derlemeler ve bunlar üretim sunucusunda olmanız gerekir. Bu nedenle, bir genel kural karşısında, kopyalama `Bin` dağıtırken üretim klasöre. (Otomatik derleme modeli kullandığınız ve herhangi bir dış derlemeler kullanmıyorsunuz demektir sahip olmaz bir `Bin` Tamam dizin -!)
 
-| **Derleme modeli** | **Biçimlendirme bölümü dosyasını dağıtmak?** | **Kaynak kodu dosyasının dağıtabilir?** | **Derlemeleri dağıtma `Bin` dizin?** |
+| **Model derleme** | **Biçimlendirme bölümü dosyasını dağıtma?** | **Kaynak kodu dosyası dağıtma?** | **Derlemeleri dağıtma `Bin` dizin?** |
 | --- | --- | --- | --- |
 | Açık derleme | Evet | Hayır | Evet |
 | Otomatik derleme | Evet | Evet | Evet (varsa) |
 
-**Tablo 1: Hangi dosyaların dağıttığınız kullanılan derleme modeline bağlıdır.**
+**Tablo 1: Hangi dosyaların dağıttığınız kullanılan derleme modele bağlıdır.**
 
-## <a name="taking-a-trip-down-memory-lane"></a>Seyahat bellek yolundan alma
+## <a name="taking-a-trip-down-memory-lane"></a>Bellek yolundan bir seyahat alma
 
-Hangi derleme yaklaşım kullanılır, kısmen nasıl Visual Studio'da ASP.NET uygulaması yönetilen bağlıdır. Bu yana. Dört farklı sürümlerini Visual Studio - Visual Studio .NET 2002, Visual Studio .NET 2003, Visual Studio 2005 ve Visual Studio 2008 olmuştur 2000 yılında NET'in başlangıcı. Visual Studio .NET 2002 ve 2003 yönetilen kullanarak ASP.NET uygulamaları *Web uygulama projesi* modeli. Web uygulama projesi modelinin anahtar özellikleri şunlardır:
+Hangi derleme yaklaşım kullanılır, kısmen ASP.NET uygulamasını Visual Studio'da nasıl yönetilir bağlıdır. Bu yana. Dört farklı sürümlerini Visual Studio - Visual Studio .NET 2002, Visual Studio .NET 2003, Visual Studio 2005 ve Visual Studio 2008 olmuştur 2000 yılında NET'in başlangıcı. Visual Studio .NET 2002 ve 2003 kullanarak ASP.NET uygulamalarının yönetilen *Web uygulaması projesi* modeli. Web uygulaması projesi modelinin önemli özellikleri şunlardır:
 
-- Oluşma şekli proje tek proje dosyasında tanımlanan dosyalar. Proje dosyasında tanımlı değil tüm dosyaları bölümü web uygulamasının Visual Studio tarafından kabul edilmez.
-- Açık derleme kullanır. Proje derleme derler projedeki kod dosyaları yerleştirilir tek bir derleme halinde `Bin` klasör.
+- Dosyalar düzenini proje çoklu proje dosyasında tanımlanır. Proje dosyasında tanımlı değil tüm dosyaları bölümü web uygulamasının Visual Studio tarafından kabul edilmez.
+- Açık derlemesini kullanır. Proje derleme derler projedeki kod dosyaları yerleştirilen tek bir derleme içine `Bin` klasör.
 
-Microsoft Visual Studio 2005 yayımlandığı zaman Web uygulama projesi modeli desteği bırakılan ve Web sitesi projesini modeliyle değiştirildi. Web sitesi projesini modeli kendisinden Ayrıştırılan *Web uygulama projesi* aşağıdaki yollarla model:
+Microsoft Visual Studio 2005 yayımlandığında Web uygulaması projesi modeli desteği bırakılan ve Web sitesi proje modeli ile değiştirildi. Web sitesi proje modeli kendisinden Ayrıştırılan *Web uygulaması projesi* aşağıdaki yollarla model:
 
-- Proje dosyaları harfe dönüştüren bir tek proje dosyası yerine, dosya sistemi yerine kullanılır. Kısacası, web uygulama klasörü (veya klasörleri) içindeki tüm dosyalar, projenin bir parçası olarak kabul edilir.
-- Visual Studio Proje derleme bir derlemede oluşturmaz `Bin` dizin. Bunun yerine, bir Web sitesi projesi oluşturma, derleme zamanı hataları bildirir.
-- Otomatik derleme desteği. Kodu önceden derlenmiş (kesin compilation) olabilse de Web sitesi projeleri genellikle üretim ortamına, biçimlendirme ve kaynak kodu kopyalayarak dağıtılır.
+- Proje dosyaları kullanıma harfe dönüştüren bir tek proje dosyası bozmanın yerine dosya sistemi yerine kullanılır. Kısacası, web uygulaması klasörü (veya klasörleri) içindeki tüm dosyaları projenin bir parçası olarak kabul edilir.
+- Visual Studio'da proje oluştururken bir derlemede oluşturmaz `Bin` dizin. Bunun yerine, bir Web sitesi projesi oluşturma, derleme zamanı hataları bildirir.
+- Otomatik derleme desteği. Kodu önceden derlenmiş (açık derlemesini) olsa da üretim ortamına, biçimlendirme ve kaynak kodu kopyalayarak Web sitesi projeleri genellikle dağıtılır.
 
-Visual Studio 2005 Service Pack 1 yayımlandığı zaman Microsoft Web uygulama projesi modeli geri. Ancak, yalnızca Web sitesi projesini modeli desteklemek Visual Web Developer devam. İyi haber, bu sınırlamaya Visual Web Developer 2008 Service Pack 1 ile bırakıldı ' dir. Bugün, Visual Studio (ve Visual Web Developer) Web uygulama projesi modeli veya Web sitesi projesini modeli kullanarak ASP.NET uygulamaları oluşturabilirsiniz. Her iki modelleri kendi Artıları ve eksileri vardır. Başvurmak [Web Uygulama projeleri giriş: karşılaştırma Web sitesi projeleri ve Web Uygulama projeleri](https://msdn.microsoft.com/library/aa730880.aspx#wapp_topic5) iki model ve hangi proje modeli durumunuza en iyi şekilde çalışır karar vermenize yardımcı olacak bir karşılaştırması.
+Microsoft, Visual Studio 2005 Service Pack 1 yayımlandığında Web uygulaması proje modeli geri. Ancak, yalnızca Web sitesi projesi modelini desteklemek Visual Web Developer devam eder. Güzel bir haberimiz var, bu sınırlama Visual Web Developer 2008 Service Pack 1 ile bırakıldı ' dir. Bugün, Visual Studio (ve Visual Web Developer) veya Web uygulaması proje modeli, hem de Web sitesi proje modeli kullanarak ASP.NET uygulamaları oluşturabilirsiniz. Her iki modelleri, kendi Artıları ve eksileri vardır. Başvurmak [Web Uygulama projeleri giriş: karşılaştırma Web sitesi projeleri ve Web Uygulama projeleri](https://msdn.microsoft.com/library/aa730880.aspx#wapp_topic5) iki model ve hangi proje modeli durumunuza en iyi şekilde çalışır karar vermenize yardımcı olacak bir karşılaştırma için.
 
-## <a name="exploring-the-sample-web-application"></a>Örnek Web uygulamasını keşfetme
+## <a name="exploring-the-sample-web-application"></a>Örnek Web uygulamasına keşfetme
 
-Bu öğretici için karşıdan yükleme rehberi incelemeler adlı bir ASP.NET uygulaması içerir. Web sitesi birisi oluşturabilir hobi Web sitesi taklit eder kendi kitap paylaşmak için çevrimiçi toplulukla gözden geçirir. Bu ASP.NET web uygulaması oldukça basittir ve aşağıdaki kaynakları oluşur:
+Bu öğretici için indirme Kitap incelemeleri adlı bir ASP.NET uygulaması içerir. Web sitesi birisi oluşturabilir hobi Web sitesi taklit eder, rehberi paylaşmak için çevrimiçi toplulukla inceler. Bu ASP.NET web uygulaması, çok basittir ve aşağıdaki kaynaklardan oluşur:
 
 - `Web.config`, uygulamanın yapılandırma dosyası.
-- Bir ana sayfa (`Site.master`).
+- Ana sayfa (`Site.master`).
 - Yedi farklı ASP.NET sayfaları:
 
-    - ~/`Default.aspx` -sitenin giriş sayfası.
-    - ~/`About.aspx` -bir "İlgili Site" sayfası.
-    - ~/`Fiction/Default.aspx` -incelendi kurgu books listelendiği bir sayfa.
+    - ~/`Default.aspx` -site giriş sayfası.
+    - ~/`About.aspx` -"bir hakkında Site" sayfası.
+    - ~/`Fiction/Default.aspx` -incelendi kurgu kitapların listelendiği bir sayfa.
 
-        - ~/`Fiction/Blaze.aspx` -Richard Bachman Romanım gözden *Blaze*.
-    - ~/`Tech/Default.aspx` -incelendi teknolojisi books listelendiği bir sayfa.
+        - ~/`Fiction/Blaze.aspx` -Richard Bachman Romanım incelenmesi *Blaze*.
+    - ~/`Tech/Default.aspx` -incelendi teknoloji kitapların listelendiği bir sayfa.
 
-        - ~/`Tech/CYOW.aspx` -gözden *oluşturma kendi Web sitenizi*.
-        - ~/`Tech/TYASP35.aspx` -gözden *öğretmek kendiniz ASP.NET 3.5 24 saat içindeki*.
-- Farklı CSS dosyaları üç `Styles` klasör.
-- Dört bulunan - ASP.NET logo ve üç geçirilmiş books kapsar görüntülerini tarafından desteklenen - tüm resim dosyaları `Images` klasör.
-- A `Web.sitemap` site haritası tanımlar ve menülerde görüntülemek için kullanılan dosya `Default.aspx` kök dizininde sayfaları ve `Fiction` ve `Tech` klasörler.
-- Adlı bir sınıf dosyası `BasePage.vb` temel tanımlayan `Page` sınıfı. Bu sınıf işlevselliğini genişleten `Page` otomatik olarak ayarlayarak sınıfı `Title` site haritası sayfanın konumda temel özelliği. Buna koysalar herhangi bir ASP.NET arka plan kodu sınıfını genişleten `BasePage` (yerine `System.Web.UI.Page`) başlığını site haritası içindeki konumuna bağlı olarak bir değere ayarlamanız gerekir. Örneğin, görüntülerken ~ /`Tech/CYOW.aspx` sayfası, başlığı "Giriş: teknolojisi: oluşturmak bilgisayarınızı kendi Web sitesi için" ayarlanır.
+        - ~/`Tech/CYOW.aspx` -incelenmesi *oluşturma kendi Web siteniz*.
+        - ~/`Tech/TYASP35.aspx` -incelenmesi *öğretin kendiniz ASP.NET 3.5 24 saat içindeki*.
+- Üç farklı CSS dosyaları `Styles` klasör.
+- Dört bulunan - logo ASP.NET ve üç gözden geçirilmiş kitap kapsar görüntülerini tarafından desteklenen - tüm görüntü dosyaları `Images` klasör.
+- A `Web.sitemap` site haritası tanımlar ve menülerde görüntülemek için kullanılan dosya `Default.aspx` kök dizininde sayfaları ve `Fiction` ve `Tech` klasörleri.
+- Adlı bir sınıf dosyası `BasePage.vb` temel tanımlayan `Page` sınıfı. Bu sınıf işlevselliğini genişletir `Page` otomatik olarak ayarlayarak sınıfı `Title` site haritası sayfanın konumunu temel özellik. Buna koysalar herhangi bir ASP.NET arka plan kod sınıfı genişleten `BasePage` (yerine `System.Web.UI.Page`) başlığını site haritası içindeki konumuna bağlı olarak bir değere ayarlamanız gerekir. Örneğin, görüntülerken ~ /`Tech/CYOW.aspx` sayfası, başlığı "Giriş: teknoloji: oluşturma kendi Web siteniz için" ayarlanır.
 
-Şekil 1 bir tarayıcıdan görüntülendiğinde Kitap incelemeleri Web sitesi ekran görüntüsü gösterilmektedir. Sayfa Burada gördüğünüz ~ / Tech/TYASP35.aspx, hangi incelemeleri kitap *öğretmek kendiniz ASP.NET 3.5 24 saat içindeki*. Sayfa ve sol sütunda menü üstündeki yayılan içerik haritası tanımlanan site haritası yapısı dayanır `Web.sitemap`. Görüntünün sağ üst köşedeki görüntüleri bulunan kitap kapak biri `Images` klasör. Web sitesinin görünüm CSS dosyaları tarafından yazılmış geçişli stil sayfası kuralları aracılığıyla tanımlanır `Styles` kapsayıcı sayfa düzeni ana sayfada tanımlı sırada klasör `Site.master`.
-
-
-[![Bir sınıflama başlıklarının üzerinde incelemeler Kitap incelemeleri Web sitesi sunar](determining-what-files-need-to-be-deployed-vb/_static/image2.png)](determining-what-files-need-to-be-deployed-vb/_static/image1.png)
-
-**Şekil 1**: Kitap incelemeleri Web sitesi bir sınıflama başlıklarının üzerinde incelemeler sunar ([tam boyutlu görüntüyü görüntülemek için tıklatın](determining-what-files-need-to-be-deployed-vb/_static/image3.png))
+Şekil 1 bir tarayıcıdan görüntülendiğinde Kitap incelemeleri Web sitesinin ekran görüntüsü gösterilmektedir. Burada, sayfayı görürsünüz ~ / Tech/TYASP35.aspx, hangi incelemeleri kitap *öğretin kendiniz ASP.NET 3.5 24 saat içindeki*. Üst sayfa ve menü sol sütunda yayılan içerik haritası, tanımlanan site haritası yapısı dayanır `Web.sitemap`. Sağ üst köşedeki görüntü görüntüleri bulunan kitap kapak biridir `Images` klasör. Web sitesinin görünüm, CSS dosyaları tarafından yazılmış geçişli stil sayfası kuralları aracılığıyla tanımlanır `Styles` ıpam'da sayfa düzeni ana sayfasında tanımlanan sırasında klasör `Site.master`.
 
 
-Bu uygulama bir veritabanı kullanmaz; her gözden geçirme, uygulama içinde ayrı bir web sayfası olarak uygulanır. Bu öğretici (ve sonraki birkaç öğreticileri) bir veritabanı olmayan bir web uygulaması dağıtma aracılığıyla yol. Ancak, bir sonraki öğretici biz incelemeleri, okuyucu açıklamaları ve bir veritabanı içinde diğer bilgileri depolamak için bu uygulamayı iyileştirmek ve adımları doğru bir veri tabanlı web uygulamasını dağıtmak için yapılması gereken inceleyeceksiniz.
+[![Başlıkları kaynaklardan değerlendirmeleri gözden geçirmeleri kitap Web sitesi sunar](determining-what-files-need-to-be-deployed-vb/_static/image2.png)](determining-what-files-need-to-be-deployed-vb/_static/image1.png)
 
-> [!NOTE]
-> Bu öğreticileri ASP.NET uygulamaları bir web ana makine sağlayıcısı ile barındırma odaklanmanıza ve ASP gibi bulunabilecek konuları inceleyin değil. NET'in site haritası sistemi veya ana sayfa sınıfını kullanma. Bu teknolojiler hakkında daha fazla bilgi ve öğretici kapsanan diğer konular hakkında daha fazla arka plan için her öğreticinin sonunda daha fazla bilgi bölümüne bakın.
-
-
-Bu öğreticinin indirme web uygulamasının iki kopya varsa, her farklı bir Visual Studio Proje türü olarak uygulanan: BookReviewsWAP, Web uygulama projesi ve BookReviewsWSP, bir Web sitesi projesi. Her iki proje Visual Web Developer 2008 SP1 ile oluşturulmuş ve ASP.NET 3.5 SP1'i kullanın. Çalışmak için masaüstünüze içeriği unzipping tarafından bu projeleri başlatın. Web uygulaması projesi (BookReviewsWAP) açmak için gidin `BookReviewsWAP` klasörü çözüm dosyasını çift tıklayın ve `BookReviewsWAP.sln`. Web sitesi projesini (BookReviewsWSP) açmak için Visual Studio'yu başlatın ve sonra Dosya menüsünden Web sitesini açın seçeneği, Gözat `BookReviewsWSP` , masaüstünüzdeki klasörünü ve Tamam'ı tıklatın.
+**Şekil 1**: Web sitesi Kitap incelemeleri başlıkları kaynaklardan değerlendirmeleri sunar ([tam boyutlu görüntüyü görmek için tıklatın](determining-what-files-need-to-be-deployed-vb/_static/image3.png))
 
 
-Bu öğretici göz hangi dosyaların kalan iki bölümde üretim ortamına Uygulama dağıtırken kopyalamanız gerekir. Sonraki iki öğreticileri - [ *bilgisayarınızı Site kullanarak FTP dağıtımı* ](deploying-your-site-using-an-ftp-client-vb.md) ve [ *dağıtma bilgisayarınızı Site kullanarak Visual Studio* ](deploying-your-site-using-visual-studio-vb.md) -için farklı yollar Göster Bu dosyaları bir web ana bilgisayar sağlayıcısına kopyalayın.
-
-## <a name="determining-the-files-to-deploy-for-the-web-application-project"></a>Web uygulaması projesi için dağıtmak için dosyaları belirleme
-
-Web uygulama projesi modeli açık derlemesini kullanır - projenin kaynak kodu tek bir derlemeye uygulamayı derlediğinizde her zaman derlenmiştir. Bu derleme ASP.NET sayfaları arka plan kod dosyaları içerir (~ /`Default.aspx.vb`, ~ /`About.aspx.vb`, vb.), yanı sıra `BasePage.vb` sınıfı. Elde edilen derlemeyi adlı `BookReviewsWAP.dll` ve uygulamanın içinde bulunan `Bin` dizin.
-
-Şekil 2 Kitap incelemeleri Web uygulama projesi dosyaları gösterir.
-
-
-[![Çözüm Gezgini'nde Web uygulaması projesi oluşturan dosyaları listelenmektedir.](determining-what-files-need-to-be-deployed-vb/_static/image5.png)](determining-what-files-need-to-be-deployed-vb/_static/image4.png)
-
-**Şekil 2**: Çözüm Gezgini'nde Web uygulaması projesi oluşturan dosyaların listeler
-
+Bu uygulama bir veritabanı kullanmaz; her gözden geçirme, uygulamada ayrı bir web sayfası olarak uygulanır. Bu öğreticide (ve sonraki birkaç öğreticileri) bir veritabanı yok. bir web uygulaması dağıtma adımlarını. Ancak, bir sonraki öğreticide biz incelemeleri, okuyucu açıklamalar ve bir veritabanı içinde diğer bilgileri depolamak için bu uygulamayı geliştirecek ve hangi adımları doğru şekilde bir veri odaklı web uygulamasını dağıtmak için gerçekleştirilmesi gereken keşfedin.
 
 > [!NOTE]
-> Şekil 2'de görüldüğü gibi ASP.NET sayfalarının arka plan kodu dosyaları için bir Visual Basic Web uygulaması projesi Çözüm Gezgini'nde görüntülenmez. Bir sayfa için arka plandaki kod sınıfı görüntülemek için Çözüm Gezgini'nde sayfasındaki sağ tıklayın ve görünüm kodu seçin.
+> Bu öğreticiler, ASP.NET uygulamaları bir web ana bilgisayar sağlayıcısıyla barındırma üzerinde odaklanın ve ASP gibi ek konular keşfedin değil. NET site haritası sistem veya temel sayfa sınıf kullanarak. Bu teknolojiler hakkında daha fazla bilgi ve öğretici boyunca kapsamdaki diğer konular hakkında daha fazla arka plan, her öğreticinin sonunda daha fazla bilgi bölümüne bakın.
 
 
-Bir ASP.NET uygulamasını dağıtmak için en son kaynak kodu derlemeye derleyebilir amacıyla uygulama oluşturarak Web uygulama projesi modeli start kullanarak geliştirmiştir. Ardından, aşağıdaki dosyaları üretim ortamına kopyalayın:
+Bu öğreticinin indirme web uygulamasının iki kopya varsa, her farklı bir Visual Studio Proje türü olarak uygulanan: BookReviewsWAP, bir Web uygulaması projesi ve BookReviewsWSP, bir Web sitesi projesi. Her iki proje Visual Web Developer 2008 SP1 ile oluşturulmuş ve ASP.NET 3.5 SP1'i kullanın. Çalışmak için bu projeleri masaüstünüze içeriği açma sırasında tarafından başlatın. Web uygulama projesi (BookReviewsWAP) açmak için gidin `BookReviewsWAP` klasör ve çözüm dosyasına çift tıklayarak `BookReviewsWAP.sln`. Web sitesi projesi (BookReviewsWSP) açmak için Visual Studio'yu başlatın ve ardından Dosya menüsünden Web sitesini Aç seçeneğini, Gözat `BookReviewsWSP` masaüstünüzün klasörüne ve Tamam'a tıklayın.
 
-- Her ASP.NET için bildirim temelli biçimlendirme içeren dosyaları sayfasında, aşağıdaki gibi ~ /`Default.aspx`, ~ /`About.aspx`ve benzeri. Ayrıca, kopya tüm ana sayfalar ve kullanıcı denetimleri için bildirim temelli biçimlendirme.
-- Derlemeler (`.dll` dosyaları) içinde `Bin` klasör. Program veritabanı dosyalarını kopyalamak gerekmez (`.pdb`) veya tüm XML dosyaları Bul `Bin` dizin.
 
-ASP.NET sayfaları kaynak kodu dosyaları üretim ortamına kopyalayın gerekmez ya da kopyalama gerek `BasePage.vb` sınıf dosyası.
+Bu dosyalar öğretici göz iki geriye kalan bölümlerinde uygulama dağıtılırken üretim ortamına kopyalamanız gerekir. Sonraki iki öğreticiler - [ *bilgisayarınızı Site kullanarak FTP dağıtımı* ](deploying-your-site-using-an-ftp-client-vb.md) ve [ *dağıtma bilgisayarınızı Site kullanarak Visual Studio* ](deploying-your-site-using-visual-studio-vb.md) -için farklı yollar Göster Bu dosyalar, bir web ana bilgisayar sağlayıcısına kopyalayın.
+
+## <a name="determining-the-files-to-deploy-for-the-web-application-project"></a>Dağıtmak için Web uygulama projesi dosyaları belirleme
+
+Web uygulaması proje modeli açık derlemesini kullanır - projenin kaynak kodu, uygulamayı her seferinde tek bir derlemeye derlenir. Bu derleme ASP.NET sayfaları arka plan kod dosyaları içerir (~ /`Default.aspx.vb`, ~ /`About.aspx.vb`, vb.), hem de `BasePage.vb` sınıfı. Elde edilen derlemeyi adlı `BookReviewsWAP.dll` ve uygulamanın bulunan `Bin` dizin.
+
+Şekil 2 Kitap incelemeleri Web uygulaması projesi dosyaları gösterir.
+
+
+[![Çözüm Gezgini'nde Web uygulaması projesi oluşturan dosyaları listeler.](determining-what-files-need-to-be-deployed-vb/_static/image5.png)](determining-what-files-need-to-be-deployed-vb/_static/image4.png)
+
+**Şekil 2**: Çözüm Gezgini'nde Web uygulaması projesi oluşturan dosyaları listeler
+
 
 > [!NOTE]
-> Şekil 2'de görüldüğü gibi `BasePage` sınıfı projedeki adlı klasöre yerleştirilen bir sınıf dosyası olarak gerçekleştirilen `HelperClasses`. Proje derlenmiş zaman kodda `BasePage.vb` dosya ASP.NET sayfaları arka plan kodu sınıfları yanı sıra tek bütünleştirilmiş koda derlenmiş `BookReviewsWAP.dll`. ASP.NET adlı özel bir klasör olan `App_Code` Web sitesi projeleri için sınıf dosyalarını tutmak için tasarlanmıştır. Kodda `App_Code` klasörü otomatik olarak derlenir ve bu nedenle Web Uygulama projeleri ile kullanılmamalıdır. Bunun yerine, uygulamanızın sınıf dosyaları adlı normal bir klasörde yerleştirmelisiniz `HelperClasses`, veya `Classes`, veya benzeri. Alternatif olarak, ayrı bir sınıf kitaplığı proje ile sınıf dosyaları yerleştirebilirsiniz.
+> Şekil 2 gösterildiği gibi ASP.NET sayfalarının arka plan kod dosyaları için bir Visual Basic Web uygulama projesi Çözüm Gezgini'nde görüntülenmez. Sayfası için arka plan kod sınıfı görüntülemek için Çözüm Gezgini'nde sayfasında sağ tıklayın ve kodu Görüntüle'yi seçin.
 
 
-ASP.NET ile ilgili biçimlendirme dosyaları ve derlemede kopyalama yanı sıra `Bin` klasörü, ayrıca diğer sunucu tarafı destek dosyalarını yanı sıra - görüntüler ve CSS dosyaları - istemci tarafı destek dosyalarını kopyalamak için ihtiyacınız `Web.config` ve `Web.sitemap`. Bu istemci ve sunucu tarafı dosyaları açık veya otomatik derleme kullanıp bağımsız olarak üretim ortamına kopyalanmasına gerek destekler.
+Bir ASP.NET uygulamasını açıkça en son kaynak kodu bir birleştirme dosyasına derlemek için bir uygulama oluşturarak Web uygulama projesi model başlangıç kullanarak geliştirdi. Ardından, aşağıdaki dosyaları, üretim ortamına kopyalayın:
 
-## <a name="determining-the-files-to-deploy-for-the-web-site-project-files"></a>İçin Web sitesi projesi dosyaları dağıtmak için dosyaları belirleme
+- Her ASP.NET için bildirim temelli biçimlendirme içeren dosyaları sayfasında, aşağıdaki gibi ~ /`Default.aspx`, ~ /`About.aspx`ve benzeri. Ayrıca, kopya herhangi bir ana sayfalar ve kullanıcı denetimleri için bildirim temelli biçimlendirme.
+- Derlemeler (`.dll` dosyaları) içinde `Bin` klasör. Program veritabanı dosyalarını gerekmez (`.pdb`) veya XML dosyaları Bul `Bin` dizin.
 
-Web sitesi projesini modeli otomatik derleme, Web uygulama projesi modeli kullanılırken kullanılamaz bir özelliği destekler. Açık derleme ile bir derlemeye projenizin kaynak kodu derleme ve bu derleme üretim ortamına kopyalayın. Diğer taraftan, otomatik derleme ile sadece kaynak kodunu üretim ortamına kopyalayın ve onu isteğe bağlı çalışma zamanı tarafından gerektiği şekilde derlenir.
-
-Visual Studio'da derleme menü seçeneği, Web Uygulama projeleri ve Web sitesi projeleri mevcuttur. Web Uygulama projeleri oluşturma derler projenin kaynak kodu bulunan tek bir derleme halinde `Bin` directory; bir Web sitesi projesini derleme zamanı hatalarını denetler, ancak tüm derlemelerde oluşturmaz oluşturma. Yapmanız gereken Web sitesi projesini modeli tüm kullanılarak geliştirilen bir ASP.NET uygulamasını dağıtmak için kopyalama üretim ortamına uygun dosyaları olmakla birlikte, t ilk yapı hiçbir derleme zamanı hataları olduğundan emin olmak için proje öneririz.
-
-Şekil 3 Kitap incelemeleri Web sitesi projeyi oluşturan dosyaları gösterir.
-
-
-[![Çözüm Gezgini Web sitesi projesini oluşturan dosyaları listelenmektedir.](determining-what-files-need-to-be-deployed-vb/_static/image7.png)](determining-what-files-need-to-be-deployed-vb/_static/image6.png)
-
-**Şekil 3**: Solution Explorer Web sitesi projesini oluşturan dosyaların listeler
-
-
-Bir Web sitesi projesini dağıtma, ASP.NET ile ilgili tüm dosyaların ASP.NET sayfaları, ana sayfalar ve kullanıcı denetimleri için işaretleme sayfaları birlikte, kod dosyaları içerir üretim ortamına - kopyalama içerir. Ayrıca tüm sınıf dosyaları gibi kopyalamalısınız `BasePage.vb`. Unutmayın `BasePage.vb` dosyasının bulunduğu `App_Code` Web sitesi projelerinde sınıfı dosyaları için kullanılan özel bir ASP.NET klasörü klasörü. Özel klasör üretimde, de sınıfı dosyalar olarak oluşturulmalıdır `App_Code` geliştirme ortamında klasörüne kopyalanmasını, için `App_Code` üretim klasörü.
-
-ASP.NET biçimlendirme ve kaynak kodu dosyaları kopyalamaya ek olarak diğer sunucu tarafı destek dosyalarını yanı sıra - görüntüler ve CSS dosyaları - istemci tarafı destek dosyalarını kopyalamak etmeniz `Web.config` ve `Web.sitemap`.
+Üretim ortamına ASP.NET sayfaları kaynak kod dosyaları kopyalarsınız gerekmez ya da kopyalamak zorunda `BasePage.vb` sınıf dosyası.
 
 > [!NOTE]
-> Web sitesi projeleri açık derlemesini de kullanabilirsiniz. Bir sonraki öğretici bir Web sitesi projesini derleyebilir nasıl inceleyeceksiniz.
+> Şekil 2 gösterildiği gibi `BasePage` sınıfı projesinde, adlı klasöre yerleştirilen bir sınıf dosyası olarak gerçekleştirilen `HelperClasses`. Proje derlendiğinde, kodda `BasePage.vb` dosya ASP.NET sayfalarının arka plan kod sınıflarının yanı sıra tek bütünleştirilmiş kod içine derlenmiş `BookReviewsWAP.dll`. ASP.NET adlı özel bir klasör olan `App_Code` Web sitesi projeleri için sınıf dosyaları tutmak için tasarlanmıştır. Kodda `App_Code` klasörü otomatik olarak derlenir ve bu nedenle Web Uygulama projeleri ile kullanılmamalıdır. Bunun yerine, uygulamanızın sınıf dosyaları adlı normal bir klasörde koymalısınız `HelperClasses`, veya `Classes`, veya benzer bir şey. Alternatif olarak, ayrı bir sınıf kitaplığı projesinde sınıf dosyaları yerleştirebilirsiniz.
+
+
+ASP.NET ile ilgili biçimlendirme dosyaları ve derlemede kopyalama yanı sıra `Bin` klasörü, ayrıca diğer sunucu tarafı destek dosyalarını yanı sıra - görüntüleri ve CSS dosyaları - istemci tarafı destek dosyalarını kopyalamak için ihtiyacınız `Web.config` ve `Web.sitemap`. Bu istemci ve sunucu tarafı açık veya otomatik derleme kullanmak isteyip istemediğinize bakılmaksızın üretim ortamına kopyalanacak dosyaları gerek destekler.
+
+## <a name="determining-the-files-to-deploy-for-the-web-site-project-files"></a>Web sitesi projesi dosyaları dağıtmak için dosyaları belirleme
+
+Web sitesi proje modeli, otomatik derleme, bir Web uygulaması projesi modeli kullanılırken kullanılamıyor özelliği destekler. Açık derleme ile projenizin kaynak kodunu bir araya derlemek ve derlemeye üretim ortamına kopyalayın. Öte yandan, otomatik derleme ile yalnızca kaynak kodu üretim ortamına kopyalayın ve onu isteğe bağlı bir çalışma zamanı tarafından gerektiği şekilde derlenir.
+
+Web Uygulama projeleri ve Web sitesi projeleri Visual Studio'da derleme menü seçeneği mevcuttur. Web Uygulama projeleri oluşturmayı derler projenin kaynak kodu bulunan tek bir derleme içine `Bin` dizin; bir Web sitesi projesi için derleme zamanı hataları kontrol eder, ancak herhangi bir derleme oluşturmaz oluşturma. Yapmanız gereken Web sitesi proje modeli tüm kullanılarak geliştirilmiş bir ASP.NET uygulaması dağıtma üretim ortamına uygun dosyaları kopyalama olduğu halde ilk derleme için hiçbir derleme zamanı hata olmadığından emin olmak için proje öneriyoruz.
+
+Şekil 3 Kitap incelemeleri Web sitesi projesi dosyaları gösterir.
+
+
+[![Çözüm Gezgini'nde Web sitesi projesi oluşturan dosyaları listeler.](determining-what-files-need-to-be-deployed-vb/_static/image7.png)](determining-what-files-need-to-be-deployed-vb/_static/image6.png)
+
+**Şekil 3**: Çözüm Gezgini'nde Web sitesi projesi oluşturan dosyaları listeler
+
+
+Bir Web sitesi projesi dağıtma, tüm ASP.NET ile ilgili dosyaları içeren ASP.NET sayfaları, ana sayfalar ve kullanıcı denetimleri için işaretleme sayfaları, kod dosyaları ile birlikte üretim ortamına - kopyalanmasını içerir. Ayrıca herhangi bir sınıf dosyaları gibi kopyalayın gerekir `BasePage.vb`. Unutmayın `BasePage.vb` dosyası `App_Code` Web sitesi projelerinde sınıf dosyaları için kullanılan özel bir ASP.NET klasörü klasörü. Özel klasör üretimde, de, sınıf dosyalarında olarak oluşturulmalıdır `App_Code` geliştirme ortamında klasörüne kopyalanmasını, için `App_Code` üretim klasöründedir.
+
+ASP.NET işaretleme ve kaynak kod dosyalarını kopyalama yanı sıra diğer sunucu tarafı destek dosyalarını yanı sıra - görüntüleri ve CSS dosyaları - istemci tarafı destek dosyalarını kopyalamak etmeniz `Web.config` ve `Web.sitemap`.
+
+> [!NOTE]
+> Web sitesi projeleri de açık derlemesini kullanabilirsiniz. Bir sonraki öğretici açıkça bir Web sitesi projesini derlemek nasıl inceleyeceksiniz.
 
 
 ## <a name="summary"></a>Özet
 
-Bir ASP.NET uygulaması dağıtımı için gerekli dosyaları geliştirme ortamından üretim ortamına kopyalama kapsar. ASP.NET uygulama kodu açıkça veya otomatik olarak derlenmiş üzerinde eşitlenmiş gereken dosyalar kesin kümesi bağlıdır. İşe derleme stratejisi, Web uygulama projesi modeli veya Web sitesi projesini modeli kullanarak ASP.NET uygulamasını yönetmek için Visual Studio yapılandırılmış tarafından etkilenir.
+Bir ASP.NET uygulaması dağıtma, gerekli dosyaları geliştirme ortamından üretim ortamına kopyalamayı kapsar. Eşitlenmesi gereken dosyalar kesin kümesi, ASP.NET uygulama kodu açıkça ya da otomatik olarak derlenmiş üzerinde bağlıdır. Web uygulaması proje modeli veya Web sitesi proje modeli kullanarak bir ASP.NET uygulamasını yönetmek için Visual Studio yapılandırılmış tarafından kullanılan derleme stratejisi etkilenir.
 
-Web uygulama projesi modeli açık derlemesini kullanır ve tek bir derleme halinde projenin kodu derler `Bin` klasör. Dağıtırken uygulama, ASP.NET sayfaları biçimlendirme bölümünü ve içeriğini `Bin` klasörü gerekir gönderilen üretim ortamına; - kod dosyaları ve örneğin arka plan kodu sınıfları - uygulamanın kaynak kodunda gerek yoktur üretim ortamına kopyalanacak.
+Web uygulaması proje modeli açık derlemesini kullanır ve projenin kod içinde tek bir derleme içine derler `Bin` klasör. Uygulama, ASP.NET sayfalarının biçimlendirme bölümü ve içeriğini dağıtım yaparken `Bin` klasör gerekir gönderilen üretim ortamına; - kod dosyaları ve arka plan kod sınıflar, örneğin - uygulamanın kaynak kodunda gerek yoktur üretim ortamına kopyalanacak.
 
-Öğreticiler gelecekte göreceğiz gibi bir Web sitesi projesini derleyebilir mümkün olmasına rağmen Web sitesi projesini modelini otomatik derleme varsayılan olarak, kullanır. Gerektirir otomatik derleme kullanan ASP.NET uygulaması dağıtma biçimlendirme bölümü *ve* üretim ortamına kaynak kodu kopyalanır. İlk kez istendiğinde kodu otomatik olarak üretim ortamına derlenir.
+Öğreticiler gelecekte göreceğiz gibi bir Web sitesi projesi derleyebilir daha mümkündür ancak Web sitesi proje modeli varsayılan olarak, otomatik derleme kullanır. Otomatik derleme kullanan bir ASP.NET uygulama dağıtımı, gerektirir, biçimlendirme bölümü *ve* üretim ortamına kaynak kodu kopyalanır. İlk kez istendiğinde kod üretim ortamına otomatik olarak derlenir.
 
-Şu dosyaları geliştirme ve üretim ortamlarını arasında eşitlenir gerekenleri inceleyen artık, biz web ana makine sağlayıcısı Kitap incelemeleri uygulamayı dağıtmak için hazır olursunuz.
+Biz dosyaları geliştirme ve üretim ortamları arasında eşitlenmesi gereken inceleyen artık, bir web ana bilgisayar sağlayıcısı Kitap incelemeleri uygulamayı dağıtmak hazırız.
 
-Mutluluk programlama!
+Mutlu programlama!
 
 ### <a name="further-reading"></a>Daha Fazla Bilgi
 
-Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
+Bu öğreticide ele alınan konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 - [ASP.NET derleme genel bakış](https://msdn.microsoft.com/library/ms178466.aspx)
 - [ASP.NET kullanıcı denetimleri](https://msdn.microsoft.com/library/y6wb1a0e.aspx)
-- [ASP inceleniyor. NET'in Site gezintisi](http://aspnet.4guysfromrolla.com/articles/111605-1.aspx)
-- [Web uygulaması projelerine giriş](https://msdn.microsoft.com/library/aa730880.aspx)
-- [Ana sayfa öğreticileri](../master-pages/creating-a-site-wide-layout-using-master-pages-cs.md)
-- [Kod sayfaları arasında paylaşma](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/pages/code.aspx)
-- [Özel bir taban sınıf, ASP.NET sayfaları için arka plan kodu sınıfları kullanma](http://aspnet.4guysfromrolla.com/articles/041305-1.aspx)
-- [Visual Studio 2005'ın Web sitesi proje sisteminin: nedir ve neden biz bunu?](https://weblogs.asp.net/scottgu/archive/2005/08/21/423201.aspx)
-- [İzlenecek yol: bir Web sitesi projesini Visual Studio'da bir Web uygulaması projesi dönüştürme](https://msdn.microsoft.com/library/aa983476.aspx)
+- [ASP inceleniyor. NET Site gezintisi](http://aspnet.4guysfromrolla.com/articles/111605-1.aspx)
+- [Web Uygulama projeleri giriş](https://msdn.microsoft.com/library/aa730880.aspx)
+- [Ana sayfa öğreticiler](../master-pages/creating-a-site-wide-layout-using-master-pages-cs.md)
+- [Sayfalar arasında kod paylaşma](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/pages/code.aspx)
+- [ASP.NET sayfalarının arka plan kod sınıfları için özel bir temel sınıf kullanma](http://aspnet.4guysfromrolla.com/articles/041305-1.aspx)
+- [Visual Studio 2005'ın Web sitesi proje sistemi: nedir ve neden biz bunu?](https://weblogs.asp.net/scottgu/archive/2005/08/21/423201.aspx)
+- [İzlenecek yol: Visual Studio'da bir Web uygulaması projesi için Web sitesi projesine dönüştürme](https://msdn.microsoft.com/library/aa983476.aspx)
 
 > [!div class="step-by-step"]
 > [Önceki](asp-net-hosting-options-vb.md)
-> [sonraki](deploying-your-site-using-an-ftp-client-vb.md)
+> [İleri](deploying-your-site-using-an-ftp-client-vb.md)

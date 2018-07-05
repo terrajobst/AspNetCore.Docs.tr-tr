@@ -1,32 +1,31 @@
 ---
 uid: web-forms/videos/aspnet-ajax/how-do-i-choose-between-methods-of-ajax-page-updates
-title: '[Nasıl stop yaparım] AJAX yöntem arasında seçim sayfasında güncelleştirmeleri? | Microsoft Docs'
+title: '[Bunu nasıl yaparım:] AJAX yöntemleri arasında seçin sayfasında güncelleştirmeleri? | Microsoft Docs'
 author: JoeStagner
-description: Bu videoda, AJAX stil sayfası güncellemelerini ASP.NET uygulamasını iki birincil yöntemleri Joe Stagner karşılaştırır. İlk yöntem bir Upd kullanmaktır...
+description: Bu videoda, bir ASP.NET uygulamasında AJAX stili Sayfa güncelleştirmelerini gerçekleştirmenin iki birincil yöntem ALi Stagner karşılaştırır. İlk yöntem, bir UDP kullanmaktır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/09/2007
 ms.topic: article
 ms.assetid: a5e33a7d-ccb2-483f-a955-3d39f72ba4ec
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-choose-between-methods-of-ajax-page-updates
 msc.type: video
-ms.openlocfilehash: b86471b93b7e3a1ed371288195f09fa28353ab36
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: c092a7dcaeeeec53e899bb1cdf12f9bb02a99597
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30885548"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37392058"
 ---
-<a name="how-do-i-choose-between-methods-of-ajax-page-updates"></a>[Nasıl stop yaparım] AJAX yöntem arasında seçim sayfasında güncelleştirmeleri?
+<a name="how-do-i-choose-between-methods-of-ajax-page-updates"></a>[Bunu nasıl yaparım:] AJAX yöntemleri arasında seçin sayfasında güncelleştirmeleri?
 ====================
-tarafından [CAN Stagner](https://github.com/JoeStagner)
+tarafından [ALi Stagner](https://github.com/JoeStagner)
 
-Bu videoda, AJAX stil sayfası güncellemelerini ASP.NET uygulamasını iki birincil yöntemleri Joe Stagner karşılaştırır. İlk yöntem nerede ek kod istemci tarafı veya sunucu tarafı yazılması gereken bir UpdatePanel kullanmaktır. UpdatePanel kullanmanın faydası her şeyi otomatik olarak çalışmasıdır. Cezası çok miktarda veri AJAX isteği ve yanıt dahil edilmesini gerektirir istemci ve sunucunun yürütülecek tam sayfa yaşam döngüsü gerektirir olmasıdır. İkinci yöntem, burada ek kod hem istemci tarafı hem de sunucu tarafı yazılması gereken ağ geri çağırmalar kullanmaktır. Ağ geri aramalar kullanmanın faydası, isteğe bağlı olarak istemcide AJAX isteği ve yanıt dahil edilecek çok az veri gerektirir ve sunucuda yürütülecek yalnızca çağrılan hizmet yöntemi gerektirir ' dir. Penality zaman ve çaba gerekli kodu yazmak için geçen ' dir. Joe AJAX stil sayfası güncelleştirmeleri başlıca iki yöntem arasında seçim yaparken dikkate almanız gerekenler ele video sonlanır. (Bu videoyu koddan kullanan [çalışmaya nasıl ASP.NET AJAX ile](how-do-i-get-started-with-aspnet-ajax.md) video ve [nasıl yedeklerim olun istemci-tarafı ağ geri aramalar ASP.NET AJAX ile](how-do-i-make-client-side-network-callbacks-with-aspnet-ajax.md) video.)
+Bu videoda, bir ASP.NET uygulamasında AJAX stili Sayfa güncelleştirmelerini gerçekleştirmenin iki birincil yöntem ALi Stagner karşılaştırır. İlk yöntem, hiçbir ek kod istemci tarafı veya sunucu tarafı yazılması gereken yere UpdatePanel, kullanmaktır. UpdatePanel kullanmanın avantajı, her şeyi otomatik olarak çalıştığını ' dir. Ceza çok fazla veri AJAX isteği ve yanıt dahil edilmesini gerektirir istemci ve sunucunun yürütülecek bir tam sayfa yaşam döngüsü gerektirir olmasıdır. İkinci yöntem, ek kod hem istemci tarafı hem de sunucu tarafı yazılması gereken yere ağ geri çağırmalar kullanmaktır. Ağ geri aramaları kullanmanın avantajı, AJAX isteği ve yanıt dahil edilecek çok az veri gerektiriyorsa istemci ve sunucuda yürütülecek yalnızca çağrılan hizmet yöntemi gerektirir ' dir. Penality zaman ve çaba, gerekli kodu yazmak için geçen ' dir. ALi, AJAX stili Sayfa güncelleştirmelerini iki birincil yöntem seçerken dikkat etmeniz gereken görüştükten tarafından video sona eriyor. (Bu videoyu koddan kullanan [nasıl kullanmaya başlayabilirim ASP.NET AJAX ile](how-do-i-get-started-with-aspnet-ajax.md) video ve [nasıl yaparım? ASP.NET AJAX ile istemci tarafı ağ geri olun](how-do-i-make-client-side-network-callbacks-with-aspnet-ajax.md) video.)
 
-[&#9654;(11 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-choose-between-methods-of-ajax-page-updates)
+[&#9654;Videoyu (11 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-choose-between-methods-of-ajax-page-updates)
 
 > [!div class="step-by-step"]
 > [Önceki](how-do-i-update-multiple-regions-of-a-page-with-aspnet-ajax.md)
-> [sonraki](how-do-i-use-other-javascript-user-interface-libraries-with-aspnet-ajax.md)
+> [İleri](how-do-i-use-other-javascript-user-interface-libraries-with-aspnet-ajax.md)

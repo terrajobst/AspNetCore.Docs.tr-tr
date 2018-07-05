@@ -1,32 +1,31 @@
 ---
 uid: web-forms/videos/aspnet-ajax/how-do-i-create-an-aspnet-ajax-extender-from-scratch
-title: '[Nasıl stop yaparım] ASP.NET AJAX genişletici sıfırdan oluşturulsun mu? | Microsoft Docs'
+title: '[Bunu nasıl yaparım:] Sıfırdan ASP.NET AJAX Genişleticisi oluşturma? | Microsoft Docs'
 author: rick-anderson
-description: Bir standart ASP.NET sunucu denetimi için ASP.NET AJAX genişletici oluşturmayı öğrenin. Sunucu tarafı özellikleri ve istemci tarafı JavaScript nasıl ekleneceği gösterilmektedir...
+description: Standart bir ASP.NET sunucu denetimi için bir ASP.NET AJAX genişletici oluşturmayı öğrenin. Sunucu tarafı ve istemci tarafı JavaScript eklemek nasıl gösterilen...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/01/2007
 ms.topic: article
 ms.assetid: 526b4ec1-4a80-4fae-bf0d-af5cb78f5d02
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-create-an-aspnet-ajax-extender-from-scratch
 msc.type: video
-ms.openlocfilehash: be2d1b1c22bac3b9648e65004937031fafb30973
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: b759c7a9924e633679d91e7a38e7db7e470f23a2
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30882864"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37382429"
 ---
-<a name="how-do-i-create-an-aspnet-ajax-extender-from-scratch"></a>[Nasıl stop yaparım] ASP.NET AJAX genişletici sıfırdan oluşturulsun mu?
+<a name="how-do-i-create-an-aspnet-ajax-extender-from-scratch"></a>[Bunu nasıl yaparım:] Sıfırdan ASP.NET AJAX Genişleticisi oluşturma?
 ====================
-tarafından [Chris Pels](https://twitter.com/chrispels)
+tarafından [Chris piksel](https://twitter.com/chrispels)
 
-Bir standart ASP.NET sunucu denetimi için ASP.NET AJAX genişletici oluşturmayı öğrenin. Aynı yaklaşımı olarak başka bir sunucu denetimi uygulanabilir rağmen sunucu tarafı özellikleri ve standart TextBox denetimi davranışını genişletmek için istemci tarafı JavaScript nasıl ekleneceği gösterilmektedir. ASP.NET AJAX genişletici oluştururken daha fazla yardım için lütfen [yeni Genişletici Oluşturma](../../overview/ajax-control-toolkit/getting-started/creating-a-custom-ajax-control-toolkit-control-extender-cs.md) gözden geçirme.
+Standart bir ASP.NET sunucu denetimi için bir ASP.NET AJAX genişletici oluşturmayı öğrenin. Aynı yaklaşımı, herhangi bir sunucu denetimi için uygulanabilir ancak sunucu tarafı özellikleri ve standart TextBox denetimi davranışını genişletmek için istemci tarafı JavaScript nasıl ekleneceği gösterilmektedir. ASP.NET AJAX Genişleticisi oluşturma daha fazla yardım için bkz [yeni bir Genişletici Oluşturma](../../overview/ajax-control-toolkit/getting-started/creating-a-custom-ajax-control-toolkit-control-extender-cs.md) gözden geçirme.
 
-[&#9654;(15 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-create-an-aspnet-ajax-extender-from-scratch)
+[&#9654;Videoyu (15 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-create-an-aspnet-ajax-extender-from-scratch)
 
 > [!div class="step-by-step"]
 > [Önceki](how-do-i-trigger-an-updatepanel-refresh-from-a-dropdownlist-control.md)
-> [sonraki](how-do-i-build-custom-server-controls-that-work-with-or-without-aspnet-ajax.md)
+> [İleri](how-do-i-build-custom-server-controls-that-work-with-or-without-aspnet-ajax.md)

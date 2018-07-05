@@ -1,90 +1,89 @@
 ---
 uid: web-pages/overview/performance-and-traffic/14-analyzing-traffic
-title: (Razor) Site ASP.NET Web sayfaları için izleme ziyaretçi bilgileri (Analytics) | Microsoft Docs
+title: ASP.NET Web sayfaları (Razor) sitesinde ziyaretçi bilgi (analiz) izleme | Microsoft Docs
 author: tfitzmac
-description: Giderek Web sitenizin kabulünüzü sonra Web sitesi trafiğini analiz etmek isteyebilirsiniz.
+description: Sitenizi giderek yönettiniz sonra Web sitesi trafiğini analiz etmek isteyebilirsiniz.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/17/2014
 ms.topic: article
 ms.assetid: 360bc6e1-84c5-4b8e-a84c-ea48ab807aa4
 ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/performance-and-traffic/14-analyzing-traffic
 msc.type: authoredcontent
-ms.openlocfilehash: 9a381ebaed30325fdfa5f0f558910d3002c61559
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 48782606083b4aa1e32adf6163bcb3f2d9828bc3
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26572934"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37387143"
 ---
-<a name="tracking-visitor-information-analytics-for-an-aspnet-web-pages-razor-site"></a>Ziyaretçi bilgi (Analytics) bir ASP.NET Web sayfaları (Razor) sitesi için izleme
+<a name="tracking-visitor-information-analytics-for-an-aspnet-web-pages-razor-site"></a>İzleme için bir ASP.NET Web sayfaları (Razor) sitesinde ziyaretçi bilgileri (analiz)
 ====================
-tarafından [zel FitzMacken](https://github.com/tfitzmac)
+tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
-> Bu makalede, bir ASP.NET Web sayfaları (Razor) Web sayfaları Web sitesi analytics eklemek için bir yardımcı kullanmayı açıklar.
+> Bu makalede, bir ASP.NET Web sayfaları (Razor) Web Pages'da Web sitesi analizi eklemek için bir yardımcı kullanmayı açıklar.
 > 
 > Öğrenecekleriniz:
 > 
-> - Bir analiz sağlayıcısı, Web sitesi trafiğini hakkında bilgi göndermek nasıl.
+> - Nasıl Web sitesi trafiğiniz hakkında bilgi bir analiz sağlayıcısına gönderebilirsiniz.
 > 
-> Bu makalede sunulan özellikler programlama ASP.NET şunlardır:
+> ASP.NET programlama makalesinde sunulan özellikler şunlardır:
 > 
 > - `Analytics` Yardımcısı.
 >   
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Öğreticide kullanılan yazılım sürümleri
+> ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
 > 
 > 
 > - ASP.NET Web sayfaları (Razor) 2
 > - ASP.NET Web Yardımcıları kitaplığı (NuGet paketi)
 
 
-Analytics kişiler site kullanımını anlamak için Web trafiği ölçer teknolojisini için genel bir terimdir. Birçok Analiz Hizmetleri Hizmetleri'nden Google, Yahoo, StatCounter ve diğerleri de dahil olmak üzere kullanılabilir.
+Analytics sitesini nasıl kullandığını anlayın, böylece Web sitenize trafiği ölçer teknolojisi için genel bir terimdir. Birçok Analiz Hizmetleri, Google, Yahoo, StatCounter ve diğer hizmetleri dahil olmak üzere kullanılabilir.
 
-Bir hesap için siteyi kaydettirmeniz burada analiz sağlayıcısı ile kayıt olduğunu Works olduğu şekilde analytics izlemek istiyorsunuz. Sağlayıcı bir kimlik veya izleme hesabınız için kodu içeren JavaScript kod parçacığını gönderir. İzlemek istediğiniz sitenin web sayfalarında JavaScript kod parçacığı ekleyin. (Genellikle analytics kod parçacığını bir alt bilgi veya düzen sayfası veya sitenizdeki her sayfada görünen diğer HTML biçimlendirmesi eklediğiniz.) Kullanıcılar bu JavaScript parçacıkları birini içeren bir sayfa istediğinde, kod parçacığında sayfa çeşitli ayrıntılarını kaydeder analiz sağlayıcısı geçerli sayfa hakkında bilgi gönderir.
+İzlemek istediğiniz bir hesap için analiz sağlayıcısı ile site kaydetme yeri, kaydolduktan olduğunu çalıştığını şekilde analiz. Sağlayıcı bir kimliği ya da izleme kodu hesabınız için JavaScript kod parçacığını gönderir. İzlemek istediğiniz sitenin web sayfalarında JavaScript kod parçacığını ekleyin. (Genellikle analytics kod parçacığı bir alt bilgi veya düzen sayfası veya sitenizde her sayfada görünen diğer HTML biçimlendirmesi eklediğiniz.) Kullanıcılar bu JavaScript kod parçacıklarının birini içeren bir sayfa istediğinde, kod parçacığı sayfası ile ilgili çeşitli ayrıntılar hakkında bilgi kayıtları analiz sağlayıcısı geçerli sayfa hakkında bilgi gönderir.
 
-Site İstatistikler bakın istediğinizde, analytics sağlayıcının Web sitesinde oturum açmak. Ardından, gibi siteniz hakkında raporlar her türlü görüntüleyebilirsiniz:
+Göz atın, site istatistikleri istediğinizde, analytics sağlayıcının Web sitesine oturum. Ardından siteniz hakkında raporlar her türlü gibi görüntüleyebilirsiniz:
 
-- Tek tek sayfaları için sayfa görünümleri sayısı. Bu, kaç (kabaca) kişinin siteyi ziyaret ediyorsanız ve hangi sitenizde en popüler sayfalarıdır bildirir.
-- Ne kadar süreyle kişiler belirli sayfalara ayırın. Bu giriş sayfanız kişilerin ilgi olup tutma gibi şeyler anlayabilirsiniz.
-- Sitenizi ziyaret önce üzerinde hangi siteleri kişiler yoktu. Bu trafiğinizi arar ve benzeri bağlantılardan gelen olup olmadığını anlamanıza yardımcı olur.
-- Kişiler, sitenizi ziyaret ettiğinizde ve ne kadar süreyle kalırlar.
-- Hangi ülkelerde, ziyaretçileri arasındadır.
-- Hangi tarayıcılar ve işletim sistemleri, ziyaretçileri kullanıyor.
+- Tek tek sayfaları için sayfa görüntüleme sayısı. Bu, kaç (yaklaşık) kişiler siteyi ziyaret edin ve hangi sayfaların sitenizde en popüler olduğunu bildirir.
+- Ne kadar süreyle kişiler, belirli bir sayfa ayırın. Bu, giriş sayfanızın Halk ilgi olup tutma gibi şeyler söyleyebilirsiniz.
+- Sitenizi ziyaret önce hangi siteleri kişiler üzerinde yoktu. Bu bağlantıları, arama vb. trafiğiniz geldiği olup olmadığını anlamanıza yardımcı olur.
+- Kişiler, sitenizi ziyaret ettiğinizde ve ne kadar uzun kalır.
+- Hangi ülkelerde ziyaretçilerinizin arasındadır.
+- Hangi tarayıcılar ve işletim sistemleri ziyaretçilerinizin kullanmaktadır.
 
     ![Ch14traffic-1](14-analyzing-traffic/_static/image1.jpg)
 
-## <a name="using-a-helper-to-add-analytics-to-a-page"></a>Bir sayfaya Analytics eklemek için bir yardımcı kullanma
+## <a name="using-a-helper-to-add-analytics-to-a-page"></a>Bir analiz eklemek için bir yardımcı kullanma
 
-ASP.NET Web sayfaları içeren birkaç analytics Yardımcıları (`Analytics.GetGoogleHtml`, `Analytics.GetYahooHtml`, ve `Analytics.GetStatCounterHtml`) kolaylaştıran analizi için kullanılan JavaScript parçacıkları yönetmek. Nasıl ve nerede çözülmesi yerine JavaScript kodu koymak için tüm yapmanız gereken olduğu yardımcı bir sayfasına ekleyin. Sağlamanız gereken tek bilgi hesap adı, kimliği veya izleme kodunu ' dir. (StatCounter için Ayrıca birkaç ek değerler sağlamanız gerekir.)
+ASP.NET Web sayfaları içeren birkaç analytics Yardımcıları (`Analytics.GetGoogleHtml`, `Analytics.GetYahooHtml`, ve `Analytics.GetStatCounterHtml`) kolaylaştıran analizler için kullanılan JavaScript kod parçacıkları yönetmek. Nasıl ve nerede çözülmesi yerine JavaScript kodu, tüm yapmanız gereken eklemektir yardımcı bir sayfaya ekleyin. Sağlamanız gereken yalnızca hesap adınız, kimliği ya da izleme kodu bilgilerdir. (StatCounter için Ayrıca bazı ek değerler sağlamanız gerekir.)
 
-Bu yordamda kullanan bir düzen sayfasını oluşturacaksınız `GetGoogleHtml` Yardımcısı. Diğer analytics sağlayıcılardan biri ile zaten bir hesabınız varsa, bu hesabı kullanın ve gerektiğinde hafif ayarlamaları yapın.
+Bu yordamda, kullanan bir düzen sayfası oluşturacaksınız `GetGoogleHtml` Yardımcısı. Diğer analiz sağlayıcılardan birini zaten bir hesabınız varsa, bunun yerine bu hesabı kullanın ve gerektiğinde hafif ayarlamalar yapın.
 
 > [!NOTE]
-> Bir analytics hesabı oluşturmak için izleme olmasını istediğiniz site URL'sini kaydedersiniz. Her şeyin yerel bilgisayarınızda test ediyorsanız, (yalnızca trafiğini şey) gerçek trafiği izleme olmaz kaydı ve görünüm site İstatistikler mümkün olmayacaktır. Ancak bu yordam analytics yardımcı bir sayfaya nasıl eklediğiniz gösterir. Sitenizi yayımladığınızda, canlı sitede analytics sağlayıcınız bilgi gönderin.
+> Analytics hesabı oluşturmak için izleme yapmak istediğiniz sitenin URL'sini kaydedersiniz. Her şeyin yerel bilgisayarınızda test ediyorsanız, (yalnızca trafik şey) gerçek trafik izleme olmaz kaydetmenizi ve görüntülemenizi site istatistikleri mümkün olmayacaktır. Ancak bu yordamı nasıl analiz yardımcı bir sayfaya ekleyin gösterir. Sitenizi yayımladığınızda, Canlı site bilgileri, analiz sağlayıcısına gönderebilirsiniz.
 
 
-1. ASP.NET Web Yardımcıları kitaplığı açıklandığı gibi Web sitenize ekleyin [yükleme Yardımcıları bir ASP.NET Web Pages sitesinde](https://go.microsoft.com/fwlink/?LinkId=252372), onu zaten eklemediniz.
-2. Google Analytics ile bir hesap oluşturun ve hesap adını kaydedin.
-3. Adlı bir düzen sayfası oluşturun *Analytics.cshtml* ve aşağıdaki biçimlendirmeyi ekleyin:
+1. ASP.NET Web Yardımcıları kitaplığı açıklandığı Web sitenize ekleyin [yükleme Yardımcıları bir ASP.NET Web sayfaları sitesinde](https://go.microsoft.com/fwlink/?LinkId=252372), bunu zaten eklemediniz.
+2. Bir hesap ile Google Analytics'e oluşturun ve hesap adını kaydedin.
+3. Adlı bir düzen sayfası oluşturma *Analytics.cshtml* ve aşağıdaki işaretlemeyi ekleyin:
 
     [!code-cshtml[Main](14-analyzing-traffic/samples/sample1.cshtml)]
 
     > [!NOTE]
-    > Çağrı yerleştirmelisiniz `Analytics` Yardımcısı, web sayfasının gövdesindeki (önce `</body>` etiketi). Aksi durumda, tarayıcının betiği çalışmaz.
+    > Çağrı yerleştirmelisiniz `Analytics` Yardımcısı, web sayfasının gövdesindeki (önce `</body>` etiketi). Aksi takdirde, tarayıcının betiği çalışmaz.
 
-    Farklı analiz sağlayıcısı kullanıyorsanız, bunun yerine aşağıdaki Yardımcılar birini kullanın:
+    Farklı bir analiz sağlayıcısı kullanıyorsanız, bunun yerine aşağıdaki Yardımcıları birini kullanın:
 
-    - (Yahoo)`@Analytics.GetYahooHtml("myaccount")`
-    - (StatCounter)`@Analytics.GetStatCounterHtml("project", "security")`
-4. Değiştir `myaccount` hesabı, kimliği veya 1. adımda oluşturduğunuz izleme kodu adı.
-5. Sayfayı tarayıcıda çalıştırın. (Emin olun sayfa seçildiğinde, **dosyaları** çalıştırmadan önce onu çalışma.)
-6. Tarayıcıda, sayfa kaynağı görüntüleyin. İşlenmiş analytics kod kullanabileceksiniz:
+    - (Yahoo) `@Analytics.GetYahooHtml("myaccount")`
+    - (StatCounter) `@Analytics.GetStatCounterHtml("project", "security")`
+4. Değiştirin `myaccount` hesabı, kimliği veya 1. adımda oluşturduğunuz izleme kod adı.
+5. Sayfanın tarayıcıda çalıştırın. (Emin sayfanın içinde seçili **dosyaları** çalıştırmadan önce çalışma alanı.)
+6. Tarayıcıda, sayfa kaynağı görüntüleyin. İşlenmiş analytics kodu görmek mümkün olacaktır:
 
     [!code-html[Main](14-analyzing-traffic/samples/sample2.html)]
-7. Google Analytics sitesinde oturum ve sitenizi istatistikleri inceleyin. Canlı bir sitede sayfa çalıştırıyorsanız, sayfanızı ziyaret günlüklerini bir girişine bakın.
+7. Google Analytics sitesinde oturum ve istatistikleri sitenizi inceleyin. Sayfa Canlı site üzerinde çalıştırıyorsanız, sayfanızı ziyaret günlüğe kaydeden bir girdi görürsünüz.
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Ek Kaynaklar

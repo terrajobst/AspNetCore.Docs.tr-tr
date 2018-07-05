@@ -2,37 +2,36 @@
 uid: aspnet/web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio
 title: Programlama ASP.NET Web sayfaları (Razor) kullanarak Visual Studio | Microsoft Docs
 author: tfitzmac
-description: Bu ekte, Razor sözdizimi ile ASP.NET Web sayfaları programa Visual Studio 2010 veya Visual Web Developer 2010 Express nasıl kullanabileceğinizi açıklar.
+description: Bu ekte, Razor sözdizimi olan ASP.NET Web Pages programa Visual Studio 2010 veya Visual Web Developer 2010 Express'i nasıl kullanabileceğini açıklar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/13/2014
 ms.topic: article
 ms.assetid: 0acfec5a-48f2-4766-a801-a0f426966f0a
 ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio
 msc.type: authoredcontent
-ms.openlocfilehash: eb17c8cc1fab5b552c8495e74bb86ae9dbc5b972
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: b7f9a6c2d55d31dc918d2b2e542e26639a54b39a
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30896594"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37380369"
 ---
 <a name="programming-aspnet-web-pages-razor-using-visual-studio"></a>Visual Studio kullanarak ASP.NET Web sayfaları (Razor) programlama
 ====================
-tarafından [zel FitzMacken](https://github.com/tfitzmac)
+tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
-> Bu makalede, ASP.NET Web sayfaları (Razor) Web sitelerine programına nasıl Visual Studio veya Visual Web Developer Express kullanabilirsiniz açıklanmaktadır.
+> Bu makalede, programa ASP.NET Web sayfaları (Razor) Web siteleri nasıl Visual Studio veya Visual Web Developer Express kullanabileceğini açıklar.
 > 
 > Öğrenecekleriniz
 > 
-> - Ne ile ASP.NET Web sayfaları, Visual Studio sürümünde çalışması için (her şey varsa) yüklemeniz gerekir.
-> - Visual Web Developer 2010 Express için ASP.NET Web sayfaları için destek eklemek nasıl.
-> - Özelliklerin Visual Studio'da IntelliSense ve hata ayıklayıcısı olsa da dahil olmak üzere, ASP.NET Razor sayfaları ile çalışmak için nasıl kullanılacağını.
+> - Ne ile ASP.NET Web sayfaları, Visual Studio sürümünde çalışmak için (her şey ise) yüklemeniz gerekir.
+> - Visual Web Developer 2010 Express için ASP.NET Web sayfaları için destek ekleme konusunda.
+> - IntelliSense ve hata ayıklayıcı dahil olmak üzere, ASP.NET Razor sayfaları kullanmaya çalışmak için Visual Studio özellikleri kullanma
 >   
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Öğreticide kullanılan yazılım sürümleri
+> ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
 > 
 > 
 > - ASP.NET Web sayfaları (Razor) 3
@@ -43,108 +42,108 @@ tarafından [zel FitzMacken](https://github.com/tfitzmac)
 > Bu öğreticide, ASP.NET Web Pages 2, Visual Studio 2012, Visual Studio 2010 ve WebMatrix 2 ile de çalışır.
 
 
-WebMatrix veya diğer birçok kod düzenleyiciler kullanarak Razor sözdizimi ile ASP.NET Web sayfaları programlama yapabilirsiniz. Microsoft Visual birçok türdeki uygulamayı (yalnızca Web siteleri) oluşturmak için güçlü birtakım araçlar sağlayan bir tam özellikli tümleşik geliştirme ortamı (IDE) olan Studio de kullanabilirsiniz. ASP.NET Razor sayfaları ile çalışmak için Visual Studio tam sürümleri birini kullanın ya da ücretsiz yapabilecekleriniz [Web için Visual Studio Express](https://www.visualstudio.com/downloads/download-visual-studio-vs#d-2013-express) sürümü.
+WebMatrix veya diğer birçok kod düzenleyicileri kullanarak Razor sözdizimi olan ASP.NET Web sayfaları programlama yapabilirsiniz. Ayrıca, birçok türdeki uygulamayı (yalnızca Web siteleri) oluşturmak için güçlü bir dizi araç sağlar. bir tam özellikli tümleşik geliştirme ortamıdır (IDE) Microsoft Visual Studio da kullanabilirsiniz. ASP.NET Razor sayfaları ile çalışmak için Visual Studio'nun tüm sürümlerinde birini kullanın veya ücretsiz yapabilecekleriniz [Web için Visual Studio Express](https://www.visualstudio.com/downloads/download-visual-studio-vs#d-2013-express) sürümü.
 
 ASP.NET Razor web sayfaları ile programlama için Visual Studio sağlayan iki özellikle yararlı özellikleri şunlardır:
 
-- *IntelliSense*. Visual Studio'ya yerleşik IntelliSense IntelliSense WebMatrix içinde daha kapsamlı özelliğidir.
-- *Hata ayıklayıcı*. Hata ayıklayıcı çalıştıran, değişkenleri incelenerek ve satır kod atlama sırada bir program durdurarak kodunuzu gidermenize olanak sağlar.
+- *IntelliSense*. Visual Studio'da yerleşik olarak bulunan IntelliSense WebMatrix Intellisense'te daha kapsamlı bir özelliktir.
+- *Hata ayıklayıcı*. Hata ayıklayıcı kodunuz bir program çalıştırma, değişkenleri inceleme ve satır kod içerisinde ilerlemeye durdurarak gidermenize olanak tanır.
 
-## <a name="using-visual-studio-with-different-versions-of-aspnet-web-pages"></a>ASP.NET Web sayfaları farklı sürümleri ile Visual Studio kullanarak
+## <a name="using-visual-studio-with-different-versions-of-aspnet-web-pages"></a>Visual Studio kullanarak ASP.NET Web sayfaları farklı sürümleri
 
-Visual Studio 2012 ve Visual Studio 2013 için ASP.NET Web sayfaları desteğini içerir. (Visual Studio yüklediğinizde ASP.NET Web sayfalarını desteklemek için gerekli paketleri yüklenir.)
+Visual Studio 2012 ve Visual Studio 2013 için ASP.NET Web Pages destek içerir. (Visual Studio yüklediğinizde ASP.NET Web Pages desteklemek için gerekli paketleri yüklenir.)
 
-Visual Studio 2010 destek ASP.NET Web sayfaları için varsayılan olarak içermez. Visual Studio 2010 ile ASP.NET Web sayfaları kullanmak için ASP.NET MVC paketini yüklemeniz gerekir. ASP.NET Web Pages 2 almak için ASP.NET MVC 4 yükleyin.
+Visual Studio 2010 desteği ASP.NET Web sayfaları için varsayılan olarak içermez. ASP.NET Web sayfaları Visual Studio 2010 ile kullanmak için ASP.NET MVC paketini yüklemeniz gerekir. ASP.NET Web Pages 2 almak için ASP.NET MVC 4 yükleyin.
 
-Aşağıdaki tabloda farklı sürümlerinde Visual Studio, ASP.NET Web sayfaları için destek özetler.
+Aşağıdaki tablo farklı Visual Studio sürümlerinde ASP.NET Web sayfaları için destek özetler.
 
 |  | Visual Studio 2010 | Visual Studio 2012 | Visual Studio 2013 |
 | --- | --- | --- | --- |
-| **ASP.NET Web Pages 2** | ASP.NET MVC 4 yükleyin | (Dahil) | (Dahil) |
-| **ASP.NET Web Pages 3** |  | 3 ile NuGet güncelleştirme ASP.NET Web sayfaları | (Dahil) |
+| **ASP.NET Web sayfaları 2** | ASP.NET MVC 4 yükleyin | (Dahil) | (Dahil) |
+| **ASP.NET Web sayfaları 3** |  | ASP.NET Web için güncelleştirme 3 ile NuGet sayfaları | (Dahil) |
 
-Visual Studio 2010 ile çalışmak için bkz: [yükleme desteği için ASP.NET Web sayfaları Visual Studio 2010](#vs2010support).
+Visual Studio 2010 ile çalışmak için bkz [yükleme desteği için ASP.NET Web sayfaları Visual Studio 2010'daki](#vs2010support).
 
-## <a name="launching-visual-studio-from-webmatrix"></a>WebMatrix Visual Studio'dan başlatma
+## <a name="launching-visual-studio-from-webmatrix"></a>WebMatrix Visual Studio'dan başlatmak
 
-Bir proje Webmatrix'te başlamış olması ve Visual Studio geçmek istiyorsanız, WebMatrix kolayca projeyi Visual Studio'da açmak için bir düğmeye sağlar. Bu düğme, bilgisayarınızda yüklü etkinleştirilmesi için Visual Studio'yu olması gerekir. Aşağıdaki resimde düğmesi Webmatrix'te gösterir.
+Bir proje Webmatrix'te başlatılmış ve Visual Studio'ya geçmek istiyorsanız, WebMatrix kolayca projeyi Visual Studio'da açmak için bir düğme sağlar. Bu düğme, bilgisayarınızda yüklü etkinleştirilmesi için Visual Studio olması gerekir. Aşağıdaki görüntüde Webmatrix'te düğmesini gösterir.
 
 ![Visual Studio'yu başlatın](program-asp-net-web-pages-in-visual-studio/_static/image1.png)
 
-Düğmeye tıkladığınızda, projeyi Visual Studio açılır. WebMatrix ve Visual Studio arasında sorunsuz ve geriye geçebilirsiniz. Tüm dosyalar diğer ortamında değiştirdiyseniz ve en son değişiklikleri almak için yeniden yüklenmesi gereken size bildirilecek.
+Düğmeye tıkladığınızda, projeyi Visual Studio'da açılır. WebMatrix ve Visual Studio arasında ileri ve geri sorunsuz geçebilirsiniz. Herhangi bir dosya diğer ortamda değiştirdiyseniz ve en son değişiklikleri almak için yeniden yüklenmesi gerekli size bildirilir.
 
 ## <a name="creating-aspnet-razor-site-in-visual-studio"></a>Visual Studio'da ASP.NET Razor Site oluşturma
 
-Visual Studio'da ASP.NET Razor Web sitesi oluşturmak için:
+Visual Studio'da bir ASP.NET Razor Web sitesi oluşturmak için:
 
 1. Visual Studio veya Visual Web Developer başlatın.
 2. İçinde **dosya** menüsünde tıklatın **yeni Web sitesi**.
 
-    ![Yeni web sitesi oluştur](program-asp-net-web-pages-in-visual-studio/_static/image2.png)
-3. İçinde **yeni Web sitesi** iletişim kutusunda, (Visual C# veya Visual Basic) kullanılacak dili seçin.
+    ![Yeni web sitesi oluşturma](program-asp-net-web-pages-in-visual-studio/_static/image2.png)
+3. İçinde **yeni Web sitesi** iletişim kutusunda, kullanılacak dili (Visual C# veya Visual Basic) seçin.
 4. Seçin **ASP.NET Web sitesi (Razor)** şablonu.
 
     ![Razor site](program-asp-net-web-pages-in-visual-studio/_static/image3.png)
 5. **Tamam**'ı tıklatın.
 
-Yeni projeniz varsa ve bazı varsayılan başlamanıza yardımcı olmak için web sayfaları ile doldurulur.
+Yeni projeniz var ve bazı varsayılan başlamanıza yardımcı olmak için web sayfaları ile doldurulur.
 
 ### <a name="using-intellisense"></a>IntelliSense Kullanma
 
-Bir site oluşturduğunuza göre IntelliSense Visual Studio'da nasıl işlediğini görebilirsiniz.
+Bir site oluşturduğunuza göre IntelliSense Visual Studio'da nasıl çalıştığını görebilirsiniz.
 
-1. Yeni oluşturduğunuz Web sitesi açın *Default.cshtml* sayfası.
-2. Sonra `<h3>` sayfa etiketleri yazın `@ServerInfo.` (nokta dahil). Kullanılabilir yöntemleri için IntelliSense nasıl görüntülendiğine dikkat edin `ServerInfo` aşağı açılan listesinde Yardımcısı. 
+1. Yeni oluşturduğunuz Web sitesinde, açık *Default.cshtml* sayfası.
+2. Sonra `<h3>` etiketler sayfasında yazın `@ServerInfo.` (nokta dahil olmak üzere). IntelliSense için kullanılabilen yöntemler nasıl görüntülendiğine dikkat edin `ServerInfo` açılır listede yok. 
 
     ![IntelliSense](program-asp-net-web-pages-in-visual-studio/_static/image4.png)
-3. Seçin `GetHtml` yönteminden listesi ve ENTER tuşuna basın. IntelliSense yönteminde otomatik olarak doldurur. (C# herhangi bir yöntem ile eklemelisiniz gibi `()` yöntemi sonra karakterleri.)  
-   Tamamlanan kodu `GetHtml` yöntemi aşağıdaki gibi görünür:  
+3. Seçin `GetHtml` yöntemi listesi ve Enter tuşuna basın. IntelliSense otomatik yöntemini doldurur. (C# herhangi bir yöntemle eklemeniz gerekir gibi `()` yöntemi sonra karakter.)  
+   Tamamlanan kodu `GetHtml` yöntemi aşağıdaki örnekteki gibi görünür:  
 
     [!code-cshtml[Main](program-asp-net-web-pages-in-visual-studio/samples/sample1.cshtml)]
-4. Sayfayı çalıştırmak için CTRL + F5 tuşuna basın. Bu sayfa bir tarayıcıda görüntülenen zaman nasıl göründüğünü oluşur: 
+4. Sayfayı çalıştırmak için CTRL + F5 tuşlarına basın. Bu sayfanın bir tarayıcıda görüntülenen nasıl göründüğünü oluşur: 
 
     ![varsayılan sayfasını tarayıcıda](program-asp-net-web-pages-in-visual-studio/_static/image5.png)
 5. Tarayıcıyı kapatın.
 
 ### <a name="using-the-debugger"></a>Hata ayıklayıcıyı kullanma
 
-1. Üstündeki *Default.cshtml* ile başlayan satırı sonra sayfa `Page.Title`, aşağıdaki kod satırını ekleyin: 
+1. Üst kısmındaki *Default.cshtml* ile başlayan satırı sonra bir sayfa `Page.Title`, aşağıdaki kod satırını ekleyin: 
 
     [!code-csharp[Main](program-asp-net-web-pages-in-visual-studio/samples/sample2.cs)]
-2. Kodun soluna Düzenleyicisi gri kenar boşluğunda bu yeni yanındaki eklemek için çizgi bir *kesme noktası*. Bir kesme noktası olanlar görebilmek için bu noktada programı durdurmak için hata ayıklayıcı söyleyen bir işaretçi var.
+2. Eklemek için bu yeni satırın yanındaki sol tarafındaki Kod Düzenleyicisi'ni gri kenar boşluğunda tıklayın bir *kesme noktası*. Bir kesme noktası programın bu noktada neler olduğunu gördüğünüz şekilde çalışmayı durdurmasına hata ayıklayıcı söyleyen bir işaretçidir.
 
-    ![Kesme noktası ayarlama](program-asp-net-web-pages-in-visual-studio/_static/image6.png)
-3. Çağrı kaldırmak `ServerInfo.GetHtml` yöntemini ve bir çağrı ekleyin `@myTime` onun yerine değişken. Bu çağrı yeni kod satırı tarafından döndürülen geçerli zaman değerini görüntüler.
-4. Hata ayıklayıcıda sayfayı çalıştırmak için F5 tuşuna basın. Sayfa ayarladığınız kesme noktası durdurur. Aşağıdaki resimde, sayfa nasıl Düzenleyicisi'nde kesme (sarı) ile göründüğünü gösterir. 
+    ![kesme noktası Ayarla](program-asp-net-web-pages-in-visual-studio/_static/image6.png)
+3. Çağrısını kaldırın `ServerInfo.GetHtml` yöntemi ve bir çağrı ekleyin `@myTime` bunun yerine değişken. Bu çağrı yeni kod satırı tarafından döndürülen geçerli saat değerini görüntüler.
+4. Hata Ayıklayıcısı'nda sayfayı çalıştırmak için F5 tuşuna basın. Sayfa ayarladığınız kesme noktasına durdurur. Aşağıdaki görüntüde, Sayfa Düzenleyicisi'nde kesme (sarı) ile nasıl göründüğünü gösterir. 
 
-    ![hata ayıklama kesme](program-asp-net-web-pages-in-visual-studio/_static/image7.png)
-5. Hata ayıklama araç çubuğunda tıklatın **Step Into** kodun sonraki satırında, çalıştırmak için düğmesi (veya F11 tuşuna basın). Bu düğmeye tıkladığınızda her zaman yürütme kodunun bir sonraki satıra ilerleyin.
+    ![hata ayıklama kesme noktası](program-asp-net-web-pages-in-visual-studio/_static/image7.png)
+5. Hata ayıklama araç çubuğunda tıklatın **içine adımla** sonraki kod satırına çalıştırmak için düğme (veya F11 tuşuna basın). Bu düğmeye tıkladığınızda her zaman yürütme kodun sonraki satırına geçin.
 
-    ![Düğmesinde adım](program-asp-net-web-pages-in-visual-studio/_static/image8.png)
-6. Değerini inceleyin `myTime` üzerine fare işaretçisini tutarak ya da görüntülenen değerler inceleniyor değişken **Yereller** ve **çağrı yığını** windows. Visual Studio değişkenin değerini görüntüler.
+    ![Düğme adım](program-asp-net-web-pages-in-visual-studio/_static/image8.png)
+6. Değerini incelemek `myTime` üzerine fare işaretçisini tutarak veya görüntülenen değerleri inceleyerek değişken **Yereller** ve **çağrı yığını** windows. Visual Studio, değişkenin değerini görüntüler.
 
-    ![Göster zaman değeri](program-asp-net-web-pages-in-visual-studio/_static/image9.png)
-7. Değişkeni incelenerek ve kod atlama bittiğinde, her satırın durdurmadan sayfa çalıştırmaya devam etmek için F5 tuşuna basın. Tüm kod atlama bitirdiğinizde, tarayıcı sayfasını görüntüler.
+    ![zamanın gösterilme biçimi değeri](program-asp-net-web-pages-in-visual-studio/_static/image9.png)
+7. Değişken inceleme ve kodu Adımlayarak işiniz bittiğinde, sayfa her satırında durdurmadan çalıştırmaya devam etmek için F5 tuşuna basın. Tüm kod içerisinde ilerlemeye bitirdiğinizde, tarayıcı sayfasını görüntüler.
 
-Hata ayıklayıcı ve Visual Studio kodda hata ayıklama hakkında daha fazla bilgi için bkz: [izlenecek yol: Web sayfalarında hata ayıklama Visual Web Developer](https://msdn.microsoft.com/library/z9e7w6cs.aspx).
+Hata ayıklayıcı ve Visual Studio kodu hatalarını ayıklama hakkında daha fazla bilgi için bkz. [izlenecek yol: Web sayfalarında hata ayıklamayı Visual Web Developer](https://msdn.microsoft.com/library/z9e7w6cs.aspx).
 
-## <a name="using-razor-in-aspnet-mvc-projects-with-visual-studio"></a>Visual Studio ile ASP.NET MVC projelerinde Razor kullanma
+## <a name="using-razor-in-aspnet-mvc-projects-with-visual-studio"></a>Visual Studio ile ASP.NET MVC projeleri Razor kullanma
 
-Razor sözdizimi ASP.NET MVC projelerinde yaygın olarak kullanılır. MVC, dinamik Web siteleri oluşturmak için güçlü, desenleri dayalı bir yoludur. ASP.NET Web sayfaları sitenizi korumak zor olursa, bir ASP.NET MVC uygulamasına dönüştürmeyi göz önüne isteyebilirsiniz. Bir MVC uygulaması oluşturma örneği için bkz: [ASP.NET MVC 5 ile çalışmaya başlama](../../../mvc/overview/getting-started/introduction/getting-started.md).
+Razor sözdizimi ASP.NET MVC projeleri oluşturulurken sıkça kullanılır. MVC, dinamik Web siteleri oluşturmak için güçlü, desen tabanlı bir yoludur. ASP.NET Web sayfaları sitesinde bakımını yapmak zor hale gelirse, bir ASP.NET MVC uygulamasını dönüştürme düşünmek isteyebilirsiniz. Bir MVC uygulaması oluşturma örneği için bkz: [ASP.NET MVC 5 ile çalışmaya başlama](../../../mvc/overview/getting-started/introduction/getting-started.md).
 
 <a id="vs2010support"></a>
 ## <a name="installing-support-for-aspnet-web-pages-in-visual-studio-2010"></a>Visual Studio 2010'da ASP.NET Web Pages desteğini yükleme
 
-Bu bölümde Visual Web Developer Express 2010 ve ASP.NET Web sayfaları araçları Visual Studio için nasıl yükleneceğini gösterir.
+Bu bölümde, Visual Web Developer Express 2010 ve ASP.NET Web sayfaları araçları, Visual Studio için yükleme işlemi gösterilmektedir.
 
-1. Web Platformu yükleyicisi zaten yoksa, aşağıdaki URL'yi yükleyin:
+1. Web Platformu yükleyicisi zaten sahip değilseniz, şu URL'den indirin:
 
     [https://www.microsoft.com/web/downloads/platform.aspx](https://www.microsoft.com/web/downloads/platform.aspx)
 2. Web Platformu Yükleyicisi'ni çalıştırın.
-3. Tıklatın **ürünleri** sekmesi.
+3. Tıklayın **ürünleri** sekmesi.
 
     ![Webpı ürünleri sekmesi](program-asp-net-web-pages-in-visual-studio/_static/image10.png)
 4. Arama **ASP.NET MVC 4** (için ASP.NET Web Pages 2) ve ardından **Ekle**. Bu ürünler, ASP.NET Razor Web siteleri oluşturmak için Visual Studio araçları içerir.
 
     ![Webpı yükleme seçenekleri](program-asp-net-web-pages-in-visual-studio/_static/image11.png)
-5. Tıklatın **yükleme** yüklemeyi tamamlayın.
+5. Tıklayın **yükleme** yüklemeyi tamamlamak için.

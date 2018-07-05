@@ -1,159 +1,158 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-localization
-title: ASP.NET AJAX yerelleştirme anlama | Microsoft Docs
+title: ASP.NET AJAX yerelleştirmesini anlama | Microsoft Docs
 author: scottcate
-description: Yerelleştirme tasarlama ve uygulama ya da bir uygulama bileşeni belirli bir dil ve kültür için destek tümleştirme işlemidir. MIC...
+description: Yerelleştirme tasarlama ve Destek belirli bir dil ve kültür için bir uygulama ya da bir uygulama bileşeni tümleştirme işlemidir. MIC...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/14/2008
 ms.topic: article
 ms.assetid: c1a35f18-bab9-41f7-8497-15530c37a09d
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-localization
 msc.type: authoredcontent
-ms.openlocfilehash: 565b0294f57b784bc592b286b3d8b28504110415
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 7f089e147ae9c4c42da0ca798149488043480a79
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/10/2018
-ms.locfileid: "30888045"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37382526"
 ---
-<a name="understanding-aspnet-ajax-localization"></a>ASP.NET AJAX yerelleştirme anlama
+<a name="understanding-aspnet-ajax-localization"></a>ASP.NET AJAX yerelleştirmesini anlama
 ====================
-tarafından [Scott göstermek](https://github.com/scottcate)
+tarafından [Scott Cate](https://github.com/scottcate)
 
-[PDF indirin](http://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial04_Localization_cs.pdf)
+[PDF'yi indirin](http://download.microsoft.com/download/C/1/9/C19A3451-1D14-477C-B703-54EF22E197EE/AJAX_tutorial04_Localization_cs.pdf)
 
-> Yerelleştirme tasarlama ve uygulama ya da bir uygulama bileşeni belirli bir dil ve kültür için destek tümleştirme işlemidir. Microsoft ASP.NET platformunu standart .NET yerelleştirme modeli tümleştirerek standart ASP.NET uygulamaları için yerelleştirme için kapsamlı destek sağlar; Microsoft AJAX Framework yerelleştirme gerçekleştirilebilir çeşitli senaryoları desteklemek için tümleşik modelini kullanır.
+> Yerelleştirme tasarlama ve Destek belirli bir dil ve kültür için bir uygulama ya da bir uygulama bileşeni tümleştirme işlemidir. Microsoft ASP.NET platformunu standart .NET yerelleştirme modeli tümleştirerek standart ASP.NET uygulamaları için yerelleştirme için kapsamlı destek sağlar; Microsoft AJAX Framework yerelleştirme gerçekleştirilebilir çeşitli senaryoları desteklemek için tümleşik bir model kullanır.
 
 
 ## <a name="introduction"></a>Giriş
 
-Microsoft ASP.NET teknolojisi bir nesne yönelimli ve olay kaynaklı programlama modeli getirir ve derlenmiş kod yararları birleştirmiştir. Bununla birlikte, kendi sunucu tarafı işleme modelini birkaç dezavantajları birçok Microsoft AJAX Hizmetleri .NET Framework yalıtır System.Web.Extensions ad alanı içinde sunulan yeni özelliklerle çözülebilir teknolojisinde devralınmış vardır 3.5. Bu uzantılar birçok zengin istemci özellikleri, ASP.NET 2.0 AJAX uzantıları parçası, ancak Framework temel sınıf kitaplığı şimdi bir parçası olarak önceden kullanılabilir etkinleştirin. Web Hizmetleri aracılığıyla istemci komut dosyası (profil oluşturma API'si ASP.NET dahil) erişim olanağı bir tam sayfa yenileme gerek kalmadan sayfaların kısmi işleme denetimleri ve bu ad alanındaki özellikleri ekleyin ve kapsamlı bir istemci-tarafı API birçok yansıtmak üzere tasarlanmış ASP.NET sunucu tarafı denetimi kümesinde görüldüğü denetim düzenleri.
+Microsoft ASP.NET teknoloji, nesne yönelimli ve olay odaklı bir programlama modeli sunar ve derlenmiş kod avantajları sahip. Ancak, bazı kötü yanları çoğu, .NET Framework'teki Microsoft AJAX Hizmetleri Kapsüller System.Web.Extensions ad alanında bulunan yeni özellikler çözülebilir teknolojisindeki devralınan, sunucu tarafı işleme modeli vardır 3.5. Bu uzantılar, birçok zengin istemci özellikleri, ASP.NET 2.0 AJAX uzantıları parçası, ancak artık Framework temel sınıf kitaplığının bir parçası önceden kullanılabilen olanak sağlar. Tam sayfa yenileme, Web Hizmetleri aracılığıyla istemci komut dosyası (profil oluşturma API'si ASP.NET dahil) erişim olanağı gerek kalmadan sayfaların kısmi işleme denetimleri ve bu ad alanındaki özellikleri içerir ve kapsamlı bir istemci tarafı API birçok yansıtmak üzere tasarlanmış ASP.NET sunucu tarafı denetim kümesinde görüldüğü denetim düzenleri.
 
-Bu teknik Microsoft AJAX Framework ve Microsoft AJAX komut dosyası kitaplığı, mevcut iş gereksinimini yerelleştirme desteği ve Web yerelleştirme için zaten tümleşik destek gözden geçirme bağlamında yerelleştirme özelliklerini inceler .NET Framework tarafından sağlanan uygulamaları. Microsoft AJAX komut dosyası kitaplığı tümleşik IDE desteği ve paylaşılabilir kaynak türü sağlayan önceden .NET uygulamaları tarafından kullanılan .resx dosya biçimini kullanır.
+Bu teknik incelemede Microsoft AJAX Framework ve Microsoft AJAX komut dosyası kitaplığı, mevcut işletme ihtiyaçlarına yerelleştirme desteğini ve zaten tümleşik destek Web yerelleştirme gözden geçirme için bağlamında yerelleştirme özellikleri inceler. .NET Framework tarafından sağlanan uygulamaları. Microsoft AJAX komut dosyası kitaplığı tümleşik IDE desteği ve paylaşılabilir kaynak türü sağlayan .NET uygulamaları tarafından zaten kullanılan .resx dosya biçimi kullanır.
 
-Bu teknik temel Microsoft Visual Studio 2008 Beta 2 sürümü üzerinde. Bu Teknik İnceleme de Visual Studio 2008 ile değil Visual Web Developer Express, çalışma ve Visual Studio kullanıcı arabirimi göre izlenecek yollar sağlar varsayar. Bazı kod örnekleri Visual Web Developer Express kullanılamayabilir proje şablonları yararlanacak olan.
+Bu teknik incelemede tabanlı Beta 2 sürümünü Microsoft Visual Studio 2008'in üzerinde. Bu Teknik İnceleme de Visual Studio 2008 ile değil Visual Web Developer Express, çalışma ve izlenecek yollar Visual Studio'nun kullanıcı arabirimi göre sağlayacak varsayar. Kod örnekleri, Visual Web Developer Express kullanılamayabilir proje şablonları yararlanacaktır.
 
-## <a name="the-need-for-localization"></a>*Yerelleştirme gereksinimini*
+## <a name="the-need-for-localization"></a>*Yerelleştirme gerekli*
 
-Özellikle kuruluş uygulama geliştiricileri ve Bileşen geliştiriciler için kültürlere ve dilleri arasındaki farkların farkında Araçlar oluşturma yeteneği giderek çıkmıştır. İstemcinin yerel uyarlama olanağı ile bileşenlerini tasarlamayı Geliştirici verimliliğini artırır ve genel olarak çalışması için bir bileşen uyarlama için gereken iş miktarını azaltır.
+Kurumsal uygulama geliştiriciler ve Bileşen geliştiriciler özellikle için kültürler ve diller arasındaki farkların farkında Araçlar oluşturma olanağı giderek çıkmıştır. İstemcinin yerel uyarlama olanağı ile bileşenleri tasarlama Geliştirici verimliliğini artırır ve genel olarak çalışması için bir bileşenin uyarlaması için gerekli çalışma miktarını azaltır.
 
-Yerelleştirme tasarlama ve uygulama ya da bir uygulama bileşeni belirli bir dil ve kültür için destek tümleştirme işlemidir. Microsoft ASP.NET platformunu standart .NET yerelleştirme modeli tümleştirerek standart ASP.NET uygulamaları için yerelleştirme için kapsamlı destek sağlar; Microsoft AJAX Framework yerelleştirme gerçekleştirilebilir çeşitli senaryoları desteklemek için tümleşik modelini kullanır. Microsoft AJAX çerçevesiyle komut dosyaları ya da uydu derlemelerini dağıtılan ya da bir statik dosya sistemi yapısı kullanılarak yerelleştirilebilir.
+Yerelleştirme tasarlama ve Destek belirli bir dil ve kültür için bir uygulama ya da bir uygulama bileşeni tümleştirme işlemidir. Microsoft ASP.NET platformunu standart .NET yerelleştirme modeli tümleştirerek standart ASP.NET uygulamaları için yerelleştirme için kapsamlı destek sağlar; Microsoft AJAX Framework yerelleştirme gerçekleştirilebilir çeşitli senaryoları desteklemek için tümleşik bir model kullanır. Microsoft AJAX çerçevesiyle betikleri ya da uygu derlemeleri halinde dağıtılan ya da bir statik dosya sistemi yapısı yararlanarak yerelleştirilebilen.
 
-## <a name="embedding-scripts-with-satellite-assemblies"></a>*Uydu derlemeleri kodlarla katıştırma*
+## <a name="embedding-scripts-with-satellite-assemblies"></a>*Uydu derlemeleri Betiklerle ekleme*
 
-Standart .NET Framework yerelleştirme stratejisi ile tutarlı, kaynakları uydu derlemeleri dahil edilebilir. Uydu derlemeleri sağlayan çeşitli avantajları ikili - geleneksel kaynak eklenmesi üzerinden verilen tüm yerelleştirme büyük görüntü güncelleştirmeden güncelleştirilebilir, uydu derlemelerini içine yükleyerek ek yerelleştirmeler dağıtılabilir Proje klasörünü ve uydu derlemelerini yeniden ana proje derlemesinin neden olmadan dağıtılabilir. ASP.NET projeleri, özellikle de bu artımlı güncelleştirmeler tarafından kullanılan sistem kaynaklarının miktarını önemli ölçüde azaltabilir çünkü yararlıdır ve en düşük düzeyde üretim Web sitesi kullanım kesintiye uğratır.
+Standart .NET Framework yerelleştirme stratejisi ile tutarlı olmasını sağlamak, kaynakları uydu derlemelerinde dahil edilebilir. Uydu derlemeleri çeşitli avantajlar sağlayan ikili - geleneksel kaynak edilme üzerinden verilen tüm yerelleştirme daha büyük resmi güncelleştirmeden güncelleştirilebilir, uydu derlemelerine yükleyerek ek yerelleştirmeler dağıtılabilir Proje klasörü ve uydu derlemeleri ana proje derlemesi yeniden yüklenmesi neden olmadan dağıtılabilir. ASP.NET projeleri, özellikle de bu artımlı güncelleştirmeler tarafından kullanılan sistem kaynakları miktarını önemli ölçüde azaltabilir çünkü yararlıdır ve üretim Web sitenizin kullanımı en düşük düzeyde kesintiye uğratır.
 
-Komut dosyaları katıştırılmış derlemelerine dahil ederek derlemesini derleme zamanında dahil dosyaları .resx yönetilen (veya .resources derlenmiş). Kaynaklarını ardından AJAX çalışma oluşturulan kod, derleme düzeyi öznitelikleri aracılığıyla üzerinden betik uygulama için kullanılabilir hale getirilir
+Betikler, derlemeye dahil ederek katıştırıldığı bütünleştirilmiş derleme zamanında dahil dosyalarını .resx yönetilen (veya .resources derlenmiş). Kaynakları daha sonra betik uygulama AJAX çalışma zamanı tarafından oluşturulan kod, derleme düzeyinde öznitelikler aracılığıyla kullanıma sunulur
 
-*Katıştırılmış komut dosyaları için adlandırma kuralları*
+*Ekli komut dosyaları için adlandırma kuralları*
 
-Microsoft AJAX Framework komut dosyası Yönetimi dağıtım ve komut dosyaları sınama kullanılmak üzere çeşitli seçenekleri destekler ve bu seçenekler kolaylaştırmak için yönergeler sağlanır.
+Microsoft AJAX Framework komut dosyası yönetimi, dağıtım ve test betikleri kullanım için çeşitli seçenekler destekler ve yönergeleri Bu seçenekler kolaylaştırmak için sağlanır.
 
-*Hata ayıklama kolaylaştırmak için:*
+*Hata ayıklamayı kolaylaştırmak için:*
 
-Yayın (üretim) komut dosyaları dahil `.debug` filename niteleyicisinde. Hata ayıklama içermesi için tasarlanmış betikleri `.debug` dosya.
+Yayın (üretim) betikleri değil içermelidir `.debug` dosya adında niteleyicisi. Hata ayıklama içermelidir için tasarlanmış komut `.debug` dosya adında.
 
 *Yerelleştirme kolaylaştırmak için:*
 
-Nötr kültür komut dosyaları, dosya adına herhangi bir kültür tanımlayıcısı içermemelidir. Yerelleştirilmiş kaynakları içeren komut dosyaları için ISO dil kodu dosya adı belirtilmelidir. Örneğin, `es-CO` İspanyolca, Columbia anlamına gelir.
+Nötr kültüre betikleri herhangi bir kültür tanımlayıcı dosyasının adını içermemelidir. Yerelleştirilmiş kaynakları içeren komut dosyaları için ISO dil kodu dosya adı belirtilmelidir. Örneğin, `es-CO` İspanyolca, Columbia anlamına gelir.
 
-Aşağıdaki tabloda adlandırma kuralları örnekleri içeren dosya özetlenmektedir:
+Aşağıdaki tabloda dosya adlandırma kuralları ile örnekler özetlenmektedir:
 
 | Dosya adı | Açıklama |
 | --- | --- |
-| Script.js | Bir yayın sürümü kültür Tarafsız komut dosyası. |
-| Script.debug.js | Hata ayıklama sürümü kültür Tarafsız komut dosyası. |
-| Script.en-US.js | Bir yayın sürümü İngilizce, Amerika Birleşik Devletleri komut dosyası. |
-| Script.debug.es-CO.js | Bir hata ayıklama sürümü İspanyolca, Columbia komut dosyası. |
+| Script.js | Bir yayın sürümünü nötr kültüre betiği. |
+| Script.debug.js | Hata ayıklama sürümü nötr kültüre betiği. |
+| Script.en-US.js | Bir yayın sürümü İngilizce, Amerika Birleşik Devletleri betiğine girildi. |
+| Script.debug.es-CO.js | Bir hata ayıklama sürümü İspanyolca, Columbia betiğine girildi. |
 
-## <a name="walkthrough-create-an-localized-embedded-script"></a>İzlenecek yol: bir yerelleştirilmiş, katıştırılmış komut dosyası oluşturma
+## <a name="walkthrough-create-an-localized-embedded-script"></a>İzlenecek yol: bir yerelleştirilmiş, katıştırılmış betik oluşturma
 
-*Lütfen unutmayın: Visual Web Developer Express Sınıf Kitaplığı projelerinde için bir proje şablonu içermez gibi bu kılavuzda Visual Studio 2008 kullanılmasını gerektirir.*
+*Lütfen unutmayın: sınıf kitaplığı projeleri için proje şablonu Visual Web Developer Express içermez gibi bu kılavuzda Visual Studio 2008 kullanılmasını gerektirir.*
 
-1. Yeni bir Web sitesi projesi, ASP.NET AJAX tümleşik uzantılarıyla oluşturun. Başka bir projeye, LocalizingResources adlı çözüm içinde bir sınıf kitaplığı proje oluşturun.
-2. .Resx kaynakları dosyaları DeletionResources.resx ve DeletionResources.es.resx adlı yanı sıra VerifyDeletion.js LocalizingResources projeye adlı Jscript dosyası ekleyin. Eski kültür Tarafsız kaynakları içerecek; İkinci İspanyolca dil kaynakları içerir.
+1. ASP.NET AJAX uzantılarını tümleşik yeni bir Web sitesi projesi oluşturun. Başka bir proje, LocalizingResources adlı bir çözüm içinde bir sınıf kitaplığı projesi oluşturun.
+2. .Resx kaynak dosyaları DeletionResources.resx ve DeletionResources.es.resx adlı yanı sıra VerifyDeletion.js LocalizingResources projeye adlı bir Jscript dosyası ekleyin. Eski nötr kültürün kaynakları içerir; İkinci İspanyolca dil kaynakları içerir.
 3. VerifyDeletion.js için aşağıdaki kodu ekleyin:
 
 [!code-javascript[Main](understanding-asp-net-ajax-localization/samples/sample1.js)]
 
-JavaScript Regex sözdizimi, tek eğik metinde alışık olanlar için (önceki örnekte /FILENAME/ örneğidir) RegExp nesnesi gösterir. MSDN Kitaplığı kapsamlı bir JavaScript başvurusu içeriyor ve JavaScript yerel nesneleri kaynakları çevrimiçi olarak bulunabilir.
+JavaScript normal ifade söz dizimi, tek eğik metinde alışık olanlar (önceki örnekte /FILENAME/ örneğidir) RegExp nesnesi gösterir. MSDN Kitaplığı kapsamlı bir JavaScript başvurusu içerir ve kaynakları yerel JavaScript nesneleri çevrimiçi olarak bulunabilir.
 
 1. Aşağıdaki kaynak dizeleri için DeletionResources.resx ekleyin: 
 
     **VerifyDelete**: FILENAME silmek istediğinizden emin misiniz?
 
-    **Silinen**: FILENAME silinmiş.
+    **Silinen**: dosya silindi.
 
 1. Aşağıdaki kaynak dizeleri için DeletionResources.es.resx ekleyin: 
 
-    **VerifyDelete**: Est seguro que desee quitar FILENAME?
+    **VerifyDelete**: Est seguro onuk desee quitar FILENAME?
 
     **Silinen**: FILENAME se ha quitado.
-2. Aşağıdaki kod satırlarını AssemblyInfo dosyasına ekleyin:
+2. Aşağıdaki kod satırlarını AssemblyInfo dosyaya ekleyin:
 
 [!code-csharp[Main](understanding-asp-net-ajax-localization/samples/sample2.cs)]
 
-1. System.Web ve System.Web.Extensions başvuruları LocalizingResources projeye ekleyin.
-2. Web sitesi projeden LocalizingResources projesine bir başvuru ekleyin.
-3. Web sitesi projesini altında default.aspx ScriptManager denetimi ile aşağıdaki ek biçimlendirme güncelleştirmek:
+1. System.Web ve System.Web.Extensions başvurular LocalizingResources projeye ekleyin.
+2. Web sitesi projesinden LocalizingResources projeye bir başvuru ekleyin.
+3. Web sitesi projesi altındaki default.aspx ScriptManager denetimi aşağıdaki ek biçimlendirme güncelleştirin:
 
 [!code-aspx[Main](understanding-asp-net-ajax-localization/samples/sample3.aspx)]
 
-1. Herhangi bir yere sayfasında default.aspx bu biçimlendirme ekleyin:
+1. Bu işaretleme default.aspx sayfasında, üzerinde herhangi bir yere ekleyin:
 
 [!code-aspx[Main](understanding-asp-net-ajax-localization/samples/sample4.aspx)]
 
-1. F5 tuşuna basın. İstenirse, hata ayıklamayı etkinleştir. Sayfa yüklendiğinde Sil düğmesine basın. (Bilgisayarınızı İspanyolca dil kaynakları tercih için varsayılan olarak ayarlanmadığı sürece), İngilizce onaylamanız istenir unutmayın.
-2. Tarayıcı penceresini kapatın ve için default.aspx dönün. İçinde @Page üstbilgi yönergesi, es-ES kültür ve UICulture Değiştir otomatik. Tarayıcıda web uygulamasını yeniden yeniden başlatmak için F5 tuşuna basın. Bu süre, İspanyolca dosyasında silmeniz istenecektir dikkat edin:
+1. F5 tuşuna basın. İstenirse, hata ayıklamayı etkinleştir. Sayfa yüklendiğinde Sil düğmesine basın. Unutmayın (Bilgisayarınızı tercih İspanyolca dil kaynakları için varsayılan olarak ayarlanmadığı sürece), İngilizce dilinde onaylamanız istenir.
+2. Tarayıcı penceresini kapatın ve default.aspx için döndürür. İçinde @Page üstbilgi yönergesi, es-ES Culture ve UICulture otomatik değiştirin. Tarayıcıda web uygulamasını yeniden yeniden başlatmak için F5 tuşuna basın. Bu kez, İspanyolca dosyasında silmeniz istenir dikkat edin:
 
 
 [![](understanding-asp-net-ajax-localization/_static/image2.png)](understanding-asp-net-ajax-localization/_static/image1.png)
 
-([Tam boyutlu görüntüyü görüntülemek için tıklatın](understanding-asp-net-ajax-localization/_static/image3.png))
+([Tam boyutlu görüntüyü görmek için tıklatın](understanding-asp-net-ajax-localization/_static/image3.png))
 
 
 [![](understanding-asp-net-ajax-localization/_static/image5.png)](understanding-asp-net-ajax-localization/_static/image4.png)
 
-([Tam boyutlu görüntüyü görüntülemek için tıklatın](understanding-asp-net-ajax-localization/_static/image6.png))
+([Tam boyutlu görüntüyü görmek için tıklatın](understanding-asp-net-ajax-localization/_static/image6.png))
 
 
-Bu kılavuz çeşitli Çeşitlemeler olduğuna dikkat edin. Örneğin, komut dosyaları ScriptManager denetimi ile programlı olarak sayfa yükleme sırasında kaydı yapılamadı.
+Bu izlenecek yol çeşitli kullanımları tercih edilebilir olduğuna dikkat edin. Örneğin, betikler ScriptManager denetimi ile programlı olarak sayfa yükleme sırasında kaydedilebilir.
 
-## <a name="including-a-static-script-file-structure"></a>*Statik betik dosya yapısı dahil*
+## <a name="including-a-static-script-file-structure"></a>*Bir statik betik dosya yapısı dahil olmak üzere*
 
-Statik komut dosyaları için dağıtım kullanırken, devralınan .NET yerelleştirme şeması kullanarak avantajlarından bazıları kaybedersiniz. Öncelikle, komut dosyası kaynak dosyaları dahil olmak üzere oluşturulan otomatik türü kaybetmeniz görülebilir; Yukarıdaki kılavuzda, örneğin, kaynakları ileti ScriptManager denetiminden adlı bir otomatik olarak oluşturulan türü tarafından ortaya.
+Dağıtım için statik komut dosyalarını kullanarak, devralınan .NET yerelleştirme düzeni kullanmanın avantajlarından bazıları kaybedersiniz. Öncelikli olarak görünür, komut dosyası kaynak dosyaları dahil olmak üzere oluşturulan otomatik türü kaybetmek olur; Yukarıdaki izlenecek yolda, örneğin, ileti ScriptManager denetimi olarak adlandırılan bir otomatik olarak üretilen türe göre kaynakları ifşa edilmedi.
 
-Ancak, bir statik betik dosya yapısı kullanmanın bazı avantajları vardır. Güncelleştirmeleri yeniden derlenmesi ve uydu derlemelerini gerek olmadan gerçekleştirilebilir ve bir statik dosya yapısı kullanımını da alınmamış işlevselliği küçük bir parçasını bileşeni ile tümleştirmek için katıştırılmış betik geçersiz kılmak için yapılabilir.
+Ancak, bir statik betik dosya yapısı kullanmanın bazı avantajları vardır. Güncelleştirmeleri yeniden derlemeden ve uydu derlemeleri yeniden dağıtmaya gerek kalmadan gerçekleştirilebilir ve bir statik dosya yapısı kullanımını alınmamış işlevselliği küçük bir parçasını bileşeni ile tümleştirmek için ekli komut dosyası geçersiz kılmak için de yapılabilir.
 
-Microsoft betik kaynaklarınızı otomatik olarak proje derleme sırasında oluşturarak sürüm denetimi sorunu önlemenin önerir. Kapsamlı bir kod temel korurken kod değişiklikleri yerelleştirilmiş her komut dosyasında yansıtılır sağlamak giderek daha çok zor olabilir. Alternatif olarak, yalnızca tek bir mantık betik ve birden fazla yerelleştirme komut dosyası, proje oluşturulurken dosyaları birleştirme bulundurabilirsiniz.
+Microsoft Proje derlenirken betik kaynaklarınızı otomatik olarak oluşturarak bir sürüm denetim sorunu önlemenin önerir. Kapsamlı bir kod temel muhafaza ederken, kod değişikliklerini her yerelleştirilmiş betikte yansıtıldığından emin olmak giderek daha zor hale gelebilir. Alternatif olarak, yalnızca tek bir mantıksal betik ve birden fazla yerelleştirme komut dosyası, proje derlenirken dosyaları birleştirme koruyabilirsiniz.
 
-Bildirimli olarak eklenecek kaynakları olmadığından statik komut dosyaları olmalıdır ekleyerek ya da başvurulan `<asp:ScriptElement>` öğeler bir alt öğesi olarak `<Scripts>` etiketi ScriptManager denetimi veya program aracılığıyla ekleyerek `ScriptReference` nesneleri için `Scripts` özelliği `ScriptManager` çalışma zamanında sayfasında denetimi.
+Bildirimli olarak eklenecek kaynakları olmadığından, statik betik dosyaları ekleyerek ya da başvurulan `<asp:ScriptElement>` öğeler bir alt öğesi olarak `<Scripts>` etiketi ScriptManager denetimi veya programlama yoluyla ekleyerek `ScriptReference` nesneleri için `Scripts` özelliği `ScriptManager` sayfasında çalışma zamanında denetim.
 
-## <a name="the-scriptmanager-and-its-role-in-localization"></a>*ScriptManager ve onun rolünde yerelleştirme*
+## <a name="the-scriptmanager-and-its-role-in-localization"></a>*ScriptManager ve kendi rolünde yerelleştirme*
 
-ScriptManager yerelleştirilmiş uygulamalar için birkaç otomatik davranışları sağlar:
+ScriptManager yerelleştirilmiş uygulamalar için birden fazla otomatik davranışlar sağlar:
 
-- Otomatik olarak ayarlar ve adlandırma kurallarına göre komut dosyaları da bulur; örneği için hata ayıklama etkin betikleri hata ayıklama modunda yükler ve komut dosyaları tarayıcının kullanıcı arabirimi seçimine göre yükleri yerelleştirilmiş.
-- Özel kültürler dahil olmak üzere kültürler tanımını sağlar.
-- Bu komut dosyaları sıkıştırma HTTP üzerinden sağlar.
+- Otomatik olarak, ayarları ve adlandırma kurallarına göre komut dosyaları bulur; Örneğin, hata ayıklama etkin betik hata ayıklama modunda yükler ve tarayıcının kullanıcı arabirimi seçimine göre betikleri yükleri yerelleştirilmiş.
+- Bu özel kültürler dahil olmak üzere, kültür tanımını sağlar.
+- Ancak, HTTP üzerinden betik dosyaların sıkıştırmasını etkinleştirir.
 - Birçok istekleri verimli bir şekilde yönetmek için komut dosyaları önbelleğe alır.
-- Komut dosyaları şifrelenmiş bir URL cmdlet'ine yönelterek yöneltme bir katmanı ekler.
+- Betikleri aracılığıyla şifrelenmiş bir URL'ye yönelterek yöneltme katmanı ekler.
 
-Komut dosyası başvuruları ScriptManager denetimi program aracılığıyla veya bildirim temelli biçimlendirme tarafından eklenebilir. Düzeltmeleri gönderilen gibi komut dosyasının adını olasılıkla değiştirmez gibi bildirim temelli biçimlendirme web sitesi projesini kendisi dışında katıştırılmış derlemeleri komut dosyaları ile çalışırken, özellikle yararlıdır.
+Komut dosyası başvuruları, program aracılığıyla veya bildirim temelli biçimlendirme ScriptManager denetimi eklenebilir. Düzeltmeler gönderdi gibi betiğin adı büyük olasılıkla değişmez gibi bildirim temelli biçimlendirme betiklerle katıştırılmış derlemeleri web sitesi projesi kendisi dışında çalışırken yararlıdır.
 
 ## <a name="summary"></a>Özet
 
-Web uygulamaları, daha büyük bir izleyici ulaşması arttıkça, daha geniş kültürler ve toplulukları ulaşabilmesi için gereken iş modeli çekirdek olur; yabancı para ile mücadele etmek e-ticaret web uygulamaları gerekir, içerik yönetim sistemleri içeriklerini ancak aynı zamanda bunların Gezinti ipuçları ve form alanlarını diğer dillere ve şirketler bu ihtiyacı olduğunu bilmeniz yapabileceksiniz değil yalnızca mevcut olması gerekir erişilebilir.
+Web uygulamaları, daha büyük bir kitleye ulaşmaya büyüdükçe, daha geniş kültürler ve topluluklarına ulaşmak için gereken iş modeli çekirdek olur; e-ticaret web uygulamaları ile yabancı para başa çıkabilmesi gerekir, içerik yönetim sistemlerini içeriklerini ancak aynı zamanda kendi gezinti ipuçları ve form alanlarını diğer diller ve şirketler bu ihtiyacı olduğunu bilmeniz gereken mümkün değil yalnızca mevcut olması gerekir erişilebilir.
 
-.NET Framework uydu derlemelerini ve XML kaynak (.resx) dosyaları bir Tekdüzen Kaynak dizeleri ve görüntüleri Ara şekilde sunmak için kullanan bir zengin yerelleştirme framework doğası gereği destekler. Microsoft AJAX Framework ve Microsoft AJAX komut dosyası kitaplığı gibi ASP.NET AJAX uzantıları bu programlama modeli için istemci tarafı koda kolay kaynak dize aramaları etkinleştirme desteği. Dosya adları belirli bir adlandırma şeması izlediğiniz sürece otomatik eklenmesi ScriptResource.axd aracılığıyla komut dosyası kaynakları (gerçek .js dosyaları), uydu derlemelerini destekler. Bu destek sayesinde, ASP.NET AJAX uzantıları betikleri yerelleştirme ve Genelleştirme uygulamaların basitleştirin.
+.NET Framework doğası gereği bir Tekdüzen Kaynak dizeleri ve görüntüleri Ara şekilde sunmak için uydu derlemeleri ve XML kaynak (.resx) dosyaları kullanan bir zengin yerelleştirme framework destekler. Microsoft AJAX Framework ve Microsoft AJAX komut dosyası kitaplığı dahil olmak üzere ASP.NET AJAX uzantılarını bu programlama modeli için istemci tarafı koduna kolay kaynak dize aramaları etkinleştirme desteği. Dosya adları belirli bir adlandırma şeması uyduğu sürece otomatik eklenmesi ScriptResource.axd betik kaynaklarında (gerçek .js dosyaları), uydu derlemelerini destekler. Bu destek sayesinde, ASP.NET AJAX uzantılarını betiklerinin yerelleştirme ve Genelleştirme uygulamaların basitleştirin.
 
 ## <a name="bio"></a>*Bio*
 
-Tan göstermek Microsoft Web teknolojileri ile bu yana 1997 çalışma ve myKB.com Başkanı ise ([www.myKB.com](http://www.myKB.com)) kendisine ASP.NET yazılırken burada uzmanlaşmış tabanlı Bilgi Bankası yazılım çözümlerini odaklanmış uygulamaları. Tan temas kurulabileceğini doğrula e-posta aracılığıyla [ scott.cate@myKB.com ](mailto:scott.cate@myKB.com) veya kendi blog adresindeki [ScottCate.com](http://ScottCate.com)
+Scott Cate 1997'den beri Microsoft Web teknolojileri ile çalışmakta olduğu ve myKB.com Yardımcısı ([www.myKB.com](http://www.myKB.com)) tabanlı Bilgi Bankası yazılım çözümlerinizi odaklı uygulamaları burada kendisinin ASP.NET yazma konusunda uzmanlaşmış. Scott temas kurulabileceğini e-posta aracılığıyla [ scott.cate@myKB.com ](mailto:scott.cate@myKB.com) veya kendi blog'da [ScottCate.com](http://ScottCate.com)
 
 > [!div class="step-by-step"]
 > [Önceki](understanding-asp-net-ajax-authentication-and-profile-application-services.md)
-> [sonraki](understanding-asp-net-ajax-web-services.md)
+> [İleri](understanding-asp-net-ajax-web-services.md)

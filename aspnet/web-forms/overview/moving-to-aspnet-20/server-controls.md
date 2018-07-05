@@ -2,144 +2,143 @@
 uid: web-forms/overview/moving-to-aspnet-20/server-controls
 title: Sunucu denetimleri | Microsoft Docs
 author: microsoft
-description: ASP.NET 2.0 sunucu denetimleri birçok yolla geliştirir. Bu modülde şu şekilde ASP.NET 2.0 ve Visual Studio 200 mimari değişikliklerden bazıları konulara değineceğiz...
+description: ASP.NET 2.0 sunucu denetimleri pek çok yolla geliştirir. Bu modülde bazı mimari değişiklikler şekilde ASP.NET 2.0 ve Visual Studio 200 ele...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
 ms.topic: article
 ms.assetid: 43f6ac47-76fc-4cf7-8e9f-c18ce673dfd8
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/server-controls
 msc.type: authoredcontent
-ms.openlocfilehash: 72e9cac7cf9a01791c30783fa56ad7ea205a5a11
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 989986c45e76a65582f35172c7d837a78484d09a
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
-ms.locfileid: "28885199"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37374230"
 ---
 <a name="server-controls"></a>Sunucu denetimleri
 ====================
 tarafından [Microsoft](https://github.com/microsoft)
 
-> ASP.NET 2.0 sunucu denetimleri birçok yolla geliştirir. Bu modüldeki ASP.NET 2.0 şekilde mimari değişikliklerden bazıları şu konulara değineceğiz ve Visual Studio 2005 sunucu denetimleri ile ilgilidir.
+> ASP.NET 2.0 sunucu denetimleri pek çok yolla geliştirir. Bu modüldeki bazı mimari değişiklikler olduğu gibi ASP.NET 2.0 şu konulara değineceğiz ve Visual Studio 2005 sunucu denetimleri ile ilgilidir.
 
 
-ASP.NET 2.0 sunucu denetimleri birçok yolla geliştirir. Bu modüldeki ASP.NET 2.0 şekilde mimari değişikliklerden bazıları şu konulara değineceğiz ve Visual Studio 2005 sunucu denetimleri ile ilgilidir.
+ASP.NET 2.0 sunucu denetimleri pek çok yolla geliştirir. Bu modüldeki bazı mimari değişiklikler olduğu gibi ASP.NET 2.0 şu konulara değineceğiz ve Visual Studio 2005 sunucu denetimleri ile ilgilidir.
 
 ## <a name="view-state"></a>Görünüm durumu
 
-Birincil ASP.NET 2.0 ile görünümünde durum boyutu önemli ölçüde azalma değişikliktir. Yalnızca bir Takvim denetimi üzerindeki içeren bir sayfa göz önünde bulundurun. ' De ASP.NET 1.1 görünüm durumu aşağıdadır.
+Birincil ASP.NET 2.0 durumu görünümünde boyutunu önemli ölçüde bir düşüş değişikliktir. Yalnızca bir Takvim denetimi üzerindeki bir sayfayla göz önünde bulundurun. ' De ASP.NET 1.1 görünüm durumu aşağıdadır.
 
 [!code-css[Main](server-controls/samples/sample1.css)]
 
-Şimdi aynı sayfada ASP.NET 2.0 ile görünüm durumu İşte.
+Şimdi de benzer bir sayfa ASP.NET 2. 0'görünüm durumu aşağıdadır.
 
 [!code-css[Main](server-controls/samples/sample2.css)]
 
-Oldukça önemli bir değişiklik olan ve görünüm durumunu ve geriye kablo üzerinden taşınan düşünüldüğünde, bu değişikliği önemli ölçüde performans artışı geliştiriciler verebilirsiniz. Görünüm durumunun boyutu azalma biz dahili olarak işleyen büyük ölçüde nedeniyle yoludur. Görünümü durumu bir Base64 ile kodlanmış dizesi unutmayın. ASP.NET 2.0 ile görünümünde durum değişikliği daha iyi anlamak için yukarıdaki örnek kodu çözülmüş değerleri göz şimdi sahip.
+Oldukça önemli bir değişiklik olan ve görünüm durumunu ve geriye kablo üzerinden gerçekleştirilen göz önüne alındığında, bu değişiklik önemli ölçüde performans artışı geliştiriciler verebilirsiniz. Görünüm durumu boyutu azaltmaya biz dahili olarak işleyen büyük ölçüde en nedeniyle yoludur. Görünümü durumu bir Base64 kodlamalı dize unutmayın. ASP.NET 2. 0'görünümünde durum değişikliği daha iyi anlamak için yukarıdaki örnek kodu çözülmüş değerleri göz şimdi sahip.
 
-Kodunu çözdü 1.1 görünüm durumu şöyledir:
+Kodu çözülen 1.1 görünüm durumu aşağıda verilmiştir:
 
 [!code-css[Main](server-controls/samples/sample3.css)]
 
-Bu biraz arkadaşınızdan gibi görünebilir, ancak burada bir deseni yok. ASP.NET 1.x, biz tek karakter veri türleri tanımlamakta kullanılan ve değerlerini kullanarak ayrılmış &lt; &gt; karakter. Görünüm durumu örnek yukarıdaki "t" bir Üçlü temsil eder. Üçlü ("m" ArrayList temsil eder.) ArrayLists çifti içerir Bu ArrayLists birini içeren bir Int32 ("i") ve diğer 1 değerine sahip başka bir Üçlü içerir. Üçlü ArrayLists, vb. çifti içerir. Anımsaması önemli şey çiftleri içerir Triplets kullanıyoruz, biz bir harf ile veri türlerini tanımlamak ve kullanırız &lt; ve &gt; karakter ayırıcısı olarak.
+Bu biraz saçma gibi görünebilir, ancak burada bir düzeni vardır. ASP.NET'te 1.x, biz tek karakter veri türleri tanımlamak için kullanılmaz ve değerlerini kullanarak ayrılmış &lt; &gt; karakter. Görünüm durumu örnek yukarıdaki "t" bir Üçlü temsil eder. Üçlü içeren bir çift ArrayLists ("m", bir ArrayList öğesini temsil eder.) Bir Int32 bu ArrayLists içerir ("i") 1 ve başka bir değerle başka bir Üçlü içerir. Üçlü bir çift ArrayLists vb. içerir. Anımsanması gereken önemli şey çiftlerinin bulunduğu Triplets kullanıyoruz, şu veri türlerini bir harf aracılığıyla tanımlamak ve kullanıyoruz olan &lt; ve &gt; sınırlayıcı olarak karakter.
 
 ASP.NET 2. 0'da, kodu çözülmüş görünüm durumu biraz farklı görünür.
 
 [!code-powershell[Main](server-controls/samples/sample4.ps1)]
 
-Kodu çözülmüş görünüm durumu görünümünü büyük bir değişiklik fark. Bu değişiklik birkaç mimari bağlamasından sahiptir. Görüntüleme durumu verilerini seri hale getirmek için ASP.NET 1.x LosFormatter kullanılır. 2. 0 ', yeni ObjectStateFormatter'ın sınıfı kullanın. Bu sınıf, özellikle seri hale getirme ve seri durumdan çıkarma görünüm durumu ve denetim durumunun yardımcı olmak için tasarlanmıştır. (Denetim durumu bir sonraki bölümde ele alınacaktır.) Tarafından seri hale getirme ve seri durumdan çıkarma gerçekleşmesi yöntemi değiştirerek elde edilen birçok avantaj vardır. En önemli ölçüde bir TextWriter kullanan LosFormatter, bir BinaryWriter ObjectStateFormatter'ın kullandığı olgu biridir. Bu görünüm durumu bir dizi bayt dizeler yerine depolamak ASP.NET 2.0 sağlar. , Örneğin, bir tamsayı alın. ' De ASP.NET 1.1, Görünüm durumu 4 bayt tamsayı gereklidir. ASP.NET 2. 0'da, aynı tamsayıyı yalnızca 1 bayt gerektirir. Depolanan Görünüm durumu miktarını azaltmak için diğer geliştirmeler yapıldı. DateTime değerleri, örneğin, artık bir TickCount yerine bir dize kullanılarak depolanır.
+Kodu çözülen görünüm durumu görünümünü büyük bir değişiklik göreceksiniz. Bu değişiklik birkaç mimari bağlamasından sahiptir. Görüntüleme durumu verileri seri hale getirme için ASP.NET 1.x LosFormatter kullanılır. 2. 0'yeni ObjectStateFormatter'ın sınıfı kullanırız. Bu sınıf, özellikle serileştirme ve seri durumundan çıkarma görünüm durumunu ve denetim durumu yardımcı olmak için tasarlanmıştır. (Denetim durumu sonraki bölümde ele alınacaktır.) Tarafından hangi serileştirme ve seri durumundan çıkarma gerçekleşmesi yöntemi değiştirerek kazanılan birçok faydası vardır. En önemli ölçüde birini kullanan bir TextWriter LosFormatter bir BinaryWriter ObjectStateFormatter'ın kullandığı gerçeğidir. Bu görünüm durumu bir seri dizeleri yerine bayt depolamak ASP.NET 2.0 sağlar. Örneğin, bir tamsayı'ı alın. ASP.NET 1.1 görünüm durumu 4 baytlık tamsayı gereklidir. ASP.NET 2. 0'da, aynı tamsayıyı yalnızca 1 bayt gerektirir. Depolanan Görünüm durumu miktarını azaltmak için diğer geliştirmeler yapıldı. DateTime değerleri, örneğin, şimdi bir TickCount yerine bir dize kullanılarak depolanır.
 
-Tümünü yeterli doğru şekilde, özel dikkat 1.x görünüm durumuna en büyük tüketicilerinin birini benzer denetimleri ve DataGrid olduğunu olgu ödenmiş. Denetimlerin görünüm durumunu burada kaygı DataGrid gibi önemli bir dezavantajı, genellikle büyük miktarda yinelenen bilgi içermesidir. ASP.NET bilgileri yeniden bloated görünüm durumda kaynaklanan üzerinden ve üzerinden yalnızca depolandı yinelenen 1.x,. ASP.NET 2. 0'da, bu tür veri depolamak için yeni IndexedString sınıfı kullanın. Bir dize devam ederse, yalnızca belirteç IndexedString ve çalışan bir tablo IndexedString nesnelerin dizin depolarız.
+Tüm bu yeterli vermediği gibi özel olarak dikkat 1.x görünüm durumuna büyük tüketicilerinin birini ve DataGrid denetimleri benzer olduğunu olgusu ödenmiş. Denetimlerin görünüm durumunu burada ilgilenmektedir DataGrid gibi önemli bir dezavantajı, genellikle büyük miktarda yinelenen bilgi içermesidir. ASP.NET'te bilgileri yalnızca üzerinde ve bir bloated görünüm durumuna yeniden kaynaklanan üzerinden depolandığı yinelenen 1.x. ASP.NET 2. 0'da, bu tür verileri depolamak için yeni IndexedString sınıfı kullanın. Bir dize yinelenirse yalnızca belirteç IndexedString ve çalışan bir tablo IndexedString nesne içinde dizin için depolarız.
 
 ## <a name="control-state"></a>Denetim durumu
 
-Görünüm durumu ile geliştiriciler vardı ana gripes birini HTTP yükü eklenen boyutu oluştu. Daha önce belirtildiği gibi DataGrid denetimi görünüm durumu en büyük tüketicilerinin biridir. DataGrid tarafından oluşturulan görünüm durumu büyük miktarlarda önlemek için çoğu geliştiricinin yalnızca bu denetim için görünüm durumuna devre dışı. Ne yazık ki, bu çözüm, her zaman iyi bir değildi. Görüntüleme durumu ASP.NET 1.x yalnızca denetim doğru işlevselliği için gerekli verileri içerir. Denetimin UI durumu ile ilgili bilgiler de içerir. Başka bir deyişle, izin vermek bir DataGrid'de sayfalandırma için tüm görüntülemek UI bilgileri gerekmeyen olsa bile, Görünüm durumu etkinleştirmelisiniz istiyorsanız durumu içerir. Bu ya hep ya hiç bir senaryodur.
+Görünüm durumu ile geliştiriciler olan başlıca gripes için HTTP yük eklenen boyutu biriydi. Daha önceden belirtildiği gibi görünüm durumu en yüksek tüketicilerinin biridir DataGrid denetimi. Görünüm durumu DataGrid tarafından oluşturulan büyük miktarda önlemek için geliştiricilerin çoğu yalnızca bu denetim için Görünüm durumu devre dışı. Ne yazık ki, bu çözüm, her zaman iyi bir değildi. Görüntüleme durumu ASP.NET'te 1.x yalnızca doğru denetimi işlevlerini için gereken verileri içerir. Ayrıca, denetimin UI durumu ile ilgili bilgiler içerir. Bu izin için sayfalandırma bir DataGrid üzerinde bile tüm görüntüleyebileceği kullanıcı Arabirimi bilgileri gerekmeyen görünüm durumunu etkinleştirebilirsiniz isterseniz durumu içerdiğini anlamına gelir. Bunu ya bir senaryodur.
 
-ASP.NET 2. 0'da, denetim durumu Denetim durumu giriş aracılığıyla sorunsuz şekilde bu sorunu çözer. Denetim durumu Denetim düzgün çalışması için kesinlikle gerekli verileri içerir. Görünüm durumu farklı olarak, denetim durumu devre dışı bırakılamaz. Bu nedenle, Denetim durumunda depolanmakta veri dikkatle denetlenir önemlidir.
+ASP.NET 2. 0'da, denetim durumu Denetim durumu sunulmasıyla güzelce aracılığıyla bu sorunu çözer. Denetim durumu, bir denetimin düzgün çalışması için gerçekten gerekli verileri içerir. Görünüm durumu, denetim durumu devre dışı bırakılamaz. Bu nedenle, Denetim durumda depolanmakta olan verilerin dikkatli bir şekilde denetlenir önemlidir.
 
 > [!NOTE]
-> Görünüm durumunun yanı sıra denetim durumu kalıcı \_ \_VIEWSTATE gizli bir form alanı.
+> Denetim durumu, görünüm durumuna birlikte kalıcıdır \_ \_VIEWSTATE gizli form alanı.
 
 
-Bu videoyu görünüm durumunu ve denetim durumu bir kılavuz ' dir.
+Bu videoda bir kılavuz görünüm durumunu ve denetim durumu ' dir.
 
 
 ![](server-controls/_static/image1.png)
 
 
-[Açık Tam Ekran Video](server-controls/_static/state1.wmv)
+[Açık tam ekran görüntü](server-controls/_static/state1.wmv)
 
 
-Okuma ve yazma durumunu denetlemek bir sunucu denetimi için sırayla üç adımlar atmanız gerekir.
+Okuma ve yazma durumu denetlemek bir sunucu denetimi için sırada üç adımları atmanız gerekir.
 
-## <a name="step-1-call-the-registerrequirescontrolstate-method"></a>1. adım: RegisterRequiresControlState yöntemini çağırın
+## <a name="step-1-call-the-registerrequirescontrolstate-method"></a>1. adım: RegisterRequiresControlState yöntemi çağırın.
 
-RegisterRequiresControlState yöntemi, ASP.NET bir denetim denetim durumu kalıcı olması gerektiğini bildirir. Bir bağımsız değişken türü, kaydedilmekte olan denetim denetimi alır.
+RegisterRequiresControlState yöntem, bir denetim denetim durumu kalıcı hale getirmek gereken ASP.NET bildirir. Bu denetimin kaydedilmekte olan denetim türünde bir bağımsız değişken alır.
 
-Kayıt isteği başka bir istek kalmaz dikkate almak önemlidir. Bu nedenle, bir denetim denetim durumu devam ettirmek için ise bu yöntem her istek çağrılmalıdır. Yöntemi içinde Onınit çağrılması önerilir.
+Kayıt istemek için kalmaz dikkat edin önemlidir. Bu nedenle, bir denetim denetim durumu kalıcı hale getirmek için ise bu yöntem her istek çağrılmalıdır. Yöntem içinde Onınit çağrılması önerilir.
 
 [!code-csharp[Main](server-controls/samples/sample5.cs)]
 
-## <a name="step-2-override-savecontrolstate"></a>2. adım: SaveControlState geçersiz kıl
+## <a name="step-2-override-savecontrolstate"></a>2. adım: Geçersiz kılma SaveControlState
 
-SaveControlState yöntemi denetim geri son post bu yana bir denetim için durum değişiklikleri kaydeder. Denetimin durumunu temsil eden bir nesne döndürür.
+SaveControlState yöntemi denetim geri son gönderi beri bir denetim için durum değişikliklerini kaydeder. Denetimin durumunu temsil eden bir nesne döndürür.
 
-## <a name="step-3-override-loadcontrolstate"></a>3. adım: LoadControlState geçersiz kıl
+## <a name="step-3-override-loadcontrolstate"></a>3. adım: Geçersiz kılma LoadControlState
 
-LoadControlState yöntemi kaydedilmiş durum denetime yükler. Yöntem denetimi için kaydedilmiş durumu tutan nesne türünde bir bağımsız değişken alır.
+LoadControlState yöntemi denetime kaydedilmiş durumunu yükler. Yöntem, denetim için kaydedilmiş durumu tutan Object türünde bir bağımsız değişken alır.
 
 ## <a name="full-xhtml-compliance"></a>Tam XHTML uyumluluk
 
-Herhangi bir Web geliştirici Web uygulamalarında standartları önemini bilir. Standartlara dayalı geliştirme ortamını sürdürmek için ASP.NET 2.0 tam olarak XHTML ile uyumlu değil. Bu nedenle, tüm etiketleri HTML 4.0 destekleyen tarayıcılarda XHTML standartlarına göre işlenmiş veya daha büyük.
+Her Web geliştiricinin Web uygulamalarında standartları önemini bilir. ASP.NET 2.0 standartlara dayalı geliştirme ortamını sürdürmek için tam olarak XHTML uyumlu olur. Bu nedenle, tüm etiketleri İşlenmiş HTML 4.0 destekleyen tarayıcılarda XHTML standartlarına göre veya büyük.
 
-ASP.NET 1.1 DOCTYPE tanımında gibi oluştu:
+ASP.NET 1.1 belge türü tanımı aşağıdaki gibi şöyleydi:
 
 [!code-html[Main](server-controls/samples/sample6.html)]
 
-ASP.NET 2. 0'da, varsayılan DOCTYPE tanımı aşağıdaki gibidir:
+ASP.NET 2. 0'da, varsayılan belge türü tanımı aşağıdaki gibidir:
 
 [!code-html[Main](server-controls/samples/sample7.html)]
 
-Seçtiğiniz yapılandırma dosyasında xhtmlConformance düğümü aracılığıyla varsayılan XHML uyumluluk değiştirebilir. Örneğin, web.config dosyasında aşağıdaki düğümü XHTML uyumluluk XHTML 1.0 Strict değişir:
+Seçerseniz, varsayılan XHML uyumluluk xhtmlConformance düğüm yapılandırma dosyası aracılığıyla değiştirebilirsiniz. Örneğin, web.config dosyasında aşağıdaki düğüm XHTML uyumluluk XHTML 1.0 katı değişir:
 
 [!code-xml[Main](server-controls/samples/sample8.xml)]
 
-Seçerseniz, ASP.NET kullanılan eski yapılandırmasını kullanmak için ASP.NET de yapılandırabilirsiniz 1.x şekilde:
+İsterseniz, ASP.NET, ASP.NET içinde kullanılan eski yapılandırmasını kullanmak üzere de yapılandırabilirsiniz 1.x aşağıdaki gibi:
 
 [!code-xml[Main](server-controls/samples/sample9.xml)]
 
 ## <a name="adaptive-rendering-using-adapters"></a>Uyarlamalı bağdaştırıcıları kullanarak oluşturma
 
-ASP.NET 1.x, içerdiği yapılandırma dosyası bir &lt;browserCaps&gt; HttpBrowserCapabilities nesnesi doldurulmuş bölümü. Bu nesneye hangi cihaz belirli bir istek yapıyor belirlemek ve kod uygun şekilde işlemek bir geliştirici izin verilmiyor. ASP.NET 2. 0'da, model geliştirilmiştir ve artık yeni ControlAdapter sınıfını kullanır. ControlAdapter sınıfı denetimin yaşam döngüsü olayları geçersiz kılar ve kullanıcı aracısının özellikleri dayalı denetimler denetler. Belirli bir kullanıcı aracısı özelliklerini c:\windows\microsoft.net\framework\v2.0 depolanan tarayıcı tanım dosyası (.browser dosya uzantılı bir dosya) tarafından tanımlanır. \* \* \* \*\CONFIG\Browsers klasör.
+ASP.NET'te 1.x, içerdiği yapılandırma dosyası bir &lt;browserCaps&gt; HttpBrowserCapabilities nesnesi doldurulmuş bir bölüm. Bu nesne, hangi cihaz belirli bir istek yapıyor belirlemek ve kodu uygun şekilde işlemek bir geliştirici izin verilir. ASP.NET 2. 0'da, modeli geliştirdi ve artık yeni ControlAdapter sınıfı kullanır. ControlAdapter sınıfı, denetimin yaşam döngüsü olayları geçersiz kılar ve kullanıcı aracısının özelliklerine göre denetimleri işlenmesini denetler. Belirli bir kullanıcı aracısı yeteneklerini c:\windows\microsoft.net\framework\v2.0 içinde depolanan bir tarayıcı tanım dosyası (.browser dosya uzantılı bir dosya) tarafından tanımlanır. \* \* \* \*\CONFIG\Browsers klasör.
 
 > [!NOTE]
-> Bir Özet sınıf ControlAdapter sınıftır.
+> Bir soyut sınıfı ControlAdapter sınıftır.
 
 
-Çok benzer şekilde &lt;browserCaps&gt; 1.x, tarayıcı tanım dosyası bölümünde, istekte bulunan tarayıcıyı belirlemek amacıyla kullanıcı aracısı dizesi ayrıştırmak için normal bir ifade kullanır. Bu, kullanıcı aracısı için bunları tanımlayan belirli özellikleri. ControlAdapter denetim işleme yöntemi üzerinden işler. İşleme yöntemi geçersiz kılarsanız, bu nedenle, işleme temel sınıfını çağırmalısınız değil. Bunun yapılması, iki kez bağdaştırıcısı için bir kez ve denetim için bir kez gerçekleşecek şekilde işleme neden olabilir.
+Benzer şekilde &lt;browserCaps&gt; 1.x, tarayıcı tanım dosyası bölümünde isteyen tarayıcıya belirlemek amacıyla kullanıcı aracısı dizesini ayrıştırmak için normal bir ifade kullanır. Bu, kullanıcı aracısı için bunları tanımladığı belirli özellikleri. ControlAdapter denetim işleme yöntemi ile işler. İşleme yöntemi geçersiz kılarsanız, bu nedenle, işleme taban sınıfa çağırmamanız gerekir. Bunun yapılması, işleme bağdaştırıcısı için bir kez ve denetim için bir kez iki kez gerçekleşmesine neden olabilir.
 
 ## <a name="developing-a-custom-adapter"></a>Özel bağdaştırıcı geliştirme
 
-ControlAdapter devralarak özel bağdaştırıcınızı geliştirebilirsiniz. Ayrıca, bir bağdaştırıcı için bir sayfa burada gereken durumlarda soyut sınıftan PageAdapter devralabilirsiniz. Özel bağdaştırıcınızı denetimlerine eşleme aracılığıyla gerçekleştirilir &lt;controlAdapters&gt; tarayıcı tanım dosyasındaki öğesi. Örneğin, bir tarayıcı tanım dosyasında aşağıdaki XML'den menü denetimi MenuAdapter sınıfına eşler:
+Kendi özel bağdaştırıcı ControlAdapter devralarak geliştirebilirsiniz. Ayrıca, bir sayfa için bir bağdaştırıcı gerekmesi halinde durumlarda PageAdapter soyut sınıftan devralabilir. Eşleme için özel bağdaştırıcınıza denetimlerin aracılığıyla gerçekleştirilir &lt;controlAdapters&gt; tarayıcı tanım dosyasındaki öğesi. Örneğin, bir tarayıcı tanım dosyasından aşağıdaki XML MenuAdapter sınıfa menü denetimi eşler:
 
 [!code-html[Main](server-controls/samples/sample10.html)]
 
-Bu modeli kullanarak, belirli bir aygıt veya tarayıcı hedeflemek denetim geliştirici için oldukça kolay olur. Ayrıca, oldukça basit bir geliştirici nasıl her cihazda sayfaları işlemek üzerinde tam denetime sahiptir.
+Bu modeli kullanarak, belirli bir cihaz veya tarayıcı hedeflemek bir denetim geliştiricisi için oldukça kolay olur. Ayrıca, oldukça basit bir geliştiricinin nasıl her cihazda sayfaları işlemek üzerinde tam denetime sahip olur.
 
-## <a name="per-device-rendering"></a>Aygıt başına işleme
+## <a name="per-device-rendering"></a>Cihaz başına işleme
 
-Sunucu denetimi ASP.NET 2.0 özelliklerinde belirtilen bir tarayıcıya özgü önek kullanarak cihaz başına olabilir. Örneğin, aşağıdaki kodu hangi cihaz sayfasına göz atmak için kullanıldığına bağlı olarak bir etiket metnini değiştirir.
+Sunucu denetimi ASP.NET 2.0 özelliklerinde belirtilen tarayıcı özgü önekini kullanarak cihaz başına olabilir. Örneğin, aşağıdaki kod hangi cihaz sayfasına göz atmak için kullanıldığına bağlı olarak bir etiket metnini değiştirir.
 
 [!code-aspx[Main](server-controls/samples/sample11.aspx)]
 
-Bu etiketi içeren sayfa Internet Explorer'dan gözatarken "Internet Explorer'dan gözatarken." belirten metin etiketi görüntülenir Sayfa Firefox gözatarken etiket metni "Firefox gözatarken." görüntülenir Sayfanın diğer herhangi bir aygıttan tarandığında, "Bilinmeyen bir aygıttan gözatarken." görüntülenir Herhangi bir özellik, bu özel bir sözdizimi kullanılarak belirtilebilir.
+Bu etiketi içeren sayfa Internet Explorer'dan gözatılırken "Internet Explorer'dan göz attığınız." belirten bir metin etiketi görüntülenir Sayfa Firefox gözatılırken etiket metni "Firefox göz attığınız." görüntülenir Sayfanın diğer herhangi bir CİHAZDAN gözatılırken "Bilinmeyen bir CİHAZDAN göz attığınız." görüntülenir Herhangi bir özelliği, bu özel söz dizimi kullanılarak belirtilebilir.
 
 ## <a name="setting-focus"></a>Odak ayarlama
 
-ASP.NET 1.x geliştiriciler, belirli bir denetimde ilk odağı ayarlama hakkında sık sorulan. Örneğin, bir oturum açma sayfasında, sayfa ilk kez yüklediğinde odağı alması kullanıcı kimliği textbox sağlamak faydalı olur. ASP.NET, bazı istemci tarafı komut dosyası yazma 1.x, bunun yapılması gereklidir. Böyle bir komut dosyası karmaşık bir görev olsa da, artık sayesinde SetFocus yöntemini ASP.NET 2.0 ile gerekli değildir. SetFocus yöntemini odaklanması gereken denetimini gösteren bir değişken alır. Bu bağımsız değişken bir dize olarak denetiminin istemci Kimliğini veya sunucu denetimi denetim nesnesi olarak adını ya da olabilir. Örneğin, sayfa ilk kez yüklediğinde txtUserID adlı TextBox denetimine ilk odağı ayarlamak için sayfasına aşağıdaki kodu ekleyin\_yük:
+ASP.NET 1.x geliştiriciler, belirli bir denetimde ilk odak ayarlama hakkında sık sorulan. Örneğin, bir oturum açma sayfasında kullanıcı kimliği textbox sayfa ilk yüklendiğinde odağı alması kullanışlıdır. ASP.NET'te, bazı istemci tarafı komut dosyası yazma 1.x, bunun yapılması gereklidir. Böyle bir komut dosyası basit bir görev olsa da, artık SetFocus yöntemi sayesinde ASP.NET 2.0 sürümünde gerekli değildir. SetFocus yöntem odaklanması gereken denetimini gösteren tek bir bağımsız değişken alır. Bu bağımsız değişken, bir dize olarak denetimin istemci kimliği veya sunucu denetimi olarak denetim nesnesi adı ya da olabilir. Örneğin, sayfa ilk yüklendiğinde txtUserID adlı bir TextBox denetimine başlatma odağı ayarlamak için sayfaya aşağıdaki kodu ekleyin\_yük:
 
 [!code-csharp[Main](server-controls/samples/sample12.cs)]
 
@@ -147,29 +146,29 @@ ASP.NET 1.x geliştiriciler, belirli bir denetimde ilk odağı ayarlama hakkınd
 
 [!code-csharp[Main](server-controls/samples/sample13.cs)]
 
-ASP.NET 2.0 (daha önce ele alınan) Webresource.axd işleyicisinin odağı ayarlar istemci-tarafı işlevi işlemek için kullanır. İstemci tarafı işlevi WebForm adıdır\_aşağıda gösterildiği gibi AutoFocus:
+ASP.NET 2.0 (daha önce açıklanmıştır) Webresource.axd işleyicisinin odağı ayarlar bir istemci-tarafı işlevi işlemek için kullanır. İstemci tarafı işlevi WebForm adıdır\_burada gösterildiği gibi AutoFocus:
 
 [!code-html[Main](server-controls/samples/sample14.html)]
 
-Alternatif olarak, bu denetim için ilk odağı ayarlamak için bir denetim için odak yöntemini kullanabilirsiniz. Odağı yöntemi denetim sınıfından türetilen ve tüm ASP.NET 2.0 denetimleri için kullanılabilir. Bir doğrulama hatası oluştuğunda özel bir denetime odağı ayarlamak da mümkündür. Bir sonraki modüle ele alınacaktır.
+Alternatif olarak, ilgili denetimin ilk odağı ayarlamak için bir denetim için odak yöntemi kullanabilirsiniz. Odak yöntemi denetim sınıfından türetilen ve tüm ASP.NET 2.0 denetimler için kullanılabilir. Bir doğrulama hatası oluştuğunda özel bir denetime Odaklan da mümkündür. Bir sonraki modüle ele alınmaktadır.
 
-## <a name="new-server-controls-in-aspnet-20"></a>ASP.NET 2.0 yeni sunucu denetimleri
+## <a name="new-server-controls-in-aspnet-20"></a>ASP.NET 2.0 sürümünde yeni sunucu denetimleri
 
-Yeni sunucu denetimleri, ASP.NET 2.0 verilmiştir. Daha fazla ayrıntıya bazı bunları daha sonra modüllerinde ele alacağız.
+ASP.NET 2.0 yeni sunucu denetimleri aşağıda verilmiştir. Daha fazla ayrıntıya bazı bunları sonraki modüllerdeki ele alacağız.
 
 ## <a name="imagemap-control"></a>Görüntü eşleme denetimi
 
-Görüntü eşleme denetimi post yeniden başlatmak veya bir URL'ye bir görüntü etkin eklemenize olanak sağlar. Etkin noktalarına üç tür kullanılabilir; CircleHotSpot, RectangleHotSpot ve PolygonHotSpot. Etkin noktalarına Visual Studio veya programlama kodu Koleksiyonu Düzenleyicisi aracılığıyla eklenir. Etkin noktalarına görüntüde çizim için kullanılabilir herhangi bir kullanıcı arabirimi yoktur. Koordinatları ve boyutunu veya etkin nokta RADIUS bildirimli olarak belirtilmelidir. Hiçbir görsel bir etkin nokta Tasarımcısı'nda yoktur. Bir etkin nokta URL'ye gitmek üzere yapılandırılmışsa, URL başvurulduğunda NavigateUrl özelliği belirtilir. Söz konusu olduğunda bir post etkin nokta, özelliği, sunucu tarafı kodu alınabilir post geri dizesinde geçirmenizi sağlar PostBackValue yedekleyin.
+Görüntü eşleme denetimi tekrar başlatmak veya bir URL'ye bir görüntü etkin noktaları eklemenize olanak sağlar. Etkin nokta üç tür vardır; CircleHotSpot RectangleHotSpot ve PolygonHotSpot. Etkin noktaları Koleksiyonu Düzenleyicisi Visual Studio veya programlama yoluyla kod aracılığıyla eklenir. Herhangi bir kullanıcı arabirimi üzerindeki resmin sıcak çizmek için kullanılabilir. Koordinatları ve boyutunu veya başvurulduğunda yarıçapını bildirimli olarak belirtilmelidir. Herhangi bir etkin nokta Tasarımcısı'nda görsel bir temsilini yoktur. Etkin nokta, bir URL'ye için yapılandırılmışsa, URL başvurulduğunda NavigateUrl özelliği aracılığıyla belirtilir. Söz konusu olduğunda bir gönderi etkin özelliği sunucu tarafı kodunda alınabilmesi için bir dize gönderisinde geri geçirmenize olanak PostBackValue yedekleyin.
 
 
-![HotSpot Collection Editor in Visual Studio](server-controls/_static/image1.jpg)
+![Visual Studio'da etkin nokta Koleksiyonu Düzenleyicisi](server-controls/_static/image1.jpg)
 
 **Şekil 1**: Visual Studio'da etkin nokta Koleksiyonu Düzenleyicisi
 
 
 ## <a name="bulletedlist-control"></a>Bulletedlıst denetimi
 
-Veri bağlama kolayca olabilir madde işaretli bir liste Bulletedlıst denetimdir. Listenin (numaralı) sıralanabilir veya BulletStyle özelliği aracılığıyla sırasız. Listedeki her öğeye LISTITEM nesnesiyle temsil edilir.
+Bulletedlıst kolayca veri bağımlı olabilir bir madde işaretli liste denetimidir. Liste (numaralandırılmış) sıralanabilir veya sıralanmamış BulletStyle özelliği aracılığıyla. Listedeki her öğe bir ListItem nesnesi tarafından temsil edilir.
 
 
 ![Visual Studio'da Bulletedlıst denetimi](server-controls/_static/image1.gif)
@@ -177,141 +176,141 @@ Veri bağlama kolayca olabilir madde işaretli bir liste Bulletedlıst denetimdi
 **Şekil 2**: Visual Studio'da Bulletedlıst denetimi
 
 
-## <a name="hiddenfield-control"></a>HiddenField denetimi
+## <a name="hiddenfield-control"></a>Hiddenfield'i denetimi
 
-HiddenField denetimi gizli bir form alanı değerini sunucu tarafı kodu kullanılabilir sayfanıza ekler. Gizli bir form alanı değerini genellikle post geri arasında değişmeden beklenir. Ancak, kötü niyetli bir kullanıcı geri göndermek için değeri önceki değiştirmek mümkündür. Bu durumda, HiddenField denetimi ValueChanged olay ortaya koyar. HiddenField denetiminiz hassas bilgileri ve değişmeden kalmasını sağlamak istiyorsanız, kodunuzda ValueChanged olay işlemesi gerekir.
+Hiddenfield'i denetim gizlenmiş form alanı değeri, sunucu tarafı kodunda kullanılabilir sayfanıza ekler. Post telefonla geri arasında değişmeden kalmasını genellikle gizli form alanının değeri bekleniyor. Ancak, kötü niyetli bir kullanıcı geri gönderilecek değer önceki değiştirmek mümkündür. Böyle bir durumda Hiddenfield'i denetim ValueChanged olayı ortaya koyar. Hassas bilgileri Hiddenfield'i denetiminde olması ve değişmeden kalmasını sağlamak istiyorsanız, kodunuzda ValueChanged olay işlemesi gerekir.
 
 ## <a name="fileupload-control"></a>Dosya yükleme denetimi
 
-ASP.NET 2.0 dosya yükleme denetiminde bir Web sunucusunda bir ASP.NET sayfası aracılığıyla dosyaları yüklemek mümkün kılar. Bu denetim, birkaç özel durum ile ASP.NET 1.x HtmlInputFile sınıfı oldukça benzer. ASP.NET 1.x, önerilir, iyi bir dosya sahip belirlemek için PostedFile özelliği için null denetlenmesi. ASP.NET 2.0 dosya yükleme denetiminde aynı amaçla kullanabilirsiniz ve biraz daha etkilidir yeni bir HasFile özelliği ekler.
+ASP.NET 2.0 FileUpload denetiminde ASP.NET sayfası aracılığıyla bir Web sunucusunda dosyaları karşıya yükleme mümkün kılar. Bu denetim, birkaç özel durum ASP.NET 1.x HtmlInputFile sınıfı oldukça benzerdir. ASP.NET'te 1.x,, önerilen iyi bir dosya tablonuz varsa belirleyebilmesi PostedFile özelliği için null denetlenmesi. ASP.NET 2.0 FileUpload denetimi, aynı amaçla kullanabilirsiniz ve biraz daha verimlidir yeni HasFile özelliği ekler.
 
-PostedFile özellik HttpPostedFile nesneye erişim hala kullanılabilir, ancak bazı HttpPostedFile işlevlerini şimdi doğası gereği dosya yükleme denetimi ile kullanılabilir. Örneğin, ASP.NET karşıya yüklenen bir dosyayı kaydetmek için HttpPostedFile nesnesinde Farklı Kaydet yöntemi çağırmanız 1.x,. ASP.NET 2.0 ile dosya yükleme Denetimi'ni kullanarak dosya yükleme denetimi kendisini Farklı Kaydet yöntemi çağırırsınız.
+PostedFile özellik hala HttpPostedFile nesneye erişim için kullanılabilir, ancak bazı HttpPostedFile işlevselliğini doğası gereği FileUpload denetimiyle kullanıma sunuldu. Örneğin, ASP.NET'te karşıya yüklenen bir dosyayı kaydetmek için HttpPostedFile nesne üzerinde farklı kaydet yöntemi çağırırsınız 1.x,. ASP.NET 2.0 FileUpload Denetimi'ni kullanarak FileUpload denetimin kendisinde Farklı Kaydet yöntemi çağırırsınız.
 
-Başka bir önemli değişiklik 2.0 davranış (ve olasılıkla en önemli değişiklik), artık kaydetmeden önce karşıya yüklenen dosyanın tamamı belleğe yüklemek gerekli olmasıdır. Belleğe yazılmakta önce tamamen kaydedilen 1.x içinde yüklenen herhangi bir dosyayı diske. Bu mimari büyük dosyaları karşıya yükleme engeller.
+Başka bir önemli değişiklik 2.0 davranışı (ve muhtemelen en önemli değişiklik), artık tüm karşıya yüklenen dosyayı kaydetmeden önce belleğe yüklemek gerekli olmasıdır. 1.x içinde yüklenen herhangi bir dosyayı yazılmadan önce tamamen bellek kaydedilir diske. Bu mimari, büyük dosyaları karşıya yüklenmesi engeller.
 
-ASP.NET 2. 0'da, httpRuntime öğesinin MaxRequestLength özniteliği kaç kilobayt yapılandırmanıza izin verir arabelleği yazılmakta önce bellekte tutulan diske.
+ASP.NET 2. 0'da, httpRuntime öğesinin MaxRequestLength özniteliği kaç kilobayt yapılandırmanıza olanak tanır arabelleği yazılmadan önce bellekte tutulan diske.
 
-**Önemli**: Bu değer bayt (kilobayt değil) olduğunu ve varsayılan 256 MSDN belgeleri (ve başka bir yerde belgeleri) belirtir. Değer gerçekte kilobayt cinsinden belirtilir ve varsayılan değer 80'dir. Varsayılan değer 80 k sağlayarak, biz arabellek üzerinde büyük nesne yığın bitmez emin olun.
+**Önemli**: Bu değer, bayt (kilobayt değil) olduğunu ve varsayılan 256 MSDN belgeleri (ve başka bir yerde belgeleri) belirtir. Değer gerçekte kilobayt cinsinden belirtilir ve varsayılan değeri 80'dir. Varsayılan değer 80 k sağlayarak, arabellek büyük nesne yığınını bitmiyor emin emin oluruz.
 
 ## <a name="wizard-control"></a>Sihirbaz Denetimi
 
-ASP.NET geliştiricilerinin "paneller kullanarak sayfa" ya da sayfadan sayfaya aktararak bilgi serisinde toplanmaya çalışılıyor ile zorlanıyor karşılaştığınız oldukça yaygındır. Daha sık çok değil, çaba can sıkıcı bir ve zaman alıcıdır. Yeni sihirbaz denetimi kullanıcılar bilginiz bir sihirbaz arabirimi doğrusal ve doğrusal olmayan adımlarda izin vererek sorunları çözer. Sihirbaz Denetimi girdi biçimleri bir dizi adımı gösterir. Denetim StepType özelliği tarafından belirtilen belirli bir türdeki her adımdır. Kullanılabilir adım türleri aşağıdaki gibidir:
+ASP.NET geliştiricilerine "panelleri kullanarak sayfa" ya da sayfadan sayfaya aktararak bilgi serideki toplanmaya çalışılırken ile ulaşmakta karşılaştığınız oldukça yaygındır. Daha fazla değildir, çaba sıkıcı bir ve zaman alır. Yeni sihirbaz denetimi doğrusal ve doğrusal olmayan kullanıcıların aşina olduğu bir sihirbaz arabirimi adımlarda izin vererek bu sorunları çözer. Sihirbaz denetimi, bir dizi adım girdi biçimleri sunar. Denetimin StepType özelliği tarafından belirtilen belirli bir türün her adımdır. Kullanılabilir adım türleri aşağıdaki gibidir:
 
 | **Adım türü** | **Açıklama** |
 | --- | --- |
 | Otomatik | Sihirbaz otomatik olarak adım adım hiyerarşi içindeki konumuna göre türünü belirler. |
-| Başlat | Bir giriş ifadesi sunmak için sık kullanılan ilk adımı. |
+| Başlat | Genellikle bir giriş ifadesi sunmak için kullanılan ilk adımı. |
 | Adım | Normal bir adım. |
-| Son | Sihirbazı tamamlamak için bir düğmeye sunmak için genellikle kullanılan son adımı. |
+| Son | Sihirbazı tamamlamak için bir düğme sunmak için genellikle kullanılan son adımı. |
 | Tamamlayın | Başarı veya başarısızlık iletişim kurulurken bir ileti gösterir. |
 
 > [!NOTE]
-> Sihirbaz denetimi, ASP.NET denetim durumu kullanarak durumunu izler. Bu nedenle, EnableViewState özelliği false hiçbir zarar olmadan ayarlanabilir.
+> Sihirbaz denetimi, ASP.NET denetim durumunu kullanarak durumunu izler. Bu nedenle, herhangi bir zarar olmadan false EnableViewState özellik ayarlanabilir.
 
 
-Bu videoyu gözden geçirme Sihirbazı'nı denetiminin ' dir.
+Bu videoda, bir gözden geçirme Sihirbazı'nı Denetim olur.
 
 
 ![](server-controls/_static/image2.png)
 
 
-[Açık Tam Ekran Video](server-controls/_static/wizard1.wmv)
+[Açık tam ekran görüntü](server-controls/_static/wizard1.wmv)
 
 
 ## <a name="localize-control"></a>Denetim yerelleştirme
 
-Localıze denetimi, bir harf denetimi için benzer. Ancak, Localıze denetimi sahip bir **modu** eklenmeden biçimlendirme nasıl işlendiğine denetimleri özelliği. Aşağıdaki değerleri Mode özelliğini destekler:
+Localıze denetimi değişmez bir denetime benzerdir. Localıze denetleyebilir ancak bir **modu** eklendiğinde biçimlendirme nasıl işleneceğini denetleyen özelliği. Mod özelliği aşağıdaki değerlerini destekler:
 
 | **Modu** | **Açıklama** |
 | --- | --- |
-| Dönüştürme | İsteği yapan tarayıcının Protokolü göre biçimlendirme dönüştürüldüğünde. |
-| Geçiş | Biçimlendirme olarak işlenir-değil. |
-| Kodlama | Denetime eklenen biçimlendirme HtmlEncode kullanılarak kodlanır. |
+| Dönüştürme | Biçimlendirme isteği yapan tarayıcının Protokolü göre dönüştürülür. |
+| Doğrudan geçiş | Biçimlendirme olarak işlenen-olduğu. |
+| Kodlama | Eklediğiniz bir denetim için biçimlendirme HtmlEncode kullanılarak kodlanır. |
 
-## <a name="multiview-and-view-controls"></a>MultiView ve görünümü denetimleri
+## <a name="multiview-and-view-controls"></a>MultiView ve görünüm denetimi
 
-MultiView denetiminin görünümü denetimleri için kapsayıcı görevi görür ve görünüm denetimi (çok benzer bir Panel denetimi) diğer denetimler için kapsayıcı olarak davranır. Her bir görünümde MultiView denetiminin tek bir görünüm denetim tarafından temsil edilir. MultiView ilk görünüm denetim görünüm 0, ikinci Görünüm 1, vs. MultiView denetiminin ActiveViewIndex belirterek görünümler arasında geçiş yapabilirsiniz.
+MultiView denetimi görünümü denetimler için kapsayıcı olarak davranır ve görünüm denetimi (çok benzer bir Panel denetimi) diğer denetimler için kapsayıcı olarak davranır. Her bir görünümde bir MultiView denetimi, tek bir görünüm denetimi tarafından temsil edilir. İlk MultiView görünümü denetiminde görünümü 0, ikinci görünümü 1, vs. Bir MultiView denetimi ActiveViewIndex belirterek görünümler geçiş yapabilirsiniz.
 
 ## <a name="substitution-control"></a>Değişim Denetimi
 
-Değişim Denetimi ASP.NET önbelleğe alma ile birlikte kullanılır. Burada önbelleğe alma avantajından yararlanmak istiyor, ancak her istekte (önbelleğe alınan muaf tutulan diğer bir deyişle, bölümleri sayfasının) güncelleştirilmesi gereken bir sayfa bölümlerini olması durumda değiştirme bileşeni harika bir çözüm sağlar. Denetimi aslında kendi başına herhangi bir çıktı oluşturmak değil. Bunun yerine, sunucu tarafı kodu yönteminde bağlıdır. Sayfa istendiğinde yöntemi çağrılır ve döndürülen biçimlendirme yerine Değişim Denetimi işlenir.
+Değişim Denetimi ASP.NET önbelleğe alma ile birlikte kullanılır. Burada, önbelleğe alma avantajından yararlanmak istediğiniz, ancak her istek (önbelleğe alınan muaf tutulan başka bir deyişle, bölümleri sayfasının) güncelleştirilmesi gereken sayfasının bölümlerini sahip durumlarda değiştirme bileşeni harika bir çözüm sağlar. Denetim, aslında kendi kendine herhangi bir çıktı işlemesi yapmıyor. Bunun yerine, sunucu tarafı kodunuzda yöntemine bağlıdır. Sayfa istendiğinde yöntemi çağrılır ve döndürülen biçimlendirme, değişim denetimi yerine işlenir.
 
-Değişim Denetimi bağlı yöntemi aracılığıyla belirtilen **MethodName** özelliği. Bu yöntem, aşağıdaki ölçütleri karşılamalıdır:
+Değişim Denetimi bağlı yöntemi aracılığıyla belirtilen **MethodName** özelliği. Bu yöntem, aşağıdaki ölçütleri karşılaması gerekir:
 
-- Statik (paylaşılan içinde VB) yöntemi olmalıdır.
-- Bu, HttpContext türünde bir parametre kabul eder.
-- Denetimi sayfasına değiştirmelisiniz biçimlendirme temsil eden bir dize döndürür.
+- Statik (paylaşılan VB) yöntemi olmalıdır.
+- Bunu HttpContext türünde bir parametre kabul eder.
+- Denetimi sayfasına değiştirmeniz gerekir biçimlendirmeyi temsil eden bir dize döndürür.
 
-Değişim Denetimi herhangi bir sayfayı denetiminde değiştirme olanağına sahip değildir, ancak onun parametresi üzerinden geçerli HttpContext erişimi yok.
+Değişim Denetimi herhangi bir sayfa denetiminde değiştirme olanağına sahip değildir, ancak geçerli HttpContext parametresinin aracılığıyla erişimi.
 
-## <a name="gridview-control"></a>GridView denetimi
+## <a name="gridview-control"></a>GridView denetiminde
 
-GridView denetiminin DataGrid denetimini yerini alır. Bu denetim, bir sonraki modüldeki daha ayrıntılı ele alınacaktır.
+GridView denetiminde DataGrid denetimi yerini alır. Bu denetimi bir sonraki modülünde daha ayrıntılı ele alınmaktadır.
 
-## <a name="detailsview-control"></a>DetailsView denetimi
+## <a name="detailsview-control"></a>DetailsView denetiminde
 
-DetailsView denetimi, bir veri kaynağından tek bir kaydını görüntülemek ve düzenlemek veya silmek sağlar. Bir sonraki modüldeki daha ayrıntılı ele alınmıştır.
+DetailsView denetiminde bir veri kaynağından tek bir kaydı görüntülemek ve düzenlemek veya silmek sağlar. Bir sonraki modülünde daha ayrıntılı ele alınmıştır.
 
 ## <a name="formview-control"></a>FormView denetimi
 
-FormView denetimi, bir veri kaynağı tek bir kayıttan yapılandırılabilir arabiriminde görüntülemek için kullanılır. Bir sonraki modüldeki daha ayrıntılı ele alınmıştır.
+FormView denetimi, bir veri kaynağı tek bir kayıttan yapılandırılabilir bir arabirimde görüntülemek için kullanılır. Bir sonraki modülünde daha ayrıntılı ele alınmıştır.
 
 ## <a name="accessdatasource-control"></a>AccessDataSource denetimi
 
-AccessDataSource denetimi için kullanılan veri Access veritabanını bağlayın. Bir sonraki modüldeki daha ayrıntılı ele alınmıştır.
+AccessDataSource denetimi için kullanılan verileri bir veritabanına bağlamak. Bir sonraki modülünde daha ayrıntılı ele alınmıştır.
 
 ## <a name="objectdatasource-control"></a>ObjectDataSource Denetimi
 
-ObjectDataSource Denetimi denetimleri verilere iki katmanlı bir model aksine bir orta katman iş nesnesine denetimleri doğrudan veri kaynağına bağlı olduğu bağlı üç katmanlı mimari destekleyecek şekilde kullanılır. Daha ayrıntılı bir sonraki modüldeki incelenecektir.
+ObjectDataSource Denetimi, denetimleri verilere iki katmanlı modeli yerine bir orta katman iş nesnesine denetimleri doğrudan veri kaynağına bağlı olduğu bağlı bir üç katmanlı mimariyi destekleyecek şekilde kullanılır. Bunu bir sonraki modülünde daha ayrıntılı açıklanmıştır.
 
-## <a name="xmldatasource-control"></a>XmlDataSource denetimi
+## <a name="xmldatasource-control"></a>XmlDataSource'ta denetimi
 
-XmlDataSource denetim veri bağlamak için bir XML veri kaynağı için kullanılır. Bir sonraki modüldeki daha ayrıntılı ele alınmıştır.
+XmlDataSource'ta denetimi, veri bağlamak için bir XML veri kaynağı kullanılır. Bir sonraki modülünde daha ayrıntılı ele alınmıştır.
 
 ## <a name="sitemapdatasource-control"></a>SiteMapDataSource denetimi
 
-SiteMapDataSource denetimi veri bağlama için bir site haritası temel site gezinti denetimlerinin sunar. Daha ayrıntılı bir sonraki modüldeki incelenecektir.
+Site gezinti denetimlerinin bir site haritasına dayalı veri bağlama SiteMapDataSource denetim sağlar. Bunu bir sonraki modülünde daha ayrıntılı açıklanmıştır.
 
 ## <a name="sitemappath-control"></a>SiteMapPath Control
 
-ASP Gezinti bağlantıları içerik haritası adlandırılan bir dizi görüntüler. Bir sonraki modüldeki daha ayrıntılı ele alınmıştır.
+Gezinti bağlantıları içerik haritası başvurulan bir dizi SiteMapPath denetimi görüntüler. Bir sonraki modülünde daha ayrıntılı ele alınmıştır.
 
 ## <a name="menu-control"></a>Menü denetimi
 
-Menü denetimi DHTML kullanarak dinamik menüler görüntüler. Bir sonraki modüldeki daha ayrıntılı ele alınmıştır.
+Menü denetimi DHTML kullanan dinamik menüler görüntüler. Bir sonraki modülünde daha ayrıntılı ele alınmıştır.
 
 ## <a name="treeview-control"></a>TreeView Denetimi
 
-TreeView denetimi, veri hiyerarşik ağaç görünümünü görüntülemek için kullanılır. Bir sonraki modüldeki daha ayrıntılı ele alınmıştır.
+TreeView denetimi, verilerin bir hiyerarşik ağaç görünümünü görüntülemek için kullanılır. Bir sonraki modülünde daha ayrıntılı ele alınmıştır.
 
-## <a name="login-control"></a>Oturum açma denetimi
+## <a name="login-control"></a>Login denetimi
 
-Oturum açma denetimi için bir Web sitesine oturum için bir mekanizma sağlar. Bir sonraki modüldeki daha ayrıntılı ele alınmıştır.
+Oturum açma denetimi bir Web sitesini açmak bir mekanizma sağlar. Bir sonraki modülünde daha ayrıntılı ele alınmıştır.
 
 ## <a name="loginview-control"></a>LoginView denetimi
 
-Bir kullanıcının oturum açma durumu temel alınarak farklı şablon görüntüsünü LoginView denetimi sağlar. Bir sonraki modüldeki daha ayrıntılı ele alınmıştır.
+Bir kullanıcının oturum açma durumuna farklı şablon görüntüsü için LoginView denetimi sağlar. Bir sonraki modülünde daha ayrıntılı ele alınmıştır.
 
 ## <a name="passwordrecovery-control"></a>PasswordRecovery denetimi
 
-PasswordRecovery denetimi, bir ASP.NET uygulaması kullanıcılar tarafından Unutulan parolaları almak için kullanılır. Bir sonraki modüldeki daha ayrıntılı ele alınmıştır.
+PasswordRecovery denetim varsayılan olarak, bir ASP.NET uygulaması kullanıcılar tarafından Unutulan parolaları almak için kullanılır. Bir sonraki modülünde daha ayrıntılı ele alınmıştır.
 
-## <a name="loginstatus"></a>loginStatus
+## <a name="loginstatus"></a>LoginStatus
 
-Bu denetim, kullanıcının oturum açma durumunu görüntüler. Bir sonraki modüldeki daha ayrıntılı ele alınmıştır.
+Bir LoginStatus denetimi kullanıcının oturum açma durumunu görüntüler. Bir sonraki modülünde daha ayrıntılı ele alınmıştır.
 
 ## <a name="loginname"></a>LoginName
 
-LoginName denetimi, bir ASP.NET uygulamasına oturum sonra bir kullanıcının kullanıcı adını görüntüler. Bir sonraki modüldeki daha ayrıntılı ele alınmıştır.
+Bir LoginName denetimi, bir ASP.NET uygulamasına oturum sonra bir kullanıcının kullanıcı adını görüntüler. Bir sonraki modülünde daha ayrıntılı ele alınmıştır.
 
 ## <a name="createuserwizard"></a>CreateUserWizard
 
-CreateUserWizard kullanıcıların bir ASP.NET üyelik hesabı kullanmak için bir ASP.NET uygulaması oluşturma olanağı sunan yapılandırılabilir bir sihirbazıdır. Bir sonraki modüldeki daha ayrıntılı ele alınmıştır.
+CreateUserWizard kullanıcıların bir ASP.NET uygulamasında kullanmak için bir ASP.NET üyelik hesabı oluşturma olanağı sunan yapılandırılabilir bir sihirbazdır. Bir sonraki modülünde daha ayrıntılı ele alınmıştır.
 
-## <a name="changepassword"></a>Parola değiştirme
+## <a name="changepassword"></a>ChangePassword
 
-Bu denetim, kullanıcıların bir ASP.NET uygulaması için parolalarını değiştirip olanak tanır. Bir sonraki modüldeki daha ayrıntılı ele alınmıştır.
+ChangePassword denetimi, kullanıcıların bir ASP.NET uygulaması için parola değiştirmesini sağlar. Bir sonraki modülünde daha ayrıntılı ele alınmıştır.
 
 ## <a name="various-webparts"></a>Çeşitli Web Bölümleri
 
-ASP.NET 2.0 çeşitli Web Bölümleri ile birlikte gelir. Bu ayrıntılı daha yeni bir modül olarak ele alınacaktır.
+ASP.NET 2.0 çeşitli Web Bölümleri ile birlikte gelir. Bu sonraki modülde ayrıntılarıyla ele alınmaktadır.

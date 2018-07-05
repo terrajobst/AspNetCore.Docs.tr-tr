@@ -1,28 +1,27 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-an-efficient-and-standardized-approach-for-implementing-css-styles
-title: 'Nasıl I: verimli ve standartlaştırılmış bir yaklaşım CSS stilleri uygulamak üzere oluşturulur? | Microsoft Docs'
+title: 'Nasıl yapılır: CSS stilleri uygulamak için verimli ve standartlaştırılmış bir yaklaşım oluşturma? | Microsoft Docs'
 author: rick-anderson
-description: Bu video Chris Pels, düzenlemek ve bir web sitesi standartlaştırılmış bir görünüm ve kullanımında sağlamak CSS stilleri uygulamak gösterilmektedir. Ayrıca, stillerdir...
+description: Bu video Chris piksel düzenlemek ve bir web sitesi için standartlaştırılmış bir görünümü ve deneyimini sağlamak CSS stilleri uygulamak gösterilmektedir. Ayrıca, stillerdir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/15/2010
 ms.topic: article
 ms.assetid: 1d902492-c6a3-4ab8-8e3d-57384ac893d5
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-create-an-efficient-and-standardized-approach-for-implementing-css-styles
 msc.type: video
-ms.openlocfilehash: be55f23b94dd014a049e7cbb3f70d3e7b194ae6c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1e2068bbf6e88182094c08b829ec00b0ff4c7749
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26570876"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37379614"
 ---
-<a name="how-do-i-create-an-efficient-and-standardized-approach-for-implementing-css-styles"></a>Nasıl I: verimli ve standartlaştırılmış bir yaklaşım CSS stilleri uygulamak üzere oluşturulur?
+<a name="how-do-i-create-an-efficient-and-standardized-approach-for-implementing-css-styles"></a>Nasıl yapılır: CSS stilleri uygulamak için verimli ve standartlaştırılmış bir yaklaşım oluşturma?
 ====================
-tarafından [Chris Pels](https://twitter.com/chrispels)
+tarafından [Chris piksel](https://twitter.com/chrispels)
 
-Bu video Chris Pels, düzenlemek ve bir web sitesi standartlaştırılmış bir görünüm ve kullanımında sağlamak CSS stilleri uygulamak gösterilmektedir. Ayrıca, stiller, en fazla esneklik ve yeniden kullanılırlığı sağlamak için düzenlenir. Stilleri kümesi site görünümünü odaklanan oluşturulur. İlk olarak, örnek bir web sitesini örnek sayfası için bir CSS dosyası oluşturulur. İlk oluşturulan stilleri sitedeki içerik için kapsayıcı sağlayan doğrultusunda yönlendirilmiş gruplarıdır. Ardından, bir dizi stilleri eklenir odaklanan "durumunu" kullanıcı arabirimi öğeleri görüntüleme. Son olarak, kullanıcı etkileşimi ipuçları için stiller kümesi oluşturulur. Her stillerin örnek sayfadaki HTML öğeleri ile kullanılır. Aynı uygulama yaklaşımı stilleri için bu denetim öğesi düzenini sitesinde kullanma hakkında tartışma yoktur.
+Bu video Chris piksel düzenlemek ve bir web sitesi için standartlaştırılmış bir görünümü ve deneyimini sağlamak CSS stilleri uygulamak gösterilmektedir. Ayrıca, stiller, en üst düzeyde esneklik ve yeniden kullanılabilirlik sağlamak için düzenlenir. Bir stil kümesi site görünümünü odaklanan oluşturulur. İlk olarak, örnek bir web sitesini bir CSS dosyası için örnek bir sayfa ile oluşturulur. Oluşturulan stilleri ilk gruplarını, sitedeki içerik için kapsayıcılar sağlayarak doğru yerleştirilir. Ardından, bir stil kümesi eklendi odaklanan kullanıcı arabirimi öğeleri "state" görüntülemeyi. Son olarak, bir kullanıcı etkileşimi ipuçları için stil kümesi oluşturulur. Her stil bir örnek sayfasında HTML öğeleri kullanılır. Aynı uygulama yaklaşımı stilleri için sitede bu denetim öğesi düzeni kullanma hakkında bir tartışma yoktur.
 
-[&#9654; (27 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-create-an-efficient-and-standardized-approach-for-implementing-css-styles)
+[&#9654;Videoyu (27 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-create-an-efficient-and-standardized-approach-for-implementing-css-styles)

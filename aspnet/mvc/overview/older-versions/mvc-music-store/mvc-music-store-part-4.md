@@ -1,76 +1,75 @@
 ---
 uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-4
-title: '4. Kısım: Modelleri ve veri erişimi | Microsoft Docs'
+title: '4. Bölüm: Modeller ve veri erişimi | Microsoft Docs'
 author: jongalloway
-description: Bu öğretici seri ASP.NET MVC müzik deposu örnek uygulaması oluşturmak için geçen tüm adımları ayrıntılarını verir. Bölüm 4 modelleri ve veri erişimi kapsar.
+description: Bu öğretici serisinde ASP.NET MVC müzik Store örnek uygulamayı oluşturmak için gerçekleştirilen tüm adımları ayrıntılı olarak açıklanmaktadır. 4. Bölüm modeller ve veri erişimi kapsar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/21/2011
 ms.topic: article
 ms.assetid: ab55ca81-ab9b-44a0-8700-dc6da2599335
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-4
 msc.type: authoredcontent
-ms.openlocfilehash: 76671bbc7050d111b4d156c45584ba5aa4f1ea8f
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: ea8fe623a1b59b80fd7f087036b9ed716eafadbe
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30879484"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37402044"
 ---
-<a name="part-4-models-and-data-access"></a>4. Kısım: Modelleri ve veri erişimi
+<a name="part-4-models-and-data-access"></a>4. Bölüm: Modeller ve veri erişimi
 ====================
 tarafından [Jon Galloway](https://github.com/jongalloway)
 
-> MVC müzik deposu tanıtır ve ASP.NET MVC ve Visual Studio web geliştirme için nasıl kullanılacağı hakkında adım adım anlatan öğretici bir uygulamadır.  
+> MVC müzik Store tanıtır ve ASP.NET MVC ve Visual Studio web geliştirme için nasıl kullanılacağını adım adım anlatan bir öğretici uygulamasıdır.  
 >   
-> MVC müzik deposu çevrimiçi müzik albümlerini sattığı ve temel site yönetimi, kullanıcı oturum açma ve alışveriş sepeti işlevselliği uygulayan bir Basit örnek deposu uygulamasıdır.
+> MVC müzik Store müzik albümleri çevrimiçi sattığı ve temel site yönetimi, kullanıcı oturum açma ve alışveriş sepeti işlevselliğini uygulayan bir Basit örnek deposu uygulamasıdır.
 > 
-> Bu öğretici seri ASP.NET MVC müzik deposu örnek uygulaması oluşturmak için geçen tüm adımları ayrıntılarını verir. Bölüm 4 modelleri ve veri erişimi kapsar.
+> Bu öğretici serisinde ASP.NET MVC müzik Store örnek uygulamayı oluşturmak için gerçekleştirilen tüm adımları ayrıntılı olarak açıklanmaktadır. 4. Bölüm modeller ve veri erişimi kapsar.
 
 
-"Şu ana kadar biz yalnızca kukla veri" bizim denetleyicilerinden görünüm şablonlarımız geçirme. Şimdi biz kanca gerçek bir veritabanını yedeklemek hazırsınız. Bu öğreticide şu SQL Server Compact (SQL CE olarak da adlandırılır) Edition kullanmayı bizim veritabanı altyapısı olarak kapsayan. SQL CE herhangi bir yükleme veya yerel geliştirme için gerçekten kolay hale getirir yapılandırma gerektirmeyen bir ücretsiz, katıştırılmış, dosya tabanlı veritabanıdır.
+"Şu ana kadar biz yalnızca işlevsiz veri" bizim denetleyicilerinden görünümü şablonlarımızı geçirme. Şimdi gerçek bir veritabanını kanca hazırız. Bu öğreticide size SQL Server Compact (SQL CE olarak da adlandırılır) Edition kullanmayı veritabanı altyapımız kapsar. SQL CE herhangi bir yükleme veya yerel geliştirme için gerçekten kullanışlı kılan yapılandırma gerektirmeyen bir ücretsiz, katıştırılmış, dosya tabanlı veritabanıdır.
 
-## <a name="database-access-with-entity-framework-code-first"></a>Veritabanı erişimi ile Entity Framework kod-ilk
+## <a name="database-access-with-entity-framework-code-first"></a>Veritabanı erişimi ile Entity Framework Code-First
 
-Sorgulamak ve veritabanını güncelleştirmek için ASP.NET MVC 3 projelerinde dahil Entity Framework (EF) destek kullanacağız. EF bir esnek (ORM) veri nesne yönelimli bir yolla bir veritabanında depolanan verileri sorgulamak veya güncelleştirme geliştiricilerinin API eşleme ilişkisel nesnesidir.
+Sorgulamak ve veritabanını güncellemek için ASP.NET MVC 3 projeleri dahil Entity Framework (EF) destek kullanacağız. EF bir esnek nesne ilişkisel eşleme (ORM) veri geliştiricilerinin nesne yönelimli bir şekilde bir veritabanında depolanan verileri sorgu ve güncelleştirme API ' dir.
 
-Entity Framework sürüm 4 kod ilk olarak adlandırılan bir geliştirme standardı destekler. Kod ilk basit sınıfları (POCO "düz-eski" CLR nesnelerinden olarak da bilinir) yazarak model nesnesi oluşturmanıza olanak tanır ve veritabanı, sınıflardan kolay bir şekilde bile oluşturabilirsiniz.
+Entity Framework sürüm 4 kod öncelikli olarak adlandırılan bir geliştirme paradigma destekler. İlk kod model nesnesi basit sınıfları (POCO "düz eski" CLR nesne olarak da bilinir) yazarak oluşturmanıza olanak sağlar ve veritabanı, sınıflardan hareket halindeyken bile oluşturabilirsiniz.
 
-### <a name="changes-to-our-model-classes"></a>Bizim modeli sınıfları yapılan değişiklikler
+### <a name="changes-to-our-model-classes"></a>Bizim Model sınıfları değişiklikler
 
-Biz Entity Framework veritabanı oluşturma özelliği Bu öğreticide yararlanarak. Bunu önce yine de birkaç küçük değişiklikler biz daha sonra kullanacağız bazı şeyleri eklemek için bizim model sınıflarına olalım.
+Biz Entity Framework veritabanı oluşturma özelliği Bu öğreticide yararlanarak. Bunu yapmadan önce birkaç küçük değişiklikler daha sonra kullanacağız bazı şeyler eklemek için sunduğumuz model sınıflarına olalım.
 
-#### <a name="adding-the-artist-model-classes"></a>Sanatçı Model sınıfları ekleme
+#### <a name="adding-the-artist-model-classes"></a>Sanatçının Model sınıfları ekleme
 
-Sanatçı açıklamak için basit model sınıfı ekleyeceğiz şekilde bizim albümleri Sanatçılar ile ilişkilendirilir. Aşağıda gösterilen kodu kullanarak Artist.cs adlı modeller klasörü için yeni bir sınıf ekleyin.
+Bir Sanatçıdan açıklamak için basit bir model sınıfı ekleyeceğiz. Bu nedenle bizim albümleri Sanatçılar ile ilişkilendirilir. Aşağıda gösterilen kodu kullanarak Artist.cs adlı modelleri klasörüne yeni bir sınıf ekleyin.
 
 [!code-csharp[Main](mvc-music-store-part-4/samples/sample1.cs)]
 
-#### <a name="updating-our-model-classes"></a>Bizim modeli sınıfları güncelleştiriliyor
+#### <a name="updating-our-model-classes"></a>Bizim Model sınıfları güncelleştiriliyor
 
 Albüm sınıfı, aşağıda gösterildiği gibi güncelleştirin.
 
 [!code-csharp[Main](mvc-music-store-part-4/samples/sample2.cs)]
 
-Ardından, aşağıdaki güncelleştirmeleri Tarz sınıfına olun.
+Ardından, tarz sınıfına aşağıdaki güncelleştirmeleri yapın.
 
 [!code-csharp[Main](mvc-music-store-part-4/samples/sample3.cs)]
 
 ### <a name="adding-the-appdata-folder"></a>Uygulama ekleme\_veri klasörü
 
-Bir uygulama ekleyeceğiz\_Projemizin bizim SQL Server Express veritabanı dosyalarını tutmak için veri dizinine. Uygulama\_zaten veritabanı erişimi için doğru güvenlik erişim izinlerine sahip ASP.NET özel bir dizinde verilerdir. ASP.NET klasör ekleyin ve ardından uygulama proje menüsünden seçin\_veri.
+Bir uygulama ekleyeceğiz\_Projemizin bizim SQL Server Express veritabanı dosyaları için veri dizini. Uygulama\_veritabanı erişimi için doğru güvenlik erişim izinleri olan ASP.NET özel bir dizinde verilerdir. ASP.NET klasör ekleyin ve ardından uygulama proje menüsünden seçin\_veri.
 
 ![](mvc-music-store-part-4/_static/image1.png)
 
-### <a name="creating-a-connection-string-in-the-webconfig-file"></a>Web.config dosyasında bir bağlantı dizesi oluşturma
+### <a name="creating-a-connection-string-in-the-webconfig-file"></a>Web.config dosyasında bağlantı dizesi oluşturma
 
-Entity Framework bizim veritabanına bağlanmak bildiği böylece Web sitesinin yapılandırma dosyası için birkaç satır ekleyeceğiz. Proje kök dizininde bulunan Web.config dosyasını çift tıklatın.
+Entity Framework bizim veritabanına bağlanmak nasıl bilebilmesi Web sitesinin yapılandırma dosyası için birkaç satır kod ekleyeceğiz. Proje kök dizininde bulunan Web.config dosyasını çift tıklayın.
 
 ![](mvc-music-store-part-4/_static/image2.png)
 
-Bu dosyanın sonuna kaydırın ve ekleme bir &lt;connectionStrings&gt; aşağıda gösterildiği gibi doğrudan son satırında bölüm.
+Bu dosyanın alt kısma kaydırın ve ekleme bir &lt;connectionStrings&gt; aşağıda gösterildiği gibi doğrudan son satırında bölümü.
 
 [!code-xml[Main](mvc-music-store-part-4/samples/sample4.xml)]
 
@@ -80,82 +79,82 @@ Modeller klasörü sağ tıklatın ve MusicStoreEntities.cs adlı yeni bir sın�
 
 ![](mvc-music-store-part-4/_static/image3.png)
 
-Bu sınıf Entity Framework veritabanı bağlamı temsil eder ve bizim oluşturma işlemek, okuma, güncelleştirme ve silme işlemleri için bize. Bu sınıf için kod aşağıda verilmiştir.
+Bu sınıf Entity Framework veritabanı bağlamı temsil eder ve bizim Oluştur işlemek, okuma, güncelleştirme ve silme işlemleri bizim için. Bu sınıfın kodu, aşağıda gösterilmiştir.
 
 [!code-csharp[Main](mvc-music-store-part-4/samples/sample5.cs)]
 
-İşte bu kadar - hiçbir diğer yapılandırma, özel arabirimleri, vb. vardır. DbContext temel sınıf genişleterek, bizim MusicStoreEntities bizim veritabanı işlemleri için bize işleyebilen sınıftır. Biz, sayfaya olduğuna göre birkaç daha fazla özellik bazı ek bilgiler bizim veritabanında yararlanmak için bizim model sınıflarına ekleyelim.
+İşte bu kadar - hiçbir diğer yapılandırma, özel arabirimler vb. yoktur. DbContext temel sınıfını genişleterek, bizim MusicStoreEntities sınıfı bizim için veritabanı işlemlerimiz işleyebilir. Şimdi, ölçekledikçe ayarladığımıza göre bizim model sınıflarına veritabanımızda yer bazı ek bilgiler avantajlarından yararlanmak için birkaç daha fazla özellik ekleyin.
 
-### <a name="adding-our-store-catalog-data"></a>Bizim mağazası Kataloğu veri ekleme
+### <a name="adding-our-store-catalog-data"></a>Mağaza Kataloğu verilerimizi ekleme
 
-Biz bir özellik için yeni oluşturulan bir veritabanı "seed" veri ekleyen Entity Framework içinde yararlanır. Bu bizim mağazası kataloğu ve türler, sanatçılar, Albümler listesiyle önceden doldurur. -, Bu öğreticide daha önce kullanılan bizim site tasarımı dosyaları dahil - MvcMusicStore Assets.zip indirme kodu adlı bir klasörde bulunan bu çekirdek verilerle bir sınıf dosyası vardır.
+Biz Entity Framework, yeni oluşturulan veritabanına "seed" veri ekleyen bir özelliğin avantajlarından sürer. Bu depolama kataloğumuzu türleri, sanatçıların ve albümleri listesiyle önceden doldurulur. -Bu öğreticide daha önce kullanılan bizim site tasarımı dosyaları dahil - bir MvcMusicStore Assets.zip indirme kodu adlı bir klasörde bulunan bu çekirdek verilerle bir sınıf dosyası vardır.
 
-Kod içinde / modeller klasörü SampleData.cs dosyasını bulun ve aşağıda gösterildiği gibi bizim proje modelleri klasörüne bırakın.
+Kod içinde / modeller klasörü SampleData.cs dosyasını bulun ve aşağıda gösterildiği gibi proje modelleri klasörüne bırakın.
 
 ![](mvc-music-store-part-4/_static/image4.png)
 
-Şimdi biz bir Entity Framework o SampleData sınıfı hakkında söylemeniz kod satırı eklemeniz gerekir. Dosyayı açın ve aşağıdaki uygulama en çok satır eklemek için projenin kök Global.asax dosyasına çift tıklayın\_Başlat yöntemi.
+Şimdi biz bir Entity Framework, SampleData sınıfı hakkında bilgi için kod satırı eklemeniz gerekir. Global.asax dosyası açın ve aşağıdaki uygulama üstüne satır eklemek için proje kökündeki çift\_yöntemi başlatın.
 
 [!code-csharp[Main](mvc-music-store-part-4/samples/sample6.cs)]
 
-Bu noktada, sizi Projemizin için Entity Framework yapılandırmak için gerekli iş tamamladınız.
+Bu noktada, biz Projemizin için Entity Framework yapılandırmak gerekli iş tamamladınız.
 
-## <a name="querying-the-database"></a>Veritabanı sorgulama
+## <a name="querying-the-database"></a>Veritabanını sorgulama
 
-Şimdi şimdi "veri kukla" kullanmak yerine, bunun yerine, bilgilerin tümünü sorgulamak için Veritabanımıza çağırır bizim StoreController güncelleştirin. Üzerinde bir alan bildirerek başlayacağız **StoreController** storeDB adlı MusicStoreEntities sınıfının bir örneği tutmak için:
+Artık "veri kukla" kullanmak yerine bunun yerine, bilgilerin tümünü sorgulamak için sunduğumuz veritabanına çağırır, böylece müşterilerimize StoreController güncelleştirelim. Bir alan üzerinde bildirerek başlayacağız **StoreController** storeDB adlı MusicStoreEntities sınıfının bir örneğini tutmak için:
 
 [!code-csharp[Main](mvc-music-store-part-4/samples/sample7.cs)]
 
-### <a name="updating-the-store-index-to-query-the-database"></a>Veritabanını sorgulamak için depolama dizini güncelleştirme
+### <a name="updating-the-store-index-to-query-the-database"></a>Veritabanını sorgulamak için Store dizini güncelleştiriliyor
 
-MusicStoreEntities sınıf Entity Framework tarafından korunur ve Veritabanımıza her tablo için bir koleksiyon özelliği sunar. Şimdi, veritabanındaki tüm türler almak için bizim StoreController'ın dizin eylem güncelleştirin. Daha önce bu kodlama sabit dize verilerini tarafından yaptığımız. Şimdi biz yalnızca Entity Framework bağlamına Generes koleksiyonu kullanabilirsiniz:
+MusicStoreEntities sınıf, Entity Framework tarafından korunur ve veritabanımızdaki her tablo için bir koleksiyon özelliği sunar. Tüm türleri veritabanımızdaki almak için dizin eylem bizim StoreController'ın güncelleştirelim. Daha önce bu kodlama sabit dize verileri tarafından yaptık. Şimdi bunun yerine yalnızca Entity Framework bağlamına Generes koleksiyon kullanabiliriz:
 
 [!code-csharp[Main](mvc-music-store-part-4/samples/sample8.cs)]
 
-Biz yine biz yalnızca dinamik bizim veritabanından şimdi veriyor önce - biz döndürülen aynı StoreIndexViewModel döndürme bu yana bizim görünüm şablonu olmasını hiçbir değişiklik gerekir.
+Hiçbir değişiklik biz yine de biz yalnızca canlı verileri bizim veritabanından artık döndürürken önce - biz döndürülen aynı StoreIndexViewModel döndürürken beri bizim şablonu görüntüle gerçekleşmesi gerekir.
 
-Projeyi tekrar çalıştırın ve "/ depolamak" URL'yi ziyaret şimdi tüm türler listesini bizim veritabanında göreceğiz:
+Projeyi yeniden çalıştırın ve "/ Store" URL'sini ziyaret edin, artık tüm türleri listesini veritabanımızda yer görüyoruz:
 
 ![](mvc-music-store-part-4/_static/image1.jpg)
 
-### <a name="updating-store-browse-and-details-to-use-live-data"></a>Deposu gözatmak ve ayrıntıları canlı verileri kullanmak için güncelleştirme
+### <a name="updating-store-browse-and-details-to-use-live-data"></a>Store göz atın ve ayrıntıları canlı verileri güncelleştirme
 
-/ Deposu/Gözat ile? Tarz =*[Tarz bazı]* eylem yöntemi, biz aramakta olduğunuz bir tarzını için ada göre. Yalnızca bir sonuç, biz şimdiye kadar aynı Tarz ad için iki giriş olmamalıdır beri ve biz kullanabilmeniz için bekliyoruz. LINQ Sorgu şöyle uygun türe nesne için Single() uzantısı (Bu henüz yazmayın):
+İle/Store/göz atma? Tarz =*[Tarz bazı]* eylem yöntemi, biz aramakta olduğunuz bir türe için ada göre. Yalnızca tek bir sonuç şu iki giriş aynı türe adı için hiç olmadığı kadar sahip olmamalıdır ve kullanabiliriz şekilde bekliyoruz. LINQ Sorgu için şunun gibi uygun türe nesne Single() uzantısı (Bu henüz yazmayın):
 
 [!code-csharp[Main](mvc-music-store-part-4/samples/sample9.cs)]
 
-Tek yöntem bir Lambda ifadesi sağlayacak şekilde, adı biz tanımladığınız değeri ile eşleşen tek bir tarzını nesne istediğimizi belirten bir parametre olarak alır. Yukarıdaki durumda biz DISCO eşleşen bir ad değeri ile tek bir tarzını nesne yüklüyorsunuz.
+Tek bir yöntem sağlayacak şekilde tanımlamış olduğunuz değer adı ile eşleşen tek bir türe nesne istediğimizi belirten bir parametre olarak bir Lambda ifadesi alır. Yukarıdaki durumda biz DISCO eşleşen bir ad değer ile tek bir türe nesne yükleniyor.
 
-Biz, bize Tarz nesnesi alınırken de yüklenen istiyoruz ilgili diğer varlıklar belirtmek izin veren bir Entity Framework özelliğinin avantajlarından yararlanmak. Bu özellik, sorgu sonucu şekillendirme olarak adlandırılır ve bize tüm ihtiyacımız bilgileri almak için veritabanına erişmek için ihtiyacımız sayısını azaltmak sağlar. İlgili Albümler istiyoruz belirtmek için Genres.Include("Albums") içerecek şekilde sorgumuzu güncelleştiriyoruz böylece alıyoruz, tarz albümleri önceden getirme istiyoruz. Tek veritabanı isteği bizim tarz ve albüm verileri alacak beri bu daha verimli olur.
+Biz, tarz nesne alındığında de yüklenen istiyoruz diğer ilgili varlıkları belirtmek olanak sağlayan bir Entity Framework özelliğin avantajlarından yararlanmak. Bu özellik, sorgu sonucu biçimlendirmeye ek olarak adlandırılır ve ihtiyacımız olan tüm bilgileri almak için veritabanına erişmek için ihtiyacımız sayısını azaltmak sağlıyor. Sorgumuzu ilgili Albümler istediğimizi belirten Genres.Include("Albums") içerecek şekilde güncelleştireceğiz. böylece albümleri alıyoruz, tarz için önceden getirme istiyoruz. Tek veritabanı isteği bizim tarz ve albüm verileri alacak olduğundan daha verimli budur.
 
-Açıklamaları ile göz önünden, İşte bizim güncelleştirilmiş Gözat denetleyici eylemi nasıl göründüğünü:
+Açıklamalar ile ortada, işte güncelleştirilmiş Gözat denetleyicisi eylemimiz nasıl göründüğünü:
 
 [!code-csharp[Main](mvc-music-store-part-4/samples/sample10.cs)]
 
-Biz her bir tarzını kullanılabilir olan albümleri görüntülemek için deposu Gözat görünüm şimdi güncelleştirebilirsiniz. Görünüm şablonu (bulunan /Views/Store/Browse.cshtml) açın ve madde işaretli albümleri listesini aşağıda gösterildiği gibi ekleyin.
+Biz, her bir tür içinde kullanılabilir olan albümleri görüntülenecek Store Gözat görünümü şimdi güncelleştirebilirsiniz. Görünüm şablonu (öğe içinde bulunan /Views/Store/Browse.cshtml) açın ve bir madde işaretli liste albümleri, aşağıda gösterildiği gibi ekleyin.
 
 [!code-cshtml[Main](mvc-music-store-part-4/samples/sample11.cshtml)]
 
-Uygulamamız çalıştırma ve tarama/deposu/için Gözat? Tarz = bizim sonuçları şimdi tüm albümleri bizim seçili Tarz görüntüleme veritabanından alınır Jazz gösterir.
+Uygulamamızı çalıştırma ve tarama/Store/dizinine göz atma? Tarz = ettiğimiz sonuçların artık tüm Albümler bizim seçili tarzında görüntüleme veritabanından alınır Caz gösterir.
 
 ![](mvc-music-store-part-4/_static/image2.jpg)
 
-Bizim/Store/Ayrıntılar / [kimlik] URL'yi değiştirin ve sahte verilerimizi Kimliğine parametre değeri ile eşleşen bir albümü yükleyen bir veritabanı sorgusu ile Değiştir'de aynı vermiyoruz.
+Aynı bizim/Store/Ayrıntılar / [ID] URL'sini değiştirin ve sahte verilerimizi albüm kimliği parametre değeri ile eşleşen yükleyen bir veritabanı sorguyla değiştirin oluşturacağız.
 
 [!code-csharp[Main](mvc-music-store-part-4/samples/sample12.cs)]
 
-Uygulamamızı çalıştırmak ve /Store/Details/1 için tarama sonuçları veritabanından şimdi çekilen olduğunu gösterir.
+Uygulamamızı çalıştırmak ve /Store/Details/1 için tarama sonuçları veritabanından artık çekilen olduğunu gösterir.
 
 ![](mvc-music-store-part-4/_static/image5.png)
 
-Albüm albüm Kimliğine göre görüntülemek için deposu ayrıntıları sayfamızı ayarlayın, şimdi güncelleştirme **Gözat** Ayrıntılar görünümü bağlamak için görünümü. Tam olarak deposu dizinden deposu gözatmak için önceki bölümde sonunda bağlamak için yaptığımız gibi Html.ActionLink, kullanacağız. Gözat görünüm için tam kaynak aşağıda yer almaktadır.
+Albüm albüm Kimliğine göre görüntülemek için Store ayrıntıları sayfamıza ayarlayın, güncelleştirelim **Gözat** ayrıntıları görünüme bağlantılandırmak için Görünüm. Tam olarak Store dizinden Store gözatmak için önceki bölümde sonunda bağlamak için yaptığımız gibi Html.ActionLink kullanacağız. Göz atma görünümü için tam kaynak altında görünür.
 
 [!code-cshtml[Main](mvc-music-store-part-4/samples/sample13.cshtml)]
 
-Biz şimdi deposu sayfamızı kullanılabilir albümleri listeleyen bir tarzını sayfasına göz ve bir albümü tıklayarak Biz bu Albüm ayrıntılarını görüntüleyebilirsiniz.
+Artık Store sayfamızı kullanılabilir albümleri listeleyen bir türe sayfasına göz atın sunabiliyoruz ve bir albümü tıklayarak Biz bu Albüm ayrıntılarını görüntüleyebilirsiniz.
 
 ![](mvc-music-store-part-4/_static/image6.png)
 
 > [!div class="step-by-step"]
 > [Önceki](mvc-music-store-part-3.md)
-> [sonraki](mvc-music-store-part-5.md)
+> [İleri](mvc-music-store-part-5.md)

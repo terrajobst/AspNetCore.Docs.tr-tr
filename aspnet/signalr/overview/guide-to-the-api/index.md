@@ -1,32 +1,31 @@
 ---
 uid: signalr/overview/guide-to-the-api/index
-title: API SignalR Kılavuzu | Microsoft Docs
+title: SignalR API Kılavuzu | Microsoft Docs
 author: rick-anderson
-description: SignalR hub'ları API kullanma hakkında belgeler. Yetkilendirme API için Güvenlik sekmesine bakın.
+description: SignalR hub'ları API'SİNİN nasıl kullanılacağı ile ilgili belgeler. Yetkilendirme için API, Güvenlik sekmesine bakın.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/19/2014
 ms.topic: article
 ms.assetid: af69e8d2-efdd-4d0b-9bbc-95353a65c0db
 ms.technology: dotnet-signalr
-ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/guide-to-the-api
 msc.type: chapter
-ms.openlocfilehash: 119b21af75576c269b5d81769897281bd05b2986
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 49ba47847fa7973012fa8c0eff54625a3af1da04
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26565464"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37388518"
 ---
-<a name="signalr-guide-to-the-api"></a>API SignalR Kılavuzu
+<a name="signalr-guide-to-the-api"></a>SignalR API Kılavuzu
 ====================
-> SignalR hub'ları API kullanma hakkında belgeler. Yetkilendirme API için Güvenlik sekmesine bakın.
+> SignalR hub'ları API'SİNİN nasıl kullanılacağı ile ilgili belgeler. Yetkilendirme için API, Güvenlik sekmesine bakın.
 
 
-- [Hub API Kılavuzu - sunucu (C#)](hubs-api-guide-server.md)
-- [Hub API Kılavuzu - JavaScript istemci](hubs-api-guide-javascript-client.md)
-- [Hub API Kılavuzu - .NET istemci (C#)](hubs-api-guide-net-client.md)
-- [Anlama ve SignalR bağlantısı ömrü olayları işleme](handling-connection-lifetime-events.md)
-- [SignalR grupları ile çalışma](working-with-groups.md)
-- [Eşleme SignalR bağlantıları kullanıcılara](mapping-users-to-connections.md)
+- [Hubs API Kılavuzu - Sunucu (C#)](hubs-api-guide-server.md)
+- [Hubs API Kılavuzu - JavaScript İstemcisi](hubs-api-guide-javascript-client.md)
+- [Hubs API Kılavuzu - .NET İstemcisi (C#)](hubs-api-guide-net-client.md)
+- [SignalR’da Bağlantı Ömrü Olaylarını Anlama ve İşleme](handling-connection-lifetime-events.md)
+- [SignalR’da Gruplarla Çalışma](working-with-groups.md)
+- [SignalR Kullanıcılarını Bağlantılarla Eşleme](mapping-users-to-connections.md)

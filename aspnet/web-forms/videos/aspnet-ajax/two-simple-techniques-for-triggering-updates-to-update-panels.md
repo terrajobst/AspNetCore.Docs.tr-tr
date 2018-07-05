@@ -1,32 +1,31 @@
 ---
 uid: web-forms/videos/aspnet-ajax/two-simple-techniques-for-triggering-updates-to-update-panels
-title: Paneller güncelleştirmek için güncelleştirmeleri tetiklemek iki basit teknikleri | Microsoft Docs
+title: Güncelleştirme panellerinde güncelleştirmeleri tetiklemek için iki basit teknik | Microsoft Docs
 author: JoeStagner
-description: Bu videoda ı iki basit güncelleştirme teknikleri gösterilmektedir. İlk olarak, seçili dizini kullanarak liste denetimi aşağı açılan bir olay Trigonometri değişti olayı...
+description: Bu videoda, iki basit güncelleştirme teknikleri miyim gösterilecektir. İlk olarak, seçili dizin kullanarak olay açılır liste denetimi bir olay Trigonometri değiştirildi...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/13/2008
 ms.topic: article
 ms.assetid: c844da8a-10e6-45c9-a9e2-331a3b8d3e03
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-ajax/two-simple-techniques-for-triggering-updates-to-update-panels
 msc.type: video
-ms.openlocfilehash: a43b69ed3085b0413f88e9a51ad11a4c6ba43bac
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: df88eb66f0f327a31b96cc35dd1f415125a891cc
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30882383"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37385140"
 ---
-<a name="two-simple-techniques-for-triggering-updates-to-update-panels"></a>Paneller güncelleştirmek için güncelleştirmeleri tetiklemek iki basit teknikleri
+<a name="two-simple-techniques-for-triggering-updates-to-update-panels"></a>Güncelleştirme panellerinde güncelleştirmeleri tetiklemek için iki basit teknik
 ====================
-tarafından [CAN Stagner](https://github.com/JoeStagner)
+tarafından [ALi Stagner](https://github.com/JoeStagner)
 
-Bu videoda ı iki basit güncelleştirme teknikleri gösterilmektedir. İlk olarak, seçili dizini kullanarak olay açılır liste denetimi güncelleştirme paneller güncelleştirmek için bir olay tetikleyicisi olarak değiştirildi. Ve iki, dinamik olarak AJAX güncelleştirme Masası'nda bulunan denetimleri ile ilişkili stil sayfası sınıfı değiştirme.
+Bu videoda, iki basit güncelleştirme teknikleri miyim gösterilecektir. İlk olarak, seçili dizin kullanarak olay açılır liste denetimi güncelleştirme panelleri güncelleştirmek için bir olay tetikleyicisi olarak değiştirildi. Ve iki dinamik olarak AJAX güncelleme paneli içinde bulunan denetimleri ile ilişkili bir stil sayfası sınıfı değiştirme.
 
-[&#9654;(9 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/two-simple-techniques-for-triggering-updates-to-update-panels)
+[&#9654;Videoyu (9 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/two-simple-techniques-for-triggering-updates-to-update-panels)
 
 > [!div class="step-by-step"]
 > [Önceki](how-do-i-retrieve-values-from-server-side-ajax-controls.md)
-> [sonraki](use-aspnet-ajax-cascading-drop-down-control-to-access-a-database.md)
+> [İleri](use-aspnet-ajax-cascading-drop-down-control-to-access-a-database.md)

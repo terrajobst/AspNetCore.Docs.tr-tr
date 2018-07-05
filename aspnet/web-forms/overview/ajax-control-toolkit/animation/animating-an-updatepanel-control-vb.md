@@ -1,63 +1,62 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/animating-an-updatepanel-control-vb
-title: Bir UpdatePanel denetimi (VB) animasyon | Microsoft Docs
+title: (VB) bir UpdatePanel denetimine animasyon ekleme | Microsoft Docs
 author: wenz
-description: ASP.NET AJAX Denetim Araç Seti animasyon denetiminde bir denetimi ancak animasyonları için bir denetim eklemek için tam bir çerçeve değil. İçeriği için bir...
+description: ASP.NET AJAX Denetim Araç Seti animasyon denetimi yalnızca bir denetim, ancak bir denetime animasyon eklemek için tam bir çerçeve değil. İçeriği için bir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
 ms.topic: article
 ms.assetid: 4c306a2c-92b6-4904-b70b-365b847334fe
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/animating-an-updatepanel-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2c1114b74fd152a4ea85aa10850860f75573adee
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 5f14a3297c2f3ddd6b0817cc8e46ac23b3a06c0b
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30873163"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37369722"
 ---
-<a name="animating-an-updatepanel-control-vb"></a>Bir UpdatePanel denetimi (VB) animasyon ekleme
+<a name="animating-an-updatepanel-control-vb"></a>(VB) bir UpdatePanel denetimine animasyon ekleme
 ====================
 tarafından [Christian Wenz](https://github.com/wenz)
 
-[Kodu indirme](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/UpdatePanelAnimation1.vb.zip) veya [PDF indirin](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/updatepanelanimation1VB.pdf)
+[Kodu indir](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/UpdatePanelAnimation1.vb.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/updatepanelanimation1VB.pdf)
 
-> ASP.NET AJAX Denetim Araç Seti animasyon denetiminde bir denetimi ancak animasyonları için bir denetim eklemek için tam bir çerçeve değil. Bir UpdatePanel içeriği için özel bir genişletici yoğun animasyon Framework'te güvenen var: UpdatePanelAnimation. Bu öğretici, bu tür bir animasyon için bir UpdatePanel ayarlamak gösterilmiştir.
+> ASP.NET AJAX Denetim Araç Seti animasyon denetimi yalnızca bir denetim, ancak bir denetime animasyon eklemek için tam bir çerçeve değil. UpdatePanel içeriğini için mevcut özel genişletici olan yoğun animasyon Framework'te kullanır: UpdatePanelAnimation. Bu öğreticide, bu tür animasyonu UpdatePanel için ayarlanacak gösterilmektedir.
 
 
 ## <a name="overview"></a>Genel Bakış
 
-ASP.NET AJAX Denetim Araç Seti animasyon denetiminde bir denetimi ancak animasyonları için bir denetim eklemek için tam bir çerçeve değil. İçeriği için bir `UpdatePanel`, özel bir genişletici yoğun animasyon Framework'te güvenen var: `UpdatePanelAnimation`. Bu öğretici, bu tür bir animasyon için ayarlamak üzere gösterilmiştir bir `UpdatePanel`.
+ASP.NET AJAX Denetim Araç Seti animasyon denetimi yalnızca bir denetim, ancak bir denetime animasyon eklemek için tam bir çerçeve değil. İçeriği için bir `UpdatePanel`, yoğun animasyon framework kullanan özel genişletici var: `UpdatePanelAnimation`. Bu öğreticide gibi animasyon için ayarlama işlemi gösterilmektedir bir `UpdatePanel`.
 
 ## <a name="steps"></a>Adımlar
 
-İlk adım her zamanki gibi eklemektir `ScriptManager` sayfasındaki ASP.NET AJAX kitaplığı yüklenir ve Denetim Araç Seti kullanılabilir:
+İlk adım zamanki dahil etmektir `ScriptManager` sayfasında ASP.NET AJAX kitaplığı yüklenir ve Denetim Araç Seti kullanılabilir:
 
 [!code-aspx[Main](animating-an-updatepanel-control-vb/samples/sample1.aspx)]
 
-Bu senaryoda animasyon bir ASP.NET uygulanacak `Wizard` web denetimi bulunan bir `UpdatePanel`. Üç (isteğe bağlı) adımı Geri göndermeler tetiklemek için yeterli seçenekleri sağlar:
+Bu senaryoda animasyon için bir ASP.NET uygulanacak `Wizard` bulunan web denetimi bir `UpdatePanel`. (İsteğe bağlı) üç adım geri göndermeler tetiklemek için yeterli seçenekleri sağlar:
 
 [!code-aspx[Main](animating-an-updatepanel-control-vb/samples/sample2.aspx)]
 
-İşaretleme için gerekli `UpdatePanelAnimationExtender` denetimi için kullanılan biçimlendirme oldukça benzer `AnimationExtender`. İçinde `TargetControlID` sağladığımız özniteliği `ID` , `UpdatePanel` animasyon için; içinde `UpdatePanelAnimationExtender` denetimi `<Animations>` öğesi animation(s) için XML biçimlendirmesini tutar. Ancak bir fark yoktur: miktarını olayların ve olay işleyicileri comparison için sınırlı `AnimationExtender`. İçin `UpdatePanels`, yalnızca iki bunları var:
+İşaretleme için gerekli `UpdatePanelAnimationExtender` denetimi için kullanılan biçimlendirme oldukça benzer `AnimationExtender`. İçinde `TargetControlID` sağladığımız özniteliği `ID` , `UpdatePanel` animasyon uygulamak için; içinde `UpdatePanelAnimationExtender` denetimi `<Animations>` öğesi XML biçimlendirme için animation(s) tutar. Ancak bir fark yoktur: comparison için olaylar ve olay işleyicileri miktarı sınırlıdır `AnimationExtender`. İçin `UpdatePanels`, yalnızca iki tanesi var:
 
 - `<OnUpdated>` UpdatePanel ne zaman güncelleştirildiğini
-- `<OnUpdating>` Güncelleştirme UpdatePanel başladığında
+- `<OnUpdating>` UpdatePanel güncelleştirme başladığında
 
-Bu senaryoda, yeni içeriği `UpdatePanel` (sonra geri gönderme) belirerek. Bu, söz konusu gerekli biçimlendirme oluşur:
+Bu senaryoda, yeni içeriği `UpdatePanel` (sonra geri gönderme) belirerek. Bu, için gerekli biçimlendirme.
 
 [!code-aspx[Main](animating-an-updatepanel-control-vb/samples/sample3.aspx)]
 
-Geri gönderimin içinde UpdatePanel oluştuğunda artık yeni içeriği bölmenin yavaşça.
+Bir geri gönderme UpdatePanel içinde olduğunda, artık yeni panel içerikleri yavaşça.
 
 
 [![Sonraki sihirbaz adımı Soluklaşan](animating-an-updatepanel-control-vb/_static/image2.png)](animating-an-updatepanel-control-vb/_static/image1.png)
 
-Sonraki sihirbaz adımı Soluklaşan ([tam boyutlu görüntüyü görüntülemek için tıklatın](animating-an-updatepanel-control-vb/_static/image3.png))
+Sonraki sihirbaz adımı Soluklaşan ([tam boyutlu görüntüyü görmek için tıklatın](animating-an-updatepanel-control-vb/_static/image3.png))
 
 > [!div class="step-by-step"]
 > [Önceki](changing-an-animation-using-client-side-code-vb.md)
-> [sonraki](dynamically-controlling-updatepanel-animations-vb.md)
+> [İleri](dynamically-controlling-updatepanel-animations-vb.md)

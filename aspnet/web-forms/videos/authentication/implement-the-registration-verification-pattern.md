@@ -1,32 +1,31 @@
 ---
 uid: web-forms/videos/authentication/implement-the-registration-verification-pattern
-title: Kayıt doğrulama düzeni uygulama | Microsoft Docs
+title: Kayıt doğrulama desenini uygulama | Microsoft Docs
 author: JoeStagner
-description: Bu videoda, bir e-posta doğrulama adımı ekleyerek, bir ASP.NET uygulamasında kayıt işlemini Joe Stagner genişletir.
+description: Bu videoda, bir e-posta doğrulama adımını ekleyerek, bir ASP.NET uygulamasında kayıt işlemi ALi Stagner genişletir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/29/2010
 ms.topic: article
 ms.assetid: 8e5cebbc-7e7b-4f1a-af6b-75a6ed398030
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/authentication/implement-the-registration-verification-pattern
 msc.type: video
-ms.openlocfilehash: 98c0a39a3125951b768ea1b0c18a55f21b287f32
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 5dcf07c072105a4d6ccf01385ef08ddb603c12a6
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30880875"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37382406"
 ---
-<a name="implement-the-registration-verification-pattern"></a>Kayıt doğrulama düzeni uygulama
+<a name="implement-the-registration-verification-pattern"></a>Kayıt doğrulama desenini uygulama
 ====================
-tarafından [CAN Stagner](https://github.com/JoeStagner)
+tarafından [ALi Stagner](https://github.com/JoeStagner)
 
-Bu videoda, bir e-posta doğrulama adımı ekleyerek, bir ASP.NET uygulamasında kayıt işlemini Joe Stagner genişletir.
+Bu videoda, bir e-posta doğrulama adımını ekleyerek, bir ASP.NET uygulamasında kayıt işlemi ALi Stagner genişletir.
 
-[&#9654;(35 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/implement-the-registration-verification-pattern)
+[&#9654;Videoyu (35 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/implement-the-registration-verification-pattern)
 
 > [!div class="step-by-step"]
 > [Önceki](logging-users-into-your-membership-system.md)
-> [sonraki](simple-web-service-authentication.md)
+> [İleri](simple-web-service-authentication.md)

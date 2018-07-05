@@ -1,33 +1,32 @@
 ---
 uid: web-pages/overview/api-reference/asp-net-web-pages-api-reference
-title: ASP.NET Web sayfaları (Razor) API hızlı başvuru | Microsoft Docs
+title: ASP.NET Web sayfaları (Razor) API hızlı başvurusu | Microsoft Docs
 author: tfitzmac
-description: Bu sayfanın en yaygın olarak kullanılan nesneler, özellikleri ve yöntemleri Razor sözdizimi ile ASP.NET Web sayfaları programlama için kısa örnekleri içeren bir listesini içerir.
+description: Bu sayfa, en sık kullanılan nesnelerin, özellikleri ve yöntemleri için Razor sözdizimi olan ASP.NET Web sayfaları programlama örnekleri kısa bir listeyle içerir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2014
 ms.topic: article
 ms.assetid: 4001cb9b-3bfd-4ace-8a89-1561d8421e2c
 ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/api-reference/asp-net-web-pages-api-reference
 msc.type: authoredcontent
-ms.openlocfilehash: 5f9d84f4d453583d7d4eae12e4fc510275255616
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 3bf706cefe5302cf1085e0f814dc6654e42ae917
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30897590"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37378669"
 ---
-<a name="aspnet-web-pages-razor-api-quick-reference"></a>ASP.NET Web sayfaları (Razor) API hızlı başvuru
+<a name="aspnet-web-pages-razor-api-quick-reference"></a>ASP.NET Web sayfaları (Razor) API hızlı başvurusu
 ====================
-tarafından [zel FitzMacken](https://github.com/tfitzmac)
+tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
-> Bu sayfanın en yaygın olarak kullanılan nesneler, özellikleri ve yöntemleri Razor sözdizimi ile ASP.NET Web sayfaları programlama için kısa örnekleri içeren bir listesini içerir.
+> Bu sayfa, en sık kullanılan nesnelerin, özellikleri ve yöntemleri için Razor sözdizimi olan ASP.NET Web sayfaları programlama örnekleri kısa bir listeyle içerir.
 > 
-> ASP.NET Web sayfaları sürüm 2 "(v2)" ile işaretlenmiş açıklamaları tanıtıldı.
+> ASP.NET Web sayfaları'nda sürüm 2 "(v2)" ile işaretlenmiş açıklamaları sunulur.
 > 
-> API başvuru belgeleri için bkz: [ASP.NET Web sayfaları başvuru belgeleri](https://go.microsoft.com/fwlink/?LinkId=208659) konusuna bakın.
+> API başvuru belgeleri için bkz. [ASP.NET Web sayfaları başvuru belgeleri](https://go.microsoft.com/fwlink/?LinkId=208659) MSDN'de.
 > 
 > ## <a name="software-versions"></a>Yazılım sürümleri
 > 
@@ -35,10 +34,10 @@ tarafından [zel FitzMacken](https://github.com/tfitzmac)
 > - ASP.NET Web sayfaları (Razor) 3
 >   
 > 
-> Bu öğretici, (v2 işaretlenmiş özellikleri dışında) ASP.NET Web Pages 2 ve ASP.NET Web sayfaları 1.0 ile de çalışır.
+> Bu öğreticide, (v2 işaretlenmiş özellikleri dışında) ASP.NET Web sayfaları 1.0 ve ASP.NET Web Pages 2 ile de çalışır.
 
 
-Bu sayfa aşağıdakiler için başvuru bilgileri içerir:
+Bu sayfa aşağıdaki yönelik başvuru bilgileri içerir:
 
 - [Sınıflar](#Classes)
 - [Veri](#Data)
@@ -50,49 +49,49 @@ Bu sayfa aşağıdakiler için başvuru bilgileri içerir:
 
 ### `AppState[key], AppState[index],App`
 
-Uygulamadaki tüm sayfalar tarafından paylaşılabilir veri içeriyor. Dinamik kullanabilirsiniz `App` özelliği aşağıdaki örnekte olduğu gibi aynı verilere erişmek için:
+Uygulamadaki tüm sayfalar tarafından paylaşılabilen veriler içerir. Dinamik kullanabileceğiniz `App` özelliği aşağıdaki örnekteki gibi aynı verilere erişmek için:
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample1.html)]
 
 ### `AsBool(), AsBool(true|false)`
 
-Bir dize değeri bir Boole (true/false) değerine dönüştürür. Yanlış değerini döndürür veya dize true/false göstermiyor olduğunda belirtilen değeri.
+Bir dize değerini Boolean (true/false) değerine dönüştürür. Yanlış değerini döndürür veya belirtilen değer dizesi true/false temsil etmiyorsa.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample2.cs)]
 
 ### `AsDateTime(), AsDateTime(value)`
 
-Tarih/saat için bir dize değerini dönüştürür. Döndürür `DateTime.MinValue` veya dize bir tarih/saat göstermiyor olduğunda belirtilen değeri.
+Bir dize değerini tarih/saat değerine dönüştürür. Döndürür `DateTime.MinValue` veya belirtilen değer, dizeyi tarih/saat temsil etmiyor.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample3.cs)]
 
 ### `AsDecimal(), AsDecimal(value)`
 
-Bir dize değeri bir ondalık değerine dönüştürür. 0,0 döndürür veya belirtilen değer dizesi ondalık bir değeri temsil etmiyor varsa.
+Bir dize değeri bir ondalık değere dönüştürür. 0,0 döndürür veya belirtilen değer, dize ondalık bir değeri temsil etmiyor.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample4.cs)]
 
 ### `AsFloat(), AsFloat(value)`
 
-Bir dize değeri kayana dönüştürür. 0,0 döndürür veya belirtilen değer dizesi ondalık bir değeri temsil etmiyor varsa.
+Bir dize değeri kayana dönüştürür. 0,0 döndürür veya belirtilen değer, dize ondalık bir değeri temsil etmiyor.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample5.cs)]
 
 ### `AsInt(), AsInt(value)`
 
-Bir dize değeri bir tamsayıya dönüştürür. 0 döndürür veya dize, tamsayı göstermiyor olduğunda belirtilen değeri.
+Bir dize değeri bir tamsayıya dönüştürür. 0 döndürür veya belirtilen değer, dize bir tamsayı temsil etmiyor.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample6.cs)]
 
 ### `Href(path [, param1 [, param2]])`
 
-İsteğe bağlı ek yol bölümleri içeren bir yerel dosya yolu, bir tarayıcı uyumlu URL oluşturur.
+İsteğe bağlı ek yol bölümleri içeren bir yerel dosya yolundan tarayıcı ile uyumlu bir URL oluşturur.
 
 [!code-cshtml[Main](asp-net-web-pages-api-reference/samples/sample7.cshtml)]
 
 ### `Html.Raw(value)`
 
-İşler *değeri* olarak HTML ile kodlanmış çıkış işleme yerine bir HTML biçimlendirmesi olarak.
+İşler *değer* HTML biçimlendirmesi olarak HTML olarak kodlanan işleme yerine olarak.
 
 [!code-cshtml[Main](asp-net-web-pages-api-reference/samples/sample8.cshtml)]
 
@@ -104,13 +103,13 @@ Değer bir dizeden belirtilen türe dönüştürülebilir ise true döndürür.
 
 ### `IsEmpty()`
 
-Nesne veya değişken değer yoksa true döndürür.
+Nesne veya değişkenin değeri yoksa true döndürür.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample10.cs)]
 
 ### `IsPost`
 
-Bir POST isteğiyse true döndürür. (İlk genellikle bir GET isteklerdir.)
+Bir POST isteğiyse true döndürür. (İlk istekler genellikle bir GET içindir.)
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample11.cs)]
 
@@ -122,20 +121,20 @@ Bu sayfaya uygulamak için bir düzen sayfasının yolunu belirtir.
 
 ### `PageData[key], PageData[index],Page`
 
-Geçerli istekte sayfası, Düzen sayfaları ve kısmi sayfalar arasında paylaşılan veriler içerir. Dinamik kullanabilirsiniz `Page` özelliği aşağıdaki örnekte olduğu gibi aynı verilere erişmek için:
+Geçerli istekte sayfası, Düzen sayfaları ve kısmi sayfalar arasında paylaşılan veriler içerir. Dinamik kullanabileceğiniz `Page` özelliği aşağıdaki örnekteki gibi aynı verilere erişmek için:
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample13.html)]
 
 ### `RenderBody()`
 
-(Düzen sayfaları) Adlandırılmış tüm bölümlerde değil bir içerik sayfasını içeriğini oluşturur.
+(Düzen sayfaları) Adlandırılmış bir bölümde yer almayan bir içerik sayfası içeriğini oluşturur.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample14.cs)]
 
 ### `RenderPage(path, values)`  
 `RenderPage(path[,param1 [, param2]])`
 
-Belirtilen yol ve isteğe bağlı ek verileri kullanarak bir içerik sayfasını işler. Ek parametreler değerlerini alabilir `PageData` konumlarına göre (örnek: 1) veya anahtar (örnek: 2).
+Belirtilen yol ve isteğe bağlı ek verileri kullanarak bir içerik sayfasını işler. Ek parametreler değerlerini alabilirsiniz `PageData` konumu (örnek: 1) veya anahtar (örnek 2).
 
 [!code-javascript[Main](asp-net-web-pages-api-reference/samples/sample15.js)]
 
@@ -159,38 +158,38 @@ Geçerli istekte yüklenen dosyaları alır.
 
 ### `Request.Form[key]`
 
-Bir formda (dize olarak) gönderilen verileri alır. `Request[key]` her ikisi de denetler `Request.Form` ve `Request.QueryString` koleksiyonları.
+Ndaki bir forma (dize olarak) gönderilen verileri alır. `Request[key]` her ikisi de denetler `Request.Form` ve `Request.QueryString` koleksiyonları.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample19.cs)]
 
 ### `Request.QueryString[key]`
 
-URL sorgu dizesinde belirtilen veri alır. `Request[key]` her ikisi de denetler `Request.Form` ve `Request.QueryString` koleksiyonları.
+URL sorgu dizesi belirtildi verilerini alır. `Request[key]` her ikisi de denetler `Request.Form` ve `Request.QueryString` koleksiyonları.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample20.cs)]
 
 ### `Request.Unvalidated(key)`  
 `Request.Unvalidated().QueryString|Form|Cookies|Headers[key]`
 
-Seçmeli olarak devre dışı bırakır form öğesi, sorgu dizesi değeri, tanımlama bilgisi veya üstbilgi değeri doğrulamasını isteyin. İstek doğrulama varsayılan olarak etkindir ve kullanıcıların işaretleme veya diğer potansiyel olarak tehlikeli olabilecek içeriğe nakil engeller.
+Seçmeli olarak devre dışı bırakır, bir form öğesi, sorgu dizesi değeri, tanımlama bilgisi veya üst bilgi değeri için doğrulama isteyin. İstek doğrulamanın, varsayılan olarak etkindir ve kullanıcıların biçimlendirme veya diğer potansiyel olarak tehlikeli olabilecek içeriğe nakil engeller.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample21.cs)]
 
 ### `Response.AddHeader(name, value)`
 
-Bir HTTP sunucu üst bilgisi yanıta ekler.
+Bir HTTP sunucusu üst yanıta ekler.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample22.cs)]
 
 ### `Response.OutputCache(seconds [, sliding] [, varyByParams])`
 
-Sayfa çıktısının belirli bir süre boyunca önbelleğe alır. İsteğe bağlı olarak ayarlama *kayan* her sayfası erişimi aşımında sıfırlanır ve *varyByParams* sayfa sayfa isteğindeki her farklı sorgu dizesi için farklı sürümlerini önbelleğe alacak şekilde.
+Sayfa çıktısının belirli bir süre boyunca önbelleğe alır. İsteğe bağlı olarak *kayan* zaman aşımı her sayfa erişimi sıfırlama ve *varyByParams* sayfanın her sayfa isteğinde farklı bir sorgu dizesi için farklı sürümlerini önbelleğe almak için.
 
 [!code-javascript[Main](asp-net-web-pages-api-reference/samples/sample23.js)]
 
 ### `Response.Redirect(path)`
 
-Tarayıcı isteğini bir konuma yeniden yönlendirir.
+Tarayıcı isteğini bir konuma yönlendirir.
 
 [!code-javascript[Main](asp-net-web-pages-api-reference/samples/sample24.js)]
 
@@ -202,7 +201,7 @@ Tarayıcıya gönderilen HTTP durum kodunu ayarlar.
 
 ### `Response.WriteBinary(data [, mimetype])`
 
-İçeriğini Yazar *veri* yanıtına bir isteğe bağlı bir MIME türüne sahip.
+İçeriğini Yazar *veri* yanıta isteğe bağlı bir MIME türü.
 
 [!code-javascript[Main](asp-net-web-pages-api-reference/samples/sample26.js)]
 
@@ -220,13 +219,13 @@ Bir dosyanın içeriğini yanıta yazar.
 
 ### `Server.HtmlDecode(htmlText)`
 
-HTML kodlu bir dize kodunu çözer.
+HTML ile kodlanmış bir dizenin kodunu çözer.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample29.cs)]
 
 ### `Server.HtmlEncode(text)`
 
-HTML biçimlendirmede işleme için bir dize olarak kodlar.
+HTML biçimlendirmede işleme için bir dize kodlar.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample30.cs)]
 
@@ -244,19 +243,19 @@ Bir URL'den metnin kodunu çözer.
 
 ### `Server.UrlEncode(text)`
 
-Bir URL'de yerleştirilecek metin kodlar.
+URL'de koymak için metin kodlar.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample33.cs)]
 
 ### `Session[key]`
 
-Alır veya kullanıcı tarayıcıyı kapatıncaya kadar var olan bir değer ayarlar.
+Alır veya kullanıcının tarayıcıyı kapatmasına kadar var olan bir değer ayarlar.
 
 [!code-css[Main](asp-net-web-pages-api-reference/samples/sample34.css)]
 
 ### `ToString()`
 
-Nesnenin değeri bir dize gösterimini görüntüler.
+Bir nesnenin değerinin dize gösterimini görüntüler.
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample35.html)]
 
@@ -274,20 +273,20 @@ Belirtilen kullanıcının parolasını değiştirir.
 
 ### `WebSecurity.ConfirmAccount(accountConfirmationToken)`
 
-Hesap onay belirteci kullanarak bir hesap onaylar.
+Hesap onayı belirtecini kullanarak bir hesap onaylar.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample38.cs)]
 
 ### `WebSecurity.CreateAccount(userName, password`  
  `[, requireConfirmationToken = true|false])`
 
-Belirtilen kullanıcı adı ve parola ile yeni bir kullanıcı hesabı oluşturur. Bir onay belirteci gerektirecek şekilde true geçirmek *requireConfirmationToken.*
+Belirtilen kullanıcı adı ve parola ile yeni bir kullanıcı hesabı oluşturur. Bir onay belirteci istemek için true geçirin *requireConfirmationToken.*
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample39.cs)]
 
 ### `WebSecurity.CurrentUserId`
 
-Şu anda oturum açmış kullanıcının için tamsayı tanımlayıcısını alır.
+Şu anda oturum açmış kullanıcı için tamsayı tanımlayıcısını alır.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample40.cs)]
 
@@ -300,7 +299,7 @@ Belirtilen kullanıcı adı ve parola ile yeni bir kullanıcı hesabı oluşturu
 ### `WebSecurity.GeneratePasswordResetToken(username`  
  `[, tokenExpirationInMinutesFromNow])`
 
-Bir kullanıcıya e-posta ile gönderilebilir ve böylece kullanıcının parolasını sıfırlamak bir parola sıfırlama belirteci oluşturur.
+E-posta içinde kullanıcıya gönderilebilir ve böylece kullanıcı, parola sıfırlama bir parola sıfırlama simgesi üretir.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample42.cs)]
 
@@ -312,25 +311,25 @@ Kullanıcı kimliği, kullanıcı adını döndürür.
 
 ### `WebSecurity.IsAuthenticated`
 
-Geçerli kullanıcının oturum açtığı true değerini döndürür.
+Geçerli kullanıcının oturum açtıysa true döndürür.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample44.cs)]
 
 ### `WebSecurity.IsConfirmed(userName)`
 
-Kullanıcı (örneğin, bir onay e-posta yoluyla) onaylandıktan true değerini döndürür.
+Kullanıcı (örneğin, bir onay e-posta) onaylanıp true değerini döndürür.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample45.cs)]
 
 ### `WebSecurity.IsCurrentUser(userName)`
 
-Belirtilen kullanıcı adı geçerli kullanıcının adıyla eşleşen varsa true değerini döndürür.
+Belirtilen kullanıcı adı geçerli kullanıcı adının eşleşmesi durumunda true döndürür.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample46.cs)]
 
 ### `WebSecurity.Login(userName,password[, persistCookie])`
 
-Kullanıcı kimlik doğrulama belirtecini tanımlama bilgisinde ayarlayarak günlüğe kaydeder.
+Kullanıcı bir kimlik doğrulama belirteci tanımlama bilgisinde ayarlayarak günlüğe kaydeder.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample47.cs)]
 
@@ -342,20 +341,20 @@ Kullanıcı, kimlik doğrulama belirteci tanımlama kaldırarak out günlüğe k
 
 ### `WebSecurity.RequireAuthenticatedUser()`
 
-Kullanıcının kimliği doğrulanmazsa, HTTP durumunu 401 (yetkisiz) olarak ayarlar.
+Kullanıcının kimliği doğrulanmazsa HTTP durumunu 401 (yetkisiz) olarak ayarlar.
 
 [!code-css[Main](asp-net-web-pages-api-reference/samples/sample49.css)]
 
 ### `WebSecurity.RequireRoles(roles)`
 
-Geçerli kullanıcı belirtilen rollerin üyesi değilse, HTTP durumunu 401 (yetkisiz) olarak ayarlar.
+Geçerli kullanıcı belirtilen rollerden birinin üyesi değilse HTTP durumunu 401 (yetkisiz) olarak ayarlar.
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample50.html)]
 
 ### `WebSecurity.RequireUser(userId)`  
 `WebSecurity.RequireUser(userName)`
 
-Geçerli kullanıcı tarafından belirtilen kullanıcı değilse, *kullanıcıadı*, HTTP durumunu 401 (yetkisiz) olarak ayarlar.
+Geçerli kullanıcı tarafından belirtilen kullanıcı değilse *kullanıcıadı*, HTTP durumunu 401 (yetkisiz) olarak ayarlar.
 
 [!code-css[Main](asp-net-web-pages-api-reference/samples/sample51.css)]
 
@@ -370,44 +369,44 @@ Parola sıfırlama simgesi geçerliyse, yeni parola kullanıcının parolasını
 
 ### `Database.Execute(SQLstatement [,parameters]`
 
-Yürütür *SQLstatement* (isteğe bağlı parametrelerle) ekleme, silme veya güncelleştirme gibi ve etkilenen kayıtların sayısını döndürür.
+Yürütür *sqldeyimi* (isteğe bağlı parametrelerle) ekleme, silme veya güncelleştirme gibi ve etkilenen kayıtların sayısını döndürür.
 
 [!code-sql[Main](asp-net-web-pages-api-reference/samples/sample53.sql)]
 
 ### `Database.GetLastInsertId()`
 
-Kimlik sütunu, en son eklenen satırın döndürür.
+Kimlik sütunu, en son eklenen satırdan döndürür.
 
 [!code-sql[Main](asp-net-web-pages-api-reference/samples/sample54.sql)]
 
 ### `Database.Open(filename)`  
 `Database.Open(connectionStringName)`
 
-Belirtilen veritabanı dosyası veya bir adlandırılmış bağlantı dizesi kullanılarak belirtilen veritabanı açılır *Web.config* dosya.
+Belirtilen veritabanı dosyasını ya da bir adlandırılmış bağlantı dizesini kullanarak belirtilen veritabanı açılır *Web.config* dosya.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample55.cs)]
 
 ### `Database.OpenConnectionString(connectionString)`
 
-Bağlantı dizesi kullanarak bir veritabanı açılır. (Bu ile karşılaştırır `Database.Open`, bir bağlantı dizesi adı kullanır.)
+Bir veritabanı bağlantı dizesi kullanılarak açılır. (Bu ile karşılaştırır `Database.Open`, bağlantı dizesi adı kullanır.)
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample56.cs)]
 
 ### `Database.Query(SQLstatement[,parameters])`
 
-Kullanarak veritabanını sorgular *SQLstatement* (isteğe bağlı parametreleri geçirme) ve sonuçları bir koleksiyon olarak döndürür.
+Veritabanı kullanan sorgular *sqldeyimi* (isteğe bağlı parametre geçirme) ve sonuçları koleksiyon olarak döndürür.
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample57.html)]
 
 ### `Database.QuerySingle(SQLstatement [, parameters])`
 
-Yürütür *SQLstatement* (isteğe bağlı parametrelerle) ve tek bir kayıt döndürür.
+Yürütür *sqldeyimi* (isteğe bağlı parametrelerle) ve tek bir kayıt döndürür.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample58.cs)]
 
 ### `Database.QueryValue(SQLstatement [, parameters])`
 
-Yürütür *SQLstatement* (isteğe bağlı parametrelerle) ve tek bir değer döndürür.
+Yürütür *sqldeyimi* (isteğe bağlı parametrelerle) ve tek bir değer döndürür.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample59.cs)]
 
@@ -416,7 +415,7 @@ Yürütür *SQLstatement* (isteğe bağlı parametrelerle) ve tek bir değer dö
 
 ### `Analytics.GetGoogleHtml(webPropertyId)`
 
-Google Analytics JavaScript kodunu belirtilen kimliği için işler
+Belirtilen kimlik için Google Analytics JavaScript kodu oluşturur
 
 [!code-javascript[Main](asp-net-web-pages-api-reference/samples/sample60.js)]
 
@@ -428,13 +427,13 @@ Belirtilen proje StatCounter Analytics JavaScript kodunu oluşturur.
 
 ### `Analytics.GetYahooHtml(account)`
 
-Belirtilen hesap Yahoo Analytics JavaScript kodunu oluşturur.
+Belirtilen hesabın Yahoo Analytics JavaScript kodu oluşturur.
 
 [!code-javascript[Main](asp-net-web-pages-api-reference/samples/sample62.js)]
 
 ### `Bing.SearchBox([boxWidth])`
 
-Bir arama için Bing geçirir. Arama ve arama kutusu için bir başlık siteye belirtmek için ayarlayabileceğiniz `Bing.SiteUrl` ve `Bing.SiteTitle` özellikleri. Normalde bu özellikler kümesinde  *\_AppStart* sayfası.
+Bir arama Bing'e geçirir. Arama ve arama kutusu için bir başlık siteye belirtmek için ayarlayabileceğiniz `Bing.SiteUrl` ve `Bing.SiteTitle` özellikleri. Normalde bu özellikler kümesinde  *\_AppStart* sayfası.
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample63.html)]
 
@@ -448,7 +447,7 @@ Bir grafik başlatır.
 
 ### `Chart.AddLegend([title] [, name])`
 
-Grafiğe bir gösterge ekler.
+Grafiğe bir açıklama ekler.
 
 [!code-cshtml[Main](asp-net-web-pages-api-reference/samples/sample66.cshtml)]
 
@@ -456,28 +455,28 @@ Grafiğe bir gösterge ekler.
  `[, axisLabel] [, legend] [, markerStep] [, xValue]`  
  `[, xField] [, yValues] [, yFields] [, options])`
 
-Değerleri bir dizi grafiğe ekler.
+Grafiğe bir dizi değer ekler.
 
 [!code-cshtml[Main](asp-net-web-pages-api-reference/samples/sample67.cshtml)]
 
 ### `Crypto.Hash(string [, algorithm])`  
 `Crypto.Hash(bytes [, algorithm])`
 
-Belirtilen veriler için bir karma değeri döndürür. Varsayılan algoritmasıdır `sha256`.
+Belirtilen veriler için bir karma değer döndürür. Varsayılan algoritmadır `sha256`.
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample68.html)]
 
 ### `Facebook.LikeButton(href [, buttonLayout] [, showFaces] [, width] [, height]`   
  `[, action] [, font] [, colorScheme] [, refLabel])`
 
-Facebook kullanıcıların sayfaları bağlantısı sağlar.
+Facebook kullanıcıların sayfalarına bağlantı sağlar.
 
 [!code-javascript[Main](asp-net-web-pages-api-reference/samples/sample69.js)]
 
 ### `FileUpload.GetHtml([initialNumberOfFiles] [, allowMoreFilesToBeAdded]`  
  `[, includeFormTag] [, addText] [, uploadText])`
 
-Dosyaları karşıya yükleme için kullanıcı Arabirimi işler.
+Dosyaları karşıya yükleme için kullanıcı Arabirimi oluşturur.
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample70.html)]
 
@@ -490,7 +489,7 @@ Belirtilen Xbox oyuncu etiketi oluşturur.
 ### `Gravatar.GetHtml(email [, imageSize] [, defaultImage] [, rating]`  
  `[, imageExtension] [, attributes])`
 
-Belirtilen e-posta adresi için Gravatar görüntüsü oluşturur.
+Belirtilen e-posta adresi için Gravatar görüntü oluşturur.
 
 [!code-css[Main](asp-net-web-pages-api-reference/samples/sample72.css)]
 
@@ -502,44 +501,44 @@ Bir veri nesnesini JavaScript nesne gösterimi (JSON) biçiminde bir dizeye dön
 
 ### `Json.Decode(string)`
 
-JSON olarak kodlanmış giriş dizesi üzerinden yineleme ya da bir veritabanına ekleme bir veri nesnesine dönüştürür.
+JSON olarak kodlanmış giriş dizesi, üzerinden yineleme yapma veya bir veritabanına ekleme veri nesnesine dönüştürür.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample74.cs)]
 
 ### `LinkShare.GetHtml(pageTitle[, pageLinkBack] [, twitterUserName]`  
  `[, additionalTweetText] [, linkSites])`
 
-Belirtilen başlık ve isteğe bağlı URL'yi kullanarak sosyal ağ bağlantılarını oluşturur.
+Belirtilen başlık ve isteğe bağlı bir URL kullanarak sosyal ağ bağlantıları oluşturur.
 
 [!code-xml[Main](asp-net-web-pages-api-reference/samples/sample75.xml)]
 
 ### `ModelStateDictionary.AddError(key, errorMessage)`
 
-Bir hata iletisi, bir form alanıyla ilişkilendirir. Kullanım `ModelState` bu üye erişmek için yardımcı.
+Bir hata iletisi, bir form alanıyla ilişkilendirir. Kullanım `ModelState` bu üyeye erişmek için yardımcı.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample76.cs)]
 
 ### `ModelStateDictionary.AddFormError(errorMessage)`
 
-Bir hata iletisi, bir form ile ilişkilendirir. Kullanım `ModelState` bu üye erişmek için yardımcı.
+Bir hata iletisi, bir form ile ilişkilendirir. Kullanım `ModelState` bu üyeye erişmek için yardımcı.
 
 [!code-powershell[Main](asp-net-web-pages-api-reference/samples/sample77.ps1)]
 
 ### `ModelStateDictionary.IsValid`
 
-Doğrulama hataları varsa true değerini döndürür. Kullanım `ModelState` bu üye erişmek için yardımcı.
+Doğrulama hataları varsa true değerini döndürür. Kullanım `ModelState` bu üyeye erişmek için yardımcı.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample78.cs)]
 
 ### `ObjectInfo.Print(value [, depth] [, enumerationLength])`
 
-Özellikleri ve değerleri, bir nesne ve tüm alt nesneleri oluşturur.
+Özelliklerini ve değerlerini bir nesne ve tüm alt nesneleri oluşturur.
 
 [!code-css[Main](asp-net-web-pages-api-reference/samples/sample79.css)]
 
 ### `Recaptcha.GetHtml([, publicKey] [, theme] [, language] [, tabIndex])`
 
-ReCAPTCHA doğrulama testi işler.
+ReCAPTCHA doğrulama testinden işler.
 
 [!code-css[Main](asp-net-web-pages-api-reference/samples/sample80.css)]
 
@@ -558,79 +557,79 @@ ReCAPTCHA test sonucunu döndürür.
 
 ### `ServerInfo.GetHtml()`
 
-ASP.NET Web sayfaları hakkında durum bilgilerini işler.
+ASP.NET Web sayfaları hakkında durum bilgileri işler.
 
 [!code-cshtml[Main](asp-net-web-pages-api-reference/samples/sample83.cshtml)]
 
 ### `Twitter.Profile(twitterUserName)`
 
-Belirtilen kullanıcı için bir Twitter akışı işler.
+Belirtilen kullanıcı için bir Twitter akışı oluşturur.
 
 [!code-javascript[Main](asp-net-web-pages-api-reference/samples/sample84.js)]
 
 ### `Twitter.Search(searchQuery)`
 
-Belirtilen arama metnini bir Twitter akışı işler.
+Belirtilen arama metnini için bir Twitter akışı oluşturur.
 
 [!code-xml[Main](asp-net-web-pages-api-reference/samples/sample85.xml)]
 
 ### `Video.Flash(filename [, width, height])`
 
-İsteğe bağlı genişliği ve yüksekliği ile belirtilen dosyayı bir Flash video oynatıcı işler.
+İsteğe bağlı bir genişlik ve yükseklik ile belirtilen dosyayı bir Flash video oynatıcı işler.
 
 [!code-cshtml[Main](asp-net-web-pages-api-reference/samples/sample86.cshtml)]
 
 ### `Video.MediaPlayer(filename [, width, height])`
 
-İsteğe bağlı genişliği ve yüksekliği ile belirtilen dosya için bir Windows Media player işler.
+İsteğe bağlı bir genişlik ve yükseklik ile belirtilen dosya için bir Windows Media player yapar.
 
 [!code-cshtml[Main](asp-net-web-pages-api-reference/samples/sample87.cshtml)]
 
 ### `Video.Silverlight(filename, width, height)`
 
-Silverlight player için belirtilen işler *.xap* dosyasıyla gerekli genişlik ve yükseklik.
+Belirtilen bir Silverlight player işler *.xap* dosyasıyla gerekli genişlik ve yükseklik.
 
 [!code-cshtml[Main](asp-net-web-pages-api-reference/samples/sample88.cshtml)]
 
 ### `WebCache.Get(key)`
 
-Tarafından belirtilen nesnesi döndüren *anahtar*, veya nesne bulunmazsa null.
+Belirtilen nesneyi döndürür *anahtarı*, ya da nesne bulunamazsa null.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample89.cs)]
 
 ### `WebCache.Remove(key)`
 
-Belirtilen nesneyi kaldırır *anahtar* önbellekten.
+Tarafından belirtilen nesnede kaldırır *anahtar* önbellekten.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample90.cs)]
 
 ### `WebCache.Set(key, value [, minutesToCache] [, slidingExpiration])`
 
-Koyar *değeri* tarafından belirtilen adla önbelleğine *anahtar*.
+Koyar *değer* tarafından belirtilen adla önbelleğine *anahtar*.
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample91.html)]
 
 ### `WebGrid(data)`
 
-Yeni bir `WebGrid` kullanarak bir sorgudan veri nesnesi.
+Yeni bir oluşturur `WebGrid` kullanarak bir sorgudan veri nesnesi.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample92.cs)]
 
 ### `WebGrid.GetHtml()`
 
-Bir HTML tablosunda verileri görüntülemek için biçimlendirme oluşturur.
+HTML tablosu halinde verileri görüntülemek için biçimlendirme oluşturur.
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample93.html)]
 
 ### `WebGrid.Pager()`
 
-Çağrı cihazı için işler `WebGrid` nesnesi.
+İşler için bir çağrı `WebGrid` nesne.
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample94.html)]
 
 ### `WebImage(path)`
 
-Görüntüyü belirtilen yoldan yükler.
+Belirtilen yoldan görüntüyü yükler.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample95.cs)]
 
@@ -642,45 +641,45 @@ Belirtilen görüntü filigran olarak ekler.
 
 ### `WebImage.AddTextWatermark(text)`
 
-Belirtilen metni görüntüye ekler.
+Belirtilen metin görüntüye ekler.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample97.cs)]
 
 ### `WebImage.FlipHorizontal()`  
 `WebImage.FlipVertical()`
 
-Resmi yatay veya dikey olarak döndürür.
+Görüntüyü yatay veya dikey çevirir.
 
 [!code-css[Main](asp-net-web-pages-api-reference/samples/sample98.css)]
 
 ### `WebImage.GetImageFromRequest()`
 
-Görüntüyü bir dosyayı karşıya yükleme sırasında bir sayfa gönderildiğinde görüntüyü yükler.
+Görüntüyü bir dosyayı karşıya yükleme sırasında bir sayfa gönderildiğinde, görüntüyü yükler.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample99.cs)]
 
 ### `WebImage.Resize(width,height)`
 
-Yeniden boyutlandırır bir görüntü.
+Yeniden boyutlandırır bir görüntüsü.
 
 [!code-css[Main](asp-net-web-pages-api-reference/samples/sample100.css)]
 
 ### `WebImage.RotateLeft()`  
 `WebImage.RotateRight()`
 
-Resmi sola veya sağa döndürür.
+Resmi sağa veya sola döndürür.
 
 [!code-css[Main](asp-net-web-pages-api-reference/samples/sample101.css)]
 
 ### `WebImage.Save(path [, imageFormat])`
 
-Görüntüyü belirtilen yola kaydeder.
+Belirtilen yola resmi kaydeder.
 
 [!code-javascript[Main](asp-net-web-pages-api-reference/samples/sample102.js)]
 
 ### `WebMail.Password`
 
-SMTP sunucusu için parolayı ayarlar. Bu özellik kümesinde normalde  *\_AppStart* sayfası.
+SMTP sunucusu için parolayı ayarlar. Bu özellik normalde ayarladığınız  *\_AppStart* sayfası.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample103.cs)]
 
@@ -693,13 +692,13 @@ Bir e-posta iletisi gönderir.
 
 ### `WebMail.SmtpServer`
 
-SMTP sunucusu adını ayarlar. Bu özellik kümesinde normalde<em>\_AppStart</em> sayfası.
+SMTP sunucusu adını ayarlar. Bu özellik normalde ayarladığınız<em>\_AppStart</em> sayfası.
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample105.html)]
 
 ### `WebMail.UserName`
 
-SMTP sunucusu için kullanıcı adını belirler. Bu özelliğin normalde ayarlamalısınız  *\_AppStart* sayfası.
+SMTP sunucusu için kullanıcı adını ayarlar. Bu özellik normalde ayarlamanız gerekir  *\_AppStart* sayfası.
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample106.html)]
 
@@ -708,7 +707,7 @@ SMTP sunucusu için kullanıcı adını belirler. Bu özelliğin normalde ayarla
 
 ### `Html.ValidationMessage(field)`
 
-(v2) Belirtilen alan için bir doğrulama hata iletisini işler.
+(v2) Belirtilen alan için bir doğrulama hatası iletisini işler.
 
 [!code-cshtml[Main](asp-net-web-pages-api-reference/samples/sample107.cshtml)]
 
@@ -720,37 +719,37 @@ SMTP sunucusu için kullanıcı adını belirler. Bu özelliğin normalde ayarla
 
 ### `Validation.Add(field, validationType)`
 
-(v2) Bir kullanıcı giriş öğesini doğrulama belirtilen tür için kaydeder.
+(v2) Belirtilen doğrulama türü için bir kullanıcı girişi öğesini kaydeder.
 
 [!code-javascript[Main](asp-net-web-pages-api-reference/samples/sample109.js)]
 
 ### `Validation.ClassFor(field)`
 
-(v2) Dinamik olarak doğrulama hatası iletilerini biçimlendirmek için istemci tarafı doğrulama için CSS sınıf öznitelikleri oluşturur. (Uygun istemci-komut dosyası kitaplıkları başvuru ve CSS sınıflarının tanımlanması gerekir.)
+(v2) Doğrulama hatası iletilerini biçimlendirmek için istemci tarafı doğrulama CSS sınıfı öznitelikleri dinamik olarak işler. (Uygun istemci-komut dosyası Kitaplığı Başvurusu ve CSS sınıfları tanımlama gerektirir.)
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample110.html)]
 
 ### `Validation.For(field)`
 
-(v2) Kullanıcı giriş alanı için istemci tarafı doğrulamasını etkinleştirir. (Uygun istemci-komut dosyası kitaplıkları başvuru gerektirir.)
+(v2) Kullanıcı giriş alanı için istemci tarafı doğrulamasını etkinleştirir. (Uygun istemci-komut dosyası kitaplığı başvurusu gerektirir.)
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample111.html)]
 
 ### `Validation.IsValid()`
 
-(v2) Doğrulama için registred olan tüm kullanıcı girişi öğelerinin geçerli değerler içeriyorsa, true döndürür.
+(v2) Doğrulama için registred olan tüm kullanıcı girişi öğelerinin geçerli değerlerini içeriyorsa true döndürür.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample112.cs)]
 
 ### `Validation.RequireField(field[, errorMessage])`
 
-(v2) Kullanıcıların kullanıcı girişi öğesi için bir değer sağlamanız gerekir belirtir.
+(v2) Kullanıcıların kullanıcı girişi öğesi için bir değer belirtmeniz gerekir belirtir.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample113.cs)]
 
 ### `Validation.RequireFields(field1[, field12, field3, ...])`
 
-(v2) Kullanıcıların değerleri her kullanıcı girişi öğelerinin için sağlaması gerektiğini belirtir. Bu yöntem bir özel hata iletisi belirtmenize izin vermez.
+(v2) Kullanıcılar değerler her kullanıcı girişi öğelerinin sağlamanız gerektiğini belirtir. Bu yöntem bir özel hata iletisi belirtmenize izin vermez.
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample114.html)]
 

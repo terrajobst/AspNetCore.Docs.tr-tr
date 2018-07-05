@@ -1,25 +1,24 @@
 ---
 uid: mvc/pluralsight
-title: MVC Video eğitim Pluralsight gelen | Microsoft Docs
+title: Pluralsight tarafından sunulan MVC Video eğitimi | Microsoft Docs
 author: rick-anderson
-description: MVC Video eğitim Pluralsight bu ücretsiz video eğitim gelen ASP.NET MVC ile çalışır alırsınız. Bir geliştirme ayarlama her şeyi kapsayan...
+description: Bu ücretsiz eğitim videosu pluralsight tarafından sunulan MVC Video eğitimi ASP.NET MVC ile çalışmaya alırsınız. Geliştirme sürecinizi ayarı kadar her şeyi kapsar...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/09/2011
 ms.topic: article
 ms.assetid: 87612fe1-258c-4f50-88d8-c3047dec3f14
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/pluralsight
 msc.type: content
-ms.openlocfilehash: 60f14176111ee7dbb2ddd2cc4af17d6df559654e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 94faa3b9026ff1ef34c16698de823566c809ea52
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26565473"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37376335"
 ---
-<a name="mvc-video-training-from-pluralsight"></a>MVC Video eğitim Pluralsight gelen
+<a name="mvc-video-training-from-pluralsight"></a>Pluralsight tarafından sunulan MVC Video eğitimi
 ====================
 ### <a name="videos"></a>Videolar
 
@@ -33,13 +32,13 @@ ms.locfileid: "26565473"
 - [Web geliştirici araçları ve Visual Studio 2013](https://pluralsight.com/training/Player?author=scott-allen&name=aspdotnet-mvc5-fundamentals-m8-visualstudio&mode=live&clip=0&course=aspdotnet-mvc5-fundamentals)
 
 
-"İçin Pluralsight K. Scott Allen tarafından kaydedilen bu MVC 5 indirmelere ASP.NET MVC hakkında en son sürümü hızla hızlıca almak için harika bir yol sağlar. Scott'ın sunu stil izlemesi daha kolay ve Teknik ilgi çekici ve indirmelere biçimi, video oynatıcı ve genel tempoyla gerçekten mükemmeldir. Ayrıca –; böylece hiçbir excuse MVC 5 bugün öğrenin değil, ücretsizdir!"
+"Bu MVC 5 kurs için Pluralsight K. Scott Allen tarafından kaydedilen, ASP.NET MVC en son sürüm üzerinde hızlı bir şekilde gelişmelere ayak uydurabilir için harika bir yol sağlar. Scott'ın sunu stili kolayca izleyin ve teknik açıdan ilgi çekici ve kursu biçimi, video oynatıcı ve genel temposu gerçekten harikadır. Ayrıca – hiçbir excuse MVC 5 bugün öğrenin değildir bu yüzden, ücretsizdir!"
 
-Scott Guthrie, Executive tersine Başkanı, Microsoft Cloud ve kurumsal grup, Microsoft
+Scott Guthrie, Başkan Yardımcısı, Microsoft Cloud ve kurumsal grubu, Microsoft
 
 
 ![pluralsight logosu playbutton](pluralsight/_static/image1.png)
 
-3000 + geliştirme, erişimi kilidini BT ve izleyebilir dilediğiniz zaman, dilediğiniz yaratıcı kurslar
+3. 000 + dev, erişim kilidini BT ve izleyebilir dilediğiniz zaman ve dilediğiniz yerde yaratıcı kursları
 
-**$ 29/mo. Başlangıç**[Başlat ücretsiz deneme](https://pluralsight.com/microsoft/OLT/subscribe/Subscribe1.aspx?freetrial=true&planHint=Monthly&utm_source=microsoft&utm_medium=sponsored-page&utm_content=aspdotnet-mvc5-fundamentals&utm_campaign=microsoft-sponsored-course) [şimdi abone olma](https://pluralsight.com/microsoft/olt/subscriptions.aspx?utm_source=microsoft&utm_medium=sponsored-page&utm_content=aspdotnet-mvc5-fundamentals&utm_campaign=microsoft-sponsored-course)
+**29 ABD Doları/bittiğinde başlangıç**[ücretsiz denemeyi Başlat](https://pluralsight.com/microsoft/OLT/subscribe/Subscribe1.aspx?freetrial=true&planHint=Monthly&utm_source=microsoft&utm_medium=sponsored-page&utm_content=aspdotnet-mvc5-fundamentals&utm_campaign=microsoft-sponsored-course) [şimdi abone olun](https://pluralsight.com/microsoft/olt/subscriptions.aspx?utm_source=microsoft&utm_medium=sponsored-page&utm_content=aspdotnet-mvc5-fundamentals&utm_campaign=microsoft-sponsored-course)

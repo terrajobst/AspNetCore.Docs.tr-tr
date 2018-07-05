@@ -2,42 +2,41 @@
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/shopping-cart
 title: Alışveriş sepeti | Microsoft Docs
 author: Erikre
-description: Bu öğretici seri ASP.NET 4.5 ve Microsoft Visual Studio Express 2013 biz için kullanarak bir ASP.NET Web Forms uygulaması oluşturma temellerini öğretmek...
+description: Bu öğretici serisinin ASP.NET 4.5 ve Visual Studio 2013 Express için kullandığımız bir ASP.NET Web Forms uygulaması oluşturmaya yönelik temel bilgiler sağlanır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
 ms.topic: article
 ms.assetid: 6898c601-6c31-432f-8388-e6843f8a17cb
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/shopping-cart
 msc.type: authoredcontent
-ms.openlocfilehash: a8e96da7737cdf649575711a464c4f7726cb6ded
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 22253b8708efd9ce505c9fbeb9cb2e942588b37d
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30890726"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37375784"
 ---
 <a name="shopping-cart"></a>Alışveriş sepeti
 ====================
-Tarafından [Erik Reitan](https://github.com/Erikre)
+tarafından [Erik Reitan](https://github.com/Erikre)
 
-[Wingtip Toys örnek proje (C#) karşıdan](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) veya [karşıdan E-kitap (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
+[Wingtip Toys örnek projeyi (C#) indirin](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) veya [indirme E-kitabı (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
-> Bu öğretici seri ASP.NET 4.5 ve Microsoft Visual Studio Express 2013 için Web kullanarak bir ASP.NET Web Forms uygulaması oluşturma temellerini öğretmek. Visual Studio 2013 [C# kaynak kodu projeyle](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) Bu öğretici seri eşlik etmek üzere hazırdır.
+> Bu öğretici serisinin Web için ASP.NET 4.5 ve Visual Studio 2013 Express kullanarak bir ASP.NET Web Forms uygulaması oluşturmaya yönelik temel bilgiler sağlanır. Bir Visual Studio 2013'ün [C# kaynak kodu ile proje](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) Bu öğretici serisinin eşlik etmek üzere hazırdır.
 
 
-Bu öğretici alışveriş sepeti Wingtip Toys örnek ASP.NET Web Forms uygulamasına eklemek için gerekli iş mantığı açıklar. Bu öğretici önceki öğreticiyi "Görünen veri öğeleri ve Ayrıntıları" oluşturur ve Wingtip Oyuncak deposu öğretici serinin bir parçasıdır. Bu öğreticiyi tamamladıktan sonra kullanıcılar örnek uygulamanızın eklemek, kaldırmak ve bunların alışveriş sepeti ürünlerinde değiştirmek mümkün olacaktır.
+Bu öğreticide, Wingtip Toys örnek ASP.NET Web Forms uygulaması için bir alışveriş sepetine eklemek için gerekli iş mantığı açıklanmaktadır. Bu öğreticide, önceki öğreticide "Görünen veri öğelerini ve Ayrıntıları" oluşturur ve Wingtip çocuğunun Store öğretici serisinin bir parçasıdır. Bu öğreticiyi tamamladığınızda, örnek uygulamanızı kullanıcıları eklemek, kaldırmak ve bunların alışveriş sepeti ürünleri değiştirmek mümkün olacaktır.
 
 ## <a name="what-youll-learn"></a>Öğrenecekleriniz:
 
-1. Web uygulaması için alışveriş sepeti oluşturma
-2. Alışveriş sepetine öğelerini eklemesine olanak sağlamak nasıl.
-3. Nasıl ekleneceği bir [GridView](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview(v=vs.110).aspx#introduction) alışveriş sepeti ayrıntıları görüntülemek için denetimi.
-4. Nasıl hesaplamak ve sipariş toplama görüntüler.
-5. Nasıl kaldırılacağı ve alışveriş sepeti güncelleştirme öğeler.
-6. Bir alışveriş sepeti sayaç dahil etme.
+1. Alışveriş sepeti web uygulaması oluşturma
+2. Öğe, alışveriş sepetine eklemek kullanıcılara tanıma.
+3. Nasıl ekleneceği bir [GridView](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview(v=vs.110).aspx#introduction) alışveriş sepeti ayrıntılarını görüntülemek için denetim.
+4. Hesaplamak ve toplam sırayı görüntülemek nasıl.
+5. Nasıl kaldırılacağı ve alışveriş sepetini güncelleştirme öğeleri.
+6. Alışveriş sepeti sayaç ekleme.
 
 ## <a name="code-features-in-this-tutorial"></a>Bu öğreticideki kod özellikleri:
 
@@ -46,279 +45,279 @@ Bu öğretici alışveriş sepeti Wingtip Toys örnek ASP.NET Web Forms uygulama
 3. Kesin türü belirtilmiş veri denetimleri
 4. Model bağlama
 
-## <a name="creating-a-shopping-cart"></a>Alışveriş sepeti oluşturma
+## <a name="creating-a-shopping-cart"></a>Bir alışveriş sepeti oluşturmak
 
-Öğretici serisinde daha önce bu sayfaları ve veritabanından ürün verilerini görüntülemek için kodu eklemiştir. Bu öğreticide, ürünleri yönetmek için alışveriş sepeti oluşturacaksınız kullanıcılar satın alma ilginizi çekiyor mu olduğunu. Kullanıcıların göz atın ve bunlar olmayan kaydedilmiş veya oturum açmış olsa bile öğeleri alışveriş sepetine eklemek mümkün olacaktır. Alışveriş sepeti erişimi yönetmek için kullanıcıların benzersiz bir atayacaktır `ID` Sepeti ilk kez kullanıcı alışveriş eriştiğinde bir genel benzersiz tanımlayıcı (GUID) kullanarak. Bu depolayacağınız `ID` ASP.NET oturum durumu kullanma.
+Daha önce Bu öğretici serisinde, sayfalar ve veritabanından ürün verilerini görüntülemek için kod eklendi. Bu öğreticide, ürünleri yönetmek için bir alışveriş sepeti oluşturacaksınız kullanıcılar satın alma ilgileniyor olduğunu. Kullanıcıların göz atın ve bunlar katılmamaları kayıtlı veya oturum açmış olsanız bile, alışveriş sepetine öğe ekleme mümkün olacaktır. Alışveriş sepeti erişimi yönetmek için kullanıcıların benzersiz bir atar `ID` sepete ilk kez kullanıcı alışveriş eriştiğinde bir genel benzersiz tanıtıcısı (GUID) kullanarak. Bu depolayacağınızı `ID` ASP.NET oturum durumu kullanma.
 
 > [!NOTE] 
 > 
-> ASP.NET oturum durumu, kullanıcı site ayrılmasından sonra sona erecek kullanıcıya özgü bilgileri depolamak için uygun bir yerdir. Oturum durumu kötüye kullanılması büyük sitelerinde performans etkileri sahip olsa da, oturum durumu çalışır tanıtım amacıyla iyi kullanımını açık. Wingtip Toys örnek proje oturum durumunu işlem içinde saklanıyorsa siteyi barındıran web sunucusunda olduğu oturum durumu bir dış sağlayıcı olmadan kullanmayı gösterir. Bir uygulama birden çok örneğini sağlamak büyük siteleri veya farklı sunucularda bir uygulama birden çok örneğini çalıştıran siteler için kullanmayı **Microsoft Azure önbellek hizmeti**. Bu önbellek hizmeti web sitesine dış ve işlem içi oturum durumu kullanmanın sorununu çözer dağıtılmış bir önbelleğe alma hizmeti sağlar. Daha fazla bilgi için [kullanım ASP.NET oturum durumu Windows Azure Web siteleri ile nasıl](https://docs.microsoft.com/azure/redis-cache/cache-aspnet-session-state-provider).
+> ASP.NET oturum durumu, kullanıcının site ayrılmasından sonra süresi dolacak kullanıcıya özgü bilgileri depolamak için kullanışlı bir yerdir. Oturum durumu b.internet performans etkilerinin daha büyük sitelerinde olabilse de tanıtım amacıyla oturum durumu çalışır kullanımını açık. Wingtip Toys örnek proje, bir dış sağlayıcı olmadan oturum durumu depolanan işlem içi siteyi barındıran web sunucusu üzerinde olduğu oturum durumu kullanma işlemini gösterir. Bir uygulamanın birden çok örneği sağlamak büyük siteleri veya farklı sunucularda bir uygulama birden çok örneğini çalıştıran siteler için kullanmayı **Windows Azure önbellek hizmeti**. Bu önbellek hizmeti, dış web sitesine gidin ve işlem içi oturum durumu kullanmanın sorunu çözdü dağıtılmış bir önbelleğe alma hizmeti sağlar. Daha fazla bilgi edinmek, [ASP.NET oturum durumunu Windows Azure Web siteleriyle nasıl](https://docs.microsoft.com/azure/redis-cache/cache-aspnet-session-state-provider).
 
 
-### <a name="add-cartitem-as-a-model-class"></a>CartItem bir Model sınıfı ekleme
+### <a name="add-cartitem-as-a-model-class"></a>Bir Model sınıfı CartItem ekleme
 
-Daha önce Bu öğretici serisinde, kategori ve ürün verilerini için şemaya oluşturarak tanımlanan `Category` ve `Product` sınıfları *modelleri* klasör. Şimdi, alışveriş sepeti şemasını tanımlamak için yeni bir sınıf ekleyin. Daha sonra Bu öğreticide, veri erişimi işlemek için bir sınıf ekler `CartItem` tablo. Bu sınıf eklemek, kaldırmak ve alışveriş sepeti öğelerde güncelleştirmek için iş mantığı sağlar.
+Daha önce Bu öğretici serisinde, kategori ve ürün veriler için şema oluşturarak tanımladığınız `Category` ve `Product` sınıfları *modelleri* klasör. Şimdi, alışveriş sepetine şemasını tanımlamak için yeni bir sınıf ekleyin. Daha sonra Bu öğreticide, veri erişimi işlemek için bir sınıf ekleyeceksiniz `CartItem` tablo. Bu sınıf, iş mantığı eklemek, kaldırmak ve öğeleri alışveriş sepetini güncelleştirme sağlayacaktır.
 
 1. Sağ *modelleri* klasörü ve select **Ekle**  - &gt; **yeni öğe**. 
 
     ![Alışveriş sepeti - yeni öğe](shopping-cart/_static/image1.png)
 2. **Yeni Öğe Ekle** iletişim kutusu görüntülenir. Seçin **kod**ve ardından **sınıfı**. 
 
-    ![Alışveriş sepeti - yeni öğe iletişim ekleyin](shopping-cart/_static/image2.png)
-3. Bu yeni sınıf adını *CartItem.cs*.
+    ![Alışveriş sepeti - yeni öğesi ekleme](shopping-cart/_static/image2.png)
+3. Bu yeni bir sınıf adı *CartItem.cs*.
 4. **Ekle**'yi tıklatın.  
-   Yeni sınıf dosyası Düzenleyicisi'nde görüntülenir.
+   Yeni bir sınıf dosyası Düzenleyicisi'nde görüntülenir.
 5. Varsayılan kodu aşağıdaki kodla değiştirin:   
 
     [!code-csharp[Main](shopping-cart/samples/sample1.cs)]
 
-`CartItem` Sınıfı, bir kullanıcı ekler alışveriş sepetine her ürünün tanımlayacaksınız şeması içerir. Bu sınıf, Bu öğretici serisinde daha önce oluşturduğunuz diğer şema sınıfları benzerdir. Kurala göre Entity Framework Code First, bekliyor için birincil anahtar `CartItem` tablo ya da olacaktır `CartItemId` veya `ID`. Bununla birlikte, kod varsayılan davranışı veri ek açıklamasını kullanarak geçersiz kılar `[Key]` özniteliği. `Key` ItemId özelliğinin özniteliği belirtir `ItemID` birincil anahtarı bir özelliktir.
+`CartItem` Sınıfı, bir kullanıcı ekler alışveriş sepetine her ürün tanımlayan şemayı içerir. Bu sınıf, Bu öğretici serisinde daha önce oluşturduğunuz diğer şema sınıfları benzerdir. Kural gereği, Entity Framework Code First, bekliyor için birincil anahtarı `CartItem` tablo ya da olacak `CartItemId` veya `ID`. Ancak, kod varsayılan davranışı veri ek açıklama kullanarak geçersiz kılar `[Key]` özniteliği. `Key` ItemId özelliğinin öznitelik belirtir `ItemID` birincil anahtar özelliğidir.
 
-`CartId` Özellik belirtir `ID` satın almak için bir öğesiyle ilişkilendirilmiş olan kullanıcı. Bu kullanıcı oluşturmak için kod ekleyeceksiniz `ID` kullanıcının alışveriş sepeti eriştiği. Bu `ID` de bir ASP.NET oturum değişkeni depolanır.
+`CartId` Özellik belirtir `ID` satın almak için öğesiyle ilişkili kullanıcı. Bu kullanıcı oluşturmak için kod ekleyeceksiniz `ID` zaman alışveriş sepetini erişen kullanıcı. Bu `ID` bir ASP.NET oturum değişkeni depolanır.
 
 ### <a name="update-the-product-context"></a>Ürün içeriği güncelleştirme
 
-Ekleme yanı sıra `CartItem` sınıfı, varlık sınıflarını yönetir ve veritabanına veri erişimi sağlayan veritabanı bağlamı sınıfının güncellemeniz gerekir. Bunu yapmak için yeni oluşturulan ekleyecek `CartItem` model sınıfı için `ProductContext` sınıfı.
+Ekleme yanı sıra `CartItem` sınıfı, varlık sınıflarının yönetir ve veritabanı veri erişim sağlayan veritabanı bağlamı sınıfının güncelleştirmesi gerekir. Bunu yapmak için yeni oluşturulan ekleyeceksiniz `CartItem` model sınıfı için `ProductContext` sınıfı.
 
-1. İçinde **Çözüm Gezgini**, bulma ve açma *ProductContext.cs* dosyasını *modelleri* klasör.
-2. Vurgulanmış kodu ekleyin *ProductContext.cs* gibi dosya:  
+1. İçinde **Çözüm Gezgini**, bulma ve açma *ProductContext.cs* dosyası *modelleri* klasör.
+2. Vurgulanmış kodu ekleyin *ProductContext.cs* aşağıdaki gibi:  
 
     [!code-csharp[Main](shopping-cart/samples/sample2.cs?highlight=14)]
 
-Bu öğretici serisinde kodu daha önce belirtildiği gibi *ProductContext.cs* dosyayı ekler `System.Data.Entity` ad alanı Entity Framework'ün tüm çekirdek işlevlerin erişimi böylece. Bu işlevsellik, sorgu, Ekle, Güncelleştir ve güçlü şekilde yazılan nesnelerin çalışarak verilerini silmek için özelliği içerir. `ProductContext` Sınıfı erişim için yeni eklenen ekler `CartItem` model sınıfı.
+Bu öğretici serisindeki kodda daha önce belirtildiği gibi *ProductContext.cs* dosyası ekler `System.Data.Entity` ad alanı Entity Framework'ün tüm çekirdek işlevlerin erişiminiz olduğunu. Bu işlev, sorgulama, ekleme, güncelleştirme ve kesin olarak belirlenmiş nesneler ile çalışma ile verileri silme özelliği içerir. `ProductContext` Sınıfı erişim için yeni eklenen ekler `CartItem` model sınıfı.
 
 ### <a name="managing-the-shopping-cart-business-logic"></a>Alışveriş sepeti iş mantığı yönetme
 
-Ardından, oluşturacağınız `ShoppingCart` sınıfının yeni bir *mantığı* klasör. `ShoppingCart` Sınıfı işler veri erişimi `CartItem` tablo. Sınıf eklemek, kaldırmak ve alışveriş sepeti öğelerde güncelleştirmek için iş mantığı da içerir.
+Ardından, oluşturacağınız `ShoppingCart` yeni bir sınıfta *mantıksal* klasör. `ShoppingCart` Sınıfı işler veri erişimi `CartItem` tablo. Sınıfı ayrıca iş mantığı eklemek, kaldırmak ve öğeleri alışveriş sepetini güncelleştirme içerir.
 
-Aşağıdaki eylemleri yönetmek için işlevselliği ekleyeceksiniz alışveriş sepeti mantığı içerir:
+Aşağıdaki eylemleri yönetmek için gereken işlevleri ekleyeceğiniz alışveriş sepeti mantığı içerir:
 
-1. Alışveriş sepetine öğeler ekleme
-2. Alışveriş sepetinden öğeleri kaldırma
-3. Alışveriş sepeti kimliği alma
-4. Alışveriş sepetinden öğeleri alınıyor
-5. Tüm öğelerin alışveriş sepeti tutar toplamda
+1. Alışveriş sepetine öğe ekleme
+2. Alışveriş sepeti öğeleri kaldırma
+3. Alışveriş sepeti Kimliğini alma
+4. Alışveriş sepeti öğeleri alınıyor
+5. Toplam miktarı tüm öğelerin alışveriş sepeti
 6. Alışveriş sepeti verileri güncelleştirme
 
-Bir alışveriş sepeti sayfası (*ShoppingCart.aspx*) ve alışveriş sepeti sınıfı birlikte alışveriş sepeti verilere erişmek için kullanılır. Alışveriş sepeti sayfası kullanıcı alışveriş sepetine ekler tüm öğeleri görüntüler. Alışveriş sepeti yanında, sayfa ve sınıf, bir sayfa oluşturacaksınız (*AddToCart.aspx*) ürünleri alışveriş sepetine eklemek için. Ayrıca kod ekleyeceksiniz *ProductList.aspx* sayfa ve *ProductDetails.aspx* bağlantısını sağlayacak sayfa *AddToCart.aspx* sayfasında, böylece kullanıcı ekleyebilirsiniz Ürünler alışveriş sepetine.
+Bir alışveriş sepeti sayfası (*ShoppingCart.aspx*) ve alışveriş sepeti sınıfı birlikte alışveriş sepeti verilere erişmek için kullanılır. Alışveriş sepeti sayfası kullanıcı alışveriş sepetine ekler tüm öğeleri görüntüler. Alışveriş sepeti yanında, sayfa ve sınıf, bir sayfa oluşturacaksınız (*AddToCart.aspx*) ürün alışveriş sepetine eklemek için. Ayrıca kod ekleyeceksiniz *ProductList.aspx* sayfası ve *ProductDetails.aspx* bağlantı sağlayacak bir sayfa *AddToCart.aspx* sayfasında, böylece kullanıcı ekleyebilirsiniz alışveriş sepetine ürünleri.
 
-Aşağıdaki diyagramda, kullanıcı bir ürün alışveriş sepetine eklediğinde oluşan temel işlemi gösterilmektedir.
+Aşağıdaki diyagramda, kullanıcı bir ürün alışveriş sepetine eklediğinde gerçekleşen temel işlemi gösterilmektedir.
 
 ![Alışveriş sepeti - alışveriş sepetine ekleme](shopping-cart/_static/image3.png)
 
-Kullanıcı tıkladığında **Sepete Ekle** ya da bağlantıyı *ProductList.aspx* sayfa veya *ProductDetails.aspx* , uygulama sayfadan *AddToCart.aspx* sayfa ve ardından otomatik olarak *ShoppingCart.aspx* sayfası. *AddToCart.aspx* sayfa ekleyecek select ürün alışveriş sepetine ShoppingCart sınıfında bir yöntem çağırarak. *ShoppingCart.aspx* sayfası alışveriş sepetine eklenen ürünleri görüntüler.
+Kullanıcı tıkladığında **Sepete Ekle** ya da bağlantıyı *ProductList.aspx* sayfası veya *ProductDetails.aspx* sayfasında, uygulama gezinmek için *AddToCart.aspx* sayfası ve ardından otomatik olarak *ShoppingCart.aspx* sayfası. *AddToCart.aspx* sayfası eklenir select ürün alışveriş sepetine ShoppingCart sınıfta bir yöntemi çağırarak. *ShoppingCart.aspx* sayfası, alışveriş sepetine eklendi ürünleri görüntüler.
 
 #### <a name="creating-the-shopping-cart-class"></a>Alışveriş sepeti sınıfı oluşturma
 
-`ShoppingCart` Sınıfı eklenir uygulamayı ayrı bir klasörde model (model klasör), sayfa (kök klasöründe) ve (mantığı klasör) mantığı arasında NET bir ayrıma böylece olacaktır.
+`ShoppingCart` Sınıfı eklenecek uygulama ayrı bir klasörde model (model klasör), sayfa (kök klasöründe) ve (mantıksal klasör) mantıksal arasında NET bir ayrıma böylece olacaktır.
 
-1. İçinde **Çözüm Gezgini**, sağ **WingtipToys**proje ve seçin **Ekle**-&gt;**yeni klasör**. Yeni bir klasör adı *mantığı*.
-2. Sağ *mantığı* klasörünü ve ardından **Ekle**  - &gt; **yeni öğe**.
+1. İçinde **Çözüm Gezgini**, sağ **WingtipToys**seçin ve proje **Ekle**-&gt;**yeni klasör**. Yeni klasör adı *mantıksal*.
+2. Sağ *mantıksal* klasörünü ve ardından **Ekle**  - &gt; **yeni öğe**.
 3. Adlı yeni bir sınıf dosyası ekleyin *ShoppingCartActions.cs*.
 4. Varsayılan kodu aşağıdaki kodla değiştirin:   
 
     [!code-csharp[Main](shopping-cart/samples/sample3.cs)]
 
-`AddToCart` Yöntemi etkinleştirir ürüne bağlı alışveriş sepeti dahil edilecek tek tek ürünlerin `ID`. Sepete ürün eklenir veya Sepeti bu ürün için bir öğe içeriyorsa, miktarı artırılır.
+`AddToCart` Yöntemi etkinleştirir ürüne bağlı olarak alışveriş sepetini dahil edilecek tek tek ürünlerin `ID`. Ürün sepete eklenir veya sepete ürün için bir öğe içeriyorsa, miktar artırılır.
 
-`GetCartId` Yöntemi döndürür Sepeti `ID` kullanıcı için. Sepeti `ID` bir kullanıcı, kendi alışveriş sepeti sahip öğelerini izlemek için kullanılır. Kullanıcı varolan Sepeti yoksa `ID`, yeni Sepeti `ID` kendileri için oluşturulur. Kullanıcı, Sepeti gibi kayıtlı bir kullanıcı olarak oturum varsa `ID` kendi kullanıcı adına ayarlayın. Ancak, kullanıcı sepetinizde, imzalı değilse `ID` benzersiz bir değere (GUID) ayarlayın. Bu yalnızca bir Sepeti oturum göre her kullanıcı için oluşturulmuş bir GUID sağlar.
+`GetCartId` Yöntemi döndürür sepet `ID` kullanıcı. Sepet `ID` , alışveriş sepeti kullanıcının öğelerini izlemek için kullanılır. Kullanıcı mevcut bir sepet yoksa `ID`, yeni bir sepet `ID` kendileri için oluşturulur. Kullanıcının kayıtlı kullanıcı olarak, sepet açan, `ID` kendi kullanıcı adına ayarlayın. Ancak, kullanıcı arabasında imzalı değilse `ID` benzersiz bir değere (GUID) ayarlayın. Bu yalnızca bir sepet oturum tabanlı her bir kullanıcı için oluşturulmuş bir GUID sağlar.
 
-`GetCartItems` Yöntemi alışveriş sepeti öğeleri kullanıcı için bir listesini döndürür. Daha sonra Bu öğreticide, model bağlama alışveriş sepeti kullanımında Sepeti öğeleri görüntülemek için kullanıldığını görürsünüz `GetCartItems` yöntemi.
+`GetCartItems` Yöntemi alışveriş sepeti öğeleri kullanıcının bir listesini döndürür. Bu öğreticinin ilerleyen bölümlerinde model bağlama alışveriş sepeti kullanımında sepet öğeleri görüntülemek için kullanıldığını görürsünüz `GetCartItems` yöntemi.
 
-### <a name="creating-the-add-to-cart-functionality"></a>Sepeti ile ekleme işlevselliği oluşturma
+### <a name="creating-the-add-to-cart-functionality"></a>Sepet ile ekleme işlevi oluşturma
 
-Daha önce belirtildiği gibi adlandırılmış bir işleme sayfa oluşturacak *AddToCart.aspx* yeni ürünler kullanıcı alışveriş sepetine eklemek için kullanılır. Bu sayfayı çağıracak `AddToCart` yönteminde `ShoppingCart` oluşturduğunuz sınıfı. *AddToCart.aspx* sayfası, beklediğiniz bir ürün `ID` kendisine geçirilen. Bu ürün `ID` çağrılırken kullanılacak `AddToCart` yönteminde `ShoppingCart` sınıfı.
+Daha önce bahsedildiği gibi bir işleme sayfası oluşturacak *AddToCart.aspx* kullanıcının alışveriş sepetine yeni ürün eklemek için kullanılır. Bu sayfa çağıracak `AddToCart` yönteminde `ShoppingCart` oluşturduğunuz sınıfı. *AddToCart.aspx* sayfası, beklediğiniz bir ürün `ID` kendisine geçirilir. Bu ürün `ID` çağrılırken kullanılacak `AddToCart` yönteminde `ShoppingCart` sınıfı.
 
 > [!NOTE] 
 > 
-> Arka plan kodu değiştirme (*AddToCart.aspx.cs*) UI sayfada değil Bu sayfa için (*AddToCart.aspx*).
+> Arka plan kod değiştirme (*AddToCart.aspx.cs*) UI sayfada değil Bu sayfanın (*AddToCart.aspx*).
 
 
-#### <a name="to-create-the-add-to-cart-functionality"></a>Ekle Sepeti oluşturmak için işlevselliği:
+#### <a name="to-create-the-add-to-cart-functionality"></a>Add-Sepeti oluşturmak için işlevselliği:
 
-1. İçinde **Çözüm Gezgini**, sağ **WingtipToys**proje, tıklatın **Ekle**  - &gt; **yeni öğe**.  
+1. İçinde **Çözüm Gezgini**, sağ **WingtipToys**proje, tıklayın **Ekle**  - &gt; **yeni öğe**.  
    **Yeni Öğe Ekle** iletişim kutusu görüntülenir.
-2. Standart yeni bir sayfa (Web formu) adlı uygulamaya eklemek *AddToCart.aspx*. 
+2. Standart yeni sayfa (Web formu) adlı bir uygulamaya ekleme *AddToCart.aspx*. 
 
     ![Alışveriş sepeti - Web formu ekleyin](shopping-cart/_static/image4.png)
-3. İçinde **Çözüm Gezgini**, sağ *AddToCart.aspx* sayfasında ve ardından **görünümü kodu**. *AddToCart.aspx.cs* arka plan kodu dosya Düzenleyicisi'nde açılır.
-4. Varolan kodla *AddToCart.aspx.cs* arka plan kodu aşağıdaki ile:   
+3. İçinde **Çözüm Gezgini**, sağ *AddToCart.aspx* sayfasında ve ardından **kodu görüntüle**. *AddToCart.aspx.cs* arka plan kod dosyası düzenleyicide açılır.
+4. Varolan kodda değiştirin *AddToCart.aspx.cs* arka plan kod aşağıdaki:   
 
     [!code-csharp[Main](shopping-cart/samples/sample4.cs)]
 
-Zaman *AddToCart.aspx* sayfa yüklenir, ürün `ID` Sorgu dizesinden alınır. Ardından, alışveriş sepeti sınıfının bir örneği oluşturulur ve çağırmak için kullanılan `AddToCart` Bu öğreticide daha önce eklediğiniz yöntemi. `AddToCart` Yöntemi, bulunan *ShoppingCartActions.cs* dosya, seçilen ürün alışveriş sepetine eklemek veya seçili ürünün ürün miktarını artırmak için mantığı içerir. Ürün alışveriş sepetine eklenmemişse ürün eklenen `CartItem` veritabanı tablosu. Ürün alışveriş sepetine eklendi ve kullanıcı aynı ürünün ek bir öğe ekler, ürün miktarını içinde artırılır `CartItem` tablo. Son olarak, geri sayfasına yönlendiren *ShoppingCart.aspx* burada kullanıcının gördüğü sepetinizdeki öğeler güncelleştirilmiş bir listesini sonraki adımda ekleyeceksiniz sayfası.
+Zaman *AddToCart.aspx* sayfası yüklendikten, ürün `ID` Sorgu dizesinden alınır. Ardından, alışveriş sepeti sınıfının bir örneği oluşturulur ve çağırmak için kullanılan `AddToCart` Bu öğreticide daha önce eklediğiniz yöntemi. `AddToCart` Yöntemi, bulunan *ShoppingCartActions.cs* dosya, seçilen ürün alışveriş sepetine eklemek veya seçili ürünün ürün miktarını artırmak için mantığı içerir. Ürün alışveriş sepetine eklenmemişse, ürün eklenen `CartItem` veritabanı tablosu. Ürün alışveriş sepetine eklendi ve aynı ürün ek bir öğenin kullanıcı ekler, ürün miktarını içinde artırılır `CartItem` tablo. Son olarak, geri sayfasına yönlendiren *ShoppingCart.aspx* sayfasını, sonraki adımda, burada kullanıcı sepet öğelerde güncelleştirilmiş bir listesini görür ekleyeceksiniz.
 
-Daha önce belirtildiği gibi bir kullanıcı `ID` belirli bir kullanıcı ile ilişkili ürün tanımlamak için kullanılır. Bu `ID` bir satır eklenir `CartItem` tablo her zaman kullanıcı alışveriş sepetine ürün ekler.
+Daha önce belirtildiği gibi bir kullanıcı `ID` , belirli bir kullanıcıyla ilişkili ürünleri tanımlamak için kullanılır. Bu `ID` bir satır eklenir `CartItem` tablo kullanıcı, bir ürün alışveriş sepetine eklediği her durumda.
 
 ### <a name="creating-the-shopping-cart-ui"></a>Alışveriş sepeti kullanıcı Arabirimi oluşturma
 
-*ShoppingCart.aspx* sayfası kullanıcı kendi alışveriş sepetine eklenen ürünleri görüntüler. De eklemek, kaldırmak ve alışveriş sepeti öğelerde güncelleştirme olanağı sağlanır.
+*ShoppingCart.aspx* sayfası, kullanıcının kendi alışveriş sepetine eklendi ürünleri görüntüler. Bu da eklemek, kaldırmak ve öğeleri alışveriş sepetini güncelleştirme olanağı sağlayacaktır.
 
-1. İçinde **Çözüm Gezgini**, sağ **WingtipToys**, tıklatın **Ekle**  - &gt; **yeni öğe**.  
+1. İçinde **Çözüm Gezgini**, sağ **WingtipToys**, tıklayın **Ekle**  - &gt; **yeni öğe**.  
    **Yeni Öğe Ekle** iletişim kutusu görüntülenir.
-2. Ana sayfayı seçerek içeren yeni bir sayfa (Web formu) ekleyin **Web ana sayfa kullanarak Form**. Yeni sayfa adı *ShoppingCart.aspx*.
-3. Seçin **Site.Master** ana sayfa yeni oluşturulan eklemek için *.aspx* sayfası.
-4. İçinde *ShoppingCart.aspx* sayfasında, varolan biçimlendirme aşağıdaki biçimlendirme ile değiştirin:   
+2. Ana sayfayı seçerek içeren yeni bir sayfa (Web formu) ekleme **ana sayfa kullanan Web formu**. Yeni sayfa adı *ShoppingCart.aspx*.
+3. Seçin **Site.Master** ana sayfa için yeni oluşturulan eklemek için *.aspx* sayfası.
+4. İçinde *ShoppingCart.aspx* sayfasında, aşağıdaki biçimlendirme mevcut biçimlendirme değiştirin:   
 
     [!code-aspx[Main](shopping-cart/samples/sample5.aspx)]
 
-*ShoppingCart.aspx* sayfa içeren bir **GridView** adlı Denetim `CartList`. Bu denetimi model bağlama veritabanından alışveriş sepeti veri bağlamak için kullanır. **GridView** denetim. Ayarladığınızda `ItemType` özelliği **GridView** denetlemek, veri bağlama ifadesi `Item` bulunur ve denetimi biçimlerini kesin türü belirtilmiş haline gelir. Bu öğretici serisinde daha önce belirtildiği gibi ayrıntılarını seçebilirsiniz `Item` IntelliSense kullanarak nesne. Model bağlama verileri seçmek için kullanılacak bir veri denetimini yapılandırmak için ayarladığınız `SelectMethod` denetiminin özelliği. Yukarıdaki biçimlendirme ayarladığınız `SelectMethod` listesi döndüren GetShoppingCartItems yöntemi kullanmak üzere `CartItem` nesneleri. **GridView** veri denetimi sayfa yaşam döngüsündeki uygun zamanda yöntemini çağırır ve döndürülen verileri otomatik olarak bağlar. `GetShoppingCartItems` Yöntemi hala eklenmelidir.
+*ShoppingCart.aspx* sayfasını içeren bir **GridView** adlı Denetim `CartList`. Bu denetimi model bağlama için veritabanından alışveriş sepeti veri bağlamak için kullanır. **GridView** denetimi. Ayarladığınızda `ItemType` özelliği **GridView** denetimine veri bağlama ifadesi `Item` kullanılabilir biçimlendirme ve denetimi, türü kesin belirlenmiş olur. Bu öğretici serisinde daha önce bahsedildiği gibi ayrıntılarını seçebileceğiniz `Item` IntelliSense kullanarak nesne. Model bağlama verileri seçmek için kullanılacak veri denetimi yapılandırmak için ayarladığınız `SelectMethod` denetiminin özelliği. Yukarıdaki biçimlendirme ayarladığınız `SelectMethod` listesini döndüren GetShoppingCartItems yöntemi kullanmak üzere `CartItem` nesneleri. **GridView** veri denetimi sayfa yaşam döngüsü içinde uygun zamanda yöntemini çağırır ve döndürülen verileri otomatik olarak bağlar. `GetShoppingCartItems` Yöntemi yine de eklenmelidir.
 
 #### <a name="retrieving-the-shopping-cart-items"></a>Alışveriş sepeti öğeleri alınıyor
 
-Ardından, kod ekleyin *ShoppingCart.aspx.cs* almak ve alışveriş sepeti UI doldurmak için arka plan kod.
+Ardından, kod eklediğiniz *ShoppingCart.aspx.cs* almak ve alışveriş sepeti UI doldurmak için gerideki kod.
 
-1. İçinde **Çözüm Gezgini**, sağ *ShoppingCart.aspx* sayfasında ve ardından **görünümü kodu**. *ShoppingCart.aspx.cs* arka plan kodu dosya Düzenleyicisi'nde açılır.
-2. Var olan kodu aşağıdakilerle değiştirin:  
+1. İçinde **Çözüm Gezgini**, sağ *ShoppingCart.aspx* sayfasında ve ardından **kodu görüntüle**. *ShoppingCart.aspx.cs* arka plan kod dosyası düzenleyicide açılır.
+2. Varolan kodu aşağıdakiyle değiştirin:  
 
     [!code-csharp[Main](shopping-cart/samples/sample6.cs)]
 
-Yukarıda belirtildiği gibi `GridView` veri denetimi çağrıları `GetShoppingCartItems` yöntemi sayfası yaşamında uygun zamanda döngüsü ve döndürülen verileri otomatik olarak bağlar. `GetShoppingCartItems` Yöntemi bir örneğini oluşturur `ShoppingCartActions` nesnesi. Daha sonra çağrılarak sepetinizde öğeleri döndürmek için bu örnek kodu kullanan `GetCartItems` yöntemi.
+Yukarıda belirtildiği gibi `GridView` verilerinin denetimini çağrıları `GetShoppingCartItems` yöntemi Sayfası'nda uygun zamanda döngüsü ve döndürülen verileri otomatik olarak bağlar. `GetShoppingCartItems` Yöntemi bir örneğini oluşturur `ShoppingCartActions` nesne. Ardından, kod çağırarak arabasında öğeleri döndürmek için bu örneği kullanır `GetCartItems` yöntemi.
 
-### <a name="adding-products-to-the-shopping-cart"></a>Alışveriş sepetine ürün ekleme
+### <a name="adding-products-to-the-shopping-cart"></a>Alışveriş sepetine ürünleri ekleme
 
-Zaman ya da *ProductList.aspx* veya *ProductDetails.aspx* sayfası görüntülenirse, kullanıcı bir bağlantıyı kullanarak alışveriş sepetine ürün eklemek mümkün olacaktır. Bunlar bağlantısını tıklattığınızda uygulama adlı işleme sayfasına gider *AddToCart.aspx*. *AddToCart.aspx* sayfa çağıracaktır `AddToCart` yönteminde `ShoppingCart` Bu öğreticide daha önce eklediğiniz sınıfı.
+Zaman ya da *ProductList.aspx* veya *ProductDetails.aspx* sayfası görüntülenirse, kullanıcı ürün bağlantı kullanarak bir alışveriş sepetine eklemek mümkün olacaktır. Bağlantıya tıkladıklarında, uygulama adlı işleme sayfasına gider *AddToCart.aspx*. *AddToCart.aspx* sayfa çağıracaktır `AddToCart` yönteminde `ShoppingCart` Bu öğreticide daha önce eklediğiniz sınıfı.
 
-Şimdi, ekleyeceksiniz bir **Sepete Ekle** hem de bağlantı *ProductList.aspx* sayfa ve *ProductDetails.aspx* sayfası. Bu bağlantıyı ürün içerecektir `ID` veritabanından alınır.
+Şimdi, ekleyeceksiniz bir **Sepete Ekle** her iki bağlantı *ProductList.aspx* sayfası ve *ProductDetails.aspx* sayfası. Bu bağlantı, ürün bulunur `ID` veritabanından alınır.
 
-1. İçinde **Çözüm Gezgini**, bulma ve adlı sayfası açmak *ProductList.aspx*.
-2. Sarı vurgulanan biçimlendirmeleri eklemek *ProductList.aspx* tüm sayfayı şu şekilde görünmesi sayfasında:  
+1. İçinde **Çözüm Gezgini**bulun ve adlı sayfasını açın *ProductList.aspx*.
+2. Sarı ile vurgulanmış biçimlendirme eklemek *ProductList.aspx* sayfanın tamamını aşağıdaki gibi görünür, böylece sayfa:  
 
     [!code-aspx[Main](shopping-cart/samples/sample7.aspx?highlight=50-54)]
 
 ### <a name="testing-the-shopping-cart"></a>Alışveriş sepeti test etme
 
-Alışveriş sepetine ürünleri eklemek ne görmek için uygulamayı çalıştırın.
+Ürün alışveriş sepetine eklemek nasıl görmek için uygulamayı çalıştırın.
 
 1. Tuşuna **F5** uygulamayı çalıştırın.  
- Proje veritabanını yeniden oluşturur sonra tarayıcı Göster açıp *Default.aspx* sayfası.
-2. Seçin **araba** kategori Gezinti menüsünde.  
- *ProductList.aspx* sayfası, yalnızca "Araba" kategorisindeki ürünleri gösteren görüntülenir. 
+ Proje veritabanını yeniden oluşturur sonra tarayıcıyı açın Göster ve *Default.aspx* sayfası.
+2. Seçin **otomobiller** kategori Gezinti menüsünde.  
+ *ProductList.aspx* sayfası, yalnızca "Arabalar" kategorisindeki ürünlerin gösteren görüntülenir. 
 
-    ![Alışveriş sepeti - araba](shopping-cart/_static/image5.png)
-3. Tıklatın **Sepete Ekle** ilk ürün yanındaki bağlantı listelenen (dönüştürülebilir car).   
- *ShoppingCart.aspx* sayfası görüntülenirse, alışveriş Sepetiniz seçimi gösterme. 
+    ![Alışveriş sepeti - otomobiller](shopping-cart/_static/image5.png)
+3. Tıklayın **Sepete Ekle** ilk ürün yanındaki bağlantısını (dönüştürülebilir car) listelenir.   
+ *ShoppingCart.aspx* sayfası görüntülenirse, seçimi, alışveriş sepetine gösteriliyor. 
 
     ![Alışveriş sepeti - Sepeti](shopping-cart/_static/image6.png)
 4. Ek ürünler seçerek görüntülemek **düzlemleri** kategori Gezinti menüsünde.
-5. Tıklatın **Sepete Ekle** listelenen ilk ürün yanındaki bağlantı.  
- *ShoppingCart.aspx* ek öğesiyle sayfası görüntülenir.
+5. Tıklayın **Sepete Ekle** listelenen ilk ürün yanındaki bağlantı.  
+ *ShoppingCart.aspx* ek öğeyle sayfası görüntülenir.
 6. Tarayıcıyı kapatın.
 
-### <a name="calculating-and-displaying-the-order-total"></a>Hesaplama ve sipariş toplam görüntüleme
+### <a name="calculating-and-displaying-the-order-total"></a>Hesaplama ve toplam sırayı görüntüleme
 
-Alışveriş sepetine ürün ekleme yanı sıra ekleyeceksiniz bir `GetTotal` yönteme `ShoppingCart` sınıfı ve alışveriş sepeti sayfasında toplam sipariş miktarını görüntüler.
+Alışveriş sepetine ürünleri eklemenin yanı sıra ekleyeceksiniz bir `GetTotal` yönteme `ShoppingCart` sınıfı ve toplam sipariş miktarı alışveriş sepeti sayfasında görüntüleyebilirsiniz.
 
-1. İçinde **Çözüm Gezgini**, açık *ShoppingCartActions.cs* dosyasını *mantığı* klasör.
-2. Aşağıdakileri ekleyin `GetTotal` sarıya vurgulanan yöntemi `ShoppingCart` sınıf böylece sınıfı şu şekilde görünür:   
+1. İçinde **Çözüm Gezgini**açın *ShoppingCartActions.cs* dosyası *mantıksal* klasör.
+2. Aşağıdakileri ekleyin `GetTotal` yöntemi için sarı renkle vurgulanmış `ShoppingCart` sınıfı böylece sınıfı şu şekilde görünür:   
 
     [!code-csharp[Main](shopping-cart/samples/sample8.cs?highlight=85-97)]
 
-İlk olarak, `GetTotal` yöntemi, kullanıcı için alışveriş sepeti Kimliğini alır. Ardından yöntemi alışveriş sepeti listelenen her ürün için ürün miktarı Ürün Fiyat çarparak toplam alır.
+İlk olarak, `GetTotal` yöntemi, kullanıcı için alışveriş sepetini Kimliğini alır. Ardından yöntemi sepete ürün fiyatı arabasına listelenen her ürün için ürün miktarı çarparak toplam alır.
 
 > [!NOTE] 
 > 
-> Yukarıdaki kod boş değer atanabilir tür kullanır "`int?`". Boş değer atanabilir türler tüm değerlerin temel alınan türü ve boş bir değer olarak gösterebilir. Daha fazla bilgi için [kullanarak boş değer atanabilir türler](https://msdn.microsoft.com/library/2cf62fcy(v=vs.110).aspx).
+> Yukarıdaki kod, boş değer atanabilir tür kullanır "`int?`". Tüm değerleri bir temel alınan türü ve null değer olarak boş değer atanabilir türleri temsil edebilir. Daha fazla bilgi edinmek, [kullanarak boş değer atanabilir türler](https://msdn.microsoft.com/library/2cf62fcy(v=vs.110).aspx).
 
 
-### <a name="modify-the-shopping-cart-display"></a>Alışveriş sepeti görüntüsünü değiştirme
+### <a name="modify-the-shopping-cart-display"></a>Alışveriş sepeti görüntüle değiştirme
 
-Sonraki kodunu değiştireceksiniz *ShoppingCart.aspx* çağırmak için sayfa `GetTotal` yöntemi ve toplam görüntü *ShoppingCart.aspx* sayfasında sayfa yüklendiğinde.
+Sonraki kodu değiştireceksiniz *ShoppingCart.aspx* çağırmak için sayfayı `GetTotal` yöntemi ve toplam görüntüleme *ShoppingCart.aspx* sayfa sayfa yüklendiğinde.
 
-1. İçinde **Çözüm Gezgini**, sağ *ShoppingCart.aspx* sayfasından seçim yapıp **görünümü kodu**.
-2. İçinde *ShoppingCart.aspx.cs* dosya, güncelleştirme `Page_Load` sarı ile vurgulanmış aşağıdaki kodu ekleyerek işleyici:   
+1. İçinde **Çözüm Gezgini**, sağ *ShoppingCart.aspx* sayfasından seçim yapıp **kodu görüntüle**.
+2. İçinde *ShoppingCart.aspx.cs* dosyası, güncelleştirme `Page_Load` sarı ile vurgulanmış aşağıdaki kodu ekleyerek işleyicisi:   
 
     [!code-csharp[Main](shopping-cart/samples/sample9.cs?highlight=16-31)]
 
-Zaman *ShoppingCart.aspx* sayfayı yükler, alışveriş sepeti nesnesi yükler ve ardından çağırarak alışveriş sepeti toplam alır `GetTotal` yöntemi `ShoppingCart` sınıfı. Bir ileti alışveriş sepeti boşsa, bunu belirten görüntülenir.
+Zaman *ShoppingCart.aspx* sayfayı yüklemez, alışveriş sepeti nesne yükler ve ardından çağırarak alışveriş sepeti toplam alır `GetTotal` yöntemi `ShoppingCart` sınıfı. Alışveriş sepeti boşsa, bir ileti belirlememişse bu bağlamda görüntülenir.
 
 ### <a name="testing-the-shopping-cart-total"></a>Alışveriş sepeti toplam test etme
 
-Nasıl yalnızca bir ürün alışveriş sepetine ekleyebileceğiniz değil görmek için uygulamayı şimdi çalıştırın, ancak alışveriş sepeti toplam görebilirsiniz.
+Nasıl yalnızca bir ürün alışveriş sepetine ekleyebilirsiniz değil görmek için uygulamayı şimdi çalıştırmak, ancak alışveriş sepeti toplam görebilirsiniz.
 
 1. Tuşuna **F5** uygulamayı çalıştırın.  
- Tarayıcıyı açın ve göstermek *Default.aspx* sayfası.
-2. Seçin **araba** kategori Gezinti menüsünde.
-3. Tıklatın **Sepete Ekle** ilk ürün yanındaki bağlantı.   
- *ShoppingCart.aspx* sayfası, sipariş toplamı ile gösterilir. 
+ Bir tarayıcı açın ve göstermek *Default.aspx* sayfası.
+2. Seçin **otomobiller** kategori Gezinti menüsünde.
+3. Tıklayın **Sepete Ekle** ilk ürün yanındaki bağlantı.   
+ *ShoppingCart.aspx* toplam sırayı sayfası görüntülenir. 
 
-    ![Sepeti - alışveriş sepeti toplamı](shopping-cart/_static/image7.png)
+    ![Alışveriş sepeti - alışveriş sepetini toplam](shopping-cart/_static/image7.png)
 4. Bazı diğer ürünleri (örneğin, uçak) Sepete ekleyin.
-5. *ShoppingCart.aspx* eklediğiniz tüm ürünleri güncelleştirilmiş bir toplamı ile sayfası görüntülenir. 
+5. *ShoppingCart.aspx* eklediğiniz tüm ürünler için güncelleştirilmiş bir toplam ile sayfası görüntülenir. 
 
-    ![Alışveriş sepeti - birden çok ürün](shopping-cart/_static/image8.png)
+    ![Alışveriş sepeti - birden çok ürünlerin](shopping-cart/_static/image8.png)
 6. Tarayıcı penceresini kapatarak çalışan uygulamayı durdurun.
 
-### <a name="adding-update-and-checkout-buttons-to-the-shopping-cart"></a>Alışveriş sepetine ekleme, güncelleştirme ve Checkout düğmeleri
+### <a name="adding-update-and-checkout-buttons-to-the-shopping-cart"></a>Alışveriş sepetine ekleme, güncelleştirme ve kullanıma alma düğmeleri
 
-Kullanıcıların alışveriş sepeti değiştirmesine izin vermek için ekleyeceksiniz bir **güncelleştirme** düğmesi ve **Checkout** alışveriş sepeti sayfasının düğmesini. **Checkout** daha sonra bu serideki öğretici kadar düğmesi kullanılamıyor.
+Alışveriş sepeti değiştirmek kullanıcılara izin vermek için ekleyeceksiniz bir **güncelleştirme** düğmesi ve **kullanıma alma** alışveriş sepeti sayfası düğmesi. **Kullanıma alma** düğmesi, daha sonra Bu öğretici serisindeki kadar kullanılmaz.
 
-1. İçinde **Çözüm Gezgini**, açık *ShoppingCart.aspx* web uygulaması projesi kökündeki sayfası.
-2. Eklemek için **güncelleştirme** düğmesi ve **Checkout** düğmesine *ShoppingCart.aspx* sayfasında, varolan biçimlendirme sarıya vurgulanan biçimlendirmeyi gösterildiği gibi ekleyin Aşağıdaki kod:   
+1. İçinde **Çözüm Gezgini**açın *ShoppingCart.aspx* web uygulaması projesi kökündeki sayfası.
+2. Eklenecek **güncelleştirme** düğmesi ve **kullanıma alma** düğmesi *ShoppingCart.aspx* sayfasında, mevcut biçimlendirmeye sarı renkle vurgulanmış biçimlendirme gösterildiği gibi ekleyin Aşağıdaki kodu:   
 
     [!code-aspx[Main](shopping-cart/samples/sample10.aspx?highlight=36-45)]
 
-Kullanıcı tıkladığında **güncelleştirme** düğmesini `UpdateBtn_Click` olay işleyicisi çağrılır. Bu olay işleyicisi sonraki adımda ekleyeceksiniz kodu çağırır.
+Kullanıcı tıkladığında **güncelleştirme** düğme `UpdateBtn_Click` olay işleyicisi çağrılır. Bu olay işleyicisi, sonraki adımda ekleyeceksiniz kodu çağırır.
 
-Ardından, içinde yer alan kodu güncelleştirebilirsiniz *ShoppingCart.aspx.cs* Sepeti öğeleri ve çağrı döngü dosyaya `RemoveItem` ve `UpdateItem` yöntemleri.
+Ardından, içerdiği kodu güncelleştirebilirsiniz *ShoppingCart.aspx.cs* Sepeti öğeleri ve çağrısı döngü dosyaya `RemoveItem` ve `UpdateItem` yöntemleri.
 
-1. İçinde **Çözüm Gezgini**, açık *ShoppingCart.aspx.cs* web uygulaması projesi kökündeki dosyasında.
-2. Sarı vurgulanan aşağıdaki kod bölümleri eklemek *ShoppingCart.aspx.cs* dosyası:   
+1. İçinde **Çözüm Gezgini**açın *ShoppingCart.aspx.cs* web uygulama projesinin kök dosyasında.
+2. Sarı ile vurgulanmış kodu aşağıdaki bölümlerde ekleme *ShoppingCart.aspx.cs* dosyası:   
 
     [!code-csharp[Main](shopping-cart/samples/sample11.cs?highlight=9-11,33,44-89)]
 
-Kullanıcı tıkladığında **güncelleştirme** düğmesini *ShoppingCart.aspx* sayfasında, UpdateCartItems yöntemi çağrılır. UpdateCartItems yöntemi alışveriş sepeti her öğe için güncelleştirilmiş değerlerini alır. Ardından, UpdateCartItems yöntemini çağırır `UpdateShoppingCartDatabase` (eklenir ve sonraki adımda açıklanan) bir yöntem eklemek veya Alışveriş sepetinden öğeleri kaldırmak için. Veritabanı alışveriş sepeti güncelleştirmeler yansıtacak şekilde güncelleştirildi sonra **GridView** denetim çağırarak alışveriş sepeti sayfasında güncelleştirilir `DataBind` yöntemi **GridView**. Ayrıca, alışveriş sepeti sayfasında toplam sipariş tutarı öğeleri güncelleştirilmiş listesini yansıtacak şekilde güncelleştirilir.
+Kullanıcı tıkladığında **güncelleştirme** düğmesini *ShoppingCart.aspx* sayfasında UpdateCartItems yöntemi çağrılır. UpdateCartItems yöntemi alışveriş sepetini her öğe için güncelleştirilmiş değerleri alır. Ardından, UpdateCartItems yöntemi çağıran `UpdateShoppingCartDatabase` (eklenir ve bir sonraki adımda açıklanan) yöntemi ekleyebilir veya alışveriş sepetini öğeleri kaldırmak için. Veritabanı güncelleştirmelerini alışveriş sepetine yansıtacak şekilde güncelleştirildi sonra **GridView** denetim çağırarak alışveriş sepeti sayfada güncelleştirilir `DataBind` yöntemi **GridView**. Ayrıca, alışveriş sepeti sayfası toplam sipariş miktarı, güncelleştirilmiş öğelerin listesini yansıtacak şekilde güncelleştirilir.
 
-### <a name="updating-and-removing-shopping-cart-items"></a>Güncelleştirme ve alışveriş sepeti öğeleri kaldırma
+### <a name="updating-and-removing-shopping-cart-items"></a>Güncelleştirme ve alışveriş sepetine öğe kaldırma
 
-Üzerinde *ShoppingCart.aspx* sayfasında, bir öğe miktarını güncelleştirme ve bir öğeyi kaldırmak için denetimleri eklenmiş görebilirsiniz. Şimdi, iş bu denetimleri yapacak kodu ekleyin.
+Üzerinde *ShoppingCart.aspx* sayfasında, bir öğe miktarını güncelleştiriliyor ve bir öğe kaldırmak için Denetim eklenmiştir görebilirsiniz. Şimdi çalışması için bu denetimleri yapar kodu ekleyin.
 
-1. İçinde **Çözüm Gezgini**, açık *ShoppingCartActions.cs* dosyasını *mantığı* klasör.
-2. Sarı vurgulanan aşağıdaki kodu ekleyin *ShoppingCartActions.cs* sınıf dosyası:   
+1. İçinde **Çözüm Gezgini**açın *ShoppingCartActions.cs* dosyası *mantıksal* klasör.
+2. Sarı ile vurgulanmış aşağıdaki kodu ekleyin *ShoppingCartActions.cs* sınıf dosyası:   
 
     [!code-csharp[Main](shopping-cart/samples/sample12.cs?highlight=99-213)]
 
-`UpdateShoppingCartDatabase` Yöntemi çağrılır, `UpdateCartItems` yöntemi *ShoppingCart.aspx.cs* sayfasında, güncelleştirmek veya Alışveriş sepetinden öğeleri kaldırmak için mantığını içerir. `UpdateShoppingCartDatabase` Yöntemi tekrarlanan alışveriş sepeti listesindeki tüm satırların üzerinden. Bir alışveriş sepeti öğesi kaldırılması için işaretlenmiş veya miktarı değerinden bir `RemoveItem` yöntemi çağrılır. Aksi takdirde, alışveriş sepeti öğesi için denetlenir ne zaman güncelleştirmeleri `UpdateItem` yöntemi çağrılır. Alışveriş sepeti öğesi kaldırılmış ya da güncelleştirilmiş sonra veritabanı değişiklikler kaydedilir.
+`UpdateShoppingCartDatabase` Yöntemi çağrılır, `UpdateCartItems` metodunda *ShoppingCart.aspx.cs* sayfasında, güncelleştirmek veya alışveriş sepetini öğeleri kaldırmak için mantığı içerir. `UpdateShoppingCartDatabase` Yöntemi yinelenir alışveriş sepeti listesindeki tüm satırların üzerinden. Kaldırılacak bir alışveriş sepeti öğesi işaretlenmiş veya değerden daha az miktardır `RemoveItem` yöntemi çağrılır. Aksi takdirde, alışveriş sepetine öğe için teslim zaman güncelleştirmeleri `UpdateItem` yöntemi çağrılır. Alışveriş sepeti öğesi kaldırıldı veya güncelleştirildikten sonra veritabanı değişikliklerini kaydedilir.
 
-`ShoppingCartUpdates` Yapısı tüm alışveriş sepeti öğeleri yerleştirmek için kullanılır. `UpdateShoppingCartDatabase` Yöntemi kullanan `ShoppingCartUpdates` öğelerden herhangi birini güncelleştirilmiş veya kaldırılması gerekip gerekmediğini belirlemek için yapısı.
+`ShoppingCartUpdates` Yapısı, alışveriş sepeti öğeleri tutmak için kullanılır. `UpdateShoppingCartDatabase` Yöntemi kullanan `ShoppingCartUpdates` yapısı herhangi bir öğeyi güncelleştirilmesi veya kaldırılması gerekip gerekmediğini belirlemek için.
 
-Sonraki öğreticide kullanacağınız `EmptyCart` alışveriş temizlemek için yöntemi Sepeti ürünleri satın aldıktan sonra. Ancak şu an için kullanacağınız `GetCount` için eklediğiniz yöntemi *ShoppingCartActions.cs* alışveriş sepeti öğe sayısını belirlemek için dosya.
+Sonraki öğreticide kullanacağınız `EmptyCart` alışveriş temizlemek için yöntemi sepete ürün satın aldıktan sonra. Ancak şu an için kullanacağınız `GetCount` eklendiğiniz yöntemi *ShoppingCartActions.cs* alışveriş sepetine öğe sayısını belirlemek için dosya.
 
-### <a name="adding-a-shopping-cart-counter"></a>Bir alışveriş sepeti sayaç ekleme
+### <a name="adding-a-shopping-cart-counter"></a>Alışveriş sepeti sayaç ekleme
 
-Alışveriş sepeti içinde toplam öğe sayısını görüntülemek izin vermek için bir sayaç ekleyecek *Site.Master* sayfası. Bu sayaç, alışveriş sepeti bağlantı olarak da hareket eder.
+Alışveriş sepeti toplam öğe sayısını görüntülemek izin vermek için bir sayaç ekleyeceksiniz *Site.Master* sayfası. Bu sayaç, alışveriş sepetine bağlantısını da görecek.
 
-1. İçinde **Çözüm Gezgini**, açık *Site.Master* sayfası.
-2. İşaretleme sarı gezinti bölümüne aşağıdaki gibi göründüğü şekilde gösterildiği gibi alışveriş sepeti sayaç bağlantı ekleyerek değiştirin:  
+1. İçinde **Çözüm Gezgini**açın *Site.Master* sayfası.
+2. Biçimlendirme, aşağıdaki gibi görünecek şekilde sarı Gezinti bölümde gösterildiği alışveriş sepeti sayacı bağlantısı ekleyerek değiştirin:  
 
     [!code-html[Main](shopping-cart/samples/sample13.html?highlight=6)]
-3. Ardından, arka plan kodu, güncelleştirme *Site.Master.cs* dosyasını sarı ile aşağıdaki gibi vurgulanmış kodu ekleyerek düzenleyin:  
+3. Ardından, arka plan kod, güncelleştirme *Site.Master.cs* gibi sarı ile vurgulanmış kodu ekleyerek dosyası:  
 
     [!code-csharp[Main](shopping-cart/samples/sample14.cs?highlight=11,77-84)]
 
-Sayfanın HTML olarak işlenmeden önce `Page_PreRender` olayı oluşturulur. İçinde `Page_PreRender` işleyici, alışveriş sepeti toplam sayısı, çağıran belirlenir `GetCount` yöntemi. Döndürülen değer eklenen `cartCount` biçimlendirmede dahil yayılma *Site.Master* sayfası. `<span>` Etiketleri düzgün işlenecek iç öğeleri sağlar. Sitenin herhangi bir sayfayı görüntülendiğinde, alışveriş sepeti toplam görüntülenir. Kullanıcı, alışveriş sepeti görüntülenecek alışveriş sepeti toplam tıklatabilirsiniz.
+Sayfanın HTML olarak işlenmeden önce `Page_PreRender` olayı oluşturulur. İçinde `Page_PreRender` toplam sayısını, alışveriş sepetine işleyicisini çağırarak belirlenir `GetCount` yöntemi. Döndürülen değer eklenir `cartCount` yayılma biçimlendirmede dahil *Site.Master* sayfası. `<span>` Etiketleri düzgün işlenecek iç öğeleri sağlar. Sitenin herhangi bir sayfanın görüntülendiğinde, alışveriş sepeti toplam görüntülenir. Kullanıcı, alışveriş sepetine görüntülenecek alışveriş sepeti toplam de tıklayabilirsiniz.
 
-## <a name="testing-the-completed-shopping-cart"></a>Tamamlanan alışveriş sepeti test etme
+## <a name="testing-the-completed-shopping-cart"></a>Tamamlanan alışveriş sepetini test etme
 
-Alışveriş sepeti içinde nasıl ekleyebileceğiniz görmek için uygulamayı şimdi, silme ve güncelleştirme öğeleri çalıştırabilirsiniz. Alışveriş sepeti toplam alışveriş sepeti tüm öğelerde toplam maliyeti yansıtır.
+Nasıl ekleyebileceğinizi görmek için uygulamayı şimdi, silme ve güncelleştirme öğe alışveriş sepetine çalıştırabilirsiniz. Tüm öğelerin alışveriş sepetine toplam maliyeti alışveriş sepeti toplam ücreti yansıtılır.
 
 1. Tuşuna **F5** uygulamayı çalıştırın.  
  Tarayıcı açılır ve gösterir *Default.aspx* sayfası.
-2. Seçin **araba** kategori Gezinti menüsünde.
-3. Tıklatın **Sepete Ekle** ilk ürün yanındaki bağlantı.   
- *ShoppingCart.aspx* sayfası, sipariş toplamı ile gösterilir.
+2. Seçin **otomobiller** kategori Gezinti menüsünde.
+3. Tıklayın **Sepete Ekle** ilk ürün yanındaki bağlantı.   
+ *ShoppingCart.aspx* toplam sırayı sayfası görüntülenir.
 4. Seçin **düzlemleri** kategori Gezinti menüsünde.
-5. Tıklatın **Sepete Ekle** ilk ürün yanındaki bağlantı.
-6. 3 alışveriş sepetine ilk öğe miktarını kümesindeki ve seçin **öğeyi Kaldır** ikinci öğenin onay kutusunu.<a id="a"></a>
-7. ' I tıklatın **güncelleştirme** düğmesine alışveriş sepeti sayfasını güncelleştirmek ve yeni sipariş toplama görüntüler. 
+5. Tıklayın **Sepete Ekle** ilk ürün yanındaki bağlantı.
+6. İlk öğe miktarını alışveriş sepetine 3 olarak ayarlayın ve seçin **öğeyi Kaldır** onay kutusunun ikinci öğe.<a id="a"></a>
+7. Tıklayın **güncelleştirme** düğmesine alışveriş sepeti sayfası ve yeni sipariş toplamını görüntüler. 
 
-    ![Alışveriş sepeti - Sepeti güncelleştirme](shopping-cart/_static/image9.png)
+    ![Alışveriş sepeti - alışveriş sepetini güncelleştirme](shopping-cart/_static/image9.png)
 
 ## <a name="summary"></a>Özet
 
-Bu öğreticide, alışveriş sepeti Wingtip Toys Web Forms örnek uygulama için oluşturdunuz. Entity Framework Code First, veri ek açıklamaları, kesin türü belirtilmiş veri denetimleri ve model bağlama sırasında Bu öğreticide kullandığınız.
+Bu öğreticide, Wingtip Toys Web Forms örnek uygulama için bir alışveriş sepeti oluşturdunuz. Bu öğretici sırasında Entity Framework Code First, veri ek açıklamaları, kesin türü belirtilmiş veri denetimleri ve model bağlama kullandınız.
 
-Alışveriş sepeti ekleme, silme ve kullanıcı için satın seçilmiş öğeler güncelleştiriliyor destekler. Alışveriş sepeti işlevselliği uygulamadan yanı sıra, alışveriş sepeti öğeleri görüntülemek nasıl öğrendiniz bir **GridView** denetlemek ve sipariş toplamı hesaplayın.
+Alışveriş sepeti, ekleme, silme ve güncelleştirme satın alma için kullanıcının seçtiği öğeleri destekler. Alışveriş sepeti işlevselliği uygulamak yanı sıra, alışveriş sepeti öğeleri görüntülemek nasıl öğrendiniz bir **GridView** denetlemek ve sipariş toplamını hesaplar.
 
 ## <a name="addition-information"></a>Ek bilgi
 
@@ -326,4 +325,4 @@ Alışveriş sepeti ekleme, silme ve kullanıcı için satın seçilmiş öğele
 
 > [!div class="step-by-step"]
 > [Önceki](display_data_items_and_details.md)
-> [sonraki](checkout-and-payment-with-paypal.md)
+> [İleri](checkout-and-payment-with-paypal.md)

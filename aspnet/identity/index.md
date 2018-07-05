@@ -9,38 +9,37 @@ ms.date: 10/02/2013
 ms.topic: article
 ms.assetid: 0c2df5d4-c2dd-486d-b0ed-fe831c6b596c
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /identity
 msc.type: categoryindex
-ms.openlocfilehash: 0a8118d775ffcfb99eb94db0e3ab4c7fe69ae8cd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f3903b0597a8a553cbbf216a1fd618c4ae4a9879
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26563658"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37375635"
 ---
-<a name="aspnet-identity"></a>ASP.NET kimliği
+<a name="aspnet-identity"></a>ASP.NET Kimlik
 ====================
 - [Genel bakış](overview/index.md)
 
-    - [ASP.NET kimliği ile çalışmaya başlama](overview/getting-started/index.md)
+    - [ASP.NET Identity ile Çalışmaya Başlama](overview/getting-started/index.md)
 
-        - [ASP.NET Identity giriş](overview/getting-started/introduction-to-aspnet-identity.md)
-        - [ASP.NET Identity kaynaklar önerilir](overview/getting-started/aspnet-identity-recommended-resources.md)
-        - [Proje ekleme ASP.NET kimliği boş veya var olan bir Web Forms](overview/getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project.md)
-        - [Azure Active Directory ile ASP.NET uygulama geliştirme](overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory.md)
-        - [ASP.NET Identity: MySQL depolama EntityFramework MySQL sağlayıcısıyla (C#) kullanarak.](overview/getting-started/aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider.md)
+        - [ASP.NET Identity’ye Giriş](overview/getting-started/introduction-to-aspnet-identity.md)
+        - [ASP.NET Identity Önerilen Kaynaklar](overview/getting-started/aspnet-identity-recommended-resources.md)
+        - [Boş veya Mevcut Bir Web Forms Projesine ASP.NET Identity Ekleme](overview/getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project.md)
+        - [Azure Active Directory ile ASP.NET Uygulamaları geliştirme](overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory.md)
+        - [ASP.NET Identity: Bir EntityFramework MySQL Sağlayıcısı ile MySQL Depolama Kullanma (C#)](overview/getting-started/aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider.md)
     - [Özellikler ve API](overview/features-api/index.md)
 
-        - [Parolalar ve diğer hassas verileri ASP.NET ve Azure uygulama hizmeti dağıtmak için en iyi uygulamalar](overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md)
-        - [Hesap onaylamayı ve parola kurtarma ile ASP.NET Identity (C#)](overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity.md)
-        - [SMS ve e-posta ile ASP.NET Identity kullanan iki öğeli kimlik doğrulaması](overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity.md)
+        - [Parolaların ve diğer hassas verilerin ASP.NET ve Azure App Service’e dağıtılması için en iyi yöntemler](overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md)
+        - [ASP.NET Identity ile Hesap Onaylama ve Parola Kurtarma (C#)](overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity.md)
+        - [ASP.NET Identity ile SMS ve e-posta kullanılan iki öğeli kimlik doğrulaması](overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity.md)
     - [Genişletilebilirlik](overview/extensibility/index.md)
 
-        - [ASP.NET kimliği için özel depolama sağlayıcıları genel bakış](overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity.md)
-        - [Bir özel MySQL ASP.NET Identity depolama sağlayıcıyı uygulama](overview/extensibility/implementing-a-custom-mysql-aspnet-identity-storage-provider.md)
-        - [ASP.NET kimliği kullanıcılar için birincil anahtarı Değiştir](overview/extensibility/change-primary-key-for-users-in-aspnet-identity.md)
-    - [Geçişleri](overview/migrations/index.md)
+        - [ASP.NET Identity için Özel Depolama Sağlayıcılarına Genel Bakış](overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity.md)
+        - [Özel MySQL ASP.NET Identity Depolama Sağlayıcısı Uygulama](overview/extensibility/implementing-a-custom-mysql-aspnet-identity-storage-provider.md)
+        - [ASP.NET Identity’de Kullanıcılar için Birincil Anahtarı Değiştirme](overview/extensibility/change-primary-key-for-users-in-aspnet-identity.md)
+    - [Geçişler](overview/migrations/index.md)
 
-        - [Mevcut bir Web SQL üyeliğinden ASP.NET Identity geçirme](overview/migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)
-        - [Üyelik ve ASP.NET Identity (C#) için kullanıcı profilleri için evrensel sağlayıcısı verileri geçirme](overview/migrations/migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity.md)
+        - [Mevcut Bir Web Sitesini SQL Üyeliğinden ASP.NET Identity’ye Geçirme](overview/migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)
+        - [Üyelik ve Kullanıcı Profilleri için Evrensel Sağlayıcı Verilerini ASP.NET Identity’ye Geçirme (C#)](overview/migrations/migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity.md)

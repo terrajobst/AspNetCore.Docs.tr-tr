@@ -1,69 +1,68 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/changing-the-database
-title: 'EF veritabanıyla ilk ASP.NET MVC: veritabanı değiştirme | Microsoft Docs'
+title: 'İlk ASP.NET MVC ile EF veritabanında: veritabanını değiştirme | Microsoft Docs'
 author: tfitzmac
-description: ASP.NET yapı İskelesi MVC ve Entity Framework kullanarak, varolan bir veritabanını bir arabirim sağlayan bir web uygulaması oluşturabilirsiniz. Bu öğretici seri...
+description: MVC, Entity Framework ve ASP.NET iskeleti oluşturma kullanarak mevcut bir veritabanı için bir arabirim sunan bir web uygulaması oluşturabilirsiniz. Bu öğretici seri...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/01/2014
 ms.topic: article
 ms.assetid: cfd5c083-a319-482e-8f25-5b38caa93954
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/changing-the-database
 msc.type: authoredcontent
-ms.openlocfilehash: 63ee8768a43dbdac80922e3adbedd3378c10da73
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 7c9bca87c51bee35be2c5b533916255be80056b0
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30879328"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37385440"
 ---
-<a name="ef-database-first-with-aspnet-mvc-changing-the-database"></a>EF veritabanıyla ilk ASP.NET MVC: veritabanı değiştirme
+<a name="ef-database-first-with-aspnet-mvc-changing-the-database"></a>İlk ASP.NET MVC ile EF veritabanında: veritabanını değiştirme
 ====================
-tarafından [zel FitzMacken](https://github.com/tfitzmac)
+tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
-> ASP.NET yapı İskelesi MVC ve Entity Framework kullanarak, varolan bir veritabanını bir arabirim sağlayan bir web uygulaması oluşturabilirsiniz. Bu öğretici seri otomatik olarak görüntüleme, düzenleme, oluşturmak kullanıcıların sağlayan kodu oluşturmak ve veritabanı tablosunda bulunan verileri silme gösterilmektedir. Oluşturulan kodun veritabanı tablosundaki sütunlarla karşılık gelir.
+> MVC, Entity Framework ve ASP.NET iskeleti oluşturma kullanarak mevcut bir veritabanı için bir arabirim sunan bir web uygulaması oluşturabilirsiniz. Bu öğretici serisinde, otomatik olarak kullanıcıların görüntüleme, düzenleme, oluşturma olanak sağlayan bir kod oluşturmak ve bir veritabanı tablosu, bulunan verileri silmek gösterilir. Oluşturulan kod, veritabanı tablosundaki sütunlara karşılık gelir.
 > 
-> Veritabanı yapısında bir güncelleştirme yapmadan ve web uygulama boyunca bu değişikliği yayılıyor dizisinin bu bölümü odaklanır.
+> Bu serinin veritabanı yapısında bir güncelleştirme yapmak ve web uygulama boyunca bu değişiklik yayma odaklanır.
 
 
-## <a name="add-a-column"></a>Bir sütun ekleyin
+## <a name="add-a-column"></a>Sütun ekleme
 
-Bir tablo yapısı veritabanınızda güncelleştirirseniz, değişikliğinizin veri model, Görünüm ve denetleyici yayılır emin olmak gerekir.
+Bir tablonun yapısını veritabanınızda güncelleştirirseniz, değişikliğiniz veri modeli, görünümler ve denetleyici yayıldığından emin olmak gerekir.
 
-Bu öğretici için yeni bir sütun Öğrenci Orta adını kaydetmek için Öğrenci tabloya ekleyeceksiniz. Bu sütun eklemek için veritabanı projesi açın ve Student.sql dosyasını açın. Tasarımcı veya T-SQL kodunu adlı bir sütun ekler **MiddleName** , bir NVARCHAR(50) ve NULL değerlere izin verir.
+Bu öğreticide, Öğrenci ikinci adını kaydetmek için Öğrenci tabloya yeni bir sütun ekleyeceksiniz. Bu sütunu eklemek için veritabanı projesini açın ve Student.sql dosyasını açın. Tasarımcı veya T-SQL kodu adlı bir sütun eklemek **MiddleName** , bir NVARCHAR(50) ve NULL değerlere izin verir.
 
-![İkinci adı ekleyin](changing-the-database/_static/image1.png)
+![İkinci ad ekleyin](changing-the-database/_static/image1.png)
 
-Bu değişiklik, veritabanı projesi (veya F5) başlatarak yerel veritabanınızı dağıtın. Yeni alanın tablosuna eklenir. SQL Server nesne Gezgini'nde onu görmüyorsanız bölmesindeki Yenile düğmesini tıklatın.
+Bu değişiklik, veritabanı projesi (veya F5) başlatarak yerel veritabanınıza dağıtın. Yeni alan tablosuna eklenir. SQL Server nesne Gezgini'nde, görmüyorsanız bölmeyi yenile düğmesine tıklayın.
 
 ![Yeni bir sütun Göster](changing-the-database/_static/image2.png)
 
-Veritabanı tablosunda yeni bir sütun var, ancak veri modeli sınıfında şu anda yok. Model, yeni bir sütun eklemek için güncelleştirmeniz gerekir. İçinde **modelleri** klasörü, açık **ContosoModel.edmx** modeli diyagramını görüntülemek için dosya. Öğrenci model MiddleName özelliği içermiyor dikkat edin. Herhangi bir yere tasarım yüzeyine sağ tıklatın ve seçin **güncelleştirme modeli veritabanından**.
+Veritabanı tablosunda yeni bir sütun var, ancak veri modeli sınıfında şu anda yok. Model, yeni bir sütun içerecek şekilde güncelleştirmeniz gerekir. İçinde **modelleri** açık klasör **ContosoModel.edmx** modeli diyagramını görüntülemek için dosya. Öğrenci model MiddleName özelliği içermiyor dikkat edin. Tasarım yüzeyinde herhangi bir yere sağ tıklatıp seçin **veritabanından bir güncelleştirme modeli**.
 
-![Bir güncelleştirme modeli](changing-the-database/_static/image3.png)
+![bir güncelleştirme modeli](changing-the-database/_static/image3.png)
 
-Güncelleştirme Sihirbazı'nda seçin **yenileme** sekmesi ve **Öğrenci** tablo.
+Güncelleştirme Sihirbazı'nda seçin **Yenile** sekmesi ve **Öğrenci** tablo.
 
 ![Güncelleştirme Sihirbazı](changing-the-database/_static/image4.png)
 
 **Son**'a tıklayın.
 
-Güncelleştirme işlemi tamamlandıktan sonra veritabanı şemasını yeni içermektedir **MiddleName** özelliği. Kaydet **ContosoModel.edmx** dosya. Bu dosya için yayılması yeni bir özellik için kaydetmelisiniz **Student.cs** sınıfı. Şimdi, veritabanı ve modeli güncelleştirdiniz.
+Güncelleştirme işlemi tamamlandıktan sonra veritabanı diyagramı yeni içerir **MiddleName** özelliği. Kaydet **ContosoModel.edmx** dosya. Yeni bir özellik için yayılması için bu dosyayı kaydetmeniz gerekir **Student.cs** sınıfı. Şimdi, veritabanı ve modeli de güncelleştirdik.
 
 Çözümü oluşturun.
 
-Ne yazık ki, görünümleri yeni özellik hala içermez. Görünümlerini güncelleştirmek için iki seçeneğiniz vardır - ya da görünümleri Öğrenci sınıfı için askılamayı yeniden ekleyerek yeniden oluşturabileceğiniz veya varolan görünümlerinize yeni özellik el ile ekleyebilirsiniz. Bu öğreticide, yapı iskelesi ekleyeceksiniz yeniden özelleştirilmiş değişiklikleri otomatik olarak oluşturulan görünümlerine yaptığınız değil çünkü. Görünümlere değişiklikler yaptığınızda ve bu değişiklikleri kaybetmek istiyor musunuz özelliğini el ile eklemeyi düşünebilirsiniz.
+Ne yazık ki, görünümler, yeni özellik hala içermez. Görünümlerin güncelleştirilmesi için iki seçeneğiniz vardır - ya da görünümleri yapı iskelesi Öğrenci sınıfı için bir kez yeniden ekleyerek yeniden oluşturabilirsiniz veya yeni özellik mevcut görünümlerinizde el ile ekleyebilirsiniz. Bu öğreticide, yapı iskelesi ekleyeceksiniz yeniden otomatik olarak oluşturulan görünümler için özelleştirilmiş tüm değişiklikleri yapmasanız olduğundan. Değişiklikleri görünümlerine yaptığınızda ve değişiklikleri kaybetmek istiyor musunuz özelliği el ile eklemeyi düşünebilirsiniz.
 
-Görünümleri yeniden oluşturulan emin olmak için silme **Öğrenciler** klasörü altında **görünümleri**ve silme **StudentsController**. Sonra sağ tıklatın **denetleyicileri** klasörü ve eklemek için askılamayı **Öğrenci** modeli. Yeniden, denetleyici adı **StudentsController**. Seçin **Tamam**.
+Görünümleri yeniden oluşturulmuş olduğundan emin olmak için silme **Öğrenciler** klasörü altında **görünümleri**ve silme **StudentsController**. Ardından, sağ tıklayarak **denetleyicileri** klasörü ve için yapı iskelesi Ekle **Öğrenci** modeli. Denetleyici yeniden adlandırın **StudentsController**. Seçin **Tamam**.
 
-Görünümleri artık MiddleName özelliği içerir.
+Görünümler, artık MiddleName özelliği içerir.
 
-![Orta adını göster](changing-the-database/_static/image5.png)
+![İkinci Ad Göster](changing-the-database/_static/image5.png)
 
-Sonraki bölümde Öğrenci kayıtla ilgili ayrıntıları gösteren görünümü özelleştirmek için kod ekleyeceksiniz.
+Sonraki bölümde, bir öğrenci kayıt hakkındaki ayrıntıları göstermek için bu görünümü özelleştirmek için kod ekleyeceksiniz.
 
 > [!div class="step-by-step"]
 > [Önceki](generating-views.md)
-> [sonraki](customizing-a-view.md)
+> [İleri](customizing-a-view.md)

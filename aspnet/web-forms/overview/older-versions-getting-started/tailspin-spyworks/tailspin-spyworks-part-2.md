@@ -1,50 +1,49 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-2
-title: '2. Kısım: Veri erişim katmanı | Microsoft Docs'
+title: '2. Bölüm: Veri erişim katmanı | Microsoft Docs'
 author: JoeStagner
-description: Bu öğretici seri Tailspin Spyworks örnek uygulaması oluşturmak için geçen tüm adımları ayrıntılarını verir. 2. kısım, veri erişim katmanı ekleme kapsar.
+description: Bu öğretici serisinin tüm Tailspin Spyworks örnek uygulamayı oluşturmak için gerçekleştirilen adımlar ayrıntılı olarak açıklanmaktadır. 2. bölüm, veri erişim katmanı ekleyerek kapsar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/21/2010
 ms.topic: article
 ms.assetid: 5a9d5429-d70b-411c-8474-f42cf7ef8a2b
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: 9f734b04a0f4cec3c33bc5b42ef283ea64cdb463
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 13abb02e76b3af80aa11d09e75dc223403917804
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30890495"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37382575"
 ---
-<a name="part-2-data-access-layer"></a>2. Kısım: Veri erişim katmanı
+<a name="part-2-data-access-layer"></a>2. Bölüm: Veri erişim katmanı
 ====================
-tarafından [CAN Stagner](https://github.com/JoeStagner)
+tarafından [ALi Stagner](https://github.com/JoeStagner)
 
-> Tailspin Spyworks .NET platformu için güçlü, ölçeklendirilebilir uygulamalar oluşturun nasıl alıyoruz basit gerçekleştiğini gösterir. Alışveriş, kullanıma alma ve yönetim dahil olmak üzere bir çevrimiçi mağaza oluşturmak için ASP.NET 4'te harika yeni özellikleri kullanmak nasıl devre dışı gösterir.
+> Tailspin Spyworks .NET platformu için güçlü, ölçeklenebilir uygulamalar oluşturmak için nasıl çok basit olduğunu gösterir. Bu, alışveriş, kullanıma alma ve yönetim gibi bir çevrimiçi mağaza oluşturmak için ASP.NET 4'te harika yeni özellikleri kullanmak nasıl devre dışı gösterir.
 > 
-> Bu öğretici seri Tailspin Spyworks örnek uygulaması oluşturmak için geçen tüm adımları ayrıntılarını verir. 2. kısım, veri erişim katmanı ekleme kapsar.
+> Bu öğretici serisinin tüm Tailspin Spyworks örnek uygulamayı oluşturmak için gerçekleştirilen adımlar ayrıntılı olarak açıklanmaktadır. 2. bölüm, veri erişim katmanı ekleyerek kapsar.
 
 
 ## <a id="_Toc260221668"></a>  Veri erişim katmanı ekleme
 
 E-ticaret uygulamamız iki veritabanlarında bağlıdır.
 
-Standart ASP.NET üyelik veritabanı için müşteri bilgileri kullanacağız. Bizim alışveriş sepeti ve ürün kataloğu için şu SQL Express veritabanı gibi uygulamanız.
+Standart ASP.NET üyelik veritabanı müşteri bilgileri kullanacağız. Alışveriş sepeti ve ürün kataloğu için size bir SQL Express veritabanı gibi uygulayacaksınız.
 
 ![](tailspin-spyworks-part-2/_static/image1.jpg)
 
-Veritabanı (Commerce.mdf) uygulamanın uygulamada oluşturduktan\_ilerlemeden .NET Entity Framework kullanarak bizim veri erişim katmanı oluşturmak için veri klasörü.
+' % S'veritabanı (Commerce.mdf) uygulamanın uygulamada oluşturduğunuza\_biz devam edebilirsiniz, veri erişim katmanı .NET Entity Framework kullanarak oluşturmak için veri klasörü.
 
-Adlı bir klasör oluşturacağız "veri\_erişim" ve bunları bu klasörü sağ tıklatın ve "Yeni Öğe Ekle" seçin.
+Adlı bir klasör oluşturacağız "veri\_erişim" ve bunları bu klasörü sağ tıklatın ve "Yeni Öğe Ekle"'i seçin.
 
-"Yüklenmiş şablonlarda" öğesini ve ardından "ADO.NET varlık veri modeli" EDM girin\_Commerce.edmx adı olarak ve "Ekle" düğmesini tıklatın.
+"Yüklü şablonlarında" öğesini ve ardından "ADO.NET varlık veri modeli" EDM girin\_Commerce.edmx adı olarak "Ekle" düğmesine tıklayın.
 
 ![](tailspin-spyworks-part-2/_static/image2.jpg)
 
-"Veritabanı oluştur"'i seçin.
+"Veritabanından oluştur" öğesini seçin.
 
 ![](tailspin-spyworks-part-2/_static/image1.png)
 
@@ -54,10 +53,10 @@ Adlı bir klasör oluşturacağız "veri\_erişim" ve bunları bu klasörü sağ
 
 ![](tailspin-spyworks-part-2/_static/image3.jpg)
 
-Oluşturma ve kaydedin.
+Kaydet ve derleyin.
 
-Şimdi biz ilk özelliğimizi – ürün kategorisi menüsünden eklemek hazır olursunuz.
+Artık ilk özelliğimiz – bir ürün kategorisini menü eklemek hazırız.
 
 > [!div class="step-by-step"]
 > [Önceki](tailspin-spyworks-part-1.md)
-> [sonraki](tailspin-spyworks-part-3.md)
+> [İleri](tailspin-spyworks-part-3.md)

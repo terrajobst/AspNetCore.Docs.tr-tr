@@ -1,31 +1,30 @@
 ---
 uid: web-forms/videos/iis/iis7-playlists
-title: IIS7 Çalma | Microsoft Docs
+title: IIS7 Oynatma listeleri | Microsoft Docs
 author: JoeStagner
-description: Web sitenizde medya dosyalarını koyduysanız çalma listeleri sıraları için medya tanımlamanıza ve isteğe bağlı olarak kullanıcıların t bölümlerini atlamasını engellemek sağlayacaktır...
+description: Medya dosyaları, web sitenizde koyduysanız çalma listeleri dizileri için medya tanımlamanıza ve isteğe bağlı olarak t bölümlerini atlamasını kullanıcıları engellemek sağlar...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/10/2009
 ms.topic: article
 ms.assetid: b61968ac-6d9b-4b75-ab2a-934b609acba4
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/iis/iis7-playlists
 msc.type: video
-ms.openlocfilehash: 1869704c42161809731b461023e28f3af699428d
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 8f62ce6966d379ff9b00b828683ef274e479ddc9
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30885877"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37390601"
 ---
-<a name="iis7-playlists"></a>IIS7 çalma
+<a name="iis7-playlists"></a>IIS7 oynatma listeleri
 ====================
-tarafından [CAN Stagner](https://github.com/JoeStagner)
+tarafından [ALi Stagner](https://github.com/JoeStagner)
 
-Web sitenizde medya dosyalarını koyduysanız çalma listeleri sıraları için medya tanımlamanıza ve isteğe bağlı olarak kullanıcıların (örneğin, reklam veya bildirimler) içerik bölümlerini atlamasını engellemek sağlayacaktır.
+Medya dosyaları, web sitenizde koyduysanız çalma listeleri dizileri için medya tanımlamanıza ve isteğe bağlı olarak (örneğin, reklam veya bildirimleri) içerik bölümlerini atlamasını kullanıcıları engellemek sağlayacaktır.
 
-[&#9654;(8 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/iis7-playlists)
+[&#9654;Videoyu (8 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/iis7-playlists)
 
 > [!div class="step-by-step"]
 > [Önceki](bit-rate-throttling.md)

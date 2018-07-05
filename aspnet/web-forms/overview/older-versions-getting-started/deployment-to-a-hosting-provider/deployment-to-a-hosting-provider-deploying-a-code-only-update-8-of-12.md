@@ -1,114 +1,113 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12
-title: 'SQL Server Visual Studio veya Visual Web Developer kullanılarak Compact ile ASP.NET Web uygulaması dağıtma: Code-Only güncelleştirmesi - 8 12 dağıtma | Microsoft Docs'
+title: 'SQL Server Visual Studio veya Visual Web Developer kullanarak Compact ile bir ASP.NET Web uygulaması dağıtma: Code-Only güncelleştirmesi - 12 8 dağıtma | Microsoft Docs'
 author: tdykstra
-description: Bu öğreticiler dizi nasıl dağıtacağınız gösterilir (bir ASP.NET Yayımlama) Visual Stu kullanarak bir SQL Server Compact veritabanı içeren web uygulama projesi...
+description: Bu öğretici serisinde, nasıl dağıtılacağı gösterilir (bir ASP.NET Yayımlama) Visual Stu'ı kullanarak bir SQL Server Compact veritabanı içeren web uygulaması projesi...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/17/2011
 ms.topic: article
 ms.assetid: ddf6252f-9413-4c0c-a360-2cef8d231717
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 6305a8cb87d9b00b6bb4c4f8fa6114bddc4eb89f
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 39075d2e979076f88200ea595c92f95f38f35911
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30886920"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37374019"
 ---
-<a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-a-code-only-update---8-of-12"></a>SQL Server Visual Studio veya Visual Web Developer kullanılarak Compact ile ASP.NET Web uygulaması dağıtma: Code-Only güncelleştirmesi - 8 12 dağıtma
+<a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-a-code-only-update---8-of-12"></a>SQL Server Visual Studio veya Visual Web Developer kullanarak Compact ile bir ASP.NET Web uygulaması dağıtma: 12 8 - Code-Only güncelleştirmesi dağıtma
 ====================
-by [Tom Dykstra](https://github.com/tdykstra)
+tarafından [Tom Dykstra](https://github.com/tdykstra)
 
-[Başlangıç projesi indirme](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
+[Başlangıç projesini indirin](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
-> Bu öğreticiler dizi nasıl dağıtacağınız gösterilir (bir ASP.NET Yayımlama) Web için Visual Studio 2012 RC veya Visual Studio Express 2012 RC kullanılarak bir SQL Server Compact veritabanı içeren web uygulama projesi. Web yayımlama güncelleştirmesi yüklerseniz, Visual Studio 2010 de kullanabilirsiniz. Seri giriş için bkz: [serideki ilk öğreticide](deployment-to-a-hosting-provider-introduction-1-of-12.md).
+> Bu öğretici serisinde, nasıl dağıtılacağı gösterilir (bir ASP.NET Yayımlama) Web için Visual Studio 2012 RC veya Visual Studio Express 2012 RC'Yİ'ı kullanarak bir SQL Server Compact veritabanı içeren web uygulaması projesi. Web yayımlama güncelleştirme yüklerseniz, Visual Studio 2010'u kullanabilirsiniz. Serinin bir giriş için bkz [serideki ilk öğreticide](deployment-to-a-hosting-provider-introduction-1-of-12.md).
 > 
-> Visual Studio 2012 RC yayımlandıktan sonra sunulan dağıtım özellikleri gösterir, SQL Server sürümleri SQL Server Compact dışında dağıtma gösterir ve Azure App Service Web Apps için dağıtılacağı gösterilmiştir bir öğretici için bkz: [ASP.NET Web dağıtımı Visual Studio kullanarak](../../deployment/visual-studio-web-deployment/introduction.md).
+> Visual Studio 2012 RC sürümünden sonra sunulan dağıtım özellikleri gösterir, SQL Server sürümlerinde SQL Server Compact dışında dağıtmayı gösterir ve Azure App Service Web Apps'e dağıtma işlemi gösterilmektedir bir öğretici için bkz. [ASP.NET Web dağıtımı Visual Studio kullanarak](../../deployment/visual-studio-web-deployment/introduction.md).
 
 
 ## <a name="overview"></a>Genel Bakış
 
-İlk dağıtımdan sonra Bakımı ve web sitenizi geliştirme iş devam eder ve uzun süre önce bir güncelleştirme dağıtmak istersiniz. Bu öğretici bir güncelleştirme uygulama kodunuz dağıtma işlemini gösterir. Bu güncelleştirme, bir veritabanı değişiklik gerektirmez; sonraki öğreticide veritabanı değişikliği dağıtma hakkında farklı nedir görürsünüz.
+İlk dağıtımdan sonra Bakım ve web sitenizi geliştirme iş devam eder ve uzun süre önce bir güncelleştirme dağıtmak istersiniz. Bu öğretici, uygulama kodunuz için bir güncelleştirme dağıtma işlemini gösterir. Bu güncelleştirme, veritabanı değişikliği gerektirmez; farklı bir veritabanı değişiklik sonraki öğreticide dağıtma hakkında nedir görürsünüz.
 
-Anımsatıcı: bir hata iletisi alırsınız veya öğreticide ilerlerken bir şey işe yaramazsa, kontrol ettiğinizden emin olun [sorun giderme sayfası](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12.md).
+Anımsatıcı: hata iletisi alıyorum veya Bu öğreticide ilerlerken bir sorun oluşması durumunda kontrol ettiğinizden emin olun [sorun giderme sayfası](deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12.md).
 
-## <a name="making-a-code-change"></a>Bir kod değişikliği yapma
+## <a name="making-a-code-change"></a>Bir kod değişikliği yapmadan
 
-İçin ekleyeceksiniz basit bir örnek bir güncelleştirme olarak uygulamanıza, **Eğitmen** tarafından seçilen Eğitmen öğrettin kurslar listesini sayfa.
+Basit bir örnek, bir güncelleştirme uygulamanıza, için ekleyeceksiniz **Eğitmenler** seçili Eğitmenler tarafından verilen derslerimiz Listesi sayfasında.
 
-Çalıştırırsanız **Eğitmen** sayfasında fark olduğunu **seçin** bağlantılar kılavuzunda, ancak yapma dışında her şey satır arka plan Aç gri yapmayın.
+Çalıştırırsanız **Eğitmenler** sayfasında seçeneğinde olduğunu **seçin** bağlantıları kılavuzunda, ancak yapma dışında bir satır arka plan Aç gri uygulamayın.
 
 [![Instructors_page](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image2.png)](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image1.png)
 
-Ne zaman çalışan kod ekleyeceksiniz artık **seçin** bağlantı tıklatıldığında ve seçili Eğitmen tarafından öğrettin kurslar listesini görüntüler.
+Şimdi ne zaman çalışan kod ekleyeceksiniz **seçin** bağlantı tıklatıldığında ve seçili Eğitmenler tarafından verilen derslerimiz listesini görüntüler.
 
-İçinde *Instructors.aspx*, aşağıdaki biçimlendirmeleri eklemek hemen sonra **ErrorMessageLabel** `Label` denetimi:
+İçinde *Instructors.aspx*, aşağıdaki işaretlemeyi ekleyin hemen sonra **ErrorMessageLabel** `Label` denetimi:
 
 [!code-aspx[Main](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/samples/sample1.aspx)]
 
-Sayfayı çalıştırın ve bir eğitmen seçin. Bu Eğitmeni tarafından öğrettin kurslar listesini bakın.
+Sayfayı çalıştırın ve bir eğitmen seçin. Bu eğitmen tarafından verilen derslerimiz listesini görürsünüz.
 
 [![Instructors_page_with_courses](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image4.png)](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image3.png)
 
-## <a name="deploying-the-code-update-to-the-test-environment"></a>Kod güncelleştirme Test ortamına dağıtma
+## <a name="deploying-the-code-update-to-the-test-environment"></a>Test ortamı için kod güncelleştirmesi dağıtma
 
-Test ortamına dağıtma basit sağlasa da, çalışan tek tıklamayla yayımlama yeniden olur. Bu işlemi daha hızlı hale getirmek için kullanabileceğiniz **Web tek tık Yayımla** araç.
+Test ortamına dağıtma ibarettir çalıştırmanın tek tıklamayla yayımlama yeniden olur. Bu işlem daha hızlı hale getirmek için kullanabileceğiniz **Web tek tık Yayımla** araç çubuğu.
 
-İçinde **Görünüm** menüsünde seçin **araç çubukları** ve ardından **Web tek tık Yayımla**.
+İçinde **görünümü** menüsünde seçin **araç çubukları** seçip **Web tek tık Yayımla**.
 
 ![Selecting_One_Click_Publish_toolbar](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image5.png)
 
-İçinde **Çözüm Gezgini**, ContosoUniversity projesini seçin.
+İçinde **Çözüm Gezgini**, ContosoUniversity projeyi seçin.
 
 **Web tek tık Yayımla** araç seçin **Test** yayımlama profili ve ardından **Web'i Yayımla** (sağa ve sola işaret eden oklarla simgesiyle).
 
 ![Web_One_Click_Publish_toolbar](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image6.png)
 
-Visual Studio güncelleştirilmiş uygulamayı dağıtır ve tarayıcı giriş sayfasına otomatik olarak açar. Eğitmen sayfayı çalıştırın ve güncelleştirme başarılı bir şekilde dağıtıldı doğrulamak için bir eğitmen seçin.
+Visual Studio güncelleştirilmiş uygulamayı dağıtır ve tarayıcı giriş sayfasına otomatik olarak açılır. Eğitmenler çalıştırırsanız ve güncelleştirme başarıyla dağıtıldığını doğrulamak için bir eğitmen seçin.
 
 [![Instructors_page_with_courses_Test](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image8.png)](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image7.png)
 
-Normalde ayrıca regresyon testi yapmak (diğer bir deyişle, yeni değişiklik herhangi bir varolan işlevsellik yarıda kaydetmedi emin olmak için sitenin geri kalanını test). Ancak bu öğretici için bu adımı atlayın ve güncelleştirmeyi üretime dağıtmaya devam edin.
+Normalde ayrıca gerileme sınaması işlemi (diğer bir deyişle, yeni değişiklik herhangi bir mevcut işlevsellik yarıda yaramadı emin olmak için sitenin geri kalanını test). Ancak bu öğretici için bu adımı atlayın ve güncelleştirmeyi üretime dağıtmak için devam edin.
 
 ## <a name="preventing-redeployment-of-the-initial-database-state-to-production"></a>Üretim için ilk veritabanı durumu çözümünüzün yeniden dağıtımını önleme
 
-Gerçek bir uygulamada kullanıcıların ilk dağıtımınızdan sonra üretim sitenizle etkileşim ve veritabanlarını dinamik verilerle doldurulur. Bu nedenle, üyelik veritabanının tüm canlı verileri silme, ilk durumunda dağıtmanız istemezsiniz. SQL Server Compact veritabanları dosyalarında olduğundan *uygulama\_veri* klasörüne sahip, dosyalar için dağıtım ayarlarını değiştirerek Bunu önlemek *uygulama\_veri* klasörü dağıtılan değil.
+Gerçek bir uygulama kullanıcıların ilk dağıtımınızdan sonra üretim sitenizi etkileşim ve veritabanlarını Canlı verilerle doldurulur. Bu nedenle, tüm canlı verileri silme, başlangıç durumunda üyelik veritabanında yeniden istemezsiniz. SQL Server Compact veritabanları dosyalarında olduğundan *uygulama\_veri* klasörüne sahip dosyalar, bu nedenle dağıtım ayarlarını değiştirerek Bunu önlemek *uygulama\_veri* klasörü dağıtılan değildir.
 
-Açık **proje özelliklerini** ContosoUniversity proje ve Seç penceresi **Paketle/Yayımla Web** sekmesi. Olduğundan emin olun **yapılandırma** açılan kutusu vardır ya da **etkin (sürüm)** veya **sürüm** seçili seçin **uygulamasındandosyalarıdışlayın\_Veri klasörü**.
+Açık **proje özellikleri** ContosoUniversity proje ve Seç penceresi **Paketle/Yayımla Web** sekmesi. Emin olun **yapılandırma** açılan kutu ya da sahip **etkin (sürüm)** veya **yayın** seçili seçin **uygulamadandosyalarıdışlama\_Veri klasörü**.
 
 ![Exclude_files_from_the_App_Data_folder](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image9.png)
 
-Hata ayıklama derlemesi gelecekte dağıtmaya karar durumda, hata ayıklama yapı yapılandırması için aynı değişikliği yapmak için iyi bir fikirdir: değiştirme **yapılandırma** için **hata ayıklama** ve ardından **Dışla Uygulama dosyaları\_veri klasörü**.
+Gelecekte bir hata ayıklama derlemesi dağıtmak karar durumda, hata ayıklama derleme yapılandırması için aynı değişikliği yapmanız için iyi bir fikirdir: değiştirmek **yapılandırma** için **hata ayıklama** seçip **Dışla Uygulama dosyaları\_veri klasörü**.
 
 Kaydet ve Kapat **Paketle/Yayımla Web** sekmesi.
 
 > [!NOTE] 
 > 
 > [!IMPORTANT]
-> Yok olduğundan emin olun **hedefteki ek dosyaları Kaldır** Yayımla profillerinizi seçili. Bu seçeneği belirlerseniz, dağıtım işlemi, uygulamanız veritabanlarını silecek\_sitesi dağıtıldı ve bu verileri, uygulama silecek\_veri klasörü kendisi.
+> Yoksa emin **hedefteki ek dosyaları Kaldır** , yayımlama profillerine seçildi. Bu seçeneği seçerseniz, dağıtım işlemi uygulamada olan veritabanlarını silecek\_sitesi dağıtıldı ve bu verileri, uygulama silinecek\_veri klasörü kendisi.
 
 
-## <a name="preventing-user-access-to-the-production-site-during-update"></a>Güncelleştirme sırasında üretim siteye kullanıcı erişimini engelleme
+## <a name="preventing-user-access-to-the-production-site-during-update"></a>Kullanıcı erişimini üretim sitesini güncelleştirme sırasında engelliyor.
 
-Dağıtmakta değişiklik tek bir sayfa için basit bir değişiklik sunulmuştur. Ancak bazen büyük değişiklikler dağıtın ve dağıtım bitmeden önce kullanıcı bir sayfa isterse, bu durumda site garip davranabilir. Bunu önlemek için kullanabileceğiniz bir *uygulama\_offline.htm* dosya. Adlı bir dosya yerleştirdiğinizde *uygulama\_offline.htm* , uygulamanızın kök klasöründe IIS uygulamanızı çalıştırmak yerine bu dosyayı otomatik olarak görüntüler. Dağıtım sırasında erişimi engellemek için yerleştirdiğiniz şekilde *uygulama\_offline.htm* kök klasöründe dağıtım işlemini çalıştırın ve Kaldır'ı *uygulama\_offline.htm*.
+Dağıtım yapıyorsanız artık bir tek sayfalı basit bir değişiklik değişikliktir. Ancak bazen daha büyük değişiklikler dağıttığınızda ve dağıtım tamamlanmadan önce bir kullanıcı bir sayfa istediğinde bu durumda site garip davranabilir. Bunu önlemek için kullanabileceğiniz bir *uygulama\_offline.htm* dosya. Adlı bir dosya yerleştirdiğinizde *uygulama\_offline.htm* uygulamanızın kök klasöründe, IIS uygulamanızı çalıştırmak yerine bu dosyayı otomatik olarak görüntüler. Dağıtım sırasında erişimi engellemek için bu nedenle *uygulama\_offline.htm* kök klasöründe dağıtım işlemini çalıştırın ve Kaldır'ı *uygulama\_offline.htm*.
 
-İçinde **Çözüm Gezgini**, çözüm (değil projelerden biri) sağ tıklatın ve seçin **yeni çözüm klasörü**.
+İçinde **Çözüm Gezgini**, çözüm (değil projelerden birine) sağ tıklayıp **yeni çözüm klasörü**.
 
 ![Creating_a_solution_folder](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image10.png)
 
 Klasör adı *SolutionFiles*.
 
-Yeni klasör içinde adlı bir HTML sayfası oluşturun *uygulama\_offline.htm*. Varolan içeriğini aşağıdaki biçimlendirme ile değiştirin:
+Yeni klasöre adlı bir HTML sayfası oluşturma *uygulama\_offline.htm*. Aşağıdaki biçimlendirme mevcut içeriğini değiştirin:
 
 [!code-html[Main](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/samples/sample2.html)]
 
-Kopyalayabilirsiniz *uygulama\_offline.htm* site bir FTP bağlantısı kullanarak bir dosyaya veya **Dosya Yöneticisi** yardımcı programı barındırma sağlayıcısının Denetim Masası'nda. Bu öğretici için kullanacağınız **Dosya Yöneticisi**.
+Kopyalayabilirsiniz *uygulama\_offline.htm* site bir FTP bağlantısı kullanarak bir dosyaya veya **Dosya Yöneticisi** barındırma sağlayıcısının Denetim Masası'ndaki yardımcı programı. Bu öğretici için kullanacağınız **Dosya Yöneticisi**.
 
-Denetim Masası'nı açın ve seçin **Dosya Yöneticisi** de yaptığınız gibi [üretim ortamına dağıtma](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md) Öğreticisi. Seçin **contosouniversity.com** ve ardından **wwwroot** uygulamanızın kök klasörüne alın ve ardından **karşıya**.
+Denetim Masası'nı açın ve seçin **Dosya Yöneticisi** yaptığınız gibi [üretim ortamına dağıtma](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md) öğretici. Seçin **contosouniversity.com** ardından **wwwroot** uygulamanızın kök klasörüne almak ve ardından **karşıya**.
 
 [![Upload_button_in_File_Manager](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image12.png)](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image11.png)
 
@@ -116,28 +115,28 @@ Denetim Masası'nı açın ve seçin **Dosya Yöneticisi** de yaptığınız gib
 
 [![Upload_dialog_box_in_File_Manager](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image14.png)](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image13.png)
 
-Sitenizin URL'ye gidin. Gördüğünüz *uygulama\_offline.htm* sayfası artık giriş sayfanız yerine görüntülenir.
+Sitenizin URL'sine gidin. Gördüğünüz *uygulama\_offline.htm* sayfası, giriş sayfanızın yerine artık görüntülenir.
 
 [![App_offline.htm_page_in_production](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image16.png)](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image15.png)
 
-Şimdi üretime dağıtmaya hazır olursunuz.
+Artık üretime dağıtmaya hazır olursunuz.
 
-## <a name="deploying-the-code-update-to-the-production-environment"></a>Kodu güncelleştirmesi üretim ortamına dağıtma
+## <a name="deploying-the-code-update-to-the-production-environment"></a>Kod güncelleştirmesi üretim ortamına dağıtma
 
 İçinde **Web tek tık Yayımla** araç seçin **üretim** yayımlama profili ve ardından **Web'i Yayımla**.
 
-Visual Studio güncelleştirilmiş uygulamayı dağıtır ve sitenin giriş sayfasını tarayıcıda açılır. *Uygulama\_offline.htm* dosya görüntülenir. Başarılı dağıtım doğrulamak için test edebilirsiniz önce kaldırmalısınız *uygulama\_offline.htm* dosya.
+Visual Studio, güncelleştirilmiş uygulamayı dağıtır ve tarayıcı sitenin ana sayfasını açar. *Uygulama\_offline.htm* dosyası görüntülenir. Başarılı dağıtımı doğrulamak için test edebilmek için önce kaldırmanız gerekir *uygulama\_offline.htm* dosya.
 
-Geri dönüp **Dosya Yöneticisi** Denetim Masası'nda uygulama. Seçin **contosouniversity.com** ve **wwwroot**seçin **uygulama\_offline.htm**ve ardından **silmek**.
+Geri dönüp **Dosya Yöneticisi** Denetim Masası'nda uygulama. Seçin **contosouniversity.com** ve **wwwroot**seçin **uygulama\_offline.htm**ve ardından **Sil**.
 
 [![Deleting_app_offline.htm](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image18.png)](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image17.png)
 
-Tarayıcı ortak sitede Eğitmen sayfasını açın ve güncelleştirme başarılı bir şekilde dağıtıldı doğrulamak için bir eğitmen seçin.
+Tarayıcıda genel sitede Eğitmenler sayfasını açın ve bir eğitmen güncelleştirme başarıyla dağıtıldığını doğrulamak için seçin.
 
 [![Instructors_page_with_courses_Prod](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image20.png)](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12/_static/image19.png)
 
-Şimdi veritabanı değişikliği ilgili olmayan bir uygulama güncelleştirmesi dağıttıktan sonra. Sonraki öğretici veritabanı değişikliği dağıtma gösterir.
+Artık veritabanı değişikliği ilgili olmayan bir uygulama güncelleştirmesi dağıttınız. Sonraki öğreticiye nasıl veritabanı değişikliği dağıtılacağı gösterir.
 
 > [!div class="step-by-step"]
 > [Önceki](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md)
-> [sonraki](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12.md)
+> [İleri](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12.md)

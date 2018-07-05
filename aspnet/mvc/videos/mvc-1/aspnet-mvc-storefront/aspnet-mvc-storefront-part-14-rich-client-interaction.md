@@ -1,32 +1,31 @@
 ---
 uid: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-14-rich-client-interaction
-title: 'ASP.NET MVC Storefront bölümü 14: Zengin istemci etkileşim | Microsoft Docs'
+title: 'ASP.NET MVC StoreFront Bölüm 14: İstemci etkileşimi | Microsoft Docs'
 author: robconery
-description: Zengin istemci etkileşim özellikle AJAX üzerinde odaklanmıştır. Ramiz Conery geliştirme sürecinin her adımda kendi blogunda belgelenen.
+description: İstemci etkileşimi özellikle AJAX üzerinde odaklanır. Blog geliştirme sürecinde her adımında Rob Conery belgelenen.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/10/2008
 ms.topic: article
 ms.assetid: 28e3602f-34f8-4123-bf6d-235857202b5e
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-14-rich-client-interaction
 msc.type: video
-ms.openlocfilehash: 04cd19f499b22ee6272b45821d9dc7b313c60e56
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: cdfcf0db0fd4773c0951e56038e1c3a75184744e
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30872058"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37387893"
 ---
-<a name="aspnet-mvc-storefront-part-14-rich-client-interaction"></a>ASP.NET MVC Storefront bölümü 14: Zengin istemci etkileşimi
+<a name="aspnet-mvc-storefront-part-14-rich-client-interaction"></a>ASP.NET MVC StoreFront Bölüm 14: İstemci etkileşimi
 ====================
-tarafından [kitap Conery](https://github.com/robconery)
+tarafından [Rob Conery](https://github.com/robconery)
 
-Zengin istemci etkileşim özellikle AJAX üzerinde odaklanmıştır. Ramiz Conery her adımını geliştirme sürecinde kaldırmalıdır belgelenen [blog](http://blog.wekeroad.com/mvc-storefront/mvcstore-part-14/).
+İstemci etkileşimi özellikle AJAX üzerinde odaklanır. Rob Conery her adımında geliştirme sürecinde HIS belgelenmiş [blog](http://blog.wekeroad.com/mvc-storefront/mvcstore-part-14/).
 
-[&#9654;(33 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-14-rich-client-interaction)
+[&#9654;Videoyu (33 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-14-rich-client-interaction)
 
 > [!div class="step-by-step"]
 > [Önceki](aspnet-mvc-storefront-part-13-dependency-injection.md)
-> [sonraki](aspnet-mvc-storefront-part-15-public-code-review.md)
+> [İleri](aspnet-mvc-storefront-part-15-public-code-review.md)

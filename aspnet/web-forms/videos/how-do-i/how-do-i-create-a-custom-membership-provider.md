@@ -1,28 +1,27 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-a-custom-membership-provider
-title: '[Nasıl stop yaparım] Özel üyelik sağlayıcısı oluşturulsun mu? | Microsoft Docs'
+title: '[Bunu nasıl yaparım:] Özel üyelik sağlayıcısı oluşturulsun mu? | Microsoft Docs'
 author: rick-anderson
-description: Üyelik sağlayıcısı depolamak ve bir kullanıcı için üyelik veri almak bir web uygulaması sağlar ve standart ASP.NET üyelik sağlayıcısı kullanır önceden tanımlı...
+description: Bir kullanıcı için üyelik veri depolayıp almak için bir web uygulaması bir üyelik sağlayıcısı sağlar ve standart ASP.NET üyelik sağlayıcısını kullanan önceden tanımlayın...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2007
 ms.topic: article
 ms.assetid: a250a97d-e04d-403a-816e-cd6efda396cd
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-create-a-custom-membership-provider
 msc.type: video
-ms.openlocfilehash: 6984e848f64243313c10352eb4eb7d1ca9298e39
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 732a996f1c73c7fdaeed5dde355a5c242de8b7c6
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26571962"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37372653"
 ---
-<a name="how-do-i-create-a-custom-membership-provider"></a>[Nasıl stop yaparım] Özel üyelik sağlayıcısı oluşturulsun mu?
+<a name="how-do-i-create-a-custom-membership-provider"></a>[Bunu nasıl yaparım:] Özel üyelik sağlayıcısı oluşturulsun mu?
 ====================
-tarafından [Chris Pels](https://twitter.com/chrispels)
+tarafından [Chris piksel](https://twitter.com/chrispels)
 
-Üyelik sağlayıcısı depolamak ve bir kullanıcı için üyelik veri almak bir web uygulaması sağlar ve standart ASP.NET üyelik sağlayıcısı önceden tanımlanmış SQL Server tablolarını kullanır. Bu videoda biz standart sağlayıcı tarafından kullanılan önceden tanımlanmış tablolardan ayrı özel SQL Server tablolarını kullanır özel üyelik sağlayıcısı oluşturma hakkında bilgi edinin. Videoda ele ilkeleri diğer veritabanlarına erişim veya Oracle gibi kullanarak özel üyelik sağlayıcıları oluşturmak için geçerli olur. Özel üyelik sağlayıcısı oluşturmak öğrenme sonra biz web uygulamasında sağlayıcıyı yapılandırmak ve yeni bir kullanıcı oluşturma ve özel üyelik sağlayıcısı ile yeni kullanıcı kimlik doğrulaması gösteri öğrenin.
+Bir kullanıcı için üyelik veri depolayıp almak için bir web uygulaması bir üyelik sağlayıcısı sağlar ve standart ASP.NET üyelik sağlayıcıyı önceden tanımlanmış SQL Server tablolarını kullanır. Bu videoda, biz standart sağlayıcı tarafından kullanılan önceden tanımlanmış tablolardan ayrı özel SQL Server tablolarını kullanan bir özel üyelik sağlayıcısı oluşturma hakkında bilgi edinin. Videoda ele ilkeleri, erişim veya Oracle gibi diğer veritabanları kullanılarak özel üyelik sağlayıcıları oluşturmak için geçerli olur. Özel üyelik sağlayıcısı oluşturmak edindikten sonra biz bir web uygulamasında sağlayıcısını yapılandırmak ve yeni bir kullanıcı oluşturma ve özel üyelik sağlayıcısı ile yeni kullanıcı kimlik doğrulaması gösteri hakkında bilgi edinin.
 
-[&#9654; (29 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-create-a-custom-membership-provider)
+[&#9654;Videoyu (29 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-create-a-custom-membership-provider)

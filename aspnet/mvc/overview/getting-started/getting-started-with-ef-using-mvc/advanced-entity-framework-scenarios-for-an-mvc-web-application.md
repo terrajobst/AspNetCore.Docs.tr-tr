@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application
-title: Gelişmiş bir MVC 5 Web uygulaması (12 / 12) için Entity Framework 6 senaryoları | Microsoft Docs
+title: Bir MVC 5 Web uygulaması (12, 12) için Entity Framework 6 senaryoları Gelişmiş | Microsoft Docs
 author: tdykstra
 description: Contoso University örnek web uygulaması Entity Framework 6 Code First ve Visual Studio kullanarak ASP.NET MVC 5 uygulamalarının nasıl oluşturulacağını gösterir...
 ms.author: aspnetcontent
@@ -9,34 +9,33 @@ ms.date: 12/08/2014
 ms.topic: article
 ms.assetid: f35a9b0c-49ef-4cde-b06d-19d1543feb0b
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: 50987b30a49173605e7aeb8eb65ff1fe5d5e5753
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 43d7dec02a104b2bb29f598c17d252b0476a53f7
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30877456"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37390494"
 ---
-<a name="advanced-entity-framework-6-scenarios-for-an-mvc-5-web-application-12-of-12"></a>MVC 5 Web uygulaması (12 / 12) için Gelişmiş Entity Framework 6 senaryoları
+<a name="advanced-entity-framework-6-scenarios-for-an-mvc-5-web-application-12-of-12"></a>MVC 5 Web uygulaması (12, 12) için Gelişmiş Entity Framework 6 senaryoları
 ====================
-by [Tom Dykstra](https://github.com/tdykstra)
+tarafından [Tom Dykstra](https://github.com/tdykstra)
 
-[Tamamlanan projenizi indirin](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8) veya [PDF indirin](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
+[Tamamlanmış projeyi indirmek](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8) veya [PDF olarak indirin](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
 
-> Contoso University örnek web uygulaması Entity Framework 6 Code First ve Visual Studio 2013 kullanarak ASP.NET MVC 5 uygulamalarının nasıl oluşturulacağını gösterir. Eğitmen serisi hakkında daha fazla bilgi için bkz: [serideki ilk öğreticide](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
+> Contoso University örnek web uygulaması Entity Framework 6 Code First ve Visual Studio 2013 kullanarak ASP.NET MVC 5 uygulamalarının nasıl oluşturulacağını gösterir. Öğretici serisinin hakkında daha fazla bilgi için bkz. [serideki ilk öğreticide](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 
 
-Önceki öğreticide tablo başına hiyerarşisi devralma uygulanmadı. Bu öğretici içeren Entity Framework Code First kullanan ASP.NET web uygulamaları geliştirme temellerini gittiğiniz zaman uyumlu olması için kullanışlı olan çeşitli konular sunar. Adım adım yönergeler, kod ve Visual Studio için aşağıdaki konulara kullanarak size yol:
+Önceki öğreticide tablo başına hiyerarşi devralma uygulanır. Bu öğretici içerir, Entity Framework Code First kullanan ASP.NET web uygulamaları geliştirmenin temellerini gidin ne zaman uyumlu olması yararlı olan çeşitli konuları tanıtır. Adım adım yönergeler kod ve Visual Studio için aşağıdaki konulardan kullanarak rehberlik:
 
 - [Ham SQL sorguları gerçekleştirme](#rawsql)
-- [Hayır-izleme sorgular gerçekleştirme](#notracking)
-- [Veritabanına gönderilen SQL inceleniyor](#sql)
+- [Hayır-izleme sorguları gerçekleştirme](#notracking)
+- [Veritabanına gönderilen SQL İnceleme](#sql)
 
-Öğretici çeşitli konular kaynaklara daha fazla bilgi için bağlantılar tarafından izlenen kısa tanıtımları ile sunar:
+Öğreticinin daha fazla bilgi için kaynaklara bağlantılar tarafından izlenen kısa tanıtımları ile çeşitli konular sunar:
 
-- [Depo ve iş desenleri birimi](#repo)
+- [Depo ve iş birimi desenleri](#repo)
 - [Proxy sınıfları](#proxies)
 - [Otomatik değiştirme algılama](#changedetection)
 - [Otomatik doğrulama](#validation)
@@ -48,66 +47,66 @@ by [Tom Dykstra](https://github.com/tdykstra)
 - [Özet](#summary)
 - [İlgili kaynaklar](#acknowledgments)
 - [VB hakkında bir Not](#vb)
-- [Sık karşılaşılan hatalar ve çözümleri veya bunları için geçici çözümler](#errors)
+- [Sık karşılaşılan hatalar ve çözümleri veya geçici çözümleri için bunları](#errors)
 
-Bu konular çoğu için daha önce oluşturduğunuz sayfaları ile çalışmak. Ham SQL güncelleştirmeleri toplu olarak kullanmak için güncelleştirme veritabanındaki tüm kursları krediler sayısı yeni bir sayfa oluşturursunuz:
+Bu konular çoğu için önceden oluşturulmuş sayfaları ile çalışırsınız. Ham SQL güncelleştirmeleri toplu olarak kullanmak için güncelleştirme veritabanındaki tüm kursları kredisi sayısı yeni bir sayfa oluşturacaksınız:
 
 ![Update_Course_Credits_initial_page](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image1.png)
 
 <a id="rawsql"></a>
-## <a name="performing-raw-sql-queries"></a>Gerçekleştirme ham SQL sorguları
+## <a name="performing-raw-sql-queries"></a>Ham SQL sorguları gerçekleştirme
 
-Entity Framework kod ilk API, SQL komutlarını veritabanına doğrudan geçirmenizi sağlayan yöntemler içerir. Şu seçenekleriniz vardır:
+Entity Framework kod ilk API SQL komutları doğrudan veritabanına geçirilecek sağlayan yöntemler içerir. Şu seçenekleriniz vardır:
 
-- Kullanım [DbSet.SqlQuery](https://msdn.microsoft.com/library/system.data.entity.dbset.sqlquery.aspx) varlık türleri döndüren sorgular için yöntem. Döndürülen nesneleri tarafından beklenen türde olmalıdır `DbSet` nesne ve otomatik olarak izlenir tarafından veritabanı bağlamı izleme kapatmak sürece. (Aşağıdaki bölüme bakın [AsNoTracking](https://msdn.microsoft.com/library/system.data.entity.dbextensions.asnotracking.aspx) yöntemi.)
-- Kullanım [Database.SqlQuery](https://msdn.microsoft.com/library/system.data.entity.database.sqlquery.aspx) varlıkları olmayan türleri döndüren sorgular için yöntem. Varlık türlerini almak için bu yöntemi kullanmak olsa bile döndürülen verileri veritabanı bağlamı tarafından izlenen değil.
+- Kullanım [DbSet.SqlQuery](https://msdn.microsoft.com/library/system.data.entity.dbset.sqlquery.aspx) varlık türleri döndüren sorgular için yöntemi. Döndürülen nesneleri tarafından beklenen türde olmalıdır `DbSet` nesne ve otomatik olarak izlenir tarafından veritabanı bağlamı izlemeyi devre dışı sürece. (Aşağıdaki bölüme bakın [AsNoTracking](https://msdn.microsoft.com/library/system.data.entity.dbextensions.asnotracking.aspx) yöntemi.)
+- Kullanım [Database.SqlQuery](https://msdn.microsoft.com/library/system.data.entity.database.sqlquery.aspx) varlıkları olmayan türleri döndüren sorgular için yöntemi. Varlık türleri almak için bu yöntem kullansanız bile döndürülen verileri veritabanı bağlamı tarafından izlenen değil.
 - Kullanım [Database.ExecuteSqlCommand](https://msdn.microsoft.com/library/gg679456.aspx) sorgu dışı komutları için.
 
-Entity Framework kullanmanın yararları, veri depolamanın çok yakından belirli bir yöntem kodunuzu bağlamadan önler biridir. SQL sorguları ve komutlar, ayrıca bunları kendiniz yazmak zorunda kalmaktan boşaltır oluşturarak bunu yapar. Ancak el ile oluşturduğunuz belirli SQL sorguları çalıştırmak gerektiğinde olağanüstü senaryolar vardır ve bu yöntemler, bu tür özel durumları işleme mümkün kılar.
+Entity Framework kullanmanın avantajlarını önler, veri depolamanın çok yakından belirli bir yöntem, kodunuzu bağlamadan biridir. Bunu SQL sorgulara ve komutlara sizin için Ayrıca bunları kendiniz yazmak zorunda kalmanızı oluşturarak yapar. Ancak, el ile oluşturduğunuz belirli SQL sorguları çalıştırmak ihtiyacınız olduğunda olağanüstü senaryolar vardır ve bu yöntemler tür özel durumları işlemek için mümkün kılar.
 
-Bir web uygulamasında SQL komutlarını yürüttüğünüzde her zaman true olarak, siteniz SQL ekleme saldırılarına karşı korumak için önlemler almanız gerekir. Bunu yapmanın bir yolu, bir web sayfası tarafından gönderilen dizeleri SQL komutlarını yorumlanan emin olmak için parametreli sorgular kullanmaktır. Bu öğreticide kullanıcı girişi bir sorgu tümleştirdiğinizde parametreli sorgular kullanacaksınız.
+Bir web uygulamasında SQL komutları yürütme her zaman true olduğu gibi sitenizi SQL ekleme saldırılarına karşı korumak için önlemler almanız gerekir. Bunu yapmanın bir yolu, bir web sayfası tarafından gönderilen dizeleri SQL komutları yorumlanamıyor emin olmak için parametreli sorgular kullanmaktır. Bu öğreticide, kullanıcı girişi bir sorguya tümleştirdiğinizde parametreli sorgular kullanacaksınız.
 
-### <a name="calling-a-query-that-returns-entities"></a>Bir sorgu çağırma varlıklar döndürüyor
+### <a name="calling-a-query-that-returns-entities"></a>Çağıran bir sorgu varlıklar döndürüyor
 
-[DbSet&lt;TEntity&gt; ](https://msdn.microsoft.com/library/gg696460.aspx) sınıfı türünde bir varlık döndüren bir sorgu çalıştırmak için kullanabileceğiniz bir yöntem sağlar `TEntity`. Bu, nasıl çalıştığını görmek için kodda değiştireceğiz `Details` yöntemi `Department` denetleyicisi.
+[Olan DB&lt;TEntity&gt; ](https://msdn.microsoft.com/library/gg696460.aspx) sınıf türünde bir varlık döndüren bir sorgu yürütmek için kullanabileceğiniz bir yöntem sağlar `TEntity`. Bu, nasıl çalıştığını görmek için kodda değiştireceksiniz `Details` yöntemi `Department` denetleyicisi.
 
-İçinde *DepartmentController.cs*, `Details` yöntemi Değiştir `db.Departments.FindAsync` yöntemi çağrısı ile bir `db.Departments.SqlQuery` vurgulanan aşağıdaki kodda gösterildiği gibi yöntem çağrısı:
+İçinde *DepartmentController.cs*, `Details` yöntemi Değiştir `db.Departments.FindAsync` metot çağrısı ile bir `db.Departments.SqlQuery` yöntemi çağrısı, vurgulanan aşağıdaki kodda gösterildiği gibi:
 
 [!code-csharp[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample1.cs?highlight=8-14)]
 
-Yeni kod düzgün çalıştığını doğrulamak için seçin **Departmanlar** sekmesini ve ardından **ayrıntıları** Departmanlar biri için.
+Yeni kod düzgün çalıştığını doğrulamak için **Departmanlar** sekmesini ve ardından **ayrıntıları** Departmanlar biri için.
 
 ![Departman ayrıntıları](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image2.png)
 
-### <a name="calling-a-query-that-returns-other-types-of-objects"></a>Bir sorgu çağırma diğer nesne türlerini döndürür
+### <a name="calling-a-query-that-returns-other-types-of-objects"></a>Çağıran bir sorgu diğer nesne türlerini döndürür
 
-Daha önce bir öğrenci istatistikleri kılavuz Öğrenciler sayısı için her kayıt tarihi gösterdi hakkında sayfası için oluşturduğunuz. Bunu yapan kod *HomeController.cs* LINQ kullanır:
+Daha önce bir öğrenci istatistikleri kılavuz Öğrenci sayısı için her bir kayıt tarihi gösterdi hakkında sayfası için oluşturuldu. Bunu yapar kodu *HomeController.cs* LINQ kullanır:
 
 [!code-csharp[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample2.cs)]
 
-Veriyi doğrudan LINQ kullanmak yerine SQL alır kod yazmaya istediğinizi varsayalım. Varlık nesnesi dışında bir şey döndüren bir sorgu çalıştırması gerekecek yapmak için anlamına kullanmanızı gerektiren [Database.SqlQuery](https://msdn.microsoft.com/library/system.data.entity.database.sqlquery(v=VS.103).aspx) yöntemi.
+Bu verileri doğrudan LINQ kullanmak yerine SQL alır kod yazmak istediğiniz varsayalım. Varlık nesnesi dışında bir şey döndüren bir sorgu çalıştırmak ihtiyacınız olan şeyi anlamına gelir, gerek kullanılacak [Database.SqlQuery](https://msdn.microsoft.com/library/system.data.entity.database.sqlquery(v=VS.103).aspx) yöntemi.
 
-İçinde *HomeController.cs*, LINQ deyiminde Değiştir `About` vurgulanan aşağıdaki kodda gösterildiği gibi bir SQL deyimi yöntemiyle:
+İçinde *HomeController.cs*, LINQ deyiminde değiştirin `About` yöntemine aşağıdaki vurgulanmış kodu gösterildiği gibi bir SQL deyimi ile:
 
 [!code-csharp[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample3.cs?highlight=3-18)]
 
-Hakkında sayfayı çalıştırın. Uygulama önceden olduğu aynı verileri görüntüler.
+Hakkında sayfayı çalıştırın. Bu, daha önceki işlevlerini sürdürmektedir aynı verileri görüntüler.
 
 ![About_page](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image3.png)
 
-### <a name="calling-an-update-query"></a>Güncelleştirme sorgusu çağırma
+### <a name="calling-an-update-query"></a>Update sorgusu çağırma
 
-Contoso University yöneticiler her indirmelere için iadeleri sayısını değiştirme veritabanındaki toplu değişiklikler gerçekleştirebilecek istediğinizi varsayalım. Çok sayıda kurslar university varsa, tüm varlıklar almak ve bunları tek tek değiştirmek için verimsiz olacaktır. Bu bölümde, tüm kurslara krediler sayısını değiştirmek bir faktör belirtmesini sağlayan bir web sayfası uygulamak ve bir SQL yürüterek değişiklik `UPDATE` deyimi. Web sayfasını aşağıdaki gibi görünmelidir:
+Her kurs sonunda verilen kredi sayısı değiştirme gibi bu veritabanındaki toplu değişiklikleri gerçekleştirmek contoso University Yöneticiler istediğinizi varsayalım. University dersleri çok sayıda varsa, bunları tüm varlıklar olarak almak ve bunları tek tek değiştirmek için verimsiz olabilir. Bu bölümde, tüm kursları için kredi sayısını değiştirmek bir faktör belirtmesini sağlayan bir web sayfası uygulayacaksınız ve bir SQL yürüterek değişiklik yapacaksınız `UPDATE` deyimi. Web sayfasını aşağıdaki gibi görünür:
 
 ![Update_Course_Credits_initial_page](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image4.png)
 
-İçinde *CourseContoller.cs*, ekleme `UpdateCourseCredits` yöntemleri için `HttpGet` ve `HttpPost`:
+İçinde *CourseContoller.cs*, ekleme `UpdateCourseCredits` yöntemleri `HttpGet` ve `HttpPost`:
 
 [!code-csharp[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample4.cs)]
 
-Denetleyici işlediğinde bir `HttpGet` isteği, hiçbir şey döndürülür içinde `ViewBag.RowsAffected` değişkeni ve görünümü görüntüler boş bir metin kutusu ve bir gönderme düğmesi Yukarıdaki çizimde gösterildiği gibi.
+Denetleyici işlediğinde bir `HttpGet` isteği, hiçbir şey döndürülür içinde `ViewBag.RowsAffected` değişkeni ve görünüm görüntüler boş bir metin kutusu ve bir Gönder düğmesi önceki resimde gösterildiği gibi.
 
-Zaman **güncelleştirme** düğmesine tıklandığında, `HttpPost` yöntemi çağrılır ve `multiplier` metin kutusuna girilen değere sahip. Kodu sonra kurslar güncelleştirir ve görünümüne etkilenen satır sayısını döndürür SQL yürütür `ViewBag.RowsAffected` değişkeni. Görünümü, bir değer aldığında değişken, bunu yerine metin kutusu güncelleştirilmiş satır sayısını görüntüler ve Gönder düğmesi, aşağıdaki çizimde gösterildiği gibi:
+Zaman **güncelleştirme** düğmesine tıklandığında, `HttpPost` yöntemi çağrıldığında ve `multiplier` metin kutusuna girilen değere sahip. Kodu sonra dersleri güncelleştirir ve görünümüne etkilenen satır sayısını döndüren SQL yürütür `ViewBag.RowsAffected` değişkeni. Görünümü, bir değer aldığında değişken, metin kutuları yerine güncelleştirilen satır sayısını görüntüler ve Gönder düğmesi, aşağıdaki çizimde gösterildiği gibi:
 
 ![Update_Course_Credits_rows_affected_page](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image5.png)
 
@@ -115,122 +114,122 @@ Zaman **güncelleştirme** düğmesine tıklandığında, `HttpPost` yöntemi ç
 
 ![Add_View_dialog_box_for_Update_Course_Credits](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image6.png)
 
-In *Views\Course\UpdateCourseCredits.cshtml*, replace the template code with the following code:
+İçinde *Views\Course\UpdateCourseCredits.cshtml*, şablonu kodu aşağıdaki kodla değiştirin:
 
 [!code-cshtml[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample5.cshtml)]
 
-Çalıştırma `UpdateCourseCredits` seçerek yöntemi **kurslar** sonra ekleyerek sekmesinde, "/ UpdateCourseCredits" sonuna kadar tarayıcının adres çubuğundaki URL'yi (örneğin: `http://localhost:50205/Course/UpdateCourseCredits`). Metin kutusuna bir sayı girin:
+Çalıştırma `UpdateCourseCredits` yöntemi seçerek **kursları** sekmesini, ardından ekleme "/ UpdateCourseCredits" sonuna kadar tarayıcının adres çubuğuna URL'yi (örneğin: `http://localhost:50205/Course/UpdateCourseCredits`). Metin kutusuna bir sayı girin:
 
 ![Update_Course_Credits_initial_page_with_2_entered](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image7.png)
 
-Tıklatın **güncelleştirme**. Etkilenen satırların sayısını bakın:
+Tıklayın **güncelleştirme**. Etkilenen satır sayısını görürsünüz:
 
 ![Update_Course_Credits_rows_affected_page](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image8.png)
 
-Tıklatın **listesine dön** krediler düzenlenen sayısıyla kurslar listesini görmek için.
+Tıklayın **listesine geri** kredi düzeltilmiş sayısı kurslarıyla listesini görmek için.
 
 ![Courses_Index_page_showing_revised_credits](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image9.png)
 
-Ham SQL sorguları hakkında daha fazla bilgi için bkz: [ham SQL sorguları](https://msdn.microsoft.com/data/jj592907) konusuna bakın.
+Ham SQL sorguları hakkında daha fazla bilgi için bkz. [ham SQL sorguları](https://msdn.microsoft.com/data/jj592907) MSDN'de.
 
 <a id="notracking"></a>
 ## <a name="no-tracking-queries"></a>Hayır-izleme sorguları
 
-Veritabanı bağlamı tablo satırları alır ve bunları temsil eden varlık nesnesi oluşturur, varsayılan olarak veritabanında nedir ile varlıkları bellekte eşit olup olmadığını izler. Bellekteki veri önbelleği olarak davranır ve bir varlık güncelleştirdiğinizde kullanılır. Bağlam olan genellikle kısa süreli (yeni bir tane oluşturulur ve atıldı her istek için) ve bağlam örnekleri için bu önbelleğe alma genellikle bir web uygulamasında gereksizdir okuyan bir varlığın varlık yeniden kullanılmadan önce genellikle atıldı.
+Bir veritabanı bağlamını tablo satırları alır ve bunları temsil eden varlık nesnesi oluşturur, varsayılan olarak varlıkları bellekte veritabanında nedir ile eşitlenmiş durumda olup olmadığını izler. Bellekteki verileri bir önbellek olarak görev yapar ve bir varlık güncelleştirdiğinizde kullanılır. Bağlam olan genellikle kısa süreli (yeni bir tane oluşturulur ve elden her istek için) ve bağlam örnekleri için bu önbelleğe alma genellikle bir web uygulamasında gereksizdir okuyan bir varlık, varlığın yeniden kullanılmadan önce genellikle atıldı.
 
 Kullanarak varlık nesnesi bellekte izleme devre dışı bırakabilirsiniz [AsNoTracking](https://msdn.microsoft.com/library/gg679352(v=vs.103).aspx) yöntemi. Bunu yapmak isteyebilirsiniz tipik senaryolar aşağıdakileri içerir:
 
-- Bir sorgu izleme devre dışı kapatma performansı önemli ölçüde artırmak verilerin büyük hacimli alır.
-- Güncelleştirmek için bir varlık eklemek için kullanmak istediğiniz, ancak farklı bir amaç için daha önce aynı varlık alınır. Varlık tarafından veritabanı bağlamı zaten izlenmekte olduğundan, değiştirmek istediğiniz varlık eklenemiyor. Bu durumu yönetmek için tek yolu `AsNoTracking` önceki sorgu seçeneği.
+- Bir sorgu, izlemeyi açma performansı fark edilir derecede geliştiren veri büyük birim alır.
+- Bir varlığı güncelleştirmek için eklemek istediğiniz, ancak farklı bir amaç için aynı varlık daha önce aldığınız. Varlık tarafından veritabanı bağlamı zaten izlenmekte olduğundan, değiştirmek istediğiniz varlığın eklenemiyor. Bu durumu yönetmek için tek bir yolu `AsNoTracking` önceki sorgu seçeneği.
 
-Nasıl kullanılacağını gösteren bir örnek için [AsNoTracking](https://msdn.microsoft.com/library/gg679352(v=vs.103).aspx) yöntemi, bkz: [Bu öğreticinin önceki sürüm](../../older-versions/getting-started-with-ef-5-using-mvc-4/advanced-entity-framework-scenarios-for-an-mvc-web-application.md). Gerekli olmayan şekilde Bu öğreticiyi sürümü değiştirilen bayrağı Edit yöntemi bir model bağlayıcı oluşturulan varlıkta ayarlamaz `AsNoTracking`.
+Nasıl kullanılacağını gösteren bir örnek [AsNoTracking](https://msdn.microsoft.com/library/gg679352(v=vs.103).aspx) yöntemi bkz [Bu öğreticinin önceki sürümüne](../../older-versions/getting-started-with-ef-5-using-mvc-4/advanced-entity-framework-scenarios-for-an-mvc-web-application.md). Gerekli olmayan şekilde Bu öğreticiyi sürümü değiştirildi bayrağı düzenleme yöntemi, bir model bağlayıcı oluşturulan varlıkta ayarlayıp ayarlamadığını `AsNoTracking`.
 
 <a id="sql"></a>
-## <a name="examining-sql-sent-to-the-database"></a>Veritabanına gönderilen SQL inceleniyor
+## <a name="examining-sql-sent-to-the-database"></a>Veritabanına gönderilen SQL İnceleme
 
-Bazen veritabanına gönderilen gerçek SQL sorguları görebilmek için yararlıdır. Bir önceki öğreticide dinleyiciyi kodda nasıl gördüğünüz; Şimdi, dinleyiciyi kod yazmadan yapmak için bazı yollar görürsünüz. Bu sorunu anlamak denemek için basit bir sorgu arayın ve yüklenirken, filtreleme ve sıralama böyle eager seçenekleri ekledikçe için olanlar adresindeki Ara.
+Bazen veritabanına gönderilen gerçek SQL sorguları görebilmeniz yararlıdır. Önceki bir öğreticide dinleyiciyi kodda bunu nasıl yapacağınız gördünüz; Şimdi, dinleyiciyi kod yazmaya gerek kalmadan yapmak için bazı yollar görürsünüz. Bunu denemek için basit bir sorgu arayın ve seçenekleri yükleniyor, filtreleme ve sıralama gibi eager ekledikçe ne olur ardından aramak.
 
-İçinde *denetleyicileri/CourseController*, yerine `Index` istekli yükleme geçici olarak durdurmak için aşağıdaki kod ile yöntemi:
+İçinde *denetleyicileri/CourseController*, değiştirin `Index` istekli yükleme geçici olarak durdurmak için şu kod ile yöntemi:
 
 [!code-csharp[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample6.cs)]
 
-Şimdi üzerinde bir kesme noktası belirleyerek `return` deyimi (F9 imleci satırdaki ile). Projeyi hata ayıklama modunda çalıştırmak ve indirmelere dizin sayfası seçmek için F5 tuşuna basın. Kod kesme noktasına ulaştığında, inceleyin `sql` değişkeni. SQL Server'a gönderilen sorgu bakın. Basit bir olduğu `Select` deyimi.
+Artık üzerinde bir kesme noktası ayarlamak `return` deyimi (imleç o satırın F9). Projeyi hata ayıklama modunda çalıştırın ve kursu dizin sayfası F5 tuşuna basın. Kodu kesme noktasına ulaşıldığında, inceleyin `sql` değişkeni. SQL sunucusuna gönderilen sorgu görürsünüz. Basit bir `Select` deyimi.
 
 [!code-json[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample7.json)]
 
-Sorguda görmek için büyütme derecesini sınıfı tıklatın **metin Görselleştirici**.
+Büyütme derecesini sınıfı sorguda görmek için tıklatın **metin görselleştiricisi**.
 
 ![](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image10.png)
 
-Şimdi böylece kullanıcılar için belirli bir bölüm filtreleyebilirsiniz kurslar dizin sayfasına açılan listesini ekleyeceksiniz. Kurslar başlığa göre sıralamak ve istekli yükleme için belirtirsiniz `Department` gezinti özelliği.
+Artık kullanıcılar için belirli bir departmandaki filtre uygulayabilirsiniz böylece kursları dizin sayfasına açılır listede ekleyeceksiniz. Kursları başlığa göre sıralamak ve istekli yükleme için belirtirsiniz `Department` gezinme özelliği.
 
-İçinde *CourseController.cs*, yerine `Index` aşağıdaki kod ile yöntemi:
+İçinde *CourseController.cs*, değiştirin `Index` yöntemini aşağıdaki kod ile:
 
 [!code-csharp[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample8.cs)]
 
-Kesme noktası geri `return` deyimi.
+Kesme noktasına geri `return` deyimi.
 
-Aşağı açılan listesinde seçilen değeri yöntemi alır `SelectedDepartment` parametresi. Hiçbir şey seçili ise, bu parametre null olur.
+Yöntem açılan listede seçili değerini alır `SelectedDepartment` parametresi. Hiçbir şey seçili değilse bu parametre null olacaktır.
 
-A `SelectList` tüm bölümleri içeren bir koleksiyon için aşağı açılan liste görünümüne geçirilir. Parametreleri geçirilen `SelectList` Oluşturucusu değerini alan adını, metin alanı adı ve seçilen öğeyi belirtin.
+A `SelectList` tüm bölümleri içeren bir koleksiyon için aşağı açılan liste görünümüne geçirilir. Geçirilen parametreleri `SelectList` oluşturucusu, seçili öğe değeri alan adı ve metin alan adı belirtin.
 
-İçin `Get` yöntemi `Course` deposu, kod belirtir bir filtre ifadesi, sıralama ve için yükleme eager `Department` gezinti özelliği. Filtre ifadesi her zaman döndürür `true` hiçbir şey aşağı açılan listesinde seçili olup olmadığını (diğer bir deyişle, `SelectedDepartment` null).
+İçin `Get` yöntemi `Course` depo kodu belirtir bir filtre ifadesi bir sıralama düzeni ve için yükleme eager `Department` gezinme özelliği. Filtre ifadesi her zaman döndürür `true` hiçbir şey aşağı açılan listede seçili olup olmadığını (diğer bir deyişle, `SelectedDepartment` null).
 
-İçinde *Views\Course\Index.cshtml*, açmadan önce hemen `table` etiketi, aşağı açılan liste ve bir gönderme düğmesi oluşturmak için aşağıdaki kodu ekleyin:
+İçinde *Views\Course\Index.cshtml*, açmadan önce hemen `table` etiketinde, aşağı açılan liste ve bir Gönder düğmesi oluşturmak için aşağıdaki kodu ekleyin:
 
 [!code-cshtml[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample9.cshtml)]
 
-Kesme noktası hala ayarlayın, indirmelere dizin sayfası çalıştırın. Böylece sayfasını tarayıcıda görüntülenen kodu bir kesme noktası isabet ilk kez devam edin. Aşağı açılan listeden bir bölüm seçin ve tıklatın **filtre**:
+Kesme noktası ile hala ayarlayın, kurs dizin sayfası çalıştırın. Tarayıcıda görüntülenen sayfa, kodu bir kesme noktası isabet ilk kez ile devam edin. Aşağı açılan listeden bir bölüm seçin ve tıklayın **filtre**:
 
 ![Course_Index_page_with_department_selected](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image11.png)
 
-Bu süre, aşağı açılan liste Departmanlar sorgu için ilk kesme olacaktır. Atlayın ve görüntülemek `query` değişken sonraki kod ulaştığında kesme gördükleri için `Course` gibi görünüyor artık sorgu. Aşağıdakine benzer bir şey görürsünüz:
+Bu süre, aşağı açılan liste için bölümler sorgu için ilk kesme noktasına olacaktır. Atlama ve görüntüleme `query` değişken sonraki kodu ulaştığında kesme noktası gördükleri için `Course` gibi görünüyor artık sorgu. Aşağıdaki gibi bir şey görürsünüz:
 
 [!code-sql[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample10.sql)]
 
-Sorgu artık olduğunu görebilirsiniz bir `JOIN` yükler sorgu `Department` veri ile birlikte `Course` veri ve onu içeren bir `WHERE` yan tümcesi.
+Sorgu şimdi olduğunu görebilirsiniz bir `JOIN` yükler sorgu `Department` ile birlikte veri `Course` veri ve onu içeren bir `WHERE` yan tümcesi.
 
 Kaldırma `var sql = courses.ToString()` satır.
 
 <a id="repo"></a>
 
-## <a name="repository-and-unit-of-work-patterns"></a>Depo ve iş desenleri birimi
+## <a name="repository-and-unit-of-work-patterns"></a>Depo ve iş birimi desenleri
 
-Çoğu geliştiricinin depo ve iş desenleri biriminin Entity Framework ile çalışan kod çevresinde bir sarmalayıcı olarak uygulamak için kod yazma. Bu düzenleri, veri erişim katmanı ve bir uygulamanın iş mantığı katmanı arasındaki bir Soyutlama Katmanı oluşturmak üzere tasarlanmıştır. Bu desenleri uygulama veri deposunda değişiklik uygulamanızdan verenlerden yardımcı olabilir ve otomatik birim testi veya teste dayalı geliştirme (TDD) kolaylaştırabilir. Ancak, bu desenleri uygulamak için ek kod yazma her zaman en iyi seçenek EF, çeşitli nedenlerle kullanan uygulamalar için değil:
+Birçok geliştiricinin depo ve iş birimi desenleri, Entity Framework ile çalışan kod çevresinde sarmalayıcı olarak uygulamak için kod yazın. Bu desenleri, veri erişim katmanı ve bir uygulamanın iş mantığı katmanı arasında bir Soyutlama Katmanı oluşturmak için tasarlanmıştır. Bu desenleri uygulama veri deposundaki değişiklikleri uygulamanızdan verenlerden yardımcı olabilir ve otomatik birim testi veya test odaklı geliştirme (TDD) kolaylaştırabilir. Ancak, bu desenleri uygulamak için ek kod yazmaya her zaman EF, çeşitli nedenlerle kullanan uygulamalar için en iyi seçenek değildir:
 
-- EF bağlamı sınıfının kendisi veri deposu özel kod kodunuzdan korunmasını sağlar.
-- EF bağlam sınıfını EF kullanarak bunu veritabanı için bir iş birimi sınıf güncelleştirmeleri olarak davranamaz.
-- Entity Framework 6 sunulan özellikler deposu kod yazmadan TDD uygulamak kolaylaştırır.
+- EF bağlam sınıfını kendi veri deposu özel kod kodunuzdan korunmasını sağlar.
+- EF bağlam sınıfını kullanarak EF bunu veritabanı için bir iş birimi sınıfı güncelleştirmeleri olarak hareket eder.
+- Entity Framework 6'da sunulan özellikleri depo kod yazmaya gerek kalmadan TDD uygulamak kolaylaştırır.
 
-Depo ve iş desenleri ölçü uygulama hakkında daha fazla bilgi için bkz: [Bu öğretici seri Entity Framework 5 sürümünü](../../older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application.md). Entity Framework 6 TDD uygulamak için yolları hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
+Depo ve iş birimi desenleri uygulama hakkında daha fazla bilgi için bkz. [Entity Framework 5 sürümü Bu öğretici serisinin](../../older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application.md). Entity Framework 6'da TDD uygulamak için yollar hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [Nasıl EF6 Mocking DbSets daha kolay sağlar](http://thedatafarm.com/data-access/how-ef6-enables-mocking-dbsets-more-easily/)
-- [Mocking framework ile test etme](https://msdn.microsoft.com/data/dn314429)
-- [Kendi test çiftleri ile test etme](https://msdn.microsoft.com/data/dn314431)
+- [Sahte işlem DbSets EF6'nasıl daha kolay sağlar](http://thedatafarm.com/data-access/how-ef6-enables-mocking-dbsets-more-easily/)
+- [Sahte bir framework ile test etme](https://msdn.microsoft.com/data/dn314429)
+- [Kendi test Double ile test etme](https://msdn.microsoft.com/data/dn314431)
 
 <a id="proxies"></a>
 ## <a name="proxy-classes"></a>Proxy sınıfları
 
-Entity Framework varlık örnekleri (örneğin, bir sorgu yürütülürken), bu genellikle varlık için bir proxy görevi gören dinamik olarak üretilen bir türetilen tür örneği olarak oluşturur. Örneğin, aşağıdaki iki hata ayıklayıcı görüntü bakın. İlk görüntüde, gördüğünüz `student` değişkenidir beklenen `Student` varlık örneği hemen sonra yazın. İkinci görüntüde EF Öğrenci varlık veritabanından okumak için kullanılan sonra proxy sınıfı bakın.
+Entity Framework varlık örnekleri (örneğin, bir sorgu yürütme), genellikle olarak varlık için bir proxy görevi gören dinamik olarak üretilen bir türetilmiş türün örneklerini oluşturur. Örneğin, aşağıdaki iki hata ayıklayıcı görüntülere bakın. İlk görüntüde gördüğünüz `student` değişkendir beklenen `Student` varlık örneği hemen sonra yazın. İkinci görüntüde sonra EF Öğrenci varlık veritabanından okumak için kullanılan proxy sınıfı görürsünüz.
 
 ![Önce Proxy sınıfı](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image12.png)
 
 ![Sonra Proxy sınıfı](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image13.png)
 
-Bu proxy sınıfı özelliği erişildiğinde eylemleri otomatik olarak gerçekleştirmek için kancaları eklenecek varlık sanal bazı özelliklerini geçersiz kılar. Bu mekanizma için kullanılan bir yavaş yükleniyor işlevdir.
+Bu proxy sınıfı özelliği erişildiğinde eylemlerini otomatik olarak gerçekleştirmek için kancaları eklenecek varlık sanal bazı özelliklerini geçersiz kılar. Bu mekanizma için kullanılan bir işlev yavaş yükleniyor.
 
-Çoğu zaman bu proxy'leri kullanımını farkında olmanız gerekmez, ancak özel durum vardır:
+Çoğu zaman bu proxy'ler kullanımına dikkat etmeniz gerekmez, ancak özel durum vardır:
 
-- Bazı senaryolarda proxy örnekleri oluşturma Entity Framework engellemek isteyebilirsiniz. Örneğin, varlıkları serileştirilirken genellikle POCO sınıfları, proxy sınıfları istersiniz. Seri hale getirme sorunları önlemek için bir yoldur varlık nesnesi yerine veri aktarımı nesneleri (DTOs) serileştirmek için gösterildiği gibi [Entity Framework ile Web API kullanarak](../../../../web-api/overview/data/using-web-api-with-entity-framework/part-1.md) Öğreticisi. Başka bir yolu [proxy oluşturmayı devre dışı bırakmak](https://msdn.microsoft.com/data/jj592886.aspx).
-- Ne zaman örneği kullanarak bir varlık sınıfı `new` işleci, bir proxy örneği Al yok. Bu, yavaş yükleniyor ve otomatik değişiklik izleme gibi işlevselliği elde etmezsiniz anlamına gelir. Bu genellikle Tamam olur; veritabanında olmayan yeni bir varlık oluşturmakta olduğunuz çünkü genellikle yavaş yükleniyor, gerekli olmayan ve genellikle açıkça bir varlık olarak işaretleme varsa izleme değişiklik gerekmez `Added`. Ancak, yavaş yüklenmesi gereken ve değişiklik izleme gereksiniminiz varsa, yeni varlık örneklerini kullanarak proxy'leri oluşturabileceğiniz [oluşturma](https://msdn.microsoft.com/library/gg679504.aspx) yöntemi `DbSet` sınıfı.
-- Gerçek bir varlık türü bir proxy türünden almak isteyebilirsiniz. Kullanabileceğiniz [GetObjectType](https://msdn.microsoft.com/library/system.data.objects.objectcontext.getobjecttype.aspx) yöntemi `ObjectContext` sınıfı bir proxy türü örneğinin gerçek bir varlık türü alınamadı.
+- Bazı senaryolarda Entity Framework proxy örnekleri oluşturmasını isteyebilirsiniz. Örneğin, varlıkları serileştirilirken genellikle POCO sınıfları olmayan proxy'si sınıfları istersiniz. Serileştirme sorunları önlemek için bir yoludur veri aktarımı nesneleri (Dto) yerine varlık nesneleri serileştirmek için gösterildiği [Entity Framework ile Web API kullanarak](../../../../web-api/overview/data/using-web-api-with-entity-framework/part-1.md) öğretici. Başka bir yolu [proxy oluşturma devre dışı](https://msdn.microsoft.com/data/jj592886.aspx).
+- Ne zaman örneği kullanarak bir varlık sınıfı `new` işleci, bir proxy örneği Al yok. Başka bir deyişle, yavaş yükleniyor ve otomatik değişiklik izleme gibi işlevselliği elde etmezsiniz. Bu genellikle Tamam, veritabanında olmayan yeni bir varlık oluşturduğumuzdan, genellikle yavaş yükleniyor, ihtiyacınız olmayan ve genellikle açıkça bir varlık olarak işaretleme durumunda değişiklik izleme gereksiniminiz yoksa `Added`. Ancak, yavaş yüklenmesi gerekir ve değişiklik izleme ihtiyacınız varsa, yeni varlık örneklerini kullanarak proxy'leriyle oluşturabileceğiniz [Oluştur](https://msdn.microsoft.com/library/gg679504.aspx) yöntemi `DbSet` sınıfı.
+- Proxy türünden bir gerçek varlık türünü almak isteyebilirsiniz. Kullanabileceğiniz [GetObjectType](https://msdn.microsoft.com/library/system.data.objects.objectcontext.getobjecttype.aspx) yöntemi `ObjectContext` bir proxy tür örneği gerçek varlık türünü almak için sınıf.
 
-Daha fazla bilgi için bkz: [proxy'leri çalışma](https://msdn.microsoft.com/data/JJ592886.aspx) konusuna bakın.
+Daha fazla bilgi için [proxy ile çalışmayı](https://msdn.microsoft.com/data/JJ592886.aspx) MSDN'de.
 
 <a id="changedetection"></a>
 ## <a name="automatic-change-detection"></a>Otomatik değiştirme algılama
 
-Entity Framework bir varlık nasıl değiştiğini (ve bu nedenle hangi veritabanına gönderilmesi gereken güncelleştirmeler) geçerli bir varlık değerleri özgün değerlerle karşılaştırarak belirler. Varlık sorgulanan ya da bağlı olduğunda özgün değerler depolanır. Otomatik değiştirme algılama neden yöntemlerin bazıları şunlardır:
+Entity Framework, bir varlığın geçerli değerleri özgün değerlerle karşılaştırarak, varlığın nasıl değiştiğini (ve bu nedenle hangi güncelleştirmelerin veritabanına gönderilmesi gerekir) belirler. Varlık sorgulanan ya da bağlı orijinal değerleri depolanır. Otomatik değiştirme algılama neden yöntemlerden bazıları aşağıda verilmiştir:
 
 - `DbSet.Find`
 - `DbSet.Local`
@@ -242,108 +241,108 @@ Entity Framework bir varlık nasıl değiştiğini (ve bu nedenle hangi veritaba
 - `DbContext.Entry`
 - `DbChangeTracker.Entries`
 
-Çok sayıda varlık takip ettiğiniz ve aşağıdaki yöntemlerden birini birçok kez bir döngüde çağırmanız, algılama otomatik değişiklik kullanarak geçici olarak kapatarak önemli performans geliştirmeleri alabilirsiniz [AutoDetectChangesEnabled](https://msdn.microsoft.com/library/system.data.entity.infrastructure.dbcontextconfiguration.autodetectchangesenabled.aspx) özelliği. Daha fazla bilgi için bkz: [değişiklikleri otomatik olarak algılama](https://msdn.microsoft.com/data/jj556205) konusuna bakın.
+Aşağıdaki yöntemlerden birini bir döngüde birçok kez çağırmak ve çok sayıda varlık izliyorsunuz, önemli performans iyileştirmeleri otomatik değişiklik algılama kullanarak geçici olarak kapatarak alabilirsiniz [AutoDetectChangesEnabled](https://msdn.microsoft.com/library/system.data.entity.infrastructure.dbcontextconfiguration.autodetectchangesenabled.aspx) özelliği. Daha fazla bilgi için [değişiklikleri otomatik olarak algılama](https://msdn.microsoft.com/data/jj556205) MSDN'de.
 
 <a id="validation"></a>
 ## <a name="automatic-validation"></a>Otomatik doğrulama
 
-Çağırdığınızda `SaveChanges` yöntemi, Entity Framework varsayılan doğrular tüm değiştirilen varlıkların tüm özellikleri verilerde veritabanını güncelleştirmeden önce. Çok sayıda varlık güncelleştirdik ve bu iş gereksiz verileri zaten doğruladıktan ve kaydetme işlemi yapabilir değişiklikler geçici olarak doğrulama devre dışı bırakarak daha az zaman olur. Bu kullanarak yapabilirsiniz [ValidateOnSaveEnabled](https://msdn.microsoft.com/library/system.data.entity.infrastructure.dbcontextconfiguration.validateonsaveenabled.aspx) özelliği. Daha fazla bilgi için bkz: [doğrulama](https://msdn.microsoft.com/data/gg193959) konusuna bakın.
+Çağırdığınızda `SaveChanges` yöntemi, varsayılan olarak Entity Framework doğrular değiştirilen tüm varlıkların tüm özelliklerini verileri veritabanını güncelleştirmeden önce. Çok sayıda varlık güncelleştirdik ve bu gereksiz çalışmadır zaten veri doğruladınız işlemini yapabilir değişiklikleri geçici olarak devre dışı doğrulama kapatarak daha az zaman alır. Bu kullanarak yapabileceğiniz [ValidateOnSaveEnabled](https://msdn.microsoft.com/library/system.data.entity.infrastructure.dbcontextconfiguration.validateonsaveenabled.aspx) özelliği. Daha fazla bilgi için [doğrulama](https://msdn.microsoft.com/data/gg193959) MSDN'de.
 
 <a id="tools"></a>
 ## <a name="entity-framework-power-tools"></a>Entity Framework güç araçları
 
-[Entity Framework güç araçları](https://visualstudiogallery.msdn.microsoft.com/72a60b14-1581-4b9b-89f2-846072eff19d) veri modeli diyagramları oluşturmak için kullanılan Visual Studio eklentisi bu öğreticileri gösterilir. Araçlar, veritabanı Code First ile kullanabilmesi için sınıflar oluşturmak gibi varolan bir veritabanını tablolarda göre diğer işlevi da yapabilirsiniz. Araçları yüklendikten sonra bazı ek seçenekleri de bağlam menülerini görünür. Örneğin, sağ bağlam sınıfınızda **Çözüm Gezgini**, bir diyagram oluşturmak için bir seçenek alın. Code First kullanırken diyagram veri modelinde değiştiremezsiniz, ancak siz şeyler anlamak daha kolay hale getirmek için taşıyabilirsiniz.
+[Entity Framework güç araçları](https://visualstudiogallery.msdn.microsoft.com/72a60b14-1581-4b9b-89f2-846072eff19d) veri modeli diyagramları oluşturmak için kullanılan Visual Studio eklentisi aşağıdaki öğreticilerde gösterilir. Araçları, veritabanı Code First ile kullanabilmesi için varlık sınıfları üretmek gibi var olan bir veritabanında tabloları temel diğer işlevi de yapabilirsiniz. Araçları yüklendikten sonra bağlam menülerini bazı ek seçenekler görünür. Örneğin, sağ tıkladığınızda bağlam sınıfınızda **Çözüm Gezgini**, bir diyagram Oluştur seçeneğine sahip olursunuz. Code First kullanırken diyagram veri modelinde değiştiremezsiniz, ancak, şeyler anlamak daha kolay hale getirmek üzere gezinmeye.
 
-![Bağlam menüsünde EF](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image14.png)
+![EF bağlam menüsü](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image14.png)
 
 ![EF diyagramı](advanced-entity-framework-scenarios-for-an-mvc-web-application/_static/image15.png)
 
 <a id="source"></a>
 ## <a name="entity-framework-source-code"></a>Entity Framework kaynak kodu
 
-Entity Framework 6 için kaynak kodunu şu adresten edinilebilir [GitHub](https://github.com/aspnet/EntityFramework6). Hatalar dosya ve kendi geliştirmeler EF kaynak kodu katkıda bulunabilir.
+Entity Framework 6 için kaynak kodu kullanılabilir [GitHub](https://github.com/aspnet/EntityFramework6). Hataları dosya ve kendi geliştirmeleri EF kaynak koduna katkıda bulunabilir.
 
-Kaynak kodu açık olsa da, Entity Framework tam bir Microsoft ürünü desteklenir. Microsoft Entity Framework takım üzerinde Katkıları kabul edilen denetim tutar ve her sürümle kalitesini emin olmak için tüm kod değişiklikleri sınar.
+Kaynak kodu açık olsa da, Entity Framework tam olarak bir Microsoft ürünü olarak desteklenir. Microsoft Entity Framework takım denetim üzerinde katkılarını kabul tutar ve her bir yayının kalitesini sağlamak için tüm kod değişikliklerinin test eder.
 
 <a id="summary"></a>
 ## <a name="summary"></a>Özet
 
-Bu, bir ASP.NET MVC uygulamasındaki Entity Framework kullanma öğreticileri bu dizi tamamlar. Entity Framework kullanarak verilerle çalışma hakkında daha fazla bilgi için bkz: [EF belge sayfasının MSDN'de](https://msdn.microsoft.com/data/ee712907) ve [ASP.NET Data Access - kaynakları önerilen](../../../../whitepapers/aspnet-data-access-content-map.md).
+Bu, Bu öğretici serisinde, Entity Framework kullanarak bir ASP.NET MVC uygulamasındaki tamamlar. Entity Framework kullanarak verilerle çalışma hakkında daha fazla bilgi için bkz. [MSDN belgeleri sayfasında EF](https://msdn.microsoft.com/data/ee712907) ve [ASP.NET veri erişimi - önerilen kaynaklar](../../../../whitepapers/aspnet-data-access-content-map.md).
 
-Temel aldık sonra web uygulamanızı dağıtma hakkında daha fazla bilgi için bkz: [ASP.NET Web dağıtımı - kaynakları önerilen](../../../../whitepapers/aspnet-web-deployment-content-map.md) MSDN Kitaplığı'nda.
+Bunu oluşturduktan sonra web uygulamanızı dağıtma hakkında daha fazla bilgi için bkz. [ASP.NET Web dağıtımı - önerilen kaynaklar](../../../../whitepapers/aspnet-web-deployment-content-map.md) MSDN Kitaplığı'nda.
 
-MVC için kimlik doğrulama ve yetkilendirme gibi ilgili diğer konular hakkında bilgi için bkz: [ASP.NET MVC - kaynakları önerilen](../recommended-resources-for-mvc.md).
+MVC için kimlik doğrulaması ve yetkilendirme gibi ilgili diğer konular hakkında bilgi için bkz. [ASP.NET MVC - önerilen kaynaklar](../recommended-resources-for-mvc.md).
 
 <a id="acknowledgments"></a>
 ## <a name="acknowledgments"></a>İlgili kaynaklar
 
-- Zel Dykstra özgün sürümü bu öğreticinin yazdı EF 5 güncelleştirme birlikte yazılan ve EF 6 güncelleştirme yazıldı. Microsoft Web Platformu ve araçları içerik ekibi Kıdemli bir programlama yazıcısını zel olur.
-- [Rick Anderson](https://blogs.msdn.com/b/rickandy/) (twitter [ @RickAndMSFT ](http://twitter.com/RickAndMSFT)) Eğitmen EF 5 ve MVC 4 için güncelleştirme işlerin çoğunu vermedi ve EF 6 güncelleştirme birlikte yazıldı. Rick Microsoft Azure ve MVC odaklanan için üst düzey bir programlama yazıcı ' dir.
-- [Rowan Mert](http://www.romiller.com) ve diğer Entity Framework ekibi üyelerinin kod incelemeleri destekli biz EF 5 ve EF 6 öğretici güncelleştirmekte olduğunuz sırada çıkan geçişler ile birçok hatalarını ayıklamanıza yardımcı oldu.
+- Tom Dykstra Bu öğreticinin özgün sürümle yazdım, EF 5 güncelleştirme yazarlarından ve EF 6 güncelleştirme yazdım. Tom Microsoft Web Platformu ve araçları içerik ekibi Kıdemli bir programlama yazardır.
+- [Rick Anderson](https://blogs.msdn.com/b/rickandy/) (twitter [ @RickAndMSFT ](http://twitter.com/RickAndMSFT)) Eğitmen EF 5 ve MVC 4 için güncelleştirme çoğunu tamamladıysanız ve EF 6 güncelleştirme yazarlarından. Rick bir Microsoft Azure ve MVC odaklanmak için üst düzey programlama yazardır.
+- [Rowan Miller](http://www.romiller.com) ve diğer Entity Framework takım üyeleri kod incelemeleriyle Yardımlı ve biz EF 5 ve EF 6 için öğreticiyi güncelleştirmekte olduğunuz, çıkan geçişleri ile birçok sorunlarında hata ayıklama yardımcı olmuştur.
 
 <a id="vb"></a>
 ## <a name="vb"></a>VB
 
-Öğretici, ilk olarak EF 4.1 için üretilen, biz tamamlanan yükleme proje hem C# ve VB sürümleri sağlamıştır. Zaman sınırlamaları ve diğer öncelikleri nedeniyle biz, bu sürüm için yapmadıysanız. Varsa bu öğreticileri kullanarak bir VB projeyi oluşturun ve diğer kişilerle paylaşmak için lütfen bize bildirin istekli olacaktır.
+Öğretici, ilk olarak EF 4.1 için üretilen, biz tamamlanan indirme proje hem C# ve VB sürümleri sağlanır. Zaman sınırlaması ve çalışanlarınızın diğer önceliklere nedeniyle, bu sürüm için uyguladığımız değil. Varsa bu öğreticileri kullanarak bir VB projesi oluşturun ve başkalarıyla paylaşmak için lütfen bize bildirin iradeye sahip olması.
 
 <a id="errors"></a>
-## <a name="common-errors-and-solutions-or-workarounds-for-them"></a>Sık karşılaşılan hatalar ve çözümleri veya bunları için geçici çözümler
+## <a name="common-errors-and-solutions-or-workarounds-for-them"></a>Sık karşılaşılan hatalar ve çözümleri veya geçici çözümleri için bunları
 
 ### <a name="cannot-createshadow-copy"></a>Oluşturma/kopyalama gölge olamaz
 
 Hata iletisi:
 
-> Oluşturma/kopyalama gölge olamaz '&lt;filename&gt;' ne zaman zaten mevcut.
+> Oluşturma/kopyalama gölge olamaz '&lt;filename&gt;', zaten mevcut.
 
 
 Çözüm
 
 Birkaç saniye bekleyin ve sayfayı yenileyin.
 
-### <a name="update-database-not-recognized"></a>Update-Database tanınmıyor
+### <a name="update-database-not-recognized"></a>Veritabanını Güncelleştir tanınmıyor
 
-Hata iletisi (gelen `Update-Database` PMC komutunu):
+Hata iletisi (gelen `Update-Database` PMC'yi komutunu):
 
-> 'Update-Database' terimi, bir cmdlet, işlev, komut dosyası veya çalıştırılabilir program adı olarak tanınmıyor. Adının yazımını denetleyin veya bir yol dahilse, yolun doğru olduğundan emin olun ve yeniden deneyin.
+> ' % S'terim 'Veritabanını Güncelleştir' cmdlet'i, işlev, komut dosyası veya çalıştırılabilir program adı olarak tanınmıyor. Adının yazımını denetleyin veya bir yol varsa, yolun doğru olduğundan emin olun ve yeniden deneyin.
 
 
 Çözüm
 
-Visual Studio'dan çıkın. Projeyi yeniden açın ve yeniden deneyin.
+Visual Studio'dan çıkın. Projeyi yeniden açıp yeniden deneyin.
 
 ### <a name="validation-failed"></a>Doğrulama başarısız oldu
 
-Hata iletisi (gelen `Update-Database` PMC komutunu):
+Hata iletisi (gelen `Update-Database` PMC'yi komutunu):
 
-> Bir veya daha fazla varlıklar için doğrulanamadı. Daha fazla ayrıntı için 'EntityValidationErrors' özelliğine bakın.
+> Bir veya daha fazla varlık için doğrulanamadı. Daha fazla ayrıntı için 'EntityValidationErrors' özelliğine bakın.
 
 
 Çözüm
 
-Bir bu sorunun nedeni doğrulama hataları olduğunda `Seed` yöntemi çalışır. Bkz: [Seeding ve hata ayıklama Entity Framework (EF) DBs](https://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx) hata ayıklama ipuçları için `Seed` yöntemi.
+Bu sorunun bir nedeni olduğundan doğrulama hataları olduğunda `Seed` yöntemi çalışır. Bkz: [Seeding ve hata ayıklama Entity Framework (EF) Db'ler](https://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx) hata ayıklama ipuçları için `Seed` yöntemi.
 
-### <a name="http-50019-error"></a>HTTP 500.19 hata
+### <a name="http-50019-error"></a>500.19 HTTP hatası
 
 Hata iletisi:
 
 > HTTP Hatası 500.19 - iç sunucu hatası  
-> Sayfayla ilgili yapılandırma verileri geçersiz olduğundan istenen sayfaya erişilemiyor.
+> Sayfa için ilgili yapılandırma verileri geçersiz olduğundan istenen sayfayı erişilemez.
 
 
 Çözüm
 
-Bu hatayı alabilirsiniz bir çözüm, bunların aynı bağlantı noktası numarası kullanan her biri birden çok kopyasını kalmaktan yoludur. Genellikle, Visual Studio tüm örneklerini çıkma ardından üzerinde çalıştığınız projeyi yeniden başlatılması bu sorunu çözebilirsiniz. Bu işe yaramazsa, bağlantı noktası numarasını değiştirmeyi deneyin. Proje dosyasını sağ tıklatın ve ardından Özellikler'i tıklatın. Seçin **Web** sekmesini ve sonra bağlantı noktası numarasını değiştirin **proje URL'sini** metin kutusu.
+Bu hatayı alabileceğiniz bir çözüm, her biri aynı bağlantı noktası numarası kullanarak bunları birden çok kopyasını kalmamasını yoludur. Ayrıca, Visual Studio'nun tüm örneklerini çıkmadan, daha sonra üzerinde çalıştığınız projeyi yeniden genellikle bu sorunu çözebilirsiniz. Bu işe yaramazsa, bağlantı noktası numarasını değiştirmeyi deneyin. Proje dosyası üzerinde sağ tıklayın ve ardından Özellikler seçeneğine tıklayın. Seçin **Web** sekmesini ve sonra bağlantı noktası numarasını değiştirmelisiniz **proje URL'si** metin kutusu.
 
 ### <a name="error-locating-sql-server-instance"></a>Hata bulmayla SQL Server örneği
 
 Hata iletisi:
 
-> SQL Server bağlantı kurulmaya çalışılırken ağ ile ilişkili veya örneğe özgü bir hata oluştu. Sunucu bulunamadı veya erişilebilir değildi. Örnek adının doğru olduğundan ve SQL Server Uzak bağlantılara izin verecek şekilde yapılandırıldığından emin olun. (sağlayıcısı: SQL ağ arabirimleri, hata: 26 - Server/örnek belirtilen hata bulma)
+> Bir SQL Server bağlantısı kurulurken ağla ilgili veya örneğe özel bir hata oluştu. Sunucu bulunamadı veya erişilebilir durumda değildi. Örnek adının doğru olduğundan ve SQL Server Uzak bağlantılara izin verecek şekilde yapılandırıldığını doğrulayın. (sağlayıcı: SQL ağ arabirimleri, hata: 26 - Server/örneği belirtilen hata bulma)
 
 
 Çözüm
 
-Bağlantı dizesini kontrol edin. Veritabanını el ile sildiyseniz, yapı dizesinde veritabanı adını değiştirin.
+Bağlantı dizesini kontrol edin. El ile veritabanını sildiyseniz, yapım dizesinde veritabanının adını değiştirin.
 
 > [!div class="step-by-step"]
 > [Önceki](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application.md)

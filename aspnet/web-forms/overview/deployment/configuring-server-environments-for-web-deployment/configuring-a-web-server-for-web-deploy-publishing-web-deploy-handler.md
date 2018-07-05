@@ -1,173 +1,172 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler
-title: Web için bir Web sunucusu yapılandırma dağıtımı yayımlamadan (Web dağıtımı işleyici) | Microsoft Docs
+title: Bir Web sunucusunu yapılandırma için Web dağıtımı yayımlama (Web dağıtımı işleyicisi) | Microsoft Docs
 author: jrjlee
-description: Bu konuda Web'de yayımlama ve IIS Web dağıtımı Han kullanarak dağıtımını desteklemek için Internet Information Services (IIS) web sunucusunun nasıl yapılandırılacağı açıklanmaktadır...
+description: Bu konu, Web'de yayımlama ve dağıtma IIS Web Han kullanarak dağıtımını desteklemek için bir Internet Information Services (IIS) web sunucusu yapılandırmanız açıklar...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
 ms.topic: article
 ms.assetid: 90ebf911-1c46-4470-b876-1335bd0f590f
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler
 msc.type: authoredcontent
-ms.openlocfilehash: d98be2859181e014ad332298ee3a572ad4235649
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 2d262aab8fd6e755330acbaffa6d18c29688666f
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30887297"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37394222"
 ---
-<a name="configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler"></a>Web için bir Web sunucusu yapılandırma dağıtımı yayımlamadan (Web dağıtımı işleyici)
+<a name="configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler"></a>Bir Web sunucusunu yapılandırma için Web dağıtımı yayımlama (Web dağıtımı işleyicisi)
 ====================
 tarafından [Jason Lee](https://github.com/jrjlee)
 
-[PDF indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[PDF'yi indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> Bu konuda, web yayımlama ve IIS Web dağıtımı işleyicisi kullanarak dağıtım desteklemek için Internet Information Services (IIS) web sunucusunun nasıl yapılandırılacağı açıklanmaktadır.
+> Bu konuda, Web'de yayımlama ve IIS Web dağıtımı işleyicisi kullanarak dağıtımını desteklemek için bir Internet Information Services (IIS) web sunucusu yapılandırma konusunda açıklanmaktadır.
 > 
-> Web dağıtımı 2.0 veya üstü çalışırken, uygulamaları veya bir web sunucusuna siteleri almak için kullanabileceğiniz üç ana yaklaşım vardır. Şunları yapabilirsiniz:
+> Web dağıtımı 2.0 veya üzeri çalışırken, uygulamaları veya web sunucusuna siteleri almak için kullanabileceğiniz üç ana yaklaşım vardır. Şunları yapabilirsiniz:
 > 
-> - Kullanım *Web dağıtımı uzak aracının*. Bu yaklaşım web sunucusunun daha az yapılandırma gerektirir, ancak hiçbir şey sunucuya dağıtmak için bir yerel sunucu yöneticisinin kimlik bilgilerini sağlamanız gerekir.
-> - Kullanım *Web dağıtımı işleyici*. Bu yaklaşım, çok daha karmaşıktır ve web sunucusu kurmak için daha fazla ilk çaba gerektirir. Ancak, bu yaklaşım kullandığınızda, dağıtım gerçekleştirmek yönetici olmayan kullanıcıların izin vermek için IIS yapılandırabilirsiniz. Web dağıtımı işleyicisi yalnızca IIS 7 veya sonraki bir sürümü kullanılabilir.
-> - Kullanım *çevrimdışı dağıtım*. Bu yaklaşım web sunucusunun en az yapılandırma gerektirir, ancak sunucu yönetici el ile web paketini sunucuya kopyalayın ve IIS Yöneticisi'yle alma.
+> - Kullanım *Web dağıtımı aracı uzak hizmet*. Bu yaklaşım web sunucusunun daha az yapılandırma gerektirir, ancak hiçbir şey sunucuya dağıtmak için bir yerel sunucu yöneticisinin kimlik bilgilerini sağlamanız gerekir.
+> - Kullanım *Web dağıtımı işleyicisi*. Bu yaklaşım, çok daha karmaşıktır ve web sunucusu kurmak için ilk daha fazla çaba gerektirir. Ancak, bu yaklaşımı kullandığınızda, dağıtım gerçekleştirmek yönetici olmayan kullanıcıların IIS yapılandırabilirsiniz. Web dağıtımı işleyicisi, yalnızca IIS 7 veya sonraki bir sürümü kullanılabilir.
+> - Kullanım *çevrimdışı dağıtım*. Bu yaklaşım web sunucusunun en az yapılandırma gerektirir, ancak sunucu yönetici el ile web paketi sunucuya kopyalayın ve IIS Yöneticisi'yle içe aktarın.
 > 
-> Anahtar özellikler, olumlu ve olumsuz yönlerini Bu yaklaşımlar hakkında daha fazla bilgi için bkz: [Web dağıtımı sağ yaklaşımı seçme](choosing-the-right-approach-to-web-deployment.md).
+> Anahtar özellikler, avantajları ve dezavantajları bu yaklaşımların hakkında daha fazla bilgi için bkz. [Web dağıtımı için doğru yaklaşımı seçme](choosing-the-right-approach-to-web-deployment.md).
 
 
-Evet, yönetici olmayan kullanıcılar için belirli IIS Web siteleri içerik dağıtmak üzere izin vermek istiyorsanız. Bu yaklaşım, genellikle bu senaryoları türlerinde tercih edilir:
+Evet, yönetici olmayan kullanıcılar için belirli IIS Web siteleri içerik dağıtmak izin vermek istiyorsanız. Bu yaklaşım genellikle bu senaryoları türlerinde tercih edilir:
 
-- Burada uzaktan dağıtım tetikler kişi ya da hizmet hesabı bir sunucu yöneticisinin kimlik bilgilerine erişiminiz olması beklenmez hazırlık veya üretim ortamları.
-- Barındırılan ortamlarda, uzak kullanıcıların kendi Web siteleri, web sunucusu (veya başka birinin Web sitelerine erişim) üzerinde tam denetimi vermeden güncelleştirme vermek istediğiniz.
+- Burada uzak dağıtım tetikler kişi ya da hizmet hesabı, Sunucu Yöneticisi kimlik bilgilerine erişiminiz olması beklenmez hazırlık veya üretim ortamları.
+- Barındırılan ortamlarda, uzak kullanıcıların kendi Web siteleri, web sunucuları (veya başkasını Web sitelerine erişim) üzerinde tam denetim vermeden güncelleştirme olanağı vermek istediğiniz.
 
-Geliştirme veya test senaryoları veya daha küçük kuruluşlar server Yöneticisi kimlik bilgilerini kullanarak dağıtma içerik genellikle küçük contentious. Bu senaryolarda, dağıtım kullanarak desteklemek için web sunucuları yapılandırma [Web Uzak Aracı hizmeti Dağıt](configuring-a-web-server-for-web-deploy-publishing-remote-agent.md) daha kolay bir yaklaşım sunmaktadır.
+Geliştirme ve test senaryolarında veya daha küçük kuruluşlar, Sunucu Yöneticisi kimlik bilgilerini kullanarak dağıtma içeriği genellikle küçük contentious. Bu senaryolarda, web sunucularınızın dağıtımını kullanarak destekleyecek şekilde yapılandırma [Web Uzak Aracı hizmeti Dağıt](configuring-a-web-server-for-web-deploy-publishing-remote-agent.md) daha basit bir yaklaşım sunar.
 
 ## <a name="task-overview"></a>Görev genel bakış
 
-Kabul etmek ve Web dağıtımı işleyicisi yaklaşımı kullanarak uzak bir bilgisayardan web paketleri dağıtmak için web sunucusunu yapılandırmak için yapmanız:
+Kabul etmek ve Web dağıtımı işleyicisi yaklaşımı kullanarak uzak bir bilgisayardan web paketlerini dağıtmak için web sunucusunu yapılandırmak için yapmanız:
 
-- Oluşturun veya seçin, kimlik bilgileri dağıtımları gerçekleştirmek için kullanacağınız bir etki alanı kullanıcı hesabı ("yönetici olmayan kullanıcı").
+- Oluşturun veya seçin, kimlik bilgileri, dağıtımları gerçekleştirmek için kullanacağınız bir etki alanı kullanıcı hesabını ("yönetici olmayan kullanıcı").
 - IIS 7.5, Web yönetimi hizmeti ve temel kimlik doğrulama modülü gibi yükleyin.
-- Web dağıtımı 2.1 veya üstünü yükleyin.
-- Uzak bağlantılara izin vermek için Web Yönetim hizmeti yapılandırın ve hizmeti başlatın.
-- Dağıtılan içeriğini barındırmak için bir IIS Web sitesi oluşturun.
-- IIS Yöneticisi'nde Web sitenizi, yönetici olmayan kullanıcı izinlerini verin.
-- Web Yönetim hizmeti temsilci kuralları ekleyin ve yönetici olmayan kullanıcı hesabınızı kullanarak Web sitesi içeriğini değiştirmek için hizmeti izin olun.
-- Bağlantı noktası 8172 gelen bağlantılara izin vermek için tüm güvenlik duvarlarını yapılandırın.
+- Web dağıtımı 2.1 veya üzerini yükleyin.
+- Web yönetimi hizmeti uzak bağlantılara izin verecek şekilde yapılandırın ve hizmeti başlatın.
+- Dağıtılan içerik barındırmak için bir IIS Web sitesi oluşturun.
+- IIS Yöneticisi'nde Web sitenize, yönetici olmayan kullanıcı izinleri verin.
+- Web yönetimi hizmeti temsilci kuralları ekleme ve yönetici olmayan kullanıcı hesabınızı kullanarak Web sitesi içeriğini değiştirmek için hizmeti izin emin olun.
+- Tüm güvenlik duvarlarının 8172 numaralı bağlantı noktasında gelen bağlantılara izin verecek şekilde yapılandırın.
 
-ContactManager örnek çözümü özel olarak barındırmak için için gerekir:
+Özellikle ContactManager örnek çözüm barındırmak için için gerekir:
 
-- .NET Framework 4.0 yükleyin.
+- .NET Framework 4. 0'ı yükleyin.
 - ASP.NET MVC 3 yükleyin.
 
-Bu konuda her bu yordamları gerçekleştirmek nasıl yapacağınızı gösterir. Görevleri ve bu konudaki yönergeler Windows Server 2008 R2 çalıştıran bir temiz server yapı ile başlatıyorsanız varsayalım. Devam etmeden önce emin olun:
+Bu konuda, bu yordamların her biri gerçekleştirme gösterilmektedir. Bu konudaki yönergeler ve görevleri ile birlikte Windows Server 2008 R2 çalıştıran bir temiz sunucusu derleme başlatılıyor varsayılır. Devam etmeden önce şunlardan emin olun:
 
-- Windows Server 2008 R2 Service Pack 1 ve kullanılabilir tüm güncelleştirmeleri yüklenir.
+- Windows Server 2008 R2 Service Pack 1 ve tüm kullanılabilir güncelleştirmeler yüklenir.
 - Etki alanına katılmış sunucusudur.
-- Sunucunun bir statik IP adresi vardır.
+- Sunucuda bir statik IP adresi var.
 
 > [!NOTE]
-> Bilgisayarlar bir etki alanına katılma ile ilgili daha fazla bilgi için bkz: [katılan bilgisayarların etki alanı ve günlüğü üzerinde](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx). Statik IP adreslerini yapılandırma hakkında daha fazla bilgi için bkz: [bir statik IP adresi yapılandırın](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx).
+> Bilgisayarlarının bir etki alanına katılmasını sağlama hakkında daha fazla bilgi için bkz: [katılan bilgisayarların etki alanı ve günlüğe kaydetme üzerinde](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx). Statik IP adreslerini yapılandırma hakkında daha fazla bilgi için bkz. [statik bir IP adresi yapılandırın](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx).
 
 
-## <a name="install-products-and-components"></a>Ürünler ve bileşenlerini yükler
+## <a name="install-products-and-components"></a>Ürünler ve bileşenlerini yükleme
 
-Bu bölümde, bileşenleri ve gerekli ürün web sunucusunda yüklenmesinde size kılavuzluk eder. Başlamadan önce sunucunuzun tam olarak güncel olduğundan emin olmak için Windows Update'i çalıştırın için iyi bir uygulama olur.
+Bu bölümde, bileşenleri ve gerekli ürün web sunucusunda yüklenmesinde size kılavuzluk eder. Başlamadan önce iyi sunucunuzun tam olarak güncel olduğundan emin olmak için Windows Update çalıştırmaktır.
 
 Bu durumda, bunları yüklemeniz gerekir:
 
-- **IIS 7 önerilen Yapılandırması**. Böylece **Web sunucusu (IIS)** web sunucunuz üzerinde rol ve IIS modüllerini ve ASP.NET uygulamasını barındırmak için gereken bileşenler kümesi yükler.
-- **IIS: Yönetim hizmeti**. Bu, IIS'de Web Yönetimi Hizmeti (WMSvc) yükler. Bu hizmet, IIS Web siteleri uzaktan yönetilmesini sağlar ve istemcilere Web dağıtımı işleyicisi uç noktasını kullanıma sunar.
-- **IIS: Temel kimlik doğrulaması**. IIS temel kimlik doğrulama modülünü yükler. Bu Web Yönetimi Hizmeti (WMSvc) sağlar, verdiğiniz kimlik bilgileri kimlik doğrulaması.
-- **Web dağıtım aracı 2.1 veya üzeri**. Bu, sunucunuzda Web dağıtımı (ve onun temel yürütülebilir MSDeploy.exe) yükler. Bu işlemin bir parçası olarak bu Web dağıtımı işleyicisi yükler ve Web yönetimi hizmeti ile tümleşir.
-- **.NET framework 4.0**. Bu, .NET Framework'ün bu sürümünde oluşturulan uygulamaları çalıştırmak için gereklidir.
-- **ASP.NET MVC 3**. Bu MVC 3 uygulamaları çalıştırmak için gereken derlemeler yükler.
+- **IIS 7 önerilen Yapılandırması**. Böylece **Web sunucusu (IIS)** , web sunucusu rolü ve IIS modüllerini ve bir ASP.NET uygulamasını barındırmak için gereken bileşenleri yükler.
+- **IIS: Yönetim hizmeti**. Bu, IIS Web Yönetimi Hizmeti (WMSvc) yükler. Bu hizmet, IIS Web siteleri uzaktan yönetilmesini sağlar ve istemcilere Web dağıtımı işleyicisi uç noktasını kullanıma sunar.
+- **IIS: Temel kimlik doğrulaması**. Bu, IIS temel kimlik doğrulama modülünü yükler. Bu sayede Web Yönetimi Hizmeti (WMSvc) sağladığınız kimlik.
+- **Web dağıtım aracı 2.1 veya üzeri**. Bu seçenek, Web dağıtımı (ve temel alınan çalıştırılabilir, MSDeploy.exe) sunucunuzda yükler. Bu işlemin bir parçası olarak, Web dağıtımı işleyicisi yükler ve Web yönetimi hizmeti ile tümleştirilir.
+- **.NET framework 4.0**. Bu, .NET Framework'ün bu sürümünde oluşturulmuş uygulamaları çalıştırmak için gereklidir.
+- **ASP.NET MVC 3**. Bu, MVC 3 uygulamaları çalıştırmak için gereken bütünleştirilmiş kodları yükler.
 
 > [!NOTE]
-> Bu kılavuzda yüklemek ve çeşitli bileşenleri yapılandırmak için Web Platformu yükleyicisi kullanımını açıklar. Web Platformu yükleyicisi kullanmak zorunda değilsiniz rağmen otomatik olarak bağımlılıkları algılamasını ve her zaman en son ürün sürümleri alma sağlayarak yükleme işlemini basitleştirir. Daha fazla bilgi için bkz: [Microsoft Web Platformu yükleyicisi 3.0](https://go.microsoft.com/?linkid=9805118).
+> Bu izlenecek yol çeşitli bileşenlerini yükleme ve yapılandırma için Web Platformu yükleyicisi kullanımını açıklar. Web Platformu Yükleyicisi'ni kullanmanız gerekmez ancak otomatik olarak bağımlılıkları algılamasını ve her zaman en son ürün sürümlerini alma sağlayarak yükleme işlemini basitleştirir. Daha fazla bilgi için [Microsoft Web Platformu yükleyicisi 3.0](https://go.microsoft.com/?linkid=9805118).
 
 
 **Gerekli ürün ve bileşenlerini yüklemek için**
 
 1. İndirme ve yükleme [Web Platformu yükleyicisi](https://go.microsoft.com/?linkid=9805118).
-2. Yükleme tamamlandığında, Web Platformu yükleyicisi otomatik olarak başlatır.
+2. Web Platformu yükleyicisi, yükleme tamamlandıktan sonra otomatik olarak başlatılır.
 
     > [!NOTE]
-    > Web Platformu yükleyicisi şimdi istediğiniz zaman başlatabilir **Başlat** menüsü. Bunu yapmak için **Başlat** menüsünde tıklatın **tüm programlar**ve ardından **Microsoft Web Platformu yükleyicisi**.
-3. Üstündeki **Web Platformu yükleyicisi 3.0** penceresinde tıklatın **ürünleri**.
-4. Gezinti bölmesinde, pencerenin sol tarafındaki tıklatın **çerçeveler**.
-5. İçinde **Microsoft .NET Framework 4** .NET Framework zaten yüklü değilse, satır tıklatın **Ekle**.
+    > Şimdi Web Platformu yükleyicisi diledikleri zaman başlatabilirsiniz **Başlat** menüsü. Bunu yapmak için **Başlat** menüsünü tıklatın **tüm programlar**ve ardından **Microsoft Web Platformu yükleyicisi**.
+3. Üst kısmındaki **Web Platformu yükleyicisi 3.0** penceresinde tıklayın **ürünleri**.
+4. Gezinti bölmesinde, pencerenin sol tarafındaki tıklayarak **çerçeveleri**.
+5. İçinde **Microsoft .NET Framework 4** .NET Framework zaten yüklü değilse, satırı tıklatın **Ekle**.
 
     > [!NOTE]
-    > Windows Update aracılığıyla .NET Framework 4.0 zaten yüklenmiş. Bir ürün veya bileşenin zaten yüklüyse, Web Platformu yükleyicisi bu değiştirerek gösterecektir **Ekle** düğmesi metni ile **yüklü**.
+    > Windows Update aracılığıyla .NET Framework 4.0 zaten yüklü olabilir. Bir ürün veya bileşeni zaten yüklüyse, Web Platformu yükleyicisi bu değiştirerek gösterecektir **Ekle** metnini içeren düğmeye **yüklü**.
 
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image1.png)
-6. İçinde **ASP.NET MVC 3 (Visual Studio 2010)** satır, tıklatın **Ekle**.
-7. Gezinti bölmesinde **Server**.
-8. İçinde **IIS 7 önerilen Yapılandırması** satır, tıklatın **Ekle**.
-9. İçinde **Web dağıtım aracı 2.1** satır, tıklatın **Ekle**.
-10. İçinde **IIS: temel kimlik doğrulaması** satır, tıklatın **Ekle**.
-11. İçinde **IIS: Yönetim hizmeti** satır, tıklatın **Ekle**.
+6. İçinde **ASP.NET MVC 3 (Visual Studio 2010)** satır, tıklayın **Ekle**.
+7. Gezinti bölmesinde **sunucu**.
+8. İçinde **IIS 7 önerilen Yapılandırması** satır, tıklayın **Ekle**.
+9. İçinde **Web dağıtım aracı 2.1** satır, tıklayın **Ekle**.
+10. İçinde **IIS: temel kimlik doğrulaması** satır, tıklayın **Ekle**.
+11. İçinde **IIS: Yönetim hizmeti** satır, tıklayın **Ekle**.
 12. **Yükle**'ye tıklatın. Web Platformu yükleyicisi ürünleri &#x2014; herhangi bir ilişkili bağımlılıkları &#x2014; yüklenecek birlikte listesini gösterir ve lisans koşullarını kabul isteyip istemediğinizi sorar.
 
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image2.png)
-13. Lisans koşullarını gözden geçirin ve koşullarını kabul ederseniz tıklayın **kabul ediyorum**.
-14. Yükleme tamamlandığında, tıklatın **son**ve ardından kapatın **Web Platformu yükleyicisi 3.0** penceresi.
+13. Lisans koşullarını gözden geçirin ve koşulları kabul ediyorsa **kabul ediyorum**.
+14. Yükleme tamamlandığında, tıklayın **son**ve ardından kapatın **Web Platformu yükleyicisi 3.0** penceresi.
 
-IIS yüklemeden önce .NET Framework 4.0 yüklü değilse, çalıştırmanız gerekir [ASP.NET IIS Kayıt Aracı](https://msdn.microsoft.com/library/k6h9cz8h(v=VS.100).aspx) (aspnet\_regiis.exe) IIS ile ASP.NET en son sürümünü kaydetmek için. Bunu yapmazsanız, sorunsuz IIS (HTML dosyaları gibi) statik içerik sunmanızı bulabilirsiniz, ancak onu döndürür **HTTP Hatası 404.0 – bulunamadı** ASP.NET içeriğe göz atmak çalıştığınızda. ASP.NET 4.0 kayıtlı olduğundan emin olmak için bir sonraki yordamı kullanın.
+IIS yüklemeden önce .NET Framework 4.0 yüklü değilse, çalıştırmanız gerekir [ASP.NET IIS Kayıt Aracı](https://msdn.microsoft.com/library/k6h9cz8h(v=VS.100).aspx) (aspnet\_regiis.exe) IIS ile ASP.NET en son sürümünü kaydetmek için. Bunu yapmazsanız, herhangi bir sorun IIS (HTML dosyaları gibi) statik içerik sunmak bulabilirsiniz, ancak onu döndürür **HTTP Hatası 404.0 – bulunamadı** çalıştığınızda ASP.NET içeriği gidin. ASP.NET 4.0 kayıtlı olduğundan emin olmak için bir sonraki yordamı kullanın.
 
-**IIS ile ASP.NET 4.0 kaydetmek için**
+**ASP.NET 4. 0'ı IIS ile kaydetmeniz için**
 
-1. Tıklatın **Başlat**ve ardından **komut istemi**.
+1. Tıklayın **Başlat**, Anahtar'a tıklayın ve **komut istemi**.
 2. Arama sonuçlarında sağ **komut istemi**ve ardından **yönetici olarak çalıştır**.
-3. Komut İstemi penceresine gidin **%WINDIR%\Microsoft.NET\Framework\v4.0.30319** dizini.
+3. Komut İstemi penceresinde gidin **%WINDIR%\Microsoft.NET\Framework\v4.0.30319** dizin.
 4. Bu komutu yazın ve Enter tuşuna basın:
 
     [!code-console[Main](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/samples/sample1.cmd)]
-5. Ana bilgisayar 64-bit web uygulamaları herhangi bir noktada planlıyorsanız, ASP.NET 64-bit sürümünü de IIS ile kaydetmelisiniz. Bunu komut istemi penceresine gidin **%WINDIR%\Microsoft.NET\Framework64\v4.0.30319** dizini.
+5. Herhangi bir noktada 64-bit web uygulamalarını barındırmak için planlıyorsanız, ASP.NET 64-bit sürümü de IIS ile kaydetmeniz. Komut İstemi penceresinde bunu yapmak için gidin **%WINDIR%\Microsoft.NET\Framework64\v4.0.30319** dizin.
 6. Bu komutu yazın ve Enter tuşuna basın:
 
     [!code-console[Main](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/samples/sample2.cmd)]
 
-İyi bir uygulama, Windows Update'i yeniden bu noktada yeni ürünler ve yüklemiş olduğunuz bileşenler için güncelleştirmeleri karşıdan yükleyip kullanın.
+İyi bir yöntem olarak, Windows Update yeniden bu noktada yeni ürünler ve yüklediğiniz bileşenler için güncelleştirmeleri karşıdan yüklenip kurulacak kullanın.
 
 ## <a name="configure-the-web-management-service"></a>Web yönetimi hizmeti yapılandırın
 
-Gereksinim duyduğunuz her şeyi yüklediniz, sonraki adıma IIS'de Web yönetimi hizmeti yapılandırmaktır. Yüksek düzeyde, bu görevleri tamamlamak gerekir:
+İhtiyacınız olan her şey yükledikten sonra sonraki adımda Web yönetimi hizmeti, IIS'de sağlamaktır. Yüksek düzeyde, bu görevleri tamamlamak gerekir:
 
 - Sunucu düzeyinde temel kimlik doğrulamasını etkinleştirin.
-- Uzak bağlantıları kabul etmek için Web Yönetim hizmetini yapılandırın.
+- Web yönetimi hizmeti uzak bağlantıları kabul edecek şekilde yapılandırın.
 - Web yönetimi hizmeti başlatın.
 - Gerekli Web Yönetim hizmeti temsilci kuralları yerinde olduğundan emin olun.
 
 **Web yönetimi hizmeti yapılandırmak için**
 
-1. Üzerinde **Başlat** menüsündeki **Yönetimsel Araçlar**ve ardından **Internet Information Services (IIS) Yöneticisi'ni**.
-2. IIS Yöneticisi ' nde, **bağlantıları** bölmesinde sunucu düğümünü tıklatın (örneğin, **STAGEWEB1**).
+1. Üzerinde **Başlat** menüsünde **Yönetimsel Araçlar**ve ardından **Internet Information Services (IIS) Yöneticisi'ni**.
+2. IIS Yöneticisi'nde, **bağlantıları** bölmesinde sunucu düğümünü tıklatın (örneğin, **STAGEWEB1**).
 
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image3.png)
-3. Orta bölmede altında **IIS**, çift **kimlik doğrulama**.
+3. Orta bölmede altında **IIS**, çift **kimlik doğrulaması**.
 
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image4.png)
-4. Sağ **temel kimlik doğrulaması**ve ardından **etkinleştirmek**.
+4. Sağ **temel kimlik doğrulaması**ve ardından **etkinleştirme**.
 
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image5.png)
 5. İçinde **bağlantıları** bölmesinde tekrar en üst düzey ayarlara dönmek için sunucu düğümünü tıklatın.
 6. Orta bölmede altında **Yönetim**, çift **yönetim hizmeti**.
 
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image6.png)
-7. Orta bölmede seçin **uzak bağlantıları etkinleştirmek**.
+7. Orta bölmede seçin **uzak bağlantıları etkinleştir**.
 
     > [!NOTE]
     > Web yönetimi hizmeti zaten çalışıyorsa, önce durdurmanız gerekir.
-8. İçinde **Eylemler** bölmesinde tıklatın **Başlat** Web yönetimi hizmeti başlatmak için.
+8. İçinde **eylemleri** bölmesinde tıklayın **Başlat** Web yönetimi hizmeti başlatılamıyor.
 
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image7.png)
-9. Ayarlarınızı kaydetmek için istenirse tıklatın **Evet**.
+9. Ayarlarınızı kaydetmek için istenirse, tıklayın **Evet**.
 
     > [!NOTE]
-    > Hizmeti otomatik olarak başlayacak şekilde yapılandırmak isteyebilirsiniz. Bunu yapmak için Hizmetler konsolunu açın, sağ **Web Yönetim hizmeti**ve ardından **özellikleri**. İçinde **başlangıç türü** açılır listesinden, **otomatik**ve ardından **Tamam**.
+    > Hizmetini otomatik olarak başlayacak şekilde yapılandırmak isteyebilirsiniz. Bunu yapmak için Hizmetler konsolunu açın, sağ **Web yönetimi hizmeti**ve ardından **özellikleri**. İçinde **başlangıç türü** açılan listesinden **otomatik**ve ardından **Tamam**.
 10. İçinde **bağlantıları** bölmesinde tekrar en üst düzey ayarlara dönmek için sunucu düğümünü tıklatın.
 11. Orta bölmede altında **Yönetim**, çift **yönetim hizmeti temsilci**.
 
@@ -176,137 +175,137 @@ Gereksinim duyduğunuz her şeyi yüklediniz, sonraki adıma IIS'de Web yönetim
 
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image9.png)
 
-    Bu kurallar, çeşitli Web dağıtımı sağlayıcıları kullanmak yetkili Web yönetimi hizmeti kullanıcıların sağlar. Örneğin, IIS Web dağıtımı işleyicisi üzerinden web uygulamaları ve içerik dağıtmak için koyulmalıdır kimliği doğrulanmış tüm kullanmak için Web Yönetim hizmeti kullanıcılara izin veren bir temsilci kuralı **contentPath** ve **Iisapp**  sağlayıcıları (ekran görüntüsünde görebilirsiniz son kuralı).
+    Bu kurallar, çeşitli Web dağıtımı sağlayıcıları kullanan yetkili Web yönetimi hizmeti kullanıcıların izin verin. Örneğin, Web dağıtımı işleyicisi IIS web uygulamaları ve içerik dağıtmak için olmalıdır tüm Web yönetimi hizmeti kullanıcıların kimlik doğrulaması izin veren bir temsilci kuralı **contentPath** ve **Iisapp**  sağlayıcıları (ekran görüntüsünde görebilirsiniz son kuralı).
 
-    Bu konuda açıklanan sırayla ürünlerini ve bileşenleri yüklediyseniz, Web Dağıtımı'nın en son sürümünü otomatik olarak tüm gerekli temsilci kuralları için Web Yönetim hizmeti eklemeniz gerekir. Yönetim hizmeti temsilci sayfasına herhangi bir kuralın görünmüyorsa, bunları kendiniz oluşturmanız gerekir. Bunun nasıl yapılacağı hakkında yönergeler için bkz [Web dağıtım işleyicisi yapılandırma](https://go.microsoft.com/?linkid=9805124).
+    Bu konuda açıklanan siparişteki ürünleri ve bileşenleri yüklü değilse, Web Dağıtımı'nın en son sürümünü Web yönetimi hizmeti için tüm gerekli temsilci kuralları otomatik olarak eklemelisiniz. Yönetim hizmeti temsilci sayfasına, tüm kuralları göstermez kendiniz oluşturmanız gerekir. Bunun nasıl yapılacağı hakkında yönergeler için bkz [Web dağıtımı işleyicisi yapılandırma](https://go.microsoft.com/?linkid=9805124).
 13. İçinde **bağlantıları** bölmesinde tekrar en üst düzey ayarlara dönmek için sunucu düğümünü tıklatın.
 
 ## <a name="create-and-configure-an-iis-website"></a>Oluşturma ve bir IIS Web sitesi yapılandırma
 
-Sunucunuza web içeriği dağıtmadan önce oluşturma ve bir IIS Web sitesi içeriğini barındırmak için yapılandırma gerekir. Web dağıtımı, yalnızca mevcut bir IIS Web sitesine web paketleri dağıtabilirsiniz; Web sitesi sizin için oluşturulamaz. Ayrıca yönetici olmayan hesabınızı uzaktan içerik dağıtmak üzere izin vermek için çok az bir ek yapılandırma yapmanız gerekir. Yüksek düzeyde, bu görevleri tamamlamak gerekir:
+Sunucunuza web içeriği dağıtmadan önce oluşturulup bir IIS Web sitesi içeriğini barındırmak için yapılandırılması gerekir. Web dağıtımı, web paketleri yalnızca var olan bir IIS Web sitesine dağıtabilirsiniz; Bu Web sitesi sizin için oluşturulamıyor. Ayrıca yönetici olmayan hesabınızın içeriğini uzaktan dağıtmak izin vermek için küçük bir ek yapılandırma yapmanız gerekir. Yüksek düzeyde, bu görevleri tamamlamak gerekir:
 
-- İçeriğinizi barındırmak üzere dosya sisteminde bir klasör oluşturun.
+- İçeriğinizi barındırmak için dosya sisteminde bir klasör oluşturun.
 - İçerik sunmak için bir IIS Web sitesi oluşturma ve yerel klasör ile ilişkilendirebilirsiniz.
-- Uygulama havuzu kimliği yerel klasör üzerindeki izinleri okuma verme.
-- Web uygulamanızı dağıtacağınız etki alanı hesabı için gereken IIS izinleri verin.
+- Uygulama havuzu kimliği yerel klasör izinlerini okuma izni ver.
+- Gerekli IIS web uygulamanızı dağıtacağınız etki alanı hesabı için izinler verir.
 
-Olmasına karşın bir şey IIS'de varsayılan Web sitesi için içerik dağıtma durdurma test ya da gösterim senaryoları dışında her şey için bu yaklaşım önerilmez. Bir üretim ortamının benzetimini yapmak için uygulamanızın gereksinimlerine belirli ayarlarla yeni bir IIS Web sitesi oluşturmanız gerekir.
+Bu yaklaşım olmasa da nothing IIS'de varsayılan Web sitesine içerik dağıtımını durdurmak, test ya da gösterim senaryoları dışında her şey için önerilmez. Bir üretim ortamının benzetimini yapmak için uygulamanızın gereksinimleri için belirli ayarlarla yeni bir IIS Web sitesi oluşturmanız gerekir.
 
 **Bir IIS Web sitesi oluşturmak için**
 
 1. Yerel dosya sisteminde içeriğinizi depolamak için bir klasör oluşturun (örneğin, **C:\DemoSite**).
-2. Üzerinde **Başlat** menüsündeki **Yönetimsel Araçlar**ve ardından **Internet Information Services (IIS) Yöneticisi'ni**.
-3. IIS Yöneticisi ' nde, **bağlantıları** bölmesinde sunucu düğümünü genişletin (örneğin, **STAGEWEB1**).
+2. Üzerinde **Başlat** menüsünde **Yönetimsel Araçlar**ve ardından **Internet Information Services (IIS) Yöneticisi'ni**.
+3. IIS Yöneticisi'nde, **bağlantıları** bölmesinde sunucu düğümünü genişletin (örneğin, **STAGEWEB1**).
 
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image10.png)
 4. Sağ **siteleri** düğümünü ve ardından **Web sitesi Ekle**.
 5. İçinde **Site adı** IIS Web sitesi için bir ad yazın (örneğin, **DemoSite**).
-6. İçinde **fiziksel yolu** kutusuna yazın (veya göz atın), yerel klasör yolu (örneğin, **C:\DemoSite**).
-7. İçinde **bağlantı noktası** kutusunda, istediğiniz Web sitesini barındırmak bağlantı noktası numarasını yazın (örneğin, **85**).
+6. İçinde **fiziksel yolu** kutusuna yazın (veya göz atın), yerel bir klasör yolu (örneğin, **C:\DemoSite**).
+7. İçinde **bağlantı noktası** istediğiniz Web sitesini barındırmak bağlantı noktası numarasını yazın (örneğin, **85**).
 
     > [!NOTE]
     > Standart bağlantı noktası numaralarını, HTTP için 80 ve HTTPS için 443 ' dir. Ancak, bu Web sitesi bağlantı noktası 80 üzerinde barındırıyorsanız, sitenizi erişebilmeniz için önce varsayılan Web sitesini Durdur gerekir.
-8. Bırakın **ana bilgisayar adı** kutusuna Web sitesi için bir etki alanı adı sistemi (DNS) kaydını yapılandırın ve ardından istemediğiniz sürece boş **Tamam**.
+8. Bırakın **ana bilgisayar adı** kutusunu boş, Web sitesi için bir etki alanı adı sistemi (DNS) kaydı yapılandırın ve ardından istediğiniz sürece **Tamam**.
 
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image11.png)
 
     > [!NOTE]
-    > Bir üretim ortamında, büyük olasılıkla, Web sitesi bağlantı noktası 80 üzerinde barındırmak ve DNS kayıtlarını eşleşen birlikte bir konak üstbilgisi yapılandırma istersiniz. IIS 7'de konak üstbilgileri yapılandırma hakkında daha fazla bilgi için bkz: [bir Web sitesi (IIS 7) için bir konak üstbilgisi yapılandırma](https://technet.microsoft.com/library/cc753195(WS.10).aspx). Windows Server 2008 R2'de DNS sunucusu rolü hakkında daha fazla bilgi için bkz: [DNS sunucusuna genel bakış](https://technet.microsoft.com/en-gb/library/cc770392.aspx) ve [DNS sunucusu](https://technet.microsoft.com/windowsserver/dd448607).
+    > Bir üretim ortamında, büyük olasılıkla, Web sitesi bağlantı noktası 80 üzerinde barındırmak ve DNS kayıtlarını eşleşen birlikte bir konak üstbilgisi yapılandırma isteyeceksiniz. IIS 7'de konak üstbilgileri yapılandırma hakkında daha fazla bilgi için bkz. [bir Web sitesi (IIS 7) için bir konak üstbilgisi yapılandırma](https://technet.microsoft.com/library/cc753195(WS.10).aspx). Windows Server 2008 R2'de DNS sunucusu rolü hakkında daha fazla bilgi için bkz. [DNS sunucusuna genel bakış](https://technet.microsoft.com/en-gb/library/cc770392.aspx) ve [DNS sunucusu](https://technet.microsoft.com/windowsserver/dd448607).
 9. **Eylemler** bölmesinde, **Site Düzenle**altında, **Bağlamalar**'ı tıklatın.
-10. İçinde **Site bağlamaları** iletişim kutusu, tıklatın **Ekle**.
+10. İçinde **Site bağlamaları** iletişim kutusu, tıklayın **Ekle**.
 
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image12.png)
-11. İçinde **Site bağlaması Ekle** iletişim kutusu, kümesi **IP adresi** ve **bağlantı noktası** var olan site yapılandırmanızı eşleşecek şekilde.
+11. İçinde **Site bağlaması Ekle** iletişim kutusu, kümesi **IP adresi** ve **bağlantı noktası** var olan site yapılandırmanızla eşleşecek şekilde.
 12. İçinde **ana bilgisayar adı** web sunucunuzun adını yazın (örneğin, **STAGEWEB1**) ve ardından **Tamam**.
 
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image13.png)
 
     > [!NOTE]
-    > İlk site bağlaması IP adresi ve bağlantı noktasını kullanarak yerel olarak site erişmenize olanak sağlayan veya `http://localhost:85`. İkinci site bağlaması makine adı kullanarak etki alanında diğer bilgisayarlardan site erişmenize olanak sağlayan (örneğin, http://stageweb1:85).
-13. İçinde **Site bağlamaları** iletişim kutusu, tıklatın **Kapat**.
-14. İçinde **bağlantıları** bölmesinde tıklatın **uygulama havuzları**.
-15. İçinde **uygulama havuzları** bölmesinde, uygulama havuzunun adını sağ tıklatın ve ardından **temel ayarları**. Varsayılan olarak, Web sitenizin adı, uygulama havuzu adı ile eşleşir (örneğin, **DemoSite**).
-16. İçinde **.NET Framework sürüm** listesinde **.NET Framework v4.0. 30319**ve ardından **Tamam**.
+    > İlk site bağlaması IP adresi ve bağlantı noktasını kullanarak yerel olarak site erişmenize olanak sağlayan veya `http://localhost:85`. Makine adını kullanarak etki alanındaki diğer bilgisayarlardan siteye erişmek ikinci bir site bağlaması sağlar (örneğin, http://stageweb1:85).
+13. İçinde **Site bağlamaları** iletişim kutusu, tıklayın **Kapat**.
+14. İçinde **bağlantıları** bölmesinde tıklayın **uygulama havuzları**.
+15. İçinde **uygulama havuzları** bölmesinde, uygulama havuzunuzu adına sağ tıklayın ve ardından **temel ayarları**. Varsayılan olarak, Web sitenizin adı, uygulama havuzunun adı eşleşir (örneğin, **DemoSite**).
+16. İçinde **.NET Framework sürümünü** listesinden **.NET Framework v4.0.30319**ve ardından **Tamam**.
 
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image14.png)
 
     > [!NOTE]
-    > Örnek çözümü .NET Framework 4.0 gerektirir. Bu gereksinim Web dağıtımı için genel değil.
+    > Örnek çözüm, .NET Framework 4.0 gerektirir. Bu bir gereksinim Web dağıtımı için genel olarak geçerli değildir.
 
-İçerik sunmak Web siteniz için sırada uygulama havuzu kimliği içeriği depolayan yerel klasör üzerinde Okuma izinleriniz olmalıdır. IIS 7.5 uygulama havuzları (aksine, IIS uygulama havuzları genellikle ağ hizmeti hesabını kullanarak çalıştırdığı, önceki sürümler) varsayılan olarak benzersiz uygulama havuzu kimliği ile çalıştırın. Uygulama havuzu kimliği gerçek kullanıcı hesabı değil ve tüm kullanıcılar veya gruplar &#x2014 listelerde görünmüyor; uygulama havuzunu başlatıldığında, bunun yerine, bunu dinamik olarak oluşturulur. Her uygulama havuzu kimliği yerel eklenir **IIS\_IUSRS** gizli bir öğe olarak güvenlik grubu.
+Sırayla içerik sunmak bir Web siteniz için uygulama havuzu kimliği içeriği depolayan bir yerel klasör izinlerini okuma olmalıdır. IIS 7.5 uygulama havuzları (aksine, IIS, burada ağ hizmeti hesabını kullanarak genellikle uygulama havuzlarında çalışır önceki sürümleri için) varsayılan olarak benzersiz bir uygulama havuzu kimliği ile çalıştırın. Uygulama havuzu kimliği gerçek kullanıcı hesabı değil ve tüm kullanıcılar veya gruplar &#x2014 listelerde görünmüyor; uygulama havuzunu başlatıldığında, bunun yerine, bunu dinamik olarak oluşturulur. Her uygulama havuzu kimliği için yerel eklenir **IIS\_IUSRS** gizli öğe olarak güvenlik grubu.
 
 Bir uygulama havuzu kimliği bir dosya veya klasör izinleri vermek için iki seçeneğiniz vardır:
 
-- İzinleri biçimi kullanarak uygulama havuzu kimliği için doğrudan atayın. <strong>IIS AppPool\</ strong ><em>[uygulama havuzu adı]</em>(örneğin, <strong>IIS AppPool\DemoSite</strong>).
-- İzinleri atayın **IIS\_IUSRS** grubu.
+- İzinleri aşağıdaki biçimi kullanarak uygulama havuzu kimliği için doğrudan atayın. <strong>IIS uygulama havuzu\</ strong ><em>[uygulama havuzu adı]</em>(örneğin, <strong>IIS AppPool\DemoSite</strong>).
+- Atama izinleri **IIS\_IUSRS** grubu.
 
-Yerel izinler atamak için en yaygın yaklaşımdır **IIS\_IUSRS** grubunda olduğundan bu yaklaşım, dosya sistemi izinleri yapılandırmadan uygulama havuzları değiştirmenize olanak sağlar. Sonraki yordamda bu grup tabanlı yaklaşımı kullanır.
+Yerel izinler atamak için en yaygın yaklaşımdır **IIS\_IUSRS** grubunda olduğundan bu yaklaşım uygulama havuzları, dosya sistemi izinleri yapılandırmadan değiştirmenize olanak tanır. Sonraki yordam, bu grup tabanlı bir yaklaşım kullanır.
 
 > [!NOTE]
-> IIS 7.5, uygulama havuzu kimlikleri hakkında daha fazla bilgi için bkz: [uygulama havuzu kimlikleri](https://go.microsoft.com/?linkid=9805123).
+> IIS 7.5, uygulama havuzu kimlikleri hakkında daha fazla bilgi için bkz. [uygulama havuzu kimlikleri](https://go.microsoft.com/?linkid=9805123).
 
 
 **Bir IIS Web sitesi için klasör izinlerini yapılandırmak için**
 
-1. Windows Gezgini'nde yerel klasör konumuna gidin.
-2. Klasöre sağ tıklayın ve ardından **özellikleri**.
-3. Üzerinde **güvenlik** sekmesini tıklatın, **Düzenle**ve ardından **Ekle**.
-4. Tıklatın **konumları**. İçinde **konumları** iletişim kutusunda, yerel sunucuyu seçin ve ardından **Tamam**.
+1. Windows Gezgini'nde yerel klasörünüz konumuna göz atın.
+2. Klasörü sağ tıklatın ve ardından **özellikleri**.
+3. Üzerinde **güvenlik** sekmesinde **Düzenle**ve ardından **Ekle**.
+4. Tıklayın **konumları**. İçinde **konumları** iletişim kutusunda, yerel sunucuyu seçin ve ardından **Tamam**.
 
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image15.png)
-5. İçinde **kullanıcıları veya Grupları Seç** iletişim kutusuna **IIS\_IUSRS**, tıklatın **Adları Denetle**ve ardından **Tamam**.
-6. İçinde <strong>izinlerini</strong><em>[klasör adı]</em> iletişim kutusunda, yeni Grup atanan bildirim <strong>okuma &amp; yürütme</strong>, <strong>liste klasörü içeriği</strong>, ve <strong>okuma</strong> varsayılan izinleri. Bu değiştirmeden bırakın ve tıklatın <strong>Tamam</strong>.
-7. Tıklatın <strong>Tamam</strong> kapatmak için <em>[klasör adı]</em><strong>özellikleri</strong> iletişim kutusu.
+5. İçinde **kullanıcıları veya Grupları Seç** iletişim kutusuna **IIS\_IUSRS**, tıklayın **Adları Denetle**ve ardından **Tamam**.
+6. İçinde <strong>izinlerini</strong><em>[klasör adı]</em> iletişim kutusunda, yeni gruba atanmış olan bildirim <strong>okuma &amp; yürütme</strong>, <strong>klasörü Listele içeriği</strong>, ve <strong>okuma</strong> varsayılan izinleri. Bu değiştirmeden bırakın ve tıklayın <strong>Tamam</strong>.
+7. Tıklayın <strong>Tamam</strong> kapatmak için <em>[klasör adı]</em><strong>özellikleri</strong> iletişim kutusu.
 
-Son bir görev olarak kimlik içerik dağıtmak için kullanacağınız yönetici olmayan kullanıcı uygun izinleri vermeniz gerekir. Bu kullanıcı içerik uzaktan Web sitenize dağıtmak için izinler gerektirir.
+Son bir görev olarak için yönetici olmayan kullanıcı kimlik bilgileri, içerik dağıtmak için kullanacağınız uygun izinleri vermeniz gerekir. Bu kullanıcı içerik uzaktan Web sitenize dağıtmak için izinler gerektirir.
 
 **Yönetici olmayan etki alanı kullanıcısı için IIS Web sitesi izinlerini yapılandırmak için**
 
-1. IIS Yöneticisi ' nde içinde **bağlantıları** bölmesinde, Web sitesi düğümüne sağ tıklayın (örneğin, **DemoSite**), işaret **dağıtma**ve ardından **Web yapılandırma Yayımlama dağıtmak**.
+1. IIS Yöneticisi'nde içinde **bağlantıları** bölmesinde, Web sitesi düğümüne sağ tıklayın (örneğin, **DemoSite**), işaret **Dağıt**ve ardından **Web yapılandırma Yayımlama dağıtma**.
 
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image16.png)
-2. İçinde **yapılandırma Web dağıtımı yayımlama** iletişim kutusu, sağındaki **yayımlama izin vermek için bir kullanıcı seçin** listesinde, üç nokta düğmesini tıklatın.
+2. İçinde **yapılandırma Web dağıtımı yayımlama** sağındaki iletişim kutusu **yayımlama izin vermek için bir kullanıcı seçin** listesinde, üç nokta düğmesine tıklayın.
 
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image17.png)
-3. İçinde **kullanıcıya izin ver** iletişim kutusunda, etki alanı ve kullanıcı içerik dağıtmak ve ardından kullanmak istediğiniz hesabın adını yazın **Tamam**.
+3. İçinde **kullanıcıya izin ver** iletişim kutusunda, içerik dağıtma ve ardından kullanmak istediğiniz hesabın etki alanı ve kullanıcı adını yazın **Tamam**.
 
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image18.png)
-4. İçinde **yapılandırma Web dağıtımı yayımlama** iletişim kutusu, tıklatın **Kurulum**.
+4. İçinde **yapılandırma Web dağıtımı yayımlama** iletişim kutusu, tıklayın **Kurulum**.
 
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image19.png)
 
     > [!NOTE]
-    > Bu işlem tek bir adımda iki önemli işlevleri gerçekleştirir. İlk olarak, önceki bölümde incelenmesi temsilci kurallarına göre kullanıcı Web sitesi Web yönetimi hizmeti üzerinden uzaktan değiştirme izni verir. İkinci olarak, kaynak klasörün eklemek, değiştirmek ve Web sitesi içeriğini izinleri olanak tanır. Web sitesi için kullanıcı tam denetim verir.
-5. İçinde **yapılandırma Web dağıtımı yayımlama** iletişim kutusu, tıklatın **Kapat**.
+    > Bu işlem, tek bir adımda iki önemli işlevler gerçekleştirir. İlk olarak, önceki bölümde incelenirken temsilci kurallara göre Web sitesi Web yönetimi hizmeti üzerinden uzaktan değiştirme izni verir. İkinci olarak, kaynak klasörünün eklemek, değiştirmek ve Web sitesi içeriğini izinleri izin verir Web sitesi için kullanıcıya tam denetim verir.
+5. İçinde **yapılandırma Web dağıtımı yayımlama** iletişim kutusu, tıklayın **Kapat**.
 
-## <a name="configure-firewall-exceptions"></a>Güvenlik Duvarı özel durumlarını yapılandırın
+## <a name="configure-firewall-exceptions"></a>Güvenlik Duvarı özel durumlarını yapılandırma
 
-Varsayılan olarak, IIS Web Yönetim hizmeti 8172 numaralı TCP bağlantı noktasını dinler. Web sunucunuz üzerinde Windows Güvenlik Duvarı etkinse (giden tüm trafiği Windows Güvenlik Duvarı varsayılan olarak izin verilir) 8172 numaralı bağlantı noktasındaki TCP trafiğine izin veren yeni bir gelen kuralı oluşturmanız gerekir. Bir üçüncü taraf güvenlik duvarı kullanıyorsanız, trafiğine izin verme kuralları oluşturmanız gerekir.
+Varsayılan olarak, IIS Web Yönetim Hizmeti'nin 8172 numaralı TCP bağlantı noktasını dinler. Web sunucunuz üzerinde Windows Güvenlik Duvarı etkinse, (tüm giden trafiğe varsayılan olarak Windows Güvenlik Duvarı'nda izin verilir) 8172 numaralı bağlantı noktasındaki TCP trafiğine izin veren yeni bir gelen kuralı oluşturmak gerekir. Bir üçüncü taraf güvenlik duvarı kullanıyorsanız, trafiğine izin veren kurallar oluşturmak gerekir.
 
 | Yön | Bağlantı noktasından | Bağlantı noktası | Bağlantı noktası türü |
 | --- | --- | --- | --- |
-| Gelen | tüm | 8172 | TCP |
-| Giden | 8172 | tüm | TCP |
+| Gelen | Tüm | 8172 | TCP |
+| Giden | 8172 | Tüm | TCP |
   
 
-Windows Güvenlik duvarı kuralları yapılandırma hakkında daha fazla bilgi için bkz: [güvenlik duvarı kurallarını yapılandırma](https://technet.microsoft.com/library/dd448559(WS.10).aspx). Üçüncü taraf güvenlik duvarları için lütfen ürün belgelerine bakın.
+Windows Güvenlik duvarı kuralları yapılandırma hakkında daha fazla bilgi için bkz. [güvenlik duvarı kurallarını yapılandırma](https://technet.microsoft.com/library/dd448559(WS.10).aspx). Üçüncü taraf güvenlik duvarları için lütfen ürün belgelerine bakın.
 
 ## <a name="conclusion"></a>Sonuç
 
-Web sunucunuzun artık Web dağıtımı işleyicisine Web Yönetim hizmeti aracılığıyla uzak dağıtımları kabul etmeye hazır olması gerekir. Sunucu bir web uygulamasına dağıtmayı denemeden önce aşağıdaki önemli noktaları denetlemek isteyebilirsiniz:
+Web sunucunuz artık Web Yönetim hizmeti aracılığıyla Web dağıtımı işleyicisi uzak dağıtımlara kabul etmeye hazır olmalıdır. Sunucuya bir web uygulaması dağıtma girişiminde bulunmadan önce aşağıdaki önemli noktalara denetlemek isteyebilirsiniz:
 
-- IIS'de sunucu düzeyinde temel kimlik doğrulaması etkin?
-- Web yönetimi hizmeti için Uzak bağlantılar etkin mi?
-- Web yönetimi hizmeti başlattığınız?
+- Temel kimlik doğrulaması IIS'de sunucu düzeyinde etkinleştirdiniz mi?
+- Web yönetimi hizmeti için Uzak bağlantıları etkinleştirdiniz mi?
+- Web yönetimi hizmeti başladınız mı?
 - Yönetim hizmeti temsilci kuralları yerinde var mı?
-- Uygulama havuzu kimliğini Web siteniz için kaynak klasöre okuma erişimi var mı?
-- Yönetici olmayan bir kullanıcı hesabını site düzeyinde izinler IIS'de var mı?
-- Güvenlik duvarının TCP bağlantı noktası 8172 sunucuda gelen bağlantılara izin veriyor mu?
+- Uygulama havuzu kimliği, Web siteniz için kaynak klasöre okuma erişimi yok?
+- Yönetici olmayan kullanıcı hesabı IIS'de site düzeyinde izinlere sahip?
+- Güvenlik duvarınızı, TCP bağlantı noktası 8172 sunucusunda gelen bağlantılara izin veriyor mu?
 
 ## <a name="further-reading"></a>Daha Fazla Bilgi
 
-Web dağıtımı işleyicisine web paketleri dağıtmak için özel Microsoft Build Engine (MSBuild) proje dosyalarını yapılandırma hakkında yönergeler için bkz [hedef ortam için dağıtım özellikleri yapılandırma](configuring-deployment-properties-for-a-target-environment.md).
+Web dağıtımı işleyicisi için web paketleri dağıtmak için özel Microsoft Build Engine (MSBuild) proje dosyalarının nasıl yapılandırılacağı hakkında yönergeler için bkz. [bir hedef ortam için dağıtım özellikleri yapılandırma](configuring-deployment-properties-for-a-target-environment.md).
 
 > [!div class="step-by-step"]
 > [Önceki](configuring-a-web-server-for-web-deploy-publishing-remote-agent.md)
-> [sonraki](configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)
+> [İleri](configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)

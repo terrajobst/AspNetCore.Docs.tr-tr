@@ -1,133 +1,132 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/use-viewdata-and-implement-viewmodel-classes
-title: Kullanım ViewData ve uygulama ViewModel sınıfları | Microsoft Docs
+title: ViewData kullanma ve ViewModel sınıfları uygulama | Microsoft Docs
 author: microsoft
-description: Adım 6 gösterir nasıl daha zengin form senaryolarını düzenleme için desteği etkinleştir ve veri görünümleri denetleyicilerinden iletmek için kullanılan iki yaklaşım da açıklanır:...
+description: 6. adım gösterir daha zengin form senaryoları düzenleme desteği etkinleştirin ve görünümlere denetleyicilerinden veri iletmek için kullanılan iki yaklaşım da ele alınmaktadır:...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
 ms.topic: article
 ms.assetid: 5755ec4c-60f1-4057-9ec0-3a5de3a20e23
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-viewdata-and-implement-viewmodel-classes
 msc.type: authoredcontent
-ms.openlocfilehash: 9ba8758bd6524f3e300f3fd91ef68cfe8a3587a7
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: edc62246cdc5e5df51c369a70b47dab92c9ecc1c
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30879432"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37365129"
 ---
-<a name="use-viewdata-and-implement-viewmodel-classes"></a>Kullanım ViewData ve uygulama ViewModel sınıfları
+<a name="use-viewdata-and-implement-viewmodel-classes"></a>ViewData kullanma ve ViewModel sınıfları uygulama
 ====================
 tarafından [Microsoft](https://github.com/microsoft)
 
-[PDF indirin](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
+[PDF'yi indirin](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
-> Adım 6 bir ücretsiz budur ["NerdDinner" uygulaması Öğreticisi](introducing-the-nerddinner-tutorial.md) , yetenekte küçük bir yapı ancak tamamlandı, ASP.NET MVC 1 kullanarak web uygulamasına nasıl aracılığıyla.
+> Adım 6 / ücretsiz budur ["NerdDinner" uygulaması Öğreticisi](introducing-the-nerddinner-tutorial.md) , Yürüyüşü nasıl küçük bir derleme, ancak tamamlandı, ASP.NET MVC 1 kullanarak web uygulaması aracılığıyla.
 > 
-> Adım 6 gösterir nasıl daha zengin form senaryolarını düzenleme için desteği etkinleştir ve veri görünümleri denetleyicilerinden iletmek için kullanılan iki yaklaşım da açıklanır: ViewData ve ViewModel.
+> 6. adım gösterir daha zengin form senaryoları düzenleme desteği etkinleştirin ve görünümlere denetleyicilerinden veri iletmek için kullanılan iki yaklaşım da ele alınmaktadır: ViewData ve ViewModel.
 > 
-> ASP.NET MVC 3 kullanıyorsanız, izlemeniz önerilir [MVC 3 ile çalışmaya başlama](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) veya [MVC müzik deposu](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) öğreticileri.
+> ASP.NET MVC 3 kullanıyorsanız, takip ettiğiniz öneririz [MVC 3 ile çalışmaya başlama](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) veya [MVC müzik Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) öğreticiler.
 
 
 ## <a name="nerddinner-step-6-viewdata-and-viewmodel"></a>NerdDinner adım 6: ViewData ve ViewModel
 
-Artık kapsanan form gönderme senaryolarına sayısı ve nasıl uygulanacağını ele alınan oluştur, Güncelleştir ve Sil (CRUD) desteği. Biz şimdi bizim DinnersController uygulama başka yapmanıza ve daha zengin form senaryolarını düzenleme desteği etkinleştirin. Bunu yaparken biz denetleyicilerinden görünüme veri iletmek için kullanılan iki yaklaşım ele alacağız: ViewData ve ViewModel.
+Biz kapsanan form gönderme senaryolarına sayısı ve nasıl uygulanacağı ele oluştur, Güncelleştir ve Sil (CRUD) desteği. Biz artık DinnersController kararlılığımızın ileriye ve daha zengin form senaryoları düzenleme desteği etkinleştirin. Bunu yaparken görünümlerine denetleyicilerinden veri iletmek için kullanılan iki yaklaşım açıklayacağız: ViewData ve ViewModel.
 
-### <a name="passing-data-from-controllers-to-view-templates"></a>Veri denetleyicilerinden geçirilmesini şablonları göster
+### <a name="passing-data-from-controllers-to-view-templates"></a>Görünüm şablonları denetleyicilerinden veri geçirme
 
-MVC örüntüsü tanımlama özelliklerini biri katı "ayrılması sorunları" bir uygulama farklı bileşenler arasında zorlanmasını sağlar. Modeller, denetleyicilere ve görünümler her iyi roller ve sorumluluklar tanımladığınız ve diğer arasında iyi tanımlanmış yollarla iletişim kurarlar. Bu Test Edilebilirlik yükseltin ve yeniden kod yardımcı olur.
+MVC düzeni ayırt edici özelliklerinden biridir katı "ayrımı", bir uygulamanın farklı bileşenler arasında uygulanmasına yardımcı olur. Modelleri, denetleyicileri ve görünümleri her iyi rolleri ve sorumlulukları tanımladığınız ve diğer arasında iyi tanımlanmış şekilde iletişim kurarlar. Test Edilebilirlik yükseltin ve yeniden kod yardımcı olur.
 
-HTML yanıtı istemciye işlemek bir denetleyici sınıfı kapılarını açtığında açıkça tüm verileri yanıtı işlemek için gereken görünüm şablonu geçirmesi sorumludur. Görünüm şablonları tüm veri alma veya uygulama mantığı – hiçbir zaman gerçekleştirmeniz gerekir ve bunun yerine yalnızca denetleyici tarafından geçirilen modeli/data dışına güdümlü işleme kod sağlamak için kendileri sınırlamanız gerekir.
+Bir HTML yanıtı istemciye işlemek bir denetleyici sınıfı karar verdiğinde açıkça tüm veriler yanıta işlemek için gereken görünümü şablona geçirme sorumludur. Görünüm şablonları tüm veri alma veya uygulama mantığındaki hiçbir zaman gerçekleştirmeniz gerekir ve bunun yerine denetleyici tarafından geçirilen model/veri alanlarını temelli işleme kodu için yalnızca kendilerini sınırlamanız gerekir.
 
-Bizim DinnersController tarafından geçirilen görünüm şablonlarımız sınıfına basittir ve düz iletme – İNDİS() durumunda Yemeği nesnelerin bir listesini ve tek bir Yemeği Details(), Edit(), Create() ve Delete() söz konusu olduğunda nesnesi şu anda model verileri. Daha fazla kullanıcı Arabirimi özelliklerine uygulamamız için ekledikçe biz genellikle HTML yanıtlarını görünüm şablonlarımız içinde işlemek için bu verileri daha fazlasını geçirmeniz gereken alınacaktır. Örneğin, biz bizim düzenleme içinde "Ülke" alanı değiştirmek ve bir HTML metin kutusuna bir dropdownlist olmaktan görünümleri oluşturmak isteyebilirsiniz. Sabit kodlu yerine şablonu görüntüleme ülke adlarında açılır listesi, biz dinamik olarak doldurmak desteklenen ülkelerdeki listesinden oluşturmak isteyebilirsiniz. Her iki Yemeği nesneyi geçirmek için bir yol ihtiyacımız *ve* desteklenen ülkelere görünüm şablonlarımız bizim denetleyicisinden listesi.
+Bizim DinnersController tarafından geçirilen sınıf görünümü şablonlarımızı için basit ve rahatça – İNDİS() söz konusu olduğunda Dinner nesnelerin bir listesini ve tek bir Akşam Yemeği Details(), Edit(), Create() ve Delete() söz konusu olduğunda nesnesi şu anda model verileri. Daha fazla kullanıcı Arabirimi özellikleri uygulamamıza ekledikçe genellikle HTML yanıtlarını görünümü şablonlarımızı içinde işlemek için bu verileri daha fazlasını geçirmek için kullanacağız. Örneğin, biz bizim düzenleme "Ülke" alanı değiştirmek ve bir HTML metin kutusuna bir dropdownlist yüklenmesini görünümler oluşturmak isteyebilirsiniz. Sabit kodlamak yerine görünüm şablonu adlarında ülke açılan listesi, biz dinamik olarak doldurma desteklenen ülkeler listesinden oluşturmak isteyebilirsiniz. Akşam Yemeği nesneyi geçirmek için bir yol ihtiyacımız *ve* bizim denetleyicisinden desteklenen ülkeler için Görünüm şablonlarımızı listesi.
 
-Biz bu işlemi gerçekleştirmenin iki yolu bakalım.
+Şimdi biz bunu gerçekleştirmenin iki yollarına göz atın.
 
-### <a name="using-the-viewdata-dictionary"></a>ViewData sözlüğünü kullanarak
+### <a name="using-the-viewdata-dictionary"></a>ViewData sözlük kullanma
 
-Denetleyici temel sınıf ek veri öğeleri denetleyicilerinden görünümlerine geçirmek için kullanılan bir "ViewData" sözlük özelliği sunar.
+Denetleyici temel sınıf ek veri öğelerinin denetleyicilerinden görünümlerine geçirmek için kullanılan bir "ViewData" sözlük özelliği sunar.
 
-Örneğin, burada bir HTML metin kutusuna bir dropdownlist olmaktan bizim düzenleme görünümü içinde "Ülke" textbox değiştirmek istiyoruz senaryoyu desteklemek için biz m kullanılabilir bir SelectList nesnesi (Yemeği nesne ek olarak) geçirmek için bizim Edit() eylem yöntemini güncelleştirebilirsiniz bir ülke dropdownlist odel.
+Örneğin, "Ülke" metin kutusunun bizim düzenleme görünümündeki bir HTML metin kutusuna bir dropdownlist yüklenmesini değiştirmek için istediğimiz senaryoyu desteklemek için biz m kullanılabilecek bir SelectList nesnesi (ek olarak Şimdi Akşam nesne) geçirmek için sunduğumuz Edit() eylem yöntemini güncelleştirebilirsiniz Ülkeler dropdownlist odel.
 
 [!code-csharp[Main](use-viewdata-and-implement-viewmodel-classes/samples/sample1.cs)]
 
-Yukarıdaki SelectList Oluşturucusu ile açılır liste doldurmak için ülkeler gibi şu anda seçili değer listesini kabul ediyor.
+Yukarıdaki SelectList oluşturucusunun seçili değerin yanı sıra, ilçeler açılır liste ile doldurmak için bir listesini kabul ediyor.
 
-Biz, ardından daha önce kullandık Html.TextBox() yardımcı yöntemi yerine Html.DropDownList() yardımcı yöntemini kullanmak üzere bizim Edit.aspx görünüm şablonu güncelleştirebilirsiniz:
+Biz, ardından daha önce kullandığımız Html.TextBox() yardımcı yöntemi yerine Html.DropDownList() yardımcı yöntemi kullanmak üzere bizim Edit.aspx görünüm şablonu güncelleştirebilirsiniz:
 
 [!code-aspx[Main](use-viewdata-and-implement-viewmodel-classes/samples/sample2.aspx)]
 
-Yukarıdaki Html.DropDownList() yardımcı yöntemi iki parametre alır. İlk çıktısını almak için HTML form öğesi adıdır. İkinci biz ViewData sözlük geçirilen "SelectList" modelidir. C# anahtar sözcüğü "as" sözlük bir SelectList olarak içinde türe için kullanıyoruz.
+Yukarıdaki Html.DropDownList() yardımcı yöntemi, iki parametre alır. İlk çıkış HTML form öğesi adıdır. İkincisi, biz ViewData sözlük geçirilen "SelectList" modelidir. C# anahtar sözcük "olarak" sözlük bir SelectList olarak içindeki tür dönüştürme için kullanıyoruz.
 
-Ve şimdi biz çalıştırdığınızda, uygulama ve erişim */Dinners/Edit/1* URL bizim tarayıcı içinde bizim düzenleme kullanıcı Arabirimi, metin kutusu yerine ülkelerin dropdownlist görüntülemek için güncelleştirilmiş göreceğiz:
+Ve şimdi biz çalıştırıldığında, uygulama ve erişim */Dinners/Edit/1* URL bizim tarayıcı içinde düzenleme bizim UI ülkelerde textbox yerine bir dropdownlist görüntüleyecek şekilde güncelleştirildi görüyoruz:
 
 ![](use-viewdata-and-implement-viewmodel-classes/_static/image1.png)
 
-Biz de HTTP POST Edit yöntemi (senaryolarda hatalar oluştuğunda) düzenleme görünümü şablonu oluşturmak için biz de şablonu görüntüleme hata senaryolarda işlendiğinde SelectList için ViewData eklemek için bu yöntem güncelleştiriyoruz emin olun isteyeceksiniz:
+Biz de HTTP POST yöntemi Düzenle (senaryolarda hatalar oluştuğunda) düzenleme görünümü şablonu oluşturmak için biz de şablonu görüntüleme hatası senaryolarda işlendiğinde SelectList için ViewData eklemek için bu yöntem güncelleştiriyoruz emin olmak isteyeceksiniz:
 
 [!code-csharp[Main](use-viewdata-and-implement-viewmodel-classes/samples/sample3.cs)]
 
-Ve şimdi DinnersController düzenleme Senaryomuzda bir DropDownList destekler.
+Ve artık bir DropDownList DinnersController düzenleme senaryomuz destekler.
 
-### <a name="using-a-viewmodel-pattern"></a>ViewModel desen kullanma
+### <a name="using-a-viewmodel-pattern"></a>ViewModel desenini kullanarak
 
-ViewData sözlük yaklaşım oldukça hızlı ve kolay uygulanacak olan avantajına sahiptir. Yazım hatalarını derleme zamanında yakalanan değil hatalara yol açabilir bu yana bazı geliştiriciler dize tabanlı sözlükleri kullanılarak yine de istemeyiz. Türsüz ViewData sözlük ayrıca "olarak" işlecini kullanarak veya bir kesin türü belirtilmiş dil C# gibi bir görünüm şablonunda kullanırken atama gerektirir.
+ViewData sözlük yaklaşım oldukça hızlı ve uygulanması kolaydır avantajına sahiptir. Yazım hatası derleme zamanında yakalanabilmesini değil hatalara neden olabileceği bazı geliştiriciler dize tabanlı sözlükleri kullanarak yine de beğenmediniz. Türsüz ViewData sözlük ayrıca "olarak" işlecini kullanarak veya bir türü kesin belirlenmiş dilde C# gibi bir şablonu görüntüleme kullanırken atama gerektirir.
 
-Biz kullanabilirsiniz alternatif bir yaklaşım genellikle "ViewModel" deseni olarak adlandırılan biridir. Bu deseni kullanılırken bizim belirli görünüm senaryolar için iyileştirilen ve hangi görünüm şablonlarımız tarafından gerekli dinamik değerler/içerik özelliklerini ortaya kesin türü belirtilmiş sınıfları oluşturuyoruz. Bizim denetleyicisi sınıfları sonra doldurmak ve bu görünüm için iyileştirilmiş sınıfları kullanmak üzere bizim görünüm şablonu geçirin. Bu tür güvenliği, derleme zamanı denetlemek ve düzenleyici IntelliSense görünümü şablonlar içindeki sağlar.
+Kullanabiliriz alternatif bir yaklaşım genellikle "ViewModel" deseni olarak adlandırılan biridir. Bu model kullanılırken, bizim belirli görünüm senaryolar için iyileştirilen ve hangi özellikleri görünümü şablonlarımızı gerekli dinamik değerler/içerik üzerinden kullanıma sunacaksınız kesin türü belirtilmiş sınıfları oluştururuz. Bizim denetleyici sınıflarına doldurun ve kullanmak üzere bizim görünüm şablonu bu görünüm için iyileştirilmiş sınıfların geçirin. Bu tür güvenliği, derleme zamanı denetlemek ve düzenleyici IntelliSense içinde görüntüleme şablonları sağlar.
 
-Örneğin, iki kesin türü belirtilmiş özellikleri sunar aşağıda biz "DinnerFormViewModel" oluşturabilir düzenleme senaryoları sınıfı gibi Yemeği formunu etkinleştirmek için: Yemeği nesne ve ülkelerde dropdownlist doldurmak için gereken SelectList modeli:
+Örneğin, iki kesin olarak belirlenmiş özellikler sunan Şimdi Akşam formunu aşağıdaki gibi biz "DinnerFormViewModel" oluşturabilirsiniz düzenleme senaryoları sınıfı etkinleştirmek için: Şimdi Akşam nesne ve ülkeler dropdownlist doldurmak için gereken SelectList modeli:
 
 [!code-csharp[Main](use-viewdata-and-implement-viewmodel-classes/samples/sample4.cs)]
 
-Biz bizim depodan alıyoruz Yemeği nesnesini kullanarak DinnerFormViewModel oluşturmak için bizim Edit() eylem yöntemini güncelleştirebilir ve bizim görünüm şablonu geçirin:
+Biz ardından bizim Edit() eylem yöntemini bizim depodan alıyoruz Dinner nesnesini kullanarak DinnerFormViewModel güncelleştirin ve bizim şablonu görüntüle geçirin:
 
 [!code-csharp[Main](use-viewdata-and-implement-viewmodel-classes/samples/sample5.cs)]
 
-Bu BT "Yemeği" yerine "DinnerFormViewModel" bekliyor şekilde bizim şablonu görüntüleme nesne sayfanın üst kısmındaki edit.aspx "devralır" özniteliği değiştirerek güncelleştirme ister sonra bunu biz gerekir:
+Güncelleştirme olan "Akşam Yemeği" yerine "DinnerFormViewModel" bekliyor. Bu nedenle bizim görünüm şablonu nesnesi edit.aspx sayfanın üstündeki "devralır" öznitelik değiştirerek ister sonra bunu gerçekleştireceğiz:
 
 [!code-cshtml[Main](use-viewdata-and-implement-viewmodel-classes/samples/sample6.cshtml)]
 
-Biz bunu yaptıktan sonra bizim görünüm şablonu içindeki "Model" özelliği IntelliSense, geçiriyoruz DinnerFormViewModel türünde nesne modeli yansıtacak şekilde güncelleştirilir:
+Bunu bir kez "Modeli" özelliğinin bizim görünüm şablonu içindeki IntelliSense, geçiriyoruz DinnerFormViewModel türü nesne modeli yansıtacak şekilde güncelleştirildi:
 
 ![](use-viewdata-and-implement-viewmodel-classes/_static/image2.png)
 
 ![](use-viewdata-and-implement-viewmodel-classes/_static/image3.png)
 
-Biz dışına çalışmaya görünüm kodumuza sonra güncelleştirebilirsiniz. Biz oluşturmakta biz nasıl girişi öğelerinin adları değiştirmiyorsanız aşağıda bildirimi (form öğeleri hala adlı "Title", "Ülke") – ancak biz DinnerFormViewModel sınıfını kullanarak değerleri almak için HTML yardımcı yöntemler güncelleştiriliyor:
+Biz, ardından Görünüm kodumuz dışına çalışmaya güncelleştirebilirsiniz. Biz nasıl girişi öğelerinin adları değiştirmiyorsanız aşağıda oluşturma bildirimi (form öğeleri hala adlandırılacak "Title", "Ülke") – ancak DinnerFormViewModel sınıfını kullanarak değerleri almak için HTML yardımcı yöntemler güncelleştiriyoruz:
 
 [!code-aspx[Main](use-viewdata-and-implement-viewmodel-classes/samples/sample7.aspx)]
 
-Ayrıca bizim düzenleme post yöntemini hataları işlenirken DinnerFormViewModel sınıfını kullanmak için güncelleştiriyoruz:
+DinnerFormViewModel sınıfı hataları işlenirken kullanılacak bizim düzenleme post yöntemini de güncelleştireceğiz:
 
 [!code-csharp[Main](use-viewdata-and-implement-viewmodel-classes/samples/sample8.cs)]
 
-Biz de tam yeniden kullanmayı bizim Create() eylem yöntemleri aynı güncelleştirebilirsiniz *DinnerFormViewModel* ülkede DropDownList olanlar da etkinleştirmek için sınıf. HTTP GET uygulama aşağıdadır:
+Biz de müşterilerimizin Create() eylem yöntemleri tam yeniden kullanmak için aynı güncelleştirebilirsiniz *DinnerFormViewModel* ülkede DropDownList olanlar da etkinleştirmek için sınıf. HTTP GET uygulama aşağıda verilmiştir:
 
 [!code-csharp[Main](use-viewdata-and-implement-viewmodel-classes/samples/sample9.cs)]
 
-HTTP POST oluşturmak yöntemin kullanımı aşağıdadır:
+Uygulamasını oluşturma HTTP POST yöntemi aşağıda verilmiştir:
 
 [!code-csharp[Main](use-viewdata-and-implement-viewmodel-classes/samples/sample10.cs)]
 
-Ve şimdi bizim hem düzenleme ve oluşturma ekranlar açılan değerlerinizi ülke çekmek için destek sağlar.
+Ve artık müşterilerimize hem düzenleme ve oluşturma ekranlar ülke seçmek için açılan değerlerinizi destekler.
 
-### <a name="custom-shaped-viewmodel-classes"></a>Özel şeklinde ViewModel sınıfları
+### <a name="custom-shaped-viewmodel-classes"></a>Özel biçimli ViewModel sınıfları
 
-Yukarıdaki senaryoda bizim DinnerFormViewModel sınıfı doğrudan Yemeği model nesnesi destekleyen SelectList model özelliğinin yanı sıra bir özellik olarak kullanıma sunar. Bu yaklaşım, burada biz bizim görünüm şablonu içinde oluşturmak istediğiniz HTML UI görece yakından bizim etki alanı model nesneleri karşılık gelen senaryoları için düzgün çalışır.
+Yukarıdaki senaryoda bizim DinnerFormViewModel sınıfı doğrudan Dinner model nesnesi destekleyici SelectList model özelliğinin yanı sıra bir özellik olarak gösterir. Bu yaklaşım, burada size bizim görünüm şablonu içinde oluşturmak istediğiniz HTML kullanıcı Arabirimi oldukça yakından bizim için etki alanı model nesneleri karşılık gelen senaryoları için düzgün çalışır.
 
-Burada bu değildir senaryoları için kullanabileceğiniz bir seçenek olan nesne modeli tarafından görünümü – daha tüketimi için optimize edilmiştir ve, temel alınan etki alanı modeli nesnesinden tamamen farklı görünebilir özel şeklinde ViewModel sınıfı oluşturmak için bir durumdur. Örneğin, onu potansiyel olarak farklı özellik adları ve/veya birden çok model nesneden toplanan toplama özellikleri geçmesine neden olabilir.
+Bu senaryolar için kullanabileceğiniz bir seçenek durumda olan nesne modeli tarafından görünümü – daha tüketimi için optimize edilmiştir ve hangi temel etki alanı model nesnesi tamamen farklı görünebilir özel biçimli ViewModel sınıfı oluşturmaktır. Örneğin, bu büyük olasılıkla farklı özellik adları ve/veya birden çok model nesneleri toplanan toplama özellikleri kullanımına sunulmasına neden olabilir.
 
-Özel şeklinde ViewModel sınıfları olabilir hem de görünümlere işlemek gibi geri bir denetleyicinin eylem yöntemine gönderilen form verilerini işlemeye yardımcı olmak için denetleyicilerinden veri iletmek için kullanılan. Daha sonra bu senaryo için ViewModel nesnesi ile form gönderilen verileri güncelleştirmek ve sonra ViewModel örneği eşlemek veya gerçek etki alanı model nesnesini almak için eylem yöntemi olabilir.
+Özel biçimli ViewModel sınıfları olabilir hem de veri görünümleri oluşturma gibi geri bir denetleyicinin eylem yöntemine gönderilen form verilerinin işlenmesi amacıyla denetleyicilerinden geçirmek için kullanılan. Daha sonra bu senaryo için ViewModel nesnesi form gönderilen veriler ile güncelleştirmek ve ardından ViewModel örneği harita veya bir gerçek etki alanı modeli nesne almak için eylem yöntemine sahip olabilir.
 
-Özel şeklinde ViewModel sınıfları büyük bir bölümünü esneklik sağlayabilir ve işleme kod görünümü şablonlarınızı veya form nakil kodu içinde çok karmaşık almak başlatma eylemi yöntemlerinizi içinde bulduğunuz her zaman araştırmak için bir şeyler şunlardır. Bu genellikle bir etki alanı Modellerinizi düzgün bir şekilde, veren UI karşılık gelen yok ve Ara bir özel şeklinde ViewModel sınıf yardımcı olabilecek işaretidir.
+Özel biçimli ViewModel sınıfları büyük ölçüde esneklik sağlayabilir ve bir şey, işleme kodu görünümü şablonlarınızı veya form-posta kodu içinde çok karmaşık almak başlatma eylemi yöntemlerinizi içinde bulmak istediğiniz zaman araştırmak için olan. Bu genellikle işareti, etki alanı modellerini oluşturma kullanıcı Arabirimi düzgün bir şekilde karşılık gelmeyen ve Ara bir özel biçimli ViewModel sınıfı yardımcı olur.
 
 ### <a name="next-step"></a>Sonraki adım
 
-Şimdi biz kısmi ve nasıl ana sayfalar yeniden kullanmak ve kullanıcı Arabirimi uygulamamız arasında paylaşmak için kullanabileceğinizi bakalım.
+Şimdi nasıl kısmi ve ana sayfalar yeniden kullanmak ve UI uygulamamız arasında paylaşmak için kullanabiliriz göz atalım.
 
 > [!div class="step-by-step"]
 > [Önceki](provide-crud-create-read-update-delete-data-form-entry-support.md)
-> [sonraki](re-use-ui-using-master-pages-and-partials.md)
+> [İleri](re-use-ui-using-master-pages-and-partials.md)

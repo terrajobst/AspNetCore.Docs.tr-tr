@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-2
-title: '2. Kısım: etki alanı modelleri oluşturma | Microsoft Docs'
+title: '2. Bölüm: etki alanı modellerini oluşturma | Microsoft Docs'
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
@@ -9,33 +9,32 @@ ms.date: 07/03/2012
 ms.topic: article
 ms.assetid: fe3ef85f-bdc6-4e10-9768-25aa565c01d0
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: 84631494c1be266c21e5e5702182df717b1d29b0
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 9f379c92f7795c9fe10f7860b72188a8cfc1b6d2
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30878587"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37379731"
 ---
-<a name="part-2-creating-the-domain-models"></a>2. Kısım: etki alanı modelleri oluşturma
+<a name="part-2-creating-the-domain-models"></a>2. Bölüm: etki alanı modellerini oluşturma
 ====================
-tarafından [CAN Wasson](https://github.com/MikeWasson)
+tarafından [Mike Wasson](https://github.com/MikeWasson)
 
-[Tamamlanan projenizi indirin](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
+[Projeyi yükle](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
 
 ## <a name="add-models"></a>Model ekleme
 
 Yaklaşım Entity Framework için üç yol vardır:
 
-- Veritabanı ilk: bir veritabanıyla'ı başlatın ve Entity Framework kod oluşturur.
-- Model ilk: görsel bir modelle'ı başlatın ve Entity Framework veritabanı ve kod oluşturur.
-- Kod ilk: koduyla'ı başlatın ve Entity Framework veritabanı oluşturur.
+- Veritabanı ilk: bir veritabanı ile başlayın ve Entity Framework kod oluşturur.
+- Model-first: görsel bir model ile başlayın ve Entity Framework, hem veritabanı hem de kodu oluşturur.
+- Kod öncelikli: kodla başlayın ve Entity Framework veritabanı oluşturur.
 
-Bizim etki alanı nesnelerini POCOs (düz eski CLR nesneler) tanımlayarak başlatmak için ilk kod yaklaşımı kullanıyoruz. Kod ilk yaklaşımda, etki alanı nesnelerini işlemleri ya da kalıcılığı gibi veritabanı katmanı desteklemek için ek kod gerekmez. (Özellikle, bunlar devralınmalıdır gerekmez [EntityObject](https://msdn.microsoft.com/library/system.data.objects.dataclasses.entityobject.aspx) sınıfı.) Entity Framework veritabanı şeması nasıl oluşturduğunu denetlemek için veri ek açıklamaları kullanmaya devam edebilirsiniz.
+Bizim etki alanı nesnelerini POCOs (düz eski CLR nesneler) tanımlayarak başlatmak için ilk kod yaklaşımı kullanıyoruz. Code first yaklaşımıyla etki alanı nesnelerini, veritabanı katmanı, işlem veya Kalıcılık gibi desteklemek için ek bir kod gerekmez. (Özellikle, bunlar devralınacak gerekmez [EntityObject](https://msdn.microsoft.com/library/system.data.objects.dataclasses.entityobject.aspx) sınıfı.) Entity Framework veritabanı şeması nasıl oluşturduğunu denetlemek için veri ek açıklamaları kullanmaya devam edebilirsiniz.
 
-POCOs açıklayan herhangi bir ek özellik taşımayan çünkü [veritabanı durumu](https://msdn.microsoft.com/library/system.data.entitystate.aspx), bunlar kolayca JSON veya XML seri hale getirilebilir. Daha sonra öğreticide anlatıldığı gibi Bununla birlikte, her zaman Entity Framework Modellerinizi doğrudan istemcilere maruz bırakmamalısınız anlamına gelmez.
+POCOs açıklayan herhangi bir ek özellikleri taşımayan çünkü [veritabanı durumu](https://msdn.microsoft.com/library/system.data.entitystate.aspx), bunlar kolayca JSON veya XML seri hale getirilebilir. Öğreticinin ilerleyen bölümlerinde anlatıldığı gibi Bununla birlikte, her zaman doğrudan istemcilere Entity Framework Modellerinizi sunmalıdır anlamına gelmez.
 
 Aşağıdaki POCOs oluşturacağız:
 
@@ -43,7 +42,7 @@ Aşağıdaki POCOs oluşturacağız:
 - Sırası
 - OrderDetail
 
-Her sınıf oluşturmak için Çözüm Gezgini'nde modeller klasörü sağ tıklatın. Bağlam menüsünden seçin **Ekle** ve ardından **sınıfı.**
+Her bir sınıf oluşturmak için Çözüm Gezgini'nde modeller klasörü sağ tıklatın. Bağlam menüsünden seçin **Ekle** seçip **sınıfı.**
 
 ![](using-web-api-with-entity-framework-part-2/_static/image1.png)
 
@@ -51,9 +50,9 @@ Ekleme bir `Product` aşağıdaki uygulama ile sınıfı:
 
 [!code-csharp[Main](using-web-api-with-entity-framework-part-2/samples/sample1.cs)]
 
-Kurala göre Entity Framework kullanan `Id` özelliği birincil anahtarı olarak ve veritabanı tablosundaki kimlik sütunu eşler. Yeni bir oluşturduğunuzda `Product` örneği için bir değer ayarlamak olmaz `Id`, veritabanı değeri oluşturur.
+Kural gereği, Entity Framework kullanan `Id` özelliği birincil anahtarı olarak ve bir veritabanı tablosundaki kimlik sütunu eşlenir. Yeni bir oluşturduğunuzda `Product` örneği için bir değer ayarlamanız gerekmez `Id`, veritabanı değeri oluşturur.
 
-**ScaffoldColumn** özniteliği söyler atlamak için ASP.NET MVC `Id` Düzenleyicisi form oluştururken özelliği. **Gerekli** özniteliği model doğrulamak için kullanılır. Bunu belirleyen `Name` özelliği, boş olmayan bir dize olmalıdır.
+**ScaffoldColumn** özniteliği söyler atlamak için ASP.NET MVC `Id` Düzenleyicisi form oluşturulurken kullanılan özellik. **Gerekli** özniteliği model doğrulamak için kullanılır. Belirtir `Name` özelliği, boş olmayan bir dize olmalıdır.
 
 Ekleme `Order` sınıfı:
 
@@ -65,26 +64,26 @@ Ekleme `OrderDetail` sınıfı:
 
 ## <a name="foreign-key-relations"></a>Yabancı anahtar ilişkileri
 
-Tek bir ürün her Sipariş Ayrıntısı başvuruyor ve bir sipariş birçok sipariş ayrıntılarını içerir. Bu ilişkileri göstermek için `OrderDetail` sınıfı tanımlayan özellikleri adlı `OrderId` ve `ProductId`. Entity Framework, bu özellikler yabancı anahtarları temsil eder ve yabancı anahtar kısıtlamaları veritabanına ekler Infer.
+Çok sayıda sipariş ayrıntılarını sipariş içerir ve her Sipariş Ayrıntısı için tek bir ürün ifade eder. Bu ilişkileri göstermek için `OrderDetail` sınıf adında özelliklere tanımlar `OrderId` ve `ProductId`. Entity Framework, bu özellikleri temsil eden yabancı anahtarlar ve yabancı anahtar kısıtlamaları veritabanına ekler çıkarımlar.
 
 ![](using-web-api-with-entity-framework-part-2/_static/image2.png)
 
-`Order` Ve `OrderDetail` sınıfları Ayrıca ilişkili nesneleri başvurular içeren "Gezinti" özellikleri içerir. Bir sipariş verildiğinde, ürünleri sırada Gezinti özellikleri izleyerek gidebilirsiniz.
+`Order` Ve `OrderDetail` sınıfları, ilgili nesnelere başvurular "Gezinti" özelliklerini de içerir. Bir sipariş göz önünde bulundurulduğunda, siparişteki ürünleri gezinme özelliklerini izleyerek gidebilirsiniz.
 
-Projeyi şimdi derleyin. Entity Framework yansıma veritabanı şeması oluşturmak derlenmiş bir bütünleştirilmiş kod gerektirdiği şekilde modellerinin özelliklerini bulmak için kullanır.
+Şimdi, projeyi derleyin. Entity Framework veritabanı şeması oluşturmak derlenmiş bir bütünleştirilmiş kod gerektirir böylece modellerinin özelliklerini bulmak için yansıtma kullanır.
 
-## <a name="configure-the-media-type-formatters"></a>Medya türü Biçimlendiricilerini yapılandırın
+## <a name="configure-the-media-type-formatters"></a>Medya türü Biçimlendiricileri yapılandırın
 
-A [medya türü biçimlendiricisi](../../formats-and-model-binding/media-formatters.md) Web API HTTP yanıt gövdesi yazdığında, verilerinizi serileştiren bir nesnedir. Yerleşik biçimlendiricileri JSON ve XML çıkış destekler. Varsayılan olarak, bu biçimlendiricileri her ikisi de değerine göre tüm nesneleri serileştirir.
+A [medya türü biçimlendiricisi](../../formats-and-model-binding/media-formatters.md) Web API HTTP yanıt gövdesinde yazdığında, verilerinizi serileştiren bir nesnedir. Yerleşik biçimlendiricileri JSON ve XML çıkışı destekler. Varsayılan olarak, her ikisi de bu biçimlendiricileri değere göre tüm nesneleri serileştirmek.
 
-Döngüsel başvuru bir nesne grafiğinin içeriyorsa, serileştirme değeriyle ilgili bir sorun oluşturur. Tam olarak durumuyla olan `Order` ve `OrderDetail` her bir başvuru diğer tutan çünkü sınıfları. Biçimlendirici değeriyle her nesne yazma başvuruları izleyin ve daire olarak gidin. Bu nedenle, size varsayılan davranışı değiştirmeniz gerekir.
+Bir nesne grafiğinin döngüsel başvurular içeriyorsa serileştirme değeriyle ilgili bir sorun oluşturur. Durum tam olarak olan `Order` ve `OrderDetail` her diğerine bir başvuru bulunduğundan, sınıfları. Biçimlendirici başvuruları değere göre her nesne yazarken izleyin ve daire olarak gidin. Bu nedenle, varsayılan davranışı değiştirmek ihtiyacımız var.
 
-Çözüm Gezgini'nde, uygulama genişletin\_başlangıç klasörü ve WebApiConfig.cs adlı dosyayı açın. Aşağıdaki kodu ekleyin `WebApiConfig` sınıfı:
+Çözüm Gezgini'nde uygulama genişletin\_başlangıç klasörü ve WebApiConfig.cs adlı dosyayı açın. Aşağıdaki kodu ekleyin `WebApiConfig` sınıfı:
 
 [!code-csharp[Main](using-web-api-with-entity-framework-part-2/samples/sample4.cs?highlight=11)]
 
-Bu kod, nesne başvuruları korumak için JSON biçimlendirici ayarlar ve XML biçimlendiricisi ardışık düzen tarafından tamamen kaldırır. (Nesne başvuruları korumak için XML biçimlendiricisi yapılandırabilirsiniz, ancak biraz daha fazla iş olduğunu ve yalnızca JSON bu uygulama için ihtiyacımız. Daha fazla bilgi için bkz: [işleme döngüsel nesne başvuruları](../../formats-and-model-binding/json-and-xml-serialization.md#handling_circular_object_references).)
+Bu kod, nesne başvuruları korumak için JSON biçimlendiricisini ayarlar ve XML biçimlendiricisi ardışık düzen tarafından tamamen kaldırır. (Nesne başvuruları korumak için XML biçimlendiricisi yapılandırabilirsiniz ancak biraz daha fazla iş olduğunu ve bu uygulama için yalnızca JSON gerekiyor. Daha fazla bilgi için [işleme döngüsel nesne başvuruları](../../formats-and-model-binding/json-and-xml-serialization.md#handling_circular_object_references).)
 
 > [!div class="step-by-step"]
 > [Önceki](using-web-api-with-entity-framework-part-1.md)
-> [sonraki](using-web-api-with-entity-framework-part-3.md)
+> [İleri](using-web-api-with-entity-framework-part-3.md)

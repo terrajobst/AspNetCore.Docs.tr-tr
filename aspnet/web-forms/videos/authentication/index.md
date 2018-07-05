@@ -1,46 +1,45 @@
 ---
 uid: web-forms/videos/authentication/index
-title: Kimlik doğrulama | Microsoft Docs
+title: Kimlik doğrulaması | Microsoft Docs
 author: rick-anderson
-description: Uygulamak ve bir ASP.NET uygulamasında güvenlik (kimlik doğrulaması) yönetmek nasıl.
+description: Nasıl uygulamak ve bir ASP.NET uygulamasında (kimlik doğrulaması) güvenliğini yönetme.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
 ms.topic: article
 ms.assetid: 4a365e58-9b18-4bd2-bfd5-6981e7f2e179
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/authentication
 msc.type: chapter
-ms.openlocfilehash: b9cd2d86bce12795802302b822e945762690a57b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 43bab1123e93b6c4d2d142650ec330c8e032b7f3
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26570825"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37386464"
 ---
 <a name="authentication"></a>Kimlik doğrulaması
 ====================
-> Uygulamak ve bir ASP.NET uygulamasında güvenlik (kimlik doğrulaması) yönetmek nasıl.
+> Nasıl uygulamak ve bir ASP.NET uygulamasında (kimlik doğrulaması) güvenliğini yönetme.
 
 
-- [ASP.NET temel form kimlik doğrulaması kullanma](using-basic-forms-authentication-in-aspnet.md)
-- [Forms kimlik doğrulaması özelliklerini değiştirme](how-to-change-the-forms-authentication-properties.md)
-- [Bir ASP.NET uygulamasında kurulumu ve kullanımı daha az tanımlama bilgisi kimlik](how-to-setup-and-use-cookie-less-authentication-in-an-aspnet-application.md)
-- [ASP Forms oturum açma yeniden konumlandırma](asp-forms-login-relocation.md)
-- [Forms oturum açma özel anahtar yapılandırma](forms-login-custom-key-configuration.md)
-- [Kimlik doğrulama yöntemi için özel veri Ekle](add-custom-data-to-the-authentication-method.md)
-- [Kullanım özel asıl nesneleri](use-custom-principal-objects.md)
-- [ASP.NET üyeliği anlama](understanding-aspnet-memberships.md)
-- [Üyelik şemalarda SQL çalışmak için yapılandırma](configuring-sql-to-work-with-membership-schemas.md)
-- [Varsayılan üyelik şema üyelik ayarlarını değiştirme](changing-membership-settings-in-the-default-membership-schema.md)
-- [Kullanıcı hesapları oluşturma kullanıcı Oluşturma Sihirbazı](creating-user-accounts-with-the-create-user-wizard.md)
-- [Kullanıcı hesaplarını program aracılığıyla oluşturma](creating-user-accounts-programmatically.md)
-- [Kullanıcılar el ile doğrulama](validating-users-manually.md)
-- [Kullanıcıların oturum açma denetimi ile doğrulama](validating-users-with-the-login-control.md)
-- [Kullanıcı, üyelik sistemi ekleme](adding-users-to-your-membership-system.md)
-- [Kullanıcılar, üyelik sistemi günlüğe kaydetme](logging-users-into-your-membership-system.md)
-- [Kayıt doğrulama düzeni uygulama](implement-the-registration-verification-pattern.md)
-- [Basit bir Web hizmeti kimlik doğrulama](simple-web-service-authentication.md)
-- [Etkin olmayan kullanıcılar oluşturma](creating-inactive-users.md)
-- [SQL ekleme savunma](sql-injection-defense.md)
+- [ASP.NET’te Temel Forms Kimlik Doğrulaması Kullanma](using-basic-forms-authentication-in-aspnet.md)
+- [Forms Kimlik Doğrulaması Özelliklerini Değiştirme](how-to-change-the-forms-authentication-properties.md)
+- [Bir ASP.NET Uygulamasında Tanımlama Bilgisiz Kimlik Doğrulaması Kurun ve Kullanın](how-to-setup-and-use-cookie-less-authentication-in-an-aspnet-application.md)
+- [ASP Forms Oturum Açmayı Yeniden Konumlandırma](asp-forms-login-relocation.md)
+- [Forms Oturum Açma Özel Anahtar Yapılandırması](forms-login-custom-key-configuration.md)
+- [Kimlik Doğrulama Metoduna Özel Veri Ekleme](add-custom-data-to-the-authentication-method.md)
+- [Özel Asıl Nesneler Kullanma](use-custom-principal-objects.md)
+- [ASP.NET Üyeliklerini Anlama](understanding-aspnet-memberships.md)
+- [SQL’yi Üyelik Şemalarıyla Çalışacak Biçimde Yapılandırma](configuring-sql-to-work-with-membership-schemas.md)
+- [Varsayılan Üyelik Şemasında Üyelik Ayarlarını Değiştirme](changing-membership-settings-in-the-default-membership-schema.md)
+- [Kullanıcı Oluşturma Sihirbazı ile Kullanıcı Hesapları Oluşturma](creating-user-accounts-with-the-create-user-wizard.md)
+- [Programlı Olarak Kullanıcı Hesapları Oluşturma](creating-user-accounts-programmatically.md)
+- [Kullanıcıları El ile Doğrulama](validating-users-manually.md)
+- [Kullanıcıları Oturum Açma Denetimi ile Doğrulama](validating-users-with-the-login-control.md)
+- [Üyelik Sisteminize Kullanıcı Ekleme](adding-users-to-your-membership-system.md)
+- [Üyelik Sisteminizde Kullanıcıların Oturum Açmasını Sağlama](logging-users-into-your-membership-system.md)
+- [Kayıt Doğrulama Desenini Uygulama](implement-the-registration-verification-pattern.md)
+- [Basit Web Hizmeti Kimlik Doğrulaması](simple-web-service-authentication.md)
+- [Etkin Olmayan Kullanıcılar Oluşturma](creating-inactive-users.md)
+- [SQL Ekleme Koruması](sql-injection-defense.md)

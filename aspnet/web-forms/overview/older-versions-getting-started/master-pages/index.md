@@ -1,46 +1,45 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/master-pages/index
-title: ASP.NET 3.5 - Web Forms ana sayfalar | Microsoft Docs
+title: ASP.NET 3.5 - Web Forms ana sayfaları | Microsoft Docs
 author: rick-anderson
-description: Nasıl oluşturmak ve tutarlı bir yerleşim Web Forms uygulamaları oluşturmak için ASP.NET ana sayfalar ve içerik sayfalarını kullanın.
+description: Nasıl oluşturabilir ve Web formları uygulamalarını tutarlı bir düzen oluşturmak için ASP.NET ana sayfaları ve içerik sayfalarını kullanın.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/04/2011
 ms.topic: article
 ms.assetid: bc30f0ec-cf8f-4a33-9eee-513be872ac9c
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages
 msc.type: chapter
-ms.openlocfilehash: 7db12550902920339d3bbacdf0a13b2081edc580
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 00997b1794d403ece941adc70ebef7ac44dd0227
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26569718"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37367713"
 ---
-<a name="aspnet-35---web-forms-master-pages"></a>ASP.NET 3.5 - Web Forms ana sayfalar
+<a name="aspnet-35---web-forms-master-pages"></a>ASP.NET 3.5 - Web Forms ana sayfaları
 ====================
-> Nasıl oluşturmak ve tutarlı bir yerleşim Web Forms uygulamaları oluşturmak için ASP.NET ana sayfalar ve içerik sayfalarını kullanın.
+> Nasıl oluşturabilir ve Web formları uygulamalarını tutarlı bir düzen oluşturmak için ASP.NET ana sayfaları ve içerik sayfalarını kullanın.
 
 
-- [Ana sayfalar (C#) kullanarak bir Site genelinde düzeni oluşturma](creating-a-site-wide-layout-using-master-pages-cs.md)
-- [Birden çok ContentPlaceHolders için ve varsayılan içerik (C#)](multiple-contentplaceholders-and-default-content-cs.md)
-- [Başlık, Meta etiketler ve diğer HTML üstbilgileri ana sayfa (C#) belirtme](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs.md)
-- [URL'lerde ana sayfalar (C#)](urls-in-master-pages-cs.md)
-- [İçerik sayfaları (C#) adlandırma denetim kimliği](control-id-naming-in-content-pages-cs.md)
-- [Ana sayfa içerik sayfasından (C#) ile etkileşim kurma](interacting-with-the-master-page-from-the-content-page-cs.md)
-- [Ana sayfa (C#) içerik sayfasından ile etkileşim kurma](interacting-with-the-content-page-from-the-master-page-cs.md)
-- [Ana sayfalar ve ASP.NET AJAX (C#)](master-pages-and-asp-net-ajax-cs.md)
-- [Ana sayfa programlı olarak belirtme (C#)](specifying-the-master-page-programmatically-cs.md)
-- [İç içe geçmiş ana sayfalar (C#)](nested-master-pages-cs.md)
-- [Ana sayfalar (VB) kullanarak bir Site genelinde düzeni oluşturma](creating-a-site-wide-layout-using-master-pages-vb.md)
-- [Birden çok ContentPlaceHolders için ve varsayılan içerik (VB)](multiple-contentplaceholders-and-default-content-vb.md)
-- [Başlık, Meta etiketler ve diğer HTML üstbilgileri ana sayfa (VB) belirtme](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb.md)
-- [Ana sayfalar (VB) URL'leri](urls-in-master-pages-vb.md)
-- [İçerik sayfaları (VB) adlandırma denetim kimliği](control-id-naming-in-content-pages-vb.md)
-- [Ana sayfa içerik sayfası (VB) ile etkileşim kurma](interacting-with-the-master-page-from-the-content-page-vb.md)
-- [Ana sayfa (VB) içerik sayfasından ile etkileşim kurma](interacting-with-the-content-page-from-the-master-page-vb.md)
-- [Ana sayfalar ve ASP.NET AJAX (VB)](master-pages-and-asp-net-ajax-vb.md)
-- [Ana sayfa programlı olarak belirtme (VB)](specifying-the-master-page-programmatically-vb.md)
-- [İç içe geçmiş ana sayfalar (VB)](nested-master-pages-vb.md)
+- [Ana Sayfaları Kullanarak Site Geneli Bir Düzen Oluşturma (C#)](creating-a-site-wide-layout-using-master-pages-cs.md)
+- [Birden Çok ContentPlaceHolder ve Varsayılan İçerik (C#)](multiple-contentplaceholders-and-default-content-cs.md)
+- [Ana Sayfada Başlık, Meta Etiketler ve Diğer HTML Üst Bilgilerini Belirtme (C#)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs.md)
+- [Ana Sayfalardaki URL'ler (C#)](urls-in-master-pages-cs.md)
+- [İçerik Sayfalarında Denetim Kimliği Adlandırma (C#)](control-id-naming-in-content-pages-cs.md)
+- [İçerik Sayfasından Ana Sayfa ile Etkileşim Kurma (C#)](interacting-with-the-master-page-from-the-content-page-cs.md)
+- [Ana Sayfadan İçerik Sayfası ile Etkileşim Kurma (C#)](interacting-with-the-content-page-from-the-master-page-cs.md)
+- [Ana Sayfalar ve ASP.NET AJAX (C#)](master-pages-and-asp-net-ajax-cs.md)
+- [Ana Sayfayı Programlı Olarak Belirtme (C#)](specifying-the-master-page-programmatically-cs.md)
+- [İç İçe Geçmiş Ana Sayfalar (C#)](nested-master-pages-cs.md)
+- [Ana Sayfaları Kullanarak Site Geneli Bir Düzen Oluşturma (VB)](creating-a-site-wide-layout-using-master-pages-vb.md)
+- [Birden Çok ContentPlaceHolder ve Varsayılan İçerik (VB)](multiple-contentplaceholders-and-default-content-vb.md)
+- [Ana Sayfada Başlık, Meta Etiketler ve Diğer HTML Üst Bilgilerini Belirtme (VB)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb.md)
+- [Ana Sayfalardaki URL'ler (VB)](urls-in-master-pages-vb.md)
+- [İçerik Sayfalarında Denetim Kimliği Adlandırma (VB)](control-id-naming-in-content-pages-vb.md)
+- [İçerik Sayfasından Ana Sayfa ile Etkileşim Kurma (VB)](interacting-with-the-master-page-from-the-content-page-vb.md)
+- [Ana Sayfadan İçerik Sayfası ile Etkileşim Kurma (VB)](interacting-with-the-content-page-from-the-master-page-vb.md)
+- [Ana Sayfalar ve ASP.NET AJAX (VB)](master-pages-and-asp-net-ajax-vb.md)
+- [Ana Sayfayı Programlı Olarak Belirtme (VB)](specifying-the-master-page-programmatically-vb.md)
+- [İç İçe Geçmiş Ana Sayfalar (VB)](nested-master-pages-vb.md)

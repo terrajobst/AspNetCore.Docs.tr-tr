@@ -1,51 +1,50 @@
 ---
 uid: web-forms/overview/getting-started/using-page-inspector-in-a-visual-studio-11-beta-web-forms-project
-title: Visual Studio 2012'de ASP.NET Web formları için sayfa denetçisi kullanarak | Microsoft Docs
+title: Visual Studio 2012'de ASP.NET Web Forms için sayfa denetçisini kullanma | Microsoft Docs
 author: rick-anderson
-description: Visual Studio 2012 için sayfa denetçisi, tümleşik bir tarayıcı ile web geliştirme aracıdır. Tümleşik tarayıcı ve sayfa Denetçisi ' herhangi bir öğe seçin...
+description: Page Inspector, Visual Studio 2012 için tümleşik bir tarayıcı ile web geliştirme aracıdır. Tümleşik tarayıcı ve sayfa denetçisi herhangi bir öğe seçin...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2012
 ms.topic: article
 ms.assetid: 2ece0bf4-aae5-4ff4-8f62-28e0819d4f86
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/using-page-inspector-in-a-visual-studio-11-beta-web-forms-project
 msc.type: authoredcontent
-ms.openlocfilehash: ca8a3c194577766e56d0604323fef567d539316c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1f1ac1072d33c85ed3e64c493b9cf7970695cea6
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28040333"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37384481"
 ---
-<a name="using-page-inspector-for-visual-studio-2012-in-aspnet-web-forms"></a>Visual Studio 2012'de ASP.NET Web formları için sayfa denetçisi kullanma
+<a name="using-page-inspector-for-visual-studio-2012-in-aspnet-web-forms"></a>ASP.NET Web Forms'da Visual Studio 2012 için sayfa denetçisini kullanma
 ====================
-tarafından Tim Ammann
+Tim Ammann tarafından
 
-> Visual Studio 2012 için sayfa denetçisi, tümleşik bir tarayıcı ile web geliştirme aracıdır. Tümleşik tarayıcıda herhangi bir öğe seçin ve sayfa denetçisi anında öğenin kaynak ve CSS vurgular. Herhangi bir sayfayı uygulamanızda göz atın, hızlı bir şekilde oluşturulan biçimlendirmenin kaynakları bulabilir ve Visual Studio ortamında sağ tarayıcı araçları kullanın.
+> Page Inspector, Visual Studio 2012 için tümleşik bir tarayıcı ile web geliştirme aracıdır. Tümleşik tarayıcıda herhangi bir öğe seçin ve sayfa denetçisi anında öğenin kaynak ve CSS vurgular. Uygulamanızda herhangi bir sayfasında Gözat, hızlı bir şekilde biçimlendirmenin kaynaklarını bulabilir ve Visual Studio ortamının içinden tarayıcı araçları kullanın.
 > 
-> Bu öğretici shwos nasıl denetleme modunu etkinleştirin ve ardından hızla bulup CSS kuralları ve web projeniz içindeki metni düzenleyin. Öğretici bir Web Forms uygulaması projesi kullanır, ancak sayfa denetçisi Web sitesi projeleri için de kullanabilirsiniz ve [MVC](https://go.microsoft.com/?linkid=9802002) uygulamalar.
+> Bu öğretici shwos nasıl İnceleme modu etkinleştirin ve ardından hızla bulup CSS kurallarını ve web projeniz içindeki metni düzenleyin. Web Forms uygulaması projesi öğretici kullanır, ancak sayfa denetçisi Web sitesi projeleri için de kullanabilirsiniz ve [MVC](https://go.microsoft.com/?linkid=9802002) uygulamalar.
 > 
 > Öğretici aşağıdaki bölümleri içerir:
 > 
 > [Önkoşulları](#_1_prerequisites)
 > 
-> [Bir Web uygulaması oluşturma](#_2_creating_a)
+> [Bir Web uygulaması oluşturun](#_2_creating_a)
 > 
-> [Sayfa denetçisi uygulamayı görüntülemek için kullanın](#_3_using_page)
+> [Uygulamayı görüntülemek için sayfa denetçisini kullanma](#_3_using_page)
 > 
-> [Denetleme modunu etkinleştir](#_4_inspection_mode)
+> [İnceleme modu etkinleştir](#_4_inspection_mode)
 > 
-> [Sayfa denetçisi biçimlendirme değişiklikleri yapmak için kullanın](#_5_using_page)
+> [İşaretlemede değişiklik yapmak için sayfa denetçisini kullanma](#_5_using_page)
 > 
-> [Denetleme modu ve HTML penceresi](#_6_inspection_mode)
+> [İnceleme modu ve HTML penceresi](#_6_inspection_mode)
 > 
 > [Stilleri penceresinde CSS Değişiklikleri Önizle](#_7_previewing_css)
 > 
 > [CSS otomatik eşitleme](#css_auto_sync)
 > 
-> [CSS Renk Seçici kullanma](#css_color_picker)
+> [CSS renk seçiciyi kullanarak](#css_color_picker)
 
 
 <a id="_prerequisites"></a><a id="_1_prerequisites"></a>
@@ -55,16 +54,16 @@ tarafından Tim Ammann
 - [Visual Studio 2012](https://www.microsoft.com/visualstudio/11) veya [Web için Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/downloads#express-web).
 
 > [!NOTE]
-> Sayfa Denetçisi'nın en son sürümünü almak için [Web Platformu yükleyicisi](https://go.microsoft.com/fwlink/?LinkId=255386) .NET 2.0 için Azure SDK'sını yüklemek için.
+> Sayfa Denetçisi'nın en son sürümünü almak için kullanın [Web Platformu yükleyicisi](https://go.microsoft.com/fwlink/?LinkId=255386) .NET 2.0 için Azure SDK'sını yüklemek için.
 
 
-Sayfa denetçisi, Microsoft Web geliştirici araçları ile gelir. 1.3 en son sürümüdür. Hangi sürümü denetlemek için sahip, Visual Studio çalıştırın ve seçin **Microsoft Visual Studio hakkında** gelen **yardımcı** menüsü.
+Page Inspector, Microsoft Web geliştirici araçları ile birlikte gelir. En son 1.3 sürümüdür. Hangi sürümünü denetlemek için sahip, Visual Studio'yu çalıştırın ve seçin **Microsoft Visual Studio hakkında** gelen **yardımcı** menüsü.
 
 <a id="_creating_a_web"></a><a id="_2_creating_a"></a>
 
-## <a name="create-a-web-application"></a>Bir Web uygulaması oluşturma
+## <a name="create-a-web-application"></a>Bir Web uygulaması oluşturun
 
-İlk olarak, sayfa denetçisi ile kullanacağınız bir web uygulaması oluşturacaksınız. Visual Studio'da, **dosya** &gt; **yeni proje**. Sol bölmede, genişletin **Visual C#** seçin **Web**ve ardından **ASP.NET Web Forms uygulaması**.
+İlk olarak, sayfa denetçisi ile kullanacağınız bir web uygulaması oluşturacaksınız. Visual Studio'da **dosya** &gt; **yeni proje**. Sol tarafta, genişletme **Visual C#** seçin **Web**ve ardından **ASP.NET Web Forms uygulaması**.
 
 ![Yeni Web Forms uygulaması](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image1.png)
 
@@ -72,96 +71,96 @@ Sayfa denetçisi, Microsoft Web geliştirici araçları ile gelir. 1.3 en son s�
 
 Uygulama açılır **kaynak** görünümü.
 
-![Kaynak görünümünde yeni Web Forms uygulaması](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image2.png)
+![Kaynak Görünümü'nde yeni Web Forms uygulaması](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image2.png)
 
-Çalışmak için bir uygulamanız varsa, incelemek ve değiştirmek için sayfa Denetçisi'ni kullanabilirsiniz.
+Çalışmak için bir uygulamanız olduğuna göre incelemek ve değiştirmek için sayfa Denetçisi'ni kullanabilirsiniz.
 
 <a id="_starting_page_inspector"></a><a id="_3_starting_page"></a><a id="_3_using_page"></a>
 
-## <a name="use-page-inspector-to-view-the-application"></a>Sayfa denetçisi uygulamayı görüntülemek için kullanın
+## <a name="use-page-inspector-to-view-the-application"></a>Uygulamayı görüntülemek için sayfa denetçisini kullanma
 
-Ardından, sayfa denetçisi ile uygulama görebilir. İçinde **Çözüm Gezgini**projeye sağ tıklayın ve ardından **sayfa denetçisi görünümünde**.
+Ardından, uygulama sayfa denetçisi ile görebilir. İçinde **Çözüm Gezgini**, projeye sağ tıklayın ve ardından **sayfa denetçisi görünümünde**.
 
 ![Sayfa denetçisi görünümünde](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image3.png)
 
-Varsayılan olarak, bu sayfa denetçisi ilk kez başlatıldığında dar bir pencere olarak Visual Studio ortamı sol tarafta yerleştirilir. Sol tarafta yerleşik ve sizin için rahatça ya da bir aracı alanlarının üstünde, Alttan veya sağ yerleştirme genişliği ayarlayın bırakın:
+Varsayılan olarak, bu sayfa denetçisi ilk kez başlattığında dar bir pencere olarak Visual Studio ortamını sol tarafında yerleştirilir. Sol taraftaki yerleştirilmiş ve sizin için rahatça ya da aracı alanlarından içinde üst, alt veya sağa Yerleştir genişliği ayarlayın bırakın:
 
-![Sayfa denetçisi takma konumları](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image4.png)
+![Sayfa denetçisi yerleştirme konumları](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image4.png)
 
-Sayfa denetçisi penceresi yuvadan, varsa, bunu Visual Studio dışında veya ikinci monitörde bile yerleştirebilirsiniz. Sayfa denetçisi penceresi kilitli olduğunda, ancak, ALT + SEKME sayfa denetçisi ve Visual Studio arasında sırada Git **Araçları** &gt; **seçenekleri** &gt;  **Ortam** &gt; **sekmeler ve pencereler**ve altında **iyi sekmesini**, Temizle onay kutusu olarak adlandırılan **kayan araç pencereleri her zaman kalın üstünde ana penceresi**:
+Sayfa denetçisi penceresi çıkar, varsa, bunu Visual Studio'nun dışında ya da ikinci monitörde bile yerleştirebilirsiniz. Sayfa denetçisi penceresi yerleştirilmemiş olduğunda, ancak ALT + SEKME sayfa denetçisi ve Visual Studio arasında sırada Git **Araçları** &gt; **seçenekleri** &gt;  **Ortam** &gt; **sekmeler ve Windows**, altında **sekmesinde de**adlı onay kutusunu temizleyin **kayan araç pencereleri her zaman kalın üst kısmındaki Ana pencere**:
 
-![ALT + SEKME Visual Studio ile kilitli sayfa denetçisi penceresi arasında için kayan araç windows onay kutusunun işaretini kaldırın](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image5.png)
+![Visual Studio ile yerleştirilmemiş sayfa denetçisi penceresi arasında ALT + SEKME için kayan aracı windows onay kutusunu temizleyin](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image5.png)
 
-Sayfa denetçisi penceresinin üst bölmesi geçerli sayfa bir tarayıcı penceresinde gösterir. Alt bölme sayfanın sol HTML biçimlendirmesi gösterir ve olanak tanıyan sağdaki bazı sekmeleri sayfa farklı yönlerini inceleyin. Alt bölme benzer [F12 Geliştirici Araçları](https://msdn.microsoft.com/ie/aa740478) Internet Explorer'da. (Ancak, geliştirici araçları, Visual Studio içinde sağ sayfa denetçisi kullanabilirsiniz.)
+Sayfa denetçisi pencerenin en üst bölmesi, geçerli sayfada bir tarayıcı penceresinde gösterilir. Alt bölme sayfası soldaki HTML biçimlendirmeyi gösterir ve bazı sekmeler olanak tanıyan sağdaki sayfa farklı yönlerini inceleyin. Alt bölme benzer [F12 Geliştirici araçlarıyla](https://msdn.microsoft.com/ie/aa740478) Internet Explorer'da. (Ancak, geliştirici araçları, Page Inspector, Visual Studio içinden kullanabilirsiniz.)
 
 ![Sayfa Denetçisi](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image6.png)
 
-Bu öğreticide, sayfa denetçisi Tarayıcısı bölmesini kullanın ve **HTML** ve **stilleri** hızla yardımcı olmak için sekmeler gidin ve uygulamaya değişiklikleri yapın.
+Bu öğreticide, sayfa denetçisi tarayıcı bölmesinde kullanır ve **HTML** ve **stilleri** hızlı bir şekilde yardımcı olması için sekmeler gidin ve uygulamada değişiklik yapın.
 
 <a id="_4_inspection_mode"></a>
-## <a name="enable-inspection-mode"></a>Denetleme modunu etkinleştir
+## <a name="enable-inspection-mode"></a>İnceleme modu etkinleştir
 
-Ardından, sayfa Denetçisi'nin Denetleme modu nasıl çalıştığını görürsünüz. Sayfa denetçisi penceresinde **incele** düğmesi.
+Ardından, sayfa Denetçisi'nin İnceleme modu nasıl çalıştığını görürsünüz. Sayfa denetçisi pencerede **inceleyin** düğmesi.
 
-![Öğesini inceleyin.](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image7.png)
+![Öğeyi Denetle](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image7.png)
 
-Eylem denetleme modunda görmek için page sayfa denetçisi tarayıcı penceresi içinde farklı kısımlarını üzerinden fareyi hareket ettirin. Yaptığınız gibi büyük bir artı işareti fare işaretçisini değiştirir ve öğesinin altında vurgulanır:
+İnceleme modu iş başında görmek için Page Inspector tarayıcı penceresi içinde sayfasının farklı bölümlerini üzerinde fareyi hareket ettirin. Yaptığınız gibi fare işaretçisini büyük artı işaretine değişir ve öğesinin altında vurgulanır:
 
-![Hovering over div.content-wrapper](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image8.png)
+![Div.Content sarmalayıcı geldiğinizde](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image8.png)
 
-Fareyi hareket ederken unutmayın
+Fare işaretçisi hareket ettikçe unutmayın
 
-- İçeriği **kaynak** görüntülemek sayfada seçilen öğe için karşılık gelen biçimlendirme göstermek için değişir. İlgili biçimlendirme vurgulanır. Kaynağı başka bir dosyaya ise, bu dosya kaynak görünümünde vurgulanmış ilgili biçimlendirme ile açılır.
+- İçeriği **kaynak** görüntüleme sayfasında seçilen öğenin karşılık gelen biçimlendirmesini gösterecek şekilde değişir. İlgili biçimlendirme vurgulanır. Kaynak başka bir dosyaya ise, bu dosyayı vurgulanmış ilgili biçimlendirme Kaynak Görünümü'nde açılır.
 
-- Görüntülenen biçimlendirme **HTML** sayfa denetçisi sekmesinde de değişiklikler sayfada seçilen öğe karşılık gelir. İçinde **HTML** sekmesinde ilgili biçimlendirme gösterilmiştir.
+- Görüntülenen biçimlendirme **HTML** sayfa denetçisi sekmede sayfasında seçilen öğeye karşılık gelecek şekilde de değişir. İçinde **HTML** sekmesinde ilgili biçimlendirme ana hatlarıyla açıklanmıştır.
 
-- **Stilleri** sekmesi CSS kuralları geçerli seçime uygun gösterir.
+- **Stilleri** sekmesi CSS kurallarını geçerli seçime uygun gösterir.
 
 <a id="_5_using_page"></a>
 
-## <a name="use-page-inspector-to-make-changes-to-markup"></a>Sayfa denetçisi biçimlendirme değişiklikleri yapmak için kullanın
+## <a name="use-page-inspector-to-make-changes-to-markup"></a>İşaretlemede değişiklik yapmak için sayfa denetçisini kullanma
 
-Şimdi Bul ve biçimlendirme veya metin konumu hemen göze görünmeyebilir değişiklik sayfa denetçisi nasıl kullanabileceğiniz görürsünüz.
+Şimdi bulup biçimlendirme veya metin konumu hemen göze görünmeyebilir değişiklik sayfa denetçisi nasıl kullanabileceğinizi göreceksiniz.
 
-Sayfa denetçisi denetleme moduna geçirin ve ardından giriş sayfasının en altına gidin.
+Sayfa denetçisi İnceleme moduna alın ve ardından giriş sayfasının en alt kısma.
 
-Sayfa denetçisi altbilgi alanına girdiğiniz hemen açılır *Site.Master* düzeni dosyasında **kaynak** diğer sağındaki geçici bir sekme görünümünde sekmeler ve ana bölüm vurgular, sayfa seçtiniz. Bu, sayfa denetçisi nasıl bulabilir ve gerçekte başlangıçta açtığınız olandan farklı bir dosyadan gelebilir sayfasında içeriği görüntüle gösterir.
+Sayfa denetçisi altbilgi alanı girilmez açılır *Site.Master* Düzen dosyasında **kaynak** diğer sağındaki geçici bir sekme görünümünde sekmeler ve ana bölümünü vurgular, sayfa seçtiniz. Bu, sayfa denetçisi bulabilir ve gerçekte farklı bir dosya, özgün olarak açtığınız bir nereden geldiği bir sayfada içeriklerin nasıl gösterir.
 
 ![Denetleme modunda altbilgi vurgular](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image9.png)
 
-Sayfa denetçisi tarayıcı penceresinde fare telif hakkı satırıyla üzerinden işaretçinizi <a id="a"> </a>dikkat edin.
+Sayfa denetçisi tarayıcı penceresinde fare işaretçinizi telif hakkı satırla üzerine getirin <a id="a"> </a>dikkat edin.
 
-İçinde *Site.Master* sayfasında, karşılık gelen bir satır vurgulanmış.
+İçinde *Site.Master* sayfasında, karşılık gelen satırı vurgulanır.
 
-![Vurgulanan altbilgi telif hakkı satır](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image10.png)
+![Vurgulanan alt telif hakkı satır](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image10.png)
 
-Satırın sonuna bazı metin eklemek *Site.Master* dosya.
+Satır sonuna metin eklemek *Site.Master* dosya.
 
-&lt;p&gt;&amp;kopyalayın; &lt;%: DateTime.Now.Year %&gt; -My ASP.NET uygulama Rocks!&lt; /p&gt;
+&lt;p&gt;&amp;kopyalayın; &lt;%: DateTime.Now.Year %&gt; -My ASP.NET Application Rocks!&lt; /p&gt;
 
-Şimdi, Ctrl + Alt + Enter tuşuna basın veya sayfa denetçisi tarayıcı penceresinde sonuçları görmek için güncelleştirme Çubuğu'nu tıklatın.
+Şimdi, Ctrl + Alt + Enter tuşlarına basın veya güncelleştirme çubuğundaki sonuçları sayfa denetçisi tarayıcı penceresinde görmek için tıklayın.
 
-![My ASP.NET uygulama Rocks!](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image11.png)
+![My ASP.NET Application Rocks!](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image11.png)
 
-Altbilgi üzerinde olduğunu düşündüğünüz *Default.aspx* sayfa, ancak dönüştü asıl düzeni sayfasında olması ve sayfa denetçisi bulunamadı, sizin için.
+Altbilgi üzerinde olduğunu düşündüğünüz *Default.aspx* sayfa, ancak bu durumun gerçekleşmediği ana düzen sayfası içinde olmasını ve sayfa denetçisi bulunamadı, sizin için.
 
 <a id="_6_inspection_mode"></a>
 
-## <a name="inspection-mode-and-the-html-window"></a>Denetleme modu ve HTML penceresi
+## <a name="inspection-mode-and-the-html-window"></a>İnceleme modu ve HTML penceresi
 
-Ardından, HTML penceresi ve nasıl öğeleri sizin için eşleyen hızlı bir bakış sahip olur.
+Ardından, HTML penceresi ve eşlemelerini nasıl yapar? bu öğeler, hızlı bir bakış sahip olur.
 
-Sayfa denetçisi denetleme moduna alın.
+Sayfa denetçisi İnceleme moduna alın.
 
-![Öğesini inceleyin.](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image12.png)
+![Öğeyi Denetle](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image12.png)
 
-"Buraya logonuz konacak" diyor sayfanın üst kısmında'ı tıklatın. Belirli bir tarayıcı penceresinde görünen artık fare işaretçisini taşımak gibi değişiklikler daha fazla ayrıntı öğesinde İncelemekte olduğunuz.
+"Buraya logonuz" ifadesini içeren üst kısmında tıklayın. Fare işaretçisini getirdiğinizde tarayıcı penceresinde görüntülenmesini artık değişiklikler daha ayrıntılı olarak belirli bir öğeyle İncelemekte olduğunuz.
 
-Şimdi fare işaretçisini taşıma **HTML** penceresi. Fare işaretçisini ilerlerken, öğe içinde sayfa denetçisi özetlenmektedir **HTML** penceresi ve tarayıcı penceresini karşılık gelen öğe vurgular.
+Artık fare işaretçisi hareket **HTML** penceresi. Fare işaretçisi hareket ettikçe öğe içinde sayfa denetçisi özetler **HTML** penceresini ve karşılık gelen öğe tarayıcı penceresinde vurgular.
 
-![HTML Window](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image13.png)
+![HTML penceresi](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image13.png)
 
-Önce sayfa denetçisi açar gibi *Site.Master* dosyayı geçici bir sekmede. Site.Master sekmesine tıklayın ve karşılık gelen biçimlendirme vurgulanan &lt;üstbilgi&gt; bölümü:
+Sayfa denetçisi önce açan *Site.Master* dosyayı geçici bir sekmede. Site.Master sekmesine tıklayın ve karşılık gelen biçimlendirme vurgulanan &lt;üstbilgi&gt; bölümü:
 
 ![Vurgulanan biçimlendirme](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image14.png)
 
@@ -169,25 +168,25 @@ Sayfa denetçisi denetleme moduna alın.
 
 ## <a name="preview-css-changes-in-the-styles-window"></a>Stilleri penceresinde CSS Değişiklikleri Önizle
 
-Ardından, sayfa denetçisi nasıl kullanabileceğiniz görürsünüz **stilleri** CSS değişiklikleri önizleme penceresi.
+Ardından, sayfa denetçisi nasıl kullanabileceğinizi görürsünüz **stilleri** CSS değişiklikleri Önizleme için pencere.
 
-Tıklatın **incele** sayfa denetçisi denetleme moduna düğmesi.
+Tıklayın **inceleyin** düğmesine sayfa denetçisi İnceleme moduna alın.
 
-Sayfa denetçisi tarayıcı penceresinde fare "Giriş sayfası" bölümüne kadar işaretçiyi üzerine **div.content sarmalayıcı** etiketi görüntülenir.
+Sayfa denetçisi tarayıcı penceresinde, fare işaretçisini kadar "Giriş sayfası" bölümü üzerine getirin **div.content sarmalayıcı** etiket görünür.
 
-![Öğeleri vurgulama](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image15.png)
+![Öğelerin üzerine geldiğinizde](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image15.png)
 
-Bir kez div.content sarmalayıcı bölüm içinde tıklayın ve fare işaretçisini taşıma **stilleri** penceresi. .Featured .content sarmalayıcı sınıf seçici altında temizleyin ve arka plan rengi özelliği için onay kutusunu seçin.
+Bir kez div.content sarmalayıcı bölümündeki tıklayın ve sonra fare işaretçisi hareket **stilleri** penceresi. .Featured .content sarmalayıcı sınıfı Seçicisi altında temizleyin ve arka plan rengi özelliği için onay kutusunu işaretleyin.
 
-![Clear arka plan rengi](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image16.png)
+![Açık Arka plan rengi](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image16.png)
 
 Nasıl değişiklik sayfa denetçisi tarayıcı penceresinde anında önizleme dikkat edin.
 
-Onay kutusunu yeniden seçin, ardından özellik değerini çift tıklatın ve şekilde değiştirin `red`. Değişikliği hemen gösterir:
+Yeniden onay kutusunu işaretleyin, sonra özellik değerini çift tıklatın ve değiştirmek için `red`. Değişikliği hemen gösterir:
 
 ![Kırmızı arka plan rengi](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image17.png)
 
-**Stilleri** kolay test ve CSS Önizleme değiştiğinde stiline değişiklikleri kaydetmeden önce penceresi yapar kendisini sayfa.
+**Stilleri** kendisini sayfa kolayca test edin ve CSS Önizleme değiştirirse stil ve değişiklikleri göndermeden önce penceresi yapar.
 
 <a id="css_auto_sync"></a>
 ## <a name="css-auto-sync"></a>CSS otomatik eşitleme
@@ -196,65 +195,65 @@ Onay kutusunu yeniden seçin, ardından özellik değerini çift tıklatın ve �
 > Bu özellik, sayfa denetçisi 1.3 sürümünü gerektirir.
 
 
-CSS otomatik eşitleme özelliği, bir CSS dosyasını doğrudan düzenlemeniz ve sayfa denetçisi tarayıcıda hemen değişiklikleri görmek sağlar.
+CSS otomatik eşitleme özelliği, bir CSS dosyası doğrudan düzenlemek ve hemen sayfa denetçisi tarayıcıda değişiklikleri görmek sağlar.
 
-Tıklatın **incele** sayfa denetçisi denetleme moduna yerleştirilecek.
+Tıklayın **inceleyin** sayfa denetçisi İnceleme moduna yerleştirilecek.
 
-Sayfa denetçisi tarayıcıda, fare işaretçisini kadar "Giriş sayfası" bölümüne götürün **div.content sarmalayıcı** etiketi görüntülenir. Bu öğe seçmek için bir kez tıklayın.
+Sayfa denetçisi tarayıcıda, fare işaretçisini kadar "Giriş sayfası" bölümü üzerine getirin **div.content sarmalayıcı** etiket görünür. Bu öğe seçmek için bir kez tıklayın.
 
-**Syles** penceresi tüm bu öğe için CSS kuralları gösterir. Bul .featured .content sarmalayıcı sınıf seçici aşağı kaydırın. ".Featured .content-sarmalayıcı üzerinde"'i tıklatın. Sayfa denetçisi bu stili (Site.css) tanımlar ve karşılık gelen CSS stil vurgular CSS dosyasını açar.
+**Stilleri** penceresi tüm bu öğe için CSS kurallarını gösterir. Bul .featured .content sarmalayıcı sınıfı Seçicisi aşağı kaydırın. ".Featured .content-sarmalayıcı üzerinde"'a tıklayın. Sayfa denetçisi bu stil (Site.css) tanımlayan ve karşılık gelen CSS stil vurgular CSS dosyası açılır.
 
 ![CSS dosyası](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image18.png)
 
-Şimdi değerini değiştirin `background-color` "red" için. Değişikliği hemen sayfa denetçisi tarayıcısında görüntülenir.
+Artık değerini değiştirin `background-color` "kırmızı". Değişikliği hemen sayfa denetçisi tarayıcıda görüntülenir.
 
 ![Sayfa denetçisi tarayıcı](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image19.png)
 
 <a id="css_color_picker"></a>
 
-## <a name="using-the-css-color-picker"></a>CSS Renk Seçici kullanma
+## <a name="using-the-css-color-picker"></a>CSS renk seçiciyi kullanarak
 
-Ardından, sayfa denetçisi hızla bulmak ve varsayılan uygulama vurgulanan metinde CSS değiştirmek için nasıl kullanılacağını öğreneceksiniz. Bu örnekte, yoksa mavi vurgulama ister ve başka bir rengini değiştirmek istediğiniz olduğunu karar verdiniz.
+Ardından, sayfa denetçisi hızla bulup varsayılan uygulamada vurgulanan metni için CSS değiştirmek için nasıl kullanılacağını öğreneceksiniz. Bu örnekte, yoksa mavi Vurgu ister ve bunu başka bir renge değiştirmek istiyorsanız, karar verdiniz.
 
-Tıklatın **incele** düğmesi.
+Tıklayın **inceleyin** düğmesi.
 
-![Öğesini inceleyin.](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image20.png)
+![Öğeyi Denetle](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image20.png)
 
-Sayfa denetçisi tarayıcı penceresinde fare işaretçisini vurgulanan hareket "videoları, eğitim ve örnek" metin etiketi CSS "işaretlemek" görüntülenir.
+Sayfa denetçisi tarayıcı penceresinde fare işaretçisini vurgulanan hareket "videolar, öğreticilerimiz ve örneklerimizle" metin CSS işaretle"etiket" görüntülenir.
 
-![İşareti öğenin üzerine gelerek veya onları](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image21.png)
+![İşareti öğenin vurgulama](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image21.png)
 
-Metni seçmek için tıklatın. Karşılık gelen CSS işareti Seçici en altında görüntülenen **stilleri** penceresi.
+Metni seçmek için tıklatın. Karşılık gelen CSS işareti Seçici alt kısmında görünür **stilleri** penceresi.
 
 ![Stilleri penceresinde işareti Seçici](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image22.png)
 
-İşareti seçicisini tıklatın. Bu açılır *Site.css* web uygulaması için dosya. Site.css sekmesini tıklatın ve karşılık gelen CSS seçicisinin vurgulanır:
+İşareti Seçici'yi tıklatın. Bu açılır *Site.css* web uygulaması için dosya. Site.css sekmesine tıklayın ve ilgili CSS Seçici için vurgulanır:
 
 ![Stil sayfası seçicide işaretle](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image23.png)
 
-Seçin ve arka plan rengi özelliği içeren satırı Kaldır.
+Seçin ve arka plan rengi özelliğiyle satırını kaldırır.
 
-Şimdi yeni Visual Studio 2012 CSS Renk Seçici için yeni bir renk seçmek için kullanacağınız **işaretlemek** arka plan rengi özelliği.
+İçin yeni bir renk seçmek için artık yeni Visual Studio 2012 CSS renk seçicinin kullanacağı **işaretlemek** arka plan rengi özelliği.
 
 <a id="_using_the_visual"></a>
 
-### <a name="using-the-visual-studio-2012-css-color-picker"></a>Visual Studio 2012 CSS Renk Seçici kullanma
+### <a name="using-the-visual-studio-2012-css-color-picker"></a>Visual Studio 2012 CSS Renk Seçici'yi kullanma
 
-Visual Studio 2012'de CSS Düzenleyicisi'ni seçin ve renkleri eklemek kolaylaştıran bir renk seçici sahiptir. Basit bir renk çubuğu ve daha hassas denetim sunar bir "aşağı pop" Seçici vardır.
+Visual Studio 2012 CSS Düzenleyicisi'ni seçin ve renkleri eklemek kolaylaştıran bir renk seçici var. Bu, basit bir renk çubuğu ve daha hassas bir denetim sunan bir "aşağı pop" Seçici vardır.
 
-Renk Seçici standart bir renk paletini içerir, standart renk adları, karma kodları, RGB, RGBA, HSL ve HSLA renkleri destekler ve belgede en yakın zamanda kullandığınız renkleri listesini tutar.
+Renk Seçici standart bir renk paletini içerir, standart renk adları, karma kodları, renklerin RGB, RGBA HSL ve HSLA destekler ve en son belge içinde kullandığınız renkleri listesini tutar.
 
-Satırındaki arka plan rengi özelliği olduğu "bc" yazın ve bir kez aşağı ok tuşlarına basın.
+Satırındaki arka plan rengi özelliği olduğu "bc" yazın ve sonra aşağı oka basın.
 
-"Background-color" gibi bir tire ayrılmış özelliğinde her sözcüğün ilk karakteri yazdığınızda, IntelliSense eşleşen özelliklerini göstermek için listesini filtreler:
+Çizgi ile ayrılmış bir özellik "background-color" gibi her sözcüğün ilk karakter yazdığınızda, IntelliSense, eşleşen özelliklerini göstermek listeyi filtreler:
 
 ![IntelliSense filtre değerleri](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image24.png)
 
-Şimdi iki nokta yazın. Bunu yaptığınızda, tam arka plan rengi özellik adı eklenir. Tür **#** veya **rgb (**, ve Renk Seçici çubuğu görüntülenir:
+Şimdi bir iki nokta üst üste yazın. Bunu yaptığınızda tam arka plan rengi özellik adı eklenir. Tür **#** veya **rgb (**, ve Renk Seçici çubuğu görünür:
 
 ![CSS Renk Seçici çubuğu](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image25.png)
 
-Renk Seçici çubuğu nasıl çalıştığını görmek için fare işaretçisini renklerle tıklayın ya da aşağı ok tuşuna basın ve renkleri geçiş yapmak için sol ve sağ ok tuşlarını kullanın. Bir renk ziyaret ettiğinizde, arka plan rengi özelliği için karşılık gelen değer önizlemesi:
+Renk Seçici çubuğu nasıl çalıştığını görmek için fare işaretçisi ile renklerini tıklayın veya aşağı ok tuşuna basın ve ardından renkleri geçirmek için sol ve sağ ok tuşlarını kullanın. Bir renk ziyaret ettiğinizde, arka plan rengi özelliği için karşılık gelen değer önizlemesini görebilirsiniz:
 
 ![arka plan rengi özellik değeri önizlemesi](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image26.png)
 
@@ -262,36 +261,36 @@ Bu noktada, değer ve CSS giriş tamamlamak için noktalı virgül (;) seçmek i
 
 #### <a name="using-the-color-picker-pop-down"></a>Renk Seçici Pop aşağı kullanma
 
-Renk çubuğu aradığınız tam renk atanmamışsa, Renk Seçici pop aşağı kullanabilirsiniz.
+Renk çubuğu aradığınız tam renk sahip olmadığında, Renk Seçici pop aşağı kullanabilirsiniz.
 
-Açmak için renk çubuğunun sağ ucundaki çift köşeli çift Ayraca tıklayın veya klavyede veya iki kez aşağı ok tuşlarına basın.
+Açmak için renk çubuğu sağ ucundaki çift köşeli çift Ayraca tıklayın veya klavyede veya iki kez aşağı ok tuşuna basın.
 
-![CSS Renk Seçici Pop aşağı](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image27.png)
+![CSS Renk Seçici Pop-aşağı](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image27.png)
 
-Sağdaki dikey çubuk renkten'ı tıklatın. Bu, ana pencerede, renk için gradyan gösterir. Enter tuşuna basarak doğrudan dikey çubuğu'ndan bir renk seçin veya ile daha iyi kesinlik seçmek için ana penceresinde herhangi bir noktasını tıklatın.
+Sağdaki dikey çubuk renk tıklayın. Bu, renk için bir gradyan ana penceresinde gösterir. Enter tuşuna basarak doğrudan dikey çubuğundan bir renk seçin veya ile daha fazla duyarlık seçmek için ana penceresinde herhangi bir noktasına tıklayın.
 
-Kullanmak istediğiniz bilgisayar ekranınızda bir renk olup olmadığını (Bu Visual Studio kullanıcı arabirimi içinde olmak zorunda değildir), alt sağ tarafta Damlalık aracını kullanarak değerini yakalayabilirsiniz.
+Bilgisayar ekranınızda kullanmak istediğiniz bir renk olup olmadığını (Bu Visual Studio kullanıcı arabirimi içinde olması gerekmez), değeri alt sağ tarafta renk damlalığı aracı kullanarak yakalayabilirsiniz.
 
-Renk Seçici altındaki kaydırıcısını hareket ettirerek bir rengin geçirgenliğini de değiştirebilirsiniz. RGBA biçimi opaklık gösterebilir çünkü değişiklikleri RGBA değerleri renk yapılıyor.
+Renk Seçici altındaki kaydırıcıyı hareket ettirerek bir rengin geçirgenliğini da değiştirebilirsiniz. RGBA biçimi opaklık temsil edebilir çünkü değişiklikler RGBA değerleri renk yapılıyor.
 
-Bir renk seçtikten sonra Enter tuşuna basın ve arka plan rengi girişi tamamlamak için noktalı virgül yazın *Site.css* dosya.
+Bir renk seçtikten sonra Enter tuşuna basın ve ardından arka plan rengi girişte tamamlamak için noktalı virgül ekleyin *Site.css* dosya.
 
 <a id="_the_update_bar"></a>
 
 ### <a name="the-page-inspector-update-bar"></a>Sayfa denetçisi güncelleştirme çubuğu
 
-Sayfa denetçisi hemen değişikliği algılar *Site.css* dosya (veya uygulamadaki herhangi bir dosyaya) ve bir güncelleştirme çubuğunda bir uyarı görüntüler.
+Page Inspector, değişikliği hemen algılar *Site.css* dosya (veya uygulamadaki herhangi bir dosyaya) ve bir güncelleştirme çubuğunda bir uyarı görüntüler.
 
 ![Güncelleştirme çubuğu](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image28.png)
 
-Tüm dosyaları kaydetmek ve sayfa denetçisi tarayıcıyı yenilemek için Ctrl + Alt + Enter tuşuna basın veya güncelleştirme Çubuğu'nu tıklatın. Vurgulama renk değişikliği tarayıcıda görünür:
+Tüm dosyaları kaydedin ve sayfa denetçisi tarayıcıyı yenilemek için Ctrl + Alt + Enter tuşlarına basın veya güncelleştirme çubuğuna tıklayın. Vurgu rengi değişiklik tarayıcıda görüntülenir:
 
-![Değiştirilen vurgulama renk](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image29.png)
+![Vurgu rengi değişir](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image29.png)
 
-<a id="_using_page_inspector_1"></a>Sayfa denetçisi tarayıcıdan sağ Visual Studio ortamında rahat yenilenir dikkat edin. Sayfa denetçisi yerine dış tarayıcı kullanarak, web Uygulamalarınızı geliştirirken Düzenleyici'de Kal olanak sağlar.
+<a id="_using_page_inspector_1"></a>Sayfa denetçisi tarayıcı doğrudan Visual Studio ortamında kolayca yenilenir dikkat edin. Sayfa denetçisi yerine dış tarayıcı kullanmanız, web Uygulamalarınızı geliştirirken Düzenleyicisi'nde kalın olanak tanır.
 
 ## <a name="see-also"></a>Ayrıca Bkz.
 
-[Sayfa denetçisi Tanıtımı](https://channel9.msdn.com/posts/visual-studio-vnext-introducing-page-inspector) (Channel 9 video)
+[Sayfa denetçisi ile tanışın](https://channel9.msdn.com/posts/visual-studio-vnext-introducing-page-inspector) (kanal 9 videosu)
 
 [Sayfa denetçisi hata iletileri](https://go.microsoft.com/?linkid=9813062) (MSDN)

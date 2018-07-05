@@ -1,45 +1,44 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/3-creating-a-consistent-look
-title: Tutarlı bir düzen oluşturma ASP.NET Web sayfaları (Razor) siteleri | Microsoft Docs
+title: Tutarlı bir düzen oluşturma ASP.NET Web sayfaları (Razor) siteler | Microsoft Docs
 author: tfitzmac
-description: Siteniz için web sayfaları oluşturmak için daha verimli hale getirmek için Web sitesi ve, c (örneğin, üstbilgiler ve altbilgiler) içeriği yeniden kullanılabilir bloklarını oluşturabilirsiniz...
+description: Siteniz için web sayfaları oluşturmak için daha verimli hale getirmek için yeniden kullanılabilir içerik (örneğin, üstbilgiler ve altbilgiler) Web sitesi ve, c için bloklarını oluşturabilirsiniz...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/10/2014
 ms.topic: article
 ms.assetid: d7bd001b-6db2-4422-9b78-f3d08b743b00
 ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/3-creating-a-consistent-look
 msc.type: authoredcontent
-ms.openlocfilehash: 2c7631017f7c0fb31f43320c2ab78baddd87b516
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 91cabc8c026cbdbc89812577bdeaa939bfa828d4
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26573378"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37378439"
 ---
 <a name="creating-a-consistent-layout-in-aspnet-web-pages-razor-sites"></a>ASP.NET Web sayfaları (Razor) sitelerinde tutarlı bir düzen oluşturma
 ====================
-tarafından [zel FitzMacken](https://github.com/tfitzmac)
+tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
-> Bu makalede nasıl Düzen sayfaları bir ASP.NET Web sayfaları (Razor) Web sitesi içeriği (örneğin, üstbilgiler ve altbilgiler) yeniden kullanılabilir bloklarını oluşturmak için ve sitedeki tüm sayfalar için tutarlı bir görünüm oluşturmak için kullanabileceğiniz açıklanmaktadır.
+> Bu makalede nasıl Düzen sayfaları bir ASP.NET Web sayfaları (Razor) Web sitesinde içerik (örneğin, üstbilgiler ve altbilgiler) yeniden kullanılabilir bloklar oluşturur ve sitedeki tüm sayfalar için tutarlı bir görünüm oluşturmak için kullanabileceğiniz açıklanmaktadır.
 > 
 > **Öğrenecekleriniz:** 
 > 
-> - Üstbilgiler ve altbilgiler gibi içeriğinin yeniden kullanılabilir blokları oluşturma
-> - Bir düzen kullanarak sitenizdeki tüm sayfalar için tutarlı bir görünüm oluşturma
-> - Çalışma zamanında bir düzen sayfası veri iletmek nasıl.
+> - Yeniden kullanılabilir içerik üstbilgiler ve altbilgiler gibi blokları oluşturma
+> - Sitenizdeki bir düzen kullanarak tüm sayfalar için tutarlı bir görünüm oluşturma
+> - Nasıl verileri çalışma zamanında bir düzen sayfasına geçirir.
 > 
 > Bu makalede sunulan ASP.NET özellikleri şunlardır:
 > 
-> - İçerik blokları, birden çok sayfada eklenecek HTML biçimli içerik içeren dosyalardır.
-> - Web sayfalarında paylaştığı HTML biçimli içerik sayfalarıdır Düzen sayfaları.
-> - `RenderPage`, `RenderBody`, Ve `RenderSection` sayfa öğelerini eklemek istediğiniz yeri ASP yöntemleri.
-> - `PageData` İçerik bloklarının ve Düzen sayfaları arasında veri paylaşmanıza olanak sağlayan sözlük.
+> - İçerik blokları, birden çok sayfada eklenecek içeriği HTML biçimli dosyalardır.
+> - Web sitesi sayfalarına tarafından paylaşılabilen HTML biçimli içeriği sayfalar düzen sayfaları.
+> - `RenderPage`, `RenderBody`, Ve `RenderSection` öğelerin ekleneceği konum ASP yöntemleri.
+> - `PageData` İçerik bloğu ile Düzen sayfaları arasında veri paylaşmasını sağlayan sözlük.
 >   
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Öğreticide kullanılan yazılım sürümleri
+> ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
 > 
 > 
 > - ASP.NET Web sayfaları (Razor) 3
@@ -48,130 +47,130 @@ tarafından [zel FitzMacken](https://github.com/tfitzmac)
 > Bu öğreticide, ASP.NET Web Pages 2 ile de çalışır.
 
 
-## <a name="about-layout-pages"></a>Düzen sayfaları hakkında
+## <a name="about-layout-pages"></a>Yerleşim sayfaları hakkında
 
-Birçok Web sitesi üstbilgi ve altbilgi veya kullanıcılar, oturum açtınız olduğunu bildiren bir kutu gibi her sayfada görüntülenen içeriğe sahip. ASP.NET metin, biçimlendirme ve normal web sayfası gibi kodu içeren bir içerik bloğu ile ayrı bir dosya oluşturmanıza olanak sağlar. Diğer sayfalarda bilgilerin görünmesini istediğiniz yere sitesinde, içerik bloğuna sonra ekleyebilirsiniz. Bu şekilde aynı içerik her sayfasına kopyalayıp gerekmez. Bu gibi ortak içerik oluşturma da sitenizi güncelleştirmek kolaylaştırır. Yalnızca tek bir dosya güncelleştirebilir ve değişiklikleri daha sonra her yerde yansıtılır içeriği değiştirmek gerektiğinde içeriği eklenmiş.
+Birçok Web sitesi, bir üstbilgi ve altbilgi veya bunlar oturum açmadıysanız, kullanıcıların söyleyen bir kutu gibi her bir sayfasında görüntülenen içeriğe sahip. ASP.NET ile metin ve biçimlendirme normal web sayfası gibi bir kod içeren bir içerik bloğu ayrı bir dosya oluşturmanıza olanak sağlar. Ardından, diğer bilgilerin görünmesini istediğiniz sitenin sayfalarında içerik bloğu de ekleyebilirsiniz. Bu şekilde aynı içeriğin her sayfasına kopyalayıp gerekmez. Bu gibi ortak içerik oluşturma da sitenizi güncelleştirmek kolaylaştırır. İçeriği, içerik değiştirmeniz gerekir, yalnızca tek bir dosyayı güncelleştirebilirsiniz ve değişiklikleri daha sonra her yerde yansıtılır eklenmiş.
 
-Aşağıdaki diyagramda, iş içeriğini nasıl engellediği gösterir. Bir tarayıcı web sunucusundan bir sayfayı istediğinde, ASP.NET içeriği blokları noktada ekler. burada `RenderPage` yöntemi ana sayfasında çağrılır. Tamamlandı (birleştirilmiş) sayfası tarayıcıya gönderilir.
+Aşağıdaki diyagramda, nasıl iş içeriği engeller gösterilmektedir. Bir tarayıcı web sunucusundan bir sayfa istediğinde, ASP.NET içeriği blokları noktada ekler. burada `RenderPage` ana sayfada yöntemi çağrılır. Tamamlandı (birleştirilmiş) sayfası, daha sonra tarayıcıya gönderilir.
 
-![Nasıl RenderPage yöntemi başvurulan bir sayfa geçerli sayfasına ekler gösteren kavramsal diyagram.](3-creating-a-consistent-look/_static/image1.jpg)
+![RenderPage yöntemi başvurulan bir sayfa geçerli sayfaya nasıl eklediğini gösteren kavramsal diyagram.](3-creating-a-consistent-look/_static/image1.jpg)
 
-Bu yordamda, ayrı dosyalarda bulunan iki içerik bloklarının (bir üstbilgi ve altbilgi) başvuruda bulunan bir sayfa oluşturacaksınız. Bu aynı içerik blokları, sitenizde herhangi bir sayfayı kullanabilirsiniz. İşiniz bittiğinde, sayfa şöyle elde edersiniz:
+Bu yordamda ayrı dosyalarında bulunan iki içeriği blokları (bir üstbilgi ve altbilgi) başvuran bir sayfa oluşturacaksınız. Aynı içerik bloklar sitenizde herhangi bir sayfa kullanabilirsiniz. İşiniz bittiğinde bunun gibi bir sayfa elde edersiniz:
 
-![RenderPage yöntemine yönelik çağrılar içeren bir sayfa çalıştırılmasını sonucu tarayıcıda bir sayfasını gösteren ekran görüntüsü.](3-creating-a-consistent-look/_static/image2.jpg)
+![RenderPage yöntemine yönelik çağrılar içeren bir sayfa çalıştırılmasının sonuçlarını tarayıcıda bir sayfasını gösteren ekran görüntüsü.](3-creating-a-consistent-look/_static/image2.jpg)
 
 1. Web sitenizin kök klasöründe adlı bir dosya oluşturun *Index.cshtml*.
-2. Varolan biçimlendirme aşağıdakiyle değiştirin:
+2. Mevcut biçimlendirme aşağıdakiyle değiştirin:
 
     [!code-html[Main](3-creating-a-consistent-look/samples/sample1.html)]
 3. Kök klasöründe adlı bir klasör oluşturun *paylaşılan*.
 
     > [!NOTE]
     > Adlı bir klasörde web sayfaları arasında paylaşılan dosyaları depolamak için yaygın bir uygulamadır *paylaşılan*.
-4. İçinde *paylaşılan* klasör adında bir dosya oluşturun  *\_Header.cshtml*.
-5. Varolan içeriğin aşağıdakiyle değiştirin:
+4. İçinde *paylaşılan* klasöründe adlı bir dosya oluşturun  *\_Header.cshtml*.
+5. Varolan içeriği aşağıdakiyle değiştirin:
 
     [!code-html[Main](3-creating-a-consistent-look/samples/sample2.html)]
 
-    Dosya adı olduğuna dikkat edin  *\_Header.cshtml*, alt çizgi ile (\_) öneki olarak. Adı bir alt çizgiyle başlıyorsa ASP.NET tarayıcıya bir sayfa göndermez. Bu kişiler (yanlışlıkla veya aksi halde) bu sayfaları doğrudan istemelerini engeller. Kullanıcıların bu sayfaları &#8212;isteği gerçekten istemediğiniz çünkü bunların içinde içerik bloklara sahip adı sayfalara alt çizgi kullanmak iyi bir fikirdir; kesinlikle diğer sayfalarına eklenecek kalırlar.
-6. İçinde *paylaşılan* klasör adında bir dosya oluşturun  *\_Footer.cshtml* ve içeriğini aşağıdakilerle değiştirin:
+    Dosya adı olduğuna dikkat edin  *\_Header.cshtml*, alt çizgi ile (\_) öneki olarak. Adının bir alt çizgiyle başlıyorsa, ASP.NET bir sayfa tarayıcıya göndermez. Bu kişiler (yanlışlıkla veya başka türlü) bu sayfaları doğrudan istemelerini engeller. Kullanıcıların bu sayfa istemek gerçekten istemediğinden, içerik bloklarının, içeren ad sayfaların alt çizgi kullanmak için iyi bir fikirdir &#8212; kesinlikle diğer sayfalarına eklenecek kalırlar.
+6. İçinde *paylaşılan* klasöründe adlı bir dosya oluşturun  *\_Footer.cshtml* ve içeriği aşağıdakiyle değiştirin:
 
     [!code-html[Main](3-creating-a-consistent-look/samples/sample3.html)]
-7. İçinde *Index.cshtml* sayfasında, iki çağrıları eklemek `RenderPage` aşağıda gösterildiği gibi yöntemi:
+7. İçinde *Index.cshtml* sayfasında, eklemek için iki çağrıları `RenderPage` burada gösterildiği gibi yöntemi:
 
     [!code-html[Main](3-creating-a-consistent-look/samples/sample4.html)]
 
-    Bu, içerik bloğuna bir web sayfasına eklenecek nasıl gösterir. Çağırmanız `RenderPage` yöntemi ve içeriği o noktada eklemek istediğiniz dosyanın adını geçirin. Burada, içeriğini eklediğinizi  *\_Header.cshtml* ve  *\_Footer.cshtml* içine dosyaları *Index.cshtml* dosya.
-8. Çalıştırma *Index.cshtml* sayfasını bir tarayıcıda. (Webmatrix'te, içinde **dosyaları** çalışma alanında, dosyaya sağ tıklayın ve ardından **başlatma tarayıcıda**.)
+    Bu, bir içerik bloğunu bir web sayfasına nasıl ekleneceğini gösterir. Çağırmanızı `RenderPage` yöntemi ve içeriğini bu noktada eklemek istediğiniz dosyanın adını geçirin. Burada, içeriğini eklediğinizi  *\_Header.cshtml* ve  *\_Footer.cshtml* dosyalarınızı *Index.cshtml* dosya.
+8. Çalıştırma *Index.cshtml* sayfasını bir tarayıcıda. (Webmatrix'te, içinde **dosyaları** çalışma alanında, dosyaya sağ tıklayın ve ardından **tarayıcıda Başlat**.)
 9. Tarayıcıda, sayfa kaynağı görüntüleyin. (Örneğin, Internet Explorer'da, sayfanın sağ tıklayın ve ardından **kaynağı görüntüle**.)
 
-    Bu içerik bloklarla dizin sayfası biçimlendirme birleştirir tarayıcıya gönderilen web sayfası biçimlendirme görmenize olanak tanır. Aşağıdaki örnek için işlenen sayfa kaynak gösterir *Index.cshtml*. Çağrıları `RenderPage` içine eklenen *Index.cshtml* gerçek üstbilgi ve altbilgi dosyaların içeriğini ile değiştirilmiştir.
+    Bu içerik bloklarla dizin sayfası biçimlendirme birleştiren tarayıcıya gönderilen web sayfası biçimlendirme görmenize olanak sağlar. Aşağıdaki örnek için işlenen sayfa kaynağı gösterir *Index.cshtml*. Çağrıları `RenderPage` içine yerleştirdiğiniz *Index.cshtml* üstbilgi ve altbilgi dosyaların asıl içeriğini ile değiştirilmiştir.
 
     [!code-html[Main](3-creating-a-consistent-look/samples/sample5.html)]
 
-## <a name="creating-a-consistent-look-using-layout-pages"></a>Düzen sayfalarını kullanarak tutarlı bir görünüm oluşturma
+## <a name="creating-a-consistent-look-using-layout-pages"></a>Yerleşim sayfaları kullanarak tutarlı bir görünüm oluşturma
 
-Şu ana kadar birden çok sayfaya aynı içerik dahil etmek kolaydır gördünüz. Bir site için tutarlı bir görünüm oluşturmak için daha fazla yapılandırılmış bir yaklaşım, Düzen sayfaları kullanmaktır. Düzen sayfası bir web sayfası yapısını tanımlar, ancak herhangi bir gerçek içerik içermiyor. Düzen sayfası oluşturduktan sonra içerik bulunur ve bunları düzeni sayfaya bağlantı web sayfaları oluşturabilirsiniz. Bu sayfaları görüntülendiğinde, bunlar düzen sayfası göre biçimlendirilmiş olması. (Bu anlamda şablon diğer sayfalar tanımlı içerik için bir tür olarak düzen sayfası çalışır.)
+Şu ana kadar birden çok sayfalarında aynı içerik dahil etmek kolay olduğunu gördünüz. Bir site için tutarlı bir görünüm oluşturmak için daha fazla yapılandırılmış bir yaklaşım, Düzen sayfaları kullanmaktır. Bir düzen sayfası, bir web sayfası yapısını tanımlar, ancak herhangi bir gerçek içeriği içermiyor. Bir düzen sayfası oluşturduktan sonra içeriği içeren ve ardından bunları Düzen sayfasına bağlantı web sayfaları oluşturabilirsiniz. Bu sayfalar görüntülendiğinde, bunlar göre düzen sayfası biçimlendirilmesi. (Bu anlamda bir düzen sayfası bir tür diğer sayfalarında tanımlı içerik için şablon görevi görür.)
 
-Çağrı içeren düzen sayfası yalnızca tüm HTML sayfasını gibi olmasıdır `RenderBody` yöntemi. Konumunu `RenderBody` düzen sayfası yönteminde belirler burada içerik sayfasındaki bilgileri dahil edilir.
+Bir çağrı içeren düzen sayfası yalnızca bir HTML sayfası gibi olmasıdır `RenderBody` yöntemi. Konumu `RenderBody` düzen sayfası yönteminde belirler burada içerik sayfası bilgileri dahil edilir.
 
-Aşağıdaki diyagramda nasıl içerik sayfaları gösterir ve Düzen sayfaları tamamlanmış web sayfası oluşturmak için çalışma zamanında birleştirilir. Tarayıcı bir içerik sayfasını ister. İçerik sayfasını kod için sayfa yapısı kullanmak için Düzen sayfası belirten da vardır. Düzen sayfasındaki içeriği noktada eklenir nerede `RenderBody` yöntemi çağrılır. İçerik blokları da eklenebilir düzeni sayfasına çağırarak `RenderPage` yöntemi, önceki bölümde yaptığınız şekilde. Web sayfası tamamlandıktan sonra tarayıcıya gönderilir.
+Aşağıdaki diyagramda nasıl içerik sayfalarını gösterir ve yerleşim sayfaları tamamlandı web sayfası oluşturmak için çalışma zamanında birleştirilir. Bir içerik sayfasının tarayıcı ister. İçerik sayfası kod için sayfa yapısı kullanmak için Düzen sayfası belirten da vardır. Düzen sayfası, içeriğin noktada eklenir burada `RenderBody` yöntemi çağrılır. İçerik bloklar da eklenebilir Düzen sayfasına çağırarak `RenderPage` yöntemi, önceki bölümde yaptığınız şekilde. Web sayfası tamamlandıktan sonra tarayıcıya gönderilir.
 
-![RenderBody yöntemine yönelik çağrılar içeren bir sayfa çalıştırılmasını sonucu tarayıcıda bir sayfasını gösteren ekran görüntüsü.](3-creating-a-consistent-look/_static/image3.jpg)
+![RenderBody yöntemine yönelik çağrılar içeren bir sayfa çalıştırılmasının sonuçlarını tarayıcıda bir sayfasını gösteren ekran görüntüsü.](3-creating-a-consistent-look/_static/image3.jpg)
 
-Aşağıdaki yordam bir düzen sayfasını ve bağlantı içerik sayfalarının ona nasıl oluşturulacağını gösterir.
+Aşağıdaki yordam bir düzen sayfası ve bağlantı içerik sayfalarının ona nasıl oluşturulacağını gösterir.
 
-1. İçinde *paylaşılan* Web sitenizin klasör adında bir dosya oluşturun  *\_Layout1.cshtml*.
-2. Varolan içeriğin aşağıdakiyle değiştirin:
+1. İçinde *paylaşılan* Web sitenizin, klasör adında bir dosya oluşturun  *\_Layout1.cshtml*.
+2. Varolan içeriği aşağıdakiyle değiştirin:
 
     [!code-html[Main](3-creating-a-consistent-look/samples/sample6.html)]
 
-    Kullandığınız `RenderPage` içerik bloklarının eklemek için bir düzen sayfası yöntemi. Düzen sayfası yalnızca bir çağrı içerebilir `RenderBody` yöntemi.
-3. İçinde *paylaşılan* klasör adında bir dosya oluşturun  *\_Header2.cshtml* ve varolan içeriğin şununla değiştirin:
+    Kullandığınız `RenderPage` içerik bloklarının eklemek için bir düzen sayfası yöntemi. Bir düzen sayfası, yalnızca bir çağrı içerebilir `RenderBody` yöntemi.
+3. İçinde *paylaşılan* klasöründe adlı bir dosya oluşturun  *\_Header2.cshtml* ve varolan içeriği aşağıdakiyle değiştirin:
 
     [!code-html[Main](3-creating-a-consistent-look/samples/sample7.html)]
 4. Kök klasöründe yeni bir klasör oluşturun ve adlandırın *stilleri*.
-5. İçinde *stilleri* klasör adında bir dosya oluşturun *Site.css* ve aşağıdaki stil tanımları ekleyin:
+5. İçinde *stilleri* klasöründe adlı bir dosya oluşturun *Site.css* ve aşağıdaki stil tanımları ekleyin:
 
     [!code-css[Main](3-creating-a-consistent-look/samples/sample8.css)]
 
-    Bu stil tanımları yalnızca stil sayfaları, Düzen sayfaları ile nasıl kullanılabileceğini göstermek için aşağıda verilmiştir. İsterseniz, bu öğeler için kendi stil tanımlayabilirsiniz.
-6. Kök klasöründe adlı bir dosya oluşturun *Content1.cshtml* ve varolan içeriğin şununla değiştirin:
+    Bu stil tanımları yalnızca stil sayfaları, Düzen sayfaları ile nasıl kullanılabileceğini göstermek için aşağıda verilmiştir. İsterseniz, bu öğeler için kendi stilleri tanımlayabilirsiniz.
+6. Kök klasöründe adlı bir dosya oluşturun *Content1.cshtml* ve varolan içeriği aşağıdakiyle değiştirin:
 
     [!code-cshtml[Main](3-creating-a-consistent-look/samples/sample9.cshtml)]
 
-    Bu düzen sayfası kullanacağı bir sayfadır. Sayfanın üstündeki kod bloğu bu içeriği biçimlendirmek için kullanılacak Düzen sayfasını gösterir.
-7. Çalıştırma *Content1.cshtml* bir tarayıcıda. İşlenen sayfanın biçimini kullanır ve stil sayfası tanımlanan  *\_Layout1.cshtml* ve içinde tanımlanan metin (içerik) *Content1.cshtml*.
+    Bu düzen sayfası kullanacağı sayfasıdır. Sayfanın üstündeki kod bloğu, bu içeriği biçimlendirmek için kullanılacak Düzen sayfasını gösterir.
+7. Çalıştırma *Content1.cshtml* bir tarayıcıda. İşlenen sayfanın biçimini kullanır ve stil sayfası tanımlanmış  *\_Layout1.cshtml* ve içinde tanımlanan metin (içerik) *Content1.cshtml*.
 
-    ![[Görüntü]](3-creating-a-consistent-look/_static/image4.jpg)
+    ![[image]](3-creating-a-consistent-look/_static/image4.jpg)
 
-    Ardından aynı düzen sayfası paylaşabilirsiniz ek içerik sayfaları oluşturmak için 6 yineleyebilirsiniz.
+    Ardından aynı düzen sayfası paylaşabilirsiniz ek içerik sayfaları oluşturmak için 6. adım yineleyebilirsiniz.
 
     > [!NOTE]
-    > Sitenizi otomatik olarak aynı düzen sayfası bir klasördeki tüm içerik sayfalar için kullanabileceğiniz şekilde ayarlayabilirsiniz. Ayrıntılar için bkz [Site genelinde davranışı ASP.NET Web sayfaları için özelleştirme](https://go.microsoft.com/fwlink/?LinkId=202906).
+    > Sitenizi ayarlayabilirsiniz, böylece bir klasördeki tüm içerik sayfalarının aynı düzen sayfası otomatik olarak kullanabilirsiniz. Ayrıntılar için bkz [Site genelinde davranışı ASP.NET Web sayfaları için özelleştirme](https://go.microsoft.com/fwlink/?LinkId=202906).
 
-## <a name="designing-layout-pages-that-have-multiple-content-sections"></a>Birden çok içerik bölümlerini sahip Düzen sayfaları tasarlama
+## <a name="designing-layout-pages-that-have-multiple-content-sections"></a>Birden çok içerik bölümleri olan sayfa düzeni tasarlama
 
-Bir içerik sayfasını değiştirebilen içeriğe sahip birden fazla alana sahip düzenleri kullanmak istiyorsanız faydalı olduğu birden çok bölüm olabilir. İçerik sayfasında her bölüm bir benzersiz ad verin. (Varsayılan bölümü sol adlandırılmamış.) Düzen sayfasında eklediğiniz bir `RenderBody` yöntemi adlandırılmamış (varsayılan) bölümü nerede görüneceğini belirtirsiniz. Ardından ayrı ekleyin `RenderSection` adlandırılmış bölümler ayrı ayrı işlemek için yöntemleri.
+İçerik sayfası değiştirilebilir içeriğe sahip birden fazla alana sahip düzenleri kullanmak istiyorsanız yararlı olan birden fazla bölüm olabilir. İçerik sayfası her bölüm benzersiz bir ad verin. (Varsayılan bölümü sola adlandırılmamış.) Düzen sayfası eklediğiniz bir `RenderBody` adlandırılmamış (varsayılan) bölümü göründüğü belirtmek için yöntemi. Ardından ayrı eklediğiniz `RenderSection` adlandırılmış bölümler ayrı ayrı işlemek için yöntemler.
 
-Aşağıdaki diyagramda, ASP.NET birden çok bölümlere ayrılmıştır içeriği nasıl işlediği gösterilmektedir. Her adlandırılmış bölüm içerik sayfasını bölüm bloğunda yer alır. (Adlı `Header` ve `List` örnekte.) Framework noktasında düzen sayfası içerik bölümü ekler nerede `RenderSection` yöntemi çağrılır. Adlandırılmamış (varsayılan) bölümü noktada eklenmiş olduğu `RenderBody` yöntemi çağrıldığında, daha önce gördüğünüz gibi.
+Aşağıdaki diyagramda, ASP.NET birden çok bölümlere ayrılmıştır içeriği nasıl işlediği gösterilmektedir. Her adlandırılmış bir bölümün içerik sayfası bölümü bloğunda yer alır. (Bunlar adlı `Header` ve `List` örnekte.) Framework noktada düzen sayfası içeriği bölümüne ekler burada `RenderSection` yöntemi çağrılır. Adsız (varsayılan) bölümü noktada eklenir burada `RenderBody` yöntemi çağrıldığında, daha önce bahsettiğim gibi.
 
-![Nasıl RenderSection yöntemi başvuruları bölümleri geçerli sayfasına ekler gösteren kavramsal diyagram.](3-creating-a-consistent-look/_static/image5.jpg)
+![RenderSection yöntemi başvuruları bölümleri geçerli sayfaya nasıl eklediğini gösteren kavramsal diyagram.](3-creating-a-consistent-look/_static/image5.jpg)
 
-Bu yordam, birden çok içerik bölümleri olan bir içerik sayfasını oluşturma ve birden çok içerik bölümlerini destekleyen bir düzen sayfasını kullanarak işleme gösterir.
+Bu yordam, birden çok içerik bölümleri olan bir içerik sayfası oluşturma ve birden fazla içerik bölümünü destekleyen bir düzen sayfası kullanılarak nasıl oluşturulacağını gösterir.
 
-1. İçinde *paylaşılan* klasör adında bir dosya oluşturun  *\_Layout2.cshtml*.
-2. Varolan içeriğin aşağıdakiyle değiştirin:
+1. İçinde *paylaşılan* klasöründe adlı bir dosya oluşturun  *\_Layout2.cshtml*.
+2. Varolan içeriği aşağıdakiyle değiştirin:
 
     [!code-html[Main](3-creating-a-consistent-look/samples/sample10.html)]
 
-    Kullandığınız `RenderSection` üstbilgi ve liste bölümleri işlemek için yöntem.
-3. Kök klasöründe adlı bir dosya oluşturun *Content2.cshtml* ve varolan içeriğin şununla değiştirin:
+    Kullandığınız `RenderSection` başlığı ve listesine bölümleri işlemek için yöntemi.
+3. Kök klasöründe adlı bir dosya oluşturun *Content2.cshtml* ve varolan içeriği aşağıdakiyle değiştirin:
 
     [!code-cshtml[Main](3-creating-a-consistent-look/samples/sample11.cshtml)]
 
-    Bu içerik sayfasını sayfanın üst kısmındaki kod bloğu içerir. Adlandırılmış her bölüm bir bölüm bloğu içinde yer alır. Sayfaya geri kalanı (adlandırılmamış) varsayılan içerik bölümü içerir.
+    Bu içerik sayfası, sayfanın üst kısmındaki bir kod bloğu içerir. Her adlandırılmış bir bölümün bir bölüm bloğu içinde yer alır. Sayfanın geri kalanını (adlandırılmamış) varsayılan içerik bölümü içerir.
 4. Çalıştırma *Content2.cshtml* bir tarayıcıda.
 
-    ![RenderSection yöntemine yönelik çağrılar içeren bir sayfa çalıştırılmasını sonucu tarayıcıda bir sayfasını gösteren ekran görüntüsü.](3-creating-a-consistent-look/_static/image6.jpg)
+    ![RenderSection yöntemine yönelik çağrılar içeren bir sayfa çalıştırılmasının sonuçlarını tarayıcıda bir sayfasını gösteren ekran görüntüsü.](3-creating-a-consistent-look/_static/image6.jpg)
 
-## <a name="making-content-sections-optional"></a>İsteğe bağlı içerik bölümlerini yapma
+## <a name="making-content-sections-optional"></a>İçerik bölümleri isteğe bağlı hale getirme
 
-Normalde, içerik sayfasında oluşturduğunuz bölüm düzeni sayfada tanımlı bölümleri eşleşiyor gerekir. Aşağıdakilerden birini oluşursa hataları alabilirsiniz:
+Normalde, içerik sayfasında oluşturduğunuz bölüm düzeni sayfada tanımlı bölüm eşleşmesi gerekir. Aşağıdakilerden herhangi biri meydana gelirse, hataları alabilirsiniz:
 
-- İçerik sayfasını düzen sayfası karşılık gelen hiçbir bölümünde bir bölüm içerir.
-- Düzen sayfası olduğu için içerik yok bir bölüm içerir.
-- Düzen sayfası aynı bölüm birden çok kez işlenecek deneyin yöntem çağrılarını içerir.
+- İçerik sayfası karşılık gelen hiçbir düzen sayfası bölümünde bir bölüm içerir.
+- Düzen sayfası içerik bir bölümü içerir.
+- Düzen sayfası aynı bölüme birden çok kez oluşturulacak deneyin yöntem çağrılarını içerir.
 
-Ancak, Düzen sayfasında isteğe bağlı olarak bölüm bildirerek adlandırılmış bir bölümün bu davranışı geçersiz kılabilirsiniz. Bu düzen sayfası paylaşabilirsiniz ancak olabilir veya belirli bir bölümü için içerik olmayabilir birden çok içerik sayfaları tanımlamanıza olanak sağlar.
+Ancak, Düzen sayfasında isteğe bağlı olarak bölüm bildirerek adlandırılmış bir bölümün için bu davranışı geçersiz kılabilirsiniz. Bu, bir yerleşim sayfası paylaşabilirsiniz ancak olabilir veya belirli bir bölümünde içeriği olmayabilir birden çok içerik sayfalarını tanımlamanıza olanak sağlar.
 
 1. Açık *Content2.cshtml* ve aşağıdaki bölümde kaldırın:
 
     [!code-cshtml[Main](3-creating-a-consistent-look/samples/sample12.cshtml)]
-2. Sayfayı kaydedin ve ardından bir tarayıcıda çalıştırın. İçerik sayfasını düzen sayfası, yani üstbilgi bölümünde tanımlanmış bir bölümün içeriğini sağlamadığından, bir hata iletisi görüntülenir.
+2. Sayfayı kaydedin ve ardından bir tarayıcıda çalıştırın. İçerik sayfası içeriği düzen sayfası, yani üst bilgisi bölümü tanımlı bir bölüm için sağlamadığından, bir hata iletisi görüntülenir.
 
-    ![Bir sayfa çalıştırırsanız oluşan hatasından gösteren ekran görüntüsü RenderSection yöntemini çağırır ancak karşılık gelen sağlanmadı.](3-creating-a-consistent-look/_static/image7.jpg)
-3. İçinde *paylaşılan* klasörü, açık  *\_Layout2.cshtml* sayfasında ve bu satırı değiştirin:
+    ![Bir sayfa çalıştırırsanız oluşan bir hata gösteren ekran görüntüsü RenderSection yöntemini çağırır. ancak karşılık gelen bölüm sağlanmadı.](3-creating-a-consistent-look/_static/image7.jpg)
+3. İçinde *paylaşılan* açık klasör  *\_Layout2.cshtml* sayfasında ve bu satırı değiştirin:
 
     [!code-javascript[Main](3-creating-a-consistent-look/samples/sample13.js)]
 
@@ -179,49 +178,49 @@ Ancak, Düzen sayfasında isteğe bağlı olarak bölüm bildirerek adlandırıl
 
     [!code-javascript[Main](3-creating-a-consistent-look/samples/sample14.js)]
 
-    Alternatif olarak, aynı sonuçları oluşturan aşağıdaki kod bloğu ile önceki kod satırı ile değiştirebilirsiniz:
+    Alternatif olarak, aynı sonuçları oluşturan aşağıdaki kod bloğu ile önceki kod satırının yerini alabilir:
 
     [!code-cshtml[Main](3-creating-a-consistent-look/samples/sample15.cshtml)]
-4. Çalıştırma *Content2.cshtml* sayfasını bir tarayıcıda yeniden. (Tarayıcıda açın bu sayfayı hala varsa, yalnızca bu yenileyebilirsiniz.) Üst bilgi sahip olsa da bu kez herhangi bir hata ile sayfası görüntülenir.
+4. Çalıştırma *Content2.cshtml* sayfasını bir tarayıcıda yeniden. (Bu sayfanın tarayıcıda açın hala varsa, yalnızca bu yenileyebilirsiniz.) Üst bilgi sahip olsa da bu süre ile herhangi bir hata sayfası görüntülenir.
 
-## <a name="passing-data-to-layout-pages"></a>Düzen sayfaları için veri geçirme
+## <a name="passing-data-to-layout-pages"></a>Düzen sayfalarına veri geçirme
 
-Bir düzen sayfası başvurmak için gereken içerik sayfasındaki tanımlanan verileri olabilir. Bu durumda, içerik sayfasından veri düzeni sayfaya geçirilecek gerekir. Örneğin, bir kullanıcı oturum açma durumunu görüntülemek istediğiniz veya göster veya gizle kullanıcı girişini temel alarak içerik alanları isteyebilirsiniz.
+Bir düzen sayfasına başvurmak için gereken içerik sayfasında tanımlanan bir veri olabilir. Bu durumda, içerik sayfasından veri düzeni sayfaya geçirilecek gerekir. Örneğin, bir kullanıcı oturum açma durumunu görüntülemek isteyebilirsiniz veya kullanıcı girişini temel alarak içerik alanları gizlemek veya göstermek isteyebilirsiniz.
 
-Düzen sayfası için bir içerik sayfasından veri geçirmek için değerleri içine koyabilirsiniz `PageData` içerik sayfasının özelliği. `PageData` Sayfaları arasında geçirmek istediğiniz verileri tutmak ad/değer çiftleri koleksiyonu bir özelliktir. Düzen sayfasında dışı değerlerini sonra okuyabilir `PageData` özelliği.
+Bir düzen sayfası için bir içerik sayfasından veri geçirmek için değerleri içine koyabilirsiniz `PageData` içerik sayfası özelliği. `PageData` Özelliğidir, sayfalar arasında geçirmek istediğiniz verileri içeren ad/değer çiftleri koleksiyonu. Düzen sayfası ardından tanesi değerlerini okuyabilirsiniz `PageData` özelliği.
 
-Başka bir diyagrama aşağıdadır. Bu bir ASP.NET nasıl kullanabileceğinizi gösterir `PageData` değerleri içerik sayfasından düzeni sayfaya geçirilecek özelliği. ASP.NET web sayfası oluşturma başladığında oluşturur `PageData` koleksiyonu. İçerik sayfasındaki verileri yerleştirmek için kod yazma `PageData` koleksiyonu. Değerler `PageData` koleksiyonu, aynı zamanda içerik sayfanın diğer bölümlerinde veya ek içerik bloklarının tarafından erişilebilir.
+Başka bir diyagrama aşağıda verilmiştir. Bu bir ASP.NET nasıl kullanabileceğinizi gösterir `PageData` özellik değerleri, içerik sayfasından Düzen sayfaya geçirilecek. ASP.NET web sayfası oluşturmak başladığında oluşturduğu `PageData` koleksiyonu. İçerik sayfasındaki verileri yerleştirmek için kod yazma `PageData` koleksiyonu. Değerler `PageData` koleksiyonu, ayrıca diğer bölümlerinde içerik sayfası veya ek içeriği blokları tarafından erişilebilir.
 
-![Nasıl bir içerik sayfasını PageData sözlük doldurmak ve bu bilgileri düzen sayfası geçirmek gösteren kavramsal diyagramı.](3-creating-a-consistent-look/_static/image8.jpg)
+![Nasıl bir içerik sayfasının PageData sözlük doldurmak ve bu bilgileri geçirmek için Düzen sayfası gösteren kavramsal diyagram.](3-creating-a-consistent-look/_static/image8.jpg)
 
-Aşağıdaki yordamda, bir düzen sayfasının içeriği sayfasından veri iletmek gösterilmiştir. Sayfa çalıştığında, düzen sayfası içinde tanımlanmış bir liste göstermek veya gizlemek kullanıcı olanak sağlayan bir düğme görüntüler. Kullanıcıların Düğmeye tıkladığınızda, onu bir true/false (Boole) değerine ayarlar `PageData` özelliği. Düzen sayfası, bu değeri okuyan ve false ise, liste gizler. Değeri ayrıca içerik sayfasındaki görüntülenip görüntülenmeyeceğini belirlemek için kullanılan **Gizle listesi** düğmesini veya **listesini göster** düğmesi.
+Aşağıdaki yordamda, bir yerleşim sayfası için bir içerik sayfasından veri iletmek gösterilmiştir. Sayfa çalıştığında, kullanıcının Düzen sayfasında tanımlanan bir listesini göstermek veya gizlemek sağlayan bir düğme görüntüler. Kullanıcı düğmeyi tıklattığınızda, bir true/false (Boole) değerini ayarlar `PageData` özelliği. Düzen sayfası, bu değeri okur ve yanlış ise, liste gizler. Değer da görüntülenip görüntülenmeyeceğini belirlemek için içerik sayfasındaki kullanılır **Gizle listesi** düğmesini veya **listesini göster** düğmesi.
 
-![[Görüntü]](3-creating-a-consistent-look/_static/image9.jpg)
+![[image]](3-creating-a-consistent-look/_static/image9.jpg)
 
-1. Kök klasöründe adlı bir dosya oluşturun *Content3.cshtml* ve varolan içeriğin şununla değiştirin:
+1. Kök klasöründe adlı bir dosya oluşturun *Content3.cshtml* ve varolan içeriği aşağıdakiyle değiştirin:
 
     [!code-cshtml[Main](3-creating-a-consistent-look/samples/sample16.cshtml)]
 
-    Verileri iki parça kodunu depolar `PageData` özelliği &#8212; web sayfası ve true veya false listesini görüntülenip görüntülenmeyeceğini belirtmek için başlığı.
+    Kod iki veri parçalarını depolar `PageData` özelliği &#8212; web sayfası ve true veya false listesini görüntülenip görüntülenmeyeceğini belirtmek için başlığı.
 
-    ASP.NET, HTML biçimlendirmesi koşullu kod bloğu kullanarak sayfasına yerleştirmenizi sağlar dikkat edin. Örneğin, `if/else` sayfasının gövdesindeki blok belirler bağlı olarak görüntülemek için hangi form `PageData["ShowList"]` ayarlanmış true.
-2. İçinde *paylaşılan* klasör adında bir dosya oluşturun  *\_Layout3.cshtml* ve varolan içeriğin şununla değiştirin:
+    ASP.NET sayfasına koşullu olarak bir kod bloğu kullanarak HTML biçimlendirmesini koymadan sağlar dikkat edin. Örneğin, `if/else` sayfasının gövdesi bloğunda belirler bağlı olarak görüntülemek için form `PageData["ShowList"]` ayarlanır true.
+2. İçinde *paylaşılan* klasöründe adlı bir dosya oluşturun  *\_Layout3.cshtml* ve varolan içeriği aşağıdakiyle değiştirin:
 
     [!code-cshtml[Main](3-creating-a-consistent-look/samples/sample17.cshtml)]
 
-    Düzen sayfası bir ifadeyi içeren `<title>` başlık değerinden alır öğesi `PageData` özelliği. Ayrıca kullanır `ShowList` değerini `PageData` özellik listesi içerik bloğuna görüntülenip görüntülenmeyeceğini belirler.
-3. İçinde *paylaşılan* klasör adında bir dosya oluşturun  *\_List.cshtml* ve varolan içeriğin şununla değiştirin:
+    Düzen sayfası içeren bir ifadede `<title>` başlık değerini alır öğesi `PageData` özelliği. Ayrıca kullanan `ShowList` değerini `PageData` özelliği liste içerik bloğu görüntülenip görüntülenmeyeceğini belirlemek için.
+3. İçinde *paylaşılan* klasöründe adlı bir dosya oluşturun  *\_List.cshtml* ve varolan içeriği aşağıdakiyle değiştirin:
 
     [!code-html[Main](3-creating-a-consistent-look/samples/sample18.html)]
 4. Çalıştırma *Content3.cshtml* sayfasını bir tarayıcıda. Sayfanın sol tarafında görünür listesiyle sayfası görüntülenir ve **Gizle listesi** altındaki düğmesini.
 
-    ![Liste ve Gizle'List ' bildiren bir düğme içerir sayfasını gösteren ekran görüntüsü.](3-creating-a-consistent-look/_static/image10.jpg)
-5. Tıklatın **Gizle listesi**. Listenin kaybolur ve düğmesi değişikliklerini **listesini göster**.
+    ![Liste ve Gizle'List ' ifadesini içeren bir düğme içeren sayfasını gösteren ekran görüntüsü.](3-creating-a-consistent-look/_static/image10.jpg)
+5. Tıklayın **Gizle listesi**. Listenin kaybolur ve düğmeyi değişikliklerini **listesini göster**.
 
-    !['List Göster' bildiren bir düğmeyi ve liste içermez sayfasını gösteren ekran görüntüsü.](3-creating-a-consistent-look/_static/image11.jpg)
-6. Tıklatın **listesini göster** düğmesi ve listesi görüntülenir yeniden.
+    ![Liste ve Göster'List ' ifadesini içeren bir düğme içermez sayfasını gösteren ekran görüntüsü.](3-creating-a-consistent-look/_static/image11.jpg)
+6. Tıklayın **listesini göster** düğmesini ve listeden görüntülenen yeniden.
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
 
-[ASP.NET Web sayfaları için özelleştirme site genelinde davranışı](https://go.microsoft.com/fwlink/?LinkId=202906)
+[ASP.NET Web sayfaları için site geneline yönelik davranışını özelleştirme](https://go.microsoft.com/fwlink/?LinkId=202906)

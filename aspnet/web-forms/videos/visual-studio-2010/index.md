@@ -2,33 +2,32 @@
 uid: web-forms/videos/visual-studio-2010/index
 title: Genel VS 2010 ipuçları | Microsoft Docs
 author: rick-anderson
-description: Visual Studio 2010, ASP.NET ile çalışmak için özellikle dahil olmak üzere özellikleri.
+description: ASP.NET ile çalışmak için özellikle dahil olmak üzere Visual Studio 2010 özellikleri.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
 ms.topic: article
 ms.assetid: a1e1014d-085c-4e5a-8522-068387b6415d
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/visual-studio-2010
 msc.type: chapter
-ms.openlocfilehash: ec55e4870b1f7cb26b7acd11c65a4d465345eec2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 162eafdc746febed08911b3d85571aea8a9863bc
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26572247"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37401146"
 ---
 <a name="general-vs-2010-tips"></a>Genel VS 2010 ipuçları
 ====================
-> Visual Studio 2010, ASP.NET ile çalışmak için özellikle dahil olmak üzere özellikleri.
+> ASP.NET ile çalışmak için özellikle dahil olmak üzere Visual Studio 2010 özellikleri.
 
 
-- [Profil iyileştirilmiş kodda](visual-studio-2010-quick-hit-code-optimized-profile.md)
-- [Kod arama hiyerarşisini görüntüleme](visual-studio-2010-quick-hit-code-search-view-hierarchy.md)
-- [IntelliSense akıllı listeler](visual-studio-2010-quick-hit-intellisense-smart-lists.md)
-- [Birden çok monitör desteği](visual-studio-2010-quick-hit-multi-monitor-support.md)
-- [Yeni Web Proje şablonu](visual-studio-2010-quick-hit-new-web-project-template.md)
-- [Yeni çoklu sürüm desteği](visual-studio-2010-quick-hit-new-multi-targeting.md)
-- [Web projeleri yerine Web siteleri](visual-studio-2010-quick-hit-websites-instead-of-web-projects.md)
-- [IntelliSense kod parçacıkları](visual-studio-2010-quick-hit-snippets-intellisense.md)
+- [Kod için İyileştirilmiş Profil](visual-studio-2010-quick-hit-code-optimized-profile.md)
+- [Kod Arama Görünüm Hiyerarşisi](visual-studio-2010-quick-hit-code-search-view-hierarchy.md)
+- [IntelliSense Akıllı Listeleri](visual-studio-2010-quick-hit-intellisense-smart-lists.md)
+- [Birden Çok Monitör Desteği](visual-studio-2010-quick-hit-multi-monitor-support.md)
+- [Yeni Web Projesi Şablonu](visual-studio-2010-quick-hit-new-web-project-template.md)
+- [Yeni Çoklu Hedefleme](visual-studio-2010-quick-hit-new-multi-targeting.md)
+- [Web Projeleri Yerine Web Siteleri](visual-studio-2010-quick-hit-websites-instead-of-web-projects.md)
+- [Kod Parçacıkları IntelliSense](visual-studio-2010-quick-hit-snippets-intellisense.md)

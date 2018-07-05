@@ -1,28 +1,27 @@
 ---
 uid: web-forms/videos/building-35-applications/an-introduction-to-soap-based-web-services-with-visual-web-developer-2008
-title: Web Hizmetleri ile Visual Web Developer 2008 SOAP giriş dayalı | Microsoft Docs
+title: Tabanlı Web Hizmetleri Visual Web Developer 2008 ile SOAP bir giriş | Microsoft Docs
 author: JoeStagner
-description: Bu video nasıl hızlı gösterir ve kolay SOAP üzerinde dayalı olarak dağıtılmış uygulamaların geliştirmeye başlamak için çalıştırılabilir / XML web hizmetleri.
+description: Bu videoda, nasıl hızlı gösterir ve kolayca üzerinde SOAP tabanlı bir dağıtılmış uygulama geliştirmeye başlamanın olabilir / XML web hizmetleri.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/08/2009
 ms.topic: article
 ms.assetid: b5a97476-e13a-4b94-a2d1-39b1cebc89c8
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/building-35-applications/an-introduction-to-soap-based-web-services-with-visual-web-developer-2008
 msc.type: video
-ms.openlocfilehash: 5a420c6568c98abe326994543e784d575f1a35b4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2bde8003e5b48260e12eae8f598b6ed2eea76496
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26570798"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37383571"
 ---
-<a name="an-introduction-to-soap-based-web-services-with-visual-web-developer-2008"></a>Web Hizmetleri ile Visual Web Developer 2008 SOAP giriş dayalı
+<a name="an-introduction-to-soap-based-web-services-with-visual-web-developer-2008"></a>Tabanlı Web Hizmetleri Visual Web Developer 2008 ile SOAP bir giriş
 ====================
-tarafından [CAN Stagner](https://github.com/JoeStagner)
+tarafından [ALi Stagner](https://github.com/JoeStagner)
 
-Bu video nasıl hızlı gösterir ve kolay SOAP üzerinde dayalı olarak dağıtılmış uygulamaların geliştirmeye başlamak için çalıştırılabilir / XML web hizmetleri.
+Bu videoda, nasıl hızlı gösterir ve kolayca üzerinde SOAP tabanlı bir dağıtılmış uygulama geliştirmeye başlamanın olabilir / XML web hizmetleri.
 
-[&#9654; (26 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/an-introduction-to-soap-based-web-services-with-visual-web-developer-2008)
+[&#9654;Videoyu (26 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/an-introduction-to-soap-based-web-services-with-visual-web-developer-2008)

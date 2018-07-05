@@ -1,28 +1,27 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-cache-an-aspnet-page-based-upon-information-in-the-http-header
-title: '[Nasıl stop yaparım]  Bir ASP.NET sayfası, HTTP üst bilgisinde dayalı önbellek | Microsoft Docs'
+title: '[Bunu nasıl yaparım:]  Bir ASP.NET sayfasını HTTP üst bilgisinde dayalı önbellek | Microsoft Docs'
 author: rick-anderson
-description: Bu video Chris Pels bilgi sayfanın HTTP üst bilgisinde temel ASP.NET çıktı önbelleğine bir sayfa tutmak gösterilmektedir. Birinci, olası HTTP üst...
+description: Bu video Chris piksel ASP.NET çıktı önbelleğine sayfanın HTTP üst bilgisindeki bilgilere bağlı bir sayfaya nasıl gösterir. İlk olarak, olası HTTP üst...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/26/2009
 ms.topic: article
 ms.assetid: 0f8df1bd-080a-4eeb-980c-c2fbb05d30c2
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-cache-an-aspnet-page-based-upon-information-in-the-http-header
 msc.type: video
-ms.openlocfilehash: ce5ea10396d0fe31d72425e2431102a0cb0c3bd0
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 3987e6ea1e5ea5575813bdf5598d0499ba37db20
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2018
-ms.locfileid: "28882223"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37395259"
 ---
-<a name="how-do-i--cache-an-aspnet-page-based-upon-information-in-the-http-header"></a>[Nasıl stop yaparım]  Bir ASP.NET sayfasının HTTP üst bilgileri temel önbelleği
+<a name="how-do-i--cache-an-aspnet-page-based-upon-information-in-the-http-header"></a>[Bunu nasıl yaparım:]  Bir ASP.NET sayfasını HTTP üst bilgisindeki bilgilere bağlı olarak önbelleğe alma
 ====================
-tarafından [Chris Pels](https://twitter.com/chrispels)
+tarafından [Chris piksel](https://twitter.com/chrispels)
 
-Bu video Chris Pels bilgi sayfanın HTTP üst bilgisinde temel ASP.NET çıktı önbelleğine bir sayfa tutmak gösterilmektedir. İlk olarak, olası HTTP üstbilgi değerleri incelenen. Ardından, bir örnek sayfa oluşturulur ve OutputCache yönergesi "kabul-language", kullanıcının tarayıcısının dile bağlı tabanlı önbelleğe almayı denetlemek için bir HTTP üstbilgisi değeri içeren VaryByHeader özniteliğiyle sonra kullanılır. Örnek sayfasına İngilizce'ye ayarlanır IE ve ardından, Fransızca kullanmak üzere ayarlanan FireFox görüntülenir. Son olarak, web.config dosyasında CacheProfile önbellek tanımı gitme seçeneği ele alınmıştır.
+Bu video Chris piksel ASP.NET çıktı önbelleğine sayfanın HTTP üst bilgisindeki bilgilere bağlı bir sayfaya nasıl gösterir. İlk olarak, olası HTTP üstbilgi değerleri gözden geçirilir. Ardından, örnek bir sayfa oluşturulur ve ardından "kabul et-language", kullanıcının tarayıcısının dilini alan önbelleğe almayı denetlemek için bir HTTP üstbilgisi değeri içeren VaryByHeader özniteliğine sahip OutputCache yönergesi kullanılır. IE'de İngilizce'ye ayarlanır ve ardından Fransızca kullanmak üzere ayarlanmış Firefox'ta örnek sayfası görüntülenir. Son olarak, web.config dosyasında bir CacheProfile önbellek tanımına gitme seçeneği ele alınmıştır.
 
-[&#9654; (12 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-cache-an-aspnet-page-based-upon-information-in-the-http-header)
+[&#9654;(12 dakika) videosunu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-cache-an-aspnet-page-based-upon-information-in-the-http-header)

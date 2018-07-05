@@ -1,233 +1,232 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-elmah-vb
-title: Hata ayrıntılarını ELMAH (VB) ile günlüğü | Microsoft Docs
+title: (VB) ELMAH ile hata ayrıntılarını günlüğe | Microsoft Docs
 author: rick-anderson
-description: Hata günlüğü modülleri ve işleyicileri (ELMAH), bir üretim ortamında çalışma zamanı hataları günlüğü başka bir yaklaşım sunmaktadır. ELMAH ücretsiz, açık kaynaklı bir hatadır...
+description: Hata günlüğü modüller ve işleyiciler (ELMAH), bir üretim ortamında çalışma zamanı hatalarını günlüğe kaydetme için başka bir yaklaşım sunar. ELMAH ücretsiz, açık kaynaklı bir hatadır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/09/2009
 ms.topic: article
 ms.assetid: a5f0439f-18b2-4c89-96ab-75b02c616f46
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-elmah-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 584791a944c9e8eb0113da68719292f448573980
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: ed59c6099925a2046d201e0eab0a9afdd620de28
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/10/2018
-ms.locfileid: "30891314"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37389208"
 ---
-<a name="logging-error-details-with-elmah-vb"></a>Hata ayrıntılarını ELMAH (VB) ile günlüğe kaydetme
+<a name="logging-error-details-with-elmah-vb"></a>(VB) ELMAH ile hata ayrıntılarını günlüğe kaydetme
 ====================
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Kodu indirme](http://download.microsoft.com/download/1/0/C/10CC829F-A808-4302-97D3-59989B8F9C01/ASPNET_Hosting_Tutorial_14_VB.zip) veya [PDF indirin](http://download.microsoft.com/download/5/C/5/5C57DB8C-5DEA-4B3A-92CA-4405544D313B/aspnet_tutorial14_ELMAH_vb.pdf)
+[Kodu indir](http://download.microsoft.com/download/1/0/C/10CC829F-A808-4302-97D3-59989B8F9C01/ASPNET_Hosting_Tutorial_14_VB.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/5/C/5/5C57DB8C-5DEA-4B3A-92CA-4405544D313B/aspnet_tutorial14_ELMAH_vb.pdf)
 
-> Hata günlüğü modülleri ve işleyicileri (ELMAH), bir üretim ortamında çalışma zamanı hataları günlüğü başka bir yaklaşım sunmaktadır. ELMAH hata filtreleme ve bir RSS bir web sayfasından hata günlüğünü görüntüleyin ya da bir virgülle ayrılmış değerler dosyası olarak karşıdan yüklemek için özelliği gibi özellikler içeren bir ücretsiz, açık kaynaklı hata günlüğü kitaplıktır. Bu öğreticide, yükleme ve yapılandırma ELMAH aracılığıyla açıklanmaktadır.
+> Hata günlüğü modüller ve işleyiciler (ELMAH), bir üretim ortamında çalışma zamanı hatalarını günlüğe kaydetme için başka bir yaklaşım sunar. ELMAH hata filtreleme ve bir RSS akışı olarak bir web sayfasından hata günlüğünü görüntüleyin veya virgülle ayrılmış bir dosya indirmek için özelliği gibi özellikler içeren bir ücretsiz, açık kaynaklı hata günlüğü kitaplıktır. Bu öğreticide, yükleme ve yapılandırma ELMAH aracılığıyla açıklanmaktadır.
 
 
 ## <a name="introduction"></a>Giriş
 
-[Önceki öğretici](logging-error-details-with-asp-net-health-monitoring-vb.md) ASP inceledi. NET'in durum çok çeşitli Web olayları kaydı için kutusunu kitaplık dışı sunar sistem izleme. Çoğu geliştiricinin durumunu oturum ve işlenmeyen özel durumlar ayrıntılarını e-posta izleme kullanın. Ancak, bu sistemle birkaç sorun teşkil edecek noktalar vardır. Öncelikle günlüğe kaydedilen olayları hakkında bilgi görüntülemek için kullanıcı arabirimi herhangi bir tür yetersizliğidir. Tarama e-posta adresiniz gelen kutusu veya derleme bilgilerini görüntüleyen bir web sayfası 10 son hataların bir özetini görmek veya geçen hafta gerçekleşen hata ayrıntılarını görüntülemek istiyorsanız, veritabanı aracılığıyla ya da Yerleştir gerekir `aspnet_WebEvent_Events` tablo.
+[Önceki öğretici](logging-error-details-with-asp-net-health-monitoring-vb.md) ASP incelenir. NET'ın sistem durumu bir çeşit Web olaylarını kaydetmek için kutusu kitaplık yetersizliği sağlayan sistem izleme. Geliştiricilerin çoğu, sistem durumu izleme oturumu ve işlenmeyen özel durumların ayrıntılarını e-posta kullanın. Ancak, bazı sorunlu noktaları bu sistemi vardır. Öncelikle olmaması günlüğe kaydedilen olayları hakkında bilgi görüntülemek için kullanıcı arabirimi her türlü ' dir. Son 10 hataları özetini görmek veya geçen hafta gerçekleşen bir hata ayrıntılarını görüntülemek istiyorsanız, veritabanı aracılığıyla ya da depolama gerekir, tarama, aracılığıyla e-posta gelen kutusuna veya derleme bilgileri görüntüleyen bir web sayfası `aspnet_WebEvent_Events` tablo.
 
-Başka bir sorunun noktası sistem durumu izlemenin karmaşıklık toplanır. Sistem durumu izleme farklı olayları sayısız kaydetmek için kullanılabilir olduğundan ve çeşitli nasıl ve ne zaman olayların günlüğe kaydedileceğini bilgilendirerek için seçenekleri olduğundan, doğru sistem izleme sistem durumu yapılandırma onerous bir görev olabilir. Son olarak, uyumluluk sorunları vardır. Sistem durumu izleme önce .NET Framework sürüm 2.0 eklendi, ASP.NET sürüm kullanılarak oluşturulan eski web uygulamaları için kullanılabilir değildir, çünkü 1.x. Ayrıca, `SqlWebEventProvider` önceki öğreticide bir veritabanına günlükleri hata ayrıntıları için kullanıldığında, sınıf, yalnızca Microsoft SQL Server veritabanları ile çalışır. Bir XML dosyası ya da Oracle veritabanı gibi bir alternatif veri deposuna hataları günlüğe kaydetmek ihtiyacınız olursa özel günlük sağlayıcı sınıfı oluşturmanız gerekir.
+Başka bir sorunun noktası sistem durumu izlemenin karmaşıklığı ortalar. Çünkü farklı olaylar deseninizi oluşturmayı kaydetmek için sistem durumu izleme kullanılabilir ve çeşitli seçenekler nasıl ve ne zaman olayları kaydedilir söyleyen için olduğundan, doğru sistem durumu izleme sistemi yapılandırma onerous bir görev olabilir. Son olarak, uyumluluk sorunları vardır. Sistem durumu izleme önce .NET Framework 2.0 sürümünde eklendiğinden, ASP.NET sürümü kullanılarak oluşturulan eski web uygulamaları için kullanılabilir değilse 1.x. Ayrıca, `SqlWebEventProvider` günlükleri hata ayrıntılarını bir veritabanı için önceki öğreticide kullanılan, sınıf, yalnızca Microsoft SQL Server veritabanları ile çalışır. Bir XML dosyasına veya Oracle database'e gibi bir alternatif veri deposuna hataları günlüğe gerektiğinde özel günlük sağlayıcı sınıfı oluşturmanız gerekir.
 
-Durumunu sistem izleme için hata günlüğü modülleri ve işleyicileri (ELMAH), bir ücretsiz, açık kaynaklı hata günlüğünü sistem tarafından oluşturulan alternatiftir [Atif Aziz](http://www.raboof.com/). İki sistem arasındaki en dikkat çekici fark hataları ve bir web sayfasından ve belirli bir hata ayrıntılarını bir RSS olarak listesini görüntülemek için ELAMH'ın özelliğidir. ELMAH yalnızca hatalarını günlüğe çünkü sistem durumu izleme daha yapılandırmak daha kolay olur. Ayrıca, ELMAH ASP.NET 1.x, ASP.NET 2.0 ve ASP.NET 3.5 uygulamalarını ve günlük kaynak sağlayıcıları çeşitli birlikte verilir için destek içerir.
+Sistem durumu izleme sistemi için hata günlüğü modüller ve işleyiciler (ELMAH), bir ücretsiz, açık kaynaklı hata günlüğünü sistem tarafından oluşturulan alternatiftir [Atif Aziz](http://www.raboof.com/). İki sistem arasındaki en dikkat çekici fark hataları ve bir web sayfasından ve belirli bir hata ayrıntılarını bir RSS akışı olarak bir listesini görüntülemek için ELAMH'ın olanağıdır. ELMAH yalnızca hataları kaydeder olduğundan sistem durumu izleme daha yapılandırmak daha kolay olur. Ayrıca, ELMAH ASP.NET 1.x, ASP.NET 2.0 ve ASP.NET 3.5 uygulamaları ve çeşitli günlük kaynak sağlayıcılar ile birlikte gönderilmektedir için destek içerir.
 
 Bu öğreticide ELMAH ASP.NET uygulamasını ekleme adımları açıklanmaktadır. Haydi başlayalım!
 
 > [!NOTE]
-> Durumunu sistem ve ELMAH izleme hem kendi Artıları ve eksileri kümesi sahiptir. I her iki sistemle deneyin ve hangi bir en iyi Setleri karar gereksinimlerinizi öneririz.
+> Sistem durumu izleme sistemi ve ELMAH hem kendi avantajları ve dezavantajları vardır. Her iki sistem deneyin ve ne bir en iyi karşılayacak karar gereksinimlerinizi öneriyoruz.
 
 
-## <a name="adding-elmah-to-an-aspnet-web-application"></a>Bir ASP.NET Web uygulamasına ELMAH ekleme
+## <a name="adding-elmah-to-an-aspnet-web-application"></a>ELMAH ASP.NET Web uygulamasına ekleme
 
-Yeni veya mevcut bir ASP.NET uygulamasına ELMAH tümleştirme altında beş dakika sürer bir kolay ve kolay işlemidir. Buna koysalar dört basit adımları içerir:
+ELMAH yeni veya mevcut bir ASP.NET uygulamasına tümleştirmek beş dakikadan kısa sürer bir kolayca ve basit işlemdir. Buna koysalar dört basit adımları içerir:
 
-1. ELMAH indirin ve ekleme `Elmah.dll` web uygulamanız için derleme
-2. ELMAH'ın HTTP modülleri ve işleyicisinde kaydını `Web.config`,
+1. ELMAH indir ve Ekle `Elmah.dll` web uygulamanız için derleme
+2. ELMAH'ın HTTP modülleri ve işleyicisinde kaydetme `Web.config`,
 3. ELMAH'ın yapılandırma seçenekleri belirtin ve
 4. Hata günlüğü kaynak altyapı gerekirse oluşturun.
 
-Şimdi her dört adımları, bir seferde bir yol.
+Şimdi her bu dört adımı, bir kerede bir yol.
 
-### <a name="step-1-downloading-the-elmah-project-files-and-addingelmahdllto-your-web-application"></a>1. adım: ELMAH proje dosyalarını indirme ve ekleme`Elmah.dll`Web uygulamanız için
+### <a name="step-1-downloading-the-elmah-project-files-and-addingelmahdllto-your-web-application"></a>1. adım: ELMAH proje dosyalarını indirme ve ekleme`Elmah.dll`Web uygulamanıza
 
-ELMAH 1.0 BETA 3 (yapı 10617), en son sürüm yazma zaman Bu öğretici ile indirilebilir dahil edilir. Alternatif olarak, ziyaret edebilirsiniz [ELMAH Web sitesi](https://code.google.com/p/elmah/) en son sürümü almak için veya kaynak kodu indirmek için. ELMAH indirme masaüstünüzdeki bir klasöre ayıklayın ve ELMAH derleme dosyasını bulun (`Elmah.dll`).
-
-> [!NOTE]
-> `Elmah.dll` Dosya indirme işlemine ait bulunur `Bin` klasörleri farklı .NET Framework sürümleri ve yayın ve hata ayıklama yapıları için varsa klasör. Yayın derlemesi için uygun framework sürümü kullanın. Örneğin, bir ASP.NET 3.5 web uygulaması oluşturuyorsanız, kopyalama `Elmah.dll` dosya `Bin\net-3.5\Release` klasör.
-
-
-Ardından, Visual Studio'yu açın ve Web sitesi adı Çözüm Gezgini'nde ve bağlam menüsünden Başvuru Ekle'i seçme sağ tıklayarak derleme projenize ekleyin. Başvuru Ekle iletişim kutusunu açar. Gözat sekmesine gidin ve seçin `Elmah.dll` dosya. Bu eylem ekler `Elmah.dll` web uygulamasının dosyasına `Bin` klasör.
+ELMAH 1.0 BETA 3 (derleme 10617), yazma zamanında en son sürümü karşıdan bu öğreticiyle dahildir. Alternatif olarak, ziyaret edebilirsiniz [ELMAH Web sitesi](https://code.google.com/p/elmah/) en son sürümü Al veya kaynak kodunu indirebilir. ELMAH indirme masaüstünüzdeki bir klasöre ayıklayın ve ELMAH derleme dosyası bulunamıyor (`Elmah.dll`).
 
 > [!NOTE]
-> Web uygulaması projesi (WAP) türü gösterme `Bin` Çözüm Gezgininde klasör. Bunun yerine, bu öğeler başvuruları klasörü altında listelenir.
+> `Elmah.dll` Dosya indirme işlemine ait bulunan `Bin` alt sürüm ve hata ayıklama yapıları ve farklı .NET Framework sürümleri için olan klasör. Yayın derlemesi için uygun framework sürümü kullanın. Örneğin, bir ASP.NET 3.5 web uygulaması derliyorsanız, kopyalama `Elmah.dll` dosya `Bin\net-3.5\Release` klasör.
 
 
-`Elmah.dll` Derleme ELMAH sistemi tarafından kullanılan sınıfları içerir. Bu sınıfların üç kategoriden ayrılır:
+Ardından, Visual Studio'yu açın ve derleme ve Çözüm Gezgini bağlam menüsünden Başvuru Ekle'i seçme içinde Web sitesi adı sağ tıklayarak projenize ekleyin. Bu başvuru Ekle iletişim kutusunu açar. Göz atma sekmesine gidin ve seçin `Elmah.dll` dosya. Bu eylem ekler `Elmah.dll` web uygulamasının dosyasına `Bin` klasör.
 
-- **HTTP modülleri** -bir HTTP modülü için olay işleyicileri tanımlayan bir sınıftır `HttpApplication` olayları gibi `Error` olay. ELMAH içeren birden fazla HTTP modülü, üç en başlığıyla ilgili olanları oluşturuluyor: 
+> [!NOTE]
+> Web uygulama projesi (WAP) türü gösterilmemektedir `Bin` Çözüm Gezgini'nde klasörü. Bunun yerine, bu öğeleri başvurular klasörünün altındaki listeler.
 
-    - `ErrorLogModule` -İşlenmeyen özel durumlar için günlük kaynağına günlüğe kaydeder.
-    - `ErrorMailModule` -e-posta iletisinde işlenmeyen bir özel durum ayrıntıları gönderir.
-    - `ErrorFilterModule` -hangi özel durumları günlüğe belirlemek için filtreleri Geliştirici belirtilen ve ne yöneliktir olanları yok sayılır.
-- **HTTP işleyicileri** -bir HTTP işleyicisini isteği belirli bir tür için biçimlendirme oluşturmaktan sorumlu bir sınıftır. Hata ayrıntılarını bir web sayfası olarak, bir RSS olarak veya bir virgülle ayrılmış değerler dosyası (CSV) olarak işlemek HTTP işleyicileri ELMAH içerir.
-- **Hata günlüğü kaynakları** - ELMAH oturum belleği, bir Microsoft SQL Server veritabanına bir Oracle veritabanına bir Microsoft Access veritabanı hataları için kutunun dışında bir SQLite veritabanı veya Vista DB veritabanı için bir XML dosyası. Durumunu sistem izleme gibi ELMAH'in Mimarisi oluşturmak ve gerekirse, kendi özel günlük kaynak sağlayıcıları sorunsuz şekilde tümleşir anlamına sağlayıcı modeli kullanılarak oluşturuldu.
 
-### <a name="step-2-registering-elmahs-http-module-and-handler"></a>2. adım: ELMAH'ın HTTP modülü ve işleyici kaydediliyor
+`Elmah.dll` Derleme ELMAH sistem tarafından kullanılan sınıflar içerir. Bu sınıfların tek üç kategoriye ayrılır:
 
-Sırada `Elmah.dll` dosyasını içeren HTTP modülleri ve işleyici gerekli otomatik olarak işlenmeyen özel durumları günlüğe kaydetmek için ve bir web sayfasından hata ayrıntılarını görüntülemek için bu web uygulamasının yapılandırmasında açıkça kaydedilmelidir. `ErrorLogModule` HTTP modülü, bir kez kaydedildi, aboneliği `HttpApplication`'s `Error` olay. Bu olay her oluşturulur `ErrorLogModule` belirtilen günlük kaynağına özel durum ayrıntıları kaydeder. Sonraki bölümde, günlük kaynak sağlayıcısı tanımlamak nasıl göreceğiz "Yapılandırma ELMAH." `ErrorLogPageFactory` HTTP işleyici üreteci biçimlendirme oluşturmak için bir web sayfasından hata günlüğü görüntülerken sorumlu.
+- **HTTP modüllerinden** -bir HTTP modülü için olay işleyicileri tanımlayan bir sınıftır `HttpApplication` olayları gibi `Error` olay. ELMAH içeren birden çok HTTP modülü, üç en başlığıyla ilgili olanları ediliyor: 
 
-HTTP modülleri ve işleyicileri kaydettirmek için özel sözdizimi site destekleyen web sunucusu bağlıdır. ASP.NET Geliştirme Sunucusu ve Microsoft'un IIS için sürüm 6.0 ve önceki sürümleri, HTTP modülleri ve işleyicileri kayıtlı `<httpModules>` ve `<httpHandlers>` içinde görünür bölümleri `<system.web>` öğesi. IIS 7.0 kullanıyorsanız sonra kaydedilmesi ihtiyaç duydukları `<system.webServer>` öğenin `<modules>` ve `<handlers>` bölümler. Neyse ki, HTTP modülleri ve işleyiciler tanımlayabilirsiniz *her ikisi de* kullanılan web sunucusu bağımsız olarak yerleştirir. Bu seçenek çoğu taşınabilir bir aynıdır kullanılan web sunucusu bağımsız olarak geliştirme ve üretim ortamlarında kullanılmak üzere aynı yapılandırmayı sağlar.
+    - `ErrorLogModule` -bir günlük kaynağına işlenmeyen özel durumları günlüğe kaydeder.
+    - `ErrorMailModule` -İşlenmeyen bir özel durum ayrıntılarını bir e-posta iletisi gönderir.
+    - `ErrorFilterModule` -geliştirici tarafından belirtilen filtreler hangi özel durumları günlüğe belirlemek için ve hangi geçerlidir olanları yok sayılır.
+- **HTTP işleyicileri** -bir HTTP işleyicisini, belirli bir talep türü için biçimlendirme oluşturmaktan sorumlu bir sınıftır. ELMAH hata ayrıntılarını bir web sayfası olarak, bir RSS akışı olarak veya bir virgülle ayrılmış değerler dosyası (CSV) olarak işleyen HTTP işleyicilerini içerir.
+- **Hata günlüğü kaynakları** - ELMAH oturum bellek, Oracle veritabanı, bir Microsoft Access veritabanı için bir Microsoft SQL Server veritabanı hataları için yepyeni bir SQLite veritabanından veya Vista DB veritabanı için bir XML dosyası. Durum sistemini izleme gibi ELMAH'ın mimarisi oluşturma ve gerekirse kendi özel günlük kaynak sağlayıcıları sorunsuzca tümleştirin sağlayıcı modeli kullanılarak oluşturulmuştur.
 
-Başlangıç kaydederek `ErrorLogModule` HTTP modülü ve `ErrorLogPageFactory` HTTP işleyicisi `<httpModules>` ve `<httpHandlers>` bölümüne `<system.web>`. Yapılandırmanızın zaten bu iki öğenin sonra yalnızca tanımlıyorsa dahil `<add>` ELMAH'ın HTTP modülü ve işleyici için öğesi.
+### <a name="step-2-registering-elmahs-http-module-and-handler"></a>2. adım: ELMAH'ın HTTP modülü ve işleyicisi kaydediliyor
+
+Sırada `Elmah.dll` dosyasını içeren HTTP modüllerini ve işleyici gerekli işlenmeyen özel durumları otomatik olarak oturum açın ve bir web sayfasından hata ayrıntılarını görüntülemek için bu web uygulamasının yapılandırmasında açıkça kaydedilmelidir. `ErrorLogModule` HTTP modülü, bir kez kayıtlı aboneliği `HttpApplication`'s `Error` olay. Bu olayı yükseltildiğinde her `ErrorLogModule` belirtilen günlük kaynağına özel durumun ayrıntılarını kaydeder. Sonraki bölümde, günlüğü kaynak sağlayıcısı tanımlama görüyoruz "Yapılandırma ELMAH." `ErrorLogPageFactory` HTTP işleyici üreteci, hata günlüğü bir web sayfasından görüntülerken biçimlendirme oluşturmak için sorumludur.
+
+HTTP modüller ve işleyiciler kaydetmek için belirli bir söz dizimi sitesi destekleyen web sunucusu üzerinde bağlıdır. ASP.NET Geliştirme Sunucusu ve Microsoft'un IIS için sürüm 6.0 ve önceki sürümleri, HTTP modüller ve işleyiciler kayıtlı `<httpModules>` ve `<httpHandlers>` içinde görünen bölümleri `<system.web>` öğesi. IIS 7.0 kullandığınız sonra kaydedilmesi ihtiyaç duydukları `<system.webServer>` öğenin `<modules>` ve `<handlers>` bölümler. Neyse ki, HTTP modüller ve işleyiciler, tanımlayabilirsiniz *hem* kullanılan web sunucusu bağımsız olarak yerleştirir. Geliştirme ve üretim ortamlarında kullanılan web sunucusu bağımsız olarak kullanılmak üzere aynı yapılandırmayı verdiğinden, bu seçenek en taşınabilir bir bileşendir.
+
+Başlangıç kaydederek `ErrorLogModule` HTTP modülü ve `ErrorLogPageFactory` HTTP işleyicisine `<httpModules>` ve `<httpHandlers>` konusundaki `<system.web>`. Yapılandırmanızı zaten bu iki öğenin sonra yalnızca tanımlıyorsa dahil `<add>` ELMAH'ın HTTP modülü ve işleyici için öğesi.
 
 [!code-xml[Main](logging-error-details-with-elmah-vb/samples/sample1.xml)]
 
-Ardından, ELMAH'ın HTTP modülü ve işleyicisinde kaydetmek `<system.webServer>` öğesi. Bu öğe zaten yapılandırmanızda mevcut değilse önceki gibi ardından ekleyin.
+Ardından, YAZMAÇ ELMAH'ın HTTP modülü ve işleyicisinde `<system.webServer>` öğesi. Bu öğe zaten yapılandırmanızda mevcut değilse, önceden olduğu gibi sonra ekleyin.
 
 [!code-xml[Main](logging-error-details-with-elmah-vb/samples/sample2.xml)]
 
-HTTP modülleri ve işleyicileri kayıtlı değilse, varsayılan olarak, IIS 7 complains `<system.web>` bölümü. `validateIntegratedModeConfiguration` Özniteliğini `<validation>` öğesi böyle hata iletileri bastırmak için IIS 7 bildirir.
+Varsayılan olarak, IIS 7 HTTP modüller ve işleyiciler, kayıtlı olmadığını şeklinde hata verir `<system.web>` bölümü. `validateIntegratedModeConfiguration` Özniteliğini `<validation>` gibi hata iletilerinin gösterilmemesini IIS 7 öğe bildirir.
 
-Unutmayın kaydettirmek için sözdizimi `ErrorLogPageFactory` HTTP işleyicisi içeren bir `path` ayarlanır özniteliği `elmah.axd`. Bu öznitelik web uygulaması olması durumunda sizi bilgilendirir adlı bir sayfa için bir istek ulaştığında `elmah.axd` isteği tarafından işlenmesi gerektiğini sonra `ErrorLogPageFactory` HTTP işleyicisi. Göreceğiz `ErrorLogPageFactory` daha sonra Bu öğreticide uygulamada HTTP işleyicisi.
+Unutmayın kaydetmek için söz dizimi `ErrorLogPageFactory` HTTP işleyicisini içeren bir `path` ayarlanır özniteliği, `elmah.axd`. Bu öznitelik web uygulaması olmadığını bildirir adlandırılmış bir sayfa için bir istek ulaştığında `elmah.axd` isteğin işlenmesi gereken sonra `ErrorLogPageFactory` HTTP işleyicisi. Görüyoruz `ErrorLogPageFactory` Bu öğreticinin sonraki adımlarında uygulamada HTTP işleyici.
 
 ### <a name="step-3-configuring-elmah"></a>3. adım: ELMAH yapılandırma
 
-Kendi Web sitesinin yapılandırma seçeneklerinde arar ELMAH `Web.config` adlı özel yapılandırma bölümü dosyasında `<elmah>`. Özel bir bölümde kullanmak için `Web.config` içinde ilk tanımlanmalıdır `<configSections>` öğesi. Açık `Web.config` dosya ve aşağıdaki biçimlendirmeleri eklemek `<configSections>`:
+ELMAH kendi yapılandırma seçenekleri Web sitesinin içinde arar `Web.config` adlı bir özel yapılandırma bölümü dosyasında `<elmah>`. Özel bir bölümde kullanmak için `Web.config` , öncelikle tanımlanmalıdır `<configSections>` öğesi. Açık `Web.config` dosya ve eklemek için aşağıdaki biçimlendirme `<configSections>`:
 
 [!code-xml[Main](logging-error-details-with-elmah-vb/samples/sample3.xml)]
 
 > [!NOTE]
-> ELMAH ASP.NET 1.x uygulamaya ait yapılandırıyorsanız, ardından kaldırın `requirePermission="false"` özniteliğini `<section>` yukarıdaki öğeler.
+> ELMAH ASP.NET 1.x uygulaması yapılandırıyorsanız kaldırın, ardından `requirePermission="false"` özniteliğini `<section>` yukarıdaki öğeler.
 
 
-Yukarıdaki söz dizimi özel kaydeder `<elmah>` bölümü ve onun alt bölümleri: `<security>`, `<errorLog>`, `<errorMail>`, ve `<errorFilter>`.
+Yukarıdaki sözdizimi özel kaydeder `<elmah>` bölüm ve alt bölümleri: `<security>`, `<errorLog>`, `<errorMail>`, ve `<errorFilter>`.
 
-Ardından, eklemek `<elmah>` için bölüm `Web.config`. Bu bölümde aynı düzeyde görünmelidir `<system.web>` öğesi. İçinde `<elmah>` Bölüm Ekle `<security>` ve `<errorLog>` bölümleri sözlüğüdür:
+Ardından, ekleme `<elmah>` bölümünü `Web.config`. Bu bölümde, aynı düzeyde görünmelidir `<system.web>` öğesi. İçinde `<elmah>` bölümü ekleyin `<security>` ve `<errorLog>` bölümlerde şu şekilde:
 
 [!code-xml[Main](logging-error-details-with-elmah-vb/samples/sample4.xml)]
 
-`<security>` Bölümün `allowRemoteAccess` öznitelik, uzaktan erişim izin verilip verilmediğini gösterir. Bu değer 0 olarak ayarlarsanız, ardından hata günlüğü web sayfası yalnızca yerel olarak görüntülenebilir. Bu öznitelik 1 olarak ayarlanmışsa, hata günlüğü web sayfası uzak ve yerel ziyaretçiler için etkinleştirilir. Şimdilik, şimdi hata günlüğü web sayfası uzaktan ziyaretçiler için devre dışı bırakın. Bunun yapılması, güvenlik sorunlarının ele fırsatına sahip olduğumuz sonra size daha sonra uzaktan erişime izin.
+`<security>` Bölümün `allowRemoteAccess` öznitelik, uzaktan erişim izin verilip verilmediğini gösterir. Bu değer 0 olarak ayarlanırsa, ardından hata günlüğü web sayfasında yalnızca yerel olarak görüntülenebilir. Bu öznitelik için 1 olarak ayarlanırsa hata günlüğü web sayfasında uzak ve yerel ziyaretçiler için etkin. Şimdilik, uzak ziyaretçiler için hata günlüğü web sayfasında şimdi devre dışı. Bunun yapılması, güvenlik sorunları tartışmak için fırsatına sahip olduğumuz sonra size daha sonra uzaktan erişime izin.
 
-`<errorLog>` Bölümü tanımlar burada hata ayrıntılarını kaydedilir; benzer hangi belirtir hata günlüğü kaynağı `<providers>` durum sistemini izleme bölümü. Yukarıdaki sözdizimini belirtir `SqlErrorLog` sınıfı tarafından belirtilen bir Microsoft SQL Server veritabanına hatalarını günlüğe hata günlüğü kaynağı olarak `connectionStringName` öznitelik değeri.
+`<errorLog>` Bölüm tanımlar burada hata ayrıntılarını kaydedilir; benzer hangi belirtir hata günlüğü kaynağı `<providers>` durum sistemini izleme bölümü. Yukarıdaki sözdizimi belirtir `SqlErrorLog` sınıfı tarafından belirtilen bir Microsoft SQL Server veritabanı hataları günlüğe kaydeden hata günlüğü kaynağı olarak `connectionStringName` öznitelik değeri.
 
 > [!NOTE]
-> ELMAH bir XML dosyası, bir Microsoft Access veritabanı, bir Oracle veritabanına ve diğer veri depolarına hataları günlüğe kaydetmek için kullanılan ek hata günlüğü sağlayıcıları ile birlikte gelir. Örneğe bakın `Web.config` ELMAH indirme bu alternatif hata günlüğü sağlayıcılarını kullanma hakkında bilgi ile birlikte dosya.
+> ELMAH, bir XML dosyası, bir Microsoft Access veritabanı, Oracle veritabanı ve diğer veri depoları için hataları günlüğe kaydetmek için kullanılan ek hata günlüğü sağlayıcıları ile birlikte gelir. Örneğe bakın `Web.config` ELMAH indirme bu alternatif hata günlüğü sağlayıcılarını kullanma hakkında daha fazla bilgi için bulunan dosya.
 
 
 ### <a name="step-4-creating-the-error-log-source-infrastructure"></a>4. adım: hata günlüğü Kaynak Altyapısı oluşturma
 
-ELMAH'ın `SqlErrorLog` sağlayıcı, belirtilen bir Microsoft SQL Server veritabanı hata ayrıntıları kaydeder. `SqlErrorLog` Sağlayıcı bekliyor adlı bir tablo olması için bu veritabanını `ELMAH_Error` ve üç saklı yordamlar: `ELMAH_GetErrorsXml`, `ELMAH_GetErrorXml`, ve `ELMAH_LogError`. Adında bir dosya ELMAH indirme içerir `SQLServer.sql` içinde `db` bu tabloyu ve bunları oluşturmak için T-SQL içeren klasörü saklı yordamlar. Bu ifadeler, veritabanını kullanacak şekilde çalıştırmanız gerekir `SqlErrorLog` sağlayıcısı.
+ELMAH'ın `SqlErrorLog` sağlayıcısı belirtilen bir Microsoft SQL Server veritabanı için hata ayrıntılarını günlüğe kaydeder. `SqlErrorLog` Sağlayıcısı bekliyor adlı bir tablonuz varsa bu veritabanını `ELMAH_Error` ve üç saklı yordamlar: `ELMAH_GetErrorsXml`, `ELMAH_GetErrorXml`, ve `ELMAH_LogError`. ELMAH indirme adlı bir dosya içerir `SQLServer.sql` içinde `db` bu tabloyu ve bunları oluşturmak için T-SQL içeren klasörü saklı yordamlar. Bu deyimler, veritabanında çalıştırmak ihtiyacınız olacak `SqlErrorLog` sağlayıcısı.
 
-**Şekil 1** ve **2** gerekli veritabanı nesnelerini sonra Visual Studio'da Database Explorer Göster `SqlErrorLog` sağlayıcısı eklenmiştir.
+**Şekil 1** ve **2** gerekli veritabanı nesnelerini sonra Visual Studio'da veritabanı Gezgini Göster `SqlErrorLog` sağlayıcısı eklenmiştir.
 
 [![](logging-error-details-with-elmah-vb/_static/image2.png)](logging-error-details-with-elmah-vb/_static/image1.png)
 
-**Şekil 1**: `SqlErrorLog` sağlayıcısı için hataları günlüğe `ELMAH_Error` tablosu
+**Şekil 1**: `SqlErrorLog` sağlayıcısı hataları günlüğe kaydeder `ELMAH_Error` tablo
 
 [![](logging-error-details-with-elmah-vb/_static/image4.png)](logging-error-details-with-elmah-vb/_static/image3.png)
 
-**Şekil 2**: `SqlErrorLog` sağlayıcısı kullanan üç saklı yordamlar
+**Şekil 2**: `SqlErrorLog` sağlayıcısı üç saklı yordamlar kullanır
 
-## <a name="elmah-in-action"></a>Eylem ELMAH
+## <a name="elmah-in-action"></a>ELMAH sürüyor
 
-ELMAH kayıtlı web uygulaması için bu noktada ekledik `ErrorLogModule` HTTP modülü ve `ErrorLogPageFactory` HTTP işleyicisi ELMAH'ın yapılandırma seçeneklerinde belirtilen `Web.config`ve gerekli veritabanı nesnelerini eklenen `SqlErrorLog` hata günlüğü sağlayıcısı. Biz şimdi ELMAH eylemini görmek hazırsınız! Kitap incelemeleri Web sitesini ziyaret edin ve bir çalışma zamanı hatası gibi üretir sayfasını ziyaret edin `Genre.aspx?ID=foo`, ya da mevcut olmayan sayfa gibi `NoSuchPage.aspx`. Bu sayfaları ziyaret eden gördüğünüz bağlıdır `<customErrors>` yapılandırması ve yerel olarak veya uzaktan ziyaret ettiğiniz. (Geri başvurmak [ *bir özel hata sayfası görüntüleme* öğretici](displaying-a-custom-error-page-vb.md) bu konuyla ilgili Yenileyicinin.)
+ELMAH kayıtlı web uygulaması için bu noktada ekledik `ErrorLogModule` HTTP modülü ve `ErrorLogPageFactory` HTTP işleyicisini ELMAH'ın yapılandırma seçeneklerinde belirtilen `Web.config`ve gerekli veritabanı nesnelerini eklenen `SqlErrorLog` hata günlüğü sağlayıcısı. Biz ELMAH çalıştığını görmek hazırsınız! Kitap incelemeleri Web sitesini ziyaret edin ve bir çalışma zamanı hatası, gibi oluşturan bir sayfasını ziyaret edin `Genre.aspx?ID=foo`, ya da var olmayan sayfa gibi `NoSuchPage.aspx`. Bu sayfaları ziyaret gördüğünüz bağımlı `<customErrors>` yapılandırması ve yerel olarak veya uzaktan ziyaret ettiğiniz. (Kiracıurl [ *özel hata sayfası görüntüleme* öğretici](displaying-a-custom-error-page-vb.md) bu konuda tazelemek.)
 
-ELMAH işlenmeyen bir özel durum oluştuğunda hangi içerik kullanıcıya gösterilen etkilemez; yalnızca ayrıntılarını günlüğe kaydeder. Bu hata günlüğü web sayfasından erişilebilen `elmah.axd` Web sitenizin kök gibi `http://localhost/BookReviews/elmah.axd`. (Bu dosyayı projenize, ancak bir istek için geldiğinde fiziksel olarak yok `elmah.axd` çalışma zamanı için gönderir `ErrorLogPageFactory` tarayıcıya gönderilen biçimlendirmeleri oluşturur HTTP işleyicisi.)
+ELMAH işlenmeyen bir özel durum oluştuğunda içeriği kullanıcıya gösterilen etkilemez; yalnızca ayrıntılarını günlüğe kaydeder. Web sayfasından aldığınız bu hata günlüğü erişilebilir `elmah.axd` , sitenizin kök gibi `http://localhost/BookReviews/elmah.axd`. (Bu dosya fiziksel olarak projenizde, ancak bir istek için geldiğinde yok `elmah.axd` çalışma zamanı için gönderir `ErrorLogPageFactory` tarayıcıya gönderilen biçimlendirmeyi oluşturur HTTP işleyicisini.)
 
 > [!NOTE]
-> Aynı zamanda `elmah.axd` sınama hatası oluşturmak için ELMAH istemek üzere sayfa. Ziyaret eden `elmah.axd/test` (gibi `http://localhost/BookReviews/elmah.axd/test`) türünde bir özel durum ELMAH neden `Elmah.TestException`, hata iletisi vardır: "Güvenle yoksayılabilir bir test özel budur."
+> Ayrıca `elmah.axd` test hatası oluşturulacak ELMAH istemek için sayfa. Ziyaret `elmah.axd/test` (gibi `http://localhost/BookReviews/elmah.axd/test`) ELMAH türünde bir özel durum oluşturmasına neden `Elmah.TestException`, hata iletisi vardır: "Bu güvenle yoksayılabilir bir test özel durumdur."
 
 
-**Şekil 3** ziyaret ederken hata günlüğü gösterir `elmah.axd` geliştirme ortamı'ndan.
+**Şekil 3** ziyaret hata günlüğünü gösterir `elmah.axd` geliştirme ortamından.
 
 [![](logging-error-details-with-elmah-vb/_static/image6.png)](logging-error-details-with-elmah-vb/_static/image5.png)
 
 **Şekil 3**: `Elmah.axd` bir Web sayfasından hata günlüğünü görüntüler  
-([Tam boyutlu görüntüyü görüntülemek için tıklatın](logging-error-details-with-elmah-vb/_static/image7.png))
+([Tam boyutlu görüntüyü görmek için tıklatın](logging-error-details-with-elmah-vb/_static/image7.png))
 
-Hata oturum **Şekil 3** altı hata girişleri içerir. Her giriş (404 veya bu hatalar için 500) HTTP durum kodu, türü, açıklama, hata oluştuğu sırada oturum açmış kullanıcının adını ve tarih ve saati içerir. Hata ayrıntıları sarı ekran, ölüm içinde gösterilen aynı hata iletisini içeren bir sayfa görüntüler Ayrıntılar bağlantı tıklatıldığında (bkz **Şekil 4**) hata zaman sunucu değişkenlerin değerleri birlikte (bkz  **Şekil 5**). HTTP POST üstbilgisinde değerleri gibi ek bilgileri içeren hata ayrıntılarını kaydedilen ham XML de görüntüleyebilirsiniz.
+Hata oturum **Şekil 3** altı hata girişleri içerir. Her giriş (404 veya bu hatalar, 500) HTTP durum kodu, türü, açıklama, hata oluştuğunda, oturum açan kullanıcının adını ve tarih ve saat içerir. Ayrıntıları bağlantısını görüntüler hata ayrıntılarını sarı ekran, ölüm içinde gösterilen aynı hata iletisini içeren bir sayfa (bkz **Şekil 4**) hatanın zaman sunucu değişkenlerinin değerlerini birlikte (bkz  **Şekil 5**). Ayrıca HTTP POST üst bilgisinde değerleri gibi ek bilgileri içeren ham XML hata ayrıntılarını kaydedilen görüntüleyebilirsiniz.
 
 [![](logging-error-details-with-elmah-vb/_static/image9.png)](logging-error-details-with-elmah-vb/_static/image8.png)
 
 **Şekil 4**: YSOD hata ayrıntılarını görüntüleme  
-([Tam boyutlu görüntüyü görüntülemek için tıklatın](logging-error-details-with-elmah-vb/_static/image10.png))
+([Tam boyutlu görüntüyü görmek için tıklatın](logging-error-details-with-elmah-vb/_static/image10.png))
 
 [![](logging-error-details-with-elmah-vb/_static/image12.png)](logging-error-details-with-elmah-vb/_static/image11.png)
 
-**Şekil 5**: hata zaman sunucu değişkenleri toplama değerlerini keşfedin  
-([Tam boyutlu görüntüyü görüntülemek için tıklatın](logging-error-details-with-elmah-vb/_static/image13.png))
+**Şekil 5**: hata, sunucu değişkenleri toplama değerlerini keşfedin  
+([Tam boyutlu görüntüyü görmek için tıklatın](logging-error-details-with-elmah-vb/_static/image13.png))
 
-Üretim Web sitesine ELMAH dağıtma kapsar:
+ELMAH üretim Web sitesine dağıtma kapsar:
 
-- Kopyalama `Elmah.dll` dosya `Bin` üretim klasörü
-- ELMAH özgü yapılandırma ayarlarını kopyalama `Web.config` üretim üzerinde kullanılan dosya ve
+- Kopyalama `Elmah.dll` dosyasını `Bin` üretim klasörü
+- ELMAH özgü yapılandırma ayarlarını kopyalama `Web.config` , üretimde kullanılan dosya ve
 - Hata günlüğü kaynak altyapı üretim veritabanına ekleniyor.
 
-Biz dosyaları geliştirme önceki öğreticileri üretimde kopyalamak için teknikleri incelediniz. Belki de en kolay yolu hata günlüğü kaynak altyapı üretim veritabanında almak için SQL Server Management Studio üretim veritabanına bağlanın ve sonra yürütmek için kullanmaktır `SqlServer.sql` gerekli tablo oluşturur ve depolanan komut dosyası yordamlar.
+Biz, önceki öğreticilerdeki üretimde geliştirme dosyaları kopyalamak için teknikleri incelediniz. Belki de en kolay yolu, üretim veritabanında bir hata günlüğü kaynak altyapı elde etmek için SQL Server Management Studio üretim veritabanına bağlanmak ve ardından yürütmek için kullanmaktır `SqlServer.sql` gereken tablo oluşturur ve depolanan betik dosyası yordamları.
 
-### <a name="viewing-the-error-details-page-on-production"></a>Hata Ayrıntıları sayfası üretimde görüntüleme
+### <a name="viewing-the-error-details-page-on-production"></a>Üretimde hata Ayrıntılar sayfasını görüntüleme
 
-Sitenizi üretime dağıtma sonra üretim Web sitesini ziyaret edin ve işlenmeyen bir özel durum oluşturur. Geliştirme ortamı olduğu gibi ELMAH işlenmeyen bir özel durum oluştuğunda görüntülenen hata sayfasında herhangi bir etkisi yoktur; Bunun yerine, yalnızca hata günlükleri. Hata günlüğü sayfasını ziyaret edin çalışırsanız (`elmah.axd`) üretim ortamından, gösterilen Yasak sayfasıyla greeted **Şekil 6**.
+Sitenizi Üretim dağıtımı sonra üretim Web sitesini ziyaret edin ve işlenmeyen bir özel durum oluşturur. Geliştirme ortamı, ELMAH işlenmeyen bir özel durum oluştuğunda görüntülenen hata sayfasında herhangi bir etkisi yoktur; Bunun yerine, yalnızca hata günlükleri. Hata günlüğü sayfayı ziyaret etmek denerseniz (`elmah.axd`) üretim ortamından, gösterilen Yasak sayfasıyla greeted **Şekil 6**.
 
 [![](logging-error-details-with-elmah-vb/_static/image15.png)](logging-error-details-with-elmah-vb/_static/image14.png)
 
-**Şekil 6**: varsayılan olarak, Uzaktaki ziyaretçiler hata günlüğü Web sayfasını görüntüleyemez  
-([Tam boyutlu görüntüyü görüntülemek için tıklatın](logging-error-details-with-elmah-vb/_static/image16.png))
+**Şekil 6**: varsayılan olarak, uzak ziyaretçiler hata günlüğü Web sayfasını görüntüleyemez  
+([Tam boyutlu görüntüyü görmek için tıklatın](logging-error-details-with-elmah-vb/_static/image16.png))
 
-ELMAH yapılandırma sözcüğünün `<security>` ayarlarız bölüm `allowRemoteAccess` özniteliği 0'dır, ama uzak kullanıcılar için hata günlüğünü görüntüleme yasaklar. Hata ayrıntılarını Güvenlik Açıkları ve diğer hassas bilgiler ortaya çıkarabilir gibi anonim ziyaretçilerin hata günlüğünü görüntüleme önlemek önemlidir. Bu öznitelik 1 olarak ayarlayın ve hata günlüğünü uzaktan erişimi etkinleştirmek karar sonra kilitleme önemlidir `elmah.axd` ziyaretçileri, yalnızca yetkili şekilde yolu erişebilirsiniz. Bu ekleyerek sağlanabilir bir `<location>` öğesine `Web.config` dosya.
+ELMAH yapılandırma sözcüğünün `<security>` ayarladığımız bölüm `allowRemoteAccess` 0 olarak uzak kullanıcılar için hata günlüğünü görüntülemesini önleyen özniteliği. Hata ayrıntılarını güvenlik açıklarını ya da diğer hassas bilgileri açığa çıkarabileceği için hata günlüğünü görüntüleme anonim ziyaretçilerin önlemek önemlidir. Bu öznitelik değerini 1 yapın ve hata günlüğünü uzaktan erişimi etkinleştirmek karar sonra kilitleme önemlidir `elmah.axd` ziyaretçiler, yalnızca yetkili şekilde yolu erişebilirsiniz. Bu ekleyerek gerçekleştirilebilir bir `<location>` öğesine `Web.config` dosya.
 
-Aşağıdaki yapılandırma, yalnızca kullanıcıların hata günlüğü web sayfasına erişmek için yönetici rolünü verir:
+Aşağıdaki yapılandırma, hata günlüğü web sayfasına erişmek için yönetici rolünde yalnızca kullanıcılar izin verir:
 
 [!code-xml[Main](logging-error-details-with-elmah-vb/samples/sample5.xml)]
 
 > [!NOTE]
-> Yönetici rolü ve üç kullanıcı - Scott, Jisun ve Alice - sistemindeki eklenmiştir [ *bir Web sitesi, kullanan uygulama hizmetlerini yapılandırma* Öğreticisi](configuring-a-website-that-uses-application-services-vb.md). Kullanıcıların Scott ve Jisun yönetici rolünün bir üyesi. Kimlik doğrulama ve yetkilendirme hakkında daha fazla bilgi için başvurmak my [Web sitesi güvenlik öğreticileri](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md).
+> Yönetici rolü ve sistemdeki - Scott, Jisun ve Alice - üç kullanıcı eklenmiştir [ *bir Web sitesi, kullandığı uygulama hizmetleri yapılandırma* öğretici](configuring-a-website-that-uses-application-services-vb.md). Kullanıcılar Scott ve Jisun yönetici rolünün üyesidir. Kimlik doğrulama ve yetkilendirme ile ilgili daha fazla bilgi için benim [Web sitesi güvenlik öğreticileri](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md).
 
 
-Üretim ortamında hata günlüğüne, artık uzak kullanıcılar tarafından görüntülenebilir; geri başvurmak **rakamları 3**, **4**, ve **5** hata günlüğü web sayfasının ekran görüntüleri için. Ancak, bunlar anonim veya yönetici olmayan bir kullanıcı hata günlüğü sayfasını görüntülemek çalışırsa oturum açma sayfasına otomatik olarak yönlendirilir (`Login.aspx`), olarak **Şekil 7** gösterir.
+Hata günlüğünü üretim ortamında uzak kullanıcılar tarafından artık görüntülenebilen; kiracıurl **Şekil 3**, **4**, ve **5** için hata günlüğü web sayfasının ekran görüntüsü. Ancak, bunlar anonim veya yönetici olmayan bir kullanıcı hata günlüğü sayfasında görüntülemeye çalışırsa oturum açma sayfasına otomatik olarak yönlendirilir (`Login.aspx`), olarak **Şekil 7** gösterir.
 
 [![](logging-error-details-with-elmah-vb/_static/image18.png)](logging-error-details-with-elmah-vb/_static/image17.png)
 
-**Şekil 7**: yetkisiz kullanıcıların olan otomatik olarak yeniden yönlendirilen oturum açma sayfası  
-([Tam boyutlu görüntüyü görüntülemek için tıklatın](logging-error-details-with-elmah-vb/_static/image19.png))
+**Şekil 7**: yetkisiz kullanıcıların olduğundan otomatik olarak yeniden yönlendirilen oturum açma sayfası  
+([Tam boyutlu görüntüyü görmek için tıklatın](logging-error-details-with-elmah-vb/_static/image19.png))
 
 ### <a name="programmatically-logging-errors"></a>Program aracılığıyla hatalarını günlüğe kaydetme
 
-ELMAH'ın `ErrorLogModule` HTTP modülü belirtilen günlük kaynağına işlenmeyen özel durumlar otomatik olarak günlüğe kaydeder. Alternatif olarak, bir hata işlenmeyen bir özel durum kullanarak yükseltme yapmak zorunda kalmadan oturum `ErrorSignal` sınıfı ve onun `Raise` yöntemi. `Raise` Yöntemi geçirilen bir `Exception` nesne ve başka bir özel durum atılmış ve ASP.NET çalışma zamanı işlenmiş olmadan ulaşmıştı sanki günlüğe kaydeder. Ancak istek'ın normalde sonra yürütmeye devam eder, farktır `Raise` yönteminin çağrılıp çağrılmadığını, atılmış işlenmeyen bir özel durum isteğin normal çalışmasını kesintiye uğratır ve yapılandırılmış görüntülemek ASP.NET çalışma zamanı neden olurken hata sayfası.
+ELMAH'ın `ErrorLogModule` HTTP modülü belirtilen günlük kaynağına işlenmeyen özel durumları otomatik olarak günlüğe kaydeder. Alternatif olarak, işlenmeyen bir özel durum kullanarak yükseltmek zorunda kalmadan hatayla oturum açabilir `ErrorSignal` sınıf ve onun `Raise` yöntemi. `Raise` Yöntemi geçirilir bir `Exception` nesne ve bu özel durum ve ASP.NET çalışma zamanı işlenen olmadan tamamladı alacağı günlüğe kaydeder. Ancak istek'ın normalde sonra yürütmeye devam eder, fark `Raise` yönteminin çağrılıp çağrılmadığını, oluşturulan işlenmeyen bir özel durum isteğin normal yürütmenin keser ve yapılandırılmış görüntülemek ASP.NET çalışma zamanı neden olur hata sayfası.
 
-`ErrorSignal` Sınıfı, burada başlatılamayabilir bazı eylem yoktur, ancak kendi hatası gerçekleştirilen ve genel işlemi yıkıcı değil durumlarda yararlıdır. Bir Web sitesi, kullanıcının giriş alır, bir veritabanında depolar ve kullanıcı bildiren bir e-postası gönderir form örneği için içerebilir, bunlar bilgi işlendiği. Bilgileri veritabanına başarıyla kaydedildi, ancak e-posta iletisi gönderirken bir hata olup olmadığını ne? Bir özel durum ve hata sayfası kullanıcı göndermek için bir seçenek olabilir. Ancak, bu kullanıcının girdiği bilgileri kaydedilmedi düşünmeye karıştırır. Başka bir yaklaşım için e-posta ile ilgili hata günlüğüne, ancak herhangi bir şekilde kullanıcı deneyimini değiştirmeyin olacaktır. Bu yerdir `ErrorSignal` sınıf kullanışlıdır.
+`ErrorSignal` Sınıfı, burada başarısız olabilir bir eylem yoktur, ancak kendi hata gerçekleştirilmekte olan genel işlem yıkıcı değil durumlarda kullanışlıdır. Örneğin, bir Web sitesi kullanıcının girdi alır, bir veritabanında saklar ve ardından kullanıcı bildiren bir e-posta gönderir, bir form içerebilir, bunlar bilgi işlendiği. Bilgileri veritabanına başarıyla kaydedildi, ancak e-posta iletisi gönderilirken bir hata olduğunu durumunda gerçekleşmesi gereken? Bir özel durum ve kullanıcıya hata sayfasına göndermek için bir seçenek olabilir. Ancak, bu kullanıcının girdiği bilgileri kaydedilmedi düşünmeye kafasını karıştırabilir. Başka bir yaklaşım için e-posta ile ilgili hata günlüğüne, ancak kullanıcının deneyimini herhangi bir şekilde değişiklik olacaktır. Burada `ErrorSignal` sınıfı, kullanışlıdır.
 
 [!code-vb[Main](logging-error-details-with-elmah-vb/samples/sample6.vb)]
 
-## <a name="error-notification-via-email"></a>E-posta üzerinden hata bildirimi
+## <a name="error-notification-via-email"></a>E-posta yoluyla bildirim hatası
 
-Bir veritabanına günlük kaydı hataları birlikte ELMAH hata ayrıntıları için belirtilen bir alıcı e-posta ile de yapılandırılabilir. Bu işlev tarafından sağlanan `ErrorMailModule` HTTP modülü; bu nedenle, bu HTTP modülü, kaydetmelisiniz `Web.config` hata ayrıntıları e-postayla göndermek için.
+Bir veritabanı için günlük kaydı hataları birlikte ELMAH belirtilen alıcıya hata ayrıntılarının gönderileceği de yapılandırılabilir. Bu işlev tarafından sağlanan `ErrorMailModule` HTTP modülü; bu nedenle, bu HTTP modülü, kaydetmelisiniz `Web.config` hata ayrıntıları e-posta ile göndermek için.
 
 [!code-xml[Main](logging-error-details-with-elmah-vb/samples/sample7.xml)]
 
-Ardından, hata e-posta ile ilgili bilgileri belirtin `<elmah>` öğenin `<errorMail>` bölümünde, e-postanın göndereni ve alıcısı, konu belirten ve e-posta olup olmadığını zaman uyumsuz olarak gönderilir.
+Ardından, hata e-postayla ilgili bilgileri belirtin `<elmah>` öğenin `<errorMail>` bölümünde, e-postanın gönderen ve alıcı, konu gösteren ve e-posta olup olmadığını zaman uyumsuz olarak gönderilir.
 
 [!code-xml[Main](logging-error-details-with-elmah-vb/samples/sample8.xml)]
 
-Yerinde yukarıdaki ayarlara sahip her bir çalışma zamanı hatası oluşur ELMAH e-posta gönderir support@example.com hata ayrıntıları ile. ELMAH'ın hata e-posta hata ayrıntıları web sayfasında, yani hata iletisi, yığın izleme ve sunucu değişkenlerini aynı bilgileri içerir (geri başvurmak **rakamları 4** ve **5**). Hata e-posta eki olarak özel durum ayrıntıları sarı ekran, ölüm içeriği de içerir (`YSOD.html`).
+Yerinde yukarıdaki ayarlara sahip bir çalışma zamanı hatası oluşturduğunda ELMAH bir e-posta gönderir support@example.com ile hata ayrıntılarını. ELMAH'ın hata e-posta hata ayrıntıları web sayfasında, yani hata iletisi, yığın izlemesi ve sunucu değişkenlerine aynı bilgileri içerir (kiracıurl **rakamlar 4** ve **5**). Hata e-posta eki olarak özel durum ayrıntıları sarı ekran, ölüm içeriği de içerir. (`YSOD.html`).
 
-**Şekil 8** ELMAH'ın hata e-posta adresini ziyaret ederek oluşturulan gösterir `Genre.aspx?ID=foo`. Sırada **Şekil 8** yalnızca hata iletisi ve yığın izlemesi, sunucu değişkenlerini daha aşağı e-postanın gövdesinde birlikte gösterilir.
+**Şekil 8** ELMAH'ın hata e-posta adresini ziyaret ederek oluşturulan gösterir `Genre.aspx?ID=foo`. Sırada **Şekil 8** yalnızca hata iletisi ve yığın izlemesi, sunucu değişkenleri daha da aşağı e-postanın gövdesinde dahil olduğunu gösterir.
 
 [![](logging-error-details-with-elmah-vb/_static/image21.png)](logging-error-details-with-elmah-vb/_static/image20.png)
 
-**Şekil 8**: hata ayrıntıları e-postayla göndermek için ELMAH yapılandırabilirsiniz  
-([Tam boyutlu görüntüyü görüntülemek için tıklatın](logging-error-details-with-elmah-vb/_static/image22.png))
+**Şekil 8**: hata ayrıntıları e-posta yoluyla göndermeyi ELMAH yapılandırabilirsiniz.  
+([Tam boyutlu görüntüyü görmek için tıklatın](logging-error-details-with-elmah-vb/_static/image22.png))
 
-## <a name="only-logging-errors-of-interest"></a>Yalnızca ilgilendiğiniz hatalarını günlüğe kaydetme
+## <a name="only-logging-errors-of-interest"></a>Yalnızca ilgilendiğiniz hataları günlüğe kaydetme
 
-Varsayılan olarak, ELMAH 404 ve diğer HTTP hataları gibi her işlenmeyen özel durum ayrıntılarını kaydeder. Bu veya başka tür hata filtreleme kullanarak hataları yoksaymak için ELMAH söyleyebilirsiniz. Filtreleme mantığı ELMAH tarafından 's gerçekleştirilen `ErrorFilterModule` kaydetmek için gereken HTTP modülü `Web.config` filtreleme mantığı kullanmak için. Filtreleme kuralları belirtilen `<errorFilter>` bölümü.
+Varsayılan olarak, ELMAH 404 ve diğer HTTP hataları dahil olmak üzere her işlenmeyen özel durum ayrıntıları kaydeder. Bunlar ya da diğer hata filtreleme kullanarak hataları türleri yok saymak için ELMAH bildirebilirsiniz. Filtreleme mantığı ELMAH tarafından 's gerçekleştirilir `ErrorFilterModule` kaydetmek için ihtiyacınız olacak HTTP modülü `Web.config` filtreleme mantığı kullanmak için. Filtreleme kurallarını belirtilen `<errorFilter>` bölümü.
 
-Aşağıdaki biçimlendirmede 404 hatalarını günlüğe değil ELMAH bildirir.
+Aşağıdaki biçimlendirmede 404 hataları günlüğe kaydetmemeyi ELMAH bildirir.
 
 [!code-xml[Main](logging-error-details-with-elmah-vb/samples/sample9.xml)]
 
@@ -235,29 +234,29 @@ Aşağıdaki biçimlendirmede 404 hatalarını günlüğe değil ELMAH bildirir.
 > Hata kaydetmeniz gerekir filtreleme kullanmak için unutmayın `ErrorFilterModule` HTTP modülü.
 
 
-`<equal>` Öğesi içinde `<test>` bölüm onayı ifade adlandırılır. Onaylama işlemi true hesaplanırsa hata ELMAH'ın günlüğünden filtrelenir. Diğer onaylar dahil olmak üzere kullanılabilir: `<greater>`, `<greater-or-equal>`, `<not-equal>`, `<lesser>`, `<lesser-or-equal>`ve benzeri. Ayrıca, kullanarak onaylar birleştirebilirsiniz `<and>` ve `<or>` Boole işleçleri. Daha da basit bir JavaScript ifadesi bir onaylama olarak dahil edebilir, veya kendi onaylar C# veya Visual Basic'te yazma.
+`<equal>` Öğe içinde `<test>` bölümü bir onaylama olarak adlandırılır. Onaylama true olarak değerlendirilirse hata ELMAH'ın günlüğünden filtre uygulanır. Diğer bir onayları dahil olmak üzere kullanılabilir: `<greater>`, `<greater-or-equal>`, `<not-equal>`, `<lesser>`, `<lesser-or-equal>`ve benzeri. Ayrıca, kullanarak Onaylamalar birleştirebilirsiniz `<and>` ve `<or>` Boole işleçleri. Daha da basit bir JavaScript ifadesi onaylama olarak dahil edebilir, veya kendi onaylar C# veya Visual Basic'te yazma.
 
-Filtreleme özellikleri ELMAH'ın hata hakkında daha fazla bilgi için başvurmak [hata filtreleme bölümü](https://code.google.com/p/elmah/wiki/ErrorFiltering) içinde [ELMAH wiki](https://code.google.com/p/elmah/w/list).
+ELMAH'ın hata filtreleme özellikleri hakkında daha fazla bilgi için [hata filtreleme bölümü](https://code.google.com/p/elmah/wiki/ErrorFiltering) içinde [ELMAH wiki](https://code.google.com/p/elmah/w/list).
 
 ## <a name="summary"></a>Özet
 
-ELMAH ASP.NET web uygulaması hataları günlüğe kaydetme için basit ancak güçlü bir mekanizma sağlar. Microsoft'un sistem durumu izleme sistemi gibi ELMAH hataları bir veritabanına oturum açabilir ve hata ayrıntılarını bir geliştirici e-posta yoluyla gönderebilirsiniz. Sistem sistem durumu izleme, hata günlüğü veri depolarına dahil olmak üzere, geniş bir yelpazedeki kutusunu desteği dışında ELMAH içerir: Microsoft SQL Server, Microsoft Access, Oracle, XML dosyalarını ve diğer birçok. Ayrıca, ELMAH hata günlüğünü ve bir web sayfasından belirli bir hata ayrıntılarını görüntülemek için yerleşik bir mekanizma sunar `elmah.axd`. `elmah.axd` Sayfasını da hata bilgilerini veya Microsoft Excel kullanarak okuyabilirsiniz virgülle ayrılmış değer dosyası (CSV), bir RSS olarak işlemek. Ayrıca, filtre hataları için bildirim temelli veya programlama onaylar kullanarak günlüğünden ELMAH söyleyebilirsiniz. Ve ELMAH ASP.NET sürüm 1.x uygulamaları ile kullanılabilir.
+ELMAH ASP.NET web uygulamasında günlük kaydı hataları için basit ama güçlü bir mekanizma sağlar. Microsoft'un sistem durumu izleme sistemi gibi ELMAH hataları veritabanına oturum açabilir ve hata ayrıntılarını bir geliştirici e-posta ile gönderebilirsiniz. Sistem izleme sistem, geniş bir hata günlüğü veri depolarına dahil olmak üzere, hazır desteği dışında ELMAH içerir: Microsoft SQL Server, Microsoft Access, Oracle, XML dosyalarını ve diğer birçok. Ayrıca, ELMAH için hata günlüğünü ve bir web sayfasından belirli bir hatayla ilgili ayrıntıları görüntülemek için yerleşik bir mekanizma sunar `elmah.axd`. `elmah.axd` Sayfası hata bilgilerini bir RSS akışı veya Microsoft Excel kullanarak okuyabilen bir virgülle ayrılmış değer dosyasına (CSV) olarak da işleyebilirsiniz. Ayrıca, filtre hataları için bildirim temelli veya programlı bir onayları kullanarak günlüğünden ELMAH söyleyebilirsiniz. Ve ELMAH ASP.NET sürüm 1.x uygulamaları ile kullanılabilir.
 
-Dağıtılan her uygulama bazı mekanizması otomatik olarak işlenmeyen özel durumları günlüğe kaydetme ve geliştirme ekibi bildirim göndermek için sahip olması gerekir. Bu sistem durumu izleme veya ELMAH kullanılarak mı gerçekleştirilir ikincil olur. Diğer bir deyişle, çok sistem durumu izleme veya ELMAH kullansanız gerçekten önemli değildir; Her iki sistemle değerlendirin ve gereksinimlerine en uygun olanı seçin. Temelde önemli olan bazı mekanizması işlenmeyen özel durumlar üretim ortamında oturum yerinde konması ' dir.
+Dağıtılan her bir uygulama otomatik olarak işlenmeyen özel durumları günlüğe kaydetme ve Geliştirme takımına bildirim göndermek için bazı mekanizma olması gerekir. Bu sistem durumu izleme veya ELMAH kullanarak olup gerçekleştirilir ikincil olur. Diğer bir deyişle, gerçekten çok sistem durumu izleme veya ELMAH kullanıp önemi yoktur; Her iki sistem değerlendirir ve ardından ihtiyaçlarınıza en uygun olanı seçin. Temelde önemli bazı mekanizması üretim ortamında işlenmeyen özel durumları günlüğe yerinde koymak olduğu.
 
-Mutluluk programlama!
+Mutlu programlama!
 
 ### <a name="further-reading"></a>Daha Fazla Bilgi
 
-Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
+Bu öğreticide ele alınan konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [ELMAH - hata günlük modülleri ve işleyicileri](http://dotnetslackers.com/articles/aspnet/ErrorLoggingModulesAndHandlers.aspx)
-- [ELMAH proje sayfası](https://code.google.com/p/elmah/) (kaynak kodu, örnekleri, wiki)
-- [ELMAH içine bir Web uygulaması işlenmeyen özel durumları yakalamak için takma](http://screencastaday.com/ScreenCasts/43_Plugging_Elmah_into_Web_Application_to_Catch_Unhandled_Exceptions.aspx) (video)
+- [ELMAH - hata günlüğü modüller ve işleyiciler](http://dotnetslackers.com/articles/aspnet/ErrorLoggingModulesAndHandlers.aspx)
+- [ELMAH proje sayfası](https://code.google.com/p/elmah/) (kaynak kodu, örnekler, wiki)
+- [ELMAH ile bir Web uygulaması işlenmeyen özel durumları yakalamak için takma](http://screencastaday.com/ScreenCasts/43_Plugging_Elmah_into_Web_Application_to_Catch_Unhandled_Exceptions.aspx) (video)
 - [Güvenlik hata günlüğü sayfaları](https://code.google.com/p/elmah/wiki/SecuringErrorLogPages)
-- [HTTP modülleri ve işleyicileri takılabilir ASP.NET bileşenleri oluşturmak için kullanma](https://msdn.microsoft.com/library/aa479332.aspx)
+- [HTTP modüller ve işleyiciler kullanarak takılabilir ASP.NET bileşenleri oluşturma](https://msdn.microsoft.com/library/aa479332.aspx)
 - [Web sitesi güvenlik öğreticileri](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)
 
 > [!div class="step-by-step"]
 > [Önceki](logging-error-details-with-asp-net-health-monitoring-vb.md)
-> [sonraki](precompiling-your-website-vb.md)
+> [İleri](precompiling-your-website-vb.md)

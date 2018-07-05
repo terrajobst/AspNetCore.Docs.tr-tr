@@ -1,28 +1,27 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-implement-tracing-in-an-aspnet-web-site
-title: '[Nasıl stop yaparım]  İzleme, bir ASP.NET Web sitesi uygulansın mı? | Microsoft Docs'
+title: '[Bunu nasıl yaparım:]  İzleme, bir ASP.NET Web sitesinde uygulansın mı? | Microsoft Docs'
 author: rick-anderson
-description: Bu videoda Chris Pels izlemek ve performansını ölçmek için ve hataları tanılamak için bir ASP.NET web sitesini izleme uygulamak nasıl yapacağınızı gösterir. Değerlendirdiğiniz bilgi edinin...
+description: Bu videoda, Chris piksel nasıl bir ASP.NET web sitesinde izlemek veya performansını ölçmek için ve hataları tanılamak için izleme uygulanacağını gösterir. API'deki bilgi edinin...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/05/2007
 ms.topic: article
 ms.assetid: b3abbbef-ddac-4c8e-a068-5bab31db5931
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-implement-tracing-in-an-aspnet-web-site
 msc.type: video
-ms.openlocfilehash: 616d9827d6dd5661fdc938f27f20c745c6614956
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 82a73a51a1f4d34ef237cb5dcd67c6a094191fe2
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26572274"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37393829"
 ---
-<a name="how-do-i--implement-tracing-in-an-aspnet-web-site"></a>[Nasıl stop yaparım]  İzleme, bir ASP.NET Web sitesi uygulansın mı?
+<a name="how-do-i--implement-tracing-in-an-aspnet-web-site"></a>[Bunu nasıl yaparım:]  İzleme, bir ASP.NET Web sitesinde uygulansın mı?
 ====================
-tarafından [Chris Pels](https://twitter.com/chrispels)
+tarafından [Chris piksel](https://twitter.com/chrispels)
 
-Bu videoda Chris Pels izlemek ve performansını ölçmek için ve hataları tanılamak için bir ASP.NET web sitesini izleme uygulamak nasıl yapacağınızı gösterir. Tek tek sayfaları yanı sıra tüm web sitesine izleme eklemeyi öğrenin. Özel izleme iletilerinin sayfa ve site performansını değerlendirmek ve hatalarını tanılama yardımcı olmak için iş nesneleri eklemek bkz. Bir ASP.NET sayfası ve iş nesneleri izleme bilgilerini System.Diagnostics.Trace kullanarak izleme arasındaki farklar hakkında bilgi edinin. Günlük dosyalarına izleme bilgilerini yazma ve izleme Görüntüleyicisi'nde izleme bilgilerini görüntüleme da ele alınmıştır.
+Bu videoda, Chris piksel nasıl bir ASP.NET web sitesinde izlemek veya performansını ölçmek için ve hataları tanılamak için izleme uygulanacağını gösterir. Tek tek sayfaları yanı sıra bir web sitesinin tamamını izleme eklemeyi öğrenin. Özel izleme iletilerini sayfalar ve site performansını değerlendirmek ve hataları tanılama yardımcı olmak için iş nesneleri eklemek bkz. Bir ASP.NET sayfasında ve System.Diagnostics.Trace iş nesneleri izleme bilgilerini kullanarak izleme arasındaki farkları öğrenin. Günlük dosyaları için izleme bilgilerini yazma ve izleme Görüntüleyicisi'nde izleme bilgilerini görüntüleyerek de ele alınmıştır.
 
-[&#9654; (30 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-implement-tracing-in-an-aspnet-web-site)
+[&#9654;(30 dakika) videosunu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-implement-tracing-in-an-aspnet-web-site)

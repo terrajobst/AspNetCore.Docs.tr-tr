@@ -1,6 +1,6 @@
 ---
 uid: ajax/cdn/jquery-validate/cdnjqueryvalidate110
-title: jQuery doğrulama 1.10.0 | Microsoft Docs
+title: jQuery doğrulaması 1.10.0 | Microsoft Docs
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
@@ -9,22 +9,21 @@ ms.date: 07/23/2014
 ms.topic: article
 ms.assetid: e4fb3a63-1ee4-4c99-9e99-53b87a13d4ab
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /ajax/cdn/jquery-validate/cdnjqueryvalidate110
 msc.type: content
-ms.openlocfilehash: 1249d738fa9d0e377ac7221489642de155dd4898
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 4f8fd168d0d05ad37528eadd406c3409ef3154dd
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30071963"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37393312"
 ---
-<a name="jquery-validation-1100"></a>jQuery doğrulama 1.10.0
+<a name="jquery-validation-1100"></a>jQuery doğrulaması 1.10.0
 ====================
-Aşağıdaki dosyalar üzerinde CDN barındırılan:
+Aşağıdaki dosyalar, CDN'de barındırılan:
 
 - https://ajax.aspnetcdn.com/ajax/jquery.validate/1.10.0/jquery.validate.js
 - https://ajax.aspnetcdn.com/ajax/jquery.validate/1.10.0/jquery.validate.min.js
 - https://ajax.aspnetcdn.com/ajax/jquery.validate/1.10.0/additional-methods.js
 - https://ajax.aspnetcdn.com/ajax/jquery.validate/1.10.0/additional-methods.min.js
-- Yerelleştirme dosyaları adresindeki https://ajax.aspnetcdn.com/ajax/jquery.validate/1.10.0/localization/messages \_## .js burada ## loc kodudur.
+- Yerelleştirme dosyalarının https://ajax.aspnetcdn.com/ajax/jquery.validate/1.10.0/localization/messages\_##.js nerede ## loc kodudur.

@@ -1,32 +1,31 @@
 ---
 uid: web-forms/overview/older-versions-security/introduction/index
-title: ASP.NET 3.5 - güvenlik giriş | Microsoft Docs
+title: ASP.NET 3.5 - güvenliğe giriş | Microsoft Docs
 author: rick-anderson
-description: Bu öğreticiler dizi tek tek sayfaları için bir oturum açma formu (forms kimlik doğrulaması) kullanarak ve yetkilendirme erişim kullanıcıların kimlik doğrulaması için teknikleri inceler...
+description: Bu öğretici serisinde, her bir sayfayı (forms kimlik doğrulaması) bir oturum açma formunu kullanarak ve yetkilendirme erişimi olan kullanıcıların kimlik doğrulaması için teknikleri keşfediyor...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/04/2011
 ms.topic: article
 ms.assetid: ac5fcd71-317a-41ba-91ac-95121fc68126
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction
 msc.type: chapter
-ms.openlocfilehash: f964a35693e781451db24ae6ed7ca8d5aa7a6917
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 94176ea363bdea09650ffcd55528b8b5aad88878
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26570024"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37386448"
 ---
-<a name="aspnet-35---introduction-to-security"></a>ASP.NET 3.5 - güvenlik giriş
+<a name="aspnet-35---introduction-to-security"></a>ASP.NET 3.5 - güvenliğe giriş
 ====================
-> Bu öğreticiler dizi yetkilendirme ve bir oturum açma formu (forms kimlik doğrulaması) kullanarak bir ASP.NET uygulamasında tek tek sayfaları erişim kullanıcıların kimlik doğrulaması için teknikleri inceler.
+> Bu öğretici serisinde, yetkilendirme ve oturum açma formu (forms kimlik doğrulaması) kullanarak bir ASP.NET uygulamasında tek tek sayfaları erişimi olan kullanıcıların kimlik doğrulaması için teknikleri inceler.
 
 
-- [Güvenlik temel kavramları ve ASP.NET Destek (C#)](security-basics-and-asp-net-support-cs.md)
-- [Form kimlik doğrulaması (C#) genel bakış](an-overview-of-forms-authentication-cs.md)
-- [Forms kimlik doğrulaması yapılandırması ve Gelişmiş konular (C#)](forms-authentication-configuration-and-advanced-topics-cs.md)
-- [Güvenlik temel kavramları ve ASP.NET Destek (VB)](security-basics-and-asp-net-support-vb.md)
-- [Form kimlik doğrulaması (VB) genel bakış](an-overview-of-forms-authentication-vb.md)
-- [Forms kimlik doğrulaması yapılandırması ve Gelişmiş konular (VB)](forms-authentication-configuration-and-advanced-topics-vb.md)
+- [Temel Güvenlik Kavramları ve ASP.NET Desteği (C#)](security-basics-and-asp-net-support-cs.md)
+- [Forms Kimlik Doğrulamasına Genel Bakış (C#)](an-overview-of-forms-authentication-cs.md)
+- [Forms Kimlik Doğrulaması Yapılandırması ve Gelişmiş Konular (C#)](forms-authentication-configuration-and-advanced-topics-cs.md)
+- [Temel Güvenlik Kavramları ve ASP.NET Desteği (VB)](security-basics-and-asp-net-support-vb.md)
+- [Forms Kimlik Doğrulamasına Genel Bakış (VB)](an-overview-of-forms-authentication-vb.md)
+- [Forms Kimlik Doğrulaması Yapılandırması ve Gelişmiş Konular (VB)](forms-authentication-configuration-and-advanced-topics-vb.md)

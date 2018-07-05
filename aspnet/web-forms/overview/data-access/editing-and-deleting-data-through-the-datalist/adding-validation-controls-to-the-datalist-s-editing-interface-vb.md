@@ -1,201 +1,200 @@
 ---
 uid: web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/adding-validation-controls-to-the-datalist-s-editing-interface-vb
-title: Arabirim (VB) DataList doğrulama denetimleri ekleme düzenleme kullanıcının | Microsoft Docs
+title: DataList için doğrulama denetimleri ekleme (VB) arabirimi düzenleme kullanıcının | Microsoft Docs
 author: rick-anderson
-description: Bu öğreticide daha iyi bir düzenleme kullanıcı int sağlamak amacıyla DataList'ın EditItemTemplate doğrulama denetimleri ekleme ne kadar kolay olduğunu göreceksiniz...
+description: Bu öğreticide daha iyi bir düzenleme kullanıcı int sağlayabilmek için DataList'in EditItemTemplate doğrulama denetimleri eklemek için ne kadar kolay olduğunu görüyoruz...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/30/2006
 ms.topic: article
 ms.assetid: 6b073fc6-524d-453d-be7c-0c30986de391
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/adding-validation-controls-to-the-datalist-s-editing-interface-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 46ff0b18c1ea24dd73c9e3034c1b5e53f2e6d0c2
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 7b06020128daa01c58b27639ff1db23febc0cba9
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30888337"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37397596"
 ---
-<a name="adding-validation-controls-to-the-datalists-editing-interface-vb"></a>DataList'ın düzenleme arabirimine (VB) doğrulama denetimleri ekleme
+<a name="adding-validation-controls-to-the-datalists-editing-interface-vb"></a>DataList'in düzenleme arabirimine (VB) doğrulama denetimleri ekleme
 ====================
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Örnek uygulamayı indirin](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_39_VB.exe) veya [PDF indirin](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/datatutorial39vb1.pdf)
+[Örnek uygulamayı indirin](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_39_VB.exe) veya [PDF olarak indirin](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/datatutorial39vb1.pdf)
 
-> Bu öğreticide daha iyi bir düzenleme kullanıcı arabirimi için DataList'ın EditItemTemplate doğrulama denetimleri ekleme ne kadar kolay olduğunu göreceksiniz.
+> Bu öğreticide daha iyi bir düzenleme kullanıcı arabirimi sağlayabilmek için DataList'in EditItemTemplate doğrulama denetimleri eklemek için ne kadar kolay olduğunu göreceğiz.
 
 
 ## <a name="introduction"></a>Giriş
 
-Ürün adı eksik veya bir özel durum negatif fiyat sonuçlarında gibi geçersiz kullanıcı girişi olsa bile öğreticileri bugüne kadarki düzenleme DataList herhangi öngörülü kullanıcı girdisi doğrulama arabirimleri düzenleme belirleyebilen eklemediniz. İçinde [önceki öğretici](handling-bll-and-dal-level-exceptions-vb.md) şu özel durum işleme DataList s için kod ekleme incelenmesi `UpdateCommand` yakalamak ve düzgün biçimde ortaya çıktı tüm özel durumlar hakkında bilgi görüntülemek için olay işleyicisi. İdeal olarak, ancak düzenleme arabirimi bir kullanıcı ilk başta böyle geçersiz veri girişini engellemek için doğrulama denetimleri içerir.
+Ürün adı eksik ya da bir özel durum negatif fiyat sonuçları gibi geçersiz kullanıcı girişi olsa bile öğreticiler şimdiye kadarki düzenleme DataList herhangi bir etkin kullanıcı girdisi doğrulama arabirimleri düzenleme belirleyebilen eklemediniz. İçinde [önceki öğretici](handling-bll-and-dal-level-exceptions-vb.md) biz özel durum işleme DataList s için kod ekleme incelenirken `UpdateCommand` catch ve düzgün bir şekilde ortaya çıktı özel durumları hakkında bilgi görüntülemek için olay işleyicisi. İdeal olarak, ancak düzenleme arabirimi kullanıcı geçersiz tür verilerin ilk başta girmesini önlemek için doğrulama denetimleri dahildir.
 
-Bu öğreticide s DataList doğrulama denetimleri ekleme ne kadar kolay olduğunu göreceğiz `EditItemTemplate` daha iyi bir düzenleme kullanıcı arabirimi için. Özellikle, bu öğreticinin önceki öğreticide oluşturulan örnek alır ve uygun doğrulama içerecek şekilde düzenleme arabirimi artırmaktadır.
+Bu öğreticide DataList s doğrulama denetimleri eklemek için ne kadar kolay olduğunu göreceğiz `EditItemTemplate` daha iyi bir düzenleme kullanıcı arabirimi sağlamak için. Özellikle, bu öğreticide, önceki öğreticide oluşturulan örnek alır ve uygun doğrulama eklemek için düzenleme arabirimi artırmaktadır.
 
-## <a name="step-1-replicating-the-example-fromhandling-bll--and-dal-level-exceptionshandling-bll-and-dal-level-exceptions-vbmd"></a>1. adım: örnekten çoğaltma[BLL ve DAL düzeyi özel durumları işleme](handling-bll-and-dal-level-exceptions-vb.md)
+## <a name="step-1-replicating-the-example-fromhandling-bll--and-dal-level-exceptionshandling-bll-and-dal-level-exceptions-vbmd"></a>1. adım: örnek çoğaltma[BLL ve DAL düzeyi özel durumları işleme](handling-bll-and-dal-level-exceptions-vb.md)
 
-İçinde [işleme BLL - ve DAL düzeyinde istisnalar](handling-bll-and-dal-level-exceptions-vb.md) adları ve iki sütun, düzenlenebilir DataList ürünlerinde fiyatları listelenen bir sayfa oluşturduğumuz öğretici. Amacımız Bu öğretici için doğrulama denetimlerinin içerecek şekilde DataList s düzenleme arabirimi büyütmek olmaktır. Özellikle, doğrulama mantığımızı olur:
+İçinde [işleme BLL ve DAL düzeyi özel durumları](handling-bll-and-dal-level-exceptions-vb.md) öğretici adları ve iki sütunlu, düzenlenebilir bir DataList ürünleri fiyatları listelenen bir sayfa oluşturduk. Hedefimiz Bu öğretici için doğrulama denetimleri içerecek şekilde DataList s düzenleme arabirimi genişletmek sağlamaktır. Özellikle, bizim Doğrulama mantığı olur:
 
-- Ürün s adının sağlanması gerekir
-- Fiyat için girilen değer geçerli para birimi biçiminde olduğundan emin olun
-- Fiyat negatif itibaren sıfıra eşit veya daha büyük için girilen değer emin `UnitPrice` değeri geçersiz
+- Ürün s adı sağlanmasını gerektirir
+- Fiyat için girilen değer geçerli bir para birimi biçiminde olduğundan emin olun
+- Fiyat değerinden büyük veya sıfır, negatif bir yana için girilen değer emin `UnitPrice` değer geçersizdir
 
-Biz doğrulama dahil etmek için önceki örnekte program.cs'ye adresindeki bakabilirsiniz önce ilk örnekten çoğaltmak ihtiyacımız `ErrorHandling.aspx` sayfasındaki `EditDeleteDataList` Bu öğretici için sayfa klasörüne `UIValidation.aspx`. Bu hem kopyalamak için ihtiyacımız elde etmek için `ErrorHandling.aspx` sayfa s bildirim temelli biçimlendirme ve kaynak kodu. İlk bildirim temelli biçimlendirme, aşağıdaki adımları gerçekleştirerek kopyalayın:
+Biz sırasında doğrulama eklemek için önceki örnekte deneyimlerinizi göz atmadan önce ilk örnekte çoğaltmak ihtiyacımız `ErrorHandling.aspx` sayfasını `EditDeleteDataList` sayfanın Bu öğretici için bir klasöre `UIValidation.aspx`. İhtiyacımız hem de kopyalamak için bunu başarmanın `ErrorHandling.aspx` sayfasında s bildirim temelli biçimlendirme ve kaynak kodu. İlk bildirim temelli biçimlendirme, aşağıdaki adımları uygulayarak kopyalayın:
 
-1. Açık `ErrorHandling.aspx` Visual Studio'da sayfası
-2. Sayfa s bildirim temelli biçimlendirme (sayfanın sonundaki kaynağı düğmesini tıklatın) gidin
-3. Metni kopyalayın `<asp:Content>` ve `</asp:Content>` gösterildiği Şekil 1 olarak etiketler (çizgiler 3 ile 32 arasında).
+1. Açık `ErrorHandling.aspx` Visual Studio'daki sayfası
+2. Sayfa s bildirim temelli biçimlendirme (sayfanın alt kısmındaki kaynağı düğmesini tıklatın) gidin
+3. Metni kopyalayın `<asp:Content>` ve `</asp:Content>` gösterildiği Şekil 1 olarak etiketleri (satırlar 3 ile 32 arasında).
 
 
-[![Metin içinde kopyalama &lt;asp: içerik&gt; denetimi](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image2.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image1.png)
+[![Metin içindeki kopyalama &lt;asp: Content&gt; denetimi](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image2.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image1.png)
 
-**Şekil 2**: metin içinde kopyalama `<asp:Content>` denetimi ([tam boyutlu görüntüyü görüntülemek için tıklatın](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image3.png))
+**Şekil 2**: metin içinde kopyalama `<asp:Content>` denetimi ([tam boyutlu görüntüyü görmek için tıklatın](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image3.png))
 
 
 1. Açık `UIValidation.aspx` sayfası
 2. Sayfa s bildirim temelli işaretlemede gidin
-3. İçindeki metni yapıştırın `<asp:Content>` denetim.
+3. İçindeki metni yapıştırın `<asp:Content>` denetimi.
 
-Kaynak kodu kopyalamak için açık `ErrorHandling.aspx.vb` sayfasında ve yalnızca metni kopyalayın *içinde* `EditDeleteDataList_ErrorHandling` sınıfı. Üç olay işleyicileri kopyalayın (`Products_EditCommand`, `Products_CancelCommand`, ve `Products_UpdateCommand`) ile birlikte `DisplayExceptionDetails` yöntemi, ancak **değil** sınıf bildiriminin kopyalayın veya `using` deyimleri. Kopyalanan metni yapıştırmayı *içinde* `EditDeleteDataList_UIValidation` sınıfını `UIValidation.aspx.vb`.
+Kaynak kodu kopyalamak açın `ErrorHandling.aspx.vb` sayfasında ve metni kopyalayın *içinde* `EditDeleteDataList_ErrorHandling` sınıfı. Üç olay işleyicileri kopyalayın (`Products_EditCommand`, `Products_CancelCommand`, ve `Products_UpdateCommand`) ile birlikte `DisplayExceptionDetails` yöntemi, ancak **değil** sınıf bildiriminin kopyalayın veya `using` deyimleri. Kopyalanan metni yapıştırmayı *içinde* `EditDeleteDataList_UIValidation` sınıfını `UIValidation.aspx.vb`.
 
-İçerik ve kod üzerinden taşıdıktan `ErrorHandling.aspx` için `UIValidation.aspx`, bir tarayıcı sayfalarında çıkışı test etmek için bir dakikanızı ayırın. Aynı çıktı bakın ve her (bkz: Şekil 2) bu iki sayfaları aynı işlevselliği deneyimi gerekir.
+İçerik ve kod üzerinde taşıdıktan `ErrorHandling.aspx` için `UIValidation.aspx`, bir tarayıcıda sayfaların kullanıma test etmek için bir dakikanızı ayırın. Aynı çıktıyı görmek ve her iki sayfaların (bkz: Şekil 2) aynı işlevselliği deneyimi gerekir.
 
 
-[![UIValidation.aspx sayfa ErrorHandling.aspx işlevindeki taklit eder](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image5.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image4.png)
+[![UIValidation.aspx sayfanın ErrorHandling.aspx işlevlerini taklit eder.](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image5.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image4.png)
 
-**Şekil 2**: `UIValidation.aspx` sayfa taklit eder işlevindeki `ErrorHandling.aspx` ([tam boyutlu görüntüyü görüntülemek için tıklatın](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image6.png))
+**Şekil 2**: `UIValidation.aspx` sayfa işlevlerini taklit eden `ErrorHandling.aspx` ([tam boyutlu görüntüyü görmek için tıklatın](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image6.png))
 
 
 ## <a name="step-2-adding-the-validation-controls-to-the-datalist-s-edititemtemplate"></a>2. adım: DataList s EditItemTemplate için doğrulama denetimleri ekleme
 
-Veri girişi formları oluşturulurken, kullanıcılar gerekli alanları girin ve kendi sağlanan tüm girişleri yasal, düzgün biçimlendirilmiş değerler olduğunu önemlidir. Bir kullanıcı s girişleri geçerli olduğundan emin olun yardımcı olmak için ASP.NET, tek bir giriş Web denetim değerini doğrulamak için tasarlanmış beş yerleşik doğrulama denetimleri sağlar:
+Veri girişi formları oluştururken kullanıcılar gerekli alanları girin ve bunların sağlanan girişler geçerli, doğru biçimlendirilmiş değerlerinin olduğunu önemlidir. Bir kullanıcı s girişleri geçerli olduğundan emin olun yardımcı olmak için tek bir giriş Web denetim değerini doğrulamak için tasarlanmış beş yerleşik doğrulama denetimleri ASP.NET sağlar:
 
-- [RequiredFieldValidator](https://msdn.microsoft.com/library/5hbw267h(VS.80).aspx) değeri sağlanmış sağlar
-- [CompareValidator](https://msdn.microsoft.com/library/db330ayw(VS.80).aspx) bir değeri başka bir Web denetimi değer veya sabit bir değer karşı doğrular veya değer s biçimi, belirtilen veri türü için geçerli olmasını sağlar
+- [RequiredFieldValidator](https://msdn.microsoft.com/library/5hbw267h(VS.80).aspx) bir değer sağlandı sağlar
+- [CompareValidator](https://msdn.microsoft.com/library/db330ayw(VS.80).aspx) bir değeri başka bir Web denetim değerini veya bir sabit değer karşı doğrular ve s değeri biçimi belirtilen veri türü için geçerli olmasını sağlar
 - [RangeValidator](https://msdn.microsoft.com/library/f70d09xt.aspx) değerleri aralığı içinde bir değer olmasını sağlar
-- [RegularExpressionValidator](https://msdn.microsoft.com/library/eahwtc9e.aspx) bir değer karşı doğrular bir [normal ifade](http://en.wikipedia.org/wiki/Regular_expression)
-- [CustomValidator](https://msdn.microsoft.com/library/9eee01cx(VS.80).aspx) bir değer özel, kullanıcı tanımlı bir yöntem karşı doğrular
+- [RegularExpressionValidator](https://msdn.microsoft.com/library/eahwtc9e.aspx) karşı bir değer doğrulayan bir [normal ifade](http://en.wikipedia.org/wiki/Regular_expression)
+- [CustomValidator](https://msdn.microsoft.com/library/9eee01cx(VS.80).aspx) bir değer, kullanıcı tarafından tanımlanan özel bir yöntem karşı doğrular
 
-Bu beş denetimleri hakkında daha fazla bilgi için geri başvurmak [doğrulama denetimleri ekleme düzenleme ve ekleme arabirimleri için](../editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-vb.md) öğretici veya kullanıma [doğrulama denetimleri bölüm](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/validation/default.aspx) ,[ASP.NET Quickstart öğreticileri](https://quickstarts.asp.net).
+Bu beş denetimleri hakkında daha fazla bilgi için kiracıurl [arabirimleri ekleme ve düzenleme için doğrulama denetimleri ekleme](../editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-vb.md) öğretici veya kullanıma [doğrulama denetimleri bölümüne](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/validation/default.aspx) ,[ASP.NET hızlı başlangıç öğreticileri](https://quickstarts.asp.net).
 
-Bizim öğretici için size ürün adı için bir değer sağlanan emin olmak için bir RequiredFieldValidator ve girilen fiyat 0 değerine eşit veya daha büyük bir değere sahip ve geçerli para birimi biçiminde sunulan emin olmak için bir CompareValidator kullanmanız gerekir.
+Müşterilerimize öğreticide biz ürün adı için bir değer sağlandığından emin olmak için bir RequiredFieldValidator ve girilen fiyat 0'a eşit veya daha büyük bir değere sahip ve geçerli para birimi biçiminde sunulan emin olmak için bir CompareValidator kullanmanız gerekir.
 
 > [!NOTE]
-> While ASP.NET 1.x sahip aynı bu beş doğrulama denetimleri, ASP.NET 2.0 bazı geliştirmeler eklendi, ana iki istemci tarafı komut dosyası olan Internet Explorer yanı sıra tarayıcılar ve bir sayfaya bölüm doğrulama denetimleri yeteneği desteği doğrulama grupları. 2. 0 doğrulama denetimi yenilikleri hakkında daha fazla bilgi için başvurmak [ASP.NET 2. 0 doğrulama denetimleri Dissecting](http://aspnet.4guysfromrolla.com/articles/112305-1.aspx).
+> While ASP.NET 1.x sahip aynı bu beş doğrulama denetimleri, ASP.NET 2.0 birkaç geliştirme eklendi, Internet Explorer'a ek olarak tarayıcılar ve bölüm doğrulama denetimleri içeren bir sayfa ile özelliği için destek ana iki istemci tarafı komut dosyası oluşturuluyor doğrulama gruplar. Yeni doğrulama denetimi 2.0 hakkında daha fazla bilgi için başvurmak [doğrulama denetimleri ASP.NET 2.0 ayrıntıları](http://aspnet.4guysfromrolla.com/articles/112305-1.aspx).
 
 
-S DataList gerekli doğrulama denetimlerini ekleyerek başlayın s izin `EditItemTemplate`. Bu görev, DataList s akıllı etiket Şablonları Düzenle bağlantısından tıklayarak Tasarımcısı aracılığıyla ya da bildirim temelli söz dizimi aracılığıyla gerçekleştirilebilir. S adım Tasarım görünümünden Şablonları Düzenle seçeneğini kullanarak işlemiyle olanak tanır. S DataList düzenlemek seçme sonra `EditItemTemplate`, şablon düzenleme arabirimine Araç Kutusu'ndan sürükleyerek bir RequiredFieldValidator ekleyin, sonra yerleştirme `ProductName` metin kutusu.
+DataList s gerekli doğrulama denetimleri ekleyerek başlayın s izin `EditItemTemplate`. Bu görevi, Tasarımcı DataList s akıllı etiketinde Şablonları Düzenle bağlantısına tıklayarak veya bildirim temelli söz dizimi aracılığıyla gerçekleştirilebilir. Tasarım görünümünde Şablonları Düzenle seçeneğini kullanarak işlem s adımlayın olanak tanır. DataList s düzenlenecek seçtikten sonra `EditItemTemplate`, yerleştirme bundan sonra şablon düzenleme arabirimine Toolbox'tan sürükleyerek bir RequiredFieldValidator ekleme `ProductName` metin.
 
 
-[![Bir RequiredFieldValidator EditItemTemplate sonra ProductName metin kutusu ekleyin.](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image8.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image7.png)
+[![Bir RequiredFieldValidator için EditItemTemplate sonra ProductName metin kutusu ekleyin.](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image8.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image7.png)
 
-**Şekil 3**: bir RequiredFieldValidator eklemek `EditItemTemplate After` `ProductName` TextBox ([tam boyutlu görüntüyü görüntülemek için tıklatın](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image9.png))
-
-
-Tüm doğrulama denetimleri, tek bir ASP.NET Web denetim girişi doğrulayarak çalışır. Bu nedenle, az önce eklediğimiz RequiredFieldValidator karşı doğrulamalıdır belirtmek ihtiyacımız `ProductName` TextBox; bu doğrulama denetimi s ayarlayarak yapılır [ `ControlToValidate` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.controltovalidate(VS.80).aspx) için `ID` , uygun Web denetimi (`ProductName`, bu örnekte). Ardından, ayarlayın [ `ErrorMessage` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.errormessage(VS.80).aspx) için ürün s adını sağlayın ve [ `Text` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.text(VS.80).aspx) için \*. `Text` Özellik değeri, sağlanan varsa, doğrulama başarısız olursa doğrulama denetimi tarafından görüntülenen metin. `ErrorMessage` , Gerekli özellik değeri ValidationSummary denetimi tarafından; kullanılır `Text` özellik değeri atlanırsa, `ErrorMessage` özellik değeri geçersiz giriş doğrulama denetimi tarafından görüntülenir.
-
-Bu üç RequiredFieldValidator özelliklerini ayarladıktan sonra ekranınızın Şekil 4'e benzer görünmelidir.
+**Şekil 3**: eklemek için bir RequiredFieldValidator `EditItemTemplate After` `ProductName` TextBox ([tam boyutlu görüntüyü görmek için tıklatın](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image9.png))
 
 
-[![RequiredFieldValidator s ControlToValidate, ErrorMessage ve metin özelliklerini ayarlama](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image11.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image10.png)
+Tüm doğrulama denetimleri, tek bir ASP.NET Web denetim girişi doğrulayarak çalışır. Bu nedenle, eklediğimiz yöntemlerin RequiredFieldValidator karşı doğrulamalıdır belirtmek ihtiyacımız `ProductName` TextBox; bu doğrulama denetimi s ayarlayarak yapılır [ `ControlToValidate` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.controltovalidate(VS.80).aspx) için `ID` , uygun Web denetimi (`ProductName`, bu örnekte). Ardından, ayarlama [ `ErrorMessage` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.errormessage(VS.80).aspx) için ürün s adını belirtmeniz gerekir ve [ `Text` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basevalidator.text(VS.80).aspx) için \*. `Text` Özellik değeri, sağlanan varsa, doğrulama başarısız olursa doğrulama denetimi tarafından görüntülenen metin. `ErrorMessage` Gerekli olan özellik değeri varsa ValidationSummary denetimi tarafından kullanılan `Text` özellik değeri atlanırsa, `ErrorMessage` özellik değeri geçersiz giriş doğrulama denetimi tarafından görüntülenir.
 
-**Şekil 4**: RequiredFieldValidator s ayarlamak `ControlToValidate`, `ErrorMessage`, ve `Text` özellikleri ([tam boyutlu görüntüyü görüntülemek için tıklatın](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image12.png))
+Bu üç özelliklerini RequiredFieldValidator ayarladıktan sonra ekranınızın Şekil 4'e benzer görünmelidir.
 
 
-Eklenen RequiredFieldValidator ile `EditItemTemplate`, tüm kalan olduğunu ürün s fiyat TextBox gerekli doğrulama eklemek için. Bu yana `UnitPrice` isteğe bağlı olan bir kayıt düzenlerken, biz t bir RequiredFieldValidator eklemek gerek güncelleştireceğinizi. Ancak, emin olmak için bir CompareValidator eklemek ihtiyacımız `UnitPrice`, sağlandıysa, para birimi olarak düzgün biçimlendirildiğinden ve büyük veya 0 değerine eşit.
+[![RequiredFieldValidator s ControlToValidate, ErrorMessage ve metin özellikleri ayarlama](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image11.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image10.png)
 
-CompareValidator içine ekleme `EditItemTemplate` ve kendi `ControlToValidate` özelliğine `UnitPrice`, kendi `ErrorMessage` fiyat özelliğine değerinden büyük veya sıfıra eşit olmalı ve para birimi simgesini içeremez ve kendi `Text` özelliğine\*. Belirtmek için `UnitPrice` değeri sıfırdan büyük veya 0 değerine eşit, CompareValidator s ayarlamak [ `Operator` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.comparevalidator.operator(VS.80).aspx) için `GreaterThanEqual`, kendi [ `ValueToCompare` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.comparevalidator.valuetocompare(VS.80).aspx) 0 ve kendi [ `Type` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basecomparevalidator.type.aspx) için `Currency`.
+**Şekil 4**: RequiredFieldValidator s ayarlamak `ControlToValidate`, `ErrorMessage`, ve `Text` özellikleri ([tam boyutlu görüntüyü görmek için tıklatın](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image12.png))
 
-Bu iki doğrulama denetimleri, s DataList ekledikten sonra `EditItemTemplate` s Tanımlayıcı Sözdizimi aşağıdakine benzer görünmelidir:
+
+İle eklenen RequiredFieldValidator `EditItemTemplate`, tüm kalan olduğunu ürün s fiyatı metin kutusu için gerekli doğrulama eklemek için. Bu yana `UnitPrice` isteğe bağlı olduğu bir kaydın düzenlenmesi, biz bir RequiredFieldValidator eklemek için gereksinim t ki. Ancak, emin olmak için bir CompareValidator eklemek ihtiyacımız `UnitPrice`, belirtilirse, bir para birimi olarak düzgün biçimlendirildiğinden ve büyük veya 0'a eşit.
+
+CompareValidator içine ekleme `EditItemTemplate` ve kendi `ControlToValidate` özelliğini `UnitPrice`, kendi `ErrorMessage` fiyat özelliğini değerinden büyük veya sıfıra eşit olmalı ve para birimi sembolünü içeremez ve kendi `Text` özelliğini\*. Göstermek için `UnitPrice` değeri 0'a eşit veya sıfırdan büyük, CompareValidator s ayarlamak [ `Operator` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.comparevalidator.operator(VS.80).aspx) için `GreaterThanEqual`, kendi [ `ValueToCompare` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.comparevalidator.valuetocompare(VS.80).aspx) 0 ve kendi [ `Type` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basecomparevalidator.type.aspx) için `Currency`.
+
+Bu iki doğrulama denetimleri, s DataList ekledikten sonra `EditItemTemplate` s bildirim temelli söz dizimi aşağıdakine benzer görünmelidir:
 
 
 [!code-aspx[Main](adding-validation-controls-to-the-datalist-s-editing-interface-vb/samples/sample1.aspx)]
 
-Bu değişiklikleri yaptıktan sonra sayfasını bir tarayıcıda açın. Adını Atla veya bir ürün düzenlerken geçersiz Fiyat değerini girin denerseniz, textbox yanındaki bir yıldız işareti görünür. Şekil 5 gösterildiği gibi $19.95 gibi para birimi simgesini içeren bir fiyat değer geçersiz olarak kabul edilir. CompareValidator s `Currency` `Type` ve bir başında artı veya eksi işareti (örneğin, virgül veya nokta kültür ayarlarına bağlı olarak) basamak ayırıcıları için verir, ancak mu *değil* para birimi simgesini izin verir. Şu anda düzenleme arabirimi işler gibi bu davranış kullanıcılar perplex `UnitPrice` para birimi biçimi kullanarak.
+Bu değişiklikleri yaptıktan sonra sayfasını bir tarayıcıda açın. Bir ürün düzenlerken geçersiz Fiyat değeri girin veya adını Atla çalışırsanız, metin kutusunun yanındaki bir yıldız işareti görünür. Şekil 5 gösterildiği gibi $19.95 para birimi sembolü içeren bir fiyat değerini geçersiz olarak kabul edilir. CompareValidator s `Currency` `Type` rakam ayırıcıları (örneğin, kültür ayarlarına bağlı olarak, nokta veya virgül) ve önüne bir artı veya eksi işareti için izin verir, ancak mu *değil* bir para birimi simgesi izin verir. Şu anda düzenleme arabirimi işler gibi bu davranış kullanıcılar perplex `UnitPrice` para birimi biçimi kullanarak.
 
 
-[![Geçersiz giriş ile kutularındaki yanında bir yıldız işareti görünür](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image14.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image13.png)
+[![Geçersiz giriş içeren metin kutuları yanında bir yıldız işareti görünür](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image14.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image13.png)
 
-**Şekil 5**: bir yıldız işareti görünür sonraki geçersiz giriş içeren metin kutuları için ([tam boyutlu görüntüyü görüntülemek için tıklatın](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image15.png))
+**Şekil 5**: bir yıldız işareti görünür bir sonraki geçersiz giriş içeren metin kutuları ([tam boyutlu görüntüyü görmek için tıklatın](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image15.png))
 
 
-While olarak doğrulama çalışır-olduğundan, kullanıcının sahip olduğu kabul edilebilir değil bir kayıt düzenlerken para birimi simgesini el ile kaldırmak. Ayrıca, varsa geçersiz düzenleme girişleri tıklandığında, bir geri gönderme çağıracağı hiçbiri güncelleştirme ya da İptal düğmeleri, arabirim. İdeal olarak, İptal düğmesi DataList kullanıcı s girişleri geçerliliğini bağımsız olarak önceden düzenleme durumuna döndürür. Ayrıca, ürün bilgileri için s DataList güncelleştirmeden önce sayfa s verileri geçerli olduğundan emin olmak ihtiyacımız `UpdateCommand` istemci-tarafı mantığı tarayıcıları t desteği JavaScript güncelleştireceğinizi ya da sahip kullanıcılar tarafından atlanır doğrulama denetimleri olarak olay işleyicisi desteğini devre dışı.
+While olarak doğrulama çalışır-olduğundan, kullanıcının sahip olduğu kabul edilebilir değil bir kaydı düzenleme yaparken para birimi simgesi el ile kaldırmak. Ayrıca, varsa geçersiz girişler düzenleme tıklandığında, bir geri gönderme çağıracağı hiçbiri güncelleştirme ya da İptal düğmeleri, arabirim. İdeal olarak, iptal düğmesine DataList kullanıcı s girişleri geçerliliğini bağımsız olarak önceden düzenleme durumuna getirir. Ayrıca, ürün bilgisi s DataList'te güncelleştirmeden önce sayfa s verileri geçerli olmasını sağlamak ihtiyacımız `UpdateCommand` istemci tarafı mantığını cors'un atlanması tarayıcıları t destek JavaScript ki ya da kullanıcılar tarafından doğrulama denetimleri olarak bir olay işleyicisi desteğini devre dışı.
 
-## <a name="removing-the-currency-symbol-from-the-edititemtemplate-s-unitprice-textbox"></a>Para birimi simgesini EditItemTemplate s UnitPrice metin kaldırma
+## <a name="removing-the-currency-symbol-from-the-edititemtemplate-s-unitprice-textbox"></a>Para birimi simgesi EditItemTemplate s UnitPrice TextBox'dan kaldırılıyor
 
-CompareValidator s kullanırken `Currency``Type`, Doğrulanmakta olan giriş hiçbir para birimi simgesini içermemesi gerekir. Bu tür simgeleri varlığını giriş geçersiz olarak işaretlemek CompareValidator neden olur. Ancak, düzenleme arabirimimizi bir para birimi simgesini şu anda içerir `UnitPrice` metin kutusuna, kullanıcının açıkça kaldırmalısınız para birimi simgesini yaptıkları değişiklikleri kaydetmeden önce anlamına gelir. Bu sorunu gidermek için şu üç seçeneğiniz vardır:
+CompareValidator s kullanırken `Currency``Type`, Doğrulanmakta olan giriş para birimi sembollerini içermemesi gerekir. Tür simgeleri varlığını giriş geçersiz olarak işaretlemek CompareValidator neden olur. Şu anda bir para birimi sembolü, ancak düzenleme arabirimimizi içerir `UnitPrice` metin kullanıcı açıkça kaldırmalısınız para birimi simgesi yaptıkları değişiklikleri kaydetmeden önce anlamına gelir. Bu sorunu gidermek için üç seçenek sunuyoruz:
 
-1. Yapılandırma `EditItemTemplate` böylece `UnitPrice` TextBox değeri para birimi olarak biçimlendirilmemiş.
-2. Kullanıcının CompareValidator kaldırarak ve düzgün şekilde biçimlendirilmiş para birimi değeri için denetler RegularExpressionValidator ile değiştirerek bir para birimi simgesini girin izin verin. Sınama burada para birimi değeri doğrulamak için normal ifade CompareValidator kadar basit değildir ve kültür ayarları içerecek şekilde istediyseniz kod yazma gerektirir.
-3. Doğrulama denetimi tamamen kaldırın ve özel sunucu tarafı doğrulama mantığını GridView s Bel `RowUpdating` olay işleyicisi.
+1. Yapılandırma `EditItemTemplate` böylece `UnitPrice` TextBox değeri, para birimi olarak biçimlendirilmemiş.
+2. Kullanıcının bir para birimi simgesi CompareValidator kaldırarak ve düzgün şekilde biçimlendirilmiş bir para birimi değerini denetleyen bir RegularExpressionValidator yerine girin izin verin. Buradaki zorluk, bir para birimi değeri doğrulamak için normal ifade CompareValidator basit değildir ve kültür ayarları eklemek isterseniz, kod yazma gerekir.
+3. Doğrulama denetimi tamamen kaldırın ve özel sunucu tarafı doğrulama mantığını GridView s dayanan `RowUpdating` olay işleyicisi.
 
-Bu öğretici için 1 seçeneğiyle Git s olanak tanır. Şu anda `UnitPrice` metin kutusunda veri bağlama deyimi nedeniyle para birimi değeri olarak biçimlendirilmiş `EditItemTemplate`: `<%# Eval("UnitPrice", "{0:c}") %>`. Değişiklik `Eval` ifadesine `Eval("UnitPrice", "{0:n2}")`, bir dizi duyarlık iki basamaklı sonucu biçimlendirir. Bu bildirim temelli söz dizimi aracılığıyla doğrudan veya veri bağlamaları Düzenle bağlantıyı tıklatarak yapılabilir `UnitPrice` metin kutusuna s DataList `EditItemTemplate`.
+Bu öğretici için 1 seçeneği ile Git s olanak tanır. Şu anda `UnitPrice` metin kutusunda veri bağlama ifadesi nedeniyle para birimi değeri olarak biçimlendirilmiş `EditItemTemplate`: `<%# Eval("UnitPrice", "{0:c}") %>`. Değişiklik `Eval` ifadesine `Eval("UnitPrice", "{0:n2}")`, duyarlık iki basamaklı sayı olarak sonucu biçimlendirir. Bu bildirim temelli söz dizimi aracılığıyla doğrudan veya veri bağlamaları Düzenle bağlantısına tıklayarak yapılabilir `UnitPrice` TextBox s DataList'te `EditItemTemplate`.
 
-Bu değişikliği düzenleme arabiriminde biçimlendirilmiş Fiyat Grup ayırıcı olarak virgül ve ondalık ayırıcı olarak nokta içerir, ancak para birimi simgesini devre dışı bırakır.
+Bu değişikliğe düzenleme arabirimi biçimlendirilmiş fiyatına Grup ayırıcı olarak virgül ve ondalık ayırıcısı olarak nokta içerir, ancak para birimi simgesi devre dışı bırakır.
 
 > [!NOTE]
-> Para birimi biçiminde düzenlenebilir arabiriminden kaldırırken, ı TextBox dışında metin olarak para birimi simgesini koymak yararlı. Para birimi simgesini sağlamak zorunda değildir kullanıcı bir ipucu olarak görev yapar.
+> Para birimi biçimi düzenlenebilir arabiriminden kaldırırken, ı TextBox dışında metin olarak para birimi simgesini yerleştirmek yararlı. Bu, para birimi simgesi sağlamak zorunda değildir kullanıcıya bir ipucu görür.
 
 
-## <a name="fixing-the-cancel-button"></a>İptal düğmesi çözme
+## <a name="fixing-the-cancel-button"></a>İptal düğmesi düzeltme
 
-Varsayılan olarak, istemci tarafında doğrulama gerçekleştirmek için JavaScript doğrulama Web denetimleri yayma. Düğme, LinkButton veya ImageButton tıklatıldığında geri gönderme oluşmadan önce sayfasında doğrulama denetimleri istemci tarafında denetlenir. Herhangi bir geçersiz veri varsa, geri gönderme işlemi iptal edildi. Belirli düğmeleri için yine de verilerin geçerliliğini kurucularýn olabilir; Böyle bir durumda, geçersiz veri nedeniyle iptal geri gönderme sahip bir zarar verici istenir.
+Varsayılan olarak, istemci tarafında doğrulama gerçekleştirmek için JavaScript doğrulama Web denetimleri gösterin. Bir düğme, LinkButton veya ImageButton tıklandı, geri gönderme gerçekleşmeden önce sayfadaki doğrulama denetimleri istemci tarafında denetlenir. Herhangi bir geçersiz veri varsa, geri gönderme işlemi iptal edildi. Belirli düğmelerin için yine de verilerin geçerliliğini kurucularýn olabilir; Böyle bir durumda, geçersiz veriler nedeniyle iptal geri gönderme bir sıkıntı yaşanmaktadır.
 
-İptal düğmesi böyle bir örnektir. Bir kullanıcı s ürün adı, atlanması gibi geçersiz veri girer ve ardından SEH içermiyor t istediğiniz ürün tüm kaydetmeye karar verir ve iptal düğmesi isabetler olduğunu düşünün. Şu anda iptal düğmesi, ürün adı eksik ve geri gönderme önlemek rapor doğrulama denetimleri sayfasında tetikler. Bizim kullanıcının bazı metin türüne sahip `ProductName` yalnızca dışında düzenleme işlemi iptal etmek için metin kutusu.
+İptal düğmesi böyle bir örnektir. Bir kullanıcı s ürün adını atlama gibi geçersiz verilerden girer ve ardından SEH eklenmemişse t istediğiniz tüm ürün kaydetmeye karar verir ve iptal düğmesi İsabetleri olduğunu hayal edin. Şu anda iptal düğmesi, ürün adı eksik ve geri göndermeyi önlemek rapor sayfasında doğrulama denetimleri tetikler. Metin türü kullanıcı sahip `ProductName` yalnızca dışında düzenleme işlemi iptal etmek için metin kutusu.
 
-Neyse ki, düğme, LinkButton ve ImageButton sahip bir [ `CausesValidation` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.causesvalidation.aspx) , belirtebilirsiniz tıklatarak olup olmadığına bakılmaksızın düğmesi doğrulama mantığını başlatmak (varsayılan olarak `True`). İptal düğmesi s ayarlamak `CausesValidation` özelliğine `False`.
+Neyse ki, düğme, LinkButton ve ImageButton sahip bir [ `CausesValidation` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.causesvalidation.aspx) , belirtebilirsiniz tıklayarak olup olmadığını doğrulama mantığı düğme başlatmak (varsayılan olarak `True`). İptal düğmesi s ayarlamak `CausesValidation` özelliğini `False`.
 
-## <a name="ensuring-the-inputs-are-valid-in-the-updatecommand-event-handler"></a>Olan geçerli UpdateCommand olay işleyicisi alanındaki girişleri sağlama
+## <a name="ensuring-the-inputs-are-valid-in-the-updatecommand-event-handler"></a>Geçerli UpdateCommand olay işleyicisinde olan giriş sağlama
 
-Doğrulama denetimleri tarafından gösterilen istemci tarafı komut dosyası nedeniyle kullanıcı geçersiz giriş girerse doğrulama denetimleri LinkButton, düğme tarafından başlatılan tüm Geri göndermeler iptal veya ImageButton denetimleri `CausesValidation` özellikleri `True` ( varsayılan). Ancak, bir kullanıcı antiquated bir tarayıcı veya biri, JavaScript desteği devre dışı ziyaret, istemci tarafı doğrulama denetimlerini çalıştırmaz.
+Doğrulama denetimleri tarafından yayılan istemci tarafı komut dosyası nedeniyle bir kullanıcı geçersiz giriş girerse doğrulama denetimleri LinkButton, düğme tarafından başlatılan tüm Geri göndermeler iptal etme veya ImageButton denetimleri `CausesValidation` özellikleri `True` ( varsayılan). Ancak, bir kullanıcı bir antiquated tarayıcı veya biri olan JavaScript desteği devre dışı bırakıldı ziyaret, istemci tarafı doğrulama denetimlerini çalıştırmaz.
 
-Tüm ASP.NET doğrulama denetimleri geri gönderme hemen sonra kullanıcıların doğrulama mantığını yineleyin ve sayfa s girişleri genel geçerliliğini rapor [ `Page.IsValid` özelliği](https://msdn.microsoft.com/library/system.web.ui.page.isvalid.aspx). Ancak, sayfa akışı kesildi veya olmayan herhangi bir şekilde değere göre durduruldu `Page.IsValid`. Geliştiricileri de bu emin olmak için bizim sorumluluğundadır `Page.IsValid` özellik değerine sahip `True` giriş geçerli varsayar kod işlemine devam etmeden önce.
+Tüm ASP.NET doğrulama denetimleri kendi doğrulama mantığı hemen geri gönderme sırasında tekrarlayın ve rapor sayfası s girişleri genel geçerliliğini [ `Page.IsValid` özelliği](https://msdn.microsoft.com/library/system.web.ui.page.isvalid.aspx). Ancak, sayfa akışı değil kesildi veya herhangi bir şekilde değerine göre durduruldu `Page.IsValid`. Geliştiriciler olarak, bu emin olmak için sunduğumuz sorumluluğundadır `Page.IsValid` özellik değerine sahip `True` giriş verileri, geçerli varsayan kod devam etmeden önce.
 
-Bir kullanıcının devre dışı JavaScript varsa sayfamızı ziyaret eder, bir ürün düzenler, çok fiyat değerini girer pahalıdır ve güncelleştirme düğmesine tıklar istemci tarafı doğrulama atlanır ve geri gönderimin olun. Geri gönderme, ASP.NET sayfası s üzerinde `UpdateCommand` olay işleyicisi yürütür ve çok ayrıştırma çalışılırken özel durum oluşturuldu için pahalı bir `Decimal`. Özel durum işleme sahip olduğumuz, böyle bir özel durum düzgün bir şekilde ele alınacağını ancak üzerinden ilk başta ile yalnızca etmeden tarafından kayan gelen biz geçersiz veriler engelleyebilir beri `UpdateCommand` olay işleyicisi varsa `Page.IsValid` değerine sahip `True`.
+JavaScript devre dışı bir kullanıcı varsa sayfamızı ziyaret eder, bir ürün düzenler, çok fiyat değeri girer pahalı ve güncelleştir düğmesine tıkladığında istemci tarafı doğrulama atlanır ve bir geri gönderme oluşması. Geri gönderme, ASP.NET sayfası s üzerinde `UpdateCommand` olay işleyicisi yürütülür ve çok ayrıştırma çalışılırken bir özel durum için pahalı bir `Decimal`. Özel durum işleme sahibiz, böyle bir özel durum düzgün bir şekilde ele alınır, ancak biz aracılığıyla başlangıçta yalnızca ile devam ederek kayan öğesinden geçersiz veri engelleyebilir beri `UpdateCommand` olay işleyicisi, `Page.IsValid` değeri `True`.
 
-Aşağıdaki kodu başlangıcına ekleyin `UpdateCommand` olay işleyicisi hemen önce `Try` engelle:
+Başlangıcına aşağıdaki kodu ekleyin `UpdateCommand` olay işleyicisi, hemen önce `Try` engelle:
 
 
 [!code-vb[Main](adding-validation-controls-to-the-datalist-s-editing-interface-vb/samples/sample2.vb)]
 
-Bu eklenmesiyle ürün gönderilen verilerin geçerli ise güncelleştirilmesi dener. T won çoğu kullanıcılar doğrulama denetimleri istemci tarafı betikler nedeniyle geçersiz veri geri gönderme, ancak t desteği JavaScript tarayıcıları güncelleştireceğinizi veya destek JavaScript sahip kullanıcılar devre dışı, istemci-tarafı denetimlerini atlamak ve geçersiz veriler gönderme.
+Bu eklenmesiyle, ürün gönderilen verilerin geçerli ise güncelleştirilmesi dener. Çoğu kullanıcı t kazanılan geçersiz veri doğrulama denetimleri istemci tarafı betikleri nedeniyle geri gönderme mümkün olmayacaktır, ancak tarayıcıları t destek JavaScript ki veya JavaScript desteği olan kullanıcılar devre dışı, istemci tarafı denetimleri atlamak ve geçersiz veriler gönderme.
 
 > [!NOTE]
-> Akıllı duruma okuyucu veri GridView ile güncelleştirirken sözcüğünün biz etmedi t gereksinim açıkça denetlemek `Page.IsValid` bizim sayfa s arka plandaki kod sınıfı bir özellik. GridView danışır Bunun nedeni `Page.IsValid` özelliği yalnızca yalnızca değerini döndürürse güncelleştirmesi ile devam eder ve bize için `True`.
+> Kurnaz okuyucu hatları ile veri güncelleştirme yapılırken sözcüğünün ki etmedi t gereksinim açıkça denetlemek `Page.IsValid` bizim sayfası s arka plan kod sınıfı bir özellik. GridView danışır olmasıdır `Page.IsValid` özellik bize ve yalnızca güncelleştirme yalnızca değerini döndürürse sürdürür `True`.
 
 
 ## <a name="step-3-summarizing-data-entry-problems"></a>3. adım: Veri girişi sorunlarını özetleme
 
-Beş doğrulama denetimleri ek olarak, ASP.NET içerir [ValidationSummary denetimi](https://msdn.microsoft.com/library/f9h59855(VS.80).aspx), görüntüleyen `ErrorMessage` geçersiz veriler algılandı bu doğrulama denetimleri s. Bu özet verilerini kalıcı, istemci-tarafı messagebox aracılığıyla ya da web sayfasında metin olarak görüntülenebilir. Doğrulama sorunları özetlemeye bir istemci-tarafı messagebox dahil etmek için bu öğreticiyi geliştirmek s olanak tanır.
+Ek olarak beş doğrulama denetimleri, ASP.NET içerir [ValidationSummary denetimi](https://msdn.microsoft.com/library/f9h59855(VS.80).aspx), görüntüleyen `ErrorMessage` geçersiz veri algılandı. Bu doğrulama denetimleri, s. Bu Özet veriler, kalıcı, istemci tarafı messagebox aracılığıyla ya da web sayfasında metin olarak görüntülenebilir. Herhangi bir doğrulama sorunu özetleyen bir istemci-tarafı messagebox eklemek için bu öğreticiden geliştirmek s olanak tanır.
 
-Bunu gerçekleştirmek için araç kutusu tasarımcıya ValidationSummary denetimi sürükleyin. ValidationSummary denetimi içermiyor t konumunu gerçekten önemli, bu yana biz yalnızca Özet messagebox görüntülemek için yapılandırmak için ekleyeceğiz. Denetim ekledikten sonra ayarlamak kendi [ `ShowSummary` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.validationsummary.showsummary(VS.80).aspx) için `False` ve kendi [ `ShowMessageBox` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.validationsummary.showmessagebox(VS.80).aspx) için `True`. Bu ayrıca ile bir istemci-tarafı messagebox tüm doğrulama hatalarını özetlenir (bkz. Şekil 6).
+Bunu yapmak için ValidationSummary denetimi Tasarımcısı araç kutusundan sürükleyin. Konum, ValidationSummary denetimi eklenmemişse t gerçekten önemli, bu yana biz yalnızca bir messagebox özeti görüntülemek için yapılandırmak için ekleyeceğiz. Denetimi ekledikten sonra ayarlama, [ `ShowSummary` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.validationsummary.showsummary(VS.80).aspx) için `False` ve kendi [ `ShowMessageBox` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.validationsummary.showmessagebox(VS.80).aspx) için `True`. Bu ekleme ile bir istemci-tarafı messagebox tüm doğrulama hatalarını özetlenmiştir (bkz. Şekil 6).
 
 
-[![Doğrulama hatalarını bir istemci-tarafı Messagebox özetlenir](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image17.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image16.png)
+[![Doğrulama hataları bir istemci-tarafı Messagebox özetlenmiştir](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image17.png)](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image16.png)
 
-**Şekil 6**: doğrulama hataları, bir istemci-tarafı Messagebox özetlenir ([tam boyutlu görüntüyü görüntülemek için tıklatın](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image18.png))
+**Şekil 6**: doğrulama hataları bir istemci-tarafı Messagebox özetlenir ([tam boyutlu görüntüyü görmek için tıklatın](adding-validation-controls-to-the-datalist-s-editing-interface-vb/_static/image18.png))
 
 
 ## <a name="summary"></a>Özet
 
-Bu öğreticide önceden güncelleştirme iş akışında kullanmayı denemeden önce bizim kullanıcılar girişleri geçerli olduğundan emin olmak için doğrulama denetimlerini kullanarak özel durumlar olasılığını azaltmak nasıl gördük. ASP.NET, belirli bir Web incelemek için tasarlanmış beş doğrulama Web denetimleri s girişi denetleyebilir ve geri giriş s geçerliliği rapor sağlar. Bu öğreticide iki bu beş denetimleri RequiredFieldValidator ve CompareValidator ürün s adı sağlandı ve fiyat değeri sıfırdan büyük veya sıfıra eşit bir para birimi biçimi olan emin olmak için kullandık.
+Bu öğreticide proaktif olarak güncelleştirme iş akışında kullanmayı denemeden önce bizim kullanıcı girişleri geçerli olmasını sağlamak için doğrulama denetimlerini kullanarak özel durumları olasılığını azaltmak nasıl gördük. ASP.NET, belirli bir Web incelemek için tasarlanmış beş doğrulama Web denetimleri s giriş denetleme ve geri giriş s geçerlilik üzerinde rapor sağlar. Bu öğreticide bu beş denetimi iki RequiredFieldValidator ve CompareValidator s ürün adı sağlandı ve fiyat değerinden büyük veya sıfıra eşit bir değer ile para birimi biçimine sahip olmak için kullandık.
 
-Arabirim düzenleme DataList s doğrulama denetimleri ekleme üzerine sürükleyerek olarak basit `EditItemTemplate` araç ve Özellikler sayıda ayarlama. Varsayılan olarak, doğrulama denetimleri otomatik olarak istemci tarafı doğrulama betiği yayma; Ayrıca sunucu tarafında doğrulama geri gönderme, toplu sonucunda depolama üzerinde sağladıkları `Page.IsValid` özelliği. Düğme, LinkButton veya ImageButton tıklandığında istemci tarafı doğrulamasını atlamak için s düğmesi ayarlamak `CausesValidation` özelliğine `False`. Ayrıca, geri göndermede gönderilen veriler ile tüm görevleri gerçekleştirmeden önce emin `Page.IsValid` özelliği döndürür `True`.
+DataList s arabirimini düzenleme doğrulama denetimleri ekleme üzerine sürükleyerek olarak basit `EditItemTemplate` araç ve özelliklerini birkaç ayarı. Varsayılan olarak, doğrulama denetimleri otomatik olarak istemci tarafı doğrulama komut yayma; Şirket içinde toplu sonucu depolamadan geri gönderme, sunucu tarafı doğrulama de sağlanır `Page.IsValid` özelliği. Bir düğme, LinkButton veya ImageButton tıklandı olduğunda istemci tarafı doğrulamasını atlamak için düğmeye s ayarlamak `CausesValidation` özelliğini `False`. Ayrıca, geri göndermede gönderilen veriler ile tüm görevleri gerçekleştirmeden önce emin olun `Page.IsValid` özelliği döndürür `True`.
 
-Tüm öğreticileri düzenleme DataList biz kadarki incelenmesi ve ürün s adı için bir metin kutusu ve başka fiyat çok basit düzenleme arabirimleri sahip. Düzenleme arabirimi ancak DropDownLists, takvim, RadioButtons, onay kutularını ve benzerleri gibi farklı Web denetimleri bir karışımını içerebilir. Bizim sonraki öğreticide Web denetimleri çeşitli kullanan bir arabirim oluşturmayı öğreneceksiniz.
+Tüm öğreticileri düzenleme DataList biz TextBox s ürün adı, diğeri için fiyat, şimdiye incelenir ve çok basit bir düzenleme arabirimleri vardı. Düzenleme, arabirim, ancak DropDownList, takvimler, RadioButton'ları, onay kutuları vb. gibi farklı Web denetimleri bir karışımını içerebilir. Web denetimleri çeşitli kullanan bir arabirim oluşturma sırasında sonraki müşterilerimize öğreticide inceleyeceğiz.
 
-Mutluluk programlama!
+Mutlu programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar yedi ASP/ASP.NET kitaplardan ve poshbeauty.com sitesinin [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileriyle beri 1998'de çalışmaktadır. Scott, bağımsız Danışman, Eğitimci ve yazıcı çalışır. En son nitelemiştir olan [ *Unleashed'i öğretin kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). He adresinden ulaşılabilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler
 
-Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama gözden geçirenler Dennis Patterson, Ken Pespisa ve Liz Shulok yoktu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Bu öğretici serisinde, birçok yararlı Gözden Geçiren tarafından gözden geçirildi. Bu öğretici için müşteri adayı gözden geçirenler Dennis Patterson ve Konuğu, Ken Pespisa ve Liz Shulok yoktu. Yaklaşan My MSDN makaleleri gözden geçirme ilgileniyor musunuz? Bu durumda, bir satır bana bırak [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Önceki](handling-bll-and-dal-level-exceptions-vb.md)
-> [sonraki](customizing-the-datalist-s-editing-interface-vb.md)
+> [İleri](customizing-the-datalist-s-editing-interface-vb.md)

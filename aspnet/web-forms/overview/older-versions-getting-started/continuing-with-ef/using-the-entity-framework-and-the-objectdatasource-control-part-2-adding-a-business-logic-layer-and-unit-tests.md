@@ -1,44 +1,43 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests
-title: 'Entity Framework 4.0 ve ObjectDataSource denetimi kullanarak, bölüm 2: bir iş mantığı katmanı ve birim testleri ekleme | Microsoft Docs'
+title: 'Entity Framework 4.0 ve ObjectDataSource denetimi kullanarak, bölüm 2: iş mantığı katmanı ve birim testleri ekleme | Microsoft Docs'
 author: tdykstra
-description: Bu öğretici seri ile çalışmaya başlama Entity Framework 4.0 öğretici serisi tarafından oluşturulan Contoso University web uygulaması üzerinde oluşturur. I...
+description: Bu öğretici serisinde, kullanmaya başlama Entity Framework 4.0 öğretici serisinin tarafından oluşturulan Contoso University web uygulaması oluşturur. BEN...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/26/2011
 ms.topic: article
 ms.assetid: efb0e677-10b8-48dc-93d3-9ba3902dd807
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests
 msc.type: authoredcontent
-ms.openlocfilehash: ecdfb2bdc546f55778ec4cc1f61aa66e129134ea
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 02f0b86203eb879ca618655b8956f22dc67858cd
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30888321"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37394248"
 ---
-<a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests"></a>Entity Framework 4.0 ve ObjectDataSource denetimi kullanarak, bölüm 2: bir iş mantığı katmanı ve birim testleri ekleme
+<a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests"></a>Entity Framework 4.0 ve ObjectDataSource denetimi kullanarak, bölüm 2: iş mantığı katmanı ve birim testleri ekleme
 ====================
-by [Tom Dykstra](https://github.com/tdykstra)
+tarafından [Tom Dykstra](https://github.com/tdykstra)
 
-> Bu öğretici seri tarafından oluşturulan Contoso University web uygulaması üzerinde derlemeler [Entity Framework 4.0 ile çalışmaya başlama](https://asp.net/entity-framework/tutorials#Getting%20Started) öğretici serisi. Önceki öğreticileri tamamlanmadı, Bu öğretici için bir başlangıç noktası olarak yapabilecekleriniz [uygulamayı karşıdan](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a) oluşturduğunuz. Ayrıca [uygulamayı karşıdan](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa) tam öğretici seri tarafından oluşturulur. Öğreticiler hakkında sorularınız varsa, bunları nakledebilirsiniz [ASP.NET Entity Framework Forumu](https://forums.asp.net/1227.aspx).
+> Bu öğretici serisinde Contoso University web uygulaması tarafından oluşturulan geliştirir [Entity Framework 4.0 ile çalışmaya başlama](https://asp.net/entity-framework/tutorials#Getting%20Started) öğretici serisi. Önceki öğreticilerde tamamlanmadıysa, Bu öğretici için bir başlangıç noktası olarak yapabilecekleriniz [uygulamayı karşıdan](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a) oluşturmuş olduğunuz. Ayrıca [uygulamayı karşıdan](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa) tam öğretici serisinin tarafından oluşturulur. Öğreticileri hakkında sorularınız varsa, bunları gönderebilir [ASP.NET Entity Framework Forumu](https://forums.asp.net/1227.aspx).
 
 
-Önceki öğreticide oluşturduğunuz Entity Framework kullanarak bir n katmanlı web uygulaması ve `ObjectDataSource` denetim. Bu öğretici iş mantığı katmanı (BLL) ve veri erişim katmanı (DAL) ayrı tutarken iş mantığı eklemeyi gösterir ve BLL için otomatik birim testleri oluşturmak nasıl gösterir.
+Entity Framework kullanarak n katmanlı web uygulaması, önceki öğreticide oluşturduğunuz ve `ObjectDataSource` denetimi. Bu öğreticide iş mantığı katmanı (BLL) ve veri erişim katmanı (DAL) ayrı tutarken iş mantığı eklemek gösterilir ve BLL için otomatik birim testleri oluşturma işlemini gösterir.
 
 Bu öğreticide aşağıdaki görevleri tamamlamanız:
 
-- Gereksinim duyduğunuz veri erişim yöntemleri bildiren bir depo arabirimi oluşturur.
-- Depo Arabirimi deposu sınıfında uygulayın.
-- Veri erişim işlevleri gerçekleştirmek için depo sınıfını çağıran bir iş mantığı sınıf oluşturun.
-- Connect `ObjectDataSource` iş mantığı sınıfı depo sınıfına denetimine.
-- Bir birim testi projesi ve bellek içi koleksiyonlar için kendi veri deposu kullanan bir depo sınıfına oluşturun.
-- Birim testi iş mantığı sınıfına testi çalıştırmak ve başarısız görmek eklemek istediğiniz iş mantığı için oluşturun.
-- İş mantığı iş mantığı sınıfında uygulamanız, sonra birim test etmek ve geçirmek görmek yeniden çalıştırın.
+- Gereksinim duyduğunuz veri erişim yöntemlerine bildiren bir depo arabirimi oluşturun.
+- Depo sınıfında depo arabirim uygular.
+- Veri erişimi işlevleri gerçekleştirmek için depo sınıfını çağıran bir iş mantığı sınıf oluşturun.
+- Connect `ObjectDataSource` depo sınıfına yerine iş mantığı sınıfına denetimi.
+- Bir birim testi projesi ve kendi veri deposu için bellek içi koleksiyonları kullanır depo sınıf oluşturun.
+- Birim testi için test çalıştırması ve başarısız görmek iş mantığı sınıfa eklemek istediğiniz iş mantığını oluşturun.
+- İş mantığı sınıfında iş mantığını uygular ve birim testi ve geçer bkz yeniden çalıştırın.
 
-İle çalışma *Departments.aspx* ve *DepartmentsAdd.aspx* önceki öğreticide oluşturduğunuz sayfaları.
+Birlikte çalışma *Departments.aspx* ve *DepartmentsAdd.aspx* önceki öğreticide oluşturulan sayfaları.
 
 ## <a name="creating-a-repository-interface"></a>Bir depo arabirimi oluşturma
 
@@ -46,43 +45,43 @@ Depo Arabirimi oluşturarak başlarsınız.
 
 [![Image08](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image2.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image1.png)
 
-İçinde *DAL* klasörü, yeni bir sınıf dosyası oluşturun, adlandırın *ISchoolRepository.cs*ve var olan kodu aşağıdaki kodla değiştirin:
+İçinde *DAL* klasöründe yeni bir sınıf dosyası oluşturun, adlandırın *ISchoolRepository.cs*, mevcut kodu şu kodla değiştirin:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample1.cs)]
 
-Bir yöntem her CRUD için arabirimi tanımlar (oluşturma, okuma, güncelleştirme, silme) deposu sınıfında oluşturulan yöntemleri.
+Bir yöntem her CRUD için arabirimi tanımlar (oluşturma, okuma, güncelleştirme ve silme) depo sınıfında oluşturduğunuz yöntemleri.
 
-İçinde `SchoolRepository` sınıfını *SchoolRepository.cs*, bu sınıfın uyguladığını gösteren `ISchoolRepository` arabirimi:
+İçinde `SchoolRepository` sınıfını *SchoolRepository.cs*, bu sınıfın uyguladığı belirtmek `ISchoolRepository` arabirimi:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample2.cs)]
 
-## <a name="creating-a-business-logic-class"></a>Bir iş mantığı sınıf oluşturma
+## <a name="creating-a-business-logic-class"></a>Bir iş mantığı sınıfı oluşturma
 
-Ardından, iş mantığı sınıfı oluşturacaksınız. Tarafından çalıştırılan bir iş mantığı ekleyeceği bunu `ObjectDataSource` , henüz yapmayacak olsa da, denetim. Şimdilik, yeni iş mantığı sınıfı yalnızca depo mu aynı CRUD işlemleri gerçekleştirir.
+Ardından, iş mantığı sınıfı oluşturmayı öğreneceksiniz. Tarafından yürütülecek iş mantığı ekleyebilirsiniz, böylece bunu `ObjectDataSource` henüz bunu değil olsa da, denetim. Şimdilik, yeni bir iş mantığı sınıf yalnızca depo yapan aynı CRUD işlemleri gerçekleştirir.
 
 [![Image09](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image4.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image3.png)
 
-Yeni bir klasör oluşturun ve adlandırın *BLL*. (Bir gerçek uygulamasında iş mantığı katmanı genellikle bir sınıf kitaplığı uygulanması — ayrı bir proje — ancak bu öğreticide basit tutmak için bir proje klasöründe BLL sınıfları tutulacak.)
+Yeni bir klasör oluşturun ve adlandırın *BLL*. (Gerçek bir uygulamada, iş mantığı katmanı genellikle bir sınıf kitaplığı uygulanması — ayrı proje; ancak bu öğreticide basit tutmak için bir proje klasöründe BLL sınıfları tutulacak.)
 
-İçinde *BLL* klasörü, yeni bir sınıf dosyası oluşturun, adlandırın *SchoolBL.cs*ve var olan kodu aşağıdaki kodla değiştirin:
+İçinde *BLL* klasöründe yeni bir sınıf dosyası oluşturun, adlandırın *SchoolBL.cs*, mevcut kodu şu kodla değiştirin:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample3.cs)]
 
-Bu kod, önceki depo sınıfında gördüğünüz aynı CRUD yöntemlerini oluşturur, ancak Entity Framework yöntemleri doğrudan erişim yerine depo sınıfı yöntemleri çağırır.
+Bu kod depo sınıfında daha önce gördüğünüz aynı CRUD yöntemleri oluşturur, ancak Entity Framework yöntemlerini doğrudan erişmek yerine depo sınıfın yöntemlerini çağırır.
 
-Depo sınıfını başvuru tutan sınıfı değişkeni bir arabirim türü tanımlanır ve depo sınıfını başlatır kod iki oluşturucular içinde yer alır. Parametresiz bir kurucusu tarafından kullanılan `ObjectDataSource` denetim. Bir örneğini oluşturur `SchoolRepository` daha önce oluşturduğunuz sınıfı. Diğer oluşturucuyu deposu arabirimini uygulayan bir nesneyi içeri aktarmanız iş mantığı sınıfı başlatır ne olursa olsun kodu sağlar.
+Depo sınıfına bir başvuru tutan sınıfı değişkeni bir arabirim türü tanımlanır ve depo sınıfını başlatan kodu iki oluşturucu içinde yer alır. Parametresiz oluşturucusu tarafından kullanılan `ObjectDataSource` denetimi. Örneği oluşturur `SchoolRepository` daha önce oluşturduğunuz sınıfı. Diğer Oluşturucu depo arabirimi uygulayan herhangi bir nesne geçirilecek iş mantığı sınıfı örneğini oluşturan hangi kod sağlar.
 
-Depo sınıfını ve iki oluşturucular çağıran CRUD yöntemlerini seçtiğiniz arka uç veri deposuyla iş mantığı sınıfını kullanmak mümkün kılar. İş mantığı sınıfı çağırma sınıf verileri nasıl devam haberdar olmanız gerekmez. (Bu adlandırılırlar *Kalıcılık kullanmayan*.) Bir şey basit kullanan bir depo uygulaması için iş mantığı sınıfı bağlanabildiğinden bu kolaylaştıran birim testi, bellek içi olarak `List` verileri depolamak için koleksiyonları.
+Depo sınıfını ve iki Oluşturucu çağırmak CRUD yöntemleri seçtiğiniz arka uç veri deposuyla iş mantığı sınıfı kullanmayı mümkün kılar. İş mantığı sınıfı, bunu çağırma sınıf verileri nasıl kalıcı dikkat etmeniz gerekmez. (Buna genellikle denir *Kalıcılık ignorance*.) İş mantığı sınıfı bir şey kullanan basit bir depo uygulaması kurabildiğinden birim testi, bunu kolaylaştırır. bellek içi olarak `List` verileri depolamak için koleksiyon.
 
 > [!NOTE]
-> Teknik olarak, Entity Framework'ın devral sınıflardan örneği için varlık nesnesi hala değil Kalıcılık-kullanmayan, `EntityObject` sınıfı. Tam Kalıcılık kullanmayan için kullandığınız *düz eski CLR nesnelerini*, veya *POCOs*, devralınan nesneleri yerine `EntityObject` sınıfı. POCOs kullanarak Bu öğretici kapsamında değildir. Daha fazla bilgi için bkz: [Sınanabilirlik ve Entity Framework 4.0](https://msdn.microsoft.com/library/ff714955.aspx) MSDN Web sitesinde.)
+> Entity Framework'ın devralan sınıflardan örneği olduğundan varlık nesnesi teknik olarak hala değil Kalıcılık-ignorant, `EntityObject` sınıfı. Tam Kalıcılık ignorance için kullanabileceğiniz *düz eski CLR nesnelerini*, veya *POCOs*, devralınan nesneleri yerine `EntityObject` sınıfı. Bu öğreticinin kapsamı dışındadır POCOs kullanmaktır. Daha fazla bilgi için [Sınanabilirlik ve Entity Framework 4.0](https://msdn.microsoft.com/library/ff714955.aspx) MSDN Web sitesindeki.)
 
 
-Bağlayabilirsiniz artık `ObjectDataSource` iş mantığı denetimlere depoya sınıfı yerine ve önce yaptığınız gibi her şeyi çalıştığını doğrulayın.
+Şimdi bağlanabilirsiniz `ObjectDataSource` iş mantığı denetimlere depoya sınıfı yerine ve önceden yaptığınız gibi her şeyin çalıştığını doğrulayın.
 
-İçinde *Departments.aspx* ve *DepartmentsAdd.aspx*, her oluşumu değiştirmek `TypeName="ContosoUniversity.DAL.SchoolRepository"` için `TypeName="ContosoUniversity.BLL.SchoolBL`". (Dört örneği vardır tümünde.)
+İçinde *Departments.aspx* ve *DepartmentsAdd.aspx*, her bir yinelemesini değiştirmek `TypeName="ContosoUniversity.DAL.SchoolRepository"` için `TypeName="ContosoUniversity.BLL.SchoolBL`". (Dört örnekler vardır tüm.)
 
-Çalıştırma *Departments.aspx* ve *DepartmentsAdd.aspx* önceden olduğu gibi yine çalıştıklarını doğrulamak için sayfaları.
+Çalıştırma *Departments.aspx* ve *DepartmentsAdd.aspx* Öncekine gibi bunlar hala çalıştığını doğrulamak için sayfa.
 
 [![Image01](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image6.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image5.png)
 
@@ -90,129 +89,129 @@ Bağlayabilirsiniz artık `ObjectDataSource` iş mantığı denetimlere depoya s
 
 ## <a name="creating-a-unit-test-project-and-repository-implementation"></a>Bir birim sınama projesini ve depo uygulaması oluşturma
 
-Çözümü kullanarak yeni bir proje eklemek **Test projesi** şablonu ve adlandırın `ContosoUniversity.Tests`.
+Çözümü kullanarak yeni bir proje ekleyin **Test projesi** şablonunu ve adlandırın `ContosoUniversity.Tests`.
 
-Oluşturduğunuz test projesinin bir başvuru ekleyin `System.Data.Entity` ve proje başvurusu ekleyin `ContosoUniversity` projesi.
+Test projesinde başvuru eklemek `System.Data.Entity` ve bir proje başvurusu Ekle `ContosoUniversity` proje.
 
-Artık ile birim testleri kullanacaksınız deposu sınıfı oluşturabilirsiniz. Bu depo için veri deposu içinde sınıfı olacaktır.
+Artık, birim testleri ile kullanacağınız depo sınıfını da oluşturabilirsiniz. Bu depo için veri deposu içindeki sınıf olacaktır.
 
-[![Image12](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image10.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image9.png)
+[![image12](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image10.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image9.png)
 
-Yeni bir sınıf dosyası test projesi oluşturun, adlandırın *MockSchoolRepository.cs*ve var olan kodu aşağıdaki kodla değiştirin:
+Test projesinde yeni bir sınıf dosyası oluşturun, adlandırın *MockSchoolRepository.cs*, mevcut kodu şu kodla değiştirin:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample4.cs)]
 
-Bu depo sınıfına Entity Framework doğrudan erişir hesapla aynı CRUD yöntemlerine sahiptir, ancak bunlar çalışmak `List` yerine bellekte bir veritabanı ile koleksiyonları. Bu ayarlama ve iş mantığı sınıfı için birim testleri doğrulamak için bir test sınıf kolaylaştırır.
+Entity Framework doğrudan erişir biri olarak aynı CRUD yöntemler bu depo sınıfına sahip, ancak birlikte çalıştıkları `List` bir veritabanı yerine bellekle koleksiyonları. Bu, ayarlamak ve iş mantığı sınıfı için birim testleri doğrulamak bir test sınıfı için kolaylaştırır.
 
 ## <a name="creating-unit-tests"></a>Birim testleri oluşturma
 
-**Test** proje şablonu sizin için bir saplama birim testi sınıfı oluşturulan ve sonraki göreviniz birim test yöntemleri iş mantığı sınıfına eklemek istediğiniz iş mantığı için ekleyerek bu sınıfı değiştirin.
+**Test** proje şablonu, bir saplama birim test sınıfı oluşturulan ve sonraki göreviniz birim test yöntemlerini iş mantığı sınıfa eklemek istediğiniz iş mantığı için ekleyerek bu sınıfı değiştirin.
 
 [![Image13](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image12.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image11.png)
 
-Contoso University'deki herhangi tek tek Eğitmen yalnızca tek bir bölüm yönetici olabilir ve bu kural zorlamak için iş mantığı eklemeniz gerekir. Testleri ekleme ve bunları başarısız görmek için testleri çalıştırmadan başlayacaktır. Sonra kodu ekleyin ve bunları geçirmek görmeyi testleri yeniden çalıştırın.
+Contoso University'deki herhangi tek bir eğitmen yalnızca tek bir departman Yöneticisi olabilir ve bu kuralını uygulamak için iş mantığı eklemeniz gerekir. Testleri ekleme ve bunları başarısız görmek için testleri çalıştırmadan başlar. Ardından kod ekleyecek ve bunları geçirmek görmeyi testleri yeniden çalıştırın.
 
-Açık *UnitTest1.cs* dosya ve ekleme `using` deyimleri ContosoUniversity projesinde oluşturulan iş mantığı ve veri erişim katmanı için:
+Açık *UnitTest1.cs* dosya ve ekleme `using` deyimleri ContosoUniversity projede oluşturulan iş mantığı ve veri erişim katmanları için:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample5.cs)]
 
-Değiştir `TestMethod1` aşağıdaki yöntemlerden yöntemiyle:
+Değiştirin `TestMethod1` aşağıdaki yöntemlerle yöntemi:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample6.cs)]
 
-`CreateSchoolBL` Yöntemi, daha sonra bir iş mantığı sınıfının yeni bir örneğini geçirir proje birim testi için oluşturduğunuz havuzu sınıfının bir örneğini oluşturur. Yöntemi, iş mantığı sınıfı sonra kullanabileceğiniz üç Departmanlar test yöntemleri eklemek için kullanır.
+`CreateSchoolBL` Yöntemi daha sonra iş mantığı sınıfının yeni bir örneğine geçirir proje, birim testi için oluşturduğunuz havuzu sınıfının bir örneğini oluşturur. Yöntemi daha sonra kullanabileceğiniz üç Departmanlar test yöntemlerinde eklemek için iş mantığı sınıfı kullanır.
 
-Test yöntemleri birisi aynı yönetici mevcut bir bölümü olarak ile yeni bir bölüm eklemek çalışırsa veya birisi bir kişinin Kimliğini ayarlayarak bir departmandaki yönetici güncelleştirmeye çalışırsa, iş mantığı sınıfı bir özel durum oluşturur doğrulayın kimin zaten başka bir departman yöneticisidir.
+İş mantığı sınıfı biri ile aynı yönetici mevcut bir bölümü olarak yeni bir bölüm eklemek çalışırsa veya birisi kişinin Kimliğini ayarlayarak bir departmanın yöneticisini güncelleştirmek çalışırsa, bir özel durum oluşturur, test yöntemleri doğrulayın zaten başka bir bölüme yöneticisinin kim.
 
-Bu kod derlenmez için özel durum sınıfı henüz oluşturmadınız. Derlemek için almak için sağ `DuplicateAdministratorException` seçip **Generate**ve ardından **sınıfı**.
+Bu kod derlenmez için özel durum sınıfı henüz oluşturmadınız. Buna derlemeye ulaşmak için sağ `DuplicateAdministratorException` seçip **Oluştur**, ardından **sınıfı**.
 
-[![Image14](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image14.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image13.png)
+[![image14](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image14.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image13.png)
 
-Bu sınıf, silebilirsiniz test projesinde oluşturur ana projede özel durum sınıfı oluşturduktan sonra. iş mantığı uygulamıştır.
+Bu, silmeniz ve test projesinde bir sınıf oluşturur ana proje özel durum sınıfı oluşturduktan sonra. ve iş mantığı uygulanır.
 
-Test projesini çalıştırın. Beklendiği gibi sınama başarısız.
+Test projesini çalıştırın. Testler, beklendiği gibi başarısız.
 
 [![Image03](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image16.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image15.png)
 
-## <a name="adding-business-logic-to-make-a-test-pass"></a>Bir Test geçişi yapmak için iş mantığı ekleme
+## <a name="adding-business-logic-to-make-a-test-pass"></a>Test geçiş yapmak için iş mantığı ekleme
 
-Ardından, zaten başka bir bölümünün yönetici haklarına sahip birisi bir bölüm yönetici olarak ayarlamak mümkün kılan iş mantığı uygulamanız. İş mantığı katmanından bir özel durum ve bir kullanıcı bir bölüm düzenler ve tıklar sunu katmanı'catch **güncelleştirme** zaten bir yönetici haklarına sahip birisi seçtikten sonra. (Eğitmen sayfayı oluşturmak önce olan zaten Yöneticiler aşağı açılan listeden kaldırabilirsiniz, ancak burada iş mantığı katmanı ile çalışmak için amaçtır.)
+Ardından, zaten başka bir bölüme yöneticisidir birisi bir departman Yöneticisi olarak ayarlanacak mümkün kılan iş mantığı uygulamanız. Özel durum iş mantığı katmanından ve bir kullanıcı bir departman düzenler ve tıkladığında sunu katmanı catch **güncelleştirme** zaten yönetici olan birisi seçtikten sonra. (Eğitmenler sayfayı oluşturmak önce kimin zaten yöneticilerdir aşağı açılan listeden kaldırabilirsiniz, ancak burada amacı ile iş mantığı katmanı çalışmaktır.)
 
-Bir kullanıcı birden fazla bölüm Yöneticisi bir eğitmen yapmaya çalıştığında throw özel durum sınıfı oluşturarak başlayın. Yeni bir sınıf dosyasında ana proje oluşturma *BLL* klasörü adlandırın *DuplicateAdministratorException.cs*ve var olan kodu aşağıdaki kodla değiştirin:
+Bir kullanıcı birden fazla bölüm Yöneticisi bir eğitmen yapmaya çalıştığında, throw özel durum sınıfı oluşturarak başlayın. Ana proje yeni bir sınıf dosyası oluşturma *BLL* klasörünü adlandırın *DuplicateAdministratorException.cs*, mevcut kodu şu kodla değiştirin:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample7.cs)]
 
-Şimdi geçici silme *DuplicateAdministratorException.cs* test projesinde önceden derlemek için oluşturduğunuz dosya.
+Artık geçici silme *DuplicateAdministratorException.cs* oluşturduğunuz test projesini derlemek için bir dosya.
 
-Ana projeyi açın *SchoolBL.cs* dosya ve Doğrulama mantığı içeren aşağıdaki yöntemi ekleyin. (Kod daha sonra oluşturacaksınız bir yöntemi gösterir.)
+Ana proje Aç *SchoolBL.cs* dosya ve Doğrulama mantığı içeren aşağıdaki yöntemi ekleyin. (Kodu daha sonra oluşturacağınız bir Metoda başvuruyor.)
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample8.cs)]
 
-Ekleme veya güncelleştirme bu yöntemi çağırmanız `Department` başka bir bölüm zaten aynı yönetici olup olmadığını denetlemek için varlıklar.
+Bu yöntem ekleme veya güncelleştirme kullandığınız zaman sizi ararız `Department` başka bir bölüme aynı yönetici olup olmadığını denetlemek için varlıklar.
 
-Kod için veritabanını aramak için bir yöntem çağırır bir `Department` aynı olan varlık `Administrator` varlık olarak özellik değeri eklenir veya güncelleştirilir. Biri bulunursa, bir özel durum kodu oluşturur. Eklenen veya güncelleştirilen varlığı Hayır varsa, doğrulama denetiminin gereklidir `Administrator` değeri ve hiçbir özel durum oluşur güncelleştirme sırasında yöntemi çağrıldıysa ve `Department` eşleşme buldu varlık `Department` güncelleştirilen varlık.
+Kod veritabanı için aranacak bir yöntemi çağıran bir `Department` aynı olan varlık `Administrator` varlık olarak özellik değeri eklenir veya güncelleştirilir. Bulunması durumunda, kod bir özel durum oluşturur. Eklenen veya güncelleştirilen varlığı Hayır varsa hiçbir doğrulama denetimi gereklidir `Administrator` değeri ve hiçbir özel güncelleştirme sırasında yöntemi çağrılırsa oluşturulur ve `Department` varlık eşleşme bulundu `Department` güncelleştirilen varlık.
 
 Yeni yöntemi çağırın `Insert` ve `Update` yöntemleri:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample9.cs)]
 
-İçinde *ISchoolRepository.cs*, aşağıdaki yeni veri erişimi yöntemi ekleyin:
+İçinde *ISchoolRepository.cs*, yeni veri erişim yönteminde aşağıdaki bildirimi ekleyin:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample10.cs)]
 
-İçinde *SchoolRepository.cs*, aşağıdakileri ekleyin `using` deyimi:
+İçinde *SchoolRepository.cs*, aşağıdaki `using` deyimi:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample11.cs)]
 
-İçinde *SchoolRepository.cs*, aşağıdaki yeni veri erişimi yöntemi ekleyin:
+İçinde *SchoolRepository.cs*, aşağıdaki yeni veri erişim yöntemi ekleyin:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample12.cs)]
 
-Bu kod alır `Department` belirtilen yönetici varlıklar. Yalnızca bir bölüm (varsa) bulunması. Hiçbir kısıtlama veritabanına oluşturulduğundan, durumunda birden çok Departmanlar bulundu ancak, dönüş türü bir koleksiyondur.
+Bu kod alır `Department` belirtilen yönetici sahip varlıklar. Yalnızca bir bölüm (varsa) bulunması. Hiçbir kısıtlama veritabanına inşa edildiğinden durumda birden çok bölümler bulundu ancak, dönüş türü bir koleksiyondur.
 
-Varsayılan olarak, nesne bağlamına veritabanından varlıklar aldığında, bunları kendi nesne durum Yöneticisi'nde izler. `MergeOption.NoTracking` Parametresi, bu izleme bu sorgu için yapılan değil belirtir. Sorgu, güncelleştirmeye çalıştığınız tam varlık döndürebilir gerekli olmasıdır ve ardından o varlık eklemek mümkün olmayacaktır. Geçmiş departmanında düzenlerseniz, örneğin, *Departments.aspx* sayfası ve yönetici değiştirmeden bırakın, bu sorgu döndürecektir geçmişi departman. Varsa `NoTracking` , nesne bağlamı zaten sahip olabilir geçmişi departmanı varlık, nesne durumu Yöneticisi'nde, ayarlı değil. Görünüm durumundan yeniden oluşturulacak geçmiş departmanı varlık taktığınızda, nesne bağlamına bildiren bir özel durum sonra `"An object with the same key already exists in the ObjectStateManager. The ObjectStateManager cannot track multiple objects with the same key"`.
+Varsayılan olarak, nesne bağlamı veritabanından varlıklar aldığında, bunları kendi nesne durum Yöneticisi'nde izler. `MergeOption.NoTracking` Parametresi, bu izleme bu sorgu için yapılan değil belirtir. Bunun gerekli olmasının nedeni sorgu güncelleştirmeye çalıştığınız tam varlık döndürebilir ve ardından söz konusu varlık eklemek mümkün olmaz. Örneğin geçmişi departmanındaki düzenlerseniz, *Departments.aspx* sayfası ve yönetici değiştirmeden bırakın, bu sorguyu döndürür geçmişi bölümü. Varsa `NoTracking` , nesne bağlamı, nesne durumu Yöneticisi'nde geçmişi departmanı varlık zaten haritamın, ayarlı değil. Görünüm durumu yeniden oluşturulduğunda geçmişi departmanı varlık eklediğinizde, nesne bağlamı bildiren bir özel durum alanlarına sonra `"An object with the same key already exists in the ObjectStateManager. The ObjectStateManager cannot track multiple objects with the same key"`.
 
-(Belirtme alternatif olarak `MergeOption.NoTracking`, yalnızca bu sorgu için yeni bir nesne bağlamına oluşturabilirsiniz. Yeni nesne bağlamı kendi nesne durumu Yöneticisi gerekir çünkü olurdu çakışma çağırdığınızda `Attach` yöntemi. Yaşanan performans sorunları alternatif Bu yaklaşımın en az olacak şekilde yeni nesne bağlamı özgün nesne bağlamı ile meta verileri ve veritabanı bağlantısı paylaşmak. Burada gösterilen yaklaşım ancak sunmaktadır `NoTracking` seçeneği, hangi diğer bağlamlarda yararlı bulabilirsiniz. `NoTracking` Seçeneği ele alınmıştır bu serideki sonraki öğretici daha ileri.)
+(Belirtmek için alternatif olarak `MergeOption.NoTracking`, yalnızca bu sorgu için yeni bir nesne bağlamına oluşturabilirsiniz. Yeni nesne bağlamı kendi nesne durum Yöneticisi yeterli olacağından olacaktır çakışma çağırdığınızda `Attach` yöntemi. Bu alternatif yaklaşım, performans cezası en düşük olacaktır. yeni nesne bağlamı özgün nesne bağlamı ile meta verileri ve veritabanı bağlantı paylaşımında yapabileceği. Bununla birlikte, burada gösterilen bir yaklaşım sunar `NoTracking` seçeneği, hangi diğer bağlamlarda yararlı bulabilirsiniz. `NoTracking` Seçeneği ele alınmıştır bir sonraki Öğreticide bu serideki diğer.)
 
-Test projesinde yeni veri erişim yöntemine ekleyin *MockSchoolRepository.cs*:
+Test projesinde yeni bir veri erişim yöntemine ekleyin *MockSchoolRepository.cs*:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample13.cs)]
 
-Bu kod, aynı veri seçimi gerçekleştirmek için LINQ kullanır, `ContosoUniversity` proje deposu LINQ to Entities için kullanır.
+Bu kod, aynı veri seçimi gerçekleştirmek için LINQ kullanır, `ContosoUniversity` projesinin deposuna LINQ to Entities için kullanır.
 
-Oluşturduğunuz test projesinin yeniden çalıştırın. Bu süre testleri geçirin.
+Test projesi yeniden çalıştırın. Şu testler başarılı.
 
 [![Image04](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image18.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image17.png)
 
 ## <a name="handling-objectdatasource-exceptions"></a>ObjectDataSource özel durumları işleme
 
-İçinde `ContosoUniversity` çalıştırmak proje *Departments.aspx* sayfasında ve zaten başka bir bölüm için yönetici haklarına sahip birisi için bir bölüm Yöneticisi değiştirmeyi deneyin. (Veritabanı geçersiz veri ile önceden geldiğinden sırasında Bu öğreticide, eklediğiniz Departmanlar yalnızca düzenleyebilirsiniz unutmayın.) Aşağıdaki sunucu hata sayfası alın:
+İçinde `ContosoUniversity` projeyi Çalıştır *Departments.aspx* sayfasında ve zaten başka bir bölüme için yönetici olan bir kişiye yönetici bir departman için değiştirmeyi deneyin. (Veritabanı geçersiz veri ile önceden yüklenmiş geldiğinden, Bu öğretici sırasında eklediğiniz bölümler yalnızca düzenleyebilirsiniz unutmayın.) Aşağıdaki sunucu hata sayfası olursunuz:
 
 [![Image05](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image20.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image19.png)
 
-Hata işleme kodu eklemeniz gerekir böylece bu tür bir hata sayfası, kullanıcıların istemezsiniz. Açık *Departments.aspx* ve belirtmek için bir işleyici `OnUpdated` olayı `DepartmentsObjectDataSource`. `ObjectDataSource` Etiketi şimdi açma, aşağıdaki örnekte benzer.
+Bu nedenle hata işleme kodu eklemeniz gerekir bu tür bir hata sayfası, kullanıcıların istemezsiniz. Açık *Departments.aspx* ve belirtmek için bir işleyici `OnUpdated` olayı `DepartmentsObjectDataSource`. `ObjectDataSource` Etiketiyle artık, aşağıdaki örnekte benzer.
 
 [!code-aspx[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample14.aspx)]
 
-İçinde *Departments.aspx.cs*, aşağıdakileri ekleyin `using` deyimi:
+İçinde *Departments.aspx.cs*, aşağıdaki `using` deyimi:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample15.cs)]
 
-Aşağıdaki işleyicisi ekleme `Updated` olay:
+Aşağıdaki işleyicisi eklemek `Updated` olay:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample16.cs)]
 
-Varsa `ObjectDataSource` denetim güncelleştirme gerçekleştirmeye çalışırken bir özel durum yakalar, olay bağımsız değişkeninde özel durum geçirir (`e`) bu işleyicisi. İşleyici kodda özel durum yinelenen yönetici özel durum olup olmadığını denetler. Varsa, kodu için bir hata iletisi içeren bir doğrulayıcı denetimi oluşturur `ValidationSummary` görüntülemek için denetimi.
+Varsa `ObjectDataSource` denetimi, güncelleştirmeyi gerçekleştirmeye çalıştığında bir özel durum yakalarsa, özel durum olay bağımsız değişkeni geçirir (`e`) için bu işleyici. İşleyici kod özel durum yinelenen bir yönetici özel durum olup olmadığını denetler. İse, kod için hata iletisi içeren bir doğrulayıcı denetimi oluşturur `ValidationSummary` görüntülenecek denetimi.
 
-Sayfayı çalıştırın ve birisi iki Departmanlar yönetici yeniden olun girişimi. Bu süre `ValidationSummary` denetimi, bir hata iletisi görüntüler.
+Sayfayı çalıştırın ve birinin iki bölüm Yöneticisi yeniden çıkarmaya çalışın. Bu süre `ValidationSummary` denetimi, bir hata iletisi görüntüler.
 
 [![Image06](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image22.png)](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/_static/image21.png)
 
-Benzer değişiklik *DepartmentsAdd.aspx* sayfası. İçinde *DepartmentsAdd.aspx*, belirtmek için bir işleyici `OnInserted` olayı `DepartmentsObjectDataSource`. Sonuçta elde edilen biçimlendirme, aşağıdaki örnekte benzeyecektir.
+Benzer değişiklik *DepartmentsAdd.aspx* sayfası. İçinde *DepartmentsAdd.aspx*, belirtmek için bir işleyici `OnInserted` olayı `DepartmentsObjectDataSource`. Sonuçta elde edilen biçimlendirme, aşağıdaki örneğe benzer.
 
 [!code-aspx[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample17.aspx)]
 
-İçinde *DepartmentsAdd.aspx.cs*, aynı eklemek `using` deyimi:
+İçinde *DepartmentsAdd.aspx.cs*, aynı `using` deyimi:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample18.cs)]
 
@@ -220,12 +219,12 @@ Aşağıdaki olay işleyicisini ekleyin:
 
 [!code-csharp[Main](using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests/samples/sample19.cs)]
 
-Artık test *DepartmentsAdd.aspx.cs* , aynı zamanda doğru kişi birden fazla bölüm yönetici yapma denemelerini işleme doğrulamak için sayfa.
+Artık test *DepartmentsAdd.aspx.cs* sayfasına, birden fazla bölüm Yöneticisi bir kişinin yapma girişimleri de doğru bir şekilde işleme doğrulayın.
 
-Bu depo düzenini kullanarak için uygulama giriş tamamlar `ObjectDataSource` denetimi Entity Framework ile. Depo düzeni ve Test Edilebilirlik hakkında daha fazla bilgi için MSDN teknik incelemesine bakın [Sınanabilirlik ve Entity Framework 4.0](https://msdn.microsoft.com/library/ff714955.aspx).
+Bu depo düzeni kullanmak için uygulama giriş tamamlar `ObjectDataSource` Entity Framework ile denetimi. Depo düzeni ve Test Edilebilirlik hakkında daha fazla bilgi için bkz MSDN teknik incelemeyi [Sınanabilirlik ve Entity Framework 4.0](https://msdn.microsoft.com/library/ff714955.aspx).
 
-Aşağıdaki öğreticide sıralama ve filtreleme uygulamaya işlevselliği ekleme görürsünüz.
+Aşağıdaki öğreticide, sıralama ve filtreleme uygulamanıza işlevsellik ekleme görürsünüz.
 
 > [!div class="step-by-step"]
 > [Önceki](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started.md)
-> [sonraki](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering.md)
+> [İleri](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering.md)

@@ -1,83 +1,82 @@
 ---
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part2
-title: Bir denetleyici ekleme | Microsoft Docs
+title: Denetleyici ekleme | Microsoft Docs
 author: shanselman
-description: Bu öğretici, burada Visual Studio 2013 kullanarak kullanılabiliyorsa, güncelleştirilmiş bir sürüm. Yeni öğretici t birçok iyileştirme sağlayan ASP.NET MVC 5 kullanır...
+description: Bu öğreticide Visual Studio 2013 burada kullanarak kullanılabiliyorsa, güncelleştirilmiş bir sürüm. Yeni t birçok iyileştirme sağlayan ASP.NET MVC 5 öğreticide...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/14/2010
 ms.topic: article
 ms.assetid: ff03dcc0-da97-458d-838f-0823e7482642
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part2
 msc.type: authoredcontent
-ms.openlocfilehash: c6ecd1ffdd53a629d0079d57b85c7f6db2f316ce
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: f20889cf1c1cd9a2a69f0008d879b518c38334d6
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30869029"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37395675"
 ---
-<a name="adding-a-controller"></a>Bir denetleyici ekleme
+<a name="adding-a-controller"></a>Denetleyici ekleme
 ====================
 tarafından [Scott Hanselman](https://github.com/shanselman)
 
 > > [!NOTE]
-> > Bu öğretici kullanılabiliyorsa, güncelleştirilmiş bir sürümünü [burada](../../getting-started/introduction/getting-started.md) kullanarak [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads). Yeni öğretici Bu öğretici birçok iyileştirme sağlayan ASP.NET MVC 5 kullanır.
+> > Bu öğreticide kullanılabiliyorsa, güncelleştirilmiş bir sürümünü [burada](../../getting-started/introduction/getting-started.md) kullanarak [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads). Bu öğretici birçok iyileştirme sağlayan ASP.NET MVC 5 yeni öğretici kullanır.
 > 
 > 
-> ASP.NET MVC temelleri tanıtır bir başlangıç Öğreticisi budur. Okuyan ve yazan bir veritabanından basit bir web uygulaması oluşturacaksınız. Ziyaret [ASP.NET MVC öğrenme Merkezi](../../../index.md) diğer ASP.NET MVC öğreticiler ve örnekleri bulunamadı.
+> ASP.NET MVC ile ilgili temel bilgileri tanıtan bir başlangıç Öğreticisi budur. Okuyan ve yazan bir veritabanından basit bir web uygulaması oluşturacaksınız. Ziyaret [ASP.NET MVC eğitim Merkezi](../../../index.md) diğer ASP.NET MVC, öğreticilerimiz ve örneklerimizden bulunacak.
 
 
-MVC Model, görünüm, denetleyici anlamına gelir. MVC birbirinden farklı bir sorumluluk her bölümü sahip olacağı şekilde uygulamaları geliştirmek için bir desen ' dir.
+MVC, Model, görünüm, denetleyici gösterir. MVC uygulamaları geliştirmek için her bölümü başka bir uygulamadan farklı bir sorumluluğa sahip olacak şekilde bir desendir.
 
 - Modeli: Uygulamanızın veri
-- Görünümleri: Dinamik olarak HTML yanıtları oluşturmak için uygulamanızın şablon dosyalarını kullanır.
-- Denetleyicileri: uygulama gelen URL isteklerini işleyen sınıflar model verileri almak ve istemcisine geri yanıt işleme görünüm şablonları belirtin
+- Görünümler: Şablon dosyalarını, dinamik olarak HTML yanıtları oluşturmak için uygulamanızı kullanır.
+- Denetleyicileri: uygulama için gelen URL isteklerini işleyen sınıflar model verileri almak ve ardından istemcisine bir yanıt oluşturan şablonları göster belirtin
 
-Biz, bu öğreticide, tüm bu kavramları kapsayan olması ve bunları bir uygulama oluşturmak için nasıl kullanılacağını gösterir.
+Biz bu öğreticide, tüm bu kavramları kapsayan olması ve bunları bir uygulama oluşturmak için nasıl kullanılacağını gösterir.
 
-Yeni bir denetleyicisi solution Explorer denetleyicileri klasörüne sağ tıklayıp denetleyici Ekle seçerek oluşturalım.
+Yeni bir denetleyici Çözüm Gezgini içindeki denetleyicileri klasörüne sağ tıklayarak ve denetleyici Ekle seçerek oluşturalım.
 
 [![AddControllerRightClick](getting-started-with-mvc-part2/_static/image2.png)](getting-started-with-mvc-part2/_static/image1.png)
 
-Yeni denetleyicinize "HelloWorldController" olarak adlandırın ve Ekle'yi tıklatın.
+Yeni denetleyicinize "HelloWorldController" olarak adlandırın ve Ekle'ye tıklayın.
 
 [![Denetleyici Ekle iletişim kutusu](getting-started-with-mvc-part2/_static/image4.png)](getting-started-with-mvc-part2/_static/image3.png)
 
-Bildirim HelloWorldController.cs adlı sizin için yeni bir dosya oluşturuldu ve bu dosyayı şimdi açılır sağdaki Çözüm Gezgini'nde **IDE**.
+Çözüm Gezgini'nde HelloWorldController.cs adlı sizin için yeni bir dosya oluşturulduğunda ve bu dosya artık açıldığında, sağ taraftaki bildirimi **IDE**.
 
 [![HelloWorldControllerCode](getting-started-with-mvc-part2/_static/image6.png)](getting-started-with-mvc-part2/_static/image5.png)
 
-Yeni ortak sınıfının HelloWorldController içinde şuna iki yeni yöntemi oluşturun. Örnek olarak HTML dizesi doğrudan sunduğumuz denetleyicisinden getireceğiz.
+Yeni ortak sınıfının HelloWorldController içinde şuna iki yeni yöntem oluşturun. Örneğin bir HTML dizesi doğrudan bizim denetleyicisinden getireceğiz.
 
 [!code-csharp[Main](getting-started-with-mvc-part2/samples/sample1.cs)]
 
-Denetleyicinizi HelloWorldController adlandırılır ve yeni yönteminizi dizin adı verilir. Uygulamanızı yeniden çalıştırma yalnızca eskisi (Oynat düğmesini tıklatın veya bunu yapmak için F5 tuşuna basın). Tarayıcınız başladıktan sonra Adres çubuğuna yolu değiştirmek `http://localhost:xx/HelloWorld` burada xx ne olursa olsun, bilgisayarınızın sayı seçilidir. Tarayıcınız aşağıdaki ekran görüntüsüne görünmelidir. Bizim yukarıdaki yönteminde size bir dize "İçerik" adlı bir yönteme geçirilen döndürdü. Biz, sistem yalnızca bazı HTML döndürür ve olduğu söylediyse!
+Denetleyicinizi HelloWorldController olarak adlandırılır ve yeni yönteminizi dizin adı verilir. Uygulamanızı yeniden çalıştırmak kadar önceki (Yürüt düğmesini tıklatın veya bunu yapmak için F5 tuşuna basın). Tarayıcınız başlatıldıktan sonra Adres çubuğuna yolu değiştirmek `http://localhost:xx/HelloWorld` xx ne olursa olsun, bilgisayarınızın numarası olduğu seçildi. Tarayıcınız ekran aşağıdaki gibi görünmelidir. Bizim yöntemi yukarıdaki biz "İçerik" adlı bir yönteme geçirilen bir dizesi döndürdü. Biz, sistem yalnızca bazı HTML döndürür ve kişiselleştirmeden söyledi!
 
-ASP.NET MVC, gelen URL bağlı olarak farklı denetleyicisi sınıfları (ve bunların içindeki farklı eylem yöntemleri) çağırır. ASP.NET MVC tarafından kullanılan varsayılan eşleme mantığı hangi kod çalıştığını denetlemek için bu gibi bir biçim kullanır:
+ASP.NET MVC, gelen URL bağlı olarak farklı denetleyici sınıflarına (ve içlerindeki farklı eylem yöntemleri) çağırır. ASP.NET MVC tarafından kullanılan varsayılan eşleme mantığı, hangi kodun çalıştığını denetlemek için bu gibi bir biçim kullanır:
 
-/ [Denetleyicisi] / [EylemAdı] / [parametreler]
+/ [Controller] / [ActionName] / [parametreler]
 
-URL ilk bölümü yürütmek için denetleyici sınıfını belirler. Bu nedenle /HelloWorld HelloWorldController sınıfına eşler. URL ikinci bölümü eylem yöntemine yürütmek için sınıf belirler. Bu nedenle /HelloWorld/Index yürütmek için HelloWorldcontroller sınıfının İNDİS() yöntemi neden olur. Biz yalnızca yukarıdaki /HelloWorld ve dizin kapsanan yöntemi ziyaret etmek olduğunu unutmayın. "Dizin" adlı bir yöntem bir açıkça belirtilmezse, bir denetleyicisinde çağrılacak varsayılan yöntemdir olmasıdır.
+URL'nin ilk bölümünü yürütmek için denetleyici sınıfını belirler. Bu nedenle /HelloWorld HelloWorldController sınıfa eşler. URL ikinci bölümü yürütmek için bir sınıf üzerinde eylem yöntemini belirler. Bu nedenle /HelloWorld/Index yürütülecek HelloWorldcontroller sınıfının İNDİS() yöntemi neden olur. Yalnızca yukarıdaki /HelloWorld ve dizin örtük yöntemi ziyaret etmek vardı, dikkat edin. Bu durum, "Index" adlı bir yöntem bir açıkça belirtilmezse, bir denetleyicisinde çağrılacak için varsayılan yöntemdir olmasıdır.
 
-[![Bu my varsayılan değerdir](getting-started-with-mvc-part2/_static/image8.png)](getting-started-with-mvc-part2/_static/image7.png)
+[![Bu benim varsayılan değerdir](getting-started-with-mvc-part2/_static/image8.png)](getting-started-with-mvc-part2/_static/image7.png)
 
-Şimdi, şimdi ziyaret `http://localhost:xx/HelloWorld/Welcome.` artık bizim Hoş Geldiniz yöntemi yürütülen ve HTML dizesi döndürdü.
+Şimdi, şimdi ziyaret `http://localhost:xx/HelloWorld/Welcome.` artık bizim Hoş Geldiniz yöntemi yürütüldüğünde ve kendi HTML dizesi döndürdü.
 
-Yeniden / [denetleyicisi] / [EylemAdı] / [denetleyicisidir HelloWorld Hoş Geldiniz yöntemi bu durumda böylelikle parametreler]. Biz parametreleri henüz yapmadınız.
+Yeniden / [Controller] / [ActionName] / [parametreler] HelloWorld denetleyicisidir ve yöntemi bu durumda olan Hoş Geldiniz. Şu parametre henüz yapmadınız.
 
-[![Hoş Geldiniz eylem yöntem budur](getting-started-with-mvc-part2/_static/image10.png)](getting-started-with-mvc-part2/_static/image9.png)
+[![Hoş Geldiniz eylem yöntemi budur.](getting-started-with-mvc-part2/_static/image10.png)](getting-started-with-mvc-part2/_static/image9.png)
 
-Böylece biz bazı bilgileri URL'den örneğin gibi bizim denetleyicisine geçirebilirsiniz bizim örnek biraz değiştirelim: / HelloWorld/Hoş Geldiniz? adı Scott =&amp;numtimes = 4. Hoş Geldiniz yönteminizi iki parametre ve güncelleştirme gibi aşağıda içerecek şekilde değiştirin. C# isteğe bağlı parametre özelliği geçirilen değil, parametre numTimes 1 varsayılan belirtmek için kullandığımız olduğunu unutmayın.
+Biz bazı bilgileri URL'den örneğin gibi bizim denetleyicisine geçirebilirsiniz şimdi örneğimizi biraz değiştirin: / HelloWorld/Hoş Geldiniz? adı Scott =&amp;numtimes = 4. Hoş Geldiniz yönteminizi iki parametreleri ve güncelleştirme gibi aşağıda içerecek şekilde değiştirin. C# isteğe bağlı parametre özelliği geçirilen değil, parametre numTimes 1 varsayılan belirtmek için kullandığımız olduğunu unutmayın.
 
 [!code-csharp[Main](getting-started-with-mvc-part2/samples/sample2.cs)]
 
-Uygulamanızı çalıştırın ve ziyaret `http://localhost:xx/HelloWorld/Welcome?name=Scott&numtimes=4` dilediğiniz şekilde adı ve numtimes değerini değiştirme. Sistem, sorgu dizesi adres çubuğundaki yönteminizi parametrelerinde adlandırılmış parametreleri otomatik olarak eşlenir.
+Uygulamanızı çalıştırın ve ziyaret `http://localhost:xx/HelloWorld/Welcome?name=Scott&numtimes=4` istediğiniz adı ve numtimes değerinin değiştirilmesi. Sistem sorgu dizenizi adres çubuğundaki yönteminizi parametrelerinde adlandırılmış parametreleri otomatik olarak eşlenir.
 
-Bu örneklerin her ikisi de denetleyicisi tüm çalışarak olmuştur ve HTML doğrudan döndürüyor. Normalde biz bizim denetleyicileri istemediğiniz kodu oldukça zahmetli olan bitip beri HTML doğrudan - döndürüyor. Bunun yerine genellikle ayrı bir görünüm şablon dosyası HTML yanıtı oluşturmak yardımcı olmak için kullanacağız. Nasıl bunu yapabiliriz konumundaki bakalım. Tarayıcınızı kapatın ve IDE döndürür.
+Bu örneklerin her ikisi de denetleyici tüm iş yapan olmuştur ve HTML doğrudan döndürüyor. Bizim denetleyicileri normalde istiyoruz olmayan HTML kodu için çok kullanışsız olan biten olduğundan doğrudan - döndürüyor. Bunun yerine genellikle ayrı bir görünüm şablon dosyası HTML yanıtını oluşturmak amacıyla kullanacağız. Nasıl bu yapabiliriz bakalım. Tarayıcınızı kapatın ve IDE'ye dönün.
 
 > [!div class="step-by-step"]
 > [Önceki](getting-started-with-mvc-part1.md)
-> [sonraki](getting-started-with-mvc-part3.md)
+> [İleri](getting-started-with-mvc-part3.md)

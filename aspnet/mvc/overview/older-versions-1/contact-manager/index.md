@@ -1,40 +1,39 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/index
-title: Contact Manager | Microsoft Docs
+title: Kişi Yöneticisi | Microsoft Docs
 author: rick-anderson
-description: Tamamlamak için tüm kişi yönetim uygulamanın başından oluşturma.
+description: Tamamlamak için bir tüm kişi yönetimi uygulaması başından oluşturmayı öğrenin.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/28/2011
 ms.topic: article
 ms.assetid: 6b0f1fd7-6768-4549-ae9c-be9131103c4d
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager
 msc.type: chapter
-ms.openlocfilehash: 1dfcaeef7f292a24f2ba191d965028f5c0f912e4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 426ae37d8b1abfc2166a6402d010a4758efdf787
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26564063"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37390994"
 ---
-<a name="contact-manager"></a>İlgili Kişi Yöneticisi
+<a name="contact-manager"></a>Kişi Yöneticisi
 ====================
-> Tamamlamak için tüm kişi yönetim uygulamanın başından oluşturma.
+> Tamamlamak için bir tüm kişi yönetimi uygulaması başından oluşturmayı öğrenin.
 
 
-- [Yineleme #1 – oluşturmak uygulama (C#)](iteration-1-create-the-application-cs.md)
-- [Yineleme #2 – olun uygulama ara iyi (C#)](iteration-2-make-the-application-look-nice-cs.md)
-- [Yineleme #3 – Ekle form doğrulama (C#)](iteration-3-add-form-validation-cs.md)
-- [Yineleme #4 – olun gevşek uygulama (C#)](iteration-4-make-the-application-loosely-coupled-cs.md)
-- [Yineleme #5 – birim testleri oluşturma (C#)](iteration-5-create-unit-tests-cs.md)
-- [Yineleme #6 – kullanmak teste dayalı geliştirme (C#)](iteration-6-use-test-driven-development-cs.md)
-- [Yineleme #7 – Ekle Ajax işlevleri (C#)](iteration-7-add-ajax-functionality-cs.md)
-- [Yineleme #1 – (VB) uygulama oluşturma](iteration-1-create-the-application-vb.md)
-- [Yineleme #2 – olun iyi (VB) Ara uygulama](iteration-2-make-the-application-look-nice-vb.md)
-- [Yineleme #3 – Ekle form doğrulama (VB)](iteration-3-add-form-validation-vb.md)
-- [Yineleme #4 – olun gevşek uygulama (VB)](iteration-4-make-the-application-loosely-coupled-vb.md)
-- [Yineleme #5 – Oluştur birim testleri (VB)](iteration-5-create-unit-tests-vb.md)
-- [Yineleme #6 – teste dayalı geliştirme (VB) kullanın](iteration-6-use-test-driven-development-vb.md)
-- [Yineleme #7 – Ekle Ajax işlevselliği (VB)](iteration-7-add-ajax-functionality-vb.md)
+- [1. Yineleme – Uygulamayı oluşturma (C#)](iteration-1-create-the-application-cs.md)
+- [2. Yineleme – Uygulamanın güzel görünmesini sağlama (C#)](iteration-2-make-the-application-look-nice-cs.md)
+- [3. Yineleme – Form doğrulaması ekleme (C#)](iteration-3-add-form-validation-cs.md)
+- [4. Yineleme – Uygulamanın gevşek bir şekilde bağlanmasını sağlama (C#)](iteration-4-make-the-application-loosely-coupled-cs.md)
+- [5. Yineleme – Birim testleri oluşturma (C#)](iteration-5-create-unit-tests-cs.md)
+- [6. Yineleme – Test odaklı geliştirme kullanma (C#)](iteration-6-use-test-driven-development-cs.md)
+- [7. Yineleme – Ajax işlevselliği ekleme (C#)](iteration-7-add-ajax-functionality-cs.md)
+- [1. Yineleme – Uygulamayı oluşturma (VB)](iteration-1-create-the-application-vb.md)
+- [2. Yineleme – Uygulamanın güzel görünmesini sağlama (VB)](iteration-2-make-the-application-look-nice-vb.md)
+- [3. Yineleme – Form doğrulaması ekleme (VB)](iteration-3-add-form-validation-vb.md)
+- [4. Yineleme – Uygulamanın gevşek bir şekilde bağlanmasını sağlama (VB)](iteration-4-make-the-application-loosely-coupled-vb.md)
+- [5. Yineleme – Birim testleri oluşturma (VB)](iteration-5-create-unit-tests-vb.md)
+- [6. Yineleme – Test odaklı geliştirme kullanma (VB)](iteration-6-use-test-driven-development-vb.md)
+- [7. Yineleme – Ajax işlevselliği ekleme (VB)](iteration-7-add-ajax-functionality-vb.md)

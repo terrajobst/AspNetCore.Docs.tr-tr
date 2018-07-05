@@ -1,28 +1,27 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-determine-whether-to-use-a-web-site-or-a-web-application-project
-title: '[Nasıl stop yaparım] Bir Web sitesi veya bir Web uygulaması projesi kullanmayı belirleme | Microsoft Docs'
+title: '[Bunu nasıl yaparım:] Bir Web sitesi veya Web uygulaması projesi kullanılıp kullanılmayacağını belirleme | Microsoft Docs'
 author: rick-anderson
-description: Bu video Chris Pels bir ASP.NET web sitesi projesini ve web uygulama projesi arasındaki farklar Karşıtlık. Kullanmak için dikkat edilecek noktalar bilgi edinin...
+description: Bu video Chris piksel bir ASP.NET web sitesi projesi ve bir web uygulaması projesi arasındaki farkları karşılaştırın. Kullanma konuları bilgi edinin...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/22/2008
 ms.topic: article
 ms.assetid: 2fba2d1d-1bd3-451a-ae94-8acf4faa75ec
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-determine-whether-to-use-a-web-site-or-a-web-application-project
 msc.type: video
-ms.openlocfilehash: 5647ab881e2666976e8a673b93c488e5bd53e7a8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a3311838b9a3e07e0772273ffda43e79b6c78022
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26570966"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37401350"
 ---
-<a name="how-do-i-determine-whether-to-use-a-web-site-or-a-web-application-project"></a>[Nasıl stop yaparım] Bir Web sitesi veya bir Web uygulaması projesi kullanılacağını belirleme
+<a name="how-do-i-determine-whether-to-use-a-web-site-or-a-web-application-project"></a>[Bunu nasıl yaparım:] Bir Web sitesi veya Web uygulaması projesi kullanılıp kullanılmayacağını belirleme
 ====================
-tarafından [Chris Pels](https://twitter.com/chrispels)
+tarafından [Chris piksel](https://twitter.com/chrispels)
 
-Bu video Chris Pels bir ASP.NET web sitesi projesini ve web uygulama projesi arasındaki farklar Karşıtlık. Proje veya başka bir tür kullanmak için dikkat edilecek noktalar hakkında bilgi edinin. İlk olarak, klasör temel dahil olmak üzere bir web uygulaması projesi önemli öznitelikler hakkında bilgi edinin. Ardından, bir web sitesi projesini ve daha fazla ayrıntı düzeyi ve ad alanları ile ilgili ve kullanıcı denetimleri veya sayfaları başvuran sınıfları ekleme de dahil olmak üzere esneklik sağlayan geleneksel Visual Studio projesini doğası önemli özniteliklerini bakın Program aracılığıyla. Web sitesi her tür için derleme modeli sonra aspnet kullanımını içeren alternatifleri birlikte ele\_compiler.exe ve aspnet\_merge.exe yardımcı programlar ve Visual Studio 2008 web dağıtım projesi.
+Bu video Chris piksel bir ASP.NET web sitesi projesi ve bir web uygulaması projesi arasındaki farkları karşılaştırın. Proje veya başka bir tür kullanma konuları hakkında bilgi edinin. İlk olarak, ana klasörü temel dahil olmak üzere bir web uygulaması projesi öznitelikleri hakkında bilgi edinin. Ardından, bir web sitesi projesi ve daha fazla ayrıntı düzeyi ve ad alanları ile ilgili ve kullanıcı denetimleri veya sayfaları başvuru sınıfları ekleme dahil olmak üzere esneklik sağlayan, geleneksel Visual Studio tabanlı Proje yapısı önemli özniteliklerini bakın Program aracılığıyla. Web sitesi her tür için derleme modeli ardından aspnet kullanımını içeren Alternatiflerle birlikte açıklanan\_compiler.exe ve aspnet\_merge.exe yardımcı programları ve Visual Studio 2008 web dağıtımı projesi.
 
-[&#9654; (29 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-determine-whether-to-use-a-web-site-or-a-web-application-project)
+[&#9654;Videoyu (29 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-determine-whether-to-use-a-web-site-or-a-web-application-project)

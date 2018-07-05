@@ -3,42 +3,42 @@ Kimlik iskele kurucu çalıştırın:
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Gelen **Çözüm Gezgini**, projeye sağ tıklayın > **Ekle** > **yeni iskele kurulmuş öğe**.
-* Sol bölmesinden **İskele Ekle** iletişim kutusunda **kimlik** > **eklemek**.
-* İçinde **Ekle kimlik** iletişim kutusunda, kullanmak istediğiniz seçenekleri seçin.
-  * Var olan düzen sayfası seçin veya düzeni dosyanızı olan hatalı biçimlendirme üzerine yazılır. Var olan bir _Layout.cshtml dosyasını seçildiğinde olduğu **değil** üzerine.
+* Sol bölmeden **İskele Ekle** iletişim kutusunda **kimlik** > **ekleme**.
+* İçinde **ADD kimliğini** iletişim kutusunda, istediğiniz seçenekleri seçin.
+  * Varolan bir düzen sayfası seçin veya hatalı biçimlendirme Düzen dosyanızın üzerine yazılacak. Varolan _Layout.cshtml dosyasını seçildiğinde olduğu **değil** üzerine.
 
- Örneğin `~/Pages/Shared/_Layout.cshtml` Razor sayfalarının `~/Views/Shared/_Layout.cshtml` MVC projeleri için
-* Mevcut veri içeriğiniz kullanmak için geçersiz kılmak için en az bir dosya seçin. Veri bağlamı eklemek için en az bir dosya seçmelisiniz.
+ Örneğin `~/Pages/Shared/_Layout.cshtml` Razor sayfaları için `~/Views/Shared/_Layout.cshtml` MVC projeleri
+* Mevcut veri Bağlamınızı kullanmak için geçersiz kılmak için en az bir dosya seçin. Veri Bağlamınızı eklemek için en az bir dosya seçmelisiniz.
   * Veri bağlamı sınıfı seçin.
-  * Seçin **eklemek**.
-* Yeni kullanıcı bağlamı oluşturmak ve büyük olasılıkla bir özel kullanıcı sınıfı için kimlik oluşturmak için:
-  * Seçin **+** yeni düğmesi **veri bağlamı sınıfı**.
-  * Seçin **eklemek**.
+  * Seçin **ekleme**.
+* Yeni bir kullanıcı bağlam oluşturur ve muhtemelen kimlik için bir özel kullanıcı sınıfı oluşturmak için:
+  * Seçin **+** yeni bir düğme **veri bağlamı sınıfının**.
+  * Seçin **ekleme**.
 
-Not: yeni bir kullanıcı bağlamı oluşturuyorsanız, geçersiz kılmak için bir dosya seçin gerekmez.
+Not: yeni bir kullanıcı bağlamı oluşturuyorsanız, geçersiz kılmak için bir dosya seçmek gerekmez.
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
-ASP.NET iskele kurucu daha önce yüklemediyseniz şimdi yükle:
+ASP.NET iskele kurucu daha önce yüklemediyseniz şimdi yükleyin:
 
 ```cli
 dotnet tool install -g dotnet-aspnet-codegenerator
 ```
 
-Paket için bir başvuru ekleyin [Microsoft.VisualStudio.Web.CodeGeneration.Design](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.CodeGeneration.Design/) projeye (\*.csproj) dosyası. Proje dizininde aşağıdaki komutu çalıştırın:
+Paket başvurusu ekleme [Microsoft.VisualStudio.Web.CodeGeneration.Design](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.CodeGeneration.Design/) projesine (\*.csproj) dosyası. Proje dizininde aşağıdaki komutu çalıştırın:
 
 ```cli
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 dotnet restore
 ```
 
-Kimlik iskele kurucu seçeneklerinden listelemek için aşağıdaki komutu çalıştırın:
+Kimlik destek seçeneklerini listelemek için aşağıdaki komutu çalıştırın:
 
 ```cli
 dotnet aspnet-codegenerator identity -h
 ```
 
-Proje klasöründe kimlik iskele kurucu istediğiniz seçenekleriyle çalıştırın. Örneğin, varsayılan UI kimlikle ve dosyaları minimum sayısını ayarlamak için aşağıdaki komutu çalıştırın. DB bağlamı için doğru tam ad kullanın:
+Proje klasöründe kimlik iskele kurucu istediğiniz seçeneği ile çalıştırın. Örneğin, kimliği ' % s'varsayılan kullanıcı Arabirimi ile ve en az sayıda dosya kurmak için aşağıdaki komutu çalıştırın. DB Bağlamınızı doğru tam adını kullanın:
 
 ```cli
 dotnet aspnet-codegenerator identity -dc MyWeb.Data.ApplicationDbContext --files Account.Register

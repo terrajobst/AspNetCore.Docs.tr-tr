@@ -1,29 +1,28 @@
 ---
 uid: signalr/overview/performance/scaleout-in-signalr
-title: SignalR genişletme giriş | Microsoft Docs
+title: Signalr'da ölçek genişletmeye giriş | Microsoft Docs
 author: MikeWasson
-description: Yazılım sürümleri bu konuda Visual Studio 2013 .NET 4.5 SignalR önceki sürümleri hakkında bilgi için bu konuda sürüm 2 önceki sürümlerinde kullanılan...
+description: Yazılım sürümleri, sürüm 2 önceki sürümleri bu konunun önceki sürümleri hakkında bilgi için bu konu Visual Studio 2013 .NET 4.5 SignalR kullanılan...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014
 ms.topic: article
 ms.assetid: 7e781fc1-1c1f-45a8-bc1d-338e96dbe9c9
 ms.technology: dotnet-signalr
-ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/performance/scaleout-in-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: f1d15250682305f6d0512b72bd2e40cb4a8a18e5
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: e12e6f05997c03ab6e78e9576d666f83ba5f3347
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28034600"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37387770"
 ---
-<a name="introduction-to-scaleout-in-signalr"></a>SignalR genişletme giriş
+<a name="introduction-to-scaleout-in-signalr"></a>Signalr'da ölçek genişletmeye giriş
 ====================
-tarafından [CAN Wasson](https://github.com/MikeWasson), [CAN Fletcher'dan](https://github.com/pfletcher)
+tarafından [Mike Wasson](https://github.com/MikeWasson), [Patrick Fletcher](https://github.com/pfletcher)
 
-> ## <a name="software-versions-used-in-this-topic"></a>Bu konuda kullanılan yazılım sürümleri
+> ## <a name="software-versions-used-in-this-topic"></a>Bu konu başlığında kullanılan yazılım sürümleri
 > 
 > 
 > - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
@@ -34,35 +33,35 @@ tarafından [CAN Wasson](https://github.com/MikeWasson), [CAN Fletcher'dan](http
 > 
 > ## <a name="previous-versions-of-this-topic"></a>Bu konunun önceki sürümleri
 > 
-> SignalR daha önceki sürümleri hakkında daha fazla bilgi için bkz: [SignalR eski sürümleri](../older-versions/index.md).
+> SignalR eski sürümleri hakkında daha fazla bilgi için bkz: [SignalR eski sürümleri](../older-versions/index.md).
 > 
 > ## <a name="questions-and-comments"></a>Sorularınız ve yorumlarınız
 > 
-> Lütfen Bu öğretici beğendiğinizi nasıl ve ne biz sayfanın sonundaki açıklamalarında artabileceğini görüşlerinizi. Öğretici için doğrudan ilgili olmayan sorularınız varsa, bunları nakledebilirsiniz [ASP.NET SignalR Forumu](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) veya [StackOverflow.com](http://stackoverflow.com/).
+> Lütfen bu öğreticide sevmediğinizi nasıl ve ne sayfanın alt kısmındaki açıklamalarda geliştirebileceğimiz hakkında geri bildirim bırakın. Öğretici için doğrudan ilgili olmayan sorularınız varsa, bunları gönderebilir [ASP.NET SignalR Forumu](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) veya [StackOverflow.com](http://stackoverflow.com/).
 
 
-Genel olarak, bir web uygulaması ölçeklendirmek için iki yolu vardır: *ölçeği* ve *ölçeğini*.
+Genel olarak, bir web uygulamasını ölçeklendirmek için iki yol vardır: *ölçeği* ve *ölçeğini*.
 
-- Daha büyük bir sunucuya (veya daha büyük bir VM) kullanarak daha fazla RAM, CPU'lar, vb. ile anlamına gelir ölçeklendirin.
-- Yükü işlemek üzere daha fazla sunucu anlamına gelir ölçeklendirin.
+- Ölçeğini daha büyük bir sunucuya (veya daha büyük bir VM) kullanarak daha fazla RAM, CPU, vb. ile anlamına gelir.
+- Yükü işlemek için daha fazla sunucu ekleyerek anlamına gelir ölçeklendirin.
 
-Yükseltme ile hızlı bir şekilde bir makine boyutu sınırı isabet sorunudur. Bunun ötesinde ölçeğini gerekir. Ölçeği genişletme, ancak, istemciler farklı sunuculara yönlendirilmiş. Bir sunucuya bağlı bir istemci, başka bir sunucudan gönderilen iletileri almaz.
+Büyütme ile hızlı bir şekilde bir makine boyutu sınırı isabet bir sorundur. Bunun ötesinde ölçeklendirme gerekir. Ancak, ölçeği genişlettiğinizde, istemcilerin farklı sunuculara yönlendirilir. Bir sunucuya bağlı bir istemci, başka bir sunucudan gönderilen iletileri almazsınız.
 
 ![](scaleout-in-signalr/_static/image1.png)
 
-Bir çözümdür iletilerini adlı bir bileşen kullanarak sunucuları arasında iletmek için bir *devre kartı*. Etkin bir devre kartı ile her uygulama örneği devre kartına ileti gönderir ve bunları diğer uygulama örnekleri devre kartı iletir. (Elektronik bir devre kartı paralel bağlayıcılar grubudur. Benzerleme tarafından SignalR devre kartı birden çok sunucuya bağlanır.)
+Bir çözüm ise adlı bir bileşen kullanma, sunucular arasında iletileri iletecek şekilde bir *devre kartı*. Etkin bir devre kartı ile her uygulama örneği devre kartına ileti gönderir ve devre kartına bunları diğer uygulama örnekleri iletir. (Elektronik bir devre kartı paralel bağlayıcılar grubudur. Benzerleme tarafından SignalR devre kartı birden çok sunucuya bağlanır.)
 
 ![](scaleout-in-signalr/_static/image2.png)
 
-SignalR şu anda üç backplanes sağlar:
+SignalR, şu anda üç backplanes sağlar:
 
-- **Azure Service Bus**. Hizmet veri yolu geniş bağlı şekilde iletileri göndermek bileşenleri izin veren bir ileti altyapısıdır.
-- **Redis**. Redis bir bellek içi anahtar-değer deposudur. Redis ileti göndermek için bir yayımlama/abonelik ("pub/alt") desen destekler.
-- **SQL Server**. SQL Server devre kartına ileti SQL tablolara yazar. Devre kartına verimli ileti için hizmet Aracısı kullanır. Service Broker etkin değilse ancak, bu da çalışır.
+- **Azure Service Bus**. Service Bus iletileri gevşek bir şekilde göndermek bileşenler sağlayan bir Mesajlaşma altyapısıdır.
+- **Redis**. Redis bellek içi anahtar-değer deposudur. Redis ileti göndermek için bir yayımlama/abone olma ("pub/sub") deseni destekler.
+- **SQL Server**. SQL Server devre kartına ileti SQL tablolarının yazar. Devre kartına verimli Mesajlaşma için hizmet Aracısı kullanır. Hizmet Aracısı etkin değilse ancak, bu da çalışır.
 
-Uygulamanızı Azure üzerinde dağıtırsanız, Redis devre kartı kullanarak göz önünde bulundurun [Azure Redis önbelleği](https://azure.microsoft.com/services/cache/). Kendi sunucu grubuna dağıtıyorsanız, SQL Server veya Redis backplanes göz önünde bulundurun.
+Uygulamanızı azure'da dağıtın, Redis devre kartı kullanarak kullanmayı [Azure Redis Cache](https://azure.microsoft.com/services/cache/). Kendi sunucu grubuna dağıtıyorsanız, SQL Server veya Redis backplanes göz önünde bulundurun.
 
-Aşağıdaki konular her devre kartı yönelik adım adım öğreticiler içerir:
+Aşağıdaki konular, her devre kartı yönelik adım adım öğreticiler içerir:
 
 - [Azure Service Bus ile SignalR Ölçeğini Genişletme](scaleout-with-windows-azure-service-bus.md)
 - [Redis ile SignalR Ölçeğini Genişletme](scaleout-with-redis.md)
@@ -70,24 +69,24 @@ Aşağıdaki konular her devre kartı yönelik adım adım öğreticiler içerir
 
 ## <a name="implementation"></a>Uygulama
 
-SignalR öğesinde her ileti bir ileti veri yolu gönderilir. Bir ileti veri yoluna uygulayan [IMessageBus](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.imessagebus(v=vs.100).aspx) Yayımla ve abone bir Özet sağlar arabirimi. Varsayılan değiştirerek backplanes iş **IMessageBus** o devre kartı için tasarlanmış bir veri yolu ile. Örneğin, Redis için ileti veri yolu olan [RedisMessageBus](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.redis.redismessagebus(v=vs.100).aspx), ve Redis kullanan [pub/alt](http://redis.io/topics/pubsub) ileti gönderme ve alma için bir mekanizma.
+SignalR öğesinde her ileti bir ileti veri yolu gönderilir. Bir ileti veri yoluna uygulayan [IMessageBus](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.imessagebus(v=vs.100).aspx) arabirimi, yayımlama/abone olma bir Özet sağlar. Varsayılan değiştirerek backplanes çalışma **IMessageBus** o devre kartı için tasarlanan veri. Örneğin, Redis için ileti veri yolu olan [RedisMessageBus](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.redis.redismessagebus(v=vs.100).aspx), ve Redis kullanır [pub/sub](http://redis.io/topics/pubsub) ileti göndermek ve almak için mekanizma.
 
-Her sunucu örneği devre kartı veri yolu üzerinden bağlanır. Bir ileti gönderildiğinde devre kartına gider ve isteğe bağlı olarak devre kartı her sunucuya gönderir. Bir sunucu kartından bir ileti aldığında, iletiyi yerel önbelleğinde koyar. Sunucu, bunun yerel önbelleğinden istemcilere iletileri sonra sunar.
+Her sunucu örneği devre kartına Veriyolu aracılığıyla bağlanır. Bir ileti gönderildiğinde devre kartına gider ve isteğe bağlı olarak devre kartına her sunucuya gönderir. Bir sunucu devre kartından bir ileti aldığında, iletiyi yerel önbelleğinde koyar. Sunucu, bunun yerel önbelleğinden istemciler için iletileri ardından sunar.
 
-Her istemci bağlantısı için bir imleç kullanarak istemcinin sürüyor ileti akışı okuma izlenir. (Bir imleç ileti akışı içinde bir konumu temsil eder.) Bir istemci bağlantısını keser ve sonra yeniden bağlandığında, istemcinin imleç değerinden sonra gelen iletileri için veri yolu sorar. Bir bağlantı kullandığında aynı şey [uzun yoklama](../getting-started/introduction-to-signalr.md#transports). Bir uzun yoklama istek tamamlandıktan sonra istemci yeni bir bağlantı açar ve imleci sonra gelen iletilerinin ister.
+Her istemci bağlantısı için bir işaretçi kullanarak ileti akışı okuma istemcinin ilerleme izlenir. (İleti akışı bir konumda bir imleç gösterir.) Bir istemci bağlantısını keser ve daha sonra yeniden bağlanacağı, istemcinin imleç değerinden sonra gelen iletileri için veri yolu sorar. Bir bağlantı kullanırken aynı şey [uzun yoklama](../getting-started/introduction-to-signalr.md#transports). Uzun yoklama istek tamamlandıktan sonra istemci yeni bir bağlantı açar ve imleci sonra gelen iletileri ister.
 
-Bir istemci üzerinde farklı bir sunucuya yönlendirilir olsa bile yeniden bağlantı imleç mekanizması çalışır. Devre kartına tüm sunucular farkındadır ve bir istemcinin bağlandığı hangi sunucunun önemli değildir.
+Bir istemci üzerinde farklı bir sunucuya yönlendirilmesini bile yeniden bağlantı imleç mekanizması çalışır. Devre kartına tüm sunucuların farkındadır ve bir istemcinin bağlandığı hangi sunucunun önemi yoktur.
 
 ## <a name="limitations"></a>Sınırlamalar
 
-Bir devre kartı kullanarak, en fazla ileti işleme istemcileri doğrudan tek bir sunucu düğüme konuşurken olduğundan daha düşüktür. Devre kartına bir performans sorunu olabilmesi için her düğüm için her ileti devre kartı iletir olmasıdır. Bu sınırlama bir sorun olup olmadığını uygulamaya bağlıdır. Örneğin, bazı tipik SignalR senaryolar şunlardır:
+Bir devre kartı kullanarak, en fazla ileti işleme hızı istemcileri doğrudan tek bir sunucu düğüme konuşurken olduğundan daha küçük. Devre kartına bir performans sorunu olabilmesi için her düğüme her ileti devre kartı iletir olmasıdır. Bu sınırlama bir sorun olup olmadığını, uygulamaya bağlıdır. Örneğin, bazı tipik SignalR senaryoları şunlardır:
 
-- [Sunucu yayın](../getting-started/tutorial-server-broadcast-with-signalr.md) (örn., borsa): Backplanes iletileri gönderilir oranı sunucu denetimleri olduğundan bu senaryo için iyi çalışır.
-- [İstemci istemci](../getting-started/tutorial-getting-started-with-signalr.md) (örn., sohbet): istemci sayısı ileti sayısını ölçeklendirir Bu senaryoda devre kartı bir performans sorunu olabilir; diğer bir deyişle, iletiler oranını büyürse orantılı olarak daha fazla istemci katılma.
-- [Yüksek yoğunlukta gerçek zamanlı](../getting-started/tutorial-high-frequency-realtime-with-signalr.md) (örneğin, gerçek zamanlı oyun): bir devre kartı bu senaryo için önerilmez.
+- [Sunucu yayın](../getting-started/tutorial-server-broadcast-with-signalr.md) (örneğin, bandı): Backplanes sunucu iletileri gönderilir oranı denetlediğinden bu senaryo için iyi çalışır.
+- [İstemci istemci](../getting-started/tutorial-getting-started-with-signalr.md) (örneğin, sohbet edin): ileti sayısını ölçeklendirir istemci sayısı, bu senaryoda, bir performans sorunu devre kartına olabilir; diğer bir deyişle, orantılı olarak daha fazla istemciye iletileri oranı büyürse katılın.
+- [Yüksek sıklıkta gerçek zamanlı](../getting-started/tutorial-high-frequency-realtime-with-signalr.md) (örneğin, gerçek zamanlı oyun): Bu senaryo için bir devre kartı önerilmez.
 
-## <a name="enabling-tracing-for-signalr-scaleout"></a>SignalR genişletme için izlemeyi etkinleştirme
+## <a name="enabling-tracing-for-signalr-scaleout"></a>SignalR ölçeğini genişletme için izlemeyi etkinleştirme
 
-Backplanes izlemeyi etkinleştirmek için aşağıdaki bölümleri web.config dosyasını kökü altındaki eklemek **yapılandırma** öğe:
+Backplanes için izlemeyi etkinleştirmek için web.config dosyasının kök altında aşağıdaki bölümlerde ekleme **yapılandırma** öğesi:
 
 [!code-html[Main](scaleout-in-signalr/samples/sample1.html)]

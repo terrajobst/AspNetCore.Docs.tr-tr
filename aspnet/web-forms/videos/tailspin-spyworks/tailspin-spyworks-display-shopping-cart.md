@@ -1,32 +1,31 @@
 ---
 uid: web-forms/videos/tailspin-spyworks/tailspin-spyworks-display-shopping-cart
-title: Tailspin Spyworks - alışveriş sepeti görüntüle | Microsoft Docs
+title: Tailspin Spyworks - alışveriş sepetini görüntüleme | Microsoft Docs
 author: JoeStagner
-description: Joe Stagner nasıl Tailspin Spyworks örnek Web Forms uygulaması'nda alışveriş sepeti görüntüleneceğini gösterir.
+description: ALi Stagner Tailspin Spyworks örnek Web Forms uygulaması'nda alışveriş sepetini görüntüleme işlemini göstermektedir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/29/2010
 ms.topic: article
 ms.assetid: 665d7ffe-3d96-4afc-a1d8-5330ae819764
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/tailspin-spyworks/tailspin-spyworks-display-shopping-cart
 msc.type: video
-ms.openlocfilehash: 47bb99c423cd7577b66af60d441902a27f4e7579
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 50a0d2adbb9e8d967999b6ac8750438778f19770
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30899703"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37398478"
 ---
-<a name="tailspin-spyworks---display-shopping-cart"></a>Tailspin Spyworks - alışveriş sepeti görüntüle
+<a name="tailspin-spyworks---display-shopping-cart"></a>Tailspin Spyworks - alışveriş sepetini görüntüleme
 ====================
-tarafından [CAN Stagner](https://github.com/JoeStagner)
+tarafından [ALi Stagner](https://github.com/JoeStagner)
 
-Joe Stagner nasıl Tailspin Spyworks örnek Web Forms uygulaması'nda alışveriş sepeti görüntüleneceğini gösterir.
+ALi Stagner Tailspin Spyworks örnek Web Forms uygulaması'nda alışveriş sepetini görüntüleme işlemini göstermektedir.
 
-[&#9654;(15 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/tailspin-spyworks-display-shopping-cart)
+[&#9654;Videoyu (15 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/tailspin-spyworks-display-shopping-cart)
 
 > [!div class="step-by-step"]
 > [Önceki](tailspin-spyworks-adding-items-to-the-shopping-cart.md)
-> [sonraki](tailspin-spyworks-update-the-shopping-cart.md)
+> [İleri](tailspin-spyworks-update-the-shopping-cart.md)

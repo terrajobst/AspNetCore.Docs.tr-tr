@@ -1,32 +1,31 @@
 ---
 uid: web-forms/videos/sql-2005/connecting-your-web-application-to-sql-server-2005-express-edition
-title: Web uygulamanıza SQL Server 2005 Express Edition bağlanma | Microsoft Docs
+title: Web uygulamanızı SQL Server 2005 Express Edition'a bağlama | Microsoft Docs
 author: microsoft
-description: SQL Server yeni başlayanlar izlenecek bir veritabanı kullanan Web uygulaması oluşturma tüm iş akışı olur ve bir administrat hızlı bir şekilde oluşturmak için visual araçlarını kullanın...
+description: SQL Server yeni başlayanlar gözden geçirme veritabanı temelli bir Web uygulaması oluşturma, tüm iş akışı olur ve bir administrat hızlıca oluşturmak için görsel araçları kullanın...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/20/2006
 ms.topic: article
 ms.assetid: 2ba89851-337e-47dc-a604-82f73a68bc63
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/sql-2005/connecting-your-web-application-to-sql-server-2005-express-edition
 msc.type: video
-ms.openlocfilehash: 9e0f91087a2c939c712ed0cbcc9a0dc7663fbd6c
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 1b1e74139c11782a96af8c43474b828b3d9f9a65
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30894336"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37390588"
 ---
-<a name="connecting-your-web-application-to-sql-server-2005-express-edition"></a>Web uygulamanıza SQL Server 2005 Express Edition bağlanma
+<a name="connecting-your-web-application-to-sql-server-2005-express-edition"></a>Web uygulamanızı SQL Server 2005 Express Edition'a bağlama
 ====================
 tarafından [Microsoft](https://github.com/microsoft)
 
-SQL Server yeni başlayanlar izlenecek bir veritabanı kullanan Web uygulaması oluşturma tüm iş akışı olur ve hızlı bir şekilde bir yönetim uygulaması oluşturmak için visual araçlarını kullanın.
+SQL Server yeni başlayanlar gözden geçirme veritabanı temelli bir Web uygulaması oluşturma, tüm iş akışı olur ve hızlı bir şekilde bir yönetim uygulaması oluşturmak için görsel araçları kullanın.
 
-[&#9654;(65 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/connecting-your-web-application-to-sql-server-2005-express-edition)
+[&#9654;Videoyu (65 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/connecting-your-web-application-to-sql-server-2005-express-edition)
 
 > [!div class="step-by-step"]
 > [Önceki](understanding-security-and-network-connectivity.md)
-> [sonraki](using-sql-server-management-studio.md)
+> [İleri](using-sql-server-management-studio.md)

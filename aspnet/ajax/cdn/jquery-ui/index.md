@@ -1,6 +1,6 @@
 ---
 uid: ajax/cdn/jquery-ui/index
-title: jQuery UI | Microsoft Docs
+title: jQuery kullanıcı Arabirimi | Microsoft Docs
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
@@ -9,50 +9,49 @@ ms.date: 07/21/2014
 ms.topic: article
 ms.assetid: bd72bb7e-bdcb-490b-8bc1-9b669329632b
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /ajax/cdn/jquery-ui
 msc.type: folder
-ms.openlocfilehash: 3ecaf37814e760116b45c5e48704faee36f2d7d7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ac94229376b77934f39ad32b811b5be4d6778a8a
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26563061"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37391598"
 ---
-<a name="jquery-ui"></a>jQuery UI
+<a name="jquery-ui"></a>jQuery kullanıcı Arabirimi
 ====================
-- [jQuery UI 1.10.4 Microsoft Ajax CDN üzerinde](cdnjqueryui1104.md)
-- [jQuery UI 1.10.3 Microsoft Ajax CDN üzerinde](cdnjqueryui1103.md)
-- [jQuery 1.10.2 UI Microsoft Ajax CDN](cdnjqueryui1102.md)
-- [jQuery UI 1.10.1 Microsoft Ajax CDN üzerinde](cdnjqueryui1101.md)
-- [jQuery UI 1.10.0 Microsoft Ajax CDN üzerinde](cdnjqueryui1100.md)
-- [jQuery UI 1.9.2 Microsoft Ajax CDN üzerinde](cdnjqueryui192.md)
-- [jQuery UI 1.9.1 Microsoft Ajax CDN üzerinde](cdnjqueryui191.md)
-- [jQuery UI 1.9.0 Microsoft Ajax CDN üzerinde](cdnjqueryui190.md)
-- [jQuery UI 1.8.24 Microsoft Ajax CDN üzerinde](cdnjqueryui1824.md)
-- [jQuery UI 1.8.23 Microsoft Ajax CDN üzerinde](cdnjqueryui1823.md)
-- [jQuery UI 1.8.22 Microsoft Ajax CDN üzerinde](cdnjqueryui1822.md)
-- [jQuery UI 1.8.21 Microsoft Ajax CDN üzerinde](cdnjqueryui1821.md)
-- [jQuery UI 1.8.20 Microsoft Ajax CDN üzerinde](cdnjqueryui1820.md)
-- [jQuery UI 1.8.19 Microsoft Ajax CDN üzerinde](cdnjqueryui1819.md)
-- [jQuery UI 1.8.18 Microsoft Ajax CDN üzerinde](cdnjqueryui1818.md)
-- [jQuery UI 1.8.17 Microsoft Ajax CDN üzerinde](cdnjqueryui1817.md)
-- [jQuery UI 1.8.16 Microsoft Ajax CDN üzerinde](cdnjqueryui1816.md)
-- [jQuery UI 1.8.15 Microsoft Ajax CDN üzerinde](cdnjqueryui1815.md)
-- [jQuery UI 1.8.14 Microsoft Ajax CDN üzerinde](cdnjqueryui1814.md)
-- [jQuery UI 1.8.13 Microsoft Ajax CDN üzerinde](cdnjqueryui1813.md)
-- [jQuery UI 1.8.12 Microsoft Ajax CDN üzerinde](cdnjqueryui1812.md)
-- [jQuery UI 1.8.11 Microsoft Ajax CDN üzerinde](cdnjqueryui1811.md)
-- [jQuery UI 1.8.10 Microsoft Ajax CDN üzerinde](cdnjqueryui1910.md)
-- [jQuery UI 1.8.9 Microsoft Ajax CDN üzerinde](cdnjqueryui189.md)
-- [jQuery UI 1.8.8 Microsoft Ajax CDN üzerinde](cdnjqueryui188.md)
-- [jQuery UI 1.8.7 Microsoft Ajax CDN üzerinde](cdnjqueryui187.md)
-- [jQuery UI 1.8.6 Microsoft Ajax CDN üzerinde](cdnjqueryui186.md)
-- [jQuery UI 1.8.5](cdnjqueryui185.md)
-- [jQuery UI 1.11.2 Microsoft Ajax CDN üzerinde](cdnjqueryui1112.md)
-- [jQuery UI 1.11.1 Microsoft Ajax CDN üzerinde](cdnjqueryui1111.md)
-- [jQuery UI 1.11.0 Microsoft Ajax CDN üzerinde](cdnjqueryui1110.md)
-- [jQuery UI 1.11.3 Microsoft Ajax CDN üzerinde](cdnjqueryui1113.md)
-- [jQuery UI 1.11.4 Microsoft Ajax CDN üzerinde](cdnjqueryui1114.md)
-- [jQuery UI 1.12.0 Microsoft Ajax CDN üzerinde](cdnjqueryui1120.md)
-- [jQuery UI 1.12.1 Microsoft Ajax CDN üzerinde](cdnjqueryui1121.md)
+- [Microsoft Ajax CDN üzerinde jQuery Kullanıcı Arabirimi 1.10.4](cdnjqueryui1104.md)
+- [Microsoft Ajax CDN üzerinde jQuery Kullanıcı Arabirimi 1.10.3](cdnjqueryui1103.md)
+- [Microsoft Ajax CDN üzerinde jQuery Kullanıcı Arabirimi 1.10.2](cdnjqueryui1102.md)
+- [Microsoft Ajax CDN üzerinde jQuery Kullanıcı Arabirimi 1.10.1](cdnjqueryui1101.md)
+- [Microsoft Ajax CDN üzerinde jQuery Kullanıcı Arabirimi 1.10.0](cdnjqueryui1100.md)
+- [Microsoft Ajax CDN üzerinde jQuery Kullanıcı Arabirimi 1.9.2](cdnjqueryui192.md)
+- [Microsoft Ajax CDN üzerinde jQuery Kullanıcı Arabirimi 1.9.1](cdnjqueryui191.md)
+- [Microsoft Ajax CDN üzerinde jQuery Kullanıcı Arabirimi 1.9.0](cdnjqueryui190.md)
+- [Microsoft Ajax CDN üzerinde jQuery Kullanıcı Arabirimi 1.8.24](cdnjqueryui1824.md)
+- [Microsoft Ajax CDN üzerinde jQuery Kullanıcı Arabirimi 1.8.23](cdnjqueryui1823.md)
+- [Microsoft Ajax CDN üzerinde jQuery Kullanıcı Arabirimi 1.8.22](cdnjqueryui1822.md)
+- [Microsoft Ajax CDN üzerinde jQuery Kullanıcı Arabirimi 1.8.21](cdnjqueryui1821.md)
+- [Microsoft Ajax CDN üzerinde jQuery Kullanıcı Arabirimi 1.8.20](cdnjqueryui1820.md)
+- [Microsoft Ajax CDN üzerinde jQuery Kullanıcı Arabirimi 1.8.19](cdnjqueryui1819.md)
+- [Microsoft Ajax CDN üzerinde jQuery Kullanıcı Arabirimi 1.8.18](cdnjqueryui1818.md)
+- [Microsoft Ajax CDN üzerinde jQuery Kullanıcı Arabirimi 1.8.17](cdnjqueryui1817.md)
+- [Microsoft Ajax CDN üzerinde jQuery Kullanıcı Arabirimi 1.8.16](cdnjqueryui1816.md)
+- [Microsoft Ajax CDN üzerinde jQuery Kullanıcı Arabirimi 1.8.15](cdnjqueryui1815.md)
+- [Microsoft Ajax CDN üzerinde jQuery Kullanıcı Arabirimi 1.8.14](cdnjqueryui1814.md)
+- [Microsoft Ajax CDN üzerinde jQuery Kullanıcı Arabirimi 1.8.13](cdnjqueryui1813.md)
+- [Microsoft Ajax CDN üzerinde jQuery Kullanıcı Arabirimi 1.8.12](cdnjqueryui1812.md)
+- [Microsoft Ajax CDN üzerinde jQuery Kullanıcı Arabirimi 1.8.11](cdnjqueryui1811.md)
+- [Microsoft Ajax CDN üzerinde jQuery Kullanıcı Arabirimi 1.8.10](cdnjqueryui1910.md)
+- [Microsoft Ajax CDN üzerinde jQuery Kullanıcı Arabirimi 1.8.9](cdnjqueryui189.md)
+- [Microsoft Ajax CDN üzerinde jQuery Kullanıcı Arabirimi 1.8.8](cdnjqueryui188.md)
+- [Microsoft Ajax CDN üzerinde jQuery Kullanıcı Arabirimi 1.8.7](cdnjqueryui187.md)
+- [Microsoft Ajax CDN üzerinde jQuery Kullanıcı Arabirimi 1.8.6](cdnjqueryui186.md)
+- [jQuery Kullanıcı Arabirimi 1.8.5](cdnjqueryui185.md)
+- [Microsoft Ajax CDN üzerinde jQuery Kullanıcı Arabirimi 1.11.2](cdnjqueryui1112.md)
+- [Microsoft Ajax CDN üzerinde jQuery Kullanıcı Arabirimi 1.11.1](cdnjqueryui1111.md)
+- [Microsoft Ajax CDN üzerinde jQuery Kullanıcı Arabirimi 1.11.0](cdnjqueryui1110.md)
+- [Microsoft Ajax CDN üzerinde jQuery Kullanıcı Arabirimi 1.11.3](cdnjqueryui1113.md)
+- [Microsoft Ajax CDN üzerinde jQuery Kullanıcı Arabirimi 1.11.4](cdnjqueryui1114.md)
+- [Microsoft Ajax CDN üzerinde jQuery Kullanıcı Arabirimi 1.12.0](cdnjqueryui1120.md)
+- [Microsoft Ajax CDN üzerinde jQuery Kullanıcı Arabirimi 1.12.1](cdnjqueryui1121.md)

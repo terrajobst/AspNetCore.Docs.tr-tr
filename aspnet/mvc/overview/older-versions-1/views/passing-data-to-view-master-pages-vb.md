@@ -1,92 +1,91 @@
 ---
 uid: mvc/overview/older-versions-1/views/passing-data-to-view-master-pages-vb
-title: Veri Görünümü ana sayfalar (VB) geçirme | Microsoft Docs
+title: (VB) görünüm ana sayfalarına veri geçirme | Microsoft Docs
 author: microsoft
-description: Bu öğreticinin nasıl veri bir denetleyicisinden görünümü ana sayfaya geçirebilirsiniz açıklamak için hedeftir. Veri görünümüne m geçirme iki stratejileri inceleyeceğiz...
+description: Bu öğreticide nasıl veri bir denetleyiciden görünüm ana sayfaya geçirebilirsiniz açıklamak için hedefidir. M görünümü verileri geçirmek için iki stratejileri inceleyeceğiz...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/16/2008
 ms.topic: article
 ms.assetid: 37a1ebae-8773-408f-8645-d21da7ff9ae1
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/views/passing-data-to-view-master-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: fcd7c5baacc00490720d1f82252d81e40c097c88
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: e70f15d98101336dbef31b4f9d8b958632e46c01
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30870758"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37388525"
 ---
-<a name="passing-data-to-view-master-pages-vb"></a>Görünüm ana sayfalar (VB) için veri geçirme
+<a name="passing-data-to-view-master-pages-vb"></a>(VB) görünüm ana sayfalarına veri geçirme
 ====================
 tarafından [Microsoft](https://github.com/microsoft)
 
-[PDF indirin](http://download.microsoft.com/download/e/f/3/ef3f2ff6-7424-48f7-bdaa-180ef64c3490/ASPNET_MVC_Tutorial_13_VB.pdf)
+[PDF'yi indirin](http://download.microsoft.com/download/e/f/3/ef3f2ff6-7424-48f7-bdaa-180ef64c3490/ASPNET_MVC_Tutorial_13_VB.pdf)
 
-> Bu öğreticinin nasıl veri bir denetleyicisinden görünümü ana sayfaya geçirebilirsiniz açıklamak için hedeftir. Bir görünüm ana sayfaya veri geçirme iki stratejileri inceleyeceğiz. İlk olarak, uygulamada etmek zordur sonuçları kolay bir çözüm tartışın. Ardından, biraz daha sürdürülebilir uygulama sonuçlarında ancak daha fazla ilk iş gerektiren çok daha iyi bir çözüm inceleyeceğiz.
+> Bu öğreticide nasıl veri bir denetleyiciden görünüm ana sayfaya geçirebilirsiniz açıklamak için hedefidir. Görünüm ana sayfaya verileri geçirmek için iki stratejileri inceleyeceğiz. İlk olarak, bakımını yapmak zor bir uygulamada sonuçları bir kolayca çözüm ele alır. Ardından, biraz daha fazla ilk iş sonuçları daha sürdürülebilir bir uygulama içinde ancak gerektiren çok daha iyi bir çözüm inceleyeceğiz.
 
 
-## <a name="passing-data-to-view-master-pages"></a>Görünüm ana sayfalar için veri geçirme
+## <a name="passing-data-to-view-master-pages"></a>Görünüm ana sayfalarına veri geçirme
 
-Bu öğreticinin nasıl veri bir denetleyicisinden görünümü ana sayfaya geçirebilirsiniz açıklamak için hedeftir. Bir görünüm ana sayfaya veri geçirme iki stratejileri inceleyeceğiz. İlk olarak, uygulamada etmek zordur sonuçları kolay bir çözüm tartışın. Ardından, biraz daha sürdürülebilir uygulama sonuçlarında ancak daha fazla ilk iş gerektiren çok daha iyi bir çözüm inceleyeceğiz.
+Bu öğreticide nasıl veri bir denetleyiciden görünüm ana sayfaya geçirebilirsiniz açıklamak için hedefidir. Görünüm ana sayfaya verileri geçirmek için iki stratejileri inceleyeceğiz. İlk olarak, bakımını yapmak zor bir uygulamada sonuçları bir kolayca çözüm ele alır. Ardından, biraz daha fazla ilk iş sonuçları daha sürdürülebilir bir uygulama içinde ancak gerektiren çok daha iyi bir çözüm inceleyeceğiz.
 
 ### <a name="the-problem"></a>Sorun
 
-Film veritabanı uygulaması oluşturma ve uygulamanızdaki her sayfada film kategori listesi, görüntülemek istediğiniz düşünün (bkz: Şekil 1). Ayrıca, film kategori listesi, bir veritabanı tablosunda depolanır düşünün. Bu durumda, kategoriler veritabanından almak ve bir görünüm ana sayfa içinde film kategori listesi işlemek için anlamlı olacaktır.
+Bir film veritabanı uygulaması oluşturuyorsunuz ve uygulamanızdaki her sayfada film Kategoriler listesini görüntülemek istediğiniz Imagine (bkz. Şekil 1). Ayrıca, film kategori listesi bir veritabanı tablosunda depolandığını varsayın. Bu durumda, kategoriler veritabanından ve bir görünüm ana sayfa içinde film kategori listesi işlemek için anlamlı olacaktır.
 
 
-[![Bir görünüm ana sayfasında film kategorileri görüntüleme](passing-data-to-view-master-pages-vb/_static/image2.png)](passing-data-to-view-master-pages-vb/_static/image1.png)
+[![Bir görünüm ana sayfasında film kategorilerini görüntüleme](passing-data-to-view-master-pages-vb/_static/image2.png)](passing-data-to-view-master-pages-vb/_static/image1.png)
 
-**Şekil 01**: bir görünüm ana sayfasında film kategorileri görüntüleme ([tam boyutlu görüntüyü görüntülemek için tıklatın](passing-data-to-view-master-pages-vb/_static/image3.png))
+**Şekil 01**: bir görünüm ana sayfasında film kategorileri görüntüleme ([tam boyutlu görüntüyü görmek için tıklatın](passing-data-to-view-master-pages-vb/_static/image3.png))
 
 
-Sorun aşağıda verilmiştir. Ana sayfaya film kategorilerde listesini nasıl aldığını? Model sınıflarınızı yöntemlerinin ana sayfasında doğrudan çağırmak için tempting. Diğer bir deyişle, verileri ana sayfanızın veritabanı sağa alınırken kodunu dahil etmek için tempting. Ancak, veritabanına erişmek için MVC denetleyicileri atlayarak sorunlarının bir MVC uygulaması oluşturmanın birincil avantajlarından biri olan temiz ayrımı ihlal ediyor.
+Sorun aşağıda verilmiştir. Ana sayfaya film kategorilerde listesini nasıl aldığını? Bu model sınıflarınızı yöntemlerinin ana sayfasında doğrudan çağırmak için daha cazip bir işlemdir. Diğer bir deyişle, daha cazip ana sayfanıza veritabanı sağdan veri almak için kod içerir. Ancak, veritabanına erişmek için MVC denetleyicileri atlayarak bir MVC uygulaması oluşturmanın birincil yararlarından biri olan ayrılmasına ihlal ediyor.
 
-Bir MVC uygulamasında MVC görünümlerinizde ve MVC modeline MVC denetleyicileri tarafından işlenecek arasındaki tüm etkileşim istiyor. Bu sorunları ayrılması daha sürdürülebilir, uyarlanabilir ve sınanabilir bir uygulamada sonuçlanır.
+Bir MVC uygulamasında MVC görünümlerinizde ve MVC model, MVC denetleyicileri tarafından işlenecek arasındaki tüm etkileşim istersiniz. Bu ayrılması daha sürdürülebilir, uyarlanabilir ve test edilebilir uygulamada sonuçlanır.
 
-Bir MVC uygulamasında – bir görünüm ana sayfası dahil olmak üzere – bir görünüme iletilen tüm verileri bir denetleyici eylemi tarafından bir görünüme geçirilmesi gerekir. Ayrıca, veri görünümü verileri yararlanarak geçirilmesi gerekir. Bu öğreticinin geri kalanında içinde ı görünümü ana sayfa için Görünüm veri geçirme için iki yöntem inceleyin.
+Bir MVC uygulamasında görünümü – bir görünüm ana sayfası dahil olmak üzere – aktarılan tüm veriler bir denetleyici eylemi tarafından bir görünüme geçirilmelidir. Ayrıca, veri görünümü verileri avantajlarından yararlanarak geçirilmelidir. Bu öğreticinin geri kalanında içinde ben iki görünüm ana sayfa için Görünüm veri geçirme yöntemleri inceleyin.
 
-### <a name="the-simple-solution"></a>Basit çözüm
+### <a name="the-simple-solution"></a>Basit bir çözüm
 
-Görünüm veri görünümü ana sayfaya bir denetleyicisinden geçirme için basit çözümü ile başlayalım tıklatın. En basit çözüm, her denetleyici eylem ana sayfa için Görünüm verileri geçirmektir.
+Görünüm verilerini bir denetleyiciden görünüm ana sayfaya geçirme için basit çözüm başlayalım. Basit çözüm, her denetleyici eylem ana sayfa için Görünüm verileri geçirmektir.
 
-Denetleyici 1 listeleme göz önünde bulundurun. Adlı iki eylem sunan `Index()` ve `Details()`. `Index()` Eylem yöntemi, filmler veritabanı tablosunda her film döndürür. `Details()` Eylem yöntemi bir belirli film kategorideki her film döndürür.
+Denetleyici 1 listeleme göz önünde bulundurun. Adlı iki eylem kullanıma sunduğu `Index()` ve `Details()`. `Index()` Eylem yöntemi, film veritabanı tablosu, her filmin döndürür. `Details()` Eylem yöntemi, belirli bir filmi kategorisinde her film döndürür.
 
 **Kod 1 – `Controllers\HomeController.vb`**
 
 [!code-vb[Main](passing-data-to-view-master-pages-vb/samples/sample1.vb)]
 
-Dikkat hem `Index()` ve `Details()` eylemlerini verileri görüntülemek için iki öğeyi ekleyin. `Index()` Eylem iki anahtar ekler: kategorileri ve filmler. Kategoriler anahtarı görünüm ana sayfa tarafından görüntülenen film Kategoriler listesini temsil eder. Film anahtar dizini görünüm sayfası tarafından görüntülenen filmler listesini temsil eder.
+Dikkat hem `Index()` ve `Details()` Eylemler verilerini görüntülemek için iki öğeyi ekleyin. `Index()` Eylem iki anahtar ekler: kategorileri ve filmler. Kategorileri anahtarı görünüm ana sayfa tarafından görüntülenen film kategori listesi temsil eder. Filmler anahtarı dizin görünümü sayfa tarafından görüntülenen filmler listesini temsil eder.
 
-`Details()` Eylem ayrıca kategorileri ve filmler adlı iki anahtar ekler. Kategorileri anahtarının bir kez daha, görünüm ana sayfa tarafından görüntülenen film Kategoriler listesini temsil eder. Ayrıntılar görünümü sayfası tarafından görüntülenen belirli bir kategorideki filmler listesi filmler anahtarı temsil eder (bkz: Şekil 2).
+`Details()` Eylem, adlandırılmış kategorileri ve filmler iki anahtar da ekler. Kategorileri anahtarı bir kez daha, görünüm ana sayfa tarafından görüntülenen film Kategoriler listesini temsil eder. Ayrıntılar görünümü sayfa tarafından görüntülenen belirli bir kategorideki filmler listesini filmler anahtarı temsil eder (bkz: Şekil 2).
 
 
 [![Ayrıntılar görünümü](passing-data-to-view-master-pages-vb/_static/image5.png)](passing-data-to-view-master-pages-vb/_static/image4.png)
 
-**Şekil 02**: ayrıntıları görüntüleyin ([tam boyutlu görüntüyü görüntülemek için tıklatın](passing-data-to-view-master-pages-vb/_static/image6.png))
+**Şekil 02**: ayrıntılarını görüntüleyin ([tam boyutlu görüntüyü görmek için tıklatın](passing-data-to-view-master-pages-vb/_static/image6.png))
 
 
-Dizin görünümünün listeleme 2'de yer alır. Bunu yalnızca görünüm verilerini filmler öğesi tarafından temsil edilen filmler listesini dolaşır.
+Dizin görünümünün listeleme 2'de yer alır. Yalnızca görünüm verilerini filmler öğesinde tarafından temsil edilen filmler listesi üzerinden yinelenir.
 
 **Kod 2 – `Views\Home\Index.aspx`**
 
 [!code-aspx[Main](passing-data-to-view-master-pages-vb/samples/sample2.aspx)]
 
-Görünüm ana sayfa listeleme 3'te yer alır. Görünüm ana sayfa tekrarlanan ve tüm kategorileri öğesiyle görünüm verileri temsil film kategorilerini işler.
+Görünüm ana sayfası listeleme 3'te yer alır. Görünüm ana sayfası yinelenir ve tüm kategorileri öğe tarafından temsil edilen görünüm verileri film kategorilerini işler.
 
 **Kod 3 – `Views\Shared\Site.master`**
 
 [!code-aspx[Main](passing-data-to-view-master-pages-vb/samples/sample3.aspx)]
 
-Tüm veriler iletilir görünümü ve görünüm ana sayfa için Görünüm verilerine. Ana sayfaya veri iletmek için doğru bir şekilde olmasıdır.
+Tüm veriler iletilir görünümü ve görünüm ana sayfası için Görünüm verilerine. Ana sayfaya veri iletmek için doğru şekilde olmasıdır.
 
-Bu nedenle, bu çözüm ile yanlış nedir? Bu çözüm KURU (yok yineleyin kendiniz) ilkesini ihlal sorunudur. Her denetleyici eylemi çok aynı kategori listesi, verileri görüntülemek için film eklemeniz gerekir. Yinelenen kodu, uygulamanızda olan uygulamanızı korumak, uyum ve değiştirmek çok daha zor hale getirir.
+Bu nedenle, bu çözüm ile sorun nedir? Bu çözüm KURU (yoksa yineleyin kendiniz) ilkesini ihlal sorunudur. Her denetleyici eylemi çok aynı verileri görüntülemek için film kategori listesi eklemeniz gerekir. Uygulamanızda yinelenen koduna sahip uygulamanızı korumak, uyum ve değiştirmek çok daha zor hale getirir.
 
-### <a name="the-good-solution"></a>İyi çözümü
+### <a name="the-good-solution"></a>İyi bir çözümdür
 
-Bu bölümde, veri görünümü ana sayfaya denetleyicisi eylemden geçirme için alternatif ve daha iyi bir çözüm inceleyeceğiz. Ana sayfaya film kategoriler her denetleyici eylemi yerine, biz film kategorileri görünüm verilerine yalnızca bir kez ekleme. Görünüm ana sayfa tarafından kullanılan tüm görünüm verilerini bir uygulama denetleyicisi eklenir.
+Bu bölümde, veri görünümü ana sayfa için bir denetleyici eylemini geçirme için alternatif ve daha iyi bir çözüm inceleyeceğiz. Ana sayfaya film kategoriler her denetleyici eylemi ekleme yerine, film kategorileri ve görünüm verilerinin yalnızca bir kez ekleriz. Görünüm ana sayfa tarafından kullanılan tüm görünüm verilerini, bir uygulama denetleyicisi eklenir.
 
 ApplicationController sınıfı listeleme 4'te yer alır.
 
@@ -96,27 +95,27 @@ ApplicationController sınıfı listeleme 4'te yer alır.
 
 [!code-vb[Main](passing-data-to-view-master-pages-vb/samples/sample4.vb)]
 
-Uygulama denetleyicisi listeleme 4 hakkında dikkat etmelidir üç nokta vardır. İlk olarak, taban System.Web.Mvc.Controller sınıftan sınıfı dikkat edin. Uygulama denetleyici sınıfı denetleyicisidir.
+Listeleme 4'te uygulama denetleyiciyle ilgili fark etmişsinizdir üç şey vardır. İlk olarak, sınıfın temel System.Web.Mvc.Controller sınıfından devralan dikkat edin. Uygulama denetleyicisi sınıfı denetleyicisidir.
 
-İkinci olarak, uygulama denetleyicisi sınıfı MustInherit sınıfı olduğuna dikkat edin. MustInherit sınıfı somut bir sınıf tarafından uygulanan bir sınıftır. Uygulama denetleyicisi MustInherit sınıfı olduğundan, doğrudan sınıfında tanımlanan herhangi bir yöntem çağıramazsınız değil. Daha sonra uygulama sınıfı doğrudan çağırma çalışırsanız, bir kaynak bulunamıyor hata iletisi alırsınız.
+İkinci olarak, uygulama denetleyicisi sınıfı MustInherit sınıfı olduğuna dikkat edin. MustInherit sınıfı somut bir sınıf tarafından uygulanan bir sınıftır. Uygulama denetleyici MustInherit sınıfı olduğu için doğrudan sınıfta tanımlanmış herhangi bir yöntem çağıramazsınız değil. Ardından uygulama sınıfı doğrudan çağırmak denerseniz bir kaynak bulunamıyor hata iletisi alırsınız.
 
-Üçüncü uygulama denetleyicisi verileri görüntülemek için film kategorileri listesi ekler bir oluşturucu içerdiğine dikkat edin. Uygulama denetleyicisinden devralır her denetleyici sınıfı uygulama denetleyicinin Oluşturucusu otomatik olarak çağırır. Uygulama denetleyicisinden devralır denetleyicisinde herhangi bir eylem çağrısı her film kategorileri dahil görünüm verileri otomatik olarak.
+Üçüncü olarak, uygulama denetleyicisi verilerini görüntülemek için film kategori listesi ekleyen bir oluşturucu içerdiğine dikkat edin. Uygulama denetleyicisinden devralan her denetleyici sınıfı otomatik olarak uygulama denetleyicinin oluşturucuyu çağırır. Uygulama denetleyicisinden devralan herhangi bir denetleyicisi herhangi bir işlem çağırmak her film kategoriler dahil görünüm verileri otomatik olarak.
 
-Film denetleyicisi listeleme 5'te uygulama denetleyicisinden devralır.
+Filmler denetleyicisi listeleme 5'te uygulama denetleyicisinden devralır.
 
 **5 listeleme – `Controllers\MoviesController.vb`**
 
 [!code-vb[Main](passing-data-to-view-master-pages-vb/samples/sample5.vb)]
 
-Film denetleyicisi yalnızca önceki bölümde tartışılan giriş denetleyicisi gibi adlı iki eylem yöntemlerini gösterir `Index()` ve `Details()`. Görünüm ana sayfa tarafından görüntülenen film kategorileri listesinde olmayan bildirim eklenen ya da veri görüntülemek için `Index()` veya `Details()` yöntemi. Film denetleyicisi uygulama denetleyicisinden devralındığından film kategori listesi, verileri otomatik olarak görüntülemek için eklenir.
+Yalnızca önceki bölümde açıklanan giriş denetleyicisine gibi filmler denetleyicisi adlı iki eylem yöntemleri sunar `Index()` ve `Details()`. Görünüm ana sayfa tarafından görüntülenen film kategori listesi değil bildirimi eklenen ya da veri görüntülemek için `Index()` veya `Details()` yöntemi. Denetleyici filmler uygulama denetleyicisinden devraldığından, film kategori listesi verisinin otomatik olarak eklenir.
 
-Bir görünüm ana sayfa için Görünüm verileri eklemek için bu çözümün KURU (yok yineleyin kendiniz) ilkeyi ihlal değil dikkat edin. Verileri görüntülemek için film kategori listesi ekleme kodunu yalnızca tek bir yerde bulunur: uygulama denetleyicisi Oluşturucusu.
+Bu çözüm, bir görünüm ana sayfa için Görünüm veri eklemeye KURU (yoksa yineleyin kendiniz) ilkesini ihlal etmemesini dikkat edin. Verileri görüntülemek için film kategori listesi ekleme kodunu yalnızca tek bir konumda bulunur: uygulama denetleyicisi için oluşturucu.
 
 ### <a name="summary"></a>Özet
 
-Bu öğreticide, bir görünüm ana sayfaya bir denetleyicisinden görünüm verilerini geçirme için iki yaklaşım açıklanmıştır. İlk olarak, ancak zor bir yaklaşım korumak basit bir incelendi. İlk bölümde, nasıl bir görünüm ana sayfa için Görünüm verileri her her denetleyici eylemi uygulamanızda ekleyebileceğiniz açıklanmıştır. KURU (yok yineleyin kendiniz) ilkesini ihlal ettiğinden bu hatalı bir yaklaşım olduğunu sonuçları.
+Bu öğreticide, görünüm verilerini bir denetleyiciden görünüm ana sayfaya geçirme için iki yaklaşım ele almıştık. İlk olarak, basit, yaklaşım sürdürülmesi zor ama incelenir. Bu bölümde, nasıl verilerini görüntülemek için bir görünüm ana sayfası her her denetleyici eylem uygulamanızda ekleyebileceğiniz almıştık. Biz KURU (yoksa yineleyin kendiniz) ilkesini ihlal ettiğinden bu hatalı bir yaklaşım ortaya koymuştur.
 
-Ardından, bir görünüm ana sayfa verileri görüntülemek için gerekli verileri eklemek için çok daha iyi bir stratejiye incelendi. Görünüm verilerini her denetleyici eylem eklemek yerine, bir uygulama denetleyicisi içinde yalnızca bir kez görünüm verileri eklediğimiz. Bu şekilde, bir ASP.NET MVC uygulamasındaki bir görünüm ana sayfasına veri geçirilirken yinelenen kod önleyebilirsiniz.
+Ardından, verileri görüntülemek için bir görünüm ana sayfası için gerekli veri eklemek için çok daha iyi bir stratejiye incelenir. Her denetleyici eylem görünüm verilerini eklemek yerine bir uygulama denetleyicisi içinde yalnızca bir kez görünüm verileri ekledik. Bu şekilde, bir ASP.NET MVC uygulamasındaki bir görünüm ana sayfası için veri geçirirken, yinelenen kod önleyebilirsiniz.
 
 > [!div class="step-by-step"]
 > [Önceki](creating-page-layouts-with-view-master-pages-vb.md)

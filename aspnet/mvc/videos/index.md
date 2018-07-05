@@ -1,6 +1,6 @@
 ---
 uid: mvc/videos/index
-title: Videolar | Microsoft Docs
+title: Videoları | Microsoft Docs
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
@@ -9,15 +9,14 @@ ms.date: 06/24/2011
 ms.topic: article
 ms.assetid: e618c37c-68f3-49aa-9fda-f86cb3b578b9
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/videos
 msc.type: book
-ms.openlocfilehash: 03e8129816a2fb8b9261618207b0e1795fb7cf23
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: df273de2c2d4499995ae022240fa8e37402216e9
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2018
-ms.locfileid: "29152969"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37383759"
 ---
 <a name="videos"></a>Videolar
 ====================
@@ -50,7 +49,7 @@ ms.locfileid: "29152969"
         - [ASP.NET MVC: Nasıl Geliştiriciler için 10 dakika uzunluğundaki teknik video](mvc-2/how-do-i/aspnet-mvc-how-10-minute-technical-video-for-developers.md)
         - [ASP.NET MVC Web Uygulamasında Bir AJAX Çağrısı için JSON Biçimli Veriler Döndürme](mvc-2/how-do-i/how-do-i-return-json-formatted-data-for-an-ajax-call-in-an-aspnet-mvc-web-application.md)
         - [ASP.NET MVC Kısmi Görünümlerindeki Verilerle Çalışma](mvc-2/how-do-i/how-do-i-work-with-data-in-aspnet-mvc-partial-views.md)
-        - [Uygulama verileri için ASP.NET MVC görünümleri yönetmek için modelleri görüntüle](mvc-2/how-do-i/how-do-i-implement-view-models-to-manage-data-for-aspnet-mvc-views.md)
+        - [ASP.NET MVC görünümlerinin verilerini yönetmek için Görünüm modelleri uygulama](mvc-2/how-do-i/how-do-i-implement-view-models-to-manage-data-for-aspnet-mvc-views.md)
         - [Bir MVC Uygulaması için Özel HTML Yardımcısı Oluşturma](mvc-2/how-do-i/how-do-i-create-a-custom-html-helper-for-an-mvc-application.md)
         - [Bir MVC Uygulamasında Model Bağlayıcıları ile Çalışma](mvc-2/how-do-i/how-do-i-work-with-model-binders-in-an-mvc-application.md)
         - [Bir MVC Uygulamasında HttpVerbs Özniteliklerini Kullanma](mvc-2/how-do-i/how-do-i-use-httpverbs-attributes-in-an-mvc-application.md)
@@ -95,7 +94,7 @@ ms.locfileid: "29152969"
         - [ASP.NET MVC Storefront 16. Bölüm: OpenID ile Üyelik Yineleme](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-16-membership-redo-with-openid.md)
         - [ASP.NET MVC Storefront 17. Bölüm: Jeff Atwood ile Kasa İşlemleri](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-17-checkout-with-jeff-atwood.md)
         - [ASP.NET MVC Storefront 18. Bölüm: Deneyimi Oluşturma](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-18-creating-an-experience.md)
-        - [ASP.NET MVC Storefront bölümü 19: İşleme siparişleri Windows iş akışı](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-19-processing-orders-with-windows-workflow.md)
+        - [ASP.NET MVC Storefront 19. Bölüm: Windows Workflow ile Siparişleri İşleme](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-19-processing-orders-with-windows-workflow.md)
         - [ASP.NET MVC Storefront 19a Bölümü: Windows Workflow izleme](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-19a-windows-workflow-followup.md)
         - [ASP.NET MVC Storefront 20. Bölüm: Günlüğe Kaydetme](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-20-logging.md)
         - [ASP.NET MVC Storefront 21. Bölüm: Sipariş Yöneticisi ve Kişiselleştirme](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-21-order-manager-and-personalization.md)

@@ -1,132 +1,131 @@
 ---
 uid: signalr/overview/getting-started/introduction-to-signalr
-title: SignalR giriş | Microsoft Docs
+title: Signalr'a giriş | Microsoft Docs
 author: pfletcher
-description: Bu makalede, SignalR nedir ve oluşturmak için tasarlandığı çözümleri bazıları açıklanmaktadır.
+description: Bu makalede, SignalR nedir ve bazı çözümler oluşturmak için tasarlandığı açıklanır.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014
 ms.topic: article
 ms.assetid: 0fab5e35-8c1f-43d4-8635-b8aba8766a71
 ms.technology: dotnet-signalr
-ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/introduction-to-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 0ceca3edc26d35b1155946e60863a84da0bbe592
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 0798f149b25ab34dfc9b4233e74dc575ef0e7b4d
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30873699"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37364125"
 ---
-<a name="introduction-to-signalr"></a>SignalR giriş
+<a name="introduction-to-signalr"></a>Signalr'a giriş
 ====================
-tarafından [CAN Fletcher'dan](https://github.com/pfletcher)
+tarafından [Patrick Fletcher](https://github.com/pfletcher)
 
-> Bu makalede, SignalR nedir ve oluşturmak için tasarlandığı çözümleri bazıları açıklanmaktadır. 
+> Bu makalede, SignalR nedir ve bazı çözümler oluşturmak için tasarlandığı açıklanır. 
 > 
 > ## <a name="questions-and-comments"></a>Sorularınız ve yorumlarınız
 > 
-> Lütfen Bu öğretici beğendiğinizi nasıl ve ne biz sayfanın sonundaki açıklamalarında artabileceğini görüşlerinizi. Öğretici için doğrudan ilgili olmayan sorularınız varsa, bunları nakledebilirsiniz [ASP.NET SignalR Forumu](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) veya [StackOverflow.com](https://stackoverflow.com/questions/tagged/signalr).
+> Lütfen bu öğreticide sevmediğinizi nasıl ve ne sayfanın alt kısmındaki açıklamalarda geliştirebileceğimiz hakkında geri bildirim bırakın. Öğretici için doğrudan ilgili olmayan sorularınız varsa, bunları gönderebilir [ASP.NET SignalR Forumu](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) veya [StackOverflow.com](https://stackoverflow.com/questions/tagged/signalr).
 
 
 ## <a name="what-is-signalr"></a>SignalR nedir?
 
-ASP.NET SignalR uygulamalarını gerçek zamanlı web işlevselliği ekleme işlemini basitleştiren bir ASP.NET geliştiricilerinin kitaplıktır. Gerçek zamanlı web, yeni veri istemek bir istemci için bekleme sunucusunun yerine sunucu kodu anında kullanılabilir hale geldiğinde bağlı içeriği istemcilere hemen göndermesini sağlayan işlevdir.
+ASP.NET SignalR uygulamalarına gerçek zamanlı web işlevselliği ekleme işlemini basitleştiren bir kitaplık ASP.NET geliştiricileri için ' dir. Gerçek zamanlı web işlevselliği yeni veri istemek bir istemci için bekleyin sunucusuna sahip olmak yerine, kullanılabilir olduğu anda bağlı istemcilere içerik sunucusu kod gönderimi sağlamak için yeteneğidir.
 
-SignalR, ASP.NET uygulamanız için herhangi bir tür "gerçek zamanlı" web işlevselliği eklemek için kullanılabilir. Sohbet genellikle bir örnek olarak kullanılır, ancak tüm çok fazla yapabilirsiniz. Bir kullanıcının her zaman yeni verileri görmek için bir web sayfasını yeniler veya sayfasını uygulayan [uzun yoklama](http://en.wikipedia.org/wiki/Push_technology#Long_polling) yeni verileri almak için bunu bir SignalR kullanmak için adaydır. Örnekler panolar ve uygulamaların izleme, (eşzamanlı belgelerin düzenleme gibi), işbirliği uygulamaları iş ilerleme güncelleştirmeleri ve gerçek zamanlı forms.
+SignalR, ASP.NET uygulamanızı herhangi bir tür "gerçek zamanlı" web işlevselliği eklemek için kullanılabilir. Sohbet, genellikle bir örnek olarak kullanılır, ancak çok daha fazlasını yapabilirsiniz. Bir kullanıcının dilediğiniz zaman yeni verileri görmek için bir web sayfasını yeniler veya sayfa uygulayan [uzun yoklama](http://en.wikipedia.org/wiki/Push_technology#Long_polling) yeni verileri almak için bir aday SignalR için kullanmaktır. Örnekler, panolar ve uygulamaların izlenmesi, işbirliğine dayalı uygulamalar (örneğin, aynı anda belgelerin düzenleme), iş devam eden güncelleştirmelerin ve gerçek zamanlı form.
 
-SignalR ayrıca sunucusundan sık güncelleştirmelerini gerektiren web uygulamalarının tamamen yeni türleri sağlar Örneğin, gerçek zamanlı oyun.
+SignalR, tamamen yeni sunucusundan yüksek sıklıkta güncelleştirme yapılması gereken web uygulaması türlerini de sağlar, gerçek zamanlı oyun.
 
-SignalR İstemcisi'nde JavaScript işlevleri tarayıcılar (ve diğer istemci platformları) sunucu tarafı .NET kodundan çağıran sunucudan istemciye uzaktan yordam çağrısı (RPC) oluşturmak için basit bir API sağlar. SignalR bağlantı yönetimi için de API içerir (örneğin, bağlanma ve bağlantıyı kesme olayları) ve bağlantıları gruplandırma.
+SignalR İstemcisi'nde JavaScript işlevleri tarayıcılar (ve diğer istemci platformları) sunucu tarafı .NET kodundan çağıran sunucu istemciye uzaktan yordam çağrılarını (RPC) oluşturmak için basit bir API sağlar. SignalR bağlantı yönetimi için de API içerir (örneğin, bağlayın ve bağlantıyı kesme olayları) ve bağlantıları gruplandırma.
 
-![SignalR ile yöntemleri çağırma](introduction-to-signalr/_static/image1.png)
+![SignalR ile yöntemlerini çağırma](introduction-to-signalr/_static/image1.png)
 
-SignalR bağlantı yönetimi otomatik olarak yönetir ve yayın iletilerini bağlanan tüm istemciler için aynı anda, sohbet odası gibi olanak tanır. Ayrıca, belirli istemcilere iletisi gönderebilir. İstemci ve sunucu arasındaki bağlantının, her iletişimi için yeniden kurulur kurulmaz klasik bir HTTP bağlantısı aksine kalıcıdır.
+SignalR bağlantı yönetimi otomatik olarak işler ve bağlanan tüm istemciler için yayın iletilerini eşzamanlı olarak gibi bir sohbet odası olanak tanır. Ayrıca, belirli istemciler için iletileri gönderebilir. İstemci ve sunucu arasındaki bağlantıyı, her iletişim için yeniden kurulur klasik bir HTTP bağlantısı aksine kalıcıdır.
 
-SignalR, sunucu kodu için istemci kodu uzaktan yordam çağrılarını (RPC), genel istek-yanıt modeli Web'de bugün yerine tarayıcıda çağırabilirsiniz "sunucu itme" işlevlerini destekler.
+SignalR, sunucu kodu tarayıcıyı ortak istek-yanıt modeli yerine uzak yordam çağrılarını (RPC) Bugün Web'de istemci koduna çağırabilirsiniz "sunucu gönderimi" işlevlerini destekler.
 
-SignalR uygulamalarını ölçek genişletme için hizmet veri yolu, SQL Server kullanan istemciler binlerce veya [Redis](http://redis.io).
+SignalR uygulamalarına ölçeğini binlerce istemciden Service Bus, SQL Server'ı kullanarak için veya [Redis](http://redis.io).
 
-SignalR açık kaynaklı, üzerinden erişilebilir [GitHub](https://github.com/signalr).
+SignalR, açık kaynaklı, erişilebilir [GitHub](https://github.com/signalr).
 
 ## <a name="signalr-and-websocket"></a>SignalR ve WebSocket
 
-SignalR yeni WebSocket aktarımı kullanılabiliyorsa kullanır ve gerektiğinde daha eski taşımalarına geri döner. Uygulamanızı WebSocket kullanarak doğrudan, uygulamanız gereken fazladan işlevsellik çok zaten olacak SignalR yollardan kesinlikle yazabilirsiniz sırada sizin için yapılmış. En önemlisi, bu eski istemcileri için ayrı kod yolu oluşturma hakkında endişelenmeye gerek kalmadan WebSocket yararlanmak için uygulamanızı kodlayabilirsiniz anlamına gelir. SignalR Ayrıca, SignalR temel taşımasına değişiklikleri desteklemek üzere güncelleştirilecek uygulamanızı WebSocket sürümleri arasında tutarlı bir arabirim sağlayan devam edecek beri WebSocket, güncelleştirmeler hakkında endişelenmeniz zorunda kalmaktan ayrıntılarından korur.
+SignalR mevcut olduğunda yeni WebSocket taşıma kullanır ve gerektiğinde daha eski taşımalarına geri döner. Uygulamanızı kullanarak doğrudan WebSocket, uygulamanız gereken fazladan işlevsellik birçok zaten olacak SignalR yollardan kesinlikle yazabilirsiniz sırada sizin için gerçekleştirilmedi. En önemlisi, bu eski istemciler için ayrı bir kod yolu oluşturma hakkında endişelenmenize gerek kalmadan WebSocket yararlanmak için uygulamanızın kod anlamına gelir. SignalR Ayrıca, SignalR değişiklikler temel alınan aktarımda içinde desteklemek üzere güncelleştirilecek uygulamanızı WebSocket sürümleri arasında tutarlı bir arabirim sağlayan devam edecek beri WebSocket, güncelleştirmeleri hakkında endişelenmenize gerek kalmamasını ayrıntılarından korur.
 
-SignalR WebSocket tek başına kullanarak bir çözüm kesinlikle oluşturabilirsiniz, ancak tüm diğer aktarım ve güncelleştirmeleri uygulamanızı WebSocket uygulamalarına düzeltilmesi için geri dönüş gibi kendiniz yazmak için gereken işlevleri sağlar.
+Kesinlikle kullanarak WebSocket tek başına bir çözüm oluşturabilirsiniz ancak SignalR tüm diğer aktarım ve güncelleştirmeler için uygulamanızı WebSocket uygulamalarına düzeltilmesi için geri dönüş gibi kendiniz yazmak için ihtiyacınız olan işlevleri sağlar.
 
 <a id="transports"></a>
 
-## <a name="transports-and-fallbacks"></a>Taşımalar ve geri dönüşler
+## <a name="transports-and-fallbacks"></a>Aktarım ve geri dönüşler
 
-SignalR için bir Özet bazı istemci ve sunucu arasında gerçek zamanlı iş yapmak için gerekli olan taşımalar sona erer. Bir SignalR bağlantısı olarak HTTP başlatır ve kullanılabilir durumdaysa WebSocket bağlantı sonra yükseltilir. WebSocket ideal taşıma için SignalR, sunucu belleği en verimli kullanılmasını sağlar, en düşük gecikme süresine sahiptir ve (örneğin, istemci ve sunucu arasındaki tam çift yönlü iletişimi için) en temel özelliklere sahiptir, ancak ayrıca en sıkı sahip olduğu gereksinimleri: WebSocket server'ın Windows Server 2012 veya Windows 8 ve .NET Framework 4.5 kullanılmasını gerektirir. Bu gereksinimler karşılanmazsa, SignalR bağlantıları yapmak için diğer taşımaları kullanmayı dener.
+SignalR, bir Özet, bazı istemci ve sunucu arasında gerçek zamanlı iş yapmak için gerekli olan taşımalar sona erer. Bir SignalR bağlantısı HTTP başlatır ve sonra WebSocket bağlantısı varsa yükseltilir. WebSocket ideal taşıma için SignalR, sunucu bellek kullanımını en verimli hale getirir, en düşük gecikme süresine sahip ve (örneğin, istemci ve sunucu arasında tam çift yönlü iletişimi için) en temel özelliklere sahip, ancak ayrıca en katı sahip olduğu gereksinimleri: WebSocket sunucu Windows Server 2012 veya Windows 8 ve .NET Framework 4.5 kullanılmasını gerektirir. Bu gereksinimler karşılanmazsa, SignalR bağlantılarından olmak için diğer aktarımlar'ı kullanmayı dener.
 
-### <a name="html-5-transports"></a>HTML 5 taşımaları
+### <a name="html-5-transports"></a>HTML 5 taşır
 
-Bu taşıma için destek bağlıdır [HTML 5](http://en.wikipedia.org/wiki/HTML5). İstemci tarayıcısı HTML 5 standart desteklemiyorsa, eski taşımaları kullanılır.
+Desteği bu taşımalar bağımlı [HTML 5](http://en.wikipedia.org/wiki/HTML5). İstemci tarayıcısı HTML 5 standart desteklemiyorsa, eski aktarımları kullanılır.
 
-- **WebSocket** (varsa bunlar Websocket destekleyebilmesi hem sunucu hem de tarayıcı gösterir). WebSocket istemci ve sunucu arasında doğru bir kalıcı, çift yönlü bağlantı kurar yalnızca Aktarım ' dir. Bununla birlikte, WebSocket en sıkı gereksinimleri vardır; yalnızca en son sürümlerde ve Microsoft Internet Explorer, Google Chrome, Mozilla Firefox tam olarak desteklenir ve yalnızca Opera ve Safari gibi diğer tarayıcılarda kısmi uygulama vardır.
-- **Sunucu gönderilen olayları**, (tarayıcı sunucu gönderilen Internet Explorer dışında tüm tarayıcılar temelde olan olaylarını destekliyorsa.) EventSource olarak da bilinir
+- **WebSocket** (varsa bunlar Websocket desteği hem sunucu hem de tarayıcı gösterir). WebSocket istemci ve sunucu arasında doğru kalıcı, çift yönlü bağlantı kuran yalnızca Aktarım ' dir. Ancak, WebSocket Ayrıca, en katı gereksinimleri vardır; yalnızca en son sürümlerinde Microsoft Internet Explorer, Google Chrome ve Mozilla Firefox tam olarak desteklenir ve yalnızca kısmi bir uygulamasını Opera ve Safari gibi diğer tarayıcılar vardır.
+- **Sunucu tarafından gönderilen olaylarla**EventSource (tarayıcı sunucu gönderilen Internet Explorer dışındaki tüm tarayıcılar temel olan olayları destekler. varsa) olarak da bilinen
 
 ### <a name="comet-transports"></a>Comet taşımalar
 
-Aşağıdaki taşımalar dayalı [Comet](http://en.wikipedia.org/wiki/Comet_(programming)) , bir tarayıcı veya diğer istemci tutar sunucu özellikle veri istemcisi olmadan istemciye göndermek için kullanabileceğiniz bir uzun tutulan HTTP isteği, web uygulama modeli Bunu isteme.
+Aşağıdaki taşımalar dayalı [Comet](http://en.wikipedia.org/wiki/Comet_(programming)) içinde bir tarayıcı veya diğer istemci tutar sunucu özellikle veri istemcisi olmadan bir istemciye göndermek için kullanabileceğiniz bir uzun tutulan HTTP isteği, web uygulama modeli Bunu isteniyor.
 
-- **Devamlı çerçeve** (için yalnızca Internet Explorer). Devamlı çerçeve tamamlanmayan sunucudaki bir uç nokta için bir istek yapan gizli bir IFrame oluşturur. Sunucu sonra sürekli betik hemen çalıştırılır, istemcinin sunucudan istemciye bir tek yönlü gerçek zamanlı bağlantı sağlama gönderir. Sunucu ile istemci arasındaki bağlantı sunucusundan ayrı bir bağlantı istemci bağlantısı için kullanır ve gibi standart bir HTTP isteği, her bir gönderilmesi gereken veri parçası için yeni bir bağlantı oluşturulur.
-- **AJAX yoklama uzun**. Uzun yoklama kalıcı bir bağlantı oluşturmaz, ancak bunun yerine sunucu, bu noktada bağlantıyı kapatır yanıt verir ve yeni bir bağlantı hemen istenen kadar açık kalır bir istekle sunucusunu yoklar. Bağlantıyı sıfırlar sırada bu bazı gecikme çıkarabilir.
+- **Sonsuza kadar çerçeve** (için yalnızca Internet Explorer). Sonsuza kadar çerçeve tamamlandığı sunucuda bir uç noktaya bir istek getiren gizli bir IFrame oluşturur. Sunucusu sürekli olarak betik sağlayan bir tek yönlü gerçek zamanlı bağlantı sunucudan istemciye hangi hemen yürütüldüğünde, istemciye gönderir. İstemciden sunucuya bağlantı istemci bağlantısı için sunucudan ayrı bir bağlantı kullanır ve benzer standart bir HTTP isteği, her bir gönderilmesi gereken veri parçası için yeni bir bağlantı oluşturulur.
+- **AJAX uzun yoklama**. Uzun yoklama kalıcı bir bağlantı oluşturmaz, ancak bunun yerine sunucu, bu noktada bağlantıyı kapatır yanıt verir ve yeni bir bağlantı hemen istenen kadar açık kalır. bir istek sunucusuyla yoklar. Bağlantıyı sıfırlar sırada bu bazı gecikmelere neden olabilir.
 
 Hangi aktarımları altında hangi yapılandırmaları desteklenir daha fazla bilgi için bkz: [desteklenen platformlar](supported-platforms.md).
 
-### <a name="transport-selection-process"></a>Taşıma seçimi işlemi
+### <a name="transport-selection-process"></a>Aktarım seçim işlemi
 
-Aşağıdaki listede, hangi aktarım kullanılacak karar vermek için SignalR kullanır adımları gösterir.
+Aşağıdaki liste, hangi aktarım kullanılacak karar vermek için SignalR kullanan adımları gösterir.
 
-1. Tarayıcı Internet Explorer 8 veya daha eski ise, uzun yoklama kullanılır.
+1. Internet Explorer 8 veya önceki tarayıcı ise uzun yoklama kullanılır.
 2. JSONP yapılandırılmışsa (diğer bir deyişle, `jsonp` parametrenin ayarlanmış `true` bağlantısı başlatıldığında), uzun yoklama kullanılır.
-3. (Diğer bir deyişle, SignalR uç nokta barındırma sayfası aynı etki alanında değilse), etki alanları arası bağlantı yapılıyor, WebSocket aşağıdaki ölçütler karşılanıyorsa kullanılacak:
+3. (Diğer bir deyişle, SignalR uç nokta barındırma sayfası aynı etki alanında değilse), etki alanları arası bağlantısı yapılıyor, WebSocket aşağıdaki ölçütler karşılandığında kullanılacaktır:
 
-   - İstemci, CORS (çıkış noktaları arası kaynak paylaşımı) destekler. İstemciler üzerinde CORS desteği Ayrıntılar için bkz [CORS caniuse.com adresindeki](http://www.caniuse.com/CORS).
+   - İstemci, CORS (çıkış noktaları arası kaynak paylaşımı) destekler. İstemciler üzerinde CORS desteği için bilgi [caniuse.com, CORS](http://www.caniuse.com/CORS).
    - İstemci, WebSocket destekler.
    - WebSocket sunucu destekler
 
-     Bu ölçütler hiçbirini karşılanmazsa uzun yoklama kullanılır. Etki alanları arası bağlantılar hakkında daha fazla bilgi için bkz: [etki alanları arası bağlantı kurmak nasıl](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain).
-4. İstemci ve sunucu destekliyorsa JSONP yapılandırılmamış ve bağlantı etki alanları arası değil, WebSocket kullanılır.
-5. İstemci veya sunucu WebSocket desteği yoksa sunucu gönderilen olayları varsa kullanılır.
-6. Sunucu gönderilen olaylar kullanılabilir durumda değilse, sonsuza kadar çerçeve denenir.
-7. Devamlı çerçeve başarısız olursa, uzun yoklama kullanılır.
+     Aşağıdaki ölçütleri karşılanmazsa uzun yoklama kullanılır. Etki alanları arası bağlantılar hakkında daha fazla bilgi için bkz. [etki alanları arası bağlantı kurmak nasıl](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain).
+4. İstemci ve sunucu destekliyorsa JSONP yapılandırılmamış ve etki alanları arası bağlantı değil, WebSocket kullanılır.
+5. İstemci veya sunucu WebSocket desteklemiyorsa, sunucu tarafından gönderilen olaylarla varsa kullanılır.
+6. Sunucu gönderilen olayları kullanılabilir durumda değilse, sonsuza kadar çerçeve denenir.
+7. Sonsuza kadar çerçeve başarısız olursa, uzun yoklama kullanılır.
 
 <a id="MonitoringTransports"></a>
 ### <a name="monitoring-transports"></a>Taşımalar izleme
 
-Uygulamanız, hub'ına günlüğe kaydetme ve tarayıcınızda konsol penceresini açma etkinleştirerek kullanarak hangi aktarım belirleyebilirsiniz.
+Hub'ınızın günlüğe kaydetme ve tarayıcınızda konsol penceresini açma olanak sağlayarak uygulamanızın kullanarak hangi aktarım belirleyebilirsiniz.
 
 Bir tarayıcıda, hub'ın olayları günlüğe kaydetmeyi etkinleştirmek için istemci uygulamanız için aşağıdaki komutu ekleyin:
 
 `$.connection.hub.logging = true;`
 
-- Internet Explorer'da, geliştirici araçları F12 tuşuna basarak açın ve konsol sekmesini tıklatın.
+- Internet Explorer'da, F12 tuşuna basarak geliştirici araçlarını açın ve konsolu sekmesine tıklayın.
 
-    ![Console in Microsoft Internet Explorer](introduction-to-signalr/_static/image2.png)
-- Chrome'Ctrl + Shift + J tuşlarına basarak konsolunu açın.
+    ![Microsoft Internet Explorer konsolunda](introduction-to-signalr/_static/image2.png)
+- Chrome'da, Ctrl + Shift + J tuşlarına basarak konsolunu açın.
 
     ![Google Chrome konsolunda](introduction-to-signalr/_static/image3.png)
 
-Konsolunu açın ve etkin günlük kaydı ile hangi aktarım SignalR tarafından kullanılan görmeye olacaktır.
+Konsolunu açın ve günlüğe kaydetme etkin hangi aktarım SignalR tarafından kullanıldığını görmek mümkün olacaktır.
 
-![Internet Explorer WebSocket taşıma gösteren konsol](introduction-to-signalr/_static/image4.png)
+![Internet Explorer WebSocket aktarım gösteren konsol](introduction-to-signalr/_static/image4.png)
 
 ### <a name="specifying-a-transport"></a>Bir taşıma belirtme
 
-Bir taşıma anlaşmak belirli miktarda süre ve istemci/sunucu kaynakları alır. İstemci yeteneklerini biliniyorsa, bir taşıma istemci bağlantısı başlatıldığında belirtilebilir. Aşağıdaki kod parçacığını istemci herhangi bir protokol desteklememektedir biliniyordu varsa kullanılacak şekilde Ajax uzun yoklama taşıma kullanarak bağlantı başlatma gösterir:
+Bir taşıma anlaşması belirli miktarda zaman ve istemci/sunucu kaynakları alır. İstemci yeteneklerini biliniyorsa, aktarım istemci bağlantısı başlatıldığında belirtilebilir. Aşağıdaki kod parçacığı, istemci herhangi bir protokolünü desteklemiyor biliniyordu, kullanılan Ajax uzun yoklama taşıma kullanarak bağlantı başlatma göstermektedir:
 
 `connection.start({ transport: 'longPolling' });`
 
-Sırayla belirli aktarımların denemek için bir istemci istiyorsanız, bir geri dönüş sırasını belirleyebilirsiniz. Aşağıdaki kod parçacığını çalışırken WebSocket ve, başarısız olan, uzun yoklama doğrudan giden gösterilir.
+Belirli aktarımların sırayla denemek için bir istemci istiyorsanız, bir geri dönüş düzeni belirtebilirsiniz. Aşağıdaki kod parçacığı çalışırken WebSocket ve başarısız, uzun yoklama doğrudan giderek gösterir.
 
 `connection.start({ transport: ['webSockets','longPolling'] });`
 
-Dize sabitleri taşımaları belirtmek için şu şekilde tanımlanır:
+Dize sabitleri taşımalar belirtmek için şu şekilde tanımlanır:
 
 - `webSockets`
 - `foreverFrame`
@@ -135,32 +134,32 @@ Dize sabitleri taşımaları belirtmek için şu şekilde tanımlanır:
 
 ## <a name="connections-and-hubs"></a>Bağlantıları ve hub'ları
 
-SignalR API istemciler ve sunucular iletişim için iki modeli içerir: kalıcı bağlantılar ve hub.
+İstemciler ve sunucular arasında iletişim kurmak için iki modeli SignalR API içeriyor: kalıcı bağlantılarını ve hub.
 
-Bir bağlantı gönderme tek alıcı, gruplandırılmış veya yayın iletileri için basit bir uç noktasını temsil eder. Geliştirici doğrudan erişim SignalR sunan alt düzey iletişim protokolü için kalıcı bağlantı (.NET kodda PersistentConnection sınıfı tarafından gösterilen) API sağlar. Bağlantıları iletişim modelini kullanarak Windows Communication Foundation gibi bağlantı tabanlı API'ler kullanmış olan geliştiricilere tanıdık gelecektir.
+Bir bağlantı, tek alıcı, gruplandırılmış veya yayın ileti gönderme için basit bir uç noktasını temsil eder. Geliştirici doğrudan erişim SignalR sunan alt düzey iletişim protokolü için kalıcı bağlantı (.NET kodda PersistentConnection sınıfı tarafından temsil edilen) API sağlar. Bağlantı iletişim modelini kullanarak Windows Communication Foundation gibi bağlantı tabanlı API'leri kullanan geliştiriciler için tanıdık gelecektir.
 
-Bir Hub bağlantı yöntemleri birbirine doğrudan çağırmak için istemci ve sunucu veren bir API inşa daha üst düzey bir işlem hattı ' dir. SignalR tarafından magic gibi makine sınırlarında göndermeyi kolayca yerel yöntemleri ve tersi olarak sunucuda yöntemlerini çağırmaya istemcilere izin verme işler. Hub iletişim modelini kullanarak uzaktan çağırma .NET uzaktan iletişim gibi API'leri kullanmış olan geliştiricilere tanıdık gelecektir. Bir hub'ı kullanarak, model bağlama etkinleştirme yöntemleri için kesin türü belirtilmiş parametreleri geçirmek de sağlar.
+Bir hub'ı, istemci ve sunucunun doğrudan birbirleri üzerinde yöntemleri çağırmak verir bağlantı API üzerinde derlenmiş daha üst düzey bir işlem hattı ' dir. SignalR tarafından magic gibi makine sınırlarında gönderme istemcilerinin yerel yöntemler olarak kolayca ve tersi olarak, sunucu üzerinde yöntemleri çağırmak işler. Hub'ları iletişim modelini kullanarak uzaktan çağırma .NET uzaktan iletişim gibi API'leri kullanan geliştiriciler için tanıdık gelecektir. Bir hub'ı kullanarak, model bağlama etkinleştirme yöntemleri için türü kesin belirlenmiş parametreleri geçirmek de sağlar.
 
-### <a name="architecture-diagram"></a>mimarisi diyagramı
+### <a name="architecture-diagram"></a>Mimari diyagramı
 
-Aşağıdaki diyagramda hub, kalıcı bağlantılar ve taşımaları için kullanılan temel teknolojileri arasındaki ilişkiyi gösterir.
+Aşağıdaki diyagramda, hub'ları, kalıcı bağlantılar ve taşımalar için kullanılan temel teknolojileri arasındaki ilişkiyi gösterir.
 
 ![SignalR mimarisi API'leri, aktarımları ve istemcilerin gösteren diyagram](introduction-to-signalr/_static/image5.png)
 
 ### <a name="how-hubs-work"></a>Hub nasıl çalışır
 
-Sunucu tarafı kodu istemcide bir yöntem çağırdığında çağrılacak yöntem parametreleri ve adını içeren etkin taşımanın gönderilen bir paket (bir nesne bir yöntem parametresi olarak gönderildiğinde, bunu kullanarak serileştirilir). İstemci ardından istemci-tarafı kodda tanımlanan yöntemler için yöntem adı ile eşleşir. Bir eşleşme varsa, istemci yöntemi kullanılarak seri durumdan çıkarılmış parametre veri yürütülür.
+Sunucu tarafı kodu istemcide bir yöntemi çağırdığında, çağrılacak yöntem parametreleri ve adını içeren etkin aktarım arasında gönderilen bir paket (bir nesne bir yöntem parametresi olarak gönderildiğinde, onu kullanarak JSON serileştirilmiş). İstemci, istemci tarafı kod içinde tanımlanan yöntemler için yöntem adını ardından eşleşir. Bir eşleşme varsa, istemci yöntemi kullanılarak seri durumdan çıkarılmış parametre veri yürütülür.
 
-Yöntem çağrısının gibi araçları kullanarak izlenebilir [Fiddler.](http://fiddler2.com/) Aşağıdaki resimde bir SignalR sunucusundan Fiddler günlükleri bölmesinde web tarayıcısı istemciye gönderilen bir yöntem çağrısı gösterir. Yöntem çağrısının adlı bir hub'dan gönderilen `MoveShapeHub`, çağrılmakta olan yöntemin adı verilen ve `updateShape`.
+Yöntem çağrısının gibi araçları kullanarak izlenebilir [fiddler'ı.](http://fiddler2.com/) Aşağıdaki resimde, bir web tarayıcı istemcisine Fiddler günlükleri bölmesinde bir SignalR sunucusundan onlara gönderilen bir yöntem çağrısının gösterir. Yöntem çağrısının adlı bir hub'ından gönderilen `MoveShapeHub`, ve çağrılmakta olan yöntemin çağrıldığı `updateShape`.
 
 ![SignalR trafiği gösteren Fiddler günlük görünümü](introduction-to-signalr/_static/image6.png)
 
-Bu örnekte, hub'ı adı ile tanımlanır `H` parametresi; yöntemi adı ile tanımlanır `M` parametre ve yöntemine gönderilen verileri ile tanımlanan `A` parametresi. Bu ileti oluşturulan uygulama oluşturulan [yüksek sıklıkta gerçek zamanlı](tutorial-high-frequency-realtime-with-signalr.md) Öğreticisi.
+Bu örnekte, hub'ı adı ile tanımlanır `H` parametre; yöntem adı ile tanımlanan `M` parametresi ve yönteme gönderilen tüm veriler ile tanımlanan `A` parametresi. Bu iletiyi oluşturan uygulama oluşturulur [yüksek sıklıkta gerçek zamanlı](tutorial-high-frequency-realtime-with-signalr.md) öğretici.
 
 ### <a name="choosing-a-communication-model"></a>Bir iletişim modelini seçme
 
-Çoğu uygulama hub API kullanmanız gerekir. Bağlantıları API aşağıdaki durumlarda kullanılabilir:
+Çoğu uygulama, hub'ları API kullanmanız gerekir. Aşağıdaki durumlarda bağlantıları API kullanılabilir:
 
-- Gönderilen gerçek ileti belirtilmesi gerekiyor biçimi.
-- Geliştirici uzaktan çağırma modeli yerine bir Mesajlaşma ve dağıtma modeli ile çalışmak tercih eder.
-- SignalR kullanmak için bir ileti modeli kullanan bir var olan uygulamayı verilen.
+- Biçim, gönderilen gerçek ileti belirtilmesi gerekiyor.
+- Geliştirici, bir uzak çağrı modeli yerine bir Mesajlaşma ve dispatching modeli ile çalışmak tercih eder.
+- SignalR kullanmak için bir Mesajlaşma modeli kullanan mevcut bir uygulama Taşınmakta.

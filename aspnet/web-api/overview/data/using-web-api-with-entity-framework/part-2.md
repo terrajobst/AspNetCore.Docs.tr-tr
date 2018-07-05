@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-2
-title: Modelleri ve denetleyicileri ekleyin | Microsoft Docs
+title: Model ve denetleyici ekleme | Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
@@ -9,38 +9,37 @@ ms.date: 06/16/2014
 ms.topic: article
 ms.assetid: 88908ff8-51a9-40eb-931c-a8139128b680
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-2
 msc.type: authoredcontent
-ms.openlocfilehash: 015bb9698d81387d03ea8f9629316fb53232e708
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: f127f239bcc665f71976bb34f6d3387f8e0b72a7
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30879588"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37393156"
 ---
-<a name="add-models-and-controllers"></a>Modelleri ve denetleyicileri ekleyin
+<a name="add-models-and-controllers"></a>Model ve denetleyici ekleme
 ====================
-tarafından [CAN Wasson](https://github.com/MikeWasson)
+tarafından [Mike Wasson](https://github.com/MikeWasson)
 
-[Tamamlanan projenizi indirin](https://github.com/MikeWasson/BookService)
+[Projeyi yükle](https://github.com/MikeWasson/BookService)
 
-Bu bölümde, veritabanı varlıklarını tanımlama modeli sınıfları ekleyeceksiniz. Ardından bu varlıkların CRUD işlemleri Web API denetleyicilerinin ekleyeceksiniz.
+Bu bölümde, veritabanı varlıklar tanımlayan bir model sınıfları ekleyeceksiniz. Ardından bu varlıkların CRUD işlemleri Web APİ'si denetleyicilerinin ekleyeceksiniz.
 
 ## <a name="add-model-classes"></a>Model sınıfları ekleme
 
-Bu öğreticide, veritabanı "Code First" yaklaşımı Entity Framework (EF) kullanarak oluşturacağız. Code First ile veritabanı tablolarında karşılık gelen C# sınıfları yazma ve veritabanı EF oluşturur. (Daha fazla bilgi için bkz: [Entity Framework Geliştirme yaklaşımları](https://msdn.microsoft.com/library/ms178359%28v=vs.110%29.aspx#dbfmfcf).)
+Bu öğreticide, veritabanı Entity Framework (EF) "Code First" yaklaşımı kullanarak oluşturacağız. Code First ile veritabanı tablolarında karşılık gelen C# sınıfları yazma ve veritabanı EF oluşturur. (Daha fazla bilgi için [Entity Framework Geliştirme yaklaşımları](https://msdn.microsoft.com/library/ms178359%28v=vs.110%29.aspx#dbfmfcf).)
 
-Bizim etki alanı nesnelerini POCOs (düz eski CLR nesneler) tanımlayarak başlatın. Aşağıdaki POCOs oluşturacağız:
+Biz, bizim etki alanı nesnelerini POCOs (düz eski CLR nesneler) tanımlayarak başlatın. Aşağıdaki POCOs oluşturacağız:
 
 - Yazar
 - Rehberi
 
-Çözüm Gezgini'nde modeller klasörü sağ tıklatın. Seçin **Ekle**seçeneğini belirleyip **sınıfı**. Sınıf adını `Author`.
+Çözüm Gezgini'nde modeller klasörü sağ tıklayın. Seçin **Ekle**, ardından **sınıfı**. Sınıf adını `Author`.
 
 ![](part-2/_static/image1.png)
 
-Tüm Author.cs Demirbaş kodu aşağıdaki kodla değiştirin.
+Tüm Author.cs Demirbaş kod, aşağıdaki kod ile değiştirin.
 
 [!code-csharp[Main](part-2/samples/sample1.cs)]
 
@@ -48,21 +47,21 @@ Adlı başka bir sınıf ekleyin `Book`, aşağıdaki kod ile.
 
 [!code-csharp[Main](part-2/samples/sample2.cs)]
 
-Entity Framework veritabanı tabloları oluşturmak için bu modeller kullanır. Her model için `Id` özelliği, veritabanı tablosunun birincil anahtar sütunu hale gelir.
+Entity Framework veritabanı tabloları oluşturmak için bu modelleri kullanır. Her model için `Id` özelliği, veritabanı tablosunun birincil anahtar sütunu olacak.
 
-Kitap sınıfında `AuthorId` içine yabancı anahtar tanımlayan `Author` tablo. (Kolaylık sağlamak için t her kitap tek Yazar olduğunu varsayarak.) Ayrıca Gezinti özelliğine ilgili kitap sınıf içerir `Author`. Gezinti özelliği ilgili erişmek için kullanabileceğiniz `Author` kod. Bölüm 4, gezinti özellikleri hakkında daha fazla söyleyin [işleme varlık ilişkileriyle](part-4.md).
+Kitap sınıfında `AuthorId` içine bir yabancı anahtar tanımlar `Author` tablo. (Kolaylık olması için miyim her kitabın tek bir yazar olduğunu varsayarak.) Kitap sınıfı da bir gezinti özelliğine ilgili içeren `Author`. Gezinme özelliğini ilgili erişmek için kullanabileceğiniz `Author` kod. Bölüm 4, gezinti özellikleri hakkında daha fazla söyleyin [varlık ilişkilerini işleme](part-4.md).
 
-## <a name="add-web-api-controllers"></a>Web API denetleyicilerinin ekleme
+## <a name="add-web-api-controllers"></a>Web API denetleyicisi Ekle
 
-Bu bölümde, CRUD işlemleri destekleyen Web API denetleyicilerinin ekleyeceğiz (oluşturma, okuma, güncelleştirme ve silme). Denetleyicileri Entity Framework veritabanı katmanı ile iletişim kurmak için kullanır.
+Bu bölümde, CRUD işlemleri destekleyen Web APİ'si denetleyicilerinin ekleyeceğiz (oluşturma, okuma, güncelleştirme ve silme). Denetleyici, Entity Framework veritabanı katmanı ile iletişim kurmak için kullanır.
 
-İlk olarak, dosya Controllers/ValuesController.cs silebilirsiniz. Bu dosya bir örnek Web API denetleyicisi içeriyor, ancak bu öğretici için gerekmez.
+İlk olarak, dosya Controllers/ValuesController.cs silebilirsiniz. Bu dosya bir örnek Web API denetleyicisi içerir, ancak bu öğretici için gereksinim duymuyorsanız.
 
 ![](part-2/_static/image2.png)
 
-Ardından, projeyi oluşturun. Web API yapı iskelesi yansıma derlenmiş derleme gereken şekilde modeli sınıfları bulmak için kullanır.
+Ardından, projeyi derleyin. Web APİ'si yapı iskelesini, derlenen bütünleştirilmiş gerekir model sınıfları bulmak için yansıtma kullanır.
 
-Çözüm Gezgini'nde denetleyicileri klasörü sağ tıklatın. Seçin **Ekle**seçeneğini belirleyip **denetleyicisi**.
+Çözüm Gezgini'nde denetleyicileri klasörüne sağ tıklayın. Seçin **Ekle**, ardından **denetleyicisi**.
 
 ![](part-2/_static/image3.png)
 
@@ -72,28 +71,28 @@ Ardından, projeyi oluşturun. Web API yapı iskelesi yansıma derlenmiş derlem
 
 İçinde **denetleyici Ekle** iletişim kutusunda, aşağıdakileri yapın:
 
-1. İçinde **Model sınıfı** açılan listesinde, select `Author` sınıfı. (Bunu açılır listede görmüyorsanız, proje yerleşik emin olun.)
-2. "Kullanım zaman uyumsuz denetleyici eylemlerini" denetleyin.
+1. İçinde **Model sınıfı** açılır menüsünde, select `Author` sınıfı. (Bu açılır listede görmüyorsanız, proje oluşturulan emin olun.)
+2. "Zaman uyumsuz denetleyici eylemleri kullanın" denetleyin.
 3. Denetleyici adı olarak bırakın &quot;AuthorsController&quot;.
-4. Tıklatın artı (+) düğmesini yanına **veri bağlamı sınıfı**.
+4. Click artı (+) düğmesine yanındaki **veri bağlamı sınıfının**.
 
 ![](part-2/_static/image5.png)
 
-İçinde **yeni veri bağlamı** iletişim kutusunda, varsayılan adı bırakın ve tıklayın **Ekle**.
+İçinde **yeni veri bağlamı** iletişim kutusunda varsayılan adı bırakın ve tıklayın **Ekle**.
 
 ![](part-2/_static/image6.png)
 
-Tıklatın **Ekle** tamamlamak için **denetleyici Ekle** iletişim. İletişim kutusu iki sınıf projenize ekler:
+Tıklayın **Ekle** tamamlanması **denetleyici Ekle** iletişim. İletişim kutusu, iki sınıf projenize ekler:
 
-- `AuthorsController` Web API denetleyicisi tanımlar. İstemcilerin yazarlar listesinde CRUD işlemleri gerçekleştirmek için kullandığı REST API denetleyicisi uygular.
-- `BookServiceContext` Veritabanı, değişiklik izleme ve kalıcı veri verilerini veritabanına nesnelerle doldurmak içeren çalışma zamanı sırasında varlık nesneleri yönetir. Öğesinden devralınan `DbContext`.
+- `AuthorsController` bir Web API denetleyicisi tanımlar. İstemcilerin yazarlar listesinde CRUD işlemleri gerçekleştirmek için kullandığı REST API denetleyicisi uygular.
+- `BookServiceContext` bir veritabanı, değişiklik izleme ve kalıcı veri verilerini veritabanına nesnelerle doldurmak içeren çalışma zamanı sırasında varlık nesnelerini yönetir. Devraldığı `DbContext`.
 
 ![](part-2/_static/image7.png)
 
-Bu noktada, projeyi yeniden oluşturun. Şimdi bir API denetleyicisi için eklemek için aynı adımlarını `Book` varlıklar. Bu süre, select `Book` model sınıfı ve varolan seçin `BookServiceContext` veri bağlamı sınıfı için sınıf. (Yeni bir veri bağlamı oluşturmayın.) Tıklatın **Ekle** denetleyicisi eklemek için.
+Bu noktada, projeyi yeniden derleyin. Artık bir API denetleyicisi eklemek için aynı adımları inceleyin `Book` varlıklar. Bu kez, select `Book` model sınıfı ve mevcut seçim için `BookServiceContext` veri bağlamı sınıfı için sınıf. (Yeni bir veri bağlamı oluşturmayın.) Tıklayın **Ekle** denetleyicisi eklemek için.
 
 ![](part-2/_static/image8.png)
 
 > [!div class="step-by-step"]
 > [Önceki](part-1.md)
-> [sonraki](part-3.md)
+> [İleri](part-3.md)

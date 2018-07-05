@@ -1,83 +1,82 @@
 ---
 uid: mvc/overview/older-versions-1/views/using-the-tagbuilder-class-to-build-html-helpers-cs
-title: HTML Yardımcıları (C#) oluşturmak için TagBuilder sınıfını kullanma | Microsoft Docs
+title: HTML Yardımcıları (C#) oluşturmak için TagBuilder sınıfı kullanarak | Microsoft Docs
 author: StephenWalther
-description: Stephen Walther yararlı yardımcı program sınıfı TagBuilder sınıfı adlı ASP.NET MVC çerçevesi arasında tanıtır. TagBuilder sınıfına kolayca kullanabilirsiniz...
+description: Stephen Walther TagBuilder sınıfı adlı ASP.NET MVC çerçevesi bir kullanışlı yardımcı sınıfta tanıtır. İçin TagBuilder sınıfı bir kolayca kullanabileceğiniz...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/02/2009
 ms.topic: article
 ms.assetid: 3975a52f-bd15-4edd-8f3d-1df93672515b
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/views/using-the-tagbuilder-class-to-build-html-helpers-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6c0e8e4e3a733f2cc8690dc85e3006bce6c661d2
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 5ec50fca1d65d95aaf2baf00c84c080ba98bf333
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30870394"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37383874"
 ---
-<a name="using-the-tagbuilder-class-to-build-html-helpers-c"></a>HTML Yardımcıları (C#) oluşturmak için TagBuilder sınıfını kullanma
+<a name="using-the-tagbuilder-class-to-build-html-helpers-c"></a>HTML Yardımcıları (C#) oluşturmak için TagBuilder sınıfı kullanma
 ====================
 tarafından [Stephen Walther](https://github.com/StephenWalther)
 
-> Stephen Walther yararlı yardımcı program sınıfı TagBuilder sınıfı adlı ASP.NET MVC çerçevesi arasında tanıtır. TagBuilder sınıfı kolayca HTML etiketleri oluşturmak için kullanabilirsiniz.
+> Stephen Walther TagBuilder sınıfı adlı ASP.NET MVC çerçevesi bir kullanışlı yardımcı sınıfta tanıtır. HTML etiketlerini kolayca oluşturmak için TagBuilder sınıfı kullanabilirsiniz.
 
 
-ASP.NET MVC çerçevesi HTML Yardımcıları oluştururken kullanabileceğiniz TagBuilder sınıfı adlı bir yararlı yardımcı program sınıfı içerir. Sınıfın adını da anlaşılacağı gibi TagBuilder sınıfı, HTML etiketleri kolayca oluşturmanıza olanak sağlar. Kısa Bu öğreticide, TagBuilder sınıfı bir bakış sağlanır ve basit bir HTML Yardımcısı oluşturmaya HTML işleyen olduğunda bu sınıfının nasıl kullanılacağını öğrenin &lt;img&gt; etiketler.
+ASP.NET MVC çerçevesi, HTML Yardımcıları oluşturma sırasında kullanabileceğiniz TagBuilder sınıfı adlı yararlı yardımcı program sınıfı içerir. Sınıf adından da anlaşılacağı gibi TagBuilder sınıfı, HTML etiketleri kolayca oluşturmanıza olanak sağlar. Bu kısa öğreticide TagBuilder sınıfı bir bakış sağlanır ve bu sınıf, basit bir HTML Yardımcısı oluşturma HTML oluşturulduğunda kullanmayı öğrenin &lt;img&gt; etiketler.
 
 ## <a name="overview-of-the-tagbuilder-class"></a>TagBuilder sınıfı genel bakış
 
-TagBuilder sınıfı System.Web.Mvc ad alanında yer alır. Beş yöntemi vardır:
+TagBuilder sınıfı System.Web.Mvc ad alanında yer alır. Bu beş yöntemi vardır:
 
-- AddCssClass() - yeni bir eklemenize olanak sağlayan *class = ""* özniteliği için bir etiket.
-- GenerateId() - ID özniteliği için bir etiket eklemenize olanak sağlar. Bu yöntem otomatik olarak Kimliği'nde noktaları değiştiren (varsayılan olarak, alt çizgi tarafından nokta değiştirilir)
-- MergeAttribute() - bir etiket için öznitelikler eklemenizi sağlar. Bu yöntemin birden çok aşırı vardır.
-- SetInnerText() - etiketinin iç metni ayarlamanıza olanak sağlar. HTML kodlama otomatik olarak iç metindir.
-- ToString() - etiket oluşturmak etkinleştirir. Normal bir etiketi, bir başlangıç etiketi, bir bitiş etiketi veya kendi kendine kapanan etiketi oluşturmak isteyip istemediğinizi belirtebilirsiniz.
+- AddCssClass() - yeni eklemenize olanak sağlayan *class = ""* özniteliği için bir etiket.
+- GenerateId() - bir ID özniteliği için bir etiket eklemenize olanak sağlar. Bu yöntem otomatik olarak kimliği dönemlerde değiştirir (varsayılan olarak, alt çizgi ile nokta değiştirilir)
+- MergeAttribute() - etiket öznitelikleri eklemek olanak tanır. Bu yöntemin birden fazla aşırı yüklemeleri vardır.
+- SetInnerText() - etiketinin iç metni olanak tanır. HTML kodlama otomatik olarak iç metindir.
+- ToString() - etiket işleme olanak tanır. Normal bir etiketi, bir başlangıç etiketi, bir bitiş etiketi veya kendi kendine kapanan etiketi oluşturmak isteyip istemediğinizi belirtebilirsiniz.
   
 
 TagBuilder sınıfı dört önemli özelliklere sahiptir:
 
 - Öznitelikleri - tüm etiket özniteliklerini temsil eder.
-- IdAttributeDotReplacement - GenerateId() yöntemi tarafından (varsayılan değer altçizgidir) nokta değiştirmek için kullanılan karakteri temsil eder.
-- InnerHtml - etiketinin iç içeriğini temsil eder. Bu özellik bir dize atama *yok* HTML kodlama dizesi.
+- IdAttributeDotReplacement - nokta (varsayılan değer altçizgidir) değiştirileceğini GenerateId() yöntemi tarafından kullanılan karakteri temsil eder.
+- InnerHTML - etiketinin iç içeriğini temsil eder. Bu özellik için bir dize atama *yok* HTML ile kodlanan dize.
 - TagName - etiketin adını temsil eder.
 
-Bu yöntemlere ve özelliklere tüm temel yöntemleri ve bir HTML etiketi oluşturmak için gereken özelliklerini verin. Gerçekten TagBuilder sınıfı kullanmanız gerekmez. Bunun yerine bir StringBuilder sınıfını kullanabilirsiniz. Ancak, TagBuilder sınıfı yaşamınızı biraz daha kolay hale getirir.
+Bu yöntemler ve özellikler, tüm temel yöntem ve bir HTML etiketi oluşturmak için gereken özellikleri sağlar. Gerçekten TagBuilder sınıfı kullanmanız gerekmez. Bunun yerine bir StringBuilder sınıfını kullanabilirsiniz. Ancak, TagBuilder sınıfı hayatınızı biraz daha kolay hale getirir.
 
 ## <a name="creating-an-image-html-helper"></a>Bir görüntü HTML Yardımcısı oluşturma
 
-TagBuilder sınıfının bir örneğini oluştururken TagBuilder oluşturucuya oluşturmak istediğiniz etiketin adını geçirin. Ardından, etiket özniteliklerini değiştirmek için AddCssClass ve MergeAttribute() yöntemleri gibi yöntemleri çağırabilir. Son olarak, etiket oluşturmak için ToString() yöntemini çağırın.
+TagBuilder sınıfı örneğini oluşturduğunuzda TagBuilder oluşturucuya derlemek istediğiniz etiketi adı geçirin. Ardından, etiket özniteliklerini değiştirmek için AddCssClass ve MergeAttribute() yöntemleri gibi yöntemleri çağırabilir. Son olarak, Etiket oluşturulacak ToString() yöntemini çağırın.
 
-Örneğin, 1 listeleyen bir görüntü HTML Yardımcısı içerir. Image helper dahili bir HTML temsil eden bir TagBuilder ile uygulanan &lt;img&gt; etiketi.
+Örneğin, 1 listeleyen bir görüntü HTML Yardımcısı içerir. Görüntü yardımcı bir HTML temsil eden bir TagBuilder ile dahili olarak uygulanan &lt;img&gt; etiketi.
 
 **1 - Helpers\ImageHelper.cs listeleme**
 
 [!code-csharp[Main](using-the-tagbuilder-class-to-build-html-helpers-cs/samples/sample1.cs)]
 
-Listeleme 1 sınıfında görüntü adlı iki statik aşırı yüklenmiş yöntemler içerir. Image() yöntemini çağırdığınızda, veya bir dizi HTML özniteliklerini temsil eden bir nesne geçirebilirsiniz.
+Sınıf listesi 1 görüntü adlı iki statik aşırı yüklenmiş yöntemler içerir. Image() yöntemi çağırdığınızda, veya bir dizi HTML özniteliklerini temsil eden bir nesne geçirebilirsiniz.
 
-TagBuilder.MergeAttribute() yöntemi TagBuilder src özniteliğini gibi tek tek öznitelikler eklemek için nasıl kullanıldığını dikkat edin. Ayrıca, fark nasıl TagBuilder.MergeAttributes() yöntemi TagBuilder özniteliklerin bir koleksiyonu eklemek için kullanılır. Bir sözlük MergeAttributes() yöntemi kabul&lt;dize, nesne&gt; parametresi. RouteValueDictionary sınıf öznitelikleri koleksiyon bir sözlük olarak temsil eden nesneyi dönüştürmek için kullanılan&lt;dize, nesne&gt;.
+TagBuilder.MergeAttribute() yöntemi için TagBuilder src özniteliğini gibi tek tek öznitelikler eklemek için nasıl kullanıldığını dikkat edin. Ayrıca, fark TagBuilder.MergeAttributes() yöntemi nasıl bir öznitelik koleksiyonu için TagBuilder eklemek için kullanılır. Bir sözlük MergeAttributes() yöntemi kabul&lt;dize, nesne&gt; parametresi. RouteValueDictionary sınıf özniteliklerinin koleksiyonunu bir sözlükte temsil eden nesneyi dönüştürmek için kullanılan&lt;dize, nesne&gt;.
 
-Image helper oluşturduktan sonra ASP.NET MVC görünümlerinizde gibi diğer standart HTML Yardımcıları hiçbirini yardımcıyı kullanabilirsiniz. Xbox aynı görüntüsü iki kez görüntülemek için Image helper listeleme 2 görünümünde kullanır (bkz: Şekil 1). Image() Yardımcısı, hem ile hem de bir HTML öznitelik koleksiyonu olmadan adı verilir.
+Görüntü Yardımcısı oluşturduktan sonra herhangi bir diğer standart HTML yardımcıları gibi ASP.NET MVC görünümlerinizde yardımcıyı kullanabilirsiniz. Xbox aynı görüntüsü iki kez görüntülenecek görüntü Yardımcısı 2 liste görünümünde kullanır (bkz. Şekil 1). Image() Yardımcısı, hem ile hem de bir HTML öznitelik koleksiyonu olmadan çağrılır.
 
-**Listing 2 - Home\Index.aspx**
+**2 - Home\Index.aspx listeleme**
 
 [!code-aspx[Main](using-the-tagbuilder-class-to-build-html-helpers-cs/samples/sample2.aspx)]
 
 
 [![Yeni Proje iletişim kutusu](using-the-tagbuilder-class-to-build-html-helpers-cs/_static/image1.jpg)](using-the-tagbuilder-class-to-build-html-helpers-cs/_static/image1.png)
 
-**Şekil 01**: yansıma Yardımcısını kullanarak ([tam boyutlu görüntüyü görüntülemek için tıklatın](using-the-tagbuilder-class-to-build-html-helpers-cs/_static/image2.png))
+**Şekil 01**: yansıma Yardımcısını kullanarak ([tam boyutlu görüntüyü görmek için tıklatın](using-the-tagbuilder-class-to-build-html-helpers-cs/_static/image2.png))
 
 
-Bildirim Index.aspx görünüm üstündeki Image helper ilişkili ad alanı içeri aktarmanız gerekir. Yardımcı aşağıdaki yönergesi alınır:
+Bildirim Index.aspx görünümün üst görüntü Yardımcısı ilişkili ad alanı içeri aktarmanız gerekir. Yardımcı, aşağıdaki yönergesi ile aktarılır:
 
 [!code-aspx[Main](using-the-tagbuilder-class-to-build-html-helpers-cs/samples/sample3.aspx)]
 
 > [!div class="step-by-step"]
 > [Önceki](creating-custom-html-helpers-cs.md)
-> [sonraki](creating-page-layouts-with-view-master-pages-cs.md)
+> [İleri](creating-page-layouts-with-view-master-pages-cs.md)

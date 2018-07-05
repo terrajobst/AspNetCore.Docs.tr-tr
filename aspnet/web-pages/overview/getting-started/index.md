@@ -2,42 +2,41 @@
 uid: web-pages/overview/getting-started/index
 title: ASP.NET Web sayfaları ile çalışmaya başlama | Microsoft Docs
 author: rick-anderson
-description: Bilgi hakkında ASP.NET Web sayfaları ASP.NET Web Pages ve yeni Razor sözdizimini sunucu kodunu HTML t ile birleştirmek için hızlı, kullanılabilir ve basit bir yol sağlayın...
+description: Bilgi hakkında ASP.NET Web sayfaları ASP.NET Web Pages ve yeni Razor sözdizimi sunucu kodunu HTML t ile birleştirmek için hızlı, ulaşılabilir ve hafif bir yol sağlayın...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/18/2012
 ms.topic: article
 ms.assetid: 99253c4e-a125-4c21-85e7-a6dd74d93892
 ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started
 msc.type: chapter
-ms.openlocfilehash: 879110bba5e3465dd413764816603bcdb56eac31
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cc5097e8b7bff78cef578ffe844698be05c01100
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26572883"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37402057"
 ---
 <a name="getting-started-with-aspnet-web-pages"></a>ASP.NET Web sayfaları ile çalışmaya başlama
 ====================
-> Hangi Web sayfalarını ve Webmatrix'i, her şeyi yüklemek, başlamak ve siteler dağıtın nasıl artı değildir.
+> Hangi Web sayfalarını ve Webmatrix'i, her şeyi yüklemek, kullanmaya başlayın ve siteleri dağıtım nasıl artı var.
 
 
-- [Visual Studio'da program ASP.NET Web sayfaları](program-asp-net-web-pages-in-visual-studio.md)
-- [ASP.NET Razor sözdizimi programlama Web giriş](introducing-razor-syntax-c.md)
-- [Visual Basic ASP.NET Web sayfaları](introducing-razor-syntax-vb.md)
-- [ASP.NET Web sayfaları (Razor) ile ilgili SSS](aspnet-web-pages-razor-faq.md)
-- [Sitenizden e-posta gönderme](11-adding-email-to-your-web-site.md)
-- [Web sitenize sosyal ağ ekleme](13-adding-social-networking-to-your-web-site.md)
-- [ASP.NET Web sayfalarını tanıtma](introducing-aspnet-web-pages-2/index.md)
+- [Visual Studio'da ASP.NET Web Sayfaları Programlama](program-asp-net-web-pages-in-visual-studio.md)
+- [ASP.NET Web Programlama Razor Söz Dizimine Giriş](introducing-razor-syntax-c.md)
+- [ASP.NET Web Sayfaları Visual Basic](introducing-razor-syntax-vb.md)
+- [ASP.NET Web Sayfaları (Razor) SSS](aspnet-web-pages-razor-faq.md)
+- [Sitenizden E-posta Gönderme](11-adding-email-to-your-web-site.md)
+- [Web Sitenize Sosyal Ağ Ekleme](13-adding-social-networking-to-your-web-site.md)
+- [ASP.NET Web Sayfalarına Giriş](introducing-aspnet-web-pages-2/index.md)
 
     - [Başlarken](introducing-aspnet-web-pages-2/getting-started.md)
-    - [Programlama temelleri](introducing-aspnet-web-pages-2/intro-to-web-pages-programming.md)
-    - [Verileri görüntüleme](introducing-aspnet-web-pages-2/displaying-data.md)
-    - [HTML formu temelleri](introducing-aspnet-web-pages-2/form-basics.md)
-    - [Formları kullanarak veritabanı veri girme](introducing-aspnet-web-pages-2/entering-data.md)
-    - [Veritabanı verileri güncelleştirme](introducing-aspnet-web-pages-2/updating-data.md)
-    - [Veritabanı verileri silme](introducing-aspnet-web-pages-2/deleting-data.md)
-    - [Tutarlı bir düzen oluşturma](introducing-aspnet-web-pages-2/layouts.md)
-    - [WebMatrix kullanarak bir Site yayımlama](introducing-aspnet-web-pages-2/publishing.md)
+    - [Temel Programlama Kavramları](introducing-aspnet-web-pages-2/intro-to-web-pages-programming.md)
+    - [Verileri Görüntüleme](introducing-aspnet-web-pages-2/displaying-data.md)
+    - [HTML Formuyla İlgili Temel Kavramlar](introducing-aspnet-web-pages-2/form-basics.md)
+    - [Formları Kullanarak Veritabanı Verileri Girme](introducing-aspnet-web-pages-2/entering-data.md)
+    - [Veritabanı Verilerini Güncelleştirme](introducing-aspnet-web-pages-2/updating-data.md)
+    - [Veritabanı Verilerini Silme](introducing-aspnet-web-pages-2/deleting-data.md)
+    - [Tutarlı Bir Düzen Oluşturma](introducing-aspnet-web-pages-2/layouts.md)
+    - [WebMatrix Kullanarak Site Yayımlama](introducing-aspnet-web-pages-2/publishing.md)

@@ -1,40 +1,39 @@
 ---
 uid: web-pages/overview/performance-and-traffic/15-caching-to-improve-the-performance-of-your-website
-title: Daha iyi performans için sayfaları (Razor) Site bir ASP.NET Web verileri önbelleğe alma | Microsoft Docs
+title: Daha iyi performans için sayfaları (Razor) sitesinde bir ASP.NET Web verileri önbelleğe alma | Microsoft Docs
 author: tfitzmac
-description: Sitenizi onu depolamak - diğer bir deyişle, sağlayarak önbellek - almak veya işlem için uzun bir süre normalde götürecek veri sonuçlarını hızlandırabilir bir...
+description: Sitenizi depolamak - diğer bir deyişle, sağlayarak önbellek - normalde almak veya önemli ölçüde zaman alabileceğini veri sonuçlarını hızlandırabilirsiniz bir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/14/2014
 ms.topic: article
 ms.assetid: 961e525b-7700-469e-8a68-d7010b6fb68c
 ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/performance-and-traffic/15-caching-to-improve-the-performance-of-your-website
 msc.type: authoredcontent
-ms.openlocfilehash: 742409219bd3b05f8ddf2c0d5034919fc9bf1d26
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 4134c80d7eed4752c90a06aab796a0fd8c2a9782
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28039202"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37383415"
 ---
 <a name="caching-data-in-an-aspnet-web-pages-razor-site-for-better-performance"></a>Bir ASP.NET Web sayfaları (Razor) sitesinde daha iyi performans için verileri önbelleğe alma
 ====================
-tarafından [zel FitzMacken](https://github.com/tfitzmac)
+tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
-> Bu makalede, bir ASP.NET Web sayfaları (Razor) Web sitesinde daha hızlı performans için yardımcıyı bilgiyi önbelleğe kullanımı açıklanmaktadır. Sitenizi deposu &#8212;sağlayarak hızlandırabilirsiniz; diğer bir deyişle, önbellek &#8212; Normalde almak veya işlem için uzun bir süre götürecek ve genellikle değiştirmez veri sonuçları.
+> Bu makalede, bir ASP.NET Web sayfaları (Razor) Web sitesinde daha hızlı performans bilgileri yardımcı kullanmayı açıklar. Depolama sağlayarak sitenizi hızlandırabilirsiniz &#8212; diğer bir deyişle, önbellek &#8212; , normalde ele almak veya işlem için büyük miktarda zaman ve, değişmez genellikle veri sonuçlarını.
 > 
 > **Öğrenecekleriniz:** 
 > 
-> - Web sitenizin yanıt hızını artırmak için önbelleğe almayı kullanmak üzere nasıl.
+> - Web sitenizin uygulamanın yanıt verme hızını artırmak için önbelleğe almayı kullanmak üzere nasıl.
 > 
 > Bu makalede sunulan ASP.NET özellikleri şunlardır:
 > 
 > - `WebCache` Yardımcısı.
 >   
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Öğreticide kullanılan yazılım sürümleri
+> ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
 > 
 > 
 > - ASP.NET Web sayfaları (Razor) 3
@@ -43,41 +42,41 @@ tarafından [zel FitzMacken](https://github.com/tfitzmac)
 > Bu öğreticide, ASP.NET Web Pages 2 ile de çalışır.
 
 
-Birisi bir sayfayı sitenizden her istediğinde, isteği yerine getirmek için bazı iş yapmak web sunucusu vardır. Bir veritabanından veri alma gibi (yüksek) uzun zaman, görevleri gerçekleştirmek bazı sayfalarınızın sunucu olabilir. Sitenizi çok trafiği oluşursa bu görevleri uzun mutlak bağlamında ele yok olsa bile, karmaşık veya yavaş görevi gerçekleştirmek web sunucusu neden istekleri ayrı ayrı tam bir dizi çok fazla iş ekleyebilirsiniz. Bu, sonuçta site performansını etkileyebilir.
+Birisi bir sayfa sitenizden istediği her durumda, isteği yerine getirmek için biraz çalışmanız gerekir. web sunucusu vardır. Sayfalarınızı bazıları için bir veritabanından veri almak gibi (daha) uzun sürüyor, görevleri gerçekleştirmek sunucu olabilir. Sitenizi çok trafik karşılaşırsa uzun mutlak bağlamında, bu görevleri yakalayana olsa bile, bir dizi karmaşık olan veya yavaş görevi gerçekleştirmek web sunucusu neden ayrı istekleri için çok fazla iş ekleyebilirsiniz. Sonuç olarak, site performansını da etkileyebilir.
 
-Bu gibi durumlarda Web sitenizin performansını artırmak için bir veriyi önbelleğe almak için yoludur. Sitenizi aynı bilgiler için tekrarlanan isteklerini alır ve bilgileri her kişi için değişiklik gerekmez ve zaman değilse hassas yeniden getirme veya, yeniden hesaplanması yerine, veri kez getirebilir ve ardından Sonuçların depolanacağı. Bunun için bir istek geldiğinde sonraki açışınızda bilgi, bunu yalnızca önbellek dışına almanız.
+Bu gibi durumlarda Web sitenizin performansını artırmak için bir verileri önbelleğe almak için yoludur. Zaman değil aynı bilgileri yönelik yinelenen isteklerden sitenizi alır ve bilgileri, her kişi için değiştirilmesi gerekmez. yaparsanız yeniden getirilirken veya, yeniden hesaplanması yerine hassas verileri bir kez getirin ve sonra sonuçları depolamak. İçin bir istek geldiğinde sonraki açışınızda bilgi, yalnızca bu önbellek dışına sahip olursunuz.
 
-Genel olarak, sık değişmeyen bilgilerini önbelleğe. Önbellekte bilgi geçirdiğinizde, web sunucusu üzerindeki bellekte depolanır. Ne kadar süreyle onu, gün saniyeye gelen önbelleğe alınması gereken belirtebilirsiniz. Önbelleğe alma süresi sona erdiğinde, bilgileri otomatik olarak önbellekten kaldırılır.
+Genel olarak, sık sık değişmeyen bilgileri önbelleğe alın. Önbellekte bilgi yerleştirdiğinizde, web sunucusu üzerindeki bellekte depolanır. Ne kadar süreyle Bu, gün saniyelerden önbelleğe alınması gerektiğini belirtebilirsiniz. Önbelleğe alma süresi sona erdiğinde, bilgi önbellekten otomatik olarak kaldırılır.
 
 > [!NOTE]
-> Önbelleğindeki girişleri süresi nedenlerle dışında kaldırılabilir. Örneğin, web sunucusu geçici olarak belleği düşük çalışabilir ve belleği geri bir önbellek dışına girişleri atma tarafından yoludur. Bilgi önbelleğe yerleştirdiğiniz olsa bile, göreceğiniz gibi ihtiyacınız olduğunda hala var olduğundan emin olun sahiptir.
+> Önbelleğindeki süresi nedenlerle dışında kaldırılabilir. Örneğin, web sunucusunun geçici olarak belleği düşük çalışabilir ve belleği geri kazanmak bir önbellek dışına girişleri özel durum atma yoludur. Bilgi önbelleğe yerleştirdiğiniz olsa bile, gördüğünüz gibi ihtiyacınız olduğunda hala var olduğundan emin olun gerekir.
 
 
-Web sitenizi geçerli sıcaklık ve hava tahmini görüntüleyen bir sayfa sahip düşünün. Bu tür bilgiler almak için bir dış hizmetine bir istek gönderebilir. Bu bilgi büyük (iki saatlik süre içinde örneğin) değişmez beri ve dış çağrıları süresi ve bant genişliği gerektiren bu yana, önbelleğe alma işlemi için iyi bir aday sağlanır.
+Imagine Web sitenizi geçerli sıcaklık ve hava durumu tahminini görüntüleyen bir sayfa vardır. Bu tür bilgiler almak için bir dış hizmete istek gönderebilir. Bu bilgiler çok (iki saatlik süre içinde örneğin) değişmez olduğundan ve dış aramalar süreyi ve bant genişliği gerektirdiklerinden, önbelleğe alma işlemi için iyi bir aday olacaktır.
 
 ## <a name="adding-caching-to-a-page"></a>Bir sayfaya önbelleğe alma ekleme
 
-ASP.NET içeren bir `WebCache` önbelleğe alma sitenize ekleyin ve veri önbelleğine ekleme daha kolay hale getirir Yardımcısı. Bu yordamda, geçerli saati önbelleğe alan bir sayfa oluşturacaksınız. Geçerli saati, sık sık değişen ve, ayrıca hesaplamak için karmaşık olmayan bir şey olduğundan bu gerçek dünya örneği değil. Ancak, önbelleğe alma eylemini göstermeye iyi yoldur.
+ASP.NET içeren bir `WebCache` sitenize önbelleğe alma ekleme ve verileri önbelleğe eklemek kolaylaştıran Yardımcısı. Bu yordamda, geçerli zamanı önbelleğe alan bir sayfa oluşturacaksınız. Geçerli saati, sık sık değişen ve, ayrıca hesaplamak için karmaşık olmayan bir şey olduğundan bu gerçek bir örnek, değildir. Ancak, önbelleğe alma eylemini göstermek için iyi bir yoldur.
 
 1. Adlı yeni bir sayfa ekleyin *WebCache.cshtml* Web sitesine.
-2. Aşağıdaki kod ve biçimlendirme sayfasına ekleyin:
+2. Aşağıdaki kod ve İşaretleme sayfaya ekleyin:
 
     [!code-cshtml[Main](15-caching-to-improve-the-performance-of-your-website/samples/sample1.cshtml)]
 
-    Veri önbelleğe aldığınızda, bunu bir ad kullanarak önbelleğe bu yerleştirdiğiniz Web sitesi arasında benzersizdir. Bu durumda, adlandırılmış bir önbellek girişi kullanacağınız `CachedTime`. Bu `cacheItemKey` aşağıdaki kod örneğinde gösterildiği.
+    Verileri önbelleğe alma, bunu bir adı kullanarak önbelleğe bu yerleştirdiğiniz Web sitesi arasında benzersizdir. Bu durumda, adlandırılmış bir önbellek girdisi kullanacağınız `CachedTime`. Bu `cacheItemKey` aşağıdaki kod örneğinde gösterilen.
 
-    Kod ilk okur `CachedTime` önbellek girişi. (Diğer bir deyişle, önbellek girişi null değilse) değeri döndürülürse, kod verileri önbelleğe almak için yalnızca zaman değişkenin değerini ayarlar.
+    Kod ilk okur `CachedTime` önbellek girişi. (Diğer bir deyişle, önbellek girişi null değilse) bir değer döndürülürse, kod verileri önbelleğe almak için yalnızca zaman değişkenin değerini ayarlar.
 
-    Ancak, önbellek girişi yoksa (yani, null ise), kodu saat değeri ayarlar, önbelleğe ekler ve bir süre sonu değeri bir dakika olarak ayarlar. Bir dakika sonra önbellek girişi göz ardı edilir. (Varsayılan süre sonu değeri öğenin önbellekte 20 dakikadır.) Komut `WebCache.Set(cacheItemKey, time, 1, false)` önbelleğe geçerli saat değeri ekleyin ve ermesinden 1 dakika olarak ayarlarsanız gösterilmektedir. Ayarı *slidingExpiration* parametresi `false` , istenen her zaman sona erme saati yenilenmiş değil anlamına gelir. Tam olarak 1 dakika önbelleğe ilk olarak eklendikten sonra dolar. Bu değer ayarlanırsa, `true` 1 dakika süre sonu zamanı değeri önbellekten istenen her zaman sıfırlanır.
+    Ancak, önbellek girişi yoksa (yani, null ise), kod zaman değeri ayarlar, önbelleğe ekler ve bir dakika süre sonu değeri ayarlar. Bir dakika sonra önbellek girişi göz ardı edilir. (Varsayılan süre sonu değeri bir öğenin önbellekte 20 dakikadır.) Komut `WebCache.Set(cacheItemKey, time, 1, false)` ermesinden 1 dakika olarak ayarlayın ve geçerli bir zaman değerini önbelleğine eklemek gösterilmektedir. Ayarı *ilerlemiş* parametresi `false` süre sonu olmayan her zaman, istenen yenilendi anlamına gelir. Bu tam olarak 1 dakika önbelleğe ilk olarak eklendikten sonra sona erecek. Bu değeri ayarlamanız `true` önbelleğe alınan değeri istenen her zaman 1 dakika süre sıfırlanır.
 
-    Bu kod, verileri önbelleğe aldığınızda, her zaman kullanmalısınız düzeni gösterilmektedir. Önbellek dışına almak önce her zaman ilk kontrol olup olmadığını `WebCache.Get` yöntemi null döndürdü. Önbellek girişinin süresi sona ermiş olabilir veya belirli bir girişin hiçbir zaman önbellekte olması garanti şekilde diğer herhangi bir nedenle için kaldırılmış unutmayın.
-3. Çalıştırma *WebCache.cshtml* bir tarayıcıda. (Emin olun sayfa seçildiğinde, **dosyaları** çalıştırmadan önce onu çalışma.) Sayfa isteği ilk kez saat verilerini önbellekte değil ve saat değeri önbelleğine eklemek koduna sahip.
+    Bu kod, verileri önbelleğe alma, her zaman kullanmalısınız düzeni göstermektedir. Önbellek dışına geçmeden önce her zaman öncelikle denetleyin olmadığını `WebCache.Get` metodu null döndürdü. Önbellek girişinin süresi dolmuş olabilir veya belirli bir girişin hiçbir zaman önbellekte olması garanti için bazı diğer nedenlerle kaldırılmış olabilir unutmayın.
+3. Çalıştırma *WebCache.cshtml* bir tarayıcıda. (Emin sayfanın içinde seçili **dosyaları** çalıştırmadan önce çalışma alanı.) İlk kez, sayfa istek saat verilerini önbellekte değil ve saat değeri önbelleğine eklemek kod vardır.
 
-    ![Önbellek-1](15-caching-to-improve-the-performance-of-your-website/_static/image1.jpg)
-4. Yenileme *WebCache.cshtml* tarayıcıda. Bu süre, önbellekte zaman verilerdir. Zaman sayfasında görüntülenen son tarihten değişmediğinden dikkat edin.
+    ![1. önbellek](15-caching-to-improve-the-performance-of-your-website/_static/image1.jpg)
+4. Yenileme *WebCache.cshtml* tarayıcıda. Bu süre önbellekte zaman verilerdir. Zaman sayfası görüntülediğiniz son daraltılmasından değişmediğinden dikkat edin.
 
-    ![Önbellek 2](15-caching-to-improve-the-performance-of-your-website/_static/image2.jpg)
-5. Önbellek boşaltılması için bir dakika bekleyin ve sayfayı yenileyin. Sayfa yeniden saat verilerini önbellekte bulunamadı ve güncelleştirilmiş zaman önbelleğe eklenir gösterir.
+    ![Önbellek-2](15-caching-to-improve-the-performance-of-your-website/_static/image2.jpg)
+5. Önbellek boşaltılması için bir dakika bekleyin ve sonra sayfayı yenileyin. Sayfa yeniden önbellek süresi verisi bulunamadı ve güncelleştirme zamanı önbelleğe eklenir gösterir.
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Ek Kaynaklar

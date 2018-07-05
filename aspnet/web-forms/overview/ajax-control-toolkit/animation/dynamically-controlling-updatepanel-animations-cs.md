@@ -1,71 +1,70 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/dynamically-controlling-updatepanel-animations-cs
-title: Dinamik olarak UpdatePanel animasyonları (C#) denetleme | Microsoft Docs
+title: UpdatePanel animasyonlarını (C#) dinamik olarak denetleme | Microsoft Docs
 author: wenz
-description: ASP.NET AJAX Denetim Araç Seti animasyon denetiminde bir denetimi ancak animasyonları için bir denetim eklemek için tam bir çerçeve değil. İçeriği için bir...
+description: ASP.NET AJAX Denetim Araç Seti animasyon denetimi yalnızca bir denetim, ancak bir denetime animasyon eklemek için tam bir çerçeve değil. İçeriği için bir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
 ms.topic: article
 ms.assetid: 5138b8fe-98ff-4e73-a00b-e263fc3ff11d
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/dynamically-controlling-updatepanel-animations-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 78401ee35027040dffea50c295c752dd182e75a1
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: f7b363a23c05490522705648fabfe0e7d0856b55
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30868613"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37400687"
 ---
-<a name="dynamically-controlling-updatepanel-animations-c"></a>Dinamik olarak kontrol eden UpdatePanel animasyonları (C#)
+<a name="dynamically-controlling-updatepanel-animations-c"></a>UpdatePanel animasyonlarını dinamik olarak denetleme (C#)
 ====================
 tarafından [Christian Wenz](https://github.com/wenz)
 
-[Kodu indirme](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/UpdatePanelAnimation2.cs.zip) veya [PDF indirin](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/updatepanelanimation2CS.pdf)
+[Kodu indir](http://download.microsoft.com/download/9/3/f/93f8daea-bebd-4821-833b-95205389c7d0/UpdatePanelAnimation2.cs.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/updatepanelanimation2CS.pdf)
 
-> ASP.NET AJAX Denetim Araç Seti animasyon denetiminde bir denetimi ancak animasyonları için bir denetim eklemek için tam bir çerçeve değil. Bir UpdatePanel içeriği için özel bir genişletici yoğun animasyon Framework'te güvenen var: UpdatePanelAnimation. Ayrıca, UpdatePanel Tetikleyicileri birlikte de çalışabilir.
+> ASP.NET AJAX Denetim Araç Seti animasyon denetimi yalnızca bir denetim, ancak bir denetime animasyon eklemek için tam bir çerçeve değil. UpdatePanel içeriğini için mevcut özel genişletici olan yoğun animasyon Framework'te kullanır: UpdatePanelAnimation. Ayrıca, UpdatePanel tetikleyicilerini birlikte de çalışabilir.
 
 
 ## <a name="overview"></a>Genel Bakış
 
-ASP.NET AJAX Denetim Araç Seti animasyon denetiminde bir denetimi ancak animasyonları için bir denetim eklemek için tam bir çerçeve değil. İçeriği için bir `UpdatePanel`, özel bir genişletici yoğun animasyon Framework'te güvenen var: `UpdatePanelAnimation`. Ayrıca ile birlikte çalışabilir `UpdatePanel` tetikler.
+ASP.NET AJAX Denetim Araç Seti animasyon denetimi yalnızca bir denetim, ancak bir denetime animasyon eklemek için tam bir çerçeve değil. İçeriği için bir `UpdatePanel`, yoğun animasyon framework kullanan özel genişletici var: `UpdatePanelAnimation`. Ayrıca ile birlikte çalışabilir `UpdatePanel` tetikler.
 
 ## <a name="steps"></a>Adımlar
 
-İlk adım her zamanki gibi eklemektir `ScriptManager` sayfasındaki ASP.NET AJAX kitaplığı yüklenir ve Denetim Araç Seti kullanılabilir:
+İlk adım zamanki dahil etmektir `ScriptManager` sayfasında ASP.NET AJAX kitaplığı yüklenir ve Denetim Araç Seti kullanılabilir:
 
 
 [!code-aspx[Main](dynamically-controlling-updatepanel-animations-cs/samples/sample1.aspx)]
 
-Bu senaryoda animasyon geçerli saati görüntüye uygulanacak. Bu bilgileri kullanarak bir etiket yazılabilir `Page_Load()` yöntemini veya (basitleştirmek amacıyla) aşağıdaki satır içi kod kullanılır:
+Bu senaryoda animasyon geçerli zaman bir ekrana uygulanır. Bu bilgileri kullanarak bir etiket yazılabilir `Page_Load()` yöntemi veya aşağıdaki satır içi kod (basitleştirmek amacıyla) kullanılır:
 
 
 [!code-aspx[Main](dynamically-controlling-updatepanel-animations-cs/samples/sample2.aspx)]
 
-Ayrıca, saati güncelleştiriliyor tetiklemek için bir düğmeye oluşturulur:
+Ayrıca, bir düğme tetikleyicisi sürekli güncelleştirmek için oluşturulur:
 
 
 [!code-aspx[Main](dynamically-controlling-updatepanel-animations-cs/samples/sample3.aspx)]
 
-Bu kod içine konur `<ContentTemplate>` bölümünü bir `UpdatePanel` öğesi. Bölmenin `UpdateMode` özniteliği ayarlanmalıdır `"Conditional"`, yalnızca Tetikleyicileri bölmenin içeriği güncelleştirebilir beri. İçinde `<Triggers>` bölümünü `UpdatePanel`, zaman uyumsuz geri gönderme tetikleyici oluşturulur ve bağlı `Click` düğmesinin olayı. Bu nedenle, kullanıcı düğmesine tıklarsa `UpdatePanel` yenilenmez. İşaretleme için işte `UpdatePanel` denetimi:
+Bu kod içine yerleştirilir `<ContentTemplate>` bölümünü bir `UpdatePanel` öğesi. Bölmenin `UpdateMode` özniteliği ayarlanmalıdır `"Conditional"`, olduğundan yalnızca Tetikleyicileri bölmenin içeriği güncelleştirebilir. İçinde `<Triggers>` bölümünü `UpdatePanel`, bir zaman uyumsuz geri gönderme tetikleyici oluşturulur ve bağlı `Click` düğmesinin olayı. Bu nedenle, kullanıcı düğmesine tıklarsa `UpdatePanel` yenilenir. İçin biçimlendirme şöyledir `UpdatePanel` denetimi:
 
 
 [!code-aspx[Main](dynamically-controlling-updatepanel-animations-cs/samples/sample4.aspx)]
 
-Son olarak, `UpdatePanelAnimationExtender` yapılandırılmalıdır: ayarlamak `TargetControlID` özniteliği paneli Kimliğine ve bir animasyon genişletici içinde tanımlayın. İçinde yapar Soluklaşan iyi bir görsel Vurgu güncelleştirilmiş zamanında oluşturur algılama. Genişletici biçimlendirme sonra şu şekilde görünebilir:
+Son olarak, `UpdatePanelAnimationExtender` yapılandırılmalıdır: ayarlayın `TargetControlID` özniteliği panel Kimliğine ve bir animasyon Genişleticisi içinde tanımlayın. Soluklaşan yapar güncelleştirilmiş zaman iyi bir visual indirimlere oluşturan mantıklı. Ardından, genişletici biçimlendirme şöyle görünebilir:
 
 
 [!code-aspx[Main](dynamically-controlling-updatepanel-animations-cs/samples/sample5.aspx)]
 
-Tarayıcıda dosyasını çalıştırın. Düğmesini tıklattığınızda, geçerli saati panelinde, her zaman bir saniye boyunca Soluklaşan gösterilir.
+Dosyayı tarayıcıda çalıştırın. Düğmeye tıklattığınızda, geçerli zamanı her zaman bir saniye boyunca Soldurma panelinde gösterilir.
 
 
 [![Geçerli saati Soluklaşan](dynamically-controlling-updatepanel-animations-cs/_static/image2.png)](dynamically-controlling-updatepanel-animations-cs/_static/image1.png)
 
-Geçerli saati Soluklaşan ([tam boyutlu görüntüyü görüntülemek için tıklatın](dynamically-controlling-updatepanel-animations-cs/_static/image3.png))
+Geçerli saati Soluklaşan ([tam boyutlu görüntüyü görmek için tıklatın](dynamically-controlling-updatepanel-animations-cs/_static/image3.png))
 
 > [!div class="step-by-step"]
 > [Önceki](animating-an-updatepanel-control-cs.md)
-> [sonraki](adding-animation-to-a-control-vb.md)
+> [İleri](adding-animation-to-a-control-vb.md)

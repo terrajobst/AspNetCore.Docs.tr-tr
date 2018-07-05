@@ -1,300 +1,299 @@
 ---
 uid: web-pages/overview/data/7-displaying-data-in-a-chart
-title: ASP.NET Web sayfaları (Razor) içeren bir grafik verileri görüntüleme | Microsoft Docs
+title: ASP.NET Web sayfaları (Razor) içeren bir grafik veri görüntüleme | Microsoft Docs
 author: microsoft
-description: Bu bölümde, grafik verileri görüntülemek açıklanmaktadır. Önceki bölümlerde, el ile ve kılavuz verileri görüntülemeyi öğrendiniz. Bu bölümde anlatılmıştır...
+description: Bu bölümde, verileri bir grafikte görüntülemek açıklanmaktadır. Önceki bölümde, el ile ve kılavuz veri görüntüleme hakkında bilgi edindiniz. Bu bölümde anlatılmıştır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/22/2012
 ms.topic: article
 ms.assetid: f889fd46-4dac-4ecb-83d8-60e64c22036e
 ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/data/7-displaying-data-in-a-chart
 msc.type: authoredcontent
-ms.openlocfilehash: 5cf17e54408d585e9a375b302b61b4e28d9b022a
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 41af8ac4dba0ba5ad478df7075628186a96f48c4
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30899729"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37393762"
 ---
-<a name="displaying-data-in-a-chart-with-aspnet-web-pages-razor"></a>ASP.NET Web sayfaları (Razor) içeren bir grafik verileri görüntüleme
+<a name="displaying-data-in-a-chart-with-aspnet-web-pages-razor"></a>ASP.NET Web sayfaları (Razor) içeren bir grafik veri görüntüleme
 ====================
 tarafından [Microsoft](https://github.com/microsoft)
 
-> Bu makalede bir grafik kullanarak bir ASP.NET Web sayfaları (Razor) Web sitesi verileri görüntülemek için nasıl kullanılacağı açıklanmaktadır `Chart` Yardımcısı.
+> Bu makalede, verileri kullanarak bir ASP.NET Web sayfaları (Razor) Web sitesinde görüntülemek için bir grafik kullanmayı açıklar `Chart` Yardımcısı.
 > 
 > **Öğrenecekleriniz**:
 > 
-> - Grafik verileri görüntülemek nasıl.
-> - Yerleşik Temalar kullanarak stili grafikler nasıl.
-> - Grafikler kaydedin ve daha iyi performans için önbelleğe almak.
+> - Verileri bir grafikte görüntülemek nasıl.
+> - Yerleşik Temalar kullanarak grafik stilini belirlemek nasıl.
+> - Grafik kaydetme ve daha iyi performans için bunları önbelleğe alınacağını.
 > 
-> Bu makalede sunulan özellikler programlama ASP.NET şunlardır:
+> ASP.NET programlama makalesinde sunulan özellikler şunlardır:
 > 
 > - `Chart` Yardımcısı.
 > 
 > > [!NOTE]
-> > Bu makaledeki bilgileri, ASP.NET Web sayfaları 1.0 ve Web Pages 2 için geçerlidir.
+> > Bu makaledeki bilgiler, ASP.NET Web sayfaları 1.0 ve Web Pages 2 için geçerlidir.
 
 
 <a id="The_Chart_Helper"></a>
 ## <a name="the-chart-helper"></a>Grafik Yardımcısı
 
-Verilerinizi grafik formda görüntülemek istediğinizde, kullanabileceğiniz `Chart` Yardımcısı. `Chart` Yardımcısı, grafik türleri çeşitli verileri görüntüleyen bir görüntü işleyebilirsiniz. Biçimlendirme ve etiketleme için birçok seçenek destekler. `Chart` Yardımcısı, Microsoft Excel veya diğer araçlar aşina olabilecek grafikler tüm türleri dahil olmak üzere grafikleri, 30'dan fazla tür işleyebilirsiniz &#8212; alan grafikleri, çubuk grafikler, sütun grafikler, çizgi grafikler ve pasta grafikler, daha fazla ile birlikte Özel grafikler hisse senedi grafiklerinde ister.
+Verilerinizi grafik formunda görüntülemek istediğiniz zaman kullanabileceğiniz `Chart` Yardımcısı. `Chart` Yardımcısı, çeşitli grafik türleri veri görüntüleyen bir görüntü işleyebilirsiniz. Biçimlendirme ve etiketleme için birçok seçenek destekler. `Chart` Yardımcısı, Microsoft Excel veya başka araçlar alışkın olabileceğiniz grafiklerin tüm türleri dahil olmak üzere grafikleri, 30'dan fazla tür işleyebilirsiniz &#8212; alan grafikleri, çubuk grafikler, sütun grafikler, çizgi grafikler ve pasta grafikleri, birlikte daha fazla bilgi özelleştirilmiş grafikler stok grafikler gibi çalışır.
 
-| **Alan grafiği** ![Açıklama: alan grafik türünün resmi](7-displaying-data-in-a-chart/_static/image1.jpg) | **Çubuk grafik** ![Açıklama: çubuk grafik türünü resmi](7-displaying-data-in-a-chart/_static/image2.jpg) |
+| **Alan grafiği** ![açıklaması: alan grafik türü resmi](7-displaying-data-in-a-chart/_static/image1.jpg) | **Çubuk grafik** ![açıklaması: çubuk grafik türünü resmi](7-displaying-data-in-a-chart/_static/image2.jpg) |
 | --- | --- |
-| **Sütun grafiği** ![Açıklama: sütun grafik türünün resmi](7-displaying-data-in-a-chart/_static/image3.jpg) | **Çizgi grafiği** ![Açıklama: çizgi grafik türü resmi](7-displaying-data-in-a-chart/_static/image4.jpg) |
-| **Pasta grafik** ![Açıklama: pasta grafik türünün resmi](7-displaying-data-in-a-chart/_static/image5.jpg) | **Hisse senedi grafiği** ![Açıklama: hisse senedi grafik türünün resmi](7-displaying-data-in-a-chart/_static/image6.jpg) |
+| **Sütun grafiği** ![açıklaması: sütun grafik türü resmi](7-displaying-data-in-a-chart/_static/image3.jpg) | **Çizgi grafik** ![açıklaması: çizgi grafik türü resmi](7-displaying-data-in-a-chart/_static/image4.jpg) |
+| **Pasta grafiği** ![açıklaması: resim pasta grafik türü](7-displaying-data-in-a-chart/_static/image5.jpg) | **Hisse senedi grafiği** ![açıklaması: resim stoğu grafik türü](7-displaying-data-in-a-chart/_static/image6.jpg) |
 
 ### <a name="chart-elements"></a>Grafik Öğeleri
 
-Grafikler, veri ve göstergeleri, eksenleri, seri vb. gibi ek öğeler gösterir. Aşağıdaki resimde kullandığınızda, özelleştirebileceğiniz grafik öğeleri birçoğu gösteren `Chart` Yardımcısı. Bu makalede bazı ayarlanacağı gösterilmiştir (Tümü) bu öğelerin.
+Grafikler, veri ve göstergeler, eksen, serisi vb. gibi ek öğeleri gösterir. Aşağıdaki resimde kullandığınızda özelleştirebileceğiniz grafik öğelerinin çoğunu gösterir `Chart` Yardımcısı. Bu makalede bazı ayarlanacağı gösterilmektedir (tüm) bu öğeleri.
 
-![Açıklama: grafik öğeleri gösteren resim](7-displaying-data-in-a-chart/_static/image7.jpg)
+![Açıklama: grafik öğelerini gösteren resim](7-displaying-data-in-a-chart/_static/image7.jpg)
 
 <a id="Creating_a_Chart"></a>
 ## <a name="creating-a-chart-from-data"></a>Verileri bir grafik oluşturma
 
-Grafikte görüntüleme veriler, veritabanı tarafından döndürülen sonuçlarından bir dizi veya bir XML dosyasındaki veri olabilir.
+Bir grafikte görüntüleme veriler bir veritabanından döndürülen sonuçlar, diziden veya bir XML dosyasındaki veriler olabilir.
 
 ### <a name="using-an-array"></a>Bir dizi kullanma
 
-İçinde anlatıldığı gibi [ASP.NET Web sayfalarını programlama kullanarak Razor sözdizimi giriş](https://go.microsoft.com/fwlink/?LinkId=202890), bir dizi benzer öğe koleksiyonunu tek bir değişkende saklamanızı sağlar. Grafiğinizde dahil etmek istediğiniz verileri içerecek şekilde diziler kullanın.
+Açıklandığı şekilde [ASP.NET Web sayfaları programlama kullanarak Razor sözdizimi giriş](https://go.microsoft.com/fwlink/?LinkId=202890), bir dizi benzer öğelerin bir koleksiyonunu tek bir değişkende depolamak olanak tanır. Grafiğinizde dahil etmek istediğiniz verileri içeren dizileri kullanabilirsiniz.
 
-Bu yordam, nasıl bir grafik, dizilerde verilerden varsayılan grafik türü kullanılarak oluşturabileceğinizi gösterir. Ayrıca, grafik sayfa içinde görüntülemek nasıl gösterir.
+Bu yordam, nasıl bir grafik verileri kullanarak dizileri için varsayılan grafik türü kullanılarak oluşturacağınızı gösterir. Ayrıca grafik içinde sayfa görüntüleme işlemini de gösterir.
 
 1. Adlı yeni bir dosya oluşturun *ChartArrayBasic.cshtml*.
-2. Varolan içeriği aşağıdakiyle değiştirin: 
+2. Mevcut içeriğini aşağıdakiyle değiştirin: 
 
     [!code-cshtml[Main](7-displaying-data-in-a-chart/samples/sample1.cshtml)]
 
-    Kod önce yeni bir grafik oluşturur ve genişlik ve yükseklik ayarlar. Grafik başlığını kullanarak belirttiğiniz `AddTitle` yöntemi. Veri eklemek için kullandığınız `AddSeries` yöntemi. Bu örnekte, kullandığınız `name`, `xValue`, ve `yValues` parametrelerinin `AddSeries` yöntemi. `name` Parametresi grafik açıklamasında görüntülenir. `xValue` Parametresi grafiğin yatay ekseni boyunca görüntülenen bir veri dizisi içerir. `yValues` Parametresi grafiğin dikey noktaları çizmek için kullanılan veri dizisi içerir.
+    Kod, önce yeni bir grafik oluşturur ve genişlik ve yükseklik ayarlar. Grafik başlığı kullanarak belirttiğiniz `AddTitle` yöntemi. Veri eklemek için kullandığınız `AddSeries` yöntemi. Bu örnekte, kullandığınız `name`, `xValue`, ve `yValues` parametrelerinin `AddSeries` yöntemi. `name` Parametresi grafik açıklamasında görüntülenir. `xValue` Parametresi, grafiğin yatay ekseni boyunca görüntülenen bir veri dizisi içerir. `yValues` Parametresi, grafiğin dikey noktaları çizmek için kullanılan veri dizisi içerir.
 
-    `Write` Yöntemi gerçekte grafik işler. Bu durumda, bir grafik türü belirtmediğiniz `Chart` yardımcı bir sütun grafiği, varsayılan grafik oluşturur.
-3. Sayfayı tarayıcıda çalıştırın. Tarayıcı grafiği görüntüler. 
+    `Write` Yöntemi aslında grafik oluşturur. Bu durumda, bir grafik türü belirtmediğiniz `Chart` yardımcı bir sütun grafiği, varsayılan grafiği oluşturur.
+3. Sayfanın tarayıcıda çalıştırın. Tarayıcı grafiği görüntüler. 
 
     ![](7-displaying-data-in-a-chart/_static/image8.jpg)
 
-### <a name="using-a-database-query-for-chart-data"></a>Grafik verileri için bir veritabanı sorgusu kullanma
+### <a name="using-a-database-query-for-chart-data"></a>Veritabanı sorgusu için grafik verilerini kullanma
 
-Grafik istediğiniz bilgileri bir veritabanında ise, bir veritabanı sorgusu çalıştırmak ve grafik oluşturmak için sonuçları verileri kullanın. Bu yordam okuyup makalesinde oluşturulan veritabanındaki verileri görüntülemek nasıl gösterir [ASP.NET Web sayfaları sitelerdeki veritabanı ile çalışmaya giriş](https://go.microsoft.com/fwlink/?LinkId=202893).
+Grafik istediğiniz bilgileri veritabanında ise, veritabanı sorgusu çalıştırın ve grafik oluşturmak için veri sonuçlarından'i kullanın. Bu yordam, okuma ve bu makalede oluşturulan veritabanından veri görüntüleme işlemini göstermektedir [ASP.NET Web sayfaları sitelerinde bir veritabanıyla çalışmaya giriş](https://go.microsoft.com/fwlink/?LinkId=202893).
 
-1. Ekleme bir *uygulama\_veri* klasörü zaten yoksa, Web sitesinin kök klasörü.
-2. İçinde *uygulama\_veri* klasörünü adlı veritabanı dosyası ekleme *SmallBakery.sdf* içinde açıklanan [ASP.NET Web Pages sitelerindebirveritabanıileçalışmayagiriş](https://go.microsoft.com/fwlink/?LinkId=202893).
+1. Ekleme bir *uygulama\_veri* klasör zaten mevcut değilse Web sitesinin kök klasörü.
+2. İçinde *uygulama\_veri* klasöründe adlı veritabanı dosyası ekleme *SmallBakery.sdf* içinde açıklanan [ASP.NET Web sayfaları sitelerindebirveritabanıylaçalışmayagiriş](https://go.microsoft.com/fwlink/?LinkId=202893).
 3. Adlı yeni bir dosya oluşturun *ChartDataQuery.cshtml*.
-4. Varolan içeriği aşağıdakiyle değiştirin:   
+4. Mevcut içeriğini aşağıdakiyle değiştirin:   
 
     [!code-cshtml[Main](7-displaying-data-in-a-chart/samples/sample2.cshtml)]
 
-    Kod ilk SmallBakery veritabanını açar ve adlı bir değişkene atar `db`. Bu değişken temsil eden bir `Database` okuma ve veritabanına yazmak için kullanılan nesne. Ardından, kod adını ve her ürünün fiyatı almak için bir SQL sorgusunu çalıştırır. Kod yeni bir grafik oluşturur ve grafiğin çağırarak veritabanı sorgusu geçirilir `DataBindTable` yöntemi. Bu yöntemi iki parametre alır: `dataSource` parametredir sorgudaki verileri için ve `xField` parametresi hangi veri sütununun grafiğin x ekseni için kullanılan ayarlamanıza olanak tanır.
+    Kod ilk SmallBakery veritabanı açılır ve adlı bir değişkene atar `db`. Bu değişken temsil eden bir `Database` veritabanına yazma ve okuma için kullanılan nesne. Ardından, kod her ürünün fiyatını ve adını almak için bir SQL sorgusunu çalıştırır. Kod yeni bir grafik oluşturur ve grafiğin çağırarak veritabanı sorgusu geçirir `DataBindTable` yöntemi. Bu yöntem iki parametre alır: `dataSource` parametredir sorgudan gelen veriler için ve `xField` parametresi hangi veri sütununun grafiğin x ekseni için kullanılan ayarlamanızı sağlar.
 
-    Kullanmaya alternatif olarak `DataBindTable` kullanabileceğiniz yöntemi, `AddSeries` yöntemi `Chart` Yardımcısı. `AddSeries` Yöntemi ayarlamanıza olanak tanır `xValue` ve `yValues` parametreleri. Örneğin, kullanmak yerine `DataBindTable` yöntemi şuna benzer:
+    Kullanmaya alternatif olarak `DataBindTable` yöntemi kullanabileceğiniz `AddSeries` yöntemi `Chart` Yardımcısı. `AddSeries` Yöntemi ayarlamanızı sağlar `xValue` ve `yValues` parametreleri. Örneğin, kullanmak yerine `DataBindTable` şöyle yöntemi:
 
     [!code-css[Main](7-displaying-data-in-a-chart/samples/sample3.css)]
 
-    Kullanabileceğiniz `AddSeries` yöntemi şuna benzer:
+    Kullanabileceğiniz `AddSeries` şöyle yöntemi:
 
     [!code-html[Main](7-displaying-data-in-a-chart/samples/sample4.html)]
 
-    Her ikisi de aynı sonuçları işleyebilir. `AddSeries` Yöntemi olduğundan daha esnek grafik türü ve veri daha açık olarak belirtebilirsiniz, ancak `DataBindTable` yöntemdir ek esneklik gerekmiyorsa kullanmak daha kolay.
-5. Bir tarayıcıda. Sayfayı çalıştırın. 
+    Her ikisi de aynı sonuçları işleyin. `AddSeries` Yöntemi olduğundan daha esnek grafik türünü ve verileri daha açıkça belirtebilirsiniz ancak `DataBindTable` yöntemdir ek esneklik gerekmiyorsa, kullanımı daha kolay.
+5. Sayfanın tarayıcıda çalıştırın. 
 
     ![](7-displaying-data-in-a-chart/_static/image9.jpg)
 
-### <a name="using-xml-data"></a>XML verileri kullanma
+### <a name="using-xml-data"></a>XML verilerini kullanma
 
-Grafik üçüncü seçenek, grafik için veri olarak bir XML dosyası kullanmaktır. Bu XML dosyasını bir şema dosyası sahip olmasını gerektirir (*.xsd* dosyası), XML yapısını açıklar. Bu yordamda verilerini bir XML dosyasından okuma gösterilmiştir.
+Grafik üçüncü bir seçenek, grafik verileri olarak bir XML dosyası kullanmaktır. Bu XML dosyasını aynı zamanda bir şema dosyası olmasını gerektirir (*.xsd* dosyası), XML yapısını açıklar. Bu yordam, verilerini bir XML dosyasından okuma işlemini göstermektedir.
 
-1. İçinde *uygulama\_veri* klasörünü adlı yeni bir XML dosyası oluşturma *data.xml*.
-2. Varolan XML kurgusal bir şirkette çalışanları hakkında bazı XML verileri aşağıdaki değiştirin. 
+1. İçinde *uygulama\_veri* klasöründe adlı yeni bir XML dosyası oluşturun *data.xml*.
+2. Var olan XML kurgusal bir şirkette çalışanlar hakkında bazı XML verileri aşağıdaki değiştirin. 
 
     [!code-xml[Main](7-displaying-data-in-a-chart/samples/sample5.xml)]
-3. İçinde *uygulama\_veri* klasörünü adlı yeni bir XML dosyası oluşturma *data.xsd*. (Bu kez uzantısıdır Not *.xsd*.)
-4. Varolan XML aşağıdakiyle değiştirin: 
+3. İçinde *uygulama\_veri* klasöründe adlı yeni bir XML dosyası oluşturun *data.xsd*. (Bu kez uzantısı olduğuna dikkat edin *.xsd*.)
+4. Var olan XML aşağıdakiyle değiştirin: 
 
     [!code-xml[Main](7-displaying-data-in-a-chart/samples/sample6.xml)]
-5. Web sitesinin kök dizininde adlı yeni bir dosya oluşturun *ChartDataXML.cshtml*.
-6. Varolan içeriği aşağıdakiyle değiştirin: 
+5. Web sitesinin kök dizininde adlı yeni bir dosya oluşturmak *ChartDataXML.cshtml*.
+6. Mevcut içeriğini aşağıdakiyle değiştirin: 
 
     [!code-cshtml[Main](7-displaying-data-in-a-chart/samples/sample7.cshtml)]
 
-    Kod ilk oluşturur bir `DataSet` nesnesi. Bu nesnenin XML dosyasından okuma ve şema dosyasındaki bilgiler göre düzenlemek verileri yönetmek için kullanılır. (Kod üstündeki deyimi içeren bildirim `using SystemData`. İle çalışabilmek için bu gereklidir `DataSet` nesnesi. Daha fazla bilgi için bkz: [ &quot;kullanma&quot; deyimleri ve tam olarak nitelenmiş adlar](#SB_UsingStatements) bu makalenin ilerisinde yer.)
+    İlk kod oluşturur bir `DataSet` nesne. Bu nesne, şema dosyasındaki bilgilere göre düzenlemek ve XML dosyasından okunan verileri yönetmek için kullanılır. (Kodun üstüne deyim içeren bildirim `using SystemData`. Bu çalışmak için gerekli `DataSet` nesne. Daha fazla bilgi için [ &quot;kullanma&quot; deyimleri ve tam olarak nitelenmiş adlar](#SB_UsingStatements) bu makalenin ilerleyen bölümlerinde.)
 
-    Ardından, kod oluşturur bir `DataView` nesne veri kümesine bağlı. Veri Görünümü grafik bağlayabilirsiniz nesneyi sağlar &#8212; diğer bir deyişle, okuma ve çizim. Grafik verileri kullanarak bağlar `AddSeries` yöntemi gördüğünüz daha önce bu süre dışında dizi veri grafiğini tıklattığınızda `xValue` ve `yValues` parametreleri ayarlandığında `DataView` nesne.
+    Ardından, kod oluşturur bir `DataView` dayalı veri kümesinde nesne. Veri Görünümü grafik bağlayabilirsiniz nesne sağlar &#8212; diğer bir deyişle, okuma ve çizim. Grafik verileri kullanarak bağlar `AddSeries` yöntemi gördüğünüz daha önce bu zaman dışında dizi verileri grafiğini tıklattığınızda `xValue` ve `yValues` parametrelerini ayarlamak `DataView` nesne.
 
-    Bu örnek ayrıca belirli grafik türü belirtmek nasıl gösterir. İçinde veri eklendiğinde `AddSeries` yöntemi, `chartType` pasta grafiği görüntülemek için de parametresi ayarlanmış.
-7. Bir tarayıcıda. Sayfayı çalıştırın. 
+    Bu örnek ayrıca belirli grafik türü belirtmek nasıl gösterir. İçinde veri eklendiğinde `AddSeries` yöntemi `chartType` parametresi bir pasta grafiği görüntülemek için de ayarlanır.
+7. Sayfanın tarayıcıda çalıştırın. 
 
     ![](7-displaying-data-in-a-chart/_static/image10.jpg)
 
 > [!TIP]
 > 
 > <a id="SB_UsingStatements"></a>
-> ### <a name="using-statements-and-fully-qualified-names"></a>"Deyimleri ve tam olarak nitelenmiş adlar kullanarak"
+> ### <a name="using-statements-and-fully-qualified-names"></a>"Kullanma" ifadeleri ve tam olarak nitelenmiş adlar
 > 
-> Razor sözdizimi ile ASP.NET Web sayfaları dayanır .NET Framework bileşenlerini (sınıflar) binlerce oluşur. Bu sınıfların ile çalışmak için yönetilebilir hale getirmek amacıyla halinde düzenlenmiş *ad alanları*, bakıma kitaplıkları olduğu. Örneğin, `System.Web` ad alanı, tarayıcı/sunucu iletişimi destekleyen sınıfları içerir `System.Xml` ad alanı oluşturmak ve XML dosyaları okumak için kullanılan sınıfları içerir ve `System.Data` ad alanı çalışmanıza olanak sağlayan sınıflar içerir verilerle.
+> Razor sözdizimi olan ASP.NET Web sayfaları temel alan .NET Framework bileşenlerini (sınıflar) binlerce oluşur. Bu sınıfların ile çalışması için yönetilebilir hale getirmek için bunlar halinde düzenlenmiştir *ad alanları*, bakıma kitaplıkları olduğu. Örneğin, `System.Web` ad alanı, tarayıcı/sunucu iletişimini destekleyen sınıflar içerir `System.Xml` ad alanı oluşturmak ve XML dosyaları okumak için kullanılan sınıfları içerir ve `System.Data` ad alanı çalışmanıza olanak sağlayan sınıflar içerir verilerle.
 > 
-> .NET Framework'teki verilen herhangi bir sınıf erişmek için kod yalnızca sınıf adını değil, aynı zamanda sınıfı bir deyişle ad alanı bilmek ister. Örneğin, kullanmak için `Chart` Yardımcısı, kod gereken bulmak `System.Web.Helpers.Chart` ad birleştirir sınıfı (`System.Web.Helpers`) sınıf adıyla (`Chart`). Bu sınıfın bilinir *tam* adı &#8212; tam, anlaşılır konumuna vastness içinde .NET Framework'ün. Kod içinde bu aşağıdaki gibi görünür:
+> .NET Framework içinde verilen herhangi bir sınıf erişmek için kod yalnızca sınıf adı, aynı zamanda sınıf olan ad alanı bilmesi gerekir. Örneğin kullanmak için `Chart` Yardımcısı, kod bulması gerektiğinde `System.Web.Helpers.Chart` ad alanı birleştiren sınıfı (`System.Web.Helpers`) sınıf adıyla (`Chart`). Bu sınıfın bilinir *tam* adı &#8212; tam, Belirsiz olmayan konumuna vastness içinde .NET Framework'ün. Kodda, bunun aşağıdaki gibi görünür:
 > 
 > `var myChart = new System.Web.Helpers.Chart(width: 600, height: 400) // etc.`
 > 
-> Ancak, kullanışsız (ve hataya) için bir sınıf veya Yardımcısı başvurmak istediğinizde her zaman bu uzun, tam olarak nitelenmiş adlar kullanmak zorunda. Bu nedenle, sınıf adları kullanın kolaylaştırmak için *alma* genellikle, ilgilendiğiniz, ad alanlarının yalnızca .NET Framework birçok ad alanları kümelerini sayıda olduğu. Bir ad alanı aldıysanız, yalnızca sınıf adını kullanabilirsiniz (`Chart`) tam adı yerine (`System.Web.Helpers.Chart`). Kodunuzu çalıştırır ve bir sınıf adı karşılaştığında, yalnızca o sınıfın bulmak için aldığınız ad alanlarında bakabilirsiniz.
+> Ancak, hantal (ve hata yapmaya açık) bir sınıf ya da yardımcı başvurmak istediğiniz her zaman bu uzun, tam olarak nitelenmiş adlar kullanmak zorunda. Bu nedenle, sınıf adlarının kullanımını kolaylaştırmak için *alma* yalnızca birkaç birçok ad alanları .NET Framework'teki arasından genellikle, ilgilendiğiniz, ad olduğu. Bir ad alanı aldıysanız, yalnızca bir sınıf adı kullanabilirsiniz (`Chart`) tam adı yerine (`System.Web.Helpers.Chart`). Kodunuzu çalıştırdığında ve bir sınıf adı karşılaştığında, sadece o sınıf bulmak için içeri aktardığımıza ad alanlarında bakabilirsiniz.
 > 
-> Web sayfaları oluşturmak için Razor sözdizimi ile ASP.NET Web sayfaları kullandığınızda, genellikle aynı kümesi sınıfların her zaman kullandığınız da dahil olmak üzere `WebPage` sınıfı, çeşitli yardımcıları ve benzeri. Bir Web sitesi oluşturmak her zaman ilgili ad alanlarını alma işi kaydetmek için ASP.NET otomatik olarak her Web sitesi için çekirdek ad alanları kümesi alır şekilde yapılandırılır. İşte bu nedenle ad alanları veya şimdi kadar; alma uğraşmanız gerekiyordu henüz üzerinde çalıştığınız tüm sınıflar, önceden içe aktarılan ad alanları arasındadır.
+> Web sayfaları için Razor sözdizimi olan ASP.NET Web Pages kullandığınızda, genellikle her zaman aynı sınıfları kümesi kullanmak da dahil olmak üzere `WebPage` sınıfı, çeşitli yardımcıları ve benzeri. Her bir Web sitesi oluşturduğunuzda ilgili ad alanlarını içeri aktarma işi kaydetmek için bir dizi temel ad alanı her Web sitesi için otomatik olarak alır, böylece ASP.NET yapılandırılır. İşte bu ad alanları veya şimdiye kadar; içeri aktarma ile uğraşmak zorunda henüz üzerinde çalıştığınız tüm önceden sizin için içe aktarılan ad alanlarında sınıflardır.
 > 
-> Ancak, bazen, sizin için otomatik olarak alınır bir ad alanında olmayan bir sınıfla çalışması gerekir. Bu durumda, o sınıfın tam adı ya da kullanabilirsiniz veya sınıfı içeren ad alanı el ile içeri aktarabilirsiniz. Bir ad alanı almak için kullandığınız `using` deyimi (`import` Visual Basic'te), bir örnek daha önce gördüğünüz gibi makaleyi.
+> Ancak, bazen sizin için otomatik olarak içeri ad alanında olmayan bir sınıf ile çalışmak gerekir. Bu durumda, bu sınıfın tam adını kullanabilirsiniz veya sınıfı içeren ad uzayı el ile içeri aktarabilirsiniz. Bir ad alanı içeri aktarmak için kullandığınız `using` deyimi (`import` Visual Basic'te), bir örnek daha önce bahsettiğim gibi makale.
 > 
-> Örneğin, `DataSet` sınıfı olan `System.Data` ad alanı. `System.Data` Ad alanı, ASP.NET Razor sayfalara otomatik olarak kullanılabilir değil. Bu nedenle, çalışmak için `DataSet` tam adını kullanarak sınıfı, aşağıdakine benzer bir kod kullanabilirsiniz:
+> Örneğin, `DataSet` sınıfı `System.Data` ad alanı. `System.Data` Ad alanı, ASP.NET Razor sayfaları için otomatik olarak kullanılabilir değil. Bu nedenle, birlikte çalışmak için `DataSet` tam adı kullanarak sınıfının, bu kodu kullanabilirsiniz:
 > 
 > `var dataSet = new System.Data.DataSet();`
 > 
-> Kullanmanız gerekiyorsa `DataSet` art arda sınıfı bu gibi bir ad alanı içe aktarabilir ve ardından kodda yalnızca sınıf adını kullanın:
+> Kullanmanız gerekiyorsa `DataSet` art arda sınıfı şunun gibi bir ad alanı içeri aktarabilir ve ardından yalnızca sınıf adını kodda kullanın:
 > 
 > [!code-cshtml[Main](7-displaying-data-in-a-chart/samples/sample8.cshtml)]
 > 
-> Ekleyebileceğiniz `using` deyimleri için başvuru yapmak istediğinizi diğer .NET Framework ad. ASP.NET tarafından kullanılmak üzere otomatik olarak alınır ad alanları ile karşılaşmayacağınızı sınıfların çoğu olduğundan ancak belirtildiği gibi genellikle, bunu gerekmez *.cshtml* ve *.vbhtml* sayfaları.
+> Ekleyebileceğiniz `using` deyimleri başvurmak istediğiniz herhangi bir .NET Framework isim için. ASP.NET tarafından kullanılmak üzere otomatik olarak içeri aktarılır ad alanlarında çoğu sınıfların ile çalışması çünkü ancak belirtildiği gibi genellikle bunu gerekmez *.cshtml* ve *.vbhtml* sayfaları.
 
 
 <a id="Displaying_Charts"></a>
-## <a name="displaying-charts-inside-a-web-page"></a>Bir Web sayfası içinde grafik görüntüleme
+## <a name="displaying-charts-inside-a-web-page"></a>Bir Web sayfasındaki grafikleri görüntüleme
 
-Örneklerde bir grafik oluşturabilir ve grafiğin grafik olarak tarayıcıya doğrudan sonra işlenen o ana kadarki gördünüz. Çoğu durumda, ancak bir grafik bir sayfanın parçası yalnızca tek başına tarayıcıda görüntülemek istediğiniz. Bunu yapmak için iki adımlı bir işlem gerektirir. İlk adım zaten gördüğünüz gibi grafik oluşturan bir sayfa oluşturmaktır.
+Örneklerde grafiğin grafik olarak doğrudan tarayıcıya sonra işlenir ve bir grafik oluşturma şu ana kadar gördünüz. Çoğu durumda, ancak bir grafik bir sayfanın bir parçası yalnızca tek başına tarayıcıda görüntülemek istediğiniz. Bunu yapmak için iki adımlı bir işlem gerektirir. İlk adım zaten gördüğünüz gibi grafik oluşturan bir sayfa oluşturmaktır.
 
-İkinci adım, başka bir sayfaya elde edilen görüntü görüntülemektir. Görüntüyü görüntülemek için bir HTML kullanmak `<img>` aynı öğesi yaptığınız herhangi bir görüntü görüntülenecek şekilde. Ancak, başvuran yerine bir *.jpg* veya *.png* dosya, `<img>` öğesi başvuruları *.cshtml* içeren dosya `Chart` Yardımcısı, grafik oluşturur. Görünen sayfa çalıştığında, `<img>` öğesi çıktısını alır `Chart` Yardımcısı ve grafik işler.
+İkinci adım, başka bir sayfaya elde edilen görüntü görüntülemektir. Görüntüyü görüntülemek için bir HTML kullanan `<img>` öğesi, aynı herhangi bir görüntü görüntülemek için yaptığınız şekilde. Ancak başvuran yerine bir *.jpg* veya *.png* dosyası `<img>` öğesi başvuruları *.cshtml* içeren dosya `Chart` Yardımcısı, grafik oluşturur. Görüntü sayfa çalıştığında, `<img>` öğesi çıktısını alır `Chart` Yardımcısı ve grafik oluşturur.
 
 ![](7-displaying-data-in-a-chart/_static/image11.jpg)
 
 1. Adlı bir dosya oluşturun *ShowChart.cshtml*.
-2. Varolan içeriği aşağıdakiyle değiştirin: 
+2. Mevcut içeriğini aşağıdakiyle değiştirin: 
 
     [!code-html[Main](7-displaying-data-in-a-chart/samples/sample9.html)]
 
-    Kod kullanan `<img>` , daha önce oluşturulmuş grafik görüntülemek için öğeyi *ChartArrayBasic.cshtml* dosya.
-3. Web sayfasını bir tarayıcıda çalıştırın. *ShowChart.cshtml* dosyasını görüntüler içinde yer alan kodu temel grafik görüntüsünün *ChartArrayBasic.cshtml* dosya.
+    Kod `<img>` , daha önce oluşturulmuş grafiği görüntülemek için öğeyi *ChartArrayBasic.cshtml* dosya.
+3. Web sayfasının bir tarayıcıda çalıştırın. *ShowChart.cshtml* dosyayı görüntüler yer alan kod temel grafik görüntüsünün *ChartArrayBasic.cshtml* dosya.
 
 <a id="Styling_a_Chart"></a>
 ## <a name="styling-a-chart"></a>Bir grafik stil oluşturma
 
-`Chart` Yardımcı çok sayıda grafik görünümünü özelleştirmenize olanak sağlayan seçenekleri destekler. Renkleri, yazı tipi, kenarlıklar ve benzeri ayarlayabilirsiniz. Kullanılacak bir grafiğin görünümünü özelleştirmek için kolay bir yoludur bir *tema*. Temalar nasıl yazı tiplerini, renkler, etiketler, paletleri, kenarlıklar ve efektleri kullanarak bir grafik oluşturulacağını belirten bilgi topluluklarıdır. (Grafiğinin stilini grafik türünü göstermez unutmayın.)
+`Chart` Yardımcısı, çok sayıda grafiğin görünümünü özelleştirmenize olanak sağlayan seçenekleri destekler. Renkleri, yazı tipleri, kenarlık ve benzeri ayarlayabilirsiniz. Kullanılacak bir grafiğin görünümünü özelleştirmek için kolay bir yolu olan bir *tema*. Tema Yazı tiplerini, renkleri, etiketler, paletler, kenarlık ve etkileri kullanarak bir grafik nasıl oluşturulacağını belirten bilgi topluluklarıdır. (Not grafiğinin stilini grafik türünü göstermez.)
 
 Aşağıdaki tabloda yerleşik Temalar listeler.
 
 | Tema | Açıklama |
 | --- | --- |
-| `Vanilla` | Üzerinde beyaz bir arka plan kırmızı sütunlarını görüntüler. |
+| `Vanilla` | Beyaz arka plan üzerinde kırmızı sütunlarını görüntüler. |
 | `Blue` | Mavi gradyan arka planı sütunlarda görüntüler mavi. |
-| `Green` | Yeşil gradyan arka planı sütunlarda görüntüler mavi. |
-| `Yellow` | Sarı gradyan arka planı sütunlarda turuncu görüntüler. |
-| `Vanilla3D` | 3-b kırmızı sütunlar üzerinde beyaz bir arka plan görüntüler. |
+| `Green` | Görüntüler, yeşil bir gradyan arka plan sütunlarda mavi. |
+| `Yellow` | Sarı gradyan arka plan üzerinde turuncu sütunlarını görüntüler. |
+| `Vanilla3D` | 3B kırmızı sütunlarını beyaz arka plan üzerinde görüntüler. |
 
-Yeni bir grafik oluşturduğunuzda kullanılacak Tema belirtebilirsiniz.
+Yeni bir grafik oluşturduğunuzda kullanılacak temayı belirtebilirsiniz.
 
 1. Adlı yeni bir dosya oluşturun *ChartStyleGreen.cshtml*.
-2. Sayfa varolan içeriği aşağıdakiyle değiştirin:
+2. Sayfanın mevcut içeriği aşağıdakiyle değiştirin:
 
     [!code-cshtml[Main](7-displaying-data-in-a-chart/samples/sample10.cshtml)]
 
-    Bu kod veriler için veritabanını kullanır ancak ekler önceki örnek olarak aynıdır `theme` oluştururken parametre `Chart` nesnesi. Aşağıdaki kodu değişen gösterir:
+    Bu kod veritabanı için veri kullanır, ancak ekler önceki örnekteki gibi aynıdır `theme` oluştururken parametresi `Chart` nesne. Değiştirilmiş kodun aşağıda gösterilmiştir:
 
     [!code-csharp[Main](7-displaying-data-in-a-chart/samples/sample11.cs)]
-3. Bir tarayıcıda. Sayfayı çalıştırın. Önce aynı verilere bakın, ancak grafik daha çarpıcı arar: 
+3. Sayfanın tarayıcıda çalıştırın. Önce aynı verileri görürsünüz, ancak daha kaliteli grafik görünür: 
 
     ![](7-displaying-data-in-a-chart/_static/image12.jpg)
 
 <a id="Saving_a_Chart"></a>
-## <a name="saving-a-chart"></a>Bir grafik kaydetme
+## <a name="saving-a-chart"></a>Grafik kaydetme
 
-Kullandığınızda `Chart` yazarken yardımcı görülen şu ana kadar bu makalede, yardımcı çalıştırıldığında her zaman yeniden sıfırdan grafik oluşturur. Gerekirse, grafik için kod ayrıca veritabanını yeniden sorgular veya veri almak için XML dosyasını yeniden okur. Bazı durumlarda, bunun yapılması karmaşık bir işlem gibi olabilir sorgulamakta olduğunuz veritabanınız büyük olduğunda veya XML dosyası çok fazla veri içeriyorsa. Grafik çok miktarda veri içermeyen olsa bile, dinamik görüntü oluşturma işlemi sunucu kaynaklarını alır ve birçok kişi sayfa veya grafik görüntüleme sayfaları isterse olabilir bir etkisi Web sitenizin performansını.
+Kullanırken `Chart` yazarken yardımcı görülen kadar bu makalede, yardımcı yeniden çalıştırıldığında her zaman sıfırdan grafiği oluşturur. Gerekirse, grafik için kod ayrıca veritabanını yeniden sorgular veya veri almak için XML dosyasını yeniden okur. Bazı durumlarda, bunun yapılması karmaşık bir işlem gibi olabilir sorguladığınız veritabanı büyükse veya XML dosyası çok fazla veri içeriyorsa. Grafik çok fazla veri içermeyen olsa bile, dinamik görüntü oluşturma işlemi sunucu kaynaklarını kullanır ve çoğu kişi sayfası veya grafiği görüntüleyen sayfalar istemesi durumunda olabilir bir etkisi sitenizin performansını.
 
-Bir grafik oluşturmanın olası performans etkisini azaltmanıza yardımcı olması için bir grafik ilk zaman oluşturabilirsiniz ihtiyaç ve kaydedin. Grafik, yeniden üretmek yerine yeniden, gerekli olduğunda, yalnızca kaydedilen sürümü getirebilir ve onu dönüştürebilirsiniz.
+Bir grafik oluşturmanın olası performans etkisini azaltmanıza yardımcı olmak üzere bir grafik ilk zaman oluşturabilirsiniz gereksinim ve kaydedin. Grafiği yeniden, yeniden üretmek yerine gerektiğinde yalnızca kaydedilen sürümü getirebilir ve onu dönüştürebilirsiniz.
 
 Bir grafiği aşağıdaki şekillerde kaydedebilirsiniz:
 
-- (Sunucu) bilgisayar belleğini grafikte önbelleğe alır.
-- Grafiği bir görüntü dosyası olarak kaydedin.
-- Grafiği bir XML dosyası olarak kaydedin. Bu seçenek, kaydetmeden önce grafik değiştirmenize olanak sağlar.
+- (Sunucu) bilgisayar belleğini grafikte önbelleğe alın.
+- Grafik bir resim dosyası olarak kaydedin.
+- Grafiği bir XML dosyası olarak kaydedin. Bu seçenek, kaydetmeden önce grafik değiştirmenizi sağlar.
 
-### <a name="caching-a-chart"></a>Bir grafik önbelleğe alma
+### <a name="caching-a-chart"></a>Bir grafiği önbelleğe alma
 
-Bir grafik oluşturduktan sonra önbelleğe alabilir. Bir grafik önbelleğe alma, onu yeniden görüntülenmesi gerekiyorsa yeniden oluşturma sahip değil anlamına gelir. Bir grafik önbellekte kaydettiğinizde, bu grafik için benzersiz olmalıdır bir anahtar verin.
+Bir hesap oluşturduktan sonra önbelleğe alabilir. Bir grafiği önbelleğe kaydetmeye yeniden görüntülenmesi gerekiyorsa yeniden oluşturulması sahip olmadığı anlamına gelir. Önbellekte bir grafiği kaydettiğinizde, bu grafik için benzersiz olması gereken bir anahtar sağlar.
 
-Sunucu belleği azalıyor önbelleğe kaydedilen grafik kaldırılması. Ayrıca, uygulamanız için herhangi bir nedenle yeniden başlatılırsa önbellek temizlenir. Bu nedenle, önbelleğe alınan bir grafikle çalışmak için standart her zaman ilk önbellekte kullanılabilir olup olmadığını ve değilse, denetleyin ardından oluşturmak veya yeniden oluşturmak için yoludur.
+Sunucu belleği düşük çalıştırıyorsa önbelleğe kaydedilen grafikleri kaldırılabilir. Ayrıca, uygulamanızı herhangi bir nedenle yeniden başlatılırsa önbellek temizlenir. Bu nedenle, önbelleğe alınan bir grafikle çalışmak için standart her zaman önce önbellekte kullanılabilir olup olmadığını ve değilse denetleyin ardından oluşturmak veya yeniden oluşturmak için yoludur.
 
-1. Web sitenizin kök adlı bir dosya oluşturun *ShowCachedChart.cshtml*.
-2. Varolan içeriği aşağıdakiyle değiştirin: 
+1. Web sitenizi kökünde adlı bir dosya oluşturun *ShowCachedChart.cshtml*.
+2. Mevcut içeriğini aşağıdakiyle değiştirin: 
 
     [!code-html[Main](7-displaying-data-in-a-chart/samples/sample12.html)]
 
-    `<img>` Etiketi de içeren bir `src` işaret özniteliği *ChartSaveToCache.cshtml* dosyası ve bir anahtar sayfa bir sorgu dizesi olarak geçirir. Anahtar değeri içeren &quot;myChartKey&quot;. *ChartSaveToCache.cshtml* dosyasını içeren `Chart` grafik oluşturur Yardımcısı. Bu sayfayı birazdan oluşturacaksınız.
+    `<img>` Etiket içeren bir `src` işaret eden bir öznitelik *ChartSaveToCache.cshtml* dosyası ve bir anahtar sayfa bir sorgu dizesi olarak geçirir. Anahtar değeri içeren &quot;myChartKey&quot;. *ChartSaveToCache.cshtml* dosyasını içeren `Chart` grafiği oluşturan yardımcı. Birazdan bu sayfayı oluşturacaksınız.
 
-    Sayfa sonunda adlı bir sayfaya bir bağlantı yok *ClearCache.cshtml*. Ayrıca kısa süre içinde oluşturacaksınız bir sayfa olmasıdır. Gereksinim duyduğunuz *ClearCache.cshtml* yalnızca bu örnek için önbelleğe almayı test etmek için — bir bağlantı veya önbelleğe alınmış grafiklerle çalışırken normalde içerir sayfa değil.
-3. Web sitenizin kök adlı yeni bir dosya oluşturun *ChartSaveToCache.cshtml*.
-4. Varolan içeriği aşağıdakiyle değiştirin:
+    Sayfa sonunda yok adlı bir sayfaya bağlantı *ClearCache.cshtml*. Ayrıca, kısa bir süre sonra oluşturursunuz bir sayfa olmasıdır. Gereksinim duyduğunuz *ClearCache.cshtml* yalnızca bu örneğin önbelleğe almayı test etmek için — bu bağlantıyı veya önbelleğe alınmış grafiklerle çalışırken normalde verilebilir sayfa değil.
+3. Web sitenizi kök adlı yeni bir dosya oluşturun *ChartSaveToCache.cshtml*.
+4. Mevcut içeriğini aşağıdakiyle değiştirin:
 
     [!code-cshtml[Main](7-displaying-data-in-a-chart/samples/sample13.cshtml)]
 
-    Kod ilk şey sorgu dizesi anahtar değer olarak geçirilen olup olmadığını denetler. Bu nedenle, kod çağırarak önbellek dışında bir grafik okumaya çalışırsa `GetFromCache` yöntemi ve anahtar geçirme. Önbelleğinde (grafik istenen ilk kez olacağını) bu anahtarı altında bir şey var olan Öyle değilse kodu grafik her zamanki gibi oluşturur. Grafik bittiğinde kodu önbelleğe çağırarak kaydeder `SaveToCache`. Bu yöntem (grafik daha sonra istenebilir biçimde) bir anahtar ve grafik önbellekte kaydedilmesi gereken süreyi gerektirir. (Bir grafik önbelleğe tam zaman ne sıklıkta, temsil ettiği veri değişebilir zorlayıcı üzerinde bağlıdır.) `SaveToCache` Yöntem de gerektirir bir `slidingExpiration` parametresi &#8212; bu ayarlandıysa true, zaman aşımı sayaç grafik erişildiğinde her zaman sıfırlanır. Bu durumda, bu uygulamada grafiğin önbellek girişinin birisi grafik erişilen son saatten sonra 2 dakika süresi anlamına gelir. (Kayan bitiş tarihinin mutlak zaman aşımı, önbellek girişi ne sıklıkta, erişilen olsun önbelleğine koyulmuş sonra tam olarak 2 dakika dolacağını anlamı alternatifidir.)
+    Kod ilk şey sorgu dizesinin anahtar değer olarak geçilen olup olmadığını denetler. Bu nedenle, kod çağırarak bir grafiğin önbellekten okumaya çalıştığında `GetFromCache` yöntemi ve anahtar geçirme. Hiçbir şey önbelleğinde (Bu grafiğin istenen ilk kez olacağını) bu anahtarı altında olduğunu ettik, kod zamanki grafiği oluşturur. Grafik sona erdiğinde, kod önbelleğine çağırarak kaydeder `SaveToCache`. Bu yöntem (grafiği daha sonra istenebilir biçimde) bir anahtar ve grafik önbelleğine kaydedilmesi gereken süreyi gerektirir. (Grafik önbelleğe kesin zaman ne sıklıkta, temsil ettiği veri değişebilir düşündüğünüz üzerinde bağlıdır.) `SaveToCache` Yöntem de gerektirir bir `slidingExpiration` parametre &#8212; Bu ayarlanırsa true olarak zaman aşımı grafik erişildiğinde her zaman sayaç sıfırlanır. Bu durumda, bu aslında grafiğin önbellek girişi birisi grafik erişilen son saatten sonra 2 dakika süresi anlamına gelir. (Kayan zaman aşımı için önbellek girdisi olarak ne sıklıkta, erişilen ' olursa olsun önbelleğe alınma sonra tam olarak 2 dakika sonra sona erer yani mutlak zaman aşımı alternatiftir.)
 
-    Son olarak, kodu kullanan `WriteFromCache` getirin ve grafiğin önbellekten işlemek için yöntem. Bu yöntem dışında Not `if` önbellek grafik başından itibaren oluştu veya oluşturulan ve önbellekte kaydedilmesi olsa da grafiği önbellekten alır çünkü denetleyen bloğu.
+    Son olarak, kod kullanır `WriteFromCache` getirmek ve grafiğin önbellekten işlemek için yöntemi. Bu yöntem dışında Not `if` önbellek, grafik ile başlaması oluştu veya oluşturulan ve önbellekte kaydedilmiş olsa da grafiği önbellekten alır çünkü denetleyen blok.
 
-    Örnekte, dikkat `AddTitle` yöntemi bir zaman damgası içerir. (Geçerli tarih ve saat ekler &#8212; `DateTime.Now` &#8212; başlığına.)
-5. Adlı yeni bir sayfa oluşturma *ClearCache.cshtml* ve içeriğini aşağıdakilerle değiştirin:
+    Örnekte, dikkat `AddTitle` yöntemi, bir zaman damgası içerir. (Geçerli tarihi ve saati ekler &#8212; `DateTime.Now` &#8212; başlığa.)
+5. Adlı yeni bir sayfa oluşturun *ClearCache.cshtml* ve içeriğini aşağıdakilerle değiştirin:
 
     [!code-cshtml[Main](7-displaying-data-in-a-chart/samples/sample14.cshtml)]
 
-    Bu sayfa kullanıyor `WebCache` içinde önbelleğe grafik kaldırmaya yardımcı *ChartSaveToCache.cshtml*. Daha önce belirtildiği gibi normalde şuna benzer bir sayfa olması gerekmez. Buraya yalnızca önbelleğe almayı test etmek daha kolay oluşturmakta olduğunuz.
-6. Çalıştırma *ShowCachedChart.cshtml* web sayfasını bir tarayıcıda. Sayfa içinde yer alan kodu temel grafik görüntüsünü görüntüler *ChartSaveToCache.cshtml* dosya. Grafik başlığını ne zaman damgası diyor, not edin. 
+    Bu sayfa `WebCache` önbelleğe alınmış grafik kaldırmaya yardımcı *ChartSaveToCache.cshtml*. Daha önce belirtildiği gibi normalde bu gibi bir sayfası olması gerekmez. Yalnızca önbelleğe almayı test etme kolaylaştırmak için buraya oluşturuyorsunuz.
+6. Çalıştırma *ShowCachedChart.cshtml* bir tarayıcıda web sayfası. Sayfa içindeki kod temel grafik görüntüsünün görüntüler *ChartSaveToCache.cshtml* dosya. Grafik başlığında ne zaman damgasını belirten, not alın. 
 
-    ![Açıklama: Grafik başlığını zaman damgasına sahip temel grafik resmini](7-displaying-data-in-a-chart/_static/image13.jpg)
+    ![Açıklaması: Grafik başlığı zaman damgası ile temel bir grafik resmini](7-displaying-data-in-a-chart/_static/image13.jpg)
 7. Tarayıcıyı kapatın.
-8. Çalıştırma *ShowCachedChart.cshtml* yeniden. Zaman damgası aynı önceki gibi grafik yeniden, ancak bunun yerine önbelleğinden okunduğu belirten olduğuna dikkat edin.
-9. İçinde *ShowCachedChart.cshtml*, tıklatın **temizleyin önbellek** bağlantı. Bu, olanak sürer *ClearCache.cshtml*, hangi raporların önbelleği temizlendi.
-10. Tıklatın **dönmek için ShowCachedChart.cshtml** bağlantı ya da yeniden Çalıştır *ShowCachedChart.cshtml* webmatrix'ten. Önbellek temizlenmiş olduğundan bu zaman damgası değiştiğini, dikkat edin. Bu nedenle, kod grafiği yeniden oluşturun ve tekrar önbelleğe koyulur gerekiyordu.
+8. Çalıştırma *ShowCachedChart.cshtml* yeniden. Zaman damgası aynı önce olduğu gibi grafik oluşturulmaması, ancak bunun yerine önbelleğinden okunduğu gösteren olduğuna dikkat edin.
+9. İçinde *ShowCachedChart.cshtml*, tıklayın **Önbelleği Temizle** bağlantı. Sayfasına yönlendirileceksiniz *ClearCache.cshtml*, hangi raporların önbelleği temizlendi.
+10. Tıklayın **döndürmek için ShowCachedChart.cshtml** yeniden çalıştırın veya bağlantı *ShowCachedChart.cshtml* webmatrix'ten. Önbellek temizlenene çünkü bu zaman zaman damgası, değiştirilir. Bu nedenle, kod grafiği yeniden oluşturun ve tekrar önbelleğe yerleştirin gerekiyordu.
 
-### <a name="saving-a-chart-as-an-image-file"></a>Bir grafiği bir görüntü dosyası olarak kaydetme
+### <a name="saving-a-chart-as-an-image-file"></a>Grafik bir resim dosyası olarak kaydetme
 
-Bir grafiği bir görüntü dosyası olarak kaydedebilirsiniz (örneğin, bir *.jpg* dosyası) sunucusunda. Bu gibi durumlarda, görüntü dosyası sonra herhangi bir görüntü yaptığınız şekilde kullanabilirsiniz. Avantajı, dosyanın depolanan yerine geçici bir önbelleğe kaydedilen olmasıdır. Yeni bir grafik görüntüsü (örneğin, her saat) farklı zamanlarda kaydedin ve zaman içinde gerçekleşen değişiklikleri kalıcı kaydını tutun. Web uygulamanıza bir dosyayı klasöre görüntü dosyasını yerleştirmek istediğiniz sunucuda kaydetme izni olduğundan emin olmalısınız unutmayın.
+Bir grafiği bir görüntü dosyası olarak kaydedebilirsiniz (örneğin, bir *.jpg* dosya) sunucusunda. Bu gibi durumlarda, görüntü dosyası daha sonra herhangi bir görüntü olduğu gibi kullanabilirsiniz. Dosya depolanan yerine geçici bir önbelleğe kaydedilen avantajlarındandır. Yeni bir grafik görüntüsü (örneğin, her saat) farklı zamanlarda kaydedebilir ve sonra zaman içinde gerçekleşen değişiklikleri kalıcı kaydını tutun. Unutmayın, web uygulamanızın bir dosya, görüntü dosyası koymak istediğiniz sunucuda klasöre kaydetme izniniz olduğundan emin olmanız gerekir.
 
-1. Web sitenizin kök adlı bir klasör oluşturun  *\_ChartFiles* zaten yoksa.
-2. Web sitenizin kök adlı yeni bir dosya oluşturun *ChartSave.cshtml*.
-3. Varolan içeriği aşağıdakiyle değiştirin:
+1. Web sitenizi kökünde adlı bir klasör oluşturun  *\_ChartFiles* zaten yoksa.
+2. Web sitenizi kök adlı yeni bir dosya oluşturun *ChartSave.cshtml*.
+3. Mevcut içeriğini aşağıdakiyle değiştirin:
 
     [!code-cshtml[Main](7-displaying-data-in-a-chart/samples/sample15.cshtml)]
 
-    Kod ilk bakar olup olmadığını *.jpg* dosya var çağırarak `File.Exists` yöntemi. Kod dosyası mevcut değilse yeni bir oluşturur `Chart` bir diziden. Bu süre, kod çağrıları `Save` yöntemi ve geçişleri `path` parametre dosyası yolu ve dosya adını grafik kaydedileceği yeri belirtin. Sayfasının gövdesinde bir `<img>` öğesi işaret edecek şekilde yolunu kullanır *.jpg* görüntülemek için dosya.
+    Kod ilk bakar olmadığını *.jpg* dosya var. çağırarak `File.Exists` yöntemi. Kod dosyası mevcut değilse yeni bir oluşturur `Chart` bir diziden. Bu süre, kod çağrıları `Save` yöntemi ve geçişleri `path` dosyası yolu ve dosya adını grafik kaydedileceği yeri belirtmek için parametre. Sayfanın gövdesindeki bir `<img>` öğe yolu işaret edecek şekilde kullanır *.jpg* dosya görüntülenecek.
 4. Çalıştırma *ChartSave.cshtml* dosya.
-5. WebMatrix için döndür. Bir görüntü dosyası adlı bildirim *chart01.jpg* kaydedilmiş  *\_ChartFiles* klasör.
+5. WebMatrix için döndürür. Bir resim dosyası adlı bildirim *chart01.jpg* kaydedilmiş  *\_ChartFiles* klasör.
 
-### <a name="saving-a-chart-as-an-xml-file"></a>Bir grafiği bir XML dosyası olarak kaydetme
+### <a name="saving-a-chart-as-an-xml-file"></a>Grafik bir XML dosyası olarak kaydetme
 
-Son olarak, bir grafiği sunucuya bir XML dosyası olarak kaydedebilirsiniz. Grafiği önbelleğe kaydetmeye veya grafiği bir dosyaya kaydetmeyi üzerinden bu yöntemi kullanmanın bir avantajı, istemeniz durumunda, grafiği görüntülemeden önce XML'yi değiştirebilir ' dir. Uygulamanızı sunucuda görüntü dosyasını yerleştirmek istediğiniz klasör için okuma/yazma izinlerine sahip olması gerekir.
+Son olarak, bir grafiği sunucuya bir XML dosyası olarak kaydedebilirsiniz. Grafiği önbelleğe kaydetmeye veya grafiği bir dosyaya kaydetme üzerinde bu yöntemi kullanmanın bir avantajı, istediyseniz, grafiği görüntülemeden önce XML'yi değiştirebilir ' dir. Uygulamanızın görüntü dosyasını yerleştirmek istediğiniz klasörü sunucuda için okuma/yazma izinlerine sahip gerekir.
 
-1. Web sitenizin kök adlı yeni bir dosya oluşturun *ChartSaveXml.cshtml*.
-2. Varolan içeriği aşağıdakiyle değiştirin:
+1. Web sitenizi kök adlı yeni bir dosya oluşturun *ChartSaveXml.cshtml*.
+2. Mevcut içeriğini aşağıdakiyle değiştirin:
 
     [!code-cshtml[Main](7-displaying-data-in-a-chart/samples/sample16.cshtml)]
 
-    Bu kod, bir XML dosyası kullanır ancak bu bir grafik önbellekte depolamak için daha önce gördüğünüzle kodu benzer. Kod ilk XML dosyasını çağırarak var olup olmadığını kontrol eder `File.Exists` yöntemi. Kod dosyası mevcut değilse yeni bir oluşturur `Chart` nesne ve dosya adı olarak geçirir `themePath` parametresi. Bu grafiğin ne olursa olsun XML dosyasında olduğuna bağlı olarak oluşturur. XML dosyası zaten mevcut değilse kod normal gibi bir grafik oluşturur ve ardından çağırır `SaveXml` kaydetmek için. Grafik kullanılarak oluşturulması `Write` yöntemi görmüş önce.
+    Bu kod, bir XML dosyası kullanması hariç, bir grafik önbellekte depolamak için daha önce gördüğünüzle koda benzer. Kod ilk XML dosyasını çağırarak bulunup bulunmadığını denetler `File.Exists` yöntemi. Kod dosyası mevcut değilse yeni bir oluşturur `Chart` nesne ve dosya adı olarak geçirir `themePath` parametresi. Bu XML dosyasında ne olursa olsun tabanlı grafik oluşturur. XML dosyası zaten mevcut değilse, kod gibi normal bir grafik oluşturur ve `SaveXml` kaydetmek için. Grafik, kullanılarak işlenir `Write` yöntemi görmüş önce.
 
-    Önbelleğe alma gösterdi sayfa gibi bu kod bir zaman damgası grafik başlığını içerir.
-3. Adlı yeni bir sayfa oluşturma *ChartDisplayXMLChart.cshtml* ve aşağıdaki biçimlendirme ekleyin: 
+    Bu kod, önbelleğe alma gösterdi sayfayla gibi grafik başlığında bir zaman damgası içerir.
+3. Adlı yeni bir sayfa oluşturun *ChartDisplayXMLChart.cshtml* ve aşağıdaki işaretlemeyi ekleyin: 
 
     [!code-html[Main](7-displaying-data-in-a-chart/samples/sample17.html)]
-4. Çalıştırma *ChartDisplayXMLChart.cshtml* sayfası. Grafik görüntülenir. Chart'ın başlığında zaman damgası not edin.
+4. Çalıştırma *ChartDisplayXMLChart.cshtml* sayfası. Grafik görüntülenir. Grafiğin başlığı Not zaman damgası.
 5. Tarayıcıyı kapatın.
-6. Webmatrix'te, sağ tıklayın  *\_ChartFiles* klasörünü tıklatın **Yenile**ve klasörü açın. *XMLChart.xml* bu klasörde dosya tarafından oluşturulmuş `Chart` Yardımcısı. 
+6. Webmatrix'te, sağ  *\_ChartFiles* klasöründe tıklayın **Yenile**ve ardından klasörünü açın. *XMLChart.xml* dosyayı bu klasöre tarafından oluşturuldu `Chart` Yardımcısı. 
 
     ![Açıklama: grafik Yardımcısı tarafından oluşturulan XMLChart.xml dosyasını gösteren _ChartFiles klasör.](7-displaying-data-in-a-chart/_static/image14.jpg)
-7. Çalıştırma *ChartDisplayXMLChart.cshtml* yeniden sayfa. Grafik sayfa çalıştırdığınız ilk kez olarak aynı zaman damgasını gösterir. Grafik daha önce kaydettiğiniz XML'den oluşturulan olmasıdır.
-8. Webmatrix'te açın  *\_ChartFiles* klasörü ve delete *XMLChart.xml* dosya.
-9. Çalıştırma *ChartDisplayXMLChart.cshtml* kez daha sayfa. Bu süre, çünkü zaman damgası güncelleştirilir `Chart` Yardımcısı XML dosyasını yeniden gerekiyordu. İsterseniz, denetleme  *\_ChartFiles* klasörü ve XML dosyasını geri olduğuna dikkat edin.
+7. Çalıştırma *ChartDisplayXMLChart.cshtml* yeniden sayfa. Grafik sayfası çalıştırdığınız ilk kez aynı zaman damgası gösterilir. Daha önce kaydettiğiniz XML'den oluşturulan grafik olmasıdır.
+8. Webmatrix'te, açın  *\_ChartFiles* klasörü ve delete *XMLChart.xml* dosya.
+9. Çalıştırma *ChartDisplayXMLChart.cshtml* daha sonra sayfa. Bu kez, çünkü zaman damgası güncelleştirilir `Chart` Yardımcısı XML dosyasını yeniden gerekiyordu. İsterseniz, kontrol  *\_ChartFiles* klasörü ve XML dosyasını geri olduğuna dikkat edin.
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-- [ASP.NET Web bir veritabanı ile çalışmaya giriş sayfaları](https://go.microsoft.com/fwlink/?LinkId=202893)
-- [ASP.NET Web önbelleğe alma kullanarak performansı artırmak için sayfaları](https://go.microsoft.com/fwlink/?LinkId=202903)
+- [ASP.NET Web veritabanıyla çalışmaya giriş sayfaları](https://go.microsoft.com/fwlink/?LinkId=202893)
+- [ASP.NET Web önbelleğe alma özelliğini kullanma performansını artırmak için sayfaları](https://go.microsoft.com/fwlink/?LinkId=202903)
 - [Grafik sınıfı](https://msdn.microsoft.com/library/system.web.helpers.chart(v=vs.99)) (MSDN üzerinde ASP.NET Web sayfaları API Başvurusu)

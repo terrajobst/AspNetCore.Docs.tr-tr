@@ -1,33 +1,32 @@
 ---
 uid: signalr/overview/getting-started/tutorial-getting-started-with-signalr
-title: 'Öğretici: 2 SignalR ile çalışmaya başlama | Microsoft Docs'
+title: 'Öğretici: SignalR 2 ile çalışmaya başlama | Microsoft Docs'
 author: pfletcher
-description: Bu öğreticide SignalR kullanarak gerçek zamanlı bir sohbet uygulaması oluşturma işlemi gösterilir. Boş bir ASP.NET web uygulamasına SignalR ekleyebilir ve bir HTML pa oluştur...
+description: Bu öğreticide SignalR kullanarak gerçek zamanlı bir sohbet uygulaması oluşturma işlemi gösterilir. SignalR için boş bir ASP.NET web uygulamasına ekleme ve bir HTML pa oluştur...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014
 ms.topic: article
 ms.assetid: a8b3b778-f009-4369-85c7-e90f9878d8b4
 ms.technology: dotnet-signalr
-ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/tutorial-getting-started-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 8be851f5a2b1cca39f5f8f284ff1c002c486d7e8
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: fcd00419de77a380e004cbe306eb46910655a355
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28036810"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37398190"
 ---
-<a name="tutorial-getting-started-with-signalr-2"></a>Öğretici: 2 SignalR ile çalışmaya başlama
+<a name="tutorial-getting-started-with-signalr-2"></a>Öğretici: SignalR 2 ile çalışmaya başlama
 ====================
-tarafından [CAN Fletcher'dan](https://github.com/pfletcher)
+tarafından [Patrick Fletcher](https://github.com/pfletcher)
 
-[Tamamlanan projenizi indirin](http://code.msdn.microsoft.com/SignalR-Getting-Started-b9d18aa9)
+[Projeyi yükle](http://code.msdn.microsoft.com/SignalR-Getting-Started-b9d18aa9)
 
-> Bu öğreticide SignalR kullanarak gerçek zamanlı bir sohbet uygulaması oluşturma işlemi gösterilir. Boş bir ASP.NET web uygulamasına SignalR ekleyebilir ve göndermek ve iletileri görüntülemek için bir HTML sayfası oluşturun. 
+> Bu öğreticide SignalR kullanarak gerçek zamanlı bir sohbet uygulaması oluşturma işlemi gösterilir. SignalR için boş bir ASP.NET web uygulamasına ekleme ve gönderin ve iletileri görüntülemek için bir HTML sayfası oluşturun. 
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Öğreticide kullanılan yazılım sürümleri
+> ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
 > 
 > 
 > - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
@@ -36,168 +35,168 @@ tarafından [CAN Fletcher'dan](https://github.com/pfletcher)
 >   
 > 
 > 
-> ## <a name="using-visual-studio-2012-with-this-tutorial"></a>Bu öğretici ile Visual Studio 2012 kullanma
+> ## <a name="using-visual-studio-2012-with-this-tutorial"></a>Bu öğreticide Visual Studio 2012 kullanarak
 > 
 > 
 > Visual Studio 2012 bu öğreticiyle kullanmak için aşağıdakileri yapın:
 > 
 > - Güncelleştirme, [Paket Yöneticisi](http://docs.nuget.org/docs/start-here/installing-nuget) en son sürüme.
 > - Yükleme [Web Platformu yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx).
-> - Web Platformu Yükleyicisi'nde arayın ve yükleyin **ASP.NET ve Web Araçları 2013.1 Visual Studio 2012 için**. Bu SignalR sınıfları için Visual Studio şablonları gibi yükleyecek **Hub**.
-> - Bazı şablonlar (gibi **OWIN başlangıç sınıfı**); kullanılamaz bunlar için bunun yerine bir sınıf dosyası kullanın.
+> - Web Platformu Yükleyicisi'nde arama ve yükleme **ASP.NET ve Web Araçları 2013.1 Visual Studio 2012 için**. Bu SignalR sınıflar için Visual Studio şablonları gibi yükleyecek **Hub**.
+> - Bazı şablonlar (gibi **OWIN başlangıç sınıfı**) kullanılabilir; olmayacaktır, bunlar için sınıf dosyası kullanın.
 > 
 > 
-> ## <a name="tutorial-versions"></a>Eğitmen sürümleri
+> ## <a name="tutorial-versions"></a>Öğretici sürümleri
 > 
-> SignalR daha önceki sürümleri hakkında daha fazla bilgi için bkz: [SignalR eski sürümleri](../older-versions/index.md).
+> SignalR eski sürümleri hakkında daha fazla bilgi için bkz: [SignalR eski sürümleri](../older-versions/index.md).
 > 
 > ## <a name="questions-and-comments"></a>Sorularınız ve yorumlarınız
 > 
-> Lütfen Bu öğretici beğendiğinizi nasıl ve ne biz sayfanın sonundaki açıklamalarında artabileceğini görüşlerinizi. Öğretici için doğrudan ilgili olmayan sorularınız varsa, bunları nakledebilirsiniz [ASP.NET SignalR Forumu](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) veya [StackOverflow.com](http://stackoverflow.com/).
+> Lütfen bu öğreticide sevmediğinizi nasıl ve ne sayfanın alt kısmındaki açıklamalarda geliştirebileceğimiz hakkında geri bildirim bırakın. Öğretici için doğrudan ilgili olmayan sorularınız varsa, bunları gönderebilir [ASP.NET SignalR Forumu](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) veya [StackOverflow.com](http://stackoverflow.com/).
 
 
 ## <a name="overview"></a>Genel Bakış
 
-Bu öğretici, bir basit tarayıcı tabanlı sohbet uygulaması oluşturmak nasıl yapıldığını göstererek SignalR geliştirme sunmaktadır. Boş bir ASP.NET web uygulamasına SignalR Kitaplığı eklemek, istemcilere ileti göndermek için bir hub sınıf oluşturun ve sohbet ileti gönderme ve alma kullanıcıların olanak sağlayan bir HTML sayfası oluşturun. MVC 5'te bir sohbet uygulaması oluşturmak MVC görünümü kullanarak gösteren benzer bir öğretici için bkz: [SignalR 2 ve MVC 5 ile çalışmaya başlama](tutorial-getting-started-with-signalr-and-mvc.md).
+Bu öğretici, bir basit tarayıcı tabanlı sohbet uygulaması oluşturmak nasıl yapıldığını göstererek SignalR geliştirme tanıtır. SignalR kitaplık için boş bir ASP.NET web uygulamasına eklemek, istemcilere ileti göndermek için hub sınıfı oluşturun ve sohbet iletileri gönderip kullanıcıların olanak sağlayan bir HTML sayfası oluşturmak. MVC 5'te bir sohbet uygulaması oluşturma işlemini kullanarak bir MVC görünümü gösteren benzer bir öğretici için bkz. [SignalR 2 ve MVC 5 ile çalışmaya başlama](tutorial-getting-started-with-signalr-and-mvc.md).
 
 > [!NOTE]
-> Bu öğretici SignalR uygulamalarının sürüm 2 nasıl oluşturulacağını gösterir. SignalR arasındaki değişiklikleri hakkında ayrıntılı bilgi için bkz: 1.x ve 2, [yükseltme SignalR 1.x projeleri](../releases/upgrading-signalr-1x-projects-to-20.md) ve [Visual Studio 2013 sürüm notları](../../../visual-studio/overview/2013/release-notes.md#TOC13).
+> Bu öğreticide, sürüm 2 SignalR uygulamalarını oluşturma gösterilmektedir. SignalR arasındaki değişiklikleri hakkında ayrıntılı bilgi için 1.x ve 2 ' nin bkz [yükseltme SignalR 1.x projelerini](../releases/upgrading-signalr-1x-projects-to-20.md) ve [Visual Studio 2013 sürüm notları](../../../visual-studio/overview/2013/release-notes.md#TOC13).
 
-SignalR, Canlı kullanıcı etkileşimi veya gerçek zamanlı veri güncelleştirmeleri gerektiren web uygulamaları oluşturmak için bir açık kaynak .NET kitaplığıdır. Sosyal uygulamalar, çok kullanıcılı oyunlar, iş işbirliği ve haberler, hava durumu veya finansal güncelleştirme uygulamaları örnek olarak verilebilir. Bunlar genellikle gerçek zamanlı uygulamaları olarak adlandırılır.
+SignalR Canlı kullanıcı etkileşimi veya gerçek zamanlı veri güncelleştirmeleri gerektiren web uygulamaları oluşturmaya yönelik bir açık kaynak .NET Kitaplığı ' dir. Sosyal uygulamalar, çok kullanıcılı bir oyun, iş işbirliği ve haberler, hava durumu veya finansal güncelleştirme uygulamaları verilebilir. Bunlar genellikle gerçek zamanlı uygulamalar olarak adlandırılır.
 
-SignalR gerçek zamanlı uygulamaları oluşturma işlemini basitleştirir. Bir ASP.NET server kitaplığı ve istemci-sunucu bağlantıları yönetmek ve içerik güncelleştirmelerini istemcilere anında kolaylaştırmak için JavaScript istemci kitaplığını içerir. Gerçek zamanlı işlevselliği sağlamak için mevcut bir ASP.NET uygulamasını için SignalR kitaplığı ekleyebilirsiniz.
+SignalR, gerçek zamanlı uygulamalar oluşturma işlemini basitleştirir. Bu, bir ASP.NET sunucu kitaplığı ve istemci-sunucu bağlantılarını yönetme ve içerik güncelleştirmelerini istemcilere göndermek daha kolay hale getirmek için bir JavaScript istemci kitaplığı içerir. Gerçek zamanlı işlevsellik sağlamak için mevcut bir ASP.NET uygulamasını için SignalR kitaplığa ekleyebilirsiniz.
 
 Öğretici aşağıdaki SignalR geliştirme görevleri gösterir:
 
 - SignalR kitaplığı, bir ASP.NET web uygulamasına ekleniyor.
-- İçeriği istemcilere göndermek için bir hub sınıfı oluşturma.
-- Uygulamayı yapılandırmak için OWIN başlangıç sınıfı oluşturma.
-- İleti gönderme ve hub güncelleştirmelerini görüntülemek için bir web sayfasında SignalR jQuery kitaplığı kullanma.
+- İçeriği istemcilere göndermek için bir hub sınıf oluşturuluyor.
+- Uygulamayı yapılandırmak için OWIN başlangıç sınıfı oluşturuluyor.
+- İleti göndermek ve hub'ından güncelleştirmeleri görüntülemek için bir web sayfasında SignalR jQuery kitaplığı kullanıyor.
 
-Aşağıdaki ekran görüntüsünde bir tarayıcıda çalışan sohbet uygulamayı gösterir. Her yeni kullanıcı yorumları gönderin ve kullanıcı sohbet katıldıktan sonra eklenen açıklamalar bakın.
+Aşağıdaki ekran görüntüsünde, bir tarayıcıda çalışan sohbet uygulaması gösterir. Her yeni kullanıcı, yorumlarınızı ve kullanıcı sohbet katıldıktan sonra eklenen yorumlara bakın.
 
 ![Sohbet örnekleri](tutorial-getting-started-with-signalr/_static/image1.png)
 
 Bölümler:
 
-- [Projesi ayarlayın](#setup)
-- [Örnek çalıştırın](#run)
-- [Kodu inceleyin](#code)
+- [Projesi kurun](#setup)
+- [Örneği çalıştırma](#run)
+- [Kod İnceleme](#code)
 - [Sonraki adımlar](#next)
 
 <a id="setup"></a>
 
-## <a name="set-up-the-project"></a>Projesi ayarlayın
+## <a name="set-up-the-project"></a>Projesi kurun
 
-Bu bölümde Visual Studio 2013 ve SignalR sürüm 2 boş bir ASP.NET web uygulaması oluşturmak için nasıl kullanılacağı gösterilmiştir SignalR ekleyin ve sohbet uygulaması oluşturma.
+Bu bölümde Visual Studio 2013 ve SignalR sürüm 2 boş bir ASP.NET web uygulaması oluşturmak için nasıl kullanılacağını gösterir, SignalR ekleyin ve sohbet uygulaması oluşturma.
 
 Önkoşullar:
 
-- Visual Studio 2013. Visual Studio yoksa bkz [ASP.NET indirmeleri](https://www.asp.net/downloads) ücretsiz Visual Studio 2013 Express geliştirme aracı alınamıyor.
+- Visual Studio 2013. Visual Studio yoksa bkz [ASP.NET indirir](https://www.asp.net/downloads) ücretsiz Visual Studio 2013 Express geliştirme aracı alınamıyor.
 
-ASP.NET boş Web uygulaması oluşturmak ve SignalR Kitaplığı eklemek için Visual Studio 2013 aşağıdaki adımları kullanın:
+ASP.NET boş Web uygulaması oluşturma ve SignalR Kitaplığı eklemek için Visual Studio 2013'ün aşağıdaki adımları kullanın:
 
-1. Visual Studio'da ASP.NET Web uygulaması oluşturun.
+1. Visual Studio kullanarak ASP.NET Web uygulaması oluşturun.
 
-    ![Web oluşturulamıyor](tutorial-getting-started-with-signalr/_static/image2.png)
-2. İçinde **yeni ASP.NET projesi** penceresinde, bırakın **boş** 'ı tıklatın ve seçili **proje oluştur**.
+    ![Web oluşturma](tutorial-getting-started-with-signalr/_static/image2.png)
+2. İçinde **yeni ASP.NET projesi** penceresinde bırakın **boş** tıklatın ve seçili **proje oluştur**.
 
     ![Boş web oluşturma](tutorial-getting-started-with-signalr/_static/image3.png)
-3. İçinde **Çözüm Gezgini**, projeye sağ tıklayın, seçin **Ekle | SignalR hub'ı sınıfı (v2)**. Sınıf adını **ChatHub.cs** ve bunu projeye ekleyin. Bu adım oluşturur **ChatHub** sınıfı ve bir dizi komut dosyaları ve Signalr'yi destekleyen derleme başvurularını projeye ekler.
+3. İçinde **Çözüm Gezgini**, projeye sağ tıklayın, **Ekle | SignalR Hub sınıfı (v2)**. Sınıf adı **ChatHub.cs** ve projeye ekleyin. Bu adımda oluşturulur **ChatHub** sınıfı ve bir dizi komut dosyaları ve Signalr'yi destekleyen bir bütünleştirilmiş kod başvuruları projeye ekler.
 
     > [!NOTE]
-    > Açarak projeye SignalR ekleyebilirsiniz **Araçlar | Kitaplık Paket Yöneticisi | Paket Yöneticisi Konsolu** ve bir komut çalıştırma:
+    > Açarak bir projeye SignalR ekleyebilirsiniz **araçları | Kitaplık Paket Yöneticisi | Paket Yöneticisi Konsolu** ve bir komutu çalıştırın:
 
     `install-package Microsoft.AspNet.SignalR`
 
-    SignalR eklemek için konsol kullanırsanız, SignalR hub'ı sınıf SignalR ekledikten sonra ayrı bir adım olarak oluşturun.
+    SignalR eklemek için konsolunu kullanırsanız, SignalR hub sınıfı SignalR ekledikten sonra ayrı bir adım olarak oluşturun.
 
     > [!NOTE]
-    > Visual Studio 2012 kullanıyorsanız **SignalR hub'ı sınıfı (v2)** şablonu kullanılabilir olmaz. Bir düz ekleyebilirsiniz **sınıfı** adlı `ChatHub` yerine.
-4. İçinde **Çözüm Gezgini**, komut dosyaları düğümünü genişletin. JQuery ve SignalR için komut dosyası kitaplıkları projede görünür.
-5. Kod yeni değiştirin **ChatHub** aşağıdaki kodla sınıfı.
+    > Visual Studio 2012 kullanıyorsanız **SignalR Hub sınıfı (v2)** şablonu kullanılamaz. Bir düz ekleyebilirsiniz **sınıfı** adlı `ChatHub` yerine.
+4. İçinde **Çözüm Gezgini**, betikleri düğümünü genişletin. JQuery ve SignalR için betik kitaplıkları projesinde görünür.
+5. Yeni bir kodu **ChatHub** aşağıdaki kodla sınıfı.
 
     [!code-csharp[Main](tutorial-getting-started-with-signalr/samples/sample1.cs)]
-6. İçinde **Çözüm Gezgini**, projeye sağ tıklayın ve ardından **Ekle | OWIN başlangıç sınıfı**. Yeni sınıf `Startup` ve Tamam'ı tıklatın.
+6. İçinde **Çözüm Gezgini**, projeyi sağ tıklatın ve ardından **Ekle | OWIN başlangıç sınıfı**. Yeni bir sınıf adı `Startup` ve Tamam'a tıklayın.
 
     > [!NOTE]
-    > Visual Studio 2012 kullanıyorsanız **OWIN başlangıç sınıfı** şablonu kullanılabilir olmaz. Bir düz ekleyebilirsiniz **sınıfı** adlı `Startup` yerine.
-7. Yeni başlangıç sınıfı içeriğini aşağıdaki gibi değiştirin.
+    > Visual Studio 2012 kullanıyorsanız **OWIN başlangıç sınıfı** şablonu kullanılamaz. Bir düz ekleyebilirsiniz **sınıfı** adlı `Startup` yerine.
+7. Yeni başlangıç sınıfı içeriğini şu şekilde değiştirin.
 
     [!code-csharp[Main](tutorial-getting-started-with-signalr/samples/sample2.cs)]
-8. İçinde **Çözüm Gezgini**, projeye sağ tıklayın ve ardından **Ekle | HTML sayfası**. Yeni sayfa adı `index.html`.
+8. İçinde **Çözüm Gezgini**, projeyi sağ tıklatın ve ardından **Ekle | HTML sayfası**. Yeni sayfa adı `index.html`.
     >[!NOTE]
-    >Sürüm numaraları JQuery ve SignalR kitaplıklarına başvurular için değiştirmeniz gerekebilir
-9. İçinde **Çözüm Gezgini**, az önce oluşturduğunuz HTML sayfası sağ tıklatın ve **Başlangıç Sayfası Ayarla**.
-10. HTML sayfası varsayılan kodu aşağıdaki kodla değiştirin.
+    >JQuery ve SignalR kitaplıklarına başvurular için sürüm numaraları değiştirmeniz gerekebilir
+9. İçinde **Çözüm Gezgini**, yeni oluşturduğunuz HTML sayfasının sağ tıklatıp **Başlangıç Sayfası Ayarla**.
+10. HTML sayfasındaki varsayılan kodu aşağıdaki kodla değiştirin.
 
     > [!NOTE]
-    > SignalR betikler daha sonraki bir sürümü Paket Yöneticisi tarafından yüklenebilir. Aşağıdaki komut dosyası başvuruları (bunlar bir hub'ı eklemek yerine NuGet kullanarak SignalR eklediyseniz farklı olacaktır.) proje komut dosyalarında sürümlerine karşılık geldiğinden emin olun
+    > SignalR betikleri daha sonraki bir sürümünü Paket Yöneticisi tarafından yüklenebilir. Aşağıdaki betik başvurularını komut dosyalarını (bunlar SignalR hub'ı eklemek yerine NuGet kullanarak eklediyseniz farklı olacaktır.) projede sürümlerine karşılık geldiğini doğrulayın
 
     [!code-html[Main](tutorial-getting-started-with-signalr/samples/sample3.html)]
 11. **Tümünü Kaydet** projesi için.
 
 <a id="run"></a>
 
-## <a name="run-the-sample"></a>Örnek çalıştırın
+## <a name="run-the-sample"></a>Örneği çalıştırma
 
-1. Projeyi hata ayıklama modunda çalıştırmak için F5 tuşuna basın. HTML sayfası bir tarayıcı örneği ve bir kullanıcı adı için ister yükler.
+1. Projeyi hata ayıklama modunda çalıştırmak için F5 tuşuna basın. Bir tarayıcı örneğinde ve bir kullanıcı adı için istemleri HTML sayfasını yükler.
 
     ![Kullanıcı adı girin](tutorial-getting-started-with-signalr/_static/image4.png)
 2. Bir kullanıcı adı girin.
-3. Tarayıcının adres satırından URL'yi kopyalayın ve iki daha fazla tarayıcı örnekleri açmak için kullanın. Her tarayıcı örnek benzersiz bir kullanıcı adı girin.
-4. Her tarayıcı örnek bir açıklama ekleyin ve **Gönder**. Açıklamaları tüm tarayıcı örnekleri görüntülemelidir.
+3. Tarayıcının adres satırından URL'sini kopyalayın ve iki daha fazla tarayıcı örneği açmak için kullanın. Her bir tarayıcı örneğinde benzersiz bir kullanıcı adı girin.
+4. Her bir tarayıcı örneğinde bir açıklama ekleyin ve **Gönder**. Açıklamalar, hepsinin tarayıcı görüntülemelidir.
 
     > [!NOTE]
-    > Bu basit sohbet uygulama sunucusunda tartışma bağlam korumaz. Hub'ın tüm geçerli kullanıcı yorumları yayınlar. Sohbet daha sonra katılmak kullanıcılar zamandan eklenen iletilerini bunlar katılma görürsünüz.
+    > Bu basit sohbet uygulaması sunucusunda tartışma bağlam korumaz. Hub'ın tüm geçerli kullanıcılar yorum yayınlar. Sohbet daha sonra katılmak kullanıcıların zamandan eklenen iletileri katılmaları görürsünüz.
 
-    Aşağıdaki ekran görüntüsünde bir örnek ileti gönderdiğinde, güncelleştirilen üç tarayıcı durumlarda çalışan sohbet uygulama gösterir:
+    Aşağıdaki ekran görüntüsünde, çalışan bir örnek ileti gönderdiğinde tümü güncelleştirilir üç tarayıcı durumlarda sohbet uygulaması gösterilmektedir:
 
     ![Sohbet tarayıcılar](tutorial-getting-started-with-signalr/_static/image5.png)
-5. İçinde **Çözüm Gezgini**, inceleme **betik belgelerini** çalışan uygulama için düğüm. Adlı bir komut dosyası **hub** , SignalR kitaplık çalışma zamanında dinamik olarak oluşturur. Bu dosya, jQuery betik sunucu tarafı kodu arasında iletişim yönetir.
+5. İçinde **Çözüm Gezgini**, inceleme **betik belgelerini** çalışan uygulama düğümü. Adlı bir betik dosyası **hubs** , SignalR kitaplık çalışma zamanında dinamik olarak oluşturur. Bu dosya, jQuery betik sunucu tarafı kodu arasında iletişimi yönetir.
 
     ![](tutorial-getting-started-with-signalr/_static/image6.png)
 
 <a id="code"></a>
 
-## <a name="examine-the-code"></a>Kodu inceleyin
+## <a name="examine-the-code"></a>Kod İnceleme
 
-SignalR sohbet uygulaması iki temel SignalR geliştirme görevlerini gösterir: sunucu üzerindeki ana koordinasyon nesnesi olarak bir hub'ı oluşturma ve ileti gönderme ve alma için SignalR jQuery kitaplığı kullanma.
+SignalR sohbet uygulaması iki temel SignalR geliştirme görevleri gösterir: sunucunun ana koordinasyon nesne olarak bir hub'ı oluşturma ve ileti göndermek ve almak için SignalR jQuery kitaplığı kullanma.
 
 ### <a name="signalr-hubs"></a>SignalR hub'ları
 
-Kod örneğinde **ChatHub** sınıfı türer **Microsoft.AspNet.SignalR.Hub** sınıfı. Türetme **Hub** bir SignalR uygulaması oluşturmak için kullanışlı bir yol bir sınıftır. Genel yöntemler hub sınıfınız oluşturun ve sonra bu yöntemler bir web sayfasında komut dosyalarından çağırarak erişim.
+Kod örneğinde **ChatHub** sınıf türetilir **Microsoft.AspNet.SignalR.Hub** sınıfı. Öğesinden türetme **Hub** SignalR uygulama oluşturmak için kullanışlı bir yöntem bir sınıftır. Hub sınıfınıza genel yöntemleri oluşturun ve bu yöntemler bir web sayfasında komut dosyalarından çağırarak erişin.
 
-İstemciler sohbet kodda çağrısı **ChatHub.Send** yeni bir ileti göndermek için yöntem. Hub sırayla iletiyi tüm istemcilere çağırarak gönderir **Clients.All.broadcastMessage**.
+İstemciler sohbet kodda çağrı **ChatHub.Send** yeni bir ileti göndermek için yöntemi. Hub sırayla ileti tüm istemcilere çağırarak gönderen **Clients.All.broadcastMessage**.
 
 **Gönder** yöntemi birkaç hub kavramları göstermektedir:
 
-- Böylece istemciler bunları çağırabilirsiniz genel yöntemler bir hub'ına bildirin.
-- Kullanım **Microsoft.AspNet.SignalR.Hub.Clients** tüm istemciler erişmek için dinamik özellik bu hub'ına bağlı.
-- İstemcide bir işlevi çağırmak (gibi `broadcastMessage` işlevi) istemcilerini güncelleştirmek için.
+- İstemciler, bunları çağırabilirsiniz genel yöntemleri bir hub'da bildirin.
+- Kullanım **Microsoft.AspNet.SignalR.Hub.Clients** tüm istemcilere erişmek için dinamik özellik bu hub'a bağlı.
+- İstemcide bir işlevi çağırmayı (gibi `broadcastMessage` işlevi) istemcilerini güncelleştirmek için.
 
     [!code-csharp[Main](tutorial-getting-started-with-signalr/samples/sample4.cs)]
 
 ### <a name="signalr-and-jquery"></a>SignalR ve jQuery
 
-Kod örneğinde HTML sayfası SignalR jQuery kitaplığı bir SignalR hub ile iletişim kurmak için nasıl kullanılacağını gösterir. Kodda önemli görevleri istemcilere anında içeriği için sunucu çağırabilirsiniz işlevi bildirme ve hub'ına iletileri göndermek için bir bağlantı başlatma hub başvurmak için bir proxy bildirdiğiniz.
+Kod örneği HTML sayfasındaki bir SignalR hub'ı ile iletişim kurmak için SignalR jQuery kitaplığı kullanmayı gösterir. Kodda önemli görevleri istemcilere anında içeriği için sunucu çağırabilen bir işlevi bildirmek ve hub'ına ileti göndermek için bir bağlantı başlatma hub başvurmak için bir proxy bildirdiğiniz.
 
 Aşağıdaki kod, bir hub proxy için bir başvuru bildirir.
 
 [!code-javascript[Main](tutorial-getting-started-with-signalr/samples/sample5.js)]
 
 > [!NOTE]
-> JavaScript'te sunucu sınıfı ve üyelerini içinde ortası büyük başvurudur. Kod örneği C# başvuran **ChatHub** JavaScript sınıfında **chatHub**.
+> JavaScript'te, sunucu sınıfını ve üyelerini ortası büyük harf başvurudur. Kod örneği C# başvuran **ChatHub** JavaScript olarak sınıfında **chatHub**.
 
 
-Aşağıdaki komut dosyasında bir geri çağırma işlevini oluşturma kodudur. Sunucudaki hub sınıfı içerik güncelleştirmeleri her bir istemciye göndermek için bu işlevi çağırır. HTML kodlama, içeriği görüntülemeden önce iki satır isteğe bağlıdır ve kod eklemesini önlemeye yönelik basit bir yol gösterir.
+Aşağıdaki betikte bir geri çağırma işlevini nasıl oluşturacağınız kodudur. Sunucudaki hub sınıfına içerik güncelleştirmeleri her bir istemciye göndermek için bu işlevi çağırır. HTML kodlama, içerik görüntülemeden önce aşağıdaki iki satırı isteğe bağlıdır ve kod eklemesini engellemek için basit bir yol gösterir.
 
 [!code-html[Main](tutorial-getting-started-with-signalr/samples/sample6.html)]
 
-Aşağıdaki kod, hub ile bir bağlantı açmak gösterilmiştir. Kod bağlantı başlar ve üzerinde click olayını işlemek için bir işlev geçirir **Gönder** HTML sayfasının düğmesini.
+Aşağıdaki kod hub'ı ile bir bağlantı açmak nasıl gösterir. Kod bağlantı başlar ve ardından üzerinde click olayını işlemek için bir işlev geçirir **Gönder** HTML sayfasındaki düğmesi.
 
 > [!NOTE]
-> Bu yaklaşım, olay işleyici yürütülmeden önce bağlantı kurulana sağlar.
+> Bu yaklaşım, olay işleyici yürütülmeden önce bağlantı kurulur sağlar.
 
 
 [!code-javascript[Main](tutorial-getting-started-with-signalr/samples/sample7.js)]
@@ -206,12 +205,12 @@ Aşağıdaki kod, hub ile bir bağlantı açmak gösterilmiştir. Kod bağlantı
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-SignalR gerçek zamanlı web uygulamaları oluşturmak için bir çerçeve olduğunu öğrendiniz. Birkaç SignalR geliştirme görevleri de öğrenilen: bir ASP.NET uygulaması için SignalR ekleme, hub sınıfın nasıl oluşturulacağı ve hub'dan ileti alıp göndermek nasıl.
+SignalR gerçek zamanlı web uygulamaları oluşturmaya yönelik bir çerçeve olduğunu öğrendiniz. Ayrıca birkaç SignalR geliştirme görevlerini öğrendiniz: bir ASP.NET uygulaması için SignalR ekleme, hub sınıfı oluşturma ve hub'ından iletiler alan nasıl.
 
-Örnek SignalR uygulamayı Azure'a dağıtma hakkında bir kılavuz için bkz: [SignalR kullanarak Azure App Service'te Web uygulamalarını](../deployment/using-signalr-with-azure-web-sites.md). Windows Azure Web sitesi için bir Visual Studio web projesi dağıtma hakkında ayrıntılı bilgi için bkz: [Azure App Service'te bir ASP.NET web uygulaması oluşturma](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/).
+Örnek SignalR uygulamayı Azure'a dağıtma hakkında kılavuz için bkz. [Azure App service'taki Web Apps ile SignalR kullanarak](../deployment/using-signalr-with-azure-web-sites.md). Visual Studio web projesini bir Windows Azure Web sitesine dağıtma hakkında ayrıntılı bilgi için bkz. [Azure App Service'te ASP.NET web uygulaması oluşturma](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/).
 
-Daha gelişmiş SignalR gelişmeler kavramları hakkında bilgi için SignalR kaynak kodu ve kaynaklar için aşağıdaki siteleri ziyaret edin:
+Daha gelişmiş SignalR gelişmeleri kavramları hakkında bilgi için SignalR kaynak kodu ve kaynaklar için aşağıdaki siteleri ziyaret edin:
 
-- [SignalR Project](http://signalr.net)
-- [SignalR Github ve örnekler](https://github.com/SignalR/SignalR)
+- [SignalR projesi](http://signalr.net)
+- [SignalR Github ve örnekleri](https://github.com/SignalR/SignalR)
 - [SignalR Wiki](https://github.com/SignalR/SignalR/wiki)

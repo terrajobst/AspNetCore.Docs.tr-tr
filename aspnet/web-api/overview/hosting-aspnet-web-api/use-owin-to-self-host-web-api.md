@@ -1,86 +1,85 @@
 ---
 uid: web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api
-title: ASP.NET Web API 2 Self barındırmak için OWIN kullanın | Microsoft Docs
+title: OWIN, ASP.NET Web API 2 barındırma kullanmasını | Microsoft Docs
 author: rick-anderson
-description: Bu öğreticide, ASP.NET Web API Web API çerçevesi Self barındırmak için OWIN kullanarak bir konsol uygulamasında barındırmak gösterilmiştir. .NET (OWIN) d için Web arabirimi Aç...
+description: Bu öğreticide, ASP.NET Web API OWIN barındırma Web API çerçevesini kullanarak bir konsol uygulamasında barındırmak gösterilir. .NET (OWIN) d için Web arabirimi Aç...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/09/2013
 ms.topic: article
 ms.assetid: a90a04ce-9d07-43ad-8250-8a92fb2bd3d5
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: fda0db8155c3303907331a690af35f619b589154
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 73757b50c15c6c65dbde4b61179b2d453673cfad
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26566397"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37389566"
 ---
-<a name="use-owin-to-self-host-aspnet-web-api-2"></a>ASP.NET Web API 2 Self barındırmak için OWIN kullanın
+<a name="use-owin-to-self-host-aspnet-web-api-2"></a>ASP.NET Web API 2 barındırma için OWIN kullanın
 ====================
 tarafından [Kanchan Mehrotra](https://twitter.com/kanchanmeh)
 
-> Bu öğreticide, ASP.NET Web API Web API çerçevesi Self barındırmak için OWIN kullanarak bir konsol uygulamasında barındırmak gösterilmiştir.
+> Bu öğreticide, ASP.NET Web API OWIN barındırma Web API çerçevesini kullanarak bir konsol uygulamasında barındırmak gösterilir.
 > 
-> [.NET için Web Arabirimi'ni açmak](http://owin.org) (OWIN) .NET web sunucuları ve web uygulamaları arasındaki bir Özet tanımlar. OWIN OWIN web uygulamasını IIS dışında kendi işleminde kendi kendine barındırma için ideal hale getirir sunucunun web uygulamasından ayrıştırır.
+> [.NET için açık Web arabirimi](http://owin.org) (OWIN) .NET web sunucuları ve web uygulaması arasında bir Özet tanımlar. OWIN OWIN kendi işleminizde IIS dışında bir web uygulaması kendi kendine barındırma için ideal hale getirir sunucu web uygulamasından ayırır.
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Öğreticide kullanılan yazılım sürümleri
+> ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
 > 
 > 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads) (Visual Studio 2012 ile de çalışır)
+> - [Visual Studio 2013'ün](https://www.microsoft.com/visualstudio/eng/2013-downloads) (Visual Studio 2012 ile de çalışır)
 > - Web API 2
 
 
 > [!NOTE]
-> Bu öğreticinin tam kaynak kodunu bulabilirsiniz [aspnet.codeplex.com](https://aspnet.codeplex.com/SourceControl/latest#Samples/WebApi/OwinSelfhostSample/ReadMe.txt).
+> Bu öğreticinin için tam kaynak kodunu bulabilirsiniz [aspnet.codeplex.com](https://aspnet.codeplex.com/SourceControl/latest#Samples/WebApi/OwinSelfhostSample/ReadMe.txt).
 
 
 ## <a name="create-a-console-application"></a>Bir konsol uygulaması oluşturun
 
-Üzerinde **dosya** menüsünde tıklatın **yeni**, ardından **proje**. Gelen **yüklü şablonlar**, Visual C# altında tıklatın **Windows** ve ardından **konsol uygulaması**. "OwinSelfhostSample" adını verin ve projeyi tıklatın **Tamam**.
+Üzerinde **dosya** menüsünde tıklayın **yeni**, ardından **proje**. Gelen **yüklü şablonlar**, Visual C# altında tıklayın **Windows** ve ardından **konsol uygulaması**. "OwinSelfhostSample" Projeyi adlandırın ve tıklayın **Tamam**.
 
 [![](use-owin-to-self-host-web-api/_static/image2.png)](use-owin-to-self-host-web-api/_static/image1.png)
 
-## <a name="add-the-web-api-and-owin-packages"></a>Web API ve OWIN paketleri ekleme
+## <a name="add-the-web-api-and-owin-packages"></a>Web API ve OWIN paketleri Ekle
 
-Gelen **Araçları** menüsünde tıklatın **kitaplık Paket Yöneticisi**, ardından **Paket Yöneticisi Konsolu**. Paket Yöneticisi konsolu penceresinde aşağıdaki komutu girin:
+Gelen **Araçları** menüsünde tıklatın **kitaplık Paket Yöneticisi**, ardından **Paket Yöneticisi Konsolu**. Paket Yöneticisi konsolu penceresinde, aşağıdaki komutu girin:
 
 `Install-Package Microsoft.AspNet.WebApi.OwinSelfHost`
 
-Bu Webapı OWIN selfhost paket ve tüm gerekli OWIN paketlerini yükler.
+Bu Webapı OWIN selfhost paketi ve tüm gerekli OWIN paketlerini yükler.
 
 [![](use-owin-to-self-host-web-api/_static/image4.png)](use-owin-to-self-host-web-api/_static/image3.png)
 
-## <a name="configure-web-api-for-self-host"></a>Web API için yapılandırma kendini barındırma
+## <a name="configure-web-api-for-self-host"></a>Web API'si için yapılandırma barındırma
 
 Çözüm Gezgini'nde projeye sağ tıklayın ve seçin **Ekle** / **sınıfı** yeni bir sınıf eklemek için. Sınıf adını `Startup`.
 
 ![](use-owin-to-self-host-web-api/_static/image5.png)
 
-Bu dosyadaki Demirbaş kod tümünün aşağıdakiyle değiştirin:
+Tüm bu dosya ortak kodun aşağıdakiyle değiştirin:
 
 [!code-csharp[Main](use-owin-to-self-host-web-api/samples/sample1.cs)]
 
-## <a name="add-a-web-api-controller"></a>Bir Web API denetleyicisi ekleme
+## <a name="add-a-web-api-controller"></a>Web API denetleyici ekleme
 
-Ardından, bir Web API denetleyicisi sınıfı ekleyin. Çözüm Gezgini'nde projeye sağ tıklayın ve seçin **Ekle** / **sınıfı** yeni bir sınıf eklemek için. Sınıf adını `ValuesController`.
+Ardından, bir Web API denetleyici sınıfı ekleyin. Çözüm Gezgini'nde projeye sağ tıklayın ve seçin **Ekle** / **sınıfı** yeni bir sınıf eklemek için. Sınıf adını `ValuesController`.
 
-Bu dosyadaki Demirbaş kod tümünün aşağıdakiyle değiştirin:
+Tüm bu dosya ortak kodun aşağıdakiyle değiştirin:
 
 [!code-csharp[Main](use-owin-to-self-host-web-api/samples/sample2.cs)]
 
-## <a name="start-the-owin-host-and-make-a-request-using-httpclient"></a>OWIN konak başlatmak ve HttpClient kullanan bir istekte bulunun
+## <a name="start-the-owin-host-and-make-a-request-using-httpclient"></a>OWIN ana bilgisayarı başlatılamıyor ve HttpClient kullanan bir istek oluşturun
 
-Program.cs dosyasındaki Demirbaş kod tümünün aşağıdakiyle değiştirin:
+Tüm ortak kod Program.cs dosyasındaki aşağıdakiyle değiştirin:
 
 [!code-csharp[Main](use-owin-to-self-host-web-api/samples/sample3.cs)]
 
 ## <a name="running-the-application"></a>Uygulamayı Çalıştırma
 
-Uygulamayı çalıştırmak için Visual Studio'da F5'e basın. Çıktı aşağıdaki gibi görünmelidir:
+Uygulamayı çalıştırmak için Visual Studio'da F5 tuşuna basın. Çıktı aşağıdaki gibi görünmelidir:
 
 [!code-console[Main](use-owin-to-self-host-web-api/samples/sample4.cmd)]
 
@@ -88,6 +87,6 @@ Uygulamayı çalıştırmak için Visual Studio'da F5'e basın. Çıktı aşağ�
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
-[Proje Katana genel bakış](../../../aspnet/overview/owin-and-katana/an-overview-of-project-katana.md)
+[Project Katana’ya Genel Bakış](../../../aspnet/overview/owin-and-katana/an-overview-of-project-katana.md)
 
-[Bir Azure çalışan rolünde ASP.NET Web API ana bilgisayar](host-aspnet-web-api-in-an-azure-worker-role.md)
+[Bir Azure çalışan rolünde ASP.NET Web API barındırma](host-aspnet-web-api-in-an-azure-worker-role.md)

@@ -2,36 +2,35 @@
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/index
 title: ASP.NET 4 - kurumsal dağıtım serisi 1 | Microsoft Docs
 author: rick-anderson
-description: Bu öğretici, çok sayıda developmen için Kurumsal ölçekte web uygulamalarının dağıtımını yönetirken karşılaşabileceğiniz sorunları karşılamak üzere açıklar...
+description: Bu öğreticide, Kurumsal ölçekte web uygulamaları geliştir dağıtımını yönetirken karşılaşabileceğiniz sorunları çok sayıda karşılamak üzere açıklar...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/16/2012
 ms.topic: article
 ms.assetid: 83e0a572-428f-4bea-9638-1a031c6901c0
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise
 msc.type: chapter
-ms.openlocfilehash: 50918b1aef416a7b262e982bcf67607aa36933a3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 28052516d71c073414fa1d5932e01cfce9af0648
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26568860"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37389027"
 ---
 <a name="aspnet-4---enterprise-deployment-series-1"></a>ASP.NET 4 - kurumsal dağıtım serisi 1
 ====================
-> Bu öğretici, çok sayıda geliştirme, test, hazırlama ve üretim ortamları için Kurumsal ölçekte web uygulamalarının dağıtımını yönetirken karşılaşabileceğiniz sorunları karşılamak üzere açıklar. Öğretici bir karışımını çeşitli ortak görevler ve yordamların yol göstermesi için kavramsal ve görev odaklı içeriği ile birlikte bir başvuru çözüm içerir.
+> Bu öğreticide, Kurumsal ölçekte web uygulamaları geliştirme, test, hazırlama ve üretim ortamlarında dağıtımını yönetirken karşılaşabileceğiniz sorunları çok sayıda karşılayacak şekilde açıklar. Öğretici, bir başvuru çözüm çeşitli ortak görevleri ve yordamları size kılavuzluk kavramsal ve görev odaklı içeriğinin bir karışımını birlikte içerir.
 
 
-- [Kurumsal Web dağıtımı](web-deployment-in-the-enterprise.md)
-- [Contact Manager çözümü](the-contact-manager-solution.md)
-- [İlgili Kişi Yöneticisi çözüm ayarlama](setting-up-the-contact-manager-solution.md)
-- [Proje dosyası anlama](understanding-the-project-file.md)
-- [Derleme işlemi anlama](understanding-the-build-process.md)
-- [Derleme ve Web Uygulama projeleri paketleme](building-and-packaging-web-application-projects.md)
-- [Parametreler Web paketi dağıtım için yapılandırma](configuring-parameters-for-web-package-deployment.md)
-- [Web paketleri dağıtma](deploying-web-packages.md)
-- [Veritabanı projeleri dağıtma](deploying-database-projects.md)
-- [Oluşturma ve bir dağıtım komut dosyası çalıştırma](creating-and-running-a-deployment-command-file.md)
-- [Web paketleri el ile yükleme](manually-installing-web-packages.md)
+- [Kurumda Web Dağıtımı](web-deployment-in-the-enterprise.md)
+- [Kişi Yöneticisi Çözümü](the-contact-manager-solution.md)
+- [Kişi Yöneticisi Çözümünü Ayarlama](setting-up-the-contact-manager-solution.md)
+- [Proje Dosyasını Anlama](understanding-the-project-file.md)
+- [Derleme İşlemini Anlama](understanding-the-build-process.md)
+- [Web Uygulaması Projelerini Derleme ve Paketleme](building-and-packaging-web-application-projects.md)
+- [Web Paketi Dağıtımı için Parametreleri Yapılandırma](configuring-parameters-for-web-package-deployment.md)
+- [Web Paketleri Dağıtma](deploying-web-packages.md)
+- [Veritabanı Projeleri Dağıtma](deploying-database-projects.md)
+- [Dağıtım Komut Dosyası Oluşturma ve Çalıştırma](creating-and-running-a-deployment-command-file.md)
+- [Web Paketlerini El ile Yükleme](manually-installing-web-packages.md)

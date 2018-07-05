@@ -2,96 +2,95 @@
 uid: mvc/overview/older-versions-1/nerddinner/create-a-new-aspnet-mvc-project
 title: Yeni bir ASP.NET MVC projesi oluşturun | Microsoft Docs
 author: microsoft
-description: 1. adım temel NerdDinner uygulama yapısı yerleştirdiniz gösterilmiştir.
+description: 1. adım yerleştirdiniz temel NerdDinner uygulama yapısı gösterilmektedir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
 ms.topic: article
 ms.assetid: 7e0e9928-8fdc-4b74-9882-55fac0976628
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/create-a-new-aspnet-mvc-project
 msc.type: authoredcontent
-ms.openlocfilehash: d15ca67f0ddd8db6842bc5112996ae2dee433536
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 9f5e0b3f82d113fc72ab4002ec8d06ad8444dceb
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30869263"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37374282"
 ---
 <a name="create-a-new-aspnet-mvc-project"></a>Yeni bir ASP.NET MVC projesi oluşturma
 ====================
 tarafından [Microsoft](https://github.com/microsoft)
 
-[PDF indirin](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
+[PDF'yi indirin](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
-> Adım 1 / ücretsiz budur ["NerdDinner" uygulaması Öğreticisi](introducing-the-nerddinner-tutorial.md) , yetenekte küçük bir yapı ancak tamamlandı, ASP.NET MVC 1 kullanarak web uygulamasına nasıl aracılığıyla.
+> Adım 1 / ücretsiz budur ["NerdDinner" uygulaması Öğreticisi](introducing-the-nerddinner-tutorial.md) , Yürüyüşü nasıl küçük bir derleme, ancak tamamlandı, ASP.NET MVC 1 kullanarak web uygulaması aracılığıyla.
 > 
-> 1. adım temel NerdDinner uygulama yapısı yerleştirdiniz gösterilmiştir.
+> 1. adım yerleştirdiniz temel NerdDinner uygulama yapısı gösterilmektedir.
 > 
-> ASP.NET MVC 3 kullanıyorsanız, izlemeniz önerilir [MVC 3 ile çalışmaya başlama](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) veya [MVC müzik deposu](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) öğreticileri.
+> ASP.NET MVC 3 kullanıyorsanız, takip ettiğiniz öneririz [MVC 3 ile çalışmaya başlama](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) veya [MVC müzik Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) öğreticiler.
 
 
 ## <a name="nerddinner-step-1-file-gtnew-project"></a>NerdDinner adım 1: Dosya -&gt;yeni proje
 
-Biz seçerek NerdDinner uygulamamız başlarsınız **dosya -&gt;yeni proje** menü öğesi içinde Visual Studio 2008 veya ücretsiz Visual Web Developer 2008 Express.
+Biz seçerek NerdDinner uygulamamız başlarsınız **File -&gt;yeni proje** Visual Studio 2008 veya ücretsiz Visual Web Developer 2008 Express menü öğesi.
 
-Bu, "Yeni Proje" iletişim kutusunu getirir. Yeni bir ASP.NET MVC uygulaması oluşturmak için iletişim kutusunun sol taraftaki "Web" düğümünü seçin ve ardından sağdaki "ASP.NET MVC Web uygulaması" proje şablonu seçin:
+Bu, "Yeni Proje" iletişim kutusu getirir. Yeni bir ASP.NET MVC uygulaması oluşturmak için biz iletişim kutusunun sol taraftaki "Web" düğümü seçin ve ardından sağdaki "ASP.NET MVC Web uygulaması" proje şablonu seçin:
 
 ![](create-a-new-aspnet-mvc-project/_static/image1.png)
 
-*Önemli: indirilir ve ASP.NET yeni proje iletişim kutusunda görüntülenmeyecektir MVC - Aksi takdirde yüklü olduğundan emin olun. V2 olarak kullanabileceğiniz [Microsoft Web Platformu yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx) , onu henüz yüklemediyseniz (ASP.NET MVC içinde kullanılabilir "Web Platformu -&gt;çerçeveler ve çalışma zamanları" bölümü).*
+*Önemli: indirilen ve ASP.NET yeni proje iletişim kutusunda görünmez MVC - aksi yüklü olduğundan emin olun. V2, kullanabileceğiniz [Microsoft Web Platformu yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx) henüz yüklemediyseniz, (ASP.NET MVC, içinde kullanılabilir "Web Platformu -&gt;çerçeveleri ve çalışma zamanları" bölümü).*
 
-Biz, biz "NerdDinner" oluşturabilir ve oluşturmak için "Tamam" düğmesini tıklatın olacak yeni proje adı.
+Biz "NerdDinner" oluşturup oluşturmak için "Tamam" düğmesini tıklatıp kullanacağız yeni proje adı.
 
-Biz "Tamam" düğmesini tıklatın, Visual Studio ister bize isteğe bağlı olarak da yeni uygulama için birim testi projesi oluşturmak için ek bir iletişim kutusu getirir. Bu birim testi projesi bizi uygulamamız davranışını ve işlevlerinin doğrulayın otomatikleştirilmiş test oluşturmak sağlar (bir şey kapak nasıl daha sonra Bu öğreticide Yapılacaklar).
+Biz "Tamam" düğmesine tıklayın, Visual Studio ister bize isteğe bağlı olarak birim testi projesi için de yeni uygulama oluşturmak için ek bir iletişim kutusu çıkarır. Bu birim testi projesi uygulamamız davranışını ve işlevsellik doğrulamak otomatik testler oluşturma sağlıyor (bir şey ele nasıl Bu öğreticinin sonraki adımlarında Yapılacaklar).
 
 ![](create-a-new-aspnet-mvc-project/_static/image2.png)
 
-Yukarıdaki iletişim kutusunda "Test framework" açılır makinede yüklü tüm kullanılabilir ASP.NET MVC birim testi projesi şablonları ile doldurulur. Sürümleri NUnit, MBUnit ve XUnit indirilebilir. Yerleşik Visual Studio birim testi çerçevesi da desteklenir.
+"Test Çerçevesi" açılan yukarıdaki iletişim kutusunda, makinede yüklü tüm kullanılabilir ASP.NET MVC birim test projesi şablonları ile doldurulur. NUnit, MBUnit ve XUnit sürümleri indirilebilir. Yerleşik Visual Studio birim testi çerçevesi de desteklenir.
 
-*Not: Visual Studio Birim Test Çerçevesi yalnızca Visual Studio 2008 Professional ve daha sonraki sürümler ile kullanılabilir. VS 2008 Standard Edition veya Visual Web Developer 2008 Express kullanıyorsanız yükleyip NUnit, MBUnit veya XUnit uzantıları için ASP.NET MVC gösterilmesi için bu iletişim kutusu için sırayla gerekecektir. Yüklü herhangi bir test çerçeve yoksa iletişim kutusunda görüntülenmez.*
+*Not: Visual Studio birim testi çerçevesi yalnızca Visual Studio 2008 Professional ve üzeri sürümlerde kullanılabilir. VS 2008 Standard Edition veya Visual Web Developer 2008 Express kullanıyorsanız indirip sırada gösterilecek bu iletişim için ASP.NET MVC NUnit, MBUnit veya XUnit uzantıları yüklemeniz gerekir. Tüm test çerçeveleri yüklü değilse, iletişim kutusu görüntülenmez.*
 
-Biz oluşturuyoruz test projesi için varsayılan "NerdDinner.Tests" adı kullanın ve "Visual Studio Birim Test" framework seçeneğini kullanın. Biz tıklattığınızda "Tamam" düğmesine Visual Studio çözüm bize bu - web uygulamamız için diğeri bizim birim testleri için iki proje ile oluşturacak:
+Biz oluştururuz test projesi için varsayılan "NerdDinner.Tests" adını kullanın ve "Visual Studio birim testi" framework seçeneğini kullanın. Biz tıkladığınızda Visual Studio "Tamam" düğmesine bir çözüm bizim için - bir web uygulamamız için ve bir birim testlerimiz için iki proje oluşturur:
 
 ![](create-a-new-aspnet-mvc-project/_static/image3.png)
 
-### <a name="examining-the-nerddinner-directory-structure"></a>NerdDinner dizin yapısını inceleniyor
+### <a name="examining-the-nerddinner-directory-structure"></a>NerdDinner dizin yapısını İnceleme
 
 Visual Studio ile yeni bir ASP.NET MVC uygulaması oluşturduğunuzda, projeye otomatik olarak bir dizi dosyaları ve dizinleri ekler:
 
 ![](create-a-new-aspnet-mvc-project/_static/image4.png)
 
-Varsayılan olarak ASP.NET MVC projeleri altı en üst düzey dizinleri sahiptir:
+ASP.NET MVC projeleri varsayılan olarak altı en üst düzey dizinleriniz bulunmaktadır:
 
 | **Dizin** | **Amaç** |
 | --- | --- |
-| **/ Denetleyicileri** | Burada URL isteklerini işleyen denetleyici sınıfları yerleştirme |
-| **/ Modelleri** | Burada temsil eder ve verileri işlemek sınıfları yerleştirme |
-| **/ Görünümleri** | Burada işleme çıktısı için sorumlu kullanıcı Arabirimi şablon dosyalarını yerleştirme |
-| **/ Komut dosyaları** | Burada JavaScript kitaplığı dosyaları ve komut dosyaları (.js) yerleştirin |
-| **/ İçeriği** | Burada, CSS ve görüntü dosyaları ve diğer olmayan-dinamik/olmayan-JavaScript içeriği yerleştirme |
-| **/ Uygulama\_veri** | Veri dosyalarını depolamak burada okuma/yazma istiyorsunuz. |
+| **/ Denetleyicileri** | URL isteklerini işleyen denetleyici sınıflarına yerleştirdiğiniz yere |
+| **/ Modelleri** | Verileri işlemek ve temsil eden sınıflar yerleştirdiğiniz yere |
+| **/ Görünümler** | Oluşturma çıkışı için sorumlu kullanıcı Arabirimi şablon dosyaları yerleştirdiğiniz burada |
+| **/ Komut dosyaları** | JavaScript kitaplığı dosyaları ve komut dosyaları (.js) yerleştirdiğiniz yere |
+| **/ İçerik** | Burada, CSS ve resim dosyaları ve diğer olmayan-dinamik/olmayan-JavaScript içeriği yerleştirin |
+| **/ Uygulama\_veri** | Burada veri dosyalarını depolamak okuma/yazma istersiniz. |
 
-ASP.NET MVC bu yapı gerektirmez. Aslında, büyük uygulamalar üzerinde çalışan geliştiriciler genellikle uygulama yukarı daha kolay yönetilebilmesi için birden çok projede bölüm (örneğin: veri modeli sınıflarını genellikle web uygulamasından ayrı sınıf kitaplığında Git). Varsayılan proje yapısı, ancak bizim uygulama sorunları temiz tutma kullanırız iyi varsayılan dizin kuralını sağlar.
+ASP.NET MVC, bu yapı gerektirmez. Aslında, büyük uygulamalar üzerinde çalışan geliştiriciler genellikle uygulamayı oluşturan daha kolay yönetilebilir hale getirmek için birden çok projede bölüm (örneğin: veri modeli sınıfları genellikle ayrı bir sınıf kitaplığı projesinde bir web uygulamasından gidin). Varsayılan proje yapısı, ancak uygulama önde gelen kaygılarımızdan düzenli tutmak için kullanabileceğiniz bir iyi varsayılan dizin kuralı sunar.
 
-Biz /Controllers dizin genişlettiğinizde Biz Visual Studio varsayılan olarak iki denetleyicisi sınıf – HomeController ve AccountController – projeye eklenen bulabilirsiniz:
+Biz /Controllers dizini genişlettiğinizde Biz Visual Studio varsayılan olarak iki denetleyici sınıflarına – HomeController ve AccountController – projeye eklenen bulabilirsiniz:
 
 ![](create-a-new-aspnet-mvc-project/_static/image5.png)
 
-Biz /Views dizin genişlettiğinizde, biz üç alt dizinleri – /Home, ApplicationTier/account ve /Shared – yanı sıra birkaç şablonu içindeki dosyalara Ayrıca varsayılan projeye eklenen bulabilirsiniz:
+Biz /Views dizini genişlettiğinizde, biz üç alt dizinleri – /Home/Account ve /Shared – yanı, varsayılan olarak içindeki dosyalara da projeye eklenen birkaç şablon bulabilirsiniz:
 
 ![](create-a-new-aspnet-mvc-project/_static/image6.png)
 
-Biz/scripts dizinler ve/Content genişlettiğinizde, biz ASP.NET AJAX ve jQuery etkinleştirebilirsiniz JavaScript kitaplıklarını yanı sıra tüm HTML sitesinde stilini belirlemek için kullanılan bir Site.css dosya uygulama içerisinden destek bulabilirsiniz:
+Biz/scripts dizinleri ve/Content genişlettiğinizde, biz olanak veren ASP.NET AJAX ve jQuery JavaScript kitaplıklarını yanı sıra tüm HTML sitesinde biçimlendirmek için kullanılan bir Site.css dosyası içinde uygulama destek bulacaksınız:
 
 ![](create-a-new-aspnet-mvc-project/_static/image7.png)
 
-Biz NerdDinner.Tests proje genişlettiğinizde biz bizim denetleyicisi sınıfları için birim testleri içeren iki sınıf bulabilirsiniz:
+Biz NerdDinner.Tests proje genişlettiğinizde biz bizim denetleyici sınıflarına için birim testleri içeren iki sınıfınız bulabilirsiniz:
 
 ![](create-a-new-aspnet-mvc-project/_static/image8.png)
 
-Visual Studio tarafından eklenen bu varsayılan dosyalar, bize çalışan bir uygulama - sayfasında, hesap oturum açma/oturum kapatma/kayıt sayfaları ve bir işlenmemiş bir hata sayfası (tüm kablolu yukarı ve kutunun dışında çalışma) hakkında giriş sayfası için basit bir yapı ile sağlayın.
+Visual Studio tarafından eklenen bu varsayılan dosyalar, bize için çalışan bir uygulama - ile giriş sayfası, sayfayı, hesap oturum açma/kapatma/kayıt sayfaları ve bir işlenmeyen bir hata sayfası (tüm kablolu yukarı ve yepyeni çalışma) hakkında temel bir yapı sağlar.
 
 ### <a name="running-the-nerddinner-application"></a>NerdDinner uygulamayı çalıştırma
 
@@ -99,44 +98,44 @@ Biz ya da seçerek proje çalıştırabilirsiniz **hata ayıklama -&gt;hata ayı
 
 ![](create-a-new-aspnet-mvc-project/_static/image9.png)
 
-Bu yerleşik ASP.NET Web-Visual Studio ile birlikte gelen sunucusunu başlatmaya ve uygulamamızı çalıştırın:
+Bu yerleşik ASP.NET Web-Visual Studio ile birlikte gelen sunucusunu başlatmak ve uygulamamızı çalıştırın:
 
 ![](create-a-new-aspnet-mvc-project/_static/image10.png)
 
-Yeni Projemizin giriş sayfasını aşağıdadır (URL: "/") çalıştığında:
+Giriş sayfasına yeni Projemizin aşağıda verilmiştir (URL: "/") çalıştığında:
 
 ![](create-a-new-aspnet-mvc-project/_static/image11.png)
 
-"Hakkında" sekmesini tıklatarak görüntüleyen bir sayfa hakkında (URL: "/ ev/hakkında"):
+"Hakkında" sekmesini tıklatarak görüntüleyen bir sayfa hakkında (URL: "/ Home/About"):
 
 ![](create-a-new-aspnet-mvc-project/_static/image12.png)
 
-Sağ üst tarafında "Oturum Aç" bağlantısını tıklatarak alır bize bir oturum açma sayfasına (URL: "/ Account/oturum açma")
+Sağ üst kısmında "Oturum Aç" bağlantısına tıklayarak alan bize bir oturum açma sayfasına (URL: "/ hesabı/oturum açma")
 
 ![](create-a-new-aspnet-mvc-project/_static/image13.png)
 
-Biz kayıt bağlantıyı tıklatabilir bir oturum açma hesabı yoksa (URL: "/ Account/Register") oluşturmak için:
+Biz Kaydet bağlantısına tıklayabilirsiniz bir oturum açma hesabı yoksa (URL: "/ hesabı/Register") oluşturmak için:
 
 ![](create-a-new-aspnet-mvc-project/_static/image14.png)
 
-Oturum kapatma ve hakkında yukarıdaki Giriş uygulamak için kodu Register işlevselliği, biz bizim yeni bir proje oluşturduğunuzda varsayılan olarak eklendi. Uygulama başlangıç noktası olarak bunu kullanacağız.
+Oturum kapatma ve, yukarıdaki Giriş uygulamak için kod / register işlevleri size sunduğumuz yeni proje oluşturulduğunda varsayılan olarak eklenmiştir. Uygulamamızı başlangıç noktası olarak kullanacağız.
 
 ### <a name="testing-the-nerddinner-application"></a>NerdDinner uygulamayı test etme
 
-Biz Professional Edition veya Visual Studio 2008'in daha yüksek sürümünü kullanıyorsanız, biz IDE desteği Visual Studio'dan Test yerleşik birimi projeyi test etmek için kullanabilirsiniz:
+Professional sürümü veya üzeri bir sürüm Visual Studio 2008'in kullanıyoruz, yerleşik birim testi Visual Studio içinde IDE desteği projeyi test etmek için kullanabiliriz:
 
 ![](create-a-new-aspnet-mvc-project/_static/image15.png)
 
-Yukarıdaki seçeneklerden birini seçerek IDE içinde "Test sonuçlarını" bölmesini açın ve bize yerleşik işlevselliği kapak 27 birim testlerini bizim yeni projeye dahil geçişi/başarısız durumuna sağlar:
+Yukarıdaki seçeneklerden birini seçerek IDE içinde "Test sonuçlarını" bölmesini açın ve yerleşik işlevi kapsayacak yeni Projemizin dahil 27 birim testleri geçer/başarısız durumuna sahip sağlayın:
 
 ![](create-a-new-aspnet-mvc-project/_static/image16.png)
 
-Daha sonra Bu öğreticide biz otomatikleştirilmiş testleri hakkında daha fazla konuşun ve biz uygulamak uygulama işlevsellikler içeren ek birim testleri ekleme.
+Bu öğreticinin ilerleyen bölümlerinde biz otomatik testi hakkında daha fazla konuşacak ve biz uygulamak uygulama işlevsellikler ek bir birim testleri ekleme.
 
 ### <a name="next-step"></a>Sonraki adım
 
-Temel uygulama yapısı artık yerinde açıyor. Şimdi, şimdi [bizim uygulama verilerini depolamak için bir veritabanı oluşturun](create-a-database.md).
+Temel uygulama yapısı artık yerinde açıyor. Haydi şimdi [bizim uygulama verilerini depolamak için bir veritabanı oluşturma](create-a-database.md).
 
 > [!div class="step-by-step"]
 > [Önceki](introducing-the-nerddinner-tutorial.md)
-> [sonraki](create-a-database.md)
+> [İleri](create-a-database.md)

@@ -1,27 +1,26 @@
 ---
 uid: mvc/overview/older-versions/hands-on-labs/index
-title: ASP.NET MVC 4 aktarır laboratuvarlarda | Microsoft Docs
+title: ASP.NET MVC 4 uygulamalı Laboratuvarları | Microsoft Docs
 author: rick-anderson
-description: ASP.NET MVC üzerinde bu ellerini Labs ile birlikte geliştirmeyi öğrenin
+description: Şirket bu uygulamalı laboratuvarlar ile ASP.NET MVC ile geliştirmeyi öğrenin
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013
 ms.topic: article
 ms.assetid: eb23eb99-bfca-4043-9b48-2cf7838dd754
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs
 msc.type: chapter
-ms.openlocfilehash: bfdab4cfd3945401213bcc0b6f282dd5ffbedc5d
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: d9c125b60bd9e1fbfb392e95ffa927e6ed426c0b
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29727177"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37390965"
 ---
-# <a name="aspnet-mvc-4-hands-on-labs"></a>ASP.NET MVC 4 laboratuvarlarda aktarır
+# <a name="aspnet-mvc-4-hands-on-labs"></a>ASP.NET MVC 4 uygulamalı laboratuvarlar
 
-ASP.NET MVC üzerinde bu ellerini Labs ile birlikte geliştirmeyi öğrenin
+Şirket bu uygulamalı laboratuvarlar ile ASP.NET MVC ile geliştirmeyi öğrenin
 
 - [ASP.NET MVC 4 Sürümündeki Yenilikler](whats-new-in-aspnet-mvc-4.md)
 - [ASP.NET MVC 4 Temelleri](aspnet-mvc-4-fundamentals.md)

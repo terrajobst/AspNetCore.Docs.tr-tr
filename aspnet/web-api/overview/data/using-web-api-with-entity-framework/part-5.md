@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-5
-title: Veri aktarımı nesnesi (DTOs) | Microsoft Docs
+title: Veri aktarımı nesneleri (Dto) oluşturma | Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
@@ -9,52 +9,51 @@ ms.date: 06/16/2014
 ms.topic: article
 ms.assetid: 0fd07176-b74b-48f0-9fac-0f02e3ffa213
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-5
 msc.type: authoredcontent
-ms.openlocfilehash: 35e01f959072b96204de3e2ce3d507635720e110
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 6a066f1aca909afc2956e2026d9025cb87f10b1f
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30878691"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37399931"
 ---
-<a name="create-data-transfer-objects-dtos"></a>Veri aktarımı nesne (DTOs) oluşturma
+<a name="create-data-transfer-objects-dtos"></a>Veri aktarımı nesneleri (Dto) oluşturma
 ====================
-tarafından [CAN Wasson](https://github.com/MikeWasson)
+tarafından [Mike Wasson](https://github.com/MikeWasson)
 
-[Tamamlanan projenizi indirin](https://github.com/MikeWasson/BookService)
+[Projeyi yükle](https://github.com/MikeWasson/BookService)
 
-Sağ istemci veritabanı varlıklara artık, bizim web API kullanıma sunar. İstemci, doğrudan veritabanı tablolarında eşlemeleri veri alır. Bununla birlikte, her zaman iyi bir fikir değil. Bazen istemciye göndermek veri şeklini değiştirmek istersiniz. Örneğin, aşağıdakileri yapabilirsiniz:
+Sağ istemciye veritabanı varlıklarını şimdi web API kullanıma sunar. İstemci, doğrudan veritabanı tablolarına eşleyen veri alır. Ancak, her zaman iyi bir fikir değildir. Bazen istemciye göndermek veri şeklini değiştirmek istiyorsunuz. Örneğin, aşağıdakileri yapabilirsiniz:
 
-- Dairesel başvurular (önceki bölüme bakın) kaldırın.
-- İstemcileri görüntülemek için görmemesi belirli özelliklerini gizle.
+- Döngüsel başvurular (önceki bölüme bakın) kaldırın.
+- İstemciler görüntülemek için görmemesi belirli özellikleri gizleyin.
 - Yükü boyutunu azaltmak için bazı özellikler atlayın.
-- Bunları istemciler için daha kullanışlı hale getirmek için iç içe nesneleri içeren nesne grafiklerinin düzleştirmek.
-- "Güvenlik açıkları aşırı gönderim" kaçının. (Bkz [Model doğrulama](../../formats-and-model-binding/model-validation-in-aspnet-web-api.md) atlayarak nakil Tartışması için.)
+- İstemciler için daha kullanışlı hale getirmek için iç içe geçmiş nesneleri içeren nesne grafiklerini düzleştirin.
+- "Güvenlik açıklarını aşırı gönderme" kaçının. (Bkz [Model doğrulama](../../formats-and-model-binding/model-validation-in-aspnet-web-api.md) fazla posta hakkında ayrıntılı bilgi için.)
 - Veritabanı katmanı, hizmet katmanından ayırırsınız.
 
-Bunu başarmak için tanımlayabilirsiniz bir *veri aktarım nesnesini* (DTO). Bir DTO nasıl verileri ağ üzerinden gönderilir tanımlayan bir nesnedir. Kitap varlıkla nasıl gerçekleştiğine görelim. Modeller klasörü iki DTO sınıfları ekleyin:
+Bunu gerçekleştirmek için tanımlayabileceğiniz bir *veri aktarımı nesnesi* (DTO). Bir DTO verileri ağ üzerinden nasıl gönderilir tanımlayan bir nesnedir. Kitap varlığı ile nasıl çalıştığına bakalım. Modeller klasörü içinde iki DTO sınıfı ekleyin:
 
 [!code-csharp[Main](part-5/samples/sample1.cs)]
 
-`BookDetailDTO` Sınıfı kitap modelden hariç özelliklerin tümünü içeren `AuthorName` yazar adı tutacak bir dizedir. `BookDTO` Sınıfı içeren bir alt kümesini özelliklerinden `BookDetailDTO`.
+`BookDetailDTO` Sınıfı içeren kitap modelinden hariç tüm özellikler `AuthorName` yazar adını tutacak bir dizedir. `BookDTO` Sınıfı içeren bir alt kümesini özelliklerinden `BookDetailDTO`.
 
-Ardından, iki GET yöntemi Değiştir `BooksController` DTOs dönüş sürümleriyle sınıfı. LINQ kullanacağız **seçin** defteri varlıklardan DTOs dönüştürmek için deyimi.
+Ardından, iki GET yöntemleri yerine `BooksController` sınıfı sürümleriyle Dto döndürür. LINQ kullanacağız **seçin** Dto'lar kitap varlıklardan dönüştürülecek ifade.
 
 [!code-csharp[Main](part-5/samples/sample2.cs)]
 
-Yeni tarafından oluşturulan SQL işte `GetBooks` yöntemi. EF LINQ çevirir görebilirsiniz **seçin** SQL SELECT deyimi içinde.
+Yeni oluşturulan SQL işte `GetBooks` yöntemi. EF LINQ çevirir gördüğünüz **seçin** içine bir SQL SELECT deyimi.
 
 [!code-sql[Main](part-5/samples/sample3.sql)]
 
-Son olarak, değişiklik `PostBook` bir DTO döndürülecek yöntemi.
+Son olarak, değişiklik `PostBook` yöntemi bir DTO döndürür.
 
 [!code-csharp[Main](part-5/samples/sample4.cs)]
 
 > [!NOTE]
-> Bu öğreticide, biz DTOs için el ile kodda dönüştürdüğünüz. Gibi bir kitaplık kullanmak üzere başka bir seçenektir [AutoMapper](http://automapper.org/) dönüştürme otomatik olarak yönetir.
+> Bu öğreticide, biz Dto'lar için el ile kod dönüştürüyoruz. Gibi bir kitaplık kullanmak üzere başka bir seçenektir [AutoMapper](http://automapper.org/) dönüştürme otomatik olarak işler.
 > 
 > [!div class="step-by-step"]
 > [Önceki](part-4.md)
-> [sonraki](part-6.md)
+> [İleri](part-6.md)

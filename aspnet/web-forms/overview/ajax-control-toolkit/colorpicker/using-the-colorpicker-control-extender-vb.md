@@ -1,119 +1,118 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/colorpicker/using-the-colorpicker-control-extender-vb
-title: ColorPicker denetim Extender (VB) ile | Microsoft Docs
+title: ColorPicker denetim genişletici (VB) kullanarak | Microsoft Docs
 author: microsoft
-description: ColorPicker kullanıcı Arabirimi ile bir açılan denetiminde istemci-tarafı renk çekme işlevselliği sağlayan ASP.NET AJAX genişletici ' dir. Tüm ASP.NET eklenebilecek...
+description: ColorPicker kullanıcı Arabirimi ile bir açılan denetimden içinde istemci tarafı renk çekme işlevselliği sağlayan bir ASP.NET AJAX genişletici ' dir. Tüm ASP.NET eklenebilecek...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2009
 ms.topic: article
 ms.assetid: 577ae07b-a872-4818-a804-bca489b40ad0
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/colorpicker/using-the-colorpicker-control-extender-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3411119f85d7f5c26703b7df40cff24fdf30b81d
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: cad012dd1ce93714ecb127bf3543d5c65803aba9
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30874531"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37374185"
 ---
-<a name="using-the-colorpicker-control-extender-vb"></a>ColorPicker denetim genişletici (VB) kullanma
+<a name="using-the-colorpicker-control-extender-vb"></a>ColorPicker denetim genişletici (VB) kullanarak
 ====================
 tarafından [Microsoft](https://github.com/microsoft)
 
-> ColorPicker kullanıcı Arabirimi ile bir açılan denetiminde istemci-tarafı renk çekme işlevselliği sağlayan ASP.NET AJAX genişletici ' dir. Herhangi bir ASP.NET TextBox denetimi eklenebilir. .
+> ColorPicker kullanıcı Arabirimi ile bir açılan denetimden içinde istemci tarafı renk çekme işlevselliği sağlayan bir ASP.NET AJAX genişletici ' dir. Herhangi bir ASP.NET TextBox denetimi eklenebilir. .
 
 
-Bu öğreticinin amacı AJAX Denetim Araç Seti ColorPicker denetim genişletici nasıl kullanabileceğinizi açıklar belirlemektir. ColorPicker denetim genişletici bir renk seçmenizi sağlayan bir açılır iletişim kutusu görüntüler. Bir renk seçmek bir kullanıcı için bir sezgisel bir kullanıcı arabirimi sağlamak istediğinizde ColorPicker yararlıdır.
+Bu öğreticinin amacı, AJAX Denetim Araç Seti ColorPicker denetim genişletici nasıl kullanabileceğinizi açıklar sağlamaktır. ColorPicker denetim genişletici rengi seçmenize olanak sağlayan bir açılır iletişim kutusu görüntüler. ColorPicker bir renk seçmek bir kullanıcı için bir sezgisel kullanıcı arabirimiyle sağlamak istediğinizde yararlıdır.
 
-## <a name="extending-a-textbox-control-with-the-colorpicker-control-extender"></a>TextBox denetimi ColorPicker denetim genişletici ile genişletme
+## <a name="extending-a-textbox-control-with-the-colorpicker-control-extender"></a>ColorPicker denetim genişletici ile bir metin kutusu denetimini genişletme
 
-Örneğin, özelleştirilmiş kartvizitler oluşturmak ziyaretçileri sağlayan bir Web sitesi oluşturmak istediğinizi varsayalım. Ziyaretçi için bir iş kart metni girin ve rengi seçin. ASP.NET sayfası listeleme 1 txtCardText ve txtCardColor adlı iki TextBox denetimleri içerir. Formu gönderdiğinde, seçili değerler görüntülenir (bkz: Şekil 1).
-
-
-[![Bir iş kartı oluşturmak için basit form](using-the-colorpicker-control-extender-vb/_static/image1.jpg)](using-the-colorpicker-control-extender-vb/_static/image1.png)
-
-**Şekil 01**: bir iş kartı oluşturmak için basit form ([tam boyutlu görüntüyü görüntülemek için tıklatın](using-the-colorpicker-control-extender-vb/_static/image2.png))
+Örneğin, özelleştirilmiş iş kartları oluşturmak ziyaretçilerinin sağlayan bir Web sitesi oluşturmak istediğinizi düşünün. Ziyaretçi için bir iş kartı metin girebilir ve renk seçin. ASP.NET sayfası listeleme 1 txtCardText ve txtCardColor adlı iki TextBox denetimleri içerir. Formu gönderdiğinde, seçili değerler görüntülenir (bkz. Şekil 1).
 
 
-**Listing 1 - CreateCard.aspx**
+[![Basit bir iş kartı oluşturma formu](using-the-colorpicker-control-extender-vb/_static/image1.jpg)](using-the-colorpicker-control-extender-vb/_static/image1.png)
+
+**Şekil 01**: bir iş kartı oluşturmak için basit bir form ([tam boyutlu görüntüyü görmek için tıklatın](using-the-colorpicker-control-extender-vb/_static/image2.png))
+
+
+**1 - CreateCard.aspx listeleme**
 
 [!code-aspx[Main](using-the-colorpicker-control-extender-vb/samples/sample1.aspx)]
 
-Formun listeleme 1 çalışır, ancak bir iyi kullanıcı deneyimi sağlamaz. Bir renk metin kutusuna yazmak kullanıcı vardır. Özel renk - kullanıcı istiyorsa, örneğin, yalnızca pea yeşil - sonra kullanıcı sağ gölgesini HTML renk kodu yardıma olmadan tahmin gerekir.
+1 listeleme çalışır, ancak biçiminde harika kullanıcı deneyimini sağlamaz. Kullanıcı bir renk TextBox'a türüne sahiptir. Örneğin, kullanıcı özel bir renk - isterse yoğun saatlerin yeşil - ardından kullanıcı yalnızca doğru gölge HTML rengi kodunu yardıma gerek kalmadan şekil gerekir.
 
-ColorPicker denetim genişletici daha iyi bir kullanıcı deneyimi oluşturmak için kullanabilirsiniz. TextBox denetimi odağı taşıdığınızda ColorPicker bir renk iletişim kutusu görüntüler (bkz: Şekil 2).
+ColorPicker denetim genişletici daha iyi bir kullanıcı deneyimi oluşturmak için kullanabilirsiniz. TextBox denetimi için odak taşıdığınızda ColorPicker bir renk iletişim kutusu görüntüler (bkz: Şekil 2).
 
 
 [![ColorPicker denetim genişletici](using-the-colorpicker-control-extender-vb/_static/image2.jpg)](using-the-colorpicker-control-extender-vb/_static/image3.png)
 
-**Şekil 02**: ColorPicker denetim genişletici ([tam boyutlu görüntüyü görüntülemek için tıklatın](using-the-colorpicker-control-extender-vb/_static/image4.png))
+**Şekil 02**: ColorPicker denetim genişletici ([tam boyutlu görüntüyü görmek için tıklatın](using-the-colorpicker-control-extender-vb/_static/image4.png))
 
 
-ColorPicker denetim genişletici listeleme 1 formunda ile kullanmak için iki adımları tamamlamanız gerekir:
+ColorPicker denetim genişletici listeleme 1 biçiminde kullanmak için iki adımı tamamlamamız gerekir:
 
-1. Sayfaya bir ScriptManager denetimi ekleyin
+1. Bir ScriptManager denetimi sayfasına ekleme
 2. ColorPicker denetim genişletici sayfasına ekleme
 
-ColorPicker kullanabilmeniz için önce bir ScriptManager sayfanıza eklemeniz gerekir. ScriptManager eklemek için sağ açılış sunucu tarafı uygundur &lt;form&gt; etiketi. (ScriptManager AJAX uzantılar sekmesi altında bulunur) araç sayfaya ScriptManager sürükleyin. Alternatif olarak, aşağıdaki etiketi açma sunucu tarafı form etiketi altında kaynak görünüme yazabilirsiniz:
+ColorPicker kullanabilmeniz için önce bir ScriptManager sayfanıza eklemeniz gerekir. ScriptManager eklemek iyi bir sağ açılış sunucu tarafı yerdir &lt;form&gt; etiketi. ScriptManager, sayfaya (ScriptManager AJAX uzantılar sekmesi altında bulunur) araç kutusundan sürükleyebilirsiniz. Alternatif olarak, aşağıdaki etiketi altında sunucu tarafı formu etiketiyle kaynak görünüme yazabilirsiniz:
 
-&lt;asp:ScriptManager ID="ScriptManager1" runat="server" /&gt;
+&lt;ASP: ScriptManager kimliği = "ScriptManager1" runat = "server" /&gt;
 
-Tasarım görünümünde ColorPicker denetim genişletici eklemek için en kolay yoludur. Farenizi TextBox txtCardColor gelin, bir akıllı görev seçeneği etkinleştirir görünür genişletici eklemenizi (bkz: Şekil 3). Bu seçeneği seçerseniz, (bkz: Şekil 4) genişletici Sihirbazı görünür.
-
-
-[![Genişletici ekleme](using-the-colorpicker-control-extender-vb/_static/image3.jpg)](using-the-colorpicker-control-extender-vb/_static/image5.png)
-
-**Şekil 03**: genişletici ekleme ([tam boyutlu görüntüyü görüntülemek için tıklatın](using-the-colorpicker-control-extender-vb/_static/image6.png))
+Tasarım görünümünde ColorPicker denetim genişletici sayfasına eklemek için en kolay yoludur. Farenizi metin txtCardColor gelin, akıllı görev seçeneği sağlar görünür bir genişletici eklemeyi (bkz: Şekil 3). Bu seçeneği seçerseniz, genişletici Sihirbazı'nı (bkz: Şekil 4) görünür.
 
 
-[![Genişletici Sihirbazı'nı kullanarak bir denetim extender seçme](using-the-colorpicker-control-extender-vb/_static/image4.jpg)](using-the-colorpicker-control-extender-vb/_static/image7.png)
+[![Bir Genişletici ekleme](using-the-colorpicker-control-extender-vb/_static/image3.jpg)](using-the-colorpicker-control-extender-vb/_static/image5.png)
 
-**Şekil 04**: denetim genişletici genişletici Sihirbazı'nı seçerek ([tam boyutlu görüntüyü görüntülemek için tıklatın](using-the-colorpicker-control-extender-vb/_static/image8.png))
+**Şekil 03**: Bir Genişletici ekleme ([tam boyutlu görüntüyü görmek için tıklatın](using-the-colorpicker-control-extender-vb/_static/image6.png))
 
 
-ColorPicker genişletici ile TextBox txtCardColor genişletmek için ColorPicker genişletici seçebilirsiniz. İletişim kutusunu kapatmak için Tamam'ı tıklatın.
+[![Genişletici Sihirbazı ile bir denetim genişletici seçme](using-the-colorpicker-control-extender-vb/_static/image4.jpg)](using-the-colorpicker-control-extender-vb/_static/image7.png)
 
-Bu değişiklikleri yaptıktan sonra sayfa kaynağı listeleme 2 gibi görünüyor.
+**Şekil 04**: bir denetim genişletici genişletici Sihirbazı'nı seçerek ([tam boyutlu görüntüyü görmek için tıklatın](using-the-colorpicker-control-extender-vb/_static/image8.png))
 
-**2 - CreateCard.aspx (ile ColorPicker) listeleme**
+
+' % S'txtCardColor TextBox ColorPicker genişletici ile genişletmek için ColorPicker genişletici seçebilirsiniz. İletişim kutusunu kapatmak için Tamam'a tıklayın.
+
+Bu değişiklikleri yaptıktan sonra sayfa için kaynak listeleme 2 gibi görünüyor.
+
+**2 - CreateCard.aspx (ColorPicker ile) listeleme**
 
 [!code-aspx[Main](using-the-colorpicker-control-extender-vb/samples/sample2.aspx)]
 
-Sayfa artık doğrudan txtCardColor TextBox denetimi görünen ColorPickerExtender denetim içerdiğine dikkat edin. Böylece bir Renk Seçici iletişim kutusu görüntüler ColorPickerExtender denetim txtCardColor denetim genişletir.
+Sayfa artık doğrudan txtCardColor TextBox denetiminde görünen ColorPickerExtender denetim içerdiğine dikkat edin. Böylece bir Renk Seçici iletişim kutusu görüntüler ColorPickerExtender denetimi txtCardColor denetim genişletir.
 
-## <a name="using-a-button-to-launch-the-color-picker-dialog"></a>Renk Seçici iletişim düğme kullanarak
+## <a name="using-a-button-to-launch-the-color-picker-dialog"></a>Renk Seçici iletişim kutusunu başlatmak için bir düğme kullanma
 
 ColorPicker genişletici aşağıdaki özellikleri destekler:
 
-- PopupButtonId - görünmesi Renk Seçici iletişim neden sayfasındaki bir düğmeyi Kimliği'ni tıklatın.
-- PopupPosition - hedef denetimin Renk Seçici iletişim göre konumu. Olası değerler şunlardır: mutlak, merkezi, sol alt, BottomRight, sol üst, sağ üst, sağ ve sol (sol alt varsayılandır).
-- SampleControlId - seçilen rengin görüntüleyen bir denetim kimliği'ni tıklatın.
+- PopupButtonId - kimliği bir düğmeye sayfasında görüntülenecek Renk Seçici iletişim kutusunu neden olur.
+- PopupPosition - Renk Seçici iletişim kutusu, hedef denetime göre konumu. Olası değerler şunlardır: mutlak, merkezi, sol alt, BottomRight, sol üst, sağ üst, sağ ve sol (sol alt varsayılandır).
+- SampleControlId - seçilen rengin görüntüleyen bir denetimi Kimliği'ni tıklatın.
 - SelectedColor - ColorPicker tarafından seçilen ilk renk.
 
-Renk Seçici iletişim nasıl görüntülenir ve seçilen rengin nasıl görüntüleneceğini özelleştirmek için bu özellikleri kullanabilirsiniz. Sayfanın listeleme 3'te birkaç bu özelliklerin nasıl kullanabileceğiniz gösterilmektedir.
+Bu özellikler, bir Renk Seçici iletişim kutusunu nasıl görüntüleneceğini ve seçilen rengin nasıl görüntüleneceğini özelleştirmek için kullanabilirsiniz. Sayfa listesi 3'te birkaç bu özelliklerin nasıl kullanabileceğinizi gösterir.
 
-**Listing 3 - CreateCardButton.aspx**
+**3 - CreateCardButton.aspx listeleme**
 
 [!code-aspx[Main](using-the-colorpicker-control-extender-vb/samples/sample3.aspx)]
 
-Renk Seç sayfasında listeleme 3'te içerir (bkz. Şekil 5) düğmesine tıklayın. Bu düğmeye tıkladığınızda, TextBox Renk Seçici iletişim kutusu görüntülenir. İletişim kutusundan bir renk seçerseniz seçili renk etiket denetimi lblSample arka plan rengi olarak görünür.
+Renk Seç sayfasında listeleme 3 içerir (bkz: Şekil 5) düğmesi. Bu düğmeye tıkladığınızda, metin kutusunun Renk Seçici iletişim kutusu görünür. İletişim kutusundan bir renk seçin, seçilen rengin lblSample etiket denetiminin arka plan rengi görünür.
 
-ColorPicker PopupButtonID özelliği, Renk Seç düğmesini ColorPicker extender ile ilişkilendirmek için kullanılır. PopupButtonID özelliği için bir değer sağladığında, hedef denetimi odağa sahip olduğunda Renk Seçici iletişim kutusu artık görünür. İletişim kutusunu görüntülemek için düğmesini gerekir.
+ColorPicker PopupButtonID özelliği, çekme rengi düğmesi ColorPicker genişletici ile ilişkilendirmek için kullanılır. PopupButtonID özelliği için bir değer sağladığında, hedef denetim odağa sahip olduğunda Renk Seçici iletişim bundan böyle görünür. İletişim kutusunu görüntülemek için düğmesine tıklamanız gerekir.
 
-SampleControlID özelliği ColorPicker seçili renkle görüntüleyen bir denetim ilişkilendirmek için kullanılır. ColorPicker bu denetim arka plan rengini şu anda seçili renk değiştirir.
+SampleControlID özellik ColorPicker seçilen rengi görüntüleyen bir denetimi ilişkilendirmek için kullanılır. ColorPicker bu denetimin arka plan rengini şu anda seçilen renge değişir.
 
 
-[![Düğme için Renk Seçici iletişim kutusunu görüntüleme](using-the-colorpicker-control-extender-vb/_static/image5.jpg)](using-the-colorpicker-control-extender-vb/_static/image9.png)
+[![Renk Seçici iletişim kutusunu bir düğme ile görüntüleme](using-the-colorpicker-control-extender-vb/_static/image5.jpg)](using-the-colorpicker-control-extender-vb/_static/image9.png)
 
-**Şekil 05**: düğme için Renk Seçici iletişim kutusunu görüntüleme ([tam boyutlu görüntüyü görüntülemek için tıklatın](using-the-colorpicker-control-extender-vb/_static/image10.png))
+**Şekil 05**: Renk Seçici iletişim kutusunu bir düğme ile görüntüleme ([tam boyutlu görüntüyü görmek için tıklatın](using-the-colorpicker-control-extender-vb/_static/image10.png))
 
 
 ## <a name="summary"></a>Özet
 
-Bu öğreticide, ColorPicker denetim genişletici açılan Renk Seçici iletişim kutusunu görüntülemek için nasıl kullanılacağı hakkında bilgi edindiniz. İlk olarak, odak TextBox denetimine taşındığında nasıl iletişim kutusunu görüntüleyebilir incelendi. Ardından, Renk Seçici iletişim düğmesine tıklandığında görüntüleyen bir düğmeye oluşturma hakkında bilgi edindiniz.
+Bu öğreticide, bir açılan Renk Seçici iletişim kutusunu görüntülemek için ColorPicker denetim genişletici kullanmayı öğrendiniz. İlk olarak, odağı bir TextBox denetimine taşındığında nasıl iletişim görüntüleyebilirsiniz incelenir. Ardından, düğmeye tıklandığında, Renk Seçici iletişim kutusunu görüntüleyen bir düğmenin nasıl oluşturulacağını öğrendiniz.
 
 > [!div class="step-by-step"]
 > [Önceki](using-the-colorpicker-control-extender-cs.md)

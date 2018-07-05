@@ -1,32 +1,31 @@
 ---
 uid: web-forms/videos/ajax-control-toolkit/how-do-i-configure-the-aspnet-ajax-calendar-control
-title: '[Nasıl stop yaparım] ASP.NET AJAX Takvim denetimi yapılandırma? | Microsoft Docs'
+title: '[Bunu nasıl yaparım:] ASP.NET AJAX takvim denetimini yapılandırma? | Microsoft Docs'
 author: JoeStagner
-description: Bu videoda gösterimini görünümünü yapılandırma seçenekleri çeşitli ve t Takvim genişletici denetiminden davranışını bakın …
+description: Bu videoda bir örnek t Takvim genişletici denetimi davranışını ve görünümünü yapılandırma seçenekleri çeşitli görüyoruz...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/30/2007
 ms.topic: article
 ms.assetid: bee087cc-7fed-4dce-8b52-19987f2d38a6
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-configure-the-aspnet-ajax-calendar-control
 msc.type: video
-ms.openlocfilehash: 2a044ce23f80d5d6781d4c8b96ad19bb1aaa704b
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: e640cfefef69324458fd0549a938ea09ae2329b7
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30884372"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37392623"
 ---
-<a name="how-do-i-configure-the-aspnet-ajax-calendar-control"></a>[Nasıl stop yaparım] ASP.NET AJAX Takvim denetimi yapılandırma?
+<a name="how-do-i-configure-the-aspnet-ajax-calendar-control"></a>[Bunu nasıl yaparım:] ASP.NET AJAX takvim denetimini yapılandırma?
 ====================
-tarafından [CAN Stagner](https://github.com/JoeStagner)
+tarafından [ALi Stagner](https://github.com/JoeStagner)
 
-Bu videoda gösterimini görünümünü yapılandırma seçenekleri çeşitli ve ASP.NET AJAX Denetim Araç Seti Takvim genişletici denetiminden davranışını bakın.
+Bu videoda ASP.NET AJAX Denetim Araç Seti Takvim genişletici denetimi davranışını ve görünümünü yapılandırma seçenekleri çeşitli Tanıtımı görüyoruz.
 
-[&#9654;(8 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-configure-the-aspnet-ajax-calendar-control)
+[&#9654;Videoyu (8 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-configure-the-aspnet-ajax-calendar-control)
 
 > [!div class="step-by-step"]
 > [Önceki](how-do-i-use-the-aspnet-ajax-autocomplete-control.md)
-> [sonraki](how-do-i-use-the-aspnet-ajax-dropdown-control.md)
+> [İleri](how-do-i-use-the-aspnet-ajax-dropdown-control.md)

@@ -1,34 +1,33 @@
 ---
 uid: web-forms/overview/data-access/working-with-batched-data/index
-title: Toplu verileri ile çalışma | Microsoft Docs
+title: Toplu verilerle çalışma | Microsoft Docs
 author: rick-anderson
-description: Bu öğreticileri, güncelleştirme, silme ve işlemleri kullanarak verileri toplu ekleme arayın.
+description: Bu öğretici, güncelleştirme, silme ve toplu işlem kullanarak veri ekleme, bakın.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
 ms.topic: article
 ms.assetid: 95a1d7d3-7fc2-44ac-b27b-912e0e045ee5
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data
 msc.type: chapter
-ms.openlocfilehash: 1a6af028c2d4ac8b6085a34bec16893d1e1632af
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 58d5f30e05998ad663c803fcb9ad3dd163533d62
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26568734"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37389489"
 ---
-<a name="working-with-batched-data"></a>Toplu verileri ile çalışma
+<a name="working-with-batched-data"></a>Toplu verilerle çalışma
 ====================
-> Bu öğreticileri, güncelleştirme, silme ve işlemleri kullanarak verileri toplu ekleme arayın.
+> Bu öğretici, güncelleştirme, silme ve toplu işlem kullanarak veri ekleme, bakın.
 
 
-- [Bir işlem (C#) içinde kaydırma veritabanı değişiklikleri](wrapping-database-modifications-within-a-transaction-cs.md)
-- [Toplu güncelleştirme (C#)](batch-updating-cs.md)
-- [Toplu silme (C#)](batch-deleting-cs.md)
-- [Toplu ekleme (C#)](batch-inserting-cs.md)
-- [Bir işlem (VB) içinde kaydırma veritabanı değişiklikleri](wrapping-database-modifications-within-a-transaction-vb.md)
-- [Toplu güncelleştirme (VB)](batch-updating-vb.md)
-- [Toplu silme (VB)](batch-deleting-vb.md)
-- [Toplu ekleme (VB)](batch-inserting-vb.md)
+- [Veritabanı Değişikliklerini Bir İşlemin İçinde Sarmalama (C#)](wrapping-database-modifications-within-a-transaction-cs.md)
+- [Toplu Güncelleştirme (C#)](batch-updating-cs.md)
+- [Toplu Silme (C#)](batch-deleting-cs.md)
+- [Toplu Ekleme (C#)](batch-inserting-cs.md)
+- [Veritabanı Değişikliklerini Bir İşlemin İçinde Sarmalama (VB)](wrapping-database-modifications-within-a-transaction-vb.md)
+- [Toplu Güncelleştirme (VB)](batch-updating-vb.md)
+- [Toplu Silme (VB)](batch-deleting-vb.md)
+- [Toplu Ekleme (VB)](batch-inserting-vb.md)

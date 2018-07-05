@@ -1,132 +1,131 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/master-pages/specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb
-title: Başlık, Meta etiketler ve diğer HTML üstbilgileri ana sayfa (VB) belirtme | Microsoft Docs
+title: (VB) ana sayfada başlık, Meta etiketler ve diğer HTML üst bilgilerini belirtme | Microsoft Docs
 author: rick-anderson
-description: Getirilebilir tanımlamak için farklı teknikleri bakan &lt;head&gt; içerik sayfasından ana sayfa öğelerinde.
+description: Çeşitli tanımlamak için farklı teknik bakan &lt;baş&gt; içerik sayfasından ana sayfa öğeleri.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/21/2008
 ms.topic: article
 ms.assetid: ea8196f5-039d-43ec-8447-8997ad4d3900
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b8bf9d32eee3e35ffc84521f7f82f7beecc99a0c
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 139fe0f67ddc067e0e23eed99569d7f6de533482
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30891451"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37380713"
 ---
-<a name="specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb"></a>Başlık, Meta etiketler ve diğer HTML üstbilgileri ana sayfa (VB) belirtme
+<a name="specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb"></a>(VB) ana sayfada başlık, Meta etiketler ve diğer HTML üst bilgilerini belirtme
 ====================
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Kodu indirme](http://download.microsoft.com/download/e/e/f/eef369f5-743a-4a52-908f-b6532c4ce0a4/ASPNET_MasterPages_Tutorial_03_VB.zip) veya [PDF indirin](http://download.microsoft.com/download/8/f/6/8f6349e4-6554-405a-bcd7-9b094ba5089a/ASPNET_MasterPages_Tutorial_03_VB.pdf)
+[Kodu indir](http://download.microsoft.com/download/e/e/f/eef369f5-743a-4a52-908f-b6532c4ce0a4/ASPNET_MasterPages_Tutorial_03_VB.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/8/f/6/8f6349e4-6554-405a-bcd7-9b094ba5089a/ASPNET_MasterPages_Tutorial_03_VB.pdf)
 
-> Getirilebilir tanımlamak için farklı teknikleri bakan &lt;head&gt; içerik sayfasından ana sayfa öğelerinde.
+> Çeşitli tanımlamak için farklı teknik bakan &lt;baş&gt; içerik sayfasından ana sayfa öğeleri.
 
 
 ## <a name="introduction"></a>Giriş
 
-Visual Studio 2008'de oluşturulan yeni ana sayfa varsa, varsayılan olarak, iki ContentPlaceHolder denetimi: adlı bir `head`ve bulunan `<head>` öğesi; ve adlı bir `ContentPlaceHolder1`, Web Form içinde yerleştirilmiş. Amacı `ContentPlaceHolder1` bir sayfa tarafından temelinde özelleştirilebilir Web formunda bir bölge tanımlamaktır. `head` ContentPlaceHolder sağlayan özel içeriğe ekleme sayfaları `<head>` bölümü. (Doğal olarak, bu iki ContentPlaceHolders için değiştirilmiş veya kaldırılabilir ve ek ContentPlaceHolder ana sayfaya eklenebilir. Ana sayfamızı `Site.master`, şu anda dört ContentPlaceHolder denetimleri vardır.)
+Visual Studio 2008'de oluşturulan yeni ana sayfa varsa, varsayılan olarak, iki ContentPlaceHolder denetimi: adlı bir `head`, bulunur `<head>` öğesi; ve adlı bir `ContentPlaceHolder1`, Web formu içinde yapıldı. Amacı `ContentPlaceHolder1` sayfa tarafından temelinde özelleştirilebilir Web formunda bir bölge tanımlamaktır. `head` ContentPlaceHolder sağlayan özel içeriğinizi sayfalarına `<head>` bölümü. (Kuşkusuz, bu iki ContentPlaceHolder değiştirilebilir veya kaldırıldı ve ek ContentPlaceHolder ana sayfasına eklenebilir. Ana sayfamızı `Site.master`, şu anda dört ContentPlaceHolder denetim yok.)
 
-HTML `<head>` öğesi, belge parçası olmayan web sayfası belge hakkında bilgi için depo görür. Dosyaları arama motorları veya iç gezginleri ve RSS akışları, JavaScript ve CSS gibi dış kaynaklara bağlantılar tarafından kullanılan meta bilgileri, bu web sayfasının başlığı gibi bilgileri içerir. Bu bilgilerin bazıları, Web sitesindeki tüm sayfalara ilgili olabilir. Örneğin, genel olarak aynı CSS kuralları ve her ASP.NET sayfası için JavaScript dosyaları almak isteyebilirsiniz. Ancak, bazı bölümleri vardır `<head>` sayfaya özgü öğesi. Sayfa başlığı birincil bir örnektir.
+HTML `<head>` öğesi belgesi bir parçası değil web sayfası belge hakkında bilgiler için bir depo olarak hizmet verir. Dosya meta bilgileri arama motorları veya iç gezginler ve RSS akışları, JavaScript ve CSS gibi dış kaynaklara yönelik bağlantılar tarafından kullanılan, bu web sayfasının başlığı gibi bilgileri içerir. Bu bilgilerin bazıları, Web sitesindeki tüm sayfalara ilgili olabilir. Örneğin, genel olarak aynı CSS kurallarını ve her ASP.NET sayfası için JavaScript dosyaları almak isteyebilirsiniz. Ancak, bazı bölümleri vardır `<head>` sayfaya özgü öğesi. Sayfa başlığı birincil bir örnektir.
 
-Bu öğreticide genel ve özel sayfa nasıl tanımlanacağı inceleyeceğiz `<head>` bölüm biçimlendirme ana sayfa ve içerik sayfaları.
+Bu öğreticide, genel ve özel sayfa nasıl tanımlanacağını inceleyeceğiz `<head>` ana sayfa ve içerik sayfalarını bölüm biçimlendirme.
 
-## <a name="examining-the-master-pagesheadsection"></a>Ana sayfanın inceleniyor`<head>`bölümü
+## <a name="examining-the-master-pagesheadsection"></a>Ana sayfanın İnceleme`<head>`bölümü
 
 Visual Studio 2008 tarafından oluşturulan varsayılan ana sayfa dosyası aşağıdaki biçimlendirmede içeren kendi `<head>` bölümü:
 
 
 [!code-aspx[Main](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/samples/sample1.aspx)]
 
-Dikkat `<head>` öğesi içeren bir `runat="server"` özniteliği bir sunucu denetimi (yerine statik HTML) olduğunu gösterir. Tüm ASP.NET sayfaları türetin [ `Page` sınıfı](https://msdn.microsoft.com/library/system.web.ui.page.aspx), bulunan `System.Web.UI` ad alanı. Bu sınıf içeren bir [ `Header` özelliği](https://msdn.microsoft.com/library/system.web.ui.page.header.aspx) sayfanın erişim sağlayan `<head>` bölge. Kullanarak `Header` biz bir ASP.NET sayfasının başlığı ayarlayın veya ek biçimlendirme işlenmiş ekleme özelliği `<head>` bölümü. Ardından, bir içerik sayfasının özelleştirmek için mümkündür `<head>` sayfanın içinde biraz kod yazarak öğesi `Page_Load` olay işleyicisi. Programlı olarak sayfanın başlığı adım 1'de nasıl ayarlanacağı inceleyeceğiz.
+Dikkat `<head>` öğesi içeren bir `runat="server"` özniteliği, bir sunucu denetimi (yerine statik HTML) olduğunu gösterir. Tüm ASP.NET sayfaları türetilmesi [ `Page` sınıfı](https://msdn.microsoft.com/library/system.web.ui.page.aspx), bulunan `System.Web.UI` ad alanı. Bu sınıf içeren bir [ `Header` özelliği](https://msdn.microsoft.com/library/system.web.ui.page.header.aspx) sayfanın erişim sağlayan `<head>` bölge. Kullanarak `Header` biz bir ASP.NET sayfasının başlığı ayarlayın veya ek biçimlendirme işlenmiş ekleme özelliği `<head>` bölümü. Ardından, bir içerik sayfasının özelleştirmek için mümkündür `<head>` sayfanın içinde biraz kod yazarak öğe `Page_Load` olay işleyicisi. 1. adımda sayfanın başlığı programlanarak nasıl ayarlanacağını inceleyeceğiz.
 
-Gösterilen biçimlendirme `<head>` yukarıdaki öğesi de içerir adlı ContentPlaceHolder denetiminin `head`. Özel içerik için içerik sayfalarına ekleyebilirsiniz gibi bu ContentPlaceHolder denetimi gerekli değildir `<head>` öğesi programlı olarak. Bununla birlikte, burada bir içerik sayfasını gereken static işaretleme eklemek için durumlarda yararlı `<head>` öğesi static işaretleme olarak eklenebilir bildirimli olarak karşılık gelen içerik denetimi için yerine programlı olarak.
+Gösterilen biçimlendirme `<head>` yukarıdaki öğesi de içerir adlı ContentPlaceHolder denetiminin `head`. Özel içerik için içerik sayfalarına ekleyebilirsiniz gibi bu ContentPlaceHolder denetim gerekli değil `<head>` öğesi programlı olarak. Bununla birlikte, statik biçimlendirme eklemek için bir içerik sayfasının gereken yere durumlarda kullanışlı olduğunu `<head>` öğesi static işaretleme olarak eklenebilir bildirimli olarak karşılık gelen içerik denetimi yerine programlı olarak.
 
-Ek olarak `<title>` öğesi ve `head` ContentPlaceHolder, ana sayfaya ait `<head>` öğesi herhangi içermelidir `<head>`-tüm sayfalar için ortak düzeyi biçimlendirme. Bizim Web sitesinin tüm sayfaları tanımlanan CSS kurallarıyla `Styles.css` dosya. Sonuç olarak, biz güncelleştirilmiş `<head>` öğesinde [ *ana sayfalar Site genelinde düzen oluşturma* ](creating-a-site-wide-layout-using-master-pages-vb.md) karşılık gelen içerecek şekilde öğretici `<link>` öğesi. Bizim `Site.master` ana sayfa geçerli `<head>` biçimlendirme aşağıda gösterilmektedir.
+Ek olarak `<title>` öğesi ve `head` ContentPlaceHolder, ana sayfaya ait `<head>` öğe herhangi içermelidir `<head>`-tüm sayfalar için ortak düzeyi biçimlendirme. Sitemizin, tüm sayfaları içinde tanımlanan CSS kurallarını kullanın. `Styles.css` dosya. Sonuç olarak, güncelleştirdik `<head>` öğesinde [ *ana sayfalarıyla Site geneli bir düzen oluşturma* ](creating-a-site-wide-layout-using-master-pages-vb.md) karşılık gelen bir ekleme için öğreticiyi `<link>` öğesi. Bizim `Site.master` ana sayfa geçerli `<head>` biçimlendirme aşağıda gösterilmektedir.
 
 
 [!code-aspx[Main](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/samples/sample2.aspx)]
 
-## <a name="step-1-setting-a-content-pages-title"></a>1. adım: bir içerik sayfasının başlık ayarlama
+## <a name="step-1-setting-a-content-pages-title"></a>1. adım: bir içerik sayfasının başlığı ayarlama
 
-Web sayfasının başlığı aracılığıyla belirtilen `<title>` öğesi. Her sayfanın başlığı uygun bir değere ayarlamak önemlidir. Bir sayfasını ziyaret başlığını tarayıcının başlık çubuğunda görüntülenir. Ayrıca, bir sayfaya yer işareti ekleme, tarayıcılar sayfanın başlığı yer işareti için önerilen adı olarak kullanın. Ayrıca, birçok arama motorları arama sonuçlarını görüntülerken, sayfanın başlığı göster.
+Web sayfasının başlığı aracılığıyla belirtilen `<title>` öğesi. Her sayfanın başlığını uygun bir değere ayarlamak önemlidir. Bir sayfasını ziyaret ederek başlığını tarayıcının başlık çubuğunda görüntülenir. Ayrıca, bir sayfa yer işareti ekleme, tarayıcılar başlığı önerilen adı için yer işareti olarak kullanın. Ayrıca, birçok arama motorları, arama sonuçlarını görüntülerken başlığı gösterir.
 
 > [!NOTE]
-> Varsayılan olarak, Visual Studio ayarlar `<title>` "Adsız Sayfa" ana sayfaya öğe. Benzer şekilde, yeni ASP.NET sayfaları sahip kendi `<title>` "Adsız sayfasına" çok ayarlayın. Sayfanın başlığı uygun bir değere ayarlamak unuttunuz kolay olabileceği için birçok sayfa var. "Adsız Sayfa" başlıklı Internet'te Bu ada sahip web sayfaları için Google arama kabaca 2,460,000 sonuçlar döndürür. Hatta Microsoft "Adsız Sayfa" başlıklı web sayfaları yayımlama açıktır. Bu yazma aynı anda bir Google araması Microsoft.com etki alanındaki 236 gibi web sayfaları bildirdi.
+> Varsayılan olarak, Visual Studio ayarlar `<title>` "Adsız Sayfa" ana sayfasına öğe. Benzer şekilde, yeni ASP.NET sayfaları sahip kullanıcıların `<title>` "Adsız sayfasına" çok ayarlayın. Bu sayfanın başlığını uygun bir değere ayarlamak unutmak çok kolaydır bu nedenle, çok sayıda sayfa var. "Adsız Sayfa" başlıklı Internet Bu konu başlığı ile web sayfaları için Google arama kabaca 2,460,000 sonuçlarını döndürür. Microsoft'un bile, "Adsız Sayfa" başlıklı web sayfaları yayımlama açıktır. Bu makalenin yazıldığı sırada, Google arama Microsoft.com etki alanında böyle 236 web sayfaları bildirdi.
 
 
 Bir ASP.NET sayfasının başlığı aşağıdaki yollardan birini belirtebilirsiniz:
 
-- Doğrudan içindeki değer yerleştirerek `<title>` öğesi
+- Değeri içinde doğrudan yerleştirerek `<title>` öğesi
 - Kullanarak `Title` özniteliğini `<%@ Page %>` yönergesi
-- Program aracılığıyla sayfanın ayarlama `Title` özelliğine benzer bir kod kullanarak `Page.Title="title"` veya `Page.Header.Title="title"`.
+- Sayfanın programlı olarak ayarlama `Title` kullanan kod gibi özellik `Page.Title="title"` veya `Page.Header.Title="title"`.
 
-İçerik sayfaları sahip bir `<title>` şekliyle öğesi ana sayfasında tanımlanır. Bu nedenle, bir içerik sayfasının başlığı ayarlamak için kullanabilir `<%@ Page %>` yönergesi'nın `Title` özniteliği veya programlı olarak ayarlayın.
+İçerik sayfaları sahip değilseniz bir `<title>` öğesi, ana sayfada tanımlanır. Bu nedenle, bir içerik sayfasının başlığı ayarlamak için kullanabilir `<%@ Page %>` yönergesinin `Title` özniteliği veya programlı olarak ayarlayın.
 
-### <a name="setting-the-pages-title-declaratively"></a>Sayfanın başlığı bildirimli olarak ayarlama
+### <a name="setting-the-pages-title-declaratively"></a>Başlığı bildirimli olarak ayarlama
 
-Bir içerik sayfasının başlığı bildirimli olarak aracılığıyla ayarlanabilir `Title` özniteliği [ `<%@ Page %>` yönergesi](https://msdn.microsoft.com/library/ydy4x04a.aspx). Bu özellik, doğrudan değiştirerek ayarlanabilir `<%@ Page %>` yönergesi veya Özellikler penceresini aracılığıyla. Her iki yaklaşımın bakalım.
+Bir içerik sayfasının başlığı bildirimli olarak aracılığıyla ayarlanabilir `Title` özniteliği [ `<%@ Page %>` yönergesi](https://msdn.microsoft.com/library/ydy4x04a.aspx). Bu özellik, doğrudan değiştirerek ayarlanabilir `<%@ Page %>` yönerge veya Özellikler penceresi aracılığıyla. Her iki yaklaşım göz atalım.
 
-Kaynağı görünümünden bulun `<%@ Page %>` bildirim temelli biçimlendirme sayfanın üst kısmındaki yönergesi. `<%@ Page %>` İçin yönerge `Default.aspx` izler:
+Kaynağı görünümünden bulun `<%@ Page %>` bildirim temelli işaretleme sayfanın üst kısmındaki yönergesi. `<%@ Page %>` Yönergesi `Default.aspx` izler:
 
 
 [!code-aspx[Main](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/samples/sample3.aspx)]
 
-`<%@ Page %>` Yönergesi ayrıştırma ve derleme sayfası ASP.NET altyapısı tarafından kullanılan sayfa özel öznitelikleri belirtir. Bu, ana sayfa dosyası, kendi kod dosyası ve diğer bilgileri arasında başlığını konumunu içerir.
+`<%@ Page %>` Yönergesi, ayrıştırma ve derleme sayfası ASP.NET altyapısı tarafından kullanılan bir sayfaya özgü öznitelikleri belirtir. Bu, ana sayfa dosyası, kendi kod dosyasını ve diğer bilgileri arasında başlığını konumunu içerir.
 
-Visual Studio ayarlar yeni bir içerik sayfasını oluştururken, varsayılan olarak, `Title` özniteliği "Adsız sayfasına". Değişiklik `Default.aspx`'s `Title` "Adsız sayfasından" "Ana sayfa öğreticileri için" öznitelik ve ardından sayfanın tarayıcısından görüntüleyin. Şekil 1 yeni sayfa başlığını yansıtır tarayıcının başlık çubuğunda gösterilir.
-
-
-![Tarayıcının başlık çubuğunda şimdi gösterir &quot;ana sayfa öğreticileri&quot; yerine &quot;adsız sayfa&quot;](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image1.png)
-
-**Şekil 01**: tarayıcının başlık çubuğunda "Adsız Sayfa" yerine "ana sayfa öğreticileri" şimdi gösterir
+Visual Studio ayarlar yeni bir içerik sayfası oluştururken, varsayılan olarak `Title` "Adsız Sayfa" özniteliği. Değişiklik `Default.aspx`'s `Title` "Ana sayfa öğreticilere" özniteliği "Adsız sayfasından" ve ardından sayfanın bir tarayıcı aracılığıyla görüntüleyin. Şekil 1 yeni sayfa başlığının yansıtan, tarayıcının başlık çubuğunda gösterilir.
 
 
-Sayfanın başlığı Özellikler penceresinden de ayarlanabilir. Özellikler penceresinden belge içeren yük sayfa düzeyi özellikleri için aşağı açılan listeden seçin `Title` özelliği. Şekil 2 gösterir sonra Özellikler penceresinde `Title` "Ana sayfa öğreticileri için" ayarlayın.
+![Tarayıcının başlık çubuğunda gösterdiğini &quot;ana sayfa öğreticiler&quot; yerine &quot;adsız sayfa&quot;](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image1.png)
+
+**Şekil 01**: tarayıcının başlık çubuğunda artık "Adsız Sayfa" yerine "ana sayfa öğreticiler" gösterilir
 
 
-![Özellikler penceresini başlıktan çok yapılandırabilirsiniz](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image2.png)
-
-**Şekil 02**: Özellikler penceresini başlıktan çok yapılandırabilirsiniz
+Başlığı, Özellikler penceresinden de ayarlanabilir. Özellikler penceresinden belge içeren yük sayfa düzeyi özellikleri için aşağı açılan listeden seçin `Title` özelliği. Şekil 2 gösteren Özellikler penceresi sonra `Title` "Ana sayfa öğreticilerine" ayarlayın.
 
 
-### <a name="setting-the-pages-title-programmatically"></a>Sayfanın başlığı programlı olarak ayarlama
+![Özellikler penceresinde başlık çok yapılandırabilirsiniz](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image2.png)
 
-Ana sayfanın `<head runat="server">` biçimlendirme çevrilir bir [ `HtmlHead` sınıfı](https://msdn.microsoft.com/library/system.web.ui.htmlcontrols.htmlhead.aspx) sayfası ASP.NET altyapısı tarafından işlendiğinde örneği. `HtmlHead` Sınıfına sahip bir [ `Title` özelliği](https://msdn.microsoft.com/library/system.web.ui.htmlcontrols.htmlhead.title.aspx) değeri yansıtılır işlenen içinde `<title>` öğesi. Bu özellik bir ASP.NET sayfasının arka plan kodu sınıftan erişilebilen `Page.Header.Title`; bu aynı özellik de erişilebilir aracılığıyla `Page.Title`.
+**Şekil 02**: Başlık Özellikler penceresinden çok yapılandırabilirsiniz
 
-Sayfanın başlığı programlı olarak ayarlama alıştırma, gitmek için `About.aspx` sayfanın arka plandaki kod sınıfı ve sayfa için bir olay işleyicisi oluşturun `Load` olay. Ardından, sayfanın başlığı kümesine "ana sayfa öğreticileri:: hakkında:: *tarih*", burada *tarih* geçerli tarihtir. Bu kod ekledikten sonra `Page_Load` olay işleyicisi aşağıdakine benzer görünmelidir:
+
+### <a name="setting-the-pages-title-programmatically"></a>Başlığı programlı olarak ayarlama
+
+Ana sayfanın `<head runat="server">` biçimlendirme çevrilir bir [ `HtmlHead` sınıfı](https://msdn.microsoft.com/library/system.web.ui.htmlcontrols.htmlhead.aspx) sayfa ASP.NET altyapısı tarafından işlendiğinde örneği. `HtmlHead` Sınıfında bir [ `Title` özelliği](https://msdn.microsoft.com/library/system.web.ui.htmlcontrols.htmlhead.title.aspx) değeri yansıtılır işlenen içinde `<title>` öğesi. Bu özellik, bir ASP.NET sayfasının arka plan kod sınıftan erişilebilir `Page.Header.Title`; bu aynı özelliği de erişilebilir aracılığıyla `Page.Title`.
+
+Uygulama Başlığı programlı olarak ayarlama, gitmek için `About.aspx` sayfa arka plan kod sınıfı ve sayfa için bir olay işleyicisi oluşturun `Load` olay. Ardından, başlığı ayarlayın "ana sayfa öğreticiler:: hakkında:: *tarih*" burada *tarih* geçerli tarihtir. Bu kodu ekledikten sonra `Page_Load` olay işleyicisi aşağıdaki gibi görünmelidir:
 
 
 [!code-vb[Main](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/samples/sample4.vb)]
 
-Şekil 3 gösterir tarayıcının başlık çubuğunda ziyaret eden `About.aspx` sayfası.
+Şekil 3 gösterir tarayıcının başlık çubuğunda ziyaret `About.aspx` sayfası.
 
 
-![Sayfanın başlığı programlı olarak ayarlama ve geçerli tarih içerir](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image3.png)
+![Başlığı programlı olarak ayarlama ve geçerli tarih içerir](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image3.png)
 
-**Şekil 03**: sayfanın başlığı programlı olarak ayarlama ve geçerli tarih içerir
+**Şekil 03**: başlığı programlı olarak ayarlama ve geçerli tarih içerir
 
 
-## <a name="step-2-automatically-assigning-a-page-title"></a>2. adım: Otomatik olarak bir sayfa başlığı atama
+## <a name="step-2-automatically-assigning-a-page-title"></a>2. adım: Sayfa başlığı otomatik olarak atama
 
-Adım 1'de gördüğümüz gibi bir sayfanın başlığı bildirimli olarak veya program aracılığıyla ayarlanabilir. Ancak, açıkça daha açıklayıcı bir başlık değiştirmek unutursanız, sayfanızı "Adsız Sayfa" varsayılan başlık gerekir. Biz açıkça değerini belirtmeyin gerektiğinde, ideal olarak, sayfanın başlığı otomatik olarak bize için ayarlanır. Örneğin, çalışma zamanında "Adsız Sayfa" sayfanın başlığı ise, biz ASP.NET sayfanın dosya adı ile aynı olacak şekilde otomatik olarak güncelleştirilir ve başlığının yüklü olduğu isteyebilirsiniz. İyi haber biraz ön iş otomatik olarak atanan başlık olması mümkündür sahip olmasıdır.
+1. adımda gördüğümüz gibi bir başlığı bildirimli olarak veya programlama yoluyla ayarlanabilir. Ancak, açıkça bir şey daha açıklayıcı başlığını değiştirme unutursanız, sayfanız "Adsız Sayfa" varsayılan başlık olacaktır. Biz açıkça değerini belirtmeyin olay, ideal olarak, başlığı otomatik olarak bizim için ayarlanır. Örneğin, çalışma zamanında, başlığı "Adsız Sayfa" ise, biz ASP.NET sayfanın dosya adı ile aynı olacak şekilde otomatik olarak güncelleştirilen başlığı isteyebilirsiniz. Güzel bir haberimiz var biraz otomatik olarak atanan başlığı olması mümkündür önceden çalışmanın ile olmasıdır.
 
-Tüm ASP.NET web sayfaları türetin `Page` System.Web.UI ad alanında sınıfı. `Page` Sınıfı bir ASP.NET sayfası tarafından gerekli en düşük işlevselliği tanımlar ve gibi temel özellikleri gösterir `IsPostBack`, `IsValid`, `Request`, ve `Response`, diğer birçok arasında. Görmemeleri, her bir web uygulaması sayfasında ek özellikler veya işlevsellikler gerektirir. Bu sağlama yaygın bir yolu, özel taban sayfası sınıfı oluşturmaktır. Türetilen bir sınıfı, oluşturduğunuz özel taban sayfası sınıftır `Page` sınıfı ve ek işlevler içerir. Taban sınıfı oluşturulduktan sonra bu sınıftan türetilen, ASP.NET sayfaları olabilir (yerine `Page` sınıfı), böylece, ASP.NET sayfaları için genişletilmiş işlevselliği sunar.
+Tüm ASP.NET web sayfaları türetilmesi `Page` System.Web.UI ad alanı sınıf. `Page` Sınıfı gibi temel özellikleri gösterir ve ASP.NET sayfası tarafından gereken en düşük işlevi tanımlar `IsPostBack`, `IsValid`, `Request`, ve `Response`, birçok diğerlerinin yanı sıra. Aktardığınızda genellikle, bir web uygulamasındaki her sayfa, ek özellikler veya işlevsellikler gerektirir. Bu sağlama yaygın bir yolu, bir özel taban sayfası sınıfı oluşturmaktır. Türetilen bir sınıf oluşturduğunuz özel taban sayfası sınıftır `Page` sınıfı ve ek işlevler içerir. Bu temel sınıf oluşturulduktan sonra ASP.NET sayfaları türetmeniz olabilir (yerine `Page` sınıfı), böylece, ASP.NET sayfaları için genişletilmiş işlevselliği sunar.
 
-Bu adımda başlığı aksi açıkça ayarlanmamışsa, ASP.NET sayfa filename sayfanın başlığı otomatik olarak ayarlar bir taban sayfası oluşturun. 3. adım site haritasını kullanan sayfanın başlığı ayarı adresindeki arar.
+Bu adımda başlığı yoksa açıkça ayarlanmamışsa başlığı ASP.NET sayfa dosya adına otomatik olarak ayarlar temel bir sayfa oluşturacağız. Adım 3, site haritasına dayalı başlığı ayarlanırken arar.
 
 > [!NOTE]
-> Oluşturma ve özel taban sayfası sınıfları kullanma hakkında kapsamlı bir inceleme Bu öğretici seri kapsamında değildir. Daha fazla bilgi için okuma [özel taban sınıfı için bilgisayarınızı ASP.NET sayfalarının arka plan kodu sınıfları kullanarak](http://aspnet.4guysfromrolla.com/articles/041305-1.aspx).
+> Bu öğretici serisinin oluşturma ve özel taban sayfası sınıflarını kullanarak kapsamlı bir incelemesini kapsamıdır. Daha fazla bilgi için okuma [bilgisayarınızı ASP.NET sayfalarının arka plan kod sınıfları için özel bir temel sınıf kullanarak](http://aspnet.4guysfromrolla.com/articles/041305-1.aspx).
 
 
 ### <a name="creating-the-base-page-class"></a>Taban sayfası sınıfı oluşturma
 
-Bizim ilk genişleten bir sınıf bir taban sayfası sınıfı oluşturmak üzere bir görevdir `Page` sınıfı. Başlangıç ekleyerek bir `App_Code` projenizi Çözüm Gezgini'nde proje adına sağ tıklayarak, ASP.NET klasörü Ekle seçerek ve ardından seçerek klasörüne `App_Code`. Ardından, sağ tıklayın `App_Code` klasörü ve adlı yeni bir sınıf ekleyin `BasePage.vb`. Şekil 4 gösterir sonra Çözüm Gezgini `App_Code` klasör ve `BasePage.vb` sınıfı eklendi.
+Bizim ilk görev genişleten bir sınıfı, bir taban sayfası sınıfı oluşturmaktır `Page` sınıfı. Başlangıç ekleyerek bir `App_Code` klasör Çözüm Gezgini'nde proje adının üzerine sağ tıklayın, ASP.NET klasörü Ekle'ı seçerek ve ardından seçerek projenize `App_Code`. Ardından, sağ `App_Code` klasörü ve adlı yeni bir sınıf ekleyin `BasePage.vb`. Şekil 4'te gösterildiği sonra Çözüm Gezgini `App_Code` klasörü ve `BasePage.vb` sınıfı eklendi.
 
 
 ![App_Code klasörünü ve BasePage adlı bir sınıf ekleyin](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image4.png)
@@ -135,30 +134,30 @@ Bizim ilk genişleten bir sınıf bir taban sayfası sınıfı oluşturmak üzer
 
 
 > [!NOTE]
-> Visual Studio Proje yönetimi iki modlarını destekler: Web sitesi projeleri ve Web Uygulama projeleri. `App_Code` Klasör Web sitesi projesini modeliyle kullanılmak üzere tasarlanmıştır. Web uygulama projesi model kullanıyorsanız, yerleştirin `BasePage.vb` sınıf dışında bir klasörde `App_Code`, gibi `Classes`. Bu konu hakkında daha fazla bilgi için bkz [bir Web uygulaması projesine bir Web sitesi projesini geçirme](http://webproject.scottgu.com/VisualBasic/Migration2/Migration2.aspx).
+> Visual Studio, proje yönetimi iki modu destekler: Web sitesi projeleri ve Web Uygulama projeleri. `App_Code` Klasör Web sitesi projesi modeliyle kullanılmak üzere tasarlanmıştır. Web uygulaması proje modeli kullanıyorsanız yerleştirmeniz `BasePage.vb` sınıf dışında bir şey adlı bir klasörde `App_Code`, gibi `Classes`. Bu konu hakkında daha fazla bilgi için [bir Web uygulaması projesi için bir Web sitesi projesi geçirme](http://webproject.scottgu.com/VisualBasic/Migration2/Migration2.aspx).
 
 
-ASP.NET sayfaları arka plan kodu sınıflar için temel sınıf olarak özel taban sayfası işlevlerini yaptığından genişletmek gereken `Page` sınıfı.
+ASP.NET sayfalarının arka plan kod sınıflar için temel sınıf olarak özel taban sayfası proxy'sisi işlevi görmesi nedeniyle, genişletmek ihtiyaç duyduğu `Page` sınıfı.
 
 
 [!code-vb[Main](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/samples/sample5.vb)]
 
-Bir ASP.NET sayfasının istenen her bir dizi HTML'e oluşturulmakta olan istenen sayfaya sonuçlanan aşamaları boyunca devam eder. Geçersiz kılarak biz bir aşamada dokunabilirsiniz `Page` sınıfının `OnEvent` yöntemi. Bizim temeli sayfasında şimdi onu açıkça tarafından belirtilmemiş başlığı otomatik olarak ayarlamanız `LoadComplete` aşama (, tahmin olarak oluştuğu sonra `Load` aşama).
+Bir ASP.NET sayfasına istenen her aşama, istenen sayfayı HTML'e işlenen olarak sonuçlanan bir dizi boyunca devam eder. Geçersiz kılarak biz bir aşamada dokunabilir `Page` sınıfın `OnEvent` yöntemi. Tabanımızda sayfasında şimdi onu açıkça tarafından belirtilmemiş başlığını otomatik olarak ayarlayın `LoadComplete` aşama (hangi tahmin, sistemdeki sonra `Load` aşama).
 
 Bunu gerçekleştirmek için geçersiz kılma `OnLoadComplete` yöntemi ve aşağıdaki kodu girin:
 
 
 [!code-vb[Main](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/samples/sample6.vb)]
 
-`OnLoadComplete` Yöntemi başlatır, belirleyerek `Title` özelliği henüz açıkça ayarlanmamış. Varsa `Title` özelliği `Nothing`, boş bir dize veya "Adsız Sayfa" değerine sahip istenen ASP.NET sayfası dosya adına atanır. İstenen ASP.NET sayfası - fiziksel yolu `C:\MySites\Tutorial03\Login.aspx`, örneğin - aracılığıyla erişilebilir durumda `Request.PhysicalPath` özelliği. `Path.GetFileNameWithoutExtension` Yöntemi yalnızca dosya adı kısmını çekmek için kullanılır ve bu dosya daha sonra atandığı `Page.Title` özelliği.
+`OnLoadComplete` Yöntemi başlatır, belirleyerek `Title` özelliği henüz açıkça ayarlanmamış. Varsa `Title` özelliği `Nothing`, boş bir dize ya da "Adsız Sayfa" değerine sahip istenen ASP.NET sayfası dosya adı için atanır. İstenen ASP.NET sayfası - fiziksel yolu `C:\MySites\Tutorial03\Login.aspx`, örneğin - aracılığıyla erişilebilir durumda `Request.PhysicalPath` özelliği. `Path.GetFileNameWithoutExtension` Yöntemi yalnızca dosya adı kısmını çekmek için kullanılır ve bu dosya daha sonra atanan `Page.Title` özelliği.
 
 > [!NOTE]
-> Başlık biçimi artırmak için bu mantığı geliştirmek için davet. Örneğin sayfanın dosya adı, `Company-Products.aspx`, yukarıdaki kod "Şirket-ürünleri" başlığı oluşturur, ancak ideal olarak tire "Şirket ürünleri" olduğu gibi bir alanı ile değiştirilmesi. Ayrıca, büyük bir değişiklik olduğunda bir alanı eklemeyi düşünün. Diğer bir deyişle, filename dönüştüren kod eklemeyi düşünün `OurBusinessHours.aspx` için bir başlık, "Mız iş saatleri".
+> Başlık biçimi geliştirmek için bu mantıksal geliştirmek için davet ettiğim. Örneğin, sayfanın dosya adı ise `Company-Products.aspx`, yukarıdaki kod, başlığı "Şirket-Ürün" oluşturur, ancak "Şirket ürünleri" olduğu gibi bir boşluk ile dash ideal geçecekti. Ayrıca, büyük/küçük bir değişiklik olduğunda, bir boşluk eklemeyi düşünün. Diğer bir deyişle, dosya adı dönüştüren kod eklemeyi göz önünde bulundurun `OurBusinessHours.aspx` için bir başlık, "Mız iş saatleri".
 
 
-### <a name="having-the-content-pages-inherit-the-base-page-class"></a>Taban sayfası sınıfı içerik sayfalarına sahip
+### <a name="having-the-content-pages-inherit-the-base-page-class"></a>Taban sayfası sınıfı içerik sayfalarını sahip
 
-Şimdi özel temel sayfasından çıkarmaya sitemizi ASP.NET sayfaları güncelleştirmek ihtiyacımız (`BasePage`) yerine `Page` sınıfı. Her arka plandaki kod sınıfı bu Git gerçekleştirmek ve sınıf bildiriminden değiştirmek için:
+Biz artık özel bir ana sayfasından türetmek için sitemizi ASP.NET sayfaları güncelleştirmeniz gerekiyor (`BasePage`) yerine `Page` sınıfı. Her kod arkası sınıfı bu Git gerçekleştirmek ve sınıf bildiriminden değiştirmek için:
 
 
 [!code-vb[Main](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/samples/sample7.vb)]
@@ -168,39 +167,39 @@ Hedef:
 
 [!code-vb[Main](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/samples/sample8.vb)]
 
-Bunu yaptıktan sonra bir tarayıcı aracılığıyla sitesini ziyaret edin. Başlığı açık olarak ayarlandığında, gibi bir sayfasını ziyaret edin, `Default.aspx` veya `About.aspx`, açıkça belirtilen başlık kullanılır. Ancak, varsayılan ("adsız sayfası"), başlık değiştirilmedi bir sayfasını ziyaret edin, taban sayfası sınıfı sayfanın dosya adı başlığı ayarlar.
+Bunu yaptıktan sonra bir tarayıcı aracılığıyla sitesini ziyaret edin. Ayarlanmış başlık açıkça ayarlandığında, gibi bir sayfasını ziyaret edin, `Default.aspx` veya `About.aspx`, açıkça belirtilen başlık kullanılır. Ancak bu, varsayılan ("Adsız Sayfa") ayarlanmış başlık değiştirilmediğinden bir sayfasını ziyaret edin, taban sayfası sınıfı başlığı sayfanın dosya adı için ayarlar.
 
 Şekil 5 gösterir `MultipleContentPlaceHolders.aspx` sayfasında bir tarayıcıdan görüntülendiğinde. Başlık tam olarak sayfanın dosya adı (daha az uzantılı) olduğunu unutmayın "MultipleContentPlaceHolders".
 
 
-[![Başlık belirtilmemiş açıkça ise, sayfanın dosya adı otomatik olarak kullanılır](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image6.png)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image5.png)
+[![Bir başlık açıkça belirtilmezse, sayfanın dosya adı otomatik olarak kullanılır](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image6.png)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image5.png)
 
-**Şekil 05**: bir başlık açıkça belirtilmezse, sayfanın dosya adı otomatik olarak kullanılan ise ([tam boyutlu görüntüyü görüntülemek için tıklatın](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image7.png))
+**Şekil 05**: bir başlık açıkça belirtilmezse, sayfanın dosya adı otomatik olarak kullanılır ([tam boyutlu görüntüyü görmek için tıklatın](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image7.png))
 
 
-## <a name="step-3-basing-the-page-title-on-the-site-map"></a>3. adım: sayfa başlığı Site Haritası alma
+## <a name="step-3-basing-the-page-title-on-the-site-map"></a>3. adım: sayfa başlığının Site haritada taşınmaz.
 
-ASP.NET sayfası geliştiricilerinin hiyerarşik site haritası (örneğin, bir XML dosyası veya veritabanı tablosu) dış kaynak (örneğin, SiteMapPath site haritası hakkında bilgi görüntülemek için Web denetimlerle birlikte tanımlamak sağlam site haritası framework sunar Menü ve TreeView denetimleri).
+ASP.NET sayfası geliştiricilerinin birlikte (örneğin, SiteMapPath site haritası hakkında bilgi görüntülemek için Web denetimleri (örneğin, bir XML dosyası veya veritabanı tablo) bir dış kaynağa hiyerarşik site haritası tanımlamak bir güçlü site haritası altyapı sunar. Menü ve TreeView denetimleri).
 
-Site eşlemesi yapısı, bir ASP.NET sayfasının arka plan kodu sınıfından de bir program aracılığıyla erişilebilir. Bu şekilde size otomatik olarak bir sayfanın başlığı karşılık gelen düğümü başlıkla site eşlemesinde ayarlayabilirsiniz. Şimdi geliştirmek `BasePage` bu işlevselliği sunduğunu için 2. adımda oluşturulan sınıf. Ancak önce site için site haritası oluşturmak ihtiyacımız.
+Site haritası yapısı, bir ASP.NET sayfasının arka plan kod sınıfı da bir program aracılığıyla erişilebilir. Bu şekilde size otomatik olarak bir başlığı, ilgili düğüm başlığına site eşlemesinde ayarlayabilirsiniz. Şimdi geliştirmek `BasePage` sınıfı bu işlevselliği sunar, böylece 2. adımda oluşturmuştunuz. Ancak önce site için site haritası oluşturmak oluşturmamız gerekir.
 
 > [!NOTE]
-> Bu öğretici, okuyucu zaten ASP ile alışkın olduğu varsayılır. NET'in site haritası özellikleri. Site haritası kullanma hakkında daha fazla bilgi için my çok parçalı makale serisi başvurun [ASP inceleniyor. NET'in Site gezintisi](http://aspnet.4guysfromrolla.com/articles/111605-1.aspx).
+> Bu öğreticide, okuyucu zaten ASP ile alışkın olduğu varsayılır. NET site haritası özellikleri. Site haritası kullanma hakkında daha fazla bilgi için Bilgisayarım çok parçalı makale serisi başvurun [ASP inceleniyor. NET Site gezintisi](http://aspnet.4guysfromrolla.com/articles/111605-1.aspx).
 
 
 ### <a name="creating-the-site-map"></a>Site Haritası oluşturma
 
-Site eşlemesi sistem üzerinde oluşturulmuş [sağlayıcı modeli](http://aspnet.4guysfromrolla.com/articles/101905-1.aspx), bellek ve kalıcı depoya arasında site haritası bilgi serileştiren mantığı site haritası API ayrıştırır. .NET Framework ile birlikte [ `XmlSiteMapProvider` sınıfı](https://msdn.microsoft.com/library/system.web.xmlsitemapprovider.aspx), varsayılan site haritası sağlayıcısı olduğu. Adından da anlaşılacağı gibi `XmlSiteMapProvider` kendi site haritası depo olarak bir XML dosyası kullanır. Bizim site haritası tanımlamak için bu sağlayıcıyı kullanalım.
+Site haritası sistemi üzerine kurulmuştur [sağlayıcı modeli](http://aspnet.4guysfromrolla.com/articles/101905-1.aspx), bellek ve kalıcı bir depoya arasında site haritası bilgileri serileştiren mantıksal site haritası API ayırır. .NET Framework ile birlikte gelen [ `XmlSiteMapProvider` sınıfı](https://msdn.microsoft.com/library/system.web.xmlsitemapprovider.aspx), varsayılan site haritası sağlayıcısı olduğu. Adından da anlaşılacağı gibi `XmlSiteMapProvider` kendi site haritası deposu olarak bir XML dosyası kullanır. Bizim site haritası tanımlamak için bu sağlayıcıyı kullanalım.
 
-Başlangıç adlı Web sitesinin kök klasöründe bir site haritası dosyası oluşturarak `Web.sitemap`. Bunu başarmak için Çözüm Gezgini'nde Web sitesi adına sağ tıklayın, yeni öğe Ekle'ı seçin ve Site Haritası şablonu seçin. Dosya adlandırılır olun `Web.sitemap` ve Ekle'yi tıklatın.
-
-
-[![Web sitenizin kök klasörüne birtakım adlı bir dosya ekleme](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image9.png)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image8.png)
-
-**Şekil 06**: adlandırılmış dosya ekleme `Web.sitemap` Web sitenizin kök klasörüne ([tam boyutlu görüntüyü görüntülemek için tıklatın](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image10.png))
+Adlı Web sitesinin kök klasöründe bir site haritası dosyası oluşturarak başlayın `Web.sitemap`. Bunu yapmak için Çözüm Gezgini'nde Web sitesi adına sağ tıklayın, yeni öğe Ekle öğesini seçin ve Site Haritası şablonu seçin. Dosyanın nasıl adlandırıldığı emin olun `Web.sitemap` ve Ekle'ye tıklayın.
 
 
-Aşağıdaki XML eklemek `Web.sitemap` dosyası:
+[![Web sitenizin kök klasörüne birtakım adlı bir dosya ekleyin](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image9.png)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image8.png)
+
+**Şekil 06**: adlı bir dosya ekleme `Web.sitemap` Web sitesinin kök klasöre ([tam boyutlu görüntüyü görmek için tıklatın](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image10.png))
+
+
+Eklemek için aşağıdaki XML `Web.sitemap` dosyası:
 
 
 [!code-xml[Main](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/samples/sample9.xml)]
@@ -208,150 +207,150 @@ Aşağıdaki XML eklemek `Web.sitemap` dosyası:
 Bu XML Şekil 7'de gösterilen hiyerarşik site haritası yapısını tanımlar.
 
 
-![Site Haritasını şu anda oluşur, üç Site Haritası düğüm olması](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image11.png)
+![Şu anda oluşan üç Site Haritası düğümlerin Site Haritası](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image11.png)
 
-**Şekil 07**: Site Haritası olduğundan şu anda oluşur, üç Site Haritası düğümü
+**Şekil 07**: Site Haritası, şu anda oluşan, üç Site Haritası düğümü
 
 
-Biz yeni örnekleri ekledikçe sonraki öğreticilerde site haritası yapısı güncelleştireceğiz.
+Yeni örnekler eklediğimiz gibi sonraki öğreticilerde site haritası yapısı güncelleştireceğiz.
 
-### <a name="updating-the-master-page-to-include-navigation-web-controls"></a>Gezinti Web denetimleri eklemek için ana sayfa güncelleştiriliyor
+### <a name="updating-the-master-page-to-include-navigation-web-controls"></a>Ana sayfa gezinti Web denetimleri içerecek şekilde güncelleştirme
 
-Biz tanımlı bir site haritası sahip olduğunuza göre şimdi Gezinti Web denetimleri eklemek için ana sayfa güncelleştirin. Özellikle, bir ListView denetimi site eşlemesinde tanımlanmış her düğüm için bir liste öğesi ile sırasız bir listesini oluşturur dersleri bölümünde sol sütuna ekleyelim.
+Tanımlanan bir site haritası sahibiz, gezinti Web denetimleri içerecek şekilde ana sayfaya güncelleştirelim. Özellikle, bir ListView denetimi sol sütuna sırasız bir listesini içeren bir liste öğesi site eşlemesi içinde tanımlanan her düğüm için işler dersleri bölümünde ekleyelim.
 
 > [!NOTE]
-> ListView denetimi ASP.NET sürüm 3.5 yeni bir özelliktir. ASP.NET önceki bir sürümünü kullanıyorsanız, bunun yerine yineleyici denetimi kullanın. ListView denetimi hakkında daha fazla bilgi için bkz: [kullanarak ASP.NET 3.5'ın ListView ve DataPager denetimleri](http://aspnet.4guysfromrolla.com/articles/122607-1.aspx).
+> ListView denetimi, sürüm 3.5 ASP.NET için yeni bir özelliktir. Repeater denetimiyle, ASP.NET'in önceki bir sürümünü kullanıyorsanız, bunun yerine kullanın. ListView denetimi hakkında daha fazla bilgi için bkz. [kullanarak ASP.NET 3.5'ın ListView ve DataPager denetimleri](http://aspnet.4guysfromrolla.com/articles/122607-1.aspx).
 
 
-Varolan sırasız liste biçimlendirme dersleri bölümünden kaldırarak başlayın. Ardından, Araç Kutusu'ndan ListView denetimine sürükleyin ve dersleri bırakma başlığı. ListView araç, bir görünüm denetimleri yanında veri bölümünde bulunur: GridView, DetailsView ve FormView. ListView's ayarlamak `ID` özelliğine `LessonsList`.
+Mevcut sırasız liste biçimlendirme dersleri bölümünden kaldırarak başlayın. Ardından, bir ListView denetimi araç kutusundan sürükleyip bırakın dersleri başlığı. ListView araç, bir görünüm denetimleri yanı sıra veri bölümünde bulunur: GridView DetailsView ve FormView. ListView'ın ayarlamak `ID` özelliğini `LessonsList`.
 
-ListView adlı yeni bir SiteMapDataSource denetimi bağlamak için veri kaynağı Yapılandırma Sihirbazı ' seçin `LessonsDataSource`. SiteMapDataSource denetimini hiyerarşik bir yapı site haritası sisteminden döndürür.
-
-
-[![SiteMapDataSource denetimini LessonsList ListView denetimine bağlama](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image13.png)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image12.png)
-
-**Şekil 08**: SiteMapDataSource denetimini LessonsList ListView denetimine bağlama ([tam boyutlu görüntüyü görüntülemek için tıklatın](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image14.png))
+ListView adlı yeni bir SiteMapDataSource denetimine bağlamak veri kaynağı Yapılandırma Sihirbazı ' seçin `LessonsDataSource`. SiteMapDataSource denetim site haritası sisteminden hiyerarşik yapısı döndürür.
 
 
-SiteMapDataSource denetimini oluşturduktan sonra biz SiteMapDataSource denetim tarafından döndürülen her düğüm için bir liste öğesi ile sırasız bir listesini oluşturur böylece ListView'ın şablonları tanımlamanız gerekir. Bu, aşağıdaki şablonu biçimlendirme kullanılarak gerçekleştirilebilir:
+[![Bir SiteMapDataSource denetimini LessonsList ListView denetimine bağlama](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image13.png)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image12.png)
+
+**Şekil 08**: SiteMapDataSource denetimini LessonsList ListView denetimine Bağla ([tam boyutlu görüntüyü görmek için tıklatın](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image14.png))
+
+
+SiteMapDataSource denetimi oluşturduktan sonra sırasız bir listesini içeren bir liste öğesi SiteMapDataSource control tarafından döndürülen her düğüm için işler, böylece ListView'ın şablonlarını tanımlamak ihtiyacımız var. Bu, aşağıdaki şablon biçimlendirme kullanarak gerçekleştirilebilir:
 
 
 [!code-aspx[Main](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/samples/sample10.aspx)]
 
-`LayoutTemplate` Sırasız bir listesini için biçimlendirme oluşturur (`<ul>...</ul>`) sırada `ItemTemplate` liste öğesi olarak SiteMapDataSource tarafından döndürülen her bir öğeyi işler (`<li>`) belirli Ders bağlantısını içerir.
+`LayoutTemplate` Sırasız bir listesini için biçimlendirme oluşturur (`<ul>...</ul>`) sırada `ItemTemplate` SiteMapDataSource olarak bir liste öğesi tarafından döndürülen her bir öğe işler (`<li>`), belirli Ders bir bağlantı içerir.
 
-ListView'ın şablonları yapılandırdıktan sonra Web sitesini ziyaret edin. Şekil 9 gösterildiği gibi tek bir madde işaretli öğe, giriş dersleri bölüm içerir. Hakkında ve birden çok ContentPlaceHolder denetimleri dersleri kullanarak nerede? SiteMapDataSource hiyerarşik bir veri kümesi döndürmek için tasarlanmıştır ancak ListView denetimi yalnızca tek bir hiyerarşi düzeyi görüntüleyebilirsiniz. Sonuç olarak, yalnızca ilk düzeyi SiteMapDataSource tarafından döndürülen site haritası düğümlerinin görüntülenir.
-
-
-[![Bir tek liste öğesi dersleri bölümü içerir](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image16.png)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image15.png)
-
-**Şekil 09**: tek bir liste öğesi dersleri bölüm içerir ([tam boyutlu görüntüyü görüntülemek için tıklatın](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image17.png))
+ListView'ın şablonları yapılandırdıktan sonra Web sitesini ziyaret edin. Şekil 9 gösterildiği gibi tek bir madde işaretli öğe, giriş dersleri bölümü içerir. Hakkında ve birden çok ContentPlaceHolder denetimleri dersleri kullanarak nerede? SiteMapDataSource hiyerarşik bir veri kümesini döndürmek için tasarlanmıştır ancak ListView denetimi yalnızca tek bir hiyerarşi düzeyi görüntüleyebilirsiniz. Sonuç olarak, yalnızca ilk düzeyi SiteMapDataSource tarafından döndürülen site haritası düğümlerinin görüntülenir.
 
 
-Birden çok düzeyi görüntülenecek biz içinde birden çok ListViews içe `ItemTemplate`. Bu teknik incelenmesi [ *ana sayfalar ve Site gezintisi* öğretici](../../data-access/introduction/master-pages-and-site-navigation-vb.md) , my [veri öğretici serisi çalışma](../../data-access/index.md). Ancak, Bu öğretici seri için bizim site haritası yalnızca iki düzey içerir: Giriş (en üst düzey); ve bir alt giriş olarak her Ders. İç içe ListView oluşturmak yerine, biz yerine başlangıç düğümü ayarlayarak değil döndürülecek SiteMapDataSource söyleyebilirsiniz kendi [ `ShowStartingNode` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sitemapdatasource.showstartingnode.aspx) için `False`. SiteMapDataSource ikinci katman site haritası düğümlerinin döndürerek başlayacağını net etkisidir.
+[![Tek bir liste öğesi dersleri bölümü içerir](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image16.png)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image15.png)
 
-Bu değişikliği ListView madde işareti öğeleri hakkında için görüntüler ve kullanarak birden çok ContentPlaceHolder denetimleri dersler, ancak bir madde işareti öğesi için giriş atlar. Bu sorunu gidermek için şu açıkça bir madde işareti öğesi için giriş ekleyebilirsiniz `LayoutTemplate`:
+**Şekil 09**: tek bir liste öğesi dersleri bölümü içerir ([tam boyutlu görüntüyü görmek için tıklatın](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image17.png))
+
+
+Birden çok düzeyi görüntülemek için biz birden çok ListViews içinde iç içe geçirebilirsiniz `ItemTemplate`. Bu teknik, denetlenen [ *ana sayfalar ve Site gezintisi* öğretici](../../data-access/introduction/master-pages-and-site-navigation-vb.md) , my [çalışma ile verileri öğretici serisinin](../../data-access/index.md). Ancak, Bu öğretici dizisinde bizim site haritası yalnızca iki düzeyi içerir: ana (üst düzey); ve her Ders bir alt giriş öğesi olarak. İç içe geçmiş bir ListView oluşturmak yerine, biz bunun yerine başlangıç düğümünün ayarlayarak değil döndürülecek SiteMapDataSource bildirebilirsiniz kendi [ `ShowStartingNode` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sitemapdatasource.showstartingnode.aspx) için `False`. Site haritası düğümlerinin ikinci katman döndürerek SiteMapDataSource başlar net etkisidir.
+
+Bu değişikliğe ListView hakkında için madde işaretlerini görüntüler ve birden çok ContentPlaceHolder denetimleri kullanarak dersler, ancak giriş için madde işareti öğesi atlar. Bu sorunu gidermek için açıkça bir madde işareti öğesi için giriş sayfasında ekleyebiliriz `LayoutTemplate`:
 
 
 [!code-aspx[Main](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/samples/sample11.aspx)]
 
-Başlangıç düğümü atlamak için SiteMapDataSource yapılandırma ve açıkça bir giriş madde işareti öğesi ekleme dersleri bölümü artık hedeflenen çıktısını görüntüler.
+Başlangıç düğümünün atlamak için SiteMapDataSource yapılandırma ve açıkça bir giriş madde işareti öğesi ekleme dersleri bölümü artık hedeflenen çıkış görüntüler.
 
 
-[![Dersleri bölüm madde öğesi, giriş ve her alt düğüm içerir.](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image19.png)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image18.png)
+[![Ders bölümüne bir madde işareti öğesi, giriş ve her alt düğüm içerir.](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image19.png)](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image18.png)
 
-**Şekil 10**: giriş ve her alt düğüm için madde öğesi dersleri bölüm içerir ([tam boyutlu görüntüyü görüntülemek için tıklatın](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image20.png))
-
-
-### <a name="setting-the-title-based-on-the-site-map"></a>Site Haritasını kullanan başlık ayarlama
-
-Yerinde site haritası ile güncelleştiriyoruz bizim `BasePage` site eşlemesinde belirtilen başlık kullanılacak sınıfı. 2. adımda yaptığımız gibi yalnızca sayfanın başlığı sayfasında geliştirici tarafından açıkça ayarlanmamış ise site haritası düğümün başlık kullanılacak istiyoruz. İstenen sayfa açıkça ayarlanmış yoksa sayfa başlığı ve 2. adımda yaptığımız gibi biz istenen sayfanın dosya adı (daha az uzantılı) kullanmaya geri döner sonra site haritası bulunamadı. Şekil 11 bu karar işlemi gösterilmektedir.
+**Şekil 10**: dersleri bölümüne bir madde işareti öğesi, giriş ve her alt düğüm içerir. ([tam boyutlu görüntüyü görmek için tıklatın](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image20.png))
 
 
-![Bir açıkça sayfa konu başlığını ayarla olmaması durumunda, ilgili Site Haritası düğümün başlık kullanılır](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image21.png)
+### <a name="setting-the-title-based-on-the-site-map"></a>Site haritasına dayalı başlık ayarlama
 
-**Şekil 11**: bir açıkça sayfa konu başlığını ayarla olmaması durumunda, ilgili Site Haritası düğümün başlık kullanılır
+Site haritası ile yerinde güncelleştiriyoruz bizim `BasePage` site eşlemesinde belirtilen başlık kullanılacak sınıfı. Adım 2'de yaptığımız gibi yalnızca başlığı sayfasında geliştirici tarafından açıkça ayarlanmadı site haritası düğümün başlık kullanılacak istiyoruz. İstenen sayfa açıkça ayarlanmış bir yoksa sayfa başlığı ve 2. adımda yaptığımız gibi biz istenen sayfanın dosya adı (daha az uzantılı) kullanmaya geri döner sonra site haritası içinde bulunamadı. Şekil 11 bu karar alma sürecini gösterir.
 
 
-Güncelleştirme `BasePage` sınıfının `OnLoadComplete` yöntemine aşağıdaki kodu ekleyin:
+![Bir açıkça ayarlamak sayfa başlığı olmaması durumunda karşılık gelen Site Haritası düğümün başlık kullanılır](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image21.png)
+
+**Şekil 11**: bir açıkça ayarlamak sayfa başlığı olmaması durumunda karşılık gelen Site Haritası düğümün başlık kullanılır
+
+
+Güncelleştirme `BasePage` sınıfın `OnLoadComplete` yöntemi aşağıdaki kodu ekleyin:
 
 
 [!code-vb[Main](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/samples/sample12.vb)]
 
-Önceki gibi `OnLoadComplete` yöntemi başlatır sayfanın başlığı açıkça ayarlanmış olup olmadığını belirleme. Varsa `Page.Title` olan `Nothing`, boş bir dize veya bir değere kodu otomatik olarak atar sonra "Adsız Sayfa" değeri atanır `Page.Title`.
+Önceki örneklerde olduğu gibi `OnLoadComplete` yöntemi başlığı açıkça ayarlanmış olup olmadığını belirleyerek başlatır. Varsa `Page.Title` olduğu `Nothing`, boş bir dize veya kod otomatik olarak bir değer atar sonra "Adsız Sayfa" değeri atanır `Page.Title`.
 
-Kullanılacak başlık belirlemek için kod başvurarak başlatır [ `SiteMap` sınıfı](https://msdn.microsoft.com/library/system.web.sitemap.aspx)'s [ `CurrentNode` özelliği](https://msdn.microsoft.com/library/system.web.sitemap.currentnode.aspx). `CurrentNode` döndürür [ `SiteMapNode` ](https://msdn.microsoft.com/library/system.web.sitemapnode.aspx) şu anda istenen sayfaya karşılık gelen site haritası örneği. Şu anda istenen sayfa varsayılarak site haritası içinde bulundu `SiteMapNode`'s `Title` özelliği, sayfanın başlığı atanır. Şu anda istenen sayfa site eşlemesinde değilse `CurrentNode` döndürür `Nothing` ve (2. adımda yapıldığı gibi) istenen sayfanın dosya adı'nın başlığı olarak kullanılır.
+Kullanılacak başlığı belirlemek için kod başvurarak başlatır [ `SiteMap` sınıfı](https://msdn.microsoft.com/library/system.web.sitemap.aspx)'s [ `CurrentNode` özelliği](https://msdn.microsoft.com/library/system.web.sitemap.currentnode.aspx). `CurrentNode` döndürür [ `SiteMapNode` ](https://msdn.microsoft.com/library/system.web.sitemapnode.aspx) örneği şu anda istenen sayfaya karşılık gelen site haritası. Şu anda istenen sayfa varsayılarak site haritası içinde bulundu `SiteMapNode`'s `Title` özellik başlığı için atanır. Şu anda istenen sayfa site eşlemesinde değilse `CurrentNode` döndürür `Nothing` ve (2. adımda yapıldığı gibi) istenen sayfanın dosya adı başlığı olarak kullanılır.
 
-Şekil 12 gösterir `MultipleContentPlaceHolders.aspx` sayfasında bir tarayıcıdan görüntülendiğinde. Bu sayfanın başlığı açıkça ayarlanmadığından, karşılık gelen site haritası düğümün başlık yerine kullanılır.
+Şekil 12 gösterir `MultipleContentPlaceHolders.aspx` sayfasında bir tarayıcıdan görüntülendiğinde. Bu başlığı açıkça ayarlanmadığından, karşılık gelen site haritası düğümün başlık yerine kullanılır.
 
 
-![MultipleContentPlaceHolders.aspx sayfanın başlığı Site Haritası çekilir](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image22.png)
+![Site Haritası çekilen MultipleContentPlaceHolders.aspx başlığı](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/_static/image22.png)
 
-**Şekil 12**: MultipleContentPlaceHolders.aspx sayfanın başlığı Site Haritası çekilen
+**Şekil 12**: MultipleContentPlaceHolders.aspx başlığı çekilmesini Site Haritası
 
 
 ## <a name="step-4-adding-other-page-specific-markup-to-theheadsection"></a>4. adım: Diğer sayfaya özgü biçimlendirme ekleme`<head>`bölümü
 
-Adım 1, 2 ve 3 Aranan özelleştirme adresindeki `<title>` sayfa sayfa başına öğe. Ek olarak `<title>`, `<head>` bölüm içerebilir `<meta>` öğeleri ve `<link>` öğeleri. Bu öğreticide daha önce belirtildiği gibi `Site.master`'s `<head>` bölüm içeren bir `<link>` öğesine `Styles.css`. Çünkü bu `<link>` öğenin ana sayfa içinde tanımlanan, yer aldığı `<head>` tüm içerik sayfalarının bölümü. Ancak nasıl biz Git ekleme hakkında `<meta>` ve `<link>` öğeleri sayfa tarafından temelinde?
+Adım 1, 2 ve 3 baktığı özelleştirme sırasında `<title>` sayfa sayfa başına öğe. Ek olarak `<title>`, `<head>` bölüm içerebilir `<meta>` öğeleri ve `<link>` öğeleri. Bu öğreticide daha önce belirtildiği gibi `Site.master`'s `<head>` bölümü içeren bir `<link>` öğesine `Styles.css`. Çünkü bu `<link>` öğe ana sayfasında tanımlanan, bunun içerdiği `<head>` tüm içerik sayfalarının bölümü. Ancak nasıl biz izlememiz ekleme hakkında `<meta>` ve `<link>` sayfa sayfa başına öğe?
 
-Sayfaya özgü içeriğe ekleme en kolay yolu `<head>` bölümdür ana sayfasında ContentPlaceHolder denetimi oluşturarak. Bu tür bir ContentPlaceHolder zaten sahibiz (adlı `head`). Bu nedenle, özel eklemek için `<head>` biçimlendirme, karşılık gelen oluşturmak içerik sayfasında denetimindeki ve biçimlendirme var. yerleştirin.
+Sayfaya özel içeriği eklemek için en kolay yolu `<head>` bölümdür ana sayfasında ContentPlaceHolder denetiminin oluşturarak. Zaten bir tür ContentPlaceHolder sahibiz (adlı `head`). Bu nedenle, özel eklemek için `<head>` biçimlendirme, karşılık gelen oluşturma biçimlendirme oraya ve içerik sayfasındaki denetimi.
 
-Ekleme özel göstermeye `<head>` biçimlendirme bir sayfaya şimdi dahil bir `<meta>` içerik sayfalarının geçerli bizim kümesine description öğesi. `<meta>` Description öğesi web sayfası hakkında kısa bir açıklama sağlar; arama sonuçlarını görüntülerken bu bilgileri herhangi bir formda çoğu arama motoru birleştirmek.
+Ekleme özel göstermek için `<head>` biçimlendirme bir sayfaya şimdi dahil bir `<meta>` description öğesi geçerli kümemizdeki içerik sayfaları için. `<meta>` Arama sonuçlarını görüntülerken bu bilgileri formunda çoğu arama motorları birleştirmek; description öğesi web sayfası hakkında kısa bir açıklama sağlar.
 
 A `<meta>` description öğesi aşağıdaki biçime sahiptir:
 
 
 [!code-html[Main](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/samples/sample13.html)]
 
-Bir içerik bu biçimlendirme eklemek için yukarıdaki metin ana sayfaya ait eşleyen içerik denetimi eklemek `head` ContentPlaceHolder. Örneğin, tanımlamak için bir `<meta>` description öğesi için `Default.aspx`, aşağıdaki biçimlendirmeyi ekleyin:
+Bu işaretleme bir içerik eklemek için yukarıdaki metin eşleyen ana sayfa için içerik denetimi eklemek `head` ContentPlaceHolder. Örneğin, tanımlamak için bir `<meta>` description öğesi için `Default.aspx`, aşağıdaki işaretlemeyi ekleyin:
 
 
 [!code-aspx[Main](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/samples/sample14.aspx)]
 
-Çünkü `head` ContentPlaceHolder HTML sayfasının gövdesinde değil, içerik denetimi eklenen biçimlendirme Tasarım görünümünde görüntülenmez. Görmek için `<meta>` Açıklama öğesi ziyaret `Default.aspx` bir tarayıcı aracılığıyla. Sayfa yüklendikten sonra kaynağını görüntülemek ve unutmayın `<head>` bölüm, içerik denetimi belirtilen biçimlendirme içerir.
+Çünkü `head` ContentPlaceHolder HTML sayfasının gövdesi içinde değil, eklenen içerik denetimi için biçimlendirme Tasarım görünümünde görüntülenmez. Görmek için `<meta>` açıklaması öğe ziyaret `Default.aspx` bir tarayıcı aracılığıyla. Sayfası yüklendikten sonra kaynağı görüntüleyin ve unutmayın `<head>` bölüm içerik denetimi belirtilen biçimlendirme içerir.
 
-Eklemek için bir dakikanızı ayırın `<meta>` açıklama öğelerine `About.aspx`, `MultipleContentPlaceHolders.aspx`, ve `Login.aspx`.
+Eklemek için birkaç dakikanızı `<meta>` açıklama öğeleri `About.aspx`, `MultipleContentPlaceHolders.aspx`, ve `Login.aspx`.
 
 ### <a name="programmatically-adding-markup-to-theheadregion"></a>Program aracılığıyla biçimlendirme ekleme`<head>`bölge
 
-`head` ContentPlaceHolder bildirimli olarak özel biçimlendirme ana sayfaya ait eklemek verir `<head>` bölge. Özel biçimlendirme de bir program aracılığıyla eklenebilir. Sözcüğünün `Page` sınıfının `Header` özelliği döndürür `HtmlHead` ana sayfada tanımlı örneği ( `<head runat="server">`).
+`head` ContentPlaceHolder aktarımlardaki bildirimli olarak ana sayfa için özel biçimlendirme eklemek bize `<head>` bölge. Özel biçimlendirme programlı olarak da eklenebilir. Bu geri çağırma `Page` sınıfın `Header` özelliği döndürür `HtmlHead` ana sayfasında tanımlanan örneği ( `<head runat="server">`).
 
-Program aracılığıyla içeriğe ekleme çalışabilme `<head>` bölge, içerik eklemek için dinamik olduğunda yararlıdır. Belki de sayfasını ziyaret kullanıcıya temel aldığı; belki de, bir veritabanından alınır. Bir nedenle bağımsız olarak, içeriği ekleyebilirsiniz `HtmlHead` denetimler ekleyerek kendi `Controls` koleksiyonu sözlüğüdür:
+Programlı olarak içerik ekleme `<head>` bölge, içerik eklemek için dinamik olduğunda yararlıdır. Belki de sayfasını ziyaret ederek kullanıcı temel alır. belki de, bir veritabanından alınır. Nedeni ne olursa olsun, içerik ekleyebilirsiniz `HtmlHead` denetimler ekleyerek kendi `Controls` koleksiyonu şu şekilde:
 
 
 [!code-vb[Main](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb/samples/sample15.vb)]
 
-Yukarıdaki kod ekler `<meta>` anahtar sözcükleri öğesine `<head>` bölgenin, sayfa açıklayan anahtar sözcükler virgülle ayrılmış bir listesini sağlar. Eklemeyi unutmayın bir `<meta>` oluşturduğunuz etiketi bir [ `HtmlMeta` ](https://msdn.microsoft.com/library/system.web.ui.htmlcontrols.htmlmeta.aspx) örneği, Ayarla kendi `Name` ve `Content` özellikleri ve ardından ekleyin `Header`'s `Controls` koleksiyonu. Benzer şekilde, programlı olarak eklemek için bir `<link>` öğesini oluşturmak bir [ `HtmlLink` ](https://msdn.microsoft.com/library/system.web.ui.htmlcontrols.htmllink.aspx) nesne özelliklerini ayarlayın ve ardından ekleyin `Header`'s `Controls` koleksiyonu.
+Yukarıdaki kod ekler `<meta>` keywords öğesi `<head>` bölgenin, ki bu sayfayı tanımlayan anahtar sözcükleri virgülle ayrılmış bir listesini sağlar. Eklemek için unutmayın bir `<meta>` oluşturduğunuz etiketi bir [ `HtmlMeta` ](https://msdn.microsoft.com/library/system.web.ui.htmlcontrols.htmlmeta.aspx) örnek olarak ayarlayın, `Name` ve `Content` özellikleri ve eklemeniz `Header`'s `Controls` koleksiyonu. Benzer şekilde, programlı olarak eklemek için bir `<link>` öğesi oluşturmak bir [ `HtmlLink` ](https://msdn.microsoft.com/library/system.web.ui.htmlcontrols.htmllink.aspx) nesne özelliklerini ayarlayın ve ardından ekleyin `Header`'s `Controls` koleksiyonu.
 
 > [!NOTE]
-> Rastgele biçimlendirmeleri eklemek için oluşturma bir [ `LiteralControl` ](https://msdn.microsoft.com/library/system.web.ui.literalcontrol.aspx) örneği, Ayarla kendi `Text` özelliği ve ardından ekleyin `Header`'s `Controls` koleksiyonu.
+> Rastgele biçimlendirme eklemek için oluşturun bir [ `LiteralControl` ](https://msdn.microsoft.com/library/system.web.ui.literalcontrol.aspx) örnek olarak ayarlayın, `Text` özelliği ve ardından ekleyin `Header`'s `Controls` koleksiyonu.
 
 
 ## <a name="summary"></a>Özet
 
-Bu öğreticide biz çeşitli şekillerde eklemek için arama `<head>` sayfa tarafından temelinde bölge biçimlendirme. Bir ana sayfa içermelidir bir `HtmlHead` örneği (`<head runat="server">`) bir ContentPlaceHolder ile. `HtmlHead` Örneğinin izin verdiği programlı olarak erişmek için içerik sayfalarına `<head>` bölgesini ve kullanıcının sayfası programlı ve bildirimli olarak ayarlamak için başlık; eklenecek özel biçimlendirme ContentPlaceHolder denetimi sağlar `<head>` İçerik denetimi bildirimli olarak bölümünden.
+Bu öğreticide eklemek için yol çeşitli incelemiştik `<head>` sayfa sayfa başına bölge biçimlendirme. Ana sayfa içermelidir bir `HtmlHead` örneği (`<head runat="server">`) ile bir ContentPlaceHolder. `HtmlHead` Örneğinin içerik sayfalarını program aracılığıyla erişmek için izin verdiği `<head>` bölge ve kullanıcının sayfası bildirimli ve programlı olarak ayarlamak için başlık; ContentPlaceHolder denetimini eklenecek özel biçimlendirme sağlayan `<head>` bir içerik denetimi bildirimli olarak bölümü.
 
-Mutluluk programlama!
+Mutlu programlama!
 
 ### <a name="further-reading"></a>Daha Fazla Bilgi
 
-Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
+Bu öğreticide ele alınan konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [Sayfanın başlığı ASP.NET dinamik olarak ayarlama](http://aspnet.4guysfromrolla.com/articles/051006-1.aspx)
-- [ASP inceleniyor. NET'in Site gezintisi](http://aspnet.4guysfromrolla.com/articles/111605-1.aspx)
-- [HTML Meta etiketleri kullanma](http://searchenginewatch.com/showPage.html?page=2167931)
-- [ASP.NET ana sayfalar](http://www.odetocode.com/articles/419.aspx)
+- [Başlığı ASP.NET'te dinamik olarak ayarlama](http://aspnet.4guysfromrolla.com/articles/051006-1.aspx)
+- [ASP inceleniyor. NET Site gezintisi](http://aspnet.4guysfromrolla.com/articles/111605-1.aspx)
+- [HTML Meta etiketler kullanma](http://searchenginewatch.com/showPage.html?page=2167931)
+- [ASP.NET ana sayfaları](http://www.odetocode.com/articles/419.aspx)
 - [ASP.NET 3.5'ın kullanarak ListView ve DataPager denetimleri](http://aspnet.4guysfromrolla.com/articles/122607-1.aspx)
-- [Özel bir taban sınıf, ASP.NET sayfaları için arka plan kodu sınıfları kullanma](http://aspnet.4guysfromrolla.com/articles/041305-1.aspx)
+- [ASP.NET sayfalarının arka plan kod sınıfları için özel bir temel sınıf kullanma](http://aspnet.4guysfromrolla.com/articles/041305-1.aspx)
 
 ### <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar birden çok ASP/ASP.NET books ve 4GuysFromRolla.com kurucusu, 1998 itibaren Microsoft Web teknolojileri ile çalışmaktadır. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 3.5 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Tan adresindeki ulaşılabilir [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) veya kendi blog aracılığıyla [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar 1998'de bu yana birden çok ASP/ASP.NET books ve poshbeauty.com sitesinin 4GuysFromRolla.com, Microsoft Web teknolojileri ile çalışmaktadır. Scott, bağımsız Danışman, Eğitimci ve yazıcı çalışır. En son nitelemiştir olan [ *Unleashed'i öğretin kendiniz ASP.NET 3.5 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Scott, konumunda ulaşılabilir [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) veya kendi blog'da aracılığıyla [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Özel teşekkürler
 
-Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama gözden geçirenler Zack Can ve Suchi Banerjee yoktu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
+Bu öğretici serisinde, birçok yararlı Gözden Geçiren tarafından gözden geçirildi. Bu öğretici için müşteri adayı gözden geçirenler Zack Jones ve Suchi Banerjee yoktu. Yaklaşan My MSDN makaleleri gözden geçirme ilgileniyor musunuz? Bu durumda, bir satır bana bırak [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
 
 > [!div class="step-by-step"]
 > [Önceki](multiple-contentplaceholders-and-default-content-vb.md)
-> [sonraki](urls-in-master-pages-vb.md)
+> [İleri](urls-in-master-pages-vb.md)

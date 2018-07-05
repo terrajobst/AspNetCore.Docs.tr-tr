@@ -1,32 +1,31 @@
 ---
 uid: web-forms/videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-updating-with-stored-procedures
-title: 'Nasıl Yaparım LINQ-SQL: ile güncelleştirme saklı yordamlar | Microsoft Docs'
+title: 'Nasıl Yaparım LINQ to SQL: saklı yordamlarla güncelleştirme | Microsoft Docs'
 author: scottstanfield
-description: Oluşturulan ORM update/delete/INSERT mantığı ile saklı yordamlar aracılığıyla kendi geçersiz kılar. Video ayrıca SQL Oluşturucu kullanmak nasıl ayrıntılı olarak gösterir...
+description: Saklı yordamlar aracılığıyla kendi ile oluşturulan ORM update/delete/INSERT mantığı geçersiz kılar. Video, ayrıca için SQL Profiler'ı kullanma ayrıntılı olarak gösterir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/13/2008
 ms.topic: article
 ms.assetid: b041ea07-a174-4a57-b2a8-4ce64232bdae
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-updating-with-stored-procedures
 msc.type: video
-ms.openlocfilehash: 8b9cdcf3f05fec641fc0328c3884d0c2d5a7fa43
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: cc4a7ea1067ecb71cc9a6d862e37b4f5ab84080b
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30883969"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37384962"
 ---
-<a name="how-do-i-linq-to-sql-updating-with-stored-procedures"></a>Nasıl Yaparım LINQ-SQL: ile güncelleştirme saklı yordamlar
+<a name="how-do-i-linq-to-sql-updating-with-stored-procedures"></a>Nasıl Yaparım LINQ to SQL: saklı yordamlarla güncelleştirme
 ====================
 tarafından [Scott Stanfield](https://github.com/scottstanfield)
 
-Oluşturulan ORM update/delete/INSERT mantığı ile saklı yordamlar aracılığıyla kendi geçersiz kılar. Video ayrıntılı olarak da SQL Profil Oluşturucu oluşturulan SQL ORM bizim Özel SQL saklı yakalar için değişiklikleri izlemek için nasıl kullanılacağını gösterir. Biz yalnızca SQL yazıyorsanız olduğundan, aynı teknikleri hem C# ve VB geliştiriciler için geçerlidir.
+Saklı yordamlar aracılığıyla kendi ile oluşturulan ORM update/delete/INSERT mantığı geçersiz kılar. Video, ayrıca kendi özel SQL saklı yakalar için oluşturulan SQL ORM değişiklikleri izlemek için SQL Profiler'ı kullanma ayrıntılı olarak gösterir. Biz yalnızca SQL yazmakta olduğunuz bu yana, hem C# ve VB geliştiricilerin aynı teknikleri uygulanır.
 
-[&#9654;(15 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-linq-to-sql-updating-with-stored-procedures)
+[&#9654;Videoyu (15 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-linq-to-sql-updating-with-stored-procedures)
 
 > [!div class="step-by-step"]
 > [Önceki](how-do-i-linq-to-sql-using-stored-procedures.md)
-> [sonraki](how-do-i-linq-to-sql-executing-arbitrary-sql.md)
+> [İleri](how-do-i-linq-to-sql-executing-arbitrary-sql.md)

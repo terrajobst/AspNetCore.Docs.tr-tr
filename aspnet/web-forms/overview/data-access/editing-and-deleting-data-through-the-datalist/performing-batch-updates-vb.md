@@ -1,175 +1,174 @@
 ---
 uid: web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/performing-batch-updates-vb
-title: Toplu güncelleştirmeleri (VB) gerçekleştirme | Microsoft Docs
+title: Toplu güncelleştirmeler (VB) gerçekleştirme | Microsoft Docs
 author: rick-anderson
-description: Bir tam olarak düzenlenebilir oluşturmayı öğrenin burada öğelerinden tümü de DataList düzenleme modu ve değerleri 'Tümünü Güncelleştir' düğmesini tıklatarak kaydedilebilmesi için...
+description: Bir tam olarak düzenlenebilir oluşturmayı öğrenin DataList tüm öğeleri nerede içinde düzenleme modu ve değerleri, bir 'Tümünü Güncelleştir' düğmesini tıklatarak kaydedilebilir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/30/2006
 ms.topic: article
 ms.assetid: 8dac22a7-91de-4e3b-888f-a4c438b03851
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/performing-batch-updates-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 4d28a431c2b09de8c46079e888aa191017de4e30
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: a877bcc5b26965d59065aa17959643b66a5c4484
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/10/2018
-ms.locfileid: "30892393"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37388502"
 ---
-<a name="performing-batch-updates-vb"></a>Toplu güncelleştirmeleri (VB) gerçekleştirme
+<a name="performing-batch-updates-vb"></a>Batch güncellemelerini (VB)
 ====================
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Örnek uygulamayı indirin](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_37_VB.exe) veya [PDF indirin](performing-batch-updates-vb/_static/datatutorial37vb1.pdf)
+[Örnek uygulamayı indirin](http://download.microsoft.com/download/9/c/1/9c1d03ee-29ba-4d58-aa1a-f201dcc822ea/ASPNET_Data_Tutorial_37_VB.exe) veya [PDF olarak indirin](performing-batch-updates-vb/_static/datatutorial37vb1.pdf)
 
-> Bir tam olarak düzenlenebilir oluşturmayı öğrenin burada öğelerinden tümü de DataList düzenleme modu ve değerleri sayfasında bir "Tümünü Güncelleştir" düğmesini tıklatarak kaydedilebilir.
+> Bir tam olarak düzenlenebilir oluşturmayı öğrenin DataList tüm öğeleri nerede içinde düzenleme modu ve değerleri, sayfada bir "Tümünü Güncelleştir" düğmesine tıklayarak kaydedilebilir.
 
 
 ## <a name="introduction"></a>Giriş
 
-İçinde [önceki öğretici](an-overview-of-editing-and-deleting-data-in-the-datalist-vb.md) biz bir öğe düzeyinde DataList oluşturma inceledi. Standart düzenlenebilir GridView DataList her öğe dahil gibi bir Düzenle düğmesini, tıklandığında, öğesi düzenlenebilir hale getirir. Bu öğe düzeyinde de yalnızca zaman zaman güncelleştirilir veri için düzenleme çalışır, ancak belirli kullanım örneği senaryosu birçok kaydını düzenlemek kullanıcının gerektirir. Kullanıcı kayıtları düzinelerce düzenlemek gereken ve Düzenle'yi tıklatın, kendi değişiklikleri yapın ve her biri için Güncelleştir'i zorlanır, tıklatarak miktarını kendi üretkenlik engel olabilir. Böyle durumlarda, daha iyi bir seçenek tam olarak düzenlenebilir bir DataList sağlamaktır bir *tüm* öğelerinden olan düzenleme modunda ve değerleri sayfasında bir Tümünü Güncelleştir düğmesini tıklatarak düzenlenebilir (bkz: Şekil 1).
+İçinde [önceki öğretici](an-overview-of-editing-and-deleting-data-in-the-datalist-vb.md) biz bir öğe düzeyinde DataList oluşturma incelenir. Standart düzenlenebilir GridView her öğe DataList'te dahil gibi bir düzenleme düğmesi, tıklanan, öğesi düzenlenebilir hale getirir. Bu öğe düzeyinde de yalnızca zaman zaman güncelleştirilir veri için düzenleme çalışır, ancak belirli bir kullanım örneği senaryolarını birçok kaydını düzenlemek kullanıcının gerektirir. Bir kullanıcı, kayıt onlarca düzenlemek gereken ve Düzenle'ye tıklayın, yaptıkları değişiklikleri yapın ve her biri için Güncelleştir'e tıklayın zorlanır tıklayarak miktarını kendi üretkenlik engel olabilir. Bu gibi durumlarda, tam olarak düzenlenebilir bir DataList sağlamak için daha iyi bir seçenek olan bir *tüm* öğelerinden olan düzenleme modu ve değerleri, bir sayfa Tümünü Güncelleştir düğmesine tıklayarak düzenlenebilir (bkz. Şekil 1).
 
 
-[![Her öğe bir tam olarak düzenlenebilir DataList değiştirilebilir](performing-batch-updates-vb/_static/image2.png)](performing-batch-updates-vb/_static/image1.png)
+[![Her bir tam olarak düzenlenebilir DataList öğesi değiştirilebilir](performing-batch-updates-vb/_static/image2.png)](performing-batch-updates-vb/_static/image1.png)
 
-**Şekil 1**: tam olarak düzenlenebilir DataList her öğesinde değiştirilebilir ([tam boyutlu görüntüyü görüntülemek için tıklatın](performing-batch-updates-vb/_static/image3.png))
+**Şekil 1**: her bir tam olarak düzenlenebilir DataList öğesindeki değiştirilebilir ([tam boyutlu görüntüyü görmek için tıklatın](performing-batch-updates-vb/_static/image3.png))
 
 
-Bu öğreticide biz kullanıcıların tam olarak düzenlenebilir DataList kullanarak Üreticiler adres bilgilerini güncelleştirmek nasıl inceleyeceğiz.
+Bu öğreticide kullanıcıların tam olarak düzenlenebilir bir DataList kullanarak tedarikçileri adres bilgilerini güncelleştirmesine olanak tanımak nasıl inceleyeceğiz.
 
 ## <a name="step-1-create-the-editable-user-interface-in-the-datalist-s-itemtemplate"></a>1. adım: DataList s ItemTemplate düzenlenebilir kullanıcı arabirimi oluşturma
 
-Burada standart, öğe düzeyinde düzenlenebilir DataList oluşturma, şu iki şablonları kullandık önceki öğreticide:
+Burada standart, öğe düzeyinde düzenlenebilir DataList oluşturma, şu iki şablon kullandık önceki öğreticide:
 
-- `ItemTemplate` salt okunur kullanıcı arabirimi (her bir ürün adı ve fiyat görüntüleme için etiket Web denetimleri) içeriyor.
+- `ItemTemplate` salt okunur kullanıcı arabirimi (her bir ürün adı ve fiyat görüntülemek için etiket Web denetimleri) içeriyor.
 - `EditItemTemplate` düzenleme modu kullanıcı arabirimi (iki metin kutusuna Web denetimleri) içeriyor.
 
-S DataList `EditItemIndex` özelliği belirleyen ne `DataListItem` (varsa) kullanılarak oluşturulması `EditItemTemplate`. Özellikle, `DataListItem` , `ItemIndex` değerle s DataList `EditItemIndex` özelliği kullanılarak işlenir `EditItemTemplate`. Bu model, iyi yalnızca bir öğe bir zaman alır, ancak parçalayın düştüğünde tam olarak düzenlenebilir DataList oluştururken düzenlenebilir olduğunda çalışır.
+DataList s `EditItemIndex` özelliği belirleyen ne `DataListItem` (varsa) kullanılarak işlenir `EditItemTemplate`. Özellikle, `DataListItem` olan `ItemIndex` değerle s DataList `EditItemIndex` özelliği kullanılarak işlenir `EditItemTemplate`. Bu model, iyi yalnızca bir öğe bir zaman ancak uzaklıkta yer alan tam olarak düzenlenebilir bir DataList oluştururken düzenlenebilir olduğunda çalışır.
 
-Tam olarak düzenlenebilir bir DataList için istiyoruz *tüm* , `DataListItem` düzenlenebilir arabirimini kullanarak işlemek için s. Bunu yapmanın en kolay yolu düzenlenebilir arabiriminde tanımlamaktır `ItemTemplate`. Üreticiler adres bilgilerini değiştirmek için düzenlenebilir arabirimi adres, şehir ve ülke değerleri için metin ve metin kutuları olarak sağlayıcı adı içeriyor.
+İçin tam olarak düzenlenebilir bir DataList, istediğimiz *tüm* , `DataListItem` düzenlenebilir arabirimini kullanarak işlemek için s. Bunu yapmanın en kolay yolu düzenlenebilir arabiriminde tanımlamaktır `ItemTemplate`. Tedarikçileri adres bilgilerini değiştirmek için adres, şehir ve ülke değerleri için sağlayıcı adı olarak metin ve metin kutuları düzenlenebilir arabirimi içerir.
 
-Başlangıç açarak `BatchUpdate.aspx` sayfasında DataList denetimi ekleyin ve ayarlama kendi `ID` özelliğine `Suppliers`. Adlı yeni bir ObjectDataSource denetimi eklemek için DataList s akıllı etiketten kabul `SuppliersDataSource`.
+Başlangıç açarak `BatchUpdate.aspx` sayfasında bir DataList denetimi ekleyin ve ayarlayın, `ID` özelliğini `Suppliers`. DataList s akıllı etiketten adlı yeni bir ObjectDataSource denetimi eklemek için iyileştirilmiş `SuppliersDataSource`.
 
 
 [![SuppliersDataSource adlı yeni bir ObjectDataSource oluşturma](performing-batch-updates-vb/_static/image5.png)](performing-batch-updates-vb/_static/image4.png)
 
-**Şekil 2**: yeni ObjectDataSource adlandırılmış oluşturma `SuppliersDataSource` ([tam boyutlu görüntüyü görüntülemek için tıklatın](performing-batch-updates-vb/_static/image6.png))
+**Şekil 2**: adlı yeni bir ObjectDataSource oluşturma `SuppliersDataSource` ([tam boyutlu görüntüyü görmek için tıklatın](performing-batch-updates-vb/_static/image6.png))
 
 
-ObjectDataSource kullanarak veri almak için yapılandırma `SuppliersBLL` s sınıfı `GetSuppliers()` yöntemi (bkz: Şekil 3). Önceki öğretici yerine gibi ObjectDataSource üzerinden Tedarikçi bilgilerini güncelleştirme ile doğrudan iş mantığı katmanı ile çalışırsınız. Bu nedenle, aşağı açılan liste (hiçbiri) güncelleştirme sekmesindeki ayarlayın (Şekil 4'e bakın).
+ObjectDataSource ile veri almak için yapılandırma `SuppliersBLL` s sınıfı `GetSuppliers()` metodu (bkz: Şekil 3). Önceki öğreticide, yerine gibi ObjectDataSource sağlayıcı bilgileri güncelleştiriliyor, doğrudan iş mantığı katmanı ile çalışırsınız. Bu nedenle, güncelleştirme sekmesinde aşağı açılan listesine (hiçbiri) ayarlayın (bkz: Şekil 4).
 
 
-[![GetSuppliers() yöntemini kullanmayı deneyin Tedarikçi bilgilerini alma](performing-batch-updates-vb/_static/image8.png)](performing-batch-updates-vb/_static/image7.png)
+[![GetSuppliers() yöntemiyle sağlayıcı bilgileri alınamıyor](performing-batch-updates-vb/_static/image8.png)](performing-batch-updates-vb/_static/image7.png)
 
-**Şekil 3**: tedarikçi bilgileri kullanarak almak `GetSuppliers()` yöntemi ([tam boyutlu görüntüyü görüntülemek için tıklatın](performing-batch-updates-vb/_static/image9.png))
+**Şekil 3**: tedarikçi bilgileri kullanarak almak `GetSuppliers()` yöntemi ([tam boyutlu görüntüyü görmek için tıklatın](performing-batch-updates-vb/_static/image9.png))
 
 
 [![Güncelleştirme sekmesinde aşağı açılan listesine (hiçbiri) ayarlayın](performing-batch-updates-vb/_static/image11.png)](performing-batch-updates-vb/_static/image10.png)
 
-**Şekil 4**: güncelleştirme sekmesinde aşağı açılan listesine (hiçbiri) ayarlayın ([tam boyutlu görüntüyü görüntülemek için tıklatın](performing-batch-updates-vb/_static/image12.png))
+**Şekil 4**: güncelleştirme sekmesinde aşağı açılan listesine (hiçbiri) ayarlayın ([tam boyutlu görüntüyü görmek için tıklatın](performing-batch-updates-vb/_static/image12.png))
 
 
-Sihirbazı tamamladıktan sonra Visual Studio otomatik olarak s DataList oluşturur `ItemTemplate` etiket Web denetiminde veri kaynağı tarafından döndürülen her veri alanı görüntülemek için. Böylece yerine düzenleme arabirimi sağlar, bu şablonu değiştirmek gerekir. `ItemTemplate` Tasarımcısı DataList s akıllı etiket Şablonları Düzenle seçeneğini kullanarak veya doğrudan bildirim temelli söz dizimi aracılığıyla özelleştirilebilir.
+Sihirbazı tamamladıktan sonra Visual Studio otomatik olarak s DataList oluşturur `ItemTemplate` etiket Web denetiminde veri kaynağı tarafından döndürülen her veri alanı görüntülenecek. Bunun yerine düzenleme arabirimi sağlar, böylece bu şablonu değiştirmeniz gerekir. `ItemTemplate` Tasarımcısı DataList s akıllı etiket Şablonları Düzenle seçeneğini kullanarak veya doğrudan bildirim temelli söz dizimi aracılığıyla özelleştirilebilir.
 
-Üretici s adı metin olarak görüntüler, ancak metin kutuları tedarikçi s adresi, şehir ve ülke değerleri içeren bir düzenleme arabirim oluşturmak için bir dakikanızı ayırın. Bu değişiklikleri yaptıktan sonra sayfa s Tanımlayıcı Sözdizimi aşağıdakine benzer görünmelidir:
+Sağlayıcı adı metin olarak görüntüler, ancak tedarikçi s Adres, şehir ve ülke değerleri için metin kutuları içeren bir düzenleme arabirim oluşturmak için bir dakikanızı ayırın. Bu değişiklikleri yaptıktan sonra sayfa s bildirim temelli sözdizimi aşağıdakine benzer görünmelidir:
 
 
 [!code-aspx[Main](performing-batch-updates-vb/samples/sample1.aspx)]
 
 > [!NOTE]
-> Olarak önceki eğitici etkin görünüm durumunu bu öğreticideki DataList olması gerekir.
+> Önceki öğreticide olarak bu öğreticideki DataList görünüm durumunu etkin olmalıdır.
 
 
-İçinde `ItemTemplate` ı iki yeni CSS sınıfları, kullanarak m `SupplierPropertyLabel` ve `SupplierPropertyValue`, hangi eklenmiştir `Styles.css` sınıfı ve aynı stili ayarları kullanmak üzere yapılandırılmış `ProductPropertyLabel` ve `ProductPropertyValue` CSS sınıfları.
+İçinde `ItemTemplate` miyim iki yeni CSS sınıfları kullanarak m `SupplierPropertyLabel` ve `SupplierPropertyValue`, hangi eklenmiştir `Styles.css` sınıfı ve aynı stili ayarları kullanacak şekilde yapılandırılmış `ProductPropertyLabel` ve `ProductPropertyValue` CSS sınıfları.
 
 
 [!code-css[Main](performing-batch-updates-vb/samples/sample2.css)]
 
-Bu değişiklikleri yaptıktan sonra bir tarayıcı aracılığıyla bu sayfasını ziyaret edin. Şekil 5 gösterildiği gibi her bir DataList öğesi üretici adı metin olarak görüntüler ve metin kutuları adres, şehir ve ülke görüntülemek için kullanır.
+Bu değişiklikleri yaptıktan sonra bir tarayıcı aracılığıyla bu sayfasını ziyaret edin. Şekil 5 gösterildiği gibi her DataList öğesi üretici adı metin olarak görüntüler ve adres, şehir ve ülke görüntülenecek metin kutuları kullanır.
 
 
-[![DataList her tedarikçi düzenlenebilir değil](performing-batch-updates-vb/_static/image14.png)](performing-batch-updates-vb/_static/image13.png)
+[![DataList'te her tedarikçi düzenlenebilir olduğunu](performing-batch-updates-vb/_static/image14.png)](performing-batch-updates-vb/_static/image13.png)
 
-**Şekil 5**: DataList her tedarikçi düzenlenebilir değil ([tam boyutlu görüntüyü görüntülemek için tıklatın](performing-batch-updates-vb/_static/image15.png))
+**Şekil 5**: her tedarikçi DataList'te düzenlenebilir olduğunu ([tam boyutlu görüntüyü görmek için tıklatın](performing-batch-updates-vb/_static/image15.png))
 
 
-## <a name="step-2-adding-an-update-all-button"></a>2. adım: bir güncelleştirme tüm düğme ekleme
+## <a name="step-2-adding-an-update-all-button"></a>2. adım: bir güncelleştirmeyi tüm düğme ekleme
 
-Şekil 5'te her sağlayıcı adresi, şehir ve bir metin kutusunda görüntülenen ülke alanları sahipken, şu anda hiçbir güncelleştirme düğmesi mevcut değil. Öğe başına bir güncelleştirme düğmesi sahip olmak yerine ile tam olarak düzenlenebilir belirleyebilen yoktur genellikle tek bir güncelleştirme tüm düğme sayfada, tıklatıldığında, güncelleştirmeleri *tüm* DataList kayıtlarında. Bu öğretici için (ya da düğmesini tıklatarak aynı etkiye sahip olacaktır rağmen) iki Tümünü Güncelleştir düğmesi - sayfanın üst kısmındaki diğeri altındaki eklemek s olanak tanır.
+Şekil 5'te her tedarikçi, adres, şehir ve ülke alanları bir metin kutusunda görüntülenen olsa da şu anda hiçbir güncelleştirme düğmesi mevcut değildir. Öğe başına bir güncelleştir düğmesine bozmanın yerine ile tam olarak düzenlenebilir belirleyebilen genellikle bir tek güncelleştirme tüm düğme vardır sayfada, tıklandığında, güncelleştirmeleri *tüm* DataList'te kayıtlar. Bu öğreticide, s (ya da düğmesi aynı etkinin olacağı rağmen) iki Tümünü Güncelleştir düğmesi - bir sayfanın üst ve alt bir ekleme olanak tanır.
 
-Başlat düğmesi Web denetimi kümesi ve DataList yukarıda ekleyerek kendi `ID` özelliğine `UpdateAll1`. Ardından, ikinci düğme Web denetimi DataList altına ekleyin ayarı kendi `ID` için `UpdateAll2`. Ayarlama `Text` iki düğmelere güncelleştirme tüm özellikleri. Son olarak, her iki düğmeleri için olay işleyicileri oluşturma `Click` olaylar. Let s yeniden düzenlemeniz her olay işleyicileri güncelleştirme mantığı çoğaltmak yerine üçüncü bir yöntem bu mantığı `UpdateAllSupplierAddresses`, yalnızca bu üçüncü yöntemi çağırma olay işleyicileri sahip.
+DataList ve kümesi üzerinde bir düğme Web denetimi ekleyerek başlangıç kendi `ID` özelliğini `UpdateAll1`. Ardından, DataList altındaki ikinci düğme Web denetim ekleme ayarı kendi `ID` için `UpdateAll2`. Ayarlama `Text` iki düğme için güncelleştirme tüm özellikleri. Son olarak, her iki düğme için olay işleyicileri oluşturma `Click` olayları. Let s yeniden düzenleme her olay işleyicileri güncelleştirme mantığı yinelemek yerine bu mantığı üçüncü bir yönteme `UpdateAllSupplierAddresses`, yalnızca bu üçüncü yöntem çağırma olay işleyicilerine sahip.
 
 
 [!code-vb[Main](performing-batch-updates-vb/samples/sample3.vb)]
 
-Güncelleştirme tüm düğmeleri eklendikten sonra Şekil 6 sayfası gösterilir.
+Şekil 6, güncelleştirme tüm düğmeler eklendikten sonra sayfada gösterilir.
 
 
-[![Sayfaya iki güncelleştirme tüm düğmeler eklendi](performing-batch-updates-vb/_static/image17.png)](performing-batch-updates-vb/_static/image16.png)
+[![İki güncelleştirme tüm düğme sayfaya eklenmiştir](performing-batch-updates-vb/_static/image17.png)](performing-batch-updates-vb/_static/image16.png)
 
-**Şekil 6**: iki güncelleştirme tüm düğmeler sayfasına eklenmiştir ([tam boyutlu görüntüyü görüntülemek için tıklatın](performing-batch-updates-vb/_static/image18.png))
+**Şekil 6**: sayfasına iki güncelleştirme tüm düğmeler eklenmiştir ([tam boyutlu görüntüyü görmek için tıklatın](performing-batch-updates-vb/_static/image18.png))
 
 
-## <a name="step-3-updating-all-of-the-suppliers-address-information"></a>3. adım: Tüm Üreticiler adres bilgilerini güncelleştirme
+## <a name="step-3-updating-all-of-the-suppliers-address-information"></a>3. adım: Tüm Üreticiler adresi bilgileri güncelleştiriliyor
 
-Düzenleme arabirimi görüntüleme DataList s öğelerin tümünü ile Tümünü Güncelleştir düğmeleri eklenmesi, tüm bu kalır yazılırken toplu güncelleştirmesi gerçekleştirmek için kod. Özellikle, DataList s öğeleri ve çağrı döngü ihtiyacımız `SuppliersBLL` s sınıfı `UpdateSupplierAddress` yöntemi her biri için.
+Tüm düzenleme arabirimi görüntüleme DataList s öğelerinin ve Tümünü Güncelleştir düğmesi ile birlikte tüm kalan yazıyor toplu güncelleştirme gerçekleştirmek için kod. Özellikle, arama ve DataList s öğeleri döngü ihtiyacımız `SuppliersBLL` s sınıfı `UpdateSupplierAddress` her biri için yöntemi.
 
-Koleksiyonu `DataListItem` DataList s DataList erişilebilir bu oluşma şekli örnekleri [ `Items` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.items.aspx). Bir başvurusu olan bir `DataListItem`, biz buna karşılık gelen yakalayın `SupplierID` gelen `DataKeys` koleksiyonu ve program aracılığıyla metin kutusuna Web denetimleri içinde başvurusu `ItemTemplate` aşağıdaki kodda gösterildiği gibi:
+Koleksiyonu `DataListItem` DataList s DataList erişilebilir, düzenini örnekler [ `Items` özelliği](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.items.aspx). Bir başvurusu olan bir `DataListItem`, biz buna karşılık gelen tutabileceğinizi `SupplierID` gelen `DataKeys` toplama ve program aracılığıyla metin Web denetimleri içinde başvuru `ItemTemplate` aşağıdaki kodda gösterildiği gibi:
 
 
 [!code-vb[Main](performing-batch-updates-vb/samples/sample4.vb)]
 
-Kullanıcı Tümünü Güncelleştir düğmelerden birini tıklattığında `UpdateAllSupplierAddresses` yöntemi her tekrarlanan `DataListItem` içinde `Suppliers` DataList ve çağrıları `SuppliersBLL` s sınıfı `UpdateSupplierAddress` yöntemi, karşılık gelen değerleri geçirme. Bir adresi, şehir veya ülke geçişleri için girilen olmayan bir değer değeridir `Nothing` için `UpdateSupplierAddress` (boş bir dize yerine), hangi sonuçları bir veritabanında `NULL` temel alınan kayıt s alanlar için.
+Tümünü Güncelleştir düğmelerden birine kullanıcı tıkladığında `UpdateAllSupplierAddresses` yöntemi her yinelenir `DataListItem` içinde `Suppliers` DataList ve çağrıları `SuppliersBLL` s sınıfı `UpdateSupplierAddress` yöntemi, karşılık gelen değerler geçirerek. Bir adres, şehir veya ülkede geçişleri için girilen olmayan bir değer değeridir `Nothing` için `UpdateSupplierAddress` (boş bir dize yerine), bir veritabanında sonuçlanır `NULL` temel alınan kayıt s alanları.
 
 > [!NOTE]
-> Bir geliştirme olarak toplu güncelleştirme işlemi yapıldıktan sonra bazı onay iletisi sayfası için durum etiket Web denetimi eklemek isteyebilirsiniz.
+> Bir geliştirme olarak, toplu güncelleştirme işlemi gerçekleştirildikten sonra bazı onay iletisi sağlayan sayfaya bir durum etiketi Web denetimi eklemek isteyebilirsiniz.
 
 
 ## <a name="updating-only-those-addresses-that-have-been-modified"></a>Değiştirilmiş adresleri güncelleştiriliyor
 
-Bu öğretici çağrıları için toplu güncelleştirme algoritması `UpdateSupplierAddress` yöntemi *her* adres bilgilerini değiştirilip bağımsız olarak DataList tedarikçi. Bu tür blind geçekleştirilen t genellikle bir performans sorunu güncelleştirirken, Denetim yapıldığı veritabanı tablosuna değişirse bunlar gereksiz kayıtları yol açabilir. Örneğin, tüm kaydetmek için Tetikleyiciler kullanırsanız `UPDATE` s `Suppliers` tabloyu denetim tabloya bir kullanıcı yeni bir denetim kaydı olup kullanıcı herhangi yapılan bağımsız olarak bu sistemdeki her sağlayıcı için oluşturulacak Tümünü Güncelleştir düğmesini tıklattığında her zaman değiştirir.
+Bu öğretici çağrıları için kullanılan toplu güncelleştirme algoritması `UpdateSupplierAddress` yöntemi *her* sağlayıcı adresi bilgilerine mi değişti bakılmaksızın DataList'te. Böyle blind dahilse t genellikle bir performans sorunu güncelleştirirken, Denetim yapıldığı veritabanı tablosuna değişirse, gereksiz kayıtları neden olabilir. Örneğin, tüm kaydetmek için Tetikleyiciler kullanma `UPDATE` s `Suppliers` denetim tablosuna bir kullanıcı yeni bir denetim kaydı olup kullanıcı hiçbir değişiklik bağımsız olarak sisteminizdeki her üretici için oluşturulacak Tümünü Güncelleştir düğmesini her tıklayışında tablo değiştirir.
 
-ADO.NET DataTable ve DataAdapter sınıfları, burada yalnızca değiştirilen, silinen ve yeni kayıtları sonuçları tüm veritabanı iletişiminde toplu güncelleştirmeleri destekleyecek şekilde tasarlanmıştır. DataTable her satıra sahip bir [ `RowState` özelliği](https://msdn.microsoft.com/library/system.data.datarow.rowstate.aspx) satır, değişiklik, silinecek DataTable eklendi veya değişmeden kalır olup olmadığını gösterir. DataTable başlangıçta doldurulduğunda tüm satırları değişmeden işaretlenir. Satır s sütunlara değerinin değiştirilmesi satır değiştirilmiş olarak işaretler.
+ADO.NET veri tablosu ve DataAdapter sınıfları, burada yalnızca değiştirilmiş, silinmiş ve yeni kayıtları sonuçları herhangi bir veritabanı iletişimde toplu güncelleştirmeleri destekleyecek şekilde tasarlanmıştır. Her satırda bir DataTable sahip bir [ `RowState` özelliği](https://msdn.microsoft.com/library/system.data.datarow.rowstate.aspx) satır kendisinden değiştirilmiş, silinmiş bir DataTable eklendi veya değişmeden kalır gösterir. Bir DataTable başlangıçta doldurulduğunda tüm satırları değişmemiş olarak işaretlenir. Satır s sütunlara değerinin değiştirilmesi satır değiştirilmiş olarak işaretlenir.
 
-İçinde `SuppliersBLL` tek tedarikçi kayıtta ilk okumada tarafından belirtilen tedarikçi s adres bilgilerini güncelleştiriyoruz sınıfı bir `SuppliersDataTable` ve ardından `Address`, `City`, ve `Country` sütun değerleri aşağıdaki kodu kullanarak:
+İçinde `SuppliersBLL` ilk okuyarak tek tedarikçi kayıtta belirtilen üretici s adresi bilgilerini güncelleştiriyoruz sınıfı bir `SuppliersDataTable` ve ardından `Address`, `City`, ve `Country` sütun değerleri aşağıdaki kodu kullanarak:
 
 
 [!code-vb[Main](performing-batch-updates-vb/samples/sample5.vb)]
 
-Bu kod naively geçirilen adresi, şehir ve ülke değerlere atar `SuppliersRow` içinde `SuppliersDataTable` değerleri değişmez bağımsız olarak. Bu değişiklikleri neden `SuppliersRow` s `RowState` özelliği değiştirilmiş olarak işaretlenecek. Veri erişim katmanı s `Update` yöntemi çağrıldığında, görür `SupplierRow` değiştirilmiş ve bu nedenle gönderir bir `UPDATE` veritabanına komutu.
+Bu kod naively geçilen adres, şehir ve ülke değerleri atar `SuppliersRow` içinde `SuppliersDataTable` değerleri değişip değişmediğini ne olursa olsun. Bu değişiklikleri neden `SuppliersRow` s `RowState` özelliği değiştirilmiş olarak işaretlenecek. Veri erişim katmanı s `Update` yöntemi çağrıldığında, bu gördüğünde `SupplierRow` değiştirilmiş ve bu nedenle gönderir bir `UPDATE` veritabanına komutu.
 
-Ancak, biz yalnızca gelen farklıysa geçirilen adresi, şehir ve ülke değerleri atamak için bu yöntem için kod eklenen düşünün `SuppliersRow` s varolan değerleri. Adres, şehir ve ülke nerede var olan verileri ile aynı durumda hiçbir değişiklik yapılmaz ve `SupplierRow` s `RowState` olarak işaretlenmiş sol değişmez. Net sonuç olduğunda DAL s `Update` yöntemi çağrıldığında, hiçbir veritabanı çağrı yapılacak `SuppliersRow` değiştirilmedi.
+Ancak biz yalnızca gelen farklıysa geçilen adres, şehir ve ülke değerleri atamak için bu yöntem için kod eklenen Imagine `SuppliersRow` s mevcut değerleri. Adres, şehir ve ülke olduğu mevcut verilerle aynı durumda hiçbir değişiklik yapılmaz ve `SupplierRow` s `RowState` olarak işaretlenmiş sol değişmez. Net sonuç, DAL s `Update` yöntemi çağrıldığında, hiçbir veritabanı çağrısı yapılacak `SuppliersRow` değişiklik yapılmadı.
 
-Bu değişikliğini kabul etmek için doğrudan geçirilen adresi, şehir ve ülke değerleri aşağıdaki kodla atama deyimleri değiştirin:
+Bu değişikliği kabul etmek için geçilen adres, şehir ve ülke değerleri aşağıdaki kod ile doğrudan atama deyimleri değiştirin:
 
 
 [!code-vb[Main](performing-batch-updates-vb/samples/sample6.vb)]
 
-Bu kod, DAL s eklenen `Update` yöntemi gönderir bir `UPDATE` deyimi yalnızca adresi ilgili değerleri değişti kayıtları için veritabanı.
+Bu kod, DAL s eklenen `Update` yöntemi gönderen bir `UPDATE` deyimi yalnızca adresi ile ilgili değerleri değiştirilmiş kayıtlar için veritabanı.
 
-Alternatif olarak, biz geçilen adres alanlarını ve veritabanı verileri arasındaki farklılıkları olup izlemek ve, varsa none, DAL s çağrısı yalnızca atlama `Update` yöntemi. İyi DB kullanarak yapıldığı dolaysız yöntem, DB doğrudan yöntemi olmayan t geçirilen beri bu yaklaşım çalışır bir `SuppliersRow` özelliği örneği `RowState` bir veritabanı çağrısı gerçekten gerekli olup olmadığını belirlemek için denetlenebilir.
+Alternatif olarak, biz geçilen adres alanlarını ve veritabanı verilerinin arasındaki farklılıkları olup olmadığını izler ve, varsa yok, yalnızca DAL s çağrısı atlama `Update` yöntemi. Bu yaklaşım da DB kullanarak yapıldığı dolaysız yöntem, DB doğrudan yöntem birincile t geçirilen beri çalışır bir `SuppliersRow` ayarlanmış örnek `RowState` bir veritabanı çağrısı gerçekten gerekli olup olmadığını belirlemek için denetlenebilir.
 
 > [!NOTE]
-> Her zaman `UpdateSupplierAddress` yöntemi çağrıldığında, güncelleştirilmiş kaydı hakkında bilgi almak için veritabanına bir çağrı yapılır. Sonra verileri herhangi bir değişiklik olursa, tablo satırı güncelleştirmek için veritabanı başka bir çağrı yapılır. Bu iş akışı oluşturarak iyileştirilmiş bir `UpdateSupplierAddress` kabul yöntemi aşırı yüklemesini bir `EmployeesDataTable` sahip örnek *tüm* değişikliklerden birini `BatchUpdate.aspx` sayfa. Ardından, tüm kayıtları almak için yapılan bir çağrı veritabanına hale getirebilecek `Suppliers` tablo. İki Sonuçkümelerini sonra numaralandırılan ve burada değişiklikler kayıtları güncelleştirilemedi.
+> Her zaman `UpdateSupplierAddress` yöntemi çağrıldığında, güncelleştirilen kaydı hakkında bilgi almak için veritabanına bir çağrı yapılır. Ardından, verileri herhangi bir değişiklik varsa, tablo satırı güncelleştirmek için veritabanı başka bir çağrı yapılır. Oluşturarak bu iş akışı iyileştirilmiş bir `UpdateSupplierAddress` kabul eden bir yöntemi aşırı yüklemesini bir `EmployeesDataTable` olan örneği *tüm* değişikliklerden birini `BatchUpdate.aspx` sayfası. Ardından, tüm kayıtları almak için veritabanına bir çağrı yapabilirsiniz `Suppliers` tablo. İki sonuç kümeleri sonra sabit listesi oluşturulamadı ve burada değişiklikler kayıtları güncelleştirilemedi.
 
 
 ## <a name="summary"></a>Özet
 
-Bu öğreticide hızlı bir şekilde birden çok Üreticiler adres bilgilerini değiştirmek bir kullanıcının tam olarak düzenlenebilir bir DataList oluşturma gördük. DataList s düzenleme arabirimi tedarikçi s adresi, şehir ve ülke değerleri için bir metin kutusu Web denetimi tanımlayarak başlatılan `ItemTemplate`. Ardından, üstteki ve alttaki DataList Tümünü Güncelleştir düğmeler eklendi. Bir kullanıcı kendi değişiklikler ve güncelleştirme tüm düğmeleri birini tıklattınız sonra `DataListItem` s numaralandırılan ve yapılan bir çağrı `SuppliersBLL` s sınıfı `UpdateSupplierAddress` yöntemi yapılır.
+Bu öğreticide bir kullanıcının birden çok satıcılara ait adres bilgilerini hızlı bir şekilde değiştirmek bir tam olarak düzenlenebilir DataList oluşturma gördük. DataList s içinde düzenleme arabirimi tedarikçi s Adres, şehir ve ülke değerleri için bir TextBox Web denetimi tanımlayarak Başladık `ItemTemplate`. Ardından, üstteki ve alttaki DataList güncelleştirme tüm düğmeler ekledik. Bir kullanıcı kendi değişiklikler ve güncelleştirme tüm düğmelerden birine tıklandığında sonra `DataListItem` s numaralandırılan ve çağrı `SuppliersBLL` s sınıfı `UpdateSupplierAddress` yöntemi yapılır.
 
-Mutluluk programlama!
+Mutlu programlama!
 
 ## <a name="about-the-author"></a>Yazar hakkında
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar ve yedi ASP/ASP.NET books kurucusu, [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileri ile bu yana 1998 çalışma. Tan bağımsız Danışman, eğitmen ve yazıcı çalışır. En son kendi defteri [ *kendi öğretmek kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Kendisi üzerinde erişilebilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi adresinde bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), yazar yedi ASP/ASP.NET kitaplardan ve poshbeauty.com sitesinin [4GuysFromRolla.com](http://www.4guysfromrolla.com), Microsoft Web teknolojileriyle beri 1998'de çalışmaktadır. Scott, bağımsız Danışman, Eğitimci ve yazıcı çalışır. En son nitelemiştir olan [ *Unleashed'i öğretin kendiniz ASP.NET 2.0 24 saat içindeki*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). He adresinden ulaşılabilir [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) veya kendi blog hangi bulunabilir [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Özel teşekkürler
 
-Bu öğretici seri pek çok yararlı gözden geçirenler tarafından gözden geçirildi. Bu öğretici için sağlama gözden geçirenler Zack Can ve Ken Pespisa yoktu. My yaklaşan MSDN makaleleri gözden geçirme ilginizi çekiyor mu? Öyleyse, bana bir satırında bırakma [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
+Bu öğretici serisinde, birçok yararlı Gözden Geçiren tarafından gözden geçirildi. Bu öğretici için müşteri adayı gözden geçirenler Zack Jones ve Ken Pespisa yoktu. Yaklaşan My MSDN makaleleri gözden geçirme ilgileniyor musunuz? Bu durumda, bir satır bana bırak [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
 > [!div class="step-by-step"]
 > [Önceki](an-overview-of-editing-and-deleting-data-in-the-datalist-vb.md)
-> [sonraki](handling-bll-and-dal-level-exceptions-vb.md)
+> [İleri](handling-bll-and-dal-level-exceptions-vb.md)

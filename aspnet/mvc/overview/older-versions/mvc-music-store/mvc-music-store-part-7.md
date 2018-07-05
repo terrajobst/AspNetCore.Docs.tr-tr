@@ -1,93 +1,92 @@
 ---
 uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-7
-title: '7. Kısım: Üyeliği ve yetkilendirme | Microsoft Docs'
+title: '7. Bölüm: Üyelik ve yetkilendirme | Microsoft Docs'
 author: jongalloway
-description: Bu öğretici seri ASP.NET MVC müzik deposu örnek uygulaması oluşturmak için geçen tüm adımları ayrıntılarını verir. Bölüm 7, üyelik ve yetkilendirme kapsar.
+description: Bu öğretici serisinde ASP.NET MVC müzik Store örnek uygulamayı oluşturmak için gerçekleştirilen tüm adımları ayrıntılı olarak açıklanmaktadır. 7. bölüm, üyelik ve yetkilendirme kapsar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/13/2010
 ms.topic: article
 ms.assetid: c8511ebe-68bc-4240-87c3-d5ced84a3f37
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-7
 msc.type: authoredcontent
-ms.openlocfilehash: a0f599da4691c5bb7c8e6f01625fc0e94ce0eac8
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 41b17315cbe1f6d93001a736bc24bf003df24061
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30879510"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37393176"
 ---
-<a name="part-7-membership-and-authorization"></a>7. Kısım: Üyeliği ve yetkilendirme
+<a name="part-7-membership-and-authorization"></a>7. Bölüm: Üyelik ve yetkilendirme
 ====================
 tarafından [Jon Galloway](https://github.com/jongalloway)
 
-> MVC müzik deposu tanıtır ve ASP.NET MVC ve Visual Studio web geliştirme için nasıl kullanılacağı hakkında adım adım anlatan öğretici bir uygulamadır.  
+> MVC müzik Store tanıtır ve ASP.NET MVC ve Visual Studio web geliştirme için nasıl kullanılacağını adım adım anlatan bir öğretici uygulamasıdır.  
 >   
-> MVC müzik deposu çevrimiçi müzik albümlerini sattığı ve temel site yönetimi, kullanıcı oturum açma ve alışveriş sepeti işlevselliği uygulayan bir Basit örnek deposu uygulamasıdır.  
+> MVC müzik Store müzik albümleri çevrimiçi sattığı ve temel site yönetimi, kullanıcı oturum açma ve alışveriş sepeti işlevselliğini uygulayan bir Basit örnek deposu uygulamasıdır.  
 >   
-> Bu öğretici seri ASP.NET MVC müzik deposu örnek uygulaması oluşturmak için geçen tüm adımları ayrıntılarını verir. Bölüm 7, üyelik ve yetkilendirme kapsar.
+> Bu öğretici serisinde ASP.NET MVC müzik Store örnek uygulamayı oluşturmak için gerçekleştirilen tüm adımları ayrıntılı olarak açıklanmaktadır. 7. bölüm, üyelik ve yetkilendirme kapsar.
 
 
-Bizim mağaza yöneticisi denetleyicisi sitemizi ziyaret eden herkes için şu anda erişilebilir değil. Bu site yöneticileri erişimi kısıtlamak için değiştirelim.
+Store Yöneticisi denetleyicimizin sitemizi ziyaret eden herkes için şu anda erişilebilir. Bu site yöneticileri erişimi kısıtlamak için değiştirelim.
 
-## <a name="adding-the-accountcontroller-and-views"></a>AccountController ve görünümler ekleme
+## <a name="adding-the-accountcontroller-and-views"></a>AccountController ve görünümleri ekleme
 
-Tam ASP.NET MVC 3 Web uygulaması şablonu ve ASP.NET MVC 3 boş Web uygulaması şablonu arasındaki tek fark, boş şablonu bir hesap denetleyicisi içermeyen ' dir. Bir hesap denetleyicisi tam ASP.NET MVC 3 Web uygulaması şablondan oluşturulan yeni bir ASP.NET MVC uygulamasında birkaç dosyaları kopyalayarak ekleyeceğiz.
+ASP.NET MVC 3 boş Web uygulaması şablonu tam ASP.NET MVC 3, Web uygulaması şablonu arasındaki tek fark, boş şablonu bir hesap denetleyicisi içermez ' dir. Tam bir ASP.NET MVC 3, Web uygulaması şablondan oluşturulan yeni bir ASP.NET MVC uygulamasında birkaç dosya kopyalayarak bir hesap denetleyicisi ekleyeceğiz.
 
-Tam ASP.NET MVC 3 Web uygulaması şablonu kullanarak yeni bir ASP.NET MVC uygulaması oluşturma ve Projemizin aynı dizinlerde aşağıdaki dosyaları kopyalayın:
+Tam ASP.NET MVC 3, Web uygulaması şablonunu kullanarak yeni bir ASP.NET MVC uygulaması oluşturun ve aynı dizinlerde Projemizin aşağıdaki dosyaları kopyalayın:
 
-1. Denetleyicileri dizininde AccountController.cs kopyalama
-2. Modelleri dizininde AccountModels kopyalama
-3. Görünümleri dizin içinde bir hesap dizini oluşturun ve tüm dört görünümlerde kopyalayın
+1. AccountController.cs denetleyicileri dizine kopyalayın.
+2. AccountModels modelleri dizine kopyalayın.
+3. Görünümler dizini içinde bir hesap dizin oluşturma ve dört tüm görünümlerde kopyalayın
 
-Denetleyici ve Model sınıfları için ad alanı ile MvcMusicStore başlayacak şekilde değiştirin. AccountController sınıfı MvcMusicStore.Controllers ad alanı kullanmalıdır ve AccountModels sınıfı MvcMusicStore.Models ad alanı kullanmanız gerekir.
+Bunlar MvcMusicStore ile başlar bu nedenle denetleyici ve Model sınıfları için ad alanı değiştirin. AccountController sınıfı MvcMusicStore.Controllers ad uzayını kullanmalı ve AccountModels sınıfı MvcMusicStore.Models ad uzayını kullanmalı.
 
-*Not: Bu dosyalar, biz öğreticinin başında bizim site tasarımı dosyaları kopyalanan MvcMusicStore Assets.zip indirme mevcuttur. Üyelik dosyalar kodu dizininde bulunur.*
+*Not: Bu dosyalar, biz öğreticinin başında bizim site tasarımı dosyaları kopyalanan MvcMusicStore Assets.zip indirme mevcuttur. Üyelik dosyaları kod dizininde bulunur.*
 
-Güncellenen çözümü aşağıdaki gibi görünmelidir:
+Güncel çözümü aşağıdaki gibi görünmelidir:
 
 ![](mvc-music-store-part-7/_static/image1.png)
 
 ## <a name="adding-an-administrative-user-with-the-aspnet-configuration-site"></a>ASP.NET yapılandırma sitesi olan bir yönetici kullanıcı ekleme
 
-Biz yetkilendirme, Web sitesinin gerektirmeden önce biz erişimi olan bir kullanıcı oluşturma gerekir. Bir kullanıcı oluşturmak için en kolay yolu, yerleşik ASP.NET yapılandırması Web sitesini kullanmaktır.
+Yetkilendirme Web sitemizi kılarız önce biz erişimi olan bir kullanıcı oluşturma gerekir. Bir kullanıcı oluşturmak için en kolay yolu, yerleşik ASP.NET yapılandırma Web sitesini kullanmaktır.
 
-ASP.NET yapılandırma Web sitesi, Çözüm Gezgini'nde simgesini izleyen tıklatarak başlatın.
+ASP.NET yapılandırması Web sitesi, Çözüm Gezgini'nde simgesini izleyen'ı tıklatarak başlatın.
 
 ![](mvc-music-store-part-7/_static/image2.png)
 
-Bu yapılandırma Web sitesini başlatır. Giriş ekranı Güvenlik sekmesinde, ardından ekranın Center'da "rolleri etkinleştir" bağlantısını tıklatın.
+Bu, bir yapılandırma Web sitesini çalıştırır. Ana Ekran Güvenlik sekmesine tıklayın ve ardından ekranın ortasında "rollerini etkinleştir" bağlantısına tıklayın.
 
 ![](mvc-music-store-part-7/_static/image3.png)
 
-"Rol oluşturma ve yönetme" bağlantısını tıklatın.
+"Rolleri oluşturma ve yönetme" bağlantısına tıklayın.
 
 ![](mvc-music-store-part-7/_static/image4.png)
 
-"Yönetici" rolü adı girin ve Rol Ekle düğmesine basın.
+Rol adı olarak "Yönetici" girin ve Rol Ekle düğmesine basın.
 
 ![](mvc-music-store-part-7/_static/image5.png)
 
-Geri düğmesini tıklatın, ardından sol tarafındaki oluşturma kullanıcı bağlantısına tıklayın.
+Geri düğmesine tıklayın ve ardından sol taraftaki oluşturma kullanıcı bağlantısına tıklayın.
 
 ![](mvc-music-store-part-7/_static/image6.png)
 
-Aşağıdaki bilgileri kullanarak soldaki kullanıcı bilgi alanları doldurun:
+Aşağıdaki bilgileri kullanarak soldaki kullanıcı bilgileri alanları doldurun:
 
 | **Alan** | **Değer** |
 | --- | --- |
 | **Kullanıcı adı** | Yönetici |
-| **Parola** | password123! |
-| **Parolayı onaylayın** | password123! |
+| **Parola** | / password123! |
+| **Parolayı onaylayın** | / password123! |
 | **E-posta** | (herhangi bir e-posta adresi çalışır) |
-| **Güvenlik sorusu** | (ne olursa olsun, ister) |
-| **Güvenlik yanıtı** | (ne olursa olsun, ister) |
+| **Güvenlik sorusu** | (istediğiniz gibi) |
+| **Güvenlik yanıtı** | (istediğiniz gibi) |
 
-*Not: İstediğiniz herhangi bir parola Elbette kullanabilirsiniz. Varsayılan parola güvenlik ayarları 7 karakterden uzun olduğundan ve bir tane alfasayısal olmayan karakter içeren bir parola gerektirir.*
+*Not: İstediğiniz herhangi bir parola Elbette kullanabilirsiniz. Varsayılan parola güvenlik ayarlarını 7 karakterden daha uzun ve bir tane alfasayısal olmayan karakter içeren bir parola gerektirir.*
 
-Bu kullanıcı için yönetici rolünü seçin ve kullanıcı Oluştur düğmesine tıklayın.
+Bu kullanıcı için Yönetici rolü seçin ve kullanıcı Oluştur düğmesine tıklayın.
 
 ![](mvc-music-store-part-7/_static/image7.png)
 
@@ -95,22 +94,22 @@ Bu noktada, kullanıcının başarıyla oluşturulduğunu belirten bir ileti gö
 
 ![](mvc-music-store-part-7/_static/image8.png)
 
-Bir tarayıcı penceresi artık kapatabilirsiniz.
+Artık tarayıcı penceresini kapatabilirsiniz.
 
 ## <a name="role-based-authorization"></a>Rol tabanlı yetkilendirme
 
-Şimdi biz kullanıcı sınıfı içinde herhangi bir denetleyici işlem erişmek için Yönetici rolü olmalıdır belirterek [Authorize] özniteliğini kullanarak StoreManagerController erişimi kısıtlayabilirsiniz.
+Şimdi biz sınıftaki herhangi bir denetleyici eylemi erişmek için yönetici rolündeki kullanıcı olmalıdır belirtme [Authorize] özniteliği kullanılarak StoreManagerController erişimi kısıtlayabilirsiniz.
 
 [!code-csharp[Main](mvc-music-store-part-7/samples/sample1.cs)]
 
-*Not: [Authorize] özniteliği ve denetleyici sınıf düzeyinde aynı zamanda belirli eylem yöntemleri yerleştirilebilir.*
+*Not: [Authorize] özniteliği hem denetleyici sınıf düzeyinde hem de özel eylem yöntemleri yerleştirilebilir.*
 
-Şimdi /StoreManager için gözatma bir oturum açma iletişim kutusunu açar:
+Artık /StoreManager için gözatma, bir oturum açma iletişim kutusunu açar:
 
 ![](mvc-music-store-part-7/_static/image9.png)
 
-Bizim yeni yönetici hesabı kullanarak oturum açtıktan sonra biz önce albümü düzenle ekran çalışmaya devam edebilirsiniz.
+Sunduğumuz yeni bir yönetici hesabıyla oturum açtıktan sonra önce albümü düzenle ekranı Git sunabiliyoruz.
 
 > [!div class="step-by-step"]
 > [Önceki](mvc-music-store-part-6.md)
-> [sonraki](mvc-music-store-part-8.md)
+> [İleri](mvc-music-store-part-8.md)

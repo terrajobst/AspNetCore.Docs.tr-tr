@@ -1,36 +1,35 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-3
-title: Entity Framework 4.0 veritabanı ile ilk Başlarken ve ASP.NET 4 Web Forms - bölüm 3 | Microsoft Docs
+title: ASP.NET 4 Entity Framework 4.0 Database First çalışmaya başlama ve Web Forms - bölüm 3 | Microsoft Docs
 author: tdykstra
-description: Contoso University örnek web uygulaması Entity Framework kullanarak ASP.NET Web Forms uygulamalarının nasıl oluşturulacağını gösterir. Örnek uygulamasıdır...
+description: Contoso University örnek web uygulaması, Entity Framework kullanarak ASP.NET Web Forms uygulamalarının nasıl oluşturulacağını gösterir. Örnek uygulamayı ediyor...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/03/2010
 ms.topic: article
 ms.assetid: ccdc3f8c-2568-40a7-8f8b-3c23d2e05388
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: 654f3556af5d05ec186e1811421966bbaffd2e21
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 51964f86e66e21d63105f1043641c0096d1d41b6
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30889260"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37391153"
 ---
-<a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-3"></a>Entity Framework 4.0 veritabanı ile ilk Başlarken ve ASP.NET 4 Web Forms - bölüm 3
+<a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-3"></a>Entity Framework 4.0 Database First çalışmaya başlama ve ASP.NET 4 Web Forms - 3. Bölüm
 ====================
-by [Tom Dykstra](https://github.com/tdykstra)
+tarafından [Tom Dykstra](https://github.com/tdykstra)
 
-> Contoso University örnek web uygulaması Entity Framework 4.0 ve Visual Studio 2010 kullanarak ASP.NET Web Forms uygulamalarının nasıl oluşturulacağını gösterir. Eğitmen serisi hakkında daha fazla bilgi için bkz: [serideki ilk öğreticide](the-entity-framework-and-aspnet-getting-started-part-1.md)
+> Contoso University örnek web uygulaması Entity Framework 4.0 ve Visual Studio 2010 kullanarak ASP.NET Web Forms uygulamalarının nasıl oluşturulacağını gösterir. Öğretici serisi hakkında daha fazla bilgi için bkz: [serideki ilk öğreticide](the-entity-framework-and-aspnet-getting-started-part-1.md)
 
 
 ## <a name="filtering-ordering-and-grouping-data"></a>Filtreleme, sıralama ve verileri gruplandırma
 
-Önceki öğreticide kullandığınız `EntityDataSource` verileri görüntülemek ve düzenlemek için denetim. Bu öğreticide filtre, sipariş ve veri grubu. Bunu yaptığınızda özelliklerini ayarlayarak `EntityDataSource` denetim, söz dizimi diğer veri kaynağı denetimlerden farklı. Bununla birlikte, göreceğiniz gibi kullanabilirsiniz `QueryExtender` Bu farklılıklar en aza indirmek için denetim.
+Önceki öğreticide kullandığınız `EntityDataSource` verileri görüntülemek ve düzenlemek için denetimi. Bu öğreticide filtre, sipariş ve veri grubu. Bunu yaptığınızda özelliklerini ayarlayarak `EntityDataSource` denetimi sözdizimidir diğer veri kaynağı denetimlerden farklı. Gördüğünüz gibi ancak kullanabileceğiniz `QueryExtender` bu farklılıkları en aza indirmek için denetimi.
 
-Değiştireceğiz *Students.aspx* Öğrenciler için filtre uygulamak için sayfa adı ve arama adına göre sırala. Ayrıca değiştireceğiz *Courses.aspx* kurslar arayın ve seçilen departman kursları adına göre görüntülemek için sayfa. Son olarak, Öğrenci istatistikleri ekleyeceksiniz *About.aspx* sayfası.
+Değiştireceksiniz *Students.aspx* Öğrenciler için filtre uygulamak için sayfa adı ve arama adına göre sırala. Ayrıca değiştireceksiniz *Courses.aspx* kursları kursları arayın ve seçili bölüm adına göre görüntülemek için sayfa. Öğrenci istatistikleri nihayetinde ekleyeceksiniz *About.aspx* sayfası.
 
 [![Image02](the-entity-framework-and-aspnet-getting-started-part-3/_static/image2.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image1.png)
 
@@ -38,153 +37,153 @@ Değiştireceğiz *Students.aspx* Öğrenciler için filtre uygulamak için sayf
 
 [![Image10](the-entity-framework-and-aspnet-getting-started-part-3/_static/image6.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image5.png)
 
-[![Image14](the-entity-framework-and-aspnet-getting-started-part-3/_static/image8.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image7.png)
+[![image14](the-entity-framework-and-aspnet-getting-started-part-3/_static/image8.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image7.png)
 
-## <a name="using-the-entitydatasource-where-property-to-filter-data"></a>Verileri filtrelemek için EntityDataSource "Burada" özelliğini kullanarak
+## <a name="using-the-entitydatasource-where-property-to-filter-data"></a>Verilere filtre uygulamak için EntityDataSource "Nerede" özelliğini kullanma
 
-Açık *Students.aspx* önceki öğreticide oluşturduğunuz sayfası. Şu anda yapılandırılmış `GridView` sayfasında denetimindeki tüm adlarından görüntüler `People` varlık kümesi. Ancak, yalnızca Öğrenciler göstermek istediğiniz seçerek bulabileceğiniz `Person` null olmayan kayıt tarihi olan varlık.
+Açık *Students.aspx* önceki öğreticide oluşturduğunuz sayfası. Şu anda yapılandırılmış, `GridView` sayfasında denetimindeki tüm adlarından görüntüler `People` varlık kümesi. Ancak, yalnızca Öğrenciler, göstermek istediğiniz seçerek bulabileceğiniz `Person` null olmayan kayıt tarihleri sahip varlıklar.
 
-Geçiş **tasarım** görüntülemek ve seçim `EntityDataSource` denetim. İçinde **özellikleri** penceresindeki ayarlayın `Where` özelliğine `it.EnrollmentDate is not null`.
+Geçiş **tasarım** görüntüleyebilir ve seçebilir `EntityDataSource` denetimi. İçinde **özellikleri** penceresinde `Where` özelliğini `it.EnrollmentDate is not null`.
 
 [![Image01](the-entity-framework-and-aspnet-getting-started-part-3/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image9.png)
 
-De kullandığınız sözdizimi `Where` özelliği `EntityDataSource` varlık SQL denetimdir. Varlık SQL Transact-SQL benzer, ancak veritabanı nesneleri yerine varlıkları ile kullanılmak üzere özelleştirilebilir. İfadedeki `it.EnrollmentDate is not null`, word `it` sorgu tarafından döndürülen varlığı için referans temsil eder. Bu nedenle, `it.EnrollmentDate` başvurduğu `EnrollmentDate` özelliği `Person` varlık, `EntityDataSource` denetim döndürür.
+Söz dizimi, kullandığınız `Where` özelliği `EntityDataSource` varlık SQL denetimidir. Entity SQL Transact-SQL'e benzer, ancak veritabanı nesneleri yerine varlıklar ile kullanmak için özelleştirilmiş. İfadedeki `it.EnrollmentDate is not null`, word `it` sorgu tarafından döndürülen varlık başvuruyu temsil eder. Bu nedenle, `it.EnrollmentDate` başvurduğu `EnrollmentDate` özelliği `Person` varlık, `EntityDataSource` denetim döndürür.
 
-Sayfayı çalıştırın. Öğrenciler listesi şimdi yalnızca Öğrenciler içerir. (Görüntülendiği satır yok hiçbir kayıt tarihi yoktur.)
+Sayfayı çalıştırın. Öğrenciler listesine artık yalnızca Öğrenciler içerir. (Burada görüntülenen satır yok hiçbir kayıt tarihi yoktur.)
 
 [![Image02](the-entity-framework-and-aspnet-getting-started-part-3/_static/image12.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image11.png)
 
 ## <a name="using-the-entitydatasource-orderby-property-to-order-data"></a>Sipariş verilerini EntityDataSource "OrderBy" özelliğini kullanma
 
-İlk görüntülendiğinde adı sırada olması için bu listeyi da isteyebilirsiniz. İle *Students.aspx* sayfa içinde hala açık **tasarım** görünümü ile `EntityDataSource` denetimi yine de, seçili **özellikleri** penceresi kümesi  **OrderBy** özelliğine `it.LastName`.
+Ayrıca ilk görüntülendiğinde adı sırada olması için bu listeyi istediğiniz. İle *Students.aspx* sayfa içinde açık **tasarım** görünümü ile `EntityDataSource` hala seçiliyken denetim **özellikleri** penceresi kümesi  **OrderBy** özelliğini `it.LastName`.
 
 [![Image05](the-entity-framework-and-aspnet-getting-started-part-3/_static/image14.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image13.png)
 
-Sayfayı çalıştırın. Öğrenciler listesi sipariş son ada göre sunulmuştur.
+Sayfayı çalıştırın. Öğrenciler listesine sipariş soyadına göre sunulmuştur.
 
 [![Image04](the-entity-framework-and-aspnet-getting-started-part-3/_static/image16.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image15.png)
 
 ## <a name="using-a-control-parameter-to-set-the-where-property"></a>"Nerede" özelliğini ayarlamak için bir denetim parametresini kullanma
 
-Diğer veri kaynağı denetimleri için parametre değerlerinin geçmesini sağlayabilirsiniz gibi `Where` özelliği. Üzerinde *Courses.aspx* sayfasında öğreticinin 2 bölümünde oluşturduğunuz, aşağı açılan listeden bir kullanıcı seçer departmanı ile ilişkili kurslar görüntülemek için bu yöntemi kullanabilirsiniz.
+Diğer veri kaynağı denetimleri için parametre değerlerinin geçmesini sağlayabilirsiniz gibi `Where` özelliği. Üzerinde *Courses.aspx* sayfasında öğreticinin 2 oluşturduğunuz, bir kullanıcının açılan listeden seçtiği departmanı ile ilişkili olan kurslar görüntülemek için bu yöntemi kullanabilirsiniz.
 
-Açık *Courses.aspx* ve geçiş **tasarım** görünümü. İkinci bir ekleme `EntityDataSource` kontrol sayfasına ve adlandırın `CoursesEntityDataSource`. Buna bağlanmak `SchoolEntities` model ve seçin `Courses` olarak **EntitySetName** değeri.
+Açık *Courses.aspx* geçin **tasarım** görünümü. İkinci bir ekleme `EntityDataSource` sayfasına denetlemek ve adlandırın `CoursesEntityDataSource`. Bağlanmamız `SchoolEntities` model ve seçin `Courses` olarak **EntitySetName** değeri.
 
-İçinde **özellikleri** penceresinde, üç noktaya tıklayın **burada** özellik kutusu. (Emin olun `CoursesEntityDataSource` denetimin halen seçili kullanmadan önce **özellikleri** penceresi.)
+İçinde **özellikleri** penceresinde üç noktaya tıklayarak **burada** özellik kutusu. (Emin `CoursesEntityDataSource` denetimi, kullanılmadan önce yine de seçildiğinde **özellikleri** penceresi.)
 
 [![Image06](the-entity-framework-and-aspnet-getting-started-part-3/_static/image18.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image17.png)
 
-**İfade Düzenleyicisi** iletişim kutusu görüntülenir. Bu iletişim kutusunda seçin **nerede otomatik olarak üret ifade tabanlı sağlanan parametreleri**ve ardından **parametresi Ekle**. Parametre adı `DepartmentID`seçin **denetim** olarak **parametre kaynağı** değer ve seçin **DepartmentsDropDownList** olarak **ControlId**  değeri.
+**İfade Düzenleyicisi** iletişim kutusu görüntülenir. Bu iletişim kutusunda **Where otomatik olarak oluşturma ifadesi sağlanan parametreleri alan**ve ardından **parametresi Ekle**. Parametre adı `DepartmentID`seçin **denetimi** olarak **parametre kaynağıyla** değeri ve seçin **DepartmentsDropDownList** olarak **ControlId**  değeri.
 
 [![Image07](the-entity-framework-and-aspnet-getting-started-part-3/_static/image20.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image19.png)
 
-Tıklatın **gelişmiş özelliklerini göster**hem de **özellikleri** pencerenin **ifade Düzenleyicisi** iletişim kutusu, değişiklik `Type` özelliğine `Int32`.
+Tıklayın **Gelişmiş özellikleri göster**hem de **özellikleri** pencerenin **ifade Düzenleyicisi** iletişim kutusunda, değişiklik `Type` özelliğini `Int32`.
 
 [![Image15](the-entity-framework-and-aspnet-getting-started-part-3/_static/image22.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image21.png)
 
-İşiniz bittiğinde tıklatın **Tamam**.
+İşiniz bittiğinde tıklayın **Tamam**.
 
-Aşağıdaki açılan listeye eklemek bir `GridView` kontrol sayfasına ve adlandırın `CoursesGridView`. Bağlanmak `CoursesEntityDataSource` veri kaynağı denetimi,'ı tıklatın **yenileme şema**, tıklatın **Edit Columns**, kaldırıp `DepartmentID` sütun. `GridView` Denetim biçimlendirme, aşağıdaki örnekte benzer.
+Aşağıdaki açılan listeye eklemek bir `GridView` sayfasına denetlemek ve adlandırın `CoursesGridView`. Bağlanmamız `CoursesEntityDataSource` veri kaynak denetimi, tıklayın **Yenile şema**, tıklayın **sütunları Düzenle**, kaldırıp `DepartmentID` sütun. `GridView` Denetim biçimlendirme, aşağıdaki örnekte benzer şekilde görünür.
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-3/samples/sample1.aspx)]
 
-Kullanıcı aşağı açılan listesinde seçili Departman değiştiğinde otomatik olarak değiştirmek için ilişkili kurslar listesi istiyor. Bu durum, aşağı açılan listeden seçin yapmak için ve **özellikleri** penceresi kümesi `AutoPostBack` özelliğine `True`.
+Kullanıcı açılır listede seçilen departmanındaki değiştiğinde otomatik olarak değiştirmek için ilgili kurslar listesinde istediğiniz. Bu durum, aşağı açılan listeden seçin yapmak ve **özellikleri** penceresi kümesi `AutoPostBack` özelliğini `True`.
 
 [![Image08](the-entity-framework-and-aspnet-getting-started-part-3/_static/image24.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image23.png)
 
-Tasarımcı kullanarak tamamlanmış, geçiş **kaynak** görüntülemek ve değiştirmek `ConnectionString` ve `DefaultContainer` ad özelliklerini `CoursesEntityDataSource` ile kontrol `ContextTypeName="ContosoUniversity.DAL.SchoolEntities"` özniteliği. İşiniz bittiğinde, denetim için biçimlendirme aşağıdaki gibi görünecektir.
+İşiniz bittiğinde Tasarımcısı'nı kullanarak, geçiş **kaynak** görüntüleyin ve değiştirin `ConnectionString` ve `DefaultContainer` ad özelliklerini `CoursesEntityDataSource` denetimini `ContextTypeName="ContosoUniversity.DAL.SchoolEntities"` özniteliği. İşiniz bittiğinde, denetim için biçimlendirme, aşağıdaki örnekteki gibi görünecektir.
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-3/samples/sample2.aspx)]
 
-Sayfayı çalıştırın ve farklı departmanlara seçmek için açılır listeyi kullanın. Seçili bölüm tarafından sunulan kurslar görüntülenir `GridView` denetim.
+Sayfayı çalıştırın ve farklı departmanlara seçmek için açılan listeyi kullanın. Seçili bölüm tarafından sunulan kurslar görüntülenir `GridView` denetimi.
 
 [![Image09](the-entity-framework-and-aspnet-getting-started-part-3/_static/image26.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image25.png)
 
-## <a name="using-the-entitydatasource-groupby-property-to-group-data"></a>Grup verileri EntityDataSource "GroupBy" özelliğini kullanma
+## <a name="using-the-entitydatasource-groupby-property-to-group-data"></a>Grup verileri EntityDataSource "Gruplandırma ölçütü" özelliğini kullanma
 
-Contoso University bazı Öğrenci gövde istatistik hakkında sayfasında put istediğini varsayalım. Özellikle, bunlar kayıtlı tarihe göre Öğrenciler sayıda dökümünü göstermek istemektedir.
+Contoso Üniversitesi, ilgili sayfada bazı Öğrenci gövdesi istatistikleri put istediğini varsayalım. Özellikle, Öğrencilerin sayısını dökümünü kayıtlı oldukları tarihe göre gösterilecek istiyor.
 
-Açık *About.aspx*hem de **kaynak** görüntülemek için varolan Değiştir `BodyContent` arasında "İle Öğrenci gövde İstatistikleri" Denetim `h2` etiketler:
+Açık *About.aspx*hem de **kaynak** görüntülemek için mevcut içeriğini değiştirin `BodyContent` "Öğrenci gövdesi İstatistikleri" ile Denetim arasındaki `h2` etiketler:
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-3/samples/sample3.aspx)]
 
-Başlığı sonra eklemek bir `EntityDataSource` denetlemek ve adlandırın `StudentStatisticsEntityDataSource`. Buna bağlanmak `SchoolEntities`seçin `People` varlık ayarlamak ve bırakın **seçin** değiştirmeden sihirbazda kutusu. Aşağıdaki özellikler kümesinde **özellikleri** penceresi:
+Başlığı sonra ekleme bir `EntityDataSource` denetlemek ve adlandırın `StudentStatisticsEntityDataSource`. Bağlanmamız `SchoolEntities`seçin `People` varlık ayarlayın ve devre dışı bırakın **seçin** değiştirmeden sihirbazda kutusu. Aşağıdaki özellikleri ayarlayın **özellikleri** penceresi:
 
-- Öğrenciler için filtrelemek için `Where` özelliğine `it.EnrollmentDate is not null`.
-- Sonuçları kayıt tarihe göre gruplandırmak için ayarlanmış `GroupBy` özelliğine `it.EnrollmentDate`.
-- Kayıt tarihi ve öğrenciler sayısını seçmek üzere ayarlamak `Select` özelliğine `it.EnrollmentDate, Count(it.EnrollmentDate) AS NumberOfStudents`.
-- Sonuçları kayıt tarihe göre sıralamak için ayarlanmış `OrderBy` özelliğine `it.EnrollmentDate`.
+- Öğrenciler için filtrelemek için `Where` özelliğini `it.EnrollmentDate is not null`.
+- Kayıt tarihe göre sonuçları gruplandırmak için ayarlanmış `GroupBy` özelliğini `it.EnrollmentDate`.
+- Kayıt tarihi ve Öğrenci sayısını seçmek için ayarlanmış `Select` özelliğini `it.EnrollmentDate, Count(it.EnrollmentDate) AS NumberOfStudents`.
+- Kayıt tarihe göre sonuçları sıralamak için ayarlamak `OrderBy` özelliğini `it.EnrollmentDate`.
 
-İçinde **kaynak** görüntüleyin, değiştirin `ConnectionString` ve `DefaultContainer` ad özelliklere sahip bir `ContextTypeName` özelliği. `EntityDataSource` Denetim biçimlendirme, aşağıdaki örnekte şimdi benzer.
+İçinde **kaynak** görüntüleyin, değiştirin `ConnectionString` ve `DefaultContainer` ad özelliklere sahip bir `ContextTypeName` özelliği. `EntityDataSource` Denetim biçimlendirme, aşağıdaki örnek artık benzer.
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-3/samples/sample4.aspx)]
 
-Söz dizimi `Select`, `GroupBy`, ve `Where` özellikleri benzer Transact-SQL dışında `it` geçerli varlık belirtir anahtar sözcüğü.
+Söz dizimi `Select`, `GroupBy`, ve `Where` özellikleri benzer Transact-SQL dışında `it` geçerli varlığı belirten bir anahtar sözcüğü.
 
-Oluşturmak için aşağıdaki biçimlendirmeleri eklemek bir `GridView` verileri görüntülemek için denetim.
+Oluşturmak için aşağıdaki işaretlemeyi ekleyin bir `GridView` verileri görüntülemek için denetim.
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-3/samples/sample5.aspx)]
 
-Kayıt tarihe göre Öğrenciler sayısını gösteren bir listesini görmek için page çalıştırın.
+Kayıt tarihi tarafından Öğrenci sayısını gösteren bir listesini görmek için sayfayı çalıştırın.
 
 [![Image10](the-entity-framework-and-aspnet-getting-started-part-3/_static/image28.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image27.png)
 
 ## <a name="using-the-queryextender-control-for-filtering-and-ordering"></a>Filtreleme ve sıralama için QueryExtender denetimi kullanma
 
-`QueryExtender` Denetimi biçimlendirmede sıralama ve filtreleme belirtmek için bir yol sağlar. Söz dizimi, kullandığınız veritabanı yönetim sistemi (DBMS) bağımsızdır. Bu ayrıca genellikle, gezinti özellikleri için kullandığınız sözdizimi için Entity Framework benzersiz olduğunu özel Entity Framework'ün bağımsızdır.
+`QueryExtender` Denetimi filtreleme ve sıralama işaretlemede belirtmek için bir yol sağlar. Sözdizimi, kullanmakta olduğunuz veritabanı yönetim sistemi (DBMS) bağımsızdır. Ayrıca, genellikle bağımsız olarak Entity Framework ile özel durum söz dizimi Gezinti özelliklerini kullanmak için Entity Framework benzersiz olduğundan emin olur.
 
-Öğreticinin bu bölümünde kullanacağınız bir `QueryExtender` denetimi filtrelerin ve order verilere ve bir sipariş tarafından alanlarının bir gezinti özelliği olacaktır.
+Öğreticinin bu bölümünde kullanacağınız bir `QueryExtender` filtre ile sipariş verilerini denetimine ve sipariş tarafından alandan biri bir gezinti özelliği olacaktır.
 
-(Otomatik olarak oluşturulan sorguları genişletmek için yerine biçimlendirme kodu kullanmayı tercih ederseniz, `EntityDataSource` denetimi yapabilirsiniz, işleme `QueryCreated` olay. Bunun nasıl `QueryExtender` denetimi `EntityDataSource` kontrol sorguları da.)
+(Kod yerine biçimlendirme otomatik olarak oluşturulan sorgular genişletmek için kullanmayı tercih ederseniz `EntityDataSource` denetim yapabilirsiniz, işleme `QueryCreated` olay. Bu, nasıl `QueryExtender` denetim genişletir `EntityDataSource` denetim sorgular ayrıca.)
 
-Açık *Courses.aspx* sayfasında ve daha önce eklediğiniz biçimlendirme altında bir başlığı, arama dizeleri, arama düğmesini girileceği metin kutusu oluşturmak için aşağıdaki biçimlendirme eklemek ve bir `EntityDataSource` bağlıdenetimi`Courses` varlık kümesi.
+Açık *Courses.aspx* sayfasında ve daha önce eklediğiniz biçimlendirme başlığı, dizeleri, arama düğmesini girmek için metin kutusu oluşturmak için aşağıdaki biçimlendirme ekleyin ve bir `EntityDataSource` içinbağlıdenetimi`Courses` varlık kümesi.
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-3/samples/sample6.aspx)]
 
-Dikkat `EntityDataSource` denetimin `Include` özelliği ayarlanmış `Department`. Veritabanında `Course` tablo bölüm adını içermiyor; içerdiği bir `DepartmentID` yabancı anahtar sütunu. İndirmelere verilerin bölüm adını almak için veritabanını doğrudan sorgulama, katılmak olurdu `Course` ve `Department` tabloları. Ayarlayarak `Include` özelliğine `Department`, Entity Framework ilgili alma işini yapması belirtin `Department` alır, varlık bir `Course` varlık. `Department` Varlık depolanan sonra `Department` Gezinti özelliğinin `Course` varlık. (Varsayılan olarak, `SchoolEntities` veri modeli tasarımcısı tarafından oluşturulan sınıf gerektiğinde ve böylece ayarı bu sınıf için veri kaynağı denetimi bağladınız ilgili verileri alır `Include` özellik gerekli değildir. Aksi takdirde Entity Framework veritabanı için veri alma çağrıları ayrı olarak yapmayacağı ancak ayarlamak sayfa performansını artırır `Course` varlıkları ve ilgili için `Department` varlıklar.)
+Dikkat `EntityDataSource` denetimin `Include` özelliği `Department`. Veritabanındaki `Course` tablo bölüm adını içermiyor; içerdiği bir `DepartmentID` yabancı anahtar sütunu. Kurs verileriyle birlikte bölüm adını almak için veritabanını doğrudan sorgulama, katılmak zorunda `Course` ve `Department` tablolar. Ayarlayarak `Include` özelliğini `Department`, Entity Framework ilgili alma iş yapmalı belirttiğiniz `Department` alır, varlık bir `Course` varlık. `Department` Varlık depolanan ardından `Department` gezinti özelliği `Course` varlık. (Varsayılan olarak, `SchoolEntities` veri modeli tasarımcısı tarafından oluşturulan sınıfı gerekmesi ve o sınıfın şekilde ayarlama, veri kaynağı denetimini bağlı ilgili verileri alır `Include` özellik gerekli değildir. Entity Framework veri almak için çağrıları veritabanına ayrı aksi hale getirir ancak bu ayarın sayfasının performansı artırır `Course` varlıkları ve ilgili için `Department` varlıkları.)
 
-Sonra `EntityDataSource` yeni denetimi oluşturmak için aşağıdaki biçimlendirme Ekle oluşturulmuş bir `QueryExtender` olarak bağlı denetim `EntityDataSource` denetim.
+Sonra `EntityDataSource` yeni denetim oluşturmak için aşağıdaki işaretlemeyi ekleyin oluşturulan bir `QueryExtender` olarak bağlı denetimi `EntityDataSource` denetimi.
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-3/samples/sample7.aspx)]
 
-`SearchExpression` Başlıkları eşleşen metin kutusuna girilen değer kurslar seçmek istediğiniz öğenin belirtir. Metin kutusuna girilen karakterlerinin kaçının, çünkü Karşılaştırılacak yalnızca `SearchType` özellik belirtir `StartsWith`.
+`SearchExpression` Öğesi kursları başlıkları eşleşen metin kutusuna girilen değer seçmek istediğinizi belirtir. Metin kutusuna girilen karakterlerinin kaçının, çünkü Karşılaştırılacak yalnızca `SearchType` özellik belirtir `StartsWith`.
 
-`OrderByExpression` Öğesi belirttiğinden sonuç kümesi bölüm adı içinde indirmelere başlığa göre sıralanır. Bölüm adı nasıl belirtilen dikkat edin: `Department.Name`. Çünkü arasındaki ilişkiyi `Course` varlık ve `Department` varlıktır birebir, `Department` gezinti özelliği içeren bir `Department` varlık. (Bu bir-çok ilişkisi varsa, özelliği bir koleksiyon içerecektir.) Bölüm adını almak için belirtmelisiniz `Name` özelliği `Department` varlık.
+`OrderByExpression` Öğeyi belirten bir sonuç kümesi bölüm adı içinde kurs başlığa göre sıralanır. Bölüm adı nasıl belirtildiğine dikkat edin: `Department.Name`. Çünkü arasındaki ilişkiyi `Course` varlık ve `Department` varlıktır bire bir, `Department` gezinti özelliği içeren bir `Department` varlık. (Bu bire çok ilişkisi varsa, özelliği bir koleksiyonu içerir.) Bölüm adını almak için belirtmelisiniz `Name` özelliği `Department` varlık.
 
-Son olarak, ekleme bir `GridView` denetiminin kurslar listesini görüntülemek için:
+Son olarak, ekleme bir `GridView` denetim kursları listesini görüntülemek için:
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-3/samples/sample8.aspx)]
 
-İlk sütun bölüm adını görüntüleyen bir şablon alanıdır. Veri bağlama deyimi belirtir `Department.Name`, içinde gördüğünüz gibi `QueryExtender` denetim.
+İlk sütun bölüm adını görüntüleyen bir şablon alandır. Veri bağlama ifadesi belirtir `Department.Name`gördüğünüz şekilde `QueryExtender` denetimi.
 
-Sayfayı çalıştırın. İlk görünen tüm kursları listesini departmanı ve sonra da indirmelere başlığa göre sırayla gösterir.
+Sayfayı çalıştırın. İlk görüntü departmana göre ve sonra kurs başlığa göre sırayla tüm kursları listesini gösterir.
 
 [![Image11](the-entity-framework-and-aspnet-getting-started-part-3/_static/image30.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image29.png)
 
-Bir "m" girin ve tıklayın **arama** başlıkları "(arama olduğu değil büyük-küçük harf duyarlı) m" ile başlayan tüm kursları görmek için.
+"M" girin ve tıklayın **arama** başlıkları "(arama olduğu değil büyük küçük harf duyarlı) m" ile başlayan tüm kursları görmek için.
 
-[![Image12](the-entity-framework-and-aspnet-getting-started-part-3/_static/image32.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image31.png)
+[![image12](the-entity-framework-and-aspnet-getting-started-part-3/_static/image32.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image31.png)
 
-## <a name="using-the-like-operator-to-filter-data"></a>Verileri filtrelemek için "Gibi" işleci kullanma
+## <a name="using-the-like-operator-to-filter-data"></a>"Gibi" işleci kullanarak verileri filtreleme
 
-Benzer şekilde bir etkisi elde edebilirsiniz `QueryExtender` denetimin `StartsWith`, `Contains`, ve `EndsWith` arama türlerini kullanarak bir `Like` işlecinde `EntityDataSource` denetimin `Where` özelliği. Öğreticinin bu bölümünde, nasıl kullanılacağını görürsünüz `Like` için öğrencinin adına göre aramak için işleci.
+Benzer şekilde bir efekti elde edebileceğiniz `QueryExtender` denetimin `StartsWith`, `Contains`, ve `EndsWith` arama türlerini kullanarak bir `Like` işlecinde `EntityDataSource` denetimin `Where` özelliği. Öğreticinin bu bölümünde nasıl kullanılacağını göreceğiniz `Like` işleci için bir öğrenci adına göre aramak için.
 
-Açık *Students.aspx* içinde **kaynak** görünümü. Sonra `GridView` denetlemek, aşağıdaki biçimlendirmeyi ekleyin:
+Açık *Students.aspx* içinde **kaynak** görünümü. Sonra `GridView` denetlemek, aşağıdaki işaretlemeyi ekleyin:
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-3/samples/sample9.aspx)]
 
-Bu biçimlendirme ne önceki dışında gördüğünüz için benzer `Where` özellik değeri. İkinci bölümü `Where` ifade substring arama tanımlar (`LIKE %FirstMidName% or LIKE %LastName%`) ne olursa olsun metin kutusuna girilen için hem ilk ve son adlar arar.
+Bu işaretleme ne daha önce hariç gördüğünüz benzer `Where` özellik değeri. İkinci bölümü `Where` ifade tanımlayan bir alt dize aramayı (`LIKE %FirstMidName% or LIKE %LastName%`) ne olursa olsun metin kutusuna girilen için her iki ilk ve son adlarını arar.
 
-Sayfayı çalıştırın. Varsayılan değer olduğundan Başlangıçta tüm Öğrenciler gördüğünüz `StudentName` parametresi "%" şeklindedir.
+Sayfayı çalıştırın. Varsayılan değer için Başlangıçta tüm Öğrenciler gördüğünüz `StudentName` "%" parametresidir.
 
 [![Image13](the-entity-framework-and-aspnet-getting-started-part-3/_static/image34.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image33.png)
 
-Harf "g" metin kutusuna girin ve tıklayın **arama**. Bir "g" ya da ilk veya son ada sahip Öğrenciler listesini görürsünüz.
+"G" harfini metin kutusuna girin ve tıklayın **arama**. Bir "g" ya da ilk veya son ada sahip Öğrenciler listesini görürsünüz.
 
-[![Image14](the-entity-framework-and-aspnet-getting-started-part-3/_static/image36.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image35.png)
+[![image14](the-entity-framework-and-aspnet-getting-started-part-3/_static/image36.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image35.png)
 
-Şimdi görüntülenen, güncelleştirilmiş, filtre, sıralı ve tek tek tablolardaki verileri gruplandırılır. Sonraki öğreticide (ana-ayrıntı senaryolarında) ilgili verilerle çalışmak başlarsınız.
+Artık görüntülenen, güncelleştirildi, filtre, sipariş ve ayrı ayrı tablolardaki verileri gruplandırılır. Sonraki öğreticide (ana öğe-ayrıntı senaryoları) ilgili verilerle çalışmaya başlarsınız.
 
 > [!div class="step-by-step"]
 > [Önceki](the-entity-framework-and-aspnet-getting-started-part-2.md)
-> [sonraki](the-entity-framework-and-aspnet-getting-started-part-4.md)
+> [İleri](the-entity-framework-and-aspnet-getting-started-part-4.md)

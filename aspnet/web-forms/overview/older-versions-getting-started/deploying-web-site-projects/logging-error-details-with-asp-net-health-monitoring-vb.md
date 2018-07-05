@@ -1,160 +1,159 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-asp-net-health-monitoring-vb
-title: Hata ayrıntılarını ASP.NET durumunu (VB) izleme günlüğü | Microsoft Docs
+title: ASP.NET Durum İzleme (VB) ile hata ayrıntılarını günlüğe kaydetme | Microsoft Docs
 author: rick-anderson
-description: Microsoft'un sistem durumu izleme sistemi işlenmeyen özel durumlar dahil olmak üzere çeşitli web olayların günlüğe kaydedilmesi için kolay ve özelleştirilebilir bir yol sağlar. Bu öğreticide k açıklanmaktadır...
+description: Microsoft'un sistem durumu izleme sistemi, işlenmemiş özel durumlar dahil olmak üzere çeşitli web olaylarını günlüğe kaydedecek şekilde kolay ve özelleştirilebilir bir yol sağlar. Bu öğreticide k açıklanmaktadır...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/09/2009
 ms.topic: article
 ms.assetid: 09a6c74e-936a-4c04-8547-5bb313a4e4a3
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-asp-net-health-monitoring-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0a457d4b8773f0f4ed343f5005c76f48a5cc178f
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 1ed7b63989dc6ea7e46210a45612e2672a662177
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30888948"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37382478"
 ---
-<a name="logging-error-details-with-aspnet-health-monitoring-vb"></a>Hata ayrıntılarını ASP.NET durumunu (VB) izleme günlüğü
+<a name="logging-error-details-with-aspnet-health-monitoring-vb"></a>ASP.NET Durum İzleme (VB) ile hata ayrıntılarını günlüğe kaydetme
 ====================
 tarafından [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Kodu indirme](http://download.microsoft.com/download/1/0/C/10CC829F-A808-4302-97D3-59989B8F9C01/ASPNET_Hosting_Tutorial_13_VB.zip) veya [PDF indirin](http://download.microsoft.com/download/5/C/5/5C57DB8C-5DEA-4B3A-92CA-4405544D313B/aspnet_tutorial13_HealthMonitoring_vb.pdf)
+[Kodu indir](http://download.microsoft.com/download/1/0/C/10CC829F-A808-4302-97D3-59989B8F9C01/ASPNET_Hosting_Tutorial_13_VB.zip) veya [PDF olarak indirin](http://download.microsoft.com/download/5/C/5/5C57DB8C-5DEA-4B3A-92CA-4405544D313B/aspnet_tutorial13_HealthMonitoring_vb.pdf)
 
-> Microsoft'un sistem durumu izleme sistemi işlenmeyen özel durumlar dahil olmak üzere çeşitli web olayların günlüğe kaydedilmesi için kolay ve özelleştirilebilir bir yol sağlar. Bu öğreticide, bir veritabanına işlenmeyen özel durumları günlüğe kaydetmek için ve bir e-posta aracılığıyla geliştiricilerin bildirmek için sistem izleme durumunun dökümünü ayarı aracılığıyla açıklanmaktadır.
+> Microsoft'un sistem durumu izleme sistemi, işlenmemiş özel durumlar dahil olmak üzere çeşitli web olaylarını günlüğe kaydedecek şekilde kolay ve özelleştirilebilir bir yol sağlar. Bu öğreticide, İşlenmeyen özel durumlar bir veritabanında oturum ve e-posta aracılığıyla geliştiricilerin bildirmek için izleme sistem durumu ayarlanıyor aracılığıyla açıklanmaktadır.
 
 
 ## <a name="introduction"></a>Giriş
 
-Günlük bir dağıtılmış uygulama sistem durumu izleme ve ortaya çıkabilecek sorunları tanılamak için yararlı araçtır. Dağıtılan bir uygulama ortaya ve böylece bunlar düzeltilebilir hataları günlüğe kaydetmek özellikle önemlidir. `Error` Olayı bir ASP.NET uygulamasındaki; işlenmeyen bir özel durum oluştuğunda [önceki öğretici](processing-unhandled-exceptions-vb.md) hata geliştiricisine bildirin ve içinbirolayişleyicisioluşturarakayrıntılarınıoturumnasıloluşturulacağınıgösterir`Error` olay. Ancak, oluşturma bir `Error` hatanın ayrıntıları oturum ve geliştirici işleyicidir gereksiz, bu görev ASP tarafından gerçekleştirilebileceği gibi. NET'in *durum sistemini izleme*.
+Dağıtılan bir uygulama durumunu izlemek için ve karşılaşabileceğiniz sorunları tanılamak için yararlı bir araçtır günlüğe kaydetme işlemi. Dağıtılan bir uygulamada gerçekleşir ve böylece bunlar giderilebilir hataları günlüğe kaydetmek özellikle önemlidir. `Error` Olayı, bir ASP.NET uygulamasında; işlenmeyen bir özel durum oluştuğunda oluşturulur [önceki öğretici](processing-unhandled-exceptions-vb.md) bir geliştirici bir hata bildirir ve ayrıntılarını içinbirolayişleyicisioluşturarakoturumgösterildi`Error` olay. Bununla birlikte, oluşturmak bir `Error` hatanın ayrıntılarını ve bir geliştirici bildirmek için olay işleyicisi seçimdir gereksiz, bu görevi, ASP tarafından gerçekleştirilebilir. NET *sistem durumu izleme sistemi*.
 
-Durumunu sistem izleme ASP.NET 2.0 ile sunulan ve dağıtılan bir ASP.NET uygulama sağlığını izlemek için uygulama veya isteğin ömrü sırasında meydana gelen olayları günlüğe kaydetmeyi tarafından tasarlanmıştır. Durumunu sistem izleme tarafından kaydedilen olayları denir *durum olaylarını izleme* veya *Web olayları*ve içerir:
+Sistem durumu izleme sistemi ASP.NET 2.0 sürümünde kullanıma sunulmuştur ve dağıtılan bir ASP.NET uygulama durumunu izlemek için uygulama veya isteğinin yaşam süresi gerçekleşen olayları tasarlanmıştır. Sistem durumu izleme sistemi tarafından kaydedilen olayları olarak ifade edilir *sistem durumu izleme olayları* veya *Web olayları*ve içerir:
 
-- Ne zaman bir uygulama başlatıldığında veya durdurulduğunda gibi uygulama ömür olayları
-- Güvenlik olayları dahil olmak üzere, oturum açma denemesi başarısız oldu ve URL yetkilendirme isteği başarısız oldu
-- Uygulama hataları dahil olmak üzere, özel durumlar, özel durumlar, istek doğrulama özel durumlar ve hata diğer türleri arasında belirli bir derleme ayrıştırma görünüm durumu işlenmemiş.
+- Ne zaman bir uygulama başlatıldığında veya durdurulduğunda gibi uygulama yaşam süresi olayları
+- Güvenlik olaylarını da dahil olmak üzere, oturum açma denemesi başarısız oldu ve URL yetkilendirme isteği başarısız oldu
+- Uygulama hatalarına, şunlar gibi özel durumlar, özel durumlar, istek doğrulama özel durumlar ve diğer hata türleri arasında belirli bir derleme ayrıştırma görünüm durumu işlenmemiş.
 
-Bir sistem durumu izleme olayı olduğunda, herhangi bir sayıda için kaydedilebilir belirtilen *oturum kaynakları*. Durumunu sistem izleme için Windows olay günlüğü veya diğerlerinin yanı sıra bir e-posta iletisi yoluyla bir Microsoft SQL Server veritabanı Web olayları oturum günlük kaynakları ile birlikte gelir. Kendi günlük kaynakları da oluşturabilirsiniz.
+Bir sistem durumu izleme olayı zaman, dilediğiniz sayıda günlüğe kaydedilebilecek belirtilen *oturum kaynakları*. Sistem durumu izleme sistemi, Microsoft SQL Server veritabanı için Windows olay günlüğü veya aracılığıyla bir e-posta iletisinde, diğerlerinin yanı sıra Web olayları oturum günlüğü kaynakları ile birlikte gelir. Kendi günlük kaynaklarını da oluşturabilirsiniz.
 
-Durumunu sistem izleme günlükleri, kullanılan, günlük kaynakları birlikte olayları tanımlanan `Web.config`. Yapılandırma biçimlendirme birkaç satırıyla durumunu bir veritabanına tüm işlenmeyen özel durumları günlüğe kaydetmek için ve özel durum e-posta yoluyla bildiren izleme kullanabilirsiniz.
+Durum sistemini izleme günlükleri, günlük kaynakları birlikte kullanıldığında, olayların tanımlanan `Web.config`. Yapılandırma biçimlendirme birkaç satır kod ile tüm işlenmemiş özel durumların bir veritabanında oturum ve özel e-posta yoluyla bildiren izleme sistem durumu kullanabilirsiniz.
 
-## <a name="exploring-the-health-monitoring-systems-configuration"></a>Durumunu sistem yapılandırmasının izleme keşfetme
+## <a name="exploring-the-health-monitoring-systems-configuration"></a>Sistem durumu izleme sistem yapılandırmasının keşfetme
 
-Sistemin davranış izlemeyi sistem bulunan yapılandırma bilgileri tarafından tanımlanan [ `<healthMonitoring>` öğesi](https://msdn.microsoft.com/library/2fwh2ss9.aspx) içinde `Web.config`. Bu yapılandırma bölümü yanı sıra, aşağıdaki üç önemli bilgi parçalarını tanımlar:
+Sistem durumu izleme sisteminin davranışı bulunan yapılandırma bilgileri, tanımlanan [ `<healthMonitoring>` öğesi](https://msdn.microsoft.com/library/2fwh2ss9.aspx) içinde `Web.config`. Bu yapılandırma bölümü yanı sıra, şu üç önemli bilgilere tanımlar:
 
-1. Olayları izleme sistem durumu, gerçekleşti, oturum açmış olmanız,
-2. Günlük kaynakları ve
-3. Her sistem durumu (1)'de tanımlanan olay izleme günlüğü kaynakları nasıl eşlenir (2) tanımlanır.
+1. Sistem durumu izleme olayları, gerçekleşti, oturum açmış olmanız,
+2. Günlük kaynaklarını ve
+3. Her durum (1) içinde tanımlanan olay izleme günlüğü kaynaklarına nasıl eşlendiğini (2) tanımlanır.
 
-Bu bilgiler üç alt yapılandırma öğeleri ile belirtilmiştir: [ `<eventMappings>` ](https://msdn.microsoft.com/library/yc5yk01w.aspx), [ `<providers>` ](https://msdn.microsoft.com/library/zaa41kz1.aspx), ve [ `<rules>` ](https://msdn.microsoft.com/library/fe5wyxa0.aspx)sırasıyla.
+Bu bilgiler, üç alt yapılandırma öğeleri aracılığıyla belirtilir: [ `<eventMappings>` ](https://msdn.microsoft.com/library/yc5yk01w.aspx), [ `<providers>` ](https://msdn.microsoft.com/library/zaa41kz1.aspx), ve [ `<rules>` ](https://msdn.microsoft.com/library/fe5wyxa0.aspx)sırasıyla.
 
-Varsayılan durum sistem yapılandırma bilgileri izleme bulunabilir `Web.config` dosyasını `%WINDIR%\Microsoft.NET\Framework\version\CONFIG` klasör. Bu varsayılan yapılandırma bilgilerini okumanızdır kaldırılan bazı biçimlendirme ile aşağıda verilmiştir:
+Varsayılan durum sistemini yapılandırma bilgilerini izleme bulunabilir `Web.config` dosyası `%WINDIR%\Microsoft.NET\Framework\version\CONFIG` klasör. Bu varsayılan yapılandırma bilgileri, konuyu uzatmamak amacıyla, kaldırılan bazı biçimlendirme ile aşağıda gösterilmiştir:
 
 [!code-xml[Main](logging-error-details-with-asp-net-health-monitoring-vb/samples/sample1.xml)]
 
-Sistem durumu izleme olaylarının tanımlanmış `<eventMappings>` durum olaylarını izleme sınıfına bir insan kolay ad verir öğesi. Yukarıdaki biçimlendirmede `<eventMappings>` öğesi atar İnsan kolay adı "Tüm hataları" türünde olayları izleme durumu `WebBaseErrorEvent` ve adı "hata denetimleri" türünde olayları izleme sistem durumu için `WebFailureAuditEvent`.
+Sistem durumu izleme olaylarının tanımlanmış `<eventMappings>` öğesi, sistem durumu izleme olayları bir sınıf için bir insan kolay ad verir. Yukarıdaki biçimlendirmede `<eventMappings>` öğesi türünde olayları izleme sistem durumu için İnsan kolay adı "Tüm hataları" atar `WebBaseErrorEvent` ve adı "hata denetimleri" sistem durumu olay türü izleme için `WebFailureAuditEvent`.
 
-`<providers>` Öğesi İnsan kolay ad vermek ve tüm günlük kaynak özgü yapılandırma bilgilerini belirtme günlük kaynaklarını tanımlar. İlk `<add>` öğe, belirtilen durum kullanarak olayları izleme günlükleri "EventLogProvider" Sağlayıcı tanımlar `EventLogWebEventProvider` sınıfı. `EventLogWebEventProvider` Sınıfı için Windows olay günlüğü olayı günlüğe kaydeder. İkinci `<add>` öğesi tanımlayan bir Microsoft SQL Server veritabanına olayları günlüğe kaydeden "SqlWebEventProvider" sağlayıcı `SqlWebEventProvider` sınıfı. Veritabanı bağlantı dizesi "SqlWebEventProvider" yapılandırma belirtir (`connectionStringName`) diğer yapılandırma seçenekleri arasında.
+`<providers>` Öğe bunları İnsan kolay ad vermek ve tüm günlük kaynak özgü yapılandırma bilgilerini belirterek günlük kaynaklarını tanımlar. İlk `<add>` öğe belirtilen sistem durumu olaylarını kullanarak izleme günlükleri "EventLogProvider" Sağlayıcı tanımlar `EventLogWebEventProvider` sınıfı. `EventLogWebEventProvider` Sınıfı olayı Windows olay günlüğüne kaydeder. İkinci `<add>` öğesi, bir Microsoft SQL Server veritabanına olayları günlüğe kaydeden "SqlWebEventProvider" Sağlayıcı tanımlar `SqlWebEventProvider` sınıfı. "SqlWebEventProvider" yapılandırma veritabanının bağlantı dizesini belirtir. (`connectionStringName`) diğer yapılandırma seçenekleri arasında.
 
-`<rules>` Öğesi eşler belirtilen olayları `<eventMappings>` kaynakları oturum açmak için öğesi `<providers>` öğesi. Varsayılan olarak, ASP.NET web uygulamalarının tüm işlenmeyen özel durumları günlüğe kaydetmek ve hataları için Windows olay günlüğünü denetleyin.
+`<rules>` Öğeyi belirtilen olayları eşleyen `<eventMappings>` kaynakları oturum açmak için öğe `<providers>` öğesi. Varsayılan olarak, ASP.NET web uygulamaları, tüm işlenmemiş özel durumları günlüğe kaydetmek ve hataları için Windows olay günlüğünü denetleyin.
 
-## <a name="logging-events-to-a-database"></a>Bir veritabanına günlük olayları
+## <a name="logging-events-to-a-database"></a>Bir veritabanı için günlük olayları
 
-Durumunu sistem varsayılan yapılandırmasının izleme ekleyerek bir web uygulaması tarafından web uygulaması temelinde özelleştirilebilir bir `<healthMonitoring>` uygulamanın bölümüne `Web.config` dosya. Ek öğeler içerebilir `<eventMappings>`, `<providers>`, ve `<rules>` kullanarak bölümleri `<add>` öğesi. Bir ayar varsayılan yapılandırma kullanımdan kaldırmak için `<remove>` öğesi ya da kullanım `<clear />` tüm varsayılan değerleri bu bölümlerden biri kaldırmak için. Kullanarak bir Microsoft SQL Server veritabanı tüm işlenmeyen özel durumları günlüğe kaydetmek için Kitap incelemeleri web uygulamasına yapılandıralım `SqlWebEventProvider` sınıfı.
+Sistem durumu izleme sistemin varsayılan yapılandırmasını ekleyerek web uygulama tarafından web uygulaması olarak özelleştirilebilir bir `<healthMonitoring>` uygulamanın bölümüne `Web.config` dosya. Ek öğeler içerebilir `<eventMappings>`, `<providers>`, ve `<rules>` kullanarak olarak bölümlerde `<add>` öğesi. Bir ayarı varsayılan yapılandırma kullanımdan kaldırılacağı `<remove>` öğesi ya da kullanım `<clear />` tüm varsayılan değerleri bu bölümlerin birinden kaldırmak için. Kitap incelemeleri web uygulamasını kullanarak bir Microsoft SQL Server veritabanı tüm işlenmemiş özel durumların günlüğe yapılandıralım `SqlWebEventProvider` sınıfı.
 
-`SqlWebEventProvider` Sınıfı durumunu belirtilen bir SQL Server veritabanı için olay izleme günlüklerini ve durum sistemini izleme parçasıdır. `SqlWebEventProvider` Sınıfı bekliyor belirtilen veritabanı adlı bir saklı yordam içerdiğini `aspnet_WebEvent_LogEvent`. Bu saklı yordam olay ayrıntılarını geçirilir ve olay ayrıntılarını depolamanın görevli. İyi haber depolanan oluşturmak gerekmez olan yordamı veya olay ayrıntılarını saklamak için tablo. Bu nesneler kullanarak veritabanı ekleyebileceğiniz `aspnet_regsql.exe` aracı.
+`SqlWebEventProvider` Sınıfı sistem durumu izleme sistemi bir parçasıdır ve sistem durumu izleme olayı belirtilen SQL Server veritabanına kaydeder. `SqlWebEventProvider` Sınıfı bekliyor belirtilen veritabanı adında bir saklı yordamı içerdiğini `aspnet_WebEvent_LogEvent`. Bu saklı yordamı bir olayın ayrıntıları geçirilir ve olay ayrıntılarını depolama ile görevli. Bu depolanan oluşturmak gerekmez güzel bir haberimiz var olduğu ya da olay ayrıntılarını depolamak üzere tablo yordamı. Bu nesneleri kullanarak veritabanı ekleyebileceğiniz `aspnet_regsql.exe` aracı.
 
 > [!NOTE]
-> `aspnet_regsql.exe` Aracı ele alınan geri [ *bir Web sitesi, kullanan uygulama hizmetlerini yapılandırma* öğretici](configuring-a-website-that-uses-application-services-vb.md) ASP desteği eklediğimiz zaman. NET uygulama hizmetleri. Sonuç olarak, Kitap incelemeleri Web sitesinin veritabanı zaten içeriyor `aspnet_WebEvent_LogEvent` saklı adlı bir tabloya olay bilgilerini depolar yordamı `aspnet_WebEvent_Events`.
+> `aspnet_regsql.exe` Aracı ele alınan geri [ *bir Web sitesi, kullandığı uygulama hizmetleri yapılandırma* öğretici](configuring-a-website-that-uses-application-services-vb.md) ASP desteği zaman ekledik. NET uygulama hizmetleri. Sonuç olarak, Kitap incelemeleri Web sitesinin veritabanı zaten var. `aspnet_WebEvent_LogEvent` saklı yordamsa, adlı bir tabloya olay bilgilerini depolayan `aspnet_WebEvent_Events`.
 
 
-Gerekli saklı yordamı ve tabloyu veritabanınıza eklenmesi olduktan sonra kalan tek şey durumunu tüm işlenmeyen özel durumlar veritabanında oturum izleme istemek üzere. Bu, Web sitenizin için aşağıdaki biçimlendirme ekleyerek gerçekleştirmek `Web.config` dosyası:
+Veritabanına eklenen tablo ve gerekli saklı yordam aldıktan sonra kalan tek şey durum tüm işlenmemiş özel durumların veritabanında oturum izleme bildirin. Aşağıdaki biçimlendirme, Web sitenizin ekleyerek bunu `Web.config` dosyası:
 
 [!code-xml[Main](logging-error-details-with-asp-net-health-monitoring-vb/samples/sample2.xml)]
 
-Sistem durumu izleme yapılandırması biçimlendirme kullanımlar yukarıda `<clear />` önceden tanımlanmış sistem durumu izleme yapılandırma bilgilerini silmek için öğeler `<eventMappings>`, `<providers>`, ve `<rules>` bölümler. Ardından tek bir giriş her bu bölümleri ekler.
+Sistem durumu izleme yapılandırma biçimlendirme kullanımlar yukarıda `<clear />` önceden tanımlanmış sistem durumu izleme yapılandırma bilgilerini silmek için öğeler `<eventMappings>`, `<providers>`, ve `<rules>` bölümler. Ardından tek bir giriş bu bölümlerin her öğesine ekler.
 
-- `<eventMappings>` Öğesi "Tüm işlenmeyen bir özel durum oluştuğunda tetiklenir hataları", adlı ilgi olay izleme tek bir sistem durumu tanımlar.
-- `<providers>` Öğesi tanımlar "kullanan SqlWebEventProvider" adlı bir tek günlük kaynağı `SqlWebEventProvider` sınıfı. `connectionStringName` Özniteliği "bizim bağlantısının adı olan ReviewsConnectionString için", ayarlandıktan içinde tanımlanan bir dize `<connectionStrings>` bölümü.
-- Son olarak, &lt;kuralları&gt; öğesi, "Tüm hataları" olay transpires olduğunda, "SqlWebEventProvider" sağlayıcısını kullanarak günlüğe kaydedileceğini gösterir.
+- `<eventMappings>` Öğe tek sistem durumu izleme "Tüm işlenmeyen bir özel durum oluştuğunda gerçekleşmek üzereyken hataları", adlı ilgilendiğiniz olayı tanımlar.
+- `<providers>` Öğe tanımlar "kullanan SqlWebEventProvider" adlı tek bir günlük kaynağına `SqlWebEventProvider` sınıfı. `connectionStringName` "Bizim bağlantısının adı ReviewsConnectionString için", öznitelik ayarlandı içinde tanımlanan bir dize `<connectionStrings>` bölümü.
+- Son olarak, &lt;kuralları&gt; öğesi, "Tüm hataları" olay transpires olduğunda, "SqlWebEventProvider" sağlayıcısını kullanarak günlüğe kaydedilmesi gerektiğini gösterir.
 
-Bu yapılandırma bilgisi tüm işlenmeyen özel durumlar Kitap incelemeleri veritabanında oturum sistem izleme sistem durumu bildirir.
+Bu yapılandırma bilgileri sistem durumu izleme sistemi, tüm işlenmemiş özel durumların Kitap incelemeleri veritabanında oturum bildirir.
 
 > [!NOTE]
-> `WebBaseErrorEvent` Sunucusu hataları için olay gerçekleşti yalnızca; bulunamadığını bildiren bir ASP.NET kaynak için bir istek gibi HTTP hataları için oluşmaz. Bu davranışından farklıdır `HttpApplication` sınıfının `Error` hem sunucu hem de HTTP hataları için tetiklenir olay.
+> `WebBaseErrorEvent` Olayı için sunucu hataları yalnızca oluşturulur; bulunamadığını bildiren bir ASP.NET kaynak istekleri gibi HTTP hata oluşmaz. Bu davranışından farklıdır `HttpApplication` sınıfın `Error` hem sunucu hem de HTTP hataları için oluşan olayı.
 
 
-Eylem sistem izleme sistem durumu görmek için Web sitesini ziyaret edin ve bir çalışma zamanı hatası ziyaret ederek oluşturmak `Genre.aspx?ID=foo`. İlgili hata sayfası - özel durum ayrıntıları sarı ekran, (yerel olarak ziyaret ederken) ölüm veya (üretim sitesini ziyaret ederken) özel hata sayfasını görmeniz gerekir. Arka planda durum sistemini izleme veritabanına hata bilgilerini günlüğe. Bir kayıt olmalıdır `aspnet_WebEvent_Events` tablosu (bkz **Şekil 1**); bu kayıt yalnızca oluştu çalışma zamanı hatasıyla ilgili bilgileri içerir.
+Sistem durumu izleme sistemi uygulamada görmek için Web sitesini ziyaret edin ve bir çalışma zamanı hatası ederek oluşturmak `Genre.aspx?ID=foo`. Uygun hata sayfası - özel durum ayrıntıları sarı ekran'ın (yerel olarak açtıklarında) ölüm ya da (üretim sitesini ziyaret ederken) özel hata sayfası görmeniz gerekir. Arka planda sistem durumu izleme sistemi veritabanına hata bilgilerini günlüğe kaydedilir. Bir kayıt olmalıdır `aspnet_WebEvent_Events` tablo (bkz **Şekil 1**); bu kaydı yalnızca oluşan çalışma zamanı hata hakkındaki bilgileri içerir.
 
 [![](logging-error-details-with-asp-net-health-monitoring-vb/_static/image2.png)](logging-error-details-with-asp-net-health-monitoring-vb/_static/image1.png)
 
-**Şekil 1**: hata ayrıntıları için kaydedilmiş `aspnet_WebEvent_Events` tablosu  
-([Tam boyutlu görüntüyü görüntülemek için tıklatın](logging-error-details-with-asp-net-health-monitoring-vb/_static/image3.png))
+**Şekil 1**: hata ayrıntılarını günlüğe kaydedilen `aspnet_WebEvent_Events` tablo  
+([Tam boyutlu görüntüyü görmek için tıklatın](logging-error-details-with-asp-net-health-monitoring-vb/_static/image3.png))
 
 ### <a name="displaying-the-error-log-in-a-web-page"></a>Bir Web sayfasında hata günlüğünü görüntüleme
 
-Web sitesinin geçerli yapılandırması ile durum sistemini izleme tüm işlenmeyen özel durumlar veritabanına kaydeder. Bununla birlikte, sistem durumu izleme web sayfası aracılığıyla hata günlüğünü görüntülemek için herhangi bir mekanizma sağlamaz. Ancak, bu bilgileri veritabanından görüntüleyen bir ASP.NET sayfası oluşturabilirsiniz. (Kısa bir süre içinde anlatıldığı gibi bir e-posta iletisinde size gönderilen hata ayrıntıları için tercih edebilirsiniz.)
+Web sitesinin geçerli yapılandırma ile sistem durumu izleme sistemi, veritabanına tüm işlenmemiş özel durumların günlüğe kaydeder. Ancak, sistem durumu izlemesi aracılığıyla bir web sayfası için hata günlüğünü görüntülemek için herhangi bir mekanizma sağlamaz. Ancak, bu bilgileri veritabanından görüntüleyen bir ASP.NET sayfası da oluşturabilirsiniz. (Kısa bir süre içinde anlatıldığı gibi bir e-posta iletisinde size gönderilen hata ayrıntılarını sağlamak için seçebilirsiniz.)
 
-Bu tür bir sayfa oluşturursanız, yalnızca yetkili kullanıcılar hata ayrıntılarını görüntülemek izin vermek için adımlar emin olun. Sitenizi kullanıcı hesapları içeriyorsa belirli kullanıcılar ya da roller sayfasına erişimi kısıtlamak için URL yetkilendirme kuralları kullanabilirsiniz. Vermek veya oturum açan kullanıcıyı temel alarak web sayfalarına erişimi kısıtlamak nasıl daha fazla bilgi için bkz my [Web sitesi güvenlik öğreticileri](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md).
+Böyle bir sayfa oluşturursanız, yalnızca yetkili kullanıcıların hata ayrıntılarını görüntülemek adımlar emin olun. Sitenizi kullanıcı hesaplarını içeriyorsa belirli kullanıcılar ya da roller sayfasına erişimi kısıtlamak için URL yetkilendirme kuralları kullanabilirsiniz. Vermek veya oturum açmış kullanıcıya bağlı web sayfalarına erişimi kısıtlamak nasıl daha fazla bilgi için Bilgisayarım [Web sitesi güvenlik öğreticileri](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md).
 
 > [!NOTE]
-> Sonraki öğretici ELMAH adlı bir alternatif hata günlüğü ve bildirim sistemi araştırır. ELMAH hem de bir web sayfasından ve bir RSS olarak hata günlüğünü görüntülemek için yerleşik bir mekanizma içerir.
+> Sonraki öğretici ELMAH adlı bir alternatif hata günlüğü ve bildirim sistemi inceler. ELMAH hem bir web sayfasından ve bir RSS akışı olarak hata günlüğünü görüntülemek için yerleşik bir mekanizma içerir.
 
 
 ## <a name="logging-events-to-email"></a>E-posta olayları günlüğe kaydetme
 
-Durumunu sistem izleme "e-posta iletisine bir olayı günlüğe kaydeder" günlük kaynak sağlayıcısı içerir. Günlüğü kaynağı e-posta ileti gövdesinde veritabanına kaydedilir aynı bilgileri içerir. Belirli bir sistem durumu izleme olayı oluştuğunda bir geliştirici bildirmek için bu günlüğü kaynağı kullanabilirsiniz.
+Sistem durumu izleme sistemi, "e-posta iletisine bir olayı günlüğe kaydeder" günlük bir kaynak sağlayıcısı içerir. Günlük kaynak e-posta ileti gövdesindeki veritabanına kaydedilir aynı olan bilgileri içerir. Belirli bir sistem durumu izleme olayı ortaya çıktığında, bir geliştirici bildirmek için bu günlüğü kaynağı kullanabilirsiniz.
 
-Şimdi bir e-posta bir özel durum her aldığımız böylece Web sitesinin yapılandırma gerçekleşir Kitap incelemeleri güncelleştirin. Bunu gerçekleştirmek için üç görevleri gerçekleştirmek ihtiyacımız var:
+Bir özel durum olduğunda e-posta aldığımız böylece Web sitesinin yapılandırma gerçekleşir Kitap incelemeleri güncelleştirelim. Bunu gerçekleştirmek için şu üç görev gerçekleştirmeniz gerekir:
 
-1. E-posta göndermek için ASP.NET web uygulaması yapılandırın. Bu e-posta iletileri üzerinden nasıl gönderileceğini belirterek gerçekleştirilir `<system.net>` yapılandırma öğesi. E-posta gönderme hakkında daha fazla bilgi için bir ASP.NET uygulamasında iletileri başvurmak [ASP.NET e-posta gönderme](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx) ve [System.Net.Mail SSS](http://systemnetmail.com/).
-2. E-posta günlüğü kaynak sağlayıcısı kaydetme `<providers>` öğesi, ve
-3. Bir giriş eklemek `<rules>` (2) adımda eklenen günlük kaynak sağlayıcısı "Tüm hataları" olay eşlendiği öğe.
+1. ASP.NET web uygulaması, e-posta göndermek için yapılandırın. Bu e-posta iletilerini aracılığıyla nasıl gönderileceğini belirterek gerçekleştirilir `<system.net>` yapılandırma öğesi. E-posta gönderme hakkında daha fazla bilgi için bir ASP.NET uygulamasında iletileri başvurmak [ASP.NET e-posta gönderme](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx) ve [System.Net.Mail SSS](http://systemnetmail.com/).
+2. İçindeki e-posta günlük kaynak sağlayıcısını kaydetme `<providers>` öğesi, ve
+3. Bir girdiyi `<rules>` (2) basamaktaki günlüğü kaynak sağlayıcısı için "Tüm hataları" olay eşlemeleri öğesi.
 
-Durumunu sistem izleme iki e-posta günlük kaynak sağlayıcısı sınıfları içerir: `SimpleMailWebEventProvider` ve `TemplatedMailWebEventProvider`. [ `SimpleMailWebEventProvider` Sınıfı](https://msdn.microsoft.com/library/system.web.management.simplemailwebeventprovider.aspx) e-posta gövdesi çok az özelleştirmesini sağlar ve ayrıntıları olay içeren bir düz metin e-posta iletisi gönderir. İle [ `TemplatedMailWebEventProvider` sınıfı](https://msdn.microsoft.com/library/system.web.management.templatedmailwebeventprovider.aspx) , oluşturulan biçimlendirmenin e-posta iletisinin gövdesi olarak kullanılan bir ASP.NET sayfası belirtin. [ `TemplatedMailWebEventProvider` Sınıfı](https://msdn.microsoft.com/library/system.web.management.templatedmailwebeventprovider.aspx) kadar içeriğini ve e-posta ileti biçimi üzerinde daha fazla denetim sağlar, ancak e-posta iletisinin gövdesi oluşturur ASP.NET sayfası oluşturmak zorunda biraz daha fazla ön iş gerektirir. Bu öğreticiyi kullanmaya odaklanır `SimpleMailWebEventProvider` sınıfı.
+Sistem durumu izleme sistemi iki e-posta günlük kaynak sağlayıcısı sınıfları içerir: `SimpleMailWebEventProvider` ve `TemplatedMailWebEventProvider`. [ `SimpleMailWebEventProvider` Sınıfı](https://msdn.microsoft.com/library/system.web.management.simplemailwebeventprovider.aspx) olay içeren bir düz metin e-posta iletisi ayrıntılarını ve e-posta gövdesi çok az özelleştirme sağlar gönderir. İle [ `TemplatedMailWebEventProvider` sınıfı](https://msdn.microsoft.com/library/system.web.management.templatedmailwebeventprovider.aspx) olan biçimlendirmenin için e-posta iletisi gövdesi olarak kullanılan bir ASP.NET sayfasında belirtin. [ `TemplatedMailWebEventProvider` Sınıfı](https://msdn.microsoft.com/library/system.web.management.templatedmailwebeventprovider.aspx) içeriğini ve e-posta iletisinin biçimi üzerinde daha büyük denetim sağlar, ancak e-posta iletisinin gövdesi oluşturan ASP.NET sayfası oluşturmak sahip olduğunuz biraz daha fazla ön çalışma gerektirir. Bu öğreticiyi kullanmaya odaklanmıştır `SimpleMailWebEventProvider` sınıfı.
 
-Sistem durumu sistemin izleme güncelleştirme `<providers>` öğesinde `Web.config` için bir günlük kaynak eklenecek dosyası `SimpleMailWebEventProvider` sınıfı:
+Sistem durumu izleme sistemi güncelleştirme `<providers>` öğesinde `Web.config` günlük kaynağı için dahil edilecek dosyası `SimpleMailWebEventProvider` sınıfı:
 
 [!code-xml[Main](logging-error-details-with-asp-net-health-monitoring-vb/samples/sample3.xml)]
 
-Yukarıdaki biçimlendirme kullanan `SimpleMailWebEventProvider` günlüğü kaynak sağlayıcısı olarak sınıfı ve kolay adı "EmailWebEventProvider" atar. Ayrıca, `<add>` özniteliği Kime gibi ve e-posta iletisinin adreslerinden ek yapılandırma seçenekleri içerir.
+Yukarıdaki biçimlendirme kullanan `SimpleMailWebEventProvider` günlüğü kaynak sağlayıcısı olarak sınıfı ve kolay adı "EmailWebEventProvider" atar. Ayrıca, `<add>` öznitelik gibi yapılır ve e-posta iletisinin adreslerinden ek yapılandırma seçenekleri içerir.
 
-E-posta günlüğü kaynağı tanımlanan sonra kalan tek şey "İşlenmeyen özel durumları günlüğe kaydetmek için" Bu kaynağı kullanmak için sistem izleme sistem durumu istemek üzere. Bu yeni bir kural eklenmesiyle gerçekleştirilir `<rules>` bölümü:
+Tanımlanan e-posta günlüğü kaynağı ile kalan tek şey sistem durumu izleme sistemi "İşlenmeyen özel durumları günlüğe kaydetmek için" Bu kaynağı kullanmaya bildirin. Bu yeni bir kuralda ekleyerek gerçekleştirilir `<rules>` bölümü:
 
 [!code-xml[Main](logging-error-details-with-asp-net-health-monitoring-vb/samples/sample4.xml)]
 
-`<rules>` Bölüm şimdi iki kural içerir. "Tüm hatalar için e-posta" adlı birincisini tüm işlenmeyen özel durumlar "EmailWebEventProvider" günlük kaynağına gönderir. Bu kural Web sitesinde hatalarla ilgili ayrıntıları belirtilen gönderme etkisi adresine. "Tüm hatalar için veritabanı" kuralı hata ayrıntıları sitenin veritabanına kaydeder. Sonuç olarak, işlenmeyen bir özel durum ayrıntılarını sitesinde oluştuğunda hem de veritabanında günlüğe ve belirtilen e-posta adresine gönderilen.
+`<rules>` Bölüm artık iki kural içerir. "Tüm hatalar için e-posta" adlı birinci tüm işlenmemiş özel durumların "EmailWebEventProvider" günlük kaynağına gönderir. Bu kural Web sitesinde hatalarıyla ilgili ayrıntıları belirtilen gönderme etkisi adresine. "Tüm hataları için veritabanı" kuralı sitenin veritabanına hata ayrıntılarını günlüğe kaydeder. Sonuç olarak, sitesinde ayrıntılarını işlenmeyen bir özel durum oluştuğunda hem de veritabanında günlüğe ve belirtilen e-posta adresine gönderildi.
 
-**Şekil 2** tarafından oluşturulan e-posta gösterir `SimpleMailWebEventProvider` sınıf ziyaret eden `Genre.aspx?ID=foo`.
+**Şekil 2** tarafından oluşturulan e-posta gösterir `SimpleMailWebEventProvider` sınıfı ziyaret `Genre.aspx?ID=foo`.
 
 [![](logging-error-details-with-asp-net-health-monitoring-vb/_static/image5.png)](logging-error-details-with-asp-net-health-monitoring-vb/_static/image4.png)
 
 **Şekil 2**: hata ayrıntıları, bir e-posta iletisi gönderilir  
-([Tam boyutlu görüntüyü görüntülemek için tıklatın](logging-error-details-with-asp-net-health-monitoring-vb/_static/image6.png))
+([Tam boyutlu görüntüyü görmek için tıklatın](logging-error-details-with-asp-net-health-monitoring-vb/_static/image6.png))
 
 ## <a name="summary"></a>Özet
 
-ASP.NET sistem durumu izleme sistemi, dağıtılan web uygulamasının sağlığını izlemek yöneticilerin sağlamak için tasarlanmıştır. Sistem durumu izleme olayları, uygulama durdurduğunda başarıyla sitesinde oturum açtığında gibi bazı eylemler unfold veya işlenmeyen bir özel durum oluştuğunda oluşturulur. Bu olaylar günlük kaynakları herhangi bir sayıda kaydedilebilir. Bu öğretici, bir veritabanına ve bir e-posta aracılığıyla işlenmeyen özel durumlar ayrıntılarını günlüğe kaydetmek nasıl oluşturulacağını gösterir.
+ASP.NET sistem durumu izleme sistemi, yöneticilerin bir dağıtılan web uygulamasının sistem izleme sağlamak için tasarlanmıştır. Sistem durumu izleme olayları, uygulama durdurduğunda başarıyla sitesinde oturum açtığında gibi belirli eylemleri düzleştirme veya işlenmeyen bir özel durum oluştuğunda oluşturulur. Bu olaylar, herhangi bir sayıda günlüğü kaynakları kaydedilebilir. Bu öğretici, bir veritabanı ile bir e-posta iletisi işlenmeyen özel durumların ayrıntılarını oturum nasıl oluşturulacağını gösterir.
 
-Bu öğretici durumunu işlenmeyen özel durumlar, ancak sistem durumu izleme dağıtılan bir ASP.NET uygulama genel durumunu ölçmek için tasarlanmıştır ve sistem durumu izleme olayları bol içerir olduğunu aklınızda bulundurun ve kaynakları oturum değil için izleme kullanımına odaklanmış Burada incelediniz. Dahası, kendi sistem durumu izleme olayları ve günlük kaynakları oluşturabilirsiniz artırılması gereken ortaya çıkar. Sistem durumu izleme hakkında daha fazla bilgi ilgileniyorsanız okumak için iyi bir ilk adım olan [Erik Reitan](https://blogs.msdn.com/erikreitan/archive/2006/05/22/603586.aspx)'s [durumunu SSS izleme](https://blogs.msdn.com/erikreitan/archive/2006/05/22/603586.aspx). Başvurun [nasıl yapılır: ASP.NET 2.0 kullanım izleme sistem durumu](https://msdn.microsoft.com/library/ms998306.aspx).
+Bu öğreticide durum işlenmeyen özel durumlar, ancak sistem durumu izleme dağıtılan bir ASP.NET uygulaması genel durumunu ölçmek için tasarlanmıştır ve tesis sistem durumu izleme olayları içeren olduğunu aklınızda bulundurun ve oturum olmayan kaynakları için izleme kullanarak odaklanır. Burada incelediniz. Dahası, kendi sistem durumu izleme olayları ve günlük kaynaklarını oluşturabilirsiniz gereken ortaya çıkar. Sistem durumu izleme hakkında daha fazla bilgi edinmek istiyorsanız, okumak için iyi bir ilk adım olan [Erik Reitan](https://blogs.msdn.com/erikreitan/archive/2006/05/22/603586.aspx)'s [sistem durumu izleme SSS](https://blogs.msdn.com/erikreitan/archive/2006/05/22/603586.aspx). Başvurun [nasıl yapılır: ASP.NET 2.0 kullanım sistem durumu izleme](https://msdn.microsoft.com/library/ms998306.aspx).
 
-Mutluluk programlama!
+Mutlu programlama!
 
 ### <a name="further-reading"></a>Daha Fazla Bilgi
 
-Bu öğreticide konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
+Bu öğreticide ele alınan konular hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-- [ASP.NET sistem durumu izlemeye genel bakış](https://msdn.microsoft.com/library/bb398933.aspx)
+- [ASP.NET Durum İzleme Genel Görünümü](https://msdn.microsoft.com/library/bb398933.aspx)
 - [Yapılandırma ve durum sistemini ASP.NET izleme özelleştirme](http://dotnetslackers.com/articles/aspnet/ConfiguringAndCustomizingTheHealthMonitoringSystemOfASPNET.aspx)
-- [SSS - durum ASP.NET 2.0 izleme](https://blogs.msdn.com/erikreitan/archive/2006/05/22/603586.aspx)
-- [Nasıl yapılır: E-posta bildirimleri izleme sistem durumu için Gönder](https://msdn.microsoft.com/library/ms227553.aspx)
-- [Nasıl yapılır: ASP.NET sistem durumu izleme kullanma](https://msdn.microsoft.com/library/ms998306.aspx)
+- [SSS - durum ASP.NET 2. 0'ı izleme](https://blogs.msdn.com/erikreitan/archive/2006/05/22/603586.aspx)
+- [Nasıl yapılır: Sistem durumu izleme bildirimlerini e-posta Gönder](https://msdn.microsoft.com/library/ms227553.aspx)
+- [Nasıl yapılır: ASP.NET Durum İzleme kullanma](https://msdn.microsoft.com/library/ms998306.aspx)
 - [ASP.NET izleme sistem durumu](http://aspnet.4guysfromrolla.com/articles/031407-1.aspx)
 
 > [!div class="step-by-step"]
 > [Önceki](processing-unhandled-exceptions-vb.md)
-> [sonraki](logging-error-details-with-elmah-vb.md)
+> [İleri](logging-error-details-with-elmah-vb.md)

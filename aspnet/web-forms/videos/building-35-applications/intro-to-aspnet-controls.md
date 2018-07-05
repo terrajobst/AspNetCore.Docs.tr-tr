@@ -1,28 +1,27 @@
 ---
 uid: web-forms/videos/building-35-applications/intro-to-aspnet-controls
-title: ASP.NET denetimleri için giriş | Microsoft Docs
+title: ASP.NET denetimlerine giriş | Microsoft Docs
 author: JoeStagner
-description: Denetimleri geliştirme güdümlü geliştirme üretkenliğinizi gerçekten artırabilir. Bu görüntü, standart ASP.NET denetimleri için temel bir giriş sağlar.
+description: Denetimleri temelli geliştirme gerçekten geliştirme üretkenliğinizi artırabilirsiniz. Bu video, standart ASP.NET denetimleri için temel bir giriş sağlar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/09/2009
 ms.topic: article
 ms.assetid: a5e3d616-e79b-4aed-93fe-9d96b9024478
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/building-35-applications/intro-to-aspnet-controls
 msc.type: video
-ms.openlocfilehash: 19941a5a867c32c5b39fd8814ee447fc0e992a66
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 46904b0c8b61ed153b8f3f772de081cbb6eb281b
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26570594"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37387299"
 ---
-<a name="intro-to-aspnet-controls"></a>ASP.NET denetimleri için giriş
+<a name="intro-to-aspnet-controls"></a>ASP.NET denetimlerine giriş
 ====================
-tarafından [CAN Stagner](https://github.com/JoeStagner)
+tarafından [ALi Stagner](https://github.com/JoeStagner)
 
-Denetimleri geliştirme güdümlü geliştirme üretkenliğinizi gerçekten artırabilir. Bu görüntü, standart ASP.NET denetimleri için temel bir giriş sağlar.
+Denetimleri temelli geliştirme gerçekten geliştirme üretkenliğinizi artırabilirsiniz. Bu video, standart ASP.NET denetimleri için temel bir giriş sağlar.
 
-[&#9654; (8 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/intro-to-aspnet-controls)
+[&#9654;Videoyu (8 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/intro-to-aspnet-controls)

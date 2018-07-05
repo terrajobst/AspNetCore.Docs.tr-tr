@@ -1,32 +1,31 @@
 ---
 uid: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-16-membership-redo-with-openid
-title: 'ASP.NET MVC Storefront bölümü 16: Üyelik Yinele Openıd ile | Microsoft Docs'
+title: 'ASP.NET MVC StoreFront Bölüm 16: Openıd ile üyelik yineleme | Microsoft Docs'
 author: robconery
-description: Ramiz üyelik sistemi değiştirir ve out üç ayrı Hizmetleri/parçalara ayırır. Ramiz sonra bulunur Openıd hakkında iletişim kurabilecek şekilde Jon Galloway ile ve imple nasıl...
+description: Rob üyelik sistemini değiştirir ve out üç ayrı Hizmetleri/parçalara ayırır. Rob sonra yer alan ile Openıd hakkında konuşmak için Jon Galloway ve it...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/16/2008
 ms.topic: article
 ms.assetid: afc038e6-555e-4dfa-ae45-f4d3d50e8f96
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-16-membership-redo-with-openid
 msc.type: video
-ms.openlocfilehash: 9ebaeb806c8e08b91c64f4b0eacdb33b6147f754
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 45bfe925229a0b283afb6c1a971f0660c95af98c
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30868041"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37396649"
 ---
-<a name="aspnet-mvc-storefront-part-16-membership-redo-with-openid"></a>ASP.NET MVC Storefront bölümü 16: Openıd üyelik Yinele
+<a name="aspnet-mvc-storefront-part-16-membership-redo-with-openid"></a>ASP.NET MVC StoreFront Bölüm 16: Openıd ile üyelik yineleme
 ====================
-tarafından [kitap Conery](https://github.com/robconery)
+tarafından [Rob Conery](https://github.com/robconery)
 
-Ramiz üyelik sistemi değiştirir ve out üç ayrı Hizmetleri/parçalara ayırır. Ramiz Openıd ve uygulama hakkında iletişim kurabilecek şekilde Jon Galloway ile sonra bulunur.
+Rob üyelik sistemini değiştirir ve out üç ayrı Hizmetleri/parçalara ayırır. Ardından Rob Openıd ve nasıl uygulanacağı hakkında konuşmak için Jon Galloway ile yapmalarını sağlar.
 
-[&#9654;(40 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-16-membership-redo-with-openid)
+[&#9654;Videoyu (40 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-16-membership-redo-with-openid)
 
 > [!div class="step-by-step"]
 > [Önceki](aspnet-mvc-storefront-part-15-public-code-review.md)
-> [sonraki](aspnet-mvc-storefront-part-17-checkout-with-jeff-atwood.md)
+> [İleri](aspnet-mvc-storefront-part-17-checkout-with-jeff-atwood.md)

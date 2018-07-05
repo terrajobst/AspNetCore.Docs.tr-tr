@@ -1,28 +1,27 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-control-the-caching-of-an-aspnet-page-based-upon-custom-information
-title: '[Nasıl stop yaparım] Bir ASP.NET sayfasının önbelleğe alma dayalı özel bilgilerine bağlı denetimi | Microsoft Docs'
+title: '[Bunu nasıl yaparım:] Bir ASP.NET sayfasının önbelleğe alınmasını özel bilgilere dayalı denetimi | Microsoft Docs'
 author: rick-anderson
-description: Bu video Chris Pels özel bilgilere dayalı bir ASP.NET sayfasının önbelleğe alma ölçütlerini denetleme gösterir. Bir örnek sayfa oluşturulur ve ardından Hayır...
+description: Bu video Chris piksel, özel bilgilere dayalı bir ASP.NET sayfasının önbelleğe alma için ölçütleri denetlemek nasıl gösterir. Örnek bir sayfa oluşturulur ve ardından O...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/19/2009
 ms.topic: article
 ms.assetid: f230c316-1313-4b8f-967c-62f9684fe378
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-control-the-caching-of-an-aspnet-page-based-upon-custom-information
 msc.type: video
-ms.openlocfilehash: b785de4e1161ae82ee458148aee4b30820801147
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d2c8e2384d39255f66c11f1cc303398750229779
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26572745"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37376026"
 ---
-<a name="how-do-i-control-the-caching-of-an-aspnet-page-based-upon-custom-information"></a>[Nasıl stop yaparım] Bir ASP.NET sayfasının önbelleğe alma özel bilgilere dayalı denetimi
+<a name="how-do-i-control-the-caching-of-an-aspnet-page-based-upon-custom-information"></a>[Bunu nasıl yaparım:] Bir ASP.NET sayfasının önbelleğe alınmasını özel bilgilere dayalı olarak denetleme
 ====================
-tarafından [Chris Pels](https://twitter.com/chrispels)
+tarafından [Chris piksel](https://twitter.com/chrispels)
 
-Bu video Chris Pels özel bilgilere dayalı bir ASP.NET sayfasının önbelleğe alma ölçütlerini denetleme gösterir. Bir örnek sayfa oluşturulur ve ardından OutputCache yönergesi özel bir değer içeren VaryByCustom özniteliği ile kullanılır. Ardından, GetVaryCustomByString() yöntemi özel öznitelik işlenmesini sağlayan global.asax modülünde geçersiz kılındı. Bu yöntem, sayfanın önbelleğe alınmış sürümünü benzersiz olarak tanımlayan bir dize döndürülür. Son olarak, nasıl özel bir değer kullanarak önbelleğe alma çeşitli yollarla bir web sitesi için kullanılabileceği hakkında tartışma yoktur.
+Bu video Chris piksel, özel bilgilere dayalı bir ASP.NET sayfasının önbelleğe alma için ölçütleri denetlemek nasıl gösterir. Örnek bir sayfa oluşturulur ve ardından OutputCache yönergesi ile özel bir değer içeren VaryByCustom özniteliği kullanılır. Ardından, GetVaryCustomByString() yöntemi özel özniteliği işlenmesini sağlayan global.asax modülünde geçersiz kılınır. Bu yöntemde, sayfanın önbelleğe alınmış sürümünü benzersiz olarak tanımlayan bir dize döndürülür. Son olarak, nasıl özel bir değer kullanarak önbelleğe alma çeşitli yollarla bir web sitesi için kullanılabileceğini hakkında bir tartışma yoktur.
 
-[&#9654; (12 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-control-the-caching-of-an-aspnet-page-based-upon-custom-information)
+[&#9654;(12 dakika) videosunu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-control-the-caching-of-an-aspnet-page-based-upon-custom-information)

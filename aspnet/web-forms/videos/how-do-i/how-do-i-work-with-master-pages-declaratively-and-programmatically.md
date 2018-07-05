@@ -1,28 +1,27 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-work-with-master-pages-declaratively-and-programmatically
-title: '[Nasıl stop yaparım] Ana sayfalar bildirimli olarak ve program aracılığıyla çalışma | Microsoft Docs'
+title: '[Bunu nasıl yaparım:] Ana sayfalarla bildirimli ve programlı olarak çalışma | Microsoft Docs'
 author: rick-anderson
-description: Bu video Chris Pels tanımlama ve ana sayfalar bir ASP.NET web sitesini kullanarak çeşitli yönlerini gösterir. İlk olarak, ana sayfalar declarati oluşturmak bkz....
+description: Bu video Chris piksel tanımlama ve bir ASP.NET web sitesinde ana sayfaları kullanarak çeşitli yönlerini gösterir. İlk olarak, ana sayfalar declarati oluşturma gör...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/21/2008
 ms.topic: article
 ms.assetid: 4f5f7805-373f-4dc3-b7f6-219edf7e66a3
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-work-with-master-pages-declaratively-and-programmatically
 msc.type: video
-ms.openlocfilehash: 02127515de4f288d6d326715c868107e1a64b50c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 928f633372c3a65419dcf988c53f3b2ca73fe524
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26572262"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37385881"
 ---
-<a name="how-do-i-work-with-master-pages-declaratively-and-programmatically"></a>[Nasıl stop yaparım] Ana sayfalar bildirimli olarak ve program aracılığıyla çalışma
+<a name="how-do-i-work-with-master-pages-declaratively-and-programmatically"></a>[Bunu nasıl yaparım:] Ana sayfalarla bildirimli ve programlı olarak çalışma
 ====================
-tarafından [Chris Pels](https://twitter.com/chrispels)
+tarafından [Chris piksel](https://twitter.com/chrispels)
 
-Bu video Chris Pels tanımlama ve ana sayfalar bir ASP.NET web sitesini kullanarak çeşitli yönlerini gösterir. İlk olarak, ana sayfalar bildirimli olarak kullanarak ASP.NET ana sayfa modeli oluşturma görebilir ve hangi bilgilerin tek bir içerik sayfasına karşılaştırıldığında ana sayfa için en uygun olduğunu öğrenin. Ardından, ana sayfalar üzerinde-çalışma sırasında tek bir içerik sayfasındaki programlı olarak atamak bkz. Ayrıca bir taban sınıftan devralın program aracılığıyla tüm sayfalar için ana sayfa atayan bir taban sayfası sınıfı oluşturmayı öğrenin. Ayrıca, web.config dosyasında ana sayfaya ayarlamaya konusuna bakın. Son olarak, ana sayfa öğelere erişim yapılandırılması için bazı en iyi uygulamalar dahil olmak üzere tek bir içerik sayfasının bir ana sayfa öğelerinde erişebileceğiniz konusuna bakın.
+Bu video Chris piksel tanımlama ve bir ASP.NET web sitesinde ana sayfaları kullanarak çeşitli yönlerini gösterir. İlk olarak, ana sayfalar bildirimli olarak ASP.NET ana sayfa modeli kullanarak oluşturmak nasıl ve hangi bilgilerin tek bir içerik sayfasına karşılaştırıldığında ana sayfasına en uygun olduğunu öğrenin. Ardından, ana sayfalar üzerinde halindeyken tek bir içerik sayfasındaki programlı bir şekilde atama bakın. Ayrıca bir taban sınıftan devralın program aracılığıyla tüm sayfalar için ana sayfa atayan bir taban sayfası sınıfı oluşturmayı öğrenin. Ayrıca, ana sayfaya web.config dosyasında ayarlamayı öğrenin. Son olarak, ana sayfa öğelere erişim yapılandırılması için bazı en iyi uygulamaları dahil olmak üzere tek bir içerik sayfasından ana sayfa öğeleri nasıl bakın.
 
-[&#9654; (29 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-work-with-master-pages-declaratively-and-programmatically)
+[&#9654;Videoyu (29 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-work-with-master-pages-declaratively-and-programmatically)

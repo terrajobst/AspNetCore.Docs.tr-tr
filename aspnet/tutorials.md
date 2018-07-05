@@ -1,6 +1,6 @@
 ---
 uid: aspnet/tutorials
-title: ASP.NET öğreticileri | Microsoft Docs
+title: ASP.NET öğreticilerini | Microsoft Docs
 author: tdykstra
 description: ASP.NET uygulamaları geliştirmek için adım adım kılavuzlar listesi.
 ms.author: aspnetcontent
@@ -9,20 +9,19 @@ ms.date: 01/17/2012
 ms.topic: article
 ms.assetid: fddf8e5e-c055-4f81-b691-78deef871112
 ms.technology: ''
-ms.prod: .net-framework
-ms.openlocfilehash: 704285fe06e2ece0f6afdc117aedf98f6155ef87
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7929a06fd7857237c2529aca34d36564c2a89f82
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28036771"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37389618"
 ---
-# <a name="aspnet-tutorials"></a>ASP.NET öğreticileri
+# <a name="aspnet-tutorials"></a>ASP.NET öğreticiler
 
-ASP.NET uygulamaları geliştirmek için aşağıdaki adım adım kılavuzlar kullanılabilir.
+ASP.NET uygulamaları geliştirmek için aşağıdaki adım adım kılavuzlar mevcuttur.
 
 > [!NOTE]
-> ASP.NET Core öğreticileri için mi arıyorsunuz?  Bulmalarını [burada](https://docs.microsoft.com/aspnet/core/tutorials/).
+> ASP.NET Core öğreticileri için mi arıyorsunuz?  Bunları bulmak [burada](https://docs.microsoft.com/aspnet/core/tutorials/).
 
 ## <a name="web-forms"></a>Web Forms
 
@@ -48,7 +47,7 @@ ASP.NET uygulamaları geliştirmek için aşağıdaki adım adım kılavuzlar ku
 
 ## <a name="mvc"></a>MVC
 
-* [ASP.NET MVC 5 ile çalışmaya başlama](mvc/overview/getting-started/introduction/index.md)
+* [ASP.NET MVC 5 ile çalışmaya başlama ](mvc/overview/getting-started/introduction/index.md)
 * [MVC 5 Kullanarak EF 6 ile Çalışmaya Başlama](mvc/overview/getting-started/getting-started-with-ef-using-mvc/index.md)
 * [ASP.NET MVC ile EF Database First](mvc/overview/getting-started/database-first-development/index.md)
 * [ASP.NET MVC'de Sayfa Denetçisini Kullanma](mvc/overview/views/using-page-inspector-in-aspnet-mvc.md)
