@@ -1,28 +1,27 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-synchronize-data-in-secondary-user-controls-based-upon-user-selections
-title: '[Nasıl yedeklerim]: kullanıcı seçimlere göre ikincil kullanıcı Control(s) verileri eşitlemek | Microsoft Docs'
+title: '[How Do I]: Synchronize Data in Secondary User Control(s) Based Upon User Selections | Microsoft Docs'
 author: rick-anderson
-description: Bu video Chris Pels ikinci listedeki öğeler bir öğenin ilk listede seçilmesi burada doldurur iki DropDownList denetimlerinin nasıl oluşturulduğunu gösterir. Firs...
+description: Bu video Chris piksel ilk öğeyi listeden ikinci listedeki öğeleri nerede doldurur iki DropDownList denetimi oluşturma işlemini gösterir. Firs...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/06/2009
 ms.topic: article
 ms.assetid: 55eadf85-3a2b-4993-8444-494cd2c92d65
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-synchronize-data-in-secondary-user-controls-based-upon-user-selections
 msc.type: video
-ms.openlocfilehash: a4ecabd641af9d5810cf23344c42b097a0ec00f6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.openlocfilehash: 60961347ea54ab601554bab417b008cef194a722
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26572238"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37374788"
 ---
-<a name="how-do-i-synchronize-data-in-secondary-user-controls-based-upon-user-selections"></a>[Nasıl yedeklerim]: kullanıcı seçimlere göre ikincil kullanıcı Control(s) veri eşitleme
+<a name="how-do-i-synchronize-data-in-secondary-user-controls-based-upon-user-selections"></a>[Nasıl yapılır]: kullanıcı seçimlerine bağlı olarak ikincil kullanıcı denetim verileri eşitleme
 ====================
-tarafından [Chris Pels](https://twitter.com/chrispels)
+tarafından [Chris piksel](https://twitter.com/chrispels)
 
-Bu video Chris Pels ikinci listedeki öğeler bir öğenin ilk listede seçilmesi burada doldurur iki DropDownList denetimlerinin nasıl oluşturulduğunu gösterir. İlk olarak, bir ASP.NET sayfasının iki DropDownList denetimi, bir müşteri için ve müşteri iş yaptığı durumları için diğer ile oluşturulur. Müşteri listesi sonra arkasındaki kodda doldurulur. Ardından, SelectedIndexChanged seçime müşteri listesinin durumu listedeki öğeler doldurulur olay tabanlı. Son olarak, diğer denetimler ve veri türleri için bu yaklaşım nasıl uygulanabilir, tartışma yoktur.
+Bu video Chris piksel ilk öğeyi listeden ikinci listedeki öğeleri nerede doldurur iki DropDownList denetimi oluşturma işlemini gösterir. İlk olarak, bir ASP.NET sayfasına iki DropDownList denetimi, müşteri ve diğeri müşterinin iş ilişkilerinde durumları ile oluşturulur. Müşteri listesini ardından arka plan kod doldurulur. Ardından, SelectedIndexChanged içinde olay durumu listesindeki öğeleri doldurulur müşteri listesinin seçimi temel. Son olarak, bu yaklaşım, diğer denetimleri ve veri türleri için nasıl uygulanabileceğini bir açıklaması yoktur.
 
-[&#9654; (22 dakika) videoyu izleyin](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-synchronize-data-in-secondary-user-controls-based-upon-user-selections)
+[&#9654;Videoyu (22 dakika)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-synchronize-data-in-secondary-user-controls-based-upon-user-selections)
