@@ -2,469 +2,468 @@
 uid: web-forms/overview/moving-to-aspnet-20/the-asp-net-2-0-page-model
 title: ASP.NET 2.0 sayfa modeli | Microsoft Docs
 author: microsoft
-description: ASP.NET 1.x, geliştiricilerin sahip bir satır içi kod modeli ve arka plan kodu kod modeli arasında bir seçim. Arka plan kodu Src attr kullanarak uygulanabilir...
+description: ASP.NET'te 1.x, geliştiricilerin sahip bir satır içi kod modeli ve gerideki kod modeli arasında seçim yapma. Arka plan kod Src attr kullanarak uygulanabileceğine...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
 ms.topic: article
 ms.assetid: af4575a3-0ae3-4638-ba4d-218fad7a1642
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/the-asp-net-2-0-page-model
 msc.type: authoredcontent
-ms.openlocfilehash: fda85ec03f845cafa7720382bf85652937932c44
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
-ms.translationtype: MT
+ms.openlocfilehash: 9d62aee5e0754b1910b923ad9ae501ebed91097e
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30891301"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37379893"
 ---
 <a name="the-aspnet-20-page-model"></a>ASP.NET 2.0 sayfa modeli
 ====================
 tarafından [Microsoft](https://github.com/microsoft)
 
-> ASP.NET 1.x, geliştiricilerin sahip bir satır içi kod modeli ve arka plan kodu kod modeli arasında bir seçim. Arka plan kodu Src özniteliği veya arkasındaki koda özniteliği kullanılarak gerçekleştirilen @Page yönergesi. ASP.NET 2. 0'da, geliştiricilerin hala satır içi kod ve arka plan kodu arasında bir seçim var, ancak arka plan kod modeli önemli geliştirmeler olmuştur.
+> ASP.NET'te 1.x, geliştiricilerin sahip bir satır içi kod modeli ve gerideki kod modeli arasında seçim yapma. Arka plan kod Src özniteliğine veya CodeBehind özniteliğinin kullanarak uygulanmasını @Page yönergesi. ASP.NET 2. 0'da, geliştiricilerin yine de satır içi kod ve arka plan kod arasında bir seçim var, ancak arka plan kod modeline önemli geliştirmeler yapıldı.
 
 
-ASP.NET 1.x, geliştiricilerin sahip bir satır içi kod modeli ve arka plan kodu kod modeli arasında bir seçim. Arka plan kodu Src özniteliği veya arkasındaki koda özniteliği kullanılarak gerçekleştirilen @Page yönergesi. ASP.NET 2. 0'da, geliştiricilerin hala satır içi kod ve arka plan kodu arasında bir seçim var, ancak arka plan kod modeli önemli geliştirmeler olmuştur.
+ASP.NET'te 1.x, geliştiricilerin sahip bir satır içi kod modeli ve gerideki kod modeli arasında seçim yapma. Arka plan kod Src özniteliğine veya CodeBehind özniteliğinin kullanarak uygulanmasını @Page yönergesi. ASP.NET 2. 0'da, geliştiricilerin yine de satır içi kod ve arka plan kod arasında bir seçim var, ancak arka plan kod modeline önemli geliştirmeler yapıldı.
 
-## <a name="improvements-in-the-code-behind-model"></a>Arka plan kod modeli yenilikleri
+## <a name="improvements-in-the-code-behind-model"></a>Arka plan kod modelinde geliştirmeleri
 
-Hızlı şekilde modeli gözden geçirmek için en iyi, ASP.NET 2.0 arka plan kodu modelindeki değişikliklere tam olarak anlamak için ASP.NET var 1.x.
+Hızla model olarak onu gözden geçirmek için en iyi şekilde varolan ASP.NET'te ASP.NET 2.0 arka plan kod modelde değişiklikler tam olarak anlamak için 1.x.
 
-## <a name="the-code-behind-model-in-aspnet-1x"></a>ASP.NET arka plan kodu modelinde 1.x
+## <a name="the-code-behind-model-in-aspnet-1x"></a>ASP.NET arka plan kod modelde 1.x
 
-ASP.NET 1.x, arka plan kod modeli oluşmuştur ASPX dosyası (Webform) ve programlama kodu içeren bir arka plan kod dosyası. İki dosya kullanarak bağlanmış @Page ASPX dosyasındaki yönergesi. Her denetim ASPX sayfasında karşılık gelen bir bildirimi arka plan kod dosyasına bir örnek değişkeni vardı. Arka plan kod dosyası ayrıca olay bağlama kodunu bulunan ve oluşturulan kodda Visual Studio tasarımcısı için gerekli. Bu model oldukça iyi çalıştı, ancak her ASP.NET öğesi ASPX sayfasında arka plan kod dosyasına karşılık gelen kod gerektirdiğinden, kod ve içerik true hiçbir ayrılması vardı. Bir tasarımcı yeni bir sunucu denetimi Visual Studio IDE dışında ASPX dosyası eklediyseniz, örneğin, uygulama bu denetim için bir bildirim olmaması nedeniyle arka plan kod dosyasına çalışmamasına neden.
+ASP.NET'te 1.x, arka plan kod modeli oluşturan bir ASPX dosyası (Webform) ve programlama kodu içeren bir arka plan kod dosyası. İki dosyayı kullanarak bağlanmış @Page ASPX dosyasında yönergesi. Her denetimi ASPX sayfasına karşılık gelen bir bildirim arka plan kod dosyasında bir örnek değişkeni vardı. Arka plan kod dosyasında olay bağlama kodunu yer alan ve oluşturulan kod Visual Studio tasarımcısı için gerekli. Bu modeli oldukça iyi çalışan, ancak her ASPX sayfasına ASP.NET öğesinde karşılık gelen kodu arka plan kod dosyasında gerektirdiğinden, kod ve içeriğinin doğru hiçbir ayrım vardı. Bir tasarımcı, Visual Studio IDE dışında ASPX dosyasına yeni bir sunucu denetimi eklediyseniz, örneğin, uygulama bu denetim için bir bildirim olmaması nedeniyle arka plan kod dosyasında çalışmamasına neden.
 
 ## <a name="the-code-behind-model-in-aspnet-20"></a>ASP.NET 2.0 arka plan kod modeli
 
-ASP.NET 2.0 Bu model önemli ölçüde artırır. ASP.NET 2. 0'da, arka plan kodu kullanarak yeni uygulanan *kısmi sınıflar* ASP.NET 2.0 ile sağlanan. Arka plandaki kod sınıfı, ASP.NET 2.0 definied sınıf tanımını yalnızca bir parçasının içerdiği anlamına bir kısmi sınıftır. Sınıf tanımı kalan kısmını çalışma zamanında veya Web sitesi önceden derlenmiş ASPX sayfasını kullanarak ASP.NET 2.0 tarafından dinamik olarak oluşturulur. Arka plan kod dosyası ve ASPX Sayfası arasındaki bağlantı hala @page yönergesi kullanılarak oluşturulur. Ancak, bir arkasındaki koda veya Src özniteliği yerine ASP.NET 2.0 CodeFile özniteliği şimdi kullanır. Inherits özniteliği de sayfa için sınıf adını belirtmek için kullanılır.
+ASP.NET 2.0 üzerinde bu model önemli ölçüde artırır. ASP.NET 2. 0'da, arka plan kod kullanarak yeni uygulanan *kısmi sınıflar* ASP.NET 2.0 sürümünde sağlanan. Arka plan kod ASP.NET 2.0 el sınıf tanımı yalnızca bir kısmını içerdiği anlamına gelen bir kısmi sınıf olarak sınıftır. Sınıf tanımının kalan bölümü, çalışma zamanında veya Web sitesi Ön derlenmiş ASPX sayfa kullanarak ASP.NET 2.0 tarafından dinamik olarak oluşturulur. Arka plan kod dosyası ve ASPX Sayfası arasındaki bağlantıyı yine de @ sayfa yönergesi kullanarak oluşturulur. Ancak, bir CodeBehind veya Src özniteliği yerine ASP.NET 2.0 CodeFile öznitelik şimdi kullanır. Inherits özniteliği de sayfa için sınıf adını belirtmek için kullanılır.
 
-Tipik bir @page yönergesi şuna benzeyebilir:
+Tipik bir @ sayfa yönergesi şuna benzeyebilir:
 
 [!code-aspx[Main](the-asp-net-2-0-page-model/samples/sample1.aspx)]
 
-Bir ASP.NET 2.0 arka plan kod dosyasına tipik sınıf tanımında şuna benzeyebilir:
+Bir ASP.NET 2.0 arka plan kod dosyasında bir genel sınıf tanımının şuna benzeyebilir:
 
 [!code-csharp[Main](the-asp-net-2-0-page-model/samples/sample2.cs)]
 
 > [!NOTE]
-> C# ve Visual Basic şu anda kısmi sınıflar destekleyen yönetilen diller yalnızca var. Bu nedenle, geliştiricilerin J# kullanarak ASP.NET 2.0 ile arka plan kod modeli kullanmanız mümkün olmaz.
+> C# ve Visual Basic şu anda kısmi sınıflar desteği yalnızca yönetilen diller şunlardır. Bu nedenle, geliştiriciler J# kullanarak ASP.NET 2.0 sürümünde arka plan kod modelini kullanmanız mümkün olmayacaktır.
 
 
-Geliştiriciler artık, oluşturmuş olduğunuz kod içeren kod dosyaları olacağı için yeni model arka plan kodu modelini geliştirir. Hiçbir örnek değişken bildirimleri arka plan kod dosyasına olduğundan true ayrılması kodunuz ve içeriğinizle de sağlar.
+Geliştiriciler artık, kullanıcının oluşturduğu kodu içeren kod dosyaları olduğundan yeni modeli arka plan kod modelini geliştirir. Arka plan kod dosyasında hiçbir örneği değişken bildirimlerini olduğundan doğru ayrımı kod ve içerik de sağlar.
 
 > [!NOTE]
-> Olay bağlama gerçekleştiği parçalı sınıf ASPX Sayfası olduğu için Visual Basic geliştiricileri olayları bağlanacak kod arkasında tanıtıcıları anahtar sözcüğünü kullanarak hafif performans artışı sağlarsınız. C# eşdeğer anahtar sözcük vardır.
+> ASPX sayfa için kısmi sınıf olay bağlama gerçekleştiği olduğundan, Visual Basic geliştiricileri olaylar bağlamak için gerideki kod tanıtıcıları anahtar sözcüğü kullanarak küçük bir performans artışı sağlarsınız. C# anahtar sözcük eşdeğer vardır.
 
 
 ## <a name="new--page-directive-attributes"></a>Yeni @ sayfa yönergesi öznitelikler
 
-ASP.NET 2.0 @page yönergesi için birçok yeni öznitelikler ekler. Aşağıdaki öznitelikler, ASP.NET 2.0 ile yenidir.
+ASP.NET 2.0 @ sayfa yönergesi için birçok yeni öznitelikler ekler. Aşağıdaki öznitelikler ASP.NET 2.0 sürümünde yenidir.
 
 ## <a name="async"></a>Zaman Uyumsuz
 
-Async özniteliği, zaman uyumsuz olarak yürütülecek sayfa yapılandırmanıza olanak sağlar. Zaman uyumsuz sayfalarında daha sonra bu modül de kapsar.
+Zaman uyumsuz özniteliği zaman uyumsuz olarak yürütülecek sayfa yapılandırmanıza olanak sağlar. Daha sonra bu modüldeki zaman uyumsuz sayfaları da kapsar.
 
 ## <a name="asynctimeout"></a>AsyncTimeout
 
-Zaman uyumsuz sayfalar için zaman aşımı belirtildi. Varsayılan değer 45 saniyedir.
+Zaman uyumsuz sayfaları için zaman aşımı belirtildi. Varsayılan değer 45 saniyedir.
 
 ## <a name="codefile"></a>CodeFile
 
-CodeFile özniteliği arkasındaki koda özniteliği, Visual Studio 2002/2003 yerini alır.
+CodeFile özniteliği CodeBehind özniteliğinin, Visual Studio 2002/2003 yerini alır.
 
 ### <a name="codefilebaseclass"></a>CodeFileBaseClass
 
-CodeFileBaseClass özniteliği tek bir taban sınıftan türetilen birden çok sayfa istediğiniz durumlarda kullanılır. ASP.NET, kısmi sınıflar bu özniteliği olmadan uygulanması nedeniyle paylaşılan ortak alanları bir ASPX sayfasında bildirilen denetimleri başvurmak için kullandığı bir temel sınıf düzgün çünkü çalışmayan ASP. Ağ derleme altyapısı sayfasındaki denetimleri dayalı yeni üyeler otomatik olarak oluşturur. Bu nedenle, ASP.NET iki veya daha fazla sayfalar için ortak bir taban sınıf istiyorsanız tanımlamak gerekecektir CodeFileBaseClass özniteliğinde, taban sınıfı belirtin ve ardından her sayfa sınıfı, temel sınıfından türetilir. Bu öznitelik kullanıldığında CodeFile özniteliği de gereklidir.
+CodeFileBaseClass öznitelik, tek bir temel sınıftan türetmek için birden çok sayfada istediğiniz durumlarda kullanılır. Bu öznitelik olmadan, ASP.NET'te kısmi sınıflar uygulanması nedeniyle bir ASPX sayfa bildirilen denetimleri başvurmak için paylaşılan ortak alanları kullanan bir temel sınıf düzgün olduğundan çalışmak istemiyor ASP. Ağ derleme altyapısı sayfasındaki denetimleri temel alarak yeni üyeleri otomatik olarak oluşturur. Bu nedenle, iki veya daha fazla ASP.NET sayfaları için genel bir temel sınıf istiyorsanız, tanımlama gerekecektir CodeFileBaseClass özniteliğinde, taban sınıf belirtin ve ardından o temel sınıftan her sayfaları sınıf türetin. Bu öznitelik kullanıldığında CodeFile özniteliği de gereklidir.
 
-## <a name="compilationmode"></a>compilationMode
+## <a name="compilationmode"></a>CompilationMode
 
-Bu öznitelik ASPX sayfasının CompilationMode özelliği ayarlamanıza olanak sağlar. Değerleri içeren bir numaralandırma CompilationMode özelliktir **her zaman**, **otomatik**, ve **hiçbir zaman**. Varsayılan değer **her zaman**. **Otomatik** ayarı, ASP.NET dinamik olarak sayfa mümkünse derlemesini engeller. Dinamik derlemeden sayfaları hariç performansı artırır. Ancak, hariç tutulan bir sayfa derlenmelidir bu kodu içeriyorsa, bir hata sayfası tarandığında oluşturulacaktır.
+Bu öznitelik ASPX sayfa CompilationMode özelliği ayarlamanıza olanak tanır. CompilationMode özellik değerleri içeren bir numaralandırmadır **her zaman**, **otomatik**, ve **hiçbir zaman**. Varsayılan değer **her zaman**. **Otomatik** ayarı, ASP.NET dinamik olarak sayfa mümkünse derleme öğesinden engeller. Sayfaları dinamik derlemeden hariç performansı artırır. Ancak, hariç bir sayfa derlenmelidir bu kodu içeriyorsa, sayfasına göz atıldığında bir hata oluşturulur.
 
 ## <a name="enableeventvalidation"></a>EnableEventValidation
 
-Bu öznitelik geri gönderme ve geri çağırma olayları doğrulanmış olup olmadığını belirtir. Bu etkin olduğunda, değişkenler geri gönderme veya geri çağırma olayları ilk olarak işlenen sunucu denetiminden kaynaklanan denetlenir.
+Bu öznitelik, geri gönderme ve geri çağırma olayları doğrulanır olup olmadığını belirtir. Bu etkinleştirildiğinde, geri gönderme bağımsız değişkenler veya geri çağırma olayları, ilk işlenen sunucu denetiminden kaynaklı olduğunu emin olmak için denetlenir.
 
 ## <a name="enabletheming"></a>EnableTheming
 
-Bu öznitelik, bir sayfa üzerinde kullanılan ASP.NET Temalar olup olmadığını belirtir. Varsayılan değer **false**. ASP.NET temaları ele alınmıştır [modülü 10](profiles-themes-and-web-parts.md).
+Bu öznitelik, bir sayfa üzerinde ASP.NET temaları kullanılan olup olmadığını belirtir. Varsayılan değer **false**. ASP.NET temaları kapsamdaki [modülü 10](profiles-themes-and-web-parts.md).
 
 ## <a name="linepragmas"></a>LinePragmas
 
-Bu öznitelik, derleme sırasında satır pragmaları eklenmesi gerekip gerekmediğini belirtir. Satır pragmaları kodun belirli bölümlerine işaretlemek için hata ayıklayıcıları tarafından kullanılan seçeneklerdir.
+Bu öznitelik, derleme sırasında satır pragmaları eklenmesi gerekip gerekmediğini belirtir. Satırı pragmaları kodun belirli bölümlerine işaretlemek için hata ayıklayıcıları tarafından kullanılan seçeneklerdir.
 
 ## <a name="maintainscrollpositiononpostback"></a>MaintainScrollPositionOnPostback
 
-Bu öznitelik Geri göndermeler arasında kaydırma konumunu korumak için sayfaya JavaScript eklenmiş olup olmadığını belirtir. Bu öznitelik **false** varsayılan olarak.
+Bu öznitelik, Geri göndermeler arasında kaydırma konumunu korumak için JavaScript sayfalarına eklenmiş olup olmadığını belirtir. Bu öznitelik **false** varsayılan olarak.
 
-Bu öznitelik olduğunda **true**, ASP.NET ekleyecek bir &lt;betik&gt; şöyle geri gönderme blok:
+Bu öznitelik olduğunda **true**, ASP.NET ekleyecek bir &lt;betik&gt; şuna benzer bir geri gönderme blok:
 
 [!code-html[Main](the-asp-net-2-0-page-model/samples/sample3.html)]
 
-Bu betik bloğu src WebResource.axd olduğuna dikkat edin. Bu kaynak fiziksel bir yol değil. Bu komut dosyası istendiğinde, ASP.NET betik dinamik olarak oluşturur.
+Bu betik bloğu için src WebResource.axd olduğunu unutmayın. Bu kaynak, fiziksel bir yol değil. Bu betik istendiğinde, ASP.NET dinamik olarak betik oluşturur.
 
 ### <a name="masterpagefile"></a>MasterPageFile
 
-Bu öznitelik geçerli sayfa için ana sayfa dosyası belirtir. Yol, göreli veya mutlak olabilir. Ana sayfalar ele alınmıştır [modülü 4](master-pages.md).
+Bu öznitelik geçerli sayfa için ana sayfa dosyası belirtir. Göreli veya mutlak yol olabilir. Ana sayfalar kapsamdaki [modülü 4](master-pages.md).
 
 ## <a name="stylesheettheme"></a>StyleSheetTheme
 
-Bu öznitelik, bir ASP.NET 2.0 tema tarafından tanımlanan kullanıcı arabirimi görünüm özellikleri geçersiz kılmanıza olanak sağlar. Temalar ele alınmıştır [modülü 10](profiles-themes-and-web-parts.md).
+Bu öznitelik, bir ASP.NET 2.0 tema tarafından tanımlanan kullanıcı arabirimi görünüm özellikleri geçersiz kılmanıza olanak sağlar. Temalar kapsamdaki [modülü 10](profiles-themes-and-web-parts.md).
 
 ## <a name="theme"></a>Tema
 
-Sayfa temasının belirtir. StyleSheetTheme özniteliği için bir değer belirtilmezse, öznitelikten sayfadaki denetimleri uygulanan tüm stillerini geçersiz kılar.
+Sayfa teması belirtir. Tema özniteliği StyleSheetTheme özniteliği için bir değer belirtilmezse, sayfadaki denetimleri için uygulanan tüm stillerini geçersiz kılar.
 
 ## <a name="title"></a>Başlık
 
-Sayfa başlığını ayarlar. Burada belirtilen değer görüntülenir &lt;başlık&gt; işlenen sayfanın öğesi.
+Sayfanın başlığını ayarlar. Burada belirtilen değeri görünür &lt;başlık&gt; işlenen sayfanın öğesi.
 
 ### <a name="viewstateencryptionmode"></a>ViewStateEncryptionMode
 
-ViewStateEncryptionMode numaralandırması için değeri ayarlar. Kullanılabilir değerler **her zaman**, **otomatik**, ve **hiçbir zaman**. Varsayılan değer **otomatik**. Bu öznitelik için bir değer ayarlandığında **otomatik**, viewstate şifrelenir denetim istekleri, çağırarak olan **RegisterRequiresViewStateEncryption** yöntemi.
+ViewStateEncryptionMode numaralandırma değerini ayarlar. Kullanılabilir değerler **her zaman**, **otomatik**, ve **hiçbir zaman**. Varsayılan değer **otomatik**. Bu öznitelik değerine ayarlandığında **otomatik**, viewstate şifrelenir denetim istekleri, çağırarak olan **RegisterRequiresViewStateEncryption** yöntemi.
 
-## <a name="setting-public-property-values-via-the--page-directive"></a>Ortak özellik değerlerinin aracılığıyla @ sayfa yönergesi
+## <a name="setting-public-property-values-via-the--page-directive"></a>Genel özellik değerleri aracılığıyla @ sayfa yönergesi ayarlama
 
-Başka bir yeni özelliği ASP.NET 2.0 @page yönergesinde, ortak bir taban sınıf özelliklerini ilk değerini ayarlamak için yeteneğidir. Örneğin, bir genel özelliğe sahip adlı varsayalım **SomeText** temel sınıfınız ve buna benzer d için başlatılması için **Hello** ne zaman bir sayfa yüklenir. Bu değer yalnızca @page yönergesinde ayarlayarak gerçekleştirmek sözlüğüdür:
+ASP.NET 2.0 @ sayfa yönergesi başka bir yeni özellik genel bir temel sınıf özelliklerinin başlangıç değeri ayarlamak da yeteneğidir. Örneğin, ortak bir özellik olan adlı varsayalım **SomeText** temel sınıfınız ve buna benzer d için başlatılması için **Hello** ne zaman bir sayfa yüklenir. @ Sayfa yönergesinde yalnızca bir değere ayarlayarak bunu gerçekleştirmenin şu şekilde:
 
 [!code-aspx[Main](the-asp-net-2-0-page-model/samples/sample4.aspx)]
 
-**SomeText** @ sayfa yönergesi özniteliği için temel sınıf SomeText özelliğinin ilk değeri ayarlar *Hello!*. Video @page yönergesi kullanarak bir taban sınıf içinde bir genel özelliğinin ilk değeri ayarlamanın bir kılavuz ' dir.
+**SomeText** @ sayfa yönergesi özniteliği için bir temel sınıfta SomeText özelliğinin ilk değeri ayarlar *Merhaba!*. Aşağıdaki video @ sayfa yönergesi kullanarak temel bir sınıfta bir genel özelliğinin ilk değeri ayarı bir gözden geçirme ' dir.
 
 
 ![](the-asp-net-2-0-page-model/_static/image1.png)
 
 
-[Açık Tam Ekran Video](the-asp-net-2-0-page-model/_static/setprop1.wmv)
+[Açık tam ekran görüntü](the-asp-net-2-0-page-model/_static/setprop1.wmv)
 
 
-## <a name="new-public-properties-of-the-page-class"></a>Sayfa sınıfının yeni ortak özellikleri
+## <a name="new-public-properties-of-the-page-class"></a>Yeni genel özellik sayfası sınıfının
 
-Aşağıdaki genel özellikleri ASP.NET 2. 0 ' yenidir.
+Aşağıdaki genel özellikleri ASP.NET 2.0 sürümünde yenidir.
 
 ## <a name="apprelativetemplatesourcedirectory"></a>AppRelativeTemplateSourceDirectory
 
-Uygulama göreli yolu sayfasının veya denetiminin döndürür. Örneğin, konumunda bulunan bir sayfa için http://app/folder/page.aspx, özellik döndürür ~ / klasör /.
+Sayfa veya denetim için uygulamaya göreli yolunu döndürür. Örneğin, konumunda bulunan bir sayfa için http://app/folder/page.aspx, özellik döndürür ~ / folder /.
 
 ## <a name="apprelativevirtualpath"></a>AppRelativeVirtualPath
 
-Göreli sanal dizin yolu sayfasının veya denetiminin döndürür. Örneğin konumunda bulunan bir sayfa için http://app/folder/page.aspx, özellik döndürür ~ / folder/page.aspx.
+Sayfa veya denetim için göreli sanal dizin yolu döndürür. Örneğin konumunda bulunan bir sayfa için http://app/folder/page.aspx, özellik döndürür ~ / folder/page.aspx.
 
 ## <a name="asynctimeout"></a>AsyncTimeout
 
-Alır veya zaman uyumsuz sayfa işleme için kullanılan zaman aşımı ayarlar. (Zaman uyumsuz sayfaları Bu modülün daha sonra ele alınacaktır.)
+Alır veya ayarlar sayfası zaman uyumsuz işleme için kullanılan zaman aşımı. (Zaman uyumsuz sayfaları Bu modülün daha sonra ele alınacaktır.)
 
 ## <a name="clientquerystring"></a>ClientQueryString
 
-İstenen URL sorgu dizesi bölümünü döndürür salt okunur özellik. URL kodlanmış değerdir. Bunu çözmek için HttpServerUtility sınıfının UrlDecode yöntemini kullanabilirsiniz.
+İstenen URL sorgu dizesi bölümünü döndürür salt okunur özellik. Bu değer, URL kodlamalı olur. Bu kodu çözülecek HttpServerUtility sınıfının UrlDecode yöntemi kullanabilirsiniz.
 
 ## <a name="clientscript"></a>ClientScript
 
-Bu özellik, istemci tarafı komut dosyası ASP.NETs yayımlanmasını yönetmek için kullanılan bir ClientScriptManager nesnesi döndürür. (ClientScriptManager sınıfı daha sonra bu modülde ele alınmıştır.)
+Bu özellik, istemci tarafı komut dosyası ASP.NETs arabellek yönetmek için kullanılan bir ClientScriptManager nesnesi döndürür. (ClientScriptManager sınıfı bu modül içinde ele alınmıştır.)
 
 ## <a name="enableeventvalidation"></a>EnableEventValidation
 
-Bu özellik, olay doğrulama geri gönderme ve geri çağırma olaylar için etkin denetler. Etkin olduğunda, değişkenler geri gönderme veya geri çağırma olayları ilk olarak işlenen sunucu denetiminden kaynaklanan emin olmak için doğrulanır.
+Bu özellik, olay doğrulama geri gönderme ve geri çağırma olayları için etkin olup olmadığını denetler. Etkin olduğunda, bağımsız geri gönderme veya geri çağırma olayları, ilk işlenen sunucu denetiminden kaynaklı olduğunu emin olmak için doğrulanır.
 
 ## <a name="enabletheming"></a>EnableTheming
 
-Bu özellik alır veya ASP.NET 2.0 tema sayfasına uygulanıp uygulanmayacağını belirten bir Boole değeri ayarlar.
+Bu özelliği alır veya ASP.NET 2.0 tema sayfasına uygulanıp uygulanmayacağını belirten Boolean bir değer ayarlar.
 
 ## <a name="form"></a>Form
 
-Bu özellik HTML formu ASPX sayfasında HtmlForm nesne olarak döndürür.
+Bu özellik, HTML form ASPX sayfa üzerinde bir HtmlForm nesne olarak döndürür.
 
 ## <a name="header"></a>Üstbilgi
 
-Bu özellik, bir nesneye başvuru sayfa üstbilgisi içeren HtmlHead döndürür. Döndürülen HtmlHead nesne get/set için stil sayfaları, Meta etiketleri kullanabilirsiniz.
+Bu özellik, sayfa üstbilgisindeki içeren bir HtmlHead nesnesine bir başvuru döndürür. Döndürülen HtmlHead nesne get/set için stil sayfaları, Meta etiketler kullanabilirsiniz.
 
 ## <a name="idseparator"></a>IdSeparator
 
-Bu özelliği salt okunur bir sayfadaki denetimleri için benzersiz bir kimlik ASP.NET oluştururken denetim tanımlayıcıları ayırmak için kullanılan karakteri alır. Doğrudan kodunuzdan kullanılmaya yönelik değildir.
+Bu salt okunur özelliği, ASP.NET bir sayfadaki denetimleri için benzersiz bir kimlik oluştururken denetim tanımlayıcıları ayırmak için kullanılan karakteri alır. Doğrudan kodunuzdan kullanılmaya yönelik değildir.
 
-## <a name="isasync"></a>IsAsync
+## <a name="isasync"></a>Isasync
 
-Bu özellik için zaman uyumsuz sayfaları sağlar. Zaman uyumsuz sayfaları daha sonra bu modülde ele alınmıştır.
+Bu özellik için zaman uyumsuz sayfalar sağlar. Zaman uyumsuz sayfalar, bu modül içinde ele alınmıştır.
 
 ## <a name="iscallback"></a>IsCallback
 
-Bu salt okunur özellik döndürür **true** sayfa geri arama sonucu ise. Geri daha sonra bu modülde ele alınmıştır.
+Bu salt okunur özellik döndürür **true** sayfa geri arama sonucunu ise. Geri aramalar, daha sonra bu modülde ele alınmıştır.
 
 ## <a name="iscrosspagepostback"></a>IsCrossPagePostBack
 
-Bu salt okunur özellik döndürür **true** sayfa Sayfalar arası geri gönderimin parçası olduğunda. Çapraz sayfa Geri göndermeler daha sonra bu modülde ele alınmıştır.
+Bu salt okunur özellik döndürür **true** sayfa çapraz sayfa geri gönderme parçası olduğunda. Çapraz sayfa Geri göndermeler, daha sonra bu modülde ele alınmaktadır.
 
 ## <a name="items"></a>Öğeler
 
-IDictionary örneğine sayfaları bağlamda depolanan tüm nesnelerini içeren bir başvuru döndürür. Bunlar için bağlam ömrü kullanılabilir ve bu IDictionary nesnesine öğeleri ekleyebilirsiniz.
+Sayfaları bağlam içinde depolanmış tüm nesneler içeren bir IDictionary örneğe bir başvuru döndürür. Bu IDictionary nesneye öğeleri ekleyebilir ve kullanabileceğiniz bağlamı kullanım ömrü boyunca olacaktır.
 
 ## <a name="maintainscrollpositiononpostback"></a>MaintainScrollPositionOnPostBack
 
-Bu özellik, ASP.NET geri gönderimin gerçekleştikten sonra sayfaları tarayıcının konumda kaydırma tutar JavaScript destekleyip desteklemediğini yayar denetler. (Bu özellik ayrıntılarını Bu modülün daha önce bahsedilen.)
+Bu özellik, ASP.NET bir geri gönderme tamamlandıktan sonra konumu tarayıcıda sayfaların kaydırma tutar JavaScript olup olmadığını yayan denetler. (Bu özellik ayrıntılarını Bu modülün daha önce bahsedilen.)
 
 ## <a name="master"></a>Ana
 
-Bu salt okunur özellik AnaSayfa örneğine bir ana sayfa uygulanmış bir sayfa için bir başvuru döndürür.
+Bu salt okunur bir özellik için bir ana sayfa uygulanmış bir sayfa AnaSayfa örneğe bir başvuru döndürür.
 
 ## <a name="masterpagefile"></a>MasterPageFile
 
-Alır veya ayarlar sayfası için ana sayfa dosya adı. Bu özellik yalnızca PreInit yönteminde ayarlayabilirsiniz.
+Alır veya ayarlar sayfası için ana sayfanın dosya adı. Bu özellik yalnızca PreInit yöntemi ayarlayabilirsiniz.
 
 ## <a name="maxpagestatefieldlength"></a>MaxPageStateFieldLength
 
-Bu özellik alır veya en fazla sayfa durumu için bayt cinsinden ayarlar. Özelliği pozitif bir sayı olduğunda, böylece belirtilen bayt sayısını aşmadığından sayfaları görünüm durumu birden çok gizli alanlarına ayrılmış olarak gösterilir. Özellik negatif bir sayı ise, Görünüm durumu parçalara bozuk değil.
+Bu özelliği alır veya en fazla uzunluk sayfaları durumu için bayt cinsinden ayarlar. Özelliği için pozitif bir sayı ayarlanırsa, belirtilen bayt sayısını aşmadığından emin sayfaları görünüm durumu birden çok gizli alanlarına bölünmesi. Özelliği negatif bir sayı ise, Görünüm durumu parçalara bozuk değil.
 
 ## <a name="pageadapter"></a>PageAdapter
 
-Sayfa için istekte bulunan tarayıcıyı değiştirir PageAdapter nesnesine bir başvuru döndürür.
+Sayfa için isteyen tarayıcıya değiştirir PageAdapter nesnesine bir başvuru döndürür.
 
 ## <a name="previouspage"></a>PreviousPage
 
-Önceki sayfaya başvuru bir Server.Transfer veya çapraz sayfa geri gönderimin durumlarda döndürür.
+Bir Server.Transfer veya çapraz sayfa geri gönderme durumlarda önceki sayfaya bir başvuru döndürür.
 
 ## <a name="skinid"></a>SkinID
 
-Sayfaya uygulamak için ASP.NET 2.0 kaplama belirtir.
+Sayfaya uygulamak için ASP.NET 2.0 dış belirtir.
 
 ## <a name="stylesheettheme"></a>StyleSheetTheme
 
-Bu özellik alır veya bir sayfaya uygulanan stil sayfasının ayarlar.
+Bu özelliği alır veya ayarlar bir sayfaya uygulanan stil sayfası.
 
 ## <a name="templatecontrol"></a>TemplateControl
 
-Sayfa için içeren denetlemek için bir başvuru döndürür.
+İçeren denetim sayfası için bir başvuru döndürür.
 
 ## <a name="theme"></a>Tema
 
-Alır veya sayfaya uygulanan ASP.NET 2.0 tema adını ayarlar. Bu değer PreInit yöntemi önce ayarlanmalıdır.
+Alır veya ayarlar sayfasına ASP.NET 2.0 tema adı. Bu değer PreInit yöntemi önce ayarlanmalıdır.
 
 ## <a name="title"></a>Başlık
 
-Bu özellik alır veya sayfanın başlığı sayfaları başlığından edinildiği şekilde ayarlar.
+Bu özelliği alır veya sayfaları üst bilgisinden alınan sayfanın başlığını ayarlar.
 
 ## <a name="viewstateencryptionmode"></a>ViewStateEncryptionMode
 
-Alır veya sayfanın ViewStateEncryptionMode ayarlar. Bu özellik bu modüldeki hakkında ayrıntılı bilgi bakın.
+Alır veya ayarlar sayfasının ViewStateEncryptionMode. Bu özelliğin bu modüldeki ayrıntılı bir tartışma bakın.
 
-## <a name="new-protected-properties-of-the-page-class"></a>Sayfa sınıfının yeni korumalı Özellikler
+## <a name="new-protected-properties-of-the-page-class"></a>Sayfa sınıfının yeni bir korumalı Özellikler
 
-ASP.NET 2.0 sayfa sınıfının yeni korumalı özellikleri şunlardır:
+ASP.NET 2.0 sayfa sınıfının yeni bir korumalı özellikleri aşağıda verilmiştir.
 
 ## <a name="adapter"></a>Bağdaştırıcı
 
-Cihaz sayfasında işleyen ControlAdapter başvuru istendiğinde döndürür.
+İstendiğinde, cihazdaki sayfaya işler ControlAdapter başvuru döndürür.
 
 ## <a name="asyncmode"></a>AsyncMode
 
-Bu özellik sayfası zaman uyumsuz olarak işlenir olup olmadığını gösterir. Bu kodu doğrudan de, çalışma zamanı tarafından kullanılmaya yöneliktir.
+Bu özellik sayfası zaman uyumsuz olarak işlenen olup olmadığını gösterir. Çalışma zamanı tarafından ve doğrudan kod, kullanım içindir.
 
 ## <a name="clientidseparator"></a>ClientIDSeparator
 
-Bu özellik benzersiz istemci denetimleri için kimlikleri oluştururken ayırıcı olarak kullanılan karakter döndürür. Bu kodu doğrudan de, çalışma zamanı tarafından kullanılmaya yöneliktir.
+Bu özellik, benzersiz istemci denetimleri için kimlikleri oluştururken bir ayırıcı olarak kullanılan karakter döndürür. Çalışma zamanı tarafından ve doğrudan kod, kullanım içindir.
 
 ## <a name="pagestatepersister"></a>PageStatePersister
 
-Bu özellik sayfası için PageStatePersister nesnesini döndürür. Bu özellik, öncelikli olarak ASP.NET denetim geliştiriciler tarafından kullanılır.
+Bu özellik sayfası için PageStatePersister nesnesi döndürür. Bu özellik, öncelikli olarak ASP.NET denetimi geliştiriciler tarafından yaygın olarak kullanılır.
 
 ## <a name="uniquefilepathsuffix"></a>UniqueFilePathSuffix
 
 Bu özellik, tarayıcılar önbelleğe alma için dosya yolu eklenen benzersiz bir suffic döndürür. Varsayılan değer \_ \_ufps = ve 6 basamaklı bir sayı.
 
-## <a name="new-public-methods-for-the-page-class"></a>Sayfa sınıfı için yeni genel yöntemler
+## <a name="new-public-methods-for-the-page-class"></a>Sayfası sınıfı için yeni genel yöntemler
 
-Aşağıdaki genel yöntemler, ASP.NET 2.0 sayfa sınıfında yenidir.
+Aşağıdaki genel yöntemleri, ASP.NET 2.0 sayfa sınıfında yenidir.
 
 ## <a name="addonprerendercompleteasync"></a>AddOnPreRenderCompleteAsync
 
-Bu yöntem, olay işleyici temsilcileri zaman uyumsuz sayfa yürütme için kaydeder. Zaman uyumsuz sayfaları daha sonra bu modülde ele alınmıştır.
+Bu yöntem, zaman uyumsuz sayfa yürütme için olay işleyici temsilcilerini kaydeder. Zaman uyumsuz sayfalar, bu modül içinde ele alınmıştır.
 
 ## <a name="applystylesheetskin"></a>ApplyStyleSheetSkin
 
-Stili yaprak özelliklerinde sayfasına uygulanır.
+Sayfaları stil sayfası özellikler sayfasına geçerlidir.
 
 ## <a name="executeregisteredasynctasks"></a>ExecuteRegisteredAsyncTasks
 
-Bu yöntem sorularınızı zaman uyumsuz bir görevi.
+Bu yöntem canlı bir zaman uyumsuz görev.
 
 ### <a name="getvalidators"></a>GetValidators
 
-Hiçbiri belirtilmezse belirtilen doğrulama grubunun veya varsayılan doğrulama grubunun doğrulayıcıları koleksiyonunu döndürür.
+Belirtilmezse, belirtilen doğrulama veya varsayılan doğrulama grubunun yönelik Doğrulayıcıların bir koleksiyonunu döndürür.
 
 ## <a name="registerasynctask"></a>RegisterAsyncTask
 
-Bu yöntem yeni bir zaman uyumsuz görev kaydeder. Zaman uyumsuz sayfaları daha sonra bu modülde ele alınmıştır.
+Bu yöntem, yeni bir zaman uyumsuz görev kaydeder. Bu modül zaman uyumsuz sayfalar ele alınmaktadır.
 
 ## <a name="registerrequirescontrolstate"></a>RegisterRequiresControlState
 
-Bu yöntem ASP.NET sayfaları denetim durumu kalıcı olduğunu söyler.
+Bu yöntem ASP.NET sayfaları denetim durumu kalıcı olduğunu bildirir.
 
 ## <a name="registerrequiresviewstateencryption"></a>RegisterRequiresViewStateEncryption
 
-Bu yöntem ASP.NET sayfaları viewstate şifreleme gerektiren söyler.
+Bu yöntem, ASP.NET sayfaları viewstate şifreleme gerektiren söyler.
 
 ## <a name="resolveclienturl"></a>ResolveClientUrl
 
-Görüntüler, vb. için istemci istekleri için kullanılan göreli bir URL döndürür.
+İstemci istekleri görüntüler vb. için kullanılabilecek bir göreli URL döndürür.
 
 ## <a name="setfocus"></a>SetFocus
 
-Bu yöntem odağı sayfa ilk kez yüklendiğinde, belirttiğiniz denetimi için ayarlar.
+Bu yöntem odağı sayfa ilk yüklendiğinde belirtilen denetimi için ayarlar.
 
 ## <a name="unregisterrequirescontrolstate"></a>UnregisterRequiresControlState
 
 Bu yöntem artık denetim durumu kalıcılığını gerektiren olarak geçirilen denetim kaldırır.
 
-## <a name="changes-to-the-page-lifecycle"></a>Sayfa yaşam döngüsü yapılan değişiklikler
+## <a name="changes-to-the-page-lifecycle"></a>Sayfa yaşam döngüsü değişiklikleri
 
-ASP.NET 2.0 sayfa çevriminin önemli ölçüde değişmediğinden, ancak bilincinde olmanız gereken bazı yeni yöntemler vardır. ASP.NET 2.0 sayfa yaşam döngüsü, aşağıda gösterilmiştir.
+ASP.NET 2.0 sayfa yaşam döngüsü önemli ölçüde değişmediğinden, ancak farkında olmanız gereken bazı yeni yöntemler vardır. ASP.NET 2.0 sayfa yaşam döngüsü aşağıda ana hatlarıyla açıklanmıştır.
 
 ## <a name="preinit-new-in-aspnet-20"></a>PreInit (yeni, ASP.NET 2.0)
 
-Bir geliştirici erişebilirsiniz yaşam döngüsü erken aşamada PreInit olayıdır. Bu olay eklenmesi programlı olarak ASP.NET 2.0 temalar, ana sayfalar değiştirmek, bir ASP.NET 2.0 profili, vb. için özelliklerine erişmek mümkün kılar. En önemli nokta Viewstate henüz yaşam döngüsü bu noktada denetimlerine uygulandığını değil hayata geçirmek bir geri gönderme durumda varsa. Bir geliştirici bu aşamada bir denetimin bir özelliğini değişirse, bu nedenle, büyük olasılıkla daha sonra sayfa çevriminin üzerine yazılacak.
+En erken bir geliştirici erişip yaşam döngüsü aşamasında PreInit olayıdır. Bu olay eklenmesi, programlı olarak ASP.NET 2.0 temalar, ana sayfalar değiştirmek için bir ASP.NET 2.0 profili, vb. için özelliklere erişmek mümkün kılar. Önemli Viewstate henüz yaşam döngüsü bu noktada denetimlere uygulandığını değil hayata geçirmek bir geri gönderme durumda olduğunda. Bir geliştirici bu aşamada bir denetimin bir özelliğine değişirse, bu nedenle, büyük olasılıkla daha sonra sayfa yaşam döngüsünde üzerine yazılacak.
 
 ## <a name="init"></a>Init
 
-Init olayı ASP.NET tarafından değiştirilmediği 1.x. Okuma veya sayfanızda denetimlerin özelliklerini başlatmak istediğiniz budur. Bu aşama, ana sayfalar, temalar vb. zaten sayfasına uygulanır.
+ASP.NET tarafından Init olay değişmedi 1.x. Okuma veya sayfanızda denetimlerin özelliklerini açma başlatmak istediğiniz budur. Bu aşama, ana sayfalar, temalar vb. zaten sayfasına uygulanır.
 
 ## <a name="initcomplete-new-in-20"></a>InitComplete (yeni, 2.0)
 
-InitComplete olay sayfaları başlatma aşaması sonunda çağrılır. Bu noktada çevriminin sayfadaki denetimleri erişebilirsiniz, ancak durumlarına değil henüz doldurulan.
+InitComplete olayı sayfaları başlatma aşamasının sonunda çağrılır. Bu noktada yaşam döngüsünde sayfadaki denetimleri erişebilirsiniz, ancak durumlarını değil henüz doldurulmadı.
 
-## <a name="preload-new-in-20"></a>Önyükleme (2. 0'yeni)
+## <a name="preload-new-in-20"></a>PreLoad (2.0 sürümünde yeni)
 
-Bu olay, tüm geri gönderme verileri uygulandıktan sonra ve sayfa önceki çağrılır\_yük.
+Bu olay, tüm geri gönderme veri uyguladıktan sonra ve sayfa hemen önce çağrılır\_yük.
 
 ## <a name="load"></a>Yükleme
 
-Load olayı ASP.NET tarafından değiştirilmediği 1.x.
+Yükleme olayı ASP.NET tarafından değiştirilmemiştir 1.x.
 
 ## <a name="loadcomplete-new-in-20"></a>LoadComplete (yeni, 2.0)
 
-LoadComplete son olay sayfaları yük aşamasında olaydır. Bu aşamada, tüm geri gönderme ve viewstate veri uygulandı sayfasına.
+LoadComplete olay son sayfaları yük aşamasında etkinliğidir. Bu aşamada, tüm geri gönderme ve viewstate verilerini uygulanmış sayfasına.
 
 ## <a name="prerender"></a>PreRender
 
-Sayfaya dinamik olarak eklenen denetimler için düzgün bir şekilde korunmasını viewstate isterseniz PreRender olayını bunları eklemek için son şansınızdır.
+Görünüm durumu sayfaya eklenen dinamik olarak denetimleri için düzgün şekilde saklanması için isterseniz PreRender olayını bunları eklemek için son şansınızdır.
 
 ## <a name="prerendercomplete-new-in-20"></a>PreRenderComplete (yeni, 2.0)
 
-PreRenderComplete aşamada tüm denetimler sayfaya eklendiğinden ve sayfa işlenmek üzere hazırdır. Son olay sayfaları viewstate kaydedilmeden önce gerçekleşti PreRenderComplete etkinliğidir.
+PreRenderComplete aşamada, tüm denetimler sayfasına eklenen ve sayfa işlenmek üzere hazırdır. Sayfaları görünüm durumu kaydedilmeden önce tetiklenen son olayı PreRenderComplete olayıdır.
 
 ## <a name="savestatecomplete-new-in-20"></a>SaveStateComplete (yeni, 2.0)
 
-Tüm Sayfa görünüm durumu ve denetim durumu hemen kaydedildikten sonra SaveStateComplete olay çağrılır. Bu sayfa gerçekten tarayıcıya işlenmeden önce son olaydır.
+SaveStateComplete olayı, hemen tüm sayfa viewstate ve denetim durumu kaydedildikten sonra çağrılır. Sayfa tarayıcıya gerçekten işlenmeden önce son olay budur.
 
 ## <a name="render"></a>İşleme
 
-İşleme yöntemi ASP.NET bu yana değişmemiştir 1.x. Burada HtmlTextWriter başlatılır ve sayfa tarayıcıda görüntülenen budur.
+İşleme yöntemi ASP.NET bu yana değişmemiştir 1.x. Burada HtmlTextWriter başlatılır ve tarayıcıda görüntülenen sayfa budur.
 
-## <a name="cross-page-postback-in-aspnet-20"></a>ASP.NET 2.0 Sayfalar arası geri gönderme
+## <a name="cross-page-postback-in-aspnet-20"></a>ASP.NET 2.0 çapraz sayfa geri gönderme
 
-ASP.NET 1.x, Geri göndermeler aynı sayfaya göndermek için gerekli. Çapraz sayfa Geri göndermeler izin verilmiyor. ASP.NET 2.0 IButtonControl arabirimi aracılığıyla başka bir sayfaya geri gönderilecek yeteneği ekler. (Düğme, LinkButton ve üçüncü taraf özel denetimler yanı sıra ImageButton) yeni IButtonControl arabirimini uygulayan herhangi bir denetimi bu yeni işlevsellik PostBackUrl özniteliğinin kullanımı aracılığıyla yararlanabilir. Aşağıdaki kod, ikinci bir sayfaya yazılarını bir düğme denetimi gösterir.
+ASP.NET'te 1.x, Geri göndermeler aynı sayfaya göndermek için gerekli. Çapraz sayfa Geri göndermeler izin verilmiyor. ASP.NET 2.0 IButtonControl arabirimi üzerinden başka bir sayfaya geri gönderilecek özelliği ekler. Bu yeni işlevselliği aracılığıyla PostBackUrl öznitelik kullanımı (düğme, LinkButton ve üçüncü taraf özel denetimler yanı sıra ImageButton) yeni IButtonControl arabirimi uygulayan herhangi bir denetimi yararlanabilirsiniz. Aşağıdaki kod, ikinci bir sayfaya gönderir düğme denetimini gösterir.
 
 [!code-aspx[Main](the-asp-net-2-0-page-model/samples/sample5.aspx)]
 
-Sayfa geri gönderildiğinde, geri gönderme başlatır sayfa ikinci sayfasında PreviousPage özelliği aracılığıyla erişilebilir. Bu işlev yeni WebForm uygulanır\_denetim başka bir sayfaya gönderdiğinde sayfasına ASP.NET 2.0 işleyen DoPostBackWithOptions istemci-tarafı işlevi. Bu JavaScript işlevi, istemci betiği yayar yeni WebResource.axd işleyici tarafından sağlanır.
+Sayfanın geri gönderildiğinde geri göndermeyi başlatan sayfanın PreviousPage özelliğinin ikinci sayfasında aracılığıyla erişilebilir. Bu işlev yeni WebForm uygulanan\_DoPostBackWithOptions istemci-tarafı bir denetimi başka bir sayfaya gönderileri sayfasına ASP.NET 2.0 işleyen bir işlev. Bu JavaScript işlevi, istemci betiği yayan yeni WebResource.axd işleyici tarafından sağlanır.
 
-Video Sayfalar arası geri gönderimin bir kılavuz ' dir.
+Aşağıdaki video, çapraz sayfa geri gönderme kılavuz olduğunda.
 
 
 ![](the-asp-net-2-0-page-model/_static/image2.png)
 
 
-[Açık Tam Ekran Video](the-asp-net-2-0-page-model/_static/xpage1.wmv)
+[Açık tam ekran görüntü](the-asp-net-2-0-page-model/_static/xpage1.wmv)
 
 
-## <a name="more-details-on-cross-page-postbacks"></a>Çapraz sayfa Geri göndermeler hakkında daha fazla bilgi
+## <a name="more-details-on-cross-page-postbacks"></a>Çapraz sayfa geri gönderme hakkında daha fazla bilgi
 
 ### <a name="viewstate"></a>Görünüm durumu
 
-Kendiniz zaten viewstate Sayfalar arası geri gönderme senaryosunda ilk sayfadan olabilecekler sorulan. Tüm IPostBackDataHandler uygulamıyor herhangi bir denetimi viewstate, aracılığıyla durumu nedenle Sihirbazın ikinci sayfasında bir çapraz sayfa geri gönderme denetleyen özelliklerini erişimi için korunur, sayfanın görünüm durumu için erişimi olması gerekir. ASP.NET 2.0 adlı ikinci sayfasında yeni bir gizli alan kullanarak bu senaryoyu mvc'deki \_ \_PREVIOUSPAGE. \_ \_PREVIOUSPAGE form alanı, tüm denetimler özelliklerine erişimi ikinci sayfasında böylece ilk sayfa için Görünüm durumu içerir.
+Kendiniz zaten viewstate için çapraz sayfa geri gönderme senaryosunda ilk sayfadan olabilecekler sorulan. Sonuçta IPostBackDataHandler uygulamıyor herhangi bir denetimi durumuna aracılığıyla görünüm durumu, bu nedenle çapraz sayfa geri gönderme ikinci sayfasında bu denetimin özelliklerini erişimi için açık kalır, sayfanın görünüm durumu için erişimi olmalıdır. ASP.NET 2.0 adlı ikinci sayfasında yeni bir gizli alan kullanarak bu senaryonun üstlenir \_ \_PREVIOUSPAGE. \_ \_PREVIOUSPAGE form alanı, böylece tüm denetimlerin özelliklerine erişim ikinci sayfada olabilir ilk sayfanın görünüm durumu içerir.
 
-### <a name="circumventing-findcontrol"></a>Circumventing FindControl
+### <a name="circumventing-findcontrol"></a>FindControl atlanarak
 
-Çapraz sayfa geri gönderimin video kılavuzda ı FindControl TextBox denetimi ilk sayfasında bir başvuru almak için kullanılan yöntem. Bu yöntem, bu amaçla iyi çalışır, ancak FindControl pahalıdır ve ek kod yazma gerektirir. Neyse ki, ASP.NET 2.0, birçok senaryoda çalışır, bu amaç için alternatif FindControl sağlar. PreviousPageType yönergesi TypeName veya VirtualPath özniteliği kullanılarak kesin türü belirtilmiş bir başvuru önceki sayfaya sahip olmanızı sağlar. TypeName özniteliği VirtualPath özniteliği sanal yolu kullanarak önceki sayfaya bakın sağlar, ancak önceki sayfaya türünü belirtmenize olanak tanır. PreviousPageType yönergesi ayarladıktan sonra daha sonra ortaya gerekir denetimleri vb. ortak özellikleri kullanılarak erişimine izin vermek istiyor.
+Çapraz sayfa geri gönderme video kılavuzda miyim FindControl TextBox denetimi ilk sayfasında bir başvuru almak için kullanılan yöntem. Bu yöntem, bu amaç için iyi çalışır, ancak FindControl pahalıdır ve bu ek kod yazma gerekir. Neyse ki, ASP.NET 2.0 pek çok senaryoda çalışmaz, bu amaçla FindControl bir alternatif sunar. PreviousPageType yönergesi TypeName veya VirtualPath özniteliğini kullanarak türü kesin belirlenmiş bir başvuru önceki sayfaya sahip olmanızı sağlar. TypeName öznitelik sanal yolu kullanarak önceki sayfasına başvurmak VirtualPath öznitelik sağlar, ancak önceki sayfaya türünü belirtmenizi sağlar. PreviousPageType yönergesi ayarladıktan sonra ardından açığa çıkarmalıdır denetimler, genel özelliklerini kullanarak erişim vermek istediğiniz vb.
 
-## <a name="lab-1-cross-page-postback"></a>Laboratuvar 1 Sayfalar arası geri gönderme
+## <a name="lab-1-cross-page-postback"></a>Laboratuvar 1 arası sayfa geri gönderme
 
-Bu laboratuvarda, ASP.NET 2.0 yeni sayfalar arası geri gönderme işlevlerini kullanan bir uygulama oluşturacaksınız.
+Bu laboratuvarda, ASP.NET 2.0 yeni çapraz sayfa geri gönderme işlevlerini kullanan bir uygulama oluşturacaksınız.
 
-1. Visual Studio 2005 açın ve yeni bir ASP.NET Web sitesi oluşturun.
-2. Page2.aspx adlı yeni bir Webform ekleyin.
-3. Default.aspx Tasarım görünümünde açın ve bir düğmeyi ve TextBox denetimi ekleyin. 
+1. Visual Studio 2005'i açın ve yeni bir ASP.NET Web sitesi oluşturun.
+2. Page2.aspx adlı yeni bir Web formu ekleyin.
+3. Default.aspx Tasarım Görünümü'nde açın ve bir düğme denetimi ve bir metin kutusu denetimi ekleyebilirsiniz. 
 
-    1. Düğme denetimi kimliği vermek **SubmitButton** ve metin kutusu denetim kimliği **kullanıcıadı**.
+    1. Düğme denetimini kimliği vermek **SubmitButton** ve metin kutusu denetim Kimliğini **UserName**.
     2. Düğmenin PostBackUrl özelliği için page2.aspx ayarlayın.
-4. Page2.aspx kaynağı görünümünü açın.
-5. @ PreviousPageType yönergesi aşağıda gösterildiği gibi ekleyin:
-6. Aşağıdaki kod sayfasına ekleme\_page2.aspx'ın arka plan kod yükünü: 
+4. Page2.aspx Kaynak Görünümü'nde açın.
+5. @ PreviousPageType yönergesi, aşağıda gösterildiği gibi ekleyin:
+6. Aşağıdaki kod sayfasına ekleme\_page2.aspx'ın arka plan kod yükü: 
 
     [!code-csharp[Main](the-asp-net-2-0-page-model/samples/sample6.cs)]
-7. Build menüsünden üzerinde yapı tıklayarak projeyi oluşturun.
+7. Yapı menüsünde derlemeyi tıklayarak projeyi derleyin.
 8. Arka plan kod Default.aspx için aşağıdaki kodu ekleyin: 
 
     [!code-csharp[Main](the-asp-net-2-0-page-model/samples/sample7.cs)]
-9. Sayfa değiştirme\_page2.aspx aşağıdaki yükleme: 
+9. Sayfayı Değiştir\_page2.aspx aşağıdaki yükleme: 
 
     [!code-csharp[Main](the-asp-net-2-0-page-model/samples/sample8.cs)]
 10. Projeyi oluşturun.
 11. Projeyi çalıştırın.
-12. Metin kutusuna adınızı girin ve düğmesini tıklatın.
+12. Metin kutusunda adınızı girin ve düğmeye tıklayın.
 13. Sonuç nedir?
 
-## <a name="asynchronous-pages-in-aspnet-20"></a>ASP.NET 2.0 zaman uyumsuz sayfaları
+## <a name="asynchronous-pages-in-aspnet-20"></a>ASP.NET 2.0 sürümünde zaman uyumsuz sayfaları
 
-ASP.NET birçok Çekişme sorunları (örneğin, Web hizmeti veya veritabanı çağrıları) dış çağrıları, dosya g/ç gecikmesi gecikmesine neden olur. Bir ASP.NET uygulaması karşı bir istek yapıldığında, ASP.NET birini kendi iş parçacıklarını Bu isteğe hizmet vermek için kullanır. Bu istek, istek tamamlandıktan ve gönderilen yanıtı kadar o iş parçacığı sahip olur. Özellik sayfaları zaman uyumsuz olarak yürütülecek ekleyerek bu tür sorunları gecikmesi sorunları çözümlemek ASP.NET 2.0 arar. Bir çalışan iş parçacığı isteği başlatmak ve böylece kullanılabilir iş parçacığı havuzuna hızla döndürme başka bir iş parçacığı için ek yürütme kapalı el anlamına gelir. Dosya g/ç, veritabanı çağrısı, vb. tamamlandı, yeni bir iş parçacığı isteği tamamlamak için iş parçacığı havuzundan elde edilir.
+ASP.NET'te birçok Çekişme sorunları (örneğin, Web hizmeti veya veritabanı çağrıları) dış aramalar, dosya g/ç gecikme gecikmesine neden olur. Bir ASP.NET uygulaması karşı bir istek yapıldığında, ASP.NET birini kendi çalışan iş parçacıkları Bu isteğe hizmet vermek için kullanır. Bu istek, istek tamamlandıktan ve yanıtı gönderildi kadar iş parçacığı sahip olur. ASP.NET 2.0 sayfalarını zaman uyumsuz olarak yürütmek için özellik ekleyerek bu tür sorunları gecikme sorunlarını gidermek çalışmaktadır. Bu iş parçacığı isteği başlatın ve ardından başka bir iş parçacığına, böylece kullanılabilir iş parçacığı havuzuna hızla döndüren ek yürütme devre dışı el anlamına gelir. Yeni bir iş parçacığı, dosya GÇ, veritabanı çağrısı, vb. tamamlandı, istek tamamlamak için iş parçacığı havuzundan elde edilir.
 
-Zaman uyumsuz yürütme bir sayfa yapmadan ilk adımı ayarlamaktır **zaman uyumsuz** sayfa yönergesi özniteliği şu şekilde:
+Zaman uyumsuz yürütülen bir sayfa yapmadan ilk adımı ayarlamaktır **zaman uyumsuz** sayfa yönergesi özniteliği şu şekilde:
 
 [!code-aspx[Main](the-asp-net-2-0-page-model/samples/sample9.aspx)]
 
-Bu öznitelik sayfa IHttpAsyncHandler uygulamak için ASP.NET söyler.
+ASP.NET sayfası için IHttpAsyncHandler uygulamak için bu öznitelik bildirir.
 
-Sonraki adım PreRender önce sayfasının ömrü içindeki bir noktada AddOnPreRenderCompleteAsync yöntemi çağırmaktır. (Bu yöntem genellikle sayfasında çağrılır\_yük.) AddOnPreRenderCompleteAsync yöntemi iki parametre alır; bir BeginEventHandler ve bir EndEventHandler. BeginEventHandler parametre olarak EndEventHandler sonra geçen bir IAsyncResult döndürür.
+Sonraki adımda, sayfanın PreRender önce yaşam döngüsünde bir noktada AddOnPreRenderCompleteAsync yöntemi çağırmaktır. (Bu yöntem genellikle sayfasında çağrılır\_yük.) AddOnPreRenderCompleteAsync yöntem iki parametre alır; bir BeginEventHandler ve bir EndEventHandler. Ardından EndEventHandler için parametre olarak geçirilen bir IAsyncResult BeginEventHandler döndürür.
 
-Aşağıdaki video bir zaman uyumsuz sayfa isteği bir kılavuz ' dir.
+Aşağıdaki videoyu bir kılavuz bir zaman uyumsuz sayfa isteğinin ' dir.
 
 
 ![](the-asp-net-2-0-page-model/_static/image3.png)
 
 
-[Açık Tam Ekran Video](the-asp-net-2-0-page-model/_static/async1.wmv)
+[Açık tam ekran görüntü](the-asp-net-2-0-page-model/_static/async1.wmv)
 
 
 > [!NOTE]
-> EndEventHandler tamamlanana kadar bir zaman uyumsuz sayfası tarayıcıya işlemez. Hiçbir şüpheli ancak bazı geliştiriciler için zaman uyumsuz geri aramalar benzer olarak zaman uyumsuz isteği düşünün. Olmadıklarını hayata geçirmek önemlidir. Zaman uyumsuz isteklerine hizmet yeni istekler, böylece azaltma GÇ bağlı olması nedeniyle Çekişme, vb. için iş parçacığı havuzuna ilk çalışan iş parçacığı döndürülebilecek avantajdır.
+> EndEventHandler tamamlanana kadar zaman uyumsuz bir sayfa tarayıcıya işlemez. Hiçbir şüpheli ancak bazı geliştiriciler zaman uyumsuz isteği zaman uyumsuz geri çağırmalar için benzer olarak düşünebilirsiniz. Olmadıklarını bilmeniz önemlidir. Zaman uyumsuz istekler için ilk çalışan iş parçacığının iş parçacığı havuzu hizmet yeni isteklerini, böylece azaltma Çekişme nedeniyle GÇ bağlı olan, vb. için döndürülebilir avantajdır.
 
 
-## <a name="script-callbacks-in-aspnet-20"></a>ASP.NET 2.0 betik geri aramalar
+## <a name="script-callbacks-in-aspnet-20"></a>ASP.NET 2.0 betik geri çağırmaları
 
-Web geliştiricileri yolları geri arama ile ilişkili titremeyi önlemek için her zaman attıktan. ASP.NET 1.x, SmartNavigation titremeyi önlemenin en yaygın yöntem olsa da, istemci uygulaması karmaşıklığı nedeniyle bazı geliştiriciler için SmartNavigation sorunlarına neden. ASP.NET 2.0 betik geri aramalar ile bu sorunu giderir. Betik geri aramalar JavaScript aracılığıyla Web sunucusuna karşı istekler yapmasını XMLHttp kullanın. XMLHttp isteği sonra yönetilebilir XML verileri tarayıcının DOM döndürür. XMLHttp kod kullanıcıdan yeni WebResource.axd işleyici tarafından gizlenir.
+Web geliştiricileri, her zaman bir geri çağırma ile ilişkili titremeyi önlemek yollarını attıktan. ASP.NET'te 1.x, SmartNavigation titremeyi kaçınmak için en yaygın yöntem olan, ancak istemci uygulaması karmaşıklığı nedeniyle bazı geliştiriciler için SmartNavigation sorunlarına neden. ASP.NET 2.0 betik geri çağırmaları ile bu sorunu giderir. Betiği geri çağırmaları JavaScript aracılığıyla Web sunucuya yönelik isteklerde XMLHttp kullanır. XMLHttp isteği tarayıcının yerli sonra işlenebilir XML verileri döndürür XMLHttp kod kullanıcıdan yeni WebResource.axd işleyicisi tarafından gizlenir.
 
-ASP.NET 2.0 ile bir betik geri yapılandırmak için gerekli olan birkaç adım vardır.
+ASP.NET 2.0 ile bir betik geri çağırma yapılandırmak için gereken birkaç adım vardır.
 
-## <a name="step-1--implement-the-icallbackeventhandler-interface"></a>1. adım: ICallbackEventHandler arabirimini uygulama
+## <a name="step-1--implement-the-icallbackeventhandler-interface"></a>1. adım: ICallbackEventHandler arabirim uygular.
 
-Bir komut dosyası geri katılan olarak sayfanızı tanımak ASP.NET sırayla ICallbackEventHandler arabirimini uygulamalıdır. Arka plan kodu dosyanızda bunu şu şekilde:
+Sayfanız bir betik geri katılan olarak tanınması ASP.NET için sırada ICallbackEventHandler arabirimini uygulaması gerekir. Bu, arka plan kod dosyasında yapabileceğiniz şu şekilde:
 
 [!code-csharp[Main](the-asp-net-2-0-page-model/samples/sample10.cs)]
 
-Bu, @ Implements yönergesi benzer bunu kullanarak da yapabilirsiniz:
+Ayrıca @ Implements yönerge benzeri kullanarak bunu yapabilirsiniz:
 
 [!code-aspx[Main](the-asp-net-2-0-page-model/samples/sample11.aspx)]
 
-Satır içi ASP.NET kodunun kullanırken genellikle @ Implements yönergesi kullanırsınız.
+Genellikle, satır içi ASP.NET kodu kullanırken @ Implements yönergesinin kullanmanız gerekir.
 
 ## <a name="step-2--call-getcallbackeventreference"></a>2. adım: Çağrı GetCallbackEventReference
 
-Daha önce belirtildiği gibi XMLHttp çağrısı WebResource.axd işleyicisinde kapsüllenir. Sayfanız işlendiğinde, ASP.NET WebForm yapılan bir çağrı ekleyin\_DoCallback, WebResource.axd tarafından sağlanan bir istemci komut dosyası. WebForm\_DoCallback işlevi değiştirir \_ \_doPostBack işlevi için bir geri çağırma. Unutmayın \_ \_doPostBack sayfasındaki formu programlı olarak gönderir. Bir geri çağırma senaryosunda, geri gönderimin, bu nedenle engellemek istediğiniz \_ \_doPostBack değil yeterli.
+Daha önce belirtildiği gibi XMLHttp çağrı WebResource.axd işleyicisinin içinde kapsüllenir. ASP.NET WebForm bir çağrı, sayfa işlendiğinde ekleyeceksiniz\_DoCallback, WebResource.axd tarafından sağlanan bir istemci komut dosyası. WebForm\_DoCallback işlevi değiştirir \_ \_doPostBack işlevi için bir geri çağırma. Unutmayın \_ \_doPostBack program aracılığıyla sayfasındaki formu gönderir. Bu nedenle, bir geri gönderme önlemek istediğiniz bir geri çağırma senaryosunda \_ \_doPostBack değil yeterli.
 
 > [!NOTE]
-> \_\_doPostBack hala bir istemci komut dosyası geri çağırma senaryosunda sayfasına işlenir. Ancak, geri çağırma için kullanılmaz.
+> \_\_doPostBack hala sayfasına istemci betiği geri çağırma senaryosunda işlenir. Bununla birlikte, geri çağırma için kullanılmaz.
 
 
-WebForm bağımsız değişkenleri\_DoCallback istemci-tarafı işlevi, sunucu tarafı işlevi normalde sayfasında denilen GetCallbackEventReference aracılığıyla sağlanan\_yük. GetCallbackEventReference tipik bir çağrı şuna benzeyebilir:
+Bağımsız değişkenleri WebForm\_DoCallback istemci-tarafı işlevi, normalde sayfa içinde denilen GetCallbackEventReference sunucu tarafı işlev aracılığıyla sağlanan\_yük. Tipik bir GetCallbackEventReference çağrı şuna benzeyebilir:
 
 [!code-csharp[Main](the-asp-net-2-0-page-model/samples/sample12.cs)]
 
@@ -472,142 +471,142 @@ WebForm bağımsız değişkenleri\_DoCallback istemci-tarafı işlevi, sunucu t
 > Bu durumda, cm ClientScriptManager örneğidir. ClientScriptManager sınıfı Bu modülün daha sonra ele alınacaktır.
 
 
-GetCallbackEventReference birkaç aşırı yüklü sürümü vardır. Bu durumda, bağımsız değişkenleri şunlardır:
+GetCallbackEventReference birden fazla aşırı yüklenmiş sürümleri vardır. Bu durumda, bağımsız değişkenleri şunlardır:
 
 `this`
 
-Burada GetCallbackEventReference çağrılan denetim referansı. Bu durumda, sayfa olur.
+Burada GetCallbackEventReference Aranan denetim başvuru. Bu durumda, sayfa olur.
 
 [!code-javascript[Main](the-asp-net-2-0-page-model/samples/sample13.js)]
 
-İstemci tarafı kodu sunucu tarafı olaya geçirilen dize bağımsız değişkeni. Bu durumda, anlık ileti bir açılır liste değeri geçirme ddlCompany çağrılır.
+İstemci-tarafı koddan sunucu tarafı olaya geçirilen bir dize bağımsız değişkeni. Bu durumda, anlık ileti bir açılan değerini geçirme ddlCompany çağrılır.
 
 `ShowCompanyName`
 
-Dönüş değeri (dize) sunucu tarafı geri çağırma etkinlikten kabul eder istemci-tarafı işlevinin adı. Sunucu tarafı geri arama başarılı olduğunda bu işlev yalnızca çağrılmaz. Bu nedenle, sağlamlık amacıyla, genellikle bir hata durumunda yürütmek için bir istemci-tarafı işlevin adını belirterek bir ek dize bağımsız değişken GetCallbackEventReference aşırı yüklü sürümünü kullanmak için önerilir.
+Dönüş değeri (dize) sunucu tarafı geri çağırma etkinlikten kabul eder istemci tarafı işlevinin adı. Bu işlev, yalnızca sunucu tarafı geri çağırma başarılı olduğunda çağrılır. Bu nedenle, sağlamlık açısından, genellikle bir hatanın olayı içerisinde yürütülmek üzere bir istemci-tarafı işlevin adını belirterek ek dize bağımsız değişken GetCallbackEventReference Aşırı yüklenen sürümünü kullanmanız önerilir.
 
 `null`
 
-Sunucuya geri çağırma önce başlatılan bir istemci-tarafı işlevi temsil eden dize. Bu durumda olmadığından bu tür bir betik yok, bağımsız değişkeni null.
+Sunucuya geri çağırma önce başlatılan bir istemci-tarafı işlevi temsil eden bir dize. Bu durumda, bağımsız değişken null, bu nedenle böyle herhangi bir komut yoktur.
 
 `true`
 
-Geri çağırma zaman uyumsuz olarak gerçekleştir gerekip gerekmediğini belirten bir Boole değeri.
+Zaman uyumsuz geri çağırma kuralları gerekip gerekmediğini belirten bir Boole değeri.
 
-WebForm çağrısı\_DoCallback istemcide, bu bağımsız değişkenler geçecek. Bu nedenle, bu sayfayı istemcide işlendiğinde, bu kodu görüneceğini sözlüğüdür:
+WebForm çağrısı\_DoCallback istemcide, bu bağımsız değişkenler geçecek. Bu nedenle, bu sayfayı istemcide işlendiğinde bu kodu görüneceğini şu şekilde:
 
 [!code-javascript[Main](the-asp-net-2-0-page-model/samples/sample14.js)]
 
-İstemci üzerinde işlevinin imzası biraz farklı olduğuna dikkat edin. İstemci tarafı işlevi 5 dizeler ve bir Boole değeri geçirir. Sunucu tarafı geri aramadan hataları işleyecek istemci-tarafı işlevi (yukarıdaki örnekte null ise) ek dizesini içerir.
+İstemci üzerinde işlev imzası biraz farklı olduğuna dikkat edin. İstemci tarafı işlevi 5 dize ve Boole geçirir. Sunucu tarafı geri çağırma tüm hataları işleyecek istemci-tarafı işlevi (Bu, yukarıdaki örnekte null) olan ek dizeyi içerir.
 
-## <a name="step-3--hook-the-client-side-control-event"></a>3. adım: istemci-tarafı denetim olayı bağlayın
+## <a name="step-3--hook-the-client-side-control-event"></a>3. adım: istemci tarafı denetim olayının bağlama
 
-Yukarıdaki GetCallbackEventReference dönüş değeri bir dize değişkenine atanan dikkat edin. Bu dize, geri çağırma başlatır denetimi için istemci tarafı bir olay kanca için kullanılır. Kanca istediğiniz şekilde bu örnekte, geri çağırma sayfasında açılır başlatılır *değiştiğinde* olay.
+Yukarıdaki GetCallbackEventReference dönüş değeri dize değişkenine atandığını dikkat edin. Bu dize, geri çağırmayı başlatan denetimi için istemci tarafı bir olay bağlama için kullanılır. Bağlamak istediğiniz şekilde bu örnekte geri çağırma sayfasında, açılan bir menüde başlatılır *OnChange* olay.
 
-İstemci tarafında olay kanca için yalnızca bir işleyicinin istemci-tarafı biçimlendirme aşağıdaki şekilde ekleyin:
+İstemci tarafında olay bağlama için bir işleyici için istemci tarafı biçimlendirme gibi eklemeniz yeterlidir:
 
 [!code-csharp[Main](the-asp-net-2-0-page-model/samples/sample15.cs)]
 
-Sözcüğünün *cbRef* GetCallbackEventReference çağrısı dönüş değeri. WebForm çağrısı içerdiği\_yukarıda gösterilen DoCallback.
+Bu geri çağırma *cbRef* GetCallbackEventReference çağrıdan dönüş değeridir. WebForm çağrısı içerdiği\_yukarıda gösterilen DoCallback.
 
 ## <a name="step-4--register-the-client-side-script"></a>4. adım: istemci tarafı komut dosyası kaydetme
 
-İstemci tarafı komut dosyası denen GetCallbackEventReference çağrısı belirtilen geri çağırma **ShowCompanyName** sunucu tarafı geri arama başarılı olduğunda yürütülmesi. Bu komut dosyası ClientScriptManager örneği kullanarak sayfaya eklenmesi gerekir. (ClientScriptManager sınıfı daha sonra bu modüldeki dicussed olacaktır.) Bu benzer şekilde yapın:
+İstemci tarafı komut dosyası adında GetCallbackEventReference çağrısı belirtilen geri çağırma **ShowCompanyName** sunucu tarafı geri çağırma işlemi başarılı olduğunda yürütülmesi. Bu betik bir ClientScriptManager örneği kullanarak sayfaya eklenmesi gerekir. (Daha sonra bu modüldeki dicussed ClientScriptManager sınıfı olacaktır.) Bu benzer şekilde yapın:
 
 [!code-javascript[Main](the-asp-net-2-0-page-model/samples/sample16.js)]
 
-## <a name="step-5--call-the-methods-of-the-icallbackeventhandler-interface"></a>5. adım: ICallbackEventHandler arabiriminin yöntemlerini çağırın
+## <a name="step-5--call-the-methods-of-the-icallbackeventhandler-interface"></a>5. adım: ICallbackEventHandler arabirimin yöntemlerini çağırın
 
-ICallbackEventHandler kodunuzda uygulamanız gereken iki yöntem içerir. Bunlar **RaiseCallbackEvent** ve **GetCallbackEvent**.
+ICallbackEventHandler kodunuzda uygulamak için gereken iki yöntemi içerir. Bunlar **RaiseCallbackEvent** ve **GetCallbackEvent**.
 
-**RaiseCallbackEvent** bağımsız değişken olarak bir dize alır ve hiçbir şey döndürür. Dize bağımsız değişkeni WebForm için istemci tarafı çağrısından geçirilen\_DoCallback. Bu durumda, bu değeri olan *değeri* ddlCompany adlı açılır özniteliğidir. Sunucu tarafı kodunuzu RaiseCallbackEvent yönteminde yerleştirilmelidir. Örneğin, geri WebRequest dış kaynak karşı değiştirirken, bu kod içinde RaiseCallbackEvent yerleştirilmelidir.
+**RaiseCallbackEvent** bağımsız değişken olarak bir dize alır ve nothing döndürür. İstemci tarafı çağrısından WebForm geçirilen dize bağımsız değişken\_DoCallback. Bu durumda, bu değeri olduğu *değer* ddlCompany adlı açılan özniteliği. Sunucu tarafı kodunuzu RaiseCallbackEvent yöntemi yerleştirilmelidir. Örneğin, bir dış kaynağa karşı WebRequest çağırmanıza yapıyor, kod içinde RaiseCallbackEvent yerleştirilmelidir.
 
-**GetCallbackEvent** geri dönüş istemciye işlemekten sorumludur. Bağımsız değişken almayan ve bir dize döndürür. Döndürdüğü dize bağımsız değişken olarak istemci tarafı işlevi için bu durumda geçirilir *ShowCompanyName*.
+**GetCallbackEvent** istemciye geri dönüşü işlemekten sorumludur. Hiçbir bağımsız değişkeni alır ve bir dize döndürür. Döndürdüğü dize bağımsız değişken olarak istemci tarafı işleve, bu durumda geçirilir *ShowCompanyName*.
 
-Yukarıdaki adımları tamamladıktan sonra ASP.NET 2.0 ile bir betik geri gerçekleştirmek hazır olursunuz.
+Yukarıdaki adımları tamamladıktan sonra ASP.NET 2.0 ile bir betik geri çağırma işlemini gerçekleştirmek hazır olursunuz.
 
 
 ![](the-asp-net-2-0-page-model/_static/image4.png)
 
 
-[Açık Tam Ekran Video](the-asp-net-2-0-page-model/_static/callback1.wmv)
+[Açık tam ekran görüntü](the-asp-net-2-0-page-model/_static/callback1.wmv)
 
 
-ASP komut dosyasını geri aramalar yapmayı XMLHttp çağrıları destekleyen herhangi bir tarayıcısında desteklenir. Tüm modern tarayıcılar kullanımda bugün içerir. Modern tarayıcılar (yaklaşan IE 7 dahil) bir iç XMLHttp nesne kullanırken Internet Explorer XMLHttp ActiveX nesnesini kullanır. Program aracılığıyla bir tarayıcı geri aramalar destekliyorsa, kullanabileceğiniz belirlemek için **Request.Browser.SupportCallback** özelliği. Bu özellik döndürülecek **true** isteyen istemci komut dosyası geri aramalar destekliyorsa.
+ASP.NET'te betik geri aramaları yapmayı XMLHttp çağrıları destekleyen herhangi bir tarayıcıda desteklenir. Tüm modern tarayıcılarda kullanımda bugün içerir. Modern tarayıcılar (gelecek IE 7 dahil) bir iç XMLHttp nesnesine kullanırken Internet Explorer XMLHttp ActiveX nesnesini kullanır. Program aracılığıyla bir tarayıcı geri çağırmaları destekliyorsa, kullanabileceğiniz belirlemek için **Request.Browser.SupportCallback** özelliği. Bu özellik döndüreceği **true** istekte bulunan istemciye betik geri çağırmaları destekliyorsa.
 
 ## <a name="working-with-client-script-in-aspnet-20"></a>ASP.NET 2.0 istemci komut dosyası ile çalışma
 
-İstemci komut dosyalarını, ASP.NET 2.0 ClientScriptManager sınıfı kullanımı aracılığıyla yönetilir. ClientScriptManager sınıfı, bir türü ve adı'nı kullanarak istemci betikleri izler. Bu, aynı komut dosyasını program aracılığıyla bir sayfa üzerinde birden çok kez eklenmekte gelen önler.
+İstemci betiklerini ASP.NET 2.0 ClientScriptManager sınıfının kullanımı yönetilir. ClientScriptManager sınıfı, bir türü ve adı'nı kullanarak istemci betikleri izler. Bu, aynı komut dosyasını program aracılığıyla bir sayfada birden çok kez eklenen öğesinden engeller.
 
 > [!NOTE]
-> Bir komut dosyası bir sayfa üzerinde başarıyla kaydedildikten sonra aynı komut dosyasını kaydetme sonraki girişimleri yalnızca ikinci kez kaydedilmemiş komut dosyasında neden olur. Yinelenen komut dosyası eklenir ve hiçbir özel durum oluşur. Gereksiz hesaplama önlemek için böylece birden çok kez kaydettirmeye çalışırsanız olmayan bir komut dosyası zaten kayıtlı olup olmadığını belirlemek için kullanabileceğiniz yöntemler vardır.
+> Bir komut dosyası başarıyla bir sayfada kaydedildikten sonra aynı komut dosyasını kaydetmek için sonraki denemelere yalnızca ikinci kez kaydedilmemiş betikte neden olur. Yinelenen betik eklenir ve hiçbir özel durum oluşur. Gereksiz hesaplama önlemek için böylece birden çok kez kaydetmek çalışmayın bir betik zaten kayıtlı olup olmadığını belirlemek için kullanabileceğiniz yöntemler vardır.
 
 
-ClientScriptManager yöntemlerinin tüm geçerli ASP.NET geliştiricilerinin aşina olmanız gerekir:
+ClientScriptManager yöntemlerini tüm geçerli ASP.NET geliştiricilerinin aşina olmanız gerekir:
 
 ## <a name="registerclientscriptblock"></a>RegisterClientScriptBlock
 
-Bu yöntem, bir komut dosyası işlenen sayfanın üst kısmına ekler. Bu, istemci üzerinde açıkça çağrılacağı işlevler eklemek için kullanışlıdır.
+Bu yöntem, işlenen sayfanın üst için bir komut dosyası ekler. Bu, istemci üzerinde çağrılır açıkça işlevleri eklemek için kullanışlıdır.
 
-Bu yöntem aşırı yüklenmiş iki sürümü vardır. Üç dört bağımsız bunlar arasında ortak olan. Bunlar:
+Bu yöntemin aşırı yüklenmiş iki sürümü vardır. Üç dört bağımsız değişken, bunlar arasında ortak olan. Bunlar:
 
 `type (string)`
 
-***Türü*** bağımsız değişken, komut dosyası için bir tür tanımlar. Bu genellikle sayfa türü (Bu. kullanmak için iyi bir fikirdir GetType()) türü için.
+***Türü*** bağımsız değişken, komut dosyası için bir tür tanımlar. Genel sayfa türü (Bu. kullanmak iyi bir fikir olduğunu GetType()) türü.
 
 `key (string)`
 
-***Anahtar*** bağımsız değişkeni olan komut dosyası için bir kullanıcı tanımlı anahtar. Bu, her komut dosyası için benzersiz olmalıdır. Bir komut dosyası aynı anahtar ve zaten eklenmiş bir komut dosyası türünü eklemeye çalışırsanız, eklenmeyecek.
+***Anahtar*** komut dosyası için bir kullanıcı tanımlı anahtar olmayan bağımsız değişken. Bu, her komut dosyası için benzersiz olmalıdır. Aynı anahtara ve zaten eklenmiş bir komut dosyası türü ile bir komut dosyası eklemeyi denediğinizde, eklenmeyecek.
 
 `script (string)`
 
-***Betik*** bağımsız değişkeni eklemek için gerçek komut dosyasını içeren bir dize değil. Komut dosyası oluşturabilir ve ardından atamak için StringBuilder üzerinde ToString() yöntemini kullanmak için bir StringBuilder kullanmanız önerilir ***betik*** bağımsız değişkeni.
+***Betik*** eklemek için gerçek betik içeren bir dizedir. Komut dosyası oluşturabilir ve sonra atamak için StringBuilder üzerinde ToString() yöntemini kullanmanız için StringBuilder kullanın önerilir ***betik*** bağımsız değişken.
 
-Yalnızca üç bağımsız değişken almayan aşırı yüklenmiş RegisterClientScriptBlock kullanırsanız, komut dosyası öğeleri içermelidir (&lt;betik&gt; ve &lt;/script&gt;) komut.
+Yalnızca üç bağımsız değişkeni alan aşırı yüklenmiş RegisterClientScriptBlock kullanırsanız, kod öğeleri içermelidir (&lt;betik&gt; ve &lt;/SCRIPT&gt;) betiğinizde.
 
-Dördüncü bir bağımsız değişken RegisterClientScriptBlock yüklemesini kullanmayı seçebilirsiniz. Dördüncü değişken ASP.NET komut dosyası öğeleri için eklemelisiniz olup olmadığını belirten bir Boole değeri. Bu bağımsız değişken ise **doğru**, kodunuzu komut dosyası öğeleri açıkça içermemelidir.
+Dördüncü bir bağımsız değişken RegisterClientScriptBlock aşırı yüklemesini kullanmayı tercih edebilirsiniz. Dördüncü bağımsız değişken ASP.NET kod öğeleri, eklemelisiniz olup olmadığını belirten Boolean bir değer var. Bu bağımsız değişken ise **true**, kodunuzu betik öğeleri açıkça içermemelidir.
 
-Bir komut dosyası zaten kayıtlı olup olmadığını belirlemek için IsClientScriptBlockRegistered yöntemini kullanın. Bu, zaten kayıtlı bir komut dosyası yeniden kaydetmek için girişiminde önlemek sağlar.
+Bir betik zaten kayıtlı olup olmadığını belirlemek için IsClientScriptBlockRegistered yöntemi kullanın. Bu, zaten kayıtlı bir betiği yeniden kaydetme girişiminde önlemek sağlar.
 
 ### <a name="registerclientscriptinclude-new-in-20"></a>RegisterClientScriptInclude (yeni, 2.0)
 
-RegisterClientScriptInclude etiket bir dış komut dosyası bağlanan bir betik bloğu oluşturur. İki aşırı yüklemeye sahip. Bir anahtarı ve bir URL alır. İkinci, üçüncü bağımsız değişken türünü belirleme ekler.
+RegisterClientScriptInclude etiketi, harici bir komut dosyasına bağlanan bir betik bloğu oluşturur. Bu iki aşırı yüklemesi vardır. Bir anahtarı ve bir URL alır. İkinci türünü belirterek üçüncü bir bağımsız değişkeni ekler.
 
-Örneğin, aşağıdaki kod betikler klasörüne uygulamanın kök dizininde jsfunctions.js bağlanan bir betik bloğu oluşturur:
+Örneğin, aşağıdaki kod, bir komut dosyası bloğu jsfunctions.js bağlanan scripts klasörü uygulamasının kök dizininde oluşturur:
 
 [!code-csharp[Main](the-asp-net-2-0-page-model/samples/sample17.cs)]
 
-Bu kod işlenen sayfa aşağıdaki kodda üretir:
+Bu kod aşağıdaki kodda işlenen sayfa üretir:
 
 [!code-html[Main](the-asp-net-2-0-page-model/samples/sample18.html)]
 
 > [!NOTE]
-> Betik bloğu sayfasının en altında oluşturulur.
+> Betik bloğundaki sayfasının altında oluşturulur.
 
 
-Bir komut dosyası zaten kayıtlı olup olmadığını belirlemek için IsClientScriptIncludeRegistered yöntemini kullanın. Bu, bir komut dosyası yeniden kaydetmek için girişiminde önlemek sağlar.
+Bir betik zaten kayıtlı olup olmadığını belirlemek için IsClientScriptIncludeRegistered yöntemi kullanın. Bu, bir betiği yeniden kaydetme girişiminde önlemek sağlar.
 
 ## <a name="registerstartupscript"></a>RegisterStartupScript
 
-RegisterStartupScript yöntemi aynı bağımsız değişkenlere RegisterClientScriptBlock yöntemi alır. RegisterStartupScript ile kayıtlı bir komut dosyası, Sayfa yüklendikten sonra ancak yüklendiğinde istemci-tarafı olayı önce yürütür. 1.X içinde RegisterStartupScript ile kayıtlı komut dosyaları yalnızca kapatmadan önce yerleştirildi &lt;/form&gt; RegisterClientScriptBlock ile kayıtlı betikleri açtıktan hemen sonra yerleştirildi sırada etiketi &lt;form&gt; etiketi. ASP.NET 2. 0'da, her ikisi de hemen kapatmadan önce yerleştirilir &lt;/form&gt; etiketi.
+RegisterStartupScript yöntem RegisterClientScriptBlock yöntemi olarak aynı bağımsız değişkenleri alır. Sayfa yüklendikten sonra ancak önce yüklendiğinde istemci-tarafı olayı RegisterStartupScript ile kayıtlı bir betik yürütür. 1.X kapatmadan önce RegisterStartupScript ile kayıtlı bir betikleri yerleştirildi &lt;/form&gt; RegisterClientScriptBlock ile kayıtlı bir betikleri açıldıktan hemen sonra yerleştirildi sırada etiketi &lt;formu&gt; etiketi. ASP.NET 2. 0'da, her ikisi de kapatılmadan hemen önce yerleştirilir &lt;/form&gt; etiketi.
 
 > [!NOTE]
-> Bir işlev ile RegisterStartupScript kaydolursanız, açıkça istemci-tarafı kodda çağrısı tamamlanana kadar bu işlev çalıştırmaz.
+> Bir işlev ile RegisterStartupScript kaydederseniz, bu işlevi açıkça istemci-tarafı kodunda çağırana kadar yürütülmez.
 
 
-Bir komut dosyası zaten kayıtlı olup olmadığını belirlemek ve komut dosyası yeniden kaydetmek için girişiminde önlemek için IsStartupScriptRegistered yöntemini kullanın.
+Bir betik zaten kayıtlı olup olmadığını belirlemek ve bir betik yeniden kaydetme girişiminde önlemek için IsStartupScriptRegistered yöntemi kullanın.
 
 ## <a name="other-clientscriptmanager-methods"></a>Diğer ClientScriptManager yöntemleri
 
-Diğer kullanışlı yöntemler ClientScriptManager sınıfının bazıları aşağıda verilmiştir.
+Diğer kullanışlı yöntem ClientScriptManager sınıfın bazıları aşağıda verilmiştir.
 
 
-|  <strong>GetCallbackEventReference</strong>   |                                                 Bu modüldeki betik geri aramalar bakın.                                                 |
+|  <strong>GetCallbackEventReference</strong>   |                                                 Bu modüldeki betik geri çağırmaları bakın.                                                 |
 |-----------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-|  <strong>GetPostBackClientHyperlink</strong>  |                JavaScript başvurusu alır (javascript:&lt;çağrısı&gt;) bir istemci-tarafı olayından göndermek için kullanılabilir.                 |
+|  <strong>GetPostBackClientHyperlink</strong>  |                JavaScript başvurusu alır (javascript:&lt;çağrı&gt;) bir istemci-tarafı olayından göndermek için kullanılabilir.                 |
 |  <strong>GetPostBackEventReference</strong>   |                                   Bir posta istemcisinden geri başlatmak için kullanılan bir dize alır.                                    |
-|      <strong>GetWebResourceUrl</strong>       | Bir derlemede katıştırılmış bir kaynağı bir URL döndürür. İle birlikte kullanılmalıdır <strong>RegisterClientScriptResource</strong>. |
-| <strong>RegisterClientScriptResource</strong> |     Bir Web kaynağını sayfasıyla kaydeder. Bu derlemede katıştırılmış ve yeni WebResource.axd işleyicisi tarafından işlenen kaynaklardır.      |
+|      <strong>GetWebResourceUrl</strong>       | Bir derlemede gömülü bir kaynak için bir URL döndürür. İle birlikte kullanılmalıdır <strong>RegisterClientScriptResource</strong>. |
+| <strong>RegisterClientScriptResource</strong> |     Bir Web kaynağı ile sayfaya kaydeder. Bu yeni WebResource.axd işleyici tarafından işlenir ve bir derlemede gömülü kaynaklardır.      |
 |     <strong>RegisterHiddenField</strong>      |                                                 Gizli bir form alanı sayfasıyla kaydeder.                                                 |
-|  <strong>RegisterOnSubmitStatement</strong>   |                                  HTML form gönderildiğinde yürütülen istemci-tarafı kodunun kaydeder.                                   |
+|  <strong>RegisterOnSubmitStatement</strong>   |                                  HTML form gönderildiğinde yürüten istemci-tarafı kodunu kaydeder.                                   |
 

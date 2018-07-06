@@ -1,166 +1,165 @@
 ---
 uid: web-forms/overview/getting-started/hands-on-labs/whats-new-in-web-forms-in-aspnet-45
-title: Forms ASP.NET 4.5 Web yenilikler | Microsoft Docs
+title: Forms ASP.NET 4.5 sürümünde Web yenilikler | Microsoft Docs
 author: rick-anderson
-description: ASP.NET Web Forms yeni sürümü bazı verilerle çalışırken, kullanıcı deneyimini geliştirmeye odaklanmış geliştirmeler sunar. Önceki sürümlerinde...
+description: Yeni ASP.NET Web Forms sürümünü verilerle çalışırken, kullanıcı deneyimini geliştirmeye odaklı iyileştirmeler sunar. Önceki sürümlerinde...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013
 ms.topic: article
 ms.assetid: 0a1f88bd-97da-4ed1-86f1-605199dc75a4
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/whats-new-in-web-forms-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: e230faac0dc81b67d74945dc98eee80f83205f65
-ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
-ms.translationtype: MT
+ms.openlocfilehash: 4e8c8f303851b7f1a01744cab58e27a9b37127a6
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34306786"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37389237"
 ---
-<a name="whats-new-in-web-forms-in-aspnet-45"></a>ASP.NET 4.5 Web formları yenilikleri
+<a name="whats-new-in-web-forms-in-aspnet-45"></a>ASP.NET 4.5 Web Forms yenilikleri
 ====================
-Tarafından [Web Camps ekibi](https://twitter.com/webcamps)
+Tarafından [Team Web Kampları](https://twitter.com/webcamps)
 
-> ASP.NET Web Forms yeni sürümü bazı verilerle çalışırken, kullanıcı deneyimini geliştirmeye odaklanmış geliştirmeler sunar.
+> Yeni ASP.NET Web Forms sürümünü verilerle çalışırken, kullanıcı deneyimini geliştirmeye odaklı iyileştirmeler sunar.
 > 
-> Web Forms veri bağlama nesnesi üyesinin değerini yaymak üzere kullanırken, önceki sürümlerde Bind() veya Eval() veri bağlama ifadeleri kullanılır. ASP.NET'ın yeni sürümünde, hangi türde veri yeni bir ItemType özelliğini kullanarak bağlanması için bir denetim geçiyor bildirmek kullanabilirsiniz. Bu özelliği ayarlamak Visual Studio geliştirme deneyimi, IntelliSense, üye gezinti ve derleme zamanı denetimi gibi tüm faydalarını almak için kesin türü belirtilmiş bir değişken kullanmanıza olanak sağlar.
+> Web Forms veri bağlama değeri bir nesne üyesi yaymak için kullanılırken, önceki sürümlerde Bind() veya Eval() veri bağlama ifadeleri kullanılır. Yeni ASP.NET sürümünde, ne tür verilere yeni bir ItemType özelliğini kullanarak bağlanması için bir denetim geçiyor bildirmek kullanabilirsiniz. Bu özelliğin ayarlanması tam Visual Studio geliştirme deneyiminin IntelliSense, üye gezinti ve derleme zamanı denetimi gibi avantajlardan yararlanmak için kesin türü belirtilmiş bir değişkeni kullanmanıza olanak tanır.
 > 
-> Veri bağlama denetimleri ile şimdi de seçerek, güncelleştirme, silme ve veri, ekleme için kendi özel yöntemler sayfa denetimleri ve uygulama mantığınızın arasındaki etkileşim basitleştirme belirtebilirsiniz. Ayrıca, model bağlama özellikleri sayfasından verileri doğrudan yöntemi tür parametreleri eşleyebilirsiniz anlamına gelir ASP.NET eklenmiştir.
+> Verilere bağlı denetimler ile artık seçerek, güncelleştirme, silme, veri, ekleme için kendi özel yöntemler sayfası denetimleri uygulama mantığınızın arasındaki etkileşimi basitleştirme belirtebilirsiniz. Ayrıca, veri sayfasından doğrudan yöntem tür parametreleri ile eşleyebilirsiniz anlamına gelir, ASP.NET model bağlama özellikleri eklendi.
 > 
-> Kullanıcı girişini doğrulama da Web Forms en son sürümü ile daha kolay olması gerekir. Şimdi, model sınıflarınızı doğrulama öznitelikleri ile açıklayabilirsiniz **System.ComponentModel.DataAnnotations** ad alanı ve tüm sitenizin denetleyen istek doğrulama bu bilgileri kullanan kullanıcı girişi. Web Forms istemci tarafı doğrulama şimdi temizleyici istemci tarafı kodlar ve örtük JavaScript özellikleri sağlayarak jQuery ile tümleşiktir.
+> Kullanıcı girişini doğrulama da bu kadar kolay, Web Forms en son sürümüyle olmalıdır. Doğrulama öznitelikleri ile model sınıfları artık açıklama ekleyebilirsiniz **System.ComponentModel.DataAnnotations** ad alanı ve tüm site denetleyen istek doğrulama bu bilgileri kullanarak kullanıcı girişi. Web Forms istemci tarafı doğrulama artık Temizleyicisi istemci tarafı kod ve örtük JavaScript özellikleri sağlayarak jQuery ile tümleşiktir.
 > 
-> İstek doğrulama alanında seçmeli olarak uygulamalarınızın belirli kısımlarını ait istek doğrulamayı devre dışı bırakın veya geçersiz istek verileri okuma kolaylaştırmak için iyileştirmeler yapılmıştır.
+> İstek doğrulama alanında seçmeli olarak uygulamalarınızı belirli bölümleri için istek doğrulamayı devre dışı bırakın veya geçersiz istek verileri okuma kolaylaştırmak için geliştirmeler yapıldı.
 > 
-> Bazı iyileştirmeler HTML5, yeni özelliklerden yararlanmak için sunucu denetimleri Web formları için yapılmıştır:
+> Bazı iyileştirmeler, HTML5, yeni özelliklerden yararlanmak için sunucu denetimleri Web formları için yapılmıştır:
 > 
-> - TextBox denetimi metin modu özelliği, e-posta, datetime vb. gibi yeni HTML5 giriş türlerini desteklemek için güncelleştirildi.
-> - Dosya yükleme denetimi artık bu HTML5 özelliği destekleyen tarayıcılarda birden çok dosya yüklemelerini destekler.
-> - Doğrulayıcı şimdi destek doğrulama HTML5 giriş öğeleri denetler.
-> - Bir URL şimdi temsil özniteliklere sahip yeni HTML5 öğeleri destek runat =&quot;server&quot;. Sonuç olarak, URL yollarında ASP.NET kuralları gibi kullanabilirsiniz ~ uygulama kökü temsil etmek için işleci (örneğin, &lt;video runat =&quot;server&quot; src =&quot;~/myVideo.wmv&quot; &gt; &lt;/video&gt;).
-> - UpdatePanel denetim nakil HTML5 giriş alanı desteklemek için düzeltilmiştir.
+> - TextBox denetiminin metin modu özelliği, e-posta, datetime vb. gibi yeni HTML5 giriş türlerini desteklemek için güncelleştirildi.
+> - FileUpload denetim, artık bu HTML5 özelliği destekleyen tarayıcılar birden çok dosya yüklemelerini destekler.
+> - Doğrulayıcı artık destek doğrulama HTML5 giriş öğeleri denetler.
+> - Artık URL'yi temsil eden öznitelikleri olan Yeni HTML5 öğeler destek runat =&quot;sunucu&quot;. Sonuç olarak, URL yollarında ASP.NET kuralları gibi kullanabilirsiniz ~ işleci uygulama kökünü temsil etmek için (örneğin, &lt;video runat =&quot;sunucu&quot; src =&quot;~/myVideo.wmv&quot; &gt; &lt;/video&gt;).
+> - Bir UpdatePanel denetimine posta HTML5 giriş alanlarını desteklemek için düzeltilmiştir.
 > 
-> Resmi ASP.NET Portalı'nda yeni özelliklerden daha fazla örnek ASP.NET WebForms 4.5 bulabilirsiniz: [ASP.NET 4.5 ve Visual Studio 2012'deki yenilikler](../../../../whitepapers/whats-new-in-aspnet-45-and-visual-studio-2012.md#_Toc318097385)
+> Resmi ASP.NET Portalı'nda yeni özelliklerin daha fazla örnek ASP.NET WebForms 4.5 içinde bulabilirsiniz: [ASP.NET 4.5 ve Visual Studio 2012'deki yenilikler](../../../../whitepapers/whats-new-in-aspnet-45-and-visual-studio-2012.md#_Toc318097385)
 > 
-> Tüm örnek kod ve parçacıkları Web Camps eğitim Seti, adresinde yer alan [ https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409 ](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409).
+> Web Kampları eğitim Seti, kullanılabilir tüm örnek kodu ve kod parçacıkları dahil [ https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409 ](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409).
 
 
 <a id="Objectives"></a>
 ### <a name="objectives"></a>Amaçlar
 
-Uygulamalı bu laboratuvarda, öğreneceksiniz nasıl yapılır:
+Bu uygulamalı laboratuvarda, öğreneceksiniz nasıl yapılır:
 
 - Kesin türü belirtilmiş veri bağlama ifadeleri kullanma
-- Web Forms yeni model bağlama özelliklerini kullanma
-- Arka plan kodu yöntemlere sayfa verileri eşleştirmek için değer sağlayıcıları kullanın
-- Kullanıcı girdisi doğrulama için veri ek açıklamaları kullanın
-- Web Forms jQuery ile unobstrusive istemci tarafı doğrulama advange alın
-- Uygulama ayrıntılı istek doğrulama
-- Web Forms işleme zaman uyumsuz sayfası uygulamak
+- Yeni model bağlama özellikleri Web formlarında kullanmak
+- Arka plan kod yöntemleri için sayfa verileri eşleştirmek için değer sağlayıcıları kullanın
+- Kullanıcı girdisi doğrulama için veri ek açıklamalarını kullanma
+- Web Forms advange unobstrusive istemci tarafı doğrulama jQuery ile alın
+- Parçalı istek doğrulama uygulama
+- Web formları içindeki işlem zaman uyumsuz sayfasını uygulama
 
 <a id="Prerequisites"></a>
 ### <a name="prerequisites"></a>Önkoşullar
 
-Bu laboratuvarı tamamlamak için aşağıdaki öğeleri sahip olmanız gerekir:
+Bu laboratuvarı tamamlamak için aşağıdakiler olmalıdır:
 
-- [Web için Visual Studio Express 2012 Microsoft](https://www.microsoft.com/visualstudio/eng/products/visual-studio-express-for-web) veya daha üstün (okuma [ek A](#AppendixA) nasıl yükleneceği hakkında yönergeler için).
+- [Web için Visual Studio Express 2012 Microsoft](https://www.microsoft.com/visualstudio/eng/products/visual-studio-express-for-web) veya üst (okuma [ek A](#AppendixA) nasıl yükleneceği hakkında yönergeler için).
 
 <a id="Setup"></a>
 ### <a name="setup"></a>Kurulum
 
-**Kod parçacıkları yükleme**
+**Kod parçacıkları yükleniyor**
 
-Kolaylık olması için bu Laboratuvar yönetme kod çoğunu Visual Studio kod parçacıkları kullanılabilir. Çalıştırma kod parçacıkları yüklemek için **.\Source\Setup\CodeSnippets.vsi** dosya.
+Kolaylık olması için bu Laboratuvar yöneteceğiniz kodun çoğu Visual Studio kod parçacıkları kullanılabilir. Kod parçacıklarını çalıştırmak yüklenecek **.\Source\Setup\CodeSnippets.vsi** dosya.
 
-Visual Studio kod parçacıkları ve bunları nasıl kullanacağınızı öğrenmek istiyorsanız bilmiyorsanız, bu belgedeki eke başvurabilir &quot; [ek C: kullanarak kod parçacıkları](#AppendixC)&quot;.
+Visual Studio kod parçacıkları ve bunları nasıl kullanacağınızı öğrenmek istediğiniz konusunda bilgi sahibi değilseniz, bu belge, ek başvurabilir &quot; [ek C: kullanarak kod parçacıklarına](#AppendixC)&quot;.
 
 <a id="Exercises"></a>
 ## <a name="exercises"></a>Alıştırmaları
 
-Bu uygulamalı Laboratuvar aşağıdaki alıştırmaları içerir:
+Bu uygulamalı laboratuvarı aşağıdaki alıştırmaları içerir:
 
-1. [Alıştırma 1: ASP.NET Web Forms bağlamasında modeli](#Exercise1)
+1. [Alıştırma 1: ASP.NET Web Forms'da modeli](#Exercise1)
 2. [Alıştırma 2: Veri doğrulama](#Exercise2)
-3. [Alıştırma 3: Zaman uyumsuz sayfa işleme ASP.NET Web formları](#Exercise3)
+3. [Alıştırma 3: Zaman uyumsuz sayfa işleme ASP.NET Web Forms](#Exercise3)
 
 > [!NOTE]
-> Her alıştırma tarafından eşlik bir **son** elde alıştırmaları tamamladıktan sonra sonuçta elde edilen çözümü içeren klasör. Alıştırmaları ile çalışma hakkında ek Yardım gerekirse, bu çözüm bir kılavuz olarak kullanabilirsiniz.
+> Her bir alıştırma olarak sunulduğu bir **son** elde alıştırmalar tamamladıktan sonra ortaya çıkan çözüm içeren klasör. Çalışma alıştırmaları ek yardıma ihtiyacınız varsa, bu çözüm bir kılavuz olarak kullanabilirsiniz.
 
 
-Bu laboratuvarı tamamlamak için süre tahmini: **60 dakika**.
+Bu laboratuvarı tamamlamak için tahmini süre: **60 dakika**.
 
 <a id="Exercise1"></a>
 
 <a id="Exercise_1_Model_Binding_in_ASPNET_Web_Forms"></a>
-### <a name="exercise-1-model-binding-in-aspnet-web-forms"></a>Alıştırma 1: ASP.NET Web Forms bağlamasında modeli
+### <a name="exercise-1-model-binding-in-aspnet-web-forms"></a>Alıştırma 1: ASP.NET Web Forms'da modeli
 
-ASP.NET Web Forms yeni sürümünü geliştirmeleri verileriyle çalışırken deneyimini geliştirmeye odaklanmış bir dizi getirmektedir. Bu alıştırmada kesin türü belirtilmiş veri denetimleri hakkında bilgi edinin ve bağlama modeli.
+Yeni ASP.NET Web Forms sürümünü verilerle çalışırken deneyimini geliştirmeye odaklı geliştirmeleri tanıtır. Bu alıştırmada, kesin türü belirtilmiş veri denetimleri hakkında bilgi edinin ve model bağlama.
 
 <a id="Task_1_-_Using_Strongly-Typed_Data-Bindings"></a>
 #### <a name="task-1---using-strongly-typed-data-bindings"></a>Görev 1 - kesin türü belirtilmiş veri bağlamaları kullanma
 
 Bu görevde, yeni kesin türü belirtilmiş bağlamaları ASP.NET 4.5 içinde kullanılabilir keşfeder.
 
-1. Açık **başlamak** çözüm bulunan **kaynak/Ex1-ModelBinding/başlangıç/** klasörü.
+1. Açık **başlamak** çözüm bulunan **kaynak/Ex1-ModelBinding/başlangıç/** klasör.
 
-   1. Bazı eksik NuGet paketlerini indirmek gerekir devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
-   2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
-   3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
+   1. Bazı eksik NuGet paketleri indirmeniz gerekecek devam etmeden önce. Bunu yapmak için tıklatın **proje** menü ve select **NuGet paketlerini Yönet**.
+   2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklayın **geri** eksik paketleri indirmek için.
+   3. Son olarak, tıklayarak çözüm oluşturun **derleme** | **Çözümü Derle**.
 
       > [!NOTE]
-      > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
-2. Açık **Customers.aspx** sayfası. Ana denetiminde bir numaralandırılmamış listesi yerleştirin ve her bir müşteri listeleme için içindeki yineleyici denetim içerir. Yineleyici adını ayarlayın **customersRepeater** aşağıdaki kodda gösterildiği gibi.
+      > NuGet kullanmanın yararlarından biri, projenizdeki tüm kitaplıkları göndermeye proje boyutunu küçültmeyi gerekmemesidir. NuGet güç araçları ile paket sürümlerini Packages.config dosyasında belirterek, gerekli tüm kitaplıkların projeyi Çalıştır ilk kez yüklemeye mümkün olmayacak. Bu laboratuvarda varolan bir çözümü açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
+2. Açık **Customers.aspx** sayfası. Ana denetiminde numaralandırılmamış bir liste yerleştirin ve her müşteri listeleme repeater denetimiyle içinde içerir. Yineleyici adı kümesine **customersRepeater** aşağıdaki kodda gösterildiği gibi.
 
-    Önceki sürümlerinde, Web Forms veri bağlama bir nesne üzerinde bir üyesinin değerini yaymak üzere kullanırken veri bağlama için Eval yöntemine bir çağrı birlikte bir veri bağlama ifadesi geçirme üye adına bir dize olarak kullanmanız.
+    Web Forms, önceki sürümlerinde bir nesne üzerinde bir üyenin değeri yaymak için veri bağlama kullanarak veri bağlama için Eval yönteme bir çağrı ile birlikte bir veri bağlama ifadesi geçirme üyenin adını bir dize olarak kullanmanız.
 
-    Çalışma zamanında Eval çağrıları verilen ada sahip üyesinin değerini okumak için şu anda ilişkili nesne karşı yansıma kullanın ve sonucu HTML'de görüntülemek. Bu yaklaşım rasgele, unshaped veri karşı veri bağlama çok kolay hale getirir.
+    Çalışma zamanında Eval çağrıları verilen ada sahip bir üyenin değerini okumak için şu anda ilişkili nesne karşı yansıma kullanın ve HTML olarak sonucu görüntülemek. Bu yaklaşım karşı rastgele, unshaped veri bağlamak çok kolay hale getirir.
 
-    Ne yazık ki, IntelliSense de dahil olmak üzere üye adları, gezinti (gibi Tanıma Git) ve derleme zamanı denetimi desteği için Visual Studio harika geliştirme zamanı deneyimi özelliklerinin çoğu kaybedersiniz.
+    Ne yazık ki, IntelliSense dahil olmak üzere üye adları, gezinti (Tanıma Git gibi) ve derleme zamanı denetimi desteği için Visual Studio geliştirme zamanı deneyimi harika özelliklerin çoğu kaybedersiniz.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample1.aspx)]
 3. Açık **Customers.aspx.cs** dosya.
-4. Aşağıdaki ekleme deyimini kullanarak.
+4. Aşağıdaki using deyimi.
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample2.cs)]
-5. İçinde **sayfa\_yük** yöntemi, yineleyici müşteriler listesini doldurmak için kodu ekleyin.
+5. İçinde **sayfa\_yük** yöntemi repeater ile müşterilerin listesini doldurmak için kod ekleyin.
 
-    (Kod parçacığını - *Web Forms Laboratuvar - Ex01 - bağlı müşteri veri kaynağı*)
+    (Kod parçacığını - *Web Forms Laboratuvar - Ex01 - bağlama müşterilerin veri kaynağı*)
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample3.cs)]
 
-    Çözüm EntityFramework CodeFirst birlikte oluşturmak ve veritabanına erişmek için kullanır. Aşağıdaki kodda customersRepeater veritabanından tüm müşteriler döndürür gerçekleştirilmiş bir sorguya bağlı.
-6. Tuşuna **F5** çözümü çalıştırın ve Git **müşteriler** eylem yineleyicideki görmek için sayfayı. Çözüm CodeFirst kullandığından, veritabanı oluşturulur ve uygulama çalıştırıldığında, yerel SQL Express örneği doldurulur.
+    Çözüm EntityFramework CodeFirst birlikte oluşturmak ve veritabanına erişmek için kullanır. Aşağıdaki kodda, tüm müşteriler veritabanından döndüren bir gerçekleştirilmiş sorgu customersRepeater bağlıdır.
+6. Tuşuna **F5** çözümü çalıştırın ve **müşteriler** repeater iş başında görmek için sayfayı. Çözüm CodeFirst kullandığından, veritabanı oluşturulur ve yerel SQL Express örneği uygulama çalışırken doldurulur.
 
-    ![Bir yineleyici müşterilerle listeleme](whats-new-in-web-forms-in-aspnet-45/_static/image1.png "bir yineleyici müşterilerle listeleme")
+    ![Repeater'da müşterilerle listeleme](whats-new-in-web-forms-in-aspnet-45/_static/image1.png "repeater'da müşterilerle listeleme")
 
-    *Bir yineleyici müşterilerle listeleme*
+    *Repeater'da müşterilerle listeleme*
 
     > [!NOTE]
-    > Visual Studio 2012'de IIS Express varsayılan Web geliştirme sunucusudur.
+    > Visual Studio 2012'de IIS Express, varsayılan Web geliştirme sunucusu olabilir.
 7. Tarayıcıyı kapatın ve Visual Studio'ya geri dönün.
-8. Kesin türü belirtilmiş bağlamaları kullanmak için uygulamayı şimdi değiştirin. Açık **Customers.aspx** sayfasında ve yeni **ItemType** ayarlamak için yineleyici özniteliğinde **müşteri** bağlama türü türü.
+8. Artık uygulama türü kesin belirlenmiş bağlamaları kullanmak için değiştirin. Açık **Customers.aspx** sayfasında ve yeni **Itemtype** ayarlanacak yineleyicideki özniteliği **müşteri** bağlama türü türü.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample4.aspx)]
 
-    ItemType özelliği, veri türü denetimi bağlanmasını geçecekse ve kesin türü belirtilmiş-içinde veri bağlama denetimi bağlama sayesinde bildirme olanak sağlar.
+    Itemtype özelliği, veri türünü denetim bağlanmasını şey ve içindeki veriye bağlı denetim bağlama kesin kullanmanıza olanak sağlayan bildirmek sağlar.
 9. Aşağıdaki kod ile içerik ItemTemplate değiştirin.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample5.aspx)]
 
-    Yukarıdaki yaklaşımlar ile bir dezavantajı Eval() ve Bind() çağrıları geç özellik adlarını göstermek için dizeleri geçirdiğiniz anlamı bağlama - olmasıdır. Bu üye adları, kod Gezinti (gibi Tanıma Git) desteği ya da derleme zamanı denetimi desteği için IntelliSense almadım anlamına gelir.
+    Yukarıdaki yaklaşımları ile bulunacağından Eval() ve Bind() çağrıları geç özellik adlarını göstermek için dizeleri geçirdiğiniz anlamı bağlama - olmasıdır. Başka bir deyişle, IntelliSense üye adları, kod gezintisi (Tanıma Git gibi) için destek ve derleme zamanı denetimi desteği elde etmezsiniz.
 
-    Veri bağlama ifadeleri kapsamında oluşturulacak iki yeni yazılan değişkenler neden ItemType özelliğinin ayarlanması: **öğesi** ve **BindItem**. Veri bağlama ifadelerinde kesin türü belirtilmiş bu değişkenleri kullanmak ve Visual Studio geliştirme deneyimi tüm faydalarını alın.
+    Itemtype özelliğini ayarlayarak veri bağlama ifadeleri kapsamında oluşturulması gereken iki yeni türü belirlenmiş değişkenleri neden olur: **öğesi** ve **BindItem**. Bu türü kesin belirlenmiş değişkenlerin veri bağlama ifadelerinde kullanın ve Visual Studio geliştirme deneyiminizi tam avantajlarından yararlanın.
 
-    &quot; **:** &quot; İfadede kullanılan güvenlik sorunları (örneğin, siteler arası komut dosyası saldırıları) önlemek için çıktı HTML olarak kodlanacak otomatik olarak ayarlanır. Bu gösterim .NET 4'ten beri için yanıt yazılırken kullanılabilir, ancak aynı zamanda veri bağlama ifadelerinde kullanıma sunulmuştur.
+    &quot; **:** &quot; İfadede kullanılan güvenlik sorunları (örneğin, siteler arası betik saldırıları) önlemek için çıkış HTML olarak kodlanacak otomatik olarak ayarlanır. Bu gösterim .NET 4'ten beri yazma yanıtını için kullanılabilir, ancak aynı zamanda veri bağlama ifadelerinde kullanıma sunulmuştur.
 
     > [!NOTE]
-    > Öğe üyesi için tek yönlü bağlama çalışır. İki yönlü bağlama kullanım gerçekleştirmek istiyorsanız **BindItem** üyesi.
+    > Öğe üyesi için tek yönlü bağlamaya çalışır. İki yönlü bir bağlama kullanın gerçekleştirmek istiyorsanız **BindItem** üyesi.
 
-    ![Kesin türü belirtilmiş bağlama IntelliSense desteği](whats-new-in-web-forms-in-aspnet-45/_static/image2.png "kesin türü belirtilmiş bağlama IntelliSense desteği")
+    ![Kesin tür belirtilmiş bağlamaya IntelliSense desteği](whats-new-in-web-forms-in-aspnet-45/_static/image2.png "kesin türü belirtilmiş bağlamaya IntelliSense desteği")
 
-    *Kesin türü belirtilmiş bağlama IntelliSense desteği*
-10. Tuşuna **F5** çözümü çalıştırın ve değişiklikleri beklendiği gibi çalıştığından emin olmak için müşteriler sayfasına gidin.
+    *Kesin tür belirtilmiş bağlamaya IntelliSense desteği*
+10. Tuşuna **F5** çözümü çalıştırmak ve değişiklikleri beklendiği gibi çalıştığından emin olmak için müşterilerin sayfasına gidin.
 
     ![Müşteri ayrıntıları listeleme](whats-new-in-web-forms-in-aspnet-45/_static/image3.png "Müşteri ayrıntıları listeleme")
 
@@ -168,37 +167,37 @@ Bu görevde, yeni kesin türü belirtilmiş bağlamaları ASP.NET 4.5 içinde ku
 11. Tarayıcıyı kapatın ve Visual Studio'ya geri dönün.
 
 <a id="Task_2_-_Introducing_Model_Binding_in_Web_Forms"></a>
-#### <a name="task-2---introducing-model-binding-in-web-forms"></a>Görev 2 - Web Forms bağlama ile tanışın modeli
+#### <a name="task-2---introducing-model-binding-in-web-forms"></a>Görev 2 - giriş Model Web formlarında bağlama
 
-ASP.NET Web Forms önceki sürümlerde hem alma ve verileri, güncelleştirme iki yönlü veri bağlamayı gerçekleştirmek istediğinizi olduğunda bir veri kaynağı nesnesi kullanma gereklidir. Bu nesne veri kaynağının, SQL veri kaynağı, bir LINQ veri kaynağı vb. olabilir. Ancak senaryonuza verileri işlemek için özel kod gerekirse, nesnesi veri kaynağını kullanmak için gerekli ve bu bazı dezavantajları getirildi. Örneğin, karmaşık türler önlemek gerekli ve doğrulama mantığını yürütülürken özel durumları işlemek gerekli.
+ASP.NET Web Forms önceki sürümlerinde, hem alma hem de veri güncelleştirme çift yönlü veri bağlama gerçekleştirmek istediğinizi olduğunda bir veri kaynağı nesnesi kullanma gereklidir. Bu nesne veri kaynağı, bir SQL veri kaynağı, bir LINQ veri kaynağı vb. olabilir. Ancak senaryonuz verileri işlemek için özel kod gerekiyorsa, nesne veri kaynağı kullanmak için gereken ve bu bazı dezavantajları getirdi. Örneğin, karmaşık türler önlemek gerekli ve Doğrulama mantığı yürütülürken özel durumları işlemek gerekli.
 
-ASP.NET Web Forms'ın yeni sürümünde verilere bağlı denetimler model bağlama destekler. Bu seçin, güncelleştirebilir, Ekle ve arka plan kodu dosyanızı veya başka bir sınıf mantığı çağırmak için doğrudan veri bağlama denetimi yöntemlerini silin, anlamına gelir.
+ASP.NET Web Forms'ın yeni sürümünde, model bağlama verilere bağlı denetimler destekler. Bu seçin, güncelleştirebilir, Ekle ve silme mantığı, arka plan kod dosyası veya başka bir sınıftan çağırmak için doğrudan veriye bağlı denetim yöntemleri, anlamına gelir.
 
-Bu hakkında bilgi için GridView kullanarak yeni ürün kategorilerini liste için kullanacağınız **SelectMethod** özniteliği. Bu öznitelik GridView veri almak için bir yöntem belirtmenize olanak sağlar.
+Bunun hakkında bilgi edinmek için GridView kullanarak yeni ürün kategorilerini listelemek için kullanacağınız **SelectMethod** özniteliği. Bu öznitelik GridView veri almak için bir yöntem belirtmenize olanak sağlar.
 
-1. Açık **Products.aspx** sayfasında ve içeren bir **GridView**. GridView, kesin türü belirtilmiş bağlamaları kullanın ve sıralama ve disk belleği etkinleştirmek için aşağıda gösterildiği gibi yapılandırın.
+1. Açık **Products.aspx** sayfasında ve içeren bir **GridView**. GridView kesin türü belirtilmiş bağlamaları kullanın ve sıralama ve disk belleği'ni etkinleştirmek için aşağıda gösterildiği gibi yapılandırın.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample6.aspx)]
-2. Yeni **SelectMethod** çağırmak için GridView yapılandırmak için öznitelik bir **GetCategories** yöntemi verileri seçin.
+2. Yeni **SelectMethod** çağrılacak GridView yapılandırmak için öznitelik bir **GetCategories** verileri seçmek için yöntemi.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample7.aspx)]
-3. Açık **Products.aspx.cs** arka plan kodu dosya ve aşağıdaki using deyimlerini.
+3. Açık **Products.aspx.cs** arka plan kod dosyasını açıp aşağıdaki using deyimlerini.
 
     (Kod parçacığını - *Web Forms Laboratuvar - Ex01 - ad alanları*)
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample8.cs)]
-4. Özel üye ekleme **ürünleri** sınıfı ve yeni bir örneğini atayın **ProductsContext**. Bu özellik, veritabanına bağlanmak sağlar Entity Framework verileri bağlamındaki depolar.
+4. Özel üye ekleme **ürünleri** sınıfı ve yeni bir örneğini atama **ProductsContext**. Bu özellik, veritabanına bağlanmak sağlayan Entity Framework veri bağlamını depolar.
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample9.cs)]
-5. Oluşturma bir **GetCategories** yöntemi LINQ kullanarak kategorileri listesi alınamadı. Sorgu içerecektir **ürünleri** özelliğini GridView her kategori için ürünleri miktarını gösterebilir. Yöntem olacak şekilde sorguyu temsil eden bir ham Iqueryable nesnesi daha sonra sayfa yaşam döngüsü yürütülen döndürür dikkat edin.
+5. Oluşturma bir **GetCategories** LINQ kullanarak kategorileri listesini almak için yöntemi. Sorgu içerecektir **ürünleri** özelliğini GridView her kategori için ürünleri miktarını gösterir. Yöntem olacak şekilde sorguyu temsil eden bir ham Iqueryable nesnesi daha sonra sayfa yaşam döngüsü yürütülen döndürdüğüne dikkat edin.
 
     (Kod parçacığını - *Web Forms Laboratuvar - Ex01 - GetCategories*)
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample10.cs)]
 
     > [!NOTE]
-    > ASP.NET Web Forms önceki sürümlerinde, etkinleştirme sıralama ve bir nesne veri kaynağının bağlamı içinde kendi depo mantığı kullanarak disk belleği, kendi özel kod yazmanıza ve tüm gerekli parametreleri almak için gereklidir. Şimdi, veri bağlama yöntemleri Iqueryable döndürebilir ve bu bir sorguyu temsil hala yürütülmek üzere ASP.NET uygun sıralama eklemek için sorgu ve disk belleği parametrelerini değiştirme ilgilenebilmek.
-6. Tuşuna **F5** site hata ayıklamayı Başlat ve ürünler sayfasına gidin. GridView GetCategories yöntemi tarafından döndürülen kategorileri doldurulur görmeniz gerekir.
+    > ASP.NET Web Forms önceki sürümlerinde, etkinleştirme bir nesne veri kaynağı bağlam içinde kendi depo mantığı kullanılarak sayfalama ve sıralama kendi özel kod yazmanıza ve gerekli tüm parametreleri almak için gereklidir. Şimdi, veri bağlama yöntemleri Iqueryable döndürebilir ve bu bir sorgu temsil eder hala yürütülmek üzere ASP.NET doğru sıralama eklemek için sorgu ve disk belleği parametreleri değiştirilmesini ilgileniriz.
+6. Tuşuna **F5** site hata ayıklamayı başlatmak ve ürünleri sayfasına gidin. GridView GetCategories yöntem tarafından döndürülen kategorileri doldurulur görmeniz gerekir.
 
     ![Model bağlama kullanarak GridView doldurma](whats-new-in-web-forms-in-aspnet-45/_static/image4.png "model bağlama kullanarak GridView doldurma")
 
@@ -206,228 +205,228 @@ Bu hakkında bilgi için GridView kullanarak yeni ürün kategorilerini liste i�
 7. Tuşuna **SHIFT**+**F5** hata ayıklamayı durdurun.
 
 <a id="Task_3_-_Value_Providers_in_Model_Binding"></a>
-#### <a name="task-3---value-providers-in-model-binding"></a>Görev 3 - Model bağlama değer sağlayıcıları
+#### <a name="task-3---value-providers-in-model-binding"></a>Görev 3 - Model bağlama, değer sağlayıcıları
 
-Model bağlama yalnızca verilerinizi doğrudan veri bağlama denetimi ile çalışmak için özel yöntemler belirtmenize olanak sağlar, ancak Ayrıca, bu yöntemlerden parametrelerine veri sayfasından eşleştirmenizi sağlar. Yöntem parametresi üzerinde değerinin veri kaynağını belirlemek için değer sağlayıcı özniteliklerini kullanabilirsiniz. Örneğin:
+Model bağlama yalnızca verilerinizi doğrudan veriye bağlı denetim çalışmak için özel yöntemler belirtmenize olanak sağlar, ancak aynı zamanda bu yöntemlerden parametrelerine veri sayfasından eşlemenizi sağlar. Yöntem parametresi üzerinde değerinin veri kaynağını belirtmek için değer sağlayıcı öznitelikleri kullanabilirsiniz. Örneğin:
 
 - Sayfadaki denetimleri
-- Sorgu dizesi değerleri
-- Verileri görüntüleme
-- oturum durumu
+- Sorgu dizesi değerlerini
+- Verileri görüntüle
+- Oturum durumu
 - Tanımlama bilgileri
-- Gönderilen form verileri
+- Gönderilen bir formu
 - Görünüm durumu
 - Özel değer sağlayıcıları de desteklenir
 
-ASP.NET MVC 4 kullandıysanız, model bağlama destek benzer olduğunu fark edeceksiniz. Bu özellikler aslında ve ASP.NET MVC alınan içine taşındı **System.Web** derleme de Web Forms kullanmanız mümkün olmayacaktır.
+ASP.NET MVC 4 kullandıysanız, model bağlama desteği benzer fark edeceksiniz. Bu özellikler aslında ve ASP.NET MVC alınan içine taşındı **System.Web** de Web formlarında kullanmak için derleme.
 
-Bu görevde, model bağlamayla filtre parametresi alma sonuçlarını her kategori için ürünleri miktarına göre filtre uygulamak için GridView güncelleştirir.
+Bu görevde, GridView her kategori için ürünleri miktarına göre sonuçları filtrelemek için filtre parametresi model bağlamayla alma güncelleştirir.
 
-1. Geri dönerek **Products.aspx** sayfası.
-2. GridView üstüne ekleyin bir **etiket** ve **ComboBox** aşağıda gösterildiği gibi her kategori için ürünleri sayısını seçin.
+1. Geri Git **Products.aspx** sayfası.
+2. GridView'ın en üstüne ekleyin bir **etiket** ve **ComboBox** aşağıda gösterildiği gibi her kategori için ürün sayısı seçin.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample11.aspx)]
-3. Ekleme bir **EmptyDataTemplate'i** GridView hiçbir kategori ürünleri seçili sayısıyla olduğunda bir ileti göstermek için.
+3. Ekleme bir **EmptyDataTemplate'i** GridView'ın seçili ürün sayısı ile kategori olduğunda bir ileti göstermek için.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample12.aspx)]
-4. Açık **Products.aspx.cs** arka plan kod ve aşağıdaki ekleme deyimini kullanarak.
+4. Açık **Products.aspx.cs** arka plan kod ve aşağıdaki deyimi kullanarak.
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample13.cs)]
-5. Değiştirme **GetCategories** tamsayı almaya yöntemi **minProductsCount** bağımsız değişkeni ve döndürülen sonuçları filtreleyebilirsiniz. Bunu yapmak için yöntem aşağıdaki kodla değiştirin.
+5. Değiştirme **GetCategories** tamsayı almak üzere yöntemini **minProductsCount** bağımsız değişkeni ve döndürülen sonuçlarda filtre. Bunu yapmak için yöntem aşağıdaki kodla değiştirin.
 
     (Kod parçacığını - *Web Forms Laboratuvar - Ex01 - GetCategories 2*)
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample14.cs)]
 
-    Yeni **[Denetim]** özniteliği **minProductsCount** bağımsız değişken değeri sayfasında bir denetimi kullanma doldurulmalıdır bilmeniz ASP.NET olanak tanır. ASP.NET (minProductsCount) bağımsız değişkeni adı ile eşleşen herhangi bir denetimi için bakın ve gerekli eşleştirme ve parametre denetimi değeri ile doldurmak için dönüştürme gerçekleştirin.
+    Yeni **[Denetim]** özniteliği **minProductsCount** bağımsız değişken değeri, sayfada bir denetimi kullanma doldurulmalıdır bilmeniz ASP.NET olanak tanır. ASP.NET (minProductsCount) bağımsız değişkenin adıyla eşleşen tüm denetim aramak ve parametre denetimi değeri ile doldurmak için dönüştürme ve gerekli eşlemesi gerçekleştirin.
 
-    Alternatif olarak, öznitelik değerin alınacağı denetiminden belirtmenize olanak tanıyan bir aşırı yüklü Oluşturucu sağlar.
+    Alternatif olarak, öznitelik değeri nereden denetiminden belirtmenize olanak tanıyan aşırı yüklenmiş bir oluşturucu sağlar.
 
     > [!NOTE]
-    > Bir veri bağlama özellikleri sayfasında etkileşim için yazılması gereken kod miktarını azaltmak için hedefidir. [Denetim] değer sağlayıcı dışında yöntemi parametrelerinizi diğer model bağlama sağlayıcılarını kullanabilirsiniz. Bazıları, görev girişte listelenir.
-6. Tuşuna **F5** site hata ayıklamayı Başlat ve ürünler sayfasına gidin. Ürünler sayısını aşağı açılan listeden seçin ve GridView şimdi güncelleştirilme dikkat edin.
+    > Bir veri bağlama özellikleri sayfasında bir etkileşim yazılması gereken kod miktarını azaltmak için hedefidir. [Denetim] değer sağlayıcı dışında yöntemi parametrelerinizi diğer model bağlama sağlayıcılarını kullanabilirsiniz. Bunlardan bazıları, görev giriş listelenir.
+6. Tuşuna **F5** site hata ayıklamayı başlatmak ve ürünleri sayfasına gidin. Ürün sayısı aşağı açılan listeden seçin ve GridView şimdi nasıl güncelleştirileceğini dikkat edin.
 
-    ![GridView bir açılır liste değeri ile filtreleme](whats-new-in-web-forms-in-aspnet-45/_static/image5.png "GridView bir açılır liste değeri ile filtreleme")
+    ![GridView ile bir açılan liste değeri filtreleme](whats-new-in-web-forms-in-aspnet-45/_static/image5.png "GridView aşağı açılan liste değeri ile filtreleme")
 
-    *GridView bir açılır liste değeri ile filtreleme*
+    *GridView aşağı açılan liste değeri ile filtreleme*
 7. Hata ayıklamayı durdurun.
 
 <a id="Task_4_-_Using_Model_Binding_for_Filtering"></a>
 #### <a name="task-4---using-model-binding-for-filtering"></a>Görev 4 - kullanarak Model filtreleme için bağlama
 
-Bu görevde, ikinci bir alt Seçilen kategoride ürün göstermek için GridView ekleyeceksiniz.
+Bu görevde, ikinci bir alt ürünleri seçilen kategori içindeki gösterilecek GridView ekleyeceksiniz.
 
-1. Açık **Products.aspx** sayfasında ve Seç düğmesini otomatik olarak oluşturmak için GridView kategorileri güncelleştirin.
+1. Açık **Products.aspx** sayfasında ve GridView Seç düğmesini otomatik olarak üretmek için kategorileri güncelleştirin.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample15.aspx)]
-2. İkinci bir ekleme **GridView** adlı **productsGrid** altındaki. Ayarlama **ItemType** için **WebFormsLab.Model.Product**, **DataKeyNames** için **ProductID** ve **SelectMethod**  için **GetProducts**. Ayarlama **GenerateColumns** için **false** ve ProductID, ProductName, açıklama ve UnitPrice için sütunları ekleyin.
+2. İkinci bir ekleme **GridView** adlı **productsGrid** altındaki. Ayarlama **Itemtype** için **WebFormsLab.Model.Product**, **DataKeyNames** için **ProductID** ve **SelectMethod**  için **GetProducts**. Ayarlama **GenerateColumns** için **false** ve ProductID, ProductName, açıklama ve UnitPrice sütunları ekleyin.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample16.aspx)]
-3. Açık **Products.aspx.cs** arka plan kod dosyası. Uygulama **GetProducts** GridView kategoriden Kategori Kimliği alma ve ürünleri filtrelemek için yöntem. Model bağlama seçilen satırın kullanarak parametre değeri ayarlayacak **categoriesGrid**. Bağımsız değişken adı ve denetim adı eşleşmiyor olduğundan, Denetim değer sağlayıcısında denetim adını belirtmeniz gerekir.
+3. Açık **Products.aspx.cs** arka plan kod dosyası. Uygulama **GetProducts** GridView kategoriden Kategori Kimliği almak ve ürünleri filtrelemek için yöntemi. Model bağlama, seçilen satırın kullanarak parametre değeri ayarlanmadıysa **categoriesGrid**. Denetim adı ve bağımsız değişken adını eşleşmediğinden denetim değer sağlayıcı denetimin adını belirtmeniz gerekir.
 
     (Kod parçacığını - *Web Forms Laboratuvar - Ex01 - GetProducts*)
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample17.cs)]
 
     > [!NOTE]
-    > Bu yaklaşım, birimine kolaylaştırır test bu yöntemleri. Burada Web Forms yürütülmüyor, bir birim testi içeriğine, herhangi bir özel eylem [Denetim] özniteliği gerçekleştirmez.
-4. Açık **Products.aspx** sayfasında ve ürünleri GridView bulun. Seçili ürün düzenlemek için bir bağlantı göstermek için GridView ürünleri güncelleştirin.
+    > Bu yaklaşım, birimine kolaylaştırır bu yöntemleri test edin. Burada Web Forms yürütülmüyor, bir birim test bağlam üzerinde [Denetim] özniteliği herhangi belirli bir işlem gerçekleştirmez.
+4. Açık **Products.aspx** sayfasında ve GridView ürünleri bulun. Seçili ürün düzenlemek için bir bağlantı gösterilecek GridView ürünleri güncelleştirin.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample18.aspx)]
-5. Açık **ProductDetails.aspx** sayfa arka plan kod ve değiştirme **SelectProduct** aşağıdaki kod ile yöntemi.
+5. Açık **ProductDetails.aspx** sayfa arka plan kod ve Değiştir **SelectProduct** yöntemini aşağıdaki kod ile.
 
-    (Kod parçacığını - *Web Forms Laboratuvar - Ex01 - SelectProduct yöntemi*)
+    (Kod parçacığını - *Web Forms Laboratuvar - Ex01 - SelectProduct yöntemini*)
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample19.cs)]
 
     > [!NOTE]
-    > Dikkat **[QueryString]** özniteliği, sorgu dizesi ProductID parametresinde yöntemi parametreyi doldurmak için kullanılır.
-6. Tuşuna **F5** site hata ayıklamayı Başlat ve ürünler sayfasına gidin. GridView kategorilerden herhangi bir kategori seçin ve ürünleri GridView güncelleştirilir dikkat edin.
+    > Dikkat **[QueryString]** özniteliği bir ProductID sorgu dizesi parametresi yöntem parametresinden doldurmak için kullanılır.
+6. Tuşuna **F5** site hata ayıklamayı başlatmak ve ürünleri sayfasına gidin. GridView kategorilerden herhangi bir kategori seçin ve ürünleri GridView güncelleştirilir dikkat edin.
 
-    ![Seçilen kategori ürünlerinden gösteren](whats-new-in-web-forms-in-aspnet-45/_static/image6.png "seçilen kategori ürünlerinden gösterme")
+    ![Seçili kategoriyi ürünlerinden gösteren](whats-new-in-web-forms-in-aspnet-45/_static/image6.png "ürünlerinden, seçilen kategori gösteriliyor")
 
-    *Seçilen kategori ürünlerinden gösterme*
-7. Tıklatın **Görünüm** ProductDetails.aspx sayfasını açmak için bir ürün bağlantısında.
+    *Seçili kategoriyi ürünlerinden gösteriliyor*
+7. Tıklayın **görünümü** bağlantı ProductDetails.aspx sayfasını açmak için bir ürün.
 
-    Sayfa ürün Sorgu dizesinden ProductID parametresini kullanarak SelectMethod alıyor dikkat edin.
+    Sorgu dizesinden ProductID parametresini kullanarak SelectMethod ile ürün sayfası alınıyor dikkat edin.
 
-    ![Ürün Ayrıntıları görüntüleme](whats-new-in-web-forms-in-aspnet-45/_static/image7.png "ürün ayrıntılarını görüntüleme")
+    ![Ürün ayrıntılarını görüntüleme](whats-new-in-web-forms-in-aspnet-45/_static/image7.png "ürün ayrıntılarını görüntüleme")
 
     *Ürün ayrıntılarını görüntüleme*
 
     > [!NOTE]
-    > Bir HTML açıklama yazın olanağı sonraki alıştırmada uygulanacaktır.
+    > HTML açıklama olanağı sonraki alıştırmada uygulanacaktır.
 
 <a id="Task_5_-_Using_Model_Binding_for_Update_Operations"></a>
-#### <a name="task-5---using-model-binding-for-update-operations"></a>Görev 5 - kullanarak Model güncelleştirme işlemleri için bağlama
+#### <a name="task-5---using-model-binding-for-update-operations"></a>Görev 5 - güncelleştirme işlemleri için bağlama kullanarak modeli
 
-Önceki görevde, model bağlama çoğunlukla veri seçmek için kullandığınız, bu görevde, güncelleştirme işlemlerinde model bağlama kullanmayı öğreneceksiniz.
+Önceki görevde, çoğunlukla veri seçmek için model bağlama kullandınız, bu görevi nasıl model bağlama güncelleştirme işlemlerinde kullanılacağını öğreneceksiniz.
 
-Kategoriler güncelleştirme kullanıcı izin vermek için GridView kategorileri güncelleştirir.
+Kategorileri güncelleştirme kategorileri izin vermek için GridView güncelleştirir.
 
-1. Açık **Products.aspx** sayfasında ve Düzenle düğmesini otomatik olarak oluşturmak ve yeni GridView kategorileri güncelleştirme **UpdateMethod** belirtmek için özniteliği bir **UpdateCategory**seçilen öğeyi güncelleştirmek için yöntem.
+1. Açık **Products.aspx** sayfasında ve güncelleştirme kategorileri Düzenle düğmesini otomatik olarak oluşturmak ve yeni GridView **UpdateMethod** belirtmek için özniteliği bir **UpdateCategory**seçili öğeyi güncelleştirmek için yöntemi.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample20.aspx)]
 
-    GridView DataKeyNames özniteliğinde tanımlayın modeli bağlı nesne benzersizce üyeleri olan ve bu nedenle, hangi güncelleştirme yöntemini en az alması gereken parametrelerdir.
-2. Açık **Products.aspx.cs** arka plan kodu dosya ve uygulama **UpdateCategory** yöntemi. Yöntemi, geçerli kategori yüklemek, GridView değerleri doldurmak ve kategori güncelleştirmek için kategori kimliği almanız gerekir.
+    GridView DataKeyNames özniteliğinde tanımlayın modeli bağlı nesne benzersiz olarak tanımlanabilmesi üyeleri olan ve bu nedenle, hangi güncelleştirme yöntemi en az alması gereken parametrelerdir.
+2. Açık **Products.aspx.cs** arka plan kod dosyasına ve uygulama **UpdateCategory** yöntemi. Yöntem, geçerli kategori yüklemek GridView değerlerinden Doldur ve kategori'ı güncelleştirmek için kategori kimliği almanız gerekir.
 
     (Kod parçacığını - *Web Forms Laboratuvar - Ex01 - UpdateCategory*)
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample21.cs)]
 
-    Yeni **TryUpdateModel** sayfa sınıfının yöntemidir sayfasındaki denetimleri değerleri kullanarak model nesnesi doldurma sorumlu. Bu durumda, içine düzenlenen geçerli GridView satır güncelleştirilmiş değerleri değiştirir **kategori** nesnesi.
+    Yeni **TryUpdateModel** sayfası sınıfı yönteminde, sayfasındaki denetimleri değerleri kullanarak model nesnesi doldurma sorumludur. Bu durumda, geçerli GridView satır içine düzenlenmekte olan güncelleştirilmiş değerleri değiştirecek **kategori** nesne.
 
     > [!NOTE]
-    > Sonraki alıştırmada Nesne düzenlerken kullanıcı tarafından girilen veri doğrulama ModelState.IsValid kullanımını açıklar.
-3. Siteyi çalıştırın ve ürünler sayfasına gidin. Bir kategori düzenleyin. Yeni bir ad yazın ve ardından **güncelleştirme** değişiklikleri kalıcı hale getirmek için.
+    > Sonraki alıştırmada nesne düzenlenirken kullanıcı tarafından girilen verileri doğrulamak için ModelState.IsValid kullanımını açıklar.
+3. Siteyi çalıştırın ve ürünleri sayfasına gidin. Bir kategori düzenleyin. Yeni bir ad yazın ve ardından **güncelleştirme** değişiklikleri kalıcı hale getirmek için.
 
-    ![Kategoriler düzenleme](whats-new-in-web-forms-in-aspnet-45/_static/image8.png "kategorileri düzenleme")
+    ![Kategorileri düzenleme](whats-new-in-web-forms-in-aspnet-45/_static/image8.png "kategorileri düzenleme")
 
-    *Kategoriler düzenleme*
+    *Kategorileri düzenleme*
 
 <a id="Exercise2"></a>
 
 <a id="Exercise_2_Data_Validation"></a>
 ### <a name="exercise-2-data-validation"></a>Alıştırma 2: Veri doğrulama
 
-Bu alıştırmada, ASP.NET 4.5 içinde yeni veri doğrulama özellikleri hakkında bilgi edineceksiniz. Web Forms yeni örtük doğrulama özelliklerini kontrol eder. Kullanıcı girdisi doğrulama için uygulama modeli sınıflarda veri ek açıklamaları kullanır ve son olarak, istek doğrulama sayfasında tek tek denetimlere açma veya kapatma hakkında bilgi edineceksiniz.
+Bu alıştırmada, ASP.NET 4.5 içinde yeni veri doğrulama özellikleri hakkında bilgi edineceksiniz. Yeni Web Forms örtük doğrulama özellikleri kullanıma. Kullanıcı girdisi doğrulama için veri ek açıklamaları uygulama modeli sınıfları kullanın ve son olarak, bir sayfa her denetim için istek doğrulamayı açma veya kapatma hakkında bilgi edineceksiniz.
 
 <a id="Task_1_-_Unobtrusive_Validation"></a>
 #### <a name="task-1---unobtrusive-validation"></a>Görev 1 - örtük doğrulama
 
-Doğrulayıcıları dahil olmak üzere karmaşık veri formlarla kodunun yaklaşık % 60 gösterebilir sayfanın içinde çok fazla JavaScript kodu oluşturma eğilimindedir. Etkin örtük doğrulama ile HTML kodunuz temizleyici ve tidier arar.
+Doğrulayıcıların gibi karmaşık veri formlarla % 60'kodunun temsil edebilir sayfasında çok fazla JavaScript kodu oluşturma eğilimindedir. Etkin örtük doğrulama ile HTML kodunuzu daha temiz ve tidier görünecektir.
 
-Bu bölümde, her iki yapılandırmaları tarafından oluşturulan HTML kod karşılaştırmak için ASP.NET örtük doğrulama olanak sağlar.
+Bu bölümde, her iki yapılandırma tarafından oluşturulan HTML kodu karşılaştırmak için ASP.NET örtük doğrulama sağlayacaktır.
 
-1. Açık **Visual Studio 2012** ve açın **başlamak** çözüm bulunan **Source\Ex2 Validation\Begin** bu laboratuvarı klasör. Alternatif olarak, önceki alıştırmada varolan çözümünüzden üzerinde çalışmaya devam edebilirsiniz.
+1. Açık **Visual Studio 2012** açın **başlamak** çözüm bulunan **Source\Ex2 Validation\Begin** klasör, bu Laboratuvarın. Alternatif olarak, önceki alıştırmada varolan çözümünüzden üzerinde çalışmaya devam edebilirsiniz.
 
-   1. Sağlanan açtıysanız **başlamak** çözümü gerekir bazı eksik NuGet paketlerini indirmek devam etmeden önce. Bu, Çözüm Gezgini'nde yapmak için **WebFormsLab** proje **NuGet paketlerini Yönet**.
-   2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
-   3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
+   1. Sağlanan açtıysanız **başlamak** çözümü ihtiyaç duyacağınız bazı eksik NuGet paketlerini yüklemek devam etmeden önce. Çözüm Gezgini'nde Bunu yapmak için tıklatın **WebFormsLab** proje **NuGet paketlerini Yönet**.
+   2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklayın **geri** eksik paketleri indirmek için.
+   3. Son olarak, tıklayarak çözüm oluşturun **derleme** | **Çözümü Derle**.
 
       > [!NOTE]
-      > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
+      > NuGet kullanmanın yararlarından biri, projenizdeki tüm kitaplıkları göndermeye proje boyutunu küçültmeyi gerekmemesidir. NuGet güç araçları ile paket sürümlerini Packages.config dosyasında belirterek, gerekli tüm kitaplıkların projeyi Çalıştır ilk kez yüklemeye mümkün olmayacak. Bu laboratuvarda varolan bir çözümü açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
 2. Tuşuna **F5** web uygulamasını başlatmak için. Müşterilere sayfasında ve tıklayın Git **yeni bir müşteri eklemek** bağlantı.
-3. Tarayıcı sayfasında sağ tıklatın ve seçin **kaynağı görüntüle** uygulama tarafından oluşturulan HTML kod açmak için seçeneği.
+3. Tarayıcı sayfada sağ tıklamanız ve seçin **kaynağı görüntüle** uygulama tarafından oluşturulan HTML kodu açmak için seçeneği.
 
-    ![HTML kod sayfasını gösteren](whats-new-in-web-forms-in-aspnet-45/_static/image9.png "HTML kod sayfasını gösteren")
+    ![HTML kod sayfasını gösteren](whats-new-in-web-forms-in-aspnet-45/_static/image9.png "sayfanın HTML kodunu gösterme")
 
     *HTML kod sayfasını gösteren*
-4. Sayfa kaynak kodda kaydırın ve ASP.NET doğrulamaları gerçekleştirmek ve hata listesinin göstermek için JavaScript kodu ve verileri doğrulayıcıları sayfasında eklenmiş dikkat edin.
+4. Sayfa kaynak kodda kaydırın ve ASP.NET doğrulamaları gerçekleştirmek ve hata listesini göstermek için JavaScript kodu ve veri doğrulayıcıları sayfasında eklenmiş dikkat edin.
 
-    ![Doğrulama JavaScript kodu CustomerDetails sayfasındaki](whats-new-in-web-forms-in-aspnet-45/_static/image10.png "CustomerDetails sayfa doğrulama JavaScript kodu")
+    ![Doğrulama JavaScript kodu CustomerDetails sayfasında](whats-new-in-web-forms-in-aspnet-45/_static/image10.png "CustomerDetails sayfasında doğrulama JavaScript kodu")
 
-    *CustomerDetails sayfa doğrulama JavaScript kodu*
+    *Doğrulama JavaScript kodu CustomerDetails sayfası*
 5. Tarayıcıyı kapatın ve Visual Studio'ya geri dönün.
-6. Şimdi örtük doğrulama olanak sağlar. Açık **Web.Config** ve bulun **ValidationSettings:UnobtrusiveValidationMode** anahtarını **AppSettings** bölüm **.** Anahtar değeri ayarlamak **WebForms**.
+6. Artık örtük doğrulama olanak sağlayacak. Açık **Web.Config** bulun **ValidationSettings:UnobtrusiveValidationMode** anahtarını **AppSettings** bölümü **.** Anahtar değeri ayarlamak **WebForms**.
 
     [!code-xml[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample22.xml)]
 
     > [!NOTE]
-    > Bu özellik ayrıca ayarlamak &quot; **sayfa\_yük** &quot; olay örtük doğrulama yalnızca bazı sayfalar için etkinleştirmek istediğiniz durumda.
-7. Açık **CustomerDetails.aspx** ve basın **F5** Web uygulamasını başlatmak için.
-8. IE geliştirici araçlarını açmak için F12 tuşuna basın. Geliştirici Araçları açık olduğunda, komut dosyası sekmesini seçin. Seçin **CustomerDetails.aspx** menü ve Al komut dosyalarını jQuery sayfada çalıştırmak için gerekli Not kopyası yüklenmiş yerel siteden tarayıcıda.
+    > De bu özelliği ayarlayabilirsiniz &quot; **sayfa\_yük** &quot; örtük doğrulama yalnızca bazı sayfalar için etkinleştirmek istediğiniz durumu olayı.
+7. Açık **CustomerDetails.aspx** basın **F5** Web uygulamasını başlatmak için.
+8. IE Geliştirici Araçları'nı açmak için F12 tuşuna basın. Geliştirici Araçları açık olduğunda, komut dosyası sekmesini seçin. Seçin **CustomerDetails.aspx** menü ve Al sayfasında jQuery çalıştırmak için gereken betikler Not olarak yüklendi yerel siteden tarayıcıya.
 
-    ![JQuery JavaScript yükleme dosyaları doğrudan yerel IIS sunucusundan](whats-new-in-web-forms-in-aspnet-45/_static/image11.png "dosyaları doğrudan yerel IIS sunucusundan jQuery JavaScript yükleniyor")
+    ![JQuery JavaScript dosyaları doğrudan yerel IIS sunucusundan](whats-new-in-web-forms-in-aspnet-45/_static/image11.png "jQuery JavaScript dosyaları doğrudan yerel IIS sunucusundan")
 
-    *JQuery JavaScript dosyaları doğrudan yerel IIS sunucusundan yükleniyor*
-9. Visual Studio'ya dönmek için tarayıcıyı kapatın. Açık **Site.Master** dosyasını yeniden ve bulun **ScriptManager**. Öznitelik Ekle **EnableCdn** değere sahip özelliği **doğru**. Bu çevrimiçi URL'den, yerel sitenin URL'den yüklenmesi jQuery zorlar.
-10. Açık **CustomerDetails.aspx** Visual Studio. Siteyi çalıştırmak için F5 tuşuna basın. Internet Explorer açılır sonra geliştirici araçlarını açmak için F12 tuşuna basın. Seçin **betik** sekmesini tıklatın ve sonra aşağı açılan liste göz atın. JQuery JavaScript dosyaları artık yerel siteden, ancak bunun yerine çevrimiçi jQuery CDN yükleniyor unutmayın.
+    *JQuery JavaScript dosyaları doğrudan yerel IIS sunucudan yükleniyor*
+9. Visual Studio'ya dönmek için tarayıcıyı kapatın. Açık **Site.Master** bulun ve yeniden dosya **ScriptManager**. Öznitelik Ekle **EnableCdn** özellik değeriyle **True**. Bu, jQuery çevrimiçi URL'si, yerel site URL'sinden yüklenmesini zorunlu tutar.
+10. Açık **CustomerDetails.aspx** Visual Studio'da. Siteyi çalıştırmak için F5 tuşuna basın. Internet Explorer açıldıktan sonra Geliştirici Araçları'nı açmak için F12 tuşuna basın. Seçin **betik** sekmesine ve ardından açılır listede göz atın. JQuery JavaScript dosyaları artık yerel siteden, ancak bunun yerine çevrimiçi jQuery CDN yükleniyor unutmayın.
 
-    ![JQuery JavaScript yükleme dosyaları CDN](whats-new-in-web-forms-in-aspnet-45/_static/image12.png "dosyaları CDN jQuery JavaScript yükleniyor")
+    ![JQuery JavaScript dosyaları CDN'den](whats-new-in-web-forms-in-aspnet-45/_static/image12.png "jQuery JavaScript dosyaları CDN'den")
 
-    *CDN jQuery JavaScript dosyaları yükleniyor*
-11. Görünüm kaynak seçeneği tarayıcıda kullanarak yeniden HTML sayfası kaynak kodu açın. Örtük doğrulama sağlayarak ASP.NET eklenen JavaScript kodu verileri - ile yerini aldığını bildirimi \*öznitelikleri.
+    *CDN'den jQuery JavaScript dosyaları yükleniyor*
+11. HTML sayfası kaynak kodu tarayıcıda görünüm kaynağı seçeneğini kullanarak yeniden açın. Örtük doğrulama etkinleştirerek ASP.NET eklenen JavaScript kodu ile verileri - yerini aldığını gösterdiğinde bildirimi \*öznitelikleri.
 
-    ![Örtük doğrulama kodu](whats-new-in-web-forms-in-aspnet-45/_static/image13.png "örtük doğrulama kodu")
+    ![Örtük bir doğrulama kodu](whats-new-in-web-forms-in-aspnet-45/_static/image13.png "örtük doğrulama kodu")
 
-    *Örtük doğrulama kodu*
+    *Örtük bir doğrulama kodu*
 
     > [!NOTE]
-    > Bu örnekte, nasıl doğrulama ile veri ek açıklamaları özetinin HTML ve JavaScript yalnızca birkaç satır için Basitleştirilmiş gördünüz. Daha önce örtük doğrulama olmadan, eklemenize, daha fazla doğrulama denetimleri arttıkça JavaScript doğrulama kodunuzu büyüyecektir.
+    > Bu örnekte, nasıl doğrulama özetinin veri ek açıklamaları ile HTML ve JavaScript yalnızca birkaç satır için Basitleştirilmiş gördünüz. Daha önce örtük doğrulama, eklemenize, daha fazla doğrulama denetimleri büyük JavaScript doğrulama kodunuzu çıkarılır.
 
 <a id="Task_2_-_Validating_the_Model_with_Data_Annotations"></a>
 #### <a name="task-2---validating-the-model-with-data-annotations"></a>Görev 2 - veri ek açıklamaları modeliyle doğrulanıyor
 
-ASP.NET 4.5 Web formları için veri ek açıklamaları doğrulama sunar. Her giriş doğrulama denetime sahip olmak yerine şimdi model sınıflarınızda kısıtlamaları tanımlamak ve tüm web uygulaması arasında kullanın. Bu bölümde, yeni/Düzenle müşteri form doğrulama için veri ek açıklamaları kullanmayı öğreneceksiniz.
+ASP.NET 4.5 Web formları için veri ek açıklamaları doğrulama sunar. Her bir giriş doğrulama denetimde sahip olmak yerine artık model sınıflarınızda kısıtlamaları tanımlamak ve bunları tüm web uygulaması arasında kullanabilirsiniz. Bu bölümde, yeni/Düzenle müşteri form doğrulama için veri ek açıklamaları kullanmayı öğreneceksiniz.
 
-1. Açık **CustomerDetail.aspx** sayfası. Müşteri ilk ve ikinci adlandırın dikkat edin **EditItemTemplate** ve **InsertItemTemplate** bölümleri RequiredFieldValidator denetimleri kullanılarak doğrulanır. Her Doğrulayıcı belirli bir koşula ilişkili olduğundan sayıda doğrulayıcıları denetlemek için koşul olarak eklemeniz gerekir.
-2. Müşteri model sınıfı doğrulamak için veri ek açıklamaları ekleyin. Açık **Customer.cs** sınıfını **modeli** klasör ve *tasarlamanız* veri ek açıklaması öznitelikleri kullanarak her bir özellik.
+1. Açık **CustomerDetail.aspx** sayfası. Müşteri adı ve ikinci ad bildirimin **EditItemTemplate** ve **InsertItemTemplate** bölümleri RequiredFieldValidator denetimleri kullanarak doğrulanır. Her bir doğrulayıcı belirli bir koşul için ilişkili olduğundan, çok doğrulayıcıları kontrol eden koşullar eklemeniz gerekir.
+2. Müşteri model sınıfını doğrulamak için veri ek açıklamalarını ekleyin. Açık **Customer.cs** sınıfını **modeli** klasörü ve *süslemek* veri ek açıklama öznitelikleri kullanarak her bir özellik.
 
     (Kod parçacığını - *Web Forms Laboratuvar - Ex02 - veri ek açıklamaları*)
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample23.cs)]
 
     > [!NOTE]
-    > .NET framework 4.5 mevcut veri ek açıklama koleksiyonu genişletmiştir. Kullanabileceğiniz veri ek açıklamaları bazıları şunlardır: [CreditCard] [Phone] [EmailAddress] [aralık], [karşılaştırmak], [Url] [FileExtensions], [gerekli] [anahtar], [yanıtta normal ifade].
+    > .NET framework 4.5, mevcut veri ek açıklama koleksiyonu genişletti. Kullanabileceğiniz veri ek açıklamaları bazıları şunlardır: [CreditCard] [Phone] [EmailAddress], [aralık] [karşılaştırma], [Url] [FileExtensions] [gerekli] [Key], [yanıtta normal ifade].
     > 
     > Bazı kullanım örnekleri:
     > 
-    > [anahtar]: Specifies that an attribute is the unique identifier
+    > [Key]: Specifies that an attribute is the unique identifier
     > 
     > [Range(0.4, 0.5, ErrorMessage=&quot;{Write an error message}&quot;]: Double range
     > 
     > [EmailAddress(ErrorMessage=&quot;Invalid Email&quot;), MaxLength(56)]: Two annotations in the same line.
     > 
-    > Her öznitelik kendi hata iletilerinde de tanımlayabilirsiniz.
-3. Açık **CustomerDetails.aspx** ve ilk ve son ad alanları için tüm RequiredFieldvalidators içinde EditItemTemplate ve InsertItemTemplate bölümlerinde FormView denetimini kaldırın.
+    > Ayrıca, her özniteliği kendi hata iletilerinde de tanımlayabilirsiniz.
+3. Açık **CustomerDetails.aspx** ve içinde EditItemTemplate ve InsertItemTemplate bölümlerinde FormView denetiminin ilk ve son ad alanları için tüm RequiredFieldvalidators kaldırın.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample24.aspx)]
 
     > [!NOTE]
-    > Doğrulama mantığını uygulama sayfalarınızda yinelenen değil veri ek açıklamaları kullanmanın avantajlarından biri. Modelde bir kez tanımlayın ve verileri işlemek tüm uygulama sayfaları arasında kullanın.
-4. Açık **CustomerDetails.aspx** arka plan kod ve Save Customer yöntemini bulun. Bu yöntem yeni bir müşteri eklerken denir ve müşteri parametre FormView denetimi değerleri alır. Sayfa denetimleri ve parametre nesne occurrs arasında eşleme, ASP.NET yürütecek olduğunda tüm veri ek açıklamasını karşı model doğrulama öznitelikleri ve varsa hatalarla karşılaşıldı, ModelState sözlük doldurun.
+    > Doğrulama mantığını uygulama sayfalarınıza yinelenen değil veri ek açıklamaları kullanmanın avantajlarından biri. Bir kez modelde tanımlayın ve verileri işlemek tüm uygulama sayfaları arasında kullanın.
+4. Açık **CustomerDetails.aspx** arka plan kod ve Save Customer yöntemini bulun. Bu yöntem, yeni bir müşteri eklendiğinde çağırılır ve FormView denetim değerleri müşteri parametresi alır. Sayfa denetimleri ve parametre nesne reddedebilir arasındaki eşleme, ASP.NET yürütülür zaman tüm veri ek açıklama karşı model doğrulama öznitelikleri ve ModelState sözlük hatalarla karşılaştı, varsa doldurun.
 
-    ModelState.IsValid yalnızca doğrulama gerçekleştirildikten sonra modeliniz tüm alanlar geçerliyse true döndürür.
+    ModelState.IsValid yalnızca doğrulama gerçekleştirdikten sonra modelinizi tüm alanlarda geçerli olduğu durumlarda true döndürür.
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample25.cs)]
-5. Ekleme bir **ValidationSummary** modeli hata listesi göstermek için CustomerDetails sayfa sonunda denetim.
+5. Ekleme bir **ValidationSummary** modeli hata listesi gösterilecek CustomerDetails sayfanın sonundaki denetimi.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample26.aspx)]
 
-    **ShowModelStateErrors** ValidationSummary yeni bir özellik ayarlandığında denetim olan **doğru**, Denetim ModelState sözlükten hataları gösterir. Bu hatalar veri ek açıklamaları doğrulama dışında gelir.
-6. Tuşuna **F5** Web uygulamasını çalıştırmak için. Bazı hatalı değerlerle formu doldurun ve tıklatın **kaydetmek** doğrulama yürütülecek. Alt kısmında Özet hata dikkat edin.
+    **ShowModelStateErrors** ayarlandığında denetim üzerinde ValidationSummary yeni bir özelliği olan **true**, denetimin ModelState sözlüğünden hataları gösterir. Bu hatalar, veri ek açıklamaları doğrulamanın dışında gelir.
+6. Tuşuna **F5** Web uygulamasını çalıştırmak için. Bazı hatalı değerlerle formu doldurun ve tıklayın **Kaydet** doğrulama yürütülecek. Alt kısmında Özet hata dikkat edin.
 
     ![Veri ek açıklamaları ile doğrulama](whats-new-in-web-forms-in-aspnet-45/_static/image14.png "veri ek açıklamaları ile doğrulama")
 
@@ -436,39 +435,39 @@ ASP.NET 4.5 Web formları için veri ek açıklamaları doğrulama sunar. Her gi
 <a id="Task_3_-_Handling_Custom_Database_Errors_with_ModelState"></a>
 #### <a name="task-3---handling-custom-database-errors-with-modelstate"></a>Görev 3 - ModelState özel veritabanı hataları işleme
 
-Web Forms önceki sürümünde çok uzun bir dize veya benzersiz bir anahtar ihlali gibi veritabanı hataları işleme, depo kodunuzda özel durumları atma ve ardından, bir hata görüntülemek için arka plan kodu özel durumları işleme ilgili olabilir. Büyük miktarda kod oldukça basit bir şeyler için gereklidir.
+Web Forms önceki sürümü çok uzun bir dize ya da benzersiz anahtar ihlali gibi veritabanı hataları işleme, depo kodunuzda özel durumları atma ve ardından, bir hata görüntülenecek arka plan kod özel durumları işleme hakkında olabilir. Büyük miktarda kod görece basit bir şeyler için gereklidir.
 
-Web Forms 4.5 ModelState nesne tutarlı bir şekilde sayfasında, model veya veritabanı hataları görüntülemek için kullanılabilir.
+Web Forms 4.5 içinde ModelState nesne tutarlı bir şekilde sayfasında, modelinizdeki veya veritabanı hataları görüntülemek için kullanılabilir.
 
-Bu görevde, doğru veritabanı özel durumları işleme ve uygun bir mesaj ModelState nesnesini kullanarak kullanıcı göstermek için kod ekleyeceksiniz.
+Bu görevde, düzgün bir şekilde uygun iletiyi ModelState nesnesini kullanarak kullanıcıya göstermek ve veritabanı özel durumları işlemek için kod ekleyeceksiniz.
 
-1. Uygulama çalışmaya devam ederken, yinelenen bir değer kullanarak bir kategori adı güncelleştirmeyi deneyin.
+1. Uygulamayı hala devam ederken, yinelenen bir değer kullanarak bir kategorinin adını güncelleştirmeyi deneyin.
 
     ![Yinelenen bir ada sahip bir kategori güncelleştirme](whats-new-in-web-forms-in-aspnet-45/_static/image15.png "yinelenen bir ada sahip bir kategori güncelleştiriliyor")
 
     *Yinelenen bir ada sahip bir kategori güncelleştiriliyor*
 
-    Verilecek bir özel durum bildirimi &quot;benzersiz&quot; kısıtlaması **CategoryName** sütun.
+    Bir özel durum nedeniyle bildirim &quot;benzersiz&quot; kısıtlamasını **CategoryName** sütun.
 
-    ![Yinelenen kategori adları için özel durum](whats-new-in-web-forms-in-aspnet-45/_static/image16.png "yinelenen kategori adları için özel durumu")
+    ![Yinelenen kategori adları için özel](whats-new-in-web-forms-in-aspnet-45/_static/image16.png "yinelenen kategori adları için özel durumu")
 
     *Yinelenen kategori adları için özel durumu*
-2. Hata ayıklamayı durdurun. İçinde **Products.aspx.cs** arka plan kod dosyası, güncelleştirme **UpdateCategory** db tarafından oluşturulan özel durumları işlemek için yöntem. SaveChanges() yöntemini çağırın ve bir hata ekler **ModelState** nesnesi.
+2. Hata ayıklamayı durdurun. İçinde **Products.aspx.cs** arka plan kod dosyası, güncelleştirme **UpdateCategory** db tarafından oluşturulan özel durumları işlemek için yöntemi. SaveChanges() yöntemi çağırın ve bir hata ekleme **ModelState** nesne.
 
-    Yeni **TryUpdateModel** yöntemi kullanarak kullanıcı tarafından sağlanan form verileri veritabanından alınan kategori nesnesi güncelleştirir.
+    Yeni **TryUpdateModel** yöntemi, kullanıcı tarafından sağlanan form verilerini kullanarak veritabanından alınan kategori nesnesini güncelleştirir.
 
-    (Kod parçacığını - *Web Forms Laboratuvar - Ex02 - UpdateCategory tanıtıcı hataları*)
+    (Kod parçacığını - *Web Forms Laboratuvar - Ex02 - hataları UpdateCategory ele*)
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample27.cs)]
 
     > [!NOTE]
-    > İdeal olarak, DbUpdateException nedenini belirlemeye ve kök nedeni benzersiz bir anahtar kısıtlaması ihlali olup olmadığını denetlemek gerekir.
-3. Açık **Products.aspx** ve ekleme bir **ValidationSummary** denetim modeli hata listesi göstermek için GridView kategoriler altında.
+    > İdeal olarak, DbUpdateException nedenini belirlemek ve kök neden benzersiz bir anahtar kısıtlaması ihlali olup olmadığını denetlemek sahip olması gerekir.
+3. Açık **Products.aspx** ve ekleme bir **ValidationSummary** denetimin GridView modeli hata listesi gösterilecek kategoriler altında.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample28.aspx)]
-4. Siteyi çalıştırın ve ürünler sayfasına gidin. Yinelenen bir değer kullanarak bir kategori adı güncelleştirmeyi deneyin.
+4. Siteyi çalıştırın ve ürünleri sayfasına gidin. Yinelenen bir değer kullanarak bir kategorinin adını güncelleştirmeyi deneyin.
 
-    Özel durumun işlenip ve hata iletisi görünür dikkat edin **ValidationSummary** denetim.
+    Özel durumu işlenmiş ve hata iletisi görünür bir bildirim **ValidationSummary** denetimi.
 
     ![Kategori hata yinelenen](whats-new-in-web-forms-in-aspnet-45/_static/image17.png "kategori hata yineleniyor")
 
@@ -477,143 +476,143 @@ Bu görevde, doğru veritabanı özel durumları işleme ve uygun bir mesaj Mode
 <a id="Task_4_-_Request_Validation_in_ASPNET_Web_Forms_45"></a>
 #### <a name="task-4---request-validation-in-aspnet-web-forms-45"></a>Görev 4 - ASP.NET Web Forms 4.5 doğrulama isteği
 
-ASP.NET istek doğrulama özelliği belirli bir düzeyde varsayılan siteler arası komut dosyası (XSS) saldırılara karşı koruma sağlar. ASP.NET önceki sürümlerinde, istek doğrulama varsayılan olarak etkindir ve bütün bir sayfa için yalnızca devre dışı bırakılamadı. ASP.NET Web Forms yeni sürümü ile artık tek bir denetim için istek doğrulamayı devre dışı bırakmak, yavaş istek doğrulama gerçekleştirebilir veya doğrulanmamış isteği verilere (Bunu yaparsanız dikkatli olun!).
+ASP.NET isteği doğrulama özelliği belirli bir siteler arası betik (XSS) saldırılarına karşı varsayılan koruma düzeyini sağlar. ASP.NET'in önceki sürümlerinde, istek doğrulamayı varsayılan olarak etkinleştirildi ve sayfanın tamamını için yalnızca devre dışı bırakılamadı. Yeni ASP.NET Web Forms sürümü ile artık tek bir denetim ait istek doğrulamayı devre dışı bırakmak, yavaş istek doğrulamayı gerçekleştirmek veya doğrulanmamış isteği verilere (Bunu yaparsanız dikkatli olun!).
 
-1. Tuşuna **Ctrl + F5** hata ayıklama olmadan siteyi başlatmak ve ürünleri sayfasına gidin. Bir kategori seçin ve ardından **Düzenle** ürünlerden birinin bağlantısında.
-2. Tehlikeli olabilecek içeriğe içeren, örneğin HTML etiketlerini dahil olmak üzere bir açıklama yazın. Özel durum nedeniyle isteği doğrulama duyuru alın.
+1. Tuşuna **Ctrl + F5** site hata ayıklama olmadan başlat ve ürünleri sayfasına gidin. Bir kategori seçin ve ardından **Düzenle** ürünlerden birinin bağlantısını.
+2. Tehlikeli olabilecek içeriğe içeren, örneği için HTML etiketlerini de dahil olmak üzere bir açıklama yazın. Özel durum nedeniyle isteği doğrulama bildirimi alın.
 
     ![Potansiyel olarak tehlikeli olabilecek içeriğe sahip bir ürün düzenleme](whats-new-in-web-forms-in-aspnet-45/_static/image18.png "potansiyel olarak tehlikeli olabilecek içeriğe sahip bir ürün düzenleme")
 
     *Potansiyel olarak tehlikeli olabilecek içeriğe sahip bir ürün düzenleme*
 
-    ![Özel durum nedeniyle istek doğrulama](whats-new-in-web-forms-in-aspnet-45/_static/image19.png "özel durum nedeniyle isteği doğrulama")
+    ![Özel durum nedeniyle isteği doğrulama](whats-new-in-web-forms-in-aspnet-45/_static/image19.png "özel durum nedeniyle isteği doğrulama")
 
     *Özel durum nedeniyle isteği doğrulama*
-3. Sayfayı kapatın ve Visual Studio'da basın **SHIFT + F5** hata ayıklamasını durdurmak için.
-4. Açık **ProductDetails.aspx** sayfasında ve bulun **açıklama** metin kutusu.
-5. Yeni Ekle **ValidateRequestMode** TextBox özelliğine ve değerini ayarlama **devre dışı**.
+3. Sayfayı kapatın ve Visual Studio'da **SHIFT + F5** hata ayıklamayı durdurmak için.
+4. Açık **ProductDetails.aspx** bulun ve sayfa **açıklama** metin.
+5. Yeni Ekle **ValidateRequestMode** metin özelliği ve değerini ayarlamak **devre dışı bırakılmış**.
 
-    Yeni **ValidateRequestMode** özniteliği istek doğrulamayı granularly her denetim devre dışı bırakmanıza olanak sağlar. HTML kod almak ancak sayfa geri kalanı için çalışma doğrulama tutmak istediğiniz giriş kullanmak istediğinizde kullanışlıdır.
+    Yeni **ValidateRequestMode** özniteliği istek doğrulamayı hedefle her denetimi devre dışı bırakmanıza olanak sağlar. HTML kodu alma ancak sayfanın geri kalanını için çalışma doğrulama tutmak istediğiniz girdi kullanmak istediğinizde bu kullanışlıdır.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample29.aspx)]
-6. Tuşuna **F5** web uygulamasını çalıştırmak için. Düzen ürün sayfasını yeniden açın ve HTML etiketlerini dahil olmak üzere bir ürün açıklaması tamamlayın. Açıklamayı HTML içeriği artık ekleyebilirsiniz dikkat edin.
+6. Tuşuna **F5** web uygulamasını çalıştırmak için. Düzenleme ürün sayfasını yeniden açın ve HTML etiketlerini de dahil olmak üzere bir ürün açıklaması tamamlayın. Description'a artık HTML içeriği ekleyebilirsiniz dikkat edin.
 
-    ![Ürün açıklaması devre dışı doğrulama isteği](whats-new-in-web-forms-in-aspnet-45/_static/image20.png "istek doğrulama için ürün açıklaması devre dışı")
+    ![Ürün açıklaması için devre dışı doğrulama isteği](whats-new-in-web-forms-in-aspnet-45/_static/image20.png "istek doğrulamayı devre dışı ürün açıklaması")
 
-    *İstek doğrulama için ürün açıklaması devre dışı*
+    *İstek doğrulamanın devre dışı ürün açıklaması*
 
     > [!NOTE]
-    > Bir üretim uygulamasında yalnızca güvenli HTML etiketleri girilir emin olmak için kullanıcı tarafından girilen HTML kod temizlenmeye (örneğin, var olan hiçbir &lt;betik&gt; etiketleri). Bunu yapmak için kullanabileceğiniz [Microsoft Web koruma Kitaplığı](https://www.nuget.org/packages/AntiXSS).
-7. Ürün yeniden düzenleyin. Ad alanında HTML kod yazın ve tıklatın **kaydetmek**. İstek doğrulama için açıklama alanı yalnızca devre dışı bırakıldı ve geri kalan alanları hala potansiyel olarak tehlikeli olabilecek içeriğe karşı doğrulandı dikkat edin.
+    > Bir üretim uygulamasında yalnızca güvenli HTML etiketleri girilen emin olmak için kullanıcı tarafından girilen HTML kod temizleyin (örneğin, hiçbir &lt;betik&gt; etiketleri). Bunu yapmak için kullanabileceğiniz [Microsoft Web koruma Kitaplığı](https://www.nuget.org/packages/AntiXSS).
+7. Ürün yeniden düzenleyin. HTML kod ad alanını yazın ve tıklayın **Kaydet**. İstek doğrulama için açıklama alanı yalnızca devre dışı bırakıldı ve geri kalan alanları hala potansiyel olarak tehlikeli olabilecek içeriğe karşı doğrulandı dikkat edin.
 
-    ![Alanların geri kalanı etkinleştirilen doğrulama isteği](whats-new-in-web-forms-in-aspnet-45/_static/image21.png "isteği alanların geri kalanı etkinleştirilen doğrulama")
+    ![Alanların geri kalanı etkin doğrulama isteği](whats-new-in-web-forms-in-aspnet-45/_static/image21.png "alanların geri kalanı etkin doğrulama isteği")
 
-    *Alanların geri kalanı etkin istek doğrulama*
+    *İstek doğrulamanın alanların geri kalanı etkin*
 
-    ASP.NET Web Forms 4.5 gevşek istek doğrulamayı gerçekleştirmek için yeni bir istek doğrulama modu içerir. Ayarlamak istek doğrulama modu ile **4.5**bir kod erişir, *Request.Form [&quot;anahtar&quot;]*, ASP.NET 4.5'ın istek doğrulama yalnızca tetikleyici isteği doğrulama form koleksiyonu belirli bu öğe için.
+    ASP.NET Web Forms 4.5 gevşek istek doğrulamayı gerçekleştirmek için yeni bir istek doğrulama modu içerir. Kümesine istek doğrulama modu ile **4.5**, bir kod erişimi varsa *Request.Form [&quot;anahtarı&quot;]*, ASP.NET 4.5'ın istek doğrulama olacak yalnızca tetikleyici isteği doğrulama form koleksiyonu belirli o öğeye ilişkin.
 
-    Ayrıca, ASP.NET 4.5, artık Microsoft Anti-XSS Kitaplığı v4.0 çekirdek kodlama yordamlarından içerir. Kodlama yordamları yeni tarafından uygulanır Anti-XSS *AntiXssEncoder* yeni bulunan türü **System.Web.Security.AntiXss** ad alanı. İle **encoderType** kullanmak üzere yapılandırılmış parametresi *AntiXssEncoder*, tüm çıktı ASP.NET içinde otomatik olarak kodlaması yeni kodlama yordamları kullanır.
-8. ASP.NET 4.5 istek doğrulama isteği verilere doğrulanmamış erişimi de destekler. ASP.NET 4.5 için yeni bir koleksiyon özelliği ekler **HttpRequest** adlı nesne **Unvalidated**. Uygulamasına gidin zaman **HttpRequest.Unvalidated** tüm istek verileri, formlar, QueryStrings, tanımlama bilgileri, URL'ler vb. dahil olmak üzere ortak parçasını erişebilirsiniz.
+    Buna ek olarak, ASP.NET 4.5, artık Microsoft Anti-XSS Kitaplığı v4.0 kodlama rutinleri çekirdek içerir. Kodlama rutinleri tarafından yeni uygulanır Anti-XSS *AntiXssEncoder* türü bulundu yeni **System.Web.Security.AntiXss** ad alanı. İle **encoderType** kullanacak şekilde yapılandırılmış parametresi *AntiXssEncoder*, tüm çıktı ASP.NET içinde otomatik olarak kodlama kullanan yeni kodlama rutinleri.
+8. ASP.NET 4.5 istek doğrulama için istek verileri doğrulanmamış erişimi de destekler. ASP.NET 4.5 için yeni bir koleksiyon özelliği ekler **HttpRequest** çağrılan nesne **Unvalidated**. Gittiğinizde içine **HttpRequest.Unvalidated** tüm istek verilerini, formları, QueryStrings, tanımlama bilgileri, URL'leri vb. dahil olmak üzere ortak parçalarını erişiminiz olur.
 
     ![Request.Unvalidated nesne](whats-new-in-web-forms-in-aspnet-45/_static/image22.png "Request.Unvalidated nesnesi")
 
     *Request.Unvalidated nesnesi*
 
     > [!NOTE]
-    > **Lütfen HttpRequest.Unvalidated özelliği dikkatli olun!** Tehlikeli metin değil gidiş dönüş ve geri duymayan müşterilere çizilir emin olmak için ham istek verileri dikkatle gerçekleştirdiğiniz özel doğrulama emin olun!
+    > **Lütfen HttpRequest.Unvalidated özelliği dikkatli kullanın!** Tehlikeli metin olmayan gidiş dönüşlü ve duymayan müşteriler için işlenen emin olmak için ham istek verileri dikkatli bir şekilde özel doğrulamayı gerçekleştirmek emin olun!
 
 <a id="Exercise3"></a>
 
 <a id="Exercise_3_Asynchronous_Page_Processing_in_ASPNET_Web_Forms"></a>
-### <a name="exercise-3-asynchronous-page-processing-in-aspnet-web-forms"></a>Alıştırma 3: Zaman uyumsuz sayfa işleme ASP.NET Web formları
+### <a name="exercise-3-asynchronous-page-processing-in-aspnet-web-forms"></a>Alıştırma 3: Zaman uyumsuz sayfa işleme ASP.NET Web Forms
 
-Bu alıştırmada, ASP.NET Web Forms özelliklerinde işleme yeni zaman uyumsuz sayfaya görülecektir.
+Bu alıştırmada, işlem özellikleri ASP.NET Web Forms yeni zaman uyumsuz sayfasına sunulacaktır.
 
 <a id="Task_1_-_Updating_the_Product_Details_Page_to_Upload_and_Show_Images"></a>
-#### <a name="task-1---updating-the-product-details-page-to-upload-and-show-images"></a>Görev 1 - ürün güncelleştirme Ayrıntıları sayfası karşıya yükleme ve görüntüleri göstermek için
+#### <a name="task-1---updating-the-product-details-page-to-upload-and-show-images"></a>Görev 1 - güncelleştirme Ürün Ayrıntıları sayfası karşıya yükleme ve görüntüleri göstermek için
 
-Bu görevde, ürün için bir resim URL'si belirtin ve salt okunur görünümde görüntülemek izin vermek için Ürün Ayrıntıları sayfası güncelleştirir. Zaman uyumlu olarak yükleyerek belirtilen görüntü yerel bir kopyasını oluşturur. Sonraki görev zaman uyumsuz olarak çalışması için bu uygulama güncelleştirir.
+Bu görevde, ürün için bir resim URL'si belirtmeniz ve yalnızca Okuma Görünümü'nde görüntülemek izin vermek için Ürün Ayrıntıları sayfası güncelleştirir. Zaman uyumlu olarak indirerek belirtilen görüntünün yerel bir kopyasını oluşturur. İşlemin sonraki görev, zaman uyumsuz olarak çalışması için bu uygulamayla güncelleştirilir.
 
-1. Açık **Visual Studio 2012** ve yük **başlamak** çözüm bulunan **Source\Ex3 Async\Begin** bu Laboratuvar 's klasöründen. Alternatif olarak, var olan bir önceki alıştırmada çözümünüzden üzerinde çalışmaya devam edebilirsiniz.
+1. Açık **Visual Studio 2012** ve yük **başlamak** çözüm bulunan **Source\Ex3 Async\Begin** bu Laboratuvar klasöründen. Alternatif olarak, var olan bir önceki alıştırmada çözümünüzden üzerinde çalışmaya devam edebilirsiniz.
 
-   1. Sağlanan açtıysanız **başlamak** çözümü gerekir bazı eksik NuGet paketlerini indirmek devam etmeden önce. Bu, Çözüm Gezgini'nde yapmak için **WebFormsLab** proje ve seçin **NuGet paketlerini Yönet**.
-   2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklatın **geri** eksik paketleri indirmesine için.
-   3. Son olarak, tıklayarak çözümü derleme **yapı** | **yapı çözümü**.
+   1. Sağlanan açtıysanız **başlamak** çözümü ihtiyaç duyacağınız bazı eksik NuGet paketlerini yüklemek devam etmeden önce. Çözüm Gezgini'nde Bunu yapmak için tıklatın **WebFormsLab** seçin ve proje **NuGet paketlerini Yönet**.
+   2. İçinde **NuGet paketlerini Yönet** iletişim kutusunda, tıklayın **geri** eksik paketleri indirmek için.
+   3. Son olarak, tıklayarak çözüm oluşturun **derleme** | **Çözümü Derle**.
 
       > [!NOTE]
-      > NuGet kullanarak avantajlarından biri, projenizdeki tüm kitaplıkları dağıtmayı proje boyutunun azaltılması gerekmemesidir. NuGet güç araçları ile Packages.config dosyasında paket sürümlerini belirterek, tüm gerekli kitaplıkları ilk kez proje çalıştırdığınızda indirebilirsiniz olacaktır. Varolan bir çözümü bu Laboratuvar açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
-2. Açık **ProductDetails.aspx** sayfasında kaynak ve ürün görüntü göstermek için FormView'ın ItemTemplate içinde bir alan ekleyin.
+      > NuGet kullanmanın yararlarından biri, projenizdeki tüm kitaplıkları göndermeye proje boyutunu küçültmeyi gerekmemesidir. NuGet güç araçları ile paket sürümlerini Packages.config dosyasında belirterek, gerekli tüm kitaplıkların projeyi Çalıştır ilk kez yüklemeye mümkün olmayacak. Bu laboratuvarda varolan bir çözümü açtıktan sonra aşağıdaki adımları çalıştırmanız gerekecek nedeni budur.
+2. Açık **ProductDetails.aspx** sayfasında kaynak ve ürün görüntüsü göstermeyi FormView ItemTemplate bir alan ekleyin.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample30.aspx)]
-3. FormView'ın EditTemplate resim URL'si belirtmek için bir alan ekleyin.
+3. FormView EditTemplate görüntü URL'sini belirtmek için bir alan ekleyin.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample31.aspx)]
-4. Açık **ProductDetails.aspx.cs** arka plan kod dosyasına ve aşağıdaki ad alanı yönergeleri ekleyin.
+4. Açık **ProductDetails.aspx.cs** arka plan kod dosyasını açıp aşağıdaki ad alanı yönergelerini ekleyin.
 
     (Kod parçacığını - *Web Forms Laboratuvar - Ex03 - ad alanları*)
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample32.cs)]
-5. Oluşturma bir **UpdateProductImage** yerel uzak görüntüleri saklamak için yöntemi **görüntüleri** klasörü ve güncelleştirme ürün varlığı yeni görüntü konumu değerine sahip.
+5. Oluşturma bir **UpdateProductImage** yerel uzak görüntüleri depolamak için yöntemi **görüntüleri** klasörü ve ürün varlığı yeni görüntü konumu değeriyle güncelleştirme.
 
     (Kod parçacığını - *Web Forms Laboratuvar - Ex03 - UpdateProductImage*)
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample33.cs)]
 6. Güncelleştirme **UpdateProduct** çağrılacak yöntem **UpdateProductImage** yöntemi.
 
-    (Kod parçacığını - *Web Forms Laboratuvar - Ex03 - UpdateProductImage çağrısı*)
+    (Kod parçacığını - *Web Forms Laboratuvar - Ex03 - UpdateProductImage çağrı*)
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample34.cs)]
-7. Uygulamayı çalıştırın ve bir ürün için görüntüyü karşıya yüklemeyi deneyin. Örneğin, Office küçük Arts aşağıdaki görüntü URL'sini kullanabilirsiniz: [[http://officeimg.vo.msecnd.net/images/MB900437099.jpg](http://officeimg.vo.msecnd.net/images/MB900437099.jpg)](http://officeimg.vo.msecnd.net/images/MB900437099.jpg)
+7. Uygulamayı çalıştırmak ve bir ürün için görüntüyü karşıya yüklemeyi deneyin. Örneğin, aşağıdaki Office küçük sanat görüntü URL'sini kullanabilirsiniz: [[http://officeimg.vo.msecnd.net/images/MB900437099.jpg](http://officeimg.vo.msecnd.net/images/MB900437099.jpg)](http://officeimg.vo.msecnd.net/images/MB900437099.jpg)
 
-    ![Bir ürün için görüntü ayarlama](whats-new-in-web-forms-in-aspnet-45/_static/image23.png "bir ürün için görüntü ayarlama")
+    ![Bir ürün için bir görüntü ayarlama](whats-new-in-web-forms-in-aspnet-45/_static/image23.png "görüntüyü bir ürün için ayarlama")
 
-    *Bir ürün için görüntü ayarlama*
+    *Bir ürün için bir görüntü ayarlama*
 
 <a id="Task_2_-_Adding_Asynchronous_Processing_to_the_Product_Details_Page"></a>
-#### <a name="task-2---adding-asynchronous-processing-to-the-product-details-page"></a>Görev 2 - Ürün Ayrıntıları sayfasına işleme zaman uyumsuz ekleme
+#### <a name="task-2---adding-asynchronous-processing-to-the-product-details-page"></a>Görev 2 - zaman uyumsuz işleme için Ürün Ayrıntıları sayfası ekleme
 
-Bu görevde, zaman uyumsuz olarak çalışması için Ürün Ayrıntıları sayfası güncelleştirir. ASP.NET 4.5 zaman uyumsuz sayfa işleme kullanarak uzun süre çalışan görev - görüntü indirme işlemini - ekleyeceksiniz.
+Bu görevde, zaman uyumsuz olarak çalışması için Ürün Ayrıntıları sayfası güncelleştirir. Uzun süre çalışan bir görev - görüntü indirme işlemini - ASP.NET 4.5 zaman uyumsuz sayfa işleme kullanarak ekleyeceksiniz.
 
-Web uygulamalarında zaman uyumsuz yöntemleri, ASP.NET iş parçacığı havuzları kullanılan şekilde en iyi duruma getirmek için kullanılabilir. ASP.NET var. olan katılımın iş parçacığı havuzu iş parçacıkları, sınırlı sayıda istekleri, bu nedenle, tüm iş parçacıkları meşgul ASP.NET yeni istekleri reddedecek şekilde başlatır, uygulama hata iletileri gönderir ve sitenizi kullanılamaz hale getirir.
+Web uygulamalarında zaman uyumsuz yöntemler, ASP.NET iş parçacığı havuzları kullanılan şeklini iyileştirmek için kullanılabilir. ASP.NET'te var. olan katılan için iş parçacığı havuzundaki iş parçacığı sınırlı sayıda istek, bu nedenle, tüm iş parçacıkları meşgul olduğunda ASP.NET yeni istekleri geri çevirmenizi başlatır, uygulama hata iletileri gönderir ve sitenizi kullanılamaz hale getirir.
 
-Web sitenizde uzun süren işlem bunlar atanan iş parçacığı uzun bir süredir kaplaması nedeniyle, zaman uyumsuz programlama için harika bir aday değildir. Bu, uzun çalışan istek, çok sayıda farklı öğeler sayfaları ve çevrimdışı işlemleri, böyle bir veritabanını sorgulama veya bir dış web sunucusuna erişim gerektiren sayfalar içerir. Avantajı sayfasını işlerken bu işlemler için zaman uyumsuz yöntemleri kullanırsanız, iş parçacığı olması serbest ve iş parçacığına döndürülen sağlamasıdır havuzu ve yeni bir sayfa isteği katılmak için kullanılabilir. Bunun anlamı sayfa iş parçacığı havuzunun bir iş parçacığından işleme başlar ve zaman uyumsuz işlem tamamlandıktan sonra başka bir işlemde tamamlayabilir.
+Web sitenizde uzun süren işlemleri, çünkü bunlar atanan iş parçacığı uzun bir süredir kaplayabilir, zaman uyumsuz programlama için harika adaylar değildir. Bu, uzun çalışan istek, çok sayıda farklı öğeler sayfaları ve çevrimdışı işlemleri, böyle bir veritabanını sorgulama veya bir dış web sunucusuna erişim gerektiren sayfaları içerir. Avantajlarındandır sayfasını işlerken için bu işlemler, zaman uyumsuz yöntemleri kullanırsanız, iş parçacığı serbest ve iş parçacığına döndürülen, havuz ve yeni bir sayfa isteği katılmak için kullanılabilir. Bunun anlamı sayfasını bir iş parçacığından iş parçacığı havuzu işleme başlar ve zaman uyumsuz işlem tamamlandıktan sonra başka bir işleme tamamlayabilir.
 
-1. Açık **ProductDetails.aspx** sayfası. Ekleme **zaman uyumsuz** özniteliğini **sayfa** öğesi ve ayarlamak **doğru**. Bu öznitelik IHttpAsyncHandler arabirimini uygulaması için ASP.NET söyler.
+1. Açık **ProductDetails.aspx** sayfası. Ekleme **zaman uyumsuz** özniteliğini **sayfa** öğesi ve **true**. Bu öznitelik IHttpAsyncHandler arabirim uygulamak için ASP.NET söyler.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample35.aspx)]
-2. Bir etiket sayfa çalışan iş parçacıklarının ayrıntılarını görüntülemek için sayfanın altındaki ekleyin.
+2. Sayfa çalışan iş parçacığı ayrıntıları görüntülemek için sayfanın alt kısmında bir etiket ekleyin.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample36.aspx)]
-3. Açık **ProductDetails.aspx.cs** ve aşağıdaki ad alanı yönergeleri ekleyin.
+3. Açık yukarı **ProductDetails.aspx.cs** ve aşağıdaki ad alanı yönergelerini ekleyin.
 
     (Kod parçacığını - *Web Forms Laboratuvar - Ex03 - ad alanları 2*)
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample37.cs)]
-4. Değiştirme **UpdateProductImage** yöntemi zaman uyumsuz bir görevi görüntüsüyle indirin. Yerini alacak **WebClient** **DownloadFile** yöntemiyle **DownloadFileTaskAsync** yöntemi ve dahil **await** anahtar sözcüğü.
+4. Değiştirme **UpdateProductImage** yöntemi ile zaman uyumsuz bir görev bir görüntü indirin. Yerini alır **WebClient** **DownloadFile** yöntemiyle **DownloadFileTaskAsync** yöntemi ve **await** anahtar sözcüğü.
 
-    (Kod parçacığını - *Web Forms Laboratuvar - Ex03 - UpdateProductImage zaman uyumsuz*)
+    (Kod parçacığını - *Web Forms Laboratuvar - Ex03 - UpdateProductImage Async*)
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample38.cs)]
 
-    RegisterAsyncTask farklı bir iş parçacığında yürütülmek üzere yeni bir sayfa zaman uyumsuz görev kaydeder. Lambda ifadesi çalıştırılacak görev (t) ile alır. **Await** anahtar sözcük **DownloadFileTaskAsync** yöntemi dönüştürür yöntemi geri kalan zaman uyumsuz olarak sonra çağrılan bir geri çağırma **DownloadFileTaskAsync** yöntemi tamamlandı. ASP.NET, otomatik olarak tüm HTTP isteği özgün değerler tutarak yönteminin yürütülmesi devam edecek. Yeni zaman uyumsuz programlama modeli .NET 4.5, zaman uyumlu kod gibi çok benzer görünür zaman uyumsuz kod yazma ve geri arama işlevleri veya devamlılık kodu zorluklar işlemek derleyici olanak sağlar.
+    Farklı bir iş parçacığında yürütülür yeni sayfa zaman uyumsuz görev RegisterAsyncTask kaydeder. Bu, çalıştırılacak görev (t) sahip bir lambda ifadesi alır. **Await** anahtar sözcüğünü **DownloadFileTaskAsync** yöntemi dönüştürür yöntemin geri kalanı zaman uyumsuz olarak sonra çağrılan bir geri çağırma **DownloadFileTaskAsync** yöntemi tamamlandı. ASP.NET, otomatik olarak tüm HTTP isteği özgün değerlerini tutarak yöntemin yürütülmesi devam eder. Yeni zaman uyumsuz programlama modeli .NET 4.5 içinde zaman uyumlu kod gibi çok benzeyen zaman uyumsuz kod yazın ve işlemek, geri çağırma işlevleri veya devamlılık kodu zorluklar derleyici olanak sağlar.
     > [!NOTE]
-    > Zaten RegisterAsyncTask ve PageAsyncTask .NET 2.0 itibaren kullanılabilir. Bekleme anahtar .NET 4.5 zaman uyumsuz programlama modeli yenidir ve .NET WebClient nesnesinden yeni TaskAsync yöntemleri ile birlikte kullanılabilir.
-5. Kod başlatıldı ve yürütme tamamlandı iş parçacıklarının görüntülemek için kodu ekleyin. Bunu yapmak için güncelleştirme **UpdateProductImage** aşağıdaki kod ile yöntemi.
+    > Zaten bu yana .NET 2.0 RegisterAsyncTask ve PageAsyncTask kullanılabilir. Await anahtar sözcüğü, .NET 4.5 zaman uyumsuz programlama modeli yenidir ve .NET WebClient nesnesinden yeni TaskAsync yöntemleri ile birlikte kullanılabilir.
+5. Kod kullanmaya ve yürütmeyi bitirmeden iş parçacıkları görüntülemek için kod ekleyin. Bunu yapmak için güncelleştirme **UpdateProductImage** yöntemini aşağıdaki kod ile.
 
-    (Kod parçacığını - *Web Forms Laboratuvar - Ex03 - Göster iş parçacığı*)
+    (Kod parçacığını - *Web Forms Laboratuvar - Ex03 - Show iş parçacıkları*)
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample39.cs)]
-6. Web sitesinin açmak **Web.config** dosya. Aşağıdaki appSetting değişkeni ekleyin.
+6. Web sitesinin açın **Web.config** dosya. Aşağıdaki uygulama ayarı değişkeni ekleyin.
 
     [!code-xml[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample40.xml)]
-7. Tuşuna **F5** uygulamayı çalıştırın ve ürün için bir görüntüyü karşıya yükleyin. Burada başlama ve bitiş kodu farklı olabilir iş parçacığı kimliği dikkat edin. ASP.NET iş parçacığı havuzu ayrı bir iş parçacığı üzerinde çalışan zaman uyumsuz görevler olmasıdır. Görev tamamlandığında, ASP.NET görev geri sıraya koyar ve herhangi bir kullanılabilir iş parçacıklarının atar.
+7. Tuşuna **F5** uygulamayı çalıştırın ve ürün için bir görüntü yükleyin. Burada başlama ve bitiş kodu farklı olabilir iş parçacığı kimliği dikkat edin. Zaman uyumsuz görevler ASP.NET iş parçacığı havuzu ayrı bir iş parçacığında çalıştırmak olmasıdır. Görev tamamlandığında, ASP.NET görevi yeniden sıraya koyar ve herhangi bir kullanılabilir iş parçacıklarının atar.
 
-    ![Görüntüyü zaman uyumsuz olarak indirme](whats-new-in-web-forms-in-aspnet-45/_static/image24.png "görüntüyü zaman uyumsuz indirme")
+    ![Zaman uyumsuz olarak görüntü indirme](whats-new-in-web-forms-in-aspnet-45/_static/image24.png "görüntü zaman uyumsuz olarak yükleme")
 
-    *Görüntüyü zaman uyumsuz indirme*
+    *Zaman uyumsuz olarak görüntü yükleme*
 
 > [!NOTE]
-> Ayrıca, Azure aşağıdaki bu uygulamayı dağıtabilmek için [ek B: yayımlama Web dağıtımı kullanarak bir ASP.NET MVC 4 uygulaması](#AppendixB).
+> Ayrıca, bu uygulama aşağıdaki Azure dağıtabilirsiniz [ek B: yayımlama Web dağıtımı kullanarak bir ASP.NET MVC 4 uygulaması](#AppendixB).
 
 
 * * *
@@ -621,111 +620,111 @@ Web sitenizde uzun süren işlem bunlar atanan iş parçacığı uzun bir süred
 <a id="Summary"></a>
 ## <a name="summary"></a>Özet
 
-Bu uygulamalı laboratuar ortamında aşağıdaki kavramlarını ele ve gösterilmektedir:
+Bu uygulamalı bir laboratuvarda, aşağıdaki kavramlar ele ve gösterilmiştir:
 
 - Kesin türü belirtilmiş veri bağlama ifadeleri kullanma
-- Web Forms yeni model bağlama özelliklerini kullanma
-- Arka plan kodu yöntemlere sayfa verileri eşleştirmek için değer sağlayıcıları kullanın
-- Kullanıcı girdisi doğrulama için veri ek açıklamaları kullanın
-- Web Forms jQuery ile unobstrusive istemci tarafı doğrulama advange alın
-- Uygulama ayrıntılı istek doğrulama
-- Web Forms işleme zaman uyumsuz sayfası uygulamak
+- Yeni model bağlama özellikleri Web formlarında kullanmak
+- Arka plan kod yöntemleri için sayfa verileri eşleştirmek için değer sağlayıcıları kullanın
+- Kullanıcı girdisi doğrulama için veri ek açıklamalarını kullanma
+- Web Forms advange unobstrusive istemci tarafı doğrulama jQuery ile alın
+- Parçalı istek doğrulama uygulama
+- Web formları içindeki işlem zaman uyumsuz sayfasını uygulama
 
 <a id="AppendixA"></a>
 
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
-## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>Ek A: Yükleme Web Visual Studio Express 2012 için
+## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>Ek A: Visual Studio'yu Web için Express 2012
 
-Yükleyebileceğiniz **Web için Visual Studio Express 2012 Microsoft** veya başka bir &quot;Express&quot; sürümü kullanılarak **[Microsoft Web Platformu yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx)**. Aşağıdaki yönergeler yüklemek için gereken adımlarda size kılavuzluk *Web için Visual studio Express 2012* kullanarak *Microsoft Web Platformu yükleyicisi*.
+Yükleyebileceğiniz **Web için Visual Studio Express 2012 Microsoft** veya başka bir &quot;Express&quot; sürümüyle **[Microsoft Web Platformu yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx)**. Aşağıdaki yönergeler, yüklemek için gereken adımlarda size kılavuzluk *Web için Visual studio Express 2012* kullanarak *Microsoft Web Platformu yükleyicisi*.
 
-1. Git [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). Web Platformu yükleyicisi zaten yüklü değilse, alternatif olarak, bunu ve ürün için arama açabilirsiniz &quot; <em>Visual Studio Express 2012 için Azure SDK'sı Web</em>&quot;.
-2. Tıklayın **Şimdi Yükle**. Sahip değilse **Web Platformu yükleyicisi** indirip önce yüklemek için yönlendirilir.
-3. Bir kez **Web Platformu yükleyicisi** açık tıklatın **yükleme** Kurulum'u başlatmak için.
+1. Git [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). Web Platformu Yükleyicisi'ı zaten yüklediyseniz, bunun yerine ve ürün için arama açabileceğiniz &quot; <em>Visual Studio Express 2012 için Azure SDK ile Web</em>&quot;.
+2. Tıklayarak **Şimdi Yükle**. Yoksa **Web Platformu yükleyicisi** indirmek ve ilk yüklemek için yönlendirilirsiniz.
+3. Bir kez **Web Platformu yükleyicisi** açık tıklayın **yükleme** Kurulum'u başlatmak için.
 
-    ![Visual Studio Express yükleme](whats-new-in-web-forms-in-aspnet-45/_static/image25.png "yükleme Visual Studio Express")
+    ![Visual Studio Express yükleyin](whats-new-in-web-forms-in-aspnet-45/_static/image25.png "Visual Studio Express'i yükle")
 
-    *Visual Studio Express yükleme*
-4. Tüm ürünlerin lisans koşullarını okuyup ve tıklayın **kabul ediyorum** devam etmek için.
+    *Visual Studio Express yükleyin*
+4. Tüm ürünlerin lisans ve koşulları okuyun ve tıklayın **kabul ediyorum** devam etmek için.
 
-    ![Lisans koşulları kabul ediliyor](whats-new-in-web-forms-in-aspnet-45/_static/image26.png)
+    ![Lisans koşullarını kabul etme](whats-new-in-web-forms-in-aspnet-45/_static/image26.png)
 
-    *Lisans koşulları kabul ediliyor*
+    *Lisans koşullarını kabul etme*
 5. İndirme ve yükleme işlemi tamamlanana kadar bekleyin.
 
     ![Yükleme ilerleme durumu](whats-new-in-web-forms-in-aspnet-45/_static/image27.png)
 
     *Yükleme ilerleme durumu*
-6. Yükleme tamamlandığında tıklatın **son**.
+6. Yükleme tamamlandığında, tıklayın **son**.
 
     ![Yükleme tamamlandı](whats-new-in-web-forms-in-aspnet-45/_static/image28.png)
 
     *Yükleme tamamlandı*
-7. Tıklatın **çıkış** Web Platformu Yükleyicisi'ni kapatın.
-8. Web için Visual Studio Express açmak için Git **Başlat** ekranında ve yazmaya başlayın &quot; **VS Express**&quot;, tıklayın **VS Express Web** Döşeme.
+7. Tıklayın **çıkış** Web Platformu Yükleyicisi'ni kapatın.
+8. Web için Visual Studio Express'te açmak için Git **Başlat** ekranında ve yazmaya başlayabilirsiniz &quot; **VS Express**&quot;, ardından **Web için VS Express** bir kutucuk.
 
-    ![VS Express Web döşemeye](whats-new-in-web-forms-in-aspnet-45/_static/image29.png)
+    ![Web kutucuğu için VS Express](whats-new-in-web-forms-in-aspnet-45/_static/image29.png)
 
-    *VS Express Web döşemeye*
+    *Web kutucuğu için VS Express*
 
 <a id="AppendixB"></a>
 
 <a id="Appendix_B_Publishing_an_ASPNET_MVC_4_Application_using_Web_Deploy"></a>
-## <a name="appendix-b-publishing-an-aspnet-mvc-4-application-using-web-deploy"></a>Ek B: Web dağıtımı kullanarak bir ASP.NET MVC 4 uygulama yayımlama
+## <a name="appendix-b-publishing-an-aspnet-mvc-4-application-using-web-deploy"></a>Ek B: bir ASP.NET MVC 4 Web dağıtımı kullanarak uygulama yayımlama
 
-Bu ekte Azure Portal'dan yeni bir web sitesi oluşturma ve Laboratuvar izleyerek Azure tarafından sağlanan Web dağıtımı Yayımlama özelliğini avantajlarını elde ettiğiniz uygulama yayımlamak nasıl yapacağınızı gösterir.
+Bu ekte, Azure portalında yeni bir web sitesi oluşturma ve Laboratuvar izleyerek Azure tarafından sağlanan Web dağıtımı Yayımlama özelliğini avantajlarını elde ettiğiniz uygulama yayımlama gösterilmektedir.
 
 <a id="ApxBTask1"></a>
 
 <a id="Task_1_-_Creating_a_New_Web_Site_from_the_Windows_Azure_Portal"></a>
-#### <a name="task-1---creating-a-new-web-site-from-the-azure-portal"></a>Görev 1 - Azure portalından yeni bir Web sitesi oluşturma
+#### <a name="task-1---creating-a-new-web-site-from-the-azure-portal"></a>Görev 1 - Azure portalında yeni bir Web sitesi oluşturma
 
-1. Git [Azure Yönetim Portalı](https://manage.windowsazure.com/) ve aboneliğinizle ilişkili Microsoft kimlik bilgilerini kullanarak oturum açın.
+1. Git [Azure Yönetim Portalı](https://manage.windowsazure.com/) aboneliğinizle ilişkili Microsoft kimlik bilgilerini kullanarak oturum açın.
 
     > [!NOTE]
-    > Azure ile 10 ASP.NET Web siteleri ücretsiz barındırma ve ardından trafiğiniz büyüdükçe ölçeğinizi. Kaydolabilirsiniz [burada](http://aka.ms/aspnet-hol-azure).
+    > Azure'la 10 ASP.NET Web sitesini ücretsiz olarak barındırın ve ardından trafiğiniz büyüdükçe ölçeğinizi artırın. Kaydolabilirsiniz [burada](http://aka.ms/aspnet-hol-azure).
 
-    ![Windows Azure portalında oturum açtığı](whats-new-in-web-forms-in-aspnet-45/_static/image30.png "Windows Azure Portal'da oturum açın")
+    ![Windows Azure Portal'da oturum açın](whats-new-in-web-forms-in-aspnet-45/_static/image30.png "Windows Azure Portal'da oturum açın")
 
     *Portal'da oturum açın*
-2. Tıklatın **yeni** komut çubuğunda.
+2. Tıklayın **yeni** komut çubuğunda.
 
     ![Yeni bir Web sitesi oluşturma](whats-new-in-web-forms-in-aspnet-45/_static/image31.png "yeni bir Web sitesi oluşturma")
 
     *Yeni bir Web sitesi oluşturma*
-3. Tıklatın **işlem** | **Web sitesi**. Ardından **hızlı Oluştur** seçeneği. Yeni web sitesi için kullanılabilir bir URL girin ve tıklayın **Web sitesi oluştur**.
+3. Tıklayın **işlem** | **Web sitesi**. Ardından **hızlı Oluştur** seçeneği. Yeni web sitesi için kullanılabilen bir URL girin ve tıklatın **Web sitesi oluştur**.
 
     > [!NOTE]
-    > Azure, denetleyebileceğiniz ve yönetebileceğiniz bulutta çalışan bir web uygulaması için bir ana bilgisayardır. Hızlı oluştur seçeneği Azure portal dışındaki bir tamamlanmış bir web uygulamasını dağıtmanıza olanak sağlar. Bir veritabanını ayarlamak için adımları içermez.
+    > Azure, denetleyebileceğiniz ve yönetebileceğiniz bulutta çalışan bir web uygulaması için bir ana bilgisayardır. Hızlı oluşturma seçeneği azure'a portalın dışında bir tamamlanmış web uygulaması dağıtmanıza olanak sağlar. Bir veritabanını ayarlamak için adımları içermez.
 
     ![Hızlı oluşturma yöntemini kullanarak yeni bir Web sitesi oluşturma](whats-new-in-web-forms-in-aspnet-45/_static/image32.png "hızlı oluşturma yöntemini kullanarak yeni bir Web sitesi oluşturma")
 
     *Hızlı oluşturma yöntemini kullanarak yeni bir Web sitesi oluşturma*
 4. Yeni kadar bekleyin **Web sitesi** oluşturulur.
-5. Web sitesi oluşturulduktan sonra altında bağlantıyı tıklatın **URL** sütun. Yeni Web sitesi çalıştığından emin olun.
+5. Web sitesi oluşturulduktan sonra altındaki bağlantıya tıklayın **URL** sütun. Yeni Web sitesi çalışıp çalışmadığını denetleyin.
 
-    ![Yeni web sitesi için gözatma](whats-new-in-web-forms-in-aspnet-45/_static/image33.png "yeni web sitesi için gözatma")
+    ![Yeni web sitesi için gözatma](whats-new-in-web-forms-in-aspnet-45/_static/image33.png "yeni web sitesine göz atma")
 
-    *Yeni web sitesi için gözatma*
+    *Yeni web sitesine göz atma*
 
-    ![Çalışan Web sitesi](whats-new-in-web-forms-in-aspnet-45/_static/image34.png "çalışan Web sitesi")
+    ![Web sitesi çalışan](whats-new-in-web-forms-in-aspnet-45/_static/image34.png "çalışan Web sitesi")
 
     *Çalışan Web sitesi*
-6. Portalına geri dönün ve web sitesi altında adına tıklayın **adı** yönetim sayfaları görüntülemek için sütun.
+6. Portala geri dönün ve web sitesi altında adına **adı** yönetim sayfaları görüntülemek için sütun.
 
     ![Web sitesi Yönetim sayfalarının açma](whats-new-in-web-forms-in-aspnet-45/_static/image35.png "web sitesi Yönetim sayfalarının açma")
 
     *Web Sitesi Yönetim sayfalarının açma*
-7. İçinde **Pano** sayfasında **Hızlı Bakış** 'yi tıklatın **yayım profili indirin** bağlantı.
+7. İçinde **Pano** sayfasındaki **Hızlı Bakış** bölümünde **yayımlama profili indir** bağlantı.
 
     > [!NOTE]
-    > *Yayımlama profili* Azure her etkin yayımlama yöntemi için bir web uygulamasına yayımlamak için gereken bilgilerin tümünü içerir. Yayımlama profili URL'leri, kullanıcı kimlik bilgilerini ve bağlanmak ve her bir yayımlama yönteminin etkinleştirildiği uç noktaları karşı kimlik doğrulaması için gerekli veritabanı dizelerini içerir. **Microsoft WebMatrix 2**, **Microsoft Visual Studio Express Web** ve **Microsoft Visual Studio 2012** okuma destek yayımlamak için bu programlar yapılandırılmasını otomatikleştirmek için profilleri Azure Web uygulamaları yayımlama.
+    > *Yayımlama profilini* tüm her etkin yayımlama yöntemi için azure'da bir web uygulaması yayımlamak için gereken bilgileri içerir. Yayımlama profili URL'leri, kullanıcı kimlik bilgileri ve her bir yayımlama yönteminin etkinleştirildiği uç noktalarına karşı kimlik doğrulaması yapmak ve bağlanmak için gereken veritabanı dizelerini içerir. **Microsoft WebMatrix 2**, **Microsoft Visual Studio Express Web** ve **Microsoft Visual Studio 2012** okuma desteği yayımlama profillerini yapılandırma için bu programların otomatik hale getirmek için Azure Web uygulamaları yayımlama.
 
-    ![Yayımlama profili web sitesi Yükleniyor](whats-new-in-web-forms-in-aspnet-45/_static/image36.png "yayımlama profili web sitesi yükleniyor")
+    ![Yayımlama profili web sitesi indiriliyor](whats-new-in-web-forms-in-aspnet-45/_static/image36.png "yayımlama profili web sitesi indiriliyor")
 
-    *Yayımlama profili Web sitesi yükleniyor*
-8. Yayımlama profili dosyasını bilinen bir konuma indirin. Daha fazla Bu alıştırmada Azure Visual Studio'dan bir web uygulamasına yayımlamak için bu dosyayı kullanmak nasıl göreceksiniz.
+    *Yayımlama profili Web sitesi indiriliyor*
+8. Yayımlama profili dosyasını bilinen bir konuma indirin. Daha fazla Bu alıştırmada, bir Azure web uygulamasına Visual Studio'dan yayımlamak için bu dosyayı kullanmak nasıl görürsünüz.
 
-    ![Yayımlama profili dosyasını kaydetme](whats-new-in-web-forms-in-aspnet-45/_static/image37.png "yayımlama profilini kaydetme")
+    ![Yayımlama profili dosyasını kaydetme](whats-new-in-web-forms-in-aspnet-45/_static/image37.png "yayımlama profili kaydediliyor")
 
     *Yayımlama profili dosyasını kaydetme*
 
@@ -734,30 +733,30 @@ Bu ekte Azure Portal'dan yeni bir web sitesi oluşturma ve Laboratuvar izleyerek
 <a id="Task_2_-_Configuring_the_Database_Server"></a>
 #### <a name="task-2---configuring-the-database-server"></a>Görev 2 - veritabanı sunucusunu yapılandırma
 
-Uygulamanızı SQL Server'ın kullanmak yaparsa veritabanlarının bir SQL veritabanı sunucusu oluşturmanız gerekir. SQL Server kullanmayan basit bir uygulamayı dağıtmak istiyorsanız, bu görevi atlamak.
+Uygulamanızı kullanan SQL Server'ın yaparsa veritabanlarını bir SQL veritabanı sunucusu oluşturmanız gerekir. SQL Server kullanmayan basit bir uygulama dağıtmak istiyorsanız bu görevi atla.
 
-1. Uygulama veritabanını depolamak için bir SQL veritabanı sunucusu gerekir. Aboneliğiniz Azure Yönetim Portalı'nda SQL veritabanı sunucularının görüntüleyebilirsiniz **Sql veritabanları** | **sunucuları** | **sunucunun Pano**. Oluşturulan bir sunucu yoksa kullanarak bir tane oluşturabilirsiniz **Ekle** komut çubuğundan düğme. Not edin **sunucu adı ve URL, yönetici oturum açma adı ve parola**sonraki görevleri kullanacağı gibi. Daha sonraki bir aşamada oluşturulacak şekilde veritabanı henüz oluşturmayın.
+1. SQL veritabanı sunucusu, uygulama veritabanını depolamak için gerekir. Aboneliğinizde Azure Yönetim Portalı'nda SQL veritabanı sunucuları görüntüleyebilirsiniz **Sql veritabanları** | **sunucuları** | **sunucuPanosu**. Oluşturulan server yoksa kullanarak bir tane oluşturabilirsiniz **Ekle** komut çubuğunda düğme. Not **sunucu adı ve URL, yönetici oturum açma adı ve parola**, sonraki görevleri kullanacağınız. Daha sonraki bir aşamasında oluşturulacak şekilde veritabanı henüz oluşturmayın.
 
-    ![SQL veritabanı sunucusu Pano](whats-new-in-web-forms-in-aspnet-45/_static/image38.png "SQL veritabanı sunucu Panosu")
+    ![SQL veritabanı sunucu Panosu](whats-new-in-web-forms-in-aspnet-45/_static/image38.png "SQL veritabanı sunucu Panosu")
 
     *SQL veritabanı sunucu Panosu*
-2. İşlemin sonraki görev, sunucunun listesinde, yerel IP adresi içermesi gereken bu nedenle veritabanı bağlantısı Visual Studio'dan test edecek **izin verilen IP adreslerini**. Bunu yapmak için tıklatın **yapılandırma**, IP adresi seçin **geçerli istemci IP adresi** üzerinde yapıştırın **başlangıç IP adresi** ve **bitiş IP adresi** metin kutuları ve tıklatın ![add-client-ip-address-ok-button](whats-new-in-web-forms-in-aspnet-45/_static/image39.png) düğmesi.
+2. İşlemin sonraki görev ihtiyacınız sunucunun listesinde yerel IP adresinizi eklemek, bu nedenle Visual Studio'dan veritabanı bağlantısını test eder **izin verilen IP adresleri**. Bunu yapmanın tıklatın **yapılandırma**, IP adresi seçin **geçerli istemci IP adresi** ve yapıştırın **başlangıç IP adresi** ve **bitiş IP adresi** metin kutuları ve tıklatın ![add-client-ip-address-ok-button](whats-new-in-web-forms-in-aspnet-45/_static/image39.png) düğmesi.
 
     ![İstemci IP adresi ekleme](whats-new-in-web-forms-in-aspnet-45/_static/image40.png)
 
     *İstemci IP adresi ekleme*
-3. Bir kez **istemci IP adresi** izin verilen IP adreslerine eklenen listesinde, tıklayın **kaydetmek** değişiklikleri onaylamak için.
+3. Bir kez **istemci IP adresi** için izin verilen IP adreslerini eklenir listesinde, tıklayın **Kaydet** değişiklikleri onaylamak için.
 
-    ![Değişiklikleri onaylamak](whats-new-in-web-forms-in-aspnet-45/_static/image41.png)
+    ![Değişiklikleri onaylayın](whats-new-in-web-forms-in-aspnet-45/_static/image41.png)
 
-    *Değişiklikleri onaylamak*
+    *Değişiklikleri onaylayın*
 
 <a id="ApxBTask3"></a>
 
 <a id="Task_3_-_Publishing_an_ASPNET_MVC_4_Application_using_Web_Deploy"></a>
-#### <a name="task-3---publishing-an-aspnet-mvc-4-application-using-web-deploy"></a>Görev 3 - Web dağıtımı kullanarak bir ASP.NET MVC 4 uygulama yayımlama
+#### <a name="task-3---publishing-an-aspnet-mvc-4-application-using-web-deploy"></a>Görev 3 - bir ASP.NET MVC 4 Web dağıtımı kullanarak uygulama yayımlama
 
-1. ASP.NET MVC 4 çözüme geri dönün. İçinde **Çözüm Gezgini**, web sitesi projesine sağ tıklatın ve **Yayımla**.
+1. ASP.NET MVC 4 çözüme geri dönün. İçinde **Çözüm Gezgini**, web sitesi projesini sağ tıklatın ve seçin **Yayımla**.
 
     ![Uygulama yayımlama](whats-new-in-web-forms-in-aspnet-45/_static/image42.png "uygulama yayımlama")
 
@@ -767,86 +766,86 @@ Uygulamanızı SQL Server'ın kullanmak yaparsa veritabanlarının bir SQL verit
     ![Yayımlama profilini içeri aktarma](whats-new-in-web-forms-in-aspnet-45/_static/image43.png "yayımlama profilini içeri aktarma")
 
     *Yayımlama profilini içeri aktarma*
-3. Tıklatın **bağlantısı doğrulama**. Doğrulama tamamlandıktan sonra tıklayın **sonraki**.
+3. Tıklayın **bağlantısını doğrulama**. Doğrulama tamamlandıktan sonra tıklayın **sonraki**.
 
     > [!NOTE]
-    > Yanındaki bağlantıyı doğrula düğmesi görünür yeşil bir onay işareti gördüğünüzde doğrulama tamamlanır.
+    > Bağlantıyı doğrula düğmesi yanında görünür yeşil bir onay işareti gördükten sonra doğrulama tamamlanır.
 
     ![Bağlantı doğrulama](whats-new-in-web-forms-in-aspnet-45/_static/image44.png "bağlantısı doğrulanıyor")
 
-    *Doğrulama bağlantısı*
-4. İçinde **ayarları** sayfasında **veritabanları** bölümünde, veritabanı bağlantının textbox yanındaki düğmesini tıklatın (yani **DefaultConnection**).
+    *Bağlantı doğrulama*
+4. İçinde **ayarları** sayfasındaki **veritabanları** bölümünde, veritabanı bağlantının metin kutusunun yanındaki düğmeye tıklayın (yani **DefaultConnection**).
 
     ![Web dağıtımı yapılandırma](whats-new-in-web-forms-in-aspnet-45/_static/image45.png "Web dağıtımı yapılandırma")
 
     *Web dağıtımı yapılandırma*
 5. Veritabanı bağlantısı aşağıdaki gibi yapılandırın:
 
-   - İçinde **sunucu adı** , SQL veritabanı sunucusu URL'yi kullanarak yazın *tcp:* öneki.
-   - İçinde **kullanıcı adı** sunucunuzun yönetici oturum açma adını yazın.
-   - İçinde **parola** sunucu yönetici oturum açma parolasını yazın.
+   - İçinde **sunucu adı** , SQL veritabanı sunucu URL'sini kullanarak yazın *tcp:* önek.
+   - İçinde **kullanıcı adı** , Sunucu Yöneticisi oturum açma adı yazın.
+   - İçinde **parola** Sunucu Yöneticisi oturum açma parolanızı yazın.
    - Yeni bir veritabanı adı yazın.
 
-     ![Hedef bağlantı dizesi yapılandırma](whats-new-in-web-forms-in-aspnet-45/_static/image46.png "hedef bağlantı dizesi yapılandırma")
+     ![Hedef bağlantı dizesi yapılandırma](whats-new-in-web-forms-in-aspnet-45/_static/image46.png "hedef bağlantı dizesini yapılandırma")
 
-     *Hedef bağlantı dizesi yapılandırma*
+     *Hedef bağlantı dizesini yapılandırma*
 6. Sonra **Tamam**'a tıklayın. Veritabanı oluşturmak isteyip istemediğiniz sorulduğunda **Evet**.
 
     ![Veritabanı oluşturma](whats-new-in-web-forms-in-aspnet-45/_static/image47.png "veritabanı dizesi oluşturma")
 
-    *Veritabanı oluşturuluyor*
-7. Azure SQL veritabanına bağlanmak için kullanacağı bağlantı dizesini varsayılan bağlantı textbox içinde gösterilir. Sonra **İleri**'ye tıklayın.
+    *Veritabanı oluşturma*
+7. Azure'da SQL veritabanına bağlanmak için kullanacağı bağlantı dizesini, varsayılan bağlantı metin kutusu içinde gösterilir. Sonra **İleri**'ye tıklayın.
 
-    ![SQL veritabanına işaret eden bağlantı dizesi](whats-new-in-web-forms-in-aspnet-45/_static/image48.png "SQL veritabanına işaret eden bağlantı dizesi")
+    ![SQL veritabanı'na işaret eden bağlantı dizesi](whats-new-in-web-forms-in-aspnet-45/_static/image48.png "SQL veritabanına işaret eden bağlantı dizesi")
 
-    *SQL veritabanına işaret eden bağlantı dizesi*
-8. İçinde **Önizleme** sayfasında, **Yayımla**.
+    *SQL veritabanı'na işaret eden bağlantı dizesi*
+8. İçinde **Önizleme** sayfasında **Yayımla**.
 
     ![Web uygulaması yayımlama](whats-new-in-web-forms-in-aspnet-45/_static/image49.png "web uygulaması yayımlama")
 
     *Web uygulaması yayımlama*
-9. Yayımlama işlemi tamamlandıktan sonra varsayılan tarayıcınız yayımlanan web sitesini açın.
+9. Yayımlama işlemi tamamlandıktan sonra varsayılan tarayıcınız yayımlanan web sitesi açılır.
 
 <a id="AppendixC"></a>
 
 <a id="Appendix_C_Using_Code_Snippets"></a>
 ## <a name="appendix-c-using-code-snippets"></a>Ek C: kod parçacıkları
 
-Kod parçacıkları ile parmaklarınızın ucunda gerek duyduğunuz tüm koduna sahip. Laboratuvar belgenin tam olarak ne zaman, kullanabilmek için aşağıdaki resimde gösterildiği gibi size bildirir.
+Kod parçacıkları ile parmaklarınızın ucunda ihtiyacınız olan tüm kod vardır. Laboratuvar belgenin tam olarak ne zaman, kullanabilmek için aşağıdaki şekilde gösterildiği gibi size bildirir.
 
 ![Kod projenize eklemek için Visual Studio kod parçacıkları](whats-new-in-web-forms-in-aspnet-45/_static/image50.png "kod projenize eklemek için Visual Studio kullanarak kod parçacıkları")
 
 *Kod projenize eklemek için Visual Studio kod parçacıkları*
 
-***Klavye (C# yalnızca) kullanarak bir kod parçacığı eklemek için***
+***Klavye (yalnızca C#) kullanarak bir kod parçacığı eklemek için***
 
-1. İmleci, burada kod eklemek istediğiniz yerleştirin.
-2. (Olmadan, boşluk veya tire) parçacığı adını yazmaya başlayın.
+1. Kod eklemesini istediğiniz imleci yerleştirin.
+2. (Olmadan, boşluk veya tire) kod parçacığı adı yazmaya başlayın.
 3. Kod parçacıkları adlarla eşleşen IntelliSense görüntüler izleyin.
-4. Doğru parçacığı seçin (veya tüm kod parçacığını kişinin adı seçilene kadar yazmaya devam edin).
-5. İki kez parçacığını İmleç konumuna eklemek için SEKME tuşuna basın.
+4. Doğru kod parçacığını seçin (veya tüm parçacığının adı seçilene kadar yazmaya devam edin).
+5. İki kez İmleç konumuna kod parçacığını eklemek için SEKME tuşuna basın.
 
-![Kod parçacığında adını yazmaya başlayın](whats-new-in-web-forms-in-aspnet-45/_static/image51.png "parçacığı adını yazmaya başlayın")
+![Kod parçacığı adını yazmaya başlayın](whats-new-in-web-forms-in-aspnet-45/_static/image51.png "kod parçacığı adını yazmaya başlayın")
 
-*Kod parçacığında adını yazmaya başlayın*
+*Kod parçacığı adını yazmaya başlayın*
 
-![Vurgulanan kod parçacığını seçmek için SEKME tuşuna basın](whats-new-in-web-forms-in-aspnet-45/_static/image52.png "vurgulanan kod parçacığını seçmek için SEKME tuşuna basın")
+![Vurgulanan kod parçacığı seçmek için SEKME tuşuna basın](whats-new-in-web-forms-in-aspnet-45/_static/image52.png "vurgulanan kod parçacığı seçmek için Tab tuşuna basın")
 
-*Vurgulanan kod parçacığını seçmek için SEKME tuşuna basın*
+*Vurgulanan kod parçacığı seçmek için SEKME tuşuna basın*
 
-![Yeniden SEKME tuşuna basın ve kod parçacığını genişletin](whats-new-in-web-forms-in-aspnet-45/_static/image53.png "yeniden SEKME tuşuna basın ve kod parçacığını genişletin")
+![Yeniden Tab tuşuna basın ve kod parçacığı genişletir](whats-new-in-web-forms-in-aspnet-45/_static/image53.png "yeniden Tab tuşuna basın ve kod parçacığı genişletir")
 
-*Yeniden SEKME tuşuna basın ve kod parçacığını genişletin*
+*Yeniden Tab tuşuna basın ve kod parçacığı genişletir*
 
-***Fareyi (C#, Visual Basic ve XML) kullanarak bir kod parçacığı eklemek için*** 1. Kod parçacığını eklemek istediğiniz yeri sağ tıklatın.
+***Fare (C#, Visual Basic ve XML) kullanarak bir kod parçacığı eklemek için*** 1. Kod parçacığını eklemek istediğiniz yeri sağ tıklayın.
 
-1. Seçin **Ekle parçacığı** arkasından **My kod parçacıkları**.
-2. Tıklayarak ilgili kod parçacığında listeden seçin.
+1. Seçin **parçacık Ekle** ardından **kod Parçacıklarım**.
+2. Tıklayarak ilgili kod parçacığı listeden seçin.
 
-![Sağ tıklatın, istediğiniz kod parçacığını eklemek ve Ekle parçacık](whats-new-in-web-forms-in-aspnet-45/_static/image54.png "sağ tıklatın, istediğiniz kod parçacığını eklemek ve parçacık Ekle")
+![İstediğiniz kod parçacığını eklemek ve parçacık eklemek için sağ tıklama](whats-new-in-web-forms-in-aspnet-45/_static/image54.png "sağ tıklayın, istediğiniz kod parçacığını eklemek ve kod parçacığı Ekle")
 
-*Kod parçacığını eklemek ve parçacık eklemek istediğiniz yeri sağ tıklatın*
+*Kod parçacığını eklemek ve parçacık eklemek istediğiniz sağ tıklayın*
 
-![Tıklayarak ilgili kod parçacığında listeden çekme](whats-new-in-web-forms-in-aspnet-45/_static/image55.png "tıklayarak ilgili kod parçacığında listeden seçin")
+![Tıklayarak ilgili kod parçacığını listesinden çekme](whats-new-in-web-forms-in-aspnet-45/_static/image55.png "tıklayarak ilgili kod parçacığı listeden seçin")
 
-*Tıklayarak ilgili kod parçacığında listeden seçin*
+*Tıklayarak ilgili kod parçacığı listeden seçin*

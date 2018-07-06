@@ -2,176 +2,175 @@
 uid: web-forms/overview/ajax-control-toolkit/combobox/how-do-i-use-the-combobox-control-vb
 title: ComboBox denetimi nasıl kullanabilirim? (VB) | Microsoft Docs
 author: microsoft
-description: ComboBox kullanıcıların seçim yapabileceğiniz seçeneklerin bir listesini bir metin kutusu esnekliğini birleştiren bir ASP.NET AJAX denetimdir.
+description: ComboBox TextBox'ın esnekliği kullanıcıların seçebileceği seçeneklerin bir listesi ile birleştiren bir ASP.NET AJAX denetimidir.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2009
 ms.topic: article
 ms.assetid: e887e7b2-a6e7-4a28-a134-ba334494badb
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/combobox/how-do-i-use-the-combobox-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e42844e326cb190502a51c5a85195b4752d7e827
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
-ms.translationtype: MT
+ms.openlocfilehash: 3241641b3e136b24c8cff75026e496ddf8eb04ac
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30875415"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37371914"
 ---
 <a name="how-do-i-use-the-combobox-control-vb"></a>ComboBox denetimi nasıl kullanabilirim? (VB)
 ====================
 tarafından [Microsoft](https://github.com/microsoft)
 
-> ComboBox kullanıcıların seçim yapabileceğiniz seçeneklerin bir listesini bir metin kutusu esnekliğini birleştiren bir ASP.NET AJAX denetimdir.
+> ComboBox TextBox'ın esnekliği kullanıcıların seçebileceği seçeneklerin bir listesi ile birleştiren bir ASP.NET AJAX denetimidir.
 
 
-Bu öğretici AJAX Denetim Araç Seti ComboBox denetimi açıklamak için hedefidir. ComboBox bir standart ASP.NET DropDownList ve TextBox denetimi arasında birlikte çalışır. Önceden var olan bir öğe listesinden seçin veya yeni bir öğe girin.
+Bu öğreticide AJAX Denetim Araç Seti ComboBox denetimi açıklamak için hedefidir. ComboBox TextBox denetimi ile standart bir ASP.NET DropDownList denetimi arasındaki bir birlikte çalışır. Önceden var olan bir öğe listesinden seçin veya yeni bir öğe girin.
 
-ComboBox otomatik tamamlama denetim extender benzer, ancak denetim farklı senaryolarda kullanılır. Otomatik Tamamlama genişletici eşleşen girişlerini almak için bir web hizmetini sorgular. ComboBox denetimi buna karşılık, öğeleri kümesi ile başlatıldı. Otomatik Tamamlama genişletici yapar kullanarak çok sayıda veri (car bölümleri milyonlarca) ComboBox denetimi kullanırken çalışırken algılama küçük bir veri kümesi ile çalışırken mantıklı (car bölümleri onlarca).
+Bir ComboBox için otomatik tamamlama denetim genişletici benzer, ancak denetimleri farklı senaryolarda kullanılır. Otomatik Tamamlama genişletici eşleşen girişlerini almak için bir web hizmetini sorgular. ComboBox denetimi, buna karşılık, öğelerin kümesi ile başlatılır. Otomatik Tamamlama genişletici yapar kullanarak ComboBox denetimini kullanırken çok sayıda veri (bölümleri car milyonlarca) ile çalışırken algılama küçük bir veri kümesiyle çalışırken mantıklıdır (bölümleri car onlarca).
 
-## <a name="selecting-from-a-static-list-of-items"></a>Statik öğeler listeden seçme
+## <a name="selecting-from-a-static-list-of-items"></a>Statik bir öğe listesinden seçim yapma
 
-ComboBox denetimi kullanarak basit bir örnek Başlat s olanak tanır. Statik öğelerin listesini aşağı açılan listesinde görüntülemek istediğinizi varsayalım. Ancak, liste eksiksiz değildir olasılığı açık ayrılmak istiyor. Listeye özel bir değer girmesini izin vermek istediğiniz.
+S Başlat ComboBox denetimini kullanarak basit bir örnek sağlar. Açılan listede statik öğelerinin listesini görüntülemek istediğinizi düşünün. Ancak, liste eksiksiz değildir olasılığını açık kalma istersiniz. Listeye özel bir değer girmesini izin vermek istediğiniz.
 
-Biz üm yeni bir ASP.NET Web Forms sayfası oluşturmak ve sayfanın ComboBox denetimi kullanın. Yeni ASP.NET sayfası projenize ekleyin ve Tasarım görünümüne geçin.
+Biz ll yeni bir ASP.NET Web Forms sayfası oluşturup sayfasında ComboBox denetimini kullanabilirsiniz. Yeni ASP.NET sayfası projenize ekleyin ve Tasarım görünümüne geçin.
 
-ComboBox denetimi sayfasında kullanmak istiyorsanız sayfaya bir ScriptManager denetimi eklemeniz gerekir. AJAX uzantılar sekmesi from beneath ScriptManager denetimi Tasarımcı yüzeyine sürükleyin. Sayfanın en üstünde ScriptManager denetimi eklemeniz gerekir; Açılış sunucu-tarafı hemen ekleyebilirsiniz &lt;form&gt; etiketi.
+ComboBox denetimi sayfasında kullanmak istiyorsanız sayfasına bir ScriptManager denetimi eklemeniz gerekir. ScriptManager denetimini AJAX uzantılar sekmesinde from beneath Tasarımcı yüzeyine sürükleyin. ScriptManager denetimini sayfanın en üstündeki eklemelisiniz; Açılış sunucu-tarafı hemen ekleyebilirsiniz &lt;form&gt; etiketi.
 
-Ardından, ComboBox denetimi sayfaya sürükleyin. ComboBox denetimi araç diğer AJAX Denetim Araç Seti denetimler ve denetim Extender'larının (bkz. Şekil 1) bulabilirsiniz.
-
-
-[![Bir iş kartı oluşturmak için basit form](how-do-i-use-the-combobox-control-vb/_static/image1.jpg)](how-do-i-use-the-combobox-control-vb/_static/image1.png)
-
-**Şekil 01**: ComboBox Denetim Araç Kutusu'ndan seçme ([tam boyutlu görüntüyü görüntülemek için tıklatın](how-do-i-use-the-combobox-control-vb/_static/image2.png))
+Ardından, ComboBox denetimi sayfaya sürükleyin. ComboBox denetimi, diğer AJAX Denetim Araç Seti denetimlerini ve denetim genişleticilerini (bkz. Şekil 1) ile araç kutusunda bulabilirsiniz.
 
 
-Biz üm ComboBox denetimi seçenekleri statik listesini görüntülemek için kullanın. Kullanıcı kendi yemek spiciness belirli bir düzeyde üç seçenek listesinden seçebilirsiniz: hafif, Orta ve etkin (bkz. Şekil 2).
+[![Basit bir iş kartı oluşturma formu](how-do-i-use-the-combobox-control-vb/_static/image1.jpg)](how-do-i-use-the-combobox-control-vb/_static/image1.png)
+
+**Şekil 01**: ComboBox denetimi araç kutusundan seçme ([tam boyutlu görüntüyü görmek için tıklatın](how-do-i-use-the-combobox-control-vb/_static/image2.png))
 
 
-[![Statik öğeler listeden seçme](how-do-i-use-the-combobox-control-vb/_static/image2.jpg)](how-do-i-use-the-combobox-control-vb/_static/image3.png)
-
-**Şekil 02**: statik öğeler listeden seçerek ([tam boyutlu görüntüyü görüntülemek için tıklatın](how-do-i-use-the-combobox-control-vb/_static/image4.png))
+Biz ll ComboBox denetimi statik seçenek listesini görüntülemek için kullanın. Kullanıcı için kendi Gıda spiciness belirli bir düzeyde üç seçenek listesinden seçebilirsiniz: hafif, Orta ve sık erişimli (bkz: Şekil 2).
 
 
-Bu seçenekler ComboBox denetimine ekleyebilirsiniz iki yolu vardır. İlk olarak, farenizi denetimini Tasarım görünümünde gezinirken seçeneklerini Düzenle görev seçeneğini belirleyin ve öğesi Düzenleyicisi'ni açın (bkz: Şekil 3).
+[![Statik bir öğe listesinden seçim yapma](how-do-i-use-the-combobox-control-vb/_static/image2.jpg)](how-do-i-use-the-combobox-control-vb/_static/image3.png)
+
+**Şekil 02**: statik bir öğe listesinden seçerek ([tam boyutlu görüntüyü görmek için tıklatın](how-do-i-use-the-combobox-control-vb/_static/image4.png))
 
 
-[![ComboBox öğelerini düzenleme](how-do-i-use-the-combobox-control-vb/_static/image3.jpg)](how-do-i-use-the-combobox-control-vb/_static/image5.png)
-
-**Şekil 03**: ComboBox düzenleme öğeleri ([tam boyutlu görüntüyü görüntülemek için tıklatın](how-do-i-use-the-combobox-control-vb/_static/image6.png))
+ComboBox denetimi için bu seçenekleri ekleyebilirsiniz iki yolu vardır. İlk olarak, fare Tasarım görünümü denetimin üzerine gelindiğinde düzenleme seçenekleri görev seçeneğini belirleyin ve öğesi Düzenleyicisi'ni açın (bkz: Şekil 3).
 
 
-İkinci seçenek açma ve kapatma Between öğeleri listesi eklemektir &lt;asp: ComboBox&gt; kaynak görünümünde etiketler. Sayfa listeleme 1 öğe listesinin sahip güncelleştirilmiş ComboBox içerir.
+[![ComboBox öğeleri düzenleme](how-do-i-use-the-combobox-control-vb/_static/image3.jpg)](how-do-i-use-the-combobox-control-vb/_static/image5.png)
+
+**Şekil 03**: düzenleme ComboBox öğeleri ([tam boyutlu görüntüyü görmek için tıklatın](how-do-i-use-the-combobox-control-vb/_static/image6.png))
+
+
+İkinci seçenek, açılış ve kapanış aralığındaki öğelerin listesini eklemektir &lt;asp: ComboBox&gt; kaynak görünümünde etiketler. 1 listesi sayfasındaki öğelerin listesini olan güncelleştirilmiş ComboBox içerir.
 
 **1 - Static.aspx listeleme**
 
 [!code-aspx[Main](how-do-i-use-the-combobox-control-vb/samples/sample1.aspx)]
 
-Listeleme 1'de sayfasını açtığınızda, ComboBox önceden mevcut seçeneklerden birini seçebilirsiniz. Diğer bir deyişle, ComboBox yalnızca bir DropDownList denetimi gibi çalışır.
+1'de listeleme sayfasını açtığınızda, ComboBox önceden mevcut seçeneklerden birini seçebilirsiniz. Diğer bir deyişle, ComboBox yalnızca bir DropDownList denetimi gibi çalışır.
 
-Ancak, aynı zamanda mevcut listesinde olmayan yeni bir seçenek (örneğin, süper Spicy) girerek seçeneğiniz vardır. Bu nedenle, ComboBox TextBox denetimi gibi çalışır.
+Ancak, ayrıca var olan bir listede yer almayan yeni bir seçenek (örneğin, süper Spicy) girerek seçeneğiniz vardır. Bu nedenle, ComboBox de TextBox denetimi gibi çalışır.
 
-Etiket denetimi tercih ettiğiniz görünür formu gönderdiğinde olup, önceden var olan çekme bağımsız olarak öğesi veya özel bir öğesi girin. BtnSubmit form gönderme zaman\_işleyicisi yürütür ve etiket güncelleştirmeleri tıklatın (Şekil 4'e bakın).
+Seçtiğiniz etiket denetiminde görünen form gönderdiğinizde olup önceden var olan seçtiğinizden bağımsız olarak öğesi veya özel bir öğeyi girin. Form btnSubmit ne zaman gönderdiğiniz\_işleyicisi yürütülür ve etiket güncelleştirir (bkz: Şekil 4).
 
 
 [![Seçili öğeyi görüntüleme](how-do-i-use-the-combobox-control-vb/_static/image4.jpg)](how-do-i-use-the-combobox-control-vb/_static/image7.png)
 
-**Şekil 04**: seçilen öğe görüntüleme ([tam boyutlu görüntüyü görüntülemek için tıklatın](how-do-i-use-the-combobox-control-vb/_static/image8.png))
+**Şekil 04**: seçilen öğe görüntülemek ([tam boyutlu görüntüyü görmek için tıklatın](how-do-i-use-the-combobox-control-vb/_static/image8.png))
 
 
-ComboBox form gönderildikten sonra seçilen öğeyi almak için aynı DropDownList denetimi özellikleri destekler:
+ComboBox bir form gönderildikten sonra seçili öğeyi almak için aynı DropDownList denetimi özellikleri destekler:
 
-- SelectedItem.Text - seçilen öğenin metni özelliğinin değeri görüntüler.
-- SelectedItem.Value - seçilen öğenin değeri özelliğinin değeri görüntüler veya ComboBox yazılan metin görüntüler.
-- SelectedValue - bu özellik, varsayılan (Başlangıç) seçili öğe belirtmenize olanak tanır ancak bu SelectedItem.Value aynıdır.
+- SelectedItem.Text - seçilen öğenin metin özelliğini değerini görüntüler.
+- SelectedItem.Value - seçilen öğenin değeri özelliğinin değeri görüntüler veya ComboBox yazdığınız metni görüntüler.
+- SelectedValue - bu özellik varsayılan (ilk) seçili öğeye belirtmenize olanak tanıyan dışında SelectedItem.Value aynıdır.
 
-Yazarsanız, özel bir seçim ComboBox sonra özel seçeneği olarak hem SelectedItem.Text hem de SelectedItem.Value özelliklerine atanır.
+Yazarsanız, ardından özel seçim ComboBox uygulamasına özel bir seçim SelectedItem.Text hem SelectedItem.Value özelliklerine atanır.
 
-## <a name="selecting-the-list-of-items-from-the-database"></a>Öğe listesinin veritabanından seçme
+## <a name="selecting-the-list-of-items-from-the-database"></a>Öğelerin listesini veritabanından seçme
 
-ComboBox görüntüler öğe listesinin bir veritabanından alabilir. Örneğin, bir SqlDataSource denetimi, bir ObjectDataSource Denetimi, bir LinqDataSource veya bir EntityDataSource ComboBox bağlayabilirsiniz.
+Bir veritabanından ComboBox görüntüler öğelerinin listesini alabilir. Örneğin, ComboBox SqlDataSource denetimi, ObjectDataSource Denetimi, bir LinqDataSource veya bir EntityDataSource bağlayabilirsiniz.
 
-ComboBox içinde filmler listesini görüntülemek istediğinizi varsayalım. Film veritabanı tablosundan filmler listesini almak istiyor. Aşağıdaki adımları uygulayın:
+Bir ComboBox içinde filmler listesini görüntülemek istediğinizi düşünün. Film veritabanı tablosundan listenin film almak istediğiniz. Aşağıdaki adımları uygulayın:
 
-1. Movies.aspx adlı bir sayfa oluşturma
-2. Bir ScriptManager denetimi, araç çubuğundaki sayfaya AJAX uzantılar sekmesi altında ScriptManager sürükleyerek sayfasına ekleyin.
+1. Movies.aspx adlı bir sayfa oluşturun
+2. Bir ScriptManager denetimi araç kutusunda sayfaya ScriptManager AJAX uzantılar sekmesinde altından sürükleyerek bu sayfaya ekleyin.
 3. ComboBox denetimi ComboBox sayfaya sürükleyerek sayfasına ekleyin.
-4. Tasarım görünümünde, farenizi üzerinde ComboBox denetim getirin ve seçin **veri kaynağı Seç** görev seçeneği (bkz. Şekil 5). Veri Kaynağı Yapılandırma Sihirbazı başlatılır.
+4. Tasarım görünümünde, farenizi ComboBox denetimin üzerine gelin ve seçin **veri kaynağı Seç** görev seçeneği (bkz: Şekil 5). Veri Kaynağı Yapılandırma Sihirbazı başlatılır.
 5. İçinde **veri kaynağı seçin** adım, select &lt;yeni veri kaynağı&gt; seçeneği.
-6. İçinde **bir veri kaynağı türü seç** adım, veritabanını seçin.
-7. İçinde **veri bağlantınızı** adım, veritabanınızı (örneğin, MoviesDB.mdf) seçin.
-8. İçinde **bağlantı dizesini uygulama yapılandırma dosyasını Kaydet** adım, bağlantı dizenizi kaydetme seçeneğini seçin.
-9. İçinde **Select deyimi yapılandırma** adım, filmler veritabanı tablosu seçin ve tüm sütunları seçin.
+6. İçinde **bir veri kaynağı türü seçin** adım, veritabanını seçin.
+7. İçinde **veri bağlantınızı seçin** adım, veritabanınızı (örneğin, MoviesDB.mdf) seçin.
+8. İçinde **bağlantı dizesini uygulama yapılandırma dosyasına Kaydet** adım, bağlantı dizenizi Kaydet seçeneğini belirleyin.
+9. İçinde **Select deyimi yapılandırma** adım, film veritabanı tablosunu seçin ve tüm sütunları seçin.
 10. İçinde **Test sorgusu** adım, son düğmesini tıklatın.
-11. Geri **veri kaynağı Seç** görüntülenecek alan için başlık sütunu ve kimlik sütunu için veri alan (bkz. Şekil) adımı seçin.
-12. Sihirbazı kapatmak için Tamam düğmesini tıklatın.
+11. Geri **veri kaynağı Seç** görüntülenecek alan için başlık sütunu ve kimlik sütunu için veri alanı (bkz. Şekil) adımını seçin.
+12. Sihirbazı kapatmak için Tamam düğmesine tıklayın.
 
 
 [![Veri kaynağı seçme](how-do-i-use-the-combobox-control-vb/_static/image5.jpg)](how-do-i-use-the-combobox-control-vb/_static/image9.png)
 
-**Şekil 05**: veri kaynağı seçme ([tam boyutlu görüntüyü görüntülemek için tıklatın](how-do-i-use-the-combobox-control-vb/_static/image10.png))
+**Şekil 05**: veri kaynağı seçme ([tam boyutlu görüntüyü görmek için tıklatın](how-do-i-use-the-combobox-control-vb/_static/image10.png))
 
 
-[![Veri metni ve değeri alanlarını seçme](how-do-i-use-the-combobox-control-vb/_static/image6.jpg)](how-do-i-use-the-combobox-control-vb/_static/image11.png)
+[![Metin ve değer veri alanlarını seçme](how-do-i-use-the-combobox-control-vb/_static/image6.jpg)](how-do-i-use-the-combobox-control-vb/_static/image11.png)
 
-**Şekil 06**: veri metin ve değer alanları seçme ([tam boyutlu görüntüyü görüntülemek için tıklatın](how-do-i-use-the-combobox-control-vb/_static/image12.png))
+**Şekil 06**: metin ve değer veri alanlarını seçme ([tam boyutlu görüntüyü görmek için tıklatın](how-do-i-use-the-combobox-control-vb/_static/image12.png))
 
 
-Yukarıdaki adımları tamamladıktan sonra filmler filmler veritabanı tablosundan temsil eden bir SqlDataSource denetimi ComboBox bağlıdır. Sayfa için bir kaynak (t biraz biçimlendirme temizlendi) 2 listeleme gibi görünüyor.
+Yukarıdaki adımları tamamladıktan sonra filmler film veritabanı tablosundan temsil eden bir SqlDataSource denetimi ComboBox bağlıdır. Sayfa için kaynak listeleme (ben biraz biçimlendirme temizlendi) 2 şuna benzer.
 
-**Listing 2 - Movies.aspx**
+**2 - Movies.aspx listeleme**
 
 [!code-aspx[Main](how-do-i-use-the-combobox-control-vb/samples/sample2.aspx)]
 
-ComboBox denetimi SqlDataSource denetim noktaları bir DataSourceID özelliği olduğuna dikkat edin. Bir tarayıcıda sayfasını açtığınızda, filmler veritabanından listesi görüntülenir (bkz. Şekil 7). Ya da bir çekme listesinden bir filmi olabilir veya film ComboBox yazarak yeni bir filmi girin.
+ComboBox denetimi SqlDataSource denetimi işaret eden bir DataSourceID özelliği olduğuna dikkat edin. Veritabanından filmler listesi sayfasının bir tarayıcıda açtığınızda görüntülenir (bkz. Şekil 7). Ya da bir seçim listesinden bir filmi olabilir veya film ComboBox yazarak yeni bir film girin.
 
 
-[![Film listesini görüntüleme](how-do-i-use-the-combobox-control-vb/_static/image7.jpg)](how-do-i-use-the-combobox-control-vb/_static/image13.png)
+[![Filmler listesini görüntüleme](how-do-i-use-the-combobox-control-vb/_static/image7.jpg)](how-do-i-use-the-combobox-control-vb/_static/image13.png)
 
-**Şekil 07**: filmler listesini görüntüleme ([tam boyutlu görüntüyü görüntülemek için tıklatın](how-do-i-use-the-combobox-control-vb/_static/image14.png))
+**Şekil 07**: filmler listesini görüntüleme ([tam boyutlu görüntüyü görmek için tıklatın](how-do-i-use-the-combobox-control-vb/_static/image14.png))
 
 
 ## <a name="setting-the-dropdownstyle"></a>DropDownStyle ayarlama
 
-ComboBox davranışını değiştirmek için ComboBox DropDownStyle özelliğini kullanabilirsiniz. Bu özellik var kabul olası değerler:
+ComboBox DropDownStyle özelliği, ComboBox davranışını değiştirmek için kullanabilirsiniz. Bu özelliği var. kabul olası değerler:
 
-- Aşağı açılan - bir açılır liste oku ve tıkladığınızda (varsayılan değer) ComboBox görüntüler özel bir değer girebilirsiniz.
-- Basit - ComboBox otomatik olarak açılır listesini görüntüler ve özel bir değer girebilirsiniz.
-- DropDownList - ComboBox yalnızca bir DropDownList denetimi gibi çalışır.
+- -Açılan oku ve tıkladığınızda bir açılır listede (varsayılan değer) ComboBox görüntüler özel bir değer girebilirsiniz.
+- Basit - ComboBox otomatik olarak açılan listesini görüntüler ve özel bir değer girebilirsiniz.
+- -DropDownList ComboBox yalnızca bir DropDownList denetimi gibi çalışır.
 
-Öğe listesinin görüntülendiğinde açılır arasında basit farklıdır. ComboBox odak taşıdığınızda hemen basit söz konusu olduğunda, liste görüntülenir. Açılan listesinde olması durumunda, öğelerin listesini görmek için oka tıklayın gerekir.
+Öğelerin listesini görüntülendiğinde ve basit açılan arasında farklılık gösterir. ComboBox öğesine odak taşıdığınızda hemen basit söz konusu olduğunda, liste görüntülenir. Açılan söz konusu olduğunda, öğe listesini görmek için oka tıklamanız gerekir.
 
-DropDownList değeri standart DropDownList denetimi gibi yalnızca bir iş için ComboBox denetimine neden olur. Ancak burada önemli bir fark yoktur. Denetimi, önündeki yerleştirilen herhangi bir denetim önünde görüntülenmesi için Internet Explorer'ın daha eski sürümleri sonsuz bir z-index DropDownList denetimiyle görüntüler. ComboBox bir HTML işleyen çünkü &lt;div&gt; yerine bir HTML etiketi &lt;seçin&gt; etiketi ComboBox doğru uyar z sıralamasını.
+DropDownList değeri ComboBox denetimi, standart DropDownList denetimi gibi yalnızca bir çalışmasına neden olur. Ancak burada önemli bir fark yoktur. Denetimin önüne yerleştirilen herhangi bir denetime önünde görünür bir DropDownList denetimi sonsuz bir z-index ile'Internet Explorer'ın eski sürümlerini görüntüler. Bir HTML ComboBox işler çünkü &lt;div&gt; yerine bir HTML etiketi &lt;seçin&gt; etiketi ComboBox doğru uyar z-sıralamasıyla.
 
 ## <a name="setting-the-autocompletemode"></a>AutoCompleteMode özelliği ayarlama
 
-ComboBox AutoCompleteMode özelliği özelliğini birisi metin ComboBox yazdığında ne olacağını belirlemek için kullanın. Bu özellik aşağıdaki olası değerlerini kabul eder:
+ComboBox AutoCompleteMode özelliği özelliği, biri metin ComboBox yazdığında ne olacağını belirlemek için kullanın. Bu özellik, aşağıdaki olası değerleri kabul eder:
 
-- Hiçbiri - (varsayılan değer) ComboBox herhangi otomatik tamamlama davranışı sağlamaz.
-- Önermek - ComboBox listesini görüntüler ve listedeki eşleşen öğe vurgular (bkz. Şekil 8).
-- Append - ComboBox listesi görüntülemez ve (bkz. Şekil 9) yazdığınızı üzerine listeden eşleşen öğe ekler.
-- SuggestAppend - ComboBox görüntüler hem eşleşen öğe (bkz. Şekil 10) yazdığınızı üzerine listeden ekler.
-
-
-[![ComboBox öneride yapar](how-do-i-use-the-combobox-control-vb/_static/image8.jpg)](how-do-i-use-the-combobox-control-vb/_static/image15.png)
-
-**Şekil 08**: ComboBox öneride yapar ([tam boyutlu görüntüyü görüntülemek için tıklatın](how-do-i-use-the-combobox-control-vb/_static/image16.png))
+- Hiçbiri - (varsayılan değer) otomatik tamamlama herhangi bir davranış ComboBox sağlamaz.
+- Öner - açılan kutusu listesi görüntülenir ve listede eşleşen öğe vurgular (bkz. Şekil 8).
+- Append - açılan kutusu listesi görüntülemez ve (bkz. Şekil 9) yazdığınız üzerine listeden eşleşen öğe ekler.
+- SuggestAppend - ComboBox hem görüntüler hem de (bkz. Şekil 10) yazdığınız üzerine listeden eşleşen öğe ekler.
 
 
-[![Eşleşen metin ComboBox ekler](how-do-i-use-the-combobox-control-vb/_static/image9.jpg)](how-do-i-use-the-combobox-control-vb/_static/image17.png)
+[![ComboBox önerisinde](how-do-i-use-the-combobox-control-vb/_static/image8.jpg)](how-do-i-use-the-combobox-control-vb/_static/image15.png)
 
-**Şekil 09**: ComboBox eşleşen metin ekler ([tam boyutlu görüntüyü görüntülemek için tıklatın](how-do-i-use-the-combobox-control-vb/_static/image18.png))
+**Şekil 08**: ComboBox öneri yapar ([tam boyutlu görüntüyü görmek için tıklatın](how-do-i-use-the-combobox-control-vb/_static/image16.png))
+
+
+[![ComboBox eşleşen metin ekler.](how-do-i-use-the-combobox-control-vb/_static/image9.jpg)](how-do-i-use-the-combobox-control-vb/_static/image17.png)
+
+**Şekil 09**: ComboBox eşleşen metin ekler ([tam boyutlu görüntüyü görmek için tıklatın](how-do-i-use-the-combobox-control-vb/_static/image18.png))
 
 
 [![ComboBox önerir ve ekler](how-do-i-use-the-combobox-control-vb/_static/image10.jpg)](how-do-i-use-the-combobox-control-vb/_static/image19.png)
 
-**Şekil 10**: ComboBox önerir ve ekler ([tam boyutlu görüntüyü görüntülemek için tıklatın](how-do-i-use-the-combobox-control-vb/_static/image20.png))
+**Şekil 10**: ComboBox önerir ve ekler ([tam boyutlu görüntüyü görmek için tıklatın](how-do-i-use-the-combobox-control-vb/_static/image20.png))
 
 
 ## <a name="summary"></a>Özet
 
-Bu öğreticide, ComboBox denetimi sabit bir öğe kümesini görüntülemek için nasıl kullanılacağı hakkında bilgi edindiniz. ComboBox denetimi hem öğelerinin ayarlamak statik ve bir veritabanı tablosu biz bağlı. Son olarak, DropDownStyle ve AutoCompleteMode özelliği özelliklerini ayarlayarak ComboBox davranışını değiştirmek nasıl öğrendiniz.
+Bu öğreticide, sabit bir öğe kümesini görüntülemek için ComboBox denetimi kullanmayı öğrendiniz. Biz, ComboBox denetimi hem de bir statik öğelerin kümesi ve bir veritabanı tablosuna bağlı. Son olarak, DropDownStyle ve AutoCompleteMode özelliği özelliklerini ayarlayarak ComboBox davranışını değiştirmek hakkında bilgi edindiniz.
 
 > [!div class="step-by-step"]
 > [Önceki](how-do-i-use-the-combobox-control-cs.md)

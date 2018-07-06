@@ -2,41 +2,40 @@
 uid: mvc/overview/older-versions-1/views/creating-custom-html-helpers-vb
 title: Özel HTML Yardımcıları (VB) oluşturma | Microsoft Docs
 author: microsoft
-description: Bu öğreticinin amacı, MVC görünümlerinizde içinde kullanabileceğiniz özel HTML Yardımcıları nasıl oluşturabileceğinizi göstermektir. HTML Yardımcısı yararlanarak...
+description: Bu öğreticide, MVC görünümlerinizde içinde kullanabileceğiniz özel HTML Yardımcıları nasıl oluşturacağınızı göstermek için hedefidir. HTML Yardımcısı yararlanarak...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/07/2008
 ms.topic: article
 ms.assetid: f96f4800-19ef-44c0-b457-55e777eb5de8
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/views/creating-custom-html-helpers-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6980026e2653eacb71697f9b34def9bc38638726
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
-ms.translationtype: MT
+ms.openlocfilehash: 0b1f4a6afc62eb23d4591d515e973298da4630f9
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30871512"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37396604"
 ---
 <a name="creating-custom-html-helpers-vb"></a>Özel HTML Yardımcıları (VB) oluşturma
 ====================
 tarafından [Microsoft](https://github.com/microsoft)
 
-[PDF indirin](http://download.microsoft.com/download/1/1/f/11f721aa-d749-4ed7-bb89-a681b68894e6/ASPNET_MVC_Tutorial_9_VB.pdf)
+[PDF'yi indirin](http://download.microsoft.com/download/1/1/f/11f721aa-d749-4ed7-bb89-a681b68894e6/ASPNET_MVC_Tutorial_9_VB.pdf)
 
-> Bu öğreticinin amacı, MVC görünümlerinizde içinde kullanabileceğiniz özel HTML Yardımcıları nasıl oluşturabileceğinizi göstermektir. HTML Yardımcıları yararlanarak, can sıkıcı bir standart HTML sayfası oluşturmak için gerçekleştirmeniz gereken HTML etiketleri yazarak miktarını azaltabilir.
+> Bu öğreticide, MVC görünümlerinizde içinde kullanabileceğiniz özel HTML Yardımcıları nasıl oluşturacağınızı göstermek için hedefidir. HTML Yardımcıları avantajlarından yararlanarak, standart bir HTML sayfası oluşturmak için gerçekleştirmeniz gereken HTML etiketleri tedious yazarak miktarını azaltabilirsiniz.
 
 
-Bu öğreticinin amacı, MVC görünümlerinizde içinde kullanabileceğiniz özel HTML Yardımcıları nasıl oluşturabileceğinizi göstermektir. HTML Yardımcıları yararlanarak, can sıkıcı bir standart HTML sayfası oluşturmak için gerçekleştirmeniz gereken HTML etiketleri yazarak miktarını azaltabilir.
+Bu öğreticide, MVC görünümlerinizde içinde kullanabileceğiniz özel HTML Yardımcıları nasıl oluşturacağınızı göstermek için hedefidir. HTML Yardımcıları avantajlarından yararlanarak, standart bir HTML sayfası oluşturmak için gerçekleştirmeniz gereken HTML etiketleri tedious yazarak miktarını azaltabilirsiniz.
 
-Bu öğreticinin ilk bölümü ı ASP.NET MVC çerçevesiyle dahil olan HTML Yardımcıları bazıları açıklanmaktadır. Ardından, t özel HTML Yardımcıları oluşturmak için iki yöntem açıklanmaktadır: özel HTML Yardımcıları paylaşılan bir yöntem oluşturarak ve bir genişletme yöntemi oluşturarak nasıl oluşturulacağını açıklar.
+Bu öğreticinin ilk bölümünde miyim mevcut HTML Yardımcıları ile ASP.NET MVC çerçevesi dahil bazılarını açıklar. Ardından, ben özel HTML Yardımcıları oluşturmak için iki yöntem açıklar: Ben paylaşılan bir yöntem oluşturarak ve bir genişletme yöntemi oluşturarak özel HTML Yardımcıları oluşturma işlemleri açıklanmaktadır.
 
-## <a name="understanding-html-helpers"></a>HTML Yardımcıları anlama
+## <a name="understanding-html-helpers"></a>HTML yardımcılarını anlama
 
-Bir HTML Yardımcısı dizesi döndüren yalnızca bir yöntemdir. Dize istediğiniz içerik herhangi bir türde temsil edebilir. Örneğin, HTML gibi standart HTML etiketlerini işlemek için bir HTML Yardımcıları kullanabilirsiniz `<input>` ve `<img>` etiketler. HTML Yardımcıları sekmesini Şerit veya veritabanı verilerinin bir HTML tablosu gibi daha karmaşık içerik işlemek için de kullanabilirsiniz.
+Bir HTML Yardımcısı yalnızca bir dize döndüren bir yöntem var. Dize herhangi bir türde istediğiniz içerik temsil edebilir. Örneğin, HTML gibi standart HTML etiketlerini işlemek için bir HTML Yardımcıları kullanabilirsiniz `<input>` ve `<img>` etiketler. HTML Yardımcıları, sekme şeridi veya veritabanı verilerinin bir HTML tablosu gibi daha karmaşık içeriğini işlemek için de kullanabilirsiniz.
 
-ASP.NET MVC çerçevesi aşağıdaki standart HTML Yardımcıları (Bu tam bir listesi değildir) kümesini içerir:
+ASP.NET MVC çerçevesi aşağıdaki standart HTML Yardımcıları (Bu tam bir listesi değildir) içermektedir:
 
 - Html.ActionLink()
 - Html.BeginForm()
@@ -50,70 +49,70 @@ ASP.NET MVC çerçevesi aşağıdaki standart HTML Yardımcıları (Bu tam bir l
 - Html.TextArea()
 - Html.TextBox()
 
-Örneğin, 1 listeleme formunda göz önünde bulundurun. Bu form Yardımı iki standart HTML Yardımcıları (bkz. Şekil 1 ') ile işlenir. Bu form kullanır `Html.BeginForm()` ve `Html.TextBox()` yardımcı yöntemler.
+Örneğin, 1 listeleme biçiminde göz önünde bulundurun. Bu formu Yardımı iki standart HTML Yardımcıları (bkz. Şekil 1) ile işlenir. Bu form kullanır `Html.BeginForm()` ve `Html.TextBox()` yardımcı yöntemler.
 
 
-[![Sayfanın HTML Yardımcıları ile çizilir](creating-custom-html-helpers-vb/_static/image2.png)](creating-custom-html-helpers-vb/_static/image1.png)
+[![Sayfanın HTML Yardımcıları ile çizilir.](creating-custom-html-helpers-vb/_static/image2.png)](creating-custom-html-helpers-vb/_static/image1.png)
 
-**Şekil 01**: sayfa işlenen HTML Yardımcıları ile ([tam boyutlu görüntüyü görüntülemek için tıklatın](creating-custom-html-helpers-vb/_static/image3.png))
+**Şekil 01**: sayfa İşlenmiş HTML Yardımcıları ile ([tam boyutlu görüntüyü görmek için tıklatın](creating-custom-html-helpers-vb/_static/image3.png))
 
 
 **Kod 1 – `Views\Home\Index.aspx`**
 
 [!code-aspx[Main](creating-custom-html-helpers-vb/samples/sample1.aspx)]
 
-`Html.BeginForm()` Açma ve kapatma HTML oluşturmak için kullanılan yardımcı yöntem `<form>` etiketler. Dikkat `Html.BeginForm()` yöntemi kullanarak bir içinde çağrılır deyimi. Sağlar deyimiyle `<form>` etiketi kullanarak sonunda kapalı bloğu.
+`Html.BeginForm()` Açılış ve kapanış HTML oluşturmak için kullanılan yardımcı yöntem `<form>` etiketler. Dikkat `Html.BeginForm()` kullanarak içinde yöntemi çağrıldığında deyimi. Using deyimi, sağlar, `<form>` etiketini kullanarak sonunda kapalı blok.
 
-Kullanarak bir oluşturmak yerine tercih ederseniz bloğu kapatmak için Html.EndForm() yardımcı yöntemini çağırabilir `<form>` etiketi. Bir açma oluşturma ve kapatma için yaklaşımı kullanmak `<form>` size en sezgisel görünen etiket.
+Bir kullanarak oluşturmak yerine tercih ederseniz, blok kapatmak için Html.EndForm() yardımcı yöntemini çağırabilirsiniz `<form>` etiketi. Oluşturma bir açılış ve kapanış yaklaşımı kullanmak `<form>` size en kolay görünen etiket.
 
-`Html.TextBox()` Yardımcı yöntemler listeleme 1'de HTML oluşturmak için kullanılan `<input>` etiketler. Tarayıcınızda kaynağı görüntüle seçeneğini belirlerseniz, listeleme 2 HTML kaynağında görürsünüz. Kaynak standart HTML etiketleri içerdiğine dikkat edin.
+`Html.TextBox()` Yardımcı yöntemler listeleme 1'de HTML oluşturmak için kullanılan `<input>` etiketler. Kaynağı Görüntüle tarayıcınıza seçerseniz, HTML kaynağını listeleme 2'de görürsünüz. Kaynak standart HTML etiketleri içerdiğine dikkat edin.
 
 > [!IMPORTANT]
-> dikkat `Html.TextBox()`-HTML Yardımcısı ile işlenir `<%= %>` yerine etiketler `<% %>` etiketler. Sonra eşittir işareti eklemezseniz, hiçbir şey tarayıcıda görüntülenen.
+> dikkat `Html.TextBox()`-HTML Yardımcısı ile işlenir `<%= %>` yerine etiketleri `<% %>` etiketler. Ardından, eşittir işareti eklemezseniz, hiçbir şey tarayıcıda görüntülenen.
 
-ASP.NET MVC çerçevesi Yardımcıları, küçük bir kümesini içerir. Büyük olasılıkla, MVC çerçevesi özel HTML Yardımcıları ile genişletmek gerekir. Bu öğreticinin geri kalanında içinde özel HTML Yardımcıları oluşturma iki yöntemleri öğrenin.
+ASP.NET MVC çerçevesi Yardımcıları küçük bir kümesini içerir. Büyük olasılıkla özel HTML Yardımcıları ile MVC çerçevesi genişletmek gerekir. Bu öğreticinin geri kalanında içinde özel HTML Yardımcıları oluşturmak için iki yöntem öğrenin.
 
 **Kod 2 – `Index.aspx Source`**
 
 [!code-aspx[Main](creating-custom-html-helpers-vb/samples/sample2.aspx)]
 
-### <a name="creating-html-helpers-with-shared-methods"></a>HTML Yardımcıları ile paylaşılan yöntemi oluşturma
+### <a name="creating-html-helpers-with-shared-methods"></a>Paylaşılan yöntemleriyle HTML Yardımcıları oluşturma
 
-Yeni bir HTML Yardımcısı oluşturmanın en kolay yolu, bir dize döndürür paylaşılan bir yöntem oluşturmaktır. Örneğin, bir HTML işleyen yeni bir HTML Yardımcısı oluşturmaya karar düşünün `<label>` etiketi. Sınıfı listeleme 2'de oluşturmak için kullanabileceğiniz bir `<label>`.
+Yeni bir HTML Yardımcısı oluşturmanın en kolay yolu, bir dize döndürür paylaşılan bir yöntemine oluşturmaktır. Örneğin, bir HTML işleyen yeni bir HTML Yardımcısı oluşturmaya karar verdiğinizi düşünelim `<label>` etiketi. Sınıfı listeleme 2'de işlemek için kullanabileceğiniz bir `<label>`.
 
 **Kod 2 – `Helpers\LabelHelper.vb`**
 
 [!code-vb[Main](creating-custom-html-helpers-vb/samples/sample3.vb)]
 
-2. listeleme sınıfı hakkında özel bir şey yoktur. `Label()` Yöntemi yalnızca bir dize döndürür.
+Özel sınıf 2 listeleme hakkında bir şey yoktur. `Label()` Yöntemi yalnızca bir dize döndürür.
 
-Listeleme 3 değiştirilmiş dizin görünümünde kullanan `LabelHelper` HTML oluşturmak için `<label>` etiketler. Görünüm içerir bildirimi bir `<%@ imports %>` Application1.Helpers ad alanı içe aktaran yönergesi.
+Listeleme 3'te değiştirilmiş dizin görünümünün kullanan `LabelHelper` HTML oluşturmak için `<label>` etiketler. Görünüm içeren bildirimi bir `<%@ imports %>` Application1.Helpers ad alanını içeri aktarır yönergesi.
 
 **Kod 2 – `Views\Home\Index2.aspx`**
 
 [!code-aspx[Main](creating-custom-html-helpers-vb/samples/sample4.aspx)]
 
-### <a name="creating-html-helpers-with-extension-methods"></a>HTML Yardımcıları genişletme yöntemleri ile oluşturma
+### <a name="creating-html-helpers-with-extension-methods"></a>Genişletme yöntemleri ile HTML Yardımcıları oluşturma
 
-Oluşturmak istiyorsanız çalışmaya HTML Yardımcıları genişletme yöntemleri oluşturmanıza gerek sonra ASP.NET MVC çerçevesi dahil standart HTML Yardımcıları ister. Genişletme yöntemleri, varolan bir sınıfa yeni yöntemler eklemenize olanak tanır. Bir HTML yardımcı yöntem oluştururken, yeni yöntemler ekleyin `HtmlHelper` bir görünümün Html özelliği tarafından temsil edilen sınıfı.
+Çalışmaya HTML Yardımcıları oluşturmak istiyorsanız, genişletme yöntemleri oluşturmanız gerekir ASP.NET MVC çerçevesi dahil standart HTML yardımcıları gibi çalışır. Genişletme yöntemleri varolan bir sınıf için yeni yöntemler eklemenize imkan tanır. Bir HTML yardımcı yöntemi oluştururken, yeni yöntemler ekleyin `HtmlHelper` bir görünümün Html özelliği tarafından temsil edilen sınıf.
 
-Adlı bir genişletme yöntemi listeleme 3'te Visual Basic modülü ekler `Label()` için `HtmlHelper` sınıfı. Bu modül hakkında dikkat etmelidir şunları vardır. İlk olarak, modül ile donatılmış fark `<Extension()>` özniteliği. Bu öznitelik kullanmak için içeri aktarmanız gerekir `System.Runtime.CompilerServices` ad alanı
+Visual Basic module'u listeleme 3'te adlı bir genişletme yöntemi ekler `Label()` için `HtmlHelper` sınıfı. Bu modül hakkında fark etmişsinizdir şey birkaç vardır. İlk olarak, modül ile donatılmış fark `<Extension()>` özniteliği. Bu öznitelik kullanmak için aktarmanız gerekir `System.Runtime.CompilerServices` ad alanı
 
-İkinci olarak, dikkat ilk parametresi `Label()` yöntemi temsil `HtmlHelper` sınıfı. Bir genişletme yöntemi ilk parametresi uzantısı yöntemin genişlettiği sınıfı gösterir.
+İkinci olarak, dikkat ilk parametresi `Label()` yöntemi temsil `HtmlHelper` sınıfı. Genişletme yönteminin ilk parametresi genişletme yönteminin genişlettiği sınıfın gösterir.
 
 **Kod 3 – `Helpers\LabelExtensions.vb`**
 
 [!code-vb[Main](creating-custom-html-helpers-vb/samples/sample5.vb)]
 
-Bir genişletme yöntemi oluşturun ve başarılı bir şekilde uygulamanızı sonra genişletme yöntemi Visual Studio IntelliSense tüm bir sınıfın diğer yöntemleri gibi görünür. (bkz: Şekil 2). Tek fark, bunları (aşağı ok simgesi) yanındaki özel simgesiyle yöntemleri görünür bu uzantısıdır.
+Bir genişletme yöntemi oluşturma ve uygulamanızı başarıyla oluşturmak sonra Visual Studio IntelliSense gibi tüm diğer yöntemleri bir sınıfın içinde genişletme yöntemi görünür (bkz: Şekil 2). Tek fark, bu uzantı yöntemleri özel bir simge (aşağı ok simgesi) yanında görünür.
 
 
-[![Html.Label() genişletme yöntemi kullanma](creating-custom-html-helpers-vb/_static/image5.png)](creating-custom-html-helpers-vb/_static/image4.png)
+[![Html.Label() genişletme yöntemini kullanma](creating-custom-html-helpers-vb/_static/image5.png)](creating-custom-html-helpers-vb/_static/image4.png)
 
-**Şekil 02**: Html.Label() genişletme yöntemi kullanarak ([tam boyutlu görüntüyü görüntülemek için tıklatın](creating-custom-html-helpers-vb/_static/image6.png))
+**Şekil 02**: Html.Label() genişletme yöntemi kullanarak ([tam boyutlu görüntüyü görmek için tıklatın](creating-custom-html-helpers-vb/_static/image6.png))
 
 
-Listeleme 4 değiştirilmiş dizin görünümünde tüm işlemek için Html.Label() genişletme yöntemi kullanan kendi &lt;etiket&gt; etiketler.
+Listeleme 4'te değiştirilmiş dizin görünümü, tüm işlemek için Html.Label() genişletme yöntemini kullanır. kendi &lt;etiket&gt; etiketler.
 
 **4 listeleme – `Views\Home\Index3.aspx`**
 
@@ -121,10 +120,10 @@ Listeleme 4 değiştirilmiş dizin görünümünde tüm işlemek için Html.Labe
 
 ## <a name="summary"></a>Özet
 
-Bu öğreticide, özel HTML Yardımcıları oluşturmak için iki yöntem öğrendiniz. İlk olarak, özel bir oluşturma öğrenilen `Label()` paylaşılan bir yöntem oluşturarak HTML Yardımcısı bir dize döndürür. Ardından, özel bir oluşturma öğrenilen `Label()` üzerinde bir genişletme yöntemi oluşturarak HTML yardımcı yöntem `HtmlHelper` sınıfı.
+Bu öğreticide, özel HTML Yardımcıları oluşturmak için iki yöntem öğrendiniz. İlk olarak, özel bir oluşturma işleminin nasıl yapılacağını öğrendiniz `Label()` HTML Yardımcısını, paylaşılan bir yöntem oluşturarak, bir dize döndürür. Ardından, özel bir oluşturma işleminin nasıl yapılacağını öğrendiniz `Label()` HTML yardımcı yöntem üzerinde bir genişletme yöntemi oluşturarak `HtmlHelper` sınıfı.
 
-Bu öğreticide, oldukça basit bir HTML yardımcı yöntemi oluşturma üzerine odaklanır. Bir HTML Yardımcısı istediğiniz kadar karmaşık olabileceğini unutmayın. Ağaç görünümleri, menüler veya veritabanı veri tabloları gibi zengin içerik işlemek HTML Yardımcıları oluşturabilirsiniz.
+Bu öğreticide, son derece basit bir HTML yardımcı yöntem geliştirmeye odaklanır. Bir HTML Yardımcısı istediğiniz kadar karmaşık olabileceğini unutmayın. Ağaç görünümleri, menüler ya da veritabanı verilerinin tablolar gibi zengin içerik oluşturan bir HTML Yardımcıları oluşturabilirsiniz.
 
 > [!div class="step-by-step"]
 > [Önceki](asp-net-mvc-views-overview-vb.md)
-> [sonraki](using-the-tagbuilder-class-to-build-html-helpers-vb.md)
+> [İleri](using-the-tagbuilder-class-to-build-html-helpers-vb.md)
