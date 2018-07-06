@@ -4,29 +4,26 @@ title: '[Bunu nasıl yaparım:] Visual Studio 2005 kullanarak ASP.NET AJAX uygul
 author: scottgolightly
 description: Bu videoda, biz ASP.NET AJAX uygulamalarında hata ayıklamak için Visual Studio 2005 kullanmayı öğrenin. ScriptManager JavaScript erişmek için nasıl kullanıldığını gösterilen...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/16/2007
-ms.topic: article
 ms.assetid: 0c766dac-5366-47e4-baa4-3a9fd71e4b80
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-debug-aspnet-ajax-applications-using-visual-studio-2005
 msc.type: video
-ms.openlocfilehash: c8f7bc24f6315d7dd6119fdf5101270d06495f9e
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: b28469f248c3fdb35033890996ab7c75bdf1fde2
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37397535"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37801725"
 ---
-<a name="how-do-i-debug-aspnet-ajax-applications-using-visual-studio-2005"></a><span data-ttu-id="6de51-105">[Bunu nasıl yaparım:] Visual Studio 2005 kullanarak ASP.NET AJAX uygulamalarının hatalarını ayıklama?</span><span class="sxs-lookup"><span data-stu-id="6de51-105">[How Do I:] Debug ASP.NET AJAX Applications Using Visual Studio 2005?</span></span>
+<a name="how-do-i-debug-aspnet-ajax-applications-using-visual-studio-2005"></a><span data-ttu-id="6793e-105">[Bunu nasıl yaparım:] Visual Studio 2005 kullanarak ASP.NET AJAX uygulamalarının hatalarını ayıklama?</span><span class="sxs-lookup"><span data-stu-id="6793e-105">[How Do I:] Debug ASP.NET AJAX Applications Using Visual Studio 2005?</span></span>
 ====================
-<span data-ttu-id="6de51-106">tarafından [Scott Golightly](https://github.com/scottgolightly)</span><span class="sxs-lookup"><span data-stu-id="6de51-106">by [Scott Golightly](https://github.com/scottgolightly)</span></span>
+<span data-ttu-id="6793e-106">tarafından [Scott Golightly](https://github.com/scottgolightly)</span><span class="sxs-lookup"><span data-stu-id="6793e-106">by [Scott Golightly](https://github.com/scottgolightly)</span></span>
 
-<span data-ttu-id="6de51-107">Bu videoda, biz ASP.NET AJAX uygulamalarında hata ayıklamak için Visual Studio 2005 kullanmayı öğrenin.</span><span class="sxs-lookup"><span data-stu-id="6de51-107">In this video we learn how to use Visual Studio 2005 to debug ASP.NET AJAX applications.</span></span> <span data-ttu-id="6de51-108">Biz ScriptManager ASP.NET AJAX sunucu denetimleri tarafından oluşturulan JavaScript erişmek için nasıl kullanıldığını gösterilir ve ayrıca bir izleme iletisi ve bir kesme noktası eklemek için Sys.Debug sınıfını kullanmayı görüyoruz.</span><span class="sxs-lookup"><span data-stu-id="6de51-108">We are shown how the ScriptManager is used to access the JavaScript created by the ASP.NET AJAX server controls, and we also see how to use the Sys.Debug class to insert a trace message and a breakpoint.</span></span>
+<span data-ttu-id="6793e-107">Bu videoda, biz ASP.NET AJAX uygulamalarında hata ayıklamak için Visual Studio 2005 kullanmayı öğrenin.</span><span class="sxs-lookup"><span data-stu-id="6793e-107">In this video we learn how to use Visual Studio 2005 to debug ASP.NET AJAX applications.</span></span> <span data-ttu-id="6793e-108">Biz ScriptManager ASP.NET AJAX sunucu denetimleri tarafından oluşturulan JavaScript erişmek için nasıl kullanıldığını gösterilir ve ayrıca bir izleme iletisi ve bir kesme noktası eklemek için Sys.Debug sınıfını kullanmayı görüyoruz.</span><span class="sxs-lookup"><span data-stu-id="6793e-108">We are shown how the ScriptManager is used to access the JavaScript created by the ASP.NET AJAX server controls, and we also see how to use the Sys.Debug class to insert a trace message and a breakpoint.</span></span>
 
-[<span data-ttu-id="6de51-109">&#9654;Videoyu (8 dakika)</span><span class="sxs-lookup"><span data-stu-id="6de51-109">&#9654; Watch video (8 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-debug-aspnet-ajax-applications-using-visual-studio-2005)
+[<span data-ttu-id="6793e-109">&#9654;Videoyu (8 dakika)</span><span class="sxs-lookup"><span data-stu-id="6793e-109">&#9654; Watch video (8 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-debug-aspnet-ajax-applications-using-visual-studio-2005)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="6de51-110">[Önceki](how-do-i-use-the-aspnet-ajax-profile-services.md)
-> [İleri](how-do-i-build-a-custom-aspnet-ajax-server-control.md)</span><span class="sxs-lookup"><span data-stu-id="6de51-110">[Previous](how-do-i-use-the-aspnet-ajax-profile-services.md)
+> <span data-ttu-id="6793e-110">[Önceki](how-do-i-use-the-aspnet-ajax-profile-services.md)
+> [İleri](how-do-i-build-a-custom-aspnet-ajax-server-control.md)</span><span class="sxs-lookup"><span data-stu-id="6793e-110">[Previous](how-do-i-use-the-aspnet-ajax-profile-services.md)
 [Next](how-do-i-build-a-custom-aspnet-ajax-server-control.md)</span></span>

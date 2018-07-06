@@ -4,29 +4,26 @@ title: '[7. Ders:] Kullanıcı arabirimi denetimlerine veri bağlama | Microsoft
 author: microsoft
 description: Bu derste, ASP.NET'te verileri görüntülemek hakkında bilgi edineceksiniz&#160;2.0 web uygulamaları aracılığıyla bazı yeni veri bağlama denetimleri.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/29/2005
-ms.topic: article
 ms.assetid: 49625de7-06c3-484c-bd76-d322b9ca41ea
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/building-20-applications/lesson-7-databinding-to-user-interface-controls
 msc.type: video
-ms.openlocfilehash: aa7d2143e60d504041302f85322970aeffbc1011
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 868072c6a3ccc8d461cd86d2092b5b8c82ed7fc9
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37361408"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37802235"
 ---
-<a name="lesson-7-databinding-to-user-interface-controls"></a><span data-ttu-id="89f4c-103">[7. Ders:] Kullanıcı arabirimi denetimlerine veri bağlama</span><span class="sxs-lookup"><span data-stu-id="89f4c-103">[Lesson 7:] Databinding to User Interface Controls</span></span>
+<a name="lesson-7-databinding-to-user-interface-controls"></a><span data-ttu-id="672c1-103">[7. Ders:] Kullanıcı arabirimi denetimlerine veri bağlama</span><span class="sxs-lookup"><span data-stu-id="672c1-103">[Lesson 7:] Databinding to User Interface Controls</span></span>
 ====================
-<span data-ttu-id="89f4c-104">tarafından [Microsoft](https://github.com/microsoft)</span><span class="sxs-lookup"><span data-stu-id="89f4c-104">by [Microsoft](https://github.com/microsoft)</span></span>
+<span data-ttu-id="672c1-104">tarafından [Microsoft](https://github.com/microsoft)</span><span class="sxs-lookup"><span data-stu-id="672c1-104">by [Microsoft](https://github.com/microsoft)</span></span>
 
-<span data-ttu-id="89f4c-105">Bu derste, bazı yeni veriye bağlı denetimler aracılığıyla ASP.NET2.0 web uygulamalarınızdaki verileri görüntülemeyi öğreneceksiniz.</span><span class="sxs-lookup"><span data-stu-id="89f4c-105">In this lesson, you will learn how to display data in your ASP.NET2.0 web applications through some of the new databound controls.</span></span>
+<span data-ttu-id="672c1-105">Bu derste, bazı yeni veriye bağlı denetimler aracılığıyla ASP.NET2.0 web uygulamalarınızdaki verileri görüntülemeyi öğreneceksiniz.</span><span class="sxs-lookup"><span data-stu-id="672c1-105">In this lesson, you will learn how to display data in your ASP.NET2.0 web applications through some of the new databound controls.</span></span>
 
-[<span data-ttu-id="89f4c-106">&#9654;Videoyu (22 dakika)</span><span class="sxs-lookup"><span data-stu-id="89f4c-106">&#9654; Watch video (22 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/lesson-7-databinding-to-user-interface-controls)
+[<span data-ttu-id="672c1-106">&#9654;Videoyu (22 dakika)</span><span class="sxs-lookup"><span data-stu-id="672c1-106">&#9654; Watch video (22 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/lesson-7-databinding-to-user-interface-controls)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="89f4c-107">[Önceki](lesson-6-working-with-stylesheets-and-master-pages.md)
-> [İleri](lesson-8-working-with-the-gridview-and-formview.md)</span><span class="sxs-lookup"><span data-stu-id="89f4c-107">[Previous](lesson-6-working-with-stylesheets-and-master-pages.md)
+> <span data-ttu-id="672c1-107">[Önceki](lesson-6-working-with-stylesheets-and-master-pages.md)
+> [İleri](lesson-8-working-with-the-gridview-and-formview.md)</span><span class="sxs-lookup"><span data-stu-id="672c1-107">[Previous](lesson-6-working-with-stylesheets-and-master-pages.md)
 [Next](lesson-8-working-with-the-gridview-and-formview.md)</span></span>
