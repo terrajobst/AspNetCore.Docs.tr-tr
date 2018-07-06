@@ -4,19 +4,16 @@ title: Veritabanı verilerini güncelleştirme - ASP.NET Web sayfaları ile tan�
 author: tfitzmac
 description: Bu öğreticide, ASP.NET Web sayfaları (Razor) kullandığınızda (değiştirin) var olan bir veritabanını girişini güncelleştirmek gösterilmektedir. Bu seriyi bitirdiğinizi th...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/02/2018
-ms.topic: article
 ms.assetid: ac86ec9c-6b69-485b-b9e0-8b9127b13e6b
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/updating-data
 msc.type: authoredcontent
-ms.openlocfilehash: 259034a795b9dff7001165a182bc0e84bb690491
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 948f5b5933669a43bf37dc0317ad644660dc67e9
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37377064"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37842908"
 ---
 <a name="introducing-aspnet-web-pages---updating-database-data"></a>ASP.NET Web sayfalarına giriş - veritabanı verilerini güncelleştirme
 ====================

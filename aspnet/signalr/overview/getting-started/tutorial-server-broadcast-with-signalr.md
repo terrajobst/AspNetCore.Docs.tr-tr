@@ -4,19 +4,16 @@ title: 'Öğretici: SignalR 2 ile sunucu yayını | Microsoft Docs'
 author: tdykstra
 description: Bu öğreticide, ASP.NET SignalR 2 sunucu yayın işlevselliği sağlamak için kullanan bir web uygulaması oluşturma işlemi gösterilmektedir. Sunucu yayın anlamına gelir, commun...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/13/2014
-ms.topic: article
 ms.assetid: 1568247f-60b5-4eca-96e0-e661fbb2b273
-ms.technology: dotnet-signalr
 msc.legacyurl: /signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: ff1eeee407ac7628afd587ca8b9102d0191ea356
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 0e86fbea9c5668e20fce7a494c76c52f9c089c09
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37367934"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37820703"
 ---
 <a name="tutorial-server-broadcast-with-signalr-2"></a>Öğretici: SignalR 2 ile sunucu yayını
 ====================
@@ -196,7 +193,7 @@ Yalnızca her StockTickerHub örneğinden tekil StockTicker örneğe bir başvur
 
 ### <a name="register-the-signalr-route"></a>SignalR yol kaydetme
 
-Sunucunun kesecek ve SignalR ile doğrudan hangi URL'sini de bilmeniz gerekir. Ekleyeceğiniz yapın ve OWIN başlangıç sınıfı.
+Sunucunun kesecek ve SignalR ile doğrudan hangi URL'sini de bilmeniz gerekir. Bunu yapmak için OWIN başlangıç sınıfı ekleyin:
 
 1. İçinde **Çözüm Gezgini**projeye sağ tıklayın ve ardından **Ekle | OWIN başlangıç sınıfı**. Sınıf adı **Startup.cs**.
 2. Değiştirin **Startup.cs** aşağıdaki.

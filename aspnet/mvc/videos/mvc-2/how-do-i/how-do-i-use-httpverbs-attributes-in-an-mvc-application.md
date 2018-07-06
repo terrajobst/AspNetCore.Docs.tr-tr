@@ -4,19 +4,16 @@ title: Nasıl Yaparım Bir MVC uygulamasında kullanmak HttpVerbs öznitelikleri
 author: rick-anderson
 description: Bu video Chris piksel, MVC eylemleri erişimi denetlemek için HttpVerbs özniteliklerini kullanma işlemi gösterilmektedir. İlk olarak, örnek bir uygulama ile bir varsayılan ortak oluşturuldu...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 12/30/2009
-ms.topic: article
 ms.assetid: d2488a1d-0f3f-4994-8fbe-4f59b8c9503e
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/how-do-i-use-httpverbs-attributes-in-an-mvc-application
 msc.type: video
-ms.openlocfilehash: 7319c89e01b2316c37c9d4bfc101ce9dd0f7c2ee
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 2932480ba7e573e3e093ccfd69ac88e8e95df623
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37379040"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37809955"
 ---
 <a name="how-do-i-use-httpverbs-attributes-in-an-mvc-application"></a>Nasıl Yaparım Bir MVC uygulamasında kullanmak HttpVerbs özniteliklerini?
 ====================

@@ -4,19 +4,16 @@ title: NerdDinner Öğreticisine giriş | Microsoft Docs
 author: shanselman
 description: Yeni bir çerçeve öğrenmenin en iyi yolu olan bir şey oluşturmaktır. Bu öğreticide ASP.NE kullanarak küçük ancak tam bir uygulama oluşturma hakkında bilgi vermektedir...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/27/2010
-ms.topic: article
 ms.assetid: 397522d5-0402-4b94-b810-a2fb564f869d
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/introducing-the-nerddinner-tutorial
 msc.type: authoredcontent
-ms.openlocfilehash: 735a775752beda3fc24852422b1ff9d60a7c46b5
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 9188df1eca7f488502640bc17d5034f93f4ac82c
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37371634"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37805116"
 ---
 <a name="introducing-the-nerddinner-tutorial"></a>NerdDinner Öğreticisine giriş
 ====================

@@ -4,19 +4,16 @@ title: ASP.NET MVC 3 (VB.NET) ile çalışmaya başlama | Microsoft Docs
 author: rick-anderson
 description: Microsoft Visual Web Developer 2010 VB.NET kullanarak Express kullanarak bir ASP.NET MVC Web uygulaması oluşturmaya ilişkin temel bilgileri.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/12/2012
-ms.topic: article
 ms.assetid: c2f134f3-fc6b-4603-823f-d1eabe55bba2
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb
 msc.type: chapter
-ms.openlocfilehash: 361f73f2bbfe5ddf25427c664998eac8de711f2c
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: dfab03d4ef3bfcee4f44e16470fabcfaa24cf6d0
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37393723"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37833594"
 ---
 <a name="getting-started-with-aspnet-mvc-3-vbnet"></a>ASP.NET MVC 3 (VB.NET) ile çalışmaya başlama
 ====================

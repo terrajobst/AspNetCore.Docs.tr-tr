@@ -4,19 +4,16 @@ title: ASP.NET Web sayfaları (Razor) SSS | Microsoft Docs
 author: tfitzmac
 description: Bu makalede, Webmatrix'i ve ASP.NET Web sayfaları (Razor) hakkında sık sorulan bazı sorular listelenmektedir. Öğretici ASP.NET Web Pages'da (R... kullanılan yazılım sürümleri
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/07/2014
-ms.topic: article
 ms.assetid: b137bd04-25e1-47cb-9d96-ef2e179ecf1f
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/overview/getting-started/aspnet-web-pages-razor-faq
 msc.type: authoredcontent
-ms.openlocfilehash: 9546a5639da6baeadf9f01dfbe7da59d3dc4d6c6
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 1f97056c952757ea2d009eaca57d904791e80ca3
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37374762"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37814242"
 ---
 <a name="aspnet-web-pages-razor-faq"></a>ASP.NET Web sayfaları (Razor) SSS
 ====================

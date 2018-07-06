@@ -4,19 +4,16 @@ title: Ana/ayrıntı | Microsoft Docs
 author: rick-anderson
 description: Bu öğreticiler bir açılan liste ve Ayrıntılar GridView denetimindeki ana kayıtları görüntülemek nasıl gösterir.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/05/2011
-ms.topic: article
 ms.assetid: 104e4d22-22cf-44a4-aefe-f604f62e0cf8
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/masterdetail
 msc.type: chapter
-ms.openlocfilehash: 66aec5d3d8148c3113518d893f1b8cf8855e0912
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 456b0c08bd54a6aa8c40e4b37072021569b7b1aa
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37374898"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37823848"
 ---
 <a name="masterdetail"></a>Ana/ayrıntı
 ====================

@@ -4,19 +4,16 @@ title: (C#) Repeater'da ConfirmButton kullanma | Microsoft Docs
 author: wenz
 description: Evet, AJAX Denetim Araç Seti ConfirmButton genişletici oluşturur/Kullanıcı bir düğmeyi tıkladığında açılır penceresi (LinkButton denetim dahil). Yalnızca Evet ise...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: a973ed3e-400c-4925-ace2-0b086b479301
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/confirmbutton/using-a-confirmbutton-in-a-repeater-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d3706578427442a7a1034596bdd9bd89eecf5f67
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: fd0cdde5db44d1437000008f1fb5e7b13f0ca77a
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37369757"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37805242"
 ---
 <a name="using-a-confirmbutton-in-a-repeater-c"></a>(C#) Repeater'da ConfirmButton kullanma
 ====================

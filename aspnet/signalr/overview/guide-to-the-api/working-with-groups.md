@@ -4,19 +4,16 @@ title: Signalr'da gruplarla çalışma | Microsoft Docs
 author: pfletcher
 description: Bu konu, grup üyeliği bilgileri Hub API'si ile kalıcı hale getirmek açıklar.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/10/2014
-ms.topic: article
 ms.assetid: cd378ecd-3e9e-4236-b902-65916d85a048
-ms.technology: dotnet-signalr
 msc.legacyurl: /signalr/overview/guide-to-the-api/working-with-groups
 msc.type: authoredcontent
-ms.openlocfilehash: b4ac3053a5b324de11d69865c92c6783aadab7f8
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: c1df772c19bfa89c1d780d09d56c6bc4a79967c6
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37378264"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37806199"
 ---
 <a name="working-with-groups-in-signalr"></a>Signalr'da gruplarla çalışma
 ====================

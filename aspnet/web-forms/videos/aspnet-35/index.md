@@ -4,19 +4,16 @@ title: ASP.NET 3.5 | Microsoft Docs
 author: rick-anderson
 description: Nasıl yeni özellikler üzerinde bir Vurgu ile ASP.NET 3.5 uygulamaları oluşturun.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/05/2011
-ms.topic: article
 ms.assetid: 2e6e9c24-bb97-446a-b05e-1bd88824d352
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-35
 msc.type: chapter
-ms.openlocfilehash: b24d0261d2a788372f09cd9e22aff29ba914c826
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 2f09c4eec77da36b5b130e58cc939aaec2cc27a1
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37367596"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37822398"
 ---
 <a name="aspnet-35"></a>ASP.NET 3.5
 ====================

@@ -4,19 +4,16 @@ title: Rolleri (VB) oluşturma ve yönetme | Microsoft Docs
 author: rick-anderson
 description: Bu öğreticide, rolleri framework yapılandırmak için gerekli adımları inceler. Web sayfalarının oluşturun ve rollerini silme oluşturacaksınız.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/24/2008
-ms.topic: article
 ms.assetid: 83af9f5f-9a00-4f83-8afc-e98bdd49014e
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-security/roles/creating-and-managing-roles-vb
 msc.type: authoredcontent
-ms.openlocfilehash: fbcd8613327ada581289ce613b5d0e0a09df4e19
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: cbfa06ec50693f9640c813288e7c9175db670351
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37386620"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37819610"
 ---
 <a name="creating-and-managing-roles-vb"></a>Rolleri (VB) oluşturma ve yönetme
 ====================

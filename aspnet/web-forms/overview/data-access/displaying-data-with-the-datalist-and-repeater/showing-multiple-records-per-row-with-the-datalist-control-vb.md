@@ -4,19 +4,16 @@ title: DataList denetimi (VB) ile satır başına birden çok kayıt gösterme |
 author: rick-anderson
 description: Bu kısa öğreticide DataList'in düzeni RepeatColumns ve RepeatDirection özelliklerini kullanarak özelleştirmek nasıl şunları keşfedeceğiz.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/13/2006
-ms.topic: article
 ms.assetid: f555c531-bf33-4699-9987-42dbfef23c1f
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/showing-multiple-records-per-row-with-the-datalist-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: cad9967d35ed870ae18579e65eb866b794866aad
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 55e07159fd9d0f4c750a2522feb0538a1cfb4bea
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37393940"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37831893"
 ---
 <a name="showing-multiple-records-per-row-with-the-datalist-control-vb"></a>DataList denetimi (VB) ile satır başına birden çok kayıt gösterme
 ====================

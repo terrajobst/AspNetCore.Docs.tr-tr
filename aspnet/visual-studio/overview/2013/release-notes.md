@@ -4,19 +4,16 @@ title: ASP.NET ve Web Araçları Visual Studio 2013 sürüm notları | Microsoft
 author: microsoft
 description: Bu belgede, Visual Studio 2013 için ASP.NET and Web Tools sürümü açıklanmaktadır.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/17/2013
-ms.topic: article
 ms.assetid: 08815768-2702-42ae-ae85-0a59934a11d1
-ms.technology: ''
 msc.legacyurl: /visual-studio/overview/2013/release-notes
 msc.type: authoredcontent
-ms.openlocfilehash: 94050d752348cadf4ed1044e6d8f96834ec981d8
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 0f5b8d6a4e0cbfefb7a1fa1d81d9bd27af4a5ad6
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37370571"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37833730"
 ---
 <a name="aspnet-and-web-tools-for-visual-studio-2013-release-notes"></a>ASP.NET ve Web Araçları Visual Studio 2013 sürüm notları
 ====================

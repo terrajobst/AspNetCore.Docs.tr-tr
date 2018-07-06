@@ -4,19 +4,16 @@ title: MVC tarafından önerilen kaynaklar | Microsoft Docs
 author: Rick-Anderson
 description: Bu konu, ASP.NET MVC 5 hakkında belge kaynakları için bağlantılar sağlar. Harika blogda, stackoverflow iş parçacığı veya olacaktır herhangi bir bağlantıyı biliyorsanız...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/10/2014
-ms.topic: article
 ms.assetid: 7958d725-e958-4566-a85b-535eeb985f94
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/getting-started/recommended-resources-for-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 2098dc48e2c253f146e270866765a509e302081f
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 2b9ec425654307a6685537cc058bfd25ff2ca8de
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37363290"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37821754"
 ---
 <a name="mvc-recommended-resources"></a>MVC tarafından önerilen kaynaklar
 ====================

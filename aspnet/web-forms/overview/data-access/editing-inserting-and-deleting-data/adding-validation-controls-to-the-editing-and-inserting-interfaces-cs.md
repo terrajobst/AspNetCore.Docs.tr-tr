@@ -4,19 +4,16 @@ title: Düzenleme doğrulama denetimleri ekleme ve arabirimler (C#) ekleme | Mic
 author: rick-anderson
 description: Bu öğreticide daha sağlamak EditItemTemplate ve InsertItemTemplate Web denetimi veri doğrulama denetimleri ekleme ne kadar kolay olduğunu görüyoruz...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/17/2006
-ms.topic: article
 ms.assetid: 2086cb1a-ab78-49ae-9c0b-03891c69776a
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c7150ca81d77d7d5196ad9e2969c5d7508477267
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: fedcad6265e7247d59a74a2dcaccb71fabfe0b4c
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37384231"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37834209"
 ---
 <a name="adding-validation-controls-to-the-editing-and-inserting-interfaces-c"></a>Arabirimler (C#) ekleme ve düzenleme doğrulama denetimleri ekleme
 ====================

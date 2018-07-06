@@ -4,19 +4,16 @@ title: ASP.NET MVC'ye giriş | Microsoft Docs
 author: shanselman
 description: ASP.NET MVC ile ilgili temel bilgileri tanıtan bir başlangıç Öğreticisi budur. Okuyan ve yazan bir veritabanından basit bir web uygulaması oluşturun.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/14/2010
-ms.topic: article
 ms.assetid: bf4a1c19-0a94-4208-b268-a96ddcf26946
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part1
 msc.type: authoredcontent
-ms.openlocfilehash: 408256d116a7e73e01c34b0a11881e14c5b8401d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: ee39cf78835767d73bd9a1d4c9a2c4ca75aca5fa
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37385738"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37808873"
 ---
 <a name="intro-to-aspnet-mvc"></a>ASP.NET MVC'ye giriş
 ====================

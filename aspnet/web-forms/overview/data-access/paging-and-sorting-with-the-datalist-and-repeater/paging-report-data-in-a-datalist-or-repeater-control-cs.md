@@ -4,19 +4,16 @@ title: DataList veya Repeater denetiminde (C#) rapor verilerini sayfalama | Micr
 author: rick-anderson
 description: DataList veya Repeater ne teklif otomatik sayfalama veya sıralama desteği, bu öğreticide sayfalama desteğini DataList veya Repeater nasıl ekleneceğini gösterir...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/13/2006
-ms.topic: article
 ms.assetid: e8e0809b-25c4-4c3b-8d12-9a17048148ae
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/paging-report-data-in-a-datalist-or-repeater-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f77c4f781ee6001cea065d848f0a21a6cd4d7569
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 90df9c096b5411201da35b7076fdd3cd9b1f86d1
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37401941"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37842325"
 ---
 <a name="paging-report-data-in-a-datalist-or-repeater-control-c"></a>Rapor verilerini sayfalama DataList veya Repeater denetiminde (C#)
 ====================

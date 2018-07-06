@@ -4,19 +4,16 @@ title: Teknik incelemeler | Microsoft Docs
 author: rick-anderson
 description: Bu sayfada yükleyip ASP.NET yapılandırmanıza yardımcı olması için ve güvenli, hızlı ve esnek ASP.NET uygulamaları yazmanıza yardımcı olmak amacıyla teknik incelemeler bulabilirsiniz.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/15/2011
-ms.topic: article
 ms.assetid: 3824e2d7-446f-406b-9c8b-5a1634359a78
-ms.technology: ''
 msc.legacyurl: ''
 msc.type: content
-ms.openlocfilehash: db062863588f49771636f345b9e19b3bf6099736
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 2bf12fd606a2afafa8ac047abb54b8ebb79112f4
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37401214"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37824763"
 ---
 <a name="whitepapers"></a>Teknik İncelemeler
 ====================

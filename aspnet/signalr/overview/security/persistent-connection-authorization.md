@@ -4,19 +4,16 @@ title: Kimlik doğrulama ve yetkilendirme kalıcı SignalR bağlantıları için
 author: pfletcher
 description: Bu konu, kalıcı bir bağlantı üzerinde Yetkilendirme zorlamak açıklar. Bir SignalR uygulamasına güvenlik tümleştirme hakkında genel bilgi...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/10/2014
-ms.topic: article
 ms.assetid: e264677b-9c01-47ec-94f9-3cd8f08f94af
-ms.technology: dotnet-signalr
 msc.legacyurl: /signalr/overview/security/persistent-connection-authorization
 msc.type: authoredcontent
-ms.openlocfilehash: d15ac6ec8b3bab041a13918a3577310c62e66b8f
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: d9378a5f5f07b52ddcc8ef842b94a08fc2edc93a
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37372232"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37836252"
 ---
 <a name="authentication-and-authorization-for-signalr-persistent-connections"></a>Kimlik doğrulama ve yetkilendirme kalıcı SignalR bağlantıları için
 ====================

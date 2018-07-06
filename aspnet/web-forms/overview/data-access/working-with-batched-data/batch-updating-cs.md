@@ -4,19 +4,16 @@ title: Toplu güncelleştirme (C#) | Microsoft Docs
 author: rick-anderson
 description: Tek bir işlemde birden çok veritabanı kayıtlarını güncelleştirmek hakkında bilgi edinin. Kullanıcı arabirimi katmanda her satırı düzenlenebilir olduğu GridView ekleriz. Veri...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/26/2007
-ms.topic: article
 ms.assetid: 4e849bcc-c557-4bc3-937e-f7453ee87265
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-updating-cs
 msc.type: authoredcontent
-ms.openlocfilehash: bd8a8f4bc56867da1668fda32b42efcf3a629cdf
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 0cb55689ac3a6dc36ed18459ecece82ff0b073b7
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37366814"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37842198"
 ---
 <a name="batch-updating-c"></a>Toplu güncelleştirme (C#)
 ====================

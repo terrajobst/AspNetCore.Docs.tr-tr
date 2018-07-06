@@ -4,19 +4,16 @@ title: Visual Studio 2012'de ASP.NET Web Forms için sayfa denetçisini kullanma
 author: rick-anderson
 description: Page Inspector, Visual Studio 2012 için tümleşik bir tarayıcı ile web geliştirme aracıdır. Tümleşik tarayıcı ve sayfa denetçisi herhangi bir öğe seçin...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/15/2012
-ms.topic: article
 ms.assetid: 2ece0bf4-aae5-4ff4-8f62-28e0819d4f86
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/getting-started/using-page-inspector-in-a-visual-studio-11-beta-web-forms-project
 msc.type: authoredcontent
-ms.openlocfilehash: 1f1ac1072d33c85ed3e64c493b9cf7970695cea6
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 8e914b87305fa729659822ec1166e9d1947e59cb
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37384481"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37806280"
 ---
 <a name="using-page-inspector-for-visual-studio-2012-in-aspnet-web-forms"></a>ASP.NET Web Forms'da Visual Studio 2012 için sayfa denetçisini kullanma
 ====================

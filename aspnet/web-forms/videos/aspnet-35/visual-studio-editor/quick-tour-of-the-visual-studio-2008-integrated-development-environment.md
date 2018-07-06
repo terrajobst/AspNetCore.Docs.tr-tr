@@ -4,19 +4,16 @@ title: Hızlı Tur Visual Studio 2008 tümleşik geliştirme ortamı | Microsoft
 author: rick-anderson
 description: Değişiklikleri ve yeni özellikleri IDE'ye Visual Studio 2008'de gezin. Güncelleştirilmiş web sayfası Düzenleyicisi, WPF form tasarımcısı, CSS Düzenleyicisi ve daha fazlasını görün.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/15/2007
-ms.topic: article
 ms.assetid: f20c5f1c-e49c-4909-b18f-8b5a442eafe3
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-35/visual-studio-editor/quick-tour-of-the-visual-studio-2008-integrated-development-environment
 msc.type: video
-ms.openlocfilehash: 1d5565ba33d38bf90282dfd29d76c406b1069082
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: f25baf2dac16473be97c3c25d01d8a004ee3759e
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37374882"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37822116"
 ---
 <a name="quick-tour-of-the-visual-studio-2008-integrated-development-environment"></a>Visual Studio 2008 tümleşik geliştirme ortamında hızlı bir tur
 ====================

@@ -4,19 +4,16 @@ title: Kullanıcı hesapları (VB) oluşturma | Microsoft Docs
 author: rick-anderson
 description: Bu öğreticide yeni kullanıcı hesapları oluşturmak için üyelik framework (aracılığıyla SqlMembershipProvider) kullanarak inceleyeceksiniz. Yeni bize oluşturma göreceğiz...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/18/2008
-ms.topic: article
 ms.assetid: 9ef3e893-bebe-4b13-9fe5-8b71720dd85e
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/creating-user-accounts-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 24261515af5213cdf58661cdfd6d1ba4653f8aa6
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: fe5e55df3fa9f65a94199c2064a785255f231537
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37380726"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37815349"
 ---
 <a name="creating-user-accounts-vb"></a>Kullanıcı hesapları (VB) oluşturma
 ====================

@@ -4,19 +4,16 @@ title: Web API 2 OData v3 varlık ilişkilerini destekleme | Microsoft Docs
 author: MikeWasson
 description: 'Çoğu veri kümesinde varlıklar arasındaki ilişkileri tanımlamak: imajlarını siparişler; Books Yazar; yine de olan istiyor musunuz? Ürünler tedarikçileri sahip. OData kullanarak istemcileri üzerinden gidebilirsiniz...'
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/26/2014
-ms.topic: article
 ms.assetid: 1e4c2eb4-b6cf-42ff-8a65-4d71ddca0394
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/working-with-entity-relations
 msc.type: authoredcontent
-ms.openlocfilehash: 311e84a2beb3ec7661fd650b277f23458bcb0cb2
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: b24e3ca4e3d39b424bec6bb408bb0f85825c6761
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37377483"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37810750"
 ---
 <a name="supporting-entity-relations-in-odata-v3-with-web-api-2"></a>Web API 2 OData v3 varlık ilişkilerini destekleme
 ====================

@@ -4,19 +4,16 @@ title: ASP.NET MVC 4'e giriş | Microsoft Docs
 author: Rick-Anderson
 description: Bu öğreticide Visual Studio 2013 burada kullanarak kullanılabiliyorsa, güncelleştirilmiş bir sürüm. Yeni t birçok iyileştirme sağlayan ASP.NET MVC 5 öğreticide...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/15/2012
-ms.topic: article
 ms.assetid: ed66530a-04d5-49eb-b76a-85be1f57c437
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 51e469e131b083325bc565530d91173887769ab0
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: a718eea17458fa810897b35371085848f8dca6fe
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37395820"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37810027"
 ---
 <a name="intro-to-aspnet-mvc-4"></a>ASP.NET MVC 4'e giriş
 ====================

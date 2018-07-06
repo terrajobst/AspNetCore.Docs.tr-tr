@@ -4,19 +4,16 @@ title: (VB) bir ASP.NET sayfasında BLL ve DAL düzeyi özel durumları işleme 
 author: rick-anderson
 description: Bu öğreticide bir ekleme, güncelleştirme veya silme işlemi sırasında bir özel durum gerçekleşmelidir kolay, bilgilendirici bir hata iletisi görüntülemek nasıl göreceğiz...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/17/2006
-ms.topic: article
 ms.assetid: 129d4338-1315-4f40-89b5-2b84b807707d
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 41a0ec0db4cb2093d7fadd2de7e65ee4874f0063
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: de181391a074ec837d2f9d98d55f912883d76be2
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37394689"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37808998"
 ---
 <a name="handling-bll--and-dal-level-exceptions-in-an-aspnet-page-vb"></a>(VB) bir ASP.NET sayfasında BLL ve DAL düzeyi özel durumları işleme
 ====================

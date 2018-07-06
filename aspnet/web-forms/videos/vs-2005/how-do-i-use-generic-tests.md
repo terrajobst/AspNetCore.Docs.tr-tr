@@ -4,19 +4,16 @@ title: '[Bunu nasıl yaparım:] Genel testler kullanılsın mı? | Microsoft Doc
 author: rick-anderson
 description: Genel test, sarmalanmış ve Visual Studio Team System'da test olarak kullanıma sunulan var olan bir programdır. Bu videoda nasıl görüyoruz...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/16/2007
-ms.topic: article
 ms.assetid: e129b2c2-8587-4ff1-b455-7f14cb28bcf9
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-use-generic-tests
 msc.type: video
-ms.openlocfilehash: 45663851fad23ff74996e839904a2601c5937f57
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: e50ab271328145a0fde80d857b1416f733bcf712
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37361861"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37807141"
 ---
 <a name="how-do-i-use-generic-tests"></a>[Bunu nasıl yaparım:] Genel testler kullanılsın mı?
 ====================

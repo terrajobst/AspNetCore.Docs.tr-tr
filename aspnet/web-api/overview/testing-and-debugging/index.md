@@ -4,19 +4,16 @@ title: Test ve hata ayıklama ASP.NET Web API | Microsoft Docs
 author: rick-anderson
 description: Test ve hata ayıklama ASP.NET Web API'si
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/12/2012
-ms.topic: article
 ms.assetid: 31f2a034-e4d0-401b-be29-209a274a192e
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/testing-and-debugging
 msc.type: chapter
-ms.openlocfilehash: 63e9ae838b9f78936244943e4849566aceb381f1
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 6698ca0452cfd71a004a14203d6613b903c79e46
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37395145"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37813451"
 ---
 <a name="testing-and-debugging-aspnet-web-api"></a>Test ve hata ayıklama ASP.NET Web API'si
 ====================

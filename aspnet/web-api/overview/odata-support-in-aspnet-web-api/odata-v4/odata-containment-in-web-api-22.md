@@ -4,19 +4,16 @@ title: OData v4 sürümünde kapsama kullanarak Web API 2.2 | Microsoft Docs
 author: rick-anderson
 description: Geleneksel olarak, bir varlık kümesi içinde kapsüllenmiş, bir varlığın yalnızca erişilemedi. Ancak, OData v4 tekil ve Con olmak üzere iki ek seçenekler sağlar...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/27/2014
-ms.topic: article
 ms.assetid: 5fbfefad-a17a-4c46-8646-f1ccd154cd56
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/odata-containment-in-web-api-22
 msc.type: authoredcontent
-ms.openlocfilehash: 33ff49f69d70dd3a8179445d2895c418d2185e49
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 56e550b56e9ad237dbf4fab04f2bd545164ee90a
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37365613"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37824918"
 ---
 <a name="containment-in-odata-v4-using-web-api-22"></a>OData v4 sürümünde kapsama Web API 2.2 kullanma
 ====================

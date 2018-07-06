@@ -4,19 +4,16 @@ title: '[Bunu nasıl yaparım:] Yük testi bir Web uygulaması? | Microsoft Docs
 author: rick-anderson
 description: Bu videoda bir Web testi kaydetme ve birden çok kullanıcı bir yük testi yeniden yürüterek işleminde size kılavuzluk eder. Visual Studio görüyoruz...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/01/2007
-ms.topic: article
 ms.assetid: 2b0649d3-d072-446a-9918-b2648de26472
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-load-test-a-web-application
 msc.type: video
-ms.openlocfilehash: 2efe8beddbe369f047e1e81467f4d48b5bcde333
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 6adc67a30890792da9b8337e18b6f2bb4a58cf07
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37393814"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37830114"
 ---
 <a name="how-do-i-load-test-a-web-application"></a>[Bunu nasıl yaparım:] Yük testi bir Web uygulaması?
 ====================

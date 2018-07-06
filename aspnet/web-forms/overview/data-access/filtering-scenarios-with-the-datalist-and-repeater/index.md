@@ -4,19 +4,16 @@ title: DataList ve Repeater ile senaryoları filtreleme | Microsoft Docs
 author: rick-anderson
 description: Aşağıdaki öğreticilerde ana kayıtları ve DataList denetimi Ayrıntılar için açılan listeleri kullanarak ana/ayrıntı raporları görüntülemek nasıl bakın.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/05/2011
-ms.topic: article
 ms.assetid: 80b17464-8395-4b82-8f11-5d8ee1351d53
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater
 msc.type: chapter
-ms.openlocfilehash: e9d29aa411585ea12e446ebac7908457e541d8b7
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: fa50515da147ae19a83ed54336914f76463ec898
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37373171"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37806499"
 ---
 <a name="filtering-scenarios-with-the-datalist-and-repeater"></a>DataList ve Repeater ile senaryoları filtreleme
 ====================

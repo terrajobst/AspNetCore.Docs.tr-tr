@@ -4,19 +4,16 @@ title: Tailspin Spyworks - son kullanıma | Microsoft Docs
 author: JoeStagner
 description: ALi Stagner son kullanıma Tailspin Spyworks örnek Web Forms uygulaması işlemi sırasında müşterinin sipariş yerleştirir.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/29/2010
-ms.topic: article
 ms.assetid: 61ee30d6-c557-4ebd-9538-1253bd02d825
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/tailspin-spyworks/tailspin-spyworks-final-check-out
 msc.type: video
-ms.openlocfilehash: 60666d6366606c7b3168fe4795ec9c8431c6fb8e
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: a1227bf184f1a03c4b47ec89f9af1464260d0bcf
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37383444"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37811795"
 ---
 <a name="tailspin-spyworks---final-check-out"></a>Tailspin Spyworks - son gözden geçirin
 ====================

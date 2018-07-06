@@ -4,19 +4,16 @@ title: Gönderme ve geri gönderme | Microsoft Docs
 author: JoeStagner
 description: Bu videoda ne kullanılacak kullanıma sunacak &quot;kapsar altında&quot; , ASP.NET uygulamanızın tarayıcı ve sunucu zaman etkileşim.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/20/2009
-ms.topic: article
 ms.assetid: 8ccbfcee-a2e4-496d-aded-5a7119c54244
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/building-35-applications/submit-and-postback
 msc.type: video
-ms.openlocfilehash: e31546b4d44cdf8305db5964b8662eb8074df9cd
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 7e2cf8749eebefd7d37adeb8700afce5b0fb1b87
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37400557"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37823024"
 ---
 <a name="submit-and-postback"></a>Gönderme ve geri gönderme
 ====================

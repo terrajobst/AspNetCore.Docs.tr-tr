@@ -4,19 +4,16 @@ title: IDataErrorInfo arabirimi ile doğrulama (VB) | Microsoft Docs
 author: StephenWalther
 description: Stephen Walther nasıl bir model sınıfında IDataErrorInfo arabirimi uygulayarak özel doğrulama hatası iletilerinin görüntüleneceğini gösterir.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/02/2009
-ms.topic: article
 ms.assetid: 3a8a9d9f-82dd-4959-b7c6-960e9ce95df1
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/validating-with-the-idataerrorinfo-interface-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9faaab92b7baf0af5f0d8718e1d80e26c29bcca0
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 55716b48a7991424a4d03bbbc7d96f8f12f8dabb
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37399480"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37834025"
 ---
 <a name="validating-with-the-idataerrorinfo-interface-vb"></a>IDataErrorInfo arabirimi ile doğrulama (VB)
 ====================

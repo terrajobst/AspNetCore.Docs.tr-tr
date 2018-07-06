@@ -4,19 +4,16 @@ title: ASP.NET 4 - kurumsal dağıtım serisi 3 TFS'yi yapılandırma | Microsof
 author: rick-anderson
 description: Bu öğreticide, Team Foundation Server (çözümleri oluşturmanıza ve web içeriği çeşitli hedef ortamlara dağıtmak için TFS) 2010 yapılandırma gösterilmektedir.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/16/2012
-ms.topic: article
 ms.assetid: b71d1611-5f26-40dd-8315-b65b9d69b198
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment
 msc.type: chapter
-ms.openlocfilehash: 916a7bd91a5508e8703230653d68003a0d3be3e4
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 372f63a06e928847fb13f4d07279b420d15741a5
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37391111"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37822584"
 ---
 <a name="aspnet-4---enterprise-deployment-series-3-configuring-tfs"></a>ASP.NET 4 - kurumsal dağıtım serisi 3 TFS'yi yapılandırma
 ====================

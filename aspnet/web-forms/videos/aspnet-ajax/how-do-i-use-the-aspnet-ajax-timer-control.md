@@ -4,19 +4,16 @@ title: '[Bunu nasıl yaparım:] ASP.NET AJAX Zamanlayıcı denetimi kullanılsı
 author: JoeStagner
 description: AJAX Zamanlayıcı denetimi sağlar, normal bir aralıkta dinamik olarak güncelleştirilmesi için bir ASP.NET web sayfasının bir bölümü gerçekleştirmesine izin gerek yerine bir bir...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/13/2007
-ms.topic: article
 ms.assetid: 1488f788-54ca-43ce-bf65-8179ebbe2c7c
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-use-the-aspnet-ajax-timer-control
 msc.type: video
-ms.openlocfilehash: 9b9e14825b25b9dd17ec47cd92b3fd8933875e5b
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: fc212a8e09d305a532010cbc4295d29c85d59395
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37362719"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37824957"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-timer-control"></a>[Bunu nasıl yaparım:] ASP.NET AJAX Zamanlayıcı denetimi kullanılsın mı?
 ====================

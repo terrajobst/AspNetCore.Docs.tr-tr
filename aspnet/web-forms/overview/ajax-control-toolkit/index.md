@@ -4,19 +4,16 @@ title: Eski sürümler - Ajax Denetim Araç Seti | Microsoft Docs
 author: rick-anderson
 description: Ajax Denetim Araç Seti ile çalışmaya başlama konusunda ve bazı en popüler denetimleri kullanma. DevExpress Ajax Sözl ücretsiz ve açık kaynağı tutar...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/05/2011
-ms.topic: article
 ms.assetid: 76242ce9-e611-41d2-95e8-dc5f406d4bfc
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit
 msc.type: chapter
-ms.openlocfilehash: aaf8e1773b960f4ad982f4437e9a47c44f0289cd
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 45c576ab3762296a38ae61a6a5ebe0d35928c28f
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37375195"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37819234"
 ---
 <a name="older-versions---ajax-control-toolkit"></a>Eski sürümler - Ajax Denetim Araç Seti
 ====================

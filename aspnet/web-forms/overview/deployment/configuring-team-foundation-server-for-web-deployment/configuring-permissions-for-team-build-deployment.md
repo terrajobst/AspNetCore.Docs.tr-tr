@@ -4,19 +4,16 @@ title: Takım izinlerini yapılandırma derleme dağıtım | Microsoft Docs
 author: jrjlee
 description: Bu konu, web sunucuları ve veritabanı sunucuları için bir otomatik b bir parçası olarak içerik dağıtmak üzere yapı sunucusunu etkinleştirmek için izinlerin nasıl yapılandırılacağını açıklar...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/04/2012
-ms.topic: article
 ms.assetid: 2488a91e-b0a8-465a-b874-3233f724b56b
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-permissions-for-team-build-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: f84e72bd5991b0407008ccdaff5243979cbb986e
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: b577d887b4a4476b6796ae9f1df538d16eededa3
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37384668"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37820366"
 ---
 <a name="configuring-permissions-for-team-build-deployment"></a>Derleme dağıtımı izinlerini takım yapılandırma
 ====================

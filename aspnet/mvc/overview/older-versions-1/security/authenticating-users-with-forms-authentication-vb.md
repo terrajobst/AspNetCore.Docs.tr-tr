@@ -4,19 +4,16 @@ title: Forms kimlik doğrulama (VB) ile kullanıcıların kimliğini doğrulama 
 author: microsoft
 description: '[Authorize] özniteliği kullanmayı öğrenin MVC uygulamanızda belirli sayfalara parolanızı koruyun. Web sitesi yönetim çok kullanmayı öğrenin...'
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/27/2009
-ms.topic: article
 ms.assetid: 4341f5b1-6fe5-44c5-8b8a-18fa84f80177
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/security/authenticating-users-with-forms-authentication-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 4c94cc0d44ec2ef5e300567a07664cd7e6605199
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: a9d55df3132a5b5ceeb49ed6d0b83b847f2f1e3b
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37369379"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37828860"
 ---
 <a name="authenticating-users-with-forms-authentication-vb"></a>Form kimlik doğrulaması (VB) ile kullanıcıların kimliğini doğrulama
 ====================

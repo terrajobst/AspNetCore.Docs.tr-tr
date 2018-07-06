@@ -4,19 +4,16 @@ title: DataList için doğrulama denetimleri ekleme (C#) arabirimi düzenleme ku
 author: rick-anderson
 description: Bu öğreticide daha iyi bir düzenleme kullanıcı int sağlayabilmek için DataList'in EditItemTemplate doğrulama denetimleri eklemek için ne kadar kolay olduğunu görüyoruz...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/30/2006
-ms.topic: article
 ms.assetid: 3ecc21c5-da0e-40ab-abb4-fac1e47398ad
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/adding-validation-controls-to-the-datalist-s-editing-interface-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 23b7a0a4fd5786d5bbc2905022a76dfc048d44bf
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 8a9fe298b7b9cc9fadc4dfd131a7a61d6029da04
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37389975"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37842711"
 ---
 <a name="adding-validation-controls-to-the-datalists-editing-interface-c"></a>DataList'in düzenleme arabirimine (C#) doğrulama denetimleri ekleme
 ====================

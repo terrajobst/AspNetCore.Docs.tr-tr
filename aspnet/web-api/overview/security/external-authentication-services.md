@@ -4,19 +4,16 @@ title: ASP.NET Web API ile dış kimlik doğrulama hizmeti (C#) | Microsoft Docs
 author: rmcmurray
 description: Dış kimlik doğrulama hizmetlerini ASP.NET Web API'sini kullanmayı açıklar.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/26/2013
-ms.topic: article
 ms.assetid: 3bb8eb15-b518-44f5-a67d-a27e051aedc6
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/security/external-authentication-services
 msc.type: authoredcontent
-ms.openlocfilehash: 9cfb8022670497f7552820e9df2ad5e0cf6f9f46
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: fe821384a195e69c102aad95e534d543de705a00
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37391412"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37822800"
 ---
 <a name="external-authentication-services-with-aspnet-web-api-c"></a>ASP.NET Web API ile dış kimlik doğrulama hizmeti (C#)
 ====================
