@@ -4,25 +4,22 @@ title: ASP.NET MVC | Microsoft Docs
 author: rick-anderson
 description: ASP.NET MVC indirin ve model görünüm denetleyicisi düzeni kullanarak web uygulamaları oluşturmayı öğrenin.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/24/2011
-ms.topic: article
 ms.assetid: 466e52b9-bddf-4b2d-847a-f8df9a2513d7
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc
 msc.type: categoryindex
-ms.openlocfilehash: 31d9b14ba48a29804890ad3d9b66adea8f7b434f
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: eff5a0740aa5e04a8f0330ec1a0db76705fddd6a
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37370138"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37817774"
 ---
-<a name="aspnet-mvc"></a><span data-ttu-id="f9ec4-103">ASP.NET MVC</span><span class="sxs-lookup"><span data-stu-id="f9ec4-103">ASP.NET MVC</span></span>
+<a name="aspnet-mvc"></a><span data-ttu-id="441a6-103">ASP.NET MVC</span><span class="sxs-lookup"><span data-stu-id="441a6-103">ASP.NET MVC</span></span>
 ====================
-- [<span data-ttu-id="f9ec4-104">Kılavuz</span><span class="sxs-lookup"><span data-stu-id="f9ec4-104">Guidance</span></span>](overview/index.md)
-- [<span data-ttu-id="f9ec4-105">Videolar</span><span class="sxs-lookup"><span data-stu-id="f9ec4-105">Videos</span></span>](videos/index.md)
-- [<span data-ttu-id="f9ec4-106">ASP.NET MVC 5</span><span class="sxs-lookup"><span data-stu-id="f9ec4-106">ASP.NET MVC 5</span></span>](mvc5.md)
-- [<span data-ttu-id="f9ec4-107">ASP.NET MVC 4</span><span class="sxs-lookup"><span data-stu-id="f9ec4-107">ASP.NET MVC 4</span></span>](mvc4.md)
-- [<span data-ttu-id="f9ec4-108">ASP.NET MVC 3</span><span class="sxs-lookup"><span data-stu-id="f9ec4-108">ASP.NET MVC 3</span></span>](mvc3.md)
-- [<span data-ttu-id="f9ec4-109">Pluralsight tarafından sunulan MVC Video Eğitimi</span><span class="sxs-lookup"><span data-stu-id="f9ec4-109">MVC Video Training from Pluralsight</span></span>](pluralsight.md)
+- [<span data-ttu-id="441a6-104">Kılavuz</span><span class="sxs-lookup"><span data-stu-id="441a6-104">Guidance</span></span>](overview/index.md)
+- [<span data-ttu-id="441a6-105">Videolar</span><span class="sxs-lookup"><span data-stu-id="441a6-105">Videos</span></span>](videos/index.md)
+- [<span data-ttu-id="441a6-106">ASP.NET MVC 5</span><span class="sxs-lookup"><span data-stu-id="441a6-106">ASP.NET MVC 5</span></span>](mvc5.md)
+- [<span data-ttu-id="441a6-107">ASP.NET MVC 4</span><span class="sxs-lookup"><span data-stu-id="441a6-107">ASP.NET MVC 4</span></span>](mvc4.md)
+- [<span data-ttu-id="441a6-108">ASP.NET MVC 3</span><span class="sxs-lookup"><span data-stu-id="441a6-108">ASP.NET MVC 3</span></span>](mvc3.md)
+- [<span data-ttu-id="441a6-109">Pluralsight tarafından sunulan MVC Video Eğitimi</span><span class="sxs-lookup"><span data-stu-id="441a6-109">MVC Video Training from Pluralsight</span></span>](pluralsight.md)

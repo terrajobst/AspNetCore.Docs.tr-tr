@@ -4,189 +4,186 @@ title: ASP.NET Web API 1 (C#) barındırma | Microsoft Docs
 author: MikeWasson
 description: ASP.NET Web API, IIS gerektirmez. Web API'si kendi ana bilgisayar işlemi kendi kendine barındırabilirsiniz. Bu öğreticide, bir konsolu applic içinde bir web API'sini barındıran gösterilmektedir...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/26/2012
-ms.topic: article
 ms.assetid: be5ab1e2-4140-4275-ac59-ca82a1bac0c1
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/older-versions/self-host-a-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 28ba54acd7947a1c837fb5f73b292901e6b19260
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 50681dcd89dfed480cf343f753371af384fd3e68
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37376264"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37811743"
 ---
-<a name="self-host-aspnet-web-api-1-c"></a><span data-ttu-id="44740-105">Barındırılan ASP.NET Web API 1 (C#)</span><span class="sxs-lookup"><span data-stu-id="44740-105">Self-Host ASP.NET Web API 1 (C#)</span></span>
+<a name="self-host-aspnet-web-api-1-c"></a><span data-ttu-id="ababa-105">Barındırılan ASP.NET Web API 1 (C#)</span><span class="sxs-lookup"><span data-stu-id="ababa-105">Self-Host ASP.NET Web API 1 (C#)</span></span>
 ====================
-<span data-ttu-id="44740-106">tarafından [Mike Wasson](https://github.com/MikeWasson)</span><span class="sxs-lookup"><span data-stu-id="44740-106">by [Mike Wasson](https://github.com/MikeWasson)</span></span>
+<span data-ttu-id="ababa-106">tarafından [Mike Wasson](https://github.com/MikeWasson)</span><span class="sxs-lookup"><span data-stu-id="ababa-106">by [Mike Wasson](https://github.com/MikeWasson)</span></span>
 
-> <span data-ttu-id="44740-107">ASP.NET Web API, IIS gerektirmez.</span><span class="sxs-lookup"><span data-stu-id="44740-107">ASP.NET Web API does not require IIS.</span></span> <span data-ttu-id="44740-108">Web API'si kendi ana bilgisayar işlemi kendi kendine barındırabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="44740-108">You can self-host a web API in your own host process.</span></span> <span data-ttu-id="44740-109">Bu öğreticide, bir konsol uygulaması içinde bir web API'sini barındıran gösterilmektedir.</span><span class="sxs-lookup"><span data-stu-id="44740-109">This tutorial shows how to host a web API inside a console application.</span></span>
+> <span data-ttu-id="ababa-107">ASP.NET Web API, IIS gerektirmez.</span><span class="sxs-lookup"><span data-stu-id="ababa-107">ASP.NET Web API does not require IIS.</span></span> <span data-ttu-id="ababa-108">Web API'si kendi ana bilgisayar işlemi kendi kendine barındırabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="ababa-108">You can self-host a web API in your own host process.</span></span> <span data-ttu-id="ababa-109">Bu öğreticide, bir konsol uygulaması içinde bir web API'sini barındıran gösterilmektedir.</span><span class="sxs-lookup"><span data-stu-id="ababa-109">This tutorial shows how to host a web API inside a console application.</span></span>
 > 
-> <span data-ttu-id="44740-110">**Yeni uygulama, barındırılan Web API'si için OWIN kullanmanız gerekir.**</span><span class="sxs-lookup"><span data-stu-id="44740-110">**New applications should use OWIN to self-host Web API.**</span></span> <span data-ttu-id="44740-111">Bkz: [OWIN, ASP.NET Web API 2 barındırma kullanmasını](../hosting-aspnet-web-api/use-owin-to-self-host-web-api.md).</span><span class="sxs-lookup"><span data-stu-id="44740-111">See [Use OWIN to Self-Host ASP.NET Web API 2](../hosting-aspnet-web-api/use-owin-to-self-host-web-api.md).</span></span>
+> <span data-ttu-id="ababa-110">**Yeni uygulama, barındırılan Web API'si için OWIN kullanmanız gerekir.**</span><span class="sxs-lookup"><span data-stu-id="ababa-110">**New applications should use OWIN to self-host Web API.**</span></span> <span data-ttu-id="ababa-111">Bkz: [OWIN, ASP.NET Web API 2 barındırma kullanmasını](../hosting-aspnet-web-api/use-owin-to-self-host-web-api.md).</span><span class="sxs-lookup"><span data-stu-id="ababa-111">See [Use OWIN to Self-Host ASP.NET Web API 2](../hosting-aspnet-web-api/use-owin-to-self-host-web-api.md).</span></span>
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a><span data-ttu-id="44740-112">Bu öğreticide kullanılan yazılım sürümleri</span><span class="sxs-lookup"><span data-stu-id="44740-112">Software versions used in the tutorial</span></span>
+> ## <a name="software-versions-used-in-the-tutorial"></a><span data-ttu-id="ababa-112">Bu öğreticide kullanılan yazılım sürümleri</span><span class="sxs-lookup"><span data-stu-id="ababa-112">Software versions used in the tutorial</span></span>
 > 
 > 
-> - <span data-ttu-id="44740-113">Web API 1</span><span class="sxs-lookup"><span data-stu-id="44740-113">Web API 1</span></span>
-> - <span data-ttu-id="44740-114">Visual Studio 2012</span><span class="sxs-lookup"><span data-stu-id="44740-114">Visual Studio 2012</span></span>
+> - <span data-ttu-id="ababa-113">Web API 1</span><span class="sxs-lookup"><span data-stu-id="ababa-113">Web API 1</span></span>
+> - <span data-ttu-id="ababa-114">Visual Studio 2012</span><span class="sxs-lookup"><span data-stu-id="ababa-114">Visual Studio 2012</span></span>
 
 
-## <a name="create-the-console-application-project"></a><span data-ttu-id="44740-115">Konsol uygulama projesi oluşturma</span><span class="sxs-lookup"><span data-stu-id="44740-115">Create the Console Application Project</span></span>
+## <a name="create-the-console-application-project"></a><span data-ttu-id="ababa-115">Konsol uygulama projesi oluşturma</span><span class="sxs-lookup"><span data-stu-id="ababa-115">Create the Console Application Project</span></span>
 
-<span data-ttu-id="44740-116">Visual Studio'yu başlatın ve seçin **yeni proje** gelen **Başlat** sayfası.</span><span class="sxs-lookup"><span data-stu-id="44740-116">Start Visual Studio and select **New Project** from the **Start** page.</span></span> <span data-ttu-id="44740-117">Veya **dosya** menüsünde **yeni** ardından **proje**.</span><span class="sxs-lookup"><span data-stu-id="44740-117">Or, from the **File** menu, select **New** and then **Project**.</span></span>
+<span data-ttu-id="ababa-116">Visual Studio'yu başlatın ve seçin **yeni proje** gelen **Başlat** sayfası.</span><span class="sxs-lookup"><span data-stu-id="ababa-116">Start Visual Studio and select **New Project** from the **Start** page.</span></span> <span data-ttu-id="ababa-117">Veya **dosya** menüsünde **yeni** ardından **proje**.</span><span class="sxs-lookup"><span data-stu-id="ababa-117">Or, from the **File** menu, select **New** and then **Project**.</span></span>
 
-<span data-ttu-id="44740-118">İçinde **şablonları** bölmesinde **yüklü şablonlar** genişletin **Visual C#** düğümü.</span><span class="sxs-lookup"><span data-stu-id="44740-118">In the **Templates** pane, select **Installed Templates** and expand the **Visual C#** node.</span></span> <span data-ttu-id="44740-119">Altında **Visual C#** seçin **Windows**.</span><span class="sxs-lookup"><span data-stu-id="44740-119">Under **Visual C#**, select **Windows**.</span></span> <span data-ttu-id="44740-120">Proje şablonları listesinde seçin **konsol uygulaması**.</span><span class="sxs-lookup"><span data-stu-id="44740-120">In the list of project templates, select **Console Application**.</span></span> <span data-ttu-id="44740-121">Projeyi adlandırın &quot;SelfHost&quot; tıklatıp **Tamam**.</span><span class="sxs-lookup"><span data-stu-id="44740-121">Name the project &quot;SelfHost&quot; and click **OK**.</span></span>
+<span data-ttu-id="ababa-118">İçinde **şablonları** bölmesinde **yüklü şablonlar** genişletin **Visual C#** düğümü.</span><span class="sxs-lookup"><span data-stu-id="ababa-118">In the **Templates** pane, select **Installed Templates** and expand the **Visual C#** node.</span></span> <span data-ttu-id="ababa-119">Altında **Visual C#** seçin **Windows**.</span><span class="sxs-lookup"><span data-stu-id="ababa-119">Under **Visual C#**, select **Windows**.</span></span> <span data-ttu-id="ababa-120">Proje şablonları listesinde seçin **konsol uygulaması**.</span><span class="sxs-lookup"><span data-stu-id="ababa-120">In the list of project templates, select **Console Application**.</span></span> <span data-ttu-id="ababa-121">Projeyi adlandırın &quot;SelfHost&quot; tıklatıp **Tamam**.</span><span class="sxs-lookup"><span data-stu-id="ababa-121">Name the project &quot;SelfHost&quot; and click **OK**.</span></span>
 
 ![](self-host-a-web-api/_static/image1.png)
 
-## <a name="set-the-target-framework-visual-studio-2010"></a><span data-ttu-id="44740-122">Hedef Framework'ü (Visual Studio 2010) ayarlama</span><span class="sxs-lookup"><span data-stu-id="44740-122">Set the Target Framework (Visual Studio 2010)</span></span>
+## <a name="set-the-target-framework-visual-studio-2010"></a><span data-ttu-id="ababa-122">Hedef Framework'ü (Visual Studio 2010) ayarlama</span><span class="sxs-lookup"><span data-stu-id="ababa-122">Set the Target Framework (Visual Studio 2010)</span></span>
 
-<span data-ttu-id="44740-123">Visual Studio 2010 kullanıyorsanız, hedef çerçeveyi .NET Framework 4.0 ile değiştirin.</span><span class="sxs-lookup"><span data-stu-id="44740-123">If you are using Visual Studio 2010, change the target framework to .NET Framework 4.0.</span></span> <span data-ttu-id="44740-124">(Varsayılan olarak, proje şablonunun hedeflediği [.Net Framework istemci profili](https://msdn.microsoft.com/library/cc656912.aspx#features_not_included_in_the_net_framework_client_profile).)</span><span class="sxs-lookup"><span data-stu-id="44740-124">(By default, the project template targets the [.Net Framework Client Profile](https://msdn.microsoft.com/library/cc656912.aspx#features_not_included_in_the_net_framework_client_profile).)</span></span>
+<span data-ttu-id="ababa-123">Visual Studio 2010 kullanıyorsanız, hedef çerçeveyi .NET Framework 4.0 ile değiştirin.</span><span class="sxs-lookup"><span data-stu-id="ababa-123">If you are using Visual Studio 2010, change the target framework to .NET Framework 4.0.</span></span> <span data-ttu-id="ababa-124">(Varsayılan olarak, proje şablonunun hedeflediği [.Net Framework istemci profili](https://msdn.microsoft.com/library/cc656912.aspx#features_not_included_in_the_net_framework_client_profile).)</span><span class="sxs-lookup"><span data-stu-id="ababa-124">(By default, the project template targets the [.Net Framework Client Profile](https://msdn.microsoft.com/library/cc656912.aspx#features_not_included_in_the_net_framework_client_profile).)</span></span>
 
-<span data-ttu-id="44740-125">Çözüm Gezgini'nde projeye sağ tıklayıp seçin **özellikleri**.</span><span class="sxs-lookup"><span data-stu-id="44740-125">In Solution Explorer, right-click the project and select **Properties**.</span></span> <span data-ttu-id="44740-126">İçinde **hedef Framework'ü** açılan listesinde, .NET Framework 4.0 için hedef Framework'ü değiştirin.</span><span class="sxs-lookup"><span data-stu-id="44740-126">In the **Target framework** dropdown list, change the target framework to .NET Framework 4.0.</span></span> <span data-ttu-id="44740-127">Değişikliği uygulamak için sorulduğunda **Evet**.</span><span class="sxs-lookup"><span data-stu-id="44740-127">When prompted to apply the change, click **Yes**.</span></span>
+<span data-ttu-id="ababa-125">Çözüm Gezgini'nde projeye sağ tıklayıp seçin **özellikleri**.</span><span class="sxs-lookup"><span data-stu-id="ababa-125">In Solution Explorer, right-click the project and select **Properties**.</span></span> <span data-ttu-id="ababa-126">İçinde **hedef Framework'ü** açılan listesinde, .NET Framework 4.0 için hedef Framework'ü değiştirin.</span><span class="sxs-lookup"><span data-stu-id="ababa-126">In the **Target framework** dropdown list, change the target framework to .NET Framework 4.0.</span></span> <span data-ttu-id="ababa-127">Değişikliği uygulamak için sorulduğunda **Evet**.</span><span class="sxs-lookup"><span data-stu-id="ababa-127">When prompted to apply the change, click **Yes**.</span></span>
 
 ![](self-host-a-web-api/_static/image2.png)
 
-## <a name="install-nuget-package-manager"></a><span data-ttu-id="44740-128">NuGet Paket Yöneticisi'ni yükleyin</span><span class="sxs-lookup"><span data-stu-id="44740-128">Install NuGet Package Manager</span></span>
+## <a name="install-nuget-package-manager"></a><span data-ttu-id="ababa-128">NuGet Paket Yöneticisi'ni yükleyin</span><span class="sxs-lookup"><span data-stu-id="ababa-128">Install NuGet Package Manager</span></span>
 
-<span data-ttu-id="44740-129">NuGet Paket Yöneticisi, bir ASP.NET olmayan projeye Web API derlemeleri eklemek için en kolay yoludur.</span><span class="sxs-lookup"><span data-stu-id="44740-129">The NuGet Package Manager is the easiest way to add the Web API assemblies to a non-ASP.NET project.</span></span>
+<span data-ttu-id="ababa-129">NuGet Paket Yöneticisi, bir ASP.NET olmayan projeye Web API derlemeleri eklemek için en kolay yoludur.</span><span class="sxs-lookup"><span data-stu-id="ababa-129">The NuGet Package Manager is the easiest way to add the Web API assemblies to a non-ASP.NET project.</span></span>
 
-<span data-ttu-id="44740-130">NuGet Paket Yöneticisi'nin yüklü olup olmadığını denetlemek için **Araçları** Visual Studio'daki menü.</span><span class="sxs-lookup"><span data-stu-id="44740-130">To check if NuGet Package Manager is installed, click the **Tools** menu in Visual Studio.</span></span> <span data-ttu-id="44740-131">Bir menü öğesi adlı görürseniz **kitaplık Paket Yöneticisi**, NuGet Paket Yöneticisi sahip.</span><span class="sxs-lookup"><span data-stu-id="44740-131">If you see a menu item called **Library Package Manager**, then you have NuGet Package Manager.</span></span>
+<span data-ttu-id="ababa-130">NuGet Paket Yöneticisi'nin yüklü olup olmadığını denetlemek için **Araçları** Visual Studio'daki menü.</span><span class="sxs-lookup"><span data-stu-id="ababa-130">To check if NuGet Package Manager is installed, click the **Tools** menu in Visual Studio.</span></span> <span data-ttu-id="ababa-131">Bir menü öğesi adlı görürseniz **kitaplık Paket Yöneticisi**, NuGet Paket Yöneticisi sahip.</span><span class="sxs-lookup"><span data-stu-id="ababa-131">If you see a menu item called **Library Package Manager**, then you have NuGet Package Manager.</span></span>
 
-<span data-ttu-id="44740-132">NuGet Paket Yöneticisi'ni yüklemek için:</span><span class="sxs-lookup"><span data-stu-id="44740-132">To install NuGet Package Manager:</span></span>
+<span data-ttu-id="ababa-132">NuGet Paket Yöneticisi'ni yüklemek için:</span><span class="sxs-lookup"><span data-stu-id="ababa-132">To install NuGet Package Manager:</span></span>
 
-1. <span data-ttu-id="44740-133">Visual Studio'yu başlatın.</span><span class="sxs-lookup"><span data-stu-id="44740-133">Start Visual Studio.</span></span>
-2. <span data-ttu-id="44740-134">Gelen **Araçları** menüsünde **Uzantılar ve güncelleştirmeler**.</span><span class="sxs-lookup"><span data-stu-id="44740-134">From the **Tools** menu, select **Extensions and Updates**.</span></span>
-3. <span data-ttu-id="44740-135">İçinde **Uzantılar ve güncelleştirmeler** iletişim kutusunda **çevrimiçi**.</span><span class="sxs-lookup"><span data-stu-id="44740-135">In the **Extensions and Updates** dialog, select **Online**.</span></span>
-4. <span data-ttu-id="44740-136">"Nuget Paket Yöneticisi", "NuGet Paket Yöneticisi" ifadesini görmüyorsanız arama kutusuna yazın.</span><span class="sxs-lookup"><span data-stu-id="44740-136">If you don't see "NuGet Package Manager", type "nuget package manager" in the search box.</span></span>
-5. <span data-ttu-id="44740-137">NuGet Paket Yöneticisi'ni seçip tıklayın **indirme**.</span><span class="sxs-lookup"><span data-stu-id="44740-137">Select the NuGet Package Manager and click **Download**.</span></span>
-6. <span data-ttu-id="44740-138">İndirme tamamlandıktan sonra yüklemeniz istenir.</span><span class="sxs-lookup"><span data-stu-id="44740-138">After the download completes, you will be prompted to install.</span></span>
-7. <span data-ttu-id="44740-139">Yükleme tamamlandıktan sonra Visual Studio'yu yeniden başlatmanız istenebilir.</span><span class="sxs-lookup"><span data-stu-id="44740-139">After the installation completes, you might be prompted to restart Visual Studio.</span></span>
+1. <span data-ttu-id="ababa-133">Visual Studio'yu başlatın.</span><span class="sxs-lookup"><span data-stu-id="ababa-133">Start Visual Studio.</span></span>
+2. <span data-ttu-id="ababa-134">Gelen **Araçları** menüsünde **Uzantılar ve güncelleştirmeler**.</span><span class="sxs-lookup"><span data-stu-id="ababa-134">From the **Tools** menu, select **Extensions and Updates**.</span></span>
+3. <span data-ttu-id="ababa-135">İçinde **Uzantılar ve güncelleştirmeler** iletişim kutusunda **çevrimiçi**.</span><span class="sxs-lookup"><span data-stu-id="ababa-135">In the **Extensions and Updates** dialog, select **Online**.</span></span>
+4. <span data-ttu-id="ababa-136">"Nuget Paket Yöneticisi", "NuGet Paket Yöneticisi" ifadesini görmüyorsanız arama kutusuna yazın.</span><span class="sxs-lookup"><span data-stu-id="ababa-136">If you don't see "NuGet Package Manager", type "nuget package manager" in the search box.</span></span>
+5. <span data-ttu-id="ababa-137">NuGet Paket Yöneticisi'ni seçip tıklayın **indirme**.</span><span class="sxs-lookup"><span data-stu-id="ababa-137">Select the NuGet Package Manager and click **Download**.</span></span>
+6. <span data-ttu-id="ababa-138">İndirme tamamlandıktan sonra yüklemeniz istenir.</span><span class="sxs-lookup"><span data-stu-id="ababa-138">After the download completes, you will be prompted to install.</span></span>
+7. <span data-ttu-id="ababa-139">Yükleme tamamlandıktan sonra Visual Studio'yu yeniden başlatmanız istenebilir.</span><span class="sxs-lookup"><span data-stu-id="ababa-139">After the installation completes, you might be prompted to restart Visual Studio.</span></span>
 
 ![](self-host-a-web-api/_static/image3.png)
 
-## <a name="add-the-web-api-nuget-package"></a><span data-ttu-id="44740-140">Web API NuGet paketi ekleme</span><span class="sxs-lookup"><span data-stu-id="44740-140">Add the Web API NuGet Package</span></span>
+## <a name="add-the-web-api-nuget-package"></a><span data-ttu-id="ababa-140">Web API NuGet paketi ekleme</span><span class="sxs-lookup"><span data-stu-id="ababa-140">Add the Web API NuGet Package</span></span>
 
-<span data-ttu-id="44740-141">NuGet Paket Yöneticisi'ni yükledikten sonra Web API Self-Host paketini projenize ekleyin.</span><span class="sxs-lookup"><span data-stu-id="44740-141">After NuGet Package Manager is installed, add the Web API Self-Host package to your project.</span></span>
+<span data-ttu-id="ababa-141">NuGet Paket Yöneticisi'ni yükledikten sonra Web API Self-Host paketini projenize ekleyin.</span><span class="sxs-lookup"><span data-stu-id="ababa-141">After NuGet Package Manager is installed, add the Web API Self-Host package to your project.</span></span>
 
-1. <span data-ttu-id="44740-142">Gelen **Araçları** menüsünde **kitaplık Paket Yöneticisi**.</span><span class="sxs-lookup"><span data-stu-id="44740-142">From the **Tools** menu, select **Library Package Manager**.</span></span> <span data-ttu-id="44740-143">*Not*: Bu menü öğesi, bu NuGet Paket Yöneticisi'nin yüklendiğinden emin olun görmüyorsanız.</span><span class="sxs-lookup"><span data-stu-id="44740-143">*Note*: If do you not see this menu item, make sure that NuGet Package Manager installed correctly.</span></span>
-2. <span data-ttu-id="44740-144">Seçin **çözüm için NuGet paketlerini Yönet...**</span><span class="sxs-lookup"><span data-stu-id="44740-144">Select **Manage NuGet Packages for Solution...**</span></span>
-3. <span data-ttu-id="44740-145">İçinde **NugGet paketlerini Yönet** iletişim kutusunda **çevrimiçi**.</span><span class="sxs-lookup"><span data-stu-id="44740-145">In the **Manage NugGet Packages** dialog, select **Online**.</span></span>
-4. <span data-ttu-id="44740-146">Arama kutusuna &quot;Microsoft.AspNet.WebApi.SelfHost&quot;.</span><span class="sxs-lookup"><span data-stu-id="44740-146">In the search box, type &quot;Microsoft.AspNet.WebApi.SelfHost&quot;.</span></span>
-5. <span data-ttu-id="44740-147">ASP.NET Web API Self konağı paketi seçin ve tıklayın **yükleme**.</span><span class="sxs-lookup"><span data-stu-id="44740-147">Select the ASP.NET Web API Self Host package and click **Install**.</span></span>
-6. <span data-ttu-id="44740-148">Paket yüklendikten sonra tıklayın **kapatmak** iletişim kutusunu kapatmak için.</span><span class="sxs-lookup"><span data-stu-id="44740-148">After the package installs, click **Close** to close the dialog.</span></span>
+1. <span data-ttu-id="ababa-142">Gelen **Araçları** menüsünde **kitaplık Paket Yöneticisi**.</span><span class="sxs-lookup"><span data-stu-id="ababa-142">From the **Tools** menu, select **Library Package Manager**.</span></span> <span data-ttu-id="ababa-143">*Not*: Bu menü öğesi, bu NuGet Paket Yöneticisi'nin yüklendiğinden emin olun görmüyorsanız.</span><span class="sxs-lookup"><span data-stu-id="ababa-143">*Note*: If do you not see this menu item, make sure that NuGet Package Manager installed correctly.</span></span>
+2. <span data-ttu-id="ababa-144">Seçin **çözüm için NuGet paketlerini Yönet...**</span><span class="sxs-lookup"><span data-stu-id="ababa-144">Select **Manage NuGet Packages for Solution...**</span></span>
+3. <span data-ttu-id="ababa-145">İçinde **NugGet paketlerini Yönet** iletişim kutusunda **çevrimiçi**.</span><span class="sxs-lookup"><span data-stu-id="ababa-145">In the **Manage NugGet Packages** dialog, select **Online**.</span></span>
+4. <span data-ttu-id="ababa-146">Arama kutusuna &quot;Microsoft.AspNet.WebApi.SelfHost&quot;.</span><span class="sxs-lookup"><span data-stu-id="ababa-146">In the search box, type &quot;Microsoft.AspNet.WebApi.SelfHost&quot;.</span></span>
+5. <span data-ttu-id="ababa-147">ASP.NET Web API Self konağı paketi seçin ve tıklayın **yükleme**.</span><span class="sxs-lookup"><span data-stu-id="ababa-147">Select the ASP.NET Web API Self Host package and click **Install**.</span></span>
+6. <span data-ttu-id="ababa-148">Paket yüklendikten sonra tıklayın **kapatmak** iletişim kutusunu kapatmak için.</span><span class="sxs-lookup"><span data-stu-id="ababa-148">After the package installs, click **Close** to close the dialog.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="44740-149">Microsoft.AspNet.WebApi.SelfHost, değil AspNetWebApi.SelfHost adlı paketi yüklediğinizden emin olun.</span><span class="sxs-lookup"><span data-stu-id="44740-149">Make sure to install the package named Microsoft.AspNet.WebApi.SelfHost, not AspNetWebApi.SelfHost.</span></span>
+> <span data-ttu-id="ababa-149">Microsoft.AspNet.WebApi.SelfHost, değil AspNetWebApi.SelfHost adlı paketi yüklediğinizden emin olun.</span><span class="sxs-lookup"><span data-stu-id="ababa-149">Make sure to install the package named Microsoft.AspNet.WebApi.SelfHost, not AspNetWebApi.SelfHost.</span></span>
 
 
 ![](self-host-a-web-api/_static/image4.png)
 
-## <a name="create-the-model-and-controller"></a><span data-ttu-id="44740-150">Model ve denetleyici oluşturma</span><span class="sxs-lookup"><span data-stu-id="44740-150">Create the Model and Controller</span></span>
+## <a name="create-the-model-and-controller"></a><span data-ttu-id="ababa-150">Model ve denetleyici oluşturma</span><span class="sxs-lookup"><span data-stu-id="ababa-150">Create the Model and Controller</span></span>
 
-<span data-ttu-id="44740-151">Bu öğreticide aynı model ve denetleyici sınıflar olarak [Başlarken](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md) öğretici.</span><span class="sxs-lookup"><span data-stu-id="44740-151">This tutorial uses the same model and controller classes as the [Getting Started](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md) tutorial.</span></span>
+<span data-ttu-id="ababa-151">Bu öğreticide aynı model ve denetleyici sınıflar olarak [Başlarken](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md) öğretici.</span><span class="sxs-lookup"><span data-stu-id="ababa-151">This tutorial uses the same model and controller classes as the [Getting Started](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md) tutorial.</span></span>
 
-<span data-ttu-id="44740-152">Adlı bir ortak Sınıf Ekle `Product`.</span><span class="sxs-lookup"><span data-stu-id="44740-152">Add a public class named `Product`.</span></span>
+<span data-ttu-id="ababa-152">Adlı bir ortak Sınıf Ekle `Product`.</span><span class="sxs-lookup"><span data-stu-id="ababa-152">Add a public class named `Product`.</span></span>
 
 [!code-csharp[Main](self-host-a-web-api/samples/sample1.cs)]
 
-<span data-ttu-id="44740-153">Adlı bir ortak Sınıf Ekle `ProductsController`.</span><span class="sxs-lookup"><span data-stu-id="44740-153">Add a public class named `ProductsController`.</span></span> <span data-ttu-id="44740-154">Bu sınıftan türetilen **System.Web.Http.ApiController**.</span><span class="sxs-lookup"><span data-stu-id="44740-154">Derive this class from **System.Web.Http.ApiController**.</span></span>
+<span data-ttu-id="ababa-153">Adlı bir ortak Sınıf Ekle `ProductsController`.</span><span class="sxs-lookup"><span data-stu-id="ababa-153">Add a public class named `ProductsController`.</span></span> <span data-ttu-id="ababa-154">Bu sınıftan türetilen **System.Web.Http.ApiController**.</span><span class="sxs-lookup"><span data-stu-id="ababa-154">Derive this class from **System.Web.Http.ApiController**.</span></span>
 
 [!code-csharp[Main](self-host-a-web-api/samples/sample2.cs)]
 
-<span data-ttu-id="44740-155">Bu denetleyicideki kod hakkında daha fazla bilgi için bkz. [Başlarken](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md) öğretici.</span><span class="sxs-lookup"><span data-stu-id="44740-155">For more information about the code in this controller, see the [Getting Started](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md) tutorial.</span></span> <span data-ttu-id="44740-156">Bu denetleyici üç GET eylemleri tanımlar:</span><span class="sxs-lookup"><span data-stu-id="44740-156">This controller defines three GET actions:</span></span>
+<span data-ttu-id="ababa-155">Bu denetleyicideki kod hakkında daha fazla bilgi için bkz. [Başlarken](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md) öğretici.</span><span class="sxs-lookup"><span data-stu-id="ababa-155">For more information about the code in this controller, see the [Getting Started](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md) tutorial.</span></span> <span data-ttu-id="ababa-156">Bu denetleyici üç GET eylemleri tanımlar:</span><span class="sxs-lookup"><span data-stu-id="ababa-156">This controller defines three GET actions:</span></span>
 
-| <span data-ttu-id="44740-157">URI</span><span class="sxs-lookup"><span data-stu-id="44740-157">URI</span></span> | <span data-ttu-id="44740-158">Açıklama</span><span class="sxs-lookup"><span data-stu-id="44740-158">Description</span></span> |
+| <span data-ttu-id="ababa-157">URI</span><span class="sxs-lookup"><span data-stu-id="ababa-157">URI</span></span> | <span data-ttu-id="ababa-158">Açıklama</span><span class="sxs-lookup"><span data-stu-id="ababa-158">Description</span></span> |
 | --- | --- |
-| <span data-ttu-id="44740-159">/ api/ürünleri</span><span class="sxs-lookup"><span data-stu-id="44740-159">/api/products</span></span> | <span data-ttu-id="44740-160">Tüm ürünlerin listesini alın.</span><span class="sxs-lookup"><span data-stu-id="44740-160">Get a list of all products.</span></span> |
-| <span data-ttu-id="44740-161">/API'si/ürünler/*kimliği*</span><span class="sxs-lookup"><span data-stu-id="44740-161">/api/products/*id*</span></span> | <span data-ttu-id="44740-162">Bir ürün kimliğine göre Al</span><span class="sxs-lookup"><span data-stu-id="44740-162">Get a product by ID.</span></span> |
-| <span data-ttu-id="44740-163">/ API'si/ürünler /? kategori =*kategorisi*</span><span class="sxs-lookup"><span data-stu-id="44740-163">/api/products/?category=*category*</span></span> | <span data-ttu-id="44740-164">Kategoriye göre ürünlerin listesini alın.</span><span class="sxs-lookup"><span data-stu-id="44740-164">Get a list of products by category.</span></span> |
+| <span data-ttu-id="ababa-159">/ api/ürünleri</span><span class="sxs-lookup"><span data-stu-id="ababa-159">/api/products</span></span> | <span data-ttu-id="ababa-160">Tüm ürünlerin listesini alın.</span><span class="sxs-lookup"><span data-stu-id="ababa-160">Get a list of all products.</span></span> |
+| <span data-ttu-id="ababa-161">/API'si/ürünler/*kimliği*</span><span class="sxs-lookup"><span data-stu-id="ababa-161">/api/products/*id*</span></span> | <span data-ttu-id="ababa-162">Bir ürün kimliğine göre Al</span><span class="sxs-lookup"><span data-stu-id="ababa-162">Get a product by ID.</span></span> |
+| <span data-ttu-id="ababa-163">/ API'si/ürünler /? kategori =*kategorisi*</span><span class="sxs-lookup"><span data-stu-id="ababa-163">/api/products/?category=*category*</span></span> | <span data-ttu-id="ababa-164">Kategoriye göre ürünlerin listesini alın.</span><span class="sxs-lookup"><span data-stu-id="ababa-164">Get a list of products by category.</span></span> |
 
-## <a name="host-the-web-api"></a><span data-ttu-id="44740-165">Web API'si barındırın</span><span class="sxs-lookup"><span data-stu-id="44740-165">Host the Web API</span></span>
+## <a name="host-the-web-api"></a><span data-ttu-id="ababa-165">Web API'si barındırın</span><span class="sxs-lookup"><span data-stu-id="ababa-165">Host the Web API</span></span>
 
-<span data-ttu-id="44740-166">Program.cs dosyasını açın ve aşağıdaki using deyimlerini:</span><span class="sxs-lookup"><span data-stu-id="44740-166">Open the file Program.cs and add the following using statements:</span></span>
+<span data-ttu-id="ababa-166">Program.cs dosyasını açın ve aşağıdaki using deyimlerini:</span><span class="sxs-lookup"><span data-stu-id="ababa-166">Open the file Program.cs and add the following using statements:</span></span>
 
 [!code-csharp[Main](self-host-a-web-api/samples/sample3.cs)]
 
-<span data-ttu-id="44740-167">Aşağıdaki kodu ekleyin **Program** sınıfı.</span><span class="sxs-lookup"><span data-stu-id="44740-167">Add the following code to the **Program** class.</span></span>
+<span data-ttu-id="ababa-167">Aşağıdaki kodu ekleyin **Program** sınıfı.</span><span class="sxs-lookup"><span data-stu-id="ababa-167">Add the following code to the **Program** class.</span></span>
 
 [!code-csharp[Main](self-host-a-web-api/samples/sample4.cs)]
 
-## <a name="optional-add-an-http-url-namespace-reservation"></a><span data-ttu-id="44740-168">(İsteğe bağlı) Bir HTTP URL'si Namespace ayırma ekleyin</span><span class="sxs-lookup"><span data-stu-id="44740-168">(Optional) Add an HTTP URL Namespace Reservation</span></span>
+## <a name="optional-add-an-http-url-namespace-reservation"></a><span data-ttu-id="ababa-168">(İsteğe bağlı) Bir HTTP URL'si Namespace ayırma ekleyin</span><span class="sxs-lookup"><span data-stu-id="ababa-168">(Optional) Add an HTTP URL Namespace Reservation</span></span>
 
-<span data-ttu-id="44740-169">Bu uygulamasının dinleyeceği `http://localhost:8080/`.</span><span class="sxs-lookup"><span data-stu-id="44740-169">This application listens to `http://localhost:8080/`.</span></span> <span data-ttu-id="44740-170">Varsayılan olarak, belirli bir HTTP adreste dinleme yönetici ayrıcalıkları gerektirir.</span><span class="sxs-lookup"><span data-stu-id="44740-170">By default, listening at a particular HTTP address requires administrator privileges.</span></span> <span data-ttu-id="44740-171">Öğreticiyi çalıştırdığınızda, bu nedenle, bu hatayı alabilirsiniz: "HTTP URL'si kaydedemedi http://+:8080/" Bu hatayı önlemek için iki yolu vardır:</span><span class="sxs-lookup"><span data-stu-id="44740-171">When you run the tutorial, therefore, you may get this error: "HTTP could not register URL http://+:8080/" There are two ways to avoid this error:</span></span>
+<span data-ttu-id="ababa-169">Bu uygulamasının dinleyeceği `http://localhost:8080/`.</span><span class="sxs-lookup"><span data-stu-id="ababa-169">This application listens to `http://localhost:8080/`.</span></span> <span data-ttu-id="ababa-170">Varsayılan olarak, belirli bir HTTP adreste dinleme yönetici ayrıcalıkları gerektirir.</span><span class="sxs-lookup"><span data-stu-id="ababa-170">By default, listening at a particular HTTP address requires administrator privileges.</span></span> <span data-ttu-id="ababa-171">Öğreticiyi çalıştırdığınızda, bu nedenle, bu hatayı alabilirsiniz: "HTTP URL'si kaydedemedi http://+:8080/" Bu hatayı önlemek için iki yolu vardır:</span><span class="sxs-lookup"><span data-stu-id="ababa-171">When you run the tutorial, therefore, you may get this error: "HTTP could not register URL http://+:8080/" There are two ways to avoid this error:</span></span>
 
-- <span data-ttu-id="44740-172">Visual Studio'yu yönetici izinleriyle çalıştırın veya</span><span class="sxs-lookup"><span data-stu-id="44740-172">Run Visual Studio with elevated administrator permissions, or</span></span>
-- <span data-ttu-id="44740-173">Netsh.exe URL ayırmak için hesap izinlerinize vermek için kullanın.</span><span class="sxs-lookup"><span data-stu-id="44740-173">Use Netsh.exe to give your account permissions to reserve the URL.</span></span>
+- <span data-ttu-id="ababa-172">Visual Studio'yu yönetici izinleriyle çalıştırın veya</span><span class="sxs-lookup"><span data-stu-id="ababa-172">Run Visual Studio with elevated administrator permissions, or</span></span>
+- <span data-ttu-id="ababa-173">Netsh.exe URL ayırmak için hesap izinlerinize vermek için kullanın.</span><span class="sxs-lookup"><span data-stu-id="ababa-173">Use Netsh.exe to give your account permissions to reserve the URL.</span></span>
 
-<span data-ttu-id="44740-174">Netsh.exe kullanmak için yönetici ayrıcalıklarıyla bir komut istemi açın ve aşağıdaki komutu: aşağıdaki komutu girin:</span><span class="sxs-lookup"><span data-stu-id="44740-174">To use Netsh.exe, open a command prompt with administrator privileges and enter the following command:following command:</span></span>
+<span data-ttu-id="ababa-174">Netsh.exe kullanmak için yönetici ayrıcalıklarıyla bir komut istemi açın ve aşağıdaki komutu: aşağıdaki komutu girin:</span><span class="sxs-lookup"><span data-stu-id="ababa-174">To use Netsh.exe, open a command prompt with administrator privileges and enter the following command:following command:</span></span>
 
 [!code-console[Main](self-host-a-web-api/samples/sample5.cmd)]
 
-<span data-ttu-id="44740-175">Burada *Makine\kullanıcı* kullanıcı hesabıdır.</span><span class="sxs-lookup"><span data-stu-id="44740-175">where *machine\username* is your user account.</span></span>
+<span data-ttu-id="ababa-175">Burada *Makine\kullanıcı* kullanıcı hesabıdır.</span><span class="sxs-lookup"><span data-stu-id="ababa-175">where *machine\username* is your user account.</span></span>
 
-<span data-ttu-id="44740-176">İşiniz bittiğinde kendi kendine barındırma, rezervasyon sildiğinizden emin olun:</span><span class="sxs-lookup"><span data-stu-id="44740-176">When you are finished self-hosting, be sure to delete the reservation:</span></span>
+<span data-ttu-id="ababa-176">İşiniz bittiğinde kendi kendine barındırma, rezervasyon sildiğinizden emin olun:</span><span class="sxs-lookup"><span data-stu-id="ababa-176">When you are finished self-hosting, be sure to delete the reservation:</span></span>
 
 [!code-console[Main](self-host-a-web-api/samples/sample6.cmd)]
 
-## <a name="call-the-web-api-from-a-client-application-c"></a><span data-ttu-id="44740-177">Bir istemci uygulamasından (C#) Web API'si çağırma</span><span class="sxs-lookup"><span data-stu-id="44740-177">Call the Web API from a Client Application (C#)</span></span>
+## <a name="call-the-web-api-from-a-client-application-c"></a><span data-ttu-id="ababa-177">Bir istemci uygulamasından (C#) Web API'si çağırma</span><span class="sxs-lookup"><span data-stu-id="ababa-177">Call the Web API from a Client Application (C#)</span></span>
 
-<span data-ttu-id="44740-178">Şimdi web API'si çağıran basit bir konsol uygulaması yazma.</span><span class="sxs-lookup"><span data-stu-id="44740-178">Let's write a simple console application that calls the web API.</span></span>
+<span data-ttu-id="ababa-178">Şimdi web API'si çağıran basit bir konsol uygulaması yazma.</span><span class="sxs-lookup"><span data-stu-id="ababa-178">Let's write a simple console application that calls the web API.</span></span>
 
-<span data-ttu-id="44740-179">Yeni bir konsol uygulaması projesi çözüme ekleyin:</span><span class="sxs-lookup"><span data-stu-id="44740-179">Add a new console application project to the solution:</span></span>
+<span data-ttu-id="ababa-179">Yeni bir konsol uygulaması projesi çözüme ekleyin:</span><span class="sxs-lookup"><span data-stu-id="ababa-179">Add a new console application project to the solution:</span></span>
 
-- <span data-ttu-id="44740-180">Çözüm Gezgini'nde çözüme sağ tıklayıp seçin **Yeni Proje Ekle**.</span><span class="sxs-lookup"><span data-stu-id="44740-180">In Solution Explorer, right-click the solution and select **Add New Project**.</span></span>
-- <span data-ttu-id="44740-181">Adlı yeni bir konsol uygulaması oluşturun &quot;ClientApp&quot;.</span><span class="sxs-lookup"><span data-stu-id="44740-181">Create a new console application named &quot;ClientApp&quot;.</span></span>
+- <span data-ttu-id="ababa-180">Çözüm Gezgini'nde çözüme sağ tıklayıp seçin **Yeni Proje Ekle**.</span><span class="sxs-lookup"><span data-stu-id="ababa-180">In Solution Explorer, right-click the solution and select **Add New Project**.</span></span>
+- <span data-ttu-id="ababa-181">Adlı yeni bir konsol uygulaması oluşturun &quot;ClientApp&quot;.</span><span class="sxs-lookup"><span data-stu-id="ababa-181">Create a new console application named &quot;ClientApp&quot;.</span></span>
 
 ![](self-host-a-web-api/_static/image5.png)
 
-<span data-ttu-id="44740-182">NuGet paketi ASP.NET Web API çekirdek kitaplıkları paketini eklemek için Yöneticisi'ni kullanın:</span><span class="sxs-lookup"><span data-stu-id="44740-182">Use NuGet Package Manager to add the ASP.NET Web API Core Libraries package:</span></span>
+<span data-ttu-id="ababa-182">NuGet paketi ASP.NET Web API çekirdek kitaplıkları paketini eklemek için Yöneticisi'ni kullanın:</span><span class="sxs-lookup"><span data-stu-id="ababa-182">Use NuGet Package Manager to add the ASP.NET Web API Core Libraries package:</span></span>
 
-- <span data-ttu-id="44740-183">Araçlar menüsü'nden seçin **kitaplık Paket Yöneticisi**.</span><span class="sxs-lookup"><span data-stu-id="44740-183">From the Tools menu, select **Library Package Manager**.</span></span>
-- <span data-ttu-id="44740-184">Seçin **çözüm için NuGet paketlerini Yönet...**</span><span class="sxs-lookup"><span data-stu-id="44740-184">Select **Manage NuGet Packages for Solution...**</span></span>
-- <span data-ttu-id="44740-185">İçinde **NuGet paketlerini Yönet** iletişim kutusunda **çevrimiçi**.</span><span class="sxs-lookup"><span data-stu-id="44740-185">In the **Manage NuGet Packages** dialog, select **Online**.</span></span>
-- <span data-ttu-id="44740-186">Arama kutusuna &quot;System.NET.http.Formatting&quot;.</span><span class="sxs-lookup"><span data-stu-id="44740-186">In the search box, type &quot;Microsoft.AspNet.WebApi.Client&quot;.</span></span>
-- <span data-ttu-id="44740-187">Microsoft ASP.NET Web API İstemci Kitaplığı paketi seçin ve tıklayın **yükleme**.</span><span class="sxs-lookup"><span data-stu-id="44740-187">Select the Microsoft ASP.NET Web API Client Libraries package and click **Install**.</span></span>
+- <span data-ttu-id="ababa-183">Araçlar menüsü'nden seçin **kitaplık Paket Yöneticisi**.</span><span class="sxs-lookup"><span data-stu-id="ababa-183">From the Tools menu, select **Library Package Manager**.</span></span>
+- <span data-ttu-id="ababa-184">Seçin **çözüm için NuGet paketlerini Yönet...**</span><span class="sxs-lookup"><span data-stu-id="ababa-184">Select **Manage NuGet Packages for Solution...**</span></span>
+- <span data-ttu-id="ababa-185">İçinde **NuGet paketlerini Yönet** iletişim kutusunda **çevrimiçi**.</span><span class="sxs-lookup"><span data-stu-id="ababa-185">In the **Manage NuGet Packages** dialog, select **Online**.</span></span>
+- <span data-ttu-id="ababa-186">Arama kutusuna &quot;System.NET.http.Formatting&quot;.</span><span class="sxs-lookup"><span data-stu-id="ababa-186">In the search box, type &quot;Microsoft.AspNet.WebApi.Client&quot;.</span></span>
+- <span data-ttu-id="ababa-187">Microsoft ASP.NET Web API İstemci Kitaplığı paketi seçin ve tıklayın **yükleme**.</span><span class="sxs-lookup"><span data-stu-id="ababa-187">Select the Microsoft ASP.NET Web API Client Libraries package and click **Install**.</span></span>
 
-<span data-ttu-id="44740-188">Bir başvuru ClientApp SelfHost projeye ekleyin:</span><span class="sxs-lookup"><span data-stu-id="44740-188">Add a reference in ClientApp to the SelfHost project:</span></span>
+<span data-ttu-id="ababa-188">Bir başvuru ClientApp SelfHost projeye ekleyin:</span><span class="sxs-lookup"><span data-stu-id="ababa-188">Add a reference in ClientApp to the SelfHost project:</span></span>
 
-- <span data-ttu-id="44740-189">Çözüm Gezgini'nde ClientApp projeye sağ tıklayın.</span><span class="sxs-lookup"><span data-stu-id="44740-189">In Solution Explorer, right-click the ClientApp project.</span></span>
-- <span data-ttu-id="44740-190">Seçin **Başvurusu Ekle**.</span><span class="sxs-lookup"><span data-stu-id="44740-190">Select **Add Reference**.</span></span>
-- <span data-ttu-id="44740-191">İçinde **başvuru Yöneticisi** iletişim altında **çözüm**seçin **projeleri**.</span><span class="sxs-lookup"><span data-stu-id="44740-191">In the **Reference Manager** dialog, under **Solution**, select **Projects**.</span></span>
-- <span data-ttu-id="44740-192">SelfHost projeyi seçin.</span><span class="sxs-lookup"><span data-stu-id="44740-192">Select the SelfHost project.</span></span>
-- <span data-ttu-id="44740-193">**Tamam**'ı tıklatın.</span><span class="sxs-lookup"><span data-stu-id="44740-193">Click **OK**.</span></span>
+- <span data-ttu-id="ababa-189">Çözüm Gezgini'nde ClientApp projeye sağ tıklayın.</span><span class="sxs-lookup"><span data-stu-id="ababa-189">In Solution Explorer, right-click the ClientApp project.</span></span>
+- <span data-ttu-id="ababa-190">Seçin **Başvurusu Ekle**.</span><span class="sxs-lookup"><span data-stu-id="ababa-190">Select **Add Reference**.</span></span>
+- <span data-ttu-id="ababa-191">İçinde **başvuru Yöneticisi** iletişim altında **çözüm**seçin **projeleri**.</span><span class="sxs-lookup"><span data-stu-id="ababa-191">In the **Reference Manager** dialog, under **Solution**, select **Projects**.</span></span>
+- <span data-ttu-id="ababa-192">SelfHost projeyi seçin.</span><span class="sxs-lookup"><span data-stu-id="ababa-192">Select the SelfHost project.</span></span>
+- <span data-ttu-id="ababa-193">**Tamam**'ı tıklatın.</span><span class="sxs-lookup"><span data-stu-id="ababa-193">Click **OK**.</span></span>
 
 ![](self-host-a-web-api/_static/image6.png)
 
-<span data-ttu-id="44740-194">Client/Program.cs dosyasını açın.</span><span class="sxs-lookup"><span data-stu-id="44740-194">Open the Client/Program.cs file.</span></span> <span data-ttu-id="44740-195">Aşağıdaki **kullanarak** deyimi:</span><span class="sxs-lookup"><span data-stu-id="44740-195">Add the following **using** statement:</span></span>
+<span data-ttu-id="ababa-194">Client/Program.cs dosyasını açın.</span><span class="sxs-lookup"><span data-stu-id="ababa-194">Open the Client/Program.cs file.</span></span> <span data-ttu-id="ababa-195">Aşağıdaki **kullanarak** deyimi:</span><span class="sxs-lookup"><span data-stu-id="ababa-195">Add the following **using** statement:</span></span>
 
 [!code-csharp[Main](self-host-a-web-api/samples/sample7.cs)]
 
-<span data-ttu-id="44740-196">Statik bir ekleme **HttpClient** örneği:</span><span class="sxs-lookup"><span data-stu-id="44740-196">Add a static **HttpClient** instance:</span></span>
+<span data-ttu-id="ababa-196">Statik bir ekleme **HttpClient** örneği:</span><span class="sxs-lookup"><span data-stu-id="ababa-196">Add a static **HttpClient** instance:</span></span>
 
 [!code-csharp[Main](self-host-a-web-api/samples/sample8.cs)]
 
-<span data-ttu-id="44740-197">Tüm ürünler, bir ürün Kimliğine göre listesi ve ürünleri listeler, kategoriye göre listelemek için aşağıdaki yöntemleri ekleyin.</span><span class="sxs-lookup"><span data-stu-id="44740-197">Add the following methods to list all products, list a product by ID, and list products by category.</span></span>
+<span data-ttu-id="ababa-197">Tüm ürünler, bir ürün Kimliğine göre listesi ve ürünleri listeler, kategoriye göre listelemek için aşağıdaki yöntemleri ekleyin.</span><span class="sxs-lookup"><span data-stu-id="ababa-197">Add the following methods to list all products, list a product by ID, and list products by category.</span></span>
 
 [!code-csharp[Main](self-host-a-web-api/samples/sample9.cs)]
 
-<span data-ttu-id="44740-198">Bu yöntemlerin her biri aynı deseni izler:</span><span class="sxs-lookup"><span data-stu-id="44740-198">Each of these methods follows the same pattern:</span></span>
+<span data-ttu-id="ababa-198">Bu yöntemlerin her biri aynı deseni izler:</span><span class="sxs-lookup"><span data-stu-id="ababa-198">Each of these methods follows the same pattern:</span></span>
 
-1. <span data-ttu-id="44740-199">Çağrı **HttpClient.GetAsync** uygun URI'ye bir GET isteği göndermek için.</span><span class="sxs-lookup"><span data-stu-id="44740-199">Call **HttpClient.GetAsync** to send a GET request to the appropriate URI.</span></span>
-2. <span data-ttu-id="44740-200">Çağrı **HttpResponseMessage.EnsureSuccessStatusCode**.</span><span class="sxs-lookup"><span data-stu-id="44740-200">Call **HttpResponseMessage.EnsureSuccessStatusCode**.</span></span> <span data-ttu-id="44740-201">HTTP yanıtı durum bir hata kodu ise bu yöntem bir özel durum oluşturur.</span><span class="sxs-lookup"><span data-stu-id="44740-201">This method throws an exception if the HTTP response status is an error code.</span></span>
-3. <span data-ttu-id="44740-202">Çağrı **ReadAsAsync&lt;T&gt;**  HTTP yanıtı gelen bir CLR türü seri durumdan çıkarılacak.</span><span class="sxs-lookup"><span data-stu-id="44740-202">Call **ReadAsAsync&lt;T&gt;** to deserialize a CLR type from the HTTP response.</span></span> <span data-ttu-id="44740-203">Bu yöntem içinde tanımlanan bir genişletme yöntemi olduğunu **System.Net.Http.HttpContentExtensions**.</span><span class="sxs-lookup"><span data-stu-id="44740-203">This method is an extension method, defined in **System.Net.Http.HttpContentExtensions**.</span></span>
+1. <span data-ttu-id="ababa-199">Çağrı **HttpClient.GetAsync** uygun URI'ye bir GET isteği göndermek için.</span><span class="sxs-lookup"><span data-stu-id="ababa-199">Call **HttpClient.GetAsync** to send a GET request to the appropriate URI.</span></span>
+2. <span data-ttu-id="ababa-200">Çağrı **HttpResponseMessage.EnsureSuccessStatusCode**.</span><span class="sxs-lookup"><span data-stu-id="ababa-200">Call **HttpResponseMessage.EnsureSuccessStatusCode**.</span></span> <span data-ttu-id="ababa-201">HTTP yanıtı durum bir hata kodu ise bu yöntem bir özel durum oluşturur.</span><span class="sxs-lookup"><span data-stu-id="ababa-201">This method throws an exception if the HTTP response status is an error code.</span></span>
+3. <span data-ttu-id="ababa-202">Çağrı **ReadAsAsync&lt;T&gt;**  HTTP yanıtı gelen bir CLR türü seri durumdan çıkarılacak.</span><span class="sxs-lookup"><span data-stu-id="ababa-202">Call **ReadAsAsync&lt;T&gt;** to deserialize a CLR type from the HTTP response.</span></span> <span data-ttu-id="ababa-203">Bu yöntem içinde tanımlanan bir genişletme yöntemi olduğunu **System.Net.Http.HttpContentExtensions**.</span><span class="sxs-lookup"><span data-stu-id="ababa-203">This method is an extension method, defined in **System.Net.Http.HttpContentExtensions**.</span></span>
 
-<span data-ttu-id="44740-204">**GetAsync** ve **ReadAsAsync** hem de zaman uyumsuz yöntemler şunlardır.</span><span class="sxs-lookup"><span data-stu-id="44740-204">The **GetAsync** and **ReadAsAsync** methods are both asynchronous.</span></span> <span data-ttu-id="44740-205">Döndürmeleri **görev** zaman uyumsuz işlemi temsil eden nesneleri.</span><span class="sxs-lookup"><span data-stu-id="44740-205">They return **Task** objects that represent the asynchronous operation.</span></span> <span data-ttu-id="44740-206">Başlama **sonucu** özelliği işlem tamamlanana kadar iş parçacığını engeller.</span><span class="sxs-lookup"><span data-stu-id="44740-206">Getting the **Result** property blocks the thread until the operation completes.</span></span>
+<span data-ttu-id="ababa-204">**GetAsync** ve **ReadAsAsync** hem de zaman uyumsuz yöntemler şunlardır.</span><span class="sxs-lookup"><span data-stu-id="ababa-204">The **GetAsync** and **ReadAsAsync** methods are both asynchronous.</span></span> <span data-ttu-id="ababa-205">Döndürmeleri **görev** zaman uyumsuz işlemi temsil eden nesneleri.</span><span class="sxs-lookup"><span data-stu-id="ababa-205">They return **Task** objects that represent the asynchronous operation.</span></span> <span data-ttu-id="ababa-206">Başlama **sonucu** özelliği işlem tamamlanana kadar iş parçacığını engeller.</span><span class="sxs-lookup"><span data-stu-id="ababa-206">Getting the **Result** property blocks the thread until the operation completes.</span></span>
 
-<span data-ttu-id="44740-207">HttpClient, engellemeyen çağrı yapmak nasıl dahil olmak üzere kullanma hakkında daha fazla bilgi için bkz. [bir Web API'si bir .NET istemcinin çağırma](../advanced/calling-a-web-api-from-a-net-client.md).</span><span class="sxs-lookup"><span data-stu-id="44740-207">For more information about using HttpClient, including how to make non-blocking calls, see [Calling a Web API From a .NET Client](../advanced/calling-a-web-api-from-a-net-client.md).</span></span>
+<span data-ttu-id="ababa-207">HttpClient, engellemeyen çağrı yapmak nasıl dahil olmak üzere kullanma hakkında daha fazla bilgi için bkz. [bir Web API'si bir .NET istemcinin çağırma](../advanced/calling-a-web-api-from-a-net-client.md).</span><span class="sxs-lookup"><span data-stu-id="ababa-207">For more information about using HttpClient, including how to make non-blocking calls, see [Calling a Web API From a .NET Client](../advanced/calling-a-web-api-from-a-net-client.md).</span></span>
 
-<span data-ttu-id="44740-208">Bu yöntemleri çağrılmadan önce BaseAddress özelliği için HttpClient örneği üzerinde ayarlanmış "`http://localhost:8080`".</span><span class="sxs-lookup"><span data-stu-id="44740-208">Before calling these methods, set the BaseAddress property on the HttpClient instance to "`http://localhost:8080`".</span></span> <span data-ttu-id="44740-209">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="44740-209">For example:</span></span>
+<span data-ttu-id="ababa-208">Bu yöntemleri çağrılmadan önce BaseAddress özelliği için HttpClient örneği üzerinde ayarlanmış "`http://localhost:8080`".</span><span class="sxs-lookup"><span data-stu-id="ababa-208">Before calling these methods, set the BaseAddress property on the HttpClient instance to "`http://localhost:8080`".</span></span> <span data-ttu-id="ababa-209">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="ababa-209">For example:</span></span>
 
 [!code-csharp[Main](self-host-a-web-api/samples/sample10.cs)]
 
-<span data-ttu-id="44740-210">Bu aşağıdaki çıkışı oluşturmalıdır.</span><span class="sxs-lookup"><span data-stu-id="44740-210">This should output the following.</span></span> <span data-ttu-id="44740-211">(İlk SelfHost uygulamayı çalıştırmak unutmayın.)</span><span class="sxs-lookup"><span data-stu-id="44740-211">(Remember to run the SelfHost application first.)</span></span>
+<span data-ttu-id="ababa-210">Bu aşağıdaki çıkışı oluşturmalıdır.</span><span class="sxs-lookup"><span data-stu-id="ababa-210">This should output the following.</span></span> <span data-ttu-id="ababa-211">(İlk SelfHost uygulamayı çalıştırmak unutmayın.)</span><span class="sxs-lookup"><span data-stu-id="ababa-211">(Remember to run the SelfHost application first.)</span></span>
 
 [!code-console[Main](self-host-a-web-api/samples/sample11.cmd)]
 

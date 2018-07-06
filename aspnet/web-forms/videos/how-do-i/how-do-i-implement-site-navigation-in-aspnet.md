@@ -4,24 +4,21 @@ title: "[Bunu nasıl yaparım:] ASP.NET'te Site gezintisi uygulama? | Microsoft 
 author: rick-anderson
 description: Bu videoda, size bir site haritası tanımlamak ve menüsünde, ağaç görünümünde ve site haritası sunucu denetimleri ile kullanmak nasıl öğrenin. Ana sayfada bir site haritası kullanmayı görüyoruz...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/18/2007
-ms.topic: article
 ms.assetid: 889e8100-a80c-41c0-bfeb-7d466c754548
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-implement-site-navigation-in-aspnet
 msc.type: video
-ms.openlocfilehash: dd11d5b44e44f56e6268838c918dd12e448cdb19
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 1995ce735698f0c7827e2721c07c1d98922a7ba3
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37374775"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37822437"
 ---
-<a name="how-do-i-implement-site-navigation-in-aspnet"></a><span data-ttu-id="9b7cd-105">[Bunu nasıl yaparım:] ASP.NET'te Site gezintisi uygulama?</span><span class="sxs-lookup"><span data-stu-id="9b7cd-105">[How Do I:] Implement Site Navigation in ASP.NET?</span></span>
+<a name="how-do-i-implement-site-navigation-in-aspnet"></a><span data-ttu-id="56bd1-105">[Bunu nasıl yaparım:] ASP.NET'te Site gezintisi uygulama?</span><span class="sxs-lookup"><span data-stu-id="56bd1-105">[How Do I:] Implement Site Navigation in ASP.NET?</span></span>
 ====================
-<span data-ttu-id="9b7cd-106">tarafından [Chris piksel](https://twitter.com/chrispels)</span><span class="sxs-lookup"><span data-stu-id="9b7cd-106">by [Chris Pels](https://twitter.com/chrispels)</span></span>
+<span data-ttu-id="56bd1-106">tarafından [Chris piksel](https://twitter.com/chrispels)</span><span class="sxs-lookup"><span data-stu-id="56bd1-106">by [Chris Pels](https://twitter.com/chrispels)</span></span>
 
-<span data-ttu-id="9b7cd-107">Bu videoda, size bir site haritası tanımlamak ve menüsünde, ağaç görünümünde ve site haritası sunucu denetimleri ile kullanmak nasıl öğrenin.</span><span class="sxs-lookup"><span data-stu-id="9b7cd-107">In this video we learn how to define a sitemap and use it with the Menu, TreeView, and Sitemap server controls.</span></span> <span data-ttu-id="9b7cd-108">Bir site haritası ana sayfada için site geneli menüleri kullanma ve biz bir sayfada tek veya birden çok site haritaları nasıl olabilir görüyoruz.</span><span class="sxs-lookup"><span data-stu-id="9b7cd-108">We see how to use a sitemap on a master page for site-wide menus and how we can have single or multiple sitemaps on a page.</span></span> <span data-ttu-id="9b7cd-109">Ayrıca, biz "güvenlik kırpma" kullanarak bir site haritası ASP.NET rolleri ile tümleştirmek nasıl gösterilir dinamik olarak göster veya farklı erişim düzeylerine sahip kullanıcı menüsü seçeneklerini gizle.</span><span class="sxs-lookup"><span data-stu-id="9b7cd-109">In addition, we are shown how to integrate a sitemap with ASP.NET roles by using "security trimming" to dynamically show or hide menu options for users with different access levels.</span></span>
+<span data-ttu-id="56bd1-107">Bu videoda, size bir site haritası tanımlamak ve menüsünde, ağaç görünümünde ve site haritası sunucu denetimleri ile kullanmak nasıl öğrenin.</span><span class="sxs-lookup"><span data-stu-id="56bd1-107">In this video we learn how to define a sitemap and use it with the Menu, TreeView, and Sitemap server controls.</span></span> <span data-ttu-id="56bd1-108">Bir site haritası ana sayfada için site geneli menüleri kullanma ve biz bir sayfada tek veya birden çok site haritaları nasıl olabilir görüyoruz.</span><span class="sxs-lookup"><span data-stu-id="56bd1-108">We see how to use a sitemap on a master page for site-wide menus and how we can have single or multiple sitemaps on a page.</span></span> <span data-ttu-id="56bd1-109">Ayrıca, biz "güvenlik kırpma" kullanarak bir site haritası ASP.NET rolleri ile tümleştirmek nasıl gösterilir dinamik olarak göster veya farklı erişim düzeylerine sahip kullanıcı menüsü seçeneklerini gizle.</span><span class="sxs-lookup"><span data-stu-id="56bd1-109">In addition, we are shown how to integrate a sitemap with ASP.NET roles by using "security trimming" to dynamically show or hide menu options for users with different access levels.</span></span>
 
-[<span data-ttu-id="9b7cd-110">&#9654;Videoyu (29 dakika)</span><span class="sxs-lookup"><span data-stu-id="9b7cd-110">&#9654; Watch video (29 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-implement-site-navigation-in-aspnet)
+[<span data-ttu-id="56bd1-110">&#9654;Videoyu (29 dakika)</span><span class="sxs-lookup"><span data-stu-id="56bd1-110">&#9654; Watch video (29 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-implement-site-navigation-in-aspnet)
