@@ -4,19 +4,16 @@ title: ASP.NET dinamik veri | Microsoft Docs
 author: rick-anderson
 description: ASP.NET dinamik veri otomatik olarak veri erişimi gerçekleştirdiği ne yapılacağını bildiğiniz iskele kurulmuş uygulamalar oluşturmak için nasıl kullanılacağını.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/05/2011
-ms.topic: article
 ms.assetid: cd51e6c4-6ff9-419d-8ac8-a39b79d63c78
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data
 msc.type: chapter
-ms.openlocfilehash: 41af0473822efb6cdde5087df317b30126dc0bc8
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: c847b8de7e45447be337940e71b87d57911d17f5
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37374791"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37841483"
 ---
 <a name="aspnet-dynamic-data"></a>ASP.NET dinamik veri
 ====================

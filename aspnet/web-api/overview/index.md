@@ -4,19 +4,16 @@ title: Web API Kılavuzu | Microsoft Docs
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/17/2012
-ms.topic: article
 ms.assetid: daca6735-b5d3-4ef5-af33-ee682926238b
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview
 msc.type: book
-ms.openlocfilehash: 88dae580fe1e4a06a1343aa315040b5bd9cdaae8
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: d7ab3118552ba705211e7c706452d7aa2c96e9dd
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37393129"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37834287"
 ---
 <a name="web-api-guidance"></a>Web API Kılavuzu
 ====================

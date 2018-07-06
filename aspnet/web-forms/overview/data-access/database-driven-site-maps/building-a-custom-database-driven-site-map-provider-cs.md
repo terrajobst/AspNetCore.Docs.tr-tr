@@ -4,19 +4,16 @@ title: Bir özel veritabanı odaklı Site haritası sağlayıcısı (C#) oluştu
 author: rick-anderson
 description: ASP.NET 2.0 varsayılan site haritası sağlayıcısı statik bir XML dosyasından verilerini alır. XML-tabanlı sağlayıcı birçok küçük ve orta boyut için uygun olsa da...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/26/2007
-ms.topic: article
 ms.assetid: 04b7591d-106f-4f05-87e9-d416cb65a8a6
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/database-driven-site-maps/building-a-custom-database-driven-site-map-provider-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 1160711911d53dcf889ced1a8422c2dfcf72b240
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: fdc6ddeac800279a638911f1f64772c49fff5449
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37368702"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37807118"
 ---
 <a name="building-a-custom-database-driven-site-map-provider-c"></a>Bir (C#) özel bir veritabanı odaklı Site haritası sağlayıcısı oluşturma
 ====================

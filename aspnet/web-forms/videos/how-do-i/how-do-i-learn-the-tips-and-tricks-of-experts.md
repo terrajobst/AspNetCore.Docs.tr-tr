@@ -4,19 +4,16 @@ title: '[Bunu nasıl yaparım:] İpuçları ve püf noktaları ilişkin uzmanlar
 author: microsoft
 description: İpuçları ve püf noktaları içerik karmaşık URL'leri basitleştirme farklı bir sayfaya yayınlayarak web.config dosyasında depolanan hassas bilgileri şifrelemek dahil olmak üzere görüntüle...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/16/2006
-ms.topic: article
 ms.assetid: 77526e53-524b-4cae-9025-3e493f2895d0
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-learn-the-tips-and-tricks-of-experts
 msc.type: video
-ms.openlocfilehash: 4d5d70c65c462b715dcad13daeb4f44a9d1d13ad
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: f6f86d113f75cb2d0e7843292d284164f80bb55f
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37387331"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37801864"
 ---
 <a name="how-do-i-learn-the-tips-and-tricks-of-experts"></a>[Bunu nasıl yaparım:] İpuçları ve püf noktaları ilişkin uzmanlardan bilgi?
 ====================

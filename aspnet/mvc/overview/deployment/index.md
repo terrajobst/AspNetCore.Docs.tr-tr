@@ -4,19 +4,16 @@ title: Dağıtım | Microsoft Docs
 author: rick-anderson
 description: ASP.NET MVC projeleri bir sunucuya dağıtma
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/18/2011
-ms.topic: article
 ms.assetid: 31922c31-59df-4399-99d2-e935a476f16a
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/deployment
 msc.type: chapter
-ms.openlocfilehash: f06005c668c45d588da7f2f9dc08d3dfe3a66d92
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 041b8fec1db66a0bb64c0e052f912048239c046b
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37363090"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37801447"
 ---
 # <a name="aspnet-mvc-deployment"></a>ASP.NET MVC dağıtım
 

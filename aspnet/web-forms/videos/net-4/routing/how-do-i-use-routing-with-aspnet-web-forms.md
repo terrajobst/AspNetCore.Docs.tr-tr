@@ -4,19 +4,16 @@ title: Nasıl Yaparım Kullanın, ASP.NET Web Forms ile yönlendirme? | Microsof
 author: rick-anderson
 description: Bu videoda, Chris piksel nasıl ASP.NET 4'te Web formları için yönlendirme uygulanacağı gösterilmektedir. İlk olarak, bir p için URL eşlemek için bir URL yönlendirme kavramı karşılaştırılır...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/15/2010
-ms.topic: article
 ms.assetid: a3ab6cd9-8f71-4b73-9336-21c0de078269
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/net-4/routing/how-do-i-use-routing-with-aspnet-web-forms
 msc.type: video
-ms.openlocfilehash: 8ef8edd68d9918817df564227d1f37716d49d132
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 4b570df24b7a931b3853c5117a29d405ca8ecf24
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37383457"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37830208"
 ---
 <a name="how-do-i-use-routing-with-aspnet-web-forms"></a>Nasıl Yaparım Kullanın, ASP.NET Web Forms ile yönlendirme?
 ====================

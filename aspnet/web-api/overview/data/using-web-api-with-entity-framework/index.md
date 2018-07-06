@@ -4,19 +4,16 @@ title: Web API 2 Entity Framework 6 ile kullanma | Microsoft Docs
 author: rick-anderson
 description: Veritabanı Kalıcılık için Entity Framework kullanan bir Web API'si uygulaması oluşturma
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/03/2012
-ms.topic: article
 ms.assetid: 6c3c4f27-2fa3-49dc-bcaf-1ee3ef620f8e
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework
 msc.type: chapter
-ms.openlocfilehash: db9cb0fd8607748102d8aec6ae9692ef8e5a1fd8
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 9db6b35c457ad10641fa7bd3de62a41585ed0894
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37370503"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37832923"
 ---
 <a name="using-web-api-2-with-entity-framework-6"></a>Web API 2 Entity Framework 6 ile kullanma
 ====================

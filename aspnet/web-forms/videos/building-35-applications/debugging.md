@@ -4,19 +4,16 @@ title: Hata ayıklama | Microsoft Docs
 author: JoeStagner
 description: 'Açıklama: Visual Web Developer yeni başlayanlar ve uzman bir geliştirici benzer yönelik zengin bir hata ayıklama deneyimi sunar. Bu videoda, ALi VW turu...'
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/30/2009
-ms.topic: article
 ms.assetid: d17389d8-3824-4900-9309-92d49bb756b1
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/building-35-applications/debugging
 msc.type: video
-ms.openlocfilehash: 19e06a338790ae3e6802e2f435d0a5c5deaf23af
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 75cd2dee09fecabef4b1825e204cbf0e0f91d407
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37392032"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37835382"
 ---
 <a name="debugging"></a>Hata Ayıklama
 ====================

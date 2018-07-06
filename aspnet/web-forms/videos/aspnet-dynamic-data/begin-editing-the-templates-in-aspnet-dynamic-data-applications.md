@@ -4,19 +4,16 @@ title: ASP.NET dinamik veri uygulamalarında Şablonları düzenlemeye başlama 
 author: JoeStagner
 description: Bu video, oluşturulan ASP.NET dinamik veri uygulamanızı uygulama yapısını keşfedin ve sağlanan şablonları düzenlemeye başlamanıza yardımcı olur.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/23/2008
-ms.topic: article
 ms.assetid: e5b0f6da-635c-461d-8f34-ab815715888a
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data/begin-editing-the-templates-in-aspnet-dynamic-data-applications
 msc.type: video
-ms.openlocfilehash: 74d58f07c7f0bfc1511de2f62529d257c7df7bfa
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 2cbb30248c0d4c0d9db1ced698df2593ebf2021f
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37397373"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37832373"
 ---
 <a name="begin-editing-the-templates-in-aspnet-dynamic-data-applications"></a>ASP.NET dinamik veri uygulamalarında Şablonları düzenlemeye başlama
 ====================

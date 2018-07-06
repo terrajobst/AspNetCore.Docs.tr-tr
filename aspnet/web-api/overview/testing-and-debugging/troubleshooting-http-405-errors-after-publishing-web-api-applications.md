@@ -4,19 +4,16 @@ title: Sorun giderme HTTP 405 hatalarıyla yayımlamadan sonra Web API 2 uygulam
 author: rmcmurray
 description: Bu öğreticide, bir üretim web sunucusu için bir Web API'sini uygulama yayımlandıktan sonra HTTP 405 hatalarıyla ilgili sorunları giderme açıklar.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/01/2014
-ms.topic: article
 ms.assetid: 07ec7d37-023f-43ea-b471-60b08ce338f7
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/testing-and-debugging/troubleshooting-http-405-errors-after-publishing-web-api-applications
 msc.type: authoredcontent
-ms.openlocfilehash: 8027644e9430d49962e61db21b9e21426eabd136
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 7dd7fd1fc6be9bc2f843c293222179a9774dff3c
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37366125"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37827870"
 ---
 <a name="troubleshooting-http-405-errors-after-publishing-web-api-2-applications"></a>Sorun giderme HTTP 405 hatalarıyla yayımlamadan sonra Web API 2 uygulamaları
 ====================

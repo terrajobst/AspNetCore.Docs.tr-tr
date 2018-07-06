@@ -4,19 +4,16 @@ title: ASP.NET kimliği boş veya mevcut bir Web formları projesi ekleme | Micr
 author: raquelsa
 description: Bu öğreticide bir ASP.NET uygulaması için ASP.NET kimliğini (ASP.NET için yeni üyelik sistemi) ekleme gösterir. Yeni bir Web Forms veya MVC oluştururken...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/23/2013
-ms.topic: article
 ms.assetid: 1cbc0ed2-5bd6-4b62-8d34-4c193dcd8b25
-ms.technology: ''
 msc.legacyurl: /identity/overview/getting-started/adding-aspnet-identity-to-an-empty-or-existing-web-forms-project
 msc.type: authoredcontent
-ms.openlocfilehash: eb2605043be49754b0641f0e919a5bd7c2f639b1
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 1e7508fc2431f4e1e3c4509fbe705daf42686e8d
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37393286"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37832668"
 ---
 <a name="adding-aspnet-identity-to-an-empty-or-existing-web-forms-project"></a>ASP.NET Identity ekleme boş veya mevcut bir Web formları projesi
 ====================

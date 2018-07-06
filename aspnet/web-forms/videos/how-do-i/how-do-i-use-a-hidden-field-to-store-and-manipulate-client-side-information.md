@@ -4,19 +4,16 @@ title: '[Bunu nasıl yaparım:] Store ve istemci tarafı bilgileri işlemek içi
 author: rick-anderson
 description: Bu videoda, Chris piksel gizli bir alan bir yaklaşım basit durum yönetimi için bir ASP.NET sayfasında ve istemci tarafı iletişim kurmak için olarak nasıl kullanılacağını gösterir...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/24/2008
-ms.topic: article
 ms.assetid: 576ede31-e83a-4222-8f82-0aabb1dafe6a
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information
 msc.type: video
-ms.openlocfilehash: 83aeef1b7331dfeab727139ca9031cb5b8305e31
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 84cb7ff3005eca8eaaed665d2a9cdcaa675a14d4
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37385936"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37842185"
 ---
 <a name="how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information"></a>[Bunu nasıl yaparım:] Store ve istemci tarafı bilgileri işlemek için gizli bir alan kullanın
 ====================

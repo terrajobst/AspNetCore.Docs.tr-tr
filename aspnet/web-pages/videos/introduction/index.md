@@ -4,19 +4,16 @@ title: Web sayfaları video giriş | Microsoft Docs
 author: rick-anderson
 description: Hangi videoları, Web sayfalarını ve Webmatrix'i hakkındaki temel bilgileri öğrenmek için görüntüleyebilirsiniz.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/18/2012
-ms.topic: article
 ms.assetid: b8a43660-177f-4a00-bb51-be887364c607
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/videos/introduction
 msc.type: chapter
-ms.openlocfilehash: 8a0f0cf888a1f86592b4a81a7f1a900cf2c64fa5
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: a354b142ad7d3ac9c6ab4843f6be99ab4afcc737
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37381841"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37840325"
 ---
 <a name="introduction-to-web-pages-videos"></a>Web sayfaları video giriş
 ====================

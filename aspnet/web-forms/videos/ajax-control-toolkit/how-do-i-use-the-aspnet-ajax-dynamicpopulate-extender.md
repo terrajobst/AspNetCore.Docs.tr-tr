@@ -4,19 +4,16 @@ title: '[Bunu nasıl yaparım:] ASP.NET AJAX DynamicPopulate genişletici kullan
 author: JoeStagner
 description: Dinamik olarak bir web sayfasının sonuçlarını zaman uyumsuz bir ca ile bir alanı doldurmak için ASP.NET AJAX DynamicPopulate genişletici kullanmanın bir tanıtım izleyin...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/31/2007
-ms.topic: article
 ms.assetid: 1c83e543-3f56-42ed-9d10-ac3f8dd26093
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-dynamicpopulate-extender
 msc.type: video
-ms.openlocfilehash: b7159fd80e7679a61fea114c592a87fb835db491
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 90980785b3c56fbe6a88396b7251fc52d6970805
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37376231"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37834828"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-dynamicpopulate-extender"></a>[Bunu nasıl yaparım:] ASP.NET AJAX DynamicPopulate genişletici kullanılsın mı?
 ====================

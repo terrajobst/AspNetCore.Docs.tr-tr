@@ -4,19 +4,16 @@ title: ASP.NET MVC 2 sürümündeki yenilikler | Microsoft Docs
 author: rick-anderson
 description: Bu belgede, yeni özellikler ve geliştirmeler, ASP.NET MVC 2'de sunulmuştur açıklanmaktadır. Bu belge ayrıca yükleme için kullanılabilir.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/20/2010
-ms.topic: article
 ms.assetid: 69a8d6f8-4b10-4602-8822-2d6c05fc432b
-ms.technology: ''
 msc.legacyurl: /whitepapers/what-is-new-in-aspnet-mvc
 msc.type: content
-ms.openlocfilehash: 51349c9967890675b4e13a6710572c1cea7d9337
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 54f62b0f6bbde50f53d062eda422f5f58806cbe1
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37400437"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37834170"
 ---
 <a name="whats-new-in-aspnet-mvc-2"></a>ASP.NET MVC 2 sürümündeki yenilikler
 ====================

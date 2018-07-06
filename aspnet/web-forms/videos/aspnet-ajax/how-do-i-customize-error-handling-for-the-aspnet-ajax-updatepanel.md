@@ -4,19 +4,16 @@ title: 'Ne ı: özelleştirme ASP.NET AJAX UpdatePanel için hata işlemeyi | Mi
 author: rick-anderson
 description: ASP.NET AJAX UpdatePanel tarafından tetiklenen bir geri gönderme işlenmesi sırasında bir hata oluştuğunda, istemci-tarafı PageRequestManager bir uyarı gösterilir (. NE...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 12/18/2009
-ms.topic: article
 ms.assetid: 28bd411b-e708-4eab-baed-76981d6cd0dc
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-customize-error-handling-for-the-aspnet-ajax-updatepanel
 msc.type: video
-ms.openlocfilehash: 116366377d2c6b27cb2394ac089848c91110bd4f
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: f297d7bf916b0fedc6b26bd19dd8e9d35569af74
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37367609"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37807547"
 ---
 <a name="how-do-i-customize-error-handling-for-the-aspnet-ajax-updatepanel"></a>ASP.NET AJAX UpdatePanel için hata işlemeyi ı: nasıl özelleştiririm
 ====================

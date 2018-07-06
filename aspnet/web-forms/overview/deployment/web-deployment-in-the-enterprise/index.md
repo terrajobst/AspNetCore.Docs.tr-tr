@@ -4,19 +4,16 @@ title: ASP.NET 4 - kurumsal dağıtım serisi 1 | Microsoft Docs
 author: rick-anderson
 description: Bu öğreticide, Kurumsal ölçekte web uygulamaları geliştir dağıtımını yönetirken karşılaşabileceğiniz sorunları çok sayıda karşılamak üzere açıklar...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/16/2012
-ms.topic: article
 ms.assetid: 83e0a572-428f-4bea-9638-1a031c6901c0
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise
 msc.type: chapter
-ms.openlocfilehash: 28052516d71c073414fa1d5932e01cfce9af0648
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: a98dd11e8da289b9c0dcbb9514180f3508a698ef
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37389027"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37834009"
 ---
 <a name="aspnet-4---enterprise-deployment-series-1"></a>ASP.NET 4 - kurumsal dağıtım serisi 1
 ====================

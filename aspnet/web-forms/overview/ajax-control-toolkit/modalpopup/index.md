@@ -4,19 +4,16 @@ title: ModalPopup | Microsoft Docs
 author: rick-anderson
 description: Bu öğreticide, kalıcı bir iletişim kutusu denk oluşturmanıza imkan tanıyan ModalPopup denetiminin nasıl kullanılacağını gösterir.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/14/2011
-ms.topic: article
 ms.assetid: db4eca5d-b625-4e67-8e5b-a844639d4354
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/modalpopup
 msc.type: chapter
-ms.openlocfilehash: e5728def4490f53eaadef2ba52dcdb9354fa6f21
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 4ffff071dc6efc6f99ebe9ac52d3d7cf7ae2b1ec
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37381373"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37836797"
 ---
 <a name="modalpopup"></a>ModalPopup
 ====================

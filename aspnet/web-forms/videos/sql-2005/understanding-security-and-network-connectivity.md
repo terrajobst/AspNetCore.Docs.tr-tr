@@ -4,19 +4,16 @@ title: Güvenliği anlama ve ağ bağlantısını | Microsoft Docs
 author: microsoft
 description: SQL Server veritabanı dosyaları ve SQL Server işlemler arasında ayırt etmek SQL Server yeni başlayanlar öğreneceksiniz. SQL Server E'ye bağlama senaryoları keşfedin...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/20/2006
-ms.topic: article
 ms.assetid: 5a0df3fa-07d9-4762-b9db-1824dcd8a31a
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/sql-2005/understanding-security-and-network-connectivity
 msc.type: video
-ms.openlocfilehash: 4a19219e78f31787543c6e3763694cc2e9382f80
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 7c5acc53d5e54e2d1cdde2b0929a8d4b3988fb31
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37382000"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37834908"
 ---
 <a name="understanding-security-and-network-connectivity"></a>Güvenliği anlama ve ağ bağlantısı
 ====================

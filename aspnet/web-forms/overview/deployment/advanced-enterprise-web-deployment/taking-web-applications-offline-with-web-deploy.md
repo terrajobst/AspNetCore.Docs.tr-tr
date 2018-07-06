@@ -4,19 +4,16 @@ title: Web uygulamalarını çevrimdışı yapma Web ile dağıtma | Microsoft D
 author: jrjlee
 description: Bu konu, Internet Information Services (IIS) Web Dağı kullanarak bir otomatik dağıtım süre için çevrimdışı web uygulaması gerçekleştirilecek açıklar...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/04/2012
-ms.topic: article
 ms.assetid: 3e9f6e7d-8967-4586-94d5-d3a122f12529
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/taking-web-applications-offline-with-web-deploy
 msc.type: authoredcontent
-ms.openlocfilehash: 1e9e5e9fef99a1179c1b830a42df6e6cb6b0e69d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: b8dc1ff26bbbe7dee1ee90fd929b2e98de5360db
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37382519"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37829521"
 ---
 <a name="taking-web-applications-offline-with-web-deploy"></a>Web uygulamalarını çevrimdışı yapma Web ile dağıtma
 ====================

@@ -4,19 +4,16 @@ title: Bir metin kutusu (C#) yalnızca belirli karakterlere izin verme | Microso
 author: wenz
 description: Doğrulama denetimleri ASP.NET uygulamasında kullanıcı girdisi yalnızca belirli karakterlere izin verildiğini emin olabilirsiniz. Ancak bu yazmaya geçersiz kullanıcılar hala engellemez...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: fd2a1c52-d717-44af-8a61-67c8279bb26e
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/filteredtextbox/allowing-only-certain-characters-in-a-text-box-cs
 msc.type: authoredcontent
-ms.openlocfilehash: dd7203d7f367f275d2d80c86119edc9645c9d24c
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 836c6d684c87898975c6cd98b3209663c7413a08
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37400736"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37825719"
 ---
 <a name="allowing-only-certain-characters-in-a-text-box-c"></a>Bir metin kutusu (C#) yalnızca belirli karakterlere izin verme
 ====================

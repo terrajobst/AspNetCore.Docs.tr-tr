@@ -4,19 +4,16 @@ title: İle performansı iyileştirme çıkış önbelleğe alma (C#) | Microsof
 author: microsoft
 description: Bu öğretici sayesinde nasıl, ASP.NET MVC web uygulamalarınızın performansını çıkış önbelleğe alma özelliğinden yararlanarak artırabilirsiniz öğrenin. ...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/27/2009
-ms.topic: article
 ms.assetid: 521c9117-81cd-4d8d-9d96-0256dc7bf50f
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/improving-performance-with-output-caching-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 81349f37d861e79ff4d95962c275a96576d0455b
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 26e65cb5f0e256d4ca819dfde4a748f00d56f08e
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37372491"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37832548"
 ---
 <a name="improving-performance-with-output-caching-c"></a>Çıktı önbelleğe alma (C#) ile performansı iyileştirme
 ====================

@@ -4,19 +4,16 @@ title: 'Entity Framework 4.0 ve ObjectDataSource denetimi kullanarak, 3. Bölüm
 author: tdykstra
 description: Bu öğretici serisinde, kullanmaya başlama Entity Framework 4.0 öğretici serisinin tarafından oluşturulan Contoso University web uygulaması oluşturur. BEN...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/26/2011
-ms.topic: article
 ms.assetid: 2990bd10-590d-43d5-9529-6b503ce5455d
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering
 msc.type: authoredcontent
-ms.openlocfilehash: 48d859191877ba951e233f19873d52625fe180ac
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 15d9a7ecd3119af02576cbcf728828353748a513
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37378916"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37807004"
 ---
 <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-3-sorting-and-filtering"></a>Entity Framework 4.0 ve ObjectDataSource denetimi kullanarak, 3. Bölüm: sıralama ve filtreleme
 ====================

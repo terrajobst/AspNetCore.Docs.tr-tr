@@ -4,19 +4,16 @@ title: '[Bunu nasıl yaparım:] Bir dağıtım listesine e-posta göndermek içi
 author: rick-anderson
 description: Bu video Chris piksel içinde bir alıcı listesine e-postaları gönderen birden çok web sayfaları ve web siteleri için kullanılabilir bir bileşen oluşturma işlemi gösterilmektedir. Firs...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 12/04/2008
-ms.topic: article
 ms.assetid: 13dd3a26-c210-432e-91fe-355c979060b3
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-create-a-reusable-component-for-sending-email-to-a-distribution-list
 msc.type: video
-ms.openlocfilehash: b67ab5a7ced1eb731eb71b98956e53ae2e067e1b
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 71bed3d232703bbab0fd12414985a56f69af05f5
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37384257"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37812720"
 ---
 <a name="how-do-i-create-a-reusable-component-for-sending-email-to-a-distribution-list"></a>[Bunu nasıl yaparım:] Bir dağıtım listesine e-posta göndermek için yeniden kullanılabilir bir bileşen oluşturma
 ====================

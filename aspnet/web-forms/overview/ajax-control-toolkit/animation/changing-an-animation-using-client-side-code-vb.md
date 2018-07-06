@@ -4,19 +4,16 @@ title: İstemci tarafı kod (VB) kullanarak bir animasyonu değiştirme | Micros
 author: wenz
 description: ASP.NET AJAX Denetim Araç Seti animasyon denetimi yalnızca bir denetim, ancak bir denetime animasyon eklemek için tam bir çerçeve değil. Ayrıca animasyon...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: a7fe5de5-a964-4780-ae5e-70821dfb50a0
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/changing-an-animation-using-client-side-code-vb
 msc.type: authoredcontent
-ms.openlocfilehash: cc8ca2c962c5ebe5e0c45d5b575031ada3e64acd
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: afb275e4e5155ceccb7e696cbf9d00de99a455f5
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37386753"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37840738"
 ---
 <a name="changing-an-animation-using-client-side-code-vb"></a>İstemci tarafı kod (VB) kullanarak bir animasyonu değiştirme
 ====================

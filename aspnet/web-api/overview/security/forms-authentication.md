@@ -4,19 +4,16 @@ title: ASP.NET Web API'de Forms kimlik doğrulaması | Microsoft Docs
 author: MikeWasson
 description: ASP.NET Web API'de Forms kimlik doğrulaması kullanmayı açıklar.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 12/12/2012
-ms.topic: article
 ms.assetid: 9f06c1f2-ffaa-4831-94a0-2e4a3befdf07
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/security/forms-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: 7642a30816a04a88a25ef8bf4f01e766fda362ce
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 4b73adf1390ce9573cd2979010932365349caea0
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37365077"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37827540"
 ---
 <a name="forms-authentication-in-aspnet-web-api"></a>ASP.NET Web API'de Forms kimlik doğrulaması
 ====================

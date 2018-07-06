@@ -4,19 +4,16 @@ title: Oluşturma bir ASP.NET Web Forms uygulaması SMS iki öğeli kimlik doğr
 author: Erikre
 description: Bu öğreticide iki öğeli kimlik doğrulaması ile bir ASP.NET Web formları uygulamasının nasıl oluşturulacağını gösterir. Bu öğreticide, Cr başlıklı öğreticiyi tamamlamak üzere tasarlanmıştır...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/09/2014
-ms.topic: article
 ms.assetid: 716264ae-ab72-45de-bfc5-53a6237089cf
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/security/create-an-aspnet-web-forms-app-with-sms-two-factor-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: 1231ed0cb238ad35c12405dd9a264ccfd7332960
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 16045b116ca5c797e7840f2ee5944e5f2c6282eb
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37401298"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37803555"
 ---
 <a name="create-an-aspnet-web-forms-app-with-sms-two-factor-authentication-c"></a>Oluşturma bir ASP.NET Web Forms uygulaması ile SMS iki öğeli kimlik doğrulama (C#)
 ====================

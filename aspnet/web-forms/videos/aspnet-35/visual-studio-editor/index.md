@@ -4,19 +4,16 @@ title: Visual Studio Düzenleyicisi | Microsoft Docs
 author: rick-anderson
 description: Bu video serisi, JavaScript ve CSS için gelişmiş destek dahil olmak üzere Visual Studio 2008 Düzenleyicisi, yeni özellikleri gösterir.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/14/2011
-ms.topic: article
 ms.assetid: 8d424d7b-5206-4790-a068-36d01c05ceb0
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-35/visual-studio-editor
 msc.type: chapter
-ms.openlocfilehash: 898840b04a0e9b59c22c76cb812b2cab047e8ff4
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: f95d82d65f41436576741c1dc5ea4279ac086193
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37392064"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37834047"
 ---
 <a name="visual-studio-editor"></a>Visual Studio Düzenleyicisi
 ====================

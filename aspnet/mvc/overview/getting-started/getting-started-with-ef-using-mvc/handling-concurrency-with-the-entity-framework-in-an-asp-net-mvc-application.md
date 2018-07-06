@@ -4,19 +4,16 @@ title: Bir ASP.NET MVC 5 uygulamasında (10 12) Entity Framework 6 ile eşzamanl
 author: tdykstra
 description: Contoso University örnek web uygulaması Entity Framework 6 Code First ve Visual Studio kullanarak ASP.NET MVC 5 uygulamalarının nasıl oluşturulacağını gösterir...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 12/08/2014
-ms.topic: article
 ms.assetid: be0c098a-1fb2-457e-b815-ddca601afc65
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: d513fbd962a8f545e0ca2511a2eba926af065324
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: b971e4ca16ecbf79f47e0aab8303a05452279b68
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37369321"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37837237"
 ---
 <a name="handling-concurrency-with-the-entity-framework-6-in-an-aspnet-mvc-5-application-10-of-12"></a>Bir ASP.NET MVC 5 uygulamasında (10 12) Entity Framework 6 ile eşzamanlılığı işleme
 ====================

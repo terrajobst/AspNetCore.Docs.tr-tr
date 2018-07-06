@@ -4,19 +4,16 @@ title: ASP.NET Web API'si için Gelişmiş konular | Microsoft Docs
 author: rick-anderson
 description: ASP.NET Web API geliştirme konuları daha gelişmiş, sonra temel bilgileri öğrendiniz.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/23/2014
-ms.topic: article
 ms.assetid: 7404a0f1-52f7-410c-abd0-c96bab52d217
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/advanced
 msc.type: chapter
-ms.openlocfilehash: ae17bdbebf1d8fc0c6e42da2bbe96e260b0523ae
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 49c6f7b4efd824f2fe5382894c78bb7d13f7a27a
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37381570"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37833581"
 ---
 <a name="advanced-topics-for-aspnet-web-api"></a>ASP.NET Web API'si için Gelişmiş konular
 ====================

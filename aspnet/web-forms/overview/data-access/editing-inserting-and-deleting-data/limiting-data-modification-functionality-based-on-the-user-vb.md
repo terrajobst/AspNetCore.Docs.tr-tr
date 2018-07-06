@@ -4,19 +4,16 @@ title: Veri değişikliği işlevselliğini sınırlama (VB) kullanıcı tabanl�
 author: rick-anderson
 description: Verileri düzenleme olanağı tanıyan bir web uygulamasında, farklı kullanıcı hesapları, farklı veri düzenleme ayrıcalıklara sahip olmayabilir. Bu öğreticide inceleyeceğiz nasıl t...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/17/2006
-ms.topic: article
 ms.assetid: 9dc264a6-feb8-474b-8b91-008c50708065
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/limiting-data-modification-functionality-based-on-the-user-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 8530dfd37570ed5fcc45ef4d6c30750c5d4d2152
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 23e23c288ccceab7f7e1c07aa9a902bef4045de0
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37377122"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37836823"
 ---
 <a name="limiting-data-modification-functionality-based-on-the-user-vb"></a>Kullanıcıya (VB) bağlı veri değişikliği işlevselliğini sınırlama
 ====================

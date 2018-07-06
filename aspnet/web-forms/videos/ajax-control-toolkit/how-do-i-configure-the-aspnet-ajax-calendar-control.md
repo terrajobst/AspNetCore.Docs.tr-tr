@@ -4,19 +4,16 @@ title: '[Bunu nasıl yaparım:] ASP.NET AJAX takvim denetimini yapılandırma? |
 author: JoeStagner
 description: Bu videoda bir örnek t Takvim genişletici denetimi davranışını ve görünümünü yapılandırma seçenekleri çeşitli görüyoruz...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/30/2007
-ms.topic: article
 ms.assetid: bee087cc-7fed-4dce-8b52-19987f2d38a6
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-configure-the-aspnet-ajax-calendar-control
 msc.type: video
-ms.openlocfilehash: e640cfefef69324458fd0549a938ea09ae2329b7
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: a60b60a25016f0779a821c3dbb50b061e0002530
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37392623"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37826886"
 ---
 <a name="how-do-i-configure-the-aspnet-ajax-calendar-control"></a>[Bunu nasıl yaparım:] ASP.NET AJAX takvim denetimini yapılandırma?
 ====================

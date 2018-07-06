@@ -4,19 +4,16 @@ title: 'Kurumsal Web Dağıtımı: Senaryoya genel bakış | Microsoft Docs'
 author: jrjlee
 description: Bu öğreticiler kümesini ref sağlamak için gerçekçi bir kurgusal kurumsal dağıtım senaryosu ile birlikte bir karmaşıklık düzeyine sahip örnek bir çözüm kullanır...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/03/2012
-ms.topic: article
 ms.assetid: aa862153-4cd8-4e33-beeb-abf502c6664f
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview
 msc.type: authoredcontent
-ms.openlocfilehash: 47bd0a0f7b71a6069d573f1454583cdb832f6b4c
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: ce533b246b14c9e041c89a778c022784f09d01a0
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37366083"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37836752"
 ---
 <a name="enterprise-web-deployment-scenario-overview"></a>Kurumsal Web Dağıtımı: Senaryoya genel bakış
 ====================

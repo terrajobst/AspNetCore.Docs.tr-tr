@@ -4,19 +4,16 @@ title: '7. Bölüm: Üyelik ve yetkilendirme | Microsoft Docs'
 author: jongalloway
 description: Bu öğretici serisinde ASP.NET MVC müzik Store örnek uygulamayı oluşturmak için gerçekleştirilen tüm adımları ayrıntılı olarak açıklanmaktadır. 7. bölüm, üyelik ve yetkilendirme kapsar.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/13/2010
-ms.topic: article
 ms.assetid: c8511ebe-68bc-4240-87c3-d5ced84a3f37
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-7
 msc.type: authoredcontent
-ms.openlocfilehash: 41b17315cbe1f6d93001a736bc24bf003df24061
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 1f2ad9de3a21366931efe6ca2466f4efc23a6192
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37393176"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37802545"
 ---
 <a name="part-7-membership-and-authorization"></a>7. Bölüm: Üyelik ve yetkilendirme
 ====================

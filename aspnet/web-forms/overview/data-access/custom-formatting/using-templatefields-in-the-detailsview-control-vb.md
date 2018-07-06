@@ -4,19 +4,16 @@ title: (VB) DetailsView denetiminde TemplateField kullanma | Microsoft Docs
 author: rick-anderson
 description: GridView ile sunulan aynı TemplateField özellikleri ile DetailsView denetiminde de mevcuttur. Bu öğreticide bir ürün görüntüleyeceğiz...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/31/2010
-ms.topic: article
 ms.assetid: 0b91d5f8-127d-4f6a-b204-f2e2b35ef703
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/using-templatefields-in-the-detailsview-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 29a73a5f22048cf3a80d9f7d23c0a4a7b89882f0
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 5a994df097148428779c9e219ed08247d47ea1a5
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37365399"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37821741"
 ---
 <a name="using-templatefields-in-the-detailsview-control-vb"></a>(VB) DetailsView denetiminde TemplateField kullanma
 ====================

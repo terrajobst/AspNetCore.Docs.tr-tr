@@ -4,19 +4,16 @@ title: LINQ to SQL (VB) ile model sınıfları oluşturma | Microsoft Docs
 author: microsoft
 description: Bu öğreticide bir ASP.NET MVC uygulaması için model sınıfları oluşturma bir yöntem açıklamak için hedefidir. Bu öğreticide, model c oluşturmayı öğrenin...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/07/2008
-ms.topic: article
 ms.assetid: a4a25a75-d71f-4509-98b4-df72e748985a
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/creating-model-classes-with-linq-to-sql-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c7a3e0b02ea14d2fbed9cb64ccad15eff7a04270
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 2073ef716763f746f315a2131c4aa049bbdeec22
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37393267"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37841360"
 ---
 <a name="creating-model-classes-with-linq-to-sql-vb"></a>LINQ to SQL (VB) ile model sınıfları oluşturma
 ====================

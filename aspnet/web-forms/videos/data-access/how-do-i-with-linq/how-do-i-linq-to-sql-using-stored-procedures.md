@@ -4,19 +4,16 @@ title: '[Bunu nasıl yaparım:] LINQ to SQL: saklı yordamları kullanma | Micro
 author: scottstanfield
 description: Mevcut saklı yordamları ve işlevleri kullanarak LINQ ile kolay bir işlemdir. Biz yalnızca saklı yordamları O/R eşleme yüzeyine sürükleyin ve ge çağırmaya...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/10/2008
-ms.topic: article
 ms.assetid: b1abfcaa-3b7d-42b9-be11-38904910ece0
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-using-stored-procedures
 msc.type: video
-ms.openlocfilehash: 69bed25be0c70a723b0b5a8186a39f06c2cf1e40
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 69278d90e218f6a3a076cfca84dcbec7fd85c7e8
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37384205"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37801968"
 ---
 <a name="how-do-i-linq-to-sql-using-stored-procedures"></a>[Bunu nasıl yaparım:] LINQ to SQL: saklı yordamları kullanma
 ====================

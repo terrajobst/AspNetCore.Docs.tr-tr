@@ -4,19 +4,16 @@ title: Oluşturma ve bir Yardımcısı kullanarak bir ASP.NET Web sayfaları (Ra
 author: tfitzmac
 description: Bu makalede, bir ASP.NET Web sayfaları (Razor) Web sitesinde bir yardımcı oluşturulacağını açıklar. Bir yardımcı kod ve iyileştirilmiş işaretlemede içeren yeniden kullanılabilir bir bileşen olan...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/17/2014
-ms.topic: article
 ms.assetid: 46bff772-01e0-40f0-9ae6-9e18c5442ee6
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/creating-and-using-a-helper-in-an-aspnet-web-pages-site
 msc.type: authoredcontent
-ms.openlocfilehash: 5e73beabf973a20335112a0d7dc5ecb6b8817744
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: c2edc10e01f4d2358dd0b0bdf450348f01eb2bfa
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37394618"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37811905"
 ---
 <a name="creating-and-using-a-helper-in-an-aspnet-web-pages-razor-site"></a>Oluşturma ve bir ASP.NET Web sayfaları (Razor) sitesinde bir Yardımcısını kullanma
 ====================

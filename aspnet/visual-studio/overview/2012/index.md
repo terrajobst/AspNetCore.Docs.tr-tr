@@ -4,19 +4,16 @@ title: ASP.NET ve Visual Studio 2012 | Microsoft Docs
 author: rick-anderson
 description: Visual Studio 2012 ile ASP.NET web uygulamaları geliştirme
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/25/2013
-ms.topic: article
 ms.assetid: 51900291-7787-4a6e-be4e-fa558486f5ff
-ms.technology: ''
 msc.legacyurl: /visual-studio/overview/2012
 msc.type: chapter
-ms.openlocfilehash: 4f89ec40e574e145fe450af6d5129ba949d07b91
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: f7dd1ac0a3a15931b999dc9e7858cbcb0f98ae51
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37393089"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37830464"
 ---
 <a name="aspnet-and-visual-studio-2012"></a>ASP.NET ve Visual Studio 2012
 ====================

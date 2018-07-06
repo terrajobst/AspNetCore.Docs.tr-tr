@@ -4,19 +4,16 @@ title: ASP.NET MVC denetleyicisine genel bakış (VB) | Microsoft Docs
 author: StephenWalther
 description: Bu öğreticide, Stephen Walther için ASP.NET MVC denetleyicileri sunar. Yeni denetleyicileri oluşturun ve eylem res farklı türde döndürmek öğrenin...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/16/2008
-ms.topic: article
 ms.assetid: 94c3e5d9-a904-445e-a34e-d92fd1ca108a
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/asp-net-mvc-controller-overview-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d1fa2e71ae37d9123b489511c57ae0f79c0802ff
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: ac5e9242f494b8472e582bc76a6f4805db2f770f
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37371784"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37809229"
 ---
 <a name="aspnet-mvc-controller-overview-vb"></a>ASP.NET MVC denetleyicisine genel bakış (VB)
 ====================

@@ -4,19 +4,16 @@ title: Bir veritabanına erişmek için ASP.NET AJAX basamaklı açılan kutu de
 author: JoeStagner
 description: Bu videoda nasıl ASP. NET standart DropDownList CascadingDropDown denetim genişletici'nden etkilenen sistemin tüm ASP.NET AJAX denetimini kullanarak AJAX etkin hale gelebilir...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/13/2008
-ms.topic: article
 ms.assetid: 3c21fefc-6858-40e1-8307-22f68cbd0e31
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-ajax/use-aspnet-ajax-cascading-drop-down-control-to-access-a-database
 msc.type: video
-ms.openlocfilehash: dd8aea88447072bc33e5612b065da70c29689dcb
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 5c1d9676f7d3771eac79e0d2fcf644f4902d7211
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37398747"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37842798"
 ---
 <a name="use-aspnet-ajax-cascading-drop-down-control-to-access-a-database"></a>Bir veritabanına erişmek için ASP.NET AJAX basamaklı açılan kutu denetimini kullanın
 ====================

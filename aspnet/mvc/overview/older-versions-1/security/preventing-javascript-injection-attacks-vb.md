@@ -4,19 +4,16 @@ title: JavaScript ekleme saldırılarını (VB) engelleme | Microsoft Docs
 author: StephenWalther
 description: JavaScript ekleme saldırılarını ve siteler arası betik saldırıları önlemek için engelliyor. Bu öğreticide, Stephen Walther de kolayca getirmeyi açıklayan...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/19/2008
-ms.topic: article
 ms.assetid: 9274a72e-34dd-4dae-8452-ed733ae71377
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/security/preventing-javascript-injection-attacks-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6c022847462239624d5b84816999918ec77f8337
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: c3aaf3d06c1ca7839986097d341debd2b28fa3b4
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37402347"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37824467"
 ---
 <a name="preventing-javascript-injection-attacks-vb"></a>JavaScript ekleme saldırılarını (VB) engelleme
 ====================

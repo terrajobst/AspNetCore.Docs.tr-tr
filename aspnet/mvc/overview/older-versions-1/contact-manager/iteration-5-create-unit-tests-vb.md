@@ -4,19 +4,16 @@ title: 'Yineleme #5 – birim testleri oluşturma (VB) | Microsoft Docs'
 author: microsoft
 description: Beşinci yinelemede uygulamamız Bakım ve değişiklik birim testleri ekleyerek daha kolay vermiyoruz. Biz, bizim veri modeli sınıfları Sahne ve o için birim testleri oluştur...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/20/2009
-ms.topic: article
 ms.assetid: c6e5c036-2265-4fa7-a9eb-47f197bdc262
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-5-create-unit-tests-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 302dfc2a26e3f357818570c673eafe44346330c4
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: f2a535128816153d9ff9b14d1895dabd967ad871
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37390008"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37806387"
 ---
 <a name="iteration-5--create-unit-tests-vb"></a>Yineleme #5 – Oluştur birim testleri (VB)
 ====================

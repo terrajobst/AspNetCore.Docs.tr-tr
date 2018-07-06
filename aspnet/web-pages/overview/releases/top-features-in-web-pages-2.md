@@ -4,19 +4,16 @@ title: Üst özellikleri ASP.NET Web sayfaları 2 | Microsoft Docs
 author: microsoft
 description: Bu konu en iyi yeni özellikler WebMatr ile birlikte sağlanan bir basit bir web programlama çerçevesi ASP.NET Web sayfaları 2 sürümündeki genel bir bakış sağlar...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/13/2012
-ms.topic: article
 ms.assetid: cc712e72-c3d0-4e43-bc2d-28cc09cd8f71
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/overview/releases/top-features-in-web-pages-2
 msc.type: authoredcontent
-ms.openlocfilehash: 3cdb9d83e0f612ad7404bfaa9721b580916e112d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 6e20dedd19ae458b9881973570f23b5d77dda654
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37385272"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37827407"
 ---
 <a name="the-top-features-in-aspnet-web-pages-2"></a>ASP.NET Web sayfaları 2'de en iyi Özellikler
 ====================

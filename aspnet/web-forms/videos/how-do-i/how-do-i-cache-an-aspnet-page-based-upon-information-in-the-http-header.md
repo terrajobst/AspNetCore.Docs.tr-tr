@@ -4,19 +4,16 @@ title: '[Bunu nasıl yaparım:]  Bir ASP.NET sayfasını HTTP üst bilgisinde da
 author: rick-anderson
 description: Bu video Chris piksel ASP.NET çıktı önbelleğine sayfanın HTTP üst bilgisindeki bilgilere bağlı bir sayfaya nasıl gösterir. İlk olarak, olası HTTP üst...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/26/2009
-ms.topic: article
 ms.assetid: 0f8df1bd-080a-4eeb-980c-c2fbb05d30c2
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-cache-an-aspnet-page-based-upon-information-in-the-http-header
 msc.type: video
-ms.openlocfilehash: 3987e6ea1e5ea5575813bdf5598d0499ba37db20
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 64c5c1d82376b1a3ef7c4423c3b3a372ce5ab238
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37395259"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37821463"
 ---
 <a name="how-do-i--cache-an-aspnet-page-based-upon-information-in-the-http-header"></a>[Bunu nasıl yaparım:]  Bir ASP.NET sayfasını HTTP üst bilgisindeki bilgilere bağlı olarak önbelleğe alma
 ====================

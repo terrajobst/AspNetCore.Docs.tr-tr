@@ -4,19 +4,16 @@ title: Çekirdek | Microsoft Docs
 author: rick-anderson
 description: Bu video serisini otomatik başlatma, temiz yapılandırma dosyalarını ve HTML kodlaması gibi ASP.NET 4'te temel iyileştirmeler keşfediyor.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/14/2011
-ms.topic: article
 ms.assetid: 257686f7-7e10-4c4b-a2e9-299f93c0f917
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/net-4/core
 msc.type: chapter
-ms.openlocfilehash: 8688e23050944827b32cdd91592d59d3eba7c733
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 1cfb100fef27ddf033b573f1ef6cc641949dc5ff
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37387055"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37841496"
 ---
 <a name="core"></a>Çekirdek
 ====================

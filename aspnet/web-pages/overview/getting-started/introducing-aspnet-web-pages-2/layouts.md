@@ -4,19 +4,16 @@ title: Tutarlı bir düzen oluşturma - ASP.NET Web sayfaları ile tanışın | 
 author: tfitzmac
 description: Bu öğreticide, ASP.NET Web sayfaları kullanan bir site sayfalar için tutarlı bir görünüm oluşturmak için düzenlerini kullanmayı gösterir. Tamamladığınızdan varsayar...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/28/2015
-ms.topic: article
 ms.assetid: c85ec591-f8d7-4882-b763-de6ab9f3df7a
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/layouts
 msc.type: authoredcontent
-ms.openlocfilehash: 3368a3e3c9dc56b98ca0adddf4ffb181c7b34863
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 5641b65ab1053ccc039a94f7a591185ff00ff1c9
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37379453"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37806557"
 ---
 <a name="introducing-aspnet-web-pages---creating-a-consistent-layout"></a>ASP.NET Web sayfalarına giriş - tutarlı bir düzen oluşturma
 ====================

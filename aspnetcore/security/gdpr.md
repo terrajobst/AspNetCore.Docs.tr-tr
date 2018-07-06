@@ -1,120 +1,120 @@
 ---
-title: ASP.NET Core genel veri koruma düzenleme (GDPR) desteği
+title: ASP.NET core'da genel veri koruma yönetmeliği (GDPR) desteği
 author: rick-anderson
-description: Bir ASP.NET Core web uygulamasında GDPR uzantı noktaları erişim öğrenin.
+description: Bir ASP.NET Core web uygulaması GDPR uzantı noktaları erişmeyi öğrenin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 05/29/2018
 uid: security/gdpr
-ms.openlocfilehash: c986eeca572eecb43e76d56dbc5cb872a9dff6b2
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 10384d2abad7692d45f2be19f3ba7f8f8e8c3e17
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277644"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37832036"
 ---
-# <a name="eu-general-data-protection-regulation-gdpr-support-in-aspnet-core"></a>ASP.NET Core AB genel veri koruma düzenleme (GDPR) desteği
+# <a name="eu-general-data-protection-regulation-gdpr-support-in-aspnet-core"></a>ASP.NET Core AB genel veri koruma yönetmeliği (GDPR) desteği
 
-tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-ASP.NET Core API ve şablonları bazı karşılamak amacıyla sağlar [AB genel veri koruma düzenleme (GDPR)](https://www.eugdpr.org/) gereksinimleri:
+ASP.NET Core API'leri ve şablonları bazı karşılamanıza yardımcı olmak üzere sağlar [AB genel veri koruma yönetmeliği (GDPR)](https://www.eugdpr.org/) gereksinimleri:
 
-* Proje şablonları uzantı noktaları ve gizlilik ve tanımlama bilgisi kullanım ilkesi ile değiştirebilirsiniz tamamlanmamış biçimlendirme içerir.
-* Bir tanımlama bilgisi onayı özelliği onay için sormak (ve izlemek), kullanıcıların kişisel bilgilerini depolamak için sağlar. Bir kullanıcı için veri toplama seçtiği değil ve uygulama ile ayarlanırsa [CheckConsentNeeded](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions.checkconsentneeded) için `true`, gerekli olmayan tanımlama bilgilerini tarayıcıya gönderilmeyecek.
-* Tanımlama bilgileri gibi önemli olarak işaretlenebilir. Temel tanımlama bilgileri kullanıcının değil seçtiği ve izleme devre dışı bile tarayıcıya gönderilir.
-* [TempData ve oturum tanımlama bilgileri](#tempdata) izleme devre dışı bırakıldığında işlevsel değildir.
-* [Kimlik](#pd) sayfası, indirin ve kullanıcı verilerini silmek için bir bağlantı sağlar.
+* Proje şablonları, uzantı noktaları ve gizlilik ve tanımlama bilgisi kullan ilke ile değiştirebilirsiniz saptama biçimlendirme içerir.
+* Bir tanımlama bilgisi onay özelliği, kişisel bilgileri depolamak için onay isteyin (ve izlemek), kullanıcılarınızdan gelen sağlar. Veri toplama için bir kullanıcı tarafından onaylanan taşınmadığından ve uygulamasına sahipse [CheckConsentNeeded](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions.checkconsentneeded) kümesine `true`, gerekli olmayan tanımlama bilgileri, tarayıcıya gönderilen değildir.
+* Tanımlama bilgileri, önemli olarak işaretlenebilir. Temel tanımlama, kullanıcı onaylı olmayan ve izleme devre dışı bile tarayıcıya gönderilir.
+* [TempData ve oturum tanımlama bilgilerini](#tempdata) izleme devre dışı bırakıldığında işlevsel değildir.
+* [Kimlik Yönetimi](#pd) sayfası, indirme ve kullanıcı verilerini silmek için bir bağlantı sağlar.
 
-[Örnek uygulaması](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr/sample) GDPR uzantı noktaları ve ASP.NET Core 2.1 şablonları eklenen API'leri çoğunu test sağlar. Bkz: [Benioku](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr/sample) yönergeleri sınama dosyası.
+[Örnek uygulaması](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr/sample) GDPR uzantı noktaları çoğu test ve API'leri eklenen ASP.NET Core 2.1 şablonlara izin verir. Bkz: [Benioku](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr/sample) yönergeleri test dosyası.
 
-[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="aspnet-core-gdpr-support-in-template-generated-code"></a>Oluşturulan şablon kodunun ASP.NET Core GDPR desteği
 
-Razor sayfalarının ve MVC proje şablonları ile oluşturulan projeleri aşağıdaki GDPR desteği içerir:
+Razor sayfaları ve MVC proje şablonları ile oluşturulan projeleri aşağıdaki GDPR desteği içerir:
 
-* [CookiePolicyOptions](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions) ve [UseCookiePolicy](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyappbuilderextensions.usecookiepolicy) ayarlanır `Startup`.
+* [CookiePolicyOptions](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions) ve [UseCookiePolicy](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyappbuilderextensions.usecookiepolicy) ayarlanan `Startup`.
 * *_CookieConsentPartial.cshtml* [kısmi Görünüm](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper).
-* *Pages/Privacy.cshtml* veya *Home/Privacy.cshtml* görünümü, bir sayfa, sitenin gizlilik ilkesi ayrıntı sağlar. *_CookieConsentPartial.cshtml* dosyası gizlilik sayfasına bir bağlantı oluşturur.
-* Bireysel kullanıcı hesapları ile oluşturulan uygulamalar için Yönet sayfasını indirin ve silmek için bağlantılar sağlar. [kişisel kullanıcı verilerini](#pd).
+* *Pages/Privacy.cshtml* sayfası veya *Views/Home/Privacy.cshtml* ayrıntı sitenizin gizlilik ilkesi için bir sayfa görünümü sağlar. *_CookieConsentPartial.cshtml* dosyası gizlilik sayfasına bir bağlantı oluşturur.
+* Bireysel kullanıcı hesapları ile oluşturulan uygulamalar için indirme ve silme için bağlantıları Yönet sayfasında sağlar [kişisel kullanıcı verileri](#pd).
 
 ### <a name="cookiepolicyoptions-and-usecookiepolicy"></a>CookiePolicyOptions ve UseCookiePolicy
 
-[CookiePolicyOptions](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions) içinde başlatılan `Startup` sınıfı `ConfigureServices` yöntemi:
+[CookiePolicyOptions](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions) içinde başlatılan `Startup.ConfigureServices`:
 
 [!code-csharp[Main](gdpr/sample/Startup.cs?name=snippet1&highlight=14-20)]
 
-[UseCookiePolicy](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyappbuilderextensions.usecookiepolicy) olarak adlandırılır `Startup` sınıfı `Configure` yöntemi:
+[UseCookiePolicy](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyappbuilderextensions.usecookiepolicy) çağrılma yeri `Startup.Configure`:
 
-[!code-csharp[Main](gdpr/sample/Startup.cs?name=snippet1&highlight=49)]
+[!code-csharp[](gdpr/sample/Startup.cs?name=snippet1&highlight=49)]
 
-### <a name="cookieconsentpartialcshtml-partial-view"></a>_CookieConsentPartial.cshtml kısmi görünümü
+### <a name="cookieconsentpartialcshtml-partial-view"></a>_CookieConsentPartial.cshtml kısmi Görünüm
 
 *_CookieConsentPartial.cshtml* kısmi görünümü:
 
-[!code-html[Main](gdpr/sample/RP/Pages/Shared/_CookieConsentPartial.cshtml)]
+[!code-html[](gdpr/sample/RP/Pages/Shared/_CookieConsentPartial.cshtml)]
 
 Bu kısmi:
 
-* Kullanıcı için izleme durumunu alır. Uygulama onayı gerektirecek şekilde yapılandırılmışsa, tanımlama bilgilerini izlenebilir önce kullanıcının onaylaması gerekir. Onay gerekiyorsa, tanımlama bilgisi onayı chrome oluşturulan gezinti çubuğu üstünde sabittir *Pages/Shared/_Layout.cshtml* dosya.
+* Kullanıcı için izleme durumunu alır. Uygulama izni istemek için yapılandırılmışsa, tanımlama bilgileri izlenebilir önce kullanıcının onaylaması gerekir. Onayı gerekiyorsa, tanımlama bilgisi onayı paneli tarafından oluşturulan gezinti çubuğunun üst sabitlenmiştir *_Layout.cshtml* dosya.
 * Bir HTML sağlar `<p>` gizlilik ve tanımlama bilgisi özetlemek için öğesi İlkesi kullanın.
-* Bir bağlantı sağlar *Pages/Privacy.cshtml* Burada, ayrıntı, sitenin gizlilik ilkesi.
+* Gizlilik sayfasına veya, sitenizin gizlilik ilkesi olduğu ayrıntılı görünüm için bir bağlantı sağlar.
 
 ## <a name="essential-cookies"></a>Temel tanımlama bilgileri
 
-İzin verilen değil, yalnızca önemli olarak işaretlenmiş tanımlama bilgilerini tarayıcıya gönderilir. Aşağıdaki kod bir tanımlama bilgisi gerekli hale getirir:
+İzin verilen değil, yalnızca önemli olarak işaretlenmiş tanımlama bilgilerini tarayıcıya gönderilir. Aşağıdaki kod, bir tanımlama bilgisi gerekli hale getirir:
 
 [!code-csharp[Main](gdpr/sample/RP/Pages/Cookie.cshtml.cs?name=snippet1&highlight=5)]
 
 <a name="tempdata"></a>
 
-## <a name="tempdata-provider-and-session-state-cookies-are-not-essential"></a>Tempdata sağlayıcısı ve oturum durumu tanımlama bilgisi gerekli değildir
+## <a name="tempdata-provider-and-session-state-cookies-are-not-essential"></a>Tempdata sağlayıcısı ve oturum durum tanımlama bilgisi gerekli değildir
 
-[Tempdata sağlayıcı](xref:fundamentals/app-state#tempdata) tanımlama bilgisi gerekli değildir. İzleme devre dışıysa, Tempdata sağlayıcı işlevsel değildir. İzleme devre dışı bırakıldığında Tempdata Sağlayıcısı'nı etkinleştirmek için TempData tanımlama bilgisi, temel olarak işaretlemek `ConfigureServices`:
+[Tempdata sağlayıcısı](xref:fundamentals/app-state#tempdata) tanımlama bilgisi gerekli değildir. İzleme devre dışı bırakılırsa Tempdata sağlayıcısı işlevsel değildir. İzleme devre dışı bırakıldığında Tempdata sağlayıcıyı etkinleştirmek için TempData tanımlama bilgisi, gerekli olarak işaretlemek `Startup.ConfigureServices`:
 
 [!code-csharp[Main](gdpr/sample/RP/Startup.cs?name=snippet1)]
 
-[Oturum durumu](xref:fundamentals/app-state) tanımlama bilgisi gerekli değildir. İzleme devre dışı bırakıldığında oturum durumu işlevsel değildir.
+[Oturum durumu](xref:fundamentals/app-state) tanımlama bilgisi gerekli değildir. İzleme devre dışı bırakıldığında, oturum durumu işlevsel değildir.
 
 <a name="pd"></a>
 
 ## <a name="personal-data"></a>Kişisel veriler
 
-Bireysel kullanıcı hesapları ile oluşturulan ASP.NET Core uygulamaları indirmek ve kişisel verilerini silmek için kodu ekleyin.
+Oluşturulan kullanıcı hesaplarıyla ASP.NET Core uygulamaları indirmek ve kişisel verileri silmek için kod ekleyin.
 
-Kullanıcı adını seçin ve ardından **kişisel veriler**:
+Kullanıcı adını seçin ve ardından **kişisel verileri**:
 
-![Kişisel veri sayfası yönetme](gdpr/_static/pd.png)
+![Sayfa kişisel verileri yönetme](gdpr/_static/pd.png)
 
 Notlar:
 
-* Oluşturulacak `Account/Manage` kod, bkz: [İskele kimlik](xref:security/authentication/scaffold-identity).
-* Sil ve yalnızca etkisi varsayılan kimlik verilerini indirin. Uygulamaları oluşturma özel kullanıcı verilerini silme/özel kullanıcı verilerini indirme genişletilmelidir. GitHub sorunu [nasıl kimlik özel kullanıcı verilerini ekleme/silme](https://github.com/aspnet/Docs/issues/6226) özel/silme/indirme özel kullanıcı verilerini oluşturma önerilen bir makale izler. Bu konuda öncelik görmek istediğiniz bir başparmak tepki yukarı sorunu bırakın.
-* Kullanıcı için kimlik veritabanı tablosunda depolanır belirteç kaydedilmiş `AspNetUserTokens` kullanıcı art arda silme davranışı nedeniyle aracılığıyla silindiğinde, silinen [yabancı anahtar](https://github.com/aspnet/Identity/blob/release/2.1/src/EF/IdentityUserContext.cs#L152).
+* Oluşturulacak `Account/Manage` kod bkz [İskele kimlik](xref:security/authentication/scaffold-identity).
+* Silin ve yalnızca etkisi varsayılan kimlik verilerini indirin. Özel kullanıcı verilerini oluşturduğunuz uygulamalar, özel kullanıcı verilerini silme/indirilecek genişletilmelidir. Daha fazla bilgi için [Ekle, indirme ve silme özel kullanıcı verilerini kimliğe](xref:security/authentication/add-user-data).
+* Kimlik veritabanı tablosunda depolanan kullanıcı için belirteç kaydedildi `AspNetUserTokens` basamaklı silme davranışı nedeniyle aracılığıyla kullanıcı silindiğinde silinir [yabancı anahtar](https://github.com/aspnet/Identity/blob/release/2.1/src/EF/IdentityUserContext.cs#L152).
 
-## <a name="encryption-at-rest"></a>Bekleyen şifreleme
+## <a name="encryption-at-rest"></a>Bekleme sırasında şifreleme
 
-Bazı veritabanları ve depolama mekanizmaları bekleyen şifreleme izin verir. Bekleyen şifreleme:
+Bekleme sırasında şifreleme için bazı veritabanları ve depolama mekanizmaları sağlar. Bekleme sırasında şifreleme:
 
 * Depolanan veriler otomatik olarak şifreler.
-* Yapılandırma, programlama veya diğer iş verilere erişen yazılım olmadan şifreler.
+* Yapılandırma, programlama veya diğer iş verilere erişen bir yazılım içermeyen şifreler.
 * Kolay ve güvenli bir seçenektir.
-* Anahtarları ve şifrelemeyi yönetme veritabanı sağlar.
+* Veritabanı, anahtarları ve şifreleme yönetmenizi sağlar.
 
 Örneğin:
 
-* Microsoft SQL ve Azure SQL sağlamak [saydam veri şifreleme](/sql/relational-databases/security/encryption/transparent-data-encryption) (TDE).
-* [SQL Azure veritabanı varsayılan olarak şifreler.](https://azure.microsoft.com/updates/newly-created-azure-sql-databases-encrypted-by-default/)
-* [Azure BLOB'ları, dosyaları, tablo ve kuyruk depolama varsayılan olarak şifrelenir](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
+* Microsoft SQL ve Azure SQL [saydam veri şifrelemesi](/sql/relational-databases/security/encryption/transparent-data-encryption) (TDE).
+* [SQL Azure veritabanının varsayılan olarak şifreler.](https://azure.microsoft.com/updates/newly-created-azure-sql-databases-encrypted-by-default/)
+* [Azure Blobları, dosyalar, tablo ve kuyruk depolama varsayılan olarak şifrelenmiş](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
 
-Bekleyen yerleşik şifreleme sağlamıyorsa veritabanları için aynı koruma sağlamak üzere disk şifrelemesi kullanmak mümkün olabilir. Örneğin:
+Bekleyen yerleşik şifreleme sağlamayan veritabanları için aynı koruma sağlamak için disk şifreleme kullanmanız mümkün olabilir. Örneğin:
 
 * [Windows Server için BitLocker'ı](/windows/security/information-protection/bitlocker/bitlocker-how-to-deploy-on-windows-server)
 * Linux:
   * [eCryptfs](https://launchpad.net/ecryptfs)
   * [EncFS](https://github.com/vgough/encfs).
 
-## <a name="additional-resources"></a>Ek Kaynaklar
+## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Microsoft.com/GDPR](https://www.microsoft.com/en-us/trustcenter/Privacy/GDPR)

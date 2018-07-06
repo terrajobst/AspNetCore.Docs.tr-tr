@@ -4,19 +4,16 @@ title: 'Yineleme #7 – Ajax işlevselliği ekleme (C#) | Microsoft Docs'
 author: microsoft
 description: Yedinci yinelemede biz uygulamamız performansını ve yanıt hızını Ajax için destek ekleyerek geliştirin.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/20/2009
-ms.topic: article
 ms.assetid: f1b0809e-8909-444e-b6bb-a5cd1dea3f72
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-7-add-ajax-functionality-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 17978cc8deacb6c023afa1c81f91a256e4eacb28
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: b7214a419b841f6814c3c37834b8ecd40e141926
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37394235"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37823303"
 ---
 <a name="iteration-7--add-ajax-functionality-c"></a>Yineleme #7 – Ajax işlevselliği ekleme (C#)
 ====================

@@ -4,19 +4,16 @@ title: Sorgu dizesi değerlerini kullanarak model bağlama ile verileri filtrele
 author: tfitzmac
 description: Bu öğretici serisinde, model bağlama kullanarak bir ASP.NET Web formları projesi ile temel yönlerini gösterir. Model bağlama veri etkileşimi daha fazla düz - sağlar...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/27/2014
-ms.topic: article
 ms.assetid: b90978bd-795d-4871-9ade-1671caff5730
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/using-query-string-values-to-retrieve-data
 msc.type: authoredcontent
-ms.openlocfilehash: 495489479ef912afcb89c267b56fb11e07f959ec
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: b4615d004a32d00b91635bc321a2d4ea792fddbe
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37374736"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37837269"
 ---
 <a name="using-query-string-values-to-filter-data-with-model-binding-and-web-forms"></a>Sorgu dizesi değerlerini verilere filtre uygulamak, model bağlama ve web forms ile kullanma
 ====================

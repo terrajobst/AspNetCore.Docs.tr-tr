@@ -4,19 +4,16 @@ title: '[Bunu nasıl yaparım:] ASP.NET Web sitesinden e-posta göndermektir | M
 author: rick-anderson
 description: Bu video Chris piksel oluşturma ve bir ASP.NET web sitesinde bir e-posta gönderme işlemi gösterilmektedir. İlk olarak, System.Net.Mail ad alanı f temel sınıflar hakkında bilgi edinin...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/28/2008
-ms.topic: article
 ms.assetid: 97f7323a-efc6-4e32-9a16-b011ed2a781b
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-aspnet-to-send-email-from-a-web-site
 msc.type: video
-ms.openlocfilehash: 1e8463200e8c69a19230dc62305404bf4fa100b8
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 4f06fe1a831aa96b1cac5735887c6c6cb889783c
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37364494"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37838196"
 ---
 <a name="how-do-i-use-aspnet-to-send-email-from-a-web-site"></a>[Bunu nasıl yaparım:] ASP.NET Web sitesinden e-posta göndermek için kullanın
 ====================

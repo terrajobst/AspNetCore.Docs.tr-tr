@@ -4,19 +4,16 @@ title: ASP.NET Web sayfaları (Razor) sitesinde ziyaretçi bilgi (analiz) izleme
 author: tfitzmac
 description: Sitenizi giderek yönettiniz sonra Web sitesi trafiğini analiz etmek isteyebilirsiniz.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/17/2014
-ms.topic: article
 ms.assetid: 360bc6e1-84c5-4b8e-a84c-ea48ab807aa4
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/overview/performance-and-traffic/14-analyzing-traffic
 msc.type: authoredcontent
-ms.openlocfilehash: 48782606083b4aa1e32adf6163bcb3f2d9828bc3
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 4e065e5223d2f996779ab47de4823962a9aa852e
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37387143"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37831102"
 ---
 <a name="tracking-visitor-information-analytics-for-an-aspnet-web-pages-razor-site"></a>İzleme için bir ASP.NET Web sayfaları (Razor) sitesinde ziyaretçi bilgileri (analiz)
 ====================

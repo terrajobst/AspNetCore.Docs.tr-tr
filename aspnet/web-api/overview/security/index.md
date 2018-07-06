@@ -4,19 +4,16 @@ title: Güvenlik, kimlik doğrulama ve yetkilendirme ASP.NET Web API'de | Micros
 author: rick-anderson
 description: Web API'si için güvenlik sorunları.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 12/11/2012
-ms.topic: article
 ms.assetid: bb38add0-5223-4b04-9b12-245911af865a
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/security
 msc.type: chapter
-ms.openlocfilehash: 325535ba6cd92fdf8c998b2a5108737f3193bb5b
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 796bd200b3eb201971d03ea6b47005af28fa0213
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37375043"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37841244"
 ---
 <a name="security-authentication-and-authorization-in-aspnet-web-api"></a>Güvenlik, kimlik doğrulama ve yetkilendirme ASP.NET Web API
 ====================

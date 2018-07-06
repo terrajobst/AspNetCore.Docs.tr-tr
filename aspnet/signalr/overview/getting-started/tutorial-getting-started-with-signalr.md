@@ -4,19 +4,16 @@ title: 'Öğretici: SignalR 2 ile çalışmaya başlama | Microsoft Docs'
 author: pfletcher
 description: Bu öğreticide SignalR kullanarak gerçek zamanlı bir sohbet uygulaması oluşturma işlemi gösterilir. SignalR için boş bir ASP.NET web uygulamasına ekleme ve bir HTML pa oluştur...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/10/2014
-ms.topic: article
 ms.assetid: a8b3b778-f009-4369-85c7-e90f9878d8b4
-ms.technology: dotnet-signalr
 msc.legacyurl: /signalr/overview/getting-started/tutorial-getting-started-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: fcd00419de77a380e004cbe306eb46910655a355
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 798838af099cceb12652b7c6c66633a03a73e538
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37398190"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37841848"
 ---
 <a name="tutorial-getting-started-with-signalr-2"></a>Öğretici: SignalR 2 ile çalışmaya başlama
 ====================

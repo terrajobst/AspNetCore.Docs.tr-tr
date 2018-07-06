@@ -4,19 +4,16 @@ title: BLL ve DAL düzeyi özel durumları (C#) | Microsoft Docs
 author: rick-anderson
 description: Bu öğreticide, tactfully düzenlenebilir DataList'in güncelleştirme iş akışı sırasında oluşturulan özel durumları işlemek nasıl göreceğiz.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/30/2006
-ms.topic: article
 ms.assetid: f8fd58e2-f932-4f08-ab3d-fbf8ff3295d2
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/handling-bll-and-dal-level-exceptions-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ad48b5d2dcb9748e6c2b5a08a9f09f594b9c8374
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: f83293f7b8482c2a24c3d825e271582edaadec59
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37368278"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37812086"
 ---
 <a name="handling-bll--and-dal-level-exceptions-c"></a>BLL ve DAL düzeyi özel durumları (C#)
 ====================

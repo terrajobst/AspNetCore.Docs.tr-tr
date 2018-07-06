@@ -4,19 +4,16 @@ title: '[Bunu nasıl yaparım:] ASP.NET AJAX Accordion denetimi kullanılsın m�
 author: JoeStagner
 description: Farklı içerik p arasında sorunsuz bir animasyonlu geçiş sağlayarak ASP.NET AJAX Accordion denetimi ekrandan verimli kullanımı nasıl kolaylaştırdığını öğrenin...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/30/2007
-ms.topic: article
 ms.assetid: 9e81b071-89a2-4674-aeec-ba49a0f23429
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-accordion-control
 msc.type: video
-ms.openlocfilehash: 2c5a1a359893ad486805468883545dfbd1093b83
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 0537213802e101ce4b9a00fe9ad521ea2eeccd2d
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37392636"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37838354"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-accordion-control"></a>[Bunu nasıl yaparım:] ASP.NET AJAX Accordion denetimi kullanılsın mı?
 ====================

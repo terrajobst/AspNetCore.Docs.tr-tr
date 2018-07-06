@@ -4,19 +4,16 @@ title: Bir iş mantığı katmanı (VB) oluşturma | Microsoft Docs
 author: rick-anderson
 description: Bu öğreticide, iş kuralları içinde bir iş mantığı katmanı (t arasında veri değişimi için bir aracı olarak görev yapan BLL) tek bir merkezden yönetin. nasıl görüyoruz...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/31/2010
-ms.topic: article
 ms.assetid: 142e5181-29ce-4bb9-907b-2a0becf7928b
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-business-logic-layer-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 06799205ca180ca504083a6e2e99faceb79b22fc
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: eaa91cc46f0d043983c252c1d0adfc413f3b582d
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37375321"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37832360"
 ---
 <a name="creating-a-business-logic-layer-vb"></a>Bir iş mantığı katmanı (VB) oluşturma
 ====================

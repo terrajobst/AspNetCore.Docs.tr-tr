@@ -4,19 +4,16 @@ title: Serileştirme ve ASP.NET Web API'de Model bağlama | Microsoft Docs
 author: rick-anderson
 description: ASP.NET Web API HTTP ileti için etki alanı modelleri nasıl bağlar ve Web API'SİNDE ortamlarla çalışmasına nasıl biçimlendirir.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/17/2012
-ms.topic: article
 ms.assetid: 2d520763-3860-4b3f-8b99-ac71fb01cf37
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/formats-and-model-binding
 msc.type: chapter
-ms.openlocfilehash: c7de9892985d8aed5c940f7d640ee30db2903003
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 95e8b66c662a294f0ba17fbaa50c02bfaa19b644
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37393150"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37838909"
 ---
 <a name="serialization-and-model-binding-in-aspnet-web-api"></a>Serileştirme ve ASP.NET Web API'de Model bağlama
 ====================

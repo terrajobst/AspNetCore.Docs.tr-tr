@@ -4,19 +4,16 @@ title: 'Yineleme #6 – test odaklı geliştirme (VB) kullanma | Microsoft Docs'
 author: microsoft
 description: Bu altıncı yinelemede yeni işlevsellik uygulamamız için ilk birim testleri yazma ve birim testlerini karşı kod yazma ekleriz. Bu yineleme içinde...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/20/2009
-ms.topic: article
 ms.assetid: e1fd226f-3f8e-4575-a179-5c75b240333d
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-6-use-test-driven-development-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3b55bb689a5a6dfdb07b02a7d595244f886f0fd2
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: f5ef03c76d1ecc72cffdeed6f8dcd1b5e39d859d
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37377252"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37829278"
 ---
 <a name="iteration-6--use-test-driven-development-vb"></a>Yineleme #6 – test odaklı geliştirme (VB) kullanma
 ====================

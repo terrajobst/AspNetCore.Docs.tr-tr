@@ -4,19 +4,16 @@ title: Bir Azure çalışan rolünde OWIN barındırma | Microsoft Docs
 author: MikeWasson
 description: Bu öğreticide, bir Microsoft Azure çalışan rolünde OWIN barındırma işlemi gösterilmektedir. Açık Web arabirimi için .NET (OWIN) .NET web sunucusu arasında bir Özet tanımlar...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/11/2014
-ms.topic: article
 ms.assetid: 07aa855a-92ee-4d43-ba66-5bfd7de20ee6
-ms.technology: ''
 msc.legacyurl: /aspnet/overview/owin-and-katana/host-owin-in-an-azure-worker-role
 msc.type: authoredcontent
-ms.openlocfilehash: 56019ef7bdf1c3e9a769ba43f624ef3c6a5e6d4f
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: f62b9299a4e369ae3a938c85e60dd6a79108548d
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37366711"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37826487"
 ---
 <a name="host-owin-in-an-azure-worker-role"></a>Bir Azure çalışan rolünde OWIN barındırma
 ====================

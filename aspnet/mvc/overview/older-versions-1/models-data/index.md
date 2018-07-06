@@ -4,19 +4,16 @@ title: Modeller (veriler) | Microsoft Docs
 author: rick-anderson
 description: Bu öğretici serisinde, Microsoft Entity Framework ile ASP.NET MVC kullanmayı öğrenin. Bu öğretici boyunca, bir web uygulaması oluşturma...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/28/2011
-ms.topic: article
 ms.assetid: 9086d8a8-7952-4a7e-82a7-724d48178555
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/models-data
 msc.type: chapter
-ms.openlocfilehash: e8607a9b310c0fc7d1ec6b5fc5e3774739805b02
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 7aa787de8a519ef2b383dbdb0f77ea7eb5bc986b
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37393105"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37815245"
 ---
 <a name="models-data"></a>Modeller (veriler)
 ====================

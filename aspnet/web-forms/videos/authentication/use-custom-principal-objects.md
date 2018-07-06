@@ -4,19 +4,16 @@ title: Özel asıl nesneler kullanma | Microsoft Docs
 author: JoeStagner
 description: ALi Stagner özel kimlik, kullanıcı kimlik doğrulama verilerini depolamak için asıl nesneleri uygulanması gösterilmektedir. Bu Tanıtım hakkında daha fazla bilgi...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/16/2008
-ms.topic: article
 ms.assetid: 368733eb-0822-4b97-8e5a-127be6c88a61
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/authentication/use-custom-principal-objects
 msc.type: video
-ms.openlocfilehash: 1e0aff916ebf189b290db65eb281546c60819875
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: a5f7ba2cf2998b3c41fd28258081b6d638f0ede9
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37384342"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37838500"
 ---
 <a name="use-custom-principal-objects"></a>Özel asıl nesneler kullanma
 ====================

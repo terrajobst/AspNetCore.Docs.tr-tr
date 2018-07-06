@@ -1,6 +1,8 @@
-[Windows için Visual Studio](https://www.microsoft.com/net/download/windows).  
-Seçin **ASP.NET ve web geliştirme** iş yükü.
+[Visual Studio 2017 sürüm 15.7.3 veya üzeri](https://www.microsoft.com/net/download/windows) aşağıdaki iş yükleri ile:
+
+* **ASP.NET ve web geliştirme**
+* **.NET core platformlar arası geliştirme**
 
 ::: moniker range=">= aspnetcore-2.1"
-[.NET core 2.1 SDK'sı](https://www.microsoft.com/net/download/dotnet-core/sdk-2.1.300)
+[.NET core 2.1 SDK veya üzeri](https://www.microsoft.com/net/download/windows)
 ::: moniker-end

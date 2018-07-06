@@ -4,19 +4,16 @@ title: SignalR ile yüksek sıklıkta gerçek zamanlı 1.x | Microsoft Docs
 author: pfletcher
 description: Bu öğretici, ASP.NET SignalR, yüksek frekanslı Mesajlaşma işlevleri sağlamak için kullanan bir web uygulaması oluşturma işlemi gösterilmektedir. Yüksek frekanslı..., Mesajlaşma
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/16/2013
-ms.topic: article
 ms.assetid: ad2a5da5-2e79-40ea-bc84-028d327f5982
-ms.technology: dotnet-signalr
 msc.legacyurl: /signalr/overview/older-versions/tutorial-high-frequency-realtime-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: d9a5539d79d0b6396282af8036f2c6417f44ce23
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 6056d42472f8663c366ebc224f56db8432e4eb2e
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37401140"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37825343"
 ---
 <a name="high-frequency-realtime-with-signalr-1x"></a>SignalR ile yüksek sıklıkta gerçek zamanlı 1.x
 ====================

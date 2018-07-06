@@ -4,19 +4,16 @@ title: '[Bunu nasıl yaparım:] AJAX desenini işledikten sonra uygulansın mı?
 author: JoeStagner
 description: ASP.NET AJAX framework, içindeki kanca ve çeşitli istemci tarafı olaylarına yanıt vermek için sunucu tarafı kodunuzu sağlar. Bu videoda, biz nasıl uygulanacağını Aft bilgi...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/21/2007
-ms.topic: article
 ms.assetid: 9a382d8e-ea3a-4fa4-bd24-b56f9051f4db
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-implement-the-ajax-after-processing-pattern
 msc.type: video
-ms.openlocfilehash: f4a83f9c3bb827f732b8d1833b3191ae42d061c2
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: b9edac497aec78f8a8af6b782120c04975b96b3c
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37397506"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37830399"
 ---
 <a name="how-do-i-implement-the-ajax-after-processing-pattern"></a>[Bunu nasıl yaparım:] AJAX desenini işledikten sonra uygulansın mı?
 ====================

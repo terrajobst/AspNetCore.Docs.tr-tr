@@ -4,19 +4,16 @@ title: Performans | Microsoft Docs
 author: rick-anderson
 description: Bu video serisi, ASP.NET 4'te Web formları sayfaları iyileştirmek için yeni yöntemleri kapsar.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/14/2011
-ms.topic: article
 ms.assetid: 5752873e-07b4-4450-9bf8-6cff8b3b5f50
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/net-4/performance
 msc.type: chapter
-ms.openlocfilehash: edb8e6caa50d08a54374d724522cf28a01149769
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 161a8621e95f70e49bf0936e1dc7595de8486fc0
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37367345"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37838972"
 ---
 <a name="performance"></a>Performans
 ====================

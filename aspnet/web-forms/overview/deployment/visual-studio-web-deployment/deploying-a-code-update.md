@@ -4,19 +4,16 @@ title: 'Visual Studio kullanarak ASP.NET Web Dağıtımı: kod güncelleştirmes
 author: tdykstra
 description: Bu öğretici serisinin nasıl dağıtılacağı gösterilir (bir ASP.NET Yayımlama) web uygulamasını Azure App Service Web Apps veya bir üçüncü taraf barındırma sağlayıcı tarafından usin...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/15/2013
-ms.topic: article
 ms.assetid: c76dbc35-a914-4ee3-919c-4f4d1fa05104
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update
 msc.type: authoredcontent
-ms.openlocfilehash: 3649f0250e830b76c42d832e51038c2c52ed4561
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: c058d4314ea0bed87e22c0e6b3fa09b89b2423d9
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37368220"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37833361"
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-a-code-update"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: kod güncelleştirmesi dağıtma
 ====================

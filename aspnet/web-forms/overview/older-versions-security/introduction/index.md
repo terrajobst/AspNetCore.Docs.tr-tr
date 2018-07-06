@@ -4,19 +4,16 @@ title: ASP.NET 3.5 - güvenliğe giriş | Microsoft Docs
 author: rick-anderson
 description: Bu öğretici serisinde, her bir sayfayı (forms kimlik doğrulaması) bir oturum açma formunu kullanarak ve yetkilendirme erişimi olan kullanıcıların kimlik doğrulaması için teknikleri keşfediyor...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/04/2011
-ms.topic: article
 ms.assetid: ac5fcd71-317a-41ba-91ac-95121fc68126
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction
 msc.type: chapter
-ms.openlocfilehash: 94176ea363bdea09650ffcd55528b8b5aad88878
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 2b5019f95f75a88ebef65ff898ad3c89d9287833
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37386448"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37812215"
 ---
 <a name="aspnet-35---introduction-to-security"></a>ASP.NET 3.5 - güvenliğe giriş
 ====================

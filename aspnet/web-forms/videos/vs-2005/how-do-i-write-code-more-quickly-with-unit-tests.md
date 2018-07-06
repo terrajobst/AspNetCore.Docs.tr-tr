@@ -4,19 +4,16 @@ title: '[Bunu nasıl yaparım:] Birim testleri ile daha hızlı kod yazma? | Mic
 author: rick-anderson
 description: Bu videoda nasıl birim testi üretkenliğinizi hızlandırma hata ayıklama işlemi tarafından artırabilirsiniz öğrenin. Visual Studio Team System bir u nasıl oluşturabileceğiniz görüyoruz...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/21/2007
-ms.topic: article
 ms.assetid: 4618499e-1925-414e-a432-16952bb967f4
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-write-code-more-quickly-with-unit-tests
 msc.type: video
-ms.openlocfilehash: 5ac8555fe1a1a0e2d620ad8f8b713ba22caa2ad1
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: c2ba4f3433d19654ff1dfe543cabec1673bdc5c5
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37375904"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37840416"
 ---
 <a name="how-do-i-write-code-more-quickly-with-unit-tests"></a>[Bunu nasıl yaparım:] Birim testleri ile daha hızlı kod yazma?
 ====================

@@ -4,19 +4,16 @@ title: Kullanıcıları el ile doğrulama | Microsoft Docs
 author: JoeStagner
 description: Bu video ALi Stagner içinde kendi web formu ve kimlik doğrulama isteği işlemini elle nasıl oluşturulacağını gösterir. Bu VI hakkında ek bilgi için...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/22/2008
-ms.topic: article
 ms.assetid: c11eec26-25a2-41fb-9330-ddc123c0423a
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/authentication/validating-users-manually
 msc.type: video
-ms.openlocfilehash: c8bcdd44558d982ba6e7e60639c0e43f8cc3b883
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 421ba60b1fcb6672771c0a832b87f148d1b18291
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37376128"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37837062"
 ---
 <a name="validating-users-manually"></a>Kullanıcıları el ile doğrulama
 ====================

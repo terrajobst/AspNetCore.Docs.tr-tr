@@ -4,19 +4,16 @@ title: Dinamik olarak bir Web sayfasına denetim ekleme hakkında | Microsoft Do
 author: JoeStagner
 description: Bu videoda bir yöntem için dinamik olarak gösterilecektir denetimleri belirsiz sayıda web sayfasına ekleyin.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/16/2008
-ms.topic: article
 ms.assetid: 718e7b1d-e02c-41fe-85d5-44c0d288201f
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-to-dynamically-add-controls-to-a-web-page
 msc.type: video
-ms.openlocfilehash: 4c3bbfa9fc15e0560f879de8ad5a4aa61e802165
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 3849e844616247ac9fad3482ed3cd27969c86acf
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37386323"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37829742"
 ---
 <a name="how-to-dynamically-add-controls-to-a-web-page"></a>Dinamik olarak bir Web sayfasına denetimler ekleme
 ====================

@@ -4,19 +4,16 @@ title: Sitenizi Visual Studio (C#) kullanarak dağıtma | Microsoft Docs
 author: rick-anderson
 description: Visual Studio, bir Web sitesine dağıtmaya yönelik araçlar içerir. Bu araçlar hakkında daha fazla, bu öğreticide öğrenin.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/01/2009
-ms.topic: article
 ms.assetid: cde4ee53-a5d0-4937-a54b-67877e8266c3
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-visual-studio-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d549c615ea822d58ae71876ff3acd28c5f773d8a
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 38fb133a30f8b4516078b14cd67b2a0d53c7d482
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37399766"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37810137"
 ---
 <a name="deploying-your-site-using-visual-studio-c"></a>Sitenizi Visual Studio (C#) kullanarak dağıtma
 ====================

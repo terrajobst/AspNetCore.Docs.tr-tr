@@ -4,19 +4,16 @@ title: (C#) ELMAH ile hata ayrıntılarını günlüğe | Microsoft Docs
 author: rick-anderson
 description: Hata günlüğü modüller ve işleyiciler (ELMAH), bir üretim ortamında çalışma zamanı hatalarını günlüğe kaydetme için başka bir yaklaşım sunar. ELMAH ücretsiz, açık kaynaklı bir hatadır...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/09/2009
-ms.topic: article
 ms.assetid: 11f6fe44-64ef-4a38-a3b4-35c7bb992352
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-elmah-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0b9b91b54f50ddd86e102fea3b0dfd5505e3f594
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 2432b22bd5dec1668fdb134eaeb92e372062ddda
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37388483"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37834144"
 ---
 <a name="logging-error-details-with-elmah-c"></a>(C#) ELMAH ile hata ayrıntılarını günlüğe kaydetme
 ====================

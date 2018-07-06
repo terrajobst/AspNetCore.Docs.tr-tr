@@ -4,19 +4,16 @@ title: '5. Bölüm: Formları düzenleme ve şablon oluşturma | Microsoft Docs'
 author: jongalloway
 description: Bu öğretici serisinde ASP.NET MVC müzik Store örnek uygulamayı oluşturmak için gerçekleştirilen tüm adımları ayrıntılı olarak açıklanmaktadır. 5. Bölüm formları düzenleme ve şablon oluşturma kapsar.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/21/2011
-ms.topic: article
 ms.assetid: 6b09413a-6d6a-425a-87c9-629f91b91b28
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-5
 msc.type: authoredcontent
-ms.openlocfilehash: f799c4d492e88f3edcf3800e66e0a1bae3845ba2
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: acb4a4c427870e375ff19823f0bdfa208438e899
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37395207"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37836007"
 ---
 <a name="part-5-edit-forms-and-templating"></a>5. Bölüm: Formları düzenleme ve şablon oluşturma
 ====================

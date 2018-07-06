@@ -4,19 +4,16 @@ title: ASP.NET Web API | Microsoft Docs
 author: rick-anderson
 description: ASP.NET MVC 4'ü indirmek ve bir çeşit istemciye ulaşan HTTP Hizmetleri oluşturun.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/17/2012
-ms.topic: article
 ms.assetid: f571ca7a-c06b-400d-8051-f62f9f0bcc9b
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api
 msc.type: categoryindex
-ms.openlocfilehash: a2b9c50d44e7c056d00dec0b05145eccf753c1a5
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: b01f0a4ef73448af973c85117fde167737da04ad
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37381754"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37838474"
 ---
 <a name="aspnet-web-api"></a>ASP.NET Web API
 ====================

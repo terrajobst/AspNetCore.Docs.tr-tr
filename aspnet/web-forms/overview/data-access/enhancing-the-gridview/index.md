@@ -4,19 +4,16 @@ title: Gridview'u geliştirme | Microsoft Docs
 author: rick-anderson
 description: Bu öğreticiler, tek bir satırı seçmek için kullanımı kolay bir yol sağlamak üzere bir GridView denetimi radyo düğmeleri içeren bir sütun eklemek nasıl gösterir.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/05/2011
-ms.topic: article
 ms.assetid: 80010898-5cb0-49ae-a678-cc2f3fe3ca6c
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview
 msc.type: chapter
-ms.openlocfilehash: 68838a33b62c3533aa9bd84a667be89f0ec05c9f
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 9399748fb94eff519c0e605df09ccbad709ff33e
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37377152"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37835543"
 ---
 <a name="enhancing-the-gridview"></a>Gridview'u geliştirme
 ====================

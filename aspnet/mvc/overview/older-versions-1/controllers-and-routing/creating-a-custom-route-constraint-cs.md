@@ -4,19 +4,16 @@ title: Özel rota kısıtlaması (C#) oluşturma | Microsoft Docs
 author: StephenWalther
 description: Stephen Walther özel rota kısıtlaması nasıl oluşturabileceğinizi gösterir. Biz basit bir uygulama bir yolu olmasını önleyen özel kısıtlaması eşleşen w...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/16/2009
-ms.topic: article
 ms.assetid: a4f4bf4e-abcc-4650-8f43-527e48b52fe6
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-a-custom-route-constraint-cs
 msc.type: authoredcontent
-ms.openlocfilehash: a77a25672c94d6b706af0cc36807b11297bc573a
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: e21e7e027cf66f390fc37ec08a07ae007e8242c9
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37400009"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37831819"
 ---
 <a name="creating-a-custom-route-constraint-c"></a>Özel rota kısıtlaması (C#) oluşturma
 ====================

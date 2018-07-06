@@ -4,19 +4,16 @@ title: ASP.NET Ajax geçmişine giriş | Microsoft Docs
 author: bleroy
 description: ASP.NET uzantıları Önizleme tarayıcıdaki geri düğmesini AJAX denetime nasıl olanak tanıdığını öğrenin. ASP.NET AJAX uzantıları içinde ASP.NET 3.5 Extens kullanılabilir...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 12/20/2007
-ms.topic: article
 ms.assetid: fd3db529-601a-4a6e-b91a-d9cbe1ff7bd4
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-35/aspnet-ajax/introduction-to-aspnet-ajax-history
 msc.type: video
-ms.openlocfilehash: 2bd37691a4a250a4699b66b0b262c5c54ae65869
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 311e39a636e9a8f95f23732bfb449efb377e52a1
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37392422"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37802360"
 ---
 <a name="introduction-to-aspnet-ajax-history"></a>ASP.NET Ajax geçmişine giriş
 ====================

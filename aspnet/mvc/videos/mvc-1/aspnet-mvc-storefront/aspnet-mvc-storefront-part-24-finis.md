@@ -4,19 +4,16 @@ title: 'ASP.NET MVC StoreFront Bölüm 24: Finis | Microsoft Docs'
 author: robconery
 description: Bu MVC Storefront serideki son bölüm ve bu biraz tuhaf görünebilir. Bunu kesinlikle göre ASP.NET yapacağım son yayını değil...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/28/2009
-ms.topic: article
 ms.assetid: 160d6dde-1a19-4822-963b-cd936fb8afa0
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-24-finis
 msc.type: video
-ms.openlocfilehash: 5c90b6aea21284bcdd07b283b4425a0569e41495
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: c731ac3e8706806924900da1e431ac76f5fd7dec
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37389553"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37833704"
 ---
 <a name="aspnet-mvc-storefront-part-24-finis"></a>ASP.NET MVC Storefront bölümü 24: Finis
 ====================

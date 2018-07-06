@@ -4,19 +4,16 @@ title: (VB) CascadingDropDown ile otomatik geri gönderme kullanma | Microsoft D
 author: wenz
 description: Bir DropDownList yükleri değişiklikleri anoth değerleri ilişkili böylece AJAX Denetim Araç Seti CascadingDropDown denetiminde bir DropDownList denetimi genişletir...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: 0b34f7f6-a0cc-4b9f-9761-643fb0bb3ece
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown/using-auto-postback-with-cascadingdropdown-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 274189184b82734e89a30c9450079d7e07971f3c
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: f0ed4c88789504c09649254ea98a89b01bdd20c5
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37378167"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37813847"
 ---
 <a name="using-auto-postback-with-cascadingdropdown-vb"></a>(VB) CascadingDropDown ile otomatik geri gönderme kullanma
 ====================

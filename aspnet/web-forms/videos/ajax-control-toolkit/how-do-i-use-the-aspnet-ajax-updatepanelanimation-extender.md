@@ -4,19 +4,16 @@ title: '[Bunu nasıl yaparım:] ASP.NET AJAX UpdatePanelAnimation genişletici k
 author: JoeStagner
 description: Biz kullanıcı gerçekleşen olayların birçoğunu bir güncelleştirme olarak zaman ve zaman bildirebilirsiniz bir kısmi sayfa güncelleştirmesi animasyon ekleyerek bunu tamamlandığı anlamına gelir. UpdatePanelAnimation genişletici bir...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/16/2007
-ms.topic: article
 ms.assetid: 56f5ec0f-38f7-4ebc-90d9-9baf0c693bd4
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-updatepanelanimation-extender
 msc.type: video
-ms.openlocfilehash: 465480f5d548cd224a96800bd5b4b32407ae709f
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 7acb260f39cd78de67a79855fab256e76fd5df48
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37392435"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37822933"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-updatepanelanimation-extender"></a>[Bunu nasıl yaparım:] ASP.NET AJAX UpdatePanelAnimation genişletici kullanılsın mı?
 ====================

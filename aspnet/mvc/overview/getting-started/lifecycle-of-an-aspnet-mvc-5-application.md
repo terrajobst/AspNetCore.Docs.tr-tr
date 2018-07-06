@@ -4,19 +4,16 @@ title: Bir ASP.NET MVC 5 uygulamasının yaşam döngüsü | Microsoft Docs
 author: cephalin
 description: Bir ASP.NET MVC 5 uygulamasının yaşam döngüsü grafikleri bir PDF belgesini indirin. Bu yaşam döngüsü belge MVC yaşam döngüsü üst düzey bir görünümünü sağlar bir...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/28/2014
-ms.topic: article
 ms.assetid: 9c1e3a75-b644-4480-8326-11300b1ec4b3
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/getting-started/lifecycle-of-an-aspnet-mvc-5-application
 msc.type: authoredcontent
-ms.openlocfilehash: 98735f2e04bdd0f2fec19524e59f6272dbc4ca57
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: cceaa377e77a7229edb2e33a67d000e26b43358a
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37393921"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37839261"
 ---
 <a name="lifecycle-of-an-aspnet-mvc-5-application"></a>Bir ASP.NET MVC 5 uygulamasının yaşam döngüsü
 ====================

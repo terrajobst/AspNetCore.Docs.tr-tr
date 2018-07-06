@@ -4,19 +4,16 @@ title: (C#) veri değişikliği arabirimini özelleştirme | Microsoft Docs
 author: rick-anderson
 description: Bu öğreticide standart metin değiştirerek düzenlenebilir bir GridView arayüzünü özelleştirmek nasıl inceleyeceğiz ve onay kutusu denetimleri ile alternati...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/17/2006
-ms.topic: article
 ms.assetid: 22e99600-8d18-4a94-a20e-a3a62bb63798
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 1f8f08fc78ef5cf6d6878daf6b00d6556f585762
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 6e04d9c09d9c359c223c70b11ab0f7909182bb46
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37383723"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37808748"
 ---
 <a name="customizing-the-data-modification-interface-c"></a>(C#) veri değişikliği arabirimini özelleştirme
 ====================

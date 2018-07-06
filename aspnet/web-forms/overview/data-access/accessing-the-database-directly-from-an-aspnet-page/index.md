@@ -4,19 +4,16 @@ title: Bir ASP.NET sayfasından doğrudan veritabanına erişme | Microsoft Docs
 author: rick-anderson
 description: Bu öğreticiler SqlDataSource denetimi veri ve sunu katı bir ayrım ihtiyacınız kalmadığında veritabanını doğrudan sorgulamak için nasıl kullanılacağını göster...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/05/2011
-ms.topic: article
 ms.assetid: 134a202f-4eef-41fc-8e91-70efba338389
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page
 msc.type: chapter
-ms.openlocfilehash: a65059328ac46b0fe5e98784729740dc601f3edd
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 9c95edcebc69d7bf37d7dd320807337d714e3fff
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37370399"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37834565"
 ---
 <a name="accessing-the-database-directly-from-an-aspnet-page"></a>Bir ASP.NET sayfasından doğrudan veritabanına erişme
 ====================

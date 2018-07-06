@@ -4,19 +4,16 @@ title: Nasıl--ı | Microsoft Docs
 author: rick-anderson
 description: ASP.NET MVC, 'Mağaza' - tamamlamak için tüm e-ticaret uygulama baştan oluşturmak nasıl dahil olmak üzere bu bölümdeki videoları kapsar.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/15/2011
-ms.topic: article
 ms.assetid: 9bc6c53a-3e54-4f9d-8bef-0f3359aecf7b
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i
 msc.type: chapter
-ms.openlocfilehash: 36db40e60d865eee98246b751bd91df9384cf6e5
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 4a10a8ecedc225f552b575c0dd980b9d9c24f0c5
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37391343"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37836232"
 ---
 <a name="how-do-i"></a>Nasıl--ı
 ====================

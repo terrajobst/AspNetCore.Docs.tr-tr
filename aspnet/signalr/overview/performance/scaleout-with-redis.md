@@ -4,19 +4,16 @@ title: Redis ile SignalR ölçeğini genişletme | Microsoft Docs
 author: MikeWasson
 description: Yazılım sürümleri, sürüm 2 önceki sürümleri bu konunun önceki sürümleri hakkında bilgi için bu konu Visual Studio 2013 .NET 4.5 SignalR kullanılan...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/10/2014
-ms.topic: article
 ms.assetid: 6ecd08c1-e364-4cd7-ad4c-806521911585
-ms.technology: dotnet-signalr
 msc.legacyurl: /signalr/overview/performance/scaleout-with-redis
 msc.type: authoredcontent
-ms.openlocfilehash: e08e0fdcd0df65bea6802838a8ed55d6b86ce1a3
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 8c125070aa2bc8f0070d9933b77e09a5c84b797a
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37381961"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37831012"
 ---
 <a name="signalr-scaleout-with-redis"></a>Redis ile SignalR ölçeğini genişletme
 ====================

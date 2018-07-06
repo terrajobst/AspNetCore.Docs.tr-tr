@@ -4,19 +4,16 @@ title: (VB) kullanıcılara rol atama | Microsoft Docs
 author: rick-anderson
 description: Bu öğreticide iki ASP.NET sayfaları, hangi kullanıcıların hangi role ait yönetmeye yardımcı olmak için oluşturulacak. İlk sayfasını görmek için özellikleri içerecek...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/24/2008
-ms.topic: article
 ms.assetid: fd208ee9-69cc-4467-9783-b4e039bdd1d3
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-security/roles/assigning-roles-to-users-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e0c653a53e63fd533d4d5490a08249d33edc94fc
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 41b73ec54ec2f174bca1d0ee2965ff8e0438ccba
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37397055"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37839784"
 ---
 <a name="assigning-roles-to-users-vb"></a>(VB) kullanıcılara rol atama
 ====================
