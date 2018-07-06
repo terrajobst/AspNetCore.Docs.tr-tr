@@ -4,19 +4,16 @@ title: Visual Studio 2010 hızlı isabet - kod arama görünüm hiyerarşisi
 author: JoeStagner
 description: Bu videoda, Visual Studio'nun kod arama görünüm hiyerarşisi hakkında bilgi edineceksiniz.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/11/2009
-ms.topic: article
 ms.assetid: 0f24b680-e3a6-46f6-a52a-91191e09ab78
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/visual-studio-2010/visual-studio-2010-quick-hit-code-search-view-hierarchy
 msc.type: video
-ms.openlocfilehash: ae1cf513aa9bfd536499bdeb9e516e7546e7133b
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: f445e688f160c572438e38dff4a1c271229b36aa
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37384939"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37831125"
 ---
 <a name="visual-studio-2010-quick-hit---code-search-view-hierarchy"></a>Visual Studio 2010 "Hızlı isabet" - kod arama görünüm hiyerarşisi
 ====================

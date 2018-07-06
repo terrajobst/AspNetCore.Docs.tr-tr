@@ -4,19 +4,16 @@ title: '[Bunu nasıl yaparım:] ASP.NET AJAX kaydırıcı denetimi kullanılsın
 author: JoeStagner
 description: ASP.NET AJAX Denetim Araç Seti kaydırıcı denetimi, sayısal bir değer seçmek kullanıcı için basit ve şık bir yol sağlar. Bu video gösterir ad nasıl...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/13/2007
-ms.topic: article
 ms.assetid: 958e1bc8-65a8-4fe0-ad2d-f98691d5fdf1
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-slider-control
 msc.type: video
-ms.openlocfilehash: f97142a44d3a925d08311a7d301d9bb8aa81a47d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 278a90c60ac39b0162cfa4b09b985a163c55c1d5
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37401733"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37832247"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-slider-control"></a>[Bunu nasıl yaparım:] ASP.NET AJAX kaydırıcı denetimi kullanılsın mı?
 ====================

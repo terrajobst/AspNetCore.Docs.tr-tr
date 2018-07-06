@@ -4,19 +4,16 @@ title: OWIN başlangıç sınıfı algılama | Microsoft Docs
 author: Praburaj
 description: Bu öğreticide, hangi OWIN başlangıç sınıfı yüklenen yapılandırma işlemi gösterilmektedir. Bir genel bakış, Project Katana'ya OWIN hakkında daha fazla bilgi için bkz. Bu öğreticide oluştu...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/17/2013
-ms.topic: article
 ms.assetid: 08257f55-36f4-4e39-9c88-2a5602838c79
-ms.technology: ''
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-startup-class-detection
 msc.type: authoredcontent
-ms.openlocfilehash: d7e18001cbbfc67397f32ace53d347acf49d7537
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 0a4b87192296054bf6aef6c9406c64f19677a061
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37388704"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37828299"
 ---
 <a name="owin-startup-class-detection"></a>OWIN başlangıç sınıfı algılama
 ====================

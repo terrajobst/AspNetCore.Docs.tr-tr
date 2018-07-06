@@ -4,19 +4,16 @@ title: (C#) ObjectDataSource ile verileri önbelleğe alma | Microsoft Docs
 author: rick-anderson
 description: Önbelleğe alma, yavaş ve hızlı bir Web uygulaması arasındaki fark anlamına gelebilir. Bu öğreticide, ASP.NET önbelleğe alma ayrıntılı göz atalım dört davranıştır...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/30/2007
-ms.topic: article
 ms.assetid: bd87413c-8160-4520-a8a2-43b555c4183a
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-with-the-objectdatasource-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 149ef94edfdf83832f1ec8a80859045e798a3ee6
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: f6ca84dc11eb8ecd03aee91198e74b723cfdce7c
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37374198"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37803051"
 ---
 <a name="caching-data-with-the-objectdatasource-c"></a>(C#) ObjectDataSource ile verileri önbelleğe alma
 ====================

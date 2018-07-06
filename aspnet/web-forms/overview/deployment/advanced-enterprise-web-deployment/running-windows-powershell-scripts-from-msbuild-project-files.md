@@ -4,19 +4,16 @@ title: MSBuild proje dosyalarından Windows PowerShell betikleri çalıştırma 
 author: jrjlee
 description: Bu konu, bir derleme ve dağıtım işleminin bir parçası bir Windows PowerShell betiğini çalıştırmak açıklar. Bir betiği yerel olarak çalıştırabilirsiniz (diğer bir deyişle, b'de...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/04/2012
-ms.topic: article
 ms.assetid: 55f1ae45-fcb5-43a9-8415-fa5b935fc9c9
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/running-windows-powershell-scripts-from-msbuild-project-files
 msc.type: authoredcontent
-ms.openlocfilehash: ddb658d8a8f224a7c417321df3e17ce0610d2473
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: faedcee480b6c50dc560055206fedbe7af4d5f67
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37362901"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37803155"
 ---
 <a name="running-windows-powershell-scripts-from-msbuild-project-files"></a>MSBuild proje dosyalarından Windows PowerShell betikleri çalıştırma
 ====================
@@ -59,7 +56,7 @@ Bu konuda, bu yordamları gerçekleştirmek nasıl gösterilmektedir. Görevleri
 Bu konu başlığı altındaki görevleri adlandırılmış bir örnek Windows PowerShell betiğini kullanın **LogDeploy.ps1** nden Msbuild'i komut dosyalarını çalıştırmak nasıl göstermek için. **LogDeploy.ps1** betik, tek satırlık giriş bir günlük dosyasına yazan basit bir işlevi içerir:
 
 
-[!code-javascript[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample1.js)]
+[!code-powershell[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample1.ps1)]
 
 
 **LogDeploy.ps1** betiği iki parametre kabul eder. İlk parametre bir giriş eklemek istediğiniz günlük dosyasına tam yolunu temsil eder ve ikinci parametre günlük dosyasını kaydetmek istediğiniz dağıtım hedefi temsil eder. Betiği çalıştırdığınızda, günlük dosyası şu biçimde bir satır ekler:

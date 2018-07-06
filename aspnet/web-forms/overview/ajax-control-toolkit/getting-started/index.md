@@ -4,19 +4,16 @@ title: Başlarken | Microsoft Docs
 author: rick-anderson
 description: Bu sayfa, Ajax Denetim Araç Seti indirme ve Visual Studio veya Visual Web Developer araç kutusu denetimlerini ekleme açıklanmaktadır.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/14/2011
-ms.topic: article
 ms.assetid: e87dbaaf-fcbe-4e42-87ee-e60e25856e8c
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/getting-started
 msc.type: chapter
-ms.openlocfilehash: 3c7103a32dfbc03a2bad6c78441e88ff0f7d80f2
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 0abe4cc27794e83449a5072f83b6f82bb1991dd0
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37368802"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37801505"
 ---
 <a name="getting-started"></a>Başlarken
 ====================

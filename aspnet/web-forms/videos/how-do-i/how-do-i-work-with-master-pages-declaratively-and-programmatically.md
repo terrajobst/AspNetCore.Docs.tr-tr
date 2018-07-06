@@ -4,19 +4,16 @@ title: '[Bunu nasıl yaparım:] Ana sayfalarla bildirimli ve programlı olarak �
 author: rick-anderson
 description: Bu video Chris piksel tanımlama ve bir ASP.NET web sitesinde ana sayfaları kullanarak çeşitli yönlerini gösterir. İlk olarak, ana sayfalar declarati oluşturma gör...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/21/2008
-ms.topic: article
 ms.assetid: 4f5f7805-373f-4dc3-b7f6-219edf7e66a3
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-work-with-master-pages-declaratively-and-programmatically
 msc.type: video
-ms.openlocfilehash: 928f633372c3a65419dcf988c53f3b2ca73fe524
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: dc0569a457e2aea378a0fa49e80d9f1e794c256f
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37385881"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37802428"
 ---
 <a name="how-do-i-work-with-master-pages-declaratively-and-programmatically"></a>[Bunu nasıl yaparım:] Ana sayfalarla bildirimli ve programlı olarak çalışma
 ====================

@@ -4,19 +4,16 @@ title: '[Bunu nasıl yaparım:] Yerelleştirme ile çok dilli Site oluşturma? |
 author: microsoft
 description: Ek kod ile kültüre duyarlı ve yerel ayara özgü web içeriği oluşturmayı öğrenin. Sayfa düzeyi ve uygulama düzeyi oluşturmak için kaynak düzenleyicisini kullanın...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/06/2006
-ms.topic: article
 ms.assetid: 93190bb9-83fa-4318-a261-0de41ff72b24
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-create-a-multi-lingual-site-with-localization
 msc.type: video
-ms.openlocfilehash: ea1383c811fc5c7247939e468fef6bfc64a5fdf7
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 842752de75bbc924cc334a12a9d0191786466dea
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37390416"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37803823"
 ---
 <a name="how-do-i-create-a-multi-lingual-site-with-localization"></a>[Bunu nasıl yaparım:] Yerelleştirme ile çok dilli Site oluşturma?
 ====================

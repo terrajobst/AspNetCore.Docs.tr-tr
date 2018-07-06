@@ -4,19 +4,16 @@ title: '[Bunu nasıl yaparım:] Visual Studio 2005 kullanarak ASP.NET AJAX uygul
 author: scottgolightly
 description: Bu videoda, biz ASP.NET AJAX uygulamalarında hata ayıklamak için Visual Studio 2005 kullanmayı öğrenin. ScriptManager JavaScript erişmek için nasıl kullanıldığını gösterilen...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/16/2007
-ms.topic: article
 ms.assetid: 0c766dac-5366-47e4-baa4-3a9fd71e4b80
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-debug-aspnet-ajax-applications-using-visual-studio-2005
 msc.type: video
-ms.openlocfilehash: c8f7bc24f6315d7dd6119fdf5101270d06495f9e
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: b28469f248c3fdb35033890996ab7c75bdf1fde2
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37397535"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37801725"
 ---
 <a name="how-do-i-debug-aspnet-ajax-applications-using-visual-studio-2005"></a>[Bunu nasıl yaparım:] Visual Studio 2005 kullanarak ASP.NET AJAX uygulamalarının hatalarını ayıklama?
 ====================

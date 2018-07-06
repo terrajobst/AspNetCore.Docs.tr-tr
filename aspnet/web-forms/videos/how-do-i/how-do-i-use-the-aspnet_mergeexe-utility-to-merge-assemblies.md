@@ -4,19 +4,16 @@ title: '[Bunu nasıl yaparım:] Aspnet_merge.exe yardımcı programını kullana
 author: rick-anderson
 description: Bu videoda, Chris piksel aspnet_merge.exe yardımcı programını kullanarak aspnet_compiler.exe utilit kullanarak derlenen derlemelere birleştirmek için nasıl kullanılacağını gösterir...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/26/2008
-ms.topic: article
 ms.assetid: 2bfd5353-2a35-449e-aeff-0fb94cf10030
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-the-aspnet_mergeexe-utility-to-merge-assemblies
 msc.type: video
-ms.openlocfilehash: f00c1b23ec907711fdaf0e24e4a4a20ff1d2f556
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 2e5fc2e53518c0dcfe16842b7bd6eccec1d67e83
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37378630"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37829537"
 ---
 <a name="how-do-i-use-the-aspnetmergeexe-utility-to-merge-assemblies"></a>[Bunu nasıl yaparım:] Aspnet_merge.exe yardımcı programını kullanarak bütünleştirilmiş kodları birleştirme kullanma
 ====================

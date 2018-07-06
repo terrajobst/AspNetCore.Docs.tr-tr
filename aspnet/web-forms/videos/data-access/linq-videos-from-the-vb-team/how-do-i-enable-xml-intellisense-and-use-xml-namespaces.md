@@ -4,19 +4,16 @@ title: "[Bunu nasıl yaparım:] XML IntelliSense'i etkinleştirme ve XML ad alan
 author: bethmassi
 description: Visual Basic geliştiricileri şemaları kullanarak XML IntelliSense'i etkinleştirme ve XML ad alanları XML belgeleri oluşturma ve sorgulama nasıl kullanıldığını öğreneceksiniz.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/15/2007
-ms.topic: article
 ms.assetid: cdccd601-c0fe-4e56-9c38-7ef027de3481
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/data-access/linq-videos-from-the-vb-team/how-do-i-enable-xml-intellisense-and-use-xml-namespaces
 msc.type: video
-ms.openlocfilehash: e4de1242f66791f71564272f6878c3b1fe849cab
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: a4db10ded41fda6946df907ab5a89ab29cc59352
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37398439"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37801589"
 ---
 <a name="how-do-i-enable-xml-intellisense-and-use-xml-namespaces"></a>[Bunu nasıl yaparım:] XML IntelliSense'i etkinleştirme ve XML ad alanlarını?
 ====================

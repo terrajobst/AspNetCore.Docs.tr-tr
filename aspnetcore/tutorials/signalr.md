@@ -7,12 +7,12 @@ ms.author: rachelap
 ms.custom: mvc
 ms.date: 05/22/2018
 uid: tutorials/signalr
-ms.openlocfilehash: ca9145d9e16c23e34bbc1d84ff01ce02709187ce
-ms.sourcegitcommit: 08f1a9baa97060da5168840b332c9c0805b5f901
+ms.openlocfilehash: 6b8222ee04573ca7157b4e1125ed5a4453b2b9a9
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37144878"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37830561"
 ---
 # <a name="get-started-with-signalr-on-aspnet-core"></a>SignalR ASP.NET Core ile çalışmaya başlama
 
@@ -38,7 +38,7 @@ Aşağıdaki yazılımları yükleyin:
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * [.NET core SDK 2.1 veya üzeri](https://www.microsoft.com/net/download/all)
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/) sürüm 15.7 veya üzeri sürümler **ASP.NET ve web geliştirme** iş yükü
+* [Visual Studio 2017](https://www.visualstudio.com/downloads/) 15.7.3 sürümünü veya üstünü **ASP.NET ve web geliştirme** iş yükü
 * [npm](https://www.npmjs.com/get-npm)
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)

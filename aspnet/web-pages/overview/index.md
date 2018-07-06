@@ -4,19 +4,16 @@ title: Web sayfaları Kılavuzu | Microsoft Docs
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/18/2012
-ms.topic: article
 ms.assetid: 1a2ed0e8-63da-4110-9896-e2731d86f7c4
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/overview
 msc.type: book
-ms.openlocfilehash: 8c76b6584aefe24cdf454c2b0249efb23af9f94e
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: afffd847fc21aff2ca8744d0dc2aa9fb822c05e5
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37367256"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37830292"
 ---
 <a name="web-pages-guidance"></a>Web sayfaları Kılavuzu
 ====================

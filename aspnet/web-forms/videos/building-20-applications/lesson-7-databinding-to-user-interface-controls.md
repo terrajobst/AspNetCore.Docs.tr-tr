@@ -4,19 +4,16 @@ title: '[7. Ders:] Kullanıcı arabirimi denetimlerine veri bağlama | Microsoft
 author: microsoft
 description: Bu derste, ASP.NET'te verileri görüntülemek hakkında bilgi edineceksiniz&#160;2.0 web uygulamaları aracılığıyla bazı yeni veri bağlama denetimleri.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/29/2005
-ms.topic: article
 ms.assetid: 49625de7-06c3-484c-bd76-d322b9ca41ea
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/building-20-applications/lesson-7-databinding-to-user-interface-controls
 msc.type: video
-ms.openlocfilehash: aa7d2143e60d504041302f85322970aeffbc1011
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 868072c6a3ccc8d461cd86d2092b5b8c82ed7fc9
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37361408"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37802235"
 ---
 <a name="lesson-7-databinding-to-user-interface-controls"></a>[7. Ders:] Kullanıcı arabirimi denetimlerine veri bağlama
 ====================

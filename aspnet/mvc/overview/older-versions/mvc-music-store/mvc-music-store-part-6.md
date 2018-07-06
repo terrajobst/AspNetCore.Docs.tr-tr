@@ -4,19 +4,16 @@ title: '6. Bölüm: Model doğrulama için veri ek açıklamalarını kullanma |
 author: jongalloway
 description: Bu öğretici serisinde ASP.NET MVC müzik Store örnek uygulamayı oluşturmak için gerçekleştirilen tüm adımları ayrıntılı olarak açıklanmaktadır. 6. bölüm veri ek açıklamaları Model için V incelemektedir...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/21/2011
-ms.topic: article
 ms.assetid: b3193d33-2d0b-4d98-9712-58bd897c62ec
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6
 msc.type: authoredcontent
-ms.openlocfilehash: ca0ac2ca909f838f1c91e6cc01b8aafa90c0b193
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 10884f569f0f5d95517b73daab31fbd269a4726a
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37397664"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37825959"
 ---
 <a name="part-6-using-data-annotations-for-model-validation"></a>6. Bölüm: Kullanmak için veri ek açıklamaları Model doğrulama
 ====================

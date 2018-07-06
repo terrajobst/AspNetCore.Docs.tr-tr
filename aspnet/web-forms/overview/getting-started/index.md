@@ -4,19 +4,16 @@ title: ASP.NET Web Forms ile çalışmaya başlama | Microsoft Docs
 author: rick-anderson
 description: Bilgi hakkında ASP.NET Web Forms ASP.NET Web Forms, tanıdık bir Sürükle ve bırak, olay odaklı modeli kullanarak dinamik build Web siteleri olanak tanır. Bir tasarım yüzeyi ve hund...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/08/2011
-ms.topic: article
 ms.assetid: f645d3b1-1092-43c6-a28a-074b413924b4
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/getting-started
 msc.type: chapter
-ms.openlocfilehash: cfab4c6f8b3afc96c64c9260202bd1a61f2ff70f
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: a7a61f3701f484efe03b3c9fc1e6479c0723e8be
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37394190"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37826767"
 ---
 <a name="getting-started-with-aspnet-web-forms"></a>ASP.NET Web Forms ile çalışmaya başlama
 ====================

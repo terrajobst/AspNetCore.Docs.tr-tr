@@ -4,19 +4,16 @@ title: '[Bunu nasıl yaparım:] Günlüğe kaydetme sistem durumu olaylarını i
 author: rick-anderson
 description: Chris piksel, ASP.NET sistem durumu izleme sistemi, sistem durumu izleme olayları bir metin tabanlı bir günlük dosyasına kaydeder yönelik özel bir sağlayıcı oluşturma işlemi gösterilmektedir. Le...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/06/2008
-ms.topic: article
 ms.assetid: 18ae018d-b388-4f79-a218-b5dd4dc4e75b
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-create-a-custom-provider-for-logging-health-monitoring-events
 msc.type: video
-ms.openlocfilehash: 05b5ea9ad21e500593fce643b53d5ccb7c66ca66
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: a8bccfbfee3a0989d8a9d69723969a1ccd649bd4
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37381149"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37802007"
 ---
 <a name="how-do-i-create-a-custom-provider-for-logging-health-monitoring-events"></a>[Bunu nasıl yaparım:] Günlüğe kaydetme sistem durumu olaylarını izleme için özel bir sağlayıcı oluşturma
 ====================

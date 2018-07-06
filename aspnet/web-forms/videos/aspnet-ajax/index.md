@@ -4,19 +4,16 @@ title: ASP.NET AJAX | Microsoft Docs
 author: rick-anderson
 description: Bir JavaScript Uzman olmasanız bile yüksek derecede yanıt veren sayfaları, ASP.NET AJAX ile çalışmanın yolları.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/05/2011
-ms.topic: article
 ms.assetid: 754b8c66-cefc-42d6-9f02-685efabdfcc6
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-ajax
 msc.type: chapter
-ms.openlocfilehash: d3daecfeafe1dcfe22223c8881c7c4c950d63de1
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 1d72997d6a501eefae45124eefddb9fbedffefae
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37372996"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37801683"
 ---
 <a name="aspnet-ajax"></a>ASP.NET AJAX
 ====================

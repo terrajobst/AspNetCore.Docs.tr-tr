@@ -4,19 +4,16 @@ title: ASP.NET 3.5 - AJAX | Microsoft Docs
 author: rick-anderson
 description: Dahil UpdatePanels ve kısmi Sayfa güncelleştirmelerini, kimlik doğrulaması, yerelleştirme ve hata ayıklama ASP.NET AJAX Kitaplığı hakkında.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/05/2011
-ms.topic: article
 ms.assetid: b7d13a9f-3d44-431d-bea7-eb2da524de9d
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax
 msc.type: chapter
-ms.openlocfilehash: 800f900620b58b25407395c4162ad11ae5a31bf7
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 72cfdffc261971462fb692eb0894db42d5df347a
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37390821"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37801811"
 ---
 <a name="aspnet-35---ajax"></a>ASP.NET 3.5 - AJAX
 ====================

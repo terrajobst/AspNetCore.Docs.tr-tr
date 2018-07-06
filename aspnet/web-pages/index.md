@@ -4,19 +4,16 @@ title: ASP.NET Web sayfaları | Microsoft Docs
 author: rick-anderson
 description: Webmatrix'i indir & hızlı bir şekilde web sayfaları, sunucu kodunu HTML ile birleştirmenin basit bir şekilde oluşturmayı öğrenin.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/18/2012
-ms.topic: article
 ms.assetid: 5418ba96-ff49-4a43-9cbb-09dea4949d23
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages
 msc.type: categoryindex
-ms.openlocfilehash: 9384ec1c2c32f6cd5f64a5dec2f2b2886749ef52
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: efd61b01102c4bdcd05253da4f59177db2d57c3b
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37400296"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37828140"
 ---
 <a name="aspnet-web-pages"></a>ASP.NET Web Sayfaları
 ====================

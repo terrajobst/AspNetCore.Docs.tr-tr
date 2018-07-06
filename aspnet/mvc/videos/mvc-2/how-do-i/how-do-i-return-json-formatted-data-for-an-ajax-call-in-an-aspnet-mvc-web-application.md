@@ -4,19 +4,16 @@ title: 'Nasıl Yaparım: bir ASP.NET MVC Web uygulamasında bir AJAX çağrısı
 author: rick-anderson
 description: Biçimlendirilmiş verileri bu videoda, Chris piksel sınıfların örneklerini JSON olarak döndürülecek JsonResult ve Json sınıflarını kullanmayı gösterir. İlk olarak, örnek bir MVC web uygulanacağı...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/22/2009
-ms.topic: article
 ms.assetid: 7ed06ca2-fab6-41a3-a1cc-a3ccebb639f6
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/how-do-i-return-json-formatted-data-for-an-ajax-call-in-an-aspnet-mvc-web-application
 msc.type: video
-ms.openlocfilehash: 3f52f4161ae6689a14ddac69149dfaad41a4d90e
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 5bb38259c1beda0059bf20aec5a4bac4901efbec
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37363760"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37825667"
 ---
 <a name="how-do-i-return-json-formatted-data-for-an-ajax-call-in-an-aspnet-mvc-web-application"></a>Nasıl Yaparım: bir ASP.NET MVC Web uygulamasında bir AJAX çağrısı için JSON biçimlendirilmiş verileri iade etmeden?
 ====================

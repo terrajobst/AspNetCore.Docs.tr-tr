@@ -4,19 +4,16 @@ title: 'Visual Studio kullanarak ASP.NET Web Dağıtımı: klasör izinlerini ay
 author: tdykstra
 description: Bu öğretici serisinin nasıl dağıtılacağı gösterilir (bir ASP.NET Yayımlama) web uygulamasını Azure App Service Web Apps veya bir üçüncü taraf barındırma sağlayıcı tarafından usin...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/15/2013
-ms.topic: article
 ms.assetid: 9715a121-fa55-4f1b-a5d2-fb3f6cd8be8f
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/setting-folder-permissions
 msc.type: authoredcontent
-ms.openlocfilehash: a0c4f9f7cf30c1fc6a06c2cf798dc7ed04585504
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 0660a464063783406a69caf663036811c8ac818e
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37383655"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37802039"
 ---
 <a name="aspnet-web-deployment-using-visual-studio-setting-folder-permissions"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: klasör izinlerini ayarlama
 ====================
