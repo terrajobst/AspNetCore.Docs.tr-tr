@@ -4,25 +4,22 @@ title: AJAX performansını geliştirmek için komut dosyası birleştirme kulla
 author: rick-anderson
 description: Samp içeren basit bir sayfa kullanan komut dosyası birleştirme, adlı yeni bir özellik kullanarak bir Ajax uygulama performansını nasıl Betrand Le Roy özetler...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/08/2008
-ms.topic: article
 ms.assetid: f5445f4a-bc78-4950-b74f-de748bf8b0be
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-35/aspnet-ajax/using-script-combining-to-improve-ajax-performance
 msc.type: video
-ms.openlocfilehash: 67188ff83350809944b41ea6572b996eaf969e5e
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 982b4f74f4bf4fc3a44240cc182c86bab0f83d01
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37398883"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37813174"
 ---
-<a name="using-script-combining-to-improve-ajax-performance"></a><span data-ttu-id="8efa4-103">AJAX performansını geliştirmek için komut dosyası birleştirme kullanma</span><span class="sxs-lookup"><span data-stu-id="8efa4-103">Using Script Combining to improve AJAX performance</span></span>
+<a name="using-script-combining-to-improve-ajax-performance"></a><span data-ttu-id="73e61-103">AJAX performansını geliştirmek için komut dosyası birleştirme kullanma</span><span class="sxs-lookup"><span data-stu-id="73e61-103">Using Script Combining to improve AJAX performance</span></span>
 ====================
-<span data-ttu-id="8efa4-104">Ajax Araç Seti'nden örnek kodu içeren basit bir sayfa kullanan komut dosyası birleştirme, adlı yeni bir özellik kullanarak bir Ajax uygulama performansını nasıl Betrand Le Roy özetlenmektedir.</span><span class="sxs-lookup"><span data-stu-id="8efa4-104">Betrand Le Roy outlines how to improve the performance of an Ajax application using a new feature called Script Combining, utilizing a simple page with sample code from the Ajax toolkit.</span></span>
+<span data-ttu-id="73e61-104">Ajax Araç Seti'nden örnek kodu içeren basit bir sayfa kullanan komut dosyası birleştirme, adlı yeni bir özellik kullanarak bir Ajax uygulama performansını nasıl Betrand Le Roy özetlenmektedir.</span><span class="sxs-lookup"><span data-stu-id="73e61-104">Betrand Le Roy outlines how to improve the performance of an Ajax application using a new feature called Script Combining, utilizing a simple page with sample code from the Ajax toolkit.</span></span>
 
-[<span data-ttu-id="8efa4-105">&#9654;(4 dakika) videosunu izleyin</span><span class="sxs-lookup"><span data-stu-id="8efa4-105">&#9654; Watch video (4 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/using-script-combining-to-improve-ajax-performance)
+[<span data-ttu-id="73e61-105">&#9654;(4 dakika) videosunu izleyin</span><span class="sxs-lookup"><span data-stu-id="73e61-105">&#9654; Watch video (4 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/using-script-combining-to-improve-ajax-performance)
 
 > [!div class="step-by-step"]
-> [<span data-ttu-id="8efa4-106">Önceki</span><span class="sxs-lookup"><span data-stu-id="8efa4-106">Previous</span></span>](introduction-to-aspnet-ajax-history.md)
+> [<span data-ttu-id="73e61-106">Önceki</span><span class="sxs-lookup"><span data-stu-id="73e61-106">Previous</span></span>](introduction-to-aspnet-ajax-history.md)

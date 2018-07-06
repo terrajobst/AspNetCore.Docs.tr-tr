@@ -4,21 +4,18 @@ title: ASP.NET 4 ve Visual Studio 2010 Web geliştirmeye genel bakış | Microso
 author: rick-anderson
 description: Bu belge, Visual Studio 2010 ve.NET Framework 4'te dahil olan ASP.NET için yeni özelliklerin çoğu, genel bir bakış sağlar.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/10/2010
-ms.topic: article
 ms.assetid: 6bea4655-b0a2-442a-b9c1-d323467befd8
-ms.technology: ''
 msc.legacyurl: ''
 msc.type: content
-ms.openlocfilehash: ff2b396a39f6a95e8204401532216954520cc279
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: b892336e8db58453362c6c42a4d61352a1c20805
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37364235"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37835653"
 ---
-<a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a><span data-ttu-id="1f222-103">ASP.NET 4 ve Visual Studio 2010 Web geliştirmeye genel bakış</span><span class="sxs-lookup"><span data-stu-id="1f222-103">ASP.NET 4 and Visual Studio 2010 Web Development Overview</span></span>
+<a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a><span data-ttu-id="23fa3-103">ASP.NET 4 ve Visual Studio 2010 Web geliştirmeye genel bakış</span><span class="sxs-lookup"><span data-stu-id="23fa3-103">ASP.NET 4 and Visual Studio 2010 Web Development Overview</span></span>
 ====================
-- [<span data-ttu-id="1f222-104">ASP.NET 4 ve Visual Studio 2010 Web Geliştirmeye Genel Bakış</span><span class="sxs-lookup"><span data-stu-id="1f222-104">ASP.NET 4 and Visual Studio 2010 Web Development Overview</span></span>](overview.md)
-- [<span data-ttu-id="1f222-105">ASP.NET 4 Sürümündeki Yeni Değişiklikler</span><span class="sxs-lookup"><span data-stu-id="1f222-105">ASP.NET 4 Breaking Changes</span></span>](breaking-changes.md)
+- [<span data-ttu-id="23fa3-104">ASP.NET 4 ve Visual Studio 2010 Web Geliştirmeye Genel Bakış</span><span class="sxs-lookup"><span data-stu-id="23fa3-104">ASP.NET 4 and Visual Studio 2010 Web Development Overview</span></span>](overview.md)
+- [<span data-ttu-id="23fa3-105">ASP.NET 4 Sürümündeki Yeni Değişiklikler</span><span class="sxs-lookup"><span data-stu-id="23fa3-105">ASP.NET 4 Breaking Changes</span></span>](breaking-changes.md)
