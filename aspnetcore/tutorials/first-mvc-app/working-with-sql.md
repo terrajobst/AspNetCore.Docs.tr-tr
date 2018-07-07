@@ -1,22 +1,22 @@
 ---
-title: Bir ASP.NET Core MVC uygulama içinde SQL Server yerel veritabanı ile çalışma
+title: Bir ASP.NET Core MVC uygulaması, SQL Server LocalDB ile çalışma
 author: rick-anderson
-description: SQL Server yerel veritabanı basit bir ASP.NET Core MVC uygulamasında kullanma hakkında bilgi edinin.
+description: SQL Server LocalDB basit bir ASP.NET Core MVC uygulamasında kullanma hakkında bilgi edinin.
 ms.author: riande
 ms.date: 03/07/2017
 uid: tutorials/first-mvc-app/working-with-sql
-ms.openlocfilehash: 05bd76038e5856d2a3e392e3b00e589dbc26fcc6
-ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
+ms.openlocfilehash: 2981035222681e6badbb0d917e4091baa96b9af1
+ms.sourcegitcommit: a09820f91e71a7d98b7347bf93210abb9e995e22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36961064"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37889135"
 ---
-# <a name="work-with-sql-server-localdb-in-aspnet-core"></a>ASP.NET Core içinde SQL Server yerel veritabanı ile çalışma
+# <a name="work-with-sql-server-localdb-in-aspnet-core"></a>ASP.NET Core, SQL Server LocalDB ile çalışma
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-`MvcMovieContext` Nesnesini işleme veritabanına bağlanırken ve eşleme görevi `Movie` veritabanı kayıtlarını nesnelere. Veritabanı bağlamı kayıtlı [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısında `ConfigureServices` yönteminde *haline* dosyası:
+`MvcMovieContext` Nesne veritabanına bağlanma ve eşleme görevi işleme `Movie` veritabanı kayıtlarını nesneleri. Veritabanı bağlamı kayıtlı [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısında `ConfigureServices` yönteminde *Startup.cs* dosyası:
 
 ::: moniker range=">= aspnetcore-2.1"
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Startup.cs?name=ConfigureServices&highlight=13-99)]
@@ -29,37 +29,37 @@ ASP.NET Core [yapılandırma](xref:fundamentals/configuration/index) sistem okum
 
 [!code-json[](start-mvc/sample/MvcMovie/appsettings.json?highlight=2&range=8-10)]
 
-Bir test veya üretim sunucusuna uygulama dağıtırken, bir ortam değişkeni veya başka bir kullanabilirsiniz yaklaşım gerçek bir SQL Server bağlantı dizesini ayarlayın. Bkz: [yapılandırma](xref:fundamentals/configuration/index) daha fazla bilgi için.
+Bir test veya üretim sunucusuna uygulamasını dağıttığınızda, bir ortam değişkenine ya da başka bir kullanabilirsiniz yaklaşım gerçek bir SQL Server'a bağlantı dizesini ayarlayalım. Bkz: [yapılandırma](xref:fundamentals/configuration/index) daha fazla bilgi için.
 
 ## <a name="sql-server-express-localdb"></a>SQL Server Express LocalDB
 
-Yerel veritabanı, SQL Server Express Veritabanı Altyapısı'nın hedeflenen program geliştirme için hafif bir sürümüdür. Yerel veritabanı isteğe bağlı olarak başlar ve bu yüzden karmaşık yapılandırma kullanıcı modunda çalışır. Varsayılan olarak, yerel veritabanı bir veritabanı oluşturur "\*.mdf" dosyalar *C:/Users/\<kullanıcı\>*  dizini.
+LocalDB, SQL Server Express Veritabanı Altyapısı'nın hedeflenen program geliştirme için basit bir sürümüdür. LocalDB, isteğe bağlı olarak başlar ve karmaşık yapılandırma olduğundan kullanıcı modunda çalışır. Varsayılan olarak LocalDB veritabanına oluşturur "\*.mdf" dosyalar *C:/Users/\<kullanıcı\>*  dizin.
 
-* Gelen **Görünüm** menüsünde, açık **SQL Server Nesne Gezgini** (SSOX).
+* Gelen **görünümü** menüsünde, açık **SQL Server Nesne Gezgini** (SSOX).
 
   ![Görünüm menüsü](working-with-sql/_static/ssox.png)
 
 * Sağ tıklayın `Movie` tablo **> Görünüm Tasarımcısı**
 
-  ![Bağlamsal menü film tablosunda Aç](working-with-sql/_static/design.png)
+  ![Bağlamsal menüyü film tablosunda Aç](working-with-sql/_static/design.png)
 
   ![Film Tablo Tasarımcısı'nda Aç](working-with-sql/_static/dv.png)
 
-Anahtar simgesine yanına Not `ID`. Varsayılan olarak, EF adlı bir özellik yapacak `ID` birincil anahtarı.
+Anahtar simgesinin yanındaki Not `ID`. Varsayılan olarak EF adlı bir özellik hale getirecek `ID` birincil anahtarı.
 
 * Sağ tıklayın `Movie` tablo **> verileri görüntüleme**
 
-  ![Bağlamsal menü film tablosunda Aç](working-with-sql/_static/ssox2.png)
+  ![Bağlamsal menüyü film tablosunda Aç](working-with-sql/_static/ssox2.png)
 
-  ![Tablo verisi gösteren açık film tablosu](working-with-sql/_static/vd22.png)
+  ![Tablo verilerini gösteren açık film tablo](working-with-sql/_static/vd22.png)
 
-## <a name="seed-the-database"></a>Çekirdek veritabanı
+## <a name="seed-the-database"></a>Veritabanının çekirdeğini oluşturma
 
-Adlı yeni bir sınıf oluşturun `SeedData` içinde *modelleri* klasör. Oluşturulan kod aşağıdakiyle değiştirin:
+Adlı yeni bir sınıf oluşturun `SeedData` içinde *modelleri* klasör. Oluşturulan kodu aşağıdakiyle değiştirin:
 
 [!code-csharp[](start-mvc/sample/MvcMovie/Models/SeedData.cs?name=snippet_1)]
 
-Olup olmadığını herhangi filmler DB'de, çekirdek Başlatıcı döndürür ve hiçbir filmler eklenir.
+Varsa tüm film DB'de, çekirdek Başlatıcı döndürür ve film eklenir.
 
 ```csharp
 if (context.Movie.Any())
@@ -69,7 +69,9 @@ if (context.Movie.Any())
 ```
 
 <a name="si"></a>
-### <a name="add-the-seed-initializer"></a>Çekirdek Başlatıcısı ekleme
+### <a name="add-the-seed-initializer"></a>Çekirdek Başlatıcı Ekle
+
+Öğesinin içeriğini değiştirin *Program.cs* aşağıdaki kod ile:
 
 ::: moniker range=">= aspnetcore-2.1"
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Program.cs)]
@@ -78,13 +80,13 @@ if (context.Movie.Any())
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
-Çekirdek Başlatıcısı ekleme `Main` yönteminde *Program.cs* dosyası:
+İçin çekirdek Başlatıcı Ekle `Main` yönteminde *Program.cs* dosyası:
 
 [!code-csharp[](start-mvc/sample/MvcMovie/Program.cs?highlight=6,14-32)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 
-Çekirdek Başlatıcı sonuna ekleyin `Configure` yönteminde *haline* dosya.
+Çekirdek Başlatıcı sonuna ekleyin `Configure` yönteminde *Startup.cs* dosya.
 
 [!code-csharp[](start-mvc/sample/MvcMovie/Startup.cs?highlight=9&name=snippet_seed)]
 
@@ -93,22 +95,22 @@ if (context.Movie.Any())
 
 Uygulamayı test etme
 
-* DB tüm kayıtları silin. Tarayıcıda veya SSOX delete bağlantılar yapın.
-* Uygulamayı başlatmak için zorlama (yöntemleri Çağır `Startup` sınıfı) seed yöntemi çalıştığında. Başlatma zorlamak için IIS Express durdurulup yeniden gerekir. Bu yaklaşımın şunlardan birini yapabilirsiniz:
+* Veritabanındaki tüm kayıtları silin. Tarayıcıda veya SSOX silme bağlantıları kullanarak bunu yapabilirsiniz.
+* Başlatmaya zorlamak (yöntemleri çağırmak `Startup` sınıfı) bu nedenle seed yöntemi çalıştırılır. Başlatma zorlamak için IIS Express durdurulup yeniden gerekir. Bunu aşağıdaki yaklaşımlardan birini yapabilirsiniz:
 
-  * IIS Express sistem tepsisi bildirim alanı simgesini sağ tıklatın ve dokunun **çıkış** veya **sitesini Durdur**
+  * IIS Express sistem tepsisi simgesi bildirim alanında sağ tıklayın ve dokunun **çıkış** veya **sitesini Durdur**
 
     ![IIS Express sistem tepsisi simgesi](working-with-sql/_static/iisExIcon.png)
 
-    ![Bağlam menüsü](working-with-sql/_static/stopIIS.png)
+    ![Bağlamsal menü](working-with-sql/_static/stopIIS.png)
 
-    * VS olmayan hata ayıklama modunda çalışıyormuş hata ayıklama modunda çalıştırmak için F5 tuşuna basın.
-    * Hata ayıklama modunda VS çalışıyormuş hata ayıklayıcıyı durdurduktan ve F5 tuşuna basın
+    * VS hata ayıklama olmayan modda çalışıyormuş, hata ayıklama modunda çalıştırmak için F5 tuşuna basın.
+    * VS hata ayıklama modunda çalıştırdığınız, hata ayıklayıcıyı durdurun ve F5 tuşuna basın
 
-Uygulama hazırlığı yapmış veriler gösterir.
+Uygulama, çekirdeği oluşturulmuş veri gösterir.
 
-![MVC film uygulaması Microsoft Edge'de film verileri gösteren açın](working-with-sql/_static/m55.png)
+![MVC film uygulaması film verileri gösteren Microsoft Edge'de açın](working-with-sql/_static/m55.png)
 
 > [!div class="step-by-step"]
 > [Önceki](adding-model.md)
-> [sonraki](controller-methods-views.md)  
+> [İleri](controller-methods-views.md)  

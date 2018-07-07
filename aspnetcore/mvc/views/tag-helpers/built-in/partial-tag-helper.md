@@ -5,14 +5,14 @@ description: ASP.NET Core kısmi etiket Yardımcısı ve her biri öznitelikleri
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 04/13/2018
+ms.date: 07/06/2018
 uid: mvc/views/tag-helpers/builtin-th/partial-tag-helper
-ms.openlocfilehash: 0a8caf09d1764278da4a0566844b0efaf4eeb567
-ms.sourcegitcommit: 18339e3cb5a891a3ca36d8146fa83cf91c32e707
+ms.openlocfilehash: 2272b2ecdd6f2b0a759356b1f03dd5c495ea1c91
+ms.sourcegitcommit: a09820f91e71a7d98b7347bf93210abb9e995e22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37433876"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37889109"
 ---
 # <a name="partial-tag-helper-in-aspnet-core"></a>ASP.NET core'da kısmi etiket Yardımcısı
 
@@ -81,7 +81,17 @@ Aşağıdaki biçimlendirmede yeni `Product` nesne örneği ve geçirilen `model
 
 Bu örnekte, değerini `ViewData["IsNumberReadOnly"]` belirler olmadığını *numarası* alanı salt okunur olarak görüntülenir.
 
+## <a name="migrate-from-an-html-helper"></a>Bir HTML Yardımcısı geçiş
+
+Aşağıdaki zaman uyumsuz HTML Yardımcısı örneği göz önünde bulundurun. Ürünleri koleksiyonunu yinelenir ve görüntülenir. Başına `PartialAsync` yöntemin ilk parametresi, *_ProductPartial.cshtml* kısmi görünüm yüklenir. Örneği `Product` model bağlama için kısmi görünüme iletilir.
+
+[!code-cshtml[](samples/TagHelpersBuiltIn/Pages/Products.cshtml?name=snippet_HtmlHelper&highlight=3)]
+
+Aynı zaman uyumsuz işleme davranışı aşağıdaki kısmi etiket Yardımcısı başarır `PartialAsync` HTML Yardımcısı. `model` Öznitelik atanmış bir `Product` bağlama kısmi görünüm için model örneği.
+
+[!code-cshtml[](samples/TagHelpersBuiltIn/Pages/Products.cshtml?name=snippet_TagHelper&highlight=3)]
+
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Kısmi görünümler](xref:mvc/views/partial)
-* [Veri'zayıf yazılmış (ViewData, ViewData özniteliği ve ViewBag)](xref:mvc/views/overview#weakly-typed-data-viewdata-viewdata-attribute-and-viewbag)
+* <xref:mvc/views/partial>
+* <xref:mvc/views/overview#weakly-typed-data-viewdata-viewdata-attribute-and-viewbag>

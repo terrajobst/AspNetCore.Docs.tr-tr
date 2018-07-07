@@ -5,12 +5,12 @@ description: ASP.NET Core kimliği için özel depolama sağlayıcıları yapıl
 ms.author: riande
 ms.date: 05/24/2017
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: d7baa8ed142a7d3337adceff2dc93274604bde4c
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: bdde9b93449c2f3f8d43cc4ff86472ed8a60ed1c
+ms.sourcegitcommit: a09820f91e71a7d98b7347bf93210abb9e995e22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37831342"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37889174"
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>ASP.NET Core kimliği için özel depolama sağlayıcıları
 
@@ -51,7 +51,7 @@ Aşağıdaki diyagramda depolarının veri erişim katmanı ile etkileşim kurar
 
 Yeni bir örneğini oluştururken `UserManager` veya `RoleManager` kullanıcı sınıf türü sağlayın ve depolama sınıfının bir örneği bir bağımsız değişken olarak geçirin. Bu yaklaşım, ASP.NET Core özelleştirilmiş sınıflarınızı takın sağlar. 
 
-[Yeni depolama sağlayıcısı kullanmak için uygulamayı yeniden](#reconfigure-app-to-use-new-storage-provider) örneği gösterilmiştir `UserManager` ve `RoleManager` özelleştirilmiş deposuyla.
+[Yeni depolama sağlayıcısı kullanmak için uygulamayı yeniden](#reconfigure-app-to-use-a-new-storage-provider) örneği gösterilmiştir `UserManager` ve `RoleManager` özelleştirilmiş deposuyla.
 
 ## <a name="aspnet-core-identity-stores-data-types"></a>ASP.NET Core kimliği veri türleri depolar.
 

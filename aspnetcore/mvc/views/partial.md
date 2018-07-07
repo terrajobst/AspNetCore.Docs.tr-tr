@@ -4,14 +4,14 @@ author: ardalis
 description: Kısmi görünüm nasıl olduğunu öğrenin başka bir görünümü içinde işlenir ve ne zaman bunların kullanılması gerekir ASP.NET Core uygulamalarında bir görünüm.
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/02/2018
+ms.date: 07/06/2018
 uid: mvc/views/partial
-ms.openlocfilehash: 6e9a3dae613251e6580d0bbb314c11064d08f5ba
-ms.sourcegitcommit: 18339e3cb5a891a3ca36d8146fa83cf91c32e707
+ms.openlocfilehash: 9f90ce39929d0dbc216b47d76d652c1fca866ec2
+ms.sourcegitcommit: a09820f91e71a7d98b7347bf93210abb9e995e22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37433889"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37889122"
 ---
 # <a name="partial-views-in-aspnet-core"></a>ASP.NET Core, kısmi görünümleri
 
@@ -42,7 +42,7 @@ Mantıksal parçalarını oluşan karmaşık bir sayfasında, her bir parçanın
 
 Kısmi görünümler, normal bir görünüm gibi oluşturulur&mdash;oluşturarak bir *.cshtml* içinde dosya *görünümleri* klasör. Kısmi Görünüm ve normal görünüm arasında anlamsal fark yoktur; Ancak, bunlar farklı işlenen. Doğrudan bir denetleyicinin döndürülen bir görünüm olabilir [ViewResult](/dotnet/api/microsoft.aspnetcore.mvc.viewresult), ve bir kısmi görünüm olarak aynı görünümde kullanılabilir. Kısmi görünümler çalıştırma görünümü ve kısmi görünümün nasıl oluşturulacağını arasındaki ana fark olduğu *_ViewStart.cshtml*. Normal Görünüm çalıştırma *_ViewStart.cshtml*. Daha fazla bilgi edinin *_ViewStart.cshtml* içinde [Düzen](xref:mvc/views/layout)).
 
-Bir kural, kısmi görünüm dosya adları genellikle ile başlayan `_`. Bu bir gereksinim değildir, ancak kısmi görünümler normal görüntülerden görsel olarak ayırt etmesine yardımcı olur.
+Bir kural, kısmi görünüm dosya adları genellikle ile başlayan `_`. Bu adlandırma kuralını bir gereksinim değildir, ancak kısmi görünümler normal görüntülerden görsel olarak ayırt etmesine yardımcı olur.
 
 ## <a name="reference-a-partial-view"></a>Kısmi görünüm başvurusu
 
@@ -56,7 +56,7 @@ Kısmi etiket Yardımcısı, ASP.NET Core 2.1 veya üzerini gerektirir. Zaman uy
 
 [!code-cshtml[](partial/sample/PartialViewsSample/Views/Home/Discovery.cshtml?name=snippet_PartialTagHelper)]
 
-Daha fazla bilgi edinmek için bkz. <xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper>.
+Daha fazla bilgi için bkz. <xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper>.
 
 ::: moniker-end
 
@@ -70,7 +70,7 @@ Alternatif olarak, kısmi bir görünümü ile oluşturulabilen [RenderPartialAs
 
 [!code-cshtml[](partial/sample/PartialViewsSample/Views/Home/Discovery.cshtml?name=snippet_RenderPartialAsync)]
 
-Sonuç doğrudan akışları beri `RenderPartialAsync` bazı senaryolarda daha iyi gerçekleştirebilir. Ancak, bunu kullanmanız önerilir `PartialAsync`.
+Sonuç doğrudan akışları beri `RenderPartialAsync` bazı senaryolarda daha iyi gerçekleştirebilir. Ancak, kullanmanız önerilir `PartialAsync`.
 
 ### <a name="synchronous-html-helper"></a>Zaman uyumlu HTML Yardımcısı
 
@@ -78,6 +78,16 @@ Sonuç doğrudan akışları beri `RenderPartialAsync` bazı senaryolarda daha i
 
 > [!IMPORTANT]
 > Kod yürütmek kendi görünümlerinizi ihtiyacınız varsa, bir [görünümü bileşen](xref:mvc/views/view-components) yerine kısmi görünüm.
+
+::: moniker range=">= aspnetcore-2.1"
+
+ASP.NET Core 2.1 veya daha sonra çağırma `Partial` veya `RenderPartial` sonuçları bir çözümleyici uyarı. Örneğin, kullanımını `Partial` aşağıdaki uyarı iletisini verir:
+
+> Uygulama kilitlenmeleri IHtmlHelper.Partial kullanımına neden olabilir. Kullanmayı `<partial>` etiketi Yardımcısı veya `IHtmlHelper.PartialAsync`.
+
+Çağrıları değiştirin `@Html.Partial` ile `@await Html.PartialAsync` veya kısmi etiket Yardımcısı. Kısmi etiket Yardımcısı geçiş hakkında daha fazla bilgi için bkz. [HTML Yardımcısı'ten geçiş](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper#migrate-from-an-html-helper).
+
+::: moniker-end
 
 ## <a name="partial-view-discovery"></a>Kısmi görünüm bulma
 
