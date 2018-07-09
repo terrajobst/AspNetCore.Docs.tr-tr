@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/30/2018
 uid: test/integration-tests
-ms.openlocfilehash: 2893ff41a104b4bef1277675afaf7dd1c758ecd6
-ms.sourcegitcommit: 79d2457989fc5b08925582dab0f1511ab11ad741
+ms.openlocfilehash: e18c5704c9d4db9669d8f831f1b556d1723a0fc1
+ms.sourcegitcommit: ea7ec8d47f94cfb8e008d771f647f86bbb4baa44
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347258"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37894172"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>ASP.NET core'da tümleştirme testleri
 
@@ -71,7 +71,7 @@ Tümleştirme testleri, normal içeren olayların sırasını izleyin *Yerleşti
 1. Bir test sunucusu istemci uygulamanın istekleri göndermek için oluşturulur.
 1. *Yerleştir* test adımı yürütülür: istek test uygulaması hazırlar.
 1. *Yasası* test adımı yürütülür: istemci isteği gönderir ve yanıtı alır.
-1. *Assert* test adımı yürütülür: *gerçek* yanıt olarak doğrulanmış bir *geçirmek* veya *başarısız* dayalı bir *bekleniyor*  yanıt.
+1. *Assert* test adımı yürütülür: *gerçek* yanıt olarak doğrulanmış bir *geçirmek* veya *başarısız* dayalı bir *bekleniyor * yanıt.
 1. İşlem, tüm testleri yürütülür kadar devam eder.
 1. Test sonuçları raporlanır.
 
@@ -96,10 +96,16 @@ Razor sayfaları uygulamaların testler için yapılandırma ve MVC uygulamalar�
 
 Test projesi gerekir:
 
-* Bir paket başvurusu için sahip [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App/).
-* Proje dosyasında Web SDK'sını kullanma (`<Project Sdk="Microsoft.NET.Sdk.Web">`).
+* Aşağıdaki paketler başvuru:
+  - [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App/)
+  - [Microsoft.AspNetCore.Mvc.Testing](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Testing/)
+* Proje dosyasında Web SDK'sı belirtin (`<Project Sdk="Microsoft.NET.Sdk.Web">`). Web SDK'sı başvururken gereklidir [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).
 
-Bu prerequesities görülebilir [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/integration-tests/samples/). İnceleme *tests/RazorPagesProject.Tests/RazorPagesProject.Tests.csproj* dosya.
+Bu Önkoşullar şurada görülebilir [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/integration-tests/samples/). İnceleme *tests/RazorPagesProject.Tests/RazorPagesProject.Tests.csproj* dosya. Örnek uygulama kullandığı [xUnit](https://xunit.github.io/) test çerçevesi ve [AngleSharp](https://anglesharp.github.io/) örnek uygulamasını da başvurduğu için ayrıştırıcı kitaplığı:
+
+* [xunit](https://www.nuget.org/packages/xunit/)
+* [xunit.Runner.VisualStudio](https://www.nuget.org/packages/xunit.runner.visualstudio/)
+* [AngleSharp](https://www.nuget.org/packages/AngleSharp/)
 
 ## <a name="basic-tests-with-the-default-webapplicationfactory"></a>' % S'varsayılan WebApplicationFactory temel testleri
 

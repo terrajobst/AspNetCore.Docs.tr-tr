@@ -4,19 +4,16 @@ title: ASP.NET MVC 4'te zaman uyumsuz metotlar kullanma | Microsoft Docs
 author: Rick-Anderson
 description: Bu öğreticide, ücretsiz ve Web için Visual Studio Express 2012 kullanarak zaman uyumsuz bir ASP.NET MVC Web uygulaması oluşturmaya yönelik temel bilgiler sağlanır...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/06/2012
-ms.topic: article
 ms.assetid: a56572ba-81c3-47af-826d-941e9c4775ec
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 6e9d23e4bf0ebbe3c7c8b52c550e0dfa1e6dbb52
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 5eb1b6dc3e9166c1ecb8e0d1968e12e8fa07f985
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37364355"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37826406"
 ---
 <a name="using-asynchronous-methods-in-aspnet-mvc-4"></a>ASP.NET MVC 4'te zaman uyumsuz metotlar kullanma
 ====================

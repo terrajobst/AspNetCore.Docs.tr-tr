@@ -4,19 +4,16 @@ title: ASP.NET Web sayfaları - HTML formuyla ilgili temel kavramlar ile tanış
 author: tfitzmac
 description: Bu öğreticide, Giriş bir formun nasıl oluşturulacağını ve ASP.NET Web sayfaları (Razor) kullandığınızda, kullanıcının giriş işlemek nasıl temelleri gösterilir. Ve şimdi...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/28/2015
-ms.topic: article
 ms.assetid: 81ed82bf-b940-44f1-b94a-555d0cb7cc98
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/form-basics
 msc.type: authoredcontent
-ms.openlocfilehash: f5f7c9813041c443675f4e443822a81c1c508c20
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 609c1c06ed8f29db82b5dd565a935440d4430819
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37391997"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37815401"
 ---
 <a name="introducing-aspnet-web-pages---html-form-basics"></a>ASP.NET Web sayfaları - HTML formuyla ilgili temel kavramlar ile tanışın
 ====================
