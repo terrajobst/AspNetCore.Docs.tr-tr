@@ -4,19 +4,16 @@ title: SQL önbellek bağımlılıklarını (C#) kullanma | Microsoft Docs
 author: rick-anderson
 description: En basit önbelleğe alma stratejisi, belirtilen bir süre sonra süresi dolacak şekilde önbelleğe alınmış verileri izin vermektir. Ancak bu basit yaklaşım önbelleğe alınmış verileri maintai anlamı...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/30/2007
-ms.topic: article
 ms.assetid: 0e91842c-7f10-4aed-8c23-4ee3e2774014
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/caching-data/using-sql-cache-dependencies-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 16766ce7d741a9bcaea7cc676ed87978ea9f9f68
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 3401babaa3541bcf214f778b5ad4f1ea4ae76b38
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37385910"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37802593"
 ---
 <a name="using-sql-cache-dependencies-c"></a>SQL önbellek bağımlılıklarını (C#) kullanma
 ====================

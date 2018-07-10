@@ -7,18 +7,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/16/2018
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: ce2a540cc7a63f61075c9c01759f67531171e1e1
-ms.sourcegitcommit: a09820f91e71a7d98b7347bf93210abb9e995e22
-ms.translationtype: HT
+ms.openlocfilehash: 879f31a5916646a4d63f9f503173dc9ff4c53434
+ms.sourcegitcommit: ea7ec8d47f94cfb8e008d771f647f86bbb4baa44
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 07/06/2018
-ms.locfileid: "37889161"
+ms.locfileid: "37894159"
 ---
 # <a name="net-generic-host"></a>.NET genel ana bilgisayar
 
 Tarafından [Luke Latham](https://github.com/guardrex)
 
-.NET uygulamaları ve başlatma yapılandırma bir *konak*. Uygulama başlatma ve ömür yönetimi için konak sorumludur. Bu konu, ASP.NET Core genel ana bilgisayar kapsar ([HostBuilder](/dotnet/api/microsoft.extensions.hosting.hostbuilder)), HTTP isteklerini mıdl'ye işleme uygulamaları barındırmak için kullanışlı olduğu. İçin Web ana bilgisayarı kapsamını ([WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder)), bkz: [Web ana bilgisayarı](xref:fundamentals/host/web-host) konu.
+.NET uygulamaları ve başlatma yapılandırma bir *konak*. Uygulama başlatma ve ömür yönetimi için konak sorumludur. Bu konu, ASP.NET Core genel ana bilgisayar kapsar ([HostBuilder](/dotnet/api/microsoft.extensions.hosting.hostbuilder)), HTTP isteklerini mıdl'ye işleme uygulamaları barındırmak için kullanışlı olduğu. İçin Web ana bilgisayarı kapsamını ([WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder)), bkz: <xref:fundamentals/host/web-host>.
 
 Amacı genel ana bilgisayar, ana senaryoları daha geniş bir dizi etkinleştirmek için Web ana bilgisayar API'sinden HTTP ardışık düzen ayırmaktır. Mesajlaşma, arka plan görevleri ve diğer yapılandırma, bağımlılık ekleme (dı) ve günlüğe kaydetme gibi çapraz kesme özellikleri genel ana bilgisayar avantajından temel HTTP olmayan iş yükleri.
 
@@ -58,7 +58,7 @@ Ana bilgisayar Oluşturucu yapılandırması çağırılarak oluşturulur [Confi
 
 Ortam değişkeni yapılandırma varsayılan olarak eklenmez. Çağrı [AddEnvironmentVariables](/dotnet/api/microsoft.extensions.configuration.environmentvariablesextensions.addenvironmentvariables) ortam değişkenlerini konaktan yapılandırmak için konak oluşturucu üzerinde. `AddEnvironmentVariables` Kullanıcı tanımlı isteğe bağlı bir önekin kabul eder. Bir önek örnek uygulamanın kullandığı `PREFIX_`. Ön ek ortam değişkenlerini okunduğunda kaldırılır. Örnek uygulama ana bilgisayarı, yapılandırılmış, ortam değişken değeri `PREFIX_ENVIRONMENT` için ana bilgisayar yapılandırma değeri olur `environment` anahtarı.
 
-Kullanırken, geliştirme sırasında [Visual Studio](https://www.visualstudio.com/) veya çalışan bir uygulamayla `dotnet run`, ortam değişkenleri ayarlanabilir *Properties/launchSettings.json* dosya. İçinde [Visual Studio Code](https://code.visualstudio.com/), ortam değişkenleri ayarlanabilir *.vscode/launch.json* geliştirme sırasında dosya. Daha fazla bilgi için [birden fazla ortam kullanayım](xref:fundamentals/environments).
+Kullanırken, geliştirme sırasında [Visual Studio](https://www.visualstudio.com/) veya çalışan bir uygulamayla `dotnet run`, ortam değişkenleri ayarlanabilir *Properties/launchSettings.json* dosya. İçinde [Visual Studio Code](https://code.visualstudio.com/), ortam değişkenleri ayarlanabilir *.vscode/launch.json* geliştirme sırasında dosya. Daha fazla bilgi için bkz. <xref:fundamentals/environments>.
 
 `ConfigureHostConfiguration` Ek sonuçlar birden çok kez çağrılabilir. Konak, bir değer, en son hangi seçeneği ayarlar kullanır.
 
@@ -76,6 +76,21 @@ Kullanırken, geliştirme sırasında [Visual Studio](https://www.visualstudio.c
 ### <a name="extension-method-configuration"></a>Uzantı yöntemi yapılandırması
 
 Uzantı yöntemleri üzerinde çağrıldığında `IHostBuilder` içerik kök ve ortamı yapılandırmak için uygulama.
+
+#### <a name="application-key-name"></a>Uygulama anahtarı (ad)
+
+[IHostingEnvironment.ApplicationName](/dotnet/api/microsoft.extensions.hosting.ihostingenvironment.applicationname) özelliği konak yapılandırmadan ana bilgisayar oluşturma sırasında ayarlanır. Değeri açıkça ayarlamak için kullanın [HostDefaults.ApplicationKey](/dotnet/api/microsoft.extensions.hosting.hostdefaults.applicationkey):
+
+**Anahtar**: applicationName  
+**Tür**: *dize*  
+**Varsayılan**: uygulamanın giriş noktasını içeren derlemenin adı.  
+**Kullanılarak ayarlanan**: `UseSetting`  
+**Ortam değişkeni**: `<PREFIX_>APPLICATIONKEY` (`<PREFIX_>` olduğu [isteğe bağlıdır ve kullanıcı tanımlı](#configuration-builder))
+
+```csharp
+WebHost.CreateDefaultBuilder(args)
+    .UseSetting(WebHostDefaults.ApplicationKey, "CustomApplicationName")
+```
 
 #### <a name="content-root"></a>İçerik kök
 
@@ -140,7 +155,7 @@ Ayarları dosyalar çıkış dizinine taşımak için ayarları dosyaları olara
 
 [Createservicereplicalisteners()](/dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.configureservices) Hizmetleri uygulamanın ekler [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcı. `ConfigureServices` Ek sonuçlar birden çok kez çağrılabilir.
 
-Barındırılan hizmet arka plan görevi uygulayan bir mantıksal ile bir sınıftır [Ihostedservice](/dotnet/api/microsoft.extensions.hosting.ihostedservice) arabirimi. Daha fazla bilgi için [arka plan görevleri barındırılan hizmetler ile](xref:fundamentals/host/hosted-services) konu.
+Barındırılan hizmet arka plan görevi uygulayan bir mantıksal ile bir sınıftır [Ihostedservice](/dotnet/api/microsoft.extensions.hosting.ihostedservice) arabirimi. Daha fazla bilgi için bkz. <xref:fundamentals/host/hosted-services>.
 
 [Örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/host/generic-host/samples/) kullanır `AddHostedService` ömür olayları için bir hizmet eklemek için genişletme yöntemi `LifetimeEventsHostedService`ve bir zamanlanmış arka plan görevi `TimedHostedService`, uygulama için:
 
@@ -390,7 +405,7 @@ public class MyClass
 }
 ```
 
-Daha fazla bilgi için [birden fazla ortam kullanayım](xref:fundamentals/environments).
+Daha fazla bilgi için bkz. <xref:fundamentals/environments>.
 
 ## <a name="iapplicationlifetime-interface"></a>IApplicationLifetime arabirimi
 
@@ -429,5 +444,5 @@ public class MyClass
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Barındırılan hizmetler ile arka plan görevleri](xref:fundamentals/host/hosted-services)
+* <xref:fundamentals/host/hosted-services>
 * [GitHub örnekleri deposu barındırma](https://github.com/aspnet/Hosting/tree/release/2.1/samples)
