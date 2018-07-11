@@ -4,23 +4,20 @@ title: jQuery DataTable 1.8.2 | Microsoft Docs
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/27/2014
-ms.topic: article
 ms.assetid: 2a72d2f5-b387-41e6-9807-21f2ec8c2b7a
-ms.technology: ''
 msc.legacyurl: /ajax/cdn/jquery-datatables/cdnjquerydatatables182
 msc.type: content
-ms.openlocfilehash: e0abb208cc3fcaa6b70a6129598215a2a0056753
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 043bb69e9a6e48ff41415e45360a507247f0143e
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37390258"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37817388"
 ---
-<a name="jquery-datatables-182"></a><span data-ttu-id="b9373-102">jQuery DataTable 1.8.2</span><span class="sxs-lookup"><span data-stu-id="b9373-102">jQuery DataTables 1.8.2</span></span>
+<a name="jquery-datatables-182"></a><span data-ttu-id="c5b8a-102">jQuery DataTable 1.8.2</span><span class="sxs-lookup"><span data-stu-id="c5b8a-102">jQuery DataTables 1.8.2</span></span>
 ====================
-<span data-ttu-id="b9373-103">Aşağıdaki dosyalar için jQuery DataTable eklentileri, CDN'de barındırılan:</span><span class="sxs-lookup"><span data-stu-id="b9373-103">The following files for the jQuery DataTables plugins are hosted on the CDN:</span></span>
+<span data-ttu-id="c5b8a-103">Aşağıdaki dosyalar için jQuery DataTable eklentileri, CDN'de barındırılan:</span><span class="sxs-lookup"><span data-stu-id="c5b8a-103">The following files for the jQuery DataTables plugins are hosted on the CDN:</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.8.2/jquery.dataTables.js
 - https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.8.2/jquery.dataTables.min.js
