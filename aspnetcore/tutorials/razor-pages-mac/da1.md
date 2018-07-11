@@ -1,23 +1,23 @@
 ---
-title: Oluşturulan sayfaları güncelleştir
+title: Oluşturulan sayfaları güncelleştirme
 author: rick-anderson
-description: Oluşturulan sayfaları ile daha iyi görünüm güncelleştirilemiyor.
+description: Oluşturulan sayfalar ile daha iyi görüntüleme güncelleştirin.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/07/2017
 uid: tutorials/razor-pages-mac/da1
 ms.openlocfilehash: 9da596fb1ea422845333dc8db10c4c13243378b9
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274583"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38184229"
 ---
 [!INCLUDE [model1](../../includes/RP/da1.md)]
 
 [!INCLUDE [model1](../../includes/RP/da2.md)]
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="79c2d-103">[Önceki: İş SQLlite ile](xref:tutorials/razor-pages-mac/sql)
-> [Ekle arama](xref:tutorials/razor-pages-mac/search)</span><span class="sxs-lookup"><span data-stu-id="79c2d-103">[Previous: Work with SQLlite](xref:tutorials/razor-pages-mac/sql)
+> <span data-ttu-id="98467-103">[Önceki: İş ile SQLlite](xref:tutorials/razor-pages-mac/sql)
+> [arama Ekle](xref:tutorials/razor-pages-mac/search)</span><span class="sxs-lookup"><span data-stu-id="98467-103">[Previous: Work with SQLlite](xref:tutorials/razor-pages-mac/sql)
 [Add search](xref:tutorials/razor-pages-mac/search)</span></span>

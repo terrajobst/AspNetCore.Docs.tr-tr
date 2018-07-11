@@ -1,21 +1,21 @@
 ---
-title: Arama için bir ASP.NET Core Razor sayfalarının uygulama ekleyin
+title: Bir ASP.NET Core Razor sayfalar uygulamaya arama ekleme
 author: rick-anderson
-description: Arama ASP.NET Core Razor sayfalara eklemek nasıl gösterir
+description: Arama için ASP.NET Core Razor sayfalar ekleme işlemi açıklanır
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/07/2017
 uid: tutorials/razor-pages-mac/search
 ms.openlocfilehash: 6374a6aaac403a7bc4b637fe8cd5c14adcdd49db
-ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
+ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36960785"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38163535"
 ---
 [!INCLUDE [Search](../../includes/RP/search.md)]
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="89bd5-103">[Önceki: sayfalarını güncelleştirme](xref:tutorials/razor-pages-mac/da1)
-> [sonraki: yeni bir alan ekleme](xref:tutorials/razor-pages/new-field)</span><span class="sxs-lookup"><span data-stu-id="89bd5-103">[Previous: Updating the pages](xref:tutorials/razor-pages-mac/da1)
+> <span data-ttu-id="bfcd9-103">[Önceki: sayfaları güncelleştirme](xref:tutorials/razor-pages-mac/da1)
+> [sonraki: yeni alan ekleme](xref:tutorials/razor-pages/new-field)</span><span class="sxs-lookup"><span data-stu-id="bfcd9-103">[Previous: Updating the pages](xref:tutorials/razor-pages-mac/da1)
 [Next: Adding a new field](xref:tutorials/razor-pages/new-field)</span></span>
