@@ -4,19 +4,16 @@ title: '[Bunu nasıl yaparım:] ASP.NET AJAX sürüklenebilir Panel genişletici
 author: JoeStagner
 description: ASP.NET AJAX sürüklenebilir Panel genişletici ile web sayfası etrafında taşımak kullanıcıya izin veren bir üstbilgi alanı içeren bir içerik bölmesi sağlayabilir.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/31/2007
-ms.topic: article
 ms.assetid: 6f93a786-93f3-4a48-8fd5-001016550619
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-draggable-panel-extender
 msc.type: video
-ms.openlocfilehash: 6f276afcca6796ee39a344fc5cfd2e96e24f7098
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 96905eb78f4a3cc33fa2d8a121dc4b72bca992cc
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37362459"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37816489"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-draggable-panel-extender"></a>[Bunu nasıl yaparım:] ASP.NET AJAX sürüklenebilir Panel genişletici kullanılsın mı?
 ====================

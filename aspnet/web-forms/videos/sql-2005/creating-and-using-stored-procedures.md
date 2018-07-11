@@ -4,19 +4,16 @@ title: Saklı yordamlar oluşturma ve kullanma | Microsoft Docs
 author: microsoft
 description: Bu videoda, depolanan çeşitli dersleri önce kullanıma sunulan yordamların konusu genişletir. Bu videoda, biz oluşturmak ve güncelleştirmek için temel sözdizimi açıklayın...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/14/2006
-ms.topic: article
 ms.assetid: 817bc763-7faa-4ac5-880b-b3f5531e9d07
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/sql-2005/creating-and-using-stored-procedures
 msc.type: video
-ms.openlocfilehash: f066c0887c800b8cbfd27affa26e26f7ad4c743a
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: f1fc8fc6acda45352d24684d6f21adaf565d8d6e
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37384839"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37816645"
 ---
 <a name="creating-and-using-stored-procedures"></a>Saklı yordam oluşturma ve kullanma
 ====================

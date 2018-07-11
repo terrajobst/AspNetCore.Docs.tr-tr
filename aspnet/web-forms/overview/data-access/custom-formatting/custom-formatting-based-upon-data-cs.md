@@ -4,19 +4,16 @@ title: (C#) verileri temel alan özel biçimlendirme | Microsoft Docs
 author: rick-anderson
 description: Birden çok yolla biçimi GridView, DetailsView veya kendisine veriye dayalı FormView ayarlayarak gerçekleştirilebilir. Bu öğreticide l geçeriz...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/31/2010
-ms.topic: article
 ms.assetid: 871a4574-f89c-4214-b786-79253ed3653b
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/custom-formatting-based-upon-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 505081890ac0eb7a1f248569fda1b14351119275
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 05f83fc178cb3f79a86638d0159e692aef4410ca
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37397990"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37819279"
 ---
 <a name="custom-formatting-based-upon-data-c"></a>(C#) verileri temel alan özel biçimlendirme
 ====================

@@ -4,19 +4,16 @@ title: (C#) aynı anda birkaç animasyon yürütme | Microsoft Docs
 author: wenz
 description: ASP.NET AJAX Denetim Araç Seti animasyon denetimi yalnızca bir denetim, ancak bir denetime animasyon eklemek için tam bir çerçeve değil. Severa çalıştırılacak sağlar...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: 219149e1-3ee9-4b79-8fe4-7433f6b7d15b
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/executing-several-animations-at-the-same-time-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 500971bb1bad101a165c8dda6f5fa3d5cfe3aba4
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 017a37533ab055ad149cf0de3a5892ae92741b84
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37382825"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37816856"
 ---
 <a name="executing-several-animations-at-the-same-time-c"></a>(C#) aynı anda birkaç animasyon yürütme
 ====================

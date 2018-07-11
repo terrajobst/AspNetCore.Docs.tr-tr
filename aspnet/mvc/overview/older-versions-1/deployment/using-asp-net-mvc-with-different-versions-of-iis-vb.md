@@ -4,19 +4,16 @@ title: ASP.NET MVC farklı (VB) IIS sürümleriyle kullanma | Microsoft Docs
 author: microsoft
 description: Bu öğreticide, ASP.NET MVC ve URL yönlendirme, Internet Information Services'ın farklı sürümleriyle kullanmayı öğrenin. Farklı stratejiler şunların...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/19/2008
-ms.topic: article
 ms.assetid: 1c1283b2-6956-4937-b568-d30de432ce23
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/deployment/using-asp-net-mvc-with-different-versions-of-iis-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 8e997f3c7db124869a731b346a4fb3b04072fb0b
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 4c0dc1ac08cfe06ad7ea35a6e6552ab1174ff989
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37370051"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37818210"
 ---
 <a name="using-aspnet-mvc-with-different-versions-of-iis-vb"></a>ASP.NET MVC farklı (VB) IIS sürümleriyle kullanma
 ====================

@@ -4,19 +4,16 @@ title: Toplu silme (VB) | Microsoft Docs
 author: rick-anderson
 description: Tek bir işlemde birden çok veritabanı kaydı silmeyi öğrenin. Kullanıcı arabirimi katmanda daha önceki bir tut oluşturulmuş bir geliştirilmiş GridView ekleriz...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/26/2007
-ms.topic: article
 ms.assetid: 4fb72f75-32ab-4bf7-a764-be20367be726
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-deleting-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c99ec343d9197e5d2aa7b1a7e49278d13b4e16cf
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: c7a0db8708c95cc348619cadd21514f4bea2e553
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37368252"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37815995"
 ---
 <a name="batch-deleting-vb"></a>Toplu silme (VB)
 ====================

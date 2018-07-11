@@ -4,19 +4,16 @@ title: 'Öğretici: ASP.NET SignalR ile sunucu yayını 1.x | Microsoft Docs'
 author: pfletcher
 description: Bu öğreticide, sunucu yayın işlevselliği sağlamak için ASP.NET SignalR kullanan bir web uygulaması oluşturma işlemi gösterilmektedir. Sunucu anlamına gelir, communic yayını...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/10/2013
-ms.topic: article
 ms.assetid: ab7b2554-956a-4f6d-b2a0-4ae0c62e8580
-ms.technology: dotnet-signalr
 msc.legacyurl: /signalr/overview/older-versions/tutorial-server-broadcast-with-aspnet-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: caaafd0ff353b180b0f71a1e1f9522cfa574d854
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 1f98b35236812aac1362f1e36e60971ff8d896bc
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37369941"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37816200"
 ---
 <a name="tutorial-server-broadcast-with-aspnet-signalr-1x"></a>Öğretici: ASP.NET SignalR ile sunucu yayını 1.x
 ====================
