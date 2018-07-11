@@ -9,11 +9,11 @@ ms.assetid: 52a4d5fe-aa31-4471-b3cb-a064f82cb791
 msc.legacyurl: /mvc/overview/getting-started/introduction/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
 ms.openlocfilehash: a166f6c4450c72adc23f7d36113ceba7e04f1929
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37820895"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38170280"
 ---
 <a name="examining-the-edit-methods-and-edit-view"></a>Düzenleme metotlarını ve düzenleme görünümünü İnceleme
 ====================
@@ -97,7 +97,7 @@ ABD İngilizcesi bilgisayar kullanıyorsanız, bu bölümü atlayın ve sonraki 
 
 
 > [!NOTE]
-> jQuery doğrulama virgül İngilizce olmayan yerel ayara yönelik desteği için (&quot;,&quot;) ondalık ve ABD İngilizce olmayan tarih biçimleri için içermelidir *globalize.js* ve size özgü  *cultures/globalize.cultures.js* dosyası (gelen [ https://github.com/jquery/globalize ](https://github.com/jquery/globalize) ) ve kullanmak için JavaScript'i `Globalize.parseFloat`. JQuery İngilizce olmayan doğrulama Nuget'ten alabilirsiniz. (Bir İngilizce yerel ayarı kullanıyorsanız Globalize yüklemeyin.)
+> JQuery doğrulama virgül İngilizce olmayan yerel ayara yönelik desteği için (&quot;,&quot;) ondalık ve ABD İngilizce olmayan tarih biçimleri için içermelidir *globalize.js* ve size özgü  *cultures/globalize.cultures.js* dosyası (gelen [ https://github.com/jquery/globalize ](https://github.com/jquery/globalize) ) ve kullanmak için JavaScript'i `Globalize.parseFloat`. JQuery İngilizce olmayan doğrulama Nuget'ten alabilirsiniz. (Bir İngilizce yerel ayarı kullanıyorsanız Globalize yüklemeyin.)
 
 
 1. Gelen **Araçları** menüsünü tıklatın **NuGetLibrary Paket Yöneticisi**ve ardından **çözüm için NuGet paketlerini Yönet**.  

@@ -1,29 +1,29 @@
 ---
-title: ASP.NET Çekirdeği ve Visual Studio Code ile Web API oluşturma
+title: ASP.NET Core ve Visual Studio Code ile Web API'si oluşturma
 author: rick-anderson
-description: MacOS, Linux veya Windows ASP.NET Core MVC ve Visual Studio Code ile web API'si oluşturma
+description: MacOS, Linux veya Windows ASP.NET Core MVC ve Visual Studio Code ile bir web API'si oluşturma
 ms.author: riande
 ms.custom: mvc
 ms.date: 05/08/2018
 uid: tutorials/web-api-vsc
 ms.openlocfilehash: 4c41c949a9b5ca8db8928a0a53aff928fd7c8a4e
-ms.sourcegitcommit: 79b756ea03eae77a716f500ef88253ee9b1464d2
+ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36291677"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38216243"
 ---
-# <a name="create-a-web-api-with-aspnet-core-and-visual-studio-code"></a>ASP.NET Çekirdeği ve Visual Studio Code ile Web API oluşturma
+# <a name="create-a-web-api-with-aspnet-core-and-visual-studio-code"></a>ASP.NET Core ve Visual Studio Code ile Web API'si oluşturma
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT) ve [CAN Wasson](https://github.com/mikewasson)
+Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT) ve [Mike Wasson](https://github.com/mikewasson)
 
-Bu öğreticide, "Yapılacaklar" öğeleri listesini yönetmek için bir web API'si oluşturma. Bir kullanıcı Arabirimi oluşturulan değil.
+Bu öğreticide, bir "Yapılacaklar" öğelerinin listesi yönetmek için bir web API'si oluşturma. Bir kullanıcı Arabirimi oluşturulur değil.
 
-Bu öğretici için üç sürümü vardır:
+Bu öğretici üç sürümü vardır:
 
-* macOS, Linux, Windows: Visual Studio Code (Bu öğretici) ile Web API
+* macOS, Linux, Windows: Visual Studio Code (Bu öğreticide) ile Web API
 * macOS: [Mac için Visual Studio ile Web API](xref:tutorials/first-web-api-mac)
-* Windows: [Web API'si Visual Studio ile Windows için](xref:tutorials/first-web-api)
+* Windows: [Windows için Visual Studio ile API Web](xref:tutorials/first-web-api)
 
 <!-- WARNING: The code AND images in this doc are used by uid: tutorials/web-api-vsc, tutorials/first-web-api-mac and tutorials/first-web-api. If you change any code/images in this tutorial, update uid: tutorials/web-api-vsc -->
 
@@ -42,53 +42,53 @@ dotnet new webapi -o TodoApi
 code TodoApi
 ```
 
-*TodoApi* klasörünü Visual Studio Code (VS Code) açar. Seçin *haline* dosya.
+*TodoApi* Visual Studio Code'da (VS Code) klasörünü açar. Seçin *Startup.cs* dosya.
 
-* Seçin **Evet** için **uyar** "derleme ve hata ayıklamak için gerekli varlıklar 'TodoApi' eksik. ileti Bunları eklensin mi?"
-* Seçin **geri** için **bilgisi** "Çözümlenmemiş bağımlılıkları bulunur" iletisi.
+* Seçin **Evet** için **uyar** ileti "derleme ve hata ayıklamak için gerekli varlıkları 'TodoApi' eksik. Bunları eklensin mi?"
+* Seçin **geri** için **bilgisi** "Çözümlenmemiş bağımlılıklar vardır" iletisi.
 
 <!-- uid: tutorials/first-mvc-app-xplat/start-mvc uses the pic below. If you change it, make sure it's consistent -->
 
-![Derleme ve hata ayıklama VS koduyla gerekli uyar varlıklar 'TodoApi' eksik. Bunları eklensin mi? Şimdi değil Evet sorma](web-api-vsc/_static/vsc_restore.png)
+![Derleme ve hata ayıklamak için gerekli uyar varlıklar ile VS Code 'TodoApi' eksik. Bunları eklensin mi? Şimdi değil, Evet daha sorma](web-api-vsc/_static/vsc_restore.png)
 
-Tuşuna **hata ayıklama** derlemek ve programı çalıştırmak için (F5). Bir tarayıcıda gidin http://localhost:5000/api/values. Şu çıktı görüntülenir:
+Tuşuna **hata ayıklama** oluşturup programı çalıştırın (F5). Bir tarayıcıda gidin http://localhost:5000/api/values. Aşağıdaki çıktı görüntülenir:
 
 ```json
 ["value1","value2"]
 ```
 
-Bkz: [Visual Studio Code Yardım](#visual-studio-code-help) VS Code kullanma hakkında ipuçları için.
+Bkz: [Visual Studio Code Yardım](#visual-studio-code-help) için VS Code kullanma hakkında ipuçları.
 
-## <a name="add-support-for-entity-framework-core"></a>Entity Framework Çekirdek desteği ekleme
+## <a name="add-support-for-entity-framework-core"></a>Entity Framework Core desteği eklendi
 
 :::moniker range="<= aspnetcore-2.0"
-ASP.NET Core 2. 0 ' yeni bir proje oluşturma ekler [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) paketini referansı *TodoApi.csproj* dosyası:
+ASP.NET Core 2.0 sürümünde yeni proje oluşturma ekler [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) paketini başvuru *TodoApi.csproj* dosyası:
 
 [!code-xml[](first-web-api/samples/2.0/TodoApi/TodoApi.csproj?name=snippet_Metapackage&highlight=2)]
 :::moniker-end
 :::moniker range=">= aspnetcore-2.1"
-ASP.NET Core 2.1 veya daha sonra yeni bir proje oluşturma ekler [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App) paketini referansı *TodoApi.csproj* dosyası:
+ASP.NET Core 2.1 veya daha sonra yeni proje oluşturma ekler [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App) paketini başvuru *TodoApi.csproj* dosyası:
 
 [!code-xml[](first-web-api/samples/2.1/TodoApi/TodoApi.csproj?name=snippet_Metapackage&highlight=2)]
 :::moniker-end
 
-Yüklemek için gerek yoktur [Entity Framework Çekirdek Inmemory](/ef/core/providers/in-memory/) sağlayıcı ayrı olarak veritabanı. Bu veritabanı sağlayıcısı bir bellek içi veritabanı ile kullanılacak Entity Framework Çekirdek sağlar.
+Yüklemek için gerek yoktur [Entity Framework Core Inmemory](/ef/core/providers/in-memory/) sağlayıcısı ayrıca veritabanı. Bu veritabanı sağlayıcısı, bir bellek içi veritabanı ile kullanılacak Entity Framework Core sağlar.
 
 ## <a name="add-a-model-class"></a>Bir model sınıfı ekleme
 
-Uygulamanızdaki verileri temsil eden bir nesne modelidir. Bu durumda, yalnızca bir Yapılacaklar öğesi modelidir.
+Uygulamanızda veri temsil eden bir nesne modelidir. Bu durumda, bir yapılacak iş öğesi tek model budur.
 
-Adlı bir klasör ekleme *modelleri*. Model sınıfları projenizde, herhangi bir yere koyabilirsiniz ancak *modelleri* klasörü, kural tarafından kullanılır.
+Adlı bir klasör ekleme *modelleri*. Model sınıfları, projenizdeki herhangi bir yere koyabilirsiniz ancak *modelleri* klasörü, kural olarak kullanılır.
 
 Ekleme bir `TodoItem` aşağıdaki kodla sınıfı:
 
 [!code-csharp[](first-web-api/samples/2.0/TodoApi/Models/TodoItem.cs)]
 
-Veritabanı oluşturur `Id` zaman bir `TodoItem` oluşturulur.
+Veritabanı oluşturur `Id` olduğunda bir `TodoItem` oluşturulur.
 
-## <a name="create-the-database-context"></a>Veritabanı bağlamı oluşturma
+## <a name="create-the-database-context"></a>Veritabanı bağlamı oluşturur
 
-*Veritabanı bağlamı* verilen veri modeli için Entity Framework işlevselliği koordinatları ana sınıftır. Bu sınıf türetme tarafından oluşturduğunuz `Microsoft.EntityFrameworkCore.DbContext` sınıfı.
+*Veritabanı bağlamı* verilen veri modeli için Entity Framework işlevselliği koordine eden ana sınıftır. Türeterek Bu sınıf oluşturduğunuz `Microsoft.EntityFrameworkCore.DbContext` sınıfı.
 
 Ekleme bir `TodoContext` sınıfını *modelleri* klasörü:
 
@@ -98,13 +98,13 @@ Ekleme bir `TodoContext` sınıfını *modelleri* klasörü:
 
 ## <a name="add-a-controller"></a>Denetleyici ekleme
 
-İçinde *denetleyicileri* klasörünü adlı bir sınıf oluşturun `TodoController`. İçeriğini aşağıdaki kodla değiştirin:
+İçinde *denetleyicileri* klasör adında bir sınıf oluşturma `TodoController`. Dosyanın içeriğini aşağıdaki kodla değiştirin:
 
 [!INCLUDE[code and get todo items](../includes/webApi/getTodoItems.md)]
 
 ### <a name="launch-the-app"></a>Uygulamayı başlatın
 
-VS Code'da uygulamayı başlatmak için F5 tuşuna basın. Gidin http://localhost:5000/api/todo ( `Todo` oluşturduğumuz denetleyicisi).
+VS Code'da uygulamasını başlatmak için F5 tuşuna basın. Gidin http://localhost:5000/api/todo ( `Todo` oluşturduğumuz denetleyicisi).
 
 [!INCLUDE[jQuery](../includes/webApi/add-jquery.md)]
 

@@ -1,36 +1,36 @@
 ---
-title: ASP.NET Core uygulama için Azure komut satırı araçları ile yayımlama
+title: Komut satırı araçları ile Azure'da ASP.NET Core uygulaması yayımlama
 author: camsoper
-description: Azure App Service'e Git komut satırı İstemcisi'ni kullanarak bir ASP.NET Core uygulamayı yayımlamak öğrenin.
+description: Azure App Service'e Git komut satırı istemcisini kullanarak bir ASP.NET Core uygulaması yayımlama hakkında bilgi edinin.
 ms.author: casoper
 ms.custom: mvc
 ms.date: 11/03/2017
 services: multiple
 uid: tutorials/publish-to-azure-webapp-using-cli
 ms.openlocfilehash: 526ceef469d473706f39cdc3ee645280e99315b1
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36279252"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38126966"
 ---
-# <a name="publish-an-aspnet-core-app-to-azure-with-command-line-tools"></a>ASP.NET Core uygulama için Azure komut satırı araçları ile yayımlama
+# <a name="publish-an-aspnet-core-app-to-azure-with-command-line-tools"></a>Komut satırı araçları ile Azure'da ASP.NET Core uygulaması yayımlama
 
 Tarafından [Cam Soper](https://twitter.com/camsoper)
 
 [!INCLUDE [Azure App Service Preview Notice](../includes/azure-apps-preview-notice.md)]
 
-Bu öğretici komut satırı araçlarını kullanarak nasıl oluşturulacağı ve ASP.NET Core uygulama Microsoft Azure App Service'e dağıtmak gösterir. Tamamlandığında, ASP.NET Core yerleşik web uygulamasını Azure App Service Web uygulaması barındırılan bir Razor sayfalarının sahip olacaksınız. Bu öğretici Windows komut satırı araçları kullanılarak yazılmış ancak macOS hem de Linux ortamlarında uygulanabilir.
+Bu öğreticide komut satırı araçlarını kullanarak derlemek ve Microsoft Azure App Service'e bir ASP.NET Core uygulaması dağıtmak nasıl gösterilecek. İşiniz bittiğinde, yerleşik ASP.NET Core web uygulamasını Azure App Service Web uygulaması barındırılan bir Razor sayfaları sahip olacaksınız. Bu öğretici, Windows komut satırı araçlarını kullanarak yazılır, ancak macOS ve Linux ortamları, de uygulanabilir.
 
-Bu öğreticide, bilgi nasıl yapılır:
+Bu öğreticide, şunların nasıl yapılır:
 
 > [!div class="checklist"]
-> * Azure CLI kullanarak Azure App Service Web sitesi oluşturma
-> * Azure App Service'e Git komut satırı aracını kullanarak ASP.NET Core uygulama dağıtma
+> * Azure CLI kullanarak bir Azure App Service Web sitesi oluşturun
+> * Azure App Service'e Git komut satırı aracını kullanarak ASP.NET Core uygulaması dağıtma
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu öğreticiyi tamamlamak için ihtiyacınız vardır:
+Bu öğreticiyi tamamlamak için ihtiyacınız olacak:
 
 * A [Microsoft Azure aboneliği](https://azure.microsoft.com/free/)
 * [!INCLUDE [](~/includes/net-core-sdk-download-link.md)]
@@ -38,7 +38,7 @@ Bu öğreticiyi tamamlamak için ihtiyacınız vardır:
 
 ## <a name="create-a-web-app"></a>Bir web uygulaması oluşturma
 
-Web uygulaması için yeni bir dizin oluşturma, yeni bir ASP.NET Core Razor sayfalarının uygulaması oluşturma ve Web sitesi yerel olarak çalıştırın.
+Web uygulaması için yeni bir dizin oluşturmak, yeni bir ASP.NET Core Razor sayfalar uygulaması oluşturma ve ardından Web sitesini yerel olarak çalıştırın.
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
@@ -112,13 +112,13 @@ dotnet run
 
 ![Komut satırı çıkışı](publish-to-azure-webapp-using-cli/_static/new_prj.png)
 
-Göz atarak uygulamayı test etme `http://localhost:5000`.
+Uygulamayı test etme göz atarak `http://localhost:5000`.
 
-![Yerel olarak çalışan Web sitesi](publish-to-azure-webapp-using-cli/_static/app_test.png)
+![Yerel olarak çalışan bir Web sitesi](publish-to-azure-webapp-using-cli/_static/app_test.png)
 
 ## <a name="create-the-azure-app-service-instance"></a>Azure App Service örneği oluşturma
 
-Kullanarak [Azure bulut Kabuk](/azure/cloud-shell/quickstart), bir kaynak grubu, uygulama hizmeti planı ve bir App Service web uygulaması oluşturun.
+Kullanarak [Azure Cloud Shell](/azure/cloud-shell/quickstart), bir kaynak grubu, App Service planı ve App Service web uygulaması oluşturun.
 
 ```azurecli-interactive
 # Generate a unique Web App name
@@ -135,26 +135,26 @@ az appservice plan create --name $webappname --resource-group DotNetAzureTutoria
 az webapp create --name $webappname --resource-group DotNetAzureTutorial --plan $webappname
 ```
 
-Dağıtım öncesinde aşağıdaki komutu kullanarak hesap düzeyinde dağıtım kimlik bilgilerini ayarlayın:
+Dağıtımdan önce aşağıdaki komutu kullanarak hesap düzeyinde dağıtım kimlik bilgilerini ayarlayın:
 
 ```azurecli-interactive
 az webapp deployment user set --user-name <desired user name> --password <desired password>
 ```
 
-Bir dağıtım URL'si uygulamasını Git kullanarak dağıtmak için gereklidir. Bu gibi URL'sini alın.
+Git kullanarak uygulamayı dağıtmak için dağıtım URL'si gereklidir. Bu gibi URL'sini alın.
 
 ```azurecli-interactive
 az webapp deployment source config-local-git -n $webappname -g DotNetAzureTutorial --query [url] -o tsv
 ```
 
-Biten görüntülenen URL'yi Not `.git`. Sonraki adımda kullanılır.
+Görüntülenen URL sonu Not `.git`. Sonraki adımda kullanılır.
 
-## <a name="deploy-the-app-using-git"></a>Git kullanarak uygulamayı dağıtın
+## <a name="deploy-the-app-using-git"></a>Git kullanarak uygulamayı dağıtma
 
-Yerel makinenizden Git kullanarak dağıtmak hazırsınız.
+Git kullanarak yerel makinenizde dağıtmaya hazırsınız.
 
 > [!NOTE]
-> Satır sonları ilgili Git tüm uyarılar yoksaymak güvenlidir.
+> Satır sonları hakkında Git herhangi bir uyarı yoksayılabilir.
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
@@ -196,13 +196,13 @@ git push azure master
 
 ---
 
-Git önceki ayarlanan dağıtım kimlik bilgilerini ister. Kimlik doğrulandıktan sonra uygulama uzak konuma gönderilir, oluşturulur ve dağıtılır.
+Git, daha önce ayarlanan dağıtım kimlik bilgilerini ister. Kimlik doğrulandıktan sonra uygulama uzak konuma gönderildi, oluşturulan ve dağıtılan.
 
-![Git dağıtımı çıktı](publish-to-azure-webapp-using-cli/_static/post_deploy.png)
+![Git dağıtımı çıkış](publish-to-azure-webapp-using-cli/_static/post_deploy.png)
 
 ## <a name="test-the-app"></a>Uygulamayı test etme
 
-Göz atarak uygulamayı test etme `https://<web app name>.azurewebsites.net`. Bulut Kabuğu (veya Azure CLI) adresini görüntülemek için aşağıdakini kullanın:
+Uygulamayı test etme göz atarak `https://<web app name>.azurewebsites.net`. Cloud Shell (veya Azure CLI) adresini görüntülemek için aşağıdakini kullanın:
 
 ```azurecli-interactive
 az webapp show -n $webappname -g DotNetAzureTutorial --query defaultHostName -o tsv
@@ -212,7 +212,7 @@ az webapp show -n $webappname -g DotNetAzureTutorial --query defaultHostName -o 
 
 ## <a name="clean-up"></a>Temizleme
 
-Uygulamayı test etme ve kod ve kaynakları İnceleme tamamlandığında, web app ve planı kaynak grubunu silerek silin.
+Uygulamayı test etme ve kaynaklar ve kod İnceleme işiniz bittiğinde web uygulaması ve planı kaynak grubunu silerek silin.
 
 ```azurecli-interactive
 az group delete -n DotNetAzureTutorial
@@ -220,13 +220,13 @@ az group delete -n DotNetAzureTutorial
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, öğrenilen nasıl yapılır:
+Bu öğreticide şunları öğrendiniz: nasıl yapılır:
 
 > [!div class="checklist"]
-> * Azure CLI kullanarak Azure App Service Web sitesi oluşturma
-> * Azure App Service'e Git komut satırı aracını kullanarak ASP.NET Core uygulama dağıtma
+> * Azure CLI kullanarak bir Azure App Service Web sitesi oluşturun
+> * Azure App Service'e Git komut satırı aracını kullanarak ASP.NET Core uygulaması dağıtma
 
-Ardından, CosmosDB kullanan mevcut bir web uygulamasına dağıtmak için komut satırını kullanmayı öğrenin.
+Ardından, CosmosDB kullanan mevcut bir web uygulamasını dağıtmak için komut satırını kullanmayı öğrenin.
 
 > [!div class="nextstepaction"]
-> [.NET Core ile komut satırından Azure'a dağıtma](/dotnet/azure/dotnet-quickstart-xplat)
+> [Azure'da .NET Core ile komut satırından dağıtma](/dotnet/azure/dotnet-quickstart-xplat)

@@ -1,28 +1,28 @@
 ---
-title: ASP.NET Core dosya yüklemeleri
+title: ASP.NET core'da dosya yüklemeleri
 author: ardalis
-description: Model bağlama ve akış ASP.NET Core MVC dosyaları karşıya yüklemek için nasıl kullanılacağı.
+description: ASP.NET Core MVC dosyaları karşıya yüklemek için model bağlama ve akış'ı kullanma
 ms.author: riande
 ms.date: 07/05/2017
 uid: mvc/models/file-uploads
 ms.openlocfilehash: 771e22ca01c67f2b6bbee780324d9d08759b3279
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272549"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38201738"
 ---
-# <a name="file-uploads-in-aspnet-core"></a>ASP.NET Core dosya yüklemeleri
+# <a name="file-uploads-in-aspnet-core"></a>ASP.NET core'da dosya yüklemeleri
 
 Tarafından [Steve Smith](https://ardalis.com/)
 
-ASP.NET MVC Eylemler, daha küçük dosyalar için bağlama veya daha büyük dosyalar için akış basit modeli kullanarak bir veya daha fazla dosya karşıya yüklemeyi destekler.
+ASP.NET MVC Eylemler, daha küçük dosyalar için bağlama veya daha büyük dosyalar için akış basit modelini kullanarak bir veya daha fazla dosya karşıya yüklemeyi destekler.
 
-[Görüntülemek veya örnek Github'dan indirin](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/models/file-uploads/sample/FileUploadSample)
+[Github'dan örnek görüntüleme veya indirme](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/models/file-uploads/sample/FileUploadSample)
 
 ## <a name="uploading-small-files-with-model-binding"></a>Model bağlama ile küçük dosyaları karşıya yükleme
 
-Küçük dosyaları yüklemek için çok parçalı bir HTML formu kullanın veya JavaScript kullanarak bir POST isteği oluşturun. Birden çok karşıya yüklenen dosyaların destekler, Razor kullanarak bir örnek form aşağıda gösterilmiştir:
+Küçük dosyaları karşıya yüklemek için çok bölümlü HTML form kullanın veya JavaScript kullanarak bir POST isteği oluşturun. Birden çok yüklenen dosyalar destekleyen Razor kullanarak bir örnek form aşağıda gösterilmiştir:
 
 ```html
 <form method="post" enctype="multipart/form-data" asp-controller="UploadFiles" asp-action="Index">
@@ -40,11 +40,11 @@ Küçük dosyaları yüklemek için çok parçalı bir HTML formu kullanın veya
 </form>
 ```
 
-Dosya yüklemeleri desteklemek için HTML formları belirtmeniz gerekir. bir `enctype` , `multipart/form-data`. `files` Yukarıda gösterilen giriş öğesi tarafından desteklenen birden çok dosya karşıya yükleme. Atlayın `multiple` özniteliği giriş bu öğede yalnızca tek bir karşıya yüklenecek dosyayı izin vermek için. Bir tarayıcıda yukarıdaki biçimlendirme oluşturur:
+Karşıya dosya yükleme işlemleri desteklemek için HTML formları belirtmelisiniz bir `enctype` , `multipart/form-data`. `files` Yukarıda gösterilen giriş öğesinin desteklediği birden çok dosya karşıya yükleniyor. Atlamak `multiple` tek bir karşıya yüklenecek dosyayı izin vermek için bu giriş öğesindeki özniteliği. Bir tarayıcıda yukarıdaki biçimlendirme oluşturur:
 
-![Dosyayı karşıya yükle formunu](file-uploads/_static/upload-form.png)
+![Dosya karşıya yükle formunu](file-uploads/_static/upload-form.png)
 
-Sunucuya yüklenen tek tek dosyaların üzerinden erişilen [Model bağlama](xref:mvc/models/model-binding) kullanarak [IFormFile](/dotnet/api/microsoft.aspnetcore.http.iformfile) arabirimi. `IFormFile` aşağıdaki yapıya sahiptir:
+Sunucuya yüklenen tek tek dosyaları erişilebilir [Model bağlama](xref:mvc/models/model-binding) kullanarak [IFormFile](/dotnet/api/microsoft.aspnetcore.http.iformfile) arabirimi. `IFormFile` aşağıdaki yapıya sahiptir:
 
 ```csharp
 public interface IFormFile
@@ -62,17 +62,17 @@ public interface IFormFile
 ```
 
 > [!WARNING]
-> Kullanır veya güven ilişkisi olmayan `FileName` özelliği doğrulama olmadan. `FileName` Özelliği görüntüleme amacıyla yalnızca kullanılmalıdır.
+> Dayanan veya güven ilişkisi olmayan `FileName` doğrulama olmadan özelliği. `FileName` Özelliği görüntüleme amacıyla yalnızca kullanılmalıdır.
 
-Model bağlama kullanarak dosyaları karşıya yüklenirken ve `IFormFile` arabirimi, ya da tek bir eylem yönteminin kabul edebilir `IFormFile` veya bir `IEnumerable<IFormFile>` (veya `List<IFormFile>`) pek çok dosya temsil eden. Aşağıdaki örnekte bir veya daha fazla karşıya yüklenen dosyalar ile döngüler, yerel dosya sistemine kaydeder ve toplam sayısı ve karşıya yüklenen dosyaların boyutu döndürür.
+Model bağlama kullanarak dosyaları karşıya yüklenirken ve `IFormFile` arabirimi, tek bir eylem yönteminin kabul edebilir `IFormFile` veya `IEnumerable<IFormFile>` (veya `List<IFormFile>`) çeşitli dosyaları gösteren. Aşağıdaki örnek bir veya daha fazla karşıya yüklenen dosyaları döngü, bunları yerel dosya sistemine kaydeder ve toplam sayısı ve karşıya yüklenen dosyaların boyutunu döndürür.
 
 [!INCLUDE [GetTempFileName](../../includes/GetTempFileName.md)]
 
 [!code-csharp[](file-uploads/sample/FileUploadSample/Controllers/UploadFilesController.cs?name=snippet1)]
 
-Kullanarak karşıya yüklenen dosyaların `IFormFile` tekniği arabelleğe bellek veya disk web sunucusu üzerinde işlenmeden önce. Eylem yönteminin içine `IFormFile` içeriklerini bir akış olarak erişilebilir. Yerel dosya sistemi ek olarak, dosyalar için gönderilebilen [Azure Blob Depolama](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-blobs/) veya [Entity Framework](https://docs.microsoft.com/ef/core/index).
+Kullanarak karşıya yüklenen dosyaların `IFormFile` tekniği arabelleğe bellekte veya diskte web sunucusunda işlenmeden önce. Eylem yöntemi içinde `IFormFile` içeriklerini bir akış olarak erişilebilir. Yerel dosya sistemi ek olarak, dosyalar için yapılabilen [Azure Blob Depolama](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-blobs/) veya [Entity Framework](https://docs.microsoft.com/ef/core/index).
 
-Entity Framework kullanarak bir veritabanında ikili dosya verileri depolamak için türünde bir özellik tanımlamak `byte[]` varlık üzerinde:
+Entity Framework kullanarak bir veritabanında ikili dosya verilerini depolamak için bir özellik türü tanımlamak `byte[]` varlık üzerinde:
 
 ```csharp
 public class ApplicationUser : IdentityUser
@@ -81,7 +81,7 @@ public class ApplicationUser : IdentityUser
 }
 ```
 
-Türünde bir viewmodel özelliği belirtin `IFormFile`:
+Viewmodel vlastnost typu belirtin `IFormFile`:
 
 ```csharp
 public class RegisterViewModel
@@ -93,9 +93,9 @@ public class RegisterViewModel
 ```
 
 > [!NOTE]
-> `IFormFile` doğrudan eylem yöntemi parametresini veya viewmodel özelliği olarak yukarıda gösterildiği gibi kullanılabilir.
+> `IFormFile` yukarıda gösterildiği gibi bir eylem yöntemi parametresini doğrudan veya bir viewmodel özelliği olarak kullanılabilir.
 
-Kopya `IFormFile` akış ve bayt dizisine kaydedin:
+Kopyalama `IFormFile` bir akışa ve bayt dizisine kaydedin:
 
 ```csharp
 // POST: /Account/Register
@@ -128,14 +128,14 @@ public async Task<IActionResult> Register(RegisterViewModel model)
 
 ## <a name="uploading-large-files-with-streaming"></a>Akış ile büyük dosyaları karşıya yükleme
 
-Boyutunu veya dosya yüklemeleriyle sıklığını kaynak uygulama için soruna yol açıyorsa, yukarıda gösterilen model bağlama yaklaşım yaptığı gibi tamamının, arabelleğe alma yerine dosya karşıya yükleme akış göz önünde bulundurun. Kullanırken `IFormFile` ve model bağlama çok daha basit bir çözüm, akış çeşitli düzgün bir şekilde uygulamak için adımları gerektirir.
+Dosya yüklemeleri sıklığını ve boyutunu kaynak uygulama için soruna yol açıyorsa, yukarıda gösterilen model bağlama yaklaşımı gibi dosya karşıya yükleme akış yerine sunabilen, arabelleğe göz önünde bulundurun. Kullanırken `IFormFile` ve model bağlama çok daha basit bir çözüm, akış, bir dizi adımı düzgün bir şekilde uygulamak için gerektirir.
 
 > [!NOTE]
-> 64 KB aşan herhangi tek bir arabelleğe alınan dosya RAM disk üzerinde geçici bir dosya sunucusunda taşınır. Dosya yüklemeleri tarafından kullanılan kaynakları (disk, RAM) numarasını ve eşzamanlı dosya yüklemeleri boyutuna bağlıdır. Akış çok perf ilgili değil, Ölçek hakkında. Çok fazla karşıya arabellek çalışırsanız, bellek veya disk alanı dışında çalıştığında, sitenizi kilitleniyor.
+> 64 KB'yi aşan herhangi tek arabelleğe alınan dosya RAM disk üzerinde geçici bir dosya için sunucu üzerinde taşınır. Dosya yüklemeleri tarafından kullanılan kaynakları (disk, RAM), sayı ve eş zamanlı dosya yüklemeleri boyutuna bağlıdır. Akış çok perf hakkında değil, Ölçek hakkında. Çok fazla karşıya yüklemeler arabellek denerseniz, bellek veya disk alanı yetersiz çalıştığında, site kilitlenir.
 
-Aşağıdaki örnek, bir denetleyici eylemi akış için JavaScript/Angular kullanmayı gösterir. Dosyanın antiforgery belirteci özel bir filtre özniteliğini kullanarak ve istek gövdesindeki HTTP üstbilgileri yerine geçilen oluşturulur. Eylem yönteminin karşıya yüklenen veriler doğrudan işlediğinden, model bağlama başka bir filtre tarafından devre dışı. Kullanarak formun içeriklerini okuma eylem içinde bir `MultipartReader`, her kişi okur `MultipartSection`, dosya işleme veya içeriği uygun şekilde saklanması. Tüm bölümleri okuyun sonra kendi model bağlama eylemi gerçekleştirir.
+Aşağıdaki örnek, bir denetleyici eylemi için akış için JavaScript/Angular kullanmayı gösterir. Özel bir filtre özniteliğini kullanarak ve istek gövdesindeki HTTP üst bilgilerini yerine geçirilen dosyanın antiforgery belirteç oluşturulur. Eylem yöntemi karşıya yüklenen verileri doğrudan işler, model bağlama başka bir filtre tarafından devre dışı bırakıldı. Kullanarak form denetiminin içeriğini okumak eylem içinde bir `MultipartReader`, her okuyan `MultipartSection`, dosya işleme veya içeriği uygun şekilde depolanması. Tüm bölümleri okuduktan sonra kendi model bağlama eylemi gerçekleştirir.
 
-İlk eylemin formun yükler ve bir antiforgery belirteci bir tanımlama bilgisinde kaydeder (aracılığıyla `GenerateAntiforgeryTokenCookieForAjax` özniteliği):
+İlk eylemin formu yükler ve bir tanımlama bilgisinde antiforgery bir belirteci kaydeder (aracılığıyla `GenerateAntiforgeryTokenCookieForAjax` öznitelik):
 
 ```csharp
 [HttpGet]
@@ -146,19 +146,19 @@ public IActionResult Index()
 }
 ```
 
-ASP.NET Core'nın yerleşik özniteliğini kullanır [Antiforgery](xref:security/anti-request-forgery) bir tanımlama bilgisi isteği belirteci ile ayarlamak için destek:
+ASP.NET Core'nın yerleşik özniteliğini kullanır [Antiforgery](xref:security/anti-request-forgery) bir tanımlama bilgisi ile istek belirtecini ayarlamak için destek:
 
 [!code-csharp[](file-uploads/sample/FileUploadSample/Filters/GenerateAntiforgeryTokenCookieForAjaxAttribute.cs?name=snippet1)]
 
-Açısal otomatik olarak geçirir antiforgery belirteci adlı bir istek üstbilgisinde `X-XSRF-TOKEN`. ASP.NET Core MVC uygulama yapılandırmasıyla bu başlığında başvurmak için yapılandırılmış *haline*:
+Angular otomatik olarak adlandırılmış bir istek üst bilgisinde antiforgery bir belirteç geçirir `X-XSRF-TOKEN`. ASP.NET Core MVC uygulaması yapılandırmasında bu başlığında başvurmak için yapılandırılmış *Startup.cs*:
 
 [!code-csharp[](file-uploads/sample/FileUploadSample/Startup.cs?name=snippet1)]
 
-`DisableFormValueModelBinding` Aşağıda gösterilen özniteliği, model bağlama için devre dışı bırakmak için kullanılan `Upload` eylem yöntemi.
+`DisableFormValueModelBinding` Model bağlama için devre dışı bırakmak için kullanılan öznitelik, aşağıda gösterilen `Upload` eylem yöntemi.
 
 [!code-csharp[](file-uploads/sample/FileUploadSample/Filters/DisableFormValueModelBindingAttribute.cs?name=snippet1)]
 
-Model bağlama devre dışı olduğundan `Upload` eylem yönteminin parametreleri kabul etmez. Doğrudan birlikte çalıştığı `Request` özelliği `ControllerBase`. A `MultipartReader` her bölüm okumak için kullanılır. Dosya bir GUID dosya adı ile kaydedilir ve anahtar/değer veriler bir `KeyValueAccumulator`. Tüm bölümleri okuyun sonra içeriğini `KeyValueAccumulator` form verilerinin bir model türünü bağlamak için kullanılır.
+Model bağlama devre dışı bırakıldığından `Upload` eylem yönteminin parametreleri kabul etmez. Doğrudan çalıştığını `Request` özelliği `ControllerBase`. A `MultipartReader` her bölümde okumak için kullanılır. Dosya bir GUID dosya adı ile kaydedilir ve anahtar/değer veri depolanan bir `KeyValueAccumulator`. Tüm bölümleri okuduktan sonra içeriği `KeyValueAccumulator` form verilerinin bir model türünü bağlamak için kullanılır.
 
 Tam `Upload` yöntemi aşağıda gösterilmektedir:
 
@@ -168,18 +168,18 @@ Tam `Upload` yöntemi aşağıda gösterilmektedir:
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
-Dosyaları ve olası çözümleri karşıya ile çalışırken, bazı sık karşılaşılan sorunlar altındadır.
+Karşıya yükleme, dosyaları ve olası çözümleri ile çalışırken bazı sık karşılaşılan sorunlar aşağıdadır.
 
 ### <a name="unexpected-not-found-error-with-iis"></a>IIS ile beklenmeyen bulunamadı hatası
 
-Dosya karşıya yükleme aşıyor sunucu şu hatayı gösterir yapılandırılmış `maxAllowedContentLength`:
+Dosya karşıya yükleme işleminiz aşıyor sunucu şu hatayı gösterir yapılandırılmış `maxAllowedContentLength`:
 
 ```
 HTTP 404.13 - Not Found
 The request filtering module is configured to deny a request that exceeds the request content length.
 ```
 
-Varsayılan ayar `30000000`, yaklaşık 28.6 MB olması. Değer düzenleyerek özelleştirilebilir *web.config*:
+Varsayılan ayar `30000000`, yaklaşık 28.6 MB olan. Değer düzenleyerek özelleştirilebilir *web.config*:
 
 ```xml
 <system.webServer>
@@ -192,8 +192,8 @@ Varsayılan ayar `30000000`, yaklaşık 28.6 MB olması. Değer düzenleyerek ö
 </system.webServer>
 ```
 
-Bu ayar, yalnızca IIS için geçerlidir. Davranışı varsayılan olarak Kestrel üzerinde barındırdığında oluşmaz. Daha fazla bilgi için bkz: [istek sınırları \<requestLimits\>](/iis/configuration/system.webServer/security/requestFiltering/requestLimits/).
+Bu ayar, yalnızca IIS için geçerlidir. Varsayılan davranışı üzerinde Kestrel barındırırken gerçekleşmez. Daha fazla bilgi için [istek sınırları \<requestLimits\>](/iis/configuration/system.webServer/security/requestFiltering/requestLimits/).
 
-### <a name="null-reference-exception-with-iformfile"></a>IFormFile ile null başvuru özel durumu
+### <a name="null-reference-exception-with-iformfile"></a>IFormFile ile null başvurusu özel durumu
 
-Denetleyicinizi kabul etmiş olması durumunda kullanarak dosyaları karşıya `IFormFile` ancak değer her zaman null ise bulmak, HTML formu belirtilmesidir onaylayın bir `enctype` değerini `multipart/form-data`. Bu öznitelik üzerinde ayarlanmamışsa `<form>` olmaz öğesi, dosya karşıya yükleme oluşur ve tüm ilişkili `IFormFile` bağımsız değişkenleri boş olacaktır.
+Denetleyicinizi kabul etmiş olması durumunda kullanarak dosyaları karşıya `IFormFile` ancak değeri her zaman null olduğunu, HTML formunuza belirtilmesidir onaylayın bir `enctype` değerini `multipart/form-data`. Bu öznitelik üzerinde ayarlanmadıysa `<form>` olmaz öğesi, dosyayı karşıya yükleme oluşur ve herhangi ilişkili `IFormFile` bağımsız değişkenleri null olacaktır.

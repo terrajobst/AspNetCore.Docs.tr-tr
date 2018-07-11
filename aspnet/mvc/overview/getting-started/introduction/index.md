@@ -9,11 +9,11 @@ ms.assetid: 9afe7454-f1bd-4e81-8ecf-12fe54d080c1
 msc.legacyurl: /mvc/overview/getting-started/introduction
 msc.type: chapter
 ms.openlocfilehash: e348faca0dbe8ffa0ad270dc384404f07755eb22
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37824976"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38155274"
 ---
 <a name="getting-started-with-aspnet-mvc-5"></a>.NET MVC 5 ile Çalışmaya Başlama
 ====================

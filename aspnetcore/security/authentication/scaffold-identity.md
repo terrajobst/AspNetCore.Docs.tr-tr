@@ -1,37 +1,37 @@
 ---
-title: ASP.NET Core projelerinde iskele kimliği
+title: ASP.NET Core projelerinde iskele kimlik
 author: rick-anderson
-description: ASP.NET Core projesinde kimlik iskele öğrenin.
+description: Bir ASP.NET Core projesi içinde kimlik iskele oluşturmayı öğrenin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 5/16/2018
 uid: security/authentication/scaffold-identity
 ms.openlocfilehash: cf6544d8b671f026c8466fa8dff506027b64cf1f
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276324"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38217688"
 ---
-# <a name="scaffold-identity-in-aspnet-core-projects"></a>ASP.NET Core projelerinde iskele kimliği
+# <a name="scaffold-identity-in-aspnet-core-projects"></a>ASP.NET Core projelerinde iskele kimlik
 
-tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-ASP.NET Core 2.1 ve üzeri sağlar [ASP.NET Core kimliği](xref:security/authentication/identity) olarak bir [Razor sınıf kitaplığı](xref:razor-pages/ui-class). Kimliği içeren uygulamaları kimlik Razor sınıf kitaplığı (RCL) bulunan kaynak koduna seçerek eklemek için iskele kurucu uygulayabilirsiniz. Kodu değiştirin ve davranışını değiştirmek için kaynak kodu oluşturmak isteyebilirsiniz. Örneğin, kayıt için kullanılan kodu oluşturmak için iskele kurucu istemeniz. Oluşturulan kod kimlik RCL aynı kodu daha önceliklidir. UI tam denetimini ve varsayılan RCL kullanmamak için bölümüne bakın [oluşturma tam kimlik UI kaynak](#full).
+ASP.NET Core 2.1 ve üzeri sağlar [ASP.NET Core kimliği](xref:security/authentication/identity) olarak bir [Razor sınıf kitaplığı](xref:razor-pages/ui-class). Kimlik içeren uygulamaları seçmeli olarak kimlik Razor sınıf kitaplığı (RCL) yer alan kaynak kodu eklemek için iskele kurucu uygulayabilirsiniz. Kodu değiştirin ve davranışını değiştirmek için kaynak kodu oluşturmak isteyebilirsiniz. Örneğin, kayıt için kullanılan kod üretmek için iskele kurucu toplamasını. Oluşturulan kod aynı kimlik RCL kodda daha önceliklidir. Kullanıcı arabirimi tam denetimini ve varsayılan RCL kullanmamak için bölümüne bakın. [tam kimlik UI Kaynağı Oluştur](#full).
 
-Yapmak uygulamaları **değil** dahil kimlik doğrulama RCL kimlik paketini eklemek için iskele kurucu uygulayabilirsiniz. Oluşturulacak kimlik kodu seçme seçeneğiniz vardır.
+Yapan uygulamalar **değil** dahil kimlik doğrulaması RCL kimlik paketini eklemek için iskele kurucu uygulayabilirsiniz. Oluşturulacak kimlik kodu seçme seçeneğiniz vardır.
 
-Gerekli kodu çoğunu iskele kurucu oluşturur ancak işlemi tamamlamak için projenize güncelleştirmeniz gerekir. Bu belge kimliği yapı iskelesi güncelleştirmesini tamamlamak için gereken adımları açıklar.
+Çoğu gerekli kodu iskele kurucu oluşturur ancak işlemi tamamlamak için projeyi güncelleştirmeniz gerekir. Bu belge, bir kimlik yapı iskelesi güncelleştirmeyi tamamlamak için gereken adımları açıklar.
 
-Kimlik iskele kurucu çalıştırdığınızda, bir *ScaffoldingReadme.txt* dosya proje dizininde oluşturulur. *ScaffoldingReadme.txt* dosyası ne kimlik yapı iskelesi güncelleştirmesini tamamlamak için gerekli olan genel yönergeleri içerir. Bu belgede daha daha kapsamlı yönergeler içeren *ScaffoldingReadme.txt* dosya.
+Kimlik iskele kurucu çalıştırdığınızda bir *ScaffoldingReadme.txt* dosyası proje dizininde oluşturulur. *ScaffoldingReadme.txt* dosyası kimlik yapı iskelesi güncelleştirmeyi tamamlamak gerekli genel yönergeleri içerir. Bu belgede daha daha eksiksiz yönergeler içeren *ScaffoldingReadme.txt* dosya.
 
-Dosya farklar gösterilmektedir ve dışında değişiklikleri geri olanak sağlayan bir kaynak denetim sistemi kullanmanızı öneririz. Değişiklikleri kimlik iskele kurucu çalıştırdıktan sonra inceleyin.
+Dosya farklılıklarını gösterir ve dışında değişiklikleri geri sağlar bir kaynak denetim sistemi kullanmanızı öneririz. Kimlik iskele kurucu çalıştırdıktan sonra değişiklikleri inceleyin.
 
-## <a name="scaffold-identity-into-an-empty-project"></a>Boş bir projeye iskele kimliği
+## <a name="scaffold-identity-into-an-empty-project"></a>Boş bir projeye iskele kimlik
 
 [!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg.md)]
 
-Aşağıdaki vurgulanan çağrıları ekleme `Startup` sınıfı:
+Aşağıdaki vurgulanmış çağrıları ekleyin `Startup` sınıfı:
 
 [!code-csharp[](scaffold-identity/sample/StartupEmpty.cs?name=snippet1&highlight=5,20-23)]
 
@@ -39,7 +39,7 @@ Aşağıdaki vurgulanan çağrıları ekleme `Startup` sınıfı:
 
 [!INCLUDE[](~/includes/scaffold-identity/migrations.md)]
 
-## <a name="scaffold-identity-into-a-razor-project-without-existing-authorization"></a>Varolan yetkilendirme olmadan Razor projeye iskele kimliği
+## <a name="scaffold-identity-into-a-razor-project-without-existing-authorization"></a>Mevcut bir yetkilendirme olmadan bir Razor projeye iskele kimlik
 
 <!--
 set projNam=RPnoAuth
@@ -57,7 +57,7 @@ dotnet ef database update
 
 [!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg.md)]
 
-Kimlik yapılandırılmıştır *Areas/Identity/IdentityHostingStartup.cs*. Daha fazla bilgi için bkz: [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration).
+Kimlik yapılandırılmıştır *Areas/Identity/IdentityHostingStartup.cs*. Daha fazla bilgi için [Ihostingstartup](xref:fundamentals/configuration/platform-specific-configuration).
 
 <a name="efm"></a>
 
@@ -65,7 +65,7 @@ Kimlik yapılandırılmıştır *Areas/Identity/IdentityHostingStartup.cs*. Daha
 
 [!INCLUDE[](~/includes/scaffold-identity/migrations.md)]
 
-İçinde `Configure` yöntemi `Startup` sınıfı, arama [UseAuthentication](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_AuthAppBuilderExtensions_UseAuthentication_Microsoft_AspNetCore_Builder_IApplicationBuilder_) sonra `UseStaticFiles`:
+İçinde `Configure` yöntemi `Startup` sınıfı, çağrı [UseAuthentication](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_AuthAppBuilderExtensions_UseAuthentication_Microsoft_AspNetCore_Builder_IApplicationBuilder_) sonra `UseStaticFiles`:
 
 [!code-csharp[](scaffold-identity/sample/StartupRPnoAuth.cs?name=snippet1&highlight=29)]
 
@@ -73,11 +73,11 @@ Kimlik yapılandırılmıştır *Areas/Identity/IdentityHostingStartup.cs*. Daha
 
 ### <a name="layout-changes"></a>Düzen değişiklikleri
 
-İsteğe bağlı: Kısmi oturum açma ekleme (`_LoginPartial`) Düzen dosyası için:
+İsteğe bağlı: Kısmi oturum açma ekleme (`_LoginPartial`) için Düzen dosyası:
 
 [!code-html[Main](scaffold-identity/sample/_Layout.cshtml?highlight=37)]
 
-## <a name="scaffold-identity-into-a-razor-project-with-authorization"></a>Yetkilendirme ile Razor projeye iskele kimliği
+## <a name="scaffold-identity-into-a-razor-project-with-authorization"></a>Razor projesine yetkilendirmesiyle iskele kimlik
 
 <!--
 Use >=2.1: dotnet new webapp -au Individual -o RPauth
@@ -90,10 +90,9 @@ dotnet aspnet-codegenerator identity -dc RPauth.Data.ApplicationDbContext --file
 [!INCLUDE[](~/includes/webapp-alias-notice.md)]
 -->
 
-[!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg-auth.md)]
-Bazı kimlik seçenekleri yapılandırılan *Areas/Identity/IdentityHostingStartup.cs*. Daha fazla bilgi için bkz: [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration).
+[!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg-auth.md)] Bazı kimlik seçeneklerini yapılandırılan *Areas/Identity/IdentityHostingStartup.cs*. Daha fazla bilgi için [Ihostingstartup](xref:fundamentals/configuration/platform-specific-configuration).
 
-## <a name="scaffold-identity-into-an-mvc-project-without-existing-authorization"></a>Varolan yetkilendirme olmadan bir MVC projeye iskele kimliği
+## <a name="scaffold-identity-into-an-mvc-project-without-existing-authorization"></a>Var olan bir yetkilendirme olmadan bir MVC projeye iskele kimlik
 
 <!--
 set projNam=MvcNoAuth
@@ -115,9 +114,9 @@ dotnet ef database update
 
 [!code-html[](scaffold-identity/sample/_LayoutMvc.cshtml?highlight=37)]
 
-* Taşıma *Pages/Shared/_LoginPartial.cshtml* dosya *Views/Shared/_LoginPartial.cshtml*
+* Taşıma *Pages/Shared/_LoginPartial.cshtml* dosyasını *Views/Shared/_LoginPartial.cshtml*
 
-Kimlik yapılandırılmıştır *Areas/Identity/IdentityHostingStartup.cs*. Daha fazla bilgi için IHostingStartup bakın.
+Kimlik yapılandırılmıştır *Areas/Identity/IdentityHostingStartup.cs*. Ihostingstartup daha fazla bilgi için bkz.
 
 [!INCLUDE[](~/includes/scaffold-identity/migrations.md)]
 
@@ -127,7 +126,7 @@ Kimlik yapılandırılmıştır *Areas/Identity/IdentityHostingStartup.cs*. Daha
 
 [!INCLUDE[](~/includes/scaffold-identity/hsts.md)]
 
-## <a name="scaffold-identity-into-an-mvc-project-with-authorization"></a>Yetkilendirme ile MVC projeye bir iskele kimliği
+## <a name="scaffold-identity-into-an-mvc-project-with-authorization"></a>Bir yetkilendirme ile MVC projeye iskele kimlik
 
 <!--
 dotnet new mvc -au Individual -o MvcAuth
@@ -139,19 +138,19 @@ dotnet aspnet-codegenerator identity -dc MvcAuth.Data.ApplicationDbContext --fil
 
 [!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg-auth.md)]
 
-Silme *sayfaları/paylaşılan* klasörüne ve o klasördeki dosyaları.
+Silme *sayfaları/paylaşılan* klasörünü ve klasördeki dosyaları.
 
 <a name="full"></a>
 
-## <a name="create-full-identity-ui-source"></a>Tam kimlik UI kaynağı oluşturun
+## <a name="create-full-identity-ui-source"></a>Tam kimlik UI kaynağı oluşturma
 
 Kimlik UI tam denetimi korumak için kimlik iskele kurucu çalıştırın ve seçin **tüm dosyaları geçersiz kılma**.
 
-Aşağıdaki vurgulanmış kodu varsayılan kimlik UI kimliği ile bir ASP.NET Core 2.1 web uygulamasında değiştirmek için değişiklikleri gösterir. Bu kimlik UI tam denetime sahip olmasını yapmak isteyebilirsiniz.
+Aşağıdaki vurgulanmış kodu varsayılan kimlik UI kimliği ile bir ASP.NET Core 2.1 web uygulamasında değiştirin. değişiklik gösterir. Kimlik UI tam denetim sahibi olmak için bunu yapmak isteyebilirsiniz.
 
 [!code-csharp[](scaffold-identity/sample/StartupFull.cs?name=snippet1&highlight=13-14,17-999)]
 
-Varsayılan kimlik aşağıdaki kodda değiştirilir:
+Varsayılan kimlik, aşağıdaki kodda değiştirilir:
 
 [!code-csharp[](scaffold-identity/sample/StartupFull.cs?name=snippet2)]
 
@@ -159,6 +158,6 @@ Aşağıdaki kod kümeleri [LoginPath](/dotnet/api/microsoft.aspnetcore.authenti
 
 [!code-csharp[](scaffold-identity/sample/StartupFull.cs?name=snippet3)]
 
-Kayıt bir `IEmailSender` uygulamasında, örneğin:
+Kayıt bir `IEmailSender` uygulaması örneği için:
 
 [!code-csharp[](scaffold-identity/sample/StartupFull.cs?name=snippet4)]

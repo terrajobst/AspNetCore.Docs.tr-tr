@@ -1,29 +1,29 @@
 ---
-title: Bir ASP.NET Core uygulamasında oluşturulan sayfaları güncelleştir
+title: ASP.NET Core uygulaması oluşturulan sayfaları güncelleştirme
 author: rick-anderson
-description: Bir ASP.NET Core uygulamasında oluşturulan sayfaları güncelleştirmek hakkında bilgi edinin.
+description: ASP.NET Core uygulaması oluşturulan sayfaları güncelleştirme hakkında bilgi edinin.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/30/2018
 uid: tutorials/razor-pages/da1
 ms.openlocfilehash: 55ff98712da314e28e50a1b1b1e04530d5b3fedd
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278076"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38186237"
 ---
-# <a name="update-the-generated-pages-in-an-aspnet-core-app"></a>Bir ASP.NET Core uygulamasında oluşturulan sayfaları güncelleştir
+# <a name="update-the-generated-pages-in-an-aspnet-core-app"></a>ASP.NET Core uygulaması oluşturulan sayfaları güncelleştirme
 
-tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Film uygulaması için iyi bir başlangıç sahip olduğumuz ancak sunu ideal değil. Biz (12:00: 00'da aşağıdaki görüntüde) zaman görmek istemediğiniz ve **ReleaseDate** olmalıdır **yayın tarihi** (iki sözcük).
+Film uygulaması için iyi bir başlangıç sahibiz ancak sunu ideal değildir. Saat (12:00: 00'da aşağıdaki görüntüde) görmesini istemediğiniz ve **ReleaseDate** olmalıdır **yayın tarihi** (iki kelimeye).
 
-![Film uygulaması film verileri gösteren Chrome'da Aç](sql/_static/m55.png)
+![Film verileri gösteren Chrome'da açık film uygulaması](sql/_static/m55.png)
 
-## <a name="update-the-generated-code"></a>Oluşturulan kod güncelleştir
+## <a name="update-the-generated-code"></a>Oluşturulan kodu güncelleştirme
 
-Açık *Models/Movie.cs* dosya ve aşağıdaki kodda gösterildiği vurgulanan satırları ekleyin:
+Açık *Models/Movie.cs* dosya ve aşağıdaki kodda gösterilen vurgulanan satırları ekleyin:
 
 ::: moniker range="= aspnetcore-2.0"
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Models/MovieDate.cs?name=snippet_1&highlight=10-11)]
@@ -33,18 +33,18 @@ Açık *Models/Movie.cs* dosya ve aşağıdaki kodda gösterildiği vurgulanan s
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie21/Models/MovieDate.cs?name=snippet_1&highlight=10-11,15)]
 ::: moniker-end
 
-Bir kırmızı dalgalı satıra sağ tıklayın > **hızlı Eylemler ve yapan yeniden düzenlemeler**.
+Kırmızı dalgalı çizgi üzerinde sağ tıklayın > **hızlı Eylemler ve yeniden düzenlemeler**.
 
-  ![Bağlam menüsü programlarını ** > Hızlı Eylemler ve yapan yeniden düzenlemeler **.](da1/qa.png)
+  ![Bağlamsal menüyü gösterir ** > Hızlı Eylemler ve yeniden düzenlemeler **.](da1/qa.png)
 
-seçin `using System.ComponentModel.DataAnnotations;`
+Seçin `using System.ComponentModel.DataAnnotations;`
 
-  ![listesinin başında System.ComponentModel.DataAnnotations kullanma](da1/da.png)
+  ![listenin en üstünde System.ComponentModel.DataAnnotations kullanma](da1/da.png)
 
   Visual studio ekler `using System.ComponentModel.DataAnnotations;`.
 
 [!INCLUDE [model1](~/includes/RP/da2.md)]
 
 > [!div class="step-by-step"]
-> [Önceki: SQL Server yerel veritabanı ile çalışma](xref:tutorials/razor-pages/sql)
-> [Ekle arama](xref:tutorials/razor-pages/search)
+> [Önceki: SQL Server LocalDB ile çalışma](xref:tutorials/razor-pages/sql)
+> [arama Ekle](xref:tutorials/razor-pages/search)

@@ -1,26 +1,26 @@
 ---
-title: Denetleyici yöntemlerine ve ASP.NET Core görünümler
+title: Denetleyici metotları ve görünümleri ASP.NET Core
 author: rick-anderson
-description: Denetleyici yöntemlerine, görünümler ve ASP.NET Core DataAnnotations ile çalışmayı öğrenin.
+description: Denetleyici yöntemlerinde, görünümler ve ASP.NET core'da DataAnnotations ile çalışmayı öğrenin.
 ms.author: riande
 ms.date: 03/07/2017
 uid: tutorials/first-mvc-app/controller-methods-views
 ms.openlocfilehash: e94cb877576a68540a565225b2b3d79f9be53327
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274820"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38194020"
 ---
-# <a name="controller-methods-and-views-in-aspnet-core"></a>Denetleyici yöntemlerine ve ASP.NET Core görünümler
+# <a name="controller-methods-and-views-in-aspnet-core"></a>Denetleyici metotları ve görünümleri ASP.NET Core
 
-tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Film uygulaması için iyi bir başlangıç sahip olduğumuz ancak sunu ideal değil. Biz (12:00: 00'da aşağıdaki görüntüde) zaman görmek istemediğiniz ve **ReleaseDate** iki sözcük olmalıdır.
+Film uygulaması için iyi bir başlangıç sahibiz ancak sunu ideal değildir. Saat (12:00: 00'da aşağıdaki görüntüde) görmesini istemediğiniz ve **ReleaseDate** iki kelimeye olmalıdır.
 
-![Dizin görünümü: yayın tarihi bir sözcük (boşluksuz) ve her film yayın tarihi 00: 00 süresini gösterir](working-with-sql/_static/m55.png)
+![Dizini görüntüle: yayın tarihi bir sözcük (boşluk) ve her film yayın tarihi 12: 00 süresini gösterir.](working-with-sql/_static/m55.png)
 
-Açık *Models/Movie.cs* dosya ve aşağıda gösterilen vurgulanan satırları ekleyin:
+Açık *Models/Movie.cs* dosya ve aşağıda vurgulanan satırları ekleyin:
 
 ::: moniker range=">= aspnetcore-2.1"
 [!code-csharp[](start-mvc/sample/MvcMovie21/Models/MovieDateFixed.cs?name=snippet_1&highlight=2,3,12-13,17)]
@@ -33,4 +33,4 @@ Açık *Models/Movie.cs* dosya ve aşağıda gösterilen vurgulanan satırları 
 
 > [!div class="step-by-step"]
 > [Önceki](working-with-sql.md)
-> [sonraki](search.md)  
+> [İleri](search.md)  

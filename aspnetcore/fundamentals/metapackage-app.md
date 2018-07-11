@@ -1,41 +1,41 @@
 ---
 title: Microsoft.AspNetCore.App metapackage ASP.NET Core 2.1 ve üzeri
 author: Rick-Anderson
-description: Desteklenen tüm ASP.NET Core ve Entity Framework Çekirdek paket Microsoft.AspNetCore.App metapackage içerir.
+description: Microsoft.AspNetCore.App metapackage desteklenen tüm ASP.NET Core ve Entity Framework Core paketleri içerir.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 09/20/2017
 uid: fundamentals/metapackage-app
-ms.openlocfilehash: 4840d0a7536b1e9d8da835690b285ac2074967f5
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: e82c219635bbbebe1d6f5639308490c37361b286
+ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277478"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952961"
 ---
-# <a name="microsoftaspnetcoreapp-metapackage-for-aspnet-core-21"></a>ASP.NET Core 2.1 Microsoft.AspNetCore.App metapackage
+# <a name="microsoftaspnetcoreapp-metapackage-for-aspnet-core-21"></a>ASP.NET Core 2.1 için Microsoft.AspNetCore.App metapackage
 
-Bu özellik, ASP.NET Core 2.1 ve daha sonra .NET Core 2.1 hedefleme ve üstü gerektirir.
+Bu özellik, ASP.NET Core 2.1 ve üzeri hedefleyen .NET Core 2.1 ve üzeri gerektirir.
 
 [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App) [metapackage](/dotnet/core/packages#metapackages) ASP.NET Core için:
 
-* Üçüncü taraf bağımlılıkları dışında içermez [Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/), [Remotion.Linq](https://www.nuget.org/packages/Remotion.Linq/), ve [IX zaman uyumsuz](https://www.nuget.org/packages/System.Interactive.Async/). Bu 3. taraf bağımlılıkları ana çerçeveleri özellikleri işlevi emin olmak gerekli olarak kabul edilen.
-* Üçüncü taraf bağımlılıkları (dışında olanlar daha önce bahsedilen) içeren olanlar dışında ASP.NET Core ekibi tarafından desteklenen tüm paketleri içerir.
-* Üçüncü taraf bağımlılıkları (dışında olanlar daha önce bahsedilen) içeren olanlar dışında Entity Framework Çekirdek ekibi tarafından desteklenen tüm paketleri içerir.
+* Üçüncü taraf bağımlılıklarının dışında içermez [Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/), [Remotion.Linq](https://www.nuget.org/packages/Remotion.Linq/), ve [IX zaman uyumsuz](https://www.nuget.org/packages/System.Interactive.Async/). Bu 3. taraf bağımlılıkları, ana çerçeveler özellikleri işlevi sağlamak için gerekli sayılan.
+* Üçüncü taraf bağımlılıkları (dışında daha önce bahsedilenler) içeren hariç ASP.NET Core ekibi tarafından desteklenen tüm paketleri içerir.
+* Üçüncü taraf bağımlılıkları (dışında daha önce bahsedilenler) içeren hariç Entity Framework Core ekibi tarafından desteklenen tüm paketleri içerir.
 
-Tüm özellikleri ASP.NET Core 2.1 ve üzeri ve Entity Framework Çekirdek 2.1 ve üzeri dahil edilen `Microsoft.AspNetCore.App` paket. Varsayılan proje şablonları ASP.NET Core 2.1 hedefleme ve daha sonra bu paketi kullanabilirsiniz. ASP.NET Core 2.1 ve üzeri ve Entity Framework Çekirdek 2.1 hedefleyen uygulamalar önerilir ve daha sonra kullanmak `Microsoft.AspNetCore.App` paket.
+Tüm özellikleri ASP.NET Core 2.1 ve üzeri ve Entity Framework Core 2.1 ve üzeri dahil edilen `Microsoft.AspNetCore.App` paket. Varsayılan proje şablonları ASP.NET Core 2.1 hedefleme ve daha sonra bu paketi kullanın. ASP.NET Core 2.1 ve üzeri ve Entity Framework Core 2.1 hedefleyen uygulamalar önerilir ve daha sonra `Microsoft.AspNetCore.App` paket.
 
-Sürüm numarasını `Microsoft.AspNetCore.App` ASP.NET Core sürüm ve Entity Framework Çekirdek sürüm metapackage temsil eder.
+Sürüm numarasını `Microsoft.AspNetCore.App` metapackage sürümü Entity Framework Core ve ASP.NET Core sürümünü temsil eder.
 
 Kullanarak `Microsoft.AspNetCore.App` metapackage uygulamanızı korumak sürüm kısıtlamaları sağlar:
 
-* Bir paket eklenirse, bir geçişli (doğrudan değil) bağımlılığa sahip bir pakette üzerinde `Microsoft.AspNetCore.App`ve bu sürüm numaraları farklılık, NuGet, bir hata üretir.
-* Uygulamanıza eklediğiniz diğer paketleri dahil paketlerinin sürümüne değiştiremezsiniz `Microsoft.AspNetCore.App`.
-* Sürüm tutarlılığı güvenilir bir deneyim sağlar. `Microsoft.AspNetCore.App` aynı uygulamada birlikte kullanılan ilgili BITS sınanmamış sürümü bileşimleri önlemek üzere tasarlanmıştır.
+* Bir paket eklenirse, bağımlıdır geçişli (doğrudan değil) bir paket içinde `Microsoft.AspNetCore.App`ve bu sürüm numaraları farklılık gösterir, NuGet bir hata üretir.
+* Uygulamanıza eklediğiniz diğer paketleri dahil paketleri sürümünü değiştiremezsiniz `Microsoft.AspNetCore.App`.
+* Sürüm tutarlılık, güvenilir bir deneyim sağlar. `Microsoft.AspNetCore.App` ilgili BITS birlikte aynı uygulamada kullanılan test edilmemiş sürümü bileşimleri önlemek için tasarlanmıştır.
 
-Kullanan uygulamalar `Microsoft.AspNetCore.App` metapackage otomatik olarak ASP.NET Core paylaşılan çerçevesinden alın. Kullandığınızda `Microsoft.AspNetCore.App` metapackage, **hiçbir** başvurulan ASP.NET Core NuGet paketlerini varlıklarından uygulama ile dağıtılan &mdash; ASP.NET Core paylaşılan framework bu varlıkları içerir. Uygulama başlangıç zamanını geliştirmek için paylaşılan framework varlıkları önceden derlenmiş. Daha fazla bilgi için bkz: "paylaşılan framework" [.NET Core dağıtım paketleme](/dotnet/core/build/distribution-packaging).
+Kullanan uygulamalar `Microsoft.AspNetCore.App` metapackage otomatik olarak ASP.NET Core paylaşılan çerçeve avantajlarından yararlanın. Kullanırken `Microsoft.AspNetCore.App` metapackage, **hiçbir** başvurulan bir ASP.NET Core NuGet paket varlıklarından uygulamayla dağıtılan&mdash;ASP.NET Core paylaşılan çerçeve bu varlıkları içerir. Uygulama başlatma süresini kısaltmak için paylaşılan çerçevesindeki varlıkları önceden derlenmiş. Daha fazla bilgi için bkz: "paylaşılan çerçeve" [.NET Core dağıtımı paketleme](/dotnet/core/build/distribution-packaging).
 
-Aşağıdaki *.csproj* proje dosyası başvuruları `Microsoft.AspNetCore.App` metapackage ASP.NET Core için:
+Şu proje dosya başvuruları `Microsoft.AspNetCore.App` metapackage ASP.NET Core ve tipik bir ASP.NET Core 2.1 temsil şablonu için:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -45,25 +45,14 @@ Aşağıdaki *.csproj* proje dosyası başvuruları `Microsoft.AspNetCore.App` m
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.1" />
   </ItemGroup>
 
 </Project>
-
 ```
 
-Önceki biçimlendirme tipik ASP.NET Core 2.1 ve üzeri şablonu temsil eder. İçin sürüm numarasını belirtmeyen `Microsoft.AspNetCore.App` paketini başvuru. Sürüm belirtilmediğinde bir [örtük](https://github.com/dotnet/core/blob/master/release-notes/1.0/sdk/1.0-rc3-implicit-package-refs.md) sürüm belirtilen SDK tarafından diğer bir deyişle, `Microsoft.NET.Sdk.Web`. SDK'sı tarafından belirtilen ve açıkça sürüm numarasını üzerinde paket başvuru ayarlama örtük sürümü güvenmek öneririz. Bir GitHub yorum bırakabilir [Microsoft.AspNetCore.App örtük sürümü için tartışma](https://github.com/aspnet/Docs/issues/6430).
+Sürüm numarasına göre `Microsoft.AspNetCore.App` başvuru yapar **değil** paylaşılan sürümünün garanti çerçevesi kullanılır. Örneğin, sürüm varsayalım `2.1.1` belirtildi, ancak `2.1.3` yüklenir. Bu durumda, uygulamanın kullandığı `2.1.3`. Önerilmese de (düzeltme eki ve/veya ikincil) sarma davranışı devre dışı bırakabilirsiniz. Paket sürümü sarma davranışı hakkında daha fazla bilgi için bkz. [dotnet konak ileri sarma](https://github.com/dotnet/core-setup/blob/master/Documentation/design-docs/roll-forward-on-no-candidate-fx.md).
 
-Örtük sürüm kümesine `major.minor.0` taşınabilir uygulamalar için. Paylaşılan framework İleri alma mekanizması uygulama uyumlu en son sürümü yüklü paylaşılan çerçeveleri arasında çalışır. Aynı sürüm, geliştirme, test ve üretim kullanılır güvence altına almak için her ortamda yüklü paylaşılan framework aynı sürümü emin olun. Kendi kendine bulunan uygulamalar için örtük sürüm numarası ayarlanır `major.minor.patch` yüklü SDK'ın paketlenmiş paylaşılan framework'ün.
+`Microsoft.AspNetCore.App` [Metapackage](/dotnet/core/packages#metapackages) Nuget'ten güncelleştirilir geleneksel bir paket değil. Benzer şekilde `Microsoft.NETCore.App`, `Microsoft.AspNetCore.App` NuGet dışında işlenmiş özel sürüm semantiğe sahip bir paylaşılan çalışma zamanı, temsil eder. Daha fazla bilgi için [paketler, meta paketler ve çerçeveler](/dotnet/core/packages).
 
-Bir sürüm numarası belirtme `Microsoft.AspNetCore.App` başvuru etmez **değil** paylaşılan sürümünün garanti framework seçilebilir. Örneğin, sürüm "2.1.1" belirtildi, ancak "2.1.3" yüklü varsayalım. Bu durumda, uygulama "2.1.3" kullanır. Önerilmemesine rağmen Top İleri (düzeltme eki ve/veya ikincil) devre dışı bırakabilirsiniz. Dotnet konak İleri alma ve davranışını yapılandırma ile ilgili daha fazla bilgi için bkz: [dotnet konak İleri alma](https://github.com/dotnet/core-setup/blob/master/Documentation/design-docs/roll-forward-on-no-candidate-fx.md).
-
-`Microsoft.AspNetCore.App` [Metapackage](/dotnet/core/packages#metapackages) Nuget'ten güncelleştirilmiş geleneksel bir paketi değil. Benzer şekilde `Microsoft.NETCore.App`, `Microsoft.AspNetCore.App` özel sürüm semantiği NuGet dışında işlenmiş olan bir paylaşılan çalıştırması temsil eder. Daha fazla bilgi için bkz: [paketleri, metapackages ve çerçeveleri](/dotnet/core/packages).
-
-`<Project Sdk` ayarlanmalıdır `Microsoft.NET.Sdk.Web` örtük sürümü kullanmak için `Microsoft.AspNetCore.App`.  Zaman `<Project Sdk="Microsoft.NET.Sdk">` olan kullanıldığında, aşağıdaki uyarılarla oluşturulur:
-
-*Uyarı NU1604: Proje bağımlılığı Microsoft.AspNetCore.App (bunlar dahil) bir alt sınır içermiyor. Alt sınır tutarlı geri yükleme sonuçlar sağlamak için bağımlılık sürümünü içerir.*
-
-*Uyarı NU1602: [Proje adı] için bağımlılık Microsoft.AspNetCore.App (bunlar dahil) bir alt sınır sağlamaz. Yaklaşık en iyi eşleşme Microsoft.AspNetCore.App 2.1.0, çözüldü.*
-
-Uygulamanızı daha önce kullandıysanız `Microsoft.AspNetCore.All`, bkz: [Microsoft.AspNetCore.App için Microsoft.AspNetCore.All geçiş](xref:fundamentals/metapackage#migrate).
+Uygulamanızı daha önce kullandıysanız `Microsoft.AspNetCore.All`, bkz: [Microsoft.AspNetCore.App için Microsoft.AspNetCore.All geçirme](xref:fundamentals/metapackage#migrate).

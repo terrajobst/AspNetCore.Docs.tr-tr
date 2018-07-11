@@ -1,129 +1,129 @@
 ---
-title: Razor sayfalarının ASP.NET Core - EF çekirdek ile ilgili verileri - 8'in 6 okuma
+title: ASP.NET core'da - EF çekirdekli Razor sayfaları 6 8 - ilgili verileri okuma
 author: rick-anderson
-description: Bu öğreticide okuyun ve ilgili verileri--diğer bir deyişle, Entity Framework Gezinti özelliklerini yükler verileri görüntüleyin.
+description: Bu öğreticide okuyun ve ilgili verileri--diğer bir deyişle, Entity Framework Gezinti özelliklerini yükler verileri görüntüler.
 ms.author: riande
 ms.date: 11/05/2017
 uid: data/ef-rp/read-related-data
 ms.openlocfilehash: 4e0aa7151cc54f666202458ba60500a7c04f5ebb
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276766"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38138260"
 ---
-# <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Razor sayfalarının ASP.NET Core - EF çekirdek ile ilgili verileri - 8'in 6 okuma
+# <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>ASP.NET core'da - EF çekirdekli Razor sayfaları 6 8 - ilgili verileri okuma
 
-Tarafından [zel Dykstra](https://github.com/tdykstra), [Jon P Smith](https://twitter.com/thereformedprog), ve [Rick Anderson](https://twitter.com/RickAndMSFT)
+Tarafından [Tom Dykstra](https://github.com/tdykstra), [Jon P Smith](https://twitter.com/thereformedprog), ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
 
-Bu öğreticide, ilgili veri okumak ve görüntülenir. İlgili verileri EF çekirdek Gezinti özelliklerini yükleyen verilerdir.
+Bu öğreticide, ilgili verileri okuma ve görüntülenir. İlgili verileri EF Core Gezinti özelliklerini yüklenen verilerdir.
 
 Olamaz çözmek sorunlarla karşılaşırsanız, indirme [Bu aşama için tamamlanan uygulama](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part6-related).
 
-Aşağıdaki çizimler, Bu öğretici için tamamlanan sayfaları göstermektedir:
+Aşağıdaki çizimler, Bu öğretici için tamamlanmış sayfaların göstermektedir:
 
-![Kurslar dizin sayfası](read-related-data/_static/courses-index.png)
+![Kursları dizin sayfası](read-related-data/_static/courses-index.png)
 
-![Eğitmen dizin sayfası](read-related-data/_static/instructors-index.png)
+![Eğitmenler dizin sayfası](read-related-data/_static/instructors-index.png)
 
-## <a name="eager-explicit-and-lazy-loading-of-related-data"></a>İstekli, açık ve geç ilgili veri yükleme
+## <a name="eager-explicit-and-lazy-loading-of-related-data"></a>İlgili veri eager, açık ve yavaş yükleniyor
 
-EF çekirdek ilgili verileri bir varlık Gezinti özellikleri yükleyebilirsiniz birkaç yolu vardır:
+EF Core Gezinti özelliklerini bir varlığın ilgili verileri yükleyebilir birkaç yolu vardır:
 
-* [İstekli yükleme](https://docs.microsoft.com/ef/core/querying/related-data#eager-loading). Bir varlık türü için bir sorgu aynı zamanda ilgili varlıklar yüklediğinde istekli Yükleme ' dir. Varlık okurken ilgili verileri alınır. Bu, genellikle tüm gerekli olan verileri alan bir tek birleştirme sorgusunda sonuçlanır. EF çekirdek istekli yükleme bazı türleri için birden çok sorgu gönderirsiniz. Birden çok sorgu verme EF6 bazı sorgularda söz konusu olandan daha etkili olabilir oluştu burada tek bir sorgu. İstekli yükleme ile belirtilen `Include` ve `ThenInclude` yöntemleri.
+* [İstekli yükleme](https://docs.microsoft.com/ef/core/querying/related-data#eager-loading). Bir varlık türü için sorgu ilgili varlıkları yüklediğinde istekli Yükleme ' dir. Varlık okunduğunda, ilgili verileri alınır. Bu, tek bir birleşim sorguda tüm gerekli olan verileri alır. genellikle sonuçlanır. EF Core istekli yükleme bazı türleri için birden çok sorgu verecek. Birden çok sorgu göndermeye çalışması için bazı sorguları EF6 olandan daha verimli olabilir dönemler tek bir sorgu. İstekli yükleme belirtilirse `Include` ve `ThenInclude` yöntemleri.
 
   ![İstekli yükleme örneği](read-related-data/_static/eager-loading.png)
  
   Bir koleksiyon Gezinti dahil edildiğinde istekli yükleme birden çok sorgu gönderir:
 
   * Ana sorgu için bir sorgu 
-  * Her bir koleksiyon yük ağacında "kenar" için bir sorgu.
+  * "Edge" Yük ağacında her bir koleksiyon için bir sorgu.
 
-* Ayrı sorgularıyla `Load`: verileri ayrı sorgularda alınabilir ve EF çekirdek "düzeltmelerini" Gezinti özellikleri. "düzeltmeler yukarı" anlamına gelir EF çekirdek Gezinti özellikleri otomatik olarak doldurur. Ayrı sorgularıyla `Load` daha çok istekli yüklemekten yüklenirken explict gibi.
+* Ayrı sorgularla `Load`: veriler ayrı sorgularda alınabilir ve EF Core "düzeltmeler" Gezinti özellikleri. "düzeltmeler yukarı" anlamına gelir EF Core gezinme özelliklerini otomatik olarak doldurur. Ayrı sorgularla `Load` işinizi daha istekli yükleme yükleme gibi daha.
 
-  ![Ayrı sorgulara örneği](read-related-data/_static/separate-queries.png)
+  ![Ayrı sorguları örneği](read-related-data/_static/separate-queries.png)
 
-  Not: EF çekirdek Gezinti özellikleri bağlam örneğine önceden yüklenmiş herhangi bir varlık için otomatik olarak düzeltir. Bir gezinme özelliği için veri olsa bile *değil* açıkça dahil, özellik hala bazıları doldurulmuş ya da tüm ilgili varlıklar önceden yüklendi.
+  Not: EF Core Gezinti özellikleri bağlam örneğine önceden yüklenmiş herhangi bir varlık için otomatik olarak düzeltir. Bir gezinme özelliği için veri olsa bile *değil* açıkça dahil, özellik hala bazıları doldurulabilir veya tüm ilişkili varlıkları daha önce yüklenmiş.
 
-* [Açık yükleme](https://docs.microsoft.com/ef/core/querying/related-data#explicit-loading). Varlık ilk okunduğunda ilgili verileri alınan değil. Kod gerektiğinde ilgili verileri almak üzere yazılmış olmalıdır. Birden çok sorgu Veritabanına gönderilen ayrı sorgularla açık yükleme sonuçlanır. Açık yükleme ile kod yüklenecek Gezinti özellikleri belirtir. Kullanım `Load` açık yükleme yapmak için yöntem. Örneğin:
+* [Açık yükleme](https://docs.microsoft.com/ef/core/querying/related-data#explicit-loading). Varlığın ilk okunduğunda, ilgili verileri alınan değil. Kod gerektiğinde ilgili verileri almak üzere yazılmış olmalıdır. Birden çok sorgu Veritabanına gönderilir açık yükleme ayrı sorgular ile sonuçlanır. Açık yükleme ile kod yüklenmesine, gezinti özellikleri belirtir. Kullanım `Load` açık yükleme yapmak için yöntemi. Örneğin:
 
   ![Açık yükleme örneği](read-related-data/_static/explicit-loading.png)
 
-* [Yavaş Yükleniyor](https://docs.microsoft.com/ef/core/querying/related-data#lazy-loading). [EF çekirdek geç yükleme şu anda desteklemiyor](https://github.com/aspnet/EntityFrameworkCore/issues/3797). Varlık ilk okunduğunda ilgili verileri alınan değil. Bir gezinme özelliği ilk erişildiğinde bu gezinti özelliği için gerekli olan veriler otomatik olarak alınır. Bir sorgu her zaman ilk olarak bir gezinti özelliği erişilir DB gönderilir.
+* [Yavaş Yükleniyor](https://docs.microsoft.com/ef/core/querying/related-data#lazy-loading). [EF Core yavaş yükleme şu anda desteklemiyor](https://github.com/aspnet/EntityFrameworkCore/issues/3797). Varlığın ilk okunduğunda, ilgili verileri alınan değil. Gezinti özelliğine erişinceye, ilk kez bu gezinti özelliği için gerekli verileri otomatik olarak alınır. Her zaman için ilk kez bir gezinti özelliğine erişinceye veritabanına bir sorgu gönderilir.
 
-* `Select` İşleci yalnızca gereken ilgili verileri yükler.
+* `Select` İşleci yalnızca gerekli ilgili verileri yükler.
 
-## <a name="create-a-courses-page-that-displays-department-name"></a>Bölüm adı görüntüler kurslar sayfası oluşturma
+## <a name="create-a-courses-page-that-displays-department-name"></a>Bölüm adını görüntüleyen bir kursları sayfası oluşturma
 
-İndirmelere varlık içeren bir gezinme özelliği içeren `Department` varlık. `Department` Varlık indirmelere atandığı bölüm içerir.
+Kurs varlığı içeren bir gezinme özelliği içeren `Department` varlık. `Department` Varlık kursu atanır bölümü içerir.
 
-Atanan departmanı adını kurslar listesini görüntülemek için:
+Atanan bölüm adını kursları listesini görüntülemek için:
 
 * Alma `Name` özelliğinden `Department` varlık.
-* `Department` Varlık gelir `Course.Department` gezinti özelliği.
+* `Department` Varlık geldiği `Course.Department` gezinme özelliği.
 
 ![ourse. Bölüm](read-related-data/_static/dep-crs.png)
 
 <a name="scaffold"></a>
-### <a name="scaffold-the-course-model"></a>İskele indirmelere modeli
+### <a name="scaffold-the-course-model"></a>İskele kurs modeli
 
 * Visual Studio'dan çıkın.
-* Proje dizininde bir komut penceresi açın (içeren dizine *Program.cs*, *haline*, ve *.csproj* dosyaları).
+* Proje dizininde bir komut penceresi açın (içeren dizine *Program.cs*, *Startup.cs*, ve *.csproj* dosyaları).
 * Şu komutu çalıştırın:
 
   ```console
   dotnet aspnet-codegenerator razorpage -m Course -dc SchoolContext -udl -outDir Pages\Courses --referenceScriptLibraries
   ```
 
-Yukarıdaki komut iskelesini kurar `Course` modeli. Projesini Visual Studio'da açın.
+Önceki komut iskelesini kurar `Course` modeli. Projeyi Visual Studio'da açın.
 
-Projeyi oluşturun. Derleme hataları aşağıdaki gibi oluşturur:
+Projeyi oluşturun. Yapı aşağıdaki gibi hatalar oluşturur:
 
 `1>Pages/Courses/Index.cshtml.cs(26,37,26,43): error CS1061: 'SchoolContext' does not
  contain a definition for 'Course' and no extension method 'Course' accepting a first
  argument of type 'SchoolContext' could be found (are you missing a using directive or
  an assembly reference?)`
 
- Genel olarak değiştirmek `_context.Course` için `_context.Courses` ("s" eklemek diğer bir deyişle, `Course`). 7 oluşumu bulundu ve güncelleştirildi.
+ Genel olarak değiştirme `_context.Course` için `_context.Courses` ("s" eklemek diğer bir deyişle, `Course`). 7 oluşum bulundu ve güncelleştirildi.
 
-Açık *Pages/Courses/Index.cshtml.cs* ve inceleyin `OnGetAsync` yöntemi. Yapı iskelesi altyapısı istekli yükleme için belirtilen `Department` gezinti özelliği. `Include` Yöntemi istekli yüklenmesini belirtir.
+Açık *Pages/Courses/Index.cshtml.cs* ve incelemek `OnGetAsync` yöntemi. Yapı iskelesi altyapısı istekli yükleme için belirtilen `Department` gezinme özelliği. `Include` İstekli yükleme yöntemini belirtir.
 
-Uygulamayı çalıştırın ve seçin **kurslar** bağlantı. Bölüm sütunu görüntüler `DepartmentID`, hangi kullanışlı değildir.
+Uygulamayı çalıştırmak ve seçmek **kursları** bağlantı. Bölüm sütun görüntüler `DepartmentID`, hangi kullanışlı değildir.
 
-Güncelleştirme `OnGetAsync` aşağıdaki kod ile yöntemi:
+Güncelleştirme `OnGetAsync` yöntemini aşağıdaki kod ile:
 
 [!code-csharp[](intro/samples/cu/Pages/Courses/Index.cshtml.cs?name=snippet_RevisedIndexMethod)]
 
-Önceki kod ekler `AsNoTracking`. `AsNoTracking` döndürülen varlıkları değil izlendiği için performansı geliştirir. Geçerli bağlamda güncelleştirilir değil çünkü varlıkları izlenmez.
+Yukarıdaki kod ekler `AsNoTracking`. `AsNoTracking` döndürülen varlıkları izlenmez performansı artırır. Geçerli bağlamda güncelleştirilir değil çünkü varlıkları izlenmez.
 
-Güncelleştirme *Pages/Courses/Index.cshtml* aşağıdaki vurgulanmış biçimlendirmeyi ile:
+Güncelleştirme *Pages/Courses/Index.cshtml* aşağıdaki vurgulanmış biçimlendirmeye sahip:
 
 [!code-html[](intro/samples/cu/Pages/Courses/Index.cshtml?highlight=4,7,15-17,34-36,44)]
 
-İskele kurulmuş kod aşağıdaki değişiklikler yapılmıştır:
+İskele kurulan kodu için aşağıdaki değişiklikler yapılmıştır:
 
 * Başlık dizinden kurslara değiştirildi.
-* Eklenen bir **numarası** gösterir sütun `CourseID` özellik değeri. Normalde son kullanıcılara anlamsız oldukları için varsayılan olarak, birincil anahtarlar iskele kurulmuş değil. Ancak, bu durumda birincil anahtarı anlamlıdır.
-* Değiştirilen **departmanı** bölüm adını görüntülemek için sütun. Kod görüntüler `Name` özelliği `Department` yüklenen varlık `Department` gezinti özelliği:
+* Eklenen bir **numarası** gösteren sütun `CourseID` özellik değeri. Normalde son kullanıcılara anlamsız olduğunuz için varsayılan olarak, birincil anahtarlar iskele kurulmuş değildir. Ancak, bu durumda birincil anahtarı anlam ifade eder.
+* Değiştirilen **departmanı** bölüm adını görüntülemek için sütun. Kod görüntüler `Name` özelliği `Department` yüklendiği varlık `Department` gezinti özelliği:
 
   ```html
   @Html.DisplayFor(modelItem => item.Department.Name)
   ```
 
-Uygulamayı çalıştırın ve seçin **kurslar** bölüm adlarını listesiyle görmek için sekmesini.
+Uygulamayı çalıştırmak ve seçmek **kursları** bölüm adları listesini görmek için sekmesinde.
 
-![Kurslar dizin sayfası](read-related-data/_static/courses-index.png)
+![Kursları dizin sayfası](read-related-data/_static/courses-index.png)
 
 <a name="select"></a>
-### <a name="loading-related-data-with-select"></a>Yükleme Seç verilerle ilgili
+### <a name="loading-related-data-with-select"></a>İlgili belirli verileri yükleniyor
 
 `OnGetAsync` Yöntemi ile ilgili verileri yükler `Include` yöntemi:
 
 [!code-csharp[](intro/samples/cu/Pages/Courses/Index.cshtml.cs?name=snippet_RevisedIndexMethod&highlight=4)]
 
-`Select` İşleci yalnızca gereken ilgili verileri yükler. Tek öğelerin gibi `Department.Name` bir SQL INNER JOIN kullanır. Koleksiyon başka bir veritabanı erişimi kullanır, ancak bu nedenle mu `Include` koleksiyonlarda işleci.
+`Select` İşleci yalnızca gerekli ilgili verileri yükler. Tek öğeleri gibi `Department.Name` bir SQL INNER JOIN kullanır. Koleksiyon, başka bir veritabanı erişimi kullanır, ancak bu nedenle mu `Include` koleksiyonlarda işleci.
 
 Aşağıdaki kod ile ilgili verileri yükler `Select` yöntemi:
 
@@ -133,72 +133,72 @@ Aşağıdaki kod ile ilgili verileri yükler `Select` yöntemi:
 
 [!code-csharp[](intro/samples/cu/Models/SchoolViewModels/CourseViewModel.cs?name=snippet)]
 
-Bkz: [IndexSelect.cshtml](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Courses/IndexSelect.cshtml) ve [IndexSelect.cshtml.cs](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Courses/IndexSelect.cshtml.cs) tam bir örnek için.
+Bkz: [IndexSelect.cshtml](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Courses/IndexSelect.cshtml) ve [IndexSelect.cshtml.cs](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Courses/IndexSelect.cshtml.cs) tam bir örnek.
 
-## <a name="create-an-instructors-page-that-shows-courses-and-enrollments"></a>Kurslar ve kayıtları gösteren bir eğitmen sayfası oluşturun
+## <a name="create-an-instructors-page-that-shows-courses-and-enrollments"></a>Kursları ve kayıtları gösterir bir eğitmen sayfası oluşturma
 
-Bu bölümde, eğitmen sayfa oluşturulur.
+Bu bölümde, eğitmenler sayfa oluşturulur.
 
 <a name="IP"></a>
-![Eğitmen dizin sayfası](read-related-data/_static/instructors-index.png)
+![Eğitmenler dizin sayfası](read-related-data/_static/instructors-index.png)
 
-Bu sayfayı okur ve ilgili verileri aşağıdaki yollarla görüntüler:
+Bu sayfada okur ve ilgili verileri aşağıdaki yollarla görüntüler:
 
-* İlgili verileri Eğitmen listesini görüntüleyen `OfficeAssignment` varlık (önceki görüntüde Office). `Instructor` Ve `OfficeAssignment` varlıklardır bir tane-sıfır-veya-bir ilişkisi. İstekli yükleme için kullanıldığından `OfficeAssignment` varlıklar. İlgili verileri görüntülenecek gerektiğinde istekli yükleme genellikle daha verimli olur. Bu durumda, eğitmen office atamaları görüntülenir.
-* Kullanıcı ilişkili bir eğitmen (Harui) önceki görüntüde seçtiğinde `Course` varlıkları görüntülenir. `Instructor` Ve `Course` varlıklardır bir çok-çok ilişkisi. İstekli yükleme için kullanıldığından `Course` varlıkları ve bunların ilgili `Department` varlıklar. Bu durumda, yalnızca seçili Eğitmen kursları gerekli olduğu için ayrı sorgulara daha etkili olabilir. Bu örnek gezinme özelliklerinin gezinme özellikleri varlıklardaki istekli yükleme kullanmayı gösterir.
-* Kullanıcı indirmelere (Kimya önceki görüntüde) seçtiğinde ilgili verileri `Enrollments` varlık görüntülenir. Önceki görüntüde Öğrenci adı ve düzeyde görüntülenir. `Course` Ve `Enrollment` varlıklardır bir-çok ilişkisi.
+* Eğitmenler listesini ilgili verileri görüntüleyen `OfficeAssignment` varlık (önceki görüntüde Office). `Instructor` Ve `OfficeAssignment` bir sıfır-veya-bir ilişkide varlıklardır. İstekli yükleme için kullanılan `OfficeAssignment` varlıklar. İlgili veriler görüntülenecek gerektiğinde istekli yükleme genellikle daha verimli olur. Bu durumda, eğitmenler office atamaları görüntülenir.
+* Kullanıcı, ilişkili bir eğitmen (önceki görüntüde Harui) seçtiğinde `Course` varlıkları görüntülenir. `Instructor` Ve `Course` bir çoktan çoğa ilişki içinde varlıklardır. İstekli yükleme için kullanılan `Course` varlıkları ve bunların ilgili `Department` varlıklar. Bu durumda, yalnızca seçili Eğitmen kursları gerekli olduğu ayrı sorgular daha verimli olabilir. Bu örnek gezinme özelliklerinin gezinme özelliklerinde varlıklardaki istekli yükleme kullanmayı gösterir.
+* Kullanıcı bir kurs (önceki görüntüde Kimya) seçtiğinde ilgili verileri `Enrollments` varlık görüntülenir. Yukarıdaki görüntüde, Öğrenci adı ve sınıf görüntülenir. `Course` Ve `Enrollment` bir bire çok ilişkiye varlıklardır.
 
-### <a name="create-a-view-model-for-the-instructor-index-view"></a>Eğitmen dizin görünüm için Görünüm modeli oluşturma
+### <a name="create-a-view-model-for-the-instructor-index-view"></a>Eğitmen dizini görünümü için bir görünüm modeli oluşturun
 
-Eğitmen sayfanın üç farklı tablolardan verileri gösterir. Bir görünüm modeli üç tabloyu temsil eden üç varlıkları içeren oluşturulur.
+Eğitmenler sayfanın üç farklı tablolardaki verileri gösterir. Üç tabloyu temsil eden üç varlıkları içeren bir görünüm modeli oluşturulur.
 
-İçinde *SchoolViewModels* klasörü oluşturmak *InstructorIndexData.cs* aşağıdaki kod ile:
+İçinde *SchoolViewModels* klasör oluşturma *InstructorIndexData.cs* aşağıdaki kod ile:
 
 [!code-csharp[](intro/samples/cu/Models/SchoolViewModels/InstructorIndexData.cs)]
 
 ### <a name="scaffold-the-instructor-model"></a>İskele Eğitmen modeli
 
 * Visual Studio'dan çıkın.
-* Proje dizininde bir komut penceresi açın (içeren dizine *Program.cs*, *haline*, ve *.csproj* dosyaları).
+* Proje dizininde bir komut penceresi açın (içeren dizine *Program.cs*, *Startup.cs*, ve *.csproj* dosyaları).
 * Şu komutu çalıştırın:
 
   ```console
   dotnet aspnet-codegenerator razorpage -m Instructor -dc SchoolContext -udl -outDir Pages\Instructors --referenceScriptLibraries
   ```
 
-Yukarıdaki komut iskelesini kurar `Instructor` modeli. Projesini Visual Studio'da açın.
+Önceki komut iskelesini kurar `Instructor` modeli. Projeyi Visual Studio'da açın.
 
 Projeyi oluşturun. Derleme hataları oluşturur.
 
-Genel olarak değiştirmek `_context.Instructor` için `_context.Instructors` ("s" eklemek diğer bir deyişle, `Instructor`). 7 oluşumu bulundu ve güncelleştirildi.
+Genel olarak değiştirme `_context.Instructor` için `_context.Instructors` ("s" eklemek diğer bir deyişle, `Instructor`). 7 oluşum bulundu ve güncelleştirildi.
 
-Uygulamayı çalıştırın ve Eğitmen sayfasına gidin.
+Uygulamayı çalıştırın ve Eğitmenler sayfasına gidin.
 
-Değiştir *Pages/Instructors/Index.cshtml.cs* aşağıdaki kod ile:
+Değiştirin *Pages/Instructors/Index.cshtml.cs* aşağıdaki kod ile:
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/Index1.cshtml.cs?name=snippet_all&highlight=2,20-99)]
 
-`OnGetAsync` Yöntemi seçili Eğitmen kimliği için isteğe bağlı rota veri kabul eder.
+`OnGetAsync` Yöntemi seçili Eğitmen kimliği için isteğe bağlı rota verileri kabul eder.
 
-Sorguda inceleyin *Pages/Instructors/Index.cshtml.cs* dosyası:
+Sorguyu inceleyin *Pages/Instructors/Index.cshtml.cs* dosyası:
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/Index1.cshtml.cs?name=snippet_ThenInclude)]
 
-Sorgu iki sahip içerir:
+İki sorgu içeren içerir:
 
-* `OfficeAssignment`: Görüntülenen [Eğitmen Görünüm](#IP).
-* `CourseAssignments`: Hangi öğrettin kursları getirir.
+* `OfficeAssignment`: İçinde görüntülenen [Eğitmenler görünümü](#IP).
+* `CourseAssignments`: Bu, verilen derslerimiz getirir.
 
 
-### <a name="update-the-instructors-index-page"></a>Güncelleştirme Eğitmen dizin sayfası
+### <a name="update-the-instructors-index-page"></a>Eğitmenler dizin sayfası
 
-Güncelleştirme *Pages/Instructors/Index.cshtml* aşağıdaki biçimlendirme ile:
+Güncelleştirme *Pages/Instructors/Index.cshtml* aşağıdaki işaretlemeyle:
 
 [!code-html[](intro/samples/cu/Pages/Instructors/IndexRRD.cshtml?range=1-65&highlight=1,5,8,16-21,25-32,43-57)]
 
 Önceki biçimlendirme, aşağıdaki değişiklikleri yapar:
 
-* Güncelleştirmeleri `page` gelen yönerge `@page` için `@page "{id:int?}"`. `"{id:int?}"` bir rota şablonudur. Rota şablonu için rota verilerini tamsayı URL'deki sorgu dizelerini değiştirir. Örneğin, tıklayarak **seçin** bağlantı için yalnızca bir eğitmen `@page` yönergesi aşağıdaki gibi bir URL oluşturur:
+* Güncelleştirmeleri `page` gelen yönerge `@page` için `@page "{id:int?}"`. `"{id:int?}"` bir rota şablonudur. Rota şablonu tamsayı sorgu dizelerine URL rota verilerini değiştirir. Örneğin, tıklayarak **seçin** bağlantı için yalnızca bir eğitmen `@page` yönergesi, aşağıdaki gibi bir URL oluşturur:
 
     `http://localhost:1234/Instructors?id=2`
 
@@ -206,8 +206,8 @@ Güncelleştirme *Pages/Instructors/Index.cshtml* aşağıdaki biçimlendirme il
 
     `http://localhost:1234/Instructors/2`
 
-* Sayfa başlığı **Eğitmen**.
-* Eklenen bir **Office** görüntüleyen sütun `item.OfficeAssignment.Location` yalnızca `item.OfficeAssignment` null değil. Bu bir tane-sıfır-veya-bir ilişkisi olduğundan, ilgili OfficeAssignment varlık olmayabilir.
+* Sayfa başlığı **Eğitmenler**.
+* Eklenen bir **Office** görüntüleyen sütun `item.OfficeAssignment.Location` yalnızca `item.OfficeAssignment` null değil. Bu bir sıfır-veya-bir ilişkisi olduğundan, ilgili OfficeAssignment varlık olmayabilir.
 
   ```html
   @if (item.OfficeAssignment != null)
@@ -216,9 +216,9 @@ Güncelleştirme *Pages/Instructors/Index.cshtml* aşağıdaki biçimlendirme il
   }
   ```
 
-* Eklenen bir **kurslar** kurslar görüntüleyen sütun tarafından her Eğitmen öğrettin. Bkz: [açık satır geçişle `@:` ](xref:mvc/views/razor#explicit-line-transition-with-) bu razor sözdizimi hakkında daha fazla bilgi için.
+* Eklenen bir **kursları** kursları görüntüleyen sütun her Eğitmenler tarafından verilen. Bkz: [açık satır geçişle `@:` ](xref:mvc/views/razor#explicit-line-transition-with-) bu razor sözdizimi hakkında daha fazla bilgi için.
 
-* Dinamik olarak ekleyen eklenen kod `class="success"` için `tr` seçili Eğitmen öğesidir. Bu önyükleme sınıfını kullanarak seçili olan satır için bir arka plan rengini belirler.
+* Dinamik olarak ekleyen, eklenen kod `class="success"` için `tr` seçili Eğitmen öğesidir. Bu önyükleme sınıfını kullanarak seçili satır için bir arka plan rengini ayarlar.
 
   ```html
   string selectedRow = "";
@@ -229,19 +229,19 @@ Güncelleştirme *Pages/Instructors/Index.cshtml* aşağıdaki biçimlendirme il
   <tr class="@selectedRow">
   ```
 
-* Etiketli yeni bir köprü eklenen **seçin**. Bu bağlantı için seçilen Eğitmen kimliği gönderir `Index` yöntemi ve arka plan rengini belirler.
+* Etiketli yeni köprü eklenmiş **seçin**. Bu bağlantı için seçilen Eğitmen kodu gönderir `Index` yöntemi ve bir arka plan rengini ayarlar.
 
   ```html
   <a asp-action="Index" asp-route-id="@item.ID">Select</a> |
   ```
 
-Uygulamayı çalıştırın ve seçin **Eğitmen** sekmesi. Sayfa görüntüler `Location` (office) ilgili öğesinden `OfficeAssignment` varlık. Varsa OfficeAssignment' olan bir boş tablo hücresi null görüntülenir.
+Uygulamayı çalıştırmak ve seçmek **Eğitmenler** sekmesi. Sayfa görüntüler `Location` (office) ilgili gelen `OfficeAssignment` varlık. Varsa OfficeAssignment' olan null, boş bir tablo hücresi görüntülenir.
 
-![Seçili hiçbir şey Eğitmen dizin sayfası](read-related-data/_static/instructors-index-no-selection.png)
+![Hiçbir şey seçili Eğitmenler dizin sayfası](read-related-data/_static/instructors-index-no-selection.png)
 
-Tıklayın **seçin** bağlantı. Satır stili değişiklikleri.
+Tıklayarak **seçin** bağlantı. Satır stili değişiklikler.
 
-### <a name="add-courses-taught-by-selected-instructor"></a>Seçili Eğitmen tarafından öğrettin kurslar ekleme
+### <a name="add-courses-taught-by-selected-instructor"></a>Seçili Eğitmenler tarafından verilen derslerimiz Ekle
 
 Güncelleştirme `OnGetAsync` yönteminde *Pages/Instructors/Index.cshtml.cs* aşağıdaki kod ile:
 
@@ -251,42 +251,42 @@ Ekleme `public int CourseID { get; set; }`
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_1&highlight=12)]
 
-Güncelleştirilmiş sorgu inceleyin:
+Güncelleştirilen sorguyu inceleyin:
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_ThenInclude)]
 
 Önceki sorgunun ekler `Department` varlıklar.
 
-Aşağıdaki kod bir eğitmen seçildiğinde yürütür (`id != null`). Seçili Eğitmen görünüm modeli Eğitmen listesi alınır. Görünüm modelinin `Courses` özelliği ile yüklenir `Course` Bu eğitmen varlıklardan `CourseAssignments` gezinti özelliği.
+Bir eğitmen seçildiğinde aşağıdaki kodu çalıştırır (`id != null`). Seçili Eğitmen görünüm modeli eğitmenlerini listesi alınır. Görünüm modeli `Courses` özelliğinin yüklü olan `Course` Bu eğitmen varlıklardan `CourseAssignments` gezinme özelliği.
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_ID)]
 
-`Where` Yöntem koleksiyonu döndürür. Yukarıdaki içinde `Where` yöntemi, tek bir `Instructor` varlık döndürülür. `Single` Yöntemi tek bir koleksiyon dönüştürür `Instructor` varlık. `Instructor` Varlık erişim sağlar `CourseAssignments` özelliği. `CourseAssignments` ilgili erişim sağlayan `Course` varlıklar.
+`Where` Yöntemi koleksiyonunu döndürür. Önceki içinde `Where` yöntemi, tek bir `Instructor` varlık döndürülür. `Single` Yöntemi, tek bir koleksiyon dönüştürür `Instructor` varlık. `Instructor` Varlık erişim sağlar `CourseAssignments` özelliği. `CourseAssignments` ilgili erişim sağlayan `Course` varlıklar.
 
-![Eğitmen kurslar m:M](complex-data-model/_static/courseassignment.png)
+![Eğitmen kursları m:M](complex-data-model/_static/courseassignment.png)
 
-`Single` Koleksiyon yalnızca bir öğe varsa, yöntemi bir koleksiyonda kullanılır. `Single` Yöntemi koleksiyonu boş ise veya birden çok öğe varsa bir özel durum oluşturur. Bir alternatif `SingleOrDefault`, hangi varsayılan değeri döndürür (Bu durumda null) koleksiyonu boş ise. Kullanarak `SingleOrDefault` boş bir koleksiyon üzerinde:
+`Single` Yöntemi yalnızca bir öğe koleksiyonu olduğunda üzerindeki bir koleksiyona kullanılır. `Single` Yöntemi koleksiyonu boş ise veya birden fazla öğe varsa bir özel durum oluşturur. Alternatif `SingleOrDefault`, hangi varsayılan değeri döndürür (Bu durumda null) koleksiyonu boş ise. Kullanarak `SingleOrDefault` boş bir koleksiyon üzerinde:
 
-* Bir özel durum oluşur (bulunmaya çalışılırken gelen bir `Courses` özelliği bir null başvuru).
-* Özel durum iletisi daha az açıkça sorunun nedenini gösterir.
+* Bir özel durum oluşur (bulunmaya çalışılırken gelen bir `Courses` null başvuru özelliği).
+* Özel durum iletisi sorunun nedenini daha net bir şekilde gösterir.
 
-Aşağıdaki kod görünüm modelinin doldurur `Enrollments` bir indirmelere seçildiğinde özelliği:
+Aşağıdaki kod görünümü modelin doldurur `Enrollments` kurs seçildiğinde özelliği:
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_courseID)]
 
-Aşağıdaki biçimlendirmede sonuna ekleyin *Pages/Instructors/Index.cshtml* Razor sayfasını:
+Sonuna aşağıdaki işaretlemeyi ekleyin *Pages/Instructors/Index.cshtml* Razor sayfası:
 
 [!code-html[](intro/samples/cu/Pages/Instructors/IndexRRD.cshtml?range=60-102&highlight=7-999)]
 
-Önceki biçimlendirme bir eğitmen seçildiğinde bir eğitmen ilgili kurslar listesini görüntüler.
+Önceki biçimlendirme bir eğitmen seçildiğinde bir eğitmen için ilgili kurslar listesini görüntüler.
 
-Uygulamayı test etme. Tıklayın bir **seçin** bağlantısı Eğitmen sayfası.
+Uygulamayı test etme. Tıklayarak bir **seçin** Eğitmenler sayfasında bağlantı.
 
-![Seçili Eğitmen dizin sayfası Eğitmen](read-related-data/_static/instructors-index-instructor-selected.png)
+![Seçili Eğitmenler dizin sayfası Eğitmen](read-related-data/_static/instructors-index-instructor-selected.png)
 
 ### <a name="show-student-data"></a>Öğrenci verileri göster
 
-Bu bölümde, uygulama seçili indirmelere Öğrenci verileri gösterecek biçimde güncelleştirilir.
+Bu bölümde, uygulama, seçilen bir kurs Öğrenci verilerini göstermek için güncelleştirilir.
 
 Sorguda güncelleştirme `OnGetAsync` yönteminde *Pages/Instructors/Index.cshtml.cs* aşağıdaki kod ile:
 
@@ -296,43 +296,43 @@ Güncelleştirme *Pages/Instructors/Index.cshtml*. Aşağıdaki biçimlendirmede
 
 [!code-html[](intro/samples/cu/Pages/Instructors/IndexRRD.cshtml?range=103-)]
 
-Önceki biçimlendirme seçili indirmelere kaydedilen Öğrenciler listesini görüntüler.
+Önceki biçimlendirme seçili kursun kayıtlı öğrencilere listesini görüntüler.
 
-Sayfayı yenileyin ve bir eğitmen seçin. Kayıtlı Öğrenciler ve bunların dereceleri listesini görmek için bir indirmelere seçin.
+Sayfayı yenileyin ve bir eğitmen seçin. Kayıtlı Öğrenci ve kendi derece listesini görmek için bir kurs seçin.
 
-![Eğitmen dizin sayfası Eğitmen ve seçili indirmelere](read-related-data/_static/instructors-index.png)
+![Eğitmenler dizin sayfası Eğitmen ve seçilen kursu](read-related-data/_static/instructors-index.png)
 
 ## <a name="using-single"></a>Tek kullanma
 
-`Single` Yöntemi geçirebilir `Where` çağırmak yerine koşulu `Where` yöntemi ayrı olarak:
+`Single` Yöntemi geçirebilir `Where` koşul çağırmak yerine `Where` yöntemi ayrı olarak:
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/IndexSingle.cshtml.cs?name=snippet_single&highlight=21,28-29)]
 
-Yukarıdaki `Single` yaklaşım kullanarak üzerinden hiçbir yararları sağlar `Where`. Bazı geliştiriciler tercih `Single` yaklaşımını stili.
+Önceki `Single` yaklaşımı kullanarak üzerinde hiçbir yararları sağlar `Where`. Bazı geliştiriciler tercih `Single` yaklaşımını stili.
 
-## <a name="explicit-loading"></a>Açık yükleniyor
+## <a name="explicit-loading"></a>Açık yükleme
 
 İstekli yükleme için geçerli kod belirtir `Enrollments` ve `Students`:
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/Index.cshtml.cs?name=snippet_ThenInclude&highlight=6-9)]
 
-Kullanıcıların nadiren bir seyrinde kayıtları görmek istediğinizi varsayalım. Bu durumda, bir en iyi duruma getirme istenirse kayıt verileri yalnızca yüklemek olacaktır. Bu bölümde `OnGetAsync` açık yüklenmesini kullanmak için güncelleştirilmiş `Enrollments` ve `Students`.
+Kullanıcılar nadiren kayıtları bir kursta görmek istediğinizi varsayalım. Bu durumda, istenirse yalnızca kayıt verileri yüklemek için bir en iyi duruma getirme olacaktır. Bu bölümde, `OnGetAsync` açık yükleme kullanmak için güncelleştirilmiş `Enrollments` ve `Students`.
 
 Güncelleştirme `OnGetAsync` aşağıdaki kod ile:
 
 [!code-csharp[](intro/samples/cu/Pages/Instructors/IndexXp.cshtml.cs?name=snippet_OnGetAsync&highlight=9-13,29-35)]
 
-Önceki kod bırakır *ThenInclude* için kayıt ve Öğrenci verileri yöntemini çağırır. Bir indirmelere seçtiyseniz vurgulanmış kodu alır:
+Yukarıdaki kod bıraktığı *ThenInclude* için verileri kayıt ve Öğrenci yöntemini çağırır. Bir kurs seçtiyseniz vurgulanmış kodu alır:
 
-* `Enrollment` Seçili indirmelere için varlıklar.
+* `Enrollment` Seçili kurs için varlıklar.
 * `Student` Varlıklar her `Enrollment`.
 
-Yorumlar çıkış kodu yukarıdaki fark `.AsNoTracking()`. Gezinti özellikleri, izlenen varlıklar için yalnızca bir açıkça yüklenebilir.
+Açıklama çıkış kodu önceki fark `.AsNoTracking()`. Gezinti özellikleri, izlenen varlıklar için yalnızca bir açıkça yüklenebilir.
 
-Uygulamayı test etme. Kullanıcılar açısından bakıldığında, uygulamanın önceki sürüme geri aynı şekilde davranır.
+Uygulamayı test etme. Kullanıcılar açısından bakıldığında, app, önceki sürüme aynı şekilde davranır.
 
-Sonraki öğretici ilgili verileri güncelleştirmek nasıl gösterir.
+Sonraki öğreticide, ilgili verileri güncelleştirme işlemi gösterilmektedir.
 
 >[!div class="step-by-step"]
 >[Önceki](xref:data/ef-rp/complex-data-model)
->[sonraki](xref:data/ef-rp/update-related-data)
+>[İleri](xref:data/ef-rp/update-related-data)
