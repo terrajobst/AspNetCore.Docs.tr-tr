@@ -1,15 +1,15 @@
 <a name="scaffold"></a>
-### <a name="scaffold-the-movie-model"></a>İskele film modeli
+### <a name="scaffold-the-movie-model"></a>Film modeli iskelesini
 
-* Aşağıdaki komut satırından çalıştırma (içeren proje dizininde *Program.cs*, *haline*, ve *.csproj* dosyaları):
+* Komut satırından aşağıdaki komutu çalıştırın (içeren proje dizininde *Program.cs*, *Startup.cs*, ve *.csproj* dosyaları):
 
   ```console
   dotnet aspnet-codegenerator razorpage -m Movie -dc MovieContext -udl -outDir Pages/Movies --referenceScriptLibraries
   ```
 
-Hatayı alırsanız:
+Hatası alırsanız:
   ```
 No executable found matching command "dotnet-aspnet-codegenerator"
   ```
 
-Proje dizini için bir komut kabuğunu açın (içeren dizine *Program.cs*, *haline*, ve *.csproj* dosyaları).
+Proje dizini için bir komut kabuğunu açın (içeren dizine *Program.cs*, *Startup.cs*, ve *.csproj* dosyaları).

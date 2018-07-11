@@ -1,5 +1,5 @@
 <a name="cli"></a>
-## <a name="add-scaffold-tooling-and-perform-initial-migration"></a>İskele araç ekleyin ve başlangıç geçiş gerçekleştirme
+## <a name="add-scaffold-tooling-and-perform-initial-migration"></a>Yapı iskelesi araçları ekleyin ve ilk geçiş gerçekleştirme
 
 Komut satırından aşağıdaki .NET Core CLI komutları çalıştırın:
 
@@ -10,8 +10,8 @@ dotnet ef migrations add InitialCreate
 dotnet ef database update
 ```
 
-`add package` Komutu yapı iskelesi altyapısı çalıştırmak için gerekli araçları yükler.
+`add package` Komut yapı iskelesi altyapısı çalıştırmak için gerekli araçları yükler.
 
-`ef migrations add InitialCreate` Komutu ilk veritabanı şeması oluşturmak için kod oluşturur. Belirtilen model şeması dayalı `DbContext` (içinde *Models/MovieContext.cs* dosyası). `InitialCreate` Bağımsız değişkeni geçişler adlandırmak için kullanılır. Herhangi bir ad kullanabilirsiniz, ancak kurala göre geçiş açıklayan bir ad seçin. Bkz: [geçişler giriş](xref:data/ef-mvc/migrations#introduction-to-migrations) daha fazla bilgi için.
+`ef migrations add InitialCreate` Komut, ilk veritabanı şeması oluşturmak için kod oluşturur. Belirtilen model şeması dayanır `DbContext` (içinde *Models/MovieContext.cs* dosyası). `InitialCreate` Bağımsız değişkeni, geçişlerin adlandırmak için kullanılır. Herhangi bir adı kullanabilirsiniz, ancak bu kurala göre geçiş tanımlayan bir ad seçin. Bkz: [geçişler giriş](xref:data/ef-mvc/migrations#introduction-to-migrations) daha fazla bilgi için.
 
-`ef database update` Komutu çalıştırır `Up` yönteminde *geçişleri /\<zaman damgası > _InitialCreate.cs* dosyası bir veritabanı oluşturur.
+`ef database update` Komutu çalıştırmaları `Up` yöntemi *geçişleri /\<zaman damgası > _InitialCreate.cs* dosyasını veritabanı oluşturur.

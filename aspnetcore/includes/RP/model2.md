@@ -1,14 +1,14 @@
-Aşağıdaki özellikleri ekleyin `Movie` sınıfı:
+Aşağıdaki özellikleri `Movie` sınıfı:
 
 [!code-csharp[](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Models/MovieNoEF.cs?name=snippet_MovieNoEF)]
 
-`ID` Alan veritabanı için birincil anahtarı gerekli.
+`ID` Alan veritabanı için birincil anahtar tarafından gereklidir.
 
 <a name="dc"></a>
-### <a name="add-a-database-context-class"></a>Veritabanı bağlamı sınıfı ekleme
+### <a name="add-a-database-context-class"></a>Veritabanı bağlamı sınıfının Ekle
 
-Aşağıdakileri ekleyin *MovieContext.cs* sınıfının *modelleri* klasörü:  
+Aşağıdaki *MovieContext.cs* sınıfının *modelleri* klasörü:  
 
 [!code-csharp[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Models/MovieContext.cs)]
 
-Önceki kod oluşturur bir `DbSet` özelliği için varlık kümesi. Entity Framework terminoloji, bir varlık kümesine genellikle bir veritabanı tablosuna karşılık gelir ve bir varlık tablosunda bir satırı karşılık gelir.
+Yukarıdaki kod oluşturur bir `DbSet` varlık kümesi özelliği. Entity Framework terminolojisinde, bir varlık kümesini genellikle bir veritabanı tablosuna karşılık gelir ve bir varlık tablosunda bir satıra karşılık gelir.

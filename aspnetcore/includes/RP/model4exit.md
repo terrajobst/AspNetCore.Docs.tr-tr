@@ -1,4 +1,4 @@
-Hatayı alırsanız:
+Hatası alırsanız:
   ```
   The process cannot access the file 
  'RazorPagesMovie/bin/Debug/netcoreapp2.0/RazorPagesMovie.dll' 
