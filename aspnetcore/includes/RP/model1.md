@@ -1,9 +1,9 @@
-tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Bu bölümde, bir veritabanında filmler yönetmek için sınıfları ekleyin. Bu sınıflarla kullandığınız [Entity Framework Çekirdek](/ef/core) (EF bir veritabanıyla çalışmak için temel). EF çekirdek yazmak zorunda veri erişim kodu basitleştiren bir nesne ilişkisel eşleme (ORM) çerçevedir.
+Bu bölümde, bir veritabanında filmler yönetmek için sınıflar ekleyin. Bu sınıflar ile kullandığınız [Entity Framework Core](/ef/core) bir veritabanıyla çalışmak için (EF Core). EF Core, yazmanız gereken veri erişim kodu kolaylaştıran bir nesne ilişkisel eşleme (ORM) çerçevedir.
 
-EF çekirdeği üzerinde herhangi bir bağımlılığı olmadığından oluşturduğunuz modeli sınıfları ("düz eski CLR nesnelerden") POCO sınıfları olarak bilinir. Bunlar veritabanında depolanan veriler için özellikleri tanımlayın.
+EF Core üzerinde herhangi bir bağımlılığı olmadığından oluşturduğunuz modeli sınıfları ("düz eski CLR nesnelerden") POCO sınıfları olarak bilinir. Bunlar, veritabanında depolanan verilerin özelliklerini tanımlayın.
 
-Bu öğreticide modeli sınıfları ilk yazma ve veritabanı EF çekirdek oluşturur. Burada kapsamında olmayan alternatif bir yaklaşım [varolan bir veritabanından modeli sınıfları oluşturmak](/ef/core/get-started/aspnetcore/existing-db).
+Bu öğreticide model sınıfları ilk yazma ve EF Core veritabanı oluşturur. Burada ele alınmamaktadır alternatif bir yaklaşım [varolan bir veritabanından model sınıfları oluşturma](/ef/core/get-started/aspnetcore/existing-db).
 
-[Görüntülemek veya karşıdan](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie) örnek.
+[Görüntüleme veya indirme](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie) örnek.

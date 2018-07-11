@@ -1,43 +1,43 @@
 ---
-title: Razor sayfalarının ASP.NET Core - Migrations - 4 8'in EF çekirdek ile
+title: ASP.NET core'da - geçiş - 4 8 EF çekirdekli Razor sayfaları
 author: rick-anderson
-description: Bu öğreticide, bir ASP.NET Core MVC uygulamasında veri modeli değişikliklerini yönetmek için EF çekirdek geçişler özelliği kullanmaya başlayın.
+description: Bu öğreticide, ASP.NET Core MVC uygulaması içindeki veri modeli değişikliklerini yönetmek için EF Core geçişleri özelliğini kullanarak başlatın.
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/migrations
-ms.openlocfilehash: 15e3bc57e98b249cbefc394bbe1a136a709a03a7
-ms.sourcegitcommit: 1faf2525902236428dae6a59e375519bafd5d6d7
+ms.openlocfilehash: 2051f55bfa7a9582486df78ec91315f0b03cb1e8
+ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37089964"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37938384"
 ---
-# <a name="razor-pages-with-ef-core-in-aspnet-core---migrations---4-of-8"></a>Razor sayfalarının ASP.NET Core - Migrations - 4 8'in EF çekirdek ile
+# <a name="razor-pages-with-ef-core-in-aspnet-core---migrations---4-of-8"></a>ASP.NET core'da - geçiş - 4 8 EF çekirdekli Razor sayfaları
 
 [!INCLUDE[2.0 version](~/includes/RP-EF/20-pdf.md)]
 
 ::: moniker range=">= aspnetcore-2.1"
 
-Tarafından [zel Dykstra](https://github.com/tdykstra), [Jon P Smith](https://twitter.com/thereformedprog), ve [Rick Anderson](https://twitter.com/RickAndMSFT)
+Tarafından [Tom Dykstra](https://github.com/tdykstra), [Jon P Smith](https://twitter.com/thereformedprog), ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [!INCLUDE [about the series](~/includes/RP-EF/intro.md)]
 
-Bu öğreticide, veri modeli değişikliklerini yönetmek için EF çekirdek geçişler özelliği kullanılır.
+Bu öğreticide, veri modeli değişikliklerini yönetmek için EF Core geçişleri özelliği kullanılır.
 
 Olamaz çözmek sorunlarla karşılaşırsanız, indirme [tamamlanan uygulama](
 https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples).
 
-Yeni bir uygulama geliştirilmiş, veri değişikliklerini sık model. Her model değişiklikleri model veritabanı ile eşitlenmemiş alır. Bu öğretici yoksa veritabanı oluşturmak için Entity Framework yapılandırma tarafından başlatıldı. Her veri değişiklikleri model:
+Yeni bir uygulama geliştirdiğinizde, veri değişikliklerini sık model. Her model veritabanı ile eşitlenmemiş model değişiklikleri alır. Bu öğreticide, mevcut değilse veritabanını oluşturmak için Entity Framework yapılandırarak başlatıldı. Veri değişiklikleri model her zaman:
 
 * DB bırakılır.
-* EF model eşleşen yeni bir tane oluşturur.
-* Uygulamayı test verilerle DB çekirdeğini oluşturur.
+* EF modeli eşleşen yeni bir tane oluşturur.
+* Uygulamayı test verilerle bir veritabanı sağlar.
 
-DB veri modeli ile eşitlenmiş tutmak için bu yaklaşım, iyi uygulamayı üretime dağıtmak istediğiniz kadar çalışır. Uygulama üretimde çalıştırırken, genellikle sürdürülmesi için gereken veri saklama. Uygulama, bir test (yeni bir sütun ekleme gibi) her değişiklik yapıldığında DB ile başlayamaz. EF çekirdek geçişler özelliği EF yeni bir veritabanı oluşturmak yerine DB şeması güncelleştirmek çekirdek sağlayarak bu sorunu çözer.
+DB veri modeli ile eşitlenmiş tutmak için bu yaklaşım da uygulamayı üretime dağıtma kadar çalışır. Uygulamayı üretim ortamında çalıştırırken, genellikle sürdürülmesi için gereken verileri depoladığı. Uygulama, bir test (yeni bir sütun eklenmesi gibi) her değişiklik yapıldığında DB ile başlayamaz. EF Core geçişleri özelliği, yeni bir veritabanı oluşturmak yerine DB şemayı güncelleştirmenin EF Core sağlayarak bu sorunu çözer.
 
-Bırakma ve değişiklikleri veri modelini kullanırken DB yeniden oluşturma, yerine geçişler şema güncelleştirir ve mevcut verileri korur.
+Bırakma ve değişiklikler veri modelini kullanırken DB yeniden yerine geçişleri şemasını güncelleştirir ve mevcut verileri korur.
 
-## <a name="drop-the-database"></a>Veritabanı bırakma
+## <a name="drop-the-database"></a>Veritabanını bırakma
 
 Kullanım **SQL Server Nesne Gezgini** (SSOX) veya `database drop` komutu:
 
@@ -49,11 +49,11 @@ Kullanım **SQL Server Nesne Gezgini** (SSOX) veya `database drop` komutu:
 Drop-Database
 ```
 
-Çalıştırma `Get-Help about_EntityFrameworkCore` Yardım bilgilerine ulaşmak için PMC gelen.
+Çalıştırma `Get-Help about_EntityFrameworkCore` Yardım bilgilerini almak için PMC'yi öğesinden.
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
-Bir komut penceresi açın ve proje klasörüne gidin. Proje klasörünü içeren *haline* dosya.
+Bir komut penceresi açın ve proje klasörüne gidin. Proje klasörünü içeren *Startup.cs* dosya.
 
 Komut penceresinde aşağıdakileri girin:
 
@@ -63,9 +63,9 @@ Komut penceresinde aşağıdakileri girin:
 
 ------
 
-## <a name="create-an-initial-migration-and-update-the-db"></a>İlk geçiş oluşturun ve DB güncelleştirin
+## <a name="create-an-initial-migration-and-update-the-db"></a>Bir başlangıç geçiş oluşturun ve DB update
 
-Projeyi derlemek ve ilk geçiş oluşturun.
+Projeyi oluşturun ve ilk geçiş oluşturun.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -83,28 +83,28 @@ dotnet ef database update
 
 ------
 
-### <a name="examine-the-up-and-down-methods"></a>Yukarı inceleyin ve yöntemleri aşağı
+### <a name="examine-the-up-and-down-methods"></a>Yöntemleri aşağı ve yukarı inceleyin
 
-EF çekirdek `migrations add` DB oluşturmak için oluşturulan komut kodu. Bu geçiş kod *geçişler\<zaman damgası > _InitialCreate.cs* dosya. `Up` Yöntemi `InitialCreate` sınıf veri modeli varlık kümeleri için karşılık gelen DB tablolar oluşturur. `Down` Yöntemi siler, bunları, aşağıdaki örnekte gösterildiği gibi:
+EF Core `migrations add` bir veritabanı oluşturmak için oluşturulan komut kodu. Bu geçiş kodu *geçişler\<zaman damgası > _InitialCreate.cs* dosya. `Up` Yöntemi `InitialCreate` sınıfı, karşılık gelen bir veri modeli varlık kümeleri DB tablolar oluşturur. `Down` Yöntemi siler, bunları, aşağıdaki örnekte gösterildiği gibi:
 
 [!code-csharp[](intro/samples/cu21/Migrations/20180626224812_InitialCreate.cs?range=7-24,77-88)]
 
-Geçişler çağrıları `Up` geçiş için veri modeli değişikliklerini uygulamak için yöntem. Geri alma güncelleştirme, geçişler çağrıları komutu girdiğinizde `Down` yöntemi.
+Geçişleri çağrıları `Up` geçiş için veri modeli değişikliklerini uygulamak için yöntemi. Güncelleştirme, geçişler çağrıları geri almak için bir komutu girdiğinizde `Down` yöntemi.
 
-Önceki kod için ilk geçiş değil. Kodun ne zaman oluşturulduğu `migrations add InitialCreate` komutu çalıştırıldı. Geçiş adı parametresi (örneğin, "InitialCreate") için dosya adı kullanılır. Geçiş adı geçerli bir dosya adı olabilir. Bir sözcük veya tümcecik geçişte yapıldığını özetler seçmek en iyisidir. Örneğin, bir departman tablosu eklenen bir geçiş "AddDepartmentTable." adlı
+Yukarıdaki kod, ilk geçiş için ' dir. Kodun ne zaman oluşturulduğu `migrations add InitialCreate` komut çalıştırıldı. Geçiş name parametresi (Bu örnekte "InitialCreate"), dosya adı için kullanılır. Geçiş adı geçerli bir dosya adı olabilir. Bir sözcük veya tümcecik geçiş yapıldığını özetleyen seçmek en iyisidir. Örneğin, departman tablosu eklenen bir geçiş "AddDepartmentTable." olarak adlandırılabilir
 
-İlk geçiş oluşturulur ve DB varsa:
+İlk geçiş oluşturulur ve bir veritabanı varsa:
 
-* DB oluşturma kodu oluşturulur.
-* DB oluşturma kodu DB veri modeli eşleştiğinden çalıştırmak gerekmez. DB oluşturma kodu çalıştırırsanız, DB veri modeli eşleştiğinden herhangi bir değişiklik yapmaz.
+* DB oluşturma kod oluşturulur.
+* DB oluşturma kod, bir veritabanı zaten veri modeli ile eşleştiği için çalıştırma gerekmez. DB oluşturma kodu çalıştırırsanız, bir veritabanı zaten veri modeli ile eşleştiği için herhangi bir değişiklik yapmaz.
 
-Uygulama için yeni bir ortam dağıtıldığında DB oluşturma kod DB oluşturmak için çalıştırması gerekir.
+Uygulamanın yeni bir ortama dağıtıldığında, DB oluşumun kodunu bir veritabanı oluşturmak için çalıştırılması gerekir.
 
-Daha önce DB bırakıldı ve geçişleri oluşturur şekilde yeni DB, mevcut değil.
+Daha önce DB bırakıldı ve yeni bir veritabanı geçişleri oluşturur. böylece, mevcut değil.
 
 ### <a name="the-data-model-snapshot"></a>Veri modeli anlık görüntü
 
-Geçişler oluşturma bir *anlık görüntü* geçerli veritabanı şemasının *Migrations/SchoolContextModelSnapshot.cs*. Bir geçiş eklediğinizde, anlık görüntü dosyası veri modeline karşılaştırarak değişiklikler EF belirler.
+Geçiş oluşturma bir *anlık görüntü* içinde geçerli veritabanı şeması *Migrations/SchoolContextModelSnapshot.cs*. Bir geçiş eklediğinizde, anlık görüntü dosyası ve veri modelini karşılaştırarak değişiklikler EF belirler.
 
 Bir geçiş silmek için aşağıdaki komutu kullanın:
 
@@ -118,20 +118,20 @@ Remove-geçiş
 dotnet ef migrations remove
 ```
 
-Daha fazla bilgi için bkz: [dotnet ef geçişler kaldırmak](/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove).
+Daha fazla bilgi için [dotnet ef geçişleri Kaldır](/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove).
 
 ------
 
-Kaldır geçişler komut geçiş siler ve anlık görüntü doğru sıfırlama sağlar.
+Remove geçişleri komutu geçiş siler ve anlık görüntünün doğru şekilde sıfırlama sağlar.
 
 ### <a name="remove-ensurecreated-and-test-the-app"></a>EnsureCreated kaldırın ve uygulamayı test etme
 
-Erken geliştirme `EnsureCreated` kullanıldı. Bu öğreticide, geçişler kullanılır. `EnsureCreated` aşağıdaki sınırlamalara sahiptir:
+Erken geliştirme için `EnsureCreated` kullanıldı. Bu öğreticide, geçişler kullanılır. `EnsureCreated` aşağıdaki sınırlamalara sahiptir:
 
-* Geçişler atlar ve şeması ve DB oluşturur.
-* Geçiş tablosu oluşturmaz.
-* Yapabilirsiniz *değil* geçişler ile kullanılabilir.
-* İçin tasarlanmış burada DB bırakılan ve sık sık yeniden oluşturulan sınama ya da hızlı prototipi oluşturulurken.
+* Geçişleri atlar ve DB ve şema oluşturur.
+* Bir geçiş tablo oluşturmaz.
+* İçin *değil* migrations ile kullanılabilir.
+* İçin tasarlanmış burada DB bırakılan ve sık sık yeniden oluşturulan test veya hızlı prototip oluşturma.
 
 Aşağıdaki satırı Kaldır `DbInitializer`:
 
@@ -139,31 +139,31 @@ Aşağıdaki satırı Kaldır `DbInitializer`:
 context.Database.EnsureCreated();
 ```
 
-Uygulamayı çalıştırın ve DB sağlanmış doğrulayın.
+Uygulamayı çalıştırın ve DB Çekirdek değeri oluşturulmuş doğrulayın.
 
-### <a name="inspect-the-database"></a>Veritabanı inceleyin.
+### <a name="inspect-the-database"></a>Veritabanı inceleyin
 
-Kullanım **SQL Server Nesne Gezgini** DB incelemek için. Eklenmesi fark bir `__EFMigrationsHistory` tablo. `__EFMigrationsHistory` Hangi geçişleri Veritabanına uygulanmış olan tablo izler. Verileri görüntüleme `__EFMigrationsHistory` tablo, ilk geçiş için bir satır gösterir. Son günlük önceki CLI çıkış örnekte bu satırı oluşturur INSERT deyiminin gösterir.
+Kullanım **SQL Server Nesne Gezgini** DB incelemek için. Ek fark bir `__EFMigrationsHistory` tablo. `__EFMigrationsHistory` Tablo, hangi geçişler için DB uygulanmış olduğunu izler. Verileri görüntüleme `__EFMigrationsHistory` tablo, ilk geçiş için bir satır gösterir. Son günlük önceki CLI çıktı örnekte bu satırı oluşturur INSERT deyimini gösterir.
 
-Uygulamayı çalıştırın ve her şeyi çalıştığını doğrulayın.
+Uygulamayı çalıştırın ve her şeyin çalıştığını doğrulayın.
 
-## <a name="applying-migrations-in-production"></a>Üretim geçişleri uygulama
+## <a name="applying-migrations-in-production"></a>Üretim geçişleri uygulanıyor
 
-Üretim uygulamaları gereken öneririz **değil** çağrısı [Database.Migrate](/dotnet/api/microsoft.entityframeworkcore.relationaldatabasefacadeextensions.migrate?view=efcore-2.0#Microsoft_EntityFrameworkCore_RelationalDatabaseFacadeExtensions_Migrate_Microsoft_EntityFrameworkCore_Infrastructure_DatabaseFacade_) uygulama başlangıcında. `Migrate` sunucu grubundaki bir uygulamadan çağrılması gerekir. Örneğin, uygulama (uygulama birden çok örneğini çalıştıran) genişleme ile dağıtılan bulut olması durumunda.
+Üretim uygulamaları gereken öneririz **değil** çağrı [Database.Migrate](/dotnet/api/microsoft.entityframeworkcore.relationaldatabasefacadeextensions.migrate?view=efcore-2.0#Microsoft_EntityFrameworkCore_RelationalDatabaseFacadeExtensions_Migrate_Microsoft_EntityFrameworkCore_Infrastructure_DatabaseFacade_) uygulama başlangıcında. `Migrate` sunucu grubundaki bir uygulamadan çağrılabilir olmamalıdır. Örneğin, uygulama (uygulama birden çok örneğini çalıştıran) ölçeklendirme ile dağıtılan bulut olmaması durumunda.
 
-Veritabanı geçiş, dağıtım ve denetimli bir şekilde bir parçası olarak yapılmalıdır. Üretim veritabanı geçiş yaklaşımlar şunlardır:
+Veritabanı geçişi, dağıtım ve denetimli bir şekilde bir parçası olarak yapılmalıdır. Üretim veritabanı geçiş yaklaşımını şunlardır:
 
-* SQL komut dosyaları oluşturmak için geçişleri kullanmaya ve dağıtımda SQL komut dosyalarını kullanarak.
-* Çalışan `dotnet ef database update` denetimli ortamından.
+* SQL komut dosyaları ve dağıtımda SQL betiklerini kullanarak oluşturmaya geçişleri kullanma.
+* Çalışan `dotnet ef database update` denetimli bir ortamda öğesinden.
 
-EF çekirdek kullanan `__MigrationsHistory` tüm geçişler çalıştırmak gerekip gerekmediğini görmek için tablo. DB güncel ise, herhangi bir geçiş çalıştırın.
+EF Core kullanan `__MigrationsHistory` tüm geçişler çalıştırma gerekip gerekmediğini görmek için tabloyu. DB güncel ise, hiçbir geçiş çalıştırılır.
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
-Karşıdan [tamamlanan uygulama](
+İndirme [tamamlanan uygulama](
 https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part4-migrations).
 
-Uygulama şu özel durum oluşturur:
+Uygulama, şu özel durum oluşturur:
 
 ```text
 SqlException: Cannot open database "ContosoUniversity" requested by the login.
@@ -171,7 +171,7 @@ The login failed.
 Login failed for user 'user name'.
 ```
 
-Çözüm: Çalıştır `dotnet ef database update`
+Çözüm: çalıştırın `dotnet ef database update`
 
 ### <a name="additional-resources"></a>Ek kaynaklar
 
@@ -182,4 +182,4 @@ Login failed for user 'user name'.
 
 > [!div class="step-by-step"]
 > [Önceki](xref:data/ef-rp/sort-filter-page)
-> [sonraki](xref:data/ef-rp/complex-data-model)
+> [İleri](xref:data/ef-rp/complex-data-model)

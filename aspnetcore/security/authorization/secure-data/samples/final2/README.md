@@ -1,11 +1,11 @@
-# <a name="how-to-buildrun-secure-user-data-sample"></a>Nasıl yapı/güvenli kullanıcı veri örneği çalıştırma
+# <a name="how-to-buildrun-secure-user-data-sample"></a>Nasıl derleme/güvenli kullanıcı veri örneği çalıştırma
 
-* Parola Yöneticisi Aracı ile parola ayarlayın:
+* Gizli dizi Yöneticisi Aracı ile parola ayarlayın:
 
   `dotnet user-secrets set SeedUserPW <pw>`
 
-* Veritabanını güncelleştirme:
+* Veritabanını Güncelleştir:
 
     `dotnet ef database update`
 
-* Projede SSL etkinleştir
+* Projede SSL'i etkinleştirin

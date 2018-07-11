@@ -1,1 +1,1 @@
-Bu klasördeki anlık görüntüleri Razor sayfalarının serisinden zamanında kodudur.
+Bu klasördeki anlık görüntüleri Razor sayfaları serisi zamanlı kodudur.

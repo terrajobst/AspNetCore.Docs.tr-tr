@@ -1,5 +1,5 @@
 ---
-title: ASP.NET Core SignalR desteklenen platformlar
+title: ASP.NET Core SignalR tarafından desteklenen platformlar
 author: rachelappel
 description: ASP.NET Core SignalR için desteklenen platformlar
 monikerRange: '>= aspnetcore-2.1'
@@ -7,24 +7,24 @@ ms.author: rachelap
 ms.custom: mvc
 ms.date: 04/20/2018
 uid: signalr/supported-platforms
-ms.openlocfilehash: 26365bf62ac935eda4ab119a834e753ba40e6123
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 1e40efa53f854e7b223287779557936a7c43410d
+ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274340"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37937861"
 ---
-# <a name="aspnet-core-signalr-supported-platforms"></a>ASP.NET Core SignalR desteklenen platformlar
+# <a name="aspnet-core-signalr-supported-platforms"></a>ASP.NET Core SignalR tarafından desteklenen platformlar
 
 ## <a name="server-system-requirements"></a>Sunucu sistem gereksinimleri
 
-SignalR ASP.NET Core için ASP.NET Core destekleyen herhangi bir sunucu platform destekler.
+SignalR için ASP.NET Core, ASP.NET Core destekleyen herhangi bir sunucu platformu destekler.
 
 ## <a name="client-system-requirements"></a>İstemci sistem gereksinimleri
 
 ### <a name="browser-support"></a>Tarayıcı desteği
 
-ASP.NET Core JavaScript istemcisi için SignalR aşağıdaki tarayıcılardan destekler:
+Aşağıdaki tarayıcılardan SignalR için ASP.NET Core JavaScript istemci destekler:
 
 | Tarayıcı | Sürüm |
 | ------- | ------- |
@@ -36,4 +36,4 @@ ASP.NET Core JavaScript istemcisi için SignalR aşağıdaki tarayıcılardan de
  
 ### <a name="net-client-support"></a>.NET istemci desteği
 
-ASP.NET Core tarafından desteklenen bir sunucu platforma. IIS kullanırken, WebSockets aktarım IIS 8.0 veya üstünü, Windows Server 2012 veya sonrası gerektirir. Diğer aktarımları tüm platformlarda desteklenir.
+ASP.NET Core tarafından desteklenen tüm sunucu platformu. IIS kullanırken WebSockets taşıma IIS 8.0 veya üzeri, Windows Server 2012 veya üzeri sürümde gerektirir. Diğer aktarımları tüm platformlarda desteklenir.

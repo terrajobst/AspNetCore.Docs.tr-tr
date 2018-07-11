@@ -1,16 +1,16 @@
 <a name="test"></a>
 ### <a name="test-the-app"></a>Uygulamayı test etme
 
-* Uygulamayı çalıştırın ve append `/Movies` URL tarayıcıda (`http://localhost:port/movies`).
-* Test **oluşturma** bağlantı.
+* Uygulamayı çalıştırın ve ekleme `/Movies` tarayıcıda URL'sine (`http://localhost:port/movies`).
+* Test **Oluştur** bağlantı.
 
-  ![Sayfa oluşturma](../../tutorials/razor-pages/model/_static/conan.png)
+  ![sayfası oluşturma](../../tutorials/razor-pages/model/_static/conan.png)
 
 <a name="scaffold"></a>
 
-* Test **Düzenle**, **ayrıntıları**, ve **silmek** bağlantılar.
+* Test **Düzenle**, **ayrıntıları**, ve **Sil** bağlantıları.
 
-Aşağıdaki hata alırsanız, geçişler çalıştırın ve veritabanı güncelleştirilmiş doğrulayın:
+Şu hatayı alırsanız, geçişler çalıştırma ve veritabanına güncelleştirilmiş doğrulayın:
 
 ```
 An unhandled exception occurred while processing the request.

@@ -5,12 +5,12 @@ description: Anlama ve uyarıları ve ASP.NET Core projeleriyle hataları gidere
 ms.author: riande
 ms.date: 04/05/2018
 uid: test/troubleshoot
-ms.openlocfilehash: b4d90f541a4cda2d41b49101b7ea39af87a4dcb4
-ms.sourcegitcommit: a09820f91e71a7d98b7347bf93210abb9e995e22
+ms.openlocfilehash: c72dd93f6ba705d7f03ade556c7a037dadeb6295
+ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37889018"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37938400"
 ---
 # <a name="troubleshoot-aspnet-core-projects"></a>ASP.NET Core projelerinde sorun giderme
 
