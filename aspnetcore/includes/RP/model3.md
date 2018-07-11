@@ -1,7 +1,7 @@
 <a name="cli"></a>
-## <a name="add-scaffold-tooling-and-perform-initial-migration"></a>İskele araç ekleyin ve başlangıç geçiş gerçekleştirme
+## <a name="add-scaffold-tooling-and-perform-initial-migration"></a><span data-ttu-id="e7830-101">Yapı iskelesi araçları ekleyin ve ilk geçiş gerçekleştirme</span><span class="sxs-lookup"><span data-stu-id="e7830-101">Add scaffold tooling and perform initial migration</span></span>
 
-Komut satırından aşağıdaki .NET Core CLI komutları çalıştırın:
+<span data-ttu-id="e7830-102">Komut satırından aşağıdaki .NET Core CLI komutları çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="e7830-102">From the command line, run the following .NET Core CLI commands:</span></span>
 
 ```console
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
@@ -10,8 +10,8 @@ dotnet ef migrations add InitialCreate
 dotnet ef database update
 ```
 
-`add package` Komutu yapı iskelesi altyapısı çalıştırmak için gerekli araçları yükler.
+<span data-ttu-id="e7830-103">`add package` Komut yapı iskelesi altyapısı çalıştırmak için gerekli araçları yükler.</span><span class="sxs-lookup"><span data-stu-id="e7830-103">The `add package` command installs the tooling required to run the scaffolding engine.</span></span>
 
-`ef migrations add InitialCreate` Komutu ilk veritabanı şeması oluşturmak için kod oluşturur. Belirtilen model şeması dayalı `DbContext` (içinde *Models/MovieContext.cs* dosyası). `InitialCreate` Bağımsız değişkeni geçişler adlandırmak için kullanılır. Herhangi bir ad kullanabilirsiniz, ancak kurala göre geçiş açıklayan bir ad seçin. Bkz: [geçişler giriş](xref:data/ef-mvc/migrations#introduction-to-migrations) daha fazla bilgi için.
+<span data-ttu-id="e7830-104">`ef migrations add InitialCreate` Komut, ilk veritabanı şeması oluşturmak için kod oluşturur.</span><span class="sxs-lookup"><span data-stu-id="e7830-104">The `ef migrations add InitialCreate` command generates code to create the initial database schema.</span></span> <span data-ttu-id="e7830-105">Belirtilen model şeması dayanır `DbContext` (içinde *Models/MovieContext.cs* dosyası).</span><span class="sxs-lookup"><span data-stu-id="e7830-105">The schema is based on the model specified in the `DbContext` (In the *Models/MovieContext.cs* file).</span></span> <span data-ttu-id="e7830-106">`InitialCreate` Bağımsız değişkeni, geçişlerin adlandırmak için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="e7830-106">The `InitialCreate` argument is used to name the migrations.</span></span> <span data-ttu-id="e7830-107">Herhangi bir adı kullanabilirsiniz, ancak bu kurala göre geçiş tanımlayan bir ad seçin.</span><span class="sxs-lookup"><span data-stu-id="e7830-107">You can use any name, but by convention you choose a name that describes the migration.</span></span> <span data-ttu-id="e7830-108">Bkz: [geçişler giriş](xref:data/ef-mvc/migrations#introduction-to-migrations) daha fazla bilgi için.</span><span class="sxs-lookup"><span data-stu-id="e7830-108">See [Introduction to migrations](xref:data/ef-mvc/migrations#introduction-to-migrations) for more information.</span></span>
 
-`ef database update` Komutu çalıştırır `Up` yönteminde *geçişleri /\<zaman damgası > _InitialCreate.cs* dosyası bir veritabanı oluşturur.
+<span data-ttu-id="e7830-109">`ef database update` Komutu çalıştırmaları `Up` yöntemi *geçişleri /\<zaman damgası > _InitialCreate.cs* dosyasını veritabanı oluşturur.</span><span class="sxs-lookup"><span data-stu-id="e7830-109">The `ef database update` command runs the `Up` method in the *Migrations/\<time-stamp>_InitialCreate.cs* file, which creates the database.</span></span>
