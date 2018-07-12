@@ -255,6 +255,8 @@
 ### [JavaScript istemcisi](xref:signalr/javascript-client)
 ### [.NET istemcisi](xref:signalr/dotnet-client)
 ### [WebPack ve TypeScript](xref:tutorials/signalr-typescript-webpack)
+### [JavaScript API](/javascript/api/?view=signalr-js-latest)
+
 ## [Yapılandırma](xref:signalr/configuration)
 ## [MessagePack Hub Protokolü](xref:signalr/messagepackhubprotocol)
 ## [Akış](xref:signalr/streaming)
