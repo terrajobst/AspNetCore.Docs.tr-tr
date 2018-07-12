@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/13/2018
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: f35fbbbf7d04b041565e76d3cc6b9822f1056e50
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 96a4403653e474bb056374909b3ee66998bc99be
+ms.sourcegitcommit: 19cbda409bdbbe42553dc385ea72d2a8e246509c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37824545"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38992821"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Windows IIS üzerinde ASP.NET Core barındırma
 
@@ -177,7 +177,7 @@ Etkinleştirme **IIS Yönetim Konsolu** ve **World Wide Web Hizmetleri**.
    
    Yükleyici x86 yüklenmesini önlemek için paketler x x64 işletim sistemi, yükleyici anahtarı ile bir yönetici komut isteminden çalıştırma `OPT_NO_X86=1`.
 
-1. Sistemi yeniden başlatın veya yürütme **net stop olan /y** ardından **net start w3svc** bir komut isteminden. IIS yeniden başlatma sistem yolu yükleyici tarafından yapılan bir değişiklik seçer.
+1. Sistemi yeniden başlatın veya yürütme **net stop olan /y** ardından **net start w3svc** bir komut isteminden. Sistemde bir değişiklik'kurmak IIS çekme yeniden bir ortam değişkenidir, yol yapılan yükleyicisi tarafından.
 
 > [!NOTE]
 > IIS paylaşılan yapılandırması hakkında daha fazla bilgi için bkz: [IIS paylaşılan yapılandırması ile ASP.NET Core Modülü](xref:host-and-deploy/aspnet-core-module#aspnet-core-module-with-an-iis-shared-configuration).

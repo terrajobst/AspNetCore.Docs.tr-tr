@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 07/06/2018
 uid: web-api/index
-ms.openlocfilehash: 84e4a51a8a8ab031752ef054cba834bd202a4927
-ms.sourcegitcommit: ea7ec8d47f94cfb8e008d771f647f86bbb4baa44
+ms.openlocfilehash: 0ff0bbc629930666d46247d6c1257fac8bfaf7c2
+ms.sourcegitcommit: 260abb706ed17f07a53288d8a0c3e69fc13e7468
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37894221"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38966815"
 ---
 # <a name="build-web-apis-with-aspnet-core"></a>Web API ASP.NET Core ile oluşturma
 
@@ -87,7 +87,7 @@ Bir bağlama kaynak özniteliği bir eylem parametresinin değeri bulunduğu kon
 
 Olmadan `[ApiController]` öznitelikler açıkça tanımlanmış kaynağını bağlama özniteliği. Aşağıdaki örnekte, `[FromQuery]` özniteliği gösterir `discontinuedOnly` parametre değeri, istek URL'SİNİN sorgu dizesinde sağlanır:
 
-[!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Controllers/ProductsController.cs?name=snippet_BindingSourceAttributes&highlight=2)]
+[!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Controllers/ProductsController.cs?name=snippet_BindingSourceAttributes&highlight=3)]
 
 Eylem parametrelerinin varsayılan veri kaynakları için çıkarım kuralları uygulanır. Bu kurallar, aksi takdirde el ile eylem parametrelerine uygulamak olası kaynakları bağlama yapılandırın. Bağlama kaynağı öznitelikleri gibi davranır:
 

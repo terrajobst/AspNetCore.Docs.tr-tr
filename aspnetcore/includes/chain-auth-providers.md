@@ -1,4 +1,4 @@
-Uygulamayı birden çok sağlayıcı gerektirdiğinde, sağlayıcı genişletme yöntemleri arkasında zincir [AddAuthentication](/dotnet/api/microsoft.extensions.dependencyinjection.authenticationservicecollectionextensions.addauthentication):
+Uygulama birden çok sağlayıcı gerektirdiğinde arkasında sağlayıcısı genişletme yöntemleri zincir [AddAuthentication](/dotnet/api/microsoft.extensions.dependencyinjection.authenticationservicecollectionextensions.addauthentication):
 
 ```csharp
 services.AddAuthentication()

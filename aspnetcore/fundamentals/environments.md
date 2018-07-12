@@ -5,12 +5,12 @@ description: ASP.NET Core uygulamaları birden fazla ortam arasında uygulama da
 ms.author: riande
 ms.date: 07/03/2018
 uid: fundamentals/environments
-ms.openlocfilehash: b0e001b50ada85a183590fbee1ad1f3b895004d5
-ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
+ms.openlocfilehash: 3394113de37da2571ab6398405751961117f12d2
+ms.sourcegitcommit: 19cbda409bdbbe42553dc385ea72d2a8e246509c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37938439"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38992879"
 ---
 # <a name="use-multiple-environments-in-aspnet-core"></a>ASP.NET Core birden çok ortam kullanma
 
@@ -204,19 +204,50 @@ set ASPNETCORE_ENVIRONMENT=Development
 $Env:ASPNETCORE_ENVIRONMENT = "Development"
 ```
 
-Bu komutları yalnızca geçerli pencere için etkili. Penceresi kapatıldığında `ASPNETCORE_ENVIRONMENT` ayarı varsayılan ayar veya bir makine değere döner. Değerini genel olarak Windows içinde ayarlamak için açık **Denetim Masası** > **sistem** > **Gelişmiş Sistem ayarları** ve ekleme veya düzenleme `ASPNETCORE_ENVIRONMENT`değeri:
+Bu komutları yalnızca geçerli pencere için etkili. Penceresi kapatıldığında `ASPNETCORE_ENVIRONMENT` ayarı varsayılan ayar veya bir makine değere döner.
 
-![Sistem Gelişmiş özellikleri](environments/_static/systemsetting_environment.png)
+Değerini genel olarak Windows içinde ayarlamak için aşağıdaki yaklaşımlardan birini kullanın:
 
-![ASP.NET Core ortam değişkeni](environments/_static/windows_aspnetcore_environment.png)
+* Açık **Denetim Masası** > **sistem** > **Gelişmiş Sistem ayarları** ve ekleme veya düzenleme `ASPNETCORE_ENVIRONMENT` değeri:
+
+  ![Sistem Gelişmiş özellikleri](environments/_static/systemsetting_environment.png)
+
+  ![ASP.NET Core ortam değişkeni](environments/_static/windows_aspnetcore_environment.png)
+
+* Bir yönetici komut istemi açın ve kullanmak `setx` komutu veya bir yönetici PowerShell komut istemi açın ve kullanmak `[Environment]::SetEnvironmentVariable`:
+
+  **Komut İstemi**
+
+  ```console
+  setx ASPNETCORE_ENVIRONMENT=Development /M
+  ```
+
+  `/M` Sistem düzeyinde ortam değişkenini ayarlamak için anahtar belirtir. Varsa `/M` anahtar kullanılmaz, kullanıcı hesabı için ortam değişkeni ayarlanır.
+
+  **PowerShell**
+
+  ```powershell
+  [Environment]::SetEnvironmentVariable("ASPNETCORE_ENVIRONMENT", "Development", "Machine")
+  ```
+
+  `Machine` Sistem düzeyinde ortam değişkenini ayarlamak için seçeneği değeri gösterir. Seçenek değeri değiştirilirse `User`, kullanıcı hesabı için ortam değişkeni ayarlanır.
+
+Zaman `ASPNETCORE_ENVIRONMENT` ortam değişkeni genel olarak ayarlandığında, etkili olur `dotnet run` değer ayarlandıktan sonra herhangi bir komut penceresinde açılır.
 
 **Web.config**
 
-Bkz: *ortam değişkenlerini ayarlama* bölümünü [ASP.NET Core Module yapılandırma başvurusu](xref:host-and-deploy/aspnet-core-module#setting-environment-variables) konu.
+Ayarlanacak `ASPNETCORE_ENVIRONMENT` ortam değişkeni ile *web.config*, bkz: *ortam değişkenlerini ayarlama* bölümünü <xref:host-and-deploy/aspnet-core-module#setting-environment-variables>. Zaman `ASPNETCORE_ENVIRONMENT` ile ortam değişkeninin ayarlı *web.config*, sistem düzeyindeki bir ayarı değerini geçersiz kılar.
 
 **IIS uygulama havuzu başına**
 
-Yalıtılmış uygulama havuzlarında (IIS 10.0 + desteklenir) çalıştıran tek tek uygulamalar için ortam değişkenlerini ayarlamak için bkz: *AppCmd.exe komut* bölümünü [ortam değişkenlerini &lt; environmentVariables&gt; ](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) konu.
+Ayarlanacak `ASPNETCORE_ENVIRONMENT` bir yalıtılmış uygulama (IIS 10.0 veya sonraki sürümlerde desteklenir) havuzunda, bkz: çalışan bir uygulama için ortam değişkenini *AppCmd.exe komut* bölümünü [ortam değişkenlerini &lt; environmentVariables&gt; ](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) konu. Zaman `ASPNETCORE_ENVIRONMENT` ortam değişkeni için bir uygulama havuzu ayarlandığında, sistem düzeyindeki bir ayarı değerini geçersiz kılar.
+
+> [!IMPORTANT]
+> IIS'de bir uygulamanın barındırma ve ekleme veya değiştirme `ASPNETCORE_ENVIRONMENT` aşağıdakilerden herhangi birini yaklaşıyor uygulamalar tarafından toplanmış yeni değerine sahip olacak şekilde ortam değişkeni kullanın:
+>
+> * Bir uygulamanın uygulama havuzu yeniden başlatın.
+> * Yürütme `net stop was /y` ardından `net start w3svc` bir komut isteminden.
+> * Sunucuyu yeniden başlatın.
 
 ### <a name="macos"></a>MacOS
 
@@ -244,7 +275,7 @@ Linux dağıtımları için kullanmak `export` oturum tabanlı değişken ayarla
 
 ### <a name="configuration-by-environment"></a>Ortama göre yapılandırma
 
-Bkz: [ortama göre yapılandırma](xref:fundamentals/configuration/index#configuration-by-environment) daha fazla bilgi için.
+Bkz: *ortama göre yapılandırma* bölümünü <xref:fundamentals/configuration/index#configuration-by-environment>.
 
 ## <a name="environment-based-startup-class-and-methods"></a>Ortam tabanlı başlangıç sınıfı ve yöntemleri
 

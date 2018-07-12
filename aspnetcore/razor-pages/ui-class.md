@@ -1,68 +1,67 @@
 ---
-title: Yeniden kullanılabilir Razor kullanıcı Arabiriminde sınıf kitaplıkları ile ASP.NET çekirdek
+title: ASP.NET Core Sınıf Kitaplığı'nda yeniden kullanılabilir Razor UI
 author: Rick-Anderson
-description: Bir sınıf kitaplığı'nda yeniden kullanılabilir Razor kullanıcı Arabirimi oluşturma açıklanmaktadır.
+description: Yeniden kullanılabilir Razor UI bir sınıf kitaplığında oluşturulması açıklanmaktadır.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 04/31/2018
+ms.date: 07/21/2018
 uid: razor-pages/ui-class
-ms.openlocfilehash: a4806e5b85a1f4a12ed7e2c9f2ce680ae9f14d4d
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 8190302a15670b0a7474445f7b11d4cba46981db
+ms.sourcegitcommit: 19cbda409bdbbe42553dc385ea72d2a8e246509c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36291542"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38992853"
 ---
-# <a name="create-reusable-ui-using-the-razor-class-library-project-in-aspnet-core"></a>Yeniden kullanılabilir kullanıcı Arabirimi kullanarak ASP.NET Core Razor sınıf kitaplığı projesi oluşturun.
+# <a name="create-reusable-ui-using-the-razor-class-library-project-in-aspnet-core"></a>Yeniden kullanılabilir kullanıcı Arabirimi ASP.NET Core Razor sınıf kitaplığı projesini kullanarak oluşturun.
 
-tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Razor görünümleri, sayfalar, denetleyicileri, sayfa modelleri [görüntülemek bileşenleri](xref:mvc/views/view-components), ve veri modelleri bir Razor sınıf kitaplığı (RCL) içine oluşturulabilir. RCL paketlenir ve yeniden kullanılabilir. Uygulamalar görünümler ve içerdiği sayfaları geçersiz kılmak ve RCL içerir. Ne zaman görünümü, kısmi görünümü veya Razor sayfasını web uygulaması ve Razor biçimlendirme RCL bulunduğunda (*.cshtml* dosyası) web uygulaması önceliklidir.
+Razor görünümleri, sayfalar, denetleyicileri, sayfa modelleri [görüntülemek bileşenleri](xref:mvc/views/view-components), ve veri modelleri bir Razor sınıf kitaplığı (RCL) içine derlenebilir. RCL paketlenir ve yeniden kullanılabilir. Uygulamalar RCL içerir ve görünümlere ve sayfalara içerdiği geçersiz kılar. Zaman görünümü, kısmi görünüm veya Razor sayfası hem web uygulaması hem de RCL Razor işaretlemesi bulunur (*.cshtml* dosya) web uygulaması önceliklidir.
 
 Bu özellik gerektirir [!INCLUDE[](~/includes/2.1-SDK.md)]
 
-[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/razor-pages/ui-class/samples) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/razor-pages/ui-class/samples) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 
-## <a name="create-a-class-library-containing-razor-ui"></a>Razor UI içeren bir sınıf kitaplığı oluşturun
+## <a name="create-a-class-library-containing-razor-ui"></a>Razor UI içeren bir sınıf kitaplığı oluşturma
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Visual Studio'dan **dosya** menüsünde, select **yeni** > **proje**.
+* Visual Studio'dan **dosya** menüsünde **yeni** > **proje**.
 * Seçin **ASP.NET Core Web uygulaması**.
-* (Örneğin, "RazorClassLib") kitaplığı adı > **Tamam**. Oluşturulan görünüm kitaplığı ile dosya adı çakışmaları önlemek için kitaplık adını uç olun `.Views`.
+* (Örneğin, "RazorClassLib") kitaplığı adı > **Tamam**. Oluşturulan görünüm kitaplığı ile bir dosya adı çakışması önlemek için kitaplık adını bitmiyor olun `.Views`.
 * Doğrulama **ASP.NET Core 2.1** veya daha sonra seçilir.
 * Seçin **Razor sınıf kitaplığı** > **Tamam**.
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
-Komut satırı ' çalıştırma `dotnet new razorclasslib`. Örneğin:
+Komut satırından çalıştırmak `dotnet new razorclasslib`. Örneğin:
 
 ``` CLI
 dotnet new razorclasslib -o RazorUIClassLib
 ```
 
-Daha fazla bilgi için bkz: [dotnet yeni](/dotnet/core/tools/dotnet-new). Oluşturulan görünüm kitaplığı ile dosya adı çakışmaları önlemek için kitaplık adını uç olun `.Views`.
+Daha fazla bilgi için [yeni dotnet](/dotnet/core/tools/dotnet-new). Oluşturulan görünüm kitaplığı ile bir dosya adı çakışması önlemek için kitaplık adını bitmiyor olun `.Views`.
 
 ------
-Razor dosyaları RCL ekleyin.
+Razor dosyaları için RCL ekleyin.
 
-İçinde içerik Git RCL öneririz *alanları* klasör. 
+İçinde içerik Git RCL öneririz *alanları* klasör.
 
-
-## <a name="referencing-razor-class-library-content"></a>Razor sınıf kitaplığı içerik başvurma
+## <a name="referencing-razor-class-library-content"></a>Razor sınıf kitaplığı içeriği başvurma
 
 RCL tarafından başvurulabilir:
 
-* NuGet paketi. Bkz: [oluşturma NuGet paketlerini](/nuget/create-packages/creating-a-package) ve [dotnet paket ekleme](/dotnet/core/tools/dotnet-add-package) ve [oluşturma ve bir NuGet Paketi Yayımlama](/nuget/quickstart/create-and-publish-a-package-using-visual-studio).
+* NuGet paketi. Bkz: [oluşturma NuGet paketlerini](/nuget/create-packages/creating-a-package) ve [dotnet paketini ekleyin](/dotnet/core/tools/dotnet-add-package) ve [oluştur ve NuGet paket yayımlama](/nuget/quickstart/create-and-publish-a-package-using-visual-studio).
 * *{ProjectName} .csproj*. Bkz: [dotnet-Başvuru Ekle](/dotnet/core/tools/dotnet-add-reference).
 
-## <a name="walkthrough-create-a-razor-class-library-project-and-use-from-a-razor-pages-project"></a>İzlenecek yol: bir Razor sınıf kitaplığı proje oluşturma ve Razor sayfalarının projeden kullanma
+## <a name="walkthrough-create-a-razor-class-library-project-and-use-from-a-razor-pages-project"></a>İzlenecek yol: bir Razor sınıf kitaplığı projesi oluşturun ve bir Razor sayfaları projeden kullanın
 
-İndirebilirsiniz [tam projesini](https://github.com/aspnet/Docs/tree/master/aspnetcore/razor-pages/ui-class/samples) ve yerine bunu oluşturmayı sınayın. Örnek indirme ek kod ve projeyi test kolaylaştırmak bağlantılar içerir. Geri bildirim bırakabilirsiniz [bu GitHub sorunu](https://github.com/aspnet/Docs/issues/6098) yorumlarınızı adım adım yönergeler karşı indirme örnekleri üzerinde ile.
+İndirebileceğiniz [tam proje](https://github.com/aspnet/Docs/tree/master/aspnetcore/razor-pages/ui-class/samples) ve yerine oluşturma test edin. Örnek indirme, ek kod ve test etmek proje kolaylaştırmak bağlantılar içerir. Geri bildirim bırakabilirsiniz [bu GitHub sorunu](https://github.com/aspnet/Docs/issues/6098) yorumlarınızı üzerinde adım adım yönergeler ve örnekleri indirme ile.
 
 ### <a name="test-the-download-app"></a>İndirme uygulamayı test etme
 
-Tamamlanan uygulama indirilen henüz ve gözden geçirme proje yerine oluşturacak, geçin [sonraki bölümde](#create-a-razor-class-library).
+Tamamlanmış uygulamayı karşıdan henüz ve bunun yerine izlenecek projesi oluşturacak, atlamak [sonraki bölümde](#create-a-razor-class-library).
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -70,57 +69,39 @@ Açık *.sln* dosyasını Visual Studio'da. Uygulamayı çalıştırın.
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
-Bir komut isteminden *CLI* dizin RCL oluşturmak ve web uygulaması.
+Bir komut isteminden *CLI* dizin RCL oluşturun ve web uygulaması.
 
 ``` CLI
 dotnet build
 ```
 
-Taşıma *WebApp1* dizin ve uygulamayı çalıştırın:
+Taşı *WebApp1* dizin ve uygulamayı çalıştırın:
 
 ``` CLI
 dotnet run
 ```
 ------
 
-' Ndaki yönergeleri izleyin [Test WebApp1](#test)
+Bölümündeki yönergeleri [Test WebApp1](#test)
 
-## <a name="create-a-razor-class-library"></a>Bir Razor sınıf kitaplığı oluşturun
+## <a name="create-a-razor-class-library"></a>Razor sınıf kitaplığı oluşturma
 
-Bu bölümde, bir Razor sınıf kitaplığı (RCL) oluşturulur. Razor dosyaları RCL eklenir.
+Bu bölümde, Razor sınıf kitaplığı (RCL) oluşturulur. Razor dosyaları için RCL eklenir.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 RCL projesi oluşturun:
 
-* Visual Studio'dan **dosya** menüsünde, select **yeni** > **proje**.
+* Visual Studio'dan **dosya** menüsünde **yeni** > **proje**.
 * Seçin **ASP.NET Core Web uygulaması**.
-* Uygulama adı **RazorUIClassLib**.
+* Uygulamayı adlandırma **RazorUIClassLib** > **Tamam**.
 * Doğrulama **ASP.NET Core 2.1** veya daha sonra seçilir.
 * Seçin **Razor sınıf kitaplığı** > **Tamam**.
-
-Razor sayfalarının web uygulaması oluşturun:
-
-* Gelen **Çözüm Gezgini**, çözüme sağ tıklayın > **Ekle** >  **yeni proje**.
-* Seçin **ASP.NET Core Web uygulaması**.
-* Uygulama adı **WebApp1**.
-* Doğrulama **ASP.NET Core 2.1** veya daha sonra seçilir.
-* Seçin **Web uygulaması** > **Tamam**.
-
-### <a name="add-razor-files-and-folders-to-the-project"></a>Razor dosyaları ve klasörleri projeye ekleyin.
-
-* Adlı bir Razor kısmi görünüm dosya eklemek *RazorUIClassLib/Areas/MyFeature/Pages/Shared/_Message.cshtml*.
-* Biçimlendirme Değiştir *RazorUIClassLib/Areas/MyFeature/Pages/Shared/_Message.cshtml* aşağıdaki kod ile:
-
-[!code-html[Main](ui-class/samples/cli/RazorUIClassLib/Areas/MyFeature/Pages/Shared/_Message.cshtml)]
-
-* Kopya *_ViewStart.cshtml* WebApp1 proje dosyasından *RazorUIClassLib/Areas/MyFeature/Pages/_ViewStart.cshtml*.
-
-  [Viewstart](xref:mvc/views/layout#running-code-before-each-view) dosya Razor sayfalarının proje düzeni kullanmak için gereklidir.
+* Razor kısmi Görünüm adlı bir dosya ekleyin *RazorUIClassLib/Areas/MyFeature/Pages/Shared/_Message.cshtml*.
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
-Komut satırından aşağıdakileri çalıştırın:
+Komut satırından şu komutu çalıştırın:
 
 ``` CLI
 dotnet new razorclasslib -o RazorUIClassLib
@@ -131,18 +112,20 @@ dotnet new viewstart -o RazorUIClassLib/Areas/MyFeature/Pages
 Yukarıdaki komutlar:
 
 * Oluşturur `RazorUIClassLib` Razor sınıf kitaplığı (RCL).
-* Bir Razor _Message sayfası oluşturur ve RCL ekler. `-np` Parametresi oluşturur sayfa olmadan bir `PageModel`.
-* Oluşturur bir [viewstart](xref:mvc/views/layout#running-code-before-each-view) dosya ve RCL ekler.
+* Bir Razor il_eti sayfası oluşturur ve için RCL ekler. `-np` Parametresi olmadan sayfa oluşturur bir `PageModel`.
+* Oluşturur bir [viewstart](xref:mvc/views/layout#running-code-before-each-view) dosya ve için RCL ekler.
 
-Viewstart dosyası (sonraki bölümde eklenir) Razor sayfalarının projesi düzenini kullanmak için gereklidir.
+Viewstart dosya (sonraki bölümde eklenir) Razor sayfaları proje düzenini kullanmak için gereklidir.
 
-Razor sayfalarının güncelleştirin:
+------
 
-* Biçimlendirme Değiştir *RazorUIClassLib/Areas/MyFeature/Pages/Shared/_Message.cshtml* aşağıdaki kod ile:
+### <a name="add-razor-files-and-folders-to-the-project"></a>Razor dosyaları ve klasörleri projeye ekleyin.
+
+* Biçimlendirmeyi Değiştir *RazorUIClassLib/Areas/MyFeature/Pages/Shared/_Message.cshtml* aşağıdaki kod ile:
 
 [!code-html[Main](ui-class/samples/cli/RazorUIClassLib/Areas/MyFeature/Pages/Shared/_Message.cshtml)]
 
-* Biçimlendirme Değiştir *RazorUIClassLib/Areas/MyFeature/Pages/Page1.cshtml* aşağıdaki kod ile:
+* Biçimlendirmeyi Değiştir *RazorUIClassLib/Areas/MyFeature/Pages/Page1.cshtml* aşağıdaki kod ile:
 
 [!code-html[Main](ui-class/samples/cli/RazorUIClassLib/Areas/MyFeature/Pages/Page1.cshtml)]
 
@@ -152,33 +135,39 @@ Razor sayfalarının güncelleştirin:
 dotnet new viewimports -o RazorUIClassLib/Areas/MyFeature/Pages
 ```
 
-Viewimports hakkında daha fazla bilgi için bkz: [paylaşılan yönergeleri alma](xref:mvc/views/layout#importing-shared-directives)
+Viewimports hakkında daha fazla bilgi için bkz. [paylaşılan yönergeleri alma](xref:mvc/views/layout#importing-shared-directives)
 
-* Derleyici hatası olmadığını doğrulamak için sınıf kitaplığı oluşturun:
+* Derleyici hata doğrulamak için sınıf kitaplığı derleme:
 
 ``` CLI
 dotnet build RazorUIClassLib
 ```
 
-Derleme çıktı içeren *RazorUIClassLib.dll* ve *RazorUIClassLib.Views.dll*. *RazorUIClassLib.Views.dll* derlenmiş Razor içeriği içerir.
+Derleme çıktısını içeren *RazorUIClassLib.dll* ve *RazorUIClassLib.Views.dll*. *RazorUIClassLib.Views.dll* derlenmiş Razor içeriği.
 
-------
-
-### <a name="use-the-razor-ui-library-from-a-razor-pages-project"></a>Bir Razor sayfalarının projeden Razor kullanıcı Arabirimi kitaplığı kullanma
+### <a name="use-the-razor-ui-library-from-a-razor-pages-project"></a>Bir Razor sayfaları projeden Razor kullanıcı Arabirimi kitaplığını kullanma
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Gelen **Çözüm Gezgini**, sağ tıklayın **WebApp1** seçip **başlangıç projesi olarak ayarla**.
-* Gelen **Çözüm Gezgini**, sağ tıklayın **WebApp1** seçip **derleme bağımlılıkları** > **proje bağımlılıkları**.
-* Denetleme **RazorUIClassLib** bir bağımlılık olarak **WebApp1**.
-* Gelen **Çözüm Gezgini**, sağ tıklayın **WebApp1** seçip **Ekle** > **başvuru**.
+Razor sayfaları web uygulaması oluşturun:
+
+* Gelen **Çözüm Gezgini**, çözüme sağ tıklayın > **Ekle** >  **yeni proje**.
+* Seçin **ASP.NET Core Web uygulaması**.
+* Uygulamayı adlandırma **WebApp1**.
+* Doğrulama **ASP.NET Core 2.1** veya daha sonra seçilir.
+* Seçin **Web uygulaması** > **Tamam**.
+
+* Gelen **Çözüm Gezgini**, sağ **WebApp1** seçip **başlangıç projesi olarak ayarla**.
+* Gelen **Çözüm Gezgini**, sağ **WebApp1** seçip **yapı bağımlılıkları** > **proje bağımlılıkları**.
+* Denetleme **RazorUIClassLib** bağımlılık olarak **WebApp1**.
+* Gelen **Çözüm Gezgini**, sağ **WebApp1** seçip **Ekle** > **başvuru**.
 * İçinde **başvuru Yöneticisi** iletişim kutusunda, onay **RazorUIClassLib** > **Tamam**.
 
 Uygulamayı çalıştırın.
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
-Razor sayfalarının web app ve Razor sayfalarının uygulama ve Razor sınıf kitaplığı içeren bir çözüm dosyasını oluşturun:
+Razor sayfaları web uygulaması ve Razor sayfaları uygulama ve Razor sınıf kitaplığı içeren bir çözüm dosyası oluşturun:
 
 ```console
 dotnet new webapp -o WebApp1
@@ -190,7 +179,7 @@ dotnet add WebApp1 reference RazorUIClassLib
 
 [!INCLUDE[](~/includes/webapp-alias-notice.md)]
 
-Derleme ve web uygulaması çalıştırın:
+Web uygulaması derleyebilir ve:
 
 ```console
 cd WebApp1
@@ -207,10 +196,10 @@ Razor UI sınıf kitaplığı kullanılan doğrulayın.
 
 * Gözat `/MyFeature/Page1`.
 
-## <a name="override-views-partial-views-and-pages"></a>Görünümleri, kısmi görünümleri ve sayfaları geçersiz kıl
+## <a name="override-views-partial-views-and-pages"></a>Görünümleri, kısmi görünümleri ve sayfa geçersiz kıl
 
-Ne zaman görünümü, kısmi görünümü veya Razor sayfasını bulundu hem web uygulamasını hem de Razor sınıf kitaplığı, Razor biçimlendirme (*.cshtml* dosyası) web uygulaması önceliklidir. Örneğin, ekleyin *WebApp1/Areas/MyFeature/Pages/Page1.cshtml* WebApp1 için ve WebApp1 Page1 sürer öncelik Page1in Razor sınıf kitaplığı.
+Zaman görünümü, kısmi görünüm veya Razor sayfası hem web uygulaması hem de Razor sınıf kitaplığı, Razor işaretlemesi bulunur (*.cshtml* dosya) web uygulaması önceliklidir. Örneğin, ekleme *WebApp1/Areas/MyFeature/Pages/Page1.cshtml* WebApp1 için ve Sayfa1 WebApp1 içinde önceliklidir Page1in üzerinde Razor sınıf kitaplığı.
 
-Örnek indirme yeniden adlandırma *alanları/WebApp1/MyFeature2* için *alanları/WebApp1/MyFeature* öncelik test etmek için.
+Örnek indirme Yeniden Adlandır *WebApp1/alanlar/MyFeature2* için *WebApp1/alanlar/MyFeature* öncelik test etmek için.
 
-Kopya *RazorUIClassLib/Areas/MyFeature/Pages/Shared/_Message.cshtml* kısmi görünüme *WebApp1/Areas/MyFeature/Pages/Shared/_Message.cshtml*. Yeni konumu belirtmek için biçimlendirme güncelleştirin. Derleme ve kısmi uygulamanın sürümü kullanılan doğrulamak üzere uygulamasını çalıştırın.
+Kopyalama *RazorUIClassLib/Areas/MyFeature/Pages/Shared/_Message.cshtml* kısmi görünüme *WebApp1/Areas/MyFeature/Pages/Shared/_Message.cshtml*. Yeni bir konum belirtmek için işaretleme güncelleştirin. Derleme ve uygulamanın sürümünü kısmi kullanılan doğrulamak için uygulamayı çalıştırın.
