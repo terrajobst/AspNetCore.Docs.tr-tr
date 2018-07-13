@@ -4,19 +4,16 @@ title: (C#) SQL Server'da üyelik şeması oluşturma | Microsoft Docs
 author: rick-anderson
 description: Bu öğreticide gerekli şema SqlMembershipProvider kullanmak için veritabanına ekleme teknikleri inceleyerek başlar. Ardından, biz wi...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/18/2008
-ms.topic: article
 ms.assetid: b4ac129d-1b8e-41ca-a38f-9b19d7c7bb0e
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/creating-the-membership-schema-in-sql-server-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e1aec1ffbb052901fe34389943b5bb1db58348a9
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: c28e9735884586c43be4cf25fb2a3e5fa597832c
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37400048"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37816658"
 ---
 <a name="creating-the-membership-schema-in-sql-server-c"></a>(C#) SQL Server'da üyelik şeması oluşturma
 ====================

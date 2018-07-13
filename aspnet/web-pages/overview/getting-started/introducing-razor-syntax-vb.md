@@ -4,19 +4,16 @@ title: ASP.NET Web programlama Razor söz dizimini (Visual Basic) kullanarak gir
 author: tfitzmac
 description: Bu ekte Razor sözdizimini kullanarak Visual Basic'te, ASP.NET Web sayfaları ile programlamaya genel bir bakış sağlar.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/07/2014
-ms.topic: article
 ms.assetid: 5da59646-e973-41cd-88a9-c6b2c0594027
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d4be7e2ed1b847d8b4167872728815330dbfe432
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 72f995e62141df4e8f4cd082b4873d82067af8c1
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37378747"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37816554"
 ---
 <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-visual-basic"></a>ASP.NET Web programlama Razor söz dizimini (Visual Basic) kullanarak giriş
 ====================
@@ -125,7 +122,7 @@ Bir tarayıcıda görüntülenen sonuç:
 
 ### <a name="7-much-of-your-coding-involves-working-with-objects"></a>7. Nesneler ile çalışma kodlamanızı çoğunu içerir
 
-Bir nesne ile programlayabileceğiniz bir şeyi temsil eder &#8212; bir sayfa, bir metin kutusu, bir dosya, görüntü, bir web isteği, bir e-posta iletisi, bir müşteri kaydı (veritabanı satır) vb. Nesnelerin özelliklerini tanımlayan özellikleri vardır &#8212; bir metin kutusu nesnesine sahip bir `Text` bir istek nesnesi özelliğine sahip bir `Url` özelliğine sahip bir e-posta iletisi bir `From` özelliği ve müşteri nesnesi olan bir `FirstName` özellik. Nesneleri yöntemlerle de &quot;fiilleri&quot; yerine getirebilirsiniz. Örnekler, bir dosya nesnesinin `Save` yöntemi, bir görüntü nesnenin `Rotate` yöntemi ve bir e-posta nesnenin `Send` yöntemi.
+Bir nesne ile programlayabileceğiniz bir şeyi temsil eder &#8212; bir sayfa, bir metin kutusu, bir dosya, görüntü, bir web isteği, bir e-posta iletisi, bir müşteri kaydı (veritabanı satır) vb.. Nesnelerin özelliklerini tanımlayan özellikleri vardır &#8212; bir metin kutusu nesnesine sahip bir `Text` bir istek nesnesi özelliğine sahip bir `Url` özelliğine sahip bir e-posta iletisi bir `From` özelliği ve müşteri nesnesi olan bir `FirstName` özellik. Nesneleri yöntemlerle de &quot;fiilleri&quot; yerine getirebilirsiniz. Örnekler, bir dosya nesnesinin `Save` yöntemi, bir görüntü nesnenin `Rotate` yöntemi ve bir e-posta nesnenin `Send` yöntemi.
 
 Genellikle ile çalışacaksınız `Request` ne tür bir tarayıcı, sayfa, kullanıcı kimliği, vb. URL'sini istekte (metin kutuları, vb.) sayfasında alanları form değerleri gibi bilgileri sağlayan nesne. Bu örnek özelliklerine erişmek nasıl gösterir `Request` nesne ve nasıl çağrılacağını `MapPath` yöntemi `Request` sayfasının mutlak yolu sunucu üzerinde size nesnesi:
 
@@ -414,7 +411,7 @@ Kullandığınız basit bir koşulunu test etmek için `If...Then` döndüren de
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample43.vbhtml)]
 
-Varsa bir `If` deyimi başlatan bir kod bloğu, normal kullanmak zorunda değilsiniz `Code...End Code` blokları içerecek şekilde deyimleri. Yalnızca ekleyebilirsiniz `@` bloğuna ve çalışır. Bu yaklaşım çalışır `If` diğer Visual Basic dahil olmak üzere kod blokları tarafından izlenen anahtar sözcükleri programlama yanı sıra `For`, `For Each`, `Do While`vb.
+Varsa bir `If` deyimi başlatan bir kod bloğu, normal kullanmak zorunda değilsiniz `Code...End Code` blokları içerecek şekilde deyimleri. Yalnızca ekleyebilirsiniz `@` bloğuna ve çalışır. Bu yaklaşım çalışır `If` diğer Visual Basic dahil olmak üzere kod blokları tarafından izlenen anahtar sözcükleri programlama yanı sıra `For`, `For Each`, `Do While`vb..
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample44.vbhtml)]
 
