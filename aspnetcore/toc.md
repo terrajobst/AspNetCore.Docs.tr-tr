@@ -18,7 +18,6 @@
 ### [Arama ekleme](xref:tutorials/razor-pages/search)
 ### [Yeni alan ekleme](xref:tutorials/razor-pages/new-field)
 ### [Doğrulama ekleme](xref:tutorials/razor-pages/validation)
-### [Dosyaları karşıya yükleme](xref:tutorials/razor-pages/uploading-files)
 ## [Gerçek zamanlı SignalR web uygulaması oluşturma](xref:tutorials/signalr)
 ## [TypeScript ile SignalR web uygulaması oluşturma](xref:tutorials/signalr-typescript-webpack)
 ## [MVC web uygulaması oluşturma](tutorials/first-mvc-app/index.md)
@@ -159,6 +158,7 @@
 ## [Razor Sayfaları için filtre metodu](xref:razor-pages/filter)
 ## [Razor Sınıf Kitaplığı oluşturma](xref:razor-pages/ui-class)
 ## [Yol ve uygulama kuralları](xref:razor-pages/razor-pages-conventions)
+## [Razor Sayfasına dosya yükleme](xref:razor-pages/upload-files)
 ## [Razor SDK](xref:razor-pages/sdk)
 
 # [MVC](xref:mvc/overview)
