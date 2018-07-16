@@ -258,6 +258,8 @@
 ### [JavaScript API](/javascript/api/?view=signalr-js-latest)
 
 ## [Yapılandırma](xref:signalr/configuration)
+## [Kimlik Doğrulaması ve Yetkilendirme](xref:signalr/authn-and-authz)
+## [Güvenlik konuları](xref:signalr/security)
 ## [MessagePack Hub Protokolü](xref:signalr/messagepackhubprotocol)
 ## [Akış](xref:signalr/streaming)
 ## [SignalR sürümleri arasındaki farklılıklar](xref:signalr/version-differences)
