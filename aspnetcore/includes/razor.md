@@ -1,4 +1,6 @@
-Bu öğretici, ASP.NET Core MVC denetleyicileri ve görünümleri ile web geliştirme öğretir. Razor sayfaları olan yeni bir alternatif ASP.NET Core 2.0 ve sonraki sürümlerinde, daha kolay ve daha üretken building web kullanıcı Arabirimi sağlayan bir sayfa tabanlı programlama modeli. Aşağıdakileri öneririz [Razor sayfaları](xref:tutorials/razor-pages/razor-pages-start) MVC sürümünden önceki öğretici. Razor sayfaları öğretici:
+Bu öğretici, ASP.NET Core MVC denetleyicileri ve görünümleri ile web geliştirme öğretir. Razor sayfaları oluşturmak ve test etmek web kullanıcı Arabirimi daha kolay ve daha verimli hale getirir ASP.NET Core MVC framework'ün bir özelliğidir. Aynı projede Razor sayfaları denetleyicileri ve görünümleri ile birlikte kullanabilirsiniz.
+
+Razor sayfaları kullandıktan sonra birçok geliştiricinin denetleyicileri ve görünümleri tercih ederim. Aşağıdakileri öneririz [Razor sayfaları](xref:tutorials/razor-pages/razor-pages-start) MVC/denetleyicisi/görünümler sürümünden önceki öğretici. Razor sayfaları öğretici:
 
 * Yeni uygulama geliştirme için tercih edilen yaklaşımdır.
 * İzlemek daha kolay olur.

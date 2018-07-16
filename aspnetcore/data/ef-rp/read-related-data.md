@@ -5,12 +5,12 @@ description: Bu öğreticide okuyun ve ilgili verileri--diğer bir deyişle, Ent
 ms.author: riande
 ms.date: 11/05/2017
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: 4e0aa7151cc54f666202458ba60500a7c04f5ebb
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: fa3147cc4ad121784911eef802e04ca91f16448f
+ms.sourcegitcommit: e12f45ddcbe99102a74d4077df27d6c0ebba49c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38138260"
+ms.lasthandoff: 07/15/2018
+ms.locfileid: "39063318"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>ASP.NET core'da - EF çekirdekli Razor sayfaları 6 8 - ilgili verileri okuma
 
@@ -74,19 +74,11 @@ Atanan bölüm adını kursları listesini görüntülemek için:
 * Şu komutu çalıştırın:
 
   ```console
+  dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 2.1.0
   dotnet aspnet-codegenerator razorpage -m Course -dc SchoolContext -udl -outDir Pages\Courses --referenceScriptLibraries
   ```
 
 Önceki komut iskelesini kurar `Course` modeli. Projeyi Visual Studio'da açın.
-
-Projeyi oluşturun. Yapı aşağıdaki gibi hatalar oluşturur:
-
-`1>Pages/Courses/Index.cshtml.cs(26,37,26,43): error CS1061: 'SchoolContext' does not
- contain a definition for 'Course' and no extension method 'Course' accepting a first
- argument of type 'SchoolContext' could be found (are you missing a using directive or
- an assembly reference?)`
-
- Genel olarak değiştirme `_context.Course` için `_context.Courses` ("s" eklemek diğer bir deyişle, `Course`). 7 oluşum bulundu ve güncelleştirildi.
 
 Açık *Pages/Courses/Index.cshtml.cs* ve incelemek `OnGetAsync` yöntemi. Yapı iskelesi altyapısı istekli yükleme için belirtilen `Department` gezinme özelliği. `Include` İstekli yükleme yöntemini belirtir.
 

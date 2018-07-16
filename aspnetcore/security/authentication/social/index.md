@@ -5,12 +5,12 @@ description: Bu öğreticide bir ASP.NET Core ile dış kimlik doğrulama sağla
 ms.author: riande
 ms.date: 11/01/2016
 uid: security/authentication/social/index
-ms.openlocfilehash: b3fbd98215537fad7b283d1bf96ebd259e0b980a
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: b2176ef40faaee02c5ef53dbb92a802212e58e8b
+ms.sourcegitcommit: e12f45ddcbe99102a74d4077df27d6c0ebba49c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37366281"
+ms.lasthandoff: 07/15/2018
+ms.locfileid: "39063331"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Facebook, Google ve ASP.NET Core dış sağlayıcı kimlik doğrulaması
 
@@ -24,7 +24,7 @@ Bu öğreticide bir ASP.NET Core, OAuth 2.0 ile dış kimlik sağlayıcılarına
 
 Kullanıcıların mevcut kimlik bilgileri ile oturum açmanız, kullanıcılar için uygun olan ve birçok üzerine bir üçüncü taraf oturum açma işlemi yönetmenin karmaşıklığını kaydırır. Örnek olay incelemeleri tarafından nasıl sosyal oturum açma bilgileri, örnek trafiği ve müşteri dönüştürmeler yönlendirebilirsiniz için bkz: [Facebook](https://www.facebook.com/unsupportedbrowser) ve [Twitter](https://dev.twitter.com/resources/case-studies).
 
-Not: Burada sunulan paketler OAuth kimlik doğrulaması akışı karmaşıklığını büyük ölçüde abstract, ancak Ayrıntıları Anlama sorunlarını giderirken gerekebilir. Birçok kaynak bulunur; Örneğin, [OAuth 2 giriş](https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2) veya [anlama OAuth 2](http://www.bubblecode.net/2016/01/22/understanding-oauth2/). Bazı sorunlar bakarak çözülebilir [sağlayıcısı paketleri için ASP.NET Core kaynak kodu](https://github.com/aspnet/Security/tree/dev/src).
+Not: Burada sunulan paketler OAuth kimlik doğrulaması akışı karmaşıklığını büyük ölçüde abstract, ancak Ayrıntıları Anlama sorunlarını giderirken gerekebilir. Birçok kaynak bulunur; Örneğin, [OAuth 2 giriş](https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2) veya [anlama OAuth 2](http://www.bubblecode.net/2016/01/22/understanding-oauth2/). Bazı sorunlar bakarak çözülebilir [sağlayıcısı paketleri için ASP.NET Core kaynak kodu](https://github.com/aspnet/Security/tree/master/src).
 
 ## <a name="create-a-new-aspnet-core-project"></a>Yeni bir ASP.NET Core projesi oluşturma
 

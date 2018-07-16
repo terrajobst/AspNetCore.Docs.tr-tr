@@ -5,12 +5,12 @@ description: Bu öğreticide okuyun ve ilgili verileri--diğer bir deyişle, Ent
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: d5c9b665a80003ef5029754d7ad1780b3254e97e
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: a310c9e4b9cec6e2ab2477461f395c9bbd3fa364
+ms.sourcegitcommit: e12f45ddcbe99102a74d4077df27d6c0ebba49c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38216300"
+ms.lasthandoff: 07/15/2018
+ms.locfileid: "39063292"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---read-related-data---6-of-10"></a>-EF çekirdekli ASP.NET Core MVC 6 10 - ilgili verileri okuma
 
@@ -155,7 +155,7 @@ Kullandığınız `Single` koleksiyon bildiğiniz durumlarda bir koleksiyon üze
 Onun yerine:
 
 ```csharp
-.Where(I => i.ID == id.Value).Single()
+.Where(i => i.ID == id.Value).Single()
 ```
 
 Ardından, bir kurs seçildiyse, görünüm modeli eğitim listesinden seçilen kursu alınır. Ardından Görünüm modelinin `Enrollments` özelliğinin yüklü o kursun kayıt varlıkların ile `Enrollments` gezinme özelliği.

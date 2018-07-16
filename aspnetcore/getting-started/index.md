@@ -1,17 +1,17 @@
 ---
 title: ASP.NET Core kullanmaya başlayın
 author: rick-anderson
-description: Oluşturur ve ASP.NET Core kullanarak basit bir Hello World uygulamanın çalıştığı hızlı bir öğretici.
+description: Oluşturur ve ASP.NET Core kullanarak basit bir Hello World uygulaması çalıştıran bir hızlı öğretici.
 ms.author: riande
 ms.custom: mvc
 ms.date: 05/31/2018
 uid: getting-started
 ms.openlocfilehash: 22e9c982921cc03d89506e18ff99bf481027dda6
-ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
+ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37077666"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38216219"
 ---
 # <a name="get-started-with-aspnet-core"></a>ASP.NET Core kullanmaya başlayın
 
@@ -19,7 +19,7 @@ ms.locfileid: "37077666"
 
 1. Yükleme [!INCLUDE [](~/includes/2.1-SDK.md)].
 
-2. Bir ASP.NET Core projesi oluşturun. Bir komut kabuğu'nu açın ve aşağıdaki komutu girin:
+2. Bir ASP.NET Core projesi oluşturun. Bir komut kabuğunu açın ve aşağıdaki komutu girin:
 
     ```console
     dotnet new webapp -o aspnetcoreapp
@@ -27,7 +27,7 @@ ms.locfileid: "37077666"
 
     [! [] (~/İncludes/webapp-alias-notice.md) içerir [](~/includes/webapp-alias-notice.md)]
 
-3. HTTPS geliştirme sertifikası güven:
+3. HTTPS geliştirme sertifikasına güvenmek:
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
@@ -68,9 +68,9 @@ ms.locfileid: "37077666"
     dotnet run
     ```
 
-5. Gözat [ http://localhost:5001 ](http://localhost:5001).  Tıklatın **kabul** gizlilik ve tanımlama bilgisi ilkesini kabul etmek için. Bu uygulamayı, kişisel bilgi korumayarak.
+5. Gözat [ http://localhost:5001 ](http://localhost:5001).  Tıklayın **kabul** gizlilik ve tanımlama bilgisi ilkesini kabul etmek için. Bu uygulama, kişisel bilgileri tutmak değil.
 
-6. Açık *Pages/About.cshtml* ve aşağıdaki vurgulanmış biçimlendirmeyi sayfasıyla değiştirin:
+6. Açık *Pages/About.cshtml* ve sayfanın vurgulanan aşağıdaki işaretlemeyle değiştirin:
 
     [!code-cshtml[](sample/getting-started/about.cshtml?highlight=9)]
 
@@ -86,7 +86,7 @@ ms.locfileid: "37077666"
 
 2. Yeni bir ASP.NET Core projesi oluşturun.
 
-   Bir komut kabuğu'nu açın. Aşağıdaki komutu girin:
+   Bir komut kabuğunu açın. Aşağıdaki komutu girin:
 
     ```console
     dotnet new razor -o aspnetcoreapp
@@ -113,18 +113,18 @@ ms.locfileid: "37077666"
 
 ::: moniker range="<= aspnetcore-1.1"
 
-1. .NET Core yükleme **SDK'sı yükleyicisi** 1.0.4 SDK'dan için [.NET Core tüm indirmeler sayfası](https://www.microsoft.com/net/download/all).
+1. .NET Core'u yükleme **SDK yükleyicisi** 1.0.4 SDK'dan için [.NET Core tüm indirmeler sayfasına](https://www.microsoft.com/net/download/all).
 
-2. Yeni bir ASP.NET Core proje için bir klasör oluşturun.
+2. Yeni bir ASP.NET Core projesi için bir klasör oluşturun.
 
-   Bir komut kabuğu'nu açın. Aşağıdaki komutları girin:
+   Bir komut kabuğunu açın. Aşağıdaki komutları girin:
 
    ```console
    mkdir aspnetcoreapp
    cd aspnetcoreapp
    ```
 
-3. Makinenizde sonraki bir SDK sürümünü yüklediyseniz, oluşturma bir *global.json* 1.0.4 seçmek için dosya SDK.
+3. Makinenizde bir sonraki SDK sürümü yüklü değilse, oluşturun bir *global.json* 1.0.4 seçmek için dosya SDK.
 
    ```json
    {
@@ -138,7 +138,7 @@ ms.locfileid: "37077666"
    dotnet new web
    ```
 
-5. Paketler geri yükleyin.
+5. Paketleri geri yükleyin.
 
     ```console
     dotnet restore
@@ -150,7 +150,7 @@ ms.locfileid: "37077666"
    dotnet run
    ```
 
-   [Çalıştırmak dotnet](/dotnet/core/tools/dotnet-run) gerekirse komutu uygulama ilk olarak, derlemeler.
+   [Çalıştırma dotnet](/dotnet/core/tools/dotnet-run) gerekirse komut uygulamayı ilk olarak oluşturur.
 
 7. Gözat `http://localhost:5000`.
 
