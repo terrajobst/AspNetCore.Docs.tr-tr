@@ -287,6 +287,7 @@
 ### [Docker için Visual Studio Araçları](xref:host-and-deploy/docker/visual-studio-tools-for-docker)
 ### [Docker görüntüsüne yayımlama](https://azure.microsoft.com/documentation/articles/vs-azure-tools-docker-hosting-web-apps-in-docker/)
 ## [Proxy ve yük dengeleyici yapılandırma](xref:host-and-deploy/proxy-load-balancer)
+## [Bir web grubunda barındırma](xref:host-and-deploy/web-farm)
 ## [Visual Studio yayımlama profilleri](xref:host-and-deploy/visual-studio-publish-profiles)
 ## [Dizin yapısı](xref:host-and-deploy/directory-structure)
 ## [Azure App Service ve IIS için sık karşılaşılan hatalar başvurusu](xref:host-and-deploy/azure-iis-errors-reference)
