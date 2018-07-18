@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/13/2018
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 96a4403653e474bb056374909b3ee66998bc99be
-ms.sourcegitcommit: 19cbda409bdbbe42553dc385ea72d2a8e246509c
+ms.openlocfilehash: 607bdb7ee830c9a3bbb83ca2aec4661772a285b2
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38992821"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095846"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Windows IIS üzerinde ASP.NET Core barındırma
 
@@ -168,9 +168,8 @@ Etkinleştirme **IIS Yönetim Konsolu** ve **World Wide Web Hizmetleri**.
 
 1. Yükleme *.NET Core barındırma paket* barındıran sistemde. .NET Core çalışma zamanı, .NET Core kitaplığı paketi yükler ve [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module). Modül IIS Kestrel sunucusu arasında ters proxy oluşturur. Sistem, Internet bağlantısı yoksa, alma ve yükleme [Microsoft Visual C++ 2015 yeniden dağıtılabilir](https://www.microsoft.com/download/details.aspx?id=53840) .NET Core barındırma paketini yüklemeden önce.
 
-   1. Gidin [.NET tüm indirmeler sayfasına](https://www.microsoft.com/net/download/all).
-   1. İçinde **çalışma zamanı** sütun tablonun en son Önizleme .NET Core çalışma zamanı listeden seçin (**X.Y çalışma zamanı (vX.Y.Z) indirmeleri**). En son çalışma zamanı olan bir **geçerli** etiketi. Önizleme yazılımı ile çalışmak istediğinize sürece, bir çalışma zamanı "preview" sözcüğü veya "rc" (Sürüm Adayı), bağlantı metninde kaçının.
-   1. .NET Core çalışma zamanı üzerinde indirme sayfasının altında **Windows**seçin **barındırma Paket Yükleyici** indirmek için bağlantı *.NET Core barındırma paket* yükleyici.
+   1. Gidin [.NET indirmeler sayfasına](https://www.microsoft.com/net/download/windows).
+   1. Altında **.NET Core**seçin **.NET Core çalışma zamanı indirme** düğmesinin yanındaki **uygulamaları çalıştırma** etiketi. Yükleyicinin yürütülebilir sözcük "barındırma" dosya adını içerir (örneğin, *dotnet barındırma 2.1.2'yi win.exe*).
    1. Sunucuda yükleyiciyi çalıştırın.
 
    **Önemli!** Barındırma paket önce IIS yüklü değilse, paket yükleme onarılmalıdır. IIS yeniden yükledikten sonra paket barındırma yükleyiciyi çalıştırın.

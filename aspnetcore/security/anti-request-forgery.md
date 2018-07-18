@@ -1,30 +1,30 @@
 ---
-title: ASP.NET çekirdeği engellemek siteler arası istek sahtekarlığı (XSRF/CSRF) saldırılarını
+title: ASP.NET core'da önlemek siteler arası istek sahtekarlığı (XSRF/CSRF) saldırılarını
 author: steve-smith
-description: Web uygulamaları burada kötü amaçlı bir Web sitesi istemci tarayıcısına ve uygulama arasındaki etkileşimi etkileyebilir saldırıları önlemek nasıl bulur.
+description: Web uygulamaları kötü amaçlı bir Web sitesi istemci tarayıcısına ve uygulama arasındaki etkileşim burada etkileyebilir saldırıları önlemek nasıl keşfedin.
 ms.author: riande
 ms.custom: mvc
 ms.date: 03/19/2018
 uid: security/anti-request-forgery
-ms.openlocfilehash: a00bd4ff4b265a19766e54e6ad6b97b870df56c5
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 6a30e1e2321ca3a81d6e1a320d1d87dddb3033c7
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36279605"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095794"
 ---
-# <a name="prevent-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>ASP.NET çekirdeği engellemek siteler arası istek sahtekarlığı (XSRF/CSRF) saldırılarını
+# <a name="prevent-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>ASP.NET core'da önlemek siteler arası istek sahtekarlığı (XSRF/CSRF) saldırılarını
 
 Tarafından [Steve Smith](https://ardalis.com/), [Fiyaz Hasan](https://twitter.com/FiyazBinHasan), ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Siteler arası istek sahtekarlığı (olarak da bilinen XSRF veya CSRF, belirgin *bakın surf*) web barındırılan uygulamalar alınabildiği bir kötü amaçlı web uygulaması etkilemek istemci tarayıcısına ve, güvendiği bir web uygulaması arasındaki etkileşimi karşı bir saldırı Tarayıcı. Web tarayıcıları bazı kimlik doğrulama belirteçleri türleri her istek ile otomatik olarak bir Web sitesine göndermek için bu tür saldırıları mümkündür. Bu yararlanma olarak da bilinen biçimidir bir *tek tıklatmayla saldırı* veya *arabası oturum* saldırı yararlandığı için kullanıcı daha önce oturum kimliği doğrulanmış.
+Siteler arası istek sahteciliği (XSRF veya CSRF, olarak da telaffuz *bakın surf*) barındırılan web uygulamaları ile bir kötü amaçlı web uygulaması etkilemek istemci tarayıcısı, güvenen bir web uygulaması arasındaki etkileşimi karşı bir saldırı olma Tarayıcı. Web tarayıcıları, bir Web sitesine kimlik doğrulama belirteçlerinizi bazı türleri her istek ile otomatik olarak göndermek için bu saldırıları mümkündür. Olarak da bilinen bu yararlanma biçiminde olan bir *tek tıklamayla saldırı* veya *arabası oturumu* saldırı yararlanır çünkü kullanıcı daha önce oturum kimliği doğrulanmış.
 
 CSRF saldırı örneği:
 
-1. İçine bir kullanıcı oturum açtığında `www.good-banking-site.com` forms kimlik doğrulaması kullanma. Sunucu kullanıcının kimliğini doğrular ve bir kimlik doğrulama tanımlama bilgisini içeren bir yanıt verir. Site için geçerli bir kimlik doğrulama tanımlama bilgisi ile aldığı herhangi bir istek güvendiği için saldırılara karşı savunmasızdır.
-1. Kullanıcı kötü amaçlı bir sitesini ziyaret `www.bad-crook-site.com`.
+1. İçinde bir kullanıcı oturum açtığında `www.good-banking-site.com` forms kimlik doğrulaması kullanma. Sunucusu kullanıcının kimliğini doğrular ve bir kimlik doğrulama tanımlama bilgisi içeren yanıt verir. Site bir geçerli bir kimlik doğrulama tanımlama bilgisi ile aldığı herhangi bir istek güvendiği için saldırılara karşı savunmasız durumdadır.
+1. Kullanıcı bir kötü amaçlı sitesini ziyaret `www.bad-crook-site.com`.
 
-   Kötü amaçlı site `www.bad-crook-site.com`, aşağıdakine benzer bir HTML formuna içerir:
+   Kötü niyetli site `www.bad-crook-site.com`, aşağıdakine benzer bir HTML formuna içerir:
 
    ```html
    <h1>Congratulations! You're a Winner!</h1>
@@ -35,66 +35,66 @@ CSRF saldırı örneği:
    </form>
    ```
 
-   Şunlara dikkat edin formun `action` gönderileri savunmasız siteye değil, zararlı site. CSRF "siteler arası" parçasıdır.
+   Dikkat formun `action` gönderileri savunmasız sitesine, kötü niyetli site uygulanmaz. CSRF "siteler arası" parçasıdır.
 
-1. Kullanıcı düğmesi seçer. Tarayıcı isteği yapar ve otomatik olarak istenen etki alanı için kimlik doğrulama tanımlama bilgisi içeren `www.good-banking-site.com`.
-1. İstek çalıştığı `www.good-banking-site.com` kullanıcının kimlik doğrulaması bağlamı sunucuyla ve kimliği doğrulanmış bir kullanıcı gerçekleştirmek için izin verilen herhangi bir eylem gerçekleştirebilir.
+1. Kullanıcının Gönder düğmesini seçer. Tarayıcı istekte bulunur ve otomatik olarak istenen etki alanı için kimlik doğrulama tanımlama bilgisi ekler `www.good-banking-site.com`.
+1. İstek üzerinde çalıştığı `www.good-banking-site.com` kullanıcının kimlik doğrulaması bağlamı sunucusuyla ve kimliği doğrulanmış bir kullanıcıyı gerçekleştirmek için izin verilen herhangi bir eylem gerçekleştirebilirsiniz.
 
-Kullanıcı form gönderme düğmesi nerede seçer senaryo ek olarak, kötü amaçlı site olabilir:
+Kullanıcının seçebileceği formunun düğme senaryo ek olarak, kötü niyetli site yüklenemedi:
 
-* Otomatik olarak form gönderen bir komut dosyasını çalıştırın.
-* Form gönderme bir AJAX isteği gönder.
+* Otomatik olarak formu gönderdiği bir betiği çalıştırın.
+* Form gönderme bir AJAX isteği gönderin.
 * CSS kullanarak form gizleyin.
 
-Bu alternatif senaryoların herhangi bir eylem veya başlangıçta amaçlı sitesini ziyaret dışındaki kullanıcı girişi gerekmez.
+Bu alternatif senaryoların herhangi bir eylem veya kötü niyetli site ilk kez ziyaret dışındaki kullanıcı girişi gerekmez.
 
-HTTPS kullanarak CSRF saldırı engellemez. Kötü amaçlı site gönderebilirsiniz bir `https://www.good-banking-site.com/` kolayca güvenli olmayan bir istek gönderebilir gibi isteyin.
+HTTPS kullanarak CSRF saldırı engellemez. Kötü niyetli site göndermek için bir `https://www.good-banking-site.com/` kolayca güvenli olmayan bir istek gönderebilir gibi istek.
 
-Bazı saldırılar, eylemi gerçekleştirmek için bir resim etiketi, bu durumda kullanılabilir GET isteklerine yanıt uç noktaları hedefleyin. Bu saldırı, görüntüleri izin ancak JavaScript engelleme Forumu sitelerinde ortak biçimidir. GET isteklerinde burada değişkenleri veya kaynakları değiştirilir, durum değişikliği kötü amaçlı saldırılara açık uygulamalardır. **Durum değişikliği GET istekleri güvenli değil. Hiçbir zaman bir GET isteği durumu değiştirmek en iyi bir uygulamadır.**
+Bazı saldırıları, bu durumda bir resim etiketi eylemi gerçekleştirmek için kullanılabilir GET isteklerine yanıt veren uç noktaları hedefleyin. Bu tür bir saldırı görüntüleri izin verir, ancak JavaScript block forum siteleri yaygındır. GET isteklerinde değişkenleri veya kaynaklar nerede değiştirilir, durum değişikliği uygulamaları kötü amaçlı saldırılara karşı savunmasızdır. **Durum değişikliği GET istekleri güvenli değil. Hiçbir zaman bir GET isteği durumu değiştirmek iyi bir uygulamadır.**
 
-CSRF saldırıları, çünkü kimlik doğrulaması için tanımlama bilgileri kullanan web uygulamaları karşı desteklenir:
+CSRF saldırılarına karşı olduğundan kimlik doğrulaması için tanımlama bilgilerini kullanan web uygulamaları desteklenir:
 
-* Tarayıcıları bir web uygulaması tarafından verilen tanımlama bilgilerini depolar.
-* Saklı tanımlama bilgileri, kimliği doğrulanmış kullanıcılar için oturum tanımlama bilgileri içerir.
-* Tanımlama bilgileri web uygulaması için bir etki alanı ile uygulama isteği tarayıcı içinde nasıl oluşturulan bağımsız olarak her istek ilişkili tüm tarayıcılar gönderin.
+* Tarayıcılar, bir web uygulaması tarafından verilen tanımlama bilgilerini depolar.
+* Depolanan bir tanımlama bilgisi kimliği doğrulanmış kullanıcılar için oturum tanımlama bilgileri içerir.
+* Tarayıcılar, her isteği istek uygulamasına bir tarayıcıdan nasıl oluşturulduğunu bağımsız olarak tüm tanımlama bilgilerini ilişkili bir etki alanını web uygulaması ile gönderin.
 
-Ancak, CSRF saldırıları için sınırlı olmayan tanımlama bilgisinden faydalanmakta. Örneğin, temel ve Özet kimlik doğrulaması da savunmasız. Temel veya Özet kimlik doğrulaması ile oturum kullanıcının oturum açtığı sonra tarayıcı kadar oturum kimlik bilgileri otomatik olarak gönderir.&dagger; sona erer.
+Ancak, CSRF saldırıları için sınırlı olmayan tanımlama bilgilerini kötüye. Örneğin, temel ve Özet kimlik doğrulaması ayrıca savunmasız. Bir kullanıcı, temel veya Özet kimlik doğrulaması ile oturum açtıktan sonra tarayıcı kadar oturum kimlik bilgileri otomatik olarak gönderir.&dagger; sona erer.
 
-&dagger;Bu bağlamda *oturum* sırasında kullanıcının kimliğinin istemci-tarafı oturumuna başvuruyor. Bu sunucu tarafı oturumlarını ilgisiz veya [ASP.NET Core oturum Ara](xref:fundamentals/app-state).
+&dagger;Bu bağlamda *oturumu* istemci-tarafı oturumu sırasında kullanıcı kimliğinin ifade eder. Bu sunucu tarafı oturum ilgisi olmayan veya [ASP.NET Core oturumu ara yazılım](xref:fundamentals/app-state).
 
-Kullanıcılar CSRF güvenlik açıklarına karşı önlem alarak önleyebilirsiniz:
+Kullanıcılar, CSRF güvenlik açıklarına karşı önlemler alarak önleyebilirsiniz:
 
-* Dışına kullanmadan bittiğinde, web uygulamalarını imzalayın.
-* Düzenli aralıklarla Temizle tarayıcı tanımlama.
+* Bunları kullanarak bittiğinde, web uygulamaları dışına oturum açın.
+* Düzenli aralıklarla açık tarayıcı tanımlama.
 
-Ancak, CSRF güvenlik açıkları temelde web uygulaması, son kullanıcı ile ilgili bir sorun değildir.
+Ancak, CSRF güvenlik açıkları, temelde web uygulaması, son kullanıcı ile ilgili bir sorun değildir.
 
 ## <a name="authentication-fundamentals"></a>Kimlik doğrulaması temelleri
 
-Tanımlama bilgisi tabanlı kimlik doğrulaması, kimlik doğrulama popüler şeklidir. Belirteç tabanlı kimlik doğrulama sistemleriyle popülerliği içinde özellikle tek sayfa uygulamaları için (SPAs) büyüyor.
+Tanımlama bilgisi tabanlı kimlik doğrulaması, kimlik doğrulama popüler bir biçimidir. Belirteç tabanlı kimlik doğrulama sistemleri popülerliği, özellikle tek sayfalık uygulamalar için (Spa'lar) büyüyor.
 
 ### <a name="cookie-based-authentication"></a>Tanımlama bilgisi tabanlı kimlik doğrulaması
 
-Bir kullanıcının kullanıcı adı ve parola kullanarak kimlik doğrulaması, kimlik doğrulama ve yetkilendirme için kullanılan kimlik doğrulama biletini içeren bir belirteç alacakları. Her istek istemci eşlik bir tanımlama bilgisi getirir belirteç depolanır. Oluşturma ve bu tanımlama bilgisi doğrulama tanımlama bilgisi kimlik doğrulaması ara yazılım tarafından gerçekleştirilir. [Ara yazılım](xref:fundamentals/middleware/index) kullanıcı asıl şifrelenmiş bir tanımlama bilgisine serileştirir. Sonraki isteklerde ara yazılım tanımlama bilgisini doğrular, asıl yeniden oluşturur ve asıl atar [kullanıcı](/dotnet/api/microsoft.aspnetcore.http.httpcontext.user) özelliği [HttpContext](/dotnet/api/microsoft.aspnetcore.http.httpcontext).
+Bir kullanıcı, kullanıcı adı ve parolasını kullanarak kimliğini doğrular, kimlik doğrulama ve yetkilendirme için kullanılan bir kimlik doğrulama anahtarı içeren bir belirteç, verilen. Belirteç, her istemci isteğe eşlik eden bir tanımlama bilgisi şekilde depolanır. Oluşturma ve bu tanımlama bilgisi doğrulama tanımlama bilgisi kimlik doğrulaması ara yazılımı tarafından gerçekleştirilir. [Ara yazılım](xref:fundamentals/middleware/index) şifrelenmiş bir tanımlama bilgisine kullanıcı asıl serileştirir. Sonraki istekler, ara yazılım tanımlama bilgisini doğrular, asıl yeniden oluşturur ve sorumlusuna atar [kullanıcı](/dotnet/api/microsoft.aspnetcore.http.httpcontext.user) özelliği [HttpContext](/dotnet/api/microsoft.aspnetcore.http.httpcontext).
 
 ### <a name="token-based-authentication"></a>Belirteç tabanlı kimlik doğrulaması
 
-Bir kullanıcının kimliği doğrulandığında, bir belirteç (antiforgery bir belirteç değil) alacakları. Belirteç biçiminde kullanıcı bilgilerini içeren [talep](/dotnet/framework/security/claims-based-identity-model) veya uygulama kullanıcı durumu uygulamada tutulan işaret eden bir başvuru belirteci. Bir kullanıcı kimlik doğrulaması gerektiren bir kaynağa erişmeyi denediğinde, belirteç taşıyıcı belirteci biçiminde bir ek authorization üstbilgisi uygulamayla gönderilir. Bu uygulamayı durum bilgisiz hale getirir. Sonraki her istek belirteci istek için sunucu tarafı doğrulama geçirilir. Bu belirteç değil *şifrelenmiş*; bunun *kodlanmış*. Sunucu üzerinde kendi bilgilerine erişmek için belirteç kodu. Belirtecin sonraki isteklerde göndermek için tarayıcının yerel depolama alanına belirteç depolar. Belirteç tarayıcının yerel depolama alanında depolanıyorsa, CSRF güvenlik açığı hakkında endişelenmeyin. Belirtecin bir tanımlama bilgisinde depolandığında CSRF bir konudur.
+Bir kullanıcının kimliği doğrulandığında, bir belirteç (antiforgery bir belirteç değil) verilen. Kullanıcı bilgileri'biçimindeki belirteç içeren [talep](/dotnet/framework/security/claims-based-identity-model) veya uygulama uygulamayı korunan kullanıcı durumunu gösteren bir başvuru belirteci. Bir kullanıcı kimlik doğrulaması gerektiren bir kaynağa erişmeye çalıştığında, belirteç bir ek yetkilendirme üst bilgisinde taşıyıcı belirteç biçimi ile uygulamaya gönderilir. Bu uygulama durum bilgisiz hale getirir. Sonraki her istek için sunucu tarafı doğrulama isteği belirteci geçirildi. Bu belirteci değil *şifrelenmiş*; sahip *kodlanmış*. Sunucuda, belirteç bilgilerini erişmek için kodu. Belirtecin sonraki istekleri göndermek için belirteç tarayıcının yerel depolama alanında depolayın. Belirteç tarayıcının yerel depolama alanında saklanıyorsa CSRF güvenlik açığı hakkında endişelenmeyin. Belirteç bir tanımlama bilgisinde depolandığında CSRF bir konudur.
 
 ### <a name="multiple-apps-hosted-at-one-domain"></a>Bir etki alanında barındırılan birden fazla uygulama
 
 Paylaşılan barındırma ortamları oturumu ele geçirme, oturum açma CSRF ve diğer saldırılara karşı savunmasız.
 
-Ancak `example1.contoso.net` ve `example2.contoso.net` farklı ana altında ana bilgisayarlar arasında örtük güven ilişkisi yoktur `*.contoso.net` etki alanı. Bu örtük güven ilişkisi, büyük olasılıkla güvenilmeyen ana (AJAX istekleri yöneten kaynak aynı ilkeleri mutlaka HTTP tanımlama bilgileri için geçerli olmayan) birbirlerinin tanımlama bilgileri etkiler olanak tanır.
+Ancak `example1.contoso.net` ve `example2.contoso.net` farklı konaklar altında konaklar arasında örtük güven ilişkisi yoktur `*.contoso.net` etki alanı. Bu örtük güven ilişkisi (AJAX isteklerini yöneten bir aynı çıkış noktası ilkeleri mutlaka HTTP tanımlama bilgileri için geçerli değildir) birbirlerinin tanımlama etkilemek potansiyel olarak güvenilmeyen konakları sağlar.
 
-Aynı etki alanında barındırılan uygulamalar arasında güvenilir tanımlama bilgilerini yararlanma saldırıları, etki alanları paylaşmıyor engellenebilir. Her uygulamanın kendi etki alanı üzerinde barındırıldığında yararlanmak için örtük tanımlama bilgisi güven ilişkisi yoktur.
+Aynı etki alanında barındırılan uygulamalar arasında güvenilir tanımlama bilgilerini açığından yararlanma saldırıları, etki alanları kullanılmadığı engellenebilir. Her uygulama kendi etki alanı üzerinde barındırıldığında yararlanmak için örtük bir tanımlama bilgisi güven ilişkisi yoktur.
 
 ## <a name="aspnet-core-antiforgery-configuration"></a>ASP.NET Core antiforgery yapılandırma
 
 > [!WARNING]
-> ASP.NET Core uygulayan antiforgery kullanarak [ASP.NET Core veri koruması](xref:security/data-protection/introduction). Veri koruma yığını bir sunucu grubunda çalışmak için yapılandırılmış olması gerekir. Bkz: [veri korumasını yapılandırma](xref:security/data-protection/configuration/overview) daha fazla bilgi için.
+> ASP.NET Core uygulayan antiforgery kullanarak [ASP.NET Core veri koruma](xref:security/data-protection/introduction). Veri koruma yığınından bir sunucu grubunda çalışacak şekilde yapılandırılması gerekir. Bkz: [veri korumayı yapılandırma](xref:security/data-protection/configuration/overview) daha fazla bilgi için.
 
-ASP.NET Core 2.0 veya sonraki sürümlerde, [FormTagHelper](xref:mvc/views/working-with-forms#the-form-tag-helper) antiforgery belirteçleri HTML form öğelerini yerleştirir. Razor dosyasının aşağıdaki biçimlendirmede otomatik olarak antiforgery belirteçleri oluşturur:
+ASP.NET Core 2.0 veya sonraki sürümlerde, [FormTagHelper](xref:mvc/views/working-with-forms#the-form-tag-helper) antiforgery belirteçleri HTML form öğelerini yerleştirir. Bir Razor dosyasında aşağıdaki biçimlendirme antiforgery belirteçleri otomatik olarak oluşturur:
 
 ```cshtml
 <form method="post">
@@ -102,16 +102,16 @@ ASP.NET Core 2.0 veya sonraki sürümlerde, [FormTagHelper](xref:mvc/views/worki
 </form>
 ```
 
-Similarily, [IHtmlHelper.BeginForm](/dotnet/api/microsoft.aspnetcore.mvc.rendering.ihtmlhelper.beginform) formun yöntemi GET değilse varsayılan olarak antiforgery belirteçleri oluşturur.
+Similarily, [IHtmlHelper.BeginForm](/dotnet/api/microsoft.aspnetcore.mvc.rendering.ihtmlhelper.beginform) formun yöntemi GET değilse, varsayılan olarak antiforgery belirteçleri oluşturur.
 
-Otomatik olarak oluşturulmasını antiforgery belirteçleri HTML form öğelerini için olur zaman `<form>` etiketinde `method="post"` özniteliği ve aşağıdakilerden birini geçerliyse:
+Otomatik olarak oluşturulmasını antiforgery belirteçleri için bir HTML form öğelerini olur olduğunda `<form>` etiketinde `method="post"` özniteliği ve aşağıdakilerden birini geçerliyse:
 
-  * Eylem öznitelik boştur (`action=""`).
-  * Eylem öznitelik sağlanan değil (`<form method="post">`).
+  * Eylem özniteliktir boş (`action=""`).
+  * Eylem öznitelik verilmiyorsa (`<form method="post">`).
 
-Otomatik antiforgery belirteçleri oluşturulmasında HTML form öğelerini devre dışı bırakılabilir:
+HTML form öğelerini için antiforgery belirteçleri otomatik olarak oluşturulmasını devre dışı bırakılabilir:
 
-* Açıkça antiforgery belirteçleri ile devre dışı `asp-antiforgery` özniteliği:
+* Antiforgery belirteçleri ile açıkça devre dışı `asp-antiforgery` özniteliği:
 
   ```cshtml
   <form method="post" asp-antiforgery="false">
@@ -119,7 +119,7 @@ Otomatik antiforgery belirteçleri oluşturulmasında HTML form öğelerini devr
   </form>
   ```
 
-* Form öğesi seçti etiket Yardımcıları etiket Yardımcısını kullanarak genişletme [! çevirin simgesi](xref:mvc/views/tag-helpers/intro#opt-out):
+* Form öğesi kabul etiket Yardımcıları etiket Yardımcısı kullanarak genişletme [! çevirme sembol](xref:mvc/views/tag-helpers/intro#opt-out):
 
   ```cshtml
   <!form method="post">
@@ -127,22 +127,22 @@ Otomatik antiforgery belirteçleri oluşturulmasında HTML form öğelerini devr
   </!form>
   ```
 
-* Kaldırma `FormTagHelper` görünümünden. `FormTagHelper` Razor görünümüne aşağıdaki yönergesi ekleyerek bir görünümden kaldırılabilir:
+* Kaldırma `FormTagHelper` görünümü. `FormTagHelper` Razor görünüme aşağıdaki yönerge ekleyerek bir görünümden kaldırılabilir:
 
   ```cshtml
   @removeTagHelper Microsoft.AspNetCore.Mvc.TagHelpers.FormTagHelper, Microsoft.AspNetCore.Mvc.TagHelpers
   ```
 
 > [!NOTE]
-> [Razor sayfalarının](xref:razor-pages/index) XSRF/CSRF otomatik olarak korunur. Daha fazla bilgi için bkz: [XSRF/CSRF ve Razor sayfalarının](xref:razor-pages/index#xsrf).
+> [Razor sayfaları](xref:razor-pages/index) XSRF/CSRF otomatik olarak korunur. Daha fazla bilgi için [XSRF/CSRF ve Razor sayfaları](xref:razor-pages/index#xsrf).
 
-CSRF saldırılarına karşı savunma en yaygın yaklaşım kullanmaktır *Eşitleyici belirteci düzeni* (STP). Kullanıcı form verilerini içeren bir sayfa istediğinde STP kullanılır:
+CSRF saldırılarına karşı savunma için en yaygın yaklaşımı *Eşitleyici belirteci deseni* (STP). Kullanıcı form verilerini içeren bir sayfa istediğinde STP kullanılır:
 
-1. Sunucu, istemci için geçerli kullanıcının kimliği ile ilişkili bir belirteç gönderir.
-1. İstemci belirteci doğrulama için sunucuya geri gönderir.
-1. Sunucunun kimliği doğrulanmış kullanıcının kimliğini eşleşmeyen bir belirteç alırsa, isteği reddedilir.
+1. Sunucu, istemci için geçerli kullanıcının kimliğiyle ilişkili bir belirteç gönderir.
+1. İstemci belirteci doğrulama sunucusuna geri gönderir.
+1. Sunucu kimliği doğrulanmış kullanıcının kimliğine eşleşmeyen bir belirteç alırsa, istek reddedilir.
 
-Belirteç, benzersiz ve tahmin edilemez. Belirteç isteklerini bir dizi uygun sıralama emin olmak için de kullanılabilir (örneğin, istek sırası sağlama: sayfa 1 &ndash; sayfa 2 &ndash; sayfa 3). Tüm ASP.NET Core MVC ve Razor sayfalarının şablonları formlarında antiforgery belirteçleri oluşturur. Görünüm örnekleri aşağıdaki çiftinin antiforgery belirteçleri oluşturur:
+Belirteç benzersiz ve tahmin edilemez. Belirteç, bir dizi isteğin doğru sıralama emin olmak için de kullanılabilir (örneğin, istek sırası sağlama: sayfa 1 &ndash; sayfa 2 &ndash; sayfa 3). Tüm ASP.NET Core MVC ve Razor sayfaları şablonları formlarında antiforgery belirteçleri oluşturur. Örnekleri görüntüle çiftiyle antiforgery belirteçleri oluşturun:
 
 ```cshtml
 <form asp-controller="Manage" asp-action="ChangePassword" method="post">
@@ -155,7 +155,7 @@ Belirteç, benzersiz ve tahmin edilemez. Belirteç isteklerini bir dizi uygun s�
 }
 ```
 
-Açık bir antiforgery belirteci eklemek bir `<form>` etiket Yardımcıları ile HTML Yardımcısı kullanmadan öğesi [ @Html.AntiForgeryToken ](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.htmlhelper.antiforgerytoken):
+Açıkça bir antiforgery belirtecine ekleme bir `<form>` etiket Yardımcıları ile HTML Yardımcısını kullanmadan öğesi [ @Html.AntiForgeryToken ](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.htmlhelper.antiforgerytoken):
 
 ```cshtml
 <form action="/" method="post">
@@ -163,7 +163,7 @@ Açık bir antiforgery belirteci eklemek bir `<form>` etiket Yardımcıları ile
 </form>
 ```
 
-Her önceki durumlarda, ASP.NET Core aşağıdakine benzer bir gizli bir form alanı ekler:
+Her önceki örneklerin, ASP.NET Core aşağıdakine benzer bir gizli form alanının ekler:
 
 ```cshtml
 <input name="__RequestVerificationToken" type="hidden" value="CfDJ8NrAkS ... s2-m9Yw">
@@ -195,19 +195,19 @@ services.AddAntiforgery(options =>
 | Seçenek | Açıklama |
 | ------ | ----------- |
 | [Tanımlama bilgisi](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.cookie) | Antiforgery tanımlama bilgisi oluşturmak için kullanılan ayarları belirler. |
-| [CookieDomain](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.cookiedomain) | Tanımlama bilgisinin etki alanı. Varsayılan olarak `null`. Bu özellik artık kullanılmıyor ve gelecek sürümde kaldırılacak. Önerilen Cookie.Domain alternatiftir. |
-| [CookieName](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.cookiename) | Tanımlama bilgisinin adı. Ayarlanmadı, sistem ile başlayan bir benzersiz ad oluşturursa [DefaultCookiePrefix](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.defaultcookieprefix) (". AspNetCore.Antiforgery."). Bu özellik artık kullanılmıyor ve gelecek sürümde kaldırılacak. Önerilen Cookie.Name alternatiftir. |
-| [CookiePath](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.cookiepath) | Yolu tanımlama bilgisinde ayarlanır. Bu özellik artık kullanılmıyor ve gelecek sürümde kaldırılacak. Önerilen Cookie.Path alternatiftir. |
-| [FormFieldName](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.formfieldname) | Görünümlerde antiforgery belirteçleri oluşturmak için antiforgery sistem tarafından kullanılan gizli form alanının adı. |
-| [HeaderName](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.headername) | Antiforgery sistem tarafından kullanılan üstbilginin adı. Varsa `null`, yalnızca form verilerini sistem göz önünde bulundurur. |
-| [requireSsl](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.requiressl) | SSL antiforgery sistem tarafından gerekip gerekmediğini belirtir. Varsa `true`, SSL olmayan istekleri başarısız olur. Varsayılan olarak `false`. Bu özellik artık kullanılmıyor ve gelecek sürümde kaldırılacak. Önerilen alternatif Cookie.SecurePolicy ayarlamaktır. |
-| [SuppressXFrameOptionsHeader](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.suppressxframeoptionsheader) | Nesil engellenip engellenmeyeceğini belirtir `X-Frame-Options` üstbilgi. Varsayılan olarak, "SAMEORIGIN" değerine sahip üstbilgi oluşturulur. Varsayılan olarak `false`. |
+| [CookieDomain](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.cookiedomain) | Tanımlama bilgisinin etki alanı. Varsayılan olarak `null`. Bu özellik artık kullanılmıyor ve gelecekte yayımlanacak bir sürümde kaldırılacak. Önerilen Cookie.Domain alternatiftir. |
+| [CookieName](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.cookiename) | Tanımlama bilgisinin adı. Ayarlı değil, system ile başlayan bir benzersiz ad oluşturursa [DefaultCookiePrefix](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.defaultcookieprefix) (". AspNetCore.Antiforgery."). Bu özellik artık kullanılmıyor ve gelecekte yayımlanacak bir sürümde kaldırılacak. Önerilen Cookie.Name alternatiftir. |
+| [CookiePath](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.cookiepath) | Yolu tanımlama bilgisinde ayarlayın. Bu özellik artık kullanılmıyor ve gelecekte yayımlanacak bir sürümde kaldırılacak. Önerilen Cookie.Path alternatiftir. |
+| [FormFieldName](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.formfieldname) | Antiforgery sistem tarafından görünümlerde antiforgery belirteçleri işlemek için kullanılan gizli form alanının adı. |
+| [HeaderName](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.headername) | Antiforgery sistemi tarafından kullanılan üstbilginin adı. Varsa `null`, sistem yalnızca form verileri olarak değerlendirir. |
+| [İçindeki requireSSL öğesini](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.requiressl) | SSL antiforgery sistem tarafından gerekli olup olmadığını belirtir. Varsa `true`, SSL olmayan istekler başarısız. Varsayılan olarak `false`. Bu özellik artık kullanılmıyor ve gelecekte yayımlanacak bir sürümde kaldırılacak. Önerilen alternatif Cookie.SecurePolicy ayarlamaktır. |
+| [SuppressXFrameOptionsHeader](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.suppressxframeoptionsheader) | Nesil engellenip engellenmeyeceğini belirtir `X-Frame-Options` başlığı. Varsayılan olarak, başlığı "SAMEORIGIN" bir değerle oluşturulur. Varsayılan olarak `false`. |
 
-Daha fazla bilgi için bkz: [CookieAuthenticationOptions](/dotnet/api/Microsoft.AspNetCore.Builder.CookieAuthenticationOptions).
+Daha fazla bilgi için [CookieAuthenticationOptions](/dotnet/api/Microsoft.AspNetCore.Builder.CookieAuthenticationOptions).
 
-## <a name="configure-antiforgery-features-with-iantiforgery"></a>IAntiforgery ile antiforgery özellikleri yapılandırma
+## <a name="configure-antiforgery-features-with-iantiforgery"></a>İle IAntiforgery antiforgery özellikleri yapılandırma
 
-[IAntiforgery](/dotnet/api/microsoft.aspnetcore.antiforgery.iantiforgery) antiforgery özelliklerini yapılandırmak için API sağlar. `IAntiforgery` içinde istenen `Configure` yöntemi `Startup` sınıfı. Aşağıdaki örnek, antiforgery bir belirteç oluşturmak ve yanıtta (Bu konuda açıklanan varsayılan Açısal adlandırma kuralını kullanarak) bir tanımlama bilgisi olarak göndermek için uygulamanın giriş sayfasından ara yazılımını kullanır:
+[IAntiforgery](/dotnet/api/microsoft.aspnetcore.antiforgery.iantiforgery) antiforgery özellikleri yapılandırmak için API sağlar. `IAntiforgery` içinde istenen `Configure` yöntemi `Startup` sınıfı. Aşağıdaki örnek uygulamanın giriş sayfasından ara yazılım antiforgery bir belirteç oluşturun ve yanıt olarak bir tanımlama bilgisi (Bu konunun ilerleyen bölümlerinde açıklanan varsayılan Angular adlandırma kuralını kullanarak) olarak göndermek için kullanır:
 
 ```csharp
 public void Configure(IApplicationBuilder app, IAntiforgery antiforgery)
@@ -232,9 +232,9 @@ public void Configure(IApplicationBuilder app, IAntiforgery antiforgery)
 }
 ```
 
-### <a name="require-antiforgery-validation"></a>Antiforgery doğrulaması iste
+### <a name="require-antiforgery-validation"></a>Antiforgery doğrulama gerektir
 
-[ValidateAntiForgeryToken](/dotnet/api/microsoft.aspnetcore.mvc.validateantiforgerytokenattribute) tek tek bir eylem, bir denetleyici uygulanabilir bir eylem filtresi veya genel olarak. İsteğin geçerli bir antiforgery belirteci içermedikçe Bu filtre uygulanmış olan eylemler için yapılan istekleri engellenir.
+[ValidateAntiForgeryToken](/dotnet/api/microsoft.aspnetcore.mvc.validateantiforgerytokenattribute) tek bir eylem, bir denetleyici uygulanabilir bir eylem filtresi veya genel olarak. Geçerli bir antiforgery belirteç isteği eklemediği sürece bu filtre uygulanmış olan eylemler için yapılan istekleri engellenir.
 
 ```csharp
 [HttpPost]
@@ -261,25 +261,25 @@ public async Task<IActionResult> RemoveLogin(RemoveLoginViewModel account)
 }
 ```
 
-`ValidateAntiForgeryToken` Özniteliği bu süsler, HTTP GET istekleri dahil olmak üzere istekleri eylem yöntemleri için bir belirteç gerektirir. Varsa `ValidateAntiForgeryToken` özniteliği, uygulamanın denetleyicilerinde uygulandığında, ile geçersiz kılınabilir `IgnoreAntiforgeryToken` özniteliği.
+`ValidateAntiForgeryToken` Özniteliği, bu düzenler, HTTP GET istekleri dahil olmak üzere istekleri eylem yöntemleri için bir belirteç gerektirir. Varsa `ValidateAntiForgeryToken` özniteliği, uygulamanın denetleyicilerinde uygulandığında, ile kılınabilir `IgnoreAntiforgeryToken` özniteliği.
 
 > [!NOTE]
-> ASP.NET Core antiforgery belirteçleri GET istekleri için otomatik olarak eklemeyi desteklemiyor.
+> ASP.NET Core antiforgery belirtecinin GET istekleri için otomatik olarak eklenmesini desteklemez.
 
-### <a name="automatically-validate-antiforgery-tokens-for-unsafe-http-methods-only"></a>Otomatik olarak yalnızca güvenli olmayan HTTP yöntemleri için antiforgery belirteçleri doğrulamak
+### <a name="automatically-validate-antiforgery-tokens-for-unsafe-http-methods-only"></a>Yalnızca güvenli olmayan HTTP yöntemleri için antiforgery belirteçleri otomatik olarak doğrulama
 
-ASP.NET Core uygulamaları için Güvenli HTTP yöntemleri (GET, HEAD, seçenekleri ve izleme) antiforgery belirteçleri oluşturmak yok. Kapsamlı uygulama yerine `ValidateAntiForgeryToken` özniteliği ve ile geçersiz kılma `IgnoreAntiforgeryToken` öznitelikleri [AutoValidateAntiforgeryToken](/dotnet/api/microsoft.aspnetcore.mvc.autovalidateantiforgerytokenattribute) özniteliği kullanılabilir. Bu öznitelik için aynı şekilde çalışır `ValidateAntiForgeryToken` için aşağıdaki HTTP yöntemleri kullanılarak yapılan istekleri belirteçleri gerektirmeyen dışında öznitelik:
+ASP.NET Core uygulamaları için Güvenli HTTP yöntemleri (GET, HEAD, SEÇENEKLERİNİ ve izleme) antiforgery belirteçleri oluşturma. Geniş çapta uygulamak yerine `ValidateAntiForgeryToken` özniteliği ve ile geçersiz kılma `IgnoreAntiforgeryToken` öznitelikleri [AutoValidateAntiforgeryToken](/dotnet/api/microsoft.aspnetcore.mvc.autovalidateantiforgerytokenattribute) özniteliği kullanılabilir. Bu öznitelik için aynı şekilde çalışır `ValidateAntiForgeryToken` aşağıdaki HTTP yöntemleri kullanılarak yapılan istekler için belirteçleri gerektirmeyen dışında öznitelik:
 
 * AL
 * HEAD
 * SEÇENEKLER
 * TRACE
 
-Kullanılmasını öneririz `AutoValidateAntiforgeryToken` API olmayan senaryolar için kapsamlı. Bu işlem sonrası eylemler varsayılan olarak korunan sağlar. Varsayılan olarak, antiforgery belirteçleri yoksaymayı sürece alternatiftir `ValidateAntiForgeryToken` tek tek eylem yöntemlerine uygulanır. Bu büyük olasılıkla bırakılması POST eylem yöntemi için bu senaryoda yanlışlıkla, uygulama CSRF saldırılara karşı savunmasız bırakır korumasız. Tüm gönderileri antiforgery belirteci göndermesi gerekir.
+Kullanılmasını öneririz `AutoValidateAntiforgeryToken` problem API olmayan senaryolar için. Bu işlem sonrası eylemler varsayılan olarak korumalıdır sağlar. Sürece varsayılan olarak, antiforgery belirteçleri yoksaymak için alternatif olan `ValidateAntiForgeryToken` tek tek eylem yöntemlerine uygulanır. Bu büyük olasılıkla kalma sonrası eylem yöntemi için bu senaryoda yanlışlıkla uygulama CSRF saldırılarına karşı savunmasız bırakır korumasız. Tüm gönderileri antiforgery belirteci göndermesi gerekir.
 
-API tanımlama bilgisi olmayan belirtecinin bir parçası göndermek için bir otomatik mekanizması yok. Uygulama, büyük olasılıkla istemci kod uygulamasına bağlıdır. Bazı örnekleri aşağıda verilmiştir:
+API'leri tanımlama bilgisi olmayan belirtecinin bir parçası olarak göndermek için otomatik bir mekanizma yoktur. Uygulama, büyük olasılıkla istemci kodu uygulamasının bağlıdır. Bazı örnekler aşağıda verilmiştir:
 
-Sınıf düzeyi örnek:
+Örnek sınıf düzeyi:
 
 ```csharp
 [Authorize]
@@ -295,9 +295,9 @@ services.AddMvc(options =>
     options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute()));
 ```
 
-### <a name="override-global-or-controller-antiforgery-attributes"></a>Geçersiz kılma genel veya denetleyicisi antiforgery öznitelikleri
+### <a name="override-global-or-controller-antiforgery-attributes"></a>Geçersiz kılma genel veya denetleyici antiforgery öznitelikleri
 
-[IgnoreAntiforgeryToken](/dotnet/api/microsoft.aspnetcore.mvc.ignoreantiforgerytokenattribute) filtre, belirli bir eylem (veya denetleyici) için bir antiforgery belirteci gereksinimini ortadan kaldırmak için kullanılır. Uygulandığında, bu filtre geçersiz kılmaları `ValidateAntiForgeryToken` ve `AutoValidateAntiforgeryToken` daha yüksek bir düzeyde (genel olarak veya bir denetleyicisinde) belirtilen filtreler.
+[IgnoreAntiforgeryToken](/dotnet/api/microsoft.aspnetcore.mvc.ignoreantiforgerytokenattribute) filtre, belirli bir eylem (veya denetleyici) için bir antiforgery belirteci gereksinimini ortadan kaldırmak için kullanılır. Uygulandığında, bu filtresi geçersiz kılmaları `ValidateAntiForgeryToken` ve `AutoValidateAntiforgeryToken` (genel olarak veya bir denetleyicisinde) daha yüksek bir düzeyde belirtilen filtreler.
 
 ```csharp
 [Authorize]
@@ -315,38 +315,38 @@ public class ManageController : Controller
 
 ## <a name="refresh-tokens-after-authentication"></a>Belirteçlerin kimlik doğrulamasından sonra Yenile
 
-Kullanıcı, kullanıcı bir görünüm veya Razor sayfalarının sayfasına yönlendirerek doğrulandıktan sonra belirteçleri yenilenecek.
+Kullanıcı, kullanıcı bir görünüm veya Razor sayfaları sayfasına yönlendirerek doğrulandıktan sonra belirteçleri yenilenmesi.
 
-## <a name="javascript-ajax-and-spas"></a>JavaScript, AJAX ve SPAs
+## <a name="javascript-ajax-and-spas"></a>JavaScript ve AJAX Spa'lar
 
-Geleneksel HTML tabanlı uygulamalarda antiforgery belirteçleri gizli form alanlarını kullanarak sunucuya geçirilir. Modern JavaScript tabanlı uygulamalar ve SPAs, birçok istek program aracılığıyla yapılır. AJAX istekleri belirteç göndermek için başka teknikler (örneğin, istek üstbilgileri veya tanımlama bilgileri) kullanabilir.
+Geleneksel HTML tabanlı uygulamalarda antiforgery belirteçleri gizli form alanları kullanarak sunucuya geçirilir. JavaScript tabanlı modern uygulamalar ve Spa'lar, çok sayıda istek program aracılığıyla yapılır. Bu AJAX istekleri (veya istek üst bilgilerini tanımlama bilgileri gibi) başka teknikler belirteç göndermek için kullanabilir.
 
-Tanımlama bilgileri kimlik doğrulama belirteçleri depolamak ve API isteklerinin sunucusunda kimlik doğrulaması için kullanılıyorsa, CSRF olası bir sorundur. Belirteç depolamak için yerel depolama alanı kullandıysanız, yerel depolama biriminden değerleri otomatik olarak her istek ile sunucuya gönderilen değil çünkü CSRF güvenlik açığı azaltıldığından. Bu nedenle, istemci ve bir istek üstbilgisini önerilen yaklaşımdır olarak belirtecin gönderme antiforgery belirteci depolamak için yerel depolama kullanma.
+Tanımlama bilgileri kimlik doğrulama belirteçlerinizi depolamak ve sunucuda API isteklerinin kimliğini doğrulamak için kullanılıyorsa, CSRF olası bir sorundur. Yerel depolama belirteç depolamak için kullanılır, çünkü her istek ile sunucu için yerel depolama alanından değerleri otomatik olarak gönderilmez CSRF güvenlik açığı azaltılması gereken. Bu nedenle, istemci ve istek üst bilgisi önerilen bir yaklaşım olarak belirteç gönderme antiforgery belirteç saklamak için yerel depolama ile.
 
 ### <a name="javascript"></a>JavaScript
 
-JavaScript görünümlerle kullanarak, belirteç görünümü içinde hizmetinden kullanılarak oluşturulabilir. Eklenmeye [Microsoft.AspNetCore.Antiforgery.IAntiforgery](/dotnet/api/microsoft.aspnetcore.antiforgery.iantiforgery) görüntüleyebileceği ve çağırabileceği içine hizmet [GetAndStoreTokens](/dotnet/api/microsoft.aspnetcore.antiforgery.iantiforgery.getandstoretokens):
+Görünümler ile JavaScript kullanarak belirteç hizmeti aracılığıyla görünümü içinde oluşturulabilir. Ekleme [Microsoft.AspNetCore.Antiforgery.IAntiforgery](/dotnet/api/microsoft.aspnetcore.antiforgery.iantiforgery) görüntüleyebileceği ve çağırabileceği uygulamasına service [GetAndStoreTokens](/dotnet/api/microsoft.aspnetcore.antiforgery.iantiforgery.getandstoretokens):
 
 [!code-csharp[](anti-request-forgery/sample/MvcSample/Views/Home/Ajax.cshtml?highlight=4-10,12-13,35-36)]
 
-Bu yaklaşım doğrudan sunucudan tanımlama bilgilerini ayarlama veya istemciden okuma uğraşmanız gereğini ortadan kaldırır.
+Bu yaklaşım, doğrudan sunucudan tanımlama bilgilerini ayarlama ya da istemciden okumadan altyapıdaki gereğini ortadan kaldırır.
 
-Önceki örnekte AJAX POST başlığı için gizli alan değeri okumak için JavaScript kullanır.
+Yukarıdaki örnekte AJAX posta üst bilgisi için gizli bir alan değerini okumak için JavaScript kullanır.
 
-JavaScript ayrıca tanımlama bilgilerini belirteçleri erişebilir ve tanımlama bilgisinin içeriği belirtecin değeri ile bir üstbilgi oluşturmak için kullanın.
+JavaScript, ayrıca tanımlama bilgilerini belirteçlerinde erişebilir ve tanımlama bilgisinin içeriği belirtecin değeri ile bir başlığı oluşturmak için kullanın.
 
 ```csharp
 context.Response.Cookies.Append("CSRF-TOKEN", tokens.RequestToken, 
     new Microsoft.AspNetCore.Http.CookieOptions { HttpOnly = false });
 ```
 
-Komut dosyası varsayılarak istekleri belirteç olarak adlandırılan bir üstbilgisinde göndermek için `X-CSRF-TOKEN`, aranacak antiforgery hizmetini yapılandırma `X-CSRF-TOKEN` üstbilgisi:
+Betik varsayılarak istekleri belirteç adı verilen bir üst bilgisinde göndermek için `X-CSRF-TOKEN`, aranacak antiforgery hizmetini yapılandırma `X-CSRF-TOKEN` üst bilgi:
 
 ```csharp
 services.AddAntiforgery(options => options.HeaderName = "X-CSRF-TOKEN");
 ```
 
-Aşağıdaki örnek, uygun üstbilgiyle AJAX isteği yapmak için JavaScript kullanır:
+Aşağıdaki örnek, uygun üst bilgisiyle bir AJAX isteği yapmak için JavaScript kullanır:
 
 ```javascript
 function getCookie(cname) {
@@ -385,23 +385,24 @@ xhttp.send(JSON.stringify({ "newPassword": "ReallySecurePassword999$$$" }));
 
 ### <a name="angularjs"></a>AngularJS
 
-AngularJS CSRF adresine bir kuralı kullanılır. Sunucu tanımlama bilgisi adı ile gönderirse `XSRF-TOKEN`, AngularJS `$http` hizmeti sunucusuna bir istek gönderdiğinde bu tanımlama bilgisi değeri için bir başlık ekler. Bu işlem otomatik olarak yapılır. Üstbilgi açıkça ayarlanmış olması gerekmez. Üstbilgi adı `X-XSRF-TOKEN`. Sunucu, bu başlığı algılamak ve içeriğini doğrulayın.
+AngularJS adresine CSRF kuralını kullanır. Sunucu adı ile bir tanımlama bilgisi gönderirse `XSRF-TOKEN`, AngularJS `$http` hizmeti sunucusuna bir istek gönderdiğinde bu tanımlama bilgisi değeri için bir başlık ekler. Bu işlemi otomatik olarak gerçekleşir. Üst bilgi, açıkça ayarlanmış olması gerekmez. Üst bilgi adı: `X-XSRF-TOKEN`. Sunucu, bu başlığı algılamak ve içeriğini doğrulayın.
 
-ASP.NET Core API çalışmak için bu kural:
+Bu kural ile ASP.NET Core API'si işler:
 
-* Adlı bir tanımlama bilgisine bir belirteç sağlamak için uygulamanızın yapılandırma `XSRF-TOKEN`.
-* Adında bir başlık aramak için antiforgery hizmetini yapılandırma `X-XSRF-TOKEN`.
+* Bir belirteç olarak adlandırılan bir tanımlama bilgisinde sağlamak için uygulamanızı yapılandırma `XSRF-TOKEN`.
+* Adlı bir üst bilgisini antiforgery hizmetinin yapılandırma `X-XSRF-TOKEN`.
 
 ```csharp
 services.AddAntiforgery(options => options.HeaderName = "X-XSRF-TOKEN");
 ```
 
-[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/anti-request-forgery/sample/AngularSample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/anti-request-forgery/sample/AngularSample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="extend-antiforgery"></a>Antiforgery genişletme
 
-[IAntiForgeryAdditionalDataProvider](/dotnet/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider) türü her belirteci ek veriler gidiş tarafından kötü CSRF sistem davranışını genişletmek geliştiricilere sağlar. [GetAdditionalData](/dotnet/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider.getadditionaldata) yöntemi her çağrıldığında bir alan belirteci oluşturulur ve dönüş değeri içinde oluşturulan belirteç katıştırılır. Bir uygulayan bir zaman damgası, nonce veya başka bir değer döndürür ve ardından arama [ValidateAdditionalData](/dotnet/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider.validateadditionaldata) belirteç doğrulandığında bu verileri doğrulamak için. Bu yüzden bu bilgiyi içer gerek yoktur istemcinin kullanıcı adı zaten oluşturulan belirteçlere katıştırılır. Bir belirteci ek veriler ancak hiçbir içeriyorsa `IAntiForgeryAdditionalDataProvider` olan yapılandırılmış, ek veriler doğrulanmış değil.
+[IAntiForgeryAdditionalDataProvider](/dotnet/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider) türü tarafından gidiş dönüşü ek veriler her belirteç, CSRF önleme sisteminin davranışını genişletmek geliştiricilerin kullanmasına izin verir. [GetAdditionalData](/dotnet/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider.getadditionaldata) yöntemi her çağrıldığında bir alan belirteç oluşturulur ve dönüş değeri içinde oluşturulan belirtecin katıştırılır. Bir uygulayan bir zaman damgası, nonce veya başka bir değer döndürür ve sonra çağrı [ValidateAdditionalData](/dotnet/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider.validateadditionaldata) belirteç doğrulandığında, bu verileri doğrulamak için. Bu bilgiyi içer gerekmez. Bu nedenle istemcinin kullanıcı adını oluşturulan belirteçlere zaten eklenir. Bir belirteç yok, ancak ek veriler içeriyorsa `IAntiForgeryAdditionalDataProvider` olan yapılandırılmış, ek veriler doğrulanmış değil.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [CSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)) üzerinde [Web uygulaması güvenlik projeyi açın](https://www.owasp.org/index.php/Main_Page) (OWASP).
+* [CSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)) üzerinde [Web uygulaması güvenlik projesi açın](https://www.owasp.org/index.php/Main_Page) (OWASP).
+* <xref:host-and-deploy/web-farm>
