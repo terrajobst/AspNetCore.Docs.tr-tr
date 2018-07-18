@@ -1,41 +1,41 @@
 ---
-title: Ana bilgisayar ve ASP.NET Core dağıtma
+title: Barındırma ve ASP.NET Core dağıtma
 author: rick-anderson
-description: Barındırma ortamları ayarlama hakkında bilgi edinmek ve ASP.NET Core uygulamaları dağıtın.
+description: Barındırma ortamları hakkında bilgi edinmek ve ASP.NET Core uygulamaları dağıtın.
 ms.author: riande
 ms.custom: mvc
 ms.date: 08/07/2017
 uid: host-and-deploy/index
-ms.openlocfilehash: 31444475e39a12d526dd624bb508770429e414ca
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: e62b68c4cfad29bb8bea3b9fbb2c231a4afeccea
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277156"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095674"
 ---
-# <a name="host-and-deploy-aspnet-core"></a>Ana bilgisayar ve ASP.NET Core dağıtma
+# <a name="host-and-deploy-aspnet-core"></a>Barındırma ve ASP.NET Core dağıtma
 
-Genel ASP.NET Core uygulama için bir barındırma ortamında dağıtmak için:
+Genel olarak bir ASP.NET Core uygulaması için bir barındırma ortamı dağıtmak için:
 
 * Barındırma sunucusu üzerindeki bir klasöre uygulamayı yayımlayın.
-* Uygulama isteklerinin gelmesini ve onu kilitlenmesine veya sunucu yeniden başlatıldıktan sonra uygulama yeniden başlatıldığında başlayan bir işlem yöneticisi ayarlayın.
-* Ters proxy yapılandırması istenirse, uygulama isteklerini iletir ters bir proxy ayarlayın.
+* İstekler geldiğinde ve onu kilitleniyor veya sunucu yeniden başlatıldıktan sonra uygulama yeniden başlatmalarını gerektiğinde, uygulamayı başlatan bir işlem Yöneticisi'ni ayarlayın.
+* Ters Ara sunucu yapılandırması istenirse, uygulamanın istekleri ileten ters proxy ayarlayın.
 
-## <a name="publish-to-a-folder"></a>Bir klasöre yayımlama
+## <a name="publish-to-a-folder"></a>Bir klasöre yayımlayın
 
-[Dotnet yayımlama](/dotnet/articles/core/tools/dotnet-publish) CLI komut uygulama kodu derler ve uygulamaya çalıştırmak için gerekli dosyaları kopyalar bir *yayımlama* klasör. Visual Studio'dan dağıtırken [dotnet yayımlama](/dotnet/core/tools/dotnet-publish) adım otomatik olarak gerçekleşir dosyaları dağıtım hedefe kopyalanmadan önce.
+[Dotnet yayımlama](/dotnet/articles/core/tools/dotnet-publish) CLI komutunu uygulama kodu derler ve uygulamada oturum çalıştırmak için gerekli dosyaları kopyalayan bir *yayımlama* klasör. Visual Studio'dan dağıtırken [dotnet yayımlama](/dotnet/core/tools/dotnet-publish) adımı otomatik olarak gerçekleşir önce dosyaları dağıtım hedefe kopyalanır.
 
-### <a name="folder-contents"></a>Klasör içeriğini
+### <a name="folder-contents"></a>Klasör içeriği
 
 *Yayımlama* klasörde *.exe* ve *.dll* Uygulama bağımlılıklarını ve isteğe bağlı olarak .NET çalışma zamanı dosyaları.
 
-Bir .NET Core uygulaması olarak yayımlanan *müstakil* veya *framework bağımlı* uygulama. Uygulama kendi içinde bulunan ise *.dll* .NET çalışma zamanı içeren dosyaları dahil edilmiştir *yayımlama* klasör. Uygulama framework bağımlı ise, uygulama bir sunucuda yüklü .NET sürümü başvuru olduğundan, .NET çalışma zamanı dosyalarını dahil edilmez. Varsayılan dağıtım modeli framework bağımlıdır. Daha fazla bilgi için bkz: [.NET Core uygulama dağıtımı](/dotnet/articles/core/deploying/index).
+.NET Core uygulaması olarak yayımlanabilir *müstakil* veya *framework bağımlı* uygulama. Uygulama kendi içinde ise *.dll* .NET çalışma zamanı içeren dosyaları dahil edilecek *yayımlama* klasör. Uygulama framework bağlı ise, uygulamanın bir sürümü sunucuda yüklü .NET başvuru olduğundan, .NET çalışma zamanı dosyalarını dahil edilmez. Varsayılan dağıtım modeli framework bağlıdır. Daha fazla bilgi için [.NET Core uygulama dağıtımı](/dotnet/articles/core/deploying/index).
 
-Ek olarak *.exe* ve *.dll* dosyaları *yayımlama* ASP.NET Core uygulama klasörü genellikle yapılandırma dosyalarını, statik varlıklar ve MVC görünümleri içerir. Daha fazla bilgi için bkz: [dizin yapısını](xref:host-and-deploy/directory-structure).
+Ek olarak *.exe* ve *.dll* dosyaları *yayımlama* ASP.NET Core uygulaması için klasör genellikle yapılandırma dosyalarını, statik varlıkları ve MVC görünümleri içerir. Daha fazla bilgi için [dizin yapısı](xref:host-and-deploy/directory-structure).
 
-## <a name="set-up-a-process-manager"></a>Bir işlem yöneticisi ayarlayın
+## <a name="set-up-a-process-manager"></a>Bir işlem Yöneticisi'ni ayarlayın
 
-Bir sunucu önyüklenir ve onu çökerse yeniden başlatılması gereken bir konsol uygulaması bir ASP.NET Core uygulamadır. Başlatır ve yeniden başlatmalar otomatikleştirmek için bir işlem yöneticisi gereklidir. ASP.NET Core en yaygın işlem yöneticilerinden şunlardır:
+ASP.NET Core uygulaması bir sunucu önyüklenir ve onu kilitlenmesi durumunda yeniden başlatılması gerekir bir konsol uygulamasıdır. Başlatır ve yeniden otomatikleştirmek için bir işlem yöneticisi gereklidir. ASP.NET Core için en yaygın işlem yöneticileri şunlardır:
 
 * Linux
   * [Nginx](xref:host-and-deploy/linux-nginx)
@@ -44,34 +44,38 @@ Bir sunucu önyüklenir ve onu çökerse yeniden başlatılması gereken bir kon
   * [IIS](xref:host-and-deploy/iis/index)
   * [Windows hizmeti](xref:host-and-deploy/windows-service)
 
-## <a name="set-up-a-reverse-proxy"></a>Bir ters proxy ayarlamak
+## <a name="set-up-a-reverse-proxy"></a>Bir ters Proxy'yi Ayarlama
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-Uygulama kullanıyorsa [Kestrel](xref:fundamentals/servers/kestrel) web sunucusu [Nginx](xref:host-and-deploy/linux-nginx), [Apache](xref:host-and-deploy/linux-apache), veya [IIS](xref:host-and-deploy/iis/index) ters proxy sunucusu olarak kullanılabilir. Ters proxy sunucusu Internet'ten HTTP isteklerini alır ve bunları Kestrel için bazı ön işleme sonra iletir.
+Uygulama kullanıyorsa [Kestrel](xref:fundamentals/servers/kestrel) web sunucusu [Ngınx](xref:host-and-deploy/linux-nginx), [Apache](xref:host-and-deploy/linux-apache), veya [IIS](xref:host-and-deploy/iis/index) bir ters proxy sunucusu olarak kullanılabilir. Ters Ara sunucu, Internet'ten HTTP isteklerini alır ve bunları Kestrel için bazı ön işleme sonra iletir.
 
-Her iki yapılandırma&mdash;ile veya bir ters Ara sunucu olmadan&mdash;geçerli ve desteklenen bir barındırma yapılandırması ASP.NET Core 2.0 veya sonraki uygulamalar içindir. Daha fazla bilgi için bkz: [Kestrel ters proxy ile kullanmak ne zaman](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy).
+Her iki yapılandırma&mdash;ile veya ters Ara sunucu olmadan&mdash;bir geçerli ve desteklenen barındırma ASP.NET Core 2.0 veya sonraki uygulamalar için bir yapılandırmadır. Daha fazla bilgi için [Kestrel ters Ara sunucu ile kullanmak ne zaman](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy).
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-Uygulama kullanıyorsa [Kestrel](xref:fundamentals/servers/kestrel) web sunucusu ve Internet'e kullanım kullanıma [Nginx](xref:host-and-deploy/linux-nginx), [Apache](xref:host-and-deploy/linux-apache), veya [IIS](xref:host-and-deploy/iis/index) ters proxy sunucusu olarak. Ters proxy sunucusu Internet'ten HTTP isteklerini alır ve bunları Kestrel için bazı ön işleme sonra iletir. Güvenlik ters Ara sunucu kullanmak için ana nedenidir. Daha fazla bilgi için bkz: [Kestrel ters proxy ile kullanmak ne zaman](xref:fundamentals/servers/kestrel?tabs=aspnetcore1x#when-to-use-kestrel-with-a-reverse-proxy).
+Uygulama kullanıyorsa [Kestrel](xref:fundamentals/servers/kestrel) web sunucusu ve Internet'e, kullanım sunulur [Ngınx](xref:host-and-deploy/linux-nginx), [Apache](xref:host-and-deploy/linux-apache), veya [IIS](xref:host-and-deploy/iis/index) ters proxy sunucusu olarak. Ters Ara sunucu, Internet'ten HTTP isteklerini alır ve bunları Kestrel için bazı ön işleme sonra iletir. Ters proxy kullanarak ana nedeni, güvenlik sağlıyor. Daha fazla bilgi için [Kestrel ters Ara sunucu ile kullanmak ne zaman](xref:fundamentals/servers/kestrel?tabs=aspnetcore1x#when-to-use-kestrel-with-a-reverse-proxy).
 
 ---
 
-## <a name="proxy-server-and-load-balancer-scenarios"></a>Proxy sunucusu ve yük dengeleyici senaryoları
+## <a name="proxy-server-and-load-balancer-scenarios"></a>Ara sunucu ve yük dengeleyici senaryoları
 
-Proxy sunucuları ve yük dengeleyici arkasında barındırılan uygulamalar için ek yapılandırma gerekebilir. Ek yapılandırmaya gerek olmadan, bir uygulama, şema (HTTP/HTTPS) ve uzak IP adresine erişimi bir isteğin geldiği olmayabilir. Daha fazla bilgi için bkz: [proxy sunucuları ile çalışma ve yük Dengeleyiciler için ASP.NET Core yapılandırma](xref:host-and-deploy/proxy-load-balancer).
+Proxy sunucuları ve yük dengeleyici arkasında barındırılan uygulamalar için ek yapılandırma gerekebilir. Ek yapılandırma bir uygulama, şema (HTTP/HTTPS) ve uzak IP adresi için erişim isteği geldiği olmayabilir. Daha fazla bilgi için [proxy sunucuları ile çalışma ve yük Dengeleyiciler için ASP.NET Core yapılandırma](xref:host-and-deploy/proxy-load-balancer).
 
-## <a name="using-visual-studio-and-msbuild-to-automate-deployment"></a>Dağıtım otomatikleştirmek için Visual Studio ve MSBuild kullanma
+## <a name="using-visual-studio-and-msbuild-to-automate-deployment"></a>Dağıtımı otomatik hale getirmek için Visual Studio ve MSBuild kullanma
 
-Genellikle Dağıtımın gerektirdiği çıktısını kopyalama yanı sıra ek görevleri [dotnet yayımlama](/dotnet/core/tools/dotnet-publish) bir sunucuya. Örneğin, ek dosyaları gereken veya dışında tutulması *yayımlama* klasör. Visual Studio web dağıtımı için MSBuild kullanır ve MSBuild, dağıtım sırasında birçok diğer görevleri yapmak için özelleştirilebilir. Daha fazla bilgi için bkz: [Visual Studio'da yayımlama profilleri](xref:host-and-deploy/visual-studio-publish-profiles) ve [kullanarak MSBuild ve Team Foundation Build](http://msbuildbook.com/) defteri.
+Dağıtım genellikle çıktısı kopyalama yanı sıra ek görevler gerektirir [dotnet yayımlama](/dotnet/core/tools/dotnet-publish) sunucuya. Örneğin, ek dosyaları gereken veya dışında tutulan *yayımlama* klasör. Visual Studio web dağıtımı için MSBuild kullanır ve MSBuild, dağıtım sırasında birçok diğer görevleri yapmak için özelleştirilebilir. Daha fazla bilgi için [Visual Studio'da yayımlama profilleri](xref:host-and-deploy/visual-studio-publish-profiles) ve [kullanarak MSBuild ve Team Foundation derlemesi](http://msbuildbook.com/) rehberi.
 
-Kullanarak [Web Yayımlama özelliği](xref:tutorials/publish-to-azure-webapp-using-vs) veya [yerleşik Git Destek](xref:host-and-deploy/azure-apps/azure-continuous-deployment), uygulamaları dağıtılabilir doğrudan Visual Studio'dan Azure App Service'e. Visual Studio Team Services destekleyen [Azure App Service için sürekli dağıtım](/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?tabs=vsts).
+Kullanarak [Web'de Yayımla özelliğini](xref:tutorials/publish-to-azure-webapp-using-vs) veya [yerleşik Git desteği](xref:host-and-deploy/azure-apps/azure-continuous-deployment), uygulamaları dağıtılan Azure App Service'te doğrudan Visual Studio'dan. Visual Studio Team Services'ı destekleyen [Azure uygulama Hizmeti'ne sürekli dağıtım](/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?tabs=vsts).
 
 ## <a name="publishing-to-azure"></a>Azure'da yayımlamak için
 
-Bkz: [Visual Studio kullanarak Azure App Service için ASP.NET Core web uygulama yayımlama](xref:tutorials/publish-to-azure-webapp-using-vs) Visual Studio kullanarak Azure'da bir uygulamayı yayımlamak yönergeler için. Uygulama aynı zamanda Azure'dan yayımlanabilir [komut satırı](xref:tutorials/publish-to-azure-webapp-using-cli).
+Bkz: [Visual Studio kullanarak Azure App Service'e bir ASP.NET Core web uygulaması yayımlama](xref:tutorials/publish-to-azure-webapp-using-vs) Visual Studio'yu kullanarak Azure'a uygulama yayımlama konusunda yönergeler için. Uygulama ayrıca Azure'dan yayımlanabilir [komut satırı](xref:tutorials/publish-to-azure-webapp-using-cli).
+
+## <a name="host-in-a-web-farm"></a>Bir web grubunda barındırın
+
+(Örneğin, uygulamanız ölçeklenebilirlik için birden çok örneğini dağıtımı) web grubu ortamında ASP.NET Core uygulamaları barındırmak için yapılandırma hakkında daha fazla bilgi için bkz: <xref:host-and-deploy/web-farm>.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-Bir barındırma ortamı Docker kullanma hakkında daha fazla bilgi için bkz: [Docker ana ASP.NET Core uygulamaları](xref:host-and-deploy/docker/index).
+Bir barındırma ortamı Docker'ı kullanma hakkında daha fazla bilgi için bkz. [Docker konağı ASP.NET Core uygulamalarında](xref:host-and-deploy/docker/index).

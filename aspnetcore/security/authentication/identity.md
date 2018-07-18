@@ -5,12 +5,12 @@ description: Kimlik ile bir ASP.NET Core uygulaması kullanın. İçerir, ayarı
 ms.author: riande
 ms.date: 01/24/2018
 uid: security/authentication/identity
-ms.openlocfilehash: c231a7619a4433ce004342ce68564e4c3892e702
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 50ddb96000e6a3f9e1762e9bb3e1f215f20d4356
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37829308"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095645"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>ASP.NET core'da kimliğe giriş
 
@@ -199,7 +199,8 @@ Bkz: [yapılandırma](#pw) en düşük Parola gereksinimlerinin ayarlayan bir ö
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-* [Kimlik doğrulaması ve kimlik geçirme](xref:migration/identity)
-* [Hesap Onaylama ve Parola Kurtarma](xref:security/authentication/accconfirm)
-* [SMS ile iki öğeli kimlik doğrulama](xref:security/authentication/2fa)
-* [Facebook, Google ve dış sağlayıcı kimlik doğrulaması](xref:security/authentication/social/index)
+* <xref:migration/identity>
+* <xref:security/authentication/accconfirm>
+* <xref:security/authentication/2fa>
+* <xref:security/authentication/social/index>
+* <xref:host-and-deploy/web-farm>

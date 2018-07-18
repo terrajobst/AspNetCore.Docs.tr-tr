@@ -1,28 +1,28 @@
 ---
-title: ASP.NET SignalR Core yapılandırma
-author: rachelappel
-description: ASP.NET Core SignalR uygulamalarını yapılandırma öğrenin.
+title: ASP.NET Core SignalR yapılandırma
+author: tdykstra
+description: ASP.NET Core SignalR uygulamalarını yapılandırmayı öğrenin.
 monikerRange: '>= aspnetcore-2.1'
-ms.author: rachelap
+ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/30/2018
 uid: signalr/configuration
-ms.openlocfilehash: 167b8828efd093d755aeb1c91e080dbd22b5d485
-ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
+ms.openlocfilehash: fac0226c939f4cf446c876b1c0b359d6c5b9dfd3
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36962464"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095408"
 ---
-# <a name="aspnet-core-signalr-configuration"></a>ASP.NET SignalR Core yapılandırma
+# <a name="aspnet-core-signalr-configuration"></a>ASP.NET Core SignalR yapılandırma
 
 ## <a name="jsonmessagepack-serialization-options"></a>JSON/MessagePack serileştirme seçenekleri
 
-ASP.NET Core SignalR iletileri kodlama için iki protokollerini destekler: [JSON](https://www.json.org/) ve [MessagePack](https://msgpack.org/index.html). Her protokolün serileştirme yapılandırma seçenekleri vardır.
+ASP.NET Core SignalR iletileri kodlama için iki protokollerini destekler: [JSON](https://www.json.org/) ve [MessagePack](https://msgpack.org/index.html). Her protokolü, serileştirme yapılandırma seçenekleri vardır.
 
-JSON seri hale getirme kullanarak sunucu üzerinde yapılandırılabilir [ `AddJsonProtocol` ](/dotnet/api/microsoft.extensions.dependencyinjection.jsonprotocoldependencyinjectionextensions.addjsonprotocol) sonra eklenmiş genişletme yöntemi [AddSignalR](/dotnet/api/microsoft.extensions.dependencyinjection.signalrdependencyinjectionextensions.addsignalr) içinde `Startup.ConfigureServices` yöntemi. `AddJsonProtocol` Yöntemi alır alan temsilci bir `options` nesnesi. [ `PayloadSerializerSettings` ](/dotnet/api/microsoft.aspnetcore.signalr.jsonhubprotocoloptions.payloadserializersettings) Özelliktir bu nesne üzerinde bir JSON.NET `JsonSerializerSettings` bağımsız değişkenleri serileştirmek yapılandırmak ve dönüş değerleri için kullanılan nesne. Bkz: [JSON.NET belgelerine](https://www.newtonsoft.com/json/help/html/Introduction.htm) daha fazla ayrıntı için.
+JSON seri hale getirme kullanılarak sunucuda yapılandırılabilir [ `AddJsonProtocol` ](/dotnet/api/microsoft.extensions.dependencyinjection.jsonprotocoldependencyinjectionextensions.addjsonprotocol) sonra eklenen genişletme yöntemi [AddSignalR](/dotnet/api/microsoft.extensions.dependencyinjection.signalrdependencyinjectionextensions.addsignalr) içinde `Startup.ConfigureServices` yöntemi. `AddJsonProtocol` Aldığında bir temsilci yöntemi alır bir `options` nesne. [ `PayloadSerializerSettings` ](/dotnet/api/microsoft.aspnetcore.signalr.jsonhubprotocoloptions.payloadserializersettings) Özelliği bu nesne üzerinde bir JSON.NET `JsonSerializerSettings` bağımsız değişkenleri serileştirilmesi yapılandırmak ve dönüş değerleri için kullanılan nesne. Bkz: [JSON.NET belgeleri](https://www.newtonsoft.com/json/help/html/Introduction.htm) daha fazla ayrıntı için.
 
-Bir örnek olarak "PascalCase" özellik adları, varsayılan "camelCase" adları yerine kullanılacak serileştirici yapılandırmak için aşağıdaki kodu kullanabilirsiniz:
+Örneğin, "PascalCase" özellik adları, varsayılan "camelCase" adları yerine kullanılacak serileştirici yapılandırmak için aşağıdaki kodu kullanın:
 
 ```csharp
 services.AddSignalR()
@@ -32,7 +32,7 @@ services.AddSignalR()
     });
 ```
 
-Aynı .NET İstemcisi'nde `AddJsonHubProtocol` genişletme yöntemi var. [HubConnectionBuilder](/dotnet/api/microsoft.aspnetcore.signalr.client.hubconnectionbuilder). `Microsoft.Extensions.DependencyInjection` Ad alanı içe, genişletme yöntemi gidermek için:
+.NET istemci, aynı `AddJsonHubProtocol` genişletme yöntemi var. [HubConnectionBuilder](/dotnet/api/microsoft.aspnetcore.signalr.client.hubconnectionbuilder). `Microsoft.Extensions.DependencyInjection` Ad alanı içe, genişletme yönteminin çözmek için:
 
 ```csharp
 // At the top of the file:
@@ -47,27 +47,27 @@ var connection = new HubConnectionBuilder()
 ```
 
 > [!NOTE]
-> JSON seri hale getirme JavaScript istemcisinde şu anda yapılandırmak mümkün değil.
+> JSON seri hale getirme, şu anda JavaScript istemci yapılandırmak mümkün değildir.
 
-### <a name="messagepack-serialization-options"></a>MessagePack serileştirme seçenekleri
+### <a name="messagepack-serialization-options"></a>MessagePack seri hale getirme seçenekleri
 
-Bir temsilciye sağlayarak MessagePack serileştirme yapılandırılabilir [AddMessagePackProtocol](/dotnet/api/microsoft.extensions.dependencyinjection.msgpackprotocoldependencyinjectionextensions.addmessagepackprotocol) çağırın. Bkz: [SignalR MessagePack](xref:signalr/messagepackhubprotocol) daha fazla ayrıntı için.
+MessagePack serileştirme için temsilci sağlayarak yapılandırılabilir [AddMessagePackProtocol](/dotnet/api/microsoft.extensions.dependencyinjection.msgpackprotocoldependencyinjectionextensions.addmessagepackprotocol) çağırın. Bkz: [signalr'da MessagePack](xref:signalr/messagepackhubprotocol) daha fazla ayrıntı için.
 
 > [!NOTE]
-> Şu anda JavaScript istemci MessagePack serileştirme yapılandırmak mümkün değil.
+> MessagePack serileştirme JavaScript istemci şu anda yapılandırmak mümkün değildir.
 
-## <a name="configure-server-options"></a>Sunucu seçeneklerini yapılandır
+## <a name="configure-server-options"></a>Sunucu seçenekleri yapılandırma
 
-Aşağıdaki tabloda SignalR hub'ları yapılandırma seçenekleri açıklanmaktadır:
+Aşağıdaki tabloda, SignalR hub'ları yapılandırma seçenekleri açıklanmaktadır:
 
 | Seçenek | Açıklama |
 | ------ | ----------- |
-| `HandshakeTimeout` | İstemci bu zaman aralığında bir ilk el sıkışma iletisi göndermez, bağlantı kapalı. |
-| `KeepAliveInterval` | Sunucu bu aralıkta bir ileti gönderdi taşınmadığından, ping iletisini bağlantıyı açık tutmak için otomatik olarak gönderilir. |
-| `SupportedProtocols` | Bu hub tarafından desteklenen protokolleri. Varsayılan olarak, sunucuda kayıtlı tüm protokollerine izin verilir, ancak tek tek hub'ları için belirli protokolleri devre dışı bırakmak için bu listeden protokolleri kaldırılabilir. |
-| `EnableDetailedErrors` | Varsa `true`, ayrıntılı bir Hub yöntemi bir özel durum oluştuğunda özel durum iletilerini istemcilere döndürülür. Varsayılan değer `false`, bu özel durum iletilerini gizli bilgiler içerebilir. |
+| `HandshakeTimeout` | İstemci, bu zaman aralığı içinde bir ilk el sıkışma iletisi göndermediği durumlarda bağlantı kapalı. |
+| `KeepAliveInterval` | Sunucu bu aralıkta bir ileti gönderdi taşınmadığından, PING iletisi bağlantıyı açık tutma için otomatik olarak gönderilir. |
+| `SupportedProtocols` | Bu hub tarafından desteklenen protokoller. Varsayılan olarak, sunucuda kayıtlı tüm protokollere izin verilir, ancak belirli protokoller için tek tek hub'ları devre dışı bırakmak için bu listedeki protokolleri kaldırılabilir. |
+| `EnableDetailedErrors` | Varsa `true`, ayrıntılı bir Hub yöntemi bir özel durum oluştuğunda, özel durum iletileri istemcilere döndürülür. Varsayılan `false`gibi bu özel durum iletileri, hassas bilgiler içerebilir. |
 
-Seçenekler yapılandırılabilir tüm hub'ları için seçenekleri temsilciye sağlayarak `AddSignalR` Çağır `Startup.ConfigureServices`.
+Seçenekler yapılandırılabilir tüm hub'ları için bir seçenekler temsilciye sağlayarak `AddSignalR` Çağır `Startup.ConfigureServices`.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -80,7 +80,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Tek bir hub seçeneklerini geçersiz kıl sağlanan genel seçenekleri `AddSignalR` ve kullanılarak yapılandırılabilir [ `AddHubOptions<T>` ](/dotnet/api/microsoft.extensions.dependencyinjection.huboptionsdependencyinjectionextensions.addhuboptions):
+Tek bir hub seçeneklerini geçersiz kılmak, sağlanan genel seçenekleri `AddSignalR` ve kullanılarak yapılandırılabilir [ `AddHubOptions<T>` ](/dotnet/api/microsoft.extensions.dependencyinjection.huboptionsdependencyinjectionextensions.addhuboptions):
 
 ```csharp
 services.AddSignalR().AddHubOptions<MyHub>(options =>
@@ -89,42 +89,42 @@ services.AddSignalR().AddHubOptions<MyHub>(options =>
 }
 ```
 
-Kullanım `HttpConnectionDispatcherOptions` aktarımları ve bellek arabellek yönetimi ile ilgili gelişmiş ayarları yapılandırmak için. Bu seçenekler için temsilci geçirerek yapılandırılmış [ `MapHub<T>` ](/dotnet/api/microsoft.aspnetcore.signalr.hubroutebuilder.maphub).
+Kullanım `HttpConnectionDispatcherOptions` aktarımları ve bellek arabellek yönetimi ile ilgili gelişmiş ayarları yapılandırmak için. Bu seçenekler bir temsilciye geçirerek yapılandırılan [ `MapHub<T>` ](/dotnet/api/microsoft.aspnetcore.signalr.hubroutebuilder.maphub).
 
 | Seçenek | Açıklama |
 | ------ | ----------- |
-| `ApplicationMaxBufferSize` | İstemciden alınan bayt sayısını, sunucu arabellekleri. Bu değer artırıldığında sunucusunun büyük iletileri almasına izin verir, ancak bellek tüketimi olumsuz yönde etkileyebilir. Varsayılan değer 32 KB'tır. |
+| `ApplicationMaxBufferSize` | İstemciden alınan bayt sayısı, sunucu arabellekleri. Bu değeri artırmak, daha büyük iletileri almasına olanak sağlar, ancak bellek tüketimi olumsuz yönde etkileyebilir. Varsayılan değer 32 KB'dir. |
 | `AuthorizationData` | Listesini [ `IAuthorizeData` ](/dotnet/api/microsoft.aspnetcore.authorization.iauthorizedata) bir istemciye hub'a bağlanmak için yetki verilip verilmediğini belirlemek için kullanılan nesne. Varsayılan olarak, bu değerlerle doldurulur `Authorize` Hub sınıfına uygulanan öznitelikleri. |
-| `TransportMaxBufferSize` | Uygulama tarafından gönderilen bayt sayısı, sunucu arabellekleri. Bu değer artırıldığında büyük iletileri göndermesini sağlar, ancak bellek tüketimi olumsuz yönde etkileyebilir. Varsayılan değer 32 KB'tır. |
-| `Transports` | Bir bit maskesi olan `HttpTransportType` taşımalar kısıtlayabilirsiniz değerleri bir istemci bağlamak için kullanabilirsiniz. Tüm aktarımları varsayılan olarak etkinleştirilir. |
-| `LongPolling` | Uzun yoklama taşıma için özel ek seçenekleri. |
-| `WebSockets` | WebSockets taşıma için özel ek seçenekleri. |
+| `TransportMaxBufferSize` | Uygulama tarafından gönderilen bayt sayısı, sunucu arabellekleri. Bu değeri artırmak daha büyük iletiler göndermek sunucuyı sağlar, ancak bellek tüketimi olumsuz yönde etkileyebilir. Varsayılan değer 32 KB'dir. |
+| `Transports` | Bir bit maskesi, `HttpTransportType` taşımalar kısıtlayabilirsiniz değerleri bir istemci bağlanmak için kullanabilirsiniz. Tüm aktarımları varsayılan olarak etkindir. |
+| `LongPolling` | Uzun yoklama taşıma imkanı kullanılarak belirli ek seçenekler. |
+| `WebSockets` | Ek seçenekler belirli WebSockets taşıma imkanı. |
 
-Uzun yoklama taşıma kullanılarak yapılandırılabilir ek seçenekler bulunur `LongPolling` özelliği:
-
-| Seçenek | Açıklama |
-| ------ | ----------- |
-| `PollTimeout` | En uzun süreyi sunucunun tek yoklama isteği sonlandırmadan önce istemciye gönderilecek bir ileti bekler. Bu değeri azaltmak yeni yoklama istekleri daha sık vermek istemci neden olur. Varsayılan değeri 90 saniyedir. |
-
-WebSocket aktarımı kullanılarak yapılandırılabilir ek seçenekler bulunur `WebSockets` özelliği:
+Uzun yoklama taşıma kullanılarak yapılandırılabilir ek seçenekler sahip `LongPolling` özelliği:
 
 | Seçenek | Açıklama |
 | ------ | ----------- |
-| `CloseTimeout` | Bu zaman aralığında kapatmak istemci başarısız olursa sunucunun kapandıktan sonra bağlantı sonlandırılır. |
-| `SubProtocolSelector` | Ayarlamak için kullanılan bir temsilci `Sec-WebSocket-Protocol` başlığına özel bir değer. Temsilci giriş olarak istemci tarafından istenen değerleri alır ve istenen değeri döndürmesi beklenir. |
+| `PollTimeout` | En uzun süreyi sunucunun tek yoklama isteği sonlandırmadan önce istemciye gönderilecek bir ileti bekler. Bu değeri azaltmak daha sık verme yeni bir yoklama isteği göndermek istemci neden olur. Varsayılan değer 90 saniyedir. |
 
-## <a name="configure-client-options"></a>İstemci seçeneklerini yapılandırma
+WebSocket taşıma kullanılarak yapılandırılabilir ek seçenekler sahip `WebSockets` özelliği:
 
-İstemci seçenekleri yapılandırılabilir `HubConnectionBuilder` türü (kullanılabilir), hem .NET hem de JavaScript istemciler üzerinde de olarak `HubConnection` kendisi.
+| Seçenek | Açıklama |
+| ------ | ----------- |
+| `CloseTimeout` | Bu zaman aralığı içinde kapatmak istemci başarısız olursa sunucunun kapatıldıktan sonra bağlantı sonlandırılır. |
+| `SubProtocolSelector` | Ayarlamak için kullanılan bir temsilci `Sec-WebSocket-Protocol` üst bilgisi için özel bir değer. Temsilci, giriş olarak istemci tarafından istenen değerleri alır ve istenen değeri döndürmesi beklenir. |
+
+## <a name="configure-client-options"></a>İstemci seçeneklerini yapılandırın
+
+İstemci seçenekleri yapılandırılabilir `HubConnectionBuilder` türü (kullanılabilir), hem .NET hem de JavaScript istemcileri de itibariyle `HubConnection` kendisi.
 
 ### <a name="configure-logging"></a>Günlük tutmayı yapılandırma
 
-Günlük kaydı kullanarak .NET istemcisine yapılandırılmış `ConfigureLogging` yöntemi. Sunucuda oldukları gibi aynı şekilde sağlayıcıları ve filtreleri günlüğü kaydedilebilir. Bkz: [ASP.NET çekirdek günlüğü](xref:fundamentals/logging/index#how-to-add-providers) daha fazla bilgi için.
+Günlük kaydı kullanarak .NET istemci yapılandırılmış `ConfigureLogging` yöntemi. Günlüğe kaydetme sağlayıcıları ve filtreleri sunucuda oldukları gibi aynı şekilde kaydedilebilir. Bkz: [ASP.NET Core günlüğü](xref:fundamentals/logging/index#how-to-add-providers) daha fazla bilgi için belgelere bakın.
 
 > [!NOTE]
-> Günlüğe kaydetme sağlayıcıları kaydetmek için gerekli paketleri yüklemeniz gerekir. Bkz: [yerleşik günlük sağlayıcıları](xref:fundamentals/logging/index#built-in-logging-providers) tam listesi için belgeleri bölümü.
+> Günlüğe kaydetme sağlayıcıları kaydetmek için gerekli paketleri yüklemeniz gerekir. Bkz: [yerleşik günlük sağlayıcıları](xref:fundamentals/logging/index#built-in-logging-providers) tam listesi için belgelere bölümü.
 
-Örneğin, konsol günlük kaydını etkinleştirmek için yükleyin `Microsoft.Extensions.Logging.Console` NuGet paketi. Çağrı `AddConsole` genişletme yöntemi:
+Örneğin, konsol günlüğe kaydetmeyi etkinleştirmek için yükleme `Microsoft.Extensions.Logging.Console` NuGet paketi. Çağrı `AddConsole` genişletme yöntemi:
 
 ```csharp
 var connection = new HubConnectionBuilder()
@@ -136,7 +136,7 @@ var connection = new HubConnectionBuilder()
     .Build();
 ```
 
-Benzer bir JavaScript istemci `configureLogging` yöntem vardır. Sağlayan bir `LogLevel` günlük iletilerini oluşturmak için en düşük düzeyde belirten değer. Günlükleri tarayıcı konsol penceresine yazılır.
+Benzer bir JavaScript istemci `configureLogging` yöntem vardır. Sağlayan bir `LogLevel` günlük iletilerini oluşturmak için en düşük düzeyini belirten değer. Tarayıcı konsol penceresine günlüklerine yazılır.
 
 ```javascript
 let connection = new signalR.HubConnectionBuilder()
@@ -146,25 +146,25 @@ let connection = new signalR.HubConnectionBuilder()
 ```
 
 > [!NOTE]
-> Tamamen günlüğü devre dışı bırakmak için belirtmek `signalR.LogLevel.None` içinde `configureLogging` yöntemi.
+> Tamamen günlüğünü devre dışı bırakmanız belirtin `signalR.LogLevel.None` içinde `configureLogging` yöntemi.
 
-Günlük düzeyleri JavaScript istemci için kullanılabilen aşağıda listelenmiştir. Günlük düzeyini şu değerlerden birine ayarlamak, iletilere göz günlüğe kaydedilmesini sağlar **veya yukarıdaki** o düzeyi.
+JavaScript istemci için kullanılabilen günlük düzeyleri aşağıda listelenmiştir. Günlük düzeyi şu değerlerden birini ayarlamak, iletileri günlüğe kaydedilmesini sağlar **veya yukarıdaki** düzeyi.
 
 | Düzey | Açıklama |
 | ----- | ----------- |
-| `None` | İleti günlüğe kaydedilir. |
-| `Critical` | Tüm uygulama hatası olduğunu gösteren iletileri. |
-| `Error` | Geçerli işlemde hatası olduğunu gösteren iletileri. |
-| `Warning` | Önemli olmayan bir sorunu işaret eder iletileri. |
+| `None` | Günlüğe ileti kaydedilmedi. |
+| `Critical` | Bir uygulamanın tamamında hata iletileri. |
+| `Error` | Geçerli işlem bir hata iletileri. |
+| `Warning` | Önemli olmayan bir sorunu işaret eden iletileri. |
 | `Information` | Bilgilendirme iletileri. |
-| `Debug` | Hata ayıklama için yararlı tanılama iletileri. |
-| `Trace` | Çok ayrıntılı tanılama iletileri belirli sorunları tanılamak için tasarlanmıştır. |
+| `Debug` | Tanılama iletileri hata ayıklama için yararlıdır. |
+| `Trace` | Belirli sorunları tanılamak için tasarlanan çok ayrıntılı tanılama iletileri. |
 
-### <a name="configure-allowed-transports"></a>İzin verilen taşımaları yapılandırın
+### <a name="configure-allowed-transports"></a>İzin verilen taşımalar yapılandırın
 
-SignalR tarafından kullanılan taşımalar yapılandırılabilir `WithUrl` çağrı (`withUrl` JavaScript'te). Bir bit düzeyinde-OR değerlerinin `HttpTransportType` istemciye yalnızca belirtilen taşımalar kullanmasını kısıtlamak için kullanılabilir. Tüm aktarımları varsayılan olarak etkinleştirilir.
+SignalR tarafından kullanılan taşımalar yapılandırılabilir `WithUrl` çağırın (`withUrl` JavaScript dilinde). Bir bit düzeyinde OR değerlerinin `HttpTransportType` istemciye yalnızca belirtilen taşımalar kullanmasını kısıtlamak için kullanılabilir. Tüm aktarımları varsayılan olarak etkindir.
 
-Örneğin, Server-Sent olayları aktarım devre dışı bırakmak için ancak WebSockets ve uzun yoklama bağlantılarına izin ver:
+Örneğin, Server-Sent olayları taşıma devre dışı bırakmak için ancak WebSockets ve uzun yoklama bağlantılarına izin ver:
 
 ```csharp
 var connection = new HubConnectionBuilder()
@@ -172,7 +172,7 @@ var connection = new HubConnectionBuilder()
     .Build();
 ```
 
-JavaScript istemci taşımaları ayarlayarak yapılandırılmış `transport` için sağlanan seçenekleri nesne üzerinde alan `withUrl`:
+JavaScript istemci taşımaları ayarlayarak yapılandırılmış `transport` için sağlanan seçenekleri nesne ile sekmesindeki `withUrl`:
 
 ```javascript
 let connection = new signalR.HubConnectionBuilder()
@@ -182,9 +182,9 @@ let connection = new signalR.HubConnectionBuilder()
 
 ### <a name="configure-bearer-authentication"></a>Taşıyıcı kimlik doğrulaması yapılandırma
 
-Kimlik doğrulama verilerinin SignalR istekleri yanı sıra sağlamak için kullanın `AccessTokenProvider` seçeneği (`accessTokenFactory` JavaScript'te) istenen erişim belirteci döndüren bir işlev belirtmek için. .NET istemcisi, bu erişim belirteci bir HTTP "Taşıyıcı kimlik doğrulaması" geçirilen belirteç (kullanma `Authorization` türü üstbilgiyle `Bearer`). JavaScript istemci erişim belirteci taşıyıcı belirteci olarak kullanılan **dışında** birkaç durumlarda burada tarayıcı API'leri kısıtlamak üstbilgilerinde (özellikle Server-Sent olayları ve WebSockets istekleri) uygulama özelliği. Bu durumlarda, erişim belirteci bir sorgu dizesi değeri olarak sağlanan `access_token`.
+SignalR istekleri ile birlikte kimlik doğrulama verilerini sağlamak için kullanmayı `AccessTokenProvider` seçeneği (`accessTokenFactory` javascript'teki) istenen erişim belirteci döndüren bir işlev belirtmek için. .NET istemci, bu erişim belirteci bir HTTP "Taşıyıcı kimlik doğrulaması" geçirilen belirteç (kullanma `Authorization` başlığı türünde `Bearer`). JavaScript istemci erişim belirtecini bir taşıyıcı belirteç kullanılan **dışında** tarayıcı API'leri kısıtlama (özellikle de Server-Sent olayları ve WebSockets istekleri) üst bilgileri uygulama özelliği burada birkaç durumda. Bu durumlarda, erişim belirtecini bir sorgu dizesi değeri sağlanan `access_token`.
 
-.NET istemci `AccessTokenProvider` seçeneği seçenekleri temsilci kullanılarak belirtilebilir `WithUrl`:
+.NET istemci `AccessTokenProvider` seçenekleri Temsilcide kullanılarak seçeneği belirtilebilir `WithUrl`:
 
 ```csharp
 var connection = new HubConnectionBuilder()
@@ -196,7 +196,7 @@ var connection = new HubConnectionBuilder()
     .Build();
 ```
 
-JavaScript istemci erişim belirteci ayarlayarak yapılandırılmış `accessTokenFactory` alanında seçenekleri nesnesinde bulunan `withUrl`:
+JavaScript istemcisinde ayarlayarak erişim belirteci yapılandırılmıştır `accessTokenFactory` seçenekleri nesnesinde ile sekmesindeki `withUrl`:
 
 ```javascript
 let connection = new signalR.HubConnectionBuilder()
@@ -212,34 +212,34 @@ let connection = new signalR.HubConnectionBuilder()
 
 ### <a name="configure-timeout-and-keep-alive-options"></a>Zaman aşımı ve tutma seçeneklerini yapılandırın
 
-Zaman aşımı ve tutma davranışını yapılandırmak için ek seçenekleri bulunur `HubConnection` nesnenin kendisini:
+Zaman aşımı ve tutma davranışını yapılandırmak için ek seçenekler bulunur `HubConnection` nesnenin kendisini:
 
 | .NET seçeneği | JavaScript seçeneği | Açıklama |
 | ----------- | ----------------- | ----------- |
-| `ServerTimeout` | `serverTimeoutInMilliseconds` | Sunucu etkinliğini için zaman aşımı. Sunucusu herhangi bir iletisi bu aralığa kurmadı gönderirse, istemci sunucu bağlantısı kesilmiş ve tetikleyici göz önünde bulundurur `Closed` olayı (`onclose` JavaScript'te). |
-| `HandshakeTimeout` | Yapılandırılamaz | İlk sunucu el sıkışma için zaman aşımı. Sunucu bu aralığa anlaşma yanıtı göndermez, istemci el sıkışma ve tetikleyici iptal `Closed` olayı (`onclose` JavaScript'te). |
+| `ServerTimeout` | `serverTimeoutInMilliseconds` | Sunucu etkinliği için zaman aşımı. Sunucu herhangi bir ileti bu aralık içinde gönderilebilen taşınmadığından, istemci sunucusu bağlantısı kesildi ve tetikleyici dikkate `Closed` olay (`onclose` JavaScript dilinde). |
+| `HandshakeTimeout` | Yapılandırılamaz | İlk sunucu el sıkışma için zaman aşımı. Sunucu bu aralığı el sıkışması yanıt göndermediği durumlarda, istemciyi el sıkışması ve tetikleyici iptal `Closed` olay (`onclose` JavaScript dilinde). |
 
-Olarak belirtilen .NET istemcisi, zaman aşımı değerleri `TimeSpan` değerleri. JavaScript istemci zaman aşımı değerlerini sayı olarak belirtilir. Sayıları süre değerleri milisaniye cinsinden temsil eder.
+.NET istemci zaman aşımı değerlerini olarak belirtilen `TimeSpan` değerleri. JavaScript istemci zaman aşımı değerlerini, sayı olarak belirtilir. Sayıları süre değerleri milisaniye cinsinden temsil eder.
 
-### <a name="configure-additional-options"></a>Ek seçenekler yapılandırma
+### <a name="configure-additional-options"></a>Ek seçenekleri yapılandırma
 
-Ek seçenekler yapılandırılabilir `WithUrl` (`withUrl` JavaScript'te) yöntemini `HubConnectionBuilder`:
+Ek seçenekler yapılandırılabilir `WithUrl` (`withUrl` JavaScript'te) metodunda `HubConnectionBuilder`:
 
 | .NET seçeneği | JavaScript seçeneği | Açıklama |
 | ----------- | ----------------- | ----------- |
-| `AccessTokenProvider` | `accessTokenFactory` | HTTP isteklerinde taşıyıcı kimlik doğrulaması belirteci olarak sağlanan bir dize döndüren bir işlev. |
-| `SkipNegotiation` | `skipNegotiation` | Bu ayar `true` anlaşma adımı atlamak için. **WebSockets aktarım yalnızca etkin aktarım olduğunda yalnızca desteklenen**. Bu ayar, Azure SignalR hizmetini kullanırken etkinleştirilemez. |
-| `ClientCertificates` | Yapılandırılamaz * | Kimlik doğrulaması istekleri göndermek için TLS sertifikalar koleksiyonu. |
-| `Cookies` | Yapılandırılamaz * | İçeren tüm HTTP istekleri göndermek için HTTP tanımlama bilgileri koleksiyonu. |
-| `Credentials` | Yapılandırılamaz * | Kimlik bilgilerini içeren tüm HTTP istekleri göndermek için. |
-| `CloseTimeout` | Yapılandırılamaz * | Yalnızca WebSockets. En uzun süreyi sunucusunun Kapat isteği onaylamak kapanış sonra istemcinin bekler. Sunucusu close bu süre içinde kabul değil, istemci bağlantısını keser. |
-| `Headers` | Yapılandırılamaz * | Daha fazla HTTP üstbilgileri içeren tüm HTTP istekleri göndermek için sözlüğü. |
-| `HttpMessageHandlerFactory` | Yapılandırılamaz * | Yapılandırma veya değiştirmek için kullanılan bir temsilci `HttpMessageHandler` HTTP istekleri göndermek için kullanılır. WebSocket bağlantıları için kullanılmaz. Bu temsilci null olmayan bir değer döndürmesi gerekir ve varsayılan değer bir parametre olarak alır. Bu varsayılan değeri ayarlarını değiştirin ve onu döndürür ya da tamamen yeni bir dönüş `HttpMessageHandler` örneği. |
-| `Proxy` | Yapılandırılamaz * | HTTP istekleri gönderirken kullanmak için bir HTTP proxy. |
-| `UseDefaultCredentials` | Yapılandırılamaz * | HTTP ve WebSockets istekleri için varsayılan kimlik bilgilerini göndermek için bu boolean ayarlayın. Bu, Windows kimlik doğrulaması kullanımını etkinleştirir. |
+| `AccessTokenProvider` | `accessTokenFactory` | HTTP isteklerinde bir taşıyıcı kimlik doğrulaması belirteci olarak sağlanan bir dize döndüren bir işlev. |
+| `SkipNegotiation` | `skipNegotiation` | Bu ayar `true` anlaşma adımı atlamak için. **WebSockets aktarım yalnızca etkin aktarım olduğunda yalnızca desteklenen**. Bu ayar, Azure SignalR hizmeti kullanılırken etkinleştirilemez. |
+| `ClientCertificates` | Yapılandırılamaz * | TLS sertifikalarını isteklerinde kimlik doğrulamak üzere göndermek için bir koleksiyonu. |
+| `Cookies` | Yapılandırılamaz * | Her HTTP isteği göndermek için HTTP tanımlama bilgileri koleksiyonu. |
+| `Credentials` | Yapılandırılamaz * | Her HTTP isteği göndermek için kimlik bilgileri. |
+| `CloseTimeout` | Yapılandırılamaz * | Yalnızca WebSockets. En uzun süreyi sunucusunun Kapat isteği onaylamak Kapanıştan sonra istemci bekler. Bu süre içinde sunucu kapatma bildirimi değil, istemci bağlantısını keser. |
+| `Headers` | Yapılandırılamaz * | Her HTTP isteği göndermek için ek HTTP üstbilgileri sözlüğü. |
+| `HttpMessageHandlerFactory` | Yapılandırılamaz * | Yapılandırma veya değiştirmek için kullanılan bir temsilci `HttpMessageHandler` HTTP istekleri göndermek için kullanılır. WebSocket bağlantılarını için kullanılmaz. Bu temsilci, bir null olmayan değer döndürmelidir ve varsayılan değer bir parametre olarak alır. Bu varsayılan ayarları değiştirmek ve onu döndürür ya da tamamen yeni bir dönüş `HttpMessageHandler` örneği. |
+| `Proxy` | Yapılandırılamaz * | HTTP istekleri gönderirken HTTP proxy. |
+| `UseDefaultCredentials` | Yapılandırılamaz * | HTTP ve Websocket'istekleri için varsayılan kimlik bilgilerini göndermek için bu boolean ayarlayın. Bu, Windows kimlik doğrulaması sağlar. |
 | `WebSocketConfiguration` | Yapılandırılamaz * | Ek WebSocket seçeneklerini yapılandırmak için kullanılan bir temsilci. Örneğini alır [ClientWebSocketOptions](/dotnet/api/system.net.websockets.clientwebsocketoptions) seçeneklerini yapılandırmak için kullanılabilir. |
 
-Yıldız işareti (*) seçenekleri API'leri tarayıcıda sınırlamaları nedeniyle JavaScript istemci yapılandırılabilir değildir.
+Bir yıldız işareti (*) ile seçenekleri JavaScript istemci tarayıcısında API sınırlamaları nedeniyle yapılandırılabilir değildir.
 
 .NET istemci, bu seçenekler için sağlanan seçenekleri temsilci tarafından değiştirilebilir `WithUrl`:
 
@@ -253,7 +253,7 @@ var connection = new HubConnectionBuilder()
     .Build();
 ```
 
-JavaScript istemci, bu seçenekler için sağlanan bir JavaScript nesnesinde sağlanabilir `withUrl`:
+JavaScript istemci, bu seçenekler için sağlanan bir JavaScript nesnesi içinde sağlanabilir `withUrl`:
 
 ```javascript
 let connection = new signalR.HubConnectionBuilder()

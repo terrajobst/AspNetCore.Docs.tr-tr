@@ -1,45 +1,45 @@
 ---
-title: ASP.NET Core model bağlama
-author: rachelappel
-description: Eylem yöntemi parametrelerine HTTP isteklerini verilerini ASP.NET Core MVC model bağlamanın nasıl eşlendiğini öğrenin.
+title: ASP.NET core'da model bağlama
+author: tdykstra
+description: ASP.NET Core MVC, model bağlama HTTP isteklerinden alınan verileri olarak eylem metodu parametreleriyle nasıl eşlendiğini öğrenin.
 ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
-ms.author: rachelap
+ms.author: tdykstra
 ms.date: 01/22/2018
 uid: mvc/models/model-binding
-ms.openlocfilehash: 4c1cfddf82e077e22e9069777393bc5e6086de83
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 200e2c22e02ec9e24b7cdb3883cf6f2f93f2f4b7
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278391"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095739"
 ---
-# <a name="model-binding-in-aspnet-core"></a>ASP.NET Core model bağlama
+# <a name="model-binding-in-aspnet-core"></a>ASP.NET core'da model bağlama
 
 Tarafından [Rachel Appel](https://github.com/rachelappel)
 
 ## <a name="introduction-to-model-binding"></a>Model bağlama için giriş
 
-Model bağlama ASP.NET Core mvc'de HTTP isteklerini verilerden eylem yöntemi parametrelerine eşler. Parametreleri dize, tamsayı veya float gibi basit türler olabilir veya karmaşık türler olabilir. Gelen veriler için karşılık gelen eşleme boyutu veya verilerin karmaşıklığına bağımsız olarak sık tekrarlanan bir senaryo harika bir özelliği olan MVC olmasıdır. MVC, geliştiricilerin her uygulamanın aynı kodda biraz farklı bir sürümünü yeniden yazma işlemi tutmak zorunda kalmamak için bağlama hemen özetleyen tarafından bu sorunu çözer. Tür dönüştürücü kodu için kendi metin yazma can sıkıcı ve hataya.
+ASP.NET Core MVC, model bağlama, HTTP isteklerinden alınan verileri olarak eylem metodu parametreleriyle eşleştirir. Dize, tamsayı veya float gibi basit türler parametreleri olabilir veya karmaşık türler olması olabilir. Gelen veri karşılık gelen bir eşleme boyut ve karmaşıklıktaki verilerin ne olursa olsun, sık sık tekrarlanan bir senaryo MVC harika bir özelliği olmasıdır. MVC, geliştiricilerin biraz farklı bir sürümünü her uygulamada aynı kodun yeniden korumak zorunda kalmamak için bağlama hemen özetleyen tarafından bu sorunu çözer. Dönüştürücü kod yazmak için kendi metin yazma tedious ve hataya açık alanlardır.
 
 ## <a name="how-model-binding-works"></a>Model bağlama nasıl çalışır?
 
-MVC bir HTTP isteği aldığında, bir denetleyici belirli eylem yöntemine yönlendirir. Rota verileri nedir tabanlı çalıştırmak için hangi eylemini yöntemi belirler ve ardından bu değerleri HTTP isteğinden Bu eylem yönteminin parametreleri bağlar. Örneğin, aşağıdaki URL'yi göz önünde bulundurun:
+MVC bir HTTP isteği aldığında, bu etki alanı denetleyicisinin bir özel eylem yöntemine yönlendirir. Rota verileri nedir göre çalıştırmak için hangi eylem yöntemini belirler, ardından bu değerleri HTTP isteğinden, eylem yönteminin parametreleri bağlar. Örneğin, aşağıdaki URL'ye göz önünde bulundurun:
 
 `http://contoso.com/movies/edit/2`
 
-Rota şablonu şu şekilde baktığı `{controller=Home}/{action=Index}/{id?}`, `movies/edit/2` yönlendirir `Movies` denetleyicisi ve onun `Edit` eylem yöntemi. Ayrıca adlı isteğe bağlı bir parametre kabul eden `id`. Eylem yöntemi için kod aşağıdakine benzer görünmelidir:
+Rota şablonu şu şekilde baktığı `{controller=Home}/{action=Index}/{id?}`, `movies/edit/2` yönlendirir `Movies` denetleyicisi ve onun `Edit` eylem yöntemi. Ayrıca adlı isteğe bağlı bir parametreyi kabul eden `id`. Eylem yöntemi için kod aşağıdaki gibi görünmelidir:
 
 ```csharp
 public IActionResult Edit(int? id)
    ```
 
-Not: URL rota dizelerde büyük küçük harfe duyarlı değildir.
+Not: URL rota dizeler büyük/küçük harfe duyarlı değildir.
 
-MVC istek verileri için eylem parametrelerini adıyla bağlamak çalışacaktır. MVC parametre adı ve ortak ayarlanabilir özelliklerini adlarını kullanarak her parametre için değer arar. Yukarıdaki örnekte, yalnızca eylem parametresi adlı `id`, hangi MVC rota değerleri aynı adla değeri için bağlar. Rota değerleri yanı sıra MVC istek çeşitli parçalarını veri bağlar ve bunu bir kümesini sırayla yapar. Model bağlama aralarında arar sırada veri kaynaklarının listesi aşağıdadır:
+MVC istek verileri adına göre eylem parametrelerine bağlamak çalışacaktır. Parametre adı ve ortak, ayarlanabilir özelliklerin adlarını kullanarak her parametre için değer MVC arar. Yukarıdaki örnekte, tek bir eylem parametresinin adlı `id`, hangi MVC rota değerleri, aynı ada sahip bir değere bağlar. Ek olarak, rota değerleri MVC çeşitli bölümlerini bir istek veri bağlar ve bunu bir kümesi sırayla yapar. Model bağlama aracılığıyla görünen sırada veri kaynaklarının bir listesi aşağıdadır:
 
-1. `Form values`: POST yöntemini kullanan HTTP isteğinde Git form değerleri şunlardır. (jQuery POST istekleri dahil olmak üzere).
+1. `Form values`: POST yöntemini kullanarak HTTP isteğinde Git form değerleri şunlardır. (jQuery POST istekleri dahil olmak üzere).
 
-2. `Route values`: Tarafından sağlanan rota değerleri kümesi [yönlendirme](xref:fundamentals/routing)
+2. `Route values`: Rota değerleri tarafından sağlanan dizi [yönlendirme](xref:fundamentals/routing)
 
 3. `Query strings`: URI sorgu dizesi bölümü.
 
@@ -51,65 +51,65 @@ The link works but generates an error when building with DocFX
 
 Not: Form değerleri, rota verilerini ve sorgu dizeleri tüm ad-değer çiftleri olarak depolanır.
 
-Model bağlama adlı bir anahtar için sorunuz `id` ve hiçbir şey adlı `id` form değerleri için bu anahtar arayan rota değerleri için taşındıktan. Bizim örneğimizde, onu bir eşleşmedir. Bağlama olur ve değer 2 tamsayıya dönüştürülür. Düzenleme (dize kimliği) kullanarak aynı istekte "2" dizeye dönüştürme.
+Model bağlama için adlı bir anahtar sorunuz `id` ve bir şey yok adlı `id` form değerleri, rota değerleri için anahtar aramak için taşınması. Bu örnekte, bir eşleşmedir. Bağlamadan ve 2 tamsayıya dönüştürülen değeri. Düzenle (dize kimliği) kullanarak aynı istekte, "2" dizeye dönüştürecektir.
 
-Şu ana kadar örnek basit türler kullanır. MVC'de basit herhangi bir .NET ilkel tür veya türü bir dize türü dönüştürücü ile türleridir. Eylem yönteminin parametre gibi bir sınıf olsaydı `Movie` özellikleri, MVC'ın model bağlama hala bu sorunsuz şekilde işlemek gibi basit ve karmaşık türler içeren türü. Karmaşık türler için eşleşen arama özelliklerini gezinmesine yansıma ve özyineleme kullanır. Model bağlama arar desenini *parameter_name.property_name* özelliklerine değerler bağlamak için. Bu formun eşleşen değerleri bulamazsa, yalnızca özellik adı kullanılarak bağlama dener. Bu türleri gibi `Collection` türleri, model bağlama eşleşmeler arar *parametre_adý [dizin]* veya yalnızca *[dizin]*. Model bağlama davranır `Dictionary` benzer şekilde, sorarak türleri *parametre_adý [anahtarı]* veya yalnızca *[anahtarı]*, basit türler anahtarları olduğu sürece. Desteklenen anahtarlarının aynı model türü için oluşturulan etiket yardımcıları ve alan adları HTML eşleşmesi. Böylece form alanlarını Örneğin, doğrulama oluşturma veya düzenleme ilişkili verileri alamadık geçirdiğinizde, kolaylık sağlamak için kullanıcının girdisi ile doldurulmuş kalır. Bu gidiş değerleri sağlar.
+Şu ana kadar örnek, basit türler kullanır. MVC'de basit herhangi bir .NET basit türü veya dize türü dönüştürücü türüyle türleridir. Eylem yönteminin parametresi gibi bir sınıf olsaydı `Movie` hem basit hem de karmaşık türleri gibi özellikleri, MVC'ın model bağlama devam eder, düzgün şekilde işleyen içeren türü. Karmaşık türler için eşleşme arama özelliklerini geçirmek için yansıma ve özyineleme kullanır. Model bağlama desenini arar *parameter_name.property_name* özellikleri değerlerini bağlamak için. Eşleşen değerleri bu formu bulamazsa, bağlama yalnızca özellik adı kullanılarak dener. Bu türleri gibi `Collection` türleri, model bağlama için bir eşleşme arar *parameter_name [dizin]* veya yalnızca *[dizin]*. Model bağlama davranır `Dictionary` benzer şekilde, sorarak türleri *parameter_name [anahtarı]* veya yalnızca *[anahtarı]*, basit türler anahtarları olduğu sürece. Desteklenen anahtarlar aynı model türü için oluşturulan etiket yardımcıları ve HTML alan adları aynı. Bu, form alanlarını, oluşturma veya düzenleme ilişkili verileri doğrulama başarılı olmadı olduğunda, kolaylık sağlamak için kullanıcının girişi ile doldurulmuş kalır. böylece gidiş dönüşü değerleri sağlar.
 
-Olmasını bağlama için sırayla sınıfı ortak varsayılan bir oluşturucu olmalıdır ve ortak yazılabilir özelliklerini bağlanması için üye olmanız gerekir. Model bağlama sınıfı yalnızca ortak varsayılan oluşturucu kullanılarak oluşturulacak gerçekleştiğinde, özellikler ayarlanabilir.
+Gerçekleştirilecek bağlamanızın sınıfı ortak varsayılan oluşturucusu olmalıdır ve bağlı üye genel yazılabilir özellikleri olmalıdır. Model bağlama sınıfı yalnızca genel varsayılan oluşturucu kullanılarak oluşturulacak Böyle durumlarda özellikleri ayarlanabilir.
 
-Bir parametre bağlandığında, bu adı taşıyan değerleri arayan model bağlama durdurur ve sonraki parametrenin bağlamak taşır. Aksi takdirde, varsayılan model bağlama davranışı parametrelerini varsayılan değerlerine kendi türüne bağlı olarak ayarlar:
+Bir parametre bağlandığında, model bağlama değerleri bu ada sahip mi arıyorsunuz durdurur ve bir sonraki parametreyi bağlamak taşır. Aksi takdirde, varsayılan model bağlama davranışı parametrelerini varsayılan değerlerine kendi türüne bağlı olarak ayarlar:
 
-* `T[]`: Sistem, türlerinden diziler `byte[]`, bağlama türü parametrelerinin ayarlar `T[]` için `Array.Empty<T>()`. Dizi türü `byte[]` ayarlanır `null`.
+* `T[]`: Sistem, türü dizilerin `byte[]`, bağlama türü parametreleri ayarlar `T[]` için `Array.Empty<T>()`. Tür dizilerini `byte[]` ayarlandığından `null`.
 
-* Başvuru türleri: Bağlama bir sınıfının bir örneğini varsayılan kurucu ile özellikleri ayarlamadan oluşturur. Ancak, bağlama ayarlar'ı model `string` parametreleri `null`.
+* Başvuru türleri: Bağlama bir sınıfın bir örneğini varsayılan oluşturucu ile özellikleri ayarlamadan oluşturur. Ancak, bağlama kümeleri model `string` parametreleri `null`.
 
-* Boş değer atanabilir türler: Boş değer atanabilir türler ayarlamak `null`. Yukarıdaki örnekte, model bağlama kümeleri `id` için `null` türü olduğundan `int?`.
+* Boş değer atanabilir türler: Boş değer atanabilir türler kümesine `null`. Yukarıdaki örnekte, model bağlama kümeleri `id` için `null` türü olduğundan `int?`.
 
-* Değer türleri: Atanamayan değer türleri türü `T` ayarlanır `default(T)`. Örneğin, model bağlama parametresi ayarlar `int id` 0. Model doğrulama veya boş değer atanabilir türler yerine varsayılan değerlerine bağlı göz önünde bulundurun.
+* Değer türleri: NULL olmayan değer türleri türü `T` ayarlandığından `default(T)`. Örneğin, model bağlama parametresi ayarlayacak `int id` 0. Model doğrulama veya boş değer atanabilir türler kullanmak yerine varsayılan değerlerine bağlı olan göz önünde bulundurun.
 
-Bağlama başarısız olur, MVC bir hata durum değil. Kullanıcı girişi kabul eden her eylem denetlemelisiniz `ModelState.IsValid` özelliği.
+Başarısız bağlanıyorsanız, MVC bir hata oluşturmaz. Kullanıcı girişi kabul eden her eylem denetlemelisiniz `ModelState.IsValid` özelliği.
 
-Not: Her giriş denetleyicinin `ModelState` özelliği bir `ModelStateEntry` içeren bir `Errors` özelliği. Bu koleksiyon kendiniz sorgu nadiren gereklidir. Bunun yerine `ModelState.IsValid` kullanın.
+Not: Her giriş denetleyicinin `ModelState` özelliği bir `ModelStateEntry` içeren bir `Errors` özelliği. Bu koleksiyonu kendiniz sorgulamak nadiren gereklidir. Bunun yerine `ModelState.IsValid` kullanın.
 
-Ayrıca, MVC, model bağlama gerçekleştirirken dikkate almanız gereken bazı özel veri türü vardır:
+Buna ek olarak, MVC, model bağlama yapılırken dikkate almanız gereken bazı özel veri türleri vardır:
 
-* `IFormFile`, `IEnumerable<IFormFile>`: HTTP isteğinin bir parçası olan bir veya daha fazla karşıya yüklenen dosyalar.
+* `IFormFile`, `IEnumerable<IFormFile>`: HTTP isteği bir parçası olan bir veya daha fazla yüklenen dosyalar.
 
 * `CancellationToken`: Zaman uyumsuz denetleyicileri etkinliğinde iptal etmek için kullanılır.
 
-Bu tür bir sınıf türü üzerinde eylem parametrelerini veya özellikler bağlanabilir.
+Bu tür bir sınıf türüne bağlı eylem parametrelerini veya özellikler olabilir.
 
-Model bağlama tamamlandıktan sonra [doğrulama](validation.md) oluşur. Varsayılan model bağlama geliştirme senaryolarını çoğunluğu harika çalışır. Benzersiz gereksinimlere sahip değilse, yerleşik davranışını özelleştirebilirsiniz şekilde da genişletilebilir.
+Model bağlama tamamlandıktan sonra [doğrulama](validation.md) gerçekleşir. Varsayılan model bağlama geliştirme senaryoları büyük çoğunluğu için çok iyi çalışır. Benzersiz gereksinimleriniz varsa, yerleşik davranışına göre özelleştirme olanağı da genişletilebilir.
 
-## <a name="customize-model-binding-behavior-with-attributes"></a>Model bağlama davranışı öznitelikleri olan özelleştirme
+## <a name="customize-model-binding-behavior-with-attributes"></a>Model bağlama davranışı öznitelikleri ile özelleştirme
 
-MVC kendi varsayılan model bağlama davranışı farklı bir kaynak için doğrudan için kullanabileceğiniz birkaç öznitelik içerir. Örneğin, bağlama için bir özellik gerekli olup olmadığını ya da onu hiç kullanarak asla olmamalıdır belirtebilirsiniz `[BindRequired]` veya `[BindNever]` öznitelikleri. Alternatif olarak, varsayılan veri kaynağı geçersiz kılmak ve model Bağlayıcısı'nın veri kaynağını belirtin. Model bağlama öznitelikler listesi aşağıdadır:
+MVC, farklı bir kaynak için varsayılan model bağlama davranışını yönlendirmek için kullanabileceğiniz çeşitli özniteliklerini içerir. Örneğin, bağlama özelliği için gerekli olup olmadığını ya da, hiçbir zaman hiç kullanarak olacağını belirtebilirsiniz `[BindRequired]` veya `[BindNever]` öznitelikleri. Alternatif olarak, varsayılan veri kaynağı geçersiz kılar ve model Bağlayıcısı'nın veri kaynağını belirtin. Model bağlama özniteliklerin bir listesi aşağıdadır:
 
-* `[BindRequired]`: Bağlama gerçekleşemez, model durum hatası Bu öznitelik ekler.
+* `[BindRequired]`: Bağlama gerçekleşemez, model durumu hatası Bu öznitelik ekler.
 
-* `[BindNever]`: Hiçbir zaman bu parametreye bağlamak için model bağlayıcı söyler.
+* `[BindNever]`: Bu parametre için hiçbir zaman bağlamak için model bağlayıcı söyler.
 
 * `[FromHeader]`, `[FromQuery]`, `[FromRoute]`, `[FromForm]`: Bunlar, uygulamak istediğiniz tam bağlama kaynağı belirtmek için kullanın.
 
-* `[FromServices]`: Bu özniteliği kullanıyor [bağımlılık ekleme](../../fundamentals/dependency-injection.md) Hizmetleri'nden parametreleri bağlamak için.
+* `[FromServices]`: Bu özniteliği kullanan [bağımlılık ekleme](../../fundamentals/dependency-injection.md) hizmetlerinden parametleri bağlamak için.
 
-* `[FromBody]`: Veri isteği gövdesinden bağlamak için yapılandırılmış biçimlendiricileri kullanın. Biçimlendiriciyi isteğin içerik türüne göre seçilir.
+* `[FromBody]`: Yapılandırılmış biçimlendiricileri gövdeden veri bağlamak için kullanın. Biçimlendiriciyi isteğin içerik türüne göre seçilir.
 
 * `[ModelBinder]`: Varsayılan model bağlayıcısını ve bağlama kaynağı adı geçersiz kılmak için kullanılır.
 
-Model bağlama varsayılan davranışını geçersiz kılmak gerektiğinde yararlı Araçlar öznitelikleridir.
+Model bağlama'nın varsayılan davranışını geçersiz kılmanız gerekiyorsa öznitelikleri çok yararlı araçlardır.
 
-## <a name="bind-formatted-data-from-the-request-body"></a>Biçimlendirilmiş verileri isteği gövdesinden bağlama
+## <a name="bind-formatted-data-from-the-request-body"></a>Gövdeden biçimlendirilmiş veri bağlama
 
-İstek veri biçimleri JSON, XML ve diğer birçok dahil olmak üzere çeşitli gelebilir. Veri istek gövdesindeki bir parametre bağlamak istediğiniz belirtmek için [FromBody] özniteliği kullandığınızda, MVC biçimlendiricileri yapılandırılmış bir dizi içerik türüne göre istek verileri işlemek için kullanır. Varsayılan olarak MVC içeren bir `JsonInputFormatter` JSON verilerini, ancak işleme ek biçimlendiricileri XML ve diğer özel biçimler işlemek için ekleyebilirsiniz için sınıf.
-
-> [!NOTE]
-> Olabilir en çok bir parametre ile donatılmış eylem başına `[FromBody]`. ASP.NET Core MVC çalışma zamanı biçimlendirici için istek akışı okuma sorumluluğunu atar. İstek akışı için bir parametre okuma sonra genellikle diğer bağlama için tekrar istek akışı okunamıyor yoktur `[FromBody]` parametreleri.
+İstek verileri bir çeşitli biçimlerde JSON, XML ve diğer birçok gibi gelebilir. İstek gövdesinde veriye parametre bağlama istediğinizi belirtmek için [FromBody] özniteliği kullandığınızda, MVC biçimlendiricileri yapılandırılmış bir dizi kendi içerik türüne göre istek verileri işlemek için kullanır. Varsayılan olarak, MVC içeren bir `JsonInputFormatter` JSON verilerini, ancak işleme ek biçimlendiricileri XML ve diğer özel biçimler işlemek için ekleyebilirsiniz için sınıf.
 
 > [!NOTE]
-> `JsonInputFormatter` Temel alır ve varsayılan biçimlendiricidir [Json.NET](https://www.newtonsoft.com/json).
+> En fazla olabilir bir parametre ile donatılmış eylem başına `[FromBody]`. ASP.NET Core MVC çalışma zamanı, biçimlendirici için istek akışı okuma sorumluluğunu atar. İstek akışı için bir parametre okunduktan sonra genellikle diğer bağlama için yeniden isteği akışını okumak mümkün değildir `[FromBody]` parametreleri.
 
-ASP.NET seçer göre giriş biçimlendiricileri [Content-Type](https://www.w3.org/Protocols/rfc1341/4_Content-Type.html) üstbilgi ve parametrenin türü olmadığı sürece, aksi takdirde belirtme uygulanan bir öznitelik. XML kullanmak istediğiniz ya da başka bir biçime içinde yapılandırmalısınız *haline* dosyası, ancak öncelikle sahip bir başvuru almak `Microsoft.AspNetCore.Mvc.Formatters.Xml` NuGet kullanma. Başlangıç kodu aşağıdakine benzer görünmelidir:
+> [!NOTE]
+> `JsonInputFormatter` Bağlıdır ve varsayılan biçimlendiricidir [Json.NET](https://www.newtonsoft.com/json).
+
+ASP.NET giriş biçimlendiricileri göre seçer [Content-Type](https://www.w3.org/Protocols/rfc1341/4_Content-Type.html) üstbilgi ve parametrenin türü olmadığı sürece, aksi takdirde belirtme uygulanan bir öznitelik. XML kullanmak ister misiniz veya başka bir biçimde, bunu yapılandırmalısınız *Startup.cs* dosyası, ancak öncelikle sahip bir başvuru almak `Microsoft.AspNetCore.Mvc.Formatters.Xml` NuGet kullanma. Başlangıç kodunuzun aşağıdakine benzer görünmelidir:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -119,8 +119,8 @@ public void ConfigureServices(IServiceCollection services)
    }
 ```
 
-Kod *haline* dosyasını içeren bir `ConfigureServices` yöntemi ile bir `services` bağımsız değişkeni ASP.NET uygulamanız için hizmetleri oluşturmak için kullanabilirsiniz. Örnekte, MVC için bu uygulamayı sağlayacak bir hizmet olarak bir XML biçimlendiricisi ekliyoruz. `options` Bağımsız değişken geçirildi `AddMvc` yöntemi ekleyin ve filtreleri, biçimlendiricileri ve diğer sistem seçenekleri MVC uygulama başlatma sırasında yönetmenize olanak sağlar. Daha sonra uygulamanız `Consumes` özniteliği denetleyicisi sınıfları veya istediğiniz biçimi ile çalışmak için eylem yöntemleri.
+Kod *Startup.cs* dosyasını içeren bir `ConfigureServices` yöntemi ile bir `services` ASP.NET uygulamanız için hizmetlerini oluşturmak için kullanabileceğiniz bağımsız değişken. Aşağıdaki örnekte, bu uygulama için MVC sunan hizmet olarak bir XML biçimlendiricisi ekliyoruz. `options` Bağımsız değişken geçirildi `AddMvc` yöntemi ekleyin ve filtreler, biçimlendiricileri ve diğer sistem seçenekleri MVC uygulama başlatma sırasında yönetmenize olanak sağlar. Daha sonra uygulamanızı `Consumes` özniteliği denetleyici sınıflarına veya istediğiniz biçimi ile çalışması için eylem yöntemleri.
 
 ### <a name="custom-model-binding"></a>Özel Model bağlama
 
-Model bağlama kendi özel model bağlayıcıları yazarak genişletebilirsiniz. Daha fazla bilgi edinmek [özel model bağlama](../advanced/custom-model-binding.md).
+Model bağlama, kendi özel model bağlayıcıları yazarak genişletebilirsiniz. Daha fazla bilgi edinin [özel model bağlama](../advanced/custom-model-binding.md).

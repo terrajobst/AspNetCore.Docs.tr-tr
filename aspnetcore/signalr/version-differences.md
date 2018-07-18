@@ -1,35 +1,35 @@
 ---
 title: SignalR ve ASP.NET Core SignalR arasındaki farklar
-author: rachelappel
+author: tdykstra
 description: SignalR ve ASP.NET Core SignalR arasındaki farklar
 monikerRange: '>= aspnetcore-2.1'
-ms.author: rachelap
+ms.author: tdykstra
 ms.date: 06/30/2018
 uid: signalr/version-differences
-ms.openlocfilehash: fd314d93333bd159aef4bb4863be50c646809cf0
-ms.sourcegitcommit: 1faf2525902236428dae6a59e375519bafd5d6d7
+ms.openlocfilehash: 6ed7e2e1ecadef08d71c4d7a7c3469738d07bcda
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37090182"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095014"
 ---
 # <a name="differences-between-signalr-and-aspnet-core-signalr"></a>SignalR ve ASP.NET Core SignalR arasındaki farklar
 
-ASP.NET Core SignalR istemciler veya sunucular için ASP.NET SignalR ile uyumlu değil. Bu makalede kaldırılmış veya ASP.NET Core SignalR değiştirilmiş özellikleri ayrıntılı olarak açıklanmaktadır.
+ASP.NET Core SignalR istemciler veya sunucular için ASP.NET SignalR ile uyumlu değil. Bu makalede kaldırılmış veya ASP.NET Core SignalR içinde değiştirilen özellikler açıklanmaktadır.
 
-## <a name="feature-differences"></a>Özellik farklılıkları
+## <a name="feature-differences"></a>Özellik farkları
 
 ### <a name="automatic-reconnects"></a>Otomatik yeniden bağlantılar
 
-Otomatik yeniden bağlantılar artık desteklenmemektedir. Daha önce SignalR bağlantı kesildi durumunda sunucuya yeniden denedi. İstemci bağlantısı kesilmişse şimdi yeniden bağlamak isterseniz kullanıcı yeni bir bağlantı açıkça başlatmanız gerekir.
+Otomatik yeniden bağlantılar artık desteklenmemektedir. Daha önce SignalR bağlantı kesildi, sunucuya yeniden denedi. İstemci bağlantısı kesilmişse şimdi yeniden bağlamak isterseniz kullanıcı yeni bir bağlantı açıkça başlatmanız gerekir.
 
 ### <a name="protocol-support"></a>Protokol desteği
 
-ASP.NET Core SignalR destekleyen dayalı yeni bir ikili Protokolü yanı sıra, JSON [MessagePack](xref:signalr/messagepackhubprotocol). Ayrıca, özel protokoller oluşturulabilir.
+ASP.NET Core Signalr'yi destekleyen dayalı yeni bir ikili Protokolü yanı sıra JSON [MessagePack](xref:signalr/messagepackhubprotocol). Ayrıca, özel protokoller oluşturulabilir.
 
-## <a name="differences-on-the-server"></a>Sunucu üzerindeki farklar
+## <a name="differences-on-the-server"></a>Sunucuda farkları
 
-SignalR sunucu tarafı kitaplıkları içinde yer alan `Microsoft.AspNetCore.App` parçası olan paket **ASP.NET çekirdek Web uygulaması** Razor ve MVC projeler için şablon.
+SignalR sunucu tarafı kitaplıklar dahil `Microsoft.AspNetCore.App` parçası olan paket **ASP.NET Core Web uygulaması** Razor hem MVC projeleri için şablon.
 
 SignalR çağırarak yapılandırılmalıdır bir ASP.NET Core ara yazılımını olduğundan `AddSignalR` içinde `Startup.ConfigureServices`.
 
@@ -46,44 +46,44 @@ app.UseSignalR(routes =>
 });
 ```
 
-### <a name="sticky-sessions-now-required"></a>Artık gerekli Yapışkan oturumları
+### <a name="sticky-sessions-now-required"></a>Artık gerekli Yapışkan oturumlar
 
-Genişleme SignalR önceki sürümlerinde nasıl çalışılan nedeniyle, istemciler yeniden bağlanın ve iletileri gruptaki herhangi bir sunucuya gönderir. Genişleme modeli yanı sıra yeniden bağlantılar desteklemediğinden değişiklikler nedeniyle, bu artık desteklenmiyor. Şimdi, istemci, sunucuya bağlanır sonra bağlantı boyunca aynı sunucusu ile etkileşim gerekiyor.
+Ölçek genişletme SignalR önceki sürümlerinde nasıl çalışılan nedeniyle, istemciler yeniden ve gruptaki herhangi bir sunucuya ileti göndermek. Ölçek genişletme modeli, hem de yeniden bağlantılar desteklemediğinden değişiklikler nedeniyle, bu artık desteklenmiyor. Şimdi, istemcinin sunucuya bağlanan sonra ile aynı sunucuya bağlantı süresi boyunca etkileşim kurmak gerekir.
 
-### <a name="single-hub-per-connection"></a>Bağlantı başına tek hub
+### <a name="single-hub-per-connection"></a>Bağlantı başına tek bir hub
 
-ASP.NET Core SignalR bağlantı modeli basitleştirilmiştir. Bağlantılar, çok sayıda hub erişimi paylaşmak için kullanılan tek bir bağlantı yerine tek bir hub için doğrudan yapılır.
+ASP.NET Core SignalR öğesinde bağlantı modeli basitleştirilmiştir. Bağlantıları, doğrudan erişim birden çok hub'a paylaşmak için kullanılan tek bir bağlantı yerine tek bir hub için gerçekleştirilir.
 
 ### <a name="streaming"></a>Akış
 
-SignalR destekler [veri akış](xref:signalr/streaming) istemciye bu hub'dan.
+SignalR destekler [akış verileri](xref:signalr/streaming) istemciye hub'ından.
 
 ### <a name="state"></a>Durum
 
-İlerleme durumu iletileri için destek yanı sıra rasgele durumu (HubState olarak da adlandırılır) hub ve istemciler arasında geçirmek olanağı kaldırılmıştır. Şu anda hiçbir karşılık gelen hub proxy yoktur.
+İlerleme durumu iletileri için destek yanı sıra hub'ı (HubState olarak da adlandırılır) ve istemciler arasında rastgele bir durum geçirme özelliği kaldırıldı. Şu anda hiçbir hub proxy karşılığı yoktur.
 
-## <a name="differences-on-the-client"></a>İstemci üzerinde farklar
+## <a name="differences-on-the-client"></a>İstemci üzerinde farkları
 
 ### <a name="typescript"></a>TypeScript
 
-SignalR ASP.NET Core sürümü yazılmış [TypeScript](https://www.typescriptlang.org/). Kullanırken, JavaScript veya TypeScript yazabilirsiniz [JavaScript istemci](xref:signalr/javascript-client).
+SignalR ASP.NET Core sürümü yazılır [TypeScript](https://www.typescriptlang.org/). JavaScript veya TypeScript kullanırken yazabileceğiniz [JavaScript istemci](xref:signalr/javascript-client).
 
-### <a name="the-javascript-client-is-hosted-at-npmhttpswwwnpmjscom"></a>JavaScript istemci konumunda barındırılan [npm](https://www.npmjs.com/)
+### <a name="the-javascript-client-is-hosted-at-npmhttpswwwnpmjscom"></a>JavaScript istemcisi, barındırılan [npm](https://www.npmjs.com/)
 
-Önceki sürümlerde, NuGet paketini Visual Studio'da JavaScript istemci edindiğiniz. Çekirdek sürümleri için [ @aspnet/signalr npm paket](https://www.npmjs.com/package/@aspnet/signalr) JavaScript kitaplıklarını içerir. Bu paket bulunup **ASP.NET çekirdek Web uygulaması** şablonu. Edinme ve yükleme npm kullanmak `@aspnet/signalr` npm paket.
+Önceki sürümlerde, Visual Studio'da bir NuGet paketi aracılığıyla JavaScript istemci alındı. Çekirdek sürümleri için [ @aspnet/signalr npm paketini](https://www.npmjs.com/package/@aspnet/signalr) JavaScript kitaplıkları içerir. Bu paket bulunup bulunmadığına **ASP.NET Core Web uygulaması** şablonu. Elde etmek ve yüklemek için npm kullanın `@aspnet/signalr` npm paketi.
 
 ```console
 npm init -y
 npm install @aspnet/signalr
 ```
 
-### <a name="jquery"></a>JQuery
+### <a name="jquery"></a>jQuery
 
-Projeleri jQuery kullanmaya devam edebilirsiniz ancak jQuery bağımlılığını kaldırılmıştır.
+JQuery bağımlı projeler jQuery kullanmaya devam edebilirsiniz ancak kaldırıldı.
 
 ### <a name="javascript-client-method-syntax"></a>JavaScript istemci yöntem sözdizimi
 
-JavaScript sözdizimi SignalR önceki sürümünden değişmiştir. Kullanarak yerine `$connection` nesne, bir bağlantı kullanarak oluşturduğunuz `HubConnectionBuilder` API.
+JavaScript sözdizimi SignalR önceki sürümünden değişmiştir. Yerine `$connection` nesne, bir bağlantı kullanarak oluşturduğunuz `HubConnectionBuilder` API.
 
 ```javascript
 const connection = new signalR.HubConnectionBuilder()
@@ -109,13 +109,13 @@ connection.start().catch(err => console.error(err.toString()));
 
 ### <a name="hub-proxies"></a>Hub proxy
 
-Hub proxy artık otomatik olarak oluşturulur. Yöntem adı içine bunun yerine, geçirilen `invoke` dize olarak API.
+Hub proxy artık otomatik olarak oluşturulur. Bunun yerine, yöntem adı yöntemlere geçirilen `invoke` dize olarak API.
 
 ### <a name="net-and-other-clients"></a>.NET ve diğer istemciler
 
 `Microsoft.AspNetCore.SignalR.Client` NuGet paketi, ASP.NET Core SignalR için .NET istemci kitaplıkları içerir.
 
-Kullanım `HubConnectionBuilder` ve hub'ına bağlantısı örneği oluşturmak için.
+Kullanım `HubConnectionBuilder` ve hub'ına bağlantı örneğini oluşturmak için.
 
 ```csharp
 connection = new HubConnectionBuilder()

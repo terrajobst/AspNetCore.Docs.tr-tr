@@ -5,47 +5,48 @@ description: Veri koruma anahtar yönetimi ve ASP.NET Core yaşam süresi hakkı
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/configuration/default-settings
-ms.openlocfilehash: 54259b1e2f37cdbbd551038e80f2b0fa1d77f196
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: beff17dd81143db02a0cbc79fa7cb3a6a4deeda6
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277823"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095105"
 ---
 # <a name="data-protection-key-management-and-lifetime-in-aspnet-core"></a>Veri koruma anahtar yönetimi ve ASP.NET Core yaşam süresi
 
-tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ## <a name="key-management"></a>Anahtar Yönetimi
 
-İşletimsel ortamı algılar ve kendi başına anahtar yapılandırma işlemek uygulama çalışır.
+Uygulama, işletimsel ortamı algılamak ve kendi anahtar yapılandırması işlemek çalışır.
 
-1. Uygulama içinde barındırılıyorsa [Azure uygulamaları](https://azure.microsoft.com/services/app-service/), anahtarları şekilde kalıcı *%HOME%\ASP.NET\DataProtection-Keys* klasör. Bu klasör, ağ depolama tarafından yedeklenir ve uygulamayı barındıran tüm makinelerde eşitlenir.
-   * Anahtarları bekleyen korumalı değil.
-   * *DataProtection anahtarları* klasörü tüm örnekleri, bir uygulamanın tek dağıtım yuvasındaki anahtar halkası sağlar.
-   * Hazırlama ve üretim gibi ayrı bir dağıtım yuvası anahtar halkası paylaşmayın. Örneğin üretime hazırlama değiştirmeyi veya kullanan bir dağıtım yuvası arasında taktığınızda / B testi, veri koruması'nı kullanarak herhangi bir uygulama anahtar halkası önceki yuvasına kullanarak depolanan verilerin şifresini çözmek mümkün olmayacaktır. Bu, kendi tanımlama bilgilerini korumak için veri koruması kullanır gibi standart ASP.NET Core tanımlama bilgisi kimlik doğrulaması kullanır, bir uygulamanın oturumunu oturum açmış kullanıcılara yol gösterir. Yuva bağımsız anahtar çalma üzerinde isterse, Azure Blob Storage, Azure anahtar kasası, bir SQL deposu gibi bir dış anahtar halkası sağlayıcısı kullanın veya Redis önbelleği.
+1. Uygulama içinde barındırılıyorsa [Azure uygulamaları](https://azure.microsoft.com/services/app-service/), anahtarları kaldı *%HOME%\ASP.NET\DataProtection-Keys* klasör. Bu klasör, ağ depolaması tarafından desteklenir ve uygulamayı barındıran tüm makinelerde eşitlenir.
+   * Anahtarlar, bekleme sırasında korunmayan.
+   * *DataProtection-Keys* klasör anahtar halkası tek dağıtım yuvasındaki bir uygulamanın tüm örnekleri sağlar.
+   * Hazırlama ve üretim gibi farklı dağıtım yuvaları, anahtar halkası paylaşmayın. Örneğin hazırlık-üretim değiştirmeyi veya kullanan bir dağıtım yuvası arasında taktığınızda / B testi, veri korumayı kullanarak herhangi bir uygulama anahtarı halka önceki yuvasına kullanarak depolanan verilerin şifresini çözmek mümkün olmayacaktır. Bu, veri koruma, tanımlama bilgilerini korumak için kullandığı standart ASP.NET Core tanımlama bilgisi kimlik doğrulaması kullanan bir uygulamanın oturumunu günlüğe kaydedilmesini kullanıcılara yol açar. Yuva bağımsız anahtar halkaları isterse, Azure Blob Depolama, Azure Key Vault, bir SQL depolama gibi bir dış anahtar halkası sağlayıcısı kullanma veya Redis önbelleği.
 
-1. Kullanıcı profili varsa, anahtarları için kalıcı *%LOCALAPPDATA%\ASP.NET\DataProtection-Keys* klasör. İşletim sistemi Windows ise, anahtarları DPAPI kullanılarak bekleme sırasında şifrelenir.
+1. Anahtarları kalıcı kullanıcı profili varsa, *%LOCALAPPDATA%\ASP.NET\DataProtection-Keys* klasör. Windows işletim sistemi olması halinde, anahtarları DPAPI kullanılarak, bekleme sırasında şifrelenir.
 
-1. Uygulama IIS barındırılıyorsa, anahtarları ACLed yalnızca çalışan işlem hesabı için bir özel kayıt defteri anahtarı HKLM Kayıt defterinde kalıcı niteliktedir. Anahtarları DPAPI kullanılarak bekleme sırasında şifrelenir.
+1. Uygulama IIS'de barındırılıyorsa, anahtarları ACLed yalnızca çalışan işlem hesabı için bir özel kayıt defteri anahtarı ' HKLM Kayıt defterine kalıcıdır. Anahtarları DPAPI kullanılarak, bekleme sırasında şifrelenir.
 
-1. Bu koşulların hiçbiri eşleşirse, geçerli işlemin dışında anahtarları kalıcı değil. İşlem oluşturulan tüm aşağı kapattığında anahtarları kaybolur.
+1. Bu koşulların hiçbiri eşleşirse, anahtarları geçerli işlemin dışında kalıcı değildir. İşlem oluşturulan tüm aşağı kapattığında anahtarları kaybolur.
 
-Geliştirici her zaman tam denetimi ve nasıl ve anahtarları depolandığı geçersiz kılabilirsiniz. Yukarıdaki ilk üç seçenekten nasıl benzer çoğu uygulamalar için iyi Varsayılanları sağlamalıdır ASP.NET  **\<machineKey >** otomatik oluşturma yordamları çalışılan geçmişte. Son, geri dönüş seçeneği belirtmek Geliştirici gerektiren tek bir senaryodur [yapılandırma](xref:security/data-protection/configuration/overview) ön anahtar Kalıcılık istiyor, ancak bu geri dönüş yalnızca nadir durumlarda gerçekleşir.
+Geliştirici her zaman tam denetimi ve nasıl ve anahtarları depolandığı geçersiz kılabilirsiniz. Yukarıdaki ilk üç seçenekten nasıl benzer uygulamaların çoğu için varsayılan sağlamalıdır ASP.NET  **\<machineKey >** otomatik üretimi yordamları çalışan geçmiş. Son, geri dönüş seçeneği belirlemek Geliştirici gerektiren yalnızca senaryodur [yapılandırma](xref:security/data-protection/configuration/overview) ön anahtar kalıcılığı istediği, ancak bu geri dönüş yalnızca nadir durumlarda oluşur.
 
-Bir Docker kapsayıcısı barındırdığında anahtarları Docker birim (paylaşılan bir birim veya kapsayıcının ömür devam ederse konak takılı bir birimde) bir klasörde kalıcı veya bir dış sağlayıcı gibi [Azure anahtar kasası](https://azure.microsoft.com/services/key-vault/) veya [Redis](https://redis.io/). Uygulamalar bir paylaşılan ağ birim erişemiyorsanız dış sağlayıcı ayrıca web grubu senaryolarda kullanışlıdır (bkz [PersistKeysToFileSystem](xref:security/data-protection/configuration/overview#persistkeystofilesystem) daha fazla bilgi için).
+Bir Docker kapsayıcısında barındırırken, anahtarları bir Docker birim (bir paylaşılan veya kapsayıcının ömründen uzun kalıcı bir ana bilgisayar bağlı biriminde) bir klasörde kalıcı veya bir dış sağlayıcı gibi [Azure anahtar kasası](https://azure.microsoft.com/services/key-vault/) veya [Redis](https://redis.io/). Bir dış sağlayıcı ayrıca uygulamaları bir paylaşılan ağ birime erişememesi durumunda web grubu senaryolarda yararlı olur. (bkz [PersistKeysToFileSystem](xref:security/data-protection/configuration/overview#persistkeystofilesystem) daha fazla bilgi için).
 
 > [!WARNING]
-> Geliştirici yukarıda özetlenen kuralları geçersiz kılar ve belirli bir anahtar deposunda veri koruma sisteminde işaret ediyorsa, REST anahtarların otomatik şifreleme devre dışı bırakılır. Çalışmıyorken koruma aracılığıyla yeniden etkinleştirilmiş olabilir [yapılandırma](xref:security/data-protection/configuration/overview).
+> Geliştirici yukarıda özetlenen kuralları geçersiz kılar ve veri koruma sisteminde belirli bir anahtar deposunda işaret otomatik şifreleme anahtarlarının bekleyen devre dışı bırakılır. Bekleyen koruma aracılığıyla yeniden etkin olabilir [yapılandırma](xref:security/data-protection/configuration/overview).
 
 ## <a name="key-lifetime"></a>Anahtar yaşam süresi
 
-Anahtarları varsayılan olarak 90 gün ömrü vardır. Bir anahtar süresi dolduğunda, uygulama otomatik olarak yeni bir anahtar oluşturur ve yeni anahtar etkin anahtar olarak ayarlar. Sistemde Çekildi anahtarları kaldığı sürece, uygulamanızın bunlarla korunan tüm verileri şifresini çözebilir. Bkz: [anahtar yönetimi](xref:security/data-protection/implementation/key-management#key-expiration-and-rolling) daha fazla bilgi için.
+Anahtarları, varsayılan olarak 90 günlük bir ömrü vardır. Bir anahtar geçerlilik süresi dolduğunda, uygulama, otomatik olarak yeni bir anahtar oluşturur ve yeni anahtar etkin anahtar ayarlar. Devre dışı bırakılan anahtarları sistemde kaldığı sürece, uygulamanız ile korunan tüm verileri şifresini çözebilir. Bkz: [anahtar yönetimi](xref:security/data-protection/implementation/key-management#key-expiration-and-rolling) daha fazla bilgi için.
 
 ## <a name="default-algorithms"></a>Varsayılan algoritmaları
 
-Kullanılan varsayılan yükü koruması algoritması AES 256 CBC Orijinallik gizliliği ve HMACSHA256 içindir. Değiştirilen her 90 günde bir 512 bit ana anahtar yükü başına temelinde Bu algoritmalar için kullanılan iki alt anahtarlarında türetmek için kullanılır. Bkz: [alt anahtar türetme](xref:security/data-protection/implementation/subkeyderivation#additional-authenticated-data-and-subkey-derivation) daha fazla bilgi için.
+Kullanılan varsayılan yükü koruma algoritması AES-256-CBC, gizliliği ve HMACSHA256 kimlik doğrulaması için içindir. Her 90 günde değiştirilmiş bir 512 bit ana anahtar, bu algoritmalar yükü başına temelinde kullanılan iki alt anahtar türetme kullanılır. Bkz: [alt anahtarını türetme](xref:security/data-protection/implementation/subkeyderivation#additional-authenticated-data-and-subkey-derivation) daha fazla bilgi için.
 
-## <a name="see-also"></a>Ayrıca bkz.
+## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Anahtar yönetimi genişletilebilirliği](xref:security/data-protection/extensibility/key-management)
+* <xref:security/data-protection/extensibility/key-management>
+* <xref:host-and-deploy/web-farm>

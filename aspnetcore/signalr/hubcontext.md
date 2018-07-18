@@ -1,45 +1,45 @@
 ---
 title: SignalR HubContext
-author: rachelappel
-description: Bir hub dışında istemcilere bildirimleri göndermek için ASP.NET Core SignalR HubContext hizmeti kullanmayı öğrenin.
+author: tdykstra
+description: Bir hub dışında istemcilere bildirimleri gönderme için ASP.NET Core SignalR HubContext hizmetini kullanmayı öğrenin.
 monikerRange: '>= aspnetcore-2.1'
-ms.author: rachelap
+ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/13/2018
 uid: signalr/hubcontext
-ms.openlocfilehash: ccfcdc8337275fd26e09c1a43db36cf9ab90cf46
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 6b955c2064d7d6a045594e56326e2f7df282675f
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277767"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095313"
 ---
 # <a name="send-messages-from-outside-a-hub"></a>Bir hub dışında ileti gönderme
 
 Tarafından [Mikael Mengistu](https://twitter.com/MikaelM_12)
 
-SignalR hub'ı SignalR sunucuya bağlı olan istemcilerin ileti göndermek için çekirdek soyutlamadır. Uygulama kullanarak diğer yerlerden iletileri göndermek mümkündür `IHubContext` hizmet. Bu makalede, bir SignalR erişmek açıklanmaktadır `IHubContext` hub dışında istemcilere bildirimleri göndermek için.
+SignalR hub'ı, SignalR sunucuya bağlı istemcilere ileti göndermek için çekirdek soyutlamadır. Diğer yerlerden uygulama kullanarak ileti göndermek mümkündür `IHubContext` hizmeti. Bu makalede, bir SignalR erişmeye açıklanmaktadır `IHubContext` hub dışında istemcilere bildirimleri göndermek için.
 
-[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/hubcontext/sample/) [(nasıl indirileceğini)](xref:tutorials/index#how-to-download-a-sample)
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/hubcontext/sample/) [(karşıdan yükleme)](xref:tutorials/index#how-to-download-a-sample)
 
 ## <a name="get-an-instance-of-ihubcontext"></a>Örneği Al `IHubContext`
 
-ASP.NET Core SignalR öğesinde örneği erişebilirsiniz `IHubContext` bağımlılık ekleme aracılığıyla. Bir örneğini ekleme `IHubContext` bir denetleyicide, ara yazılım veya diğer dı hizmet uygulamasına. İstemcilere iletileri göndermek için örneği kullanın.
+ASP.NET Core SignalR öğesinde bir örneğini erişebileceğiniz `IHubContext` aracılığıyla bağımlılık ekleme. Örneği ekleyebilir `IHubContext` bir denetleyici, ara yazılım veya diğer DI hizmeti. İstemcilere göndermek için örneği kullanın.
 
 > [!NOTE]
-> Bu GlobalHost erişim sağlamak için kullanılan ASP.NET SignalR farklıdır `IHubContext`. ASP.NET Core genel bu singleton gereksinimini ortadan kaldırır bir bağımlılık ekleme framework sahiptir.
+> Bu GlobalHost erişim sağlamak için kullanılan ASP.NET SignalR farklıdır `IHubContext`. ASP.NET Core, bu genel tekil gereksinimini ortadan kaldırır, bir bağımlılık ekleme çerçeve vardır.
 
 ### <a name="inject-an-instance-of-ihubcontext-in-a-controller"></a>Bir örneğini ekleme `IHubContext` bir denetleyicide
 
-Bir örneğini ekleme `IHubContext` , oluşturucuya ekleyerek bir denetleyici içine:
+Örneği ekleyebilir `IHubContext` , oluşturucuya ekleyerek bir denetleyici içinde:
 
 [!code-csharp[IHubContext](hubcontext/sample/Controllers/HomeController.cs?range=12-19,57)]
 
-Şimdi, bir örneğine erişimi olan `IHubContext`, hub, değilmiş gibi hub yöntemleri çağırabilirsiniz.
+Şimdi, örneğine erişimi olan `IHubContext`, hub içinde değilmiş gibi hub yöntemlerini çağırabilirsiniz.
 
 [!code-csharp[IHubContext](hubcontext/sample/Controllers/HomeController.cs?range=21-25)]
 
-### <a name="get-an-instance-of-ihubcontext-in-middleware"></a>Bir örneğini almak `IHubContext` Ara yazılımında
+### <a name="get-an-instance-of-ihubcontext-in-middleware"></a>Bir kopyasını almak `IHubContext` Ara yazılımında
 
 Erişim `IHubContext` ara yazılım ardışık düzenini içinde şu şekilde:
 
@@ -54,7 +54,7 @@ app.Use(next => (context) =>
 ```
 
 > [!NOTE]
-> Ne zaman hub yöntemleri çağrılmadan gelen dışında `Hub` sınıfı, çağırmayla ilgili hiçbir çağıran yoktur. Bu nedenle, hiçbir erişim yoktur `ConnectionId`, `Caller`, ve `Others` özellikleri.
+> Ne zaman hub yöntemleri çağrıldığında gelen dışında `Hub` çağırmayla ilgili hiçbir arayan olduğunda, sınıf. Bu nedenle, erişim yoktur `ConnectionId`, `Caller`, ve `Others` özellikleri.
 
 ## <a name="related-resources"></a>İlgili kaynaklar
 

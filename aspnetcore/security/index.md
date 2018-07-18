@@ -1,57 +1,57 @@
 ---
 title: ASP.NET Core güvenliğine genel bakış
-author: rachelappel
-description: ASP.NET Core kimlik doğrulama, yetkilendirme ve güvenlik temel kavramları hakkında bilgi edinin.
-ms.author: rachelap
+author: tdykstra
+description: ASP.NET Core kimlik doğrulaması, yetkilendirme ve güvenlik temel bilgileri öğrenin.
+ms.author: tdykstra
 ms.date: 11/01/2017
 uid: security/index
-ms.openlocfilehash: a23d23cf1bf0503b59c6f5d962cecf89af37b4b3
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: ed64594c85d555d8417903947fc3ce927dc04cec
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278511"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095768"
 ---
 # <a name="overview-of-aspnet-core-security"></a>ASP.NET Core güvenliğine genel bakış
 
-ASP.NET Core geliştiricilerin kolayca yapılandırmanıza ve uygulamalarını güvenliğini yönetmenize olanak sağlar. ASP.NET Core kimlik doğrulama, yetkilendirme, veri koruma, SSL zorlama, uygulama parolaları, koruma istek sahteciliğine koruma ve CORS yönetim yönetmeye yönelik özellikler içerir. Bu güvenlik özellikleri, sağlam yapı henüz ASP.NET Core uygulamaları güvenli olanak tanır.
+ASP.NET Core geliştiricilerinin kolayca yapılandırmak ve uygulamalarını için güvenliği yönetmek etkinleştirir. ASP.NET Core kimlik doğrulaması, yetkilendirme, veri koruma, SSL zorlama, uygulama gizli anahtarlarının, istek sahteciliğinden koruma koruması ve CORS yönetim yönetmeye yönelik özellikler içerir. Bu güvenlik özellikleri, güçlü derleme henüz ASP.NET Core uygulamalarının güvenliğini sağlama imkan tanır.
 
 ## <a name="aspnet-core-security-features"></a>ASP.NET Core güvenlik özellikleri
 
-ASP.NET Core birçok araçları ve yerleşik kimlik sağlayıcıları gibi uygulamalarınızın güvenliğini sağlamak için kitaplıkları sağlar ancak 3 taraf kimlik hizmetlerini Facebook, Twitter ve LinkedIn gibi kullanabilirsiniz. ASP.NET Core ile depolamak ve kodda kullanıma gerek kalmadan gizli bilgileri kullanmak için bir yoldur uygulama sırrı kolayca yönetebilirsiniz.
+Birçok araca ve kitaplığa yerleşik kimlik sağlayıcıları dahil olmak üzere uygulamalarınızın güvenliğini sağlamak için ASP.NET Core sağlar ancak Facebook, Twitter ve LinkedIn gibi 3. taraf kimlik Hizmetleri kullanabilirsiniz. ASP.NET Core ile bir şekilde depolayın ve kod göstermek zorunda kalmadan gizli bilgiler kullanın olan, uygulama gizli anahtarlarının kolayca yönetebilirsiniz.
 
-## <a name="authentication-vs-authorization"></a>Kimlik doğrulama vs. Yetkilendirme
+## <a name="authentication-vs-authorization"></a>Kimlik doğrulaması vs. Yetkilendirme
 
-Kimlik doğrulaması, bir kullanıcı daha sonra bu bir işletim sistemi, veritabanı, uygulama veya kaynak depolanan karşılaştırılır kimlik bilgilerini sağlayan bir işlemdir. Eşleşirlerse, kullanıcıların kimliğini başarıyla doğrulamak ve, yetkili oldukları eylemler gerçekleştirebilir bir yetkilendirme sürecinde. Yetkilendirme kullanıcı yapmak için verileceğini belirler işleme başvuruyor.
+Kimlik doğrulaması, bir kullanıcı bu bir işletim sistemi, veritabanı, uygulama veya kaynak depolanan karşılaştırılır kimlik bilgilerini sağlayan bir işlemdir. Eşleşirlerse, kullanıcıların kimliğini başarıyla doğrulamak ve, sahip olduğunuz eylemler gerçekleştirebilir bir yetkilendirme sürecinde. Yetkilendirme, bir kullanıcı yapmak için izin verilenden belirleyen işlemini gösterir.
 
-Kimliğini düşünmeye başka bir kullanıcı (sunucu, veritabanı veya uygulamanın) alan içinde hangi nesneleri için hangi eylemleri olsa da yetkilendirme sunucusu, veritabanı, uygulama veya kaynak gibi bir alanı girmek için bir yol olarak dikkate alınması gereken yoludur.
+Kimlik doğrulaması düşünmek için başka bir yetkilendirme (sunucu, veritabanı veya uygulama) bu alanı içinde hangi nesneleri için kullanıcının gerçekleştirebileceği eylemleri olsa da sunucu, veritabanı, uygulama veya kaynağa gibi bir alan girin. bir yolu olarak dikkate alınması gereken yoludur.
 
-## <a name="common-vulnerabilities-in-software"></a>Ortak Güvenlik Açıkları yazılım
+## <a name="common-vulnerabilities-in-software"></a>Ortak yazılımdaki
 
-ASP.NET Çekirdeği ve EF yardımcı özellikler içeriyor uygulamalarınızın güvenliğini sağlamak ve güvenlik açıklarına. Aşağıdaki listesi bağlantılar, web uygulamalarında en yaygın güvenlik açıkları önlemek için belgeleri ayrıntılandıran teknikleri alır:
+ASP.NET Core ve EF yardımcı olan özellikler içeriyor uygulamanızı güvenli hale getirme ve güvenlik ihlallerini önleyin. Aşağıdaki listede yer alan bağlantıları, web uygulamalarında en yaygın güvenlik açıklarından önlemek için yapılan teknikleri belgeleri alır:
 
-* [Siteler arası komut dosyası saldırıları](xref:security/cross-site-scripting)
+* [Siteler arası betik saldırıları](xref:security/cross-site-scripting)
 * [SQL ekleme saldırıları](https://docs.microsoft.com/ef/core/querying/raw-sql)
-* [Siteler arası istek sahtekarlığı (CSRF)](xref:security/anti-request-forgery)
-* [Açık yeniden yönlendirme saldırılarına](xref:security/preventing-open-redirects)
+* [Siteler arası istek sahteciliği (CSRF)](xref:security/anti-request-forgery)
+* [Açık yeniden yönlendirme saldırılarını](xref:security/preventing-open-redirects)
 
-Bilmeniz gereken daha fazla güvenlik açıkları vardır. Daha fazla bilgi için bu belgedeki bölümüne bakarak *ASP.NET güvenlik belgelerine*.
+Bilmeniz gereken daha fazla güvenlik açıkları vardır. Daha fazla bilgi için bu belgenin bölümüne bakın *ASP.NET güvenlik belgeleri*.
 
 ## <a name="aspnet-security-documentation"></a>ASP.NET güvenlik belgeleri
 
 *   [Kimlik Doğrulaması](xref:security/authentication/index)
     *   [Kimliğe giriş](xref:security/authentication/identity)
     *   [Facebook, Google ve diğer dış sağlayıcıları kullanarak kimlik doğrulamasını etkinleştirme](xref:security/authentication/social/index)
-    *   [WS-Federasyon ile kimlik doğrulamasını etkinleştir](xref:security/authentication/ws-federation)
+    *   [WS-Federasyon ile kimlik doğrulamasını etkinleştirme](xref:security/authentication/ws-federation)
     * [Windows Kimlik Doğrulaması Yapılandırma](xref:security/authentication/windowsauth)
     *   [Hesap onaylama ve parola kurtarma](xref:security/authentication/accconfirm)
     *   [SMS ile iki öğeli kimlik doğrulama](xref:security/authentication/2fa)
     *   [Kimlik olmadan tanımlama bilgisi kimlik doğrulamasını kullan](xref:security/authentication/cookie)
     *   [Azure Active Directory](xref:security/authentication/azure-active-directory/index)
-        *   [Azure AD bir ASP.NET Core web uygulamanıza tümleştirmek](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore/)
-        *   [Azure AD kullanarak bir WPF uygulamasından ASP.NET çekirdek Web API çağırma](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore/)
+        *   [Azure AD, bir ASP.NET Core web uygulamasıyla tümleştirme](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore/)
+        *   [Azure AD kullanarak bir WPF uygulamasından ASP.NET Core Web API'si çağırma](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore/)
         *   [Azure AD kullanarak bir ASP.NET Core web uygulamasında Web API’si çağırma](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/)
-        *   [Azure AD B2C ile bir ASP.NET Core web uygulama](https://azure.microsoft.com/resources/samples/active-directory-b2c-dotnetcore-webapp/)
+        *   [Azure AD B2C ile ASP.NET Core web uygulaması](https://azure.microsoft.com/resources/samples/active-directory-b2c-dotnetcore-webapp/)
     *   [IdentityServer4 ile ASP.NET Core uygulamalarının güvenliğini sağlama](https://identityserver4.readthedocs.io)
 *   [Yetkilendirme](xref:security/authorization/index)
     *   [Giriş](xref:security/authorization/introduction)
@@ -78,7 +78,7 @@ Bilmeniz gereken daha fazla güvenlik açıkları vardır. Daha fazla bilgi içi
         *   [Veri korumasını yapılandırma](xref:security/data-protection/configuration/overview)
         *   [Varsayılan ayarlar](xref:security/data-protection/configuration/default-settings)
         *   [Makine geneli ilke](xref:security/data-protection/configuration/machine-wide-policy)
-        *   [DI kullanan olmayan senaryolar](xref:security/data-protection/configuration/non-di-scenarios)
+        *   [DI kullanmayan olmayan senaryolar](xref:security/data-protection/configuration/non-di-scenarios)
     *   [Genişletilebilirlik API’leri](xref:security/data-protection/extensibility/index)
         *   [Çekirdek şifreleme genişletilebilirliği](xref:security/data-protection/extensibility/core-crypto)
         *   [Anahtar yönetimi genişletilebilirliği](xref:security/data-protection/extensibility/key-management)
