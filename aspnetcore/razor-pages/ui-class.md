@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 07/21/2018
 uid: razor-pages/ui-class
-ms.openlocfilehash: 8190302a15670b0a7474445f7b11d4cba46981db
-ms.sourcegitcommit: 19cbda409bdbbe42553dc385ea72d2a8e246509c
+ms.openlocfilehash: 4252cfc5824b6078012cf9ff34968977229faf0d
+ms.sourcegitcommit: cb0c27fa0184f954fce591d417e6ab2a51d8bb22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38992853"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39123781"
 ---
 # <a name="create-reusable-ui-using-the-razor-class-library-project-in-aspnet-core"></a>Yeniden kullanılabilir kullanıcı Arabirimi ASP.NET Core Razor sınıf kitaplığı projesini kullanarak oluşturun.
 
@@ -46,7 +46,7 @@ Daha fazla bilgi için [yeni dotnet](/dotnet/core/tools/dotnet-new). Oluşturula
 ------
 Razor dosyaları için RCL ekleyin.
 
-İçinde içerik Git RCL öneririz *alanları* klasör.
+ASP.NET Core şablonları RCL içeriği olduğu varsayılır *alanları* klasör. Bkz: [RCL sayfa düzeni](#afs) kullanıma sunan bir RCL içeriği oluşturmak için `~/Pages` yerine `~/Areas/Pages`.
 
 ## <a name="referencing-razor-class-library-content"></a>Razor sınıf kitaplığı içeriği başvurma
 
@@ -203,3 +203,22 @@ Zaman görünümü, kısmi görünüm veya Razor sayfası hem web uygulaması he
 Örnek indirme Yeniden Adlandır *WebApp1/alanlar/MyFeature2* için *WebApp1/alanlar/MyFeature* öncelik test etmek için.
 
 Kopyalama *RazorUIClassLib/Areas/MyFeature/Pages/Shared/_Message.cshtml* kısmi görünüme *WebApp1/Areas/MyFeature/Pages/Shared/_Message.cshtml*. Yeni bir konum belirtmek için işaretleme güncelleştirin. Derleme ve uygulamanın sürümünü kısmi kullanılan doğrulamak için uygulamayı çalıştırın.
+
+<a name="afs"></a>
+
+### <a name="rcl-pages-layout"></a>RCL sayfa düzeni
+
+Web uygulaması'nın sayfalar klasöründe bir parçasıdır ancak RCL içeriği başvurusu yapmak için aşağıdaki dosya yapısı ile RCL proje oluşturun:
+
+* *RazorUIClassLib/sayfaları*
+* *RazorUIClassLib/sayfalar/paylaşılan*
+
+Varsayalım *RazorUIClassLib/sayfaları/paylaşılan* iki kısmi dosyalarını içeren *_Header.cshtml* ve *_Footer.cshtml*. <partial> Etiketleri için eklenebiliyordu *_Layout.cshtml* dosyası: 
+  
+```
+  <body>
+    <partial name="_Header">
+    @RenderBody()
+    <partial name="_Footer">
+  </body>
+```

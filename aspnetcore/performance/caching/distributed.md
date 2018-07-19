@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/14/2017
 uid: performance/caching/distributed
-ms.openlocfilehash: 861664fcad576c11abe052837b72367eb2b9479a
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 9c41a6e008045231bd2e1c1f53a9161e11daafa9
+ms.sourcegitcommit: cb0c27fa0184f954fce591d417e6ab2a51d8bb22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095687"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39123846"
 ---
 # <a name="work-with-a-distributed-cache-in-aspnet-core"></a>Dağıtılmış bir önbellekte ASP.NET Core ile çalışma
 
@@ -79,12 +79,13 @@ Aşağıdaki kodu *Startup.cs* ayarlanan değer gösterir:
 
 [!code-csharp[](distributed/sample/src/DistCacheSample/Startup.cs?name=snippet1)]
 
-> [!NOTE]
-> Bu yana `IDistributedCache` yapılandırılan `ConfigureServices` yöntemi, kullanılabilir `Configure` yönteme bir parametre olarak. Bir parametre olarak ekleme DI sağlanacak yapılandırılmış örneği izin verir.
+Bu yana `IDistributedCache` yapılandırılan `ConfigureServices` yöntemi, kullanılabilir `Configure` yönteme bir parametre olarak. Bir parametre olarak ekleme DI sağlanacak yapılandırılmış örneği izin verir.
 
 ## <a name="using-a-redis-distributed-cache"></a>Dağıtılmış bir Redis önbelleği kullanma
 
 [Redis](https://redis.io/) dağıtılmış bir önbellek sık kullanılan bir açık kaynak bellek içi veri deposu. Yerel olarak kullanabilirsiniz ve yapılandırabileceğiniz bir [Azure Redis Cache](https://azure.microsoft.com/services/cache/) Azure'da barındırılan ASP.NET Core uygulamalarınız için. Önbellek uygulaması kullanarak ASP.NET Core uygulamanızı yapılandırır bir `RedisDistributedCache` örneği.
+
+Redis cache gerektirir [Microsoft.Extensions.Caching.Redis](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Redis/)
 
 Redis uygulamasında yapılandırma `ConfigureServices` ve uygulama kodunuzda bir örneğini isteyerek erişim `IDistributedCache` (Yukarıdaki kod bakın).
 
@@ -92,8 +93,7 @@ Redis uygulamasında yapılandırma `ConfigureServices` ve uygulama kodunuzda bi
 
 [!code-csharp[](distributed/sample/src/DistCacheSample/Startup.cs?name=snippet2)]
 
-> [!NOTE]
-> Yerel makinenizde Redis yüklemek için chocolatey paket yükleme [ https://chocolatey.org/packages/redis-64/ ](https://chocolatey.org/packages/redis-64/) çalıştırıp `redis-server` bir komut isteminden.
+Yerel makinenizde Redis yüklemek için chocolatey paket yükleme [ https://chocolatey.org/packages/redis-64/ ](https://chocolatey.org/packages/redis-64/) çalıştırıp `redis-server` bir komut isteminden.
 
 ## <a name="using-a-sql-server-distributed-cache"></a>SQL Server'ı kullanarak dağıtılmış önbellek
 

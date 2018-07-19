@@ -8,12 +8,12 @@ ms.date: 09/08/2014
 ms.assetid: 5c76891d-e515-4885-b576-76bd2c494efe
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/ui_and_navigation
 msc.type: authoredcontent
-ms.openlocfilehash: ef1b226d673d18ec333c35f193dbe6bd21e54225
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 2807560484d03122ed68ee3efb49a50e45150e12
+ms.sourcegitcommit: cb0c27fa0184f954fce591d417e6ab2a51d8bb22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37842921"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39123807"
 ---
 <a name="ui-and-navigation"></a>Kullanıcı Arabirimi ve gezinti
 ====================
@@ -164,7 +164,7 @@ Bu öğreticide, Wingtip Toys uygulama görünümü sunmalarına önyükleme CSS
 3. Yeniden adlandırma *bootstrap.min.css* için *önyükleme original.min.css*.
 4. İçinde **Çözüm Gezgini**, sağ *içerik* klasörü ve select **klasörü dosya Gezgini'nde Aç**.  
    Dosya Gezgini görüntülenir. İndirilen bir önyükleme CSS dosyaları bu konuma kaydeder.
-5. Tarayıcınızda, Git [ http://Bootswatch.com ](http://bootswatch.com/).
+5. Tarayıcınızda, Git [ https://bootswatch.com/3/ ](https://bootswatch.com/3/).
 6. Tarayıcı penceresini Cerulean tema görene kadar kaydırın. 
 
     ![Kullanıcı Arabirimi ve gezinti - Cerulean tema](ui_and_navigation/_static/image5.png)

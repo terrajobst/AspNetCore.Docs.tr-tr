@@ -8,12 +8,12 @@ ms.date: 08/23/2012
 ms.assetid: 5894dc13-5d45-4dad-8096-136499120f1d
 msc.legacyurl: /mvc/overview/performance/bundling-and-minification
 msc.type: authoredcontent
-ms.openlocfilehash: 090bb58f762302e0f58db7b8c005fe584e5ec419
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 4e72804593c07318af8cc577f9d43ab96be4de05
+ms.sourcegitcommit: cb0c27fa0184f954fce591d417e6ab2a51d8bb22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37827381"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39123794"
 ---
 <a name="bundling-and-minification"></a>Paketleme ve küçültme
 ====================
@@ -69,7 +69,7 @@ Aşağıdaki tabloda, tek tek tüm varlıklarını listeleme ve paketleme ve kü
 | **Alınan KB** | 388.51 | 530 | 36% |
 | **Yükleme süresi** | 510 MS | 780 MS | 53% |
 
-Gönderilen bayt tarayıcılar bunlar üzerinde istekleri geçerli HTTP üst bilgilerini oldukça ayrıntılı olarak paketleme ile önemli bir azalma var. Alınan bayt azaltma kadar büyük değil çünkü en büyük dosyaları (*Scripts\jquery-ui-1.8.11.min.js* ve *Scripts\jquery-1.7.1.min.js*) önceden küçültülmüş. Not: Zamanlamaları kullanılan örnek program [Fiddler](http://www.fiddler2.com/fiddler2/) yavaş bir ağa benzetmek için aracı. (Fiddler gelen **kuralları** menüsünde **performans** ardından **benzetimini Modem hızlarını**.)
+Gönderilen bayt tarayıcılar bunlar üzerinde istekleri geçerli HTTP üst bilgilerini oldukça ayrıntılı olarak paketleme ile önemli bir azalma var. Alınan bayt azaltma kadar büyük değil çünkü en büyük dosyaları (*betikleri\\jquery kullanıcı arabirimi 1.8.11.min.js* ve *betikleri\\jquery 1.7.1.min.js*) önceden küçültülmüş . Not: Zamanlamaları kullanılan örnek program [Fiddler](http://www.fiddler2.com/fiddler2/) yavaş bir ağa benzetmek için aracı. (Fiddler gelen **kuralları** menüsünde **performans** ardından **benzetimini Modem hızlarını**.)
 
 ## <a name="debugging-bundled-and-minified-javascript"></a>Paketlenmiş ve küçültülmüş JavaScript hata ayıklama
 
@@ -79,7 +79,7 @@ Bir geliştirme ortamı, JavaScript'te hata ayıklamak kolaydır (burada [derlem
 2. Varlıklar düğmesini kullanarak hata ayıklamak istediğiniz JavaScript işlevi içeren bir paket seçin.  
     ![](bundling-and-minification/_static/image4.png)
 3. Küçültülmüş JavaScript seçerek biçimlendirme **Yapılandırma düğmesi** ![](bundling-and-minification/_static/image5.png)seçip **biçim JavaScript**.
-4. İçinde **arama nağı** t giriş kutusuna ayıklamak istediğiniz işlevin adını seçin. Aşağıdaki görüntüde, **AddAltToImg** girilen **arama nağı** t giriş kutusu.  
+4. İçinde **arama betik** giriş kutusunda, hata ayıklamak istediğiniz işlevin adını seçin. Aşağıdaki görüntüde, **AddAltToImg** girilen **arama betik** giriş kutusu.  
     ![](bundling-and-minification/_static/image6.png)
 
 F12 geliştirici araçları ile hata ayıklama ile ilgili daha fazla bilgi için bkz. MSDN makalesi [JavaScript hatalarını hata ayıklama için F12 geliştirici araçlarını kullanma](https://msdn.microsoft.com/library/ie/gg699336(v=vs.85).aspx).
@@ -107,15 +107,15 @@ Paketleme ve küçültme etkinleştirmek için ayarlayın `debug` "false" değer
 
 Bu bölümde bir ASP.NET MVC paketleme incelemek için proje ve küçültme oluşturacağız. İlk olarak adlandırılan yeni bir ASP.NET MVC internet projesi oluşturun **MvcBM** herhangi birini varsayılan değerleri değiştirmeden.
 
-Açık *uygulama\_Start\BundleConfig.cs* inceleyin ve dosya `RegisterBundles` oluşturmak, kaydedin ve paketleri yapılandırmak için kullanılan yöntem. Aşağıdaki kod bir bölümü gösterilmektedir `RegisterBundles` yöntemi.
+Açık *uygulama\\\_Başlat\\BundleConfig.cs* inceleyin ve dosya `RegisterBundles` oluşturmak, kaydedin ve paketleri yapılandırmak için kullanılan yöntem. Aşağıdaki kod bir bölümü gösterilmektedir `RegisterBundles` yöntemi.
 
 [!code-csharp[Main](bundling-and-minification/samples/sample5.cs)]
 
 Yukarıdaki kod adlı yeni bir JavaScript paket oluşturur *~/bundles/jquery* tüm uygun içeren (hata ayıklama veya küçültülmüş değil. *vsdoc*) dosyalarını *betikleri* "~/Scripts/jquery-{version} .js" joker karakter dizesi ile eşleşen bir klasör. ASP.NET MVC 4 için bu dosyanın bir hata ayıklama yapılandırması ile anlamına gelir *jquery 1.7.1.js* pakete eklenecek. Bir sürüm yapılandırmasında *jquery 1.7.1.min.js* eklenir. Paketleme framework gibi birkaç genel kurallar aşağıdaki gibidir:
 
-- "FileX.min.js" ve "FileX.js" mevcut olduğunda, sürüm ".min" dosyası seçme.
+- ".Min" dosya seçmek için sürümün *FileX.min.js* ve *FileX.js* mevcut.
 - Hata ayıklama olmayan ".min" sürümü seçebilirsiniz.
-- Yoksayma "-vsdoc" (örneğin, jquery-1.7.1-vsdoc.js), IntelliSense tarafından kullanılan dosya.
+- Yoksayma "-vsdoc" dosyaları (gibi *jquery 1.7.1 vsdoc.js*), IntelliSense tarafından kullanılır.
 
 `{version}` Yukarıda gösterilen joker eşleşen jQuery paket jQuery'nün uygun sürümüne otomatik olarak oluşturmak için kullanılır, *betikleri* klasör. Bu örnekte, bir joker kullanarak aşağıdaki avantajları sağlar:
 
@@ -134,7 +134,7 @@ Yukarıdaki kod sürümde modu ve jQuery hata ayıklama sürümünü yerel olara
 
 ## <a name="creating-a-bundle"></a>Bir paket oluşturma
 
-[Paket](https://msdn.microsoft.com/library/system.web.optimization.bundle(v=VS.110).aspx) sınıfı `Include` yöntemi her dize kaynak sanal yolu olduğu bir dizisini alır. RegisterBundles yönteminde aşağıdaki kodu *uygulama\_Start\BundleConfig.cs* dosyasını nasıl birden çok dosya bir pakete eklenen gösterir:
+[Paket](https://msdn.microsoft.com/library/system.web.optimization.bundle(v=VS.110).aspx) sınıfı `Include` yöntemi her dize kaynak sanal yolu olduğu bir dizisini alır. Aşağıdaki kodu `RegisterBundles` yönteminde *uygulama\\\_Başlat\\BundleConfig.cs* dosyasını nasıl birden çok dosya bir pakete eklenen gösterir:
 
 [!code-csharp[Main](bundling-and-minification/samples/sample8.cs)]
 
@@ -142,7 +142,7 @@ Yukarıdaki kod sürümde modu ve jQuery hata ayıklama sürümünü yerel olara
 
 [!code-csharp[Main](bundling-and-minification/samples/sample9.cs)]
 
-Paketler oluşturma yöntemini kullanarak görünümlerde başvurulan ( `Styles.Render` için CSS ve `Scripts.Render` JavaScript için). Aşağıdaki biçimlendirmeden *görünümler/paylaşılan\\_Layout.cshtml* dosya, varsayılan ASP.NET internet proje görünümleri CSS ve JavaScript paketleri nasıl başvuru gösterir.
+Paketler oluşturma yöntemini kullanarak görünümlerde başvurulan (`Styles.Render` için CSS ve `Scripts.Render` JavaScript için). Aşağıdaki biçimlendirmeden *görünümleri\\paylaşılan\\\_Layout.cshtml* dosya, varsayılan ASP.NET internet proje görünümleri CSS ve JavaScript paketleri nasıl başvuru gösterir.
 
 [!code-cshtml[Main](bundling-and-minification/samples/sample10.cshtml?highlight=5-6,11)]
 
@@ -156,10 +156,10 @@ Belirtilen sanal yola `Include` yöntemi ve arama deseni olarak `IncludeDirector
 
 Bir proje şu JavaScript dosyaları göz önünde bulundurun:
 
-- *Scripts\Common\AddAltToImg.js*
-- *Scripts\Common\ToggleDiv.js*
-- *Scripts\Common\ToggleImg.js*
-- *Scripts\Common\Sub1\ToggleLinks.js*
+- *Betikleri\\ortak\\AddAltToImg.js*
+- *Betikleri\\ortak\\ToggleDiv.js*
+- *Betikleri\\ortak\\ToggleImg.js*
+- *Betikleri\\ortak\\Abon1\\ToggleLinks.js*
 
 ![imag dizini](bundling-and-minification/_static/image7.png)
 
@@ -167,13 +167,13 @@ Aşağıdaki tabloda gösterildiği gibi joker karakter kullanarak bir pakete ek
 
 | **Çağrı** | **Eklenen dosyaları veya özel durum oluşturuldu** |
 | --- | --- |
-| İçerir ("~/Scripts/Common/\*.js") | *AddAltToImg.js, ToggleDiv.js, ToggleImg.js* |
+| İçerir ("~/Scripts/Common/\*.js") | *AddAltToImg.js*, *ToggleDiv.js*, *ToggleImg.js* |
 | İçerir ("~/Scripts/Common/T\*.js") | Deseni geçersiz özel durum. Joker karakter yalnızca ön ek veya sonek izin verilir. |
 | İçerir ("~/Scripts/Common/\*og.\*") | Deseni geçersiz özel durum. Yalnızca bir joker karaktere izin verilir. |
-| "İçerir (" ~/Scripts/Common/T\*") | *ToggleDiv.js, ToggleImg.js* |
-| "İçerir (" ~/Scripts/Common/\*") | Deseni geçersiz özel durum. Saf joker karakter segmenti geçerli değil. |
-| IncludeDirectory ("~/Scripts/Common", "T\*") | *ToggleDiv.js, ToggleImg.js* |
-| IncludeDirectory ("~/Scripts/Common", "T\*", true) | *ToggleDiv.js, ToggleImg.js, ToggleLinks.js* |
+| İçerir ("~/Scripts/Common/T\*") | *ToggleDiv.js*, *ToggleImg.js* |
+| İçerir ("~/Scripts/Common/\*") | Deseni geçersiz özel durum. Saf joker karakter segmenti geçerli değil. |
+| IncludeDirectory ("~/Scripts/Common", "T\*") | *ToggleDiv.js*, *ToggleImg.js* |
+| IncludeDirectory ("~/Scripts/Common", "T\*", true) | *ToggleDiv.js*, *ToggleImg.js*, *ToggleLinks.js* |
 
 Açıkça bir pakete her dosya ekleme genellikle tercih edilir joker yükleme dosyalarının aşağıdaki nedenlerle üzerinde:
 
@@ -183,7 +183,7 @@ Açıkça bir pakete her dosya ekleme genellikle tercih edilir joker yükleme do
 
     [!code-csharp[Main](bundling-and-minification/samples/sample12.cs)]
 
-  Joker kart seçiciye "\*.css" klasöründeki her bir CSS dosyasına getirir dahil olmak üzere *Content\themes\base\jquery.ui.all.css* dosya. *Jquery.ui.all.css* dosyası diğer CSS dosyaları alır.
+  Joker kart seçiciye "\*.css" klasöründeki her bir CSS dosyasına getirir dahil olmak üzere *içerik\\Temalar\\temel\\jquery.ui.all.css* dosya. *Jquery.ui.all.css* dosyası diğer CSS dosyaları alır.
 
 ## <a name="bundle-caching"></a>Paket önbelleğe alma
 
@@ -195,7 +195,7 @@ Aşağıdaki görüntüde **önbelleğe alma** Fiddler yanıt bölmesinin sekmes
 
 İstek   
 `http://localhost/MvcBM_time/bundles/AllMyScripts?v=r0sLDicvP58AIXN_mc3QdyVvVj5euZNzdsa2N1PKvb81`  
- paket için olan **AllMyScripts** ve bir sorgu dizesi çifti içeren **v r0sLDicvP58AIXN =\_mc3QdyVvVj5euZNzdsa2N1PKvb81**. Sorgu dizesi **v** diğer bir deyişle önbelleğe almak için kullanılan benzersiz bir tanımlayıcı belirteç bir değere sahip. Paket değişmez sürece, ASP.NET uygulamasının isteyecek **AllMyScripts** Bu belirteci kullanarak paket. Paket herhangi bir dosyayı değiştirirse, ASP.NET iyileştirme çerçevesi tarayıcı istekleri paket için en son paket alırsınız güvence altına alır, yeni bir belirteç oluşturur.
+ paket için olan **AllMyScripts** ve bir sorgu dizesi çifti içeren **v r0sLDicvP58AIXN =\\\_mc3QdyVvVj5euZNzdsa2N1PKvb81**. Sorgu dizesi **v** diğer bir deyişle önbelleğe almak için kullanılan benzersiz bir tanımlayıcı belirteç bir değere sahip. Paket değişmez sürece, ASP.NET uygulamasının isteyecek **AllMyScripts** Bu belirteci kullanarak paket. Paket herhangi bir dosyayı değiştirirse, ASP.NET iyileştirme çerçevesi tarayıcı istekleri paket için en son paket alırsınız güvence altına alır, yeni bir belirteç oluşturur.
 
 IE9 F12 geliştirici araçlarını çalıştırma ve daha önce yüklenen bir sayfaya gidin, IE yanlış koşullu GET istekleri için her paket ve HTTP 304 döndüren sunucusu yapılan gösterir. IE9 koşullu bir istek blog girişi yapılmışsa belirleme sorunlara neden olduğunu okuyabilirsiniz [kullanarak CDN ve Web sitesi performansını geliştirmek için Expires](https://blogs.msdn.com/b/rickandy/archive/2011/05/21/using-cdns-to-improve-web-site-performance.aspx).
 
@@ -203,13 +203,13 @@ IE9 F12 geliştirici araçlarını çalıştırma ve daha önce yüklenen bir sa
 
 Paketleme ve küçültme framework Ara diller gibi işlemek için bir mekanizma sağlar [SCSS](http://sass-lang.com/), [Sass](http://sass-lang.com/), [daha az](http://www.dotlesscss.org/) veya [Coffeescript ](http://coffeescript.org/)ve elde edilen paket için dönüşümler küçültme gibi uygulayabilirsiniz. Örneğin, eklemek için [.less](http://www.dotlesscss.org/) MVC 4 proje dosyaları:
 
-1. Daha az içeriğiniz için bir klasör oluşturun. Aşağıdaki örnekte *Content\MyLess* klasör.
+1. Daha az içeriğiniz için bir klasör oluşturun. Aşağıdaki örnekte *içerik\\MyLess* klasör.
 2. Ekleme [.less](http://www.dotlesscss.org/) NuGet paketini **noktasız** projenize.  
     ![NuGet noktasız yükleme](bundling-and-minification/_static/image9.png)
 3. Uygulayan bir sınıf ekleyin [IBundleTransform](https://msdn.microsoft.com/library/system.web.optimization.ibundletransform(VS.110).aspx) arabirimi. .Less dönüştürme için projenize aşağıdaki kodu ekleyin.
 
     [!code-csharp[Main](bundling-and-minification/samples/sample13.cs)]
-4. Daha az dosya içeren bir paket oluşturma `LessTransform` ve [CssMinify](https://msdn.microsoft.com/library/system.web.optimization.cssminify(VS.110).aspx) dönüştürün. Aşağıdaki kodu ekleyin `RegisterBundles` yönteminde *uygulama\_Start\BundleConfig.cs* dosya.
+4. Daha az dosya içeren bir paket oluşturma `LessTransform` ve [CssMinify](https://msdn.microsoft.com/library/system.web.optimization.cssminify(VS.110).aspx) dönüştürün. Aşağıdaki kodu ekleyin `RegisterBundles` yönteminde *uygulama\\_başlatmayı\\BundleConfig.cs* dosya.
 
     [!code-csharp[Main](bundling-and-minification/samples/sample14.cs)]
 5. Daha az paket başvuran tüm görünümler için aşağıdaki kodu ekleyin.
@@ -228,11 +228,11 @@ Her bir ana bilgisayar başına altı eşzamanlı bağlantı tarayıcı SORUMLUL
 
 Paketleri ihtiyaç sayfaları göre bölümlendirilmelidir. Örneğin, ' % s'varsayılan Internet uygulaması için ASP.NET MVC şablonu jQuery doğrulama paket jQuery ayrı oluşturur. Oluşturulan varsayılan görünümlere sahip herhangi bir giriş ve değerleri göndermeyin olduğundan doğrulama paket dahil değildir.
 
-`System.Web.Optimization` Ad alanı içinde System.Web.Optimization.DLL uygulanır. Bunu WebGrease kitaplığı (WebGrease.dll) küçültme özellikleri için sırayla Antlr3.Runtime.dll kullanan yararlanır.
+`System.Web.Optimization` Ad alanı içinde uygulanan *System.Web.Optimization.dll*. WebGrease kitaplığı yararlanır (*WebGrease.dll*) küçültme özellikleri için hangi sırayla kullandığı *Antlr3.Runtime.dll*.
 
 *Twitter gönderileri hızlı yapıp bağlantıları paylaşın kullanıyorum. My Twitter tanıtıcısı*: [@RickAndMSFT](http://twitter.com/RickAndMSFT)
 
-## <a name="additional-resources"></a>Ek Kaynaklar
+## <a name="additional-resources"></a>Ek kaynaklar
 
 - Video:[paketleme ve en iyi duruma getirme](https://channel9.msdn.com/Events/aspConf/aspConf/Bundling-and-Optimizing) tarafından [Howard Dierking](https://twitter.com/#!/howard_dierking)
 - [Bir Web sayfaları sitesinde Web iyileştirme ekleme](https://blogs.msdn.com/b/rickandy/archive/2012/08/15/adding-web-optimization-to-a-web-pages-site.aspx).
