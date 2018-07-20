@@ -71,7 +71,7 @@ Tümleştirme testleri, normal içeren olayların sırasını izleyin *Yerleşti
 1. Bir test sunucusu istemci uygulamanın istekleri göndermek için oluşturulur.
 1. *Yerleştir* test adımı yürütülür: istek test uygulaması hazırlar.
 1. *Yasası* test adımı yürütülür: istemci isteği gönderir ve yanıtı alır.
-1. *Assert* test adımı yürütülür: *gerçek* yanıt olarak doğrulanmış bir *geçirmek* veya *başarısız* dayalı bir *bekleniyor * yanıt.
+1. *Assert* test adımı yürütülür: *gerçek* yanıt olarak doğrulanmış bir *geçirmek* veya *başarısız* dayalı bir *bekleniyor*  yanıt.
 1. İşlem, tüm testleri yürütülür kadar devam eder.
 1. Test sonuçları raporlanır.
 
