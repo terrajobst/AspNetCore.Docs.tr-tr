@@ -5,12 +5,12 @@ description: Bu öğreticide, sıralama, filtreleme ve sayfalama ASP.NET Core ve
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: fce524a5cb386fbf286907be42e920be13115ca6
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 86321538f02ccf1a36ee9e50729e63e007f10327
+ms.sourcegitcommit: ee2b26c7d08b38c908c668522554b52ab8efa221
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38216284"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39146903"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>ASP.NET core'da - EF çekirdekli Razor sayfaları sıralama, filtreleme, sayfalama - 8'in 3
 
@@ -210,7 +210,7 @@ Arama dizesi çalışırken disk belleği değiştirilirse, sayfa 1 olarak ayarl
 
 [!code-csharp[](intro/samples/cu21/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage4)]
 
-İki soru işareti `PaginatedList.CreateAsync` temsil [null birleşim işleci](https://docs.microsoft.com/ dotnet/csharp/language-reference/operators/null-conditional-operator). Null birleşim işleci, null yapılabilir bir tür için varsayılan bir değer tanımlar. İfade `(pageIndex ?? 1)` anlamına gelir dönüş değerini `pageIndex` bir değere sahip olursa. Varsa `pageIndex` bir değere sahip değil, 1 döndürür.
+İki soru işareti `PaginatedList.CreateAsync` temsil [null birleşim işleci](/dotnet/csharp/language-reference/operators/null-conditional-operator). Null birleşim işleci, null yapılabilir bir tür için varsayılan bir değer tanımlar. İfade `(pageIndex ?? 1)` anlamına gelir dönüş değerini `pageIndex` bir değere sahip olursa. Varsa `pageIndex` bir değere sahip değil, 1 döndürür.
 
 ## <a name="add-paging-links-to-the-student-razor-page"></a>Disk belleği bağlantılar Öğrenci Razor sayfası ekleme
 
