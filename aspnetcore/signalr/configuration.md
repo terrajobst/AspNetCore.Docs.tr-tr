@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/30/2018
 uid: signalr/configuration
-ms.openlocfilehash: fac0226c939f4cf446c876b1c0b359d6c5b9dfd3
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: f5a345795f17dafd482e359e77a151d5b0a15688
+ms.sourcegitcommit: 8b68e144aab75374af52605a71717c77345a28b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095408"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39182596"
 ---
 # <a name="aspnet-core-signalr-configuration"></a>ASP.NET Core SignalR yapılandırma
 
@@ -62,7 +62,7 @@ Aşağıdaki tabloda, SignalR hub'ları yapılandırma seçenekleri açıklanmak
 
 | Seçenek | Açıklama |
 | ------ | ----------- |
-| `HandshakeTimeout` | İstemci, bu zaman aralığı içinde bir ilk el sıkışma iletisi göndermediği durumlarda bağlantı kapalı. |
+| `HandshakeTimeout` | İstemci, bu zaman aralığı içinde bir ilk el sıkışma iletisi göndermediği durumlarda bağlantı kapalı. Bu zaman aşımı hataları el sıkışması ciddi ağ gecikmesi nedeniyle gerçekleşiyor, yalnızca değiştirilmesi gereken gelişmiş bir ayardır. Anlaşma işlemi hakkında daha fazla ayrıntı için [SignalR hub'ı protokol belirtimi](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md). |
 | `KeepAliveInterval` | Sunucu bu aralıkta bir ileti gönderdi taşınmadığından, PING iletisi bağlantıyı açık tutma için otomatik olarak gönderilir. |
 | `SupportedProtocols` | Bu hub tarafından desteklenen protokoller. Varsayılan olarak, sunucuda kayıtlı tüm protokollere izin verilir, ancak belirli protokoller için tek tek hub'ları devre dışı bırakmak için bu listedeki protokolleri kaldırılabilir. |
 | `EnableDetailedErrors` | Varsa `true`, ayrıntılı bir Hub yöntemi bir özel durum oluştuğunda, özel durum iletileri istemcilere döndürülür. Varsayılan `false`gibi bu özel durum iletileri, hassas bilgiler içerebilir. |
@@ -216,10 +216,10 @@ Zaman aşımı ve tutma davranışını yapılandırmak için ek seçenekler bul
 
 | .NET seçeneği | JavaScript seçeneği | Açıklama |
 | ----------- | ----------------- | ----------- |
-| `ServerTimeout` | `serverTimeoutInMilliseconds` | Sunucu etkinliği için zaman aşımı. Sunucu herhangi bir ileti bu aralık içinde gönderilebilen taşınmadığından, istemci sunucusu bağlantısı kesildi ve tetikleyici dikkate `Closed` olay (`onclose` JavaScript dilinde). |
-| `HandshakeTimeout` | Yapılandırılamaz | İlk sunucu el sıkışma için zaman aşımı. Sunucu bu aralığı el sıkışması yanıt göndermediği durumlarda, istemciyi el sıkışması ve tetikleyici iptal `Closed` olay (`onclose` JavaScript dilinde). |
+| `ServerTimeout` | `serverTimeoutInMilliseconds` | Sunucu etkinliği için zaman aşımı. Sunucu bir ileti bu aralık içinde gönderilebilen taşınmadığından, istemci sunucusu bağlantısı kesildi ve Tetikleyicileri dikkate `Closed` olay (`onclose` JavaScript dilinde). |
+| `HandshakeTimeout` | Yapılandırılamaz | İlk sunucu el sıkışma için zaman aşımı. Sunucu bu aralığı el sıkışması yanıt göndermediği durumlarda, istemciyi el sıkışması ve tetikleyiciler iptal `Closed` olay (`onclose` JavaScript dilinde). Bu zaman aşımı hataları el sıkışması ciddi ağ gecikmesi nedeniyle gerçekleşiyor, yalnızca değiştirilmesi gereken gelişmiş bir ayardır. Anlaşma işlemi hakkında daha fazla ayrıntı için [SignalR hub'ı protokol belirtimi](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md). |
 
-.NET istemci zaman aşımı değerlerini olarak belirtilen `TimeSpan` değerleri. JavaScript istemci zaman aşımı değerlerini, sayı olarak belirtilir. Sayıları süre değerleri milisaniye cinsinden temsil eder.
+.NET istemci zaman aşımı değerlerini olarak belirtilen `TimeSpan` değerleri. JavaScript istemci zaman aşımı değerlerini, milisaniye cinsinden süre belirten bir sayı olarak belirtilir.
 
 ### <a name="configure-additional-options"></a>Ek seçenekleri yapılandırma
 
