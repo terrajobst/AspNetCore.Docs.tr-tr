@@ -5,15 +5,13 @@ description: Bu öğreticide, birden çok kullanıcı aynı anda aynı varlık g
 ms.author: riande
 ms.date: 11/15/2017
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: c6ec07eb7bf484490bd7730edc44bf2d89e8fb2a
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: ff9e52df63f9c9f47ee659a68beb28b773a114a1
+ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38150489"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39202698"
 ---
-en-us /
-
 # <a name="razor-pages-with-ef-core-in-aspnet-core---concurrency---8-of-8"></a>ASP.NET core'da - eşzamanlılık - 8 8 EF çekirdekli Razor sayfaları
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://github.com/tdykstra), ve [Jon P Smith](https://twitter.com/thereformedprog)
@@ -54,17 +52,21 @@ John tıkladığında **Kaydet** yine de bir bütçe $350,000.00 birini göstere
 
 * Bir kullanıcı değiştirmiş hangi özelliğinin kaydını ve yalnızca ilgili sütunları DB'de güncelleştirin.
 
-  Bu senaryoda, veri kaybolacak. Farklı özellikler iki kullanıcı tarafından güncelleştirildi. Biri İngilizce, departman gözatar sonraki açışınızda Gamze'nin hem Can'ın değişiklikleri görürler. Bu güncelleştirme yöntemini, veri kaybına neden olabilecek çakışmaları sayısını azaltabilirsiniz. Bu yaklaşım: * aynı özelliğe rakip bir değişiklik yaptıysanız, veri kaybını önlemek olamaz.
-        * Olduğu bir web uygulaması pratik genellikle değil. Tüm getirilen ve yeni değerleri izlemek için önemli durum koruma gerektiriyor. Büyük miktarlarda durumu bakımını yapma, uygulama performansını etkileyebilir.
-        * Bir varlıkta eşzamanlılık algılama ile karşılaştırıldığında app karmaşıklığı artırma.
+  Bu senaryoda, veri kaybolacak. Farklı özellikler iki kullanıcı tarafından güncelleştirildi. Biri İngilizce, departman gözatar sonraki açışınızda Gamze'nin hem Can'ın değişiklikleri görürler. Bu güncelleştirme yöntemini, veri kaybına neden olabilecek çakışmaları sayısını azaltabilirsiniz. Bu yaklaşım:
+ 
+  * Aynı özelliğe rakip bir değişiklik yaptıysanız, veri kaybını önlemek olamaz.
+  * Genellikle bir web uygulaması pratik değildir. Tüm getirilen ve yeni değerleri izlemek için önemli durum koruma gerektiriyor. Büyük miktarlarda durumu bakımını yapma, uygulama performansını etkileyebilir.
+  * Bir varlıkta eşzamanlılık algılama ile karşılaştırıldığında app karmaşıklığı artırabilirsiniz.
 
 * Gamze'nin değişikliğinin üzerine Can'ın değişiklik sağlayabilirsiniz.
 
   Sonraki biri İngilizce departmanı gözatar, 1/9/2013 görürler ve getirilen $350,000.00 değeri. Bu yaklaşım olarak adlandırılan bir *istemci WINS* veya *WINS'te son* senaryo. (Tüm istemci değerlerinden veri deposunda nedir üzerinde önceliklidir.) Eşzamanlılık işleme için kodlama yapmazsanız, istemci WINS otomatik olarak gerçekleşir.
 
-* Can'ın değişiklik DB'de güncelleştirilmesini engelleyebilir. Genellikle, bir uygulamayı atadığınız: * hata iletisi görüntüler.
-        * Veriler geçerli durumunu gösterir.
-        * Değişiklikleri uygulamak verin.
+* Can'ın değişiklik DB'de güncelleştirilmesini engelleyebilir. Genellikle, bir uygulamayı atadığınız:
+
+  * Bir hata iletisi görüntüler.
+  * Verilerin geçerli durumunu gösterir.
+  * Değişiklikleri uygulamak verin.
 
   Bu adlı bir *Store WINS* senaryo. (Veri deposu değerlerini istemci tarafından gönderilen değerler önceliklidir.) Bu öğreticide Store WINS senaryo uygulamanız. Bu yöntem, hiçbir değişiklik uyarı bir kullanıcı kılınmamasını sağlar.
 
@@ -144,7 +146,7 @@ Yukarıdaki komutlar:
 * Ekler *geçişleri / {zaman stamp}_RowVersion.cs* geçiş dosyası.
 * Güncelleştirmeleri *Migrations/SchoolContextModelSnapshot.cs* dosya. Bu güncelleştirme aşağıdaki vurgulanmış kodu ekler `BuildModel` yöntemi:
 
-[!code-csharp[](intro/samples/cu/Migrations/SchoolContextModelSnapshot2.cs?name=snippet&highlight=14-16)]
+  [!code-csharp[](intro/samples/cu/Migrations/SchoolContextModelSnapshot2.cs?name=snippet&highlight=14-16)]
 
 * DB güncelleştirilemedi geçişlerini çalıştırır.
 

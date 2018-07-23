@@ -5,12 +5,12 @@ description: Bu öğreticide, sıralama, filtreleme ve sayfalama ASP.NET Core ve
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 86321538f02ccf1a36ee9e50729e63e007f10327
-ms.sourcegitcommit: ee2b26c7d08b38c908c668522554b52ab8efa221
+ms.openlocfilehash: ee5a0dae41ba0afba518f0bd6fbd379fdbbfb1c1
+ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39146903"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39202620"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>ASP.NET core'da - EF çekirdekli Razor sayfaları sıralama, filtreleme, sayfalama - 8'in 3
 
@@ -231,7 +231,7 @@ Uygulamayı çalıştırın ve öğrenciler sayfasına gidin.
 * Disk belleği works emin olmak için farklı sıralamalar sayfalama Bağlantıları'ı tıklatın.
 * Disk belleği sıralama ve filtreleme ile düzgün çalıştığını doğrulamak için bir arama dizesi girin ve disk belleği'ni deneyin.
 
-![disk belleği bağlantılarla Öğrenciler dizin sayfası](sort-filter-page/_static/paging.png)
+![Disk belleği bağlantılarla sayfası Öğrenciler dizin](sort-filter-page/_static/paging.png)
 
 Daha iyi anlamak kodunu almak için:
 
@@ -263,8 +263,6 @@ Güncelleştirme *Pages/About.cshtml.cs* dosyasındaki kodu aşağıdaki kodla:
 [!code-csharp[](intro/samples/cu21/Pages/About.cshtml.cs)]
 
 LINQ deyiminden Öğrenci varlıkları kayıt tarihe göre gruplar, her grupta varlık sayısını hesaplar ve sonuçları bir koleksiyonda depolar `EnrollmentDateGroup` model nesneleri görüntüleyin.
-
-Not: LINQ `group` komut EF Core tarafından şu anda desteklenmiyor. Önceki kodda, SQL Server'dan tüm Öğrenci kayıtlar döndürülür. `group` Komut Razor sayfaları uygulamasında, SQL Server'da uygulanır. EF Core 2.1 Bu LINQ destekleyeceği `group` işlecini ve Gruplama SQL Server üzerinde gerçekleşir. Bkz: [ilişkisel: desteklemek için SQL GroupBy() çevirme](https://github.com/aspnet/EntityFrameworkCore/issues/2341). [EF Core 2.1](https://github.com/aspnet/EntityFrameworkCore/wiki/roadmap) .NET Core 2.1 ile kullanıma sunulacaktır. Daha fazla bilgi için [.NET Core yol haritası](https://github.com/dotnet/core/blob/master/roadmap.md).
 
 ### <a name="modify-the-about-razor-page"></a>Değiştirme hakkında Razor sayfası
 

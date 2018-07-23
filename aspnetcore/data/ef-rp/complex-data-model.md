@@ -5,12 +5,12 @@ description: Bu öğreticide, daha fazla varlıklar ve ilişkiler ekleyin ve ver
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: d96ce7a3f81c54d3c4c0fe26d3fb588d9ce2e0ce
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 6888df174e92ab2ddf8add7b8927250be320bff8
+ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38127108"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39202659"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>ASP.NET core'da - veri modeli - 8'in 5 EF çekirdekli Razor sayfaları
 
@@ -540,8 +540,6 @@ Yukarıdaki kod yeni varlıklar için çekirdek veri sağlar. Bu kod çoğu, yen
 
 * `Enrollments`
 * `CourseAssignment`
-
-Not: [EF Core 2.1](https://github.com/aspnet/EntityFrameworkCore/wiki/Roadmap) destekleyecek [veri üretme](https://github.com/aspnet/EntityFrameworkCore/issues/629).
 
 ## <a name="add-a-migration"></a>Bir geçiş ekleyin
 
