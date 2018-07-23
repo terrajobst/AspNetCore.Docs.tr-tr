@@ -66,7 +66,7 @@ CDN, karşıya yüklediğiniz ve sizin için bu kitaplıkları sahipleri tarafı
 - jQuery Mobile (www.jquerymobile.com)
 - jQuery doğrulaması (www.jquery.com)
 - jQuery döngüsü (www.malsup.com/jquery/cycle/)
-- jQuery DataTable)http://datatables.net/)
+- jQuery DataTable (http://datatables.net/)
 
 Microsoft Ajax CDN ayrıca Microsoft tarafından karşıya yüklenen aşağıdaki kitaplıklarını içerir:
 
@@ -1056,7 +1056,7 @@ Aşağıdaki sürümleri [getbootstrap.com](http://getbootstrap.com "getbootstra
 
 ### <a name="bootstrap-touchcarousel-releases-on-the-cdn"></a>Önyükleme TouchCarousel yayınlar CDN hakkında
 
-Aşağıdaki sürümleri [ https://github.com/ixisio/bootstrap-touch-carousel ] (https://github.com/ixisio/bootstrap-touch-carousel " https://github.com/ixisio/bootstrap-touch-carousel ") önyükleme TouchCarousel yayınlar CDN'de barındırılan:
+Aşağıdaki sürümleri [https://github.com/ixisio/bootstrap-touch-carousel](https://github.com/ixisio/bootstrap-touch-carousel "https://github.com/ixisio/bootstrap-touch-carousel") önyükleme TouchCarousel yayınlar CDN'de barındırılan:
 
 #### <a name="bootstrap-touchcarousel-version-080"></a>Önyükleme TouchCarousel 0.8.0 sürümü
 
@@ -1067,7 +1067,7 @@ Aşağıdaki sürümleri [ https://github.com/ixisio/bootstrap-touch-carousel ] 
 
 ### <a name="hammerjs-releases-on-the-cdn"></a>CDN üzerinde Hammer.js yayınlar
 
-Aşağıdaki sürümleri [ http://hammerjs.github.io/ ] (http://hammerjs.github.io/ " http://hammerjs.github.io/ ") Hammer.js yayınlar CDN'de barındırılan:
+Aşağıdaki sürümleri [http://hammerjs.github.io/](http://hammerjs.github.io/ "http://hammerjs.github.io/") Hammer.js yayınlar CDN'de barındırılan:
 
 #### <a name="hammerjs-version-204"></a>2.0.4 Hammer.js sürümü
 

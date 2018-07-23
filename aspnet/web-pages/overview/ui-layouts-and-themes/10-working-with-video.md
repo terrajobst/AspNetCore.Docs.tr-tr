@@ -115,7 +115,7 @@ Bu yordamda adlı bir Flash videoyu oynatmak gösterilmiştir *sample.swf*. Adl�
     [!code-cshtml[Main](10-working-with-video/samples/sample2.cshtml)]
 4. Sayfanın tarayıcıda çalıştırın. (Emin sayfanın içinde seçili **dosyaları** çalıştırmadan önce çalışma alanı.) Sayfa görüntülenir ve video otomatik olarak yürütülür. 
 
-    ![[image] ] (10-working-with-video/_static/image1.jpg "ch08_video 1.jpg")
+    ![[image]](10-working-with-video/_static/image1.jpg "ch08_video 1.jpg")
 
 Ayarlayabileceğiniz `quality` parametresi için Flash video `low`, `autolow`, `autohigh`, `medium`, `high`, ve `best`:
 
@@ -145,7 +145,7 @@ Aşağıdaki yordamda adlı bir Windows Media videoyu oynatmak gösterilmiştir 
     [!code-cshtml[Main](10-working-with-video/samples/sample5.cshtml)]
 4. Sayfanın tarayıcıda çalıştırın. Video yükler ve otomatik olarak yürütülür. 
 
-    ![[image] ] (10-working-with-video/_static/image2.jpg "ch08_video 2.jpg")
+    ![[image]](10-working-with-video/_static/image2.jpg "ch08_video 2.jpg")
 
 Ayarlayabileceğiniz `playCount` için otomatik olarak videoyu oynatmak için kaç kez gösteren bir tam sayı:
 
@@ -175,7 +175,7 @@ Bu yordamda bir Silverlight'ta bulunan bir videoyu oynatmak gösterilmiştir *.x
     [!code-cshtml[Main](10-working-with-video/samples/sample10.cshtml)]
 4. Sayfanın tarayıcıda çalıştırın. 
 
-    ![[image] ] (10-working-with-video/_static/image3.jpg "ch08_video 3.jpg")
+    ![[image]](10-working-with-video/_static/image3.jpg "ch08_video 3.jpg")
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Ek Kaynaklar

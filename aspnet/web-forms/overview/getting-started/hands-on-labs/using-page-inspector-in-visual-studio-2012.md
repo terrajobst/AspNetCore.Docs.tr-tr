@@ -333,7 +333,7 @@ Bu görevde bir Fotoğraf Galerisi gösteren bir WebForms proje bağlamında say
     ![Öğeleri inceleyerek](using-page-inspector-in-visual-studio-2012/_static/image29.png "öğeleri inceleniyor")
 
     *Öğeleri inceleniyor*
-7. Tıklayın **denetleme modunu Aç/Kapat** düğmesine (![Select-the-HTML-tab-to-display-the-HTML-code-rendered-in-the-Page-Inspector-browser.] (using-page-inspector-in-visual-studio-2012/_static/image30.png "Select-the-HTML-tab-to-display-the-HTML-code-rendered-in-the-Page-Inspector-browser.") ), sayfa denetçisi sekmeleri imleç devre dışı bırakmak için bulunur.
+7. Tıklayın **denetleme modunu Aç/Kapat** düğmesine (![Select-the-HTML-tab-to-display-the-HTML-code-rendered-in-the-Page-Inspector-browser.](using-page-inspector-in-visual-studio-2012/_static/image30.png "Select-the-HTML-tab-to-display-the-HTML-code-rendered-in-the-Page-Inspector-browser.") ), sayfa denetçisi sekmeleri imleç devre dışı bırakmak için bulunur.
 8. Seçin **HTML** sayfa denetçisi tarayıcıda İşlenmiş HTML kodunu görüntülemek için sekmesinde.
 9. HTML kodunda Koala bağlantısını içeren bir liste öğesi bulun ve seçin.
 
