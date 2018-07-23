@@ -1,140 +1,140 @@
 ---
 title: Azure Active Directory B2C'de ASP.NET Core ile bulut kimlik doğrulaması
 author: camsoper
-description: ASP.NET Core ile Azure Active Directory B2C kimlik doğrulaması kurma bulur.
+description: ASP.NET Core ile Azure Active Directory B2C kimlik doğrulaması kurma keşfedin.
 ms.date: 01/25/2018
 ms.custom: mvc
 uid: security/authentication/azure-ad-b2c
-ms.openlocfilehash: caadeec57272ee2823452ed7c4b91e7aca07c3f4
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: bb146804d9491dea168ddcdfc8fb2cfeaae83700
+ms.sourcegitcommit: 7097dba14d5b858e82758ee031ac62dbe3611339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272428"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39138590"
 ---
 # <a name="cloud-authentication-with-azure-active-directory-b2c-in-aspnet-core"></a>Azure Active Directory B2C'de ASP.NET Core ile bulut kimlik doğrulaması
 
 Tarafından [Cam Soper](https://twitter.com/camsoper)
 
-[Azure Active Directory B2C](/azure/active-directory-b2c/active-directory-b2c-overview) (Azure AD B2C) olan bir bulut kimlik yönetimi çözümü web ve mobil uygulamaları için. Hizmet Bulut ve şirket içi barındırılan uygulamalar için kimlik doğrulaması sağlar. Kimlik doğrulama türleri ve kurumsal hesaplar federe bireysel hesaplar, sosyal ağ hesaplarını içerir. Ayrıca, Azure AD B2C minimal yapılandırma ile çok faktörlü kimlik doğrulaması sağlar.
+[Azure Active Directory B2C](/azure/active-directory-b2c/active-directory-b2c-overview) (Azure AD B2C) olan bir bulut kimlik yönetimi çözümü, web ve mobil uygulamaları için. Hizmet, bulutta ve şirket içinde barındırılan uygulamalar için kimlik doğrulaması sağlar. Kimlik doğrulama türleri bireysel hesaplar, sosyal ağ hesabı, içerir ve kurumsal hesaplarda Federasyon. Ayrıca, Azure AD B2C minimal yapılandırma ile çok faktörlü kimlik doğrulaması sağlar.
 
 > [!TIP]
-> Azure Active Directory (Azure AD) Azure AD B2C ayrı ürün teklifleri şunlardır. Azure AD kiracısı Azure AD B2C kiracısı ile bağlı olan taraf uygulamaları kullanılacak kimlikleri koleksiyonunu temsil ederken, bir kuruluşun temsil eder. Daha fazla bilgi için bkz: [Azure AD B2C: sık sorulan sorular (SSS)](/azure/active-directory-b2c/active-directory-b2c-faqs).
+> Azure Active Directory (Azure AD) Azure AD B2C olan ayrı bir ürün teklifleri. Azure AD kiracısı, Azure AD B2C kiracısı ile bağlı olan taraf uygulamaları kullanılacak kimlikleri koleksiyonunu temsil ederken, bir kuruluşun temsil eder. Daha fazla bilgi için bkz. [Azure AD B2C: sık sorulan sorular (SSS)](/azure/active-directory-b2c/active-directory-b2c-faqs).
 
 Bu öğreticide, bilgi nasıl yapılır:
 
 > [!div class="checklist"]
-> * Bir Azure Active Directory B2C kiracısı oluşturma
-> * Azure AD B2C'de bir uygulamayı Kaydet
-> * Azure AD B2C kiracısı kimlik doğrulaması için kullanmak üzere yapılandırılmış bir ASP.NET Core web uygulaması oluşturmak için Visual Studio'yu kullanma
-> * Azure AD B2C kiracısı davranışını denetleyen ilkelerini yapılandırma
+> * Azure Active Directory B2C kiracısı oluşturma
+> * Azure AD B2C'de bir uygulamayı kaydetme
+> * Kimlik doğrulaması için Azure AD B2C kiracınızı kullanacak şekilde yapılandırılmış bir ASP.NET Core web uygulaması oluşturmak için Visual Studio'yu kullanın.
+> * Azure AD B2C kiracısı davranışını denetleme ilkelerini yapılandırma
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu kılavuz için aşağıdakiler gereklidir:
 
 * [Microsoft Azure aboneliği](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-* [Visual Studio 2017](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs) (herhangi bir sürümünü)
+* [Visual Studio 2017](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs) (herhangi bir sürümü)
 
 ## <a name="create-the-azure-active-directory-b2c-tenant"></a>Azure Active Directory B2C kiracısı oluşturma
 
-Bir Azure Active Directory B2C kiracısı oluşturma [belgelerinde açıklandığı gibi](/azure/active-directory-b2c/active-directory-b2c-get-started). İstendiğinde, Kiracı bir Azure aboneliğiyle ilişkilendirme Bu öğretici için isteğe bağlıdır.
+Bir Azure Active Directory B2C kiracısı oluşturmayı [belgelerinde açıklanan şekilde](/azure/active-directory-b2c/active-directory-b2c-get-started). İstendiğinde, Kiracı bir Azure aboneliğiyle ilişkilendirme Bu öğretici için isteğe bağlıdır.
 
-## <a name="register-the-app-in-azure-ad-b2c"></a>Azure AD B2C'de uygulama kaydetme
+## <a name="register-the-app-in-azure-ad-b2c"></a>Azure AD B2C'de uygulamayı kaydetme
 
-Yeni oluşturulan Azure AD B2C kiracısı'nda, uygulamasını kullanarak kaydetmek [belgelerindeki adımları](/azure/active-directory-b2c/active-directory-b2c-app-registration#register-a-web-app) altında **bir web uygulaması kaydetmek** bölümü. Konumundaki Durdur **web uygulama istemci gizli anahtar oluşturma** bölümü. Bir istemci parolası Bu öğretici için gerekli değildir. 
+Kullanıp uygulamanızın yeni oluşturulan Azure AD B2C kiracısında kaydetme [belgelerindeki adımları](/azure/active-directory-b2c/active-directory-b2c-app-registration#register-a-web-app) altında **bir web uygulaması kaydetme** bölümü. Adresindeki Durdur **web uygulama gizli anahtarı oluşturma** bölümü. Bir istemci parolası, Bu öğretici için gerekli değildir. 
 
 Aşağıdaki değerleri kullanın:
 
 | Ayar                       | Değer                     | Notlar                                                                                                                                                                                              |
 |-------------------------------|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Ad**                      | *&lt;Uygulama adı&gt;*        | Girin bir **adı** uygulamanızı tüketicilere tanımlar uygulaması.                                                                                                                                 |
-| **Web uygulaması eklemek veya web API'si** | Evet                       |                                                                                                                                                                                                    |
-| **Örtük akış izin ver**       | Evet                       |                                                                                                                                                                                                    |
-| **Yanıt URL'si**                 | `https://localhost:44300` | Yanıt URL'leri Azure AD B2C uygulamanızı istekleri herhangi bir belirtece döndüğü noktalarıdır. Visual Studio kullanmak üzere yanıt URL'si sağlar. Şimdilik, girin `https://localhost:44300` formu tamamlamak için. |
+| **Ad**                      | *&lt;Uygulama adı&gt;*        | Girin bir **adı** uygulamanızı müşterilere açıklayan bir uygulama için.                                                                                                                                 |
+| **/ Web API'si Web uygulaması Ekle** | Evet                       |                                                                                                                                                                                                    |
+| **Örtük akışa izin ver**       | Evet                       |                                                                                                                                                                                                    |
+| **Yanıt URL'si**                 | `https://localhost:44300/signin-oidc` | Yanıt URL'leri, Azure AD B2C, uygulamanız tarafından istenen belirteçleri döndürdüğü uç noktalardır. Visual Studio kullanmak için bu yanıt URL'si sağlar. Şimdilik girin `https://localhost:44300/signin-oidc` formu doldurun. |
 | **Uygulama Kimliği URI'si**                | Boş bırakın               | Bu öğretici için gerekli değildir.                                                                                                                                                                    |
 | **Yerel istemci Ekle**     | Hayır                        |                                                                                                                                                                                                    |
 
 > [!WARNING]
-> Localhost olmayan yanıt URL'si ayarlanırken farkında olması durumunda [yanıt URL listesinde izin verilen kısıtlamaları](/azure/active-directory-b2c/active-directory-b2c-app-registration#choosing-a-web-app-or-api-reply-url). 
+> Localhost olmayan yanıt URL'si ayarı farkında olmanız durumunda [yanıt URL'si listede izin verilen üzerindeki kısıtlamaları](/azure/active-directory-b2c/active-directory-b2c-app-registration#choosing-a-web-app-or-api-reply-url). 
 
-Uygulama kaydedildikten sonra Kiracı uygulamaların listesi görüntülenir. Yalnızca kayıtlı uygulamayı seçin. Seçin **kopya** simgesine sağ tarafındaki **uygulama kimliği** panoya kopyalamak için alana.
+Uygulama kaydedildikten sonra kiracıdaki uygulamalar listesinde görüntülenir. Yalnızca kayıtlı uygulamayı seçin. Seçin **kopyalama** simgesinin sağındaki **uygulama kimliği** panoya kopyalamak için alana.
 
-Hiçbir şey daha şu anda Azure AD B2C kiracısı'nda yapılandırılabilir, ancak tarayıcı penceresini açık bırakın. ASP.NET Core uygulama oluşturulduktan sonra daha fazla yapılandırma yoktur.
+Hiçbir şey daha şu anda Azure AD B2C kiracısında yapılandırılabilir, ancak tarayıcı penceresini açık bırakın. ASP.NET Core uygulaması oluşturduktan sonra daha fazla yapılandırma yoktur.
 
-## <a name="create-an-aspnet-core-app-in-visual-studio-2017"></a>Visual Studio 2017 içinde bir ASP.NET Core uygulaması oluşturma
+## <a name="create-an-aspnet-core-app-in-visual-studio-2017"></a>Visual Studio 2017'de bir ASP.NET Core uygulaması oluşturma
 
-Visual Studio Web uygulaması şablonu, Azure AD B2C kiracısı için kimlik doğrulaması kullanacak şekilde yapılandırılabilir.
+Visual Studio Web uygulama şablonu, kimlik doğrulaması için Azure AD B2C kiracınızı kullanacak şekilde yapılandırılabilir.
 
 Visual Studio'da:
 
-1. Yeni bir ASP.NET çekirdek Web uygulaması oluşturun. 
+1. Yeni bir ASP.NET Core Web uygulaması oluşturun. 
 2. Seçin **Web uygulaması** şablonları listesinden.
 3. Seçin **kimlik doğrulamayı Değiştir** düğmesi.
     
-    ![Değişiklik kimlik doğrulama düğmesi](./azure-ad-b2c/_static/changeauth.png)
+    ![Değişiklik Authentication düğmesi](./azure-ad-b2c/_static/changeauth.png)
 
-4. İçinde **kimlik doğrulamayı Değiştir** iletişim kutusunda **tek tek kullanıcı hesaplarını**ve ardından **bulutta bir kullanıcı deposuna Bağlan** açılır. 
+4. İçinde **kimlik doğrulamayı Değiştir** iletişim kutusunda **bireysel kullanıcı hesapları**ve ardından **bulutta varolan bir kullanıcı deposuna bağlanın** açılır. 
     
-    ![Değişiklik kimlik doğrulama iletişim](./azure-ad-b2c/_static/changeauthdialog.png)
+    ![Kimlik doğrulaması iletişim kutusu değişimi](./azure-ad-b2c/_static/changeauthdialog.png)
 
-5. Formu aşağıdaki değerlerle doldurun:
+5. Formu aşağıdaki değerlerle izleyin:
     
     | Ayar                       | Değer                                                 |
     |-------------------------------|-------------------------------------------------------|
     | **Etki alanı adı**               | *&lt;B2C kiracınızın etki alanı adı&gt;*          |
-    | **Uygulama Kimliği**            | *&lt;Uygulama Kimliği panodan yapıştırın&gt;* |
+    | **Uygulama Kimliği**            | *&lt;Panodan uygulama Kimliğini yapıştırın&gt;* |
     | **Geri arama yolu**             | *&lt;Varsayılan değeri kullanın&gt;*                       |
     | **Kaydolma veya oturum açma ilkesi** | `B2C_1_SiUpIn`                                        |
-    | **Parola İlkesi Sıfırla**     | `B2C_1_SSPR`                                          |
+    | **Parola sıfırlama İlkesi**     | `B2C_1_SSPR`                                          |
     | **Profil ilkesini Düzenle**       | *&lt;Boş bırakın&gt;*                                 |
     
-    Seçin **kopya** bağlantısına **yanıt URI'si** yanıt URI'si panoya kopyalamak için. Seçin **Tamam** kapatmak için **kimlik doğrulamayı Değiştir** iletişim. Seçin **Tamam** web uygulaması oluşturma.
+    Seçin **kopyalama** yanındaki bağlantı **yanıt URI'si** yanıt URI'si panoya kopyalamak için. Seçin **Tamam** kapatmak için **kimlik doğrulamayı Değiştir** iletişim. Seçin **Tamam** web uygulaması oluşturma.
 
 ## <a name="finish-the-b2c-app-registration"></a>B2C uygulaması kaydı tamamlamak
 
-B2C uygulaması özellikleri hala açık tarayıcı penceresine dönün. Geçici değiştirme **yanıt URL'si** belirtilen değere önceki Visual Studio'dan kopyalanır. Seçin **kaydetmek** pencerenin üstündeki.
+B2C uygulaması özelliklerde hala açık tarayıcı penceresine dönün. Geçici değiştirme **yanıt URL'si** belirtilen değere önceki Visual Studio'dan kopyalanır. Seçin **Kaydet** pencerenin üst kısmındaki.
 
 > [!TIP]
-> Yanıt URL'si kopyalarsanız alamadık, web Proje Özellikleri'nde hata ayıklama sekmesi SSL adresinden kullanın ve ilave **CallbackPath** değeri *appsettings.json*.
+> Yanıt URL'si kopyalarsanız yaramadı web proje özelliklerinde hata ayıklama sekmesinden SSL adresi kullanın ve ekleme **CallbackPath** değerini *appsettings.json*.
 
-## <a name="configure-policies"></a>İlkeleri yapılandırma
+## <a name="configure-policies"></a>ilkeleri yapılandırma
 
-Azure AD B2C belgelerinde adımları kullanın [bir kayıt veya oturum açma ilkesi oluşturmak](/azure/active-directory-b2c/active-directory-b2c-reference-policies#create-a-sign-up-or-sign-in-policy)ve ardından [bir parola sıfırlama ilkesi oluşturma](/azure/active-directory-b2c/active-directory-b2c-reference-policies#create-a-password-reset-policy). Belgelerindeki sağlanan örnek değerleri kullanmak **kimlik sağlayıcıları**, **kaydolma özniteliklerini**, ve **uygulama talepleri**. Kullanarak **Şimdi Çalıştır** ilkeleri belgelerinde açıklandığı gibi test düğmesi isteğe bağlıdır.
+Adımlar için Azure AD B2C belgeleri kullanmak [kaydolma veya oturum açma ilkesi oluşturma](/azure/active-directory-b2c/active-directory-b2c-reference-policies#create-a-sign-up-or-sign-in-policy)ve ardından [bir parola sıfırlama ilkesi oluşturma](/azure/active-directory-b2c/active-directory-b2c-reference-policies#create-a-password-reset-policy). Belgeler için sağlanan örnek değerleri kullanın **kimlik sağlayıcıları**, **kaydolma özniteliklerini**, ve **uygulama taleplerini**. Kullanarak **Şimdi Çalıştır** ilkeleri belgelerinde açıklanan şekilde test etmek için düğmeyi, isteğe bağlıdır.
 
 > [!WARNING]
-> İlke adları belgelerinde açıklandığı gibi tam olarak bu ilkeleri de kullanılan gibi olduğundan emin olun **kimlik doğrulamayı Değiştir** Visual Studio'da iletişim kutusu. İlke adları içinde doğrulanabilir *appsettings.json*.
+> İlke adları belgelerinde açıklandığı gibi tam olarak bu ilkeleri de kullanılan gibi emin **kimlik doğrulamayı Değiştir** Visual Studio'da iletişim kutusu. İlke adları içinde doğrulanabilir *appsettings.json*.
 
-## <a name="run-the-app"></a>Uygulama Çalıştırma
+## <a name="run-the-app"></a>Uygulamayı çalıştırma
 
-Visual Studio'da basın **F5** oluşturun ve uygulamayı çalıştırın. Web uygulaması başlattıktan sonra seçin **oturum**.
+Visual Studio'da **F5** oluşturun ve uygulamayı çalıştırın. Web uygulamasını başlattıktan sonra seçin **oturum**.
 
-![Uygulamada oturum açın](./azure-ad-b2c/_static/signin.png)
+![Uygulamada oturum açması](./azure-ad-b2c/_static/signin.png)
 
-Azure AD B2C kiracısı tarayıcı yönlendirir. (Bir ilkelerini sınama oluşturulduysa) var olan bir hesapla oturum oturum veya seçin **şimdi kaydolun** yeni bir hesap oluşturmak için. **Parolanızı mı unuttunuz?** bağlantı Unutulan parolayı sıfırlamak için kullanılır.
+Azure AD B2C kiracısı için tarayıcı yeniden yönlendirir. (Bir ilkelerini sınama oluşturulduysa) var olan bir hesapla oturum oturum ya da seçin **şimdi kaydolun** yeni bir hesap oluşturmak için. **Parolanızı mı unuttunuz?** bağlantı unutulmuş parola sıfırlama için kullanılır.
 
 ![Azure AD B2C oturum açma](./azure-ad-b2c/_static/b2csts.png)
 
-Başarıyla oturum açtıktan sonra tarayıcı web uygulaması'na yönlendirir.
+Başarıyla oturum açtıktan sonra tarayıcının, web uygulamasına yeniden yönlendirir.
 
 ![Başarılı](./azure-ad-b2c/_static/success.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, öğrenilen nasıl yapılır:
+Bu öğreticide şunları öğrendiniz: nasıl yapılır:
 
 > [!div class="checklist"]
-> * Bir Azure Active Directory B2C kiracısı oluşturma
-> * Azure AD B2C'de bir uygulamayı Kaydet
-> * Azure AD B2C kiracısı kimlik doğrulaması için kullanmak üzere yapılandırılmış bir ASP.NET çekirdek Web uygulaması oluşturmak için Visual Studio'yu kullanma
-> * Azure AD B2C kiracısı davranışını denetleyen ilkelerini yapılandırma
+> * Azure Active Directory B2C kiracısı oluşturma
+> * Azure AD B2C'de bir uygulamayı kaydetme
+> * Kimlik doğrulaması için Azure AD B2C kiracınızı kullanacak şekilde yapılandırılmış bir ASP.NET Core Web uygulaması oluşturmak için Visual Studio'yu kullanın.
+> * Azure AD B2C kiracısı davranışını denetleme ilkelerini yapılandırma
 
-ASP.NET Core uygulama Azure AD B2C kimlik doğrulaması için kullanmak üzere yapılandırılmış göre [Authorize özniteliği](xref:security/authorization/simple) , uygulamanızın güvenliğini sağlamak için kullanılabilir. Uygulamanız için öğrenme geliştirmeye devam:
+ASP.NET Core uygulaması Azure AD B2C kimlik doğrulaması için kullanmak üzere yapılandırılmış göre [Authorize özniteliği](xref:security/authorization/simple) uygulamanızı güvenli hale getirmek için kullanılabilir. Öğrenme için uygulamanızı geliştirmeye devam edin:
 
-* [Azure AD B2C kullanıcı arabirimini özelleştirmek](/azure/active-directory-b2c/active-directory-b2c-reference-ui-customization).
+* [Azure AD B2C'yi kullanıcı arabirimini özelleştirme](/azure/active-directory-b2c/active-directory-b2c-reference-ui-customization).
 * [Parola karmaşıklık gereksinimlerini yapılandırabilirsiniz](/azure/active-directory-b2c/active-directory-b2c-reference-password-complexity).
-* [Çok faktörlü kimlik doğrulamasını etkinleştir](/azure/active-directory-b2c/active-directory-b2c-reference-mfa).
-* Ek kimlik sağlayıcıları gibi yapılandırmadan [Microsoft](/azure/active-directory-b2c/active-directory-b2c-setup-msa-app), [Facebook](/azure/active-directory-b2c/active-directory-b2c-setup-fb-app), [Google](/azure/active-directory-b2c/active-directory-b2c-setup-goog-app), [Amazon](/azure/active-directory-b2c/active-directory-b2c-setup-amzn-app), [Twitter ](/azure/active-directory-b2c/active-directory-b2c-setup-twitter-app)ve diğerleri.
-* [Azure AD grafik API'sini kullanın](/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet) Azure AD B2C kiracısı grup üyeliği gibi ek kullanıcı bilgileri alınamadı.
-* [Bir ASP.NET Core Azure AD B2C kullanarak web API'SİNİN güvenliğini](xref:security/authentication/azure-ad-b2c-webapi).
-* [Azure AD B2C kullanarak .NET web uygulamasından .NET web API'si çağırma](/azure/active-directory-b2c/active-directory-b2c-devquickstarts-web-api-dotnet).
+* [Çok faktörlü kimlik doğrulamasını etkinleştirme](/azure/active-directory-b2c/active-directory-b2c-reference-mfa).
+* Gibi ek kimlik sağlayıcılarını yapılandırma [Microsoft](/azure/active-directory-b2c/active-directory-b2c-setup-msa-app), [Facebook](/azure/active-directory-b2c/active-directory-b2c-setup-fb-app), [Google](/azure/active-directory-b2c/active-directory-b2c-setup-goog-app), [Amazon](/azure/active-directory-b2c/active-directory-b2c-setup-amzn-app), [Twitter ](/azure/active-directory-b2c/active-directory-b2c-setup-twitter-app)ve diğerleri.
+* [Azure AD Graph API'sini](/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet) Azure AD B2C kiracısı grup üyeliği gibi ek kullanıcı bilgileri alınamıyor.
+* [Bir ASP.NET Core web API'si Azure AD B2C kullanarak güvenli](xref:security/authentication/azure-ad-b2c-webapi).
+* [Azure AD B2C kullanarak .NET web uygulamasından bir .NET web API'si çağırma](/azure/active-directory-b2c/active-directory-b2c-devquickstarts-web-api-dotnet).

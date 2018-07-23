@@ -8,12 +8,12 @@ ms.date: 04/03/2015
 ms.assetid: 81ee500f-fc37-40d6-8722-f1b64720fbb6
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: 6af4990f726bfcd0c45eb6991418661f9b8ccbf6
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: f36b73aac2e7844367e1e52b2c721bfe6b3575e2
+ms.sourcegitcommit: 7097dba14d5b858e82758ee031ac62dbe3611339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37824712"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39138525"
 ---
 <a name="create-an-aspnet-mvc-5-app-with-facebook-twitter-linkedin-and-google-oauth2-sign-on-c"></a>Facebook, Twitter, LinkedIn ve Google OAuth2 oturum açma (C#) ile bir ASP.NET MVC 5 uygulaması oluşturma
 ====================
@@ -162,55 +162,6 @@ Google ve Facebook gibi kimlik doğrulama sağlayıcıları bağlanmak için IIS
 > [!WARNING]
 > Geçerli Facebook OAuth2 kimlik doğrulaması hakkında yönergeler için bkz. [yapılandırma Facebook kimlik doğrulaması](/aspnet/core/security/authentication/social/facebook-logins)
 
-Facebook OAuth2 kimlik doğrulaması için Facebook içinde oluşturduğunuz bir uygulamadan bazı ayarları projenize kopyalamanız gerekir.
-
-1. Tarayıcınızda gidin [ https://developers.facebook.com/apps ](https://developers.facebook.com/apps) ve oturum açma Facebook kimlik bilgilerinizi girerek.
-2. Bir Facebook geliştirici olarak zaten kayıtlı değil, tıklayın **geliştiricisi olarak kaydolma** ve kaydetmek için yönergeleri izleyin.
-3. Üzerinde **uygulamaları** sekmesinde **yeni uygulama oluştur**.
-
-    ![Yeni uygulama oluştur](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image22.png)
-4. Girin bir **uygulama adı** ve **kategori**, ardından **uygulama oluşturma**.
-
-    <strong>Uygulama Namespace</strong> uygulamanıza kimlik doğrulaması için Facebook uygulamaya erişmek için kullanacağı bir URL parçası olan (örneğin, https\://apps.facebook.com/{App Namespace}). Belirtmezseniz bir <strong>uygulama Namespace</strong>, <strong>uygulama kimliği</strong> URL için kullanılacaktır. <strong>Uygulama kimliği</strong> sonraki adımda göreceğiniz uzun sistem tarafından oluşturulan bir sayı.
-
-    ![Yeni uygulama iletişim kutusu oluşturma](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image23.png)
-5. Standart güvenlik denetimi gönderin.
-
-    ![Güvenlik denetimi](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image24.png)
-6. Seçin **ayarları** sol menü çubuğu için![ Facebook geliştiricinin menü çubuğu](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image25.png)
-7. Üzerinde **temel** sayfanın ayarları bölümü seçin **Platform Ekle** bir Web sitesi uygulama eklemekte olduğunuz belirtmek için. ![Temel ayarları](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image26.png)
-8. Seçin **Web sitesi** platformu seçeneklerden.  
-  
-    ![Platform seçenekleri](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image27.png)
-9. Not, **uygulama kimliği** ve **uygulama gizli anahtarı** böylece daha sonra Bu öğreticide hem MVC uygulamanıza ekleyebilirsiniz. Ayrıca, sitenizin URL'sini ekleyin (`https://localhost:44300/`) MVC uygulamanızı test etmek için. Ayrıca, bir **ilgili kişi e-posta**. Ardından, **Değişiklikleri Kaydet**.   
-
-    ![Temel Uygulama Ayrıntıları sayfası](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image28.png)
-
-    > [!NOTE]
-    > Yalnızca kayıtlı e-posta diğer adı kullanarak kimlik doğrulaması için olacağını unutmayın. Diğer kullanıcılar ve test hesapları kaydetmek mümkün olmayacaktır. Facebook uygulama diğer Facebook hesapları erişimi verebilir **Geliştirici rolleri** sekmesi.
-10. Visual Studio'da açın *uygulama\_Start\Startup.Auth.cs*.
-11. Kopyalama ve yapıştırma **AppID** ve **uygulama gizli anahtarı** içine `UseFacebookAuthentication` yöntemi. **AppID** ve **uygulama gizli anahtarı** aşağıda gösterilen değerler örnekleri ve çalışmaz.
-
-    [!code-csharp[Main](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/samples/sample3.cs?highlight=33-35,38-39)]
-12. Tıklayın **değişiklikleri kaydetmek**.
-13. Tuşuna **CTRL + F5** uygulamayı çalıştırın.
-
-
-Seçin **oturum** oturum açma sayfasını görüntüleyin. Tıklayın **Facebook** altında **oturum açmak için başka bir hizmet kullanın.**
-
-Facebook kimlik bilgilerinizi girin.
-
-![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image29.png)
-
-Genel profiliniz ve arkadaş listesi erişmek uygulamayı izni istenir.
-
-![Facebook uygulama ayrıntıları](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image30.png)
-
-Artık oturum açtınız. Bu hesap artık uygulama ile kaydedebilirsiniz.
-
-![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image31.png)
-
-Kaydolduğunuzda, bir giriş eklenen *kullanıcılar* üyelik veritabanının tablo.
 
 <a id="mdb"></a>
 ## <a name="examine-the-membership-data"></a>Üyelik verilerini İnceleme
