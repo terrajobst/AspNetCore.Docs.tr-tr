@@ -5,12 +5,12 @@ description: Bu öğreticide okuyun ve ilgili verileri--diğer bir deyişle, Ent
 ms.author: riande
 ms.date: 11/05/2017
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: bcea6aa6018a937979b8e0aaa2edcdd96da41559
-ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
+ms.openlocfilehash: bb1d087a5449c6e26c40e572d161dd9644ac2323
+ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39202685"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219348"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>ASP.NET core'da - EF çekirdekli Razor sayfaları 6 8 - ilgili verileri okuma
 
@@ -69,14 +69,19 @@ Atanan bölüm adını kursları listesini görüntülemek için:
 <a name="scaffold"></a>
 ### <a name="scaffold-the-course-model"></a>İskele kurs modeli
 
-* Visual Studio'dan çıkın.
-* Proje dizininde bir komut penceresi açın (içeren dizine *Program.cs*, *Startup.cs*, ve *.csproj* dosyaları).
-* Şu komutu çalıştırın:
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+
+Bölümündeki yönergeleri [Öğrenci modeli iskelesini](xref:data/ef-rp/intro#scaffold-the-student-model) ve `Course` model sınıfı için.
+
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+
+ Şu komutu çalıştırın:
 
   ```console
-  dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 2.1.0
   dotnet aspnet-codegenerator razorpage -m Course -dc SchoolContext -udl -outDir Pages\Courses --referenceScriptLibraries
   ```
+
+------
 
 Önceki komut iskelesini kurar `Course` modeli. Projeyi Visual Studio'da açın.
 
@@ -150,21 +155,21 @@ Eğitmenler sayfanın üç farklı tablolardaki verileri gösterir. Üç tabloyu
 
 ### <a name="scaffold-the-instructor-model"></a>İskele Eğitmen modeli
 
-* Visual Studio'dan çıkın.
-* Proje dizininde bir komut penceresi açın (içeren dizine *Program.cs*, *Startup.cs*, ve *.csproj* dosyaları).
-* Şu komutu çalıştırın:
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+
+Bölümündeki yönergeleri [Öğrenci modeli iskelesini](xref:data/ef-rp/intro#scaffold-the-student-model) ve `Instructor` model sınıfı için.
+
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+
+ Şu komutu çalıştırın:
 
   ```console
   dotnet aspnet-codegenerator razorpage -m Instructor -dc SchoolContext -udl -outDir Pages\Instructors --referenceScriptLibraries
   ```
 
-Önceki komut iskelesini kurar `Instructor` modeli. Projeyi Visual Studio'da açın.
+------
 
-Projeyi oluşturun. Derleme hataları oluşturur.
-
-Genel olarak değiştirme `_context.Instructor` için `_context.Instructors` ("s" eklemek diğer bir deyişle, `Instructor`). 7 oluşum bulundu ve güncelleştirildi.
-
-Uygulamayı çalıştırın ve Eğitmenler sayfasına gidin.
+Önceki komut iskelesini kurar `Instructor` modeli. Uygulamayı çalıştırın ve Eğitmenler sayfasına gidin.
 
 Değiştirin *Pages/Instructors/Index.cshtml.cs* aşağıdaki kod ile:
 

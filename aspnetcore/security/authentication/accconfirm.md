@@ -5,12 +5,12 @@ description: E-posta onayı ve parola sıfırlama ile ASP.NET Core uygulaması o
 ms.author: riande
 ms.date: 7/11/2018
 uid: security/authentication/accconfirm
-ms.openlocfilehash: af3ba8b27148d94c4a905c688b8165f49b9f2927
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 84eb3580107572f66f0c3b565b8e76ba401c0ddb
+ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095752"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219413"
 ---
 ::: moniker range="<= aspnetcore-2.0"
 
@@ -34,13 +34,13 @@ Bu öğretici, e-posta onayı ve parola sıfırlama ile ASP.NET Core uygulaması
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-[! Dahil etme [] (~ / includes/2.1-SDK.md) [](~/includes/2.1-SDK.md)]
+[!INCLUDE [](~/includes/2.1-SDK.md)]
 
 ## <a name="create-a-web--app-and-scaffold-identity"></a>Bir web uygulaması oluşturma ve kimlik iskelesini
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
 
-* Visual Studio'da yeni bir oluşturma **Web uygulaması** proje.
+* Visual Studio'da yeni bir oluşturma **Web uygulaması** adlı proje **WebPWrecover**.
 * Seçin **ASP.NET Core 2.1**.
 * Varsayılan tutun **kimlik doğrulaması** kümesine **kimlik doğrulaması yok**. Kimlik doğrulaması, bir sonraki adımda eklenir.
 

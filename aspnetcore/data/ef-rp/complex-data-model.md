@@ -5,12 +5,12 @@ description: Bu öğreticide, daha fazla varlıklar ve ilişkiler ekleyin ve ver
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 6888df174e92ab2ddf8add7b8927250be320bff8
-ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
+ms.openlocfilehash: 88d727b0545f1dacb56ea889e45b02f947867b19
+ms.sourcegitcommit: 6425baa92cec4537368705f8d27f3d0e958e43cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39202659"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39220605"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>ASP.NET core'da - veri modeli - 8'in 5 EF çekirdekli Razor sayfaları
 
@@ -400,7 +400,7 @@ Not: Kural gereği, EF Core art arda silme için alamayan FKs ve çoktan çoğa 
 
 Yukarıdaki kod art arda silme departmanı Eğitmen ilişkiyi devre dışı bırakır.
 
-## <a name="update-the-enrollment-entityupdate-the-enrollment-entity"></a>Kayıt varlık kaydı entityUpdate güncelleştir
+## <a name="update-the-enrollment-entity"></a>Güncelleştirme kayıt varlık
 
 Bir kaydı bir öğrenci tarafından gerçekleştirilen bir kurs içindir.
 

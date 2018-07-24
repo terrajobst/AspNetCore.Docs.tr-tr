@@ -5,12 +5,12 @@ description: Bu öğreticide, birden çok kullanıcı aynı anda aynı varlık g
 ms.author: riande
 ms.date: 11/15/2017
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: ff9e52df63f9c9f47ee659a68beb28b773a114a1
-ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
+ms.openlocfilehash: a010e2ed660bea56b112799e850f2fb0ff37579e
+ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39202698"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219400"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---concurrency---8-of-8"></a>ASP.NET core'da - eşzamanlılık - 8 8 EF çekirdekli Razor sayfaları
 
@@ -153,24 +153,23 @@ Yukarıdaki komutlar:
 <a name="scaffold"></a>
 ## <a name="scaffold-the-departments-model"></a>İskele Departmanlar modeli
 
-* Visual Studio'dan çıkın.
-* Proje dizininde bir komut penceresi açın (içeren dizine *Program.cs*, *Startup.cs*, ve *.csproj* dosyaları).
-* Şu komutu çalıştırın:
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+
+Bölümündeki yönergeleri [Öğrenci modeli iskelesini](xref:data/ef-rp/intro#scaffold-the-student-model) ve `Department` model sınıfı için.
+
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+
+ Şu komutu çalıştırın:
 
   ```console
   dotnet aspnet-codegenerator razorpage -m Department -dc SchoolContext -udl -outDir Pages\Departments --referenceScriptLibraries
   ```
 
+------
+
 Önceki komut iskelesini kurar `Department` modeli. Projeyi Visual Studio'da açın.
 
-Projeyi oluşturun. Yapı aşağıdaki gibi hatalar oluşturur:
-
-`1>Pages/Departments/Index.cshtml.cs(26,37,26,43): error CS1061: 'SchoolContext' does not
- contain a definition for 'Department' and no extension method 'Department' accepting a first
- argument of type 'SchoolContext' could be found (are you missing a using directive or
- an assembly reference?)`
-
- Genel olarak değiştirme `_context.Department` için `_context.Departments` ("s" eklemek diğer bir deyişle, `Department`). 7 oluşum bulundu ve güncelleştirildi.
+Projeyi oluşturun.
 
 ### <a name="update-the-departments-index-page"></a>Departmanlar dizin sayfası
 
