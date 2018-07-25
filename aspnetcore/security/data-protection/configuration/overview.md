@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/17/2017
 uid: security/data-protection/configuration/overview
-ms.openlocfilehash: f3cac3541ffe633886f82cec8180a219272c24d6
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: fd3e5dff114c81eae07186e735a15314d984dcc3
+ms.sourcegitcommit: 5338b1ed9e2ef225ab565d6cba072b474fd9324d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095606"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39243116"
 ---
 # <a name="configure-aspnet-core-data-protection"></a>ASP.NET Core veri korumasını yapılandırma
 
@@ -84,7 +84,44 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
+::: moniker range=">= aspnetcore-2.1"
+
+ASP.NET Core 2.1 veya daha sonra sağlayabilir bir [X509Certificate2](/dotnet/api/system.security.cryptography.x509certificates.x509certificate2) için [ProtectKeysWithCertificate](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.protectkeyswithcertificate)gibi bir dosyadan bir sertifika yüklenir:
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddDataProtection()
+        .PersistKeysToFileSystem(new DirectoryInfo(@"\\server\share\directory\"))
+        .ProtectKeysWithCertificate(
+            new X509Certificate2("certificate.pfx", "password"));
+}
+```
+
+::: moniker-end
+
 Bkz: [, anahtar şifreleme Rest](xref:security/data-protection/implementation/key-encryption-at-rest) örnekler ve tartışma için yerleşik anahtar şifreleme mekanizmaları hakkında daha fazla.
+
+::: moniker range=">= aspnetcore-2.1"
+
+## <a name="unprotectkeyswithanycertificate"></a>UnprotectKeysWithAnyCertificate
+
+ASP.NET Core 2.1 veya daha sonra sertifika döndürmeyi ve bir dizi kullanılarak, bekleme sırasında anahtarlarının şifresini [X509Certificate2](/dotnet/api/system.security.cryptography.x509certificates.x509certificate2) ile sertifikaları [UnprotectKeysWithAnyCertificate](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.unprotectkeyswithanycertificate):
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddDataProtection()
+        .PersistKeysToFileSystem(new DirectoryInfo(@"\\server\share\directory\"))
+        .ProtectKeysWithCertificate(
+            new X509Certificate2("certificate.pfx", "password"));
+        .UnprotectKeysWithAnyCertificate(
+            new X509Certificate2("certificate_old_1.pfx", "password_1"),
+            new X509Certificate2("certificate_old_2.pfx", "password_2"));
+}
+```
+
+::: moniker-end
 
 ## <a name="setdefaultkeylifetime"></a>SetDefaultKeyLifetime
 
