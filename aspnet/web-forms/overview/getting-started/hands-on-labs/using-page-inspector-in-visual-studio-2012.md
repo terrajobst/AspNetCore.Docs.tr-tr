@@ -142,7 +142,7 @@ Bu görevde bir Fotoğraf Galerisi gösteren bir ASP.NET MVC 4 Proje bağlamınd
     ![Inspectingelements](using-page-inspector-in-visual-studio-2012/_static/image6.png)
 
     *Öğeleri inceleniyor*
-7. Tıklayın **denetleme modunu Aç/Kapat** düğmesine (![sayfa denetçisi tarayıcıda İşlenmiş HTML kodunu görüntülemek için HTML sekmesini seçin.] (using-page-inspector-in-visual-studio-2012/_static/image7.png "Sayfa denetçisi tarayıcıda İşlenmiş HTML kodunu görüntülemek için HTML sekmesini seçin.") ) imleci devre dışı bırakmak için.
+7. Tıklayın **denetleme modunu Aç/Kapat** düğmesine (![sayfa denetçisi tarayıcıda İşlenmiş HTML kodunu görüntülemek için HTML sekmesini seçin.](using-page-inspector-in-visual-studio-2012/_static/image7.png "Sayfa denetçisi tarayıcıda İşlenmiş HTML kodunu görüntülemek için HTML sekmesini seçin.") ) imleci devre dışı bırakmak için.
 8. Seçin **HTML** sayfa denetçisi tarayıcıda İşlenmiş HTML kodunu görüntülemek için sekmesinde.
 9. HTML biçimlendirmede Koala bağlantısını içeren bir liste öğesi bulun ve seçin.
 
