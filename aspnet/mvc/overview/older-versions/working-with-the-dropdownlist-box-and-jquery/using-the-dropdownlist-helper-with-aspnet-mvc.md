@@ -8,12 +8,12 @@ ms.date: 01/12/2012
 ms.assetid: 53767e05-c8ab-42e1-a94b-22d906195200
 msc.legacyurl: /mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/using-the-dropdownlist-helper-with-aspnet-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 9f16c01515bde80d3994618d26818c2d93f69d87
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 6dbffe715990de5c0b3b834e354379e414925816
+ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37828383"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219062"
 ---
 <a name="using-the-dropdownlist-helper-with-aspnet-mvc"></a>ASP.NET MVC ile DropDownList Yardımcısını kullanma
 ====================
@@ -190,7 +190,7 @@ Açık *Views\Home\MultiSelectCountry.cshtml* dosya ve ekleme bir `htmlAttribute
 
 [!code-cshtml[Main](using-the-dropdownlist-helper-with-aspnet-mvc/samples/sample12.cshtml)]
 
-Yukarıdaki kod HTML öznitelik ve öznitelik değeri ekliyoruz `class = "chzn-select"`. @ Karakteri sınıfı önceki Razor görünüm altyapısı ile hiçbir ilişkisi vardır. `class` olan bir [C# anahtar sözcüğünü](https://msdn.microsoft.com/library/x53a06bb.aspx). @ Ön eki olarak içerirler sürece, C# anahtar sözcükleri tanımlayıcı olarak kullanılamaz. Yukarıdaki örnekte `@class` geçerli bir tanıtıcı ancak **sınıfı** değil çünkü **sınıfı** bir anahtar sözcüktür.
+Yukarıdaki kod HTML öznitelik ve öznitelik değeri ekliyoruz `class = "chzn-select"`. \@ Önceki sınıfı Razor görünüm altyapısı ile ilgisi olan karakter. `class` olan bir [C# anahtar sözcüğünü](https://msdn.microsoft.com/library/x53a06bb.aspx). C# anahtar sözcükleri içerirler sürece tanımlayıcı olarak kullanılamaz \@ öneki olarak. Yukarıdaki örnekte `@class` geçerli bir tanıtıcı ancak **sınıfı** değil çünkü **sınıfı** bir anahtar sözcüktür.
 
 Başvuruları Ekle *Chosen/chosen.jquery.js* ve *Chosen/chosen.css* dosyaları. *Chosen/chosen.jquery.js* ve seçilen eklentisi, işlevsel olarak. *Chosen/chosen.css* dosyası stil sağlar. Alt kısmındaki bu başvuruları ekleyin *Views\Home\MultiSelectCountry.cshtml* dosya. Aşağıdaki kod, seçilen eklentisi başvuru gösterilmektedir.
 
