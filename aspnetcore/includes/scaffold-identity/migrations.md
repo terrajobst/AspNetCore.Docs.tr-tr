@@ -1,15 +1,15 @@
-<span data-ttu-id="ffff7-101">Oluşturulan kimlik veritabanı kod gerektirir [Entity Framework Code Migrations](/ef/core/managing-schemas/migrations/).</span><span class="sxs-lookup"><span data-stu-id="ffff7-101">The generated Identity database code requires [Entity Framework Core Migrations](/ef/core/managing-schemas/migrations/).</span></span> <span data-ttu-id="ffff7-102">Bir geçiş oluşturmak ve veritabanı güncelleştirin.</span><span class="sxs-lookup"><span data-stu-id="ffff7-102">Create a migration and update the database.</span></span> <span data-ttu-id="ffff7-103">Örneğin, aşağıdaki komutları çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="ffff7-103">For example, run the following commands:</span></span>
+<span data-ttu-id="f9fd6-101">Oluşturulan kimlik veritabanı kod gerektirir [Entity Framework Code Migrations](/ef/core/managing-schemas/migrations/).</span><span class="sxs-lookup"><span data-stu-id="f9fd6-101">The generated Identity database code requires [Entity Framework Core Migrations](/ef/core/managing-schemas/migrations/).</span></span> <span data-ttu-id="f9fd6-102">Bir geçiş oluşturmak ve veritabanı güncelleştirin.</span><span class="sxs-lookup"><span data-stu-id="f9fd6-102">Create a migration and update the database.</span></span> <span data-ttu-id="f9fd6-103">Örneğin, aşağıdaki komutları çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="f9fd6-103">For example, run the following commands:</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="ffff7-104">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="ffff7-104">Visual Studio</span></span>](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="f9fd6-104">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="f9fd6-104">Visual Studio</span></span>](#tab/visual-studio)
 
-<span data-ttu-id="ffff7-105">Visual Studio **Paket Yöneticisi Konsolu**:</span><span class="sxs-lookup"><span data-stu-id="ffff7-105">In the Visual Studio **Package Manager Console**:</span></span>
+<span data-ttu-id="f9fd6-105">Visual Studio **Paket Yöneticisi Konsolu**:</span><span class="sxs-lookup"><span data-stu-id="f9fd6-105">In the Visual Studio **Package Manager Console**:</span></span>
 
 ```PMC
 Add-Migration CreateIdentitySchema
 Update-Database
 ```
 
-# <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="ffff7-106">.NET Core CLI</span><span class="sxs-lookup"><span data-stu-id="ffff7-106">.NET Core CLI</span></span>](#tab/netcore-cli)
+# <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="f9fd6-106">.NET Core CLI</span><span class="sxs-lookup"><span data-stu-id="f9fd6-106">.NET Core CLI</span></span>](#tab/netcore-cli)
 
 ```cli
 dotnet ef migrations add CreateIdentitySchema
@@ -18,4 +18,4 @@ dotnet ef database update
 
 ------
 
-<span data-ttu-id="ffff7-107">"CreateIdentitySchema" name parametresi için `Add-Migration` rastgele komutu.</span><span class="sxs-lookup"><span data-stu-id="ffff7-107">The "CreateIdentitySchema" name parameter for the `Add-Migration` command is arbitrary.</span></span> <span data-ttu-id="ffff7-108">`"CreateIdentitySchema"` geçiş açıklamaktadır.</span><span class="sxs-lookup"><span data-stu-id="ffff7-108">`"CreateIdentitySchema"` describes the migration.</span></span>
+<span data-ttu-id="f9fd6-107">"CreateIdentitySchema" name parametresi için `Add-Migration` rastgele komutu.</span><span class="sxs-lookup"><span data-stu-id="f9fd6-107">The "CreateIdentitySchema" name parameter for the `Add-Migration` command is arbitrary.</span></span> <span data-ttu-id="f9fd6-108">`"CreateIdentitySchema"` geçiş açıklamaktadır.</span><span class="sxs-lookup"><span data-stu-id="f9fd6-108">`"CreateIdentitySchema"` describes the migration.</span></span>
