@@ -5,12 +5,12 @@ description: ASP.NET Core uygulamaları birden fazla ortam arasında uygulama da
 ms.author: riande
 ms.date: 07/03/2018
 uid: fundamentals/environments
-ms.openlocfilehash: 3394113de37da2571ab6398405751961117f12d2
-ms.sourcegitcommit: 19cbda409bdbbe42553dc385ea72d2a8e246509c
+ms.openlocfilehash: eaa6fa44ed90d0c85a11f5e67a4bb9a91e84c196
+ms.sourcegitcommit: c8e62aa766641aa55105f7db79cdf2b27a6e5977
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38992879"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39254876"
 ---
 # <a name="use-multiple-environments-in-aspnet-core"></a>ASP.NET Core birden çok ortam kullanma
 
@@ -219,7 +219,7 @@ Değerini genel olarak Windows içinde ayarlamak için aşağıdaki yaklaşımla
   **Komut İstemi**
 
   ```console
-  setx ASPNETCORE_ENVIRONMENT=Development /M
+  setx ASPNETCORE_ENVIRONMENT Development /M
   ```
 
   `/M` Sistem düzeyinde ortam değişkenini ayarlamak için anahtar belirtir. Varsa `/M` anahtar kullanılmaz, kullanıcı hesabı için ortam değişkeni ayarlanır.

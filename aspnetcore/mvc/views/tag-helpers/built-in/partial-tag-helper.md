@@ -5,14 +5,14 @@ description: ASP.NET Core kısmi etiket Yardımcısı ve her biri öznitelikleri
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 07/06/2018
+ms.date: 07/25/2018
 uid: mvc/views/tag-helpers/builtin-th/partial-tag-helper
-ms.openlocfilehash: a289a946a6d3eb491a08103dcefdd688eab52072
-ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
+ms.openlocfilehash: cb63357b1859c3709b2eae9f4e380c4a74e5e448
+ms.sourcegitcommit: c8e62aa766641aa55105f7db79cdf2b27a6e5977
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37938345"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39254759"
 ---
 # <a name="partial-tag-helper-in-aspnet-core"></a>ASP.NET core'da kısmi etiket Yardımcısı
 
@@ -43,7 +43,7 @@ Kısmi etiket Yardımcısı öznitelikleri envanterini izler.
 
 ## <a name="name"></a>name
 
-`name` Özniteliği gereklidir. Bu, ad veya işlenecek kısmi görünümün yolunu gösterir. Kısmi görünümün adı sağlandığında [görünümü bulma](xref:mvc/views/overview#view-discovery) işlemi başlatıldı. Bu işlem, açık bir yol sağlandığında atlanır.
+`name` Özniteliği gereklidir. Bu, ad veya işlenecek kısmi görünümün yolunu gösterir. Kısmi görünümün adı sağlandığında [görünümü bulma](xref:mvc/views/overview#view-discovery) işlemi başlatıldı. Bu işlem, açık bir yol sağlandığında atlanır. Tümü için kabul edilebilir `name` değerleri, görmek [kısmi görünüm bulma](xref:mvc/views/partial#partial-view-discovery).
 
 Aşağıdaki biçimlendirmede gösteren özel bir yol kullanır *_ProductPartial.cshtml* yüklenmesini olan *paylaşılan* klasör. Kullanarak [için](#for) öznitelik, bir model geçirilir kısmi görünüm için bağlama.
 
