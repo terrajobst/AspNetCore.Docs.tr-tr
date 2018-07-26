@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/31/2018
 uid: getting-started
-ms.openlocfilehash: 22e9c982921cc03d89506e18ff99bf481027dda6
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 7ab9f303d74786c4ac76f002d0f2c66371e78cb8
+ms.sourcegitcommit: b4c7b1a4c48dec0865f27874275c73da1f75e918
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "38216219"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39228588"
 ---
 # <a name="get-started-with-aspnet-core"></a>ASP.NET Core kullanmaya başlayın
 
@@ -25,7 +25,7 @@ ms.locfileid: "38216219"
     dotnet new webapp -o aspnetcoreapp
     ```
 
-    [! [] (~/İncludes/webapp-alias-notice.md) içerir [](~/includes/webapp-alias-notice.md)]
+    [!INCLUDE [](~/includes/webapp-alias-notice.md)]
 
 3. HTTPS geliştirme sertifikasına güvenmek:
 
@@ -35,11 +35,11 @@ ms.locfileid: "38216219"
     dotnet dev-certs https --trust
     ```
 
-    The preceding command displays the following dialog:
+   Yukarıdaki komut, aşağıdaki iletişim kutusunu görüntüler:
 
-    ![Security warning dialog](_static/cert.png)
+   ![Güvenlik Uyarısı iletişim kutusu](_static/cert.png)
 
-    Select **Yes** if you agree to trust the development certificate.
+   Seçin **Evet** geliştirme sertifikasına güvenmek kabul etmesi durumunda.
 
 # <a name="macostabmacos"></a>[macOS](#tab/macos)
 
@@ -47,18 +47,15 @@ ms.locfileid: "38216219"
     dotnet dev-certs https --trust
     ```
 
-    The preceding command displays the following message:
+   Yukarıdaki komut, şu iletiyi görüntüler:
 
-    *Trusting the HTTPS development certificate was requested. If the certificate is not already trusted we will run the following command:*
-    `'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain <<certificate>>'`
-    *This command might prompt you for your password to install the certificate on the system keychain.
-    Password:*
+   *HTTPS geliştirme sertifikaya güvenme istendi. Sertifika zaten güvenilir değilse aşağıdaki komutu çalıştıracağız:* `'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain <<certificate>>'` *parolanızı üzerinde sistem Anahtarlık sertifikayı yüklemek bu komutu isteyebilir.    Parola:*
 
-    Enter your password if you agree to trust the development certificate.
+   Geliştirme sertifikasına güvenmek kabul ediyorsanız, parolanızı girin.
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
-    See the documentation for your Linux distribution on how to trust the HTTPS development certificate
+   <a name="see-the-documentation-for-your-linux-distribution-on-how-to-trust-the-https-development-certificate"></a>HTTPS geliştirme sertifikasına güvenmek Linux dağıtımınız için belgelere bakın.
 ---
 
 4. Uygulamayı çalıştırın:
