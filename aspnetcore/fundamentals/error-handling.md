@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 07/05/2018
 uid: fundamentals/error-handling
-ms.openlocfilehash: 6aded9525a0abd31dec8441c7fba60d8845c7d93
-ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
+ms.openlocfilehash: d7e60c0f615841461a17b093bffe5fb3f82f8616
+ms.sourcegitcommit: 506a199274e9fe5fb4070b273ba94f29f14cb619
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37938247"
+ms.lasthandoff: 07/28/2018
+ms.locfileid: "39332281"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>ASP.NET core'da hatalarını işleme
 
@@ -103,11 +103,11 @@ Başka bir yöntemi, bir içerik türü ve biçim dizesini alır:
 app.UseStatusCodePages("text/plain", "Status code page, status code: {0}");
 ```
 
-Var. Ayrıca yeniden yönlendirme ve genişletme yöntemlerini yeniden çalıştırın. Yeniden yönlendirme yöntemini gönderen bir *302 bulundu* istemciye durum kodu:
+Ayrıca yeniden yönlendirme ve genişletme yöntemlerini yeniden çalıştırın. Yeniden yönlendirme yöntemini gönderen bir *302 bulundu* istemciye durum kodunu ve istemci için belirtilen konum URL şablonu yeniden yönlendirir. Şablon içerebilir bir `{0}` durum kodu için yer tutucu. İle başlayan URL'ler `~` başına temel yol vardır. İle başlamaz bir URL `~` olarak kullanılır.
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePagesWithRedirect)]
 
-Yeniden çalıştırma yöntemi özgün durum kodunu istemciye döndürür ancak işleyicinin yeniden yönlendirme URL'sini de yürütür:
+Yeniden çalıştırma yöntemi istemciye özgün durum kodu döndürür ve yanıt gövdesinin başka bir yol kullanarak istek ardışık düzenini yeniden yürüterek oluşturulacağını belirtir. Bu yolu içerebilir bir `{0}` durum kodu için yer tutucu:
 
 ```csharp
 app.UseStatusCodePagesWithReExecute("/error/{0}");
