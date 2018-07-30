@@ -5,12 +5,12 @@ description: ASP.NET core'da günlüğe kaydetme çerçevesi hakkında bilgi edi
 ms.author: tdykstra
 ms.date: 07/24/2018
 uid: fundamentals/logging/index
-ms.openlocfilehash: 0181566aeab1fa055435ac90887c019eef52878c
-ms.sourcegitcommit: b4c7b1a4c48dec0865f27874275c73da1f75e918
+ms.openlocfilehash: f629b062afb5c17cd05040a9ef0281aa7121aabc
+ms.sourcegitcommit: 516d0645c35ea784a3ae807be087ae70446a46ee
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39228643"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39320758"
 ---
 # <a name="logging-in-aspnet-core"></a>ASP.NET core'da günlüğe kaydetme
 
@@ -56,7 +56,7 @@ Bir sağlayıcı kullanmak için sağlayıcının çağrı `Add<ProviderName>` u
 
 [!code-csharp[](index/sample2/Program.cs?name=snippet_ExpandDefault&highlight=16,17)]
 
-Varsayılan proje şablonu ile günlük kaydını etkinleştirir [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder?view=aspnetcore-2.0#Microsoft_AspNetCore_WebHost_CreateDefaultBuilder_System_String___) yöntemi:
+Konsol ve hata ayıklama günlüğü sağlayıcıları çağrısıyla varsayılan proje şablonu sağlar [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) uzantı yönteminde *Program.cs*:
 
 [!code-csharp[](index/sample2/Program.cs?name=snippet_TemplateCode&highlight=7)]
 
@@ -77,11 +77,21 @@ ASP.NET Core [bağımlılık ekleme](xref:fundamentals/dependency-injection) sa�
 
 ::: moniker-end
 
-Her hakkında bilgiler bulacaksınız [yerleşik günlük sağlayıcısını](#built-in-logging-providers) ve bağlantılar [üçüncü taraf günlük sağlayıcıları](#third-party-logging-providers) makalenin ilerleyen bölümlerinde.
+Daha fazla bilgi edinin [yerleşik günlük sağlayıcıları](#built-in-logging-providers) ve bağlantılarda bulabilirsiniz [üçüncü taraf günlük sağlayıcıları](#third-party-logging-providers) makalenin ilerleyen bölümlerinde.
 
-## <a name="settings-file-configuration"></a>Dosya yapılandırma ayarları
+## <a name="configuration"></a>Yapılandırma
 
-Yukarıdaki örneklerde her [sağlayıcıları ekleme](#how-to-add-providers) bölümü yükler günlük sağlayıcısı yapılandırmasından `Logging` uygulama ayarları dosyaları bölümünü. Aşağıdaki örnek, tipik bir içeriğini gösterir *appsettings. Development.JSON* dosyası:
+Sağlayıcı Yapılandırması günlüğe kaydetme, bir veya daha fazla yapılandırma sağlayıcıları tarafından sağlanır:
+
+* Dosya biçimleri (INI, JSON ve XML).
+* Komut satırı bağımsız değişkenleri.
+* Ortam değişkenleri.
+* Bellek içi .NET nesneleri.
+* Şifrelenmemiş [gizli dizi Yöneticisi](xref:security/app-secrets) depolama.
+* Gibi bir şifrelenmiş kullanıcı depolamak [Azure anahtar kasası](xref:security/key-vault-configuration).
+* Özel sağlayıcılar (veya oluşturulan yüklü).
+
+Örneğin, günlük kaydı yapılandırması sık tarafından sağlanan `Logging` uygulama ayarları dosyaları bölümü. Aşağıdaki örnek, tipik bir içeriğini gösterir *appsettings. Development.JSON* dosyası:
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -122,6 +132,8 @@ Yukarıdaki örneklerde her [sağlayıcıları ekleme](#how-to-add-providers) b�
 `LogLevel` anahtarları günlük adlarını temsil eder. `Default` Anahtarı açıkça listelenen günlükler için geçerlidir. Değeri temsil [günlük düzeyi](#log-level) verilen günlüğe uygulanır.
 
 ::: moniker-end
+
+Uygulama yapılandırma sağlayıcıları hakkında daha fazla bilgi için bkz: <xref:fundamentals/configuration/index>.
 
 ## <a name="sample-logging-output"></a>Örnek günlük çıktısı
 
@@ -436,7 +448,7 @@ Aşağıdaki kod, konsolu sağlayıcısı için kapsamları etkinleştirir:
 > [!NOTE]
 > Yapılandırma `IncludeScopes` kapsam tabanlı günlük kaydını etkinleştirmek için konsol Günlükçü seçeneği gereklidir.
 >
-> `IncludeScopes` aracılığıyla yapılandırılabilir *appsettings* yapılandırma dosyaları. Daha fazla bilgi için [ayarları dosya Yapılandırması](#settings-file-configuration) bölümü.
+> Yapılandırması hakkında daha fazla bilgi için bkz: [yapılandırma](#Configuration) bölümü.
 
 ::: moniker-end
 
