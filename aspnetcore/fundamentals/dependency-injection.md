@@ -1,205 +1,388 @@
 ---
-title: ASP.NET Core bağımlılık ekleme
-author: ardalis
+title: ASP.NET core'da bağımlılık ekleme
+author: guardrex
 description: ASP.NET Core bağımlılık ekleme nasıl uyguladığını ve nasıl kullanılacağını öğrenin.
 ms.author: riande
-ms.custom: H1Hack27Feb2017
-ms.date: 10/14/2016
+ms.custom: mvc
+ms.date: 07/02/2018
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 04c52bd47d34cd2135753c469077b6a75ee02f86
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 861370dc689e2420838f639ea0b1fb8f73927e16
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278459"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342425"
 ---
-# <a name="dependency-injection-in-aspnet-core"></a><span data-ttu-id="6f8c6-103">ASP.NET Core bağımlılık ekleme</span><span class="sxs-lookup"><span data-stu-id="6f8c6-103">Dependency injection in ASP.NET Core</span></span>
+# <a name="dependency-injection-in-aspnet-core"></a><span data-ttu-id="c3adc-103">ASP.NET core'da bağımlılık ekleme</span><span class="sxs-lookup"><span data-stu-id="c3adc-103">Dependency injection in ASP.NET Core</span></span>
 
-<a name="fundamentals-dependency-injection"></a>
+<span data-ttu-id="c3adc-104">Tarafından [Steve Smith](https://ardalis.com/), [Scott Addie](https://scottaddie.com), ve [Luke Latham](https://github.com/guardrex)</span><span class="sxs-lookup"><span data-stu-id="c3adc-104">By [Steve Smith](https://ardalis.com/), [Scott Addie](https://scottaddie.com), and [Luke Latham](https://github.com/guardrex)</span></span>
 
-<span data-ttu-id="6f8c6-104">Tarafından [Steve Smith](https://ardalis.com/) ve [Scott Addie](https://scottaddie.com)</span><span class="sxs-lookup"><span data-stu-id="6f8c6-104">By [Steve Smith](https://ardalis.com/) and [Scott Addie](https://scottaddie.com)</span></span>
+<span data-ttu-id="c3adc-105">ASP.NET Core destekleyen bir tekniktir elde etmek için bağımlılık ekleme (dı) yazılım tasarım deseni [denetimi tersine çevirme (IOC)](https://deviq.com/inversion-of-control/) sınıfları ve bunların bağımlılıklarını arasında.</span><span class="sxs-lookup"><span data-stu-id="c3adc-105">ASP.NET Core supports the dependency injection (DI) software design pattern, which is a technique for achieving [Inversion of Control (IoC)](https://deviq.com/inversion-of-control/) between classes and their dependencies.</span></span>
 
-<span data-ttu-id="6f8c6-105">ASP.NET Core sıfırdan yukarı desteklemek ve bağımlılık ekleme yararlanmak için tasarlanmıştır.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-105">ASP.NET Core is designed from the ground up to support and leverage dependency injection.</span></span> <span data-ttu-id="6f8c6-106">ASP.NET Core uygulamaları başlangıç sınıfı yöntemleri içine eklenen sağlayarak yerleşik bir çerçeve Hizmetleri yararlanabilir ve uygulama hizmetleri de ekleme işlemi için yapılandırılabilir.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-106">ASP.NET Core applications can leverage built-in framework services by having them injected into methods in the Startup class, and application services can be configured for injection as well.</span></span> <span data-ttu-id="6f8c6-107">En az bir özellik ayarlama ve diğer kapsayıcılar değiştirmeye yönelik değil ASP.NET Core tarafından sağlanan varsayılan Hizmetleri kapsayıcı sağlar.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-107">The default services container provided by ASP.NET Core provides a minimal feature set and isn't intended to replace other containers.</span></span>
+<span data-ttu-id="c3adc-106">Özel bağımlılık ekleme MVC denetleyicileri içinde daha fazla bilgi için bkz. <xref:mvc/controllers/dependency-injection>.</span><span class="sxs-lookup"><span data-stu-id="c3adc-106">For more information specific to dependency injection within MVC controllers, see <xref:mvc/controllers/dependency-injection>.</span></span>
 
-<span data-ttu-id="6f8c6-108">[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/dependency-injection/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))</span><span class="sxs-lookup"><span data-stu-id="6f8c6-108">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/dependency-injection/sample) ([how to download](xref:tutorials/index#how-to-download-a-sample))</span></span>
+<span data-ttu-id="c3adc-107">[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/dependency-injection/samples) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))</span><span class="sxs-lookup"><span data-stu-id="c3adc-107">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/dependency-injection/samples) ([how to download](xref:tutorials/index#how-to-download-a-sample))</span></span>
 
-## <a name="what-is-dependency-injection"></a><span data-ttu-id="6f8c6-109">Bağımlılık ekleme nedir?</span><span class="sxs-lookup"><span data-stu-id="6f8c6-109">What is dependency injection?</span></span>
+## <a name="overview-of-dependency-injection"></a><span data-ttu-id="c3adc-108">Bağımlılık ekleme genel bakış</span><span class="sxs-lookup"><span data-stu-id="c3adc-108">Overview of dependency injection</span></span>
 
-<span data-ttu-id="6f8c6-110">Bağımlılık ekleme (dı), nesneleri ve ortak çalışanlar veya bağımlılıkları arasındaki bu sıkı bağ elde etmek için kullanılan bir tekniktir.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-110">Dependency injection (DI) is a technique for achieving loose coupling between objects and their collaborators, or dependencies.</span></span> <span data-ttu-id="6f8c6-111">Ortak Çalışanlar doğrudan başlatmasını veya statik başvuruları kullanma yerine eylemlerini gerçekleştirmek için bir sınıf gereken nesneleri şekilde sınıfında sağlanmaktadır.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-111">Rather than directly instantiating collaborators, or using static references, the objects a class needs in order to perform its actions are provided to the class in some fashion.</span></span> <span data-ttu-id="6f8c6-112">Sınıfları bağımlılıklarını izlemek vermeden kendi Oluşturucusu aracılığıyla çoğunlukla tanımlayacağınız [açık bağımlılıkları ilkesine](http://deviq.com/explicit-dependencies-principle/).</span><span class="sxs-lookup"><span data-stu-id="6f8c6-112">Most often, classes will declare their dependencies via their constructor, allowing them to follow the [Explicit Dependencies Principle](http://deviq.com/explicit-dependencies-principle/).</span></span> <span data-ttu-id="6f8c6-113">Bu yaklaşım "Oluşturucu ekleme" bilinir.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-113">This approach is known as "constructor injection".</span></span>
-
-<span data-ttu-id="6f8c6-114">Sınıflar ile DI göz önünde tasarlanmıştır, kendi ortak çalışanlar üzerinde doğrudan, sabit kodlu bağımlılıklar olmadığından bunlar daha gevşek.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-114">When classes are designed with DI in mind, they're more loosely coupled because they don't have direct, hard-coded dependencies on their collaborators.</span></span> <span data-ttu-id="6f8c6-115">Bunu izleyen [bağımlılık ters çevirmeyi ilkesine](http://deviq.com/dependency-inversion-principle/), hangi durumları *"yüksek düzey modüller düşük düzey modülleri bağımlı döndürmemelidir; her ikisi de soyutlamalar üzerinde bağımlı olmalıdır."*</span><span class="sxs-lookup"><span data-stu-id="6f8c6-115">This follows the [Dependency Inversion Principle](http://deviq.com/dependency-inversion-principle/), which states that *"high level modules shouldn't depend on low level modules; both should depend on abstractions."*</span></span> <span data-ttu-id="6f8c6-116">Belirli uygulamaları başvuran yerine sınıfları isteği soyutlamalar (genellikle `interfaces`) sağlanan onlara sınıfı oluşturulduğunda.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-116">Instead of referencing specific implementations, classes request abstractions (typically `interfaces`) which are provided to them when the class is constructed.</span></span> <span data-ttu-id="6f8c6-117">Bağımlılıklar arabirimleri içine ayıklanması ve parametre olarak bu arabirimleri uygulamalarını sağlayarak örneğidir de [stratejisi tasarım deseni](http://deviq.com/strategy-design-pattern/).</span><span class="sxs-lookup"><span data-stu-id="6f8c6-117">Extracting dependencies into interfaces and providing implementations of these interfaces as parameters is also an example of the [Strategy design pattern](http://deviq.com/strategy-design-pattern/).</span></span>
-
-<span data-ttu-id="6f8c6-118">Bir sistem dı kullanmak üzere tasarlanmış, bağımlılıklarını kendi Oluşturucusu (veya Özellikler) aracılığıyla isteyen çok sayıda sınıflarla, bunların ilişkili bağımlılıkları olan bu sınıfları oluşturmak için adanmış bir sınıf yararlıdır.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-118">When a system is designed to use DI, with many classes requesting their dependencies via their constructor (or properties), it's helpful to have a class dedicated to creating these classes with their associated dependencies.</span></span> <span data-ttu-id="6f8c6-119">Bu sınıfların denir *kapsayıcıları*, ya da daha açık belirtmek gerekirse [denetimi tersine çevirme (IOC)](http://deviq.com/inversion-of-control/) kapsayıcıları veya bağımlılık ekleme (dı) kapsayıcı.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-119">These classes are referred to as *containers*, or more specifically, [Inversion of Control (IoC)](http://deviq.com/inversion-of-control/) containers or Dependency Injection (DI) containers.</span></span> <span data-ttu-id="6f8c6-120">Buradan istenen türlerin örnekleri sağlamaktan sorumludur Fabrika aslında bir kapsayıcıdır.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-120">A container is essentially a factory that's responsible for providing instances of types that are requested from it.</span></span> <span data-ttu-id="6f8c6-121">Belirli bir türde bağımlılıklara sahiptir ve kapsayıcı bağımlılık türleri sağlayacak şekilde yapılandırılmış belirtmiş, bağımlılıklar istenen örneği oluşturma bir parçası olarak oluşturur.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-121">If a given type has declared that it has dependencies, and the container has been configured to provide the dependency types, it will create the dependencies as part of creating the requested instance.</span></span> <span data-ttu-id="6f8c6-122">Bu şekilde, tüm sabit kodlanmış nesne oluşturması gerek kalmadan sınıflarına karmaşık bağımlılık grafikleri sağlanabilir.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-122">In this way, complex dependency graphs can be provided to classes without the need for any hard-coded object construction.</span></span> <span data-ttu-id="6f8c6-123">Kendi bağımlılıkları olan nesneler oluşturmaya ek olarak, kapsayıcı nesne yaşam süresi uygulama içinde genellikle yönetin.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-123">In addition to creating objects with their dependencies, containers typically manage object lifetimes within the application.</span></span>
-
-<span data-ttu-id="6f8c6-124">ASP.NET Core içeren basit bir yerleşik kapsayıcı (tarafından temsil edilen `IServiceProvider` arabirimi) varsayılan oluşturucu ekleme destekleyen ve ASP.NET belirli hizmetleri dı aracılığıyla kullanılabilir yapar.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-124">ASP.NET Core includes a simple built-in container (represented by the `IServiceProvider` interface) that supports constructor injection by default, and ASP.NET makes certain services available through DI.</span></span> <span data-ttu-id="6f8c6-125">ASP. NET'in kapsayıcı yönetir olarak türleri başvurduğu *Hizmetleri*.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-125">ASP.NET's container refers to the types it manages as *services*.</span></span> <span data-ttu-id="6f8c6-126">Bu makalenin kalanında *Hizmetleri* ASP.NET Core'nın IOC kapsayıcı tarafından yönetilen türlerine başvurur.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-126">Throughout the rest of this article, *services* will refer to types that are managed by ASP.NET Core's IoC container.</span></span> <span data-ttu-id="6f8c6-127">Yerleşik kapsayıcının Hizmetleri'nde yapılandırma `ConfigureServices` uygulamanızın yönteminde `Startup` sınıfı.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-127">You configure the built-in container's services in the `ConfigureServices` method in your application's `Startup` class.</span></span>
-
-> [!NOTE]
-> <span data-ttu-id="6f8c6-128">Martin Fowler yazma kapsamlı bir makale üzerinde [denetimi tersine çevirme kapsayıcıları ve bağımlılık ekleme düzeni](https://www.martinfowler.com/articles/injection.html).</span><span class="sxs-lookup"><span data-stu-id="6f8c6-128">Martin Fowler has written an extensive article on [Inversion of Control Containers and the Dependency Injection Pattern](https://www.martinfowler.com/articles/injection.html).</span></span> <span data-ttu-id="6f8c6-129">Microsoft Patterns and Practices Ayrıca, harika bir açıklamaya sahip [bağımlılık ekleme](https://msdn.microsoft.com/library/hh323705.aspx).</span><span class="sxs-lookup"><span data-stu-id="6f8c6-129">Microsoft Patterns and Practices also has a great description of [Dependency Injection](https://msdn.microsoft.com/library/hh323705.aspx).</span></span>
-
-> [!NOTE]
-> <span data-ttu-id="6f8c6-130">Bu makalede, tüm ASP.NET uygulamaları için geçerli olduğundan bağımlılık ekleme yer almaktadır.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-130">This article covers Dependency Injection as it applies to all ASP.NET applications.</span></span> <span data-ttu-id="6f8c6-131">Bağımlılık ekleme MVC denetleyicileri içinde kapsanan [bağımlılık ekleme ve denetleyiciler](../mvc/controllers/dependency-injection.md).</span><span class="sxs-lookup"><span data-stu-id="6f8c6-131">Dependency Injection within MVC controllers is covered in [Dependency Injection and Controllers](../mvc/controllers/dependency-injection.md).</span></span>
-
-### <a name="constructor-injection-behavior"></a><span data-ttu-id="6f8c6-132">Oluşturucusu ekleme işlemi davranışı</span><span class="sxs-lookup"><span data-stu-id="6f8c6-132">Constructor injection behavior</span></span>
-
-<span data-ttu-id="6f8c6-133">Oluşturucu ekleme, söz konusu Oluşturucusu olmasını gerektirir *ortak*.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-133">Constructor injection requires that the constructor in question be *public*.</span></span> <span data-ttu-id="6f8c6-134">Aksi takdirde, uygulamanızı özel durum oluşturacak bir `InvalidOperationException`:</span><span class="sxs-lookup"><span data-stu-id="6f8c6-134">Otherwise, your app will throw an `InvalidOperationException`:</span></span>
-
-> <span data-ttu-id="6f8c6-135">'YourType' türü için uygun bir oluşturucu bulunamadı.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-135">A suitable constructor for type 'YourType' couldn't be located.</span></span> <span data-ttu-id="6f8c6-136">Türü somut ve Hizmetleri bir public oluşturucuya tüm parametreler için kayıtlı emin olun.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-136">Ensure the type is concrete and services are registered for all parameters of a public constructor.</span></span>
-
-<span data-ttu-id="6f8c6-137">Bu yalnızca bir geçerli Oluşturucusu mevcut Oluşturucu ekleme gerektirir.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-137">Constructor injection requires that only one applicable constructor exist.</span></span> <span data-ttu-id="6f8c6-138">Oluşturucu aşırı desteklenir, ancak yalnızca bir aşırı yüklemesi olan bağımsız değişkenler tüm tarafından bağımlılık ekleme yerine getirmenin bulunabilir.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-138">Constructor overloads are supported, but only one overload can exist whose arguments can all be fulfilled by dependency injection.</span></span> <span data-ttu-id="6f8c6-139">Birden fazla varsa, uygulamanızı özel durum oluşturacak bir `InvalidOperationException`:</span><span class="sxs-lookup"><span data-stu-id="6f8c6-139">If more than one exists, your app will throw an `InvalidOperationException`:</span></span>
-
-> <span data-ttu-id="6f8c6-140">Tüm belirtilen bağımsız değişken türleri kabul birden çok oluşturucular türü 'YourType' bulundu.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-140">Multiple constructors accepting all given argument types have been found in type 'YourType'.</span></span> <span data-ttu-id="6f8c6-141">Yalnızca geçerli bir oluşturucusu olmalıdır.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-141">There should only be one applicable constructor.</span></span>
-
-<span data-ttu-id="6f8c6-142">Oluşturucular bağımlılık ekleme tarafından sağlanmayan bağımsız değişkenleri kabul edebilir, ancak bunlar varsayılan değerlerini desteklemesi gerekir.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-142">Constructors can accept arguments that are not provided by dependency injection, but these must support default values.</span></span> <span data-ttu-id="6f8c6-143">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="6f8c6-143">For example:</span></span>
+<span data-ttu-id="c3adc-109">A *bağımlılık* olan başka bir nesneye gerektiren herhangi bir nesne.</span><span class="sxs-lookup"><span data-stu-id="c3adc-109">A *dependency* is any object that another object requires.</span></span> <span data-ttu-id="c3adc-110">Aşağıdaki inceleyin `MyDependency` sınıfıyla birlikte bir `WriteMessage` diğer sınıfların bir uygulamada bağlı yöntemi:</span><span class="sxs-lookup"><span data-stu-id="c3adc-110">Examine the following `MyDependency` class with a `WriteMessage` method that other classes in an app depend upon:</span></span>
 
 ```csharp
-// throws InvalidOperationException: Unable to resolve service for type 'System.String'...
-public CharactersController(ICharacterRepository characterRepository, string title)
+public class MyDependency
 {
-    _characterRepository = characterRepository;
-    _title = title;
-}
+    public MyDependency()
+    {
+    }
 
-// runs without error
-public CharactersController(ICharacterRepository characterRepository, string title = "Characters")
-{
-    _characterRepository = characterRepository;
-    _title = title;
+    public Task WriteMessage(string message)
+    {
+        Console.WriteLine(
+            $"MyDependency.WriteMessage called. Message: {message}");
+
+        return Task.FromResult(0);
+    }
 }
 ```
 
-## <a name="using-framework-provided-services"></a><span data-ttu-id="6f8c6-144">Framework tarafından sağlanan hizmetleri kullanma</span><span class="sxs-lookup"><span data-stu-id="6f8c6-144">Using framework-provided services</span></span>
+::: moniker range=">= aspnetcore-2.1"
 
-<span data-ttu-id="6f8c6-145">`ConfigureServices` Yönteminde `Startup` sınıftır uygulama kullanır, Entity Framework Core ve ASP.NET Core MVC gibi platform özellikleri dahil olmak üzere hizmetleri tanımlamak için sorumlu.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-145">The `ConfigureServices` method in the `Startup` class is responsible for defining the services the application will use, including platform features like Entity Framework Core and ASP.NET Core MVC.</span></span> <span data-ttu-id="6f8c6-146">Başlangıçta, `IServiceCollection` için sağlanan `ConfigureServices` tanımlı aşağıdaki hizmetleri sahiptir (bağlı olarak [konak nasıl yapılandırılan](xref:fundamentals/host/index)):</span><span class="sxs-lookup"><span data-stu-id="6f8c6-146">Initially, the `IServiceCollection` provided to `ConfigureServices` has the following services defined (depending on [how the host was configured](xref:fundamentals/host/index)):</span></span>
+<span data-ttu-id="c3adc-111">Örneği `MyDependency` sınıfı hale getirmek için oluşturulabilir `WriteMessage` yöntemi bir sınıf için kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="c3adc-111">An instance of the `MyDependency` class can be created to make the `WriteMessage` method available to a class.</span></span> <span data-ttu-id="c3adc-112">`MyDependency` Sınıfı, bağımlılık olarak `IndexModel` sınıfı:</span><span class="sxs-lookup"><span data-stu-id="c3adc-112">The `MyDependency` class is a dependency of the `IndexModel` class:</span></span>
 
-| <span data-ttu-id="6f8c6-147">Hizmet Türü</span><span class="sxs-lookup"><span data-stu-id="6f8c6-147">Service Type</span></span> | <span data-ttu-id="6f8c6-148">Ömür</span><span class="sxs-lookup"><span data-stu-id="6f8c6-148">Lifetime</span></span> |
-| ----- | ------- |
-| [<span data-ttu-id="6f8c6-149">Microsoft.AspNetCore.Hosting.IHostingEnvironment</span><span class="sxs-lookup"><span data-stu-id="6f8c6-149">Microsoft.AspNetCore.Hosting.IHostingEnvironment</span></span>](/dotnet/api/microsoft.aspnetcore.hosting.ihostingenvironment) | <span data-ttu-id="6f8c6-150">singleton</span><span class="sxs-lookup"><span data-stu-id="6f8c6-150">Singleton</span></span> |
-| [<span data-ttu-id="6f8c6-151">Microsoft.Extensions.Logging.ILoggerFactory</span><span class="sxs-lookup"><span data-stu-id="6f8c6-151">Microsoft.Extensions.Logging.ILoggerFactory</span></span>](/dotnet/api/microsoft.extensions.logging.iloggerfactory) | <span data-ttu-id="6f8c6-152">singleton</span><span class="sxs-lookup"><span data-stu-id="6f8c6-152">Singleton</span></span> |
-| [<span data-ttu-id="6f8c6-153">Microsoft.Extensions.Logging.ILogger&lt;T&gt;</span><span class="sxs-lookup"><span data-stu-id="6f8c6-153">Microsoft.Extensions.Logging.ILogger&lt;T&gt;</span></span>](/dotnet/api/microsoft.extensions.logging.ilogger) | <span data-ttu-id="6f8c6-154">singleton</span><span class="sxs-lookup"><span data-stu-id="6f8c6-154">Singleton</span></span> |
-| [<span data-ttu-id="6f8c6-155">Microsoft.AspNetCore.Hosting.Builder.IApplicationBuilderFactory</span><span class="sxs-lookup"><span data-stu-id="6f8c6-155">Microsoft.AspNetCore.Hosting.Builder.IApplicationBuilderFactory</span></span>](/dotnet/api/microsoft.aspnetcore.hosting.builder.iapplicationbuilderfactory) | <span data-ttu-id="6f8c6-156">Geçici</span><span class="sxs-lookup"><span data-stu-id="6f8c6-156">Transient</span></span> |
-| [<span data-ttu-id="6f8c6-157">Microsoft.AspNetCore.Http.IHttpContextFactory</span><span class="sxs-lookup"><span data-stu-id="6f8c6-157">Microsoft.AspNetCore.Http.IHttpContextFactory</span></span>](/dotnet/api/microsoft.aspnetcore.http.ihttpcontextfactory) | <span data-ttu-id="6f8c6-158">Geçici</span><span class="sxs-lookup"><span data-stu-id="6f8c6-158">Transient</span></span> |
-| [<span data-ttu-id="6f8c6-159">Microsoft.Extensions.Options.IOptions&lt;T&gt;</span><span class="sxs-lookup"><span data-stu-id="6f8c6-159">Microsoft.Extensions.Options.IOptions&lt;T&gt;</span></span>](/dotnet/api/microsoft.extensions.options.ioptions-1) | <span data-ttu-id="6f8c6-160">singleton</span><span class="sxs-lookup"><span data-stu-id="6f8c6-160">Singleton</span></span> |
-| [<span data-ttu-id="6f8c6-161">System.Diagnostics.DiagnosticSource</span><span class="sxs-lookup"><span data-stu-id="6f8c6-161">System.Diagnostics.DiagnosticSource</span></span>](https://docs.microsoft.com/dotnet/core/api/system.diagnostics.diagnosticsource) | <span data-ttu-id="6f8c6-162">singleton</span><span class="sxs-lookup"><span data-stu-id="6f8c6-162">Singleton</span></span> |
-| [<span data-ttu-id="6f8c6-163">System.Diagnostics.DiagnosticListener</span><span class="sxs-lookup"><span data-stu-id="6f8c6-163">System.Diagnostics.DiagnosticListener</span></span>](https://docs.microsoft.com/dotnet/core/api/system.diagnostics.diagnosticlistener) | <span data-ttu-id="6f8c6-164">singleton</span><span class="sxs-lookup"><span data-stu-id="6f8c6-164">Singleton</span></span> |
-| [<span data-ttu-id="6f8c6-165">Microsoft.AspNetCore.Hosting.IStartupFilter</span><span class="sxs-lookup"><span data-stu-id="6f8c6-165">Microsoft.AspNetCore.Hosting.IStartupFilter</span></span>](/dotnet/api/microsoft.aspnetcore.hosting.istartupfilter) | <span data-ttu-id="6f8c6-166">Geçici</span><span class="sxs-lookup"><span data-stu-id="6f8c6-166">Transient</span></span> |
-| [<span data-ttu-id="6f8c6-167">Microsoft.Extensions.ObjectPool.ObjectPoolProvider</span><span class="sxs-lookup"><span data-stu-id="6f8c6-167">Microsoft.Extensions.ObjectPool.ObjectPoolProvider</span></span>](/dotnet/api/microsoft.extensions.objectpool.objectpoolprovider) | <span data-ttu-id="6f8c6-168">singleton</span><span class="sxs-lookup"><span data-stu-id="6f8c6-168">Singleton</span></span> |
-| [<span data-ttu-id="6f8c6-169">Microsoft.Extensions.Options.IConfigureOptions&lt;T&gt;</span><span class="sxs-lookup"><span data-stu-id="6f8c6-169">Microsoft.Extensions.Options.IConfigureOptions&lt;T&gt;</span></span>](/dotnet/api/microsoft.extensions.options.iconfigureoptions-1) | <span data-ttu-id="6f8c6-170">Geçici</span><span class="sxs-lookup"><span data-stu-id="6f8c6-170">Transient</span></span> |
-| [<span data-ttu-id="6f8c6-171">Microsoft.AspNetCore.Hosting.Server.IServer</span><span class="sxs-lookup"><span data-stu-id="6f8c6-171">Microsoft.AspNetCore.Hosting.Server.IServer</span></span>](/dotnet/api/microsoft.aspnetcore.hosting.server.iserver) | <span data-ttu-id="6f8c6-172">singleton</span><span class="sxs-lookup"><span data-stu-id="6f8c6-172">Singleton</span></span> |
-| [<span data-ttu-id="6f8c6-173">Microsoft.AspNetCore.Hosting.IStartup</span><span class="sxs-lookup"><span data-stu-id="6f8c6-173">Microsoft.AspNetCore.Hosting.IStartup</span></span>](/dotnet/api/microsoft.aspnetcore.hosting.istartup) | <span data-ttu-id="6f8c6-174">singleton</span><span class="sxs-lookup"><span data-stu-id="6f8c6-174">Singleton</span></span> |
-| [<span data-ttu-id="6f8c6-175">Microsoft.AspNetCore.Hosting.IApplicationLifetime</span><span class="sxs-lookup"><span data-stu-id="6f8c6-175">Microsoft.AspNetCore.Hosting.IApplicationLifetime</span></span>](/dotnet/api/microsoft.aspnetcore.hosting.iapplicationlifetime) | <span data-ttu-id="6f8c6-176">singleton</span><span class="sxs-lookup"><span data-stu-id="6f8c6-176">Singleton</span></span> |
+```csharp
+public class IndexModel : PageModel
+{
+    MyDependency _dependency = new MyDependency();
 
-<span data-ttu-id="6f8c6-177">Genişletme yöntemleri gibi çok sayıda kullanarak kapsayıcı ek hizmetler eklemek nasıl bir örneği aşağıdadır `AddDbContext`, `AddIdentity`, ve `AddMvc`.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-177">Below is an example of how to add additional services to the container using a number of extension methods like `AddDbContext`, `AddIdentity`, and `AddMvc`.</span></span>
+    public async Task OnGetAsync()
+    {
+        await _myDependency.WriteMessage(
+            "IndexModel.OnGetAsync created this message.");
+    }
+}
+```
 
-[!code-csharp[](../common/samples/WebApplication1/Startup.cs?highlight=5-6,8-10,12&range=39-56)]
+::: moniker-end
 
-<span data-ttu-id="6f8c6-178">ASP.NET MVC gibi tarafından sağlanan ara yazılımı ve özellikler tek Ekle kullanmanın bir kuralı izleyin*ServiceName* tüm bu özellik tarafından gerekli hizmetleri kaydetmek için genişletme yöntemi.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-178">The features and middleware provided by ASP.NET, such as MVC, follow a convention of using a single Add*ServiceName* extension method to register all of the services required by that feature.</span></span>
+::: moniker range="<= aspnetcore-2.0"
 
-> [!TIP]
-> <span data-ttu-id="6f8c6-179">Belirli framework tarafından sağlanan hizmetlerin içindeki istek `Startup` parametresi listelerine - yöntemlerle bkz [uygulama başlangıç](startup.md) daha fazla ayrıntı için.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-179">You can request certain framework-provided services within `Startup` methods through their parameter lists - see [Application Startup](startup.md) for more details.</span></span>
+<span data-ttu-id="c3adc-113">Örneği `MyDependency` sınıfı hale getirmek için oluşturulabilir `WriteMessage` yöntemi bir sınıf için kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="c3adc-113">An instance of the `MyDependency` class can be created to make the `WriteMessage` method available to a class.</span></span> <span data-ttu-id="c3adc-114">`MyDependency` Sınıfı, bağımlılık olarak `HomeController` sınıfı:</span><span class="sxs-lookup"><span data-stu-id="c3adc-114">The `MyDependency` class is a dependency of the `HomeController` class:</span></span>
 
-## <a name="registering-services"></a><span data-ttu-id="6f8c6-180">Hizmetleri kaydediliyor</span><span class="sxs-lookup"><span data-stu-id="6f8c6-180">Registering services</span></span>
+```csharp
+public class HomeController : Controller
+{
+    MyDependency _dependency = new MyDependency();
 
-<span data-ttu-id="6f8c6-181">Kendi uygulama hizmetleri şu şekilde kaydedebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-181">You can register your own application services as follows.</span></span> <span data-ttu-id="6f8c6-182">İlk genel tür kapsayıcıdan istenen türü (genellikle bir arabirim) temsil eder.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-182">The first generic type represents the type (typically an interface) that will be requested from the container.</span></span> <span data-ttu-id="6f8c6-183">İkinci genel türü tarafından kapsayıcı örneği ve bu tür isteklerini yerine getirmek için kullanılan somut türünü temsil eder.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-183">The second generic type represents the concrete type that will be instantiated by the container and used to fulfill such requests.</span></span>
+    public async Task<IActionResult> Index()
+    {
+        await _myDependency.WriteMessage(
+            "HomeController.Index created this message.");
 
-[!code-csharp[](../common/samples/WebApplication1/Startup.cs?range=53-54)]
+        return View();
+    }
+}
+```
+
+::: moniker-end
+
+<span data-ttu-id="c3adc-115">Bir sınıf oluşturur ve doğrudan bağlı `MyDependency` örneği.</span><span class="sxs-lookup"><span data-stu-id="c3adc-115">The class creates and directly depends on the `MyDependency` instance.</span></span> <span data-ttu-id="c3adc-116">Kod bağımlılıklarını (örneğin, önceki örnekte) sorunlu ve aşağıdaki nedenlerle kaçınılmalıdır:</span><span class="sxs-lookup"><span data-stu-id="c3adc-116">Code dependencies (such as the previous example) are problematic and should be avoided for the following reasons:</span></span>
+
+* <span data-ttu-id="c3adc-117">Değiştirilecek `MyDependency` sınıfı farklı bir uygulama ile değiştirilmesi gerekir.</span><span class="sxs-lookup"><span data-stu-id="c3adc-117">To replace `MyDependency` with a different implementation, the class must be modified.</span></span>
+* <span data-ttu-id="c3adc-118">Varsa `MyDependency` bağımlılıkları varsa, sınıf tarafından yapılandırılması gerekir.</span><span class="sxs-lookup"><span data-stu-id="c3adc-118">If `MyDependency` has dependencies, they must be configured by the class.</span></span> <span data-ttu-id="c3adc-119">Yapılandırmanıza bağlı olarak birden çok sınıf ile büyük bir projedeki `MyDependency`, uygulama yapılandırma kodu dağılmış olur.</span><span class="sxs-lookup"><span data-stu-id="c3adc-119">In a large project with multiple classes depending on `MyDependency`, the configuration code becomes scattered across the app.</span></span>
+* <span data-ttu-id="c3adc-120">Bu uygulama için birim testi zordur.</span><span class="sxs-lookup"><span data-stu-id="c3adc-120">This implementation is difficult to unit test.</span></span> <span data-ttu-id="c3adc-121">Uygulamayı bir sahte kullanın veya saplama `MyDependency` sınıfı bu yaklaşımı mümkün değildir.</span><span class="sxs-lookup"><span data-stu-id="c3adc-121">The app should use a mock or stub `MyDependency` class, which isn't possible with this approach.</span></span>
+
+<span data-ttu-id="c3adc-122">Bağımlılık ekleme aracılığıyla bu sorunları ele alır:</span><span class="sxs-lookup"><span data-stu-id="c3adc-122">Dependency injection addresses these problems through:</span></span>
+
+* <span data-ttu-id="c3adc-123">Bağımlılık uygulama soyutlamak için arabirim kullanımı.</span><span class="sxs-lookup"><span data-stu-id="c3adc-123">The use of an interface to abstract the dependency implementation.</span></span>
+* <span data-ttu-id="c3adc-124">Bir hizmet kapsayıcısı bağımlılığı kaydı.</span><span class="sxs-lookup"><span data-stu-id="c3adc-124">Registration of the dependency in a service container.</span></span> <span data-ttu-id="c3adc-125">ASP.NET Core sağlayan bir yerleşik hizmet kapsayıcı [IServiceProvider](/dotnet/api/system.iserviceprovider).</span><span class="sxs-lookup"><span data-stu-id="c3adc-125">ASP.NET Core provides a built-in service container, [IServiceProvider](/dotnet/api/system.iserviceprovider).</span></span> <span data-ttu-id="c3adc-126">Hizmetleri uygulamanın kayıtlı `Startup.ConfigureServices` yöntemi.</span><span class="sxs-lookup"><span data-stu-id="c3adc-126">Services are registered in the app's `Startup.ConfigureServices` method.</span></span>
+* <span data-ttu-id="c3adc-127">*Ekleme* hizmetinin, kullanıldığı sınıfının oluşturucusu, içine.</span><span class="sxs-lookup"><span data-stu-id="c3adc-127">*Injection* of the service into the constructor of the class where it's used.</span></span> <span data-ttu-id="c3adc-128">Framework bağımlılığı örneği oluşturma ve artık gerekli değilse bunun atılması sorumluluğu alır.</span><span class="sxs-lookup"><span data-stu-id="c3adc-128">The framework takes on the responsibility of creating an instance of the dependency and disposing of it when it's no longer needed.</span></span>
+
+<span data-ttu-id="c3adc-129">İçinde [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/dependency-injection/samples), `IMyDependency` arabirim uygulamasına hizmet sağlayan bir yöntem tanımlar:</span><span class="sxs-lookup"><span data-stu-id="c3adc-129">In the [sample app](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/dependency-injection/samples), the `IMyDependency` interface defines a method that the service provides to the app:</span></span>
+
+::: moniker range=">= aspnetcore-2.1"
+
+[!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Interfaces/IMyDependency.cs?name=snippet1)]
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-2.0"
+
+[!code-csharp[](dependency-injection/samples/1.x/DependencyInjectionSample/Interfaces/IMyDependency.cs?name=snippet1)]
+
+::: moniker-end
+
+<span data-ttu-id="c3adc-130">Bu arabirimin somut bir tür tarafından uygulanan `MyDependency`:</span><span class="sxs-lookup"><span data-stu-id="c3adc-130">This interface is implemented by a concrete type, `MyDependency`:</span></span>
+
+::: moniker range=">= aspnetcore-2.1"
+
+[!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Services/MyDependency.cs?name=snippet1)]
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-2.0"
+
+[!code-csharp[](dependency-injection/samples/1.x/DependencyInjectionSample/Services/MyDependency.cs?name=snippet1)]
+
+::: moniker-end
+
+<span data-ttu-id="c3adc-131">`MyDependency` istekler bir [ILogger&lt;TCategoryName&gt; ](/dotnet/api/microsoft.extensions.logging.ilogger-1) kendi oluşturucusuna.</span><span class="sxs-lookup"><span data-stu-id="c3adc-131">`MyDependency` requests an [ILogger&lt;TCategoryName&gt;](/dotnet/api/microsoft.extensions.logging.ilogger-1) in its constructor.</span></span> <span data-ttu-id="c3adc-132">Bağımlılık ekleme zincirleme bir şekilde kullanmak alışılmadık bir durum değildir.</span><span class="sxs-lookup"><span data-stu-id="c3adc-132">It's not unusual to use dependency injection in a chained fashion.</span></span> <span data-ttu-id="c3adc-133">İstenen her bağımlılık sırayla kendi bağımlılıkları ister.</span><span class="sxs-lookup"><span data-stu-id="c3adc-133">Each requested dependency in turn requests its own dependencies.</span></span> <span data-ttu-id="c3adc-134">Kapsayıcı graftaki bağımlılıklarını çözen ve tam olarak çözümlenmiş hizmeti döndürür.</span><span class="sxs-lookup"><span data-stu-id="c3adc-134">The container resolves the dependencies in the graph and returns the fully resolved service.</span></span> <span data-ttu-id="c3adc-135">Toplu kümesi çözümlenemedi bağımlılıklar, tipik olarak adlandırılır bir *Bağımlılık ağacı*, *bağımlılık grafiği*, veya *Nesne grafiği*.</span><span class="sxs-lookup"><span data-stu-id="c3adc-135">The collective set of dependencies that must be resolved is typically referred to as a *dependency tree*, *dependency graph*, or *object graph*.</span></span>
+
+<span data-ttu-id="c3adc-136">`IMyDependency` ve `ILogger<TCategoryName>` service kapsayıcısında kayıtlı olması gerekir.</span><span class="sxs-lookup"><span data-stu-id="c3adc-136">`IMyDependency` and `ILogger<TCategoryName>` must be registered in the service container.</span></span> <span data-ttu-id="c3adc-137">`IMyDependency` kaydedilmiştir `Startup.ConfigureServices`.</span><span class="sxs-lookup"><span data-stu-id="c3adc-137">`IMyDependency` is registered in `Startup.ConfigureServices`.</span></span> <span data-ttu-id="c3adc-138">`ILogger<TCategoryName>` senaryomuz için günlük soyutlama altyapısı tarafından kayıtlı bir [framework tarafından sağlanan hizmet](#framework-provided-services) framework tarafından varsayılan olarak kayıtlı.</span><span class="sxs-lookup"><span data-stu-id="c3adc-138">`ILogger<TCategoryName>` is registered by the logging abstractions infrastructure, so it's a [framework-provided service](#framework-provided-services) registered by default by the framework.</span></span>
+
+<span data-ttu-id="c3adc-139">Örnek uygulamada `IMyDependency` hizmet somut bir türde ile kayıtlı `MyDependency`.</span><span class="sxs-lookup"><span data-stu-id="c3adc-139">In the sample app, the `IMyDependency` service is registered with the concrete type `MyDependency`.</span></span> <span data-ttu-id="c3adc-140">Tek bir isteğin ömrü hizmet ömrü kayıt kapsamları.</span><span class="sxs-lookup"><span data-stu-id="c3adc-140">The registration scopes the service lifetime to the lifetime of a single request.</span></span> <span data-ttu-id="c3adc-141">[Hizmet ömrü](#service-lifetimes) bu konunun ilerleyen bölümlerinde açıklanmıştır.</span><span class="sxs-lookup"><span data-stu-id="c3adc-141">[Service lifetimes](#service-lifetimes) are described later in this topic.</span></span>
+
+::: moniker range=">= aspnetcore-2.1"
+
+[!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Startup.cs?name=snippet1&highlight=11)]
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-2.0"
+
+[!code-csharp[](dependency-injection/samples/1.x/DependencyInjectionSample/Startup.cs?name=snippet1&highlight=5)]
+
+::: moniker-end
 
 > [!NOTE]
-> <span data-ttu-id="6f8c6-184">Her `services.Add<ServiceName>` genişletme yöntemi ekler (ve büyük olasılıkla yapılandırır) Hizmetleri.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-184">Each `services.Add<ServiceName>` extension method adds (and potentially configures) services.</span></span> <span data-ttu-id="6f8c6-185">Örneğin, `services.AddMvc()` MVC gerektirir Hizmetleri ekler.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-185">For example, `services.AddMvc()` adds the services MVC requires.</span></span> <span data-ttu-id="6f8c6-186">Genişletme yöntemleri yerleştirme bu kuralı izlemeniz önerilir `Microsoft.Extensions.DependencyInjection` hizmet kayıtlar grupları kapsüllemek için ad alanı.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-186">It's recommended that you follow this convention, placing extension methods in the `Microsoft.Extensions.DependencyInjection` namespace, to encapsulate groups of service registrations.</span></span>
+> <span data-ttu-id="c3adc-142">Her `services.Add<ServiceName>` genişletme yöntemi ekler (ve büyük olasılıkla yapılandırır) Hizmetleri.</span><span class="sxs-lookup"><span data-stu-id="c3adc-142">Each `services.Add<ServiceName>` extension method adds (and potentially configures) services.</span></span> <span data-ttu-id="c3adc-143">Örneğin, `services.AddMvc()` Razor sayfaları ve MVC gerekli hizmetleri ekler.</span><span class="sxs-lookup"><span data-stu-id="c3adc-143">For example, `services.AddMvc()` adds the services Razor Pages and MVC require.</span></span> <span data-ttu-id="c3adc-144">Uygulamalar bu kurala uymayan önerilir.</span><span class="sxs-lookup"><span data-stu-id="c3adc-144">We recommended that apps follow this convention.</span></span> <span data-ttu-id="c3adc-145">Yerleştirin alanında uzantı yöntemlerini [Microsoft.Extensions.DependencyInjection](/dotnet/api/microsoft.extensions.dependencyinjection) hizmet kayıtları grupları kapsüllemek için ad alanı.</span><span class="sxs-lookup"><span data-stu-id="c3adc-145">Place extension methods in the [Microsoft.Extensions.DependencyInjection](/dotnet/api/microsoft.extensions.dependencyinjection) namespace to encapsulate groups of service registrations.</span></span>
 
-<span data-ttu-id="6f8c6-187">`AddTransient` Yöntemi soyut türler bunu gerektiren her nesne için ayrı ayrı örneği somut Hizmetleri eşlemek için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-187">The `AddTransient` method is used to map abstract types to concrete services that are instantiated separately for every object that requires it.</span></span> <span data-ttu-id="6f8c6-188">Bu hizmetin bilinir *ömrü*, ve ek ömrü seçenekler aşağıda açıklanmıştır.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-188">This is known as the service's *lifetime*, and additional lifetime options are described below.</span></span> <span data-ttu-id="6f8c6-189">Kaydettiğiniz hizmetlerinin her biri için uygun bir yaşam süresi seçmek önemlidir.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-189">It's important to choose an appropriate lifetime for each of the services you register.</span></span> <span data-ttu-id="6f8c6-190">Hizmetinin yeni bir örneğini istediği her sınıf sağlanmalıdır?</span><span class="sxs-lookup"><span data-stu-id="6f8c6-190">Should a new instance of the service be provided to each class that requests it?</span></span> <span data-ttu-id="6f8c6-191">Bir örnek verilen web isteği kullanılsın mı?</span><span class="sxs-lookup"><span data-stu-id="6f8c6-191">Should one instance be used throughout a given web request?</span></span> <span data-ttu-id="6f8c6-192">Veya tek bir örnek uygulama ömrü boyunca kullanılmalıdır?</span><span class="sxs-lookup"><span data-stu-id="6f8c6-192">Or should a single instance be used for the lifetime of the application?</span></span>
+<span data-ttu-id="c3adc-146">Hizmetin Oluşturucusu basit bir tür gibi gerektiriyorsa bir `string`, temel kullanarak yerleştirilebilir [yapılandırma](xref:fundamentals/configuration/index) veya [seçenekleri deseni](xref:fundamentals/configuration/options):</span><span class="sxs-lookup"><span data-stu-id="c3adc-146">If the service's constructor requires a primitive, such as a `string`, the primitive can be injected by using [configuration](xref:fundamentals/configuration/index) or the [options pattern](xref:fundamentals/configuration/options):</span></span>
 
-<span data-ttu-id="6f8c6-193">Bu makalede örnek adlı karakter adları görüntüleyen basit bir denetleyici yok `CharactersController`.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-193">In the sample for this article, there's a simple controller that displays character names, called `CharactersController`.</span></span> <span data-ttu-id="6f8c6-194">Kendi `Index` yöntemi uygulamada depolanan karakterler geçerli listesini görüntüler ve hiçbiri yoksa koleksiyon sayıda karakter ile başlatır.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-194">Its `Index` method displays the current list of characters that have been stored in the application, and initializes the collection with a handful of characters if none exist.</span></span> <span data-ttu-id="6f8c6-195">Bu uygulama Entity Framework Çekirdek kullansa unutmayın ve `ApplicationDbContext` sınıfı için kendi Kalıcılık, hiçbiri denetleyicide görünür olan.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-195">Note that although this application uses Entity Framework Core and the `ApplicationDbContext` class for its persistence, none of that's apparent in the controller.</span></span> <span data-ttu-id="6f8c6-196">Bunun yerine, belirli veri erişim mekanizması bir arabirim soyutlanır `ICharacterRepository`, hangi aşağıdaki [havuz deseni](http://deviq.com/repository-pattern/).</span><span class="sxs-lookup"><span data-stu-id="6f8c6-196">Instead, the specific data access mechanism has been abstracted behind an interface, `ICharacterRepository`, which follows the [repository pattern](http://deviq.com/repository-pattern/).</span></span> <span data-ttu-id="6f8c6-197">Örneği `ICharacterRepository` oluşturucu aracılığıyla istenir ve ardından gerekirse karakterleri erişmek için kullanılan bir özel alan atanmış.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-197">An instance of `ICharacterRepository` is requested via the constructor and assigned to a private field, which is then used to access characters as necessary.</span></span>
+```csharp
+public class MyDependency : IMyDependency
+{
+    public MyDependency(IConfiguration config)
+    {
+        var myStringValue = config["MyStringKey"];
 
-[!code-csharp[](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Controllers/CharactersController.cs?highlight=3,5,6,7,8,14,21-27&range=8-36)]
+        // Use myStringValue
+    }
 
-<span data-ttu-id="6f8c6-198">`ICharacterRepository` Denetleyicisinin gereksinim duyduğu çalışmak için iki yöntem tanımlar `Character` örnekleri.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-198">The `ICharacterRepository` defines the two methods the controller needs to work with `Character` instances.</span></span>
+    ...
+}
+```
 
-[!code-csharp[](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Interfaces/ICharacterRepository.cs?highlight=8,9)]
+<span data-ttu-id="c3adc-147">Hizmet nerede ve özel bir alana atanan bir sınıfın Oluşturucusu aracılığıyla Hizmeti'nin bir örneğini istenir.</span><span class="sxs-lookup"><span data-stu-id="c3adc-147">An instance of the service is requested via the constructor of a class where the service is used and assigned to a private field.</span></span> <span data-ttu-id="c3adc-148">Alan sınıfı boyunca gerektiği gibi hizmete erişmek için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="c3adc-148">The field is used to access the service as necessary throughout the class.</span></span>
 
-<span data-ttu-id="6f8c6-199">Bu arabirim somut bir türde tarafından sırayla uygulanır `CharacterRepository`, çalışma zamanında kullanılır.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-199">This interface is in turn implemented by a concrete type, `CharacterRepository`, that's used at runtime.</span></span>
+<span data-ttu-id="c3adc-149">Örnek uygulamada `IMyDependency` örneği istenen ve hizmetin çağırmak için kullanılan `WriteMessage` yöntemi:</span><span class="sxs-lookup"><span data-stu-id="c3adc-149">In the sample app, the `IMyDependency` instance is requested and used to call the service's `WriteMessage` method:</span></span>
 
-> [!NOTE]
-> <span data-ttu-id="6f8c6-200">DI yolu ile kullanılan `CharacterRepository` tüm "depoları" ya da veri erişimi sınıfları, yalnızca uygulama hizmetlerinizi izleyin genel bir model bir sınıftır.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-200">The way DI is used with the `CharacterRepository` class is a general model you can follow for all of your application services, not just in "repositories" or data access classes.</span></span>
+::: moniker range=">= aspnetcore-2.1"
 
-[!code-csharp[](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Models/CharacterRepository.cs?highlight=9,11,12,13,14)]
+[!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Pages/Index.cshtml.cs?name=snippet1&highlight=3,6,13,29-30)]
 
-<span data-ttu-id="6f8c6-201">Unutmayın `CharacterRepository` isteklerini bir `ApplicationDbContext` kendi oluşturucusuna.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-201">Note that `CharacterRepository` requests an `ApplicationDbContext` in its constructor.</span></span> <span data-ttu-id="6f8c6-202">Bunun gibi zincirleme bir şekilde sırayla kendi bağımlılıkları isteyen her istenen bağımlılık ile kullanılacak bağımlılık ekleme ait değil.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-202">It's not unusual for dependency injection to be used in a chained fashion like this, with each requested dependency in turn requesting its own dependencies.</span></span> <span data-ttu-id="6f8c6-203">Kapsayıcı, tüm bağımlılıklarıyla grafikte çözme ve tam olarak çözümlenmiş hizmeti döndürüyor sorumludur.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-203">The container is responsible for resolving all of the dependencies in the graph and returning the fully resolved service.</span></span>
+::: moniker-end
 
-> [!NOTE]
-> <span data-ttu-id="6f8c6-204">İstenen nesne ve tüm gerektirdiği nesneleri ve tüm bu gerektiren nesneleri oluşturma bazen olarak adlandırılır bir *Nesne grafiği*.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-204">Creating the requested object, and all of the objects it requires, and all of the objects those require, is sometimes referred to as an *object graph*.</span></span> <span data-ttu-id="6f8c6-205">Benzer şekilde, çözümlenmelidir bağımlılıkları toplu kümesini tipik olarak adlandırılır bir *bağımlılığı ağacı* veya *bağımlılık grafiğinin*.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-205">Likewise, the collective set of dependencies that must be resolved is typically referred to as a *dependency tree* or *dependency graph*.</span></span>
+::: moniker range="<= aspnetcore-2.0"
 
-<span data-ttu-id="6f8c6-206">Bu durumda, her ikisi de `ICharacterRepository` ve dolayısıyla `ApplicationDbContext` hizmetler kapsayıcısının ile kayıtlı olması gerekir `ConfigureServices` içinde `Startup`.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-206">In this case, both `ICharacterRepository` and in turn `ApplicationDbContext` must be registered with the services container in `ConfigureServices` in `Startup`.</span></span> <span data-ttu-id="6f8c6-207">`ApplicationDbContext` genişletme yöntemi çağrısı ile yapılandırılmış `AddDbContext<T>`.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-207">`ApplicationDbContext` is configured with the call to the extension method `AddDbContext<T>`.</span></span> <span data-ttu-id="6f8c6-208">Aşağıdaki kod kaydını gösterir `CharacterRepository` türü.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-208">The following code shows the registration of the `CharacterRepository` type.</span></span>
+[!code-csharp[](dependency-injection/samples/1.x/DependencyInjectionSample/Controllers/MyDependencyController.cs?name=snippet1&highlight=3,5-8,13-14)]
 
-[!code-csharp[](dependency-injection/sample/DependencyInjectionSample/Startup.cs?highlight=3-5,11&range=16-32)]
+::: moniker-end
 
-<span data-ttu-id="6f8c6-209">Entity Framework bağlamları Hizmetleri kullanarak kapsayıcı eklenmesi `Scoped` yaşam süresi.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-209">Entity Framework contexts should be added to the services container using the `Scoped` lifetime.</span></span> <span data-ttu-id="6f8c6-210">Bu otomatik olarak yukarıda gösterildiği gibi yardımcı yöntemler kullanırsanız dikkate.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-210">This is taken care of automatically if you use the helper methods as shown above.</span></span> <span data-ttu-id="6f8c6-211">Entity Framework'ü kullanın yapacak depoları aynı yaşam süresini kullanmanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-211">Repositories that will make use of Entity Framework should use the same lifetime.</span></span>
+## <a name="framework-provided-services"></a><span data-ttu-id="c3adc-150">Framework tarafından sağlanan hizmetleri</span><span class="sxs-lookup"><span data-stu-id="c3adc-150">Framework-provided services</span></span>
+
+<span data-ttu-id="c3adc-151">`Startup.ConfigureServices` Yöntemi, Entity Framework Core ve ASP.NET Core MVC gibi platform özellikleri dahil olmak üzere uygulamanın kullandığı hizmetleri tanımlamak için sorumludur.</span><span class="sxs-lookup"><span data-stu-id="c3adc-151">The `Startup.ConfigureServices` method is responsible for defining the services the app uses, including platform features, such as Entity Framework Core and ASP.NET Core MVC.</span></span> <span data-ttu-id="c3adc-152">Başlangıçta `IServiceCollection` sağlanan `ConfigureServices` tanımlanan aşağıdaki Hizmetleri (bağlı olarak [konak nasıl yapılandırılan](xref:fundamentals/host/index)):</span><span class="sxs-lookup"><span data-stu-id="c3adc-152">Initially, the `IServiceCollection` provided to `ConfigureServices` has the following services defined (depending on [how the host was configured](xref:fundamentals/host/index)):</span></span>
+
+| <span data-ttu-id="c3adc-153">Hizmet Türü</span><span class="sxs-lookup"><span data-stu-id="c3adc-153">Service Type</span></span> | <span data-ttu-id="c3adc-154">Ömür</span><span class="sxs-lookup"><span data-stu-id="c3adc-154">Lifetime</span></span> |
+| ------------ | -------- |
+| [<span data-ttu-id="c3adc-155">Microsoft.AspNetCore.Hosting.Builder.IApplicationBuilderFactory</span><span class="sxs-lookup"><span data-stu-id="c3adc-155">Microsoft.AspNetCore.Hosting.Builder.IApplicationBuilderFactory</span></span>](/dotnet/api/microsoft.aspnetcore.hosting.builder.iapplicationbuilderfactory) | <span data-ttu-id="c3adc-156">Geçici</span><span class="sxs-lookup"><span data-stu-id="c3adc-156">Transient</span></span> |
+| [<span data-ttu-id="c3adc-157">Microsoft.AspNetCore.Hosting.IApplicationLifetime</span><span class="sxs-lookup"><span data-stu-id="c3adc-157">Microsoft.AspNetCore.Hosting.IApplicationLifetime</span></span>](/dotnet/api/microsoft.aspnetcore.hosting.iapplicationlifetime) | <span data-ttu-id="c3adc-158">singleton</span><span class="sxs-lookup"><span data-stu-id="c3adc-158">Singleton</span></span> |
+| [<span data-ttu-id="c3adc-159">Microsoft.AspNetCore.Hosting.IHostingEnvironment</span><span class="sxs-lookup"><span data-stu-id="c3adc-159">Microsoft.AspNetCore.Hosting.IHostingEnvironment</span></span>](/dotnet/api/microsoft.aspnetcore.hosting.ihostingenvironment) | <span data-ttu-id="c3adc-160">singleton</span><span class="sxs-lookup"><span data-stu-id="c3adc-160">Singleton</span></span> |
+| [<span data-ttu-id="c3adc-161">Microsoft.AspNetCore.Hosting.IStartup</span><span class="sxs-lookup"><span data-stu-id="c3adc-161">Microsoft.AspNetCore.Hosting.IStartup</span></span>](/dotnet/api/microsoft.aspnetcore.hosting.istartup) | <span data-ttu-id="c3adc-162">singleton</span><span class="sxs-lookup"><span data-stu-id="c3adc-162">Singleton</span></span> |
+| [<span data-ttu-id="c3adc-163">Microsoft.AspNetCore.Hosting.IStartupFilter</span><span class="sxs-lookup"><span data-stu-id="c3adc-163">Microsoft.AspNetCore.Hosting.IStartupFilter</span></span>](/dotnet/api/microsoft.aspnetcore.hosting.istartupfilter) | <span data-ttu-id="c3adc-164">Geçici</span><span class="sxs-lookup"><span data-stu-id="c3adc-164">Transient</span></span> |
+| [<span data-ttu-id="c3adc-165">Microsoft.AspNetCore.Hosting.Server.IServer</span><span class="sxs-lookup"><span data-stu-id="c3adc-165">Microsoft.AspNetCore.Hosting.Server.IServer</span></span>](/dotnet/api/microsoft.aspnetcore.hosting.server.iserver) | <span data-ttu-id="c3adc-166">singleton</span><span class="sxs-lookup"><span data-stu-id="c3adc-166">Singleton</span></span> |
+| [<span data-ttu-id="c3adc-167">Microsoft.AspNetCore.Http.IHttpContextFactory</span><span class="sxs-lookup"><span data-stu-id="c3adc-167">Microsoft.AspNetCore.Http.IHttpContextFactory</span></span>](/dotnet/api/microsoft.aspnetcore.http.ihttpcontextfactory) | <span data-ttu-id="c3adc-168">Geçici</span><span class="sxs-lookup"><span data-stu-id="c3adc-168">Transient</span></span> |
+| [<span data-ttu-id="c3adc-169">Microsoft.Extensions.Logging.ILogger&lt;T&gt;</span><span class="sxs-lookup"><span data-stu-id="c3adc-169">Microsoft.Extensions.Logging.ILogger&lt;T&gt;</span></span>](/dotnet/api/microsoft.extensions.logging.ilogger) | <span data-ttu-id="c3adc-170">singleton</span><span class="sxs-lookup"><span data-stu-id="c3adc-170">Singleton</span></span> |
+| [<span data-ttu-id="c3adc-171">Microsoft.Extensions.Logging.ILoggerFactory</span><span class="sxs-lookup"><span data-stu-id="c3adc-171">Microsoft.Extensions.Logging.ILoggerFactory</span></span>](/dotnet/api/microsoft.extensions.logging.iloggerfactory) | <span data-ttu-id="c3adc-172">singleton</span><span class="sxs-lookup"><span data-stu-id="c3adc-172">Singleton</span></span> |
+| [<span data-ttu-id="c3adc-173">Microsoft.Extensions.ObjectPool.ObjectPoolProvider</span><span class="sxs-lookup"><span data-stu-id="c3adc-173">Microsoft.Extensions.ObjectPool.ObjectPoolProvider</span></span>](/dotnet/api/microsoft.extensions.objectpool.objectpoolprovider) | <span data-ttu-id="c3adc-174">singleton</span><span class="sxs-lookup"><span data-stu-id="c3adc-174">Singleton</span></span> |
+| [<span data-ttu-id="c3adc-175">Microsoft.Extensions.Options.IConfigureOptions&lt;T&gt;</span><span class="sxs-lookup"><span data-stu-id="c3adc-175">Microsoft.Extensions.Options.IConfigureOptions&lt;T&gt;</span></span>](/dotnet/api/microsoft.extensions.options.iconfigureoptions-1) | <span data-ttu-id="c3adc-176">Geçici</span><span class="sxs-lookup"><span data-stu-id="c3adc-176">Transient</span></span> |
+| [<span data-ttu-id="c3adc-177">Microsoft.Extensions.Options.IOptions&lt;T&gt;</span><span class="sxs-lookup"><span data-stu-id="c3adc-177">Microsoft.Extensions.Options.IOptions&lt;T&gt;</span></span>](/dotnet/api/microsoft.extensions.options.ioptions-1) | <span data-ttu-id="c3adc-178">singleton</span><span class="sxs-lookup"><span data-stu-id="c3adc-178">Singleton</span></span> |
+| [<span data-ttu-id="c3adc-179">System.Diagnostics.DiagnosticSource</span><span class="sxs-lookup"><span data-stu-id="c3adc-179">System.Diagnostics.DiagnosticSource</span></span>](https://docs.microsoft.com/dotnet/core/api/system.diagnostics.diagnosticsource) | <span data-ttu-id="c3adc-180">singleton</span><span class="sxs-lookup"><span data-stu-id="c3adc-180">Singleton</span></span> |
+| [<span data-ttu-id="c3adc-181">System.Diagnostics.DiagnosticListener</span><span class="sxs-lookup"><span data-stu-id="c3adc-181">System.Diagnostics.DiagnosticListener</span></span>](https://docs.microsoft.com/dotnet/core/api/system.diagnostics.diagnosticlistener) | <span data-ttu-id="c3adc-182">singleton</span><span class="sxs-lookup"><span data-stu-id="c3adc-182">Singleton</span></span> |
+
+<span data-ttu-id="c3adc-183">Hizmet koleksiyonu genişletme yöntemi, kayıt hizmeti (ve gerekirse, bağımlı hizmetler) kullanılabilir olduğunda, kuralı tek bir kullanmaktır `Add<ServiceName>` genişletme yöntemi bu hizmet tarafından gerekli tüm hizmetleri kaydedilecek.</span><span class="sxs-lookup"><span data-stu-id="c3adc-183">When a service collection extension method is available to register a service (and its dependent services, if required), the convention is to use a single `Add<ServiceName>` extension method to register all of the services required by that service.</span></span> <span data-ttu-id="c3adc-184">Aşağıdaki kod, genişletme yöntemleri kullanarak kapsayıcıya ek hizmetleri ekleme örneğidir [AddDbContext](/dotnet/api/microsoft.extensions.dependencyinjection.entityframeworkservicecollectionextensions.adddbcontext), [AddIdentity](/dotnet/api/microsoft.extensions.dependencyinjection.identityservicecollectionextensions.addidentity), ve [AddMvc](/dotnet/api/microsoft.extensions.dependencyinjection.mvcservicecollectionextensions.addmvc):</span><span class="sxs-lookup"><span data-stu-id="c3adc-184">The following code is an example of how to add additional services to the container using the extension methods [AddDbContext](/dotnet/api/microsoft.extensions.dependencyinjection.entityframeworkservicecollectionextensions.adddbcontext), [AddIdentity](/dotnet/api/microsoft.extensions.dependencyinjection.identityservicecollectionextensions.addidentity), and [AddMvc](/dotnet/api/microsoft.extensions.dependencyinjection.mvcservicecollectionextensions.addmvc):</span></span>
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddDbContext<ApplicationDbContext>(options =>
+        options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+    services.AddIdentity<ApplicationUser, IdentityRole>()
+        .AddEntityFrameworkStores<ApplicationDbContext>()
+        .AddDefaultTokenProviders();
+
+    services.AddMvc();
+}
+```
+
+<span data-ttu-id="c3adc-185">Daha fazla bilgi için [ServiceCollection sınıfı](/dotnet/api/microsoft.extensions.dependencyinjection.servicecollection) API belgelerinde.</span><span class="sxs-lookup"><span data-stu-id="c3adc-185">For more information, see the [ServiceCollection Class](/dotnet/api/microsoft.extensions.dependencyinjection.servicecollection) in the API documentation.</span></span>
+
+## <a name="service-lifetimes"></a><span data-ttu-id="c3adc-186">Hizmet yaşam süresi yok</span><span class="sxs-lookup"><span data-stu-id="c3adc-186">Service lifetimes</span></span>
+
+<span data-ttu-id="c3adc-187">Kayıtlı her hizmet için uygun bir yaşam süresi'ni seçin.</span><span class="sxs-lookup"><span data-stu-id="c3adc-187">Choose an appropriate lifetime for each registered service.</span></span> <span data-ttu-id="c3adc-188">ASP.NET Core Hizmetleri ile aşağıdaki ömürleri yapılandırılabilir:</span><span class="sxs-lookup"><span data-stu-id="c3adc-188">ASP.NET Core services can be configured with the following lifetimes:</span></span>
+
+<span data-ttu-id="c3adc-189">**Geçici**</span><span class="sxs-lookup"><span data-stu-id="c3adc-189">**Transient**</span></span>
+
+<span data-ttu-id="c3adc-190">Geçici ömrü Hizmetleri, bunlar istenen her zaman oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="c3adc-190">Transient lifetime services are created each time they're requested.</span></span> <span data-ttu-id="c3adc-191">Bu yaşam süresi, basit, durum bilgisi olmayan hizmetler için en iyi çalışır.</span><span class="sxs-lookup"><span data-stu-id="c3adc-191">This lifetime works best for lightweight, stateless services.</span></span>
+
+<span data-ttu-id="c3adc-192">**Kapsamlı**</span><span class="sxs-lookup"><span data-stu-id="c3adc-192">**Scoped**</span></span>
+
+<span data-ttu-id="c3adc-193">Kapsamlı ömrü Hizmetleri, istek başına bir kez oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="c3adc-193">Scoped lifetime services are created once per request.</span></span>
 
 > [!WARNING]
-> <span data-ttu-id="6f8c6-212">Çok dikkatli olmak ana tehlike çözümlenirken bir `Scoped` tek gelen hizmet.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-212">The main danger to be wary of is resolving a `Scoped` service from a singleton.</span></span> <span data-ttu-id="6f8c6-213">Hizmet hatalı durum istekler işlenirken gerekir çalışması olasıdır.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-213">It's likely in such a case that the service will have incorrect state when processing subsequent requests.</span></span>
+> <span data-ttu-id="c3adc-194">Kapsamlı bir hizmeti bir ara yazılımında kullanılırken, hizmette oturum ekleme `Invoke` veya `InvokeAsync` yöntemi.</span><span class="sxs-lookup"><span data-stu-id="c3adc-194">When using a scoped service in a middleware, inject the service into the `Invoke` or `InvokeAsync` method.</span></span> <span data-ttu-id="c3adc-195">Bir tekliyi gibi davranmaya hizmet zorladığından Oluşturucu ekleme ekleme yok.</span><span class="sxs-lookup"><span data-stu-id="c3adc-195">Don't inject via constructor injection because it forces the service to behave like a singleton.</span></span> <span data-ttu-id="c3adc-196">Daha fazla bilgi için bkz. <xref:fundamentals/middleware/index>.</span><span class="sxs-lookup"><span data-stu-id="c3adc-196">For more information, see <xref:fundamentals/middleware/index>.</span></span>
 
-<span data-ttu-id="6f8c6-214">Bağımlılıkları olan hizmetleri bunları kapsayıcısında kaydetmeniz.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-214">Services that have dependencies should register them in the container.</span></span> <span data-ttu-id="6f8c6-215">Bir hizmetin yapıcı, ilkel gibi gerektiriyorsa bir `string`, bunu kullanarak yerleştirilebilir [yapılandırma](xref:fundamentals/configuration/index) ve [seçenekleri düzeni](xref:fundamentals/configuration/options).</span><span class="sxs-lookup"><span data-stu-id="6f8c6-215">If a service's constructor requires a primitive, such as a `string`, this can be injected by using [configuration](xref:fundamentals/configuration/index) and the [options pattern](xref:fundamentals/configuration/options).</span></span>
+<span data-ttu-id="c3adc-197">**singleton**</span><span class="sxs-lookup"><span data-stu-id="c3adc-197">**Singleton**</span></span>
 
-## <a name="service-lifetimes-and-registration-options"></a><span data-ttu-id="6f8c6-216">Hizmet yaşam süresi ve kayıt seçenekleri</span><span class="sxs-lookup"><span data-stu-id="6f8c6-216">Service lifetimes and registration options</span></span>
-
-<span data-ttu-id="6f8c6-217">ASP.NET Hizmetleri ile aşağıdaki ömürleri yapılandırılabilir:</span><span class="sxs-lookup"><span data-stu-id="6f8c6-217">ASP.NET services can be configured with the following lifetimes:</span></span>
-
-<span data-ttu-id="6f8c6-218">**Geçici**</span><span class="sxs-lookup"><span data-stu-id="6f8c6-218">**Transient**</span></span>
-
-<span data-ttu-id="6f8c6-219">Geçici ömrü Hizmetleri istedikleri her zaman oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-219">Transient lifetime services are created each time they're requested.</span></span> <span data-ttu-id="6f8c6-220">Bu ömrü basit, durum bilgisi olmayan hizmetler için en iyi şekilde çalışır.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-220">This lifetime works best for lightweight, stateless services.</span></span>
-
-<span data-ttu-id="6f8c6-221">**Kapsamlı**</span><span class="sxs-lookup"><span data-stu-id="6f8c6-221">**Scoped**</span></span>
-
-<span data-ttu-id="6f8c6-222">Kapsamlı ömrü Hizmetleri istek başına bir kez oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-222">Scoped lifetime services are created once per request.</span></span>
+<span data-ttu-id="c3adc-198">Singleton ömrü Hizmetleri istenen ilk kez oluşturulur (veya `ConfigureServices` çalıştırılır ve örneği hizmet kaydı ile belirtilir).</span><span class="sxs-lookup"><span data-stu-id="c3adc-198">Singleton lifetime services are created the first time they're requested (or when `ConfigureServices` is run and an instance is specified with the service registration).</span></span> <span data-ttu-id="c3adc-199">Sonraki her istek, aynı örneğini kullanır.</span><span class="sxs-lookup"><span data-stu-id="c3adc-199">Every subsequent request uses the same instance.</span></span> <span data-ttu-id="c3adc-200">Uygulama tekil davranışı gerektiriyorsa, hizmetin ömrünü yönetmek hizmet kapsayıcı izin vererek önerilir.</span><span class="sxs-lookup"><span data-stu-id="c3adc-200">If the app requires singleton behavior, allowing the service container to manage the service's lifetime is recommended.</span></span> <span data-ttu-id="c3adc-201">Yoksa, tekil tasarım desenini uygulama ve sınıfında nesnenin ömrünü yönetmek üzere kullanıcı kodunun sağlayın.</span><span class="sxs-lookup"><span data-stu-id="c3adc-201">Don't implement the singleton design pattern and provide user code to manage the object's lifetime in the class.</span></span>
 
 > [!WARNING]
-> <span data-ttu-id="6f8c6-223">Bir ara yazılımında kapsamlı bir hizmeti kullanıyorsanız hizmete Ekle `Invoke` veya `InvokeAsync` yöntemi.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-223">If you're using a scoped service in a middleware, inject the service into the `Invoke` or `InvokeAsync` method.</span></span> <span data-ttu-id="6f8c6-224">Singleton gibi davranır hizmete zorladığından Oluşturucu ekleme Ekle yok.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-224">Don't inject via constructor injection because it forces the service to behave like a singleton.</span></span>
+> <span data-ttu-id="c3adc-202">Tek bir kapsamlı hizmet çözümlenecek tehlikelidir.</span><span class="sxs-lookup"><span data-stu-id="c3adc-202">It's dangerous to resolve a scoped service from a singleton.</span></span> <span data-ttu-id="c3adc-203">Bu, sonraki istekleri işleme sırasında hatalı duruma sahip hizmetinin neden olabilir.</span><span class="sxs-lookup"><span data-stu-id="c3adc-203">It may cause the service to have incorrect state when processing subsequent requests.</span></span>
 
-<span data-ttu-id="6f8c6-225">**singleton**</span><span class="sxs-lookup"><span data-stu-id="6f8c6-225">**Singleton**</span></span>
+### <a name="constructor-injection-behavior"></a><span data-ttu-id="c3adc-204">Oluşturucu yerleştirme davranışı</span><span class="sxs-lookup"><span data-stu-id="c3adc-204">Constructor injection behavior</span></span>
 
-<span data-ttu-id="6f8c6-226">Singleton ömrü Hizmetleri istenen ilk kez oluşturulur (veya ne zaman `ConfigureServices` bir örneği var. belirtirseniz çalıştırın) ve ardından sonraki her istek aynı örneğini kullanır.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-226">Singleton lifetime services are created the first time they're requested (or when `ConfigureServices` is run if you specify an instance there) and then every subsequent request will use the same instance.</span></span> <span data-ttu-id="6f8c6-227">Uygulamanızı singleton davranışı gerektiriyorsa, hizmetin ömrünü yönetmek hizmet kapsayıcı izin vererek singleton tasarım deseni uygulama ve sınıf, nesnenin yaşam süresi kendiniz yönetmek yerine önerilir.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-227">If your application requires singleton behavior, allowing the services container to manage the service's lifetime is recommended instead of implementing the singleton design pattern and managing your object's lifetime in the class yourself.</span></span>
+<span data-ttu-id="c3adc-205">Hizmetleri iki mekanizma tarafından çözülebilir:</span><span class="sxs-lookup"><span data-stu-id="c3adc-205">Services can be resolved by two mechanisms:</span></span>
 
-<span data-ttu-id="6f8c6-228">Hizmetleri, çeşitli şekillerde kapsayıcısı ile kaydedilebilir.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-228">Services can be registered with the container in several ways.</span></span> <span data-ttu-id="6f8c6-229">Biz, zaten bir hizmet uygulaması ile belirli bir türde kullanmak için somut türde belirterek nasıl gördünüz.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-229">We have already seen how to register a service implementation with a given type by specifying the concrete type to use.</span></span> <span data-ttu-id="6f8c6-230">Ayrıca, bir Fabrika, ardından isteğe bağlı olarak örnek oluşturmak için kullanılacak olan belirtilebilir.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-230">In addition, a factory can be specified, which will then be used to create the instance on demand.</span></span> <span data-ttu-id="6f8c6-231">Üçüncü yaklaşım, kapsayıcı durumu hiçbir zaman bir örnek oluşturmaya çalışacak (ya da örneği dispose) kullanmak için türün örneğini doğrudan belirtmektir.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-231">The third approach is to directly specify the instance of the type to use, in which case the container will never attempt to create an instance (nor will it dispose of the instance).</span></span>
+* `IServiceProvider`
+* <span data-ttu-id="c3adc-206">[ActivatorUtilities](/dotnet/api/microsoft.extensions.dependencyinjection.activatorutilities) &ndash; nesne oluşturma bağımlılık ekleme kapsayıcısına hizmet kaydı olmadan izin verir.</span><span class="sxs-lookup"><span data-stu-id="c3adc-206">[ActivatorUtilities](/dotnet/api/microsoft.extensions.dependencyinjection.activatorutilities) &ndash; Permits object creation without service registration in the dependency injection container.</span></span> <span data-ttu-id="c3adc-207">`ActivatorUtilities` Etiket Yardımcıları, MVC denetleyicileri, SignalR hub'ları ve model bağlayıcılar gibi kullanıcıya yönelik soyutlama ile kullanılır.</span><span class="sxs-lookup"><span data-stu-id="c3adc-207">`ActivatorUtilities` is used with user-facing abstractions, such as Tag Helpers, MVC controllers, SignalR Hubs, and model binders.</span></span>
 
-<span data-ttu-id="6f8c6-232">Bu yaşam süresi ve kaydını seçenekleri arasındaki farkı göstermek için bir veya daha çok görev olarak temsil eden basit bir arabirim göz önünde bulundurun. bir *işlemi* benzersiz bir tanımlayıcı `OperationId`.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-232">To demonstrate the difference between these lifetime and registration options, consider a simple interface that represents one or more tasks as an *operation* with a unique identifier, `OperationId`.</span></span> <span data-ttu-id="6f8c6-233">Nasıl Biz bu hizmet için kullanım ömrünü nasıl yapılandırdığınıza bağlı olarak, kapsayıcı ya da aynı veya farklı örneklerini isteyen sınıfına hizmet sağlar.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-233">Depending on how we configure the lifetime for this service, the container will provide either the same or different instances of the service to the requesting class.</span></span> <span data-ttu-id="6f8c6-234">Hangi ömrü istenen temizleyin yapmak için bir türü ömür seçeneği başına oluşturacağız:</span><span class="sxs-lookup"><span data-stu-id="6f8c6-234">To make it clear which lifetime is being requested, we will create one type per lifetime option:</span></span>
+<span data-ttu-id="c3adc-208">Oluşturucular, bağımlılık ekleme tarafından sağlanmayan bağımsız değişkenleri kabul edebilir, ancak bağımsız değişken varsayılan değerleri atamanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="c3adc-208">Constructors can accept arguments that aren't provided by dependency injection, but the arguments must assign default values.</span></span>
 
-[!code-csharp[](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Interfaces/IOperation.cs?highlight=5-8)]
+<span data-ttu-id="c3adc-209">Ne zaman Hizmetleri çözülmüş tarafından `IServiceProvider` veya `ActivatorUtilities`, oluşturucu ekleme gerektiren bir *genel* Oluşturucusu.</span><span class="sxs-lookup"><span data-stu-id="c3adc-209">When services are resolved by `IServiceProvider` or `ActivatorUtilities`, constructor injection requires a *public* constructor.</span></span>
 
-<span data-ttu-id="6f8c6-235">Biz bu arabirimleri kullanarak tek bir sınıf uygulama `Operation`, kabul eden bir `Guid` kendi Oluşturucusu ya da yeni bir kullanır `Guid` hiçbiri sağlanmazsa.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-235">We implement these interfaces using a single class, `Operation`, that accepts a `Guid` in its constructor, or uses a new `Guid` if none is provided.</span></span>
+<span data-ttu-id="c3adc-210">Ne zaman Hizmetleri çözülmüş tarafından `ActivatorUtilities`, oluşturucu ekleme gerektirir, yalnızca bir geçerli oluşturucusu yok.</span><span class="sxs-lookup"><span data-stu-id="c3adc-210">When services are resolved by `ActivatorUtilities`, constructor injection requires that only one applicable constructor exist.</span></span> <span data-ttu-id="c3adc-211">Oluşturucu aşırı yüklemeleri tarafından desteklenir, ancak yalnızca bir aşırı yükleme bağımsız değişkenleri tüm bağımlılık ekleme tarafından yerine getirilmesi bulunabilir.</span><span class="sxs-lookup"><span data-stu-id="c3adc-211">Constructor overloads are supported, but only one overload can exist whose arguments can all be fulfilled by dependency injection.</span></span>
 
-<span data-ttu-id="6f8c6-236">Ardından `ConfigureServices`, her tür adlandırılmış yaşam göre kapsayıcı eklenir:</span><span class="sxs-lookup"><span data-stu-id="6f8c6-236">Next, in `ConfigureServices`, each type is added to the container according to its named lifetime:</span></span>
+## <a name="entity-framework-contexts"></a><span data-ttu-id="c3adc-212">Entity Framework bağlamları</span><span class="sxs-lookup"><span data-stu-id="c3adc-212">Entity Framework contexts</span></span>
 
-[!code-csharp[](dependency-injection/sample/DependencyInjectionSample/Startup.cs?range=26-32)]
+<span data-ttu-id="c3adc-213">Entity Framework bağlamları kapsamlı ömrü kullanarak hizmet kapsayıcıya eklenmesi gerekir.</span><span class="sxs-lookup"><span data-stu-id="c3adc-213">Entity Framework contexts should be added to the service container using the scoped lifetime.</span></span> <span data-ttu-id="c3adc-214">Bu otomatik olarak bir çağrı ile işlenir [AddDbContext](/dotnet/api/microsoft.extensions.dependencyinjection.entityframeworkservicecollectionextensions.adddbcontext) veritabanı bağlamı kaydederken yöntemi.</span><span class="sxs-lookup"><span data-stu-id="c3adc-214">This is handled automatically with a call to the [AddDbContext](/dotnet/api/microsoft.extensions.dependencyinjection.entityframeworkservicecollectionextensions.adddbcontext) method when registering the database context.</span></span> <span data-ttu-id="c3adc-215">Veritabanı bağlamı kullanan hizmetler ayrıca kapsamlı ömrü kullanmanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="c3adc-215">Services that use the database context should also use the scoped lifetime.</span></span>
 
-<span data-ttu-id="6f8c6-237">Unutmayın `IOperationSingletonInstance` hizmet bilinen bir kimliği ile belirli bir örneği kullanarak `Guid.Empty` bu türü (GUID'sine tümüyle sıfırlardan olacaktır) kullanımda olduğunda Temizle olur.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-237">Note that the `IOperationSingletonInstance` service is using a specific instance with a known ID of `Guid.Empty` so it will be clear when this type is in use (its Guid will be all zeroes).</span></span> <span data-ttu-id="6f8c6-238">Biz de kayıtlı bir `OperationService` her, diğer bağımlıdır `Operation` türleri temizleyin isteği içinde bu hizmet denetleyicisi ya da her işlem türü için yeni bir tane olarak aynı örneği olup olmadığını alma olmayacaktır.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-238">We have also registered an `OperationService` that depends on each of the other `Operation` types, so that it will be clear within a request whether this service is getting the same instance as the controller, or a new one, for each operation type.</span></span> <span data-ttu-id="6f8c6-239">Bu hizmeti yapar şey görünümünde görüntülenen şekilde bağımlılıklarını özellikleri olarak kullanıma sunar.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-239">All this service does is expose its dependencies as properties, so they can be displayed in the view.</span></span>
+## <a name="lifetime-and-registration-options"></a><span data-ttu-id="c3adc-216">Yaşam süresi ve kayıt seçenekleri</span><span class="sxs-lookup"><span data-stu-id="c3adc-216">Lifetime and registration options</span></span>
 
-[!code-csharp[](dependency-injection/sample/DependencyInjectionSample/Services/OperationService.cs)]
+<span data-ttu-id="c3adc-217">Yaşam süresi ve kayıt seçenekleri arasındaki farkı göstermek için benzersiz bir tanımlayıcıya sahip bir işlem olarak görevleri temsil eden aşağıdaki arabirimlerinden göz önünde bulundurun. `OperationId`.</span><span class="sxs-lookup"><span data-stu-id="c3adc-217">To demonstrate the difference between the lifetime and registration options, consider the following interfaces that represent tasks as an operation with a unique identifier, `OperationId`.</span></span> <span data-ttu-id="c3adc-218">Kapsayıcı, bir işlem hizmeti kullanım ömrü için aşağıdaki arabirimlerinden nasıl yapılandırıldığına bağlı olarak, aynı veya farklı bir örneğine bir sınıf tarafından istendiğinde hizmetinin sağlar:</span><span class="sxs-lookup"><span data-stu-id="c3adc-218">Depending on how the lifetime of an operations service is configured for the following interfaces, the container provides either the same or a different instance of the service when requested by a class:</span></span>
 
-<span data-ttu-id="6f8c6-240">Nesne yaşam süresi içinde ve uygulama için ayrı ayrı istekler arasında göstermek için örnek içeren bir `OperationsController` her tür isteklerine `IOperation` türü yanı sıra bir `OperationService`.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-240">To demonstrate the object lifetimes within and between separate individual requests to the application, the sample includes an `OperationsController` that requests each kind of `IOperation` type as well as an `OperationService`.</span></span> <span data-ttu-id="6f8c6-241">`Index` Sonra eylemi görüntüler tüm denetleyicinin ve hizmetin `OperationId` değerleri.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-241">The `Index` action then displays all of the controller's and service's `OperationId` values.</span></span>
+::: moniker range=">= aspnetcore-2.1"
 
-[!code-csharp[](dependency-injection/sample/DependencyInjectionSample/Controllers/OperationsController.cs)]
+[!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Interfaces/IOperation.cs?name=snippet1)]
 
-<span data-ttu-id="6f8c6-242">Şimdi iki ayrı Bu denetleyici eylemi için yapılan isteklerinin:</span><span class="sxs-lookup"><span data-stu-id="6f8c6-242">Now two separate requests are made to this controller action:</span></span>
+::: moniker-end
 
-![Microsoft Edge geçici, kapsamındaki, tek ve örnek denetleyicisi ve işlem hizmeti işlemleri için ilk istek işlemi kimliği değerleri (GUID'ın) gösteren çalışan bağımlılık ekleme örnek web uygulaması işlemleri görünümü.](dependency-injection/_static/lifetimes_request1.png)
+::: moniker range="<= aspnetcore-2.0"
 
-![İkinci bir istek için işlem kimliği değerleri gösteren işlemlerini görüntüleyin.](dependency-injection/_static/lifetimes_request2.png)
+[!code-csharp[](dependency-injection/samples/1.x/DependencyInjectionSample/Interfaces/IOperation.cs?name=snippet1)]
 
-<span data-ttu-id="6f8c6-245">Hangi gözlemlemek `OperationId` değerleri, bir istek içinde ve istekler arasında değişir.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-245">Observe which of the `OperationId` values vary within a request, and between requests.</span></span>
+::: moniker-end
 
-* <span data-ttu-id="6f8c6-246">*Geçici* nesneleri farklı her zaman; her denetleyici ve her hizmet için yeni bir örnek sağlanır.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-246">*Transient* objects are always different; a new instance is provided to every controller and every service.</span></span>
+<span data-ttu-id="c3adc-219">Arabirimler uygulanan `Operation` sınıfı.</span><span class="sxs-lookup"><span data-stu-id="c3adc-219">The interfaces are implemented in the `Operation` class.</span></span> <span data-ttu-id="c3adc-220">`Operation` Oluşturucusu bir sağlanan değilse bir GUID oluşturur:</span><span class="sxs-lookup"><span data-stu-id="c3adc-220">The `Operation` constructor generates a GUID if one isn't supplied:</span></span>
 
-* <span data-ttu-id="6f8c6-247">*Kapsamlı* nesneleri aynıdır ancak farklı istekler arasında farklı bir istek içinde</span><span class="sxs-lookup"><span data-stu-id="6f8c6-247">*Scoped* objects are the same within a request, but different across different requests</span></span>
+::: moniker range=">= aspnetcore-2.1"
 
-* <span data-ttu-id="6f8c6-248">*Singleton* nesneleridir aynı her nesne ve her istek için (örneği içinde olup olmadığını sağlanan bağımsız olarak `ConfigureServices`)</span><span class="sxs-lookup"><span data-stu-id="6f8c6-248">*Singleton* objects are the same for every object and every request (regardless of whether an instance is provided in `ConfigureServices`)</span></span>
+[!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Models/Operation.cs?name=snippet1)]
 
-## <a name="resolve-a-scoped-service-within-the-application-scope"></a><span data-ttu-id="6f8c6-249">Uygulama kapsamındaki kapsamlı hizmetinin çözümleyin</span><span class="sxs-lookup"><span data-stu-id="6f8c6-249">Resolve a scoped service within the application scope</span></span>
+::: moniker-end
 
-<span data-ttu-id="6f8c6-250">Oluşturma bir [IServiceScope](/dotnet/api/microsoft.extensions.dependencyinjection.iservicescope) ile [IServiceScopeFactory.CreateScope](/dotnet/api/microsoft.extensions.dependencyinjection.iservicescopefactory.createscope) uygulamanın kapsam içinde kapsamlı bir hizmeti çözümlemek için.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-250">Create an [IServiceScope](/dotnet/api/microsoft.extensions.dependencyinjection.iservicescope) with [IServiceScopeFactory.CreateScope](/dotnet/api/microsoft.extensions.dependencyinjection.iservicescopefactory.createscope) to resolve a scoped service within the app's scope.</span></span> <span data-ttu-id="6f8c6-251">Bu yaklaşım başlatma görevleri çalıştırmak için başlangıçta kapsamlı bir hizmete erişmek kullanışlıdır.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-251">This approach is useful to access a scoped service at startup to run initialization tasks.</span></span> <span data-ttu-id="6f8c6-252">Aşağıdaki örnekte bir bağlam için edinmeyi gösteren `MyScopedService` içinde `Program.Main`:</span><span class="sxs-lookup"><span data-stu-id="6f8c6-252">The following example shows how to obtain a context for the `MyScopedService` in `Program.Main`:</span></span>
+::: moniker range="<= aspnetcore-2.0"
+
+[!code-csharp[](dependency-injection/samples/1.x/DependencyInjectionSample/Models/Operation.cs?name=snippet1)]
+
+::: moniker-end
+
+<span data-ttu-id="c3adc-221">Bir `OperationService` kayıtlı, bağlı her diğer `Operation` türleri.</span><span class="sxs-lookup"><span data-stu-id="c3adc-221">An `OperationService` is registered that depends on each of the other `Operation` types.</span></span> <span data-ttu-id="c3adc-222">Zaman `OperationService` istenen bağımlılık ekleme aldığı her hizmetin yeni bir örneğini veya bağımlı hizmetin lifetime öğesine göre var olan bir örneği.</span><span class="sxs-lookup"><span data-stu-id="c3adc-222">When `OperationService` is requested via dependency injection, it receives either a new instance of each service or an existing instance based on the lifetime of the dependent service.</span></span>
+
+* <span data-ttu-id="c3adc-223">İstendiğinde, geçici Hizmetleri oluşturulursa `OperationsId` , `IOperationTransient` hizmetidir farklı `OperationsId` , `OperationService`.</span><span class="sxs-lookup"><span data-stu-id="c3adc-223">If transient services are created when requested, the `OperationsId` of the `IOperationTransient` service is different than the `OperationsId` of the `OperationService`.</span></span> <span data-ttu-id="c3adc-224">`OperationService` Yeni bir örneğini alır `IOperationTransient` sınıfı.</span><span class="sxs-lookup"><span data-stu-id="c3adc-224">`OperationService` receives a new instance of the `IOperationTransient` class.</span></span> <span data-ttu-id="c3adc-225">Yeni örnek farklı bir verir `OperationsId`.</span><span class="sxs-lookup"><span data-stu-id="c3adc-225">The new instance yields a different `OperationsId`.</span></span>
+* <span data-ttu-id="c3adc-226">İstek başına kapsamlı Hizmetleri oluşturduysanız `OperationsId` , `IOperationScoped` hizmeti aynı olan `OperationService` istek içinde.</span><span class="sxs-lookup"><span data-stu-id="c3adc-226">If scoped services are created per request, the `OperationsId` of the `IOperationScoped` service is the same as that of `OperationService` within a request.</span></span> <span data-ttu-id="c3adc-227">Her iki hizmete istekler genelinde farklı bir paylaşım `OperationsId` değeri.</span><span class="sxs-lookup"><span data-stu-id="c3adc-227">Across requests, both services share a different `OperationsId` value.</span></span>
+* <span data-ttu-id="c3adc-228">Singleton ve tek örnekli Hizmetleri oluşturulduktan sonra ve tüm istekler ve tüm hizmetlerde kullanılan `OperationsId` tüm hizmet istekler genelinde sabittir.</span><span class="sxs-lookup"><span data-stu-id="c3adc-228">If singleton and singleton-instance services are created once and used across all requests and all services, the `OperationsId` is constant across all service requests.</span></span>
+
+::: moniker range=">= aspnetcore-2.1"
+
+[!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Services/OperationService.cs?name=snippet1)]
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-2.0"
+
+[!code-csharp[](dependency-injection/samples/1.x/DependencyInjectionSample/Services/OperationService.cs?name=snippet1)]
+
+::: moniker-end
+
+<span data-ttu-id="c3adc-229">İçinde `Startup.ConfigureServices`, her tür kapsayıcı adlandırılmış ömrü göre eklenir:</span><span class="sxs-lookup"><span data-stu-id="c3adc-229">In `Startup.ConfigureServices`, each type is added to the container according to its named lifetime:</span></span>
+
+::: moniker range=">= aspnetcore-2.1"
+
+[!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Startup.cs?name=snippet1&highlight=12-15,18)]
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-2.0"
+
+[!code-csharp[](dependency-injection/samples/1.x/DependencyInjectionSample/Startup.cs?name=snippet1&highlight=6-9,12)]
+
+::: moniker-end
+
+<span data-ttu-id="c3adc-230">`IOperationSingletonInstance` Hizmetinin belirli bir örneği, bilinen bir kimliği ile kullandığı `Guid.Empty`.</span><span class="sxs-lookup"><span data-stu-id="c3adc-230">The `IOperationSingletonInstance` service is using a specific instance with a known ID of `Guid.Empty`.</span></span> <span data-ttu-id="c3adc-231">Bu tür (GUID'sine sıfır olur) kullanımda olmadığında işaretlenmemiştir.</span><span class="sxs-lookup"><span data-stu-id="c3adc-231">It's clear when this type is in use (its GUID is all zeroes).</span></span>
+
+::: moniker range=">= aspnetcore-2.1"
+
+<span data-ttu-id="c3adc-232">Örnek uygulama, nesne kullanım ömrü içindeki ve arasındaki tek tek istekleri gösterir.</span><span class="sxs-lookup"><span data-stu-id="c3adc-232">The sample app demonstrates object lifetimes within and between individual requests.</span></span> <span data-ttu-id="c3adc-233">Örnek uygulamanın `IndexModel` her tür istekleri `IOperation` türü ve `OperationService`.</span><span class="sxs-lookup"><span data-stu-id="c3adc-233">The sample app's `IndexModel` requests each kind of `IOperation` type and the `OperationService`.</span></span> <span data-ttu-id="c3adc-234">Sayfa sonra tüm sayfa modeli sınıfın ve hizmetin görüntüler `OperationId` özelliği aracılığıyla değerleri:</span><span class="sxs-lookup"><span data-stu-id="c3adc-234">The page then displays all of the page model class's and service's `OperationId` values through property assignments:</span></span>
+
+[!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Pages/Index.cshtml.cs?name=snippet1&highlight=7-11,14-18,21-25)]
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-2.0"
+
+<span data-ttu-id="c3adc-235">Örnek uygulama, nesne kullanım ömrü içindeki ve arasındaki tek tek istekleri gösterir.</span><span class="sxs-lookup"><span data-stu-id="c3adc-235">The sample app demonstrates object lifetimes within and between individual requests.</span></span> <span data-ttu-id="c3adc-236">Örnek uygulamayı içeren bir `OperationsController` her tür isteklerine `IOperation` türü ve `OperationService`.</span><span class="sxs-lookup"><span data-stu-id="c3adc-236">The sample app includes an `OperationsController` that requests each kind of `IOperation` type and the `OperationService`.</span></span> <span data-ttu-id="c3adc-237">`Index` Eylem ayarlar hizmetlerine `ViewBag` hizmetin görüntülenmesi için `OperationId` değerleri:</span><span class="sxs-lookup"><span data-stu-id="c3adc-237">The `Index` action sets the services into the `ViewBag` for display of the service's `OperationId` values:</span></span>
+
+[!code-csharp[](dependency-injection/samples/1.x/DependencyInjectionSample/Controllers/OperationsController.cs?name=snippet1)]
+
+::: moniker-end
+
+<span data-ttu-id="c3adc-238">İki aşağıdaki çıktıda gösterildiği iki isteği sonuçları:</span><span class="sxs-lookup"><span data-stu-id="c3adc-238">Two following output shows the results of two requests:</span></span>
+
+<span data-ttu-id="c3adc-239">**İlk istek:**</span><span class="sxs-lookup"><span data-stu-id="c3adc-239">**First request:**</span></span>
+
+<span data-ttu-id="c3adc-240">Denetleyici işlemler:</span><span class="sxs-lookup"><span data-stu-id="c3adc-240">Controller operations:</span></span>
+
+<span data-ttu-id="c3adc-241">Geçici: d233e165-f417-469b-a866-1cf1935d2518</span><span class="sxs-lookup"><span data-stu-id="c3adc-241">Transient: d233e165-f417-469b-a866-1cf1935d2518</span></span>  
+<span data-ttu-id="c3adc-242">Kapsamlı: 5d997e2d-55f5-4a64-8388-51c4e3a1ad19</span><span class="sxs-lookup"><span data-stu-id="c3adc-242">Scoped: 5d997e2d-55f5-4a64-8388-51c4e3a1ad19</span></span>  
+<span data-ttu-id="c3adc-243">Singleton: 01271bc1-9e31-48e7-8f7c-7261b040ded9</span><span class="sxs-lookup"><span data-stu-id="c3adc-243">Singleton: 01271bc1-9e31-48e7-8f7c-7261b040ded9</span></span>  
+<span data-ttu-id="c3adc-244">Örnek: 00000000-0000-0000-0000-000000000000</span><span class="sxs-lookup"><span data-stu-id="c3adc-244">Instance: 00000000-0000-0000-0000-000000000000</span></span>
+
+<span data-ttu-id="c3adc-245">`OperationService` İşlemler:</span><span class="sxs-lookup"><span data-stu-id="c3adc-245">`OperationService` operations:</span></span>
+
+<span data-ttu-id="c3adc-246">Geçici: c6b049eb-1318-4e31-90f1-eb2dd849ff64</span><span class="sxs-lookup"><span data-stu-id="c3adc-246">Transient: c6b049eb-1318-4e31-90f1-eb2dd849ff64</span></span>  
+<span data-ttu-id="c3adc-247">Kapsamlı: 5d997e2d-55f5-4a64-8388-51c4e3a1ad19</span><span class="sxs-lookup"><span data-stu-id="c3adc-247">Scoped: 5d997e2d-55f5-4a64-8388-51c4e3a1ad19</span></span>  
+<span data-ttu-id="c3adc-248">Singleton: 01271bc1-9e31-48e7-8f7c-7261b040ded9</span><span class="sxs-lookup"><span data-stu-id="c3adc-248">Singleton: 01271bc1-9e31-48e7-8f7c-7261b040ded9</span></span>  
+<span data-ttu-id="c3adc-249">Örnek: 00000000-0000-0000-0000-000000000000</span><span class="sxs-lookup"><span data-stu-id="c3adc-249">Instance: 00000000-0000-0000-0000-000000000000</span></span>
+
+<span data-ttu-id="c3adc-250">**İkinci isteği:**</span><span class="sxs-lookup"><span data-stu-id="c3adc-250">**Second request:**</span></span>
+
+<span data-ttu-id="c3adc-251">Denetleyici işlemler:</span><span class="sxs-lookup"><span data-stu-id="c3adc-251">Controller operations:</span></span>
+
+<span data-ttu-id="c3adc-252">Geçici: b63bd538-0a37-4ff1-90ba-081c5138dda0</span><span class="sxs-lookup"><span data-stu-id="c3adc-252">Transient: b63bd538-0a37-4ff1-90ba-081c5138dda0</span></span>  
+<span data-ttu-id="c3adc-253">Kapsamlı: 31e820c5-4834-4d22-83fc-a60118acb9f4</span><span class="sxs-lookup"><span data-stu-id="c3adc-253">Scoped: 31e820c5-4834-4d22-83fc-a60118acb9f4</span></span>  
+<span data-ttu-id="c3adc-254">Singleton: 01271bc1-9e31-48e7-8f7c-7261b040ded9</span><span class="sxs-lookup"><span data-stu-id="c3adc-254">Singleton: 01271bc1-9e31-48e7-8f7c-7261b040ded9</span></span>  
+<span data-ttu-id="c3adc-255">Örnek: 00000000-0000-0000-0000-000000000000</span><span class="sxs-lookup"><span data-stu-id="c3adc-255">Instance: 00000000-0000-0000-0000-000000000000</span></span>
+
+<span data-ttu-id="c3adc-256">`OperationService` İşlemler:</span><span class="sxs-lookup"><span data-stu-id="c3adc-256">`OperationService` operations:</span></span>
+
+<span data-ttu-id="c3adc-257">Geçici: c4cbacb8-36a2-436d-81c8-8c1b78808aaf</span><span class="sxs-lookup"><span data-stu-id="c3adc-257">Transient: c4cbacb8-36a2-436d-81c8-8c1b78808aaf</span></span>  
+<span data-ttu-id="c3adc-258">Kapsamlı: 31e820c5-4834-4d22-83fc-a60118acb9f4</span><span class="sxs-lookup"><span data-stu-id="c3adc-258">Scoped: 31e820c5-4834-4d22-83fc-a60118acb9f4</span></span>  
+<span data-ttu-id="c3adc-259">Singleton: 01271bc1-9e31-48e7-8f7c-7261b040ded9</span><span class="sxs-lookup"><span data-stu-id="c3adc-259">Singleton: 01271bc1-9e31-48e7-8f7c-7261b040ded9</span></span>  
+<span data-ttu-id="c3adc-260">Örnek: 00000000-0000-0000-0000-000000000000</span><span class="sxs-lookup"><span data-stu-id="c3adc-260">Instance: 00000000-0000-0000-0000-000000000000</span></span>
+
+<span data-ttu-id="c3adc-261">Hangi gözlemleyin `OperationId` değerleri, bir istek içinde ve istekler arasında değişir:</span><span class="sxs-lookup"><span data-stu-id="c3adc-261">Observe which of the `OperationId` values vary within a request and between requests:</span></span>
+
+* <span data-ttu-id="c3adc-262">*Geçici* nesneleri farklı her zaman.</span><span class="sxs-lookup"><span data-stu-id="c3adc-262">*Transient* objects are always different.</span></span> <span data-ttu-id="c3adc-263">Unutmayın geçici `OperationId` için birinci ve ikinci istekleri için her ikisi de farklı bir değer `OperationService` işlemleri ve istekleri arasında.</span><span class="sxs-lookup"><span data-stu-id="c3adc-263">Note that the transient `OperationId` value for both the first and second requests are different for both `OperationService` operations and across requests.</span></span> <span data-ttu-id="c3adc-264">Her bir hizmet ve istek için yeni bir örnek sağlanmaktadır.</span><span class="sxs-lookup"><span data-stu-id="c3adc-264">A new instance is provided to each service and request.</span></span>
+* <span data-ttu-id="c3adc-265">*Kapsamlı* nesneleri, ancak farklı bir istek içinde aynı istekler arasında.</span><span class="sxs-lookup"><span data-stu-id="c3adc-265">*Scoped* objects are the same within a request but different across requests.</span></span>
+* <span data-ttu-id="c3adc-266">*Singleton* nesneleri, her nesne ve bağımsız olarak her istek için aynı bir `Operation` örneği sağlanır `ConfigureServices`.</span><span class="sxs-lookup"><span data-stu-id="c3adc-266">*Singleton* objects are the same for every object and every request regardless of whether an `Operation` instance is provided in `ConfigureServices`.</span></span>
+
+## <a name="call-services-from-main"></a><span data-ttu-id="c3adc-267">Ana arama hizmetleri</span><span class="sxs-lookup"><span data-stu-id="c3adc-267">Call services from main</span></span>
+
+<span data-ttu-id="c3adc-268">Oluşturma bir [IServiceScope](/dotnet/api/microsoft.extensions.dependencyinjection.iservicescope) ile [IServiceScopeFactory.CreateScope](/dotnet/api/microsoft.extensions.dependencyinjection.iservicescopefactory.createscope) uygulamanın kapsamı içinde kapsamlı bir hizmet çözümlenecek.</span><span class="sxs-lookup"><span data-stu-id="c3adc-268">Create an [IServiceScope](/dotnet/api/microsoft.extensions.dependencyinjection.iservicescope) with [IServiceScopeFactory.CreateScope](/dotnet/api/microsoft.extensions.dependencyinjection.iservicescopefactory.createscope) to resolve a scoped service within the app's scope.</span></span> <span data-ttu-id="c3adc-269">Bu yaklaşım, başlangıçta başlatma görevleri çalıştırmak için kapsamlı bir hizmete erişmek yararlıdır.</span><span class="sxs-lookup"><span data-stu-id="c3adc-269">This approach is useful to access a scoped service at startup to run initialization tasks.</span></span> <span data-ttu-id="c3adc-270">Aşağıdaki örnek için bir bağlam elde etme gösterir `MyScopedService` içinde `Program.Main`:</span><span class="sxs-lookup"><span data-stu-id="c3adc-270">The following example shows how to obtain a context for the `MyScopedService` in `Program.Main`:</span></span>
 
 ```csharp
 public static void Main(string[] args)
 {
-    var host = BuildWebHost(args);
+    var host = CreateWebHostBuilder(args).Build();
 
     using (var serviceScope = host.Services.CreateScope())
     {
@@ -221,48 +404,52 @@ public static void Main(string[] args)
 }
 ```
 
-## <a name="scope-validation"></a><span data-ttu-id="6f8c6-253">Kapsam doğrulama</span><span class="sxs-lookup"><span data-stu-id="6f8c6-253">Scope validation</span></span>
+## <a name="scope-validation"></a><span data-ttu-id="c3adc-271">Kapsam doğrulama</span><span class="sxs-lookup"><span data-stu-id="c3adc-271">Scope validation</span></span>
 
-<span data-ttu-id="6f8c6-254">Uygulama geliştirme ortamında ASP.NET Core 2.0 veya sonraki sürümlerde çalıştırırken, varsayılan hizmet sağlayıcısı doğrulamak üzere denetler:</span><span class="sxs-lookup"><span data-stu-id="6f8c6-254">When the app is running in the Development environment on ASP.NET Core 2.0 or later, the default service provider performs checks to verify that:</span></span>
+::: moniker range=">= aspnetcore-2.0"
 
-* <span data-ttu-id="6f8c6-255">Kapsamlı Hizmetleri doğrudan veya dolaylı olarak kök servis sağlayıcısı'ndan çözülmüş değil.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-255">Scoped services aren't directly or indirectly resolved from the root service provider.</span></span>
-* <span data-ttu-id="6f8c6-256">Kapsamlı Hizmetleri doğrudan veya dolaylı olarak teklileri eklenen değil.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-256">Scoped services aren't directly or indirectly injected into singletons.</span></span>
+<span data-ttu-id="c3adc-272">Uygulama geliştirme ortamında çalışırken, varsayılan hizmet sağlayıcısını doğrulamak için denetimleri gerçekleştirir:</span><span class="sxs-lookup"><span data-stu-id="c3adc-272">When the app is running in the Development environment, the default service provider performs checks to verify that:</span></span>
 
-<span data-ttu-id="6f8c6-257">Kök hizmet sağlayıcısı oluşturulur [BuildServiceProvider](/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectioncontainerbuilderextensions.buildserviceprovider) olarak adlandırılır.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-257">The root service provider is created when [BuildServiceProvider](/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectioncontainerbuilderextensions.buildserviceprovider) is called.</span></span> <span data-ttu-id="6f8c6-258">Kök hizmet sağlayıcısının ömrü zaman sağlayıcı uygulamayla başlatır ve uygulamayı kapatıldığında atıldı uygulama/sunucusunun ömrü karşılık gelir.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-258">The root service provider's lifetime corresponds to the app/server's lifetime when the provider starts with the app and is disposed when the app shuts down.</span></span>
+* <span data-ttu-id="c3adc-273">Kapsamlı Hizmetleri doğrudan veya dolaylı olarak kök hizmet sağlayıcısından çözülmüş değildir.</span><span class="sxs-lookup"><span data-stu-id="c3adc-273">Scoped services aren't directly or indirectly resolved from the root service provider.</span></span>
+* <span data-ttu-id="c3adc-274">Kapsamlı Hizmetleri doğrudan veya dolaylı olarak teklileri eklenen değildir.</span><span class="sxs-lookup"><span data-stu-id="c3adc-274">Scoped services aren't directly or indirectly injected into singletons.</span></span>
 
-<span data-ttu-id="6f8c6-259">Kapsamlı Hizmetleri oluşturuldukları kapsayıcı tarafından elden.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-259">Scoped services are disposed by the container that created them.</span></span> <span data-ttu-id="6f8c6-260">Kapsamlı bir hizmet kök kapsayıcısında oluşturduysanız, uygulama/sunucu kapatıldığında yalnızca kök kapsayıcı tarafından atıldı çünkü hizmetin ömrü tekliye etkili bir şekilde yükseltildi.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-260">If a scoped service is created in the root container, the service's lifetime is effectively promoted to singleton because it's only disposed by the root container when app/server is shut down.</span></span> <span data-ttu-id="6f8c6-261">Hizmet kapsamları doğrulama yakalar bu durumlarda, `BuildServiceProvider` olarak adlandırılır.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-261">Validating service scopes catches these situations when `BuildServiceProvider` is called.</span></span>
+::: moniker-end
 
-<span data-ttu-id="6f8c6-262">Daha fazla bilgi için bkz: [kapsam Web ana bilgisayarı konusunda doğrulama](xref:fundamentals/host/web-host#scope-validation).</span><span class="sxs-lookup"><span data-stu-id="6f8c6-262">For more information, see [Scope validation in the Web Host topic](xref:fundamentals/host/web-host#scope-validation).</span></span>
+<span data-ttu-id="c3adc-275">Kök hizmet sağlayıcısı oluşturulur [BuildServiceProvider](/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectioncontainerbuilderextensions.buildserviceprovider) çağrılır.</span><span class="sxs-lookup"><span data-stu-id="c3adc-275">The root service provider is created when [BuildServiceProvider](/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectioncontainerbuilderextensions.buildserviceprovider) is called.</span></span> <span data-ttu-id="c3adc-276">Kök hizmet sağlayıcısının bir ömür zaman sağlayıcısı uygulamayla başlar ve uygulama kapatıldığında atıldı uygulama/sunucusunun ömrü karşılık gelir.</span><span class="sxs-lookup"><span data-stu-id="c3adc-276">The root service provider's lifetime corresponds to the app/server's lifetime when the provider starts with the app and is disposed when the app shuts down.</span></span>
 
-## <a name="request-services"></a><span data-ttu-id="6f8c6-263">İstek Hizmetleri</span><span class="sxs-lookup"><span data-stu-id="6f8c6-263">Request Services</span></span>
+<span data-ttu-id="c3adc-277">Kapsamlı Hizmetleri, onları oluşturan kapsayıcı tarafından elden çıkarılmasını.</span><span class="sxs-lookup"><span data-stu-id="c3adc-277">Scoped services are disposed by the container that created them.</span></span> <span data-ttu-id="c3adc-278">Kapsamlı bir hizmet içinde kök kapsayıcı oluşturduysanız, uygulama/sunucu kapatıldığında yalnızca kök kapsayıcı tarafından bırakılmadan olduğundan hizmet ömrü tekliye etkili bir şekilde yükseltilir.</span><span class="sxs-lookup"><span data-stu-id="c3adc-278">If a scoped service is created in the root container, the service's lifetime is effectively promoted to singleton because it's only disposed by the root container when app/server is shut down.</span></span> <span data-ttu-id="c3adc-279">Hizmet kapsamları doğrulama yakalar bu gibi durumlarda, `BuildServiceProvider` çağrılır.</span><span class="sxs-lookup"><span data-stu-id="c3adc-279">Validating service scopes catches these situations when `BuildServiceProvider` is called.</span></span>
 
-<span data-ttu-id="6f8c6-264">Bir ASP.NET içinde kullanılabilir hizmetler isteği `HttpContext` aracılığıyla sunulan `RequestServices` koleksiyonu.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-264">The services available within an ASP.NET request from `HttpContext` are exposed through the `RequestServices` collection.</span></span>
+<span data-ttu-id="c3adc-280">Daha fazla bilgi için bkz. <xref:fundamentals/host/web-host#scope-validation>.</span><span class="sxs-lookup"><span data-stu-id="c3adc-280">For more information, see <xref:fundamentals/host/web-host#scope-validation>.</span></span>
 
-![İstek Hizmetleri alır veya ayarlar isteğin hizmet kapsayıcısı erişim sağlayan IServiceProvider belirten HttpContext isteği Hizmetleri IntelliSense bağlamsal iletişim kutusu.](dependency-injection/_static/request-services.png)
+## <a name="request-services"></a><span data-ttu-id="c3adc-281">Hizmet isteği</span><span class="sxs-lookup"><span data-stu-id="c3adc-281">Request Services</span></span>
 
-<span data-ttu-id="6f8c6-266">İstek hizmetleri yapılandırmak ve uygulamanızı bir parçası olarak istek Hizmetleri temsil eder.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-266">Request Services represent the services you configure and request as part of your application.</span></span> <span data-ttu-id="6f8c6-267">Nesnelerinizi bağımlılıklarını belirttiğinizde, bunlar bulunan tür tarafından karşılanır `RequestServices`değil `ApplicationServices`.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-267">When your objects specify dependencies, these are satisfied by the types found in `RequestServices`, not `ApplicationServices`.</span></span>
+<span data-ttu-id="c3adc-282">Bir ASP.NET Core içinde kullanılabilen hizmetler request `HttpContext` aracılığıyla kullanıma [HttpContext.RequestServices](/dotnet/api/microsoft.aspnetcore.http.httpcontext.requestservices) koleksiyonu.</span><span class="sxs-lookup"><span data-stu-id="c3adc-282">The services available within an ASP.NET Core request from `HttpContext` are exposed through the [HttpContext.RequestServices](/dotnet/api/microsoft.aspnetcore.http.httpcontext.requestservices) collection.</span></span>
 
-<span data-ttu-id="6f8c6-268">Genellikle, bunun yerine sınıfınızın oluşturucu aracılığıyla gerektiren sınıflarınızı istek türleri tercih ederek ve bu bağımlılıklar Ekle framework izin vererek, doğrudan bu özellikleri kullanmamalısınız.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-268">Generally, you shouldn't use these properties directly, preferring instead to request the types your classes you require via your class's constructor, and letting the framework inject these dependencies.</span></span> <span data-ttu-id="6f8c6-269">Bu test etmek daha kolay olan sınıfları verir (bkz [Test ve hata ayıklama](xref:test/index)) ve daha geniş bağlı değildir.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-269">This yields classes that are easier to test (see [Test and debug](xref:test/index)) and are more loosely coupled.</span></span>
+<span data-ttu-id="c3adc-283">İstek Hizmetleri yapılandırılmış ve uygulamanın bir parçası istenen Hizmetleri temsil eder.</span><span class="sxs-lookup"><span data-stu-id="c3adc-283">Request Services represent the services configured and requested as part of the app.</span></span> <span data-ttu-id="c3adc-284">Nesneleri bağımlılıkları belirttiğinizde, bu bulunan türleri tarafından karşılandığından `RequestServices`değil `ApplicationServices`.</span><span class="sxs-lookup"><span data-stu-id="c3adc-284">When the objects specify dependencies, these are satisfied by the types found in `RequestServices`, not `ApplicationServices`.</span></span>
+
+<span data-ttu-id="c3adc-285">Genel olarak, uygulamayı doğrudan bu özellikleri kullanmamalısınız.</span><span class="sxs-lookup"><span data-stu-id="c3adc-285">Generally, the app shouldn't use these properties directly.</span></span> <span data-ttu-id="c3adc-286">Bunun yerine, sınıfları sınıf oluşturucuları gerektirir ve framework izin türlerini bağımlılıkları ekleme isteği.</span><span class="sxs-lookup"><span data-stu-id="c3adc-286">Instead, request the types that classes require via class constructors and allow the framework inject the dependencies.</span></span> <span data-ttu-id="c3adc-287">Bu, test etmek daha kolay sınıfları sağlar (bkz [Test ve hata ayıklama](xref:test/index) konuları).</span><span class="sxs-lookup"><span data-stu-id="c3adc-287">This yields classes that are easier to test (see the [Test and debug](xref:test/index) topics).</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="6f8c6-270">Erişim için Oluşturucusu parametre olarak bağımlılıkları isteyen tercih `RequestServices` koleksiyonu.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-270">Prefer requesting dependencies as constructor parameters to accessing the `RequestServices` collection.</span></span>
+> <span data-ttu-id="c3adc-288">Erişim için oluşturucu parametresi olarak bağımlılıkları isteyen tercih `RequestServices` koleksiyonu.</span><span class="sxs-lookup"><span data-stu-id="c3adc-288">Prefer requesting dependencies as constructor parameters to accessing the `RequestServices` collection.</span></span>
 
-## <a name="designing-services-for-dependency-injection"></a><span data-ttu-id="6f8c6-271">Bağımlılık ekleme Hizmetleri Tasarlama</span><span class="sxs-lookup"><span data-stu-id="6f8c6-271">Designing services for dependency injection</span></span>
+## <a name="design-services-for-dependency-injection"></a><span data-ttu-id="c3adc-289">Tasarım Hizmetleri için bağımlılık ekleme</span><span class="sxs-lookup"><span data-stu-id="c3adc-289">Design services for dependency injection</span></span>
 
-<span data-ttu-id="6f8c6-272">Bağımlılık ekleme kendi ortak çalışanlar almak için kullanılacak hizmetlerinizi tasarlamanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-272">You should design your services to use dependency injection to get their collaborators.</span></span> <span data-ttu-id="6f8c6-273">Bu durum bilgisi olan statik yöntem çağrılarını kullanımını önleme anlamına gelir (hangi neden olarak bilinen bir kod kokusu [statik cling](http://deviq.com/static-cling/)) ve hizmetlerinizi içinde bağımlı sınıfların doğrudan örnek oluşturma.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-273">This means avoiding the use of stateful static method calls (which result in a code smell known as [static cling](http://deviq.com/static-cling/)) and the direct instantiation of dependent classes within your services.</span></span> <span data-ttu-id="6f8c6-274">Tümcecik anımsaması yardımcı olabilecek [Birleştirici yenilikleri](https://ardalis.com/new-is-glue), bir türü örneği mi, yoksa bağımlılık ekleme istemek için seçerken.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-274">It may help to remember the phrase, [New is Glue](https://ardalis.com/new-is-glue), when choosing whether to instantiate a type or to request it via dependency injection.</span></span> <span data-ttu-id="6f8c6-275">İzleyerek [DÜZ ilkeler, nesne yönelimli tasarımı](http://deviq.com/solid/), sınıflarınızı doğal olarak küçük, iyi faktörlere göre ve kolayca sınanan olma eğilimindedir.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-275">By following the [SOLID Principles of Object Oriented Design](http://deviq.com/solid/), your classes will naturally tend to be small, well-factored, and easily tested.</span></span>
+<span data-ttu-id="c3adc-290">İçin en iyi uygulamalar şunlardır:</span><span class="sxs-lookup"><span data-stu-id="c3adc-290">Best practices are to:</span></span>
 
-<span data-ttu-id="6f8c6-276">Ne sınıflarınızı şekilde eklenmiş olan çok sayıda bağımlılıklara sahip olma eğilimi gösterir bulduğunuz?</span><span class="sxs-lookup"><span data-stu-id="6f8c6-276">What if you find that your classes tend to have way too many dependencies being injected?</span></span> <span data-ttu-id="6f8c6-277">Bu, genellikle sınıfınız çok işlemini yapmaya çalışan ve büyük olasılıkla SRP - ihlal eden bir oturum [tek sorumluluk ilkesine](http://deviq.com/single-responsibility-principle/).</span><span class="sxs-lookup"><span data-stu-id="6f8c6-277">This is generally a sign that your class is trying to do too much, and is probably violating SRP - the [Single Responsibility Principle](http://deviq.com/single-responsibility-principle/).</span></span> <span data-ttu-id="6f8c6-278">Yeni bir sınıf bazı sorumlulukları taşıyarak sınıfı yeniden varsa bkz.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-278">See if you can refactor the class by moving some of its responsibilities into a new class.</span></span> <span data-ttu-id="6f8c6-279">Unutmayın, `Controller` sınıfları odaklanmış, UI sorunlarını iş kuralları ve veri erişim uygulama ayrıntılarını bunları uygun sınıflardaki tutulması gerektiği şekilde [ayrı sorunları](http://deviq.com/separation-of-concerns/).</span><span class="sxs-lookup"><span data-stu-id="6f8c6-279">Keep in mind that your `Controller` classes should be focused on UI concerns, so business rules and data access implementation details should be kept in classes appropriate to these [separate concerns](http://deviq.com/separation-of-concerns/).</span></span>
+* <span data-ttu-id="c3adc-291">Bağımlılık ekleme bağımlılıklarını almak için kullanmak üzere hizmetlerin tasarlayın.</span><span class="sxs-lookup"><span data-stu-id="c3adc-291">Design services to use dependency injection to obtain their dependencies.</span></span>
+* <span data-ttu-id="c3adc-292">Durum bilgisi olan ve statik yöntem çağrıları kaçının (olarak bilinen bir yöntem [statik cling](https://deviq.com/static-cling/)).</span><span class="sxs-lookup"><span data-stu-id="c3adc-292">Avoid stateful, static method calls (a practice known as [static cling](https://deviq.com/static-cling/)).</span></span>
+* <span data-ttu-id="c3adc-293">Bağımlı hizmetleri sınıfları doğrudan örneğinin kaçının.</span><span class="sxs-lookup"><span data-stu-id="c3adc-293">Avoid direct instantiation of dependent classes within services.</span></span> <span data-ttu-id="c3adc-294">Doğrudan, kodu belirli bir uygulamaya couples.</span><span class="sxs-lookup"><span data-stu-id="c3adc-294">Direct instantiation couples the code to a particular implementation.</span></span>
 
-<span data-ttu-id="6f8c6-280">Veri erişimi göre özellikle ekleyemezsiniz `DbContext` denetleyicilerinizi içine (varsayılarak hizmetler kapsayıcısının EF ekledik `ConfigureServices`).</span><span class="sxs-lookup"><span data-stu-id="6f8c6-280">With regards to data access specifically, you can inject the `DbContext` into your controllers (assuming you've added EF to the services container in `ConfigureServices`).</span></span> <span data-ttu-id="6f8c6-281">Bazı geliştiriciler veritabanına bir depo arabirimi kullanmayı tercih ederseniz injecting yerine `DbContext` doğrudan.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-281">Some developers prefer to use a repository interface to the database rather than injecting the `DbContext` directly.</span></span> <span data-ttu-id="6f8c6-282">Veri kapsülleyen bir arabirimini kullanarak tek bir yerde erişim mantığı veritabanınızı değiştiğinde değiştirmeniz gerekecektir basamak sayısını en aza indirebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-282">Using an interface to encapsulate the data access logic in one place can minimize how many places you will have to change when your database changes.</span></span>
+<span data-ttu-id="c3adc-295">İzleyerek [KATI ilkeler, nesne yönelimli tasarım](https://deviq.com/solid/), uygulama sınıfları doğal olarak eğilimli küçük, katsayıları iyi belirlenmiş ve kolayca test edilmiş olması.</span><span class="sxs-lookup"><span data-stu-id="c3adc-295">By following the [SOLID Principles of Object Oriented Design](https://deviq.com/solid/), app classes naturally tend to be small, well-factored, and easily tested.</span></span>
 
-### <a name="disposing-of-services"></a><span data-ttu-id="6f8c6-283">Hizmetlerin atma</span><span class="sxs-lookup"><span data-stu-id="6f8c6-283">Disposing of services</span></span>
+<span data-ttu-id="c3adc-296">Bir sınıf çok fazla eklenen bağımlılıklara sahip gibi görünüyor. Bu genellikle bir oturum sınıfı için çok fazla sorumluluklara sahiptir ve ihlal varsa, [tek sorumluluk İlkesi'ni (SRP)](https://deviq.com/single-responsibility-principle/).</span><span class="sxs-lookup"><span data-stu-id="c3adc-296">If a class seems to have too many injected dependencies, this is generally a sign that the class has too many responsibilities and is violating the [Single Responsibility Principle (SRP)](https://deviq.com/single-responsibility-principle/).</span></span> <span data-ttu-id="c3adc-297">Sınıfının yeni bir sınıf bazı sorumlulukları taşıyarak yeniden deneyin.</span><span class="sxs-lookup"><span data-stu-id="c3adc-297">Attempt to refactor the class by moving some of its responsibilities into a new class.</span></span> <span data-ttu-id="c3adc-298">Razor sayfaları sayfa modeli sınıfları ve MVC denetleyici sınıflarına kullanıcı Arabirimi konuları üzerinde durmalısınız aklınızda bulundurun.</span><span class="sxs-lookup"><span data-stu-id="c3adc-298">Keep in mind that Razor Pages page model classes and MVC controller classes should focus on UI concerns.</span></span> <span data-ttu-id="c3adc-299">İş kuralları ve veri erişim uygulama ayrıntılarını saklanır bunları uygun sınıflardaki [konuları ayrı](https://deviq.com/separation-of-concerns/).</span><span class="sxs-lookup"><span data-stu-id="c3adc-299">Business rules and data access implementation details should be kept in classes appropriate to these [separate concerns](https://deviq.com/separation-of-concerns/).</span></span>
 
-<span data-ttu-id="6f8c6-284">Kapsayıcı çağıracak `Dispose` için `IDisposable` türleri oluşturur.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-284">The container will call `Dispose` for `IDisposable` types it creates.</span></span> <span data-ttu-id="6f8c6-285">Bir örneği kapsayıcıya kendiniz eklerseniz, ancak bunu silinip.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-285">However, if you add an instance to the container yourself, it will not be disposed.</span></span>
+### <a name="disposal-of-services"></a><span data-ttu-id="c3adc-300">Bırakma Hizmetleri</span><span class="sxs-lookup"><span data-stu-id="c3adc-300">Disposal of services</span></span>
 
-<span data-ttu-id="6f8c6-286">Örnek:</span><span class="sxs-lookup"><span data-stu-id="6f8c6-286">Example:</span></span>
+<span data-ttu-id="c3adc-301">Kapsayıcı çağrıları `Dispose` için `IDisposable` türleri oluşturur.</span><span class="sxs-lookup"><span data-stu-id="c3adc-301">The container calls `Dispose` for the `IDisposable` types it creates.</span></span> <span data-ttu-id="c3adc-302">Bir örneği, kullanıcı kodu tarafından kapsayıcıya eklenirse, otomatik olarak elden değil.</span><span class="sxs-lookup"><span data-stu-id="c3adc-302">If an instance is added to the container by user code, it isn't disposed automatically.</span></span>
 
 ```csharp
-// Services implement IDisposable:
+// Services that implement IDisposable:
 public class Service1 : IDisposable {}
 public class Service2 : IDisposable {}
 public class Service3 : IDisposable {}
@@ -270,97 +457,102 @@ public class Service3 : IDisposable {}
 public interface ISomeService {}
 public class SomeServiceImplementation : ISomeService, IDisposable {}
 
-
 public void ConfigureServices(IServiceCollection services)
 {
-    // container will create the instance(s) of these types and will dispose them
+    // The container creates the following instances and disposes them automatically:
     services.AddScoped<Service1>();
     services.AddSingleton<Service2>();
     services.AddSingleton<ISomeService>(sp => new SomeServiceImplementation());
 
-    // container didn't create instance so it will NOT dispose it
+    // The container doesn't create the following instances, so it doesn't dispose of
+    // the instances automatically:
     services.AddSingleton<Service3>(new Service3());
     services.AddSingleton(new Service3());
 }
 ```
 
-> [!NOTE]
-> <span data-ttu-id="6f8c6-287">Sürüm 1.0, kapsayıcı adlı dispose üzerinde *tüm* `IDisposable` kaydetmedi oluşturma dahil olmak üzere nesneleri.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-287">In version 1.0, the container called dispose on *all* `IDisposable` objects, including those it didn't create.</span></span>
-
-## <a name="replacing-the-default-services-container"></a><span data-ttu-id="6f8c6-288">Varsayılan hizmet kapsayıcı değiştirme</span><span class="sxs-lookup"><span data-stu-id="6f8c6-288">Replacing the default services container</span></span>
-
-<span data-ttu-id="6f8c6-289">Yerleşik hizmet kapsayıcı framework üzerinde oluşturulan çoğu tüketici uygulamalar ve temel gereksinimlerini karşılamak için tasarlanmıştır.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-289">The built-in services container is meant to serve the basic needs of the framework and most consumer applications built on it.</span></span> <span data-ttu-id="6f8c6-290">Ancak, geliştiricilerin kendi tercih edilen kapsayıcı ile yerleşik kapsayıcı değiştirebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-290">However, developers can replace the built-in container with their preferred container.</span></span> <span data-ttu-id="6f8c6-291">`ConfigureServices` Yöntemi genellikle döndürür `void`, ancak imzası döndürülecek değiştirilirse `IServiceProvider`, farklı bir kapsayıcı yapılandırılmış ve döndürdü.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-291">The `ConfigureServices` method typically returns `void`, but if its signature is changed to return `IServiceProvider`, a different container can be configured and returned.</span></span> <span data-ttu-id="6f8c6-292">.NET için birçok IOC kapsayıcıları vardır.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-292">There are many IOC containers available for .NET.</span></span> <span data-ttu-id="6f8c6-293">Bu örnekte, [Autofac](https://autofac.org/) paketi kullanılır.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-293">In this example, the [Autofac](https://autofac.org/) package is used.</span></span>
-
-<span data-ttu-id="6f8c6-294">Önce uygun bir kapsayıcı paketler yükleyin:</span><span class="sxs-lookup"><span data-stu-id="6f8c6-294">First, install the appropriate container package(s):</span></span>
-
-* `Autofac`
-* `Autofac.Extensions.DependencyInjection`
-
-<span data-ttu-id="6f8c6-295">Ardından, kapsayıcısında yapılandırın `ConfigureServices` ve dönüş bir `IServiceProvider`:</span><span class="sxs-lookup"><span data-stu-id="6f8c6-295">Next, configure the container in `ConfigureServices` and return an `IServiceProvider`:</span></span>
-
-```csharp
-public IServiceProvider ConfigureServices(IServiceCollection services)
-{
-    services.AddMvc();
-    // Add other framework services
-
-    // Add Autofac
-    var containerBuilder = new ContainerBuilder();
-    containerBuilder.RegisterModule<DefaultModule>();
-    containerBuilder.Populate(services);
-    var container = containerBuilder.Build();
-    return new AutofacServiceProvider(container);
-}
-```
+::: moniker range="= aspnetcore-1.0"
 
 > [!NOTE]
-> <span data-ttu-id="6f8c6-296">Bir üçüncü taraf dı kapsayıcı kullanırken değiştirmelisiniz `ConfigureServices` döndürdüğü böylece `IServiceProvider` yerine `void`.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-296">When using a third-party DI container, you must change `ConfigureServices` so that it returns `IServiceProvider` instead of `void`.</span></span>
+> <span data-ttu-id="c3adc-303">ASP.NET Core 1.0, kapsayıcı çağırır dispose üzerinde *tüm* `IDisposable` yaramadı oluşturma dahil olmak üzere nesneleri.</span><span class="sxs-lookup"><span data-stu-id="c3adc-303">In ASP.NET Core 1.0, the container calls dispose on *all* `IDisposable` objects, including those it didn't create.</span></span>
 
-<span data-ttu-id="6f8c6-297">Son olarak, normal olarak Autofac yapılandırma `DefaultModule`:</span><span class="sxs-lookup"><span data-stu-id="6f8c6-297">Finally, configure Autofac as normal in `DefaultModule`:</span></span>
+::: moniker-end
 
-```csharp
-public class DefaultModule : Module
-{
-    protected override void Load(ContainerBuilder builder)
+## <a name="default-service-container-replacement"></a><span data-ttu-id="c3adc-304">Varsayılan hizmet kapsayıcısını değiştirme</span><span class="sxs-lookup"><span data-stu-id="c3adc-304">Default service container replacement</span></span>
+
+<span data-ttu-id="c3adc-305">Yerleşik hizmet kapsayıcı framework ve çoğu tüketici uygulamaları üzerinde yerleşik temel gereksinimlerini karşılamak amacıyla tasarlanmıştır.</span><span class="sxs-lookup"><span data-stu-id="c3adc-305">The built-in service container is meant to serve the basic needs of the framework and most consumer apps built on it.</span></span> <span data-ttu-id="c3adc-306">Ancak, geliştiricilerin kendi tercih edilen kapsayıcısı ile yerleşik kapsayıcı değiştirebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="c3adc-306">However, developers can replace the built-in container with their preferred container.</span></span> <span data-ttu-id="c3adc-307">`Startup.ConfigureServices` Yöntemi genellikle döndürür `void`.</span><span class="sxs-lookup"><span data-stu-id="c3adc-307">The `Startup.ConfigureServices` method typically returns `void`.</span></span> <span data-ttu-id="c3adc-308">Döndürmek için yöntemin imzası değiştirildiyse bir [IServiceProvider](/dotnet/api/system.iserviceprovider), farklı bir kapsayıcıya yapılandırılmış ve döndürdü.</span><span class="sxs-lookup"><span data-stu-id="c3adc-308">If the method's signature is changed to return an [IServiceProvider](/dotnet/api/system.iserviceprovider), a different container can be configured and returned.</span></span> <span data-ttu-id="c3adc-309">.NET için kullanılabilen çok sayıda IOC kapsayıcı vardır.</span><span class="sxs-lookup"><span data-stu-id="c3adc-309">There are many IoC containers available for .NET.</span></span> <span data-ttu-id="c3adc-310">Aşağıdaki örnekte, [Autofac](https://autofac.org/) kapsayıcı kullanılır:</span><span class="sxs-lookup"><span data-stu-id="c3adc-310">In the following example, the [Autofac](https://autofac.org/) container is used:</span></span>
+
+1. <span data-ttu-id="c3adc-311">Uygun bir kapsayıcı paketleri yükleyin:</span><span class="sxs-lookup"><span data-stu-id="c3adc-311">Install the appropriate container package(s):</span></span>
+
+    * [<span data-ttu-id="c3adc-312">Autofac</span><span class="sxs-lookup"><span data-stu-id="c3adc-312">Autofac</span></span>](https://www.nuget.org/packages/Autofac/)
+    * [<span data-ttu-id="c3adc-313">Autofac.Extensions.DependencyInjection</span><span class="sxs-lookup"><span data-stu-id="c3adc-313">Autofac.Extensions.DependencyInjection</span></span>](https://www.nuget.org/packages/Autofac.Extensions.DependencyInjection/)
+
+2. <span data-ttu-id="c3adc-314">Kapsayıcıda yapılandırma `Startup.ConfigureServices` ve dönüş bir `IServiceProvider`:</span><span class="sxs-lookup"><span data-stu-id="c3adc-314">Configure the container in `Startup.ConfigureServices` and return an `IServiceProvider`:</span></span>
+
+    ```csharp
+    public IServiceProvider ConfigureServices(IServiceCollection services)
     {
-        builder.RegisterType<CharacterRepository>().As<ICharacterRepository>();
+        services.AddMvc();
+        // Add other framework services
+
+        // Add Autofac
+        var containerBuilder = new ContainerBuilder();
+        containerBuilder.RegisterModule<DefaultModule>();
+        containerBuilder.Populate(services);
+        var container = containerBuilder.Build();
+        return new AutofacServiceProvider(container);
     }
-}
-```
+    ```
 
-<span data-ttu-id="6f8c6-298">Çalışma zamanında Autofac türleri çözümlemek ve bağımlılıkları ekleme için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-298">At runtime, Autofac will be used to resolve types and inject dependencies.</span></span> <span data-ttu-id="6f8c6-299">[Autofac ve ASP.NET Core kullanma hakkında daha fazla bilgi](http://docs.autofac.org/en/latest/integration/aspnetcore.html).</span><span class="sxs-lookup"><span data-stu-id="6f8c6-299">[Learn more about using Autofac and ASP.NET Core](http://docs.autofac.org/en/latest/integration/aspnetcore.html).</span></span>
+    <span data-ttu-id="c3adc-315">3 bir taraf kapsayıcı kullanılacak `Startup.ConfigureServices` döndürmelidir `IServiceProvider`.</span><span class="sxs-lookup"><span data-stu-id="c3adc-315">To use a 3rd party container, `Startup.ConfigureServices` must return `IServiceProvider`.</span></span>
 
-### <a name="thread-safety"></a><span data-ttu-id="6f8c6-300">İş parçacığı güvenliği</span><span class="sxs-lookup"><span data-stu-id="6f8c6-300">Thread safety</span></span>
+3. <span data-ttu-id="c3adc-316">İçinde Autofac yapılandırma `DefaultModule`:</span><span class="sxs-lookup"><span data-stu-id="c3adc-316">Configure Autofac in `DefaultModule`:</span></span>
 
-<span data-ttu-id="6f8c6-301">Singleton Hizmetleri iş parçacığı içinde korumalı olması gerekir.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-301">Singleton services need to be thread safe.</span></span> <span data-ttu-id="6f8c6-302">Tek bir hizmet üzerinde geçici bir hizmet bağımlılık varsa, geçici hizmet iş parçacığı tarafından singleton nasıl kullanıldığı bağlı olarak güvenli olacak şekilde de gerekebilir.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-302">If a singleton service has a dependency on a transient service, the transient service may also need to be thread safe depending how it's used by the singleton.</span></span>
+    ```csharp
+    public class DefaultModule : Module
+    {
+        protected override void Load(ContainerBuilder builder)
+        {
+            builder.RegisterType<CharacterRepository>().As<ICharacterRepository>();
+        }
+    }
+    ```
 
-## <a name="recommendations"></a><span data-ttu-id="6f8c6-303">Önerileri</span><span class="sxs-lookup"><span data-stu-id="6f8c6-303">Recommendations</span></span>
+<span data-ttu-id="c3adc-317">Çalışma zamanında Autofac, türleri çözümlemek ve bağımlılıkları ekleme için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="c3adc-317">At runtime, Autofac is used to resolve types and inject dependencies.</span></span> <span data-ttu-id="c3adc-318">ASP.NET Core ile Autofac kullanma hakkında daha fazla bilgi edinmek için [Autofac belgeleri](https://docs.autofac.org/en/latest/integration/aspnetcore.html).</span><span class="sxs-lookup"><span data-stu-id="c3adc-318">To learn more about using Autofac with ASP.NET Core, see the [Autofac documentation](https://docs.autofac.org/en/latest/integration/aspnetcore.html).</span></span>
 
-<span data-ttu-id="6f8c6-304">Bağımlılık ekleme ile çalışırken, aşağıdaki önerileri göz önünde bulundurun:</span><span class="sxs-lookup"><span data-stu-id="6f8c6-304">When working with dependency injection, keep the following recommendations in mind:</span></span>
+### <a name="thread-safety"></a><span data-ttu-id="c3adc-319">İş parçacığı güvenliği</span><span class="sxs-lookup"><span data-stu-id="c3adc-319">Thread safety</span></span>
 
-* <span data-ttu-id="6f8c6-305">DI, karmaşık bağımlılıklara sahip nesneleri için durumdadır.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-305">DI is for objects that have complex dependencies.</span></span> <span data-ttu-id="6f8c6-306">Denetleyicileri, hizmetleri, bağdaştırıcılar ve depoları için dı eklenebilecek nesneler için tüm örnektir.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-306">Controllers, services, adapters, and repositories are all examples of objects that might be added to DI.</span></span>
+<span data-ttu-id="c3adc-320">Singleton hizmetinin iş parçacığı güvenli olması gerekir.</span><span class="sxs-lookup"><span data-stu-id="c3adc-320">Singleton services need to be thread safe.</span></span> <span data-ttu-id="c3adc-321">Tek bir hizmet üzerinde geçici bir hizmet bağımlılığı varsa, geçici hizmet iş parçacığı tekli tarafından nasıl kullanıldığını bağlı olarak güvenli olacak şekilde de gerekebilir.</span><span class="sxs-lookup"><span data-stu-id="c3adc-321">If a singleton service has a dependency on a transient service, the transient service may also need to be thread safe depending how it's used by the singleton.</span></span>
 
-* <span data-ttu-id="6f8c6-307">Verileri ve yapılandırma doğrudan dı içinde saklamaktan kaçının.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-307">Avoid storing data and configuration directly in DI.</span></span> <span data-ttu-id="6f8c6-308">Örneğin, bir kullanıcının alışveriş sepeti Hizmetleri kapsayıcıya genellikle eklenmesi gerekir.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-308">For example, a user's shopping cart shouldn't typically be added to the services container.</span></span> <span data-ttu-id="6f8c6-309">Yapılandırma kullanması gereken [seçenekleri düzeni](xref:fundamentals/configuration/options).</span><span class="sxs-lookup"><span data-stu-id="6f8c6-309">Configuration should use the [options pattern](xref:fundamentals/configuration/options).</span></span> <span data-ttu-id="6f8c6-310">Benzer şekilde, yalnızca başka bir nesne erişmesine izin vermek için mevcut "veri sahibi" nesneleri kaçının.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-310">Similarly, avoid "data holder" objects that only exist to allow access to some other object.</span></span> <span data-ttu-id="6f8c6-311">İstek dı mümkünse gereken gerçek öğesi daha iyidir.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-311">It's better to request the actual item needed via DI, if possible.</span></span>
+<span data-ttu-id="c3adc-322">İkinci bağımsız değişkeni gibi tek hizmet Üreteç yöntemi [AddSingleton&lt;TService&gt;(IServiceCollection, Func&lt;IServiceProvider, TService&gt;)](/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectionserviceextensions.addsingleton#Microsoft_Extensions_DependencyInjection_ServiceCollectionServiceExtensions_AddSingleton__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_System_IServiceProvider___0__), değil iş parçacığı açısından güvenli olması gerekir.</span><span class="sxs-lookup"><span data-stu-id="c3adc-322">The factory method of single service, such as the second argument to [AddSingleton&lt;TService&gt;(IServiceCollection, Func&lt;IServiceProvider,TService&gt;)](/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectionserviceextensions.addsingleton#Microsoft_Extensions_DependencyInjection_ServiceCollectionServiceExtensions_AddSingleton__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_System_IServiceProvider___0__), doesn't need to be thread-safe.</span></span> <span data-ttu-id="c3adc-323">Gibi bir tür (`static`) oluşturucusu, onu garanti tek bir iş parçacığı tarafından bir kez çağrılabilir.</span><span class="sxs-lookup"><span data-stu-id="c3adc-323">Like a type (`static`) constructor, it's guaranteed to be called once by a single thread.</span></span>
 
-* <span data-ttu-id="6f8c6-312">Statik hizmetlerine erişim kaçının.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-312">Avoid static access to services.</span></span>
+## <a name="recommendations"></a><span data-ttu-id="c3adc-324">Önerileri</span><span class="sxs-lookup"><span data-stu-id="c3adc-324">Recommendations</span></span>
 
-* <span data-ttu-id="6f8c6-313">Hizmet konumu, uygulama kodunuzda kaçının.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-313">Avoid service location in your application code.</span></span>
+<span data-ttu-id="c3adc-325">Bağımlılık ekleme ile çalışırken, aşağıdaki önerileri göz önünde bulundurun:</span><span class="sxs-lookup"><span data-stu-id="c3adc-325">When working with dependency injection, keep the following recommendations in mind:</span></span>
 
-* <span data-ttu-id="6f8c6-314">Statik erişimi önlemek `HttpContext`.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-314">Avoid static access to `HttpContext`.</span></span>
+* <span data-ttu-id="c3adc-326">Verileri ve Yapılandırma hizmeti kapsayıcısında doğrudan depolama kaçının.</span><span class="sxs-lookup"><span data-stu-id="c3adc-326">Avoid storing data and configuration directly in the service container.</span></span> <span data-ttu-id="c3adc-327">Örneğin, bir kullanıcının alışveriş sepeti genellikle hizmet kapsayıcıya eklenen olmamalıdır.</span><span class="sxs-lookup"><span data-stu-id="c3adc-327">For example, a user's shopping cart shouldn't typically be added to the service container.</span></span> <span data-ttu-id="c3adc-328">Yapılandırma kullanması gereken [seçenekleri deseni](xref:fundamentals/configuration/options).</span><span class="sxs-lookup"><span data-stu-id="c3adc-328">Configuration should use the [options pattern](xref:fundamentals/configuration/options).</span></span> <span data-ttu-id="c3adc-329">Benzer şekilde, yalnızca başka bir nesnenin erişmesine izin vermek için mevcut "veri sahibi" nesneleri kaçının.</span><span class="sxs-lookup"><span data-stu-id="c3adc-329">Similarly, avoid "data holder" objects that only exist to allow access to some other object.</span></span> <span data-ttu-id="c3adc-330">Bağımlılık ekleme aracılığıyla gerçek öğe mümkünse istemek daha iyidir.</span><span class="sxs-lookup"><span data-stu-id="c3adc-330">It's better to request the actual item via dependency injection, if possible.</span></span>
 
-<span data-ttu-id="6f8c6-315">Gibi tüm ayarlar önerilerin bir yoksayılıyor gerekli olduğu durumlar karşılaşabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-315">Like all sets of recommendations, you may encounter situations where ignoring one is required.</span></span> <span data-ttu-id="6f8c6-316">Nadir--istisnaları framework çoğunlukla çok özel durumlarını bulduk.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-316">We have found exceptions to be rare -- mostly very special cases within the framework itself.</span></span>
+* <span data-ttu-id="c3adc-331">Statik hizmetlere erişimi önlemek (örneğin, statik olarak yazmaya [IApplicationBuilder.ApplicationServices](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder.applicationservices) kullanan başka bir yerde için).</span><span class="sxs-lookup"><span data-stu-id="c3adc-331">Avoid static access to services (for example, statically-typing [IApplicationBuilder.ApplicationServices](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder.applicationservices) for use elsewhere).</span></span>
 
-<span data-ttu-id="6f8c6-317">Bağımlılık ekleme olan bir *alternatif* statik/genel nesne erişim desenler için.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-317">Dependency injection is an *alternative* to static/global object access patterns.</span></span> <span data-ttu-id="6f8c6-318">Statik nesne erişimi ile karıştırmak istiyorsanız dı faydaları hayata geçirmek mümkün olmayabilir.</span><span class="sxs-lookup"><span data-stu-id="6f8c6-318">You may not be able to realize the benefits of DI if you mix it with static object access.</span></span>
+* <span data-ttu-id="c3adc-332">Hizmet bulucu deseni kullanmaktan kaçının (örneğin, [IServiceProvider.GetService](/dotnet/api/system.iserviceprovider.getservice)).</span><span class="sxs-lookup"><span data-stu-id="c3adc-332">Avoid using the service locator pattern (for example, [IServiceProvider.GetService](/dotnet/api/system.iserviceprovider.getservice)).</span></span>
 
-## <a name="additional-resources"></a><span data-ttu-id="6f8c6-319">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="6f8c6-319">Additional resources</span></span>
+* <span data-ttu-id="c3adc-333">Statik erişimi önlemek `HttpContext` (örneğin, [IHttpContextAccessor.HttpContext](/dotnet/api/microsoft.aspnetcore.http.ihttpcontextaccessor.httpcontext)).</span><span class="sxs-lookup"><span data-stu-id="c3adc-333">Avoid static access to `HttpContext` (for example, [IHttpContextAccessor.HttpContext](/dotnet/api/microsoft.aspnetcore.http.ihttpcontextaccessor.httpcontext)).</span></span>
 
-* [<span data-ttu-id="6f8c6-320">Görünümlere bağımlılık ekleme</span><span class="sxs-lookup"><span data-stu-id="6f8c6-320">Dependency injection into views</span></span>](xref:mvc/views/dependency-injection)
-* [<span data-ttu-id="6f8c6-321">Denetleyicilere bağımlılık ekleme</span><span class="sxs-lookup"><span data-stu-id="6f8c6-321">Dependency injection into controllers</span></span>](xref:mvc/controllers/dependency-injection)
-* [<span data-ttu-id="6f8c6-322">Gereksinim işleyicilerine bağımlılık ekleme</span><span class="sxs-lookup"><span data-stu-id="6f8c6-322">Dependency injection in requirement handlers</span></span>](xref:security/authorization/dependencyinjection)
-* [<span data-ttu-id="6f8c6-323">Uygulama Başlatma</span><span class="sxs-lookup"><span data-stu-id="6f8c6-323">Application Startup</span></span>](xref:fundamentals/startup)
-* [<span data-ttu-id="6f8c6-324">Test ve hata ayıklama</span><span class="sxs-lookup"><span data-stu-id="6f8c6-324">Test and debug</span></span>](xref:test/index)
-* [<span data-ttu-id="6f8c6-325">Ara yazılımı Fabrika tabanlı etkinleştirme</span><span class="sxs-lookup"><span data-stu-id="6f8c6-325">Factory-based middleware activation</span></span>](xref:fundamentals/middleware/extensibility)
-* [<span data-ttu-id="6f8c6-326">Bağımlılık ekleme (MSDN) ile ASP.NET Core temiz kod yazma</span><span class="sxs-lookup"><span data-stu-id="6f8c6-326">Writing Clean Code in ASP.NET Core with Dependency Injection (MSDN)</span></span>](https://msdn.microsoft.com/magazine/mt703433.aspx)
-* [<span data-ttu-id="6f8c6-327">Kapsayıcı yönetilen uygulama tasarımı, Prelude: Burada kapsayıcı ait mu?</span><span class="sxs-lookup"><span data-stu-id="6f8c6-327">Container-Managed Application Design, Prelude: Where does the Container Belong?</span></span>](https://blogs.msdn.microsoft.com/nblumhardt/2008/12/26/container-managed-application-design-prelude-where-does-the-container-belong/)
-* [<span data-ttu-id="6f8c6-328">Açık bağımlılıkları İlkesi</span><span class="sxs-lookup"><span data-stu-id="6f8c6-328">Explicit Dependencies Principle</span></span>](http://deviq.com/explicit-dependencies-principle/)
-* <span data-ttu-id="6f8c6-329">[Denetimi kapsayıcıları ve bağımlılık ekleme düzeni ters çevirmeyi](https://www.martinfowler.com/articles/injection.html) (Fowler)</span><span class="sxs-lookup"><span data-stu-id="6f8c6-329">[Inversion of Control Containers and the Dependency Injection Pattern](https://www.martinfowler.com/articles/injection.html) (Fowler)</span></span>
+<span data-ttu-id="c3adc-334">Öneriler tüm kümesi gibi bir öneri yok sayılıyor gerekli olduğu durumlarla karşılaşabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="c3adc-334">Like all sets of recommendations, you may encounter situations where ignoring a recommendation is required.</span></span> <span data-ttu-id="c3adc-335">Özel durumlar nadir&mdash;çoğunlukla framework içinde özel durumlar.</span><span class="sxs-lookup"><span data-stu-id="c3adc-335">Exceptions are rare&mdash;mostly special cases within the framework itself.</span></span>
+
+<span data-ttu-id="c3adc-336">Bağımlılık ekleme, bir *alternatif* statik/genel nesne erişim desenleri.</span><span class="sxs-lookup"><span data-stu-id="c3adc-336">Dependency injection is an *alternative* to static/global object access patterns.</span></span> <span data-ttu-id="c3adc-337">Statik nesne erişimi ile karışımı varsa, bağımlılık ekleme avantajlarından mümkün olmayabilir.</span><span class="sxs-lookup"><span data-stu-id="c3adc-337">You may not be able to realize the benefits of dependency injection if you mix it with static object access.</span></span>
+
+## <a name="additional-resources"></a><span data-ttu-id="c3adc-338">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="c3adc-338">Additional resources</span></span>
+
+* <xref:mvc/views/dependency-injection>
+* <xref:mvc/controllers/dependency-injection>
+* <xref:security/authorization/dependencyinjection>
+* <xref:fundamentals/repository-pattern>
+* <xref:fundamentals/startup>
+* <xref:test/index>
+* <xref:fundamentals/middleware/extensibility>
+* [<span data-ttu-id="c3adc-339">Bağımlılık ekleme (MSDN) ile ASP.NET Core kod yazma</span><span class="sxs-lookup"><span data-stu-id="c3adc-339">Writing Clean Code in ASP.NET Core with Dependency Injection (MSDN)</span></span>](https://msdn.microsoft.com/magazine/mt703433.aspx)
+* [<span data-ttu-id="c3adc-340">Kapsayıcı-yönetilen uygulama tasarımı, tanıtımlar: Nereye ait kapsayıcı mu?</span><span class="sxs-lookup"><span data-stu-id="c3adc-340">Container-Managed Application Design, Prelude: Where does the Container Belong?</span></span>](https://blogs.msdn.microsoft.com/nblumhardt/2008/12/26/container-managed-application-design-prelude-where-does-the-container-belong/)
+* [<span data-ttu-id="c3adc-341">Özel bağımlılıklar İlkesi</span><span class="sxs-lookup"><span data-stu-id="c3adc-341">Explicit Dependencies Principle</span></span>](https://deviq.com/explicit-dependencies-principle/)
+* [<span data-ttu-id="c3adc-342">Tersine çevirme denetimi kapsayıcıları ve bağımlılık ekleme desenini (Martin Fowler)</span><span class="sxs-lookup"><span data-stu-id="c3adc-342">Inversion of Control Containers and the Dependency Injection Pattern (Martin Fowler)</span></span>](https://www.martinfowler.com/articles/injection.html)
+* [<span data-ttu-id="c3adc-343">Birleştirici (belirli bir uygulama kodu "yapıştırmak") yenilikler</span><span class="sxs-lookup"><span data-stu-id="c3adc-343">New is Glue ("gluing" code to a particular implementation)</span></span>](https://ardalis.com/new-is-glue)
