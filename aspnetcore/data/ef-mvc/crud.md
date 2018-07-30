@@ -5,12 +5,12 @@ description: ''
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/crud
-ms.openlocfilehash: bc02ee6933634cc5987dbc3fcf57b0cce5a93bef
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 1c724da918640c514acbc24c390de4e735f8bf49
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38216267"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342438"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---crud---2-of-10"></a>10 - CRUD - 2 EF çekirdekli ASP.NET Core MVC
 
@@ -25,7 +25,7 @@ Contoso University örnek web uygulaması, Entity Framework Core ve Visual Studi
 Önceki öğreticide, depolar ve SQL Server LocalDB ve Entity Framework kullanarak verileri görüntüleyen bir MVC uygulaması oluşturdunuz. Bu öğreticide, gözden geçirmenizi ve özelleştirme CRUD (oluşturma, okuma, güncelleştirme ve silme) MVC yapı iskelesi otomatik olarak sizin için denetleyicileri ve görünümleri oluşturan kodu.
 
 > [!NOTE]
-> Denetleyicinizi ve veri erişim katmanı arasında bir Soyutlama Katmanı oluşturmak için havuz deseni uygulamak için yaygın bir uygulamadır. Bu öğreticiler basit ve Entity Framework kullanma eğitiminde odaklanmıştır tutmak için bunlar depoları kullanmayın. Depoları EF ile ilgili daha fazla bilgi için bkz: [bu serinin son öğreticide](advanced.md).
+> Uygulamak için yaygın bir uygulamadır [depo deseni](xref:fundamentals/repository-pattern) denetleyicinizi ve veri erişim katmanı arasında bir Soyutlama Katmanı oluşturmak için. Bu öğreticiler basit ve Entity Framework kullanma eğitiminde odaklanmıştır tutmak için bunlar depoları kullanmayın. Depoları EF ile ilgili daha fazla bilgi için bkz: [bu serinin son öğreticide](advanced.md).
 
 Bu öğreticide aşağıdaki web sayfalarının iş:
 

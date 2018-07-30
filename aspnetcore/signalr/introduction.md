@@ -7,20 +7,18 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 04/25/2018
 uid: signalr/introduction
-ms.openlocfilehash: bc6f25c3f35e7fb0c2c68220697f2e0fdc6a9958
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 2fff24609caf7592bad763a077288990a29617aa
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095395"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342555"
 ---
 # <a name="introduction-to-aspnet-core-signalr"></a>ASP.NET Core signalr'a giriş
 
-Tarafından [Rachel Appel](https://twitter.com/rachelappel)
-
 ## <a name="what-is-signalr"></a>SignalR nedir?
 
-ASP.NET Core SignalR uygulamalarına gerçek zamanlı web işlevselliği ekleme basitleştiren bir kitaplıktır. Gerçek zamanlı web işlevselliği, sunucu tarafı kodu anında içeriği istemcilere anında sağlar.
+ASP.NET Core SignalR, uygulamalara gerçek zamanlı web işlevselliği ekleme basitleştiren bir açık kaynak kitaplığıdır. Gerçek zamanlı web işlevselliği, sunucu tarafı kodu anında içeriği istemcilere anında sağlar.
 
 SignalR için iyi adaylar:
 
@@ -31,27 +29,32 @@ SignalR için iyi adaylar:
 
 SignalR server istemcisi oluşturmak için bir API sağlar [uzaktan yordam çağrısı (RPC)](https://wikipedia.org/wiki/Remote_procedure_call). RPC JavaScript işlevlerini sunucu tarafı .NET Core koddan istemcilerde çağırın.
 
-ASP.NET Core için SignalR:
+ASP.NET Core için SignalR özelliklerinden bazıları şunlardır:
 
 * Bağlantı Yönetimi otomatik olarak işler.
-* İletileri eşzamanlı olarak bağlanan tüm istemciler için yayın etkinleştirir. Sohbet odası.
-* Özel istemciler veya istemci gruplarının ileti gönderilmesini sağlar.
-* Açık kaynak haline getirildi adresindeki [GitHub](https://github.com/aspnet/signalr).
-* Ölçeklenebilir.
+* İletileri eşzamanlı olarak bağlanan tüm istemciler için gönderir. Sohbet odası.
+* Özel istemciler veya istemci gruplarının iletileri gönderir.
+* Artan trafiği işlemeye ölçeklendirir.
 
-Bir HTTP bağlantısı farklı olarak istemci ve sunucu arasındaki bağlantıyı kalıcıdır.
+Kaynak barındırılan bir [GitHub deposunu SignalR](https://github.com/aspnet/signalr).
 
 ## <a name="transports"></a>Taşımalar
 
-Gerçek zamanlı web uygulamaları oluşturmaya yönelik teknikleri sayısı üzerinden SignalR özetleri. [WebSockets](https://tools.ietf.org/html/rfc7118) en iyi Aktarım, ancak bu kullanılamayan Server-Sent olayları ve uzun yoklama gibi başka teknikler kullanılabilir. SignalR otomatik olarak algılar ve sunucu ve istemci desteklenen özelliklere bağlı olarak uygun bir taşıma başlatılamıyor.
+SignalR, gerçek zamanlı iletişimler işlemek için çeşitli teknikler destekler:
+
+* [WebSockets](https://tools.ietf.org/html/rfc7118)
+* Sunucu tarafından gönderilen olayları
+* Uzun yoklama
+
+SignalR istemci ve sunucu kapasitesini en iyi aktarım yöntemi otomatik olarak seçer.
 
 ## <a name="hubs"></a>Hub'ları
 
-SignalR hub'ları, istemciler ve sunucular arasında iletişim kurmak için kullanır.
+SignalR kullanan *hubs* istemciler ve sunucular arasında iletişim kurmak için.
 
-Bir hub'ı, istemci ve sunucu birbirleri üzerinde yöntemleri çağırmak izin veren bir üst düzey bir işlem hattı ' dir. SignalR istemcilerinin yerel yöntemler olarak kolayca ve tersi olarak, sunucu üzerinde yöntemleri çağırmak otomatik olarak makine sınırlarında gönderme işler. Hub yöntemleri için kesin türü belirtilmiş parametre geçirme model bağlama sağlayan izin verin. SignalR sağlayan iki yerleşik hub protokol: bir metin protokolü temel JSON ve temel bir ikili Protokolü [MessagePack](https://msgpack.org/).  MessagePack genellikle JSON kullanırken daha küçük ileti oluşturur. Eski tarayıcılar desteklemelidir [XHR Düzey 2](https://caniuse.com/#feat=xhr2) MessagePack protokolü desteği sağlamak için.
+Bir hub'ı istemci ve sunucu birbirleri üzerinde yöntemleri çağırmak izin veren bir üst düzey bir işlem hattı ' dir. SignalR sunucusunda ve yöntemlerini çağırmak istemcilerin otomatik olarak makine sınırlarında gönderme işler. Model bağlama sağlayan yöntemleri için parametre türü kesin belirlenmiş geçirebilirsiniz. SignalR sağlayan iki yerleşik hub protokol: bir metin protokolü temel JSON ve temel bir ikili Protokolü [MessagePack](https://msgpack.org/).  MessagePack genellikle JSON ile karşılaştırıldığında daha küçük iletileri oluşturur. Eski tarayıcılar desteklemelidir [XHR Düzey 2](https://caniuse.com/#feat=xhr2) MessagePack protokolü desteği sağlamak için.
 
-Hub'ları, istemci tarafı kod kullanarak etkin iletiler göndererek çağırın. İletiler, adı ve istemci tarafı yönteminin parametreleri içerir. Yapılandırılmış protokolü kullanarak yöntem parametreleri olarak gönderilen nesneleri seri. İstemci, istemci tarafı kod içinde bir yönteme adıyla eşleşecek şekilde çalışır. Bir eşleşme olduğunda, istemci yöntemi kullanılarak seri durumdan çıkarılmış parametre veri çalıştırır.
+Hub adı ve istemci tarafı yönteminin parametreleri içeren iletiler göndererek istemci-tarafı kodu çağırın. Yapılandırılmış protokolü kullanarak yöntem parametreleri olarak gönderilen nesneleri seri. İstemci, istemci tarafı kod içinde bir yönteme adıyla eşleşecek şekilde çalışır. İstemci bir eşleşme bulduğunda yöntemini çağırır ve seri durumdan çıkarılmış parametre verileri geçirir.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

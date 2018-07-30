@@ -4,14 +4,14 @@ author: rick-anderson
 description: MacOS, Linux veya Windows ASP.NET Core MVC ve Visual Studio Code ile bir web API'si oluşturma
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/08/2018
+ms.date: 07/30/2018
 uid: tutorials/web-api-vsc
-ms.openlocfilehash: 4c41c949a9b5ca8db8928a0a53aff928fd7c8a4e
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 4ce808ec4241ab2fc3c2fb81c3fdb15dd853cd90
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38216243"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342282"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio-code"></a>ASP.NET Core ve Visual Studio Code ile Web API'si oluşturma
 
@@ -61,15 +61,20 @@ Bkz: [Visual Studio Code Yardım](#visual-studio-code-help) için VS Code kullan
 
 ## <a name="add-support-for-entity-framework-core"></a>Entity Framework Core desteği eklendi
 
+:::moniker range=">= aspnetcore-2.1"
+
+ASP.NET Core 2.1 veya daha sonra yeni proje oluşturma ekler [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App) paketini başvuru *TodoApi.csproj* dosya. Ekleme `Version` zaten belirtilmişse, öznitelik.
+
+[!code-xml[](first-web-api/samples/2.1/TodoApi/TodoApi.csproj?name=snippet_Metapackage&highlight=2)]
+
+:::moniker-end
+
 :::moniker range="<= aspnetcore-2.0"
+
 ASP.NET Core 2.0 sürümünde yeni proje oluşturma ekler [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) paketini başvuru *TodoApi.csproj* dosyası:
 
 [!code-xml[](first-web-api/samples/2.0/TodoApi/TodoApi.csproj?name=snippet_Metapackage&highlight=2)]
-:::moniker-end
-:::moniker range=">= aspnetcore-2.1"
-ASP.NET Core 2.1 veya daha sonra yeni proje oluşturma ekler [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App) paketini başvuru *TodoApi.csproj* dosyası:
 
-[!code-xml[](first-web-api/samples/2.1/TodoApi/TodoApi.csproj?name=snippet_Metapackage&highlight=2)]
 :::moniker-end
 
 Yüklemek için gerek yoktur [Entity Framework Core Inmemory](/ef/core/providers/in-memory/) sağlayıcısı ayrıca veritabanı. Bu veritabanı sağlayıcısı, bir bellek içi veritabanı ile kullanılacak Entity Framework Core sağlar.

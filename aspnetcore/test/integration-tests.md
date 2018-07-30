@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/30/2018
 uid: test/integration-tests
-ms.openlocfilehash: e18c5704c9d4db9669d8f831f1b556d1723a0fc1
-ms.sourcegitcommit: ea7ec8d47f94cfb8e008d771f647f86bbb4baa44
+ms.openlocfilehash: 2a5adafd30aeca163063ea76857378e97163d0b9
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37894172"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342087"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>ASP.NET core'da tümleştirme testleri
 
@@ -292,7 +292,7 @@ Aşağıdaki özelliklere sahip bir Razor sayfaları ileti sistemi SUT şöyledi
 
 &#8224;EF konu [Inmemory ile Test](/ef/core/miscellaneous/testing/in-memory), MSTest ile testleri için bellek içi veritabanına nasıl kullanıldığını açıklar. Bu konuda kullanan [xUnit](https://xunit.github.io/) test çerçevesi. Test kavramları ve test uygulamaları arasında farklı test çerçeveleri benzer, ancak aynı değildir.
 
-Uygulama kullanmaz ancak [depo deseni](http://martinfowler.com/eaaCatalog/repository.html) ve etkili bir örneği değil [iş birimi (UoW) deseni](https://martinfowler.com/eaaCatalog/unitOfWork.html), Razor sayfaları geliştirme bu desenleri destekler. Daha fazla bilgi için [altyapı Kalıcılık katmanını tasarlama](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design), [bir ASP.NET MVC uygulamasındaki depo ve iş birimi desenleri uygulama](/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application), ve [Test denetleyicisi mantıksal](/aspnet/core/mvc/controllers/testing) (örnek depo Yapılacaklar listesi).
+Uygulama kullanmaz ancak [depo deseni](xref:fundamentals/repository-pattern) ve etkili bir örneği değil [iş birimi (UoW) deseni](https://martinfowler.com/eaaCatalog/unitOfWork.html), Razor sayfaları geliştirme bu desenleri destekler. Daha fazla bilgi için [altyapı Kalıcılık katmanını tasarlama](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design), [bir ASP.NET MVC uygulamasındaki depo ve iş birimi desenleri uygulama](/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application), ve [Test denetleyicisi mantıksal](/aspnet/core/mvc/controllers/testing) (örnek depo Yapılacaklar listesi).
 
 ### <a name="test-app-organization"></a>Test uygulama kuruluş
 

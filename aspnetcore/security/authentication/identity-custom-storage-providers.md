@@ -5,12 +5,12 @@ description: ASP.NET Core kimliği için özel depolama sağlayıcıları yapıl
 ms.author: riande
 ms.date: 05/24/2017
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: bdde9b93449c2f3f8d43cc4ff86472ed8a60ed1c
-ms.sourcegitcommit: a09820f91e71a7d98b7347bf93210abb9e995e22
+ms.openlocfilehash: 7fb64f0b911c11750946697d782488c2107a3637
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37889174"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342529"
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>ASP.NET Core kimliği için özel depolama sağlayıcıları
 
@@ -41,7 +41,7 @@ dotnet new webapi -au Individual
 
 ## <a name="the-aspnet-core-identity-architecture"></a>ASP.NET Core kimliği mimarisi
 
-ASP.NET Core kimliği yöneticileri ve depoları adlı sınıftan oluşur. *Yöneticileri* kimlik kullanıcı oluşturmak gibi işlemleri gerçekleştirmek için bir uygulama geliştiricisi kullanan üst düzey sınıflar. *Depoları* kullanıcılar ve roller gibi varlıkları nasıl kalıcı belirtin alt düzey sınıflar. Depoları izleyin [depo deseni](http://deviq.com/repository-pattern/) ve yakından Kalıcılık mekanizması ile bağlı. Yöneticileri, Kalıcılık mekanizması (yapılandırma dışında) uygulama kodunu değiştirmeden değiştirebileceğiniz anlamına gelir, mağazalardan birbirinden ayrılmıştır.
+ASP.NET Core kimliği yöneticileri ve depoları adlı sınıftan oluşur. *Yöneticileri* kimlik kullanıcı oluşturmak gibi işlemleri gerçekleştirmek için bir uygulama geliştiricisi kullanan üst düzey sınıflar. *Depoları* kullanıcılar ve roller gibi varlıkları nasıl kalıcı belirtin alt düzey sınıflar. Depoları izleyin [depo deseni](xref:fundamentals/repository-pattern) ve yakından Kalıcılık mekanizması ile bağlı. Yöneticileri, Kalıcılık mekanizması (yapılandırma dışında) uygulama kodunu değiştirmeden değiştirebileceğiniz anlamına gelir, mağazalardan birbirinden ayrılmıştır.
 
 Aşağıdaki diyagramda depolarının veri erişim katmanı ile etkileşim kurarken bir web uygulaması yöneticileri ile nasıl etkileştiğini gösterilmektedir.
 
