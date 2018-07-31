@@ -141,6 +141,7 @@
 ### [Kestrel](xref:fundamentals/servers/kestrel)
 ### [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module)
 ### [HTTP.sys](xref:fundamentals/servers/httpsys)
+## [Depo düzeni](xref:fundamentals/repository-pattern)
 ## [Genelleştirme ve yerelleştirme](xref:fundamentals/localization)
 ### [Orchard Core ile Taşınabilir Nesne Yerelleştirmesi Yapılandırma](xref:fundamentals/portable-object-localization)
 ## [HTTP isteklerini başlatma](xref:fundamentals/http-requests)
