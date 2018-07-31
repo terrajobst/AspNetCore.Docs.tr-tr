@@ -5,12 +5,12 @@ description: Web uygulaması nasıl bir ASP.NET Core HTTPS/TLS'ye gerektirecek �
 ms.author: riande
 ms.date: 2/9/2018
 uid: security/enforcing-ssl
-ms.openlocfilehash: c3d92994c0331b1408e246953454910ca1f4dc43
-ms.sourcegitcommit: c8e62aa766641aa55105f7db79cdf2b27a6e5977
+ms.openlocfilehash: a4ab91ef23a798c919a23a44f5a050bd3c09d56a
+ms.sourcegitcommit: d99a8554c91f626cf5e466911cf504dcbff0e02e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39254837"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39356694"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>ASP.NET core'da HTTPS'yi zorunlu kılma
 
@@ -64,11 +64,17 @@ Aşağıdaki mekanizmalardan bağlantı noktasını otomatik olarak ayarlayın:
 > [!NOTE]
 > Bir uygulama bir ters proxy (örneğin, IIS, IIS Express) çalıştırın, `IServerAddressesFeature` kullanılamaz. Bağlantı noktasını el ile yapılandırılması gerekir. Bağlantı noktası olarak değil, istekleri yeniden yönlendirilen değildir.
 
-Bağlantı noktası ayarlayarak yapılandırılabilir:
+Bağlantı noktası ayarlayarak yapılandırılabilir [https_port Web ana bilgisayar yapılandırma ayarı](xref:fundamentals/host/web-host#https-port):
 
-* `ASPNETCORE_HTTPS_PORT` ortam değişkeni.
-* `http_port` ana bilgisayar yapılandırma anahtarı (örneğin, aracılığıyla *hostsettings.json* veya komut satırı bağımsız değişkeni).
-* [HttpsRedirectionOptions.HttpsPort](/dotnet/api/microsoft.aspnetcore.httpspolicy.httpsredirectionoptions.httpsport). Bağlantı noktası için 5001 olarak gösteren önceki örneğe bakın.
+**Anahtar**: https_port **türü**: *dize*
+**varsayılan**: varsayılan bir değer ayarlanmamış.
+**Kullanılarak ayarlanan**: `UseSetting` 
+ **ortam değişkeni**: `<PREFIX_>HTTPS_PORT` (ön ek `ASPNETCORE_` Web ana bilgisayarı kullanırken.)
+
+```csharp
+WebHost.CreateDefaultBuilder(args)
+    .UseSetting("https_port", "8080")
+```
 
 > [!NOTE]
 > Bağlantı noktası URL'si ile ayarlayarak dolaylı olarak yapılandırılabilir `ASPNETCORE_URLS` ortam değişkeni. Ortam değişkenini sunucusunu yapılandırır ve ara yazılım HTTPS bağlantı noktası üzerinden dolaylı olarak bulur `IServerAddressesFeature`.

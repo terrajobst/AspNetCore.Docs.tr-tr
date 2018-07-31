@@ -1,39 +1,39 @@
 ---
-title: ASP.NET Core paket ve minifiy statik varlıkları
+title: Paketleme ve küçültme ASP.NET Core statik varlıkları
 author: scottaddie
-description: Paketleme ve küçültme teknikleri uygulayarak bir ASP.NET Core web uygulamasında statik kaynakları en iyi duruma getirme hakkında bilgi edinin.
+description: Bir ASP.NET Core web uygulaması, statik kaynakları paketleme ve küçültme tekniklerini uygulayarak en iyi duruma getirmeyi öğrenin.
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 01/10/2018
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: ae9836a6ad0ff0bc834bf2eb10ff5fd97c3c659a
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: bab2f288f3c6956e44ff929bfd2e257301a5806a
+ms.sourcegitcommit: d99a8554c91f626cf5e466911cf504dcbff0e02e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36279577"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39356707"
 ---
-# <a name="bundle-and-minifiy-static-assets-in-aspnet-core"></a>ASP.NET Core paket ve minifiy statik varlıkları
+# <a name="bundle-and-minify-static-assets-in-aspnet-core"></a>Paketleme ve küçültme ASP.NET Core statik varlıkları
 
 Tarafından [Scott Addie](https://twitter.com/Scott_Addie)
 
-Bu makalede paketleme ve küçültme, bu özellikler ASP.NET Core web apps ile nasıl kullanılabileceğini de dahil olmak üzere uygulama yararlarını açıklar.
+Bu makalede, paketleme ve küçültme, bu özellikler, ASP.NET Core web apps ile nasıl kullanılabileceğini de dahil olmak üzere uygulama avantajları açıklanmaktadır.
 
-## <a name="what-is-bundling-and-minification"></a>Paketleme ve küçültme nedir?
+## <a name="what-is-bundling-and-minification"></a>Paketleme ve küçültme nedir
 
-Paketleme ve küçültme bir web uygulamasını uygulayabilirsiniz iki ayrı performans iyileştirmelerini var. Birlikte kullanıldığında, paketleme ve küçültme sunucusu isteklerinin sayısını azaltmak ve istenen statik varlıklar boyutunun azaltılması performansı.
+Paketleme ve küçültme, bir web uygulamasında uygulayabileceğiniz iki farklı performans iyileştirmelerini var. Birlikte kullanıldığında, paketleme ve küçültme sunucu isteklerinin sayısını azaltmak ve istenen statik varlıkları boyutunu küçültmeyi performansını.
 
-Paketleme ve küçültme öncelikle ilk sayfa isteği yükleme süresini artırır. Bir web sayfası istenen sonra tarayıcı statik varlıklar (JavaScript, CSS ve görüntüleri) önbelleğe alır. Sonuç olarak, paketleme ve küçültme aynı sayfa veya sayfaları, aynı varlıklar isteyen aynı sitedeki isterken performansı yok. Varsa süresi üstbilgi değil doğru ayarladığınızdan varlıklar ve paketleme ve küçültme değil kullandıysanız, tarayıcının yenilik buluşsal yöntemler varlıklar eski birkaç gün sonra işaretleyin. Ayrıca, tarayıcı her varlık için bir doğrulama isteği gerektirir. Bu durumda, paketleme ve küçültme ilk sayfa isteği sonra bile performans geliştirmesi sağlar.
+Paketleme ve küçültme öncelikle ilk sayfa isteği yükleme süresi geliştirmek. Bir web sayfası istenen sonra tarayıcıyı statik varlıkları (JavaScript, CSS ve görüntüleri) önbelleğe alır. Sonuç olarak, paketleme ve küçültme aynı sayfa veya sayfalarda aynı varlıkları isteyen aynı sitede isterken performansını yok. Varsa expires üst bilgisi varlıklar üzerinde düzgün ayarlanmamış ve paketleme ve küçültme kullanılmaz, tarayıcının güncellik buluşsal yöntemler varlıkları eski birkaç gün sonra işaretleyin. Ayrıca, tarayıcı, her varlık için bir doğrulama isteği gerektirir. Bu durumda, paketleme ve küçültme, ilk sayfa isteği sonra bile bir performans gelişmesi sağlar.
 
 ### <a name="bundling"></a>Paketleme
 
-Paketleme birden çok dosya tek bir dosya halinde birleştirir. Paketleme, bir web sayfası gibi bir web varlık işlemek için gerekli olan sunucu isteklerinin sayısını azaltır. Tek tek Paket herhangi bir sayıda özellikle CSS, JavaScript vb. için oluşturabilirsiniz. Daha az sayıda dosya daha az HTTP isteğini tarayıcı sunucuya veya uygulamanızın sağlayan hizmet anlamına gelir. Bu sonuçları ilk sayfa yükleme performansı geliştirildi.
+Paketleme, birden çok dosyayı tek bir dosya halinde birleştirir. Paketleme, bir web sayfası gibi bir web varlığı işlemek gerekli olan sunucu isteklerinin sayısını azaltır. Tek paketler herhangi bir sayıda özellikle CSS, JavaScript, vb. oluşturabilirsiniz. Daha az dosya sunucusu tarayıcıya veya uygulamanızı sağlayan hizmet daha az HTTP isteklerini anlamına gelir. Bu sayede, ilk sayfa yükleme performansı geliştirildi.
 
 ### <a name="minification"></a>Küçültme
 
-Küçültme işlevselliği değiştirmeden koddan gereksiz karakterleri kaldırır. Sonuç istenilen varlıkların (CSS, görüntüler ve JavaScript dosyaları gibi) önemli boyutu azalma olur. Küçültme ortak yan etkileri değişken adları bir karakter kısaltmak ve açıklamalar ve gereksiz boşluk kaldırma içerir.
+Küçültme, işlevselliği değiştirmeden koddan gereksiz karakterleri kaldırır. Sonuç, istenilen varlıkların (CSS, görüntü ve JavaScript dosyaları gibi) önemli boyutta bir düşüş olur. Küçültme ortak yan etkilerini kısaltmayı bir karakter, değişken adları ve açıklamaları ve gereksiz boşluk kaldırma içerir.
 
-Şu JavaScript işlevi göz önünde bulundurun:
+Aşağıdaki JavaScript işlevi göz önünde bulundurun:
 
 [!code-javascript[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/wwwroot/js/site.js)]
 
@@ -41,7 +41,7 @@ Küçültme işlevi aşağıdaki azaltır:
 
 [!code-javascript[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/wwwroot/js/site.min.js)]
 
-Gereksiz boşluk ve açıklamaları kaldırma ek olarak, aşağıdaki parametre ve değişken adları şu şekilde adlandırıldı:
+Açıklamalar ve gereksiz boşluk kaldırma ek olarak, aşağıdaki parametre ve değişken adları şu şekilde değiştirilmiştir:
 
 Özgün | Yeniden adlandırıldı
 --- | :---:
@@ -51,51 +51,51 @@ Gereksiz boşluk ve açıklamaları kaldırma ek olarak, aşağıdaki parametre 
 
 ## <a name="impact-of-bundling-and-minification"></a>Paketleme ve küçültme etkisi
 
-Aşağıdaki tabloda tek tek varlıklar yükleme ve paketleme ve küçültme kullanma arasındaki farklar özetlenmektedir:
+Aşağıdaki tabloda, tek tek varlıklar yükleniyor ve paketleme ve küçültme kullanarak arasındaki farklar özetlenmektedir:
 
-Eylem | B/M ile | B/M | Değiştir
+Eylem | B/dk ile | B/dk | Değiştir
 --- | :---: | :---: | :---:
 Dosya istekleri  | 7   | 18     | 157%
 Aktarılan KB | 156 | 264.68 | 70%
 Yükleme süresi (ms) | 885 | 2360   | 167%
 
-Tarayıcılar HTTP istek üstbilgilerinin açısından oldukça ayrıntılıdır. Toplam bayt sayısı, paketleme, önemli ölçüde azalma ölçüm gördüğünüz gönderdi. Bu örnek yerel olarak çalıştı ancak önemli bir iyileştirme yükleme zamanını gösterir. Paketleme ve küçültme varlıklarla kullanarak bir ağ üzerinden aktarıldığında büyük performans artışı alırlar.
+Tarayıcılar HTTP istek üstbilgilerinin açısından oldukça ayrıntılıdır. Toplam bayt ölçüm paketleme sırasında önemli bir azalma gördüğünüz gönderdi. Bu örnek yerel olarak çalıştı ancak önemli bir iyileştirme yükleme zamanını gösterir. Paketleme ve küçültme ile varlıkları kullanarak bir ağ üzerinden aktarıldığında büyük performans artışı alırlar.
 
 ## <a name="choose-a-bundling-and-minification-strategy"></a>Paketleme ve küçültme stratejisi seçme
 
-MVC ve Razor sayfalarının proje şablonları paketleme ve küçültme oluşan bir JSON yapılandırma dosyası için bir giden kutusu çözümü sağlar. Gibi üçüncü taraf araçları [Gulp](xref:client-side/using-gulp) ve [Grunt](xref:client-side/using-grunt) görev koşucular, biraz daha karmaşık aynı görevleri yerine getirin. Bir üçüncü taraf aracı, geliştirme iş akışınızı paketleme ve küçültme ötesinde işleme gerektiren harika uygun olduğunda&mdash;linting ve görüntü iyileştirme gibi. Tasarım zamanı paketleme ve küçültme kullanarak küçültülmüş dosyaları uygulamanın dağıtımdan önce oluşturulur. Paketleme ve dağıtım öncesinde küçültülmesine azaltılmış sunucu iş yükü avantajı sağlar. Ancak, bu tasarım zamanı paketleme bilmek önemlidir ve küçültme yapı karmaşıklığını artırır ve yalnızca statik dosyaları ile çalışır.
+MVC ve Razor sayfaları proje şablonları, paketleme ve küçültme içeren bir JSON yapılandırma dosyası için kullanıma hazır bir çözüm sağlar. Gibi üçüncü taraf araçları [Gulp](xref:client-side/using-gulp) ve [Grunt](xref:client-side/using-grunt) görev çalıştırıcıların, biraz daha karmaşık görevlerin gerçekleştirilmesi. Geliştirme iş akışınızın paketleme ve küçültme ötesinde işleme gerektirdiğinde mükemmel bir uyum üçüncü taraf bir araç olan&mdash;linting ve görüntü iyileştirme gibi. Tasarım zamanı paketleme ve küçültme kullanarak küçültülmüş dosyaları uygulamanın dağıtımdan önce oluşturulur. Paketleme ve küçültme dağıtımdan önce düşük sunucu yükü avantajı sağlar. Ancak, bu tasarım zamanı paketleme bilmek önemlidir ve küçültme yapıyı karmaşıklık artar ve yalnızca statik dosyalar ile çalışır.
 
 ## <a name="configure-bundling-and-minification"></a>Paketleme ve küçültme yapılandırın
 
-MVC ve Razor sayfalarının proje şablonları sağlayan bir *bundleconfig.json* her paket için seçenekleri tanımlayan yapılandırma dosyası. Varsayılan olarak, özel JavaScript için tanımlanmış bir tek Paket yapılandırması (*wwwroot/js/site.js*) ve stil sayfası (*wwwroot/css/site.css*) dosyaları:
+MVC ve Razor sayfaları proje şablonları sağlar bir *bundleconfig.json* her paket için seçenekleri tanımlayan bir yapılandırma dosyası. Varsayılan olarak, bir tek bir paket yapılandırmasını özel JavaScript için tanımlanır (*wwwroot/js/site.js*) ve stil sayfası (*wwwroot/css/site.css*) dosyaları:
 
 [!code-json[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/bundleconfig.json)]
 
 Yapılandırma seçenekleri şunlardır:
 
-* `outputFileName`: Çıkış için paket dosyasının adı. Bir göreli yolu içerebilir *bundleconfig.json* dosya. **Gerekli**
-* `inputFiles`: Birlikte paketlemektir dosyaları dizisi. Bu yapılandırma dosyasının göreli yollardır. **İsteğe bağlı**, * bir boş çıkış dosyası boş bir değer sonuçlanır. [genelleme](http://www.tldp.org/LDP/abs/html/globbingref.html) desenleri desteklenir.
-* `minify`: Çıkış türü küçültme seçenekleri. **İsteğe bağlı**, *varsayılan - `minify: { enabled: true }`*
-  * Çıkış dosya türü yapılandırma seçenekleri kullanılabilir.
-    * [CSS küçültücü](https://github.com/madskristensen/BundlerMinifier/wiki/cssminifier)
+* `outputFileName`: Çıkış paket dosyasının adı. Bir göreli yol içerebilir *bundleconfig.json* dosya. **Gerekli**
+* `inputFiles`: Paket dosyaları bir dizi. Yapılandırma dosyası için göreli yollar şunlardır. **İsteğe bağlı**, * bir boş çıkış dosyası boş değer sonuçlanır. [Genelleştirme](http://www.tldp.org/LDP/abs/html/globbingref.html) desenler desteklenir.
+* `minify`: Çıkış türü küçültmeye seçenekleri. **İsteğe bağlı**, *varsayılan - `minify: { enabled: true }`*
+  * Çıkış dosyasının türünü yapılandırma seçenekleri kullanılabilir.
+    * [CSS Minifier](https://github.com/madskristensen/BundlerMinifier/wiki/cssminifier)
     * [JavaScript küçültücü](https://github.com/madskristensen/BundlerMinifier/wiki/JavaScript-Minifier-settings)
-    * [HTML küçültücü](https://github.com/madskristensen/BundlerMinifier/wiki)
-* `includeInProject`: Proje dosyası için oluşturulan dosyalar eklenip eklenmeyeceğini belirten bayrak. **İsteğe bağlı**, *varsayılan - yanlış*
-* `sourceMap`: İle birlikte gelen dosyası için kaynak eşlemesi oluşturulup oluşturulmayacağını belirten bayrak. **İsteğe bağlı**, *varsayılan - yanlış*
-* `sourceMapRootPath`: Oluşturulan kaynak eşleme dosyasını depolayan kök yolu.
+    * [HTML Minifier](https://github.com/madskristensen/BundlerMinifier/wiki)
+* `includeInProject`: Sorunlarını giderme proje dosyasına oluşturulan dosyaları eklenip eklenmeyeceğini belirten bayrak. **İsteğe bağlı**, *varsayılan - yanlış*
+* `sourceMap`: Bir kaynak eşlemesi ile birlikte gelen dosyası oluşturulup oluşturulmayacağını belirten bayrak. **İsteğe bağlı**, *varsayılan - yanlış*
+* `sourceMapRootPath`: Oluşturulan kaynak eşleme dosyası depolamak için kök yolu.
 
-## <a name="build-time-execution-of-bundling-and-minification"></a>Derleme zamanı yürütülmesi paketleme ve küçültme
+## <a name="build-time-execution-of-bundling-and-minification"></a>Derleme zamanı yürütülmesini paketleme ve küçültme
 
-[BuildBundlerMinifier](https://www.nuget.org/packages/BuildBundlerMinifier/) NuGet paketi, paketleme, yürütme ve küçültme derleme zamanında sağlar. Paket yerleştirir [MSBuild hedefleri](/visualstudio/msbuild/msbuild-targets) yapı ve temiz saatte çalıştırın. *Bundleconfig.json* tanımlanan yapılandırmasını temel alarak çıktı dosyaları üretmek için derleme süreci tarafından dosya analiz.
+[BuildBundlerMinifier](https://www.nuget.org/packages/BuildBundlerMinifier/) yürütme paketleme ve küçültme derleme zamanında NuGet paketi sağlar. Paket eklediği [MSBuild hedefleri](/visualstudio/msbuild/msbuild-targets) derleme ve temizleme saatte çalıştırın. *Bundleconfig.json* tanımlı yapılandırmaya dayanarak çıktı dosyalarını üretmek için derleme işlemi tarafından analiz dosyası.
 
 > [!NOTE]
-> Microsoft destek sağlayan GitHub topluluk odaklı bir projede BuildBundlerMinifier ait. Sorunları Dosyalanan [burada](https://github.com/madskristensen/BundlerMinifier/issues).
+> Microsoft desteği sağlayan github'daki topluluk odaklı projeye BuildBundlerMinifier aittir. Sorun bildirmiş [burada](https://github.com/madskristensen/BundlerMinifier/issues).
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-Ekleme *BuildBundlerMinifier* projenize paket.
+Ekleme *BuildBundlerMinifier* paketini projenize.
 
-Projeyi oluşturun. Çıktı penceresinde görünür:
+Projeyi oluşturun. Çıkış penceresinde görüntülenir:
 
 ```console
 1>------ Build started: Project: BuildBundlerMinifierApp, Configuration: Debug Any CPU ------
@@ -108,7 +108,7 @@ Projeyi oluşturun. Çıktı penceresinde görünür:
 ========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
 ```
 
-Projeyi temizleyin. Çıktı penceresinde görünür:
+Projeyi temizleyin. Çıkış penceresinde görüntülenir:
 
 ```console
 1>------ Clean started: Project: BuildBundlerMinifierApp, Configuration: Debug Any CPU ------
@@ -118,27 +118,27 @@ Projeyi temizleyin. Çıktı penceresinde görünür:
 ========== Clean: 1 succeeded, 0 failed, 0 skipped ==========
 ```
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli) 
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
-Ekleme *BuildBundlerMinifier* projenize paketi:
+Ekleme *BuildBundlerMinifier* paketini projenize:
 
 ```console
 dotnet add package BuildBundlerMinifier
 ```
 
-ASP.NET kullanıyorsanız 1.x çekirdek, yeni eklenen paket geri yükleme:
+ASP.NET kullanıyorsanız, Core 1.x sürümüne, yeni eklenen paket geri yükleme:
 
 ```console
 dotnet restore
 ```
 
-Projeyi oluşturun:
+Proje derleme:
 
 ```console
 dotnet build
 ```
 
-Aşağıda görünür:
+Aşağıdaki seçeneklerle karşılaşırsınız:
 
 ```console
 Microsoft (R) Build Engine version 15.4.8.50001 for .NET Core
@@ -156,7 +156,7 @@ Projeyi temizleyin:
 dotnet clean
 ```
 
-Şu çıktı görünür:
+Aşağıdaki çıktı görünür:
 
 ```console
 Microsoft (R) Build Engine version 15.4.8.50001 for .NET Core
@@ -169,52 +169,52 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 
 ---
 
-## <a name="ad-hoc-execution-of-bundling-and-minification"></a>Paketleme ve küçültme geçici yürütülmesi
+## <a name="ad-hoc-execution-of-bundling-and-minification"></a>Geçici yürütülmesini paketleme ve küçültme
 
-Proje derleme olmadan bir geçici temelinde paketleme ve küçültme görevleri çalıştırmak mümkündür. Ekleme [BundlerMinifier.Core](https://www.nuget.org/packages/BundlerMinifier.Core/) NuGet paketini projenize:
+Proje oluşturmaya gerek kalmadan geçici esasına göre paketleme ve küçültme görevleri çalıştırmak mümkündür. Ekleme [BundlerMinifier.Core](https://www.nuget.org/packages/BundlerMinifier.Core/) NuGet paketini projenize:
 
 [!code-xml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/BuildBundlerMinifierApp.csproj?range=10)]
 
 > [!NOTE]
-> Microsoft destek sağlayan GitHub topluluk odaklı bir projede BundlerMinifier.Core ait. Sorunları Dosyalanan [burada](https://github.com/madskristensen/BundlerMinifier/issues).
+> Microsoft desteği sağlayan github'daki topluluk odaklı projeye BundlerMinifier.Core aittir. Sorun bildirmiş [burada](https://github.com/madskristensen/BundlerMinifier/issues).
 
-Bu paket dahil etmek için .NET Core CLI genişletir *dotnet paket* aracı. Aşağıdaki komut, Paket Yöneticisi Konsolu (PMC) penceresinde veya bir komut kabuğu çalıştırılabilir:
+Bu paket dahil etmek için .NET Core CLI'yı genişletir *dotnet-paket* aracı. Aşağıdaki komut, Paket Yöneticisi Konsolu (PMC) penceresinde veya bir komut kabuğu'nda çalıştırılabilir:
 
 ```console
 dotnet bundle
 ```
 
 > [!IMPORTANT]
-> NuGet Paket Yöneticisi *.csproj dosyaya bağımlılıkları ekler `<PackageReference />` düğümleri. `dotnet bundle` Komutu ile .NET Core CLI kayıtlı yalnızca bir `<DotNetCliToolReference />` düğümü kullanılır. *.Csproj dosyasını uygun şekilde değiştirin.
+> NuGet Paket Yöneticisi *.csproj dosyaya bağımlılıkları ekler `<PackageReference />` düğümleri. `dotnet bundle` Komut .NET Core CLI ile kayıtlı yalnızca bir `<DotNetCliToolReference />` düğümü kullanılır. *.Csproj dosyanın uygun şekilde değiştirin.
 
 ## <a name="add-files-to-workflow"></a>İş akışı için dosyaları Ekle
 
-Bir örnekte göz önünde bulundurun ek bir *custom.css* dosya, aşağıdaki benzeyen eklenir:
+Bir örnekte göz önünde bulundurun ek *custom.css* dosya, aşağıdaki benzeyen eklenir:
 
 [!code-css[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/wwwroot/css/custom.css)]
 
-Küçültülecek *custom.css* ve onunla paketini *site.css* içine bir *site.min.css* dosya, göreli yol *bundleconfig.json*:
+Küçültülecek *custom.css* ve ile paket *site.css* içine bir *site.min.css* göreli yolunu ekleyin *bundleconfig.json*:
 
 [!code-json[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/bundleconfig2.json?highlight=6)]
 
 > [!NOTE]
-> Alternatif olarak, aşağıdaki genelleme düzeni kullanılabilir:
+> Alternatif olarak, aşağıdaki Glob deseni kullanılabilir:
 >
 > ```json
 > "inputFiles": ["wwwroot/**/*(*.css|!(*.min.css)"]
 > ```
 >
-> Bu genelleme deseni tüm CSS dosyaları eşler ve küçültülmüş dosya deseni dışlar.
+> Bu Glob deseni ile eşleşen tüm CSS dosyaları ve küçültülmüş dosya düzeni dahil değildir.
 
 Uygulamayı oluşturun. Açık *site.min.css* ve içeriğini fark *custom.css* dosyasının sonuna eklenir.
 
 ## <a name="environment-based-bundling-and-minification"></a>Ortam tabanlı paketleme ve küçültme
 
-En iyi uygulama, uygulamanızın ile birlikte gelen ve küçültülmüş dosyaları bir üretim ortamında kullanılması gerekir. Geliştirme sırasında daha kolay uygulama hata ayıklama için özgün dosyaları olun.
+En iyi uygulama, paketlenmiş ve küçültülmüş dosyaları uygulamanızı bir üretim ortamında kullanılmalıdır. Geliştirme sırasında daha kolay uygulama hata ayıklama için özgün dosyaları olun.
 
-Sayfalarınızda kullanarak eklemek için hangi dosyaların belirtin [ortam etiketi yardımcı](xref:mvc/views/tag-helpers/builtin-th/environment-tag-helper) görünümlerinizi de. Ortam etiketi yardımcı yalnızca özel çalıştırırken içeriğini işleyen [ortamları](xref:fundamentals/environments).
+Kullanarak sayfalarınıza eklemek için hangi dosyaların belirtin [ortam etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/environment-tag-helper) görünümlerinizi de. Ortam etiketi Yardımcısı yalnızca belirli çalıştırırken içeriğini işler [ortamları](xref:fundamentals/environments).
 
-Aşağıdaki `environment` etiketi çalıştırırken işlenmemiş CSS dosyaları işler `Development` ortamı:
+Aşağıdaki `environment` etiketi çalıştırıldığında işlenmemiş CSS dosyaları işler `Development` ortam:
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
@@ -226,7 +226,7 @@ Aşağıdaki `environment` etiketi çalıştırırken işlenmemiş CSS dosyalar�
 
 ---
 
-Aşağıdaki `environment` etiketi bir ortamda dışında çalıştırırken ile birlikte gelen ve küçültülmüş CSS dosyaları işler `Development`. Örneğin, çalışan `Production` veya `Staging` tetikler bu stil sayfaları oluşturma:
+Aşağıdaki `environment` etiketi ile birlikte gelen ve küçültülmüş CSS dosyaları dışındaki bir ortamda çalışan işler `Development`. Örneğin, çalışan `Production` veya `Staging` bu stil sayfaları işlenmesi tetikleyen:
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
@@ -240,62 +240,62 @@ Aşağıdaki `environment` etiketi bir ortamda dışında çalıştırırken ile
 
 ## <a name="consume-bundleconfigjson-from-gulp"></a>Gulp gelen bundleconfig.JSON kullanma
 
-Bir uygulamanın paketleme ve küçültme iş akışı ek işlem gerektiren durumlar vardır. Görüntüyü iyileştirme, önbellek busting ve CDN varlık işleme örnekleri içerir. Bu gereksinimleri karşılamak için Gulp kullanmak için paketleme ve küçültme iş akışı dönüştürebilirsiniz.
+Uygulamanın paketleme ve küçültme iş akışı ek işlem gerektiren durumlar vardır. Görüntü iyileştirme, önbellek busting ve CDN varlık işleme verilebilir. Bu gereksinimleri karşılamak için Gulp kullanmak için paketleme ve küçültme iş akışı dönüştürebilirsiniz.
 
-### <a name="use-the-bundler--minifier-extension"></a>Paketleyici & küçültücü uzantısı kullanma
+### <a name="use-the-bundler--minifier-extension"></a>Bundler & Minifier uzantısını kullanma
 
-Visual Studio [Paketleyici & küçültücü](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.BundlerMinifier) uzantısını Gulp dönüştürme işler.
+Visual Studio [Bundler & Minifier](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.BundlerMinifier) uzantısını Gulp dönüşümünü işler.
 
 > [!NOTE]
-> Microsoft destek sağlayan GitHub topluluk odaklı bir projede Paketleyici & küçültücü uzantısı ait. Sorunları Dosyalanan [burada](https://github.com/madskristensen/BundlerMinifier/issues).
+> Microsoft desteği sağlayan github'daki topluluk odaklı projeye Bundler & Minifier uzantısı aittir. Sorun bildirmiş [burada](https://github.com/madskristensen/BundlerMinifier/issues).
 
-Sağ *bundleconfig.json* dosya Çözüm Gezgini'nde ve seçin **Paketleyici & küçültücü** > **dönüştürmek için Gulp...** :
+Sağ *bundleconfig.json* seçin ve Çözüm Gezgini'nde dosya **Bundler & Minifier** > **dönüştürmek için Gulp...** :
 
-![Bağlam menüsü öğesini dönüştürmek için Gulp](../client-side/bundling-and-minification/_static/convert-to-gulp.png)
+![Bağlam menüsü öğesi için Gulp Dönüştür](../client-side/bundling-and-minification/_static/convert-to-gulp.png)
 
-*Gulpfile.js* ve *package.json* dosyaları projeye eklenir. Destekleyici [npm](https://www.npmjs.com/) içinde listelenen paketler *package.json* dosyanın `devDependencies` bölüm yüklenir.
+*Gulpfile.js* ve *package.json* dosyalar projeye eklenir. Destekleyici [npm](https://www.npmjs.com/) listelenen paketleri *package.json* dosyanın `devDependencies` bölümüne yüklenir.
 
-Genel bir bağımlılık olarak Gulp CLI yükleme PMC penceresinde aşağıdaki komutu çalıştırın:
+Genel bir bağımlılık olarak Gulp CLI'yı yüklemek için PMC penceresinde aşağıdaki komutu çalıştırın:
 
 ```console
 npm i -g gulp-cli
 ```
 
-*Gulpfile.js* dosya okuma *bundleconfig.json* giriş, çıkış ve ayarları dosyası.
+*Gulpfile.js* dosya okuma *bundleconfig.json* girişler, çıkışlar ve ayarları dosyası.
 
 [!code-javascript[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/gulpfile.js?range=1-12&highlight=10)]
 
 ### <a name="convert-manually"></a>El ile Dönüştür
 
-Visual Studio ve/veya Paketleyici & küçültücü uzantısı yoksa, el ile dönüştürün.
+Visual Studio ve/veya Bundler & Minifier uzantısı yoksa, el ile dönüştürün.
 
-Ekleme bir *package.json* dosyasıyla aşağıdaki `devDependencies`, proje kök:
+Ekleme bir *package.json* dosyasıyla aşağıdaki `devDependencies`, proje kök dizini:
 
 [!code-json[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/package.json?range=5-13)]
 
-Aynı düzeyde aşağıdaki komutu çalıştırarak bağımlılıkları yükler *package.json*:
+Aynı düzeyde, aşağıdaki komutu çalıştırarak bağımlılıkları yükler *package.json*:
 
 ```console
 npm i
 ```
 
-Gulp CLI genel bağımlılık olarak yükleyin:
+Genel bir bağımlılık olarak Gulp CLI'yı yükleyin:
 
 ```console
 npm i -g gulp-cli
 ```
 
-Kopya *gulpfile.js* proje kök dosya altında:
+Kopyalama *gulpfile.js* proje kök dosya aşağıda:
 
 [!code-javascript[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/gulpfile.js?range=1-11,14-)]
 
-### <a name="run-gulp-tasks"></a>Gulp görevleri Çalıştır
+### <a name="run-gulp-tasks"></a>Gulp görevleri çalıştırma
 
-Visual Studio'da projeyi derlemeler önce Gulp küçültme görev tetiklemek için aşağıdaki ekleyin [MSBuild hedef](/visualstudio/msbuild/msbuild-targets) *.csproj dosyasına:
+Visual Studio'da proje derlenmeden önce Gulp küçültme görev tetiklemek için aşağıdaki ekleyin [MSBuild hedefi](/visualstudio/msbuild/msbuild-targets) *.csproj dosyaya:
 
 [!code-xml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/BuildBundlerMinifierApp.csproj?range=14-16)]
 
-Bu örnekte, içinde herhangi bir görevi tanımlanan `MyPreCompileTarget` önceden tanımlanmış önce çalıştırmak hedef `Build` hedef. Visual Studio çıktı penceresinde aşağıdakine benzer bir çıktı görünür:
+Bu örnekte, herhangi bir görev içinde tanımlanan. `MyPreCompileTarget` önceden tanımlanmış önce çalıştırma hedef `Build` hedef. Visual Studio çıktı penceresinde aşağıdakine benzer bir çıktı görünür:
 
 ```console
 1>------ Build started: Project: BuildBundlerMinifierApp, Configuration: Debug Any CPU ------
@@ -309,7 +309,7 @@ Bu örnekte, içinde herhangi bir görevi tanımlanan `MyPreCompileTarget` önce
 ========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
 ```
 
-Alternatif olarak, Visual Studio'nun görev Çalıştırıcı Gezgini belirli Visual Studio olayları Gulp görevleri bağlamak için kullanılabilir. Bkz: [varsayılan görevleri çalıştırma](xref:client-side/using-gulp#running-default-tasks) , bunu ilgili yönergeler için.
+Alternatif olarak, Visual Studio'nun görev Çalıştırıcı Gezgini Gulp görevleri için belirli Visual Studio olaylar bağlamak için kullanılabilir. Bkz: [varsayılan görevleri çalıştıran](xref:client-side/using-gulp#running-default-tasks) , bunu ilgili yönergeler için.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

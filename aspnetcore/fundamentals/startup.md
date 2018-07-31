@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 4/13/2018
 uid: fundamentals/startup
-ms.openlocfilehash: 285d74c0d12e3aca4d8c33d39467dfda02712993
-ms.sourcegitcommit: e12f45ddcbe99102a74d4077df27d6c0ebba49c1
+ms.openlocfilehash: a576f3840e66fc4ed877f7575aa3f3e36b37ae4d
+ms.sourcegitcommit: d99a8554c91f626cf5e466911cf504dcbff0e02e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/15/2018
-ms.locfileid: "39063266"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39356756"
 ---
 # <a name="application-startup-in-aspnet-core"></a>ASP.NET Core uygulaması başlangıç
 
@@ -34,10 +34,13 @@ Belirtin `Startup` sınıfıyla [WebHostBuilderExtensions](/dotnet/api/Microsoft
 
 [!code-csharp[](../common/samples/WebApplication1DotNetCore2.0App/Program.cs?name=snippet_Main&highlight=10)]
 
-`Startup` Sınıf oluşturucusu, konak tarafından tanımlanan bağımlılıklar kabul eder. Yaygın [bağımlılık ekleme](xref:fundamentals/dependency-injection) içine `Startup` sınıftır eklemesine:
+Web ana bilgisayarı için kullanılabilen bazı hizmetleri sağlayan `Startup` sınıf oluşturucusu. Ek hizmetler aracılığıyla uygulamanın eklediği `ConfigureServices`. Hem konak hem de uygulama hizmetleri ardından kullanılabilir `Configure` ve uygulama boyunca.
+
+Yaygın [bağımlılık ekleme](xref:fundamentals/dependency-injection) içine `Startup` sınıftır eklemesine:
 
 * [IHostingEnvironment](/dotnet/api/Microsoft.AspNetCore.Hosting.IHostingEnvironment) ortamı tarafından hizmetleri yapılandırmak için.
-* [IConfiguration](/dotnet/api/microsoft.extensions.configuration.iconfiguration) başlatma sırasında uygulamayı yapılandırmak için.
+* [IConfiguration](/dotnet/api/microsoft.extensions.configuration.iconfiguration) yapılandırması okunamıyor.
+* [System.Diagnostics.tracesorce](/dotnet/api/microsoft.extensions.logging.iloggerfactory) bir Günlükçü içinde oluşturulacağı `Startup.ConfigureServices`.
 
 [!code-csharp[](startup/snapshot_sample/Startup2.cs)]
 
@@ -65,7 +68,7 @@ Bazı hizmetler önce web ana bilgisayarı yapılandırabilirsiniz `Startup` yö
 
 <a name="setcompatibilityversion"></a>
 
-### <a name="setcompatibilityversion-for-aspnet-core-mvc"></a>ASP.NET Core MVC SetCompatibilityVersion 
+### <a name="setcompatibilityversion-for-aspnet-core-mvc"></a>ASP.NET Core MVC SetCompatibilityVersion
 
 `SetCompatibilityVersion` Yöntemi kabul etme veya potansiyel olarak yeni ASP.NET MVC Core 2.1 + sunulan davranış değişiklikleri çevirme için bir uygulama sağlar. Potansiyel olarak yeni davranış değişiklikleri genel olarak, MVC alt sistemi davranışını nasıl ve ne kadar bunlar **kodunuzu** çalışma zamanı tarafından çağrılır. Seçim tarafından en son davranışı ve ASP.NET Core uzun vadeli davranışını alın.
 
@@ -73,7 +76,7 @@ Aşağıdaki kod, ASP.NET Core 2.1 için Uyumluluk modu ayarlar:
 
 [!code-csharp[Main](startup/sampleCompatibility/Startup.cs?name=snippet1)]
 
-En son sürümünü kullanarak uygulamanızı test öneririz (`CompatibilityVersion.Version_2_1`). Biz, çoğu uygulama en son sürümünü kullanarak davranışı değişiklikler olmaz beklenir. 
+En son sürümünü kullanarak uygulamanızı test öneririz (`CompatibilityVersion.Version_2_1`). Biz, çoğu uygulama en son sürümünü kullanarak davranışı değişiklikler olmaz beklenir.
 
 Çağıran uygulamalar `SetCompatibilityVersion(CompatibilityVersion.Version_2_0)` potansiyel olarak ASP.NET Core 2.1 MVC ve sonraki 2.x sürümlerinde sunulan davranış değişiklikleri kesilmesini korunur. Bu koruma:
 
@@ -99,10 +102,6 @@ Uygulamalar için uygun uyumluluk anahtarları kullanarak en son davranış değ
 Bazı tarihte olacaktır bir [ASP.NET Core 3.0 sürümü](https://github.com/aspnet/Home/wiki/Roadmap). Uyumluluk anahtarları tarafından desteklenen eski davranışları 3.0 sürümünde kaldırılacak. Biz, neredeyse tüm kullanıcılar teknolojisinden yararlanan pozitif değişiklikler bunlar gönderebilirsiniz. Bu değişiklikleri şimdi Tanıtımı, çoğu uygulama artık yararlanabilir ve diğerlerinin uygulamalarını güncelleştirme zamanı gerekir.
 
 ::: moniker-end
-
-## <a name="services-available-in-startup"></a>Başlangıç kullanılabilir hizmetleri
-
-Web ana bilgisayarı için kullanılabilen bazı hizmetleri sağlayan `Startup` sınıf oluşturucusu. Ek hizmetler aracılığıyla uygulamanın eklediği `ConfigureServices`. Hem konak hem de uygulama hizmetleri ardından kullanılabilir `Configure` ve uygulama boyunca.
 
 ## <a name="the-configure-method"></a>Yapılandırma yöntemi
 
@@ -161,9 +160,9 @@ Bir [Ihostingstartup](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup) 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Barındırma](xref:fundamentals/host/index)
-* [Birden çok ortam kullanma](xref:fundamentals/environments)
-* [Ara Yazılım](xref:fundamentals/middleware/index)
-* [Günlüğe kaydetme](xref:fundamentals/logging/index)
-* [Yapılandırma](xref:fundamentals/configuration/index)
+* <xref:fundamentals/host/index>
+* <xref:fundamentals/environments>
+* <xref:fundamentals/middleware/index>
+* <xref:fundamentals/logging/index>
+* <xref:fundamentals/configuration/index>
 * [StartupLoader sınıfı: FindStartupType yöntemi (başvuru kaynağı)](https://github.com/aspnet/Hosting/blob/rel/2.0.0/src/Microsoft.AspNetCore.Hosting/Internal/StartupLoader.cs#L66-L116)
