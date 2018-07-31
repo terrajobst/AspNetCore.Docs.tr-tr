@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/04/2018
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: 4fd0cc881eff3b1bbdfdf51e223d0fd42051c31d
-ms.sourcegitcommit: 516d0645c35ea784a3ae807be087ae70446a46ee
+ms.openlocfilehash: 4aded0b87ca14a5c09844cc378efb1ac0c12a289
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39320745"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342162"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>ASP.NET Core bir Windows hizmetinde barındırma
 
@@ -82,7 +82,7 @@ Bir hizmet olarak çalıştırmak için mevcut bir ASP.NET Core projesini ayarla
 
      ::: moniker-end
 
-1. Uygulamayı yayımlayın. Kullanım [dotnet yayımlama](/dotnet/articles/core/tools/dotnet-publish) veya [Visual Studio yayımlama profilini](xref:host-and-deploy/visual-studio-publish-profiles).
+1. Uygulamayı yayımlayın. Kullanım [dotnet yayımlama](/dotnet/articles/core/tools/dotnet-publish) veya [Visual Studio yayımlama profilini](xref:host-and-deploy/visual-studio-publish-profiles). Visual Studio kullanırken **FolderProfile**.
 
    Komut satırından örnek uygulamayı yayımlamak için proje klasöründen konsol penceresinde aşağıdaki komutu çalıştırın:
 
@@ -96,16 +96,19 @@ Bir hizmet olarak çalıştırmak için mevcut bir ASP.NET Core projesini ayarla
    sc create <SERVICE_NAME> binPath= "<PATH_TO_SERVICE_EXECUTABLE>"
    ```
 
-   Proje klasöründe yayımlanan bir hizmet için yolunu kullanın *yayımlama* hizmet oluşturmak için klasör. Aşağıdaki örnekte, bir hizmettir:
+   Proje klasöründe yayımlanan bir hizmet için yolunu kullanın *yayımlama* hizmet oluşturmak için klasör. Aşağıdaki örnekte:
 
-   * Adlı **MyService**.
-   * Yayımlanan *c:\\my_services\\AspNetCoreService\\bin\\yayın\\&lt;TARGET_FRAMEWORK&gt;\\Yayımlama* klasör.
-   * Adlı bir uygulama tarafından yürütülebilir temsil *AspNetCoreService.exe*.
+   * Projenin bulunduğu `c:\my_services\AspNetCoreService` klasör.
+   * Proje yayınlanan `Release` yapılandırma.
+   * Hedef Çerçeve adı (TFM) olan `netcoreapp2.1`.
+   * Çalışma zamanı tanımlayıcı (RID) olan `win7-x64`.
+   * Uygulama yürütülebilir dosyası adlı *AspNetCoreService.exe*.
+   * Adlı hizmetin **MyService**.
 
-   Yönetici ayrıcalıklarıyla bir komut kabuğunu açın ve aşağıdaki komutu çalıştırın:
+   Örnek:
 
    ```console
-   sc create MyService binPath= "c:\my_services\AspNetCoreService\bin\Release\<TARGET_FRAMEWORK>\publish\AspNetCoreService.exe"
+   sc create MyService binPath= "c:\my_services\AspNetCoreService\bin\Release\netcoreapp2.1\win7-x64\publish\AspNetCoreService.exe"
    ```
    
    > [!IMPORTANT]
@@ -113,7 +116,7 @@ Bir hizmet olarak çalıştırmak için mevcut bir ASP.NET Core projesini ayarla
    
    Yayımlama ve farklı bir klasör hizmeti başlatmak için:
    
-   1. Kullanım [--çıktı &lt;OUTPUT_DIRECTORY&gt; ](/dotnet/core/tools/dotnet-publish#options) seçeneğini `dotnet publish` komutu.
+      1. Kullanım [--çıktı &lt;OUTPUT_DIRECTORY&gt; ](/dotnet/core/tools/dotnet-publish#options) seçeneğini `dotnet publish` komutu. Visual Studio kullanıyorsanız, yapılandırma **hedef konum** içinde **FolderProfile** özellik sayfasında seçmeden önce yayımlama **Yayımla** düğmesi.
    1. Hizmetle `sc.exe` çıkış klasör yolunu kullanarak komutu. Sağlanan yol hizmetin yürütülebilir dosya adı dahil `binPath`.
 
 1. Hizmetle başlar `sc start <SERVICE_NAME>` komutu.

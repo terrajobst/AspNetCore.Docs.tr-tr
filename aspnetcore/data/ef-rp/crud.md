@@ -5,12 +5,12 @@ description: Oluşturma, okuma, güncelleştirme ve EF Core ile silme işlemini 
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/crud
-ms.openlocfilehash: 0a8d386104d9c62f37d0a94e66344d3f1e23bae9
-ms.sourcegitcommit: e12f45ddcbe99102a74d4077df27d6c0ebba49c1
+ms.openlocfilehash: e3a0ec2e21ae9e9eeaae1eb7c17f1604897fb6f9
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/15/2018
-ms.locfileid: "39063357"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342464"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---crud---2-of-8"></a>ASP.NET core'da - CRUD - 2 8 EF çekirdekli Razor sayfaları
 
@@ -24,7 +24,7 @@ Tarafından [Tom Dykstra](https://github.com/tdykstra), [Jon P Smith](https://tw
 
 Bu öğreticide, iskele kurulmuş CRUD (oluşturma, okuma, güncelleştirme ve silme) kod inceleme ve özelleştirilmiş.
 
-Karmaşıklığı en aza indirmek ve EF Core üzerine odaklanan bu öğreticileri tutmak için EF Core kod sayfası modellerinde kullanılır. Bazı geliştiriciler, kullanıcı Arabirimi (Razor sayfaları) ve veri erişim katmanı arasında bir Soyutlama Katmanı oluşturmak için bir hizmet katmanı veya depo deseni kullanın.
+Karmaşıklığı en aza indirmek ve EF Core üzerine odaklanan bu öğreticileri tutmak için EF Core kod sayfası modellerinde kullanılır. Bazı geliştiriciler bir hizmet katmanı kullanmak veya [depo deseni](xref:fundamentals/repository-pattern) kullanıcı arabirimini (Razor sayfaları) ve veri erişim katmanı arasında bir Soyutlama Katmanı oluşturmak için.
 
 Bu öğreticide, oluştur, Düzenle, Sil ve ayrıntıları Razor sayfaları *Öğrenci* klasör incelenir.
 
