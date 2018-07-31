@@ -5,12 +5,12 @@ description: ASP.NET core'da günlüğe kaydetme çerçevesi hakkında bilgi edi
 ms.author: tdykstra
 ms.date: 07/24/2018
 uid: fundamentals/logging/index
-ms.openlocfilehash: f629b062afb5c17cd05040a9ef0281aa7121aabc
-ms.sourcegitcommit: 516d0645c35ea784a3ae807be087ae70446a46ee
+ms.openlocfilehash: 5d31c5609c0e98a81d76ce0581f1c63f349d14d0
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39320758"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342477"
 ---
 # <a name="logging-in-aspnet-core"></a>ASP.NET core'da günlüğe kaydetme
 
@@ -34,7 +34,7 @@ IIS ile barındırırken stdout günlüğe kaydetme hakkında daha fazla bilgi i
 
 ## <a name="how-to-create-logs"></a>Günlükleri oluşturma
 
-Günlükleri oluşturmak için uygulama bir [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger) nesnesinden [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcı:
+Günlükleri oluşturmak için uygulama bir [ILogger&lt;TCategoryName&gt; ](/dotnet/api/microsoft.extensions.logging.ilogger-1) nesnesinden [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcı:
 
 [!code-csharp[](index/sample/Controllers/TodoController.cs?name=snippet_LoggerDI&highlight=7)]
 
