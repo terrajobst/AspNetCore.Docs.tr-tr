@@ -3,14 +3,14 @@ title: ASP.NET Core MVC model doğrulama
 author: tdykstra
 description: ASP.NET Core MVC model doğrulama hakkında bilgi edinin.
 ms.author: riande
-ms.date: 12/18/2016
+ms.date: 07/31/2018
 uid: mvc/models/validation
-ms.openlocfilehash: 9c2ba1c1fad3ac077a886b3465142acfd4d639af
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: f407903577e40b6501737ef5b78d90e1e3e60c06
+ms.sourcegitcommit: e955a722c05ce2e5e21b4219f7d94fb878e255a6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095833"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39378673"
 ---
 # <a name="model-validation-in-aspnet-core-mvc"></a>ASP.NET Core MVC model doğrulama
 
@@ -118,7 +118,7 @@ Burada gördüğünüz şekilde çalışması istemci tarafı doğrulama yerinde
 
 [!code-cshtml[](validation/sample/Views/Shared/_ValidationScriptsPartial.cshtml)]
 
-[JQuery örtük doğrulaması](https://github.com/aspnet/jquery-validation-unobtrusive) betiğidir popüler üzerinde oluşturan özel bir ön uç Microsoft Kitaplığı [jQuery doğrulama](https://jqueryvalidation.org/) eklentisi. JQuery örtük doğrulaması aynı doğrulama mantığı iki yerde kod gerekirdi: model özellikleri, sunucu tarafı doğrulama özniteliklerinin kez ve ardından tekrar istemci tarafı betikleri (örnekler için jQuery doğrulama 's [ `validate()` ](https://jqueryvalidation.org/validate/) yöntemi karmaşık nasıl bu duruma gelebilir gösterir). Bunun yerine, MVC'nin [etiket Yardımcıları](xref:mvc/views/tag-helpers/intro) ve [HTML Yardımcıları](xref:mvc/views/overview) doğrulama öznitelikleri kullanın ve türü meta verileri HTML 5 işlemek için model özelliklerinden [veri öznitelikleri](http://w3c.github.io/html/dom.html#embedding-custom-non-visible-data-with-the-data-attributes) içinde doğrulama gerekli form öğeleri. MVC oluşturur `data-` yerleşik ve özel öznitelikler için öznitelikler. jQuery doğrulaması örtük, ardından bu ayrıştırır `data-` öznitelikleri ve jQuery doğrulama, etkili bir şekilde "sunucu tarafı doğrulama mantığını istemciye kopyalama" mantığı geçirir. Burada gösterildiği gibi ilgili etiket Yardımcıları kullanılarak istemcide doğrulama hataları görüntüleyebilirsiniz:
+[JQuery örtük doğrulaması](https://github.com/aspnet/jquery-validation-unobtrusive) betiğidir popüler üzerinde oluşturan özel bir ön uç Microsoft Kitaplığı [jQuery doğrulama](https://jqueryvalidation.org/) eklentisi. JQuery örtük doğrulaması aynı doğrulama mantığı iki yerde kod gerekirdi: model özellikleri, sunucu tarafı doğrulama özniteliklerinin kez ve ardından tekrar istemci tarafı betikleri (örnekler için jQuery doğrulama 's [ `validate()` ](https://jqueryvalidation.org/validate/) yöntemi karmaşık nasıl bu duruma gelebilir gösterir). Bunun yerine, MVC'nin [etiket Yardımcıları](xref:mvc/views/tag-helpers/intro) ve [HTML Yardımcıları](xref:mvc/views/overview) doğrulama öznitelikleri kullanın ve türü meta verileri HTML 5 işlemek için model özelliklerinden [veri öznitelikleri](http://w3c.github.io/html/dom.html#embedding-custom-non-visible-data-with-the-data-attributes) içinde doğrulama gerekli form öğeleri. MVC oluşturur `data-` yerleşik ve özel öznitelikler için öznitelikler. jQuery doğrulaması örtük ardından ayrıştırır `data-` öznitelikleri ve jQuery doğrulama, etkili bir şekilde "sunucu tarafı doğrulama mantığını istemciye kopyalama" mantığı geçirir. Burada gösterildiği gibi ilgili etiket Yardımcıları kullanılarak istemcide doğrulama hataları görüntüleyebilirsiniz:
 
 [!code-cshtml[](validation/sample/Views/Movies/Create.cshtml?highlight=4,5&range=19-25)]
 
@@ -208,11 +208,11 @@ Bu arabirimi uygulayan öznitelikleri HTML öznitelikleri için oluşturulan ala
     id="ReleaseDate" name="ReleaseDate" value="" />
 ```
 
-Örtük doğrulama verilerde kullanan `data-` hata iletilerini görüntülemek için öznitelikler. Ancak, jQuery kurallar hakkında bilmez veya jQuery için 's ekleyene kadar iletileri `validator` nesne. Bu adlı bir yöntem ekleyen aşağıdaki örnekte gösterilen `classicmovie` jQuery özel istemci doğrulama kodu içeren `validator` nesne. Bir unobtrusive.adapters.add yöntemi açıklamalarını bulunabilir [burada](http://bradwilson.typepad.com/blog/2010/10/mvc3-unobtrusive-validation.html)
+Örtük doğrulama verilerde kullanan `data-` hata iletilerini görüntülemek için öznitelikler. Ancak, jQuery kurallar hakkında bilmez veya jQuery için 's ekleyene kadar iletileri `validator` nesne. Bu özel ekleyen aşağıdaki örnekte gösterilen `classicmovie` istemci doğrulama yöntemi için jQuery `validator` nesne. Bir açıklaması için `unobtrusive.adapters.add` yöntemi bkz [ASP.NET mvc'de örtük istemci doğrulama](http://bradwilson.typepad.com/blog/2010/10/mvc3-unobtrusive-validation.html).
 
-[!code-javascript[](validation/sample/Views/Movies/Create.cshtml?range=71-93)]
+[!code-javascript[](validation/sample/Views/Movies/Create.cshtml?name=snippet_UnobtrusiveValidation)]
 
-Artık bu doğrulama kodu false döndürürse, görüntülenecek hata iletisi yanı sıra özel JavaScript doğrulaması yürütmek için bilgi jQuery sahiptir.
+Yukarıdaki kod ile `classicmovie` yöntemi film yayın tarih istemci tarafı doğrulama gerçekleştirir. Yöntem döndürürse, hata iletisi görüntüler `false`.
 
 ## <a name="remote-validation"></a>Uzak doğrulama
 
@@ -222,11 +222,14 @@ Uzak doğrulama iki adımlı bir işlemin uygulayabilirsiniz. İlk olarak, model
 
 [!code-csharp[](validation/sample/User.cs?range=7-8)]
 
-İkinci adım bir doğrulama kodu karşılık gelen eylem yönteminde tanımlanan koyuyor `[Remote]` özniteliği. JQuery doğrulama göre [ `remote()` ](https://jqueryvalidation.org/remote-method/) yöntemi belgeleri:
+İkinci adım bir doğrulama kodu karşılık gelen eylem yönteminde tanımlanan koyuyor `[Remote]` özniteliği. JQuery doğrulama göre [uzak](https://jqueryvalidation.org/remote-method/) yöntemi belgeleri, sunucu yanıtı geçerli bir JSON dizesi olmalıdır:
 
-> Gelince yanıt olmalıdır bir JSON dizesi olmalıdır `"true"` geçerli öğeler için ve `"false"`, `undefined`, veya `null` geçersiz öğeler için varsayılan hata iletisini kullanarak. Gelince yanıt örneğin bir dize ise. `"That name is already taken, try peter123 instead"`, bu dize bir özel hata iletisi yerine varsayılan olarak görüntülenir.
+* `"true"` Geçerli öğeler için.
+* `"false"`, `undefined`, veya `null` geçersiz öğeler için varsayılan hata iletisini kullanarak.
 
-Tanımı `VerifyEmail()` yöntemi aşağıda gösterildiği gibi şu kuralları takip eder. Doğrulama hatasını döndürür e-posta alınmışsa, ileti veya `true` e-posta ücretsizdir ve sonuçta saran bir `JsonResult` nesne. İstemci tarafı hata gerekirse görüntülemek veya devam etmek için döndürülen değer sonra kullanabilirsiniz.
+Sunucu yanıtı bir dize ise (örneğin, `"That name is already taken, try peter123 instead"`), dize olarak varsayılan dize yerine bir özel hata iletisi görüntülenir.
+
+Tanımı `VerifyEmail` yöntemi aşağıda gösterildiği gibi şu kuralları takip eder. Doğrulama hatasını döndürür e-posta alınmışsa, ileti veya `true` e-posta ücretsizdir ve sonuçta saran bir `JsonResult` nesne. İstemci tarafı hata gerekirse görüntülemek veya devam etmek için döndürülen değer sonra kullanabilirsiniz.
 
 [!code-csharp[](validation/sample/UsersController.cs?range=19-28)]
 
@@ -243,7 +246,7 @@ Artık kullanıcılar bir e-posta girdiğinde, JavaScript görünümünde bu e-p
 Artık, kullanıcıların bir adı ve Soyadı, JavaScript girin:
 
 * Bu adları çiftinin geçen görmek için bir uzak çağrı yapar.
-* Çift alınmış bir hata iletisi görüntülenir. 
+* Çift alınmış bir hata iletisi görüntülenir.
 * Geçen değil, kullanıcı formu gönderebilirsiniz.
 
 İki veya daha fazla ek alanlar doğrulamak gereken `[Remote]` özniteliği, sağladığınız bunları bir virgülle ayrılmış liste olarak. Örneğin, eklemek için bir `MiddleName` model özelliğine ayarlayın `[Remote]` öznitelik aşağıdaki kodda gösterildiği gibi:

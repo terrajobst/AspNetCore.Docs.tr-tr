@@ -6,18 +6,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/06/2018
 uid: mvc/views/partial
-ms.openlocfilehash: 983f3caae34b21b46d8f556e70673cf3c97abbd3
-ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
+ms.openlocfilehash: 7cb20fc30609adad83cb40e91316da115817f035
+ms.sourcegitcommit: e955a722c05ce2e5e21b4219f7d94fb878e255a6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37938465"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39378689"
 ---
 # <a name="partial-views-in-aspnet-core"></a>ASP.NET Core, kısmi görünümleri
 
 Tarafından [Steve Smith](https://ardalis.com/), [Maher JENDOUBI](https://twitter.com/maherjend), [Rick Anderson](https://twitter.com/RickAndMSFT), ve [Scott Sauber](https://twitter.com/scottsauber)
 
-ASP.NET Core MVC, web sayfaları yeniden kullanılabilir parça farklı görünümleri arasında paylaşmak için yararlı olan kısmi görünümler destekler.
+ASP.NET Core, kısmi görünümleri destekler. Kısmi görünümler, web sayfaları yeniden kullanılabilir parça farklı görünümleri arasında paylaşmak için kullanılır.
 
 [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/partial/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 
@@ -35,8 +35,7 @@ Kısmi görünümler, daha küçük bileşenlere büyük görünümleri ayırma 
 
 Mantıksal parçalarını oluşan karmaşık bir sayfasında, her bir parçanın kendi kısmi görünüm olarak çalışmak yararlıdır. Her sayfanın parçası sayfanın geri kalanını yalıtımdan görüntülenebilir. Sayfa görünümü, yalnızca kısmi görünüm işlemek için çağrıları ve genel sayfa yapısı içerdiğinden kolaylaşır.
 
-> [!TIP]
-> İzleyin [yoksa yineleyin kendiniz İlkesi](https://deviq.com/don-t-repeat-yourself/) görünümlerinizi de.
+ASP.NET Core MVC denetleyicileri sahip bir [PartialView](/dotnet/api/microsoft.aspnetcore.mvc.controller.partialview#Microsoft_AspNetCore_Mvc_Controller_PartialView) eylem yönteminden çağrılan yöntem. Razor sayfaları eşdeğeri olan `PartialView` yöntemi.
 
 ## <a name="declare-partial-views"></a>Kısmi görünümler bildirme
 

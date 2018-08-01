@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 07/21/2018
 uid: razor-pages/ui-class
-ms.openlocfilehash: 4252cfc5824b6078012cf9ff34968977229faf0d
-ms.sourcegitcommit: cb0c27fa0184f954fce591d417e6ab2a51d8bb22
+ms.openlocfilehash: 1f0ef59ce3f3294d6a3bde015ca34800770b1be4
+ms.sourcegitcommit: e955a722c05ce2e5e21b4219f7d94fb878e255a6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39123781"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39378676"
 ---
 # <a name="create-reusable-ui-using-the-razor-class-library-project-in-aspnet-core"></a>Yeniden kullanılabilir kullanıcı Arabirimi ASP.NET Core Razor sınıf kitaplığı projesini kullanarak oluşturun.
 
@@ -32,6 +32,10 @@ Bu özellik gerektirir [!INCLUDE[](~/includes/2.1-SDK.md)]
 * (Örneğin, "RazorClassLib") kitaplığı adı > **Tamam**. Oluşturulan görünüm kitaplığı ile bir dosya adı çakışması önlemek için kitaplık adını bitmiyor olun `.Views`.
 * Doğrulama **ASP.NET Core 2.1** veya daha sonra seçilir.
 * Seçin **Razor sınıf kitaplığı** > **Tamam**.
+
+Razor sınıf kitaplığı aşağıdaki proje dosyası vardır:
+
+[!code-xml[Main](ui-class/samples/cli/RazorUIClassLib/RazorUIClassLib.csproj)]
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
