@@ -5,12 +5,12 @@ description: Nasıl ASP.NET Core hizmetlerini ve ara yazılım içeriği yerelle
 ms.author: riande
 ms.date: 01/14/2017
 uid: fundamentals/localization
-ms.openlocfilehash: 9647b605d4b9a23b365085e3677fb0e9b93f0da4
-ms.sourcegitcommit: 18339e3cb5a891a3ca36d8146fa83cf91c32e707
+ms.openlocfilehash: 87df1b8cf57509ddf80ce845d85a9b3f30673c35
+ms.sourcegitcommit: a25b572eaed21791230c85416f449f66a405ec19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37434019"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39396240"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Genelleştirme ve yerelleştirme ASP.NET core'da
 
@@ -29,6 +29,8 @@ Uygulama yerelleştirme aşağıdakileri içerir:
 2. Desteklediğiniz kültürler ve diller için yerelleştirilmiş kaynaklar sağlayın.
 
 3. Her istek için dili/kültürü seçmek için bir strateji yürütmelidir
+
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/localization/sample/Localization) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="make-the-apps-content-localizable"></a>Uygulamanın içeriği yerelleştirilebilir olun
 
