@@ -21,32 +21,15 @@ Bu öğreticide, önceki öğreticide yapı iskelesi oluşturulmuş Razor sayfal
 
 Razor sayfaları türetilir `PageModel`. Kural olarak, `PageModel`-türetilmiş sınıf adlı `<PageName>Model`. Oluşturucu kullanan [bağımlılık ekleme](xref:fundamentals/dependency-injection) eklemek için `MovieContext` sayfası. Bu düzen iskele kurulmuş tüm sayfaları izleyin. Bkz: [zaman uyumsuz kod](xref:data/ef-rp/intro#asynchronous-code) Entity Framework ile zaman uyumsuz programlamayı hakkında daha fazla bilgi için.
 
-Sayfa için bir istek yapıldığında `OnGetAsync` yöntemi için Razor sayfası filmler listesini döndürür. `OnGetAsync` veya `OnGet` durumunu başlatmak için bir Razor sayfası adı verilir. Bu durumda, `OnGetAsync` filmler listesini alır ve görüntüler. 
+Sayfa için bir istek yapıldığında `OnGetAsync` yöntemi için Razor sayfası filmler listesini döndürür. `OnGetAsync` veya `OnGet` durumunu başlatmak için bir Razor sayfası adı verilir. Bu durumda, `OnGetAsync` filmler listesini alır ve görüntüler.
 
 Zaman `OnGet` döndürür `void` veya `OnGetAsync` döndürür`Task`, dönüş yöntem kullanılır. Dönüş türü olduğunda `IActionResult` veya `Task<IActionResult>`, bir return deyimi sağlanmalıdır. Örneğin, *Pages/Movies/Create.cshtml.cs* `OnPostAsync` yöntemi:
 
-<!-- TODO - replace with snippet
-[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml.cs?name=snippetALL)]
- -->
-
-```csharp
-public async Task<IActionResult> OnPostAsync()
-{
-    if (!ModelState.IsValid)
-    {
-        return Page();
-    }
-
-    _context.Movie.Add(Movie);
-    await _context.SaveChangesAsync();
-
-    return RedirectToPage("./Index");
-}
-```
+[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie21/Pages/Movies/Create.cshtml.cs?name=snippet)]
 
 İnceleme *Pages/Movies/Index.cshtml* Razor sayfası:
 
-[!code-cshtml[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml)]
+[!code-cshtml[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml)]
 
 Razor HTML, C# veya Razor özgü biçimlendirme geçiş yapabilirsiniz. Olduğunda bir `@` sembol tarafından izlenen bir [Razor ayrılmış anahtar sözcüğü](xref:mvc/views/razor#razor-reserved-keywords)Razor özgü biçimlendirme içinde geçiş, aksi takdirde, C# diline geçer.
 
@@ -63,7 +46,7 @@ Aşağıdaki HTML Yardımcısı kullanılan bir lambda ifadesi inceleyin:
 <a name="md"></a>
 ### <a name="the-model-directive"></a>@model Yönergesi
 
-[!code-cshtml[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?range=1-2&highlight=2)]
+[!code-cshtml[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?range=1-2&highlight=2)]
 
 `@model` Yönergesi için Razor sayfası geçirilen modelin türünü belirtir. Önceki örnekte `@model` satır yapar `PageModel`-türetilmiş sınıf için bir Razor sayfası kullanılabilir. Model kullanılır `@Html.DisplayNameFor` ve `@Html.DisplayName` [HTML Yardımcıları](/aspnet/mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs#understanding-html-helpers) sayfasında.
 
@@ -76,7 +59,7 @@ Aşağıdaki HTML Yardımcısı kullanılan bir lambda ifadesi inceleyin:
 
 Aşağıdaki kodu göz önünde bulundurun:
 
-[!code-cshtml[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?range=1-6&highlight=4-999)]
+[!code-cshtml[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?range=1-6&highlight=4-999)]
 
 Önceki vurgulanmış kodu, C# koduna geçiş Razor örneğidir. `{` Ve `}` karakter C# kod bloğunun içine alın.
 
@@ -84,7 +67,7 @@ Aşağıdaki kodu göz önünde bulundurun:
 
 ::: moniker range="= aspnetcore-2.0"
 
-"Title" özelliğini kullanılan *Pages/_Layout.cshtml* dosya. İlk birkaç satırı aşağıdaki biçimlendirme gösterir *Pages/_Layout.cshtml* dosya.
+"Title" özelliğini kullanılan *Pages/Shared/_Layout.cshtml* dosya. İlk birkaç satırı aşağıdaki biçimlendirme gösterir *Pages/Shared/_Layout.cshtml* dosya.
 
 ::: moniker-end
 
@@ -94,7 +77,7 @@ Aşağıdaki kodu göz önünde bulundurun:
 
 ::: moniker-end
 
-[!code-cshtml[](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/NU/_Layout1.cshtml?highlight=6-999)]
+[!code-cshtml[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/NU/_Layout1.cshtml?highlight=6-999)]
 
 Satır `@*Markup removed for brevity.*@` bir Razor açıklama. HTML Yorumlarını aksine (`<!-- -->`), Razor açıklama istemciye gönderilmez.
 
@@ -105,15 +88,15 @@ Uygulamayı çalıştırın ve bağlantıları projedeki test (**giriş**, **hak
 
 `Layout` Özelliği ayarlandığında *Pages/_ViewStart.cshtml* dosyası:
 
-[!code-cshtml[](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/_ViewStart.cshtml)]
+[!code-cshtml[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/_ViewStart.cshtml)]
 
-Düzen dosyası önceki biçimlendirme ayarlar *Pages/_Layout.cshtml* altındaki tüm Razor dosyaları için *sayfaları* klasör. Bkz: [Düzen](xref:razor-pages/index#layout) daha fazla bilgi için.
+Düzen dosyası önceki biçimlendirme ayarlar *Pages/Shared/_Layout.cshtml* altındaki tüm Razor dosyaları için *sayfaları* klasör. Bkz: [Düzen](xref:razor-pages/index#layout) daha fazla bilgi için.
 
 ### <a name="update-the-layout"></a>Düzeni güncelleştirme
 
-Değişiklik `<title>` öğesinde *Pages/_Layout.cshtml* daha kısa bir dize kullanmak için dosya.
+Değişiklik `<title>` öğesinde *Pages/Shared/_Layout.cshtml* daha kısa bir dize kullanmak için dosya.
 
-[!code-cshtml[](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/_Layout.cshtml?range=1-6&highlight=6)]
+[!code-cshtml[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/_Layout.cshtml?range=1-6&highlight=6)]
 
 Aşağıdaki bağlantı öğe Bul *Pages/_Layout.cshtml* dosya.
 
