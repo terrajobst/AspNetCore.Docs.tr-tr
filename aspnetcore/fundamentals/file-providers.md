@@ -1,154 +1,268 @@
 ---
-title: ASP.NET Core dosya sağlayıcıları
-author: ardalis
-description: ASP.NET Core dosya sistemi erişimini dosyasını sağlayıcıları kullanımı ile nasıl soyutlar öğrenin.
+title: ASP.NET core'da dosya sağlayıcıları
+author: guardrex
+description: Nasıl ASP.NET Core dosya sistemi erişimini kullanarak dosya sağlayıcıları soyutlar öğrenin.
 ms.author: riande
-ms.date: 02/14/2017
+ms.custom: mvc
+ms.date: 08/01/2018
 uid: fundamentals/file-providers
-ms.openlocfilehash: 0d356322ea9f4cc2caead81746bf9ede4a87923f
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 512229cfe7d7efdcd9050fa13dbdbf793be29a0b
+ms.sourcegitcommit: 571d76fbbff05e84406b6d909c8fe9cbea2c8ff1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276246"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39410162"
 ---
-# <a name="file-providers-in-aspnet-core"></a>ASP.NET Core dosya sağlayıcıları
+# <a name="file-providers-in-aspnet-core"></a>ASP.NET core'da dosya sağlayıcıları
 
-Tarafından [Steve Smith](https://ardalis.com/)
+Tarafından [Steve Smith](https://ardalis.com/) ve [Luke Latham](https://github.com/guardrex)
 
-ASP.NET Core dosya sistemi erişimini dosyasını sağlayıcıları kullanımıyla soyutlar.
+ASP.NET Core, dosya sistemi erişimini kullanarak dosya sağlayıcıları soyutlar. Dosya sağlayıcıları, ASP.NET Core framework kullanılır:
 
-[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/file-providers/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
+* [IHostingEnvironment](/dotnet/api/microsoft.extensions.hosting.ihostingenvironment) uygulamanın içerik kök ve web kökü olarak sunan `IFileProvider` türleri.
+* [Statik dosya ara yazılımı](xref:fundamentals/static-files) statik dosyaları bulmak üzere dosya sağlayıcıları kullanır.
+* [Razor](xref:mvc/views/razor) sayfaları ve görünümlerini bulmak için dosya sağlayıcıları kullanır.
+* .NET core araçları, hangi dosyaların yayımlandığını belirtmek için dosya sağlayıcıları ve glob desenleri kullanır.
 
-## <a name="file-provider-abstractions"></a>Dosya sağlayıcısı soyutlamalar
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/file-providers/samples) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 
-Dosya bir Özet dosya sistemleri sağlayıcılarıdır. Ana arabirim `IFileProvider`. `IFileProvider` Dosya bilgileri almak için yöntemleri gösterir (`IFileInfo`), dizin bilgilerini (`IDirectoryContents`) ve değişiklik bildirimlerini ayarlama (kullanarak bir `IChangeToken`).
+## <a name="file-provider-interfaces"></a>Dosya sağlayıcısı arabirimleri
 
-`IFileInfo` yöntemleri ve özellikleri hakkında belirli dosyaları veya dizinleri sağlar. İki Boole özelliğe sahip `Exists` ve `IsDirectory`, dosyanın açıklayan özelliklerinin yanı sıra `Name`, `Length` (bayt cinsinden), ve `LastModified` tarih. Kullanarak dosya okuyabilir, `CreateReadStream` yöntemi.
+Birincil arabirimidir [IFileProvider](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider). `IFileProvider` yöntemlere kullanıma sunar:
+
+* Dosya bilgileri elde ([IFileInfo](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo)).
+* Dizin bilgileri elde ([IDirectoryContents](/dotnet/api/microsoft.extensions.fileproviders.idirectorycontents)).
+* Değişiklik bildirimlerini ayarlama (kullanarak bir [IChangeToken](/dotnet/api/microsoft.extensions.primitives.ichangetoken)).
+
+`IFileInfo` dosyaları ile çalışma için yöntemleri ve özellikleri sağlar:
+
+* [Var.](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo.exists)
+* [IsDirectory](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo.isdirectory)
+* [Adı](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo.name)
+* [Uzunluğu](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo.length) (bayt cinsinden)
+* [LastModified](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo.lastmodified) tarihi
+
+Kullanarak dosyayı okuyabilir [IFileInfo.CreateReadStream](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo.createreadstream) yöntemi.
+
+Örnek uygulama, dosya sağlayıcı yapılandırma işlemi gösterilmektedir `Startup.ConfigureServices` uygulama boyunca kullanmanız için [bağımlılık ekleme](xref:fundamentals/dependency-injection).
 
 ## <a name="file-provider-implementations"></a>Dosya sağlayıcısı uygulamaları
 
-Üç uygulamaları `IFileProvider` kullanılabilir: fiziksel, katıştırılmış ve bileşik. Fiziksel sağlayıcısı gerçek sistemin dosyalara erişmek için kullanılır. Katıştırılmış sağlayıcısı derlemelerde katıştırılmış dosyalara erişmek için kullanılır. Bileşik sağlayıcısı, bir veya daha fazla diğer sağlayıcılardan gelen dosyaları ve dizinleri birleşik erişim sağlamak için kullanılır.
+Üç uygulamaları `IFileProvider` kullanılabilir.
+
+::: moniker range=">= aspnetcore-2.0"
+
+| Uygulama | Açıklama |
+| -------------- | ----------- |
+| [PhysicalFileProvider](#physicalfileprovider) | Fiziksel sağlayıcısı, sistemin fiziksel dosyalara erişmek için kullanılır. |
+| [ManifestEmbeddedFileProvider](#manifestembeddedfileprovider) | Bildirim katıştırılmış sağlayıcı derlemeleri katıştırılmış dosyalara erişmek için kullanılır. |
+| [CompositeFileProvider](#compositefileprovider) | Bileşik sağlayıcısı, bir veya daha fazla diğer sağlayıcılardan dosyalara ve dizinlere birleşik erişim sağlamak için kullanılır. |
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+| Uygulama | Açıklama |
+| -------------- | ----------- |
+| [PhysicalFileProvider](#physicalfileprovider) | Fiziksel sağlayıcısı, sistemin fiziksel dosyalara erişmek için kullanılır. |
+| [EmbeddedFileProvider](#embeddedfileprovider) | Katıştırılmış sağlayıcı derlemeleri katıştırılmış dosyalara erişmek için kullanılır. |
+| [CompositeFileProvider](#compositefileprovider) | Bileşik sağlayıcısı, bir veya daha fazla diğer sağlayıcılardan dosyalara ve dizinlere birleşik erişim sağlamak için kullanılır. |
+
+::: moniker-end
 
 ### <a name="physicalfileprovider"></a>PhysicalFileProvider
 
-`PhysicalFileProvider` Fiziksel dosya sistemindeki erişim sağlar. Sarmaladığı `System.IO.File` bir dizin ve alt öğelerini tüm yollara kapsamı türü (fiziksel sağlayıcı için). Bu kapsam, belirli bir dizin ve bu sınır dışında dosya sistemine erişimi engelleme alt öğelerini erişimi sınırlar. Bu sağlayıcı başlatılırken bu sağlayıcı için tüm istekler için taban yol yapılan (ve hangi bu yolu dışında erişimi kısıtlayan gibi) hizmet veren bir dizin yolu ile sağlamanız gerekir. Bir ASP.NET Core uygulama örneği bir `PhysicalFileProvider` doğrudan sağlayıcısı veya isteyebileceği bir `IFileProvider` bir denetleyici veya hizmetin oluşturucu kullanılarak [bağımlılık ekleme](dependency-injection.md). İkinci yaklaşımı genellikle daha esnek ve test edilebilir bir çözüm sunacak.
+[PhysicalFileProvider](/dotnet/api/microsoft.extensions.fileproviders.physicalfileprovider) fiziksel dosya sistemine erişim sağlar. `PhysicalFileProvider` kullanan [System.IO.File](/dotnet/api/system.io.file) (fiziksel sağlayıcısının) türünü ve bir dizin ve alt öğeleri için tüm yolları kapsamları. Bu kapsam dışında belirtilen dizin ve alt dosya sistemine erişimi engeller. Bu sağlayıcı örneği oluşturulurken bir dizin yolu gereklidir ve sağlayıcıyı kullanarak yapılan tüm isteklere ait temel yol olarak görev yapar. Örneği oluşturabilir bir `PhysicalFileProvider` doğrudan sağlayıcısı veya isteyebilir bir `IFileProvider` bir Oluşturucuda [bağımlılık ekleme](xref:fundamentals/dependency-injection).
 
-Aşağıdaki örnekte nasıl oluşturulacağını gösterir bir `PhysicalFileProvider`.
+**Statik türler**
 
+Aşağıdaki kod nasıl oluşturulacağını gösterir. bir `PhysicalFileProvider` ve dizin içeriğini alıp dosya bilgileri kullanın:
 
 ```csharp
-IFileProvider provider = new PhysicalFileProvider(applicationRoot);
-IDirectoryContents contents = provider.GetDirectoryContents(""); // the applicationRoot contents
-IFileInfo fileInfo = provider.GetFileInfo("wwwroot/js/site.js"); // a file under applicationRoot
+var provider = new PhysicalFileProvider(applicationRoot);
+var contents = provider.GetDirectoryContents(string.Empty);
+var fileInfo = provider.GetFileInfo("wwwroot/js/site.js");
 ```
 
-Dizin içeriğini yineleme ya da bir alt yolu sağlayarak bir belirli dosyanın bilgi edinin.
+Önceki örnekte türleri:
 
-Sağlayıcı bir denetleyicisinden istemek için denetleyicinin oluşturucuda belirtin ve bir yerel alan atayın. Eylem yöntemleri yerel örneğinin kullanın:
+* `provider` olan bir `IFileProvider`.
+* `contents` olan bir `IDirectoryContents`.
+* `fileInfo` olan bir `IFileInfo`.
 
-[!code-csharp[](file-providers/sample/src/FileProviderSample/Controllers/HomeController.cs?highlight=5,7,12&range=6-19)]
+Dosya sağlayıcısı tarafından belirtilen dizin yinelemek için kullanılabilir `applicationRoot` veya çağrı `GetFileInfo` bir dosyanın bilgi edinme. Dosya sağlayıcısı dışında erişim yok `applicationRoot` dizin.
 
-Ardından, uygulamanın içinde sağlayıcısı oluşturma `Startup` sınıfı:
+Örnek uygulamayı, uygulamanın sağlayıcısı oluşturur `Startup.ConfigureServices` kullanarak [IHostingEnvironment.ContentRootFileProvider](/dotnet/api/microsoft.extensions.hosting.ihostingenvironment.contentrootfileprovider):
 
-[!code-csharp[](file-providers/sample/src/FileProviderSample/Startup.cs?highlight=35,40&range=1-43)]
+```csharp
+var physicalProvider = _env.ContentRootFileProvider;
+```
 
-İçinde *Index.cshtml* görüntülemek için yinelemek `IDirectoryContents` sağlanan:
+**Bağımlılık ekleme dosya sağlayıcısı türleriyle alın**
 
-[!code-html[](file-providers/sample/src/FileProviderSample/Views/Home/Index.cshtml?highlight=2,7,9,11,15)]
+Herhangi bir sınıf oluşturucusuna sağlayıcı ekleme ve yerel bir alana atayın. Dosyalara erişmek için sınıfın yöntemlerini boyunca alanını kullanın.
 
-Sonuç:
+::: moniker range=">= aspnetcore-2.0"
 
-![Dosya sağlayıcı örnek uygulama listeleme fiziksel dosyalar ve klasörler](file-providers/_static/physical-directory-listing.png)
+Örnek uygulamada `IndexModel` sınıfı bir `IFileProvider` uygulamanın taban yolu için dizin içeriğini almak için örnek.
+
+*Pages/Index.cshtml.cs*:
+
+[!code-csharp[](file-providers/samples/2.x/FileProviderSample/Pages/Index.cshtml.cs?name=snippet1)]
+
+`IDirectoryContents` Sayfasında yinelenir.
+
+*Pages/Index.cshtml*:
+
+[!code-cshtml[](file-providers/samples/2.x/FileProviderSample/Pages/Index.cshtml?name=snippet1)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+Örnek uygulamada `HomeController` sınıfı bir `IFileProvider` uygulamanın taban yolu için dizin içeriğini almak için örnek.
+
+*Controllers/HomeController.cs*:
+
+[!code-csharp[](file-providers/samples/1.x/FileProviderSample/Controllers/HomeController.cs?name=snippet1)]
+
+`IDirectoryContents` Görünümünde yinelenir.
+
+*Views/Home/Index.cshtml*:
+
+[!code-cshtml[](file-providers/samples/1.x/FileProviderSample/Views/Home/Index.cshtml?name=snippet1)]
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.0"
+
+### <a name="manifestembeddedfileprovider"></a>ManifestEmbeddedFileProvider
+
+[ManifestEmbeddedFileProvider](/dotnet/api/microsoft.extensions.fileproviders.manifestembeddedfileprovider) gömülü bütünleştirilmiş kodlarında dosyalara erişmek için kullanılır. `ManifestEmbeddedFileProvider` Bütünleştirilmiş kod içine derlenmiş bir bildirim ekli dosyalar özgün yollarını yeniden oluşturmak için kullanır.
+
+> [!NOTE]
+> `ManifestEmbeddedFileProvider` ASP.NET Core 2.1 veya üzeri sürümlerde kullanılabilir. ASP.NET Core 2.0 derlemede gömülü dosyalara veya önceki sürümlerinde, [ASP.NET Core 1.x sürümü bu konunun](xref:fundamentals/file-providers?view=aspnetcore-1.1).
+
+Katıştırılmış dosyaların bir bildirim oluşturmak üzere `<GenerateEmbeddedFilesManifest>` özelliğini `true`. İle eklemek için dosyaları belirttiğiniz [ &lt;EmbeddedResource&gt;](/dotnet/core/tools/csproj#default-compilation-includes-in-net-core-projects):
+
+[!code-csharp[](file-providers/samples/2.x/FileProviderSample/FileProviderSample.csproj?highlight=5,13)]
+
+Kullanım [glob desenleri](#glob-patterns) derlemesine gömmek için bir veya daha fazla dosyaları belirtmek için.
+
+Örnek uygulamayı oluşturur bir `ManifestEmbeddedFileProvider` ve şu anda çalıştırılan derlemenin yapıcısına geçirir.
+
+*Startup.cs*:
+
+```csharp
+var manifestEmbeddedProvider = 
+    new ManifestEmbeddedFileProvider(Assembly.GetEntryAssembly());
+```
+
+Ek aşırı yüklemeler sağlar:
+
+* Bir göreli dosya yolu belirtin.
+* Son değiştirilme tarihi dosyalarını kapsam.
+* Ekli dosya listesi içeren bir gömülü kaynak adı.
+
+| aşırı yükleme | Açıklama |
+| -------- | ----------- |
+| [ManifestEmbeddedFileProvider (bütünleştirilmiş kod, dize)](/dotnet/api/microsoft.extensions.fileproviders.manifestembeddedfileprovider.-ctor#Microsoft_Extensions_FileProviders_ManifestEmbeddedFileProvider__ctor_System_Reflection_Assembly_System_String_) | İsteğe bağlı kabul `root` göreli yol parametresi. Belirtin `root` kapsam çağrıları için [GetDirectoryContents](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider.getdirectorycontents) sağlanan yol altında bu kaynaklara. |
+| [ManifestEmbeddedFileProvider (derleme, dize, DateTimeOffset)](/dotnet/api/microsoft.extensions.fileproviders.manifestembeddedfileprovider.-ctor#Microsoft_Extensions_FileProviders_ManifestEmbeddedFileProvider__ctor_System_Reflection_Assembly_System_String_System_DateTimeOffset_) | İsteğe bağlı kabul `root` göreli yol parametresi ve `lastModified` tarih ([DateTimeOffset](/dotnet/api/system.datetimeoffset)) parametre. `lastModified` Tarihi, son değiştirilme tarihi kapsamlar [IFileInfo](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo) tarafından döndürülen örnek [IFileProvider](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider). |
+| [ManifestEmbeddedFileProvider (derleme, String, String, DateTimeOffset)](/dotnet/api/microsoft.extensions.fileproviders.manifestembeddedfileprovider.-ctor#Microsoft_Extensions_FileProviders_ManifestEmbeddedFileProvider__ctor_System_Reflection_Assembly_System_String_System_String_System_DateTimeOffset_) | İsteğe bağlı kabul `root` göreli yol `lastModified` tarihi ve `manifestName` parametreleri. `manifestName` Bildirimini içeren katıştırılmış kaynağın adını temsil eder. |
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 ### <a name="embeddedfileprovider"></a>EmbeddedFileProvider
 
-`EmbeddedFileProvider` Derlemelerde katıştırılmış dosyalara erişmek için kullanılır. .NET çekirdek ile derlemedeki dosyaları ekleme `<EmbeddedResource>` öğesinde *.csproj* dosyası:
+[EmbeddedFileProvider](/dotnet/api/microsoft.extensions.fileproviders.embeddedfileprovider) gömülü bütünleştirilmiş kodlarında dosyalara erişmek için kullanılır. İle eklemek için dosyaları belirttiğiniz [ &lt;EmbeddedResource&gt; ](/dotnet/core/tools/csproj#default-compilation-includes-in-net-core-projects) özelliği proje dosyasında:
 
-[!code-json[](file-providers/sample/src/FileProviderSample/FileProviderSample.csproj?range=13-18)]
+```xml
+<ItemGroup>
+  <EmbeddedResource Include="Resource.txt" />
+</ItemGroup>
+```
 
-Kullanabileceğiniz [genelleme desenleri](#globbing-patterns) derlemede katıştırmak için dosyaları belirtirken. Bu düzenleri, bir veya daha fazla eşleştirmek için kullanılabilir.
+Kullanım [glob desenleri](#glob-patterns) derlemesine gömmek için bir veya daha fazla dosyaları belirtmek için.
 
-> [!NOTE]
-> Şimdiye kadar gerçekte kendi derlemesindeki projenizdeki her .js dosya eklemek istersiniz düşüktür; Yukarıdaki örnekte, yalnızca tanıtım amacıyla kullanılır.
+Örnek uygulamayı oluşturur bir `EmbeddedFileProvider` ve şu anda çalıştırılan derlemenin yapıcısına geçirir.
 
-Oluştururken bir `EmbeddedFileProvider`, kendi oluşturucuya okumak derleme geçirin.
+*Startup.cs*:
 
 ```csharp
 var embeddedProvider = new EmbeddedFileProvider(Assembly.GetEntryAssembly());
 ```
 
-Yukarıdaki kod parçacığında nasıl oluşturulduğunu gösteren bir `EmbeddedFileProvider` şu anda yürütülen bütünleştirilmiş erişim.
+Gömülü kaynak dizinleri sunmayın. (Ad) aracılığıyla bir kaynağın yolunu kendi dosya adı kullanılarak bunun yerine, katıştırılmış `.` ayırıcı. Örnek uygulamada `baseNamespace` olduğu `FileProviderSample.`.
 
-Kullanılacak örnek uygulama güncelleştirme bir `EmbeddedFileProvider` sonuçları aşağıdaki çıktı:
+[EmbeddedFileProvider (bütünleştirilmiş kod, String)](/dotnet/api/microsoft.extensions.fileproviders.embeddedfileprovider.-ctor#Microsoft_Extensions_FileProviders_EmbeddedFileProvider__ctor_System_Reflection_Assembly_) Oluşturucusu isteğe bağlı kabul `baseNamespace` parametresi. Kapsam çağrıları için temel ad alanı belirtmek [GetDirectoryContents](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider.getdirectorycontents) bu kaynaklara sağlanan ad alanı altında.
 
-![Dosya sağlayıcısı örnek uygulaması ekli dosyaları listeleme](file-providers/_static/embedded-directory-listing.png)
-
-> [!NOTE]
-> Katıştırılmış kaynakları dizinleri sunmayın. (Aracılığıyla kendi ad alanı) kaynak yolunu kullanarak kendi filename yerine, katıştırılmış `.` ayırıcılar.
-
-> [!TIP]
-> `EmbeddedFileProvider` Oluşturucusu isteğe bağlı bir kabul `baseNamespace` parametresi. Bu belirtme çağrıları kapsamını `GetDirectoryContents` bu kaynaklara sağlanan ad alanı altında.
+::: moniker-end
 
 ### <a name="compositefileprovider"></a>CompositeFileProvider
 
-`CompositeFileProvider` Birleştirir `IFileProvider` örnekleri, birden çok sağlayıcı dosyalarıyla çalışmak için tek bir arabirim gösterme. Oluştururken `CompositeFileProvider`, bir veya daha fazla geçirdiğiniz `IFileProvider` kendi oluşturucusunu örnekleri:
+[CompositeFileProvider](/dotnet/api/microsoft.extensions.fileproviders.compositefileprovider) birleştirir `IFileProvider` örnekleri, birden fazla sağlayıcıdan alınan dosyalarla çalışmak için tek bir arabirim gösterme. Oluştururken `CompositeFileProvider`, geçişi bir veya daha fazla `IFileProvider` oluşturucusuna örnekleri.
 
-[!code-csharp[](file-providers/sample/src/FileProviderSample/Startup.cs?highlight=3&range=35-37)]
+::: moniker range=">= aspnetcore-2.0"
 
-Kullanılacak örnek uygulama güncelleştirme bir `CompositeFileProvider` , önceden yapılandırılmış her iki fiziksel ve katıştırılmış sağlayıcıları içerir, sonuçları aşağıdaki çıktı:
+Örnek uygulamada, bir `PhysicalFileProvider` ve `ManifestEmbeddedFileProvider` dosyaları sağlayan bir `CompositeFileProvider` uygulamanın service kapsayıcısında kayıtlı:
 
-![Dosya sağlayıcısı örnek uygulaması fiziksel dosyaları ve klasörleri ve ekli dosyaları listeleme](file-providers/_static/composite-directory-listing.png)
+[!code-csharp[](file-providers/samples/2.x/FileProviderSample/Startup.cs?name=snippet1)]
 
-## <a name="watching-for-changes"></a>Değişiklikleri izleme
+::: moniker-end
 
-`IFileProvider` `Watch` Yöntemi bir veya daha fazla dosyaları veya dizinleri değişiklikleri izlemek için bir yol sağlar. Bu yöntemi kullanabilirsiniz bir yol dizesini kabul [genelleme desenleri](#globbing-patterns) birden çok dosya ve döndürür belirtmek için bir `IChangeToken`. Bu belirteç sunan bir `HasChanged` Denetlenmekte, özellik ve `RegisterChangeCallback` değişiklikleri belirtilen yol dizesini algılandığında çağrılan yöntemi. Her değişiklik belirteci yalnızca ilişkili geri çağırma yanıt olarak tek bir değişiklik çağırdığı unutmayın. Sabit izlemeyi etkinleştirmek için kullanabileceğiniz bir `TaskCompletionSource` aşağıda gösterildiği gibi veya yeniden oluşturun `IChangeToken` değişikliklere yanıt örneği.
+::: moniker range="< aspnetcore-2.0"
 
-Bu makalenin örnekte, bir metin dosyası değiştirildiğinde bir ileti görüntülemek için bir konsol uygulaması yapılandırılır:
+Örnek uygulamada, bir `PhysicalFileProvider` ve `EmbeddedFileProvider` dosyaları sağlayan bir `CompositeFileProvider` uygulamanın service kapsayıcısında kayıtlı:
 
-[!code-csharp[](file-providers/sample/src/WatchConsole/Program.cs?name=snippet1&highlight=1-2,16,19-20)]
+[!code-csharp[](file-providers/samples/1.x/FileProviderSample/Startup.cs?name=snippet1)]
 
-Birkaç kez dosyayı kaydettikten sonra sonucu:
+::: moniker-end
 
-![Dotnet Çalıştır yürütme uygulama quotes.txt dosyasındaki değişiklikleri izleme gösterir ve dosya beş kez değişti sonra komut penceresini açın.](file-providers/_static/watch-console.png)
+## <a name="watch-for-changes"></a>Değişiklikler için izleyin
 
-> [!NOTE]
-> Docker kapsayıcıları ve ağ paylaşımları gibi bazı dosya sistemleri değişiklik bildirimleri gönderebilmek değil. Ayarlama `DOTNET_USE_POLLINGFILEWATCHER` ortam değişkenine `1` veya `true` 4 saniyede değişiklikleri için dosya sistemi yoklamak için.
+[IFileProvider.Watch](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider.watch) yöntemi, bir veya daha fazla dosyaları veya dizinleri değişiklikleri izlemek için bir senaryo sağlar. `Watch` kullanabileceğiniz bir yol dizesini kabul eder [glob desenleri](#glob-patterns) birden çok dosyayı belirtmek için. `Watch` döndürür bir [IChangeToken](/dotnet/api/microsoft.extensions.primitives.ichangetoken). Değişiklik belirteci çıkarır:
 
-## <a name="globbing-patterns"></a>Genelleme desenleri
+* [HasChanged](/dotnet/api/microsoft.extensions.primitives.ichangetoken.haschanged): bir değişiklik oluşup oluşmadığını belirlemek için denetlenecek özellik.
+* [RegisterChangeCallback](/dotnet/api/microsoft.extensions.primitives.ichangetoken.registerchangecallback): Belirtilen yol dizesini değişiklik algılandığında çağrılır. Her değişiklik belirteci yalnızca tek bir değişikliğe yanıt ilişkili geri çağırması çağırır. Sabit izlemeyi etkinleştirmek için bir [TaskCompletionSource](/dotnet/api/system.threading.tasks.taskcompletionsource-1) (aşağıda gösterilen) veya yeniden `IChangeToken` değişikliklere yanıt olarak örnekleri.
 
-Dosya sistemi yolları kullanın adında joker karakter düzenleri *genelleme desenleri*. Bu basit desenleri dosya gruplarını belirtmek üzere kullanılabilir. İki joker karakterler `*` ve `**`.
+Örnek uygulamada *WatchConsole* konsol uygulaması, bir metin dosyası her değiştirildiğinde bir ileti görüntülemek için yapılandırılmıştır:
 
-**`*`**
+::: moniker range=">= aspnetcore-2.0"
 
-   Herhangi bir şey geçerli klasör düzeyinde veya dosya ya da herhangi bir dosya uzantısına eşleşir. Eşleşme tarafından sonlandırıldı `/` ve `.` dosya yolu karakter.
+[!code-csharp[](file-providers/samples/2.x/WatchConsole/Program.cs?name=snippet1&highlight=1-2,16,19-20)]
 
-<strong><code>**</code></strong>
+::: moniker-end
 
-   Herhangi bir şey arasında birden çok dizin düzeyleri eşleşir. Yinelemeli olarak kullanılabilir bir dizin hiyerarşisi içinde çok sayıda dosya eşleşmesi.
+::: moniker range="< aspnetcore-2.0"
 
-### <a name="globbing-pattern-examples"></a>Genelleme düzeni örnekleri
+[!code-csharp[](file-providers/samples/1.x/WatchConsole/Program.cs?name=snippet1&highlight=1-2,16,19-20)]
 
-**`directory/file.txt`**
+::: moniker-end
 
-   Belirli bir dizine belirli bir dosyayı eşleşir.
+Docker kapsayıcıları ve ağ paylaşımları gibi bazı dosya sistemleri değişiklik bildirimleri gönderebilmek değil. Ayarlama `DOTNET_USE_POLLING_FILE_WATCHER` ortam değişkenine `1` veya `true` değişikliklerin dosya sistemi (yapılandırılabilir) dört saniyede yoklamak için.
 
-**<code>directory/*.txt</code>**
+## <a name="glob-patterns"></a>Glob desenleri
 
-   Tüm dosyaları eşleşen `.txt` uzantısı'nda belirli bir dizin.
+Dosya sistemi yolları adında joker karakter düzenleri kullanmak *glob (veya Glob) desenlerini*. Bu modellerle dosya grupları belirtin. İki joker karakterler `*` ve `**`:
 
-**`directory/*/bower.json`**
+**`*`**  
+Herhangi bir şey geçerli klasör düzeyinde, herhangi bir dosya adı veya herhangi bir dosya uzantısı ile eşleşir. Eşleşme tarafından sonlandırılır `/` ve `.` karakter dosya yolu.
 
-   Tüm eşleşen `bower.json` dizinleri tam olarak bir düzey alttaki dosyalarında `directory` dizin.
+**`**`**  
+Herhangi bir şey, birden çok dizin düzeyleri arasında eşleşir. Yinelemeli olarak kullanılan dizin sıradüzeni içinde çok sayıda dosya eşleşmesi.
 
-**<code>directory/&#42;&#42;/&#42;.txt</code>**
+**Glob deseni örnekleri**
 
-   Tüm dosyaları eşleşen `.txt` uzantısı bulunan herhangi bir yere altında `directory` dizin.
+**`directory/file.txt`**  
+Belirli bir dizinin belirli bir dosyayı eşleşir.
 
-## <a name="file-provider-usage-in-aspnet-core"></a>ASP.NET Core sağlayıcısı kullanım dosyası
+**`directory/*.txt`**  
+Eşleşen tüm dosyaları *.txt* belirli bir dizine uzantı.
 
-ASP.NET Core çeşitli bölümlerini dosya sağlayıcıları kullanır. `IHostingEnvironment` uygulamanın içerik kök ve web kökü olarak kullanıma sunar `IFileProvider` türleri. Statik dosya ara yazılımı dosya sağlayıcıları statik dosyaları bulmak için kullanır. Razor yapar kullanımına ağırlık `IFileProvider` görünümleri bulunmasında. DotNet'in işlevselliğini kullanır dosya sağlayıcıları ve genelleme desenleri hangi dosyaların yayımlanması belirtmek için yayımlayın.
+**`directory/*/appsettings.json`**  
+Tüm eşleşen `appsettings.json` dizinleri tam olarak bir düzey alttaki dosyalarında *dizin* klasör.
 
-## <a name="recommendations-for-use-in-apps"></a>Uygulamaları kullanmak için öneriler
-
-ASP.NET Core uygulamanızı dosya sistemi erişimi gerektiriyorsa, örneği isteyebilir `IFileProvider` bağımlılık ekleme aracılığıyla ve ardından yöntemlerinden erişim gerçekleştirmek için bu örnekte gösterildiği gibi kullanın. Bu sağlayıcı uygulama başlatıldığında ve uygulamanızı başlatır uygulama türleri sayısını azaltan bir kez yapılandırmanıza olanak sağlar.
+**`directory/**/*.txt`**  
+Eşleşen tüm dosyaları *.txt* uzantısı bulunan herhangi bir yere altında *dizin* klasör.
