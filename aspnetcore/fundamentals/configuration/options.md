@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/28/2017
 uid: fundamentals/configuration/options
-ms.openlocfilehash: aa9c490aff873d12c9417e7b611991617207c0d3
-ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
+ms.openlocfilehash: fd3e55ec821be336501f523550f547f6049c9937
+ms.sourcegitcommit: 4e34ce61e1e7f1317102b16012ce0742abf2cca6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39342451"
+ms.lasthandoff: 08/04/2018
+ms.locfileid: "39514758"
 ---
 # <a name="options-pattern-in-aspnet-core"></a>ASP.NET Core desende seçenekleri
 
@@ -294,10 +294,17 @@ services.PostConfigureAll<MyOptions>("named_options_1", myOptions =>
 
 ## <a name="accessing-options-during-startup"></a>Başlatma sırasında erişilebilirlik seçenekleri
 
-`IOptions` kullanılabilir `Configure`, hizmetleri önce oluşturulan bu yana `Configure` yöntemini yürütür. Bir hizmet sağlayıcısı oluşturulursa `ConfigureServices` seçeneklerine erişmek için bunu içeremez mıydı hizmet sağlayıcısı oluşturulduktan sonra sağlanan yapılandırma seçenekleri. Bu nedenle, hizmet kayıtları sıralama nedeniyle tutarsız seçenekleri durumu bulunabilir.
+`IOptions` kullanılabilir `Startup.Configure`, hizmetleri önce oluşturulan bu yana `Configure` yöntemini yürütür.
 
-Seçenekleri genellikle yapılandırmasından yüklü olmadığından, yapılandırma hem de başlangıç kullanılabilir `Configure` ve `ConfigureServices`. Başlatma sırasında yapılandırma kullanma örnekleri için bkz [uygulama başlatma](xref:fundamentals/startup) konu.
+```csharp
+public void Configure(IApplicationBuilder app, IOptions<MyOptions> optionsAccessor)
+{
+    var option1 = optionsAccessor.Value.Option1;
+}
+```
 
-## <a name="see-also"></a>Ayrıca bkz.
+`IOptions` içinde kullanılmaması `Startup.ConfigureServices`. Hizmet Kayıtları sıralama nedeniyle tutarsız seçenekleri durumu bulunabilir.
 
-* [Yapılandırma](xref:fundamentals/configuration/index)
+## <a name="additional-resources"></a>Ek kaynaklar
+
+* <xref:fundamentals/configuration/index>
