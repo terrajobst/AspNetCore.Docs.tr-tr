@@ -73,7 +73,7 @@ Javascript istemci MessagePack desteği tarafından sağlanır `@aspnet/signalr-
 npm install @aspnet/signalr-protocol-msgpack
 ```
 
-Npm paket yüklendikten sonra modülü doğrudan bir JavaScript Modülü Yükleyicisi kullanılabilir veya başvurarak tarayıcıya içe *node_modules\\ @aspnet\signalr-protocol-msgpack\dist\browser\signalr-protocol-msgpack.js*  dosya. Bir tarayıcıda `msgpack5` kitaplığı da başvurulmalıdır. Kullanım bir `<script>` başvuru oluşturmak için etiket. Kitaplık şu yolda bulunabilir: *node_modules\msgpack5\dist\msgpack5.js*.
+Npm paket yüklendikten sonra modülü doğrudan bir JavaScript Modülü Yükleyicisi kullanılabilir veya başvurarak tarayıcıya içe *node_modules\\@aspnet\signalr-protocol-msgpack\dist\browser\signalr-protocol-msgpack.js* dosya. Bir tarayıcıda `msgpack5` kitaplığı da başvurulmalıdır. Kullanım bir `<script>` başvuru oluşturmak için etiket. Kitaplık şu yolda bulunabilir: *node_modules\msgpack5\dist\msgpack5.js*.
 
 > [!NOTE]
 > Kullanırken `<script>` öğesi sırası önemlidir. Varsa *signalr protokolünü msgpack.js* önce başvurulan *msgpack5.js*, MessagePack ile bağlanmaya çalışırken bir hata oluşur. *signalr.js* daha önce de gereklidir *signalr protokolünü msgpack.js*.
