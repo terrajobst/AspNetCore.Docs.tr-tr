@@ -44,4 +44,9 @@ Proje klasöründe kimlik iskele kurucu istediğiniz seçeneği ile çalıştır
 dotnet aspnet-codegenerator identity -dc MyWeb.Data.ApplicationDbContext --files Account.Register
 ```
 
+PowerShell komut ayırıcı olarak virgül kullanır. PowerShell kullanarak, dosya listesinde noktalı kaçış veya dosya listesi çift tırnak işaretleri içine alın. Örneğin:
+
+```cli
+dotnet aspnet-codegenerator identity -dc MyWeb.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout"
+```
 -------------
