@@ -5,12 +5,12 @@ description: Web uygulaması nasıl bir ASP.NET Core HTTPS/TLS'ye gerektirecek �
 ms.author: riande
 ms.date: 2/9/2018
 uid: security/enforcing-ssl
-ms.openlocfilehash: d8bf11d7d2df8d8b197f001570a8fab1f3262814
-ms.sourcegitcommit: 4e34ce61e1e7f1317102b16012ce0742abf2cca6
+ms.openlocfilehash: 3bea8661e17fec5128e822d98741d1f8ed7434e5
+ms.sourcegitcommit: 028ad28c546de706ace98066c76774de33e4ad20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/04/2018
-ms.locfileid: "39514810"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39655504"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>ASP.NET core'da HTTPS'yi zorunlu kılma
 
@@ -112,7 +112,10 @@ Genel olarak HTTPS'yi zorunlu (`options.Filters.Add(new RequireHttpsAttribute())
 <a name="hsts"></a>
 ## <a name="http-strict-transport-security-protocol-hsts"></a>HTTP taşıma katı güvenlik protokolü (HSTS)
 
-Başına [OWASP](https://www.owasp.org/index.php/About_The_Open_Web_Application_Security_Project), [HTTP katı taşıma güvenliği (HSTS)](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet) özel yanıt üst bilgisi kullanarak bir web uygulaması tarafından belirtilen bir güvenlik katılımı geliştirmedir. Bu üst bilginin HSTS destekleyen bir tarayıcı aldığında, HTTP üzerinden herhangi bir iletişim göndermeyi önler ve bunun yerine tüm iletişim HTTPS üzerinden zorlar etki alanı için yapılandırma depolar. Ayrıca, kullanıcının'in geçici olarak bu tür bir sertifika güven etmesine tarayıcı istemlerini devre dışı bırakma, güvenilmeyen ya da geçersiz sertifikaları kullanmasını önler.
+Başına [OWASP](https://www.owasp.org/index.php/About_The_Open_Web_Application_Security_Project), [HTTP katı taşıma güvenliği (HSTS)](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet) yanıt üst bilgisi kullanarak bir web uygulaması tarafından belirtilen bir güvenlik katılımı geliştirmedir. Bu üstbilginin HSTS destekleyen bir tarayıcı aldığında:
+
+* Tarayıcıya HTTP üzerinden herhangi bir iletişim göndermeyi önler etki alanı için yapılandırma depolar. Tarayıcı tüm iletişim HTTPS üzerinden zorlar. 
+* Tarayıcı kullanıcı, güvenilmeyen ya da geçersiz bir sertifika kullanmasını önler. Tarayıcı geçici olarak bu tür bir sertifika güven etmesine istemlerini devre dışı bırakır.
 
 ASP.NET Core 2.1 veya üzeri ile HSTS uygulayan `UseHsts` genişletme yöntemi. Aşağıdaki kod çağrıları `UseHsts` uygulama değil ne zaman [geliştirme modu](xref:fundamentals/environments):
 

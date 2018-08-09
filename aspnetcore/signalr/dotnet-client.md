@@ -5,20 +5,23 @@ description: ASP.NET Core SignalR .NET istemcisi hakkında bilgi
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 05/29/2018
+ms.date: 08/07/2018
 uid: signalr/dotnet-client
-ms.openlocfilehash: ce5be911e67831cbf6c09e24744111e73ffdbe63
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 970888a410b2486a20f98ce77a8674f8ec357f50
+ms.sourcegitcommit: 028ad28c546de706ace98066c76774de33e4ad20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095040"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39655258"
 ---
 # <a name="aspnet-core-signalr-net-client"></a>ASP.NET Core SignalR .NET istemcisi
 
 Tarafından [Rachel Appel](http://twitter.com/rachelappel)
 
 ASP.NET Core SignalR .NET istemci, Xamarin, WPF, Windows Forms, konsol ve .NET Core uygulamaları tarafından kullanılabilir. Gibi [JavaScript istemci](xref:signalr/javascript-client), .NET istemci almak ve ileti gönderip hub'ına gerçek zamanlı olarak sağlar.
+
+> [!NOTE]
+> Xamarin, Visual Studio sürümü için özel gereksinimleri vardır. Daha fazla bilgi için [SignalR istemci 2.1.1 Xamarin](https://github.com/aspnet/Announcements/issues/305).
 
 [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/live/aspnetcore/signalr/dotnet-client/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 

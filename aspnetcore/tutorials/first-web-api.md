@@ -1,19 +1,19 @@
 ---
-title: Windows için Visual Studio ile ASP.NET Core ile Web API'si oluşturma
+title: ASP.NET Core ve Visual Studio ile Web API'si oluşturma
 author: rick-anderson
-description: ASP.NET Core MVC ve Windows için Visual Studio ile bir web API'si oluşturma
+description: ASP.NET Core MVC ve Windows üzerinde Visual Studio ile bir web API'si oluşturma
 ms.author: riande
 ms.custom: mvc
 ms.date: 05/17/2018
 uid: tutorials/first-web-api
-ms.openlocfilehash: 3da22cbbbe0db7771656997a13587521e182fb2a
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 2694388324cdbd246aad6c88d8439171704dfe89
+ms.sourcegitcommit: 29dfe436f54a27fbb4f6494bc639d16c75001fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38164606"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39722522"
 ---
-# <a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-windows"></a>Windows için Visual Studio ile ASP.NET Core ile Web API'si oluşturma
+# <a name="create-a-web-api-with-aspnet-core-and-visual-studio"></a>ASP.NET Core ve Visual Studio ile Web API'si oluşturma
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT) ve [Mike Wasson](https://github.com/mikewasson)
 
@@ -21,7 +21,7 @@ Bu öğreticide web API'si "Yapılacaklar" öğelerinin listesini yönetmek içi
 
 Bu öğretici üç sürümü vardır:
 
-* Windows: Web API ile Visual Studio için Windows (Bu öğretici)
+* Windows: Web API (Bu öğreticide) Windows üzerinde Visual Studio
 * macOS: [Mac için Visual Studio ile Web API](xref:tutorials/first-web-api-mac)
 * macOS, Linux, Windows: [Visual Studio Code ile Web API](xref:tutorials/web-api-vsc)
 

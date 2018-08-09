@@ -39,7 +39,7 @@ Bu yöntemler, iki GET yöntemleri uygulayın:
 ]
 ```
 
-Öğreticinin sonraki bölümlerinde miyim ile HTTP yanıtının nasıl görüntülenebilir göstereceğiz [Postman](https://www.getpostman.com/) veya [curl](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/curl.1.html).
+Öğreticinin sonraki bölümlerinde miyim ile HTTP yanıtının nasıl görüntülenebilir göstereceğiz [Postman](https://www.getpostman.com/) veya [curl](https://curl.haxx.se/docs/manpage.html).
 
 ### <a name="routing-and-url-paths"></a>URL Yönlendirme ve yolları
 

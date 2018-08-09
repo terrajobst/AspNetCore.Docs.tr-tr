@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 07/31/2018
 uid: signalr/configuration
-ms.openlocfilehash: 32c0ad94fba09fa099c2ab4a6b1d6d79a5542d7f
-ms.sourcegitcommit: a25b572eaed21791230c85416f449f66a405ec19
+ms.openlocfilehash: eac1202828edbcd295d7e52aa424cd625ee70e34
+ms.sourcegitcommit: 29dfe436f54a27fbb4f6494bc639d16c75001fab
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39396068"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39722470"
 ---
 # <a name="aspnet-core-signalr-configuration"></a>ASP.NET Core SignalR yapılandırma
 
@@ -234,7 +234,7 @@ Ek seçenekler yapılandırılabilir `WithUrl` (`withUrl` JavaScript'te) metodun
 | `Credentials` | Yapılandırılamaz * | boş | Her HTTP isteği göndermek için kimlik bilgileri. |
 | `CloseTimeout` | Yapılandırılamaz * | 5 saniye | Yalnızca WebSockets. En uzun süreyi sunucusunun Kapat isteği onaylamak Kapanıştan sonra istemci bekler. Bu süre içinde sunucu kapatma bildirimi değil, istemci bağlantısını keser. |
 | `Headers` | Yapılandırılamaz * | boş | Her HTTP isteği göndermek için ek HTTP üstbilgileri sözlüğü. |
-| `HttpMessageHandlerFactory` | Yapılandırılamaz * | `null` | Yapılandırma veya değiştirmek için kullanılan bir temsilci `HttpMessageHandler` HTTP istekleri göndermek için kullanılır. WebSocket bağlantılarını için kullanılmaz. Bu temsilci, bir null olmayan değer döndürmelidir ve varsayılan değer bir parametre olarak alır. Bu varsayılan ayarları değiştirmek ve onu döndürür ya da tamamen yeni bir dönüş `HttpMessageHandler` örneği. |
+| `HttpMessageHandlerFactory` | Yapılandırılamaz * | `null` | Yapılandırma veya değiştirmek için kullanılan bir temsilci `HttpMessageHandler` HTTP istekleri göndermek için kullanılır. WebSocket bağlantılarını için kullanılmaz. Bu temsilci, bir null olmayan değer döndürmelidir ve varsayılan değer bir parametre olarak alır. Bu varsayılan ayarları değiştirmek ve onu döndürür ya da yeni bir dönüş `HttpMessageHandler` örneği. **Aksi takdirde işleyici değiştirerek yaptığınızda, sağlanan işleyicisinden tutmak istediğiniz ayarları kopyaladığınızdan emin (örneğin, tanımlama bilgileri ve üst) yapılandırılmış seçenekler için yeni işleyici uygulanmayacak.** |
 | `Proxy` | Yapılandırılamaz * | `null` | HTTP istekleri gönderirken HTTP proxy. |
 | `UseDefaultCredentials` | Yapılandırılamaz * | `false` | HTTP ve Websocket'istekleri için varsayılan kimlik bilgilerini göndermek için bu boolean ayarlayın. Bu, Windows kimlik doğrulaması sağlar. |
 | `WebSocketConfiguration` | Yapılandırılamaz * | `null` | Ek WebSocket seçeneklerini yapılandırmak için kullanılan bir temsilci. Örneğini alır [ClientWebSocketOptions](/dotnet/api/system.net.websockets.clientwebsocketoptions) seçeneklerini yapılandırmak için kullanılabilir. |

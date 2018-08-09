@@ -5,12 +5,12 @@ description: E-posta onayı ve parola sıfırlama ile ASP.NET Core uygulaması o
 ms.author: riande
 ms.date: 7/11/2018
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 84eb3580107572f66f0c3b565b8e76ba401c0ddb
-ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
+ms.openlocfilehash: 3ca6d014245bb2a9bc4b1c90285f47eec7cefe84
+ms.sourcegitcommit: 028ad28c546de706ace98066c76774de33e4ad20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219413"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39655478"
 ---
 ::: moniker range="<= aspnetcore-2.0"
 
@@ -78,24 +78,11 @@ Bölümündeki yönergeleri [kimlik doğrulamasını etkinleştirme](xref:securi
 
 Uygulamayı çalıştırın, seçin **kaydetme** bağlamak ve bir kullanıcı kaydı. Yalnızca e-posta doğrulamasını bu noktada, olan [[EmailAddress]](/dotnet/api/system.componentmodel.dataannotations.emailaddressattribute) özniteliği. Kayıt gönderdikten sonra uygulamaya günlüğe kaydedilir. E-postasına doğrulanır kadar yeni kullanıcılar oturum açamaz böylece daha sonra öğreticide kod güncelleştirilir.
 
-## <a name="view-the-identity-database"></a>Kimlik veritabanı görünümü
-
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
-
-* Gelen **görünümü** menüsünde **SQL Server Nesne Gezgini** (SSOX).
-* Gidin **(localdb) (SQL Server 13) ifadesini MSSQLLocalDB**. Sağ **dbo. AspNetUsers** > **verileri görüntüleme**:
-
-![SQL Server Nesne Gezgini AspNetUsers tablosunda bağlamsal menü](accconfirm/_static/ssox.png)
+[!INCLUDE[](~/includes/view-identity-db.md)]
 
 Tablonun Not `EmailConfirmed` alandır `False`.
 
 Bu e-posta uygulaması bir onay e-posta gönderdiğinde, yeniden sonraki adımda kullanmak isteyebilirsiniz. Sağ tıklatın ve satır **Sil**. E-posta diğer adı silmek, aşağıdaki adımlarda kolaylaştırır.
-
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
-
-Bkz: [ASP.NET Core MVC projesinde SQLite ile çalışma](xref:tutorials/first-mvc-app-xplat/working-with-sql) SQLite veritabanını görüntülemek yönergeler.
-
-------
 
 <a name="prevent-login-at-registration"></a>
 ## <a name="require-email-confirmation"></a>E-posta onayı gerektir
@@ -113,8 +100,6 @@ Güncelleştirme *Areas/Identity/IdentityHostingStartup.cs* onaylanan e-posta ge
 ### <a name="configure-email-provider"></a>E-posta sağlayıcısı yapılandırma
 
 Bu öğreticide [SendGrid](https://sendgrid.com) e-posta göndermek için kullanılır. SendGrid hesabı ve e-posta göndermek için anahtar ihtiyacınız var. Diğer e-posta sağlayıcılarının kullanabilirsiniz. ASP.NET Core 2.x içerir `System.Net.Mail`, uygulamanızdan e-posta göndermenize olanak tanıyan. E-posta göndermek için SendGrid veya başka bir e-posta hizmeti kullanmanızı öneririz. SMTP güvenli ve doğru bir şekilde ayarlamak zordur.
-
-[Seçenekleri deseni](xref:fundamentals/configuration/options) kullanıcı hesabı ve anahtarı ayarlarına erişmek için kullanılır. Daha fazla bilgi için [yapılandırma](xref:fundamentals/configuration/index).
 
 Güvenli e-posta anahtarı almak için bir sınıf oluşturun. Bu örnek için oluşturma *Services/AuthMessageSenderOptions.cs*:
 
@@ -143,6 +128,8 @@ Windows üzerinde gizli dizi Yöneticisi'ni anahtar/değer çiftleri olarak depo
     "SendGridKey": "<key removed>"
   }
   ```
+ 
+Daha fazla bilgi için [seçenekleri deseni](xref:fundamentals/configuration/options) ve [yapılandırma](xref:fundamentals/configuration/index).
 
 ### <a name="install-sendgrid"></a>SendGrid yükleyin
 

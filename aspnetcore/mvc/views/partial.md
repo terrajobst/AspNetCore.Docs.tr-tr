@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/06/2018
 uid: mvc/views/partial
-ms.openlocfilehash: 7cb20fc30609adad83cb40e91316da115817f035
-ms.sourcegitcommit: e955a722c05ce2e5e21b4219f7d94fb878e255a6
+ms.openlocfilehash: 2223f3c6e42927def4b91ff9da58c228e5904756
+ms.sourcegitcommit: 028ad28c546de706ace98066c76774de33e4ad20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39378689"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39655329"
 ---
 # <a name="partial-views-in-aspnet-core"></a>ASP.NET Core, kısmi görünümleri
 
@@ -35,7 +35,7 @@ Kısmi görünümler, daha küçük bileşenlere büyük görünümleri ayırma 
 
 Mantıksal parçalarını oluşan karmaşık bir sayfasında, her bir parçanın kendi kısmi görünüm olarak çalışmak yararlıdır. Her sayfanın parçası sayfanın geri kalanını yalıtımdan görüntülenebilir. Sayfa görünümü, yalnızca kısmi görünüm işlemek için çağrıları ve genel sayfa yapısı içerdiğinden kolaylaşır.
 
-ASP.NET Core MVC denetleyicileri sahip bir [PartialView](/dotnet/api/microsoft.aspnetcore.mvc.controller.partialview#Microsoft_AspNetCore_Mvc_Controller_PartialView) eylem yönteminden çağrılan yöntem. Razor sayfaları eşdeğeri olan `PartialView` yöntemi.
+ASP.NET Core MVC denetleyicileri sahip bir [PartialView](/dotnet/api/microsoft.aspnetcore.mvc.controller.partialview#Microsoft_AspNetCore_Mvc_Controller_PartialView) eylem yönteminden çağrılan yöntem. Razor sayfaları eşdeğeri olan `PartialView` metodunda [PageModel](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel).
 
 ## <a name="declare-partial-views"></a>Kısmi görünümler bildirme
 

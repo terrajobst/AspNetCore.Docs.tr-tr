@@ -8,12 +8,12 @@ ms.date: 03/28/2008
 ms.assetid: 7f9380c6-19f7-4c82-a019-916ec6dffc9c
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-debugging-capabilities
 msc.type: authoredcontent
-ms.openlocfilehash: 9d420a41f50d06541d04a1dd3cb78a2e6beaaa9a
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 95c2487f26109cbdd8c76dc6f269f37264f5e34b
+ms.sourcegitcommit: 028ad28c546de706ace98066c76774de33e4ad20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37813834"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39655452"
 ---
 <a name="understanding-aspnet-ajax-debugging-capabilities"></a>ASP.NET AJAX hata ayıklama özelliklerini anlama
 ====================
@@ -55,8 +55,8 @@ Kullanılmıyorsa gereklidir, ancak büyük olasılıkla JavaScript hataları sa
 
 Hata ayıklama açık durumda sonra betik hata ayıklayıcısı adlı Görünüm menüsünde görünen yeni bir menü öğesini görürsünüz. Bu sonraki deyimi açık ve kesme dahil olmak üzere kullanılabilecek iki seçenek vardır. Açık seçildiğinde hata ayıklama sayfası Visual Studio 2008 (Visual Web Developer Express ayrıca hata ayıklama için kullanılabileceğini unutmayın) istenir. Visual Studio .NET şu anda çalışıyorsa bu örneği kullanın veya yeni bir örneğini oluşturmak için seçebilirsiniz. Sonraki deyim sonu seçildiğinde JavaScript kod yürütüldüğünde, hata ayıklama sayfası istenir. Sayfa yüklendiğinde olayda JavaScript kodu yürütür, hata ayıklama oturumu tetiklemek için sayfayı yenileyebilirsiniz. Bir düğmeye tıkladı sonra JavaScript kodu çalıştırırsanız hemen düğmesine tıklandığında sonra hata ayıklayıcı çalışır.
 
-> *> [!NOTE] Windows Vista ile kullanıcı erişim denetimi (UAC etkin) çalıştırıyorsanız ve yönetici olarak çalıştırmak için Visual Studio 2008, Visual Studio işleme eklemek için istendiğinde başarısız olur. Bu sorunu geçici olarak çözmek için Visual Studio'yu ilk kez başlatın ve hata ayıklama için bu örneği kullanın.*
-
+> [!NOTE]
+> Windows Vista ile kullanıcı erişim denetimi (UAC etkin) kullanıyorsanız ve yönetici olarak çalıştırmak için Visual Studio 2008, Visual Studio işleme eklemek için istendiğinde başarısız olur. Bu sorunu geçici olarak çözmek için Visual Studio'yu ilk kez başlatın ve hata ayıklama için bu örneği kullanın.
 
 Sonraki bölümde, bir ASP.NET AJAX sayfasına doğrudan Visual Studio 2008 içinde hata ayıklamak nasıl sürdürebileceğiniz gösterilecek olsa da, Internet Explorer komut dosyası hata ayıklayıcı seçeneğini kullanarak bir sayfa zaten açık olan ve daha ayrıntılı incelemek istediğiniz yararlı olur.
 
@@ -98,8 +98,8 @@ Açık ve kullanılabilir hata ayıklama için kullanılan tüm komut dosyaları
 
 Visual Studio .NET sayfa tarafından başvurulan komut dosyaları bazıları kaynak kodunu almak nasıl emin olarak Önemsiz olduğundan bu iletişim kutusu gösterilir. Bu oldukça can sıkıcı olabilir, ancak ilk olarak, basit bir düzeltme yoktur. Bir hata ayıklama oturumu başlatıldı ve bir kesme noktası isabet sonra Windows betik Gezgini hata ayıklama penceresine git Visual Studio 2008 menüsünden veya Ctrl + Alt + N kısayol tuşu kullanın.
 
-> *> [!NOTE] Betik Gezgini menü listelenen göremiyorsanız, Araçlar* *Özelleştir* *Visual Studio .NET menüsündeki komutları. Kategori bölümünde hata ayıklama girişini bulun ve tüm kullanılabilir menü girişleri göstermek için tıklayın. Komutlar listesinde betik Gezgini aşağı kaydırın ve hata ayıklama sürükleyin* *daha önce bahsedilen Windows menüsünde. Bunun yapılması betik Gezgini menü girişi Visual Studio .NET her çalıştırdığınızda kullandıracağınız.*
-
+> [!NOTE]
+> Betik Gezgini menü listelenen göremiyorsanız, Git **Araçları** > **Özelleştir** > **komutları** Visual Studio .NET menüsünde. Bulun **hata ayıklama** giriş kategorilerdeki tüm kullanılabilir menü girişleri göstermek için'ye tıklayın. Komutlar listesinde betik Gezgini aşağı kaydırın ve hata ayıklama menüsünden daha önce bahsedilen Windows sürükleyin. Bunun yapılması betik Gezgini menü girişi Visual Studio .NET her çalıştırdığınızda kullandıracağınız.
 
 Betik Gezgini sayfa içinde kullanılan tüm betikleri görüntülemek ve bunları Kod Düzenleyicisi'nde açmak için kullanılabilir. Betik Gezgini açıldıktan sonra kod düzenleyici penceresinde açmak için şu anda ayıklanan .aspx sayfasına çift tıklayın. Tüm betik Gezgini'nde gösterilen betikleriniz için aynı eylemi gerçekleştirir. Tüm betikler yapabilecekleriniz kod penceresinde açık olduğunda, kodda adım adım için F11 tuşuna (ve diğer hata ayıklama kısayol tuşlarını kullanın). Şekil 3, betik Gezgini örneği gösterilmektedir. Ayrıca iki özel komut dosyaları ve dinamik ASP.NET AJAX ScriptManager sayfasına eklenen iki betik hataları ayıklanmakta olan geçerli dosya (Demo.aspx) listeler.
 
