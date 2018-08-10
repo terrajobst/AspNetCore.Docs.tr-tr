@@ -35,7 +35,7 @@
 ## [Web API’leri oluşturma](xref:web-api/index)
 ### [Visual Studio Code’da Web API’si oluşturma](xref:tutorials/web-api-vsc)
 ### [Mac için Visual Studio’da Web API’si oluşturma](xref:tutorials/first-web-api-mac)
-### [Windows için Visual Studio’da Web API’si oluşturma](xref:tutorials/first-web-api)
+### [Visual Studio’da Web API’si oluşturma](xref:tutorials/first-web-api)
 ### [Yerel mobil uygulamalar için arka uç hizmetleri oluşturma](xref:mobile/native-mobile-backend)
 ### [Swagger kullanan yardım sayfaları](xref:tutorials/web-api-help-pages-using-swagger)
 #### [NSwag Kullanmaya Başlama](xref:tutorials/get-started-with-nswag)
@@ -218,7 +218,7 @@
 ## [Visual Studio'da anlık görüntü hatalarını ayıklama](/visualstudio/debugger/debug-live-azure-applications)
 ## [Sorun giderme](xref:test/troubleshoot)
 
-# [EF Core ve Azure ile veri erişimi](data/index.md)
+# [EF Core ile veri erişimi](xref:data/index)
 ## [Visual Studio kullanarak Razor Sayfaları ve EF Core ile çalışmaya başlama](xref:data/ef-rp/intro)
 ## [Visual Studio kullanarak ASP.NET Core ve EF Core ile çalışmaya başlama](data/ef-mvc/index.md)
 ## [EF Çekirdekli ASP.NET Core - yeni veritabanı](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db)
@@ -229,6 +229,15 @@
 ### [Blob depolama ve Visual Studio Bağlı Hizmetler kullanmaya başlama](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-blobs/)
 ### [Kuyruk Depolama ve Visual Studio Bağlı Hizmetler kullanmaya Başlama](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-queues/)
 ### [Tablo Depolama ve Visual Studio Bağlı Hizmetler kullanmaya Başlama](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-tables/)
+
+# [Azure kılavuzu](xref:azure/index)
+## ASP.NET Core ve Azure ile DevOps
+### [Giriş](xref:azure/devops/index)
+### [Araçlar ve indirmeler](xref:azure/devops/tools-and-downloads)
+### [App Service’e dağıtma](xref:azure/devops/deploy-to-app-service)
+### [Sürekli tümleştirme ve dağıtım](xref:azure/devops/cicd)
+### [İzleme ve sorun giderme](xref:azure/devops/monitor)
+### [Sonraki adımlar](xref:azure/devops/next-steps)
 
 # [İstemci tarafı geliştirme](xref:client-side/index)
 ## [Gulp kullanma](xref:client-side/using-gulp)
