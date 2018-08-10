@@ -5,12 +5,12 @@ description: ASP.NET core'da günlüğe kaydetme çerçevesi hakkında bilgi edi
 ms.author: tdykstra
 ms.date: 07/24/2018
 uid: fundamentals/logging/index
-ms.openlocfilehash: 60777d4f8664b7f02c806abb6ca40a29602d207f
-ms.sourcegitcommit: e955a722c05ce2e5e21b4219f7d94fb878e255a6
+ms.openlocfilehash: 35bb7fa51db541f825a79151fb7fbe85d48e1998
+ms.sourcegitcommit: 028ad28c546de706ace98066c76774de33e4ad20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39378657"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39655365"
 ---
 # <a name="logging-in-aspnet-core"></a>ASP.NET core'da günlüğe kaydetme
 
@@ -196,7 +196,7 @@ Bu çağırmakla eşdeğerdir `CreateLogger` tam olarak nitelenmiş tür adını
 
 Her bir günlük yazma, belirttiğiniz kendi [LogLevel](/dotnet/api/microsoft.extensions.logging.logLevel). Günlük düzeyini önem derecesi veya önem derecesini gösterir. Örneğin yazabilirsiniz bir `Information` oturum normalde, bir yöntem sona erdiğinde bir `Warning` bir yöntem dönüş kodu 404 hatası döndürdüğünde ve bir günlük `Error` günlüğe beklenmeyen bir özel durum yakalayın.
 
-Aşağıdaki kod örneğinde, yöntemlerin adlarını (örneğin, `LogWarning`) günlük düzeyini belirtin. İlk parametre [oturum öğesini belirten Olay No.](#log-event-id). İkinci parametre bir [ileti şablonunu](#log-message-template) kalan yöntem parametreleri tarafından sağlanan bağımsız değişken değerleri yer tutucuları olan. Yöntem parametreleri, bu makalenin sonraki bölümlerinde daha ayrıntılı açıklanmıştır.
+Aşağıdaki kod örneğinde, yöntemlerin adlarını (örneğin, `LogWarning`) günlük düzeyini belirtin. İlk parametre [oturum öğesini belirten Olay No.](#log-event-id) İkinci parametre bir [ileti şablonunu](#log-message-template) kalan yöntem parametreleri tarafından sağlanan bağımsız değişken değerleri yer tutucuları olan. Yöntem parametreleri, bu makalenin sonraki bölümlerinde daha ayrıntılı açıklanmıştır.
 
 [!code-csharp[](index/sample//Controllers/TodoController.cs?name=snippet_CallLogMethods&highlight=3,7)]
 
@@ -263,7 +263,7 @@ info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
 
 ## <a name="log-event-id"></a>Günlük Olay Kimliği
 
-Her bir günlük yazma belirtebileceğiniz bir *öğesini belirten Olay No.*. Örnek uygulamayı yerel olarak tanımlanan bir kullanarak bunu yapar `LoggingEvents` sınıfı:
+Her bir günlük yazma belirtebileceğiniz bir *öğesini belirten Olay No.* Örnek uygulamayı yerel olarak tanımlanan bir kullanarak bunu yapar `LoggingEvents` sınıfı:
 
 [!code-csharp[](index/sample//Controllers/TodoController.cs?name=snippet_CallLogMethods&highlight=3,7)]
 
@@ -707,7 +707,7 @@ Gidin **günlük akışını** uygulama iletilerini görüntülemek için sayfa.
 
 ## <a name="azure-application-insights-trace-logging"></a>Azure Application Insights izleme günlüğü
 
-[Application Insights](https://azure.microsoft.com/services/application-insights/) SDK, ASP.NET Core günlük kaydı altyapısı aracılığıyla oluşturulan günlüklerinden izleme telemetrisi toplama özelliğine sahip. Daha fazla bilgi için [Applicationınsights/Microsoft-aspnetcore Wiki: günlük](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Logging).
+[Application Insights](https://azure.microsoft.com/services/application-insights/) SDK, ASP.NET Core günlük kaydı altyapısı aracılığıyla oluşturulan günlüklerinden izleme telemetrisi toplama özelliğine sahip. Daha fazla bilgi için [ASP.NET Core için Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-core) ve [Applicationınsights/Microsoft-aspnetcore Wiki: günlük](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Logging).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
