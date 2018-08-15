@@ -1,2 +1,0 @@
-> [!NOTE]
-> Bu belgenin parçasıdır [ASP.NET MVC 5 ile çalışmaya başlama](xref:mvc/overview/getting-started/introduction/getting-started) öğretici. Öğretici için son kaynak bulunan [GitHub](https://github.com/aspnet/Docs/tree/master/aspnet/mvc/overview/getting-started/introduction/sample/MvcMovie/MvcMovie)
