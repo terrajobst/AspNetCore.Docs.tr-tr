@@ -6,7 +6,12 @@ Yukarıdaki kod, bir API denetleyicisi sınıfı yöntemleri olmadan tanımlar. 
 ::: moniker range=">= aspnetcore-2.1"
 [!code-csharp[](../../tutorials/first-web-api/samples/2.1/TodoApi/Controllers/TodoController2.cs?name=snippet_todo1)]
 
-Yukarıdaki kod, bir API denetleyicisi sınıfı yöntemleri olmadan tanımlar. Sonraki bölümde, API'yi uygulamak için yöntemleri eklenir. Sınıf ile açıklanıyor bir `[ApiController]` kullanışlı bazı özellikleri etkinleştirmek için özniteliği. Özniteliği tarafından etkinleştirilen özellikler hakkında daha fazla bilgi için bkz: [ApiControllerAttribute sınıfıyla ek açıklama](xref:web-api/index#annotate-class-with-apicontrollerattribute).
+Yukarıdaki kod:
+
+* Bir API denetleyicisi sınıfı yöntemleri olmadan tanımlar.
+* Yeni bir Todo oluşturur öğe `TodoItems` boştur. Tüm Oluşturucu bir yeni bir IF oluşturduğundan Todo öğelerini silmek mümkün olmayacaktır `TodoItems` boştur.
+
+Sonraki bölümde, API'yi uygulamak için yöntemleri eklenir. Sınıf ile açıklanıyor bir `[ApiController]` kullanışlı bazı özellikleri etkinleştirmek için özniteliği. Özniteliği tarafından etkinleştirilen özellikler hakkında daha fazla bilgi için bkz: [ApiControllerAttribute sınıfıyla ek açıklama](xref:web-api/index#annotate-class-with-apicontrollerattribute).
 ::: moniker-end
 
 Denetleyicinin Oluşturucu kullanan [bağımlılık ekleme](xref:fundamentals/dependency-injection) veritabanı bağlamı eklemesine (`TodoContext`) içine denetleyici. Her bir veritabanı bağlamı kullanılan [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) denetleyici yöntemleri. Yoksa Oluşturucu bir öğe bellek içi veritabanına ekler.
