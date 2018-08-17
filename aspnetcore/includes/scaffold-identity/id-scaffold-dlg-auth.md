@@ -19,7 +19,7 @@ Not: yeni bir kullanıcı bağlamı oluşturuyorsanız, geçersiz kılmak için 
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
-ASP.NET iskele kurucu daha önce yüklemediyseniz şimdi yükleyin:
+ASP.NET Core iskele kurucu daha önce yüklemediyseniz şimdi yükleyin:
 
 ```cli
 dotnet tool install -g dotnet-aspnet-codegenerator

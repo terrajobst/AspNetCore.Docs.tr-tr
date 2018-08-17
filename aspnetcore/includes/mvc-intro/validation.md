@@ -6,7 +6,7 @@ Bu bölümde, doğrulama mantığını ekleyeceksiniz `Movie` modeli ve olun do�
 
 ## <a name="keeping-things-dry"></a>Şeyler KURU tutma
 
-MVC tasarım İlkesi biri [KURU](https://wikipedia.org/wiki/Don%27t_repeat_yourself) ("yoksa yineleyin kendiniz"). ASP.NET MVC işlevselliği veya davranışını yalnızca bir kez belirtin ve ardından sahip, bir uygulamada her yerde yansıtılması için teşvik eder. Bu yazmanız gereken kod miktarını azaltır ve daha az hata yapmaya açık, test etmek daha kolay ve bakımı kolay yazdığınız kod yapar.
+MVC tasarım İlkesi biri [KURU](https://wikipedia.org/wiki/Don%27t_repeat_yourself) ("yoksa yineleyin kendiniz"). ASP.NET Core MVC işlevselliği veya davranışını yalnızca bir kez belirtin ve ardından sahip, bir uygulamada her yerde yansıtılması için teşvik eder. Bu yazmanız gereken kod miktarını azaltır ve daha az hata yapmaya açık, test etmek daha kolay ve bakımı kolay yazdığınız kod yapar.
 
 MVC ve Entity Framework Core Code First tarafından sağlanan doğrulama desteği, uygulamada KURU İlkesi iyi bir örnektir. Kuralları uygulamada her yerde uygulanır ve tek bir yerde (model sınıfında) doğrulama kuralları bildirimli olarak belirtebilirsiniz.
 
@@ -25,7 +25,7 @@ Güncelleştirme `Movie` yerleşik yararlanmak için sınıf `Required`, `String
 
 Doğrulama özniteliklerinin uygulandığı model özellikleri uygulamak istediğiniz davranışı belirtin. `Required` Ve `MinimumLength` öznitelikleri belirtir bir özellik değeri; olmalıdır, ancak hiçbir şey bir kullanıcı bu doğrulamayı gerçekleştirmek için boşluk girişini engeller. `RegularExpression` Özniteliği hangi karakter olabilir sınırlamak için kullanılan giriş. Yukarıdaki kodda `Genre` ve `Rating` yalnızca harf (ilk harfi büyük harf, beyaz alanı, sayılar ve özel karakterler kullanılamaz) kullanmanız gerekir. `Range` Öznitelik değerine belirtilen bir aralıktaki kısıtlar. `StringLength` Özniteliği bir dize özelliğini en fazla uzunluğu ve isteğe bağlı olarak, minimum uzunluk ayarlamanızı sağlar. Değer türleri (gibi `decimal`, `int`, `float`, `DateTime`) kendiliğinden gereklidir ve gerekmeyen `[Required]` özniteliği.
 
-Doğrulama kuralları otomatik olarak sahip uygulamanızı daha güçlü ASP.NET yardımcı olun tarafından zorunlu. Ayrıca, bir şey doğrulamak ve yanlışlıkla veritabanına bozuk veri unutursanız olamaz sağlar.
+Doğrulama kuralları otomatik olarak ASP.NET Core tarafından zorlanan sahip uygulamanızı daha sağlam hale getirmeye yardımcı olur. Ayrıca, bir şey doğrulamak ve yanlışlıkla veritabanına bozuk veri unutursanız olamaz sağlar.
 
 ## <a name="validation-error-ui-in-mvc"></a>MVC kullanıcı Arabiriminde doğrulama hatası
 
