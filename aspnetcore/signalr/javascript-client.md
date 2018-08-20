@@ -31,7 +31,7 @@ SignalR JavaScript istemci kitaplığı olarak teslim edilen bir [npm](https://w
    npm install @aspnet/signalr
   ```
 
-Npm paket içeriğini yükler *node_modules\\ @aspnet\signalr\dist\browser* klasör. Adlı yeni bir klasör oluşturun *signalr* altında *wwwroot\\LIB* klasör. Kopyalama *signalr.js* dosyasını *wwwroot\lib\signalr* klasör.
+Npm paket içeriğini yükler *node_modules\\@aspnet\signalr\dist\browser* klasör. Adlı yeni bir klasör oluşturun *signalr* altında *wwwroot\\LIB* klasör. Kopyalama *signalr.js* dosyasını *wwwroot\lib\signalr* klasör.
 
 ## <a name="use-the-signalr-javascript-client"></a>SignalR JavaScript istemcisi kullanma
 
