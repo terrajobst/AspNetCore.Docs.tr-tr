@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/masterdetail/master-detail-filtering-across-
 title: Ana/ayrıntı filtreleme (C#) iki sayfada | Microsoft Docs
 author: rick-anderson
 description: Bu öğreticide GridView kullanarak veritabanında tedarikçileri listelemek için Biz bu düzen uygulayacaksınız. Her GridView tedarikçi satırda bir görünümü içerecek...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/31/2010
 ms.assetid: 552d2d50-fe73-4153-9a7f-2b379bec4625
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-across-two-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 13f5a13ac33ec9dfbff1952bc3bbb4dc951ab139
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 69e5f010507784229360f71cf6f570b342f5ff46
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37823990"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752527"
 ---
 <a name="masterdetail-filtering-across-two-pages-c"></a>Ana/ayrıntı filtreleme iki sayfada (C#)
 ====================

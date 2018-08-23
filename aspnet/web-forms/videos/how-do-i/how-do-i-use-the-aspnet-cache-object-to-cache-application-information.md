@@ -3,17 +3,17 @@ uid: web-forms/videos/how-do-i/how-do-i-use-the-aspnet-cache-object-to-cache-app
 title: '[How Do I]: Use the ASP.NET Cache Object to Cache Application Information | Microsoft Docs'
 author: rick-anderson
 description: Bu video Chris piksel uygulama bilgilerini depolamak için ASP.NET önbellek nesnesini kullanmayı gösterir. Örnek bir sayfa basit bir kullanıcı arabirimi ile oluşturulan bir...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/26/2009
 ms.assetid: 098fc90c-6bc1-4de6-978d-8024495097a9
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-the-aspnet-cache-object-to-cache-application-information
 msc.type: video
-ms.openlocfilehash: 99ed9f705d03f98a5f642b29bd93770fc9ddc85b
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 01f3b78a459cef65dba7abf9ad2a18817bb77928
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37822040"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755120"
 ---
 <a name="how-do-i-use-the-aspnet-cache-object-to-cache-application-information"></a>[Nasıl yapılır]: uygulama bilgilerini önbelleğe alma ASP.NET önbellek nesnesini kullanın.
 ====================

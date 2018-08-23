@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/paging-and-sorting/efficiently-paging-throug
 title: Büyük miktarlarda veri (VB) etkili bir şekilde sayfalama | Microsoft Docs
 author: rick-anderson
 description: Veri sunu denetimin varsayılan disk belleği seçeneği, büyük miktarlarda veriler, temel alınan veri kaynağı denetimi retriev ile çalışırken uygun değil...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/15/2006
 ms.assetid: 3e20e64a-8808-4b49-88d6-014e2629d56f
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/efficiently-paging-through-large-amounts-of-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9b00e18287bdb791a353b7ebd1bbb6cc0ab586b5
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 5870b9ac2af7d9df927edd8230334dee4885c6a1
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37805512"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753826"
 ---
 <a name="efficiently-paging-through-large-amounts-of-data-vb"></a>Büyük miktarlarda veri (VB) etkili bir şekilde sayfalama
 ====================

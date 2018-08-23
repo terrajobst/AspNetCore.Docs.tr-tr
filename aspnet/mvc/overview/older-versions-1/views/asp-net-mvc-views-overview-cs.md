@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/views/asp-net-mvc-views-overview-cs
 title: ASP.NET MVC görünümlerine genel bakış (C#) | Microsoft Docs
 author: StephenWalther
 description: Bir ASP.NET MVC görünümü ve bir HTML sayfasından farkı nedir? Bu öğreticide, Stephen Walther görünümlerine tanıtır ve gösterir t getirmeyi...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/16/2008
 ms.assetid: 152ab1e5-aec2-4ea7-b8cc-27a24dd9acb8
 msc.legacyurl: /mvc/overview/older-versions-1/views/asp-net-mvc-views-overview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d2fc96f7e991dd7c4e0b3e9ff5c589c1075010ac
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: ac47caa46d93c6157926f1c9b5112555fae4f8f5
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37833665"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752760"
 ---
 <a name="aspnet-mvc-views-overview-c"></a>ASP.NET MVC görünümlerine genel bakış (C#)
 ====================
