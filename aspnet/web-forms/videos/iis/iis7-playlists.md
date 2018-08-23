@@ -3,25 +3,25 @@ uid: web-forms/videos/iis/iis7-playlists
 title: IIS7 Oynatma listeleri | Microsoft Docs
 author: JoeStagner
 description: Medya dosyaları, web sitenizde koyduysanız çalma listeleri dizileri için medya tanımlamanıza ve isteğe bağlı olarak t bölümlerini atlamasını kullanıcıları engellemek sağlar...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/10/2009
 ms.assetid: b61968ac-6d9b-4b75-ab2a-934b609acba4
 msc.legacyurl: /web-forms/videos/iis/iis7-playlists
 msc.type: video
-ms.openlocfilehash: 1570842a618a832c81bd7a2976c53aa4aba07756
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 92f673fc637e2c5e7d4fd90a4e12c1b9c468f9ae
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37806991"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751939"
 ---
-<a name="iis7-playlists"></a><span data-ttu-id="43789-103">IIS7 oynatma listeleri</span><span class="sxs-lookup"><span data-stu-id="43789-103">IIS7 Playlists</span></span>
+<a name="iis7-playlists"></a><span data-ttu-id="14022-103">IIS7 oynatma listeleri</span><span class="sxs-lookup"><span data-stu-id="14022-103">IIS7 Playlists</span></span>
 ====================
-<span data-ttu-id="43789-104">tarafından [ALi Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="43789-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
+<span data-ttu-id="14022-104">tarafından [ALi Stagner](https://github.com/JoeStagner)</span><span class="sxs-lookup"><span data-stu-id="14022-104">by [Joe Stagner](https://github.com/JoeStagner)</span></span>
 
-<span data-ttu-id="43789-105">Medya dosyaları, web sitenizde koyduysanız çalma listeleri dizileri için medya tanımlamanıza ve isteğe bağlı olarak (örneğin, reklam veya bildirimleri) içerik bölümlerini atlamasını kullanıcıları engellemek sağlayacaktır.</span><span class="sxs-lookup"><span data-stu-id="43789-105">If you're hosting media files on your web site, play lists will let you define sequences for your media and optionally prevent users from skipping parts of the content (like ads or disclaimers).</span></span>
+<span data-ttu-id="14022-105">Medya dosyaları, web sitenizde koyduysanız çalma listeleri dizileri için medya tanımlamanıza ve isteğe bağlı olarak (örneğin, reklam veya bildirimleri) içerik bölümlerini atlamasını kullanıcıları engellemek sağlayacaktır.</span><span class="sxs-lookup"><span data-stu-id="14022-105">If you're hosting media files on your web site, play lists will let you define sequences for your media and optionally prevent users from skipping parts of the content (like ads or disclaimers).</span></span>
 
-[<span data-ttu-id="43789-106">&#9654;Videoyu (8 dakika)</span><span class="sxs-lookup"><span data-stu-id="43789-106">&#9654; Watch video (8 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/iis7-playlists)
+[<span data-ttu-id="14022-106">&#9654;Videoyu (8 dakika)</span><span class="sxs-lookup"><span data-stu-id="14022-106">&#9654; Watch video (8 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/iis7-playlists)
 
 > [!div class="step-by-step"]
-> [<span data-ttu-id="43789-107">Önceki</span><span class="sxs-lookup"><span data-stu-id="43789-107">Previous</span></span>](bit-rate-throttling.md)
+> [<span data-ttu-id="14022-107">Önceki</span><span class="sxs-lookup"><span data-stu-id="14022-107">Previous</span></span>](bit-rate-throttling.md)

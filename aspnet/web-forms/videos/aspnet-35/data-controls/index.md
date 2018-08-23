@@ -3,22 +3,22 @@ uid: web-forms/videos/aspnet-35/data-controls/index
 title: Veri denetimleri | Microsoft Docs
 author: rick-anderson
 description: Bu dizi bir video yeni veri denetimi özellikleri ile ASP.NET 3.5 kullanma keşfediyor
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/14/2011
 ms.assetid: 62fc223f-9c29-4af9-bdb7-902103d5cff1
 msc.legacyurl: /web-forms/videos/aspnet-35/data-controls
 msc.type: chapter
-ms.openlocfilehash: 0cb06592519ef5577480d5367e457dd89ba66017
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 4425c5f2ebeb327e251db1309f397a1b54438833
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37812263"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753557"
 ---
-<a name="data-controls"></a><span data-ttu-id="e7463-103">Veri denetimleri</span><span class="sxs-lookup"><span data-stu-id="e7463-103">Data Controls</span></span>
+<a name="data-controls"></a><span data-ttu-id="d2b16-103">Veri denetimleri</span><span class="sxs-lookup"><span data-stu-id="d2b16-103">Data Controls</span></span>
 ====================
-> <span data-ttu-id="e7463-104">Bu dizi bir video yeni veri denetimi özellikleri ile ASP.NET 3.5 kullanma keşfediyor</span><span class="sxs-lookup"><span data-stu-id="e7463-104">This set of videos explores how to use new data control features with ASP.NET 3.5</span></span>
+> <span data-ttu-id="d2b16-104">Bu dizi bir video yeni veri denetimi özellikleri ile ASP.NET 3.5 kullanma keşfediyor</span><span class="sxs-lookup"><span data-stu-id="d2b16-104">This set of videos explores how to use new data control features with ASP.NET 3.5</span></span>
 
 
-- [<span data-ttu-id="e7463-105">ListView Denetimi</span><span class="sxs-lookup"><span data-stu-id="e7463-105">ListView Control</span></span>](the-listview-control.md)
-- [<span data-ttu-id="e7463-106">DataPager Denetimi</span><span class="sxs-lookup"><span data-stu-id="e7463-106">DataPager Control</span></span>](the-datapager-control.md)
+- [<span data-ttu-id="d2b16-105">ListView Denetimi</span><span class="sxs-lookup"><span data-stu-id="d2b16-105">ListView Control</span></span>](the-listview-control.md)
+- [<span data-ttu-id="d2b16-106">DataPager Denetimi</span><span class="sxs-lookup"><span data-stu-id="d2b16-106">DataPager Control</span></span>](the-datapager-control.md)
