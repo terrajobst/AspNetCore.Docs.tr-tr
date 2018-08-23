@@ -3,17 +3,17 @@ uid: web-forms/videos/how-do-i/how-do-i-send-templated-emails-for-health-monitor
 title: '[Bunu nasıl yaparım:] Sistem durumu izleme ASP.NET olayları için şablonlu e-postalar gönderin | Microsoft Docs'
 author: rick-anderson
 description: Bu videoda, Chris piksel TemplatedEmailWebEventProvider sistem durumu izleme olayları oluştuğunda e-postaları t için bir şablon kullanan göndermek için nasıl kullanılacağını gösteriyor...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 09/18/2008
 ms.assetid: 5c107c6e-9fb7-4206-bd3f-221cb0767f8a
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-send-templated-emails-for-health-monitoring-events-in-aspnet
 msc.type: video
-ms.openlocfilehash: 2a2a43a06e6280f29740ad5ff653375dbf2dde65
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 0556fcde5489821b4d0b83b9de3410e25c9c5a15
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37816541"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753940"
 ---
 <a name="how-do-i-send-templated-emails-for-health-monitoring-events-in-aspnet"></a>[Bunu nasıl yaparım:] Sistem durumu izleme ASP.NET olayları için şablonlu e-postalar gönderin
 ====================

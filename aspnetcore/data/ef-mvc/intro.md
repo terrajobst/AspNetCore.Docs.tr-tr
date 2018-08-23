@@ -5,12 +5,12 @@ description: ''
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 4e0bcffd1162681aa4d31c4fe74acac5a7e981f1
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: cbef7e5edf2950a87a4cd4155c63a22fff2990fe
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38216318"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754266"
 ---
 # <a name="aspnet-core-mvc-with-entity-framework-core---tutorial-1-of-10"></a>Entity Framework Core - öğretici 1 / 10 ile ASP.NET Core MVC
 
@@ -35,7 +35,7 @@ EF Core 2.0 EF en son sürümü, ancak henüz EF özelliklerinin tümünü yok 6
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-[! [] (~/İncludes/net-core-prereqs.md) içerir [](~/includes/net-core-prereqs.md)]
+[!INCLUDE [](~/includes/net-core-prereqs.md)]
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
@@ -80,7 +80,7 @@ Visual Studio'yu açın ve "ContosoUniversity" adlı yeni bir ASP.NET Core C# we
 
 * **Tamam**’a tıklayın.
 
-  ![Yeni ASP.NET projesi iletişim kutusu](intro/_static/new-aspnet.png)
+  ![Yeni ASP.NET Core projesi iletişim kutusu](intro/_static/new-aspnet.png)
 
 ## <a name="set-up-the-site-style"></a>Site stili Ayarla
 
@@ -273,7 +273,7 @@ Denetleyici aldığını fark edeceksiniz bir `SchoolContext` Oluşturucu parame
 
 [!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Context&highlight=5,7,9)]
 
-ASP.NET bağımlılık ekleme halleder örneğini geçirerek `SchoolContext` denetleyici içinde. Yapılandırdığınız *Startup.cs* daha önce dosya.
+ASP.NET Core bağımlılık ekleme örneğini geçirerek üstlenir `SchoolContext` denetleyici içinde. Yapılandırdığınız *Startup.cs* daha önce dosya.
 
 Denetleyici içeren bir `Index` veritabanındaki tüm Öğrenciler görüntüleyen eylem yöntemi. Yöntemi, okuyarak ayarlamak Öğrenciler varlıktan Öğrenciler listesini alır. `Students` veritabanı bağlam örneğinin özelliği:
 

@@ -1,256 +1,282 @@
 ---
-title: ASP.NET Core Ara
+title: ASP.NET Core ara yazılımı
 author: rick-anderson
-description: ASP.NET Core ara yazılımı ve istek ardışık düzenini hakkında bilgi edinin.
+description: ASP.NET Core ara yazılım ve istek ardışık düzenini hakkında bilgi edinin.
 ms.author: riande
-ms.date: 01/22/2018
+ms.custom: mvc
+ms.date: 08/21/2018
 uid: fundamentals/middleware/index
-ms.openlocfilehash: d22c7208390ed2de2ca31ead46ecb21bc41671bf
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 9ba77561ab4f6a8668c480d6e81f2ce7e0193c73
+ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36279590"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41870953"
 ---
-# <a name="aspnet-core-middleware"></a>ASP.NET Core Ara
+# <a name="aspnet-core-middleware"></a>ASP.NET Core ara yazılımı
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT) ve [Steve Smith](https://ardalis.com/)
 
-[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/index/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
+Ara yazılım isteklerini ve yanıtlarını işlemek için bir uygulama ardışık birleştirilmiş bir yazılımdır. Her bileşen için:
 
-## <a name="what-is-middleware"></a>Ara yazılım nedir?
+* İstek ardışık düzende sonraki bileşene geçmek bu seçeneği seçer.
+* İş, önce ve ardışık düzende sonraki bileşene çağrıldıktan sonra gerçekleştirebilirsiniz.
 
-Ara yazılım istekleri ve yanıtları işlemek için bir uygulama ardışık düzenine birleştirilmiş bir yazılımdır. Her bileşen:
+İstek Temsilciler, istek ardışık düzenini oluşturmak için kullanılır. İstek temsilcileri her HTTP isteği işler.
 
-* İstek ardışık düzende sonraki bileşene geçmek seçer.
-* İş önce ve ardışık düzende sonraki bileşene çağrıldıktan sonra gerçekleştirebilirsiniz. 
+Temsilcileri kullanarak yapılandırılmış olan istek <xref:Microsoft.AspNetCore.Builder.RunExtensions.Run*>, <xref:Microsoft.AspNetCore.Builder.MapExtensions.Map*>, ve <xref:Microsoft.AspNetCore.Builder.UseExtensions.Use*> genişletme yöntemleri. Tek tek istekler temsilci (satır içi ara yazılımı olarak adlandırılır) bir anonim yöntem belirtilen satır içi olabilir veya yeniden kullanılabilir bir sınıf içinde tanımlanabilir. Bu yeniden kullanılabilir sınıfları ve satır içi anonim yöntemler *ara yazılım*ayrıca adlı *ara yazılımı bileşenleri*. Her ara yazılım bileşeni istek ardışık düzende, ardışık düzende sonraki bileşene çağırma veya işlem hattı kısa devre sorumludur.
 
-İstek temsilciler istek ardışık düzenini oluşturmak için kullanılır. İstek temsilcileri her HTTP isteği işler.
+<xref:migration/http-modules> İstek hatlarında ASP.NET Core ve ASP.NET arasındaki farkı açıklar 4.x ve daha fazla ara yazılım örnekleri sağlar.
 
-Temsilcileri kullanarak yapılandırılmış olan istek [çalıştırmak](/dotnet/api/microsoft.aspnetcore.builder.runextensions), [harita](/dotnet/api/microsoft.aspnetcore.builder.mapextensions), ve [kullanım](/dotnet/api/microsoft.aspnetcore.builder.useextensions) genişletme yöntemleri. Yeniden kullanılabilir bir sınıfta tanımlanabilir veya ayrı istek temsilci (satır içi ara yazılımı olarak adlandırılır) bir anonim yöntemi olarak belirtilen satır içi olabilir. Bu yeniden kullanılabilir sınıfları ve satır içi anonim yöntemler *ara yazılımı*, veya *ara yazılımı bileşenleri*. Her ara yazılım bileşeni istek kanalında, ardışık düzende sonraki bileşene çağırma veya zincir uygunsa kısa devre sorumludur.
+## <a name="create-a-middleware-pipeline-with-iapplicationbuilder"></a>Bir ara yazılım ardışık düzenini IApplicationBuilder ile oluşturma
 
-[HTTP modülleri Ara geçirmek](xref:migration/http-modules) istek ardışık düzenlerinde ASP.NET Core ve ASP.NET arasındaki fark açıklanır 4.x ve daha fazla ara yazılımı örnekleri sağlar.
+İstek Temsilciler, birbiri ardına adlı bir dizi ASP.NET Core istek ardışık düzenini oluşur. Kavram Aşağıdaki diyagramda gösterilmiştir. Yürütme iş parçacığını siyah okları izler.
 
-## <a name="creating-a-middleware-pipeline-with-iapplicationbuilder"></a>Bir ara yazılım ardışık düzenini IApplicationBuilder ile oluşturma
+![İstek işleme düzeni ulaşan, işlem üç middlewares ve uygulamadan ayrılmasını yanıt bir istek gösteriliyor. Her bir ara yazılım, mantığını çalışır ve izin isteği next() deyimindeki sonraki ara yazılımı için uygulamalı. Üçüncü bir ara yazılım isteği işler sonra ters sırada kendi next() deyimleri istemciye yanıt olarak uygulama çıkmadan önce sonra ek işleme için önceki iki middlewares üzerinden geri istek geçirir.](index/_static/request-delegate-pipeline.png)
 
-ASP.NET Core istek ardışık düzen isteği temsilciler (iş parçacığı yürütme aşağıdaki siyah ok) Bu diyagramda gösterildiği gibi birbiri ardından, olarak adlandırılan, bir dizi oluşur:
+Her temsilci önce ve sonra İleri temsilci işlemleri gerçekleştirebilir. Bir istek çağrılır sonraki temsilcisine geçirmemesi bir temsilci da karar verebilirsiniz *istek ardışık düzenini kısa devre*. Gereksiz iş önlediği için kısa devre genellikle tercih edilir. Örneğin, statik dosya ara yazılımı statik bir dosya için bir istek dönün ve kalan ardışık düzenini kısa devre oluşturur. Bunlar işlem hattının sonraki aşamasında oluşan özel durumları yakalayabilirsiniz özel durum işleme temsilciler kanal içinde çağrılır.
 
-![İstek işleme düzeni ulaşan, üç middlewares ve uygulama bırakarak yanıt aracılığıyla işleme isteği gösteriliyor. Her ara yazılım, mantığını çalışır ve next() deyimi, bir sonraki ara yazılım isteği kapalı aktarır. Üçüncü ara yazılım istek işledikten sonra geri ters sırada uygulama istemcisine yanıt olarak bırakarak önce kendi next() deyimleri sonra ek işleme için önceki iki middlewares aracılığıyla istek geçirir.](index/_static/request-delegate-pipeline.png)
+Tüm istekleri işleyen bir tek istek temsilci basit olası ASP.NET Core uygulaması ayarlar. Bu durumda, bir gerçek istek ardışık düzeni dahil değildir. Bunun yerine, tek bir anonim işlev, her bir HTTP isteğine yanıt olarak adlandırılır.
 
-Her temsilci, önce ve sonra İleri temsilci işlemleri yapabilirsiniz. Ayrıca, bir temsilci bir istek istek ardışık düzenini kısa devre adlı bir sonraki temsilci değil geçmesine karar verebilirsiniz. Gereksiz iş önler çünkü kısa devre genellikle iyi bir şeydir. Örneğin, statik dosya ara yazılımlarını statik bir dosya için bir istek dönün ve kalan ardışık düzenini kısa devre oluşturur. Özel durum işleme temsilciler kanalının sonraki aşamalarında oluşan özel durumlarını yakalayabilirsiniz ardışık düzeninde çağrılması gerekir.
+[!code-csharp[](index/snapshot/Middleware/Startup.cs?name=snippet1)]
 
-En basit olası ASP.NET Core uygulama tüm istekleri işleyen tek istek temsilci ayarlar. Bu durumda, gerçek istek ardışık düzenini içermez. Bunun yerine, tek bir anonim işlevi her HTTP isteğine yanıt olarak adlandırılır.
+İlk <xref:Microsoft.AspNetCore.Builder.RunExtensions.Run*> temsilci işlem hattı sonlandırır.
 
-[!code-csharp[](index/sample/Middleware/Startup.cs)]
+Birden çok istek temsilciler birlikte zincirleme <xref:Microsoft.AspNetCore.Builder.UseExtensions.Use*>. `next` Parametresi ardışık düzende sonraki temsilciyi temsil eder. İşlem hattı tarafından kısa devre oluşturur *değil* çağırma *sonraki* parametresi. Aşağıdaki örnekte de gösterildiği gibi öncesinde ve sonrasında sonraki temsilci, genellikle eylemleri gerçekleştirebilirsiniz:
 
-İlk [uygulama. Çalıştırma](/dotnet/api/microsoft.aspnetcore.builder.runextensions) temsilci ardışık sonlandırır.
+[!code-csharp[](index/snapshot/Chain/Startup.cs?name=snippet1)]
 
-İle birlikte birden çok istek temsilcileri zincirleme [uygulama. Kullanım](/dotnet/api/microsoft.aspnetcore.builder.useextensions). `next` Parametresi ardışık düzende sonraki temsilci temsil eder. (Ardışık düzen tarafından kısa devre oluşturur olduğunu unutmayın *değil* çağırma *sonraki* parametresi.) Bu örnekte gösterilmiştir gibi öncesinde ve sonrasında sonraki temsilci genellikle eylemleri gerçekleştirebilirsiniz:
-
-[!code-csharp[](index/sample/Chain/Startup.cs?name=snippet1)]
-
->[!WARNING]
-> Çağrı yok `next.Invoke` yanıtı istemciye gönderildikten sonra. Değişikliklerini `HttpResponse` yanıt başlatıldıktan sonra bir özel durum oluşturur. Örneğin, üst bilgileri, durum kodu, vb., ayarlama gibi değişiklikler, bir özel durum oluşturur. Yanıt gövdesi çağrıldıktan sonra Yazma `next`:
-> - Bir protokolü ihlali neden olabilir. Örneğin, birden çok belirtilen yazma `content-length`.
-> - Gövde biçimi bozulmasına neden olabilir. Örneğin, bir HTML altbilgi CSS dosyaya yazma.
+> [!WARNING]
+> Remove() çağırmayın `next.Invoke` istemciye yanıt gönderildikten sonra. Değişikliklerini <xref:Microsoft.AspNetCore.Http.HttpResponse> yanıt başlatıldıktan sonra bir özel durum. Örneğin, üst bilgileri ve durum kodu ayarlama gibi değişiklikler, bir özel durum. Yanıt gövdesi için çağırdıktan sonra Yazma `next`:
 >
-> [HttpResponse.HasStarted](/dotnet/api/microsoft.aspnetcore.http.features.httpresponsefeature#Microsoft_AspNetCore_Http_Features_HttpResponseFeature_HasStarted) üstbilgileri gönderilen ve/veya gövdesi yazılmış varsa göstermek için yararlı bir ipucu olur.
+> * Protokol ihlali neden olabilir. Örneğin, belirtilen birden fazla yazma `Content-Length`.
+> * Gövde biçimi bozuk. Örneğin, bir CSS dosyası için bir HTML altbilgi yazma.
+>
+> <xref:Microsoft.AspNetCore.Http.HttpResponse.HasStarted*> üstbilgileri gönderildikten veya için gövde yazılmadan belirtmek için kullanışlı bir ipucudur.
 
-## <a name="ordering"></a>Sıralama
+## <a name="order"></a>Sırası
 
-Ara yazılım bileşenlerinin içinde eklendiğinden sipariş `Configure` , bunlar çağrılan isteklerinde sırası ve yanıtı için ters sırada yöntemi tanımlar. Bu sıralama, güvenlik, performans ve işlevselliği için önemlidir.
+Ara yazılım bileşenleri içinde eklenen sırasını `Startup.Configure` yöntemi, istekler ve yanıt için ters sırada ara yazılımı bileşenleri çağrılır sırasını tanımlar. Güvenlik, performans ve işlev için sırasını kritiktir.
 
-(Aşağıda gösterilen) yapılandırma yöntemi aşağıdaki ara yazılımı bileşenleri ekler:
+Aşağıdaki `Configure` yöntemi aşağıdaki ara yazılım bileşenlerini ekler:
 
 1. Özel durum/hata işleme
-2. Statik dosya sunucusu
+2. Statický souborový server
 3. Kimlik doğrulaması
 4. MVC
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+::: moniker range=">= aspnetcore-2.0"
 
 ```csharp
 public void Configure(IApplicationBuilder app)
 {
-    app.UseExceptionHandler("/Home/Error"); // Call first to catch exceptions
-                                            // thrown in the following middleware.
+    if (env.IsDevelopment())
+    {
+        // When the app runs in the Development environment:
+        //   Use the Developer Exception Page to report app runtime errors.
+        //   Use the Database Error Page to report database runtime errors.
+        app.UseDeveloperExceptionPage();
+        app.UseDatabaseErrorPage();
+    }
+    else
+    {
+        // When the app doesn't run in the Development environment:
+        //   Enable the Exception Handler Middleware to catch exceptions
+        //     thrown in the following middlewares.
+        //   Use the HTTP Strict Transport Security Protocol (HSTS)
+        //     Middleware.
+        app.UseExceptionHandler("/Error");
+        app.UseHsts();
+    }
 
-    app.UseStaticFiles();                   // Return static files and end pipeline.
+    // Use HTTPS Redirection Middleware to redirect HTTP requests to HTTPS.
+    app.UseHttpsRedirection();
 
-    app.UseAuthentication();               // Authenticate before you access
-                                           // secure resources.
+    // Return static files and end the pipeline.
+    app.UseStaticFiles();
 
-    app.UseMvcWithDefaultRoute();          // Add MVC to the request pipeline.
+    // Use Cookie Policy Middleware to conform to EU General Data 
+    //   Protection Regulation (GDPR) regulations.
+    app.UseCookiePolicy();
+
+    // Authenticate before the user accesses secure resources.
+    app.UseAuthentication();
+
+    // Add MVC to the request pipeline.
+    app.UseMvc();
 }
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 ```csharp
 public void Configure(IApplicationBuilder app)
 {
-    app.UseExceptionHandler("/Home/Error"); // Call first to catch exceptions
-                                            // thrown in the following middleware.
+    // Enable the Exception Handler Middleware to catch exceptions
+    //   thrown in the following middlewares.
+    app.UseExceptionHandler("/Home/Error");
 
-    app.UseStaticFiles();                   // Return static files and end pipeline.
+    // Return static files and end the pipeline.
+    app.UseStaticFiles();
 
-    app.UseIdentity();                     // Authenticate before you access
-                                           // secure resources.
+    // Authenticate before you access secure resources.
+    app.UseIdentity();
 
-    app.UseMvcWithDefaultRoute();          // Add MVC to the request pipeline.
+    // Add MVC to the request pipeline.
+    app.UseMvcWithDefaultRoute();
 }
 ```
 
------------
+::: moniker-end
 
-Yukarıdaki kod `UseExceptionHandler` ardışık düzenine eklenen ilk ara yazılım bileşeni; bu nedenle, daha sonra çağrılarında oluşan özel durumları yakalar.
+Yukarıdaki kodda <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*> ardışık düzenine eklenen ilk ara yazılım bileşeni. Bu nedenle, özel durum işleyicisi Ara sonraki çağrılarında oluşan özel durumları yakalar.
 
-Böylece istekleri işlemek ve kalan bileşenleri geçmeden kısa devre oluşturur statik dosya ara yazılımlarını erken ardışık düzen adı verilir. Statik dosya ara yazılımlarını sağlar **hiçbir** yetkilendirme denetimleri. Herhangi bir dosya sunulan işlem tarafından altında dahil olmak üzere *wwwroot*, genel olarak kullanılabilir. Bkz: [statik dosyalar](xref:fundamentals/static-files) statik dosyaları güvenli bir yaklaşım için.
+İstekleri işlemek ve kalan bileşenleri olmadan iki statik dosya ara yazılımı erken işlem hattında çağrılır. Statik dosya ara yazılım sağlar **hiçbir** yetkilendirme denetimleri. Tüm dosyaları sunulan işlem tarafından altında dahil olmak üzere *wwwroot*, genel olarak kullanılabilir. Statik dosyaların güvenliğini sağlamak bir yaklaşım için bkz <xref:fundamentals/static-files>.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+::: moniker range=">= aspnetcore-2.0"
 
+Statik dosya ara yazılımı tarafından istek işlenmez, bu kimlik doğrulaması Ara yazılımıyla aktarılır (<xref:Microsoft.AspNetCore.Builder.AuthAppBuilderExtensions.UseAuthentication*>), kimlik doğrulaması gerçekleştirir. Kimlik doğrulaması, kimliği doğrulanmamış istekler kısa devre oluşturur değil. Kimlik doğrulaması ara yazılım kimlik doğrulaması istekleri olsa da, yalnızca belirli bir Razor sayfası veya MVC denetleyici ve eylem MVC seçtikten sonra yetkilendirme (ve reddetme) gerçekleşir.
 
-İstek statik dosya ara yazılım tarafından işlenen değil, bu kimlik Ara geçirildiğinde (`app.UseAuthentication`), kimlik doğrulaması gerçekleştirir. Kimlik, kimliği doğrulanmamış istekler kısa devre oluşturur değil. İstek kimliğini doğrular rağmen yalnızca bir özel Razor sayfasını veya denetleyici ve eylem MVC seçtikten sonra yetkilendirme (ve reddetme) oluşur.
+::: moniker-end
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker range="< aspnetcore-2.0"
 
-İstek statik dosya ara yazılım tarafından işlenen değil, bu kimlik Ara geçirildiğinde (`app.UseIdentity`), kimlik doğrulaması gerçekleştirir. Kimlik, kimliği doğrulanmamış istekler kısa devre oluşturur değil. İstek kimliğini doğrular rağmen yalnızca belirli denetleyici ve eylem MVC seçtikten sonra yetkilendirme (ve reddetme) oluşur.
+Statik dosya ara yazılımı tarafından istek işlenmez, bu kimlik Ara yazılımıyla aktarılır (<xref:Microsoft.AspNetCore.Builder.BuilderExtensions.UseIdentity*>), kimlik doğrulaması gerçekleştirir. Kimlik, kimliği doğrulanmamış istekler kısa devre oluşturur değil. İstek kimlik doğrular olsa da, yalnızca belirli bir denetleyici ve eylem MVC seçtikten sonra yetkilendirme (ve reddetme) gerçekleşir.
 
------------
+::: moniker-end
 
-Aşağıdaki örnek, burada statik dosyalar için istek yanıt sıkıştırma Ara önce statik dosya ara yazılımı tarafından işlenen sıralama bir ara yazılımı gösterir. Statik dosyalar bu ara yazılım sıralama ile sıkıştırılmaz. MVC yanıtlarının [UseMvcWithDefaultRoute](/dotnet/api/microsoft.aspnetcore.builder.mvcapplicationbuilderextensions#Microsoft_AspNetCore_Builder_MvcApplicationBuilderExtensions_UseMvcWithDefaultRoute_Microsoft_AspNetCore_Builder_IApplicationBuilder_) sıkıştırılabilir.
+Aşağıdaki örnek, statik dosyaların nerede yanıt sıkıştırma ara yazılımı önce statik dosya ara yazılımı tarafından işlenen bir ara yazılım sırasını gösterir. Bu ara yazılım siparişle sıkıştırılmış statik dosyaları değildir. MVC yanıtlarından <xref:Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions.UseMvcWithDefaultRoute*> birleştirilebilir.
 
 ```csharp
 public void Configure(IApplicationBuilder app)
 {
-    app.UseStaticFiles();         // Static files not compressed
-                                  // by middleware.
+    // Static files not compressed by Static Files Middleware.
+    app.UseStaticFiles();
     app.UseResponseCompression();
     app.UseMvcWithDefaultRoute();
 }
 ```
 
-<a name="middleware-run-map-use"></a>
+### <a name="use-run-and-map"></a>Harita kullanın ve çalıştırma
 
-### <a name="use-run-and-map"></a>Kullanmak için çalıştırmak ve eşleme
+HTTP kullanarak işlem hattını yapılandırmak `Use`, `Run`, ve `Map`. `Use` Yöntemi iki işlem hattı (diğer bir deyişle, çağırma değil, bir `next` istek temsilci). `Run` bir kuralı ve bazı ara yazılımı bileşenleri getirebilir `Run[Middleware]` ardışık düzen sonunda çalışan yöntemleri.
 
-HTTP kullanarak ardışık düzen yapılandırma `Use`, `Run`, ve `Map`. `Use` Yöntemi kısa devre oluşturur ardışık düzen (diğer bir deyişle, çağrı değil, bir `next` isteği temsilci). `Run` bir kural ve bazı ara yazılımı bileşenleri getirebilir `Run[Middleware]` ardışık düzen sonunda çalışacak yöntemleri.
+<xref:Microsoft.AspNetCore.Builder.MapExtensions.Map*> Uzantılar, işlem hattı dallanma için bir kural kullanılır. `Map*` dalları istek ardışık düzenini belirtilen istek yolu eşleşmeleri üzerinde temel. İstek yolu belirtilen yol ile başlarsa, dalı çalıştırılır.
 
-`Map*` Uzantılar, ardışık düzen dallanma için bir kural kullanılır. [Harita](/dotnet/api/microsoft.aspnetcore.builder.mapextensions) istek ardışık düzenini belirtilen istek yolu eşleşmeleri üzerinde göre dallandırır. İstek yolu belirtilen yolun ile başlarsa, şube yürütülür.
+[!code-csharp[](index/snapshot/Chain/StartupMap.cs?name=snippet1)]
 
-[!code-csharp[](index/sample/Chain/StartupMap.cs?name=snippet1)]
+Aşağıdaki tablo istekleri ve gelen yanıtları gösterir `http://localhost:1234` önceki kod kullanarak.
 
-Aşağıdaki tabloda isteklerinin ve yanıtlarının gösterilmektedir `http://localhost:1234` önceki kod kullanarak:
-
-| İstek | Yanıt |
-| --- | --- |
-| localhost:1234 | Merhaba harita olmayan temsilci gelen.  |
-| localhost:1234 / map1 | Harita Test 1 |
-| localhost:1234 / map2 | Harita Test 2 |
-| localhost:1234 / map3 | Merhaba harita olmayan temsilci gelen.  |
+| İstek             | Yanıt                     |
+| ------------------- | ---------------------------- |
+| 1234      | Harita olmayan temsilci gelen Merhaba. |
+| 1234 / map1 | Test 1 eşleme                   |
+| 1234 / map2 | Harita Test 2                   |
+| 1234 / map3 | Harita olmayan temsilci gelen Merhaba. |
 
 Zaman `Map` olan kullanıldığında, eşleşen yolu segment(s) çıkarılır `HttpRequest.Path` ve için eklenen `HttpRequest.PathBase` her istek için.
 
-[MapWhen](/dotnet/api/microsoft.aspnetcore.builder.mapwhenextensions) istek ardışık düzenini belirtilen koşulun sonucuna göre dallandırır. Herhangi bir koşul türü `Func<HttpContext, bool>` istekleri dalı ardışık eşlemek için kullanılır. Aşağıdaki örnekte, bir koşul bir sorgu dizesi değişkeni varolup olmadığını algılamak için kullanılan `branch`:
+[MapWhen](/dotnet/api/microsoft.aspnetcore.builder.mapwhenextensions) dalları istek ardışık düzenini belirli bir koşul sonucuna göre. Herhangi bir koşul türü `Func<HttpContext, bool>` istekleri işlem hattının yeni bir dala eşlemek için kullanılabilir. Aşağıdaki örnekte, bir koşul bir sorgu dizesi değişkeni varolup olmadığını algılamak için kullanılan `branch`:
 
-[!code-csharp[](index/sample/Chain/StartupMapWhen.cs?name=snippet1)]
+[!code-csharp[](index/snapshot/Chain/StartupMapWhen.cs?name=snippet1)]
 
-Aşağıdaki tabloda isteklerinin ve yanıtlarının gösterilmektedir `http://localhost:1234` önceki kod kullanarak:
+Aşağıdaki tablo istekleri ve gelen yanıtları gösterir `http://localhost:1234` önceki kod kullanarak.
 
-| İstek | Yanıt |
-| --- | --- |
-| localhost:1234 | Merhaba harita olmayan temsilci gelen.  |
-| localhost:1234 /? şube Yöneticisi = | Kullanılan şube Yöneticisi =|
+| İstek                       | Yanıt                     |
+| ----------------------------- | ---------------------------- |
+| 1234                | Harita olmayan temsilci gelen Merhaba. |
+| 1234 /? dal ana = | Dal kullanılan ana =         |
 
-`Map` iç içe, örneğin destekler:
+`Map` Örneğin, içe destekler:
 
 ```csharp
 app.Map("/level1", level1App => {
-       level1App.Map("/level2a", level2AApp => {
-           // "/level1/level2a"
-           //...
-       });
-       level1App.Map("/level2b", level2BApp => {
-           // "/level1/level2b"
-           //...
-       });
-   });
+    level1App.Map("/level2a", level2AApp => {
+        // "/level1/level2a" processing
+    });
+    level1App.Map("/level2b", level2BApp => {
+        // "/level1/level2b" processing
+    });
+});
    ```
 
-`Map` Ayrıca birden çok parçalı bir kerede örneğin eşleştirebilirsiniz:
+`Map` Ayrıca birden fazla bölüm aynı anda eşleştirebilirsiniz:
 
- ```csharp
-app.Map("/level1/level2", HandleMultiSeg);
-```
+[!code-csharp[](index/snapshot/Chain/StartupMultiSeg.cs?name=snippet1&highlight=13)]
 
-## <a name="built-in-middleware"></a>Yerleşik Ara
+## <a name="built-in-middleware"></a>Yerleşik ara yazılım
 
-ASP.NET Core aşağıdaki ara yazılımı bileşenleri yanı sıra ile bunlar eklenmesi gereken sırayı açıklaması gelir:
+ASP.NET Core aşağıdaki ara yazılımı bileşenleri ile birlikte gelir. *Sipariş* sütun Ara yerleştirme istek ardışık düzenini ve ara yazılım hangi koşullar altında ilgili notlar istek sonlandırmak ve diğer ara yazılımdan, bir isteğin işlenmesini önlemek sağlar.
 
 | Ara yazılım | Açıklama | Sırası |
 | ---------- | ----------- | ----- |
-| [Kimlik Doğrulaması](xref:security/authentication/identity) | Kimlik doğrulama desteği sağlar. | Önce `HttpContext.User` gereklidir. Terminal OAuth geri aramalar için. |
+| [Kimlik Doğrulaması](xref:security/authentication/identity) | Kimlik doğrulama desteği sağlar. | Önce `HttpContext.User` gereklidir. Terminal OAuth geri çağırmalar için. |
 | [CORS](xref:security/cors) | Çıkış noktaları arası kaynak paylaşımını yapılandırır. | CORS kullanan bileşenleri önce. |
-| [Tanılama](xref:fundamentals/error-handling) | Tanılama yapılandırır. | Hatalar oluşturur bileşenlerini önce. |
-| [İletilen üstbilgileri](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions) | Geçerli istek üzerine yönlendirilirken üstbilgileri iletir. | Güncelleştirilmiş alanları tüketen bileşenleri önce (örnek: düzeni, ana bilgisayar, istemci IP yöntemi). |
-| [HTTP yöntemini geçersiz kılma](/dotnet/api/microsoft.aspnetcore.builder.httpmethodoverrideextensions) | Yöntemini geçersiz kılmak gelen bir POST isteği sağlar. | Consume güncelleştirilmiş yöntemi bileşenleri önce. |
-| [HTTPS yeniden yönlendirmesi](xref:security/enforcing-ssl#require-https) | Tüm HTTP isteklerini yeniden yönlendir HTTPS (ASP.NET Core 2.1 veya sonrası). | URL tüketen bileşenleri önce. |
-| [HTTP katı taşıma güvenliği (HSTS)](xref:security/enforcing-ssl#http-strict-transport-security-protocol-hsts) | Bir özel yanıt üst bilgisi (ASP.NET Core 2.1 veya sonrası) eklediği güvenlik geliştirme ara yazılımı. | Yanıtları gönderilmeden önce ve sonra değiştirme isteklerini (örneğin, iletilen üst bilgiler, URL yeniden yazma işlemi) bileşenleri. |
-| [Yanıtları Önbelleğe Alma](xref:performance/caching/middleware) | Yanıt önbelleğe alma işlemi için destek sağlar. | Önbelleğe alma gerektiren bileşenler önce. |
-| [Yanıt sıkıştırma](xref:performance/response-compression) | Yanıtları sıkıştırma için destek sağlar. | Sıkıştırma iste bileşenleri önce. |
-| [İstek yerelleştirme](xref:fundamentals/localization) | Yerelleştirme desteği sağlar. | Yerelleştirme önce hassas bileşenleri. |
+| [Tanılama](xref:fundamentals/error-handling) | Tanılama yapılandırır. | Bileşenlerinden önce bu hataları oluşturur. |
+| [İletilen üstbilgileri](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions) | Geçerli istek üzerine proxy üstbilgileri iletir. | Önce güncelleştirilmiş alanları kullanma bileşenleri (örnekler: Düzen, konak, istemci IP'si yöntemi). |
+| [HTTP yöntemini geçersiz kılma](/dotnet/api/microsoft.aspnetcore.builder.httpmethodoverrideextensions) | Bu yöntemi geçersiz kılmak gelen bir POST isteği sağlar. | Bileşenlerinden önce güncelleştirilen yöntemi kullanır. |
+| [HTTPS yeniden yönlendirmesi](xref:security/enforcing-ssl#require-https) | Tüm HTTP isteklerini (ASP.NET Core 2.1 veya üzeri) HTTPS'ye yönlendiriyor. | Bileşenlerinden önce bu URL'yi kullanır. |
+| [HTTP katı aktarım güvenliği (HSTS)](xref:security/enforcing-ssl#http-strict-transport-security-protocol-hsts) | Bir özel yanıt üst bilgisi (ASP.NET Core 2.1 veya üzeri) ekleyen güvenlik geliştirmesi ara yazılımı. | Yanıtları gönderilmeden önce ve sonra değiştirme isteklerini (örneğin, iletilen üstbilgileri, URL yeniden yazma) bileşenleri. |
+| [MVC](xref:mvc/overview) | MVC/Razor sayfaları (ASP.NET Core 2.0 veya sonraki bir sürümü) ile istekleri işler. | İstek bir Terminal varsa bir rotayla eşleşen. |
+| [OWIN](xref:fundamentals/owin) | OWIN tabanlı uygulamalar, sunucuları ve ara yazılım ile birlikte çalışma. | Terminal OWIN ara yazılımı tam isteği işler. |
+| [Yanıtları Önbelleğe Alma](xref:performance/caching/middleware) | Yanıtları önbelleğe alma işlemi için destek sağlar. | Önbelleğe alma gerektiren bileşenler önce. |
+| [Yanıt sıkıştırma](xref:performance/response-compression) | Destek için yanıtları sıkıştırma sağlar. | Sıkıştırma iste bileşenlerinden önce. |
+| [İstek yerelleştirme](xref:fundamentals/localization) | Yerelleştirme desteği sağlar. | Yerelleştirme önemli bileşenlerinden önce. |
 | [Yönlendirme](xref:fundamentals/routing) | Tanımlar ve istek yolları kısıtlar. | Yollar eşleştirmek için terminal. |
-| [Oturum](xref:fundamentals/app-state) | Kullanıcı oturumlarını yönetmek için destek sağlar. | Oturum gerektiren bileşenler önce. |
-| [Statik dosyalar](xref:fundamentals/static-files) | Statik dosya ve Dizin tarama hizmet vermek için destek sağlar. | Bir isteği dosyaları eşleşirse terminal. |
-| [URL yeniden yazma işlemi](xref:fundamentals/url-rewriting) | URL yeniden yazma işlemi ve istekleri yönlendirme için destek sağlar. | URL tüketen bileşenleri önce. |
+| [Oturum](xref:fundamentals/app-state) | Kullanıcı oturumlarını yönetmek için destek sağlar. | Bileşenlerinden önce oturumu gerektirir. |
+| [Statik dosyalar](xref:fundamentals/static-files) | Statik dosya ve Dizin tarama hizmet vermek için destek sağlar. | İstek bir Terminal varsa, bir dosya ile eşleşir. |
+| [URL yeniden yazma](xref:fundamentals/url-rewriting) | URL yeniden yazma ve istekleri yönlendirme için destek sağlar. | Bileşenlerinden önce bu URL'yi kullanır. |
 | [WebSockets](xref:fundamentals/websockets) | WebSockets Protokolü sağlar. | WebSocket isteklerini kabul etmek için gerekli bileşenleri önce. |
 
-<a name="middleware-writing-middleware"></a>
+## <a name="write-middleware"></a>Ara yazılım yazma
 
-## <a name="writing-middleware"></a>Yazma Ara
+Ara yazılım genellikle bir sınıfta kapsüllenmiş ve bir genişletme yöntemi ile kullanıma sunulan. Kültür geçerli istek için Sorgu dizesinden ayarlar aşağıdaki Ara göz önünde bulundurun:
 
-Ara yazılım genellikle bir sınıfta kapsüllenmiş ve bir genişletme yöntemi ile gösteriliyor. Kültür geçerli istek için Sorgu dizesinden ayarlar aşağıdaki Ara göz önünde bulundurun:
+[!code-csharp[](index/snapshot/Culture/StartupCulture.cs?name=snippet1)]
 
-[!code-csharp[](index/sample/Culture/StartupCulture.cs?name=snippet1)]
+Yukarıdaki örnek kod, bir ara yazılım bileşeni oluşturma göstermek için kullanılır. Bkz: ASP.NET Core'nın yerleşik yerelleştirme desteğini <xref:fundamentals/localization>.
 
-Not: Yukarıdaki örnek kod, bir ara yazılım bileşeni oluşturma göstermek için kullanılır. Bkz: [ Genelleştirme ve Yerelleştirme](xref:fundamentals/localization) ASP.NET Core'nın yerleşik yerelleştirme desteği.
+Ara yazılım kültür, örneğin geçirerek sınayabilirsiniz `http://localhost:7997/?culture=no`.
 
-Kültürün, örneğin geçirerek ara yazılım sınayabilirsiniz `http://localhost:7997/?culture=no`.
+Aşağıdaki kod, bir sınıf için ara yazılım temsilci taşır:
 
-Aşağıdaki kod bir sınıfa ara yazılım temsilci taşır:
+[!code-csharp[](index/snapshot/Culture/RequestCultureMiddleware.cs)]
 
-[!code-csharp[](index/sample/Culture/RequestCultureMiddleware.cs)]
+::: moniker range="< aspnetcore-2.0"
 
-> [!NOTE]
-> ASP.NET Core içinde 1.x, ara yazılım `Task` yöntemin adı olmalı `Invoke`. ASP.NET Core 2.0 veya sonraki sürümlerde, adı ya da olabilir `Invoke` veya `InvokeAsync`.
+Ara yazılım `Task` yöntemin adı olmalıdır `Invoke`. ASP.NET Core 2.0 veya sonraki sürümlerde, ad ya da olabilir `Invoke` veya `InvokeAsync`.
 
-Ara yazılım aracılığıyla aşağıdaki uzantısı yöntemi gösterir [IApplicationBuilder](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder):
+::: moniker-end
 
-[!code-csharp[](index/sample/Culture/RequestCultureMiddlewareExtensions.cs)]
+Aşağıdaki uzantı yöntemi ara yazılımı üzerinden kullanıma sunan <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder>:
 
-Aşağıdaki kod Ara çağırır `Configure`:
+[!code-csharp[](index/snapshot/Culture/RequestCultureMiddlewareExtensions.cs)]
 
-[!code-csharp[](index/sample/Culture/Startup.cs?name=snippet1&highlight=5)]
+Aşağıdaki kod ara yazılımı gelen çağrıları `Startup.Configure`:
 
-Ara yazılım izlemelidir [açık bağımlılıkları ilkesine](http://deviq.com/explicit-dependencies-principle/) bağımlılıklarını kendi oluşturucusuna gösterme tarafından. Ara yazılım yapılandırılmıştır kez başına *uygulama ömrü*. Bkz: *istek başına bağımlılıkları* üstündeyse ara yazılım istek içinde Hizmetleri paylaşmasına gerekir.
+[!code-csharp[](index/snapshot/Culture/Startup.cs?name=snippet1&highlight=5)]
 
-Ara yazılımı bileşenleri bağımlılıklarını bağımlılık ekleme Oluşturucu parametreleri üzerinden gelen çözebilirsiniz. [`UseMiddleware<T>`](/dotnet/api/microsoft.aspnetcore.builder.usemiddlewareextensions#methods_summary) Ayrıca ek parametreler doğrudan kabul edebilir.
+Ara yazılım izlemelidir [açık bağımlılıkları İlkesi](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies) tarafından kendi oluşturucusuna bağımlılıkları gösterme. Ara yazılım yapılandırılmıştır kez başına *uygulama ömrü*. Bkz: [istek başına bağımlılıkları](#per-request-dependencies) istek içinde ara yazılım ile Hizmetleri paylaşan gerekiyorsa bölümü.
+
+Ara yazılım bileşenleri, bunların bağımlılıklarını giderebilir [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection) Oluşturucu parametresi üzerinden. [UseMiddleware&lt;T&gt; ](/dotnet/api/microsoft.aspnetcore.builder.usemiddlewareextensions.usemiddleware#Microsoft_AspNetCore_Builder_UseMiddlewareExtensions_UseMiddleware_Microsoft_AspNetCore_Builder_IApplicationBuilder_System_Type_System_Object___) ek parametreler doğrudan da kabul edebilir.
 
 ### <a name="per-request-dependencies"></a>İstek başına bağımlılıkları
 
-Ara yazılım değil istek başına, uygulama başlatma sırasında oluşturulur çünkü *kapsamlı* ara yazılım Oluşturucu tarafından kullanılan yaşam süresi olmayan paylaşılan hizmetler diğer bağımlılık tarafından eklenen türleriyle her isteği sırasında. Gereken paylaşıyorsanız bir *kapsamlı* , Ara ve diğer türleri arasında hizmet, bu hizmetlere ekleme `Invoke` yöntemin imzası. `Invoke` Yöntemi tarafından bağımlılık ekleme doldurulur ek parametreleri kabul edebilir. Örneğin:
+Ara yazılım değil istek, uygulama başlatma sırasında oluşturulur çünkü *kapsamlı* ara yazılım oluşturucular tarafından kullanılan etkin kalma süresi olmayan paylaşılan hizmetler diğer bağımlılık eklenen türleriyle her isteği sırasında. Paylaşmanız gerekir durumunda bir *kapsamlı* hizmet Ara yazılımınızı ve diğer türleri arasında bu hizmetlere ekleme `Invoke` yöntemin imzası. `Invoke` Yöntemi tarafından DI doldurulur ek parametreleri kabul edebilir:
 
 ```csharp
-public class MyMiddleware
+public class CustomMiddleware
 {
     private readonly RequestDelegate _next;
 
-    public MyMiddleware(RequestDelegate next)
+    public CustomMiddleware(RequestDelegate next)
     {
         _next = next;
     }
 
+    // IMyScopedService is injected into Invoke
     public async Task Invoke(HttpContext httpContext, IMyScopedService svc)
     {
         svc.MyProperty = 1000;
@@ -261,8 +287,8 @@ public class MyMiddleware
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [HTTP modülleri Ara geçirme](xref:migration/http-modules)
-* [Uygulama Başlatma](xref:fundamentals/startup)
-* [İstek Özellikleri](xref:fundamentals/request-features)
-* [Ara yazılımı Fabrika tabanlı etkinleştirme](xref:fundamentals/middleware/extensibility)
-* [Bir üçüncü taraf kapsayıcısı ile Ara yazılım etkinleştirme](xref:fundamentals/middleware/extensibility-third-party-container)
+* <xref:migration/http-modules>
+* <xref:fundamentals/startup>
+* <xref:fundamentals/request-features>
+* <xref:fundamentals/middleware/extensibility>
+* <xref:fundamentals/middleware/extensibility-third-party-container>

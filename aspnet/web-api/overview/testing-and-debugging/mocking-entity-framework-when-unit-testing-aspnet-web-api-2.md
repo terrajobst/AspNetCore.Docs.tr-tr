@@ -3,23 +3,23 @@ uid: web-api/overview/testing-and-debugging/mocking-entity-framework-when-unit-t
 title: Sahte Entity Framework, birim testi ASP.NET Web API 2 | Microsoft Docs
 author: tfitzmac
 description: Bu kılavuzu ve uygulama Entity Framework kullanan, Web API 2 uygulaması için birim testleri oluşturma işlemini göstermektedir. Nasıl değiştirileceğini gösterir...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 12/13/2013
 ms.assetid: cd844025-ccad-41ce-8694-595f1022a49f
 msc.legacyurl: /web-api/overview/testing-and-debugging/mocking-entity-framework-when-unit-testing-aspnet-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: dc50965a2757defb254d05f0b8a5fd46a90dc75f
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 0bc5ab59583a2be3f889ba05d26c6cda4589057d
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37804406"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41757310"
 ---
 <a name="mocking-entity-framework-when-unit-testing-aspnet-web-api-2"></a>Sahte Entity Framework, birim testi ASP.NET Web API 2
 ====================
 tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
-[Projeyi yükle](http://code.msdn.microsoft.com/Unit-Testing-with-ASPNET-e2867d4d)
+[Projeyi yükle](https://code.msdn.microsoft.com/Unit-Testing-with-ASPNET-1374bc11)
 
 > Bu kılavuzu ve uygulama Entity Framework kullanan, Web API 2 uygulaması için birim testleri oluşturma işlemini göstermektedir. Bu, Entity Framework ile çalışma testi nesneleri oluşturma ve test etmek için bir bağlam nesnesi geçirerek etkinleştirmek için iskele kurulmuş denetleyicisini değiştirmek nasıl gösterir.
 > 

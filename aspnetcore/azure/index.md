@@ -4,13 +4,15 @@ author: CamSoper
 description: En iyi ASP.NET Core ile Azure Hizmetleri Başlarken Kılavuzu koleksiyonudur.
 ms.author: casoper
 ms.date: 08/07/2018
+layout: LandingPage
+ms.topic: landing-page
 uid: azure/index
-ms.openlocfilehash: 7520d46c94af9ae48d2d770313de573ee7c39811
-ms.sourcegitcommit: 29dfe436f54a27fbb4f6494bc639d16c75001fab
+ms.openlocfilehash: f0a01afb176b155c4eb4ca9a66f56f92b5f802c5
+ms.sourcegitcommit: 6d02e26748a09eabeb0e11740a398cc2bc90b098
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39722737"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41755903"
 ---
 # <a name="azure-guidance"></a>Azure Kılavuzu
 
@@ -18,4 +20,6 @@ Bu en iyi ASP.NET Core ile Azure Hizmetleri Başlarken Kılavuzu oluşan bir kol
 
 ## <a name="guides"></a>Kılavuzlar
 
-* [ASP.NET Core ve Azure ile DevOps](xref:azure/devops/index)
+[![ASP.NET Core ve Azure kapak ile DevOps](./devops/media/cover-thumb.png)](xref:azure/devops/index) <br />
+**ASP.NET Core ve Azure ile DevOps** <br />
+[Docs](xref:azure/devops/index) | [PDF](https://aka.ms/devopsbook)

@@ -3,17 +3,17 @@ uid: web-forms/videos/how-do-i/how-do-i-create-and-use-application-level-events-
 title: "[Bunu nasıl yaparım:]  Oluşturma ve uygulama düzeyinde olaylar ASP.NET'te kullanma | Microsoft Docs"
 author: rick-anderson
 description: Bu video Chris piksel bir uygulama sınıfı içeren uygulama düzeyi olay işleyicileri gibi Application_S dosyasının (Global.asax) nasıl oluşturulacağı gösterilir...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/28/2008
 ms.assetid: 5f136ed5-a229-4b9c-83f8-bae74cdb98bd
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-create-and-use-application-level-events-in-aspnet
 msc.type: video
-ms.openlocfilehash: 0572acad80d8c53143a4dd3c0051b61fff80ec38
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 08bf65070133c8ebddadc362753ff6d834617b75
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37817401"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754254"
 ---
 <a name="how-do-i--create-and-use-application-level-events-in-aspnet"></a>[Bunu nasıl yaparım:]  Oluşturma ve uygulama düzeyinde olaylar ASP.NET'te kullanma
 ====================

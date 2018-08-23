@@ -1,60 +1,60 @@
 ---
-title: İstemci tarafı paketleri ASP.NET Core Bower ile yönetme
+title: ASP.NET core'da Bower ile istemci tarafı paketleri yönetme
 author: rick-anderson
-description: İstemci tarafı paketleri Bower ile yönetme.
+description: Bower ile istemci tarafı paketleri yönetme.
 ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.date: 02/14/2017
+ms.date: 08/09/2018
 uid: client-side/bower
-ms.openlocfilehash: 23f3dcd06f012f3cf8d9509280b91c4bd1dc84e1
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 8606c21596a5d9d6ada9c60b55b2f54da21c601b
+ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272523"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41902725"
 ---
-# <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>İstemci tarafı paketleri ASP.NET Core Bower ile yönetme
+# <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>ASP.NET core'da Bower ile istemci tarafı paketleri yönetme
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [Noel pirinç](https://blog.falafel.com/falafel-software-recognized-sitefinity-website-year/), ve [Scott Addie](https://scottaddie.com) 
+Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [Noel pirinç](https://blog.falafel.com/falafel-software-recognized-sitefinity-website-year/), ve [Scott Addie](https://scottaddie.com)
 
 > [!IMPORTANT]
-> Bower korunur, ancak kendi maintainers farklı bir çözüme kullanmanızı öneririz. [Kitaplık Yöneticisi](https://blogs.msdn.microsoft.com/webdev/2018/04/18/what-happened-to-bower/) (kısaca LibMan) olan Visual Studio'nun yeni istemci-tarafı statik içerik yönetim sistemi (Visual Studio 15,8 veya üzeri). Daha fazla bilgi için bkz: [Kitaplığı Yöneticisi: web uygulamaları için istemci tarafı İçerik Yöneticisi](https://blogs.msdn.microsoft.com/webdev/2018/04/17/library-manager-client-side-content-manager-for-web-apps/). Bower Visual Studio'da 15,5 sürümü ile desteklenmiyor.
+> Bower korunur, ancak farklı bir çözüm kullanarak kendi maintainers önerilir. [Kitaplık Yöneticisi](https://blogs.msdn.microsoft.com/webdev/2018/04/18/what-happened-to-bower/) (kısaca LibMan), Visual Studio'nun yeni istemci tarafı kitaplık edinme Aracı (Visual Studio 15,8 veya üzeri). Daha fazla bilgi için bkz. <xref:client-side/libman/index>. Bower Visual Studio'da sürüm 15.5 desteklenir.
 >
-> Yarn Webpack ile kendisi için popüler bir alternatif olan [geçiş yönergeleri](https://bower.io/blog/2017/how-to-migrate-away-from-bower/) kullanılabilir. 
+> Yarn Web ile olan popüler bir alternatif, için [geçiş yönergeleri](https://bower.io/blog/2017/how-to-migrate-away-from-bower/) kullanılabilir.
 
-[Bower](https://bower.io/) kendisini "web için bir paket Yöneticisi" çağırır. .NET ekosistemi içinde statik içerik dosyaları NuGet verilmemesine göre sol void doldurur. ASP.NET Core projeleri için bu statik dosyalar gibi istemci tarafı kitaplıklara devralınan [jQuery](http://jquery.com/) ve [önyükleme](http://getbootstrap.com/). .NET kitaplıkları için kullanmaya devam [NuGet](https://www.nuget.org/) Paket Yöneticisi.
+[Bower](https://bower.io/) kendisini "Web için bir paket Yöneticisi" çağırır. .NET ekosistemlerinde statik içerik dosyalarını NuGet verilmemesine göre sola void doldurur. ASP.NET Core projeleri için bu statik dosyalar gibi istemci tarafı kitaplıkları için devralınmış [jQuery](http://jquery.com/) ve [önyükleme](http://getbootstrap.com/). .NET kitaplıkları için kullanmaya devam [NuGet](https://www.nuget.org/) Paket Yöneticisi.
 
-İstemci-tarafı ayarlamak ASP.NET Core proje şablonları ile oluşturulan yeni projeler derleme işlemi. [jQuery](http://jquery.com/) ve [önyükleme](http://getbootstrap.com/) yüklü olan ve Bower desteklenir.
+İşlem istemci tarafında ayarlamak ASP.NET Core proje şablonları ile oluşturulan yeni projeler oluşturun. [jQuery](http://jquery.com/) ve [önyükleme](http://getbootstrap.com/) yüklü olan ve Bower desteklenir.
 
 İstemci tarafı paketleri listelenir *bower.json* dosya. ASP.NET Core proje şablonları yapılandırır *bower.json* jQuery, jQuery doğrulama ve önyükleme.
 
-Bu öğreticide desteği ekleyeceğiz [yazı tipi harika](http://fontawesome.io). Bower paketleri ile yüklenebilir **Bower paketlerini Yönet** UI veya el ile *bower.json* dosya.
+Bu öğreticide, için destek ekleyeceğiz [Font Awesome](http://fontawesome.io). Bower paketlerini ile yüklenebilir **Bower paketlerini Yönet** kullanıcı Arabirimi veya el ile *bower.json* dosya.
 
-### <a name="installation-via-manage-bower-packages-ui"></a>Yönet Bower paketleri kullanıcı Arabirimi aracılığıyla yükleme
+### <a name="installation-via-manage-bower-packages-ui"></a>Yönet Bower paketlerini kullanıcı Arabirimi aracılığıyla yükleme
 
-* İle yeni bir ASP.NET çekirdek Web uygulaması oluşturma **ASP.NET çekirdek Web uygulaması (.NET Core)** şablonu. Seçin **Web uygulaması** ve **kimlik doğrulaması yok**.
+* İle yeni bir ASP.NET Core Web uygulaması oluşturma **ASP.NET Core Web uygulaması (.NET Core)** şablonu. Seçin **Web uygulaması** ve **kimlik doğrulamasız**.
 
 * Çözüm Gezgini'nde projeye sağ tıklayıp **Bower paketlerini Yönet** (Alternatif olarak ana menüden **proje** > **Bower paketlerini Yönet**).
 
-* İçinde **Bower: \<proje adı\>**  penceresinde "Gözat" sekmesini tıklatın ve ardından girerek paketlerin listesini filtrelemek `font-awesome` arama kutusuna:
+* İçinde **Bower: \<proje adı\>**  penceresinde "Gözatma türü" sekmesine tıklayın ve ardından girerek paketleri listeyi filtreleyin `font-awesome` arama kutusuna:
 
-  ![bower paketlerini yönetme](bower/_static/manage-bower-packages.png)
+  ![bower paketlerini Yönet](bower/_static/manage-bower-packages.png)
 
-* Onaylayın "değişiklikleri kaydedilsin *bower.json*" onay kutusu işaretli. Aşağı açılan listeden bir sürüm seçin ve'ı tıklatın **yükleme** düğmesi. **Çıkış** penceresi ilgili yükleme ayrıntılarını gösterir.
+* Onaylayın "değişiklikleri kaydedilsin *bower.json*" onay kutusu işaretli. Aşağı açılan listeden bir sürüm seçin ve tıklayın **yükleme** düğmesi. **Çıkış** penceresi, yükleme ayrıntılarını gösterir.
 
-### <a name="manual-installation-in-bowerjson"></a>Bower.json içinde el ile yükleme
+### <a name="manual-installation-in-bowerjson"></a>Bower.json el ile yükleme
 
-Açık *bower.json* dosya ve "yazı tipi harika" bağımlılıklarına ekleyin. IntelliSense kullanılabilir paketler gösterir. Bir paket seçildiğinde kullanılabilir sürümlerin görüntülenir. Aşağıdaki görüntüleri eski ve gördüğünüz eşleşmeyecektir.
+Açık *bower.json* dosya ve "font awesome" bağımlılıklarına ekleyin. IntelliSense, kullanılabilir paketler gösterilmektedir. Kullanılabilir sürümler, bir paket seçtiğinizde görüntülenir. Aşağıdaki görüntülerin, eski ve gördüğünüz eşleşmeyecektir.
 
-![Bower paket Explorer IntelliSense](bower/_static/add-package.png)
+![IntelliSense bower paket Gezgini](bower/_static/add-package.png)
 
 ![bower sürüm IntelliSense](bower/_static/version-intelliSense.png)
 
-Bower kullandığı [anlamsal sürüm oluşturma](http://semver.org/) bağımlılıkları düzenlemek için. Anlamsal sürüm oluşturma olarak da bilinen SemVer tanımlayan paketleri numaralandırma düzeniyle \<ana >.\< İkincil >. \<düzeltme eki >. IntelliSense, yalnızca birkaç genel seçenek göstererek anlamsal sürüm oluşturma basitleştirir. Üst öğeyi IntelliSense listesinde (yukarıdaki örnekte 4.6.3), paketin en son kararlı sürümü olarak kabul edilir. Şapka (^) karakteri son ana sürümle eşleşen ve en son ikincil sürümle tilde (~) eşleşir.
+Bower kullanan [semantic versioning](http://semver.org/) bağımlılıkları düzenlemek için. SemVer olarak da bilinen semantik sürüm oluşturma, numaralandırma düzeni ile paketleri tanımlayan \<ana >.\< küçük >. \<düzeltme eki >. IntelliSense, yalnızca birkaç genel seçenek göstererek semantic versioning basitleştirir. Üst öğeyi IntelliSense listesinde (yukarıdaki örnekte 4.6.3) paketin en son kararlı sürüm olarak kabul edilir. Şapka (^) simgesi en son sürümle eşleşen ve son ikincil sürümle tilde (~) ile eşleşir.
 
-Kaydet *bower.json* dosya. Visual Studio izleyen *bower.json* dosyasındaki değişiklikleri. Kaydedilmesi, *bower yükleme* komutu yürütülene. Çıktı pencerenin bkz **npm/Bower** yürütülen tam komut için görünümü.
+Kaydet *bower.json* dosya. Visual Studio izleyen *bower.json* dosyasındaki değişiklikleri. Kaydedilmesi, *bower yükleme* komutu yürütülür. Çıkış pencere bkz **Bower/npm** görünümü için tam komut yürütüldü.
 
-Açık *.bowerrc* altında dosya *bower.json*. `directory` Özelliği ayarlanmış *wwwroot/lib* Bower konumu belirten paket varlıklar yükler.
+Açık *.bowerrc* altında dosya *bower.json*. `directory` Özelliği *wwwroot/lib* Bower konumu belirten paket varlıkları yükler.
 
 ```json
 {
@@ -62,64 +62,64 @@ Açık *.bowerrc* altında dosya *bower.json*. `directory` Özelliği ayarlanmı
 }
 ```
 
-Çözüm Gezgini arama kutusuna, bulmak ve yazı tipi harika paket görüntülemek için kullanabilirsiniz.
+Çözüm Gezgini arama kutusuna bulmak ve font awesome paket görüntülemek için kullanabilirsiniz.
 
-Açık *görünümler/paylaşılan\_Layout.cshtml* dosya ve yazı tipi harika CSS dosyası ortama eklemek [etiket Yardımcısı](xref:mvc/views/tag-helpers/intro) için `Development`. Çözüm Gezgini'nde, sürükleme ve bırakma *yazı tipi awesome.css* içinde `<environment names="Development">` öğesi.
+Açık *görünümler/paylaşılan\_Layout.cshtml* dosya ve font awesome CSS dosyası ortama ekleyin [etiketi Yardımcısı](xref:mvc/views/tag-helpers/intro) için `Development`. Çözüm Gezgini'nden sürükle ve bırak *yazı tipi awesome.css* içinde `<environment names="Development">` öğesi.
 
 [!code-html[](bower/sample/_Layout.cshtml?highlight=4&range=9-13)]
 
 Bir üretim uygulamasında, eklediğiniz *yazı tipi awesome.min.css* için ortam etiketi Yardımcısı için `Staging,Production`.
 
-Değiştir *Views\Home\About.cshtml* aşağıdaki biçimlendirme Razor dosyasıyla:
+Öğesinin içeriğini değiştirin *Views\Home\About.cshtml* aşağıdaki işaretlemeyle Razor dosyası:
 
 [!code-html[](bower/sample/About.cshtml)]
 
-Uygulamayı çalıştırın ve yazı tipi harika paket çalıştığını doğrulamak için hakkında görünümüne gidin.
+Uygulamayı çalıştırın ve font awesome paket çalıştığını doğrulamak için hakkında görünümüne gidin.
 
-## <a name="exploring-the-client-side-build-process"></a>İstemci tarafı yapılandırma işlemi keşfetme
+## <a name="exploring-the-client-side-build-process"></a>İstemci tarafı derleme işlemi keşfetme
 
-Çoğu ASP.NET Core proje şablonları Bower kullanmak üzere önceden yapılandırılmıştır. Sonraki Bu izlenecek yol boş ASP.NET Core proje ile başlar ve bir projede Bower nasıl kullanıldığı için sınıflandırıp her parça el ile ekler. Proje yapısı ve her bir yapılandırma değişikliği yaptığınız gibi çıktı çalışma zamanı için olanlar görebilirsiniz.
+Çoğu ASP.NET Core proje şablonları, Bower kullanmak için önceden yapılandırılmıştır. Bu sonraki izlenecek yolda boş bir ASP.NET Core projesi ile başlar ve Bower projede nasıl kullanıldığını için bir genel görünüm alabilmeniz için her parçayı el ile ekler. Proje yapısını ve her bir yapılandırma değişikliği yapılmış gibi çıktı çalışma zamanı için ne olacağını görebilirsiniz.
 
-İstemci tarafı yapılandırma işlemi Bower ile kullanmak için gereken genel adımlar şunlardır:
+Bower ile istemci tarafı derleme işlemi kullanılacak genel adımlar şunlardır:
 
-* Projenizde kullanılan paketleri tanımlayın. <!-- once defined, you don't need to download them, VS does -->
-* Web sayfalarınıza paketlerinden başvuru.
+* Projenizde kullanılan paketler tanımlayın. <!-- once defined, you don't need to download them, VS does -->
+* Web sayfalarınıza paketlerden başvuru.
 
 ### <a name="define-packages"></a>Paket tanımlama
 
-Paketler listesi sonra *bower.json* dosyası, Visual Studio bunları indirir. Aşağıdaki örnek, jQuery ve önyükleme için yüklemek için Bower kullanır. *wwwroot* klasör.
+Paketleri listesi sonra *bower.json* dosya, Visual Studio bunları indirir. Aşağıdaki örnek, jQuery ve Bootstrap için yüklenecek Bower kullanır. *wwwroot* klasör.
 
-* İle yeni bir ASP.NET çekirdek Web uygulaması oluşturma **ASP.NET çekirdek Web uygulaması (.NET Core)** şablonu. Seçin **boş** proje şablonu ve tıklatın **Tamam**.
+* İle yeni bir ASP.NET Core Web uygulaması oluşturma **ASP.NET Core Web uygulaması (.NET Core)** şablonu. Seçin **boş** proje şablonu ve tıklatın **Tamam**.
 
-* Çözüm Gezgini'nde projeye sağ tıklayın > **Yeni Öğe Ekle** seçip **Bower yapılandırma dosyası**. Not: A *.bowerrc* dosyası da eklenir.
+* Çözüm Gezgini'nde projeye sağ tıklayın > **Yeni Öğe Ekle** seçip **Bower yapılandırma dosyası**. Not: Bir *.bowerrc* dosya da eklenir.
 
-* Açık *bower.json*, jquery ekleme ve için bootstrap `dependencies` bölümü. Elde edilen *bower.json* dosya, aşağıdaki gibi görünür. Sürümler, zaman içinde değişir ve aşağıdaki görüntü eşleşmeyebilir.
+* Açık *bower.json*, jquery ekleyin ve için önyükleme `dependencies` bölümü. Ortaya çıkan *bower.json* dosya, aşağıdaki örnekteki gibi görünür. Sürümler, zaman içinde değişir ve aşağıdaki resimde eşleşmeyebilir.
 
 [!code-json[](bower/sample/bower.json?highlight=5,6)]
 
 * Kaydet *bower.json* dosya.
 
-  Proje içeriyor doğrulayın *önyükleme* ve *jQuery* dizinlerde *wwwroot/lib*. Bower kullandığı *.bowerrc* varlıkları yüklemek için dosya *wwwroot/lib*.
+  Proje içerdiğini doğrulayın *önyükleme* ve *jQuery* dizinlerde *wwwroot/lib*. Bower kullanan *.bowerrc* varlıkları yüklemek için dosya *wwwroot/lib*.
 
   Not: El ile Dosya düzenlemeye alternatif "Bower paketlerini Yönet" kullanıcı Arabirimi sağlar.
 
 ### <a name="enable-static-files"></a>Statik dosyaları etkinleştir
 
 * Ekleme `Microsoft.AspNetCore.StaticFiles` NuGet paketini projeye.
-* İle sunulacak statik dosyaları etkinleştir [statik dosya ara yazılımlarını](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions). Bir çağrı ekleyin [UseStaticFiles](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions) için `Configure` yöntemi `Startup`.
+* İle sunulan statik dosyaların [statik dosya ara yazılımlarını](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions). Bir çağrı ekleyin [UseStaticFiles](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions) için `Configure` yöntemi `Startup`.
 
 [!code-csharp[](bower/sample/Startup.cs?highlight=9)]
 
 ### <a name="reference-packages"></a>Referans paketleri
 
-Bu bölümde, dağıtılan paketler erişebildiğinizi doğrulamak için bir HTML sayfası oluşturur.
+Bu bölümde, dağıtılan paketler erişebileceğini doğrulamak için bir HTML sayfası oluşturur.
 
-* Adlı yeni bir HTML sayfası Ekle *Index.html* için *wwwroot* klasör. Not: HTML dosyasına eklemelisiniz *wwwroot* klasör. Varsayılan olarak, statik içerik dışında sunulamıyor *wwwroot*. Bkz: [statik dosyalar](xref:fundamentals/static-files) daha fazla bilgi için.
+* Adlı yeni bir HTML sayfası Ekle *Index.html* için *wwwroot* klasör. Not: HTML dosyasına eklemelisiniz *wwwroot* klasör. Varsayılan olarak, statik içerik dışında sunulamayan *wwwroot*. Bkz: [statik dosyalar](xref:fundamentals/static-files) daha fazla bilgi için.
 
-  Değiştir *Index.html* aşağıdaki biçimlendirme ile:
+  Öğesinin içeriğini değiştirin *Index.html* aşağıdaki işaretlemeyle:
 
 [!code-html[](bower/sample/Index.html)]
 
-* Uygulamayı çalıştırın ve gidin `http://localhost:<port>/Index.html`. Alternatif olarak, ile *Index.html* açıldı, basın `Ctrl+Shift+W`. Jumbotron stil uygulanır, düğme tıklatıldığında jQuery kodu yanıt verir ve önyükleme düğmesi durumu değiştiğinde doğrulayın.
+* Uygulamayı çalıştırın ve gidin `http://localhost:<port>/Index.html`. Alternatif olarak, ile *Index.html* açıldı, basın `Ctrl+Shift+W`. Önyükleme düğmenin durumu değişir jumbotron stil uygulanır ve düğmeye tıklandığında, jQuery kodunun yanıt doğrulayın.
 
   ![jumbotron stili](bower/_static/jumbotron.png)

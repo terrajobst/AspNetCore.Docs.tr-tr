@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/controllers-and-routing/creating-a-controller
 title: Denetleyici (C#) oluşturma | Microsoft Docs
 author: StephenWalther
 description: Bu öğreticide, Stephen Walther bir denetleyici bir ASP.NET MVC uygulamasına nasıl ekleyebileceğinizi gösterir.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/02/2009
 ms.assetid: 719d50d4-2305-454c-98b4-bae64937c48f
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-a-controller-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3b3b663f76b6271a213e5980756ba63372ef6fe9
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 6fe880775a5d477aefcf0fe6cedb3e719760ed90
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37804276"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754132"
 ---
 <a name="creating-a-controller-c"></a>Denetleyici (C#) oluşturma
 ====================

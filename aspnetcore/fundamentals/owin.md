@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 10/14/2016
 uid: fundamentals/owin
-ms.openlocfilehash: 04042eedc52b4e6f57685e2d9ec1a75cd130fd8d
-ms.sourcegitcommit: 08f1a9baa97060da5168840b332c9c0805b5f901
+ms.openlocfilehash: db28eeff88a13dc95c469f3b7c0746c807da830f
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37144969"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754091"
 ---
 # <a name="open-web-interface-for-net-owin-with-aspnet-core"></a>ASP.NET Core ile .NET (OWIN) için Web arabirimini açın
 
@@ -31,7 +31,7 @@ Bu, ASP.NET Core, ASP.NET Core üzerinde çalıştırılacak diğer OWIN uyumlu 
 
 [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/owin/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 
-## <a name="running-owin-middleware-in-the-aspnet-pipeline"></a>ASP.NET işlem hattında OWIN ara yazılımı çalıştırma
+## <a name="running-owin-middleware-in-the-aspnet-core-pipeline"></a>ASP.NET Core işlem hattında OWIN ara yazılımı çalıştırma
 
 ASP.NET Core'nın OWIN desteği parçası olarak dağıtılan `Microsoft.AspNetCore.Owin` paket. Bu paketi yükleyerek projenize OWIN destek alabilirsiniz.
 
@@ -56,7 +56,7 @@ public Task OwinHello(IDictionary<string, object> environment)
 
 Örnek imza döndürür bir `Task` ve kabul eden bir `IDictionary<string, object>` OWIN gerektirdiği.
 
-Aşağıdaki kod nasıl ekleneceğini gösterir `OwinHello` (yukarıda için ASP.NET ardışık düzeni ile gösterilen) bir ara yazılım `UseOwin` genişletme yöntemi.
+Aşağıdaki kod nasıl ekleneceğini gösterir `OwinHello` (yukarıda ASP.NET Core işlem hattı ile gösterilen) bir ara yazılım `UseOwin` genişletme yöntemi.
 
 ```csharp
 public void Configure(IApplicationBuilder app)
@@ -90,9 +90,9 @@ app.UseOwin(pipeline =>
 
 <a name="hosting-on-owin"></a>
 
-## <a name="using-aspnet-hosting-on-an-owin-based-server"></a>Bir OWIN tabanlı sunucu üzerinde kullanarak ASP.NET barındırma
+## <a name="using-aspnet-core-hosting-on-an-owin-based-server"></a>Bir OWIN tabanlı sunucu üzerinde kullanarak ASP.NET Core barındırma
 
-OWIN tabanlı sunucular, ASP.NET uygulamaları barındırabilir. Bir sunucu [Nowin](https://github.com/Bobris/Nowin), bir .NET OWIN web sunucusu. Bu makalede örnek miyim Nowin atıfta bulunan ve oluşturmak için kullandığı bir proje dahil ettiğiniz bir `IServer` ASP.NET Core kendi kendine barındırma yeteneğine.
+OWIN tabanlı sunucular, ASP.NET Core uygulamaları barındırabilir. Bir sunucu [Nowin](https://github.com/Bobris/Nowin), bir .NET OWIN web sunucusu. Bu makalede örnek miyim Nowin atıfta bulunan ve oluşturmak için kullandığı bir proje dahil ettiğiniz bir `IServer` ASP.NET Core kendi kendine barındırma yeteneğine.
 
 [!code-csharp[](owin/sample/src/NowinSample/Program.cs?highlight=15)]
 

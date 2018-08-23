@@ -5,26 +5,34 @@ description: Azure'da barındırılan bir ASP.NET Core uygulaması için bir Dev
 ms.author: casoper
 ms.date: 08/07/2018
 uid: azure/devops/index
-ms.openlocfilehash: 09ca835e908e81c6f38f9430fb40638ba6dc3350
-ms.sourcegitcommit: 29dfe436f54a27fbb4f6494bc639d16c75001fab
+ms.openlocfilehash: f2eb2499a61ce639457f30f4d182dac6ff677a0f
+ms.sourcegitcommit: 6d02e26748a09eabeb0e11740a398cc2bc90b098
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39722731"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41754509"
 ---
 # <a name="devops-with-aspnet-core-and-azure"></a>ASP.NET Core ve Azure ile DevOps
+
+[![Kapak resmi](./media/cover-large.png)](https://aka.ms/devopsbook)
+
+Tarafından [Cam Soper](https://twitter.com/camsoper) ve [Scott Addie](https://twitter.com/scottaddie)
+
+Bu kılavuz olarak kullanılabilir bir [indirilebilir PDF e-kitap](https://aka.ms/devopsbook).
+
+## <a name="welcome"></a>Hoş Geldiniz 
 
 .NET için Azure geliştirme yaşam döngüsü kılavuzuna Hoş Geldiniz! Bu kılavuzda, .NET araçları ve işlemleri kullanarak Azure'da geçici bir geliştirme yaşam döngüsü oluşturmanın temel kavramları tanıtır. Bu kılavuzu tamamladıktan sonra olgun bir DevOps araç zincirinde avantajlarını yararlanabileceksiniz.
 
 ## <a name="who-this-guide-is-for"></a>Bu kılavuz için olan
 
-Deneyimli bir ASP.NET geliştiricisi (200-300 düzeyi) olmalıdır. Biz, bu bölümde ele alacağız gibi Azure hakkında her şeyi bilmeniz gerekmez. Bu kılavuz, ayrıca geliştirme işlemleri daha fazla odaklanan DevOps mühendisleri için yararlı olabilir.
+Deneyimli bir ASP.NET Core geliştirici (200-300 düzeyi) olmalıdır. Biz, bu bölümde ele alacağız gibi Azure hakkında her şeyi bilmeniz gerekmez. Bu kılavuz, ayrıca geliştirme işlemleri daha fazla odaklanan DevOps mühendisleri için yararlı olabilir.
 
 Bu kılavuz, Windows geliştiricileri hedefler. Ancak, Linux ve Macos'ta .NET Core tarafından tam olarak desteklenir. Linux/macOS farklar için çağrılar için bu kılavuzu Linux/macOS için uyarlamak üzere izleyin.
 
 ## <a name="what-this-guide-doesnt-cover"></a>Bu kılavuzda ele alınmamıştır
 
-Bu kılavuzda, .NET geliştiricileri için bir uçtan uca sürekli dağıtım deneyimi üzerinde odaklanmıştır. Her şey Azure için ayrıntılı bir kılavuz değildir ve, kapsamlı bir şekilde .NET API'leri Azure Hizmetleri için odak değil. Vurgu tüm sürekli tümleştirme, dağıtım, izleme ve hata ayıklama ' dir. Kılavuzu sonuna, sonraki adımlar için öneriler sunulur. Öneri ASP.NET geliştiricileri için kullanışlı olan bir Azure platform hizmetlerini içerir.
+Bu kılavuzda, .NET geliştiricileri için bir uçtan uca sürekli dağıtım deneyimi üzerinde odaklanmıştır. Her şey Azure için ayrıntılı bir kılavuz değildir ve, kapsamlı bir şekilde .NET API'leri Azure Hizmetleri için odak değil. Vurgu tüm sürekli tümleştirme, dağıtım, izleme ve hata ayıklama ' dir. Kılavuzu sonuna, sonraki adımlar için öneriler sunulur. Öneri, ASP.NET Core geliştiricileri için yararlı olan bir Azure platform hizmetlerini içerir.
 
 ## <a name="whats-in-this-guide"></a>Bu kılavuzda nedir
 
@@ -32,7 +40,7 @@ Bu kılavuzda, .NET geliştiricileri için bir uçtan uca sürekli dağıtım de
 
 Bu kılavuzda kullanılan araçları almayı öğrenin.
 
-### <a name="deploy-to-app-servicexrefazuredevopsdeploy-to-app-service"></a>[App Service'e dağıtma](xref:azure/devops/deploy-to-app-service)
+### <a name="deploy-to-app-servicexrefazuredevopsdeploy-to-app-service"></a>[App Service’e dağıtma](xref:azure/devops/deploy-to-app-service)
 
 Azure App Service'e bir ASP.NET Core uygulaması dağıtmak için çeşitli yöntemler hakkında bilgi edinin.
 
@@ -48,18 +56,9 @@ Bir uçtan uca sürekli tümleştirme ve dağıtım çözümü için GitHub, VST
 
 Azure Öğrenme ASP.NET Core Geliştirici diğer öğrenme yolları.
 
-## <a name="acknowledgments"></a>İlgili kaynaklar
+## <a name="additional-introductory-reading"></a>Ek giriş okuma
 
-Bu kılavuzda yararlı önerileriniz katkıda .NET topluluk herkese teşekkür ederiz! Özellikle bu yazıda son gözden geçirme için katkıda bulunan aşağıdaki topluluk üyeleri teşekkür istiyoruz:
-
-* [SAM Wronski](https://www.youtube.com/c/worldofzerodevelopment)
-* [Jeffrey Palermo](https://twitter.com/jeffreypalermo)
-
-## <a name="conclusion"></a>Sonuç
-
-Bu kılavuz, ASP.NET Core ve Azure App Service geçici olarak oluşturulmuş bir sürekli tümleştirme geliştirme yaşam döngüsü oluşturmak için hazırlar.
-
-## <a name="additional-reading"></a>Ek okuma
+Bu bulut için ilk maruz kalma riskinizi ise, bu makaleler temellerini açıklar.
 
 * [Bulut bilgi işlem nedir?](https://azure.microsoft.com/overview/what-is-cloud-computing/)
 * [Örnekler bulut bilgi işlem](https://azure.microsoft.com/overview/examples-of-cloud-computing/)

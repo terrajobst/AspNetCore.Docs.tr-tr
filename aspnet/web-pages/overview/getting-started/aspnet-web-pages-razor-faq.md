@@ -3,17 +3,17 @@ uid: web-pages/overview/getting-started/aspnet-web-pages-razor-faq
 title: ASP.NET Web sayfaları (Razor) SSS | Microsoft Docs
 author: tfitzmac
 description: Bu makalede, Webmatrix'i ve ASP.NET Web sayfaları (Razor) hakkında sık sorulan bazı sorular listelenmektedir. Öğretici ASP.NET Web Pages'da (R... kullanılan yazılım sürümleri
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/07/2014
 ms.assetid: b137bd04-25e1-47cb-9d96-ef2e179ecf1f
 msc.legacyurl: /web-pages/overview/getting-started/aspnet-web-pages-razor-faq
 msc.type: authoredcontent
-ms.openlocfilehash: 1f97056c952757ea2d009eaca57d904791e80ca3
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 03e89adc2415808ea49107616f529fa895d6e52a
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37814242"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41757053"
 ---
 <a name="aspnet-web-pages-razor-faq"></a>ASP.NET Web sayfaları (Razor) SSS
 ====================
@@ -42,7 +42,7 @@ tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 - [Oturum açma bilgileri desteklemek için WebSecurity Yardımcısı'nı kullanın zorunda mıyım?](#Do_I_have_to_use_the_WebSecurity_helper_to_support_logins)
 - [ASP.NET Web sayfaları, HTML5 destekliyor mu?](#Does_ASP.NET_Web_Pages_support_HTML5)
 - [JavaScript ve jQuery Web sayfaları ile kullanabilir miyim?](#Can_I_use_JavaScript_and_jQuery_with_Web_Pages)
-- [Ek kaynaklar](#AdditionalResources)
+- [Ek Kaynaklar](#AdditionalResources)
 
 Hataları ve diğer sorunlar hakkında sorular için bkz [ASP.NET Web sayfaları (Razor) sorun giderme kılavuzu](https://go.microsoft.com/fwlink/?LinkId=253001).
 

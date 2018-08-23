@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 08/07/2018
 uid: fundamentals/http-requests
-ms.openlocfilehash: dd217cfed230ea92c31eeed64ec19838032dd224
-ms.sourcegitcommit: 028ad28c546de706ace98066c76774de33e4ad20
+ms.openlocfilehash: 2a1bf78edb5068d8b10d66e5ef306b1ad4395da6
+ms.sourcegitcommit: 15d7bd0b2c4e6fe9ac335d658bab71a45ca5bc72
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39655238"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41754146"
 ---
 # <a name="initiate-http-requests"></a>HTTP isteklerini başlatma
 
@@ -46,11 +46,11 @@ Bunların hiçbiri diğerine kesinlikle üst. En iyi yaklaşım, uygulamanın k�
 
 `IHttpClientFactory` Çağırarak kayıtlı `AddHttpClient` genişletme yöntemini `IServiceCollection`içine `Startup.ConfigureServices` yöntemi.
 
-[!code-csharp[](http-requests/samples/Startup.cs?name=snippet1)]
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet1)]
 
 Kaydedildikten sonra kod kabul edebilen bir `IHttpClientFactory` Hizmetleri ile her yerde yerleştirilebilir [bağımlılık ekleme](xref:fundamentals/dependency-injection) (dı). `IHttpClientFactory` Oluşturmak için kullanılan bir `HttpClient` örneği:
 
-[!code-csharp[](http-requests/samples/Pages/BasicUsage.cshtml.cs?name=snippet1&highlight=9-12,20)]
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Pages/BasicUsage.cshtml.cs?name=snippet1&highlight=9-12,21)]
 
 Kullanarak `IHttpClientFactory` bu şekilde var olan bir uygulamayı yeniden düzenleme için harika bir yoludur. Yolda hiçbir etkisi olmaz `HttpClient` kullanılır. Yerde nerede `HttpClient` örnekleri şu anda oluşturulur, bu oluşumları çağrısı ile Değiştir [CreateClient](/dotnet/api/system.net.http.ihttpclientfactory.createclient).
 
@@ -58,7 +58,7 @@ Kullanarak `IHttpClientFactory` bu şekilde var olan bir uygulamayı yeniden dü
 
 Bir uygulama birçok farklı kullanımlarını gerektiriyorsa `HttpClient`, her farklı bir yapılandırma ile bir seçenek kullanmaktır **istemcileri adlı**. Yapılandırma için bir adlandırılmış `HttpClient` kaydı sırasında belirtilen `Startup.ConfigureServices`.
 
-[!code-csharp[](http-requests/samples/Startup.cs?name=snippet2)]
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet2)]
 
 Önceki kodda, `AddHttpClient` olarak adlandırılan, bir ad sağlamayı *github*. Bu istemci bazı varsayılan yapılandırma uygulandı sahip&mdash;taban adresini ve GitHub API ile çalışması için gereken iki üstbilgi.
 
@@ -66,7 +66,7 @@ Her zaman `CreateClient` çağrılır, yeni bir örneğini `HttpClient` oluştur
 
 Adlandırılmış bir istemcinin kullanılacağı bir dize parametresi geçirilebilir `CreateClient`. Oluşturulacak istemci adını belirtin:
 
-[!code-csharp[](http-requests/samples/Pages/NamedClient.cshtml.cs?name=snippet1&highlight=20)]
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Pages/NamedClient.cshtml.cs?name=snippet1&highlight=21)]
 
 Önceki kodda, istek bir ana bilgisayar adı belirtmeniz gerekmez. İstemcisi için yapılandırılan taban adresi kullanıldığından, yol yalnızca geçirebilirsiniz.
 
@@ -76,25 +76,25 @@ Türü belirlenmiş istemci anahtarı olarak dizeleri kullanmak zorunda kalmadan
 
 Türü belirlenmiş istemci kabul eden bir `HttpClient` oluşturucusuna parametre:
 
-[!code-csharp[](http-requests/samples/GitHub/GitHubService.cs?name=snippet1&highlight=5)]
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/GitHub/GitHubService.cs?name=snippet1&highlight=5)]
 
 Önceki kodda, türü belirlenmiş istemci yapılandırma taşınır. `HttpClient` Nesne, ortak bir özellik olarak gösterilir. Kullanıma sunan bir özel API yöntemleri tanımlamak mümkündür `HttpClient` işlevselliği. `GetAspNetDocsIssues` Yöntemi en son açık sorunlar bir GitHub deposundan ayrıştırabilir ve sorgulamak için gereken kodu kapsüller.
 
 Türü belirlenmiş bir istemci, genel kaydedilecek `AddHttpClient` genişletme yöntemi içinde kullanılabilir `Startup.ConfigureServices`, türü belirlenmiş istemci sınıfı belirtme:
 
-[!code-csharp[](http-requests/samples/Startup.cs?name=snippet3)]
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet3)]
 
 Türü belirlenmiş istemci DI ile geçici olarak kaydedilir. Türü belirlenmiş istemci eklenen ve doğrudan tüketilen:
 
-[!code-csharp[](http-requests/samples/Pages/TypedClient.cshtml.cs?name=snippet1&highlight=11-14,20)]
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Pages/TypedClient.cshtml.cs?name=snippet1&highlight=11-14,20)]
 
 Kaydı sırasında tercih etmeleri durumunda, türü belirlenmiş istemci yapılandırmasını belirtilebilir `Startup.ConfigureServices`, yerine belirlenmiş istemcinin Oluşturucusu:
 
-[!code-csharp[](http-requests/samples/Startup.cs?name=snippet4)]
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet4)]
 
 Tamamen yalıtılacak mümkündür `HttpClient` türü belirlenmiş istemci içinde. Bir özellik olarak gösterme yerine genel yöntemleri arama sağlanabilir `HttpClient` dahili olarak örneği.
 
-[!code-csharp[](http-requests/samples/GitHub/RepoService.cs?name=snippet1&highlight=3)]
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/GitHub/RepoService.cs?name=snippet1&highlight=4)]
 
 Önceki kodda, `HttpClient` özel bir alan olarak depolanır. Dış çağrı yapmak için tüm erişim geçtiği `GetRepos` yöntemi.
 
@@ -159,19 +159,19 @@ public class ValuesController : ControllerBase
 
 Bir işleyici oluşturmak için türetilen bir sınıf tanımlama `DelegatingHandler`. Geçersiz kılma `SendAsync` yöntemi istek ardışık düzende sonraki işleyici geçirmeden önce kodu çalıştırmak için:
 
-[!code-csharp[Main](http-requests/samples/Handlers/ValidateHeaderHandler.cs?name=snippet1)]
+[!code-csharp[Main](http-requests/samples/2.x/HttpClientFactorySample/Handlers/ValidateHeaderHandler.cs?name=snippet1)]
 
 Yukarıdaki kod, bir temel işleyicisini tanımlar. Olup olmadığını denetler bir `X-API-KEY` üst bilgi, istek dahil edilmemiş. Üst bilgisi eksik, bu HTTP çağrısı kaçınmak ve uygun bir yanıt döndürür.
 
 Kayıt sırasında bir veya daha fazla işleyicileri için yapılandırmasına eklenebilir bir `HttpClient`. Bu görev üzerinde genişletme yöntemleri gerçekleştirilir [IHttpClientBuilder](/dotnet/api/microsoft.extensions.dependencyinjection.ihttpclientbuilder).
 
-[!code-csharp[](http-requests/samples/Startup.cs?name=snippet5)]
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet5)]
 
 Önceki kodda, `ValidateHeaderHandler` DI ile kaydedilir. İşleyici **gerekir** DI geçici olarak kayıtlı olmalıdır. Bir kez kayıtlı [AddHttpMessageHandler](/dotnet/api/microsoft.extensions.dependencyinjection.httpclientbuilderextensions.addhttpmessagehandler) türü için işleyici geçirme çağrılabilir.
 
 Birden fazla işleyici sırayla yürütülmesi gerektiğini kaydedilebilir. Her işleyici son kadar bir sonraki işleyici sarmalar `HttpClientHandler` isteği yürütür:
 
-[!code-csharp[](http-requests/samples/Startup.cs?name=snippet6)]
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet6)]
 
 ## <a name="use-polly-based-handlers"></a>Polly tabanlı işleyicileri kullanın
 
@@ -179,7 +179,7 @@ Birden fazla işleyici sırayla yürütülmesi gerektiğini kaydedilebilir. Her 
 
 Genişletme yöntemleri, Polly ilkeleriyle kullanımını etkinleştirmek için yapılandırılmış sağlanan `HttpClient` örnekleri. Polly uzantıları kullanılabilir [Microsoft.Extensions.Http.Polly](https://www.nuget.org/packages/Microsoft.Extensions.Http.Polly/) NuGet paketi. Bu paket bulunup bulunmadığına [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app). Açık bir uzantıları kullanmak için `<PackageReference />` projeye eklenmelidir.
 
-[!code-csharp[](http-requests/samples/HttpClientFactorySample.csproj?highlight=9)]
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/HttpClientFactorySample.csproj?highlight=9)]
 
 Bu paket geri yükledikten sonra istemcileri Polly tabanlı işleyicileri ekleme desteklemek genişletme yöntemleri kullanılabilir.
 
@@ -189,7 +189,7 @@ Dış HTTP çağrıları geçici en yaygın hataları ortaya çıkar. Bir uzant�
 
 `AddTransientHttpErrorPolicy` Uzantı içinde kullanılabilir `Startup.ConfigureServices`. Uzantı erişim sağlayan bir `PolicyBuilder` olası bir geçici hata temsil eden hataları işlemek için yapılandırılmış nesne:
 
-[!code-csharp[Main](http-requests/samples/Startup.cs?name=snippet7)]
+[!code-csharp[Main](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet7)]
 
 Önceki kodda, bir `WaitAndRetryAsync` İlkesi tanımlanmıştır. Başarısız istekler en fazla 600 ms denemeler arasındaki gecikme ile üç kez yeniden denenir.
 
@@ -197,7 +197,7 @@ Dış HTTP çağrıları geçici en yaygın hataları ortaya çıkar. Bir uzant�
 
 Polly tabanlı işleyicileri eklemek için kullanılabilecek ek genişletme yöntemleri mevcut. Böyle bir uzantısıdır `AddPolicyHandler`, birden çok aşırı yüklemeleri vardır. Aşırı yüklemelerden birine uygulamak için ilkeyi tanımlarken denetlenecek istek sağlar:
 
-[!code-csharp[Main](http-requests/samples/Startup.cs?name=snippet8)]
+[!code-csharp[Main](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet8)]
 
 Önceki kodda, giden istek bir GET ise 10 saniyelik zaman aşımı uygulanır. Diğer HTTP yöntemi için 30 saniyelik zaman aşımı kullanılır.
 
@@ -205,7 +205,7 @@ Polly tabanlı işleyicileri eklemek için kullanılabilecek ek genişletme yön
 
 Polly ilkeleri gelişmiş işlevsellik sağlamak için iç içe yaygın bir uygulamadır:
 
-[!code-csharp[Main](http-requests/samples/Startup.cs?name=snippet9)]
+[!code-csharp[Main](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet9)]
 
 Önceki örnekte, iki işleyicisi eklenir. İlk kullandığı `AddTransientHttpErrorPolicy` bir yeniden deneme ilkesi eklemek için uzantı. En fazla üç kez başarısız istek yeniden denenir. İçin yapılan ikinci çağrı `AddTransientHttpErrorPolicy` devre kesici ilke ekler. Daha fazla ardışık olarak beş başarısız girişim meydana gelirse dış istekleri 30 saniye engellenir. Devre kesici ilkeleri bilgisi yok. Tüm çağrılar bu istemciyi aynı bağlantı hattı durumu paylaşın.
 
@@ -213,7 +213,7 @@ Polly ilkeleri gelişmiş işlevsellik sağlamak için iç içe yaygın bir uygu
 
 Bir kez tanımlayın ve bunları kaydetmek için düzenli olarak kullanılan ilkeleri yönetme yaklaşım, bir `PolicyRegistry`. Kayıt defterinden bir ilke kullanarak eklenecek bir işleyici olanak tanıyan bir genişletme yöntemi sağlanır:
 
-[!code-csharp[Main](http-requests/samples/Startup.cs?name=snippet10)]
+[!code-csharp[Main](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet10)]
 
 Önceki kodda, iki ilke kayıtlı olduğunda `PolicyRegistry` eklenir `ServiceCollection`. Kayıt defterinden bir ilkeyi kullanmak için `AddPolicyHandlerFromRegistry` yöntemi kullanılır, uygulanacak ilke adını geçirerek.
 
@@ -227,7 +227,7 @@ Her işleyicisi genellikle kendi temel alınan HTTP bağlantıları yöneten iş
 
 Varsayılan işleyici yaşam süresi iki dakika olmalıdır. Varsayılan değer üzerinde geçersiz kılınabilir bir adlandırılmış istemci temelinde. Geçersiz kılmak için çağrı [SetHandlerLifetime](/dotnet/api/microsoft.extensions.dependencyinjection.httpclientbuilderextensions.sethandlerlifetime) üzerinde `IHttpClientBuilder` istemci oluştururken döndürülür:
 
-[!code-csharp[Main](http-requests/samples/Startup.cs?name=snippet11)]
+[!code-csharp[Main](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet11)]
 
 İstemci bir şekilde elden gerekli değildir. Giden istekleri ve garanti elden iptal verilen `HttpClient` örneği çağırdıktan sonra kullanılamaz [Dispose](/dotnet/api/system.idisposable.dispose#System_IDisposable_Dispose). `IHttpClientFactory` tarafından kullanılan kaynakları siler ve izler `HttpClient` örnekleri. `HttpClient` Örnekleri genellikle kabul elden gerektirmeyen .NET nesneleri olarak.
 
@@ -251,4 +251,4 @@ Günlük kategorisinde istemci adı dahil olmak üzere, gerektiğinde belirli ad
 
 Bir `IHttpClientBuilder` adlı eklerken, veya yazılan istemciler döndürülür. [ConfigurePrimaryHttpMessageHandler](/dotnet/api/microsoft.extensions.dependencyinjection.httpclientbuilderextensions.configureprimaryhttpmessagehandler) genişletme yöntemi, bir temsilci tanımlamak için kullanılabilir. Temsilci oluşturmak ve birincil yapılandırmak için kullanılan `HttpMessageHandler` istemci tarafından kullanılan:
 
-[!code-csharp[Main](http-requests/samples/Startup.cs?name=snippet12)]
+[!code-csharp[Main](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet12)]

@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/master-pages/interacting-
 title: İçerik sayfasından ana sayfa (VB) ile etkileşim kurma | Microsoft Docs
 author: rick-anderson
 description: Ana sayfa kodunda özellikleri içerik sayfasının vb. kümeden nasıl yöntemleri çağırmak inceler.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/11/2008
 ms.assetid: a6e2e1a0-c925-43e9-b711-1f178fdd72d7
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-content-page-from-the-master-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 41cfd5e65fbe0a5ef4930ce3a4c84556cedcdfd6
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 7ace3873ecb525afcb64a0aa144742eab467f8f6
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37807654"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41757051"
 ---
 <a name="interacting-with-the-content-page-from-the-master-page-vb"></a>İçerik sayfasından ana sayfa (VB) ile etkileşim kurma
 ====================

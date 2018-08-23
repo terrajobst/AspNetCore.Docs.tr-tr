@@ -3,17 +3,17 @@ uid: web-forms/videos/vs-2005/introduction-to-managing-and-running-tests-with-te
 title: Yönetme ve çalıştırma giriş Team System ile testleri | Microsoft Docs
 author: rick-anderson
 description: Bu videoda, çeşitli test çalışmalarını Visual Studio Team System test yönetim özelliklerini kullanarak veya nasıl tüm yönetebilirsiniz görüyoruz. Ayrıca göreceğiz...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/09/2007
 ms.assetid: e262ca69-55e5-4ec2-b278-78ee129b4649
 msc.legacyurl: /web-forms/videos/vs-2005/introduction-to-managing-and-running-tests-with-team-system
 msc.type: video
-ms.openlocfilehash: 9a3a4a2248ef9c350980c7cb4541749474b1299a
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 1b9ea5277253395ba16b3a4480b61fb522327d75
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37805959"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753866"
 ---
 <a name="introduction-to-managing-and-running-tests-with-team-system"></a>Team System ile testleri çalıştırma ve yönetmeye giriş
 ====================

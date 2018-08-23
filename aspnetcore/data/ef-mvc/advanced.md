@@ -5,12 +5,12 @@ description: Bu öğretici, Entity Framework Core kullanan ASP.NET Core web uygu
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: be44ef115ce72e1571bbdea2c609ea6c53792c59
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 25916365b4e682a8e296e0affbcddd4f1e5846b1
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38194048"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755676"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---advanced---10-of-10"></a>-EF çekirdekli ASP.NET Core MVC Gelişmiş - 10 10
 
@@ -187,7 +187,7 @@ Varolan bir veritabanından varlık sınıfları da dahil olmak üzere bir veri 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu, Bu öğretici serisinde, Entity Framework Core kullanarak bir ASP.NET MVC uygulamasındaki tamamlar.
+Bu, Bu öğretici serisinde, Entity Framework Core kullanarak bir ASP.NET Core MVC uygulamasındaki tamamlar.
 
 EF Core hakkında daha fazla bilgi için bkz. [Entity Framework Core belgeleri](https://docs.microsoft.com/ef/core). Bir kitap de kullanılabilir: [Entity Framework Core uygulamada](https://www.manning.com/books/entity-framework-core-in-action).
 

@@ -5,14 +5,14 @@ description: Bu öğreticide, ASP.NET Core için SignalR kullanan bir sohbet uyg
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 08/08/2018
+ms.date: 08/20/2018
 uid: tutorials/signalr
-ms.openlocfilehash: 2c1c46b4a608eb0d39287a5261ed7c1f847a644e
-ms.sourcegitcommit: 29dfe436f54a27fbb4f6494bc639d16c75001fab
+ms.openlocfilehash: db7f31963f6a4280069f1f4f82a547e2879e64bb
+ms.sourcegitcommit: d27317c16f113e7c111583042ec7e4c5a26adf6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39722483"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41756364"
 ---
 # <a name="tutorial-get-started-with-signalr-on-aspnet-core"></a>Öğretici: SignalR üzerinde ASP.NET Core ile çalışmaya başlama
 
@@ -24,7 +24,7 @@ Bu öğreticide SignalR kullanarak gerçek zamanlı bir uygulama oluşturmaya il
 > * SignalR hub'ına JavaScript istemcilerinden bağlanın.
 > * Bağlanan tüm istemciler için herhangi bir istemciden ileti göndermek için hub'ı kullanın.
 
-Sonunda bir çalışma sohbet uygulaması oluşturmuş olacaksınız:
+Sonunda, bir çalışma sohbet uygulaması oluşturmuş olacaksınız:
 
 ![SignalR örnek uygulaması](signalr/_static/signalr-get-started-finished.png)
 
@@ -45,6 +45,12 @@ Sonunda bir çalışma sohbet uygulaması oluşturmuş olacaksınız:
 * [Visual Studio Code için C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
 * [npm](https://www.npmjs.com/get-npm) (SignalR JavaScript istemci kitaplığı için kullanılan Node.js için Paket Yöneticisi.)
 
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
+
+* [Sürüm 7.5.4 Mac için Visual Studio veya üzeri](https://www.visualstudio.com/downloads/)
+* [.NET core SDK 2.1 veya üzeri](https://www.microsoft.com/net/download/all) (Visual Studio yüklemesine dahil)
+* [npm](https://www.npmjs.com/get-npm) (SignalR JavaScript istemci kitaplığı için kullanılan Node.js için Paket Yöneticisi.)
+
 ---
 
 ## <a name="create-the-project"></a>Projeyi oluşturma
@@ -59,7 +65,7 @@ Sonunda bir çalışma sohbet uygulaması oluşturmuş olacaksınız:
 
 * Seçin **Web uygulaması** Razor sayfaları kullanan bir proje oluşturmak için.
 
-* Hedef Framework'ü olduğundan emin olun **ASP.NET Core 2.1**ve ardından **Tamam**. 
+* Bir hedef Framework'ü seçin **.NET Core**seçin **ASP.NET Core 2.1**, tıklatıp **Tamam**.
 
   ![Visual Studio'da yeni proje iletişim kutusu](signalr/_static/signalr-new-project-choose-type.png)
 
@@ -75,11 +81,21 @@ Sonunda bir çalışma sohbet uygulaması oluşturmuş olacaksınız:
 
    [!INCLUDE[](~/includes/webapp-alias-notice.md)]
 
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
+
+* Menüden **Dosya > Yeni Çözüm**.
+
+* Seçin **.NET Core > Uygulama > ASP.NET Core Web uygulaması** (seçmeyin **ASP.NET Core Web uygulaması (MVC)**).
+
+* Seçin **sonraki**.
+
+* Projeyi adlandırın *SignalRChat*ve ardından **Oluştur**.
+
 ---
 
 ## <a name="add-the-signalr-client-library"></a>SignalR istemci kitaplığı Ekle
 
-SignalR server kitaplığı dahil [Microsoft.AspnetCore.App metapackage](xref:fundamentals/metapackage-app). Ancak Node.js Paket Yöneticisi olan npm'den JavaScript istemci kitaplığını alma gerekir.
+SignalR server kitaplığı dahil [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app). Ancak Node.js Paket Yöneticisi olan npm'den JavaScript istemci kitaplığını alma gerekir.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 
@@ -87,7 +103,7 @@ SignalR server kitaplığı dahil [Microsoft.AspnetCore.App metapackage](xref:fu
 
   ```console
   cd SignalRChat
-  ``` 
+  ```
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
 
@@ -96,6 +112,10 @@ SignalR server kitaplığı dahil [Microsoft.AspnetCore.App metapackage](xref:fu
   ```console
   cd SignalRChat
   ``` 
+
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
+
+* İçinde **Terminal**, proje klasörüne gidin (içeren *SignalRChat.csproj* dosyası).
 
 ---
 
@@ -132,18 +152,12 @@ SignalR server kitaplığı dahil [Microsoft.AspnetCore.App metapackage](xref:fu
   Komut çıktısı aşağıdaki örneğe benzer oluşturur:
 
   ```
-  npm : npm notice created a lockfile as package-lock.json. You should commit this file.
-  At line:1 char:1
-  + npm install @aspnet/signalr
-  + ~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      + CategoryInfo          : NotSpecified: (npm notice crea...mmit this file.:String) [], RemoteException
-      + FullyQualifiedErrorId : NativeCommandError
-  WARN
-   SignalRChat@1.0.0 No description
-  WARN
-   SignalRChat@1.0.0 No repository field.
+  npm notice created a lockfile as package-lock.json. You should commit this file.
+  npm WARN signalrchat@1.0.0 No description
+  npm WARN signalrchat@1.0.0 No repository field.
+
   + @aspnet/signalr@1.0.2
-  added 1 package in 1.398s
+  added 1 package in 0.98s
   ```
 
 `npm install` Altında bir alt komut indirdiğiniz JavaScript istemci Kitaplığı *node_modules*. Buradan altında bir klasöre kopyalayın *wwwroot* , sohbet uygulaması web sayfasından başvurabilirsiniz.
@@ -200,7 +214,19 @@ SignalR sunucusu, SignalR için SignalR isteklerini iletmek için yapılandırı
 
 ## <a name="run-the-app"></a>Uygulamayı çalıştırma
 
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
 * Tuşuna **CTRL + F5** uygulamayı hata ayıklama olmadan çalıştırmak için.
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
+* Tuşuna **CTRL + F5** uygulamayı hata ayıklama olmadan çalıştırmak için.
+
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
+
+* Menüden **çalıştırın > hata ayıklama olmadan Başlat**.
+
+---
 
 * Adres çubuğundan URL'yi kopyalayın, başka bir tarayıcı örneğinde veya sekmesi açın ve adres çubuğuna URL'yi yapıştırın.
 

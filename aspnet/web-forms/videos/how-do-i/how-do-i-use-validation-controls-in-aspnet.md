@@ -3,17 +3,17 @@ uid: web-forms/videos/how-do-i/how-do-i-use-validation-controls-in-aspnet
 title: "[Bunu nasıl yaparım:]  ASP.NET'te doğrulama denetimlerini kullanılsın mı? | Microsoft Docs"
 author: rick-anderson
 description: Bu videoda doğrulama denetimlerini doğrulama web sayfalarınızda uygulamak için kullanmayı öğrenin. Tüm başlıca doğrulama gibi denetimleri...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/26/2007
 ms.assetid: 1f2e5f5b-8be1-4acc-ae36-a2e0d140251a
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-validation-controls-in-aspnet
 msc.type: video
-ms.openlocfilehash: c1556438a386e20b62a3ac02ebefecf0e9bc3be0
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: da8831e179360dda870d6ee3d667118094983894
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37826737"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756190"
 ---
 <a name="how-do-i--use-validation-controls-in-aspnet"></a>[Bunu nasıl yaparım:]  ASP.NET'te doğrulama denetimlerini kullanılsın mı?
 ====================

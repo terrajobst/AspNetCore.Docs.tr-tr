@@ -5,12 +5,12 @@ description: ''
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 1c724da918640c514acbc24c390de4e735f8bf49
-ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
+ms.openlocfilehash: 626b828e2391d3982ff2cf393f0c9e0748c12810
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39342438"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755902"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---crud---2-of-10"></a>10 - CRUD - 2 EF çekirdekli ASP.NET Core MVC
 
@@ -117,7 +117,7 @@ Uygulamayı çalıştırın, seçin **Öğrenciler** sekmesine ve tıklayın **a
 
 [!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Create&highlight=4,6-7,14-21)]
 
-Bu kod, Öğrenciler varlığı için ASP.NET MVC model bağlayıcı tarafından oluşturulan Öğrenci varlık ayarlayın ve ardından değişiklikleri veritabanına kaydeder ekler. (Model bağlayıcı için bir form tarafından sunulan verilerle çalışmayı kolaylaştıran bir ASP.NET MVC işlevlerini gösterir; bir model bağlayıcı gönderilen form değerleri, CLR türlerine dönüştürür ve bunları eylem yöntemi parametrelerine geçirir. Bu durumda, model bağlayıcı Öğrenci varlık, bir Form koleksiyonu özellik değerleri kullanarak örneği oluşturur.)
+Bu kod, Öğrenciler varlığı için ASP.NET Core MVC model bağlayıcı tarafından oluşturulan Öğrenci varlık ayarlayın ve ardından değişiklikleri veritabanına kaydeder ekler. (Bir form tarafından sunulan verilerle çalışmayı kolaylaştıran ASP.NET Core MVC işlevselliği için model bağlayıcı başvuruyor; bir model bağlayıcı gönderilen form değerleri, CLR türlerine dönüştürür ve eylem yöntemi parametrelerine geçirir. Bu durumda, model bağlayıcı Öğrenci varlık, bir Form koleksiyonu özellik değerleri kullanarak örneği oluşturur.)
 
 Kaldırılan `ID` gelen `Bind` kimliği SQL Server, otomatik olarak satır ne zaman eklendiği ayarlayacak birincil anahtar değeri olduğundan özniteliği. Kullanıcı girişi kimlik değerini ayarlamaz.
 
@@ -273,7 +273,7 @@ Tıklayın **Sil**. Dizin Sayfası silinen Öğrenci görüntülenir. (Hata işl
 
 İle işiniz bittiğinde veritabanı bağlantısı tutan kaynakları boşaltmak için bağlam örneğinin olabildiğince çabuk çıkarılması gerekir. ASP.NET Core yerleşik [bağımlılık ekleme](../../fundamentals/dependency-injection.md) bu görev sizin için üstlenir.
 
-İçinde *Startup.cs*, çağırmanızı [AddDbContext genişletme yöntemi](https://github.com/aspnet/EntityFrameworkCore/blob/03bcb5122e3f577a84498545fcf130ba79a3d987/src/Microsoft.EntityFrameworkCore/EntityFrameworkServiceCollectionExtensions.cs) sağlama `DbContext` ASP.NET DI kapsayıcı sınıfı. Yöntem hizmet ömrü ayarlar `Scoped` varsayılan olarak. `Scoped` bağlam nesne ömrü web isteğinin yaşam süresi ile örtüşür anlamına gelir ve `Dispose` yöntemin çağrılacağı otomatik olarak web isteği sonunda.
+İçinde *Startup.cs*, çağırmanızı [AddDbContext genişletme yöntemi](https://github.com/aspnet/EntityFrameworkCore/blob/03bcb5122e3f577a84498545fcf130ba79a3d987/src/Microsoft.EntityFrameworkCore/EntityFrameworkServiceCollectionExtensions.cs) sağlama `DbContext` ASP.NET Core DI kapsayıcı sınıfı. Yöntem hizmet ömrü ayarlar `Scoped` varsayılan olarak. `Scoped` bağlam nesne ömrü web isteğinin yaşam süresi ile örtüşür anlamına gelir ve `Dispose` yöntemin çağrılacağı otomatik olarak web isteği sonunda.
 
 ## <a name="handling-transactions"></a>İşlem işleme
 

@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeat
 title: DataList ve Repeater ile verileri görüntüleme | Microsoft Docs
 author: rick-anderson
 description: Bu öğreticiler DataList ve Repeater denetimleri kullanarak verileri görüntülemek için alternatif yollar gösterir.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: 3005174a-ba3d-4937-8b3e-b913ee4172ac
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater
 msc.type: chapter
-ms.openlocfilehash: e14f6b6afb40edc9fa96e748b57f1cca8068de8b
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 7b751a7c9dfdb5738dafb795a82f80540ae002bd
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37832872"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756197"
 ---
 <a name="displaying-data-with-the-datalist-and-repeater"></a>DataList ve Repeater ile verileri görüntüleme
 ====================

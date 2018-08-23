@@ -4,18 +4,28 @@ author: tdykstra
 description: SignalR ve ASP.NET Core SignalR arasındaki farklar
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
-ms.date: 06/30/2018
+ms.date: 08/20/2018
 uid: signalr/version-differences
-ms.openlocfilehash: 6ed7e2e1ecadef08d71c4d7a7c3469738d07bcda
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: b904f57af3700b6e1e2143913dfa08da9bf8bbd2
+ms.sourcegitcommit: d27317c16f113e7c111583042ec7e4c5a26adf6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095014"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41753996"
 ---
-# <a name="differences-between-signalr-and-aspnet-core-signalr"></a>SignalR ve ASP.NET Core SignalR arasındaki farklar
+# <a name="differences-between-aspnet-signalr-and-aspnet-core-signalr"></a>ASP.NET SignalR ile ASP.NET Core SignalR arasındaki farklar
 
-ASP.NET Core SignalR istemciler veya sunucular için ASP.NET SignalR ile uyumlu değil. Bu makalede kaldırılmış veya ASP.NET Core SignalR içinde değiştirilen özellikler açıklanmaktadır.
+ASP.NET Core SignalR istemciler veya sunucular için ASP.NET SignalR ile uyumlu değildir. Bu makalede, kaldırılmış veya ASP.NET Core SignalR öğesinde değiştirilen özellikler açıklanmaktadır.
+
+## <a name="how-to-identify-the-signalr-version"></a>SignalR sürüm belirleme
+
+|                      | ASP.NET SignalR | ASP.NET Core SignalR |
+| -------------------- | --------------- | -------------------- |
+| Sunucu NuGet paketi | [Microsoft.AspNet.SignalR](https://www.nuget.org/packages/Microsoft.AspNet.SignalR/) | [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App/) (.NET Core)<br>[Microsoft.AspNetCore.SignalR](https://www.nuget.org/packages/Microsoft.AspNetCore.SignalR/) (.NET Framework) |
+| İstemci NuGet paketleri | [Microsoft.AspNet.SignalR.Client](https://www.nuget.org/packages/Microsoft.AspNet.SignalR.Client/)<br>[Microsoft.AspNet.SignalR.JS](https://www.nuget.org/packages/Microsoft.AspNet.SignalR.JS/) | [Microsoft.AspNetCore.SignalR.Client](https://www.nuget.org/packages/Microsoft.AspNetCore.SignalR.Client/) |
+| İstemci npm paket | [signalr](https://www.npmjs.com/package/signalr) | [@aspnet/signalr](https://www.npmjs.com/package/@aspnet/signalr) |
+| Sunucu uygulama türü | ASP.NET (System.Web) veya OWIN barındırma | ASP.NET Core |
+| Desteklenen sunucu platformları | .NET framework 4.5 veya üzeri | .NET framework 4.6.1 veya üzeri<br>.NET core 2.1 veya üzeri |
 
 ## <a name="feature-differences"></a>Özellik farkları
 
@@ -29,15 +39,15 @@ ASP.NET Core Signalr'yi destekleyen dayalı yeni bir ikili Protokolü yanı sır
 
 ## <a name="differences-on-the-server"></a>Sunucuda farkları
 
-SignalR sunucu tarafı kitaplıklar dahil `Microsoft.AspNetCore.App` parçası olan paket **ASP.NET Core Web uygulaması** Razor hem MVC projeleri için şablon.
+ASP.NET Core SignalR sunucu tarafı kitaplıklar dahil [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app) parçası olan paket **ASP.NET Core Web uygulaması** Razor hem MVC şablonu projeleri.
 
-SignalR çağırarak yapılandırılmalıdır bir ASP.NET Core ara yazılımını olduğundan `AddSignalR` içinde `Startup.ConfigureServices`.
+ASP.NET Core SignalR çağırarak yapılandırılmalıdır bir ASP.NET Core ara yazılımını olduğundan [AddSignalR](/dotnet/api/microsoft.extensions.dependencyinjection.signalrdependencyinjectionextensions.addsignalr) içinde `Startup.ConfigureServices`.
 
 ```csharp
-services.AddSignalR();
+services.AddSignalR()
 ```
 
-Yönlendirmeyi yapılandırmak için eşleme rotaları hub içinde `UseSignalR` yöntem çağrısı `Startup.Configure` yöntemi.
+Yönlendirmeyi yapılandırmak için eşleme rotaları hub içinde [UseSignalR](/dotnet/api/microsoft.aspnetcore.builder.signalrappbuilderextensions.usesignalr) yöntem çağrısı `Startup.Configure` yöntemi.
 
 ```csharp
 app.UseSignalR(routes =>
@@ -48,7 +58,7 @@ app.UseSignalR(routes =>
 
 ### <a name="sticky-sessions-now-required"></a>Artık gerekli Yapışkan oturumlar
 
-Ölçek genişletme SignalR önceki sürümlerinde nasıl çalışılan nedeniyle, istemciler yeniden ve gruptaki herhangi bir sunucuya ileti göndermek. Ölçek genişletme modeli, hem de yeniden bağlantılar desteklemediğinden değişiklikler nedeniyle, bu artık desteklenmiyor. Şimdi, istemcinin sunucuya bağlanan sonra ile aynı sunucuya bağlantı süresi boyunca etkileşim kurmak gerekir.
+Ölçek genişletme ASP.NET SignalR öğesinde nasıl çalışılan nedeniyle, istemciler yeniden ve gruptaki herhangi bir sunucuya ileti göndermek. Ölçek genişletme modeli, hem de yeniden bağlantılar desteklemediğinden değişiklikler nedeniyle, bu artık desteklenmiyor. İstemci, sunucuya bağlanır. sonra bağlantının süresi boyunca ile aynı sunucuya etkileşim kurmalıdır.
 
 ### <a name="single-hub-per-connection"></a>Bağlantı başına tek bir hub
 
@@ -56,7 +66,7 @@ ASP.NET Core SignalR öğesinde bağlantı modeli basitleştirilmiştir. Bağlan
 
 ### <a name="streaming"></a>Akış
 
-SignalR destekler [akış verileri](xref:signalr/streaming) istemciye hub'ından.
+ASP.NET Core SignalR destekler [akış verileri](xref:signalr/streaming) istemciye hub'ından.
 
 ### <a name="state"></a>Durum
 
@@ -66,11 +76,11 @@ SignalR destekler [akış verileri](xref:signalr/streaming) istemciye hub'ından
 
 ### <a name="typescript"></a>TypeScript
 
-SignalR ASP.NET Core sürümü yazılır [TypeScript](https://www.typescriptlang.org/). JavaScript veya TypeScript kullanırken yazabileceğiniz [JavaScript istemci](xref:signalr/javascript-client).
+ASP.NET Core SignalR istemci yazıldığı [TypeScript](https://www.typescriptlang.org/). JavaScript veya TypeScript kullanırken yazabileceğiniz [JavaScript istemci](xref:signalr/javascript-client).
 
 ### <a name="the-javascript-client-is-hosted-at-npmhttpswwwnpmjscom"></a>JavaScript istemcisi, barındırılan [npm](https://www.npmjs.com/)
 
-Önceki sürümlerde, Visual Studio'da bir NuGet paketi aracılığıyla JavaScript istemci alındı. Çekirdek sürümleri için [ @aspnet/signalr npm paketini](https://www.npmjs.com/package/@aspnet/signalr) JavaScript kitaplıkları içerir. Bu paket bulunup bulunmadığına **ASP.NET Core Web uygulaması** şablonu. Elde etmek ve yüklemek için npm kullanın `@aspnet/signalr` npm paketi.
+Önceki sürümlerde, Visual Studio'da bir NuGet paketi aracılığıyla JavaScript istemci alındı. Çekirdek sürümleri için [ @aspnet/signalr ](https://www.npmjs.com/package/@aspnet/signalr) npm paket JavaScript kitaplıkları içerir. Bu paket bulunup bulunmadığına **ASP.NET Core Web uygulaması** şablonu. Elde etmek ve yüklemek için npm kullanın `@aspnet/signalr` npm paketi.
 
 ```console
 npm init -y
@@ -83,7 +93,7 @@ JQuery bağımlı projeler jQuery kullanmaya devam edebilirsiniz ancak kaldırı
 
 ### <a name="javascript-client-method-syntax"></a>JavaScript istemci yöntem sözdizimi
 
-JavaScript sözdizimi SignalR önceki sürümünden değişmiştir. Yerine `$connection` nesne, bir bağlantı kullanarak oluşturduğunuz `HubConnectionBuilder` API.
+JavaScript sözdizimi SignalR önceki sürümünden değişmiştir. Yerine `$connection` nesne, bir bağlantı kullanarak oluşturduğunuz [HubConnectionBuilder](/javascript/api/%40aspnet/signalr/hubconnectionbuilder) API.
 
 ```javascript
 const connection = new signalR.HubConnectionBuilder()
@@ -91,7 +101,7 @@ const connection = new signalR.HubConnectionBuilder()
     .build();
 ```
 
-Kullanım `connection.on` hub çağırabilirsiniz istemci yöntemlerini belirtmek için.
+Kullanım [üzerinde](/javascript/api/@aspnet/signalr/HubConnection#on) hub çağırabilirsiniz istemci yöntemlerini belirtmek için yöntemi.
 
 ```javascript
 connection.on("ReceiveMessage", (user, message) => {
@@ -101,7 +111,7 @@ connection.on("ReceiveMessage", (user, message) => {
 });
 ```
 
-İstemci yöntemi oluşturduktan sonra hub Bağlantısı'nı başlatın. Zincir bir `catch` oturum veya hataları işlemek için bir yöntem.
+İstemci yöntemi oluşturduktan sonra hub Bağlantısı'nı başlatın. Zincir bir [catch](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch) oturum veya hataları işlemek için bir yöntem.
 
 ```javascript
 connection.start().catch(err => console.error(err.toString()));
@@ -109,13 +119,13 @@ connection.start().catch(err => console.error(err.toString()));
 
 ### <a name="hub-proxies"></a>Hub proxy
 
-Hub proxy artık otomatik olarak oluşturulur. Bunun yerine, yöntem adı yöntemlere geçirilen `invoke` dize olarak API.
+Hub proxy artık otomatik olarak oluşturulur. Bunun yerine, yöntem adı yöntemlere geçirilen [çağırma](/javascript/api/%40aspnet/signalr/hubconnection#invoke) dize olarak API.
 
 ### <a name="net-and-other-clients"></a>.NET ve diğer istemciler
 
 `Microsoft.AspNetCore.SignalR.Client` NuGet paketi, ASP.NET Core SignalR için .NET istemci kitaplıkları içerir.
 
-Kullanım `HubConnectionBuilder` ve hub'ına bağlantı örneğini oluşturmak için.
+Kullanım [HubConnectionBuilder](/dotnet/api/microsoft.aspnetcore.signalr.client.hubconnectionbuilder) ve hub'ına bağlantı örneğini oluşturmak için.
 
 ```csharp
 connection = new HubConnectionBuilder()

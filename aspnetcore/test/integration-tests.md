@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/30/2018
 uid: test/integration-tests
-ms.openlocfilehash: 8d304397fb7f218b395374c2b8c696fef9d9f8ad
-ms.sourcegitcommit: 571d76fbbff05e84406b6d909c8fe9cbea2c8ff1
+ms.openlocfilehash: 758162eed6d6522986e1c7b93664c55d56216452
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39410188"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756363"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>ASP.NET core'da tümleştirme testleri
 
@@ -29,6 +29,9 @@ Bu konuda, birim testleri temel bir anlayış varsayılır. Bilinmeyen test kavr
 * [Razor sayfaları giriş](xref:razor-pages/index)
 * [Razor Sayfaları kullanmaya başlama](xref:tutorials/razor-pages/razor-pages-start)
 * [Razor Sayfaları birim testleri](xref:test/razor-pages-tests)
+
+> [!NOTE]
+> Spa'lar test etmek için bir aracı gibi önerilir [Selenium](https://www.seleniumhq.org/), bir tarayıcı getirmenizi.
 
 ## <a name="introduction-to-integration-tests"></a>Tümleştirme testleri giriş
 
@@ -342,7 +345,7 @@ Aşağıdaki özelliklere sahip bir Razor sayfaları ileti sistemi SUT şöyledi
 
 &#8224;EF konu [Inmemory ile Test](/ef/core/miscellaneous/testing/in-memory), MSTest ile testleri için bellek içi veritabanına nasıl kullanıldığını açıklar. Bu konuda kullanan [xUnit](https://xunit.github.io/) test çerçevesi. Test kavramları ve test uygulamaları arasında farklı test çerçeveleri benzer, ancak aynı değildir.
 
-Uygulama kullanmaz ancak [depo deseni](xref:fundamentals/repository-pattern) ve etkili bir örneği değil [iş birimi (UoW) deseni](https://martinfowler.com/eaaCatalog/unitOfWork.html), Razor sayfaları geliştirme bu desenleri destekler. Daha fazla bilgi için [altyapı Kalıcılık katmanını tasarlama](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design), [bir ASP.NET MVC uygulamasındaki depo ve iş birimi desenleri uygulama](/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application), ve [Test denetleyicisi mantıksal](/aspnet/core/mvc/controllers/testing) (örnek depo Yapılacaklar listesi).
+Uygulama kullanmaz ancak [depo deseni](xref:fundamentals/repository-pattern) ve etkili bir örneği değil [iş birimi (UoW) deseni](https://martinfowler.com/eaaCatalog/unitOfWork.html), Razor sayfaları geliştirme bu desenleri destekler. Daha fazla bilgi için [altyapı Kalıcılık katmanını tasarlama](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design), <xref:fundamentals/repository-pattern>, ve [Test denetleyicisi mantığı](/aspnet/core/mvc/controllers/testing) (örnek depo Yapılacaklar listesi).
 
 ### <a name="test-app-organization"></a>Test uygulama kuruluş
 

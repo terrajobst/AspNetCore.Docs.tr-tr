@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/02/2018
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 861370dc689e2420838f639ea0b1fb8f73927e16
-ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
+ms.openlocfilehash: df5bc21f9b93206b3cfc97a052df26b891930d23
+ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39342425"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41902573"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>ASP.NET core'da bağımlılık ekleme
 
@@ -143,7 +143,7 @@ Bu arabirimin somut bir tür tarafından uygulanan `MyDependency`:
 ::: moniker-end
 
 > [!NOTE]
-> Her `services.Add<ServiceName>` genişletme yöntemi ekler (ve büyük olasılıkla yapılandırır) Hizmetleri. Örneğin, `services.AddMvc()` Razor sayfaları ve MVC gerekli hizmetleri ekler. Uygulamalar bu kurala uymayan önerilir. Yerleştirin alanında uzantı yöntemlerini [Microsoft.Extensions.DependencyInjection](/dotnet/api/microsoft.extensions.dependencyinjection) hizmet kayıtları grupları kapsüllemek için ad alanı.
+> Her `services.Add{SERVICE_NAME}` genişletme yöntemi ekler (ve büyük olasılıkla yapılandırır) Hizmetleri. Örneğin, `services.AddMvc()` Razor sayfaları ve MVC gerekli hizmetleri ekler. Uygulamalar bu kurala uymayan önerilir. Yerleştirin alanında uzantı yöntemlerini [Microsoft.Extensions.DependencyInjection](/dotnet/api/microsoft.extensions.dependencyinjection) hizmet kayıtları grupları kapsüllemek için ad alanı.
 
 Hizmetin Oluşturucusu basit bir tür gibi gerektiriyorsa bir `string`, temel kullanarak yerleştirilebilir [yapılandırma](xref:fundamentals/configuration/index) veya [seçenekleri deseni](xref:fundamentals/configuration/options):
 
@@ -198,7 +198,7 @@ Hizmet nerede ve özel bir alana atanan bir sınıfın Oluşturucusu aracılığ
 | [System.Diagnostics.DiagnosticSource](https://docs.microsoft.com/dotnet/core/api/system.diagnostics.diagnosticsource) | singleton |
 | [System.Diagnostics.DiagnosticListener](https://docs.microsoft.com/dotnet/core/api/system.diagnostics.diagnosticlistener) | singleton |
 
-Hizmet koleksiyonu genişletme yöntemi, kayıt hizmeti (ve gerekirse, bağımlı hizmetler) kullanılabilir olduğunda, kuralı tek bir kullanmaktır `Add<ServiceName>` genişletme yöntemi bu hizmet tarafından gerekli tüm hizmetleri kaydedilecek. Aşağıdaki kod, genişletme yöntemleri kullanarak kapsayıcıya ek hizmetleri ekleme örneğidir [AddDbContext](/dotnet/api/microsoft.extensions.dependencyinjection.entityframeworkservicecollectionextensions.adddbcontext), [AddIdentity](/dotnet/api/microsoft.extensions.dependencyinjection.identityservicecollectionextensions.addidentity), ve [AddMvc](/dotnet/api/microsoft.extensions.dependencyinjection.mvcservicecollectionextensions.addmvc):
+Hizmet koleksiyonu genişletme yöntemi, kayıt hizmeti (ve gerekirse, bağımlı hizmetler) kullanılabilir olduğunda, kuralı tek bir kullanmaktır `Add{SERVICE_NAME}` genişletme yöntemi bu hizmet tarafından gerekli tüm hizmetleri kaydedilecek. Aşağıdaki kod, genişletme yöntemleri kullanarak kapsayıcıya ek hizmetleri ekleme örneğidir [AddDbContext](/dotnet/api/microsoft.extensions.dependencyinjection.entityframeworkservicecollectionextensions.adddbcontext), [AddIdentity](/dotnet/api/microsoft.extensions.dependencyinjection.identityservicecollectionextensions.addidentity), ve [AddMvc](/dotnet/api/microsoft.extensions.dependencyinjection.mvcservicecollectionextensions.addmvc):
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -480,14 +480,24 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="default-service-container-replacement"></a>Varsayılan hizmet kapsayıcısını değiştirme
 
-Yerleşik hizmet kapsayıcı framework ve çoğu tüketici uygulamaları üzerinde yerleşik temel gereksinimlerini karşılamak amacıyla tasarlanmıştır. Ancak, geliştiricilerin kendi tercih edilen kapsayıcısı ile yerleşik kapsayıcı değiştirebilirsiniz. `Startup.ConfigureServices` Yöntemi genellikle döndürür `void`. Döndürmek için yöntemin imzası değiştirildiyse bir [IServiceProvider](/dotnet/api/system.iserviceprovider), farklı bir kapsayıcıya yapılandırılmış ve döndürdü. .NET için kullanılabilen çok sayıda IOC kapsayıcı vardır. Aşağıdaki örnekte, [Autofac](https://autofac.org/) kapsayıcı kullanılır:
+Yerleşik hizmet kapsayıcı framework ve çoğu tüketici uygulamalarına gereksinimlerini karşılamak üzere tasarlanmıştır. Bunu desteklemiyor belirli bir özellik gerekmedikçe yerleşik kapsayıcı kullanmanızı öneririz. Yerleşik kapsayıcısında bulunamadı 3 taraf kapsayıcıları destekleyen özelliklerden bazıları:
 
-1. Uygun bir kapsayıcı paketleri yükleyin:
+* Özellik ekleme
+* Adına göre ekleme
+* Alt kapsayıcılar
+* Özel ömür Yönetimi
+* `Func<T>` Yavaş başlatma desteği
+
+Bkz: [bağımlılık ekleme Benioku.MD dosyası](https://github.com/aspnet/DependencyInjection#using-other-containers-with-microsoftextensionsdependencyinjection) bazı bağdaştırıcıları destekleyen kapsayıcıların listesi.
+
+Aşağıdaki örnek yerleşik kapsayıcıyla değiştirir [Autofac](https://autofac.org/):
+
+* Uygun bir kapsayıcı paketleri yükleyin:
 
     * [Autofac](https://www.nuget.org/packages/Autofac/)
     * [Autofac.Extensions.DependencyInjection](https://www.nuget.org/packages/Autofac.Extensions.DependencyInjection/)
 
-2. Kapsayıcıda yapılandırma `Startup.ConfigureServices` ve dönüş bir `IServiceProvider`:
+* Kapsayıcıda yapılandırma `Startup.ConfigureServices` ve dönüş bir `IServiceProvider`:
 
     ```csharp
     public IServiceProvider ConfigureServices(IServiceCollection services)
@@ -506,7 +516,7 @@ Yerleşik hizmet kapsayıcı framework ve çoğu tüketici uygulamaları üzerin
 
     3 bir taraf kapsayıcı kullanılacak `Startup.ConfigureServices` döndürmelidir `IServiceProvider`.
 
-3. İçinde Autofac yapılandırma `DefaultModule`:
+* İçinde Autofac yapılandırma `DefaultModule`:
 
     ```csharp
     public class DefaultModule : Module

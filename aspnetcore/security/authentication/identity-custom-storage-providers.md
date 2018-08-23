@@ -5,12 +5,12 @@ description: ASP.NET Core kimliği için özel depolama sağlayıcıları yapıl
 ms.author: riande
 ms.date: 05/24/2017
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: 7fb64f0b911c11750946697d782488c2107a3637
-ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
+ms.openlocfilehash: 4b210a52ae9761bb838dd5611e86ce8f71345499
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39342529"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754265"
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>ASP.NET Core kimliği için özel depolama sağlayıcıları
 
@@ -237,5 +237,5 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="references"></a>Referanslar
 
-- [ASP.NET kimliği için özel depolama sağlayıcıları](/aspnet/identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity)
+- [ASP.NET 4.x kimliği için özel depolama sağlayıcıları](/aspnet/identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity)
 - [ASP.NET Core kimliği](https://github.com/aspnet/identity) -bu depo deposu sağlayıcıları tutulan topluluğu bağlantılarını içerir.

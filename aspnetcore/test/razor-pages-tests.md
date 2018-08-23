@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/27/2017
 uid: test/razor-pages-tests
-ms.openlocfilehash: 2bac84d6b6e5f30ff0cbbbc0b841833b5c9f48ab
-ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
+ms.openlocfilehash: 364c4c0fd75954f1c7e0bfbc221938afe5332bde
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39342412"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756361"
 ---
 # <a name="razor-pages-unit-tests-in-aspnet-core"></a>ASP.NET Core Razor sayfalar birim testleri
 
@@ -57,7 +57,7 @@ dotnet test
 
 &#8224;EF konu [Inmemory ile Test](/ef/core/miscellaneous/testing/in-memory), MSTest ile testleri için bellek içi veritabanına nasıl kullanıldığını açıklar. Bu konuda kullanan [xUnit](https://xunit.github.io/) test çerçevesi. Test kavramları ve test uygulamaları arasında farklı test çerçeveleri benzer, ancak aynı değildir.
 
-Uygulama kullanmaz ancak [depo deseni](xref:fundamentals/repository-pattern) ve etkili bir örneği değil [iş birimi (UoW) deseni](https://martinfowler.com/eaaCatalog/unitOfWork.html), Razor sayfaları geliştirme bu desenleri destekler. Daha fazla bilgi için [altyapı Kalıcılık katmanını tasarlama](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design), [bir ASP.NET MVC uygulamasındaki depo ve iş birimi desenleri uygulama](/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application), ve [Test denetleyicisi mantıksal](/aspnet/core/mvc/controllers/testing) (örnek depo Yapılacaklar listesi).
+Uygulama kullanmaz ancak [depo deseni](xref:fundamentals/repository-pattern) ve etkili bir örneği değil [iş birimi (UoW) deseni](https://martinfowler.com/eaaCatalog/unitOfWork.html), Razor sayfaları geliştirme bu desenleri destekler. Daha fazla bilgi için [altyapı Kalıcılık katmanını tasarlama](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design), <xref:fundamentals/repository-pattern>, ve [Test denetleyicisi mantığı](/aspnet/core/mvc/controllers/testing) (örnek depo Yapılacaklar listesi).
 
 ## <a name="test-app-organization"></a>Test uygulama kuruluş
 

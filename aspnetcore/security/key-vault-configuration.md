@@ -5,12 +5,12 @@ description: Azure Key Vault yapılandırma sağlayıcısı, çalışma zamanın
 ms.author: riande
 ms.date: 08/01/2018
 uid: security/key-vault-configuration
-ms.openlocfilehash: 6474b9f5cb9e441854565a7891c4aac7f781c810
-ms.sourcegitcommit: 571d76fbbff05e84406b6d909c8fe9cbea2c8ff1
+ms.openlocfilehash: 829c6c7e2750879b51bf3ce8225c6e472900f2ad
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39410136"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755962"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>ASP.NET Core, Azure Key Vault yapılandırma sağlayıcısı
 
@@ -155,7 +155,7 @@ Devre dışı bırakılmış ve süresi dolan gizli diziler throw bir `KeyVaultC
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
-Yapılandırma Sağlayıcısı'nı kullanarak yüklemek uygulama başarısız olduğunda, bir hata iletisi yazılan [ASP.NET oturum altyapı](xref:fundamentals/logging/index). Aşağıdaki koşullar yapılandırma yüklenmesini engeller.
+Yapılandırma Sağlayıcısı'nı kullanarak yüklemek uygulama başarısız olduğunda, bir hata iletisi yazılan [ASP.NET Core günlüğü altyapı](xref:fundamentals/logging/index). Aşağıdaki koşullar yapılandırma yüklenmesini engeller.
 
 * Uygulamayı Azure Active Directory'de doğru şekilde yapılandırılmamış.
 * Anahtar kasası, Azure anahtar Kasası'nda mevcut değil.

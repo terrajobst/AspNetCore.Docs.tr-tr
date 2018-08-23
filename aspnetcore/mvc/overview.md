@@ -5,12 +5,12 @@ description: ASP.NET Core MVC web uygulamaları oluşturmaya yönelik zengin bir
 ms.author: riande
 ms.date: 01/08/2018
 uid: mvc/overview
-ms.openlocfilehash: 7f8aab02c0ee37dad49ff224b182ec455e837a7a
-ms.sourcegitcommit: e955a722c05ce2e5e21b4219f7d94fb878e255a6
+ms.openlocfilehash: d2a50e48c20fe69b1fe691bfc9c91a27d4219922
+ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39378644"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41902605"
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>ASP.NET Core MVC’ye Genel Bakış
 
@@ -251,3 +251,9 @@ Etiket Yardımcıları, bir HTML kullanımı kolay geliştirme deneyimi ve HTML 
 ### <a name="view-components"></a>Görünüm bileşenleri
 
 [Görüntüleme bileşenleri](views/view-components.md) işleme mantığının paketleyin ve uygulamanın tamamında yeniden olanak sağlar. Benzer şekilde oldukları [kısmi görünümler](views/partial.md), ancak ilişkili mantığı.
+
+## <a name="compatibility-version"></a>Uyumluluk sürümü
+
+<xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> Yöntemi kabul etme veya potansiyel olarak davranışı sunulan içinde ASP.NET Core MVC 2.1 veya üzeri bozucu değişiklikler çevirme için bir uygulama sağlar.
+
+Daha fazla bilgi için bkz. <xref:mvc/compatibility-version>.

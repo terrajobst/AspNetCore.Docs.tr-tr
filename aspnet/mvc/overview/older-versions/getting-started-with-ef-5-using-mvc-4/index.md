@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/index
 title: MVC 4 kullanarak EF 5 ile çalışmaya başlama | Microsoft Docs
 author: rick-anderson
 description: Bir ASP.NET MVC 4 uygulamasında verileri görüntülemek ve düzenlemek için Entity Framework 5 kullanmanın temellerini.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/26/2013
 ms.assetid: 5bd2e5db-8053-459e-9246-08731a4c8036
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4
 msc.type: chapter
-ms.openlocfilehash: 105b25bce64315c612012957da99225e67a57611
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 57c79d599b35e98bbb7372db90d128b7e1295f87
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37810362"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755945"
 ---
 <a name="getting-started-with-ef-5-using-mvc-4"></a>MVC 4 kullanarak EF 5 ile çalışmaya başlama
 ====================

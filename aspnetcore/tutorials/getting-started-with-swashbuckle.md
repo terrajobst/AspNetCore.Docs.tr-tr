@@ -4,14 +4,14 @@ author: zuckerthoben
 description: Swagger kullanıcı arabirimini tümleştirmek için ASP.NET Core web API projesi için Swashbuckle eklemeyi öğrenin.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 07/27/2018
+ms.date: 08/20/2018
 uid: tutorials/get-started-with-swashbuckle
-ms.openlocfilehash: 06f0ebae70fe43506d7edecbd0508968d1d00635
-ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
+ms.openlocfilehash: daaf26d927fa8134c02426ee40db1784d027b487
+ms.sourcegitcommit: 15d7bd0b2c4e6fe9ac335d658bab71a45ca5bc72
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39342321"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41757313"
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Swashbuckle'ı ve ASP.NET Core ile çalışmaya başlama
 
@@ -96,6 +96,8 @@ Kullanmak için aşağıdaki ad alanı içe `Info` sınıfı:
 İçinde `Startup.Configure` yöntemi, oluşturulan JSON belgesini ve Swagger kullanıcı arabirimini sunulması için Ara yazılımlarını etkinleştir:
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup2.cs?name=snippet_Configure&highlight=4,8-11)]
+
+Önceki `UseSwaggerUI` yöntem çağrısının sağlayan [statik dosya ara yazılımı](xref:fundamentals/static-files). .NET Framework veya .NET targeting, Core 1.x sürümüne, ekleme [Microsoft.AspNetCore.StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles/) NuGet paketini projeye.
 
 Uygulamayı başlatın ve gidin `http://localhost:<port>/swagger/v1/swagger.json`. Uç noktaları açıklayan oluşturulan belgenin gösterildiği görünür [Swagger belirtimi (swagger.json)](xref:tutorials/web-api-help-pages-using-swagger#swagger-specification-swaggerjson).
 

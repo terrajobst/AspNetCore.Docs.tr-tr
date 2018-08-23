@@ -3,17 +3,17 @@ uid: web-forms/videos/vs-2005/index
 title: Visual Studio 2005 | Microsoft Docs
 author: rick-anderson
 description: Visual Studio 2005 Team System ve eklentiler ile test, dağıtım ve diğer görevleri gerçekleştirmek için çalışmayı öğrenin.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: 1bcf9a1c-ed34-4ed0-ab91-253df08fc6ff
 msc.legacyurl: /web-forms/videos/vs-2005
 msc.type: chapter
-ms.openlocfilehash: 3d62a9613f550ba72195e278160b71db15425ec5
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 0085424743ad2592dd06c58adba801bd676f2c0f
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37842814"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754768"
 ---
 <a name="visual-studio-2005"></a>Visual Studio 2005
 ====================

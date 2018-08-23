@@ -2,15 +2,15 @@
 title: ASP.NET Core ve Azure ile DevOps | Sürekli tümleştirme ve dağıtım
 author: CamSoper
 description: Azure'da barındırılan bir ASP.NET Core uygulaması için bir DevOps işlem hattı oluşturmaya uçtan uca yönergeler sağlar. bir kılavuz.
-ms.author: casoper
-ms.date: 08/07/2018
+ms.author: scaddie
+ms.date: 08/17/2018
 uid: azure/devops/cicd
-ms.openlocfilehash: 9127f26fc4e3f78ec745fa1e342de137228f484e
-ms.sourcegitcommit: 29dfe436f54a27fbb4f6494bc639d16c75001fab
+ms.openlocfilehash: e084a6115dc7e176c17b2b318233b7a003b39a83
+ms.sourcegitcommit: 1cf65c25ed16495e27f35ded98b3952a30c68f36
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39722739"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41757071"
 ---
 # <a name="continuous-integration-and-deployment"></a>Sürekli tümleştirme ve dağıtım
 
@@ -224,12 +224,13 @@ Yapı tanımının **görevleri** sekmesi, kullanılan tek tek adımları listel
 ![derleme tanımı görevleri](media/cicd/build-definition-tasks.png)
 
 1. **Geri yükleme** &mdash; yürütür `dotnet restore` uygulamanın NuGet paketlerini geri yüklemek için komutu. Varsayılan paket akışı kullanılan nuget.org olan.
-1. **Derleme** &mdash; yürütür `dotnet build --configuration Release` uygulamanın Kodu derlemek için komutu. Bu `--configuration` seçeneği, bir üretim ortamına dağıtım için uygun olan kod en iyi duruma getirilmiş bir sürümünü oluşturmak için kullanılır. Değiştirme *BuildConfiguration* yapı tanımının üzerinde değişken **değişkenleri** Örneğin, bir hata ayıklama yapılandırmasının gerekli olmadığını sekmesi.
-1. **Test** &mdash; yürütür `dotnet test --configuration Release` uygulamanın birim testleri çalıştırmak için komutu. Testler başarısız olursa, derleme başarısız oluyor ve dağıtılabilir değil.
+1. **Derleme** &mdash; yürütür `dotnet build --configuration release` uygulamanın Kodu derlemek için komutu. Bu `--configuration` seçeneği, bir üretim ortamına dağıtım için uygun olan kod en iyi duruma getirilmiş bir sürümünü oluşturmak için kullanılır. Değiştirme *BuildConfiguration* yapı tanımının üzerinde değişken **değişkenleri** Örneğin, bir hata ayıklama yapılandırmasının gerekli olmadığını sekmesi.
+1. **Test** &mdash; yürütür `dotnet test --configuration release --logger trx --results-directory <local_path_on_build_agent>` uygulamanın birim testleri çalıştırmak için komutu. Birim testleri, C# projesi eşleşen içinde yürütülen `**/*Tests/*.csproj` glob deseni. Test sonuçları kaydedilir bir *.trx* dosya tarafından belirtilen konumda `--results-directory` seçeneği. Herhangi bir test başarısız olursa, derleme başarısız oluyor ve dağıtılabilir değil.
 
     > [!NOTE]
-    > Birim doğrulamak için testler düzgün çalışır, Değiştir *SimpleFeedReader.Tests\Services\NewsServiceTests.cs* kullanılamıyor.%n%nÇözüm testleri biri gibi değiştirerek ayırmak için `Assert.True(result.Count > 0);` için `Assert.False(result.Count > 0);` içinde `Returns_News_Stories_Given_Valid_Uri()` yöntem. Kaydedin ve değişiklik gönderin. Derleme başarısız olur ve derleme işlem hattı durumu değişerek **başarısız**. Değişiklik, işleme ve gönderme yeniden geri dönmesi ve oluşturma işlemi başarılı.
-1. **Yayımlama** &mdash; yürütür `dotnet publish --configuration Release --output <local_path_on_build_agent>` üretmek için komutu bir *.zip* dağıtılacak yapıtlar içeren dosya. `--output` Seçeneği Yayımla konumunu belirleyen *.zip* dosya. Konum geçirerek belirtilen bir [önceden tanımlanmış değişken](https://docs.microsoft.com/vsts/pipelines/build/variables) adlı `$(build.artifactstagingdirectory)`. Bu değişken gibi yerel bir yola genişletir *c:\agent\_work\1\a*, yapı aracısında.
+    > Birim testleri iş doğrulamak için değiştirme *SimpleFeedReader.Tests\Services\NewsServiceTests.cs* kullanılamıyor.%n%nÇözüm testleri birini ayırmak için. Örneğin, değiştirme `Assert.True(result.Count > 0);` için `Assert.False(result.Count > 0);` içinde `Returns_News_Stories_Given_Valid_Uri` yöntemi. Kaydedin ve Github'a bir değişiklik gönderin. Derleme tetiklenir ve başarısız olur. Derleme işlem hattı durumu değişerek **başarısız**. Değişiklik, işleme ve gönderme yeniden döndürün. Derleme başarılı olur.
+
+1. **Yayımlama** &mdash; yürütür `dotnet publish --configuration release --output <local_path_on_build_agent>` üretmek için komutu bir *.zip* dağıtılacak yapıtlar içeren dosya. `--output` Seçeneği Yayımla konumunu belirleyen *.zip* dosya. Konum geçirerek belirtilen bir [önceden tanımlanmış değişken](https://docs.microsoft.com/vsts/pipelines/build/variables) adlı `$(build.artifactstagingdirectory)`. Bu değişken gibi yerel bir yola genişletir *c:\agent\_work\1\a*, yapı aracısında.
 1. **Yapıt yayımlama** &mdash; Publishes *.zip* dosya tarafından üretilen **Yayımla** görev. Görevi kabul *.zip* dosya konumu önceden tanımlanmış bir değişkendir bir parametre olarak `$(build.artifactstagingdirectory)`. *.Zip* dosya adlı bir klasör yayımlanan *bırak*.
 
 Yapı tanımının tıklayın **özeti** bağlantı tanımı yapılarla geçmişini görüntülemek için:

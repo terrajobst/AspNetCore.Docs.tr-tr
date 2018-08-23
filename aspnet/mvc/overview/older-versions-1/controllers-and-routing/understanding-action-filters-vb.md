@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/controllers-and-routing/understanding-action-
 title: (VB) eylem filtrelerini anlama | Microsoft Docs
 author: microsoft
 description: Bu öğreticide eylem filtrelerini açıklamak için hedefidir. Bir eyleme eylem filtresi bir denetleyici eylemi--ya da tüm bir denetleyiciye uygulanan bir özniteliktir...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/16/2008
 ms.assetid: e83812f2-c53e-4a43-a7c1-d64c59ecf694
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/understanding-action-filters-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 07e02330747b3b8f8bb318d30c7a984aa15baeef
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 0116306afdf21cb24a374013bb54ada54e5699ea
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37811188"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756284"
 ---
 <a name="understanding-action-filters-vb"></a>Eylem filtrelerini (VB) Anlama
 ====================

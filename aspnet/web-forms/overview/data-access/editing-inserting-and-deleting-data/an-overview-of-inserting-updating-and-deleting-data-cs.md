@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/an-overv
 title: Genel Bakış ekleme, güncelleştirme ve silme (C#) veri | Microsoft Docs
 author: rick-anderson
 description: Bu öğreticide bir ObjectDataSource INSERT(), Update(), eşleme görüyoruz ve sınıfları BLL yöntemlerini Delete() yöntemlerine yapılan nasıl yanı sıra...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/17/2006
 ms.assetid: b651dc58-93c7-4f83-a74e-3b99f6d60848
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: abe42d01cc31ea46c97888f31d768ebfede64abd
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 82f1127b01c211a2af91623d4df7ca10dcad6d8a
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37821708"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754024"
 ---
 <a name="an-overview-of-inserting-updating-and-deleting-data-c"></a>Genel Bakış ekleme, güncelleştirme ve silme veri (C#)
 ====================

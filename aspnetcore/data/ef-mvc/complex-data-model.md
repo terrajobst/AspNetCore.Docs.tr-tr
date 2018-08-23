@@ -5,12 +5,12 @@ description: Bu öğreticide, daha fazla varlıklar ve ilişkiler ekleyin ve ver
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: 1d3c69c8c658b5ca2f0253b790b0dc75d44d3064
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: c97acd2b943e1d4c466c060247220b3b8bab6d6b
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38194097"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756618"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---data-model---5-of-10"></a>Itanium tabanlı sistemler için ASP.NET Core MVC ile EF Core - veri modeli - 5 / 10
 
@@ -66,7 +66,7 @@ Uygulamayı çalıştırın, Öğrenciler dizin sayfasına gidin ve süreleri ar
 
 ### <a name="the-stringlength-attribute"></a>StringLength özniteliği
 
-Veri doğrulama kuralları ve öznitelikleri kullanarak bir doğrulama hata iletisi de belirtebilirsiniz. `StringLength` Özniteliği veritabanında en fazla uzunluk ayarlar ve istemci tarafı ve sunucu tarafı sağlayan ASP.NET MVC için doğrulama. En az dize uzunluğu Bu öznitelikte belirtebilirsiniz, ancak en düşük değer, veritabanı şema üzerinde hiçbir etkisi yoktur.
+Veri doğrulama kuralları ve öznitelikleri kullanarak bir doğrulama hata iletisi de belirtebilirsiniz. `StringLength` Özniteliği veritabanında en fazla uzunluk ayarlar ve istemci tarafı ve sunucu tarafı sağlayan ASP.NET Core MVC doğrulamasını. En az dize uzunluğu Bu öznitelikte belirtebilirsiniz, ancak en düşük değer, veritabanı şema üzerinde hiçbir etkisi yoktur.
 
 Kullanıcılar için bir ad 50 karakterden uzun girmeyin sağlamak istediğinizi varsayın. Bu kısıtlama eklemek için Ekle `StringLength` özniteliklerini `LastName` ve `FirstMidName` aşağıdaki örnekte gösterildiği gibi özellikleri:
 

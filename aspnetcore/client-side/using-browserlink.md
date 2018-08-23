@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 09/22/2017
 uid: client-side/using-browserlink
-ms.openlocfilehash: 5ab15c841c472e6c9d47bad70fcf5e0c6dc3010f
-ms.sourcegitcommit: ea7ec8d47f94cfb8e008d771f647f86bbb4baa44
+ms.openlocfilehash: 452ba5149563c186750466f471c7b950f0017614
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37894185"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754264"
 ---
 # <a name="browser-link-in-aspnet-core"></a>ASP.NET core'da tarayıcı bağlantısı
 
@@ -139,7 +139,7 @@ CSS otomatik eşitleme etkinleştirildiğinde, CSS dosyaları için herhangi bir
 
 ## <a name="how-it-works"></a>Nasıl çalışır?
 
-Tarayıcı bağlantısı, Visual Studio ile tarayıcı arasında bir iletişim kanalı oluşturmak için SignalR kullanır. Tarayıcı bağlantısı etkin olduğunda, Visual Studio için birden çok istemci (tarayıcı) bağlanabilen bir SignalR sunucusu olarak görev yapar. Tarayıcı bağlantısı, aynı zamanda ASP.NET istek işlem hattı, bir ara yazılım bileşeni kaydeder. Bu bileşen özel eklediği `<script>` sunucudan her sayfa isteği halinde başvuruları. Komut dosyası başvuruları seçerek gördüğünüz **kaynağı görüntüle** tarayıcı ve sonuna kadar kaydırma `<body>` etiketi içeriği:
+Tarayıcı bağlantısı, Visual Studio ile tarayıcı arasında bir iletişim kanalı oluşturmak için SignalR kullanır. Tarayıcı bağlantısı etkin olduğunda, Visual Studio için birden çok istemci (tarayıcı) bağlanabilen bir SignalR sunucusu olarak görev yapar. Tarayıcı bağlantısı, ASP.NET Core istek işlem hattı, bir ara yazılım bileşeni de kaydeder. Bu bileşen özel eklediği `<script>` sunucudan her sayfa isteği halinde başvuruları. Komut dosyası başvuruları seçerek gördüğünüz **kaynağı görüntüle** tarayıcı ve sonuna kadar kaydırma `<body>` etiketi içeriği:
 
 ```html
     <!-- Visual Studio Browser Link -->

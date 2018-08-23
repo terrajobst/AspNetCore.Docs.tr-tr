@@ -1,3 +1,3 @@
-# <a name="aspnet-session-sample"></a>ASP.NET oturum örnek
+# <a name="aspnet-core-session-sample"></a>ASP.NET Core oturumu örneği
 
-Bu örnek, oturum durumu kullanımını göstermektedir. Bu örnek bölümünde açıklanan senaryoları gösterilmektedir [ASP.NET Core oturum ve uygulama durumunda](https://docs.microsoft.com/aspnet/core/fundamentals/app-state) konu.
+Bu örnek, oturum durumu kullanımını gösterir. Bu örnek, açıklanan senaryoları gösterir [ASP.NET Core, oturum ve uygulama durumu](https://docs.microsoft.com/aspnet/core/fundamentals/app-state) konu.

@@ -3,17 +3,17 @@ uid: web-forms/overview/security/create-a-secure-aspnet-web-forms-app-with-user-
 title: E-posta onayı ve parola sıfırlama (C#) ile kullanıcı kaydı, güvenli bir ASP.NET Web Forms uygulaması oluşturma | Microsoft Docs
 author: Erikre
 description: Bu öğretici, kullanıcı kaydı, e-posta onayı ve ASP.NET Identity üye kullanarak parola sıfırlama ile bir ASP.NET Web formları uygulamasının nasıl oluşturulacağını gösterir...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/02/2014
 ms.assetid: 0a8d6044-5fab-4213-82d6-5618d5601358
 msc.legacyurl: /web-forms/overview/security/create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset
 msc.type: authoredcontent
-ms.openlocfilehash: 1c230c3f33bd8261312485e9d77f6f88adb49e9e
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: b964257165f8a50bef5cb5d8cee4fb30a5e91cf0
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37812775"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754261"
 ---
 <a name="create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset-c"></a>E-posta onayı ve parola sıfırlama (C#) ile kullanıcı kaydı, güvenli bir ASP.NET Web Forms uygulaması oluşturma
 ====================
@@ -34,7 +34,7 @@ Bu öğreticide Visual Studio ve ASP.NET 4.5 kullanarak kullanıcı kaydı ile g
 - [Parola kurtarma ve sıfırlama](#reset)
 - [E-posta doğrulama bağlantısını yeniden gönder](#rsend)
 - [Uygulama sorunlarını giderme](#dbg)
-- [Ek kaynaklar](#addRes)
+- [Ek Kaynaklar](#addRes)
 
 <a id="createWebForms"></a>
 ## <a name="create-an-aspnet-web-forms-app"></a>Bir ASP.NET Web Forms uygulaması oluşturma

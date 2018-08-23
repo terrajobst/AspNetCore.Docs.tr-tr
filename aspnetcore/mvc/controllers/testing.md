@@ -1,147 +1,94 @@
 ---
-title: ASP.NET Core denetleyici mantığında test
+title: ASP.NET Core denetleyicisi mantıksal test
 author: ardalis
-description: Denetleyici mantığında ASP.NET Core Moq ve xUnit test öğrenin.
+description: ASP.NET Core Moq ve xUnit ile test denetleyicisi mantıksal öğrenin.
 ms.author: riande
 ms.date: 10/14/2016
 uid: mvc/controllers/testing
-ms.openlocfilehash: fc5f10b4d5947a6af114bf00f8b1d955b083a44d
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: d0b2a25d00187c088671be147844aa892f824c6e
+ms.sourcegitcommit: 64c2ca86fff445944b155635918126165ee0f8aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273929"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41755678"
 ---
-# <a name="test-controller-logic-in-aspnet-core"></a>ASP.NET Core denetleyici mantığında test
+# <a name="test-controller-logic-in-aspnet-core"></a>ASP.NET Core denetleyicisi mantıksal test
 
 Tarafından [Steve Smith](https://ardalis.com/)
 
-ASP.NET MVC uygulamalarında denetleyicileri, küçük ve kullanıcı arabirimi sorunları odaklanmıştır olması gerekir. Kullanıcı Arabirimi sorunları ile ilgili büyük denetleyicileri test ve sürdürmek daha zordur.
+Denetleyicileri, herhangi bir ASP.NET Core MVC uygulaması, merkezi bir parçasıdır. Bu nedenle, uygulamanız için tasarlandığı gibi davranırlar güven olması gerekir. Otomatikleştirilmiş testleri Bu güvenle sağlayabilir ve üretime ulaşmadan önce hatalar da algılanabilir. Gereksiz sorumlulukları denetleyicilerinizi içinde yerleştirmekten kaçının ve denetleyici sorumlulukları yalnızca, testleri odaklanan sağlamak önemlidir.
 
-[Görüntülemek veya örnek Github'dan indirin](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/testing/sample)
-
-## <a name="testing-controllers"></a>Test denetleyicileri
-
-Denetleyicileri herhangi bir ASP.NET Core MVC uygulama merkezi bir parçasıdır. Bu nedenle, uygulamanız için tasarlandığı gibi davranırlar güven olmalıdır. Otomatikleştirilmiş test üretim düşmeden önce hatalarını algılayabilir ve bu güvenle sağlayabilirsiniz. Denetleyicilerinizi içinde gereksiz sorumlulukları yerleştirmez ve testleri odağınız yalnızca denetleyici sorumlulukları üzerinde sağlamak önemlidir.
-
-Denetleyici mantığında iş mantığı ya da altyapı sorunları üzerinde (örneğin, veri erişimi) odaklı olmayan ve en az olması gerekir. Denetleyici mantığında, framework sınayın. Test nasıl denetleyicisi *davranır* geçerli veya geçersiz girişler için temel. Denetleyici yanıtları sonucuna göre gerçekleştirdiği iş işlemi sınayın.
+Denetleyici mantığı en az olmalıdır ve iş mantığı ya da altyapı olarak ilk (örneğin, veri erişimi) odaklı olmayan. Denetleyici mantığı, framework test edin. Test nasıl denetleyici *davranışını* geçerli ya da geçersiz girişler temelinde. Denetleyici yanıtları gerçekleştirdiği iş işleminin sonucuna dayalı test edin.
 
 Tipik denetleyicisi sorumlulukları:
 
 * Doğrulama `ModelState.IsValid`.
 * Bir hata yanıtı döndürür `ModelState` geçersiz.
 * Bir iş varlığı Kalıcılık alın.
-* Bir eylem iş varlık üzerinde gerçekleştirin.
+* İş varlıkta bir eylem gerçekleştirin.
 * İş varlığı için Kalıcılık kaydedin.
 * Uygun bir dönüş `IActionResult`.
 
-## <a name="unit-testing"></a>Birim testi
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/testing/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 
-[Birim testi](/dotnet/articles/core/testing/unit-testing-with-dotnet-test) haklarında altyapı ve bağımlılıklar ayrı bir parçası olan bir uygulamayı test içerir. Birim testi denetleyicisi mantığı, yalnızca tek bir eylem'in içeriği ne zaman test, değil davranışı bağımlılıklarından biri veya framework'ün. Test denetleyicisi eylemleriniz, birimi, yalnızca davranışını üzerinde odaklanmak emin olun. Denetleyici birim testi gibi şeyleri önler [filtreleri](filters.md), [yönlendirme](../../fundamentals/routing.md), veya [model bağlama](../models/model-binding.md). Tek şey test Odaklanıldığında, birim testleri genellikle yazmak basit ve hızlı çalıştırmak. Birim testleri iyi yazılmış bir dizi sık kadar ek yükü çalıştırabilirsiniz. Birim testleri sorunları algılama ancak, bileşenler arasındaki etkileşimi içinde olduğu amacı [tümleştirme testleri](xref:mvc/controllers/testing#integration-testing).
+## <a name="unit-tests-of-controller-logic"></a>Denetleyici mantıksal birim testleri
 
-Özel Filtreler, yollar, vb., yazıyorsanız, birim testi gereken bunları, ancak belirli denetleyici eylemi sınamalarınızı parçası olarak değil. Bunlar test yalıtım modunda.
+[Birim testleri](/dotnet/articles/core/testing/unit-testing-with-dotnet-test) bir uygulamanın bir parçası, altyapısını ve bağımlılıklarını yalıtımdan test içerir. Birim testi denetleyicisi mantığı, yalnızca tek bir eylem içeriği ne zaman sınanırken, olmayan davranış framework'ün ya da bağımlılıklarından biri. Test denetleyicisi eylemlerinizi, birimi, yalnızca davranışını üzerinde odaklanın emin olun. Bir denetleyici birim testi gibi şeyleri önler [filtreleri](xref:mvc/controllers/filters), [yönlendirme](xref:fundamentals/routing), veya [model bağlama](xref:mvc/models/model-binding). Tek şey sınamalara odaklanarak, birim testleri genellikle basit yazmak ve çalıştırmak hızlı. Birim testleri iyi-yazılan bir dizi sık kadar ek yük çalıştırabilirsiniz. Ancak, birim testleri sorunları algılama bileşenleri arasındaki etkileşim içinde olan amacı [tümleştirme testleri](xref:test/integration-tests).
+
+Özel Filtreler ve yollar yazıyorsanız, birim gereken testleri belirli bir denetleyici eylemi bir parçası olarak değil, yalıtım, bunları test edin.
 
 > [!TIP]
-> [Oluşturma ve Visual Studio ile birim testleri çalıştırma](/visualstudio/test/unit-test-your-code).
+> [Oluşturma ve birim testlerini Visual Studio ile çalıştırma](/visualstudio/test/unit-test-your-code).
 
-Birim testi göstermek için aşağıdaki denetleyicisiyle gözden geçirin. Oturumları fırtınası listesini görüntüler ve yeni bir posta ile oluşturulacak oturumları fırtınası sağlar:
+Birim testi göstermek için aşağıdaki denetleyicisi gözden geçirin. Oturumlarının fırtınası listesini görüntüler ve yeni bir GÖNDERİ ile oluşturulacak oturumları fırtınası sağlar:
 
 [!code-csharp[](testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/HomeController.cs?highlight=12,16,21,42,43)]
 
-Denetleyici aşağıdaki [açık bağımlılıkları ilkesine](http://deviq.com/explicit-dependencies-principle/), bağımlılık ekleme örneği ile sağlamak için bekleniyor `IBrainstormSessionRepository`. Bu, oldukça sahte nesne framework gibi kullanarak test kolaylaştırır [Moq](https://www.nuget.org/packages/Moq/). `HTTP GET Index` Yöntemi hiçbir döngü veya dallanma ve yalnızca çağrıları bir yöntem vardır. Bunu test etmek için `Index` yöntemi, ihtiyacımız doğrulamak bir `ViewResult` döndürülür, ile bir `ViewModel` deponun gelen `List` yöntemi.
+Denetleyici aşağıdaki [özel bağımlılıklar İlkesi](http://deviq.com/explicit-dependencies-principle/), bağımlılık ekleme örneği ile sağlamak için bekleniyor `IBrainstormSessionRepository`. Bu oldukça, sahte nesne çerçeve gibi kullanarak test etmek kolaylaştırır [Moq](https://www.nuget.org/packages/Moq/). `HTTP GET Index` Yöntemi hiçbir döngü ya da dallanma ve yalnızca çağrıları bir yöntemi vardır. Bunu test etmek için `Index` yöntemi ihtiyacımız doğrulamak bir `ViewResult` döndürülecek ile bir `ViewModel` deponun gelen `List` yöntemi.
 
 [!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/HomeControllerTests.cs?highlight=17-18&range=1-33,76-95)]
 
-`HomeController` `HTTP POST Index` (Yukarıda gösterilen) yöntemini doğrulayın:
+`HomeController` `HTTP POST Index` Yöntemini (yukarıda gösterilmiştir) doğrulayın:
 
-* Hatalı istek eylem yöntemine döndürür `ViewResult` uygun verilerle zaman `ModelState.IsValid` olduğu `false`
+* Hatalı istek eylem yöntemine döndürür `ViewResult` uygun verileri ile zaman `ModelState.IsValid` olduğu `false`.
 
-* `Add` Deposunda yöntemi çağrılır ve bir `RedirectToActionResult` doğru bağımsız değişkenlerle döndürülen zaman `ModelState.IsValid` doğrudur.
+* `Add` Deposunda yöntemi çağrılır ve bir `RedirectToActionResult` doğru bağımsız değişkenleri ile döndürülen zaman `ModelState.IsValid` geçerlidir.
 
-Geçersiz model durumu kullanarak hataları ekleyerek test edilmiş `AddModelError` ilk testinde aşağıda gösterildiği gibi.
+Geçersiz model durumu hataları kullanarak ekleyerek edilebilirler `AddModelError` ilk test aşağıda gösterildiği gibi.
 
 [!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/HomeControllerTests.cs?highlight=8,15-16,37-39&range=35-75)]
 
-İlk test ne zaman onaylar `ModelState` geçersiz, aynı `ViewResult` olarak için döndürülen bir `GET` isteği. Test geçersiz bir modelde geçirmek girişimi değil unutmayın. Bu olmayacaktır işe yine de model bağlama çalışmadığından bu yana (ancak bir [tümleştirme test](xref:mvc/controllers/testing#integration-testing) alıştırma model bağlama kullanırsınız). Bu durumda, model bağlama sınanan değil. Bu birim testleri eylem yöntemindeki kod yaptığı yalnızca test.
+İlk testin ne zaman onaylar `ModelState` geçersiz, aynı `ViewResult` olarak için döndürülen bir `GET` istek. Test geçersiz bir modelde geçirilecek çalışmaz unutmayın. Bu mıydı işe yine de model bağlama çalışmadığından bu yana (ancak bir [tümleştirme test](xref:test/integration-tests) alıştırma model bağlama kullanırsınız). Bu durumda, model bağlama test edilen değil. Bu birim testlerini, yalnızca ne yaptığını kodda bir eylem yöntemi test edersiniz.
 
-İkinci test olduğunda doğrular `ModelState` geçerli olduğu yeni bir `BrainstormSession` (depo), eklenen ve yöntemi bir `RedirectToActionResult` beklenen özelliklere sahip. Adlı olmayan mocked çağrıları normalde yoksayılan ancak çağırma `Verifiable` Kurulum sonunda çağrısı testinde doğrulanması izin verir. Bu çağrısıyla yapılır `mockRepo.Verify`, hangi başarısız olur test beklenen yöntemin çağrıldıklarında değildi.
+O zaman ikinci test doğrular `ModelState` geçerli olduğu yeni bir `BrainstormSession` (depo) eklenir ve yöntemi bir `RedirectToActionResult` beklenen özelliklere sahip. Adı olmayan sahte çağrıları normalde yoksayıldı, ancak arama `Verifiable` Kurulum sonunda çağrı testinde doğrulanması izin verir. Bu çağrı yapılır `mockRepo.Verify`, hangi başarısız olur test beklenen yöntemi çağrılırsa değildi.
 
 > [!NOTE]
-> Bu örnekte kullanılan Moq kitaplığı doğrulanabilen olmayan mocks ("gevşek" mocks veya yer tutucular olarak da bilinir) ile doğrulanabilir ya da "katı" mocks karışımı kolay hale getirir. Daha fazla bilgi edinmek [Moq Mock davranışını özelleştirme](https://github.com/Moq/moq4/wiki/Quickstart#customizing-mock-behavior).
+> Bu örnekte kullanılan Moq kitaplığı doğrulanabilir ya da "strict" mocks doğrulanamaz mocks ("belirsiz" mocks veya yer tutucular olarak da bilinir) ile karıştırmak kolaylaştırır. Daha fazla bilgi edinin [Moq ile sahte davranışını özelleştirme](https://github.com/Moq/moq4/wiki/Quickstart#customizing-mock-behavior).
 
-Uygulama başka bir denetleyici belirli fırtınası oturumuyla ilgili bilgiler görüntüler. Geçersiz kimlik değerleri ile mücadele etmek için bazı mantığı içerir:
+Başka bir denetleyici uygulamasında belirli fırtınası oturumuyla ilgili bilgileri görüntüler. Geçersiz kod değerleri ile dağıtılacak mantığa aşağıdakileri içerir:
 
 [!code-csharp[](testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs?highlight=19,20,21,22,25,26,27,28)]
 
-Denetleyici eylemini sınamak için her üç durumda olan `return` deyimi:
+Denetleyici eylemini test etmek için her biri üç durumda olan `return` deyimi:
 
 [!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/SessionControllerTests.cs?highlight=27,28,29,46,47,64,65,66,67,68)]
 
-Uygulama bir web API (fırtınası oturumu ve yeni fikirleri bir oturuma eklemek için bir yöntem ile ilişkili fikirler listesi) işlevselliği sunar:
-
-<a name="ideas-controller"></a>
+Uygulama bir web API (fırtınası oturumu ve bir oturumu yeni fikirler eklemek için bir yöntem ile ilgili fikirlerinizi listesi) işlevselliği kullanıma sunar:
 
 [!code-csharp[](testing/sample/TestingControllersSample/src/TestingControllersSample/Api/IdeasController.cs?highlight=21,22,27,30,31,32,33,34,35,36,41,42,46,52,65)]
 
-`ForSession` Yöntemi listesini döndürür `IdeaDTO` türleri. Doğrudan API çağrıları, iş etki alanı varlık döndüren kaçınmak için API İstemci gerektirir ve bunlar gereksiz yere, uygulamanızın iç etki alanı modeli dışarıdan kullanıma API'si ile eşleştiği daha fazla veri itibaren sık içerirler. Etki alanı varlıkları ve kablo üzerinden döndürecektir türleri arasında eşleme el ile yapılabilir (LINQ kullanarak `Select` aşağıda gösterildiği gibi) veya benzer bir kitaplık kullanılarak [AutoMapper](https://github.com/AutoMapper/AutoMapper)
+`ForSession` Yöntemi listesini döndürür `IdeaDTO` türleri. İş etki alanı varlıklarınızı doğrudan API çağrıları geri dönmekten kaçının, API istemcisi gerektirir ve bunlar gereksiz yere uygulamanızın iç etki alanı modeli, harici olarak kullanıma API ile eşleştiği daha fazla veri beri sık içerirler. Etki alanı varlıklarının kablo üzerinden döndürecektir türleri arasında eşleme el ile yapılabilir (bir LINQ kullanarak `Select` burada gösterildiği gibi) veya benzer bir kitaplık kullanılarak [AutoMapper](https://github.com/AutoMapper/AutoMapper).
 
-Birim testleri için `Create` ve `ForSession` API yöntemlerini:
+Birim testleri için `Create` ve `ForSession` API yöntemleri:
 
 [!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/ApiIdeasControllerTests.cs?highlight=18,23,29,33,38-39,43,50,58-59,68-70,76-78&range=1-83,121-135)]
 
-Yöntem davranışını test etmek için daha önce belirtildiği gibi `ModelState` geçersiz model hatası denetleyiciye testin bir parçası ekleyin. Model doğrulama veya model bağlama, birim testleri test-yalnızca belirli bir ile karşılaşıldığında, eylem yönteminin davranışı test denemeyin `ModelState` değeri.
+Yöntemin davranışını test etmek için daha önce belirtildiği gibi `ModelState` geçersiz model hatası denetleyiciye testin bir parçası ekleyin. Model doğrulama veya model bağlama birim testlerinizde test-yalnızca belirli bir ile karşılaşıldığında, eylem yöntemin davranışını test çalışmayın `ModelState` değeri.
 
-İkinci test sahte depo null döndürmek için yapılandırılmış şekilde null döndüren depo bağlıdır. Bir test veritabanı oluşturmak için gerek yoktur (bellekte veya aksi halde) ve bu sonuç döndüren bir sorgu oluşturun -, tek bir deyimde gösterildiği gibi yapılabilir.
+İkinci test sahte deposunun null döndürmek üzere yapılandırıldığı şekilde null döndüren havuzda bağlıdır. Bir test veritabanı oluşturmaya gerek yoktur (bellekte veya başka türlü) ve bu sonuç döndüren bir sorgu oluşturun - bu tek bir deyimde gösterildiği yapılabilir.
 
-Son test doğrular deponun `Update` yöntemi çağrılır. Daha önce yaptığımız gibi mock ile çağrılır `Verifiable` ve ardından mocked deponun `Verify` yöntemi doğrulanabilen yöntemi yürütüldü onaylamak için çağrılır. Emin olmak için bir birim testi sorumluluğu değil `Update` yöntemi kaydedilen veri; tümleştirme test ile yapılabilir.
+Son test doğrular deponun `Update` yöntemi çağrılır. Daha önce yaptığımız gibi sahte çağrılır `Verifiable` ve ardından sahte deponun `Verify` yöntemi doğrulanabilir yöntemi yürütüldü doğrulamak için çağrılır. Emin olmak için bir birim test sorumluluğu değil `Update` yöntemi kaydedilen verileri; ile bir tümleştirme testi yapılabilir.
 
-## <a name="integration-testing"></a>Tümleştirme sınaması
+## <a name="additional-resources"></a>Ek kaynaklar
 
-[Tümleştirme testleri](xref:test/integration-tests) uygulama iş içindeki ayrı modülleri doğru birlikte emin olmak için gerçekleştirilir. Genellikle, herhangi bir şey birim testi ile test ile tümleştirme test ayrıca test edebilirsiniz, ancak tersi doğru değil. Ancak, tümleştirme testleri birim testleri çok daha yavaş olma eğilimindedir. Bu nedenle, ne olursa olsun da ile birim testleri ve birden çok ortak çalışanlar gerektiren senaryolar için tümleştirme testleri kullanın test etmek en iyisidir.
-
-Bunlar hala yararlı olabilir ancak sahte nesneler tümleştirme testlerinde nadiren kullanılır. Birim testi sınanan birim dışında ortak test amaçları doğrultusunda nasıl hareket etmesi gerektiğini denetlemek için etkili bir yol sahte nesneleridir. Bir tümleştirme testinde gerçek ortak çalışanlar, tüm alt sistemi birlikte düzgün çalıştığını doğrulamak için kullanılır.
-
-### <a name="application-state"></a>Uygulama durumu
-
-Tümleştirme sınaması gerçekleştirirken bir önemli uygulamanızın durumunun nasıl ayarlanacağı konudur. Testleri birbirlerinden bağımsız çalıştırmanız gerekir ve böylece her test bilinen bir duruma uygulamada ile başlamanız gerekir. Uygulamanızı değil veya bir veritabanını kullanmak herhangi Kalıcılık varsa, bu bir sorun olabilir. Ancak, veri deposunu sıfırlama sürece bir test tarafından yapılan değişiklikler başka bir test etkileyebilir şekilde durumlarına bazı tür bir veri deposu, çoğu gerçek uygulamalar kalıcı olmasını sağlar. Yerleşik kullanarak `TestServer`bizim tümleştirme testleri içindeki konak ASP.NET Core uygulamaları çok basit ancak, değil mutlaka erişimi izni verin, kullanacağınız veri. Gerçek bir veritabanı kullanıyorsanız, bir test veritabanına bağlanan uygulamanız için bir yaklaşım ise her test yürütülmeden önce testlerinizi erişmek ve sağlamak için bilinen bir duruma sıfırlanır.
-
-Yalnızca kendisine my test projesinden bağlanamıyorum şekilde bu örnek uygulamasında Entity Framework Çekirdek'ın InMemoryDatabase destek kullanıyorum. Bunun yerine, ı kullanıma bir `InitializeDatabase` uygulamanın yönteminden `Startup` bu ise, uygulama başlatıldığında ı çağrı sınıfını `Development` ortamı. Bunlar ortam kümesine sürece my tümleştirme testleri otomatik olarak bu yararlı `Development`. Veritabanı, uygulama her başladığında InMemoryDatabase sıfırlama beri sıfırlama hakkında endişelenmeniz gerekmez.
-
-`Startup` Sınıfı:
-
-[!code-csharp[](testing/sample/TestingControllersSample/src/TestingControllersSample/Startup.cs?highlight=19,20,34,35,43,52)]
-
-Göreceğiniz `GetTestSession` tümleştirme testlerinde sık kullanılan yöntem.
-
-### <a name="accessing-views"></a>Görünümleri erişme
-
-Her tümleştirme test sınıfı yapılandırır `TestServer` ASP.NET Core uygulama çalışır. Varsayılan olarak, `TestServer` onu çalıştırdığı - bu durumda, test proje klasöründen klasör web uygulamasında barındırır. Bu nedenle, çalıştığınızda dönüş denetleyici eylemleri test etmek `ViewResult`, bu hatayı görebilirsiniz:
-
-```
-The view 'Index' wasn't found. The following locations were searched:
-(list of locations)
-```
-
-Bu sorunu gidermek için test projesi için görünümleri gidebilecektir sunucunun içerik kök yapılandırmanız gerekir. Bu çağrısıyla yapılır `UseContentRoot` içinde `TestFixture` sınıfı, aşağıda gösterilmektedir:
-
-[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/TestFixture.cs?highlight=30,33)]
-
-`TestFixture` Sınıfı, yapılandırma ve oluşturma sorumlu `TestServer`, ayarlanırken bir `HttpClient` ile iletişim kurmak için `TestServer`. Her tümleştirme kullanır testleri `Client` özelliğini test sunucusuna bağlanmak ve bir istekte bulunun.
-
-[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/HomeControllerTests.cs?highlight=20,26,29,30,31,35,38,39,40,41,44,47,48)]
-
-Yukarıdaki ilk testinde `responseString` gerçek işlenen HTML beklenen sonuçları içerdiği onaylamak için Denetlenmekte görünümünden tutar.
-
-İkinci test benzersiz oturum adı ile bir form POST oluşturur ve uygulamaya gönderir, ardından beklenen yeniden yönlendirme döndürülür doğrular.
-
-### <a name="api-methods"></a>API yöntemlerini
-
-Uygulamanızı web API'leri, buna ait otomatikleştirilmiş testleri için iyi bir fikir onaylayın bunlar yürütme beklendiği gibi göstermiyorsa. Yerleşik `TestServer` web API'leri test kolay hale getirir. Model bağlama, API yöntemlerini kullanıyorsanız, her zaman denetlemelisiniz `ModelState.IsValid`, ve tümleştirme testleri, model doğrulama düzgün çalıştığını doğrulamak için doğru yerde.
-
-Testleri hedef aşağıdaki kümesini `Create` yönteminde [IdeasController](xref:mvc/controllers/testing#ideas-controller) yukarıda gösterilen sınıfı:
-
-[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/ApiIdeasControllerTests.cs)]
-
-HTML görünümleri döndüren eylem tümleştirme testlerin aksine, son test yukarıda gösterildiği gibi sonuçları döndüren web API yöntemleri genellikle güçlü şekilde yazılan nesnelerin seri durumdan çıkarılmış olabilir. Bu durumda, test sonucu çıkarır bir `BrainstormSession` örneği ve fikir fikirleri kendi koleksiyonuna doğru eklendiğini doğrular.
-
-Bu makalede 's tümleştirme testleri ek örnekler bulacaksınız [örnek proje](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/testing/sample).
+* <xref:test/integration-tests>

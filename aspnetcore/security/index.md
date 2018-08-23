@@ -5,12 +5,12 @@ description: ASP.NET Core kimlik doğrulaması, yetkilendirme ve güvenlik temel
 ms.author: tdykstra
 ms.date: 11/01/2017
 uid: security/index
-ms.openlocfilehash: ed64594c85d555d8417903947fc3ce927dc04cec
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 3a1c1ea1ad28fccbe5ae91b0be193938b095f60b
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095768"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754508"
 ---
 # <a name="overview-of-aspnet-core-security"></a>ASP.NET Core güvenliğine genel bakış
 
@@ -35,9 +35,9 @@ ASP.NET Core ve EF yardımcı olan özellikler içeriyor uygulamanızı güvenli
 * [Siteler arası istek sahteciliği (CSRF)](xref:security/anti-request-forgery)
 * [Açık yeniden yönlendirme saldırılarını](xref:security/preventing-open-redirects)
 
-Bilmeniz gereken daha fazla güvenlik açıkları vardır. Daha fazla bilgi için bu belgenin bölümüne bakın *ASP.NET güvenlik belgeleri*.
+Bilmeniz gereken daha fazla güvenlik açıkları vardır. Daha fazla bilgi için bu belgenin bölümüne bakın *ASP.NET Core güvenlik belgeleri*.
 
-## <a name="aspnet-security-documentation"></a>ASP.NET güvenlik belgeleri
+## <a name="aspnet-core-security-documentation"></a>ASP.NET Core güvenlik belgeleri
 
 *   [Kimlik Doğrulaması](xref:security/authentication/index)
     *   [Kimliğe giriş](xref:security/authentication/identity)

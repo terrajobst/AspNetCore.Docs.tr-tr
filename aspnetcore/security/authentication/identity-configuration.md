@@ -1,166 +1,161 @@
 ---
-title: ASP.NET Core kimliğini yapılandırmak
+title: ASP.NET Core kimliği yapılandırma
 author: AdrienTorris
-description: ASP.NET Core kimlik varsayılan değerleri anlayın ve özel değerleri kullanmak için kimlik özellikleri yapılandırmayı öğrenin.
-ms.author: scaddie
-ms.date: 03/06/2018
+description: ASP.NET Core kimliği varsayılan değerleri anlamanıza ve özel değerler kullanılacak kimlik özelliklerini yapılandırmayı öğrenin.
+ms.author: riande
+ms.date: 08/14/2018
 uid: security/authentication/identity-configuration
-ms.openlocfilehash: 914e9b22ed52b560366fdff1f2430d3dd66454c3
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: c597eacbb21ed0968e6195f7b6dcb46d37ba80a5
+ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276271"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41870923"
 ---
-# <a name="configure-aspnet-core-identity"></a>ASP.NET Core kimliğini yapılandırmak
+# <a name="configure-aspnet-core-identity"></a>ASP.NET Core kimliği yapılandırma
 
-ASP.NET Core kimliğini, parola ilkesi, kilitleme süresini ve tanımlama bilgisi ayarları gibi ayarları için varsayılan yapılandırmayı kullanır. Bu ayarlar uygulamanın geçersiz kılınabilir `Startup` sınıfı.
+ASP.NET Core kimliği, parola ilkesi ve kilitleme tanımlama bilgisi yapılandırması gibi ayarları için varsayılan değerleri kullanır. Bu ayarlar kılınabilir `Startup` sınıfı.
 
 ## <a name="identity-options"></a>Kimlik seçenekleri
 
-[IdentityOptions](/dotnet/api/microsoft.aspnetcore.identity.identityoptions) sınıf kimlik sistemi yapılandırmak için kullanılan seçeneklerini temsil eder.
+[IdentityOptions](/dotnet/api/microsoft.aspnetcore.identity.identityoptions) sınıf kimlik sistemi yapılandırmak için kullanılabilir seçenekleri temsil eder. `IdentityOptions` ayarlanmalıdır **sonra** çağırma `AddIdentity` veya `AddDefaultIdentity`.
 
 ### <a name="claims-identity"></a>Talep Kimliği
 
-[IdentityOptions.ClaimsIdentity](/dotnet/api/microsoft.aspnetcore.identity.identityoptions.claimsidentity) belirtir [ClaimsIdentityOptions](/dotnet/api/microsoft.aspnetcore.identity.claimsidentityoptions) tabloda gösterilen özellikleri.
+[IdentityOptions.ClaimsIdentity](/dotnet/api/microsoft.aspnetcore.identity.identityoptions.claimsidentity) belirtir [ClaimsIdentityOptions](/dotnet/api/microsoft.aspnetcore.identity.claimsidentityoptions) aşağıdaki tabloda gösterilen özelliklere sahip.
 
 | Özellik | Açıklama | Varsayılan |
 | -------- | ----------- | :-----: |
-| [RoleClaimType](/dotnet/api/microsoft.aspnetcore.identity.claimsidentityoptions.roleclaimtype) | Alır veya rol talep için kullanılan talep türünü ayarlar. | [ClaimTypes.Role](/dotnet/api/system.security.claims.claimtypes.role) |
+| [RoleClaimType](/dotnet/api/microsoft.aspnetcore.identity.claimsidentityoptions.roleclaimtype) | Alır veya bir rolü talep için kullanılan talep türünü ayarlar. | [ClaimTypes.Role](/dotnet/api/system.security.claims.claimtypes.role) |
 | [SecurityStampClaimType](/dotnet/api/microsoft.aspnetcore.identity.claimsidentityoptions.securitystampclaimtype) | Alır veya güvenlik damgası talep için kullanılan talep türünü ayarlar. | `AspNet.Identity.SecurityStamp` |
 | [UserIdClaimType](/dotnet/api/microsoft.aspnetcore.identity.claimsidentityoptions.useridclaimtype) | Alır veya kullanıcı tanımlayıcısı talebi için kullanılan talep türünü ayarlar. | [ClaimTypes.NameIdentifier](/dotnet/api/system.security.claims.claimtypes.nameidentifier) |
 | [UserNameClaimType](/dotnet/api/microsoft.aspnetcore.identity.claimsidentityoptions.usernameclaimtype) | Alır veya kullanıcı adı talebi için kullanılan talep türünü ayarlar. | [ClaimTypes.Name](/dotnet/api/system.security.claims.claimtypes.name) |
 
 ### <a name="lockout"></a>Kilitleme
 
-Kullanıcı bir süre sonra belirli bir başarısız erişim denemesi sayısı kilitler (varsayılan: 5 erişim denemesi başarısız olduktan sonra 5 dakika kilitleme). Başarılı bir kimlik doğrulaması başarısız erişim denemesi sayısını sıfırlar ve saatini sıfırlar.
+Kilitleme kümesinde [PasswordSignInAsync](/dotnet/api/microsoft.aspnetcore.identity.signinmanager-1.passwordsigninasync#Microsoft_AspNetCore_Identity_SignInManager_1_PasswordSignInAsync_System_String_System_String_System_Boolean_System_Boolean_) yöntemi:
 
-Aşağıdaki örnek, varsayılan değerleri gösterir:
+[!code-csharp[](identity-configuration/sample/Areas/Identity/Pages/Account/Login.cshtml.cs?name=snippet&highlight=9)]
 
-[!code-csharp[](identity/sample/src/ASPNETv2-IdentityDemo-Configuration/Startup.cs?range=29-30,39-42,50-52)]
+Yukarıdaki kod dayanır `Login` kimlik şablonu. 
 
-Onaylayın [PasswordSignInAsync](/dotnet/api/microsoft.aspnetcore.identity.signinmanager-1.passwordsigninasync) ayarlar `lockoutOnFailure` için `true`:
+Kilitleme seçenekleri ayarlanır `StartUp.ConfigureServices`:
 
-```csharp
-var result = await _signInManager.PasswordSignInAsync(
-                 Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: true);
-```
+[!code-csharp[](identity-configuration/sample/Startup.cs?name=snippet_lock)]
 
-[IdentityOptions.Lockout](/dotnet/api/microsoft.aspnetcore.identity.identityoptions.lockout) belirtir [LockoutOptions](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions) tabloda gösterilen özellikleri.
+Önceki kod kümeleri [IdentityOptions](/dotnet/api/microsoft.aspnetcore.identity.identityoptions) [LockoutOptions](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions) varsayılan değerlere sahip.
+
+Başarılı bir kimlik doğrulaması başarısız erişim denemesi sayısını sıfırlar ve saatini sıfırlar.
+
+[IdentityOptions.Lockout](/dotnet/api/microsoft.aspnetcore.identity.identityoptions.lockout) belirtir [LockoutOptions](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions) tabloda gösterilen özelliklere sahip.
 
 | Özellik | Açıklama | Varsayılan |
 | -------- | ----------- | :-----: |
-| [AllowedForNewUsers](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions.allowedfornewusers) | Yeni bir kullanıcı kilitlenip kilitlenmeyeceği olmadığını belirler. | `true` |
-| [DefaultLockoutTimeSpan](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions.defaultlockouttimespan) | Bir kilitleme oluştuğunda süreyi bir kullanıcının kilitlendiği. | 5 dakika |
+| [AllowedForNewUsers](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions.allowedfornewusers) | Yeni bir kullanıcı, kilitlenir belirler. | `true` |
+| [DefaultLockoutTimeSpan](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions.defaultlockouttimespan) | Bir kilitlenme oluştuğunda süreyi kullanıcı kilitlidir. | 5 dakika |
 | [MaxFailedAccessAttempts](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions.maxfailedaccessattempts) | Kilitleme etkinse, bir kullanıcı kilitli kadar başarısız erişim denemesi sayısı. | 5 |
 
 ### <a name="password"></a>Parola
 
-Varsayılan olarak, parolalar bir büyük harf, küçük harf, rakam ve alfasayısal olmayan karakter içerdiğini kimlik gerektirir. Parolalar en az altı karakter uzunluğunda olmalıdır. [PasswordOptions](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions) değiştirilebilir `Startup.ConfigureServices`.
+Varsayılan olarak parola bir büyük harf, küçük harf, rakam ve alfasayısal olmayan karakter içerdiğini kimlik gerektirir. Parola en az altı karakter uzunluğunda olmalıdır. [PasswordOptions](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions) ayarlanabilir `Startup.ConfigureServices`.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.1"
 
-ASP.NET Core eklenen 2.0 [RequiredUniqueChars](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requireduniquechars) özelliği. Aksi takdirde, ASP.NET Core aynı seçeneklerdir 1.x.
+[!code-csharp[](identity-configuration/sample/Startup.cs?name=snippet_pw)]
 
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
 [!code-csharp[](identity/sample/src/ASPNETv2-IdentityDemo-Configuration/Startup.cs?range=29-37,50-52)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
+
+::: moniker range="<= aspnetcore-1.1"
 
 [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo-PrimaryKeysConfig/Startup.cs?range=58-65,84)]
 
----
+::: moniker-end
 
-[IdentityOptions.Password](/dotnet/api/microsoft.aspnetcore.identity.identityoptions.password) belirtir [PasswordOptions](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions) tabloda gösterilen özellikleri.
+[IdentityOptions.Password](/dotnet/api/microsoft.aspnetcore.identity.identityoptions.password) belirtir [PasswordOptions](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions) tabloda gösterilen özelliklere sahip.
 
 | Özellik | Açıklama | Varsayılan |
 | -------- | ----------- | :-----: |
-| [RequireDigit](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requiredigit) | Parola 0-9 arasında bir sayı gerektirir. | `true` |
+| [RequireDigit](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requiredigit) | Parolayı 0-9 arasında bir sayı gerektirir. | `true` |
 | [RequiredLength](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requiredlength) | Minimum parola uzunluğu. | 6 |
-| [RequiredUniqueChars](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requireduniquechars) | Yalnızca ASP.NET Core 2.0 veya sonraki bir sürüme uygulanır.<br><br> Parola ayrı karakter sayısını gerektirir. | 1. |
-| [RequireLowercase](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requirelowercase) | Bir küçük harf parola gerektirir. | `true` |
-| [RequireNonAlphanumeric](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requirenonalphanumeric) | Parolada alfasayısal olmayan karakter gerektirir. | `true` |
-| [RequireUppercase](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requireuppercase) | Bir büyük harf karakter parola gerektirir. | `true` |
+
+::: moniker range=">= aspnetcore-2.0"
+
+| [RequiredUniqueChars](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requireduniquechars) | Yalnızca ASP.NET Core 2.0 ve üzeri için geçerlidir.<br><br> Parola ayrı karakter sayısı gerektirir. | 1 |
+
+::: moniker-end
+
+| [RequireLowercase](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requirelowercase) | Parola küçük harf karakter gerektirir. | `true` | | [RequireNonAlphanumeric](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requirenonalphanumeric) | Paroladaki alfasayısal olmayan bir karakter gerektirir. | `true` | | [RequireUppercase](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requireuppercase) | Parola bir büyük harf karakteri gerektirir. | `true` |
 
 ### <a name="sign-in"></a>oturum açma
 
-[!code-csharp[](identity/sample/src/ASPNETv2-IdentityDemo-Configuration/Startup.cs?range=29-30,44-46,50-52)]
+Aşağıdaki kod kümeleri `SignIn` ayarlarına (varsayılan değer):
 
-[IdentityOptions.SignIn](/dotnet/api/microsoft.aspnetcore.identity.identityoptions.signin) belirtir [SignInOptions](/dotnet/api/microsoft.aspnetcore.identity.signinoptions) tabloda gösterilen özellikleri.
+::: moniker range=">= aspnetcore-2.1"
+
+[!code-csharp[](identity-configuration/sample/Startup.cs?name=snippet_si)]
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-2.0"
+[!code-csharp[](identity/sample/src/ASPNETv2-IdentityDemo-Configuration/Startup.cs?range=29-30,44-46,50-52)] 
+
+::: moniker-end
+
+[IdentityOptions.SignIn](/dotnet/api/microsoft.aspnetcore.identity.identityoptions.signin) belirtir [SignInOptions](/dotnet/api/microsoft.aspnetcore.identity.signinoptions) tabloda gösterilen özelliklere sahip.
 
 | Özellik | Açıklama | Varsayılan |
 | -------- | ----------- | :-----: |
-| [RequireConfirmedEmail](/dotnet/api/microsoft.aspnetcore.identity.signinoptions.requireconfirmedemail) | Oturum açmak için bir onay e-posta gerektirir. | `false` |
+| [RequireConfirmedEmail](/dotnet/api/microsoft.aspnetcore.identity.signinoptions.requireconfirmedemail) | Oturum açmak için bir onaylanan e-posta gerektirir. | `false` |
 | [RequireConfirmedPhoneNumber](/dotnet/api/microsoft.aspnetcore.identity.signinoptions.requireconfirmedphonenumber) | Oturum açmak onaylanan telefon numarası gerektirir. | `false` |
 
 ### <a name="tokens"></a>Belirteçler
 
-[IdentityOptions.Tokens](/dotnet/api/microsoft.aspnetcore.identity.identityoptions.tokens) belirtir [TokenOptions](/dotnet/api/microsoft.aspnetcore.identity.tokenoptions) tabloda gösterilen özellikleri.
+[IdentityOptions.Tokens](/dotnet/api/microsoft.aspnetcore.identity.identityoptions.tokens) belirtir [TokenOptions](/dotnet/api/microsoft.aspnetcore.identity.tokenoptions) tabloda gösterilen özelliklere sahip.
 
 
 |                                                        Özellik                                                         |                                                                                      Açıklama                                                                                      |
 |-------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|     [AuthenticatorTokenProvider](/dotnet/api/microsoft.aspnetcore.identity.tokenoptions.authenticatortokenprovider)     |                                       Alır veya ayarlar `AuthenticatorTokenProvider` iki öğeli bir kimlik doğrulayıcı ile oturum bileşenler doğrulamak için kullanılır.                                       |
-|       [ChangeEmailTokenProvider](/dotnet/api/microsoft.aspnetcore.identity.tokenoptions.changeemailtokenprovider)       |                                     Alır veya ayarlar `ChangeEmailTokenProvider` e-posta değiştirme onayı e-postalarda kullanılan belirteçleri oluşturmak için kullanılır.                                     |
+|     [AuthenticatorTokenProvider](/dotnet/api/microsoft.aspnetcore.identity.tokenoptions.authenticatortokenprovider)     |                                       Alır veya ayarlar `AuthenticatorTokenProvider` iki öğeli bir kimlik doğrulayıcı ile oturum açma işlemleri doğrulamak için kullanılır.                                       |
+|       [ChangeEmailTokenProvider](/dotnet/api/microsoft.aspnetcore.identity.tokenoptions.changeemailtokenprovider)       |                                     Alır veya ayarlar `ChangeEmailTokenProvider` e-posta değişikliği onay e-postalarda kullanılan belirteçleri oluşturmak için kullanılır.                                     |
 | [ChangePhoneNumberTokenProvider](/dotnet/api/microsoft.aspnetcore.identity.tokenoptions.changephonenumbertokenprovider) |                                      Alır veya ayarlar `ChangePhoneNumberTokenProvider` telefon numaralarını değiştirirken kullanılan belirteçleri oluşturmak için kullanılır.                                      |
 | [EmailConfirmationTokenProvider](/dotnet/api/microsoft.aspnetcore.identity.tokenoptions.emailconfirmationtokenprovider) |                                             Alır veya hesap doğrulama e-postalarda kullanılan belirteçleri oluşturmak için kullanılan belirteç sağlayıcısı ayarlar.                                              |
 |     [PasswordResetTokenProvider](/dotnet/api/microsoft.aspnetcore.identity.tokenoptions.passwordresettokenprovider)     | Alır veya ayarlar [IUserTwoFactorTokenProvider<TUser> ](/dotnet/api/microsoft.aspnetcore.identity.iusertwofactortokenprovider-1) parola sıfırlama e-postalarda kullanılan belirteçleri oluşturmak için kullanılır. |
-|                    [ProviderMap](/dotnet/api/microsoft.aspnetcore.identity.tokenoptions.providermap)                    |                Oluşturmak için kullanılan bir [kullanıcı belirteci sağlayıcısı](/dotnet/api/microsoft.aspnetcore.identity.tokenproviderdescriptor) anahtarla sağlayıcının adı olarak kullanılmıştır.                 |
+|                    [ProviderMap](/dotnet/api/microsoft.aspnetcore.identity.tokenoptions.providermap)                    |                Oluşturmak için kullanılan bir [kullanıcı belirteci sağlayıcısı](/dotnet/api/microsoft.aspnetcore.identity.tokenproviderdescriptor) anahtarla sağlayıcının adı olarak kullanılır.                 |
 
 ### <a name="user"></a>Kullanıcı
 
-[!code-csharp[](identity/sample/src/ASPNETv2-IdentityDemo-Configuration/Startup.cs?range=29-30,48-52)]
+[!code-csharp[](identity-configuration/sample/Startup.cs?name=snippet_user)]
 
-[IdentityOptions.User](/dotnet/api/microsoft.aspnetcore.identity.identityoptions.user) belirtir [UserOptions](/dotnet/api/microsoft.aspnetcore.identity.useroptions) tabloda gösterilen özellikleri.
+[IdentityOptions.User](/dotnet/api/microsoft.aspnetcore.identity.identityoptions.user) belirtir [UserOptions](/dotnet/api/microsoft.aspnetcore.identity.useroptions) tabloda gösterilen özelliklere sahip.
 
 | Özellik | Açıklama | Varsayılan |
 | -------- | ----------- | :-----: |
 | [AllowedUserNameCharacters](/dotnet/api/microsoft.aspnetcore.identity.useroptions.allowedusernamecharacters) | Kullanıcı adı izin verilen karakter. | abcdefghijklmnopqrstuvwxyz<br>ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>0123456789<br>-._@+ |
 | [RequireUniqueEmail](/dotnet/api/microsoft.aspnetcore.identity.useroptions.requireuniqueemail) | Her kullanıcının benzersiz bir e-posta olmasını gerektirir. | `false` |
 
-## <a name="cookie-settings"></a>Tanımlama bilgisi ayarları
+### <a name="cookie-settings"></a>Tanımlama bilgisi ayarları
 
-Uygulamanın tanımlama bilgisini yapılandırın `Startup.ConfigureServices`:
+Uygulamanın tanımlama bilgisini yapılandırın `Startup.ConfigureServices`. [ConfigureApplicationCookie](/dotnet/api/microsoft.extensions.dependencyinjection.identityservicecollectionextensions.configureapplicationcookie#Microsoft_Extensions_DependencyInjection_IdentityServiceCollectionExtensions_ConfigureApplicationCookie_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_Microsoft_AspNetCore_Authentication_Cookies_CookieAuthenticationOptions__) çağrılmalıdır **sonra** çağırma `AddIdentity` veya `AddDefaultIdentity`.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.1"
+[!code-csharp[](identity-configuration/sample/Startup.cs?name=snippet_cookie)]
+
+::: moniker-end
+::: moniker range="= aspnetcore-2.0"
 
 [!code-csharp[](identity/sample/src/ASPNETv2-IdentityDemo-Configuration/Startup.cs?name=snippet_configurecookie)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
+
+::: moniker range="<= aspnetcore-1.1"
 
 [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo-PrimaryKeysConfig/Startup.cs?range=58-59,72-80,84)]
 
----
+::: moniker-end
 
-[CookieAuthenticationOptions](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions) aşağıdaki özelliklere sahiptir:
-
-|                                                               Özellik                                                               |                                                                                                                                                           Açıklama                                                                                                                                                            |
-|--------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|       [AccessDeniedPath](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.accessdeniedpath)       |                                                                 İşleyici giden değiştirmeniz gerektiğini bildiren <em>403 Yasak</em> durum koduna bir <em>302 yeniden yönlendirme</em> verilen yolu üzerine.<br><br>Varsayılan değer `/Account/AccessDenied` şeklindedir.                                                                  |
-|             [authenticationScheme](/dotnet/api/microsoft.aspnetcore.builder.authenticationoptions.authenticationscheme)              |                                                                                                                Yalnızca ASP.NET Core geçerlidir 1.x.<br><br> Belirli kimlik doğrulaması düzeni için mantıksal adı.                                                                                                                |
-|            [AutomaticAuthenticate](/dotnet/api/microsoft.aspnetcore.builder.authenticationoptions.automaticauthenticate)             |                                                                       Yalnızca ASP.NET Core geçerlidir 1.x.<br><br> Doğru olduğunda, tanımlama bilgisi kimlik doğrulamasını her istek çalıştırın ve oluşturulan herhangi bir seri hale getirilmiş asıl yeniden yapılandırma ve doğrulama girişimi.                                                                        |
-|               [AutomaticChallenge](/dotnet/api/microsoft.aspnetcore.builder.authenticationoptions.automaticchallenge)                |                                              Yalnızca ASP.NET Core geçerlidir 1.x.<br><br> TRUE ise, kimlik doğrulaması ara yazılımı otomatik zorluklar işler. Yanlış kimlik doğrulaması ara yazılımı yalnızca açıkça belirtildiği zaman yanıtları değiştirir, `AuthenticationScheme`.                                               |
-|               [ClaimsIssuer](/dotnet/api/microsoft.aspnetcore.authentication.authenticationschemeoptions.claimsissuer)               |                                                             Alır veya ayarlar oluşturulan herhangi bir talep için kullanılması gereken veren (devralınan [AuthenticationSchemeOptions](/dotnet/api/microsoft.aspnetcore.authentication.authenticationschemeoptions)).                                                             |
-|                             [Cookie.Domain](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.domain)                              |                                                                                                                                             Tanımlama bilgisi ile ilişkilendirilecek etki alanı.                                                                                                                                             |
-|                         [Cookie.Expiration](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.expiration)                          |                 Alır veya HTTP tanımlama bilgisi (kimlik doğrulama tanımlama değil) Sysprep'in ayarlar. Bu özellik tarafından geçersiz kılınır [ExpireTimeSpan](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.expiretimespan). CookieAuthentication bağlamında kullanılmamalıdır.                  |
-|                           [Cookie.HttpOnly](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.httponly)                            |                                                                                                               Bir tanımlama bilgisinin istemci tarafı komut dosyası tarafından erişilebilir olup olmadığını gösterir.<br><br>Varsayılan değer `true` şeklindedir.                                                                                                                |
-|                               [Cookie.Name](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.name)                                |                                                                                                                            Tanımlama bilgisinin adı.<br><br>Varsayılan değer `.AspNetCore.Cookies` şeklindedir.                                                                                                                            |
-|                               [Cookie.Path](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.path)                                |                                                                                                                                                         Tanımlama bilgisi yolu.                                                                                                                                                         |
-|                           [Cookie.SameSite](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.samesite)                            |                                                                                           `SameSite` Tanımlama bilgisinin özniteliği.<br><br>Varsayılan değer [SameSiteMode.Lax](/dotnet/api/microsoft.aspnetcore.http.samesitemode).                                                                                            |
-|                       [Cookie.SecurePolicy](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.securepolicy)                        |                                                   [CookieSecurePolicy](/dotnet/api/microsoft.aspnetcore.http.cookiesecurepolicy) yapılandırma.<br><br>Varsayılan değer [CookieSecurePolicy.SameAsRequest](/dotnet/api/microsoft.aspnetcore.http.cookiesecurepolicy).                                                    |
-|                  [CookieDomain](/dotnet/api/microsoft.aspnetcore.builder.cookieauthenticationoptions.cookiedomain)                   |                                                                                                                      Yalnızca ASP.NET Core geçerlidir 1.x.<br><br> Tanımlama bilgisinin Burada sunulan etki alanı adı.                                                                                                                       |
-|                [CookieHttpOnly](/dotnet/api/microsoft.aspnetcore.builder.cookieauthenticationoptions.cookiehttponly)                 |                                                                                       Yalnızca ASP.NET Core geçerlidir 1.x.<br><br> Tanımlama bilgisinin yalnızca sunucular için erişilebilir olup olmayacağını belirten bir bayrak.<br><br>Varsayılan değer `true` şeklindedir.                                                                                        |
-|                    [CookiePath](/dotnet/api/microsoft.aspnetcore.builder.cookieauthenticationoptions.cookiepath)                     |                                                                                                                  Yalnızca ASP.NET Core geçerlidir 1.x.<br><br> Aynı ana bilgisayar adını çalışan uygulamalar yalıtmak için kullanılır.                                                                                                                   |
-|                  [CookieSecure](/dotnet/api/microsoft.aspnetcore.builder.cookieauthenticationoptions.cookiesecure)                   | Yalnızca ASP.NET Core geçerlidir 1.x.<br><br> Oluşturulan tanımlama bilgisinin HTTPS için sınırlı olup olmayacağını belirten bir bayrak (`CookieSecurePolicy.Always`), HTTP veya HTTPS (`CookieSecurePolicy.None`), ya da istek olarak aynı protokol (`CookieSecurePolicy.SameAsRequest`).<br><br>Varsayılan değer `CookieSecurePolicy.SameAsRequest` şeklindedir. |
-|          [CookieManager](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.cookiemanager)          |                                                                                                                         Tanımlama bilgilerini istekten alma veya yanıtta belirleme için kullanılan bir bileşen.                                                                                                                          |
-| [DataProtectionProvider](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.dataprotectionprovider) |                                                                             Ayarlama, sağlayıcı tarafından kullanılan varsa [CookieAuthenticationHandler](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationhandler) veri koruması.                                                                             |
-|                      [Açıklama](/dotnet/api/microsoft.aspnetcore.builder.authenticationoptions.description)                       |                                                                                                Yalnızca ASP.NET Core geçerlidir 1.x.<br><br> Uygulama için kullanılabilir hale getirileceğini kimlik doğrulama türü hakkında ek bilgi.                                                                                                |
-|                 [Olaylar](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.events)                 |                                                                                                      İşleyici işleme oluştuğu bazı noktalarda uygulama denetimi veren sağlayıcıdaki yöntemleri çağırır.                                                                                                       |
-|                 [EventsType](/dotnet/api/microsoft.aspnetcore.authentication.authenticationschemeoptions.eventstype)                 |                                                            Ayarlama, hizmet almak için tür `Events` örnek özellik yerine (devralınan [AuthenticationSchemeOptions](/dotnet/api/microsoft.aspnetcore.authentication.authenticationschemeoptions)).                                                            |
-|         [ExpireTimeSpan](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.expiretimespan)         |                                                                                      Oluşturulduğu noktadan itibaren geçerli tanımlama bilgisi kalır depolanan kimlik doğrulaması bileti ne kadar zaman denetler.<br><br>Varsayılan değer 14 gündür.                                                                                       |
-|              [LoginPath](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.loginpath)              |                                                                                                       Bir kullanıcı yetkisiz olduğunda, bu oturum açma yoluna yönlendirilirsiniz.<br><br>Varsayılan değer `/Account/Login` şeklindedir.                                                                                                       |
-|             [LogoutPath](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.logoutpath)             |                                                                                                            Bir kullanıcı oturum açıldığında, bunlar bu yolu yönlendirilirsiniz.<br><br>Varsayılan değer `/Account/Logout` şeklindedir.                                                                                                            |
-|     [ReturnUrlParameter](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.returnurlparameter)     |                                              Ara yazılım tarafından eklenen sorgu dizesi parametresinin adını belirler, bir <em>401 Yetkisiz</em> durum kodu değiştirildi bir <em>302 yeniden yönlendirme</em> oturum açma yoluna.<br><br>Varsayılan değer `ReturnUrl` şeklindedir.                                              |
-|           [SessionStore](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.sessionstore)           |                                                                                                                              İsteklerinde kimlik depolanacağı isteğe bağlı bir kapsayıcı.                                                                                                                               |
-|      [SlidingExpiration değeri](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.slidingexpiration)      |                                                                           Doğru olduğunda, yeni bir tanımlama bilgisi zaman geçerli tanımlama bilgisi sona erme penceresinin yarısından fazlasını ilerlemiş yeni bir sona erme saati ile verilir.<br><br>Varsayılan değer `true` şeklindedir.                                                                           |
-|       [TicketDataFormat](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.ticketdataformat)       |                                                                                                 `TicketDataFormat` Korumak ve kimliği ve tanımlama bilgisi değerinde depolanan diğer özellikleri korumasını kaldırmak için kullanılır.                                                                                                  |
-
+Daha fazla bilgi için [CookieAuthenticationOptions](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions).

@@ -1,3 +1,3 @@
-# <a name="aspnet-hosting-startup-sample"></a>ASP.NET barındırma başlangıç örnek
+# <a name="aspnet-core-hosting-startup-sample"></a>ASP.NET Core barındırma başlangıç örneği
 
-Bu örnek kullanımını göstermektedir [IHostingStartup](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup). Bu örnek bölümünde açıklanan senaryoları gösterilmektedir [dış bütünleştirilmiş uygulama geliştirmek](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/platform-specific-configuration).
+Bu örnek kullanımını gösterir [Ihostingstartup](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup). Bu örnek, açıklanan senaryoları gösterir [dış bütünleştirilmiş koddan uygulama geliştiren](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/platform-specific-configuration).

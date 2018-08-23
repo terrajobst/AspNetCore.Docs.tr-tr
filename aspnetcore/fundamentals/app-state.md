@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/14/2018
 uid: fundamentals/app-state
-ms.openlocfilehash: 072699113a45056ec3ea79436ad56896ba0a4197
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 7794b3c10e26720d3e7ef8965f99b204a3c58d5c
+ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095820"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41870940"
 ---
 # <a name="session-and-app-state-in-aspnet-core"></a>ASP.NET core'da oturum ve uygulama durumu
 
@@ -105,7 +105,7 @@ Aşağıdaki kod, varsayılan bir bellek içi uygulama ile bellek içi oturum sa
 
 ::: moniker-end
 
-Ara yazılım sırası önemlidir. Yukarıdaki örnekte, bir `InvalidOperationException` özel durum oluşursa, `UseSession` sonra çağrılan `UseMvc`. Daha fazla bilgi için [ara yazılım sıralama](xref:fundamentals/middleware/index#ordering).
+Ara yazılım sırası önemlidir. Yukarıdaki örnekte, bir `InvalidOperationException` özel durum oluşursa, `UseSession` sonra çağrılan `UseMvc`. Daha fazla bilgi için [ara yazılım sıralama](xref:fundamentals/middleware/index#order).
 
 [İçeriğin HttpContext.Session](/dotnet/api/microsoft.aspnetcore.http.httpcontext.session) oturum durumu yapılandırıldıktan sonra kullanılabilir.
 
@@ -299,7 +299,7 @@ Aşağıdaki `Startup` sınıf kodunu oturum tabanlı TempData sağlayıcısı y
 
 ::: moniker-end
 
-Ara yazılım sırası önemlidir. Yukarıdaki örnekte, bir `InvalidOperationException` özel durum oluşursa, `UseSession` sonra çağrılan `UseMvc`. Daha fazla bilgi için [ara yazılım sıralama](xref:fundamentals/middleware/index#ordering).
+Ara yazılım sırası önemlidir. Yukarıdaki örnekte, bir `InvalidOperationException` özel durum oluşursa, `UseSession` sonra çağrılan `UseMvc`. Daha fazla bilgi için [ara yazılım sıralama](xref:fundamentals/middleware/index#order).
 
 > [!IMPORTANT]
 > .NET Framework'ü hedefleyen ve oturum tabanlı TempData sağlayıcısını kullanarak eklerseniz [Microsoft.AspNetCore.Session](https://www.nuget.org/packages/Microsoft.AspNetCore.Session/) projeye paket.

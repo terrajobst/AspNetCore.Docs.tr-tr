@@ -3,23 +3,23 @@ uid: web-api/overview/testing-and-debugging/unit-testing-with-aspnet-web-api
 title: Birim testi ASP.NET Web API 2 | Microsoft Docs
 author: tfitzmac
 description: Bu kılavuzu ve uygulama, Web API 2 uygulama için basit birim testleri oluşturma işlemini göstermektedir. Bu öğreticide, bir birim test proj içerecek şekilde gösterilmektedir...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/05/2014
 ms.assetid: bf20f78d-ff91-48be-abd1-88e23dcc70ba
 msc.legacyurl: /web-api/overview/testing-and-debugging/unit-testing-with-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 701ced855ff2848182fdbf8d4b9e2bcf0c33341b
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 0a3f9ddde725995359de85c5e0783106f5de02bd
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37806221"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753909"
 ---
 <a name="unit-testing-aspnet-web-api-2"></a>Birim testi ASP.NET Web API 2
 ====================
 tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
-[Projeyi yükle](http://code.msdn.microsoft.com/Unit-Testing-with-ASPNET-e2867d4d)
+[Projeyi yükle](https://code.msdn.microsoft.com/Unit-Testing-with-ASPNET-1374bc11)
 
 > Bu kılavuzu ve uygulama, Web API 2 uygulama için basit birim testleri oluşturma işlemini göstermektedir. Bu öğreticide, bir denetleyici yönteminden döndürülen değerleri kontrol test yöntemler yazmak ve birim testi projesi içeren çözümünüze gösterilmektedir.
 > 

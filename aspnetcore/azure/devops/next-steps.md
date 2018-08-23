@@ -5,12 +5,12 @@ description: Azure'da barındırılan bir ASP.NET Core uygulaması için bir Dev
 ms.author: casoper
 ms.date: 08/07/2018
 uid: azure/devops/next-steps
-ms.openlocfilehash: c1b0b52295e2795e608399637dc9d864e2f572de
-ms.sourcegitcommit: 29dfe436f54a27fbb4f6494bc639d16c75001fab
+ms.openlocfilehash: 7a0f1b1b56a33b1870e0657d8ba465adb84f5a02
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39722734"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754040"
 ---
 # <a name="next-steps"></a>Sonraki adımlar
 
@@ -20,7 +20,7 @@ Web barındırma ve DevOps, Azure platformu-olarak-hizmet (PaaS) Hizmetleri ASP.
 
 ## <a name="storage-and-databases"></a>Depolama ve veritabanları
 
-[Redis cache](https://docs.microsoft.com/azure/redis-cache/) yüksek performanslı, düşük gecikme süreli veri önbelleğe alma bir hizmet olarak kullanılabilir. Sayfa çıktısını önbelleğe alma, veritabanı istekleri azaltma ve birden çok uygulama örneği arasında ASP.NET oturum durumu sağlamak için kullanılabilir.
+[Redis cache](https://docs.microsoft.com/azure/redis-cache/) yüksek performanslı, düşük gecikme süreli veri önbelleğe alma bir hizmet olarak kullanılabilir. Sayfa çıktısını önbelleğe alma, veritabanı istekleri azaltma ve bir uygulama birden çok örneği üzerinde ASP.NET Core oturum durumu sağlamak için kullanılabilir.
 
 [Azure depolama](https://docs.microsoft.com/azure/storage/) Azure'nın yüksek düzeyde ölçeklenebilir bulut depolamadır. Geliştiriciler yararlanabilir [kuyruk depolama](https://docs.microsoft.com/azure/storage/queues/storage-queues-introduction) güvenilir message queuing için ve [tablo depolama](https://docs.microsoft.com/azure/storage/tables/table-storage-overview) olan, muazzam, yarı yapılandırılmış veri kümeleri aracılığıyla hızlı geliştirmeye yönelik olarak tasarlanan NoSQL anahtar-değer deposu.
 

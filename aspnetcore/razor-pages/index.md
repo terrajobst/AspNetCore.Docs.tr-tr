@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/12/2018
 uid: razor-pages/index
-ms.openlocfilehash: 49bed6cc150a74ff8b72848f276c55c2490b6fa5
-ms.sourcegitcommit: a09820f91e71a7d98b7347bf93210abb9e995e22
+ms.openlocfilehash: f5549a24c5b5fe2e6b33bd55960f87a8bf86bd19
+ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37889148"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41870886"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>ASP.NET Core Razor sayfalar giriş
 
@@ -261,7 +261,7 @@ public void OnHead()
 }
 ```
 
-Hiçbir baş işleyici (`OnHead`) olan tanımlanan, Razor sayfaları geri alma sayfası işleyicisi çağırma için döner (`OnGet`) ASP.NET Core 2.1 veya üzeri. Bu davranışı ile kabul etmek [SetCompatibilityVersion yöntemi](xref:fundamentals/startup#setcompatibilityversion-for-aspnet-core-mvc) içinde `Startup.Configure` 2.x için ASP.NET Core 2.1 için:
+Hiçbir baş işleyici (`OnHead`) olan tanımlanan, Razor sayfaları geri alma sayfası işleyicisi çağırma için döner (`OnGet`) ASP.NET Core 2.1 veya üzeri. Bu davranışı ile kabul etmek [SetCompatibilityVersion yöntemi](xref:mvc/compatibility-version) içinde `Startup.Configure` 2.x için ASP.NET Core 2.1 için:
 
 ```csharp
 services.AddMvc()
@@ -272,7 +272,6 @@ services.AddMvc()
 
 Tüm 2.1 davranışlarla içine edilmesiyle yerine `SetCompatibilityVersion`, siz açıkça özel davranışları için katılımı. Aşağıdaki kod içine GET işleyicisine eşleme HEAD isteklerini kabul eder.
 
-
 ```csharp
 services.AddMvc()
     .AddRazorPagesOptions(options =>
@@ -280,6 +279,7 @@ services.AddMvc()
         options.AllowMappingHeadRequestsToGetHandler = true;
     });
 ```
+
 ::: moniker-end
 
 <a name="xsrf"></a>

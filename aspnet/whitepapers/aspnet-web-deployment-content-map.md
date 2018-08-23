@@ -3,17 +3,17 @@ uid: whitepapers/aspnet-web-deployment-content-map
 title: ASP.NET Web dağıtımı - önerilen kaynaklar | Microsoft Docs
 author: rick-anderson
 description: Bu konu, belgeleri (ASP.NET Yayımlama) nasıl dağıtılacağı hakkında daha fazla kaynak web bağlantılarını sağlar. Visual Studio 2010, Visual Web De kullanarak IIS uygulamaları...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/14/2014
 ms.assetid: 58b583cd-c4ab-47a3-8527-8c92c298c91f
 msc.legacyurl: /whitepapers/aspnet-web-deployment-content-map
 msc.type: content
-ms.openlocfilehash: f46a588144fb1af958737b07b73acbff60318fe6
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: c970d929c4e6b581bedd2947982926ac448facfa
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37809426"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753929"
 ---
 <a name="aspnet-web-deployment---recommended-resources"></a>ASP.NET Web dağıtımı - önerilen kaynaklar
 ====================
@@ -46,7 +46,7 @@ Bu konu aşağıdaki bölümleri içermektedir:
 - [Bir barındırma sağlayıcısı için sunucuları yapılandırma](#hostingprovider)
 - [Dağıtım sorunlarını giderme](#troubleshooting)
 - [Belirli bir dağıtım soru ilgili Yardım alma](#gettinghelp)
-- [Ek kaynaklar](#additional)
+- [Ek Kaynaklar](#additional)
 
 
 <a id="understanding"></a>

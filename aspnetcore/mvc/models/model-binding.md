@@ -4,14 +4,14 @@ author: tdykstra
 description: ASP.NET Core MVC, model bağlama HTTP isteklerinden alınan verileri olarak eylem metodu parametreleriyle nasıl eşlendiğini öğrenin.
 ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 ms.author: tdykstra
-ms.date: 01/22/2018
+ms.date: 08/14/2018
 uid: mvc/models/model-binding
-ms.openlocfilehash: 200e2c22e02ec9e24b7cdb3883cf6f2f93f2f4b7
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 0ce20a8040c6b19da1f57e1c053a7ef81d8bcb23
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095739"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755673"
 ---
 # <a name="model-binding-in-aspnet-core"></a>ASP.NET core'da model bağlama
 
@@ -99,6 +99,31 @@ MVC, farklı bir kaynak için varsayılan model bağlama davranışını yönlen
 
 Model bağlama'nın varsayılan davranışını geçersiz kılmanız gerekiyorsa öznitelikleri çok yararlı araçlardır.
 
+## <a name="customize-model-binding-and-validation-globally"></a>Model bağlama ve doğrulama genel özelleştirme
+
+Model bağlama ve doğrulama sistemin davranış tarafından yönlendirilen [ModelMetadata](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.modelmetadata) açıklayan:
+
+* Nasıl bir model bağlı olmasını sağlamaktır.
+* Ne tür ve özelliklerini doğrulama gerçekleşir.
+
+Sistemin davranış yönlerini yapılandırılabilir genel ayrıntıları sağlayıcıya ekleyerek [MvcOptions.ModelMetadataDetailsProviders](/dotnet/api/microsoft.aspnetcore.mvc.mvcoptions.modelmetadatadetailsproviders#Microsoft_AspNetCore_Mvc_MvcOptions_ModelMetadataDetailsProviders). MVC, model bağlama veya doğrulama belirli devre dışı bırakma gibi böyle davranışını yapılandırma türleri sağlayan birkaç yerleşik ayrıntıları sağlayıcıları vardır.
+
+Belirli bir türdeki tüm modeller üzerinde model bağlama devre dışı bırakmak için ekleme bir [ExcludeBindingMetadataProvider](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.metadata.excludebindingmetadataprovider) içinde `Startup.ConfigureServices`. Örneğin, devre dışı bırakma türü tüm modeller üzerinde model bağlama için `System.Version`:
+
+```csharp
+services.AddMvc().AddMvcOptions(options =>
+    options.ModelMetadataDetailsProviders.Add(
+        new ExcludeBindingMetadataProvider(typeof(System.Version))));
+```
+
+Belirli bir tür özelliklerini doğrulamasını devre dışı bırakmak için ekleme bir [SuppressChildValidationMetadataProvider](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.suppresschildvalidationmetadataprovider) içinde `Startup.ConfigureServices`. Örneğin, türün özelliklerini doğrulama devre dışı bırakmak için `System.Guid`:
+
+```csharp
+services.AddMvc().AddMvcOptions(options =>
+    options.ModelMetadataDetailsProviders.Add(
+        new SuppressChildValidationMetadataProvider(typeof(System.Guid))));
+```
+
 ## <a name="bind-formatted-data-from-the-request-body"></a>Gövdeden biçimlendirilmiş veri bağlama
 
 İstek verileri bir çeşitli biçimlerde JSON, XML ve diğer birçok gibi gelebilir. İstek gövdesinde veriye parametre bağlama istediğinizi belirtmek için [FromBody] özniteliği kullandığınızda, MVC biçimlendiricileri yapılandırılmış bir dizi kendi içerik türüne göre istek verileri işlemek için kullanır. Varsayılan olarak, MVC içeren bir `JsonInputFormatter` JSON verilerini, ancak işleme ek biçimlendiricileri XML ve diğer özel biçimler işlemek için ekleyebilirsiniz için sınıf.
@@ -109,7 +134,7 @@ Model bağlama'nın varsayılan davranışını geçersiz kılmanız gerekiyorsa
 > [!NOTE]
 > `JsonInputFormatter` Bağlıdır ve varsayılan biçimlendiricidir [Json.NET](https://www.newtonsoft.com/json).
 
-ASP.NET giriş biçimlendiricileri göre seçer [Content-Type](https://www.w3.org/Protocols/rfc1341/4_Content-Type.html) üstbilgi ve parametrenin türü olmadığı sürece, aksi takdirde belirtme uygulanan bir öznitelik. XML kullanmak ister misiniz veya başka bir biçimde, bunu yapılandırmalısınız *Startup.cs* dosyası, ancak öncelikle sahip bir başvuru almak `Microsoft.AspNetCore.Mvc.Formatters.Xml` NuGet kullanma. Başlangıç kodunuzun aşağıdakine benzer görünmelidir:
+ASP.NET Core giriş biçimlendiricileri göre seçer [Content-Type](https://www.w3.org/Protocols/rfc1341/4_Content-Type.html) üstbilgi ve parametrenin türü olmadığı sürece, aksi takdirde belirtme uygulanan bir öznitelik. XML kullanmak ister misiniz veya başka bir biçimde, bunu yapılandırmalısınız *Startup.cs* dosyası, ancak öncelikle sahip bir başvuru almak `Microsoft.AspNetCore.Mvc.Formatters.Xml` NuGet kullanma. Başlangıç kodunuzun aşağıdakine benzer görünmelidir:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -119,7 +144,7 @@ public void ConfigureServices(IServiceCollection services)
    }
 ```
 
-Kod *Startup.cs* dosyasını içeren bir `ConfigureServices` yöntemi ile bir `services` ASP.NET uygulamanız için hizmetlerini oluşturmak için kullanabileceğiniz bağımsız değişken. Aşağıdaki örnekte, bu uygulama için MVC sunan hizmet olarak bir XML biçimlendiricisi ekliyoruz. `options` Bağımsız değişken geçirildi `AddMvc` yöntemi ekleyin ve filtreler, biçimlendiricileri ve diğer sistem seçenekleri MVC uygulama başlatma sırasında yönetmenize olanak sağlar. Daha sonra uygulamanızı `Consumes` özniteliği denetleyici sınıflarına veya istediğiniz biçimi ile çalışması için eylem yöntemleri.
+Kod *Startup.cs* dosyasını içeren bir `ConfigureServices` yöntemi ile bir `services` bağımsız değişkeni için ASP.NET Core uygulamanızı hizmetlerini oluşturmak için kullanabilirsiniz. Aşağıdaki örnekte, bu uygulama için MVC sunan hizmet olarak bir XML biçimlendiricisi ekliyoruz. `options` Bağımsız değişken geçirildi `AddMvc` yöntemi ekleyin ve filtreler, biçimlendiricileri ve diğer sistem seçenekleri MVC uygulama başlatma sırasında yönetmenize olanak sağlar. Daha sonra uygulamanızı `Consumes` özniteliği denetleyici sınıflarına veya istediğiniz biçimi ile çalışması için eylem yöntemleri.
 
 ### <a name="custom-model-binding"></a>Özel Model bağlama
 

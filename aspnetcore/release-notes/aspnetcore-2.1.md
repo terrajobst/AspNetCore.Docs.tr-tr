@@ -3,15 +3,16 @@ title: ASP.NET Core 2.1 yenilikler nelerdir?
 author: isaac2004
 description: ASP.NET Core 2.1 yeni özellikler hakkında bilgi edinin.
 monikerRange: = aspnetcore-2.1
+ms.author: riande
 ms.custom: mvc
 ms.date: 05/30/2018
 uid: aspnetcore-2.1
-ms.openlocfilehash: f113e990d8b8f3eb80def0d18e301d930e58e596
-ms.sourcegitcommit: 516d0645c35ea784a3ae807be087ae70446a46ee
+ms.openlocfilehash: acbed75e2e894569816669e250795c95482bde2a
+ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39320680"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41819476"
 ---
 # <a name="whats-new-in-aspnet-core-21"></a>ASP.NET Core 2.1 yenilikler nelerdir?
 
@@ -157,6 +158,12 @@ Daha fazla bilgi için [ASP.NET Core ile tek sayfalı uygulama şablonlarını k
 ## <a name="razor-pages-in-an-area"></a>Bir alanı, Razor sayfaları
 
 Razor sayfaları artık destek [alanları](xref:mvc/controllers/areas). Alanların bir örnek için bireysel kullanıcı hesapları ile yeni bir Razor sayfaları web uygulaması oluşturun. Bireysel kullanıcı hesapları ile Razor sayfaları web uygulaması içeren */Areas/Identity/Pages*.
+
+## <a name="mvc-compatibility-version"></a>MVC uyumluluk sürümü
+
+<xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> Yöntemi kabul etme veya potansiyel olarak davranışı sunulan içinde ASP.NET Core MVC 2.1 veya üzeri bozucu değişiklikler çevirme için bir uygulama sağlar.
+
+Daha fazla bilgi için bkz. <xref:mvc/compatibility-version>.
 
 ## <a name="migrate-from-20-to-21"></a>2.1 için 2. 0'ı geçirme
 
