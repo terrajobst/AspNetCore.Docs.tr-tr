@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/numericupdown/index
 title: NumericUpDown | Microsoft Docs
 author: rick-anderson
 description: Bu öğretici, kullanıcıların yukarı ve aşağı okları kullanarak bir değer seçin sağlayan NumericUpDown denetimini nasıl kullanılacağını gösterir.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/14/2011
 ms.assetid: 77751a27-0c0a-41ff-9547-1c0d2ed03fd4
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/numericupdown
 msc.type: chapter
-ms.openlocfilehash: b69363a6df30e4587220f491e58d79f328f26c42
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: c1038f11c3b5c82baae5564bdb478a977a84a0b3
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37838393"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756514"
 ---
 <a name="numericupdown"></a>NumericUpDown
 ====================

@@ -3,17 +3,17 @@ uid: web-api/overview/security/authentication-and-authorization-in-aspnet-web-ap
 title: Kimlik doğrulama ve yetkilendirme ASP.NET Web API'de | Microsoft Docs
 author: MikeWasson
 description: ASP.NET Web API'de kimlik doğrulama ve yetkilendirme genel bir bakış sağlar.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/27/2012
 ms.assetid: 6dfb51ea-9f4d-4e70-916c-8ef8344a88d6
 msc.legacyurl: /web-api/overview/security/authentication-and-authorization-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: f882a9bb2922d0eb28eee7cdba0896bdc5318c2a
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: a78606a74b2149e68e3b01f4fe204f4a13edf4b5
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37812840"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755116"
 ---
 <a name="authentication-and-authorization-in-aspnet-web-api"></a>Kimlik doğrulama ve yetkilendirme ASP.NET Web API
 ====================
@@ -117,6 +117,6 @@ Aşağıdaki diyagramda gösterilmiştir için sınıf hiyerarşisi **AuthorizeA
 
 ### <a name="authorization-inside-a-controller-action"></a>Bir denetleyici eylemi içinde yetkilendirme
 
-Bazı durumlarda, devam edin, ancak sorumlusu tabanlı davranışını değiştirmek için bir istek izin verebilir. Örneğin, iade ettiğiniz bilgi kullanıcı rolüne bağlı olarak değişebilir. Bir denetleyici yöntemi içinde geçerli ilke gelen alabilirsiniz **ApiController.User** özelliği.
+Bazı durumlarda, devam edin, ancak sorumlusu tabanlı davranışını değiştirmek için bir istek izin verebilir. Örneğin, iade ettiğiniz bilgi kullanıcı rolüne bağlı olarak değişebilir. Bir denetleyici yöntemi içinde geçerli sorumlusundan alabilirsiniz **ApiController.User** özelliği.
 
 [!code-csharp[Main](authentication-and-authorization-in-aspnet-web-api/samples/sample7.cs)]

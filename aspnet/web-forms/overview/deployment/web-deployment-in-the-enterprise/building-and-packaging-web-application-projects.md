@@ -3,17 +3,17 @@ uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/building-and
 title: Derleme ve paketleme Web Uygulama projeleri | Microsoft Docs
 author: jrjlee
 description: Bir web uygulaması projesi için bir uzak sunucu ortamı dağıtmak istediğinizde, projeyi derleyin ve web dağıtımı paketiDesteklenen oluşturmak için ilk göreviniz olan...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: 94e92f80-a7e3-4d18-9375-ff8be5d666ac
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/building-and-packaging-web-application-projects
 msc.type: authoredcontent
-ms.openlocfilehash: b5342443fefd712aa95ac08a8edf708d55253816
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 406b8e6daf47196eb98700efe41e34c02d5682d3
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37810523"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755111"
 ---
 <a name="building-and-packaging-web-application-projects"></a>Derleme ve Web Uygulama projeleri paketleme
 ====================

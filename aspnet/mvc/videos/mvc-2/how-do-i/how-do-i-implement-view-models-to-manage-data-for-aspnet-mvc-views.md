@@ -3,17 +3,17 @@ uid: mvc/videos/mvc-2/how-do-i/how-do-i-implement-view-models-to-manage-data-for
 title: Nasıl Yaparım ASP.NET MVC görünümlerinin verilerini yönetmek için uygulama görünüm modelleri? | Microsoft Docs
 author: rick-anderson
 description: Bu videoda, Chris piksel kavramını kullanmayı gösterir. bir &quot;görünüm modeli&quot; ASP.NET MVC görünümlerinin verilerini yönetmek için. İlk olarak, örnek bir MVC projesi ye ediyor...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 12/11/2009
 ms.assetid: 22f55d63-78f7-44fd-9107-f74cbe16022b
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/how-do-i-implement-view-models-to-manage-data-for-aspnet-mvc-views
 msc.type: video
-ms.openlocfilehash: 30a02f4e9f277f54891fdc86c7ba2820a0d77e0b
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 32e10e038e7effbe7cddba0f64db9b8bb8bd4c31
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37819078"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754414"
 ---
 <a name="how-do-i-implement-view--models-to-manage-data-for-aspnet-mvc-views"></a>Nasıl Yaparım ASP.NET MVC görünümlerinin verilerini yönetmek için uygulama görünüm modelleri?
 ====================

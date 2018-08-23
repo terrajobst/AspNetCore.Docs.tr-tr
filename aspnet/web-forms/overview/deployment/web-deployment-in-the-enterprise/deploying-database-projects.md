@@ -3,17 +3,17 @@ uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-da
 title: Veritabanı projeleri dağıtma | Microsoft Docs
 author: jrjlee
 description: 'Not: kurumsal dağıtım senaryolarında çok sayıda, dağıtılmış bir veritabanı için artımlı güncelleştirmeleri yayımlamak için gerçekleştirebilmeleri gerekmektedir. Alternatif yeniden oluşturmaktır...'
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: 832f226a-1aa3-4093-8c29-ce4196793259
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-database-projects
 msc.type: authoredcontent
-ms.openlocfilehash: 1e5af29a91f5f432f9241dc3ba0c8fc0bfcf773f
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 43fa197a1d5a3cf521f4d2202754ff0d121cebe3
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37804989"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755113"
 ---
 <a name="deploying-database-projects"></a>Veritabanı projeleri dağıtma
 ====================

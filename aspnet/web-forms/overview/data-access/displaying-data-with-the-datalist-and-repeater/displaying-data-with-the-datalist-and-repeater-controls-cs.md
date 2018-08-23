@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeat
 title: DataList ve Repeater denetimleri (C#) ile verileri görüntüleme | Microsoft Docs
 author: rick-anderson
 description: Önceki öğreticilerde biz GridView denetiminde verileri görüntülemek için kullandınız. Bu öğretici ile başlayarak, ortak raporlama desenler oluşturmayı hazırız...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 09/13/2006
 ms.assetid: 0591cacc-b34b-4cf6-885e-2c9953bb0946
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/displaying-data-with-the-datalist-and-repeater-controls-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6368580d43e6216ea75d3013fb13aa59d9eeb6ba
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: a58a9501a546a437b44e078c628d7db010700b5c
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37805952"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753176"
 ---
 <a name="displaying-data-with-the-datalist-and-repeater-controls-c"></a>DataList ve Repeater denetimleri (C#) ile verileri görüntüleme
 ====================

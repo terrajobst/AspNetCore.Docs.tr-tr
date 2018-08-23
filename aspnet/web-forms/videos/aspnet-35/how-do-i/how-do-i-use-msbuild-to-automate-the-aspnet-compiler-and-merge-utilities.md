@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-35/how-do-i/how-do-i-use-msbuild-to-automate-the-as
 title: '[Bunu nasıl yaparım:] MSBuild kullanarak ASP.NET derleyici otomatikleştirmek için kullanın ve birleştirme yardımcı programlarını | Microsoft Docs'
 author: rick-anderson
 description: Bu video Chris piksel aspnet_compiler ve aspnet_merge yardımcı programları yürütülmesi için bir ASP düzenleyen bir MSBuild projesi oluşturma işlemini gösterir...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/07/2008
 ms.assetid: 14f2b333-59f5-4ae4-88db-2a78f809cef3
 msc.legacyurl: /web-forms/videos/aspnet-35/how-do-i/how-do-i-use-msbuild-to-automate-the-aspnet-compiler-and-merge-utilities
 msc.type: video
-ms.openlocfilehash: 8414489f495ae2b194a503bf3129467c3219ce8c
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: bed850b06b69e101d34f6987c9e6c66ab928543c
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37818197"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752552"
 ---
 <a name="how-do-i-use-msbuild-to-automate-the-aspnet-compiler-and-merge-utilities"></a>[Bunu nasıl yaparım:] MSBuild kullanarak ASP.NET derleyici otomatikleştirmek için kullanın ve birleştirme yardımcı programlarını
 ====================

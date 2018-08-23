@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-
 title: HTML5 ve jQuery UI Datepicker Popup Calendar ile ASP.NET MVC - bölüm 4 kullanarak | Microsoft Docs
 author: Rick-Anderson
 description: Bu öğreticide Düzenleyicisi şablonları, görüntüleme şablonları ve jQuery UI datepicker popup calendar, ASP.NET MV ile çalışmaya ilişkin temel bilgileri sağlanır...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/29/2011
 ms.assetid: 57666c69-2b0f-423a-a61d-be49547fa585
 msc.legacyurl: /mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-4
 msc.type: authoredcontent
-ms.openlocfilehash: d50ce517df9bd834203cbd026d31db038cd02038
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 58c0ae54e31c2cb4e85da11f7402ea248d9dfb3b
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37835738"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753368"
 ---
 <a name="using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc---part-4"></a>HTML5 ve jQuery UI Datepicker Popup Calendar ile ASP.NET MVC - bölüm 4 kullanma
 ====================

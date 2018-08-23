@@ -3,17 +3,17 @@ uid: web-forms/overview/getting-started/hands-on-labs/whats-new-in-aspnet-and-we
 title: ASP.NET ve Web geliştirme Visual Studio 2012'deki yenilikler | Microsoft Docs
 author: rick-anderson
 description: Visual Studio'nun yeni sürümü, performans ve deneyimini Web teknolojileri ile çalışırken geliştirmeye odaklı geliştirmeleri sunar...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/18/2013
 ms.assetid: 6d40d276-1642-4a77-b6c9-02ac914f6805
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/whats-new-in-aspnet-and-web-development-in-visual-studio-2012
 msc.type: authoredcontent
-ms.openlocfilehash: 474df5c8e2cee820a3bdd80ba45e6504a025cdf1
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 263a6e0aed51a681193333b53eff8f03847fc3aa
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37823614"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752356"
 ---
 <a name="whats-new-in-aspnet-and-web-development-in-visual-studio-2012"></a>ASP.NET ve Web geliştirme Visual Studio 2012'deki yenilikler
 ====================

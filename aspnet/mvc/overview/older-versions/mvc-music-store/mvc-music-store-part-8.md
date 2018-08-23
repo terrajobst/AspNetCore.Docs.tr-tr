@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-8
 title: '8. Bölüm: Ajax güncelleştirmeleriyle alışveriş | Microsoft Docs'
 author: jongalloway
 description: Bu öğretici serisinde ASP.NET MVC müzik Store örnek uygulamayı oluşturmak için gerçekleştirilen tüm adımları ayrıntılı olarak açıklanmaktadır. 8. Bölüm Ajax güncelleştirmeleriyle alışveriş sepeti kapsar.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/21/2011
 ms.assetid: 26b2f55e-ed42-4277-89b0-c941eb754145
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-8
 msc.type: authoredcontent
-ms.openlocfilehash: 881d47b5b4df5a4d310a1b3a7eec6ee97b0d42ea
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: cab338e56505c453532a26d794eb7bf4e94555a9
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37823845"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755123"
 ---
 <a name="part-8-shopping-cart-with-ajax-updates"></a>8. Bölüm: Ajax güncelleştirmeleriyle alışveriş sepeti
 ====================

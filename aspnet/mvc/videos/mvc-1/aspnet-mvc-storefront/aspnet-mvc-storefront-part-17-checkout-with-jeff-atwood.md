@@ -3,17 +3,17 @@ uid: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-17-checko
 title: 'ASP.NET MVC StoreFront Bölüm 17: Jeff Atwood kullanıma alma | Microsoft Docs'
 author: robconery
 description: Bu bölümde miyim kullanıma alma işlemini hazır ve Bay CodingHorror ile kendisi Jeff Atwood konuşun. Size başımıza birçok çeşit hakkında konuşmak, ancak çoğunlukla Ope tartışmak...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/16/2008
 ms.assetid: a39182f9-a82c-41fa-9be0-92c2291a3a96
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-17-checkout-with-jeff-atwood
 msc.type: video
-ms.openlocfilehash: 87755873eb94af416e0e33dd62e41ab383357201
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 667a40a58e6650cfa4757a805f9a2993866592f7
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37805392"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755835"
 ---
 <a name="aspnet-mvc-storefront-part-17-checkout-with-jeff-atwood"></a>ASP.NET MVC StoreFront Bölüm 17: Jeff Atwood kullanıma alma
 ====================

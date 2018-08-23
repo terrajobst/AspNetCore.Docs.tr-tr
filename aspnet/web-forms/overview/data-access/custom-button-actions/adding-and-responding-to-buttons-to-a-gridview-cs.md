@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/custom-button-actions/adding-and-responding-
 title: Ekleme ve bunları yanıtlama (C#) GridView'a düğme | Microsoft Docs
 author: rick-anderson
 description: Bu öğreticide bir şablona ve alanları GridView veya DetailsView denetimi için özel düğmeler, ekleme şu konuları inceleyeceğiz. Özellikle, satırını gerekir...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 09/13/2006
 ms.assetid: 128fdb5f-4c5e-42b5-b485-f3aee90a8e38
 msc.legacyurl: /web-forms/overview/data-access/custom-button-actions/adding-and-responding-to-buttons-to-a-gridview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 92743d252e6d8895ac1bff104456ec5874202ec9
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 3a081b1633e7762560aea68500f5bd614e4fb5a6
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37804752"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41757222"
 ---
 <a name="adding-and-responding-to-buttons-to-a-gridview-c"></a>Ekleme ve bunları yanıtlama (C#) GridView'a düğme
 ====================

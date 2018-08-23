@@ -3,17 +3,17 @@ uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms
 title: Kullanıma alma ve ödeme içeren PayPal | Microsoft Docs
 author: Erikre
 description: Bu öğretici serisinin ASP.NET 4.5 ve Visual Studio 2013 Express için kullandığımız bir ASP.NET Web Forms uygulaması oluşturmaya yönelik temel bilgiler sağlanır...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 09/08/2014
 ms.assetid: 664ec95e-b0c9-4f43-a39f-798d0f2a7e08
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/checkout-and-payment-with-paypal
 msc.type: authoredcontent
-ms.openlocfilehash: 3299da33a68f02ac1b3ffe7c037d06d8ece9455e
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: b59a395e255823a732aef1b899612063e09b2424
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37835637"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41757208"
 ---
 <a name="checkout-and-payment-with-paypal"></a>Kullanıma alma ve ödeme PayPal ile kasa işlemleri
 ====================
@@ -309,9 +309,9 @@ PayPal kod çoğunu tek bir sınıfta yerleştirmeniz gerekir. Bu sınıf, PayPa
 
 PayPal işlevselliğin büyük bölümü NVPAPICaller sınıfı içerir. Kod içinde sınıf PayPal sınama ortamından satın test yapmak için gereken yöntemleri sağlar. Aşağıdaki üç PayPal işlevleri satın alımları gerçekleştirmek için kullanılır:
 
-- `SetExpressCheckout` işlevi
-- `GetExpressCheckoutDetails` işlevi
-- `DoExpressCheckoutPayment` işlevi
+- `SetExpressCheckout` İşlevi
+- `GetExpressCheckoutDetails` İşlevi
+- `DoExpressCheckoutPayment` İşlevi
 
 `ShortcutExpressCheckout` Yöntemi test satın alma bilgileri ve ürün ayrıntıları alışveriş sepeti ve çağrıları toplar `SetExpressCheckout` PayPal işlevi. `GetCheckoutDetails` Yöntemi onaylar satın alma ayrıntıları ve çağrı `GetExpressCheckoutDetails` test satın almadan önce PayPal işlevi. `DoCheckoutPayment` Yöntemi çağırarak test ortamı'ndan test satın tamamlandığında `DoExpressCheckoutPayment` PayPal işlevi. Geri kalan kod, PayPal yöntemleri ve dizeleri kodlama, dizeleri kod çözme, dizileri işleme ve kimlik bilgilerini belirleme gibi işlemi destekler.
 

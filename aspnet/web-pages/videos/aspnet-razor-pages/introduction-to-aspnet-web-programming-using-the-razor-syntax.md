@@ -3,17 +3,17 @@ uid: web-pages/videos/aspnet-razor-pages/introduction-to-aspnet-web-programming-
 title: ASP.NET Web programlama Razor söz dizimini kullanarak giriş | Microsoft Docs
 author: JoeStagner
 description: Video isteyenler için giriş kullanımına ASP.NET Web programlama Razor söz dizimi Öğreticisi
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/25/2011
 ms.assetid: 22947987-9b02-4595-9e83-3d54ae013796
 msc.legacyurl: /web-pages/videos/aspnet-razor-pages/introduction-to-aspnet-web-programming-using-the-razor-syntax
 msc.type: video
-ms.openlocfilehash: 239e9d208735216a77a07c609c55ee390d671072
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 6ce40513522b99fd07f5a3b500d4cb11c22d92a5
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37823203"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755323"
 ---
 <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax"></a>ASP.NET Web programlama Razor söz dizimini kullanarak giriş
 ====================

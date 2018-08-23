@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc4/accessing-your
 title: Bir denetleyiciden modelinizin verilerine erişme | Microsoft Docs
 author: Rick-Anderson
 description: 'Not: Bu öğretici güncelleştirilmiş bir sürümünü burada ASP.NET MVC 5 ve Visual Studio 2013 kullanan kullanılabilir. Bu, daha güvenli ve izleyin ve tanıtım çok daha kolay...'
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/28/2012
 ms.assetid: 61e0206d-7f32-4018-992d-0a51b48b37dc
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/accessing-your-models-data-from-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: cf1d27088c1e65d55a6820825eebe63f7fdcb515
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 2b5747f49a31a6f3559609bbae765025e43c650b
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37804943"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755319"
 ---
 <a name="accessing-your-models-data-from-a-controller"></a>Bir denetleyiciden modelinizin verilerine erişme
 ====================

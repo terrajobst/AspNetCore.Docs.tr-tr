@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projec
 title: Kullanıcılar ve roller (VB) üretim Web sitesindeki | Microsoft Docs
 author: rick-anderson
 description: Üyelik ve roller ayarlarını yapılandırmak için ve oluşturmak, ASP.NET Web Sitesi Yönetim Aracı'nı (WSAT) bir web tabanlı kullanıcı arabirimi sağlar düzenleme, bir...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/09/2009
 ms.assetid: 491ed5ae-9be1-4191-87be-65e4e1c57690
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/users-and-roles-on-the-production-website-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0b4b5edef5c0b78abefb007f05d856fddd567b5f
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: f63d64532543da681fdf88399d7dd365804674c4
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37820908"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752153"
 ---
 <a name="users-and-roles-on-the-production-website-vb"></a>Kullanıcıları ve rolleri üretim Web sitesindeki (VB)
 ====================

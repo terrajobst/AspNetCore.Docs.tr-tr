@@ -3,17 +3,17 @@ uid: identity/index
 title: ASP.NET Identity | Microsoft Docs
 author: rick-anderson
 description: ''
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/02/2013
 ms.assetid: 0c2df5d4-c2dd-486d-b0ed-fe831c6b596c
 msc.legacyurl: /identity
 msc.type: categoryindex
-ms.openlocfilehash: c72f40822dd122dc6f3c56ad1994091e6a991740
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: b81e92ff1675b7810f9b2ca8b038a99fb84b1f5e
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37804076"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756511"
 ---
 <a name="aspnet-identity"></a>ASP.NET Kimlik
 ====================

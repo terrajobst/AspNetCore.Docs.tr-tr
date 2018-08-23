@@ -3,17 +3,17 @@ uid: web-forms/videos/building-35-applications/index
 title: 3.5 uygulamaları derleme | Microsoft Docs
 author: rick-anderson
 description: ASP.NET Web formları uygulamalarını oluşturmaya ilişkin temel bilgiler.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: 20060b05-3c1b-41ca-9621-4434ba233adc
 msc.legacyurl: /web-forms/videos/building-35-applications
 msc.type: chapter
-ms.openlocfilehash: 56674ef24d2cba94facb0f02ff59c8f10fd76c4b
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 0c70223c81f598c83cc39c28d97364f5c8b1e92b
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37819704"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754667"
 ---
 <a name="building-35-applications"></a>3.5 uygulamaları derleme
 ====================

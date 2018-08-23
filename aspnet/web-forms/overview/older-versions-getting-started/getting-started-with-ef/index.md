@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/i
 title: ASP.NET 4 - Entity Framework 4 ve Web Forms ile çalışmaya başlama | Microsoft Docs
 author: rick-anderson
 description: Bir ASP.NET Web formları uygulamasında verileri görüntülemek ve düzenlemek için Entity Framework kullanmanın temellerini.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: c801eeab-1469-42d7-a961-082dbbf4683e
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef
 msc.type: chapter
-ms.openlocfilehash: 645baea942df9672ad2e4399a25fb0efa14cbcfe
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 1a9fbd49d3d8fc54076efccfba9541287ad68f5b
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37806447"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755558"
 ---
 <a name="aspnet-4---getting-started-with-entity-framework-4-and-web-forms"></a>ASP.NET 4 - Entity Framework 4 ve Web Forms ile çalışmaya başlama
 ====================

@@ -3,17 +3,17 @@ uid: web-forms/videos/how-do-i/how-do-i-implement-error-handling-when-sending-em
 title: '[Bunu nasıl yaparım:] ASP.NET ile e-posta gönderilirken hata işleme uygulama | Microsoft Docs'
 author: rick-anderson
 description: Chris piksel, ASP.NET ile e-posta gönderme sırasında hata işleme uygulama işlemi gösterilmektedir. He bir e-posta göndermek için ASP.NET web sayfası oluşturur, nasıl yapılandırılacağını & lt. gösterir...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/06/2008
 ms.assetid: c02ffd50-aa19-4cdc-b1bf-760989979a61
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-implement-error-handling-when-sending-email-with-aspnet
 msc.type: video
-ms.openlocfilehash: ebe6f451cad2ba4a9311b5882337b637de7f381e
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 6708a0a22e621d08301fb4228ec6c6e5f599d57a
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37814733"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754684"
 ---
 <a name="how-do-i-implement-error-handling-when-sending-email-with-aspnet"></a>[Bunu nasıl yaparım:] ASP.NET ile e-posta gönderilirken hata işleme uygulama
 ====================

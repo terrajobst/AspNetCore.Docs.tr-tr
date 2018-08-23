@@ -3,17 +3,17 @@ uid: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-19-proces
 title: 'ASP.NET MVC MVC StoreFront Bölüm 19: Windows Workflow ile siparişleri işleme | Microsoft Docs'
 author: robconery
 description: Bu bölüm miyim Windows iş akışı tanıtır ve sitedeki çeşitli işlemler için ne kadar iyi çalışır görmek için sağlayabilirsiniz.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/16/2008
 ms.assetid: 3d08b4c5-a92f-4f75-aa10-5c2e9da8c114
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-19-processing-orders-with-windows-workflow
 msc.type: video
-ms.openlocfilehash: 2d572c43c8c288174068f6c372da0ec4059a4a4d
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 8a7ee5601dfc632baf3a0efd794d28232446032b
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37820632"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41757237"
 ---
 <a name="aspnet-mvc-mvc-storefront-part-19-processing-orders-with-windows-workflow"></a>ASP.NET MVC MVC StoreFront Bölüm 19: Windows Workflow ile siparişleri işleme
 ====================

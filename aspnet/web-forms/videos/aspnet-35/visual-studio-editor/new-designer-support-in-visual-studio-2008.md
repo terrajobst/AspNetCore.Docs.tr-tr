@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-35/visual-studio-editor/new-designer-support-in-vis
 title: Visual Studio 2008'de yeni tasarımcı desteği | Microsoft Docs
 author: JoeStagner
 description: Bu videoda, ı birkaç Visual Studio 2008'de yeni Tasarımcı özelliklerin gösterilecektir.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/15/2007
 ms.assetid: 01305c35-5b83-408b-bc9d-fa31b17a723f
 msc.legacyurl: /web-forms/videos/aspnet-35/visual-studio-editor/new-designer-support-in-visual-studio-2008
 msc.type: video
-ms.openlocfilehash: 711a85903070dd7a432674fc141ba6e02c899f40
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: ba6ac05c5eeddf67e860ebe902262ca09fad8199
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37821146"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753357"
 ---
 <a name="new-designer-support-in-visual-studio-2008"></a>Visual Studio 2008'de yeni tasarımcı desteği
 ====================

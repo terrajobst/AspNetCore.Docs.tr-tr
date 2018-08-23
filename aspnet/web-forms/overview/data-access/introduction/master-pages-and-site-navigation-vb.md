@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/introduction/master-pages-and-site-navigatio
 title: Ana sayfalar ve Site gezintisi (VB) | Microsoft Docs
 author: rick-anderson
 description: Bir ortak kullanıcı dostu Web siteleri bir tutarlı, site genelindeki sayfa düzeni ve gezinti düzeni sahip oldukları özelliğidir. Bu öğreticide adımları ele alınmaktadır y...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/31/2010
 ms.assetid: 022801d8-a327-4d0c-8780-6094c9cee00d
 msc.legacyurl: /web-forms/overview/data-access/introduction/master-pages-and-site-navigation-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d00e535445551a7cfe2d4c46be36abccea31c770
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 2a814fe8ed4a902061b2c50fd9d63983c4f6b2e8
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37810821"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754915"
 ---
 <a name="master-pages-and-site-navigation-vb"></a>Ana sayfalar ve Site gezintisi (VB)
 ====================

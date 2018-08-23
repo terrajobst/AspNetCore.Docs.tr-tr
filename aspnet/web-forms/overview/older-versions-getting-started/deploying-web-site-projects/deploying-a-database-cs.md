@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projec
 title: Veritabanı (C#) dağıtma | Microsoft Docs
 author: rick-anderson
 description: Bir ASP.NET web uygulaması dağıtma, gerekli dosyalara ve kaynaklara geliştirme ortamından üretim ortamına alma kapsar. Da için...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/23/2009
 ms.assetid: ff537a10-9f1f-43fe-9bcb-3dda161ba8f5
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-a-database-cs
 msc.type: authoredcontent
-ms.openlocfilehash: baab10b8752af8c971f65df6e67cb77d9ad6518e
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: ca9ce2b41cfd10504304c30bc965e446a7188120
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37834342"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753804"
 ---
 <a name="deploying-a-database-c"></a>Veritabanı (C#) dağıtma
 ====================

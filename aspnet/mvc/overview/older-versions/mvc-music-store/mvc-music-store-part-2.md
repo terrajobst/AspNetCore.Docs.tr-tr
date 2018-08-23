@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-2
 title: '2. Bölüm: Denetleyicileri | Microsoft Docs'
 author: jongalloway
 description: Bu öğretici serisinde ASP.NET MVC müzik Store örnek uygulamayı oluşturmak için gerçekleştirilen tüm adımları ayrıntılı olarak açıklanmaktadır. Bölüm 2 denetleyicileri kapsar.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/21/2011
 ms.assetid: 998ce4e1-9d72-435b-8f1c-399a10ae4360
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: 8824d5d2f5670aee2df6dc6e74767e4a851dd4ae
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: b88aa22ccef04ab03b3a16c42e0a30e45ad11901
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37841101"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754942"
 ---
 <a name="part-2-controllers"></a>2. Bölüm: denetleyicileri
 ====================

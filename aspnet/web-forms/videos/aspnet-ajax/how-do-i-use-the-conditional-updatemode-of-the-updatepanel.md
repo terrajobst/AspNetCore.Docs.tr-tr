@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-ajax/how-do-i-use-the-conditional-updatemode-of-the
 title: "[Bunu nasıl yaparım:] Koşullu Updatemode'unu kullanma? | Microsoft Docs"
 author: JoeStagner
 description: ASP.NET AJAX UpdatePanel 'Always' veya 'Koşullu' için ayarlanmış bir UpdateMode özelliğini içerir. Her zaman UpdatePan durumda varsayılandır...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/01/2007
 ms.assetid: 10b5bad3-4c18-464f-9454-0b3e60b7b8be
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-use-the-conditional-updatemode-of-the-updatepanel
 msc.type: video
-ms.openlocfilehash: 04b37874bcbdd580edc9182b54eecc9a6f77cb61
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 96d7bc95fd80e410feb332264695835e68793ae2
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37826818"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752336"
 ---
 <a name="how-do-i-use-the-conditional-updatemode-of-the-updatepanel"></a>[Bunu nasıl yaparım:] Koşullu Updatemode'unu kullanma?
 ====================

@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projec
 title: Veritabanı geliştirme ve dağıtma (VB) stratejileri | Microsoft Docs
 author: rick-anderson
 description: Veri temelli bir uygulama ilk kez dağıtırken, veritabanı geliştirme ortamında üretim ortamına körüne kopyalayabilirsiniz. B...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/23/2009
 ms.assetid: 07b8905d-78ac-4252-97fb-8675b3fb0bbf
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/strategies-for-database-development-and-deployment-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1964a8c482fba39aeb64158c2cb4624980bcff0d
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: e07da4b5263ac3c6db19c375ca00cbcf87e0b35a
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37838718"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751959"
 ---
 <a name="strategies-for-database-development-and-deployment-vb"></a>Veritabanı geliştirme ve dağıtma (VB) stratejileri
 ====================

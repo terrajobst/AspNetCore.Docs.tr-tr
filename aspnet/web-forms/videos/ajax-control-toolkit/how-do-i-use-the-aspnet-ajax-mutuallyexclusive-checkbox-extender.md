@@ -3,17 +3,17 @@ uid: web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-mutually
 title: '[Bunu nasıl yaparım:] ASP.NET AJAX MutuallyExclusive onay kutusu genişletici kullanılsın mı? | Microsoft Docs'
 author: JoeStagner
 description: ASP.NET AJAX Denetim Araç Seti denetim MutuallyExclusive onay kutuları olarak birbirini dışlar, hangi e sayısını yapılandırmak Geliştirici sağlar...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/04/2007
 ms.assetid: 808a89d3-4a98-4abe-83b5-0aa01f749048
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-mutuallyexclusive-checkbox-extender
 msc.type: video
-ms.openlocfilehash: 0a06ffc397a596159404740d65683fc2b54ec248
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 8d2c31b8466ba37ad8ed8a2c4d06b1eb2a6fe629
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37812970"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754651"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-mutuallyexclusive-checkbox-extender"></a>[Bunu nasıl yaparım:] ASP.NET AJAX MutuallyExclusive onay kutusu genişletici kullanılsın mı?
 ====================

@@ -3,17 +3,17 @@ uid: aspnet/overview/owin-and-katana/enabling-windows-authentication-in-katana
 title: Katana'da Windows kimlik doğrulamasını etkinleştirme | Microsoft Docs
 author: MikeWasson
 description: "Bu makalede katana'da Windows kimlik doğrulamasının nasıl etkinleştirileceği gösterilmektedir. İki senaryoyu da kapsamaktadır: IIS konağa Katana ve Kat barındırma için HttpListener kullanarak..."
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/30/2013
 ms.assetid: 82324ef0-3b75-4f63-a217-76ef4036ec93
 msc.legacyurl: /aspnet/overview/owin-and-katana/enabling-windows-authentication-in-katana
 msc.type: authoredcontent
-ms.openlocfilehash: 80bdc3c76c8867dc559e80a794ac8bee84b47646
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 0aa578020a1f02fa68c74e758014c642219b4265
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37826332"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753156"
 ---
 <a name="enabling-windows-authentication-in-katana"></a>Katana'da Windows kimlik doğrulamasını etkinleştirme
 ====================

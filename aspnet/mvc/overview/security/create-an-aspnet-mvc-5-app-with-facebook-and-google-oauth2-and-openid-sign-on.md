@@ -3,17 +3,17 @@ uid: mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-o
 title: MVC 5 oluşturma Facebook, Twitter, LinkedIn ve Google OAuth2 oturum açma (C#) ile uygulama | Microsoft Docs
 author: Rick-Anderson
 description: Bu öğreticide, OAuth 2.0 kullanarak bir dış kimlik Doğr kimlik bilgileriyle oturum açmasına olanak tanıyan bir ASP.NET MVC 5 web uygulaması oluşturma işlemini göstermektedir...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/03/2015
 ms.assetid: 81ee500f-fc37-40d6-8722-f1b64720fbb6
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: f36b73aac2e7844367e1e52b2c721bfe6b3575e2
-ms.sourcegitcommit: 7097dba14d5b858e82758ee031ac62dbe3611339
+ms.openlocfilehash: 330cb290668ae951e822b95990ed92100b790cd5
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39138525"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751935"
 ---
 <a name="create-an-aspnet-mvc-5-app-with-facebook-twitter-linkedin-and-google-oauth2-sign-on-c"></a>Facebook, Twitter, LinkedIn ve Google OAuth2 oturum açma (C#) ile bir ASP.NET MVC 5 uygulaması oluşturma
 ====================

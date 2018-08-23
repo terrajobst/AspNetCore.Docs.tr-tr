@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/mutuallyexclusivecheckbox/creating-
 title: Birbirini dışlayan onay kutuları (VB) oluşturma | Microsoft Docs
 author: wenz
 description: 'Radyo düğmeleri, genellikle bir seçenek kümesi yalnızca biri seçili olduğunda kullanılır. Var olan bir dezavantajı, ancak: bir radyo düğmesi grubundaki seçildikten sonra...'
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: e9dd1d5a-a1db-4114-981d-6a91acb1d709
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/mutuallyexclusivecheckbox/creating-mutually-exclusive-checkboxes-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6badd005ed4775cb248784f3e9991132db1b3969
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: fd338b622779b64dd59f9cf6f3e2365ef5cb3ffb
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37828805"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754679"
 ---
 <a name="creating-mutually-exclusive-checkboxes-vb"></a>Birbirini dışlayan onay kutuları (VB) oluşturma
 ====================

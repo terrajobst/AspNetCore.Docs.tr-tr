@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-3
 title: "3. Bölüm: Görünümler ve Viewmodel'lar | Microsoft Docs"
 author: jongalloway
 description: Bu öğretici serisinde ASP.NET MVC müzik Store örnek uygulamayı oluşturmak için gerçekleştirilen tüm adımları ayrıntılı olarak açıklanmaktadır. Bölüm 3, görünümler ve Viewmodel'lar kapsar.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/21/2011
 ms.assetid: 94297aa0-1f2d-4d72-bbcb-63f64653e0c0
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: 8fd89c2a448877bf13a7828f545ffcd400f63bb1
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 828ff18abcc5932f82be71a45ebde589eeb051fa
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37837416"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754403"
 ---
 <a name="part-3-views-and-viewmodels"></a>3. Bölüm: Görünümler ve Viewmodel'lar
 ====================
@@ -214,7 +214,7 @@ Biz bu kodun girerken biz yazdığınızda emin ediyoruz tam IntelliSense deste�
 
 ![](mvc-music-store-part-3/_static/image18.png)
 
-Bizim "foreach" döngü içinde IntelliSence her biri için görüyoruz her öğenin tür Tarz, tarz türü olduğundan, Visual Web Developer bilir.
+Bizim "foreach" döngüsü içinde her biri için IntelliSense işleyip her öğenin tür Tarz, tarz türü olduğundan, Visual Web Developer bilir.
 
 ![](mvc-music-store-part-3/_static/image19.png)
 

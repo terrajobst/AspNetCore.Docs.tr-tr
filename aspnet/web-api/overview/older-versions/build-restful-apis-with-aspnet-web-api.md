@@ -3,17 +3,17 @@ uid: web-api/overview/older-versions/build-restful-apis-with-aspnet-web-api
 title: ASP.NET Web API ile RESTful API'leri oluşturmak | Microsoft Docs
 author: rick-anderson
 description: Son yıllarda, HTML sayfaları yalnızca hizmet vermek için HTTP değil olduğu açıkça görülmektedir oldu. Ayrıca, bir talebin o kullanarak Web API'leri oluşturmaya yönelik güçlü bir platform olan...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/18/2013
 ms.assetid: 87daa99f-3810-407e-b969-dd28a192959d
 msc.legacyurl: /web-api/overview/older-versions/build-restful-apis-with-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 9866b5f75771c633165587ba04e694f72a1e626c
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 00304f67138873318b63c5e2ad0cd69aa7449521
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37835605"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755541"
 ---
 <a name="build-restful-apis-with-aspnet-web-api"></a>ASP.NET Web API ile RESTful API'leri oluşturma
 ====================

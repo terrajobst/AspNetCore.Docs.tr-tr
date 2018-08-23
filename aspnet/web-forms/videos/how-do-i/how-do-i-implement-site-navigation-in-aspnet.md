@@ -3,17 +3,17 @@ uid: web-forms/videos/how-do-i/how-do-i-implement-site-navigation-in-aspnet
 title: "[Bunu nasıl yaparım:] ASP.NET'te Site gezintisi uygulama? | Microsoft Docs"
 author: rick-anderson
 description: Bu videoda, size bir site haritası tanımlamak ve menüsünde, ağaç görünümünde ve site haritası sunucu denetimleri ile kullanmak nasıl öğrenin. Ana sayfada bir site haritası kullanmayı görüyoruz...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/18/2007
 ms.assetid: 889e8100-a80c-41c0-bfeb-7d466c754548
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-implement-site-navigation-in-aspnet
 msc.type: video
-ms.openlocfilehash: 1995ce735698f0c7827e2721c07c1d98922a7ba3
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: ee5b79587672b9bf076439b28aad9de3f0c7dd98
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37822437"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753365"
 ---
 <a name="how-do-i-implement-site-navigation-in-aspnet"></a>[Bunu nasıl yaparım:] ASP.NET'te Site gezintisi uygulama?
 ====================

@@ -3,17 +3,17 @@ uid: web-api/overview/security/individual-accounts-in-web-api
 title: Bireysel hesaplar ve ASP.NET Web API 2.2 sürümünde yerel oturum açma ile bir Web API'SİNİN güvenliğini sağlama | Microsoft Docs
 author: MikeWasson
 description: Bu konu, bir üyelik veritabanında kimlik doğrulaması yapmak için oauth2'yi kullanarak bir web API güvenliğini sağlama işlemini gösterir. Bir öğretici Visual Studio 201 kullanılan yazılım sürümleri...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/15/2014
 ms.assetid: 92c84846-f0ea-4b5e-94b6-5004874eb060
 msc.legacyurl: /web-api/overview/security/individual-accounts-in-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 0a520333492a60014f7e9f9182a16f0ce514ba1d
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 01d117260ef458453bee79285a37a8977221998c
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37842091"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41757223"
 ---
 <a name="secure-a-web-api-with-individual-accounts-and-local-login-in-aspnet-web-api-22"></a>Bireysel hesaplar ve ASP.NET Web API 2.2 sürümünde yerel oturum açma ile bir Web API'SİNİN güvenliğini sağlama
 ====================

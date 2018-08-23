@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/custom-formatting/using-the-formview-s-templ
 title: FormView şablonları (C#) kullanarak | Microsoft Docs
 author: rick-anderson
 description: DetailsView FormView alanlarının oluşur değil. Bunun yerine, FormView şablonları kullanılarak işlenir. Bu öğreticide F. kullanarak inceleyeceğiz...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/31/2010
 ms.assetid: d3f062af-88cf-426d-af44-e41f32c41672
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/using-the-formview-s-templates-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 637f0778bd959d2bae52edccb5c5ac259f4d3644
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 1a7cf17d8cbd0a5a17a387b9a70336a1b06efde7
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37824023"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754649"
 ---
 <a name="using-the-formviews-templates-c"></a>FormView şablonları (C#) kullanma
 ====================

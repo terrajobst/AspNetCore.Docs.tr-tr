@@ -3,17 +3,17 @@ uid: web-pages/overview/releases/top-features-in-web-pages-2
 title: Üst özellikleri ASP.NET Web sayfaları 2 | Microsoft Docs
 author: microsoft
 description: Bu konu en iyi yeni özellikler WebMatr ile birlikte sağlanan bir basit bir web programlama çerçevesi ASP.NET Web sayfaları 2 sürümündeki genel bir bakış sağlar...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/13/2012
 ms.assetid: cc712e72-c3d0-4e43-bc2d-28cc09cd8f71
 msc.legacyurl: /web-pages/overview/releases/top-features-in-web-pages-2
 msc.type: authoredcontent
-ms.openlocfilehash: 6e20dedd19ae458b9881973570f23b5d77dda654
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: e06db7eb33dc2891d86b65fa56c20b9e8cae1970
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37827407"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753565"
 ---
 <a name="the-top-features-in-aspnet-web-pages-2"></a>ASP.NET Web sayfaları 2'de en iyi Özellikler
 ====================
@@ -34,7 +34,7 @@ tarafından [Microsoft](https://github.com/microsoft)
 >     - [Haritalar Yardımcısını kullanarak eşlemeleri ekleme](#maphelper)
 >     - [Web sayfaları uygulamalarını yan yana çalıştırma](#sidebyside)
 >     - [Mobil cihazlar için sayfa oluşturma](#mobile)
-> - [Ek kaynaklar](#resources)
+> - [Ek Kaynaklar](#resources)
 > 
 > > [!NOTE]
 > > Bu konuda, WebMatrix ile ASP.NET Web Pages 2 kodunuzu çalışmak için kullandığınız varsayılır. Web sayfaları 1 ile Visual Studio kullanarak Web Pages 2 Web siteleri de oluşturabileceğiniz gibi ancak size sağlayan IntelliSense özellikleri ve hata ayıklama iyileştirdik. Visual Studio'da Web sayfaları ile çalışmak için önce Visual Studio 2010 SP1, Visual Web Developer Express 2010 SP1 veya Visual Studio 11 Beta yüklemelisiniz. Ardından, şablonları ve Visual Studio'da ASP.NET MVC 4 ve Web Pages 2 uygulamaları oluşturmaya yönelik araçlar içeren ASP.NET MVC 4 Beta yükleyin.

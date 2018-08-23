@@ -3,17 +3,17 @@ uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/async-and-st
 title: Zaman uyumsuz ve saklı yordamlar bir ASP.NET MVC uygulamasındaki Entity Framework ile | Microsoft Docs
 author: tdykstra
 description: Contoso University örnek web uygulaması Entity Framework 6 Code First ve Visual Studio kullanarak ASP.NET MVC 5 uygulamalarının nasıl oluşturulacağını gösterir...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/07/2014
 ms.assetid: 27d110fc-d1b7-4628-a763-26f1e6087549
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 211c9c8c66f3eed15121b4dd425fa728c39b7de3
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: c665ff3bd4ce5173ee17ab7e0c4591f72b439eeb
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37802055"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754672"
 ---
 <a name="async-and-stored-procedures-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Zaman uyumsuz ve bir ASP.NET MVC uygulamasındaki Entity Framework ile saklı yordamlar
 ====================

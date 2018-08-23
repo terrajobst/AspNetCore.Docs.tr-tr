@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/masterdetail/master-detail-filtering-with-tw
 title: Ana/ayrıntı filtreleme (VB) iki DropDownList ile | Microsoft Docs
 author: rick-anderson
 description: Bu öğreticide, istenen üst ve doya recor seçmek için iki DropDownList denetimi kullanarak, bir üçüncü katman eklemek için ana/ayrıntı ilişkisi genişletir...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/31/2010
 ms.assetid: 11ae4f64-01ba-4823-95f4-a2fe1f84f7d7
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-with-two-dropdownlists-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 17bbaa346925585b5b184127fa80fd2203869492
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 20df98f1aacb046bb9ec9fa5ad03e008dc234509
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37805291"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756509"
 ---
 <a name="masterdetail-filtering-with-two-dropdownlists-vb"></a>Ana/ayrıntı filtreleme (VB) iki DropDownList ile
 ====================

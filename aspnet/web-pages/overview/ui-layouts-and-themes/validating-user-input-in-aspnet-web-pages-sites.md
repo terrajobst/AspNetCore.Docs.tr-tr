@@ -3,17 +3,17 @@ uid: web-pages/overview/ui-layouts-and-themes/validating-user-input-in-aspnet-we
 title: ASP.NET Web uygulamasında kullanıcı girdisi doğrulama sayfaları (Razor) siteler | Microsoft Docs
 author: tfitzmac
 description: Bu makalede, kullanıcılardan alma bilgileri doğrulamak anlatılmaktadır &mdash; diğer bir deyişle, geçerli kullanıcılar girdiğinizden emin olmak için bir as HTML bilgilerinde forms...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/20/2014
 ms.assetid: 4eb060cc-cf14-41ae-bab1-14a2c15332d0
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/validating-user-input-in-aspnet-web-pages-sites
 msc.type: authoredcontent
-ms.openlocfilehash: d412f3fa4ca144a8a9107c971279f7bf2663cfe5
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 761d6965883f46e1253f1fb0105cb0d4539fcf9d
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37819272"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754409"
 ---
 <a name="validating-user-input-in-aspnet-web-pages-razor-sites"></a>ASP.NET Web sayfaları (Razor) sitesinde kullanıcı girişini doğrulama
 ====================

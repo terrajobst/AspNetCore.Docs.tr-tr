@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-ne
 title: Film modeli ve tablosuna (VB) yeni bir alan ekleme | Microsoft Docs
 author: Rick-Anderson
 description: Bu öğreticide, Microsoft Visual Web Developer 2010 Express Service Pack, 1, kullanarak bir ASP.NET MVC Web uygulaması oluşturmaya yönelik temel bilgiler sağlanır...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/12/2011
 ms.assetid: 28970e1b-1845-4015-86ef-121e52a6c397
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-new-field
 msc.type: authoredcontent
-ms.openlocfilehash: cd178b36e1554c9521e0a001568ba41ec13fcef0
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 816660aff696c64948e6ca9daca6632cc9d58082
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37839670"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752967"
 ---
 <a name="adding-a-new-field-to-the-movie-model-and-database-table-vb"></a>Film modeli ve tablosuna (VB) yeni bir alan ekleme
 ====================

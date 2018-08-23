@@ -3,17 +3,17 @@ uid: web-forms/pluralsight
 title: Web Forms Video eğitimi pluralsight tarafından sunulan | Microsoft Docs
 author: rick-anderson
 description: Pluralsight bu ASP.NET Web Forms geliştirme kursu sunulan Web Forms Video Eğitimi, bir .NET geliştirme bilmeniz gereken birkaç anahtar teknolojileri sunar...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 12/16/2011
 ms.assetid: c71bb9b2-7136-4ce6-a40a-cc4d9978cfb7
 msc.legacyurl: /web-forms/pluralsight
 msc.type: content
-ms.openlocfilehash: 502aa3ea99b768a58172809cd049380b480f71e3
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 5aca0d027b735e88689633b0d34b0009566c8913
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37811435"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754653"
 ---
 <a name="web-forms-video-training-from-pluralsight"></a>Web Forms Video eğitimi pluralsight tarafından sunulan
 ====================

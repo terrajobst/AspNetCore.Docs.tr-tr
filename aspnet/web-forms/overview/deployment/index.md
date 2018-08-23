@@ -3,17 +3,17 @@ uid: web-forms/overview/deployment/index
 title: Dağıtım | Microsoft Docs
 author: rick-anderson
 description: ASP.NET Web formları projeleri bir sunucuya dağıtma
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/18/2011
 ms.assetid: 05e4c88f-5101-4277-a323-b6774d98f69e
 msc.legacyurl: /web-forms/overview/deployment
 msc.type: chapter
-ms.openlocfilehash: 808e61c25438b631b30e2b5c83f9e21a1151e809
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 660987c11fe57a858d5fa552a10e38e65a3d5555
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37806625"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756951"
 ---
 <a name="deployment"></a>Dağıtım
 ====================

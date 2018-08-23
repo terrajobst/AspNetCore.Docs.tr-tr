@@ -3,17 +3,17 @@ uid: web-forms/overview/security/create-an-aspnet-web-forms-app-with-sms-two-fac
 title: Oluşturma bir ASP.NET Web Forms uygulaması SMS iki öğeli kimlik doğrulama (C#) ile | Microsoft Docs
 author: Erikre
 description: Bu öğreticide iki öğeli kimlik doğrulaması ile bir ASP.NET Web formları uygulamasının nasıl oluşturulacağını gösterir. Bu öğreticide, Cr başlıklı öğreticiyi tamamlamak üzere tasarlanmıştır...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/09/2014
 ms.assetid: 716264ae-ab72-45de-bfc5-53a6237089cf
 msc.legacyurl: /web-forms/overview/security/create-an-aspnet-web-forms-app-with-sms-two-factor-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: 16045b116ca5c797e7840f2ee5944e5f2c6282eb
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 7ad3b7a453a40f2708902ae5b9e5cb75b931d54d
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37803555"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752948"
 ---
 <a name="create-an-aspnet-web-forms-app-with-sms-two-factor-authentication-c"></a>Oluşturma bir ASP.NET Web Forms uygulaması ile SMS iki öğeli kimlik doğrulama (C#)
 ====================
@@ -33,7 +33,7 @@ Bu öğreticide, iki öğeli Visual Studio kullanarak kimlik doğrulamasını de
 - [Bir ASP.NET Web Forms uygulaması oluşturma](#createWebForms)
 - [SMS ve iki öğeli kimlik doğrulaması kurulumu](#SMS)
 - [Kayıtlı kullanıcı için iki öğeli kimlik doğrulamasını etkinleştirme](#use2FA)
-- [Ek kaynaklar](#addRes)
+- [Ek Kaynaklar](#addRes)
 
 <a id="createWebForms"></a>
 ## <a name="create-an-aspnet-web-forms-app"></a>Bir ASP.NET Web Forms uygulaması oluşturma

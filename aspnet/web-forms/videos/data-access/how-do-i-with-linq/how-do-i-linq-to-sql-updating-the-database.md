@@ -3,17 +3,17 @@ uid: web-forms/videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-updati
 title: '[Bunu nasıl yaparım:] LINQ to SQL: veritabanını güncelleştirme | Microsoft Docs'
 author: scottstanfield
 description: Bu videoda, ı gösterildiği nasıl oluşturulacağını, güncelleştirme ve LINQ, basit işlemler, ilişkileri ve özel sütun genelinde güncelleştirmeler kayıtlarda silme ve...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/15/2007
 ms.assetid: d37b9859-1fc1-4669-89ea-b16f3c349d82
 msc.legacyurl: /web-forms/videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-updating-the-database
 msc.type: video
-ms.openlocfilehash: c015991a3a12b6f523467ed947e0f72f990ab457
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: e50420921bc3e88c51f86ad0ea5aade99fee552a
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37829667"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752532"
 ---
 <a name="how-do-i-linq-to-sql-updating-the-database"></a>[Bunu nasıl yaparım:] LINQ to SQL: veritabanını güncelleştirme
 ====================

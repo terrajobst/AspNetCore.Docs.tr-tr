@@ -3,17 +3,17 @@ uid: web-forms/videos/data-access/adonet-data-services/how-to-manually-bind-a-da
 title: Nasıl el ile bir veri kümesi DataGrid'e bağlama | Microsoft Docs
 author: JoeStagner
 description: Bu videoda, 3, 2 parçası ALi Stagner el ile bir veri kümesi DataGrid'e bağlama işlemini göstermek için bir parçası oluşturulan örnek ASP uygulamasının kullanır. İçin...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/07/2008
 ms.assetid: 1e339f8a-72ea-463a-b186-c09dd7b12993
 msc.legacyurl: /web-forms/videos/data-access/adonet-data-services/how-to-manually-bind-a-dataset-to-a-datagrid
 msc.type: video
-ms.openlocfilehash: 25c3ef065ef1681f3d85bb24cacaa1fc56359ae7
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 36ca3880a95ebe9dd4823891a2ce1de1ef62a871
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37818003"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754668"
 ---
 <a name="how-to-manually-bind-a-dataset-to-a-datagrid"></a>Nasıl el ile bir veri kümesi DataGrid'e bağlama
 ====================

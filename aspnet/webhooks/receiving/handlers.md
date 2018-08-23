@@ -3,15 +3,15 @@ uid: webhooks/receiving/handlers
 title: ASP.NET Web kancaları işleyicileri | Microsoft Docs
 author: rick-anderson
 description: ASP.NET Web kancaları isteklerini işlemek nasıl.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/17/2012
 ms.assetid: a55b0d20-9c90-4bd3-a471-20da6f569f0c
-ms.openlocfilehash: bc8f4ef3f4ade775b395d73dfa8d73fec92fba3f
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 01c9a283d105c4a0973ff88c8de646c5f49a34db
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37841428"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41757212"
 ---
 # <a name="aspnet-webhooks-handlers"></a>ASP.NET Web kancaları işleyicileri
 

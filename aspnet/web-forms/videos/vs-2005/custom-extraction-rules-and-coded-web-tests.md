@@ -3,17 +3,17 @@ uid: web-forms/videos/vs-2005/custom-extraction-rules-and-coded-web-tests
 title: Özel ayıklama kuralları ve kodlanmış Web testleri | Microsoft Docs
 author: rick-anderson
 description: Visual Studio Team System, uygulama kullanıcının etkileşim kaydetme ve yeniden sürekli olarak yeniden yürüterek bir Web uygulamasını test kolaylaştırır...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/26/2007
 ms.assetid: 7e2efe4c-8632-4d61-a82f-8e0bbd47c175
 msc.legacyurl: /web-forms/videos/vs-2005/custom-extraction-rules-and-coded-web-tests
 msc.type: video
-ms.openlocfilehash: 62f7a581b300eae4e19c0267176a7f3230abacf2
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 7cc64911bbbe87096ec6626a8913827437c61b8c
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37838312"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755138"
 ---
 <a name="custom-extraction-rules-and-coded-web-tests"></a>Özel ayıklama kuralları ve kodlanmış Web testleri
 ====================

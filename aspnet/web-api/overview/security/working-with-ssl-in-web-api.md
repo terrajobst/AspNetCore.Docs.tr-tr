@@ -3,17 +3,17 @@ uid: web-api/overview/security/working-with-ssl-in-web-api
 title: Web API'de SSL ile çalışma | Microsoft Docs
 author: MikeWasson
 description: SSL SSL istemci sertifikaları kullanma dahil olmak üzere ASP.NET Web API ile kullanma işlemi gösterilmektedir.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 12/12/2012
 ms.assetid: 97f6164f-59cf-45c0-b820-e4aa29b45396
 msc.legacyurl: /web-api/overview/security/working-with-ssl-in-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 0e0ca75c6ff1af397fce91079bcd8e9304b025ef
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: b11b35f58a1f033423f5e6ea5f5373df0d1fcb5f
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37829816"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752123"
 ---
 <a name="working-with-ssl-in-web-api"></a>Web API'de SSL ile çalışma
 ====================

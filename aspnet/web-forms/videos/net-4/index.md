@@ -3,17 +3,17 @@ uid: web-forms/videos/net-4/index
 title: .NET 4 | Microsoft Docs
 author: rick-anderson
 description: Yeni ASP.NET özellikleri ve işlevleri .NET Framework 4'te kullanılabilir.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: bac10aee-6731-4a0f-84d7-9eef5e560ae5
 msc.legacyurl: /web-forms/videos/net-4
 msc.type: chapter
-ms.openlocfilehash: 696d727e70a47e75670c8583723df401b737d052
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: e8565bc2914570eef982bbcc63a8497c2d38386a
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37828630"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752531"
 ---
 <a name="net-4"></a>.NET 4
 ====================

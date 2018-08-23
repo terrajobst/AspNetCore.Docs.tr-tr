@@ -3,17 +3,17 @@ uid: web-pages/overview/testing-and-debugging/aspnet-web-pages-razor-troubleshoo
 title: ASP.NET Web sayfaları (Razor) sorun giderme kılavuzu | Microsoft Docs
 author: tfitzmac
 description: Bu makalede, ASP.NET Web sayfaları (Razor) ve bazı önerilen çözümleri ile çalışırken karşılaşabileceğiniz sorunlar açıklanmaktadır. Yazılım sürümleri ASP.NET Web fası...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/10/2014
 ms.assetid: 2a2c1833-0bfe-4e2e-9cc0-341b52c7b121
 msc.legacyurl: /web-pages/overview/testing-and-debugging/aspnet-web-pages-razor-troubleshooting-guide
 msc.type: authoredcontent
-ms.openlocfilehash: 0d0e47ce1b52f0e9ac23a44bbd37ac1a38290dbd
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: c27139a720decd34a4ab89e6f93e71c97d123b45
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37825169"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756955"
 ---
 <a name="aspnet-web-pages-razor-troubleshooting-guide"></a>ASP.NET Web sayfaları (Razor) sorun giderme kılavuzu
 ====================
@@ -36,7 +36,7 @@ Bu konu aşağıdaki bölümleri içermektedir:
 - [Razor kod ile ilgili sorunlar](#IssuesWithRazorCode)
 - [Güvenlik ve üyelik ile ilgili sorunlar](#membership)
 - [E-posta gönderme sorunları](#email)
-- [Ek kaynaklar](#AdditionalResources)
+- [Ek Kaynaklar](#AdditionalResources)
 
 Genel sorular için bkz. [ASP.NET Web sayfaları (Razor) SSS](https://go.microsoft.com/fwlink/?LinkId=253000).
 
@@ -136,7 +136,7 @@ Kullanarak e-posta gönderme sorunlarını da ayıklayabilirsiniz bir `try-catch
 
 - *Posta gönderme başarısız oldu.*
 
-    -veya-
+    veya
 
     *Bağlı olan taraf doğru zaman ya da kurulan bağlantı bağlı konak yanıt başarısız olduğundan başarısız oldu. bir süre sonra yanıt vermediğinden bağlantı denemesi başarısız oldu.*
 

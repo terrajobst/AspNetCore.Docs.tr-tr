@@ -3,17 +3,17 @@ uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/index
 title: Entity Framework 6 Code MVC 5 kullanarak First ile çalışmaya başlama | Microsoft Docs
 author: rick-anderson
 description: Bir ASP.NET MVC 5 uygulamasında verileri görüntülemek ve düzenlemek için Entity Framework 6 kullanımına ilişkin temel bilgiler.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: 2aebcde0-b04c-47db-b9c9-077714a5db77
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc
 msc.type: chapter
-ms.openlocfilehash: c408e2b0ff06990b25da9eb9685f32f1fbf35eb2
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 1e8d7c267edf9fe6953f24515eb8ed1be9a040cc
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37838134"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756494"
 ---
 <a name="getting-started-with-entity-framework-6-code-first-using-mvc-5"></a>MVC 5 Kullanarak Entity Framework 6 Code First ile Çalışmaya Başlama
 ====================

@@ -3,17 +3,17 @@ uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v3/calling-an-odata-
 title: Bir .NET istemcisinden (C#) bir OData hizmeti çağırma | Microsoft Docs
 author: MikeWasson
 description: Bu öğretici, C# istemci uygulamasından bir OData hizmeti çağırma işlemi gösterilmektedir. Öğretici Visual Studio 2013 (çalışır Visual s... kullanılan yazılım sürümleri
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/26/2014
 ms.assetid: 6f448917-ad23-4dcc-9789-897fad74051b
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/calling-an-odata-service-from-a-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: 72dca7dc2ec27f15c9f0526621a713267f5835f8
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 45d4d1304d2c628d2ab0d09925d2050bf6f58c60
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37819561"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756098"
 ---
 <a name="calling-an-odata-service-from-a-net-client-c"></a>Bir OData hizmeti çağırmak bir .NET istemcisinden (C#)
 ====================

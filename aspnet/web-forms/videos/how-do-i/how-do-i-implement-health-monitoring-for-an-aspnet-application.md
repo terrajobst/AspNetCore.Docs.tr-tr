@@ -3,17 +3,17 @@ uid: web-forms/videos/how-do-i/how-do-i-implement-health-monitoring-for-an-aspne
 title: '[Bunu nasıl yaparım:]  Bir ASP.NET uygulaması için sistem durumu izleme uygulansın mı? | Microsoft Docs'
 author: rick-anderson
 description: Bu video Chris piksel nasıl bir ASP.NET uygulaması için ayrıntılı çalışma zamanı bilgilerini almak için izleme sistem durumu uygulanacağını gösterir. Güçlü öğrenin ve...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/05/2007
 ms.assetid: b3abd282-840a-42e3-ac27-cddbb22c5e33
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-implement-health-monitoring-for-an-aspnet-application
 msc.type: video
-ms.openlocfilehash: 19161f76de27826d15ad0c68392fb1af40292614
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 23b7b12b0f22548951b5801205fd225e580b5c8c
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37806486"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753786"
 ---
 <a name="how-do-i--implement-health-monitoring-for-an-aspnet-application"></a>[Bunu nasıl yaparım:]  Bir ASP.NET uygulaması için sistem durumu izleme uygulansın mı?
 ====================

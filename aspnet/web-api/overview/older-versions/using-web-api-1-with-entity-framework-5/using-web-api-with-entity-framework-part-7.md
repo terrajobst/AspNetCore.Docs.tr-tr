@@ -3,17 +3,17 @@ uid: web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/usi
 title: '7. Bölüm: ana oluşturma sayfası | Microsoft Docs'
 author: MikeWasson
 description: ''
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/04/2012
 ms.assetid: eb32a17b-626c-4373-9a7d-3387992f3c04
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-7
 msc.type: authoredcontent
-ms.openlocfilehash: c5b6cb0f2e48cdea3d6cc5cde72d08a99126f05f
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: bb4704e7f4f13fab04acdbdd642174884517e18a
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37825641"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753367"
 ---
 <a name="part-7-creating-the-main-page"></a>7. Bölüm: ana oluşturma sayfası
 ====================
@@ -73,7 +73,7 @@ Son olarak, ürünler ve siparişler için AJAX isteği yaparak görünüm model
 
 Tamam, bir sürü kod olan, ancak biz yerleşik yedekleme adım adım şekilde Umarım tasarım işaretlenmemiştir. Şimdi biz HTML bazı Knockout.js bağlamaları ekleyebilirsiniz.
 
-**Ürünleri**
+**Ürünler**
 
 Ürün listesi için olan bağlamaları şunlardır:
 

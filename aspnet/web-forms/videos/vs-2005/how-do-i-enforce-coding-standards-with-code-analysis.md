@@ -3,17 +3,17 @@ uid: web-forms/videos/vs-2005/how-do-i-enforce-coding-standards-with-code-analys
 title: '[Bunu nasıl yaparım:] Kod analiziyle kodlama standartları uygulamayı zorunlu kılabilir? | Microsoft Docs'
 author: rick-anderson
 description: Sınıf kitaplığı projeleri, web sitesi projelerine ve kaynak kodu ortak Kod Analizi kuralları üzerinde ayrıntılı denetim sahip olduğunuz Visual Studio Team System ile...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/09/2007
 ms.assetid: ab2eedbc-79b5-4b63-a1df-935940c1545b
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-enforce-coding-standards-with-code-analysis
 msc.type: video
-ms.openlocfilehash: 6a3260c4427cb3f895da29a1b280c71333e87faa
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 609f91090520cc36f312a68d63ba6d7356bb008d
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37832282"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753554"
 ---
 <a name="how-do-i-enforce-coding-standards-with-code-analysis"></a>[Bunu nasıl yaparım:] Kod analiziyle kodlama standartları uygulamayı zorunlu kılabilir?
 ====================

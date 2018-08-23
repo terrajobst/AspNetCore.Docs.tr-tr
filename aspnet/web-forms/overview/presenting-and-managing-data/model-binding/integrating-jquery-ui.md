@@ -3,17 +3,17 @@ uid: web-forms/overview/presenting-and-managing-data/model-binding/integrating-j
 title: JQuery UI Datepicker model bağlama ve web forms ile tümleştirme | Microsoft Docs
 author: tfitzmac
 description: Bu öğretici serisinde, model bağlama kullanarak bir ASP.NET Web formları projesi ile temel yönlerini gösterir. Model bağlama veri etkileşimi daha fazla düz - sağlar...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/27/2014
 ms.assetid: 3cbab37b-fb0f-4751-9ec4-74e068c3f380
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/integrating-jquery-ui
 msc.type: authoredcontent
-ms.openlocfilehash: fc278575615e63af2fc7284e51814cf318165110
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 81cc5f010f2c6c7707223679717e34108a5a7aa3
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37807583"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752530"
 ---
 <a name="integrating-jquery-ui-datepicker-with-model-binding-and-web-forms"></a>JQuery UI Datepicker model bağlama ve web forms ile tümleştirme
 ====================

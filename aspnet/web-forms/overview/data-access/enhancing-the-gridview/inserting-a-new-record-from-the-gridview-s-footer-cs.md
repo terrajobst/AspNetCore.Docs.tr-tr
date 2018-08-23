@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/enhancing-the-gridview/inserting-a-new-recor
 title: GridView'ın alt bilgisinden (C#) yeni kayıt ekleme | Microsoft Docs
 author: rick-anderson
 description: GridView denetiminde veri yeni kayıt ekleme için yerleşik destek sağlamaz, ancak bu öğretici, GridView içerecek şekilde genişletmek nasıl gösterir. bir...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/06/2007
 ms.assetid: 49545652-98af-46ba-9dbc-9ab529805d9b
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/inserting-a-new-record-from-the-gridview-s-footer-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3ce1c1ea83d2fc50d7cf9ab6cb64d1e76307c74b
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: ae27b25a0a7f37cc273d88d7165c8be33ce2f6cc
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37830509"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754916"
 ---
 <a name="inserting-a-new-record-from-the-gridviews-footer-c"></a>GridView'ın alt bilgisinden (C#) yeni kayıt ekleme
 ====================

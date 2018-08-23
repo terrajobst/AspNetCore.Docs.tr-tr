@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/custom-formatting/displaying-summary-informa
 title: (VB) GridView'ın alt bilgisinde Özet bilgiler görüntüleme | Microsoft Docs
 author: rick-anderson
 description: Özet bilgileri genellikle özet satırı raporda sayfanın alt kısmında görüntülenir. GridView denetiminde çekme isteği mümkün olan hücrelere altbilgi satırı ekleyebilirsiniz...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/31/2010
 ms.assetid: 41c818b7-603a-402b-8847-890a63547b6f
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/displaying-summary-information-in-the-gridview-s-footer-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a625211555d0e4351305c92b10559a4019d7e8bf
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: dfb78ee1e5da2774254cbe685b8dfd3dc7d46af9
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37837149"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753589"
 ---
 <a name="displaying-summary-information-in-the-gridviews-footer-vb"></a>(VB) GridView'ın alt bilgisinde Özet bilgiler görüntüleme
 ====================

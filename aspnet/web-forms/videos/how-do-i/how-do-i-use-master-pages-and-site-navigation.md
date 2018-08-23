@@ -3,17 +3,17 @@ uid: web-forms/videos/how-do-i/how-do-i-use-master-pages-and-site-navigation
 title: '[Bunu nasıl yaparım:] Ana sayfalar ve Site gezintisi? | Microsoft Docs'
 author: microsoft
 description: Bir web sitesi, ASP.NET 2.0 MasterPages kullanarak tüm sayfaları arasında tutarlı bir düzen ve tasarım ile oluşturun. Gezinti için bir web sitesi eklemek için ne kadar kolay olduğunu görün...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/11/2006
 ms.assetid: e598bb3b-4e2e-4a71-a255-3ee89061ce7a
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-master-pages-and-site-navigation
 msc.type: video
-ms.openlocfilehash: ef2fe5a5a6b84d4ce44880bcea7c45b66b72e25e
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 19f947b96b50f52aaac007108a80f015d34d6d64
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37811231"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752945"
 ---
 <a name="how-do-i-use-master-pages-and-site-navigation"></a>[Bunu nasıl yaparım:] Ana sayfalar ve Site gezintisi?
 ====================

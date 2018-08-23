@@ -3,17 +3,17 @@ uid: signalr/index
 title: SignalR | Microsoft Docs
 author: rick-anderson
 description: Microsoft ASP.NET SignalR, uygulamalarınıza gerçek zamanlı web işlevselliği ekleme işlemini basitleştiren bir kitaplık ASP.NET geliştiricileri için ' dir.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/24/2012
 ms.assetid: 282a521f-2b86-4fac-bcf6-b6d5e0fe969c
 msc.legacyurl: /signalr
 msc.type: categoryindex
-ms.openlocfilehash: 28a5280fbf4e6a1314f23e8c6ac357e44e301509
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 75978763451b3cb88146fde3c8dfd5d4b327dc5d
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37824289"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41757230"
 ---
 <a name="signalr"></a>SignalR
 ====================
