@@ -3,17 +3,17 @@ uid: web-api/videos/getting-started/index
 title: ASP.NET Web API'sine genel bakış ve alma başlatıldı videoları | Microsoft Docs
 author: rick-anderson
 description: ASP.NET Web API'sini kullanmaya başlamanıza yardımcı olmak için videolar dizisidir.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/16/2012
 ms.assetid: 1c7cc326-04f5-4578-bf62-a7d381f380f7
 msc.legacyurl: /web-api/videos/getting-started
 msc.type: chapter
-ms.openlocfilehash: 19977942be69bff357084b0a6297b3affa477323
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: cfcbe3732a3e3cbd6a210839a318a17ed636d636
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37818776"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754453"
 ---
 <a name="aspnet-web-api-overview-and-getting-started-videos"></a>ASP.NET Web API'sine genel bakış ve Başlarken videoları başlatıldı
 ====================

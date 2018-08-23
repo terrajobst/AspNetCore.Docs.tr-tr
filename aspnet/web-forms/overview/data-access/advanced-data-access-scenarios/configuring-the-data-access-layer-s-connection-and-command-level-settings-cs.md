@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/advanced-data-access-scenarios/configuring-t
 title: Veri erişim katmanının bağlantısını ve komut düzeyi ayarlarını (C#) yapılandırma | Microsoft Docs
 author: rick-anderson
 description: TableAdapter bağdaştırıcıları türü belirtilmiş veri kümesi içinde otomatik olarak veritabanına bağlanırken, komutları verme ve sonuçları ile bir DataTable doldurmak ölçeklendirilmesini...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/03/2007
 ms.assetid: cd330dd9-6254-4305-9351-dd727384c83b
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/configuring-the-data-access-layer-s-connection-and-command-level-settings-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 835f17c35d85658a855072bf6d9355fdae9f63ab
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 142c8e93422ac03d2f2205b6635f88b982b4c9e2
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37837843"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756572"
 ---
 <a name="configuring-the-data-access-layers-connection--and-command-level-settings-c"></a>Veri erişim katmanının bağlantısını ve komut düzeyi ayarlarını (C#) yapılandırma
 ====================

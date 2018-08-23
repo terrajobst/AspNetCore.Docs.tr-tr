@@ -3,17 +3,17 @@ uid: mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authen
 title: SMS ve e-posta iki öğeli kimlik doğrulaması ile ASP.NET MVC 5 uygulaması | Microsoft Docs
 author: Rick-Anderson
 description: Bu öğreticide, iki öğeli kimlik doğrulaması ile bir ASP.NET MVC 5 web uygulaması oluşturma işlemini göstermektedir. Oluşturma güvenli bir ASP.NET MVC 5 web uygulaması ile tamamlamanız gerekir...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/20/2015
 ms.assetid: f50a5cdb-c06a-46ed-aa14-fc5b049dc8dc
 msc.legacyurl: /mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: 4fd0091effcf2cc0517da91922981e49ef0eef5a
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: f31015f5ebd660d0f95a2e978b305c1d272293d5
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37803213"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753384"
 ---
 <a name="aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication"></a>SMS ve e-posta iki öğeli kimlik doğrulaması ile ASP.NET MVC 5 uygulaması
 ====================
@@ -27,7 +27,7 @@ Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
 - [Bir ASP.NET MVC uygulaması oluşturma](#createMvc)
 - [SMS ' için iki öğeli kimlik doğrulama ayarlayın](#SMS)
 - [İki öğeli kimlik doğrulamayı etkinleştirme](#enable2)
-- [Ek kaynaklar](#addRes)
+- [Ek Kaynaklar](#addRes)
 
 <a id="createMvc"></a>
 ## <a name="create-an-aspnet-mvc-app"></a>Bir ASP.NET MVC uygulaması oluşturma

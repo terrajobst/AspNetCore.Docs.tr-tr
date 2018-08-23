@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-dynamic-data/how-do-i-change-how-my-fields-render
 title: Alanlarımın nasıl nasıl değiştirebilirim? | Microsoft Docs
 author: shanselman
 description: Bu videoda veri alanlarını işlenen şeklini değiştirmek öğrenin. Bazı alanlar için üçüncü taraf denetimleri takın.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/08/2008
 ms.assetid: f99da654-2148-4e66-867c-6e837b84e9d0
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data/how-do-i-change-how-my-fields-render
 msc.type: video
-ms.openlocfilehash: 6fad628748abeaa878051093af921d1ce966b7b7
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 521cf514ce2864d4e3631448fed0fb93f92eb37a
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37822292"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751983"
 ---
 <a name="how-do-i-change-how-my-fields-render"></a>Alanlarımın nasıl nasıl değiştirebilirim?
 ====================

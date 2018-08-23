@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/getting-started/get-started-with-th
 title: AJAX Denetim Araç Seti ile (C#) başlayın | Microsoft Docs
 author: microsoft
 description: AJAX Denetim Araç Seti ile çalışmaya başlamak için bilmeniz gereken her şeyi öğrenin.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/12/2009
 ms.assetid: 16dc5c11-65be-4eae-a818-9fad7f8259c6
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/getting-started/get-started-with-the-ajax-control-toolkit-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3682af50eb2b9052ac0b15c2cec084deec10031d
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 6ecf716b78a789ca72e8b35e0be3e1fd0b957052
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37832165"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751982"
 ---
 <a name="get-started-with-the-ajax-control-toolkit-c"></a>AJAX Denetim Araç Seti ile (C#) başlayın
 ====================

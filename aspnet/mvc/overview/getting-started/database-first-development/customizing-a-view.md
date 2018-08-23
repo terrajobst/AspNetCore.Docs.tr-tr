@@ -3,17 +3,17 @@ uid: mvc/overview/getting-started/database-first-development/customizing-a-view
 title: 'İlk ASP.NET MVC ile EF veritabanında: bir görünümü özelleştirme | Microsoft Docs'
 author: tfitzmac
 description: MVC, Entity Framework ve ASP.NET iskeleti oluşturma kullanarak mevcut bir veritabanı için bir arabirim sunan bir web uygulaması oluşturabilirsiniz. Bu öğretici seri...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/01/2014
 ms.assetid: 269380ff-d7e1-4035-8ad1-fe1316a25f76
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/customizing-a-view
 msc.type: authoredcontent
-ms.openlocfilehash: 7359b8daddc74e375675d73126d7d76b288e853d
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: ce450af93459f2a69557b3fe0d1ead813ae99986
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37817194"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756140"
 ---
 <a name="ef-database-first-with-aspnet-mvc-customizing-a-view"></a>İlk ASP.NET MVC ile EF veritabanında: bir görünümünü özelleştirme
 ====================

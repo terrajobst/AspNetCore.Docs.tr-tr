@@ -3,17 +3,17 @@ uid: web-forms/videos/ajax-control-toolkit/index
 title: AJAX Denetim Araç Seti | Microsoft Docs
 author: rick-anderson
 description: Çok hızlı yanıt veren ASP.NET Web sayfaları Ajax Denetim Araç Seti kullanarak oluşturma
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/05/2011
 ms.assetid: 6f7b1c74-cc73-42f9-8ef0-8b3d058dabfa
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit
 msc.type: chapter
-ms.openlocfilehash: 65a56658d3be2b57daa6452c9bb3b66217f1f3c1
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 389a7563ca2c95563cd57326122a4a801e9e91e6
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37825417"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755934"
 ---
 <a name="ajax-control-toolkit"></a>Ajax Denetim Araç Seti
 ====================

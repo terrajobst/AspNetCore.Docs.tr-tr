@@ -3,17 +3,17 @@ uid: mvc/videos/mvc-2/music-store/index
 title: Müzik Store | Microsoft Docs
 author: rick-anderson
 description: ASP.NET MVC müzik Store örnek uygulaması oluşturma
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 09/28/2011
 ms.assetid: 3c7ca405-564a-4b27-9085-d3c2ef236dbe
 msc.legacyurl: /mvc/videos/mvc-2/music-store
 msc.type: chapter
-ms.openlocfilehash: 1d88fa792f2e113e187ac0f6643ca9494754c600
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 35acd7ba77a2f565ed84e1d0478def576f459ef5
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37812218"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754020"
 ---
 <a name="music-store"></a>Müzik Store
 ====================

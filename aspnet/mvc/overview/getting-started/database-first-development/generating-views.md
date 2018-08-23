@@ -3,17 +3,17 @@ uid: mvc/overview/getting-started/database-first-development/generating-views
 title: 'İlk ASP.NET MVC ile EF veritabanında: görünümler oluşturma | Microsoft Docs'
 author: tfitzmac
 description: MVC, Entity Framework ve ASP.NET iskeleti oluşturma kullanarak mevcut bir veritabanı için bir arabirim sunan bir web uygulaması oluşturabilirsiniz. Bu öğretici seri...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 12/29/2014
 ms.assetid: 669367cf-8e30-4eb6-821d-10a7d9bb906c
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/generating-views
 msc.type: authoredcontent
-ms.openlocfilehash: 9c85b330ac415d8c73d58b31a5108197b754669f
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 74c7abdc2d0f8fff9ad769d013fb001e2b9e427b
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37835334"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755177"
 ---
 <a name="ef-database-first-with-aspnet-mvc-generating-views"></a>İlk ASP.NET MVC ile EF veritabanında: görünümler oluşturma
 ====================

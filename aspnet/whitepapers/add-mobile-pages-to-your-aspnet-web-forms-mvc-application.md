@@ -3,17 +3,17 @@ uid: whitepapers/add-mobile-pages-to-your-aspnet-web-forms-mvc-application
 title: 'Nasıl yapılır: ASP.NET Web formlarınızı mobil sayfalar ekleme / MVC uygulaması | Microsoft Docs'
 author: rick-anderson
 description: Bu nasıl yapılır sayfaları, ASP.NET Web Forms mobil cihazlar için en iyi duruma getirilmiş sunmak için çeşitli şekillerde açıklayan / MVC uygulaması ve mimari önerir ve...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/20/2011
 ms.assetid: 3124f28e-cc32-418a-afe3-519fa56f4c36
 msc.legacyurl: /whitepapers/add-mobile-pages-to-your-aspnet-web-forms-mvc-application
 msc.type: content
-ms.openlocfilehash: 59b81184852a7fe0ad2dcad9718b572a8c756918
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 1693838a74f0564e38e11a2827cceb3d6474677b
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37823361"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754441"
 ---
 <a name="how-to-add-mobile-pages-to-your-aspnet-web-forms--mvc-application"></a>Nasıl yapılır: ASP.NET Web formlarınızı mobil sayfalar ekleme / MVC uygulaması
 ====================

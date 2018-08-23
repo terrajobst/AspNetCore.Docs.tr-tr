@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/contact-manager/iteration-4-make-the-applicat
 title: 'Yineleme #4 – olun birbirine sıkı şekilde bağlı uygulama (C#) | Microsoft Docs'
 author: microsoft
 description: Bu dördüncü yinelemede biz Bakım ve değişiklik kişi yöneticisi uygulamayı kolaylaştırmak için çeşitli yazılım tasarım desenleri yararlanın. İçin...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/20/2009
 ms.assetid: 829f589f-e201-4f6e-9ae6-08ae84322065
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-4-make-the-application-loosely-coupled-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7c06609afd6f1adf930a377c99d66937885f78e7
-ms.sourcegitcommit: a25b572eaed21791230c85416f449f66a405ec19
+ms.openlocfilehash: 955991c148d48020c66cbc63ec6da45e3a9cc282
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39396042"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755631"
 ---
 <a name="iteration-4--make-the-application-loosely-coupled-c"></a>Yineleme #4 – olun birbirine sıkı şekilde bağlı uygulama (C#)
 ====================

@@ -3,17 +3,17 @@ uid: mvc/overview/getting-started/introduction/index
 title: ASP.NET MVC 5 ile çalışmaya başlama | Microsoft Docs
 author: rick-anderson
 description: ASP.NET MVC 5 giriş
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/10/2013
 ms.assetid: 9afe7454-f1bd-4e81-8ecf-12fe54d080c1
 msc.legacyurl: /mvc/overview/getting-started/introduction
 msc.type: chapter
-ms.openlocfilehash: e348faca0dbe8ffa0ad270dc384404f07755eb22
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 3e124e96d192e95d65084f00332c42961d883f70
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38155274"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755868"
 ---
 <a name="getting-started-with-aspnet-mvc-5"></a>.NET MVC 5 ile Çalışmaya Başlama
 ====================

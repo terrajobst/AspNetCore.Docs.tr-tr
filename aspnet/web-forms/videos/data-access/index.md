@@ -3,17 +3,17 @@ uid: web-forms/videos/data-access/index
 title: Veri erişimi | Microsoft Docs
 author: rick-anderson
 description: Veri erişim katmanı (DAL) oluşturma
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/14/2011
 ms.assetid: a923735c-2d34-456c-8327-40aa62a4c1d6
 msc.legacyurl: /web-forms/videos/data-access
 msc.type: chapter
-ms.openlocfilehash: a739beb2050975e60d43b8db0526aec8197b6f03
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: f93a3b496b2a3bf7957687c7e1ba97db994b4712
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37804578"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755167"
 ---
 <a name="data-access"></a>Veri Erişimi
 ====================

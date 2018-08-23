@@ -3,17 +3,17 @@ uid: web-api/overview/testing-and-debugging/unit-testing-controllers-in-web-api
 title: Test denetleyicileri ASP.NET Web API 2 birim | Microsoft Docs
 author: MikeWasson
 description: Bu konu, Web API 2'de test denetleyicileri birim için belirli bazı teknikleri açıklar. Bu konuda okumadan önce öğretici birim okumak isteyebilirsiniz...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/11/2014
 ms.assetid: 43a6cce7-a3ef-42aa-ad06-90d36d49f098
 msc.legacyurl: /web-api/overview/testing-and-debugging/unit-testing-controllers-in-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: bc6d4d7e65c84036dc35fe39ed25685ed8b213b3
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 7b0d5266757219a05b25fc3d1d4cba8514a4dff7
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37823695"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41757254"
 ---
 <a name="unit-testing-controllers-in-aspnet-web-api-2"></a>Test denetleyicileri ASP.NET Web API 2 birim
 ====================

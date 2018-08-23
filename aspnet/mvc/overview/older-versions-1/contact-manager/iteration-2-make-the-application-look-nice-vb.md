@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/contact-manager/iteration-2-make-the-applicat
 title: 'Yineleme #2 – uygulamanın güzel (VB) görünmesini olun | Microsoft Docs'
 author: microsoft
 description: Bu yineleme, varsayılan ASP.NET MVC görünüm ana sayfası değiştirme ve geçişli stil sayfası biz uygulamanın görünümünü geliştirin.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/20/2009
 ms.assetid: f65cb436-e493-46fd-9608-384b27385aa1
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-2-make-the-application-look-nice-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a653d3f959756ab7cdc1e0a76e03cde3ec85a378
-ms.sourcegitcommit: a25b572eaed21791230c85416f449f66a405ec19
+ms.openlocfilehash: 7f27cbab17effc3b44649e06409893e6be09b011
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39396038"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751977"
 ---
 <a name="iteration-2--make-the-application-look-nice-vb"></a>Yineleme #2 – uygulamanın güzel (VB) görünmesini olun
 ====================

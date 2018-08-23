@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/textboxwatermark/index
 title: TextBoxWatermark | Microsoft Docs
 author: rick-anderson
 description: Bu öğreticide kullanıcılar yazmak başlattığınızda kaybolur bir ileti içeren bir metin kutusu TextBoxWatermark denetim kullanmayı gösterir.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/14/2011
 ms.assetid: ee920155-b136-4f87-9545-8b5777ade9f3
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/textboxwatermark
 msc.type: chapter
-ms.openlocfilehash: 70c2361747d0796244973f22363055e490052089
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 1cfd57569766e01511f62dd225b23cf5c881b6e2
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37808917"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756229"
 ---
 <a name="textboxwatermark"></a>TextBoxWatermark
 ====================

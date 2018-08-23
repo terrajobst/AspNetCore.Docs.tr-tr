@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/cascadingdropdown/presetting-list-e
 title: (C#) CascadingDropDown ile liste girişlerini önceden ayarlama | Microsoft Docs
 author: wenz
 description: Bir DropDownList yükleri değişiklikleri anoth değerleri ilişkili böylece AJAX Denetim Araç Seti CascadingDropDown denetiminde bir DropDownList denetimi genişletir...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 04c79748-0f21-4a3b-aba5-e1ce3161c32e
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown/presetting-list-entries-with-cascadingdropdown-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7797aa91452bfbed2695fd26e3b9d2a5783dd216
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 2599b5015f288b2e8d02577a0865252a862574a4
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37825095"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756141"
 ---
 <a name="presetting-list-entries-with-cascadingdropdown-c"></a>(C#) CascadingDropDown ile liste girişlerini önceden ayarlama
 ====================

@@ -3,17 +3,17 @@ uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-clou
 title: Azure ile gerçek hayatta kullanılan bulut uygulamaları oluşturma | Microsoft Docs
 author: MikeWasson
 description: Bu e-kitap, gerçek hayatta kullanılan bulut çözümleri oluşturmaya yönelik desen tabanlı yaklaşımda size gösterilmektedir. Olarak da geliştirme sürecine desenleri uygulamak bir...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/12/2014
 ms.assetid: accfa16a-ab15-4c26-9ad4-babdc2a77d2e
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction
 msc.type: authoredcontent
-ms.openlocfilehash: 11388b9c58d2d21c7a337a343c10d33c7257ccf1
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: eade14bc27e2bface84fb0bdd2f3c5bf8ef28432
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37840504"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755663"
 ---
 <a name="building-real-world-cloud-apps-with-azure"></a>Azure ile gerçek hayatta kullanılan bulut uygulamaları oluşturma
 ====================

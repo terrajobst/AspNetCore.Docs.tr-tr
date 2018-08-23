@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/editing-and-deleting-data-through-the-datali
 title: BLL ve DAL düzeyi özel durumları (VB) | Microsoft Docs
 author: rick-anderson
 description: Bu öğreticide, tactfully düzenlenebilir DataList'in güncelleştirme iş akışı sırasında oluşturulan özel durumları işlemek nasıl göreceğiz.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/30/2006
 ms.assetid: ca665073-b379-4239-9404-f597663ca65e
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/handling-bll-and-dal-level-exceptions-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1aee5c26bfbbbc46c2151a56fed60057930cba80
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: e71ad365ecbfc1bb33117a6c93e7108a4b3866a6
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37814258"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755908"
 ---
 <a name="handling-bll--and-dal-level-exceptions-vb"></a>BLL ve DAL düzeyi özel durumları (VB)
 ====================

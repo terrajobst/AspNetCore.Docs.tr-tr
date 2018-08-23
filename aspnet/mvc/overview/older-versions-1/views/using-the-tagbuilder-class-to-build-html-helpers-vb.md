@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/views/using-the-tagbuilder-class-to-build-htm
 title: HTML Yardımcıları (VB) oluşturmak için TagBuilder sınıfı kullanarak | Microsoft Docs
 author: StephenWalther
 description: Stephen Walther TagBuilder sınıfı adlı ASP.NET MVC çerçevesi bir kullanışlı yardımcı sınıfta tanıtır. İçin TagBuilder sınıfı bir kolayca kullanabileceğiniz...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/02/2009
 ms.assetid: ec26f264-d0ea-4031-9943-825505a3ac4b
 msc.legacyurl: /mvc/overview/older-versions-1/views/using-the-tagbuilder-class-to-build-html-helpers-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 85673837c105ecab8595568b028c9caa83f041d8
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 783c5f73709de37f79c472e10c79e284cf25f8fd
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37821942"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751979"
 ---
 <a name="using-the-tagbuilder-class-to-build-html-helpers-vb"></a>HTML Yardımcıları (VB) oluşturmak için TagBuilder sınıfı kullanma
 ====================

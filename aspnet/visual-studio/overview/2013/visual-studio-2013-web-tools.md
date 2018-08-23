@@ -3,17 +3,17 @@ uid: visual-studio/overview/2013/visual-studio-2013-web-tools
 title: 'Uygulamalı Laboratuvar: Visual Studio 2013 Web Araçları | Microsoft Docs'
 author: rick-anderson
 description: Visual Studio için mükemmel bir geliştirme ortamıdır. AĞ tabanlı Windows ve web projeleri. Kolayca için kullanılabilir bir güçlü metin düzenleyicisi içerdiği...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/16/2014
 ms.assetid: 09e82351-816b-402d-acd1-0f9ac6901d16
 msc.legacyurl: /visual-studio/overview/2013/visual-studio-2013-web-tools
 msc.type: authoredcontent
-ms.openlocfilehash: 9553d3129ff4c942eacbba628d1daaf6c4e33635
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 82248efd767c1110b9a4067b7d0c0e2ecafcbef9
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37807534"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756222"
 ---
 <a name="hands-on-lab-visual-studio-2013-web-tools"></a>Uygulamalı Laboratuvar: Visual Studio 2013 Web Araçları
 ====================

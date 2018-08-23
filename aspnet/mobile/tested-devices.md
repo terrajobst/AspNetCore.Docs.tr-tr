@@ -3,17 +3,17 @@ uid: mobile/tested-devices
 title: ASP.NET Mobil denetimleri test edilen cihazlar | Microsoft Docs
 author: rick-anderson
 description: Aşağıdaki cihazlar ve tarayıcılar Microsoft Mobil Internet Araç Seti sürüm 1.0 ve ASP.NET Mobil denetimleri ile test edilmiştir. Microsoft Mobil Internet'e...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/28/2011
 ms.assetid: 51b447d5-eaa1-4df1-917c-f4f2746ed62d
 msc.legacyurl: /mobile/tested-devices
 msc.type: content
-ms.openlocfilehash: dba860d74e2dbded832d4f6e9da6edfecbf4c303
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 4576e176f3b5d6e3a1fbec16f098c64ec3f0d54d
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37815882"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753827"
 ---
 <a name="aspnet-mobile-controls-tested-devices"></a>Test edilen cihazlar ASP.NET Mobil denetimleri
 ====================
@@ -86,7 +86,7 @@ ms.locfileid: "37815882"
 |       Siemens       |                      ME45                       |             OpenWave              |       YEDEKLER. Tarayıcı 5.0.1.1.102 (GUI)        |  DU 1.0  |
 |       Siemens       |                       S40                       |             OpenWave              |             YEDEKLER. Tarayıcı 4.1.16             |  DU 1.0  |
 |        Sony         |                     C1002S                      |             OpenWave              |              YEDEKLER. Tarayıcı 3.2               |  DU 1.0  |
-|        Sony         |                    PEG T600C                    |               Ilinx               |              Xiino 1.0.6a4SJ              |  DU 1.0  |
+|        Sony         |                    PEG T600C                    |               ilinx               |              Xiino 1.0.6a4SJ              |  DU 1.0  |
 |        Sony         |                     SO210i                      |              ERİŞİM               |           Compact NetFront 2.0            |  DU 1.0  |
 |        Sony         |                     SO503iS                     |              ERİŞİM               |           Compact NetFront 2.0            |  DU 1.0  |
 |      Sprint LG      |                     TP5200                      |             OpenWave              |            YEDEKLER. Tarayıcı 4.1.22b             |  DU 1.0  |
@@ -129,8 +129,8 @@ ms.locfileid: "37815882"
 |        Diyez        |                 Zaurus mı-E25DC                 | Özgün donanım üreticisinin |                6.2 sürümü                |  2.0 DU  |
 |        Diyez        |                 Zaurus SL 5500                  |               Opera               |                  Ver 5.0                  |  2.0 DU  |
 |       Siemens       |                       S45                       |             OpenWave              |       YEDEKLER. Tarayıcı 5.0.1.1.102 (GUI).       |  2.0 DU  |
-|        Sony         |                 OPOLOJİ PEG-NR70V                  |               Ilinx               |                Xiino 2.0SJ                |  2.0 DU  |
-|        Sony         |                 OPOLOJİ PEG-T650C                  |               Ilinx               |                Xiino 2.0SJ                |  2.0 DU  |
+|        Sony         |                 OPOLOJİ PEG-NR70V                  |               ilinx               |                Xiino 2.0SJ                |  2.0 DU  |
+|        Sony         |                 OPOLOJİ PEG-T650C                  |               ilinx               |                Xiino 2.0SJ                |  2.0 DU  |
 |       T-cep       |                 Pocket PC Phone                 |             Microsoft             |       Internet Explorer 2002 (4.1)        |  2.0 DU  |
 |       Toshiba       |                     C5001T                      |             OpenWave              |              YEDEKLER. Tarayıcı 6.0               |  2.0 DU  |
 |       Toshiba       |                   Genio e550G                   |             Microsoft             |       Internet Explorer 2002 (4.1)        |  2.0 DU  |
@@ -222,7 +222,7 @@ ms.locfileid: "37815882"
 |     Handspring      |                   Vizörü Prism                   |              Omnisky              |                 2.1.0.15                  | MIT 1.0  |
 |       Hitachi       |                      C407H                      |             OpenWave              |              YEDEKLER. 3.1 tarayıcısı               | MIT 1.0  |
 |         HP          |                   Jornada'ta karşılaşmıştır 720                   |             Microsoft             |           Pocket IE 2000 (4.01)           | MIT 1.0  |
-|         IBM         |                  WorkPad C505                   |               Ilinx               |                Xiino 1.01J                | MIT 1.0  |
+|         IBM         |                  WorkPad C505                   |               ilinx               |                Xiino 1.01J                | MIT 1.0  |
 |       Jungle        |                 DoCoMo'ya 502 Em.                  |           ana sayfaya i           |                1.0 (502i)                 | MIT 1.0  |
 |       Kyocera       |                    QCP 2035A                    |             OpenWave              |             YEDEKLER. Tarayıcı 3.1.17             | MIT 1.0  |
 |       Kyocera       |                    3035 QCP                     |             OpenWave              |             YEDEKLER. Tarayıcı 3.1.17             | MIT 1.0  |
@@ -285,7 +285,7 @@ ms.locfileid: "37815882"
 |       Siemens       |                      C35i                       |             OpenWave              |             YEDEKLER. Tarayıcı 4.1.8c             | MIT 1.0  |
 |       Siemens       |                      S35i                       |             OpenWave              |             YEDEKLER. Tarayıcı 4.1.16             | MIT 1.0  |
 |       Siemens       |                      SL45                       |             OpenWave              |              YEDEKLER. Tarayıcı 4.1               | MIT 1.0  |
-|        Sony         |                 OPOLOJİ PEG-N700C                  |               Ilinx               |              Palmscape 4.0SJ              | MIT 1.0  |
+|        Sony         |                 OPOLOJİ PEG-N700C                  |               ilinx               |              Palmscape 4.0SJ              | MIT 1.0  |
 |        Sony         |                     CMD-J5                      |             Microsoft             |         Mobil Gezgini 2.0 r54ue         | MIT 1.0  |
 |        Sony         |                     CMD-z5                      |             Microsoft             |         Mobil Gezgini 2.0 r54ue         | MIT 1.0  |
 |        Sony         |                     SO503i                      |              ERİŞİM               |           Compact NetFront 2.0            | MIT 1.0  |

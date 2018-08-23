@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc4/examining-the-
 title: Düzenleme metotlarını ve düzenleme görünümünü İnceleme | Microsoft Docs
 author: Rick-Anderson
 description: 'Not: Bu öğretici güncelleştirilmiş bir sürümünü burada ASP.NET MVC 5 ve Visual Studio 2013 kullanan kullanılabilir. Bu, daha güvenli ve izleyin ve tanıtım çok daha kolay...'
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/28/2012
 ms.assetid: 41eb99ca-e88f-4720-ae6d-49a958da8116
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
-ms.openlocfilehash: f8d66343ad74e45f167701f405c5e6e2fef0dd13
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: ea8156fc2ea334be37e7c3f02ac15d168cfc6843
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37824380"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752382"
 ---
 <a name="examining-the-edit-methods-and-edit-view"></a>Düzenleme metotlarını ve düzenleme görünümünü İnceleme
 ====================

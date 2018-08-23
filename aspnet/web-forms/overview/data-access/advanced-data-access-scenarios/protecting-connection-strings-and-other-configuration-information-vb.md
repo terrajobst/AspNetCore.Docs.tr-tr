@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/advanced-data-access-scenarios/protecting-co
 title: Bağlantı dizelerini ve diğer yapılandırma bilgilerini (VB) koruma | Microsoft Docs
 author: rick-anderson
 description: Bir ASP.NET uygulaması genellikle Web.config dosyasındaki yapılandırma bilgilerini de saklar. Bu bilgilerin bazıları duyarlıdır ve korumayı gerektirir. Def olarak tarafından...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/03/2007
 ms.assetid: cd17dbe1-c5e1-4be8-ad3d-57233d52cef1
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/protecting-connection-strings-and-other-configuration-information-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 7007496ad3aa137d8a6a9d4ba8e486d6b32ec295
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 9713bbd983c4e922273a23356cbbb3848a8b7c50
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37810910"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754728"
 ---
 <a name="protecting-connection-strings-and-other-configuration-information-vb"></a>Bağlantı dizelerini ve diğer yapılandırma bilgilerini (VB) koruma
 ====================

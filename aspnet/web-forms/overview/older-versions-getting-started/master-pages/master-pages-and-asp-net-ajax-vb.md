@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/master-pages/master-pages
 title: Ana sayfalar ve ASP.NET AJAX (VB) | Microsoft Docs
 author: rick-anderson
 description: ASP.NET AJAX ve ana sayfalar kullanmaya yönelik seçenekleriniz ele alınmaktadır. ScriptManagerProxy sınıfı kullanarak arar; çeşitli JS dosyaları dependi nasıl yüklendiğini açıklar...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/11/2008
 ms.assetid: 0ee9318c-29bb-4d58-b1dc-94e575b8ae10
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/master-pages-and-asp-net-ajax-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e0ec5359c83bf13398a8a935921cc2a319638ef1
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: aa511b8bd2f4d739cbe1f04b2a9cf03bf6928182
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37803304"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752394"
 ---
 <a name="master-pages-and-aspnet-ajax-vb"></a>Ana sayfalar ve ASP.NET AJAX (VB)
 ====================

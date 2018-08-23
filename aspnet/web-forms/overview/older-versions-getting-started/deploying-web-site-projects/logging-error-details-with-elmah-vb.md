@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projec
 title: (VB) ELMAH ile hata ayrıntılarını günlüğe | Microsoft Docs
 author: rick-anderson
 description: Hata günlüğü modüller ve işleyiciler (ELMAH), bir üretim ortamında çalışma zamanı hatalarını günlüğe kaydetme için başka bir yaklaşım sunar. ELMAH ücretsiz, açık kaynaklı bir hatadır...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/09/2009
 ms.assetid: a5f0439f-18b2-4c89-96ab-75b02c616f46
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-elmah-vb
 msc.type: authoredcontent
-ms.openlocfilehash: dafb1facb0e2b1828eb990c423fbf5b1af0731d7
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: ef87ae342f660a84c9359c7a1674001ed578a68e
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37821683"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756161"
 ---
 <a name="logging-error-details-with-elmah-vb"></a>(VB) ELMAH ile hata ayrıntılarını günlüğe kaydetme
 ====================

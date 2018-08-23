@@ -3,17 +3,17 @@ uid: signalr/overview/security/introduction-to-security
 title: SignalR güvenliğine giriş | Microsoft Docs
 author: pfletcher
 description: Bir SignalR Uygulama geliştirirken dikkate almanız gereken güvenlik konularını açıklar.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/10/2014
 ms.assetid: ed562717-8591-4936-8e10-c7e63dcb570a
 msc.legacyurl: /signalr/overview/security/introduction-to-security
 msc.type: authoredcontent
-ms.openlocfilehash: d701d76f446d63558d7af631e10ac4479492d539
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 62f835349697d02ebe7363b00a032a5353d3dfc2
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37805139"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756549"
 ---
 <a name="introduction-to-signalr-security"></a>SignalR güvenliğine giriş
 ====================
@@ -45,7 +45,7 @@ Bu belgede aşağıdaki bölümler yer alır:
 
 - [SignalR güvenlik kavramları](#concepts)
 
-    - [Kimlik doğrulama ve yetkilendirme](#authentication)
+    - [Kimlik Doğrulaması ve Yetkilendirme](#authentication)
     - [Bağlantı simgesi](#connectiontoken)
     - [Bağlanırken gruplarına yeniden katılma](#rejoingroup)
 - [SignalR siteler arası istek sahteciliğini nasıl önler?](#csrf)

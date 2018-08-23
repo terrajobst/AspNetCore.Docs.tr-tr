@@ -3,17 +3,17 @@ uid: identity/overview/getting-started/aspnet-identity-using-mysql-storage-with-
 title: 'ASP.NET Identity: Bir EntityFramework MySQL sağlayıcısı ile (C#) MySQL depolama kullanma | Microsoft Docs'
 author: maumar
 description: Bu öğretici, ASP.NET kimliği için varsayılan veri depolama mekanizmasını EntityFramework (SQL istemcisi sağlayıcısı) ile bir MySQL sağlama ile nasıl değiştirileceğini gösterir...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 12/10/2013
 ms.assetid: 15253312-a92c-43ba-908e-b5dacd3d08b8
 msc.legacyurl: /identity/overview/getting-started/aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider
 msc.type: authoredcontent
-ms.openlocfilehash: 13cb1d9a862429bfb4e20a8d9700fc17eb721c6b
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 3856b40b31a3deb6ad1c6c5d2cd678e183f012d7
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37812681"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752393"
 ---
 <a name="aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider-c"></a>ASP.NET Identity: (C#) bir EntityFramework MySQL sağlayıcısı ile MySQL depolama kullanma
 ====================

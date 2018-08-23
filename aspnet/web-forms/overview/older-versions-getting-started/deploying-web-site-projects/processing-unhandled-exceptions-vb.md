@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projec
 title: İşlenmemiş özel durumları (VB) işleme | Microsoft Docs
 author: rick-anderson
 description: Üretim ortamında bir web uygulamasında bir çalışma zamanı hatası oluştuğunda bir geliştirici bildirmek için ve bu, bir la koydu, böylece hata oturum önemlidir...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/09/2009
 ms.assetid: 051296f0-9519-4e78-835c-d868da13b0a0
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/processing-unhandled-exceptions-vb
 msc.type: authoredcontent
-ms.openlocfilehash: f925a2e2a8cf2785aa2df89c82d2a29965a543d9
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 29ea7f376f61c242ab93cfb71e1a7b435c575482
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37835236"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756145"
 ---
 <a name="processing-unhandled-exceptions-vb"></a>İşlenmemiş özel durumları (VB) işleme
 ====================

@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/master-pages/control-id-n
 title: Denetim Kimliği adlandırma (VB) İçerik sayfalarında | Microsoft Docs
 author: rick-anderson
 description: ContentPlaceHolder denetimlerinin nasıl bir adlandırma kapsayıcısı olarak görev yapar ve bu nedenle (FindConrol) zor bir denetimi ile program aracılığıyla çalışma olun gösterir...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/10/2008
 ms.assetid: dbb024a6-f043-4fc5-ad66-56556711875b
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/control-id-naming-in-content-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 500f0e729ee73382ba05d38ed0a0bdba2c3c1e11
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 6e9a751538ca28250e4e776ff2c6c3f0185ffbe6
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37808343"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754062"
 ---
 <a name="control-id-naming-in-content-pages-vb"></a>Denetim Kimliği adlandırma içerik sayfalar (VB)
 ====================

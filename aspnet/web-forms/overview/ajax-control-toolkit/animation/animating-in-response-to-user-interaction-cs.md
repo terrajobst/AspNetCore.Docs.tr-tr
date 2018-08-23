@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/animation/animating-in-response-to-
 title: (C#) kullanıcı etkileşimine karşılık olarak animasyon ekleme | Microsoft Docs
 author: wenz
 description: ASP.NET AJAX Denetim Araç Seti animasyon denetimi yalnızca bir denetim, ancak bir denetime animasyon eklemek için tam bir çerçeve değil. Animasyonları yıldız...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: ea26549d-fbbf-4973-a108-b14cd1d6de26
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/animating-in-response-to-user-interaction-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5e8ebf5ec7fc0875e0eb43923321513bf0a08899
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 9de99b3194a5517047e40922d89c28e341ba8e20
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37826137"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755919"
 ---
 <a name="animating-in-response-to-user-interaction-c"></a>(C#) kullanıcı etkileşimine karşılık olarak animasyon ekleme
 ====================

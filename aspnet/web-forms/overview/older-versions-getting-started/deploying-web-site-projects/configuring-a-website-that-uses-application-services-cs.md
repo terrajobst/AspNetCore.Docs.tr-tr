@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projec
 title: Uygulama Hizmetleri (C#) kullanan bir Web sitesi yapılandırma | Microsoft Docs
 author: rick-anderson
 description: .NET Framework'ün bir parçasıdır ve yapı taşı paketi yo Hizmetleri olarak işlev görür uygulama hizmetleri, bir dizi ASP.NET sürüm 2.0 kullanılmaya...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/23/2009
 ms.assetid: 1e33d1c6-3f9f-4c26-81e2-2a8f8907bb05
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-a-website-that-uses-application-services-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9bbf6d84c3ca25a3476901ec3d7996d5ca197446
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 4cec939795c2b3abfd51c894f985dfd2eb7bc361
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37837658"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756587"
 ---
 <a name="configuring-a-website-that-uses-application-services-c"></a>Uygulama Hizmetleri (C#) kullanan bir Web sitesi yapılandırma
 ====================

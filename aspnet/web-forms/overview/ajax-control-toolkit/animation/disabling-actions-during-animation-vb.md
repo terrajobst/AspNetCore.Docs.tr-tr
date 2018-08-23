@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/animation/disabling-actions-during-
 title: (VB) animasyon sırasında eylemleri devre dışı bırakma | Microsoft Docs
 author: wenz
 description: ASP.NET AJAX Denetim Araç Seti animasyon denetimi yalnızca bir denetim, ancak bir denetime animasyon eklemek için tam bir çerçeve değil. Ayrıca, eylem destekler...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: a86c0276-6481-46ee-8b4f-8c2009399ee9
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/disabling-actions-during-animation-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 18c1eb74c73876b3fc6f1e37f69c31642806d043
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 811e1d75f79885f3f4c561d9211fec625fcf1807
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37830885"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753611"
 ---
 <a name="disabling-actions-during-animation-vb"></a>(VB) animasyon sırasında eylemleri devre dışı bırakma
 ====================

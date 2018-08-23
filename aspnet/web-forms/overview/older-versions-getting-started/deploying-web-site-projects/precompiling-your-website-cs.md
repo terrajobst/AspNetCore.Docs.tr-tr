@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projec
 title: Web sitenizi (C#) önceden derleme | Microsoft Docs
 author: rick-anderson
 description: 'Visual Studio, ASP.NET geliştiricilerine iki proje türü sunar: Web Uygulama projeleri (WAPs) ve Web sitesi projeleri (WSPs). Temel farklılıklar betwe birini...'
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/09/2009
 ms.assetid: ecd5a4de-beb7-4d1d-bbbb-e31003633267
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/precompiling-your-website-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 1227c28600444ed1f2710ba1b5e021aae59fe098
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: af11b8f13979eb4613195d1fa30f2c1adf508187
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37840306"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41757015"
 ---
 <a name="precompiling-your-website-c"></a>Web sitenizi (C#) önceden derleme
 ====================

@@ -3,17 +3,17 @@ uid: whitepapers/aspnet-mvc2-upgrade-notes
 title: Bir ASP.NET MVC 1.0 uygulamasını ASP.NET MVC 2 yükseltme | Microsoft Docs
 author: rick-anderson
 description: Bu belge hem açıklar el ile ve bir Sihirbazı ile bir ASP.NET MVC 1.0 uygulamasını ASP.NET MVC 2 sürümüne yükseltme yapmayı. Bu belge, d için de kullanılabilir...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/08/2010
 ms.assetid: f1a01759-d251-4b09-8835-e112e336c6dd
 msc.legacyurl: /whitepapers/aspnet-mvc2-upgrade-notes
 msc.type: content
-ms.openlocfilehash: fe1696cd8f98f2ff253d385b62a6bcd74b536d33
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 3de69df7e80037de35c2609232f4574bc9d03c80
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37823877"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41756542"
 ---
 <a name="upgrading-an-aspnet-mvc-10-application-to-aspnet-mvc-2"></a>Bir ASP.NET MVC 1.0 uygulamasını ASP.NET MVC 2 yükseltme
 ====================

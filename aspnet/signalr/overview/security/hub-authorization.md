@@ -3,17 +3,17 @@ uid: signalr/overview/security/hub-authorization
 title: Kimlik doğrulama ve yetkilendirme için SignalR hub'ları | Microsoft Docs
 author: pfletcher
 description: Bu konuda, belirli kullanıcılar ya da rolleri hub yöntemlerini erişebileceği kısıtlaması açıklar. Yazılım sürümleri, Visual Studio 2013 .NET 4.5 SignalR ve bu konuda kullanılan...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/05/2015
 ms.assetid: a610c796-c131-473c-baef-2e6c568cb2a2
 msc.legacyurl: /signalr/overview/security/hub-authorization
 msc.type: authoredcontent
-ms.openlocfilehash: 6f69ffc31f048c8a962547da37f65b63e2193f5a
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 21946b9fa0406de79af7b83809869d90e6e8234e
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37819042"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41754203"
 ---
 <a name="authentication-and-authorization-for-signalr-hubs"></a>Kimlik doğrulama ve yetkilendirme için SignalR hub'ları
 ====================
