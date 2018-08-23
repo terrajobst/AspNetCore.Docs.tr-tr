@@ -3,17 +3,17 @@ uid: web-pages/overview/getting-started/introducing-razor-syntax-c
 title: ASP.NET Web programlama Razor söz dizimini (C#) kullanarak giriş | Microsoft Docs
 author: tfitzmac
 description: Bu bölümde Razor sözdizimini kullanarak ASP.NET Web sayfaları ile programlamaya genel bir bakış sağlar. ASP.NET dinamik web pa çalıştırmak için Microsoft'un teknolojisidir...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/07/2014
 ms.assetid: aa67d304-583b-4bf8-a231-195656cfb587
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-c
 msc.type: authoredcontent
-ms.openlocfilehash: 22985b71d39d93b8ad42ee923b872846f2fafa99
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 347e5ddbc02866887d3f422ecc291e5e3dfacaaf
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37814307"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41753905"
 ---
 <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-c"></a>ASP.NET Web programlama Razor söz dizimini (C#) kullanarak giriş
 ====================
@@ -340,84 +340,248 @@ Tam sayılar değerlerini dönüştürmek için çağrı `AsInt` yöntemi. Dön�
 
 Aşağıdaki tablo bazı yaygın dönüştürme ve test yöntemleri değişkenleri listeler.
 
-::: satır:::::: sütun::: <strong>yöntemi</strong> ::: sütun uç:::::: sütun::: <strong>açıklama</strong> ::: sütun uç:::::: sütun::: <strong>örnek</strong> ::: sütun uç:::::: satır sonuna:::
+:::row:::
+    :::column:::
+        <strong>Yöntemi</strong>
+    :::column-end:::
+    :::column:::
+        <strong>Açıklama</strong>
+    :::column-end:::
+    :::column:::
+        <strong>Örnek</strong>
+    :::column-end:::
+:::row-end:::
 * * *
-::: satır:::::: sütun::: `AsInt(), IsInt()` ::: sütun uç:::::: sütun::: ("593" gibi) bir tam sayı bir tamsayı olarak temsil eden bir dize dönüştürür.
-::: sütun uç:::::: sütun::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample28.cs)]
-    ::: sütun uç:::::: satır sonuna:::
+:::row:::
+    :::column:::
+        `AsInt(), IsInt()`
+    :::column-end:::
+    :::column:::
+        ("593" gibi) bir tam sayı bir tamsayı olarak temsil eden bir dize dönüştürür.
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample28.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: satır:::::: sütun::: `AsBool(), IsBool()` ::: sütun uç:::::: sütun::: gibi bir dize dönüştürür &quot;true&quot; veya &quot;false&quot; Boole türü.
-::: sütun uç:::::: sütun::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample29.cs)]
-    ::: sütun uç:::::: satır sonuna:::
+:::row:::
+    :::column:::
+        `AsBool(), IsBool()`
+    :::column-end:::
+    :::column:::
+        Gibi bir dize dönüştürür &quot;true&quot; veya &quot;false&quot; Boole türü.
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample29.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: satır:::::: sütun::: `AsFloat(), IsFloat()` ::: sütun uç:::::: sütun::: gibi ondalık bir değeri içeren bir dize dönüştürür &quot;1.3&quot; veya &quot;7.439&quot; bir kayan noktalı sayı.
-::: sütun uç:::::: sütun::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample30.cs)]
-    ::: sütun uç:::::: satır sonuna:::
+:::row:::
+    :::column:::
+        `AsFloat(), IsFloat()`
+    :::column-end:::
+    :::column:::
+        Gibi ondalık bir değeri içeren bir dize dönüştürür &quot;1.3&quot; veya &quot;7.439&quot; bir kayan noktalı sayı.
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample30.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: satır:::::: sütun::: `AsDecimal(), IsDecimal()` ::: sütun uç:::::: sütun::: gibi ondalık bir değeri içeren bir dize dönüştürür &quot;1.3&quot; veya &quot;7.439&quot; ondalık bir sayı. (ASP.NET, bir ondalık kayan noktalı sayıdan daha kesin sayıdır.) ::: sütun uç:::::: sütun::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample31.cs)]
-    ::: sütun uç:::::: satır sonuna:::
+:::row:::
+    :::column:::
+        `AsDecimal(), IsDecimal()`
+    :::column-end:::
+    :::column:::
+        Gibi ondalık bir değeri içeren bir dize dönüştürür &quot;1.3&quot; veya &quot;7.439&quot; ondalık bir sayı. (ASP.NET, bir ondalık kayan noktalı sayıdan daha kesin sayıdır.) :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample31.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: satır:::::: sütun::: `AsDateTime(), IsDateTime()` ::: sütun uç:::::: sütun::: ASP.NET için bir tarih ve saat değerini temsil eden bir dize dönüştürür `DateTime` türü.
-::: sütun uç:::::: sütun::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample32.cs)]
-    ::: sütun uç:::::: satır sonuna:::
+:::row:::
+    :::column:::
+        `AsDateTime(), IsDateTime()`
+    :::column-end:::
+    :::column:::
+        ASP.NET için bir tarih ve saat değerini temsil eden bir dize dönüştürür `DateTime` türü.
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample32.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: satır:::::: sütun::: `ToString()` ::: sütun uç:::::: sütun::: herhangi bir veri türü bir dizeye dönüştürür.
-::: sütun uç:::::: sütun::: [!code-javascript[Main](introducing-razor-syntax-c/samples/sample33.js)]
-    ::: sütun uç:::::: satır sonuna:::
+:::row:::
+    :::column:::
+        `ToString()`
+    :::column-end:::
+    :::column:::
+        Herhangi bir veri türü, bir dizeye dönüştürür.
+    :::column-end:::
+    :::column:::
+        [!code-javascript[Main](introducing-razor-syntax-c/samples/sample33.js)]
+    :::column-end:::
+:::row-end:::
 
 ## <a name="operators"></a>İşleçler
 
 Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP karakter işlecidir. C# dili (ve bunu temel alan bir Razor sözdizimi) birçok işleçleri destekler, ancak yalnızca kullanmaya başlamak için birkaç tanıması gerekir. En yaygın işleçleri aşağıdaki tabloda özetlenmiştir.
 
 
-::: satır:::::: sütun::: <strong>işleci</strong> ::: sütun uç:::::: sütun::: <strong>açıklama</strong> ::: sütun uç:::::: sütun::: <strong>örnekler</strong> ::: sütun uç:::::: satır sonuna:::
+:::row:::
+    :::column:::
+        <strong>İşleci</strong>
+    :::column-end:::
+    :::column:::
+        <strong>Açıklama</strong>
+    :::column-end:::
+    :::column:::
+        <strong>Örnekler</strong>
+    :::column-end:::
+:::row-end:::
 * * *
-::: satır:::::: sütun::: `+` `-` `*` `/` ::: sütun uç:::::: sütun::: sayısal ifadeler kullanılan matematik işleçleri.
-::: sütun uç:::::: sütun::: [!code-css[Main](introducing-razor-syntax-c/samples/sample34.css)]
-    ::: sütun uç:::::: satır sonuna:::
+:::row:::
+    :::column:::
+        `+` `-` `*` `/`
+    :::column-end:::
+    :::column:::
+        Sayısal ifadeler kullanılan matematik işleçleri.
+    :::column-end:::
+    :::column:::
+        [!code-css[Main](introducing-razor-syntax-c/samples/sample34.css)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: satır:::::: sütun::: `=` ::: sütun uç:::::: sütun::: atama. Deyiminin sağ taraftaki değer sol tarafındaki nesnesi atar.
-::: sütun uç:::::: sütun::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample35.cs)]
-    ::: sütun uç:::::: satır sonuna:::
+:::row:::
+    :::column:::
+        `=`
+    :::column-end:::
+    :::column:::
+        Atama. Deyiminin sağ taraftaki değer sol tarafındaki nesnesi atar.
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample35.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: satır:::::: sütun::: `==` ::: sütun uç:::::: sütun::: eşitlik. Döndürür `true` değerler eşitse. (Birbirinden dikkat edin `=` işleci ve `==` işleci)::: sütun uç:::::: sütun::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample36.cs)]
-    ::: sütun uç:::::: satır sonuna:::
+:::row:::
+    :::column:::
+        `==`
+    :::column-end:::
+    :::column:::
+        Eşitlik. Döndürür `true` değerler eşitse. (Birbirinden fark `=` işleci ve `==` işleci.) :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample36.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: satır:::::: sütun::: `!=` ::: sütun uç:::::: sütun::: eşitsizlik. Döndürür `true` değerler eşit değilse.
-::: sütun uç:::::: sütun::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample37.cs)]
-    ::: sütun uç:::::: satır sonuna:::
+:::row:::
+    :::column:::
+        `!=`
+    :::column-end:::
+    :::column:::
+        Eşitsizlik. Döndürür `true` değerler eşit değilse.
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample37.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: satır:::::: sütun::: `< > <= >=` ::: sütun uç:::::: sütun::: daha az-daha fazla-daha az daha-veya-eşittir ve daha fazla-veya-eşittir büyüktür.
-::: sütun uç:::::: sütun::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample38.cs)]
-    ::: sütun uç:::::: satır sonuna:::
+:::row:::
+    :::column:::
+        `< > <= >=`
+    :::column-end:::
+    :::column:::
+        Daha az-değerinden, büyük-küçük değerinden-veya-eşittir ve daha fazla-veya-eşittir büyüktür.
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample38.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: satır:::::: sütun::: `+` ::: sütun uç:::::: sütun::: dizeleri birleştirmek için kullanılan birleştirme. ASP.NET bu operatörü ve ifade veri türüne göre toplama işleci arasındaki farkı bilir.
-::: sütun uç:::::: sütun::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample39.cs)]
-    ::: sütun uç:::::: satır sonuna:::
+:::row:::
+    :::column:::
+        `+`
+    :::column-end:::
+    :::column:::
+        Birleştirme dizeleri birleştirmek için kullanılır. ASP.NET bu operatörü ve ifade veri türüne göre toplama işleci arasındaki farkı bilir.
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample39.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: satır:::::: sütun::: `+=` `-=` ::: sütun uç:::::: sütun::: ekleyin ve 1 (sırasıyla) bir değişkenden gelen çıkarma artırma ve azaltma işleçleri.
-::: sütun uç:::::: sütun::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample40.cs)]
-    ::: sütun uç:::::: satır sonuna:::
+:::row:::
+    :::column:::
+        `+=``-=`
+    :::column-end:::
+    :::column:::
+        Ekleme ve 1 (sırasıyla) bir değişkenden gelen çıkarmayı artırma ve azaltma işleçleri.
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample40.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: satır:::::: sütun::: `.` ::: sütun uç:::::: sütun::: nokta. Nesneleri ve özellikleri ve yöntemleri ayırt etmek için kullanılır.
-::: sütun uç:::::: sütun::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample41.cs)]
-    ::: sütun uç:::::: satır sonuna:::
+:::row:::
+    :::column:::
+        `.`
+    :::column-end:::
+    :::column:::
+        Nokta. Nesneleri ve özellikleri ve yöntemleri ayırt etmek için kullanılır.
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample41.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: satır:::::: sütun::: `()` ::: sütun uç:::::: sütun::: parantez. Grup ifadeleri ve yönteme parametreleri geçirmek için kullanılır.
-::: sütun uç:::::: sütun::: [!code-javascript[Main](introducing-razor-syntax-c/samples/sample42.js)]
-    ::: sütun uç:::::: satır sonuna:::
+:::row:::
+    :::column:::
+        `()`
+    :::column-end:::
+    :::column:::
+        Parantezler. Grup ifadeleri ve yönteme parametreleri geçirmek için kullanılır.
+    :::column-end:::
+    :::column:::
+        [!code-javascript[Main](introducing-razor-syntax-c/samples/sample42.js)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: satır:::::: sütun::: `[]` ::: sütun uç:::::: sütun::: köşeli ayraç. Değer dizileri veya koleksiyonlardaki erişmek için kullanılır.
-::: sütun uç:::::: sütun::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample43.cs)]
-    ::: sütun uç:::::: satır sonuna:::
+:::row:::
+    :::column:::
+        `[]`
+    :::column-end:::
+    :::column:::
+        Köşeli ayraç. Değer dizileri veya koleksiyonlardaki erişmek için kullanılır.
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample43.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: satır:::::: sütun::: `!` ::: sütun uç:::::: sütun::: değil. Tersine çevirir bir `true` değerini `false` ve bunun tersi de geçerlidir. Test etmek için bir toplu şekilde genellikle kullanılan `false` (diğer bir deyişle, için değil `true`).
-::: sütun uç:::::: sütun::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample44.cs)]
-    ::: sütun uç:::::: satır sonuna:::
+:::row:::
+    :::column:::
+        `!`
+    :::column-end:::
+    :::column:::
+        Değil. Tersine çevirir bir `true` değerini `false` ve bunun tersi de geçerlidir. Test etmek için bir toplu şekilde genellikle kullanılan `false` (diğer bir deyişle, için değil `true`).
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample44.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: satır:::::: sütun::: `&&` <code>&#124;&#124;</code> ::: sütun uç:::::: sütun::: mantıksal ve ve OR koşulları birlikte hangi bağlamak için kullanılır.
-::: sütun uç:::::: sütun::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample45.cs)]
-    ::: sütun uç:::::: satır sonuna:::
+:::row:::
+    :::column:::
+        `&&`<code>&#124;&#124;</code>
+    :::column-end:::
+    :::column:::
+        Mantıksal AND ve OR koşulları birlikte hangi bağlamak için kullanılır.
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample45.cs)]
+    :::column-end:::
+:::row-end:::
 
 <a id="ID_WorkingWithFileAndFolderPaths"></a>
 ## <a name="working-with-file-and-folder-paths-in-code"></a>Dosya ve klasör yollarında kod ile çalışma

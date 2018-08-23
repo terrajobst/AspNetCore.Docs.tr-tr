@@ -3,17 +3,17 @@ uid: web-pages/overview/getting-started/introducing-razor-syntax-vb
 title: ASP.NET Web programlama Razor söz dizimini (Visual Basic) kullanarak giriş | Microsoft Docs
 author: tfitzmac
 description: Bu ekte Razor sözdizimini kullanarak Visual Basic'te, ASP.NET Web sayfaları ile programlamaya genel bir bakış sağlar.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/07/2014
 ms.assetid: 5da59646-e973-41cd-88a9-c6b2c0594027
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 72f995e62141df4e8f4cd082b4873d82067af8c1
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: cbec035533c37723afcd5bf4aa0c6e1c83dbae23
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37816554"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41755334"
 ---
 <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-visual-basic"></a>ASP.NET Web programlama Razor söz dizimini (Visual Basic) kullanarak giriş
 ====================
@@ -122,7 +122,7 @@ Bir tarayıcıda görüntülenen sonuç:
 
 ### <a name="7-much-of-your-coding-involves-working-with-objects"></a>7. Nesneler ile çalışma kodlamanızı çoğunu içerir
 
-Bir nesne ile programlayabileceğiniz bir şeyi temsil eder &#8212; bir sayfa, bir metin kutusu, bir dosya, görüntü, bir web isteği, bir e-posta iletisi, bir müşteri kaydı (veritabanı satır) vb.. Nesnelerin özelliklerini tanımlayan özellikleri vardır &#8212; bir metin kutusu nesnesine sahip bir `Text` bir istek nesnesi özelliğine sahip bir `Url` özelliğine sahip bir e-posta iletisi bir `From` özelliği ve müşteri nesnesi olan bir `FirstName` özellik. Nesneleri yöntemlerle de &quot;fiilleri&quot; yerine getirebilirsiniz. Örnekler, bir dosya nesnesinin `Save` yöntemi, bir görüntü nesnenin `Rotate` yöntemi ve bir e-posta nesnenin `Send` yöntemi.
+Bir nesne ile programlayabileceğiniz bir şeyi temsil eder &#8212; bir sayfa, bir metin kutusu, bir dosya, görüntü, bir web isteği, bir e-posta iletisi, bir müşteri kaydı (veritabanı satır) vb. Nesnelerin özelliklerini tanımlayan özellikleri vardır &#8212; bir metin kutusu nesnesine sahip bir `Text` bir istek nesnesi özelliğine sahip bir `Url` özelliğine sahip bir e-posta iletisi bir `From` özelliği ve müşteri nesnesi olan bir `FirstName` özellik. Nesneleri yöntemlerle de &quot;fiilleri&quot; yerine getirebilirsiniz. Örnekler, bir dosya nesnesinin `Save` yöntemi, bir görüntü nesnenin `Rotate` yöntemi ve bir e-posta nesnenin `Send` yöntemi.
 
 Genellikle ile çalışacaksınız `Request` ne tür bir tarayıcı, sayfa, kullanıcı kimliği, vb. URL'sini istekte (metin kutuları, vb.) sayfasında alanları form değerleri gibi bilgileri sağlayan nesne. Bu örnek özelliklerine erişmek nasıl gösterir `Request` nesne ve nasıl çağrılacağını `MapPath` yöntemi `Request` sayfasının mutlak yolu sunucu üzerinde size nesnesi:
 
@@ -273,30 +273,88 @@ Tam sayılar değerlerini dönüştürmek için çağrı `AsInt` yöntemi. Dön�
 Aşağıdaki tablo bazı yaygın dönüştürme ve test yöntemleri değişkenleri listeler.
 
 
-::: satır:::::: sütun::: <strong>yöntemi</strong> ::: sütun uç:::::: sütun::: <strong>açıklama</strong> ::: sütun uç:::::: sütun::: <strong>örnek</strong> ::: sütun uç:::::: satır sonuna:::
+:::row:::
+    :::column:::
+        <strong>Yöntemi</strong>
+    :::column-end:::
+    :::column:::
+        <strong>Açıklama</strong>
+    :::column-end:::
+    :::column:::
+        <strong>Örnek</strong>
+    :::column-end:::
+:::row-end:::
 * * *
-::: satır:::::: sütun::: `AsInt(), IsInt()` ::: sütun uç:::::: sütun::: bir tamsayı temsil eden bir dize dönüştürür (gibi &quot;593&quot;) bir tamsayı.
-::: sütun uç:::::: sütun::: [!code-vb[Main](introducing-razor-syntax-vb/samples/sample23.vb)]
-    ::: sütun uç:::::: satır sonuna:::
+:::row:::
+    :::column:::
+        `AsInt(), IsInt()`
+    :::column-end:::
+    :::column:::
+        Bir tamsayı temsil eden bir dize dönüştürür (gibi &quot;593&quot;) bir tamsayı.
+    :::column-end:::
+    :::column:::
+        [!code-vb[Main](introducing-razor-syntax-vb/samples/sample23.vb)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: satır:::::: sütun::: `AsBool(), IsBool()` ::: sütun uç:::::: sütun::: gibi bir dize dönüştürür &quot;true&quot; veya &quot;false&quot; Boole türü.
-::: sütun uç:::::: sütun::: [!code-vb[Main](introducing-razor-syntax-vb/samples/sample24.vb)]
-    ::: sütun uç:::::: satır sonuna:::
+:::row:::
+    :::column:::
+        `AsBool(), IsBool()`
+    :::column-end:::
+    :::column:::
+        Gibi bir dize dönüştürür &quot;true&quot; veya &quot;false&quot; Boole türü.
+    :::column-end:::
+    :::column:::
+        [!code-vb[Main](introducing-razor-syntax-vb/samples/sample24.vb)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: satır:::::: sütun::: `AsFloat(), IsFloat()` ::: sütun uç:::::: sütun::: gibi ondalık bir değeri içeren bir dize dönüştürür &quot;1.3&quot; veya &quot;7.439&quot; bir kayan noktalı sayı.
-::: sütun uç:::::: sütun::: [!code-vb[Main](introducing-razor-syntax-vb/samples/sample25.vb)]
-    ::: sütun uç:::::: satır sonuna:::
+:::row:::
+    :::column:::
+        `AsFloat(), IsFloat()`
+    :::column-end:::
+    :::column:::
+        Gibi ondalık bir değeri içeren bir dize dönüştürür &quot;1.3&quot; veya &quot;7.439&quot; bir kayan noktalı sayı.
+    :::column-end:::
+    :::column:::
+        [!code-vb[Main](introducing-razor-syntax-vb/samples/sample25.vb)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: satır:::::: sütun::: `AsDecimal(), IsDecimal()` ::: sütun uç:::::: sütun::: gibi ondalık bir değeri içeren bir dize dönüştürür &quot;1.3&quot; veya &quot;7.439&quot; ondalık bir sayı. (ASP.NET, bir ondalık kayan noktalı sayıdan daha kesin sayıdır.) ::: sütun uç:::::: sütun::: [!code-vb[Main](introducing-razor-syntax-vb/samples/sample26.vb)]
-    ::: sütun uç:::::: satır sonuna:::
+:::row:::
+    :::column:::
+        `AsDecimal(), IsDecimal()`
+    :::column-end:::
+    :::column:::
+        Gibi ondalık bir değeri içeren bir dize dönüştürür &quot;1.3&quot; veya &quot;7.439&quot; ondalık bir sayı. (ASP.NET, bir ondalık kayan noktalı sayıdan daha kesin sayıdır.) :::column-end:::
+    :::column:::
+        [!code-vb[Main](introducing-razor-syntax-vb/samples/sample26.vb)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: satır:::::: sütun::: `AsDateTime(), IsDateTime()` ::: sütun uç:::::: sütun::: ASP.NET için bir tarih ve saat değerini temsil eden bir dize dönüştürür `DateTime` türü.
-::: sütun uç:::::: sütun::: [!code-vb[Main](introducing-razor-syntax-vb/samples/sample27.vb)]
-    ::: sütun uç:::::: satır sonuna:::
+:::row:::
+    :::column:::
+        `AsDateTime(), IsDateTime()`
+    :::column-end:::
+    :::column:::
+        ASP.NET için bir tarih ve saat değerini temsil eden bir dize dönüştürür `DateTime` türü.
+    :::column-end:::
+    :::column:::
+        [!code-vb[Main](introducing-razor-syntax-vb/samples/sample27.vb)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: satır:::::: sütun::: `ToString()` ::: sütun uç:::::: sütun::: herhangi bir veri türü bir dizeye dönüştürür.
-::: sütun uç:::::: sütun::: [!code-vb[Main](introducing-razor-syntax-vb/samples/sample28.vb)]
-    ::: sütun uç:::::: satır sonuna:::
+:::row:::
+    :::column:::
+        `ToString()`
+    :::column-end:::
+    :::column:::
+        Herhangi bir veri türü, bir dizeye dönüştürür.
+    :::column-end:::
+    :::column:::
+        [!code-vb[Main](introducing-razor-syntax-vb/samples/sample28.vb)]
+    :::column-end:::
+:::row-end:::
 
 
 ## <a name="operators"></a>İşleçler
@@ -304,47 +362,137 @@ Aşağıdaki tablo bazı yaygın dönüştürme ve test yöntemleri değişkenle
 Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP karakter işlecidir. Visual Basic birçok işleçleri destekler, ancak yalnızca ASP.NET web sayfaları geliştirmeye başlamak için birkaç tanıması gerekir. En yaygın işleçleri aşağıdaki tabloda özetlenmiştir.
 
 
-::: satır:::::: sütun::: <strong>işleci</strong> ::: sütun uç:::::: sütun::: <strong>açıklama</strong> ::: sütun uç:::::: sütun::: <strong>örnekler</strong> ::: sütun uç:::::: satır sonuna:::
+:::row:::
+    :::column:::
+        <strong>İşleci</strong>
+    :::column-end:::
+    :::column:::
+        <strong>Açıklama</strong>
+    :::column-end:::
+    :::column:::
+        <strong>Örnekler</strong>
+    :::column-end:::
+:::row-end:::
 * * *
-::: satır:::::: sütun::: `+ - * /` ::: sütun uç:::::: sütun::: sayısal ifadeler kullanılan matematik işleçleri.
-::: sütun uç:::::: sütun::: [!code-vb[Main](introducing-razor-syntax-vb/samples/sample29.vb)]
-    ::: sütun uç:::::: satır sonuna:::
+:::row:::
+    :::column:::
+        `+ - * /`
+    :::column-end:::
+    :::column:::
+        Sayısal ifadeler kullanılan matematik işleçleri.
+    :::column-end:::
+    :::column:::
+        [!code-vb[Main](introducing-razor-syntax-vb/samples/sample29.vb)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: satır:::::: sütun::: `=` ::: sütun uç:::::: sütun::: atama ve eşitlik. Bağlama, bağlı olarak ya da sol taraftaki nesneye sağ tarafında bir ifade değeri atar veya eşitlik değerlerini denetler.
-::: sütun uç:::::: sütun::: [!code-vb[Main](introducing-razor-syntax-vb/samples/sample30.vb)]
-    ::: sütun uç:::::: satır sonuna:::
+:::row:::
+    :::column:::
+        `=`
+    :::column-end:::
+    :::column:::
+        Atama ve eşitlik. Bağlama, bağlı olarak ya da sol taraftaki nesneye sağ tarafında bir ifade değeri atar veya eşitlik değerlerini denetler.
+    :::column-end:::
+    :::column:::
+        [!code-vb[Main](introducing-razor-syntax-vb/samples/sample30.vb)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: satır:::::: sütun::: `<>` ::: sütun uç:::::: sütun::: eşitsizlik. Döndürür `True` değerler eşit değilse.
-::: sütun uç:::::: sütun::: [!code-vb[Main](introducing-razor-syntax-vb/samples/sample31.vb)]
-    ::: sütun uç:::::: satır sonuna:::
+:::row:::
+    :::column:::
+        `<>`
+    :::column-end:::
+    :::column:::
+        Eşitsizlik. Döndürür `True` değerler eşit değilse.
+    :::column-end:::
+    :::column:::
+        [!code-vb[Main](introducing-razor-syntax-vb/samples/sample31.vb)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: satır:::::: sütun::: `< > <= >=` ::: sütun uç:::::: sütun::: diğerinden daha küçük, büyük, küçük veya eşit ve büyüktür veya eşittir.
-::: sütun uç:::::: sütun::: [!code-vb[Main](introducing-razor-syntax-vb/samples/sample32.vb)]
-    ::: sütun uç:::::: satır sonuna:::
+:::row:::
+    :::column:::
+        `< > <= >=`
+    :::column-end:::
+    :::column:::
+        İkinciden küçük, büyük, küçük veya eşit ve büyüktür veya eşittir.
+    :::column-end:::
+    :::column:::
+        [!code-vb[Main](introducing-razor-syntax-vb/samples/sample32.vb)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: satır:::::: sütun::: `&` ::: sütun uç:::::: sütun::: dizeleri birleştirmek için kullanılan birleştirme.
-::: sütun uç:::::: sütun::: [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample33.vbhtml)]
-    ::: sütun uç:::::: satır sonuna:::
+:::row:::
+    :::column:::
+        `&`
+    :::column-end:::
+    :::column:::
+        Birleştirme dizeleri birleştirmek için kullanılır.
+    :::column-end:::
+    :::column:::
+        [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample33.vbhtml)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: satır:::::: sütun::: `+= -=` ::: sütun uç:::::: sütun::: ekleyin ve 1 (sırasıyla) bir değişkenden gelen çıkarma artırma ve azaltma işleçleri.
-::: sütun uç:::::: sütun::: [!code-vb[Main](introducing-razor-syntax-vb/samples/sample34.vb)]
-    ::: sütun uç:::::: satır sonuna:::
+:::row:::
+    :::column:::
+        `+= -=`
+    :::column-end:::
+    :::column:::
+        Ekleme ve 1 (sırasıyla) bir değişkenden gelen çıkarmayı artırma ve azaltma işleçleri.
+    :::column-end:::
+    :::column:::
+        [!code-vb[Main](introducing-razor-syntax-vb/samples/sample34.vb)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: satır:::::: sütun::: `.` ::: sütun uç:::::: sütun::: nokta. Nesneleri ve özellikleri ve yöntemleri ayırt etmek için kullanılır.
-::: sütun uç:::::: sütun::: [!code-vb[Main](introducing-razor-syntax-vb/samples/sample35.vb)]
-    ::: sütun uç:::::: satır sonuna:::
+:::row:::
+    :::column:::
+        `.`
+    :::column-end:::
+    :::column:::
+        Nokta. Nesneleri ve özellikleri ve yöntemleri ayırt etmek için kullanılır.
+    :::column-end:::
+    :::column:::
+        [!code-vb[Main](introducing-razor-syntax-vb/samples/sample35.vb)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: satır:::::: sütun::: `()` ::: sütun uç:::::: sütun::: parantez. Grup ifadeleri için yöntemlere ve üyelerine erişim diziler ve Koleksiyonlar parametreleri geçirmek için kullanılır.
-::: sütun uç:::::: sütun::: [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample36.vbhtml)]
-    ::: sütun uç:::::: satır sonuna:::
+:::row:::
+    :::column:::
+        `()`
+    :::column-end:::
+    :::column:::
+        Parantezler. Grup ifadeleri için yöntemlere ve üyelerine erişim diziler ve Koleksiyonlar parametreleri geçirmek için kullanılır.
+    :::column-end:::
+    :::column:::
+        [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample36.vbhtml)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: satır:::::: sütun::: `Not` ::: sütun uç:::::: sütun::: değil. True değeri FALSE ve tersine çevirir. Test etmek için bir toplu şekilde genellikle kullanılan `False` (diğer bir deyişle, için değil `True`).
-::: sütun uç:::::: sütun::: [!code-vb[Main](introducing-razor-syntax-vb/samples/sample37.vb)]
-    ::: sütun uç:::::: satır sonuna:::
+:::row:::
+    :::column:::
+        `Not`
+    :::column-end:::
+    :::column:::
+        Değil. True değeri FALSE ve tersine çevirir. Test etmek için bir toplu şekilde genellikle kullanılan `False` (diğer bir deyişle, için değil `True`).
+    :::column-end:::
+    :::column:::
+        [!code-vb[Main](introducing-razor-syntax-vb/samples/sample37.vb)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: satır:::::: sütun::: `AndAlso OrElse` ::: sütun uç:::::: sütun::: mantıksal ve ve OR koşulları birlikte hangi bağlamak için kullanılır.
-::: sütun uç:::::: sütun::: [!code-vb[Main](introducing-razor-syntax-vb/samples/sample38.vb)]
-    ::: sütun uç:::::: satır sonuna:::
+:::row:::
+    :::column:::
+        `AndAlso OrElse`
+    :::column-end:::
+    :::column:::
+        Mantıksal AND ve OR koşulları birlikte hangi bağlamak için kullanılır.
+    :::column-end:::
+    :::column:::
+        [!code-vb[Main](introducing-razor-syntax-vb/samples/sample38.vb)]
+    :::column-end:::
+:::row-end:::
 
 ## <a name="working-with-file-and-folder-paths-in-code"></a>Dosya ve klasör yollarında kod ile çalışma
 
@@ -411,7 +559,7 @@ Kullandığınız basit bir koşulunu test etmek için `If...Then` döndüren de
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample43.vbhtml)]
 
-Varsa bir `If` deyimi başlatan bir kod bloğu, normal kullanmak zorunda değilsiniz `Code...End Code` blokları içerecek şekilde deyimleri. Yalnızca ekleyebilirsiniz `@` bloğuna ve çalışır. Bu yaklaşım çalışır `If` diğer Visual Basic dahil olmak üzere kod blokları tarafından izlenen anahtar sözcükleri programlama yanı sıra `For`, `For Each`, `Do While`vb..
+Varsa bir `If` deyimi başlatan bir kod bloğu, normal kullanmak zorunda değilsiniz `Code...End Code` blokları içerecek şekilde deyimleri. Yalnızca ekleyebilirsiniz `@` bloğuna ve çalışır. Bu yaklaşım çalışır `If` diğer Visual Basic dahil olmak üzere kod blokları tarafından izlenen anahtar sözcükleri programlama yanı sıra `For`, `For Each`, `Do While`vb.
 
 [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample44.vbhtml)]
 

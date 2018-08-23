@@ -1,101 +1,102 @@
 ---
-title: ASP.NET Core 2. 0 ' yenilikler nelerdir?
+title: ASP.NET Core 2.0 yenilikleri
 author: rick-anderson
-description: ASP.NET Core 2.0 yeni özellikler hakkında bilgi edinin.
+description: ASP.NET Core 2.0 yenilikleri hakkında bilgi edinin.
 monikerRange: = aspnetcore-2.0
+ms.author: riande
 ms.date: 07/10/2017
 uid: aspnetcore-2.0
-ms.openlocfilehash: 0f9a0275620a59f12f3da9f69f627326deda02fe
-ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
+ms.openlocfilehash: df5a394c8512a99c706573fd27877e4cdd2eb7df
+ms.sourcegitcommit: d27317c16f113e7c111583042ec7e4c5a26adf6f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37077468"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41753912"
 ---
-# <a name="whats-new-in-aspnet-core-20"></a>ASP.NET Core 2. 0 ' yenilikler nelerdir?
+# <a name="whats-new-in-aspnet-core-20"></a>ASP.NET Core 2.0 yenilikleri
 
-Bu makalede, ASP.NET Core 2. 0'da, en önemli değişiklikler ile ilgili belgelere bağlantılar vurgular.
+Bu makalede, ASP.NET Core 2. 0'da, en önemli değişiklikler ile ilgili belgelere bağlantılar vurgulanır.
 
-## <a name="razor-pages"></a>Razor sayfalarının
+## <a name="razor-pages"></a>Razor sayfaları
 
-Razor sayfalarının sayfa odaklı senaryoları daha kolay ve daha üretken kodlama yapar ASP.NET Core MVC yeni özelliğidir.
+Razor sayfaları, ASP.NET Core MVC sayfası odaklı senaryolar daha kolay ve daha üretken kodlama sağlayan, yeni bir özelliktir.
 
-Daha fazla bilgi için bkz: giriş ve öğretici:
+Daha fazla bilgi için giriş ve öğreticiye bakın:
 
-* [Razor sayfalarının giriş](xref:razor-pages/index)
+* [Razor sayfaları giriş](xref:razor-pages/index)
 * [Razor Sayfaları kullanmaya başlama](xref:tutorials/razor-pages/razor-pages-start)
 
 ## <a name="aspnet-core-metapackage"></a>ASP.NET Core metapackage
 
-Yeni bir ASP.NET Core metapackage yapılan ve iç ve 3. taraf bağımlılıklarını birlikte ASP.NET Core ve Entity Framework Çekirdek ekipleri tarafından desteklenen paketleri içerir. Artık tek tek ASP.NET Core paketiyle özellikleri seçmek gerekmez. Tüm özellikleri dahil edilen [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) paket. Bu paket varsayılan şablonları kullanın.
+Yeni bir ASP.NET Core metapackage yapılan ve ASP.NET Core ve Entity Framework Core takımlar, iç ve 3. taraf bağımlılıklarıyla tarafından desteklenen paketler içerir. Artık tek tek ASP.NET Core, paketi tarafından özellikleri seçmeniz gerekebilir. Tüm özellikler dahil [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) paket. Varsayılan şablonlar bu paketi kullanın.
 
-Daha fazla bilgi için bkz: [Microsoft.AspNetCore.All metapackage ASP.NET Core 2.0 için](xref:fundamentals/metapackage).
+Daha fazla bilgi için [Microsoft.AspNetCore.All metapackage ASP.NET Core 2.0 için](xref:fundamentals/metapackage).
 
-## <a name="runtime-store"></a>Çalışma zamanı deposu
+## <a name="runtime-store"></a>Çalışma zamanı Store
 
-Kullanan uygulamalar `Microsoft.AspNetCore.All` metapackage otomatik olarak avantajından yeni bir .NET çekirdeği çalışma zamanı deposu. Depo ASP.NET Core 2.0 uygulamaları çalıştırmak için gereken tüm çalışma zamanı varlıklarını içerir. Kullandığınızda `Microsoft.AspNetCore.All` metapackage, başvurulan ASP.NET Core NuGet paketlerini hiçbir varlıklarından, uygulama ile dağıtılır, hedef sistemde zaten bulundukları olduğundan. Çalışma zamanı deposu varlıkları, ayrıca uygulama başlangıç zamanını geliştirmek için önceden derlenmiş.
+Kullanan uygulamalar `Microsoft.AspNetCore.All` metapackage otomatik olarak yeni bir .NET Core çalışma zamanı Store avantajlarından yararlanın. Store, ASP.NET Core 2.0 uygulamaları çalıştırmak için gerekli olan tüm çalışma zamanı varlıkları içerir. Kullanırken `Microsoft.AspNetCore.All` metapackage, hiçbir varlıklarından başvurulan bir ASP.NET Core NuGet paket, uygulama ile dağıtılır, çünkü bunlar zaten hedef sistemde bulunurlar. Çalışma zamanı Store varlıkları önceden derlenmiş uygulama başlatma çıkış süresini kısaltın.
 
-Daha fazla bilgi için bkz: [çalışma zamanı deposu](/dotnet/core/deploying/runtime-store)
+Daha fazla bilgi için [çalışma zamanı deposu](/dotnet/core/deploying/runtime-store)
 
-## <a name="net-standard-20"></a>.NET standart 2.0
+## <a name="net-standard-20"></a>.NET standard 2.0
 
-ASP.NET Core 2.0 paketleri .NET standart 2.0 hedefleyin. Paketleri diğer .NET standart 2.0 kitaplıkları tarafından başvurulabilir ve .NET, .NET Core 2.0 ve .NET Framework 4.6.1 dahil olmak üzere, .NET standart 2.0 ile uyumlu uygulamalar üzerinde çalışabilir. 
+ASP.NET Core 2.0 paketleri .NET Standard 2.0 hedefleyin. Paketleri diğer .NET Standard 2.0 kitaplıkları tarafından başvurulabilir ve .NET, .NET Core 2.0 ve .NET Framework 4.6.1 dahil olmak üzere, .NET Standard 2.0 uyumlu uygulamalar üzerinde çalıştırabilirler. 
 
-`Microsoft.AspNetCore.All` , .NET Core 2.0 çalışma zamanı deposuyla kullanılmaya olduğundan metapackage .NET Core 2.0 yalnızca hedefler.
+`Microsoft.AspNetCore.All` İle .NET Core 2.0 çalışma zamanı Store kullanılmaya yönelik olduğundan metapackage .NET Core 2.0 yalnızca hedefler.
 
 ## <a name="configuration-update"></a>Yapılandırma güncelleştirmesi
 
-Bir `IConfiguration` örneği, varsayılan ASP.NET Core 2.0 olarak Hizmetleri kapsayıcıya eklenir. `IConfiguration` Hizmetler kapsayıcısı kapsayıcıdan yapılandırma değerlerini almak üzere uygulamalar için kolaylaştırır.
+Bir `IConfiguration` örneği, varsayılan olarak ASP.NET Core 2.0 Hizmetleri kapsayıcıya eklenir. `IConfiguration` Hizmetleri kapsayıcı kapsayıcıdan yapılandırma değerlerini almak uygulamaları kolaylaştırır.
 
-Planlanan belgelerine durumu hakkında daha fazla bilgi için bkz: [GitHub sorunu](https://github.com/aspnet/Docs/issues/3387).
+Planlanan belgeleri durumu hakkında daha fazla bilgi için bkz [GitHub sorunu](https://github.com/aspnet/Docs/issues/3387).
 
-## <a name="logging-update"></a>Güncelleştirme günlüğe kaydetme
+## <a name="logging-update"></a>Güncelleştirme günlüğü
 
-ASP.NET Core 2. 0'günlüğe kaydetme varsayılan olarak bağımlılık ekleme (dı) sisteme eklenmiştir. Sağlayıcıları eklemek ve filtrelemeyi yapılandırmak *Program.cs* dosyası içinde yerine *haline* dosya. Ve varsayılan `ILoggerFactory` olanak sağlayan bir şekilde filtrelenmesini destekler, hem sağlayıcı çapraz filtreleme ve özel sağlayıcı filtreleme için esnek bir yaklaşım kullanın.
+ASP.NET Core 2.0 sürümünde, günlüğe kaydetme varsayılan olarak bağımlılık ekleme (dı) sisteme eklenmiştir. Sağlayıcıları ekleyin ve filtrelemeyi yapılandırma *Program.cs* dosyası içinde yerine *Startup.cs* dosya. Ve varsayılan `ILoggerFactory` hem sağlayıcı çapraz filtreleme ve özel sağlayıcı filtreleme için esnek bir yaklaşım sağlayan bir şekilde filtrelemeyi kullanın.
 
-Daha fazla bilgi için bkz: [günlük giriş](xref:fundamentals/logging/index).
+Daha fazla bilgi için [günlük giriş](xref:fundamentals/logging/index).
 
-## <a name="authentication-update"></a>Kimlik doğrulama güncelleştirme
+## <a name="authentication-update"></a>Kimlik doğrulama güncelleştirmesini
 
-Yeni bir kimlik doğrulama modeli dı kullanarak bir uygulama kimlik doğrulamasını yapılandırmak daha kolay hale getirir.
+Yeni bir kimlik doğrulama modeli DI kullanarak bir uygulama için kimlik doğrulamasını yapılandırmak kolaylaştırır.
 
-Yeni şablonlar web uygulamaları için kimlik doğrulaması yapılandırmak için kullanılabilir ve [Azure AD B2C] kullanarak API web (https://azure.microsoft.com/services/active-directory-b2c/).
+Yeni şablonlar web apps için kimlik doğrulaması yapılandırmak için kullanılabilir ve web API'leri [Azure AD B2C] kullanarak (https://azure.microsoft.com/services/active-directory-b2c/).
 
-Planlanan belgelerine durumu hakkında daha fazla bilgi için bkz: [GitHub sorunu](https://github.com/aspnet/Docs/issues/3054).
+Planlanan belgeleri durumu hakkında daha fazla bilgi için bkz [GitHub sorunu](https://github.com/aspnet/Docs/issues/3054).
 
 ## <a name="identity-update"></a>Kimlik güncelleştirme
 
-Bu yapı daha kolay güvenli yaptık ASP.NET Core 2. 0 ' kimliğini kullanarak API web. Web API kullanarak erişmek için erişim belirteçleri elde edebilirsiniz [Microsoft kimlik doğrulama kitaplığı (MSAL)](https://www.nuget.org/packages/Microsoft.Identity.Client).
+Oluşturmayı kolay güvenli kolaylaştırdık web API'leri kimliğini kullanarak ASP.NET Core 2. 0 '. Web API'leri kullanarak erişmek için erişim belirteçleri edinebilir [Microsoft Authentication Library (MSAL)](https://www.nuget.org/packages/Microsoft.Identity.Client).
 
-2.0 kimlik doğrulama değişiklikleri hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
+Kimlik doğrulaması değişiklikleri 2.0 hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-* [Hesap doğrulama ve ASP.NET Core parola kurtarma](xref:security/authentication/accconfirm)
-* [ASP.NET Core Doğrulayıcı uygulamalar için QR kodu oluşturmayı etkinleştir](xref:security/authentication/identity-enable-qrcodes)
-* [Kimlik doğrulama ve kimlik ASP.NET Core 2.0 geçirme](xref:migration/1x-to-2x/identity-2x)
+* [Hesap onaylama ve parola kurtarma ASP.NET Core](xref:security/authentication/accconfirm)
+* [ASP.NET core'da authenticator uygulamaları için QR kodu oluşturmayı etkinleştirme](xref:security/authentication/identity-enable-qrcodes)
+* [ASP.NET Core 2.0 kimlik doğrulaması ve kimlik geçirme](xref:migration/1x-to-2x/identity-2x)
 
 ## <a name="spa-templates"></a>SPA şablonları
 
-Angular, Aurelia, Knockout.js, React.js ve React.js Redux ile tek sayfa uygulama (SPA) proje şablonları kullanılabilir. Açısal şablon Açısal 4'e güncelleştirilmiştir. Angular ve tepki şablonları varsayılan olarak bulunur; diğer şablon alma hakkında daha fazla bilgi için bkz: [yeni SPA projesi oluşturma](xref:client-side/spa-services#creating-a-new-project). ASP.NET Core içinde SPA oluşturma hakkında daha fazla bilgi için bkz: [tek sayfa uygulamaları oluşturma için kullanım JavaScriptServices](xref:client-side/spa-services).
+Tek sayfa uygulama (SPA) proje şablonları Angular, Aurelia Knockout.js React.js ve Redux ile React.js için kullanılabilir. Angular şablonu Angular 4'e güncelleştirilmiştir. Angular ve React şablonları, varsayılan olarak mevcuttur; diğer şablonları alma hakkında daha fazla bilgi için bkz: [yeni bir SPA proje oluşturma](xref:client-side/spa-services#creating-a-new-project). ASP.NET core'da bir SPA oluşturma hakkında daha fazla bilgi için bkz: [oluşturma tek sayfalı uygulamalar için JavaScriptServices kullanma](xref:client-side/spa-services).
 
-## <a name="kestrel-improvements"></a>Kestrel geliştirmeleri
+## <a name="kestrel-improvements"></a>Kestrel'i geliştirmeleri
 
-Kestrel web sunucusu Internet'e yönelik sunucu daha uygun sağlayan yeni özellikler vardır. Sunucu kısıtlaması yapılandırma seçenekleri sayısı olarak eklenen `KestrelServerOptions` sınıfı yeni `Limits` özelliği. Aşağıdakiler için sınırları ekleyin:
+Kestrel'i web sunucusu, Internet'e yönelik olarak daha uygun hale getiren yeni özelliklere sahiptir. İçinde sunucu kısıtlaması yapılandırma seçeneklerinin bir sayı eklenir `KestrelServerOptions` sınıf yeni `Limits` özelliği. Aşağıdaki sınırlar ekleyin:
 
-- En fazla istemci bağlantıları
-- En büyük istek gövdesi boyutu
-- En düşük istek gövdesi veri oranı
+- En fazla istemci bağlantısı
+- En fazla istek gövdesi boyutu
+- En az bir istek gövdesi veri hızı
 
-Daha fazla bilgi için bkz: [Kestrel web server ASP.NET Core uygulamasında](xref:fundamentals/servers/kestrel).
+Daha fazla bilgi için [Kestrel web sunucusu uygulaması ASP.NET core'da](xref:fundamentals/servers/kestrel).
 
-## <a name="weblistener-renamed-to-httpsys"></a>WebListener HTTP.sys'ye yeniden adlandırıldı
+## <a name="weblistener-renamed-to-httpsys"></a>WebListener HTTP.sys için yeniden adlandırıldı
 
-Paketleri `Microsoft.AspNetCore.Server.WebListener` ve `Microsoft.Net.Http.Server` yeni bir pakete birleştirilmiş `Microsoft.AspNetCore.Server.HttpSys`. Ad alanları eşleşecek şekilde güncelleştirildi.
+Paketleri `Microsoft.AspNetCore.Server.WebListener` ve `Microsoft.Net.Http.Server` yeni bir paket birleştirilir `Microsoft.AspNetCore.Server.HttpSys`. Ad alanlarını eşleşecek şekilde güncelleştirildi.
 
-Daha fazla bilgi için bkz: [HTTP.sys web server ASP.NET Core uygulamasında](xref:fundamentals/servers/httpsys).
+Daha fazla bilgi için [HTTP.sys sunucu uygulamasından ASP.NET Core web](xref:fundamentals/servers/httpsys).
 
-## <a name="enhanced-http-header-support"></a>Gelişmiş HTTP üstbilgisi desteği
+## <a name="enhanced-http-header-support"></a>HTTP üst bilgisi için gelişmiş destek
 
-MVC iletmek için kullanılırken bir `FileStreamResult` veya `FileContentResult`, şimdi ayarlama seçeneğiniz vardır bir `ETag` veya `LastModified` , iletme içerik tarihi. Bu değerleri kod ile döndürülen içeriği aşağıdakine benzer ayarlayabilirsiniz:
+MVC aktarmaya kullanırken bir `FileStreamResult` veya `FileContentResult`, şimdi Ayarla seçeneğine sahip bir `ETag` veya `LastModified` , iletme içeriğe tarih. Bu değerleri üzerinde kod döndürülen içerikle aşağıdakine benzer ayarlayabilirsiniz:
 
 ```csharp
 var data = Encoding.UTF8.GetBytes("This is a sample text from a binary array");
@@ -103,43 +104,43 @@ var entityTag = new EntityTagHeaderValue("\"MyCalculatedEtagValue\"");
 return File(data, "text/plain", "downloadName.txt", lastModified: DateTime.UtcNow.AddSeconds(-5), entityTag: entityTag);
 ```
 
-Ziyaretçileri döndürülen dosya için uygun HTTP üst bilgileri ile donatılmış `ETag` ve `LastModified` değerleri.
+Ziyaretçilerinizin için döndürülen dosya için uygun HTTP üst bilgileri ile donatılmış `ETag` ve `LastModified` değerleri.
 
-Bir uygulama ziyaretçi istekleri içeriği, bir aralık istek üstbilgisi ile ASP.NET, tanıyabilir ve bu başlığı tanıtıcı. İstenen içerik kısmen alınabilir, ASP.NET uygun şekilde atlayın ve bayt yalnızca istenen kümesini döndürür.  Tüm özel işleyicileri uyum veya bu özelliği işlemek için yöntemlerin içine yazma gerekmez; Bu otomatik olarak sizin için gerçekleştirilir.
+Bir uygulama ziyaretçi isteği içeriği, bir aralık isteği üst bilgisi ile ASP.NET Core istek tanır ve üst bilgi olarak işler. Talep edilen içeriği kısmen edinebilir, ASP.NET Core, uygun şekilde atlar ve yalnızca istenen bayt kümesini döndürür. Herhangi bir özel işleyicileri uyarlayabilir veya bu özelliği işlemek için yöntemlerinizi yazmanız gerekmez; Bu otomatik olarak sizin yerinize gerçekleştirilir.
 
-## <a name="hosting-startup-and-application-insights"></a>Başlatma ve Application Insights barındırma
+## <a name="hosting-startup-and-application-insights"></a>Başlangıç ve Application Insights'ı barındırma
 
-Barındırma ortamları artık ek paket bağımlılıkları ekleme ve kod uygulama başlatma sırasında uygulama açıkça bir bağımlılık alın veya herhangi bir yöntem çağrısı gerek yürütün. Bu özellik, uygulamanın önceden bilmenize gerek olmadan bu ortam için "ışık li" özelliklere belirli ortamlara etkinleştirmek için kullanılabilir. 
+Barındırma ortamları artık ek paket bağımlılıkları ekleme ve kod uygulama başlatma sırasında açıkça bir bağımlılık olması veya herhangi bir yöntem çağrısı gerek olmadan uygulamayı çalıştırın. Bu özellik, söz konusu ortama "ışık yukarı" özelliklere belirli ortamlara uygulamanın önceden bilmenize gerek olmadan etkinleştirmek için kullanılabilir. 
 
-ASP.NET Core 2. 0'bu özelliği otomatik olarak (sonra seçim) ve Visual Studio'da hata ayıklama sırasında Application Insights Tanılama'yı etkinleştirmek için kullanılan Azure App Services çalıştırırken. Sonuç olarak, proje şablonları artık Application Insights paketler ve kod varsayılan olarak ekleyin.
+ASP.NET Core 2.0 sürümünde bu özellik otomatik olarak (sonra seçim) ve Visual Studio'da hata ayıklama sırasında Application Insights Tanılama'yı etkinleştirmek için kullanılan Azure uygulama hizmetleri çalışırken. Sonuç olarak, proje şablonları artık Application Insights paketlerini ve kod varsayılan olarak ekleyin.
 
-Planlanan belgelerine durumu hakkında daha fazla bilgi için bkz: [GitHub sorunu](https://github.com/aspnet/Docs/issues/3389).
+Planlanan belgeleri durumu hakkında daha fazla bilgi için bkz [GitHub sorunu](https://github.com/aspnet/Docs/issues/3389).
 
-## <a name="automatic-use-of-anti-forgery-tokens"></a>Sahteciliğe karşı koruma belirteçlerini otomatik olarak kullanılmasını
+## <a name="automatic-use-of-anti-forgery-tokens"></a>Sahteciliğe karşı koruma belirteçleri otomatik kullanımı
 
-ASP.NET Core her zaman siteler arası istek sahtekarlığı (XSRF) saldırılarını HTML olarak kodlanacak içerik varsayılan olarak, ancak yardımcı olmak için fazladan bir adım geçen yeni sürümle Yardım. ASP.NET Core artık varsayılan olarak sahteciliğe karşı koruma belirteçleri yayma ve bunları form POST eylemleri ve ek yapılandırma olmaksızın sayfaları doğrulayın.
+ASP.NET Core, siteler arası istek sahteciliği (XSRF) saldırılarını HTML olarak kodlanacak içeriği varsayılan olarak, ancak fazladan bir adım yardımcı olması için geçen yeni sürüm ile her zaman olmuştur. ASP.NET Core, artık varsayılan olarak sahteciliğe karşı koruma belirteçleri yayma ve bunları form POST eylemlerinin ve ek yapılandırma olmaksızın sayfaları doğrulayabilirsiniz.
 
-Daha fazla bilgi için bkz: [önlemek siteler arası istek sahtekarlığı (XSRF/CSRF) saldırılarını](xref:security/anti-request-forgery).
+Daha fazla bilgi için [önlemek siteler arası istek sahtekarlığı (XSRF/CSRF) saldırılarını](xref:security/anti-request-forgery).
 
-## <a name="automatic-precompilation"></a>Otomatik ön derlemesi
+## <a name="automatic-precompilation"></a>Otomatik kod ön derlemesi
 
-Razor görünüm ön derleme yayımlama sırasında Yayımla çıkış boyutu ve uygulama azaltma varsayılan olarak etkin başlangıç zamanı.
+Razor görünümü önceden derleme yayımlama sırasında uygulama ve yayımlama boyutu azaltma, varsayılan olarak etkin başlangıç zamanı.
 
-Daha fazla bilgi için bkz: [Razor görünüm derleme ve ASP.NET Core içinde ön derlemesi](xref:mvc/views/view-compilation).
+Daha fazla bilgi için [Razor görünüm derlemesi ve içinde ASP.NET Core ön derleme](xref:mvc/views/view-compilation).
 
 ## <a name="razor-support-for-c-71"></a>C# 7.1 Razor desteği
 
-Razor görüntüleme altyapısı, yeni Roslyn derleyicisi ile çalışmak için güncelleştirilmiştir. Varsayılan ifadeleri, olayla tanımlama grubu adları ve desen eşleştirme genel türlerle gibi C# 7.1 özellikleri için destek içerir. C# 7.1 projenizde kullanmak için aşağıdaki özellik proje dosyanıza ekleyin ve çözümü yeniden yükle:
+Razor görünüm altyapısı yeni Roslyn derleyicisi ile çalışacak şekilde güncelleştirildi. C# 7.1 varsayılan ifadeleri, Çıkarsanan demet adları ve türlerle desen eşleştirme gibi özellikler için destek içerir. Projenizde C# 7.1 kullanmak için proje dosyanızda aşağıdaki özelliği ekleyin ve ardından çözümü yeniden yükleyin:
 
 ```xml
 <LangVersion>latest</LangVersion>
 ```
 
-C# 7.1 özellikleri durumu hakkında daha fazla bilgi için bkz: [Roslyn GitHub deposuna](https://github.com/dotnet/roslyn/blob/master/docs/Language%20Feature%20Status.md).
+C# 7.1 özelliklerini durumu hakkında daha fazla bilgi için bkz. [Roslyn GitHub deposunu](https://github.com/dotnet/roslyn/blob/master/docs/Language%20Feature%20Status.md).
 
-## <a name="other-documentation-updates-for-20"></a>Diğer belge güncelleştirmeleri 2.0
+## <a name="other-documentation-updates-for-20"></a>2.0 için diğer belge güncelleştirmeleri
 
-* [Visual Studio yayımlama profilleri ASP.NET Core uygulama dağıtımı için](xref:host-and-deploy/visual-studio-publish-profiles)
+* [Visual Studio yayımlama profilleri için ASP.NET Core uygulaması dağıtımı](xref:host-and-deploy/visual-studio-publish-profiles)
 * [Anahtar Yönetimi](xref:security/data-protection/implementation/key-management)
 * [Facebook kimlik doğrulamasını yapılandırma](xref:security/authentication/facebook-logins)
 * [Twitter kimlik doğrulamasını yapılandırma](xref:security/authentication/twitter-logins)
@@ -148,13 +149,13 @@ C# 7.1 özellikleri durumu hakkında daha fazla bilgi için bkz: [Roslyn GitHub 
 
 ## <a name="migration-guidance"></a>Geçiş Kılavuzu
 
-ASP.NET Core 1.x uygulamaları ASP.NET Core 2.0 geçirme hakkında yönergeler için aşağıdaki kaynaklara bakın:
+ASP.NET Core 1.x ASP.NET Core 2.0 uygulamaları geçirme konusunda yönergeler için aşağıdaki kaynaklara bakın:
 
-* [ASP.NET çekirdek geçirmek 1.x ASP.NET Core 2.0 için](xref:migration/1x-to-2x/index)
-* [Kimlik doğrulama ve kimlik ASP.NET Core 2.0 geçirme](xref:migration/1x-to-2x/identity-2x)
+* [ASP.NET Core geçiş 1.x ASP.NET Core 2.0](xref:migration/1x-to-2x/index)
+* [ASP.NET Core 2.0 kimlik doğrulaması ve kimlik geçirme](xref:migration/1x-to-2x/identity-2x)
 
 ## <a name="additional-information"></a>Ek Bilgiler
 
-Değişiklikleri tam listesi için bkz: [ASP.NET Core 2.0 sürüm notları](https://github.com/aspnet/Home/releases/tag/2.0.0).
+Değişikliklerin tam listesi için bkz. [ASP.NET Core 2.0 sürüm notları](https://github.com/aspnet/Home/releases/tag/2.0.0).
 
-ASP.NET Core geliştirme takımın ilerleme durumunu ve planları ile bağlanmak için ince ayar [ASP.NET topluluk Standup](https://live.asp.net/).
+ASP.NET Core geliştirme takımın ilerleme durumu ve planları ile bağlanmak için etkinliğindeki [ASP.NET topluluğu toplantısında](https://live.asp.net/).

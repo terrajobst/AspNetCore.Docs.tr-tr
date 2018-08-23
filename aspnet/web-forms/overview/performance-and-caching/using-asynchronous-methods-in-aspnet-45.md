@@ -3,17 +3,17 @@ uid: web-forms/overview/performance-and-caching/using-asynchronous-methods-in-as
 title: ASP.NET 4.5 sürümünde zaman uyumsuz metotlar kullanma | Microsoft Docs
 author: Rick-Anderson
 description: Bu öğreticide ücretsiz bir Web için Visual Studio Express 2012 kullanarak zaman uyumsuz bir ASP.NET Web Forms uygulaması oluşturmaya yönelik temel bilgiler sağlanır...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/06/2012
 ms.assetid: a585c9a2-7c8e-478b-9706-90f3739c50d1
 msc.legacyurl: /web-forms/overview/performance-and-caching/using-asynchronous-methods-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: 94adc03eeba61310d60ca88a0495c5a2e5dc4cf6
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 5e5fe83e802980a5783c3d77454d5fb0ee7d5a91
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37819308"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41752728"
 ---
 <a name="using-asynchronous-methods-in-aspnet-45"></a>ASP.NET 4.5 sürümünde zaman uyumsuz metotlar kullanma
 ====================
@@ -144,7 +144,7 @@ Aşağıdaki görüntüde zaman uyumsuz gizmo görünümü gösterir.
 
 ![async](using-asynchronous-methods-in-aspnet-45/_static/image2.png)
 
-Tarayıcılar sunu şeyler verilerin eş zamanlı çağrı tarafından oluşturulan görünüm aynıdır. Tek fark, zaman uyumsuz sürümü ağır yük altında daha fazla performansa sahip olabilir..
+Tarayıcılar sunu şeyler verilerin eş zamanlı çağrı tarafından oluşturulan görünüm aynıdır. Tek fark, zaman uyumsuz sürümü ağır yük altında daha fazla performansa sahip olabilir.
 
 ## <a name="registerasynctask-notes"></a>RegisterAsyncTask notları
 
