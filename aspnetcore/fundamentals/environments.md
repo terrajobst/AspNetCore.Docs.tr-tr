@@ -5,12 +5,12 @@ description: ASP.NET Core uygulamaları birden fazla ortam arasında uygulama da
 ms.author: riande
 ms.date: 07/03/2018
 uid: fundamentals/environments
-ms.openlocfilehash: eaa6fa44ed90d0c85a11f5e67a4bb9a91e84c196
-ms.sourcegitcommit: c8e62aa766641aa55105f7db79cdf2b27a6e5977
+ms.openlocfilehash: 720e5ef9fb63b83499ce1801a1c3f9df4786d748
+ms.sourcegitcommit: 25150f4398de83132965a89f12d3a030f6cce48d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39254876"
+ms.lasthandoff: 08/25/2018
+ms.locfileid: "42927948"
 ---
 # <a name="use-multiple-environments-in-aspnet-core"></a>ASP.NET Core birden çok ortam kullanma
 
@@ -275,7 +275,11 @@ Linux dağıtımları için kullanmak `export` oturum tabanlı değişken ayarla
 
 ### <a name="configuration-by-environment"></a>Ortama göre yapılandırma
 
-Bkz: *ortama göre yapılandırma* bölümünü <xref:fundamentals/configuration/index#configuration-by-environment>.
+Yapılandırma ortamı tarafından yüklenecek öneririz:
+
+* *appSettings* dosyaları (* appsettings.&lt; <Environment> &gt;.json). Bkz: [yapılandırma: dosya yapılandırma sağlayıcısı](xref:fundamentals/configuration/index#file-configuration-provider).
+* ortam değişkenleri (her sisteminde uygulamanın barındırıldığı ayarlanır). Bkz: [yapılandırma: dosya yapılandırma sağlayıcısı](xref:fundamentals/configuration/index#file-configuration-provider) ve [geliştirmede uygulama gizli anahtarlarının güvenli bir şekilde depolanması: ortam değişkenlerini](xref:security/app-secrets#environment-variables).
+* Gizli dizi Yöneticisi (geliştirme ortamındaki yalnızca). Bkz: <xref:security/app-secrets>.
 
 ## <a name="environment-based-startup-class-and-methods"></a>Ortam tabanlı başlangıç sınıfı ve yöntemleri
 

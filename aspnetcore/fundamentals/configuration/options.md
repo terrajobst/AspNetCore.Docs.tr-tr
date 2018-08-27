@@ -6,20 +6,20 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/28/2017
 uid: fundamentals/configuration/options
-ms.openlocfilehash: c553062bbec31ba5bd437eb0bd29e007ae93c65e
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 6258530beedced9570111478fea630b1556e1a1e
+ms.sourcegitcommit: 25150f4398de83132965a89f12d3a030f6cce48d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41756285"
+ms.lasthandoff: 08/25/2018
+ms.locfileid: "42927964"
 ---
 # <a name="options-pattern-in-aspnet-core"></a>ASP.NET Core desende seçenekleri
 
 Tarafından [Luke Latham](https://github.com/guardrex)
 
-Seçenekleri deseni sınıfları, ilgili ayar gruplarını temsil etmek için kullanır. Yapılandırma ayarları ayrı sınıflara özelliği tarafından ayrılan, uygulama için iki önemli yazılım Mühendisliği ilkeden uyar:
+Seçenekleri deseni sınıfları, ilgili ayar gruplarını temsil etmek için kullanır. Zaman [yapılandırma ayarlarını](xref:fundamentals/configuration/index) yalıtılmış ayrı sınıf senaryoya göre uygulama için iki önemli yazılım Mühendisliği ilkeden uyar:
 
-* [Arabirimi ayırma ilkesi (ISS)](http://deviq.com/interface-segregation-principle/): yapılandırma ayarlarına bağlı olan özellikleri (sınıflar) kullandıkları yapılandırma ayarlarını bağlıdır.
+* [Arabirimi ayırma ilkesi (ISS)](http://deviq.com/interface-segregation-principle/): kullandıkları yapılandırma ayarlarını yapılandırma ayarlarına bağlı olan senaryoları (sınıflar) bağlıdır.
 * [Görev ayrımı nettir](http://deviq.com/separation-of-concerns/): uygulamanın farklı kısımlarını ayarları bağımlı veya birbirine bağlı değil.
 
 [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/options/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample)) Bu makalede örnek uygulaması ile daha kolaydır.
@@ -122,7 +122,7 @@ delegate_option1 = value1_configured_by_delgate, delegate_option2 = 500
 
 Suboptions yapılandırma, örnek olarak gösterilmiştir &num;3'te [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/options/sample).
 
-Uygulamaları, belirli özellik gruplar (sınıflar) uygulamasında ilgili seçenekleri sınıflar oluşturmanız gerekir. Yapılandırma değerleri gerektiren uygulama bölümleri, yalnızca kullandıkları yapılandırma değerleri için erişimi olmalıdır.
+Uygulamalar, uygulamadaki belirli bir senaryoyu grupları (sınıflar) ilgili seçenekleri sınıflar oluşturmanız gerekir. Yapılandırma değerleri gerektiren uygulama bölümleri, yalnızca kullandıkları yapılandırma değerleri için erişimi olmalıdır.
 
 Seçenekleri yapılandırmayı bağlanırken, seçenek türünün her bir özellik form için bir yapılandırma anahtarı bağlı `property[:sub-property:]`. Örneğin, `MyOptions.Option1` özelliğe anahtarına `Option1`, den okunan `option1` özelliğinde *appsettings.json*.
 

@@ -1,176 +1,176 @@
 ---
-title: ASP.NET Core değişiklik belirteçleri değişikliklerle Algıla
+title: ASP.NET Core değişiklik belirteçleri ile değişiklikleri algılama
 author: guardrex
-description: Değişiklik belirteçleri değişiklikleri izlemek için nasıl kullanılacağını öğrenin.
+description: Değişiklikleri izlemek için değişiklik belirteçleri kullanmayı öğrenin.
 ms.author: riande
 ms.date: 11/10/2017
 uid: fundamentals/primitives/change-tokens
-ms.openlocfilehash: 165602587d73907416f47a7ce82a3081e8d74c4b
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: ac80e4c9da6d38e5f1acf8aa6f7ac3f4803ffb33
+ms.sourcegitcommit: 25150f4398de83132965a89f12d3a030f6cce48d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276899"
+ms.lasthandoff: 08/25/2018
+ms.locfileid: "42927858"
 ---
-# <a name="detect-changes-with-change-tokens-in-aspnet-core"></a>ASP.NET Core değişiklik belirteçleri değişikliklerle Algıla
+# <a name="detect-changes-with-change-tokens-in-aspnet-core"></a>ASP.NET Core değişiklik belirteçleri ile değişiklikleri algılama
 
 Tarafından [Luke Latham](https://github.com/guardrex)
 
-A *belirteci değiştirme* olan değişiklikleri izlemek için kullanılan genel amaçlı, alt düzey Yapı bloğu.
+A *belirteç değiştirme* bir genel amaçlı, alt düzey yapı değişiklikleri izlemek için kullanılan blok.
 
-[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/primitives/change-tokens/sample/) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/primitives/change-tokens/sample/) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="ichangetoken-interface"></a>IChangeToken arabirimi
 
-[IChangeToken](/dotnet/api/microsoft.extensions.primitives.ichangetoken) gerçekleşen bir değişikliği bildirimleri yayar. `IChangeToken` bulunan [Microsoft.Extensions.Primitives](/dotnet/api/microsoft.extensions.primitives) ad alanı. Kullanmayan uygulamalar için [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app) (ASP.NET Core 2.1 veya sonrası), başvuru [Microsoft.Extensions.Primitives](https://www.nuget.org/packages/Microsoft.Extensions.Primitives/) proje dosyasında NuGet paketi.
+[IChangeToken](/dotnet/api/microsoft.extensions.primitives.ichangetoken) gerçekleşen bir değişikliği bildirimleri yayar. `IChangeToken` bulunan [Microsoft.Extensions.Primitives](/dotnet/api/microsoft.extensions.primitives) ad alanı. Kullanmayan uygulamalar için [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app) (ASP.NET Core 2.1 veya üzeri), başvuru [Microsoft.Extensions.Primitives](https://www.nuget.org/packages/Microsoft.Extensions.Primitives/) proje dosyasındaki NuGet paketi.
 
-`IChangeToken` iki özelliklere sahiptir:
+`IChangeToken` iki özelliğe sahiptir:
 
-* [ActiveChangedCallbacks](/dotnet/api/microsoft.extensions.primitives.ichangetoken.activechangecallbacks) belirteç proaktif olarak geri çağırmaları başlatır, belirtin. Varsa `ActiveChangedCallbacks` ayarlanır `false`, bir geri çağırma hiçbir zaman olarak adlandırılır ve uygulama yoklaması gerekir `HasChanged` değişiklikleri. Ayrıca, bir belirteç herhangi bir değişiklik meydana veya temel alınan değişiklik dinleyicisi atıldı ya da devre dışı hiçbir zaman iptal edilecek de mümkündür.
-* [HasChanged](/dotnet/api/microsoft.extensions.primitives.ichangetoken.haschanged) bir değişiklik oluşup oluşmadığını belirten bir değer alır.
+* [ActiveChangedCallbacks](/dotnet/api/microsoft.extensions.primitives.ichangetoken.activechangecallbacks) belirteç proaktif bir şekilde geri çağırmaları harekete geçirirse gösterir. Varsa `ActiveChangedCallbacks` ayarlanır `false`, bir geri çağırma hiçbir zaman çağrılır ve uygulama yoklama yapmalıdır `HasChanged` değişiklikler. Ayrıca, herhangi bir değişiklik meydana veya temel alınan değişiklik dinleyicisi elden ya da devre dışı hiçbir zaman iptal edilmesi için bir belirteç de mümkündür.
+* [HasChanged](/dotnet/api/microsoft.extensions.primitives.ichangetoken.haschanged) bir değişiklik meydana geldiğini gösteren bir değer alır.
 
-Bir yöntem arabirimi olan [RegisterChangeCallback (Eylem&lt;nesne&gt;, nesne)](/dotnet/api/microsoft.extensions.primitives.ichangetoken.registerchangecallback), belirteç değiştiğinde çağrılan bir geri çağırma kaydeder. `HasChanged` geri çağırma çağrılmadan önce ayarlanmalıdır.
+Bir yöntem arabirimine sahiptir [RegisterChangeCallback (Eylem&lt;nesne&gt;, nesne)](/dotnet/api/microsoft.extensions.primitives.ichangetoken.registerchangecallback), belirteç değiştiğinde çağrılan bir geri çağırma kaydeder. `HasChanged` geri çağırma çağrılmadan önce ayarlanmalıdır.
 
 ## <a name="changetoken-class"></a>ChangeToken sınıfı
 
-`ChangeToken` statik sınıf gerçekleşen bir değişikliği bildirimleri yaymak için kullanılır. `ChangeToken` bulunan [Microsoft.Extensions.Primitives](/dotnet/api/microsoft.extensions.primitives) ad alanı. Kullanmayan uygulamalar için [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app), başvuru [Microsoft.Extensions.Primitives](https://www.nuget.org/packages/Microsoft.Extensions.Primitives/) proje dosyasında NuGet paketi.
+`ChangeToken` statik sınıf gerçekleşen bir değişikliği bildirimleri yaymak için kullanılır. `ChangeToken` bulunan [Microsoft.Extensions.Primitives](/dotnet/api/microsoft.extensions.primitives) ad alanı. Kullanmayan uygulamalar için [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app), başvuru [Microsoft.Extensions.Primitives](https://www.nuget.org/packages/Microsoft.Extensions.Primitives/) proje dosyasındaki NuGet paketi.
 
-`ChangeToken` [Değiştiğinde (Func&lt;IChangeToken&gt;, eylem)](/dotnet/api/microsoft.extensions.primitives.changetoken.onchange?view=aspnetcore-2.0#Microsoft_Extensions_Primitives_ChangeToken_OnChange_System_Func_Microsoft_Extensions_Primitives_IChangeToken__System_Action_) yöntemi yazmaçlar bir `Action` belirteci değiştiğinde çağırmak için:
+`ChangeToken` [OnChange (Func&lt;IChangeToken&gt;, eylem)](/dotnet/api/microsoft.extensions.primitives.changetoken.onchange?view=aspnetcore-2.0#Microsoft_Extensions_Primitives_ChangeToken_OnChange_System_Func_Microsoft_Extensions_Primitives_IChangeToken__System_Action_) yöntemi kayıtları bir `Action` belirteç değiştiğinde çağrılacak:
 
-* `Func<IChangeToken>` belirteç oluşturur.
+* `Func<IChangeToken>` belirteci oluşturur.
 * `Action` belirteç değiştiğinde çağrılır.
 
-`ChangeToken` sahip bir [değiştiğinde&lt;TState&gt;(Func&lt;IChangeToken&gt;, eylem&lt;TState&gt;, TState)](/dotnet/api/microsoft.extensions.primitives.changetoken.onchange?view=aspnetcore-2.0#Microsoft_Extensions_Primitives_ChangeToken_OnChange__1_System_Func_Microsoft_Extensions_Primitives_IChangeToken__System_Action___0____0_) ek bir alan aşırı `TState` belirteç tüketici geçirilen parametre `Action`.
+`ChangeToken` sahip bir [OnChange&lt;TState&gt;(Func&lt;IChangeToken&gt;, eylem&lt;TState&gt;, TState)](/dotnet/api/microsoft.extensions.primitives.changetoken.onchange?view=aspnetcore-2.0#Microsoft_Extensions_Primitives_ChangeToken_OnChange__1_System_Func_Microsoft_Extensions_Primitives_IChangeToken__System_Action___0____0_) ek bir alan aşırı yüklemesini `TState` belirteç tüketici geçirilen parametre `Action`.
 
-`OnChange` döndüren bir [IDisposable](/dotnet/api/system.idisposable). Çağırma [Dispose](/dotnet/api/system.idisposable.dispose) ilerideki değişiklikler için dinleme gelen belirtecin durdurur ve belirtecin kaynakları serbest bırakır.
+`OnChange` döndürür bir [IDisposable](/dotnet/api/system.idisposable). Çağırma [Dispose](/dotnet/api/system.idisposable.dispose) ilerideki değişiklikler için dinleme gelen belirteç durdurur ve belirtecin kaynakları serbest bırakır.
 
-## <a name="example-uses-of-change-tokens-in-aspnet-core"></a>Örnek ASP.NET Core değişiklik belirteçleri kullanır
+## <a name="example-uses-of-change-tokens-in-aspnet-core"></a>Örnek ASP.NET Core değişiklik belirteçler kullanır
 
-Değişiklik belirteçleri ASP.NET çekirdek nesnelerdeki değişiklikleri izleme belirgin alanlarında kullanılır:
+ASP.NET Core nesneleri için değişiklik izleme tanınmış alanlarda değişiklik belirteçleri kullanılır:
 
-* Dosyaları, yapılan değişiklikleri izleme için [IFileProvider](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider)'s [izleme](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider.watch) yöntemi oluşturur bir `IChangeToken` belirli dosyaları veya klasörleri izlemek için.
-* `IChangeToken` belirteçleri önbellek çıkarmaları değişiklik tetiklemek için önbellek girişlerinin eklenebilir.
-* İçin `TOptions` değişikliği, varsayılan [OptionsMonitor](/dotnet/api/microsoft.extensions.options.optionsmonitor-1) uyarlamasını [IOptionsMonitor](/dotnet/api/microsoft.extensions.options.ioptionsmonitor-1) bir veya daha fazla kabul eden bir aşırı sahip [IOptionsChangeTokenSource](/dotnet/api/microsoft.extensions.options.ioptionschangetokensource-1)örnekleri. Her oluşumu döndüren bir `IChangeToken` değişiklikleri izleme seçenekleri için değişiklik bildirimi geri araması kaydetme.
+* Dosya değişiklikleri izleme [IFileProvider](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider)'s [Watch](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider.watch) yöntemi oluşturur bir `IChangeToken` belirtilen dosyaların veya klasörlerin izlemek için.
+* `IChangeToken` belirteçleri önbelleğe çıkarmaları değişiklik tetiklemek için önbellek girişlerinin eklenebilir.
+* İçin `TOptions` değiştirir, varsayılan [OptionsMonitor](/dotnet/api/microsoft.extensions.options.optionsmonitor-1) uygulaması [IOptionsMonitor](/dotnet/api/microsoft.extensions.options.ioptionsmonitor-1) bir veya daha fazla kabul eden aşırı yüklenmiş [IOptionsChangeTokenSource](/dotnet/api/microsoft.extensions.options.ioptionschangetokensource-1)örnekleri. Her bir örnek döndürür bir `IChangeToken` değişiklikleri izleme seçenekleri için değişiklik bildirimi geri araması kaydetme.
 
 ## <a name="monitoring-for-configuration-changes"></a>Yapılandırma değişikliklerini izleme
 
-Varsayılan olarak, ASP.NET Core şablonlarını kullanma [JSON yapılandırma dosyalarını](xref:fundamentals/configuration/index#json-configuration) (*appsettings.json*, *appsettings. Development.JSON*, ve *appsettings. Production.JSON*) uygulama yapılandırma ayarlarını yüklenemiyor.
+Varsayılan olarak, ASP.NET Core şablonları kullanın [JSON yapılandırma dosyaları](xref:fundamentals/configuration/index#json-configuration-provider) (*appsettings.json*, *appsettings. Development.JSON*, ve *appsettings. Production.JSON*) uygulama yapılandırma ayarları yüklenemedi.
 
-Bu dosyaları kullanılarak yapılandırılmış olan [AddJsonFile (IConfigurationBuilder, dize, Boolean, Boolean)](/dotnet/api/microsoft.extensions.configuration.jsonconfigurationextensions.addjsonfile?view=aspnetcore-2.0#Microsoft_Extensions_Configuration_JsonConfigurationExtensions_AddJsonFile_Microsoft_Extensions_Configuration_IConfigurationBuilder_System_String_System_Boolean_System_Boolean_) genişletme yöntemi [ConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.configurationbuilder) kabul eden bir `reloadOnChange` parametresi (ASP.NET Çekirdek 1.1 ve üzeri). `reloadOnChange` yapılandırma dosyası değişiklikleri yeniden olmadığını gösterir. Bu ayarda bkz [WebHost](/dotnet/api/microsoft.aspnetcore.webhost) kolaylık yöntemi [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder):
+Bu dosya kullanılarak yapılandırılır [AddJsonFile (IConfigurationBuilder, String, Boolean, Boolean)](/dotnet/api/microsoft.extensions.configuration.jsonconfigurationextensions.addjsonfile#Microsoft_Extensions_Configuration_JsonConfigurationExtensions_AddJsonFile_Microsoft_Extensions_Configuration_IConfigurationBuilder_System_String_System_Boolean_System_Boolean_) genişletme yöntemini [ConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.configurationbuilder) kabul eden bir `reloadOnChange` parametre (ASP.NET Core 1.1 ve üzeri). `reloadOnChange` yapılandırma dosya değişikliklerinde yüklenmesi durumunda gösterir. Bu ayarda bkz [WebHost](/dotnet/api/microsoft.aspnetcore.webhost) kolaylık yöntemi [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder):
 
 ```csharp
 config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
       .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true);
 ```
 
-Dosya tabanlı yapılandırma ile temsil edilir [FileConfigurationSource](/dotnet/api/microsoft.extensions.configuration.fileconfigurationsource). `FileConfigurationSource` kullanan [IFileProvider](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider) dosyaları izlemek için.
+Dosya tabanlı yapılandırma tarafından temsil edilen [FileConfigurationSource](/dotnet/api/microsoft.extensions.configuration.fileconfigurationsource). `FileConfigurationSource` kullanan [IFileProvider](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider) dosyaları izlemek için.
 
-Varsayılan olarak, `IFileMonitor` tarafından sağlanan bir [PhysicalFileProvider](/dotnet/api/microsoft.extensions.fileproviders.physicalfileprovider), kullanan [FileSystemWatcher](/dotnet/api/system.io.filesystemwatcher) için yapılandırma dosyası değişiklikleri izlemek için.
+Varsayılan olarak, `IFileMonitor` tarafından sağlanan bir [PhysicalFileProvider](/dotnet/api/microsoft.extensions.fileproviders.physicalfileprovider), kullanan [FileSystemWatcher](/dotnet/api/system.io.filesystemwatcher) yapılandırma dosya değişiklikleri izlemek için.
 
-Örnek uygulamayı yapılandırma değişikliklerini izleme için iki uygulamaları gösterir. Her iki *appsettings.json* dosya değişiklikleri veya dosyanın ortamı sürümü değişiklikler, her uygulama özel kodu yürütür. Örnek uygulaması bir ileti konsola yazar.
+Örnek uygulamayı yapılandırma değişiklikleri izlemek için iki uygulamaları gösterir. Ya da *appsettings.json* dosya değişikliklerini veya dosyanın ortam sürümü değiştirir, her uygulama özel kodu yürütür. Örnek uygulama bir ileti konsola yazar.
 
-Bir yapılandırma dosyasının `FileSystemWatcher` tek yapılandırma dosyası değişikliği için birden çok belirteç geri aramalar tetikleyebilir. Örnek 's uygulama yapılandırma dosyaları dosya karmalarını denetleyerek bu soruna karşı korur. Dosya karmalarını denetimi yapılandırma dosyalarını en az biri özel kod çalıştırmadan önce değişti sağlar. Örnek dosya SHA1 karma kullanır (*Utilities/Utilities.cs*):
+Bir yapılandırma dosyasının `FileSystemWatcher` tek bir yapılandırma dosyası değişikliği için birden fazla belirteç geri çağırmaları tetikleyebilirsiniz. Örnek'ın uygulama yapılandırma dosyaları dosya karmalarının kontrol ederek bu soruna karşı korur. Dosya karmalarını denetimi yapılandırma dosyalarını en az biri özel kod çalıştırmadan önce değişti sağlar. Dosya SHA1 karma örnek kullanır (*Utilities/Utilities.cs*):
 
    [!code-csharp[](change-tokens/sample/Utilities/Utilities.cs?name=snippet1)]
 
-   Yeniden deneme bir üstel geri alma ile uygulanır. Dosya kilitleme dosyalardan birinde yeni bir karma hesaplama geçici olarak engelleyen oluşabilir olduğundan yeniden deneyin mevcuttur.
+   Bir üstel geri alma ile yeniden uygulanır. Yeniden deneyin, çünkü dosya kilitleme geçici olarak dosyalardan birinde yeni bir karma hesaplaması engelleyen oluşabilir mevcuttur.
 
-### <a name="simple-startup-change-token"></a>Basit başlangıç değişiklik simgesi
+### <a name="simple-startup-change-token"></a>Basit başlangıç belirteci Değiştir
 
-Bir belirteç tüketici kaydetmek `Action` için geri çağırma değişiklik bildirimleri yapılandırma yeniden yükleme belirtece (*haline*):
+Bir belirteç tüketici kaydetme `Action` geri çağırma için değişiklik bildirimleri yapılandırma yeniden yükleme belirteci (*Startup.cs*):
 
 [!code-csharp[](change-tokens/sample/Startup.cs?name=snippet2)]
 
-`config.GetReloadToken()` belirteç sağlar. Geri çağırma olduğu `InvokeChanged` yöntemi:
+`config.GetReloadToken()` belirteç sağlar. Aramasıdır `InvokeChanged` yöntemi:
 
 [!code-csharp[](change-tokens/sample/Startup.cs?name=snippet3)]
 
-`state` Geri çağırma içinde geçirmek için kullanılan `IHostingEnvironment`. Bu doğru belirlemek kullanışlıdır *appsettings* izlemek için yapılandırma JSON dosyasını *appsettings.&lt; Ortam&gt;.json*. Dosya karmalarını önlemek için kullanılan `WriteConsole` yapılandırma dosyasının yalnızca bir kez değiştiğinde birden çok kez birden çok belirteç geri aramalar nedeniyle çalışmasını deyimi.
+`state` Geri çağırma içinde iletmek için kullanılan `IHostingEnvironment`. Bu doğru belirlemek yararlıdır *appsettings* izlemek için yapılandırma JSON dosyası *appsettings.&lt; Ortam&gt;.json*. Dosya karmalarını önlemek için kullanılan `WriteConsole` yapılandırma dosyasının yalnızca bir kez değiştirdiği zaman birden çok kez birden fazla belirteç geri çağırmaları nedeniyle çalışmasını deyimi.
 
-Bu sistem uygulaması çalıştıran ve kullanıcı tarafından devre dışı bırakılamaz sürece çalıştırır.
+Bu sistem, uygulamayı çalıştıran ve kullanıcı tarafından devre dışı bırakılamaz sürece çalıştırır.
 
-### <a name="monitoring-configuration-changes-as-a-service"></a>Bir hizmet olarak yapılandırma değişikliklerini izleme
+### <a name="monitoring-configuration-changes-as-a-service"></a>Hizmet olarak yapılandırma değişikliklerini izleme
 
 Örnek uygular:
 
 * Temel başlangıç belirteci izleme.
-* Bir hizmet olarak izleme.
-* Etkinleştirip izleme devre dışı bırakmak için bir mekanizma.
+* Hizmet olarak izleme.
+* Enable ve disable izleme için bir mekanizma.
 
 Örnek kurar bir `IConfigurationMonitor` arabirimi (*Extensions/ConfigurationMonitor.cs*):
 
 [!code-csharp[](change-tokens/sample/Extensions/ConfigurationMonitor.cs?name=snippet1)]
 
-Uygulanan sınıf `ConfigurationMonitor`, değişiklik bildirimleri için bir geri çağırma kaydeder:
+Uygulanan sınıfının oluşturucusu, `ConfigurationMonitor`, değişiklik bildirimlerinin bir geri çağırma kaydeder:
 
 [!code-csharp[](change-tokens/sample/Extensions/ConfigurationMonitor.cs?name=snippet2)]
 
-`config.GetReloadToken()` belirteç sağlar. `InvokeChanged` geri çağırma yöntemidir. `state` Bu örneğinde başvurusudur `IConfigurationMonitor` izleme durumu erişmek için kullanılan örnek. İki özellik kullanılır:
+`config.GetReloadToken()` belirteç sağlar. `InvokeChanged` geri çağırma yöntemidir. `state` Bu örnekte bir başvurudur `IConfigurationMonitor` izleme durumuna erişmek için kullanılan bir örnek. İki özellikleri kullanılır:
 
-* `MonitoringEnabled` geri arama özel kod çalışması gerekip gerekmediğini gösterir.
-* `CurrentState` kullanıcı arabirimini kullanmak için geçerli izleme durumu açıklar.
+* `MonitoringEnabled` geri çağırma kendi özel kod çalışması gerekip gerekmediğini gösterir.
+* `CurrentState` kullanıcı arabirimini kullanmak için geçerli izleme durumunu açıklar.
 
-`InvokeChanged` Yöntemi, önceki yaklaşım, BT'nin dışında benzerdir:
+`InvokeChanged` Yöntemi, önceki yaklaşımı, BT'nin dışında benzerdir:
 
-* Kendi kod sürece çalışmaz `MonitoringEnabled` olan `true`.
-* Geçerli Notlar `state` içinde kendi `WriteConsole` çıktı.
+* Kendi kod sürece çalışmaz `MonitoringEnabled` olduğu `true`.
+* Geçerli notları `state` içinde kendi `WriteConsole` çıktı.
 
 [!code-csharp[](change-tokens/sample/Extensions/ConfigurationMonitor.cs?name=snippet3)]
 
-Bir örneği `ConfigurationMonitor` bir hizmet olarak kayıtlı `ConfigureServices` , *haline*:
+Bir örneği `ConfigurationMonitor` bir hizmet olarak kayıtlı `ConfigureServices` , *Startup.cs*:
 
 [!code-csharp[](change-tokens/sample/Startup.cs?name=snippet1)]
 
-Dizin Sayfası yapılandırma izleme üzerinden kullanıcı denetimi sunar. Örneğinin `IConfigurationMonitor` içine eklenen `IndexModel`:
+Dizin Sayfası izleme yapılandırması üzerinde kullanıcı denetimi sunar. Örneğini `IConfigurationMonitor` içine eklenen `IndexModel`:
 
 [!code-csharp[](change-tokens/sample/Pages/Index.cshtml.cs?name=snippet1)]
 
-Bir düğme sağlar ve izlemeyi devre dışı bırakır:
+Bir düğme etkinleştirir ve izlemeyi devre dışı bırakır:
 
 [!code-cshtml[](change-tokens/sample/Pages/Index.cshtml?range=35)]
 
 [!code-csharp[](change-tokens/sample/Pages/Index.cshtml.cs?name=snippet2)]
 
-Zaman `OnPostStartMonitoring` olan tetiklenen, izleme etkinleştirilmişse ve geçerli durumu temizlenir. Zaman `OnPostStopMonitoring` olan tetiklenen, izleme devre dışı bırakılır ve durumunu izleme gerçekleşen değil yansıtacak şekilde ayarlayın.
+Zaman `OnPostStartMonitoring` olan tetiklenen, izleme etkin olduğundan ve geçerli durum temizlenir. Zaman `OnPostStopMonitoring` olan tetiklenen, izleme devre dışıdır ve durum izleme gerçekleşen olmayan yansıtacak şekilde ayarlanır.
 
-## <a name="monitoring-cached-file-changes"></a>Önbelleğe alınmış dosya değişiklikleri izleme
+## <a name="monitoring-cached-file-changes"></a>Önbelleğe alınan dosya değişikliklerini izleme
 
-Dosya içeriği, önbelleğe alınan bellek içi kullanarak olabilir [IMemoryCache](/dotnet/api/microsoft.extensions.caching.memory.imemorycache). Bellek içi önbelleğe alma açıklanan [bellek içi önbellek](xref:performance/caching/memory) konu. Uygulama, aşağıda açıklandığı gibi ek adımlar alma olmadan *eski* kaynak veriler değişirse (güncel olmayan) verileri bir önbellekten döndürülür.
+Dosya içeriği, önbelleğe alınan bellek içi kullanarak olabilir [IMemoryCache](/dotnet/api/microsoft.extensions.caching.memory.imemorycache). Bellek içi önbelleğe alma açıklanan [bellek içi önbelleğe alma](xref:performance/caching/memory) konu. Uygulama, aşağıda açıklandığı gibi ek adımları almadan *eski* (eski) veri kaynak veriler değiştiğinde olursa bir önbellekten döndürülür.
 
-Hesaba bir önbelleğe alınan kaynak dosyası durumunu yenilenirken katarak olmayan bir [kayan bitiş tarihinin](/dotnet/api/microsoft.extensions.caching.memory.memorycacheentryoptions.slidingexpiration) önbellek verilerini eski dönemi müşteri adayları. Kayan sona erme süresi her istek için verileri yeniler, ancak dosyası hiçbir zaman önbelleğe yeniden. Dosyanın önbelleğe alınmış içeriği kullanan tüm uygulama büyük olasılıkla eski içerik alma tabi özellikleridir.
+Hesaba bir önbelleğe alınan kaynak dosyası durumunu yenilenirken katılarak değil bir [kayan zaman aşımı](/dotnet/api/microsoft.extensions.caching.memory.memorycacheentryoptions.slidingexpiration) süresi müşteri adayları getirse verileri önbelleğe almak için. Kayan zaman aşımı süresi her istek için verileri yeniler, ancak dosya hiçbir zaman önbelleğine yüklenir. Önbelleğe alınan dosyanın içeriğini kullanan herhangi bir uygulama özelliği, büyük olasılıkla eski bir içerik alma tabi ' dir.
 
-Senaryo önbelleğe alma bir dosyada değişiklik belirteçleri kullanarak eski dosya içeriği önbelleğinde engeller. Örnek uygulaması, bir uygulama yaklaşımı ortaya koyar.
+Senaryo önbelleğe alma bir dosyada değişiklik belirteçleri kullanarak eski dosya önbelleğindeki içeriği engeller. Örnek uygulamayı yaklaşımın bir uygulamasını gösterir.
 
 Örnek kullanır `GetFileContent` için:
 
 * Dosya içeriğini döndürür.
-* Üstel geri alma burada bir dosya kilidi geçici olarak bir dosya okunmaya karşı engelliyor kapak çalışmaları için bir yeniden deneme algoritmasıyla uygulayın.
+* Bir üstel geri alma burada dosya kilitleme geçici olarak bir dosya okunmasını engelliyor kapak çalışmaları için yeniden deneme algoritmasıyla uygulayın.
 
 *Utilities/Utilities.cs*:
 
 [!code-csharp[](change-tokens/sample/Utilities/Utilities.cs?name=snippet2)]
 
-A `FileService` önbelleğe alınmış dosya aramalarını işlemek için oluşturulur. `GetFileContent` Yöntem çağrısı hizmetinin çalışır bellek içi önbellekten dosya içeriği almak ve çağırana dönmek (*Services/FileService.cs*).
+A `FileService` önbelleğe alınmış dosya aramaları işlenecek oluşturulur. `GetFileContent` Yöntem çağrısının hizmetin çalışır çağırana döndürmesi ve bellek içi Önbelleği'ndeki dosya içeriğini almak (*Services/FileService.cs*).
 
-Önbelleğe alınmış içeriği önbellek anahtarını kullanarak bulunamazsa, şu işlemler uygulanır:
+Önbellek anahtarını kullanarak önbelleğe alınmış içerikleri bulunamazsa, şu işlemler uygulanır:
 
-1. Dosya içeriği kullanılarak elde edilen `GetFileContent`.
-1. Bir değişiklik belirteci ile dosya sağlayıcısından alınan [IFileProviders.Watch](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider.watch). Dosya değiştirildiğinde belirtecin geri çağırma tetiklenir.
-1. Dosya içeriği ile önbelleğe alınmış bir [kayan bitiş tarihinin](/dotnet/api/microsoft.extensions.caching.memory.memorycacheentryoptions.slidingexpiration) süresi. Değişiklik simgesi ile bağlı [MemoryCacheEntryExtensions.AddExpirationToken](/dotnet/api/microsoft.extensions.caching.memory.memorycacheentryextensions.addexpirationtoken) önbelleğe sırada dosyası değişirse önbellek girişi çıkarmak için.
+1. Dosya içeriğini kullanarak elde edilen `GetFileContent`.
+1. İle dosya sağlayıcısından alınan bir değişiklik belirteci [IFileProviders.Watch](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider.watch). Belirtecin geri çağırma dosya değiştirildiğinde tetiklenir.
+1. Dosya içeriği önbelleğe alınmış bir [kayan zaman aşımı](/dotnet/api/microsoft.extensions.caching.memory.memorycacheentryoptions.slidingexpiration) süresi. Belirteci Değiştir iliştirilir [MemoryCacheEntryExtensions.AddExpirationToken](/dotnet/api/microsoft.extensions.caching.memory.memorycacheentryextensions.addexpirationtoken) önbelleğe alınır ancak dosyayı değiştirirse, önbellek girişi çıkarmak için.
 
 [!code-csharp[](change-tokens/sample/Services/FileService.cs?name=snippet1)]
 
-`FileService` Hizmet önbelleğe alma bellek birlikte hizmet kapsayıcısında kayıtlı (*haline*):
+`FileService` Hizmet kapsayıcı hizmeti önbelleğe alma bellek birlikte kaydedilir (*Startup.cs*):
 
 [!code-csharp[](change-tokens/sample/Startup.cs?name=snippet4)]
 
-Hizmetini kullanarak dosyanın içeriğini sayfa modelini yükler (*Pages/Index.cshtml.cs*):
+Sayfa modeli hizmetini kullanarak dosyanın içeriğini yükler (*Pages/Index.cshtml.cs*):
 
 [!code-csharp[](change-tokens/sample/Pages/Index.cshtml.cs?name=snippet3)]
 
 ## <a name="compositechangetoken-class"></a>CompositeChangeToken sınıfı
 
-Bir veya daha fazla temsil etmek için `IChangeToken` tek bir nesne durumlarda kullanmak [CompositeChangeToken](/dotnet/api/microsoft.extensions.primitives.compositechangetoken) sınıfı.
+Bir veya daha fazla temsil eden `IChangeToken` tek bir nesne örneğini kullanın [CompositeChangeToken](/dotnet/api/microsoft.extensions.primitives.compositechangetoken) sınıfı.
 
 ```csharp
 var firstCancellationTokenSource = new CancellationTokenSource();
@@ -191,7 +191,7 @@ var compositeChangeToken =
         });
 ```
 
-`HasChanged` Birleşik belirteci raporlarda `true` herhangi bir belirteç temsil varsa `HasChanged` olan `true`. `ActiveChangeCallbacks` Birleşik belirteci raporlarda `true` herhangi bir belirteç temsil varsa `ActiveChangeCallbacks` olan `true`. Birden çok eşzamanlı değişikliği olayları meydana gelirse, bileşik değişikliği geri çağırma tam olarak bir kez çağrılır.
+`HasChanged` Birleşik belirteci raporlarda `true` herhangi bir belirteci temsil, `HasChanged` olduğu `true`. `ActiveChangeCallbacks` Birleşik belirteci raporlarda `true` herhangi bir belirteci temsil, `ActiveChangeCallbacks` olduğu `true`. Birden çok eş zamanlı değişikliği olayları meydana gelirse, bileşik bir değişikliği geri çağırma tam olarak bir kez çağrılır.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
