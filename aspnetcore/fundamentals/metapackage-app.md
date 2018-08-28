@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 09/20/2017
 uid: fundamentals/metapackage-app
-ms.openlocfilehash: e82c219635bbbebe1d6f5639308490c37361b286
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 95fd6b7e73cf325674f1c1e03f9eea88cbc1af13
+ms.sourcegitcommit: f3538693a12cf55b7f124a6519677239170b7c43
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952961"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43114781"
 ---
 # <a name="microsoftaspnetcoreapp-metapackage-for-aspnet-core-21"></a>ASP.NET Core 2.1 için Microsoft.AspNetCore.App metapackage
 
@@ -53,6 +53,15 @@ Kullanan uygulamalar `Microsoft.AspNetCore.App` metapackage otomatik olarak ASP.
 
 Sürüm numarasına göre `Microsoft.AspNetCore.App` başvuru yapar **değil** paylaşılan sürümünün garanti çerçevesi kullanılır. Örneğin, sürüm varsayalım `2.1.1` belirtildi, ancak `2.1.3` yüklenir. Bu durumda, uygulamanın kullandığı `2.1.3`. Önerilmese de (düzeltme eki ve/veya ikincil) sarma davranışı devre dışı bırakabilirsiniz. Paket sürümü sarma davranışı hakkında daha fazla bilgi için bkz. [dotnet konak ileri sarma](https://github.com/dotnet/core-setup/blob/master/Documentation/design-docs/roll-forward-on-no-candidate-fx.md).
 
+## <a name="update-aspnet-core"></a>ASP.NET Core güncelleştir
+
 `Microsoft.AspNetCore.App` [Metapackage](/dotnet/core/packages#metapackages) Nuget'ten güncelleştirilir geleneksel bir paket değil. Benzer şekilde `Microsoft.NETCore.App`, `Microsoft.AspNetCore.App` NuGet dışında işlenmiş özel sürüm semantiğe sahip bir paylaşılan çalışma zamanı, temsil eder. Daha fazla bilgi için [paketler, meta paketler ve çerçeveler](/dotnet/core/packages).
+
+ASP.NET Core güncelleştirmek için:
+
+* Geliştirme makineler ve yapı sunucularını: indirme ve yükleme [.NET Core SDK'sı](https://www.microsoft.com/net/download).
+* Dağıtım sunucularında: indirme ve yükleme [.NET Core çalışma zamanı](https://www.microsoft.com/net/download).
+
+ Uygulamalar için en son yüklenen sürüm uygulama başlatmada İleri dökümünü yapar. Güncelleştirme gerekli değil `Microsoft.AspNetCore.App` proje dosyasındaki sürüm numarası. Daha fazla bilgi için [Framework bağımlı uygulamaları alma İleri](/dotnet/core/versions/selection#framework-dependent-apps-roll-forward).
 
 Uygulamanızı daha önce kullandıysanız `Microsoft.AspNetCore.All`, bkz: [Microsoft.AspNetCore.App için Microsoft.AspNetCore.All geçirme](xref:fundamentals/metapackage#migrate).

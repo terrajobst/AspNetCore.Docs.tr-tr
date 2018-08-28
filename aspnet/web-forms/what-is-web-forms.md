@@ -8,12 +8,12 @@ ms.date: 02/21/2014
 ms.assetid: 5fa1daf9-1161-4cfa-bd4c-658f48b2c229
 msc.legacyurl: /web-forms/what-is-web-forms
 msc.type: content
-ms.openlocfilehash: ccb0e6096b0281e5ef8af63bfd84b172e7f209b9
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: e135cfa2945b9e7e5269eb436ff0c1dff20aacdf
+ms.sourcegitcommit: 847cc1de5526ff42a7303491e6336c2dbdb45de4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41753980"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43055718"
 ---
 <a name="what-is-web-forms"></a>Web Forms nedir
 ====================
@@ -21,7 +21,7 @@ ASP.NET Web Forms, ASP.NET web uygulama çerçevesi bir parçasıdır ve içerdi
 
 Web Forms, kullanıcılarınızın tarayıcıları kullanarak istek sayfalarıdır. Bu sayfalar, HTML, bir birleşimi kullanılarak yazılabilir istemci-komut dosyası, sunucu denetimleri ve sunucu kodu. Kullanıcılar bir sayfa istediğinde, derlenmiş ve framework tarafından sunucu üzerinde yürütülen ve ardından tarayıcı işleyebilen HTML biçimlendirmesi framework oluşturur. Bir ASP.NET Web Forms sayfası, herhangi bir tarayıcıyı veya istemci cihaz kullanıcıya bilgi sunar.
 
-Visual Studio kullanarak ASP.NET Web formları oluşturabilirsiniz. Visual Studio tümleşik geliştirme ortamı (IDE), Web Forms sayfanızı düzenlemek için sunucu denetimleri sürükleyip olanak tanır. Daha sonra kolayca özellikleri, yöntemleri ve olayları veya sayfa çıktısını sayfadaki denetimleri için ayarlayabilirsiniz. Bu özellikleri, yöntemleri ve olayları, web sayfanızın davranışı, Görünüm ve benzeri tanımlamak için kullanılır. Sayfa için mantığı işlemek için sunucu kodu yazmak için bir .NET dil Visual Basic veya C# gibi kullanabilirsiniz.
+Visual Studio kullanarak ASP.NET Web formları oluşturabilirsiniz. Visual Studio tümleşik geliştirme ortamı (IDE), Web Forms sayfanızı düzenlemek için sunucu denetimleri sürükleyip olanak tanır. Daha sonra kolayca özellikleri, yöntemleri ve olayları veya sayfa için sayfadaki denetimleri ayarlayabilirsiniz. Bu özellikleri, yöntemleri ve olayları, web sayfanızın davranışı, Görünüm ve benzeri tanımlamak için kullanılır. Sayfa için mantığı işlemek için sunucu kodu yazmak için bir .NET dil Visual Basic veya C# gibi kullanabilirsiniz.
 
 > [!NOTE] 
 > 

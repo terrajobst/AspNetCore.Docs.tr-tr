@@ -4,14 +4,14 @@ author: rick-anderson
 description: Bir ASP.NET Core projesi içinde kimlik iskele oluşturmayı öğrenin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 5/16/2018
+ms.date: 08/16/2018
 uid: security/authentication/scaffold-identity
-ms.openlocfilehash: 07163941d0bd1fea6f9b3d9867536580d8a9e9d8
-ms.sourcegitcommit: e12f45ddcbe99102a74d4077df27d6c0ebba49c1
+ms.openlocfilehash: e35836fa9c20729da7c857243410833749b3a595
+ms.sourcegitcommit: 847cc1de5526ff42a7303491e6336c2dbdb45de4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/15/2018
-ms.locfileid: "39063279"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43055854"
 ---
 # <a name="scaffold-identity-in-aspnet-core-projects"></a>ASP.NET Core projelerinde iskele kimlik
 
@@ -26,6 +26,9 @@ Yapan uygulamalar **değil** dahil kimlik doğrulaması RCL kimlik paketini ekle
 Kimlik iskele kurucu çalıştırdığınızda bir *ScaffoldingReadme.txt* dosyası proje dizininde oluşturulur. *ScaffoldingReadme.txt* dosyası kimlik yapı iskelesi güncelleştirmeyi tamamlamak gerekli genel yönergeleri içerir. Bu belgede daha daha eksiksiz yönergeler içeren *ScaffoldingReadme.txt* dosya.
 
 Dosya farklılıklarını gösterir ve dışında değişiklikleri geri sağlar bir kaynak denetim sistemi kullanmanızı öneririz. Kimlik iskele kurucu çalıştırdıktan sonra değişiklikleri inceleyin.
+
+> [!NOTE]
+> Hizmetleri, kullanırken gereklidir [iki faktörlü kimlik doğrulaması](xref:security/authentication/identity-enable-qrcodes), [hesap onaylama ve parola kurtarma](xref:security/authentication/accconfirm)ve diğer güvenlik özellikleri kimliği. Hizmetlerin veya hizmet saptamalar kimlik iskele kurma özelliği çalıştırdığınızda oluşturulan değildir. Bu özellikleri etkinleştirmek için hizmetlerini el ile eklenmesi gerekir. Örneğin, [gerektiren e-posta onayı](xref:security/authentication/accconfirm#require-email-confirmation).
 
 ## <a name="scaffold-identity-into-an-empty-project"></a>Boş bir projeye iskele kimlik
 
@@ -94,7 +97,8 @@ dotnet aspnet-codegenerator identity -dc RPauth.Data.ApplicationDbContext --file
 [!INCLUDE[](~/includes/webapp-alias-notice.md)]
 -->
 
-[!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg-auth.md)] Bazı kimlik seçeneklerini yapılandırılan *Areas/Identity/IdentityHostingStartup.cs*. Daha fazla bilgi için [Ihostingstartup](xref:fundamentals/configuration/platform-specific-configuration).
+[!INCLUDE[](~/includes/scaffold-identity/id-scaffold-dlg-auth.md)]
+Bazı kimlik seçeneklerini yapılandırılan *Areas/Identity/IdentityHostingStartup.cs*. Daha fazla bilgi için [Ihostingstartup](xref:fundamentals/configuration/platform-specific-configuration).
 
 ## <a name="scaffold-identity-into-an-mvc-project-without-existing-authorization"></a>Var olan bir yetkilendirme olmadan bir MVC projeye iskele kimlik
 
