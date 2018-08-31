@@ -1,23 +1,29 @@
 ---
-title: ASP.NET Core ana bilgisayar
+title: ASP.NET core'da konak
 author: guardrex
-description: Uygulama başlatma ve ömür boyu yönetimi için sorumlu ASP.NET çekirdek Web ana bilgisayarı ve .NET genel ana bilgisayar hakkında bilgi edinin.
+description: Uygulama başlatma ve ömür yönetimi için sorumlu ASP.NET Core Web ana bilgisayarı ve .NET genel ana bilgisayar hakkında bilgi edinin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/16/2018
+ms.date: 08/28/2018
 uid: fundamentals/host/index
-ms.openlocfilehash: 365c679e789c07818c6eb007f40f6aef43b82c44
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 9927722b5080beb94e5628d9e7b54e6d50a5bff8
+ms.sourcegitcommit: a669c4e3f42e387e214a354ac4143555602e6f66
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276623"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336056"
 ---
-# <a name="host-in-aspnet-core"></a>ASP.NET Core ana bilgisayar
+# <a name="host-in-aspnet-core"></a>ASP.NET core'da konak
 
-.NET uygulamaları yapılandırmak ve başlatma bir *konak*. Ana bilgisayar için uygulama başlatma ve ömrü Yönetimi sorumludur. İki ana API'leri kullanılabilir:
+.NET uygulamaları ve başlatma yapılandırma bir *konak*. Uygulama başlatma ve ömür yönetimi için konak sorumludur. İki ana API'leri kullanılabilir duruma gelir:
 
 * [Web ana bilgisayar](xref:fundamentals/host/web-host) &ndash; web uygulamalarını barındırmak için uygundur.
-* [Genel ana bilgisayar](xref:fundamentals/host/generic-host) (ASP.NET Core 2.1 veya sonrası) &ndash; olmayan web uygulamaları (örneğin, arka plan görevleri çalışan uygulamalar) barındırmak için uygundur. Gelecekteki bir sürümde genel ana bilgisayar uygulaması, web uygulamaları dahil olmak üzere her türlü barındırma için uygun olacaktır. Genel ana bilgisayar sonunda Web ana bilgisayarı yerini alır.
+* [Genel konak](xref:fundamentals/host/generic-host) (ASP.NET Core 2.1 veya üzeri) &ndash; olmayan web uygulamaları (örneğin, arka plan görevleri çalıştırma uygulamaları) barındırmak için uygundur. Gelecekteki bir sürümde genel ana bilgisayar uygulaması, web uygulamaları dahil olmak üzere herhangi bir türden barındırma için uygun olacaktır. Genel konak Web ana bilgisayarı sonunda yerini alır.
 
-ASP.NET Core barındırmak için *web uygulamaları*, geliştiricilerin temel Web barındırma kullanması gereken [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder). Barındırma için *olmayan web uygulamaları*, geliştiricilerin genel göre ana kullanması gereken [HostBuilder](/dotnet/api/microsoft.extensions.hosting.hostbuilder).
+ASP.NET Core barındırma *web uygulamaları*, geliştiriciler, temel Web barındırma kullanmalıdır <xref:Microsoft.AspNetCore.Hosting.IWebHostBuilder>. Barındırma için *olmayan web apps*, geliştiricilere genel bir temel konak kullanması gereken <xref:Microsoft.Extensions.Hosting.HostBuilder>.
+
+<xref:fundamentals/host/hosted-services>  
+ASP.NET Core barındırılan hizmetler ile arka plan görevleri uygulamak öğrenin.
+
+<xref:fundamentals/configuration/platform-specific-configuration>  
+ASP.NET Core uygulaması kullanarak başvurulan veya başvurulmayan bir bütünleştirilmiş koddan geliştirmek nasıl bir <xref:Microsoft.AspNetCore.Hosting.IHostingStartup> uygulaması.

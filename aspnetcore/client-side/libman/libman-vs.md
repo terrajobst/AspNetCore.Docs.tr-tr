@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 08/20/2018
 uid: client-side/libman/libman-vs
-ms.openlocfilehash: b44769f1d0925f38523d6570858de17f37e32c2b
-ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
+ms.openlocfilehash: a653b1a5c07feca8672ba38e0cda3ddc30482c5a
+ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41909994"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43312185"
 ---
 # <a name="use-libman-with-aspnet-core-in-visual-studio"></a>Visual Studio'da ASP.NET Core ile LibMan kullanın
 
@@ -100,7 +100,7 @@ Aşağıdaki bildirim dosyası ile tanımlanan yapılandırma başına LibMan al
 
 * Bir alt kümesini [jQuery](https://jquery.com/) sürüm 3.3.1 CDNJS sağlayıcısından alınır. Alt tanımlanan `files` özelliği&mdash;*jquery.min.js*, *jquery.js*, ve *jquery.min.map*. Dosyalar projesinin yerleştirilir *wwwroot/lib/jquery* klasör.
 * Tamamen [önyükleme](https://getbootstrap.com/) sürüm 4.1.3 alınır ve yerleştirilmiş bir *wwwroot/lib/önyükleme* klasör. Nesne sabit değeri `provider` özelliklerine `defaultProvider` özellik değeri. LibMan unpkg sağlayıcısından önyükleme dosyaları alır.
-* Bir alt kümesini [Lodash](https://lodash.com/) unsurun kuruluştaki tarafından onaylandı. *Lodash.js* ve *lodash.min.js* dosyaları yerel dosya sisteminden alınır *C:\\tmp\\*. Dosyalar projenin kopyalanır *wwwroot/lib/lodash* klasör.
+* Bir alt kümesini [Lodash](https://lodash.com/) unsurun kuruluştaki tarafından onaylandı. *Lodash.js* ve *lodash.min.js* dosyaları yerel dosya sisteminden alınır *C:\\temp\\lodash\\*. Dosyalar projenin kopyalanır *wwwroot/lib/lodash* klasör.
 
 [!code-json[](samples/LibManSample/libman.json)]
 
@@ -193,7 +193,7 @@ Clean libraries operation completed
 2 libraries were successfully deleted in 1.91 secs
 ```
 
-Temizleme işlemi, yalnızca dosyaları projeden siler. Kitaplık dosyaları için daha hızlı alma gelecekteki geri yükleme işlemleri üzerindeki önbellekte kalır. Yerel makinenin önbelleğinde depolanan kitaplık dosyalarını yönetmek için LibMan CLI'yı kullanın.
+Temizleme işlemi, yalnızca dosyaları projeden siler. Kitaplık dosyaları için daha hızlı alma gelecekteki geri yükleme işlemleri üzerindeki önbellekte kalır. Yerel makinenin önbelleğinde depolanan kitaplık dosyalarını yönetmek için kullandığınız [LibMan CLI](xref:client-side/libman/libman-cli).
 
 ## <a name="uninstall-library-files"></a>Kitaplık dosyaları kaldırma
 
@@ -231,4 +231,5 @@ Eski bir kitaplığı sürümünün indirgemek için el ile düzenlemeniz *libma
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
+* <xref:client-side/libman/libman-cli>
 * [LibMan GitHub deposu](https://github.com/aspnet/LibraryManager)

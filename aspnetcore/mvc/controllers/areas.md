@@ -1,44 +1,44 @@
 ---
-title: ASP.NET Core alanları
+title: ASP.NET core'da alanları
 author: rick-anderson
-description: Alanlar (Yönlendirme) ayrı ad alanını ve klasör yapısı (için görünümler) olarak bir gruba ilgili işlevselliği düzenlemek için kullanılan bir ASP.NET MVC özelliği nasıl olduğunu öğrenin.
+description: Alanlar (yönlendirme için) ayrı bir ad ve klasör yapısını (için görünümler) bir gruba ilgili işlevleri düzenlemek için kullanılan bir ASP.NET MVC özelliği nasıl olduğunu öğrenin.
 ms.author: riande
 ms.date: 02/14/2017
 uid: mvc/controllers/areas
-ms.openlocfilehash: 3e998af42cd6209271495dd8dd97a8aed35717a4
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: b78bb5146f1ab9039fa9ff015471654510718ed6
+ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274833"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43312224"
 ---
-# <a name="areas-in-aspnet-core"></a>ASP.NET Core alanları
+# <a name="areas-in-aspnet-core"></a>ASP.NET core'da alanları
 
 Tarafından [Dhananjay Kumar](https://twitter.com/debug_mode) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Alanlar, ilgili işlevleri (Yönlendirme) ayrı ad alanını ve klasör yapısı (için görünümler) olarak bir grup düzenlemek için kullanılan bir ASP.NET MVC özelliğidir. Alanları kullanarak başka bir rota parametresini ekleyerek yönlendirme amacıyla bir hiyerarşi oluşturur `area`, `controller` ve `action`.
+Alanlar, ilgili işlevleri (yönlendirme için) ayrı bir ad ve klasör yapısını (için görünümler) bir gruba düzenlemek için kullanılan bir ASP.NET MVC özelliğidir. Alanlara kullanarak başka bir rota parametresini ekleyerek yönlendirme amacıyla hiyerarşi oluşturur `area`, `controller` ve `action`.
 
-Alanları büyük bir ASP.NET Core MVC Web uygulaması işlevsel gruplamalarda daha küçük bölümlere ayırmak için bir yol sağlar. Etkin bir uygulama içinde bir MVC yapısı alanıdır. MVC projesinde, Model, denetleyici ve görünüm gibi mantıksal bileşenlerin farklı klasörlerde tutulur ve MVC bu bileşenler arasındaki ilişki oluşturmak için adlandırma kuralları kullanır. Büyük bir uygulama için uygulama ayrı yüksek düzey alanlarına işlevlerin bölümlemek için yararlı olabilir. Örneğin, bir e-ticaret uygulamayla checkout, faturalama ve arama vb. gibi birden çok iş birimleri. Her bu birimleri kendi mantıksal bileşen görünümleri, denetleyicileri ve modeli vardır. Bu senaryoda, fiziksel olarak iş bileşenleri aynı projede bölümlemek için alanları kullanabilirsiniz.
+Alanları büyük bir ASP.NET Core MVC Web uygulaması işlevsel gruplamalarda daha küçük bölümlere ayırmak için bir yol sağlar. Bir MVC yapı bir uygulama içinde etkili bir şekilde alanıdır. Bir MVC projesi mantıksal bileşenler modeli, denetleyici ve görünüm gibi farklı klasörlerde tutulur ve MVC bu bileşenler arasındaki ilişki oluşturmak için adlandırma kuralları kullanır. Büyük bir uygulama için ayrı yüksek düzey alanlarına işlev uygulamasını bölümleme için yararlı olabilir. Örneğin, bir e-ticaret uygulamayla kullanıma alma ve faturalandırma arama vb. gibi birden çok iş birimleri. Bu birimlerin her biri kendi mantıksal bileşen görünümleri, denetleyicilere ve modelleri sahip. Bu senaryoda, fiziksel olarak aynı projede iş bileşenleri bölümlemek için alanlar kullanabilirsiniz.
 
-Bir alanı denetleyicileri, görünümler ve modelleri kendi kümesiyle ASP.NET Core MVC projesinde daha küçük işlevsel birimleri olarak tanımlanabilir.
+Bir alanı denetleyicileri, görünümler ve modelleri, kendi kümesi ile ASP.NET Core MVC projesinde daha küçük işlevsel birimi olarak tanımlanabilir.
 
-Bir MVC alanlarda kullanmayı ne zaman proje:
+Bir MVC alanlardaki ne zaman proje:
 
-* Uygulamanız, mantıksal olarak ayrılmalıdır birden çok üst düzey işlev bileşenlerden
+* Uygulamanız, mantıksal olarak ayrılması birden çok üst düzey işlevsel bileşenden
 
-* Böylece her işlevsel alan üzerinde bağımsız olarak çalışılabilecek MVC projenizi bölüm istiyor
+* Böylece her işlevsel alan üzerinde bağımsız olarak çalışılabilecek MVC projenize bölümlemek istediğiniz
 
 Alan özellikleri:
 
-* Bir ASP.NET Core MVC uygulama herhangi bir sayıda alanları olabilir
+* Bir ASP.NET Core MVC uygulaması herhangi bir sayıda alanları olabilir.
 
-* Kendi denetleyicileri, modelleri ve görünümler her bir alan vardır
+* Her alan kendi denetleyicileri, modelleri ve görünümleri sahiptir.
 
-* Büyük MVC projeler üzerinde bağımsız olarak çalışılabilecek birden çok üst düzey bileşenlerine düzenlemenizi sağlar
+* Alanları üzerinde bağımsız olarak çalışması birden çok üst düzey bileşenlerine büyük MVC projeleri düzenlemenize olanak sağlar.
 
-* Farklı olduğu sürece birden çok denetleyicisi aynı adda - destekleyen *alanları*
+* Farklı sahip oldukları sürece aynı ada sahip birden çok denetleyicileri destek alanları *alanları*.
 
-Alanları nasıl oluşturulduğunu ve kullanılan göstermek için örnek bir göz atalım. İki ayrı gruplandırmaları denetleyicilerinin ve görünümlerin sahip bir mağaza uygulaması sahip varsayalım: ürünler ve hizmetler. Tipik bir klasör yapısı için MVC alanları kullanarak aşağıda benzer olduğunu:
+Alanlarını nasıl oluşturulduğunu ve kullanılan göstermek için örnek bir göz atalım. İki ayrı gruplandırmaları görünümleri ve denetleyicileri içeren bir mağaza uygulaması sahip düşünelim: Ürün ve Hizmetleri. Tipik bir klasör yapısı için MVC alanlara kullanarak aşağıda benzer olduğunu:
 
 * Proje adı
 
@@ -58,7 +58,7 @@ Alanları nasıl oluşturulduğunu ve kullanılan göstermek için örnek bir g�
 
           * Index.cshtml
 
-        * Yönetme
+        * yönetme
 
           * Index.cshtml
 
@@ -74,7 +74,7 @@ Alanları nasıl oluşturulduğunu ve kullanılan göstermek için örnek bir g�
 
           * Index.cshtml
 
-Varsayılan olarak bir alandaki bir görünümü işlemek MVC çalıştığında, aşağıdaki konumlarda aramak çalışır:
+Varsayılan olarak bir alanda görünüm işlemek MVC çalıştığında, aşağıdaki konumlarda aramak çalışır:
 
 ```text
 /Areas/<Area-Name>/Views/<Controller-Name>/<Action-Name>.cshtml
@@ -82,9 +82,9 @@ Varsayılan olarak bir alandaki bir görünümü işlemek MVC çalıştığında
    /Views/Shared/<Action-Name>.cshtml
    ```
 
-Aracılığıyla değiştirilebilen varsayılan konumları bunlar `AreaViewLocationFormats` üzerinde `Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions`.
+Bunlar aracılığıyla değiştirilebilen varsayılan konumları `AreaViewLocationFormats` üzerinde `Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions`.
 
-Örneğin, klasör adı 'Alanlarını' olarak sahip olmak yerine kod 'Kategorilere' değiştirildi.
+Örneğin, 'Alanları olarak' klasör adı yerine aşağıdaki kodu, bu 'Kategorilere' değiştirildi.
 
 ```csharp
 services.Configure<RazorViewEngineOptions>(options =>
@@ -96,9 +96,9 @@ services.Configure<RazorViewEngineOptions>(options =>
    });
    ```
 
-Not etmek için bir şey yapan, yapısını *görünümleri* klasör burada önemli olarak kabul edilen tek ve klasörleri geri kalanı içeriğini ister *denetleyicileri* ve *modelleri* mu **değil** önemli. Örneğin, yüklü bir *denetleyicileri* ve *modelleri* hiç klasör. Bu çalışır çünkü içeriğini *denetleyicileri* ve *modelleri* bir .dll burada içeriğini olarak derlenmiş yalnızca kodu *görünümleri* , bir istek kadar değil Görünüm yapıldı.
+Unutmayın olmasıdır yapısını *görünümleri* burada önemli olarak kabul edilen tek bir klasördür ve klasörleri geri kalanını içeriği gibi *denetleyicileri* ve *modelleri* mu **değil** önemi. Örneğin, sahip bir *denetleyicileri* ve *modelleri* hiç klasör. Bunun çalışmasının nedeni içeriğini *denetleyicileri* ve *modelleri* içeriği burada olarak derlenmiş bir .dll, yalnızca kod *görünümleri* , isteğine kadar değil Görünüm yapıldı.
 
-Klasör hiyerarşisi tanımladığınız sonra MVC her denetleyici bir alanı ile ilişkili olduğunu söylemek gerekir. Denetleyici adı ile tasarlayarak bunu `[Area]` özniteliği.
+Klasör hiyerarşisini tanımladınız sonra MVC denetleyicisi her bir alanı ile ilişkili olduğunu bildirmek gerekir. Denetleyici adı ile tasarlayarak bunu `[Area]` özniteliği.
 
 ```csharp
 ...
@@ -122,7 +122,7 @@ Klasör hiyerarşisi tanımladığınız sonra MVC her denetleyici bir alanı il
    }
    ```
 
-Yeni oluşturulan alanlarınızı ile çalışan bir rota tanımı ayarlayın. [Denetleyici eylemleri için rota](routing.md) makale gider içine öznitelik rotaları karşı geleneksel yolları kullanma dahil olmak üzere yönlendirme tanımları oluşturma hakkında ayrıntılı bilgi. Bu örnekte, geleneksel bir rota kullanacağız. Bunu yapmak için açık *haline* dosya ve ekleyerek değiştirmeye `areaRoute` route tanımını aşağıdaki adlı.
+Yeni oluşturulan alanlarınızı çalışır bir yönlendirme tanımı ayarlayın. [Denetleyici eylemleri için rota](routing.md) öznitelik rotaları karşı geleneksel yollar kullanarak da dahil olmak üzere, yönlendirme tanımları oluşturma hakkında daha fazla ayrıntı makale gider. Bu örnekte, geleneksel bir rota kullanacağız. Bunu yapmak için açık *Startup.cs* ekleyerek değiştirin ve dosya `areaRoute` rota tanımını aşağıdaki adlı.
 
 ```csharp
 ...
@@ -138,47 +138,47 @@ Yeni oluşturulan alanlarınızı ile çalışan bir rota tanımı ayarlayın. [
    });
    ```
 
-İçin dizin taramayı `http://<yourApp>/products`, `Index` eylem yöntemi `HomeController` içinde `Products` alanı çağrılabilir.
+Gözatmaya `http://<yourApp>/products`, `Index` eylem yöntemi `HomeController` içinde `Products` alan çağrılacak.
 
 ## <a name="link-generation"></a>Bağlantı oluşturma
 
-* Bir alanda bir eylemden bağlantıları oluşturmak aynı denetleyicisi içinde başka bir eylem denetleyiciye bağlı.
+* Bir alanda bir eylem bağlantıları oluşturmak aynı denetleyici içinde başka bir eylem denetleyiciye bağlı.
 
-  Geçerli isteğin yolu benzer düşünelim `/Products/Home/Create`
+  Geçerli isteğin yolu gibi diyelim ki `/Products/Home/Create`
 
   HtmlHelper sözdizimi: `@Html.ActionLink("Go to Product's Home Page", "Index")`
 
   TagHelper sözdizimi: `<a asp-action="Index">Go to Product's Home Page</a>`
 
-  Biz 'alanı' ve 'controller' değerleri sağlamanızı olmayan Not zaten geçerli istek bağlamında kullanılabilir burada. Bu tür bir değerleri çağrılır `ambient` değerleri.
+  Unutmayın, biz 'alanı' ve 'controller' değerlerini belirtmeniz değil, zaten geçerli istek bağlamında kullanılabilir burada. Bu tür değerlere çağrılır `ambient` değerleri.
 
-* Farklı bir denetleyicideki başka bir eylem denetleyiciye bağlı bir alanda bir eylemden bağlantıları oluşturmak
+* Başka bir eylem farklı denetleyicisine denetleyiciye bağlı bir alanda bir eylem bağlantıları oluşturmak
 
-  Geçerli isteğin yolu benzer düşünelim `/Products/Home/Create`
+  Geçerli isteğin yolu gibi diyelim ki `/Products/Home/Create`
 
   HtmlHelper sözdizimi: `@Html.ActionLink("Go to Manage Products Home Page", "Index", "Manage")`
 
   TagHelper sözdizimi: `<a asp-controller="Manage" asp-action="Index">Go to Manage Products Home Page</a>`
 
-  Burada bir 'alanı' ortam değeri kullanılır, ancak 'controller' değeri açıkça yukarıda belirtilen unutmayın.
+  Burada ortam 'alanı' değeri kullanılmıştır, ancak 'controller' değeri açıkça yukarıda belirtilen unutmayın.
 
-* Bir alanda bir eylemden bağlantıları oluşturmak için başka bir eylem denetleyicisi farklı bir denetleyici ve farklı bir alan göre.
+* Bir alanda bir eylem bağlantıları oluşturmak için başka bir eylem denetleyicisi farklı bir denetleyici ve farklı bir alana göre.
 
-  Geçerli isteğin yolu benzer düşünelim `/Products/Home/Create`
+  Geçerli isteğin yolu gibi diyelim ki `/Products/Home/Create`
 
   HtmlHelper sözdizimi: `@Html.ActionLink("Go to Services Home Page", "Index", "Home", new { area = "Services" })`
 
   TagHelper sözdizimi: `<a asp-area="Services" asp-controller="Home" asp-action="Index">Go to Services Home Page</a>`
 
-  Unutmayın burada yok ortam değerler kullanılır.
+  Unutmayın burada hiçbir ortam değerler kullanılır.
 
-* Bir temel alan denetleyicisi içinde bir eylem bağlantıları farklı bir denetleyicideki başka bir eylem oluşturmak ve **değil** bir bölgede.
+* İçinde bir temel alan denetleyici eylem bağlantıları farklı bir denetleyici üzerinde başka bir eylem oluşturmak ve **değil** bir alana.
 
   HtmlHelper sözdizimi: `@Html.ActionLink("Go to Manage Products  Home Page", "Index", "Home", new { area = "" })`
 
   TagHelper sözdizimi: `<a asp-area="" asp-controller="Manage" asp-action="Index">Go to Manage Products Home Page</a>`
 
-  Biz oluşturmak istediğinizde bu yana alanına olmayan bağlantılar 'alanı' burada ortam değeri boş biz denetleyici eylemi temel.
+  Oluşturulacak istediğinden alanı olmayan bağlantılar denetleyici eylemi boş biz 'alanı' burada için ortam değerine göre.
 
 ## <a name="publishing-areas"></a>Yayımlama alanları
 

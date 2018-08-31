@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/19/2018
 uid: fundamentals/host/web-host
-ms.openlocfilehash: dfef2bf21f325f11d147379f75a8d81a8bd05eec
-ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
+ms.openlocfilehash: abb687c864ebe863c2bba265131c29939961cac0
+ms.sourcegitcommit: a669c4e3f42e387e214a354ac4143555602e6f66
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41886752"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336072"
 ---
 # <a name="aspnet-core-web-host"></a>ASP.NET Core Web ana bilgisayarı
 
@@ -338,6 +338,23 @@ HTTPS, yeniden yönlendirme bağlantı noktasını ayarlayın. Kullanılan [HTTP
 ```csharp
 WebHost.CreateDefaultBuilder(args)
     .UseSetting("https_port", "8080")
+```
+
+### <a name="hosting-startup-exclude-assemblies"></a>Başlangıç dışlama derlemeleri barındırma
+
+AÇIKLAMASI
+
+**Anahtar**: hostingStartupExcludeAssemblies  
+**Tür**: *dize*  
+**Varsayılan**: boş dize  
+**Kullanılarak ayarlanan**: `UseSetting`  
+**Ortam değişkeni**: `ASPNETCORE_HOSTINGSTARTUPEXCLUDEASSEMBLIES`
+
+Başlangıçta hariç tutmak için başlangıç derlemeleri barındırma bir noktalı virgülle ayrılmış dizesi.
+
+```csharp
+WebHost.CreateDefaultBuilder(args)
+    .UseSetting(WebHostDefaults.HostingStartupExcludeAssembliesKey, "assembly1;assembly2")
 ```
 
 ::: moniker-end
