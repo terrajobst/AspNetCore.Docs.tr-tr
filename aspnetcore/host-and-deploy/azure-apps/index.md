@@ -4,14 +4,14 @@ author: guardrex
 description: Faydalı kaynaklara bağlantılarla Azure App Service'te ASP.NET Core uygulamaları barındırmak nasıl keşfedin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/24/2018
+ms.date: 08/29/2018
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 42775bf4d3e88893260a5973f6f7bc9d3a006b5a
-ms.sourcegitcommit: 25150f4398de83132965a89f12d3a030f6cce48d
-ms.translationtype: HT
+ms.openlocfilehash: bc2a686c5ddc44fded135c9eed5caf676218773a
+ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/25/2018
-ms.locfileid: "42927834"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43312076"
 ---
 # <a name="host-aspnet-core-on-azure-app-service"></a>Azure App Service'te ASP.NET Core barındırma
 
@@ -110,35 +110,55 @@ ASP.NET Core Önizleme uygulamalarını Azure App Service için aşağıdaki yak
 <!-- * [Deploy the app self-contained](#deploy-the-app-self-contained) -->
 * [Docker, kapsayıcılar için Web Apps ile kullanma](#use-docker-with-web-apps-for-containers)
 
-Önizleme site uzantısı kullanarak bir sorun ortaya çıkarsa, bir sorun açın [GitHub](https://github.com/aspnet/azureintegration/issues/new).
-
 ### <a name="install-the-preview-site-extension"></a>Önizleme sitesi uzantısını yükle
+
+Önizleme site uzantısı kullanarak bir sorun ortaya çıkarsa, bir sorun açın [GitHub](https://github.com/aspnet/azureintegration/issues/new).
 
 1. Azure portalda, App Service dikey penceresine gidin.
 1. Web uygulamasını seçin.
-1. Arama kutusuna "ör" girin veya yönetim bölmelerini listesini aşağı kaydırın **geliştirme araçları**.
+1. Yönetim bölümlere listesini aşağı kaydırın ve arama kutusuna "ör" türünde **geliştirme araçları**.
 1. Seçin **geliştirme araçları** > **uzantıları**.
 1. Seçin **ekleme**.
-
-   ![Önceki adımları ile azure uygulama dikey penceresi](index/_static/x1.png)
-
-1. Seçin **ASP.NET Core uzantıları**.
+1. Seçin **ASP.NET Core &lt;x.y&gt; (x86) çalışma zamanı** uzantısı listeden burada `<x.y>` ASP.NET Core Önizleme sürümü (örneğin, **ASP.NET Core 2.2 (x86) çalışma zamanı**). Çalışma zamanı için uygun x86 [framework bağımlı dağıtımları](/dotnet/core/deploying/#framework-dependent-deployments-fdd) kullanan ASP.NET Core modülü tarafından işlem dışı barındırma sunucusunda.
 1. Seçin **Tamam** yasal koşulları kabul etmek için.
 1. Seçin **Tamam** uzantıyı yüklemek için.
 
-Ekleme işlemleri tamamladığınızda, en son .NET Core Önizleme yüklenir. Çalıştırarak yüklemeyi doğrulayın `dotnet --info` konsolunda. Gelen **App Service** dikey penceresinde:
+İşlem tamamlandığında, en son .NET Core Önizleme yüklenir. Yüklemeyi doğrulama:
 
-1. "Arama kutusu veya kaydırma yönetim bölmeleri serilerini için con" girin **geliştirme araçları**.
-1. Seçin **geliştirme araçları** > **konsol**.
-1. Girin `dotnet --info` konsolunda.
+1. Seçin **Gelişmiş Araçlar** altında **geliştirme araçları**.
+1. Seçin **Git** üzerinde **Gelişmiş Araçlar** dikey penceresi.
+1. Seçin **hata ayıklama konsoluna** > **PowerShell** menü öğesi.
+1. PowerShell komut isteminde aşağıdaki komutu yürütün. ASP.NET Core çalışma zamanı sürümü yerine `<x.y>` komutta:
 
-Varsa sürüm `2.1.300-preview1-008174` en son Önizleme sürümü olduğundan aşağıdaki çıktıyı çalıştırarak elde edilen `dotnet --info` komut isteminde:
+   ```powershell
+   Test-Path D:\home\SiteExtensions\AspNetCoreRuntime.<x.y>.x86\
+   ```
+   Yüklü önizlemesi çalışma zamanı için ASP.NET Core 2.2 ise, komut şöyledir:
+   ```powershell
+   Test-Path D:\home\SiteExtensions\AspNetCoreRuntime.2.2.x86\
+   ```
+   Komut döndürür `True` olduğunda önizlemesi çalışma zamanı yüklü x64.
 
-![Önceki adımları ile azure uygulama dikey penceresi](index/_static/cons.png)
+::: moniker range=">= aspnetcore-2.2"
 
-ASP.NET Core önceki görüntüde gösterilen sürümünü `2.1.300-preview1-008174`, bir örnek verilmiştir. ASP.NET Core site uzantısını yapılandırılmış zaman en son önizleme sürümünü yürüttüğünüzde görünür `dotnet --info`.
+> [!NOTE]
+> Uygulama Hizmetleri uygulama platformu mimarisi (x86/x64) kümesinde **uygulama ayarları** altındaki dikey penceresinde **genel ayarlar** A serisi işlem üzerinde barındırılan veya daha iyi barındırma uygulamaların katmanı. Uygulama, işlem içi modunda çalıştırıldığında ve platform mimarisi için 64-bit (x64) yapılandırılmışsa, ASP.NET Core modülü varsa, 64-bit önizlemesi çalışma zamanı kullanır. Yükleme **ASP.NET Core &lt;x.y&gt; (x64) çalışma zamanı** uzantısı (örneğin, **ASP.NET Core 2.2 (x64) çalışma zamanı**).
+>
+> X64 yükledikten sonra çalışma zamanı Önizleme, yüklemeyi doğrulamak için Kudu PowerShell komut penceresinde aşağıdaki komutu çalıştırın. ASP.NET Core çalışma zamanı sürümü yerine `<x.y>` komutta:
+>
+> ```powershell
+> Test-Path D:\home\SiteExtensions\AspNetCoreRuntime.<x.y>.x64\
+> ```
+> Yüklü önizlemesi çalışma zamanı için ASP.NET Core 2.2 ise, komut şöyledir:
+> ```powershell
+> Test-Path D:\home\SiteExtensions\AspNetCoreRuntime.2.2.x64\
+> ```
+> Komut döndürür `True` olduğunda önizlemesi çalışma zamanı yüklü x64.
 
-`dotnet --info` Önizleme burada yüklenmiş site uzantısı yolunu görüntüler. Uygulama yerine varsayılan site uzantısını çalıştırılmasının gösterir *ProgramFiles* konumu. Görürseniz *ProgramFiles*, siteyi yeniden başlatın ve çalıştırın `dotnet --info`.
+::: moniker-end
+
+> [!NOTE]
+> **ASP.NET Core uzantıları** Azure günlük kaydı etkinleştirme gibi ek işlevler üzerinde Azure App Services, ASP.NET Core sağlar. Uzantı, Visual Studio'dan dağıtım yaparken otomatik olarak yüklenir. Uzantı yüklü değilse, uygulamayı yükleyin.
 
 **Bir ARM şablonu ile Önizleme site uzantısı kullanma**
 
