@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 07/05/2018
 uid: fundamentals/error-handling
-ms.openlocfilehash: 7ea944bc423001aa47ce684443b96104cf9174bf
-ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
+ms.openlocfilehash: df7af9fd05c19c42357989bbd8a81da062a564cc
+ms.sourcegitcommit: 4cd8dce371d63a66d780e4af1baab2bcf9d61b24
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43312253"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43893109"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>ASP.NET core'da hatalarını işleme
 
@@ -66,7 +66,7 @@ Uygulama çalışmadığında kullanmak için bir özel durum işleyicisi sayfas
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_DevExceptionPage&highlight=11)]
 
-Bir Razor sayfaları uygulamasında [yeni dotnet](/dotnet/core/tools/dotnet-new) Razor sayfaları şablonu, bir hata sayfası sağlar ve `ErrorModel` sayfa modeli sınıfında *sayfaları* klasör.
+Bir Razor sayfaları uygulamasında [yeni dotnet](/dotnet/core/tools/dotnet-new) Razor sayfaları şablonu sağlar bir hata sayfası ve bir hata `PageModel` sınıfını *sayfaları* klasör.
 
 Bir MVC uygulamasında HTTP yöntemi öznitelikleriyle hata işleyicisi eylem yöntemi gibi süslemek yoksa `HttpGet`. Açık fiilleri yöntemi bazı istekleri engellenir. Kimliği doğrulanmamış kullanıcılar hata görünümünün alabilirsiniz, böylece yöntemi anonim erişime izin verin.
 

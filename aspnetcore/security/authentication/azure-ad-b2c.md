@@ -5,12 +5,12 @@ description: ASP.NET Core ile Azure Active Directory B2C kimlik doğrulaması ku
 ms.date: 01/25/2018
 ms.custom: mvc
 uid: security/authentication/azure-ad-b2c
-ms.openlocfilehash: 731b25cac6f0d56fd34d12114a73e5cb5265dda6
-ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
+ms.openlocfilehash: 73a66cea1533cc835796f673021bfa45c35f5935
+ms.sourcegitcommit: 4cd8dce371d63a66d780e4af1baab2bcf9d61b24
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39202646"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43893200"
 ---
 # <a name="cloud-authentication-with-azure-active-directory-b2c-in-aspnet-core"></a>Azure Active Directory B2C'de ASP.NET Core ile bulut kimlik doğrulaması
 
@@ -107,7 +107,7 @@ Adımlar için Azure AD B2C belgeleri kullanmak [kaydolma veya oturum açma ilke
 
 ## <a name="run-the-app"></a>Uygulamayı çalıştırma
 
-Visual Studio'da **F5** oluşturun ve uygulamayı çalıştırın. Web uygulamasını başlattıktan sonra seçin **oturum**.
+Visual Studio'da **F5** oluşturun ve uygulamayı çalıştırın. Web uygulamasını başlattıktan sonra seçin **kabul** (istenirse) tanımlama bilgilerinin kullanımını kabul etmek ve ardından **oturum**.
 
 ![Uygulamada oturum açması](./azure-ad-b2c/_static/signin.png)
 

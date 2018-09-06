@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 4/13/2018
 uid: fundamentals/startup
-ms.openlocfilehash: 465d33cc1f19428d5189b3a6fa7088ac402a9751
-ms.sourcegitcommit: 25150f4398de83132965a89f12d3a030f6cce48d
+ms.openlocfilehash: 845cf231ed096af2f9c6d22b452510535ef44263
+ms.sourcegitcommit: 4cd8dce371d63a66d780e4af1baab2bcf9d61b24
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/25/2018
-ms.locfileid: "42927977"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43893223"
 ---
 # <a name="application-startup-in-aspnet-core"></a>ASP.NET Core uygulaması başlangıç
 
@@ -66,7 +66,7 @@ Bazı hizmetler önce web ana bilgisayarı yapılandırabilirsiniz `Startup` yö
 
 ## <a name="the-configure-method"></a>Yapılandırma yöntemi
 
-[Yapılandırma](/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configure) yöntemi, uygulamanın HTTP isteklerine nasıl yanıt verdiğini belirlemek için kullanılır. İstek ardışık düzenini ekleyerek yapılandırılır [ara yazılım](xref:fundamentals/middleware/index) bileşenleri bir [IApplicationBuilder](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder) örneği. `IApplicationBuilder` kullanılabilir `Configure` yöntemi, ancak service kapsayıcısında kayıtlı değil. Barındırma oluşturur bir `IApplicationBuilder` ve doğrudan geçirir `Configure` ([başvuru kaynağı](https://github.com/aspnet/Hosting/blob/release/2.0.0/src/Microsoft.AspNetCore.Hosting/Internal/WebHost.cs#L179-L192)).
+[Yapılandırma](/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configure) yöntemi, uygulamanın HTTP isteklerine nasıl yanıt verdiğini belirlemek için kullanılır. İstek ardışık düzenini ekleyerek yapılandırılır [ara yazılım](xref:fundamentals/middleware/index) bileşenleri bir [IApplicationBuilder](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder) örneği. `IApplicationBuilder` kullanılabilir `Configure` yöntemi, ancak service kapsayıcısında kayıtlı değil. Barındırma oluşturur bir `IApplicationBuilder` ve doğrudan geçirir `Configure`.
 
 [ASP.NET Core şablonları](/dotnet/core/tools/dotnet-new) desteğiyle bir geliştirici özel durum sayfasında, işlem hattını yapılandırmanız [BrowserLink](http://vswebessentials.com/features/browserlink), hata sayfaları, statik dosyalar ve ASP.NET Core MVC:
 
@@ -126,4 +126,3 @@ Bir [Ihostingstartup](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup) 
 * <xref:fundamentals/middleware/index>
 * <xref:fundamentals/logging/index>
 * <xref:fundamentals/configuration/index>
-* [StartupLoader sınıfı: FindStartupType yöntemi (başvuru kaynağı)](https://github.com/aspnet/Hosting/blob/rel/2.0.0/src/Microsoft.AspNetCore.Hosting/Internal/StartupLoader.cs#L66-L116)

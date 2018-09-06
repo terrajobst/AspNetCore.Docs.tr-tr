@@ -5,14 +5,14 @@ description: Bu öğreticide, ASP.NET Core için SignalR kullanan bir sohbet uyg
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 08/20/2018
+ms.date: 08/31/2018
 uid: tutorials/signalr
-ms.openlocfilehash: a2573e2817a2d8921954264ca17bc3a7e2a010a8
-ms.sourcegitcommit: 847cc1de5526ff42a7303491e6336c2dbdb45de4
+ms.openlocfilehash: 6d96331a4630f766ca11edb056fd3e13b52b6ae4
+ms.sourcegitcommit: 4cd8dce371d63a66d780e4af1baab2bcf9d61b24
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43055838"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43893171"
 ---
 # <a name="tutorial-get-started-with-signalr-on-aspnet-core"></a>Öğretici: SignalR üzerinde ASP.NET Core ile çalışmaya başlama
 
@@ -34,22 +34,19 @@ Sonunda, bir çalışma sohbet uygulaması oluşturmuş olacaksınız:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* [Visual Studio 2017 sürüm 15.7.3 veya üzeri](https://www.visualstudio.com/downloads/) ile **ASP.NET ve web geliştirme** iş yükü
+* [Visual Studio 2017 sürüm 15,8 veya üzeri](https://www.visualstudio.com/downloads/) ile **ASP.NET ve web geliştirme** iş yükü
 * [.NET core SDK 2.1 veya üzeri](https://www.microsoft.com/net/download/all)
-* [npm](https://www.npmjs.com/get-npm) (SignalR JavaScript istemci kitaplığı için kullanılan Node.js için Paket Yöneticisi.)
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * [Visual Studio Code](https://code.visualstudio.com/download)
 * [.NET core SDK 2.1 veya üzeri](https://www.microsoft.com/net/download/all)
 * [Visual Studio Code için C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
-* [npm](https://www.npmjs.com/get-npm) (SignalR JavaScript istemci kitaplığı için kullanılan Node.js için Paket Yöneticisi.)
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
 * [Sürüm 7.5.4 Mac için Visual Studio veya üzeri](https://www.visualstudio.com/downloads/)
 * [.NET core SDK 2.1 veya üzeri](https://www.microsoft.com/net/download/all) (Visual Studio yüklemesine dahil)
-* [npm](https://www.npmjs.com/get-npm) (SignalR JavaScript istemci kitaplığı için kullanılan Node.js için Paket Yöneticisi.)
 
 ---
 
@@ -95,76 +92,85 @@ Sonunda, bir çalışma sohbet uygulaması oluşturmuş olacaksınız:
 
 ## <a name="add-the-signalr-client-library"></a>SignalR istemci kitaplığı Ekle
 
-SignalR server kitaplığı dahil [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app). Ancak JavaScript istemci Kitaplığı'ndan almak sahip olduğunuz [npm, Node.js Paket Yöneticisi](https://www.npmjs.com/get-npm).
+SignalR server kitaplığı dahil [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app). JavaScript istemci kitaplığı, otomatik olarak projeye dahil değil. Bu öğretici için kullandığınız [Kitaplık Yöneticisi'ni (LibMan)](xref:client-side/libman/index) istemci Kitaplığı'ndan almak için *unpkg*. [unpkg](https://unpkg.com/#/) olduğu bir [içerik teslim ağı](https://wikipedia.org/wiki/Content_delivery_network) , teslim edebilir bulunan herhangi bir şey [npm, Node.js Paket Yöneticisi](https://www.npmjs.com/get-npm).
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 
-* İçinde **Paket Yöneticisi Konsolu** (PMC) proje klasörüne değiştirin (içeren *SignalRChat.csproj* dosyası).
+* İçinde **Çözüm Gezgini**projeye sağ tıklayıp seçin **Ekle** > **istemci tarafı kitaplık**.
 
-  ```console
-  cd SignalRChat
-  ```
+* İçinde **istemci tarafı kitaplık Ekle** iletişim için **sağlayıcısı** seçin **unpkg**. 
+
+* İçin **Kitaplığı**, girin _@aspnet/signalr @1_, Önizleme olmayan en son sürümü seçin.
+
+  ![İstemci tarafı kitaplık iletişim - select Kütüphane ekleyin](signalr/_static/libman1.png)
+
+* Seçin **belirli dosyaları seçin**, genişletme *dist/tarayıcı* klasörü ve select *signalr.js* ve *signalr.min.js*.
+
+* Ayarlama **hedef konum** için *wwwroot/lib/signalr/* seçip **yükleme**.
+
+  ![İstemci tarafı kitaplık iletişim - dosyaları seçin ve hedef Ekle](signalr/_static/libman2.png)
+
+  [LibMan](xref:client-side/libman/index) oluşturur bir *wwwroot/lib/signalr* klasörü ve seçili dosyaları kopyalar.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
 
-2. Yeni proje klasörüne geçin.
+* İçinde **tümleşik Terminalini**, LibMan yüklemek için aşağıdaki komutu çalıştırın.
 
   ```console
-  cd SignalRChat
-  ``` 
+  dotnet tool install -g Microsoft.Web.LibraryManager.Cli
+  ```
+
+* Proje klasörüne gidin (içeren *SignalRChat.csproj* dosyası).
+
+* SignalR istemci kitaplığı LibMan almak için aşağıdaki komutu çalıştırın. Çıktıyı görmeye önce birkaç saniye beklemeniz gerekebilir.
+
+  ```console
+  libman install @aspnet/signalr -p unpkg -d wwwroot\lib\signalr --files dist/browser/signalr.js --files dist/browser/signalr.min.js
+  ```
+
+  Parametreleri aşağıdaki seçenekleri belirtin:
+  * Unpkg sağlayıcısını kullanın.
+  * Dosyaları kopyalamak *wwwroot/lib/signalr* hedef.
+  * Yalnızca belirtilen dosyaları kopyalayın.
+
+  Çıktı aşağıdaki örnekteki gibi görünür:
+
+  ```console
+  wwwroot/lib/signalr/dist/browser/signalr.js written to disk
+  wwwroot/lib/signalr/dist/browser/signalr.min.js written to disk
+  Installed library "@aspnet/signalr@1.0.3" to "wwwroot\lib\signalr"
+  ```
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-* İçinde **Terminal**, proje klasörüne gidin (içeren *SignalRChat.csproj* dosyası).
+* İçinde **Terminal**, LibMan yüklemek için aşağıdaki komutu çalıştırın.
+
+  ```console
+  dotnet tool install -g Microsoft.Web.LibraryManager.Cli
+  ```
+
+* Proje klasörüne gidin (içeren *SignalRChat.csproj* dosyası).
+
+* SignalR istemci kitaplığı LibMan almak için aşağıdaki komutu çalıştırın.
+
+  ```console
+  libman install @aspnet/signalr -p unpkg -d wwwroot\lib\signalr --files dist/browser/signalr.js --files dist/browser/signalr.min.js
+  ```
+
+  Parametreleri aşağıdaki seçenekleri belirtin:
+  * Unpkg sağlayıcısını kullanın.
+  * Dosyaları kopyalamak *wwwroot/lib/signalr* hedef.
+  * Yalnızca belirtilen dosyaları kopyalayın.
+
+  Çıktı aşağıdaki örnekteki gibi görünür:
+
+  ```console
+  wwwroot/lib/signalr/dist/browser/signalr.js written to disk
+  wwwroot/lib/signalr/dist/browser/signalr.min.js written to disk
+  Installed library "@aspnet/signalr@1.0.3" to "wwwroot\lib\signalr"
+  ```
 
 ---
-
-* Oluşturmak için npm Başlatıcı çalıştırma bir *package.json* dosyası:
-
-  ```console
-  npm init -y
-  ```
-
-  Komut çıktısı aşağıdaki örneğe benzer oluşturur:
-
-  ```console
-  Wrote to C:\tmp\SignalRChat\package.json:
-  {
-    "name": "SignalRChat",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC"0
-  }
-  ```
-
-* İstemci Kitaplığı paketi yükleyin:
-
-  ```console
-  npm install @aspnet/signalr
-  ```
-
-  Komut çıktısı aşağıdaki örneğe benzer oluşturur:
-
-  ```
-  npm notice created a lockfile as package-lock.json. You should commit this file.
-  npm WARN signalrchat@1.0.0 No description
-  npm WARN signalrchat@1.0.0 No repository field.
-
-  + @aspnet/signalr@1.0.2
-  added 1 package in 0.98s
-  ```
-
-`npm install` Altında bir alt komut indirdiğiniz JavaScript istemci Kitaplığı *node_modules*. Buradan altında bir klasöre kopyalayın *wwwroot* , sohbet uygulaması web sayfasından başvurabilirsiniz.
-
-* Oluşturma bir *signalr* klasöründe *wwwroot/lib*.
-
-* Kopyalama *signalr.js* dosya *node_modules/@aspnet/signalr/dist/browser* yeni *wwwroot/lib/signalr* klasör.
 
 ## <a name="create-the-signalr-hub"></a>SignalR hub'ı oluşturma
 
@@ -192,7 +198,7 @@ SignalR sunucusu, SignalR için SignalR isteklerini iletmek için yapılandırı
 
 ## <a name="create-the-signalr-client-code"></a>SignalR istemci kodu oluşturma
 
-* İçeriği Değiştir *Pages\Index.cshtml* aşağıdaki:
+* İçeriği Değiştir *Pages\Index.cshtml* aşağıdaki kod ile:
 
   [!code-cshtml[Index](signalr/sample/Pages/Index.cshtml)]
 
