@@ -3,282 +3,286 @@ title: ASP.NET core'da çıkış noktaları arası istekleri (CORS) etkinleştir
 author: rick-anderson
 description: Bilgi nasıl CORS izin verme veya reddetme ASP.NET Core uygulaması çıkış noktaları arası istekleri için standart olarak.
 ms.author: riande
-ms.date: 08/17/2018
+ms.custom: mvc
+ms.date: 09/05/2018
 uid: security/cors
-ms.openlocfilehash: 0dbb7933c76bb0d1d0cab519ea08c6c8f0ebedfd
-ms.sourcegitcommit: 64c2ca86fff445944b155635918126165ee0f8aa
+ms.openlocfilehash: f654260411f1bd5725a0e3d14951c7e9bbc893e8
+ms.sourcegitcommit: 08bf41d4b3e696ab512b044970e8304816f8cc56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41757312"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44039984"
 ---
-# <a name="enable-cross-origin-requests-cors-in-aspnet-core"></a><span data-ttu-id="174af-103">ASP.NET core'da çıkış noktaları arası istekleri (CORS) etkinleştirme</span><span class="sxs-lookup"><span data-stu-id="174af-103">Enable Cross-Origin Requests (CORS) in ASP.NET Core</span></span>
+# <a name="enable-cross-origin-requests-cors-in-aspnet-core"></a><span data-ttu-id="c88c2-103">ASP.NET core'da çıkış noktaları arası istekleri (CORS) etkinleştirme</span><span class="sxs-lookup"><span data-stu-id="c88c2-103">Enable Cross-Origin Requests (CORS) in ASP.NET Core</span></span>
 
-<span data-ttu-id="174af-104">Tarafından [Mike Wasson](https://github.com/mikewasson), [Shayne boyer'ın](https://twitter.com/spboyer), ve [Tom Dykstra](https://github.com/tdykstra)</span><span class="sxs-lookup"><span data-stu-id="174af-104">By [Mike Wasson](https://github.com/mikewasson), [Shayne Boyer](https://twitter.com/spboyer), and [Tom Dykstra](https://github.com/tdykstra)</span></span>
+<span data-ttu-id="c88c2-104">Tarafından [Mike Wasson](https://github.com/mikewasson), [Shayne boyer'ın](https://twitter.com/spboyer), ve [Tom Dykstra](https://github.com/tdykstra)</span><span class="sxs-lookup"><span data-stu-id="c88c2-104">By [Mike Wasson](https://github.com/mikewasson), [Shayne Boyer](https://twitter.com/spboyer), and [Tom Dykstra](https://github.com/tdykstra)</span></span>
 
-<span data-ttu-id="174af-105">Tarayıcı Güvenliği, bir web sayfası, başka bir etki alanına AJAX istekleri yapmasını engeller.</span><span class="sxs-lookup"><span data-stu-id="174af-105">Browser security prevents a web page from making AJAX requests to another domain.</span></span> <span data-ttu-id="174af-106">Bu kısıtlama adlı *aynı çıkış noktası İlkesi*ve kötü amaçlı bir siteyi başka bir siteden hassas verileri okumasını önler.</span><span class="sxs-lookup"><span data-stu-id="174af-106">This restriction is called the *same-origin policy*, and prevents a malicious site from reading sensitive data from another site.</span></span> <span data-ttu-id="174af-107">Ancak, bazen, web API'nize çıkış noktaları arası isteklerde diğer sitelere izin vermek isteyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="174af-107">However, sometimes you might want to let other sites make cross-origin requests to your web API.</span></span>
+<span data-ttu-id="c88c2-105">Tarayıcı güvenlik, bir web sayfası web sayfada sunulandan daha farklı bir etki alanı istekleri yapmasını engeller.</span><span class="sxs-lookup"><span data-stu-id="c88c2-105">Browser security prevents a web page from making requests to a different domain than the one that served the web page.</span></span> <span data-ttu-id="c88c2-106">Bu kısıtlama adlı *aynı çıkış noktası İlkesi*.</span><span class="sxs-lookup"><span data-stu-id="c88c2-106">This restriction is called the *same-origin policy*.</span></span> <span data-ttu-id="c88c2-107">Aynı kaynak İlkesi, kötü niyetli site başka bir siteden hassas verileri okumasını önler.</span><span class="sxs-lookup"><span data-stu-id="c88c2-107">The same-origin policy prevents a malicious site from reading sensitive data from another site.</span></span> <span data-ttu-id="c88c2-108">Bazı durumlarda, uygulamanız için diğer sitelere çıkış noktaları arası isteklerde izin vermek isteyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="c88c2-108">Sometimes, you might want to allow other sites make cross-origin requests to your app.</span></span>
 
-<span data-ttu-id="174af-108">[Kaynağın kaynak paylaşımını çapraz](http://www.w3.org/TR/cors/) (CORS) olan gevşek bir aynı çıkış noktası ilkesi izin veren bir W3C standart.</span><span class="sxs-lookup"><span data-stu-id="174af-108">[Cross Origin Resource Sharing](http://www.w3.org/TR/cors/) (CORS) is a W3C standard that allows a server to relax the same-origin policy.</span></span> <span data-ttu-id="174af-109">CORS kullanarak, bir sunucu açıkça bazı çıkış noktaları arası istekleri izin verirken diğerlerini.</span><span class="sxs-lookup"><span data-stu-id="174af-109">Using CORS, a server can explicitly allow some cross-origin requests while rejecting others.</span></span> <span data-ttu-id="174af-110">CORS güvenli ve önceki teknikler daha esnek gibi [JSONP](https://wikipedia.org/wiki/JSONP).</span><span class="sxs-lookup"><span data-stu-id="174af-110">CORS is safer and more flexible than earlier techniques such as [JSONP](https://wikipedia.org/wiki/JSONP).</span></span> <span data-ttu-id="174af-111">Bu konuda, bir ASP.NET Core uygulamada CORS'yi etkinleştirme gösterilmektedir.</span><span class="sxs-lookup"><span data-stu-id="174af-111">This topic shows how to enable CORS in an ASP.NET Core application.</span></span>
+<span data-ttu-id="c88c2-109">[Kaynağın kaynak paylaşımını çapraz](https://www.w3.org/TR/cors/) (CORS) olan gevşek bir aynı çıkış noktası ilkesi izin veren bir W3C standart.</span><span class="sxs-lookup"><span data-stu-id="c88c2-109">[Cross Origin Resource Sharing](https://www.w3.org/TR/cors/) (CORS) is a W3C standard that allows a server to relax the same-origin policy.</span></span> <span data-ttu-id="c88c2-110">CORS kullanarak, bir sunucu açıkça bazı çıkış noktaları arası istekleri izin verirken diğerlerini.</span><span class="sxs-lookup"><span data-stu-id="c88c2-110">Using CORS, a server can explicitly allow some cross-origin requests while rejecting others.</span></span> <span data-ttu-id="c88c2-111">CORS güvenli ve önceki teknikleri, daha esnek gibi [JSONP](https://wikipedia.org/wiki/JSONP).</span><span class="sxs-lookup"><span data-stu-id="c88c2-111">CORS is safer and more flexible than earlier techniques, such as [JSONP](https://wikipedia.org/wiki/JSONP).</span></span> <span data-ttu-id="c88c2-112">Bu konuda, bir ASP.NET Core uygulamada CORS'yi etkinleştirme gösterilmektedir.</span><span class="sxs-lookup"><span data-stu-id="c88c2-112">This topic shows how to enable CORS in an ASP.NET Core app.</span></span>
 
-## <a name="what-is-same-origin"></a><span data-ttu-id="174af-112">"Aynı kaynak" nedir?</span><span class="sxs-lookup"><span data-stu-id="174af-112">What is "same origin"?</span></span>
+## <a name="same-origin"></a><span data-ttu-id="c88c2-113">Aynı kaynak</span><span class="sxs-lookup"><span data-stu-id="c88c2-113">Same origin</span></span>
 
-<span data-ttu-id="174af-113">Aynı düzeni, konaklar ve bağlantı noktaları varsa iki URL aynı kaynağa sahip.</span><span class="sxs-lookup"><span data-stu-id="174af-113">Two URLs have the same origin if they have identical schemes, hosts, and ports.</span></span> <span data-ttu-id="174af-114">([RFC 6454](http://tools.ietf.org/html/rfc6454))</span><span class="sxs-lookup"><span data-stu-id="174af-114">([RFC 6454](http://tools.ietf.org/html/rfc6454))</span></span>
+<span data-ttu-id="c88c2-114">İki URL aynı düzenleri, konaklar ve bağlantı noktaları varsa aynı kaynağa sahip ([RFC 6454](https://tools.ietf.org/html/rfc6454)).</span><span class="sxs-lookup"><span data-stu-id="c88c2-114">Two URLs have the same origin if they have identical schemes, hosts, and ports ([RFC 6454](https://tools.ietf.org/html/rfc6454)).</span></span>
 
-<span data-ttu-id="174af-115">Bu iki URL aynı kaynağa sahip:</span><span class="sxs-lookup"><span data-stu-id="174af-115">These two URLs have the same origin:</span></span>
+<span data-ttu-id="c88c2-115">Bu iki URL aynı kaynağa sahip:</span><span class="sxs-lookup"><span data-stu-id="c88c2-115">These two URLs have the same origin:</span></span>
 
-* `http://example.com/foo.html`
+* `https://example.com/foo.html`
+* `https://example.com/bar.html`
 
-* `http://example.com/bar.html`
+<span data-ttu-id="c88c2-116">Bu URL'ler, önceki iki URL değerinden farklı çıkış noktaları vardır:</span><span class="sxs-lookup"><span data-stu-id="c88c2-116">These URLs have different origins than the previous two URLs:</span></span>
 
-<span data-ttu-id="174af-116">Bu URL'ler önceki değerinden farklı kaynakları iki vardır:</span><span class="sxs-lookup"><span data-stu-id="174af-116">These URLs have different origins than the previous two:</span></span>
-
-* <span data-ttu-id="174af-117">`http://example.net` -Farklı bir etki alanı</span><span class="sxs-lookup"><span data-stu-id="174af-117">`http://example.net` - Different domain</span></span>
-
-* <span data-ttu-id="174af-118">`http://www.example.com/foo.html` -Farklı bir alt etki alanı</span><span class="sxs-lookup"><span data-stu-id="174af-118">`http://www.example.com/foo.html` - Different subdomain</span></span>
-
-* <span data-ttu-id="174af-119">`https://example.com/foo.html` -Farklı düzeni</span><span class="sxs-lookup"><span data-stu-id="174af-119">`https://example.com/foo.html` - Different scheme</span></span>
-
-* <span data-ttu-id="174af-120">`http://example.com:9000/foo.html` -Farklı bir bağlantı noktası</span><span class="sxs-lookup"><span data-stu-id="174af-120">`http://example.com:9000/foo.html` - Different port</span></span>
+* <span data-ttu-id="c88c2-117">`https://example.net` &ndash; Farklı bir etki alanı</span><span class="sxs-lookup"><span data-stu-id="c88c2-117">`https://example.net` &ndash; Different domain</span></span>
+* <span data-ttu-id="c88c2-118">`https://www.example.com/foo.html` &ndash; Farklı alt etki alanı</span><span class="sxs-lookup"><span data-stu-id="c88c2-118">`https://www.example.com/foo.html` &ndash; Different subdomain</span></span>
+* <span data-ttu-id="c88c2-119">`http://example.com/foo.html` &ndash; Farklı düzeni</span><span class="sxs-lookup"><span data-stu-id="c88c2-119">`http://example.com/foo.html` &ndash; Different scheme</span></span>
+* <span data-ttu-id="c88c2-120">`https://example.com:9000/foo.html` &ndash; Farklı bir bağlantı noktası</span><span class="sxs-lookup"><span data-stu-id="c88c2-120">`https://example.com:9000/foo.html` &ndash; Different port</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="174af-121">Internet Explorer kaynakları karşılaştırılırken, bağlantı noktası dikkate almaz.</span><span class="sxs-lookup"><span data-stu-id="174af-121">Internet Explorer doesn't consider the port when comparing origins.</span></span>
+> <span data-ttu-id="c88c2-121">Internet Explorer kaynakları karşılaştırılırken, bağlantı noktası dikkate almaz.</span><span class="sxs-lookup"><span data-stu-id="c88c2-121">Internet Explorer doesn't consider the port when comparing origins.</span></span>
 
-## <a name="enable-cors"></a><span data-ttu-id="174af-122">CORS'yi etkinleştirme</span><span class="sxs-lookup"><span data-stu-id="174af-122">Enable CORS</span></span>
+## <a name="register-cors-services"></a><span data-ttu-id="c88c2-122">CORS Hizmetleri'ne kaydetme</span><span class="sxs-lookup"><span data-stu-id="c88c2-122">Register CORS services</span></span>
 
-::: moniker range="<= aspnetcore-1.1"
+::: moniker range=">= aspnetcore-2.1"
 
-<span data-ttu-id="174af-123">Ayarlamak için uygulamanız için CORS ekleme `Microsoft.AspNetCore.Cors` paketini projenize.</span><span class="sxs-lookup"><span data-stu-id="174af-123">To set up CORS for your application add the `Microsoft.AspNetCore.Cors` package to your project.</span></span>
+<span data-ttu-id="c88c2-123">Başvuru [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app) veya paket başvurusu ekleme [Microsoft.AspNetCore.Cors](https://www.nuget.org/packages/Microsoft.AspNetCore.Cors/) paket.</span><span class="sxs-lookup"><span data-stu-id="c88c2-123">Reference the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app) or add a package reference to the [Microsoft.AspNetCore.Cors](https://www.nuget.org/packages/Microsoft.AspNetCore.Cors/) package.</span></span>
 
 ::: moniker-end
 
-<span data-ttu-id="174af-124">Çağrı [AddCors](/dotnet/api/microsoft.extensions.dependencyinjection.corsservicecollectionextensions.addcors) içinde `Startup.ConfigureServices`:</span><span class="sxs-lookup"><span data-stu-id="174af-124">Call [AddCors](/dotnet/api/microsoft.extensions.dependencyinjection.corsservicecollectionextensions.addcors) in `Startup.ConfigureServices`:</span></span>
+::: moniker range="= aspnetcore-2.0"
 
-[!code-csharp[](cors/sample/CorsExample1/Startup.cs?name=snippet_addcors)]
+<span data-ttu-id="c88c2-124">Başvuru [Microsoft.AspNetCore.All metapackage](xref:fundamentals/metapackage) veya paket başvurusu ekleme [Microsoft.AspNetCore.Cors](https://www.nuget.org/packages/Microsoft.AspNetCore.Cors/) paket.</span><span class="sxs-lookup"><span data-stu-id="c88c2-124">Reference the [Microsoft.AspNetCore.All metapackage](xref:fundamentals/metapackage) or add a package reference to the [Microsoft.AspNetCore.Cors](https://www.nuget.org/packages/Microsoft.AspNetCore.Cors/) package.</span></span>
 
-## <a name="enabling-cors-with-middleware"></a><span data-ttu-id="174af-125">CORS ile Ara yazılım etkinleştirme</span><span class="sxs-lookup"><span data-stu-id="174af-125">Enabling CORS with middleware</span></span>
+::: moniker-end
 
-<span data-ttu-id="174af-126">CORS etkinleştirmek için CORS ara yazılım istek kullanarak işlem hattı ekleyin `UseCors` genişletme yöntemi.</span><span class="sxs-lookup"><span data-stu-id="174af-126">To enable CORS, add the CORS middleware to the request pipeline using the `UseCors` extension method.</span></span> <span data-ttu-id="174af-127">CORS ara yazılım tanımlı uç nokta uygulamanızda çıkış noktaları arası istekleri desteklemek istediğiniz gelmelidir (örneğin, önce yapılan tüm çağrıların `UseMvc`).</span><span class="sxs-lookup"><span data-stu-id="174af-127">The CORS middleware must precede any defined endpoints in your app where you want to support cross-origin requests (For example, before any call to `UseMvc`).</span></span>
+::: moniker range="< aspnetcore-2.0"
 
-<span data-ttu-id="174af-128">Çıkış noktaları arası ilke CORS ara yazılımı kullanarak eklerken belirtilebilir [CorsPolicyBuilder](/dotnet/api/microsoft.extensions.dependencyinjection.corsservicecollectionextensions.addcors) sınıfı.</span><span class="sxs-lookup"><span data-stu-id="174af-128">A cross-origin policy can be specified when adding the CORS middleware using the [CorsPolicyBuilder](/dotnet/api/microsoft.extensions.dependencyinjection.corsservicecollectionextensions.addcors) class.</span></span> <span data-ttu-id="174af-129">Bunu yapmanın iki yolu vardır.</span><span class="sxs-lookup"><span data-stu-id="174af-129">There are two ways to do this.</span></span> <span data-ttu-id="174af-130">İlk çağırmaktır `UseCors` bir lambda ile:</span><span class="sxs-lookup"><span data-stu-id="174af-130">The first is to call `UseCors` with a lambda:</span></span>
+<span data-ttu-id="c88c2-125">Paket başvurusu ekleme [Microsoft.AspNetCore.Cors](https://www.nuget.org/packages/Microsoft.AspNetCore.Cors/) paket.</span><span class="sxs-lookup"><span data-stu-id="c88c2-125">Add a package reference to the [Microsoft.AspNetCore.Cors](https://www.nuget.org/packages/Microsoft.AspNetCore.Cors/) package.</span></span>
 
-[!code-csharp[](cors/sample/CorsExample1/Startup.cs?highlight=11,12&range=22-38)]
+::: moniker-end
 
-<span data-ttu-id="174af-131">**Not:** URL'nin sonunda bir eğik çizgi belirtilmelidir (`/`).</span><span class="sxs-lookup"><span data-stu-id="174af-131">**Note:** The URL must be specified without a trailing slash (`/`).</span></span> <span data-ttu-id="174af-132">URL ile sona ererse `/`, karşılaştırma döndüreceği `false` ve üst bilgi döndürülür.</span><span class="sxs-lookup"><span data-stu-id="174af-132">If the URL terminates with `/`, the comparison will return `false` and no header will be returned.</span></span>
+<span data-ttu-id="c88c2-126">Çağrı <xref:Microsoft.Extensions.DependencyInjection.MvcCorsMvcCoreBuilderExtensions.AddCors*> içinde `Startup.ConfigureServices` uygulamanın hizmet kapsayıcıya CORS Hizmetleri eklemek için:</span><span class="sxs-lookup"><span data-stu-id="c88c2-126">Call <xref:Microsoft.Extensions.DependencyInjection.MvcCorsMvcCoreBuilderExtensions.AddCors*> in `Startup.ConfigureServices` to add CORS services to the app's service container:</span></span>
 
-<span data-ttu-id="174af-133">Lambda alan bir `CorsPolicyBuilder` nesne.</span><span class="sxs-lookup"><span data-stu-id="174af-133">The lambda takes a `CorsPolicyBuilder` object.</span></span> <span data-ttu-id="174af-134">Bir listesi bulacaksınız [yapılandırma seçenekleri](#cors-policy-options) bu konuda.</span><span class="sxs-lookup"><span data-stu-id="174af-134">You'll find a list of the [configuration options](#cors-policy-options) later in this topic.</span></span> <span data-ttu-id="174af-135">Bu örnekte, çıkış noktaları arası istekleri ilkeyi sağlayan `http://example.com` ve diğer kaynak.</span><span class="sxs-lookup"><span data-stu-id="174af-135">In this example, the policy allows cross-origin requests from `http://example.com` and no other origins.</span></span>
+[!code-csharp[](cors/sample/CorsExample1/Startup.cs?name=snippet_addcors&highlight=3)]
 
-<span data-ttu-id="174af-136">Yöntem çağrıları zincirleyebilirsiniz şekilde CorsPolicyBuilder fluent API'sini sahiptir:</span><span class="sxs-lookup"><span data-stu-id="174af-136">CorsPolicyBuilder has a fluent API, so you can chain method calls:</span></span>
+## <a name="enable-cors"></a><span data-ttu-id="c88c2-127">CORS'yi etkinleştirme</span><span class="sxs-lookup"><span data-stu-id="c88c2-127">Enable CORS</span></span>
 
-[!code-csharp[](../security/cors/sample/CorsExample3/Startup.cs?highlight=3&range=29-32)]
+<span data-ttu-id="c88c2-128">CORS Hizmetleri kaydolduktan sonra aşağıdaki yaklaşımlardan birini CORS ASP.NET Core uygulamanızı etkinleştirmek için kullanın:</span><span class="sxs-lookup"><span data-stu-id="c88c2-128">After registering CORS services, use either of the following approaches to enable CORS in an ASP.NET Core app:</span></span>
 
-<span data-ttu-id="174af-137">İkinci bir veya daha fazla adlandırılmış CORS ilkelerini tanımlama ve ardından ilkeyi çalışma zamanında adına göre seçmek için bir yaklaşımdır.</span><span class="sxs-lookup"><span data-stu-id="174af-137">The second approach is to define one or more named CORS policies, and then select the policy by name at run time.</span></span>
+* <span data-ttu-id="c88c2-129">[CORS ara yazılımı](#enable-cors-with-cors-middleware) &ndash; uygulamak CORS ilkelerini genel ara yazılım aracılığıyla.</span><span class="sxs-lookup"><span data-stu-id="c88c2-129">[CORS Middleware](#enable-cors-with-cors-middleware) &ndash; Apply CORS policies globally to the app via middleware.</span></span>
+* <span data-ttu-id="c88c2-130">[CORS mvc'de](#enable-cors-in-mvc) &ndash; uygulamak CORS ilkelerini eylem veya denetleyici başına.</span><span class="sxs-lookup"><span data-stu-id="c88c2-130">[CORS in MVC](#enable-cors-in-mvc) &ndash; Apply CORS policies per action or per controller.</span></span> <span data-ttu-id="c88c2-131">CORS ara yazılımı kullanılmaz.</span><span class="sxs-lookup"><span data-stu-id="c88c2-131">CORS Middleware isn't used.</span></span>
 
-[!code-csharp[](cors/sample/CorsExample2/Startup.cs?name=snippet_begin)]
+### <a name="enable-cors-with-cors-middleware"></a><span data-ttu-id="c88c2-132">CORS ara yazılımı ile CORS'yi etkinleştirme</span><span class="sxs-lookup"><span data-stu-id="c88c2-132">Enable CORS with CORS Middleware</span></span>
 
-<span data-ttu-id="174af-138">Bu örnek, "AllowSpecificOrigin" adlı CORS ilkesi ekler.</span><span class="sxs-lookup"><span data-stu-id="174af-138">This example adds a CORS policy named "AllowSpecificOrigin".</span></span> <span data-ttu-id="174af-139">İlkeyi seçmek için adına geçirmek `UseCors`.</span><span class="sxs-lookup"><span data-stu-id="174af-139">To select the policy, pass the name to `UseCors`.</span></span>
+<span data-ttu-id="c88c2-133">CORS ara yazılımı, uygulamaya çıkış noktaları arası istekleri işler.</span><span class="sxs-lookup"><span data-stu-id="c88c2-133">CORS Middleware handles cross-origin requests to the app.</span></span> <span data-ttu-id="c88c2-134">CORS ara yazılım istek işleme ardışık etkinleştirmek için çağrı <xref:Microsoft.AspNetCore.Builder.CorsMiddlewareExtensions.UseCors*> uzantı yönteminde `Startup.Configure`.</span><span class="sxs-lookup"><span data-stu-id="c88c2-134">To enable CORS Middleware in the request processing pipeline, call the <xref:Microsoft.AspNetCore.Builder.CorsMiddlewareExtensions.UseCors*> extension method in `Startup.Configure`.</span></span>
 
-## <a name="enabling-cors-in-mvc"></a><span data-ttu-id="174af-140">Mvc'de CORS'yi etkinleştirme</span><span class="sxs-lookup"><span data-stu-id="174af-140">Enabling CORS in MVC</span></span>
+<span data-ttu-id="c88c2-135">CORS ara yazılımı gelmelidir tanımlanmış tüm uç noktalar uygulamanızda çıkış noktaları arası istekleri desteklemek istediğiniz (örneğin, çağırmadan önce `UseMvc` MVC/Razor sayfaları ara yazılımı için).</span><span class="sxs-lookup"><span data-stu-id="c88c2-135">CORS Middleware must precede any defined endpoints in your app where you want to support cross-origin requests (for example, before the call to `UseMvc` for MVC/Razor Pages Middleware).</span></span>
 
-<span data-ttu-id="174af-141">Alternatif olarak, MVC her eylem, denetleyici başına veya genel olarak tüm denetleyicileri için belirli CORS uygulamak için de kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="174af-141">You can alternatively use MVC to apply specific CORS per action, per controller, or globally for all controllers.</span></span> <span data-ttu-id="174af-142">MVC, CORS öğesini etkinleştirmek üzere kullanırken aynı CORS Hizmetleri kullanılır ancak CORS ara yazılımı değil.</span><span class="sxs-lookup"><span data-stu-id="174af-142">When using MVC to enable CORS the same CORS services are used, but the CORS middleware isn't.</span></span>
+<span data-ttu-id="c88c2-136">A *çıkış noktaları arası ilke* CORS ara yazılımı kullanarak eklerken belirtilebilir <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder> sınıfı.</span><span class="sxs-lookup"><span data-stu-id="c88c2-136">A *cross-origin policy* can be specified when adding the CORS Middleware using the <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder> class.</span></span> <span data-ttu-id="c88c2-137">CORS ilkesini tanımlamak için iki yaklaşım vardır:</span><span class="sxs-lookup"><span data-stu-id="c88c2-137">There are two approaches for defining a CORS policy:</span></span>
 
-### <a name="per-action"></a><span data-ttu-id="174af-143">Eylem başına</span><span class="sxs-lookup"><span data-stu-id="174af-143">Per action</span></span>
+* <span data-ttu-id="c88c2-138">Çağrı `UseCors` bir lambda ile:</span><span class="sxs-lookup"><span data-stu-id="c88c2-138">Call `UseCors` with a lambda:</span></span>
 
-<span data-ttu-id="174af-144">Belirtmek için özel bir eylem için CORS ilkesinin ekleyin `[EnableCors]` eyleme özniteliği.</span><span class="sxs-lookup"><span data-stu-id="174af-144">To specify a CORS policy for a specific action add the `[EnableCors]` attribute to the action.</span></span> <span data-ttu-id="174af-145">İlke adı belirtin.</span><span class="sxs-lookup"><span data-stu-id="174af-145">Specify the policy name.</span></span>
+  [!code-csharp[](cors/sample/CorsExample1/Startup.cs?highlight=11,12&range=22-38)]
 
-[!code-csharp[](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=EnableOnAction)]
+  <span data-ttu-id="c88c2-139">Lambda alan bir <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder> nesne.</span><span class="sxs-lookup"><span data-stu-id="c88c2-139">The lambda takes a <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder> object.</span></span> <span data-ttu-id="c88c2-140">[Yapılandırma seçenekleri](#cors-policy-options), gibi `WithOrigins`, bu konunun ilerleyen bölümlerinde açıklanmıştır.</span><span class="sxs-lookup"><span data-stu-id="c88c2-140">[Configuration options](#cors-policy-options), such as `WithOrigins`, are described later in this topic.</span></span> <span data-ttu-id="c88c2-141">Önceki örnekte, çıkış noktaları arası istekleri ilkeyi sağlar `https://example.com` ve diğer kaynak.</span><span class="sxs-lookup"><span data-stu-id="c88c2-141">In the preceding example, the policy allows cross-origin requests from `https://example.com` and no other origins.</span></span>
 
-### <a name="per-controller"></a><span data-ttu-id="174af-146">Denetleyici</span><span class="sxs-lookup"><span data-stu-id="174af-146">Per controller</span></span>
+  <span data-ttu-id="c88c2-142">URL'nin sonunda bir eğik çizgi belirtilmelidir (`/`).</span><span class="sxs-lookup"><span data-stu-id="c88c2-142">The URL must be specified without a trailing slash (`/`).</span></span> <span data-ttu-id="c88c2-143">URL ile sona ererse `/`, karşılaştırma döndürür `false` ve üst bilgi döndürülür.</span><span class="sxs-lookup"><span data-stu-id="c88c2-143">If the URL terminates with `/`, the comparison returns `false` and no header is returned.</span></span>
 
-<span data-ttu-id="174af-147">Belirtmek için belirli bir denetleyicinin CORS ilkesi ekleme `[EnableCors]` özniteliği için denetleyici sınıfı.</span><span class="sxs-lookup"><span data-stu-id="174af-147">To specify the CORS policy for a specific controller add the `[EnableCors]` attribute to the controller class.</span></span> <span data-ttu-id="174af-148">İlke adı belirtin.</span><span class="sxs-lookup"><span data-stu-id="174af-148">Specify the policy name.</span></span>
+  <span data-ttu-id="c88c2-144">`CorsPolicyBuilder` Yöntem çağrıları zincirleyebilirsiniz şekilde fluent API'sini sahiptir:</span><span class="sxs-lookup"><span data-stu-id="c88c2-144">`CorsPolicyBuilder` has a fluent API, so you can chain method calls:</span></span>
 
-[!code-csharp[](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=EnableOnController)]
+  [!code-csharp[](cors/sample/CorsExample3/Startup.cs?highlight=2-3&range=29-32)]
 
-### <a name="globally"></a><span data-ttu-id="174af-149">Genel olarak</span><span class="sxs-lookup"><span data-stu-id="174af-149">Globally</span></span>
+* <span data-ttu-id="c88c2-145">Bir veya daha fazla adlandırılmış CORS ilkelerini tanımlama ve çalışma zamanında adıyla ilkeyi seçin.</span><span class="sxs-lookup"><span data-stu-id="c88c2-145">Define one or more named CORS policies and select the policy by name at runtime.</span></span> <span data-ttu-id="c88c2-146">Aşağıdaki örnekte adlı bir kullanıcı tanımlı CORS ilkesinin ekler *AllowSpecificOrigin*.</span><span class="sxs-lookup"><span data-stu-id="c88c2-146">The following example adds a user-defined CORS policy named *AllowSpecificOrigin*.</span></span> <span data-ttu-id="c88c2-147">İlkeyi seçmek için adına geçirmek `UseCors`:</span><span class="sxs-lookup"><span data-stu-id="c88c2-147">To select the policy, pass the name to `UseCors`:</span></span>
 
-<span data-ttu-id="174af-150">CORS genel olarak tüm denetleyicilerinin ekleyerek etkinleştirebilirsiniz `CorsAuthorizationFilterFactory` genel filtre koleksiyonuna filtre:</span><span class="sxs-lookup"><span data-stu-id="174af-150">You can enable CORS globally for all controllers by adding the `CorsAuthorizationFilterFactory` filter to the global filter collection:</span></span>
+  [!code-csharp[](cors/sample/CorsExample2/Startup.cs?name=snippet_begin&highlight=5-6,21)]
 
-[!code-csharp[](cors/sample/CorsMVC/Startup2.cs?name=snippet_configureservices)]
+### <a name="enable-cors-in-mvc"></a><span data-ttu-id="c88c2-148">Mvc'de CORS'yi etkinleştirme</span><span class="sxs-lookup"><span data-stu-id="c88c2-148">Enable CORS in MVC</span></span>
 
-<span data-ttu-id="174af-151">Öncelik sırası: eylem, denetleyici, genel.</span><span class="sxs-lookup"><span data-stu-id="174af-151">The precedence order is: Action, controller, global.</span></span> <span data-ttu-id="174af-152">Eylem düzeyinde ilkeler denetleyici düzeyinde ilkeler üzerinde önceliklidir ve denetleyici düzeyinde ilkeler genel ilkelere göre önceliklidir.</span><span class="sxs-lookup"><span data-stu-id="174af-152">Action-level policies take precedence over controller-level policies, and controller-level policies take precedence over global policies.</span></span>
+<span data-ttu-id="c88c2-149">Alternatif olarak, MVC eylem veya denetleyici başına belirli CORS ilkelerini uygulamak için de kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="c88c2-149">You can alternatively use MVC to apply specific CORS policies per action or per controller.</span></span> <span data-ttu-id="c88c2-150">MVC, CORS'yi etkinleştirmek için kullanılırken kaydedilen CORS Hizmetleri kullanılır.</span><span class="sxs-lookup"><span data-stu-id="c88c2-150">When using MVC to enable CORS, the registered CORS services are used.</span></span> <span data-ttu-id="c88c2-151">CORS ara yazılımı kullanılmaz.</span><span class="sxs-lookup"><span data-stu-id="c88c2-151">The CORS Middleware isn't used.</span></span>
 
-### <a name="disable-cors"></a><span data-ttu-id="174af-153">CORS devre dışı bırak</span><span class="sxs-lookup"><span data-stu-id="174af-153">Disable CORS</span></span>
+### <a name="per-action"></a><span data-ttu-id="c88c2-152">Eylem başına</span><span class="sxs-lookup"><span data-stu-id="c88c2-152">Per action</span></span>
 
-<span data-ttu-id="174af-154">CORS bir denetleyici veya eylem için devre dışı bırakmak için `[DisableCors]` özniteliği.</span><span class="sxs-lookup"><span data-stu-id="174af-154">To disable CORS for a controller or action, use the `[DisableCors]` attribute.</span></span>
+<span data-ttu-id="c88c2-153">Belirli bir eylem için CORS ilkesinin belirtmek için [ &lbrack;EnableCors&rbrack; ](xref:Microsoft.AspNetCore.Cors.EnableCorsAttribute) eyleme özniteliği.</span><span class="sxs-lookup"><span data-stu-id="c88c2-153">To specify a CORS policy for a specific action, add the [&lbrack;EnableCors&rbrack;](xref:Microsoft.AspNetCore.Cors.EnableCorsAttribute) attribute to the action.</span></span> <span data-ttu-id="c88c2-154">İlke adı belirtin.</span><span class="sxs-lookup"><span data-stu-id="c88c2-154">Specify the policy name.</span></span>
 
-[!code-csharp[](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=DisableOnAction)]
+[!code-csharp[](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=EnableOnAction&highlight=2)]
 
-## <a name="cors-policy-options"></a><span data-ttu-id="174af-155">CORS ilkesi seçenekleri</span><span class="sxs-lookup"><span data-stu-id="174af-155">CORS policy options</span></span>
+### <a name="per-controller"></a><span data-ttu-id="c88c2-155">Denetleyici</span><span class="sxs-lookup"><span data-stu-id="c88c2-155">Per controller</span></span>
 
-<span data-ttu-id="174af-156">Bu bölümde, CORS ilke ayarlayabileceğiniz çeşitli seçenekler açıklanmaktadır.</span><span class="sxs-lookup"><span data-stu-id="174af-156">This section describes the various options that you can set in a CORS policy.</span></span>
+<span data-ttu-id="c88c2-156">CORS ilkesini belirli bir denetleyicinin belirtmek için [ &lbrack;EnableCors&rbrack; ](xref:Microsoft.AspNetCore.Cors.EnableCorsAttribute) özniteliği için denetleyici sınıfı.</span><span class="sxs-lookup"><span data-stu-id="c88c2-156">To specify the CORS policy for a specific controller, add the [&lbrack;EnableCors&rbrack;](xref:Microsoft.AspNetCore.Cors.EnableCorsAttribute) attribute to the controller class.</span></span> <span data-ttu-id="c88c2-157">İlke adı belirtin.</span><span class="sxs-lookup"><span data-stu-id="c88c2-157">Specify the policy name.</span></span>
 
-* [<span data-ttu-id="174af-157">İzin verilen çıkış noktaları ayarlama</span><span class="sxs-lookup"><span data-stu-id="174af-157">Set the allowed origins</span></span>](#set-the-allowed-origins)
+[!code-csharp[](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=EnableOnController&highlight=2)]
 
-* [<span data-ttu-id="174af-158">İzin verilen HTTP yöntemleri Ayarla</span><span class="sxs-lookup"><span data-stu-id="174af-158">Set the allowed HTTP methods</span></span>](#set-the-allowed-http-methods)
+<span data-ttu-id="c88c2-158">Öncelik sırası şöyledir:</span><span class="sxs-lookup"><span data-stu-id="c88c2-158">The precedence order is:</span></span>
 
-* [<span data-ttu-id="174af-159">İzin verilen istek üstbilgilerini Ayarla</span><span class="sxs-lookup"><span data-stu-id="174af-159">Set the allowed request headers</span></span>](#set-the-allowed-request-headers)
+1. <span data-ttu-id="c88c2-159">Eylem</span><span class="sxs-lookup"><span data-stu-id="c88c2-159">action</span></span>
+1. <span data-ttu-id="c88c2-160">denetleyici</span><span class="sxs-lookup"><span data-stu-id="c88c2-160">controller</span></span>
 
-* [<span data-ttu-id="174af-160">İfşa edilen yanıt üstbilgilerini Ayarla</span><span class="sxs-lookup"><span data-stu-id="174af-160">Set the exposed response headers</span></span>](#set-the-exposed-response-headers)
+### <a name="disable-cors"></a><span data-ttu-id="c88c2-161">CORS devre dışı bırak</span><span class="sxs-lookup"><span data-stu-id="c88c2-161">Disable CORS</span></span>
 
-* [<span data-ttu-id="174af-161">Çıkış noktaları arası istekleri kimlik bilgileri</span><span class="sxs-lookup"><span data-stu-id="174af-161">Credentials in cross-origin requests</span></span>](#credentials-in-cross-origin-requests)
+<span data-ttu-id="c88c2-162">CORS bir denetleyici veya eylem için devre dışı bırakmak için [ &lbrack;DisableCors&rbrack; ](xref:Microsoft.AspNetCore.Cors.DisableCorsAttribute) özniteliği:</span><span class="sxs-lookup"><span data-stu-id="c88c2-162">To disable CORS for a controller or action, use the [&lbrack;DisableCors&rbrack;](xref:Microsoft.AspNetCore.Cors.DisableCorsAttribute) attribute:</span></span>
 
-* [<span data-ttu-id="174af-162">Denetim öncesi sona erme saati ayarla</span><span class="sxs-lookup"><span data-stu-id="174af-162">Set the preflight expiration time</span></span>](#set-the-preflight-expiration-time)
+[!code-csharp[](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=DisableOnAction&highlight=2)]
 
-<span data-ttu-id="174af-163">Bazı seçenekleri okumak yardımcı olabilecek [CORS nasıl çalıştığını](#how-cors-works) ilk.</span><span class="sxs-lookup"><span data-stu-id="174af-163">For some options, it may be helpful to read [How CORS works](#how-cors-works) first.</span></span>
+## <a name="cors-policy-options"></a><span data-ttu-id="c88c2-163">CORS ilkesi seçenekleri</span><span class="sxs-lookup"><span data-stu-id="c88c2-163">CORS policy options</span></span>
 
-### <a name="set-the-allowed-origins"></a><span data-ttu-id="174af-164">İzin verilen çıkış noktaları ayarlama</span><span class="sxs-lookup"><span data-stu-id="174af-164">Set the allowed origins</span></span>
+<span data-ttu-id="c88c2-164">Bu bölümde, CORS ilke ayarlayabileceğiniz çeşitli seçenekler açıklanmaktadır.</span><span class="sxs-lookup"><span data-stu-id="c88c2-164">This section describes the various options that you can set in a CORS policy.</span></span>
 
-<span data-ttu-id="174af-165">Bir veya daha fazla belirli kaynaklara izin veren:</span><span class="sxs-lookup"><span data-stu-id="174af-165">To allow one or more specific origins:</span></span>
+* [<span data-ttu-id="c88c2-165">İzin verilen çıkış noktaları ayarlama</span><span class="sxs-lookup"><span data-stu-id="c88c2-165">Set the allowed origins</span></span>](#set-the-allowed-origins)
+* [<span data-ttu-id="c88c2-166">İzin verilen HTTP yöntemleri Ayarla</span><span class="sxs-lookup"><span data-stu-id="c88c2-166">Set the allowed HTTP methods</span></span>](#set-the-allowed-http-methods)
+* [<span data-ttu-id="c88c2-167">İzin verilen istek üstbilgilerini Ayarla</span><span class="sxs-lookup"><span data-stu-id="c88c2-167">Set the allowed request headers</span></span>](#set-the-allowed-request-headers)
+* [<span data-ttu-id="c88c2-168">İfşa edilen yanıt üstbilgilerini Ayarla</span><span class="sxs-lookup"><span data-stu-id="c88c2-168">Set the exposed response headers</span></span>](#set-the-exposed-response-headers)
+* [<span data-ttu-id="c88c2-169">Çıkış noktaları arası istekleri kimlik bilgileri</span><span class="sxs-lookup"><span data-stu-id="c88c2-169">Credentials in cross-origin requests</span></span>](#credentials-in-cross-origin-requests)
+* [<span data-ttu-id="c88c2-170">Denetim öncesi sona erme saati ayarla</span><span class="sxs-lookup"><span data-stu-id="c88c2-170">Set the preflight expiration time</span></span>](#set-the-preflight-expiration-time)
 
-[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=19-23)]
+<span data-ttu-id="c88c2-171">Bazı seçenekleri okumak yardımcı olabilecek [CORS nasıl çalıştığını](#how-cors-works) ilk bölümü.</span><span class="sxs-lookup"><span data-stu-id="c88c2-171">For some options, it may be helpful to read the [How CORS works](#how-cors-works) section first.</span></span>
 
-<span data-ttu-id="174af-166">Tüm kaynaklara izin veren:</span><span class="sxs-lookup"><span data-stu-id="174af-166">To allow all origins:</span></span>
+### <a name="set-the-allowed-origins"></a><span data-ttu-id="c88c2-172">İzin verilen çıkış noktaları ayarlama</span><span class="sxs-lookup"><span data-stu-id="c88c2-172">Set the allowed origins</span></span>
 
-[!code-csharp[](cors/sample/CorsExample4/Startup.cs??range=27-31)]
+<span data-ttu-id="c88c2-173">Bir veya daha fazla belirli kaynaklara izin veren çağrı <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.WithOrigins*>:</span><span class="sxs-lookup"><span data-stu-id="c88c2-173">To allow one or more specific origins, call <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.WithOrigins*>:</span></span>
 
-<span data-ttu-id="174af-167">Her türlü kaynağa gelen isteklere izin vermeden önce dikkatlice düşünün.</span><span class="sxs-lookup"><span data-stu-id="174af-167">Consider carefully before allowing requests from any origin.</span></span> <span data-ttu-id="174af-168">Bu, tam anlamıyla herhangi bir Web API AJAX çağrıları yapabileceğini anlamına gelir.</span><span class="sxs-lookup"><span data-stu-id="174af-168">It means that literally any website can make AJAX calls to your API.</span></span>
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=20-24&highlight=4)]
 
-### <a name="set-the-allowed-http-methods"></a><span data-ttu-id="174af-169">İzin verilen HTTP yöntemleri Ayarla</span><span class="sxs-lookup"><span data-stu-id="174af-169">Set the allowed HTTP methods</span></span>
+<span data-ttu-id="c88c2-174">Tüm kaynaklara izin veren çağrı <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.AllowAnyOrigin*>:</span><span class="sxs-lookup"><span data-stu-id="c88c2-174">To allow all origins, call <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.AllowAnyOrigin*>:</span></span>
 
-<span data-ttu-id="174af-170">Tüm HTTP yöntemleri izin vermek için:</span><span class="sxs-lookup"><span data-stu-id="174af-170">To allow all HTTP methods:</span></span>
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=28-32&highlight=4)]
 
-[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=44-49)]
+<span data-ttu-id="c88c2-175">Her türlü kaynağa gelen isteklere izin vermeden önce dikkatlice düşünün.</span><span class="sxs-lookup"><span data-stu-id="c88c2-175">Consider carefully before allowing requests from any origin.</span></span> <span data-ttu-id="c88c2-176">Her türlü kaynağa gelen isteklere izin vererek anlamına *herhangi bir Web sitesinde* çıkış noktaları arası istekleri uygulamanıza yapabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="c88c2-176">Allowing requests from any origin means that *any website* can make cross-origin requests to your app.</span></span>
 
-<span data-ttu-id="174af-171">Bu, uçuş öncesi istekleri ve erişim-denetim-Allow-Methods üstbilgi etkiler.</span><span class="sxs-lookup"><span data-stu-id="174af-171">This affects pre-flight requests and Access-Control-Allow-Methods header.</span></span>
+<span data-ttu-id="c88c2-177">Bu ayar etkiler [istekleri ve Access-Control-Allow-Origin üst bilgisi ön kontrol](#preflight-requests) (Bu konunun ilerleyen bölümlerinde açıklanmıştır).</span><span class="sxs-lookup"><span data-stu-id="c88c2-177">This setting affects [preflight requests and the Access-Control-Allow-Origin header](#preflight-requests) (described later in this topic).</span></span>
 
-### <a name="set-the-allowed-request-headers"></a><span data-ttu-id="174af-172">İzin verilen istek üstbilgilerini Ayarla</span><span class="sxs-lookup"><span data-stu-id="174af-172">Set the allowed request headers</span></span>
+### <a name="set-the-allowed-http-methods"></a><span data-ttu-id="c88c2-178">İzin verilen HTTP yöntemleri Ayarla</span><span class="sxs-lookup"><span data-stu-id="c88c2-178">Set the allowed HTTP methods</span></span>
 
-<span data-ttu-id="174af-173">CORS denetim öncesi isteğinin HTTP üst bilgileri uygulama tarafından ayarlanıp listeleme, bir Access-Control-Request-Headers üstbilgisi içerebilir (Malum "yazar, istek üst bilgileri").</span><span class="sxs-lookup"><span data-stu-id="174af-173">A CORS preflight request might include an Access-Control-Request-Headers header, listing the HTTP headers set by the application (the so-called "author request headers").</span></span>
+<span data-ttu-id="c88c2-179">Tüm HTTP yöntemleri izin vermek için çağrı <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.AllowAnyMethod*>:</span><span class="sxs-lookup"><span data-stu-id="c88c2-179">To allow all HTTP methods, call <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.AllowAnyMethod*>:</span></span>
 
-<span data-ttu-id="174af-174">Beyaz liste belirli üst bilgileri için:</span><span class="sxs-lookup"><span data-stu-id="174af-174">To whitelist specific headers:</span></span>
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=45-50&highlight=5)]
 
-[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=53-58)]
+<span data-ttu-id="c88c2-180">Bu ayar etkiler [istekleri ve erişim-denetim-Allow-Methods üst bilgisi ön kontrol](#preflight-requests) (Bu konunun ilerleyen bölümlerinde açıklanmıştır).</span><span class="sxs-lookup"><span data-stu-id="c88c2-180">This setting affects [preflight requests and the Access-Control-Allow-Methods header](#preflight-requests) (described later in this topic).</span></span>
 
-<span data-ttu-id="174af-175">İzin vermek için tüm istek üst bilgilerini yazar:</span><span class="sxs-lookup"><span data-stu-id="174af-175">To allow all author request headers:</span></span>
+### <a name="set-the-allowed-request-headers"></a><span data-ttu-id="c88c2-181">İzin verilen istek üstbilgilerini Ayarla</span><span class="sxs-lookup"><span data-stu-id="c88c2-181">Set the allowed request headers</span></span>
 
-[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=62-67)]
+<span data-ttu-id="c88c2-182">Adlı bir CORS isteğinde gönderilecek belirli üstbilgilere izin için *yazar, istek üst bilgilerini*, çağrı <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.WithHeaders*> ve izin verilen üstbilgileri belirtin:</span><span class="sxs-lookup"><span data-stu-id="c88c2-182">To allow specific headers to be sent in a CORS request, called *author request headers*, call <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.WithHeaders*> and specify the allowed headers:</span></span>
 
-<span data-ttu-id="174af-176">Tarayıcılar nasıl bunlar Access-Control-Request-Headers kümesinde tamamen tutarlı değil.</span><span class="sxs-lookup"><span data-stu-id="174af-176">Browsers are not entirely consistent in how they set Access-Control-Request-Headers.</span></span> <span data-ttu-id="174af-177">Üst bilgileri için herhangi bir şey dışında ayarlarsanız "\*", "kabul", "content-type" ve "Başlangıç" yanı sıra, desteklemek istediğiniz tüm özel üst en az içermelidir.</span><span class="sxs-lookup"><span data-stu-id="174af-177">If you set headers to anything other than "\*", you should include at least "accept", "content-type", and "origin", plus any custom headers that you want to support.</span></span>
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=54-59&highlight=5)]
 
-### <a name="set-the-exposed-response-headers"></a><span data-ttu-id="174af-178">İfşa edilen yanıt üstbilgilerini Ayarla</span><span class="sxs-lookup"><span data-stu-id="174af-178">Set the exposed response headers</span></span>
+<span data-ttu-id="c88c2-183">Tüm istek üstbilgilerini Yazar izin vermek için çağrı <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.AllowAnyHeader*>:</span><span class="sxs-lookup"><span data-stu-id="c88c2-183">To allow all author request headers, call <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.AllowAnyHeader*>:</span></span>
 
-<span data-ttu-id="174af-179">Varsayılan olarak, tüm yanıt üstbilgilerini uygulama tarayıcı ortaya çıkarmıyor.</span><span class="sxs-lookup"><span data-stu-id="174af-179">By default, the browser doesn't expose all of the response headers to the application.</span></span> <span data-ttu-id="174af-180">(Bkz [ http://www.w3.org/TR/cors/#simple-response-header ](http://www.w3.org/TR/cors/#simple-response-header).) Varsayılan olarak kullanılabilir olan yanıt üstbilgilerini şunlardır:</span><span class="sxs-lookup"><span data-stu-id="174af-180">(See [http://www.w3.org/TR/cors/#simple-response-header](http://www.w3.org/TR/cors/#simple-response-header).) The response headers that are available by default are:</span></span>
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=63-68&highlight=5)]
 
-* <span data-ttu-id="174af-181">Önbellek denetimi</span><span class="sxs-lookup"><span data-stu-id="174af-181">Cache-Control</span></span>
+<span data-ttu-id="c88c2-184">Bu ayar etkiler [istekleri ve Access-Control-Request-Headers üstbilgisi ön kontrol](#preflight-requests) (Bu konunun ilerleyen bölümlerinde açıklanmıştır).</span><span class="sxs-lookup"><span data-stu-id="c88c2-184">This setting affects [preflight requests and the Access-Control-Request-Headers header](#preflight-requests) (described later in this topic).</span></span>
 
-* <span data-ttu-id="174af-182">İçerik dili</span><span class="sxs-lookup"><span data-stu-id="174af-182">Content-Language</span></span>
+::: moniker range=">= aspnetcore-2.2"
 
-* <span data-ttu-id="174af-183">İçerik Türü</span><span class="sxs-lookup"><span data-stu-id="174af-183">Content-Type</span></span>
+<span data-ttu-id="c88c2-185">CORS ara yazılımı ilke eşleşmesi için belirli üst bilgileri tarafından belirtilen `WithHeaders` gönderilen üst bilgiler, yalnızca mümkündür `Access-Control-Request-Headers` belirtilen üst bilgilerin tam olarak eşleşmesi `WithHeaders`.</span><span class="sxs-lookup"><span data-stu-id="c88c2-185">A CORS Middleware policy match to specific headers specified by `WithHeaders` is only possible when the headers sent in `Access-Control-Request-Headers` exactly match the headers stated in `WithHeaders`.</span></span>
 
-* <span data-ttu-id="174af-184">Süre sonu</span><span class="sxs-lookup"><span data-stu-id="174af-184">Expires</span></span>
+<span data-ttu-id="c88c2-186">Örneğin, şu şekilde yapılandırılmış bir uygulama göz önünde bulundurun:</span><span class="sxs-lookup"><span data-stu-id="c88c2-186">For instance, consider an app configured as follows:</span></span>
 
-* <span data-ttu-id="174af-185">Son değiştirilme</span><span class="sxs-lookup"><span data-stu-id="174af-185">Last-Modified</span></span>
+```csharp
+app.UseCors(policy => policy.WithHeaders(HeaderNames.CacheControl));
+```
 
-* <span data-ttu-id="174af-186">Pragması</span><span class="sxs-lookup"><span data-stu-id="174af-186">Pragma</span></span>
+<span data-ttu-id="c88c2-187">CORS ara yazılımı, çünkü bir denetim öncesi isteği şu istek üst bilgisi ile azalma `Content-Language` ([HeaderNames.ContentLanguage](xref:Microsoft.Net.Http.Headers.HeaderNames.ContentLanguage)) içinde listelenmiyor `WithHeaders`:</span><span class="sxs-lookup"><span data-stu-id="c88c2-187">CORS Middleware declines a preflight request with the following request header because `Content-Language` ([HeaderNames.ContentLanguage](xref:Microsoft.Net.Http.Headers.HeaderNames.ContentLanguage)) isn't listed in `WithHeaders`:</span></span>
 
-<span data-ttu-id="174af-187">CORS spec bu çağrıları *basit yanıt üstbilgilerini*.</span><span class="sxs-lookup"><span data-stu-id="174af-187">The CORS spec calls these *simple response headers*.</span></span> <span data-ttu-id="174af-188">Diğer üst bilgileri uygulama kullanılabilir hale getirmek için:</span><span class="sxs-lookup"><span data-stu-id="174af-188">To make other headers available to the application:</span></span>
+```
+Access-Control-Request-Headers: Cache-Control, Content-Language
+```
 
-[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=71-76)]
+<span data-ttu-id="c88c2-188">Uygulama döndürür bir *200 Tamam* yanıt geri CORS üst bilgileri göndermez ancak.</span><span class="sxs-lookup"><span data-stu-id="c88c2-188">The app returns a *200 OK* response but doesn't send the CORS headers back.</span></span> <span data-ttu-id="c88c2-189">Bu nedenle, tarayıcının çıkış noktaları arası istek çalışmaz.</span><span class="sxs-lookup"><span data-stu-id="c88c2-189">Therefore, the browser doesn't attempt the cross-origin request.</span></span>
 
-### <a name="credentials-in-cross-origin-requests"></a><span data-ttu-id="174af-189">Çıkış noktaları arası istekleri kimlik bilgileri</span><span class="sxs-lookup"><span data-stu-id="174af-189">Credentials in cross-origin requests</span></span>
+::: moniker-end
 
-<span data-ttu-id="174af-190">Özel işleme bir CORS isteğinde kimlik bilgilerini gerektirir.</span><span class="sxs-lookup"><span data-stu-id="174af-190">Credentials require special handling in a CORS request.</span></span> <span data-ttu-id="174af-191">Varsayılan olarak, tarayıcının çıkış noktaları arası istek ile herhangi bir kimlik bilgisi göndermez.</span><span class="sxs-lookup"><span data-stu-id="174af-191">By default, the browser doesn't send any credentials with a cross-origin request.</span></span> <span data-ttu-id="174af-192">Kimlik bilgileri, tanımlama bilgilerinin yanı sıra HTTP kimlik doğrulama düzenleri içerir.</span><span class="sxs-lookup"><span data-stu-id="174af-192">Credentials include cookies as well as HTTP authentication schemes.</span></span> <span data-ttu-id="174af-193">Kimlik bilgileriyle bir çıkış noktaları arası istek göndermek için istemci XMLHttpRequest.withCredentials true olarak ayarlamanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="174af-193">To send credentials with a cross-origin request, the client must set XMLHttpRequest.withCredentials to true.</span></span>
+::: moniker range="< aspnetcore-2.2"
 
-<span data-ttu-id="174af-194">Kullanarak doğrudan XMLHttpRequest:</span><span class="sxs-lookup"><span data-stu-id="174af-194">Using XMLHttpRequest directly:</span></span>
+<span data-ttu-id="c88c2-190">CORS ara yazılımı, her zaman dört üst bilgilerinde sağlar `Access-Control-Request-Headers` CorsPolicy.Headers içinde yapılandırılan değerlere bakılmaksızın gönderilecek.</span><span class="sxs-lookup"><span data-stu-id="c88c2-190">CORS Middleware always allows four headers in the `Access-Control-Request-Headers` to be sent regardless of the values configured in CorsPolicy.Headers.</span></span> <span data-ttu-id="c88c2-191">Üst bilgi bu liste aşağıdakileri içerir:</span><span class="sxs-lookup"><span data-stu-id="c88c2-191">This list of headers includes:</span></span>
+
+* `Accept`
+* `Accept-Language`
+* `Content-Language`
+* `Origin`
+
+<span data-ttu-id="c88c2-192">Örneğin, şu şekilde yapılandırılmış bir uygulama göz önünde bulundurun:</span><span class="sxs-lookup"><span data-stu-id="c88c2-192">For instance, consider an app configured as follows:</span></span>
+
+```csharp
+app.UseCors(policy => policy.WithHeaders(HeaderNames.CacheControl));
+```
+
+<span data-ttu-id="c88c2-193">CORS ara yazılımın yanıt başarıyla bir denetim öncesi isteği şu istek üst bilgisi için çünkü `Content-Language` her zaman izin verilenler listesinde olur:</span><span class="sxs-lookup"><span data-stu-id="c88c2-193">CORS Middleware responds successfully to a preflight request with the following request header because `Content-Language` is always whitelisted:</span></span>
+
+```
+Access-Control-Request-Headers: Cache-Control, Content-Language
+```
+
+::: moniker-end
+
+### <a name="set-the-exposed-response-headers"></a><span data-ttu-id="c88c2-194">İfşa edilen yanıt üstbilgilerini Ayarla</span><span class="sxs-lookup"><span data-stu-id="c88c2-194">Set the exposed response headers</span></span>
+
+<span data-ttu-id="c88c2-195">Varsayılan olarak, tüm yanıt üstbilgilerini uygulamaya tarayıcı ortaya çıkarmıyor.</span><span class="sxs-lookup"><span data-stu-id="c88c2-195">By default, the browser doesn't expose all of the response headers to the app.</span></span> <span data-ttu-id="c88c2-196">Daha fazla bilgi için [W3C çıkış noktaları arası kaynak paylaşımı (terminolojisi): basit yanıt üst bilgisi](https://www.w3.org/TR/cors/#simple-response-header).</span><span class="sxs-lookup"><span data-stu-id="c88c2-196">For more information, see [W3C Cross-Origin Resource Sharing (Terminology): Simple Response Header](https://www.w3.org/TR/cors/#simple-response-header).</span></span>
+
+<span data-ttu-id="c88c2-197">Varsayılan olarak kullanılabilir olan yanıt üstbilgilerini şunlardır:</span><span class="sxs-lookup"><span data-stu-id="c88c2-197">The response headers that are available by default are:</span></span>
+
+* `Cache-Control`
+* `Content-Language`
+* `Content-Type`
+* `Expires`
+* `Last-Modified`
+* `Pragma`
+
+<span data-ttu-id="c88c2-198">Bu üst CORS belirtimi çağırır *basit yanıt üstbilgilerini*.</span><span class="sxs-lookup"><span data-stu-id="c88c2-198">The CORS specification calls these headers *simple response headers*.</span></span> <span data-ttu-id="c88c2-199">Diğer üst bilgileri uygulama için kullanılabilir hale getirmek için çağrı <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.WithExposedHeaders*>:</span><span class="sxs-lookup"><span data-stu-id="c88c2-199">To make other headers available to the app, call <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.WithExposedHeaders*>:</span></span>
+
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=72-77&highlight=5)]
+
+### <a name="credentials-in-cross-origin-requests"></a><span data-ttu-id="c88c2-200">Çıkış noktaları arası istekleri kimlik bilgileri</span><span class="sxs-lookup"><span data-stu-id="c88c2-200">Credentials in cross-origin requests</span></span>
+
+<span data-ttu-id="c88c2-201">Özel işleme bir CORS isteğinde kimlik bilgilerini gerektirir.</span><span class="sxs-lookup"><span data-stu-id="c88c2-201">Credentials require special handling in a CORS request.</span></span> <span data-ttu-id="c88c2-202">Varsayılan olarak, tarayıcının çıkış noktaları arası istek ile kimlik bilgileri göndermez.</span><span class="sxs-lookup"><span data-stu-id="c88c2-202">By default, the browser doesn't send credentials with a cross-origin request.</span></span> <span data-ttu-id="c88c2-203">Tanımlama bilgileri ve kimlik doğrulama düzeni HTTP kimlik bilgileri içerir.</span><span class="sxs-lookup"><span data-stu-id="c88c2-203">Credentials include cookies and HTTP authentication schemes.</span></span> <span data-ttu-id="c88c2-204">İstemci kimlik bilgileriyle bir çıkış noktaları arası istek göndermek için ayarlamalısınız `XMLHttpRequest.withCredentials` için `true`.</span><span class="sxs-lookup"><span data-stu-id="c88c2-204">To send credentials with a cross-origin request, the client must set `XMLHttpRequest.withCredentials` to `true`.</span></span>
+
+<span data-ttu-id="c88c2-205">Kullanarak `XMLHttpRequest` doğrudan:</span><span class="sxs-lookup"><span data-stu-id="c88c2-205">Using `XMLHttpRequest` directly:</span></span>
 
 ```javascript
 var xhr = new XMLHttpRequest();
-xhr.open('get', 'http://www.example.com/api/test');
+xhr.open('get', 'https://www.example.com/api/test');
 xhr.withCredentials = true;
 ```
 
-<span data-ttu-id="174af-195">JQuery içinde:</span><span class="sxs-lookup"><span data-stu-id="174af-195">In jQuery:</span></span>
+<span data-ttu-id="c88c2-206">JQuery içinde:</span><span class="sxs-lookup"><span data-stu-id="c88c2-206">In jQuery:</span></span>
 
 ```jQuery
 $.ajax({
   type: 'get',
-  url: 'http://www.example.com/home',
+  url: 'https://www.example.com/home',
   xhrFields: {
     withCredentials: true
 }
 ```
 
-<span data-ttu-id="174af-196">Ayrıca, sunucunun kimlik bilgilerini izin vermeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="174af-196">In addition, the server must allow the credentials.</span></span> <span data-ttu-id="174af-197">Çıkış noktaları arası kimlik bilgilerine izin vermek için:</span><span class="sxs-lookup"><span data-stu-id="174af-197">To allow cross-origin credentials:</span></span>
+<span data-ttu-id="c88c2-207">Ayrıca, sunucunun kimlik bilgilerini izin vermeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="c88c2-207">In addition, the server must allow the credentials.</span></span> <span data-ttu-id="c88c2-208">Çıkış noktaları arası kimlik bilgilerini sağlamak için çağrı <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.AllowCredentials*>:</span><span class="sxs-lookup"><span data-stu-id="c88c2-208">To allow cross-origin credentials, call <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.AllowCredentials*>:</span></span>
 
-[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=80-85)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=81-86&highlight=5)]
 
-<span data-ttu-id="174af-198">Artık HTTP yanıtı sunucunun bir çıkış noktaları arası istek için kimlik bilgilerini sağlayan tarayıcı belirten bir erişim-denetim-Allow-Credentials üst bilgisi içerir.</span><span class="sxs-lookup"><span data-stu-id="174af-198">Now the HTTP response will include an Access-Control-Allow-Credentials header, which tells the browser that the server allows credentials for a cross-origin request.</span></span>
+<span data-ttu-id="c88c2-209">HTTP yanıtı içeren bir `Access-Control-Allow-Credentials` sunucu çıkış noktaları arası istek için kimlik bilgilerini sağlayan tarayıcı söyler. başlığı.</span><span class="sxs-lookup"><span data-stu-id="c88c2-209">The HTTP response includes an `Access-Control-Allow-Credentials` header, which tells the browser that the server allows credentials for a cross-origin request.</span></span>
 
-<span data-ttu-id="174af-199">Kimlik bilgilerini tarayıcı gönderir, ancak yanıt geçerli erişim-denetim-Allow-Credentials üst bilgi içermeyen, tarayıcı uygulamaya yanıt kullanıma olmaz ve AJAX isteği başarısız olur.</span><span class="sxs-lookup"><span data-stu-id="174af-199">If the browser sends credentials, but the response doesn't include a valid Access-Control-Allow-Credentials header, the browser won't expose the response to the application, and the AJAX request fails.</span></span>
+<span data-ttu-id="c88c2-210">Tarayıcı bilgilerini gönderir, ancak yanıt geçerli bir içermez `Access-Control-Allow-Credentials` üst bilgi, tarayıcı olmayan uygulama yanıtı kullanımına sunun ve çıkış noktaları arası istek başarısız olur.</span><span class="sxs-lookup"><span data-stu-id="c88c2-210">If the browser sends credentials but the response doesn't include a valid `Access-Control-Allow-Credentials` header, the browser doesn't expose the response to the app, and the cross-origin request fails.</span></span>
 
-<span data-ttu-id="174af-200">Çıkış noktaları arası kimlik bilgilerine izin verirken dikkatli olun.</span><span class="sxs-lookup"><span data-stu-id="174af-200">Be careful when allowing cross-origin credentials.</span></span> <span data-ttu-id="174af-201">Başka bir etki alanındaki bir Web sitesi kullanıcı bilgisi olmadan kullanıcı adına uygulamasında oturum açmış kullanıcının kimlik bilgilerini gönderebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="174af-201">A website at another domain can send a logged-in user's credentials to the app on the user's behalf without the user's knowledge.</span></span> <span data-ttu-id="174af-202">CORS belirtimi Ayrıca bu ayar durumları için kaynakları `"*"` (tüm kaynaklar) geçersiz, `Access-Control-Allow-Credentials` başlığı.</span><span class="sxs-lookup"><span data-stu-id="174af-202">The CORS specification also states that setting origins to `"*"` (all origins) is invalid if the `Access-Control-Allow-Credentials` header is present.</span></span>
+<span data-ttu-id="c88c2-211">Çıkış noktaları arası kimlik bilgilerine izin verirken dikkatli olun.</span><span class="sxs-lookup"><span data-stu-id="c88c2-211">Be careful when allowing cross-origin credentials.</span></span> <span data-ttu-id="c88c2-212">Başka bir etki alanındaki bir Web sitesi kullanıcı bilgisi olmadan kullanıcı adına uygulamasında oturum açmış kullanıcının kimlik bilgilerini gönderebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="c88c2-212">A website at another domain can send a signed-in user's credentials to the app on the user's behalf without the user's knowledge.</span></span>
 
-### <a name="set-the-preflight-expiration-time"></a><span data-ttu-id="174af-203">Denetim öncesi sona erme saati ayarla</span><span class="sxs-lookup"><span data-stu-id="174af-203">Set the preflight expiration time</span></span>
+<span data-ttu-id="c88c2-213">CORS belirtimi Ayrıca bu ayar durumları için kaynakları `"*"` (tüm kaynaklar) geçersiz, `Access-Control-Allow-Credentials` başlığı.</span><span class="sxs-lookup"><span data-stu-id="c88c2-213">The CORS specification also states that setting origins to `"*"` (all origins) is invalid if the `Access-Control-Allow-Credentials` header is present.</span></span>
 
-<span data-ttu-id="174af-204">Denetim öncesi isteğin yanıtını önbelleğe ne kadar süreyle erişim-denetim-Max-Age üstbilgisini belirtir.</span><span class="sxs-lookup"><span data-stu-id="174af-204">The Access-Control-Max-Age header specifies how long the response to the preflight request can be cached.</span></span> <span data-ttu-id="174af-205">Bu üstbilginin ayarlamak için:</span><span class="sxs-lookup"><span data-stu-id="174af-205">To set this header:</span></span>
+### <a name="preflight-requests"></a><span data-ttu-id="c88c2-214">Denetim öncesi isteği</span><span class="sxs-lookup"><span data-stu-id="c88c2-214">Preflight requests</span></span>
 
-[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=89-94)]
+<span data-ttu-id="c88c2-215">Bazı CORS istekleri için tarayıcı, gerçek isteği yapmadan önce ek bir istek gönderir.</span><span class="sxs-lookup"><span data-stu-id="c88c2-215">For some CORS requests, the browser sends an additional request before making the actual request.</span></span> <span data-ttu-id="c88c2-216">Bu istek adında bir *denetim öncesi isteği*.</span><span class="sxs-lookup"><span data-stu-id="c88c2-216">This request is called a *preflight request*.</span></span> <span data-ttu-id="c88c2-217">Aşağıdaki koşullar doğruysa, tarayıcının denetim öncesi isteği atlayabilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="c88c2-217">The browser can skip the preflight request if the following conditions are true:</span></span>
 
-<a name="cors-how-cors-works"></a>
+* <span data-ttu-id="c88c2-218">İstek yöntemini GET, HEAD veya POST ' dir.</span><span class="sxs-lookup"><span data-stu-id="c88c2-218">The request method is GET, HEAD, or POST.</span></span>
+* <span data-ttu-id="c88c2-219">Uygulama dışında istek üst bilgilerini ayarlayıp ayarlamadığını `Accept`, `Accept-Language`, `Content-Language`, `Content-Type`, veya `Last-Event-ID`.</span><span class="sxs-lookup"><span data-stu-id="c88c2-219">The app doesn't set request headers other than `Accept`, `Accept-Language`, `Content-Language`, `Content-Type`, or `Last-Event-ID`.</span></span>
+* <span data-ttu-id="c88c2-220">`Content-Type` Başlık, ayarla, aşağıdaki değerlerden biri birine sahiptir:</span><span class="sxs-lookup"><span data-stu-id="c88c2-220">The `Content-Type` header, if set, has one of the one of the following values:</span></span>
+  * `application/x-www-form-urlencoded`
+  * `multipart/form-data`
+  * `text/plain`
 
-## <a name="how-cors-works"></a><span data-ttu-id="174af-206">CORS nasıl çalışır?</span><span class="sxs-lookup"><span data-stu-id="174af-206">How CORS works</span></span>
+<span data-ttu-id="c88c2-221">İstek üstbilgileri kural kümesi çağırarak uygulama ayarlar üst bilgileri istemci isteği uygulandığı için `setRequestHeader` üzerinde `XMLHttpRequest` nesne.</span><span class="sxs-lookup"><span data-stu-id="c88c2-221">The rule on request headers set for the client request applies to headers that the app sets by calling `setRequestHeader` on the `XMLHttpRequest` object.</span></span> <span data-ttu-id="c88c2-222">Bu üst CORS belirtimi çağırır *yazar, istek üst bilgilerini*.</span><span class="sxs-lookup"><span data-stu-id="c88c2-222">The CORS specification calls these headers *author request headers*.</span></span> <span data-ttu-id="c88c2-223">Tarayıcı ayarlayabilir, gibi üstbilgileri kuralı uygulanmaz `User-Agent`, `Host`, veya `Content-Length`.</span><span class="sxs-lookup"><span data-stu-id="c88c2-223">The rule doesn't apply to headers the browser can set, such as `User-Agent`, `Host`, or `Content-Length`.</span></span>
 
-<span data-ttu-id="174af-207">Bu bölümde, HTTP iletileri düzeyinde bir CORS isteğinde ne açıklanmaktadır.</span><span class="sxs-lookup"><span data-stu-id="174af-207">This section describes what happens in a CORS request at the level of the HTTP messages.</span></span> <span data-ttu-id="174af-208">CORS ilkesinin doğru yapılandırılmış ve beklenmeyen davranışlar ortaya çıktığında hata ayıklaması CORS nasıl çalıştığını anlamak önemlidir.</span><span class="sxs-lookup"><span data-stu-id="174af-208">It's important to understand how CORS works so that the CORS policy can be configured correctly and debugged when unexpected behaviors occur.</span></span>
-
-<span data-ttu-id="174af-209">CORS belirtimi çıkış noktaları arası istekleri etkinleştirme birkaç yeni HTTP üst bilgilerini ortaya çıkarır.</span><span class="sxs-lookup"><span data-stu-id="174af-209">The CORS specification introduces several new HTTP headers that enable cross-origin requests.</span></span> <span data-ttu-id="174af-210">Bir tarayıcı CORS destekliyorsa, bu üstbilgileri çıkış noktaları arası istekleri için otomatik olarak ayarlar.</span><span class="sxs-lookup"><span data-stu-id="174af-210">If a browser supports CORS, it sets these headers automatically for cross-origin requests.</span></span> <span data-ttu-id="174af-211">Özel JavaScript kodu, CORS'yi etkinleştirmek için gerekli değildir.</span><span class="sxs-lookup"><span data-stu-id="174af-211">Custom JavaScript code isn't required to enable CORS.</span></span>
-
-<span data-ttu-id="174af-212">Çıkış noktaları arası isteğinin bir örneği aşağıda verilmiştir.</span><span class="sxs-lookup"><span data-stu-id="174af-212">Here is an example of a cross-origin request.</span></span> <span data-ttu-id="174af-213">`Origin` Üst bilgi isteği yapan site etki alanı sağlar:</span><span class="sxs-lookup"><span data-stu-id="174af-213">The `Origin` header provides the domain of the site that's making the request:</span></span>
+<span data-ttu-id="c88c2-224">Denetim öncesi isteğinin bir örneği verilmiştir:</span><span class="sxs-lookup"><span data-stu-id="c88c2-224">The following is an example of a preflight request:</span></span>
 
 ```
-GET http://myservice.azurewebsites.net/api/test HTTP/1.1
-Referer: http://myclient.azurewebsites.net/
+OPTIONS https://myservice.azurewebsites.net/api/test HTTP/1.1
 Accept: */*
-Accept-Language: en-US
-Origin: http://myclient.azurewebsites.net
-Accept-Encoding: gzip, deflate
-User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6.0)
-Host: myservice.azurewebsites.net
-```
-
-<span data-ttu-id="174af-214">Sunucu isteği izin veriyorsa, yanıtta Access-Control-Allow-Origin üstbilgisini ayarlar.</span><span class="sxs-lookup"><span data-stu-id="174af-214">If the server allows the request, it sets the Access-Control-Allow-Origin header in the response.</span></span> <span data-ttu-id="174af-215">Bu üst bilgi değeri eşleşen kaynak üst bilgisi istek veya joker karakter değeri "\*", yani her türlü kaynağa izin verilir:</span><span class="sxs-lookup"><span data-stu-id="174af-215">The value of this header either matches the Origin header from the request, or is the wildcard value "\*", meaning that any origin is allowed:</span></span>
-
-```
-HTTP/1.1 200 OK
-Cache-Control: no-cache
-Pragma: no-cache
-Content-Type: text/plain; charset=utf-8
-Access-Control-Allow-Origin: http://myclient.azurewebsites.net
-Date: Wed, 20 May 2015 06:27:30 GMT
-Content-Length: 12
-
-Test message
-```
-
-<span data-ttu-id="174af-216">Access-Control-Allow-Origin üst bilgi yanıtı içermiyorsa, AJAX isteği başarısız olur.</span><span class="sxs-lookup"><span data-stu-id="174af-216">If the response doesn't include the Access-Control-Allow-Origin header, the AJAX request fails.</span></span> <span data-ttu-id="174af-217">Özellikle, tarayıcının isteği izin vermiyor.</span><span class="sxs-lookup"><span data-stu-id="174af-217">Specifically, the browser disallows the request.</span></span> <span data-ttu-id="174af-218">Sunucunun başarılı bir yanıt döndürürse bile, tarayıcı yanıtı istemci uygulama tarafından kullanılabilir yapmaz.</span><span class="sxs-lookup"><span data-stu-id="174af-218">Even if the server returns a successful response, the browser doesn't make the response available to the client application.</span></span>
-
-### <a name="preflight-requests"></a><span data-ttu-id="174af-219">Denetim öncesi isteği</span><span class="sxs-lookup"><span data-stu-id="174af-219">Preflight Requests</span></span>
-
-<span data-ttu-id="174af-220">Bazı CORS istekleri için tarayıcı kaynak gerçek isteği göndermeden önce bir "Denetim öncesi isteği" adlı ek bir istek gönderir.</span><span class="sxs-lookup"><span data-stu-id="174af-220">For some CORS requests, the browser sends an additional request, called a "preflight request", before it sends the actual request for the resource.</span></span> <span data-ttu-id="174af-221">Aşağıdaki koşullar doğruysa, tarayıcının denetim öncesi isteği atlayabilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="174af-221">The browser can skip the preflight request if the following conditions are true:</span></span>
-
-* <span data-ttu-id="174af-222">İstek yöntemini GET, HEAD veya sonrası, olduğundan ve</span><span class="sxs-lookup"><span data-stu-id="174af-222">The request method is GET, HEAD, or POST, and</span></span>
-
-* <span data-ttu-id="174af-223">Uygulama dışındaki içeriği kabul et, Accept-Language, dil, tüm istek üst bilgilerini ayarlayıp ayarlamadığını Content-Type veya son-Event-ID ve</span><span class="sxs-lookup"><span data-stu-id="174af-223">The application doesn't set any request headers other than Accept, Accept-Language, Content-Language, Content-Type, or Last-Event-ID, and</span></span>
-
-* <span data-ttu-id="174af-224">Content-Type üst bilgisi (varsa ayarlayın) aşağıdakilerden biridir:</span><span class="sxs-lookup"><span data-stu-id="174af-224">The Content-Type header (if set) is one of the following:</span></span>
-
-  * <span data-ttu-id="174af-225">Application/x-www-form-urlencoded işlemek</span><span class="sxs-lookup"><span data-stu-id="174af-225">application/x-www-form-urlencoded</span></span>
-
-  * <span data-ttu-id="174af-226">multipart/form-data</span><span class="sxs-lookup"><span data-stu-id="174af-226">multipart/form-data</span></span>
-
-  * <span data-ttu-id="174af-227">metin/düz</span><span class="sxs-lookup"><span data-stu-id="174af-227">text/plain</span></span>
-
-<span data-ttu-id="174af-228">İstek üst bilgileri hakkında kural, uygulama XMLHttpRequest nesnesinde setRequestHeader çağırarak ayarlar üst bilgileri için geçerlidir.</span><span class="sxs-lookup"><span data-stu-id="174af-228">The rule about request headers applies to headers that the application sets by calling setRequestHeader on the XMLHttpRequest object.</span></span> <span data-ttu-id="174af-229">(Bu "Yazar istek üstbilgilerini" CORS belirtimi çağırır.) Kural, kullanıcı aracısı, konak veya Content-Length gibi tarayıcı ayarlayabilirsiniz üstbilgi için geçerli değildir.</span><span class="sxs-lookup"><span data-stu-id="174af-229">(The CORS specification calls these "author request headers".) The rule doesn't apply to headers the browser can set, such as User-Agent, Host, or Content-Length.</span></span>
-
-<span data-ttu-id="174af-230">Denetim öncesi isteğinin bir örneği aşağıda verilmiştir:</span><span class="sxs-lookup"><span data-stu-id="174af-230">Here is an example of a preflight request:</span></span>
-
-```
-OPTIONS http://myservice.azurewebsites.net/api/test HTTP/1.1
-Accept: */*
-Origin: http://myclient.azurewebsites.net
+Origin: https://myclient.azurewebsites.net
 Access-Control-Request-Method: PUT
 Access-Control-Request-Headers: accept, x-my-custom-header
 Accept-Encoding: gzip, deflate
@@ -287,23 +291,81 @@ Host: myservice.azurewebsites.net
 Content-Length: 0
 ```
 
-<span data-ttu-id="174af-231">Uçuş öncesi isteğinin HTTP OPTIONS yöntemini kullanır.</span><span class="sxs-lookup"><span data-stu-id="174af-231">The pre-flight request uses the HTTP OPTIONS method.</span></span> <span data-ttu-id="174af-232">Bu, iki özel üst bilgileri içerir:</span><span class="sxs-lookup"><span data-stu-id="174af-232">It includes two special headers:</span></span>
+<span data-ttu-id="c88c2-225">Uçuş öncesi isteğinin HTTP OPTIONS yöntemini kullanır.</span><span class="sxs-lookup"><span data-stu-id="c88c2-225">The pre-flight request uses the HTTP OPTIONS method.</span></span> <span data-ttu-id="c88c2-226">Bu, iki özel üst bilgileri içerir:</span><span class="sxs-lookup"><span data-stu-id="c88c2-226">It includes two special headers:</span></span>
 
-* <span data-ttu-id="174af-233">Access-Control-Request-Method: fiili istek için kullanılacak HTTP yöntemi.</span><span class="sxs-lookup"><span data-stu-id="174af-233">Access-Control-Request-Method: The HTTP method that will be used for the actual request.</span></span>
+* <span data-ttu-id="c88c2-227">`Access-Control-Request-Method`: Fiili istek için kullanılacak HTTP yöntemi.</span><span class="sxs-lookup"><span data-stu-id="c88c2-227">`Access-Control-Request-Method`: The HTTP method that will be used for the actual request.</span></span>
+* <span data-ttu-id="c88c2-228">`Access-Control-Request-Headers`: Uygulamayı gerçek istekte ayarlar istek üst bilgilerini bir listesi.</span><span class="sxs-lookup"><span data-stu-id="c88c2-228">`Access-Control-Request-Headers`: A list of request headers that the app sets on the actual request.</span></span> <span data-ttu-id="c88c2-229">Daha önce belirtildiği gibi bu tarayıcı ayarlar, aşağıdaki gibi üst bilgiler içermez `User-Agent`.</span><span class="sxs-lookup"><span data-stu-id="c88c2-229">As stated earlier, this doesn't include headers that the browser sets, such as `User-Agent`.</span></span>
 
-* <span data-ttu-id="174af-234">Access-Control-Request-Headers: Uygulama gerçek istek üzerinde ayarlanan istek üst bilgilerini içeren bir liste.</span><span class="sxs-lookup"><span data-stu-id="174af-234">Access-Control-Request-Headers: A list of request headers that the application set on the actual request.</span></span> <span data-ttu-id="174af-235">(Yeniden, bu tarayıcı ayarlar üst bilgiler dahil değildir.)</span><span class="sxs-lookup"><span data-stu-id="174af-235">(Again, this doesn't include headers that the browser sets.)</span></span>
+<span data-ttu-id="c88c2-230">CORS denetim öncesi isteği içerebilir bir `Access-Control-Request-Headers` üst bilgi sunucuya gerçek isteğiyle gönderilen üst bilgiler gösterir.</span><span class="sxs-lookup"><span data-stu-id="c88c2-230">A CORS preflight request might include an `Access-Control-Request-Headers` header, which indicates to the server the headers that are sent with the actual request.</span></span>
 
-<span data-ttu-id="174af-236">Sunucunun isteği izin varsayılarak bir yanıt örneği, şu şekildedir:</span><span class="sxs-lookup"><span data-stu-id="174af-236">Here is an example response, assuming that the server allows the request:</span></span>
+<span data-ttu-id="c88c2-231">Özel üst bilgiler izin vermek için çağrı <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.WithHeaders*>:</span><span class="sxs-lookup"><span data-stu-id="c88c2-231">To allow specific headers, call <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.WithHeaders*>:</span></span>
+
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=54-59&highlight=5)]
+
+<span data-ttu-id="c88c2-232">Tüm istek üstbilgilerini Yazar izin vermek için çağrı <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.AllowAnyHeader*>:</span><span class="sxs-lookup"><span data-stu-id="c88c2-232">To allow all author request headers, call <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.AllowAnyHeader*>:</span></span>
+
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=63-68&highlight=5)]
+
+<span data-ttu-id="c88c2-233">Bunlar nasıl kümesinde tamamen tutarlı olmayan tarayıcıları `Access-Control-Request-Headers`.</span><span class="sxs-lookup"><span data-stu-id="c88c2-233">Browsers aren't entirely consistent in how they set `Access-Control-Request-Headers`.</span></span> <span data-ttu-id="c88c2-234">Üst bilgileri için herhangi bir şey dışında ayarlarsanız `"*"` (veya <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicy.AllowAnyHeader*>), en az içermelidir `Accept`, `Content-Type`, ve `Origin`, artı, desteklemek istediğiniz tüm özel üst.</span><span class="sxs-lookup"><span data-stu-id="c88c2-234">If you set headers to anything other than `"*"` (or use <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicy.AllowAnyHeader*>), you should include at least `Accept`, `Content-Type`, and `Origin`, plus any custom headers that you want to support.</span></span>
+
+<span data-ttu-id="c88c2-235">(Sunucu isteği izin varsayılarak) denetim öncesi isteği için bir örnek yanıt aşağıdaki gibidir:</span><span class="sxs-lookup"><span data-stu-id="c88c2-235">The following is an example response to the preflight request (assuming that the server allows the request):</span></span>
 
 ```
 HTTP/1.1 200 OK
 Cache-Control: no-cache
 Pragma: no-cache
 Content-Length: 0
-Access-Control-Allow-Origin: http://myclient.azurewebsites.net
+Access-Control-Allow-Origin: https://myclient.azurewebsites.net
 Access-Control-Allow-Headers: x-my-custom-header
 Access-Control-Allow-Methods: PUT
 Date: Wed, 20 May 2015 06:33:22 GMT
 ```
 
-<span data-ttu-id="174af-237">Yanıt, izin verilen yöntemleri listeleyen bir erişim-denetim-Allow-Methods üst bilgisi ve isteğe bağlı olarak izin verilen üstbilgileri listeleyen bir Access-Control-izin ver-Headers üstbilgisi içeriyor.</span><span class="sxs-lookup"><span data-stu-id="174af-237">The response includes an Access-Control-Allow-Methods header that lists the allowed methods, and optionally an Access-Control-Allow-Headers header, which lists the allowed headers.</span></span> <span data-ttu-id="174af-238">Denetim öncesi isteği başarıyla sonuçlanırsa, tarayıcı daha önce açıklandığı gibi gerçek bir istek gönderir.</span><span class="sxs-lookup"><span data-stu-id="174af-238">If the preflight request succeeds, the browser sends the actual request, as described earlier.</span></span>
+<span data-ttu-id="c88c2-236">Yanıt içeren bir `Access-Control-Allow-Methods` izin verilen yöntemleri listeleyen üst bilgi ve isteğe bağlı olarak bir `Access-Control-Allow-Headers` izin verilen üstbilgileri listeleyen üst bilgisi.</span><span class="sxs-lookup"><span data-stu-id="c88c2-236">The response includes an `Access-Control-Allow-Methods` header that lists the allowed methods and optionally an `Access-Control-Allow-Headers` header, which lists the allowed headers.</span></span> <span data-ttu-id="c88c2-237">Denetim öncesi isteği başarıyla sonuçlanırsa, tarayıcı gerçek isteği gönderir.</span><span class="sxs-lookup"><span data-stu-id="c88c2-237">If the preflight request succeeds, the browser sends the actual request.</span></span>
+
+<span data-ttu-id="c88c2-238">Denetim öncesi isteği reddedilirse, uygulamayı döndürür bir *200 Tamam* yanıt geri CORS üst bilgileri göndermez ancak.</span><span class="sxs-lookup"><span data-stu-id="c88c2-238">If the preflight request is denied, the app returns a *200 OK* response but doesn't send the CORS headers back.</span></span> <span data-ttu-id="c88c2-239">Bu nedenle, tarayıcının çıkış noktaları arası istek çalışmaz.</span><span class="sxs-lookup"><span data-stu-id="c88c2-239">Therefore, the browser doesn't attempt the cross-origin request.</span></span>
+
+### <a name="set-the-preflight-expiration-time"></a><span data-ttu-id="c88c2-240">Denetim öncesi sona erme saati ayarla</span><span class="sxs-lookup"><span data-stu-id="c88c2-240">Set the preflight expiration time</span></span>
+
+<span data-ttu-id="c88c2-241">`Access-Control-Max-Age` Üstbilgisini belirtir ne kadar süreyle denetim öncesi isteğin yanıtını önbelleğe alınabilir.</span><span class="sxs-lookup"><span data-stu-id="c88c2-241">The `Access-Control-Max-Age` header specifies how long the response to the preflight request can be cached.</span></span> <span data-ttu-id="c88c2-242">Bu başlık ayarlamak için çağrı <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.SetPreflightMaxAge*>:</span><span class="sxs-lookup"><span data-stu-id="c88c2-242">To set this header, call <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.SetPreflightMaxAge*>:</span></span>
+
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=90-95&highlight=5)]
+
+## <a name="how-cors-works"></a><span data-ttu-id="c88c2-243">CORS nasıl çalışır?</span><span class="sxs-lookup"><span data-stu-id="c88c2-243">How CORS works</span></span>
+
+<span data-ttu-id="c88c2-244">Bu bölümde, HTTP iletileri düzeyinde bir CORS isteğinde ne açıklanmaktadır.</span><span class="sxs-lookup"><span data-stu-id="c88c2-244">This section describes what happens in a CORS request at the level of the HTTP messages.</span></span> <span data-ttu-id="c88c2-245">CORS ilkesinin doğru yapılandırılmış ve beklenmeyen davranışlar ortaya çıktığında hata ayıklaması CORS nasıl çalıştığını anlamak önemlidir.</span><span class="sxs-lookup"><span data-stu-id="c88c2-245">It's important to understand how CORS works so that the CORS policy can be configured correctly and debugged when unexpected behaviors occur.</span></span>
+
+<span data-ttu-id="c88c2-246">CORS belirtimi çıkış noktaları arası istekleri etkinleştirme birkaç yeni HTTP üst bilgilerini ortaya çıkarır.</span><span class="sxs-lookup"><span data-stu-id="c88c2-246">The CORS specification introduces several new HTTP headers that enable cross-origin requests.</span></span> <span data-ttu-id="c88c2-247">Bir tarayıcı CORS destekliyorsa, bu üstbilgileri çıkış noktaları arası istekleri için otomatik olarak ayarlar.</span><span class="sxs-lookup"><span data-stu-id="c88c2-247">If a browser supports CORS, it sets these headers automatically for cross-origin requests.</span></span> <span data-ttu-id="c88c2-248">Özel JavaScript kodu, CORS'yi etkinleştirmek için gerekli değildir.</span><span class="sxs-lookup"><span data-stu-id="c88c2-248">Custom JavaScript code isn't required to enable CORS.</span></span>
+
+<span data-ttu-id="c88c2-249">Çıkış noktaları arası isteğinin bir örneği verilmiştir.</span><span class="sxs-lookup"><span data-stu-id="c88c2-249">The following is an example of a cross-origin request.</span></span> <span data-ttu-id="c88c2-250">`Origin` Üst bilgi isteği yapan site etki alanı sağlar:</span><span class="sxs-lookup"><span data-stu-id="c88c2-250">The `Origin` header provides the domain of the site that's making the request:</span></span>
+
+```
+GET https://myservice.azurewebsites.net/api/test HTTP/1.1
+Referer: https://myclient.azurewebsites.net/
+Accept: */*
+Accept-Language: en-US
+Origin: https://myclient.azurewebsites.net
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6.0)
+Host: myservice.azurewebsites.net
+```
+
+<span data-ttu-id="c88c2-251">Sunucu isteği izin veriyorsa, bu ayarlar `Access-Control-Allow-Origin` yanıt üst bilgisi.</span><span class="sxs-lookup"><span data-stu-id="c88c2-251">If the server allows the request, it sets the `Access-Control-Allow-Origin` header in the response.</span></span> <span data-ttu-id="c88c2-252">Bu üst bilgi değeri ya da eşleşen `Origin` istekteki üstbilgi veya joker karakter değeri `"*"`, yani her türlü kaynağa izin verilir:</span><span class="sxs-lookup"><span data-stu-id="c88c2-252">The value of this header either matches the `Origin` header from the request or is the wildcard value `"*"`, meaning that any origin is allowed:</span></span>
+
+```
+HTTP/1.1 200 OK
+Cache-Control: no-cache
+Pragma: no-cache
+Content-Type: text/plain; charset=utf-8
+Access-Control-Allow-Origin: https://myclient.azurewebsites.net
+Date: Wed, 20 May 2015 06:27:30 GMT
+Content-Length: 12
+
+Test message
+```
+
+<span data-ttu-id="c88c2-253">Yanıt içermiyorsa `Access-Control-Allow-Origin` üst bilgi çıkış noktaları arası istek başarısız olur.</span><span class="sxs-lookup"><span data-stu-id="c88c2-253">If the response doesn't include the `Access-Control-Allow-Origin` header, the cross-origin request fails.</span></span> <span data-ttu-id="c88c2-254">Özellikle, tarayıcının isteği izin vermiyor.</span><span class="sxs-lookup"><span data-stu-id="c88c2-254">Specifically, the browser disallows the request.</span></span> <span data-ttu-id="c88c2-255">Sunucunun başarılı bir yanıt döndürürse bile, tarayıcı yanıtı istemci uygulamasının kullanımına yapmaz.</span><span class="sxs-lookup"><span data-stu-id="c88c2-255">Even if the server returns a successful response, the browser doesn't make the response available to the client app.</span></span>
+
+## <a name="additional-resources"></a><span data-ttu-id="c88c2-256">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="c88c2-256">Additional resources</span></span>
+
+* [<span data-ttu-id="c88c2-257">Çıkış noktaları arası kaynak paylaşımı (CORS)</span><span class="sxs-lookup"><span data-stu-id="c88c2-257">Cross-Origin Resource Sharing (CORS)</span></span>](https://developer.mozilla.org/docs/Web/HTTP/CORS)
