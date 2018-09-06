@@ -5,12 +5,12 @@ description: ASP.NET Core kimlik doğrulaması, yetkilendirme ve güvenlik temel
 ms.author: tdykstra
 ms.date: 11/01/2017
 uid: security/index
-ms.openlocfilehash: 3a1c1ea1ad28fccbe5ae91b0be193938b095f60b
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: d371d37690b6d641f8e584f5e51dcc074a581622
+ms.sourcegitcommit: 08bf41d4b3e696ab512b044970e8304816f8cc56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41754508"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44040088"
 ---
 # <a name="overview-of-aspnet-core-security"></a>ASP.NET Core güvenliğine genel bakış
 
@@ -104,3 +104,4 @@ Bilmeniz gereken daha fazla güvenlik açıkları vardır. Daha fazla bilgi içi
 *   [Siteler Arası Betik kullanmayı önleme](xref:security/cross-site-scripting)
 *   [Kaynaklar Arası İstekleri (CORS) etkinleştirme](xref:security/cors)
 *   [Uygulamalar arasında tanımlama bilgilerini paylaşma](xref:security/cookie-sharing)
+*   [IP güvenli liste](xref:security/ip-safelist)

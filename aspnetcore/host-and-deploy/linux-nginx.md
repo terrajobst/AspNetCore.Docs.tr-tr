@@ -6,18 +6,20 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/22/2018
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: aba9ed41ac3650d8c645d71fb772e2a8e4f32f02
-ms.sourcegitcommit: c8e62aa766641aa55105f7db79cdf2b27a6e5977
+ms.openlocfilehash: d94640075f6fe5db06672f7dc641470c71076a16
+ms.sourcegitcommit: 08bf41d4b3e696ab512b044970e8304816f8cc56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39254863"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44040019"
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>ASP.NET Core Nginx ile Linux'ta barındırma
 
 Tarafından [Sourabh Shirhatti](https://twitter.com/sshirhatti)
 
 Bu kılavuzda bir Ubuntu 16.04 sunucusunda bir üretime hazır ASP.NET Core ortamını ayarlama açıklanmaktadır. Büyük olasılıkla bu yönergeleri Ubuntu daha yeni sürümleri ile çalışır, ancak yeni sürümleriyle yönergeleri test edilmemiştir.
+
+ASP.NET Core tarafından desteklenen diğer Linux dağıtımları hakkında daha fazla bilgi için bkz: [Linux üzerinde .NET Core önkoşulları](/dotnet/core/linux-prerequisites).
 
 > [!NOTE]
 > Ubuntu 14.04 için *supervisord* Kestrel işlem izleme için bir çözüm olarak önerilir. *systemd* Ubuntu 14.04 üzerinde kullanılamaz. Ubuntu 14.04 yönergeler için bkz: [bu konunun önceki sürümü](https://github.com/aspnet/Docs/blob/e9c1419175c4dd7e152df3746ba1df5935aaafd5/aspnetcore/publishing/linuxproduction.md).
@@ -383,6 +385,7 @@ Satır Ekle `add_header X-Content-Type-Options "nosniff";` ve dosyayı kaydedin 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
+* [Linux üzerinde .NET Core önkoşulları](/dotnet/core/linux-prerequisites)
 * [Ngınx: İkili sürümleri: resmi Debian/Ubuntu paketleri](https://www.nginx.com/resources/wiki/start/topics/tutorials/install/#official-debian-ubuntu-packages)
 * [ASP.NET Core, proxy sunucuları ile çalışma ve yük Dengeleyiciler için yapılandırma](xref:host-and-deploy/proxy-load-balancer)
 * [NGINX: iletilen üstbilgi kullanma](https://www.nginx.com/resources/wiki/start/topics/examples/forwarded/)

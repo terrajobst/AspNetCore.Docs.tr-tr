@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 4/13/2018
 uid: fundamentals/startup
-ms.openlocfilehash: 845cf231ed096af2f9c6d22b452510535ef44263
-ms.sourcegitcommit: 4cd8dce371d63a66d780e4af1baab2bcf9d61b24
+ms.openlocfilehash: 923d17be9c2bb1a9d338599d1cdc4c34302cddab
+ms.sourcegitcommit: 08bf41d4b3e696ab512b044970e8304816f8cc56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 09/06/2018
-ms.locfileid: "43893223"
+ms.locfileid: "44040101"
 ---
 # <a name="application-startup-in-aspnet-core"></a>ASP.NET Core uygulaması başlangıç
 
@@ -56,6 +56,8 @@ Hakkında daha fazla bilgi edinmek için `WebHostBuilder`, bkz: [barındırma](x
 * Önce web ana bilgisayarı tarafından çağrılan `Configure` uygulamanın hizmetlerini yapılandırmak için yöntemi.
 * Burada [yapılandırma seçenekleri](xref:fundamentals/configuration/index) kurala göre ayarlanır.
 
+Tipik bir düzen tüm çağırmaktır `Add{Service}` yöntemleri ve sonra çağrı tüm `services.Configure{Service}` yöntemleri. Örneğin, [yapılandırma kimlik Hizmetleri](xref:security/authentication/identity#pw).
+
 Hizmet kapsayıcıya Hizmetleri ekleme kullanımınıza bunları uygulama içinde hem de `Configure` yöntemi. Hizmetleri aracılığıyla çözümlenir [bağımlılık ekleme](xref:fundamentals/dependency-injection) veya [IApplicationBuilder.ApplicationServices](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder.applicationservices).
 
 Bazı hizmetler önce web ana bilgisayarı yapılandırabilirsiniz `Startup` yöntemi çağrılır. Ayrıntılar kullanılabilir [ASP.NET Core ana](xref:fundamentals/host/index) konu.
@@ -86,7 +88,7 @@ Nasıl kullanılacağı hakkında daha fazla bilgi için `IApplicationBuilder` v
 
 [!code-csharp[](startup/snapshot_sample/Program.cs?highlight=18,22)]
 
-## <a name="startup-filters"></a>Başlangıç filtreleri
+## <a name="extend-startup-with-startup-filters"></a>Başlangıç başlangıç filtreleri ile genişletme
 
 Kullanım [IStartupFilter](/dotnet/api/microsoft.aspnetcore.hosting.istartupfilter) uygulamanın başında veya sonunda ara yazılımını yapılandırma [yapılandırma](#the-configure-method) ara yazılım ardışık düzenini. `IStartupFilter` bir ara yazılım önce veya sonra Ara yazılım tarafından kitaplıkları başında veya uygulamanın istek işleme ardışık sonuna eklenen çalıştığından emin olmak kullanışlıdır.
 
@@ -102,9 +104,9 @@ Her `IStartupFilter` istek işlem hattı, bir veya daha fazla middlewares uygula
 
 [!code-csharp[](startup/sample/RequestSetOptionsStartupFilter.cs?name=snippet1&highlight=7)]
 
-`IStartupFilter` Service kapsayıcısında kayıtlı `ConfigureServices`:
+`IStartupFilter` Service kapsayıcısında kayıtlı [IWebHostBuilder.ConfigureServices](xref:Microsoft.AspNetCore.Hosting.IWebHostBuilder.ConfigureServices*) nasıl başlangıç filtre artırmaktadır göstermek için `Startup` gelen dışında `Startup` sınıfı:
 
-[!code-csharp[](startup/sample/Startup.cs?name=snippet1&highlight=3)]
+[!code-csharp[](startup/sample/Program.cs?name=snippet1&highlight=4-5)]
 
 Bir sorgu dizesi parametresi için zaman `option` MVC ara yazılımın yanıt işlemeden önce ara değer atama işlemleri sağlanır:
 

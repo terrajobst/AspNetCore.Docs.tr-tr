@@ -4,14 +4,14 @@ author: guardrex
 description: Proxy sunucuları ve yük Dengeleyiciler, genellikle önemli bilgi gizlememeniz arkasında barındırılan uygulamalar için yapılandırma hakkında bilgi edinin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/26/2018
+ms.date: 09/06/2018
 uid: host-and-deploy/proxy-load-balancer
-ms.openlocfilehash: 6b24dd4b4b400625a9dcb647dbbac1d8bd0f7a6a
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 255baf5570fc5127718aafcb3170bc3d00f00c91
+ms.sourcegitcommit: 08bf41d4b3e696ab512b044970e8304816f8cc56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095781"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44040075"
 ---
 # <a name="configure-aspnet-core-to-work-with-proxy-servers-and-load-balancers"></a>ASP.NET Core, proxy sunucuları ile çalışma ve yük Dengeleyiciler için yapılandırma
 
@@ -129,8 +129,8 @@ services.Configure<ForwardedHeadersOptions>(options =>
 | [ForwardedHostHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedhostheadername) | İle belirtilen yerine bu özelliği tarafından belirtilen üst bilgi kullan [ForwardedHeadersDefaults.XForwardedHostHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xforwardedhostheadername). Proxy/iletici kullanmıyorsa bu seçenek kullanıldığında `X-Forwarded-Host` üstbilgisi ancak kullanan başka bir üst bilgi bilgileri iletmek için.<br><br>Varsayılan, `X-Forwarded-Host` değeridir. |
 | [ForwardedProtoHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedprotoheadername) | İle belirtilen yerine bu özelliği tarafından belirtilen üst bilgi kullan [ForwardedHeadersDefaults.XForwardedProtoHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xforwardedprotoheadername). Proxy/iletici kullanmıyorsa bu seçenek kullanıldığında `X-Forwarded-Proto` üstbilgisi ancak kullanan başka bir üst bilgi bilgileri iletmek için.<br><br>Varsayılan, `X-Forwarded-Proto` değeridir. |
 | [ForwardLimit](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardlimit) | İşlenen üstbilgileri içerisindeki giriş sayısını sınırlar. Kümesine `null` sınırı, ancak bunu devre dışı bırakmak için yalnızca, yapılmalıdır `KnownProxies` veya `KnownNetworks` yapılandırılır.<br><br>Varsayılan değer 1'dir. |
-| [KnownNetworks](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.knownnetworks) | Adres aralıklarını iletilen üst bilgiler kabul etmek için bilinen proxy. Sınıfsız etki alanları arası yönlendirme (CIDR) gösterimi kullanan IP aralıklarını belirtin.<br><br>Varsayılan bir [IList](/dotnet/api/system.collections.generic.ilist-1)\<[IP ağı](/dotnet/api/microsoft.aspnetcore.httpoverrides.ipnetwork)> için tek bir giriş içeren `IPAddress.Loopback`. |
-| [KnownProxies](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.knownproxies) | İletilen üst bilgiler kabul etmek için bilinen Proxy adresleri. Kullanım `KnownProxies` tam IP adresini belirtmek için eşleşir.<br><br>Varsayılan bir [IList](/dotnet/api/system.collections.generic.ilist-1)\<[IPADDRESS](/dotnet/api/system.net.ipaddress)> için tek bir giriş içeren `IPAddress.IPv6Loopback`. |
+| [KnownNetworks](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.knownnetworks) | Adres aralıklarını iletilen üst bilgiler kabul etmek için bilinen ağlar. Sınıfsız etki alanları arası yönlendirme (CIDR) gösterimi kullanan IP aralıklarını belirtin.<br><br>Çift modlu yuva sunucusu kullanıyorsanız, IPv4 adresleri bir IPv6 biçiminde sağlanır (örneğin, `10.0.0.1` IPv6 temsil IPv4'te `::ffff:10.0.0.1`). Bkz: [IPAddress.MapToIPv6](xref:System.Net.IPAddress.MapToIPv6*). Bu biçim bakarak gerekip gerekmediğini belirleyin [HttpContext.Connection.RemoteIpAddress](xref:Microsoft.AspNetCore.Http.ConnectionInfo.RemoteIpAddress*). Daha fazla bilgi için [yapılandırma bir IPv4 adresi için bir IPv6 adresi olarak temsil edilen](#configuration-for-an-ipv4-address-represented-as-an-ipv6-address) bölümü.<br><br>Varsayılan bir [IList](/dotnet/api/system.collections.generic.ilist-1)\<[IP ağı](/dotnet/api/microsoft.aspnetcore.httpoverrides.ipnetwork)> için tek bir giriş içeren `IPAddress.Loopback`. |
+| [KnownProxies](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.knownproxies) | İletilen üst bilgiler kabul etmek için bilinen Proxy adresleri. Kullanım `KnownProxies` tam IP adresini belirtmek için eşleşir.<br><br>Çift modlu yuva sunucusu kullanıyorsanız, IPv4 adresleri bir IPv6 biçiminde sağlanır (örneğin, `10.0.0.1` IPv6 temsil IPv4'te `::ffff:10.0.0.1`). Bkz: [IPAddress.MapToIPv6](xref:System.Net.IPAddress.MapToIPv6*). Bu biçim bakarak gerekip gerekmediğini belirleyin [HttpContext.Connection.RemoteIpAddress](xref:Microsoft.AspNetCore.Http.ConnectionInfo.RemoteIpAddress*). Daha fazla bilgi için [yapılandırma bir IPv4 adresi için bir IPv6 adresi olarak temsil edilen](#configuration-for-an-ipv4-address-represented-as-an-ipv6-address) bölümü.<br><br>Varsayılan bir [IList](/dotnet/api/system.collections.generic.ilist-1)\<[IPADDRESS](/dotnet/api/system.net.ipaddress)> için tek bir giriş içeren `IPAddress.IPv6Loopback`. |
 | [OriginalForHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.originalforheadername) | İle belirtilen yerine bu özelliği tarafından belirtilen üst bilgi kullan [ForwardedHeadersDefaults.XOriginalForHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xoriginalforheadername).<br><br>Varsayılan, `X-Original-For` değeridir. |
 | [OriginalHostHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.originalhostheadername) | İle belirtilen yerine bu özelliği tarafından belirtilen üst bilgi kullan [ForwardedHeadersDefaults.XOriginalHostHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xoriginalhostheadername).<br><br>Varsayılan, `X-Original-Host` değeridir. |
 | [OriginalProtoHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.originalprotoheadername) | İle belirtilen yerine bu özelliği tarafından belirtilen üst bilgi kullan [ForwardedHeadersDefaults.XOriginalProtoHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xoriginalprotoheadername).<br><br>Varsayılan, `X-Original-Proto` değeridir. |
@@ -144,8 +144,8 @@ services.Configure<ForwardedHeadersOptions>(options =>
 | [ForwardedHostHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedhostheadername) | İle belirtilen yerine bu özelliği tarafından belirtilen üst bilgi kullan [ForwardedHeadersDefaults.XForwardedHostHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xforwardedhostheadername). Proxy/iletici kullanmıyorsa bu seçenek kullanıldığında `X-Forwarded-Host` üstbilgisi ancak kullanan başka bir üst bilgi bilgileri iletmek için.<br><br>Varsayılan, `X-Forwarded-Host` değeridir. |
 | [ForwardedProtoHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedprotoheadername) | İle belirtilen yerine bu özelliği tarafından belirtilen üst bilgi kullan [ForwardedHeadersDefaults.XForwardedProtoHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xforwardedprotoheadername). Proxy/iletici kullanmıyorsa bu seçenek kullanıldığında `X-Forwarded-Proto` üstbilgisi ancak kullanan başka bir üst bilgi bilgileri iletmek için.<br><br>Varsayılan, `X-Forwarded-Proto` değeridir. |
 | [ForwardLimit](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardlimit) | İşlenen üstbilgileri içerisindeki giriş sayısını sınırlar. Kümesine `null` sınırı, ancak bunu devre dışı bırakmak için yalnızca, yapılmalıdır `KnownProxies` veya `KnownNetworks` yapılandırılır.<br><br>Varsayılan değer 1'dir. |
-| [KnownNetworks](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.knownnetworks) | Adres aralıklarını iletilen üst bilgiler kabul etmek için bilinen proxy. Sınıfsız etki alanları arası yönlendirme (CIDR) gösterimi kullanan IP aralıklarını belirtin.<br><br>Varsayılan bir [IList](/dotnet/api/system.collections.generic.ilist-1)\<[IP ağı](/dotnet/api/microsoft.aspnetcore.httpoverrides.ipnetwork)> için tek bir giriş içeren `IPAddress.Loopback`. |
-| [KnownProxies](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.knownproxies) | İletilen üst bilgiler kabul etmek için bilinen Proxy adresleri. Kullanım `KnownProxies` tam IP adresini belirtmek için eşleşir.<br><br>Varsayılan bir [IList](/dotnet/api/system.collections.generic.ilist-1)\<[IPADDRESS](/dotnet/api/system.net.ipaddress)> için tek bir giriş içeren `IPAddress.IPv6Loopback`. |
+| [KnownNetworks](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.knownnetworks) | Adres aralıklarını iletilen üst bilgiler kabul etmek için bilinen ağlar. Sınıfsız etki alanları arası yönlendirme (CIDR) gösterimi kullanan IP aralıklarını belirtin.<br><br>Çift modlu yuva sunucusu kullanıyorsanız, IPv4 adresleri bir IPv6 biçiminde sağlanır (örneğin, `10.0.0.1` IPv6 temsil IPv4'te `::ffff:10.0.0.1`). Bkz: [IPAddress.MapToIPv6](xref:System.Net.IPAddress.MapToIPv6*). Bu biçim bakarak gerekip gerekmediğini belirleyin [HttpContext.Connection.RemoteIpAddress](xref:Microsoft.AspNetCore.Http.ConnectionInfo.RemoteIpAddress*). Daha fazla bilgi için [yapılandırma bir IPv4 adresi için bir IPv6 adresi olarak temsil edilen](#configuration-for-an-ipv4-address-represented-as-an-ipv6-address) bölümü.<br><br>Varsayılan bir [IList](/dotnet/api/system.collections.generic.ilist-1)\<[IP ağı](/dotnet/api/microsoft.aspnetcore.httpoverrides.ipnetwork)> için tek bir giriş içeren `IPAddress.Loopback`. |
+| [KnownProxies](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.knownproxies) | İletilen üst bilgiler kabul etmek için bilinen Proxy adresleri. Kullanım `KnownProxies` tam IP adresini belirtmek için eşleşir.<br><br>Çift modlu yuva sunucusu kullanıyorsanız, IPv4 adresleri bir IPv6 biçiminde sağlanır (örneğin, `10.0.0.1` IPv6 temsil IPv4'te `::ffff:10.0.0.1`). Bkz: [IPAddress.MapToIPv6](xref:System.Net.IPAddress.MapToIPv6*). Bu biçim bakarak gerekip gerekmediğini belirleyin [HttpContext.Connection.RemoteIpAddress](xref:Microsoft.AspNetCore.Http.ConnectionInfo.RemoteIpAddress*). Daha fazla bilgi için [yapılandırma bir IPv4 adresi için bir IPv6 adresi olarak temsil edilen](#configuration-for-an-ipv4-address-represented-as-an-ipv6-address) bölümü.<br><br>Varsayılan bir [IList](/dotnet/api/system.collections.generic.ilist-1)\<[IPADDRESS](/dotnet/api/system.net.ipaddress)> için tek bir giriş içeren `IPAddress.IPv6Loopback`. |
 | [OriginalForHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.originalforheadername) | İle belirtilen yerine bu özelliği tarafından belirtilen üst bilgi kullan [ForwardedHeadersDefaults.XOriginalForHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xoriginalforheadername).<br><br>Varsayılan, `X-Original-For` değeridir. |
 | [OriginalHostHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.originalhostheadername) | İle belirtilen yerine bu özelliği tarafından belirtilen üst bilgi kullan [ForwardedHeadersDefaults.XOriginalHostHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xoriginalhostheadername).<br><br>Varsayılan, `X-Original-Host` değeridir. |
 | [OriginalProtoHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.originalprotoheadername) | İle belirtilen yerine bu özelliği tarafından belirtilen üst bilgi kullan [ForwardedHeadersDefaults.XOriginalProtoHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xoriginalprotoheadername).<br><br>Varsayılan, `X-Original-Proto` değeridir. |
@@ -216,6 +216,32 @@ services.Configure<ForwardedHeadersOptions>(options =>
 });
 ```
 
+### <a name="configuration-for-an-ipv4-address-represented-as-an-ipv6-address"></a>Bir IPv6 adresi olarak temsil edilen bir IPv4 adresi için yapılandırma
+
+Çift modlu yuva sunucusu kullanıyorsanız, IPv4 adresleri bir IPv6 biçiminde sağlanır (örneğin, `10.0.0.1` IPv6 temsil IPv4'te `::ffff:10.0.0.1` veya `::ffff:a00:1`). Bkz: [IPAddress.MapToIPv6](xref:System.Net.IPAddress.MapToIPv6*). Bu biçim bakarak gerekip gerekmediğini belirleyin [HttpContext.Connection.RemoteIpAddress](xref:Microsoft.AspNetCore.Http.ConnectionInfo.RemoteIpAddress*).
+
+Aşağıdaki örnekte, üst bilgileri iletilen sağlayan bir ağ adresi için eklenen `KnownNetworks` IPv6 biçiminde listesi:
+
+Kısa biçimi IPv6 `10.11.12.1/8`:
+
+* `::ffff:0a0b:0c01`
+* Ön ek uzunluğu: 104 (8 + 96&dagger;)
+
+```csharp
+// To access IPNetwork and IPAddress, add the following namespaces:
+// using using System.Net;
+// using Microsoft.AspNetCore.HttpOverrides;
+services.Configure<ForwardedHeadersOptions>(options =>
+{
+    options.ForwardedHeaders =
+        ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+    options.KnownNetworks.Add(new IPNetwork(
+        IPAddress.Parse("::ffff:0a0b:0c01"), 104));
+});
+```
+
+&dagger;Bir IPv4 adresi için IPv6 dönüştürülürken, CIDR ön ek uzunluğu için ek hesap için 96 eklemek `::ffff:` IPv6 öneki.
+
 ## <a name="troubleshoot"></a>Sorun giderme
 
 Üst bilgiler, beklendiği gibi iletilen olmayan etkinleştirirsiniz [günlüğü](xref:fundamentals/logging/index). Günlükleri sorunu gidermek için yeterli bilgi sağlamazsanız, sunucu tarafından alınan isteği üstbilgileri sıralar. Satır içi ara yazılımı kullanarak bir uygulama yanıt üstbilgileri yazılabilir:
@@ -255,7 +281,7 @@ public void Configure(IApplicationBuilder app, ILoggerFactory loggerfactory)
 
 Emin X - Forwarded-* üst bilgilerini beklenen değerlerle sunucu tarafından alınan. Belirli bir üst bilgisinde birden çok değer varsa, ters sırada sağdan sola iletilen üstbilgileri ara yazılım işlemleri üstbilgileri unutmayın.
 
-İsteğin özgün uzak IP bir girişe eşleşmelidir `KnownProxies` veya `KnownNetworks` X-iletilen-için işlenmeden önce listeler. Bu, güvenilir olmayan proxy'si İleticilerden kabul etmeyerek üst bilgi sızdırma sınırlar.
+İsteğin özgün uzak IP bir girişe eşleşmelidir `KnownProxies` veya `KnownNetworks` önce listeler `X-Forwarded-For` işlenir. Bu, güvenilir olmayan proxy'si İleticilerden kabul etmeyerek üst bilgi sızdırma sınırlar.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

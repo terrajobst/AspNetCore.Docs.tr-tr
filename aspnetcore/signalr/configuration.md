@@ -5,14 +5,14 @@ description: ASP.NET Core SignalR uygulamalarını yapılandırmayı öğrenin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 07/31/2018
+ms.date: 09/06/2018
 uid: signalr/configuration
-ms.openlocfilehash: eac1202828edbcd295d7e52aa424cd625ee70e34
-ms.sourcegitcommit: 29dfe436f54a27fbb4f6494bc639d16c75001fab
+ms.openlocfilehash: fee6e3382c14e818dff408f95770e711603f769d
+ms.sourcegitcommit: 08bf41d4b3e696ab512b044970e8304816f8cc56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39722470"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44039997"
 ---
 # <a name="aspnet-core-signalr-configuration"></a>ASP.NET Core SignalR yapılandırma
 
@@ -63,7 +63,7 @@ Aşağıdaki tabloda, SignalR hub'ları yapılandırma seçenekleri açıklanmak
 | Seçenek | Varsayılan Değer | Açıklama |
 | ------ | ------------- | ----------- |
 | `HandshakeTimeout` | 15 saniye | İstemci, bu zaman aralığı içinde bir ilk el sıkışma iletisi göndermediği durumlarda bağlantı kapalı. Bu zaman aşımı hataları el sıkışması ciddi ağ gecikmesi nedeniyle gerçekleşiyor, yalnızca değiştirilmesi gereken gelişmiş bir ayardır. Anlaşma işlemi hakkında daha fazla ayrıntı için [SignalR hub'ı protokol belirtimi](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md). |
-| `KeepAliveInterval` | 15 saniye | Sunucu bu aralıkta bir ileti gönderdi taşınmadığından, PING iletisi bağlantıyı açık tutma için otomatik olarak gönderilir. |
+| `KeepAliveInterval` | 15 saniye | Sunucu bu aralıkta bir ileti gönderdi taşınmadığından, PING iletisi bağlantıyı açık tutma için otomatik olarak gönderilir. Değiştirilirken `KeepAliveInterval`, değiştirme `ServerTimeout` / `serverTimeoutInMilliseconds` istemcide ayarlama. Önerilen `ServerTimeout` / `serverTimeoutInMilliseconds` değeri çift `KeepAliveInterval` değeri.  |
 | `SupportedProtocols` | Yüklü tüm protokolleri | Bu hub tarafından desteklenen protokoller. Varsayılan olarak, sunucuda kayıtlı tüm protokollere izin verilir, ancak belirli protokoller için tek tek hub'ları devre dışı bırakmak için bu listedeki protokolleri kaldırılabilir. |
 | `EnableDetailedErrors` | `false` | Varsa `true`, ayrıntılı bir Hub yöntemi bir özel durum oluştuğunda, özel durum iletileri istemcilere döndürülür. Varsayılan `false`gibi bu özel durum iletileri, hassas bilgiler içerebilir. |
 
@@ -216,7 +216,7 @@ Zaman aşımı ve tutma davranışını yapılandırmak için ek seçenekler bul
 
 | .NET seçeneği | JavaScript seçeneği | Varsayılan Değer | Açıklama |
 | ----------- | ----------------- | ------------- | ----------- |
-| `ServerTimeout` | `serverTimeoutInMilliseconds` | 30 saniye (30.000 milisaniye) | Sunucu etkinliği için zaman aşımı. Sunucu bir ileti bu aralık içinde gönderilebilen taşınmadığından, istemci sunucusu bağlantısı kesildi ve Tetikleyicileri dikkate `Closed` olay (`onclose` JavaScript dilinde). |
+| `ServerTimeout` | `serverTimeoutInMilliseconds` | 30 saniye (30.000 milisaniye) | Sunucu etkinliği için zaman aşımı. Sunucu bir ileti bu aralık içinde gönderilebilen taşınmadığından, istemci sunucusu bağlantısı kesildi ve Tetikleyicileri dikkate `Closed` olay (`onclose` JavaScript dilinde). Bu değer sunucudan gönderilecek PING iletisi için yeterince büyük **ve** zaman aşımı aralığı içinde istemci tarafından alındı. Önerilen değer: bir sayının en az iki sunucu `KeepAliveInterval` ping gelmesi için zaman tanınması için değer. |
 | `HandshakeTimeout` | Yapılandırılamaz | 15 saniye | İlk sunucu el sıkışma için zaman aşımı. Sunucu bu aralığı el sıkışması yanıt göndermediği durumlarda, istemciyi el sıkışması ve tetikleyiciler iptal `Closed` olay (`onclose` JavaScript dilinde). Bu zaman aşımı hataları el sıkışması ciddi ağ gecikmesi nedeniyle gerçekleşiyor, yalnızca değiştirilmesi gereken gelişmiş bir ayardır. Anlaşma işlemi hakkında daha fazla ayrıntı için [SignalR hub'ı protokol belirtimi](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md). |
 
 .NET istemci zaman aşımı değerlerini olarak belirtilen `TimeSpan` değerleri. JavaScript istemci zaman aşımı değerlerini, milisaniye cinsinden süre belirten bir sayı olarak belirtilir.

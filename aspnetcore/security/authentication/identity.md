@@ -5,12 +5,12 @@ description: Kimlik ile bir ASP.NET Core uygulaması kullanın. Parola gereksini
 ms.author: riande
 ms.date: 08/08/2018
 uid: security/authentication/identity
-ms.openlocfilehash: bc69b1db56361dc185f582032148a4fb8078fdda
-ms.sourcegitcommit: 4cd8dce371d63a66d780e4af1baab2bcf9d61b24
+ms.openlocfilehash: 96f446ad9ec1ef5d807a8648e68308ee20583365
+ms.sourcegitcommit: 08bf41d4b3e696ab512b044970e8304816f8cc56
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 09/06/2018
-ms.locfileid: "43893239"
+ms.locfileid: "44040034"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>ASP.NET core'da kimliğe giriş
 
@@ -56,7 +56,7 @@ Uygulamayı çalıştırın ve bir kullanıcı kaydı. Ekran boyutu bağlı olar
 <a name="pw"></a>
 ### <a name="configure-identity-services"></a>Kimlik Hizmetleri Yapılandırma
 
-Hizmetleri eklenir `ConfigureServices`. Aşağıdaki kod, oluşturulan şablonu içermez `CookiePolicyOptions`:
+Hizmetleri eklenir `ConfigureServices`. Tipik bir düzen tüm çağırmaktır `Add{Service}` yöntemleri ve sonra çağrı tüm `services.Configure{Service}` yöntemleri. Aşağıdaki kod, oluşturulan şablonu içermez `CookiePolicyOptions`:
 
 ::: moniker range=">= aspnetcore-2.1"
 
