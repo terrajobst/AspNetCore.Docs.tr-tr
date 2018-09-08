@@ -6,21 +6,22 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 08/31/2018
 uid: security/ip-safelist
-ms.openlocfilehash: 40fe7b67359efd1692490099c3fb529ba4a6148f
-ms.sourcegitcommit: 08bf41d4b3e696ab512b044970e8304816f8cc56
+ms.openlocfilehash: 362d1ded00bda3f328e029fb467f2b3eeaa01396
+ms.sourcegitcommit: 8268cc67beb1bb1ca470abb0e28b15a7a71b8204
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44040125"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44126715"
 ---
 # <a name="client-ip-safelist-for-aspnet-core"></a>İstemci IP Güvenli ASP.NET Core için liste
 
 Tarafından [Damien Bowden](https://twitter.com/damien_bod) ve [Tom Dykstra](https://github.com/tdykstra)
  
-Bu makalede, bir IP güvenli liste (beyaz liste olarak da bilinir) uygulamak için iki yolunu gösterir:
+Bu makalede, bir IP güvenli liste (beyaz liste olarak da bilinir) ASP.NET Core uygulaması uygulamak için üç yol gösterilir. Şunları kullanabilirsiniz:
 
-* Uzak IP adresi her isteğin denetlemek için ASP.NET Core ara yazılımı kullanarak.
-* Belirli bir eylem yöntemleri için isteklerin uzak IP adresi denetlemek için ASP.NET Core eylem filtrelerini kullanarak.
+* Uzak IP adresi her isteğin denetlemek için ara yazılımı.
+* Uzak IP adresi belirli denetleyicileri veya eylem yöntemleri için isteklerin denetlemek için eylem filtreleri.
+* Razor sayfaları filtreleri Razor sayfaları için isteklerin uzak IP adresini denetleyin.
 
 Örnek uygulamayı her iki yaklaşımı da gösterir. Her durumda, bir uygulama ayarı onaylı istemci IP adreslerini içeren bir dize olarak depolanır. Ara yazılım veya filtre bir listeye dizeyi ayrıştırır ve uzak IP listesinde olup olmadığını denetler. Aksi durumda, bir HTTP 403 Yasak durum kodu döndürülür.
 

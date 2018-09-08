@@ -4,16 +4,16 @@ author: Rick-Anderson
 description: Yeniden kullanılabilir Razor UI bir sınıf kitaplığında oluşturulması açıklanmaktadır.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 07/21/2018
+ms.date: 09/07/2018
 uid: razor-pages/ui-class
-ms.openlocfilehash: 1f0ef59ce3f3294d6a3bde015ca34800770b1be4
-ms.sourcegitcommit: e955a722c05ce2e5e21b4219f7d94fb878e255a6
+ms.openlocfilehash: 7e9ab07a9060b16c09afb1e88950f6a3e55b13cb
+ms.sourcegitcommit: 8268cc67beb1bb1ca470abb0e28b15a7a71b8204
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39378676"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44126754"
 ---
-# <a name="create-reusable-ui-using-the-razor-class-library-project-in-aspnet-core"></a>Yeniden kullanılabilir kullanıcı Arabirimi ASP.NET Core Razor sınıf kitaplığı projesini kullanarak oluşturun.
+# <a name="create-reusable-ui-using-the-razor-class-library-project-in-aspnet-core"></a>ASP.NET Core Razor sınıf kitaplığı projesi kullanarak yeniden kullanılabilir kullanıcı Arabirimi oluşturma
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -41,7 +41,7 @@ Razor sınıf kitaplığı aşağıdaki proje dosyası vardır:
 
 Komut satırından çalıştırmak `dotnet new razorclasslib`. Örneğin:
 
-``` CLI
+```console
 dotnet new razorclasslib -o RazorUIClassLib
 ```
 
@@ -75,15 +75,16 @@ Açık *.sln* dosyasını Visual Studio'da. Uygulamayı çalıştırın.
 
 Bir komut isteminden *CLI* dizin RCL oluşturun ve web uygulaması.
 
-``` CLI
+```console
 dotnet build
 ```
 
 Taşı *WebApp1* dizin ve uygulamayı çalıştırın:
 
-``` CLI
+```console
 dotnet run
 ```
+
 ------
 
 Bölümündeki yönergeleri [Test WebApp1](#test)
@@ -107,7 +108,7 @@ RCL projesi oluşturun:
 
 Komut satırından şu komutu çalıştırın:
 
-``` CLI
+```console
 dotnet new razorclasslib -o RazorUIClassLib
 dotnet new page -n _Message -np -o RazorUIClassLib/Areas/MyFeature/Pages/Shared
 dotnet new viewstart -o RazorUIClassLib/Areas/MyFeature/Pages
@@ -117,9 +118,9 @@ Yukarıdaki komutlar:
 
 * Oluşturur `RazorUIClassLib` Razor sınıf kitaplığı (RCL).
 * Bir Razor il_eti sayfası oluşturur ve için RCL ekler. `-np` Parametresi olmadan sayfa oluşturur bir `PageModel`.
-* Oluşturur bir [viewstart](xref:mvc/views/layout#running-code-before-each-view) dosya ve için RCL ekler.
+* Oluşturur bir [_ViewStart.cshtml](xref:mvc/views/layout#running-code-before-each-view) dosya ve için RCL ekler.
 
-Viewstart dosya (sonraki bölümde eklenir) Razor sayfaları proje düzenini kullanmak için gereklidir.
+*_ViewStart.cshtml* dosyası (sonraki bölümde eklenir) Razor sayfaları proje düzenini kullanmak için gereklidir.
 
 ------
 
@@ -127,23 +128,23 @@ Viewstart dosya (sonraki bölümde eklenir) Razor sayfaları proje düzenini kul
 
 * Biçimlendirmeyi Değiştir *RazorUIClassLib/Areas/MyFeature/Pages/Shared/_Message.cshtml* aşağıdaki kod ile:
 
-[!code-html[Main](ui-class/samples/cli/RazorUIClassLib/Areas/MyFeature/Pages/Shared/_Message.cshtml)]
+[!code-cshtml[Main](ui-class/samples/cli/RazorUIClassLib/Areas/MyFeature/Pages/Shared/_Message.cshtml)]
 
 * Biçimlendirmeyi Değiştir *RazorUIClassLib/Areas/MyFeature/Pages/Page1.cshtml* aşağıdaki kod ile:
 
-[!code-html[Main](ui-class/samples/cli/RazorUIClassLib/Areas/MyFeature/Pages/Page1.cshtml)]
+[!code-cshtml[Main](ui-class/samples/cli/RazorUIClassLib/Areas/MyFeature/Pages/Page1.cshtml)]
 
 `@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers` Kısmi görünümü kullanmak için gereklidir (`<partial name="_Message" />`). Dahil olmak üzere yerine `@addTagHelper` yönergesi ekleyebileceğiniz bir *_viewımports.cshtml* dosya. Örneğin:
 
-``` CLI
+```console
 dotnet new viewimports -o RazorUIClassLib/Areas/MyFeature/Pages
 ```
 
-Viewimports hakkında daha fazla bilgi için bkz. [paylaşılan yönergeleri alma](xref:mvc/views/layout#importing-shared-directives)
+Daha fazla bilgi için *_viewımports.cshtml*, bkz: [paylaşılan yönergeleri alma](xref:mvc/views/layout#importing-shared-directives)
 
 * Derleyici hata doğrulamak için sınıf kitaplığı derleme:
 
-``` CLI
+```console
 dotnet build RazorUIClassLib
 ```
 
@@ -198,11 +199,11 @@ dotnet run
 
 Razor UI sınıf kitaplığı kullanılan doğrulayın.
 
-* Gözat `/MyFeature/Page1`.
+* konumuna gözatın `/MyFeature/Page1`.
 
 ## <a name="override-views-partial-views-and-pages"></a>Görünümleri, kısmi görünümleri ve sayfa geçersiz kıl
 
-Zaman görünümü, kısmi görünüm veya Razor sayfası hem web uygulaması hem de Razor sınıf kitaplığı, Razor işaretlemesi bulunur (*.cshtml* dosya) web uygulaması önceliklidir. Örneğin, ekleme *WebApp1/Areas/MyFeature/Pages/Page1.cshtml* WebApp1 için ve Sayfa1 WebApp1 içinde önceliklidir Page1in üzerinde Razor sınıf kitaplığı.
+Zaman görünümü, kısmi görünüm veya Razor sayfası hem web uygulaması hem de Razor sınıf kitaplığı, Razor işaretlemesi bulunur (*.cshtml* dosya) web uygulaması önceliklidir. Örneğin, ekleme *WebApp1/Areas/MyFeature/Pages/Page1.cshtml* WebApp1 için ve Sayfa1 WebApp1 içinde önceliklidir Sayfa1 Razor Sınıf Kitaplığı'nda.
 
 Örnek indirme Yeniden Adlandır *WebApp1/alanlar/MyFeature2* için *WebApp1/alanlar/MyFeature* öncelik test etmek için.
 
@@ -212,17 +213,17 @@ Kopyalama *RazorUIClassLib/Areas/MyFeature/Pages/Shared/_Message.cshtml* kısmi 
 
 ### <a name="rcl-pages-layout"></a>RCL sayfa düzeni
 
-Web uygulaması'nın sayfalar klasöründe bir parçasıdır ancak RCL içeriği başvurusu yapmak için aşağıdaki dosya yapısı ile RCL proje oluşturun:
+RCL içerik web uygulaması'nın bir parçasıdır ancak başvuru *sayfaları* klasörü, aşağıdaki dosya yapısı ile RCL projesi oluşturun:
 
 * *RazorUIClassLib/sayfaları*
 * *RazorUIClassLib/sayfalar/paylaşılan*
 
-Varsayalım *RazorUIClassLib/sayfaları/paylaşılan* iki kısmi dosyalarını içeren *_Header.cshtml* ve *_Footer.cshtml*. <partial> Etiketleri için eklenebiliyordu *_Layout.cshtml* dosyası: 
+Varsayalım *RazorUIClassLib/sayfaları/paylaşılan* iki kısmi dosyaları içerir: *_Header.cshtml* ve *_Footer.cshtml*. `<partial>` Etiketleri için eklenebiliyordu *_Layout.cshtml* dosyası:
   
-```
-  <body>
-    <partial name="_Header">
-    @RenderBody()
-    <partial name="_Footer">
-  </body>
+```cshtml
+<body>
+  <partial name="_Header">
+  @RenderBody()
+  <partial name="_Footer">
+</body>
 ```

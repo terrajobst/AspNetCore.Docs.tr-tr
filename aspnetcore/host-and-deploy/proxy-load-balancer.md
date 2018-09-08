@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/06/2018
 uid: host-and-deploy/proxy-load-balancer
-ms.openlocfilehash: 255baf5570fc5127718aafcb3170bc3d00f00c91
-ms.sourcegitcommit: 08bf41d4b3e696ab512b044970e8304816f8cc56
+ms.openlocfilehash: 1833b5bb77b199bb5fd0257e9f33b4d6f0c23ec5
+ms.sourcegitcommit: 8268cc67beb1bb1ca470abb0e28b15a7a71b8204
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44040075"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44126741"
 ---
 # <a name="configure-aspnet-core-to-work-with-proxy-servers-and-load-balancers"></a>ASP.NET Core, proxy sunucuları ile çalışma ve yük Dengeleyiciler için yapılandırma
 
@@ -220,12 +220,14 @@ services.Configure<ForwardedHeadersOptions>(options =>
 
 Çift modlu yuva sunucusu kullanıyorsanız, IPv4 adresleri bir IPv6 biçiminde sağlanır (örneğin, `10.0.0.1` IPv6 temsil IPv4'te `::ffff:10.0.0.1` veya `::ffff:a00:1`). Bkz: [IPAddress.MapToIPv6](xref:System.Net.IPAddress.MapToIPv6*). Bu biçim bakarak gerekip gerekmediğini belirleyin [HttpContext.Connection.RemoteIpAddress](xref:Microsoft.AspNetCore.Http.ConnectionInfo.RemoteIpAddress*).
 
-Aşağıdaki örnekte, üst bilgileri iletilen sağlayan bir ağ adresi için eklenen `KnownNetworks` IPv6 biçiminde listesi:
+Aşağıdaki örnekte, üst bilgileri iletilen sağlayan bir ağ adresi için eklenen `KnownNetworks` IPv6 biçiminde listesi.
 
-Kısa biçimi IPv6 `10.11.12.1/8`:
+IPv4 adresi: `10.11.12.1/8`
 
-* `::ffff:0a0b:0c01`
-* Ön ek uzunluğu: 104 (8 + 96&dagger;)
+Dönüştürülen IPv6 adresi: `::ffff:10.11.12.1`  
+Dönüştürülen önek uzunluğu: 104
+
+Onaltılık biçimde adresi de sağlayabilirsiniz (`10.11.12.1` IPv6 temsil edilen `::ffff:0a0b:0c01`). Bir IPv4 adresi için IPv6 dönüştürülürken, CIDR ön ek uzunluğu için 96 ekleyin (`8` örnekte) için ek hesap için `::ffff:` IPv6 ön eki (8 + 96 = 104). 
 
 ```csharp
 // To access IPNetwork and IPAddress, add the following namespaces:
@@ -236,11 +238,9 @@ services.Configure<ForwardedHeadersOptions>(options =>
     options.ForwardedHeaders =
         ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
     options.KnownNetworks.Add(new IPNetwork(
-        IPAddress.Parse("::ffff:0a0b:0c01"), 104));
+        IPAddress.Parse("::ffff:10.11.12.1"), 104));
 });
 ```
-
-&dagger;Bir IPv4 adresi için IPv6 dönüştürülürken, CIDR ön ek uzunluğu için ek hesap için 96 eklemek `::ffff:` IPv6 öneki.
 
 ## <a name="troubleshoot"></a>Sorun giderme
 
