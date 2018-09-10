@@ -4,14 +4,14 @@ author: rick-anderson
 description: Kestrel'i, ASP.NET Core için platformlar arası web sunucusu hakkında bilgi edinin.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 05/02/2018
+ms.date: 09/01/2018
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: a32b6e047ed0c2295f9f0bd95ffac010a7570ca5
-ms.sourcegitcommit: a669c4e3f42e387e214a354ac4143555602e6f66
+ms.openlocfilehash: c11a32aec49f4550471fb1399306fe17f1735a5c
+ms.sourcegitcommit: 7211ae2dd702f67d36365831c490d6178c9a46c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336139"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44089892"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>ASP.NET core'da kestrel web sunucusu uygulaması
 
@@ -31,7 +31,7 @@ Kestrel'i tüm platformlarda ve .NET Core destekleyen sürümler desteklenir.
 
 ## <a name="when-to-use-kestrel-with-a-reverse-proxy"></a>Ne zaman Kestrel ters Ara sunucu ile kullanılır.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+::: moniker range=">= aspnetcore-2.0"
 
 Tek başına veya birlikte Kestrel kullanabileceğiniz bir *ters Ara sunucu*IIS, Ngınx veya Apache gibi. Ters Ara sunucu, Internet'ten HTTP isteklerini alır ve bunları Kestrel için bazı ön işleme sonra iletir.
 
@@ -41,7 +41,9 @@ Tek başına veya birlikte Kestrel kullanabileceğiniz bir *ters Ara sunucu*IIS,
 
 Her iki yapılandırma&mdash;ile veya ters Ara sunucu olmadan&mdash;bir geçerli ve desteklenen barındırma ASP.NET Core 2.0 veya sonraki uygulamalar için bir yapılandırmadır.
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 Bir uygulama yalnızca bir iç ağ gelen istekleri kabul ederse Kestrel doğrudan uygulamanın sunucusu olarak kullanılabilir.
 
@@ -53,7 +55,7 @@ Uygulamanıza Internet kullanıma sunma, IIS, Ngınx veya Apache olarak kullanı
 
 Güvenlik nedenleriyle edge dağıtımları (trafiği Internet'ten kullanıma sunulur) için ters Ara sunucu gereklidir. Kestrel'i 1.x sürümlerini tamamlayıcı uygun zaman aşımları, boyut sınırları ve eş zamanlı bağlantı sınırları gibi saldırılara karşı savunma yoktur.
 
----
+::: moniker-end
 
 Aynı IP adresini ve bağlantı noktası tek bir sunucu üzerinde çalışan paylaşan birden çok uygulama olduğunda bir ters proxy senaryosu bulunmaktadır. Aynı IP adresini ve bağlantı noktası arasında birden çok işlem paylaşımı Kestrel desteklemediğinden bu senaryo kestrel desteklemiyor. Kestrel'i bir bağlantı noktasında dinleyecek şekilde yapılandırıldığında, Kestrel tüm istekleri ana bilgisayar üstbilgisi bağımsız olarak bu bağlantı noktası trafiğini işler. Bağlantı noktalarını paylaşan bir ters proxy Kestrel benzersiz bir IP ve bağlantı noktası isteklerini iletmek için özelliğine sahiptir.
 
@@ -69,7 +71,7 @@ Ters proxy sunucusu gerekli olmasa bile bir ters proxy sunucusu kullanarak iyi b
 
 ## <a name="how-to-use-kestrel-in-aspnet-core-apps"></a>ASP.NET Core uygulamalarında Kestrel kullanma
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.0"
 
 [Microsoft.AspNetCore.Server.Kestrel](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.Kestrel/) paket dahil [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app) (ASP.NET Core 2.1 veya üzeri).
 
@@ -77,7 +79,35 @@ ASP.NET Core proje şablonları, varsayılan olarak Kestrel kullanın. İçinde 
 
 [!code-csharp[](kestrel/samples/2.x/KestrelSample/Program.cs?name=snippet_DefaultBuilder&highlight=7)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+Arama sonra ek bir yapılandırma sağlamak üzere `CreateDefaultBuilder`, kullanın `ConfigureKestrel`:
+
+```csharp
+.ConfigureKestrel((context, options) =>
+{
+    // Set properties and call methods on options
+});
+```
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0 || aspnetcore-2.1"
+
+Arama sonra ek bir yapılandırma sağlamak üzere `CreateDefaultBuilder`, çağrı [UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel):
+
+```csharp
+.UseKestrel(options =>
+{
+    // Set properties and call methods on options
+});
+```
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 Yükleme [Microsoft.AspNetCore.Server.Kestrel](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.Kestrel/) NuGet paketi.
 
@@ -85,11 +115,11 @@ Yükleme [Microsoft.AspNetCore.Server.Kestrel](https://www.nuget.org/packages/Mi
 
 [!code-csharp[](kestrel/samples/1.x/KestrelSample/Program.cs?name=snippet_Main&highlight=13-19)]
 
----
+::: moniker-end
 
 ### <a name="kestrel-options"></a>Kestrel'i seçenekleri
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.0"
 
 Kestrel'i web sunucusu Internet'e yönelik dağıtımlarda özellikle yararlı olan kısıtlaması yapılandırma seçenekleri vardır. Özelleştirilebilir birkaç önemli sınırları:
 
@@ -104,13 +134,47 @@ Bunlar ve diğer kısıtlamaları ayarlamak [sınırları](/dotnet/api/microsoft
 [MaxConcurrentConnections](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits.maxconcurrentconnections)  
 [MaxConcurrentUpgradedConnections](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits.maxconcurrentupgradedconnections)
 
+::: moniker-end
+
 Aşağıdaki kod ile tüm uygulama için eşzamanlı açık TCP bağlantıları sayısı ayarlanabilir:
+
+::: moniker range=">= aspnetcore-2.2"
+
+```csharp
+.ConfigureKestrel((context, options) =>
+{
+    options.Limits.MaxConcurrentConnections = 100;
+});
+```
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0 || aspnetcore-2.1"
 
 [!code-csharp[](kestrel/samples/2.x/KestrelSample/Program.cs?name=snippet_Limits&highlight=3)]
 
+::: moniker-end
+
 HTTP veya HTTPS, başka bir protokol (örneğin, WebSockets istek üzerine) a yükseltilmiştir bağlantıları için ayrı bir sınır yoktur. Bir bağlantı yükseltildikten sonra karşı sayılır değil `MaxConcurrentConnections` sınırı.
 
+::: moniker range=">= aspnetcore-2.2"
+
+```csharp
+.ConfigureKestrel((context, options) =>
+{
+    options.Limits.MaxConcurrentUpgradedConnections = 100;
+});
+```
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0 || aspnetcore-2.1"
+
 [!code-csharp[](kestrel/samples/2.x/KestrelSample/Program.cs?name=snippet_Limits&highlight=4)]
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.0"
 
 Bağlantı sayısı, varsayılan olarak sınırsız (null) olur.
 
@@ -127,13 +191,32 @@ Bir ASP.NET Core MVC uygulamasında sınırı geçersiz kılmak için önerilen 
 public IActionResult MyActionMethod()
 ```
 
+::: moniker-end
+
 Her istek için uygulama kısıtlama yapılandırma gösteren bir örnek aşağıda verilmiştir:
+
+::: moniker range=">= aspnetcore-2.2"
+
+```csharp
+.ConfigureKestrel((context, options) =>
+{
+    options.Limits.MaxRequestBodySize = 10 * 1024;
+});
+```
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0 || aspnetcore-2.1"
 
 [!code-csharp[](kestrel/samples/2.x/KestrelSample/Program.cs?name=snippet_Limits&highlight=5)]
 
 Belirli bir istekte Ara yazılımında ayarı geçersiz kılabilirsiniz:
 
 [!code-csharp[](kestrel/samples/2.x/KestrelSample/Startup.cs?name=snippet_Limits&highlight=3-4)]
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.0"
 
 Uygulama isteği okumak başlatıldıktan sonra bir istekte sınırını yapılandırmak çalışırsanız, bir özel durum oluşturulur. Var. bir `IsReadOnly` gösterir özelliği `MaxRequestBodySize` özelliği olan salt okunur durumda olduğu çok geç sınırını yapılandırmak için anlamına gelir.
 
@@ -150,11 +233,33 @@ En düşük bir ücretle yanıt için de geçerlidir. İstek sınırı ve yanıt
 
 En az veriyi hızları yapılandırma gösteren bir örnek aşağıdadır *Program.cs*:
 
-[!code-csharp[](kestrel/samples/2.x/KestrelSample/Program.cs?name=snippet_Limits&highlight=6-7)]
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+```csharp
+.ConfigureKestrel((context, options) =>
+{
+    options.Limits.MinRequestBodyDataRate =
+        new MinDataRate(bytesPerSecond: 100, gracePeriod: TimeSpan.FromSeconds(10));
+    options.Limits.MinResponseDataRate =
+        new MinDataRate(bytesPerSecond: 100, gracePeriod: TimeSpan.FromSeconds(10));
+});
+```
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0 || aspnetcore-2.1"
+
+[!code-csharp[](kestrel/samples/2.x/KestrelSample/Program.cs?name=snippet_Limits&highlight=6-9)]
 
 İstek başına ücretler Ara yazılımında yapılandırabilirsiniz:
 
 [!code-csharp[](kestrel/samples/2.x/KestrelSample/Startup.cs?name=snippet_Limits&highlight=5-8)]
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.0"
 
 Diğer seçenekleri Kestrel ve sınırları hakkında daha fazla bilgi için bkz:
 
@@ -162,20 +267,21 @@ Diğer seçenekleri Kestrel ve sınırları hakkında daha fazla bilgi için bkz
 * [KestrelServerLimits](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits)
 * [ListenOptions](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.listenoptions)
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 Kestrel'i seçenekleri ve sınırları hakkında daha fazla bilgi için bkz:
 
 * [KestrelServerOptions sınıfı](/dotnet/api/microsoft.aspnetcore.server.kestrel.kestrelserveroptions?view=aspnetcore-1.1)
 * [KestrelServerLimits](/dotnet/api/microsoft.aspnetcore.server.kestrel.kestrelserverlimits?view=aspnetcore-1.1)
 
----
+::: moniker-end
 
 ### <a name="endpoint-configuration"></a>Uç nokta yapılandırması
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
-
 ::: moniker range="= aspnetcore-2.0"
+
 Varsayılan olarak, ASP.NET Core bağlar `http://localhost:5000`. Çağrı [dinleme](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions.listen) veya [ListenUnixSocket](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions.listenunixsocket) yöntemlerde [KestrelServerOptions](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions) Kestrel için URL ön ekleri ve bağlantı noktalarını yapılandırmak için. `UseUrls`, `--urls` komut satırı bağımsız değişkeni `urls` ana bilgisayar yapılandırma anahtarı ve `ASPNETCORE_URLS` ortam değişkeni de çalışır, ancak daha sonra bu bölümde belirtilen kısıtlamalara sahip.
 
 `urls` Ana bilgisayar yapılandırma anahtarı konak yapılandırması, uygulama yapılandırmasını gelmelidir. Ekleme bir `urls` anahtarı ve değeri *appsettings.json* konak yapılandırması, yapılandırma dosyasından okunur zamanı tarafından tamamen başlatılmış olduğundan ana bilgisayar yapılandırması etkilemez. Ancak, bir `urls` anahtarını *appsettings.json* kullanılabilir [UseConfiguration](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.useconfiguration) konağı yapılandırmak için konak oluşturucu üzerinde:
@@ -195,6 +301,7 @@ var host = new WebHostBuilder()
 ```
 
 ::: moniker-end
+
 ::: moniker range=">= aspnetcore-2.1"
 
 Varsayılan olarak, ASP.NET Core bağlar:
@@ -353,10 +460,10 @@ Kullanmaya alternatif **yolu** ve **parola** herhangi bir sertifikayı sertifika
 * `Certificate` Bölümüne, isteğe bağlıdır. Varsa `Certificate` bölüm belirtilmediyse, önceki senaryoda tanımlanan varsayılan değerler kullanılır. Varsayılan değer mevcutsa, sunucunun bir özel durum oluşturur ve başlatmak başarısız olur.
 * `Certificate` Bölümü destekler **yolu**&ndash;**parola** ve **konu**&ndash;**Store** sertifikalar.
 * Bağlantı noktası çakışmalara neden olmayan sürece herhangi bir sayıda uç noktaları bu şekilde tanımlanabilir.
-* `serverOptions.Configure(context.Configuration.GetSection("Kestrel"))` döndürür bir `KestrelConfigurationLoader` ile bir `.Endpoint(string name, options => { })` yapılandırılmış bir uç noktanın ayarları desteklemek için kullanılan yöntemi:
+* `options.Configure(context.Configuration.GetSection("Kestrel"))` döndürür bir `KestrelConfigurationLoader` ile bir `.Endpoint(string name, options => { })` yapılandırılmış bir uç noktanın ayarları desteklemek için kullanılan yöntemi:
 
   ```csharp
-  serverOptions.Configure(context.Configuration.GetSection("Kestrel"))
+  options.Configure(context.Configuration.GetSection("Kestrel"))
       .Endpoint("HTTPS", opt =>
       {
           opt.HttpsOptions.SslProtocols = SslProtocols.Tls12;
@@ -366,7 +473,7 @@ Kullanmaya alternatif **yolu** ve **parola** herhangi bir sertifikayı sertifika
   Ayrıca doğrudan erişebilirsiniz `KestrelServerOptions.ConfigurationLoader` tarafından sağlanan gibi mevcut yükleyiciyi yineleme tutmak için [WebHost.CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder).
 
 * Her uç nokta yapılandırma bölümü bir seçenekler kullanılabilir `Endpoint` yöntemi böylece özel ayarlarını okuyun.
-* Birden fazla yapılandırması çağırarak yüklenmemiş olabilir `serverOptions.Configure(context.Configuration.GetSection("Kestrel"))` yeniden başka bir bölüme sahip. Sürece yalnızca son yapılandırma kullanıldığını `Load` önceki örnekleri üzerinde açıkça çağrılır. Metapackage çağrı değil `Load` böylece kendi varsayılan yapılandırma bölümü değiştirilebilir.
+* Birden fazla yapılandırması çağırarak yüklenmemiş olabilir `options.Configure(context.Configuration.GetSection("Kestrel"))` yeniden başka bir bölüme sahip. Sürece yalnızca son yapılandırma kullanıldığını `Load` önceki örnekleri üzerinde açıkça çağrılır. Metapackage çağrı değil `Load` böylece kendi varsayılan yapılandırma bölümü değiştirilebilir.
 * `KestrelConfigurationLoader` yansıtmalar `Listen` API'lerinden ailesi `KestrelServerOptions` olarak `Endpoint` yüklemeleri için aynı yerde kodda ve yapılandırma uç noktaları yapılandırılabilir. Bu aşırı yüklemeler olmayan adlar kullanın ve yalnızca varsayılan yapılandırma ayarlarından kullanma.
 
 *Kodda Varsayılanları Değiştir*
@@ -395,6 +502,51 @@ SNI desteği gerektirir:
 
 * Hedef framework üzerinde çalışan `netcoreapp2.1`. Üzerinde `netcoreapp2.0` ve `net461`, geri çağırma çağrılır ancak `name` her zaman `null`. `name` De `null` istemci TLS anlaşması name parametresinde konak sağlamıyorsa.
 * Tüm Web sitelerinin aynı Kestrel örneğinde çalıştırın. Kestrel'i ters Ara sunucu olmadan birden çok örneğinde bir IP adresi ve bağlantı noktası paylaşımı desteklemez.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+```csharp
+WebHost.CreateDefaultBuilder()
+    .ConfigureKestrel((context, options) =>
+    {
+        options.ListenAnyIP(5005, listenOptions =>
+        {
+            listenOptions.UseHttps(httpsOptions =>
+            {
+                var localhostCert = CertificateLoader.LoadFromStoreCert(
+                    "localhost", "My", StoreLocation.CurrentUser, 
+                    allowInvalid: true);
+                var exampleCert = CertificateLoader.LoadFromStoreCert(
+                    "example.com", "My", StoreLocation.CurrentUser, 
+                    allowInvalid: true);
+                var subExampleCert = CertificateLoader.LoadFromStoreCert(
+                    "sub.example.com", "My", StoreLocation.CurrentUser, 
+                    allowInvalid: true);
+                var certs = new Dictionary<string, X509Certificate2>(
+                    StringComparer.OrdinalIgnoreCase);
+                certs["localhost"] = localhostCert;
+                certs["example.com"] = exampleCert;
+                certs["sub.example.com"] = subExampleCert;
+
+                httpsOptions.ServerCertificateSelector = (connectionContext, name) =>
+                {
+                    if (name != null && certs.TryGetValue(name, out var cert))
+                    {
+                        return cert;
+                    }
+
+                    return exampleCert;
+                };
+            });
+        });
+    });
+```
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0 || aspnetcore-2.1"
 
 ```csharp
 WebHost.CreateDefaultBuilder()
@@ -439,7 +591,36 @@ WebHost.CreateDefaultBuilder()
 
 [Dinleme](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions.listen) yöntemi için bir TCP yuva bağlar ve SSL sertifika yapılandırma seçenekleri lambda verir:
 
+::: moniker range=">= aspnetcore-2.2"
+
+```csharp
+public static void Main(string[] args)
+{
+    CreateWebHostBuilder(args).Build().Run();
+}
+
+public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+        .UseStartup<Startup>()
+        .ConfigureKestrel((context, options) =>
+        {
+            options.Listen(IPAddress.Loopback, 8000);
+            options.Listen(IPAddress.Loopback, 8001, listenOptions =>
+            {
+                listenOptions.UseHttps("testCert.pfx", "testPassword");
+            });
+        });
+```
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0 || aspnetcore-2.1"
+
 [!code-csharp[](kestrel/samples/2.x/KestrelSample/Program.cs?name=snippet_TCPSocket&highlight=9-16)]
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.0"
 
 Örnek, bir uç nokta için SSL yapılandırır [ListenOptions](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.listenoptions). Özel uç noktaları diğer Kestrel ayarlarını yapılandırmak için aynı API kullanın.
 
@@ -449,7 +630,30 @@ WebHost.CreateDefaultBuilder()
 
 Bir UNIX yuvasıyla dinleyecek [ListenUnixSocket](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions.listenunixsocket) Bu örnekte gösterildiği gibi Ngınx ile Gelişmiş performans için:
 
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+```csharp
+.ConfigureKestrel((context, options) =>
+{
+    options.ListenUnixSocket("/tmp/kestrel-test.sock");
+    options.ListenUnixSocket("/tmp/kestrel-test.sock", listenOptions =>
+    {
+        listenOptions.UseHttps("testCert.pfx", "testpassword");
+    });
+});
+```
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0 || aspnetcore-2.1"
+
 [!code-csharp[](kestrel/samples/2.x/KestrelSample/Program.cs?name=snippet_UnixSocket)]
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.0"
 
 **Bağlantı noktası 0**
 
@@ -481,7 +685,9 @@ Bu yöntemler, kod Kestrel dışında sunucuları ile iş yapmak için kullanı�
 
 IIS geçersiz kılmak için IIS, URL bağlamaları kullanırken bağlamalar tarafından ayarlanan `Listen` veya `UseUrls`. Daha fazla bilgi için [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module) konu.
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 Varsayılan olarak, ASP.NET Core bağlar `http://localhost:5000`. URL ön ekleri ve Kestrel kullanarak bağlantı noktalarını yapılandırın:
 
@@ -496,7 +702,7 @@ Bu yöntemler hakkında daha fazla bilgi için bkz. [barındırma](xref:fundamen
 
 IIS kullanırken, IIS için URL bağlamaları bağlamaları belirlediği geçersiz kılma `UseUrls`. Daha fazla bilgi için [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module) konu.
 
----
+::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -539,7 +745,7 @@ ASP.NET Core 2.1 veya üzerini kullanan projeleri [Microsoft.AspNetCore.App meta
 
 Kullanırken `UseUrls`, `--urls` komut satırı bağımsız değişkeni `urls` ana bilgisayar yapılandırma anahtarı veya `ASPNETCORE_URLS` ortam değişkeni URL ön ekleri olabilir aşağıdaki biçimlerden birini.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.0"
 
 Yalnızca HTTP URL ön ekleri geçerlidir. Kullanarak URL bağlamaları yapılandırma sırasında kestrel SSL'yi desteklemez `UseUrls`.
 
@@ -581,7 +787,9 @@ Yalnızca HTTP URL ön ekleri geçerlidir. Kullanarak URL bağlamaları yapılan
 
   Zaman `localhost` belirtilirse, IPv4 ve IPv6 geri döngü arabirimlere bağlamak Kestrel çalışır. İstenen bağlantı noktası başka bir hizmette ya da geri döngü arabirimine tarafından kullanılıyor Kestrel başlatmak başarısız olur. Ya da geri döngü arabirimine başka bir nedenle kullanılamıyorsa (genellikle IPv6 desteklenmediğinden çoğu), Kestrel bir uyarı günlüğe kaydeder.
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 * Bağlantı noktası numarası ile IPv4 adresi
 
@@ -659,7 +867,7 @@ var host = new WebHostBuilder()
 
 [!INCLUDE [How to make an X.509 cert](~/includes/make-x509-cert.md)]
 
----
+::: moniker-end
 
 ## <a name="host-filtering"></a>Konak filtreleme
 
