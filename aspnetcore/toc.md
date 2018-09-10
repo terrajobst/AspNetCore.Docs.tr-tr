@@ -393,6 +393,7 @@
 ## [Siteler Arası Betik kullanmayı önleme](xref:security/cross-site-scripting)
 ## [Kaynaklar Arası İstekleri (CORS) etkinleştirme](xref:security/cors)
 ## [Uygulamalar arasında tanımlama bilgilerini paylaşma](xref:security/cookie-sharing)
+## [IP güvenli listesi](xref:security/ip-safelist)
 
 # [Performans](xref:performance/index)
 ## [Önbellek yanıtları](xref:performance/caching/index)
