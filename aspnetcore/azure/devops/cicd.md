@@ -5,27 +5,27 @@ description: Azure'da barındırılan bir ASP.NET Core uygulaması için bir Dev
 ms.author: scaddie
 ms.date: 08/17/2018
 uid: azure/devops/cicd
-ms.openlocfilehash: e084a6115dc7e176c17b2b318233b7a003b39a83
-ms.sourcegitcommit: 1cf65c25ed16495e27f35ded98b3952a30c68f36
+ms.openlocfilehash: 0bfe1545da4c0778055d7c81c1588d3267d2e711
+ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41757071"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44340114"
 ---
 # <a name="continuous-integration-and-deployment"></a>Sürekli tümleştirme ve dağıtım
 
-Önceki bölümde, basit akış Reader uygulaması için yerel bir Git deposu oluşturuldu. Bu bölümde, bir GitHub deposuna kod yayımlamak ve Visual Studio Team Services (VSTS) DevOps işlem hattı oluşturun. İşlem hattı, sürekli oluşturma ve uygulama dağıtımlarını sağlar. Herhangi bir kaydetme için GitHub deposunu bir derleme ve Azure Web uygulaması'nın hazırlık yuvasına dağıtım tetikler.
+Önceki bölümde, basit akış Reader uygulaması için yerel bir Git deposu oluşturuldu. Bu bölümde, bir GitHub deposuna kod yayımlamak ve Azure işlem hatları kullanarak bir Azure DevOps Hizmetleri işlem hattı oluşturun. İşlem hattı, sürekli oluşturma ve uygulama dağıtımlarını sağlar. Herhangi bir kaydetme için GitHub deposunu bir derleme ve Azure Web uygulaması'nın hazırlık yuvasına dağıtım tetikler.
 
 Bu bölümde, aşağıdaki görevleri tamamlamanız:
 
 * Uygulamanın kodu Github'a yayımlayın
 * Yerel Git dağıtımı bağlantısını kes
-* Bir VSTS hesabı oluşturma
-* VSTS takım projesi oluşturma
+* Azure DevOps kuruluş oluştur
+* Azure DevOps Hizmetleri'ndeki bir takım projesi oluşturma
 * Bir yapı tanımı oluşturun
 * Yayın işlem hattı oluşturma
 * Değişiklikleri Github'a işleyin ve otomatik olarak Azure'a dağıtma
-* VSTS DevOps işlem hattı inceleyin
+* Azure işlem hatları işlem hattı inceleyin
 
 ## <a name="publish-the-apps-code-to-github"></a>Uygulamanın kodu Github'a yayımlayın
 
@@ -53,7 +53,7 @@ Bu bölümde, aşağıdaki görevleri tamamlamanız:
 
 ## <a name="disconnect-local-git-deployment"></a>Yerel Git dağıtımı bağlantısını kes
 
-Aşağıdaki adımlarla yerel Git dağıtımını kaldırın. VSTS hem değiştirir ve bu işlevselliği artırmaktadır.
+Aşağıdaki adımlarla yerel Git dağıtımını kaldırın. Azure işlem hatları (Azure DevOps hizmeti) hem değiştirir ve bu işlevselliği artırmaktadır.
 
 1. Açık [Azure portalında](https://portal.azure.com/)gidin *hazırlama (mywebapp şeklindedir\<unique_number\>/hazırlama)* Web uygulaması. Web uygulamasını hızlıca girerek konumlandırılabilir *hazırlama* portal'ın arama kutusunda:
 
@@ -63,26 +63,26 @@ Aşağıdaki adımlarla yerel Git dağıtımını kaldırın. VSTS hem değişti
 1. Gidin *mywebapp şeklindedir < unique_number >* App Service. App Service hızlıca bulmak için portal'ın arama kutusuna bir anımsatıcı kullanılabilir.
 1. Tıklayın **dağıtım seçenekleri**. Yeni bir panel açılır. Tıklayın **Bağlantıyı Kes** önceki bölümde eklenmiş olan yerel Git kaynak denetimi yapılandırması kaldırılamadı. Kaldırma işlemi onaylamak **Evet** düğmesi.
 
-## <a name="create-a-vsts-account"></a>Bir VSTS hesabı oluşturma
+## <a name="create-an-azure-devops-organization"></a>Azure DevOps kuruluş oluştur
 
-1. Bir tarayıcı açın ve gidin [VSTS hesabı oluşturma sayfası](https://go.microsoft.com/fwlink/?LinkId=307137).
-1. Benzersiz bir ad yazın **hatırlayabileceğiniz bir ad seçin** VSTS hesabınızın erişim URL'si oluşturmak için metin kutusu.
+1. Bir tarayıcı açın ve gidin [Azure DevOps kuruluş oluşturma sayfası](https://go.microsoft.com/fwlink/?LinkId=307137).
+1. Benzersiz bir ad yazın **hatırlayabileceğiniz bir ad seçin** Azure DevOps kuruluşunuz erişim URL'si oluşturmak için metin kutusu.
 1. Seçin **Git** kodu bir GitHub deposunda barındırıldığından radyo düğmesi.
 1. Tıklayın **devam** düğmesi. Kısa bir beklemeden, bir hesap ve bir takım projesi sonra adlı *MyFirstProject*, oluşturulur.
 
-    ![VSTS hesabı oluşturma sayfası](media/cicd/vsts-account-creation.png)
+    ![Azure DevOps kuruluş oluşturma sayfası](media/cicd/vsts-account-creation.png)
 
-1. VSTS hesabı ve proje kullanıma hazır olduğunu gösteren onay e-posta açın. Tıklayın **projenizi başlatın** düğmesi:
+1. Azure DevOps kuruluşa ve proje kullanıma hazır olduğunu gösteren onay e-posta açın. Tıklayın **projenizi başlatın** düğmesi:
 
     ![Proje düğmenizin Başlat](media/cicd/vsts-start-project.png)
 
 1. Bir tarayıcı açılır  *\<account_name\>. visualstudio.com*. Tıklayın *MyFirstProject* projenin DevOps işlem hattı yapılandırmaya başlamak için bağlantı.
 
-## <a name="configure-the-devops-pipeline"></a>DevOps işlem hattı yapılandırın
+## <a name="configure-the-azure-pipelines-pipeline"></a>Azure işlem hatları ardışık düzenini yapılandırın
 
 Tamamlamak için üç ayrı adımlar vardır. Aşağıdaki üç bölüm sonuçları operasyonel bir DevOps işlem hattı'ndaki adımları tamamlanıyor.
 
-### <a name="grant-vsts-access-to-the-github-repository"></a>VSTS GitHub deposuna erişim
+### <a name="grant-azure-devops-access-to-the-github-repository"></a>GitHub deposunu verme Azure DevOps erişimi
 
 1. Genişletin **veya kodu dış depodan derleyin** accordion. Tıklayın **Kurulum yapı** düğmesi:
 
@@ -92,12 +92,12 @@ Tamamlamak için üç ayrı adımlar vardır. Aşağıdaki üç bölüm sonuçla
 
     ![Kaynak - GitHub'ı seçin](media/cicd/vsts-select-source.png)
 
-1. VSTS, GitHub deponuzda erişebilmeniz için önce yetkilendirme gereklidir. Girin *< GitHub_username > GitHub bağlantısı* içinde **bağlantı adı** metin. Örneğin:
+1. Azure DevOps GitHub deponuza erişebilmeniz için önce yetkilendirme gereklidir. Girin *< GitHub_username > GitHub bağlantısı* içinde **bağlantı adı** metin. Örneğin:
 
     ![GitHub bağlantı adı](media/cicd/vsts-repo-authz.png)
 
 1. GitHub hesabınızda iki öğeli kimlik doğrulaması etkinleştirilirse, kişisel erişim belirteci gereklidir. Bu durumda, tıklayın **Authorize GitHub kişisel erişim belirteci ile** bağlantı. Bkz: [resmi GitHub kişisel erişim belirteci oluşturma yönergeleri](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) Yardım. Yalnızca *depo* izinlerin kapsamı gereklidir. ' A tıklayıp **OAuth kullanarak Yetkilendir** düğmesi.
-1. İstendiğinde GitHub hesabınızla oturum açın. Ardından Authorize VSTS hesabınızın erişim vermek için seçin. Başarılı olursa, yeni bir hizmet uç noktası oluşturulur.
+1. İstendiğinde GitHub hesabınızla oturum açın. Azure DevOps kuruluşunuz erişimi vermek için yetki ver ardından seçin. Başarılı olursa, yeni bir hizmet uç noktası oluşturulur.
 1. Yanındaki üç nokta düğmesini tıklayın **depo** düğmesi. Seçin *< GitHub_username > / basit akış okuyucu* listeden depo. Tıklayın **seçin** düğmesi.
 1. Seçin *ana* gelen dal **el ile ve zamanlanan derlemeler için varsayılan dal** açılır. Tıklayın **devam** düğmesi. Şablon seçimi sayfası görüntülenir.
 
@@ -205,7 +205,7 @@ Tamamlamak için üç ayrı adımlar vardır. Aşağıdaki üç bölüm sonuçla
 
     ![sürekli tümleştirmeyi etkinleştir](media/cicd/enable-ci.png)
 
-1. Gidin **sıraya alınan** sekmesinde **derleme ve yayın** > **yapılar** vsts'de sayfası. Sıraya alınan yapı, dal ve derleme tetiklendi işleme gösterir:
+1. Gidin **sıraya alınan** sekmesinde **Azure işlem hatları** > **yapılar** Azure DevOps Hizmetleri sayfasında. Sıraya alınan yapı, dal ve derleme tetiklendi işleme gösterir:
 
     ![Kuyruğa Alınan derleme](media/cicd/build-queued.png)
 
@@ -213,7 +213,7 @@ Tamamlamak için üç ayrı adımlar vardır. Aşağıdaki üç bölüm sonuçla
 
     ![güncelleştirilmiş uygulama](media/cicd/updated-app-v4.png)
 
-## <a name="examine-the-vsts-devops-pipeline"></a>VSTS DevOps işlem hattı inceleyin
+## <a name="examine-the-azure-pipelines-pipeline"></a>Azure işlem hatları işlem hattı inceleyin
 
 ### <a name="build-definition"></a>Derleme tanımı
 
@@ -275,6 +275,6 @@ Abonelik, kaynak grubu, hizmet türü, web uygulaması adı ve dağıtım yuvas�
 
 ## <a name="additional-reading"></a>Ek okuma
 
-* [ASP.NET Core uygulamanızı oluşturun](https://docs.microsoft.com/vsts/build-release/apps/aspnet/build-aspnet-core)
-* [İçin bir Azure Web uygulaması derleme ve dağıtma](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp)
-* [GitHub deponuza için CI yapı işlemi tanımlama](https://docs.microsoft.com/vsts/pipelines/build/ci-build-github)
+* [Azure işlem hattı ile ilk işlem hattınızı oluşturun](/azure/devops/pipelines/get-started-yaml)
+* [Derleme ve .NET Core projesi](/azure/devops/pipelines/languages/dotnet-core)
+* [Azure işlem hatları ile bir web uygulaması dağıtma](/azure/devops/pipelines/targets/webapp)

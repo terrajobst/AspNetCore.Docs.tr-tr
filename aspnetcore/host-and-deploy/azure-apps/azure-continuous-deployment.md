@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/14/2016
 uid: host-and-deploy/azure-apps/azure-continuous-deployment
-ms.openlocfilehash: 3470d9278574a95115b14f25b90a0a93bb3b8a67
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 5ae8ce01610828417fc76ed6626e518c8493bd0f
+ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41756616"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44340205"
 ---
 # <a name="continuous-deployment-to-azure-with-visual-studio-and-git-with-aspnet-core"></a>ASP.NET Core ile Git ve Visual Studio ile Azure'a sürekli dağıtım
 
@@ -21,7 +21,7 @@ tarafından [Erik Reitan](https://github.com/Erikre)
 
 Bu öğreticide, sürekli dağıtım kullanarak, Visual Studio kullanarak ASP.NET Core web uygulaması oluşturma ve bunu Visual Studio'dan Azure App Service'e dağıtma gösterilir.
 
-Ayrıca bkz [kullanım oluşturun ve sürekli dağıtım ile bir Azure Web uygulamasına yayımlamak için VSTS](/vsts/build-release/archive/apps/aspnet/aspnet-4-ci-cd-azure-automatic), nasıl bir sürekli teslim (CD) iş akışı yapılandırma [Azure App Service](/azure/app-service/app-service-web-overview) kullanarak Visual Studio Takım Hizmetler. Azure, Team Services'da sürekli teslim, Azure App Service'te barındırılan uygulamalar için güncelleştirmeleri yayımlamak için sağlam bir dağıtım işlem hattı ayarlamayı basitleştirir. İşlem hattı, Azure portalından oluşturmak, testleri çalıştırmak, hazırlama yuvasına dağıtın ve sonra üretim ortamına dağıtmak için yapılandırılabilir.
+Ayrıca bkz: [Azure işlem hattı ile ilk işlem hattınızı oluşturma](/azure/devops/pipelines/get-started-yaml), nasıl bir sürekli teslim (CD) iş akışı yapılandırma [Azure App Service](/azure/app-service/app-service-web-overview) Azure DevOps Hizmetleri'ni kullanarak. Azure işlem hatları (Azure DevOps Hizmetleri hizmeti), Azure App Service'te barındırılan uygulamalar için güncelleştirmeleri yayımlamak için sağlam bir dağıtım işlem hattı ayarlamayı basitleştirir. İşlem hattı, Azure portalından oluşturmak, testleri çalıştırmak, hazırlama yuvasına dağıtın ve sonra üretim ortamına dağıtmak için yapılandırılabilir.
 
 > [!NOTE]
 > Bu öğreticiyi tamamlamak için Microsoft Azure hesabı gereklidir. Bir hesap almak için [MSDN abone Avantajlarınızı etkinleştirebilir](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A261C142F) veya [ücretsiz deneme için kaydolun](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -228,5 +228,5 @@ Güncelleştirilen web uygulamasını seçerek görüntüleme **Gözat** bir tar
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Derleme ve sürekli dağıtım ile bir Azure Web uygulamasına yayımlamak için VSTS kullanın](/vsts/build-release/archive/apps/aspnet/aspnet-4-ci-cd-azure-automatic)
+* [Azure işlem hattı ile ilk işlem hattınızı oluşturun](/azure/devops/pipelines/get-started-yaml)
 * [Kudu projesi](https://github.com/projectkudu/kudu/wiki)

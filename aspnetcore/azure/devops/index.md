@@ -5,12 +5,12 @@ description: Azure'da barındırılan bir ASP.NET Core uygulaması için bir Dev
 ms.author: casoper
 ms.date: 08/07/2018
 uid: azure/devops/index
-ms.openlocfilehash: f2eb2499a61ce639457f30f4d182dac6ff677a0f
-ms.sourcegitcommit: 6d02e26748a09eabeb0e11740a398cc2bc90b098
+ms.openlocfilehash: 53667831f5e33107178a947f23d957ff22e8c1a0
+ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41754509"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44340101"
 ---
 # <a name="devops-with-aspnet-core-and-azure"></a>ASP.NET Core ve Azure ile DevOps
 
@@ -46,7 +46,7 @@ Azure App Service'e bir ASP.NET Core uygulaması dağıtmak için çeşitli yön
 
 ### <a name="continuous-integration-and-deploymentxrefazuredevopscicd"></a>[Sürekli tümleştirme ve dağıtım](xref:azure/devops/cicd)
 
-Bir uçtan uca sürekli tümleştirme ve dağıtım çözümü için GitHub, VSTS ve Azure ile ASP.NET Core uygulamanızı oluşturun.
+Bir uçtan uca sürekli tümleştirme ve dağıtım çözümü için GitHub, Azure DevOps Services ve Azure ile ASP.NET Core uygulamanızı oluşturun.
 
 ### <a name="monitor-and-debugxrefazuredevopsmonitor"></a>[İzleme ve hata ayıklama](xref:azure/devops/monitor)
 

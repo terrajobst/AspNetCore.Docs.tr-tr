@@ -8,12 +8,12 @@ ms.date: 06/12/2014
 ms.assetid: eaece9f5-f80c-428b-b771-5db66d275b7d
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery
 msc.type: authoredcontent
-ms.openlocfilehash: 787aacfd843f5f72e567670d601fb036a2c474bc
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 7a92a68ce8bbeec604a22e082975d33f9f3377c1
+ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41755151"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44340075"
 ---
 <a name="continuous-integration-and-continuous-delivery-building-real-world-cloud-apps-with-azure"></a>Sürekli tümleştirme ve sürekli teslim (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma)
 ====================
@@ -40,9 +40,9 @@ Aşağıdaki diyagramda gelen [bir Microsoft Patterns and Practices e-kitap sür
 
 Azure'da bu işlemleri otomatik hale getirmek kolaydır. Her şey bulutta çalıştırdığınız için satın alma veya sunucularını, derlemeleri veya test ortamlarınızı yönetme gerekmez. Ve bir sunucu üzerinde testi yapmak kullanılabilir olmasını beklemek zorunda değilsiniz. Bunu her derleme ile Otomasyon betiğinizi, çalışma kabul testleri veya bunlara karşı daha fazla ayrıntılı test kullanarak azure'da bir test ortamını hızla çalıştırın ve yalnızca işiniz bittiğinde sonra geri yıkın. Ve yalnızca sunucu için 2 saat veya 8 saat veya gün çalıştırırsanız, yalnızca bir makine gerçekten çalıştığı süre için ödeme için ödeme yapmanıza gerek para miktarını en az olmasıdır. Örneğin, ortam ücretsiz düzeyden bir katman gidebilir, uygulama, temelde saat başına yaklaşık 1 Sent maliyetleri düzeltme için gereklidir. Bir defada yalnızca saat ortamı çalışmışsa faturaya bir ay boyunca, test ortamınızda büyük olasılıkla kahve satın aldığınız bir latte değerinden maliyeti.
 
-## <a name="visual-studio-team-services-vsts"></a>Visual Studio Team Services (VSTS)
+## <a name="azure-devops-services"></a>Azure DevOps Hizmetleri 
 
-VSTS, bir dizi özellik, uygulama geliştirme için dağıtıma yardımcı olmak üzere sağlar.
+Azure DevOps Services ile uygulama geliştirme için dağıtıma yardımcı olacak özellikler sağlar.
 
 - Hem Git (dağıtılmış) ve de (Merkezi) TFVC kaynak denetimi destekler.
 - Dinamik olarak zaman, derleme sunucuları oluşturur ve ne zaman, işinizi bitirince götüren bir esnek derleme hizmeti sunar. Bir derleme, birisi kaynak kod değişikliklerini kontrol ve sahip ayırmak ve çoğu zaman boşta kalan kendi derleme sunucularınızı için ödeme gerekmez otomatik olarak başlatabilir. Derleme hizmeti, belirli bir derleme sayısı aşmamak sürece ücretsizdir. Yüksek hacimli yapıları yapmak bekliyorsanız, ayrılmış derleme sunucuları için küçük bir ek ödeme yapabilirsiniz.
@@ -52,9 +52,9 @@ VSTS, bir dizi özellik, uygulama geliştirme için dağıtıma yardımcı olmak
 - Bu, Çevik proje yönetimi destekler.
 
 
-Sürekli tümleştirme ve teslim VSTS özellikleri hakkında daha fazla bilgi için bkz. [Visual Studio Team Services](https://www.visualstudio.com/team-services/).
+Sürekli tümleştirme ve teslim özellikleri Azure DevOps hizmetleri hakkında daha fazla bilgi için bkz. [Azure DevOps belgeleri](/azure/devops/index).
 
-Kullanıma almak için bir anahtar teslim proje yönetimi, takım işbirliği ve kaynak denetimi çözümü, VSTS düşürmek istiyorsanız. En fazla 5 kullanıcı için ücretsiz bir hizmettir ve için adresinden kaydolabilirsiniz [Visual Studio Team Services](https://www.visualstudio.com/team-services/).
+Anahtar teslim proje yönetimi için arıyorsanız, takım işbirliği ve kaynak denetimi çözümü, Azure DevOps hizmetlerini denetleyin. Adresinde kaydolun [Azure DevOps Hizmetleri](https://dev.azure.com/).
 
 ## <a name="summary"></a>Özet
 

@@ -5,12 +5,12 @@ description: Azure'da barındırılan bir ASP.NET Core uygulaması için bir Dev
 ms.author: casoper
 ms.date: 08/07/2018
 uid: azure/devops/deploy-to-app-service
-ms.openlocfilehash: abd7167b313e131dc8b7ea6a49b774e14ae53bb9
-ms.sourcegitcommit: 29dfe436f54a27fbb4f6494bc639d16c75001fab
+ms.openlocfilehash: 710e65a048fdc062219e90b0db323e8e96fd8e9d
+ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39722736"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44340140"
 ---
 # <a name="deploy-an-app-to-app-service"></a>Bir uygulamayı App Service'e dağıtma
 
@@ -234,7 +234,7 @@ Bu bölümde, aşağıdaki görevleri tamamlandı:
 * Bir güncelleştirme hazırlama yuvasına dağıtılır.
 * Hazırlama ve üretim yuvası takas.
 
-Sonraki bölümde, Azure ve Visual Studio Team Services ile bir DevOps işlem hattı oluşturmayı öğreneceksiniz.
+Sonraki bölümde, Azure işlem hatları ile bir DevOps işlem hattı oluşturmayı öğreneceksiniz.
 
 ## <a name="additional-reading"></a>Ek okuma
 
