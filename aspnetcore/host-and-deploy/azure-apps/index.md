@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/29/2018
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: bc2a686c5ddc44fded135c9eed5caf676218773a
-ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
+ms.openlocfilehash: 23289823e154d93e4bedd23a1efae0e58c71eae0
+ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43312076"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44340192"
 ---
 # <a name="host-aspnet-core-on-azure-app-service"></a>Azure App Service'te ASP.NET Core barındırma
 
@@ -38,7 +38,7 @@ Azure App Service'e Git komut satırı istemcisini kullanarak bir ASP.NET Core u
 [Visual Studio ve Git ile Azure’a sürekli dağıtım](xref:host-and-deploy/azure-apps/azure-continuous-deployment)  
 Visual Studio kullanarak ASP.NET Core web uygulaması oluşturmayı öğrenin ve Git kullanarak sürekli dağıtım için Azure App Service'e dağıtın.
 
-[VSTS ile Azure’a sürekli dağıtım](https://www.visualstudio.com/docs/build/aspnet/core/quick-to-azure)  
+[Azure işlem hattı ile ilk işlem hattınızı oluşturun](/azure/devops/pipelines/get-started-yaml)  
 ASP.NET Core uygulaması için bir CI derlemesi ayarlayın ve ardından bir Azure App Service'e sürekli dağıtım yayın oluşturun.
 
 [Azure Web uygulama korumalı alanı](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox)  
