@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 05/01/2018
 uid: signalr/hubs
-ms.openlocfilehash: be39666373e2b099054bb71f4a7fcf17aeb9a01c
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: e583676ab0eed45aeaf6391d8cdf8c1485aa914e
+ms.sourcegitcommit: e7e1e531b80b3f4117ff119caadbebf4dcf5dcb7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095287"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44510343"
 ---
 # <a name="use-hubs-in-signalr-for-aspnet-core"></a>ASP.NET Core signalr'da hubs'ı kullanma
 
@@ -42,9 +42,29 @@ ASP.NET Core uygulaması için SignalR işlevselliği ekleme, SignalR yollar ça
 
 Dönüş türü ve parametreleri, tüm C# yönteminde olduğu gibi karmaşık türler ve diziler de dahil olmak üzere belirtebilirsiniz. SignalR serileştirme ve seri durumundan çıkarma karmaşık nesneler ve diziler parametreleri ve dönüş değerleri işler.
 
+## <a name="the-context-object"></a>Bağlam nesnesi
+
+`Hub` Sınıfında bir `Context` bağlantı hakkında bilgi içeren aşağıdaki özellikleri içeren özellik:
+
+| Özellik | Açıklama |
+| ------ | ----------- |
+| `ConnectionId` | SignalR tarafından atanan bağlantı için benzersiz kimlik alır. Her bağlantı için bir bağlantı kimliği yok.|
+| `UserIdentifier` | Alır [kullanıcı tanımlayıcısı](xref:signalr/groups). Varsayılan olarak, SignalR kullanır `ClaimTypes.NameIdentifier` gelen `ClaimsPrincipal` kullanıcı tanımlayıcısı olarak bağlantı ile ilişkili. |
+| `User` | Alır `ClaimsPrincipal` geçerli kullanıcı ile ilişkili. |
+| `Items` | Bu bağlantının kapsamı içinde veri paylaşmak için kullanılan bir anahtar/değer koleksiyonunu alır. Bu koleksiyonda veri depolanabilir ve farklı bir hub yöntemi çağrılarını arasında bağlantı için korunur. |
+| `Features` | Bağlantıda özelliklerin koleksiyonunu alır. Ayrıntılı olarak henüz belgelenmemiştir için şu an için çoğu senaryoda, bu koleksiyon gerek yoktur. |
+| `ConnectionAborted` | Alır bir `CancellationToken` bağlantı iptal edildiğinde bildirir. |
+
+`Hub.Context` Ayrıca aşağıdaki yöntemleri içerir:
+
+| Yöntem | Açıklama |
+| ------ | ----------- |
+| `GetHttpContext` | Döndürür `HttpContext` bir bağlantı veya `null` bağlantı bir HTTP isteği ile ilişkili değilse. HTTP bağlantıları için HTTP üst bilgileri ve sorgu dizeleri gibi bilgileri almak için bu yöntemi kullanabilirsiniz. |
+| `Abort` | Bağlantıyı durdurur. |
+
 ## <a name="the-clients-object"></a>İstemciler nesnesi
 
-Her bir örneği `Hub` sınıfında adlı bir özellik `Clients` , sunucu ve istemci arasındaki iletişim için aşağıdaki üyeleri içerir:
+`Hub` Sınıfında bir `Clients` sunucu ve istemci arasındaki iletişim için aşağıdaki özellikleri içeren özelliği:
 
 | Özellik | Açıklama |
 | ------ | ----------- |
@@ -53,7 +73,7 @@ Her bir örneği `Hub` sınıfında adlı bir özellik `Clients` , sunucu ve ist
 | `Others` | Yöntemini çağırmış istemciye dışındaki bağlanan tüm istemciler üzerinde bir yöntemi çağırır. |
 
 
-Ayrıca, `Hub.Clients` aşağıdaki yöntemleri içerir:
+`Hub.Clients` Ayrıca aşağıdaki yöntemleri içerir:
 
 | Yöntem | Açıklama |
 | ------ | ----------- |

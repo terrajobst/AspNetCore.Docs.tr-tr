@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 08/16/2018
 uid: security/authentication/scaffold-identity
-ms.openlocfilehash: e35836fa9c20729da7c857243410833749b3a595
-ms.sourcegitcommit: 847cc1de5526ff42a7303491e6336c2dbdb45de4
+ms.openlocfilehash: 4237e9084abe6575b1f69b143885e94196902965
+ms.sourcegitcommit: e7e1e531b80b3f4117ff119caadbebf4dcf5dcb7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43055854"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44510356"
 ---
 # <a name="scaffold-identity-in-aspnet-core-projects"></a>ASP.NET Core projelerinde iskele kimlik
 
@@ -89,6 +89,10 @@ Kimlik yapılandırılmıştır *Areas/Identity/IdentityHostingStartup.cs*. Daha
 <!--
 Use >=2.1: dotnet new webapp -au Individual -o RPauth
 Use = 2.0: dotnet new razor -au Individual -o RPauth
+
+dotnet new webapp -au Individual -o RPauth
+
+dotnet new razor -au Individual -o RPauth
 cd RPauth
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 dotnet restore
@@ -169,3 +173,9 @@ Aşağıdaki kod kümeleri [LoginPath](/dotnet/api/microsoft.aspnetcore.authenti
 Kayıt bir `IEmailSender` uygulaması örneği için:
 
 [!code-csharp[](scaffold-identity/sample/StartupFull.cs?name=snippet4)]
+
+[!code-csharp[](scaffold-identity/sample/StartupFull.cs?name=snippet)]
+
+## <a name="additional-resources"></a>Ek kaynaklar
+
+* [ASP.NET Core 2.1 ve daha sonra kimlik doğrulama kodu değişiklikleri](xref:migration/20_21#changes-to-authentication-code)
