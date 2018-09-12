@@ -287,7 +287,7 @@
 ### [Visual Studio ile Azure'a yayımlama](xref:tutorials/publish-to-azure-webapp-using-vs)
 ### [CLI araçları ile Azure’a yayımlama](xref:tutorials/publish-to-azure-webapp-using-cli)
 ### [Visual Studio ve Git ile Azure’a sürekli dağıtım](xref:host-and-deploy/azure-apps/azure-continuous-deployment)
-### [VSTS ile Azure’a sürekli dağıtım](https://www.visualstudio.com/docs/build/aspnet/core/quick-to-azure)
+### [Azure Pipelines ile Azure’a sürekli dağıtım](/azure/devops/pipelines/get-started-yaml)
 ### [Azure App Service’te uygulama sorunlarını giderme](xref:host-and-deploy/azure-apps/troubleshoot)
 ## [IIS ile Windows’da barındırma](xref:host-and-deploy/iis/index)
 ### [IIS üzerinde ASP.NET Core sorunlarını giderme](xref:host-and-deploy/iis/troubleshoot)
