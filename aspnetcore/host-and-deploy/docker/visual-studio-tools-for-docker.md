@@ -4,14 +4,14 @@ author: spboyer
 description: Bir ASP.NET Core uygulamasını kapsayıcılı hale getirme için Visual Studio 2017 araçları ve Docker için Windows kullanmayı öğrenin.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 07/26/2018
+ms.date: 09/12/2018
 uid: host-and-deploy/docker/visual-studio-tools-for-docker
-ms.openlocfilehash: 962c35cb1487dacd93fd78d09e2417ef77387e42
-ms.sourcegitcommit: 75bf5fdbfdcb6a7cfe8fe207b9ff37655ccbacd4
-ms.translationtype: MT
+ms.openlocfilehash: ecccc571f554e8dacdd37d247883547d1b525e9a
+ms.sourcegitcommit: 4db337bd47d70c06fff91000c58bc048a491ccec
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39275869"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44749353"
 ---
 # <a name="visual-studio-tools-for-docker-with-aspnet-core"></a>ASP.NET Core ile Docker için Visual Studio Araçları
 
@@ -102,6 +102,10 @@ Docker için Visual Studio Araçları ekleme bir *docker-compose* çözüme aşa
 Önceki örnekte `image: hellodockertools` görüntü oluşturur `hellodockertools:dev` uygulamayı çalıştırdığında **hata ayıklama** modu. `hellodockertools:latest` Görüntü uygulama çalıştırıldığında oluşturulan **yayın** modu.
 
 Görüntü adı ile önek [Docker Hub](https://hub.docker.com/) kullanıcı adı (örneğin, `dockerhubusername/hellodockertools`), görüntünün kayıt defterine gönderilir. Alternatif olarak, özel kayıt defteri URL'si eklemek için görüntü adı değiştirin (örneğin, `privateregistry.domain.com/hellodockertools`) yapılandırmasına bağlı olarak.
+
+Farklı istiyorsanız (örneğin, hata ayıklama veya sürüm), yapı yapılandırmasına göre davranış ekleyin yapılandırmaya özgü *docker-compose* dosyaları. Dosyaları yapı yapılandırmasına göre adlı olmalıdır (örneğin, *docker compose.vs.debug.yml* ve *docker compose.vs.release.yml*) ve aynıkonumayerleştirilir*docker compose override.yml* dosya. 
+
+Yapılandırmaya özgü geçersiz kılma dosyalarını kullanarak, hata ayıklama ve yayın derleme yapılandırmaları için farklı yapılandırma ayarları (örneğin, ortam değişkenleri veya giriş noktası) belirtebilirsiniz.
 
 ### <a name="service-fabric"></a>Service Fabric
 
