@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 09/12/2018
 uid: host-and-deploy/docker/visual-studio-tools-for-docker
-ms.openlocfilehash: ecccc571f554e8dacdd37d247883547d1b525e9a
-ms.sourcegitcommit: 4db337bd47d70c06fff91000c58bc048a491ccec
-ms.translationtype: HT
+ms.openlocfilehash: 4bb28e7644997c50c14046bc0c89338fa35a5f14
+ms.sourcegitcommit: a742b55e4b8276a48b8b4394784554fecd883c84
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44749353"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45538485"
 ---
 # <a name="visual-studio-tools-for-docker-with-aspnet-core"></a>ASP.NET Core ile Docker için Visual Studio Araçları
 
@@ -231,6 +231,7 @@ Bir karşılaştırma için boyut olarak daha küçük üretim ya da sürüm res
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
+* [Visual Studio ile kapsayıcı geliştirme](/visualstudio/containers)
 * [Azure Service Fabric: geliştirme ortamınızı hazırlama](/azure/service-fabric/service-fabric-get-started)
 * [Azure Service Fabric'e Windows kapsayıcısındaki bir .NET uygulaması dağıtma](/azure/service-fabric/service-fabric-host-app-in-a-container)
 * [Visual Studio 2017 geliştirme Docker ile ilgili sorunları giderme](/azure/vs-azure-tools-docker-troubleshooting-docker-errors)
