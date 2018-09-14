@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/12/2018
 uid: razor-pages/index
-ms.openlocfilehash: f5549a24c5b5fe2e6b33bd55960f87a8bf86bd19
-ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
+ms.openlocfilehash: 25add294d74be2840d2bee224b0f5ea91c782b64
+ms.sourcegitcommit: 70fb7c9d5f2ddfcf4747382a9f7159feca7a6aa7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41870886"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45601788"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>ASP.NET Core Razor sayfalar giriş
 
@@ -376,6 +376,8 @@ Güncelleştirilmiş *Pages/Create.cshtml* dosyasını görüntüle:
 
 [Razor sayfaları başlangıç projesini](#rpvs17) içeren *Pages/_ValidationScriptsPartial.cshtml*, istemci tarafı doğrulama kancaları.
 
+Kısmi görünümler hakkında daha fazla bilgi için bkz. <xref:mvc/views/partial>.
+
 <a name="url_gen"></a>
 
 ## <a name="url-generation-for-pages"></a>Sayfaları için URL üretimi
@@ -558,11 +560,12 @@ services.AddMvc()
     .WithRazorPagesRoot("/path/to/razor/pages");
 ```
 
-## <a name="see-also"></a>Ayrıca bkz.
+## <a name="additional-resources"></a>Ek kaynaklar
 
-* [ASP.NET Core'a giriş](xref:index)
-* [Razor söz dizimi](xref:mvc/views/razor)
-* [Razor Sayfaları kullanmaya başlama](xref:tutorials/razor-pages/razor-pages-start)
-* [Razor sayfaları yetkilendirme kuralları](xref:security/authorization/razor-pages-authorization)
-* [Razor sayfaları özel rota ve sayfa modeli sağlayıcılar](xref:razor-pages/razor-pages-conventions)
-* [Razor Sayfaları birim testleri](xref:test/razor-pages-tests)
+* <xref:index>
+* <xref:mvc/views/razor>
+* <xref:tutorials/razor-pages/razor-pages-start>
+* <xref:security/authorization/razor-pages-authorization>
+* <xref:razor-pages/razor-pages-conventions>
+* <xref:test/razor-pages-tests>
+* <xref:mvc/views/partial>
