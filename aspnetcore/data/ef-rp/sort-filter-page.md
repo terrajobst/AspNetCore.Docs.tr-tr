@@ -5,12 +5,12 @@ description: Bu öğreticide, sıralama, filtreleme ve sayfalama ASP.NET Core ve
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: ee5a0dae41ba0afba518f0bd6fbd379fdbbfb1c1
-ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
+ms.openlocfilehash: 668d6e54a64022dda948170f72538f6d4cd9a49f
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39202620"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011644"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>ASP.NET core'da - EF çekirdekli Razor sayfaları sıralama, filtreleme, sayfalama - 8'in 3
 
@@ -161,7 +161,7 @@ Sayfa atanmışsa, yer işareti sayfasının URL'sini içeren ve `SearchString` 
 
 Bu bölümde, bir `PaginatedList` sınıfı, disk belleği desteklemek için oluşturulur. `PaginatedList` Sınıfının kullandığı `Skip` ve `Take` yerine tablonun tüm satırlarının alınırken sunucu üzerindeki verileri filtrelemek için deyimleri. Aşağıdaki çizim, disk belleği düğme gösterilmektedir.
 
-![Disk belleği bağlantılarla sayfası Öğrenciler dizin](sort-filter-page/_static/paging.png)
+![disk belleği bağlantılarla Öğrenciler dizin sayfası](sort-filter-page/_static/paging.png)
 
 Proje klasöründe oluşturma `PaginatedList.cs` aşağıdaki kod ile:
 
@@ -231,7 +231,7 @@ Uygulamayı çalıştırın ve öğrenciler sayfasına gidin.
 * Disk belleği works emin olmak için farklı sıralamalar sayfalama Bağlantıları'ı tıklatın.
 * Disk belleği sıralama ve filtreleme ile düzgün çalıştığını doğrulamak için bir arama dizesi girin ve disk belleği'ni deneyin.
 
-![Disk belleği bağlantılarla sayfası Öğrenciler dizin](sort-filter-page/_static/paging.png)
+![disk belleği bağlantılarla Öğrenciler dizin sayfası](sort-filter-page/_static/paging.png)
 
 Daha iyi anlamak kodunu almak için:
 
@@ -281,6 +281,7 @@ Olamaz çözmek sorunlarla karşılaşırsanız, indirme [Bu aşama için tamaml
 * [ASP.NET Core 2.x kaynak hata ayıklama](https://github.com/aspnet/Docs/issues/4155)
 
 Sonraki öğreticide uygulama, veri modeli güncelleştirmek için geçişleri kullanır.
+
 ::: moniker-end
 
 > [!div class="step-by-step"]

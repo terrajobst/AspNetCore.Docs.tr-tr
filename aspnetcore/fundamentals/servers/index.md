@@ -1,117 +1,162 @@
 ---
-title: Web server ASP.NET Core uygulamalarında
+title: ASP.NET Core Web sunucu uygulamalarında
 author: rick-anderson
-description: Kestrel ve HTTP.sys web sunucuları için ASP.NET Core bulur. Bir sunucu seçmek nasıl ve ne zaman bir ters proxy sunucusu kullanmayı öğrenin.
+description: ASP.NET Core için web sunucuları Kestrel ve HTTP.sys keşfedin. Bir sunucu seçin ve ne zaman bir ters proxy sunucusu kullanmayı öğrenin.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 03/13/2018
+ms.date: 09/13/2018
 uid: fundamentals/servers/index
-ms.openlocfilehash: bb0331d7201d4e979e6c6524cbf630280c4eaeb6
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 0f1460af5bc1cd879ff11e43775ac16ca36b150e
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274449"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011761"
 ---
-# <a name="web-server-implementations-in-aspnet-core"></a>Web server ASP.NET Core uygulamalarında
+# <a name="web-server-implementations-in-aspnet-core"></a>ASP.NET Core Web sunucu uygulamalarında
 
-Tarafından [zel Dykstra](https://github.com/tdykstra), [Steve Smith](https://ardalis.com/), [Stephen Halter](https://twitter.com/halter73), ve [Chris fillerin](https://github.com/Tratcher)
+Tarafından [Tom Dykstra](https://github.com/tdykstra), [Steve Smith](https://ardalis.com/), [Stephen Halter](https://twitter.com/halter73), ve [Chris Ross](https://github.com/Tratcher)
 
-Bir ASP.NET Core uygulama işlem içi HTTP sunucusu uygulamasını ile çalışır. HTTP istekleri ve bunları uygulamaya kümesi ortaya çıkarır sunucusu uygulaması dinler [istek özellikleri](xref:fundamentals/request-features) içine oluşan bir [HttpContext](/dotnet/api/system.web.httpcontext).
+ASP.NET Core uygulaması bir işlemde HTTP sunucusu uygulamasını ile çalışır. HTTP istekleri ve bunları uygulamaya kümesi ortaya çıkarır sunucusu uygulaması dinler [istek özellikleri](xref:fundamentals/request-features) içine oluşan bir [HttpContext](/dotnet/api/system.web.httpcontext).
 
-ASP.NET Core iki sunucu uygulamaları gelir:
+ASP.NET Core iki sunucu uygulamaları ile birlikte gelir:
 
-* [Kestrel](xref:fundamentals/servers/kestrel) platformlar arası HTTP sunucusu, varsayılan ASP.NET çekirdeği için olur.
-* [HTTP.sys](xref:fundamentals/servers/httpsys) yalnızca Windows HTTP sunucu dayanır [HTTP.sys çekirdek sürücüsü ve HTTP sunucu API'sini](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx). (HTTP.sys çağrılır [WebListener](xref:fundamentals/servers/weblistener) ASP.NET Core içinde 1.x.)
+* [Kestrel'i](xref:fundamentals/servers/kestrel) platformlar arası bir HTTP sunucusu, varsayılan ASP.NET Core için olan.
+* [HTTP.sys](xref:fundamentals/servers/httpsys) yalnızca Windows HTTP sunucu dayanır [HTTP.sys çekirdek sürücüsü ve HTTP Sunucusu API](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx). (HTTP.sys çağrılır [WebListener](xref:fundamentals/servers/weblistener) içinde ASP.NET Core 1.x.)
 
-## <a name="kestrel"></a>kestrel
+## <a name="kestrel"></a>Kestrel'i
 
-Kestrel ASP.NET Core proje şablonlarını dahil varsayılan web sunucusudur.
+Kestrel'i ASP.NET Core proje şablonları dahil varsayılan web sunucusudur.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+::: moniker range=">= aspnetcore-2.0"
 
-Tek başına veya birlikte kestrel kullanılabilir bir *ters proxy sunucusu*, IIS, Nginx ya da Apache gibi. Ters proxy sunucusu Internet'ten HTTP isteklerini alır ve bunları Kestrel için bazı ön işleme sonra iletir.
+Tek başına veya birlikte kestrel kullanılabilir bir *ters Ara sunucu*IIS, Ngınx veya Apache gibi. Ters Ara sunucu, Internet'ten HTTP isteklerini alır ve bunları Kestrel için bazı ön işleme sonra iletir.
 
-![Kestrel bir ters Ara sunucu olmadan Internet ile doğrudan iletişim kurar](kestrel/_static/kestrel-to-internet2.png)
+![Kestrel'i ters Ara sunucu olmadan Internet ile doğrudan iletişim kurar](kestrel/_static/kestrel-to-internet2.png)
 
-![Kestrel dolaylı olarak IIS, Nginx ya da Apache gibi bir ters proxy sunucu üzerinden Internet ile iletişim kurar](kestrel/_static/kestrel-to-internet.png)
+![Kestrel'i dolaylı olarak IIS, Ngınx veya Apache gibi bir ters Ara sunucu üzerinden Internet ile iletişim kurar](kestrel/_static/kestrel-to-internet.png)
 
-Her iki yapılandırma&mdash;ile veya bir ters Ara sunucu olmadan&mdash;geçerli ve desteklenen bir barındırma yapılandırması ASP.NET Core 2.0 veya sonraki uygulamalar içindir. Daha fazla bilgi için bkz: [Kestrel ters proxy ile kullanmak ne zaman](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy).
+Her iki yapılandırma&mdash;ile veya ters Ara sunucu olmadan&mdash;bir geçerli ve desteklenen barındırma ASP.NET Core 2.0 veya sonraki uygulamalar için bir yapılandırmadır. Daha fazla bilgi için [Kestrel ters Ara sunucu ile kullanmak ne zaman](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy).
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker-end
 
-Uygulamayı yalnızca bir iç ağ gelen istekleri kabul ederse, Kestrel kendisi tarafından kullanılabilir.
+::: moniker range="< aspnetcore-2.0"
 
-![Kestrel iç ağ ile doğrudan iletişim kurar](kestrel/_static/kestrel-to-internal.png)
+Uygulamayı yalnızca bir iç ağ gelen istekleri kabul ederse Kestrel kendisi tarafından kullanılabilir.
 
-Uygulamanın Internet'e açık değilse, IIS, Nginx ya da Apache olarak Kestrel kullanmalısınız bir *ters proxy sunucu*. Ters proxy sunucusu Internet'ten HTTP isteklerini alır ve bunları Kestrel için bazı ön işleme sonra aşağıdaki çizimde gösterildiği gibi iletir:
+![Kestrel'i iç ağa ile doğrudan iletişim kurar.](kestrel/_static/kestrel-to-internal.png)
 
-![Kestrel dolaylı olarak IIS, Nginx ya da Apache gibi bir ters proxy sunucu üzerinden Internet ile iletişim kurar](kestrel/_static/kestrel-to-internet.png)
+Uygulamayı Internet erişimine açıktır, IIS, Ngınx veya Apache olarak Kestrel kullanmalısınız bir *ters Ara sunucu*. Bir tersine Ara sunucunun Internet'ten HTTP isteklerini alıp Kestrel için aşağıdaki diyagramda gösterildiği gibi bazı ön işleme sonra ileten:
 
-Güvenlik (trafiğini Internet'ten gösterilen) kenar dağıtımlar için ters Ara sunucu kullanmak için en önemli nedenidir. Kestrel 1.x sürümleri Internet üzerinden saldırılara karşı korumak için önemli güvenlik özellikleri yok. Bu, içerir, ancak sınırlı, uygun zaman aşımı, istek boyutu sınırları ve eş zamanlı bağlantı sınırlarını değil.
+![Kestrel'i dolaylı olarak IIS, Ngınx veya Apache gibi bir ters Ara sunucu üzerinden Internet ile iletişim kurar](kestrel/_static/kestrel-to-internet.png)
 
-Daha fazla bilgi için bkz: [Kestrel ters proxy ile kullanmak ne zaman](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy).
+Güvenlik edge dağıtımları (trafiği Internet'ten kullanıma sunulur) için ters Ara sunucu kullanmak için en önemli nedenidir. Kestrel'i 1.x sürümlerini Internet'ten saldırılarına karşı korumak için önemli güvenlik özelliklerine sahip değilsiniz. Bu, içerir, ancak bunlarla sınırlı uygun bir zaman aşımı, istek boyutu sınırları ve eş zamanlı bağlantı sınırları değildir.
 
----
+Daha fazla bilgi için [Kestrel ters Ara sunucu ile kullanmak ne zaman](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy).
 
-IIS, Nginx ve Apache Kestrel kullanılamaz veya [özel sunucu uygulaması](#custom-servers). ASP.NET Core, böylece platformlar genelinde tutarlı bir şekilde davranabilir kendi işleminde çalışmak üzere tasarlanmıştır. IIS, Nginx ve Apache kendi başlangıç yordamı ve ortam dikte. Bu sunucu teknolojileri kullanmak için doğrudan ASP.NET Core her sunucu gereksinimlerine uyarlamak gerekir. Kestrel gibi bir web sunucusu uygulaması kullanarak ASP.NET Core farklı sunucu teknolojileri üzerinde barındırılan ortam ve başlatma işlemi denetime sahiptir.
+::: moniker-end
 
-### <a name="iis-with-kestrel"></a>IIS Kestrel ile
+IIS, Ngınx ve Apache Kestrel kullanılamaz veya [özel sunucu uygulaması](#custom-servers). ASP.NET Core platformlar arasında tutarlı bir şekilde davranabilir böylece kendi işlem içinde çalıştırmak için tasarlanmıştır. IIS, Ngınx ve Apache kendi başlangıç yordamı ve ortam gerektirir. Bu sunucu teknolojileri kullanmak için doğrudan, ASP.NET Core her bir sunucunun gereksinimlerine uyum sağlamak gerekir. Kestrel'i gibi bir web sunucusu uygulaması kullanarak ASP.NET Core başlatma işlemi ve farklı sunucu teknolojileri üzerinde barındırıldığında ortam üzerinde denetimi yoktur.
 
-Kullanırken [IIS](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture) veya [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) için IIS çalışan işlemini ayrı bir işlemde ASP.NET Core uygulama ASP.NET Core için ters Ara sunucu çalışır. IIS işleminde [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module) ters proxy ilişki düzenler. Birincil ASP.NET Core modülünün ASP.NET Core uygulamayı başlatın, onu kilitlendiğinde uygulamayı yeniden başlatın ve uygulamayı HTTP trafiği iletmek için işlevlerdir. Daha fazla bilgi için bkz: [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module). 
+### <a name="iis-with-kestrel"></a>IIS ile Kestrel
 
-### <a name="nginx-with-kestrel"></a>Nginx Kestrel ile
+Kullanırken [IIS](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture) veya [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) IIS çalışan işleminden ayrı bir işlemde ASP.NET Core uygulaması ASP.NET Core için ters Ara sunucu çalışır. IIS işleminde [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module) ters proxy ilişki düzenler. ASP.NET Core modülü temel işlevleri, ASP.NET Core uygulaması başlatın, bu kilitlendiğinde uygulamayı yeniden başlatın ve uygulama HTTP trafiği ilettiği üzeresiniz. Daha fazla bilgi için [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module). 
 
-Nginx Linux'ta bir ters proxy sunucusu olarak Kestrel için nasıl kullanılacağı hakkında daha fazla bilgi için bkz: [Nginx ile Linux konakta](xref:host-and-deploy/linux-nginx).
+### <a name="nginx-with-kestrel"></a>Ngınx Kestrel ile
 
-### <a name="apache-with-kestrel"></a>Kestrel Apache
+Ngınx Linux üzerinde bir ters proxy sunucusu olarak Kestrel için nasıl kullanılacağı hakkında daha fazla bilgi için bkz: [Nginx ile Linux'ta barındırma](xref:host-and-deploy/linux-nginx).
 
-Apache Linux'ta bir ters proxy sunucusu olarak Kestrel için nasıl kullanılacağı hakkında daha fazla bilgi için bkz: [Linux Apache ile konakta](xref:host-and-deploy/linux-apache).
+### <a name="apache-with-kestrel"></a>Kestrel'i Apache
+
+Apache Linux üzerinde bir ters proxy sunucusu olarak Kestrel için nasıl kullanılacağı hakkında daha fazla bilgi için bkz: [Apache ile Linux'ta barındırma](xref:host-and-deploy/linux-apache).
 
 ## <a name="httpsys"></a>HTTP.sys
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+::: moniker range=">= aspnetcore-2.0"
 
-ASP.NET Core uygulamaları Windows çalıştırırsanız, HTTP.sys bir Kestrel alternatifidir. Kestrel genellikle en iyi performans için önerilir. HTTP.sys, burada uygulama Internet erişimine açıktır ve gerekli özellikleri HTTP.sys ancak değil Kestrel tarafından desteklenen senaryolarda kullanılabilir. HTTP.sys özellikleri hakkında daha fazla bilgi için bkz: [HTTP.sys](xref:fundamentals/servers/httpsys).
+Windows üzerinde çalışan ASP.NET Core uygulamaları, HTTP.sys Kestrel alternatif olur. Kestrel'i genellikle en iyi performans için önerilir. HTTP.sys burada uygulama Internet erişimine açıktır ve gerekli özellikleri HTTP.sys ancak değil Kestrel tarafından desteklenen senaryolarda kullanılabilir. HTTP.sys hakkında daha fazla bilgi için bkz: [HTTP.sys](xref:fundamentals/servers/httpsys).
 
-![HTTP.sys doğrudan Internet ile iletişim kurar](httpsys/_static/httpsys-to-internet.png)
+![HTTP.sys doğrudan Internet ile iletişim kurar.](httpsys/_static/httpsys-to-internet.png)
 
-HTTP.sys, yalnızca bir iç ağ için sunulan uygulamaları için de kullanılabilir. 
+HTTP.sys, yalnızca iç ağa sunulan uygulamalar için de kullanılabilir.
 
-![HTTP.sys iç ağ ile doğrudan iletişim kurar](httpsys/_static/httpsys-to-internal.png)
+![HTTP.sys iç ağa ile doğrudan iletişim kurar.](httpsys/_static/httpsys-to-internal.png)
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker-end
 
-HTTP.sys adlandırılan [WebListener](xref:fundamentals/servers/weblistener) ASP.NET Core içinde 1.x. ASP.NET Core uygulamaları Windows çalıştırırsanız WebListener IIS burada ana bilgisayar uygulamaları için kullanılabilir değil senaryoları için alternatiftir.
+::: moniker range="< aspnetcore-2.0"
 
-![Weblistener doğrudan Internet ile iletişim kurar](weblistener/_static/weblistener-to-internet.png)
+HTTP.sys adlı [WebListener](xref:fundamentals/servers/weblistener) içinde ASP.NET Core 1.x. Windows üzerinde ASP.NET Core uygulamaları çalıştırırsanız, WebListener burada IIS ana bilgisayar uygulamaları için kullanılabilir senaryolar için alternatiftir.
 
-WebListener de Kestrel yerine yalnızca bir iç ağ için sunulan uygulamaları için WebListener ancak değil Kestrel tarafından desteklenen özellikler gerekli olursa kullanılabilir. WebListener özellikleri hakkında daha fazla bilgi için bkz: [WebListener](xref:fundamentals/servers/weblistener).
+![Weblistener doğrudan Internet ile iletişim kurar.](weblistener/_static/weblistener-to-internet.png)
 
-![Weblistener iç ağ ile doğrudan iletişim kurar](weblistener/_static/weblistener-to-internal.png)
+WebListener de Kestrel yerine yalnızca bir iç ağ için sunulan uygulamalar için özellikleri WebListener ancak değil Kestrel tarafından desteklenen gerekirse kullanılabilir. WebListener hakkında daha fazla bilgi için bkz: [WebListener](xref:fundamentals/servers/weblistener).
 
----
+![Weblistener iç ağa ile doğrudan iletişim kurar.](weblistener/_static/weblistener-to-internal.png)
+
+::: moniker-end
 
 ## <a name="aspnet-core-server-infrastructure"></a>ASP.NET Core sunucu altyapısı
 
-[IApplicationBuilder](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder) bulunan `Startup.Configure` yöntemi çıkarır [ServerFeatures](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder.serverfeatures) türündeki özelliği [IFeatureCollection](/dotnet/api/microsoft.aspnetcore.http.features.ifeaturecollection). Kestrel ve HTTP.sys (ASP.NET Core WebListener 1.x) yalnızca tek bir özelliği her kullanıma [IServerAddressesFeature](/dotnet/api/microsoft.aspnetcore.hosting.server.features.iserveraddressesfeature), ancak farklı sunucu uygulamaları ek işlevsellik kullanıma.
+[IApplicationBuilder](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder) bulunan `Startup.Configure` yöntemi kullanıma sunan [ServerFeatures](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder.serverfeatures) türünün özelliği [IFeatureCollection](/dotnet/api/microsoft.aspnetcore.http.features.ifeaturecollection). Kestrel ve HTTP.sys (WebListener içinde ASP.NET Core 1.x) yalnızca tek bir özelliği her kullanıma [IServerAddressesFeature](/dotnet/api/microsoft.aspnetcore.hosting.server.features.iserveraddressesfeature), ancak farklı bir sunucu uygulamaları, ek işlevler sunarsınız.
 
-`IServerAddressesFeature` Sunucu uygulaması çalışma zamanında bağlı hangi bağlantı noktasının öğrenmek için kullanılabilir.
+`IServerAddressesFeature` Sunucu Uygulama çalışma zamanında bağlı bağlantı noktasını bulmak için kullanılabilir.
 
 ## <a name="custom-servers"></a>Özel sunucuları
 
-Yerleşik sunucuları uygulamanın gereksinimlerini karşılamıyorsa, özel sunucu uygulaması oluşturulabilir. [.NET (OWIN) kılavuzu için açık Web arabirimi](xref:fundamentals/owin) nasıl yazılacağını göstermektedir bir [Nowin](https://github.com/Bobris/Nowin)-tabanlı [IServer](/dotnet/api/microsoft.aspnetcore.hosting.server.iserver) uygulaması. En az olsa uygulaması, uygulamanın kullandığı özelliği arabirimleri gerektiren yalnızca [IHttpRequestFeature](/dotnet/api/microsoft.aspnetcore.http.features.ihttprequestfeature) ve [IHttpResponseFeature](/dotnet/api/microsoft.aspnetcore.http.features.ihttpresponsefeature) desteklenmesi gerekir.
+Özel sunucu uygulaması, yerleşik sunucuları uygulamanın gereksinimleri karşılamıyorsanız oluşturulabilir. [.NET (OWIN) kılavuzu için açık Web arabirimi](xref:fundamentals/owin) nasıl yazılacağını gösteren bir [Nowin](https://github.com/Bobris/Nowin)-tabanlı [IServer](/dotnet/api/microsoft.aspnetcore.hosting.server.iserver) uygulaması. Uygulamanın kullandığı özellik arabirimler uygulama, en az olsa gerektirir. yalnızca [IHttpRequestFeature](/dotnet/api/microsoft.aspnetcore.http.features.ihttprequestfeature) ve [IHttpResponseFeature](/dotnet/api/microsoft.aspnetcore.http.features.ihttpresponsefeature) desteklenmesi gerekir.
 
-## <a name="server-startup"></a>Sunucu başlatma
+## <a name="server-startup"></a>Sunucu başlangıç
 
-Kullanırken [Visual Studio](https://www.visualstudio.com/vs/), [Mac için Visual Studio](https://www.visualstudio.com/vs/mac/), veya [Visual Studio Code](https://code.visualstudio.com/), uygulama tarafından tümleşik geliştirme ortamı (olarak başlatıldığında sunucu başlatılır IDE). Windows Visual Studio'da, başlatma profilleri uygulama ve sunucu ile ya da başlatmak için kullanılabilir [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview)/[ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module) veya Konsolu. Visual Studio Code uygulama ve sunucu tarafından başlatılan [Omnisharp](https://github.com/OmniSharp/omnisharp-vscode), CoreCLR hata ayıklayıcı etkinleştirir. Mac için Visual Studio kullanarak uygulama ve sunucu tarafından başlatılan [Mono yumuşak modu hata ayıklayıcı](http://www.mono-project.com/docs/advanced/runtime/docs/soft-debugger/).
+Kullanırken [Visual Studio](https://www.visualstudio.com/vs/), [Mac için Visual Studio](https://www.visualstudio.com/vs/mac/), veya [Visual Studio Code](https://code.visualstudio.com/), sunucu uygulama tarafından tümleşik geliştirme ortamı (olarak başlatıldığında başlatılır IDE). Windows üzerinde Visual Studio'da başlatma profilleri uygulama ve sunucu ile başlatmak için kullanılabilir [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview)/[ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module) veya Konsolu. Visual Studio Code'da uygulama ve sunucu tarafından başlatılan [Omnisharp](https://github.com/OmniSharp/omnisharp-vscode), CoreCLR hata ayıklayıcı etkinleştirir. Mac için Visual Studio kullanarak, uygulama ve sunucu tarafından başlatılan [Mono modu geçici hata ayıklayıcı](http://www.mono-project.com/docs/advanced/runtime/docs/soft-debugger/).
 
-Proje klasöründeki bir komut isteminden bir uygulama başlatılırken [çalıştırmak dotnet](/dotnet/core/tools/dotnet-run) uygulama ve sunucu (Kestrel ve yalnızca HTTP.sys) başlatır. Yapılandırması tarafından belirtilen `-c|--configuration` ayarlandığından seçeneği `Debug` (varsayılan) veya `Release`. Başlatma profilleri varsa bir *launchSettings.json* dosya, kullanın `--launch-profile <NAME>` başlatma profili ayarlama seçeneği (örneğin, `Development` veya `Production`). Daha fazla bilgi için bkz: [çalıştırmak dotnet](/dotnet/core/tools/dotnet-run) ve [.NET Core dağıtım paketleme](/dotnet/core/build/distribution-packaging) Konular.
+Proje klasöründeki bir komut isteminden bir uygulamayı başlatırken [çalıştırma dotnet](/dotnet/core/tools/dotnet-run) uygulama ve sunucu (Kestrel ve yalnızca HTTP.sys) başlatır. Yapılandırması tarafından belirtilen `-c|--configuration` ayarlandığından seçeneği `Debug` (varsayılan) veya `Release`. Başlatma profili varsa bir *launchSettings.json* dosya, kullanın `--launch-profile <NAME>` başlatma profili ayarlamak için seçeneği (örneğin, `Development` veya `Production`). Daha fazla bilgi için [çalıştırma dotnet](/dotnet/core/tools/dotnet-run) ve [.NET Core dağıtımı paketleme](/dotnet/core/build/distribution-packaging) konuları.
+
+## <a name="http2-support"></a>HTTP/2 desteği
+
+[HTTP/2](https://httpwg.org/specs/rfc7540.html) ile ASP.NET Core aşağıdaki dağıtım senaryolarında desteklenir:
+
+::: moniker range=">= aspnetcore-2.2"
+
+* [Kestrel](xref:fundamentals/servers/kestrel#http2-support)
+  * İşletim sistemi
+    * Windows Server 2012 R2/Windows 8.1 veya üzeri
+    * Linux OpenSSL 1.0.2 veya daha sonra (örneğin, Ubuntu 16.04 veya üzeri)
+    * HTTP/2 macos'ta gelecek sürümlerde desteklenecektir.
+  * Hedef çerçeve: .NET Core 2.2 veya üzeri
+* [HTTP.sys](xref:fundamentals/servers/httpsys#http2-support)
+  * Windows Server 2016/Windows 10 veya üzeri
+  * Hedef çerçeve: HTTP.sys dağıtımlar için geçerli değildir.
+* [IIS (işlem içi)](xref:host-and-deploy/iis/index#http2-support)
+  * Windows Server 2016/Windows 10 veya üzeri; IIS 10 veya üzeri
+  * Hedef çerçeve: .NET Core 2.2 veya üzeri
+* [IIS (giden işlem)](xref:host-and-deploy/iis/index#http2-support)
+  * Windows Server 2016/Windows 10 veya üzeri; IIS 10 veya üzeri
+  * HTTP/2 uç bağlantıları kullanın, ancak HTTP/1.1 Kestrel ters proxy bağlantı kullanır.
+  * Hedef çerçeve: IIS işlem dışı dağıtımlar için geçerli değildir.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
+* [HTTP.sys](xref:fundamentals/servers/httpsys#http2-support)
+  * Windows Server 2016/Windows 10 veya üzeri
+  * Hedef çerçeve: HTTP.sys dağıtımlar için geçerli değildir.
+* [IIS (giden işlem)](xref:host-and-deploy/iis/index#http2-support)
+  * Windows Server 2016/Windows 10 veya üzeri; IIS 10 veya üzeri
+  * HTTP/2 uç bağlantıları kullanın, ancak HTTP/1.1 Kestrel ters proxy bağlantı kullanır.
+  * Hedef çerçeve: IIS işlem dışı dağıtımlar için geçerli değildir.
+
+::: moniker-end
+
+Bir HTTP/2 bağlantı kullanmalısınız [uygulama katmanı protokol anlaşması (ALPN)](https://tools.ietf.org/html/rfc7301#section-3) ve TLS 1.2 veya sonraki bir sürümü. Daha fazla bilgi için sunucu dağıtım senaryolarınız için ilgili konulara bakın.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Kestrel](xref:fundamentals/servers/kestrel)
-* [IIS ile kestrel](xref:fundamentals/servers/aspnet-core-module)
-* [Nginx ile Linux’ta barındırma](xref:host-and-deploy/linux-nginx)
-* [Apache ile Linux’ta barındırma](xref:host-and-deploy/linux-apache)
-* [HTTP.sys](xref:fundamentals/servers/httpsys) (ASP.NET 1.x çekirdek bkz [WebListener](xref:fundamentals/servers/weblistener))
+* <xref:fundamentals/servers/kestrel>
+* <xref:fundamentals/servers/aspnet-core-module>
+* <xref:host-and-deploy/iis/index>
+* <xref:host-and-deploy/azure-apps/index>
+* <xref:host-and-deploy/linux-nginx>
+* <xref:host-and-deploy/linux-apache>
+* <xref:fundamentals/servers/httpsys> (ASP.NET Core 1.x sürümüne bkz <xref:fundamentals/servers/weblistener>)

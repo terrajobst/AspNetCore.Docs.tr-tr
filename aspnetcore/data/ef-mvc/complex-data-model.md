@@ -5,12 +5,12 @@ description: Bu öğreticide, daha fazla varlıklar ve ilişkiler ekleyin ve ver
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: c97acd2b943e1d4c466c060247220b3b8bab6d6b
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 3714cf7ce705a52653394319fef1728a6ddcc3ee
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41756618"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011777"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---data-model---5-of-10"></a>Itanium tabanlı sistemler için ASP.NET Core MVC ile EF Core - veri modeli - 5 / 10
 
@@ -495,6 +495,7 @@ Sağ **CourseAssignment** tablosunu seçip **görünüm verilerini** , veri içi
 ## <a name="summary"></a>Özet
 
 Artık daha karmaşık veri modeli ve karşılık gelen veritabanı vardır. Aşağıdaki öğreticide ilgili veri erişim hakkında daha fazla bilgi edineceksiniz.
+
 ::: moniker-end
 
 > [!div class="step-by-step"]

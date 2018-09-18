@@ -5,12 +5,12 @@ description: ASP.NET Core veri koruma API'lerini kullanarak parolaları karma ö
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/consumer-apis/password-hashing
-ms.openlocfilehash: 882ac9b256b0cdf5fd19dc4bd2757cac7e8ecad3
-ms.sourcegitcommit: a742b55e4b8276a48b8b4394784554fecd883c84
+ms.openlocfilehash: 70301ffffbaaf3c5ff0642b19b80e40be83aa438
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45538385"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46010968"
 ---
 # <a name="hash-passwords-in-aspnet-core"></a>ASP.NET Core karma parolalar
 
@@ -26,4 +26,4 @@ Paket şu anda bir yöntem sunar `KeyDerivation.Pbkdf2` sağlayan kullanarak bir
 
 [!code-csharp[](password-hashing/samples/passwordhasher.cs)]
 
-Bkz. [kaynak kodu] (https://github.com/aspnet/Identity/blob/master/src/Core/PasswordHasher.cs) için ASP.NET Core kimliğin `PasswordHasher` gerçek dünya için tür kullanım örneği.
+Bkz: [kaynak kodu](https://github.com/aspnet/Identity/blob/master/src/Core/PasswordHasher.cs) için ASP.NET Core kimliğin `PasswordHasher` gerçek dünya için tür kullanım örneği.

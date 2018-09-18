@@ -4,14 +4,15 @@ author: guardrex
 description: HTTP.sys, ASP.NET Core, Windows için bir web sunucusu hakkında bilgi edinin. HTTP.sys çekirdek modu sürücüsü üzerinde oluşturulmuş, HTTP.sys için IIS olmadan İnternet'e doğrudan bağlantı için kullanılan Kestrel alternatiftir.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: tdykstra
-ms.date: 08/15/2018
+ms.custom: mvc
+ms.date: 09/13/2018
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: 58f71596b8ad54dd500699265ab022dc57c4f7a3
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: e845cb4eb7fe805e3d2195124073f7ab646d66cb
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41753642"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011675"
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>ASP.NET core'da HTTP.sys web sunucusu uygulaması
 
@@ -55,6 +56,28 @@ HTTP.sys dağıtımları için yararlıdır burada:
   ![HTTP.sys iç ağa ile doğrudan iletişim kurar.](httpsys/_static/httpsys-to-internal.png)
 
 HTTP.sys, birçok türde saldırılara karşı korur ve sağlamlık, güvenlik ve tam özellikli bir web sunucusu ölçeklenebilirliğini sağlayan olgun teknolojisidir. IIS'nin, HTTP.sys üzerine bir HTTP dinleyicisi olarak çalışır.
+
+## <a name="http2-support"></a>HTTP/2 desteği
+
+[HTTP/2](https://httpwg.org/specs/rfc7540.html) aşağıdaki gereksinimleri dayandırırsanız ASP.NET Core uygulamaları karşılanması için etkin:
+
+* Windows Server 2016/Windows 10 veya üzeri
+* [Uygulama katmanı protokol anlaşması (ALPN)](https://tools.ietf.org/html/rfc7301#section-3) bağlantı
+* TLS 1.2 veya sonraki bir bağlantı
+
+::: moniker range=">= aspnetcore-2.2"
+
+Bir HTTP/2 bağlantı kurulur, [HttpRequest.Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) raporları `HTTP/2`.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
+Bir HTTP/2 bağlantı kurulur, [HttpRequest.Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) raporları `HTTP/1.1`.
+
+::: moniker-end
+
+HTTP/2 varsayılan olarak etkindir. Bir HTTP/2 bağlantı değil, bağlantı, HTTP/1.1 geri döner. Gelecekteki bir Windows sürümünde, HTTP/2 yapılandırma bayrakları HTTP/2 HTTP.sys ile devre dışı bırakma olanağı dahil olmak üzere, kullanılabilir.
 
 ## <a name="kernel-mode-authentication-with-kerberos"></a>Çekirdek modu kimlik doğrulamasını Kerberos ile
 

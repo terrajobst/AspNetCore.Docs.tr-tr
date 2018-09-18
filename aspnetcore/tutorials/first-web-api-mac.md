@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/08/2018
 uid: tutorials/first-web-api-mac
-ms.openlocfilehash: 4caa6d9057de8d0e821c4abefe22985f43ff95ad
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 40f9bd9c57b97826edfddeb00cb4fb38a026d46e
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38156146"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011631"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-mac"></a>Mac için Visual Studio ile ASP.NET Core ile Web API'si oluşturma
 
@@ -126,14 +126,19 @@ Ekleyeceğiz `Create`, `Update`, ve `Delete` denetleyiciye yöntemleri. Ben yaln
 ### <a name="create"></a>Create
 
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](first-web-api/samples/2.0/TodoApi/Controllers/TodoController.cs?name=snippet_Create)]
 
 Önceki yöntem tarafından belirtildiği gibi bir HTTP POST için yanıt [[HttpPost]](/dotnet/api/microsoft.aspnetcore.mvc.httppostattribute) özniteliği. [[FromBody]](/dotnet/api/microsoft.aspnetcore.mvc.frombodyattribute) özniteliği HTTP isteği gövdesinden yapılacak iş öğesi değeri almak için MVC söyler.
+
 ::: moniker-end
+
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](first-web-api/samples/2.1/TodoApi/Controllers/TodoController.cs?name=snippet_Create)]
 
 Önceki yöntem tarafından belirtildiği gibi bir HTTP POST için yanıt [[HttpPost]](/dotnet/api/microsoft.aspnetcore.mvc.httppostattribute) özniteliği. MVC, HTTP isteği gövdesinden Yapılacaklar öğenin değerini alır.
+
 ::: moniker-end
 
 `CreatedAtRoute` 201 yanıtında yöntemi döndürür. Yeni bir kaynak sunucuda oluşturan bir HTTP POST yöntemi için standart yanıttır. `CreatedAtRoute` Ayrıca bir konum üst bilgisi yanıta ekler. Location üst bilgisini, yeni oluşturulan yapılacak iş öğesi URI'sini belirtir. Bkz: [10.2.2 oluşturulan 201](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
@@ -162,8 +167,10 @@ Ekleyeceğiz `Create`, `Update`, ve `Delete` denetleyiciye yöntemleri. Ben yaln
 * Tıklayın **Gönder** düğmesi.
 
 ::: moniker range=">= aspnetcore-2.1"
+
 > [!TIP]
 > Yanıt tıklandıktan sonra görüntülerse **Gönder**, devre dışı **SSL sertifika doğrulama** seçeneği. Bunun altında bulunan **dosya** > **ayarları**. Tıklayın **Gönder** ayarı devre dışı bırakma sonra yeniden düğmesi.
+
 ::: moniker-end
 
 Tıklayın **üstbilgileri** sekmesinde **yanıt** bölmesi ve kopyalama **konumu** üst bilgi değeri:
@@ -179,10 +186,15 @@ URI konum üst bilgisi, oluşturduğunuz kaynağa erişmek için kullanabilirsin
 ### <a name="update"></a>Güncelleştirme
 
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](first-web-api/samples/2.0/TodoApi/Controllers/TodoController.cs?name=snippet_Update)]
+
 ::: moniker-end
+
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](first-web-api/samples/2.1/TodoApi/Controllers/TodoController.cs?name=snippet_Update)]
+
 ::: moniker-end
 
 `Update` benzer `Create`, ancak HTTP PUT kullanır. Yanıt [204 (içerik yok)](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html). HTTP spec göre bir PUT İsteği tüm güncelleştirilmiş varlık yalnızca deltaları göndermek istemci gerektirir. Kısmi güncelleştirmeleri desteklemek için HTTP PATCH kullanın.

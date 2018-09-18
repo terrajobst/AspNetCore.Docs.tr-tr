@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/07/2017
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: ea3f26f9377715ea27f19908932d2dcf3cfcbea6
-ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
+ms.openlocfilehash: e27253e3f02fa808136494ed5373059ef6e0df0d
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39202607"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011600"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Doğrulama için bir ASP.NET Core Razor sayfası ekleme
 
@@ -32,6 +32,7 @@ Açık *Movie.cs* dosya. [DataAnnotations](https://docs.microsoft.com/aspnet/mvc
 Güncelleştirme `Movie` yararlanmak için sınıf `Required`, `StringLength`, `RegularExpression`, ve `Range` doğrulama öznitelikleri.
 
 ::: moniker range="= aspnetcore-2.0"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieDateRatingDA.cs?name=snippet1)]
 
 ::: moniker-end
@@ -113,7 +114,9 @@ Doğrulama mantığını değişmesi gerektiğinde, yalnızca model içinde yap�
 `DataType.Date` Görüntülenen tarih biçimi belirtmiyor. Varsayılan olarak, sunucu üzerinde temel alan varsayılan biçimler göre veri alanı görüntülenir `CultureInfo`.
 
 ::: moniker range=">= aspnetcore-2.1"
+
 `[Column(TypeName = "decimal(18, 2)")]` Veri ek açıklama, Entity Framework Core doğru şekilde eşleyebilirsiniz biçimde gereklidir `Price` veritabanında para birimi. Daha fazla bilgi için [veri türleri](/ef/core/modeling/relational/data-types).
+
 ::: moniker-end
 
 `DisplayFormat` Açıkça tarih biçimini belirtmek için özniteliği kullanılır:
@@ -142,11 +145,13 @@ Bu genellikle Sabit tarihler kullanarak Modellerinizi derlemek için iyi bir uyg
 Aşağıdaki kod, bir satır birleştirme öznitelikleri gösterir:
 
 ::: moniker range="= aspnetcore-2.0"
+
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRatingDAmult.cs?name=snippet1)]
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Models/MovieDateRatingDAmult.cs?name=snippet1)]
 
 ::: moniker-end

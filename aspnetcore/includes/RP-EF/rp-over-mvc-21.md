@@ -14,4 +14,5 @@ Görünümleri ve denetleyicileri ile ASP.NET Core MVC ve Entity Framework Core 
 * Yeni uygulama geliştirme için tercih edilen yaklaşımdır.
 
 Bu öğreticide üzerinden seçerseniz [Razor sayfaları](xref:data/ef-rp/intro) sürüm, bunun nedenini de bize izin [bu GitHub tartışma](https://github.com/aspnet/Docs/issues/6146).
+
 ::: moniker-end

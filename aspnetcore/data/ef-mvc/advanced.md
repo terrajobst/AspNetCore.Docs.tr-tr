@@ -5,12 +5,12 @@ description: Bu öğretici, Entity Framework Core kullanan ASP.NET Core web uygu
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: 25916365b4e682a8e296e0affbcddd4f1e5846b1
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 5cdba79c0b8edd9b865bda8328c86356cbe6a0a2
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41755676"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46010929"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---advanced---10-of-10"></a>-EF çekirdekli ASP.NET Core MVC Gelişmiş - 10 10
 
@@ -244,6 +244,7 @@ Hata iletisi:
 Çözüm:
 
 Bağlantı dizesini kontrol edin. Veritabanı dosyasını el ile sildiyseniz, yeni bir veritabanı ile baştan başlamak yapım dizesinde veritabanının adını değiştirin.
+
 ::: moniker-end
 
 > [!div class="step-by-step"]

@@ -1,59 +1,59 @@
 ---
-title: ASP.NET Core Razor sayfalarında için filtre yöntemleri
+title: ASP.NET Core Razor sayfaları için filtre yöntemleri
 author: Rick-Anderson
-description: ASP.NET Core Razor sayfalar için filtre yöntemleri oluşturmayı öğrenin.
+description: ASP.NET Core Razor sayfaları için filtre yöntemleri oluşturmayı öğrenin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 04/05/2018
 uid: razor-pages/filter
-ms.openlocfilehash: 70f762f32a9e4fda01418a47e3eb7d7224639a0a
-ms.sourcegitcommit: c6ed2f00c7a08223d79090396b85793718b0dd69
+ms.openlocfilehash: d9d4ea65a9357d19c283036e7ab9417e0deaeda2
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37092847"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011724"
 ---
-# <a name="filter-methods-for-razor-pages-in-aspnet-core"></a>ASP.NET Core Razor sayfalarında için filtre yöntemleri
+# <a name="filter-methods-for-razor-pages-in-aspnet-core"></a>ASP.NET Core Razor sayfaları için filtre yöntemleri
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Razor sayfa filtreleri [IPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter?view=aspnetcore-2.0) ve [IAsyncPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncpagefilter?view=aspnetcore-2.0) Razor kodu önce ve Razor sayfasını işleyici çalıştırıldıktan sonra çalıştırmak sayfaları olanak verir. Razor sayfa filtreleri benzer [ASP.NET Core MVC eylem filtrelerini](xref:mvc/controllers/filters#action-filters), tek tek sayfa işleyici yöntemlerine uygulanamaz dışında. 
+Razor sayfası filtreler [IPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter?view=aspnetcore-2.0) ve [IAsyncPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncpagefilter?view=aspnetcore-2.0) bir Razor sayfası işleyici çalıştırılmadan önce ve sonra kodu çalıştırmak Razor sayfaları olanak verir. Razor sayfa filtreleri benzer [ASP.NET Core MVC eylem filtrelerini](xref:mvc/controllers/filters#action-filters)dışında tekil işleyici yöntemleri için uygulanamaz. 
 
-Razor sayfa filtreleri:
+Razor sayfası filtreler:
 
-* Kod bir işleyici yöntemi seçtikten sonra ancak model bağlama gerçekleşmeden önce çalıştırın.
-* Model bağlama tamamlandıktan sonra işleyici yöntemi yürütülmeden önce kodu çalıştırın.
+* Kodu bir işleyici yöntemi seçtikten sonra ancak model bağlama gerçekleşmeden önce çalıştırın.
+* Model bağlama işlemi tamamlandıktan sonra işleyicisi yöntemi yürütülmeden önce kodu çalıştırın.
 * İşleyici yöntemi yürütüldükten sonra kodu çalıştırın.
-* Bir sayfa veya genel olarak uygulanabilir.
-* Belirli bir sayfaya işleyici yöntemlerine uygulanamaz.
+* Bir sayfadaki veya genel olarak uygulanabilir.
+* Belirli bir sayfaya işleyici yöntemleri için uygulanamaz.
 
-Kod sayfası Oluşturucusu veya ara yazılımı kullanarak bir işleyici yöntemi çalışır, ancak yalnızca Razor sayfa filtreleri erişiminiz önce çalıştırılabilir [HttpContext](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel.httpcontext?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_RazorPages_PageModel_HttpContext). Filtreleri bulunan bir [FilterContext](/dotnet/api/microsoft.aspnetcore.mvc.filters.filtercontext?view=aspnetcore-2.0) erişim sağlayan parametre türetilmiş `HttpContext`. Örneğin, [bir filtre özniteliğini uygulamak](#ifa) örnek yanıt oluşturucular veya ara yazılımı ile yapılamaz bir şey için bir başlık ekler.
+Kod sayfası Oluşturucusu veya ara yazılımlar kullanarak bir işleyici yöntemini yürütür, ancak Razor sayfası filtreler yalnızca erişimleri önce çalıştırılabilir [HttpContext](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel.httpcontext?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_RazorPages_PageModel_HttpContext). Filtreye sahip bir [FilterContext](/dotnet/api/microsoft.aspnetcore.mvc.filters.filtercontext?view=aspnetcore-2.0) erişim sağlayan bir parametre türetilmiş `HttpContext`. Örneğin, [uygulayan bir filtre özniteliğini](#ifa) örnek yanıt oluşturucular veya ara yazılımlar ile yapılamaz bir şey için bir başlık ekler.
 
-[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/razor-pages/filter/sample/PageFilter) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/razor-pages/filter/sample/PageFilter) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 
-Razor sayfa filtreleri genel olarak veya sayfa düzeyinde uygulanabilir aşağıdaki yöntemleri sağlar:
+Razor sayfa filtreleri, genel olarak veya sayfa düzeyinde uygulanabilir aşağıdaki yöntemleri sağlar:
 
-* Zaman uyumlu yöntemleri:
+* Zaman uyumlu metotları:
 
-    * [OnPageHandlerSelected](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter.onpagehandlerselected?view=aspnetcore-2.0) : bir işleyici yöntemi seçildiyse, ancak önce model bağlama oluşur sonra çağrılır.
-    * [OnPageHandlerExecuting](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter.onpagehandlerexecuting?view=aspnetcore-2.0) : model bağlama tamamlandıktan sonra işleyici yöntemi yürütülmeden önce çağrılır.
-    * [OnPageHandlerExecuted](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter.onpagehandlerexecuted?view=aspnetcore-2.0) : işleyici yöntemi, önce eylem sonucu yürütüldükten sonra çağrılır.
+    * [OnPageHandlerSelected](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter.onpagehandlerselected?view=aspnetcore-2.0) : işleyicisi yöntemi seçildi, ancak önce model bağlama gerçekleşir sonra çağrılır.
+    * [OnPageHandlerExecuting](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter.onpagehandlerexecuting?view=aspnetcore-2.0) : model bağlama işlemi tamamlandıktan sonra işleyicisi yöntemi yürütülmeden önce çağrılır.
+    * [OnPageHandlerExecuted](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter.onpagehandlerexecuted?view=aspnetcore-2.0) : işleyicisi yöntemi, önce eylem sonucu yürütüldükten sonra çağrılır.
 
-* Zaman uyumsuz yöntemleri:
+* Zaman uyumsuz yöntemler:
 
-    * [OnPageHandlerSelectionAsync](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncpagefilter.onpagehandlerselectionasync?view=aspnetcore-2.0) : zaman uyumsuz olarak sonra adlı işleyici yöntemi seçilmedi, ancak önce model bağlama oluşur.
-    * [OnPageHandlerExecutionAsync](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncpagefilter.onpagehandlerexecutionasync?view=aspnetcore-2.0) : model bağlama tamamlandıktan sonra işleyici yöntemi çağrılmadan önce zaman uyumsuz olarak çağrılır.
+    * [OnPageHandlerSelectionAsync](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncpagefilter.onpagehandlerselectionasync?view=aspnetcore-2.0) : zaman uyumsuz olarak sonra adlı işleyicisi yöntemi seçilmiş ancak önce model bağlama gerçekleşir.
+    * [OnPageHandlerExecutionAsync](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncpagefilter.onpagehandlerexecutionasync?view=aspnetcore-2.0) : zaman uyumsuz model bağlama işlemi tamamlandıktan sonra işleyicisi yöntemi çağırılmadan önce çağrılır.
 
 > [!NOTE]
-> Uygulama **ya da** zaman uyumlu veya zaman uyumsuz bir filtre arabiriminin sürümünü, her ikisine değil. Framework ilk filtreyi zaman uyumsuz arabirimini uygulayan ve Öyleyse, çağıran bakar. Aksi durumda, zaman uyumlu arabiriminin yöntemleri çağırır. Her iki arabirimde uygulanırsa, yalnızca zaman uyumsuz yöntemleri olan çağrılabilir. Geçersiz kılmaları sayfalarında aynı kuralın uygulanacağı, zaman uyumlu veya zaman uyumsuz sürümü geçersiz kılar, ikisini uygulayabilirsiniz.
+> Uygulama **ya da** zaman uyumlu veya zaman uyumsuz sürümü filtre arabirimi, her ikisini birden değil. Framework ilk filtre zaman uyumsuz arabirimini uygulayan ve çağrı yaptığı bu durumda olup olmadığını denetler. Aksi durumda, zaman uyumlu arabirim yöntemleri çağırır. Her iki arabirimde uygulanırsa, yalnızca zaman uyumsuz yöntemler olan çağrılabilir. Geçersiz kılmalar sayfalarında aynı kuralın uygulanacağı, zaman uyumlu veya zaman uyumsuz sürümü geçersiz kılma, ikisini birden uygular.
 
-## <a name="implement-razor-page-filters-globally"></a>Razor sayfa filtreleri genel uygulama
+## <a name="implement-razor-page-filters-globally"></a>Genel olarak Filtreleri Uygula Razor sayfası
 
 Aşağıdaki kod uygulayan `IAsyncPageFilter`:
 
 [!code-csharp[Main](filter/sample/PageFilter/Filters/SampleAsyncPageFilter.cs?name=snippet1)]
 
-Önceki kod [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger?view=aspnetcore-2.0) gerekli değildir. Aşağıdaki örnekte, uygulama için izleme bilgilerini sağlamak için kullanılır.
+Önceki kodda, [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger?view=aspnetcore-2.0) gerekli değildir. Aşağıdaki örnekte, uygulama için izleme bilgisi sağlamak üzere kullanılır.
 
 Aşağıdaki kod etkinleştirir `SampleAsyncPageFilter` içinde `Startup` sınıfı:
 
@@ -63,11 +63,11 @@ Aşağıdaki kod tam gösterir `Startup` sınıfı:
 
 [!code-csharp[Main](filter/sample/PageFilter/Startup.cs?name=snippet1)]
 
-Aşağıdaki kod çağrıları `AddFolderApplicationModelConvention` uygulamak için `SampleAsyncPageFilter` yalnızca sayfalarına */subFolder*:
+Aşağıdaki kod çağrıları `AddFolderApplicationModelConvention` uygulanacak `SampleAsyncPageFilter` yalnızca sayfalarına */subFolder*:
 
 [!code-csharp[Main](filter/sample/PageFilter/Startup2.cs?name=snippet2)]
 
-Aşağıdaki kod zaman uyumlu uygular `IPageFilter`:
+Aşağıdaki kod, zaman uyumlu uygulayan `IPageFilter`:
 
 [!code-csharp[Main](filter/sample/PageFilter/Filters/SamplePageFilter.cs?name=snippet1)]
 
@@ -76,9 +76,10 @@ Aşağıdaki kod etkinleştirir `SamplePageFilter`:
 [!code-csharp[Main](filter/sample/PageFilter/StartupSync.cs?name=snippet2&highlight=11)]
 
 ::: moniker range=">= aspnetcore-2.1"
-## <a name="implement-razor-page-filters-by-overriding-filter-methods"></a>Filtre yöntemi geçersiz kılarak uygulama Razor sayfa filtreleri
 
-Aşağıdaki kod, zaman uyumlu Razor sayfa filtrelerini geçersiz kılan:
+## <a name="implement-razor-page-filters-by-overriding-filter-methods"></a>Filtre yöntemi geçersiz kılarak Filtreleri Uygula Razor sayfası
+
+Aşağıdaki kod, zaman uyumlu bir Razor sayfası filtrelerini geçersiz kılan:
 
 [!code-csharp[Main](filter/sample/PageFilter/Pages/Index.cshtml.cs)]
 
@@ -87,7 +88,7 @@ Aşağıdaki kod, zaman uyumlu Razor sayfa filtrelerini geçersiz kılan:
 <a name="ifa"></a>
 ## <a name="implement-a-filter-attribute"></a>Bir filtre özniteliğini uygulayın
 
-Yerleşik öznitelik tabanlı filtre [OnResultExecutionAsync](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncresultfilter.onresultexecutionasync?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_Filters_IAsyncResultFilter_OnResultExecutionAsync_Microsoft_AspNetCore_Mvc_Filters_ResultExecutingContext_Microsoft_AspNetCore_Mvc_Filters_ResultExecutionDelegate_) filtre sınıflandırma. Aşağıdaki filtre üstbilgi yanıta ekler:
+Yerleşik öznitelik tabanlı filtre [OnResultExecutionAsync](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncresultfilter.onresultexecutionasync?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_Filters_IAsyncResultFilter_OnResultExecutionAsync_Microsoft_AspNetCore_Mvc_Filters_ResultExecutingContext_Microsoft_AspNetCore_Mvc_Filters_ResultExecutionDelegate_) filtre sınıflandırma. Aşağıdaki filtre yanıt olarak bir başlık ekler:
 
 [!code-csharp[Main](filter/sample/PageFilter/Filters/AddHeaderAttribute.cs)]
 
@@ -97,10 +98,10 @@ Aşağıdaki kod geçerlidir `AddHeader` özniteliği:
 
 Bkz: [varsayılan sırası geçersiz kılma](xref:mvc/controllers/filters#overriding-the-default-order) sırası geçersiz kılma hakkında yönergeler için.
 
-Bkz: [iptali ve kestirmeler](xref:mvc/controllers/filters#cancellation-and-short-circuiting) yönergeler bir filtre filtre ardışık düzen kısa devre oluşturur. 
+Bkz: [iptal ve kestirmeler](xref:mvc/controllers/filters#cancellation-and-short-circuiting) filtre ardışık düzen bir filtre tarafından iki ilişkin yönergeler için. 
 
 <a name="auth"></a>
-## <a name="authorize-filter-attribute"></a>Filtre özniteliği yetkilendirmek
+## <a name="authorize-filter-attribute"></a>Filtre özniteliği Yetkilendir
 
 [Authorize](/dotnet/api/microsoft.aspnetcore.authorization.authorizeattribute?view=aspnetcore-2.0) özniteliği uygulanabilir bir `PageModel`:
 

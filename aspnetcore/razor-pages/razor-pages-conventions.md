@@ -4,14 +4,14 @@ author: guardrex
 description: Nasıl yol ve uygulama modeli sağlayıcısı kuralları sayfası denetimi yönlendirme, bulma ve işleme yardımcı keşfedin.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 04/12/2018
+ms.date: 09/17/2018
 uid: razor-pages/razor-pages-conventions
-ms.openlocfilehash: 5a5d580b4260767e411571ccacc19d6e8fe12559
-ms.sourcegitcommit: 028ad28c546de706ace98066c76774de33e4ad20
+ms.openlocfilehash: ea4f785dc8a64b430e312fd122a4d3184b61949e
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39655375"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011868"
 ---
 # <a name="razor-pages-route-and-app-conventions-in-aspnet-core"></a>İçinde ASP.NET Core Razor sayfalar yol ve uygulama kuralları
 
@@ -69,6 +69,26 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
+## <a name="route-order"></a>Rota sırası
+
+Rota belirtme bir <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> (yol ile eşleşen) işlemek için.
+
+| Sırası            | Davranış |
+| :--------------: | -------- |
+| -1               | Rotanın diğer yollar işlenmeden önce işlenir. |
+| 0                | Sipariş belirtilmediyse (varsayılan değer). Atama yok `Order` (`Order = null`) rota varsayılanları `Order` işleme için 0 (sıfır). |
+| 1, 2, &hellip; n | Rota işlem sırasını belirtir. |
+
+Yönlendirme işlemi kurala göre belirlenir:
+
+* Yollar, sıralı olarak işlenir (-1, 0, 1, 2 &hellip; n).
+* Yollar olduğunda aynı `Order`en belirli bir yol ilk less yazımına özgü yol tarafından izlenen eşleşir.
+* Zaman aynı yollar `Order` ve aynı parametre sayısıyla istek URL'si, yollar, eklemiş sırayla işlenir <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollection>.
+
+Mümkünse, bağlı olarak belirlenen rota işleme sipariş kaçının. Genellikle, yönlendirme ile URL ile eşleşen doğru yolu seçer. Rota ayarlamanız gerekirse `Order` uygulamanın yönlendirme düzeni, büyük olasılıkla istemcilere kafa karıştırıcı ve kırılgan korumak için yönlendirmek için özellikler doğru ister. Uygulamanın yönlendirme şeması basitleştirmek arama yapın. Örnek uygulama, tek bir uygulama kullanarak çeşitli Yönlendirme senaryoları göstermek için sipariş işleme açık bir yol gerekiyor. Ancak, uygulama ayarı rotanın önlemek denemelidir `Order` üretim uygulamalarında.
+
+Yönlendirme razor sayfaları ve MVC denetleyicisi yönlendirme paylaşım uygulaması. Rota sırası MVC konularında bilgi şu adreste [denetleyici eylemlerine yönlendirme: öznitelik rotaları sıralama](xref:mvc/controllers/routing#ordering-attribute-routes).
+
 ## <a name="model-conventions"></a>Model kuralları
 
 Bir temsilci eklemek [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) eklemek için [model kuralları](xref:mvc/controllers/application-model#conventions) Razor sayfaları için geçerlidir.
@@ -81,8 +101,13 @@ Kullanım [kuralları](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpage
 
 [!code-csharp[](razor-pages-conventions/sample/Conventions/GlobalTemplatePageRouteModelConvention.cs?name=snippet1)]
 
-> [!NOTE]
-> `Order` Özelliği `AttributeRouteModel` ayarlanır `-1`. Bu, bu şablon tek rota değeri sağlanır ve onun üzerinde otomatik olarak oluşturulmuş Razor sayfaları yollar önceliği de gerekir ilk rota veri değeri konumu için öncelik verildiğinden emin sağlar. Örneğin, bir örnek ekler bir `{aboutTemplate?}` konunun ilerleyen bölümlerinde rota şablonu. `{aboutTemplate?}` Şablon verildiğinde bir `Order` , `1`. Ne zaman hakkında sayfası istenen adresindeki `/About/RouteDataValue`, "RouteDataValue" içine yüklenir `RouteData.Values["globalTemplate"]` (`Order = -1`) ve `RouteData.Values["aboutTemplate"]` (`Order = 1`) ayarı nedeniyle `Order` özelliği.
+<xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> Özelliği <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel> ayarlanır `1`. Bu örnek uygulamada davranışı aşağıdaki yol sağlar:
+
+* Bir rota şablonu için `TheContactPage/{text?}` konusunda daha sonra eklenir. İlgili kişi sayfası yol varsayılan sıralamasını sahip `null` (`Order = 0`), önce eşleşecek şekilde `{globalTemplate?}` rota şablonu.
+* Bir `{aboutTemplate?}` rota şablonu konusunda daha sonra eklenir. `{aboutTemplate?}` Şablon verildiğinde bir `Order` , `2`. Ne zaman hakkında sayfası istenen adresindeki `/About/RouteDataValue`, "RouteDataValue" içine yüklenir `RouteData.Values["globalTemplate"]` (`Order = 1`) ve `RouteData.Values["aboutTemplate"]` (`Order = 2`) ayarı nedeniyle `Order` özelliği.
+* Bir `{otherPagesTemplate?}` rota şablonu konusunda daha sonra eklenir. `{otherPagesTemplate?}` Şablon verildiğinde bir `Order` , `2`. Ne zaman tüm sayfa içinde *sayfaları/OtherPages* klasörü ile bir rota parametresini istenen (örneğin, `/OtherPages/Page1/RouteDataValue`), "RouteDataValue" içine yüklenir `RouteData.Values["globalTemplate"]` (`Order = 1`) ve `RouteData.Values["otherPagesTemplate"]` (`Order = 2`) ayarı nedeniyle `Order` özelliği.
+
+Mümkün olduğunda, ayarlamamanız `Order`, içindeki sonuçlar `Order = 0`. Doğru yol seçmek için yönlendirme kullanır.
 
 Razor sayfaları seçenekleri ekleme gibi [kuralları](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions), MVC hizmet koleksiyona eklendiğinde, eklenen `Startup.ConfigureServices`. Bir örnek için bkz. [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/sample/).
 
@@ -111,6 +136,7 @@ Bu ve diğer kuralları daha sonra bu konudaki göstermek için örnek uygulamay
 ![Yanıt Üstbilgileri hakkında sayfasının GlobalHeader eklendiğini gösterir.](razor-pages-conventions/_static/about-page-global-header.png)
 
 ::: moniker range=">= aspnetcore-2.1"
+
 **Tüm sayfalar için bir işleyici modeli Kuralı Ekle**
 
 Kullanım [kuralları](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions) oluşturmak ve eklemek için bir [IPageHandlerModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipagehandlermodelconvention) koleksiyonuna [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) sayfa işleyici modeli sırasında uygulanan örnekleri Yapı.
@@ -135,6 +161,7 @@ services.AddMvc()
             options.Conventions.Add(new GlobalPageHandlerModelConvention());
         });
 ```
+
 ::: moniker-end
 
 ## <a name="page-route-action-conventions"></a>Rota eylem kuralları sayfası
@@ -149,8 +176,9 @@ Kullanım [AddFolderRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.a
 
 [!code-csharp[](razor-pages-conventions/sample/Startup.cs?name=snippet3)]
 
-> [!NOTE]
-> `Order` Özelliği `AttributeRouteModel` ayarlanır `1`. Bu şablonu sağlar `{globalTemplate?}` (konu daha önce ayarlanır) bir tek bir yönlendirme değeri sağlandığında konumu ilk rota veri değeri için öncelik verilir. Sayfa1 sayfanın en istenirse `/OtherPages/Page1/RouteDataValue`, "RouteDataValue" içine yüklenir `RouteData.Values["globalTemplate"]` (`Order = -1`) ve `RouteData.Values["otherPagesTemplate"]` (`Order = 1`) ayarı nedeniyle `Order` özelliği.
+<xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> Özelliği <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel> ayarlanır `2`. Bu şablonu sağlar `{globalTemplate?}` (önceki konuya ayarlamak `1`) için tek yol değeri sağlandığında konumu ilk rota veri değeri öncelik verilir. Bir sayfa varsa *sayfaları/OtherPages* klasör yolu bir parametre istenen (örneğin, `/OtherPages/Page1/RouteDataValue`), "RouteDataValue" içine yüklenir `RouteData.Values["globalTemplate"]` (`Order = 1`) ve `RouteData.Values["otherPagesTemplate"]` (`Order = 2`) ayarı nedeniyle `Order` özelliği.
+
+Mümkün olduğunda, ayarlamamanız `Order`, içindeki sonuçlar `Order = 0`. Doğru yol seçmek için yönlendirme kullanır.
 
 Örnek kullanıcının Sayfa1 sayfanın istek `localhost:5000/OtherPages/Page1/GlobalRouteValue/OtherPagesRouteValue` ve sonucu inceleyin:
 
@@ -164,8 +192,9 @@ Kullanım [AddPageRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.app
 
 [!code-csharp[](razor-pages-conventions/sample/Startup.cs?name=snippet4)]
 
-> [!NOTE]
-> `Order` Özelliği `AttributeRouteModel` ayarlanır `1`. Bu şablonu sağlar `{globalTemplate?}` (konu daha önce ayarlanır) bir tek bir yönlendirme değeri sağlandığında konumu ilk rota veri değeri için öncelik verilir. Hakkında sayfası, istenirse `/About/RouteDataValue`, "RouteDataValue" içine yüklenir `RouteData.Values["globalTemplate"]` (`Order = -1`) ve `RouteData.Values["aboutTemplate"]` (`Order = 1`) ayarı nedeniyle `Order` özelliği.
+<xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel.Order*> Özelliği <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.AttributeRouteModel> ayarlanır `2`. Bu şablonu sağlar `{globalTemplate?}` (önceki konuya ayarlamak `1`) için tek yol değeri sağlandığında konumu ilk rota veri değeri öncelik verilir. Bir rota parametresi değer ile hakkında sayfası istenirse, `/About/RouteDataValue`, "RouteDataValue" içine yüklenir `RouteData.Values["globalTemplate"]` (`Order = 1`) ve `RouteData.Values["aboutTemplate"]` (`Order = 2`) ayarı nedeniyle `Order` özelliği.
+
+Mümkün olduğunda, ayarlamamanız `Order`, içindeki sonuçlar `Order = 0`. Doğru yol seçmek için yönlendirme kullanır.
 
 Örnek kullanıcının hakkında sayfası, istek `localhost:5000/About/GlobalRouteValue/AboutRouteValue` ve sonucu inceleyin:
 

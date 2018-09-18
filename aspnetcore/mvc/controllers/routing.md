@@ -3,14 +3,14 @@ title: ASP.NET core'da denetleyici eylemlerine yönlendirme
 author: rick-anderson
 description: Ara yazılım yönlendirme ASP.NET Core MVC URL'leri gelen isteklerin aynı ve onları eylemleri eşlemek için nasıl kullandığını öğrenin.
 ms.author: riande
-ms.date: 03/14/2017
+ms.date: 09/17/2018
 uid: mvc/controllers/routing
-ms.openlocfilehash: 0d328d930ecb932c22fec524babb1c856b656b95
-ms.sourcegitcommit: 4e34ce61e1e7f1317102b16012ce0742abf2cca6
+ms.openlocfilehash: d66c2f14adf55dd0c4a7c3adfad7e5737e4deda1
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/04/2018
-ms.locfileid: "39514784"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011659"
 ---
 # <a name="routing-to-controller-actions-in-aspnet-core"></a>ASP.NET core'da denetleyici eylemlerine yönlendirme
 
@@ -376,6 +376,8 @@ Tanımlanan bir sırayla yürütmek geleneksel yollar aksine öznitelik yönlend
 
 > [!TIP]
 > Yapılandırmanıza bağlı olarak önlemek `Order`. Sonra URL alanını doğru bir şekilde yönlendirmek için Açık sipariş değerleri gerektiriyorsa, istemcilere de büyük olasılıkla karmaşık olur. Genel öznitelik yönlendirme ile URL ile eşleşen doğru yolu seçer. URL üretimi için kullanılan varsayılan düzenini çalışmıyorsa, bir geçersiz kılma uygulama daha genellikle daha basit olduğu rota adı kullanılarak `Order` özelliği.
+
+Yönlendirme razor sayfaları ve MVC denetleyicisi yönlendirme paylaşım uygulaması. Rota sırası Razor sayfaları konularında bilgi şu adreste [Razor sayfaları yol ve uygulama kuralları: rota sırasını](xref:razor-pages/razor-pages-conventions#route-order).
 
 <a name="routing-token-replacement-templates-ref-label"></a>
 

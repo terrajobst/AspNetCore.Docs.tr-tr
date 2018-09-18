@@ -4,18 +4,18 @@ author: guardrex
 description: ASP.NET Core uygulamaları Windows Server Internet Information Services (IIS) üzerinde barındırmayı öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/13/2018
+ms.date: 09/13/2018
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 1a7769e12728b09b04749a124c50366ddb1374d7
-ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
+ms.openlocfilehash: d596ae67dbdfe938999a0b6f3f64b7f1647b4949
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39202672"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011748"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Windows IIS üzerinde ASP.NET Core barındırma
 
-Tarafından [Luke Latham](https://github.com/guardrex) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
+Tarafından [Luke Latham](https://github.com/guardrex)
 
 ## <a name="supported-operating-systems"></a>Desteklenen işletim sistemleri
 
@@ -26,11 +26,48 @@ Aşağıdaki işletim sistemleri desteklenir:
 
 [HTTP.sys sunucu](xref:fundamentals/servers/httpsys) (eski adıyla [WebListener](xref:fundamentals/servers/weblistener)) IIS ile bir ters proxy yapılandırması çalışmaz. Kullanım [Kestrel sunucu](xref:fundamentals/servers/kestrel).
 
+Azure'da barındırma hakkında daha fazla bilgi için bkz: <xref:host-and-deploy/azure-apps/index>.
+
+## <a name="http2-support"></a>HTTP/2 desteği
+
+::: moniker range=">= aspnetcore-2.2"
+
+[HTTP/2](https://httpwg.org/specs/rfc7540.html) ile ASP.NET Core aşağıdaki IIS dağıtım senaryolarında desteklenir:
+
+* İşlem içi
+  * Windows Server 2016/Windows 10 veya üzeri; IIS 10 veya üzeri
+  * Hedef çerçeve: .NET Core 2.2 veya üzeri
+  * TLS 1.2 veya sonraki bir bağlantı
+* İşlem dışı
+  * Windows Server 2016/Windows 10 veya üzeri; IIS 10 veya üzeri
+  * Edge bağlantıları için ters Ara sunucu bağlantısı ancak HTTP/2 kullanmak [Kestrel sunucu](xref:fundamentals/servers/kestrel) HTTP/1.1 kullanır.
+  * Hedef çerçeve: uygulanamaz işlem dışı dağıtımlar için bu yana HTTP/2 bağlantı tamamen IIS tarafından işlenir.
+  * TLS 1.2 veya sonraki bir bağlantı
+
+Bir HTTP/2 bağlantı kurulduğunda, işlem içi dağıtımı için [HttpRequest.Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) raporları `HTTP/2`. Bir HTTP/2 bağlantı kurulduğunda, bir işlem dışı dağıtım için [HttpRequest.Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) raporları `HTTP/1.1`.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
+[HTTP/2](https://httpwg.org/specs/rfc7540.html) aşağıdaki temel gereksinimlere işlem dışı dağıtımları için desteklenir:
+
+* Windows Server 2016/Windows 10 veya üzeri; IIS 10 veya üzeri
+* Edge bağlantıları için ters Ara sunucu bağlantısı ancak HTTP/2 kullanmak [Kestrel sunucu](xref:fundamentals/servers/kestrel) HTTP/1.1 kullanır.
+* Hedef çerçeve: uygulanamaz işlem dışı dağıtımlar için bu yana HTTP/2 bağlantı tamamen IIS tarafından işlenir.
+* TLS 1.2 veya sonraki bir bağlantı
+
+Bir HTTP/2 bağlantı kurulur, [HttpRequest.Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) raporları `HTTP/1.1`.
+
+::: moniker-end
+
+HTTP/2 varsayılan olarak etkindir. Bir HTTP/2 bağlantı değil, bağlantılar, HTTP/1.1 geri döner. IIS dağıtımları olan HTTP/2 yapılandırma hakkında daha fazla bilgi için bkz. [HTTP/2 IIS'de](/iis/get-started/whats-new-in-iis-10/http2-on-iis).
+
 ## <a name="application-configuration"></a>Uygulama yapılandırması
 
 ### <a name="enable-the-iisintegration-components"></a>IISIntegration bileşenlerini etkinleştir
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+::: moniker range=">= aspnetcore-2.0"
 
 Tipik bir *Program.cs* çağrıları [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) bir konak kurulumunu başlatmak için. `CreateDefaultBuilder` yapılandırır [Kestrel](xref:fundamentals/servers/kestrel) temel yolu ve bağlantı noktası için yapılandırarak web sunucusu ve etkinleştirir IIS tümleştirme olarak [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module):
 
@@ -42,7 +79,9 @@ public static IWebHost BuildWebHost(string[] args) =>
 
 ASP.NET Core modülü arka uç işleme atamak için dinamik bir bağlantı noktası oluşturur. `CreateDefaultBuilder` çağrıları [UseIISIntegration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions.useiisintegration) dinamik bir bağlantı noktası seçer ve dinleyecek şekilde Kestrel yapılandırır yöntemi `http://localhost:{dynamicPort}/`. Bu çağrılar gibi diğer URL'yi yapılandırmaları geçersiz kılar `UseUrls` veya [Kestrel'ın dinleme API](xref:fundamentals/servers/kestrel#endpoint-configuration). Bu nedenle, çağrılar `UseUrls` veya Kestrel'ın `Listen` Modülü'nü kullanırken API gerekli değildir. Varsa `UseUrls` veya `Listen` çağrılır, IIS gerekmeden uygulamayı çalıştırılırken belirtilen bağlantı noktasında dinleyen Kestrel.
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 Bir bağımlılık dahil [Microsoft.AspNetCore.Server.IISIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IISIntegration/) uygulamanın bağımlılıklarını bir pakette. Ekleyerek IIS tümleştirme Ara yazılımları kullanmayı [UseIISIntegration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions.useiisintegration) genişletme yöntemi için [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder):
 
@@ -59,7 +98,7 @@ ASP.NET Core modülü arka uç işleme atamak için dinamik bir bağlantı nokta
 
 `UseUrls` Olan bir ASP.NET Core 1.0 uygulamada çağrılır, çağrı **önce** çağırma `UseIISIntegration` böylece modül yapılandırılan bağlantı noktası üzerine değil. Ayarı modülü geçersiz kıldığından bu arama sırası ASP.NET Core 1.1 ile gerekli değildir `UseUrls`.
 
----
+::: moniker-end
 
 Barındırma ile ilgili daha fazla bilgi için bkz: [ASP.NET Core ana](xref:fundamentals/host/index).
 
@@ -438,3 +477,4 @@ Sık karşılaşılan barındırırken IIS üzerinde ASP.NET Core uygulamaları 
 * [ASP.NET Core'a giriş](xref:index)
 * [Resmi Microsoft IIS sitesi](https://www.iis.net/)
 * [Windows Server Teknik İçerik Kitaplığı](/windows-server/windows-server)
+* [IIS HTTP/2](/iis/get-started/whats-new-in-iis-10/http2-on-iis)

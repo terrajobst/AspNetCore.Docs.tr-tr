@@ -4,5 +4,7 @@
 * **.NET core platformlar arası geliştirme**
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [.NET core 2.1 SDK veya üzeri](https://www.microsoft.com/net/download/windows)
+
 ::: moniker-end

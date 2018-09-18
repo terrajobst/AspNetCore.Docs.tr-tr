@@ -32,18 +32,23 @@ ASP.NET Core çevirir `http://localhost:1234/Movies/Edit/4` bir istek halinde `E
 Açık `Movies` denetleyicisi ve iki inceleyin `Edit` eylem yöntemleri. Aşağıdaki kodda gösterildiği `HTTP GET Edit` film getirir ve tarafından oluşturulan düzenleme formu dolduran yöntemi *Edit.cshtml* Razor dosya.
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Controllers/MC1.cs?name=snippet_edit1)]
 
 Aşağıdaki kodda gösterildiği `HTTP POST Edit` gönderilen film değerleri işleyen yöntemi:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit2)]
+
 ::: moniker-end
+
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit1)]
 
 Aşağıdaki kodda gösterildiği `HTTP POST Edit` gönderilen film değerleri işleyen yöntemi:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit2)]
+
 ::: moniker-end
 
 `[Bind]` Özniteliktir karşı korumak için bir yol [aşırı yayınlayarak](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost). Özellikler yalnızca içermelidir `[Bind]` değiştirmek istediğiniz özniteliği. Bkz: [denetleyicinizin atlayarak nakil korumak](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application) daha fazla bilgi için. [Viewmodel'lar](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/) atlayarak önlemek için alternatif bir yaklaşım sağlar.
@@ -51,10 +56,15 @@ Aşağıdaki kodda gösterildiği `HTTP POST Edit` gönderilen film değerleri i
 İkinci fark `Edit` eylem yöntemine öncesinde `[HttpPost]` özniteliği.
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Controllers/MC1.cs?name=snippet_edit2&highlight=1)]
+
 ::: moniker-end
+
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit2&highlight=4)]
+
 ::: moniker-end
 
 `HttpPost` Özniteliği belirtir bu `Edit` yöntemi çağrılacak *yalnızca* için `POST` istekleri. Geçerli olabilir `[HttpGet]` ilk özniteliği Düzenle yöntemi, ancak gerekli değildir çünkü `[HttpGet]` varsayılandır.
@@ -68,10 +78,15 @@ Aşağıdaki kodda gösterildiği `HTTP POST Edit` gönderilen film değerleri i
 `HttpGet Edit` Yöntemi alır film `ID` parametresini arar Entity Framework kullanarak filmi `SingleOrDefaultAsync` yöntemi ve düzenleme görünümü seçili film döndürür. Bir filmi bulunamazsa `NotFound` (HTTP 404) döndürülür.
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Controllers/MC1.cs?name=snippet_edit1)]
+
 ::: moniker-end
+
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit1)]
+
 ::: moniker-end
 
 Yapı iskelesi sistem düzenleme görünümü oluşturduğunuzda, onu incelenirken `Movie` sınıfı ve işlemek için oluşturulan kodu `<label>` ve `<input>` sınıfın her bir özellik için öğeleri. Aşağıdaki örnek, Visual Studio yapı iskelesi sistem tarafından oluşturulan düzenleme görünümünü gösterir:
@@ -93,10 +108,15 @@ Uygulamayı çalıştırmak ve gidin `/Movies` URL'si. ' A tıklayın bir **Düz
 Aşağıdaki liste gösterildiği `[HttpPost]` sürümünü `Edit` eylem yöntemi.
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Controllers/MC1.cs?name=snippet_edit2)]
+
 ::: moniker-end
+
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit2)]
+
 ::: moniker-end
 
 `[ValidateAntiForgeryToken]` Özniteliği gizli doğrular [XSRF](xref:security/anti-request-forgery) içinde sahteciliğe karşı koruma belirteci Oluşturucu tarafından oluşturulan belirteç [Form etiketi Yardımcısı](xref:mvc/views/working-with-forms)
