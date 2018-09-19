@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/31/2018
 uid: getting-started
-ms.openlocfilehash: 7ab9f303d74786c4ac76f002d0f2c66371e78cb8
-ms.sourcegitcommit: b4c7b1a4c48dec0865f27874275c73da1f75e918
+ms.openlocfilehash: 06129200834607188052f44a888749c51662f638
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39228588"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011611"
 ---
 # <a name="get-started-with-aspnet-core"></a>ASP.NET Core kullanmaya başlayın
 
@@ -49,13 +49,15 @@ ms.locfileid: "39228588"
 
    Yukarıdaki komut, şu iletiyi görüntüler:
 
-   *HTTPS geliştirme sertifikaya güvenme istendi. Sertifika zaten güvenilir değilse aşağıdaki komutu çalıştıracağız:* `'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain <<certificate>>'` *parolanızı üzerinde sistem Anahtarlık sertifikayı yüklemek bu komutu isteyebilir.    Parola:*
+   *HTTPS geliştirme sertifikaya güvenme istendi. Sertifika zaten güvenilir değilse aşağıdaki komutu çalıştıracağız:* `'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain <<certificate>>'`
+   *Bu komut, üzerinde sistem Anahtarlık sertifikayı yüklemek, parola isteyebilir. Parola:*
 
    Geliştirme sertifikasına güvenmek kabul ediyorsanız, parolanızı girin.
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
-   <a name="see-the-documentation-for-your-linux-distribution-on-how-to-trust-the-https-development-certificate"></a>HTTPS geliştirme sertifikasına güvenmek Linux dağıtımınız için belgelere bakın.
+   HTTPS geliştirme sertifikasına güvenmek Linux dağıtımınız için belgelere bakın.
+   
 ---
 
 4. Uygulamayı çalıştırın:
@@ -149,7 +151,8 @@ ms.locfileid: "39228588"
 
    [Çalıştırma dotnet](/dotnet/core/tools/dotnet-run) gerekirse komut uygulamayı ilk olarak oluşturur.
 
-7. Gözat `http://localhost:5000`.
+7. konumuna gözatın `http://localhost:5000`.
 
 [!INCLUDE [next steps](~/includes/getting-started/next-steps.md)]
+
 ::: moniker-end
