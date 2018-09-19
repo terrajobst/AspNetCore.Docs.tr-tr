@@ -17,10 +17,15 @@ Açık *Movie.cs* dosya. DataAnnotations yerleşik herhangi bir sınıf veya öz
 Güncelleştirme `Movie` yerleşik yararlanmak için sınıf `Required`, `StringLength`, `RegularExpression`, ve `Range` doğrulama öznitelikleri.
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie21/Models/MovieDateRatingDA.cs?name=snippet1)]
+
 ::: moniker-end
+
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?name=snippet1)]
+
 ::: moniker-end
 
 Doğrulama özniteliklerinin uygulandığı model özellikleri uygulamak istediğiniz davranışı belirtin. `Required` Ve `MinimumLength` öznitelikleri belirtir bir özellik değeri; olmalıdır, ancak hiçbir şey bir kullanıcı bu doğrulamayı gerçekleştirmek için boşluk girişini engeller. `RegularExpression` Özniteliği hangi karakter olabilir sınırlamak için kullanılan giriş. Yukarıdaki kodda `Genre` ve `Rating` yalnızca harf (ilk harfi büyük harf, beyaz alanı, sayılar ve özel karakterler kullanılamaz) kullanmanız gerekir. `Range` Öznitelik değerine belirtilen bir aralıktaki kısıtlar. `StringLength` Özniteliği bir dize özelliğini en fazla uzunluğu ve isteğe bağlı olarak, minimum uzunluk ayarlamanızı sağlar. Değer türleri (gibi `decimal`, `int`, `float`, `DateTime`) kendiliğinden gereklidir ve gerekmeyen `[Required]` özniteliği.
@@ -115,10 +120,13 @@ JQuery tarih doğrulama kullanmak için devre dışı bırakmanız gerekir `Rang
 Aşağıdaki kod, bir satır birleştirme öznitelikleri gösterir:
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie21/Models/MovieDateRatingDAmult.cs?name=snippet1)]
 
 ::: moniker-end
+
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDAmult.cs?name=snippet1)]
 
 ::: moniker-end

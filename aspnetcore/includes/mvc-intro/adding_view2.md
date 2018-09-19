@@ -1,44 +1,47 @@
-Değiştir *Views/HelloWorld/Index.cshtml* aşağıdaki Razor görünüm dosyası:
+Öğesinin içeriğini değiştirin *Views/HelloWorld/Index.cshtml* aşağıdaki Razor görünüm dosyası:
 
 [!code-HTML[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Index.cshtml)]
 
-Gidin `http://localhost:xxxx/HelloWorld`. `Index` Yönteminde `HelloWorldController` çok yapmak olmadı; deyim çalışan `return View();`, hangi belirtilen tarayıcı yanıta işlemek için yöntemi bir görünüm şablon dosyası kullanmanız gerekir. Görünüm şablonu dosyasının adı açıkça belirtmediğiniz çünkü MVC kullanarak varsayılan *Index.cshtml* görünüm dosyasında */görünümler/HelloWorld* klasör. Aşağıdaki görüntü dizesi "bizim Görünüm şablonundan! Hello ifadesini" gösterir sabit kodlanmış görünümünde.
+Gidin `http://localhost:xxxx/HelloWorld`. `Index` Yönteminde `HelloWorldController` çok başarmadık; çalıştığını deyim `return View();`, hangi belirtilen tarayıcı yanıt işlemek için yöntemi bir görünüm şablon dosyası kullanmanız gerekir. Görünüm şablon dosyası adı açıkça belirtmediğiniz için MVC için kullanılacak varsayılan *Index.cshtml* görünümü dosyasında */Views/HelloWorld* klasör. Aşağıdaki görüntüde "Bizim görünümü şablondan Merhaba!" dizesini gösterir. sabit kodlanmış görüntüleme.
 
-![Bir tarayıcı penceresi](~/tutorials/first-mvc-app/adding-view/_static/hell_template.png)
+![Tarayıcı penceresi](~/tutorials/first-mvc-app/adding-view/_static/hell_template.png)
 
-Tarayıcı pencerenizi (örneğin bir mobil cihazda) küçükse, geçiş (tap) gerekebilecek [önyükleme gezinti düğmesi](http://getbootstrap.com/components/#navbar) görmek için sağ üst **giriş**, **hakkında**, ve **kişi** bağlantılar.
+Tarayıcı pencerenizin (örneğin bir mobil cihazda) küçük ise, iki durumlu düğmeyi (tap) gerekebilir [önyükleme gezinti düğmesi](http://getbootstrap.com/components/#navbar) görmek için sağ üst köşedeki **giriş**, **hakkında**, ve **kişi** bağlantıları.
 
-![Tarayıcı penceresini önyükleme gezinti düğmesi vurgulama](~/tutorials/first-mvc-app/adding-view/_static/1.png)
+![Tarayıcı penceresi önyükleme gezinti düğmesi vurgulama](~/tutorials/first-mvc-app/adding-view/_static/1.png)
 
-## <a name="changing-views-and-layout-pages"></a>Görünümleri ve Düzen sayfaları değiştirme
+## <a name="changing-views-and-layout-pages"></a>Görünümlere ve sayfalara düzenini değiştirme
 
-Menü Bağlantılar'a dokunun (**MvcMovie**, **giriş**, **hakkında**). Her bir sayfa aynı menü düzeni gösterilir. Menü düzeni uygulanan *Views/Shared/_Layout.cshtml* dosya. Açık *Views/Shared/_Layout.cshtml* dosya.
+Menü bağlantıları dokunun (**MvcMovie**, **giriş**, **hakkında**). Her sayfada aynı menüsü düzeni gösterilir. Menüsü düzeni uygulanan *Views/Shared/_Layout.cshtml* dosya. Açık *Views/Shared/_Layout.cshtml* dosya.
 
-[Düzen](xref:mvc/views/layout) şablonları tek bir yerde, sitenizin HTML kapsayıcı düzeni belirtin ve sitenizin birden çok sayfada üzerinden uygulanan olanak sağlar. Bul `@RenderBody()` satır. `RenderBody` olan burada tüm görünüm özgü sayfaları, bir yer tutucu oluşturmak Göster, *Sarmalanan* düzeni sayfasında. Örneğin, **hakkında** bağlantı **Views/Home/About.cshtml** görünümü içinde işlenir `RenderBody` yöntemi.
+[Düzen](xref:mvc/views/layout) , tek bir yerde sitenizin HTML kapsayıcı düzenini belirtin ve ardından sitenizdeki birden çok sayfada uygulamak şablonlar sağlar. Bulma `@RenderBody()` satır. `RenderBody` olduğundan burada tüm görünüm özel sayfalar, yer tutucu oluşturma Göster, *sarmalanmış* Düzen sayfasında. Örneğin, **hakkında** bağlantı **Views/Home/About.cshtml** görünümü içinde işlenir `RenderBody` yöntemi.
 
-## <a name="change-the-title-and-menu-link-in-the-layout-file"></a>Düzen dosyasını başlığı ve menü bağlantıyı değiştirme
+## <a name="change-the-title-and-menu-link-in-the-layout-file"></a>Düzen dosyası başlığı ve menü Bağlantıyı Değiştir
 
-Başlık öğesinde `MvcMovie` için `Movie App`. Düzen şablonu bağlantı metinde değiştirmek `MvcMovie` için `Movie App` ve denetleyicisinden `Home` için `Movies` aşağıda vurgulanan:
+Başlık öğesinde `MvcMovie` için `Movie App`. Düzen şablonu bağlantı metni değiştirme `MvcMovie` için `Movie App` ve denetleyicisinden `Home` için `Movies` aşağıda vurgulanan:
 
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout.cshtml?highlight=7,31)]
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout21.cshtml?highlight=7,31)]
+
 ::: moniker-end
 
 >[!WARNING]
-> Uygulanan henüz `Movies` , henüz denetleyicisi, dolayısıyla bu bağlantıyı tıklatın, 404 (bulunamadı) hata iletisi alırsınız.
+> Biz uygulamadığınız `Movies` , henüz denetleyici, dolayısıyla bu bağlantıyı tıklatın, 404 (bulunamadı) hatası alırsınız.
 
-Yaptığınız değişiklikleri kaydedin ve dokunun **hakkında** bağlantı. Nasıl başlık tarayıcı sekmesinde şimdi görüntülendiğine dikkat edin **- film uygulaması hakkında** yerine **hakkında - Mvc film**: 
+Değişikliklerinizi kaydedip dokunun **hakkında** bağlantı. Tarayıcı sekmesinde başlığı şimdi nasıl görüntülendiğine dikkat edin **film uygulaması hakkında -** yerine **hakkında - Mvc film**: 
 
-![Hakkında sekmesi](~/tutorials/first-mvc-app/adding-view/_static/about2.png)
+![Sekme hakkında](~/tutorials/first-mvc-app/adding-view/_static/about2.png)
 
-Dokunun **kişi** başlık ve bağlantı metni ayrıca görüntüle dikkat edin ve bağlama **film uygulaması**. Düzen şablonda değişiklik kez bulduk ve sahip sitesindeki tüm sayfalara yansıtmak yeni bağlantı metnini ve yeni başlığı.
+Dokunun **kişi** bağlamak ve başlık ve bağlantı metni de görüntülemek fark **film uygulaması**. Biz Düzen şablonda değişiklik kez sunmayı başarabilseydiniz nasıl olurdu ve sahip sitesindeki tüm sayfalara yansıtan yeni bir başlık ve yeni bağlantı metni.
 
-İncelemek *Views/_ViewStart.cshtml* dosyası:
+İnceleme *Views/_ViewStart.cshtml* dosyası:
 
 
 ```HTML
@@ -47,16 +50,16 @@ Dokunun **kişi** başlık ve bağlantı metni ayrıca görüntüle dikkat edin 
 }
 ```
 
-*Views/_ViewStart.cshtml* dosya getirir *Views/Shared/_Layout.cshtml* her görünüm dosyasına. Kullanabileceğiniz `Layout` farklı bir görünümü ayarlayın veya ayarlamak özellik `null` herhangi bir düzen dosyası kullanılacak şekilde.
+*Views/_ViewStart.cshtml* dosya getirdiği *Views/Shared/_Layout.cshtml* dosyaya her görünüm. Kullanabileceğiniz `Layout` farklı düzeni görünümünde veya ayarlamak, özellik `null` hiçbir Düzen dosyası yeniden kullanılacak şekilde.
 
-Başlığını değiştirmek `Index` görünümü.
+Başlığını değiştirme `Index` görünümü.
 
-Açık *Views/HelloWorld/Index.cshtml*. Bir değişiklik yapmak için iki yerde vardır:
+Açık *Views/HelloWorld/Index.cshtml*. Değişiklik yapmak için iki yerde vardır:
 
    * Tarayıcının başlık görüntülenen metin.
    * İkincil üstbilgi (`<h2>` öğesi).
 
-Hangi bölümünün uygulamanın hangi bit kod değişiklikleri görebilmeleri biraz farklı yapmanız.
+Uygulamanın hangi parçası hangi bit kod değişiklikleri görebilmeniz için biraz daha farklı yapmanız.
 
 
 ```HTML
@@ -69,38 +72,38 @@ Hangi bölümünün uygulamanın hangi bit kod değişiklikleri görebilmeleri b
 <p>Hello from our View Template!</p>
 ```
 
-`ViewData["Title"] = "Movie List";` ayarlar yukarıdaki kodda `Title` özelliği `ViewData` "Film listesine" sözlük. `Title` Özelliği kullanılıyor `<title>` HTML öğesi düzeni sayfasında:
+`ViewData["Title"] = "Movie List";` koddaki kümeleri üstündeki `Title` özelliği `ViewData` sözlüğe "Film listesi". `Title` Özelliği kullanılan `<title>` HTML öğesini düzen sayfası:
 
 
 ```HTML
 <title>@ViewData["Title"] - Movie App</title>
    ```
 
-Değişikliklerinizi kaydetmek ve gidin `http://localhost:xxxx/HelloWorld`. Tarayıcı başlığı, birincil başlık ve ikincil başlıklar değişmiş dikkat edin. (Değişiklikleri tarayıcıda görmüyorsanız, önbelleğe alınmış içeriği görüntülüyor olabilirsiniz. Yüklenecek sunucudan yanıt zorlamak için tarayıcınızda CTRL + F5'e basın.) Tarayıcı başlığı ile oluşturulan `ViewData["Title"]` biz kümesinde *Index.cshtml* şablonu ve ek görüntüle "-film uygulaması" düzeni dosyasına eklendi.
+Değişikliği kaydetmek ve gidin `http://localhost:xxxx/HelloWorld`. Tarayıcı başlığı, başlığı birincil ve ikincil başlıklar değiştirildi dikkat edin. (Tarayıcı değişiklikleri görmüyorsanız, önbelleğe alınmış içerikleri görüntülüyor olabilirsiniz. Tarayıcınızda yüklenmesine sunucudan yanıt zorlamak için CTRL + F5'e basın.) Tarayıcı başlığı ile oluşturulan `ViewData["Title"]` biz kümesinde *Index.cshtml* şablonu ve ek görüntüleme "-film uygulaması" Düzen dosyasında eklendi.
 
-Ayrıca dikkat edin nasıl içerik *Index.cshtml* görünüm şablonu birleştirilmiş ile *Views/Shared/_Layout.cshtml* şablonu görüntüleme ve tek bir HTML yanıtını tarayıcıya gönderildi. Düzen şablonları, uygulamanızdaki sayfaların tümünü uygulamak değişiklik gerçekten kolay hale getirir. Daha fazla bilgi edinmek için [düzeni](xref:mvc/views/layout).
+Ayrıca dikkat edin nasıl içeriği *Index.cshtml* görünüm şablonu ile birleştirilmiş *Views/Shared/_Layout.cshtml* şablonu görüntüleme ve tek bir HTML yanıtını tarayıcıya gönderilen. Düzen şablonları gerçekten tüm uygulamanızdaki sayfaların uygulanacak değişiklikler yapmak kolaylaştırır. Daha fazla bilgi edinmek için [Düzen](xref:mvc/views/layout).
 
 ![Film liste görünümü](~/tutorials/first-mvc-app/adding-view/_static/hell3.png)
 
-Bizim az bitlik (Bu durumda "Hello bizim görünüm şablondan!" "veri" ileti), sabit kodlanmış, ancak. MVC uygulama bir "V" (Görünüm) vardır ve bir "C" (denetleyicisi), ancak hiçbir "M" (modeli) henüz var.
+(Bu durumda "Hello bizim görünümü şablondan!", "veri" az bizim bit ileti) sabit kodlanmıştır, ancak. MVC uygulaması bir "V" (view) ve "C" (denetleyicisi), ancak hiçbir "M" (modeli) henüz kendinizi.
 
-## <a name="passing-data-from-the-controller-to-the-view"></a>Denetleyici geçirme verileri görüntülemek için
+## <a name="passing-data-from-the-controller-to-the-view"></a>Görünüm denetleyicisinden veri geçirme
 
-Denetleyici eylemleri, gelen bir URL isteğine yanıt olarak çağrılır. Denetleyici gelen tarayıcı istekleri işleyen kodu yazma burada sınıfıdır. Denetleyici bir veri kaynağından veri alır ve ne tür bir tarayıcıya göndermek için yanıt verir. Görünüm şablonları oluşturmak ve bir HTML yanıtını tarayıcıya biçimlendirmek için bir denetleyicisinden kullanılabilir.
+Denetleyici eylemleri, bir gelen URL isteğine yanıt olarak çağrılır. Burada, tarayıcı gelen istekleri işleyen kodu yazdığınız bir denetleyici sınıftır. Denetleyici, verileri bir veri kaynağından alır ve ne tür bir tarayıcıya gönderilecek yanıt karar verir. Bir denetleyiciden görünüm şablonları oluşturmak ve bir HTML yanıtını tarayıcıya biçimlendirmek için kullanılabilir.
 
-Denetleyicileri sırada bir yanıtı işlemek bir şablonu görüntüleme için gerekli verileri sunmak için sorumludur. En iyi yöntem: görünüm şablonları gereken **değil** iş mantığı gerçekleştirmek ya da bir veritabanı ile doğrudan etkileşim. Bunun yerine, şablonu görüntüleme için denetleyici tarafından sağlanan verileri ile çalışması gerekir. "Sorunları ayrımı" bakımı, temiz, sınanabilir ve sürdürülebilir kodunuzu tutmaya yardımcı olur.
+Denetleyicileri sırada bir yanıt işlemek bir görünüm şablon için gerekli olan veriler sağlamaktan sorumludur. En iyi yöntem: görünüm şablonları gereken **değil** iş mantığını gerçekleştirebilir veya bir veritabanı ile doğrudan etkileşim. Bunun yerine, bir şablonu görüntüleme için denetleyici tarafından sağlanan veri ile çalışması gerekir. Bu "ayrımı" bakımı, kodunuzu temiz, sınanabilir ve sürdürülebilir tutmaya yardımcı olur.
 
-Şu anda `Welcome` yönteminde `HelloWorldController` sınıfını alır bir `name` ve `ID` parametresi ve çıkışları doğrudan tarayıcıya değerleri. Bu yanıt dize olarak işleme denetleyiciniz yerine bir görünüm şablonu kullanmayı denetleyicisini değiştirin. Şablonu görüntüleme uygun bit veri denetleyicisinden görünümüne yanıtı oluşturmak için geçirilmelidir, yani dinamik bir yanıt oluşturur. Şablonu görüntüleme gereksinimlerinize dinamik veri (parametre) put denetleyicisi sağlayarak bunu bir `ViewData` şablonu görüntüle daha sonra erişebilirsiniz sözlük.
+Şu anda `Welcome` yönteminde `HelloWorldController` sınıfı alır bir `name` ve `ID` parametresi ve çıkışları doğrudan tarayıcıya değerleri. Bu yanıt dize olarak işleme denetleyiciniz yerine bir şablonu görüntüleme kullanmayı denetleyici değiştirin. Şablonu Görüntüle uygun veri bitleri denetleyiciden görünüm yanıtı oluşturmak için geçirilmesi gerektiğini yani dinamik bir yanıt oluşturur. Şablonu görüntüleme, gereken dinamik (Parametreler) verilerinizden denetleyicisi sağlayarak bunu bir `ViewData` görünüm şablonu erişebiliyorsa sözlüğü.
 
-Geri dönüp *HelloWorldController.cs* dosya ve değişiklik `Welcome` ekleme yöntemi bir `Message` ve `NumTimes` değeri `ViewData` sözlük. `ViewData` Dictionary'si, koyabilir istediğiniz ona; yani dinamik bir nesne `ViewData` nesnesi içindeki put kadar tanımlı hiçbir özellik sahiptir. [MVC model bağlama sistem](xref:mvc/models/model-binding) adlandırılmış parametreleri otomatik olarak eşlenir (`name` ve `numTimes`) Sorgu dizesinden yönteminizi parametrelere adres çubuğundaki. Tam *HelloWorldController.cs* dosya şu şekilde görünür:
+Geri dönüp *HelloWorldController.cs* dosya ve değiştirme `Welcome` yöntemi eklemek için bir `Message` ve `NumTimes` değerini `ViewData` sözlüğü. `ViewData` Sözlüktür, koyabilir ne olursa olsun istediğiniz kendisine; yani dinamik bir nesne `ViewData` nesnesi içine yerleştirin kadar tanımlı hiçbir özellik sahiptir. [MVC model bağlama sistemi](xref:mvc/models/model-binding) adlandırılmış parametreleri otomatik olarak eşlenir (`name` ve `numTimes`) Sorgu dizesinden yönteminizi parametrelere adres çubuğundaki. Tam *HelloWorldController.cs* dosya şu şekilde görünür:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_5)]
 
-`ViewData` Sözlük nesnesi görünüme iletilen verileri içerir. 
+`ViewData` Sözlük nesnesi, görünüme iletilen verileri içerir. 
 
 Adlı bir Hoş Geldiniz görünüm şablonu oluşturma *Views/HelloWorld/Welcome.cshtml*.
 
-Bir döngüde oluşturacaksınız *Welcome.cshtml* "Hello" görüntüler şablonu görüntüleme `NumTimes`. Değiştir *Views/HelloWorld/Welcome.cshtml* aşağıdaki:
+Bir döngüde oluşturacaksınız *Welcome.cshtml* "Hello" görüntüleyen bir görünüm şablonu `NumTimes`. Öğesinin içeriğini değiştirin *Views/HelloWorld/Welcome.cshtml* aşağıdaki:
 
 [!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Welcome.cshtml)]
 
@@ -108,10 +111,10 @@ Yaptığınız değişiklikleri kaydedin ve aşağıdaki URL'ye gidin:
 
 `http://localhost:xxxx/HelloWorld/Welcome?name=Rick&numtimes=4`
 
-Veri URL'den alınır ve denetleyici kullanmaya geçirilen [MVC model bağlayıcı](xref:mvc/models/model-binding) . Denetleyici verileri paketleri bir `ViewData` sözlük ve nesne görünümüne geçirir. Görünümü sonra verileri tarayıcıya HTML olarak işler.
+Verileri URL'den gerçekleştirilen ve denetleyicisi kullanarak geçirilen [MVC model bağlayıcı](xref:mvc/models/model-binding) . Denetleyici verileri paketleri bir `ViewData` sözlük ve Görünüm nesnesi geçer. Görünümü ardından verilerin tarayıcıya HTML olarak işler.
 
-![Hoş Geldiniz etiket ve Hello dört kez gösterilen Rick deyimi gösteren görünüm hakkında](~/tutorials/first-mvc-app/adding-view/_static/rick2.png)
+![Hoş Geldiniz etiket ve Hello dört kez gösterilen Rick ifadesini gösteren görünümü hakkında](~/tutorials/first-mvc-app/adding-view/_static/rick2.png)
 
-Yukarıdaki örnekte, kullandık `ViewData` denetleyicisinden bir görünüme veri iletmek için Sözlük. Öğreticide daha sonra bir denetleyicisinden bir görünüme veri iletmek için bir görünüm modeli kullanacağız. Veri geçirme görünüm modeli genellikle çok tercih edilen üzerinden yaklaşımdır `ViewData` sözlük yaklaşım. Bkz: [ViewModel vs ViewData vs ViewBag vs TempData vs MVC oturumunda](http://www.mytecbits.com/microsoft/dot-net/viewmodel-viewdata-viewbag-tempdata-mvc) daha fazla bilgi için.
+Yukarıdaki örnekte kullandık `ViewData` denetleyicisinden bir görünüme veri iletmek için Sözlük. Öğreticinin sonraki bölümlerinde bir denetleyiciden bir görünüme veri iletmek için bir görünüm modeli kullanacağız. Veri geçirme görünüm modeli yaklaşım genellikle çok tercih üzerinden `ViewData` sözlük yaklaşım. Bkz: [ViewModel vs ViewData vs ViewBag vs TempData vs MVC oturumunda](http://www.mytecbits.com/microsoft/dot-net/viewmodel-viewdata-viewbag-tempdata-mvc) daha fazla bilgi için.
 
-De, "M" türde bir model, ancak veritabanı türü için oluştu. Ne biz öğrendiğinize ve film bir veritabanı oluşturmak atalım.
+İyi modeli, ancak veritabanı türü için "M" bir tür olan. Ne biz öğrendiniz ve film veritabanı oluşturma ele alalım.

@@ -1,33 +1,33 @@
 ---
 title: ASP.NET Core yerleşik etiket Yardımcıları
 author: pkellner
-description: ASP.NET Core yerleşik etiket Yardımcıları üretkenliğinizi artırın nasıl çıkışı bulun.
+description: ASP.NET Core yerleşik etiket Yardımcıları üretkenliğinizi artırmanıza nasıl kullanıma bulun.
 ms.author: riande
-ms.date: 09/13/2017
+ms.date: 09/18/2018
 uid: mvc/views/tag-helpers/builtin-th/Index
-ms.openlocfilehash: 4f2ebf1600f42847db1c1f9517787b020d2e86c9
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 5d9425e0b68578c86a6f9a691322e0bb63a860fb
+ms.sourcegitcommit: c684eb6c0999d11d19e15e65939e5c7f99ba47df
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36279174"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46292316"
 ---
 # <a name="aspnet-core-built-in-tag-helpers"></a>ASP.NET Core yerleşik etiket Yardımcıları
 
 Tarafından [Peter Kellner](http://peterkellner.net)
 
-ASP.NET Core birçok yerleşik etiketi verimliliğinizi artırmak için Yardımcıları içerir. Bu bölümde, yerleşik etiket Yardımcıları genel bir bakış sağlar.
+ASP.NET Core birçok yerleşik etiket üretkenliğinizi artırmak için Yardımcıları içerir. Bu bölümde, yerleşik etiket Yardımcıları için genel bir bakış sağlar.
 
 > [!NOTE]
-> Tarafından dahili olarak kullanılan bu yana tartışılan, olmayan yerleşik etiket Yardımcıları vardır [Razor](xref:mvc/views/razor) görünüm altyapısı. Bu etiket Yardımcısı için içerir ~ Web sitesinin kök yolu genişletir karakter.
+> Tarafından dahili olarak kullanılan için bu durum, açıklanan olmayan yerleşik etiket Yardımcıları vardır [Razor](xref:mvc/views/razor) görünüm altyapısı. Bu etiket Yardımcısı için içerir ~ karakteri Web sitesinin kök yolunu genişletir.
 
-## <a name="built-in-aspnet-core-tag-helpers"></a>Yerleşik ASP.NET Core etiket Yardımcıları
+## <a name="built-in-aspnet-core-tag-helpers"></a>ASP.NET Core yerleşik etiket Yardımcıları
 
 **[Yer işareti etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper)**
 
-**[Önbellek etiket Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)**
+**[Önbellek etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)**
 
-**[Dağıtılmış önbellek etiket Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)**
+**[Dağıtılmış önbellek etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)**
 
 **[Ortam etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/environment-tag-helper)**
 
@@ -39,7 +39,7 @@ ASP.NET Core birçok yerleşik etiketi verimliliğinizi artırmak için Yardımc
 
 **[Giriş etiketi Yardımcısı](xref:mvc/views/working-with-forms#the-input-tag-helper)**
 
-**[Etiket etiket Yardımcısı](xref:mvc/views/working-with-forms#the-label-tag-helper)**
+**[Etiket etiketi Yardımcısı](xref:mvc/views/working-with-forms#the-label-tag-helper)**
 
 [comment]: **[LinkTagHelper](xref:mvc/views/tag-helpers/builtin-th/link-tag-helper)**
 
@@ -49,15 +49,15 @@ ASP.NET Core birçok yerleşik etiketi verimliliğinizi artırmak için Yardımc
 
 **[Kısmi etiket Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper)**
 
-**[Etiket Yardımcısı seçin](xref:mvc/views/working-with-forms#the-select-tag-helper)**
+**[Seçim etiketi Yardımcısı](xref:mvc/views/working-with-forms#the-select-tag-helper)**
 
-**[TextArea etiket Yardımcısı](xref:mvc/views/working-with-forms#the-textarea-tag-helper)**
+**[TextArea etiketi Yardımcısı](xref:mvc/views/working-with-forms#the-textarea-tag-helper)**
 
-**[Doğrulama ileti etiketi Yardımcısı](xref:mvc/views/working-with-forms#the-validation-message-tag-helper)**
+**[Doğrulama iletisi etiketi Yardımcısı](xref:mvc/views/working-with-forms#the-validation-message-tag-helper)**
 
-**[Doğrulama Özeti etiket Yardımcısı](xref:mvc/views/working-with-forms#the-validation-summary-tag-helper)**
+**[Doğrulama Özeti etiketi Yardımcısı](xref:mvc/views/working-with-forms#the-validation-summary-tag-helper)**
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [İstemci tarafı geliştirme](xref:client-side/index)
-* [Etiket Yardımcıları](xref:mvc/views/tag-helpers/intro)
+* <xref:mvc/views/tag-helpers/intro>
+* <xref:mvc/views/tag-helpers/th-components>
