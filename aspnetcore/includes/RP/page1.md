@@ -11,10 +11,13 @@ Bu öğreticide, önceki öğreticide yapı iskelesi oluşturulmuş Razor sayfal
 İnceleme *Pages/Movies/Index.cshtml.cs* sayfa modeli:
 
 ::: moniker range="= aspnetcore-2.0"
+
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs)]
+
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index21.cshtml.cs)]
 
 ::: moniker-end
@@ -118,11 +121,15 @@ Değişikliklerinizi kaydedip tıklayarak uygulamayı test etme **RpMovie** bağ
 İnceleme *Pages/Movies/Create.cshtml.cs* sayfa modeli:
 
 ::: moniker range="= aspnetcore-2.0"
+
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml.cs?name=snippetALL)]
+
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create21.cshtml.cs?name=snippetALL)]
+
 ::: moniker-end
 
 
