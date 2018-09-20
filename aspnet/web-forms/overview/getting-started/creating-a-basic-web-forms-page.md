@@ -8,16 +8,18 @@ ms.date: 03/03/2014
 ms.assetid: a2f1c635-0817-4a9a-8c13-d5b5d29727c0
 msc.legacyurl: /web-forms/overview/getting-started/creating-a-basic-web-forms-page
 msc.type: authoredcontent
-ms.openlocfilehash: 3efd772854cb97c805d61b63c03f6bae031619de
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: fda6922c0703ca442d4f1ebc5b39dabeb5ee58cd
+ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41754025"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46483028"
 ---
 <a name="creating-a-basic-aspnet-45-web-forms-page-in-visual-studio-2013"></a>4.5 Web sayfası Visual Studio 2013'te Forms temel ASP.NET oluşturma
 ====================
 tarafından [Erik Reitan](https://github.com/Erikre)
+
+[!INCLUDE[](~/includes/rp.md)]
 
 Bu izlenecek yol, Web geliştirme ortamında bir giriş sağlar [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs) ve [Web için Visual Studio Express 2013 Microsoft](https://www.microsoft.com/visualstudio/11/downloads#express-web). Bu izlenecek yol, basit bir ASP.NET Web Forms sayfası oluşturma işleminde size yol gösterir ve yeni sayfa oluşturma, denetim ekleme ve kod yazmaya temel teknikleri gösterir.
 

@@ -7,14 +7,16 @@ ms.assetid: fddf8e5e-c055-4f81-b691-78deef871112
 ms.author: riande
 ms.date: 09/20/2017
 ms.technology: aspnet
-ms.openlocfilehash: fa7fe92ae0a6545986f816c04c18e659718846f1
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 8f45f73c691600ae5138170db5cc4794246c4f2e
+ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41752360"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46482976"
 ---
 # <a name="aspnet-tutorials"></a>ASP.NET öğreticiler
+
+[!INCLUDE[](~/includes/rp.md)]
 
 ASP.NET uygulamaları geliştirmek için aşağıdaki adım adım kılavuzlar mevcuttur.
 
@@ -23,8 +25,6 @@ ASP.NET uygulamaları geliştirmek için aşağıdaki adım adım kılavuzlar me
 
 ## <a name="web-forms"></a>Web Forms
 
-* [ASP.NET 4.5 Web Forms ve Visual Studio 2013 ile Çalışmaya Başlama](web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/index.md)
-* [Visual Studio 2013'te Temel Web Forms Sayfası Oluşturma](web-forms/overview/getting-started/creating-a-basic-web-forms-page.md)
 * [Visual Studio 2013’te ASP.NET Web Forms Kodunu Düzenleme](web-forms/overview/getting-started/code-editing-in-web-forms-pages.md)
 * [Visual Studio 2012'de Sayfa Denetçisini Kullanma](web-forms/overview/getting-started/hands-on-labs/using-page-inspector-in-visual-studio-2012.md)
 * [Visual Studio 2013'te Model Bağlama ve Web Forms](web-forms/overview/presenting-and-managing-data/model-binding/index.md)
@@ -45,9 +45,6 @@ ASP.NET uygulamaları geliştirmek için aşağıdaki adım adım kılavuzlar me
 
 ## <a name="mvc"></a>MVC
 
-* [ASP.NET MVC 5 ile çalışmaya başlama ](mvc/overview/getting-started/introduction/index.md)
-* [MVC 5 Kullanarak EF 6 ile Çalışmaya Başlama](mvc/overview/getting-started/getting-started-with-ef-using-mvc/index.md)
-* [ASP.NET MVC ile EF Database First](mvc/overview/getting-started/database-first-development/index.md)
 * [ASP.NET MVC'de Sayfa Denetçisini Kullanma](mvc/overview/views/using-page-inspector-in-aspnet-mvc.md)
 * [Facebook, Twitter, LinkedIn ve Google OAuth2 Oturum Açma Özellikli Bir ASP.NET MVC 5 Uygulaması Oluşturma (C#)](mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)
 * [Oturum açma, e-posta onayı ve parola sıfırlama özellikli, güvenli bir ASP.NET MVC 5 web uygulaması oluşturma (C#)](mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md)

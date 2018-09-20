@@ -4,14 +4,14 @@ author: rick-anderson
 description: ASP.NET Core bellekte önbelleğe öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 7/22/2018
+ms.date: 09/15/2018
 uid: performance/caching/memory
-ms.openlocfilehash: 091d00ca7a30b61bdd83618e055bf23e0f2753c4
-ms.sourcegitcommit: 67a0a04ebb3b21c826e5b9600bacfc897abd6a46
+ms.openlocfilehash: 2570ad7d939d67530b3de8cd0147815c2e25ecc8
+ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42899850"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46482989"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>Belleğe yüklenmiş önbellek ASP.NET core'da
 
@@ -31,7 +31,19 @@ Bir web grubunda olmayan Yapışkan oturumlar gerektiren bir [dağıtılmış ö
 
 Bellek içi önbellek, herhangi bir nesne kaydedebilir; Dağıtılmış önbellek arabirimi sınırlı olan `byte[]`.
 
-### <a name="cache-guidelines"></a>Önbellek yönergeleri
+## <a name="systemruntimecachingmemorycache"></a>System.Runtime.Caching/MemoryCache
+
+<xref:System.Runtime.Caching>/<xref:System.Runtime.Caching.MemoryCache> ([NuGet paketini](https://www.nuget.org/packages/System.Runtime.Caching/)) ile birlikte kullanılabilir:
+
+* .NET standard 2.0 veya üzeri.
+* Tüm [.NET uygulaması](/dotnet/standard/net-standard#net-implementation-support) hedefleyen .NET Standard 2.0 veya üzeri. Örneğin, ASP.NET Core 2.0 veya üzeri.
+* .NET framework 4.5 veya üzeri.
+
+[Microsoft.Extensions.Caching.Memory](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Memory/) / `IMemoryCache` (Bu konuda açıklanan) üzerinden önerilen `System.Runtime.Caching` / `MemoryCache` daha iyi ASP.NET Core ile tümleşik olduğundan. Örneğin, `IMemoryCache` çalıştığı yerel olarak ASP.NET Core ile [bağımlılık ekleme](xref:fundamentals/dependency-injection).
+
+Kullanım `System.Runtime.Caching` / `MemoryCache` ASP.NET koddan taşırken uyumluluk köprü olarak 4.x ASP.NET Core için.
+
+## <a name="cache-guidelines"></a>Önbellek yönergeleri
 
 * Kod, verileri getirmek için bir geri dönüş seçeneği her zaman olmalıdır ve **değil** kullanılabilir olan bir önbelleğe alınan değeri bağlıdır.
 * Önbellek bellek nadir kaynak kullanır. Önbellek büyüme sınırla:

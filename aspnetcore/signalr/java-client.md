@@ -7,12 +7,12 @@ ms.author: mimengis
 ms.custom: mvc
 ms.date: 09/06/2018
 uid: signalr/java-client
-ms.openlocfilehash: f110f5391ac34f5cb4a72f64c16d86c8a37369a2
-ms.sourcegitcommit: 4cd8dce371d63a66d780e4af1baab2bcf9d61b24
+ms.openlocfilehash: 0eba59a05ea6fd3fed46fcab86ac20caf40ebb65
+ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43995430"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46482924"
 ---
 # <a name="aspnet-core-signalr-java-client"></a>ASP.NET Core SignalR Java istemci
 
@@ -26,12 +26,12 @@ Bu makalede bahsedilen örnek Java konsol uygulaması SignalR Java istemcisi kul
 
 ## <a name="install-the-signalr-java-client-package"></a>SignalR Java istemci paketini yükle
 
-*0.1.0 preview1 35029 signalr* JAR dosyasını istemcilerin SignalR hub'ları bağlanmasına izin verir. JAR dosyası en son sürüm numarasını bulmak için bkz: [Maven arama sonuçları](https://search.maven.org/search?q=g:com.microsoft.aspnet%20AND%20a:signalr&core=gav).
+*0.1.0 preview2 35174 signalr* JAR dosyasını istemcilerin SignalR hub'ları bağlanmasına izin verir. JAR dosyası en son sürüm numarasını bulmak için bkz: [Maven arama sonuçları](https://search.maven.org/search?q=g:com.microsoft.aspnet%20AND%20a:signalr&core=gav).
 
 Gradle kullanıyorsanız, aşağıdaki satırı ekleyin `dependencies` bölümünü, *build.gradle* dosyası:
 
 ```gradle
-implementation 'com.microsoft.aspnet:signalr:0.1.0-preview1-35029'
+implementation 'com.microsoft.aspnet:signalr:0.1.0-preview2-35174'
 ```
 
 Maven kullanarak eklerseniz içinde aşağıdaki satırları `<dependencies>` öğesinin, *pom.xml* dosyası:
@@ -63,12 +63,12 @@ Bu bir Java istemci erken Önizleme sürümüdür. Henüz desteklenmeyen çok ö
 * Yalnızca ilkel türler, parametre olarak kabul edilebilir ve dönüş türleri.
 * Zaman uyumlu apı'lerdir.
 * Yalnızca "Gönder" çağrısı türü şu anda desteklenmiyor. "Çağır" ve dönüş değerleri akış desteklenmez.
-* İstemci şu anda desteklemiyor [Azure SignalR hizmeti](/azure/azure-signalr/).
 * Yalnızca JSON Protokolü desteklenir.
 * WebSockets taşıma desteklenmiyor.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
+* [Java API Başvurusu](/java/api/com.microsoft.aspnet.signalr?view=aspnet-signalr-java)
 * <xref:signalr/hubs>
 * <xref:signalr/javascript-client>
 * <xref:signalr/publish-to-azure-web-app>
