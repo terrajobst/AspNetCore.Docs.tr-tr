@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/12/2018
 uid: razor-pages/index
-ms.openlocfilehash: bded9687e86ade206aee3422337fd14817787949
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: f55d0e534dafb0709f1411bad9b038a87abde7ab
+ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011686"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523317"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>ASP.NET Core Razor sayfalar giriş
 
@@ -41,8 +41,6 @@ Bkz: [Razor sayfaları kullanmaya başlama](xref:tutorials/razor-pages/razor-pag
 
 Çalıştırma `dotnet new webapp` komut satırından.
 
-[!INCLUDE[](~/includes/webapp-alias-notice.md)]
-
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"
@@ -59,8 +57,6 @@ Oluşturulan açın *.csproj* Mac için Visual Studio'dan dosyası
 
 Çalıştırma `dotnet new webapp` komut satırından.
 
-[!INCLUDE[](~/includes/webapp-alias-notice.md)]
-
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"
@@ -74,8 +70,6 @@ Oluşturulan açın *.csproj* Mac için Visual Studio'dan dosyası
 ::: moniker range=">= aspnetcore-2.1"
 
 Çalıştırma `dotnet new webapp` komut satırından.
-
-[!INCLUDE[](~/includes/webapp-alias-notice.md)]
 
 ::: moniker-end
 

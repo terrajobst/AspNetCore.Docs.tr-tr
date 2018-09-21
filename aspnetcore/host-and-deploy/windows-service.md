@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/04/2018
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: 68afe77b05a717cffecc32188f18e9fde208b81f
-ms.sourcegitcommit: 3ca20ed63bf1469f4365f0c1fbd00c98a3191c84
+ms.openlocfilehash: fb748b74b62abb297ac0b16ec34982daf0e13cbd
+ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41754094"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523187"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>ASP.NET Core bir Windows hizmetinde barındırma
 
@@ -61,6 +61,8 @@ Bir hizmet olarak çalıştırmak için mevcut bir ASP.NET Core projesini ayarla
       ```
 
       ::: moniker-end
+      
+      Birden çok çalışma zamanı tanımlayıcılarının (RID'ler) noktalı virgülle ayrılmış bir listede sağlanan, özellik adı kullanın. `<RuntimeIdentifiers>` (çoğul). Daha fazla bilgi için [.NET Core RID Kataloğu](/dotnet/core/rid-catalog).
 
    1. İçin bir paket başvurusu ekleme [Microsoft.AspNetCore.Hosting.WindowsServices](https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.WindowsServices/).
 

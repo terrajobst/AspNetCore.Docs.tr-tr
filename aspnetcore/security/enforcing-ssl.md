@@ -5,12 +5,12 @@ description: Web uygulaması nasıl bir ASP.NET Core HTTPS/TLS'ye gerektirecek �
 ms.author: riande
 ms.date: 2/9/2018
 uid: security/enforcing-ssl
-ms.openlocfilehash: 06ff89d30fb3586c69274cc7cb3e6c75065b098a
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 6e16191b1a4627e683fd2281e5556b2a6e84c082
+ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011332"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523152"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>ASP.NET core'da HTTPS'yi zorunlu kılma
 
@@ -192,8 +192,6 @@ Kullanım `--no-https` seçeneği. Örneğin
 ```console
 dotnet new webapp --no-https
 ```
-
-[!INCLUDE[](~/includes/webapp-alias-notice.md)]
 
 ---
 

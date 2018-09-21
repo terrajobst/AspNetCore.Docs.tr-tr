@@ -4,14 +4,14 @@ author: zuckerthoben
 description: NSwag belgeler oluşturmak ve Yardım sayfaları için bir ASP.NET Core web API'sini kullanmayı öğrenin.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 06/29/2018
+ms.date: 09/20/2018
 uid: tutorials/get-started-with-nswag
-ms.openlocfilehash: ba20ccfbe2610eb4e3ec3a4c35f8e3b4cae0bb9c
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 432dcc0f2c65903ff637d09e744e2b2ed44a0eb3
+ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011881"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523200"
 ---
 # <a name="get-started-with-nswag-and-aspnet-core"></a>NSwag ve ASP.NET Core ile çalışmaya başlama
 
@@ -29,9 +29,14 @@ Tarafından [Christoph Nienaber](https://twitter.com/zuckerthoben) ve [Riko Sute
 
 ::: moniker-end
 
-Kullanarak [NSwag](https://github.com/RSuter/NSwag) ASP.NET Core ile ara yazılımı gerektirir [NSwag.AspNetCore](https://www.nuget.org/packages/NSwag.AspNetCore/) NuGet paketi. Swagger kullanıcı arabirimini (v2 ve v3), bir Swagger oluşturucusu, paket oluşur ve [ReDoc UI](https://github.com/Rebilly/ReDoc).
+NSwag middlewares için kaydedin:
 
-Yüksek oranda NSwag ın kullanması önerilir kod oluşturma özellikleri. Kod oluşturma için aşağıdaki seçeneklerden birini seçin:
+* Uygulanan web API'si için Swagger belirtimi oluşturur.
+* Swagger göz atın ve web API'si test etmek için kullanıcı Arabirimi işlevi görür.
+
+Kullanılacak [NSwag](https://github.com/RSuter/NSwag) ASP.NET Core middlewares yükleme [NSwag.AspNetCore](https://www.nuget.org/packages/NSwag.AspNetCore/) NuGet paketi. Bu pakette oluşturup Swagger belirtimi hizmet middlewares Swagger kullanıcı arabirimini (v2 ve v3) ve [ReDoc UI](https://github.com/Rebilly/ReDoc).
+
+Ayrıca, NSwag ın yararlanması için tavsiye kod oluşturma özellikleri. Kod oluşturma özelliklerini kullanmak için aşağıdaki seçeneklerden birini seçin:
 
 * Kullanım [NSwagStudio](https://github.com/NSwag/NSwag/wiki/NSwagStudio), API'niz için C# ve TypeScript istemci kodu oluşturmak için bir Windows masaüstü uygulaması.
 * Kullanım [NSwag.CodeGeneration.CSharp](https://www.nuget.org/packages/NSwag.CodeGeneration.CSharp/) veya [NSwag.CodeGeneration.TypeScript](https://www.nuget.org/packages/NSwag.CodeGeneration.TypeScript/) kod projeniz içindeki oluşturma için NuGet paketlerini.
@@ -40,7 +45,7 @@ Yüksek oranda NSwag ın kullanması önerilir kod oluşturma özellikleri. Kod 
 
 ## <a name="features"></a>Özellikler
 
-NSwag kullanmaya temel nedeni sadece Swagger kullanıcı arabirimini ve Swagger'ı tanıtmak için olanağıdır yapmak ancak Oluşturucu, esnek kod oluşturma özelliklerini kullanın. Mevcut bir API'ye ihtiyacınız olmayan&mdash;Swagger birleştirmek ve bir istemci uygulaması oluşturmak NSwag izin üçüncü taraf API'leri kullanabilirsiniz. Her iki durumda da, geliştirme döngüsü öncelikli ve API değişiklikleri daha kolayca uyarlayabilirsiniz.
+NSwag kullanmaya temel nedeni, yalnızca Swagger oluşturucusu ve Swagger kullanıcı arabirimini sunar, ancak ayrıca hale getirmek üzere esnek kod oluşturma özelliklerini kullanmak yeteneğidir. Mevcut bir API'ye ihtiyacınız olmayan&mdash;Swagger birleştirmek ve bir istemci uygulaması oluşturmak NSwag izin üçüncü taraf API'leri kullanabilirsiniz. Her iki durumda da, geliştirme döngüsü öncelikli ve API değişiklikleri daha kolayca uyarlayabilirsiniz.
 
 ## <a name="package-installation"></a>Paket yüklemesi
 
@@ -92,9 +97,13 @@ dotnet add TodoApi.csproj package NSwag.AspNetCore
 
 Aşağıdaki ad alanlarında alma `Startup` sınıfı:
 
-[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.NSwag/Startup.cs?name=snippet_StartupConfigureImports)]
+[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.NSwag/Startup.cs?name=snippet_ConfigureServices&highlight=8-8)]
 
-İçinde `Startup.Configure` yöntemi, oluşturulan Swagger belirtimi ve Swagger kullanıcı arabirimini sunulması için Ara yazılımlarını etkinleştir:
+İçinde `Startup.ConfigureServices` yöntemi, gerekli Swagger hizmetler kaydedin: 
+
+[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.NSwag/Startup.cs?name=snippet_Configure&highlight=6-10)]
+
+İçinde `Startup.Configure` yöntemi, oluşturulan Swagger belirtimi ve Swagger kullanıcı arabirimini v3 sunulması için Ara yazılımlarını etkinleştir:
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.NSwag/Startup.cs?name=snippet_Configure&highlight=6-10)]
 

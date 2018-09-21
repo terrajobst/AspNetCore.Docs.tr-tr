@@ -5,12 +5,12 @@ description: Bu öğreticide yabancı anahtar alanları ve gezinti özellikleri 
 ms.author: riande
 ms.date: 11/15/2017
 uid: data/ef-rp/update-related-data
-ms.openlocfilehash: e987971f60e5c5a9fb79e30440c7c986df64447e
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: c9d0e97dc612744f0023c48a27eb1c89fd153b95
+ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38189308"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523174"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---update-related-data---7-of-8"></a>ASP.NET core'da - EF çekirdekli Razor sayfaları, ilgili verileri - 7, 8 güncelleştirme
 
@@ -18,7 +18,7 @@ Tarafından [Tom Dykstra](https://github.com/tdykstra), ve [Rick Anderson](https
 
 [!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
 
-Bu öğreticide, ilgili verileri güncelleştirme gösterilmektedir. Olamaz çözmek sorunlarla karşılaşırsanız, indirme [Bu aşama için tamamlanan uygulama](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part7).
+Bu öğreticide, ilgili verileri güncelleştirme gösterilmektedir. Olamaz çözmenize, sorunlarla karşılaşırsanız, [indirin veya tamamlanmış uygulamayı görüntüleyin.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples) [Yükleme yönergeleri](xref:tutorials/index#how-to-download-a-sample).
 
 Aşağıdaki çizimler tamamlanmış sayfaların bazılarını gösterir.
 

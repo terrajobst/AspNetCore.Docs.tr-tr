@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: H1Hack27Feb2017
 ms.date: 08/02/2017
 uid: client-side/spa-services
-ms.openlocfilehash: 6ac922d82e5c93343cd0e9df312719c6df121dcb
-ms.sourcegitcommit: 18339e3cb5a891a3ca36d8146fa83cf91c32e707
+ms.openlocfilehash: 6d6a92427d5d4b853248e60a12625573c4375515
+ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37434006"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523304"
 ---
 # <a name="use-javascriptservices-to-create-single-page-applications-in-aspnet-core"></a>ASP.NET Core tek sayfalı uygulamalar oluşturmak için JavaScriptServices kullanma
 
@@ -19,20 +19,20 @@ Tarafından [Scott Addie](https://github.com/scottaddie) ve [Fiyaz Hasan](http:/
 
 Tek sayfa uygulama (SPA) web uygulamasının kendi devralınan zengin kullanıcı deneyimi nedeniyle popüler bir türdür. İstemci tarafı SPA çerçeveleri veya kitaplıkları gibi tümleştirme [Angular](https://angular.io/) veya [React](https://facebook.github.io/react/), sunucu tarafı çerçevelerle gibi ASP.NET Core zor olabilir. [JavaScriptServices](https://github.com/aspnet/JavaScriptServices) tümleştirme sürecindeki uyuşmazlıkları azaltmak için geliştirilmiştir. Ancak, farklı istemci ve sunucu teknoloji yığınları arasında sorunsuz bir işlemi etkinleştirir.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/client-side/spa-services/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
-
 <a name="what-is-js-services"></a>
 
-## <a name="what-is-javascriptservices"></a>JavaScriptServices nedir?
+## <a name="what-is-javascriptservices"></a>JavaScriptServices nedir
 
 JavaScriptServices ASP.NET Core için istemci tarafı teknolojilerinin koleksiyonudur. ASP.NET Core geliştiricilerinin Spa'lar oluşturmaya yönelik olarak tercih edilen sunucu tarafı platformu olarak yerleştirmek için hedefi sağlamaktır.
 
 Üç farklı NuGet paketlerini JavaScriptServices oluşur:
+
 * [Microsoft.AspNetCore.NodeServices](https://www.nuget.org/packages/Microsoft.AspNetCore.NodeServices/) (NodeServices)
 * [Microsoft.AspNetCore.SpaServices](https://www.nuget.org/packages/Microsoft.AspNetCore.SpaServices/) (SpaServices)
 * [Microsoft.AspNetCore.SpaTemplates](https://www.nuget.org/packages/Microsoft.AspNetCore.SpaTemplates/) (SpaTemplates)
 
 Bu paketler yararlıdır,:
+
 * Sunucu üzerinde JavaScript çalıştırma
 * SPA altyapı veya kitaplığı kullanın
 * İstemci tarafı Web varlıklarla oluşturun
@@ -41,11 +41,12 @@ Bu makalenin odak çoğunu SpaServices paketini kullanarak yerleştirilir.
 
 <a name="what-is-spa-services"></a>
 
-## <a name="what-is-spaservices"></a>SpaServices nedir?
+## <a name="what-is-spaservices"></a>SpaServices nedir
 
 ASP.NET Core geliştiricilerinin Spa'lar oluşturmaya yönelik olarak tercih edilen sunucu tarafı platformu olarak yerleştirmek için SpaServices oluşturulur. SpaServices Spa'lar ASP.NET Core ile geliştirmek için gerekli değildir ve bu belirli istemci altyapısına kilitlemez.
 
 SpaServices gibi kullanışlı bir altyapı sağlar:
+
 * [Sunucu tarafı prerendering](#server-prerendering)
 * [Web geliştirme ara yazılımı](#webpack-dev-middleware)
 * [Sık erişimli modülü değiştirme](#hot-module-replacement)
@@ -58,6 +59,7 @@ Toplu olarak, bu altyapı bileşenlerini, hem geliştirme iş akışını hem de
 ## <a name="prerequisites-for-using-spaservices"></a>SpaServices kullanmanın önkoşulları
 
 SpaServices ile çalışmak için aşağıdakileri yükleyin:
+
 * [Node.js](https://nodejs.org/) (sürüm 6 veya sonrası) npm ile
   * Bu bileşenler yüklenir ve bulunabilir doğrulamak için komut satırından aşağıdaki komutu çalıştırın:
 
@@ -84,6 +86,7 @@ ASP.NET Core [etiket Yardımcıları](xref:mvc/views/tag-helpers/intro) tarafın
 ### <a name="prerequisites"></a>Önkoşullar
 
 Aşağıdakileri yükleyin:
+
 * [ASP.NET prerendering](https://www.npmjs.com/package/aspnet-prerendering) npm paketi:
 
     ```console
@@ -136,11 +139,14 @@ Yukarıdaki kod örneğinde genişletmek için verileri sunucudan görünüme hy
 
 [Web geliştirme ara yazılım](https://webpack.github.io/docs/webpack-dev-middleware.html) yapabildiği Web yapılar kaynakları isteğe bağlı olarak Basitleştirilmiş geliştirme iş akışı sunar. Ara yazılım, otomatik olarak derler ve bir sayfa tarayıcıya yeniden yüklendiğinde istemci-tarafı kaynaklar sunar. Başka bir üçüncü taraf bağımlılığı veya özel kod değiştiğinde Web projenin npm derleme betiği aracılığıyla el ile başlatmak için yaklaşımdır. Bir npm derleme betiği *package.json* dosya, aşağıdaki örnekte gösterilmiştir:
 
-[!code-json[](../client-side/spa-services/sample/SpaServicesSampleApp/package.json?range=5)]
+```json
+"build": "npm run build:vendor && npm run build:custom",
+```
 
 ### <a name="prerequisites"></a>Önkoşullar
 
 Aşağıdakileri yükleyin:
+
 * [ASP.NET Web](https://www.npmjs.com/package/aspnet-webpack) npm paketi:
 
     ```console
@@ -168,6 +174,7 @@ Web'ın düşünebilirsiniz [sık erişimli modülü değiştirme](https://webpa
 ### <a name="prerequisites"></a>Önkoşullar
 
 Aşağıdakileri yükleyin:
+
 * [Web hot Ara](https://www.npmjs.com/package/webpack-hot-middleware) npm paketi:
 
     ```console
@@ -205,6 +212,7 @@ Senaryoyu göz önünde bulundurun uzantısız bir yolu `/some/page` kullanılı
 ### <a name="prerequisites"></a>Önkoşullar
 
 Aşağıdakileri yükleyin:
+
 * İstemci tarafı yönlendirme npm paket. Angular örnek olarak kullanıp:
 
     ```console
@@ -235,7 +243,7 @@ Kullanılabilir SPA şablonlar listesi görüntülenir:
 
 | Şablonlar                                 | Kısa Ad | Dil | Etiketler        |
 |:------------------------------------------|:-----------|:---------|:------------|
-| Angular ile ASP.NET Core MVC             | angular    | [C#]     | MVC/Web/SPA |
+| Angular ile ASP.NET Core MVC             | Angular    | [C#]     | MVC/Web/SPA |
 | React.js ile ASP.NET Core MVC            | react      | [C#]     | MVC/Web/SPA |
 | ASP.NET Core MVC React.js ve Redux  | açarken kilitlenmesi | [C#]     | MVC/Web/SPA |
 
@@ -250,12 +258,13 @@ dotnet new angular
 ### <a name="set-the-runtime-configuration-mode"></a>Çalışma zamanı yapılandırma modunu ayarlayın
 
 Birincil çalışma zamanı yapılandırma için iki mod vardır:
+
 * **Geliştirme**:
-    * Hata ayıklamayı kolaylaştırmak için kaynak eşlemeleri içerir.
-    * İstemci tarafı kod performans için en iyi duruma değil.
+  * Hata ayıklamayı kolaylaştırmak için kaynak eşlemeleri içerir.
+  * İstemci tarafı kod performans için en iyi duruma değil.
 * **Üretim**:
-    * Kaynak eşlemeleri dışlar.
-    * İstemci tarafı kod paketleme ve küçültme ile en iyi duruma getirir.
+  * Kaynak eşlemeleri dışlar.
+  * İstemci tarafı kod paketleme ve küçültme ile en iyi duruma getirir.
 
 ASP.NET Core kullanan adlı bir ortam değişkeni `ASPNETCORE_ENVIRONMENT` yapılandırma modunu depolamak için. Bkz: **[ortamı](xref:fundamentals/environments#set-the-environment)** daha fazla bilgi için.
 
@@ -277,7 +286,7 @@ dotnet run
 
 ### <a name="running-with-visual-studio-2017"></a>Visual Studio 2017 ile çalıştırma
 
-Açık *.csproj* tarafından oluşturulan dosya [yeni dotnet](/dotnet/core/tools/dotnet-new) komutu. Gerekli NuGet ve npm paketleri proje üzerinde otomatik olarak geri yüklenir. Bu geri yükleme işlemi birkaç dakika sürebilir ve tamamlandığında çalıştırmaya hazır bir uygulamadır. Yeşil çalıştırma düğmesine veya tuşuna tıklayın `Ctrl + F5`, ve tarayıcıda uygulama giriş sayfası açılır. Uygulama ayarına göre localhost üzerinde çalışır [çalışma zamanı yapılandırma modunu](#runtime-config-mode). 
+Açık *.csproj* tarafından oluşturulan dosya [yeni dotnet](/dotnet/core/tools/dotnet-new) komutu. Gerekli NuGet ve npm paketleri proje üzerinde otomatik olarak geri yüklenir. Bu geri yükleme işlemi birkaç dakika sürebilir ve tamamlandığında çalıştırmaya hazır bir uygulamadır. Yeşil çalıştırma düğmesine veya tuşuna tıklayın `Ctrl + F5`, ve tarayıcıda uygulama giriş sayfası açılır. Uygulama ayarına göre localhost üzerinde çalışır [çalışma zamanı yapılandırma modunu](#runtime-config-mode).
 
 <a name="app-testing"></a>
 
@@ -308,6 +317,7 @@ Oluşturulan istemci-tarafı varlıkları ve yayımlanan ASP.NET Core yapıları
 [!code-xml[](../client-side/spa-services/sample/SpaServicesSampleApp/SpaServicesSampleApp.csproj?range=31-45)]
 
 MSBuild hedefi aşağıdaki sorumluluklara sahiptir:
+
 1. Npm paketlerini geri yükle
 1. Üçüncü taraf, istemci tarafı varlıkların üretim sınıfı oluşturma
 1. Özel istemci tarafı varlıkların üretim sınıfı oluşturma
