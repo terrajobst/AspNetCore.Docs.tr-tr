@@ -1,21 +1,24 @@
 ---
-title: ASP.NET Core performansı
-author: ardalis
-description: ASP.NET Core uygulama performansı için İlgili Konular'a bulur.
+title: ASP.NET core'da performans
+author: guardrex
+description: ASP.NET Core uygulaması performansını için İlgili Konular'a keşfedin.
 ms.author: riande
-ms.date: 10/14/2016
+ms.custom: mvc
+ms.date: 09/16/2018
 uid: performance/index
-ms.openlocfilehash: e168432280f40f9d3b918a11deb55959c9ffeb70
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: da400078f4e8899ce41ff395c86fdea14bc3c376
+ms.sourcegitcommit: 4d5f8680d68b39c411b46c73f7014f8aa0f12026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273643"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47028108"
 ---
-# <a name="performance-in-aspnet-core"></a><span data-ttu-id="b0202-103">ASP.NET Core performansı</span><span class="sxs-lookup"><span data-stu-id="b0202-103">Performance in ASP.NET Core</span></span>
+# <a name="performance-in-aspnet-core"></a><span data-ttu-id="3cc55-103">ASP.NET core'da performans</span><span class="sxs-lookup"><span data-stu-id="3cc55-103">Performance in ASP.NET Core</span></span>
 
-* [<span data-ttu-id="b0202-104">Önbellek yanıtları</span><span class="sxs-lookup"><span data-stu-id="b0202-104">Cache responses</span></span>](caching/index.md)
-  * [<span data-ttu-id="b0202-105">Belleğe yüklenmiş önbellek</span><span class="sxs-lookup"><span data-stu-id="b0202-105">Cache in-memory</span></span>](caching/memory.md)
-  * [<span data-ttu-id="b0202-106">Dağıtılmış önbellekle çalışma</span><span class="sxs-lookup"><span data-stu-id="b0202-106">Work with a distributed cache</span></span>](caching/distributed.md)
-  * [<span data-ttu-id="b0202-107">Yanıtları önbelleğe alma</span><span class="sxs-lookup"><span data-stu-id="b0202-107">Response caching</span></span>](caching/response.md)
-* [<span data-ttu-id="b0202-108">Yanıt sıkıştırma ara yazılımı</span><span class="sxs-lookup"><span data-stu-id="b0202-108">Response compression middleware</span></span>](response-compression.md)
+<span data-ttu-id="3cc55-104">Aşağıdaki konular, ASP.NET Core performans senaryolarda kapsar:</span><span class="sxs-lookup"><span data-stu-id="3cc55-104">The following topic areas cover performance scenarios in ASP.NET Core:</span></span>
+
+[<span data-ttu-id="3cc55-105">Önbellek yanıtları</span><span class="sxs-lookup"><span data-stu-id="3cc55-105">Cache responses</span></span>](xref:performance/caching/index)  
+<span data-ttu-id="3cc55-106">Veri ve ASP.NET Core yanıtları önbelleğe alma hakkında bilgi edinin.</span><span class="sxs-lookup"><span data-stu-id="3cc55-106">Learn how to cache data and responses in ASP.NET Core.</span></span>
+
+[<span data-ttu-id="3cc55-107">Yanıt sıkıştırma</span><span class="sxs-lookup"><span data-stu-id="3cc55-107">Response compression</span></span>](xref:performance/response-compression)  
+<span data-ttu-id="3cc55-108">Yanıt sıkıştırma ve ASP.NET Core uygulamalarında yanıt sıkıştırma ara yazılımı kullanma hakkında bilgi edinin.</span><span class="sxs-lookup"><span data-stu-id="3cc55-108">Learn about response compression and how to use Response Compression Middleware in ASP.NET Core apps.</span></span>
