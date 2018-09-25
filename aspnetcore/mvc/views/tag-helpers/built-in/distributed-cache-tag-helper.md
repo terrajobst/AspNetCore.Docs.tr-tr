@@ -1,16 +1,16 @@
 ---
 title: Dağıtılmış önbellek etiketi Yardımcısı ASP.NET core'da
 author: pkellner
-description: Önbellek etiketi Yardımcısı ile çalışma hakkında bilgi verilmektedir
+description: Dağıtılmış önbellek etiketi Yardımcısı'nı kullanmayı öğrenin.
 ms.author: riande
 ms.date: 02/14/2017
 uid: mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper
-ms.openlocfilehash: a35a5795c086273e773c613c483fc6343c694bf2
-ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
+ms.openlocfilehash: 1b51164a6d3dab2eeaf64262d6f0d9961bd00d12
+ms.sourcegitcommit: 4d5f8680d68b39c411b46c73f7014f8aa0f12026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39342178"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47028104"
 ---
 # <a name="distributed-cache-tag-helper-in-aspnet-core"></a>Dağıtılmış önbellek etiketi Yardımcısı ASP.NET core'da
 

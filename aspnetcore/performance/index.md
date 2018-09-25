@@ -1,21 +1,24 @@
 ---
-title: ASP.NET Core performansı
-author: ardalis
-description: ASP.NET Core uygulama performansı için İlgili Konular'a bulur.
+title: ASP.NET core'da performans
+author: guardrex
+description: ASP.NET Core uygulaması performansını için İlgili Konular'a keşfedin.
 ms.author: riande
-ms.date: 10/14/2016
+ms.custom: mvc
+ms.date: 09/16/2018
 uid: performance/index
-ms.openlocfilehash: e168432280f40f9d3b918a11deb55959c9ffeb70
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: da400078f4e8899ce41ff395c86fdea14bc3c376
+ms.sourcegitcommit: 4d5f8680d68b39c411b46c73f7014f8aa0f12026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273643"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47028108"
 ---
-# <a name="performance-in-aspnet-core"></a>ASP.NET Core performansı
+# <a name="performance-in-aspnet-core"></a>ASP.NET core'da performans
 
-* [Önbellek yanıtları](caching/index.md)
-  * [Belleğe yüklenmiş önbellek](caching/memory.md)
-  * [Dağıtılmış önbellekle çalışma](caching/distributed.md)
-  * [Yanıtları önbelleğe alma](caching/response.md)
-* [Yanıt sıkıştırma ara yazılımı](response-compression.md)
+Aşağıdaki konular, ASP.NET Core performans senaryolarda kapsar:
+
+[Önbellek yanıtları](xref:performance/caching/index)  
+Veri ve ASP.NET Core yanıtları önbelleğe alma hakkında bilgi edinin.
+
+[Yanıt sıkıştırma](xref:performance/response-compression)  
+Yanıt sıkıştırma ve ASP.NET Core uygulamalarında yanıt sıkıştırma ara yazılımı kullanma hakkında bilgi edinin.
