@@ -1,46 +1,46 @@
 ---
-title: Yerel mobil uygulamalar için arka uç hizmetlerini ASP.NET Core ile oluşturma
+title: ASP.NET Core ile yerel mobil uygulamalar için arka uç hizmetleri oluşturma
 author: ardalis
-description: Yerel mobil uygulamalar desteklemek için ASP.NET Core MVC kullanarak arka uç hizmetlerini oluşturmayı öğrenin.
+description: Yerel mobil uygulamaları desteklemek için ASP.NET Core MVC kullanarak arka uç hizmetleri oluşturma konusunda bilgi edinin.
 ms.author: riande
 ms.date: 10/14/2016
 uid: mobile/native-mobile-backend
-ms.openlocfilehash: 27051cd3c4e2c3aa1ebf6d5510db4645651120e8
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 3ebd30ad1ffbd66b256e7f3954a07d682f76a754
+ms.sourcegitcommit: 517bb1366da2a28b0014e384fa379755c21b47d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276132"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47230184"
 ---
-# <a name="create-backend-services-for-native-mobile-apps-with-aspnet-core"></a>Yerel mobil uygulamalar için arka uç hizmetlerini ASP.NET Core ile oluşturma
+# <a name="create-backend-services-for-native-mobile-apps-with-aspnet-core"></a>ASP.NET Core ile yerel mobil uygulamalar için arka uç hizmetleri oluşturma
 
 Tarafından [Steve Smith](https://ardalis.com/)
 
-Mobil uygulamaları kolayca ASP.NET Core arka uç hizmetleriyle iletişim kurabilir.
+Mobil uygulamalar, ASP.NET Core arka uç Hizmetleri ile kolayca iletişim kurabilir.
 
-[Görüntülemek veya karşıdan örnek arka uç hizmetlerini kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/mobile/native-mobile-backend/sample)
+[Görüntüleme veya indirme örnek arka uç Hizmetleri kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/mobile/native-mobile-backend/sample)
 
 ## <a name="the-sample-native-mobile-app"></a>Örnek yerel mobil uygulama
 
-Bu öğretici, yerel mobil uygulamalar desteklemek için ASP.NET Core MVC kullanarak arka uç hizmetlerini oluşturulacağını gösterir. Kullandığı [Xamarin Forms ToDoRest uygulama](/xamarin/xamarin-forms/data-cloud/consuming/rest) kendi yerel istemci olarak Android, iOS, Windows evrensel ve Windows Phone cihazları için ayrı yerel istemcilerde içerir. Sizin yerel uygulama oluşturma (ve gerekli boş Xamarin Araçları'nı yüklemek için) bağlı öğreticisini izleyin yanı Xamarin örnek çözümü indirin. Xamarin örnek bu makalenin ASP.NET Core uygulama (istemci tarafından gerekli değişiklik yok) yerine bir ASP.NET Web API 2 services projesi içerir.
+Bu öğreticide, yerel mobil uygulamaları desteklemek için ASP.NET Core MVC kullanarak arka uç hizmetleri oluşturma gösterilmektedir. Kullandığı [Xamarin Forms ToDoRest uygulama](/xamarin/xamarin-forms/data-cloud/consuming/rest) kendi yerel istemci olarak Android, iOS, Windows evrensel ve Windows Phone cihazlar için ayrı yerel istemci içerir. Yerel uygulama oluşturmak (ve gerekli ücretsiz Xamarin araçları yüklemek için) bağlı bir öğreticiyi izleyin, yapabilir Xamarin örnek çözümü indirin. Xamarin örnek, bu makalenin ASP.NET Core uygulaması (istemci tarafından hiçbir değişiklik ile) değiştiren bir ASP.NET Web API 2 services projesi içerir.
 
-![Bir Android smartphone üzerinde çalışan Rest yapmak uygulama](native-mobile-backend/_static/todo-android.png)
+![Android bir akıllı telefonda çalışan yapmak Rest uygulamaya](native-mobile-backend/_static/todo-android.png)
 
 ### <a name="features"></a>Özellikler
 
-ToDoRest uygulama listeleme, ekleme, silme ve yapılacaklar öğelerini güncelleştirme destekler. Her bir öğe kimliği, bir ad, notlar ve henüz girildiği olup olmadığını gösteren bir özellik vardır.
+ToDoRest uygulaması, listeleme, ekleme, silme ve güncelleştirme Yapılacaklar öğelerini destekler. Her öğe bir kimliği, bir ad, notlar ve henüz işiniz olmadığını gösteren bir özelliğe sahiptir.
 
-Ana görünümü öğeleri, yukarıda gösterildiği gibi her öğenin adını listeler ve işareti ile yapılır, gösterir.
+Ana görünüm öğeleri, yukarıda gösterildiği gibi her öğenin adını listeler ve bir onay işareti ile yapıldığını gösterir.
 
-Dokunarak `+` simgesi Ekle öğesi iletişim açar:
+Dokunarak `+` simgesi Ekle öğesi bir iletişim kutusu açılır:
 
-![Öğe iletişim ekleyin](native-mobile-backend/_static/todo-android-new-item.png)
+![Öğesi ekleme](native-mobile-backend/_static/todo-android-new-item.png)
 
-Öğenin ana listesi ekranında dokunarak burada öğenin adı, notlar ve Bitti'yi ayarları değiştirilebilir veya öğenin silinebilmesi bir düzenleme iletişim kutusunu açar:
+Ana liste ekranı bir öğeye dokunulduğunda, burada öğenin adı, notlar ve yapılan ayarlar değiştirilebilir veya öğenin silinebilmesi için bir düzenleme iletişim kutusu açılır:
 
-![Öğesi iletişim Düzenle](native-mobile-backend/_static/todo-android-edit-item.png)
+![Öğe iletişim Düzenle](native-mobile-backend/_static/todo-android-edit-item.png)
 
-Bu örnek, varsayılan olarak developer.xamarin.com barındırılan salt okunur işlemlere izin arka uç hizmetlerine kullanacak şekilde yapılandırılır. Bilgisayarınızda çalışan sonraki bölümde oluşturulan ASP.NET Core uygulaması karşı kendiniz sınamak için uygulamanın güncelleştirme gerekecektir `RestUrl` sabit. Gidin `ToDoREST` proje ve açık *Constants.cs* dosya. Değiştir `RestUrl` makinenizin IP içeren bir URL adresini (localhost veya 127.0.0.1, bu adres, makineden aygıt öykücüsünden kullanıldığından değil). Bağlantı noktası numarasını da (5000) içerir. Hizmetlerinizin bir cihazla çalışmayı test etmek için bu bağlantı noktası erişimi engelleme etkin bir güvenlik duvarı olmadığından emin olun.
+Bu örnek salt okunur işlemlere izin veren developer.xamarin.com barındırılan arka uç hizmetlerini kullanmak için varsayılan olarak yapılandırılır. Sonraki bölümde, bilgisayarınızda çalışan ASP.NET Core uygulamayı karşı kendiniz test etmek için uygulamanın güncellemeniz gerekecektir `RestUrl` sabit. Gidin `ToDoREST` açın ve proje *Constants.cs* dosya. Değiştirin `RestUrl` makinenizin IP içeren bir URL ile (localhost veya 127.0.0.1, bu adresi makinenizden değil cihaz öykücüsünden kullanıldığından değil) adresi. Bağlantı noktası numarasını de (5000) içerir. Hizmetlerinizi bir cihazla çalıştığını test etmek için bu bağlantı noktası erişimini engelleyen etkin bir güvenlik duvarı sahip olun.
 
 ```csharp
 // URL of REST service (Xamarin ReadOnly Service)
@@ -52,102 +52,106 @@ public static string RestUrl = "http://192.168.1.207:5000/api/todoitems/{0}";
 
 ## <a name="creating-the-aspnet-core-project"></a>ASP.NET Core projesi oluşturma
 
-Visual Studio'da yeni bir ASP.NET çekirdek Web uygulaması oluşturun. Hayır kimlik doğrulaması ve Web API şablonu seçin. Proje adı *ToDoApi*.
+Visual Studio'da yeni bir ASP.NET Core Web uygulaması oluşturun. Kimlik doğrulaması yok ve Web API şablonu seçin. Projeyi adlandırın *ToDoApi*.
 
-![Seçilen Web API projesi şablonuyla yeni ASP.NET Web uygulaması iletişim kutusu](native-mobile-backend/_static/web-api-template.png)
+![Seçili Web API proje şablonunu içeren yeni ASP.NET Web uygulaması iletişim kutusu](native-mobile-backend/_static/web-api-template.png)
 
-Uygulama bağlantı noktası 5000 yapılan tüm isteklere yanıt. Güncelleştirme *Program.cs* içerecek şekilde `.UseUrls("http://*:5000")` Bunu başarmak için:
+Uygulama bağlantı noktası 5000 yapılan tüm isteklere yanıt vermesi gerekir. Güncelleştirme *Program.cs* içerecek şekilde `.UseUrls("http://*:5000")` Bunu başarmak için:
 
 [!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Program.cs?range=10-16&highlight=3)]
 
 > [!NOTE]
-> IIS, varsayılan olarak yerel olmayan isteklerini yoksayar Express, arkasında yapmak yerine, doğrudan, uygulama çalıştırdığınızdan emin olun. Çalıştırma [çalıştırmak dotnet](/dotnet/core/tools/dotnet-run) bir komut isteminden veya Visual Studio araç çubuğundaki hata ayıklama hedefi açılır uygulama adı profili seçin.
+> IIS, varsayılan olarak yerel olmayan istekleri yoksayan Express arkasında yapmak yerine, doğrudan, uygulama çalıştırdığınızdan emin olun. Çalıştırma [çalıştırma dotnet](/dotnet/core/tools/dotnet-run) bir komut isteminden veya Visual Studio araç çubuğundaki hata ayıklama hedefi açılır listesinden bir uygulama adı profili seçin.
 
-Yapılacaklar öğelerini göstermek için bir model sınıfı ekleyin. İşareti gerekli alanlarını kullanarak `[Required]` özniteliği:
+Yapılacaklar öğelerini temsil eden bir model sınıfı ekleyin. İşareti gerekli alanları kullanarak `[Required]` özniteliği:
 
 [!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Models/ToDoItem.cs)]
 
-API yöntemlerini verilerle çalışmak için bazı yol gerekir. Aynı `IToDoRepository` arabirim özgün Xamarin örnek kullanır:
+API yöntemleri verilerle çalışmak için bazı yol gerekir. Aynı `IToDoRepository` özgün Xamarin örnek kullandığı arabirim:
 
 [!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Interfaces/IToDoRepository.cs)]
 
-Bu örnek için uygulama, yalnızca öğeleri özel koleksiyonu kullanır:
+Bu örnek için uygulama yalnızca özel bir öğe koleksiyonu kullanır:
 
 [!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Services/ToDoRepository.cs)]
 
-Uygulamasında yapılandırma *haline*:
+Uygulamasında yapılandırma *Startup.cs*:
 
 [!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Startup.cs?highlight=6&range=29-35)]
 
-Bu noktada, oluşturmak için hazır *ToDoItemsController*.
+Bu noktada, oluşturmaya hazır *ToDoItemsController*.
 
 > [!TIP]
-> Oluşturma hakkında daha fazla web API'leri öğrenin [, ilk Web API ile ASP.NET Core MVC ve Visual Studio derleme](../tutorials/first-web-api.md).
+> API'leri web oluşturma hakkında daha fazla bilgi edinin [ilk Web API'nizi ASP.NET Core MVC ve Visual Studio ile derleme](../tutorials/first-web-api.md).
 
 ## <a name="creating-the-controller"></a>Denetleyici oluşturma
 
-Yeni bir denetleyici projeye ekleyin *ToDoItemsController*. Microsoft.AspNetCore.Mvc.Controller devralan. Ekleme bir `Route` denetleyicisi ile başlayan yollar için yapılan istekleri işlemesini belirtmek için öznitelik `api/todoitems`. `[controller]` Belirteci rotadaki denetleyici adıyla değiştirilir (atlama `Controller` soneki) ve genel yollar için özellikle yararlıdır. Daha fazla bilgi edinmek [yönlendirme](../fundamentals/routing.md).
+Projeye yeni bir denetleyici ekleyeceksiniz *ToDoItemsController*. Microsoft.AspNetCore.Mvc.Controller devralan. Ekleme bir `Route` Denetleyici ile başlayan yollar için istekleri işleyeceğini belirtmek için özniteliği `api/todoitems`. `[controller]` Belirteci rotadaki denetleyici adıyla değiştirilir (atlama `Controller` soneki) ve genel yollar için özellikle yararlıdır. Daha fazla bilgi edinin [yönlendirme](../fundamentals/routing.md).
 
-Denetleyici gerektiren bir `IToDoRepository` için işlev; denetleyicinin Oluşturucusu aracılığıyla bu türünün bir örneği isteği. Framework'ün desteğini kullanarak bu örnek çalışma zamanında sağlanacak [bağımlılık ekleme](../fundamentals/dependency-injection.md).
+Denetleyici gerektiren bir `IToDoRepository` için işlev; bu tür denetleyicinin Oluşturucusu aracılığıyla örneği isteği. Framework'ün desteğini kullanarak, çalışma zamanında bu örneği sağlanacaktır [bağımlılık ekleme](../fundamentals/dependency-injection.md).
 
 [!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=1-17&highlight=9,14)]
 
-Bu API veri kaynağında (oluşturma, okuma, güncelleştirme, silme) CRUD işlemleri gerçekleştirmek için dört farklı HTTP fiilleri destekler. Bu bir HTTP GET isteği karşılık gelen okuma işlemi en kolayıdır.
+Bu API, dört farklı HTTP fiilleri CRUD (oluşturma, okuma, güncelleştirme, silme) veri kaynağı işlemleri destekler. Bu en basit bir HTTP GET isteğine karşılık gelen okuma işlemi var.
 
-### <a name="reading-items"></a>Öğeleri okuma
+### <a name="reading-items"></a>Öğeler okunuyor
 
-Bir öğe listesi isteyen bir GET isteğine ile yapılır `List` yöntemi. `[HttpGet]` Özniteliği `List` yöntemi gösterir Bu eylem yalnızca GET isteklerini işlemesi gerekir. Bu eylem için yol denetleyicisinde belirtilen yoldur. Mutlaka rota bir parçası olarak eylem adı kullanmanız gerekmez. Yalnızca benzersiz ve anlaşılır bir rota her bir eylem içerdiğinden emin olmak yeterlidir. Yönlendirme öznitelikleri, denetleyici ve belirli rotaları oluşturmak için yöntem düzeylerinde uygulanabilir.
+Öğeleri listesi istenirken bir GET isteği ile yapılır `List` yöntemi. `[HttpGet]` Özniteliği `List` yöntemi, bu eylem yalnızca GET istekleri işleyeceğini gösterir. Bu eylem için yol üzerindeki denetleyiciye belirtilen yoldur. Eylem adı yolun bir parçası olarak kullanmak mutlaka gerekmez. Her bir eylemin benzersiz ve belirsiz bir yol olduğundan emin olun yeterlidir. Yönlendirme öznitelikleri denetleyici ve yöntem düzeylerinde belirli rotaları oluşturmak için uygulanabilir.
 
 [!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=19-23)]
 
-`List` Yöntemi 200 Tamam yanıt kodu ve tüm JSON olarak serileştirilen Yapılacaklar öğelerini döndürür.
+`List` Yöntem bir 200 OK yanıtı kodu ve tüm JSON olarak serileştirilen ToDo öğeleri döndürür.
 
-Yeni API yönteminizi gibi çeşitli araçları, kullanarak test edebilirsiniz [Postman](https://www.getpostman.com/docs/), burada gösterilen:
+Yeni API yönteminizi gibi çeşitli araçları kullanarak test edebilirsiniz [Postman](https://www.getpostman.com/docs/), burada gösterilen:
 
-![Todoıtems ve döndürülen üç öğeleri için JSON gösteren yanıt gövdesi için bir GET isteği gösteren postman konsol](native-mobile-backend/_static/postman-get.png)
+![Todoıtems ve döndürülen üç öğe için JSON gösteren yanıt gövdesi için bir GET isteği gösteren postman konsol](native-mobile-backend/_static/postman-get.png)
 
 ### <a name="creating-items"></a>Öğeleri oluşturma
 
-Kurala göre yeni veri öğeleri oluşturmak için HTTP POST fiil eşlenir. `Create` Yöntemi sahip bir `[HttpPost]` özniteliği uygulanan ve kabul eden bir `ToDoItem` örneği. Bu yana `item` bağımsız değişken POST gövdesinde geçirilecektir, bu parametre ile donatılmış `[FromBody]` özniteliği.
+Kural gereği, yeni veri öğeleri oluşturmak için HTTP POST edimi eşlenir. `Create` Yöntemi olan bir `[HttpPost]` özniteliği uygulanmış ve kabul eden bir `ToDoItem` örneği. Bu yana `item` bağımsız değişken POST gövdesinde geçirilir, bu parametre ile donatılmış `[FromBody]` özniteliği.
 
-Yöntemi içinde öğe geçerlilik ve veri deposunda önceki varlığı için denetlenir ve herhangi bir sorun oluşursa, depo kullanılarak eklenir. Denetimi `ModelState.IsValid` gerçekleştirir [model doğrulama](../mvc/models/validation.md)ve kullanıcı girişini kabul etme her API yönteminde yapılması gerekir.
+Yöntemi içinde geçerlilik ve önceki bulunma veri deposundaki öğeyi denetlenir ve herhangi bir sorun meydana gelirse depo kullanmaya eklenir. Denetimi `ModelState.IsValid` gerçekleştirir [model doğrulama](../mvc/models/validation.md)ve kullanıcı girişi kabul eden her API yöntemi yapılmalıdır.
 
 [!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=25-46)]
 
-Örnek mobil istemciye geçirilen hata kodları içeren bir enum kullanır:
+Örnek mobil istemciye geçirilen hata kodları içeren enum kullanır:
 
 [!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=91-99)]
 
-Postman yeni nesnesi istek gövdesinde JSON biçiminde sağlama sonrası fiil seçerek yeni öğeler eklemek sınayın. Belirten bir istek üstbilgisi de eklemeniz gerekir bir `Content-Type` , `application/json`.
+İstek gövdesi JSON biçiminde yeni nesne sağlama sonrası fiili seçerek Postman kullanarak yeni öğe ekleme test edin. İstek üst bilgisi belirtme de eklemeniz gerekir bir `Content-Type` , `application/json`.
 
-![POST ve yanıt gösteren postman konsol](native-mobile-backend/_static/postman-post.png)
+![POST ve yanıtı gösteren postman konsol](native-mobile-backend/_static/postman-post.png)
 
-Yöntemi yeni oluşturulan öğeyi yanıt olarak döndürür.
+Bu yöntem, yanıt olarak yeni oluşturulan öğeyi döndürür.
 
 ### <a name="updating-items"></a>Öğeler güncelleştiriliyor
 
-Kayıtları değiştirme yapılır HTTP PUT isteklerini kullanarak. Bu değişiklik dışında `Edit` yöntemdir neredeyse aynı `Create`. Kaydı bulunmazsa unutmayın, `Edit` eylem döndürecektir bir `NotFound` (404) yanıt.
+Kayıtlarını değiştirme yapılır HTTP PUT isteklerini kullanarak. Bu değişikliğin dışında `Edit` yöntemi neredeyse aynı `Create`. Kayıt bulunmazsa unutmayın, `Edit` eylem döndürür bir `NotFound` (404) yanıt.
 
 [!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=48-69)]
 
-Postman ile test etmek için PUT fiili değiştirin. Güncelleştirilmiş nesne verilerini istek gövdesinde belirtin.
+Postman ile test etmek için PUT fiili değiştirin. İstek gövdesinde güncelleştirilmiş nesne verilerini belirtin.
 
-![PUT ve yanıt gösteren postman konsol](native-mobile-backend/_static/postman-put.png)
+![PUT ve yanıtı gösteren postman konsol](native-mobile-backend/_static/postman-put.png)
 
-Bu yöntem bir `NoContent` başarılı olduğunda, önceden varolan API ile tutarlılığını (204) yanıt.
+Bu yöntem döndürür bir `NoContent` başarılı olduğunda, önceden mevcut olan API tutarlılık (204) yanıt.
 
 ### <a name="deleting-items"></a>Öğeleri silme
 
-Kayıtları silme silme isteklerinin hizmete yapma ve silinecek öğe kimliği geçirme gerçekleştirilir. Güncelleştirme ile var olmayan öğeler için istekleri alacak şekilde `NotFound` yanıtlar. Aksi takdirde, başarılı bir istek alırsınız bir `NoContent` (204) yanıt.
+Kayıt silme, hizmette silme isteği yapmak ve silinecek öğenin kimliği geçirerek gerçekleştirilir. Güncelleştirme ile mevcut olmayan öğeler için istekleri alırsınız gibi `NotFound` yanıtlar. Aksi takdirde, başarılı bir istek alırsınız bir `NoContent` (204) yanıt.
 
 [!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=71-88)]
 
-Delete işlevselliğini test etme, hiçbir şey istek gövdesinde gerektiğini unutmayın.
+Delete işlevi test ederken hiçbir istek gövdesinde gerektiğini unutmayın.
 
-![Bir silme ve yanıt gösteren postman konsol](native-mobile-backend/_static/postman-delete.png)
+![SİLME ve yanıtı gösteren postman konsol](native-mobile-backend/_static/postman-delete.png)
 
-## <a name="common-web-api-conventions"></a>Ortak Web API kuralları
+## <a name="common-web-api-conventions"></a>Genel Web API kurallar
 
-Uygulamanız için arka uç hizmetlerini geliştirirken, kurallar veya çapraz kesme sorunları işlenmesine yönelik ilkeler tutarlı kümesiyle gündeme isteyeceksiniz. Örneğin, yukarıda gösterilen hizmetinde alınan bulunamadı belirli kayıtlarını ister bir `NotFound` yanıtı yerine bir `BadRequest` yanıt. Benzer şekilde, her zaman kullanıma modele bağlı türlerinde geçirilen bu hizmete yapılan komutları `ModelState.IsValid` ve döndürülen bir `BadRequest` geçersiz model türü için.
+Uygulamanız için arka uç Hizmetleri geliştirirken, kuralları veya çapraz kesme konuları işlenmesine yönelik ilkeler tutarlı özellik kümesi ile gelen isteyeceksiniz. Örneğin, yukarıda gösterilen hizmete alınan bulunamadı belirli kayıtları için istekleri bir `NotFound` yanıt yerine `BadRequest` yanıt. Benzer şekilde, her zaman kullanıma bağlı model türleri geçirilen bu Hizmeti'ne yapılan komutları `ModelState.IsValid` ve döndürülen bir `BadRequest` geçersiz model türleri için.
 
-Apı'leriniz için ortak bir ilke tanımladıktan sonra genellikle içinde sarmalayabilen bir [filtre](../mvc/controllers/filters.md). Daha fazla bilgi edinmek [ASP.NET Core MVC uygulamalarında ortak API ilkelerini kapsülleyen nasıl](https://msdn.microsoft.com/magazine/mt767699.aspx).
+Apı'leriniz için ortak bir ilke belirledikten sonra genellikle içinde kapsülleyebilir bir [filtre](../mvc/controllers/filters.md). Daha fazla bilgi edinin [nasıl ASP.NET Core MVC uygulamalarında ortak API ilkelerini Yalıt](https://msdn.microsoft.com/magazine/mt767699.aspx).
+
+## <a name="additional-resources"></a>Ek kaynaklar
+
+* [Kimlik Doğrulaması ve Yetkilendirme](/xamarin/xamarin-forms/enterprise-application-patterns/authentication-and-authorization)

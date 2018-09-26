@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 09/20/2017
 uid: fundamentals/metapackage-app
-ms.openlocfilehash: d27c3aa53d6edd235006dc136f09558395e15b6e
-ms.sourcegitcommit: a742b55e4b8276a48b8b4394784554fecd883c84
+ms.openlocfilehash: 68b5aca60273a8c6ef03c0a29842e6a5305adeb3
+ms.sourcegitcommit: 517bb1366da2a28b0014e384fa379755c21b47d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45538459"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47230171"
 ---
 # <a name="microsoftaspnetcoreapp-metapackage-for-aspnet-core-21"></a>ASP.NET Core 2.1 için Microsoft.AspNetCore.App metapackage
 
@@ -45,13 +45,26 @@ Kullanan uygulamalar `Microsoft.AspNetCore.App` metapackage otomatik olarak ASP.
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.4" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 
 </Project>
 ```
 
-Sürüm numarasına göre `Microsoft.AspNetCore.App` başvuru yapar **değil** paylaşılan sürümünün garanti çerçevesi kullanılır. Örneğin, sürüm varsayalım `2.1.1` belirtildi, ancak `2.1.3` yüklenir. Bu durumda, uygulamanın kullandığı `2.1.3`. Önerilmese de (düzeltme eki ve/veya ikincil) sarma davranışı devre dışı bırakabilirsiniz. Paket sürümü sarma davranışı hakkında daha fazla bilgi için bkz. [dotnet konak ileri sarma](https://github.com/dotnet/core-setup/blob/master/Documentation/design-docs/roll-forward-on-no-candidate-fx.md).
+Önceki biçimlendirme, normal ASP.NET Core 2.1 ve üzeri şablonu temsil eder. İçin bir sürüm numarası belirtmeyen `Microsoft.AspNetCore.App` paket başvurusu. Version belirtilmediğinde, bir [örtük](https://github.com/dotnet/core/blob/master/release-notes/1.0/sdk/1.0-rc3-implicit-package-refs.md) sürümü belirtildi SDK tarafından diğer bir deyişle, `Microsoft.NET.Sdk.Web`. SDK'sı tarafından belirtilen sürüm numarası paket başvurusu üzerinde açıkça ayarlamak örtük sürümü güvenmek öneririz. Bu yaklaşım hakkında sorularınız varsa, GitHub yorum [Microsoft.AspNetCore.App örtük sürümü için tartışma](https://github.com/aspnet/Docs/issues/6430).
+
+Örtük sürüm kümesine `major.minor.0` taşınabilir uygulamalar için. Paylaşılan çerçeve sarma mekanizması, uygulama, en son uyumlu sürümü yüklü paylaşılan çerçeveleri arasında çalıştırılır. Aynı sürüm, geliştirme, test ve üretim kullanılan sağlamak için paylaşılan framework sürümüyle aynı sürümü, tüm ortamlara yüklenen emin olun. Kendi uygulamaları'için örtük bir sürüm numarası ayarlanır `major.minor.patch` yüklü SDK'yı paketlenmiş paylaşılan framework'ün.
+
+Sürüm numarasını belirtme `Microsoft.AspNetCore.App` başvuru yapar **değil** paylaşılan sürümünün garanti framework seçilebilir. Örneğin, sürümü "2.1.1" belirtildi, ancak "2.1.3" yüklü olduğunu varsayalım. Bu durumda, uygulama "2.1.3" kullanır. Önerilmemesine rağmen ileri sarma (düzeltme eki ve/veya ikincil) devre dışı bırakabilirsiniz. Dotnet konak sarma ve davranışını yapılandırma hakkında daha fazla bilgi için bkz. [dotnet konak ileri sarma](https://github.com/dotnet/core-setup/blob/master/Documentation/design-docs/roll-forward-on-no-candidate-fx.md).
+
+`<Project Sdk` ayarlanmalıdır `Microsoft.NET.Sdk.Web` örtük sürümünü kullanacak şekilde `Microsoft.AspNetCore.App`.  Zaman `<Project Sdk="Microsoft.NET.Sdk">` (sondaki olmadan `.Web`) kullanılır:
+
+* Aşağıdaki uyarısı oluşturulur:
+
+     *Uyarı NU1604: Proje bağımlılığı Microsoft.AspNetCore.App kapsamlı bir alt sınırı içermiyor. Alt sınır tutarlı geri yükleme sonuçları emin olmak için bağımlılık sürümünü içerir.*
+* Bu, .NET Core 2.1 SDK'sı ile bilinen bir sorundur ve .NET Core 2.2 SDK düzeltilecektir.
+
+<a name="update"></a>
 
 ## <a name="update-aspnet-core"></a>ASP.NET Core güncelleştir
 
