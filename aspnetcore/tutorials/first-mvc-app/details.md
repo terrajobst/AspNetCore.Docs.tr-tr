@@ -5,12 +5,12 @@ description: Ayrıntıları denetleyicisi yöntem hakkında bilgi edinin ve teme
 ms.author: riande
 ms.date: 03/07/2017
 uid: tutorials/first-mvc-app/details
-ms.openlocfilehash: c3fb7ae9507d13f3b8c7d366e333151dc7a7a6d3
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 9864abb54483c0ccf911aaf704a1beae007b32a4
+ms.sourcegitcommit: 599ebae5c2d6fcb22dfa6ae7d1f4bdfcacb79af4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011442"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47211019"
 ---
 # <a name="examine-the-details-and-delete-methods-of-an-aspnet-core-app"></a>Ayrıntılarını inceleyin ve Delete metotlarını bir ASP.NET Core uygulaması
 
@@ -73,7 +73,7 @@ public async Task<IActionResult> Delete(int id, bool notUsed)
 
 ### <a name="publish-to-azure"></a>Azure'da yayımlama
 
-Bkz: [Visual Studio kullanarak Azure App Service'e bir ASP.NET Core web uygulaması yayımlama](xref:tutorials/publish-to-azure-webapp-using-vs) Visual Studio'yu kullanarak Azure'da bu uygulamayı yayımlamak yönergeler.  Uygulama ayrıca gelen yayımlanabilir [komut satırı](xref:tutorials/publish-to-azure-webapp-using-cli).
+Bkz: Azure'a dağıtma hakkında bilgi [öğretici: azure'da SQL veritabanı ile ASP.NET uygulaması derleme](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase). Yönergesi, bir ASP.NET uygulaması için bir ASP.NET Core uygulaması olan ancak adımlar aynıdır.
 
 > [!div class="step-by-step"]
 > [Önceki](validation.md)

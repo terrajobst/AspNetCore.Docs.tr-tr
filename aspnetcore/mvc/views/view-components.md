@@ -5,12 +5,12 @@ description: ASP.NET Core görünümü bileşenlerin nasıl kullanıldığı ve 
 ms.author: riande
 ms.date: 02/14/2017
 uid: mvc/views/view-components
-ms.openlocfilehash: 0410e2025019bae45d941e61f556f4b2b57bd30f
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: cf2cfcdb07271503b844e31940e90b7376db0a6f
+ms.sourcegitcommit: 599ebae5c2d6fcb22dfa6ae7d1f4bdfcacb79af4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46010916"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47211071"
 ---
 # <a name="view-components-in-aspnet-core"></a>ASP.NET core'da görünüm bileşenleri
 
@@ -95,6 +95,8 @@ Parametreleri geçirilecek `InvokeAsync` yöntemi. `PriorityList` Makalesinde ge
 
 [!code-cshtml[](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
 
+::: moniker range=">= aspnetcore-1.1"
+
 ## <a name="invoking-a-view-component-as-a-tag-helper"></a>Bileşeni görüntüle etiket Yardımcısı çağırma
 
 ASP.NET Core 1.1 ve sonraki bir görünüm bileşeni olarak çağırabilirsiniz bir [etiketi Yardımcısı](xref:mvc/views/tag-helpers/intro):
@@ -110,7 +112,7 @@ Pascal büyük küçük harfleri sınıf ve yöntem parametreleri etiket Yardım
 </vc:[view-component-name]>
 ```
 
-Not: bir görünüm bileşeni etiket Yardımcısı kullanmak için görünümü bileşen kullanarak içeren derlemenin kaydetmeniz gerekir `@addTagHelper` yönergesi. Örneğin, "Mywebapp şeklindedir" adlı bir derlemede görünümü Bileşeniniz varsa, aşağıdaki yönerge için ekleyin. `_ViewImports.cshtml` dosyası:
+Bir görünümü bileşeni etiket Yardımcısı kullanılacak görünümünü kullanarak bileşeni içeren derlemenin kaydetme `@addTagHelper` yönergesi. Bileşeni görüntüle adlı bir derlemede ise `MyWebApp`, eklemek için aşağıdaki yönerge *_viewımports.cshtml* dosyası:
 
 ```cshtml
 @addTagHelper *, MyWebApp
@@ -127,6 +129,8 @@ Etiket Yardımcısı biçimlendirme içinde:
 [!code-cshtml[](view-components/sample/ViewCompFinal/Views/Todo/IndexTagHelper.cshtml?range=37-38)]
 
 Yukarıdaki örnekteki `PriorityList` görünümü bileşen olur `priority-list`. Bileşeni görüntüle parametreleri alt kebab durumda öznitelik olarak geçirilir.
+
+::: moniker-end
 
 ### <a name="invoking-a-view-component-directly-from-a-controller"></a>Bir görünümü bileşen denetleyicisinden doğrudan çağırma
 
@@ -243,6 +247,76 @@ Zaman güvenlik derlemek isterseniz, sabit kodlanmış görünümü bileşen ad�
 Ekleme bir `using` , Razor ifadesine dosyayı görüntüle ve Kullan `nameof` işleci:
 
 [!code-cshtml[](view-components/sample/ViewCompFinal/Views/Todo/IndexNameof.cshtml?range=1-6,35-)]
+
+## <a name="perform-synchronous-work"></a>Zaman uyumlu çalışma gerçekleştirme
+
+Çerçeve işleme bir zaman uyumlu çağırma `Invoke` zaman uyumsuz çalışmayı gerçekleştirmek gerekmiyorsa yöntemi. Aşağıdaki yöntem zaman uyumlu bir oluşturur `Invoke` bileşeni görüntüle:
+
+```csharp
+public class PriorityList : ViewComponent
+{
+    public IViewComponentResult Invoke(int maxPriority, bool isDone)
+    {
+        var items = new List<string> { $"maxPriority: {maxPriority}", $"isDone: {isDone}" };
+        return View(items);
+    }
+}
+```
+
+Geçirilen dizeler görünümü bileşenin Razor dosyasını listeler `Invoke` yöntemi (*Views/Home/Components/PriorityList/Default.cshtml*):
+
+```cshtml
+@model List<string>
+
+<h3>Priority Items</h3>
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>@item</li>
+    }
+</ul>
+```
+
+::: moniker range=">= aspnetcore-1.1"
+
+Bileşeni görüntüle Razor dosyasında çağrılır (örneğin, *Views/Home/Index.cshtml*) aşağıdaki yaklaşımlardan birini kullanarak:
+
+* <xref:Microsoft.AspNetCore.Mvc.IViewComponentHelper>
+* [Etiketi Yardımcısı](xref:mvc/views/tag-helpers/intro)
+
+Kullanılacak <xref:Microsoft.AspNetCore.Mvc.IViewComponentHelper> yaklaşımı, çağrı `Component.InvokeAsync`:
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-1.1"
+
+Bileşeni görüntüle Razor dosyasında çağrılır (örneğin, *Views/Home/Index.cshtml*) ile <xref:Microsoft.AspNetCore.Mvc.IViewComponentHelper>.
+
+Çağrı `Component.InvokeAsync`:
+
+::: moniker-end
+
+```cshtml
+@await Component.InvokeAsync(nameof(PriorityList), new { maxPriority = 4, isDone = true })
+```
+
+::: moniker range=">= aspnetcore-1.1"
+
+Etiket Yardımcısı'nı kullanmak için görünümü bileşen kullanarak içeren derlemenin kaydetme `@addTagHelper` yönergesi (adlı bir derlemede görünümü bileşendir `MyWebApp`):
+
+```cshtml
+@addTagHelper *, MyWebApp
+```
+
+Etiket Yardımcısı görünümü bileşen Razor biçimlendirme dosyasında kullanın:
+
+```cshtml
+<vc:priority-list max-priority="999" is-done="false">
+</vc:priority-list>
+```
+::: moniker-end
+
+Yöntem imzası `PriorityList.Invoke` zaman uyumludur, ancak Razor bulur ve içeren yöntemi çağıran `Component.InvokeAsync` biçimlendirme dosyası.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

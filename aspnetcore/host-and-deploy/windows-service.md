@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core uygulaması bir Windows hizmetinde barındırmayı öğrenin.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 06/04/2018
+ms.date: 09/25/2018
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: fb748b74b62abb297ac0b16ec34982daf0e13cbd
-ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
+ms.openlocfilehash: eb88b0bb2e9ce4cfd3a7db2081ad7d62d5dcb08e
+ms.sourcegitcommit: 599ebae5c2d6fcb22dfa6ae7d1f4bdfcacb79af4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523187"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47211045"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>ASP.NET Core bir Windows hizmetinde barındırma
 
@@ -21,13 +21,13 @@ ASP.NET Core uygulaması olarak IIS kullanmadan Windows üzerinde barındırıla
 
 [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/windows-service/samples) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 
-## <a name="get-started"></a>Kullanmaya başlayın
+## <a name="convert-a-project-into-a-windows-service"></a>Bir Windows hizmetinde bir projeyi dönüştürmeye
 
-Bir hizmet olarak çalıştırmak için mevcut bir ASP.NET Core projesini ayarlarsınız ayarlamak için aşağıdaki en düşük değişiklikleri gerekir:
+Mevcut bir ASP.NET Core projesini ayarlarsınız bir hizmet olarak çalışacak şekilde ayarlamak için aşağıdaki en düşük değişiklikleri gerekir:
 
 1. Proje dosyasında:
 
-   1. Çalışma zamanı tanımlayıcısı varlığını onaylamak veya ekleyin  **\<PropertyGroup >** , hedef Framework'ü içerir:
+   * Bir Windows varlığını onaylamak [çalışma zamanı tanımlayıcı (RID)](/dotnet/core/rid-catalog) veya eklemek `<PropertyGroup>` , hedef Framework'ü içerir:
 
       ::: moniker range=">= aspnetcore-2.1"
 
@@ -61,10 +61,15 @@ Bir hizmet olarak çalıştırmak için mevcut bir ASP.NET Core projesini ayarla
       ```
 
       ::: moniker-end
-      
-      Birden çok çalışma zamanı tanımlayıcılarının (RID'ler) noktalı virgülle ayrılmış bir listede sağlanan, özellik adı kullanın. `<RuntimeIdentifiers>` (çoğul). Daha fazla bilgi için [.NET Core RID Kataloğu](/dotnet/core/rid-catalog).
 
-   1. İçin bir paket başvurusu ekleme [Microsoft.AspNetCore.Hosting.WindowsServices](https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.WindowsServices/).
+      İçin birden fazla RID yayımlamak için:
+
+      * RID noktalı virgülle ayrılmış bir liste sağlar.
+      * Özellik adını kullanan `<RuntimeIdentifiers>` (çoğul).
+
+      Daha fazla bilgi için [.NET Core RID Kataloğu](/dotnet/core/rid-catalog).
+
+   * İçin bir paket başvurusu ekleme [Microsoft.AspNetCore.Hosting.WindowsServices](https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.WindowsServices).
 
 1. Aşağıdaki değişiklikleri yapın `Program.Main`:
 
@@ -86,10 +91,10 @@ Bir hizmet olarak çalıştırmak için mevcut bir ASP.NET Core projesini ayarla
 
 1. Uygulamayı yayımlayın. Kullanım [dotnet yayımlama](/dotnet/articles/core/tools/dotnet-publish) veya [Visual Studio yayımlama profilini](xref:host-and-deploy/visual-studio-publish-profiles). Visual Studio kullanırken **FolderProfile**.
 
-   Komut satırından örnek uygulamayı yayımlamak için proje klasöründen konsol penceresinde aşağıdaki komutu çalıştırın:
+   Komut satırı arabirimi (CLI) araçlarını kullanarak örnek uygulamayı yayımlamak için çalıştırma [dotnet yayımlama](/dotnet/core/tools/dotnet-publish) proje klasöründeki bir komut isteminde komutu. RID belirtilmelidir `<RuntimeIdenfifier>` (veya `<RuntimeIdentifiers>`) özelliği proje dosyasının. Aşağıdaki örnekte, uygulama için sürüm yapılandırmasında yayımlanır `win7-x64` çalışma zamanı:
 
    ```console
-   dotnet publish --configuration Release
+   dotnet publish --configuration Release --runtime win7-x64
    ```
 
 1. Kullanım [sc.exe](https://technet.microsoft.com/library/bb490995) hizmeti oluşturmak için komut satırı aracı. `binPath` Değerdir yürütülebilir dosya adını içeren uygulamanın yürütülebilir dosyanın yolu. **Eşittir işareti ve tırnak karakteri yolunun başında arasındaki boşluk gereklidir.**
@@ -100,7 +105,7 @@ Bir hizmet olarak çalıştırmak için mevcut bir ASP.NET Core projesini ayarla
 
    Proje klasöründe yayımlanan bir hizmet için yolunu kullanın *yayımlama* hizmet oluşturmak için klasör. Aşağıdaki örnekte:
 
-   * Projenin bulunduğu `c:\my_services\AspNetCoreService` klasör.
+   * Projenin bulunduğu *c:\\my_services\\AspNetCoreService* klasör.
    * Proje yayınlanan `Release` yapılandırma.
    * Hedef Çerçeve adı (TFM) olan `netcoreapp2.1`.
    * Çalışma zamanı tanımlayıcı (RID) olan `win7-x64`.
@@ -112,14 +117,14 @@ Bir hizmet olarak çalıştırmak için mevcut bir ASP.NET Core projesini ayarla
    ```console
    sc create MyService binPath= "c:\my_services\AspNetCoreService\bin\Release\netcoreapp2.1\win7-x64\publish\AspNetCoreService.exe"
    ```
-   
+
    > [!IMPORTANT]
    > Alanı arasında mevcut olduğundan emin olun `binPath=` bağımsız değişkeni ve değeri.
-   
+
    Yayımlama ve farklı bir klasör hizmeti başlatmak için:
-   
-      1. Kullanım [--çıktı &lt;OUTPUT_DIRECTORY&gt; ](/dotnet/core/tools/dotnet-publish#options) seçeneğini `dotnet publish` komutu. Visual Studio kullanıyorsanız, yapılandırma **hedef konum** içinde **FolderProfile** özellik sayfasında seçmeden önce yayımlama **Yayımla** düğmesi.
-   1. Hizmetle `sc.exe` çıkış klasör yolunu kullanarak komutu. Sağlanan yol hizmetin yürütülebilir dosya adı dahil `binPath`.
+
+      * Kullanım [--çıktı &lt;OUTPUT_DIRECTORY&gt; ](/dotnet/core/tools/dotnet-publish#options) seçeneğini `dotnet publish` komutu. Visual Studio kullanıyorsanız, yapılandırma **hedef konum** içinde **FolderProfile** özellik sayfasında seçmeden önce yayımlama **Yayımla** düğmesi.
+      * Hizmetle `sc.exe` çıkış klasör yolunu kullanarak komutu. Sağlanan yol hizmetin yürütülebilir dosya adı dahil `binPath`.
 
 1. Hizmetle başlar `sc start <SERVICE_NAME>` komutu.
 
@@ -131,7 +136,7 @@ Bir hizmet olarak çalıştırmak için mevcut bir ASP.NET Core projesini ayarla
 
    Komut hizmeti başlatmak için birkaç saniye sürer.
 
-1. `sc query <SERVICE_NAME>` Komutu, durumu belirlemek için hizmet durumunu denetlemek için kullanılabilir:
+1. Hizmet durumunu denetlemek için kullanmak `sc query <SERVICE_NAME>` komutu. Durumu aşağıdaki değerlerden biri olarak bildirilir:
 
    * `START_PENDING`
    * `RUNNING`
@@ -170,7 +175,7 @@ Bir hizmet olarak çalıştırmak için mevcut bir ASP.NET Core projesini ayarla
    sc delete MyService
    ```
 
-## <a name="provide-a-way-to-run-outside-of-a-service"></a>Dışında bir hizmeti çalıştırmanın bir yolunu sağlar.
+## <a name="run-the-app-outside-of-a-service"></a>Uygulama dışında bir hizmet çalıştırma
 
 Çağıran kod eklemek için her zamanki şekilde bir hizmet dışında çalışırken hata ayıklama ve test etmek daha kolay `RunAsService` yalnızca belirli koşullar altında. Örneğin, bir konsol uygulaması olarak uygulama çalıştırabilirsiniz bir `--console` komut satırı bağımsız değişkeni veya hata ayıklayıcı eklenir:
 
@@ -234,7 +239,7 @@ Belirtin bir [Kestrel sunucu HTTPS uç noktası yapılandırması](xref:fundamen
 
 ## <a name="current-directory-and-content-root"></a>Geçerli dizin ve içerik kök
 
-Geçerli çalışma dizini çağırarak döndürülen `Directory.GetCurrentDirectory()` bir Windows hizmeti için *C:\WINDOWS\system32* klasör. *System32* klasör değil bir hizmetin dosyaları (örneğin, ayarları) depolamak için uygun bir konum. Korumak ve bir hizmetin varlıklar ve ayar dosyaları ile erişmek için aşağıdaki yaklaşımlardan birini kullanın [FileConfigurationExtensions.SetBasePath](/dotnet/api/microsoft.extensions.configuration.fileconfigurationextensions.setbasepath) kullanırken bir [IConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.iconfigurationbuilder):
+Geçerli çalışma dizini çağırarak döndürülen `Directory.GetCurrentDirectory()` bir Windows hizmeti için *C:\\WINDOWS\\system32* klasör. *System32* klasör değil bir hizmetin dosyaları (örneğin, ayarları) depolamak için uygun bir konum. Korumak ve bir hizmetin varlıklar ve ayar dosyaları ile erişmek için aşağıdaki yaklaşımlardan birini kullanın [FileConfigurationExtensions.SetBasePath](/dotnet/api/microsoft.extensions.configuration.fileconfigurationextensions.setbasepath) kullanırken bir [IConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.iconfigurationbuilder):
 
 * İçerik kök yolu kullanın. `IHostingEnvironment.ContentRootPath` Sağlanan aynı yol `binPath` hizmeti oluşturulduğunda bağımsız değişken. Yerine `Directory.GetCurrentDirectory()` ayarları dosyalara olan yolları oluşturmak için içerik kök yolu kullanın ve uygulamanın içerik kökünde dosyaların bakımını yapar.
 * Disk üzerinde uygun bir konumda dosya Store. Mutlak bir yol belirtin `SetBasePath` dosyaları içeren klasör.
