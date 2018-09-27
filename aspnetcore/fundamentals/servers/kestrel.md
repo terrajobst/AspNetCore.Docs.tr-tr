@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 09/13/2018
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 21ba522b454a88a006938936e426537786ccaa1f
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 218b6429462991659ba02804fdc8fbb99b69f1a6
+ms.sourcegitcommit: 599ebae5c2d6fcb22dfa6ae7d1f4bdfcacb79af4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011741"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47211097"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>ASP.NET core'da kestrel web sunucusu uygulaması
 
@@ -160,7 +160,7 @@ Yükleme [Microsoft.AspNetCore.Server.Kestrel](https://www.nuget.org/packages/Mi
 
 ::: moniker-end
 
-### <a name="kestrel-options"></a>Kestrel'i seçenekleri
+## <a name="kestrel-options"></a>Kestrel'i seçenekleri
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -172,7 +172,7 @@ Kestrel'i web sunucusu Internet'e yönelik dağıtımlarda özellikle yararlı o
 
 Bunlar ve diğer kısıtlamaları ayarlamak [sınırları](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions.limits) özelliği [KestrelServerOptions](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions) sınıfı. `Limits` Özelliği bir örneğini tutan [KestrelServerLimits](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits) sınıfı.
 
-**En fazla istemci bağlantısı**
+### <a name="maximum-client-connections"></a>En fazla istemci bağlantısı
 
 [MaxConcurrentConnections](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits.maxconcurrentconnections)  
 [MaxConcurrentUpgradedConnections](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits.maxconcurrentupgradedconnections)
@@ -227,7 +227,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
 
 Bağlantı sayısı, varsayılan olarak sınırsız (null) olur.
 
-**En fazla istek gövdesi boyutu**
+### <a name="maximum-request-body-size"></a>En fazla istek gövdesi boyutu
 
 [MaxRequestBodySize](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits.maxrequestbodysize)
 
@@ -272,7 +272,7 @@ Belirli bir istekte Ara yazılımında ayarı geçersiz kılabilirsiniz:
 
 Uygulama isteği okumak başlatıldıktan sonra bir istekte sınırını yapılandırmak çalışırsanız, bir özel durum oluşturulur. Var. bir `IsReadOnly` gösterir özelliği `MaxRequestBodySize` özelliği olan salt okunur durumda olduğu çok geç sınırını yapılandırmak için anlamına gelir.
 
-**En az bir istek gövdesi veri hızı**
+### <a name="minimum-request-body-data-rate"></a>En az bir istek gövdesi veri hızı
 
 [MinRequestBodyDataRate](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits.minrequestbodydatarate)  
 [MinResponseDataRate](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserverlimits.minresponsedatarate)
@@ -316,7 +316,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
 
 ::: moniker range=">= aspnetcore-2.2"
 
-**MaxStreamsPerConnection**
+### <a name="maximum-streams-per-connection"></a>Bağlantı başına en fazla akış
 
 `Http2.MaxStreamsPerConnection` HTTP/2 bağlantı başına akış eş zamanlı istek sayısını sınırlar. Aşırı akışları çevrilir.
 
@@ -332,7 +332,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
 
 Varsayılan değer 100’dür.
 
-**HeaderTableSize**
+### <a name="header-table-size"></a>Üst bilgi tablosu boyutu
 
 HPACK kod çözücü, HTTP/2 bağlantılar için HTTP üstbilgileri açar. `Http2.HeaderTableSize` HPACK kod çözücü kullanan üst bilgi sıkıştırma tablonun boyutunu sınırlar. Değer, sekizlik tabanda sağlanır ve sıfır (0) büyük olmalıdır.
 
@@ -348,7 +348,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
 
 Varsayılan değer 4096'dır.
 
-**MaxFrameSize**
+### <a name="maximum-frame-size"></a>En büyük çerçeve boyutu
 
 `Http2.MaxFrameSize` en büyük boyutunu almak için HTTP/2 bağlantı çerçeve yükü gösterir. Değer sekizlik tabanda sağlanır ve 2 arasında olmalıdır ^ (16,384) 14. ve 2 ^ 24-1 (16.777.215).
 
@@ -385,7 +385,7 @@ Kestrel'i seçenekleri ve sınırları hakkında daha fazla bilgi için bkz:
 
 ::: moniker-end
 
-### <a name="endpoint-configuration"></a>Uç nokta yapılandırması
+## <a name="endpoint-configuration"></a>Uç nokta yapılandırması
 
 ::: moniker range="= aspnetcore-2.0"
 
@@ -431,20 +431,24 @@ ASP.NET Core 2.1 ve üzeri proje şablonları varsayılan olarak HTTPS üzerinde
 
 ASP.NET Core 2.1 `KestrelServerOptions` yapılandırma:
 
-**ConfigureEndpointDefaults (Eylem&lt;ListenOptions&gt;)**  
+### <a name="configureendpointdefaultsactionltlistenoptionsgt"></a>ConfigureEndpointDefaults (Eylem&lt;ListenOptions&gt;)
+
 Bir yapılandırma belirtir `Action` belirtilen her uç nokta için çalıştırılacak. Çağırma `ConfigureEndpointDefaults` birden çok kez önceki değiştirir `Action`son s `Action` belirtilen.
 
-**ConfigureHttpsDefaults (Eylem&lt;HttpsConnectionAdapterOptions&gt;)**  
+### <a name="configurehttpsdefaultsactionlthttpsconnectionadapteroptionsgt"></a>ConfigureHttpsDefaults (Eylem&lt;HttpsConnectionAdapterOptions&gt;)
+
 Bir yapılandırma belirtir `Action` her HTTPS uç noktası için çalıştırılacak. Çağırma `ConfigureHttpsDefaults` birden çok kez önceki değiştirir `Action`son s `Action` belirtilen.
 
-**Configure(IConfiguration)**  
+### <a name="configureiconfiguration"></a>Configure(IConfiguration)
+
 Alan Kestrel ayarlamak için bir yapılandırma yükleyicisi oluşturur bir [IConfiguration](/dotnet/api/microsoft.extensions.configuration.iconfiguration) giriş olarak. Yapılandırma için yapılandırma bölümü için Kestrel kapsamlandırılmalıdır.
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
 
-**ListenOptions.UseHttps**  
+### <a name="listenoptionsusehttps"></a>ListenOptions.UseHttps
+
 Kestrel'i HTTPS kullanacak şekilde yapılandırın.
 
 `ListenOptions.UseHttps` uzantılar:
@@ -703,7 +707,7 @@ public static IWebHost BuildWebHost(string[] args) =>
 
 ::: moniker-end
 
-**Bir TCP yuva için bağlama**
+### <a name="bind-to-a-tcp-socket"></a>Bir TCP yuva için bağlama
 
 [Dinleme](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions.listen) yöntemi için bir TCP yuva bağlar ve SSL sertifika yapılandırma seçenekleri lambda verir:
 
@@ -742,7 +746,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
 
 [!INCLUDE [How to make an X.509 cert](~/includes/make-x509-cert.md)]
 
-**Bir UNIX yuvası için bağlama**
+### <a name="bind-to-a-unix-socket"></a>Bir UNIX yuvası için bağlama
 
 Bir UNIX yuvasıyla dinleyecek [ListenUnixSocket](/dotnet/api/microsoft.aspnetcore.server.kestrel.core.kestrelserveroptions.listenunixsocket) Bu örnekte gösterildiği gibi Ngınx ile Gelişmiş performans için:
 
@@ -774,7 +778,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
 
 ::: moniker range=">= aspnetcore-2.0"
 
-**Bağlantı noktası 0**
+### <a name="port-0"></a>Bağlantı noktası 0
 
 Zaman bağlantı noktası numarasını `0` belirtilirse, Kestrel dinamik olarak kullanılabilir bir bağlantı noktasına bağlar. Aşağıdaki örnek, Kestrel çalışma zamanında gerçekten bağlı hangi bağlantı noktasını belirlemek gösterilmektedir:
 
@@ -786,7 +790,7 @@ Uygulamayı çalıştırdığınızda, konsol penceresi çıktısı dinamik bağ
 Listening on the following addresses: http://127.0.0.1:48508
 ```
 
-**UseUrls,--URL'leri komut satırı bağımsız değişkeni, URL ana bilgisayar yapılandırma anahtarı ve ASPNETCORE_URLS ortam değişkeni sınırlamaları**
+### <a name="limitations"></a>Sınırlamalar
 
 Uç noktaları ile aşağıdaki yaklaşımlardan yapılandırın:
 
@@ -795,12 +799,12 @@ Uç noktaları ile aşağıdaki yaklaşımlardan yapılandırın:
 * `urls` ana bilgisayar yapılandırma anahtarı
 * `ASPNETCORE_URLS` ortam değişkeni
 
-Bu yöntemler, kod Kestrel dışında sunucuları ile iş yapmak için kullanışlıdır. Ancak, bu sınırlamaları unutmayın:
+Bu yöntemler, kod Kestrel dışında sunucuları ile iş yapmak için kullanışlıdır. Ancak, aşağıdaki sınırlamaları unutmayın:
 
 * SSL HTTPS uç nokta yapılandırmasında bir varsayılan sertifika sağlanmadığı sürece bu yaklaşımların ile kullanılamaz (örneğin, kullanarak `KestrelServerOptions` yapılandırma veya bu konuda daha önce gösterildiği gibi bir yapılandırma dosyası).
 * Hem `Listen` ve `UseUrls` yaklaşımları eşzamanlı olarak kullanılan `Listen` uç noktaları geçersiz kılma `UseUrls` uç noktaları.
 
-**IIS bitiş noktası yapılandırması**
+### <a name="iis-endpoint-configuration"></a>IIS bitiş noktası yapılandırması
 
 IIS geçersiz kılmak için IIS, URL bağlamaları kullanırken bağlamalar tarafından ayarlanan `Listen` veya `UseUrls`. Daha fazla bilgi için [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module) konu.
 
@@ -817,7 +821,7 @@ Varsayılan olarak, ASP.NET Core bağlar `http://localhost:5000`. URL ön ekleri
 
 Bu yöntemler hakkında daha fazla bilgi için bkz. [barındırma](xref:fundamentals/host/index).
 
-**IIS bitiş noktası yapılandırması**
+### <a name="iis-endpoint-configuration"></a>IIS bitiş noktası yapılandırması
 
 IIS kullanırken, IIS için URL bağlamaları bağlamaları belirlediği geçersiz kılma `UseUrls`. Daha fazla bilgi için [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module) konu.
 
@@ -825,7 +829,7 @@ IIS kullanırken, IIS için URL bağlamaları bağlamaları belirlediği geçers
 
 ::: moniker range=">= aspnetcore-2.2"
 
-**ListenOptions.Protocols**
+### <a name="listenoptionsprotocols"></a>ListenOptions.Protocols
 
 `Protocols` Özelliği kurar HTTP protokollerini (`HttpProtocols`) bir bağlantı uç noktası veya sunucu için etkin. Bir değer atayın `Protocols` özelliğinden `HttpProtocols` sabit listesi.
 
