@@ -1,17 +1,17 @@
 ---
 title: ASP.NET Core 2.0 için Microsoft.AspNetCore.All metapackage
 author: Rick-Anderson
-description: Microsoft.AspNetCore.All metapackage bağımlılıklarıyla desteklenen tüm ASP.NET Core ve Entity Framework Core paketleri içerir.
+description: ASP.NET Core 2.1 ve üzeri Microsoft.AspNetCore.All metapackage önerilmez.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 09/20/2017
+ms.date: 09/20/2018
 uid: fundamentals/metapackage
-ms.openlocfilehash: fbc0f5465dc37a612b81c293f1a58b53ea4b2238
-ms.sourcegitcommit: cb0c27fa0184f954fce591d417e6ab2a51d8bb22
+ms.openlocfilehash: 1942426dbd5c15ae4a5fa5fbb931b94f50aa6043
+ms.sourcegitcommit: 32f5ee0690604d451f61e9a5c28881c9fcf85738
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39123833"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47454745"
 ---
 # <a name="microsoftaspnetcoreall-metapackage-for-aspnet-core-20"></a>ASP.NET Core 2.0 için Microsoft.AspNetCore.All metapackage
 
@@ -65,3 +65,11 @@ Aksi takdirde, bağımlılıkları olmayan yukarıdaki paketlerin herhangi bir b
 
 * `StackExchange.Redis` bir bağımlılık olarak `Microsoft.Extensions.Caching.Redis`
 * `Microsoft.ApplicationInsights` bir bağımlılık olarak `Microsoft.AspNetCore.ApplicationInsights.HostingStartup`
+
+## <a name="update-aspnet-core-21"></a>ASP.NET Core 2.1 güncelleştirmesi
+
+Geçiş için geçiş öneririz `Microsoft.AspNetCore.App` metapackage 2.1 ve üzeri. Kullanmaya devam etmek için `Microsoft.AspNetCore.All` metapackage ve en son düzeltme eki sürümü dağıtıldığı emin olun:
+
+* Geliştirme makineler ve yapı sunucularını: en yeni [.NET Core SDK'sı](https://www.microsoft.com/net/download).
+* Dağıtım sunucularında: en yeni [.NET Core çalışma zamanı](https://www.microsoft.com/net/download).
+ Uygulamanız için en son yüklenen sürüm üzerinde uygulama yeniden başlatma İleri dökümünü yapar.

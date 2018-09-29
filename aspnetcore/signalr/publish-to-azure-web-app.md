@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 04/20/2018
 uid: signalr/publish-to-azure-web-app
-ms.openlocfilehash: b0126771a9ba3a28a7af14adf5b5959c7591e5fb
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: a6a0e44f5c67fefdac6bd26b3772c23e75f8bfc1
+ms.sourcegitcommit: 32f5ee0690604d451f61e9a5c28881c9fcf85738
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095300"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47454732"
 ---
 # <a name="publish-an-aspnet-core-signalr-app-to-an-azure-web-app"></a>Bir ASP.NET Core yayımlama SignalR uygulama için bir Azure Web uygulaması
 
@@ -23,7 +23,7 @@ ms.locfileid: "39095300"
 
 ## <a name="publish-the-app"></a>Uygulamayı yayımlama
 
-Visual Studio, bir Azure Web uygulaması için yayımlama için yerleşik araçlar sağlar. Visual Studio Code kullanıcı kullanabileceğiniz [Azure CLI](/cli/azure) komutlarını uygulamalarını Azure'da yayımlayabilir. Bu makale, Visual Studio'da yayımlama araçları kullanarak kapsar. Azure CLI kullanarak bir uygulamayı yayımlamak için bkz: [komut satırı araçları ile Azure'da ASP.NET Core uygulaması yayımlama](xref:tutorials/publish-to-azure-webapp-using-cli).
+Visual Studio, bir Azure Web uygulaması için yayımlama için yerleşik araçlar sağlar. Visual Studio Code kullanıcı kullanabileceğiniz [Azure CLI](/cli/azure) komutlarını uygulamalarını Azure'da yayımlayabilir. Bu makale, Visual Studio'da yayımlama araçları kullanarak kapsar. Azure CLI kullanarak bir uygulamayı yayımlamak için bkz: [komut satırı araçları ile Azure'da ASP.NET Core uygulaması yayımlama](/azure/app-service/app-service-web-get-started-dotnet).
 
 Projeye sağ tıklayarak **Çözüm Gezgini** seçip **Yayımla**. Onaylayın **Yeni Oluştur** iade **yayımlama hedefi seçin** iletişim ve select **Yayımla**.
 
@@ -63,6 +63,6 @@ Azure portalında gidin **uygulama ayarları** web uygulamanız için. Ayarlama 
 
 ## <a name="related-resources"></a>İlgili kaynaklar
 
-* [Komut satırı araçları ile Azure'da ASP.NET Core uygulaması yayımlama](xref:tutorials/publish-to-azure-webapp-using-cli?tabs=windows)
+* [Komut satırı araçları ile Azure'da ASP.NET Core uygulaması yayımlama](/azure/app-service/app-service-web-get-started-dotnet)
 * [Visual Studio ile Azure'a bir ASP.NET Core uygulaması yayımlama](xref:tutorials/publish-to-azure-webapp-using-vs)
 * [Barındırma ve azure'da ASP.NET Core Önizleme uygulamaları dağıtma](xref:host-and-deploy/azure-apps/index#deploy-aspnet-core-preview-release-to-azure-app-service)

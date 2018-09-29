@@ -5,12 +5,12 @@ description: ASP.NET Core uygulamaları geliştirmek öğrenme için adım adım
 ms.author: riande
 ms.date: 10/14/2017
 uid: tutorials/index
-ms.openlocfilehash: d103c351595f0d61e5f0ee14492f9f46b8c17e86
-ms.sourcegitcommit: 08f1a9baa97060da5168840b332c9c0805b5f901
+ms.openlocfilehash: 3d2fbb453c8f6510806d8dc263ea344023aa4cda
+ms.sourcegitcommit: 32f5ee0690604d451f61e9a5c28881c9fcf85738
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37144956"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47454797"
 ---
 # <a name="aspnet-core-tutorials"></a>ASP.NET Core öğreticileri
 
@@ -82,7 +82,7 @@ ASP.NET Core uygulamaları geliştirmek için aşağıdaki adım adım kılavuzl
 ## <a name="host-and-deploy"></a>Barındırma ve dağıtma
 
 * [Visual Studio kullanarak Azure'a bir ASP.NET Core web uygulaması dağıtma](xref:tutorials/publish-to-azure-webapp-using-vs)
-* [Komut satırını kullanarak Azure'a bir ASP.NET Core web uygulaması dağıtma](xref:tutorials/publish-to-azure-webapp-using-cli)
+* [Komut satırını kullanarak Azure'a bir ASP.NET Core web uygulaması dağıtma](/azure/app-service/app-service-web-get-started-dotnet)
 * [Sürekli dağıtım ile bir Azure Web uygulaması yayımlama](xref:host-and-deploy/azure-apps/azure-continuous-deployment)
 * [ASP.NET kapsayıcısını uzak Docker konağı için dağıtma](/azure/vs-azure-tools-docker-hosting-web-apps-in-docker)
 * [ASP.NET Core ve Azure Service Fabric](/azure/service-fabric/service-fabric-add-a-web-frontend)

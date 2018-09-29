@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/07/2017
 uid: host-and-deploy/index
-ms.openlocfilehash: eb3a4846775fa53132d3692f56bb1b628257ca8f
-ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
+ms.openlocfilehash: 024275be3fc5db3f2ed2f7cea1582a1a5f12bda7
+ms.sourcegitcommit: 32f5ee0690604d451f61e9a5c28881c9fcf85738
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44340218"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47454765"
 ---
 # <a name="host-and-deploy-aspnet-core"></a>Barındırma ve ASP.NET Core dağıtma
 
@@ -70,7 +70,7 @@ Kullanarak [Web'de Yayımla özelliğini](xref:tutorials/publish-to-azure-webapp
 
 ## <a name="publishing-to-azure"></a>Azure'da yayımlamak için
 
-Bkz: [Visual Studio kullanarak Azure App Service'e bir ASP.NET Core web uygulaması yayımlama](xref:tutorials/publish-to-azure-webapp-using-vs) Visual Studio'yu kullanarak Azure'a uygulama yayımlama konusunda yönergeler için. Uygulama ayrıca Azure'dan yayımlanabilir [komut satırı](xref:tutorials/publish-to-azure-webapp-using-cli).
+Bkz: [Visual Studio kullanarak Azure App Service'e bir ASP.NET Core web uygulaması yayımlama](xref:tutorials/publish-to-azure-webapp-using-vs) Visual Studio'yu kullanarak Azure'a uygulama yayımlama konusunda yönergeler için. Uygulama ayrıca Azure'dan yayımlanabilir [komut satırı](/azure/app-service/app-service-web-get-started-dotnet).
 
 ## <a name="host-in-a-web-farm"></a>Bir web grubunda barındırın
 

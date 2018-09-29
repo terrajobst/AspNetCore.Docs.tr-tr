@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/30/2018
 uid: tutorials/razor-pages/search
-ms.openlocfilehash: 57af33d97fc3cc467496dab9f2b499de04b005b1
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 9608f454c2c4ae0f4db1e71200b0ca98fe2cd2ad
+ms.sourcegitcommit: 32f5ee0690604d451f61e9a5c28881c9fcf85738
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011449"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47454719"
 ---
 # <a name="add-search-to-aspnet-core-razor-pages"></a>ASP.NET Core Razor sayfaları için arama Ekle
 
@@ -26,6 +26,7 @@ Dizin sayfanın güncelleştirme `OnGetAsync` yöntemini aşağıdaki kod ile:
 İlk satırı `OnGetAsync` yöntemi oluşturur bir [LINQ](/dotnet/csharp/programming-guide/concepts/linq/) filmler seçmek için sorgu:
 
 ```csharp
+// using System.Linq;
 var movies = from m in _context.Movie
              select m;
 ```
