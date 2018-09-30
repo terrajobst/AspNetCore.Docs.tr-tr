@@ -1,19 +1,19 @@
 ---
-title: Azure App Service'te ASP.NET Core barındırma
+title: ASP.NET Core uygulamalarını Azure App Service'e dağıtma
 author: guardrex
-description: Faydalı kaynaklara bağlantılarla Azure App Service'te ASP.NET Core uygulamaları barındırmak nasıl keşfedin.
+description: Bu makalede, Azure konak bağlantı içerir ve kaynakları dağıtma.
 ms.author: riande
 ms.custom: mvc
 ms.date: 08/29/2018
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 23289823e154d93e4bedd23a1efae0e58c71eae0
-ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
+ms.openlocfilehash: a70ca46da633161083c1860aca92242d47d5e7c7
+ms.sourcegitcommit: 32f5ee0690604d451f61e9a5c28881c9fcf85738
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44340192"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47454771"
 ---
-# <a name="host-aspnet-core-on-azure-app-service"></a>Azure App Service'te ASP.NET Core barındırma
+# <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>ASP.NET Core uygulamalarını Azure App Service'e dağıtma
 
 [Azure App Service](https://azure.microsoft.com/services/app-service/) olduğu bir [Microsoft bulut platformu hizmet](https://azure.microsoft.com/) ASP.NET Core web uygulamalarını barındırmak için dahil olmak üzere.
 
