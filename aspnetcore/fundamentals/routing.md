@@ -4,14 +4,14 @@ author: ardalis
 description: Nasıl ASP.NET Core yönlendirme işlevini gelen bir isteğin bir rota işleyiciye eşleme için sorumlu olduğunu keşfedin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/20/2018
+ms.date: 10/01/2018
 uid: fundamentals/routing
-ms.openlocfilehash: 94fa6a278466c8cc9926d7893d1ef71d83b865df
-ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
+ms.openlocfilehash: d9ba96c7b2abd35b1b13c84814bf3f776e8d8731
+ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41870857"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47861063"
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET Core yönlendirme
 
@@ -37,7 +37,7 @@ Yönlendirme bağlı olduğu [ara yazılım](xref:fundamentals/middleware/index)
 
 ### <a name="url-matching"></a>URL eşleştirme
 
-URL ile eşleşen işlemdir hangi yönlendirme dağıtımları tarafından gelen bir istek için bir *işleyici*. Bu işlem genellikle ve URL yolundaki verilere dayanır ancak istekteki herhangi bir veri dikkate alınması gereken genişletilebilir. İşleyicileri ayırmak için istekleri gönderme olanağı, büyüklüğü ve karmaşıklığı ile bir uygulama, ölçeklendirme için anahtardır.
+URL ile eşleşen işlemdir hangi yönlendirme dağıtımları tarafından gelen bir istek için bir *işleyici*. Bu işlem URL yolunda verileri temel alır, ancak istekteki herhangi bir veri dikkate alınması gereken genişletilebilir. İşleyicileri ayırmak için istekleri gönderme olanağı, büyüklüğü ve karmaşıklığı ile bir uygulama, ölçeklendirme için anahtardır.
 
 Gelen istekleri girin `RouterMiddleware`, çağıran <xref:Microsoft.AspNetCore.Routing.IRouter.RouteAsync*> yöntemi dizideki her bir yol. <xref:Microsoft.AspNetCore.Routing.IRouter> Örneği seçer kullanılıp kullanılmayacağını *işlemek* ayarlayarak isteğin [RouteContext.Handler](xref:Microsoft.AspNetCore.Routing.RouteContext.Handler*) NULL olmayan <xref:Microsoft.AspNetCore.Http.RequestDelegate>. İstek için bir işleyici bir rotayı ayarlar, işlemenin durması yönlendirmek ve işleyicisi isteği işlemek için çağrılır. Tüm yollar çalıştı ve istek için işleyici yok bulunuyorsa, ara yazılım çağırır *sonraki*, ve istek ardışık düzende sonraki ara yazılımı çağrılır.
 
@@ -108,7 +108,7 @@ routes.MapRoute(
 
 Bu şablon bir URL yolu gibi eşleşen `/Products/Details/17` ama `/Products/Details/Apples`. Rota parametre tanımında `{id:int}` tanımlayan bir [rota kısıtlaması](#route-constraint-reference) için `id` yol parametresi. Rota kısıtlamalarını uygulamak <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> ve onları doğrulamak için rota değerlerini denetleyin. Bu örnekte, rota değeri `id` tamsayıya dönüştürülebilir olmalıdır. Bkz: [rota kısıtlaması başvurusu](#route-constraint-reference) için framework tarafından sağlanan rota kısıtlamalarını daha ayrıntılı bir açıklaması.
 
-Ek aşırı yüklemeleri `MapRoute` değerleri kabul edin `constraints`, `dataTokens`, ve `defaults`. Bu ek parametreleri `MapRoute` türü olarak tanımlanmış `object`. Bu parametre normal kullanım, burada parametre adları anonim tür eşleşen özellik adlarını rota anonim olarak yazılmış bir nesne geçirmektir.
+Ek aşırı yüklemeleri `MapRoute` değerleri kabul edin `constraints`, `dataTokens`, ve `defaults`. Bu ek parametreleri `MapRoute` türü olarak tanımlanmış `object`. Bu parametre normal kullanım, burada parametre adları anonim tür eşleşen özellik adlarını rota anonim olarak belirlenmiş bir nesne geçirmektir.
 
 Aşağıdaki iki örnek eşdeğer rotalar oluşturun:
 
@@ -169,12 +169,12 @@ routes.MapRoute(
 
 Rota değerleri ile `{ controller = Products, action = List }`, bu yolun bir URL oluşturur `/Products/List`. Rota değerleri, URL yolu oluşturmak karşılık gelen rota parametrelerinin yerini alır. Bu yana `id` isteğe bağlıdır parametre yol, bir değer yok sorun değil.
 
-Rota değerleri ile `{ controller = Home, action = Index }`, bu yolun bir URL oluşturur `/`. Sağlanan yol değerleri varsayılan değerleriyle eşleşir, böylece bu değerlere karşılık gelen segmentleri güvenli bir şekilde atlanabilir. Her iki URL'leri gidiş dönüş bu rota tanımını ile oluşturulan ve URL'yi oluşturmak için kullanılan aynı rota değerlerini üretmek unutmayın.
+Rota değerleri ile `{ controller = Home, action = Index }`, bu yolun bir URL oluşturur `/`. Sağlanan yol değerleri varsayılan değerleriyle eşleşir, böylece bu değerlere karşılık gelen segmentleri güvenli bir şekilde atlanabilir. Her iki URL'leri, bu rota tanımını gidiş dönüş oluşturulan ve URL'yi oluşturmak için kullanılan aynı rota değerlerini üretir.
 
 > [!TIP]
 > ASP.NET Core MVC kullanarak uygulama kullanması gereken <xref:Microsoft.AspNetCore.Mvc.Routing.UrlHelper> doğrudan yönlendirme içine çağırmak yerine URL'lerini oluşturmak için.
 
-URL oluşturma işlemi hakkında daha fazla ayrıntı için bkz. [url üretimi başvuru](#url-generation-reference).
+URL üretimi hakkında daha fazla bilgi için bkz: [url üretimi başvuru](#url-generation-reference).
 
 ## <a name="use-routing-middleware"></a>Yönlendirme ara yazılım kullanın
 
@@ -269,9 +269,31 @@ Metin rota parametrelerinin dışında (örneğin, `{id}`) ve yol ayırıcısı 
 
 Kullanabileceğiniz `*` URI rest'e bağlamak için bir rota parametresini öneki olarak karakter. Bu adlı bir *tümünü* parametresi. Örneğin, `blog/{*slug}` ile başlayan herhangi bir URL ile eşleşen `/blog` ve aşağıdaki herhangi bir değer vardı (için atanan `slug` rota değeri). Genel parametreleri da boş dize eşleşebilir.
 
+::: moniker range=">= aspnetcore-2.2"
+
+Yol, yol ayırıcı dahil olmak üzere, bir URL'yi oluşturmak için kullanıldığında, yakalama-all parametresini uygun karakterleri kaçırır. (`/`) karakter. Örneğin, yol `foo/{*path}` rota değerleri ile `{ path = "my/path" }` oluşturur `foo/my%2Fpath`. Atlanan eğik unutmayın. Gidiş dönüş yol ayırıcı karakter kullanın `**` rota parametresinin öneki. Rota `foo/{**path}` ile `{ path = "my/path" }` oluşturur `foo/my/path`.
+
+::: moniker-end
+
 Rota parametrelerine sahip olabilir *varsayılan değerler*, belirlenen bir eşittir işaretiyle ayırarak parametre adından sonra varsayılan belirterek (`=`). Örneğin, `{controller=Home}` tanımlar `Home` için varsayılan değer olarak `controller`. Hiçbir değer parametresi için URL'de varsa varsayılan değer kullanılır. Varsayılan değerler yanı sıra, rota parametrelerinin bir soru işareti eklenerek belirtilen isteğe bağlı olabilir (`?`) parametre adı, giriş olarak sonuna `id?`. İsteğe bağlı değerler ve varsayılan rota parametrelerini arasındaki fark, bir rota parametresini varsayılan değeri her zaman bir değer üreten olan; yalnızca bir değer istek URL'si sağlandığında isteğe bağlı parametresi bir değer içeriyor.
 
-Rota parametrelerine URL'den bağlı rota değerle eşleşmelidir kısıtlamaları da olabilir. İki nokta ekleme `:` ve rota parametresi adını belirttikten sonra kısıtlama adı bir *satır içi kısıtlama* bir rota parametresini üzerinde. Kısıtlama bağımsız değişkenleri gerektiriyorsa, parantez içine alınmış sağlanan `( )` sonra kısıtlama adı. Başka bir iki nokta üst üste ekleyerek, birden çok satır içi kısıtlamalarını belirtilebilir `:` ve kısıtlama adı. Kısıtlama adı geçirilir <xref:Microsoft.AspNetCore.Routing.IInlineConstraintResolver> bir örneğini oluşturmak için hizmet <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> URL işlenmesinde kullanılacak. Örneğin, rota şablonu `blog/{article:minlength(10)}` belirtir bir `minlength` kısıtlaması bağımsız değişkeniyle `10`. Rota kısıtlamalarını ve kısıtlamaları framework tarafından sağlanan bir listesi hakkında daha fazla bilgi için bkz. [rota kısıtlaması başvurusu](#route-constraint-reference) bölümü.
+::: moniker range=">= aspnetcore-2.2"
+
+Rota parametrelerine URL'den bağlı rota değerle eşleşmelidir kısıtlamaları olabilir. İki nokta ekleme (`:`) ve rota parametresi adını belirttikten sonra kısıtlama adı bir *satır içi kısıtlama* bir rota parametresini üzerinde. Kısıtlama bağımsız değişkenleri gerektiriyorsa, parantez içine alınmış `( )` sonra kısıtlama adı. Başka bir iki nokta üst üste ekleyerek, birden çok satır içi kısıtlamalarını belirtilebilir (`:`) ve kısıtlama adı. Kısıtlama adı ve bağımsız değişkenler geçirilir <xref:Microsoft.AspNetCore.Routing.IInlineConstraintResolver> bir örneğini oluşturmak için hizmet <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> URL işlenmesinde kullanılacak. Kısıtlama Oluşturucusu Hizmetleri gerektiriyorsa, bağımlılık ekleme'nın uygulama Hizmetleri'nden çözümlenen. Örneğin, rota şablonu `blog/{article:minlength(10)}` belirtir bir `minlength` kısıtlaması bağımsız değişkeniyle `10`. Rota kısıtlamalarını ve kısıtlamaları framework tarafından sağlanan bir listesi hakkında daha fazla bilgi için bkz. [rota kısıtlaması başvurusu](#route-constraint-reference) bölümü.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
+Rota parametrelerine URL'den bağlı rota değerle eşleşmelidir kısıtlamaları olabilir. İki nokta ekleme (`:`) ve rota parametresi adını belirttikten sonra kısıtlama adı bir *satır içi kısıtlama* bir rota parametresini üzerinde. Kısıtlama bağımsız değişkenleri gerektiriyorsa, parantez içine alınmış `( )` sonra kısıtlama adı. Başka bir iki nokta üst üste ekleyerek, birden çok satır içi kısıtlamalarını belirtilebilir (`:`) ve kısıtlama adı. Kısıtlama adı ve bağımsız değişkenler geçirilir <xref:Microsoft.AspNetCore.Routing.IInlineConstraintResolver> bir örneğini oluşturmak için hizmet <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> URL işlenmesinde kullanılacak. Örneğin, rota şablonu `blog/{article:minlength(10)}` belirtir bir `minlength` kısıtlaması bağımsız değişkeniyle `10`. Rota kısıtlamalarını ve kısıtlamaları framework tarafından sağlanan bir listesi hakkında daha fazla bilgi için bkz. [rota kısıtlaması başvurusu](#route-constraint-reference) bölümü.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+Rota parametrelerine bağlantılar ve eşleşen eylemleri ve sayfaları için bir URI'leri oluştururken bir parametrenin değeri dönüştürme parametresi dönüştürücüler, da olabilir. Kısıtlamalar gibi parametre dönüştürücüler satır içi bir rota parametresini bir iki nokta üst üste ekleyerek eklenebilir (`:`) ve rota parametre adından sonra transformer adı. Örneğin, rota şablonu `blog/{article:slugify}` belirtir bir `slugify` dönüştürücü.
+
+::: moniker-end
 
 Aşağıdaki tabloda, bazı rota şablonlarının ve davranışları gösterir.
 
@@ -301,7 +323,7 @@ Aşağıdaki anahtar sözcükler ayrılmış adları ve rota adları veya parame
 
 ## <a name="route-constraint-reference"></a>Rota kısıtlaması başvurusu
 
-Rota kısıtlamalarını yürütme bir `Route` eşleşen gelen URL söz dizimini ve rota değerlerini ve URL yolunu simgeleştirilmiş. Rota kısıtlamalarını genellikle rota şablonu ile ilişkili yol değişkenlerinizin ve basit bir Evet/Hayır olup olmadığı kabul edilebilir değerdir hakkında karar olun. Bazı rota kısıtlamalarını isteğin yönlendirildiği olup olmadığını göz önünde bulundurun için rota değeri dışındaki verileri kullanın. Örneğin, <xref:Microsoft.AspNetCore.Routing.Constraints.HttpMethodRouteConstraint> kabul edebilir veya kendi HTTP fiiline bağlı bir isteği reddetmek.
+Rota kısıtlamalarını yürütme bir `Route` eşleşen gelen URL söz dizimini ve rota değerlerini ve URL yolunu simgeleştirilmiş. Rota kısıtlamalarını genellikle rota şablonu ile ilişkili yol değişkenlerinizin ve Evet olun/yok veya yüklememe değer kabul edilebilir bir karardır. Bazı rota kısıtlamalarını isteğin yönlendirildiği olup olmadığını göz önünde bulundurun için rota değeri dışındaki verileri kullanın. Örneğin, <xref:Microsoft.AspNetCore.Routing.Constraints.HttpMethodRouteConstraint> kabul edebilir veya kendi HTTP fiiline bağlı bir isteği reddetmek.
 
 > [!WARNING]
 > Kısıtlamaları kullanmaktan kaçının **giriş doğrulama** çünkü bunu geçersiz giriş yapılması sonuçlanır bir *404 - Bulunamadı* yanıt yerine bir *400 - bozuk istek* ile bir uygun bir hata iletisi. Rota kısıtlamalarını alışkın olduğunuz **belirsizliğinin ortadan kaldırılmasını** arasında belirli bir rota için girişler değil doğrulamak için benzer yollar.
@@ -343,7 +365,7 @@ public User GetUserById(int id) { }
 
 ASP.NET Core framework ekler `RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.CultureInvariant` normal ifade oluşturucusu. Bkz: <xref:System.Text.RegularExpressions.RegexOptions> bu üyeleri bir açıklaması.
 
-Normal ifadeler, sınırlayıcılar ve Yönlendirme ve C# dili tarafından kullanılan benzer belirteçleri kullanın. Normal ifade belirteçleri Atlanan gerekir. Normal ifade kullanmanızı `^\d{3}-\d{2}-\d{4}$` yönlendirme, deyim olmalıdır `\` olarak yazdığınız karakterler `\\` atlamak için C# kaynak dosyadaki `\` dize kaçış karakteri (kullanmadığınız sürece [verbatim dizesi değişmez değerler](/dotnet/csharp/language-reference/keywords/string). `{` , `}` , `[` Ve `]` karakter yönlendirme parametresi sınırlayıcı karakter kaçış katlayarak konulmalıdır. Aşağıdaki tabloda, normal bir ifade ve kaçan sürümünü gösterir.
+Normal ifadeler, sınırlayıcılar ve Yönlendirme ve C# dili tarafından kullanılan benzer belirteçleri kullanın. Normal ifade belirteçleri Atlanan gerekir. Normal ifade kullanmanızı `^\d{3}-\d{2}-\d{4}$` yönlendirme, deyim olmalıdır `\` olarak yazdığınız karakterler `\\` atlamak için C# kaynak dosyadaki `\` dize kaçış karakteri (kullanmadığınız sürece [verbatim dizesi değişmez değerler](/dotnet/csharp/language-reference/keywords/string). `{`, `}`, `[`, Ve `]` karakter yönlendirme parametresi sınırlayıcı karakter kaçış katlayarak konulmalıdır. Aşağıdaki tabloda, normal bir ifade ve kaçan sürümünü gösterir.
 
 | İfade            | Kaçış                        |
 | --------------------- | ------------------------------ |
@@ -361,9 +383,29 @@ Sık sık yönlendirme kullanılan normal ifadeler ile başlayıp `^` karakter (
 | `^[a-z]{2}$` |  Merhaba    | Hayır    | bkz: `^` ve `$` yukarıda |
 | `^[a-z]{2}$` | 123abc456 | Hayır    | bkz: `^` ve `$` yukarıda |
 
-Başvurmak [.NET Framework normal ifadelerinde](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) normal ifade söz dizimi hakkında daha fazla bilgi için.
+Normal ifade söz dizimi hakkında daha fazla bilgi için bkz. [.NET Framework normal ifadelerinde](/dotnet/standard/base-types/regular-expression-language-quick-reference).
 
 Olası değerler bilinen bir dizi parametre sınırlamak için normal bir ifade kullanın. Örneğin, `{action:regex(^(list|get|create)$)}` yalnızca eşleşen `action` yönlendirmek için değer `list`, `get`, veya `create`. Dize kısıtlamaları sözlük geçirilen `^(list|get|create)$` eşdeğerdir. Bilinen kısıtlamalardan biri eşleşmiyor (hizalı şablon içinde değil) kısıtlamaları sözlükteki geçirilen kısıtlamalar da normal ifadeler şeklinde kabul edilir.
+
+::: moniker range=">= aspnetcore-2.2"
+
+## <a name="parameter-transformer-reference"></a>Parametre transformer başvurusu
+
+Parametre dönüştürücüler yürütmek için bir bağlantı oluştururken bir `Route`. Parametre dönüştürücüler parametrenin rota değeri alın ve yeni bir dize değerine dönüştürün. Oluşturulan bağlantısına dönüştürülen değer kullanılır. Örneğin, bir özel `slugify` parametresi transformer yol deseninde `blog\{article:slugify}` ile `Url.Action(new { article = "MyTestArticle" })` oluşturur `blog\my-test-article`. Parametre dönüştürücüler uygulamak `Microsoft.AspNetCore.Routing.IOutboundParameterTransformer` ve kullanarak yapılandırılmış <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap>.
+
+Parametre dönüştürücüler çerçevelerine bir uç nokta çözümler yapılacağı URI dönüştürmek için de kullanılır. Örneğin, ASP.NET Core MVC eşleştirmek için kullanılan rota değeri dönüştürmek için parametre dönüştürücüler kullanan bir `area`, `controller`, `action`, ve `page`.
+
+```csharp
+routes.MapRoute(
+    name: "default",
+    template: "{controller=Home:slugify}/{action=Index:slugify}/{id?}");
+```
+
+Önceki yol, bir eylem ile `SubscriptionManagementController.GetAll()` URI'si ile eşleşen `/subscription-management/get-all`. Bir parametre transformer giden bir bağlantı oluşturmak için kullanılan rota değerlerini değiştirmez. `Url.Action("GetAll", "SubscriptionManagement")` çıkaran `/subscription-management/get-all`.
+
+ASP.NET Core MVC ile birlikte sunulan `Microsoft.AspNetCore.Mvc.ApplicationModels.RouteTokenTransformerConvention` API kuralı. Kuralı belirtilen parametre transformer uygulamadaki tüm öznitelik rota belirteçler için geçerlidir.
+
+::: moniker-end
 
 ## <a name="url-generation-reference"></a>URL üretimi başvurusu
 
@@ -385,7 +427,7 @@ Aşağıdaki örnek, rota değerleri sözlüğü belirtilen bir rotaya bir bağl
 
 İkinci parametresi `VirtualPathContext` oluşturucudur koleksiyonu *ortam değerlerini*. Ortam değerleri, belirli bir istek bağlamı içinde bir geliştirici belirtmelisiniz değerlerin sayısını sınırlayarak kolaylık sağlar. Geçerli isteğin geçerli rota değerleri için bağlantı oluşturma ortam değerleri olarak kabul edilir. Bir ASP.NET Core MVC uygulaması açıksa `About` eylemi `HomeController`, bağlanmak için denetleyici rota değeri belirtmeniz gerekmez `Index` eylem&mdash;ortam değerini `Home` kullanılır.
 
-Bir parametre eşleşmeyen ortam değerleri yoksayılır ve ortam değerleri bir açıkça tarafından sağlanan değer, soldan sağa doğru giden geçersiz kıldığında da yoksayılır URL.
+Bir parametre eşleşmeyen ortam değerleri yoksayılır ve ortam değerleri açıkça belirtilen bir değer, soldan sağa doğru giden geçersiz kıldığında da yoksayılır URL.
 
 Açıkça sağlanan ancak, herhangi bir şey eşleşmeyen değerler sorgu dizesine eklenir. Rota şablonu kullanılırken sonucu aşağıdaki tabloda gösterilmiştir `{controller}/{action}/{id?}`.
 

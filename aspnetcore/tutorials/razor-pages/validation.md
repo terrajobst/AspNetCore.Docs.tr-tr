@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/07/2017
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 6144bfb9e731ace51b4f23870fdb06519fd4a9ea
-ms.sourcegitcommit: 599ebae5c2d6fcb22dfa6ae7d1f4bdfcacb79af4
+ms.openlocfilehash: cd958b9c084de4b3e12784774544610873a519f9
+ms.sourcegitcommit: 317f9be24db600499e79d25872d743af74bd86c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47211032"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48045529"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Doğrulama için bir ASP.NET Core Razor sayfası ekleme
 
@@ -27,7 +27,7 @@ Razor sayfaları ve Entity Framework tarafından sağlanan doğrulama desteği, 
 
 ### <a name="adding-validation-rules-to-the-movie-model"></a>Film modeli doğrulama kuralları ekleme
 
-Açık *Movie.cs* dosya. [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) yerleşik bir sınıf ya da özellik bildirimli olarak uygulanan doğrulama öznitelikleri kümesi sağlar. DataAnnotations gibi biçimlendirme öznitelikleri de içeren `DataType` biçimlendirmesinde yardımcı olabilecek ve doğrulama sağlaması gerekmez.
+Açık *Models/Movie.cs* dosya. [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) yerleşik bir sınıf ya da özellik bildirimli olarak uygulanan doğrulama öznitelikleri kümesi sağlar. DataAnnotations gibi biçimlendirme öznitelikleri de içeren `DataType` biçimlendirmesinde yardımcı olabilecek ve doğrulama sağlaması gerekmez.
 
 Güncelleştirme `Movie` yararlanmak için sınıf `Required`, `StringLength`, `RegularExpression`, ve `Range` doğrulama öznitelikleri.
 
@@ -79,7 +79,7 @@ Tarayıcıda JavaScript devre dışı bırakıldığında hatalarla formu gönde
 
 İsteğe bağlı, test sunucu tarafı doğrulama:
 
-* Tarayıcıda JavaScript devre dışı bırakın. Tarayıcıda JavaScript devre dışı bırakamazsınız, başka bir tarayıcı deneyin.
+* Tarayıcıda JavaScript devre dışı bırakın. Tarayıcınızın geliştirici araçlarını kullanarak bunu yapabilirsiniz. Tarayıcıda JavaScript devre dışı bırakamazsınız, başka bir tarayıcı deneyin.
 * Bir kesme noktası kümesinde `OnPostAsync` yöntemi oluşturma veya düzenleme sayfası.
 * Bir form doğrulama hatalarını gönderin.
 * Model durumu geçersiz doğrulayın:

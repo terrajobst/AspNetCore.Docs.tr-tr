@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/18/2018
 uid: fundamentals/static-files
-ms.openlocfilehash: 33fad930e617c74d9a8c07f850764a6b81fa8ab5
-ms.sourcegitcommit: 2c158fcfd325cad97ead608a816e525fe3dcf757
+ms.openlocfilehash: 52c7916b9fc55c875d56acd49c01f76dd2053817
+ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "41757200"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47861011"
 ---
 # <a name="static-files-in-aspnet-core"></a>ASP.NET core'da statik dosyalar
 
@@ -216,7 +216,7 @@ Bkz: [MIME içerik türleri](http://www.iana.org/assignments/media-types/media-t
 
 ## <a name="non-standard-content-types"></a>Standart olmayan içerik türleri
 
-Statik dosya ara yazılımlarını hemen 400 bilinen dosya içerik türlerinin bilincindedir. Kullanıcı bir dosyayı dosya türü bilinmiyor, isterse, statik dosya ara yazılımlarını bir HTTP 404 (bulunamadı) yanıtı döndürür. Dizin tarama etkin olduğunda dosyaya bir bağlantı görüntülenir. URI HTTP 404 hatası döndürür.
+Statik dosya ara yazılımlarını hemen 400 bilinen dosya içerik türlerinin bilincindedir. Kullanıcı bir bilinmeyen dosya türü ile bir dosya isterse, statik dosya ara yazılımlarını istek ardışık düzende sonraki ara yazılımı geçirir. Hiçbir ara yazılım istek işliyorsa bir *404 Bulunamadı* yanıt döndürülür. Dizin tarama etkin olduğunda, dosyanın bir bağlantısını bir dizin listesinde görüntülenir.
 
 Aşağıdaki kod, bilinmeyen tür tanıtıcısıyla sağlar ve bilinmeyen dosya bir görüntü olarak işler:
 

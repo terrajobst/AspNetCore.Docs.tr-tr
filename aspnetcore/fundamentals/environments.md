@@ -5,12 +5,12 @@ description: ASP.NET Core uygulamaları birden fazla ortam arasında uygulama da
 ms.author: riande
 ms.date: 07/03/2018
 uid: fundamentals/environments
-ms.openlocfilehash: 720e5ef9fb63b83499ce1801a1c3f9df4786d748
-ms.sourcegitcommit: 25150f4398de83132965a89f12d3a030f6cce48d
+ms.openlocfilehash: 0786b55ee133b98aae1bfac688e7d81d23c8c9a4
+ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/25/2018
-ms.locfileid: "42927948"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47860985"
 ---
 # <a name="use-multiple-environments-in-aspnet-core"></a>ASP.NET Core birden çok ortam kullanma
 
@@ -28,7 +28,7 @@ ASP.NET Core ortam değişkenini okur `ASPNETCORE_ENVIRONMENT` uygulamanın baş
 
 Yukarıdaki kod:
 
-* Çağrıları [UseDeveloperExceptionPage](/dotnet/api/microsoft.aspnetcore.builder.developerexceptionpageextensions.usedeveloperexceptionpage) ve [UseBrowserLink](/dotnet/api/microsoft.aspnetcore.builder.browserlinkextensions.usebrowserlink) olduğunda `ASPNETCORE_ENVIRONMENT` ayarlanır `Development`.
+* Çağrıları [UseDeveloperExceptionPage](/dotnet/api/microsoft.aspnetcore.builder.developerexceptionpageextensions.usedeveloperexceptionpage) olduğunda `ASPNETCORE_ENVIRONMENT` ayarlanır `Development`.
 * Çağrıları [UseExceptionHandler](/dotnet/api/microsoft.aspnetcore.builder.exceptionhandlerextensions.useexceptionhandler) zaman değerini `ASPNETCORE_ENVIRONMENT` aşağıdakilerden birine ayarlanır:
 
     * `Staging`

@@ -5,12 +5,12 @@ description: Kimlik ile bir ASP.NET Core uygulaması kullanın. Parola gereksini
 ms.author: riande
 ms.date: 08/08/2018
 uid: security/authentication/identity
-ms.openlocfilehash: ca83d07f7d93bd0cc61cd17cc373096b8e6aa2e1
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: d427932bb175c09105534379be4d71760f4e04e5
+ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46010981"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47860959"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>ASP.NET core'da kimliğe giriş
 
@@ -45,7 +45,7 @@ Bireysel kullanıcı hesapları ile bir ASP.NET Core Web uygulaması projesi olu
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Seçin **dosya** > **yeni** > **proje**. 
+* Seçin **dosya** > **yeni** > **proje**.
 * Seçin **ASP.NET Core Web uygulaması**. Projeyi adlandırın **WebApp1** proje indirme ile aynı ad alanına sahip. **Tamam**'ı tıklatın.
 * Bir ASP.NET Core seçin **Web uygulaması** ASP.NET Core 2.1 için seçip **kimlik doğrulamayı Değiştir**.
 * Seçin **bireysel kullanıcı hesapları** tıklatıp **Tamam**.
@@ -119,15 +119,12 @@ Daha fazla bilgi için [IdentityOptions sınıfı](/dotnet/api/microsoft.aspnetc
 
 Kaydı, oturum açma ve kapatmanın dosyaları ekleyin.
 
-
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 Proje adı ile oluşturduysanız **WebApp1**, aşağıdaki komutları çalıştırın. Aksi takdirde, doğru ad alanını kullanmak `ApplicationDbContext`:
 
-
 ```cli
 dotnet aspnet-codegenerator identity -dc WebApp1.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout"
-
 ```
 
 PowerShell komut ayırıcı olarak virgül kullanır. PowerShell kullanarak, dosya listesi noktalı kaçış veya dosya listesi yukarıdaki örnekte gösterildiği gibi çift tırnak işareti koyun.
@@ -163,7 +160,7 @@ PowerShell komut ayırıcı olarak virgül kullanır. PowerShell kullanarak, dos
 Oturum açma formu görüntülenir olduğunda:
 
 * **Oturum** bağlantı seçildiğinde.
-* Ne zaman bir kullanıcının eriştiği nerede bunlar kimliği doğrulanmamış bir sayfa **veya** yetkili ve bunlar için oturum açma sayfasına yönlendirilirsiniz. 
+* Ne zaman bir kullanıcının eriştiği nerede bunlar kimliği doğrulanmamış bir sayfa **veya** yetkili ve bunlar için oturum açma sayfasına yönlendirilirsiniz.
 
 Oturum açma sayfasındaki formu gönderildiğinde `OnPostAsync` eylem çağrılır. `PasswordSignInAsync` üzerinde çağrılır `_signInManager` (bağımlılık ekleme tarafından sağlanan) nesne.
 
@@ -254,7 +251,6 @@ Bkz: [yapılandırma](#pw) en düşük Parola gereksinimlerinin ayarlayan bir ö
 * <xref:security/authorization/secure-data>
 * <xref:security/authentication/add-user-data>
 * <xref:security/authentication/identity-enable-qrcodes>
-* [Kimlik birincil anahtar veri türü yapılandırma](xref:security/authentication/identity-primary-key-configuration).
 * <xref:migration/identity>
 * <xref:security/authentication/accconfirm>
 * <xref:security/authentication/2fa>

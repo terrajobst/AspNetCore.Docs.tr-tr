@@ -5,12 +5,12 @@ description: Entity Framework Core (EF Core) kullanarak bir veritabanında filml
 ms.author: riande
 ms.date: 05/30/2018
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: de82738509bb009f030a02e28904e3155088fa6a
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 5cd1e08ac52d352be23a280419d7456f685a03ad
+ms.sourcegitcommit: 317f9be24db600499e79d25872d743af74bd86c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011372"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48045607"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Bir ASP.NET Core Razor sayfaları uygulama için model ekleme
 
@@ -22,9 +22,7 @@ ms.locfileid: "46011372"
 
 Çözüm Gezgini'nde sağ **RazorPagesMovie** Proje > **Ekle** > **yeni klasör**. Klasör adı *modelleri*.
 
-Sağ tıklayın *modelleri* klasör. Seçin **ekleme** > **sınıfı**. Sınıf adı **film** ve aşağıdaki özellikleri ekleyin:
-
-Öğesinin içeriğini değiştirin `Movie` aşağıdaki kodla sınıfı:
+Sağ tıklayın *modelleri* klasör. Seçin **ekleme** > **sınıfı**. Sınıf adı **film** ve içeriklerini `Movie` aşağıdaki kodla sınıfı:
 
 [!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie21/Models/Movie1.cs?name=snippet)]
 
@@ -41,7 +39,7 @@ Oluşturma bir *sayfaları/filmler* klasörü:
 
 ![Önceki yönergeleri görüntüden.](model/_static/sca.png)
 
-İçinde **İskele Ekle** iletişim kutusunda **Entity Framework (CRUD) kullanarak Razor sayfaları** > **ekleme**.
+İçinde **İskele Ekle** iletişim kutusunda **Entity Framework (CRUD) kullanarak Razor sayfaları** > **Ekle**.
 
 ![Önceki yönergeleri görüntüden.](model/_static/add_scaffold.png)
 
@@ -58,10 +56,10 @@ Tamamlamak **ekleme Razor sayfaları (CRUD) Entity Framework kullanarak** ileti�
 
 ### <a name="files-created"></a>Oluşturulan dosyalar
 
-* *Sayfa/filmler* oluşturma, silme, Ayrıntılar, düzenleme, dizin. Bu sayfalar, sonraki öğreticide açıklanmıştır.
+* *Sayfa/filmler*: oluşturma, silme, Ayrıntılar, düzenleme, dizin. Bu sayfalar, sonraki öğreticide açıklanmıştır.
 * *Data/RazorPagesMovieContext.cs*
 
-### <a name="files-updates"></a>Güncelleştirme dosyaları
+### <a name="file-updates"></a>Dosya güncelleştirmeleri
 
 * *Startup.cs*: Bu dosyada yapılan değişiklikler sonraki bölümde ayrıntılı.
 * *appSettings.JSON*: yerel bir veritabanına bağlanmak için kullanılan bağlantı dizesi eklenir.
@@ -122,8 +120,8 @@ Aşağıdaki uyarı iletisini yoksay, düzeltme, bir sonraki öğreticide:
 
 Hatası alırsanız:
 
-Hata: "GUID RazorPagesMovieContext" oturum açma tarafından istenen veritabanı açılamıyor. Oturum açma başarısız.
-Oturum açma kullanıcı 'User-name' için başarısız oldu.
+`SqlException: Cannot open database "RazorPagesMovieContext-GUID" requested by the login. The login failed.
+Login failed for user 'User-name'.`
 
 Eksik [geçişler adım](#pmc).
 

@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 09/19/2018
 uid: fundamentals/logging/index
-ms.openlocfilehash: e3bf5909edb515a2dabba206abaa160bc431d622
-ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
+ms.openlocfilehash: 62418d108461cf07490d7f406104db9ab3f11783
+ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46483093"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47861076"
 ---
 # <a name="logging-in-aspnet-core"></a>ASP.NET core'da günlüğe kaydetme
 
@@ -25,7 +25,7 @@ IIS ile barındırırken stdout günlüğe kaydetme hakkında daha fazla bilgi i
 
 ## <a name="how-to-create-logs"></a>Günlükleri oluşturma
 
-Günlükleri oluşturmak için uygulama bir [ILogger&lt;TCategoryName&gt; ](/dotnet/api/microsoft.extensions.logging.ilogger-1) nesnesinden [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcı:
+Günlükleri oluşturmak için elde bir [ILogger&lt;TCategoryName&gt; ](/dotnet/api/microsoft.extensions.logging.ilogger-1) gelen [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcı:
 
 ::: moniker range=">= aspnetcore-2.0"
 

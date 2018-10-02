@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/15/2018
 uid: fundamentals/host/hosted-services
-ms.openlocfilehash: 8c6a4a039fdc2cbe097d3439b3d79b9228d458b1
-ms.sourcegitcommit: 599ebae5c2d6fcb22dfa6ae7d1f4bdfcacb79af4
+ms.openlocfilehash: 9c38b1e1d429498bcd59f780e3d3fe1a50eae32d
+ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47210983"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47860933"
 ---
 # <a name="background-tasks-with-hosted-services-in-aspnet-core"></a>ASP.NET core'da barındırılan hizmetler ile arka plan görevleri
 
@@ -79,7 +79,7 @@ Arka plan görev sırası, .NET tabanlı 4.x <xref:System.Web.Hosting.HostingEnv
 
 İçinde `QueueHostedService`, arka plan görevleri sırasındaki sıradan çıkarılan ve olarak yürütülen bir <xref:Microsoft.Extensions.Hosting.BackgroundService>, uzun çalışan bir uygulama için bir temel sınıf olan `IHostedService`:
 
-[!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample-WebHost/Services/QueuedHostedService.cs?name=snippet1&highlight=16,20)]
+[!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample-WebHost/Services/QueuedHostedService.cs?name=snippet1&highlight=21,25)]
 
 Hizmetleri kayıtlı `Startup.ConfigureServices`. `IHostedService` Uygulaması ile kayıtlı `AddHostedService` genişletme yöntemi:
 
