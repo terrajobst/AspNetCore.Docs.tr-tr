@@ -20,10 +20,10 @@ Aşağıdaki tabloda, proje klasörleri ve dosyaları listeler. Bu öğretici i�
 
 *_Layout.cshtml* dosya ortak HTML öğeleri (betikleri ve stil sayfalarını) içerir ve uygulama düzenini ayarlar. Örneğin, tıkladığınızda **RazorPagesMovie**, **giriş**, **hakkında** veya **kişi**, aynı öğelere bakın. Ortak öğeler, üst ve alt pencerenin üst gezinti menüsünde içerir. Bkz: [Düzen](xref:mvc/views/layout) daha fazla bilgi için.
 
-*_ViewStart.cshtml* Razor sayfaları ayarlar `Layout` kullanılacak özellik *_Layout.cshtml* dosya. Bkz: [Düzen](xref:mvc/views/layout) daha fazla bilgi için.
-
 *_Viewımports.cshtml* dosyası her bir Razor sayfası alınan Razor yönergeleri içerir. Bkz: [paylaşılan yönergeleri alma](xref:mvc/views/layout#importing-shared-directives) daha fazla bilgi için.
+
+*_ViewStart.cshtml* Razor sayfaları ayarlar `Layout` kullanılacak özellik *_Layout.cshtml* dosya. Bkz: [Düzen](xref:mvc/views/layout) daha fazla bilgi için.
 
 *_ValidationScriptsPartial.cshtml* dosyası bir başvuru sağlar [jQuery](https://jquery.com/) doğrulama komut. Biz eklediğinizde `Create` ve `Edit` öğreticinin ilerleyen bölümlerinde sayfaları *_ValidationScriptsPartial.cshtml* dosya kullanılır.
 
-`About`, `Contact` Ve `Index` sayfalarıdır temel sayfaları bir uygulamayı başlatmak için kullanabilirsiniz. `Error` Sayfası, hata bilgilerini görüntülemek için kullanılır.
+`About`, `Contact` Ve `Index` sayfalarıdır temel sayfaları bir uygulamayı başlatmak için kullanabilirsiniz. `Error` Sayfası, hata bilgilerini görüntülemek için kullanılır. `Privacy` Sayfası, sitenizin gizlilik ilkesiyle ilgili ayrıntıları belirtmenize olanak sağlar.
