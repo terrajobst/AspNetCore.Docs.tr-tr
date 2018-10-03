@@ -6,14 +6,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/31/2018
 uid: getting-started
-ms.openlocfilehash: 5ba26d46bba9cdc649ac93c67c50731941c61888
-ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
+ms.openlocfilehash: a6a5023594aec01370143e7d1f35fb45c109122a
+ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523161"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47860946"
 ---
 # <a name="get-started-with-aspnet-core"></a>ASP.NET Core kullanmaya başlayın
+
+Bu belge, oluşturma ve ASP.NET Core uygulaması çalıştırmak için adımlar sağlar.
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -21,55 +23,57 @@ ms.locfileid: "46523161"
 
 2. Bir ASP.NET Core projesi oluşturun. Bir komut kabuğunu açın ve aşağıdaki komutu girin:
 
-    ```console
-    dotnet new webapp -o aspnetcoreapp
-    ```
+   ```console
+   dotnet new webapp -o aspnetcoreapp
+   ```
 
 3. HTTPS geliştirme sertifikasına güvenmek:
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
-    ```console
-    dotnet dev-certs https --trust
-    ```
+  ```console
+  dotnet dev-certs https --trust
+  ```
 
-   Yukarıdaki komut, aşağıdaki iletişim kutusunu görüntüler:
+  Yukarıdaki komut, aşağıdaki iletişim kutusunu görüntüler:
 
-   ![Güvenlik Uyarısı iletişim kutusu](_static/cert.png)
+  ![Güvenlik Uyarısı iletişim kutusu](_static/cert.png)
 
-   Seçin **Evet** geliştirme sertifikasına güvenmek kabul etmesi durumunda.
+  Seçin **Evet** geliştirme sertifikasına güvenmek kabul etmesi durumunda.
 
 # <a name="macostabmacos"></a>[macOS](#tab/macos)
 
-    ```console
-    dotnet dev-certs https --trust
-    ```
+  ```console
+  dotnet dev-certs https --trust
+  ```
 
-   Yukarıdaki komut, şu iletiyi görüntüler:
+  Yukarıdaki komut, şu iletiyi görüntüler:
 
-   *HTTPS geliştirme sertifikaya güvenme istendi. Sertifika zaten güvenilir değilse aşağıdaki komutu çalıştıracağız:* `'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain <<certificate>>'`
-   *Bu komut, üzerinde sistem Anahtarlık sertifikayı yüklemek, parola isteyebilir. Parola:*
+  *HTTPS geliştirme sertifikaya güvenme istendi. Sertifika zaten güvenilir değilse aşağıdaki komutu çalıştıracağız:* `'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain <<certificate>>'`.  
+  * Bu komut, üzerinde sistem Anahtarlık sertifikayı yüklemek, parola isteyebilir.
+  
+  Parola: *
 
-   Geliştirme sertifikasına güvenmek kabul ediyorsanız, parolanızı girin.
+  Geliştirme sertifikasına güvenmek kabul ediyorsanız, parolanızı girin.
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
-   HTTPS geliştirme sertifikasına güvenmek Linux dağıtımınız için belgelere bakın.
+  HTTPS geliştirme sertifikasına güvenmek nasıl Linux dağıtımınız için belgelere bakın.
    
 ---
 
 4. Uygulamayı çalıştırın:
 
-    ```console
-    cd aspnetcoreapp
-    dotnet run
-    ```
+   ```console
+   cd aspnetcoreapp
+   dotnet run
+   ```
 
 5. Gözat [ http://localhost:5001 ](http://localhost:5001).  Tıklayın **kabul** gizlilik ve tanımlama bilgisi ilkesini kabul etmek için. Bu uygulama, kişisel bilgileri tutmak değil.
 
 6. Açık *Pages/About.cshtml* ve sayfanın vurgulanan aşağıdaki işaretlemeyle değiştirin:
 
-    [!code-cshtml[](sample/getting-started/about.cshtml?highlight=9)]
+   [!code-cshtml[](sample/getting-started/about.cshtml?highlight=9)]
 
 7. Gözat [ http://localhost:5001/About ](http://localhost:5001/About) ve değişiklikleri görüntülenir doğrulayın.
 
@@ -85,22 +89,22 @@ ms.locfileid: "46523161"
 
    Bir komut kabuğunu açın. Aşağıdaki komutu girin:
 
-    ```console
-    dotnet new razor -o aspnetcoreapp
-    ```
+   ```console
+   dotnet new razor -o aspnetcoreapp
+   ```
 
 3. Uygulama ile aşağıdaki komutları çalıştırın:
 
-    ```console
-    cd aspnetcoreapp
-    dotnet run
-    ```
+   ```console
+   cd aspnetcoreapp
+   dotnet run
+   ```
 
 4. Gözat [ http://localhost:5000 ](http://localhost:5000).
 
 5. Açık *Pages/About.cshtml* ve iletiyi görüntülemek için sayfanın değiştirme "Hello, world! Sunucusundaki zamandır @DateTime.Now":
 
-    [!code-cshtml[](sample/getting-started/about.cshtml?highlight=9&range=1-9)]
+   [!code-cshtml[](sample/getting-started/about.cshtml?highlight=9&range=1-9)]
 
 6. Gözat [ http://localhost:5000/About ](http://localhost:5000/About) ve değişiklikleri doğrulayın.
 
@@ -137,9 +141,9 @@ ms.locfileid: "46523161"
 
 5. Paketleri geri yükleyin.
 
-    ```console
-    dotnet restore
-    ```
+   ```console
+   dotnet restore
+   ```
 
 6. Uygulamayı çalıştırın.
 
