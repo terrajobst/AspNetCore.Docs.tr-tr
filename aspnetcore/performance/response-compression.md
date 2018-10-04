@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/21/2018
 uid: performance/response-compression
-ms.openlocfilehash: 3a01c2d572c0026944347f736f9658a7872e6c35
-ms.sourcegitcommit: 4d5f8680d68b39c411b46c73f7014f8aa0f12026
+ms.openlocfilehash: d5e0b6ed21c14f2e76396cde846c69a76ad40794
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47028290"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48578152"
 ---
 # <a name="response-compression-in-aspnet-core"></a>ASP.NET core'da yanıt sıkıştırma
 
@@ -150,9 +150,21 @@ public class Startup
 
 ![Accept-Encoding üst bilgisi olmayan bir isteğinin sonucunu gösteren fiddler penceresi. Yanıt yok sıkıştırılmaz.](response-compression/_static/request-uncompressed.png)
 
+::: moniker range=">= aspnetcore-2.2"
+
+Örnek uygulamada talebinizi `Accept-Encoding: br` üst bilgisi (Brotli sıkıştırma) ve yanıt sıkıştırılmışsa gözlemleyin. `Content-Encoding` Ve `Vary` üstbilgileri yanıtta mevcut.
+
+![Accept-Encoding üst bilgisiyle bir isteğinin sonucunu ve br değerini gösteren fiddler penceresi. Değişiklik gösterebilir ve Content-Encoding üstbilgilerini yanıta eklenir. Yanıt sıkıştırılmışsa.](response-compression/_static/request-compressed-br.png)
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
 Örnek uygulamada talebinizi `Accept-Encoding: gzip` üstbilgi ve yanıt sıkıştırılmışsa gözlemleyin. `Content-Encoding` Ve `Vary` üstbilgileri yanıtta mevcut.
 
 ![Accept-Encoding üst bilgisiyle bir isteğinin sonucunu ve gzip değerini gösteren fiddler penceresi. Değişiklik gösterebilir ve Content-Encoding üstbilgilerini yanıta eklenir. Yanıt sıkıştırılmışsa.](response-compression/_static/request-compressed.png)
+
+::: moniker-end
 
 ## <a name="providers"></a>sağlayıcıları
 

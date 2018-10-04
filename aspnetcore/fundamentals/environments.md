@@ -5,12 +5,12 @@ description: ASP.NET Core uygulamaları birden fazla ortam arasında uygulama da
 ms.author: riande
 ms.date: 07/03/2018
 uid: fundamentals/environments
-ms.openlocfilehash: 0786b55ee133b98aae1bfac688e7d81d23c8c9a4
-ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
+ms.openlocfilehash: de3c3fd5a2f0e49366d9d5b4e992d0247bcab0e5
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47860985"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48577529"
 ---
 # <a name="use-multiple-environments-in-aspnet-core"></a>ASP.NET Core birden çok ortam kullanma
 
@@ -245,7 +245,6 @@ Ayarlanacak `ASPNETCORE_ENVIRONMENT` bir yalıtılmış uygulama (IIS 10.0 veya 
 > [!IMPORTANT]
 > IIS'de bir uygulamanın barındırma ve ekleme veya değiştirme `ASPNETCORE_ENVIRONMENT` aşağıdakilerden herhangi birini yaklaşıyor uygulamalar tarafından toplanmış yeni değerine sahip olacak şekilde ortam değişkeni kullanın:
 >
-> * Bir uygulamanın uygulama havuzu yeniden başlatın.
 > * Yürütme `net stop was /y` ardından `net start w3svc` bir komut isteminden.
 > * Sunucuyu yeniden başlatın.
 

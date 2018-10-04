@@ -8,16 +8,16 @@ ms.date: 03/26/2015
 ms.assetid: 8d54180d-f826-4df7-b503-7debf5ed9fb3
 msc.legacyurl: /identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 77a3e9d5e8b2698d2464e33520d779febd4533bd
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 84f35cfc0f0e0f1c268e0e9c18fd47aa68deb7d1
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41753891"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48577840"
 ---
 <a name="account-confirmation-and-password-recovery-with-aspnet-identity-c"></a>Hesap onaylama ve parola kurtarma ile ASP.NET Identity (C#)
 ====================
-tarafından [Hao Kung](https://github.com/HaoK), [Pranav Rastogi'nin](https://github.com/rustd), [Rick Anderson](https://github.com/Rick-Anderson), [Suhas Joshi](https://github.com/suhasj)
+tarafından [Hao Kung](https://github.com/HaoK), [Pranav Rastogi'nin](https://github.com/rustd), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Suhas Joshi](https://github.com/suhasj)
 
 > Önce tamamlamanız gereken Bu öğreticiyi tamamlamadan önce [oturum açma, e-posta onayı ve parola sıfırlama ile güvenli bir ASP.NET MVC 5 web uygulaması oluşturma](../../../mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md). Bu öğretici, daha fazla ayrıntı içerir ve e-posta için yerel hesap onaylama ve ASP.NET ıdentity'de Unutulan parolalarını sıfırlamasına izin yapmayı gösterir. Bu makale Rick Anderson tarafından yazılmış ([@RickAndMSFT](https://twitter.com/#!/RickAndMSFT)), Pranav Rastogi'nin ([@rustd](https://twitter.com/rustd)), Hao Kung ve Suhas Joshi. NuGet örnek öncelikle Hao Kung tarafından yazılmıştır.
 

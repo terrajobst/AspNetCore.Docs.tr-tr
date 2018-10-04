@@ -8,12 +8,12 @@ ms.date: 07/16/2014
 ms.assetid: ecfd0eb4-c4ad-44e6-9db9-a2a66611ff6a
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale
 msc.type: authoredcontent
-ms.openlocfilehash: a26f22a7cf39593ee068fb8e8d57200120c97ccb
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 05181ae1b2d857eea45983d378b28011c1cd755a
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41754912"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48578139"
 ---
 <a name="hands-on-lab-maintainable-azure-websites-managing-change-and-scale"></a>Uygulamalı Laboratuvar: sürdürülebilir Azure Web siteleri: değişiklikleri ve ölçeği yönetme
 ====================
@@ -22,17 +22,17 @@ Tarafından [Team Web Kampları](https://twitter.com/webcamps)
 [Eğitim Seti Web Kampları indirin](http://aka.ms/webcamps-training-kit)
 
 > Microsoft Azure, oluşturun ve Web siteleri üretim ortamına dağıtmayı kolaylaştırır. Ancak uygulamanız Canlı hale geldiğinde işiniz yok, size yalnızca başlangıç! Değişen gereksinimleri, veritabanı güncelleştirmeleri, ölçek ve daha fazla işlemek gerekir. Neyse ki, Azure App Service, sitelerinizi sorunsuz çalışmasını tutmanıza yardımcı olacak özellikler bolca işinize yarayacaktır.
-> 
+>
 > Azure, güvenli ve esnek geliştirme, dağıtma ve ölçeklendirme herhangi bir boyut web uygulaması için seçenekleri sunar. Altyapı yönetimiyle uğraşmak zorunda kalmadan uygulamaları oluşturmak ve dağıtmak için mevcut araçlarınızı kullanarak.
-> 
+>
 > Bir üretim web uygulaması, sevdiğiniz geliştirme aracını kullanarak oluşturduğunuz içerikleri kolayca dağıtarak kendiniz dakikalar içinde hazırlayın. Mevcut bir site için desteğe sahip kaynak denetiminden doğrudan dağıtabilirsiniz **Git**, **GitHub**, **Bitbucket**, **TFS**ve hatta  **DropBox**. Doğrudan en sevdiğiniz IDE veya komut dosyalarını kullanarak dağıtma **PowerShell** içinde Windows veya **CLI** herhangi bir işletim sisteminde araçları. Dağıtıldıktan sonra sitelerinizi, sürekli dağıtım ile sürekli olarak güncel tutun.
-> 
+>
 > Azure ölçeklendirilebilir ve dayanıklı bulut depolama, yedekleme ve kurtarma çözümleri büyük veya küçük tüm veriler için sunar. Bir üretim ortamında, tablolar, BLOB'lar ve SQL veritabanları gibi depolama hizmetleri uygulamaları dağıtırken, bulutta uygulamanızı ölçeklendirin yardımcı olur.
-> 
+>
 > SQL veritabanlarında olduğu gibi uygulamanızın yeni sürümünü dağıtırken üretken veritabanınızı güncel tutmak önemlidir. Performanstan **Entity Framework Code First Migrations**, ortamınızı dakikalar içinde güncelleştirmek için geliştirme ve veri modelinizin dağıtımı basitleştirilmiştir. Bu uygulamalı laboratuvarı, üretim ortamlarında, Microsoft Azure web uygulamanızı dağıtırken karşılaşabileceği farklı konular gösterilmektedir.
-> 
+>
 > Web Kampları eğitim Seti, kullanılabilir tüm örnek kodu ve kod parçacıkları dahil [ http://aka.ms/webcamps-training-kit ](http://aka.ms/webcamps-training-kit).
-> 
+>
 > Görmek için daha fazla ayrıntılı kapsamı bu konunun [Azure e-kitabı ile gerçek hayatta kullanılan bulut uygulamaları oluşturma](building-real-world-cloud-apps-with-windows-azure/introduction.md).
 
 
@@ -60,7 +60,7 @@ Aşağıda bu uygulamalı laboratuvarı tamamlamak için gereklidir:
 - [Visual Studio Express 2013 Web](https://www.microsoft.com/visualstudio/) veya üzeri
 - [.NET 2.2 için Azure SDK](https://www.microsoft.com/windowsazure/sdk/)
 - [GIT sürüm denetimi sistemi](http://git-scm.com/download)
-- Microsoft Azure aboneliği 
+- Microsoft Azure aboneliği
 
     - Kaydolun bir [ücretsiz deneme](http://aka.ms/watk-freetrial)
     - Bir Visual Studio Professional, Test Professional, Premium veya Ultimate ile MSDN veya MSDN Platforms aboneliği varsa, etkinleştirme, [MSDN avantajı](http://aka.ms/watk-msdn) geliştirip Azure'da test şimdi başlatmak için
@@ -202,10 +202,10 @@ Bu görevde kullanacağınız **Entity Framework Code First Migrations** modelin
 
     > [!NOTE]
     > Bir geçiş dosyasını iki yöntemden oluşur **yukarı** ve **aşağı**.
-    > 
+    >
     > - **Yukarı** yöntemi, bir veritabanına uygulamak için sunduğumuz uygulama gereksinimi geçerli sürümü değişiklikler belirtmek için kullanılır.
     > - **Aşağı** eklediğimiz için değişiklikleri geri almak için kullanılan **yukarı** yöntemi.
-    > 
+    >
     > Veritabanı geçişi, veritabanı güncelleştirdiğinde, zaman damgası sırayla ve yalnızca son güncelleştirmeden bu yana kullanılan değil tüm geçişler çalışacağı ( \_MigrationHistory tablo, hangi geçişleri uygulanmış olduğunu izler). **Yukarı** tüm geçişler yöntemi çağrılır ve veritabanına belirttik değişiklikleri yapar. Önceki bir geçiş için geri dönmek isterseniz **aşağı** yöntemi, bir ters sırada değişiklikleri yinelemek için çağrılır.
 4. İçinde **Paket Yöneticisi Konsolu**, aşağıdaki komutu girin ve ardından basın **Enter**.
 
@@ -298,15 +298,15 @@ Bu görevde, bir web uygulaması oluşturacak **Azure App Service** Yönetim Por
 
     > [!NOTE]
     > Varsayılan olarak, Azure konumundaki etki alanları sağlar *azurewebsites.net* ancak Ayrıca, Azure yönetim portalını kullanarak özel etki alanlarını ayarlamak için olanağını sağlar. Ancak, belirli bir Azure App Service modları kullanıyorsanız yalnızca özel etki alanlarını yönetebilir.
-    > 
+    >
     > Azure App Service, ücretsiz, paylaşılan, temel, standart ve Premium sürümlerinde kullanılabilir. Ücretsiz ve paylaşılan modda tüm web sitelerinde çok kiracılı bir ortamda çalıştırmak ve CPU, bellek ve ağ kullanımı için kotaları. Ücretsiz uygulama sayısı planınızla farklılık gösterebilir. Standart modda, standart Azure karşılık gelen özel sanal makinelerde çalışan uygulamaların işlem kaynakları seçin. Web uygulama modu yapılandırmasında bulabilirsiniz **ölçek** web uygulamanızın menüsü.
-    > 
+    >
     > ![Azure App Service'e modları](maintainable-azure-websites-managing-change-and-scale/_static/image19.png "Azure uygulama hizmeti modları")
-    > 
+    >
     > Kullanıyorsanız **paylaşılan** veya **standart** modu oluşturabileceksiniz, uygulamanızın giderek web uygulamanız için özel etki alanlarını yönetmek **yapılandırma** menü ve tıklayarak**Etki alanlarını yönet** altında *etki alanı adları*.
-    > 
+    >
     > ![Etki alanlarını yönet](maintainable-azure-websites-managing-change-and-scale/_static/image20.png "etki alanlarını yönet")
-    > 
+    >
     > ![Özel etki alanlarını yönet](maintainable-azure-websites-managing-change-and-scale/_static/image21.png "özel etki alanlarını yönet")
 9. Web uygulaması oluşturduktan sonra altındaki bağlantıya tıklayın **URL** sütunun yeni web uygulamasına çalışıp çalışmadığını denetleyin.
 
@@ -754,7 +754,7 @@ Bu görevde alıştırma 2'de oluşturduğunuz web uygulaması için otomatik ö
 
     > [!NOTE]
     > Bu aralık, web uygulamanız için ortalama CPU kullanımını gösterir. Azure eklemek veya web uygulamanız bu aralıkta tutmak için örnekler kaldırın. Ölçeklendirme için kullanılan örneklerin minimum ve maksimum sayı belirtilen **örnek sayısı** yapılandırma. Azure, yukarıda veya bu sınırı aşan hiçbir zaman geçer.
-    > 
+    >
     > Varsayılan **hedef CPU** değerleri yalnızca bu Laboratuvarın amacı doğrultusunda değiştirildi. CPU aralığı küçük değerleri ile yapılandırarak, uygulama üzerinde orta dereceli bir yük yerleştirildiğinde tetikleyici otomatik ölçeklendirme için büyük olasılıkla artmaktadır.
 
     ![Hedef CPU 20 ve yüzde 40'a arasında olacak şekilde değiştirmeyi](maintainable-azure-websites-managing-change-and-scale/_static/image78.png "20 ve yüzde 40'arasında olması için hedef CPU değiştirme")
@@ -869,7 +869,7 @@ Bu görevde alıştırma 2'de oluşturduğunuz web uygulaması için otomatik ö
 20. İçinde **Çözüm Gezgini**, çift **Local.settings** dosyasının test ayarları keşfedin. Varsayılan olarak, Visual Studio, testleri çalıştırmak için yerel bilgisayarınıza kullanır.
 
     > [!NOTE]
-    > Alternatif olarak, Bulutu kullanarak yük testleri çalıştırmak için test projenizi yapılandırabilirsiniz **Visual Studio Online (VSO)**. VSO daha gerçekçi bir yükü benzetir hizmeti test etmek, CPU kapasitesi, kullanılabilir bellek ve ağ bant genişliği gibi yerel ortam kısıtlamalarını önleme bir bulut tabanlı yük sağlar. VSO yük testleri çalıştırmak için kullanma hakkında daha fazla bilgi için bkz. [bu makalede](https://www.visualstudio.com/get-started/load-test-your-app-vs).
+    > Alternatif olarak, Bulutu kullanarak yük testleri çalıştırmak için test projenizi yapılandırabilirsiniz **Azure Test planları**. Azure Test planlarını daha gerçekçi bir yükü benzetir hizmeti test etmek, CPU kapasitesi, kullanılabilir bellek ve ağ bant genişliği gibi yerel ortam kısıtlamalarını önleme bir bulut tabanlı yük sağlar. Yük testleri çalıştırmak için Azure Test planlarını kullanma hakkında daha fazla bilgi için bkz. [yük testi senaryoları](/azure/devops/test/load-test/overview?view=vsts).
 
     ![Test ayarları](maintainable-azure-websites-managing-change-and-scale/_static/image98.png)
 
@@ -904,10 +904,10 @@ Bu görevde alıştırma 2'de oluşturduğunuz web uygulaması için otomatik ö
 
     > [!NOTE]
     > Değişikliklerin grafikte görünmesi birkaç dakika sürebilir (basın **CTRL + F5 tuşlarına basarak** düzenli aralıklarla sayfayı yenilemek için). Herhangi bir değişiklik görmüyorsanız, aşağıdakileri deneyebilirsiniz:
-    > 
+    >
     > - Yük testi süresini artırmak (örneğin için **10 dakika**)
     > - Maksimum ve minimum değerleri azaltmak **hedef CPU** aralığında web uygulamanız otomatik ölçeklendirme yapılandırması
-    > - Bulutta yük testi çalıştırma **Visual Studio Online**. Daha fazla bilgi [burada](https://www.visualstudio.com/get-started/load-test-your-app-vs.aspx)
+    > - Bulutta yük testi çalıştırma **Azure Test planları**. Daha fazla bilgi [burada](/azure/devops/test/load-test/index?view=vsts)
 
 * * *
 

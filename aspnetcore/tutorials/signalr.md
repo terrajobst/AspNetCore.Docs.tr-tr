@@ -1,28 +1,29 @@
 ---
-title: 'Öğretici: SignalR üzerinde ASP.NET Core ile çalışmaya başlama'
+title: ASP.NET Core Signalr'yi kullanmaya başlayın
 author: tdykstra
-description: Bu öğreticide, ASP.NET Core için SignalR kullanan bir sohbet uygulaması oluşturma.
+description: Bu öğreticide, ASP.NET Core SignalR kullanan bir sohbet uygulaması oluşturma.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 08/31/2018
 uid: tutorials/signalr
-ms.openlocfilehash: 6f93d6dc664f68425ef0fa0d02f9011e4875bc33
-ms.sourcegitcommit: 9bdba90b2c97a4016188434657194b2d7027d6e3
+ms.openlocfilehash: 55fb6b1c13549129a00541c1228956a93854ad78
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47402139"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48578035"
 ---
-# <a name="tutorial-get-started-with-signalr-on-aspnet-core"></a>Öğretici: SignalR üzerinde ASP.NET Core ile çalışmaya başlama
+# <a name="tutorial-get-started-with-aspnet-core-signalr"></a>Öğretici: ASP.NET Core SignalR ile çalışmaya başlama
 
 Bu öğreticide SignalR kullanarak gerçek zamanlı bir uygulama oluşturmaya ilişkin temel bilgileri size öğretir. Aşağıdakilerin nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * SignalR üzerinde ASP.NET Core kullanan bir web uygulaması oluşturun.
-> * Bir SignalR hub'ı sunucuda oluşturun.
-> * SignalR hub'ına JavaScript istemcilerinden bağlanın.
-> * Bağlanan tüm istemciler için herhangi bir istemciden ileti göndermek için hub'ı kullanın.
+> * Bir web uygulaması projesi oluşturun.
+> * SignalR istemci kitaplığı ekleyin.
+> * Bir SignalR hub'ı oluşturun.
+> * Projeyi SignalR kullanacak şekilde yapılandırın.
+> * Bağlanan tüm istemciler için herhangi bir istemciden ileti göndermek için hub'ı kullanan kodu ekleyin.
 
 Sonunda, bir çalışma sohbet uygulaması oluşturmuş olacaksınız:
 
@@ -50,7 +51,7 @@ Sonunda, bir çalışma sohbet uygulaması oluşturmuş olacaksınız:
 
 ---
 
-## <a name="create-the-project"></a>Projeyi oluşturma
+## <a name="create-a-web-project"></a>Bir web projesi oluşturma
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 
@@ -90,7 +91,7 @@ Sonunda, bir çalışma sohbet uygulaması oluşturmuş olacaksınız:
 
 ## <a name="add-the-signalr-client-library"></a>SignalR istemci kitaplığı Ekle
 
-SignalR server kitaplığı dahil [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app). JavaScript istemci kitaplığı, otomatik olarak projeye dahil değil. Bu öğretici için kullandığınız [Kitaplık Yöneticisi'ni (LibMan)](xref:client-side/libman/index) istemci Kitaplığı'ndan almak için *unpkg*. [unpkg](https://unpkg.com/#/) olduğu bir [içerik teslim ağı](https://wikipedia.org/wiki/Content_delivery_network) , teslim edebilir bulunan herhangi bir şey [npm, Node.js Paket Yöneticisi](https://www.npmjs.com/get-npm).
+SignalR server kitaplığı dahil `Microsoft.AspNetCore.App` metapackage. JavaScript istemci kitaplığı, otomatik olarak projeye dahil değil. Bu öğretici için Kitaplık Yöneticisi'ni (LibMan) istemci kitaplığını almak için kullanmak *unpkg*. unpkg bir içerik teslim ağı (CDN) olan), teslim edebilir herhangi bir şey npm, Node.js Paket Yöneticisi bulunamadı.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 
@@ -98,7 +99,7 @@ SignalR server kitaplığı dahil [Microsoft.AspNetCore.App metapackage](xref:fu
 
 * İçinde **istemci tarafı kitaplık Ekle** iletişim için **sağlayıcısı** seçin **unpkg**. 
 
-* İçin **Kitaplığı**, girin _@aspnet/signalr @1_, Önizleme olmayan en son sürümü seçin.
+* İçin **Kitaplığı**, girin `@aspnet/signalr@1`, Önizleme olmayan en son sürümü seçin.
 
   ![İstemci tarafı kitaplık iletişim - select Kütüphane ekleyin](signalr/_static/libman1.png)
 
@@ -108,7 +109,7 @@ SignalR server kitaplığı dahil [Microsoft.AspNetCore.App metapackage](xref:fu
 
   ![İstemci tarafı kitaplık iletişim - dosyaları seçin ve hedef Ekle](signalr/_static/libman2.png)
 
-  [LibMan](xref:client-side/libman/index) oluşturur bir *wwwroot/lib/signalr* klasörü ve seçili dosyaları kopyalar.
+  LibMan oluşturur bir *wwwroot/lib/signalr* klasörü ve seçili dosyaları kopyalar.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
 
@@ -170,9 +171,9 @@ SignalR server kitaplığı dahil [Microsoft.AspNetCore.App metapackage](xref:fu
 
 ---
 
-## <a name="create-the-signalr-hub"></a>SignalR hub'ı oluşturma
+## <a name="create-a-signalr-hub"></a>Bir SignalR hub'ı oluşturma
 
-A [hub](xref:signalr/hubs) istemci-sunucu iletişimi işleyen bir üst düzey işlem hattı hizmet veren bir sınıftır.
+A *hub* istemci-sunucu iletişimi işleyen bir üst düzey işlem hattı hizmet veren bir sınıftır.
 
 * Oluşturma SignalRChat proje klasöründe bir *Hubs* klasör.
 
@@ -180,11 +181,11 @@ A [hub](xref:signalr/hubs) istemci-sunucu iletişimi işleyen bir üst düzey i�
 
   [!code-csharp[Startup](signalr/sample/Hubs/ChatHub.cs)]
 
-  `ChatHub` Sınıfından devralan SignalR öğesinden [Hub](/dotnet/api/microsoft.aspnetcore.signalr.hub) sınıfı. `Hub` Sınıfı, bağlantılar, grupları ve mesajlaşma yönetir.
+  `ChatHub` Sınıfından devralan SignalR öğesinden `Hub` sınıfı. `Hub` Sınıfı, bağlantılar, grupları ve mesajlaşma yönetir.
 
   `SendMessage` Yöntemi herhangi bir bağlı istemci tarafından çağrılabilir. Bu, tüm istemcilere alınan ileti gönderir. SignalR kodudur maksimum ölçeklenebilirlik sağlamak için zaman uyumsuz.
 
-## <a name="configure-the-project-to-use-signalr"></a>Projeyi SignalR kullanacak şekilde yapılandırma
+## <a name="configure-signalr"></a>SignalR yapılandırın
 
 SignalR sunucusu, SignalR için SignalR isteklerini iletmek için yapılandırılmalıdır.
 
@@ -192,9 +193,9 @@ SignalR sunucusu, SignalR için SignalR isteklerini iletmek için yapılandırı
 
   [!code-csharp[Startup](signalr/sample/Startup.cs?highlight=7,33,52-55)]
 
-  Bu değişiklikler için SignalR ekler [bağımlılık ekleme](xref:fundamentals/dependency-injection) sistem ve [ara yazılım](xref:fundamentals/middleware/index) işlem hattı.
+  Bu değişiklikler, ASP.NET Core bağımlılık ekleme sistemi ve ara yazılım ardışık düzenini SignalR ekleyin.
 
-## <a name="create-the-signalr-client-code"></a>SignalR istemci kodu oluşturma
+## <a name="add-signalr-client-code"></a>SignalR istemci kodu ekleyin
 
 * İçeriği Değiştir *Pages\Index.cshtml* aşağıdaki kod ile:
 
@@ -246,10 +247,16 @@ SignalR sunucusu, SignalR için SignalR isteklerini iletmek için yapılandırı
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Farklı etki alanlarından bir SignalR uygulamalarına bağlanabilmeniz için istemcilerin istiyorsanız, çıkış noktaları arası kaynak paylaşımı (CORS) etkinleştirme gerekir. Daha fazla bilgi için [çıkış noktaları arası kaynak paylaşımı](xref:signalr/security?view=aspnetcore-2.1#cross-origin-resource-sharing).
+Bu öğreticide şunları öğrendiniz: nasıl yapılır:
 
-SignalR hub'ları ve JavaScript istemcileri hakkında daha fazla bilgi için şu kaynaklara bakın:
+> [!div class="checklist"]
+> * Bir web uygulaması projesi oluşturun.
+> * SignalR istemci kitaplığı ekleyin.
+> * Bir SignalR hub'ı oluşturun.
+> * Projeyi SignalR kullanacak şekilde yapılandırın.
+> * Bağlanan tüm istemciler için herhangi bir istemciden ileti göndermek için hub'ı kullanan kodu ekleyin.
 
-* [ASP.NET Core signalr'a giriş](xref:signalr/introduction)
-* [ASP.NET Core signalr'da hubs'ı kullanma](xref:signalr/hubs)
-* [ASP.NET Core SignalR JavaScript istemcisi](xref:signalr/javascript-client)
+SignalR hakkında daha fazla bilgi için girişine bakın:
+
+> [!div class="nextstepaction"]
+> [ASP.NET Core signalr'a giriş](xref:signalr/introduction)

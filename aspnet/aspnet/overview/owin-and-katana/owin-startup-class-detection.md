@@ -8,16 +8,16 @@ ms.date: 10/17/2013
 ms.assetid: 08257f55-36f4-4e39-9c88-2a5602838c79
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-startup-class-detection
 msc.type: authoredcontent
-ms.openlocfilehash: 591a04f429284ae73896807a6c2837ad498e8ae1
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 49ea01bf2170698de66b633b260664ce3d105ca1
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41756750"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48577489"
 ---
 <a name="owin-startup-class-detection"></a>OWIN başlangıç sınıfı algılama
 ====================
-tarafından [Praburaj Yöneticisi](https://github.com/Praburaj), [Rick Anderson](https://github.com/Rick-Anderson)
+tarafından [Praburaj Yöneticisi](https://github.com/Praburaj), [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Bu öğreticide, hangi OWIN başlangıç sınıfı yüklenen yapılandırma işlemi gösterilmektedir. OWIN hakkında daha fazla bilgi için bkz. [bir genel bakış, Project Katana'ya](an-overview-of-project-katana.md). Bu öğreticide, Rick Anderson tarafından yazılmış ( [ @RickAndMSFT ](https://twitter.com/#!/RickAndMSFT) ), Praburaj Yöneticisi ve Howard Dierking ( [ @howard \_dierking](https://twitter.com/howard_dierking) ).
 > 

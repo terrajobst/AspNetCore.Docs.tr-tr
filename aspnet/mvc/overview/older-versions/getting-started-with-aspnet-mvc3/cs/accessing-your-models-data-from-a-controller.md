@@ -8,16 +8,16 @@ ms.date: 01/12/2011
 ms.assetid: 002ada5c-f114-47ab-a441-57dbdb728ea0
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/accessing-your-models-data-from-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: 6e517538f6ebb2c42f7c1d66efed7831c2c877fe
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 497718713bb87028dae7eef0c201f61519c3f4d9
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41757020"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48577762"
 ---
 <a name="accessing-your-models-data-from-a-controller-c"></a>Bir denetleyiciden (C#) modelinizin verilerine erişme
 ====================
-Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
+Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > > [!NOTE]
 > > Bu öğreticide güncelleştirilmiş bir sürümü kullanılabilir [burada](../../../getting-started/introduction/getting-started.md) ASP.NET MVC 5 ve Visual Studio 2013'ü kullanır. Bu, daha güvenli ve izlemek çok daha kolay ve daha fazla özelliklerini gösterir.

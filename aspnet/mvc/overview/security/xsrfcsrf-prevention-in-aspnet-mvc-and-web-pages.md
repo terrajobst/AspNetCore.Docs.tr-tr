@@ -8,16 +8,16 @@ ms.date: 03/14/2013
 ms.assetid: aadc5fa4-8215-4fc7-afd5-bcd2ef879728
 msc.legacyurl: /mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages
 msc.type: authoredcontent
-ms.openlocfilehash: cd1b8de51c180471ab273c4541959368ffbd48a3
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 5db661cccc58d1101f95091b069ab5cbfe78a378
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41755182"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48577944"
 ---
 <a name="xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages"></a>ASP.NET MVC ve Web sayfalarında XSRF/CSRF önleme
 ====================
-Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
+Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Siteler arası istek sahteciliği (XSRF veya CSRF olarak da bilinir) barındırılan web uygulamaları kötü amaçlı bir web sitesi istemci tarayıcısına ve bu tarayıcı tarafından güvenilen bir web sitesi arasındaki etkileşimi yapabildiği etkileyebilir karşı bir saldırıdır. Web tarayıcıları bir web sitesi için kimlik doğrulama belirteçlerinizi her istek ile otomatik olarak gönderir, çünkü bu saldırıların yapılabilir. ASP gibi bir kimlik doğrulama tanımlama bilgisi kurallı örnektir. NET form kimlik doğrulaması bileti. Ancak, tüm kalıcı kimlik doğrulama mekanizması (örneğin, Windows kimlik doğrulaması, temel ve diğerleri) kullanan web siteleri tarafından bu saldırıların hedefleyebilir.
 > 

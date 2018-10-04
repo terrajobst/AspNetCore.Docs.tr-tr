@@ -8,16 +8,16 @@ ms.date: 07/09/2015
 ms.assetid: 7e986ab5-6615-4638-add7-4614ce7b51db
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry
 msc.type: authoredcontent
-ms.openlocfilehash: cec29e27e834317661f80eed93cb8b81a0786644
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: f4dae827627103e5cfb9981b6c3b9342cdc34c13
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41752777"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48578009"
 ---
 <a name="monitoring-and-telemetry-building-real-world-cloud-apps-with-azure"></a>İzleme ve Telemetri (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma)
 ====================
-tarafından [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
+tarafından [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra)
 
 [İndirme proje düzelt](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitabı indirin](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
@@ -29,7 +29,7 @@ Birçok kişinin bağımlı müşterilerin kendi uygulama kapalı olduğunda bil
 ## <a name="buy-or-rent-a-telemetry-solution"></a>Satın alma veya bir telemetri çözümü kiralayabilirler
 
 > [!NOTE]
-> Önce bu makalenin yazıldığı [Application Insights](https://azure.microsoft.com/services/application-insights/) yayınlanmıştır. Application Insights, Azure ile ilgili telemetri çözümleri için tercih edilen yaklaşım. Bkz: [ASP.NET Web siteniz için Application ınsights'ı ayarlama](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net) daha fazla bilgi için.
+> Önce bu makalenin yazıldığı [Application Insights](/azure/application-insights/app-insights-overview) yayınlanmıştır. Application Insights, Azure ile ilgili telemetri çözümleri için tercih edilen yaklaşım. Bkz: [ASP.NET Web siteniz için Application ınsights'ı ayarlama](/azure/application-insights/app-insights-asp-net) daha fazla bilgi için.
 
 
 Bulut ortamınız hakkındaki harika şeylerden biri, satın almanız veya sırrı şekilde kiralayabilirler gerçekten çok kolay olmasıdır. Telemetri bir örnektir. Çok fazla çaba, gerçekten iyi çalışan telemetri sistemi alabilirsiniz ve çalıştırma, çok düşük bir maliyetle. Azure ile tümleştirilmesini harika iş ortaklarından oluşan bir grup vardır ve hiçbir şey için temel telemetri alabilmeniz için bunlardan bazıları ücretsiz Katmanlar – sahip. Azure üzerinde şu anda kullanılabilir olanlarla birkaçı şunlardır:
@@ -38,7 +38,7 @@ Bulut ortamınız hakkındaki harika şeylerden biri, satın almanız veya sırr
 - [AppDynamics](http://www.appdynamics.com/)
 - [Dynatrace](https://datamarket.azure.com/application/b4011de2-1212-4375-9211-e882766121ff)
 
-Mart 2015 itibariyle [Microsoft Visual Studio Online için Application Insights](https://azure.microsoft.com/documentation/articles/app-insights-get-started/) henüz yayımlanmamış ancak denemek için Önizleme olarak kullanılabilir. [Microsoft System Center](http://www.petri.co.il/microsoft-system-center-introduction.htm#) İzleme özelliklerini de içerir.
+[Microsoft System Center](http://www.petri.co.il/microsoft-system-center-introduction.htm#) İzleme özelliklerini de içerir.
 
 Hızlı bir şekilde ne kadar kolay, telemetri sisteminin kullanılacak olabileceğini göstermek için New Relic ayarı aracılığıyla alacağız.
 

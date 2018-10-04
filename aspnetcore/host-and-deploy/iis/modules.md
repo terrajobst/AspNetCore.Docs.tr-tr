@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/04/2018
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: 40af94f9cbb83f27f22d90b6b0f2854090687d34
-ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
+ms.openlocfilehash: 78cdf74648a29ed718d1373d7b3666b10749843d
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43312352"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48577567"
 ---
 # <a name="iis-modules-with-aspnet-core"></a>ASP.NET Core içeren IIS modülleri
 
@@ -39,7 +39,7 @@ Tablo, ASP.NET Core uygulamaları için ters proxy istekleri işlev yerel IIS mo
 | **İzleme**<br>`FailedRequestsTracingModule` | Evet | [ASP.NET Core günlüğe kaydetme](xref:fundamentals/logging/index#tracesource-provider) |
 | **Dosyayı önbelleğe alma**<br>`FileCacheModule` | Hayır | [Yanıtları Önbelleğe Alma Ara Yazılımı](xref:performance/caching/middleware) |
 | **HTTP önbelleğe alma**<br>`HttpCacheModule` | Hayır | [Yanıtları Önbelleğe Alma Ara Yazılımı](xref:performance/caching/middleware) |
-| **HTTP Günlüğü**<br>`HttpLoggingModule` | Evet | [ASP.NET Core günlüğe kaydetme](xref:fundamentals/logging/index)<br>Uygulamaları: [elmah.io](https://github.com/elmahio/Elmah.Io.Extensions.Logging), [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging), [NLog](https://github.com/NLog/NLog.Extensions.Logging), [Serilog](https://github.com/serilog/serilog-extensions-logging)
+| **HTTP Günlüğü**<br>`HttpLoggingModule` | Evet | [ASP.NET Core günlüğe kaydetme](xref:fundamentals/logging/index)<br>Uygulamaları: [elmah.io](https://github.com/elmahio/Elmah.Io.Extensions.Logging), [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging), [NLog](https://github.com/NLog/NLog.Extensions.Logging), [Sentry](https://github.com/getsentry/sentry-dotnet), [Serilog](https://github.com/serilog/serilog-extensions-logging)
 | **HTTP Yeniden Yönlendirmesi**<br>`HttpRedirectionModule` | Evet | [URL Yeniden Yazma Ara Yazılımı](xref:fundamentals/url-rewriting) |
 | **IIS istemci sertifika eşlemesi kimlik doğrulaması**<br>`IISCertificateMappingAuthenticationModule` | Evet | |
 | **IP ve Etki Alanı Kısıtlamaları**<br>`IpRestrictionModule` | Evet | |

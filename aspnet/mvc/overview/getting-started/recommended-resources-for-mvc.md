@@ -8,16 +8,16 @@ ms.date: 04/10/2014
 ms.assetid: 7958d725-e958-4566-a85b-535eeb985f94
 msc.legacyurl: /mvc/overview/getting-started/recommended-resources-for-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 57997241afc0a326d5381c7dcef15122fb04ab7d
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: cbd72233fb5688c27d3675e2621eab58a64db80c
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41755855"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48578190"
 ---
 <a name="mvc-recommended-resources"></a>MVC tarafından önerilen kaynaklar
 ====================
-Tarafından [Rick Anderson](https://github.com/Rick-Anderson)
+Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Bu konu, ASP.NET MVC 5 hakkında belge kaynakları için bağlantılar sağlar. Harika bir blog gönderisi, biliyorsanız [stackoverflow](http://stackoverflow.com/) iş parçacığı veya yararlı, göndermek diğer bağlantı [bana](mailto:aspnetue@microsoft.com?subject=Great ASP.NET MVC link) bağlantısını içeren bir e-posta. Burada sağlanan bağlantıları düzenli olarak güncelleştirilir. Eski bulabilirsiniz (ancak birçok durumda hala ilgili) ASP.NET MVC bağlantılar üzerinde [MSDN içerik haritası](https://msdn.microsoft.com/library/gg416514(v=vs.108).aspx).
 > 

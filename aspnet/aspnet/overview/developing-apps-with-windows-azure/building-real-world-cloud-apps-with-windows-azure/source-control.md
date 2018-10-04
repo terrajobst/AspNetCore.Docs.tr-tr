@@ -8,23 +8,22 @@ ms.date: 06/23/2015
 ms.assetid: 2a0370d3-c2fb-4bf3-88b8-aad5a736c793
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
 msc.type: authoredcontent
-ms.openlocfilehash: 8402b73f5f9d063d958df39f98267468e4aef746
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 5df863762523b62759bb4f7849ca2635e5241b0a
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41752983"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48577801"
 ---
 <a name="source-control-building-real-world-cloud-apps-with-azure"></a>Kaynak denetimi (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma)
 ====================
-tarafından [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github.com/Rick-Anderson), [Tom Dykstra](https://github.com/tdykstra)
+tarafından [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Tom Dykstra](https://github.com/tdykstra)
 
 [İndirme proje düzelt](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4) veya [E-kitabı indirin](http://blogs.msdn.com/b/microsoft_press/archive/2014/07/23/free-ebook-building-cloud-apps-with-microsoft-azure.aspx)
 
 > **Yapı gerçek dünyaya yönelik bulut uygulamaları Azure ile** e-kitap, Scott Guthrie tarafından geliştirilen bir sunuma dayalıdır. 13 desenleri açıklar ve web uygulamaları bulut için geliştirme başarılı yardımcı olabilecek uygulamalar. E-kitabı hakkında daha fazla bilgi için bkz. [ilk bölüm](introduction.md).
 
-
-Kaynak Denetimi tüm bulut geliştirme projeleri için yalnızca takım ortamları için gereklidir. Kaynak kod düzenleme düşündüğünüz mıydı veya bile bir Word belgesi bir geri alma işlevini ve otomatik yedeklemeler ve kaynak denetimi olmadan, bir şeyler yanlış gittiğinde daha fazla zaman kaydetmek üzere bir proje düzeyinde bu işlevleri sunar. Bulut kaynak denetimi hizmetleriyle artık karmaşık kurulum hakkında endişelenmeniz gerekmez ve en fazla 5 kullanıcı ücretsiz Visual Studio Online kaynak denetimini kullanabilirsiniz.
+Kaynak Denetimi tüm bulut geliştirme projeleri için yalnızca takım ortamları için gereklidir. Kaynak kod düzenleme düşündüğünüz mıydı veya bile bir Word belgesi bir geri alma işlevini ve otomatik yedeklemeler ve kaynak denetimi olmadan, bir şeyler yanlış gittiğinde daha fazla zaman kaydetmek üzere bir proje düzeyinde bu işlevleri sunar. Bulut kaynak denetimi hizmetleriyle artık karmaşık kurulum hakkında endişelenmeniz gerekmez ve en fazla 5 kullanıcı için ücretsiz Azure depoları kaynak denetimi kullanabilirsiniz.
 
 Bu bölümün ilk bölümünü akılda tutulması gereken üç anahtar en iyi uygulamalar açıklanmaktadır:
 
@@ -32,11 +31,11 @@ Bu bölümün ilk bölümünü akılda tutulması gereken üç anahtar en iyi uy
 - [Gizli dizileri hiçbir zaman denetleme](#secrets) (kimlik bilgileri gibi hassas veriler) içine kaynak kodu deposu.
 - [Kaynak dalları ayarlamak](#devops) DevOps iş akışını etkinleştirmek için.
 
-Bölümün geri kalanında bu desenleri Visual Studio, Azure ve Visual Studio Online'nın bazı örnek uygulamalar sunar:
+Bölümün geri kalanında bu desenleri Visual Studio, Azure ve Azure depoları bazı örnek uygulamaları sunar:
 
 - [Betikleri Visual Studio kaynak denetimine Ekle](#vsscripts)
 - [Hassas verileri Azure'da Store](#appsettings)
-- [Visual Studio ve Visual Studio Team Services Git kullan](#gittfs)
+- [Visual Studio ve Azure depoları Git kullanma](#gittfs)
 
 <a id="scripts"></a>
 ## <a name="treat-automation-scripts-as-source-code"></a>Otomasyon betikleri kaynak kod olarak işleyin
@@ -73,7 +72,7 @@ Bu yapı Ayrıca, müşteri geri bildirimlerini hızlı bir şekilde tepki verme
 
 Bir dallandırma yapısını bu gibi üretim ve geliştirme dalı, kendi ayırma ile bir üretim sorun, üretim düzeltmenizi birlikte yeni bir özellik kod yükseltmek zorunda konuma yerleştirebilirsiniz. Yeni özellik kodu tam olarak test edilmiş ve kullanıma hazır hale üretim olmayabilir ve birçok iş hazır olmayan değişiklikleri yedekleme yapmak zorunda kalabilirsiniz. Veya düzeltmenizi değişiklikleri test etmek ve dağıtmak hazırlanma için gecikme olabilir.
 
-Sonra Visual Studio, Azure ve Visual Studio Online bu üç desenleri uygulamak örnekler göreceksiniz. Ayrıntılı yardım-How-to--BT yönergeler yerine örnekler şunlardır; Tüm gerekli içeriği sağlayan ayrıntılı yönergeler için bkz. [kaynakları](#resources) bölümün sonuna bölümü.
+Sonra Visual Studio, Azure ve Azure depoları bu üç desenleri uygulamak örnekler göreceksiniz. Ayrıntılı yardım-How-to--BT yönergeler yerine örnekler şunlardır; Tüm gerekli içeriği sağlayan ayrıntılı yönergeler için bkz. [kaynakları](#resources) bölümün sonuna bölümü.
 
 <a id="vsscripts"></a>
 ## <a name="add-scripts-to-source-control-in-visual-studio"></a>Betikleri Visual Studio kaynak denetimine Ekle
@@ -128,17 +127,17 @@ Böylece gerçek değerler için kaynak deposu kalıcı yoksa, komut dosyaları 
 Yerel olarak geliştirme ortamınızda çalıştırdığınızda, uygulamayı yerel Web.config dosyanızı ve bağlantı dizesi bir SQL Server LocalDB veritabanına işaret okur *uygulama\_veri* web projenizin klasör. Uygulamasını Azure'da çalıştırmak ve uygulamanın Web.config dosyasından bu değerleri okumaya çalışır ne geri alır ve kullandığı konusunda ne gerçekten Web.config dosyasında değil Web sitesi için depolanan değerleri.
 
 <a id="gittfs"></a>
-## <a name="use-git-in-visual-studio-and-visual-studio-online"></a>Visual Studio ve Visual Studio Team Services Git kullan
+## <a name="use-git-in-visual-studio-and-azure-devops"></a>Visual Studio ve Azure DevOps Git kullanma
 
 Herhangi bir kaynak denetimi ortam, daha önce sunulan DevOps dallandırma yapısını yürütmek için kullanabilirsiniz. Dağıtılmış ekiplerin bir [dağıtılmış sürüm denetim sistemi](http://en.wikipedia.org/wiki/Distributed_revision_control) (DVCS) en iyi şekilde çalışabilir; diğer takımlar için bir [Merkezi sistem](http://en.wikipedia.org/wiki/Revision_control) daha iyi çalışabilir.
 
-[Git](http://git-scm.com/) olan bir DVCS duruma çok popüler olduğundan. Kaynak denetimi için Git kullandığınızda, yerel bilgisayarınızda deponun tüm geçmişiyle birlikte eksiksiz bir kopyasına sahip. Çoğu kişi daha kolay olduğundan, ağa bağlı değilsiniz--görevlerini gerçekleştirmeye devam edebilir, çalışmaya devam etmek için işleme ve geri almaların, oluşturma ve dallar arasında geçiş vb., tercih eder. Ağa bağlı olmasanız bile, daha kolay ve hızlı dalları oluşturmak ve her şeyin yerel olduğunda dallar arasında geçiş. Diğer geliştiriciler bir etkisi olmadan yerel işlemeleri ve geri alma işlemleri de yapabilirsiniz. Ve bunları server için göndermeden önce işlemeler toplu iş.
+[Git](http://git-scm.com/) popüler dağıtılmış sürüm denetim sistemidir. Kaynak denetimi için Git kullandığınızda, yerel bilgisayarınızda deponun tüm geçmişiyle birlikte eksiksiz bir kopyasına sahip. Çoğu kişi daha kolay olduğundan, ağa bağlı değilsiniz--görevlerini gerçekleştirmeye devam edebilir, çalışmaya devam etmek için işleme ve geri almaların, oluşturma ve dallar arasında geçiş vb., tercih eder. Ağa bağlı olmasanız bile, daha kolay ve hızlı dalları oluşturmak ve her şeyin yerel olduğunda dallar arasında geçiş. Diğer geliştiriciler bir etkisi olmadan yerel işlemeleri ve geri alma işlemleri de yapabilirsiniz. Ve bunları server için göndermeden önce işlemeler toplu iş.
 
-[Microsoft Visual Studio Online](https://www.visualstudio.com/)(VSO), eski adıyla Team Foundation Hizmeti bilinen hem Git sunar ve [Team Foundation sürüm denetimi](https://msdn.microsoft.com/library/ms181237(v=vs.120).aspx) (TFVC; merkezi kaynak denetimi). Burada Microsoft Azure grubundaki bazı ekipler merkezi kaynak denetimi, dağıtılmış, bazı kullanın ve bazı (bazı projeler için merkezi ve diğer projelere dağıtılmış) bir karışımını kullanın. En fazla 5 kullanıcı için ücretsiz VSO hizmetidir. Ücretsiz bir plan için kaydolabilirsiniz [burada](https://go.microsoft.com/fwlink/?LinkId=307137).
+[Azure depoları](/azure/devops/repos/index?view=vsts) hem sunar [Git](/azure/devops/repos/git/?view=vsts) ve [Team Foundation sürüm denetimi](/azure/devops/repos/tfvc/index?view=vsts) (TFVC; merkezi kaynak denetimi). Azure DevOps ile çalışmaya başlama [burada](https://app.vsaex.visualstudio.com/signup).
 
-Visual Studio 2013, birinci sınıf yerleşik içerir [Git desteği](https://msdn.microsoft.com/library/hh850437.aspx); hızlı İşte nasıl çalıştığını, tanıtım.
+Visual Studio 2017'yi içeren birinci sınıf yerleşik [Git desteği](https://msdn.microsoft.com/library/hh850437.aspx). Hızlı İşte nasıl çalıştığını, tanıtım.
 
-Proje Visual Studio 2013'te açık çözüme sağ **Çözüm Gezgini**ve **kaynak denetimine Çözüm Ekle**.
+Proje Visual Studio'daki açık çözüme sağ **Çözüm Gezgini**ve ardından **kaynak denetimine Çözüm Ekle**.
 
 ![Kaynak Denetimine Çözüm Ekle](source-control/_static/image9.png)
 
@@ -184,7 +183,7 @@ Ana dala geçiş yaparsanız dal, içeriğini  *\_Layout.cshtml* dosya otomatik 
 
 Bu basit bir örneğini nasıl hızlı bir şekilde bir dal oluşturabilir ve dallar arasında ileri ve geri çevir. Bu özellik, dal yapısını kullanarak yüksek oranda Çevik bir iş akışı sağlar ve Otomasyon betikleri kısmında sunulmuştur [her şeyi otomatikleştirin](automate-everything.md) bölüm. Örneğin, olabilir Geliştirme dalında çalışmaya, ana dışına düzeltme dal oluşturma, yeni dala geçiş, değişiklikleriniz var. olmak bunları işleyin ve ardından geliştirme dala geçiş ve yaptığınız işe devam.
 
-Ne Burada gördüğünüz, Visual Studio'da yerel bir Git deposu ile nasıl çalıştığıyla olur. Bir ekip ortamında, genellikle de değişiklikleri bir ortak depoya. Visual Studio Araçları da uzak bir Git deposuna işaret edecek şekilde etkinleştirin. Bu amaçla GitHub.com kullanabilir veya kullanabileceğiniz [Visual Studio Online'da Git](https://msdn.microsoft.com/library/hh850437.aspx) tüm diğer Visual Studio Online özelliklerine sahip iş öğesi ve hata izleme gibi tümleşik.
+Ne Burada gördüğünüz, Visual Studio'da yerel bir Git deposu ile nasıl çalıştığıyla olur. Bir ekip ortamında, genellikle de değişiklikleri bir ortak depoya. Visual Studio Araçları da uzak bir Git deposuna işaret edecek şekilde etkinleştirin. Bu amaçla GitHub.com kullanabilirsiniz ya da kullanabilirsiniz [Git ve Azure depoları](/azure/devops/repos/git/overview?view=vsts) iş öğesi ve hata izleme gibi tüm diğer Azure DevOps özellikleri ile tümleşiktir.
 
 Bu, Çevik bir dallanma stratejisi Elbette uygulayabileceğiniz tek yolu değildir. Merkezi kaynak denetim deposu ile aynı Çevik iş akışlarının etkinleştirebilirsiniz.
 
@@ -194,13 +193,6 @@ Kaynak denetimi sisteminiz ne kadar hızlı bir değişiklik yapın ve güvenli 
 
 <a id="resources"></a>
 ## <a name="resources"></a>Kaynaklar
-
-[Visual Studio Online](https://www.visualstudio.com/) portal, belgeler ve Destek Hizmetleri sağlar ve bir hesap için kaydolabilirsiniz. Visual Studio 2012 yüklü ve Git kullanmak istiyorsanız, bkz. [Git için Visual Studio Araçları](https://visualstudiogallery.msdn.microsoft.com/abafc7d6-dcaa-40f4-8a5e-d6724bdb980c).
-
-(Merkezi sürüm denetimi) TFVC ve Git (dağıtılmış sürüm denetimi) hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
-
-- [Hangi sürüm denetimi sistemini kullanmalıyım: TFVC veya Git?](https://msdn.microsoft.com/library/vstudio/ms181368.aspx#tfvc_or_git_summary) MSDN belgeleri, TFVC ve Git arasındaki farklar özetleyen bir tablo içerir.
-- [İyi istiyorum Team Foundation Server ve Git istiyorum, ancak daha iyi olduğu?](https://blogs.msdn.com/b/visualstudiouk/archive/2013/08/05/well-i-like-team-foundation-server-and-i-like-git-but-which-is-better.aspx) Git ve TFVC karşılaştırması.
 
 Dallanma stratejisi hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 

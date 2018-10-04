@@ -3,14 +3,14 @@ title: Siteler arası betik kullanmayı (XSS) ASP.NET core'da engelle
 author: rick-anderson
 description: Siteler arası betik (XSS) ve ASP.NET Core uygulaması, bu güvenlik açığını ele alan teknikleri öğrenin.
 ms.author: riande
-ms.date: 10/14/2016
+ms.date: 10/02/2018
 uid: security/cross-site-scripting
-ms.openlocfilehash: 4784b1775d955f0ef00526e50b960fc873ea218d
-ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
+ms.openlocfilehash: e937ce47b7151155197cd607832eeb6bf62e3a19
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39342217"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48577450"
 ---
 # <a name="prevent-cross-site-scripting-xss-in-aspnet-core"></a>Siteler arası betik kullanmayı (XSS) ASP.NET core'da engelle
 
@@ -36,9 +36,9 @@ En temel bir düzey XSS çalışır içine ekleyerek uygulamanızı şekilde kan
 
 Razor altyapı MVC'de otomatik olarak kullanılan tüm kodlar gerçekten sabit, bunu önlemek için çalışmıyorsanız değişkenlerinden, çıkış kaynağı. HTML öznitelik her kullandığınızda kodlama kurallarını kullanan *@* yönergesi. HTML öznitelik kodlaması, kendiniz, HTML kodlaması veya HTML öznitelik kodlaması kullanmanız gerekir ile uğraşmak zorunda olmadığınız anlamına gelir HTML kodlaması bir üst kümesidir. Yalnızca @ HTML bağlamında, güvenilmeyen girişler doğrudan JavaScript eklemek değil çalışırken kullanmanızı emin olmanız gerekir. Etiket Yardımcıları de giriş etiketi parametrelerinde kullandığınız kodlar.
 
-Aşağıdaki Razor görünüm yararlanın;
+Aşağıdaki Razor görünüm uygulayın:
 
-```none
+```cshtml
 @{
        var untrustedInput = "<\"123\">";
    }
@@ -59,7 +59,7 @@ Bu görünüm içeriğini çıkarır *untrustedInput* değişkeni. Bu değişken
 
 JavaScript görünümünüzde işlemek için bir değer eklemek istediğiniz zamanlar olabilir. Bunu yapmanın iki yolu vardır. Bir veri özniteliği bir etiketin değeri koyun ve, JavaScript dilinde almak için değerleri eklemek için en güvenli yolu var. Örneğin:
 
-```none
+```cshtml
 @{
        var untrustedInput = "<\"123\">";
    }
@@ -114,9 +114,9 @@ Bu aşağıdaki HTML'yi oluşturur
    <"123">
    ```
 
-JavaScript Kodlayıcı doğrudan çağırabilir,
+JavaScript Kodlayıcı doğrudan de çağırabilirsiniz:
 
-```none
+```cshtml
 @using System.Text.Encodings.Web;
    @inject JavaScriptEncoder encoder;
 
@@ -225,4 +225,4 @@ Genel Uygulama kodlama çıkış noktasında gerçekleşir ve kodlanmış değer
 
 ## <a name="validation-as-an-xss-prevention-technique"></a>Bir XSS önleme teknik olarak doğrulama
 
-Doğrulama XSS saldırılarını sınırlama yararlı bir aracı olabilir. Örneğin, yalnızca 0-9 karakterleri içeren bir sayısal dize XSS saldırının tetiklemez. Doğrulama uygulamasında kullanıcı girdisi - HTML kabul istemeniz durumunda HTML giriş ayrıştırma zor imkansız, daha karmaşık hale gelir. MarkDown ve diğer metin biçimleri zengin bir giriş için güvenli bir seçenek olabilir. Hiçbir zaman tek başına doğrulama yararlanmalıdır. Güvenilir olmayan girişlere karşı ne olursa olsun, gerçekleştirdiğiniz hangi doğrulama çıktı önce her zaman kodlayın.
+Doğrulama XSS saldırılarını sınırlama yararlı bir aracı olabilir. Örneğin, yalnızca 0-9 karakterleri içeren bir sayısal dize XSS saldırının tetiklemez. Doğrulama, kullanıcı girişini HTML kabul ederken daha karmaşık hale gelir. HTML girişine ayrıştırma, imkansız, zordur. Gömülü HTML şeritler bir ayrıştırıcı ile birlikte, markdown, zengin giriş kabul etmek için daha güvenli bir seçenektir. Hiçbir zaman tek başına doğrulamasını kullanır. Her zaman önce hangi doğrulama veya temizleme gerçekleştirilen ne olursa olsun çıktı, güvenilmeyen girişler kodlayın.

@@ -8,16 +8,16 @@ ms.date: 03/20/2014
 ms.assetid: 20acee16-c70c-41e9-b38f-92bfcf9a4c1c
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server
 msc.type: authoredcontent
-ms.openlocfilehash: 7b9ba2ca0cd0269ebb3e0e4ae056d4597a198a03
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 2dd4af4543713ab08ad9427d183f667e2dc04f1f
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41757021"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48578048"
 ---
 <a name="owin-oauth-20-authorization-server"></a>OWIN OAuth 2.0 yetkilendirme sunucusu
 ====================
-tarafından [Hongye Sun](https://github.com/hongyes), [Praburaj Yöneticisi](https://github.com/Praburaj), [Rick Anderson](https://github.com/Rick-Anderson)
+tarafından [Hongye Sun](https://github.com/hongyes), [Praburaj Yöneticisi](https://github.com/Praburaj), [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Bu öğreticide bir OAuth 2.0 yetkilendirme sunucusu Ara OWIN OAuth kullanarak uygulama konusunda size yol gösterir. Bu yalnızca bir OWIN OAuth 2.0 yetkilendirme sunucusu oluşturma adımlarını özetleyen Gelişmiş bir öğreticidir. Bu adım adım öğretici değildir. [Örnek kodu indirdikten](https://code.msdn.microsoft.com/OWIN-OAuth-20-Authorization-ba2b8783/file/114932/1/AuthorizationServer.zip).
 > 

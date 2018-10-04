@@ -2,17 +2,17 @@
 title: ASP.NET Core WebSockets desteği
 author: rick-anderson
 description: ASP.NET core'da WebSockets kullanmaya başlama hakkında bilgi edinin.
-monikerRange: '>= aspnetcore-2.1'
+monikerRange: '>= aspnetcore-1.1'
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/28/2018
 uid: fundamentals/websockets
-ms.openlocfilehash: a9fe13ef7895ea3ab43257dbbaf4521f883c0804
-ms.sourcegitcommit: 18339e3cb5a891a3ca36d8146fa83cf91c32e707
+ms.openlocfilehash: fc3f70fb888797216b2ccc911a9f69eaae6ac01c
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37433993"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48577736"
 ---
 # <a name="websockets-support-in-aspnet-core"></a>ASP.NET Core WebSockets desteği
 
@@ -110,7 +110,7 @@ Windows 8 veya sonraki sürümlerde WebSocket Protokolü desteğini etkinleştir
 1. Aşağıdaki düğümler açın: **Internet Information Services** > **World Wide Web Hizmetleri** > **uygulama geliştirme özellikleri**.
 1. Seçin **WebSocket Protokolü** özelliği. Seçin **Tamam**.
 
-**Socket.io, node.js dosyasını kullanırken WebSocket devre dışı bırak**
+### <a name="disable-websocket-when-using-socketio-on-nodejs"></a>Socket.io, Node.js dosyasını kullanırken WebSocket devre dışı bırak
 
 WebSocket desteği kullanıyorsanız [socket.io](https://socket.io/) üzerinde [Node.js](https://nodejs.org/), varsayılan IIS WebSocket modülünü kullanarak devre dışı bırak `webSocket` öğesinde *web.config* veya *applicationHost.config*. Bu adım yapılamaz ve iletişim WebSocket yerine Node.js uygulaması işlemek IIS WebSocket modülü çalışır.
 
