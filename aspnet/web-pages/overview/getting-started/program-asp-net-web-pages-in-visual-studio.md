@@ -8,38 +8,38 @@ ms.date: 02/13/2014
 ms.assetid: 0acfec5a-48f2-4766-a801-a0f426966f0a
 msc.legacyurl: /web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio
 msc.type: authoredcontent
-ms.openlocfilehash: 41cb1048b9dab21516e38cfff0772b8b690d474f
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: f3c1a74b23a0d9535256caa660408701062fe21c
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41752534"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48795453"
 ---
 <a name="programming-aspnet-web-pages-razor-using-visual-studio"></a>Visual Studio kullanarak ASP.NET Web sayfaları (Razor) programlama
 ====================
 tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
 > Bu makalede, programa ASP.NET Web sayfaları (Razor) Web siteleri nasıl Visual Studio veya Visual Web Developer Express kullanabileceğini açıklar.
-> 
+>
 > Öğrenecekleriniz
-> 
+>
 > - Ne ile ASP.NET Web sayfaları, Visual Studio sürümünde çalışmak için (her şey ise) yüklemeniz gerekir.
 > - Visual Web Developer 2010 Express için ASP.NET Web sayfaları için destek ekleme konusunda.
 > - IntelliSense ve hata ayıklayıcı dahil olmak üzere, ASP.NET Razor sayfaları kullanmaya çalışmak için Visual Studio özellikleri kullanma
->   
-> 
+>
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
-> 
-> 
+>
+>
 > - ASP.NET Web sayfaları (Razor) 3
 > - Visual Studio 2013
 > - WebMatrix 3
->   
-> 
+>
+>
 > Bu öğreticide, ASP.NET Web Pages 2, Visual Studio 2012, Visual Studio 2010 ve WebMatrix 2 ile de çalışır.
 
 
-WebMatrix veya diğer birçok kod düzenleyicileri kullanarak Razor sözdizimi olan ASP.NET Web sayfaları programlama yapabilirsiniz. Ayrıca, birçok türdeki uygulamayı (yalnızca Web siteleri) oluşturmak için güçlü bir dizi araç sağlar. bir tam özellikli tümleşik geliştirme ortamıdır (IDE) Microsoft Visual Studio da kullanabilirsiniz. ASP.NET Razor sayfaları ile çalışmak için Visual Studio'nun tüm sürümlerinde birini kullanın veya ücretsiz yapabilecekleriniz [Web için Visual Studio Express](https://www.visualstudio.com/downloads/download-visual-studio-vs#d-2013-express) sürümü.
+WebMatrix veya diğer birçok kod düzenleyicileri kullanarak Razor sözdizimi olan ASP.NET Web sayfaları programlama yapabilirsiniz. Ayrıca, birçok türdeki uygulamayı (yalnızca Web siteleri) oluşturmak için güçlü bir dizi araç sağlar. bir tam özellikli tümleşik geliştirme ortamıdır (IDE) Microsoft Visual Studio da kullanabilirsiniz. ASP.NET Razor sayfaları kullanmaya çalışmak için kullanabileceğiniz [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017).
 
 ASP.NET Razor web sayfaları ile programlama için Visual Studio sağlayan iki özellikle yararlı özellikleri şunlardır:
 
@@ -47,6 +47,8 @@ ASP.NET Razor web sayfaları ile programlama için Visual Studio sağlayan iki �
 - *Hata ayıklayıcı*. Hata ayıklayıcı kodunuz bir program çalıştırma, değişkenleri inceleme ve satır kod içerisinde ilerlemeye durdurarak gidermenize olanak tanır.
 
 ## <a name="using-visual-studio-with-different-versions-of-aspnet-web-pages"></a>Visual Studio kullanarak ASP.NET Web sayfaları farklı sürümleri
+
+Visual Studio 2017'de ASP.NET web uygulamaları geliştirmek için yükleme **ASP.NET ve web geliştirme** iş yükü.
 
 Visual Studio 2012 ve Visual Studio 2013 için ASP.NET Web Pages destek içerir. (Visual Studio yüklediğinizde ASP.NET Web Pages desteklemek için gerekli paketleri yüklenir.)
 
@@ -73,7 +75,7 @@ Düğmeye tıkladığınızda, projeyi Visual Studio'da açılır. WebMatrix ve 
 
 Visual Studio'da bir ASP.NET Razor Web sitesi oluşturmak için:
 
-1. Visual Studio veya Visual Web Developer başlatın.
+1. Visual Studio'yu açın.
 2. İçinde **dosya** menüsünde tıklatın **yeni Web sitesi**.
 
     ![Yeni web sitesi oluşturma](program-asp-net-web-pages-in-visual-studio/_static/image2.png)
@@ -90,28 +92,27 @@ Yeni projeniz var ve bazı varsayılan başlamanıza yardımcı olmak için web 
 Bir site oluşturduğunuza göre IntelliSense Visual Studio'da nasıl çalıştığını görebilirsiniz.
 
 1. Yeni oluşturduğunuz Web sitesinde, açık *Default.cshtml* sayfası.
-2. Sonra `<h3>` etiketler sayfasında yazın `@ServerInfo.` (nokta dahil olmak üzere). IntelliSense için kullanılabilen yöntemler nasıl görüntülendiğine dikkat edin `ServerInfo` açılır listede yok. 
+2. Sonra `<h3>` etiketler sayfasında yazın `@ServerInfo.` (nokta dahil olmak üzere). IntelliSense için kullanılabilen yöntemler nasıl görüntülendiğine dikkat edin `ServerInfo` açılır listede yok.
 
     ![IntelliSense](program-asp-net-web-pages-in-visual-studio/_static/image4.png)
-3. Seçin `GetHtml` yöntemi listesi ve Enter tuşuna basın. IntelliSense otomatik yöntemini doldurur. (C# herhangi bir yöntemle eklemeniz gerekir gibi `()` yöntemi sonra karakter.)  
-   Tamamlanan kodu `GetHtml` yöntemi aşağıdaki örnekteki gibi görünür:  
+3. Seçin `GetHtml` yöntemi listesi ve Enter tuşuna basın. IntelliSense otomatik yöntemini doldurur. (C# herhangi bir yöntemle eklemeniz gerekir gibi `()` yöntemi sonra karakter.) Tamamlanan kodu `GetHtml` yöntemi aşağıdaki örnekteki gibi görünür:
 
     [!code-cshtml[Main](program-asp-net-web-pages-in-visual-studio/samples/sample1.cshtml)]
-4. Sayfayı çalıştırmak için CTRL + F5 tuşlarına basın. Bu sayfanın bir tarayıcıda görüntülenen nasıl göründüğünü oluşur: 
+4. Sayfayı çalıştırmak için CTRL + F5 tuşlarına basın. Bu sayfanın bir tarayıcıda görüntülenen nasıl göründüğünü oluşur:
 
     ![varsayılan sayfasını tarayıcıda](program-asp-net-web-pages-in-visual-studio/_static/image5.png)
 5. Tarayıcıyı kapatın.
 
 ### <a name="using-the-debugger"></a>Hata ayıklayıcıyı kullanma
 
-1. Üst kısmındaki *Default.cshtml* ile başlayan satırı sonra bir sayfa `Page.Title`, aşağıdaki kod satırını ekleyin: 
+1. Üst kısmındaki *Default.cshtml* ile başlayan satırı sonra bir sayfa `Page.Title`, aşağıdaki kod satırını ekleyin:
 
     [!code-csharp[Main](program-asp-net-web-pages-in-visual-studio/samples/sample2.cs)]
 2. Eklemek için bu yeni satırın yanındaki sol tarafındaki Kod Düzenleyicisi'ni gri kenar boşluğunda tıklayın bir *kesme noktası*. Bir kesme noktası programın bu noktada neler olduğunu gördüğünüz şekilde çalışmayı durdurmasına hata ayıklayıcı söyleyen bir işaretçidir.
 
     ![kesme noktası Ayarla](program-asp-net-web-pages-in-visual-studio/_static/image6.png)
 3. Çağrısını kaldırın `ServerInfo.GetHtml` yöntemi ve bir çağrı ekleyin `@myTime` bunun yerine değişken. Bu çağrı yeni kod satırı tarafından döndürülen geçerli saat değerini görüntüler.
-4. Hata Ayıklayıcısı'nda sayfayı çalıştırmak için F5 tuşuna basın. Sayfa ayarladığınız kesme noktasına durdurur. Aşağıdaki görüntüde, Sayfa Düzenleyicisi'nde kesme (sarı) ile nasıl göründüğünü gösterir. 
+4. Hata Ayıklayıcısı'nda sayfayı çalıştırmak için F5 tuşuna basın. Sayfa ayarladığınız kesme noktasına durdurur. Aşağıdaki görüntüde, Sayfa Düzenleyicisi'nde kesme (sarı) ile nasıl göründüğünü gösterir.
 
     ![hata ayıklama kesme noktası](program-asp-net-web-pages-in-visual-studio/_static/image7.png)
 5. Hata ayıklama araç çubuğunda tıklatın **içine adımla** sonraki kod satırına çalıştırmak için düğme (veya F11 tuşuna basın). Bu düğmeye tıkladığınızda her zaman yürütme kodun sonraki satırına geçin.

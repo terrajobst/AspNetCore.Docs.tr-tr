@@ -8,37 +8,34 @@ ms.date: 06/24/2014
 ms.assetid: 1e1927c0-ded1-4752-80fd-a146628d2f09
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v4-endpoint
 msc.type: authoredcontent
-ms.openlocfilehash: 7f2d0b8fa8ac290e5018cb5237b1fedb5f40eeb0
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 48c1a78c96cb0ebfa0b053dfef84e76433112650
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41754681"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48795424"
 ---
 <a name="create-an-odata-v4-endpoint-using-aspnet-web-api-22"></a>ASP.NET Web API 2.2 kullanarak bir OData v4 uç noktası oluşturma
 ====================
 tarafından [Mike Wasson](https://github.com/MikeWasson)
 
 > Açık Veri Protokolü (OData), web için veri erişim protokolüdür. OData sorgu ve veri kümeleri aracılığıyla CRUD işlemleri işlemek için Tekdüzen bir yol sağlar (oluşturma, okuma, güncelleştirme ve silme).
-> 
+>
 > ASP.NET Web API, hem v3 hem de v4 protokolü destekler. Yan yana çalışan bir v4 uç noktası bile olabilir v3 uç noktası ile.
-> 
+>
 > Bu öğreticide, CRUD işlemleri destekleyen OData v4 uç noktası oluşturma işlemi gösterilmektedir.
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
-> 
-> 
+>
 > - Web API 2.2
 > - OData v4
-> - [Visual Studio 2013 Güncelleştirme 2](https://www.visualstudio.com/downloads/download-visual-studio-vs)
+> - Visual Studio 2013 (Visual Studio 2017'yi indirin [burada](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017))
 > - Entity Framework 6
 > - .NET 4.5
-> 
-> 
+>
 > ## <a name="tutorial-versions"></a>Öğretici sürümleri
-> 
+>
 > OData sürüm 3 için bkz: [OData v3 uç noktası oluşturma](../odata-v3/creating-an-odata-endpoint.md).
-
 
 ## <a name="create-the-visual-studio-project"></a>Visual Studio projesi oluşturma
 

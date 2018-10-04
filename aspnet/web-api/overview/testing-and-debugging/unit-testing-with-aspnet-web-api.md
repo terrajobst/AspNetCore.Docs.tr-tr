@@ -8,12 +8,12 @@ ms.date: 06/05/2014
 ms.assetid: bf20f78d-ff91-48be-abd1-88e23dcc70ba
 msc.legacyurl: /web-api/overview/testing-and-debugging/unit-testing-with-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 0a3f9ddde725995359de85c5e0783106f5de02bd
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 91cca2789b66b7b8983f8786b506c5fc71db8b75
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41753909"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48795440"
 ---
 <a name="unit-testing-aspnet-web-api-2"></a>Birim testi ASP.NET Web API 2
 ====================
@@ -22,17 +22,15 @@ tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 [Projeyi yükle](https://code.msdn.microsoft.com/Unit-Testing-with-ASPNET-1374bc11)
 
 > Bu kılavuzu ve uygulama, Web API 2 uygulama için basit birim testleri oluşturma işlemini göstermektedir. Bu öğreticide, bir denetleyici yönteminden döndürülen değerleri kontrol test yöntemler yazmak ve birim testi projesi içeren çözümünüze gösterilmektedir.
-> 
+>
 > Bu öğreticide, ASP.NET Web API ile ilgili temel kavramlar hakkında bilgi sahibi olduğunuz varsayılır. Giriş niteliğindeki bir eğitim için bkz. [ASP.NET Web API 2 ile çalışmaya başlama](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md).
-> 
+>
 > Birim testleri bu konuda, basit veri senaryoları için kasıtlı olarak sınırlıdır. Birim testi daha gelişmiş veri senaryoları için bkz. [sahte Entity Framework, birim testi ASP.NET Web API 2](mocking-entity-framework-when-unit-testing-aspnet-web-api-2.md).
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
-> 
-> 
-> - [Visual Studio 2017](https://www.visualstudio.com/vs/)
+>
+> - [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)
 > - Web API 2
-
 
 ## <a name="in-this-topic"></a>Bu konuda
 
@@ -41,7 +39,6 @@ Bu konu aşağıdaki bölümleri içermektedir:
 - [Önkoşulları](#prereqs)
 - [Kodu indir](#download)
 - [Uygulama ile birim testi projesi oluşturma](#appwithunittest)
-
     - [Uygulama oluştururken, birim testi projesi ekleyin.](#whencreate)
     - [Birim testi projesi varolan bir uygulamaya ekleme](#addtoexisting)
 - [Web API 2 uygulama ayarlama](#setupproject)
@@ -52,7 +49,7 @@ Bu konu aşağıdaki bölümleri içermektedir:
 <a id="prereqs"></a>
 ## <a name="prerequisites"></a>Önkoşullar
 
-Visual Studio 2017 Community, Professional veya Enterprise edition
+[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017) Community, Professional veya Enterprise edition
 
 <a id="download"></a>
 ## <a name="download-code"></a>Kodu indir

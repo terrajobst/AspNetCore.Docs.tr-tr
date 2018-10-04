@@ -8,12 +8,12 @@ ms.date: 06/12/2014
 ms.assetid: 1bc333c5-f096-4ea7-b170-779accc21c1a
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/the-fix-it-sample-application
 msc.type: authoredcontent
-ms.openlocfilehash: 6f4fa7cf3746da0a6cdd4bd037fea509d488a59d
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 435ee61a9c28ad0035457990cd3a889f5b240517
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/04/2018
-ms.locfileid: "48578022"
+ms.locfileid: "48795544"
 ---
 <a name="appendix-the-fix-it-sample-application-building-real-world-cloud-apps-with-azure"></a>Ek: Düzelt örnek uygulaması (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma)
 ====================
@@ -22,7 +22,6 @@ tarafından [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson]((https
 [Bu proje düzeltmeyi indirin](http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4)
 
 > **Yapı gerçek dünyaya yönelik bulut uygulamaları Azure ile** e-kitap, Scott Guthrie tarafından geliştirilen bir sunuma dayalıdır. 13 desenleri açıklar ve web uygulamaları bulut için geliştirme başarılı yardımcı olabilecek uygulamalar. E-kitabı hakkında daha fazla bilgi için bkz. [ilk bölüm](introduction.md).
-
 
 Bu ekte gerçek dünya ile bulut uygulamaları oluşturma Azure e-kitap için indirebileceğiniz Düzelt örnek uygulaması hakkında ek bilgi sağlayan aşağıdaki bölümleri içerir:
 
@@ -177,11 +176,11 @@ Yeni Proje şablonu koyar `Thread.Sleep` örnekte gereksiz ek iş parçacığı 
 
 Zaman uyumsuz bir yöntem bir değer döndürmesi gerekmez, iade bir `Task` türü yerine `void`.
 
-Bu örnekte dandır `FixItQueueManager` sınıfı: 
+Bu örnekte dandır `FixItQueueManager` sınıfı:
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample15.cs)]
 
-Kullanmanız gereken `async void` yalnızca üst düzey olay işleyicileri için. Bir yöntem olarak tanımlarsanız `async void`, çağırana olamaz **await** yöntemi veya yöntemin oluşturduğu özel durumları yakalama. Daha fazla bilgi için [iyi zaman uyumsuz programlama](https://msdn.microsoft.com/magazine/jj991977.aspx). 
+Kullanmanız gereken `async void` yalnızca üst düzey olay işleyicileri için. Bir yöntem olarak tanımlarsanız `async void`, çağırana olamaz **await** yöntemi veya yöntemin oluşturduğu özel durumları yakalama. Daha fazla bilgi için [iyi zaman uyumsuz programlama](https://msdn.microsoft.com/magazine/jj991977.aspx).
 
 ### <a name="use-a-cancellation-token-to-break-from-worker-role-loop"></a>Çalışan rolü döngüden ayırmak için bir iptal belirteci kullanma
 
@@ -216,8 +215,8 @@ Düzelt uygulamayı çalıştırmak için iki yolu vardır:
 <a id="runbase"></a>
 ### <a name="run-the-base-application"></a>Temel uygulamayı çalıştırın
 
-1. Yükleme [Visual Studio 2013 veya Web için Visual Studio 2013 Express](https://www.visualstudio.com/downloads).
-2. Yükleme [Visual Studio 2013 için .NET için Azure SDK.](https://go.microsoft.com/fwlink/p/?linkid=323510&amp;clcid=0x409)
+1. Yükleme [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017).
+2. Yükleme [Visual Studio için .NET için Azure SDK](https://azure.microsoft.com/downloads/).
 3. .Zip dosyasından indirme [MSDN Kod Galerisi](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4).
 4. Dosya Gezgini'nde, .zip dosyasını sağ tıklayın ve Özellikler'e tıklayın, sonra Özellikler penceresinde engelini Kaldır'a tıklayın.
 5. Dosyanın sıkıştırmasını açın.
@@ -225,7 +224,7 @@ Düzelt uygulamayı çalıştırmak için iki yolu vardır:
 7. Araçlar menüsünden kitaplık Paket Yöneticisi'ni ve ardından Paket Yöneticisi konsolu tıklayın.
 8. Paket Yöneticisi Konsolu (PMC'de), geri yükleme'yi tıklatın.
 9. Visual Studio'dan çıkın.
-10. Başlangıç [Azure storage öykünücüsü](https://msdn.microsoft.com/library/windowsazure/hh403989.aspx).
+10. Başlangıç [Azure storage öykünücüsü](/azure/storage/common/storage-use-emulator).
 11. Visual Studio'yu yeniden başlatın, çözüm dosyasını açmadan önceki adımda kapalı.
 12. Düzelt projeyi başlangıç projesi olarak ayarlandığından emin olun ve ardından projeyi çalıştırmak için CTRL + F5 tuşuna basın.
 
@@ -234,24 +233,24 @@ Düzelt uygulamayı çalıştırmak için iki yolu vardır:
 
 1. İçin yönergeleri izleyin [temel uygulamayı çalıştırmak](#runbase), tarayıcıyı kapatın ve ardından Visual Studio'yu kapatın.
 2. Visual Studio'yu yönetici ayrıcalıklarıyla başlatın. (Azure işlem öykünücüsü kullanarak ve yönetici ayrıcalıkları gerektirir.)
-3. Uygulamada *Web.config* dosyası *MyFixIt* değerini değiştirebilir, proje (web projesi) `appSettings/UseQueues` "true": 
+3. Uygulamada *Web.config* dosyası *MyFixIt* değerini değiştirebilir, proje (web projesi) `appSettings/UseQueues` "true":
 
     [!code-console[Main](the-fix-it-sample-application/samples/sample19.cmd?highlight=3)]
 4. Varsa [Azure storage öykünücüsü](https://msdn.microsoft.com/library/windowsazure/hh403989.aspx) hala çalışıyor, olmadığından yeniden başlatın.
 5. Aynı anda Düzelt web projesini ve MyFixItCloudService projesini çalıştırın.
 
-    Visual Studio 2013'ü kullanarak:
+    Visual Studio kullanarak:
 
-   1. Düzelt projeyi çalıştırmak için F5 tuşuna basın.
-   2. İçinde **Çözüm Gezgini**MyFixItCloudService projeye sağ tıklayın ve ardından **hata ayıklama** -- **yeni örnek Başlat**.
+   1. Tuşuna **F5** Düzelt projeyi çalıştırın.
+   2. İçinde **Çözüm Gezgini**MyFixItCloudService projeye sağ tıklayın ve ardından **hata ayıklama** > **yeni örnek Başlat**.
 
-      Web için Visual Studio 2013 Express kullanarak:
+    Web için Visual Studio 2013 Express kullanarak:
 
    3. Çözüm Gezgini'nde Düzelt çözüme sağ tıklayıp seçin **özellikleri**.
-   4. Seçin **birden fazla başlangıç projesi**...
+   4. Seçin **birden fazla başlangıç projesi**.
    5. İçinde **eylem** MyFixIt ve MyFixItCloudService, altındaki açılır listede seçin **Başlat**.
    6. **Tamam**'ı tıklatın.
-   7. İki projeyi de çalıştırmak için F5 tuşuna basın.
+   7. Tuşuna **F5** iki projeyi de çalıştırmak için.
 
       MyFixItCloudService Projeyi çalıştırdığınızda, Visual Studio Azure işlem öykünücüsü başlatır. Güvenlik Duvarı'nı yapılandırmanıza bağlı olarak, güvenlik duvarı üzerinden öykünücü izin gerekebilir.
 
@@ -354,8 +353,7 @@ Hangi kaynakların durdurulmadan önce oluşturulan betik belirlemek için aşa�
 
 - `Get-AzureWebsite`
 - `Get-AzureSqlDatabaseServer`
-- `Get-AzureSqlDatabase`: Bu cmdlet'i çalıştırmak için veritabanı sunucusu adını kanal oluşturarak `Get-AzureSqlDatabase`:  
-    `Get-AzureSqlDatabaseServer | Get-AzureSqlDatabase.`
+- `Get-AzureSqlDatabase`: Bu cmdlet'i çalıştırmak için veritabanı sunucusu adını kanal oluşturarak `Get-AzureSqlDatabase`:   `Get-AzureSqlDatabaseServer | Get-AzureSqlDatabase.`
 
 Bu kaynakları silmek için aşağıdaki komutları kullanın. Veritabanı sunucusu silerseniz, otomatik olarak sunucuyla ilişkili veritabanlarını silmeniz gerektiğini unutmayın.
 
@@ -366,7 +364,7 @@ Bu kaynakları silmek için aşağıdaki komutları kullanın. Veritabanı sunuc
 <a id="deployqueues"></a>
 ## <a name="how-to-deploy-the-app-with-queue-processing-to-azure-app-service-web-apps-and-an-azure-cloud-service"></a>Azure App Service Web Apps ve Azure bulut hizmeti için işleme sırası ile uygulama dağıtma
 
-Kuyruklar etkinleştirmek için MyFixIt\Web.config dosyasına aşağıdaki değişikliği yapın. Altında `appSettings`, değiştirin `UseQueues` "true": 
+Kuyruklar etkinleştirmek için MyFixIt\Web.config dosyasına aşağıdaki değişikliği yapın. Altında `appSettings`, değiştirin `UseQueues` "true":
 
 [!code-xml[Main](the-fix-it-sample-application/samples/sample31.xml)]
 

@@ -49,4 +49,6 @@ PowerShell komut ayırıcı olarak virgül kullanır. PowerShell kullanarak, dos
 ```cli
 dotnet aspnet-codegenerator identity -dc MyWeb.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout"
 ```
+
+<a name="if-you-run-the-identity-scaffolder-without-specifying-the---files-flag-or-the---usedefaultui-flag-all-the-available-identity-ui-pages-will-be-created-in-your-project"></a>Kimlik iskele kurucu belirtmeden çalıştırırsanız `--files` bayrağı veya `--useDefaultUI` bayrak, tüm kullanılabilir kimlik UI sayfaları projenizde oluşturulur.
 -------------

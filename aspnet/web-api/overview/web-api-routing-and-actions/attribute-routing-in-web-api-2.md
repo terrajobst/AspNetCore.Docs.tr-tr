@@ -8,12 +8,12 @@ ms.date: 01/20/2014
 ms.assetid: 979d6c9f-0129-4e5b-ae56-4507b281b86d
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: f13720c5e9de99fb4ae5b27a757c257cac881f89
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 35cf3bf555218b6b49b30f48186e4c67aff4ff7b
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41752361"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48795557"
 ---
 <a name="attribute-routing-in-aspnet-web-api-2"></a>ASP.NET Web API 2'de öznitelik yönlendirme
 ====================
@@ -25,10 +25,9 @@ Adlı kural tabanlı yönlendirme, önceki stil yönlendirme, yine de tam olarak
 
 Bu konu, öznitelik yönlendirme etkinleştirme gösterir ve öznitelik yönlendirme için çeşitli seçenekler açıklanmaktadır. Öznitelik yönlendirme kullanan bir uçtan uca öğretici için bkz [Web API 2'de öznitelik yönlendirme ile REST API oluşturma](create-a-rest-api-with-attribute-routing.md).
 
-
 ## <a name="prerequisites"></a>Önkoşullar
 
-[Visual Studio 2017](https://www.visualstudio.com/vs/) Community, Professional veya Enterprise Edition
+[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017) Community, Professional veya Enterprise edition
 
 Alternatif olarak, gerekli paketleri yüklemek için NuGet paket yöneticisini kullanın. Gelen **Araçları** Visual Studio'da seçim menüsünde **kitaplık Paket Yöneticisi**, ardından **Paket Yöneticisi Konsolu**. Paket Yöneticisi konsolu penceresinde aşağıdaki komutu girin:
 
@@ -55,21 +54,21 @@ Bu tür bir URI, kural tabanlı yönlendirme kullanarak oluşturmak zordur. Bu y
 
 Bu örnekte, "/ v1/API/ürünleri" olacaktır farklı bir denetleyicisine yönlendirilen "/ v2/API/ürünleri".
 
-`/api/v1/products`  
+`/api/v1/products`
 `/api/v2/products`
 
 **Aşırı yüklenmiş URI segmentleri**
 
 Bu örnekte, "1" sipariş numarası olduğu halde "bekliyor" bir koleksiyona eşler.
 
-`/orders/1`  
+`/orders/1`
 `/orders/pending`
 
 **Birden çok parametre türleri**
 
 Bu örnekte, "1" sipariş numarası olduğu halde "06/2013/16" bir tarihi belirtir.
 
-`/orders/1`  
+`/orders/1`
 `/orders/2013/06/16`
 
 <a id="enable"></a>
@@ -251,7 +250,7 @@ Framework bir URI bir rotayla eşleşen çalıştığında, belirli bir sırada 
 Toplam sıralama nasıl belirlendiğini aşağıda verilmiştir:
 
 1. Karşılaştırma **RouteOrder** rota özniteliğinin bir özelliğidir.
-2. Rota şablonu içinde her bir URI segmenti bakın. Her bir kesim için şu şekilde sıralayın: 
+2. Rota şablonu içinde her bir URI segmenti bakın. Her bir kesim için şu şekilde sıralayın:
 
     1. Değişmez değer kesimi.
     2. Rota parametrelerinin kısıtlamaları.

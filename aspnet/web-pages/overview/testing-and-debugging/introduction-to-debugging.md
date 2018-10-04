@@ -8,38 +8,38 @@ ms.date: 02/20/2014
 ms.assetid: 68de4326-7611-4b9b-b5f6-79b7adc3069f
 msc.legacyurl: /web-pages/overview/testing-and-debugging/introduction-to-debugging
 msc.type: authoredcontent
-ms.openlocfilehash: da04158c58054a8c0b8e31d3a55bea2dcbae7a05
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: fb9a69d568e10ddafd71e2b9600b3dae21576807
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41754647"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48794995"
 ---
 <a name="introduction-to-debugging-aspnet-web-pages-razor-sites"></a>(Razor) giriş hata ayıklama ASP.NET Web sayfaları
 ====================
 tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
 > Bu makalede, bir ASP.NET Web sayfaları (Razor) Web sayfalarında hata ayıklamak için çeşitli yollar açıklanmaktadır. Hata ayıklama hataları bulma ve kod sayfalarınıza düzeltme işlemidir.
-> 
-> **Öğrenecekleriniz:** 
-> 
+>
+> **Öğrenecekleriniz:**
+>
 > - Yardımcı olacak bilgileri görüntülemek nasıl analiz edin ve hata ayıklama sayfaları.
 > - Visual Studio'da hata ayıklama kullanmayı araçları.
->   
-> 
+>
+>
 > Bu makalede sunulan ASP.NET özellikleri şunlardır:
-> 
+>
 > - `ServerInfo` Yardımcısı.
 > - `ObjectInfo` Yardımcısı.
->   
-> 
+>
+>
 > ## <a name="software-versions"></a>Yazılım sürümleri
-> 
-> 
+>
+>
 > - ASP.NET Web sayfaları (Razor) 3
 > - Visual Studio 2013
->   
-> 
+>
+>
 > Bu öğreticide, ASP.NET Web Pages 2 ile de çalışır. WebMatrix 3'ü kullanabilirsiniz ancak tümleşik hata ayıklayıcı desteklenmiyor.
 
 
@@ -54,8 +54,8 @@ Hataları ve sorunları kodunuzda sorun giderme işlemlerinin önemli bir yönü
 
     Ekleyebileceğiniz `ServerInfo` kod sayfası herhangi bir yerindeki. Ancak, sonunda ekleme çıktısını kolay okunur hale getiren, diğer sayfa içeriği, ayrı tutar.
 
-    > [!NOTE] 
-    > 
+    > [!NOTE]
+    >
     > **Önemli** bir üretim sunucusu için web sayfaları geçmeden önce web sayfalarınızdan herhangi bir tanılama kodu kaldırmanız gerekir. Bu durum geçerlidir `ServerInfo` bir sayfaya kod ekleme, hatalı durumdaki diğer tanılama teknikler bu makaledeki yanı sıra Yardımcısı. Bu tür bilgiler kötü amaçlı kişilerin yararlı olabileceği için sunucu ve benzer ayrıntıları, sunucu adı, kullanıcı adları, yollar hakkındaki bilgileri görmek için Web sitenizin ziyaretçileri istemezsiniz.
 3. Sayfayı kaydedin ve bir tarayıcıda çalıştırın.
 
@@ -119,7 +119,7 @@ Kodunuzda neler olduğunu görmek için başka bir sayfaya çıkış ifade katı
 
 ## <a name="using-debugging-tools-in-visual-studio"></a>Visual Studio'da hata ayıklama araçlarını kullanarak
 
-Daha kapsamlı bir hata ayıklama deneyimi için Visual Studio 2013 veya ücretsiz kullanmak [Visual Studio Express 2013 Web](https://www.visualstudio.com/downloads/download-visual-studio-vs#d-2013-express). Visual Studio ile incelemek istediğiniz satırı kodunuzda bir kesme noktası ayarlayabilirsiniz.
+Daha kapsamlı bir hata ayıklama deneyimi için kullanmak [Visual Studio](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017). Visual Studio ile incelemek istediğiniz satırı kodunuzda bir kesme noktası ayarlayabilirsiniz.
 
 ![kesme noktası Ayarla](introduction-to-debugging/_static/image1.png)
 

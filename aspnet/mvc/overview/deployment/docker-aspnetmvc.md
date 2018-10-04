@@ -7,12 +7,12 @@ author: BillWagner
 ms.author: wiwagn
 ms.date: 02/01/2017
 ms.assetid: c9f1d52c-b4bd-4b5d-b7f9-8f9ceaf778c4
-ms.openlocfilehash: c2374e7c9ac89c2af26436529c7fa58a2d2d6ba6
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 1343bd100f521326477ecd831aa627b4394bad44
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37814164"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48795359"
 ---
 # <a name="migrating-aspnet-mvc-applications-to-windows-containers"></a>ASP.NET MVC Uygulamalarını Windows Kapsayıcılarına Geçirme
 
@@ -35,11 +35,11 @@ Uygulamanızı taşımak için aşağıdaki adımları içerir:
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Geliştirme makinesi çalıştırılması gerekir
+Geliştirme makinesi aşağıdaki yazılımlar olmalıdır:
 
-- [Windows 10 Yıldönümü güncelleştirmesi](https://www.microsoft.com/software-download/windows10/) (veya üzeri) veya [Windows Server 2016](https://www.microsoft.com/cloud-platform/windows-server) (veya üzeri).
+- [Windows 10 Yıldönümü güncelleştirmesi](https://www.microsoft.com/software-download/windows10/) (veya üzeri) veya [Windows Server 2016](https://www.microsoft.com/cloud-platform/windows-server) (veya üzeri)
 - [Windows için docker](https://docs.docker.com/docker-for-windows/) -sürüm kararlı 1.13.0 veya 1.12 Beta 26 (veya daha yeni sürümleri)
-- [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx).
+- [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)
 
 > [!IMPORTANT]
 > Windows Server 2016'yı kullanıyorsanız, yönergelerini izleyin [kapsayıcı konağı dağıtma - Windows Server](https://msdn.microsoft.com/virtualization/windowscontainers/deployment/deployment).
@@ -114,7 +114,7 @@ docker run -d --name randomanswers mvcrandomanswers
 
 `-d` Docker görüntü ayrılmış modunda başlatmak için bağımsız değişken bildirir. Docker görüntüsünü geçerli kabuğundan bağlantısı kesilmiş çalıştıran anlamına gelir.
 
-Çoğu docker örneklerde - kapsayıcı ve konak bağlantı noktalarını eşleme p görebilirsiniz. Varsayılan ASP.NET görüntü zaten kapsayıcı 80 numaralı bağlantı noktasında dinleyecek ve bunu kullanıma şekilde yapılandırdı. 
+Çoğu docker örneklerde - kapsayıcı ve konak bağlantı noktalarını eşleme p görebilirsiniz. Varsayılan ASP.NET görüntü zaten kapsayıcı 80 numaralı bağlantı noktasında dinleyecek ve bunu kullanıma şekilde yapılandırdı.
 
 `--name randomanswers` Çalışan kapsayıcıya bir ad verir. Bu ad, komutların çoğu kapsayıcı kimliği yerine kullanabilirsiniz.
 

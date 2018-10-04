@@ -9,12 +9,12 @@ ms.date: 03/12/2010
 ms.technology: aspnet
 msc.legacyurl: ''
 msc.type: content
-ms.openlocfilehash: 5bdebcc226050afc2469840dc4a4dc97ec6b80b2
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 2dc48e1262b1807a77a9889f7e0e62c9b9ea463e
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41755342"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48794817"
 ---
 # <a name="aspnet-overview"></a>ASP.NET genel bakış
 
@@ -24,7 +24,7 @@ ASP.NET, harika Web siteleri ve HTML, CSS ve JavaScript kullanarak web uygulamal
 
 ## <a name="get-started"></a>Kullanmaya başlayın
 
-[Visual Studio Community 2017](https://www.visualstudio.com/downloads/), IDE Windows üzerinde ASP.NET için ücretsiz.
+Yükleme [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017) Community sürümü, Windows üzerinde ASP.NET için ücretsiz bir IDE.
 
 ## <a name="websites-and-web-applications"></a>Web siteleri ve web uygulamaları
 
@@ -34,7 +34,7 @@ Her bir çerçeve farklı geliştirme stili hedefler. Seçtiğiniz bir ölçüye
 
 Her çerçeveleri ve fikir edinmek için bunlar arasında seçim yapma hakkında genel bir bakış aşağıdadır. Bir tanıtım tercih ediyorsanız, bkz [ASP.NET ile Web siteleri yapmadan](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/Making-Websites-with-ASPNET) ve [Web Araçları nedir?](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/what-is-web-tools)
 
-|   | Deneyimi varsa | Geliştirme stili | Uzmanlığı | 
+|   | Deneyimi varsa | Geliştirme stili | Uzmanlığı |
 |-----------|----------------------|-----------------------------------------------------|----------------|
 | Web Forms | Win Forms, WPF, .NET | Zengin HTML biçimlendirmeyi kapsayan denetimleri kitaplığı kullanarak hızlı geliştirme | Orta düzey ve Gelişmiş RAD |
 | MVC       | Ruby on Rails .NET  | HTML biçimlendirme, kod ve ayrılmış ve testler yazmak kolay bir biçimlendirme üzerinde tam denetim sağlar. Mobil ve tek sayfa uygulamaları (SPA) için en iyi seçenektir. | Orta düzey ve Gelişmiş |
@@ -42,13 +42,13 @@ Her çerçeveleri ve fikir edinmek için bunlar arasında seçim yapma hakkında
 
 ### <a name="web-forms"></a>Web Forms
 
-ASP.NET Web Forms ile tanıdık bir Sürükle ve bırak, olay odaklı modeli kullanarak dinamik Web siteleri oluşturabilirsiniz. Bir tasarım yüzeyi ve denetimleri ve bileşenleri yüzlerce Gelişmiş, güçlü kullanıcı Arabirimi denetimli siteleri veri erişimi ile hızlı bir şekilde oluşturmanızı sağlar. 
+ASP.NET Web Forms ile tanıdık bir Sürükle ve bırak, olay odaklı modeli kullanarak dinamik Web siteleri oluşturabilirsiniz. Bir tasarım yüzeyi ve denetimleri ve bileşenleri yüzlerce Gelişmiş, güçlü kullanıcı Arabirimi denetimli siteleri veri erişimi ile hızlı bir şekilde oluşturmanızı sağlar.
 
 [Web Forms hakkında daha fazla bilgi edinin](web-forms/index.md)
 
 ### <a name="mvc"></a>MVC
 
-ASP.NET MVC, ilgilenilecek alanların temiz bir biçimde ayrılmasını sağlayan ve keyifli, Kıvrak bir geliştirme için işaretleme üzerinde tam denetim verir, dinamik Web siteleri oluşturmak için güçlü, desen tabanlı bir yöntem sağlar. ASP.NET MVC en son web standartlarını kullanan gelişmiş uygulamalar oluşturmaya yönelik hızlı, kolay TDD geliştirme sağlayan birçok özellik içerir. 
+ASP.NET MVC, ilgilenilecek alanların temiz bir biçimde ayrılmasını sağlayan ve keyifli, Kıvrak bir geliştirme için işaretleme üzerinde tam denetim verir, dinamik Web siteleri oluşturmak için güçlü, desen tabanlı bir yöntem sağlar. ASP.NET MVC en son web standartlarını kullanan gelişmiş uygulamalar oluşturmaya yönelik hızlı, kolay TDD geliştirme sağlayan birçok özellik içerir.
 
 [MVC hakkında daha fazla bilgi edinin](mvc/index.md)
 
@@ -80,7 +80,7 @@ ASP.NET SignalR geliştirme gerçek zamanlı web işlevselliği kolaylaştırır
 
 <!-- Put first under SignalR TOC:  Watch video (6 minutes) https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/signalr-and-the-real-time-web -->
 
-## <a name="mobile-apps-and-sites"></a>Mobil uygulamalar ve siteler 
+## <a name="mobile-apps-and-sites"></a>Mobil uygulamalar ve siteler
 
 ASP.NET Mobil web siteleri Twitter Bootstrap gibi esnek tasarım çerçeveleri kullanarak yanı sıra bir Web API arka ucu ile yerel mobil uygulamalar kapatabilirsiniz. Yerel bir mobil uygulaması oluşturuyorsanız JSON tabanlı bir Web API tanıtıcı veri erişimi, kimlik doğrulaması ve anında iletme bildirimleri için uygulamanızı oluşturmak kolay bir işlemdir. Hızlı yanıt veren bir mobil site oluşturuyorsanız herhangi bir CSS framework veya tercih ettiğiniz ya da jQuery Mobile veya Sencha ve PhoneGap ile harika mobil uygulamalar gibi güçlü bir mobil sistemi seçin açık kılavuz sistem kullanabilirsiniz.
 
@@ -88,7 +88,7 @@ ASP.NET Mobil web siteleri Twitter Bootstrap gibi esnek tasarım çerçeveleri k
 
 <!-- Put first under mobile TOC:  Watch video (11 minutes) https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-and-mobile -->
 
-## <a name="single-page-applications"></a>Tek sayfa uygulamaları 
+## <a name="single-page-applications"></a>Tek sayfa uygulamaları
 
 ASP.NET tek sayfalı uygulama (SPA) HTML 5, CSS 3 ve JavaScript kullanarak önemli istemci tarafı etkileşimler içeren uygulamaları oluşturmanıza yardımcı olur. Visual Studio knockout.js ve ASP.NET Web API'sini kullanarak tek sayfalı uygulamalar oluşturmaya yönelik bir şablonu içerir. Ek olarak yerleşik SPA şablonda, topluluk tarafından oluşturulan SPA şablonları indirmek için mevcuttur.
 

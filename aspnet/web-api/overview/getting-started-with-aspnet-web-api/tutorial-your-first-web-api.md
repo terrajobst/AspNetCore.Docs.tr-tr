@@ -7,12 +7,12 @@ ms.author: riande
 ms.date: 11/28/2017
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 14796ce31187a0f6a6331b46477fadc77e281c3b
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 62e99a41ba935470c39476c9aea8ee4193543425
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41752529"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48795299"
 ---
 <a name="get-started-with-aspnet-web-api-2-c"></a>ASP.NET Web API 2 (C#) ile çalışmaya başlama
 ====================
@@ -21,14 +21,13 @@ tarafından [Mike Wasson](https://github.com/MikeWasson)
 [Projeyi yükle](https://code.msdn.microsoft.com/Sample-code-of-Getting-c56ccb28)
 
 HTTP web sayfaları yalnızca hizmet vermek için değil. Ayrıca veri ve hizmetlerinizi kullanıma API'leri oluşturmaya yönelik güçlü bir platform HTTP'dir. Basit, esnek ve her yerde karşılaşılan HTTP'dir. İstemciler, tarayıcılar, mobil cihazları ve geleneksel masaüstü uygulamaları gibi çok geniş bir yelpazede HTTP Hizmetleri ulaşabilmeniz için bir HTTP kitaplığı kadar aklınıza gelebilecek neredeyse herhangi bir platform sahiptir.
- 
+
 ASP.NET Web API'si, .NET Framework üzerinde web API'leri oluşturmaya yönelik bir çerçevedir. Bu öğreticide, bir web ürünlerin listesini döndüren API oluşturmak için ASP.NET Web API kullanır.
 
- 
- ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
-  
- - [Visual Studio 2017](https://www.visualstudio.com/downloads/)
- - Web API 2
+## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
+
+- [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)
+- Web API 2
 
 Bkz: [ASP.NET Core ve Windows için Visual Studio ile web API'si oluşturma](https://docs.microsoft.com/aspnet/core/tutorials/first-web-api) Bu öğreticinin daha yeni bir sürümü için.
 
