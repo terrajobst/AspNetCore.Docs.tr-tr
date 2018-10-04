@@ -1,7 +1,7 @@
 ::: moniker range="= aspnetcore-2.0"
 
-<span data-ttu-id="0fbe2-101">Bu öğreticide ASP.NET Core 2.0 sürümünü bulunabilir [bu PDF dosyası](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/PDF-6-18-18.pdf).</span><span class="sxs-lookup"><span data-stu-id="0fbe2-101">The ASP.NET Core 2.0 version of this tutorial can be found in [this PDF file](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/PDF-6-18-18.pdf).</span></span>
+<span data-ttu-id="7c019-101">Bu öğreticide ASP.NET Core 2.0 sürümünü bulunabilir [bu PDF dosyası](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/PDF-6-18-18.pdf).</span><span class="sxs-lookup"><span data-stu-id="7c019-101">The ASP.NET Core 2.0 version of this tutorial can be found in [this PDF file](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/PDF-6-18-18.pdf).</span></span>
 
-<span data-ttu-id="0fbe2-102">Bu öğreticide, ASP.NET Core 2.1 sürümü 2.0 sürümünün üzerine birçok geliştirme vardır.</span><span class="sxs-lookup"><span data-stu-id="0fbe2-102">The ASP.NET Core 2.1 version of this tutorial has many improvements over the 2.0 version.</span></span>
+<span data-ttu-id="7c019-102">Bu öğreticide, ASP.NET Core 2.1 sürümü 2.0 sürümünün üzerine birçok geliştirme vardır.</span><span class="sxs-lookup"><span data-stu-id="7c019-102">The ASP.NET Core 2.1 version of this tutorial has many improvements over the 2.0 version.</span></span>
 
 ::: moniker-end
