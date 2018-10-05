@@ -8,16 +8,16 @@ ms.date: 11/07/2013
 ms.assetid: d031c021-33c2-45a5-bf9f-98f8fa78c2ab
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-middleware-in-the-iis-integrated-pipeline
 msc.type: authoredcontent
-ms.openlocfilehash: 56bd145688e1ab0a70710cc80cb8f5fa10ee8968
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 6124bcdaeeb0d4342cbde0d3ca52d55f76a953ab
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41753587"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48576476"
 ---
 <a name="owin-middleware-in-the-iis-integrated-pipeline"></a>IIS tümleşik işlem hattında OWIN ara yazılımı
 ====================
-tarafından [Praburaj Yöneticisi](https://github.com/Praburaj), [Rick Anderson](https://github.com/Rick-Anderson)
+tarafından [Praburaj Yöneticisi](https://github.com/Praburaj), [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Bu makale IIS tümleşik işlem hattında OWIN ara yazılımı bileşenleri (OMCs) çalıştırmayı öğrenin ve üzerinde çalıştığı işlem hattı olay bir OMC ayarlama. Gözden geçirmeniz gereken [bir genel bakış, Project Katana'ya](an-overview-of-project-katana.md) ve [OWIN başlangıç sınıfı algılama](owin-startup-class-detection.md) önce bu öğreticide okuma. Bu öğreticide, Rick Anderson tarafından yazılmış ( [ @RickAndMSFT ](https://twitter.com/#!/RickAndMSFT) ), Chris Ross Praburaj Yöneticisi ve Howard Dierking ( [ @howard \_dierking](https://twitter.com/howard_dierking) ).
 
