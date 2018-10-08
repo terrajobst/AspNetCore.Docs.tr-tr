@@ -3,14 +3,14 @@ title: ASP.NET Core’a Giriş
 author: rick-anderson
 description: Modern, bulut tabanlı, İnternet bağlantılı uygulamalar oluşturmaya yönelik platformlar arası, yüksek performanslı, açık kaynak bir çerçeve olan ASP.NET Core’a giriş yapın.
 ms.author: riande
-ms.date: 02/28/2018
+ms.date: 9/28/2018
 uid: index
-ms.openlocfilehash: 6de7f1bc8229c5de519e4064dda0a7061cf8b9c6
-ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
+ms.openlocfilehash: 85f2aa04e4b6692dd03a63f14bcebdec97ee270e
+ms.sourcegitcommit: 32f5ee0690604d451f61e9a5c28881c9fcf85738
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37077718"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47454784"
 ---
 # <a name="introduction-to-aspnet-core"></a>ASP.NET Core’a Giriş
 
@@ -39,8 +39,6 @@ ASP.NET Core aşağıdaki avantajları sağlar:
 * Modern web geliştirmeyi basitleştiren araçlar.
 * Windows, macOS ve Linux üzerinde derleyip çalıştırma olanağı.
 * Açık kaynak ve [topluluk odaklı](https://live.asp.net/).
-
-ASP.NET Core tamamen [NuGet](https://www.nuget.org/) paketleri olarak sunulur. NuGet paketlerinin kullanılması, uygulamanızı yalnızca gerekli bağımlılıkları içerecek şekilde iyileştirmenize imkan sağlar. Aslına bakılırsa, .NET Core’u hedefleyen ASP.NET Core 2.x uygulamaları yalnızca [tek bir NuGet paketi](xref:fundamentals/metapackage) gerektirir. Uygulama yüzeyinin dar olmasının daha sıkı güvenlik, daha az bakım ve gelişmiş performans gibi avantajları vardır.
 
 ## <a name="build-web-apis-and-web-ui-using-aspnet-core-mvc"></a>ASP.NET Core MVC kullanarak web API'leri ve web kullanıcı arabirimi oluşturma
 
@@ -78,5 +76,6 @@ Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 * [Razor Sayfaları kullanmaya başlama](xref:tutorials/razor-pages/razor-pages-start)
 * [ASP.NET Core öğreticileri](xref:tutorials/index)
+* <xref:tutorials/publish-to-azure-webapp-using-vs>
 * [ASP.NET Core temelleri](xref:fundamentals/index)
 * [Haftalık ASP.NET topluluğu toplantısında](https://live.asp.net/), takımın ilerleme durumu ve planları ele alınır. Yeni bloglara ve üçüncü taraf yazılıma yer verilir.
