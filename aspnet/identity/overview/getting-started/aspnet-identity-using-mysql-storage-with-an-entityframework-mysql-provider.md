@@ -8,12 +8,12 @@ ms.date: 12/10/2013
 ms.assetid: 15253312-a92c-43ba-908e-b5dacd3d08b8
 msc.legacyurl: /identity/overview/getting-started/aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider
 msc.type: authoredcontent
-ms.openlocfilehash: 3856b40b31a3deb6ad1c6c5d2cd678e183f012d7
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: f510c9bcaf83c6a68e835a7d82555653459df856
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41752393"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912377"
 ---
 <a name="aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider-c"></a>ASP.NET Identity: (C#) bir EntityFramework MySQL sağlayıcısı ile MySQL depolama kullanma
 ====================
@@ -34,47 +34,39 @@ Bu öğreticinin sonunda, Azure'da barındırılan bir MySQL veritabanını kull
 ## <a name="creating-a-mysql-database-instance-on-azure"></a>Azure üzerinde MySQL veritabanı örneği oluşturma
 
 1. Oturum [Azure portalında](https://go.microsoft.com/fwlink/?linkid=529715&amp;clcid=0x409).
-2. Tıklayın **yeni** sayfasına tıklayın ve ardından sayfanın alt kısmında **deposu**:  
-  
+2. Tıklayın **yeni** sayfasına tıklayın ve ardından sayfanın alt kısmında **deposu**:
+
     [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image2.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image1.png)
-3. İçinde **seçin ve eklentinin** seçin **ClearDB MySQL veritabanı**ve ardından **sonraki** çerçevenin altta bulunan oka:  
-  
-   [Genişletmek için aşağıdaki görüntüye tıklayın. ]  
-    [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image4.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image3.png)
-4. Varsayılan tutun **ücretsiz** planlayın, değiştirme **adı** için **IdentityMySQLDatabase**en yakın olan bölgeyi seçin ve ardından **sonraki** çerçevenin altta bulunan oka:  
-  
-   [Genişletmek için aşağıdaki görüntüye tıklayın. ]  
-    [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image6.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image5.png)
-5. Tıklayın **satın alma** veritabanını oluşturmayı tamamlamak için onay işareti.  
-  
-   [Genişletmek için aşağıdaki görüntüye tıklayın. ]  
-    [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image8.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image7.png)
-6. Veritabanınız oluşturulduktan sonra buradan yönetebilirsiniz **eklentileri** Yönetim Portalı'nda sekmesi. Veritabanınız için bağlantı bilgilerini almak için tıklayın **bağlantı bilgisi** sayfanın alt kısmındaki:  
-  
-   [Genişletmek için aşağıdaki görüntüye tıklayın. ]  
-    [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image10.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image9.png)
-7. Tarafından Kopyala düğmesine tıklayarak bağlantı dizesini kopyalayın **CONNECTIONSTRING** alan ve kaydedin; MVC uygulama için bu öğreticinin sonraki adımlarında bu bilgileri kullanın:  
-  
-   [Genişletmek için aşağıdaki görüntüye tıklayın. ]  
-    [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image12.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image11.png)
+3. İçinde **seçin ve eklentinin** seçin **ClearDB MySQL veritabanı**ve ardından **sonraki** çerçevenin altta bulunan oka:
+
+   [Genişletmek için aşağıdaki görüntüye tıklayın. ] [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image4.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image3.png)
+4. Varsayılan tutun **ücretsiz** planlayın, değiştirme **adı** için **IdentityMySQLDatabase**en yakın olan bölgeyi seçin ve ardından **sonraki** çerçevenin altta bulunan oka:
+
+   [Genişletmek için aşağıdaki görüntüye tıklayın. ] [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image6.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image5.png)
+5. Tıklayın **satın alma** veritabanını oluşturmayı tamamlamak için onay işareti.
+
+   [Genişletmek için aşağıdaki görüntüye tıklayın. ] [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image8.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image7.png)
+6. Veritabanınız oluşturulduktan sonra buradan yönetebilirsiniz **eklentileri** Yönetim Portalı'nda sekmesi. Veritabanınız için bağlantı bilgilerini almak için tıklayın **bağlantı bilgisi** sayfanın alt kısmındaki:
+
+   [Genişletmek için aşağıdaki görüntüye tıklayın. ] [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image10.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image9.png)
+7. Tarafından Kopyala düğmesine tıklayarak bağlantı dizesini kopyalayın **CONNECTIONSTRING** alan ve kaydedin; MVC uygulama için bu öğreticinin sonraki adımlarında bu bilgileri kullanın:
+
+   [Genişletmek için aşağıdaki görüntüye tıklayın. ] [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image12.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image11.png)
 
 ## <a name="creating-an-mvc-application-project"></a>Bir MVC uygulaması projesi oluşturma
 
 Öğreticinin bu bölümünde adımları tamamlamak için önce yüklemeniz gerekir [Visual Studio Express 2013 Web](https://go.microsoft.com/fwlink/?LinkId=299058) veya [Visual Studio 2013](https://go.microsoft.com/fwlink/?LinkId=306566). Visual Studio yüklendikten sonra yeni bir MVC uygulaması projesi oluşturmak için aşağıdaki adımları kullanın:
 
 1. Visual Studio 2103 açın.
-2. Tıklayın **yeni proje** gelen **Başlat** sayfası veya tıklayabilirsiniz **dosya** menüsünü ve ardından **yeni proje**:  
-  
-   [Genişletmek için aşağıdaki görüntüye tıklayın. ]  
-    [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image2.jpg)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image1.jpg)
-3. Zaman **yeni proje** iletişim kutusu görüntülenir, genişletme **Visual C#** şablonları listesinde, ardından **Web**seçip **ASP.NET Web uygulaması**. Projenizi adlandırın **IdentityMySQLDemo** ve ardından **Tamam**:  
-  
-   [Genişletmek için aşağıdaki görüntüye tıklayın. ]  
-    [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image14.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image13.png)
-4. İçinde **yeni ASP.NET projesi** iletişim kutusunda **MVC** templatewith varsayılan seçenekleri; bu işlem yapılandırma **bireysel kullanıcı hesapları** kimlik doğrulama yöntemi olarak. Tıklayın **Tamam**:  
-  
-   [Genişletmek için aşağıdaki görüntüye tıklayın. ]  
-    [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image16.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image15.png)
+2. Tıklayın **yeni proje** gelen **Başlat** sayfası veya tıklayabilirsiniz **dosya** menüsünü ve ardından **yeni proje**:
+
+   [Genişletmek için aşağıdaki görüntüye tıklayın. ] [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image2.jpg)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image1.jpg)
+3. Zaman **yeni proje** iletişim kutusu görüntülenir, genişletme **Visual C#** şablonları listesinde, ardından **Web**seçip **ASP.NET Web uygulaması**. Projenizi adlandırın **IdentityMySQLDemo** ve ardından **Tamam**:
+
+   [Genişletmek için aşağıdaki görüntüye tıklayın. ] [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image14.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image13.png)
+4. İçinde **yeni ASP.NET projesi** iletişim kutusunda **MVC** templatewith varsayılan seçenekleri; bu işlem yapılandırma **bireysel kullanıcı hesapları** kimlik doğrulama yöntemi olarak. Tıklayın **Tamam**:
+
+   [Genişletmek için aşağıdaki görüntüye tıklayın. ] [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image16.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image15.png)
 
 ## <a name="configure-entityframework-to-work-with-a-mysql-database"></a>EntityFramework MySQL veritabanı ile çalışmak üzere yapılandırın
 
@@ -82,15 +74,13 @@ Bu öğreticinin sonunda, Azure'da barındırılan bir MySQL veritabanını kull
 
 Visual Studio 2013 şablondan oluşturulmuş bir MVC uygulaması için başvuru içerir [EntityFramework 6.0.0'dan](http://www.nuget.org/packages/EntityFramework) paketini, ancak sahip içeren derlemeye kendi sürümden sonraki güncelleştirmeleri önemli bırakıldı performans iyileştirmeleri. Bu en son güncelleştirmeler, uygulamanızda kullanmak için aşağıdaki adımları kullanın.
 
-1. Visual Studio 2013'te MVC projenizi açın.
-2. Tıklayın **Araçları**, ardından **kitaplık Paket Yöneticisi**ve ardından **Paket Yöneticisi Konsolu**:  
-  
-   [Genişletmek için aşağıdaki görüntüye tıklayın. ]  
-    [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image18.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image17.png)
-3. **Paket Yöneticisi Konsolu** Visual Studio'nun alt kısmında görünür. Tür &quot; **Update-Package EntityFramework** &quot; ve Enter tuşuna basın:  
-  
-   [Genişletmek için aşağıdaki görüntüye tıklayın. ]  
-    [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image20.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image19.png)
+1. MVC projenizi Visual Studio'da açın.
+2. Tıklayın **Araçları**, ardından **NuGet Paket Yöneticisi**ve ardından **Paket Yöneticisi Konsolu**:
+
+   [Genişletmek için aşağıdaki görüntüye tıklayın. ] [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image18.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image17.png)
+3. **Paket Yöneticisi Konsolu** Visual Studio'nun alt kısmında görünür. Tür &quot; **Update-Package EntityFramework** &quot; ve Enter tuşuna basın:
+
+   [Genişletmek için aşağıdaki görüntüye tıklayın. ] [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image20.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image19.png)
 
 ### <a name="install-the-mysql-provider-for-entityframework"></a>EntityFramework MySQL sağlayıcısı yükleyin
 
@@ -100,8 +90,8 @@ EntityFramework MySQL veritabanına bağlanmak bir MySQL sağlayıcısı yüklem
 > Bu derleme yayın öncesi sürümü olduğu ve bu nedenle hataları içerebilir. Provider'ın yayım öncesi sürümü üretim ortamında kullanmamalısınız.
 
 
-[Genişletmek için aşağıdaki görüntüye tıklayın.]  
-  
+[Genişletmek için aşağıdaki görüntüye tıklayın.]
+
 [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image22.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image21.png)
 
 ### <a name="making-project-configuration-changes-to-the-webconfig-file-for-your-application"></a>Uygulamanız için Web.config dosyasının proje yapılandırma değişiklikleri yapma
@@ -116,7 +106,7 @@ Bu bölümde, yeni yüklediğiniz MySQL sağlayıcısı kullanmak için Entity F
 2. Fabrika ve varsayılan veritabanı sağlayıcısı için Entity Framework tanımlamak aşağıdaki yapılandırma ayarları bulun:
 
     [!code-xml[Main](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/samples/sample1.xml)]
-3. Bu yapılandırma ayarlarını ve MySQL sağlayıcıyı kullanmak için Entity Framework yapılandıracağınız aşağıdaki ile değiştirin: 
+3. Bu yapılandırma ayarlarını ve MySQL sağlayıcıyı kullanmak için Entity Framework yapılandıracağınız aşağıdaki ile değiştirin:
 
     [!code-xml[Main](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/samples/sample2.xml)]
 4. Bulun &lt;connectionStrings&gt; bölümünde ve Azure'da barındırılan, MySQL veritabanı için bağlantı dizesini tanımlar aşağıdaki kod ile değiştirin (providerName değeri de değiştirilmiştir olduğunu unutmayın. özgün):
@@ -144,10 +134,10 @@ Model başlatıcılar veritabanına bağlanmak için kullanılacak ihtiyacınız
 
 MySQL için özel bir varlık çerçevesi Başlatıcı oluşturmak için aşağıdaki adımları kullanın:
 
-1. Adlı yeni bir sınıf dosyası ekleyin **MySqlInitializer.cs** içeriğini aşağıdaki kodla proje ve Değiştir olduğu: 
+1. Adlı yeni bir sınıf dosyası ekleyin **MySqlInitializer.cs** içeriğini aşağıdaki kodla proje ve Değiştir olduğu:
 
     [!code-csharp[Main](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/samples/sample6.cs?highlight=23)]
-2. Açık **IdentityModels.cs** bulunan projeniz için dosya **modelleri** dizin ve onun içeriğini aşağıdakiyle değiştirin: 
+2. Açık **IdentityModels.cs** bulunan projeniz için dosya **modelleri** dizin ve onun içeriğini aşağıdakiyle değiştirin:
 
     [!code-csharp[Main](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/samples/sample7.cs)]
 
@@ -156,18 +146,15 @@ MySQL için özel bir varlık çerçevesi Başlatıcı oluşturmak için aşağ�
 Önceki bölümlerde yer alan adımları tamamladıktan sonra veritabanınızı test etmeniz gerekir. Bunu yapmak için aşağıdaki adımları kullanın:
 
 1. Tuşuna **Ctrl + F5 tuşlarına basarak** web uygulaması derleme ve çalıştırma için.
-2. Tıklayın **kaydetme** sayfanın üst kısmındaki sekme:  
-  
-   [Genişletmek için aşağıdaki görüntüye tıklayın. ]  
-    [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image4.jpg)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image3.jpg)
-3. Yeni kullanıcı adı ve parola girin ve ardından **kaydetme**:  
-  
-   [Genişletmek için aşağıdaki görüntüye tıklayın. ]  
-    [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image24.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image23.png)
-4. Bu noktada ASP.NET Identity tabloları üzerinde MySQL veritabanı oluşturulur ve kullanıcı kayıtlı ve uygulamaya oturum:  
-  
-   [Genişletmek için aşağıdaki görüntüye tıklayın. ]  
-    [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image6.jpg)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image5.jpg)
+2. Tıklayın **kaydetme** sayfanın üst kısmındaki sekme:
+
+   [Genişletmek için aşağıdaki görüntüye tıklayın. ] [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image4.jpg)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image3.jpg)
+3. Yeni kullanıcı adı ve parola girin ve ardından **kaydetme**:
+
+   [Genişletmek için aşağıdaki görüntüye tıklayın. ] [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image24.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image23.png)
+4. Bu noktada ASP.NET Identity tabloları üzerinde MySQL veritabanı oluşturulur ve kullanıcı kayıtlı ve uygulamaya oturum:
+
+   [Genişletmek için aşağıdaki görüntüye tıklayın. ] [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image6.jpg)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image5.jpg)
 
 ### <a name="installing-mysql-workbench-tool-to-verify-the-data"></a>Verileri doğrulamak için MySQL Workbench aracını yükleme
 
@@ -175,11 +162,9 @@ MySQL için özel bir varlık çerçevesi Başlatıcı oluşturmak için aşağ�
 2. Yükleme Sihirbazı: **özellik seçimi** sekmesinde **MySQL Workbench** altında **uygulamaları** bölümü.
 3. Uygulamayı başlatın ve begging Bu öğretici oluşturduğunuz Azure MySQL veritabanı bağlantı dizesi verilerini kullanarak yeni bir bağlantı ekleyin.
 4. Bağlantı kurulduktan sonra İnceleme **ASP.NET Identity** üzerinde oluşturulan tablolar **IdentityMySQLDatabase.**
-5. Tüm ASP.NET Identity tablolarının oluşturulması aşağıdaki resimde gösterildiği gibi gerekli olduğunu görürsünüz:  
-  
-   [Genişletmek için aşağıdaki görüntüye tıklayın. ]  
-    [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image8.jpg)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image7.jpg)
-6. İnceleme **aspnetusers** tablo örneği için yeni kullanıcılar kaydetme gibi girişler için denetlenecek.  
-  
-   [Genişletmek için aşağıdaki görüntüye tıklayın. ]  
-    [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image26.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image25.png)
+5. Tüm ASP.NET Identity tablolarının oluşturulması aşağıdaki resimde gösterildiği gibi gerekli olduğunu görürsünüz:
+
+   [Genişletmek için aşağıdaki görüntüye tıklayın. ] [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image8.jpg)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image7.jpg)
+6. İnceleme **aspnetusers** tablo örneği için yeni kullanıcılar kaydetme gibi girişler için denetlenecek.
+
+   [Genişletmek için aşağıdaki görüntüye tıklayın. ] [![](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image26.png)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider/_static/image25.png)

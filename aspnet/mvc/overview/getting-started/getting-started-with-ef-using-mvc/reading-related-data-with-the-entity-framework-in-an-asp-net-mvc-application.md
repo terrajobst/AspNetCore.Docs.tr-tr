@@ -8,20 +8,20 @@ ms.date: 11/07/2014
 ms.assetid: 18cdd896-8ed9-4547-b143-114711e3eafb
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 16bef0094406f3f45307eabd19c0872e90ecf7ef
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 18d3720f891e2356af42b58389776f2d04eee39d
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41752781"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913209"
 ---
 <a name="reading-related-data-with-the-entity-framework-in-an-aspnet-mvc-application"></a>İlgili varlık Çerçevesi'nde bir ASP.NET MVC uygulaması ile verilerini okuma
 ====================
 tarafından [Tom Dykstra](https://github.com/tdykstra)
 
-[Tamamlanmış projeyi indirmek](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8) veya [PDF olarak indirin](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
+[Projeyi yükle](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
-> Contoso University örnek web uygulaması Entity Framework 6 Code First ve Visual Studio 2013 kullanarak ASP.NET MVC 5 uygulamalarının nasıl oluşturulacağını gösterir. Öğretici serisinin hakkında daha fazla bilgi için bkz. [serideki ilk öğreticide](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
+> Contoso University örnek web uygulaması Entity Framework 6 Code First ve Visual Studio kullanarak ASP.NET MVC 5 uygulamalarının nasıl oluşturulacağını gösterir. Öğretici serisinin hakkında daha fazla bilgi için bkz. [serideki ilk öğreticide](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 
 
 Önceki öğreticide Okul veri modeli tamamlandı. Bu öğreticide okuma ve ilgili verileri görüntüleyen — diğer bir deyişle, Entity Framework Gezinti özelliklerini yükler veri.
@@ -36,7 +36,7 @@ Aşağıdaki çizimler ile çalışmak sayfaları göstermektedir.
 
 Entity Framework Gezinti özelliklerini bir varlığın ilgili verileri yükleyebilir birkaç yolu vardır:
 
-- *Yavaş Yükleniyor*. Varlığın ilk okunduğunda, ilgili verileri alınan değil. Ancak, bir gezinti özelliği erişmeye ilk kez otomatik olarak bu gezinti özelliği için gerekli olan veriler alınır. Birden çok sorgu veritabanına gönderilen sonuçlanır — varlık biri ilgili varlık için veriler her zaman alınması gerekir. `DbContext` Sınıfı varsayılan olarak yavaş yüklenmesini sağlar. 
+- *Yavaş Yükleniyor*. Varlığın ilk okunduğunda, ilgili verileri alınan değil. Ancak, bir gezinti özelliği erişmeye ilk kez otomatik olarak bu gezinti özelliği için gerekli olan veriler alınır. Birden çok sorgu veritabanına gönderilen sonuçlanır — varlık biri ilgili varlık için veriler her zaman alınması gerekir. `DbContext` Sınıfı varsayılan olarak yavaş yüklenmesini sağlar.
 
     ![Lazy_loading_example](https://asp.net/media/2577850/Windows-Live-Writer_Reading-Re.NET-MVC-Application-5-of-10h1_ADC3_Lazy_loading_example_2c44eabb-5fd3-485a-837d-8e3d053f2c0c.png)
 - *İstekli yükleme*. Varlık okunduğunda, onunla birlikte ilgili verileri alınır. Bu, tek bir birleşim sorguda tüm gerekli olan verileri alır. genellikle sonuçlanır. İstekli yükleme kullanarak belirttiğiniz `Include` yöntemi.
@@ -69,7 +69,7 @@ Dto'lar kullanmazsanız, yavaş yükleme devre dışı bırakabilir ve proxy sor
 Diğer bir kısmının işte [Gecikmeli yüklemeyi devre dışı yolları](https://msdn.microsoft.com/data/jj574232):
 
 - Belirli bir gezinti özelliklerini atlamak `virtual` özelliği bildirdiğinizde anahtar sözcüğü.
-- Tüm gezinti özelliklerini ayarlama `LazyLoadingEnabled` için `false`, aşağıdaki kod, bağlam sınıfın oluşturucusunda yerleştirin: 
+- Tüm gezinti özelliklerini ayarlama `LazyLoadingEnabled` için `false`, aşağıdaki kod, bağlam sınıfın oluşturucusunda yerleştirin:
 
     [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs)]
 
@@ -183,10 +183,10 @@ Varolan kodu aşağıdaki değişiklikler yaptınız:
 
 - Model sınıfı için değiştirilen `InstructorIndexData`.
 - Sayfa başlığı değiştirilen **dizin** için **Eğitmenler**.
-- Eklenen bir **Office** görüntüleyen sütun `item.OfficeAssignment.Location` yalnızca `item.OfficeAssignment` null değil. (Bu bir sıfır-veya-bir ilişkisi olduğundan, olmayabilir ilgili `OfficeAssignment` varlık.) 
+- Eklenen bir **Office** görüntüleyen sütun `item.OfficeAssignment.Location` yalnızca `item.OfficeAssignment` null değil. (Bu bir sıfır-veya-bir ilişkisi olduğundan, olmayabilir ilgili `OfficeAssignment` varlık.)
 
     [!code-cshtml[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample16.cshtml)]
-- Dinamik olarak ekleyeceğiniz eklenen kodu `class="success"` için `tr` seçili Eğitmen öğesidir. Bu ayarlar kullanarak seçili satır için arka plan rengi bir [önyükleme](../../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#bootstrap) sınıfı. 
+- Dinamik olarak ekleyeceğiniz eklenen kodu `class="success"` için `tr` seçili Eğitmen öğesidir. Bu ayarlar kullanarak seçili satır için arka plan rengi bir [önyükleme](../../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#bootstrap) sınıfı.
 
     [!code-cshtml[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample17.cshtml)]
 - Yeni eklenen `ActionLink` etiketli **seçin** hemen diğer bağlantıları önce her bir satırdaki neden olan gönderilmesini seçili Eğitmen kimliği `Index` yöntemi.
@@ -243,7 +243,7 @@ Eğitmen dizin sayfası artık çalıştırın ve verileri nasıl alınır deği
 
 Şimdi, ilgili verileri Gezinti özelliklerini yüklemek için tüm üç yol (lazy, duymayı ve açık) kullandınız. Sonraki öğreticide ilgili verileri güncelleştirme öğreneceksiniz.
 
-Lütfen bu öğreticide sevmediğinizi nasıl ve ne geliştirebileceğimiz hakkında geri bildirim bırakın. Yeni konuları da isteyebilirsiniz [Show Me nasıl ile kod](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code).
+Lütfen bu öğreticide sevmediğinizi nasıl ve ne geliştirebileceğimiz hakkında geri bildirim bırakın.
 
 Entity Framework diğer kaynakların bağlantılarını bulunabilir [ASP.NET veri erişimi - önerilen kaynaklar](../../../../whitepapers/aspnet-data-access-content-map.md).
 

@@ -8,40 +8,40 @@ ms.date: 06/10/2014
 ms.assetid: 03960de2-8d95-4444-9169-4426dcc64913
 msc.legacyurl: /signalr/overview/guide-to-the-api/handling-connection-lifetime-events
 msc.type: authoredcontent
-ms.openlocfilehash: 42cf7faf9112875e15072993b6210348d0c42534
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 1783a3ab292a5460d5cc1b7ad78073071d65d379
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41755320"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911962"
 ---
 <a name="understanding-and-handling-connection-lifetime-events-in-signalr"></a>Anlama ve signalr'da bağlantı ömrü olaylarını işleme
 ====================
 tarafından [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](https://github.com/tdykstra)
 
 > Bu makalede başa çıkabilir SignalR bağlantı yeniden bağlanma ve bağlantıyı kesme olaylarını ve yapılandırabileceğiniz zaman aşımı ve keepalive ayarları genel bir bakış sağlar.
-> 
+>
 > SignalR ve bağlantı ömrü olaylarını biraz bilgi zaten sahip olduğunuz varsayılır. Signalr'a giriş için bkz [signalr'a giriş](../getting-started/introduction-to-signalr.md). Bağlantı ömrü olaylarını bir listesi için aşağıdaki kaynaklara bakın:
-> 
+>
 > - [Hub sınıfında bağlantı ömrü olaylarını işlemek nasıl](hubs-api-guide-server.md#connectionlifetime)
 > - [JavaScript istemcilerinin bağlantı ömrü olaylarını işlemek nasıl](hubs-api-guide-javascript-client.md#connectionlifetime)
 > - [.NET istemcileri bağlantı ömrü olaylarını işlemek nasıl](hubs-api-guide-net-client.md#connectionlifetime)
-> 
+>
 > ## <a name="software-versions-used-in-this-topic"></a>Bu konu başlığında kullanılan yazılım sürümleri
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
 > - SignalR sürüm 2
->   
-> 
-> 
+>
+>
+>
 > ## <a name="previous-versions-of-this-topic"></a>Bu konunun önceki sürümleri
-> 
+>
 > SignalR eski sürümleri hakkında daha fazla bilgi için bkz: [SignalR eski sürümleri](../older-versions/index.md).
-> 
+>
 > ## <a name="questions-and-comments"></a>Sorularınız ve yorumlarınız
-> 
+>
 > Lütfen bu öğreticide sevmediğinizi nasıl ve ne sayfanın alt kısmındaki açıklamalarda geliştirebileceğimiz hakkında geri bildirim bırakın. Öğretici için doğrudan ilgili olmayan sorularınız varsa, bunları gönderebilir [ASP.NET SignalR Forumu](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) veya [StackOverflow.com](http://stackoverflow.com/).
 
 
@@ -144,8 +144,8 @@ Taşıma API'si tarafından algılanmayan ve keepalive ping keepalive zaman aş�
 
 Bazı ağ ortamları boşta kalan bağlantıların kasıtlı olarak kapatın ve bu ağların bir SignalR bağlantısı kullanımda almayacağınızı tarafından bu önlemeye yardımcı olmak için keepalive paketlerinin başka bir işlev. Aşırı durumlarda varsayılan keepalive ping sıklığını kapalı bağlantılarını önlemek için yeterli olmayabilir. Bu durumda, daha sık gönderilmesini keepalive ping yapılandırabilirsiniz. Daha fazla bilgi için [zaman aşımı ve keepalive ayarları](#timeoutkeepalive) bu konuda.
 
-> [!NOTE] 
-> 
+> [!NOTE]
+>
 > **Önemli**: Burada açıklanan olayların sırasını garanti edilmez. SignalR bağlantı ömrü olaylarını bu düzene göre öngörülebilir bir şekilde yükseltmek için her girişimlerde bulunur, ancak ağ olayları çeşitli kullanımları ve hangi aktarım API'leri gibi temel iletişim çerçeveleri bunları işlemesi birçok yolu vardır. Örneğin, `Reconnected` istemci bağlandığında, olay oluşmayabilir veya `OnConnected` işleyici sunucudaki bağlantı girişimi başarısız olduğunda çalıştırabilirsiniz. Bu konuda, genellikle bazı tipik durumlarda tarafından üretilen etkileri açıklanmaktadır.
 
 

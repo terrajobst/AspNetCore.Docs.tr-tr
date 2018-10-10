@@ -8,12 +8,12 @@ ms.date: 10/17/2013
 ms.assetid: db0d02d9-58e8-4a0b-8d7d-b8df8ea97b88
 msc.legacyurl: /mvc/overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: d6fb40741c5f7b992e907a462ac92972fe603624
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 2566e201e44ccd9642abda7c7996056c73178fd6
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48578373"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912858"
 ---
 <a name="how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2"></a>Bir ASP.NET MVC 4 ve Web API projelerini ASP.NET MVC 5 ve Web API 2 sürümüne yükseltme yapmayı
 ====================
@@ -71,8 +71,8 @@ Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
     > Microsoft Web Yardımcıları Microsoft.AspNet.WebHelpers ile değiştirilmiştir. İlk olarak eski paketi kaldırın ve sonra yeni paketi yükleyin.   
     >   
     > Önemli ASP.NET paketleri arasında hiçbir çapraz sürüm uyumluluğu yoktur. Örneğin, MVC 5 yalnızca Razor 3 ve değil Razor 2 ile uyumludur.
-4. Projenizi Visual Studio 2013'te açın.
-5. Yüklenen aşağıdaki ASP.NET NuGet paketlerinden birini kaldırın. Bu paket Yöneticisi Konsolu (PMC'yi) kullanarak kaldırır. PMC'yi açın, seçin **Araçları** menüsünü ve ardından **kitaplık Paket Yöneticisi** seçip **Paket Yöneticisi Konsolu**. Projenizi bunların hepsini içermeyebilir.
+4. Projenizi Visual Studio'da açın.
+5. Yüklenen aşağıdaki ASP.NET NuGet paketlerinden birini kaldırın. Bu paket Yöneticisi Konsolu (PMC'yi) kullanarak kaldırır. PMC'yi açın, seçin **Araçları** menüsünü ve ardından **NuGet Paket Yöneticisi** seçip **Paket Yöneticisi Konsolu**. Projenizi bunların hepsini içermeyebilir.
 
     1. `Microsoft.AspNet.WebPages.Administration`  
    Bu paket, MVC 3'ten MVC 4'e yükseltirken genellikle eklenir. Kaldırmak için PMC'de aşağıdaki komutu çalıştırın:  

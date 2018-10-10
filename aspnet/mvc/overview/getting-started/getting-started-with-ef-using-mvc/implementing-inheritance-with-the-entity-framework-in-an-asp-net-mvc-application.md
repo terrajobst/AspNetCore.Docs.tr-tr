@@ -8,20 +8,20 @@ ms.date: 11/07/2014
 ms.assetid: 08834147-77ec-454a-bb7a-d931d2a40dab
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 9bfe860761a18cb4a69d33336d64a169e3c834f9
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 613494d58d7652f69a52241bcd3a7e896bc5407c
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41755858"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912715"
 ---
 <a name="implementing-inheritance-with-the-entity-framework-6-in-an-aspnet-mvc-5-application-11-of-12"></a>Bir ASP.NET MVC 5 uygulamasında (11, 12) devralma Entity Framework 6 ile uygulama
 ====================
 tarafından [Tom Dykstra](https://github.com/tdykstra)
 
-[Tamamlanmış projeyi indirmek](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8) veya [PDF olarak indirin](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
+[Projeyi yükle](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
-> Contoso University örnek web uygulaması Entity Framework 6 Code First ve Visual Studio 2013 kullanarak ASP.NET MVC 5 uygulamalarının nasıl oluşturulacağını gösterir. Öğretici serisinin hakkında daha fazla bilgi için bkz. [serideki ilk öğreticide](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
+> Contoso University örnek web uygulaması Entity Framework 6 Code First ve Visual Studio kullanarak ASP.NET MVC 5 uygulamalarının nasıl oluşturulacağını gösterir. Öğretici serisinin hakkında daha fazla bilgi için bkz. [serideki ilk öğreticide](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 
 
 Önceki öğreticide eşzamanlılık özel durumları işlenir. Bu öğreticide, veri modelinde devralma uygulanması gösterilmektedir.
@@ -116,9 +116,9 @@ Bu kod aşağıdaki veritabanı güncelleştirme görevleri üstlenir:
 
 > [!NOTE]
 > Veri ve yapma şema değişiklikleri geçiş sırasında diğer hatalarıyla mümkündür. Geçiş hatalarla karşılaşırsanız, çözümleyemiyor, devam ederek öğreticiyle bağlantı dizesini değiştirerek *Web.config* dosya veya veritabanı silerek. Veritabanında yeniden adlandırmak için en basit yaklaşımdır *Web.config* dosya. Örneğin, veritabanı adını ContosoUniversity2 için aşağıdaki örnekte gösterildiği gibi değiştirin:
-> 
+>
 > [!code-xml[Main](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample6.xml?highlight=2)]
-> 
+>
 > Yeni bir veritabanı ile geçirmek için veri yoktur ve `update-database` hatasız tamamlanması çok daha büyük olasılıkla komutu. Veritabanı silme hakkında yönergeler için bkz: [Visual Studio 2012'den bir veritabanını bırakmak nasıl](http://romiller.com/2013/05/17/how-to-drop-a-database-from-visual-studio-2012/). Öğretici ile devam etmek için bu yaklaşımı benimsemeniz durumunda, bu öğreticinin sonunda dağıtım adımı atlayın veya yeni site ve veritabanı'na dağıtın. Bir güncelleştirme zaten dağıtım siteye dağıtırsanız, EF geçişleri otomatik olarak çalıştığında aynı hatayı alırsınız. Geçişleri hatayı gidermek, en iyi bir Entity Framework forumları veya StackOverflow.com kaynaktır.
 
 
@@ -142,13 +142,13 @@ Aşağıdaki diyagram, yeni School veritabanını yapısını gösterir:
 
 Bu bölümde isteğe bağlı tamamlamış olmanız gerekir **uygulamasını Azure'a dağıtma** konusundaki [bölüm 3, sıralama, filtreleme ve sayfalama](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application.md) Bu öğretici serisinin. Veritabanı yerel projenizdeki silerek çözümlenen geçişleri hatasız tamamlanırsa, bu adımı atlayın; veya yeni site ve veritabanı oluşturun ve yeni ortama dağıtın.
 
-1. Visual Studio'da projeye sağ **Çözüm Gezgini** seçip **Yayımla** bağlam menüsünden.  
-  
+1. Visual Studio'da projeye sağ **Çözüm Gezgini** seçip **Yayımla** bağlam menüsünden.
+
     ![Proje bağlam menüsünde Yayımla](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image8.png)
-2. Tıklayın **yayımlama**.  
-  
-    ![Yayımlama](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image9.png)  
-  
+2. Tıklayın **yayımlama**.
+
+    ![Yayımlama](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image9.png)
+
    Web uygulamasını varsayılan tarayıcınızda açılır.
 3. Bunu doğrulamak için uygulamayı test etme çalışmaktadır.
 

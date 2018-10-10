@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/29/2018
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: f2de81af4bd2992aec76a287484d0057021231d8
-ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
+ms.openlocfilehash: c0bacc72cd02a5ebf993ca8ba5db2c7fe4325a29
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47860972"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913196"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>ASP.NET Core uygulamalarını Azure App Service'e dağıtma
 
@@ -101,11 +101,11 @@ Daha fazla bilgi için [anahtar depolama sağlayıcıları](xref:security/data-p
 
 ## <a name="deploy-aspnet-core-preview-release-to-azure-app-service"></a>ASP.NET Core Önizleme sürümü, Azure App Service'e dağıtma
 
-ASP.NET Core Önizleme uygulamalarını Azure App Service için aşağıdaki yaklaşımlardan ile dağıtılabilir:
+Aşağıdaki yaklaşımlardan birini kullanın:
 
-* [Önizleme sitesi uzantısını yükle](#install-the-preview-site-extension)
-<!-- * [Deploy the app self-contained](#deploy-the-app-self-contained) -->
-* [Docker, kapsayıcılar için Web Apps ile kullanma](#use-docker-with-web-apps-for-containers)
+* [Önizleme site uzantısını yüklemek](#install-the-preview-site-extension).
+* [Kendi içinde uygulama dağıtmak](#deploy-the-app-self-contained).
+* [Docker, kapsayıcılar için Web Apps ile kullanma](#use-docker-with-web-apps-for-containers).
 
 ### <a name="install-the-preview-site-extension"></a>Önizleme sitesi uzantısını yükle
 
@@ -161,18 +161,46 @@ ASP.NET Core Önizleme uygulamalarını Azure App Service için aşağıdaki yak
 
 Bir ARM şablonu, uygulamaları oluşturup dağıtmak için kullanılıyorsa `siteextensions` kaynak türü, bir web uygulamasına site uzantısı eklemek için kullanılabilir. Örneğin:
 
-[!code-json[Main](index/sample/arm.json?highlight=2)]
+[!code-json[](index/sample/arm.json?highlight=2)]
 
-<!--
-### Deploy the app self-contained
+### <a name="deploy-the-app-self-contained"></a>Kendi içinde uygulama dağıtma
 
-A [self-contained app](/dotnet/core/deploying/#self-contained-deployments-scd) can be deployed that carries the preview runtime in the deployment. When deploying a self-contained app:
+A [müstakil dağıtım (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd) önizlemesini hedefleyen çalışma zamanı dağıtımda önizlemesi çalışma zamanı taşır.
 
-* The site doesn't need to be prepared.
-* The app must be published differently than when publishing for a framework-dependent deployment with the shared runtime and host on the server.
+Kendi içinde uygulama dağıtırken:
 
-Self-contained apps are an option for all ASP.NET Core apps.
--->
+* Azure App Service'te site gerektirmeyen [Önizleme site uzantısı](#install-the-preview-site-extension).
+* Uygulama yayımlama olduğunda daha farklı bir yaklaşım izleyerek yayımlanmalıdır bir [framework bağımlı dağıtım (FDD)](/dotnet/core/deploying#framework-dependent-deployments-fdd).
+
+#### <a name="publish-from-visual-studio"></a>Visual Studio'dan yayımlama
+
+1. Seçin **derleme** > **yayımlama {uygulama-adı}** Visual Studio araç çubuğundan.
+1. İçinde **yayımlama hedefi seçin** iletişim kutusunda onaylayın **App Service** seçilir.
+1. Seçin **Gelişmiş**. **Yayımla** iletişim kutusu açılır.
+1. İçinde **Yayımla** iletişim:
+   * Onaylayın **yayın** yapılandırması seçili.
+   * Açık **dağıtım modu** aşağı açılan listesinden **müstakil**.
+   * Hedef çalışma zamanını şuradan seçin **hedef çalışma zamanı** aşağı açılan listesi. Varsayılan, `win-x86` değeridir.
+   * Ek dosyaları dağıtım kaldırmanız gerekirse, açık **dosya yayımlama seçeneği** ve hedefteki ek dosyaları kaldırmak için bu onay kutusunu seçin.
+   * Seçin **Kaydet**.
+1. Yeni bir site veya mevcut bir site Yayımlama Sihirbazı'nın kalan istemleri izleyerek güncelleştirilemiyor.
+
+#### <a name="publish-using-command-line-interface-cli-tools"></a>Komut satırı arabirimi (CLI) araçlarını kullanarak yayımla
+
+1. Proje dosyasında bir veya daha fazla belirtin [çalışma zamanı tanımlayıcılarının (RID'ler)](/dotnet/core/rid-catalog). Kullanma `<RuntimeIdentifier>` tek RID veya kullanın (tekil) `<RuntimeIdentifiers>` RID'ler noktalı virgülle ayrılmış bir listesini sağlamak üzere (çoğul). Aşağıdaki örnekte, `win-x86` RID belirtilir:
+
+   ```xml
+   <PropertyGroup>
+     <TargetFramework>netcoreapp2.1</TargetFramework>
+     <RuntimeIdentifier>win-x86</RuntimeIdentifier>
+   </PropertyGroup>
+   ```
+1. Bir komut kabuğu'ndan, sürüm yapılandırmasında ana bilgisayarın çalışma zamanı ile uygulamayı yayımlama [dotnet yayımlama](/dotnet/core/tools/dotnet-publish) komutu. Aşağıdaki örnekte, uygulama için yayımlanan `win-x86` RID. Sağlanan RID `--runtime` seçeneği sağlanmalıdır `<RuntimeIdentifier>` (veya `<RuntimeIdentifiers>`) proje dosyasındaki özellik.
+
+   ```console
+   dotnet publish --configuration Release --runtime win-x86
+   ```
+1. İçeriği Taşı *bin/bırakma / {TARGET FRAMEWORK} / {çalışma zamanı TANIMLAYICISI} / publish* App Service'te bir siteye dizin.
 
 ### <a name="use-docker-with-web-apps-for-containers"></a>Docker, kapsayıcılar için Web Apps ile kullanma
 

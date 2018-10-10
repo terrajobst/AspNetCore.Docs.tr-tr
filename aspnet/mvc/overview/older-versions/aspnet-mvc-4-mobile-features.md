@@ -8,12 +8,12 @@ ms.date: 08/15/2012
 ms.assetid: 27dc4fc8-1b51-43b0-933f-fc1b52476523
 msc.legacyurl: /mvc/overview/older-versions/aspnet-mvc-4-mobile-features
 msc.type: authoredcontent
-ms.openlocfilehash: 8b82b8b9b1ee6646072931da889c643afb34d474
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 6fe55a14b40f8c50dee91cdc7f59d0378f2a1ea2
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48578165"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912338"
 ---
 <a name="aspnet-mvc-4-mobile-features"></a>ASP.NET MVC 4 mobil özellikler
 ====================
@@ -184,7 +184,7 @@ Yeniden adlandırma *Views\Home\AllTags.Mobile.cshtml* ve *Views\Home\AllTags.iP
 
 Yükleme *jQuery.Mobile.MVC* bunu yaparak, NuGet paketi:
 
-1. Gelen **Araçları** menüsünde **kitaplık Paket Yöneticisi**ve ardından **Paket Yöneticisi Konsolu**.
+1. Gelen **Araçları** menüsünde **NuGet Paket Yöneticisi**ve ardından **Paket Yöneticisi Konsolu**.
 
     [![p3_packageMgr](aspnet-mvc-4-mobile-features/_static/image20.png)](aspnet-mvc-4-mobile-features/_static/image19.png)
 2. İçinde **Paket Yöneticisi Konsolu**, girin `Install-Package jQuery.Mobile.MVC -version 1.0.0`
@@ -245,11 +245,11 @@ Yenileme *AllTags* mobil tarayıcıda görüntüle. Artık, masaüstü ve mobil 
 
 > [!NOTE]
 > Hata ayıklama Not: görünümler/paylaşılan sonuna aşağıdaki kodu ekleyebilirsiniz\\_ViewSwitcher.cshtml tarayıcı kullanıcı aracısı dizesi kullanarak bir mobil cihaza ayarladığınızda görünümleri hata ayıklama yardımcı olmak için.
-> 
+>
 > [!code-csharp[Main](aspnet-mvc-4-mobile-features/samples/sample15.cs)]
-> 
->  ve aşağıdaki başlığı ekleme *görünümler/paylaşılan\\_Layout.cshtml* dosya.  
-> 
+>
+>  ve aşağıdaki başlığı ekleme *görünümler/paylaşılan\\_Layout.cshtml* dosya.
+>
 > [!code-html[Main](aspnet-mvc-4-mobile-features/samples/sample16.html)]
 
 

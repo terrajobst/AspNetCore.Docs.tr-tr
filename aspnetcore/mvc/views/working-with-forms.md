@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 02/14/2017
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: 34a553c7ff8a18c367bf5e8079e2ea71f968bf3b
-ms.sourcegitcommit: 75bf5fdbfdcb6a7cfe8fe207b9ff37655ccbacd4
+ms.openlocfilehash: e613dc1e85b84cc5e2b8ad2bf3958040257d1966
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39219426"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911285"
 ---
 # <a name="tag-helpers-in-forms-in-aspnet-core"></a>ASP.NET Core formlarda etiket Yardımcıları
 
@@ -320,7 +320,7 @@ Oluşturulan etiket etiketi Yardımcısı `for` kimliği "Email" özniteliğinin
 
 ### <a name="the-validation-message-tag-helper"></a>Doğrulama iletisi etiketi Yardımcısı
 
-* Ekler [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) `data-valmsg-for="property"` özniteliğini [span](https://developer.mozilla.org/docs/Web/HTML/Element/span) öğesinin giriş alanını belirtilen model özelliğinin bir doğrulama hata iletisi ekler.   İstemci tarafı doğrulama hatası oluştuğunda [jQuery](https://jquery.com/) hata iletisi görüntüler `<span>` öğesi.
+* Ekler [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) `data-valmsg-for="property"` özniteliğini [span](https://developer.mozilla.org/docs/Web/HTML/Element/span) öğesinin giriş alanını belirtilen model özelliğinin bir doğrulama hata iletisi ekler. İstemci tarafı doğrulama hatası oluştuğunda [jQuery](https://jquery.com/) hata iletisi görüntüler `<span>` öğesi.
 
 * Doğrulama sunucusundaki de gerçekleşir. JavaScript devre dışı istemciniz ve bazı doğrulama yalnızca sunucu tarafında gerçekleştirilebilir.
 
@@ -413,7 +413,7 @@ Oluşturulan HTML (model geçerli olduğunda):
 
 `Index` Yöntemi başlatır `CountryViewModel`, seçilen ülke ayarlar ve buna ileten `Index` görünümü.
 
-[!code-csharp[](working-with-forms/sample/final/Controllers/HomeController.cs?range=114-119)]
+[!code-csharp[](working-with-forms/sample/final/Controllers/HomeController.cs?range=8-13)]
 
 HTTP POST `Index` yöntemi seçimi görüntüler:
 

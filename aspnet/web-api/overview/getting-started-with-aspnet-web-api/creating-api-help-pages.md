@@ -8,12 +8,12 @@ ms.date: 04/01/2013
 ms.assetid: 0150e67b-c50d-4613-83ea-7b4ef8cacc5a
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/creating-api-help-pages
 msc.type: authoredcontent
-ms.openlocfilehash: 2d8758034ca4339ed7e9699cf2f2643bfab87ba4
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: c081064a32151a71fc4f3ea407e0c48a1539432a
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41752359"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913131"
 ---
 <a name="creating-help-pages-for-aspnet-web-api"></a>ASP.NET Web API Yardım sayfaları oluşturma
 ====================
@@ -55,7 +55,7 @@ Her API, örnek istek ve yanıt gövdeleri dahil olmak üzere daha ayrıntılı 
 
 NuGet Paket Yöneticisi'ni kullanarak yardım sayfalarına varolan bir Web API projesine ekleyebilirsiniz. Bu seçenek, bir "Web API" şablonu değerinden farklı proje şablonundan başlattığınız yararlıdır.
 
-Gelen **Araçları** menüsünde **kitaplık Paket Yöneticisi**ve ardından **Paket Yöneticisi Konsolu**. İçinde [Paket Yöneticisi Konsolu](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) penceresinde, aşağıdaki komutlardan birini yazın:
+Gelen **Araçları** menüsünde **NuGet Paket Yöneticisi**ve ardından **Paket Yöneticisi Konsolu**. İçinde [Paket Yöneticisi Konsolu](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) penceresinde, aşağıdaki komutlardan birini yazın:
 
 İçin bir **C#** uygulama: `Install-Package Microsoft.AspNet.WebApi.HelpPage`
 

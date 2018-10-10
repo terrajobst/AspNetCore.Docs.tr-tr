@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: fdc3599a-5217-44c1-951f-0eec9812dce7
 msc.legacyurl: /signalr/overview/older-versions/tutorial-getting-started-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 2223675ab2ec40a7e25229bf34b2f0ffddc31fed
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: d541dad19d8fd547d61e8850d64e514ea5db7fcf
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41752766"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912429"
 ---
 <a name="tutorial-getting-started-with-signalr-1x"></a>Öğretici: SignalR ile çalışmaya başlama 1.x
 ====================
@@ -66,7 +66,7 @@ ASP.NET boş Web uygulaması oluşturma ve SignalR Kitaplığı eklemek için Vi
 1. Visual Studio'da ASP.NET boş Web uygulaması oluşturun.
 
     ![Boş web oluşturma](tutorial-getting-started-with-signalr/_static/image2.png)
-2. Açık **Paket Yöneticisi Konsolu** seçerek **araçları | Kitaplık Paket Yöneticisi | Paket Yöneticisi Konsolu**. Konsol penceresine aşağıdaki komutu girin:
+2. Açık **Paket Yöneticisi Konsolu** seçerek **araçları | NuGet Paket Yöneticisi | Paket Yöneticisi Konsolu**. Konsol penceresine aşağıdaki komutu girin:
 
     `Install-Package Microsoft.AspNet.SignalR -Version 1.1.3`
 
