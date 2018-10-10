@@ -8,32 +8,32 @@ ms.date: 08/08/2014
 ms.assetid: 30060acb-be3e-4347-996f-3870f0c37829
 msc.legacyurl: /signalr/overview/testing-and-debugging/enabling-signalr-tracing
 msc.type: authoredcontent
-ms.openlocfilehash: ee62a7b01ff357262aa89dbac4f49180b4c58fe0
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 89b27267bec5edb0692fe75061d08b4688df5a8c
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41753399"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912073"
 ---
 <a name="enabling-signalr-tracing"></a>SignalR izlemeyi etkinleştirme
 ====================
 tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
 > Bu belge, etkinleştirmek ve SignalR sunucular ve istemciler için izlemeyi yapılandırmak açıklar. İzleme, SignalR uygulamanızda olaylar hakkında tanılama bilgilerini görüntülemenize olanak tanır.
-> 
+>
 > Bu konu başlığında, başlangıçta Patrick Fletcher tarafından alınmaktadır.
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET Framework 4.5
 > - SignalR sürüm 2
->   
-> 
-> 
+>
+>
+>
 > ## <a name="questions-and-comments"></a>Sorularınız ve yorumlarınız
-> 
+>
 > Lütfen bu öğreticide sevmediğinizi nasıl ve ne sayfanın alt kısmındaki açıklamalarda geliştirebileceğimiz hakkında geri bildirim bırakın. Öğretici için doğrudan ilgili olmayan sorularınız varsa, bunları gönderebilir [ASP.NET SignalR Forumu](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) veya [StackOverflow.com](http://stackoverflow.com/).
 
 
@@ -134,7 +134,7 @@ Aşağıdaki çıktı girişlerinden gösterir `ClientLog.txt` Yukarıdaki yapı
 <a id="phone"></a>
 ## <a name="enabling-tracing-in-windows-phone-8-clients"></a>Windows Phone 8 istemcilerinde izlemeyi etkinleştirme
 
-SignalR uygulamalarını Windows Phone uygulamaları için aynı .NET istemci masaüstü uygulamaları kullanın ancak [Console.Out](https://msdn.microsoft.com/library/system.console.out(v=vs.110).aspx) ve bir dosyaya yazma [StreamWriter](https://msdn.microsoft.com/library/system.io.streamwriter(v=vs.110).aspx) kullanılabilir değil. Bunun yerine, özel uygulanışı oluşturmak için ihtiyacınız [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter(v=vs.110).aspx) izleme. 
+SignalR uygulamalarını Windows Phone uygulamaları için aynı .NET istemci masaüstü uygulamaları kullanın ancak [Console.Out](https://msdn.microsoft.com/library/system.console.out(v=vs.110).aspx) ve bir dosyaya yazma [StreamWriter](https://msdn.microsoft.com/library/system.io.streamwriter(v=vs.110).aspx) kullanılabilir değil. Bunun yerine, özel uygulanışı oluşturmak için ihtiyacınız [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter(v=vs.110).aspx) izleme.
 
 <a id="phone_ui"></a>
 ### <a name="logging-windows-phone-client-events-to-the-ui"></a>Windows Phone istemci olayları günlüğe kaydetme için kullanıcı Arabirimi

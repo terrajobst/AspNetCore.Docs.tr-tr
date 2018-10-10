@@ -8,12 +8,12 @@ ms.date: 06/10/2014
 ms.assetid: 80bfe5fb-bdfc-41fe-ac43-2132e5d69fac
 msc.legacyurl: /signalr/overview/getting-started/tutorial-getting-started-with-signalr-and-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 3fca46ac1e73905063afec9fc1eb9cf8df3aee24
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: a58b95adfb5d0165887b95abd3247d3a829aa882
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41755815"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912234"
 ---
 <a name="tutorial-getting-started-with-signalr-2-and-mvc-5"></a>Öğretici: SignalR 2 ve MVC 5 kullanmaya başlama
 ====================
@@ -21,35 +21,35 @@ tarafından [Patrick Fletcher](https://github.com/pfletcher), [Tim Teebken](http
 
 [Projeyi yükle](http://code.msdn.microsoft.com/Getting-Started-with-c366b2f3)
 
-> Bu öğreticide, ASP.NET SignalR 2 gerçek zamanlı bir sohbet uygulaması oluşturmak için nasıl kullanılacağını gösterir. Bir MVC 5 uygulaması için SignalR ekleyin ve gönderin ve iletileri görüntülemek için bir sohbet görünüm oluşturun. 
-> 
+> Bu öğreticide, ASP.NET SignalR 2 gerçek zamanlı bir sohbet uygulaması oluşturmak için nasıl kullanılacağını gösterir. Bir MVC 5 uygulaması için SignalR ekleyin ve gönderin ve iletileri görüntülemek için bir sohbet görünüm oluşturun.
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
 > - MVC 5
 > - SignalR sürüm 2
->   
-> 
-> 
+>
+>
+>
 > ## <a name="using-visual-studio-2012-with-this-tutorial"></a>Bu öğreticide Visual Studio 2012 kullanarak
-> 
-> 
+>
+>
 > Visual Studio 2012 bu öğreticiyle kullanmak için aşağıdakileri yapın:
-> 
+>
 > - Güncelleştirme, [Paket Yöneticisi](http://docs.nuget.org/docs/start-here/installing-nuget) en son sürüme.
 > - Yükleme [Web Platformu yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx).
 > - Web Platformu Yükleyicisi'nde arama ve yükleme **ASP.NET ve Web Araçları 2013.1 Visual Studio 2012 için**. Bu SignalR sınıflar için Visual Studio şablonları gibi yükleyecek **Hub**.
 > - Bazı şablonlar (gibi **OWIN başlangıç sınıfı**) kullanılabilir; olmayacaktır, bunlar için sınıf dosyası kullanın.
-> 
-> 
+>
+>
 > ## <a name="tutorial-versions"></a>Öğretici sürümleri
-> 
+>
 > SignalR eski sürümleri hakkında daha fazla bilgi için bkz: [SignalR eski sürümleri](../older-versions/index.md).
-> 
+>
 > ## <a name="questions-and-comments"></a>Sorularınız ve yorumlarınız
-> 
+>
 > Lütfen bu öğreticide sevmediğinizi nasıl ve ne sayfanın alt kısmındaki açıklamalarda geliştirebileceğimiz hakkında geri bildirim bırakın. Öğretici için doğrudan ilgili olmayan sorularınız varsa, bunları gönderebilir [ASP.NET SignalR Forumu](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) veya [StackOverflow.com](http://stackoverflow.com/).
 
 
@@ -97,7 +97,7 @@ Bu bölümde, bir ASP.NET MVC 5 uygulaması oluşturma, SignalR kitaplığa ekle
     > [!NOTE]
     > Uygulamanız için farklı kimlik doğrulama sağlayıcısı seçerseniz bir `Startup.cs` sınıfı sizin için oluşturulacaktır; kendi oluşturmanız gerekmez `Startup.cs` 10 aşağıdaki adımda sınıfı.
 4. Tıklayın **Tamam** içinde **yeni ASP.NET projesi** iletişim.
-5. Açık **araçları | Kitaplık Paket Yöneticisi | Paket Yöneticisi Konsolu** ve aşağıdaki komutu çalıştırın. Bu adım, bir dizi komut dosyaları ve SignalR işlevselliğini etkinleştirmek derleme başvuruları projeye ekler.
+5. Açık **Araçlar > NuGet Paket Yöneticisi > Paket Yöneticisi Konsolu** ve aşağıdaki komutu çalıştırın. Bu adım, bir dizi komut dosyaları ve SignalR işlevselliğini etkinleştirmek derleme başvuruları projeye ekler.
 
     `install-package Microsoft.AspNet.SignalR`
 6. İçinde **Çözüm Gezgini**, komut dosyaları klasörünü genişletin. SignalR için betik kitaplıkları projeye eklendiğini unutmayın.

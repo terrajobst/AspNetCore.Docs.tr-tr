@@ -8,12 +8,12 @@ ms.date: 05/22/2015
 ms.assetid: 52a4d5fe-aa31-4471-b3cb-a064f82cb791
 msc.legacyurl: /mvc/overview/getting-started/introduction/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
-ms.openlocfilehash: 27c4bcc6dd127fe1a430aaec462e2c19a5fb7851
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 29ece7754bc6e25ea968c25a99a2f48ab837e12c
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48577385"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911555"
 ---
 <a name="examining-the-edit-methods-and-edit-view"></a>Düzenleme metotlarını ve düzenleme görünümünü İnceleme
 ====================
@@ -99,16 +99,15 @@ ABD İngilizcesi bilgisayar kullanıyorsanız, bu bölümü atlayın ve sonraki 
 > [!NOTE]
 > JQuery doğrulama virgül İngilizce olmayan yerel ayara yönelik desteği için (&quot;,&quot;) ondalık ve ABD İngilizce olmayan tarih biçimleri için içermelidir *globalize.js* ve size özgü  *cultures/globalize.cultures.js* dosyası (gelen [ https://github.com/jquery/globalize ](https://github.com/jquery/globalize) ) ve kullanmak için JavaScript'i `Globalize.parseFloat`. JQuery İngilizce olmayan doğrulama Nuget'ten alabilirsiniz. (Bir İngilizce yerel ayarı kullanıyorsanız Globalize yüklemeyin.)
 
+1. Gelen **Araçları** menüsünü tıklatın **NuGet Paket Yöneticisi**ve ardından **çözüm için NuGet paketlerini Yönet**.
 
-1. Gelen **Araçları** menüsünü tıklatın **NuGetLibrary Paket Yöneticisi**ve ardından **çözüm için NuGet paketlerini Yönet**.  
-  
     ![](examining-the-edit-methods-and-edit-view/_static/image5.png)
 2. Sol bölmeden <strong>Gözat *.</strong>* (Aşağıdaki resme bakın.)
-3. Giriş kutusuna girin * Globalize **.  
-  
+3. Giriş kutusuna girin * Globalize **.
+
     ![](examining-the-edit-methods-and-edit-view/_static/image6.png) Seçin `jQuery.Validation.Globalize`, seçin `MvcMovie` tıklatıp **yükleme**. *Scripts\jquery.globalize\globalize.js* dosyası projenize eklenir. *Scripts\jquery.globalize\cultures\* klasör birçok kültür JavaScript dosyaları içerir. Unutmayın, bu paketi yüklemek için beş dakika sürebilir.
 
-   Aşağıdaki kod Views\Movies\Edit.cshtml dosya için yapılan değişiklikleri gösterir: 
+   Aşağıdaki kod Views\Movies\Edit.cshtml dosya için yapılan değişiklikleri gösterir:
 
 [!code-cshtml[Main](examining-the-edit-methods-and-edit-view/samples/sample10.cshtml)]
 

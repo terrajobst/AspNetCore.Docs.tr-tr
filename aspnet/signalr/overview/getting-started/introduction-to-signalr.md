@@ -8,12 +8,12 @@ ms.date: 06/10/2014
 ms.assetid: 0fab5e35-8c1f-43d4-8635-b8aba8766a71
 msc.legacyurl: /signalr/overview/getting-started/introduction-to-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: f35e26bc8db2bbdb579836bbc9556ad2147cb8bf
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: d103573fb31bb3b08d054cbf65ff906bd5d151d3
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41754440"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912806"
 ---
 <a name="introduction-to-signalr"></a>Signalr'a giriş
 ====================
@@ -51,9 +51,7 @@ SignalR, açık kaynaklı, erişilebilir [GitHub](https://github.com/signalr).
 
 ## <a name="signalr-and-websocket"></a>SignalR ve WebSocket
 
-SignalR mevcut olduğunda yeni WebSocket taşıma kullanır ve gerektiğinde daha eski taşımalarına geri döner. Uygulamanızı kullanarak doğrudan WebSocket, uygulamanız gereken fazladan işlevsellik birçok zaten olacak SignalR yollardan kesinlikle yazabilirsiniz sırada sizin için gerçekleştirilmedi. En önemlisi, bu eski istemciler için ayrı bir kod yolu oluşturma hakkında endişelenmenize gerek kalmadan WebSocket yararlanmak için uygulamanızın kod anlamına gelir. SignalR Ayrıca, SignalR değişiklikler temel alınan aktarımda içinde desteklemek üzere güncelleştirilecek uygulamanızı WebSocket sürümleri arasında tutarlı bir arabirim sağlayan devam edecek beri WebSocket, güncelleştirmeleri hakkında endişelenmenize gerek kalmamasını ayrıntılarından korur.
-
-Kesinlikle kullanarak WebSocket tek başına bir çözüm oluşturabilirsiniz ancak SignalR tüm diğer aktarım ve güncelleştirmeler için uygulamanızı WebSocket uygulamalarına düzeltilmesi için geri dönüş gibi kendiniz yazmak için ihtiyacınız olan işlevleri sağlar.
+SignalR, mevcut olduğunda yeni WebSocket taşıma kullanır ve gerektiğinde daha eski taşımalarına geri döner. Olsa da kesinlikle WebSocket kullanarak doğrudan, uygulamanız gereken fazladan işlevsellik birçok zaten sizin yerinize yapılır SignalR yol kullanarak uygulamanızı yazabilirsiniz. En önemlisi, bu eski istemciler için ayrı bir kod yolu oluşturma hakkında endişelenmenize gerek kalmadan WebSocket yararlanmak için uygulamanızın kod anlamına gelir. SignalR Ayrıca, SignalR değişiklikler temel alınan aktarımda içinde desteklemek üzere uygulamanızı WebSocket sürümleri arasında tutarlı bir arabirim sağlayan güncelleştirilse WebSocket, güncelleştirmeleri hakkında endişelenmenize gerek kalmamasını ayrıntılarından korur.
 
 <a id="transports"></a>
 

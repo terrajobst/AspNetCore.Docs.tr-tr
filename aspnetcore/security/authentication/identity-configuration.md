@@ -5,12 +5,12 @@ description: ASP.NET Core kimliği varsayılan değerleri anlamanıza ve özel d
 ms.author: riande
 ms.date: 08/14/2018
 uid: security/authentication/identity-configuration
-ms.openlocfilehash: 0faab001b981c79f6afa16b2a8cf80c1ef141b11
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 02441cd28c2a99eda7b50ed54f4437d4b52ca5d9
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011306"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911957"
 ---
 # <a name="configure-aspnet-core-identity"></a>ASP.NET Core kimliği yapılandırma
 
@@ -79,18 +79,30 @@ Varsayılan olarak parola bir büyük harf, küçük harf, rakam ve alfasayısal
 
 [IdentityOptions.Password](/dotnet/api/microsoft.aspnetcore.identity.identityoptions.password) belirtir [PasswordOptions](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions) tabloda gösterilen özelliklere sahip.
 
+::: moniker range=">= aspnetcore-2.0"
+
 | Özellik | Açıklama | Varsayılan |
 | -------- | ----------- | :-----: |
 | [RequireDigit](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requiredigit) | Parolayı 0-9 arasında bir sayı gerektirir. | `true` |
 | [RequiredLength](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requiredlength) | Minimum parola uzunluğu. | 6 |
-
-::: moniker range=">= aspnetcore-2.0"
-
-| [RequiredUniqueChars](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requireduniquechars) | Yalnızca ASP.NET Core 2.0 ve üzeri için geçerlidir.<br><br> Parola ayrı karakter sayısı gerektirir. | 1 |
+| [RequireLowercase](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requirelowercase) | Parola küçük harf karakter gerektirir. | `true` |
+| [RequireNonAlphanumeric](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requirenonalphanumeric) | Paroladaki alfasayısal olmayan bir karakter gerektirir. | `true` |
+| [RequiredUniqueChars](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requireduniquechars) | Yalnızca ASP.NET Core 2.0 ve üzeri için geçerlidir.<br><br> Parola ayrı karakter sayısı gerektirir. | 1. |
+| [RequireUppercase](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requireuppercase) | Parola bir büyük harf karakteri gerektirir. | `true` |
 
 ::: moniker-end
 
-| [RequireLowercase](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requirelowercase) | Parola küçük harf karakter gerektirir. | `true` | | [RequireNonAlphanumeric](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requirenonalphanumeric) | Paroladaki alfasayısal olmayan bir karakter gerektirir. | `true` | | [RequireUppercase](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requireuppercase) | Parola bir büyük harf karakteri gerektirir. | `true` |
+::: moniker range="< aspnetcore-2.0"
+
+| Özellik | Açıklama | Varsayılan |
+| -------- | ----------- | :-----: |
+| [RequireDigit](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requiredigit) | Parolayı 0-9 arasında bir sayı gerektirir. | `true` |
+| [RequiredLength](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requiredlength) | Minimum parola uzunluğu. | 6 |
+| [RequireLowercase](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requirelowercase) | Parola küçük harf karakter gerektirir. | `true` |
+| [RequireNonAlphanumeric](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requirenonalphanumeric) | Paroladaki alfasayısal olmayan bir karakter gerektirir. | `true` |
+| [RequireUppercase](/dotnet/api/microsoft.aspnetcore.identity.passwordoptions.requireuppercase) | Parola bir büyük harf karakteri gerektirir. | `true` |
+
+::: moniker-end
 
 ### <a name="sign-in"></a>oturum açma
 
@@ -137,7 +149,7 @@ Aşağıdaki kod kümeleri `SignIn` ayarlarına (varsayılan değer):
 
 | Özellik | Açıklama | Varsayılan |
 | -------- | ----------- | :-----: |
-| [AllowedUserNameCharacters](/dotnet/api/microsoft.aspnetcore.identity.useroptions.allowedusernamecharacters) | Kullanıcı adı izin verilen karakter. | abcdefghijklmnopqrstuvwxyz<br>ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>0123456789<br>-._@+ |
+| [AllowedUserNameCharacters](/dotnet/api/microsoft.aspnetcore.identity.useroptions.allowedusernamecharacters) | Kullanıcı adı izin verilen karakter. | abcdefghijklmnopqrstuvwxyz<br>ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>0123456789<br>-.\_@+ |
 | [RequireUniqueEmail](/dotnet/api/microsoft.aspnetcore.identity.useroptions.requireuniqueemail) | Her kullanıcının benzersiz bir e-posta olmasını gerektirir. | `false` |
 
 ### <a name="cookie-settings"></a>Tanımlama bilgisi ayarları

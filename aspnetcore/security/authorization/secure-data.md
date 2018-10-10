@@ -5,12 +5,12 @@ description: Kullanıcı verilerinin yetkilendirme tarafından korunduğu ile Ra
 ms.author: riande
 ms.date: 7/24/2018
 uid: security/authorization/secure-data
-ms.openlocfilehash: 2fb13f0772a1f8aa4ed2ff3ece2a2c5d3b7360c9
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 71b7855958b530b8bac32843a8d1e7db0113ffd9
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46010942"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912637"
 ---
 ::: moniker range="<= aspnetcore-1.1"
 
@@ -350,6 +350,7 @@ Test, uygulama veritabanını sağlanmış. DB ilgili herhangi bir satır varsa,
 
 ### <a name="additional-resources"></a>Ek kaynaklar
 
+* [Azure App Service'te .NET Core ve SQL veritabanı web uygulaması derleme](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb)
 * [ASP.NET Core yetkilendirme Laboratuvar](https://github.com/blowdart/AspNetAuthorizationWorkshop). Bu Laboratuvar, bu öğreticide sunulan güvenlik özellikleri hakkında daha fazla ayrıntıya gider.
 * [ASP.NET Core yetkilendirme: basit, rol, talep tabanlı ve özel](xref:security/authorization/index)
 * [Özel ilke tabanlı yetkilendirme](xref:security/authorization/policies)

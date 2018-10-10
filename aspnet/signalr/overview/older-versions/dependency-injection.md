@@ -8,12 +8,12 @@ ms.date: 05/15/2013
 ms.assetid: eaa206c4-edb3-487e-8fcb-54a3261fed36
 msc.legacyurl: /signalr/overview/older-versions/dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: d59ca85f1005b08ff52ded61d94323dabdb40d0a
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 905dea4918be731673c39e788069ce2dc78e1649
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41752159"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910700"
 ---
 <a name="dependency-injection-in-signalr-1x"></a>Signalr'da bağımlılık ekleme 1.x
 ====================
@@ -122,7 +122,7 @@ Oluşturma bir `IStockTicker` arabirimi kesinlikle gerekli değildir, ancak DI u
 
 .NET için çok sayıda açık kaynaklı IOC kapsayıcı vardır. Bu öğretici için kullanacağım [Ninject](http://www.ninject.org/). (Diğer popüler kitaplıkları içerir [Castle Windsor](http://www.castleproject.org/), [Spring.Net](http://www.springframework.net/), [Autofac](https://code.google.com/p/autofac/), [Unity](https://github.com/unitycontainer/unity), ve [StructureMap ](http://docs.structuremap.net).)
 
-Yüklemek için NuGet Paket Yöneticisi'ni kullanın [Ninject Kitaplığı](https://nuget.org/packages/Ninject/3.0.1.10). Visual Studio'da gelen **Araçları** menüsünü seçin **kitaplık Paket Yöneticisi** | **Paket Yöneticisi Konsolu**. Paket Yöneticisi konsolu penceresinde, aşağıdaki komutu girin:
+Yüklemek için NuGet Paket Yöneticisi'ni kullanın [Ninject Kitaplığı](https://nuget.org/packages/Ninject/3.0.1.10). Visual Studio'da gelen **Araçları** menüsünü seçin **NuGet Paket Yöneticisi** > **Paket Yöneticisi Konsolu**. Paket Yöneticisi konsolu penceresinde, aşağıdaki komutu girin:
 
 [!code-powershell[Main](dependency-injection/samples/sample13.ps1)]
 

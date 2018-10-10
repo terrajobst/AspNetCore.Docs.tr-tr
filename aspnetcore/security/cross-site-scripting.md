@@ -5,18 +5,18 @@ description: Siteler arası betik (XSS) ve ASP.NET Core uygulaması, bu güvenli
 ms.author: riande
 ms.date: 10/02/2018
 uid: security/cross-site-scripting
-ms.openlocfilehash: e937ce47b7151155197cd607832eeb6bf62e3a19
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 50f0211a2c64708d9b788dd10ce9064e66014d55
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48577450"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910531"
 ---
 # <a name="prevent-cross-site-scripting-xss-in-aspnet-core"></a>Siteler arası betik kullanmayı (XSS) ASP.NET core'da engelle
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Siteler arası betik (XSS), bir saldırganın istemci tarafı komut dosyalarını (genellikle JavaScript) web sayfalarına yerleştirmek sağlayan bir güvenlik açığı var. Diğer kullanıcıların saldırganlar komut dosyaları çalıştırılır etkilenen sayfaları yüklediğinizde, tanımlama bilgileri ve oturum belirteçleri çalmaya saldırgan etkinleştirme DOM işlemesi aracılığıyla web sayfasının içeriğini değiştirebilir veya tarayıcıyı yeniden yönlendirmek için başka bir sayfa. Uygulamanın kullanıcı girişini alır ve bir sayfa doğrulanırken, kodlama veya, kaçış olmadan çıkarır XSS Güvenlik Açıkları genellikle ortaya çıkar.
+Siteler arası betik (XSS), bir saldırganın istemci tarafı komut dosyalarını (genellikle JavaScript) web sayfalarına yerleştirmek sağlayan bir güvenlik açığı var. Diğer kullanıcıların saldırganın komut dosyası çalışma etkilenen sayfaları yüklediğinizde, tanımlama bilgileri ve oturum belirteçleri çalmaya saldırgan etkinleştirme DOM işlemesi aracılığıyla web sayfasının içeriğini değiştirebilir veya tarayıcıyı yeniden yönlendirmek için başka bir sayfa. Bir uygulamanın kullanıcı girişini alır ve doğrulama, kodlama veya, kaçış olmadan bir sayfaya çıkarır XSS Güvenlik Açıkları genellikle ortaya çıkar.
 
 ## <a name="protecting-your-application-against-xss"></a>Uygulamanızı XSS karşı koruma
 
@@ -26,15 +26,15 @@ En temel bir düzey XSS çalışır içine ekleyerek uygulamanızı şekilde kan
 
 2. HTML öğesi içinde güvenilir olmayan verileri geçirmeden önce kodlanmış HTML olduğundan emin olun. HTML kodlaması gereken karakter gibi &lt; ve bunları gibi güvenli bir forma değişiklikleri &amp;lt;
 
-3. HTML özniteliğin güvenilir olmayan verileri geçirmeden önce kodlanmış HTML öznitelik olduğundan emin olun. HTML öznitelik kodlaması HTML kodlaması bir üst kümesidir ve ek karakterler gibi kodlar "ve '.
+3. HTML özniteliğin güvenilir olmayan verileri geçirmeden önce kodlanmış HTML olduğundan emin olun. HTML öznitelik kodlaması HTML kodlaması bir üst kümesidir ve ek karakterler gibi kodlar "ve '.
 
-4. JavaScript ile güvenilir olmayan verileri geçirmeden önce veri içerikleri çalışma zamanında almak bir HTML öğesi koyun. Bu mümkün değilse daha sonra veriler JavaScript kodlanır. JavaScript kodlama için JavaScript tehlikeli karakterleri alır ve örneğin kendi onaltılık ile değiştirir &lt; olarak kodlanması `\u003C`.
+4. JavaScript ile güvenilir olmayan verileri geçirmeden önce veri içerikleri çalışma zamanında almak bir HTML öğesi koyun. Bu mümkün değilse, ardından JavaScript kodlanmış verileri olduğundan emin olun. JavaScript kodlama için JavaScript tehlikeli karakterleri alır ve örneğin kendi onaltılık ile değiştirir &lt; olarak kodlanması `\u003C`.
 
 5. URL sorgu dizesi içinde güvenilir olmayan verileri geçirmeden önce URL kodlanmış olduğundan emin olun.
 
 ## <a name="html-encoding-using-razor"></a>Razor kullanarak HTML kodlama
 
-Razor altyapı MVC'de otomatik olarak kullanılan tüm kodlar gerçekten sabit, bunu önlemek için çalışmıyorsanız değişkenlerinden, çıkış kaynağı. HTML öznitelik her kullandığınızda kodlama kurallarını kullanan *@* yönergesi. HTML öznitelik kodlaması, kendiniz, HTML kodlaması veya HTML öznitelik kodlaması kullanmanız gerekir ile uğraşmak zorunda olmadığınız anlamına gelir HTML kodlaması bir üst kümesidir. Yalnızca @ HTML bağlamında, güvenilmeyen girişler doğrudan JavaScript eklemek değil çalışırken kullanmanızı emin olmanız gerekir. Etiket Yardımcıları de giriş etiketi parametrelerinde kullandığınız kodlar.
+Razor altyapı MVC'de otomatik olarak kullanılan tüm kodlar gerçekten sabit, bunu önlemek için çalışmıyorsanız değişkenlerinden, çıkış kaynağı. Her kullandığınızda HTML öznitelik kodlama kurallarını kullanır. *@* yönergesi. HTML öznitelik kodlaması, kendiniz, HTML kodlaması veya HTML öznitelik kodlaması kullanmanız gerekir ile uğraşmak zorunda olmadığınız anlamına gelir HTML kodlaması bir üst kümesidir. Yalnızca @ HTML bağlamında, güvenilmeyen girişler doğrudan JavaScript eklemek değil çalışırken kullanmanızı emin olmanız gerekir. Etiket Yardımcıları de giriş etiketi parametrelerinde kullandığınız kodlar.
 
 Aşağıdaki Razor görünüm uygulayın:
 
@@ -107,7 +107,7 @@ Bu aşağıdaki HTML'yi oluşturur
    </script>
    ```
 
-Çalıştığında, aşağıdaki işlenir;
+Çalıştığında, aşağıdaki şekilde işlenir:
 
 ```none
 <"123">
@@ -129,7 +129,7 @@ JavaScript Kodlayıcı doğrudan de çağırabilirsiniz:
    </script>
    ```
 
-Bu tarayıcıda şu şekilde işlenir;
+Bu tarayıcıda şu şekilde işlenir:
 
 ```html
 <script>

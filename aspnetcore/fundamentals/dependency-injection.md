@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/02/2018
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 50986eeb4c5c8b06c739ee9f860665b877853d78
-ms.sourcegitcommit: 517bb1366da2a28b0014e384fa379755c21b47d8
+ms.openlocfilehash: 33fae5d87029c8b3afdc321e0247555c1e479d07
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47230197"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912624"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>ASP.NET core'da bağımlılık ekleme
 
@@ -540,17 +540,17 @@ Singleton hizmetinin iş parçacığı güvenli olması gerekir. Tek bir hizmet 
 
 Bağımlılık ekleme ile çalışırken, aşağıdaki önerileri göz önünde bulundurun:
 
-* Verileri ve Yapılandırma hizmeti kapsayıcısında doğrudan depolama kaçının. Örneğin, bir kullanıcının alışveriş sepeti genellikle hizmet kapsayıcıya eklenen olmamalıdır. Yapılandırma kullanması gereken [seçenekleri deseni](xref:fundamentals/configuration/options). Benzer şekilde, yalnızca başka bir nesnenin erişmesine izin vermek için mevcut "veri sahibi" nesneleri kaçının. Bağımlılık ekleme aracılığıyla gerçek öğe mümkünse istemek daha iyidir.
+* Verileri ve Yapılandırma hizmeti kapsayıcısında doğrudan depolama kaçının. Örneğin, bir kullanıcının alışveriş sepeti genellikle hizmet kapsayıcıya eklenen olmamalıdır. Yapılandırma kullanması gereken [seçenekleri deseni](xref:fundamentals/configuration/options). Benzer şekilde, yalnızca başka bir nesnenin erişmesine izin vermek için mevcut "veri sahibi" nesneleri kaçının. İstek DI aracılığıyla gerçek öğesi daha iyidir.
 
 * Statik hizmetlere erişimi önlemek (örneğin, statik olarak yazmaya [IApplicationBuilder.ApplicationServices](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder.applicationservices) kullanan başka bir yerde için).
 
-* Hizmet bulucu deseni kullanmaktan kaçının (örneğin, [IServiceProvider.GetService](/dotnet/api/system.iserviceprovider.getservice)).
+* Kullanmaktan kaçının *hizmet bulucu deseni*. Örneğin, çağırma yoksa <xref:System.IServiceProvider.GetService*> DI yerine kullandığınızda, bir hizmet örneği elde edilir. Çalışma zamanında bağımlılıklarını çözen bir Fabrika önlemek için başka bir hizmet bulucu değişim çalıştırıyorsunuzdur. Bu yöntemler karışımı [tersine çevirme denetim](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) stratejiler.
 
 * Statik erişimi önlemek `HttpContext` (örneğin, [IHttpContextAccessor.HttpContext](/dotnet/api/microsoft.aspnetcore.http.ihttpcontextaccessor.httpcontext)).
 
 Öneriler tüm kümesi gibi bir öneri yok sayılıyor gerekli olduğu durumlarla karşılaşabilirsiniz. Özel durumlar nadir&mdash;çoğunlukla framework içinde özel durumlar.
 
-Bağımlılık ekleme, bir *alternatif* statik/genel nesne erişim desenleri. Statik nesne erişimi ile karışımı varsa, bağımlılık ekleme avantajlarından mümkün olmayabilir.
+DI olduğu bir *alternatif* statik/genel nesne erişim desenleri. Statik nesne erişimi ile karıştırmak istiyorsanız DI avantajlarından mümkün olmayabilir.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

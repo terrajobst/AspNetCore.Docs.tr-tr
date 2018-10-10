@@ -8,12 +8,12 @@ ms.date: 01/26/2012
 ms.assetid: be5ab1e2-4140-4275-ac59-ca82a1bac0c1
 msc.legacyurl: /web-api/overview/older-versions/self-host-a-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: cac0d5aeaf49f45051d062935e0e9207ce59c7eb
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 63d192a6fa2aafef3770d5b0b97ec32e001b69db
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41756147"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912708"
 ---
 <a name="self-host-aspnet-web-api-1-c"></a>Barındırılan ASP.NET Web API 1 (C#)
 ====================
@@ -50,7 +50,7 @@ Visual Studio 2010 kullanıyorsanız, hedef çerçeveyi .NET Framework 4.0 ile d
 
 NuGet Paket Yöneticisi, bir ASP.NET olmayan projeye Web API derlemeleri eklemek için en kolay yoludur.
 
-NuGet Paket Yöneticisi'nin yüklü olup olmadığını denetlemek için **Araçları** Visual Studio'daki menü. Bir menü öğesi adlı görürseniz **kitaplık Paket Yöneticisi**, NuGet Paket Yöneticisi sahip.
+NuGet Paket Yöneticisi'nin yüklü olup olmadığını denetlemek için **Araçları** Visual Studio'daki menü. Bir menü öğesi adlı görürseniz **NuGet Paket Yöneticisi**, NuGet Paket Yöneticisi sahip.
 
 NuGet Paket Yöneticisi'ni yüklemek için:
 
@@ -68,8 +68,8 @@ NuGet Paket Yöneticisi'ni yüklemek için:
 
 NuGet Paket Yöneticisi'ni yükledikten sonra Web API Self-Host paketini projenize ekleyin.
 
-1. Gelen **Araçları** menüsünde **kitaplık Paket Yöneticisi**. *Not*: Bu menü öğesi, bu NuGet Paket Yöneticisi'nin yüklendiğinden emin olun görmüyorsanız.
-2. Seçin **çözüm için NuGet paketlerini Yönet...**
+1. Gelen **Araçları** menüsünde **NuGet Paket Yöneticisi**. *Not*: Bu menü öğesi, bu NuGet Paket Yöneticisi'nin yüklendiğinden emin olun görmüyorsanız.
+2. Seçin **çözüm için NuGet paketlerini Yönet**
 3. İçinde **NugGet paketlerini Yönet** iletişim kutusunda **çevrimiçi**.
 4. Arama kutusuna &quot;Microsoft.AspNet.WebApi.SelfHost&quot;.
 5. ASP.NET Web API Self konağı paketi seçin ve tıklayın **yükleme**.
@@ -77,7 +77,6 @@ NuGet Paket Yöneticisi'ni yükledikten sonra Web API Self-Host paketini projeni
 
 > [!NOTE]
 > Microsoft.AspNet.WebApi.SelfHost, değil AspNetWebApi.SelfHost adlı paketi yüklediğinizden emin olun.
-
 
 ![](self-host-a-web-api/_static/image4.png)
 
@@ -141,8 +140,8 @@ Yeni bir konsol uygulaması projesi çözüme ekleyin:
 
 NuGet paketi ASP.NET Web API çekirdek kitaplıkları paketini eklemek için Yöneticisi'ni kullanın:
 
-- Araçlar menüsü'nden seçin **kitaplık Paket Yöneticisi**.
-- Seçin **çözüm için NuGet paketlerini Yönet...**
+- Araçlar menüsü'nden seçin **NuGet Paket Yöneticisi**.
+- Seçin **çözüm için NuGet paketlerini Yönet**
 - İçinde **NuGet paketlerini Yönet** iletişim kutusunda **çevrimiçi**.
 - Arama kutusuna &quot;System.NET.http.Formatting&quot;.
 - Microsoft ASP.NET Web API İstemci Kitaplığı paketi seçin ve tıklayın **yükleme**.

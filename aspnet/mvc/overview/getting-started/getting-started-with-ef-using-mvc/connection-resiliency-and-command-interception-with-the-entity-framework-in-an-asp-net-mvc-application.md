@@ -8,21 +8,20 @@ ms.date: 01/13/2015
 ms.assetid: c89d809f-6c65-4425-a3fa-c9f6e8ac89f2
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 9b326ec22fc70a8c1746c5cd2c302c7f04fa8d3e
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: ab6a553100d704746840eaad512ec140d4576c44
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41753377"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911792"
 ---
 <a name="connection-resiliency-and-command-interception-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Bağlantı dayanıklılığı ve komut durdurma bir ASP.NET MVC uygulamasındaki Entity Framework ile
 ====================
 tarafından [Tom Dykstra](https://github.com/tdykstra)
 
-[Tamamlanmış projeyi indirmek](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8) veya [PDF olarak indirin](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
+[Projeyi yükle](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
-> Contoso University örnek web uygulaması Entity Framework 6 Code First ve Visual Studio 2013 kullanarak ASP.NET MVC 5 uygulamalarının nasıl oluşturulacağını gösterir. Öğretici serisinin hakkında daha fazla bilgi için bkz. [serideki ilk öğreticide](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
-
+> Contoso University örnek web uygulaması Entity Framework 6 Code First ve Visual Studio kullanarak ASP.NET MVC 5 uygulamalarının nasıl oluşturulacağını gösterir. Öğretici serisinin hakkında daha fazla bilgi için bkz. [serideki ilk öğreticide](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 
 Şu ana kadar uygulamayı yerel olarak IIS Express'te URL'i geliştirme bilgisayarınızda çalışıyor. Gerçek bir uygulamada Internet üzerinden diğer kullanıcılar için kullanılabilir hale getirmek için bir web barındırma sağlayıcısına dağıtmanız ve veritabanı bir veritabanı sunucusuna dağıtmak zorunda.
 
@@ -73,7 +72,7 @@ Bulut uygulamaları için en iyi uygulama uygulamak için sorgu durdurma de kull
 
 ### <a name="create-a-logging-interface-and-class"></a>Günlük arabirim ve sınıf oluşturma
 
-A [açısından en iyisi günlüğe kaydetme için](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry.md#log) bir arabirim kullanarak yapmak için System.Diagnostics.Trace veya günlük sınıfı çağrı sabit kodlama yerine. Bu günlük mekanizma daha sonra yapmanız gereken değiştirmeyi kolaylaştırır. Bu bölümde günlüğe kaydetme arabirimi ve onu/p uygulamak için bir sınıf oluşturacaksınız böylece > 
+A [açısından en iyisi günlüğe kaydetme için](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry.md#log) bir arabirim kullanarak yapmak için System.Diagnostics.Trace veya günlük sınıfı çağrı sabit kodlama yerine. Bu günlük mekanizma daha sonra yapmanız gereken değiştirmeyi kolaylaştırır. Bu bölümde günlüğe kaydetme arabirimi ve onu/p uygulamak için bir sınıf oluşturacaksınız böylece >
 
 1. Projeye bir klasör oluşturun ve adlandırın *günlüğü*.
 2. İçinde *oturum* klasöründe adlı bir sınıf dosyası oluşturma *ILogger.cs*, şablonu kodu aşağıdaki kodla değiştirin:
@@ -138,7 +137,7 @@ Ardından veritabanı, geçici hataların benzetimini yapmak için tek ve günl�
 
 ## <a name="test-logging-and-connection-resiliency"></a>Test günlüğü ve bağlantı dayanıklılığı
 
-1. Uygulamayı hata ayıklama modunda çalıştırın ve ardından F5'e basın **Öğrenciler** sekmesi.
+1. Tuşuna **F5** uygulamayı hata ayıklama modunda çalıştırın ve ardından **Öğrenciler** sekmesi.
 2. Konum Visual Studio **çıkış** izleme çıktısını görmek için penceresi. Yukarı doğru ilerleyin, Günlükçü tarafından yazılan günlükleri almak için bazı JavaScript hataları geçmiş gerekebilir.
 
     Veritabanına gönderilen gerçek SQL sorguları gördüğünüz dikkat edin. Bazı ilk sorgular ve veritabanı sürüm denetimi kullanmaya başlamak için Entity Framework mu komutları ve geçiş geçmiş tablosu (sonraki öğreticide geçişleri hakkında öğreneceksiniz) görürsünüz. Sayfalama vardır, kaç Öğrenciler bulmak için bkz ve son olarak, Öğrenci verilerinin alır sorgu görürsünüz.
@@ -172,7 +171,7 @@ Ardından veritabanı, geçici hataların benzetimini yapmak için tek ve günl�
 
 Bu öğreticide bağlantı dayanıklılığı etkinleştirmek ve Entity Framework oluşturur ve veritabanına gönderir SQL komutları oturum öğrendiniz. Sonraki öğreticide veritabanını dağıtmak için Code First Migrations'ı kullanarak İnternet'e uygulama dağıtacaksınız.
 
-Lütfen bu öğreticide sevmediğinizi nasıl ve ne geliştirebileceğimiz hakkında geri bildirim bırakın. Yeni konuları da isteyebilirsiniz [Show Me nasıl ile kod](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code).
+Lütfen bu öğreticide sevmediğinizi nasıl ve ne geliştirebileceğimiz hakkında geri bildirim bırakın.
 
 Entity Framework diğer kaynakların bağlantılarını bulunabilir [ASP.NET veri erişimi - önerilen kaynaklar](../../../../whitepapers/aspnet-data-access-content-map.md).
 

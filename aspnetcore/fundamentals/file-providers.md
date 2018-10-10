@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/01/2018
 uid: fundamentals/file-providers
-ms.openlocfilehash: 512229cfe7d7efdcd9050fa13dbdbf793be29a0b
-ms.sourcegitcommit: 571d76fbbff05e84406b6d909c8fe9cbea2c8ff1
+ms.openlocfilehash: a0d326f5fc995cb903380315879d39a8ce851d06
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39410162"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913222"
 ---
 # <a name="file-providers-in-aspnet-core"></a>ASP.NET core'da dosya sağlayıcıları
 
@@ -38,7 +38,7 @@ Birincil arabirimidir [IFileProvider](/dotnet/api/microsoft.extensions.fileprovi
 
 * [Var.](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo.exists)
 * [IsDirectory](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo.isdirectory)
-* [Adı](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo.name)
+* [Ad](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo.name)
 * [Uzunluğu](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo.length) (bayt cinsinden)
 * [LastModified](/dotnet/api/microsoft.extensions.fileproviders.ifileinfo.lastmodified) tarihi
 
@@ -141,7 +141,7 @@ Herhangi bir sınıf oluşturucusuna sağlayıcı ekleme ve yerel bir alana atay
 [ManifestEmbeddedFileProvider](/dotnet/api/microsoft.extensions.fileproviders.manifestembeddedfileprovider) gömülü bütünleştirilmiş kodlarında dosyalara erişmek için kullanılır. `ManifestEmbeddedFileProvider` Bütünleştirilmiş kod içine derlenmiş bir bildirim ekli dosyalar özgün yollarını yeniden oluşturmak için kullanır.
 
 > [!NOTE]
-> `ManifestEmbeddedFileProvider` ASP.NET Core 2.1 veya üzeri sürümlerde kullanılabilir. ASP.NET Core 2.0 derlemede gömülü dosyalara veya önceki sürümlerinde, [ASP.NET Core 1.x sürümü bu konunun](xref:fundamentals/file-providers?view=aspnetcore-1.1).
+> `ManifestEmbeddedFileProvider` ASP.NET Core 2.1 veya üzeri sürümlerde kullanılabilir. ASP.NET Core 2.0 derlemede gömülü dosyalara veya önceki sürümlerinde, [ASP.NET Core 1.x sürümü bu konunun](/aspnet/core/fundamentals/file-providers?view=aspnetcore-1.1).
 
 Katıştırılmış dosyaların bir bildirim oluşturmak üzere `<GenerateEmbeddedFilesManifest>` özelliğini `true`. İle eklemek için dosyaları belirttiğiniz [ &lt;EmbeddedResource&gt;](/dotnet/core/tools/csproj#default-compilation-includes-in-net-core-projects):
 

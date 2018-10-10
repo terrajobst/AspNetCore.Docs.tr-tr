@@ -8,12 +8,12 @@ ms.date: 02/15/2013
 ms.assetid: ae4def81-fa37-4883-a13e-d9896cbf6c36
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/preparing-databases
 msc.type: authoredcontent
-ms.openlocfilehash: 7bdf443fbce7376ac057c848df146717955203f9
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 67f44d9f23a2fe83c48e68328b1dee739056e32f
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41756319"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912390"
 ---
 <a name="aspnet-web-deployment-using-visual-studio-preparing-for-database-deployment"></a>Visual Studio kullanarak ASP.NET Web Dağıtımı: veritabanı dağıtımı için hazırlanma
 ====================
@@ -84,15 +84,13 @@ Uygulamayı açmak *Web.config* dosya kaldırın ya da açıklama `add` Code Fir
 > [!NOTE]
 > Hazırlayabilirsiniz çağırarak bir başlatıcı sınıfı belirtmek için başka bir yolu ise `Database.SetInitializer` içinde `Application_Start` yönteminde *Global.asax* dosya. Geçişleri Başlatıcı belirtmek için bu yöntemi kullanan bir proje içinde etkinleştirirseniz, bu kod satırı kaldırın.
 
-
 > [!NOTE]
 > Visual Studio 2013 kullanıyorsanız, aşağıdaki adımları adım 2 ve 3 arasında ekleyin: (a) içinde PMC'yi girin "update-package entityframework-sürüm 6.1.1" EF'ın geçerli sürümü almak için. Sonra da (b) derleme proje derleme hataları listesini almak ve bunları da onarabilir. Artık mevcut, sağ tıklayın ve burada gerekli using deyimlerini eklemek için Çözümle'ye ad alanları için using deyimlerini silin ve için System.Data.Entity.EntityState System.Data.EntityState tekrarı değiştirin.
-
 
 ### <a name="enable-code-first-migrations"></a>Code First geçişleri etkinleştir
 
 1. (ContosoUniversity.DAL değil) ContosoUniversity projeyi başlangıç projesi olarak ayarlandığından emin olun. İçinde **Çözüm Gezgini**ContosoUniversity projeye sağ tıklayın ve seçin **başlangıç projesi olarak ayarla**. Code First geçişleri, veritabanı bağlantı dizesi bulmak için başlangıç projesi görünecektir.
-2. Gelen **Araçları** menüsünde tıklatın **kitaplık Paket Yöneticisi** (veya **NuGet Paket Yöneticisi**) ve ardından **Paket Yöneticisi Konsolu**.
+2. Gelen **Araçları** menüsünde seçin **NuGet Paket Yöneticisi** > **Paket Yöneticisi Konsolu**.
 
     ![Selecting_Package_Manager_Console](preparing-databases/_static/image3.png)
 3. Üst kısmındaki **Paket Yöneticisi Konsolu** penceresi seçin ContosoUniversity.DAL varsayılan proje ardından at `PM>` istemi "geçişleri etkinleştir" girin.

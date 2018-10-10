@@ -6,28 +6,43 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/31/2018
 uid: getting-started
-ms.openlocfilehash: a6a5023594aec01370143e7d1f35fb45c109122a
-ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
+ms.openlocfilehash: 4a5a0cc5a5dab2171ab8ef43818185a4ee91af0e
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47860946"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912572"
 ---
-# <a name="get-started-with-aspnet-core"></a>ASP.NET Core kullanmaya başlayın
+# <a name="tutorial-get-started-with-aspnet-core"></a>Öğretici: ASP.NET Core ile çalışmaya başlama
 
-Bu belge, oluşturma ve ASP.NET Core uygulaması çalıştırmak için adımlar sağlar.
+Bu öğreticide, ASP.NET Core web uygulaması oluşturmak için .NET Core komut satırı arabirimi kullanmayı gösterir. Öğreneceksiniz nasıl yapılır:
 
-::: moniker range=">= aspnetcore-2.1"
+> [!div class="checklist"]
+> * Bir web uygulaması projesi oluşturun.
+> * Yerel HTTPS etkinleştirin.
+> * Uygulamayı çalıştırın.
+> * Bir Razor sayfası düzenleyin.
 
-1. Yükleme [!INCLUDE [](~/includes/2.1-SDK.md)].
+Sonunda, yerel makinenizde çalışan bir çalışan web uygulaması oluşturmuş olacaksınız.
 
-2. Bir ASP.NET Core projesi oluşturun. Bir komut kabuğunu açın ve aşağıdaki komutu girin:
+![Web uygulama ana sayfası](_static/home-page.png)
+
+
+## <a name="prerequisites"></a>Önkoşullar
+
+* Yükleme [!INCLUDE [](~/includes/2.1-SDK.md)].
+
+## <a name="create-a-web-app-project"></a>Bir web uygulaması projesi oluşturma
+
+* Bir komut kabuğunu açın ve aşağıdaki komutu girin:
 
    ```console
    dotnet new webapp -o aspnetcoreapp
    ```
 
-3. HTTPS geliştirme sertifikasına güvenmek:
+## <a name="enable-local-https"></a>Yerel HTTPS'yi etkinleştirme
+
+* HTTPS geliştirme sertifikasına güvenmek:
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
@@ -62,99 +77,36 @@ Bu belge, oluşturma ve ASP.NET Core uygulaması çalıştırmak için adımlar 
    
 ---
 
-4. Uygulamayı çalıştırın:
+## <a name="run-the-app"></a>Uygulamayı çalıştırma
+
+* Aşağıdaki komutları çalıştırın:
 
    ```console
    cd aspnetcoreapp
    dotnet run
    ```
 
-5. Gözat [ http://localhost:5001 ](http://localhost:5001).  Tıklayın **kabul** gizlilik ve tanımlama bilgisi ilkesini kabul etmek için. Bu uygulama, kişisel bilgileri tutmak değil.
+* Gözat [ https://localhost:5001 ](https://localhost:5001). Tıklayın **kabul** gizlilik ve tanımlama bilgisi ilkesini kabul etmek için. Bu uygulama, kişisel bilgileri tutmak değil.
 
-6. Açık *Pages/About.cshtml* ve sayfanın vurgulanan aşağıdaki işaretlemeyle değiştirin:
+## <a name="edit-a-razor-page"></a>Bir Razor sayfası Düzenle
+
+* Açık *Pages/About.cshtml* ve sayfanın vurgulanan aşağıdaki işaretlemeyle değiştirin:
 
    [!code-cshtml[](sample/getting-started/about.cshtml?highlight=9)]
 
-7. Gözat [ http://localhost:5001/About ](http://localhost:5001/About) ve değişiklikleri görüntülenir doğrulayın.
+* Gözat [ https://localhost:5001/About ](https://localhost:5001/About) ve değişiklikleri görüntülenir doğrulayın.
 
-[!INCLUDE [next steps](~/includes/getting-started/next-steps.md)]
+## <a name="next-steps"></a>Sonraki adımlar
 
-::: moniker-end
+Bu öğreticide şunları öğrendiniz: nasıl yapılır:
 
-::: moniker range="= aspnetcore-2.0"
+> [!div class="checklist"]
+> * Bir web uygulaması projesi oluşturun.
+> * Yerel HTTPS etkinleştirin.
+> * Projeyi çalıştırın.
+> * Bir değişiklik yapın.
 
-1. Yükleme [!INCLUDE [](~/includes/net-core-sdk-download-link.md)].
+ASP.NET Core hakkında daha fazla bilgi için girişine bakın:
 
-2. Yeni bir ASP.NET Core projesi oluşturun.
-
-   Bir komut kabuğunu açın. Aşağıdaki komutu girin:
-
-   ```console
-   dotnet new razor -o aspnetcoreapp
-   ```
-
-3. Uygulama ile aşağıdaki komutları çalıştırın:
-
-   ```console
-   cd aspnetcoreapp
-   dotnet run
-   ```
-
-4. Gözat [ http://localhost:5000 ](http://localhost:5000).
-
-5. Açık *Pages/About.cshtml* ve iletiyi görüntülemek için sayfanın değiştirme "Hello, world! Sunucusundaki zamandır @DateTime.Now":
-
-   [!code-cshtml[](sample/getting-started/about.cshtml?highlight=9&range=1-9)]
-
-6. Gözat [ http://localhost:5000/About ](http://localhost:5000/About) ve değişiklikleri doğrulayın.
-
-[!INCLUDE [next steps](~/includes/getting-started/next-steps.md)]
-
-::: moniker-end
-
-::: moniker range="<= aspnetcore-1.1"
-
-1. .NET Core'u yükleme **SDK yükleyicisi** 1.0.4 SDK'dan için [.NET Core tüm indirmeler sayfasına](https://www.microsoft.com/net/download/all).
-
-2. Yeni bir ASP.NET Core projesi için bir klasör oluşturun.
-
-   Bir komut kabuğunu açın. Aşağıdaki komutları girin:
-
-   ```console
-   mkdir aspnetcoreapp
-   cd aspnetcoreapp
-   ```
-
-3. Makinenizde bir sonraki SDK sürümü yüklü değilse, oluşturun bir *global.json* 1.0.4 seçmek için dosya SDK.
-
-   ```json
-   {
-     "sdk": { "version": "1.0.4" }
-   }
-   ```
-
-4. Yeni bir ASP.NET Core projesi oluşturun.
-
-   ```console
-   dotnet new web
-   ```
-
-5. Paketleri geri yükleyin.
-
-   ```console
-   dotnet restore
-   ```
-
-6. Uygulamayı çalıştırın.
-
-   ```console
-   dotnet run
-   ```
-
-   [Çalıştırma dotnet](/dotnet/core/tools/dotnet-run) gerekirse komut uygulamayı ilk olarak oluşturur.
-
-7. konumuna gözatın `http://localhost:5000`.
-
-[!INCLUDE [next steps](~/includes/getting-started/next-steps.md)]
-
-::: moniker-end
+> [!div class="nextstepaction"]
+> <xref:index>

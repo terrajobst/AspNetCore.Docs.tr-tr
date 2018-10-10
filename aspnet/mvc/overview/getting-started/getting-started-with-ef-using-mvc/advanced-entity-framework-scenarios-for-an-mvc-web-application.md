@@ -8,21 +8,20 @@ ms.date: 12/08/2014
 ms.assetid: f35a9b0c-49ef-4cde-b06d-19d1543feb0b
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: 6e3de242f7cfc584f4c3d1dfa3d1948ee4d49d66
-ms.sourcegitcommit: 67a0a04ebb3b21c826e5b9600bacfc897abd6a46
+ms.openlocfilehash: 0aa440e700c9bfb02aa5d55ebf481850a730febe
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42899831"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912689"
 ---
 <a name="advanced-entity-framework-6-scenarios-for-an-mvc-5-web-application-12-of-12"></a>MVC 5 Web uygulaması (12, 12) için Gelişmiş Entity Framework 6 senaryoları
 ====================
 tarafından [Tom Dykstra](https://github.com/tdykstra)
 
-[Tamamlanmış projeyi indirmek](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8) veya [PDF olarak indirin](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
+[Projeyi yükle](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
-> Contoso University örnek web uygulaması Entity Framework 6 Code First ve Visual Studio 2013 kullanarak ASP.NET MVC 5 uygulamalarının nasıl oluşturulacağını gösterir. Öğretici serisinin hakkında daha fazla bilgi için bkz. [serideki ilk öğreticide](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
-
+> Contoso University örnek web uygulaması Entity Framework 6 Code First ve Visual Studio kullanarak ASP.NET MVC 5 uygulamalarının nasıl oluşturulacağını gösterir. Öğretici serisinin hakkında daha fazla bilgi için bkz. [serideki ilk öğreticide](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 
 Önceki öğreticide tablo başına hiyerarşi devralma uygulanır. Bu öğretici içerir, Entity Framework Code First kullanan ASP.NET web uygulamaları geliştirmenin temellerini gidin ne zaman uyumlu olması yararlı olan çeşitli konuları tanıtır. Adım adım yönergeler kod ve Visual Studio için aşağıdaki konulardan kullanarak rehberlik:
 
@@ -150,7 +149,7 @@ Bazen veritabanına gönderilen gerçek SQL sorguları görebilmeniz yararlıdı
 
 [!code-csharp[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample6.cs)]
 
-Artık üzerinde bir kesme noktası ayarlamak `return` deyimi (imleç o satırın F9). Projeyi hata ayıklama modunda çalıştırın ve kursu dizin sayfası F5 tuşuna basın. Kodu kesme noktasına ulaşıldığında, inceleyin `sql` değişkeni. SQL sunucusuna gönderilen sorgu görürsünüz. Basit bir `Select` deyimi.
+Artık üzerinde bir kesme noktası ayarlamak `return` deyimi (imleç o satırın F9). Tuşuna **F5** projeyi hata ayıklama modunda çalıştırın ve kursu Dizin Sayfası'ı seçin. Kodu kesme noktasına ulaşıldığında, inceleyin `sql` değişkeni. SQL sunucusuna gönderilen sorgu görürsünüz. Basit bir `Select` deyimi.
 
 [!code-json[Main](advanced-entity-framework-scenarios-for-an-mvc-web-application/samples/sample7.json)]
 
@@ -291,7 +290,6 @@ Hata iletisi:
 
 > Oluşturma/kopyalama gölge olamaz '&lt;filename&gt;', zaten mevcut.
 
-
 Çözüm
 
 Birkaç saniye bekleyin ve sayfayı yenileyin.
@@ -301,7 +299,6 @@ Birkaç saniye bekleyin ve sayfayı yenileyin.
 Hata iletisi (gelen `Update-Database` PMC'yi komutunu):
 
 > ' % S'terim 'Veritabanını Güncelleştir' cmdlet'i, işlev, komut dosyası veya çalıştırılabilir program adı olarak tanınmıyor. Adının yazımını denetleyin veya bir yol varsa, yolun doğru olduğundan emin olun ve yeniden deneyin.
-
 
 Çözüm
 
@@ -313,7 +310,6 @@ Hata iletisi (gelen `Update-Database` PMC'yi komutunu):
 
 > Bir veya daha fazla varlık için doğrulanamadı. Daha fazla ayrıntı için 'EntityValidationErrors' özelliğine bakın.
 
-
 Çözüm
 
 Bu sorunun bir nedeni olduğundan doğrulama hataları olduğunda `Seed` yöntemi çalışır. Bkz: [Seeding ve hata ayıklama Entity Framework (EF) Db'ler](https://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx) hata ayıklama ipuçları için `Seed` yöntemi.
@@ -322,9 +318,7 @@ Bu sorunun bir nedeni olduğundan doğrulama hataları olduğunda `Seed` yöntem
 
 Hata iletisi:
 
-> HTTP Hatası 500.19 - iç sunucu hatası  
-> Sayfa için ilgili yapılandırma verileri geçersiz olduğundan istenen sayfayı erişilemez.
-
+> HTTP Hatası 500.19 - iç sunucu hatası istenen sayfa sayfa için ilgili yapılandırma verileri geçersiz olduğundan erişilemez.
 
 Çözüm
 
@@ -335,7 +329,6 @@ Bu hatayı alabileceğiniz bir çözüm, her biri aynı bağlantı noktası numa
 Hata iletisi:
 
 > Bir SQL Server bağlantısı kurulurken ağla ilgili veya örneğe özel bir hata oluştu. Sunucu bulunamadı veya erişilebilir durumda değildi. Örnek adının doğru olduğundan ve SQL Server Uzak bağlantılara izin verecek şekilde yapılandırıldığını doğrulayın. (sağlayıcı: SQL ağ arabirimleri, hata: 26 - Server/örneği belirtilen hata bulma)
-
 
 Çözüm
 

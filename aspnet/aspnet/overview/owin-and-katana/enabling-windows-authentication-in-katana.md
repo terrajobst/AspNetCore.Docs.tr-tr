@@ -8,12 +8,12 @@ ms.date: 07/30/2013
 ms.assetid: 82324ef0-3b75-4f63-a217-76ef4036ec93
 msc.legacyurl: /aspnet/overview/owin-and-katana/enabling-windows-authentication-in-katana
 msc.type: authoredcontent
-ms.openlocfilehash: 0aa578020a1f02fa68c74e758014c642219b4265
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 8afa2c9dfbe03a9874513f7d083adf7608f4218f
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41753156"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910466"
 ---
 <a name="enabling-windows-authentication-in-katana"></a>Katana'da Windows kimlik doğrulamasını etkinleştirme
 ====================
@@ -36,7 +36,6 @@ Katana şu anda iki sunucu, Windows tümleşik kimlik doğrulaması ikisi için 
 > [!NOTE]
 > Bu işlevselliği sunucular kullanılabilir olduğundan Katana şu anda OWIN ara yazılımı için Windows kimlik doğrulaması sağlamaz.
 
-
 ## <a name="windows-authentication-in-iis"></a>IIS Windows kimlik doğrulaması
 
 Microsoft.Owin.Host.SystemWeb kullanarak, yalnızca IIS Windows kimlik doğrulamasını etkinleştirebilirsiniz.
@@ -45,7 +44,7 @@ Microsoft.Owin.Host.SystemWeb kullanarak, yalnızca IIS Windows kimlik doğrulam
 
 ![](enabling-windows-authentication-in-katana/_static/image1.png)
 
-Ardından, NuGet paketlerini ekleyin. Gelen **Araçları** menüsünde **kitaplık Paket Yöneticisi**, ardından **Paket Yöneticisi Konsolu**. Paket Yöneticisi konsolu penceresinde, aşağıdaki komutu girin:
+Ardından, NuGet paketlerini ekleyin. Gelen **Araçları** menüsünde **NuGet Paket Yöneticisi**, ardından **Paket Yöneticisi Konsolu**. Paket Yöneticisi konsolu penceresinde, aşağıdaki komutu girin:
 
 [!code-console[Main](enabling-windows-authentication-in-katana/samples/sample1.cmd)]
 
@@ -75,7 +74,7 @@ Bir sunucuya uygulamayı dağıttığınızda, daha sonra izleyin [adımları](h
 
 Katana barındırma için Microsoft.Owin.Host.HttpListener kullanıyorsanız, doğrudan Windows kimlik doğrulamasını etkinleştirebilirsiniz **HttpListener** örneği.
 
-İlk olarak, yeni bir konsol uygulaması oluşturun. Ardından, NuGet paketlerini ekleyin. Gelen **Araçları** menüsünde **kitaplık Paket Yöneticisi**, ardından **Paket Yöneticisi Konsolu**. Paket Yöneticisi konsolu penceresinde, aşağıdaki komutu girin:
+İlk olarak, yeni bir konsol uygulaması oluşturun. Ardından, NuGet paketlerini ekleyin. Gelen **Araçları** menüsünde **NuGet Paket Yöneticisi**, ardından **Paket Yöneticisi Konsolu**. Paket Yöneticisi konsolu penceresinde, aşağıdaki komutu girin:
 
 [!code-console[Main](enabling-windows-authentication-in-katana/samples/sample4.cmd)]
 

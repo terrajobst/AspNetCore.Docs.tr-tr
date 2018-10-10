@@ -8,12 +8,12 @@ ms.date: 07/03/2013
 ms.assetid: 9594d644-66b6-4223-acdd-23e29a6e4c46
 msc.legacyurl: /signalr/overview/older-versions/signalr-performance
 msc.type: authoredcontent
-ms.openlocfilehash: 4fba0cc79046f5f3fd1dc50e5b69ddb78d98c23d
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 3ac62639617e1ff83761d0a1d45c27303d0b820d
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41751980"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912767"
 ---
 <a name="signalr-performance-signalr-1x"></a>SignalR performansı (SignalR 1.x)
 ====================
@@ -119,7 +119,7 @@ Bu bölümde, etkinleştirmek ve kullanmak SignalR performans sayaçları açık
 
 Performans sayaçları SignalR.exe adlı bir yardımcı program kullanarak sunucuya eklenebilir. Bu yardımcı programını yüklemek için aşağıdaki adımları izleyin:
 
-1. Visual Studio uygulamanızı seçin **Araçları**, **kitaplık Paket Yöneticisi**, **çözüm için NuGet paketlerini Yönet...**
+1. Visual Studio'da **Araçları** > **NuGet Paket Yöneticisi** > **çözüm için NuGet paketlerini Yönet**
 2. Arama **signalr.utils**ve yükleme seçeneğini belirleyin.
 
     ![](signalr-performance/_static/image1.png)

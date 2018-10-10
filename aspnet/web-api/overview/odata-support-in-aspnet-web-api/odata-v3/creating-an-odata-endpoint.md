@@ -8,12 +8,12 @@ ms.date: 02/25/2014
 ms.assetid: 262843d6-43a2-4f1c-82d9-0b90ae6df0cf
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/creating-an-odata-endpoint
 msc.type: authoredcontent
-ms.openlocfilehash: 654f697c8d095d45ba31e2808c52f9ad24b606c8
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 2e0d3b45fd51192d227d852dc2f05b45ca42944c
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41752980"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910921"
 ---
 <a name="creating-an-odata-v3-endpoint-with-web-api-2"></a>İle Web API 2 OData v3 uç noktası oluşturma
 ====================
@@ -22,18 +22,18 @@ tarafından [Mike Wasson](https://github.com/MikeWasson)
 [Projeyi yükle](http://code.msdn.microsoft.com/ASPNET-Web-API-OData-cecdb524)
 
 > [Açık veri Protokolü](http://www.odata.org/) (OData) web için bir veri erişim protokolüdür. OData veri yapısı, verileri sorgulamak ve veri kümesi üzerinden CRUD işlemleri işlemek için Tekdüzen bir yol sağlar (oluşturma, okuma, güncelleştirme ve silme). OData AtomPub (XML) hem de JSON biçimlerini destekler. OData veri hakkındaki meta verileri kullanıma sunmak için bir yol da tanımlar. İstemciler, tür bilgileri ve veri kümesi için ilişkileri keşfetmek için meta verileri kullanabilir.
-> 
+>
 > ASP.NET Web API OData uç noktası için bir veri kümesi oluşturmak kolaylaştırır. Uç nokta tam olarak hangi OData işlemleri destekleyen denetleyebilirsiniz. OData olmayan uç noktaları yanı sıra birden çok OData uç barındırabilirsiniz. Size, veri modeli, arka uç iş mantığı ve veri katmanı üzerinde tam denetime sahiptir.
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - Web API 2
 > - OData sürüm 3
 > - Entity Framework 6
 > - [Fiddler'ı Web Proxy (isteğe bağlı) hata ayıklama](http://www.fiddler2.com)
-> 
+>
 > Web API OData desteği eklendi [ASP.NET ve Web Araçları 2012.2 güncelleştirme](https://go.microsoft.com/fwlink/?LinkId=282650). Ancak, Bu öğretici, Visual Studio 2013'te eklenmiş olan yapı iskelesi kullanır.
 
 
@@ -154,7 +154,7 @@ Bir EDM soyut bir veri modelidir. EDM meta verileri belgesi oluşturun ve hizmet
 
 Bu adımda, bazı test verileri ile veritabanının çekirdeğini oluşturma için Entity Framework kullanır. Bu adım isteğe bağlıdır, ancak OData uç noktanızı hemen test etmenize olanak tanır.
 
-Gelen **Araçları** menüsünde **kitaplık Paket Yöneticisi**, ardından **Paket Yöneticisi Konsolu**. Paket Yöneticisi konsolu penceresinde, aşağıdaki komutu girin:
+Gelen **Araçları** menüsünde **NuGet Paket Yöneticisi**, ardından **Paket Yöneticisi Konsolu**. Paket Yöneticisi konsolu penceresinde, aşağıdaki komutu girin:
 
 [!code-console[Main](creating-an-odata-endpoint/samples/sample5.cmd)]
 
@@ -240,7 +240,7 @@ OData çeşitli serileştirme biçimleri destekler:
 - JSON "açık" (OData v3 sürümünde sunulan)
 - JSON "ayrıntılı" (OData v2)
 
-Varsayılan olarak, Web API'si AtomPubJSON "açık" biçimini kullanır. 
+Varsayılan olarak, Web API'si AtomPubJSON "açık" biçimini kullanır.
 
 Accept üst bilgisi AtomPub biçimi almak için "application/atom + xml" ayarlayın. Bir örnek yanıt gövdesi şu şekildedir:
 

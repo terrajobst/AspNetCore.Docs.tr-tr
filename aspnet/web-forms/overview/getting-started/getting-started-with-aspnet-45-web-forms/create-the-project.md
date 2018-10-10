@@ -8,12 +8,12 @@ ms.date: 09/08/2014
 ms.assetid: 2ce36f78-8ecb-4ab1-b748-6d0ab633ea3f
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create-the-project
 msc.type: authoredcontent
-ms.openlocfilehash: de0f8092342a8ba8979a31e9a97b603e44e6a85d
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 754f085e3e43f7efa155f410d02a0d29d3349612
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41755841"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912299"
 ---
 <a name="create-the-project"></a>Proje oluşturma
 ====================
@@ -174,8 +174,7 @@ Bir Web sunucusu bir sayfa için bir istek aldığında, bu sayfanın bulur, iş
 > 
 > ASP.NET Web Forms uygulaması şablondaki özellikleri yanı sıra Wingtip Toys uygulamanın kullandığı [Entity Framework Code First](https://weblogs.asp.net/scottgu/archive/2010/12/08/announcing-entity-framework-code-first-ctp5-release.aspx), kod odaklı geliştirme verilerle çalışırken sağlayan bir NuGet kitaplığı olduğu. Kısacası, uygulamanız için yazdığınız koda göre veritabanı bölümünü oluşturur. Almak Entity Framework kullanarak ve kesin türü belirtilmiş nesneler olarak veri işleme. Uygulamanızı nasıl verilere erişilebilir ayrıntılarını yerine iş mantığına odaklanabilir olanak sağlar.
 > 
-> Yüklü kitaplıkları ve ASP.NET Web Forms şablonu ile birlikte gelen paketler hakkında ek bilgi için yüklü NuGet paketleri listesi bakın. Bunu yapmak için Visual Studio'da yeni bir Web Forms proje oluşturun, select **Araçları**  - &gt; **kitaplık Paket Yöneticisi**  - &gt; **Yönet Çözüm için NuGet paketlerini**seçip **yüklü paketleri** içinde **NuGet paketlerini Yönet** iletişim kutusu.
-
+> Yüklü kitaplıkları ve ASP.NET Web Forms şablonu ile birlikte gelen paketler hakkında ek bilgi için yüklü NuGet paketleri listesi bakın. Bunu yapmak için Visual Studio'da yeni bir Web Forms proje oluşturun, select **Araçları** > **NuGet Paket Yöneticisi** > **ÇözümiçinNuGetpaketleriniYönet**seçip **yüklü paketleri** içinde **NuGet paketlerini Yönet** iletişim kutusu.
 
 ### <a name="touring-visual-studio"></a>Visual Studio hiç yapmadığı bir şey
 

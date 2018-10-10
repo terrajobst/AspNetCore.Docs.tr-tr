@@ -8,12 +8,12 @@ ms.date: 07/30/2013
 ms.assetid: 8af630e0-fffa-4110-9eca-c96e201b2724
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 72180686ea1ee6f6695b24fcedf3af90c1eddcfa
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 8bea3d4bc19a5a47240abeb2cc015116814a8fdf
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41753564"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911825"
 ---
 <a name="sorting-filtering-and-paging-with-the-entity-framework-in-an-aspnet-mvc-application-3-of-10"></a>Sıralama, filtreleme ve (3 10) ASP.NET MVC uygulamasındaki Entity Framework ile sayfalama
 ====================
@@ -117,7 +117,7 @@ Disk belleği Öğrenciler dizin sayfasına eklemek için yükleyerek başlayaca
 
 NuGet **PagedList.Mvc** paket otomatik olarak yükler **PagedList** paketi bir bağımlılık olarak. **PagedList** paketini yükler bir `PagedList` için koleksiyon türü ve uzantısı yöntemleri `IQueryable` ve `IEnumerable` koleksiyonları. Genişletme yöntemleri verilerin tek bir sayfa oluşturmak bir `PagedList` koleksiyon dışı, `IQueryable` veya `IEnumerable`ve `PagedList` koleksiyonu çeşitli özellikler ve disk belleği kolaylaştıran yöntemler sağlar. **PagedList.Mvc** paket sayfalama düğmeleri görüntüleyen bir disk belleği Yardımcısı yükler.
 
-Gelen **Araçları** menüsünde **kitaplık Paket Yöneticisi** ardından **çözüm için NuGet paketlerini Yönet**.
+Gelen **Araçları** menüsünde **NuGet Paket Yöneticisi** ardından **çözüm için NuGet paketlerini Yönet**.
 
 İçinde **NuGet paketlerini Yönet** iletişim kutusu, tıklayın **çevrimiçi** soldaki sekmesinde ve arama kutusuna "disk belleğine alınan" girin. Gördüğünüzde **PagedList.Mvc** paketini, tıklayın **yükleme**.
 

@@ -8,34 +8,34 @@ ms.date: 06/10/2014
 ms.assetid: ed562717-8591-4936-8e10-c7e63dcb570a
 msc.legacyurl: /signalr/overview/security/introduction-to-security
 msc.type: authoredcontent
-ms.openlocfilehash: 62f835349697d02ebe7363b00a032a5353d3dfc2
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 765abd36c5182f291499042e787bcb4fcc727997
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41756549"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910867"
 ---
 <a name="introduction-to-signalr-security"></a>SignalR güvenliğine giriş
 ====================
 tarafından [Patrick Fletcher](https://github.com/pfletcher), [Tom FitzMacken](https://github.com/tfitzmac)
 
-> Bu makalede bir SignalR Uygulama geliştirirken dikkate almanız gereken güvenlik konularını açıklar. 
-> 
+> Bu makalede bir SignalR Uygulama geliştirirken dikkate almanız gereken güvenlik konularını açıklar.
+>
 > ## <a name="software-versions-used-in-this-topic"></a>Bu konu başlığında kullanılan yazılım sürümleri
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
 > - SignalR sürüm 2
->   
-> 
-> 
+>
+>
+>
 > ## <a name="previous-versions-of-this-topic"></a>Bu konunun önceki sürümleri
-> 
+>
 > SignalR eski sürümleri hakkında daha fazla bilgi için bkz: [SignalR eski sürümleri](../older-versions/index.md).
-> 
+>
 > ## <a name="questions-and-comments"></a>Sorularınız ve yorumlarınız
-> 
+>
 > Lütfen bu öğreticide sevmediğinizi nasıl ve ne sayfanın alt kısmındaki açıklamalarda geliştirebileceğimiz hakkında geri bildirim bırakın. Öğretici için doğrudan ilgili olmayan sorularınız varsa, bunları gönderebilir [ASP.NET SignalR Forumu](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) veya [StackOverflow.com](http://stackoverflow.com/).
 
 
@@ -108,7 +108,7 @@ CSRF saldırılarının bir örnek aşağıda verilmiştir:
 
 1. Bir kullanıcının oturum açtığı www.example.com, kullanarak kimlik doğrulaması oluşturur.
 2. Sunucusu kullanıcının kimliğini doğrular. Sunucu yanıtı bir kimlik doğrulama tanımlama bilgisi içerir.
-3. Kullanıcı oturumu kapatmak olmadan kötü amaçlı web sitesini ziyaret eder. Bu kötü niyetli site aşağıdaki HTML formu içerir: 
+3. Kullanıcı oturumu kapatmak olmadan kötü amaçlı web sitesini ziyaret eder. Bu kötü niyetli site aşağıdaki HTML formu içerir:
 
     [!code-html[Main](introduction-to-security/samples/sample1.html)]
 
@@ -124,12 +124,9 @@ Genellikle, tarayıcılar ilgili tüm tanımlama bilgilerini hedef web sitesine 
 
 SignalR kötü niyetli site uygulamanıza geçerli istekleri oluşturmasını önlemek için aşağıdaki adımları alır. Varsayılan olarak bu adımları SignalR alır, kodunuzdaki herhangi bir eylemde bulunmanız gerekmez.
 
-- **Etki alanları arası isteklere devre dışı bırak**  
- SignalR, SignalR uç nokta dış etki alanından çağırmasını kullanıcıları engellemek için etki alanları arası isteklere devre dışı bırakır. SignalR, geçersiz bir dış etki alanından herhangi isteği değerlendirir ve istek engeller. Bu varsayılan davranışı tutmanızı öneririz; Aksi takdirde, kötü niyetli site sitenize komut gönderme uygulamasına kullanıcılar ikna edebilir. Etki alanları arası istek kullanmanız gerekiyorsa, bkz. [etki alanları arası bağlantı kurmak nasıl](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain) .
-- **Tanımlama bilgisi değil, sorgu dizesi bağlantı belirtecin geçip**  
- SignalR bağlantı belirteci bir sorgu dizesi değeri olarak bir tanımlama bilgisi yerine geçer. Kötü amaçlı kod karşılaşıldığında tarayıcı bağlantı belirteci yanlışlıkla iletebilir için bağlantı belirtecini bir tanımlama bilgisinde depolama güvenli değildir. Ayrıca, sorgu dizesinde bağlantı belirtece geçirerek bağlantı belirteci geçerli bağlantı kalıcı önler. Bu nedenle, kötü niyetli bir kullanıcı bir istek başka bir kullanıcının kimlik doğrulama kimlik bilgileri altında yapamaz.
-- **Bağlantı belirteci doğrulayın**  
- Bölümünde anlatıldığı gibi [bağlantı belirteci](#connectiontoken) bölümünde, sunucu bilir hangi bağlantı kimliği doğrulanmış her kullanıcıyla ilişkilendirilir. Sunucu, herhangi bir kullanıcı adı eşleşmiyor bir bağlantı kimliği istekten işlemez. Kötü niyetli bir kullanıcının kullanıcı adı ve geçerli işareti, rasgele üretilen bağlantı kimliği biliyor olması gerekir çünkü kötü niyetli bir kullanıcının geçerli bir isteği tahmin edilemedi düşüktür. Bağlantı sona erer hemen sonra bu bağlantı kimliği geçersiz hale gelir. Anonim kullanıcılar, herhangi bir önemli bilgi erişimi olmamalıdır.
+- **Etki alanları arası istekleri devre dışı bırakmak** SignalR, SignalR uç nokta dış etki alanından çağırmasını kullanıcıları engellemek için etki alanları arası isteklere devre dışı bırakır. SignalR, geçersiz bir dış etki alanından herhangi isteği değerlendirir ve istek engeller. Bu varsayılan davranışı tutmanızı öneririz; Aksi takdirde, kötü niyetli site sitenize komut gönderme uygulamasına kullanıcılar ikna edebilir. Etki alanları arası istek kullanmanız gerekiyorsa, bkz. [etki alanları arası bağlantı kurmak nasıl](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain) .
+- **Tanımlama bilgisi değil, sorgu dizesi bağlantı belirtecin geçip** SignalR bağlantı belirteci bir sorgu dizesi değeri olarak bir tanımlama bilgisi yerine geçer. Kötü amaçlı kod karşılaşıldığında tarayıcı bağlantı belirteci yanlışlıkla iletebilir için bağlantı belirtecini bir tanımlama bilgisinde depolama güvenli değildir. Ayrıca, sorgu dizesinde bağlantı belirtece geçirerek bağlantı belirteci geçerli bağlantı kalıcı önler. Bu nedenle, kötü niyetli bir kullanıcı bir istek başka bir kullanıcının kimlik doğrulama kimlik bilgileri altında yapamaz.
+- **Bağlantı belirteci doğrulamak** açıklandığı [bağlantı belirteci](#connectiontoken) bölümünde, sunucu bilir hangi bağlantı kimliği doğrulanmış her kullanıcıyla ilişkilendirilir. Sunucu, herhangi bir kullanıcı adı eşleşmiyor bir bağlantı kimliği istekten işlemez. Kötü niyetli bir kullanıcının kullanıcı adı ve geçerli işareti, rasgele üretilen bağlantı kimliği biliyor olması gerekir çünkü kötü niyetli bir kullanıcının geçerli bir isteği tahmin edilemedi düşüktür. Bağlantı sona erer hemen sonra bu bağlantı kimliği geçersiz hale gelir. Anonim kullanıcılar, herhangi bir önemli bilgi erişimi olmamalıdır.
 
 <a id="recommendations"></a>
 

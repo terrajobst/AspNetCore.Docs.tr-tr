@@ -8,39 +8,39 @@ ms.date: 08/15/2012
 ms.assetid: ed66530a-04d5-49eb-b76a-85be1f57c437
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 62f67d0d0dfe7a3c9d04eacfbcac56f7fd03ef07
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: ea3d1517192ded0e5372c49897bb1fec33324b6f
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48577372"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912403"
 ---
 <a name="intro-to-aspnet-mvc-4"></a>ASP.NET MVC 4'e giriş
 ====================
 Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
-> Bu öğreticide kullanılabiliyorsa, güncelleştirilmiş bir sürümünü [burada](../../getting-started/introduction/getting-started.md) kullanarak [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads). Bu öğretici birçok iyileştirme sağlayan ASP.NET MVC 5 yeni öğretici kullanır.
-> 
+> Bu öğreticide kullanılabiliyorsa, güncelleştirilmiş bir sürümünü [burada](../../getting-started/introduction/getting-started.md) kullanarak [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013). Bu öğretici birçok iyileştirme sağlayan ASP.NET MVC 5 yeni öğretici kullanır.
+>
 > Bu öğreticide Microsoft kullanarak bir ASP.NET MVC 4 Web uygulaması oluşturmaya ilişkin temel bilgileri sağlanır [Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/products/express) veya Visual Web Developer 2010 Express Service Pack 1. Visual Studio 2012 önerilir öğreticiyi tamamlamak için herhangi bir şey yüklemeniz gerekmez. Visual Studio 2010 kullanıyorsanız, aşağıdaki bileşenleri yüklemeniz gerekir. Aşağıdaki bağlantılara tıklayarak bunların tümünü yükleyebilirsiniz:
-> 
+>
 > - [Visual Studio Web Developer Express SP1 önkoşulları](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)
 > - [ASP.NET MVC 4 için WPI yükleyici](https://go.microsoft.com/fwlink/?LinkId=243392)
 > - [LocalDB](https://www.microsoft.com/web/gallery/install.aspx?appid=SQLLocalDBOnly_11_0)
 > - [SSDT](https://blogs.msdn.com/b/rickandy/archive/2012/08/02/installing-and-using-sql-server-data-tools-ssdt-on-visual-studio-2010-and-vwd.aspx)
-> 
+>
 > Visual Web Developer 2010 yerine Visual Studio 2010 kullanıyorsanız, yükleme [ASP.NET MVC 4 için WPI yükleyici](https://go.microsoft.com/fwlink/?LinkId=243392) ve: [Visual Studio 2010 önkoşulları](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=VS2010SP1Pack)
-> 
+>
 > C# kaynak kodu içeren bir Visual Web Developer proje, bu konuya eşlik etmek üzere kullanılabilir. [C# sürümü indirme](https://code.msdn.microsoft.com/Intro-to-ASPNET-MVC-4-61d0219d/file/114480/1/MvcMovie.zip).
-> 
+>
 > Öğreticide uygulamayı Visual Studio'da çalıştırın. Ayrıca uygulama kullanılabilir Internet üzerinden bir barındırma sağlayıcısına dağıtarak yapabilirsiniz. Microsoft'un sunduğu en fazla 10 web siteleri için ücretsiz bir web barındırma bir [ücretsiz deneme hesabınızı Windows Azure](https://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A443DD604). Visual Studio web projesini bir Windows Azure Web sitesine dağıtma hakkında daha fazla bilgi için bkz: [oluşturun ve bir ASP.NET web sitesi ve Visual Studio ile SQL veritabanı dağıtma](https://docs.microsoft.com/dotnet/azure/). Bu öğretici ayrıca Windows Azure SQL veritabanı'na (eski adı SQL Azure) SQL Server veritabanınızı dağıtmak için Entity Framework Code First Migrations'ı kullanma işlemini gösterir.
-> 
+>
 > Bu öğreticide, Rick Anderson tarafından yazılmış ( [ @RickAndMSFT ](https://twitter.com/#!/RickAndMSFT) ).
 
 
 ## <a name="what-youll-build"></a>Ne oluşturacaksınız
 
 > [!NOTE]
-> Bu öğreticide kullanılabiliyorsa, güncelleştirilmiş bir sürümünü [burada](../../getting-started/introduction/getting-started.md) kullanarak [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads). Bu öğretici birçok iyileştirme sağlayan ASP.NET MVC 5 yeni öğretici kullanır.
+> Bu öğreticide kullanılabiliyorsa, güncelleştirilmiş bir sürümünü [burada](../../getting-started/introduction/getting-started.md) kullanarak [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013). Bu öğretici birçok iyileştirme sağlayan ASP.NET MVC 5 yeni öğretici kullanır.
 
 
 Oluşturma, düzenleme, arama ve veritabanından filmler listeleme destekleyen basit bir film listeleme uygulama uygulayacaksınız. Aşağıda oluşturacağınız uygulama iki ekran görüntüleri verilmiştir. Film veritabanı listesini görüntüleyen bir sayfa içerir:

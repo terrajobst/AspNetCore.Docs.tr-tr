@@ -8,12 +8,12 @@ ms.date: 07/16/2014
 ms.assetid: ecfd0eb4-c4ad-44e6-9db9-a2a66611ff6a
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale
 msc.type: authoredcontent
-ms.openlocfilehash: 05181ae1b2d857eea45983d378b28011c1cd755a
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: bc6de2f0c8b2cd958c198abb90fc4ad97613e973
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48578139"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913313"
 ---
 <a name="hands-on-lab-maintainable-azure-websites-managing-change-and-scale"></a>Uygulamalı Laboratuvar: sürdürülebilir Azure Web siteleri: değişiklikleri ve ölçeği yönetme
 ====================
@@ -124,7 +124,7 @@ Bu görevde, etkinleştirme adımları geçer **Entity Framework Code First Migr
 
 1. Visual Studio'yu açın ve açık **GeekQuiz.sln** çözüm dosyasından **Source\Ex1 UsingEntityFrameworkMigrations\Begin**.
 2. İndirmek ve yüklemek için çözümü derleyin **NuGet** paket bağımlılıkları. Bunu yapmak için çözümü sağ tıklatın ve **Çözümü Derle** veya basın **Ctrl + Shift + B**.
-3. Gelen **Araçları** Visual Studio'da seçim menüsünde **kitaplık Paket Yöneticisi**ve ardından **Paket Yöneticisi Konsolu**.
+3. Gelen **Araçları** Visual Studio'da seçim menüsünde **NuGet Paket Yöneticisi**ve ardından **Paket Yöneticisi Konsolu**.
 4. İçinde **Paket Yöneticisi Konsolu**, aşağıdaki komutu girin ve ardından basın **Enter**. Var olan model temelinde bir başlangıç geçiş oluşturulur.
 
     [!code-powershell[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample1.ps1)]

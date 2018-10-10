@@ -8,12 +8,12 @@ ms.date: 03/29/2013
 ms.assetid: eeef9f73-6de3-49f9-b50b-9af22108f2ce
 msc.legacyurl: /signalr/overview/older-versions/tutorial-getting-started-with-signalr-and-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 34a7ae97a0a0652c090aa72e2cb21a4bce13bd5c
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 95fc3315149e07dbdb0505a2b5ab197bfedba097
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41753969"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910882"
 ---
 <a name="tutorial-getting-started-with-signalr-1x-and-mvc-4"></a>Öğretici: SignalR ile çalışmaya başlama 1.x ve MVC 4
 ====================
@@ -63,7 +63,7 @@ Bu bölümde, bir ASP.NET MVC 4 uygulama oluşturmak, SignalR kitaplığa ekleyi
       2. Internet uygulaması şablonu seçin, seçeneğini temizleyin **birim testi projesi oluşturma**, Tamam'ı tıklatın.
 
          ![MVC internet sitesi oluşturma](tutorial-getting-started-with-signalr-and-mvc-4/_static/image4.png)
-      3. Açık **araçları | Kitaplık Paket Yöneticisi | Paket Yöneticisi Konsolu** ve aşağıdaki komutu çalıştırın. Bu adım, bir dizi komut dosyaları ve SignalR işlevselliğini etkinleştirmek derleme başvuruları projeye ekler.
+      3. Açık **Araçlar > NuGet Paket Yöneticisi > Paket Yöneticisi Konsolu** ve aşağıdaki komutu çalıştırın. Bu adım, bir dizi komut dosyaları ve SignalR işlevselliğini etkinleştirmek derleme başvuruları projeye ekler.
 
          `install-package Microsoft.AspNet.SignalR -Version 1.1.3`
       4. İçinde **Çözüm Gezgini** betikleri klasörünü genişletin. SignalR için betik kitaplıkları projeye eklendiğini unutmayın.

@@ -1,56 +1,63 @@
 ---
-title: ASP.NET ve ASP.NET Core arasında seçim yapma
+title: Seçin arasında ASP.NET 4.x ve ASP.NET Core
 author: rick-anderson
-description: ASP.NET ve ASP.NET Core arasında seçim yapma hakkında bilgi edinin.
+description: ASP.NET Core vs açıklar. ASP.NET 4.x ve bunlar arasında seçim yapma.
 ms.author: riande
-ms.date: 05/11/2018
+ms.date: 09/11/2018
 uid: fundamentals/choose-between-aspnet-and-aspnetcore
-ms.openlocfilehash: 6d759c0bc5e5c7d32d6c14786db6ba9fe7a2f1e8
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: f046491e2ec68b6beaad581e2b04e6688a81f2d1
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36291644"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911051"
 ---
-# <a name="choose-between-aspnet-and-aspnet-core"></a>ASP.NET ve ASP.NET Core arasında seçim yapma
+# <a name="choose-between-aspnet-4x-and-aspnet-core"></a>Seçin arasında ASP.NET 4.x ve ASP.NET Core
 
-ASP.NET web uygulaması olsun, oluşturduğunuz bir çözümü sizin için vardır: Windows Server hedefleme Kurumsal web uygulamaları ' küçük mikro Linux kapsayıcıları ve her şeyi arasında hedefleme.
+ASP.NET Core, ASP.NET'in yeniden 4.x. Bu makalede, aralarındaki farklılıklar listelenmektedir.
 
 ## <a name="aspnet-core"></a>ASP.NET Core
 
-ASP.NET Core Windows, macOS ya da Linux modern, bulut tabanlı web uygulamaları oluşturmak için açık kaynak, platformlar arası bir çerçevedir.
+ASP.NET Core Windows, macOS veya Linux'ta modern, bulut tabanlı web uygulamaları oluşturmaya yönelik açık kaynaklı, platformlar arası bir çerçevedir.
 
-## <a name="aspnet"></a>ASP.NET
+[!INCLUDE[](~/includes/benefits.md)]
 
-ASP.NET, kurumsal düzeyde oluşturmak için gereken tüm hizmetleri Windows server tabanlı web uygulamalarında sağlayan olgun bir çerçevedir.
+## <a name="aspnet-4x"></a>ASP.NET 4.x
+
+ASP.NET 4.x, kurumsal sınıf, oluşturmak için gereken hizmetleri Windows server tabanlı web apps'de sağlayan olgun bir altyapısıdır.
 
 ## <a name="framework-selection"></a>Framework seçimi
 
-Hangi framework gereksinimleriniz için en uygun olduğunu belirlemek için aşağıdaki tabloyu gözden geçirin.
+Aşağıdaki tabloda karşılaştırılmıştır ASP.NET Core, ASP.NET 4.x.
 
-| ASP.NET Core | ASP.NET |
+| ASP.NET Core | ASP.NET 4.x |
 |---|---|
-|Windows, macOS ya da Linux derleme|Windows için derleme|
-|[Razor sayfalarının](xref:razor-pages/index) ASP.NET Core itibariyle bir Web kullanıcı Arabirimi oluşturmak için önerilen yaklaşımdır 2.x. Ayrıca bkz. [MVC](xref:mvc/overview), [Web API](xref:tutorials/first-web-api), ve [SignalR](xref:signalr/introduction).|Kullanım [Web Forms](/aspnet/web-forms), [SignalR](/aspnet/signalr), [MVC](/aspnet/mvc), [Web API](/aspnet/web-api/), [Kancalarını](/aspnet/webhooks/), veya [Web sayfaları](/aspnet/web-pages)|
-|Makine başına birden çok sürüm|Makine başına bir sürüm|
-|Visual Studio ile geliştirme [Mac için Visual Studio](https://www.visualstudio.com/vs/visual-studio-mac/), veya [Visual Studio Code](https://code.visualstudio.com/) C# veya F # kullanma|C#, VB ve F # kullanarak Visual Studio ile geliştirme|
-|ASP.NET daha yüksek performans|İyi bir performans|
-|[.NET Framework veya .NET çekirdeği çalışma zamanı seçin](/dotnet/articles/standard/choosing-core-framework-server)|.NET Framework çalışma zamanı kullanın|
+|Windows, macOS veya Linux için derleme|Windows için derleme|
+|[Razor sayfaları](xref:razor-pages/index) itibarıyla ASP.NET Core Web kullanıcı Arabirimi oluşturmak için önerilen yaklaşımdır 2.x. Ayrıca bkz: [MVC](xref:mvc/overview), [Web API](xref:tutorials/first-web-api), ve [SignalR](xref:signalr/introduction).|Kullanım [Web Forms](/aspnet/web-forms), [SignalR](/aspnet/signalr), [MVC](/aspnet/mvc), [Web API](/aspnet/web-api/), [Web kancaları](/aspnet/webhooks/), veya [Web sayfaları](/aspnet/web-pages)|
+|Makine başına birden çok sürümü|Makine başına bir sürümü|
+|Visual Studio ile geliştirin [Mac için Visual Studio](https://www.visualstudio.com/vs/visual-studio-mac/), veya [Visual Studio Code](https://code.visualstudio.com/) C# veya F # kullanma|C#, VB veya F # kullanarak Visual Studio ile geliştirin|
+|Daha yüksek performansa ASP.NET 4.x|İyi bir performans|
+|[.NET Framework veya .NET Core çalışma zamanı seçin](/dotnet/articles/standard/choosing-core-framework-server)|.NET Framework çalışma zamanını kullanma|
+
+Bkz: [.NET Framework'ü hedefleyen ASP.NET Core](xref:index#target-framework) .NET Framework üzerinde ASP.NET Core 2.x desteği hakkında daha fazla bilgi için.
 
 ## <a name="aspnet-core-scenarios"></a>ASP.NET Core senaryoları
 
-* [Razor sayfalarının](xref:razor-pages/index) ASP.NET Core itibariyle bir Web kullanıcı Arabirimi oluşturmak için önerilen yaklaşımdır 2.x.
+* [Razor sayfaları](xref:razor-pages/index) itibarıyla ASP.NET Core Web kullanıcı Arabirimi oluşturmak için önerilen yaklaşımdır 2.x.
 * [Web siteleri](xref:tutorials/first-mvc-app/index)
 * [API'leri](xref:tutorials/first-web-api)
 * [Gerçek zamanlı](xref:signalr/index)
+* [Azure'da ASP.NET Core uygulaması dağıtma](/azure/app-service/app-service-web-get-started-dotnet)
 
-## <a name="aspnet-scenarios"></a>ASP.NET senaryoları
+## <a name="aspnet-4x-scenarios"></a>ASP.NET 4.x senaryoları
 
 * [Web siteleri](/aspnet/mvc)
 * [API'leri](/aspnet/web-api)
 * [Gerçek zamanlı](/aspnet/signalr)
+* [Azure'da ASP.NET 4.x web uygulaması oluşturma](/azure/app-service/app-service-web-get-started-dotnet-framework)
 
-## <a name="resources"></a>Kaynaklar
+## <a name="additional-resources"></a>Ek kaynaklar
 
-* [ASP.NET giriş](/aspnet/overview)
-* [ASP.NET Core giriş](xref:index)
+* [ASP.NET'e giriş](/aspnet/overview)
+* [ASP.NET Core'a giriş](xref:index)
+* <xref:host-and-deploy/azure-apps/index>

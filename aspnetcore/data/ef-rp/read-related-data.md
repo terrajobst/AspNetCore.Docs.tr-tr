@@ -5,12 +5,12 @@ description: Bu öğreticide okuyun ve ilgili verileri--diğer bir deyişle, Ent
 ms.author: riande
 ms.date: 11/05/2017
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: f57853fae7fb1cb7df130f38a6996c87a5c08e83
-ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
+ms.openlocfilehash: e23b8bb870b329bd705fbc9548df62524303893e
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523291"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912332"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>ASP.NET core'da - EF çekirdekli Razor sayfaları 6 8 - ilgili verileri okuma
 
@@ -51,7 +51,7 @@ EF Core Gezinti özelliklerini bir varlığın ilgili verileri yükleyebilir bir
 
   ![Açık yükleme örneği](read-related-data/_static/explicit-loading.png)
 
-* [Yavaş Yükleniyor](https://docs.microsoft.com/ef/core/querying/related-data#lazy-loading). [EF Core yavaş yükleme şu anda desteklemiyor](https://github.com/aspnet/EntityFrameworkCore/issues/3797). Varlığın ilk okunduğunda, ilgili verileri alınan değil. Gezinti özelliğine erişinceye, ilk kez bu gezinti özelliği için gerekli verileri otomatik olarak alınır. Her zaman için ilk kez bir gezinti özelliğine erişinceye veritabanına bir sorgu gönderilir.
+* [Yavaş Yükleniyor](https://docs.microsoft.com/ef/core/querying/related-data#lazy-loading). [Yavaş yükleniyor, EF Core 2.1 sürümünde eklenen](/ef/core/querying/related-data#lazy-loading). Varlığın ilk okunduğunda, ilgili verileri alınan değil. Gezinti özelliğine erişinceye, ilk kez bu gezinti özelliği için gerekli verileri otomatik olarak alınır. Her zaman için ilk kez bir gezinti özelliğine erişinceye veritabanına bir sorgu gönderilir.
 
 * `Select` İşleci yalnızca gerekli ilgili verileri yükler.
 

@@ -8,12 +8,12 @@ ms.date: 05/01/2013
 ms.assetid: 1dca7967-8296-444a-9533-837eb284e78c
 msc.legacyurl: /signalr/overview/older-versions/scaleout-with-sql-server
 msc.type: authoredcontent
-ms.openlocfilehash: cd0e3d4bdb4d2eb78e5c41167a17f8673584f654
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: d68196aa8e4d0c60570a0e36ccc75a2a080d57bc
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41751921"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912754"
 ---
 <a name="signalr-scaleout-with-sql-server-signalr-1x"></a>SQL Server ile SignalR ölçeğini genişletme (SignalR 1.x)
 ====================
@@ -66,7 +66,6 @@ Hizmet Aracısı'nı etkinleştirmek için aşağıdaki SQL sorgusunu kullanın:
 > [!NOTE]
 > Bu sorgu görünürse emin olmak için kilitlenme DB'ye bağlı hiç uygulama yok.
 
-
 İzleme etkinleştirilirse, izlemeleri Ayrıca hizmet Aracısı etkin olup olmadığını gösterir.
 
 ## <a name="create-a-signalr-application"></a>Bir SignalR uygulaması oluşturun
@@ -76,7 +75,7 @@ Bir SignalR uygulaması ya da bu öğreticileri izleyerek oluşturun:
 - [SignalR ile çalışmaya başlama](../getting-started/tutorial-getting-started-with-signalr.md)
 - [SignalR ve MVC 4 ile çalışmaya başlama](tutorial-getting-started-with-signalr-and-mvc-4.md)
 
-Ardından, biz sohbet uygulaması, SQL Server ile ölçeğini genişletme destekleyecek şekilde değiştireceksiniz. İlk olarak, SignalR.SqlServer NuGet paketini projenize ekleyin. Visual Studio'da gelen **Araçları** menüsünde **kitaplık Paket Yöneticisi**, ardından **Paket Yöneticisi Konsolu**. Paket Yöneticisi konsolu penceresinde, aşağıdaki komutu girin:
+Ardından, biz sohbet uygulaması, SQL Server ile ölçeğini genişletme destekleyecek şekilde değiştireceksiniz. İlk olarak, SignalR.SqlServer NuGet paketini projenize ekleyin. Visual Studio'da gelen **Araçları** menüsünde **NuGet Paket Yöneticisi**, ardından **Paket Yöneticisi Konsolu**. Paket Yöneticisi konsolu penceresinde, aşağıdaki komutu girin:
 
 [!code-powershell[Main](scaleout-with-sql-server/samples/sample4.ps1)]
 

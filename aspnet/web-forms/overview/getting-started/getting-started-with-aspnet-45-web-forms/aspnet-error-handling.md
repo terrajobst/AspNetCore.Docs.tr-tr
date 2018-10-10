@@ -8,12 +8,12 @@ ms.date: 09/08/2014
 ms.assetid: 423498f7-1a4b-44a1-b342-5f39d0bcf94f
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/aspnet-error-handling
 msc.type: authoredcontent
-ms.openlocfilehash: ed5d7b9b4e61b0289734f4cdef1039b31ddda7a7
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: af5e5a9c8d211b07b57aa50238b02cabe249aef8
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41752127"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911848"
 ---
 <a name="aspnet-error-handling"></a>ASP.NET hata işleme
 ====================
@@ -275,7 +275,7 @@ Bu **Unutulmaması gereken** uygulamanızı hata iletileri görüntülediğinde,
 
 ELMAH ile çalışmadan önce yüklemeniz gerekir. Bu kadar kolay olduğunu kullanarak *NuGet* Yükleyici paketi. Bu öğretici serisinde daha önce belirtildiği gibi NuGet yüklemek ve açık kaynak kitaplıkları ve Visual Studio Araçları'nı güncelleştirmek kolaylaştıran bir Visual Studio uzantısıdır.
 
-1. Visual Studio içinden gelen **Araçları** menüsünde **kitaplık Paket Yöneticisi**  - &gt; **çözüm için NuGet paketlerini Yönet**. 
+1. Visual Studio içinden gelen **Araçları** menüsünde **NuGet Paket Yöneticisi** > **çözüm için NuGet paketlerini Yönet**. 
 
     ![ASP.NET hata işleme - çözüm için NuGet paketlerini Yönet](aspnet-error-handling/_static/image6.png)
 2. **NuGet paketlerini Yönet** Visual Studio içinden iletişim kutusu görüntülenir.

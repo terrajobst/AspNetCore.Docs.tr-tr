@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 093c1362-f10b-407c-a708-be370f4b62b0
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-entity-framework-scaffolding-and-migrations
 msc.type: authoredcontent
-ms.openlocfilehash: 10a61b70ef52aa9f5bb9004df3dba9e323d021db
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: bfb1edfcb756706e44126e7e96803bd2e9ce99fb
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41754652"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911025"
 ---
 # <a name="aspnet-mvc-4-entity-framework-scaffolding-and-migrations"></a>ASP.NET MVC 4 Entity Framework iskele oluşturma ve geçişler
 
@@ -172,7 +172,7 @@ Bu noktada, veritabanı henüz oluşturulmamış. Bu görevde, uygulamayı ilk k
 
 Bu görevde, varlık çerçevesi geçişleriyle kullanarak veritabanını güncelleştirir. Modeli değiştirmek ve kurum çerçevesi geçişlerine özelliğini kullanarak veritabanlarınızı değişiklikleri yansıtmak için ne kadar kolay olduğunu keşfeder.
 
-1. Paket Yöneticisi konsolu açın. Seçin **araçları | Kitaplık Paket Yöneticisi | Paket Yöneticisi Konsolu**.
+1. Paket Yöneticisi konsolu açın. Seçin **Araçları** > **NuGet Paket Yöneticisi** > **Paket Yöneticisi Konsolu**.
 2. Paket Yöneticisi konsolunda aşağıdaki komutu girin:
 
     PMC

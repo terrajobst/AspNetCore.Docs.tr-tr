@@ -8,12 +8,12 @@ ms.date: 06/12/2014
 ms.assetid: 1bc333c5-f096-4ea7-b170-779accc21c1a
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/the-fix-it-sample-application
 msc.type: authoredcontent
-ms.openlocfilehash: 435ee61a9c28ad0035457990cd3a889f5b240517
-ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
+ms.openlocfilehash: de3c8ea29f2c271136f58d8165bb92f4ab28ce83
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48795544"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912832"
 ---
 <a name="appendix-the-fix-it-sample-application-building-real-world-cloud-apps-with-azure"></a>Ek: Düzelt örnek uygulaması (Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma)
 ====================
@@ -221,7 +221,7 @@ Düzelt uygulamayı çalıştırmak için iki yolu vardır:
 4. Dosya Gezgini'nde, .zip dosyasını sağ tıklayın ve Özellikler'e tıklayın, sonra Özellikler penceresinde engelini Kaldır'a tıklayın.
 5. Dosyanın sıkıştırmasını açın.
 6. Visual Studio'yu başlatmak .sln dosyasına çift tıklayın.
-7. Araçlar menüsünden kitaplık Paket Yöneticisi'ni ve ardından Paket Yöneticisi konsolu tıklayın.
+7. Gelen **Araçları** menüsünde tıklatın **NuGet Paket Yöneticisi**, ardından **Paket Yöneticisi Konsolu**.
 8. Paket Yöneticisi Konsolu (PMC'de), geri yükleme'yi tıklatın.
 9. Visual Studio'dan çıkın.
 10. Başlangıç [Azure storage öykünücüsü](/azure/storage/common/storage-use-emulator).

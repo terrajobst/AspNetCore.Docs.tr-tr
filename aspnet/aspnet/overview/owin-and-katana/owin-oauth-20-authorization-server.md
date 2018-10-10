@@ -8,33 +8,33 @@ ms.date: 03/20/2014
 ms.assetid: 20acee16-c70c-41e9-b38f-92bfcf9a4c1c
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server
 msc.type: authoredcontent
-ms.openlocfilehash: 2dd4af4543713ab08ad9427d183f667e2dc04f1f
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 095dad49a8e9f963d941a84398afe9da0f46ce0b
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48578048"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912273"
 ---
 <a name="owin-oauth-20-authorization-server"></a>OWIN OAuth 2.0 yetkilendirme sunucusu
 ====================
 tarafından [Hongye Sun](https://github.com/hongyes), [Praburaj Yöneticisi](https://github.com/Praburaj), [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Bu öğreticide bir OAuth 2.0 yetkilendirme sunucusu Ara OWIN OAuth kullanarak uygulama konusunda size yol gösterir. Bu yalnızca bir OWIN OAuth 2.0 yetkilendirme sunucusu oluşturma adımlarını özetleyen Gelişmiş bir öğreticidir. Bu adım adım öğretici değildir. [Örnek kodu indirdikten](https://code.msdn.microsoft.com/OWIN-OAuth-20-Authorization-ba2b8783/file/114932/1/AuthorizationServer.zip).
-> 
+>
 > > [!NOTE]
 > > Bu ana hat güvenli bir üretim uygulaması oluşturmak için kullanılacak amaçlanmamış. Bu öğreticide yalnızca anahat bir OAuth 2.0 yetkilendirme sunucusu Ara OWIN OAuth kullanarak uygulama hakkında sağlamaya yönelik.
-> 
-> 
+>
+>
 > ## <a name="software-versions"></a>Yazılım sürümleri
-> 
+>
 > | **Öğreticide gösterilen** | **İle de çalışır.** |
 > | --- | --- |
 > | Windows 8.1 | Windows 8, Windows 7 |
-> | [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads) | [Masaüstü için Visual Studio 2013 Express](https://www.microsoft.com/visualstudio/eng/2013-downloads#d-2013-express). Visual Studio 2012 en son güncelleştirmesi ile çalışması gerekir, ancak Eğitmeni ile test edilmemiştir ve bazı menü seçimlerini ve iletişim kutularında farklıdır. |
+> | [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013) | [Masaüstü için Visual Studio 2013 Express](https://my.visualstudio.com/Downloads?q=visual%20studio%202013#d-2013-express). Visual Studio 2012 en son güncelleştirmesi ile çalışması gerekir, ancak Eğitmeni ile test edilmemiştir ve bazı menü seçimlerini ve iletişim kutularında farklıdır. |
 > | .NET 4.5 |  |
-> 
+>
 > ## <a name="questions-and-comments"></a>Sorularınız ve yorumlarınız
-> 
+>
 > Öğretici için doğrudan ilgili olmayan sorularınız varsa, onları gönderebilir [github'da Katana projesini](https://github.com/aspnet/AspNetKatana/). Sorularınız ve yorumlarınız ilgili öğretici için sayfanın alt kısmındaki Açıklamalar bölümüne bakın.
 
 
@@ -81,11 +81,11 @@ Yukarıdaki kod, uygulama/dış oturum açma yetkilendirme sunucusu tarafından 
 
 - `AuthorizeEndpointPath`: İstek yolu istemci uygulamaları kullanıcıları almak için nereye Kullanıcı aracısını yönlendireceği bir belirteç veya kod vermek için onay. Bu örneğin, bir eğik çizgiyle başlamalıdır "`/Authorize`".
 - `TokenEndpointPath`: Erişim belirteci almak için istek yolu istemci uygulamaları doğrudan iletişim kurar. Önde gelen eğik çizgiyle "/ Token" gibi ile başlamalı. İstemci verilirse bir [istemci\_gizli](http://tools.ietf.org/html/rfc6749#appendix-A.2), bu uç noktaya sağlanmalıdır.
-- `ApplicationCanDisplayErrors`: Kümesine `true` web uygulaması üzerinde özel hata sayfası için istemci doğrulama hatalarının oluşturmak isterse `/Authorize` uç noktası. Çalışmaları yönlendirilmeyen her yere tarayıcı istemci uygulamaya örneğin yedekleme için yalnızca bu gereklidir, `client_id` veya `redirect_uri` yanlış. `/Authorize` "Oauth. görmek uç nokta beklediğiniz Hata","oauth. ErrorDescription"ve"oauth. ErrorUri"özelliklerinin OWIN ortamına eklenir. 
+- `ApplicationCanDisplayErrors`: Kümesine `true` web uygulaması üzerinde özel hata sayfası için istemci doğrulama hatalarının oluşturmak isterse `/Authorize` uç noktası. Çalışmaları yönlendirilmeyen her yere tarayıcı istemci uygulamaya örneğin yedekleme için yalnızca bu gereklidir, `client_id` veya `redirect_uri` yanlış. `/Authorize` "Oauth. görmek uç nokta beklediğiniz Hata","oauth. ErrorDescription"ve"oauth. ErrorUri"özelliklerinin OWIN ortamına eklenir.
 
     > [!NOTE]
     > Aksi takdirde true, yetkilendirme sunucusu varsayılan bir hata sayfası ile hata ayrıntılarını döndürür.
-- `AllowInsecureHttp`: True yetkilendirme ve belirteç isteklerinin HTTP URI adreslerine ulaşmak ve gelen izin vermek için izin `redirect_uri` HTTP URI adreslerine sahip olmasına istek parametrelerini yetkilendirin. 
+- `AllowInsecureHttp`: True yetkilendirme ve belirteç isteklerinin HTTP URI adreslerine ulaşmak ve gelen izin vermek için izin `redirect_uri` HTTP URI adreslerine sahip olmasına istek parametrelerini yetkilendirin.
 
     > [!WARNING]
     > Güvenlik - yalnızca geliştirme için budur.
@@ -107,9 +107,9 @@ Oturum açma sayfası aşağıda gösterilmektedir:
 
 ![](owin-oauth-20-authorization-server/_static/image1.png)
 
-IETF'ın OAuth 2 gözden [yetkilendirme kodu verme](http://tools.ietf.org/html/rfc6749#section-4.1) now bölümü. 
+IETF'ın OAuth 2 gözden [yetkilendirme kodu verme](http://tools.ietf.org/html/rfc6749#section-4.1) now bölümü.
 
-**Sağlayıcı** (aşağıdaki tabloda) olan [oauthauthorizationserveroptions öğelerinde](https://msdn.microsoft.com/library/microsoft.owin.security.oauth.oauthauthorizationserveroptions(v=vs.111).aspx). Tür sağlayıcısı `OAuthAuthorizationServerProvider`, tüm OAuth sunucu olaylarını içerir. 
+**Sağlayıcı** (aşağıdaki tabloda) olan [oauthauthorizationserveroptions öğelerinde](https://msdn.microsoft.com/library/microsoft.owin.security.oauth.oauthauthorizationserveroptions(v=vs.111).aspx). Tür sağlayıcısı `OAuthAuthorizationServerProvider`, tüm OAuth sunucu olaylarını içerir.
 
 | Yetkilendirme kodu verme bölümünden akış adımları | Örnek indirme ile aşağıdaki adımları gerçekleştirir: |
 | --- | --- |
@@ -134,13 +134,13 @@ Yukarıdaki kod, kod ve kimlik anahtarı depolamak ve kimlik kodu aldıktan sonr
 
 ![](owin-oauth-20-authorization-server/_static/image2.png)
 
-Varsa **Grant** düğmesi seçili `Authorize` yeni bir "Bearer" kimliği ve oturum açın. Bu eylem oluşturur. Yetkilendirme sunucusu bir taşıyıcı belirteç oluşturun ve JSON yükü istemciye geri göndermek için tetikler. 
+Varsa **Grant** düğmesi seçili `Authorize` yeni bir "Bearer" kimliği ve oturum açın. Bu eylem oluşturur. Yetkilendirme sunucusu bir taşıyıcı belirteç oluşturun ve JSON yükü istemciye geri göndermek için tetikler.
 
 ### <a name="implicit-grant"></a>Örtülü izin
 
 IETF'ın OAuth 2'ye bakın [örtük vermeyi](http://tools.ietf.org/html/rfc6749#section-4.2) now bölümü.
 
- [Örtük vermeyi](http://tools.ietf.org/html/rfc6749#section-4.2) Şekil 4'teki flow, flow ve ara yazılım, OWIN OAuth eşleme izler.  
+ [Örtük vermeyi](http://tools.ietf.org/html/rfc6749#section-4.2) Şekil 4'teki flow, flow ve ara yazılım, OWIN OAuth eşleme izler.
 
 | Örtülü izin bölümünden akış adımları | Örnek indirme ile aşağıdaki adımları gerçekleştirir: |
 | --- | --- |
@@ -159,7 +159,7 @@ Yetkilendirme uç noktası zaten uyguladık bu yana (`OAuthController.Authorize`
 
 IETF'ın OAuth 2'ye bakın [kaynak sahibi parola kimlik bilgileri verme](http://tools.ietf.org/html/rfc6749#section-4.3) now bölümü.
 
- [Kaynak sahibi parola kimlik bilgileri verme](http://tools.ietf.org/html/rfc6749#section-4.3) Şekil 5'te gösterilen flow, flow ve ara yazılım, OWIN OAuth eşleme izler.  
+ [Kaynak sahibi parola kimlik bilgileri verme](http://tools.ietf.org/html/rfc6749#section-4.3) Şekil 5'te gösterilen flow, flow ve ara yazılım, OWIN OAuth eşleme izler.
 
 | Kaynak sahibi parola kimlik bilgileri verme bölümünden akış adımları | Örnek indirme ile aşağıdaki adımları gerçekleştirir: |
 | --- | --- |
@@ -182,7 +182,7 @@ IETF'ın OAuth 2'ye bakın [kaynak sahibi parola kimlik bilgileri verme](http://
 
 IETF'ın OAuth 2'ye bakın [istemci kimlik bilgileri verme](http://tools.ietf.org/html/rfc6749#section-4.4) now bölümü.
 
- [İstemci kimlik bilgileri verme](http://tools.ietf.org/html/rfc6749#section-4.4) Şekil 6 üzerinde gösterilen flow, flow ve ara yazılım, OWIN OAuth eşleme izler.  
+ [İstemci kimlik bilgileri verme](http://tools.ietf.org/html/rfc6749#section-4.4) Şekil 6 üzerinde gösterilen flow, flow ve ara yazılım, OWIN OAuth eşleme izler.
 
 | İstemci kimlik bilgileri verme bölümünden akış adımları | Örnek indirme ile aşağıdaki adımları gerçekleştirir: |
 | --- | --- |
@@ -203,7 +203,7 @@ IETF'ın OAuth 2'ye bakın [istemci kimlik bilgileri verme](http://tools.ietf.or
 
 IETF'ın OAuth 2'ye bakın [yenileme belirteci](http://tools.ietf.org/html/rfc6749#section-1.5) now bölümü.
 
- [Yenileme belirteci](http://tools.ietf.org/html/rfc6749#section-1.5) Şekil 2'de gösterilen flow, flow ve ara yazılım, OWIN OAuth eşleme izler.  
+ [Yenileme belirteci](http://tools.ietf.org/html/rfc6749#section-1.5) Şekil 2'de gösterilen flow, flow ve ara yazılım, OWIN OAuth eşleme izler.
 
 | İstemci kimlik bilgileri verme bölümünden akış adımları | Örnek indirme ile aşağıdaki adımları gerçekleştirir: |
 | --- | --- |
@@ -212,7 +212,7 @@ IETF'ın OAuth 2'ye bakın [yenileme belirteci](http://tools.ietf.org/html/rfc67
 |  |  |
 | (H) yetkilendirme sunucusu istemcinin kimliğini doğrular ve yenileme belirteci doğrular ve geçerliyse, yeni bir erişim belirteci (ve isteğe bağlı olarak, yeni bir yenileme belirteci) verir. |  |
 
-Örnek uygulama için işte `Provider.GrantRefreshToken`: 
+Örnek uygulama için işte `Provider.GrantRefreshToken`:
 
 [!code-csharp[Main](owin-oauth-20-authorization-server/samples/sample9.cs)]
 

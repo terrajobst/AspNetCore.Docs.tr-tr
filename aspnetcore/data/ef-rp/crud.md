@@ -5,12 +5,12 @@ description: Oluşturma, okuma, güncelleştirme ve EF Core ile silme işlemini 
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/crud
-ms.openlocfilehash: 31fefc148040d7b65e9b65d6bf19f502ef9de542
-ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
+ms.openlocfilehash: 25493f93daf3fe5e874ad1d06b918196cd1f074d
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48795570"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912819"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---crud---2-of-8"></a>ASP.NET core'da - CRUD - 2 8 EF çekirdekli Razor sayfaları
 
@@ -26,7 +26,7 @@ Bu öğreticide, iskele kurulmuş CRUD (oluşturma, okuma, güncelleştirme ve s
 
 Karmaşıklığı en aza indirmek ve EF Core üzerine odaklanan bu öğreticileri tutmak için EF Core kod sayfası modellerinde kullanılır. Bazı geliştiriciler bir hizmet katmanı kullanmak veya [depo deseni](xref:fundamentals/repository-pattern) kullanıcı arabirimini (Razor sayfaları) ve veri erişim katmanı arasında bir Soyutlama Katmanı oluşturmak için.
 
-Bu öğreticide, oluştur, Düzenle, Sil ve ayrıntıları Razor sayfaları *Öğrenci* klasör incelenir.
+Bu öğreticide, oluştur, Düzenle, Sil ve ayrıntıları Razor sayfaları *Öğrenciler* klasör incelenir.
 
 İskele kurulan kodu oluştur, Düzenle ve Sil sayfaları için şu biçimi kullanır:
 
@@ -236,9 +236,9 @@ Delete test edin.
 
 ## <a name="common-errors"></a>Sık karşılaşılan hatalar
 
-Öğrenci/dizin veya diğer bağlantılar çalışmaz:
+Öğrenciler/dizin veya diğer bağlantılar çalışmaz:
 
-Razor sayfası doğru içerdiğini doğrulayın `@page` yönergesi. Örneğin, Öğrenci/dizin Razor sayfası gereken **değil** rota şablonu içerir:
+Razor sayfası doğru içerdiğini doğrulayın `@page` yönergesi. Örneğin, Öğrenciler/dizin Razor sayfası gereken **değil** rota şablonu içerir:
 
 ```cshtml
 @page "{id:int}"
