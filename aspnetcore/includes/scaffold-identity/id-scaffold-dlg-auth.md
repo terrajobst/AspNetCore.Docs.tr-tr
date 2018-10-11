@@ -5,7 +5,7 @@ Kimlik iskele kurucu çalıştırın:
 * Gelen **Çözüm Gezgini**, projeye sağ tıklayın > **Ekle** > **yeni iskele kurulmuş öğe**.
 * Sol bölmeden **İskele Ekle** iletişim kutusunda **kimlik** > **ekleme**.
 * İçinde **ADD kimliğini** iletişim kutusunda, istediğiniz seçenekleri seçin.
-  * Varolan bir düzen sayfası seçin veya hatalı biçimlendirme Düzen dosyanızın üzerine yazılacak. Varolan _Layout.cshtml dosyasını seçildiğinde olduğu **değil** üzerine.
+  * Varolan bir düzen sayfası seçin veya hatalı biçimlendirme Düzen dosyanızın üzerine yazılacak. Var olan bir zaman  *\_Layout.cshtml* dosya seçildiğinde, **değil** üzerine.
 
  Örneğin `~/Pages/Shared/_Layout.cshtml` Razor sayfaları için `~/Views/Shared/_Layout.cshtml` MVC projeleri
 * Mevcut veri Bağlamınızı kullanmak için geçersiz kılmak için en az bir dosya seçin. Veri Bağlamınızı eklemek için en az bir dosya seçmelisiniz.
@@ -50,5 +50,6 @@ PowerShell komut ayırıcı olarak virgül kullanır. PowerShell kullanarak, dos
 dotnet aspnet-codegenerator identity -dc MyWeb.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout"
 ```
 
-<a name="if-you-run-the-identity-scaffolder-without-specifying-the---files-flag-or-the---usedefaultui-flag-all-the-available-identity-ui-pages-will-be-created-in-your-project"></a>Kimlik iskele kurucu belirtmeden çalıştırırsanız `--files` bayrağı veya `--useDefaultUI` bayrak, tüm kullanılabilir kimlik UI sayfaları projenizde oluşturulur.
+Kimlik iskele kurucu belirtmeden çalıştırırsanız `--files` bayrağı veya `--useDefaultUI` bayrak, tüm kullanılabilir kimlik UI sayfaları projenizde oluşturulur.
+
 -------------
