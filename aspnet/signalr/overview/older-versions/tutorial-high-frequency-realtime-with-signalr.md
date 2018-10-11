@@ -8,12 +8,12 @@ ms.date: 04/16/2013
 ms.assetid: ad2a5da5-2e79-40ea-bc84-028d327f5982
 msc.legacyurl: /signalr/overview/older-versions/tutorial-high-frequency-realtime-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 53cc35d819c0d3a9bd84e8bfc44098a3b62e6db3
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: c677bcbc78eac6056c035c2b34fe659caac9c6fa
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41756166"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912286"
 ---
 <a name="high-frequency-realtime-with-signalr-1x"></a>SignalR ile yüksek sıklıkta gerçek zamanlı 1.x
 ====================
@@ -42,7 +42,7 @@ Bu yöntemi kullanarak uygulama çalışır durumdayken olacaktır, böylece ist
 
 Bu öğreticide, aşağıdaki bölümleri içerir:
 
-- [Önkoşulları](#prerequisites)
+- [Önkoşullar](#prerequisites)
 - [Proje oluşturma](#createtheproject)
 - [ASP.NET SignalR ve JQuery.UI NuGet paketleri Ekle](#nugetpackages)
 - [Temel uygulama oluşturma](#baseapp)
@@ -79,7 +79,7 @@ Bu bölümde, Visual Studio'da proje oluşturacağız.
 
 Bir NuGet paketini yükleme yoluyla projeye SignalR işlevleri ekleyebilirsiniz. Bu öğreticide JQuery.UI paket sürüklenebilen ve animasyon şekle izin vermek için de kullanır.
 
-1. Tıklayın **araçları | Kitaplık Paket Yöneticisi | Paket Yöneticisi Konsolu**.
+1. Tıklayın **araçları | NuGet Paket Yöneticisi | Paket Yöneticisi Konsolu**.
 2. Paket Yöneticisi'nde aşağıdaki komutu girin.
 
     [!code-powershell[Main](tutorial-high-frequency-realtime-with-signalr/samples/sample1.ps1)]

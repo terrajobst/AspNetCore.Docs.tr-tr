@@ -8,12 +8,12 @@ ms.date: 06/10/2014
 ms.assetid: 9f969dda-78ea-4329-b1e3-e51c02210a2b
 msc.legacyurl: /signalr/overview/getting-started/tutorial-high-frequency-realtime-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 008cbc8ec7ca0af4b20e5e3974cf3862efa7677e
-ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
+ms.openlocfilehash: 23dc9cc7fd469e934ed9915922a3baa772d9e1ab
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48794886"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912043"
 ---
 <a name="tutorial-high-frequency-realtime-with-signalr-2"></a>Öğretici: SignalR 2 ile yüksek sıklıkta gerçek
 ====================
@@ -22,37 +22,37 @@ tarafından [Patrick Fletcher](https://github.com/pfletcher)
 [Projeyi yükle](http://code.msdn.microsoft.com/SignalR-20-MoveShape-Demo-6285b83a)
 
 > Bu öğreticide, yüksek frekanslı Mesajlaşma işlevleri sağlamak için ASP.NET SignalR 2 kullanan bir web uygulaması oluşturma işlemi gösterilmektedir. Yüksek frekanslı Mesajlaşma bu durumda sabit bir fiyat karşılığında gönderilen güncelleştirmeleri anlamına gelir; Bu uygulama söz konusu olduğunda, en fazla 10 saniyenin iletileri.
-> 
+>
 > Bu öğreticide oluşturacağınız uygulama kullanıcıları sürükleyebilirsiniz bir şekil görüntüler. Diğer tüm bağlı tarayıcıların şekil konumunu Zamanlanmış güncelleştirmeleri kullanarak sürüklenen şekli konumunu eşleşecek şekilde güncelleştirilecektir.
-> 
+>
 > Bu öğreticide tanıtılan kavramları, gerçek zamanlı oyun uygulamaları ve diğer benzetimi uygulamaları vardır.
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
 > - SignalR sürüm 2
->   
-> 
-> 
+>
+>
+>
 > ## <a name="using-visual-studio-2012-with-this-tutorial"></a>Bu öğreticide Visual Studio 2012 kullanarak
-> 
-> 
+>
+>
 > Visual Studio 2012 bu öğreticiyle kullanmak için aşağıdakileri yapın:
-> 
+>
 > - Güncelleştirme, [Paket Yöneticisi](http://docs.nuget.org/docs/start-here/installing-nuget) en son sürüme.
 > - Yükleme [Web Platformu yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx).
 > - Web Platformu Yükleyicisi'nde arama ve yükleme **ASP.NET ve Web Araçları 2013.1 Visual Studio 2012 için**. Bu SignalR sınıflar için Visual Studio şablonları gibi yükleyecek **Hub**.
 > - Bazı şablonlar (gibi **OWIN başlangıç sınıfı**) kullanılabilir; olmayacaktır, bunlar için sınıf dosyası kullanın.
-> 
-> 
+>
+>
 > ## <a name="tutorial-versions"></a>Öğretici sürümleri
-> 
+>
 > SignalR eski sürümleri hakkında daha fazla bilgi için bkz: [SignalR eski sürümleri](../older-versions/index.md).
-> 
+>
 > ## <a name="questions-and-comments"></a>Sorularınız ve yorumlarınız
-> 
+>
 > Lütfen bu öğreticide sevmediğinizi nasıl ve ne sayfanın alt kısmındaki açıklamalarda geliştirebileceğimiz hakkında geri bildirim bırakın. Öğretici için doğrudan ilgili olmayan sorularınız varsa, bunları gönderebilir [ASP.NET SignalR Forumu](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) veya [StackOverflow.com](http://stackoverflow.com/).
 
 
@@ -70,7 +70,7 @@ Bu yöntemi kullanarak uygulama çalışır durumdayken olacaktır, böylece ist
 
 Bu öğreticide, aşağıdaki bölümleri içerir:
 
-- [Önkoşulları](#prerequisites)
+- [Önkoşullar](#prerequisites)
 - [Projeyi oluşturmak ve SignalR ve JQuery.UI NuGet paketi ekleme](#createtheproject2013)
 - [Temel uygulama oluşturma](#baseapp)
 - [Uygulama başladığında hub'ı başlatma](#startup2013)
@@ -102,12 +102,12 @@ ASP.NET boş Web uygulaması oluşturma ve SignalR ve jQuery.UI kitaplıkları e
 3. İçinde **Çözüm Gezgini**, projeye sağ tıklayın, **Ekle | SignalR Hub sınıfı (v2)**. Sınıf adı **MoveShapeHub.cs** ve projeye ekleyin. Bu adımda oluşturulur **MoveShapeHub** sınıfı ve bir dizi komut dosyaları ve Signalr'yi destekleyen bir bütünleştirilmiş kod başvuruları projeye ekler.
 
     > [!NOTE]
-    > Tıklayarak bir projeye SignalR ekleyebilirsiniz **araçları | Kitaplık Paket Yöneticisi | Paket Yöneticisi Konsolu** ve bir komutu çalıştırın:
+    > Tıklayarak bir projeye SignalR ekleyebilirsiniz **Araçlar > NuGet Paket Yöneticisi > Paket Yöneticisi Konsolu** ve bir komutu çalıştırın:
 
-    `install-package Microsoft.AspNet.SignalR`. 
+    `install-package Microsoft.AspNet.SignalR`.
 
     SignalR eklemek için konsolunu kullanırsanız, SignalR hub sınıfı SignalR ekledikten sonra ayrı bir adım olarak oluşturun.
-4. Tıklayın **araçları | Kitaplık Paket Yöneticisi | Paket Yöneticisi Konsolu**. Paket Yöneticisi penceresinde aşağıdaki komutu çalıştırın:
+4. Tıklayın **Araçlar > NuGet Paket Yöneticisi > Paket Yöneticisi Konsolu**. Paket Yöneticisi penceresinde aşağıdaki komutu çalıştırın:
 
     `Install-Package jQuery.UI.Combined`
 

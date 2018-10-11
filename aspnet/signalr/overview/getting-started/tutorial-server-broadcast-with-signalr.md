@@ -8,49 +8,49 @@ ms.date: 10/13/2014
 ms.assetid: 1568247f-60b5-4eca-96e0-e661fbb2b273
 msc.legacyurl: /signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: c2248e68b3c9411687ab6410f12ec85488fe0738
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 7a85a704dc5d830ec793540fbc44a3ce7ec8c934
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41752790"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911553"
 ---
 <a name="tutorial-server-broadcast-with-signalr-2"></a>Öğretici: SignalR 2 ile sunucu yayını
 ====================
 tarafından [Tom Dykstra](https://github.com/tdykstra), [Tom FitzMacken](https://github.com/tfitzmac)
 
 > Bu öğreticide, ASP.NET SignalR 2 sunucu yayın işlevselliği sağlamak için kullanan bir web uygulaması oluşturma işlemi gösterilmektedir. Sunucu yayın istemcilere gönderilen iletişimleri sunucu tarafından başlatılır anlamına gelir. Bu senaryo, eşler arası senaryoları istemcilere iletişimler bir veya daha fazla istemcileri tarafından başlatılır, sohbet uygulamaları gibi daha farklı bir programlama yaklaşım gerektirir.
-> 
+>
 > Bu öğreticide oluşturacağınız uygulama bir bandı yayın sunucusu işlevselliği için tipik bir senaryo benzetimini yapar.
-> 
+>
 > Bu konu başlığında, başlangıçta Patrick Fletcher tarafından alınmaktadır.
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
 > - SignalR sürüm 2
->   
-> 
-> 
+>
+>
+>
 > ## <a name="using-visual-studio-2012-with-this-tutorial"></a>Bu öğreticide Visual Studio 2012 kullanarak
-> 
-> 
+>
+>
 > Visual Studio 2012 bu öğreticiyle kullanmak için aşağıdakileri yapın:
-> 
+>
 > - Güncelleştirme, [Paket Yöneticisi](http://docs.nuget.org/docs/start-here/installing-nuget) en son sürüme.
 > - Yükleme [Web Platformu yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx).
 > - Web Platformu Yükleyicisi'nde arama ve yükleme **ASP.NET ve Web Araçları 2013.1 Visual Studio 2012 için**. Bu SignalR sınıflar için Visual Studio şablonları gibi yükleyecek **Hub**.
 > - Bazı şablonlar (gibi **OWIN başlangıç sınıfı**) kullanılabilir; olmayacaktır, bunlar için sınıf dosyası kullanın.
-> 
-> 
+>
+>
 > ## <a name="tutorial-versions"></a>Öğretici sürümleri
-> 
+>
 > SignalR eski sürümleri hakkında daha fazla bilgi için bkz: [SignalR eski sürümleri](../older-versions/index.md).
-> 
+>
 > ## <a name="questions-and-comments"></a>Sorularınız ve yorumlarınız
-> 
+>
 > Lütfen bu öğreticide sevmediğinizi nasıl ve ne sayfanın alt kısmındaki açıklamalarda geliştirebileceğimiz hakkında geri bildirim bırakın. Öğretici için doğrudan ilgili olmayan sorularınız varsa, bunları gönderebilir [ASP.NET SignalR Forumu](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) veya [StackOverflow.com](http://stackoverflow.com/).
 
 
@@ -66,7 +66,7 @@ Düzenli aralıklarla sunucu rastgele hisse senedi fiyatlarına güncelleştirir
 
 Bu öğreticide, aşağıdaki bölümleri içerir:
 
-- [Önkoşulları](#prerequisites)
+- [Önkoşullar](#prerequisites)
 - [Proje oluşturma](#createproject)
 - [Sunucu kodunu ayarlayın](#server)
 - [İstemci kodunu ayarlayın](#client)

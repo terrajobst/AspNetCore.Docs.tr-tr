@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/12/2018
 uid: razor-pages/index
-ms.openlocfilehash: f55d0e534dafb0709f1411bad9b038a87abde7ab
-ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
+ms.openlocfilehash: 54ef82bf64552e71e53178fdbcd8d226ea99b012
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523317"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913274"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>ASP.NET Core Razor sayfalar giriş
 
@@ -190,7 +190,7 @@ Giriş sayfası (*Index.cshtml*):
 
 [!code-cshtml[](index/sample/RazorPagesContacts/Pages/Index.cshtml?range=21)]
 
-[Yer işareti etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) kullanılan `asp-route-{value}` düzenleme sayfasına giden bir bağlantı oluşturmak için öznitelik. Rota verilerini kişiyle bağlantısını içeren kimliği Örneğin, `http://localhost:5000/Edit/1`.
+[Yer işareti etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) kullanılan `asp-route-{value}` düzenleme sayfasına giden bir bağlantı oluşturmak için öznitelik. Rota verilerini kişiyle bağlantısını içeren kimliği Örneğin: `http://localhost:5000/Edit/1`
 
 *Pages/Edit.cshtml* dosyası:
 
@@ -246,7 +246,9 @@ Bkz: [Model doğrulama](xref:mvc/models/validation) daha fazla bilgi için.
 
 ## <a name="manage-head-requests-with-the-onget-handler"></a>HEAD isteklerini OnGet işleyici ile yönetme
 
-Normalde, bir baş işleyici oluşturulur ve HEAD isteklerini çağrılır:
+HEAD isteklerini belirli bir kaynak için üstbilgiler almanızı sağlar. GET istekleri, yanıt gövdesi HEAD isteklerini döndürmeyin. 
+
+Normalde, bir baş işleyici oluşturulur ve HEAD isteklerini çağrılır: 
 
 ```csharp
 public void OnHead()
@@ -255,12 +257,14 @@ public void OnHead()
 }
 ```
 
-Hiçbir baş işleyici (`OnHead`) olan tanımlanan, Razor sayfaları geri alma sayfası işleyicisi çağırma için döner (`OnGet`) ASP.NET Core 2.1 veya üzeri. Bu davranışı ile kabul etmek [SetCompatibilityVersion yöntemi](xref:mvc/compatibility-version) içinde `Startup.Configure` 2.x için ASP.NET Core 2.1 için:
+Hiçbir baş işleyici (`OnHead`) olan tanımlanan, Razor sayfaları geri alma sayfası işleyicisi çağırma için döner (`OnGet`) ASP.NET Core 2.1 veya üzeri. ASP.NET Core 2.1 ve 2.2 ile bu davranış oluşur [SetCompatibilityVersion](xref:mvc/compatibility-version) içinde `Startup.Configure`:
 
 ```csharp
 services.AddMvc()
     .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
 ```
+
+Varsayılan şablon oluşturma `SetCompatibilityVersion` , ASP.NET Core 2.1 ve 2.2 çağırın.
 
 `SetCompatibilityVersion` Razor sayfaları seçeneği etkili bir şekilde ayarlar `AllowMappingHeadRequestsToGetHandler` için `true`.
 
