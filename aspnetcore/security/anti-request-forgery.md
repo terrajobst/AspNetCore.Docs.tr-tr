@@ -4,14 +4,14 @@ author: steve-smith
 description: Web uygulamaları kötü amaçlı bir Web sitesi istemci tarayıcısına ve uygulama arasındaki etkileşim burada etkileyebilir saldırıları önlemek nasıl keşfedin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/19/2018
+ms.date: 10/11/2018
 uid: security/anti-request-forgery
-ms.openlocfilehash: 6a30e1e2321ca3a81d6e1a320d1d87dddb3033c7
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 213d6d09501b5428bdaad454ec487702ef2a02a6
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095794"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325919"
 ---
 # <a name="prevent-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>ASP.NET core'da önlemek siteler arası istek sahtekarlığı (XSRF/CSRF) saldırılarını
 
@@ -179,6 +179,31 @@ ASP.NET Core içeren üç [filtreleri](xref:mvc/controllers/filters) antiforgery
 
 Özelleştirme [antiforgery seçenekleri](/dotnet/api/Microsoft.AspNetCore.Antiforgery.AntiforgeryOptions) içinde `Startup.ConfigureServices`:
 
+::: moniker range=">= aspnetcore-2.0"
+
+```csharp
+services.AddAntiforgery(options => 
+{
+    // Set Cookie properties using CookieBuilder properties†.
+    options.FormFieldName = "AntiforgeryFieldname";
+    options.HeaderName = "X-CSRF-TOKEN-HEADERNAME";
+    options.SuppressXFrameOptionsHeader = false;
+});
+```
+
+&dagger;Antiforgery ayarlamak `Cookie` özelliklerini kullanarak özelliklerini [CookieBuilder](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder) sınıfı.
+
+| Seçenek | Açıklama |
+| ------ | ----------- |
+| [Tanımlama bilgisi](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.cookie) | Antiforgery tanımlama bilgisi oluşturmak için kullanılan ayarları belirler. |
+| [FormFieldName](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.formfieldname) | Antiforgery sistem tarafından görünümlerde antiforgery belirteçleri işlemek için kullanılan gizli form alanının adı. |
+| [HeaderName](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.headername) | Antiforgery sistemi tarafından kullanılan üstbilginin adı. Varsa `null`, sistem yalnızca form verileri olarak değerlendirir. |
+| [SuppressXFrameOptionsHeader](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.suppressxframeoptionsheader) | Nesil engellenip engellenmeyeceğini belirtir `X-Frame-Options` başlığı. Varsayılan olarak, başlığı "SAMEORIGIN" bir değerle oluşturulur. Varsayılan olarak `false`. |
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
 ```csharp
 services.AddAntiforgery(options => 
 {
@@ -202,6 +227,8 @@ services.AddAntiforgery(options =>
 | [HeaderName](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.headername) | Antiforgery sistemi tarafından kullanılan üstbilginin adı. Varsa `null`, sistem yalnızca form verileri olarak değerlendirir. |
 | [İçindeki requireSSL öğesini](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.requiressl) | SSL antiforgery sistem tarafından gerekli olup olmadığını belirtir. Varsa `true`, SSL olmayan istekler başarısız. Varsayılan olarak `false`. Bu özellik artık kullanılmıyor ve gelecekte yayımlanacak bir sürümde kaldırılacak. Önerilen alternatif Cookie.SecurePolicy ayarlamaktır. |
 | [SuppressXFrameOptionsHeader](/dotnet/api/microsoft.aspnetcore.antiforgery.antiforgeryoptions.suppressxframeoptionsheader) | Nesil engellenip engellenmeyeceğini belirtir `X-Frame-Options` başlığı. Varsayılan olarak, başlığı "SAMEORIGIN" bir değerle oluşturulur. Varsayılan olarak `false`. |
+
+::: moniker-end
 
 Daha fazla bilgi için [CookieAuthenticationOptions](/dotnet/api/Microsoft.AspNetCore.Builder.CookieAuthenticationOptions).
 

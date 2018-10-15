@@ -5,12 +5,12 @@ description: Bu öğreticide, daha fazla varlıklar ve ilişkiler ekleyin ve ver
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 88d727b0545f1dacb56ea889e45b02f947867b19
-ms.sourcegitcommit: 6425baa92cec4537368705f8d27f3d0e958e43cd
+ms.openlocfilehash: 4f35dd81c34a9123c20bb4925def93f69f0aaa13
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39220605"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49326101"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>ASP.NET core'da - veri modeli - 8'in 5 EF çekirdekli Razor sayfaları
 
@@ -432,7 +432,7 @@ public Student Student { get; set; }
 
 Bir çoktan çoğa ilişki arasında `Student` ve `Course` varlıklar. `Enrollment` Varlık işlevleri bire çok birleşme tablo olarak *yüküyle* veritabanında. "Yüke sahip" anlamına gelir `Enrollment` tablo FKs yanı sıra birleştirilmiş tablolar için ek veri içerir (Bu durumda, PK ve `Grade`).
 
-Aşağıdaki çizim, bu ilişkiler bir varlık diyagramda nasıl göründüğünü gösterir. (Bu diyagramda EF için EF güç araçları kullanılarak oluşturulan 6.x. Diyagram oluşturma öğreticinin bir parçası değildir.)
+Aşağıdaki çizim, bu ilişkiler bir varlık diyagramda nasıl göründüğünü gösterir. (Bu diyagramda kullanılarak oluşturulan [EF Power Tools](https://marketplace.visualstudio.com/items?itemName=ErikEJ.EntityFramework6PowerToolsCommunityEdition) EF için 6.x. Diyagram oluşturma öğreticinin bir parçası değildir.)
 
 ![Öğrenci Kursluk çok-çok ilişkisi](complex-data-model/_static/student-course.png)
 

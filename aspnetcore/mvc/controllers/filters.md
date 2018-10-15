@@ -3,14 +3,14 @@ title: ASP.NET core'da filtreleri
 author: ardalis
 description: Filtreleri nasıl çalıştığını ve ASP.NET Core MVC nasıl kullanacağınızı öğrenin.
 ms.author: riande
-ms.date: 08/15/2018
+ms.date: 10/15/2018
 uid: mvc/controllers/filters
-ms.openlocfilehash: e20d934a17337d404249220d703ac4bb7164dfa6
-ms.sourcegitcommit: 9bdba90b2c97a4016188434657194b2d7027d6e3
+ms.openlocfilehash: 8b3291474883f2cad35283c6104327e03fcc3fec
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47402165"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49326036"
 ---
 # <a name="filters-in-aspnet-core"></a>ASP.NET core'da filtreleri
 
@@ -204,13 +204,15 @@ Filtrelerinizi DI erişmek için gereken bağımlılıkları varsa, desteklenen 
 
 ### <a name="servicefilterattribute"></a>ServiceFilterAttribute
 
-A `ServiceFilter` DI filtre örneğini alır. Kapsayıcıda filtre ekleme `ConfigureServices`ve onu referans bir `ServiceFilter` özniteliği
+Hizmet uygulaması türlerini filtreleme DI kaydedilir. A `ServiceFilterAttribute` DI filtre örneğini alır. Ekleme `ServiceFilterAttribute` kapsayıcısı `Startup.ConfigureServices`ve onu referans bir `[ServiceFilter]` özniteliği:
 
 [!code-csharp[](./filters/sample/src/FiltersSample/Startup.cs?name=snippet_ConfigureServices&highlight=11)]
 
 [!code-csharp[](../../mvc/controllers/filters/sample/src/FiltersSample/Controllers/HomeController.cs?name=snippet_ServiceFilter&highlight=1)]
 
-Kullanarak `ServiceFilter` kaydetmeden filtre türü sonuçları bir özel durum:
+Kullanırken `ServiceFilterAttribute`ayarını `IsReusable` bir ipucudur, filtre örneğini *olabilir* içinde oluşturulduğu istek kapsamı dışında yeniden kullanılabilir. Framework filtre tek bir örneği oluşturulur veya filtre daha sonraki bir noktada DI kapsayıcısından yeniden istenen olmayacaktır garanti sağlar. Kullanmaktan kaçının `IsReusable` Hizmetleri tekil dışında bir yaşam süresi ile bağlı olduğu bir filtre kullanırken.
+
+Kullanarak `ServiceFilterAttribute` kaydetmeden filtre türü sonuçları bir özel durum:
 
 ```
 System.InvalidOperationException: No service for type
@@ -226,7 +228,9 @@ System.InvalidOperationException: No service for type
 Bu farklılık nedeniyle:
 
 * Kullanılarak başvurulan türleri `TypeFilterAttribute` kapsayıcı ile ilk kaydedilmesi gerekmez.  Kapsayıcı tarafından yerine bunların bağımlılıklarını sahiptirler. 
-* `TypeFilterAttribute` İsteğe bağlı olarak tür için oluşturucu bağımsız değişkenleri kabul edebilir. 
+* `TypeFilterAttribute` İsteğe bağlı olarak tür için oluşturucu bağımsız değişkenleri kabul edebilir.
+
+Kullanırken `TypeFilterAttribute`ayarını `IsReusable` bir ipucudur, filtre örneğini *olabilir* içinde oluşturulduğu istek kapsamı dışında yeniden kullanılabilir. Framework filtre tek bir örneği oluşturulur tutarlılık garantisi sağlar. Kullanmaktan kaçının `IsReusable` Hizmetleri tekil dışında bir yaşam süresi ile bağlı olduğu bir filtre kullanırken.
 
 Aşağıdaki örneği kullanarak bir tür bağımsız değişkenleri geçirmek gösterilmiştir `TypeFilterAttribute`:
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/21/2018
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 46bcb7822e93862d49923c813140ef453b5e27e5
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 12075f68dd828680f6bfbd46ea22ebd7bbe52dc7
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913300"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49326023"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Windows IIS üzerinde ASP.NET Core barındırma
 
@@ -40,7 +40,7 @@ Azure'da barındırma hakkında daha fazla bilgi için bkz: <xref:host-and-deplo
   * TLS 1.2 veya sonraki bir bağlantı
 * İşlem dışı
   * Windows Server 2016/Windows 10 veya üzeri; IIS 10 veya üzeri
-  * Edge bağlantıları için ters Ara sunucu bağlantısı ancak HTTP/2 kullanmak [Kestrel sunucu](xref:fundamentals/servers/kestrel) HTTP/1.1 kullanır.
+  * Genel kullanıma yönelik uç sunucu bağlantıları için ters Ara sunucu bağlantısı ancak HTTP/2 kullanın [Kestrel sunucu](xref:fundamentals/servers/kestrel) HTTP/1.1 kullanır.
   * Hedef çerçeve: uygulanamaz işlem dışı dağıtımlar için bu yana HTTP/2 bağlantı tamamen IIS tarafından işlenir.
   * TLS 1.2 veya sonraki bir bağlantı
 
@@ -55,7 +55,7 @@ Bir HTTP/2 bağlantı kurulduğunda, işlem içi dağıtımı için [HttpRequest
 [HTTP/2](https://httpwg.org/specs/rfc7540.html) aşağıdaki temel gereksinimlere işlem dışı dağıtımları için desteklenir:
 
 * Windows Server 2016/Windows 10 veya üzeri; IIS 10 veya üzeri
-* Edge bağlantıları için ters Ara sunucu bağlantısı ancak HTTP/2 kullanmak [Kestrel sunucu](xref:fundamentals/servers/kestrel) HTTP/1.1 kullanır.
+* Genel kullanıma yönelik uç sunucu bağlantıları için ters Ara sunucu bağlantısı ancak HTTP/2 kullanın [Kestrel sunucu](xref:fundamentals/servers/kestrel) HTTP/1.1 kullanır.
 * Hedef çerçeve: uygulanamaz işlem dışı dağıtımlar için bu yana HTTP/2 bağlantı tamamen IIS tarafından işlenir.
 * TLS 1.2 veya sonraki bir bağlantı
 

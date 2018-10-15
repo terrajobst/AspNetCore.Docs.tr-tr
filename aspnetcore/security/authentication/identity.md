@@ -5,12 +5,12 @@ description: Kimlik ile bir ASP.NET Core uygulaması kullanın. Parola gereksini
 ms.author: riande
 ms.date: 08/08/2018
 uid: security/authentication/identity
-ms.openlocfilehash: d427932bb175c09105534379be4d71760f4e04e5
-ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
+ms.openlocfilehash: e0494afd807080f4cd71127abce7bdb93f952dca
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47860959"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325516"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>ASP.NET core'da kimliğe giriş
 
@@ -160,7 +160,7 @@ PowerShell komut ayırıcı olarak virgül kullanır. PowerShell kullanarak, dos
 Oturum açma formu görüntülenir olduğunda:
 
 * **Oturum** bağlantı seçildiğinde.
-* Ne zaman bir kullanıcının eriştiği nerede bunlar kimliği doğrulanmamış bir sayfa **veya** yetkili ve bunlar için oturum açma sayfasına yönlendirilirsiniz.
+* Bir kullanıcı yetkiniz yok kısıtlanmış bir sayfaya erişmeye erişim **veya** zaman henüz doğrulandığını sistem tarafından.
 
 Oturum açma sayfasındaki formu gönderildiğinde `OnPostAsync` eylem çağrılır. `PasswordSignInAsync` üzerinde çağrılır `_signInManager` (bağımlılık ekleme tarafından sağlanan) nesne.
 

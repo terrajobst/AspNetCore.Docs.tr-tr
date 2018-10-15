@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/20/2018
 uid: fundamentals/index
-ms.openlocfilehash: 68760f179c4d6e806510b727e2284f8c2c4a4ff6
-ms.sourcegitcommit: d27317c16f113e7c111583042ec7e4c5a26adf6f
+ms.openlocfilehash: 83dfb5707700da01c45bae3c0c00e67ca397d402
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41756287"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325477"
 ---
 # <a name="aspnet-core-fundamentals"></a>ASP.NET Core temelleri
 
@@ -119,7 +119,7 @@ Daha fazla bilgi için bkz. <xref:fundamentals/host/index>.
 
 ## <a name="servers"></a>Sunucular
 
-Barındırma modeli ASP.NET Core doğrudan isteklerini dinlemez. Uygulama isteği iletmek için bir HTTP sunucusu uygulamasını barındırma modeli kullanır. İletilen istek, arabirimler aracılığıyla erişilebilen bir özellik nesne olarak paketlenir. ASP.NET Core içeren olarak adlandırılan bir yönetilen, platformlar arası web sunucusuna [Kestrel](xref:fundamentals/servers/kestrel). Kestrel'i yaygın olarak çalıştığı bir üretim web sunucusu gibi [IIS](https://www.iis.net/) veya [Ngınx](http://nginx.org) ters Ara sunucu yapılandırması. Kestrel'i doğrudan Internet'e ASP.NET Core 2.0 veya sonraki sürümlerde kullanıma sunulan bir uç sunucusu olarak da çalıştırılabilir.
+Barındırma modeli ASP.NET Core doğrudan isteklerini dinlemez. Uygulama isteği iletmek için bir HTTP sunucusu uygulamasını barındırma modeli kullanır. İletilen istek, arabirimler aracılığıyla erişilebilen bir özellik nesne olarak paketlenir. ASP.NET Core içeren olarak adlandırılan bir yönetilen, platformlar arası web sunucusuna [Kestrel](xref:fundamentals/servers/kestrel). Kestrel'i yaygın olarak çalıştığı bir üretim web sunucusu gibi [IIS](https://www.iis.net/) veya [Ngınx](http://nginx.org) ters Ara sunucu yapılandırması. Kestrel'i doğrudan Internet'e ASP.NET Core 2.0 veya sonraki sürümlerinde sunulan genel kullanıma yönelik bir uç sunucusu olarak da çalıştırılabilir.
 
 Daha fazla bilgi için bkz. <xref:fundamentals/servers/index>.
 

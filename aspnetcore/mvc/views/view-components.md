@@ -5,12 +5,12 @@ description: ASP.NET Core görünümü bileşenlerin nasıl kullanıldığı ve 
 ms.author: riande
 ms.date: 02/14/2017
 uid: mvc/views/view-components
-ms.openlocfilehash: cf2cfcdb07271503b844e31940e90b7376db0a6f
-ms.sourcegitcommit: 599ebae5c2d6fcb22dfa6ae7d1f4bdfcacb79af4
+ms.openlocfilehash: 49c8be655f151e219c8fa0854dbcf510d7bbd158
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47211071"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325594"
 ---
 # <a name="view-components-in-aspnet-core"></a>ASP.NET core'da görünüm bileşenleri
 
@@ -75,20 +75,20 @@ Görünümü bileşen kendi mantığı tanımlayan bir `InvokeAsync` döndüren 
 
 Çalışma zamanı aşağıdaki yollardan görünümünde arar:
 
-* /Pages/bileşenleri/\<view_component_name > /\<view_name >
-* /Views/\<controller_name > /Components/\<view_component_name > /\<view_name >
-* / Görünümler/paylaşılan/Components/\<view_component_name > /\<view_name >
+* /Pages/bileşenleri / {View bileşen adı} / {View adı}
+* {Denetleyici adı} /Views/ /Components/ {görünümü bileşen adı} / {View adı}
+* / Görünümler/paylaşılan/bileşenleri / {View bileşen adı} / {View adı}
 
 Bir görünümü bileşen için varsayılan görünüm adı *varsayılan*, yani dosyasını görüntüle genellikle adlandırılacağını *Default.cshtml*. Görünüm bileşen sonucu oluştururken veya çağırırken farklı görünüm adı belirtebilirsiniz `View` yöntemi.
 
-Görünüm dosyası adı öneririz *Default.cshtml* ve *görünümler/paylaşılan/Components/\<view_component_name > /\<view_name >* yolu. `PriorityList` Bu örnekte kullanılan görünümü bileşen *Views/Shared/Components/PriorityList/Default.cshtml* görünümünü bileşeni için.
+Görünüm dosyası adı öneririz *Default.cshtml* ve *görünümler/paylaşılan/Components / {View bileşen adı} / {View Name}* yolu. `PriorityList` Bu örnekte kullanılan görünümü bileşen *Views/Shared/Components/PriorityList/Default.cshtml* görünümünü bileşeni için.
 
 ## <a name="invoking-a-view-component"></a>Bileşeni görüntüle çağırma
 
 Bileşeni görüntüle kullanmak için aşağıdaki çağrı görünümü içinde:
 
 ```cshtml
-@Component.InvokeAsync("Name of view component", <anonymous type containing parameters>)
+@Component.InvokeAsync("Name of view component", {Anonymous Type Containing Parameters})
 ```
 
 Parametreleri geçirilecek `InvokeAsync` yöntemi. `PriorityList` Makalesinde geliştirilen görünümü bileşen ınvoked from *Views/Todo/Index.cshtml* görünüm dosyası. Aşağıdaki `InvokeAsync` yöntemi, iki parametre ile çağrılır:

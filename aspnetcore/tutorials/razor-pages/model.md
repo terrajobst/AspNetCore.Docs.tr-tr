@@ -5,12 +5,12 @@ description: Entity Framework Core (EF Core) kullanarak bir veritabanında filml
 ms.author: riande
 ms.date: 05/30/2018
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 5cd1e08ac52d352be23a280419d7456f685a03ad
-ms.sourcegitcommit: 317f9be24db600499e79d25872d743af74bd86c0
+ms.openlocfilehash: 41a88e06afbe6e7accd03ff7b39aa69e15e0c0b4
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48045607"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325819"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Bir ASP.NET Core Razor sayfaları uygulama için model ekleme
 
@@ -47,19 +47,18 @@ Tamamlamak **ekleme Razor sayfaları (CRUD) Entity Framework kullanarak** ileti�
 
 * İçinde **Model sınıfı** seçin, açılan menü **film (RazorPagesMovie.Models)**.
 * İçinde **veri bağlamı sınıfının** satır, select **+** (artı) oturum açın ve oluşturulan adı kabul **RazorPagesMovie.Models.RazorPagesMovieContext**.
-* İçinde **veri bağlamı sınıfının** seçin, açılan menü **RazorPagesMovie.Models.RazorPagesMovieContext**
 * Seçin **ekleme**.
 
 ![Önceki yönergeleri görüntüden.](model/_static/arp.png)
 
-İskele işlem oluşturulur ve aşağıdaki dosya değişti:
+İskele işlem oluşturur ve aşağıdaki dosyaları güncelleştirir:
 
 ### <a name="files-created"></a>Oluşturulan dosyalar
 
 * *Sayfa/filmler*: oluşturma, silme, Ayrıntılar, düzenleme, dizin. Bu sayfalar, sonraki öğreticide açıklanmıştır.
 * *Data/RazorPagesMovieContext.cs*
 
-### <a name="file-updates"></a>Dosya güncelleştirmeleri
+### <a name="file-updated"></a>Dosya güncelleştirildi
 
 * *Startup.cs*: Bu dosyada yapılan değişiklikler sonraki bölümde ayrıntılı.
 * *appSettings.JSON*: yerel bir veritabanına bağlanmak için kullanılan bağlantı dizesi eklenir.
@@ -110,9 +109,10 @@ dotnet ef database update
 
 Aşağıdaki uyarı iletisini yoksay, düzeltme, bir sonraki öğreticide:
 
-`Microsoft.EntityFrameworkCore.Model.Validation[30000]`
-
-      *No type was specified for the decimal column 'Price' on entity type 'Movie'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.*
+```console
+Microsoft.EntityFrameworkCore.Model.Validation[30000]
+      No type was specified for the decimal column 'Price' on entity type 'Movie'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.
+```
 
 `Add-Migration` Komut, ilk veritabanı şeması oluşturmak için kod oluşturur. Belirtilen model şeması dayanır `RazorPagesMovieContext` (içinde *Data/RazorPagesMovieContext.cs* dosyası). `Initial` Bağımsız değişkeni, geçişlerin adlandırmak için kullanılır. Herhangi bir adı kullanabilirsiniz, ancak bu kurala göre geçiş tanımlayan bir ad seçin. Bkz: [geçişler giriş](xref:data/ef-mvc/migrations#introduction-to-migrations) daha fazla bilgi için.
 
@@ -120,8 +120,10 @@ Aşağıdaki uyarı iletisini yoksay, düzeltme, bir sonraki öğreticide:
 
 Hatası alırsanız:
 
-`SqlException: Cannot open database "RazorPagesMovieContext-GUID" requested by the login. The login failed.
-Login failed for user 'User-name'.`
+```console
+SqlException: Cannot open database "RazorPagesMovieContext-GUID" requested by the login. The login failed.
+Login failed for user 'User-name'.
+```
 
 Eksik [geçişler adım](#pmc).
 
@@ -186,9 +188,10 @@ dotnet ef database update
 
 Aşağıdaki ileti yoksay:
 
-    `Microsoft.EntityFrameworkCore.Model.Validation[30000]`
-
-      *No type was specified for the decimal column 'Price' on entity type 'Movie'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'*
+```console
+Microsoft.EntityFrameworkCore.Model.Validation[30000]
+      No type was specified for the decimal column 'Price' on entity type 'Movie'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'
+```
 
 Sonraki öğreticide bunu düzeltelim.
 
