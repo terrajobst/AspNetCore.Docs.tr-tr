@@ -3,44 +3,54 @@ title: Dağıtılmış önbellek etiketi Yardımcısı ASP.NET core'da
 author: pkellner
 description: Dağıtılmış önbellek etiketi Yardımcısı'nı kullanmayı öğrenin.
 ms.author: riande
-ms.date: 02/14/2017
+ms.custom: mvc
+ms.date: 10/10/2018
 uid: mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper
-ms.openlocfilehash: 1b51164a6d3dab2eeaf64262d6f0d9961bd00d12
-ms.sourcegitcommit: 4d5f8680d68b39c411b46c73f7014f8aa0f12026
+ms.openlocfilehash: a5b33451a763c297c6d7885855a321c43435abb4
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47028104"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325217"
 ---
-# <a name="distributed-cache-tag-helper-in-aspnet-core"></a><span data-ttu-id="34cde-103">Dağıtılmış önbellek etiketi Yardımcısı ASP.NET core'da</span><span class="sxs-lookup"><span data-stu-id="34cde-103">Distributed Cache Tag Helper in ASP.NET Core</span></span>
+# <a name="distributed-cache-tag-helper-in-aspnet-core"></a><span data-ttu-id="4201c-103">Dağıtılmış önbellek etiketi Yardımcısı ASP.NET core'da</span><span class="sxs-lookup"><span data-stu-id="4201c-103">Distributed Cache Tag Helper in ASP.NET Core</span></span>
 
-<span data-ttu-id="34cde-104">Tarafından [Peter Kellner](http://peterkellner.net)</span><span class="sxs-lookup"><span data-stu-id="34cde-104">By [Peter Kellner](http://peterkellner.net)</span></span> 
+<span data-ttu-id="4201c-104">Tarafından [Peter Kellner](http://peterkellner.net) ve [Luke Latham](https://github.com/guardrex)</span><span class="sxs-lookup"><span data-stu-id="4201c-104">By [Peter Kellner](http://peterkellner.net) and [Luke Latham](https://github.com/guardrex)</span></span>
 
-<span data-ttu-id="34cde-105">Dağıtılmış önbellek etiketi Yardımcısı, dağıtılmış önbellek kaynağına içeriği önbelleğe alarak ASP.NET Core uygulamanızı performansını önemli ölçüde artırmak olanağı sağlar.</span><span class="sxs-lookup"><span data-stu-id="34cde-105">The Distributed Cache Tag Helper provides the ability to dramatically improve the performance of your ASP.NET Core app by caching its content to a distributed cache source.</span></span>
+<span data-ttu-id="4201c-105">Dağıtılmış önbellek etiketi Yardımcısı, dağıtılmış önbellek kaynağına içeriği önbelleğe alarak ASP.NET Core uygulamanızı performansını önemli ölçüde artırmak olanağı sağlar.</span><span class="sxs-lookup"><span data-stu-id="4201c-105">The Distributed Cache Tag Helper provides the ability to dramatically improve the performance of your ASP.NET Core app by caching its content to a distributed cache source.</span></span>
 
-<span data-ttu-id="34cde-106">Dağıtılmış önbellek etiketi Yardımcısı, önbellek etiketi Yardımcısı olarak aynı temel sınıfından devralır.</span><span class="sxs-lookup"><span data-stu-id="34cde-106">The Distributed Cache Tag Helper inherits from the same base class as the Cache Tag Helper.</span></span> <span data-ttu-id="34cde-107">Önbellek etiketi Yardımcısı ile ilişkili tüm öznitelikler, üzerinde dağıtılmış etiketi Yardımcısı olarak da çalışır.</span><span class="sxs-lookup"><span data-stu-id="34cde-107">All attributes associated with the Cache Tag Helper will also work on the Distributed Tag Helper.</span></span>
+<span data-ttu-id="4201c-106">Etiket Yardımcıları genel bakış için bkz. <xref:mvc/views/tag-helpers/intro>.</span><span class="sxs-lookup"><span data-stu-id="4201c-106">For an overview of Tag Helpers, see <xref:mvc/views/tag-helpers/intro>.</span></span>
 
-<span data-ttu-id="34cde-108">Dağıtılmış önbellek etiketi Yardımcısı izleyen **açık bağımlılıkları İlkesi** olarak bilinen **Oluşturucu ekleme**.</span><span class="sxs-lookup"><span data-stu-id="34cde-108">The Distributed Cache Tag Helper follows the **Explicit Dependencies Principle** known as **Constructor Injection**.</span></span> <span data-ttu-id="34cde-109">Özellikle, `IDistributedCache` arabirimi kapsayıcı, dağıtılmış önbellek etiketi Yardımcısı'nın oluşturucuya geçirilir.</span><span class="sxs-lookup"><span data-stu-id="34cde-109">Specifically, the `IDistributedCache` interface container is passed into the Distributed Cache Tag Helper's constructor.</span></span> <span data-ttu-id="34cde-110">Belirli bir somut uygulamasına varsa `IDistributedCache` içinde oluşturulan `ConfigureServices`, genellikle startup.cs içinde bulunan ve ardından dağıtılmış önbellek etiketi Yardımcısı temel önbellek etiketi Yardımcısı önbelleğe alınmış verileri depolamak için aynı bellek içi sağlayıcısı kullanır.</span><span class="sxs-lookup"><span data-stu-id="34cde-110">If no specific concrete implementation of `IDistributedCache` has been created in `ConfigureServices`, usually found in startup.cs, then the Distributed Cache Tag Helper will use the same in-memory provider for storing cached data as the basic Cache Tag Helper.</span></span>
+<span data-ttu-id="4201c-107">Dağıtılmış önbellek etiketi Yardımcısı, önbellek etiketi Yardımcısı olarak aynı temel sınıfından devralır.</span><span class="sxs-lookup"><span data-stu-id="4201c-107">The Distributed Cache Tag Helper inherits from the same base class as the Cache Tag Helper.</span></span> <span data-ttu-id="4201c-108">Tüm [önbellek etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper) öznitelikleri dağıtılmış etiketi Yardımcısı için kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="4201c-108">All of the [Cache Tag Helper](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper) attributes are available to the Distributed Tag Helper.</span></span>
 
-## <a name="distributed-cache-tag-helper-attributes"></a><span data-ttu-id="34cde-111">Dağıtılmış önbellek etiketi Yardımcısı öznitelikleri</span><span class="sxs-lookup"><span data-stu-id="34cde-111">Distributed Cache Tag Helper Attributes</span></span>
+<span data-ttu-id="4201c-109">Dağıtılmış önbellek etiketi Yardımcısı kullanan [Oluşturucu ekleme](xref:fundamentals/dependency-injection#constructor-injection-behavior).</span><span class="sxs-lookup"><span data-stu-id="4201c-109">The Distributed Cache Tag Helper uses [constructor injection](xref:fundamentals/dependency-injection#constructor-injection-behavior).</span></span> <span data-ttu-id="4201c-110"><xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> Arabirimi, dağıtılmış önbellek etiketi Yardımcısı'nın oluşturucuya geçirilir.</span><span class="sxs-lookup"><span data-stu-id="4201c-110">The <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> interface is passed into the Distributed Cache Tag Helper's constructor.</span></span> <span data-ttu-id="4201c-111">Hiçbir somut uygulaması varsa `IDistributedCache` oluşturulur `Startup.ConfigureServices` (*Startup.cs*), dağıtılmış önbellek etiketi Yardımcısı olarak önbelleğe alınmış verileri depolamak için aynı bellek içi sağlayıcısı kullanan [önbellek etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper).</span><span class="sxs-lookup"><span data-stu-id="4201c-111">If no concrete implementation of `IDistributedCache` is created in `Startup.ConfigureServices` (*Startup.cs*), the Distributed Cache Tag Helper uses the same in-memory provider for storing cached data as the [Cache Tag Helper](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper).</span></span>
 
-- - -
+## <a name="distributed-cache-tag-helper-attributes"></a><span data-ttu-id="4201c-112">Dağıtılmış önbellek etiketi Yardımcısı öznitelikleri</span><span class="sxs-lookup"><span data-stu-id="4201c-112">Distributed Cache Tag Helper Attributes</span></span>
 
-### <a name="enabled-expires-on-expires-after-expires-sliding-vary-by-header-vary-by-query-vary-by-route-vary-by-cookie-vary-by-user-vary-by-priority"></a><span data-ttu-id="34cde-112">süresi dolmadan açma süresi dolduktan sonra süresi dolar-kayan etkin farklılık-tarafından-header farklılık-tarafından-sorgu değişir-tarafından-route farklılık-tarafından-tanımlama bilgisi değişiklik kullanıcı tarafından farklılık-önceliğe göre</span><span class="sxs-lookup"><span data-stu-id="34cde-112">enabled expires-on expires-after expires-sliding vary-by-header vary-by-query vary-by-route vary-by-cookie vary-by-user vary-by priority</span></span>
+### <a name="attributes-shared-with-the-cache-tag-helper"></a><span data-ttu-id="4201c-113">Önbellek etiketi Yardımcısı ile paylaşılan öznitelikleri</span><span class="sxs-lookup"><span data-stu-id="4201c-113">Attributes shared with the Cache Tag Helper</span></span>
 
-<span data-ttu-id="34cde-113">Önbellek etiketi Yardımcısı tanımları için bkz.</span><span class="sxs-lookup"><span data-stu-id="34cde-113">See Cache Tag Helper for definitions.</span></span> <span data-ttu-id="34cde-114">Bu öznitelikler önbellek etiketi Yardımcısı ' yaygın şekilde dağıtılmış önbellek etiketi Yardımcısı önbellek etiketi Yardımcısı olarak aynı sınıfından devralır.</span><span class="sxs-lookup"><span data-stu-id="34cde-114">Distributed Cache Tag Helper inherits from the same class as Cache Tag Helper so all these attributes are common from Cache Tag Helper.</span></span>
+* `enabled`
+* `expires-on`
+* `expires-after`
+* `expires-sliding`
+* `vary-by-header`
+* `vary-by-query`
+* `vary-by-route`
+* `vary-by-cookie`
+* `vary-by-user`
+* `vary-by priority`
 
-- - -
+<span data-ttu-id="4201c-114">Önbellek etiketi Yardımcısı aynı sınıfta dağıtılmış önbellek etiketi Yardımcısı devralır.</span><span class="sxs-lookup"><span data-stu-id="4201c-114">The Distributed Cache Tag Helper inherits from the same class as Cache Tag Helper.</span></span> <span data-ttu-id="4201c-115">Bu öznitelikler açıklaması için bkz. [önbellek etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper).</span><span class="sxs-lookup"><span data-stu-id="4201c-115">For descriptions of these attributes, see the [Cache Tag Helper](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper).</span></span>
 
-### <a name="name-required"></a><span data-ttu-id="34cde-115">ad (gerekli)</span><span class="sxs-lookup"><span data-stu-id="34cde-115">name (required)</span></span>
+### <a name="name"></a><span data-ttu-id="4201c-116">name</span><span class="sxs-lookup"><span data-stu-id="4201c-116">name</span></span>
 
-| <span data-ttu-id="34cde-116">Öznitelik türü</span><span class="sxs-lookup"><span data-stu-id="34cde-116">Attribute Type</span></span>    | <span data-ttu-id="34cde-117">Örnek değer</span><span class="sxs-lookup"><span data-stu-id="34cde-117">Example Value</span></span>     |
-|----------------   |----------------   |
-| <span data-ttu-id="34cde-118">dize</span><span class="sxs-lookup"><span data-stu-id="34cde-118">string</span></span>    | <span data-ttu-id="34cde-119">"my-distributed-cache-unique-key-101"</span><span class="sxs-lookup"><span data-stu-id="34cde-119">"my-distributed-cache-unique-key-101"</span></span>     |
+| <span data-ttu-id="4201c-117">Öznitelik türü</span><span class="sxs-lookup"><span data-stu-id="4201c-117">Attribute Type</span></span> | <span data-ttu-id="4201c-118">Örnek</span><span class="sxs-lookup"><span data-stu-id="4201c-118">Example</span></span>                               |
+| -------------- | ------------------------------------- |
+| <span data-ttu-id="4201c-119">Dize</span><span class="sxs-lookup"><span data-stu-id="4201c-119">String</span></span>         | `my-distributed-cache-unique-key-101` |
 
-<span data-ttu-id="34cde-120">Gerekli `name` özniteliği, bu önbelleğe dağıtılmış önbellek etiketi Yardımcısı her örneği için depolanan bir anahtar olarak kullanılır.</span><span class="sxs-lookup"><span data-stu-id="34cde-120">The required `name` attribute is used as a key to that cache stored for each instance of a Distributed Cache Tag Helper.</span></span> <span data-ttu-id="34cde-121">Temel önbellek etiketi Razor sayfası adı ve konumu sayfasındaki razor etiket Yardımcısı'nın temel alarak her önbellek etiketi Yardımcısı örneği için bir anahtar atayan Yardımcısı, dağıtılmış önbellek etiketi Yardımcısı yalnızca anahtarıyla özniteliğini alır `name`</span><span class="sxs-lookup"><span data-stu-id="34cde-121">Unlike the basic Cache Tag Helper that assigns a key to each Cache Tag Helper instance based on the Razor page name and location of the Tag Helper in the razor page, the Distributed Cache Tag Helper only bases its key on the attribute `name`</span></span>
+<span data-ttu-id="4201c-120">`name` gerekli değildir.</span><span class="sxs-lookup"><span data-stu-id="4201c-120">`name` is required.</span></span> <span data-ttu-id="4201c-121">`name` Özniteliği, her depolanan önbellek örneği için bir anahtar olarak kullanılır.</span><span class="sxs-lookup"><span data-stu-id="4201c-121">The `name` attribute is used as a key for each stored cache instance.</span></span> <span data-ttu-id="4201c-122">Önbellek etiketi Razor sayfası adı ve Razor sayfası konuma göre her bir örneği için bir önbellek anahtarı atayan Yardımcısı, dağıtılmış önbellek etiketi Yardımcısı yalnızca anahtarıyla özniteliğini tabanları `name`.</span><span class="sxs-lookup"><span data-stu-id="4201c-122">Unlike the Cache Tag Helper that assigns a cache key to each instance based on the Razor page name and location in the Razor page, the Distributed Cache Tag Helper only bases its key on the attribute `name`.</span></span>
 
-<span data-ttu-id="34cde-122">Kullanım örneği:</span><span class="sxs-lookup"><span data-stu-id="34cde-122">Usage Example:</span></span>
+<span data-ttu-id="4201c-123">Örnek:</span><span class="sxs-lookup"><span data-stu-id="4201c-123">Example:</span></span>
 
 ```cshtml
 <distributed-cache name="my-distributed-cache-unique-key-101">
@@ -48,13 +58,13 @@ ms.locfileid: "47028104"
 </distributed-cache>
 ```
 
-## <a name="distributed-cache-tag-helper-idistributedcache-implementations"></a><span data-ttu-id="34cde-123">Dağıtılmış önbellek etiketi Yardımcısı IDistributedCache uygulamaları</span><span class="sxs-lookup"><span data-stu-id="34cde-123">Distributed Cache Tag Helper IDistributedCache implementations</span></span>
+## <a name="distributed-cache-tag-helper-idistributedcache-implementations"></a><span data-ttu-id="4201c-124">Dağıtılmış önbellek etiketi Yardımcısı IDistributedCache uygulamaları</span><span class="sxs-lookup"><span data-stu-id="4201c-124">Distributed Cache Tag Helper IDistributedCache implementations</span></span>
 
-<span data-ttu-id="34cde-124">İki uygulamaları vardır `IDistributedCache` ASP.NET Core için yerleşik olarak bulunur.</span><span class="sxs-lookup"><span data-stu-id="34cde-124">There are two implementations of `IDistributedCache` built in to ASP.NET Core.</span></span> <span data-ttu-id="34cde-125">Bir SQL Sunucusu'nu temel alır ve diğer Redis temel alır.</span><span class="sxs-lookup"><span data-stu-id="34cde-125">One is based on SQL Server and the other is based on Redis.</span></span> <span data-ttu-id="34cde-126">Bu uygulamalar ayrıntıları bulunabilir <xref:performance/caching/distributed>.</span><span class="sxs-lookup"><span data-stu-id="34cde-126">Details of these implementations can be found at <xref:performance/caching/distributed>.</span></span> <span data-ttu-id="34cde-127">Bir örneği her iki uygulamaları içeren `IDistributedCache` ASP.NET core'da'nın *Startup.cs*.</span><span class="sxs-lookup"><span data-stu-id="34cde-127">Both implementations involve setting an instance of `IDistributedCache` in ASP.NET Core's *Startup.cs*.</span></span>
+<span data-ttu-id="4201c-125">İki uygulamaları vardır <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> ASP.NET Core için yerleşik olarak bulunur.</span><span class="sxs-lookup"><span data-stu-id="4201c-125">There are two implementations of <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> built in to ASP.NET Core.</span></span> <span data-ttu-id="4201c-126">Bir SQL Sunucusu'nu temel alır ve diğer Redis dayanır.</span><span class="sxs-lookup"><span data-stu-id="4201c-126">One is based on SQL Server, and the other is based on Redis.</span></span> <span data-ttu-id="4201c-127">Bu uygulamalar ayrıntıları bulunabilir <xref:performance/caching/distributed>.</span><span class="sxs-lookup"><span data-stu-id="4201c-127">Details of these implementations can be found at <xref:performance/caching/distributed>.</span></span> <span data-ttu-id="4201c-128">Bir örneği her iki uygulamaları içeren `IDistributedCache` içinde `Startup`.</span><span class="sxs-lookup"><span data-stu-id="4201c-128">Both implementations involve setting an instance of `IDistributedCache` in `Startup`.</span></span>
 
-<span data-ttu-id="34cde-128">Tüm özel uygulanışı kullanmaya özellikle ilişkili hiçbir etiket öznitelik `IDistributedCache`.</span><span class="sxs-lookup"><span data-stu-id="34cde-128">There are no tag attributes specifically associated with using any specific implementation of `IDistributedCache`.</span></span>
+<span data-ttu-id="4201c-129">Tüm özel uygulanışı kullanmaya özellikle ilişkili hiçbir etiket öznitelik `IDistributedCache`.</span><span class="sxs-lookup"><span data-stu-id="4201c-129">There are no tag attributes specifically associated with using any specific implementation of `IDistributedCache`.</span></span>
 
-## <a name="additional-resources"></a><span data-ttu-id="34cde-129">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="34cde-129">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="4201c-130">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="4201c-130">Additional resources</span></span>
 
 * <xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper>
 * <xref:fundamentals/dependency-injection>
