@@ -5,12 +5,12 @@ description: Bu öğreticide, sıralama, filtreleme ve sayfalama ASP.NET Core ve
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 668d6e54a64022dda948170f72538f6d4cd9a49f
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 06669d69fa9fec87d262c2b5bfd8b11649259849
+ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011644"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49348448"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>ASP.NET core'da - EF çekirdekli Razor sayfaları sıralama, filtreleme, sayfalama - 8'in 3
 
@@ -97,9 +97,9 @@ Bu sıralama çalıştığını doğrulamak için:
 
 Daha iyi anlamak kodunu almak için:
 
-* İçinde *Student/Index.cshtml.cs*, bir kesme noktası ayarlamak `switch (sortOrder)`.
+* İçinde *Students/Index.cshtml.cs*, bir kesme noktası ayarlamak `switch (sortOrder)`.
 * İçin bir izleme Ekle `NameSort` ve `DateSort`.
-* İçinde *Student/Index.cshtml*, bir kesme noktası ayarlamak `@Html.DisplayNameFor(model => model.Student[0].LastName)`.
+* İçinde *Students/Index.cshtml*, bir kesme noktası ayarlamak `@Html.DisplayNameFor(model => model.Student[0].LastName)`.
 
 Hata ayıklayıcı ile adım.
 
@@ -235,9 +235,9 @@ Uygulamayı çalıştırın ve öğrenciler sayfasına gidin.
 
 Daha iyi anlamak kodunu almak için:
 
-* İçinde *Student/Index.cshtml.cs*, bir kesme noktası ayarlamak `switch (sortOrder)`.
+* İçinde *Students/Index.cshtml.cs*, bir kesme noktası ayarlamak `switch (sortOrder)`.
 * İçin bir izleme Ekle `NameSort`, `DateSort`, `CurrentSort`, ve `Model.Student.PageIndex`.
-* İçinde *Student/Index.cshtml*, bir kesme noktası ayarlamak `@Html.DisplayNameFor(model => model.Student[0].LastName)`.
+* İçinde *Students/Index.cshtml*, bir kesme noktası ayarlamak `@Html.DisplayNameFor(model => model.Student[0].LastName)`.
 
 Hata ayıklayıcı ile adım.
 

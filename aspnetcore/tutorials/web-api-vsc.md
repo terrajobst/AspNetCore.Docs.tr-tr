@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/30/2018
 uid: tutorials/web-api-vsc
-ms.openlocfilehash: e549bc3adf3efa32b3ac975cf04a35f508a554d5
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
-ms.translationtype: HT
+ms.openlocfilehash: b8e5c8b7d3dc04513997997d903295853dd1ff46
+ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49325633"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49348435"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio-code"></a>ASP.NET Core ve Visual Studio Code ile Web API'si oluşturma
 
@@ -32,6 +32,8 @@ Bu öğretici üç sürümü vardır:
 ## <a name="prerequisites"></a>Önkoşullar
 
 [!INCLUDE[prerequisites](~/includes/net-core-prereqs-vscode.md)]
+
+Bkz: [Visual Studio Code Yardım](#visual-studio-code-help) için VS Code kullanma hakkında ipuçları.
 
 ## <a name="create-the-project"></a>Projeyi oluşturma
 
@@ -57,7 +59,7 @@ Tuşuna **hata ayıklama** oluşturup programı çalıştırın (F5). Bir taray�
 ["value1","value2"]
 ```
 
-Bkz: [Visual Studio Code Yardım](#visual-studio-code-help) için VS Code kullanma hakkında ipuçları.
+
 
 ## <a name="add-support-for-entity-framework-core"></a>Entity Framework Core desteği eklendi
 

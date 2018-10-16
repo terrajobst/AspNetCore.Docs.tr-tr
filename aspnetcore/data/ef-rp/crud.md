@@ -5,12 +5,12 @@ description: Oluşturma, okuma, güncelleştirme ve EF Core ile silme işlemini 
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/crud
-ms.openlocfilehash: 25493f93daf3fe5e874ad1d06b918196cd1f074d
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: b30cc9a5a5bae520ec21e6314be7819484f9e580
+ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912819"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49348474"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---crud---2-of-8"></a>ASP.NET core'da - CRUD - 2 8 EF çekirdekli Razor sayfaları
 
@@ -57,7 +57,7 @@ Oluşturulan kod [FirstOrDefaultAsync](/dotnet/api/microsoft.entityframeworkcore
 * Bir varlığın birincil anahtarla (PK) bulur. Bir varlıkla PK bağlam tarafından izleniyorsa, Veritabanına gerek olmadan isteği döndürülür.
 * Basit ve kısa maliyetlidir.
 * Tek bir varlığı aramak için optimize edilmiştir.
-* Bazı durumlarda performans yararları olabilir, ancak bunlar nadiren gerçekleşir normal web apps için.
+* Performans açısından faydalı bazı durumlarda olabilir, ancak normal web apps için nadiren gerçekleşir.
 * Örtülü olarak kullanan [FirstAsync](/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.firstasync#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_FirstAsync__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Threading_CancellationToken_) yerine [SingleAsync](/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.singleasync#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_SingleAsync__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Threading_CancellationToken_).
 
 Ancak isterseniz `Include` diğer varlıklar, ardından `FindAsync` artık uygun değil. Bu iptal gerekebilir anlamına gelir `FindAsync` ve bir sorgu için uygulama ilerledikçe taşıyın.

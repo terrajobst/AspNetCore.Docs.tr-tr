@@ -6,21 +6,20 @@ ms.author: casoper
 ms.date: 09/21/2018
 ms.custom: mvc
 uid: security/authentication/azure-ad-b2c-webapi
-ms.openlocfilehash: 0efc95f508ef84d2728f503f1edd886ce6ae7a79
-ms.sourcegitcommit: 4d5f8680d68b39c411b46c73f7014f8aa0f12026
+ms.openlocfilehash: a7a109909d66b1016e78eedc8b802068143c65e3
+ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47028264"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49348552"
 ---
 # <a name="cloud-authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a>Web API ASP.NET Core, Azure Active Directory B2C ile bulut kimlik doğrulaması
 
 Tarafından [Cam Soper](https://twitter.com/camsoper)
 
-[Azure Active Directory B2C](/azure/active-directory-b2c/active-directory-b2c-overview) (Azure AD B2C) olan bir bulut kimlik yönetimi çözümü, web ve mobil uygulamaları için. Hizmet, bulutta ve şirket içinde barındırılan uygulamalar için kimlik doğrulaması sağlar. Kimlik doğrulama türleri bireysel hesaplar, sosyal ağ hesabı, içerir ve kurumsal hesaplarda Federasyon. Ayrıca, Azure AD B2C minimal yapılandırma ile çok faktörlü kimlik doğrulaması sağlar.
+[Azure Active Directory B2C](/azure/active-directory-b2c/active-directory-b2c-overview) (Azure AD B2C) olan bir bulut kimlik yönetimi çözümü, web ve mobil uygulamaları için. Hizmet, bulutta ve şirket içinde barındırılan uygulamalar için kimlik doğrulaması sağlar. Kimlik doğrulama türleri bireysel hesaplar, sosyal ağ hesabı, içerir ve kurumsal hesaplarda Federasyon. Azure AD B2C, ayrıca minimal yapılandırma ile çok faktörlü kimlik doğrulaması sağlar.
 
-> [!TIP]
-> Azure Active Directory (Azure AD) ve Azure AD B2C olan ayrı bir ürün teklifleri. Azure AD kiracısı, Azure AD B2C kiracısı ile bağlı olan taraf uygulamaları kullanılacak kimlikleri koleksiyonunu temsil ederken, bir kuruluşun temsil eder. Daha fazla bilgi için bkz. [Azure AD B2C: sık sorulan sorular (SSS)](/azure/active-directory-b2c/active-directory-b2c-faqs).
+Azure Active Directory (Azure AD) ve Azure AD B2C olan ayrı bir ürün teklifleri. Azure AD kiracısı, Azure AD B2C kiracısı ile bağlı olan taraf uygulamaları kullanılacak kimlikleri koleksiyonunu temsil ederken, bir kuruluşun temsil eder. Daha fazla bilgi için bkz. [Azure AD B2C: sık sorulan sorular (SSS)](/azure/active-directory-b2c/active-directory-b2c-faqs).
 
 Kullanıcı arabirimi olmadan Web API olduğundan, kullanıcı bir güvenli belirteç hizmeti gibi Azure AD B2C'yi yeniden yönlendirmek yüklenemiyor. Bunun yerine, API, bir taşıyıcı belirteç zaten Azure AD B2C ile kullanıcı kimliğini doğrulamasından çağıran uygulama üzerinden geçirilir. API, daha sonra doğrudan kullanıcı etkileşimi olmadan belirteci doğrular.
 
@@ -57,14 +56,14 @@ Aşağıdaki değerleri kullanın:
 
 | Ayar                       | Değer               | Notlar                                                                                  |
 |-------------------------------|---------------------|----------------------------------------------------------------------------------------|
-| **Ad**                      | *&lt;API adı&gt;*  | Girin bir **adı** uygulamanızı müşterilere açıklayan bir uygulama için.                     |
+| **Ad**                      | *{API adı}*        | Girin bir **adı** uygulamanızı müşterilere açıklayan bir uygulama için.                     |
 | **/ Web API'si Web uygulaması Ekle** | Evet                 |                                                                                        |
 | **Örtük akışa izin ver**       | Evet                 |                                                                                        |
 | **Yanıt URL'si**                 | `https://localhost` | Yanıt URL'leri, Azure AD B2C, uygulamanız tarafından istenen belirteçleri döndürdüğü uç noktalardır. |
 | **Uygulama Kimliği URI'si**                | *API*               | URI, bir fiziksel adresine gerekmez. Yalnızca benzersiz olması gerekir.     |
 | **Yerel istemci Ekle**     | Hayır                  |                                                                                        |
 
-API kaydedildikten sonra Kiracı uygulamaları ve API'leri listesinde görüntülenir. Yalnızca kaydedilen API'yi seçin. Seçin **kopyalama** simgesinin sağındaki **uygulama kimliği** panoya kopyalamak için alana. Seçin **yayımlanan kapsamlar** ve varsayılan doğrulama *user_impersonation* kapsam.
+API kaydedildikten sonra Kiracı uygulamaları ve API'leri listesinde görüntülenir. Daha önce kaydedilen API'yi seçin. Seçin **kopyalama** simgesinin sağındaki **uygulama kimliği** panoya kopyalamak için alana. Seçin **yayımlanan kapsamlar** ve varsayılan doğrulama *user_impersonation* kapsam.
 
 ## <a name="create-an-aspnet-core-app-in-visual-studio-2017"></a>Visual Studio 2017'de bir ASP.NET Core uygulaması oluşturma
 
@@ -78,7 +77,7 @@ Visual Studio'da:
 
     ![Değişiklik Authentication düğmesi](./azure-ad-b2c-webapi/change-auth-button.png)
 
-4. İçinde **kimlik doğrulamayı Değiştir** iletişim kutusunda **bireysel kullanıcı hesapları**ve ardından **bulutta varolan bir kullanıcı deposuna bağlanın** açılır. 
+4. İçinde **kimlik doğrulamayı Değiştir** iletişim kutusunda **bireysel kullanıcı hesapları** > **bulutta varolan bir kullanıcı deposuna bağlanın**.
 
     ![Kimlik doğrulaması iletişim kutusu değişimi](./azure-ad-b2c-webapi/change-auth-dialog.png)
 
@@ -86,9 +85,9 @@ Visual Studio'da:
 
     | Ayar                       | Değer                                                 |
     |-------------------------------|-------------------------------------------------------|
-    | **Etki alanı adı**               | *&lt;B2C kiracınızın etki alanı adı&gt;*          |
-    | **Uygulama Kimliği**            | *&lt;Panodan uygulama Kimliğini yapıştırın&gt;* |
-    | **Kaydolma veya oturum açma ilkesi** | `B2C_1_SiUpIn`                                        |
+    | **Etki alanı adı**               | *{B2C kiracınızın etki alanı adı}*                |
+    | **Uygulama Kimliği**            | *{Panodan uygulama Kimliğini yapıştırın}*       |
+    | **Kaydolma veya oturum açma ilkesi** | B2c_1_siupın                                          |
 
     Seçin **Tamam** kapatmak için **kimlik doğrulamayı Değiştir** iletişim. Seçin **Tamam** web uygulaması oluşturma.
 
@@ -107,7 +106,7 @@ Visual Studio'da API çalıştırın. Visual Studio API'nin kök URL'de işaret 
 
 ### <a name="register-postman-as-a-web-app"></a>Postman web uygulaması kaydetme
 
-Azure AD B2C kiracısı belirteçleri elde etmek bir web uygulaması Postman benzetim olduğundan, bir web uygulaması olarak kiracıda kaydedilmelidir. Postman kullanarak kayıt [belgelerindeki adımları](/azure/active-directory-b2c/active-directory-b2c-app-registration#register-a-web-app) altında **bir web uygulaması kaydetme** bölümü. Adresindeki Durdur **web uygulama gizli anahtarı oluşturma** bölümü. Bir istemci parolası, Bu öğretici için gerekli değildir. 
+Azure AD B2C kiracısından belirteç alır bir web uygulaması Postman benzetim olduğundan, bir web uygulaması olarak kiracıda kaydedilmelidir. Postman kullanarak kayıt [belgelerindeki adımları](/azure/active-directory-b2c/active-directory-b2c-app-registration#register-a-web-app) altında **bir web uygulaması kaydetme** bölümü. Adresindeki Durdur **web uygulama gizli anahtarı oluşturma** bölümü. Bir istemci parolası, Bu öğretici için gerekli değildir. 
 
 Aşağıdaki değerleri kullanın:
 
@@ -117,16 +116,16 @@ Aşağıdaki değerleri kullanın:
 | **/ Web API'si Web uygulaması Ekle** | Evet                              |                                 |
 | **Örtük akışa izin ver**       | Evet                              |                                 |
 | **Yanıt URL'si**                 | `https://getpostman.com/postman` |                                 |
-| **Uygulama Kimliği URI'si**                | *&lt;Boş bırakın&gt;*            | Bu öğretici için gerekli değildir. |
+| **Uygulama Kimliği URI'si**                | *{boş bırakın}*                  | Bu öğretici için gerekli değildir. |
 | **Yerel istemci Ekle**     | Hayır                               |                                 |
 
 Yeni kaydettiğiniz web uygulaması, kullanıcının adına web API'sine erişim izni gerekir.  
 
 1. Seçin **Postman** uygulamaları ve ardından listesinde **API erişimi** sol taraftaki menüden.
-2. Seçin **+ Ekle**.
-3. İçinde **API seçin** açılır listesinde, web API'si adını seçin.
-4. İçinde **kapsamları seçin** açılır listesinde, tüm kapsamlar seçili emin olun.
-5. Seçin **Tamam**.
+1. Seçin **+ Ekle**.
+1. İçinde **API seçin** açılır listesinde, web API'si adını seçin.
+1. İçinde **kapsamları seçin** açılır listesinde, tüm kapsamlar seçili emin olun.
+1. Seçin **Tamam**.
 
 Taşıyıcı belirteç almak için gerekli Postman uygulamanın uygulama Kimliğini not alın.
 
@@ -151,7 +150,7 @@ Gelen **Yeni Oluştur** iletişim:
 
 Web API'si kimlik doğrulaması gerektiren doğrulamak için ilk kimlik doğrulaması olmadan bir istek olun.
 
-1. İçinde **istek URL'sini girin** kutusunda, URL girin `ValuesController`. URL ile bir tarayıcıda görüntülenen aynıdır **API/değerleri** eklenir. Örnek verilebilir `https://localhost:44375/api/values`.
+1. İçinde **istek URL'sini girin** kutusunda, URL girin `ValuesController`. URL ile bir tarayıcıda görüntülenen aynıdır **API/değerleri** eklenir. Örneğin: `https://localhost:44375/api/values`
 2. Seçin **Gönder** düğmesi.
 3. Yanıt durumu Not *401 Yetkisiz*.
 
@@ -173,19 +172,21 @@ Web API'sine kimliği doğrulanmış bir isteği yapmak için bir taşıyıcı b
 
    |                Ayar                 |                                             Değer                                             |                                                                                                                                    Notlar                                                                                                                                     |
    |----------------------------------------|-----------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-   |      <strong>Belirteç adı</strong>       |                                  <em>&lt;belirteç adı&gt;</em>                                  |                                                                                                                   Belirteç için açıklayıcı bir ad girin.                                                                                                                    |
+   |      <strong>Belirteç adı</strong>       |                                          *{belirteç adı}*                                       |                                                                                                                   Belirteç için açıklayıcı bir ad girin.                                                                                                                    |
    |      <strong>İzin verme türü</strong>       |                                           Örtük                                            |                                                                                                                                                                                                                                                                              |
-   |     <strong>Geri çağırma URL'si</strong>      |                               `https://getpostman.com/postman`                                |                                                                                                                                                                                                                                                                              |
-   |       <strong>Kimlik doğrulama URL'si</strong>        | `https://login.microsoftonline.com/tfp/<tenant domain name>/B2C_1_SiUpIn/oauth2/v2.0/authorize` |                                                                                                  Değiştirin <em>&lt;Kiracı etki alanı adı&gt;</em> kiracının etki alanı adına sahip.                                                                                                  |
-   |       <strong>İstemci kimliği</strong>       |                <em>&lt;Postman uygulamanın girin <b>uygulama kimliği</b>&gt;</em>                 |                                                                                                                                                                                                                                                                              |
-   |         <strong>Kapsam</strong>         |         `https://<tenant domain name>/<api>/user_impersonation openid offline_access`         | Değiştirin <em>&lt;Kiracı etki alanı adı&gt;</em> kiracının etki alanı adına sahip. Değiştirin <em>&lt;API&gt;</em> ilk kaydettiğinizde uygulama kimliği URI'si ile web API'si verdiğiniz (Bu durumda, `api`). URL için Desen: <em>https://{tenant}.onmicrosoft.com/{api-id-uri}/{scope adı}</em>. |
-   |         <strong>State</strong>         |                                 <em>&lt;Boş bırakın&gt;</em>                                  |                                                                                                                                                                                                                                                                              |
+   |     <strong>Geri çağırma URL'si</strong>      |                                 `https://getpostman.com/postman`                              |                                                                                                                                                                                                                                                                              |
+   |       <strong>Kimlik doğrulama URL'si</strong>        | `https://login.microsoftonline.com/{tenant domain name}/oauth2/v2.0/authorize?p=B2C_1_SiUpIn` |  Değiştirin *{Kiracı etki alanı adı}* kiracının etki alanı adına sahip. **Önemli**: Bu URL içinde bulunan olarak aynı etki alanı adı olmalıdır `AzureAdB2C.Instance` Web API'SİNİN *appsettings.json* dosya. Bkz. Not&dagger;.                                                  |
+   |       <strong>İstemci kimliği</strong>       |                *{Postman uygulamanın girin <b>uygulama kimliği</b>}*                              |                                                                                                                                                                                                                                                                              |
+   |         <strong>Kapsam</strong>         |         `https://{tenant domain name}/{api}/user_impersonation openid offline_access`       | Değiştirin *{Kiracı etki alanı adı}* kiracının etki alanı adına sahip. Değiştirin *{API}* ilk kaydettiğinizde uygulama kimliği URI'si ile web API'si verdiğiniz (Bu durumda, `api`). URL için Desen: `https://{tenant}.onmicrosoft.com/{api-id-uri}/{scope name}`.         |
+   |         <strong>State</strong>         |                                      *{boş bırakın}*                                          |                                                                                                                                                                                                                                                                              |
    | <strong>İstemci kimlik doğrulaması</strong> |                                İstemci kimlik bilgileri gövdesinde Gönder                                |                                                                                                                                                                                                                                                                              |
 
+    > [!NOTE]
+    > &dagger; Azure Active Directory B2C Portalı'nda ilke ayarları iletişim iki olası URL'lerini görüntüler: bir biçimde `https://login.microsoftonline.com/`{Kiracı etki alanı adı} / {ek yol bilgileri} ve diğer biçimde `https://{tenant name}.b2clogin.com/`{Kiracı etki alanı adı} / {ek yol bilgileri}. Sahip **kritik** etki alanı içinde bulunan `AzureAdB2C.Instance` Web API'SİNİN *appsettings.json* dosya web uygulama kullandığınızla eşleştiğinden *appsettings.json* dosya. Postman kimlik doğrulama URL'si alanında için kullanılan aynı etki alanında budur. Visual Studio portalında görüntülenen değerinden biraz daha farklı bir URL biçimi kullandığına dikkat edin. Etki alanları aynı olduğu sürece, URL çalışır.
 
 3. Seçin **isteği belirteci** düğmesi.
 
-4. Postman, Azure AD B2C kiracısının oturum açma iletişim kutusunu içeren yeni bir pencere açılır. (Bir ilkelerini sınama oluşturulduysa) var olan bir hesapla oturum oturum ya da seçin **şimdi kaydolun** yeni bir hesap oluşturmak için. **Parolanızı mı unuttunuz?** bağlantı unutulmuş parola sıfırlama için kullanılır.
+4. Postman, Azure AD B2C kiracısının oturum açma iletişim kutusu içeren yeni bir pencere açılır. (Bir ilkelerini sınama oluşturulduysa) var olan bir hesapla oturum oturum ya da seçin **şimdi kaydolun** yeni bir hesap oluşturmak için. **Parolanızı mı unuttunuz?** bağlantı unutulmuş parola sıfırlama için kullanılır.
 
 5. Başarıyla oturum açtıktan sonra pencereyi kapatır ve **yönetme erişim BELİRTEÇLERİ** iletişim kutusu görüntülenir. Ekranı seçin ve altındaki aşağı kaydırarak **kullanım belirteci** düğmesi.
 

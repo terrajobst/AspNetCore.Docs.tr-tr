@@ -4,14 +4,14 @@ author: guardrex
 description: Nasıl yol ve uygulama modeli sağlayıcısı kuralları sayfası denetimi yönlendirme, bulma ve işleme yardımcı keşfedin.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 09/17/2018
+ms.date: 10/12/2018
 uid: razor-pages/razor-pages-conventions
-ms.openlocfilehash: ea4f785dc8a64b430e312fd122a4d3184b61949e
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 13fd6c156afd5ab62739b09296a929120ce3450f
+ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011868"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49348539"
 ---
 # <a name="razor-pages-route-and-app-conventions-in-aspnet-core"></a>İçinde ASP.NET Core Razor sayfalar yol ve uygulama kuralları
 
@@ -93,7 +93,7 @@ Yönlendirme razor sayfaları ve MVC denetleyicisi yönlendirme paylaşım uygul
 
 Bir temsilci eklemek [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) eklemek için [model kuralları](xref:mvc/controllers/application-model#conventions) Razor sayfaları için geçerlidir.
 
-**Tüm sayfalar için bir yol modeli Kuralı Ekle**
+### <a name="add-a-route-model-convention-to-all-pages"></a>Tüm sayfalar için bir yol modeli Kuralı Ekle
 
 Kullanım [kuralları](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions) oluşturmak ve eklemek için bir [IPageRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageroutemodelconvention) koleksiyonuna [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) sayfa rota modeli sırasında uygulanan örnekleri Yapı.
 
@@ -117,7 +117,7 @@ Razor sayfaları seçenekleri ekleme gibi [kuralları](/dotnet/api/microsoft.asp
 
 ![Hakkında sayfası GlobalRouteValue ile bir yol kesimi istenir. Rota veri değeri sayfanın OnGet yöntemi yakalanır işlenen sayfada gösterilir.](razor-pages-conventions/_static/about-page-global-template.png)
 
-**Tüm sayfalar için bir uygulama modeli Kuralı Ekle**
+### <a name="add-an-app-model-convention-to-all-pages"></a>Tüm sayfalar için bir uygulama modeli Kuralı Ekle
 
 Kullanım [kuralları](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions) oluşturmak ve eklemek için bir [IPageApplicationModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageapplicationmodelconvention) koleksiyonuna [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) sayfa uygulama modeli sırasında uygulanan örnekleri Yapı.
 
@@ -137,12 +137,12 @@ Bu ve diğer kuralları daha sonra bu konudaki göstermek için örnek uygulamay
 
 ::: moniker range=">= aspnetcore-2.1"
 
-**Tüm sayfalar için bir işleyici modeli Kuralı Ekle**
+### <a name="add-a-handler-model-convention-to-all-pages"></a>Tüm sayfalar için bir işleyici modeli Kuralı Ekle
 
 Kullanım [kuralları](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions) oluşturmak ve eklemek için bir [IPageHandlerModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipagehandlermodelconvention) koleksiyonuna [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) sayfa işleyici modeli sırasında uygulanan örnekleri Yapı.
 
 ```csharp
-public class GlobalPageHandlerModelConvention 
+public class GlobalPageHandlerModelConvention
     : IPageHandlerModelConvention
 {
     public void Apply(PageHandlerModel model)
@@ -168,7 +168,7 @@ services.AddMvc()
 
 Öğesinden türetilen varsayılan rota model sağlayıcısı [IPageRouteModelProvider](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageroutemodelprovider) sayfa yolları yapılandırmak için genişletilebilirlik noktaları sağlamak için tasarlanmış kuralları çağırır.
 
-**Klasör yolu model kuralı**
+### <a name="folder-route-model-convention"></a>Klasör yolu model kuralı
 
 Kullanım [AddFolderRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageconventioncollection.addfolderroutemodelconvention) oluşturmak ve eklemek için bir [IPageRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageroutemodelconvention) , çağıran bir eylem üzerinde [PageRouteModel](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageroutemodel) tüm sayfalar için Belirtilen klasör.
 
@@ -184,7 +184,7 @@ Mümkün olduğunda, ayarlamamanız `Order`, içindeki sonuçlar `Order = 0`. Do
 
 ![OtherPages klasöründe Sayfa1 GlobalRouteValue ve OtherPagesRouteValue yol kesimini ile istenir. Rota veri değerleri sayfa OnGet yönteminde yakalanır işlenen sayfada gösterilir.](razor-pages-conventions/_static/otherpages-page1-global-and-otherpages-templates.png)
 
-**Sayfa yolu model kuralı**
+### <a name="page-route-model-convention"></a>Sayfa yolu model kuralı
 
 Kullanım [AddPageRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageconventioncollection.addpageroutemodelconvention) oluşturmak ve eklemek için bir [IPageRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageroutemodelconvention) , çağıran bir eylem üzerinde [PageRouteModel](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageroutemodel) belirtilen sayfa için adı.
 
@@ -199,6 +199,44 @@ Mümkün olduğunda, ayarlamamanız `Order`, içindeki sonuçlar `Order = 0`. Do
 Örnek kullanıcının hakkında sayfası, istek `localhost:5000/About/GlobalRouteValue/AboutRouteValue` ve sonucu inceleyin:
 
 ![Sayfa hakkında GlobalRouteValue ve AboutRouteValue için yol kesimleri ile istenir. Rota veri değerleri sayfa OnGet yönteminde yakalanır işlenen sayfada gösterilir.](razor-pages-conventions/_static/about-page-global-and-about-templates.png)
+
+::: moniker range=">= aspnetcore-2.2"
+
+## <a name="use-a-parameter-transformer-to-customize-page-routes"></a>Sayfa yollar özelleştirmek için bir parametre transformer kullanma
+
+ASP.NET Core tarafından oluşturulan sayfa yollar, bir parametre transformer kullanma özelleştirilebilir. Bir parametre transformer uygulayan `IOutboundParameterTransformer` ve parametre değerine dönüştürür. Örneğin, bir özel `SlugifyParameterTransformer` parametre transformer değişiklikleri `SubscriptionManagement` yönlendirmek için değer `subscription-management`.
+
+`PageRouteTransformerConvention` Sayfa rota modeli kuralı bir uygulamayı otomatik olarak oluşturulan sayfa yollar klasör ve dosya adı kesimlerini parametresi transformer uygular. Örneğin, Razor sayfaları dosya */Pages/SubscriptionManagement/ViewAll.cshtml* gelen yeniden yolunu gerekir `/SubscriptionManagement/ViewAll` için `/subscription-management/view-all`.
+
+`PageRouteTransformerConvention` Razor sayfaları klasör ve dosya adı gelirler otomatik olarak oluşturulan bir sayfa yolu parçalarını yalnızca dönüştürür. Yol kesimleri ile eklenen dönüştürmez `@page` yönergesi. Kuralı tarafından eklenen rotaları da dönüştürmez <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AddPageRoute*>.
+
+`PageRouteTransformerConvention` Bir seçenek olarak kayıtlı `Startup.ConfigureServices`:
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddMvc()
+        .AddRazorPagesOptions(options =>
+            {
+                options.Conventions.Add(
+                    new PageRouteTransformerConvention(
+                        new SlugifyParameterTransformer()));
+            });
+}
+
+public class SlugifyParameterTransformer : IOutboundParameterTransformer
+{
+    public string TransformOutbound(object value)
+    {
+        if (value == null) { return null; }
+
+        // Slugify value
+        return Regex.Replace(value.ToString(), "([a-z])([A-Z])", "$1-$2").ToLower();
+    }
+}
+```
+
+::: moniker-end
 
 ## <a name="configure-a-page-route"></a>Bir sayfa yolunu Yapılandır
 

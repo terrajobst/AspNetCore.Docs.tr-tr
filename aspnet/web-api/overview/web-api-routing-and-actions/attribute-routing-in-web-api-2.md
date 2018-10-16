@@ -8,12 +8,12 @@ ms.date: 01/20/2014
 ms.assetid: 979d6c9f-0129-4e5b-ae56-4507b281b86d
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: d16dcc618bf6c60714179601db14f4dd2a9e41ce
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 22eb2fd748d52ec95e813ada8b1bf3b4826ad573
+ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912158"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49348487"
 ---
 <a name="attribute-routing-in-aspnet-web-api-2"></a>ASP.NET Web API 2'de öznitelik yönlendirme
 ====================
@@ -245,11 +245,11 @@ Rota adını belirtmek için ayarlayın **adı** öznitelik özelliği. Aşağı
 <a id="order"></a>
 ## <a name="route-order"></a>Rota sırası
 
-Framework bir URI bir rotayla eşleşen çalıştığında, belirli bir sırada yolları değerlendirir. Sıra belirtmek için ayarlanmış **RouteOrder** rota özniteliğinin özelliği. Düşük değerler, ilk olarak değerlendirilir. Varsayılan sıra değeri sıfırdır.
+Framework bir URI bir rotayla eşleşen çalıştığında, belirli bir sırada yolları değerlendirir. Sıra belirtmek için ayarlanmış **sipariş** rota özniteliğinin özelliği. Düşük değerler, ilk olarak değerlendirilir. Varsayılan sıra değeri sıfırdır.
 
 Toplam sıralama nasıl belirlendiğini aşağıda verilmiştir:
 
-1. Karşılaştırma **RouteOrder** rota özniteliğinin bir özelliğidir.
+1. Karşılaştırma **sipariş** rota özniteliğinin bir özelliğidir.
 2. Rota şablonu içinde her bir URI segmenti bakın. Her bir kesim için şu şekilde sıralayın:
 
     1. Değişmez değer kesimi.
@@ -271,4 +271,4 @@ Bu yolları şu şekilde sıralanır.
 4. Siparişler / {\*tarih}
 5. Siparişler / beklemede
 
-"Details" bir değişmez değer kesimi ve önce "{id}" görünür ancak "bekliyor" son görünür, çünkü bildirimi **RouteOrder** özelliği 1'dir. (Bu örnekte "details" adlı hiçbir müşterinin var. varsayılır veya "bekliyor". Genel olarak, belirsiz yollar kaçınmaya çalışın. Bu örnekte, daha iyi bir rota şablonu için `GetByCustomer` olan "müşteriler / {customerName}")
+"Details" bir değişmez değer kesimi ve önce "{id}" görünür ancak "bekliyor" son görünür, çünkü bildirimi **sipariş** özelliği 1'dir. (Bu örnekte "details" adlı hiçbir müşterinin var. varsayılır veya "bekliyor". Genel olarak, belirsiz yollar kaçınmaya çalışın. Bu örnekte, daha iyi bir rota şablonu için `GetByCustomer` olan "müşteriler / {customerName}")

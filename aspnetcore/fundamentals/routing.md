@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/01/2018
 uid: fundamentals/routing
-ms.openlocfilehash: d9ba96c7b2abd35b1b13c84814bf3f776e8d8731
-ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
+ms.openlocfilehash: 500cefbc7caee2054b4afda7c1277685862f5ad4
+ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47861063"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49348565"
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET Core yönlendirme
 
@@ -391,7 +391,15 @@ Olası değerler bilinen bir dizi parametre sınırlamak için normal bir ifade 
 
 ## <a name="parameter-transformer-reference"></a>Parametre transformer başvurusu
 
-Parametre dönüştürücüler yürütmek için bir bağlantı oluştururken bir `Route`. Parametre dönüştürücüler parametrenin rota değeri alın ve yeni bir dize değerine dönüştürün. Oluşturulan bağlantısına dönüştürülen değer kullanılır. Örneğin, bir özel `slugify` parametresi transformer yol deseninde `blog\{article:slugify}` ile `Url.Action(new { article = "MyTestArticle" })` oluşturur `blog\my-test-article`. Parametre dönüştürücüler uygulamak `Microsoft.AspNetCore.Routing.IOutboundParameterTransformer` ve kullanarak yapılandırılmış <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap>.
+Parametre dönüştürücüler:
+
+* Bir bağlantı oluşturulurken yürütme bir `Route`.
+* Uygulama `Microsoft.AspNetCore.Routing.IOutboundParameterTransformer`.
+* Kullanılarak yapılandırılmış <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap>.
+* Parametrenin rota değeri alın ve yeni bir dize değerine dönüştürün.
+* Oluşturulan bağlantısına dönüştürülen değer kullanılır.
+
+Örneğin, bir özel `slugify` parametresi transformer yol deseninde `blog\{article:slugify}` ile `Url.Action(new { article = "MyTestArticle" })` oluşturur `blog\my-test-article`.
 
 Parametre dönüştürücüler çerçevelerine bir uç nokta çözümler yapılacağı URI dönüştürmek için de kullanılır. Örneğin, ASP.NET Core MVC eşleştirmek için kullanılan rota değeri dönüştürmek için parametre dönüştürücüler kullanan bir `area`, `controller`, `action`, ve `page`.
 
@@ -403,7 +411,10 @@ routes.MapRoute(
 
 Önceki yol, bir eylem ile `SubscriptionManagementController.GetAll()` URI'si ile eşleşen `/subscription-management/get-all`. Bir parametre transformer giden bir bağlantı oluşturmak için kullanılan rota değerlerini değiştirmez. `Url.Action("GetAll", "SubscriptionManagement")` çıkaran `/subscription-management/get-all`.
 
-ASP.NET Core MVC ile birlikte sunulan `Microsoft.AspNetCore.Mvc.ApplicationModels.RouteTokenTransformerConvention` API kuralı. Kuralı belirtilen parametre transformer uygulamadaki tüm öznitelik rota belirteçler için geçerlidir.
+ASP.NET Core, bir parametre dönüştürücüler ile oluşturulan yolları kullanarak için API kuralları sağlar:
+
+* ASP.NET Core MVC sahip `Microsoft.AspNetCore.Mvc.ApplicationModels.RouteTokenTransformerConvention` API kuralı. Bu kural, uygulamadaki tüm öznitelik rotaları belirtilen parametre transformer uygular. Bunlar gibi parametre transformer öznitelik rotası belirteçleri dönüştürür. Daha fazla bilgi için [belirteç değiştirme özelleştirmek için bir parametre transformer kullanma](/aspnet/core/mvc/controllers/routing#use-a-parameter-transformer-to-customize-token-replacement).
+* Razor sayfaları `Microsoft.AspNetCore.Mvc.ApplicationModels.PageRouteTransformerConvention` API kuralı. Bu kural belirtilen parametre transformer otomatik olarak keşfedildiğini Razor sayfaları için geçerlidir. Parametre dönüştürücü, klasör ve dosya adı parçaları Razor sayfası yolların dönüştürür. Daha fazla bilgi için [sayfa yollar özelleştirmek için bir parametre transformer kullanma](/aspnet/core/razor-pages/razor-pages-conventions#use-a-parameter-transformer-to-customize-page-routes).
 
 ::: moniker-end
 

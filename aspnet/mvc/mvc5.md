@@ -4,16 +4,16 @@ title: ASP.NET MVC 5 | Microsoft Docs
 author: rick-anderson
 description: ASP.NET MVC 5 ASP.NET MVC 5 tanınmış tasarım desenleri ve AS. gücünü kullanarak ölçeklenebilir, standartlara dayanan web uygulamaları oluşturmaya yönelik bir çerçevedir...
 ms.author: riande
-ms.date: 01/20/2014
+ms.date: 10/11/2018
 ms.assetid: f79fbf7f-59e5-4279-a832-c1a0294630f4
 msc.legacyurl: /mvc/mvc5
 msc.type: content
-ms.openlocfilehash: c837560e0ad9618decaba9761da9cf35e0f03f08
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: c958d39c7eff0d581de6b05890b8e6df8bdb5207
+ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41756313"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49348266"
 ---
 <a name="aspnet-mvc-5"></a>ASP.NET MVC 5
 ====================
@@ -21,7 +21,7 @@ ms.locfileid: "41756313"
 
 ### <a name="one-aspnet"></a>Tek ASP.NET
 
-Web MVC proje şablonları yeni bir ASP.NET deneyimiyle sorunsuzca tümleştirin. MVC projenizi özelleştirmek ve kimlik doğrulaması kullanarak bir ASP.NET projesi oluşturma Sihirbazı'nı yapılandırın. ASP.NET MVC 5 için giriş niteliğindeki bir eğitim şu yolda bulunabilir: [ASP.NET MVC 5 ile çalışmaya başlama](overview/getting-started/introduction/getting-started.md).
+Web MVC proje şablonları bir ASP.NET deneyimiyle sorunsuzca tümleştirin. MVC projenizi özelleştirmek ve kimlik doğrulaması kullanarak bir ASP.NET projesi oluşturma Sihirbazı'nı yapılandırın. ASP.NET MVC 5 için giriş niteliğindeki bir eğitim şu yolda bulunabilir: [ASP.NET MVC 5 ile çalışmaya başlama](overview/getting-started/introduction/getting-started.md).
 
 MVC 5 MVC 4 projelerini yükseltme hakkında daha fazla bilgi için bkz: [bir ASP.NET MVC 4 ve Web API projelerini ASP.NET MVC 5 ve Web API 2'ye yükseltme](overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2.md).
 
@@ -31,7 +31,7 @@ MVC proje şablonları, kimlik ve kimlik yönetimi için ASP.NET Identity kullan
 
 ### <a name="bootstrap"></a>Önyükleme
 
-MVC proje şablonu kullanmak için güncelleştirilmiş [önyükleme](http://getbootstrap.com/) bir zarif ve hızlı yanıt veren kolayca özelleştirebileceğiniz görünüm sağlamak için. Daha fazla bilgi için [Bootstrap Visual Studio 2013 web proje şablonlarında](../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#bootstrap).
+MVC proje şablonu kullanmak için güncelleştirilmiş [önyükleme](http://getbootstrap.com/) bir zarif ve hızlı yanıt veren kolayca özelleştirebileceğiniz görünüm sağlamak için. Daha fazla bilgi için [Bootstrap Visual Studio web proje şablonlarında](../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#bootstrap).
 
 ### <a name="authentication-filters"></a>Kimlik doğrulama filtreleri
 
@@ -47,43 +47,45 @@ ASP.NET MVC destekler [öznitelik yönlendirme](https://blogs.msdn.com/b/webdev/
 
 ## <a name="new-web-project-experience"></a>Yeni Web projesi deneyimi
 
-Visual Studio 2013'te yeni web projeleri oluşturma deneyimini geliştirdik. İçinde **yeni ASP.NET Web projesi** iletişim, istediğiniz herhangi bir birleşimini teknolojileri (Web formları, MVC, Web API'si) yapılandırma, kimlik doğrulama seçeneklerini yapılandırmak ve birim testi projesi ekleyin proje türü seçebilirsiniz.
+Visual Studio, Visual Studio 2013 itibariyle yeni web projeleri oluşturma deneyimi geliştirilmiştir. İçinde **yeni ASP.NET Web projesi** iletişim istediğiniz, herhangi bir birleşimini teknolojileri (Web formları, MVC, Web API'si) yapılandırma, kimlik doğrulama seçeneklerini yapılandırmak, Docker desteği Ekle ve birim testi projesi ekleyin proje türü seçebilirsiniz.
 
-![Yeni ASP.NET projesi](mvc5/_static/image1.png)
+![Yeni ASP.NET projesi](mvc5/_static/new-aspnet-web-app-dialog.png)
 
-Yeni iletişim kutusu şablonları birçoğu için varsayılan kimlik doğrulama seçenekleri değiştirmenize olanak tanır. Örneğin, bir ASP.NET Web formları projesi oluşturduğunuzda, aşağıdaki seçeneklerden herhangi birini seçebilirsiniz:
+İletişim kutusu şablonları birçoğu için varsayılan kimlik doğrulama seçenekleri değiştirmenize olanak tanır. Örneğin, bir ASP.NET Web formları projesi oluşturduğunuzda, aşağıdaki seçeneklerden herhangi birini seçebilirsiniz:
 
 - Kimlik doğrulama yok
 - Bireysel kullanıcı hesapları (ASP.NET üyeliği veya sosyal sağlayıcılar oturum açma)
-- Kurumsal hesaplar (Active Directory'de bir Internet uygulaması)
+- İş veya Okul hesapları (Active Directory'de bir Internet uygulaması)
 - Windows kimlik doğrulaması (Active Directory'de bir intranet uygulaması)
 
-![Kimlik doğrulama seçenekleri](mvc5/_static/image2.png)
+![Kimlik doğrulama seçenekleri](mvc5/_static/change-authentication-dialog.png)
 
-Web projeleri oluşturmak için yeni süreci hakkında daha fazla bilgi için bkz. [Visual Studio 2013'te ASP.NET Web projeleri oluşturma](../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md). Yeni kimlik doğrulama seçenekleri hakkında daha fazla bilgi için bkz. [ASP.NET Identity](../identity/overview/index.md).
+Web projeleri oluşturma işlemi hakkında daha fazla bilgi için bkz: [Visual Studio'da ASP.NET Web projeleri oluşturma](../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md). Kimlik doğrulama seçenekleri hakkında daha fazla bilgi için bkz. [ASP.NET Identity](../identity/overview/index.md).
 
 <a id="scaffold"></a>
 ### <a name="aspnet-scaffolding"></a>ASP.NET iskeleti oluşturma
 
 ASP.NET iskeleti oluşturma bir ASP.NET Web uygulamaları için kod oluşturma çerçevedir. Bu, ortak kod projenize bir veri modeli ile etkileşim eklemek kolaylaştırır.
 
-Visual Studio'nun önceki sürümlerinde, ASP.NET MVC projeleri için yapı iskelesi sınırlıydı. Visual Studio 2013 ile Web Forms dahil olmak üzere tüm ASP.NET proje için yapı iskelesi artık kullanabilirsiniz. Visual Studio 2013'ün oluşturma sayfaları şu anda Web formları projesi desteklemiyor, ancak yapı iskelesi Web Forms ile projeye MVC bağımlılıkları ekleyerek kullanmaya devam edebilirsiniz. İçin Web formları sayfaları oluşturmak için destek, gelecek güncelleştirmelerden birinde eklenecektir.
+Sürümlerinde Visual Studio 2013'ten önce ASP.NET MVC projeleri için yapı iskelesi sınırlıydı. Visual Studio 2013 itibariyle, Web Forms dahil olmak üzere tüm ASP.NET proje için yapı iskelesi kullanabilirsiniz. Visual Studio oluşturma sayfaları şu anda Web formları projesi desteklemiyor, ancak yapı iskelesi Web Forms ile projeye MVC bağımlılıkları ekleyerek kullanmaya devam edebilirsiniz. İçin Web formları sayfaları oluşturmak için destek, gelecekte yayımlanacak bir sürümde eklenecek.
 
-Yapı iskelesi kullanırken, gerekli tüm bağımlılıkların projede yüklü olduğundan emin olun. Bir ASP.NET Web formları projesi ile başlayın ve ardından bir Web API denetleyicisi eklemek için yapı iskelesi kullanın, örneğin, başvurular ve gerekli NuGet paketlerini projenize otomatik olarak eklenir.
+Yapı iskelesi kullanırken, projede bağımlılıkların yüklü tüm gerekli. Bir ASP.NET Web formları projesi ile başlayın ve ardından bir Web API denetleyicisi eklemek için yapı iskelesi kullanın, örneğin, başvurular ve gerekli NuGet paketlerini projenize otomatik olarak eklenir.
 
-MVC yapı iskelesi Web Forms projesine eklemek için Ekle bir **yeni iskele kurulmuş öğe** seçip **MVC 5 bağımlılıkları** iletişim penceresinde. MVC yapı iskelesini oluşturmak için iki seçenek vardır; Minimal ve tam. En az seçerseniz, yalnızca NuGet paketleri ve ASP.NET MVC için başvuruları projenize eklenir. Tam seçeneği seçerseniz bir MVC projesi için gerekli içerik dosyalarının yanı sıra en az bağımlılıklar eklenir.
+MVC yapı iskelesi Web Forms projesine eklemek için Ekle bir **yeni iskele kurulmuş öğe** seçip **MVC 5 bağımlılıkları** iletişim penceresinde. MVC yapı iskelesini oluşturmak için iki seçenek vardır; **En az bağımlılıklar** ve **tam bağımlılıkları**. Seçerseniz **en az bağımlılıklar**, yalnızca NuGet paketlerini ve ASP.NET MVC için başvuruları projenize eklenir. Seçerseniz **tam bağımlılıkları**, bir MVC projesi için gerekli içerik dosyalarının yanı sıra en az bağımlılıklar eklenir.
 
-Zaman uyumsuz denetleyicilerinin yapı iskelesini oluşturmak için destek, Entity Framework 6 yeni zaman uyumsuz özelliklerini kullanır.
+![Visual Studio'da İskelesi iletişim Ekle](overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/add-scaffold.png)
+
+Yapı iskelesi zaman uyumsuz denetleyicileri için destek, Entity Framework 6 zaman uyumsuz özelliklerini kullanır.
 
 Daha fazla bilgi ve eğitimler için bkz. [ASP.NET yapı İskelesi genel bakış](../visual-studio/overview/2013/aspnet-scaffolding-overview.md).
 
-### <a name="getting-help-and-reporting-issues"></a>Yardım alma ve raporlama sorunları
+### <a name="get-help-and-report-issues"></a>Yardım alma ve rapor sorunları
 
 - [Bilinen sorunlar ve bozucu değişiklikler listesi](../visual-studio/overview/2013/release-notes.md#knownissues)
 - Yardım alın ve ASP.NET MVC 5'te tartışın [forumları](https://forums.asp.net/1146.aspx)
 - [ASP.NET MVC 5'te hata bildirin](https://github.com/aspnet/AspNetWebStack/issues)
 - [Özellik isteğinde bulunmak](http://aspnet.uservoice.com/forums/41201-asp-net-mvc)
 
-### <a name="upgrading-from-aspnet-mvc-4"></a>ASP.NET MVC 4 ' yükseltme
+### <a name="upgrade-from-aspnet-mvc-4"></a>ASP.NET MVC 4'den yükseltme
 
 Bkz: [nasıl bir ASP.NET MVC 4 yükseltin ve Web API projesini ASP.NET MVC 5 ve Web API 2](overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2.md)

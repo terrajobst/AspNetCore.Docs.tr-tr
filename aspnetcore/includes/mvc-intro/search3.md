@@ -33,7 +33,7 @@ Film Tarz görünüm modeli içerir:
 
    * Filmler listesi.
    * A `SelectList` türleri listesini içeren. Bu kullanıcı listeden bir türe izin verir.
-   * `movieGenre`, seçilen türe içerir.
+   * `MovieGenre`, seçilen türe içerir.
 
 Değiştirin `Index` yönteminde `MoviesController.cs` aşağıdaki kod ile:
 
@@ -47,7 +47,7 @@ Aşağıdaki kod bir `LINQ` veritabanından tüm türleri alan sorgu.
 
 ```csharp
 movieGenreVM.genres = new SelectList(await genreQuery.Distinct().ToListAsync())
-   ```
+```
 
 ## <a name="adding-search-by-genre-to-the-index-view"></a>Arama türe göre dizini görünümü ekleme
 
@@ -57,8 +57,8 @@ Güncelleştirme `Index.cshtml` gibi:
 
 Aşağıdaki HTML Yardımcısı kullanılan bir lambda ifadesi inceleyin:
 
-`@Html.DisplayNameFor(model => model.movies[0].Title)`
+`@Html.DisplayNameFor(model => model.Movies[0].Title)`
  
-Önceki kodda, `DisplayNameFor` HTML Yardımcısı inceler `Title` görünen adını belirlemek için lambda ifadesinde başvurulan özelliği. Lambda ifadesi inceledi değerlendirilmesi yerine olduğundan, bir erişim ihlali almadığınız olduğunda `model`, `model.movies`, veya `model.movies[0]` olan `null` veya boş. Ne zaman lambda ifadesi değerlendirilir (örneğin, `@Html.DisplayFor(modelItem => item.Title)`), modelin özellik değerleri değerlendirilir.
+Önceki kodda, `DisplayNameFor` HTML Yardımcısı inceler `Title` görünen adını belirlemek için lambda ifadesinde başvurulan özelliği. Lambda ifadesi inceledi değerlendirilmesi yerine olduğundan, bir erişim ihlali almadığınız olduğunda `model`, `model.Movies`, veya `model.Movies[0]` olan `null` veya boş. Ne zaman lambda ifadesi değerlendirilir (örneğin, `@Html.DisplayFor(modelItem => item.Title)`), modelin özellik değerleri değerlendirilir.
 
 Uygulama Tarz, film adı ve her ikisi tarafından arama yaparak test edin.

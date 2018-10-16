@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/28/2018
 uid: fundamentals/websockets
-ms.openlocfilehash: e46c2decf92d21322f2079bf880df534e0224db5
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: b1e2180ed8dc93e2474ecca371d386830b7f3a9f
+ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911658"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49348461"
 ---
 # <a name="websockets-support-in-aspnet-core"></a>ASP.NET Core WebSockets desteği
 
@@ -35,7 +35,7 @@ Bu makalede, WebSockets içinde ASP.NET Core ile çalışmaya başlama açıklan
 
   * Windows 8 / Windows Server 2012 veya üzeri
   * IIS 8 / 8 IIS Express
-  * IIS WebSockets etkinleştirildi (bkz [IIS/IIS Express Destek](#iisiis-express-support) bölümüne.)
+  * WebSockets etkinleştirilmelidir (bkz [IIS/IIS Express Destek](#iisiis-express-support) bölümüne.).
   
 * Uygulama çalışıyorsa [HTTP.sys](xref:fundamentals/servers/httpsys):
 
@@ -133,7 +133,15 @@ Döngü başlamadan önce WebSocket bağlantısı kabul ederek, ara yazılım ar
 
 Windows Server 2012 veya üzeri ve Windows 8 veya üzeri ile IIS/IIS Express 8 veya üzeri, WebSocket protokolü için desteği vardır.
 
+> [!NOTE]
+> WebSockets, IIS Express kullanırken her zaman etkindir.
+
+### <a name="enabling-websockets-on-iis"></a>IIS WebSockets etkinleştirme
+
 Windows Server 2012 veya sonraki sürümlerde WebSocket Protokolü desteğini etkinleştirmek için:
+
+> [!NOTE]
+> Bu adımları IIS Express kullanırken gerekli değildir
 
 1. Kullanım **rol ve Özellik Ekle** Sihirbazı'ndan **Yönet** menüsü ya da bağlantı **Sunucu Yöneticisi**.
 1. Seçin **rol tabanlı veya özellik tabanlı yükleme**. Seçin **sonraki**.
@@ -145,6 +153,9 @@ Windows Server 2012 veya sonraki sürümlerde WebSocket Protokolü desteğini et
 1. Yükleme tamamlandığında seçin **Kapat** sihirbazdan çıkmak için.
 
 Windows 8 veya sonraki sürümlerde WebSocket Protokolü desteğini etkinleştirmek için:
+
+> [!NOTE]
+> Bu adımları IIS Express kullanırken gerekli değildir
 
 1. Gidin **Denetim Masası** > **programlar** > **programlar ve Özellikler** > **kapatma Windows özellikleri hakkında ya da kapalı** (ekranın sol).
 1. Aşağıdaki düğümler açın: **Internet Information Services** > **World Wide Web Hizmetleri** > **uygulama geliştirme özellikleri**.

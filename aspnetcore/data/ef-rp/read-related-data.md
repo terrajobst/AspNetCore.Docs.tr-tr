@@ -5,12 +5,12 @@ description: Bu öğreticide okuyun ve ilgili verileri--diğer bir deyişle, Ent
 ms.author: riande
 ms.date: 11/05/2017
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: e23b8bb870b329bd705fbc9548df62524303893e
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: e8b59c19eac2c2adc1f13cf1e44f750576686c87
+ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912332"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49348500"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>ASP.NET core'da - EF çekirdekli Razor sayfaları 6 8 - ilgili verileri okuma
 
@@ -55,7 +55,7 @@ EF Core Gezinti özelliklerini bir varlığın ilgili verileri yükleyebilir bir
 
 * `Select` İşleci yalnızca gerekli ilgili verileri yükler.
 
-## <a name="create-a-courses-page-that-displays-department-name"></a>Bölüm adını görüntüleyen bir kursları sayfası oluşturma
+## <a name="create-a-course-page-that-displays-department-name"></a>Bölüm adı görüntüleyen bir kurs sayfa oluşturma
 
 Kurs varlığı içeren bir gezinme özelliği içeren `Department` varlık. `Department` Varlık kursu atanır bölümü içerir.
 
