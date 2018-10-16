@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/15/2018
 uid: performance/caching/memory
-ms.openlocfilehash: 2570ad7d939d67530b3de8cd0147815c2e25ecc8
-ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
+ms.openlocfilehash: 960aa18f9d14f633118ccd716201e61464085c05
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46482989"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325932"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>Belleğe yüklenmiş önbellek ASP.NET core'da
 
@@ -27,7 +27,11 @@ ASP.NET Core, birkaç farklı önbellek destekler. En basit önbellek dayanır [
 
 Bir web grubunda olmayan Yapışkan oturumlar gerektiren bir [dağıtılmış önbellek](distributed.md) önbellek tutarlılığı sorunları önlemek için. Bazı uygulamalar için bir bellek içi önbelleğe göre daha yüksek ölçeği genişletilmiş dağıtılmış önbellek destekleyebilir. Bir paylaşılan önbellek kullanarak, bir dış işlem önbelleği üzerinizden alır.
 
+::: moniker range="< aspnetcore-2.0"
+
 `IMemoryCache` Sürece, önbelleği önbellek girişlerinin bellek baskısı altında Tahliye [önbelleğe öncelik](/dotnet/api/microsoft.extensions.caching.memory.cacheitempriority) ayarlanır `CacheItemPriority.NeverRemove`. Ayarlayabileceğiniz `CacheItemPriority` önbellek çıkarır bellek baskısı altında öğeleri önceliğini ayarlamak için.
+
+::: moniker-end
 
 Bellek içi önbellek, herhangi bir nesne kaydedebilir; Dağıtılmış önbellek arabirimi sınırlı olan `byte[]`.
 

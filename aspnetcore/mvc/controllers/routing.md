@@ -5,12 +5,12 @@ description: Ara yazılım yönlendirme ASP.NET Core MVC URL'leri gelen istekler
 ms.author: riande
 ms.date: 09/17/2018
 uid: mvc/controllers/routing
-ms.openlocfilehash: d66c2f14adf55dd0c4a7c3adfad7e5737e4deda1
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: a5f2670ed8742b7ff67b0494d7bdb37d919349f4
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011659"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49326088"
 ---
 # <a name="routing-to-controller-actions-in-aspnet-core"></a>ASP.NET core'da denetleyici eylemlerine yönlendirme
 
@@ -383,7 +383,7 @@ Yönlendirme razor sayfaları ve MVC denetleyicisi yönlendirme paylaşım uygul
 
 ## <a name="token-replacement-in-route-templates-controller-action-area"></a>Belirteç değiştirme rota şablonlarındaki ([controller] [action] [alanı])
 
-Kolaylık olması için öznitelik rotaları Destek *belirteç değiştirme* tarafından bir belirteç köşeli ayraç içinde kapsayan (`[`, `]`). Belirteçleri `[action]`, `[area]`, ve `[controller]` eylem adı, alan adı ve denetleyici adını, rota tanımlandığı eyleminin değerleriyle değiştirilecektir. Bu örnekte, Yorumlar bölümünde açıklandığı gibi URL yolu eylemleri eşleşebilir:
+Kolaylık olması için öznitelik rotaları Destek *belirteç değiştirme* tarafından bir belirteç köşeli ayraç içinde kapsayan (`[`, `]`). Belirteçleri `[action]`, `[area]`, ve `[controller]` eylem adı, alan adı ve denetleyici adını, rota tanımlandığı eyleminin değerleri ile değiştirilir. Aşağıdaki örnekte, URL yolu yorumlar bölümünde anlatıldığı gibi eylemleri eşleşmesi:
 
 [!code-csharp[](routing/sample/main/Controllers/ProductsController.cs?range=7-11,13-17,20-22)]
 
@@ -410,6 +410,53 @@ public class ProductsController : MyBaseController
 Belirteç değiştirme öznitelik rotaları tarafından tanımlanan rota adları için de geçerlidir. `[Route("[controller]/[action]", Name="[controller]_[action]")]` Her eylem için benzersiz bir rota adı oluşturur.
 
 Sabit belirteç değiştirme sınırlayıcı eşleştirilecek `[` veya `]`, karakter tekrarlayarak kaçış (`[[` veya `]]`).
+
+::: moniker range=">= aspnetcore-2.2"
+
+<a name="routing-token-replacement-transformers-ref-label"></a>
+
+### <a name="use-a-parameter-transformer-to-customize-token-replacement"></a>Belirteç değiştirme özelleştirmek için bir parametre transformer kullanma
+
+Belirteç değiştirme parametresi transformer kullanılarak özelleştirilebilir. Bir parametre transformer uygulayan `IOutboundParameterTransformer` ve parametre değerine dönüştürür. Örneğin, bir özel `SlugifyParameterTransformer` parametre transformer değişiklikleri `SubscriptionManagement` yönlendirmek için değer `subscription-management`.
+
+`RouteTokenTransformerConvention` Bir uygulama modeli kuralına göre:
+
+* Bir uygulamadaki tüm öznitelik rotaları parametresi transformer uygular.
+* Bunlar gibi öznitelik rotası belirteci değerleri özelleştirir.
+
+```csharp
+public class SubscriptionManagementController : Controller
+{
+    [HttpGet("[controller]/[action]")] // Matches '/subscription-management/list-all'
+    public IActionResult ListAll() { ... }
+}
+```
+
+`RouteTokenTransformerConvention` Bir seçenek olarak kayıtlı `ConfigureServices`.
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddMvc(options =>
+    {
+        options.Conventions.Add(new RouteTokenTransformerConvention(
+                                     new SlugifyParameterTransformer()));
+    });
+}
+
+public class SlugifyParameterTransformer : IOutboundParameterTransformer
+{
+    public string TransformOutbound(object value)
+    {
+        if (value == null) { return null; }
+
+        // Slugify value
+        return Regex.Replace(value.ToString(), "([a-z])([A-Z])", "$1-$2").ToLower();
+    }
+}
+```
+
+::: moniker-end
 
 <a name="routing-multiple-routes-ref-label"></a>
 

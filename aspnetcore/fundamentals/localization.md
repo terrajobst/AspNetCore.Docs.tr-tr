@@ -5,12 +5,12 @@ description: Nasıl ASP.NET Core hizmetlerini ve ara yazılım içeriği yerelle
 ms.author: riande
 ms.date: 01/14/2017
 uid: fundamentals/localization
-ms.openlocfilehash: 6e8c4723ab0105b8c756221d3e3c5eebba6cc4e2
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 375d09d9bef59cf18b7805cbefe500aeb2e0cde7
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912045"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49326010"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Genelleştirme ve yerelleştirme ASP.NET core'da
 
@@ -206,9 +206,9 @@ Dil ve kültür birleşimi (dışında varsayılan dil) her bir benzersiz kaynak
 
 ### <a name="configure-localization"></a>Yerelleştirmeyi yapılandırma
 
-Yerelleştirme yapılandırılmıştır `ConfigureServices` yöntemi:
+Yerelleştirme yapılandırılmıştır `Startup.ConfigureServices` yöntemi:
 
-[!code-csharp[](localization/sample/Localization/Program.cs?name=snippet1)]
+[!code-csharp[](localization/sample/Localization/Startup.cs?name=snippet1)]
 
 * `AddLocalization` Yerelleştirme Hizmetleri Hizmetleri kapsayıcıya ekler. Yukarıdaki kodu aynı zamanda "Kaynaklar" kaynak yolunu ayarlar.
 
@@ -218,9 +218,9 @@ Yerelleştirme yapılandırılmıştır `ConfigureServices` yöntemi:
 
 ### <a name="localization-middleware"></a>Yerelleştirme ara yazılımı
 
-İstek üzerine geçerli kültürü yerelleştirme ayarlanır [ara yazılım](xref:fundamentals/middleware/index). Yerelleştirme ara yazılım etkin `Configure` yöntemi. Yerelleştirme ara yazılım istek kültürü denetleyebilir, Ara yazılımların önce yapılandırılması gerekir (örneğin, `app.UseMvcWithDefaultRoute()`).
+İstek üzerine geçerli kültürü yerelleştirme ayarlanır [ara yazılım](xref:fundamentals/middleware/index). Yerelleştirme ara yazılım etkin `Startup.Configure` yöntemi. Yerelleştirme ara yazılım istek kültürü denetleyebilir, Ara yazılımların önce yapılandırılması gerekir (örneğin, `app.UseMvcWithDefaultRoute()`).
 
-[!code-csharp[](localization/sample/Localization/Program.cs?name=snippet2)]
+[!code-csharp[](localization/sample/Localization/Startup.cs?name=snippet2)]
 
 `UseRequestLocalization` başlatan bir `RequestLocalizationOptions` nesne. Her istekte listesi, `RequestCultureProvider` içinde `RequestLocalizationOptions` numaralandırılana ve istek kültür başarıyla belirleyebilirsiniz ilk sağlayıcısı kullanılır. Varsayılan sağlayıcıları gelir `RequestLocalizationOptions` sınıfı:
 

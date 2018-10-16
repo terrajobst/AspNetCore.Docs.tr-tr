@@ -3,44 +3,54 @@ title: Dağıtılmış önbellek etiketi Yardımcısı ASP.NET core'da
 author: pkellner
 description: Dağıtılmış önbellek etiketi Yardımcısı'nı kullanmayı öğrenin.
 ms.author: riande
-ms.date: 02/14/2017
+ms.custom: mvc
+ms.date: 10/10/2018
 uid: mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper
-ms.openlocfilehash: 1b51164a6d3dab2eeaf64262d6f0d9961bd00d12
-ms.sourcegitcommit: 4d5f8680d68b39c411b46c73f7014f8aa0f12026
+ms.openlocfilehash: a5b33451a763c297c6d7885855a321c43435abb4
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47028104"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325217"
 ---
 # <a name="distributed-cache-tag-helper-in-aspnet-core"></a>Dağıtılmış önbellek etiketi Yardımcısı ASP.NET core'da
 
-Tarafından [Peter Kellner](http://peterkellner.net) 
+Tarafından [Peter Kellner](http://peterkellner.net) ve [Luke Latham](https://github.com/guardrex)
 
 Dağıtılmış önbellek etiketi Yardımcısı, dağıtılmış önbellek kaynağına içeriği önbelleğe alarak ASP.NET Core uygulamanızı performansını önemli ölçüde artırmak olanağı sağlar.
 
-Dağıtılmış önbellek etiketi Yardımcısı, önbellek etiketi Yardımcısı olarak aynı temel sınıfından devralır. Önbellek etiketi Yardımcısı ile ilişkili tüm öznitelikler, üzerinde dağıtılmış etiketi Yardımcısı olarak da çalışır.
+Etiket Yardımcıları genel bakış için bkz. <xref:mvc/views/tag-helpers/intro>.
 
-Dağıtılmış önbellek etiketi Yardımcısı izleyen **açık bağımlılıkları İlkesi** olarak bilinen **Oluşturucu ekleme**. Özellikle, `IDistributedCache` arabirimi kapsayıcı, dağıtılmış önbellek etiketi Yardımcısı'nın oluşturucuya geçirilir. Belirli bir somut uygulamasına varsa `IDistributedCache` içinde oluşturulan `ConfigureServices`, genellikle startup.cs içinde bulunan ve ardından dağıtılmış önbellek etiketi Yardımcısı temel önbellek etiketi Yardımcısı önbelleğe alınmış verileri depolamak için aynı bellek içi sağlayıcısı kullanır.
+Dağıtılmış önbellek etiketi Yardımcısı, önbellek etiketi Yardımcısı olarak aynı temel sınıfından devralır. Tüm [önbellek etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper) öznitelikleri dağıtılmış etiketi Yardımcısı için kullanılabilir.
+
+Dağıtılmış önbellek etiketi Yardımcısı kullanan [Oluşturucu ekleme](xref:fundamentals/dependency-injection#constructor-injection-behavior). <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> Arabirimi, dağıtılmış önbellek etiketi Yardımcısı'nın oluşturucuya geçirilir. Hiçbir somut uygulaması varsa `IDistributedCache` oluşturulur `Startup.ConfigureServices` (*Startup.cs*), dağıtılmış önbellek etiketi Yardımcısı olarak önbelleğe alınmış verileri depolamak için aynı bellek içi sağlayıcısı kullanan [önbellek etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper).
 
 ## <a name="distributed-cache-tag-helper-attributes"></a>Dağıtılmış önbellek etiketi Yardımcısı öznitelikleri
 
-- - -
+### <a name="attributes-shared-with-the-cache-tag-helper"></a>Önbellek etiketi Yardımcısı ile paylaşılan öznitelikleri
 
-### <a name="enabled-expires-on-expires-after-expires-sliding-vary-by-header-vary-by-query-vary-by-route-vary-by-cookie-vary-by-user-vary-by-priority"></a>süresi dolmadan açma süresi dolduktan sonra süresi dolar-kayan etkin farklılık-tarafından-header farklılık-tarafından-sorgu değişir-tarafından-route farklılık-tarafından-tanımlama bilgisi değişiklik kullanıcı tarafından farklılık-önceliğe göre
+* `enabled`
+* `expires-on`
+* `expires-after`
+* `expires-sliding`
+* `vary-by-header`
+* `vary-by-query`
+* `vary-by-route`
+* `vary-by-cookie`
+* `vary-by-user`
+* `vary-by priority`
 
-Önbellek etiketi Yardımcısı tanımları için bkz. Bu öznitelikler önbellek etiketi Yardımcısı ' yaygın şekilde dağıtılmış önbellek etiketi Yardımcısı önbellek etiketi Yardımcısı olarak aynı sınıfından devralır.
+Önbellek etiketi Yardımcısı aynı sınıfta dağıtılmış önbellek etiketi Yardımcısı devralır. Bu öznitelikler açıklaması için bkz. [önbellek etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper).
 
-- - -
+### <a name="name"></a>name
 
-### <a name="name-required"></a>ad (gerekli)
+| Öznitelik türü | Örnek                               |
+| -------------- | ------------------------------------- |
+| Dize         | `my-distributed-cache-unique-key-101` |
 
-| Öznitelik türü    | Örnek değer     |
-|----------------   |----------------   |
-| dize    | "my-distributed-cache-unique-key-101"     |
+`name` gerekli değildir. `name` Özniteliği, her depolanan önbellek örneği için bir anahtar olarak kullanılır. Önbellek etiketi Razor sayfası adı ve Razor sayfası konuma göre her bir örneği için bir önbellek anahtarı atayan Yardımcısı, dağıtılmış önbellek etiketi Yardımcısı yalnızca anahtarıyla özniteliğini tabanları `name`.
 
-Gerekli `name` özniteliği, bu önbelleğe dağıtılmış önbellek etiketi Yardımcısı her örneği için depolanan bir anahtar olarak kullanılır. Temel önbellek etiketi Razor sayfası adı ve konumu sayfasındaki razor etiket Yardımcısı'nın temel alarak her önbellek etiketi Yardımcısı örneği için bir anahtar atayan Yardımcısı, dağıtılmış önbellek etiketi Yardımcısı yalnızca anahtarıyla özniteliğini alır `name`
-
-Kullanım örneği:
+Örnek:
 
 ```cshtml
 <distributed-cache name="my-distributed-cache-unique-key-101">
@@ -50,7 +60,7 @@ Kullanım örneği:
 
 ## <a name="distributed-cache-tag-helper-idistributedcache-implementations"></a>Dağıtılmış önbellek etiketi Yardımcısı IDistributedCache uygulamaları
 
-İki uygulamaları vardır `IDistributedCache` ASP.NET Core için yerleşik olarak bulunur. Bir SQL Sunucusu'nu temel alır ve diğer Redis temel alır. Bu uygulamalar ayrıntıları bulunabilir <xref:performance/caching/distributed>. Bir örneği her iki uygulamaları içeren `IDistributedCache` ASP.NET core'da'nın *Startup.cs*.
+İki uygulamaları vardır <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> ASP.NET Core için yerleşik olarak bulunur. Bir SQL Sunucusu'nu temel alır ve diğer Redis dayanır. Bu uygulamalar ayrıntıları bulunabilir <xref:performance/caching/distributed>. Bir örneği her iki uygulamaları içeren `IDistributedCache` içinde `Startup`.
 
 Tüm özel uygulanışı kullanmaya özellikle ilişkili hiçbir etiket öznitelik `IDistributedCache`.
 

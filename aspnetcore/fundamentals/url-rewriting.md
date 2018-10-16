@@ -1,75 +1,77 @@
 ---
-title: URL yeniden yazma ASP.NET Core Ara
+title: URL yeniden yazma ara yazılımı ASP.NET core'da
 author: guardrex
-description: URL yeniden yazma işlemi ve ASP.NET Core uygulamaları URL yeniden yazma işlemi Ara yazılımla yeniden yönlendirme hakkında bilgi edinin.
+description: URL yeniden yazma ve URL yeniden yazma ara yazılımı ile ASP.NET Core uygulamalarında yeniden yönlendirme hakkında bilgi edinin.
 ms.author: riande
 ms.date: 08/17/2017
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: d3484e222c4412a427d086c1b71a12b81095ba72
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: d9f33f34f75fe7bf534146c5a426335e74635018
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276353"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49326075"
 ---
-# <a name="url-rewriting-middleware-in-aspnet-core"></a>URL yeniden yazma ASP.NET Core Ara
+# <a name="url-rewriting-middleware-in-aspnet-core"></a>URL yeniden yazma ara yazılımı ASP.NET core'da
 
 Tarafından [Luke Latham](https://github.com/guardrex) ve [Mikael Mengistu](https://github.com/mikaelm12)
 
-[Görüntülemek veya karşıdan örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/sample/) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/sample/) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 
-URL yeniden yazma işlemi bir veya daha fazla önceden tanımlanmış kurallar URL'leri dayalı isteği değiştirme işlemidir. URL yeniden yazma işlemi bir Özet kaynak konumları ve adresleri arasında adreslerini ve konumları sıkı şekilde bağlı olmayan şekilde oluşturur. URL yeniden yazma işlemi değerli olduğu birkaç senaryo vardır:
+URL yeniden yazma URL bir veya daha fazla önceden tanımlanmış kurallara göre istek değiştirme işlemidir. Böylece konumları ve adresleri sıkı şekilde bağlı olmayan URL yeniden yazma kaynak konumları ve adresleri arasında bir Özet oluşturur. URL yeniden yazma yararlı olduğu bazı senaryolar vardır:
 
-* Taşıma veya bu kaynaklar için kararlı bulucular korurken sunucu kaynaklarını geçici veya kalıcı olarak değiştirme.
-* İstek farklı uygulamalar arasında veya bir uygulamanın alanları genelinde işleme bölme.
-* Kaldırma, ekleme veya URL kesimleri gelen istekleri üzerinde yeniden düzenleniyor.
-* Ortak URL'ler arama motoru iyileştirme (SEO) için en iyi duruma getirme.
-* Bir bağlantıyı izleyerek bulacaksınız içerik tahmin kişilerin yardımcı olmak üzere ortak kolay URL'leri kullanımını erişimine izin verme.
-* Uç noktalarını güvenli hale getirmek için güvenli olmayan istekleri yönlendirme.
+* Taşıma veya bu kaynaklar için kararlı bulucular korurken sunucu kaynaklarını geçici veya kalıcı olarak değiştiriliyor.
+* İstek farklı uygulamalar arasında veya tek bir uygulama alanları genelinde işleme bölme.
+* Kaldırma, ekleme veya URL kesimleri gelen isteklerden yeniden düzenleme.
+* En iyi duruma getirme Genel URL'ler arama motoru iyileştirmesi (SEO).
+* Bir bağlantıyı izleyerek bulabilirsiniz içeriği tahmin kolaylaştıracak kolay genel URL kullanımını erişimine izin verme.
+* Uç noktalarını güvenli hale getirmek için güvenli istekleri yeniden yönlendirme.
 * Görüntü hotlinking engelliyor.
 
-Regex, Apache mod_rewrite modülü kuralları, IIS yeniden yazma modülü kuralları da dahil olmak üzere birkaç yoldan URL değiştirme ve özel kural mantığı kullanarak için kurallar tanımlayabilirsiniz. Bu belge, ASP.NET Core uygulamaları URL yeniden yazma işlemi Ara kullanma hakkında yönergeler içeren URL yeniden yazma işlemi sunar.
+URL çeşitli şekillerde değiştirme, Regex, Apache mod_rewrite modülü kuralları, IIS yeniden yazma modülü kuralları da dahil olmak üzere ve özel kural mantığı kullanarak kurallar tanımlayabilirsiniz. Bu belge, URL yeniden yazma URL yeniden yazma ara yazılımı ASP.NET Core uygulamalarında kullanma hakkında yönergeler sunar.
 
 > [!NOTE]
-> URL yeniden yazma işlemi bir uygulama performansını azaltabilir. Uygun yerlerde sayısı ve karmaşıklığı kuralları sınırlamanız gerekir.
+> URL yeniden yazma uygulama performansını düşürebilir. Uygun olduğunda, sayısı ve karmaşıklığı kurallar sınırlamanız gerekir.
 
 ## <a name="url-redirect-and-url-rewrite"></a>URL yeniden yönlendirme ve URL yeniden yazma
 
-İfade arasındaki farkı *URL yeniden yönlendirme* ve *URL yeniden yazma* en ince görünebilir ilk ancak istemciler için kaynaklar sağlamak için önemli etkileri vardır. ASP.NET Core'nin URL yeniden yazma işlemi Ara gereken her ikisi için de toplantı yeteneğine sahiptir.
+İfade arasındaki farkı *URL yeniden yönlendirme* ve *URL yeniden yazma* en küçük görünebilir ancak ilk kaynakları istemcilere sağlamak için önemli etkileri vardır. ASP.NET Core'nın URL yeniden yazma ara yazılımı her ikisi de gereksinimini toplantı yeteneğine sahiptir.
 
-A *URL yeniden yönlendirme* istemci burada belirtildiği başka bir adresinde bir kaynağa erişmek için bir istemci tarafı işlemi olduğu. Bu sunucuya gidiş gerektirir. İstemci kaynak için yeni bir istek yaptığında, istemciye döndürülen yeniden yönlendirme URL'si tarayıcının adres çubuğunda görünür. 
+A *URL yeniden yönlendirme* istemci burada belirtildiği başka bir adresten bir kaynağa erişmek için bir istemci tarafı işlemi olduğundan. Bu sunucu için bir gidiş dönüş gerektirir. İstemci kaynak için yeni bir istekte bulunduğunda istemciye döndürülen yeniden yönlendirme URL'sini tarayıcınızın adres çubuğunda görünür. 
 
-Varsa `/resource` olan *yeniden yönlendirilen* için `/different-resource`, istemci isteklerini `/resource`. İstemci kaynak edinmelidir sunucunun yanıt `/different-resource` yeniden yönlendirme geçici veya kalıcı olduğunu belirten bir durum kodu ile. İstemci yeniden yönlendirme URL'sini kaynak için yeni bir isteği yürütür.
+Varsa `/resource` olduğu *yeniden yönlendirilen* için `/different-resource`, istemci isteklerini `/resource`. İstemci kaynak edinmelidir sunucunun yanıt `/different-resource` yeniden yönlendirme geçici veya kalıcı olduğunu gösteren bir durum kodu ile. İstemci yeniden yönlendirme URL'sini kaynak için yeni bir isteği yürütür.
 
-![Webapı hizmet uç noktası sunucusundaki sürüm 2 (v2) için sürüm 1 (v1) geçici olarak değiştirildi. Bir istemci sürüm 1 yolu /v1/api adresindeki hizmet isteği yapar. Sunucu hizmeti için yeni, geçici yoluyla 302 bir (bulundu) yanıtı sürüm 2 /v2/api geri gönderir. İstemci hizmet yeniden yönlendirme URL'sinde ikinci bir isteği yapar. Sunucu bir 200 (Tamam) durum koduyla yanıt verir.](url-rewriting/_static/url_redirect.png)
+![Webapı hizmet uç noktası sunucusundaki sürüm 2 (v2) 1 (v1) sürümünden geçici olarak değiştirildi. Bir istemci, sürüm 1 yolu /v1/api hizmeti için bir istek gönderir. Sunucu, sürüm 2 /v2/api hizmet için yeni, geçici yoluyla 302 bir (bulunamadı) yanıtı geri gönderir. İstemci, hizmeti yeniden yönlendirme URL'si için ikinci bir talep gönderir. Sunucu bir 200 (Tamam) durum koduyla yanıt verir.](url-rewriting/_static/url_redirect.png)
 
-İstekleri için farklı bir URL yeniden yönlendirme, yeniden yönlendirme kalıcı veya geçici olup olmadığını gösterir. 301 (taşınmış kalıcı olarak) durum kodunu burada kaynak yeni, kalıcı bir URL'ye sahip ve istediğiniz tüm gelecekteki isteklerin kaynak için yeni URL kullanmalısınız istemci istemek üzere kullanılır. *301 durum kodu alındığında istemci yanıt önbelleğe alabilir.* 302 (bulundu) durum kodu, yeniden yönlendirme geçici veya genellikle konu olduğu istemci depolamak ve yeniden yönlendirme URL'sini gelecekte tekrar döndürmemelidir şekilde değiştirmek için kullanılır. Daha fazla bilgi için bkz: [RFC 2616: durum kodu tanımları](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
+İstekleri için farklı bir URL yeniden yönlendirme, yeniden yönlendirme kalıcı veya geçici olup olmadığını gösterir. 301 (kalıcı taşındı) durum kodunu burada yeni, kalıcı bir URL kaynağı vardır ve istediğiniz tüm gelecek istekleri kaynak için yeni URL kullanması gerektiğini istemci istemek için kullanılır. *301 durum kodu alındığında istemci yanıtı önbelleğe alabilir.* (Bulunamadı) durum kodunu 302 yeniden yönlendirme geçici veya genel konu olduğu istemci depolamak olmamalıdır ve gelecekte yeniden yönlendirme URL'sini yeniden şekilde değiştirmek için kullanılır. Daha fazla bilgi için [RFC 2616: durum kodu tanımları](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
 
-A *URL yeniden yazma* farklı bir kaynak adresinden kaynak sağlamak için sunucu tarafı bir işlemdir. Bir URL yeniden yazma işlemi sunucuya gidiş gerektirmez. Yeniden URL istemciye döndürülen değil ve tarayıcının adres çubuğunda görünmez. Zaman `/resource` olan *yeniden yazılmıştır* için `/different-resource`, istemci isteklerini `/resource`ve sunucu *dahili olarak* kaynak getirir `/different-resource`. İstemci yeniden URL'sindeki kaynak alamadı olabilir, ancak istemci, isteği yapar ve yanıtı aldığında kaynağın yeniden URL'de mevcut haberdar olmaz.
+A *URL yeniden yazma* farklı bir kaynak adresten bir kaynak sağlamak için bir sunucu tarafı işlemi. Bir URL yeniden yazma sunucuya gidiş dönüşlü hale getirmek gerekmez. Yeniden URL istemciye döndürülen değildir ve tarayıcının adres çubuğunda görüntülenmez. Zaman `/resource` olduğu *yazılan* için `/different-resource`, istemci isteklerini `/resource`ve sunucu *dahili olarak* kaynakta getirir `/different-resource`. İstemci yeniden URL'deki kaynak alınamadı olabilir, ancak istemci, isteği yapar ve yanıtı alır, kaynağın yeniden URL'de mevcut haberdar olmaz.
 
-![Webapı hizmet uç noktası sürüm 1 (v1) sürüm 2 (v2) sunucu üzerinde değiştirildi. Bir istemci sürüm 1 yolu /v1/api adresindeki hizmet isteği yapar. Sürüm 2 yolu /v2/api hizmetine erişmek için istek URL'si yeniden yazılmıştır. Hizmet bir 200 (Tamam) durum kodlu istemciye yanıt verir.](url-rewriting/_static/url_rewrite.png)
+![Webapı hizmet uç noktası, sunucu üzerindeki sürüm 2 (v2) için 1 (v1) sürümünden değiştirildi. Bir istemci, sürüm 1 yolu /v1/api hizmeti için bir istek gönderir. İstek URL'si, sürüm 2 yolu /v2/api hizmetine erişmek için yeniden. Hizmet istemcisi bir 200 (Tamam) durum kodu ile yanıt verir.](url-rewriting/_static/url_rewrite.png)
 
-## <a name="url-rewriting-sample-app"></a>URL yazmaksızın örnek uygulaması
+## <a name="url-rewriting-sample-app"></a>URL yeniden yazma örnek uygulaması
 
-URL yeniden yazma işlemi Ara yazılımla özelliklerini keşfedebilirsiniz [URL yazmaksızın örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/sample/). Uygulama yeniden uygular ve yeniden yönlendirme kuralları ve yeniden veya yeniden yönlendirilmiş bir URL gösterir.
+URL yeniden yazma ara yazılımı ile özelliklerini inceleyebilirsiniz [URL yeniden yazma örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/sample/). Uygulamaya yeniden uygular ve yeniden yönlendirme kuralları ve yeniden ya da yeniden yönlendirilen URL'sini gösterir.
 
-## <a name="when-to-use-url-rewriting-middleware"></a>URL yeniden yazma işlemi Ara kullanma zamanı
+## <a name="when-to-use-url-rewriting-middleware"></a>URL yeniden yazma ara yazılımı kullanma zamanı
 
-URL yeniden yazma işlemi Ara kullanamadı olduğunda kullanın [URL yeniden yazma Modülü](https://www.iis.net/downloads/microsoft/url-rewrite) Windows Server'da IIS ile [Apache mod_rewrite Modülü](https://httpd.apache.org/docs/2.4/rewrite/) Apache sunucuda [NginxüzerindeURLyenidenyazmaişlemi](https://www.nginx.com/blog/creating-nginx-rewrite-rules/), veya üzerinde barındırılan bir uygulamanızı [HTTP.sys sunucu](xref:fundamentals/servers/httpsys) (eski adıysa [WebListener](xref:fundamentals/servers/weblistener)). Sunucu tabanlı URL yazmaksızın teknolojileri IIS, Apache veya Nginx kullanmak için ana ara yazılım bu modülleri tüm özelliklerini desteklemeyen ve ara yazılım performansını büyük olasılıkla, modüllerin eşleşmeyecektir nedenleridir. Ancak, bazı özellikler ASP.NET Core projelerle gibi çalışmıyor sunucu modüllerinin vardır `IsFile` ve `IsDirectory` IIS yeniden yazma modülü kısıtlamaları. Bu senaryolarda, ara yazılımı kullanın.
+URL yeniden yazma ara yazılımı kullanamaz olduğunda kullanın [URL yeniden yazma Modülü](https://www.iis.net/downloads/microsoft/url-rewrite) Windows Server, IIS ile [Apache mod_rewrite Modülü](https://httpd.apache.org/docs/2.4/rewrite/) Apache sunucusundaki [NgınxüzerindeURLyenidenyazma](https://www.nginx.com/blog/creating-nginx-rewrite-rules/), veya uygulamanız üzerinde barındırılan [HTTP.sys sunucu](xref:fundamentals/servers/httpsys) (eski adıyla [WebListener](xref:fundamentals/servers/weblistener)). Sunucu tabanlı URL yeniden yazma teknolojileri IIS, Apache veya Ngınx kullanmak için ana ara yazılım, bu modüllerin tam özelliklerini desteklemiyor ve ara yazılım performansını büyük olasılıkla, modül eşleşmeyecektir nedenleridir. Ancak, ASP.NET Core projeleriyle gibi çalışmayan sunucu modülü bazı özellikler mevcuttur `IsFile` ve `IsDirectory` IIS yeniden yazma modülü kısıtlamaları. Bu senaryolarda, ara yazılım kullanın.
 
 ## <a name="package"></a>Paket
 
-Ara yazılım projenize eklemek için bir başvuru ekleyin [ `Microsoft.AspNetCore.Rewrite` ](https://www.nuget.org/packages/Microsoft.AspNetCore.Rewrite/) paket. Bu özellik veya üstünü ASP.NET Core 1.1 hedef uygulamaları için kullanılabilir.
+Ara yazılım projenize eklemek için bir başvuru ekleyin. [ `Microsoft.AspNetCore.Rewrite` ](https://www.nuget.org/packages/Microsoft.AspNetCore.Rewrite/) paket. Bu özellik, ASP.NET Core 1.1 hedefleyen uygulamalar için veya sonraki kullanılabilir.
 
 ## <a name="extension-and-options"></a>Uzantı ve seçenekleri
 
-URL yeniden yazma kurmak ve kuralları bir örneğini oluşturarak yeniden yönlendirme `RewriteOptions` sınıfı, kuralların her biri için genişletme yöntemleri ile. Birden çok kural bunları işlenen istediğiniz sırayla zincir. `RewriteOptions` İle istek ardışık düzenine eklenen URL yeniden yazma işlemi Ara geçirilir `app.UseRewriter(options);`.
+URL yeniden yazma oluşturmak ve bir örneğini oluşturarak kuralları yeniden yönlendirme [RewriteOptions](/dotnet/api/microsoft.aspnetcore.rewrite.rewriteoptions) sınıfı, kuralların her biri için genişletme yöntemleri. İşlenen bunları istediğiniz sırayla birden çok kural zincir. `RewriteOptions` İle istek ardışık düzenine eklenen URL yeniden yazma ara yazılımı geçirilen `app.UseRewriter(options);`.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.0"
 
 [!code-csharp[](url-rewriting/sample/Startup.cs?name=snippet1)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -88,17 +90,31 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
----
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
+
+### <a name="redirect-non-www-to-www"></a>Www www olmayan yeniden yönlendirme
+
+Üç seçenek olmayan yönlendirmek için uygulama izin`www` ister `www`:
+
+* [AddRedirectToWwwPermanent(RewriteOptions)](/dotnet/api/microsoft.aspnetcore.rewrite.rewriteoptionsextensions.addredirecttowwwpermanent) &ndash; kalıcı olarak isteği yönlendirmek `www` istek olmayan ise alt etki alanı`www`. İle yeniden yönlendiren bir [Status308PermanentRedirect](/dotnet/api/microsoft.aspnetcore.http.statuscodes.status308permanentredirect) durum kodu.
+* [AddRedirectToWww(RewriteOptions)](/dotnet/api/microsoft.aspnetcore.rewrite.rewriteoptionsextensions.addredirecttowww) &ndash; isteği yönlendirmek `www` gelen istek olmayan ise alt etki alanı`www`. İle yeniden yönlendiren bir [Status307TemporaryRedirect](/dotnet/api/microsoft.aspnetcore.http.statuscodes.status307temporaryredirect) durum kodu.
+* [AddRedirectToWww (RewriteOptions, Int32)](/dotnet/api/microsoft.aspnetcore.rewrite.rewriteoptionsextensions.addredirecttowww) &ndash; isteği yönlendirmek `www` gelen istek olmayan ise alt etki alanı`www`. Yanıt durum kodu girmenizi sağlar. Alanlarını kullanın [StatusCodes](/dotnet/api/microsoft.aspnetcore.http.statuscodes) sınıfı atamaların `AddRedirectToWww`.
+
+::: moniker-end
 
 ### <a name="url-redirect"></a>URL yeniden yönlendirme
 
-Kullanım `AddRedirect` isteklerini yeniden yönlendirmek için. İlk parametre gelen URL yolda eşleştirmek için regex içerir. İkinci parametre değiştirme dizedir. Üçüncü parametresi, varsa, durum kodu belirtir. Durum kodu belirtmezseniz, kaynak geçici olarak değiştirilen veya taşındığında olduğunu gösteren 302 (bulundu) varsayar.
+Kullanım `AddRedirect` isteklerini yeniden yönlendirmek için. İlk parametre, normal ifade gelen URL yolunda eşleşen içerir. İkinci değiştirme dizesi parametresidir. Üçüncü parametre varsa, durum kodu belirtir. Durum kodu belirtmezseniz, kaynak geçici olarak taşındı veya değiştirilinceye olduğunu gösteren 302 (bulunamadı) için varsayılanları.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.0"
 
 [!code-csharp[](url-rewriting/sample/Startup.cs?name=snippet1&highlight=9)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 ```csharp
 public void Configure(IApplicationBuilder app)
@@ -110,24 +126,24 @@ public void Configure(IApplicationBuilder app)
 }
 ```
 
----
+::: moniker-end
 
-Geliştirici Araçları etkin bir tarayıcı yoluyla örnek uygulama için istekte `/redirect-rule/1234/5678`. Regex üzerinde istek yolunun eşleşmesi `redirect-rule/(.*)`, ve yolu ile değiştirilir `/redirected/1234/5678`. Yeniden yönlendirme URL'si 302 (bulundu) durum kodlu istemciye geri gönderilir. Tarayıcı, tarayıcının adres çubuğunda görünür yeniden yönlendirme URL'sinde yeni isteğinde bulunur. Yeniden yönlendirme URL'sini eşleşen kural için örnek uygulama olduğundan, ikinci isteği 200 (Tamam) yanıt uygulamadan alır ve yanıtın gövdesini yeniden yönlendirme URL'sini gösterir. Bir URL olduğunda bir geri dönüş sunucuya yapılan *yeniden yönlendirilen*.
+Geliştirici Araçları etkin bir tarayıcıda yolu kullanarak örnek uygulamaya istekte bulunmak `/redirect-rule/1234/5678`. Normal ifade üzerinde istek yolunun eşleşmesi `redirect-rule/(.*)`, ve yolu ile değiştirilir `/redirected/1234/5678`. Yeniden yönlendirme URL'si istemcisine bir 302 (bulunamadı) durum kodu ile gönderilir. Tarayıcı, tarayıcının adres çubuğunda görüntülenen yeniden yönlendirme URL'sindeki yeni bir istek gönderir. Örnek uygulamada hiçbir kural üzerinde yeniden yönlendirme URL'si aynı olduğundan, ikinci isteği uygulamadan 200 (Tamam) yanıtı alır ve yanıt gövdesinin yeniden yönlendirme URL'sini gösterir. Bir URL ise bir gidiş dönüş sunucuya yapılan *yeniden yönlendirilen*.
 
 > [!WARNING]
-> Yeniden yönlendirme kurallarınızı oluştururken dikkatli olun. Yeniden yönlendirme kuralları her istekte sonra bir yeniden yönlendirme dahil olmak üzere uygulama değerlendirilir. Yanlışlıkla için kolayca sonsuz yeniden yönlendirmeleri döngüsüne oluşturun.
+> Yeniden yönlendirme kurallarınızı oluştururken dikkatli olun. Yeniden yönlendirme kuralları, sonra bir yeniden yönlendirme de dahil olmak üzere uygulama, her istekte değerlendirilir. Yanlışlıkla için kolay bir sonsuz yeniden yönlendirmeleri döngüsünü oluşturun.
 
 Özgün istek: `/redirect-rule/1234/5678`
 
-![Geliştirici isteklerini ve yanıtlarını izleme araçları ile bir tarayıcı penceresi](url-rewriting/_static/add_redirect.png)
+![Tarayıcının geliştirici araçları istek ve yanıtların izleme ile](url-rewriting/_static/add_redirect.png)
 
-Parantez içinde yer alan ifade parçası olarak adlandırılan bir *yakalama grup*. Nokta (`.`) bir ifade anlamına gelir *herhangi bir karakteri eşleştirmek*. Yıldız işareti (`*`) gösteren *sıfır veya daha fazla kez önceki karakteri eşleştirmek*. Bu nedenle, son iki yol kesimleri URL'sinin `1234/5678`, yakalama grubu tarafından yakalanan `(.*)`. Sağladığınız istek URL'sindeki sonra herhangi bir değer `redirect-rule/` bu tek yakalama grubu tarafından kapsanır.
+Parantez içinde yer alan bir ifade parçası olarak adlandırılan bir *yakalama grubu*. Nokta (`.`) ifade anlamına gelir *herhangi bir karakterle eşleştir*. Yıldız işareti (`*`) gösteren *önceki karakteri sıfır veya daha fazla kez eşleştir*. Bu nedenle, son iki yol kesimleri URL'sinin `1234/5678`, yakalama grubu tarafından yakalanan `(.*)`. Sonra istek URL'sindeki sağladığınız herhangi bir değer `redirect-rule/` bu tek bir yakalama grubu tarafından yakalanır.
 
-Dolar işareti ile dizesine eklenen değiştirme dizesini yakalanan gruplar (`$`) yakalama sıra numarası tarafından izlenen. İlk yakalama grup değeri ile elde edilen `$1`, ikinci ile `$2`, ve, regex yakalama grupları için sırayla devam eder. Yoktur tek yakalanan grubu içinde yeniden yönlendirme kuralı regex örnek uygulamasında olduğu değiştirme dizesi içinde yalnızca bir eklenen Grup şekilde `$1`. Kural uygulandığında, URL hale `/redirected/1234/5678`.
+Değiştirme dizesinde yakalanan gruplar dolar işareti ile dizesine eklenen (`$`) yakalama dizisi sayı takip eder. İlk yakalama grubu değer ile elde edilen `$1`ikinci ile `$2`, ve bunların sırası, normal ifade yakalama grupları için devam edin. Var. yalnızca bir yakalanan gruba içinde yeniden yönlendirme kuralı regex örnek uygulamada, olan değiştirme dizesinde tek eklenen grubu için `$1`. Kural uygulandığında, URL olur `/redirected/1234/5678`.
 
 ### <a name="url-redirect-to-a-secure-endpoint"></a>Güvenli bir uç noktası için URL yeniden yönlendirme
 
-Kullanım `AddRedirectToHttps` aynı ana bilgisayar ve HTTPS kullanarak yolu HTTP isteklerini yeniden yönlendirmek için (`https://`). Durum kodu sağlanan değil, ara yazılım 302 (bulundu) varsayılan olarak. Bağlantı noktası değil sağlandıysa ara yazılım için varsayılan olarak `null`, protokol başka bir deyişle, değişikliklerini `https://` ve istemci kaynak bağlantı noktası 443 üzerinden erişir. Örneğin, durum kodu 301 (taşınmış kalıcı olarak) ve bağlantı noktası için 5001 değiştirmek gösterilmektedir.
+Kullanım `AddRedirectToHttps` aynı konak ve yol HTTPS kullanarak HTTP isteklerini yeniden yönlendirmek için (`https://`). Durum kodu verilmiyorsa, ara yazılım 302 (bulunamadı) için varsayılan olarak. Bağlantı noktası verilmiyorsa, ara yazılım için varsayılan olarak `null`, Protokolü yani değişikliklerini `https://` ve istemci kaynak bağlantı noktası 443 üzerinden erişir. Örneğin, durum kodu 301 (kalıcı taşındı) ve bağlantı noktasını değiştirmek için 5001 gösterilmektedir.
 
 ```csharp
 public void Configure(IApplicationBuilder app)
@@ -139,7 +155,7 @@ public void Configure(IApplicationBuilder app)
 }
 ```
 
-Kullanım `AddRedirectToHttpsPermanent` aynı konak ve yol güvenli HTTPS protokolü ile güvenli isteklerini yeniden yönlendirmek için (`https://` bağlantı noktası 443'tür). Ara yazılım durum kodu 301 (taşınmış kalıcı olarak) ayarlar.
+Kullanım `AddRedirectToHttpsPermanent` aynı konak ve yol güvenli HTTPS protokolü ile güvenli isteklerini yeniden yönlendirmek için (`https://` bağlantı noktası 443 üzerinden). Ara yazılım 301 (kalıcı taşındı) durum kodunu ayarlar.
 
 ```csharp
 public void Configure(IApplicationBuilder app)
@@ -152,27 +168,29 @@ public void Configure(IApplicationBuilder app)
 ```
 
 > [!NOTE]
-> HTTPS için ek yönlendirme kuralları gereksinimi olmadan yönlendirirken HTTPS yeniden yönlendirmesi Ara kullanmanızı öneririz. Daha fazla bilgi için bkz: [zorunlu HTTPS](xref:security/enforcing-ssl#require-https) konu.
+> HTTPS için ek yeniden yönlendirme kuralları gereksinimi olmadan yönlendirirken, HTTPS yeniden yönlendirmesi ara yazılım kullanmanızı öneririz. Daha fazla bilgi için [HTTPS zorlama](xref:security/enforcing-ssl#require-https) konu.
 
-Örnek uygulamayı nasıl kullanılacağını gösteren özellikli `AddRedirectToHttps` veya `AddRedirectToHttpsPermanent`. Add genişletme yöntemi `RewriteOptions`. Tüm URL'deki uygulamaya güvenli olmayan bir isteği oluşturun. Tarayıcı güvenlik otomatik olarak imzalanan sertifika güvenilmeyen uyarısı kapatmak veya sertifika güven için bir özel durum oluşturun.
+Örnek uygulamayı nasıl kullanılacağını gösteren özellikli `AddRedirectToHttps` veya `AddRedirectToHttpsPermanent`. Uzantı yöntemine ekleyin `RewriteOptions`. Güvenli olmayan bir istek, herhangi bir URL konumundaki uygulamaya olun. Tarayıcı güvenlik otomatik olarak imzalanan sertifika güvenilmeyen uyarısını kapatmak veya sertifikaya güvenmek için bir özel durum oluşturun.
 
 Özgün istek kullanarak `AddRedirectToHttps(301, 5001)`: `http://localhost:5000/secure`
 
-![Geliştirici isteklerini ve yanıtlarını izleme araçları ile bir tarayıcı penceresi](url-rewriting/_static/add_redirect_to_https.png)
+![Tarayıcının geliştirici araçları istek ve yanıtların izleme ile](url-rewriting/_static/add_redirect_to_https.png)
 
 Özgün istek kullanarak `AddRedirectToHttpsPermanent`: `http://localhost:5000/secure`
 
-![Geliştirici isteklerini ve yanıtlarını izleme araçları ile bir tarayıcı penceresi](url-rewriting/_static/add_redirect_to_https_permanent.png)
+![Tarayıcının geliştirici araçları istek ve yanıtların izleme ile](url-rewriting/_static/add_redirect_to_https_permanent.png)
 
 ### <a name="url-rewrite"></a>URL yeniden yazma
 
-Kullanım `AddRewrite` URL yeniden yazma işlemi için bir kural oluşturmak için. İlk parametre gelen URL yolda eşleştirmek için regex içerir. İkinci parametre değiştirme dizedir. Üçüncü parametre `skipRemainingRules: {true|false}`, ara yazılımı için geçerli kural uyguladıysanız ek yeniden yazma kuralları Atla gerekip gerekmediğini gösterir.
+Kullanım `AddRewrite` URL yeniden yazma için bir kural oluşturmak için. İlk parametre gelen URL yolu temel eşlemek için normal ifade içeriyor. İkinci değiştirme dizesi parametresidir. Üçüncü parametreyi `skipRemainingRules: {true|false}`, ara yazılımı için geçerli kural uyguladıysanız, ek bir yeniden yazma kuralları atlamak gerekip gerekmediğini belirtir.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.0"
 
 [!code-csharp[](url-rewriting/sample/Startup.cs?name=snippet1&highlight=10-11)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 ```csharp
 public void Configure(IApplicationBuilder app)
@@ -185,15 +203,15 @@ public void Configure(IApplicationBuilder app)
 }
 ```
 
----
+::: moniker-end
 
 Özgün istek: `/rewrite-rule/1234/5678`
 
-![Geliştirici Araçları istek ve yanıt izleme ile bir tarayıcı penceresi](url-rewriting/_static/add_rewrite.png)
+![Tarayıcının geliştirici araçları istek ve yanıt izleme](url-rewriting/_static/add_rewrite.png)
 
-Regex fark ilk ayar şeydir (`^`) ifade başındaki. Başka bir deyişle, eşleşen URL yolunu başında başlar.
+Simgeyi seçtiğinizde normal ifade fark ilk şey olduğunu (`^`) ifadenin başında. Başka bir deyişle, eşleşen bir URL yolu başlangıcında başlar.
 
-Yeniden yönlendirme kuralı ile önceki örnekte `redirect-rule/(.*)`, hiçbir ayar regex başlangıcında; bu nedenle, herhangi bir karakter koyun `redirect-rule/` yolunda başarılı bir eşleşme.
+Yeniden yönlendirme kuralı ile bir önceki örnekte `redirect-rule/(.*)`, normal ifade başlangıcında hiçbir ayar yoktur; bu nedenle, herhangi bir karakter önünde `redirect-rule/` yolunda başarılı bir eşleşme.
 
 | Yol                               | Eşleştirme |
 | ---------------------------------- | :---: |
@@ -201,7 +219,7 @@ Yeniden yönlendirme kuralı ile önceki örnekte `redirect-rule/(.*)`, hiçbir 
 | `/my-cool-redirect-rule/1234/5678` | Evet   |
 | `/anotherredirect-rule/1234/5678`  | Evet   |
 
-Yeniden yazma kuralı `^rewrite-rule/(\d+)/(\d+)`, ile başlatırsanız yollar yalnızca eşleşen `rewrite-rule/`. Aşağıdaki yeniden yazma kuralı ve yukarıdaki yeniden yönlendirme kuralı arasında eşleştirme içinde fark.
+Yeniden üretme kuralı `^rewrite-rule/(\d+)/(\d+)`, ile başlatırsanız, yalnızca yollarıyla eşleşen `rewrite-rule/`. İçinde eşleşen aşağıdaki yeniden yazma kuralı ve yukarıdaki yeniden yönlendirme kuralı farka dikkat edin.
 
 | Yol                              | Eşleştirme |
 | --------------------------------- | :---: |
@@ -209,28 +227,30 @@ Yeniden yazma kuralı `^rewrite-rule/(\d+)/(\d+)`, ile başlatırsanız yollar y
 | `/my-cool-rewrite-rule/1234/5678` | Hayır    |
 | `/anotherrewrite-rule/1234/5678`  | Hayır    |
 
-Aşağıdaki `^rewrite-rule/` bölümü bir ifade, iki yakalama grubu vardır `(\d+)/(\d+)`. `\d` Güveninin *bir rakam (sayı) eşleşen*. Artı işareti (`+`) anlamına gelir *bir veya daha önceki karakteri eşleştirmek*. Bu nedenle, URL bir-başka bir sayının eğik çizgi ve ardından bir sayı içermesi gerekir. Gruplar halinde yeniden URL'si olarak eklenen bu yakalama `$1` ve `$2`. Yeniden yazma kuralı değiştirme dizesini yakalanan gruplar querystring yerleştirir. İstenen yolunu `/rewrite-rule/1234/5678` kaynak elde etmek için yeniden yazılmıştır `/rewritten?var1=1234&var2=5678`. Bir sorgu dizesi özgün istekte mevcut ise, URL yeniden yazılmıştır, korunur.
+Aşağıdaki `^rewrite-rule/` bölümü ifadesi, iki yakalama grupları vardır `(\d+)/(\d+)`. `\d` Gösterir *bir basamağı (sayı) eşleşen*. Artı işaretini (`+`) anlamına gelir *bir veya daha önceki karakter eşleşen*. Bu nedenle, URL, başka bir sayının İleri-eğik çizgi ardından bir sayı içermesi gerekir. Bu yakalama grupları yeniden URL eklenmiş `$1` ve `$2`. Yeniden yazma kuralı değiştirme dizesi yakalanan gruplar querystring yerleştirir. İstenen yolunu `/rewrite-rule/1234/5678` kaynağı almak için yazılan `/rewritten?var1=1234&var2=5678`. Özgün istek üzerinde bir sorgu dizesi varsa, URL'yi yeniden zaman korunur.
 
-Kaynak elde etmek için sunucuya hiçbir gidiş dönüş yoktur. Kaynağın mevcut değilse, getirilen ve 200 (Tamam) durum kodlu istemciye döndürülen. İstemci yeniden yönlendirilen değil çünkü tarayıcı adres çubuğundaki URL'yi değiştirmez. İstemci ilgili oldukça hiçbir zaman URL yeniden yazma işlemi oluştu.
+Hiçbir geri dönüş kaynağı almak için sunucuya yoktur. Kaynağın varolup olmadığını getirildi ve 200 (Tamam) durum kodu ile istemciye döndürülen. Tarayıcı adres çubuğundaki URL'yi, istemci yeniden yönlendirilen değildir çünkü değiştirmez. İstemci endişelenmiştir kadar hiçbir zaman URL yeniden yazma işlemi oluştu.
 
 > [!NOTE]
-> Kullanım `skipRemainingRules: true` mümkün olduğunda, çünkü eşleştirme kuralları pahalı bir işlemdir ve uygulama yanıt süresini azaltır. Hızlı uygulama yanıt için:
+> Kullanım `skipRemainingRules: true` mümkün olduğunda, çünkü kurallarına pahalı bir işlemdir ve uygulama yanıt süresini azaltır. Hızlı Uygulama yanıtı:
 > * En sık eşleşen kural, yeniden yazma kuralları az sık eşleşen kural sipariş.
-> * Bir eşleşme olursa ve hiçbir ek kural işlenirken gerekli olduğunda kalan kurallarının işlenmesini atlayın.
+> * Bir eşleşme olursa ve hiçbir ek kural işleme gerekli olduğunda kalan kurallarının işlenmesini atlayın.
 
 ### <a name="apache-modrewrite"></a>Apache mod_rewrite
 
-Apache mod_rewrite kurallarıyla uygulamak `AddApacheModRewrite`. Kural dosyasının uygulamayla dağıtıldığından emin olun. Daha fazla bilgi ve mod_rewrite kuralları örnekleri için bkz: [Apache mod_rewrite](https://httpd.apache.org/docs/2.4/rewrite/).
+Apache mod_rewrite kurallarıyla uygulamak `AddApacheModRewrite`. Kurallar dosyası uygulamayla dağıtıldığından emin olun. Daha fazla bilgi ve mod_rewrite kuralları örnekleri için bkz. [Apache mod_rewrite](https://httpd.apache.org/docs/2.4/rewrite/).
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.0"
 
 A `StreamReader` kurallardan okumak için kullanılan *ApacheModRewrite.txt* kurallar dosyası.
 
 [!code-csharp[](url-rewriting/sample/Startup.cs?name=snippet1&highlight=3-4,12)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
 
-İlk parametre alan bir `IFileProvider`, aracılığıyla sağlanan [bağımlılık ekleme](dependency-injection.md). `IHostingEnvironment` Sağlamak için eklenen `ContentRootFileProvider`. İkinci parametre olan kurallar dosyanızı yoludur *ApacheModRewrite.txt* örnek uygulama.
+::: moniker range="< aspnetcore-2.0"
+
+İlk parametre bir `IFileProvider`, aracılığıyla sağlanan [bağımlılık ekleme](dependency-injection.md). `IHostingEnvironment` Sağlamak için eklenen `ContentRootFileProvider`. İkinci parametre olan kurallar dosyası yolu olan *ApacheModRewrite.txt* örnek uygulamada.
 
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -242,19 +262,17 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
----
+::: moniker-end
 
-Örnek uygulama isteklerinden yönlendiren `/apache-mod-rules-redirect/(.\*)` için `/redirected?id=$1`. Yanıt durum kodu 302 (bulundu) ' dir.
+Örnek uygulama isteklerinden yönlendiren `/apache-mod-rules-redirect/(.\*)` için `/redirected?id=$1`. Yanıt durum kodu 302 (bulunamadı) ' dir.
 
 [!code[](url-rewriting/sample/ApacheModRewrite.txt)]
 
 Özgün istek: `/apache-mod-rules-redirect/1234`
 
-![Geliştirici isteklerini ve yanıtlarını izleme araçları ile bir tarayıcı penceresi](url-rewriting/_static/add_apache_mod_redirect.png)
+![Tarayıcının geliştirici araçları istek ve yanıtların izleme ile](url-rewriting/_static/add_apache_mod_redirect.png)
 
-##### <a name="supported-server-variables"></a>Desteklenen sunucu değişkenleri
-
-Ara yazılım aşağıdaki Apache mod_rewrite sunucu değişkenlerini destekler:
+Ara yazılım, aşağıdaki Apache mod_rewrite sunucu değişkenlerini destekler:
 
 * CONN_REMOTE_ADDR
 * HTTP_ACCEPT
@@ -288,17 +306,19 @@ Ara yazılım aşağıdaki Apache mod_rewrite sunucu değişkenlerini destekler:
 
 ### <a name="iis-url-rewrite-module-rules"></a>IIS URL yeniden yazma modülü kuralları
 
-IIS URL yeniden yazma modülü için geçerli bir kurallar kullanmak için `AddIISUrlRewrite`. Kural dosyasının uygulamayla dağıtıldığından emin olun. Kullanılacak Ara yazılımının doğrudan yok, *web.config* Windows Server IIS üzerinde çalışırken dosya. IIS ile bu kuralları dışında depolanması gereken, *web.config* IIS yeniden yazma modülü ile çakışmaları önlemek için. Daha fazla bilgi ve IIS URL yeniden yazma modülü kuralları örnekleri için bkz: [Url yeniden yazma modülü 2.0 kullanarak](/iis/extensions/url-rewrite-module/using-url-rewrite-module-20) ve [URL yeniden yazma modülü yapılandırma başvurusu](/iis/extensions/url-rewrite-module/url-rewrite-module-configuration-reference).
+IIS URL yeniden yazma modülü uygulanan kurallarını kullanmak için `AddIISUrlRewrite`. Kurallar dosyası uygulamayla dağıtıldığından emin olun. Kullanılacak Ara yazılımının doğrudan yoksa, *web.config* dosya Windows Server IIS üzerinde çalışırken. IIS ile bu kuralları dışında depolanması gereken, *web.config* IIS yeniden yazma modülü ile çakışmalarını önlemek için. Daha fazla bilgi ve IIS URL yeniden yazma modülü kuralları örnekleri için bkz. [Url yeniden yazma modülü 2.0 kullanarak](/iis/extensions/url-rewrite-module/using-url-rewrite-module-20) ve [URL yeniden yazma Module yapılandırma başvurusu](/iis/extensions/url-rewrite-module/url-rewrite-module-configuration-reference).
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.0"
 
 A `StreamReader` kurallardan okumak için kullanılan *IISUrlRewrite.xml* kurallar dosyası.
 
 [!code-csharp[](url-rewriting/sample/Startup.cs?name=snippet1&highlight=5-6,13)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
 
-İlk parametre alan bir `IFileProvider`, ikinci parametre olan XML kuralları dosyanızın yolu, *IISUrlRewrite.xml* örnek uygulama.
+::: moniker range="< aspnetcore-2.0"
+
+İlk parametre bir `IFileProvider`, ikinci parametre olan, XML kuralları dosyası yolu olsa da *IISUrlRewrite.xml* örnek uygulamada.
 
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -310,49 +330,51 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
----
+::: moniker-end
 
-Örnek uygulaması isteklerden yeniden yazar `/iis-rules-rewrite/(.*)` için `/rewritten?id=$1`. 200 (Tamam) durum kodlu istemciye gönderilen yanıtı.
+Örnek uygulama, gelen istekleri yeniden yazar `/iis-rules-rewrite/(.*)` için `/rewritten?id=$1`. İstemciye bir 200 (Tamam) durum koduyla yanıt gönderilir.
 
 [!code-xml[](url-rewriting/sample/IISUrlRewrite.xml)]
 
 Özgün istek: `/iis-rules-rewrite/1234`
 
-![Geliştirici Araçları istek ve yanıt izleme ile bir tarayıcı penceresi](url-rewriting/_static/add_iis_url_rewrite.png)
+![Tarayıcının geliştirici araçları istek ve yanıt izleme](url-rewriting/_static/add_iis_url_rewrite.png)
 
-Uygulamanızı istenmeyen şekilde etkileyebilecek yapılandırılmış sunucu düzeyi kurallarıyla etkin bir IIS yeniden yazma modülü varsa, IIS yeniden yazma modülü bir uygulama için devre dışı bırakabilirsiniz. Daha fazla bilgi için bkz: [devre dışı bırakma IIS modüllerini](xref:host-and-deploy/iis/modules#disabling-iis-modules).
+Etkin bir IIS yeniden yazma modülü ile uygulamanızı istenmeyen yollarla erişememeleri yapılandırılmış sunucu düzeyinde kurallar varsa, IIS yeniden yazma modülü bir uygulama için devre dışı bırakabilirsiniz. Daha fazla bilgi için [devre dışı bırakma IIS modüllerini](xref:host-and-deploy/iis/modules#disabling-iis-modules).
 
 #### <a name="unsupported-features"></a>Desteklenmeyen özellikler
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+::: moniker range=">= aspnetcore-2.0"
 
-Yayımlanan ara yazılımı ile ASP.NET Core 2.x aşağıdaki IIS URL yeniden yazma modülü özellikleri desteklemez:
+Yayımlanan bir ara yazılım ile ASP.NET Core 2.x, aşağıdaki IIS URL yeniden yazma modülü özellikleri desteklemez:
 
 * Giden kuralları
 * Özel sunucu değişkenleri
 * Joker karakterler
 * LogRewrittenUrl
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker-end
 
-Yayımlanan ara yazılımı ile ASP.NET Core 1.x aşağıdaki IIS URL yeniden yazma modülü özellikleri desteklemez:
+::: moniker range="< aspnetcore-2.0"
+
+Yayımlanan bir ara yazılım ile ASP.NET Core 1.x aşağıdaki IIS URL yeniden yazma modülü özellikleri desteklemez:
 
 * Genel kurallar
 * Giden kuralları
-* MAPS yeniden yazma
+* Yeniden eşlemeleri
 * CustomResponse eylemi
 * Özel sunucu değişkenleri
 * Joker karakterler
 * Eylem: CustomResponse
 * LogRewrittenUrl
 
----
+::: moniker-end
 
 #### <a name="supported-server-variables"></a>Desteklenen sunucu değişkenleri
 
-Ara yazılım aşağıdaki IIS URL yeniden yazma modülünü sunucu değişkenleri destekler:
+Ara yazılım, aşağıdaki IIS URL yeniden yazma modülü sunucu değişkenleri destekler:
 
-* CONTENT_LENGTH İS SIFIRDAN BÜYÜK
+* CONTENT_LENGTH
 * CONTENT_TYPE
 * HTTP_ACCEPT
 * HTTP_CONNECTION
@@ -370,26 +392,28 @@ Ara yazılım aşağıdaki IIS URL yeniden yazma modülünü sunucu değişkenle
 * REQUEST_URI
 
 > [!NOTE]
-> Edinebilirsiniz bir `IFileProvider` aracılığıyla bir `PhysicalFileProvider`. Bu yaklaşım, yeniden yazma konumu için daha fazla esneklik kuralları dosyaları sağlayabilir. Sağladığınız yolun sunucusuna yeniden yazma kuralları dosyalarınızı dağıtılan emin olun.
+> De edinebilirsiniz bir `IFileProvider` aracılığıyla bir `PhysicalFileProvider`. Bu yaklaşım, yeniden yazma konumu için daha fazla esneklik kuralları dosyaları sağlayabilir. Sağladığınız yolun sunucusuna yeniden yazma kuralları dosyalarınızı dağıtıldığından emin emin olun.
 > ```csharp
 > PhysicalFileProvider fileProvider = new PhysicalFileProvider(Directory.GetCurrentDirectory());
 > ```
 
-### <a name="method-based-rule"></a>Yöntem temelli kuralı
+### <a name="method-based-rule"></a>Metot tabanlı kuralı
 
-Kullanım `Add(Action<RewriteContext> applyRule)` bir yöntem kendi kural mantığı uygulamak için. `RewriteContext` Sunan `HttpContext` yönteminizi kullanmak için. `context.Result` Nasıl ek ardışık düzen belirler işleme işlenir.
+Kullanım `Add(Action<RewriteContext> applyRule)` bir yöntemde kendi kural mantığı uygulamak için. `RewriteContext` Sunan `HttpContext` yönteminiz olarak kullanmak için. `context.Result` Nasıl ek işlem hattı belirler işleme gerçekleştirilir.
 
 | bağlamı. Sonuç                       | Eylem                                                          |
 | ------------------------------------ | --------------------------------------------------------------- |
-| `RuleResult.ContinueRules` (varsayılan) | Kuralları uygulama devam                                         |
+| `RuleResult.ContinueRules` (varsayılan) | Devam kuralları uygulama                                         |
 | `RuleResult.EndResponse`             | Kuralları uygulanmasını durdurmak ve yanıtı gönder                       |
-| `RuleResult.SkipRemainingRules`      | Kuralları uygulanmasını durdurmak ve bağlam için bir sonraki ara yazılım gönderin |
+| `RuleResult.SkipRemainingRules`      | Kuralları uygulanmasını durdurmak ve sonraki Ara yazılıma bağlamı gönderme |
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.0"
 
 [!code-csharp[](url-rewriting/sample/Startup.cs?name=snippet1&highlight=14)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 ```csharp
 public void Configure(IApplicationBuilder app)
@@ -401,25 +425,27 @@ public void Configure(IApplicationBuilder app)
 }
 ```
 
----
+::: moniker-end
 
-Örnek uygulama ile biten istekleri yollar için yönlendiren bir yöntem gösterilmektedir *.xml*. Bir istek yapıyorsa verilen `/file.xml`, onu yönlendireceği `/xmlfiles/file.xml`. Durum kodu 301 (taşınmış kalıcı olarak) ayarlanır. İçin bir yeniden yönlendirme, açıkça yanıtın durum kodu ayarlamanız gerekir; Aksi takdirde, 200 (Tamam) durum kodu döndürülür ve yeniden yönlendirme istemcide karşılaşılmaz.
+Örnek uygulama ile biten istekleri yolları için yönlendiren bir yöntemi gösterir *.xml*. Bir istek yapıp yapmadığını `/file.xml`, onu yönlendireceği `/xmlfiles/file.xml`. Durum kodu 301 (kalıcı taşındı) ayarlanır. İçin bir yeniden yönlendirme, yanıtın durum kodu açıkça ayarlamalısınız; Aksi takdirde, bir 200 (Tamam) durum kodu döndürülür ve istemcide yeniden yönlendirme karşılaşılmaz.
 
 [!code-csharp[](url-rewriting/sample/RewriteRules.cs?name=snippet1)]
 
 Özgün istek: `/file.xml`
 
-![Geliştirici isteklerin ve yanıtların file.xml için izleme araçları ile bir tarayıcı penceresi](url-rewriting/_static/add_redirect_xml_requests.png)
+![Tarayıcının geliştirici araçları istek ve yanıtların file.xml için izleme ile](url-rewriting/_static/add_redirect_xml_requests.png)
 
-### <a name="irule-based-rule"></a>IRule tabanlı kuralı
+### <a name="irule-based-rule"></a>Kural Irule tabanlı
 
-Kullanım `Add(IRule)` türeyen bir sınıf kendi kural mantığı uygulamak için `IRule`. Kullanarak bir `IRule` yöntemi tabanlı kural yaklaşım kullanarak üzerinde daha fazla esneklik sağlar. Burada, iletebilir parametrelerde bir oluşturucu, türetilmiş bir sınıf içerebilir `ApplyRule` yöntemi.
+Kullanım `Add(IRule)` türetildiği bir sınıf kendi kural mantığı kullanmak `IRule`. Kullanarak bir `IRule` yöntemi dayalı kural yaklaşımı kullanarak üzerinde daha fazla esneklik sağlar. Burada, geçirebilirsiniz parametreleri için bir oluşturucu, türetilmiş sınıfınızın içerebilir `ApplyRule` yöntemi.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.0"
 
 [!code-csharp[](url-rewriting/sample/Startup.cs?name=snippet1&highlight=15-16)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 ```csharp
 public void Configure(IApplicationBuilder app)
@@ -432,41 +458,41 @@ public void Configure(IApplicationBuilder app)
 }
 ```
 
----
+::: moniker-end
 
-Örnek uygulama için parametre değerlerini `extension` ve `newPath` birkaç koşullara uyan denetlenir. `extension` Bir değer içermelidir ve değeri olmalıdır *.png*, *.jpg*, veya *.gif*. Varsa `newPath` geçerli olmayan bir `ArgumentException` oluşturulur. Bir istek yapıyorsa verilen *image.png*, onu yönlendireceği `/png-images/image.png`. Bir istek yapıyorsa verilen *image.jpg*, onu yönlendireceği `/jpg-images/image.jpg`. Durum kodu 301 (kalıcı taşınmış) olarak ayarlanır ve `context.Result` kural işlemeyi durdur ve yanıt göndermek için ayarlanır.
+Örnek uygulama için parametre değerlerini `extension` ve `newPath` çeşitli koşullara uyması için denetlenir. `extension` Bir değer içermelidir ve değer olmalıdır *.png*, *.jpg*, veya *.gif*. Varsa `newPath` geçerli olmayan bir `ArgumentException` oluşturulur. Bir istek yapıp yapmadığını *image.png*, onu yönlendireceği `/png-images/image.png`. Bir istek yapıp yapmadığını *image.jpg*, onu yönlendireceği `/jpg-images/image.jpg`. Durum kodu 301 (kalıcı taşındı) olarak ayarlanır ve `context.Result` kural işlemeyi durdur ve yanıt göndermek için ayarlanır.
 
 [!code-csharp[](url-rewriting/sample/RewriteRules.cs?name=snippet2)]
 
 Özgün istek: `/image.png`
 
-![Geliştirici isteklerin ve yanıtların image.png için izleme araçları ile bir tarayıcı penceresi](url-rewriting/_static/add_redirect_png_requests.png)
+![Tarayıcının geliştirici araçları istek ve yanıtların image.png için izleme ile](url-rewriting/_static/add_redirect_png_requests.png)
 
 Özgün istek: `/image.jpg`
 
-![Geliştirici isteklerin ve yanıtların image.jpg için izleme araçları ile bir tarayıcı penceresi](url-rewriting/_static/add_redirect_jpg_requests.png)
+![Tarayıcının geliştirici araçları istek ve yanıtların image.jpg için izleme ile](url-rewriting/_static/add_redirect_jpg_requests.png)
 
-## <a name="regex-examples"></a>Regex örnekleri
+## <a name="regex-examples"></a>Normal ifade örnekleri
 
-| Hedef | Regex dize &<br>Eşleşme örneği | Değiştirme dizesini &<br>Çıkış örneği |
+| Hedef | Normal ifade dizesini &<br>Eşleşme örneği | Değiştirme dizesi &<br>Çıkış örneği |
 | ---- | :-----------------------------: | :------------------------------------: |
-| Yol querystring yeniden yazma | `^path/(.*)/(.*)`<br>`/path/abc/123` | `path?var1=$1&var2=$2`<br>`/path?var1=abc&var2=123` |
-| Şerit eğik | `(.*)/$`<br>`/path/` | `$1`<br>`/path` |
-| Sondaki eğik çizgi zorla | `(.*[^/])$`<br>`/path` | `$1/`<br>`/path/` |
-| Belirli isteklere yeniden yazma işlemi kaçının | `^(.*)(?<!\.axd)$` Veya `^(?!.*\.axd$)(.*)$`<br>Evet: `/resource.htm`<br>Hayır: `/resource.axd` | `rewritten/$1`<br>`/rewritten/resource.htm`<br>`/resource.axd` |
-| URL kesimleri yeniden düzenleme | `path/(.*)/(.*)/(.*)`<br>`path/1/2/3` | `path/$3/$2/$1`<br>`path/3/2/1` |
-| URL kesimi Değiştir | `^(.*)/segment2/(.*)`<br>`/segment1/segment2/segment3` | `$1/replaced/$2`<br>`/segment1/replaced/segment3` |
+| Querystring yol yeniden yazma | `^path/(.*)/(.*)`<br>`/path/abc/123` | `path?var1=$1&var2=$2`<br>`/path?var1=abc&var2=123` |
+| Şerit sonunda eğik çizgi | `(.*)/$`<br>`/path/` | `$1`<br>`/path` |
+| Eğik zorla | `(.*[^/])$`<br>`/path` | `$1/`<br>`/path/` |
+| Belirli isteklere yeniden yazma kaçının | `^(.*)(?<!\.axd)$` veya `^(?!.*\.axd$)(.*)$`<br>Evet: `/resource.htm`<br>Hayır: `/resource.axd` | `rewritten/$1`<br>`/rewritten/resource.htm`<br>`/resource.axd` |
+| URL kesimleri bunları yeniden düzenleme | `path/(.*)/(.*)/(.*)`<br>`path/1/2/3` | `path/$3/$2/$1`<br>`path/3/2/1` |
+| URL kesimi değiştirin | `^(.*)/segment2/(.*)`<br>`/segment1/segment2/segment3` | `$1/replaced/$2`<br>`/segment1/replaced/segment3` |
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Uygulama Başlatma](startup.md)
 * [Ara Yazılım](xref:fundamentals/middleware/index)
-* [.NET normal ifadeler](/dotnet/articles/standard/base-types/regular-expressions)
+* [.NET içinde normal ifadeler](/dotnet/articles/standard/base-types/regular-expressions)
 * [Normal ifade dili - hızlı başvuru](/dotnet/articles/standard/base-types/quick-ref)
 * [Apache mod_rewrite](https://httpd.apache.org/docs/2.4/rewrite/)
-* [URL yeniden yazma modülünü 2.0 (IIS için) kullanma](/iis/extensions/url-rewrite-module/using-url-rewrite-module-20)
-* [URL yeniden yazma modülü yapılandırma başvurusu](/iis/extensions/url-rewrite-module/url-rewrite-module-configuration-reference)
+* [URL yeniden yazma modülü 2.0 (IIS) kullanma](/iis/extensions/url-rewrite-module/using-url-rewrite-module-20)
+* [URL yeniden yazma Module yapılandırma başvurusu](/iis/extensions/url-rewrite-module/url-rewrite-module-configuration-reference)
 * [IIS URL yeniden yazma modülü Forumu](https://forums.iis.net/1152.aspx)
-* [Basit bir URL yapıya tutun](https://support.google.com/webmasters/answer/76329?hl=en)
-* [10 URL yeniden yazma ipuçları ve püf noktaları](http://ruslany.net/2009/04/10-url-rewriting-tips-and-tricks/)
-* [Eğik çizgi veya eğik çizgi yok](https://webmasters.googleblog.com/2010/04/to-slash-or-not-to-slash.html)
+* [Basit bir URL yapısı tutun](https://support.google.com/webmasters/answer/76329?hl=en)
+* [10 URL yeniden yazma, ipuçları ve püf noktaları](http://ruslany.net/2009/04/10-url-rewriting-tips-and-tricks/)
+* [Eğik çizgi veya değil eğik çizgi](https://webmasters.googleblog.com/2010/04/to-slash-or-not-to-slash.html)

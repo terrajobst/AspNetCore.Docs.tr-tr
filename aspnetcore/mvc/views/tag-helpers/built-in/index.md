@@ -3,23 +3,24 @@ title: ASP.NET Core yerleşik etiket Yardımcıları
 author: pkellner
 description: ASP.NET Core yerleşik etiket Yardımcıları üretkenliğinizi artırmanıza nasıl kullanıma bulun.
 ms.author: riande
-ms.date: 09/18/2018
+ms.custom: mvc
+ms.date: 10/10/2018
 uid: mvc/views/tag-helpers/builtin-th/Index
-ms.openlocfilehash: 5d9425e0b68578c86a6f9a691322e0bb63a860fb
-ms.sourcegitcommit: c684eb6c0999d11d19e15e65939e5c7f99ba47df
+ms.openlocfilehash: 58840d6ecd09bd2ae7f96c046a0cb93c018f9645
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46292316"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325490"
 ---
 # <a name="aspnet-core-built-in-tag-helpers"></a>ASP.NET Core yerleşik etiket Yardımcıları
 
 Tarafından [Peter Kellner](http://peterkellner.net)
 
-ASP.NET Core birçok yerleşik etiket üretkenliğinizi artırmak için Yardımcıları içerir. Bu bölümde, yerleşik etiket Yardımcıları için genel bir bakış sağlar.
+Etiket Yardımcıları genel bakış için bkz. <xref:mvc/views/tag-helpers/intro>.
 
 > [!NOTE]
-> Tarafından dahili olarak kullanılan için bu durum, açıklanan olmayan yerleşik etiket Yardımcıları vardır [Razor](xref:mvc/views/razor) görünüm altyapısı. Bu etiket Yardımcısı için içerir ~ karakteri Web sitesinin kök yolunu genişletir.
+> Belgelerinde açıklanan olmayan yerleşik etiket Yardımcıları vardır. Bu etiket Yardımcıları tarafından dahili olarak kullanılan [Razor](xref:mvc/views/razor) görünüm altyapısı. Bu etiket Yardımcısı için içerir `~` Web sitesinin kök yolunu genişletir (tilde) karakteri.
 
 ## <a name="built-in-aspnet-core-tag-helpers"></a>ASP.NET Core yerleşik etiket Yardımcıları
 

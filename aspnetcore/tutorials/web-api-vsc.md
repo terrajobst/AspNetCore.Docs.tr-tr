@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/30/2018
 uid: tutorials/web-api-vsc
-ms.openlocfilehash: 4ce808ec4241ab2fc3c2fb81c3fdb15dd853cd90
-ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
-ms.translationtype: MT
+ms.openlocfilehash: e549bc3adf3efa32b3ac975cf04a35f508a554d5
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39342282"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325633"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio-code"></a>ASP.NET Core ve Visual Studio Code ile Web API'si oluşturma
 
@@ -63,7 +63,7 @@ Bkz: [Visual Studio Code Yardım](#visual-studio-code-help) için VS Code kullan
 
 :::moniker range=">= aspnetcore-2.1"
 
-ASP.NET Core 2.1 veya daha sonra yeni proje oluşturma ekler [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App) paketini başvuru *TodoApi.csproj* dosya. Ekleme `Version` zaten belirtilmişse, öznitelik.
+ASP.NET Core 2.1 veya daha sonra yeni proje oluşturma ekler [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App) paketini başvuru *TodoApi.csproj* dosyası:
 
 [!code-xml[](first-web-api/samples/2.1/TodoApi/TodoApi.csproj?name=snippet_Metapackage&highlight=2)]
 

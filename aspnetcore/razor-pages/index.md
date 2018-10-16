@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/12/2018
 uid: razor-pages/index
-ms.openlocfilehash: 54ef82bf64552e71e53178fdbcd8d226ea99b012
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 7bd597acedade65f2be53f4f50a436981e576b1f
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913274"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49326127"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>ASP.NET Core Razor sayfalar giriş
 
@@ -221,7 +221,7 @@ Sil düğmesini HTML işlendiğinde, `formaction` parametreleri içerir:
 <button type="submit" formaction="/?id=1&amp;handler=delete">delete</button>
 ```
 
-Düğme seçildiğinde, bir form `POST` isteği sunucuya gönderilir. Kural gereği, işleyici yönteminin adı seçili değerine göre `handler` parametre düzeni göre `OnPost[handler]Async`.
+Düğme seçildiğinde, bir form `POST` isteği sunucuya gönderilir. Kural gereği, işleyici yönteminin adı değerine göre seçilen `handler` parametre düzeni göre `OnPost[handler]Async`.
 
 Çünkü `handler` olduğu `delete` Bu örnekte, `OnPostDeleteAsync` işleyicisi yöntemi kullanılır işleme `POST` isteği. Varsa `asp-page-handler` gibi farklı bir değere ayarlanmış `remove`, ada sahip bir sayfa işleyicisi yöntemi `OnPostRemoveAsync` seçilir.
 
@@ -264,7 +264,7 @@ services.AddMvc()
     .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
 ```
 
-Varsayılan şablon oluşturma `SetCompatibilityVersion` , ASP.NET Core 2.1 ve 2.2 çağırın.
+Varsayılan şablon oluşturma `SetCompatibilityVersion` 2.2 ve ASP.NET Core 2.1 ile çağırın.
 
 `SetCompatibilityVersion` Razor sayfaları seçeneği etkili bir şekilde ayarlar `AllowMappingHeadRequestsToGetHandler` için `true`.
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/29/2018
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: c0bacc72cd02a5ebf993ca8ba5db2c7fe4325a29
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 315261c4d20970fc399cc2a879dd452bdf3be93f
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913196"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49326062"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>ASP.NET Core uygulamalarını Azure App Service'e dağıtma
 
@@ -58,6 +58,8 @@ ASP.NET Core 2.0 veya sonraki sürümlerde, aşağıdaki NuGet paketlerini Azure
 ## <a name="override-app-configuration-using-the-azure-portal"></a>Azure portalını kullanarak uygulama yapılandırması geçersiz kıl
 
 **Uygulama ayarları** alanının **uygulama ayarları** dikey penceresinde, uygulama için ortam değişkenlerini ayarlamak için izin verir. Ortam değişkenleri tarafından kullanılabilir [ortam değişkenlerini yapılandırma sağlayıcısı](xref:fundamentals/configuration/index#environment-variables-configuration-provider).
+
+Ne zaman bir uygulama ayarı oluşturulduğunda veya Azure Portalı'nda değiştirildiğinde ve **Kaydet** düğmesi seçildiğinde, Azure uygulamasını yeniden başlatılır. Hizmet yeniden başlatıldıktan sonra uygulamaya ortam değişkeni kullanılabilir.
 
 Bir uygulama kullandığında [Web ana bilgisayarı](xref:fundamentals/host/web-host) kullanarak ana bilgisayar oluşturur [WebHost.CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder), ana bilgisayar yapılandırma ortam değişkenlerini kullanma `ASPNETCORE_` önek. Daha fazla bilgi için <xref:fundamentals/host/web-host> ve [ortam değişkenlerini yapılandırma sağlayıcısı](xref:fundamentals/configuration/index#environment-variables-configuration-provider).
 
@@ -111,7 +113,7 @@ Aşağıdaki yaklaşımlardan birini kullanın:
 
 Önizleme site uzantısı kullanarak bir sorun ortaya çıkarsa, bir sorun açın [GitHub](https://github.com/aspnet/azureintegration/issues/new).
 
-1. Azure portalda, App Service dikey penceresine gidin.
+1. Azure Portalı'ndan, App Service dikey penceresine gidin.
 1. Web uygulamasını seçin.
 1. Yönetim bölümlere listesini aşağı kaydırın ve arama kutusuna "ör" türünde **geliştirme araçları**.
 1. Seçin **geliştirme araçları** > **uzantıları**.

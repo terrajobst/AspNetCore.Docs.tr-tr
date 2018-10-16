@@ -8,12 +8,12 @@ ms.date: 02/06/2013
 ms.assetid: b91e6424-1544-4747-bd0b-d1f8418c9653
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-security-guidance
 msc.type: authoredcontent
-ms.openlocfilehash: 2a5b776a81cb3e3cf809dd3c4229448988086a32
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 4ba53e15dab83368097a58ba4d0d2e46d113d1d2
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41752128"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325724"
 ---
 <a name="security-guidance-for-aspnet-web-api-2-odata"></a>Güvenlik Kılavuzu ASP.NET Web API 2 OData
 ====================
@@ -59,7 +59,7 @@ Tüm istemciler (örneğin, bir kuruluş ortamında) güvenilir biliyorsanız ya
 - Bunlar yavaş olması gibi any() ve all() işlevler devre dışı bırakmayı düşünün. 
 
     [!code-csharp[Main](odata-security-guidance/samples/sample7.cs)]
-- Herhangi bir dize özelliği büyük dizelerin & #8212for Örneğin, bir ürün açıklaması veya blog girişine & # dize işlevleri devre dışı bırakma 8212consider içeriyorsa. 
+- Herhangi bir dize özelliği büyük dizelerin içeriyorsa&#8212;ürün açıklaması veya blog girişi&#8212;dize işlevleri devre dışı bırakmayı düşünün. 
 
     [!code-csharp[Main](odata-security-guidance/samples/sample8.cs)]
 - Gezinti özellikleri filtreleme engelleyerek göz önünde bulundurun. Gezinti özellikleri filtreleme bağlı olarak, veritabanı şemasını yavaş olabilir bir birleştirme neden olabilir. Aşağıdaki kod, gezinti özellikleri filtreleme engelleyen bir sorgu Doğrulayıcı gösterir. Sorgu doğrulayıcıları hakkında daha fazla bilgi için bkz: [sorgu doğrulama](supporting-odata-query-options.md#query-validation). 
