@@ -2,6 +2,8 @@
 
 Bu öğreticide, ASP.NET Core 2.1 için yükseltilmedi. Bu öğreticide ASP.NET Core 2.0 sürümünü seçerek kullanılabilir **ASP.NET Core 2.0** içindekiler veya sayfanın üst kısmındaki tablonun üstündeki:
 
+![öğreticiler ](~//data/ef-rp/read-related-data/_static/2.1.png)
+
 Bu öğreticide, ASP.NET Core 2.1 Razor sayfaları sürümü 2.0 sürümünün üzerine birçok geliştirme vardır.
 
 Görünümleri ve denetleyicileri ile ASP.NET Core MVC ve Entity Framework Core 2.0 Öğreticisi öğretir. Razor sayfaları, sayfa tabanlı ve web kullanıcı Arabirimi daha kolay ve üretken bir hale getiren bir programlama modeli olur. Öneririz [Razor sayfaları](xref:data/ef-rp/intro) MVC sürüm üzerinden öğretici. Razor sayfaları öğretici:
