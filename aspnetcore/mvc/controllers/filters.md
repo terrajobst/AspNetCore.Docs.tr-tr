@@ -3,14 +3,15 @@ title: ASP.NET core'da filtreleri
 author: ardalis
 description: Filtreleri nasıl çalıştığını ve ASP.NET Core MVC nasıl kullanacağınızı öğrenin.
 ms.author: riande
+ms.custom: mvc
 ms.date: 10/15/2018
 uid: mvc/controllers/filters
-ms.openlocfilehash: 8b3291474883f2cad35283c6104327e03fcc3fec
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 6803e8e3a285716792427e9fb059c204f5a88ecb
+ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49326036"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49391316"
 ---
 # <a name="filters-in-aspnet-core"></a>ASP.NET core'da filtreleri
 

@@ -3,20 +3,29 @@ title: ASP.NET core'da düzeni
 author: ardalis
 description: Yaygın düzenlerini kullanmayı, yönergeleri paylaşın ve işleme görünümleri önce ortak kod içinde ASP.NET Core uygulaması çalıştırma hakkında bilgi edinin.
 ms.author: riande
-ms.date: 10/14/2016
+ms.date: 10/18/2018
 uid: mvc/views/layout
-ms.openlocfilehash: ad0b339572f387be8a636204015ffc361947acb8
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: b23fd4e0b1d91a4dd5aae548aa2b2081aa37a561
+ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41754046"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49391303"
 ---
 # <a name="layout-in-aspnet-core"></a>ASP.NET core'da düzeni
 
-Tarafından [Steve Smith](https://ardalis.com/)
+Tarafından [Steve Smith](https://ardalis.com/) ve [Dave Brock](https://twitter.com/daveabrock)
 
-Görünümler, görsel ve programlama öğeleri sık paylaşın. Bu makalede, yaygın düzenlerini kullanmayı, yönergeleri paylaşın ve ASP.NET Core uygulamanızı oluşturma görünümleri önce ortak kod çalıştırmak öğreneceksiniz.
+Sayfalar ve görünümler sık görsel ve programlama öğeleri paylaşın. Bu makalede gösterilmiştir nasıl yapılır:
+
+* Ortak düzenler kullanın.
+* Yönergeleri paylaşın.
+* İşleme sayfaları veya görünümleri önce ortak kodu çalıştırın.
+
+Bu belge için ASP.NET Core MVC iki farklı yaklaşım düzenleri ele alınmaktadır: Razor sayfaları ve görünüm denetleyicileri. Bu konu için en az bir fark vardır:
+
+* Razor sayfaları bulunduğunuz *sayfaları* klasör.
+* Görünümler kullanan denetleyicileriyle bir *görünümleri* görünümleri için klasör.
 
 ## <a name="what-is-a-layout"></a>Bir düzen nedir
 
@@ -26,15 +35,21 @@ Görünümler, görsel ve programlama öğeleri sık paylaşın. Bu makalede, ya
 
 Betikleri ve stil sayfalarını gibi ortak HTML yapıları, bir uygulama içinde birçok sayfaları da sık sık kullanılır. Tüm bu paylaşılan öğeleri içinde tanımlanabilir bir *Düzen* dosya, uygulama içinde kullanılan herhangi bir görünüm tarafından başvurulabilir. Düzenleri azaltmaya yardımcı görünümlerde yinelenen kod izleyin [yoksa yineleyin kendiniz (KURU) İlkesi](http://deviq.com/don-t-repeat-yourself/).
 
-Kural gereği, ASP.NET Core uygulaması için varsayılan düzen adlı `_Layout.cshtml`. Visual Studio ASP.NET Core MVC proje şablonu Düzen bu dosyada içerir `Views/Shared` klasörü:
+Kural gereği, ASP.NET Core uygulaması için varsayılan düzen adlı *_Layout.cshtml*. Düzen dosyası şablonları ile oluşturulan yeni ASP.NET Core projeleri için:
 
-![Çözüm Gezgini klasöründe görünümleri](layout/_static/web-project-views.png)
+* Razor sayfaları: *Pages/Shared/_Layout.cshtml*
 
-Bu düzen, bir üst düzey şablonu görünümler için uygulamada tanımlar. Uygulamaları bir düzen gerektirmeyen ve uygulamaları alan farklı düzenler belirterek farklı görünümleri ile birden fazla Düzen tanımlayabilirsiniz.
+  ![Çözüm Gezgini sayfalar klasöründe](layout/_static/rp-web-project-views.png)
 
-Bir örnek `_Layout.cshtml`:
+* Görünüm denetleyicisi: *Views/Shared/_Layout.cshtml*
 
-[!code-html[](../../common/samples/WebApplication1/Views/Shared/_Layout.cshtml?highlight=42,66)]
+ ![Çözüm Gezgini klasöründe görünümleri](layout/_static/mvc-web-project-views.png)
+
+Düzen görünümleri için üst düzey şablon uygulamada tanımlar. Uygulamaları bir düzen gerektirmez. Uygulamaları farklı görünümler alan farklı düzenler belirten birden fazla Düzen tanımlayabilirsiniz.
+
+Aşağıdaki kod projesi bir denetleyici ve görünümler ile oluşturulmuş bir şablonu Düzen dosyası gösterir:
+
+[!code-html[](~/common/samples/WebApplication1/Views/Shared/_Layout.cshtml?highlight=44,72)]
 
 ## <a name="specifying-a-layout"></a>Bir düzen belirtme
 
@@ -42,7 +57,7 @@ Razor görünümleri olan bir `Layout` özelliği. Tek bir görünüm bu özelli
 
 [!code-html[](../../common/samples/WebApplication1/Views/_ViewStart.cshtml?highlight=2)]
 
-Belirtilen düzen bir tam yol kullanabilirsiniz (örnek: `/Views/Shared/_Layout.cshtml`) ya da kısmi bir ad (örnek: `_Layout`). Kısmi bir adı sağlandığında, Razor görünüm altyapısını kullanarak kendi standart bulma işlemi için yerleşim dosyası arar. Denetleyici ilişkili klasörü, ilk olarak, arkasından aranır `Shared` klasör. Bu bulma işlemi için keşfetmek için kullanılan bir aynıdır [kısmi görünümler](partial.md).
+Belirtilen düzen bir tam yol kullanabilirsiniz (örneğin, */Pages/Shared/_Layout.cshtml* veya */Views/Shared/_Layout.cshtml*) ya da kısmi bir ad (örnek: `_Layout`). Kısmi bir adı sağlandığında, Razor görünüm altyapısını kullanarak kendi standart bulma işlemi için yerleşim dosyası arar. İşleyici yöntemi (veya denetleyicisi) bulunduğu klasör, ilk olarak, arkasından aranır *paylaşılan* klasör. Bu bulma işlemi için keşfetmek için kullanılan bir aynıdır [kısmi görünümler](partial.md).
 
 Varsayılan olarak, her Düzen çağırmalıdır `RenderBody`. Her yerde çağrısı `RenderBody` olan konumdaki görünüm içeriğinin işlenir.
 
@@ -50,19 +65,37 @@ Varsayılan olarak, her Düzen çağırmalıdır `RenderBody`. Her yerde çağr�
 
 ### <a name="sections"></a>Bölümler
 
-Bir düzen, isteğe bağlı olarak bir veya daha fazla başvurabilirsiniz *bölümleri*, çağırarak `RenderSection`. Bölümler, belirli sayfa öğeleri nereye yerleştirileceğini düzenlemek için bir yol sağlar. Her çağrı `RenderSection` bu bölümün gerekli veya isteğe bağlı olup olmadığını belirtebilirsiniz. Gerekli bölüm bulunamazsa, bir özel durum oluşturulur. Tek bir görünüm içinde bir bölümde kullanılarak oluşturulması için içeriği belirtin `@section` Razor söz dizimi. Görünüm bir bölüm tanımlar, işlenen gerekir (veya bir hata meydana gelir).
+Bir düzen, isteğe bağlı olarak bir veya daha fazla başvurabilirsiniz *bölümleri*, çağırarak `RenderSection`. Bölümler, belirli sayfa öğeleri nereye yerleştirileceğini düzenlemek için bir yol sağlar. Her çağrı `RenderSection` bu bölümün gerekli veya isteğe bağlı olup olmadığını belirtebilirsiniz:
 
-Bir örnek `@section` görünüm tanımında:
+```html
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}
+```
+
+Gerekli bölüm bulunamazsa, bir özel durum oluşturulur. Tek bir görünüm içinde bir bölümde kullanılarak oluşturulması için içeriği belirtin `@section` Razor söz dizimi. Bir sayfa ya da görünümün bir bölüm tanımlar, işlenen gerekir (veya bir hata meydana gelir).
+
+Bir örnek `@section` Razor sayfaları görünüm tanımında:
 
 ```html
 @section Scripts {
      <script type="text/javascript" src="/scripts/main.js"></script>
-   }
-   ```
+}
+```
 
-Yukarıdaki kod doğrulama betikleri için eklenen `scripts` bölümü bir form içeren bir görünümü. Aynı uygulamayı diğer görünümlerde herhangi ek komut dosyası gerekli değil ve bu nedenle betikleri bölümü tanımlaması gerekmez.
+Önceki kodda, *scripts/main.js* eklenir `scripts` bir sayfa ya da Görünüm bölümü. Diğer sayfaları veya görünümleri aynı uygulamada bu betik gerekli değil ve betikleri bölüm tanımlayın mıydı.
 
-Bir görünümde tanımlı bölüm, yalnızca kendi anlık düzen sayfası içinde kullanılabilir. Bunlar, kısmi görünüm bileşenleri veya Görünüm sistemin diğer bölümlerini başvurulamaz.
+Aşağıdaki biçimlendirmede kullanan [kısmi etiket Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper) işlenecek *_ValidationScriptsPartial.cshtml*:
+
+```html
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+```
+
+Önceki biçimlendirme tarafından oluşturulmuş [kimlik iskele kurma özelliği](xref:security/authentication/scaffold-identity).
+
+Bir sayfa veya görünümde tanımlı bölüm, yalnızca kendi anlık düzen sayfası içinde kullanılabilir. Bunlar, kısmi görünüm bileşenleri veya Görünüm sistemin diğer bölümlerini başvurulamaz.
 
 ### <a name="ignoring-sections"></a>Bölümler yoksayılıyor
 
@@ -76,20 +109,14 @@ Gövde ve her bölümde bir Razor sayfası işlenen yoksayıldı veya gerekir.
 
 ## <a name="importing-shared-directives"></a>Paylaşılan yönergeleri alma
 
-Görünümler, ad alanlarını alma veya gerçekleştirme gibi pek çok şeyi yapmak için Razor yönergeleri kullanabilir [bağımlılık ekleme](dependency-injection.md). Yönergeleri çoğu görünümler tarafından paylaşılan ortak belirtilen `_ViewImports.cshtml` dosya. `_ViewImports` Dosyasını aşağıdaki yönergeleri destekler:
+Görünümlere ve sayfalara Razor ad alanları ve kullanım içeri aktarma yönergelerini kullanabilirsiniz [bağımlılık ekleme](dependency-injection.md). Yönergeleri çoğu görünümler tarafından paylaşılan ortak belirtilen *_viewımports.cshtml* dosya. `_ViewImports` Dosyasını aşağıdaki yönergeleri destekler:
 
 * `@addTagHelper`
-
 * `@removeTagHelper`
-
 * `@tagHelperPrefix`
-
 * `@using`
-
 * `@model`
-
 * `@inherits`
-
 * `@inject`
 
 Dosya, İşlevler ve bölüm tanımları gibi diğer Razor özellikleri desteklemez.
@@ -98,35 +125,34 @@ Bir örnek `_ViewImports.cshtml` dosyası:
 
 [!code-html[](../../common/samples/WebApplication1/Views/_ViewImports.cshtml)]
 
-`_ViewImports.cshtml` Bir ASP.NET Core MVC uygulaması genellikle yerleştirilir için dosya `Views` klasör. A `_ViewImports.cshtml` içinde çalışması, yalnızca uygulanacak görünümleri, klasör ve alt klasörleri içinde herhangi bir klasör içinde dosya yerleştirilebilir. `_ViewImports` dosyaları kök düzeyinde başlangıç işlenir ve ardından kadar önde gelen her bir klasör için görünümünün kendisinde konumu ayarları kök düzeyinde belirtilen şekilde geçersiz klasör düzeyinde.
+*_Viewımports.cshtml* bir ASP.NET Core MVC uygulaması genellikle yerleştirilir için dosya *sayfaları* (veya *görünümleri*) klasörü. A *_viewımports.cshtml* herhangi bir klasör içinde dosya yerleştirilebileceğini, bu durumda, yalnızca sayfa veya görünümler bu klasöre ve alt klasörleri içinde uygulanır. `_ViewImports` dosyaları kök düzeyinde ve ardından sayfanın konumunu öncesinde her klasör için başlangıç işlenir veya kendisini görüntüleyin. `_ViewImports` kök düzeyindeki ayarları klasör düzeyinde geçersiz kılınabilir.
 
-Örneğin, bir kök düzeyinde `_ViewImports.cshtml` dosyasını belirtir `@model` ve `@addTagHelper`ve başka bir `_ViewImports.cshtml` farklı bir görünüm denetleyicisi ilişkili bir klasörde dosya belirtir `@model` ve başka ekler `@addTagHelper`, görünümü Her iki etiket Yardımcıları erişebilir ve ikincisi kullanacağı `@model`.
+Örneğin, varsayalım:
 
-Birden çok `_ViewImports.cshtml` dosyaları için bir görünüm çalıştırın, birlikte bulunan yönergeleri davranışını `ViewImports.cshtml` dosyaları şu şekilde olacaktır:
+* Kök düzeyinde *_viewımports.cshtml* dosyasını içeren `@model MyModel1` ve `@addTagHelper *, MyTagHelper1`.
+* Bir alt klasör *_viewımports.cshtml* dosyasını içeren `@model MyModel2` ve `@addTagHelper *, MyTagHelper2`.
+
+Sayfalar ve görünümler alt iki etiket Yardımcıları erişimi olacaktır ve `MyModel2` modeli.
+
+Birden çok *_viewımports.cshtml* yönergeleri birleşik davranışını olan dosyaları dosya hiyerarşide bulunur:
 
 * `@addTagHelper`, `@removeTagHelper`: sırayla tüm çalışma
-
 * `@tagHelperPrefix`: en yakındakine görünümüne başka geçersiz kılar.
-
 * `@model`: en yakındakine görünümüne başka geçersiz kılar.
-
 * `@inherits`: en yakındakine görünümüne başka geçersiz kılar.
-
 * `@using`: tüm; dahildir yinelenenler yoksayıldı
-
 * `@inject`: her bir özellik için en yakın bir görünüm için aynı adla başkalarıyla geçersiz kılar
 
 <a name="viewstart"></a>
 
 ## <a name="running-code-before-each-view"></a>Her görünüm önce kod çalıştırma
 
-Sahip kod önce her bir görünüm çalıştırmanız gerekir, bu yerleştirilmelidir `_ViewStart.cshtml` dosya. Kural olarak, `_ViewStart.cshtml` dosyası `Views` klasör. Listelenen deyimleri `_ViewStart.cshtml` önce her tam görünüm (değil düzenleri ve kısmi görünümler) çalıştırın. Gibi [ViewImports.cshtml](xref:mvc/views/layout#viewimports), `_ViewStart.cshtml` hiyerarşik olduğu anlamına gelir. Varsa bir `_ViewStart.cshtml` dosya görünümü denetleyicisi ilişkili klasöründe tanımlanır, kök dizininde tanımlananla sonra çalıştırılacak `Views` klasörü (varsa).
+Her görünüm veya sayfa önce çalıştırmak için gereken kodu yerleştirilmelidir *_ViewStart.cshtml* dosya. Kural olarak, *_ViewStart.cshtml* dosyası *sayfaları* (veya *görünümleri*) klasörü. Listelenen deyimleri *_ViewStart.cshtml* önce her tam görünüm (değil düzenleri ve kısmi görünümler) çalıştırın. Gibi [ViewImports.cshtml](xref:mvc/views/layout#viewimports), *_ViewStart.cshtml* hiyerarşik olduğu anlamına gelir. Varsa bir *_ViewStart.cshtml* dosya tanımlanır görünümü veya sayfalar klasöründe, kök dizininde tanımlananla sonra çalıştırılacak *sayfaları* (veya *görünümleri*) klasörü (varsa).
 
-Bir örnek `_ViewStart.cshtml` dosyası:
+Bir örnek *_ViewStart.cshtml* dosyası:
 
 [!code-html[](../../common/samples/WebApplication1/Views/_ViewStart.cshtml)]
 
-Yukarıdaki dosyanın tüm görünümlere kullanacağını belirtir `_Layout.cshtml` düzeni.
+Yukarıdaki dosyanın tüm görünümlere kullanacağını belirtir *_Layout.cshtml* düzeni.
 
-> [!NOTE]
-> Ne `_ViewStart.cshtml` ya da `_ViewImports.cshtml` genelde yerleştirilir `/Views/Shared` klasör. Uygulama düzeyinde bu dosyaların sürümleri doğrudan yerleştirilmelidir `/Views` klasör.
+*_ViewStart.cshtml* ve *_viewımports.cshtml* olan **değil** genellikle yerleştirilen */sayfaları/paylaşılan* (veya   */görünümler/paylaşılan*) klasör. Uygulama düzeyinde bu dosyaların sürümleri doğrudan yerleştirilmelidir */sayfaları* (veya */görünümler*) klasörü.

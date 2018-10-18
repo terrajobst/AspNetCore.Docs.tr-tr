@@ -8,12 +8,12 @@ ms.date: 06/10/2014
 ms.assetid: ed562717-8591-4936-8e10-c7e63dcb570a
 msc.legacyurl: /signalr/overview/security/introduction-to-security
 msc.type: authoredcontent
-ms.openlocfilehash: 765abd36c5182f291499042e787bcb4fcc727997
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 6336d9608f41c367c46d5b9552141546bc782b7d
+ms.sourcegitcommit: 12a8bdb8e83ca9c23c06f3bc6507c9e1a60ea7e5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48910867"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49401874"
 ---
 <a name="introduction-to-signalr-security"></a>SignalR güvenliğine giriş
 ====================
@@ -85,6 +85,14 @@ Her istek için sunucu içeriği isteğinin belirtilen kullanıcıdan geldiğini
 ![](introduction-to-security/_static/image4.png)
 
 Bağlantı kimliğini doğrulama işleminin bir parçası olduğundan, bir kullanıcının bağlantı kimliği diğer kullanıcılara göstermek veya gerekir değeri istemcide bir tanımlama bilgisinde depolayıp gibi.
+
+#### <a name="connection-tokens-vs-other-token-types"></a>Bağlantı belirteçleri diğer belirteç türleri karşılaştırması
+
+Oturum belirteçleri veya kullanıma sunulan, bir risk doğurur kimlik doğrulama belirteçlerini filtreleyebileceğiniz bağlantı belirteçleri bazen güvenlik araçları tarafından işaretlenir.
+
+SignalR bağlantı belirteci kimlik doğrulaması belirteci değil. Bu isteği yapan kullanıcı bağlantıyı oluşturan örneğiyle aynı olduğundan emin olmak için kullanılır. ASP.NET SignalR bağlantıları sunucular arasında taşımak izin verdiği için bağlantı belirteci gereklidir. Belirteci bağlantı belirli bir kullanıcıyla ilişkilendirir, ancak istekte bulunan kullanıcının kimliğini assert değil. Bir SignalR isteğini düzgün bir şekilde kimlik doğrulaması başka bir tanımlama bilgisi gibi kullanıcı kimliğini onaylar belirteci veya taşıyıcı belirteç olmalıdır. Ancak, bağlantı belirteci kendisi yapar, isteğin yalnızca o bağlantı kimliği belirteçteki bu kullanıcı tarafından yapılan hiçbir talep Bu kullanıcıyla ilişkili olur.
+
+Hiçbir kimlik doğrulaması talep kendi bağlantı belirteci sağlar olduğundan, "oturumu" veya "kimlik doğrulaması" kabul değil belirteci. İstek kullanıcı kimliğini ve belirteçte depolanan kimlik eşleşmeyecektir çünkü belirli bir kullanıcının bağlantı belirteci alma ve farklı bir kullanıcı olarak kimliği doğrulanmış bir istek (veya kimliği doğrulanmamış bir isteği) yeniden yürüterek başarısız olur.
 
 <a id="rejoingroup"></a>
 

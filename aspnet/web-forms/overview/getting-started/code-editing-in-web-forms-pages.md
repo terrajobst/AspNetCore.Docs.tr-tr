@@ -8,12 +8,12 @@ ms.date: 03/03/2014
 ms.assetid: 5344b74e-b888-479a-92bc-601a33bd61a2
 msc.legacyurl: /web-forms/overview/getting-started/code-editing-in-web-forms-pages
 msc.type: authoredcontent
-ms.openlocfilehash: 5bf10a78b106475ffc01b732b21088bad67eb93d
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 670f81ca1ef9923575cb2fee1747f06f426963d8
+ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41754770"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49391225"
 ---
 <a name="code-editing-aspnet-web-forms-in-visual-studio-2013"></a>Visual Studio 2013'te kod düzenleme ASP.NET Web formları
 ====================
@@ -42,9 +42,6 @@ Bu izlenecek yolu tamamlamak için şunlar gerekir:
     > Microsoft Visual Studio 2013 ve Web için Visual Studio Express 2013 Microsoft genellikle için Visual Studio Bu öğretici serisinin denir.  
     >   
     > Visual Studio kullanıyorsanız, bu kılavuzda, seçtiğiniz varsayılır **Web geliştirme** ayarlar koleksiyonu, Visual Studio'yu ilk başlattığınızda. Daha fazla bilgi için [nasıl yapılır: Web geliştirme ortamı ayarlarını seçin](https://msdn.microsoft.com/library/ff521558.aspx).
-
-  Visual Studio ve ASP.NET giriş için bkz [Visual Studio 2013'te temel ASP.NET 4.5 Web Forms sayfası oluşturma](creating-a-basic-web-forms-page.md).   
- 
 
 ## <a name="creating-a-web-application-project-and-a-page"></a>Bir Web uygulaması projesi ve bir sayfa oluşturma
 

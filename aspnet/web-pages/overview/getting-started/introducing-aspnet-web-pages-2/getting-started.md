@@ -1,6 +1,6 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/getting-started
-title: Karşınızda ASP.NET Web sayfaları - kullanmaya başlama | Microsoft Docs
+title: Başlarken | Microsoft Docs
 author: tfitzmac
 description: WebMatrix, artık bir tümleşik geliştirme ortamı olarak ASP.NET Web sayfaları için önerilir. Visual Studio veya Visual Studio Code'u kullanın. Bu kılavuz bir...
 ms.author: riande
@@ -8,14 +8,14 @@ ms.date: 05/28/2015
 ms.assetid: a36d3bdf-ef1b-47a4-b932-3a0cf4cad716
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: 12878082306cf51f8ea08ae614d9420251ecb587
-ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
+ms.openlocfilehash: 467239fdd2758240e589f4e1bfb40501502b83cf
+ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46482963"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49391277"
 ---
-<a name="introducing-aspnet-web-pages---getting-started"></a>Karşınızda ASP.NET Web sayfaları - kullanmaya başlama
+<a name="getting-started"></a>Başlarken
 ====================
 tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
