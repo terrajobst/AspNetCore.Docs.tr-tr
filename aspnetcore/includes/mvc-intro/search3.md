@@ -32,8 +32,9 @@ Aşağıdaki `MovieGenreViewModel` sınıfının *modelleri* klasörü:
 Film Tarz görünüm modeli içerir:
 
    * Filmler listesi.
-   * A `SelectList` türleri listesini içeren. Bu kullanıcı listeden bir türe izin verir.
+   * A `SelectList` türleri listesini içeren. Bu kullanıcının listeden bir türe izin verir.
    * `MovieGenre`, seçilen türe içerir.
+   * `SearchString`, kullanıcıların, arama metin kutusuna girdiğiniz metnin içerir.
 
 Değiştirin `Index` yönteminde `MoviesController.cs` aşağıdaki kod ile:
 
@@ -44,6 +45,8 @@ Aşağıdaki kod bir `LINQ` veritabanından tüm türleri alan sorgu.
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_LINQ)]
 
 `SelectList` Türleri (biz istemiyorsanız seçin listemize yinelenen tür sahip) farklı tür yansıtma tarafından oluşturulur.
+
+Kullanıcı için olan öğeyle aradığında, arama kutusuna arama değeri korunur. Arama değeri saklamak üzere doldurmak `SearchString` özellik arama değeri. Ara değer `searchString` parametresi için `Index` denetleyici eylemi.
 
 ```csharp
 movieGenreVM.genres = new SelectList(await genreQuery.Distinct().ToListAsync())

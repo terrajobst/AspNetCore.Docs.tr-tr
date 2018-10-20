@@ -5,12 +5,12 @@ description: ASP.NET Core kimliği için özel depolama sağlayıcıları yapıl
 ms.author: riande
 ms.date: 09/17/2018
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: db51c39cc700f93917f54c80adbfe7922ffcd67e
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: e206cf584d92a17d61676d71abc6fb577ae63453
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011267"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477624"
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>ASP.NET Core kimliği için özel depolama sağlayıcıları
 
@@ -41,7 +41,7 @@ dotnet new webapi -au Individual
 
 ## <a name="the-aspnet-core-identity-architecture"></a>ASP.NET Core kimliği mimarisi
 
-ASP.NET Core kimliği yöneticileri ve depoları adlı sınıftan oluşur. *Yöneticileri* kimlik kullanıcı oluşturmak gibi işlemleri gerçekleştirmek için bir uygulama geliştiricisi kullanan üst düzey sınıflar. *Depoları* kullanıcılar ve roller gibi varlıkları nasıl kalıcı belirtin alt düzey sınıflar. Depoları izleyin [depo deseni](xref:fundamentals/repository-pattern) ve yakından Kalıcılık mekanizması ile bağlı. Yöneticileri, Kalıcılık mekanizması (yapılandırma dışında) uygulama kodunu değiştirmeden değiştirebileceğiniz anlamına gelir, mağazalardan birbirinden ayrılmıştır.
+ASP.NET Core kimliği yöneticileri ve depoları adlı sınıftan oluşur. *Yöneticileri* kimlik kullanıcı oluşturmak gibi işlemleri gerçekleştirmek için bir uygulama geliştiricisi kullanan üst düzey sınıflar. *Depoları* kullanıcılar ve roller gibi varlıkları nasıl kalıcı belirtin alt düzey sınıflar. Depoları depo deseni izler ve yakından Kalıcılık mekanizması ile bağlı. Yöneticileri, Kalıcılık mekanizması (yapılandırma dışında) uygulama kodunu değiştirmeden değiştirebileceğiniz anlamına gelir, mağazalardan birbirinden ayrılmıştır.
 
 Aşağıdaki diyagramda depolarının veri erişim katmanı ile etkileşim kurarken bir web uygulaması yöneticileri ile nasıl etkileştiğini gösterilmektedir.
 

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/16/2018
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: b593cab350f9c53ac703eaf4baa32682b17df7c9
-ms.sourcegitcommit: 12a8bdb8e83ca9c23c06f3bc6507c9e1a60ea7e5
+ms.openlocfilehash: 0924e2764958911dc1711d5427f6dd58e8873739
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49401887"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477611"
 ---
 # <a name="net-generic-host"></a>.NET genel ana bilgisayar
 
@@ -98,7 +98,7 @@ Uzantı yöntemleri üzerinde çağrıldığında `IHostBuilder` içerik kök ve
 **Tür**: *dize*  
 **Varsayılan**: uygulamanın giriş noktasını içeren derlemenin adı.  
 **Kullanılarak ayarlanan**: `HostBuilderContext.HostingEnvironment.ApplicationName`  
-**Ortam değişkeni**: `<PREFIX_>APPLICATIONKEY` (`<PREFIX_>` olduğu [isteğe bağlıdır ve kullanıcı tanımlı](#configuration-builder))
+**Ortam değişkeni**: `<PREFIX_>APPLICATIONNAME` (`<PREFIX_>` olduğu [isteğe bağlıdır ve kullanıcı tanımlı](#configuration-builder))
 
 ```csharp
 var host = new HostBuilder()

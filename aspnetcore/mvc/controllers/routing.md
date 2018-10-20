@@ -5,12 +5,12 @@ description: Ara yazılım yönlendirme ASP.NET Core MVC URL'leri gelen istekler
 ms.author: riande
 ms.date: 09/17/2018
 uid: mvc/controllers/routing
-ms.openlocfilehash: a5f2670ed8742b7ff67b0494d7bdb37d919349f4
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 2f6328a5efaa96fd8e4f0cafdbde77dd63a1548f
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49326088"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477650"
 ---
 # <a name="routing-to-controller-actions-in-aspnet-core"></a>ASP.NET core'da denetleyici eylemlerine yönlendirme
 
@@ -557,6 +557,10 @@ Eylemler genel yönlendirilir veya öznitelik yönlendirilir. Bir rota denetleyi
 
 > [!NOTE]
 > Ne yönlendirme sistemleri iki tür ayıran bir rota şablonuna bir URL ile eşleşen sonra uygulanan işlemidir. Yönlendirme Geleneksel, eşleşme rota değerleri için eylem ve denetleyici tüm geleneksel yönlendirilmiş eylemleri bir arama tablosundan seçmek için kullanılır. Öznitelik yönlendirme, her bir şablon zaten bir eylem ile ilişkilendirilir ve başka hiçbir arama gereklidir.
+
+## <a name="complex-segments"></a>Karmaşık segmentleri
+
+Karmaşık bir segment (örneğin, `[Route("/dog{token}cat")]`), değişmez değerlerden soldan sağa'kurmak doyumsuz olmayan bir yolla eşleşen tarafından işlenir. Bkz: [kaynak kodu](https://github.com/aspnet/Routing/blob/9cea167cfac36cf034dbb780e3f783114ef94780/src/Microsoft.AspNetCore.Routing/Patterns/RoutePatternMatcher.cs#L296) için bir açıklama. Daha fazla bilgi için [bu sorunu](https://github.com/aspnet/Docs/issues/8197).
 
 <a name="routing-url-gen-ref-label"></a>
 

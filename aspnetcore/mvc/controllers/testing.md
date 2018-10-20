@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/23/2018
 uid: mvc/controllers/testing
-ms.openlocfilehash: f036181f43d12ece89243fa3b0b0070ea84f8bc7
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 582a5ba461ee2df73b99e4f499e8152f7c6cb7cf
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46010994"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477169"
 ---
 # <a name="test-controller-logic-in-aspnet-core"></a>ASP.NET Core denetleyicisi mantıksal test
 
@@ -67,7 +67,7 @@ Zaman [ModelState](xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictiona
 
 O zaman ikinci test doğrular `ModelState` geçerlidir:
 
-* Yeni bir `BrainstormSession` eklenir (aracılığıyla [depo](xref:fundamentals/repository-pattern)).
+* Yeni bir `BrainstormSession` (depo) eklenir.
 * Yöntem döndürür bir `RedirectToActionResult` beklenen özelliklere sahip.
 
 Adı olmayan sahte çağrıları normalde yoksayıldı, ancak arama `Verifiable` Kurulum sonunda çağrı sahte doğrulama testinde izin verir. Bu çağrı ile gerçekleştirilir `mockRepo.Verify`, beklenen yöntemi çağrılırsa değildi testi başarısız.
@@ -185,5 +185,4 @@ Geçerli bir oturum için `id`, son testte, onaylar:
 * <xref:test/index>
 * <xref:test/integration-tests>
 * [Oluşturma ve birim testlerini Visual Studio ile çalıştırma](/visualstudio/test/unit-test-your-code).
-* <xref:fundamentals/repository-pattern>
 * [Özel bağımlılıklar İlkesi](https://deviq.com/explicit-dependencies-principle/)

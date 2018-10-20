@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/26/2017
 uid: performance/caching/middleware
-ms.openlocfilehash: f4e5a414b92e3ca65e19188ebd2bfaef6f32fee7
-ms.sourcegitcommit: 4cd8dce371d63a66d780e4af1baab2bcf9d61b24
+ms.openlocfilehash: d991bc48ed07ee71b0decaa0bee4df811fdc74c4
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43893096"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477533"
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Yanıt önbelleğe alma ara yazılımı ASP.NET core'da
 
@@ -159,7 +159,7 @@ Test etme ve sorun giderme önbelleğe alma davranışını bir tarayıcı isten
 * [Ara Yazılım](xref:fundamentals/middleware/index)
 * [Belleğe yüklenmiş önbellek](xref:performance/caching/memory)
 * [Dağıtılmış önbellekle çalışma](xref:performance/caching/distributed)
-* [Değişiklik belirteçleri ile değişiklikleri algılama](xref:fundamentals/primitives/change-tokens)
+* [Değişiklik belirteçleri ile değişiklikleri algılama](xref:fundamentals/change-tokens)
 * [Yanıtları önbelleğe alma](xref:performance/caching/response)
 * [Önbellek Etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
 * [Dağıtılmış Önbellek Etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)

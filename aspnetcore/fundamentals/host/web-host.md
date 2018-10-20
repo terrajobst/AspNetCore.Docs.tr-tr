@@ -4,14 +4,14 @@ author: guardrex
 description: Uygulama başlatma ve ömür yönetimi için sorumlu olan ASP.NET Core web ana bilgisayar hakkında bilgi edinin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/01/2018
+ms.date: 10/18/2018
 uid: fundamentals/host/web-host
-ms.openlocfilehash: 8b6517b009a289d6b93e2cc1bea60ecace61a3c6
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: e19f12f69dfdd5653aea9c6be2b05f24009b875e
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49326166"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477455"
 ---
 # <a name="aspnet-core-web-host"></a>ASP.NET Core Web ana bilgisayarı
 
@@ -184,7 +184,7 @@ Konak, bir değer, en son hangi seçeneği ayarlar kullanır. Daha fazla bilgi i
 **Tür**: *dize*  
 **Varsayılan**: uygulamanın giriş noktasını içeren derlemenin adı.  
 **Kullanılarak ayarlanan**: `UseSetting`  
-**Ortam değişkeni**: `ASPNETCORE_APPLICATIONKEY`
+**Ortam değişkeni**: `ASPNETCORE_APPLICATIONNAME`
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -365,15 +365,13 @@ WebHost.CreateDefaultBuilder(args)
 
 ### <a name="hosting-startup-exclude-assemblies"></a>Başlangıç dışlama derlemeleri barındırma
 
-AÇIKLAMASI
+Başlangıçta hariç tutmak için başlangıç derlemeleri barındırma bir noktalı virgülle ayrılmış dizesi.
 
 **Anahtar**: hostingStartupExcludeAssemblies  
 **Tür**: *dize*  
 **Varsayılan**: boş dize  
 **Kullanılarak ayarlanan**: `UseSetting`  
 **Ortam değişkeni**: `ASPNETCORE_HOSTINGSTARTUPEXCLUDEASSEMBLIES`
-
-Başlangıçta hariç tutmak için başlangıç derlemeleri barındırma bir noktalı virgülle ayrılmış dizesi.
 
 ```csharp
 WebHost.CreateDefaultBuilder(args)

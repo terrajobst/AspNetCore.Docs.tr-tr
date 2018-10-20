@@ -5,12 +5,12 @@ description: Bu öğreticide, daha fazla varlıklar ve ilişkiler ekleyin ve ver
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 4f35dd81c34a9123c20bb4925def93f69f0aaa13
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: b81918cbd74200f0672f3002f916523fb4a9a914
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49326101"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477663"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>ASP.NET core'da - veri modeli - 8'in 5 EF çekirdekli Razor sayfaları
 
@@ -574,9 +574,15 @@ The ALTER TABLE statement conflicted with the FOREIGN KEY constraint "FK_dbo.Cou
 database "ContosoUniversity", table "dbo.Department", column 'DepartmentID'.
 ```
 
-Geçişleri mevcut verilerle çalışırken mevcut verilerle karşılanmıyor FK kısıtlamaları olabilir. FK bir kısıtlama ihlali olduğundan bu öğreticide, yeni bir veritabanı oluşturulur. Bkz: [eski verilerle yabancı anahtar kısıtlamalarını düzeltme](#fk) geçerli bir veritabanı üzerinde FK ihlallerini düzeltmek yönergeler.
+## <a name="apply-the-migration"></a>Geçiş Uygula
 
-### <a name="drop-and-update-the-database"></a>Bırakın ve veritabanını güncelleştir
+Varolan bir veritabanınız olduğuna göre gelecekteki değişiklikleri uygulamak konusunda düşünmek gerekir. Bu öğreticide iki yaklaşım gösterilmektedir:
+* [Bırakın ve veritabanını yeniden oluşturun](#drop)
+* [Varolan bir veritabanına geçiş Uygula](#applyexisting). Bu yöntem daha karmaşık ve zaman alıcı olsa da, gerçek, üretim ortamları için tercih edilen yaklaşımdır. **Not**: isteğe bağlı bir bölüm öğreticinin budur. Açılan yapın ve adımları yeniden oluşturun ve bu bölümü atlayın. Bu bölümdeki adımları takip etmek istiyorsanız, yoksa açılan yapın ve adımları yeniden oluşturun. 
+
+<a name="drop"></a>
+
+### <a name="drop-and-re-create-the-database"></a>Bırakın ve veritabanını yeniden oluşturun
 
 Güncelleştirilmiş kod `DbInitializer` yeni varlıklar için çekirdek veri ekler. Yeni bir veritabanı oluşturmak için EF Core zorlamak için bırakın ve DB güncelleştirin:
 
@@ -620,11 +626,11 @@ Bir veritabanı içinde SSOX açın:
 
 ![SSOX CourseAssignment verileri](complex-data-model/_static/ssox-ci-data.png)
 
-<a name="fk"></a>
+<a name="applyexisting"></a>
 
-## <a name="fixing-foreign-key-constraints-with-legacy-data"></a>Yabancı anahtar kısıtlamaları ile eski verileri düzeltiliyor
+### <a name="apply-the-migration-to-the-existing-database"></a>Varolan bir veritabanına geçiş Uygula
 
-Bu bölüm isteğe bağlıdır.
+Bu bölüm isteğe bağlıdır. Bu adımlar önceki atladıysanız işe [kaldırın ve yeniden, veritabanı oluşturma](#drop) bölümü.
 
 Geçişleri mevcut verilerle çalışırken mevcut verilerle karşılanmıyor FK kısıtlamaları olabilir. Üretim verileriyle, mevcut verileri geçirmek için adım atılmalıdır. Bu bölümde, FK sabiti ihlallerini düzeltmek bir örnek sağlar. Bir yedek olmadan bu kod değişiklikleri yapmayın. Önceki bölümde tamamlandı ve veritabanını, bu kod değişiklikleri yapmayın.
 
@@ -639,7 +645,7 @@ Yapmak `ComplexDataModel` mevcut verilerle geçiş iş:
 * Yeni bir sütun vermek için kodu değiştirin (`DepartmentID`) varsayılan bir değer.
 * Varsayılan departman olarak görev yapacak "Temp" adlı sahte bir bölüm oluşturun.
 
-### <a name="fix-the-foreign-key-constraints"></a>Yabancı anahtar kısıtlamalarını düzeltme
+#### <a name="fix-the-foreign-key-constraints"></a>Yabancı anahtar kısıtlamalarını düzeltme
 
 Güncelleştirme `ComplexDataModel` sınıfları `Up` yöntemi:
 

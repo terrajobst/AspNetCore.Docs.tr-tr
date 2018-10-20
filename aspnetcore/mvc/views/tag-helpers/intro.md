@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 2/14/2018
 uid: mvc/views/tag-helpers/intro
-ms.openlocfilehash: c2af9099fe439e1cdbf9ba86ffae3b2b0f67391e
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 4b9bceb3ce0153af2d9a30c402febe09707145b7
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41757069"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477312"
 ---
 # <a name="tag-helpers-in-aspnet-core"></a>ASP.NET core'da etiket Yardımcıları
 
@@ -68,7 +68,7 @@ Adlı yeni bir ASP.NET Core web uygulaması oluşturursanız *AuthoringTagHelper
 
 [!code-cshtml[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopy.cshtml?highlight=2&range=2-3)]
 
-`@addTagHelper` Yönergesi etiket Yardımcıları için görüntüleme kullanıma sunar. Bu durumda, görünüm dosyasıdır *Pages/_ViewImports.cshtml*, varsayılan olarak tüm dosyaları tarafından devralınır *sayfaları* klasörü ve alt klasörleri; etiket Yardımcıları kullanılabilir hale getirir. Yukarıdaki kod joker karakter sözdizimini kullanır ("\*") olduğunu belirtmek için belirtilen derlemedeki tüm etiket Yardımcıları (*Microsoft.AspNetCore.Mvc.TagHelpers*) her bir görünüm dosyanın çalıştırılabilecek *görünümleri* dizin veya alt dizini. İlk parametresinden sonra `@addTagHelper` yüklemek için etiket Yardımcıları belirtir (kullanıyoruz "\*" tüm etiket Yardımcıları için), ve ikinci parametre "Microsoft.AspNetCore.Mvc.TagHelpers" etiket Yardımcıları içeren derlemeyi belirtir. *Microsoft.AspNetCore.Mvc.TagHelpers* yerleşik ASP.NET Core etiket Yardımcıları için derleme.
+`@addTagHelper` Yönergesi etiket Yardımcıları için görüntüleme kullanıma sunar. Bu durumda, görünüm dosyasıdır *Pages/_ViewImports.cshtml*, varsayılan olarak tüm dosyaları tarafından devralınır *sayfaları* klasörü ve alt klasörleri; etiket Yardımcıları kullanılabilir hale getirir. Yukarıdaki kod joker karakter sözdizimini kullanır ("\*") olduğunu belirtmek için belirtilen derlemedeki tüm etiket Yardımcıları (*Microsoft.AspNetCore.Mvc.TagHelpers*) her bir görünüm dosyanın çalıştırılabilecek *görünümleri* dizin veya alt dizin. İlk parametresinden sonra `@addTagHelper` yüklemek için etiket Yardımcıları belirtir (kullanıyoruz "\*" tüm etiket Yardımcıları için), ve ikinci parametre "Microsoft.AspNetCore.Mvc.TagHelpers" etiket Yardımcıları içeren derlemeyi belirtir. *Microsoft.AspNetCore.Mvc.TagHelpers* yerleşik ASP.NET Core etiket Yardımcıları için derleme.
 
 Etiket Yardımcıları bu projedeki tüm kullanıma sunmak için (adlı bir derleme oluşturur *AuthoringTagHelpers*), aşağıdakileri kullanmanız gerekir:
 
@@ -127,6 +127,10 @@ Kod aşağıdaki resimde, etiket Yardımcısı ön ek ayarlanır `th:`, bu neden
 ![görüntü](intro/_static/thp.png)
 
 Geçerli aynı hiyerarşi kuralları `@addTagHelper` için de geçerli `@tagHelperPrefix`.
+
+## <a name="self-closing-tag-helpers"></a>Kendi kendine kapanan etiket Yardımcıları
+
+Çok sayıda etiket Yardımcıları etiketleri kendi kendine kapanan olarak kullanılamaz. Bazı etiket Yardımcıları, kendi kendine kapanan etiketleri için tasarlanmıştır. Kendi kendine kapanan olacak şekilde tasarlanmamıştır etiket Yardımcısı kullanarak işlenen çıkışı bastırır. Etiket Yardımcısı kendi kendine kapanan işlenen çıkışı bir kendi kendine kapanan etiket sonuçlanır. Daha fazla bilgi için [Bu Not](xref:mvc/views/tag-helpers/authoring#self-closing) içinde [yazma etiketi Yardımcıları](xref:mvc/views/tag-helpers/authoring).
 
 ## <a name="intellisense-support-for-tag-helpers"></a>Etiket Yardımcıları için IntelliSense desteği
 
