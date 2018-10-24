@@ -5,14 +5,14 @@ description: ASP.NET Core SignalR Java istemcisi kullanmayı öğrenin.
 monikerRange: '>= aspnetcore-2.2'
 ms.author: mimengis
 ms.custom: mvc
-ms.date: 09/06/2018
+ms.date: 10/18/2018
 uid: signalr/java-client
-ms.openlocfilehash: 0eba59a05ea6fd3fed46fcab86ac20caf40ebb65
-ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
+ms.openlocfilehash: 77ea338f08b1986e69ba8ef1578c4cfe01a310de
+ms.sourcegitcommit: ce6b6792c650708e92cdea051a5d166c0708c7c0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46482924"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652312"
 ---
 # <a name="aspnet-core-signalr-java-client"></a>ASP.NET Core SignalR Java istemci
 
@@ -26,12 +26,13 @@ Bu makalede bahsedilen örnek Java konsol uygulaması SignalR Java istemcisi kul
 
 ## <a name="install-the-signalr-java-client-package"></a>SignalR Java istemci paketini yükle
 
-*0.1.0 preview2 35174 signalr* JAR dosyasını istemcilerin SignalR hub'ları bağlanmasına izin verir. JAR dosyası en son sürüm numarasını bulmak için bkz: [Maven arama sonuçları](https://search.maven.org/search?q=g:com.microsoft.aspnet%20AND%20a:signalr&core=gav).
+*1.0.0 preview3 35501 signalr* JAR dosyasını istemcilerin SignalR hub'ları bağlanmasına izin verir. JAR dosyası en son sürüm numarasını bulmak için bkz: [Maven arama sonuçları](https://search.maven.org/search?q=g:com.microsoft.signalr%20AND%20a:signalr).
 
 Gradle kullanıyorsanız, aşağıdaki satırı ekleyin `dependencies` bölümünü, *build.gradle* dosyası:
 
 ```gradle
-implementation 'com.microsoft.aspnet:signalr:0.1.0-preview2-35174'
+implementation 'com.microsoft.signalr:signalr:1.0.0-preview3-35501'
+implementation 'io.reactivex.rxjava2:rxjava:2.2.2'
 ```
 
 Maven kullanarak eklerseniz içinde aşağıdaki satırları `<dependencies>` öğesinin, *pom.xml* dosyası:
@@ -42,29 +43,45 @@ Maven kullanarak eklerseniz içinde aşağıdaki satırları `<dependencies>` ö
 
 Kurmak için bir `HubConnection`, `HubConnectionBuilder` kullanılmalıdır. Hub'ı URL'si ve günlük düzeyinde bir bağlantı oluşturulurken yapılandırılabilir. Gerekli tüm seçenekler herhangi birini çağırarak yapılandırma `HubConnectionBuilder` yöntemleri önce `build`. Bağlantıyı başlatmak `start`.
 
-[!code-java[Build hub connection](java-client/sample/src/main/java/Chat.java?range=17-20)]
+[!code-java[Build hub connection](java-client/sample/src/main/java/Chat.java?range=16-17)]
 
 ## <a name="call-hub-methods-from-client"></a>İstemciden hub yöntemlerini çağırma
 
 Bir çağrı `send` bir hub yöntemini çağırır. Hub yönteminin adını ve hub yöntemi için tanımlanan herhangi bir bağımsız değişken geçirme `send`.
 
-[!code-java[send method](java-client/sample/src/main/java/Chat.java?range=31)]
+[!code-java[send method](java-client/sample/src/main/java/Chat.java?range=28)]
 
 ## <a name="call-client-methods-from-hub"></a>İstemci hub'ından yöntemleri çağırma
 
 Kullanım `hubConnection.on` hub çağıran istemciye yöntemleri tanımlamak için. Yapı sonra ancak bağlantı başlatmadan önce yöntemleri tanımlar.
 
-[!code-java[Define client methods](java-client/sample/src/main/java/Chat.java?range=22-24)]
+[!code-java[Define client methods](java-client/sample/src/main/java/Chat.java?range=19-21)]
+
+## <a name="add-logging"></a>Günlük kaydı ekleme
+
+SignalR Java istemcinin kullandığı [SLF4J](https://www.slf4j.org/) günlüğe kaydetme için kitaplığı. Seçtiğiniz kendi özel günlük uygulama özel günlük bağımlılık olarak getirerek kullanıcıların Kitaplığı'nın izin veren bir üst düzey günlüğe kaydetme API'si var. Aşağıdaki kod parçacığını nasıl kullanılacağını gösterir `java.util.logging` SignalR Java istemcisi ile.
+
+```gradle
+implementation 'org.slf4j:slf4j-jdk14:1.7.25'
+```
+
+Bağımlılıklarınızı içinde günlüğü yapılandırmazsanız, aşağıdaki uyarı iletisi ile bir varsayılan yok-işlem günlükçü SLF4J yükler:
+
+```
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+```
+
+Bu güvenle yoksayılabilir.
 
 ## <a name="known-limitations"></a>Bilinen sınırlamalar
 
-Bu bir Java istemci erken Önizleme sürümüdür. Henüz desteklenmeyen çok özellikleri vardır. Aşağıdaki boşlukları gelecek sürümleri için üzerinde çalışılan:
+Bu bir Java istemci Önizleme sürümüdür. Bazı özellikler desteklenmez:
 
-* Yalnızca ilkel türler, parametre olarak kabul edilebilir ve dönüş türleri.
-* Zaman uyumlu apı'lerdir.
-* Yalnızca "Gönder" çağrısı türü şu anda desteklenmiyor. "Çağır" ve dönüş değerleri akış desteklenmez.
 * Yalnızca JSON Protokolü desteklenir.
 * WebSockets taşıma desteklenmiyor.
+* Akış henüz desteklenmiyor.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
