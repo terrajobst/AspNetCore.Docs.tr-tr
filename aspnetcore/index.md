@@ -5,12 +5,12 @@ description: Modern, bulut tabanlı, İnternet bağlantılı uygulamalar oluştu
 ms.author: riande
 ms.date: 9/28/2018
 uid: index
-ms.openlocfilehash: 85f2aa04e4b6692dd03a63f14bcebdec97ee270e
-ms.sourcegitcommit: 32f5ee0690604d451f61e9a5c28881c9fcf85738
+ms.openlocfilehash: 69ab702e9d9f8d746b7bc546d4f2bbb831ff59c7
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47454784"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911709"
 ---
 # <a name="introduction-to-aspnet-core"></a>ASP.NET Core’a Giriş
 
@@ -27,18 +27,7 @@ ASP.NET Core, modern, bulut tabanlı, İnternet bağlantılı uygulamalar oluşt
 
 Milyonlarca geliştirici, web uygulamaları oluşturmak için [ASP.NET 4.x](https://docs.microsoft.com/aspnet/overview) kullandı (ve kullanmaya devam ediyor). ASP.NET Core, ASP.NET 4.x sürümünün daha yalın, daha modüler bir çerçeve elde edilmesini sağlayan mimari değişikliklerle yeniden tasarlanmış halidir.
 
-ASP.NET Core aşağıdaki avantajları sağlar:
-
-* Web kullanıcı arabirimi ve web API’leri oluşturmak için birleşik bir öykü.
-* [Modern istemci tarafı çerçeveler](xref:client-side/index) ile geliştirme iş akışlarının tümleştirilmesi.
-* Bulutta kullanıma hazır, ortam tabanlı bir [yapılandırma sistemi](xref:fundamentals/configuration/index).
-* Yerleşik [bağımlılık ekleme](xref:fundamentals/dependency-injection).
-* Basit, [yüksek performanslı](https://github.com/aspnet/benchmarks) ve modüler bir HTTP istek işlem hattı.
-* [IIS](xref:host-and-deploy/iis/index), [Nginx](xref:host-and-deploy/linux-nginx), [Apache](xref:host-and-deploy/linux-apache) ve [Docker](xref:host-and-deploy/docker/index)’da veya kendi işleminizde barındırma olanağı.
-* [.NET Core](https://docs.microsoft.com/dotnet/articles/standard/choosing-core-framework-server) hedeflenirken yan yana uygulama sürümü oluşturma.
-* Modern web geliştirmeyi basitleştiren araçlar.
-* Windows, macOS ve Linux üzerinde derleyip çalıştırma olanağı.
-* Açık kaynak ve [topluluk odaklı](https://live.asp.net/).
+[!INCLUDE[](~/includes/benefits.md)]
 
 ## <a name="build-web-apis-and-web-ui-using-aspnet-core-mvc"></a>ASP.NET Core MVC kullanarak web API'leri ve web kullanıcı arabirimi oluşturma
 
@@ -56,9 +45,16 @@ ASP.NET Core MVC, [web API’leri](xref:tutorials/index#build-web-apis) ve [web 
 
 ASP.NET Core, popüler istemci tarafı çerçeveler ve kitaplıklar ([Angular](xref:spa/angular), [React](xref:spa/react) ve [Bootstrap](xref:client-side/bootstrap) dahil) ile sorunsuz bir şekilde tümleştirilir. Daha fazla bilgi için bkz. [İstemci tarafı geliştirme](xref:client-side/index).
 
+<a name="target-framework"></a>
+
 ## <a name="aspnet-core-targeting-net-framework"></a>.NET Framework'ü hedefleyen ASP.NET Core
 
 ASP.NET Core, .NET Core'u veya .NET Framework'ü hedefleyebilir. .NET Framework'ü hedefleyen ASP.NET Core uygulamaları platformlar arası çalışmaz; bunlar yalnızca Windows üzerinde çalışır. ASP.NET Core'da .NET Framework hedeflemesi desteğini kaldırmaya yönelik bir plan yoktur. Genel olarak, ASP.NET Core [.NET Standard](/dotnet/standard/net-standard) kitaplıklarından oluşturulmuştur. .NET Standard 2.0 ile yazılmış uygulamalar .NET Standard 2.0'ın desteklendiği her yerde çalıştırılır.
+
+ASP.NET Core 2.x, .NET Standard 2.0 ile uyumlu .NET Framework sürümlerinde desteklenir:
+
+* .NET Framework 4.7.1 ve üzeri önemle tavsiye edilir.
+* .NET Framework 4.6.1 ve üzeri.
 
 .NET Core hedeflemesinin çeşitli avantajları vardır ve bu avantajlar her yeni sürümle birlikte artmaktadır. .NET Framework'e göre .NET Core'un bazı avantajları şunlardır:
 
