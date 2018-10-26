@@ -3,14 +3,15 @@ title: ASP.NET core'da - eşzamanlılık - 8 8 EF çekirdekli Razor sayfaları
 author: rick-anderson
 description: Bu öğreticide, birden çok kullanıcı aynı anda aynı varlık güncelleştirdiğinizde çakışmalarına gösterilmektedir.
 ms.author: riande
-ms.date: 11/15/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: 722676b6765c32f3d11d5a3e23a5bea6ebe5488d
-ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
+ms.openlocfilehash: 6af6a90b24b3d5d97547544e5e87b02c4358b136
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523265"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090523"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---concurrency---8-of-8"></a>ASP.NET core'da - eşzamanlılık - 8 8 EF çekirdekli Razor sayfaları
 
@@ -72,7 +73,7 @@ John tıkladığında **Kaydet** yine de bir bütçe $350,000.00 birini göstere
 
 ## <a name="handling-concurrency"></a>Eşzamanlılığı işleme 
 
-Ne zaman bir özellik olarak yapılandırıldığında bir [eşzamanlılık belirteci](https://docs.microsoft.com/ef/core/modeling/concurrency):
+Ne zaman bir özellik olarak yapılandırıldığında bir [eşzamanlılık belirteci](/ef/core/modeling/concurrency):
 
 * EF Core getirildi sonra'nın özellik değiştirilmedi doğrular. Onay gerçekleşir, [SaveChanges](/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechanges?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChanges) veya [SaveChangesAsync](/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechangesasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChangesAsync_System_Threading_CancellationToken_) çağrılır.
 * Özelliği, getirildikten sonra değiştirilmişse, bir [DbUpdateConcurrencyException](/dotnet/api/microsoft.entityframeworkcore.dbupdateconcurrencyexception?view=efcore-2.0) oluşturulur. 

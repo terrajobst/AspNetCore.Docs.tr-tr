@@ -4,14 +4,15 @@ author: rick-anderson
 description: WebListener, bir web sunucusu IIS olmadan İnternet'e doğrudan bağlantı için kullanılan Windows üzerinde ASP.NET Core hakkında bilgi edinin.
 monikerRange: < aspnetcore-2.0
 ms.author: riande
-ms.date: 08/15/2018
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: fundamentals/servers/weblistener
-ms.openlocfilehash: 5602c1ddbe76879587de12bcd82722c103dee03f
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: e359d8d3ff443009128d7c76bf13f3c9a0a54730
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41756362"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090582"
 ---
 # <a name="weblistener-web-server-implementation-in-aspnet-core"></a>ASP.NET core'da WebListener web sunucusu uygulaması
 
@@ -160,7 +161,7 @@ Resmi başvuru belgeleri aşağıda verilmiştir:
 
 Aşağıdaki kaynaklar, çeşitli senaryolar için ayrıntılı yönergeler sağlar. Başvuran makaleler `HttpListener` için eşit oranda geçerli `WebListener`gibi her ikisi de Http.Sys üzerinde temel alır.
 
-* [Nasıl Yapılır: SSL Sertifikası ile Bir Bağlantı Noktasını Yapılandırma](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-configure-a-port-with-an-ssl-certificate)
+* [Nasıl Yapılır: SSL Sertifikası ile Bir Bağlantı Noktasını Yapılandırma](/dotnet/framework/wcf/feature-details/how-to-configure-a-port-with-an-ssl-certificate)
 * [HTTPS iletişimi - HttpListener tabanlı barındırma ve istemci sertifikası](http://sunshaking.blogspot.com/2012/11/https-communication-httplistener-based.html) bu üçüncü taraf Web günlüğü ve oldukça eskidir ancak yine de yararlı bilgiler vardır.
 * [Nasıl yapılır: Kılavuz kullanarak HttpListener veya Http sunucusu SSL basit sunucu olarak kod (C++) yönetilmeyen](https://blogs.msdn.microsoft.com/jpsanders/2009/09/29/how-to-walkthrough-using-httplistener-or-http-server-unmanaged-code-c-as-an-ssl-simple-server/) çok yararlı bilgiler içeren eski bir blog budur.
 * [SSL ile bir .NET Core WebListener nasıl ayarlayabilirim?](https://blogs.msdn.microsoft.com/timomta/2016/11/04/how-do-i-set-up-a-net-core-weblistener-with-ssl/)

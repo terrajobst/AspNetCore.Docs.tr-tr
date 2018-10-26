@@ -3,14 +3,15 @@ title: ASP.NET Core anahtar yönetimi genişletilebilirliği
 author: rick-anderson
 description: ASP.NET Core veri koruma anahtar yönetimi genişletilebilirliği hakkında bilgi edinin.
 ms.author: riande
-ms.date: 11/22/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: security/data-protection/extensibility/key-management
-ms.openlocfilehash: b52212ff3462748a5c64f21e1b7854673e5fcadc
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: 1cf3fc30f72fb872ff9d7f33fc5ffb12a11a982f
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477468"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090621"
 ---
 # <a name="key-management-extensibility-in-aspnet-core"></a>ASP.NET Core anahtar yönetimi genişletilebilirliği
 
@@ -60,7 +61,7 @@ Ayrıca, `IKey` sunan bir `CreateEncryptorInstance` oluşturmak için kullanıla
 
 ## <a name="xmlkeymanager"></a>XmlKeyManager
 
-`XmlKeyManager` Türüdür yerleşik somut uygulamasını `IKeyManager`. Bu anahtar emanet ve anahtarları, bekleyen veri şifrelemesi gibi birçok yararlı olanakları sağlar. Bu sistemde anahtarları XML öğeleri olarak temsil edilir (özellikle [XElement](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/linq/xelement-class-overview)).
+`XmlKeyManager` Türüdür yerleşik somut uygulamasını `IKeyManager`. Bu anahtar emanet ve anahtarları, bekleyen veri şifrelemesi gibi birçok yararlı olanakları sağlar. Bu sistemde anahtarları XML öğeleri olarak temsil edilir (özellikle [XElement](/dotnet/csharp/programming-guide/concepts/linq/xelement-class-overview)).
 
 `XmlKeyManager` görevleri yerine getirerek sırasında birkaç diğer bileşenlere bağlıdır:
 

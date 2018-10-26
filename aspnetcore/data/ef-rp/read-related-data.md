@@ -3,14 +3,15 @@ title: ASP.NET core'da - EF çekirdekli Razor sayfaları 6 8 - ilgili verileri o
 author: rick-anderson
 description: Bu öğreticide okuyun ve ilgili verileri--diğer bir deyişle, Entity Framework Gezinti özelliklerini yükler verileri görüntüler.
 ms.author: riande
-ms.date: 11/05/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: e8b59c19eac2c2adc1f13cf1e44f750576686c87
-ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
+ms.openlocfilehash: b3a60c3f983dba8761b219773f827c39ff82cb01
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49348500"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090868"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>ASP.NET core'da - EF çekirdekli Razor sayfaları 6 8 - ilgili verileri okuma
 
@@ -32,7 +33,7 @@ Aşağıdaki çizimler, Bu öğretici için tamamlanmış sayfaların göstermek
 
 EF Core Gezinti özelliklerini bir varlığın ilgili verileri yükleyebilir birkaç yolu vardır:
 
-* [İstekli yükleme](https://docs.microsoft.com/ef/core/querying/related-data#eager-loading). Bir varlık türü için sorgu ilgili varlıkları yüklediğinde istekli Yükleme ' dir. Varlık okunduğunda, ilgili verileri alınır. Bu, tek bir birleşim sorguda tüm gerekli olan verileri alır. genellikle sonuçlanır. EF Core istekli yükleme bazı türleri için birden çok sorgu verecek. Birden çok sorgu göndermeye çalışması için bazı sorguları EF6 olandan daha verimli olabilir dönemler tek bir sorgu. İstekli yükleme belirtilirse `Include` ve `ThenInclude` yöntemleri.
+* [İstekli yükleme](/ef/core/querying/related-data#eager-loading). Bir varlık türü için sorgu ilgili varlıkları yüklediğinde istekli Yükleme ' dir. Varlık okunduğunda, ilgili verileri alınır. Bu, tek bir birleşim sorguda tüm gerekli olan verileri alır. genellikle sonuçlanır. EF Core istekli yükleme bazı türleri için birden çok sorgu verecek. Birden çok sorgu göndermeye çalışması için bazı sorguları EF6 olandan daha verimli olabilir dönemler tek bir sorgu. İstekli yükleme belirtilirse `Include` ve `ThenInclude` yöntemleri.
 
   ![İstekli yükleme örneği](read-related-data/_static/eager-loading.png)
  
@@ -47,11 +48,11 @@ EF Core Gezinti özelliklerini bir varlığın ilgili verileri yükleyebilir bir
 
   Not: EF Core Gezinti özellikleri bağlam örneğine önceden yüklenmiş herhangi bir varlık için otomatik olarak düzeltir. Bir gezinme özelliği için veri olsa bile *değil* açıkça dahil, özellik hala bazıları doldurulabilir veya tüm ilişkili varlıkları daha önce yüklenmiş.
 
-* [Açık yükleme](https://docs.microsoft.com/ef/core/querying/related-data#explicit-loading). Varlığın ilk okunduğunda, ilgili verileri alınan değil. Kod gerektiğinde ilgili verileri almak üzere yazılmış olmalıdır. Birden çok sorgu Veritabanına gönderilir açık yükleme ayrı sorgular ile sonuçlanır. Açık yükleme ile kod yüklenmesine, gezinti özellikleri belirtir. Kullanım `Load` açık yükleme yapmak için yöntemi. Örneğin:
+* [Açık yükleme](/ef/core/querying/related-data#explicit-loading). Varlığın ilk okunduğunda, ilgili verileri alınan değil. Kod gerektiğinde ilgili verileri almak üzere yazılmış olmalıdır. Birden çok sorgu Veritabanına gönderilir açık yükleme ayrı sorgular ile sonuçlanır. Açık yükleme ile kod yüklenmesine, gezinti özellikleri belirtir. Kullanım `Load` açık yükleme yapmak için yöntemi. Örneğin:
 
   ![Açık yükleme örneği](read-related-data/_static/explicit-loading.png)
 
-* [Yavaş Yükleniyor](https://docs.microsoft.com/ef/core/querying/related-data#lazy-loading). [Yavaş yükleniyor, EF Core 2.1 sürümünde eklenen](/ef/core/querying/related-data#lazy-loading). Varlığın ilk okunduğunda, ilgili verileri alınan değil. Gezinti özelliğine erişinceye, ilk kez bu gezinti özelliği için gerekli verileri otomatik olarak alınır. Her zaman için ilk kez bir gezinti özelliğine erişinceye veritabanına bir sorgu gönderilir.
+* [Yavaş Yükleniyor](/ef/core/querying/related-data#lazy-loading). [Yavaş yükleniyor, EF Core 2.1 sürümünde eklenen](/ef/core/querying/related-data#lazy-loading). Varlığın ilk okunduğunda, ilgili verileri alınan değil. Gezinti özelliğine erişinceye, ilk kez bu gezinti özelliği için gerekli verileri otomatik olarak alınır. Her zaman için ilk kez bir gezinti özelliğine erişinceye veritabanına bir sorgu gönderilir.
 
 * `Select` İşleci yalnızca gerekli ilgili verileri yükler.
 

@@ -3,14 +3,15 @@ title: Visual Studio ile Azure'a bir ASP.NET Core uygulaması yayımlama
 author: rick-anderson
 description: Visual Studio kullanarak Azure App Service'e bir ASP.NET Core uygulaması yayımlama hakkında bilgi edinin.
 ms.author: riande
-ms.date: 12/16/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: tutorials/publish-to-azure-webapp-using-vs
-ms.openlocfilehash: 7211da268c1c52e7b859e6f98ce433fd19b218ff
-ms.sourcegitcommit: 516d0645c35ea784a3ae807be087ae70446a46ee
+ms.openlocfilehash: a5a02112d87563a47d5e2dab355359fa39da9a89
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39320732"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090361"
 ---
 # <a name="publish-an-aspnet-core-app-to-azure-with-visual-studio"></a>Visual Studio ile Azure'a bir ASP.NET Core uygulaması yayımlama
 
@@ -20,7 +21,7 @@ Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [Cesar Blum Silvei
 
 Bkz: [Mac için Visual Studio'dan azure'a Yayımla](https://blog.xamarin.com/publish-azure-visual-studio-mac/) macOS üzerinde çalışıyorsanız ve o.
 
-App Service dağıtım sorun gidermek için bkz: [Azure App Service'te ASP.NET Core sorunlarını giderme](xref:host-and-deploy/azure-apps/troubleshoot).
+App Service dağıtım sorun gidermek için bkz: <xref:host-and-deploy/azure-apps/troubleshoot>.
 
 ## <a name="set-up"></a>Ayarlama
 
@@ -126,7 +127,7 @@ Visual Studio döner **App Service Oluştur** iletişim.
 
 ![SQL veritabanı iletişim yapılandırın](publish-to-azure-webapp-using-vs/_static/conf_final.png)
 
-Visual Studio, Azure üzerinde SQL Server ve Web uygulaması oluşturur. Bu adım birkaç dakika sürebilir. Oluşturulan kaynakları hakkında daha fazla bilgi için bkz: [ek kaynakları](#additonal-resources).
+Visual Studio, Azure üzerinde SQL Server ve Web uygulaması oluşturur. Bu adım birkaç dakika sürebilir. Oluşturulan kaynakları hakkında daha fazla bilgi için bkz: [ek kaynaklar](#additonal-resources).
 
 Dağıtım tamamlandığında, seçin **ayarları**:
 
@@ -141,7 +142,7 @@ Dağıtım tamamlandığında, seçin **ayarları**:
 
 ![Yayımla iletişim kutusu: ayarlar paneli](publish-to-azure-webapp-using-vs/_static/pubs.png)
 
-Tıklayın **yayımlama**. Visual Studio publishs uygulamanızı azure'a. Dağıtım tamamlandığında, uygulamayı bir tarayıcıda açılır.
+Tıklayın **yayımlama**. Visual Studio, uygulamanızı Azure'a yayımlar. Dağıtım tamamlandığında, uygulamayı bir tarayıcıda açılır.
 
 ### <a name="test-your-app-in-azure"></a>Azure'da uygulamanızı test etme
 
@@ -179,11 +180,11 @@ Uygulamayı test etme işlemini tamamladığınızda, Git [Azure portalında](ht
 
 ### <a name="next-steps"></a>Sonraki adımlar
 
-* [Visual Studio ve Git ile azure'a sürekli dağıtım](xref:host-and-deploy/azure-apps/azure-continuous-deployment)
+* <xref:host-and-deploy/azure-apps/azure-continuous-deployment>
 
 ## <a name="additonal-resources"></a>Ek kaynaklar
 
-* [Azure uygulama hizmeti](https://docs.microsoft.com/azure/app-service/app-service-web-overview)
-* [Azure kaynak grupları](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups)
-* [Azure SQL veritabanı](https://docs.microsoft.com/azure/sql-database/)
-* [Azure App Service’te uygulama sorunlarını giderme](xref:host-and-deploy/azure-apps/troubleshoot)
+* [Azure uygulama hizmeti](/azure/app-service/app-service-web-overview)
+* [Azure kaynak grupları](/azure/azure-resource-manager/resource-group-overview#resource-groups)
+* [Azure SQL veritabanı](/azure/sql-database/)
+* <xref:host-and-deploy/azure-apps/troubleshoot>

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/26/2017
 uid: performance/caching/middleware
-ms.openlocfilehash: d991bc48ed07ee71b0decaa0bee4df811fdc74c4
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: b5eef012356236d600d026e5161a2df5a7954e3b
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477533"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090491"
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Yanıt önbelleğe alma ara yazılımı ASP.NET core'da
 
@@ -120,10 +120,10 @@ Ara yazılım kurallarına uyar [HTTP 1.1 önbelleğe alma belirtimi](https://to
 
 Önbelleğe alma davranışı üzerinde daha fazla denetim için ASP.NET Core önbelleğe alma diğer özelliklerini keşfedin. Aşağıdaki konulara bakın:
 
-* [Belleğe yüklenmiş önbellek](xref:performance/caching/memory)
-* [Dağıtılmış önbellekle çalışma](xref:performance/caching/distributed)
-* [Önbellek etiketi Yardımcısı, ASP.NET Core MVC](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [Dağıtılmış Önbellek Etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+* <xref:performance/caching/memory>
+* <xref:performance/caching/distributed>
+* <xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper>
+* <xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper>
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
@@ -155,11 +155,11 @@ Test etme ve sorun giderme önbelleğe alma davranışını bir tarayıcı isten
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Uygulama Başlatma](xref:fundamentals/startup)
-* [Ara Yazılım](xref:fundamentals/middleware/index)
-* [Belleğe yüklenmiş önbellek](xref:performance/caching/memory)
-* [Dağıtılmış önbellekle çalışma](xref:performance/caching/distributed)
-* [Değişiklik belirteçleri ile değişiklikleri algılama](xref:fundamentals/change-tokens)
-* [Yanıtları önbelleğe alma](xref:performance/caching/response)
-* [Önbellek Etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [Dağıtılmış Önbellek Etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+* <xref:fundamentals/startup>
+* <xref:fundamentals/middleware/index>
+* <xref:performance/caching/memory>
+* <xref:performance/caching/distributed>
+* <xref:fundamentals/change-tokens>
+* <xref:performance/caching/response>
+* <xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper>
+* <xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper>

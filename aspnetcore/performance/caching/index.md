@@ -5,29 +5,29 @@ description: Veri önbelleğe alma ve ASP.NET Core uygulamalarının performans�
 ms.author: riande
 ms.date: 09/16/2018
 uid: performance/caching/index
-ms.openlocfilehash: bb188f598f3acdbc6eca59d58d26e1b8382f5701
-ms.sourcegitcommit: 4d5f8680d68b39c411b46c73f7014f8aa0f12026
+ms.openlocfilehash: 01d2826dc37085fe4f7b7d2921f3b6a16bee61f3
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47028121"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50089381"
 ---
 # <a name="cache-responses-in-aspnet-core"></a>ASP.NET core'da önbellek yanıtları
 
-[Belleğe yüklenmiş önbellek](xref:performance/caching/memory)  
+<xref:performance/caching/memory>  
 ASP.NET Core bellekte önbelleğe öğrenin.
 
-[Dağıtılmış önbellekle çalışma](xref:performance/caching/distributed)  
+<xref:performance/caching/distributed>  
 Dağıtılmış ASP.NET Core uygulaması performans ve ölçeklenebilirlik, özellikle bir Bulutu vea sunucusu grubu ortamında artırmak için önbelleğe alma kullanmayı öğrenin.
 
-[Yanıtları önbelleğe alma](xref:performance/caching/response)  
+<xref:performance/caching/response>  
 Önbelleğe alma daha düşük bant genişliği gereksinimlerine yanıt kullanmayı öğrenin ve ASP.NET Core uygulamaları performansını artırın.
 
-[Yanıtları Önbelleğe Alma Ara Yazılımı](xref:performance/caching/middleware)  
+<xref:performance/caching/middleware>  
 Yapılandırma ve ASP.NET Core yanıt önbelleğe alma ara yazılımı kullanma hakkında bilgi edinin.
 
-[Önbellek Etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)  
+<xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper>  
 Önbellek etiketi Yardımcısı'nı kullanmayı öğrenin.
 
-[Dağıtılmış Önbellek Etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)  
+<xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper>  
 Dağıtılmış önbellek etiketi Yardımcısı'nı kullanmayı öğrenin.

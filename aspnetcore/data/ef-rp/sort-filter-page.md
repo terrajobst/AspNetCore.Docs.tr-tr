@@ -3,14 +3,15 @@ title: ASP.NET core'da - EF çekirdekli Razor sayfaları sıralama, filtreleme, 
 author: rick-anderson
 description: Bu öğreticide, sıralama, filtreleme ve sayfalama ASP.NET Core ve Entity Framework Core kullanan sayfa işlevselliği ekleyeceksiniz.
 ms.author: riande
-ms.date: 6/31/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 06669d69fa9fec87d262c2b5bfd8b11649259849
-ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
+ms.openlocfilehash: 19fe24e0f901c50e8425db7665b5b2257b608146
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49348448"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090894"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>ASP.NET core'da - EF çekirdekli Razor sayfaları sıralama, filtreleme, sayfalama - 8'in 3
 
@@ -51,7 +52,7 @@ Ne zaman dizin sayfası istenen gelen **Öğrenciler** bağlantı, sorgu dizesi 
 
 [!code-csharp[](intro/samples/cu21/Pages/Students/Index.cshtml.cs?name=snippet_SortOnly&highlight=3-4)]
 
-Aşağıdaki kodu içeren C# koşullu [?: işleci](https://docs.microsoft.com/dotnet/csharp/language-reference/operators/conditional-operator):
+Aşağıdaki kodu içeren C# koşullu [?: işleci](/dotnet/csharp/language-reference/operators/conditional-operator):
 
 [!code-csharp[](intro/samples/cu21/Pages/Students/Index.cshtml.cs?name=snippet_Ternary)]
 

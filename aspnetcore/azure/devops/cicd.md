@@ -3,14 +3,14 @@ title: ASP.NET Core ve Azure ile DevOps | Sürekli tümleştirme ve dağıtım
 author: CamSoper
 description: Azure'da barındırılan bir ASP.NET Core uygulaması için bir DevOps işlem hattı oluşturmaya uçtan uca yönergeler sağlar. bir kılavuz.
 ms.author: scaddie
-ms.date: 08/17/2018
+ms.date: 10/24/2018
 uid: azure/devops/cicd
-ms.openlocfilehash: 0bfe1545da4c0778055d7c81c1588d3267d2e711
-ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
+ms.openlocfilehash: 18a59a1ff6fd6bbf51ff664764725b8972dfa1bf
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44340114"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090543"
 ---
 # <a name="continuous-integration-and-deployment"></a>Sürekli tümleştirme ve dağıtım
 
@@ -230,7 +230,7 @@ Yapı tanımının **görevleri** sekmesi, kullanılan tek tek adımları listel
     > [!NOTE]
     > Birim testleri iş doğrulamak için değiştirme *SimpleFeedReader.Tests\Services\NewsServiceTests.cs* kullanılamıyor.%n%nÇözüm testleri birini ayırmak için. Örneğin, değiştirme `Assert.True(result.Count > 0);` için `Assert.False(result.Count > 0);` içinde `Returns_News_Stories_Given_Valid_Uri` yöntemi. Kaydedin ve Github'a bir değişiklik gönderin. Derleme tetiklenir ve başarısız olur. Derleme işlem hattı durumu değişerek **başarısız**. Değişiklik, işleme ve gönderme yeniden döndürün. Derleme başarılı olur.
 
-1. **Yayımlama** &mdash; yürütür `dotnet publish --configuration release --output <local_path_on_build_agent>` üretmek için komutu bir *.zip* dağıtılacak yapıtlar içeren dosya. `--output` Seçeneği Yayımla konumunu belirleyen *.zip* dosya. Konum geçirerek belirtilen bir [önceden tanımlanmış değişken](https://docs.microsoft.com/vsts/pipelines/build/variables) adlı `$(build.artifactstagingdirectory)`. Bu değişken gibi yerel bir yola genişletir *c:\agent\_work\1\a*, yapı aracısında.
+1. **Yayımlama** &mdash; yürütür `dotnet publish --configuration release --output <local_path_on_build_agent>` üretmek için komutu bir *.zip* dağıtılacak yapıtlar içeren dosya. `--output` Seçeneği Yayımla konumunu belirleyen *.zip* dosya. Konum geçirerek belirtilen bir [önceden tanımlanmış değişken](/azure/devops/pipelines/build/variables) adlı `$(build.artifactstagingdirectory)`. Bu değişken gibi yerel bir yola genişletir *c:\agent\_work\1\a*, yapı aracısında.
 1. **Yapıt yayımlama** &mdash; Publishes *.zip* dosya tarafından üretilen **Yayımla** görev. Görevi kabul *.zip* dosya konumu önceden tanımlanmış bir değişkendir bir parametre olarak `$(build.artifactstagingdirectory)`. *.Zip* dosya adlı bir klasör yayımlanan *bırak*.
 
 Yapı tanımının tıklayın **özeti** bağlantı tanımı yapılarla geçmişini görüntülemek için:

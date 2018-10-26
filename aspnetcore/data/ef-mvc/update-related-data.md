@@ -3,14 +3,15 @@ title: ASP.NET Core MVC EF Core - güncelleştirme ile ilgili verileri - 10 7
 author: rick-anderson
 description: Bu öğreticide yabancı anahtar alanları ve gezinti özellikleri güncelleştirerek ilgili verileri güncelleştirin.
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-mvc/update-related-data
-ms.openlocfilehash: ef8cb3916e5d1542e4d36cad694351462b94ed32
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 37985c945f2e4b15cfcefb0c126c3209e0bdeac4
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38126732"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090739"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---update-related-data---7-of-10"></a>ASP.NET Core MVC EF Core - güncelleştirme ile ilgili verileri - 10 7
 
@@ -290,7 +291,7 @@ Uygulamayı çalıştıran ve bir eğitmen oluşturarak test edin.
 
 ## <a name="handling-transactions"></a>İşlem işleme
 
-İçinde anlatıldığı gibi [CRUD öğretici](crud.md), Entity Framework örtük olarak işlemler uygular. Daha denetlediğiniz--Örneğin, bir işlemde--Entity Framework dışında yapılan işlemler dahil etmek istiyorsanız senaryolar görmek için [işlemleri](https://docs.microsoft.com/ef/core/saving/transactions).
+İçinde anlatıldığı gibi [CRUD öğretici](crud.md), Entity Framework örtük olarak işlemler uygular. Daha denetlediğiniz--Örneğin, bir işlemde--Entity Framework dışında yapılan işlemler dahil etmek istiyorsanız senaryolar görmek için [işlemleri](/ef/core/saving/transactions).
 
 ## <a name="summary"></a>Özet
 

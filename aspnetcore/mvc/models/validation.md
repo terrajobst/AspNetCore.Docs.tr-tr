@@ -3,14 +3,15 @@ title: ASP.NET Core MVC model doğrulama
 author: tdykstra
 description: ASP.NET Core MVC model doğrulama hakkında bilgi edinin.
 ms.author: riande
-ms.date: 07/31/2018
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: mvc/models/validation
-ms.openlocfilehash: fe036f261b80f6134078835080409720d149374d
-ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
+ms.openlocfilehash: 73d41b4718071d00a6f80b33de182da2ad90f331
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43312160"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090956"
 ---
 # <a name="model-validation-in-aspnet-core-mvc"></a>ASP.NET Core MVC model doğrulama
 
@@ -27,6 +28,13 @@ Neyse ki, .NET doğrulama içinde doğrulama özniteliklerinin soyutlanır. Bu �
 ## <a name="validation-attributes"></a>Doğrulama öznitelikleri
 
 Doğrulama özniteliklerinin model doğrulama veritabanı tablolarındaki alanlarda doğrulama için kavramsal olarak benzer şekilde yapılandırmak için bir yoludur. Bu, veri türleri veya gerekli alanları atama gibi kısıtlamalar içerir. E-posta adresi veya telefon numarası, kredi kartı gibi iş kuralları zorlamak için veri desenleri uygulama doğrulama diğer türleri içerir. Doğrulama özniteliklerinin çok daha basit ve daha kolay kullanılan bu gereksinimleri zorunlu yapın.
+
+Doğrulama öznitelikleri özellik düzeyinde belirtilir: 
+
+```csharp 
+[Required] 
+public string MyProperty { get; set; } 
+``` 
 
 Ek açıklama aşağıdadır `Movie` film ve TV programları hakkında bilgi depolayan bir uygulamadan model. Özelliklerin çoğu gerekli ve çeşitli dize özellikleri uzunluk gereksinimlerine sahiptir. Ayrıca, bir sayısal aralık kısıtlaması için bir yerde yoktur `Price` özelliğini 0 $999.99, birlikte özel doğrulama özniteliği.
 
@@ -62,7 +70,7 @@ Atanamayan [değer türleri](/dotnet/csharp/language-reference/keywords/value-ty
 
 Doğrulama öznitelikleri doğrulama ile ilgili değil, MVC model bağlama için alamayan bir tür boşluk veya eksik bir değer içeren bir form alanını gönderme reddeder. Mevcut olmadığında bir `BindRequired` özniteliği hedef özelliği, model bağlama form alanı olan eksik atanamaz türler için eksik veri yok sayar. gelen form verileri.
 
-[BindRequired özniteliği](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.bindrequiredattribute) (Ayrıca bkz: [model bağlama davranışı öznitelikleri olan özelleştirme](xref:mvc/models/model-binding#customize-model-binding-behavior-with-attributes)) form verilerini tam olduğundan emin olmak kullanışlıdır. Bir özelliğe uygulandığında, model bağlama sistemi bu özellik için bir değer gerektirir. Bir türe başvurulduğunda, model bağlama sistemi tüm bu tür özellikleri için değerleri gerektirir.
+[BindRequired özniteliği](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.bindrequiredattribute) (Ayrıca bkz: <xref:mvc/models/model-binding#customize-model-binding-behavior-with-attributes>) form verilerini tam olduğundan emin olmak kullanışlıdır. Bir özelliğe uygulandığında, model bağlama sistemi bu özellik için bir değer gerektirir. Bir türe başvurulduğunda, model bağlama sistemi tüm bu tür özellikleri için değerleri gerektirir.
 
 Kullandığınızda, bir [Nullable\<T > türü](/dotnet/csharp/programming-guide/nullable-types/) (örneğin, `decimal?` veya `System.Nullable<decimal>`) ve işaretleyin `Required`, bir sunucu tarafı doğrulama denetimi özelliği (için standart bir boş değer atanabilir tür adlarıymış gerçekleştirilir Örneğin, bir `string`).
 
@@ -256,4 +264,4 @@ Artık, kullanıcıların bir adı ve Soyadı, JavaScript girin:
 public string MiddleName { get; set; }
 ```
 
-`AdditionalFields`, tüm öznitelik bağımsız değişkenleri gibi bir sabit ifade olmalıdır. Bu nedenle, değil kullanmalısınız bir [ilişkilendirilmiş bir dizedir](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/interpolated-strings) veya çağrı [ `string.Join()` ](https://msdn.microsoft.com/library/system.string.join(v=vs.110).aspx) başlatmak için `AdditionalFields`. Eklediğiniz her ek alan için `[Remote]` özniteliği, karşılık gelen denetleyici eylem yöntemine başka bir bağımsız değişken eklemeniz gerekir.
+`AdditionalFields`, tüm öznitelik bağımsız değişkenleri gibi bir sabit ifade olmalıdır. Bu nedenle, değil kullanmalısınız bir [ilişkilendirilmiş bir dizedir](/dotnet/csharp/language-reference/keywords/interpolated-strings) veya çağrı [ `string.Join()` ](https://msdn.microsoft.com/library/system.string.join(v=vs.110).aspx) başlatmak için `AdditionalFields`. Eklediğiniz her ek alan için `[Remote]` özniteliği, karşılık gelen denetleyici eylem yöntemine başka bir bağımsız değişken eklemeniz gerekir.

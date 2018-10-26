@@ -3,14 +3,15 @@ title: Itanium tabanlı sistemler için ASP.NET Core MVC ile EF Core - veri mode
 author: rick-anderson
 description: Bu öğreticide, daha fazla varlıklar ve ilişkiler ekleyin ve veri modelini, doğrulama, biçimlendirme ve eşleme kuralları belirterek özelleştirin.
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: 3714cf7ce705a52653394319fef1728a6ddcc3ee
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 87212edbfe34af6de938cf95314501e56e64a8be
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011777"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091047"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---data-model---5-of-10"></a>Itanium tabanlı sistemler için ASP.NET Core MVC ile EF Core - veri modeli - 5 / 10
 
@@ -232,7 +233,7 @@ Put bir `[Required]` Eğitmen Gezinti özelliğindeki ilgili Eğitmen olmalıdı
 
 Kurs varlık bir yabancı anahtar özelliğine sahip `DepartmentID` ilgili bölüm varlık ve onu işaret ettiği sahip bir `Department` gezinme özelliği.
 
-Entity Framework gezinme özelliğinin bağını ilgili varlık olduğunda veri modelinizi yabancı bir anahtar özellik eklemenize gerek yoktur.  EF otomatik olarak ihtiyaç duyulan yere, veritabanında yabancı anahtarlar oluşturur ve oluşturur [gölge Özellikler](https://docs.microsoft.com/ef/core/modeling/shadow-properties) bunlar için. Ancak yabancı anahtar veri modelinde sahip güncelleştirmeleri daha basit ve daha verimli hale getirebilir. Departman Varlığı düzenlemek için bir kurs varlık getiren, örneğin, null, yükleme şekilde kurs varlık güncelleştirdiğinizde varsa ilk bölüm varlık getirilemedi. Yabancı anahtar özelliği `DepartmentID` içerdiği veri modelinde güncelleştirmeden önce departmanı varlık getiren gerekmez.
+Entity Framework gezinme özelliğinin bağını ilgili varlık olduğunda veri modelinizi yabancı bir anahtar özellik eklemenize gerek yoktur.  EF otomatik olarak ihtiyaç duyulan yere, veritabanında yabancı anahtarlar oluşturur ve oluşturur [gölge Özellikler](/ef/core/modeling/shadow-properties) bunlar için. Ancak yabancı anahtar veri modelinde sahip güncelleştirmeleri daha basit ve daha verimli hale getirebilir. Departman Varlığı düzenlemek için bir kurs varlık getiren, örneğin, null, yükleme şekilde kurs varlık güncelleştirdiğinizde varsa ilk bölüm varlık getirilemedi. Yabancı anahtar özelliği `DepartmentID` içerdiği veri modelinde güncelleştirmeden önce departmanı varlık getiren gerekmez.
 
 ### <a name="the-databasegenerated-attribute"></a>DatabaseGenerated özniteliği
 
@@ -246,7 +247,7 @@ public int CourseID { get; set; }
 
 Varsayılan olarak Entity Framework, birincil anahtar değerlerini veritabanı tarafından oluşturulan varsayar. Çoğu senaryoda, istediğiniz olmasıdır. Ancak, kurs varlıklar için 1000 serisi gibi bir kullanıcı tarafından belirtilen kurs numarası bir bölümü, başka bir bölüme, 2000 serilerinin için kullanabilir ve benzeri.
 
-`DatabaseGenerated` Özniteliği de kullanılabilir olması durumunda veritabanı sütunlarını tarihi kaydetmek için kullanılan bir satır oluşturulurken veya güncelleştirilirken gibi varsayılan değerleri oluşturmak için.  Daha fazla bilgi için [üretilen özellikleri](https://docs.microsoft.com/ef/core/modeling/generated-properties).
+`DatabaseGenerated` Özniteliği de kullanılabilir olması durumunda veritabanı sütunlarını tarihi kaydetmek için kullanılan bir satır oluşturulurken veya güncelleştirilirken gibi varsayılan değerleri oluşturmak için.  Daha fazla bilgi için [üretilen özellikleri](/ef/core/modeling/generated-properties).
 
 ### <a name="foreign-key-and-navigation-properties"></a>Yabancı anahtar ve gezinti özellikleri
 
@@ -373,7 +374,7 @@ Eğitmen kursları çoktan çoğa ilişki için veritabanında bir birleşim tab
 
 Yabancı anahtarlar benzersiz olarak boş değer atanabilir ve birlikte olmadığından tablonun her satırı tanımlamak, ayrı bir birincil anahtar için gerek yoktur. *Instructorıd* ve *CourseID* özellikleri, bileşik bir birincil anahtar olarak çalışması. Kullanarak EF bileşik birincil anahtarları tanımlamak için tek yolu olduğundan *fluent API'si* (Bu öznitelikleri kullanarak yapılamaz). Sonraki bölümde bileşik bir birincil anahtar yapılandırmak nasıl göreceksiniz.
 
-Bileşik anahtarın bir kurs ve bir eğitmen için birden çok satır için birden çok satır olabilse kurs ve aynı eğitmen için birden fazla satır olamaz sağlar. `Enrollment` Birleştirme varlık çoğaltmaları bu tür mümkün olduğundan, kendi birincil anahtar tanımlar. Böyle yinelenen önlemek için benzersiz bir dizin yabancı anahtar alanları eklediğinizde veya yapılandırma `Enrollment` benzer şekilde birincil Bileşik anahtarı `CourseAssignment`. Daha fazla bilgi için [dizinleri](https://docs.microsoft.com/ef/core/modeling/indexes).
+Bileşik anahtarın bir kurs ve bir eğitmen için birden çok satır için birden çok satır olabilse kurs ve aynı eğitmen için birden fazla satır olamaz sağlar. `Enrollment` Birleştirme varlık çoğaltmaları bu tür mümkün olduğundan, kendi birincil anahtar tanımlar. Böyle yinelenen önlemek için benzersiz bir dizin yabancı anahtar alanları eklediğinizde veya yapılandırma `Enrollment` benzer şekilde birincil Bileşik anahtarı `CourseAssignment`. Daha fazla bilgi için [dizinleri](/ef/core/modeling/indexes).
 
 ## <a name="update-the-database-context"></a>Veritabanı bağlamı güncelleştir
 
@@ -385,7 +386,7 @@ Bu kod, yeni varlıkları ekleyen ve CourseAssignment varlığın bileşik birin
 
 ## <a name="fluent-api-alternative-to-attributes"></a>Fluent API'si alternatif öznitelikleri
 
-Kodda `OnModelCreating` yöntemi `DbContext` sınıfının kullandığı *fluent API'si* EF davranışı yapılandırmak için. Bu örnekte olduğu gibi tek bir deyimde içine bir dizi yöntem çağrılarını birlikte stringing genellikle kullanıldığından API'sı "fluent" çağrılan [EF Core belgeleri](https://docs.microsoft.com/ef/core/modeling/#methods-of-configuration):
+Kodda `OnModelCreating` yöntemi `DbContext` sınıfının kullandığı *fluent API'si* EF davranışı yapılandırmak için. Bu örnekte olduğu gibi tek bir deyimde içine bir dizi yöntem çağrılarını birlikte stringing genellikle kullanıldığından API'sı "fluent" çağrılan [EF Core belgeleri](/ef/core/modeling/#methods-of-configuration):
 
 ```csharp
 protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -400,7 +401,7 @@ Bu öğreticide, yalnızca özniteliklerle yapamayacağınız veritabanı eşlem
 
 Bazı geliştiriciler özel olarak bunlar kendi varlık sınıfları "temiz" olan fluent API'sini kullanmayı tercih edin İstediğiniz ve fluent API'sini kullanarak yalnızca yapılabilir birkaç özelleştirmeleri öznitelikleri ve fluent API'si karıştırabilirsiniz, ancak genel olarak önerilen uygulama bu iki yaklaşımdan birini seçin ve bu tutarlı bir şekilde mümkün olduğunca kullanmaktır. Her ikisini de kullanıyorsanız, çakışma olduğunda Fluent API'si özniteliklerini geçersiz kılar.
 
-Fluent API'si ve öznitelikler hakkında daha fazla bilgi için bkz. [yapılandırma yöntemleri,](https://docs.microsoft.com/ef/core/modeling/#methods-of-configuration).
+Fluent API'si ve öznitelikler hakkında daha fazla bilgi için bkz. [yapılandırma yöntemleri,](/ef/core/modeling/#methods-of-configuration).
 
 ## <a name="entity-diagram-showing-relationships"></a>Varlık diyagramda gösteren ilişkileri
 

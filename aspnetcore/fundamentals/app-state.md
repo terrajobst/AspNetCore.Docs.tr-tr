@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/14/2018
 uid: fundamentals/app-state
-ms.openlocfilehash: 7794b3c10e26720d3e7ef8965f99b204a3c58d5c
-ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
+ms.openlocfilehash: 7383d123be4d1e7a20eb93646e630119583350e6
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41870940"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091099"
 ---
 # <a name="session-and-app-state-in-aspnet-core"></a>ASP.NET core'da oturum ve uygulama durumu
 
@@ -27,7 +27,7 @@ Durum, çeşitli yaklaşımlar kullanılarak depolanabilir. Her bir yaklaşım, 
 
 | Depolama yaklaşımı | Depolama mekanizması |
 | ---------------- | ----------------- |
-| [Tanımlama bilgileri](#cookies) | HTTP tanımlama bilgileri (sunucu tarafı uygulama kodu kullanarak depolanan veriler dahil) |
+| [Çerezler](#cookies) | HTTP tanımlama bilgileri (sunucu tarafı uygulama kodu kullanarak depolanan veriler dahil) |
 | [Oturum durumu](#session-state) | HTTP tanımlama bilgileri ve sunucu tarafı uygulama kodu |
 | [TempData](#tempdata) | HTTP tanımlama bilgileri veya oturum durumu |
 | [Sorgu dizeleri](#query-strings) | HTTP sorgu dizeleri |
@@ -70,7 +70,7 @@ Oturum durumu aşağıdaki davranışları sergileyen:
 
 Bellek içi önbelleği sağlayıcısı uygulama bulunduğu sunucunun bellekte oturum verilerini depolar. Bir sunucu grubu senaryoda:
 
-* Kullanım *Yapışkan oturumlar* tek bir sunucu üzerinde her oturum belirli uygulama örneğine bağlamak için. [Azure App Service](https://azure.microsoft.com/services/app-service/) kullanan [uygulama isteği yönlendirme (ARR)](/iis/extensions/planning-for-arr/using-the-application-request-routing-module) Yapışkan oturumlar varsayılan olarak zorunlu kılmak için. Ancak, Yapışkan oturumlar ölçeklenebilirliği etkileyebilir ve web uygulama güncelleştirmeleri zorlaştırabilir. Bir Redis veya SQL Server kullanmak için daha iyi bir yaklaşım olan dağıtılmış önbellek, Yapışkan oturumlar gerektirmez. Daha fazla bilgi için [dağıtılmış Önbellekle çalışma](xref:performance/caching/distributed).
+* Kullanım *Yapışkan oturumlar* tek bir sunucu üzerinde her oturum belirli uygulama örneğine bağlamak için. [Azure App Service](https://azure.microsoft.com/services/app-service/) kullanan [uygulama isteği yönlendirme (ARR)](/iis/extensions/planning-for-arr/using-the-application-request-routing-module) Yapışkan oturumlar varsayılan olarak zorunlu kılmak için. Ancak, Yapışkan oturumlar ölçeklenebilirliği etkileyebilir ve web uygulama güncelleştirmeleri zorlaştırabilir. Bir Redis veya SQL Server kullanmak için daha iyi bir yaklaşım olan dağıtılmış önbellek, Yapışkan oturumlar gerektirmez. Daha fazla bilgi için bkz. <xref:performance/caching/distributed>.
 * Oturum tanımlama bilgisi ile şifrelenmiş [Idataprotector](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotector). Veri koruma, her bir makinede oturum tanımlama bilgileri okumak için düzgün şekilde yapılandırılmalıdır. Daha fazla bilgi için [ASP.NET Core veri koruması](xref:security/data-protection/index) ve [anahtar depolama sağlayıcıları](xref:security/data-protection/implementation/key-storage-providers).
 
 ### <a name="configure-session-state"></a>Oturum durumunu yapılandırın
@@ -87,7 +87,7 @@ Bellek içi önbelleği sağlayıcısı uygulama bulunduğu sunucunun bellekte o
 
 ::: moniker-end
 
-* Herhangi bir [IDistributedCache](/dotnet/api/microsoft.extensions.caching.distributed.idistributedcache) bellek önbelleğe alır. `IDistributedCache` Uygulama oturumu için bir yedekleme deposu kullanılır. Daha fazla bilgi için [dağıtılmış Önbellekle çalışma](xref:performance/caching/distributed).
+* Herhangi bir [IDistributedCache](/dotnet/api/microsoft.extensions.caching.distributed.idistributedcache) bellek önbelleğe alır. `IDistributedCache` Uygulama oturumu için bir yedekleme deposu kullanılır. Daha fazla bilgi için bkz. <xref:performance/caching/distributed>.
 * Bir çağrı [AddSession](/dotnet/api/microsoft.extensions.dependencyinjection.sessionservicecollectionextensions.addsession) içinde `ConfigureServices`.
 * Bir çağrı [UseSession](/dotnet/api/microsoft.aspnetcore.builder.sessionmiddlewareextensions#methods_) içinde `Configure`.
 
@@ -434,7 +434,7 @@ Kullanım [bağımlılık ekleme](xref:fundamentals/dependency-injection) veri t
 
 * "Hizmet türü 'Microsoft.Extensions.Caching.Distributed.IDistributedCache' için 'Microsoft.AspNetCore.Session.DistributedSessionStore' etkinleştirmeye çalışılırken çözmek alınamıyor."
 
-  Bu en az bir yapılandırma devrederek genellikle kaynaklanır `IDistributedCache` uygulaması. Daha fazla bilgi için [dağıtılmış Önbellekle çalışma](xref:performance/caching/distributed) ve [bellek içi önbelleğe alma](xref:performance/caching/memory).
+  Bu en az bir yapılandırma devrederek genellikle kaynaklanır `IDistributedCache` uygulaması. Daha fazla bilgi için bkz. <xref:performance/caching/distributed> ve <xref:performance/caching/memory>.
 
 * Ara yazılım başarısız oturum (örneğin, yedekleme deposunun kullanılabilir durumda değilse) bir oturumu kalıcı olayda ara yazılım özel durumu günlüğe kaydeder ve isteğin normal şekilde devam eder. Bu beklenmeyen davranışa yol açar.
 

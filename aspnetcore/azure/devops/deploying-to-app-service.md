@@ -3,18 +3,19 @@ title: ASP.NET Core ve Azure ile DevOps | Bir uygulamayı App Service'e dağıtm
 author: CamSoper
 description: Azure'da barındırılan bir ASP.NET Core uygulaması için bir DevOps işlem hattı oluşturmaya uçtan uca yönergeler sağlar. bir kılavuz.
 ms.author: casoper
-ms.date: 08/07/2018
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: azure/devops/deploy-to-app-service
-ms.openlocfilehash: 710e65a048fdc062219e90b0db323e8e96fd8e9d
-ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
+ms.openlocfilehash: 33026ed510aae63a9e580aa5d708f94aad778fca
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44340140"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090943"
 ---
 # <a name="deploy-an-app-to-app-service"></a>Bir uygulamayı App Service'e dağıtma
 
-[Azure App Service](https://docs.microsoft.com/azure/app-service/) olan Azure'nın web barındırma platformu. Web uygulamasını Azure App Service'e dağıtma el ile veya otomatik bir işlem yapılabilir. Kılavuzu'nun bu bölümünde, el ile veya komut satırını kullanarak bir komut dosyası tarafından tetiklenebilir veya Visual Studio kullanarak el ile tetiklenen dağıtım yöntemlerini açıklar.
+[Azure App Service](/azure/app-service/) olan Azure'nın web barındırma platformu. Web uygulamasını Azure App Service'e dağıtma el ile veya otomatik bir işlem yapılabilir. Kılavuzu'nun bu bölümünde, el ile veya komut satırını kullanarak bir komut dosyası tarafından tetiklenebilir veya Visual Studio kullanarak el ile tetiklenen dağıtım yöntemlerini açıklar.
 
 Bu bölümde, aşağıdaki görevleri yerine getirmek:
 
@@ -70,7 +71,7 @@ Bir komut kabuğundan, kodu indirmek, projeyi oluşturun ve aşağıdaki gibi ç
 
 ## <a name="create-the-azure-app-service-web-app"></a>Azure App Service Web uygulaması oluşturma
 
-Uygulamayı dağıtmak için bir App Service oluşturma gerekecektir [Web uygulaması](https://docs.microsoft.com/azure/app-service/app-service-web-overview). Web uygulamasının oluşturulduktan sonra ona Git kullanarak yerel makinenizde dağıtacaksınız.
+Uygulamayı dağıtmak için bir App Service oluşturma gerekecektir [Web uygulaması](/azure/app-service/app-service-web-overview). Web uygulamasının oluşturulduktan sonra ona Git kullanarak yerel makinenizde dağıtacaksınız.
 
 1. Oturum [Azure Cloud Shell'i](https://shell.azure.com/bash). Not: yapılandırma dosyalarını bir depolama hesabı oluşturmak için Cloud Shell ilk kez oturum açtığınızda, ister. Varsayılanları kabul edin veya benzersiz bir ad belirtin.
 
@@ -88,7 +89,7 @@ Uygulamayı dağıtmak için bir App Service oluşturma gerekecektir [Web uygula
     az group create --location centralus --name AzureTutorial
     ```
 
-    `az` Komutu çağırır [Azure CLI](https://docs.microsoft.com/cli/azure/). CLI'yi yerel olarak çalıştırabilirsiniz, ancak zaman ve yapılandırma Cloud Shell'de kullanarak kaydeder.
+    `az` Komutu çağırır [Azure CLI](/cli/azure/). CLI'yi yerel olarak çalıştırabilirsiniz, ancak zaman ve yapılandırma Cloud Shell'de kullanarak kaydeder.
 
     c. S1 katmanında bir App Service planı oluşturun. Bir App Service planı, aynı fiyatlandırma katmanını paylaşan web apps gruplandırmasıdır. S1 katmanı ücretsiz olarak değil, ancak hazırlama yuvaları özellik için zorunludur.
 
@@ -238,7 +239,7 @@ Sonraki bölümde, Azure işlem hatları ile bir DevOps işlem hattı oluşturma
 
 ## <a name="additional-reading"></a>Ek okuma
 
-* [Web Apps'e genel bakış](https://docs.microsoft.com/azure/app-service/app-service-web-overview)
-* [Azure App Service'te .NET Core ve SQL veritabanı web uygulaması derleme](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb)
-* [Azure App Service için dağıtım kimlik bilgilerini yapılandırma](https://docs.microsoft.com/azure/app-service/app-service-deployment-credentials)
-* [Azure App Service ortamlarında hazırlık ayarlama](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing)
+* [Web Apps'e genel bakış](/azure/app-service/app-service-web-overview)
+* [Azure App Service'te .NET Core ve SQL veritabanı web uygulaması derleme](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb)
+* [Azure App Service için dağıtım kimlik bilgilerini yapılandırma](/azure/app-service/app-service-deployment-credentials)
+* [Azure App Service ortamlarında hazırlık ayarlama](/azure/app-service/web-sites-staged-publishing)

@@ -4,20 +4,21 @@ author: rick-anderson
 description: Entity Framework Core ile bir Razor sayfası için yeni bir alan ekleme işlemi açıklanır
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 05/30/2018
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: tutorials/razor-pages/new-field
-ms.openlocfilehash: d6d59ff336095e2f1b8b2e9a0338b7791605ad7a
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: f8be269887903797803257d8a21e002519102047
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46010903"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50089519"
 ---
 # <a name="add-a-new-field-to-a-razor-page-in-aspnet-core"></a>ASP.NET Core Razor sayfasına yeni bir alan ekleyin
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Bu bölümde kullandığınız [Entity Framework](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db) veritabanına Code First Migrations'modeli için yeni bir alan ekleme ve bu geçiş için değiştirin.
+Bu bölümde kullandığınız [Entity Framework](/ef/core/get-started/aspnetcore/new-db) veritabanına Code First Migrations'modeli için yeni bir alan ekleme ve bu geçiş için değiştirin.
 
 EF Code First otomatik olarak Code First bir veritabanı oluşturmak için kullanırken:
 
@@ -96,7 +97,9 @@ Bkz: [SeedData.cs dosya tamamlandı](https://github.com/aspnet/Docs/blob/master/
 
 Çözümü oluşturun.
 
-<a name="pmc"></a> Gelen **Araçları** menüsünde **NuGet Paket Yöneticisi > Paket Yöneticisi Konsolu**.
+<a name="pmc"></a>
+
+Gelen **Araçları** menüsünde **NuGet Paket Yöneticisi > Paket Yöneticisi Konsolu**.
 PMC'de aşağıdaki komutları girin:
 
 ```powershell
@@ -111,7 +114,9 @@ Update-Database
 
 Adı "Sıralama" isteğe bağlıdır ve geçiş dosyasını adlandırmak için kullanılır. Geçiş dosya için anlamlı bir ad kullanmak yararlıdır.
 
-<a name="ssox"></a> DB tüm kayıtların silerseniz, başlatıcı DB çekirdeğini ve dahil `Rating` alan. Tarayıcıda veya gelen silme bağlantıları kullanarak bunu yapabilirsiniz [Sql Server Nesne Gezgini](xref:tutorials/razor-pages/sql#ssox) (SSOX). SSOX veritabanını silmek için:
+<a name="ssox"></a>
+
+DB tüm kayıtların silerseniz, başlatıcı DB çekirdeğini ve dahil `Rating` alan. Tarayıcıda veya gelen silme bağlantıları kullanarak bunu yapabilirsiniz [Sql Server Nesne Gezgini](xref:tutorials/razor-pages/sql#ssox) (SSOX). SSOX veritabanını silmek için:
 
 * Veritabanı içinde SSOX seçin.
 * Veritabanını sağ tıklatın ve seçin *Sil*.

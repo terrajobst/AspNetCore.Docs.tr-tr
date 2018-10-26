@@ -3,14 +3,15 @@ title: ASP.NET Core projelerinde sorun giderme
 author: Rick-Anderson
 description: Anlama ve uyarıları ve ASP.NET Core projeleriyle hataları giderebilirsiniz.
 ms.author: riande
-ms.date: 04/05/2018
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: test/troubleshoot
-ms.openlocfilehash: c72dd93f6ba705d7f03ade556c7a037dadeb6295
-ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
+ms.openlocfilehash: 150f2192bb4b6dd0d330fd678d9c5fa0bf31673e
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37938400"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090117"
 ---
 # <a name="troubleshoot-aspnet-core-projects"></a>ASP.NET Core projelerinde sorun giderme
 
@@ -18,9 +19,9 @@ Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Aşağıdaki bağlantılar, sorun giderme kılavuzu sağlar:
 
-* [Azure App Service’te uygulama sorunlarını giderme](xref:host-and-deploy/azure-apps/troubleshoot)
-* [IIS üzerinde ASP.NET Core sorunlarını giderme](xref:host-and-deploy/iis/troubleshoot)
-* [Azure App Service ve IIS ile ASP.NET Core için sık karşılaşılan hatalar başvurusu](xref:host-and-deploy/azure-iis-errors-reference)
+* <xref:host-and-deploy/azure-apps/troubleshoot>
+* <xref:host-and-deploy/iis/troubleshoot>
+* <xref:host-and-deploy/azure-iis-errors-reference>
 * [NDC konferansı (Londra, 2018): ASP.NET Core uygulamaları tanılama sorunları](https://www.youtube.com/watch?v=RYI0DHoIVaA)
 * [ASP.NET Web günlüğü: ASP.NET Core performans sorunlarını giderme](https://blogs.msdn.microsoft.com/webdev/2018/05/23/asp-net-core-performance-improvements/)
 

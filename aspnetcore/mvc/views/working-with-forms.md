@@ -3,15 +3,15 @@ title: ASP.NET Core formlarda etiket Yardımcıları
 author: rick-anderson
 description: Formlarda etiket yardımcılarını kullanılan yerleşik açıklar.
 ms.author: riande
-ms.custom: H1Hack27Feb2017
-ms.date: 02/14/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: e613dc1e85b84cc5e2b8ad2bf3958040257d1966
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: efc71cc8d072769cde07e129b6d9bb933fc2f7af
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911285"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090222"
 ---
 # <a name="tag-helpers-in-forms-in-aspnet-core"></a>ASP.NET Core formlarda etiket Yardımcıları
 
@@ -29,7 +29,7 @@ Bu belge, form ve Form üzerinde kullanılan HTML öğeleri ile çalışma göst
 
 * HTML oluşturan [ \<FORM >](https://www.w3.org/TR/html401/interact/forms.html) `action` MVC denetleyicisi eylemi veya adlandırılmış bir rota için öznitelik değeri
 
-* Gizli oluşturur [istek doğrulama belirteci](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) siteler arası istek sahteciliğini önlemek için (ile kullanıldığında `[ValidateAntiForgeryToken]` HTTP Post eylem yönteminde öznitelik)
+* Gizli oluşturur [istek doğrulama belirteci](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) siteler arası istek sahteciliğini önlemek için (ile kullanıldığında `[ValidateAntiForgeryToken]` HTTP Post eylem yönteminde öznitelik)
 
 * Sağlar `asp-route-<Parameter Name>` özniteliği burada `<Parameter Name>` rota değerleri için eklenir. `routeValues` Parametreleri `Html.BeginForm` ve `Html.BeginRouteForm` benzer bir işlevsellik sağlar.
 
@@ -48,7 +48,7 @@ Yukarıdaki Form etiketi Yardımcısı aşağıdaki HTML'yi oluşturur:
 </form>
 ```
 
-MVC çalışma zamanının oluşturduğu `action` öznitelik değeri Form etiketi Yardımcısı öznitelikleri `asp-controller` ve `asp-action`. Form etiketi Yardımcısı aynı zamanda bir gizli oluşturur [istek doğrulama belirteci](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) siteler arası istek sahteciliğini önlemek için (ile kullanıldığında `[ValidateAntiForgeryToken]` HTTP Post eylem yönteminin özniteliği). Saf bir HTML Form siteler arası istek sahteciliğini koruma zordur, bu hizmet, Form etiketi Yardımcısı sağlar.
+MVC çalışma zamanının oluşturduğu `action` öznitelik değeri Form etiketi Yardımcısı öznitelikleri `asp-controller` ve `asp-action`. Form etiketi Yardımcısı aynı zamanda bir gizli oluşturur [istek doğrulama belirteci](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) siteler arası istek sahteciliğini önlemek için (ile kullanıldığında `[ValidateAntiForgeryToken]` HTTP Post eylem yönteminin özniteliği). Saf bir HTML Form siteler arası istek sahteciliğini koruma zordur, bu hizmet, Form etiketi Yardımcısı sağlar.
 
 ### <a name="using-a-named-route"></a>Adlandırılmış bir rotayı kullanma
 
@@ -108,7 +108,7 @@ Type expected
 |---|---|
 |bool|tür "onay kutusu" =|
 |Dize|tür = "text"|
-|DateTime|type=”datetime”|
+|DateTime|tür "datetime" =|
 |Bayt|tür = "number"|
 |int|tür = "number"|
 |Tek, Double|tür = "number"|
@@ -244,7 +244,6 @@ Aşağıdaki Razor, bir koleksiyon üzerinde yinelemek gösterilmektedir:
 *Views/Shared/EditorTemplates/ToDoItem.cshtml* şablonu:
 
 [!code-HTML[](working-with-forms/sample/final/Views/Shared/EditorTemplates/ToDoItem.cshtml)]
-
 
 >[!NOTE]
 >Her zaman `for` (ve *değil* `foreach`) bir liste üzerinde yineleme yapmak için. Değerlendirme bir dizin oluşturucu bir LINQ ifadesi, pahalı olabilir ve küçültülmesine.
@@ -574,10 +573,10 @@ Doğru `<option>` öğe seçilir (içeren `selected="selected"` özniteliği) ge
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Etiket Yardımcıları](xref:mvc/views/tag-helpers/intro)
+* <xref:mvc/views/tag-helpers/intro>
 * [HTML Form öğesi](https://www.w3.org/TR/html401/interact/forms.html)
 * [İstek doğrulama belirteci](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)
-* [Model Bağlamaları](xref:mvc/models/model-binding)
-* [Model doğrulama](xref:mvc/models/validation)
+* <xref:mvc/models/model-binding>
+* <xref:mvc/models/validation>
 * [IAttributeAdapter arabirimi](/dotnet/api/Microsoft.AspNetCore.Mvc.DataAnnotations.IAttributeAdapter)
 * [Bu belge için kod parçacıkları](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/working-with-forms/sample/final)

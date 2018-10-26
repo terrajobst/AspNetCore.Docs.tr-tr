@@ -3,14 +3,15 @@ title: ASP.NET core'da - veri modeli - 8'in 5 EF çekirdekli Razor sayfaları
 author: rick-anderson
 description: Bu öğreticide, daha fazla varlıklar ve ilişkiler ekleyin ve veri modelini, doğrulama, biçimlendirme ve eşleme kuralları belirterek özelleştirin.
 ms.author: riande
-ms.date: 6/31/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: b81918cbd74200f0672f3002f916523fb4a9a914
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: 9a0d5a8e722487ccf7e08aadb39f838a0963451d
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477663"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090985"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>ASP.NET core'da - veri modeli - 8'in 5 EF çekirdekli Razor sayfaları
 
@@ -121,6 +122,7 @@ Ek `Column` özniteliği değişiklikleri model yedekleme `SchoolContext`. Model
 ```SQL
 SqlException: Invalid column name 'FirstName'.
 ```
+
 DB güncelleştirmek için:
 
 * Projeyi oluşturun.
@@ -157,7 +159,7 @@ Ad alanları artık olduğundan uyarısı oluşturulur 50 karakterle sınırlıd
 
 ![Geçiş sonrasında SSOX Öğrenciler tabloda](complex-data-model/_static/ssox-after-migration.png)
 
-Geçiş uygulanmadan önce ad sütunu türü olan [nvarchar(MAX)](https://docs.microsoft.com/sql/t-sql/data-types/nchar-and-nvarchar-transact-sql). Ad sütunu sunulmuştur `nvarchar(50)`. Sütun adı değiştiğinde `FirstMidName` için `FirstName`.
+Geçiş uygulanmadan önce ad sütunu türü olan [nvarchar(MAX)](/sql/t-sql/data-types/nchar-and-nvarchar-transact-sql). Ad sütunu sunulmuştur `nvarchar(50)`. Sütun adı değiştiğinde `FirstMidName` için `FirstName`.
 
 > [!Note]
 > Aşağıdaki bölümde bazı aşamalarında bir uygulama oluşturmak, derleyici hataları oluşturur. Uygulama derleme zamanı yönergeleri belirtin.
@@ -295,7 +297,7 @@ Güncelleştirme *Models/Course.cs* aşağıdaki kod ile:
 
 Gezinme özelliğinin bağını ilgili varlık modeli sahip olduğunda EF Core için bir veri modeli FK özelliğini gerektirmez.
 
-İhtiyaç duyulan yere EF Core FKs veritabanında otomatik olarak oluşturur. EF Core oluşturur [gölge Özellikler](https://docs.microsoft.com/ef/core/modeling/shadow-properties) otomatik olarak oluşturulan FKs için. FK veri modelinde sahip güncelleştirmeleri daha basit ve daha verimli hale getirir. Örneğin, bir model düşünün burada FK özelliği `DepartmentID` olduğu *değil* dahil. Ne zaman bir kurs varlığı düzenlemek için getirilir:
+İhtiyaç duyulan yere EF Core FKs veritabanında otomatik olarak oluşturur. EF Core oluşturur [gölge Özellikler](/ef/core/modeling/shadow-properties) otomatik olarak oluşturulan FKs için. FK veri modelinde sahip güncelleştirmeleri daha basit ve daha verimli hale getirir. Örneğin, bir model düşünün burada FK özelliği `DepartmentID` olduğu *değil* dahil. Ne zaman bir kurs varlığı düzenlemek için getirilir:
 
 * `Department` Varlığa açıkça yüklü değilse null.
 * Kurs varlığı güncelleştirmek için `Department` varlık gereken ilk getirildi.
@@ -314,7 +316,7 @@ public int CourseID { get; set; }
 
 Varsayılan olarak EF Core PK değerleri DB tarafından oluşturulan varsayar. DB PK oluşturulan değeri genellikle en iyi yaklaşım. İçin `Course` varlıklar, kullanıcı yinelenir belirtir Örneğin, bir kurs sayı 1000 serisi matematik departmanı, 2000 serisi İngilizce departmanı gibi.
 
-`DatabaseGenerated` Özniteliği de varsayılan değerleri oluşturmak için kullanılabilir. Örneğin, DB, otomatik olarak bir satır oluşturulduğunda veya güncelleştirildiğinde tarihi kaydetmek için bir tarih alanı oluşturabilirsiniz. Daha fazla bilgi için [üretilen özellikleri](https://docs.microsoft.com/ef/core/modeling/generated-properties).
+`DatabaseGenerated` Özniteliği de varsayılan değerleri oluşturmak için kullanılabilir. Örneğin, DB, otomatik olarak bir satır oluşturulduğunda veya güncelleştirildiğinde tarihi kaydetmek için bir tarih alanı oluşturabilirsiniz. Daha fazla bilgi için [üretilen özellikleri](/ef/core/modeling/generated-properties).
 
 ### <a name="foreign-key-and-navigation-properties"></a>Yabancı anahtar ve gezinti özellikleri
 
@@ -478,7 +480,7 @@ Bileşik anahtarın sağlar:
 `Enrollment` Birleştirme varlık çoğaltmaları bu tür mümkün olduğundan, kendi PK tanımlar. Bu tür çoğaltmaları engellemek için:
 
 * FK alanlarda benzersiz bir dizin eklemek veya
-* Yapılandırma `Enrollment` benzer şekilde birincil Bileşik anahtarı `CourseAssignment`. Daha fazla bilgi için [dizinleri](https://docs.microsoft.com/ef/core/modeling/indexes).
+* Yapılandırma `Enrollment` benzer şekilde birincil Bileşik anahtarı `CourseAssignment`. Daha fazla bilgi için [dizinleri](/ef/core/modeling/indexes).
 
 ## <a name="update-the-db-context"></a>DB bağlamı güncelleştir
 
@@ -490,7 +492,7 @@ Yukarıdaki kod, yeni varlıkları ekleyen ve yapılandırır `CourseAssignment`
 
 ## <a name="fluent-api-alternative-to-attributes"></a>Fluent API'si alternatif öznitelikleri
 
-`OnModelCreating` Önceki yöntemidir kod *fluent API'si* EF Core davranışı yapılandırmak için. API, genellikle bir dizi yöntem çağrılarını birleştirerek tek bir deyimde stringing kullanıldığı için "fluent" olarak adlandırılır. [Koddan](https://docs.microsoft.com/ef/core/modeling/#methods-of-configuration) fluent API'si örneğidir:
+`OnModelCreating` Önceki yöntemidir kod *fluent API'si* EF Core davranışı yapılandırmak için. API, genellikle bir dizi yöntem çağrılarını birleştirerek tek bir deyimde stringing kullanıldığı için "fluent" olarak adlandırılır. [Koddan](/ef/core/modeling/#methods-of-configuration) fluent API'si örneğidir:
 
 ```csharp
 protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -516,7 +518,7 @@ Bu konuda kullanılan öznitelikler bazıları öğreticisi için kullanılır:
 * EF Core yalnızca yapılandırmayı (örneğin, `HasKey`).
 * Doğrulama ve EF Core yapılandırma (örneğin, `[StringLength(50)]`).
 
-Fluent API'si ve öznitelikler hakkında daha fazla bilgi için bkz. [yapılandırma yöntemleri,](https://docs.microsoft.com/ef/core/modeling/#methods-of-configuration).
+Fluent API'si ve öznitelikler hakkında daha fazla bilgi için bkz. [yapılandırma yöntemleri,](/ef/core/modeling/#methods-of-configuration).
 
 ## <a name="entity-diagram-showing-relationships"></a>Varlık diyagramda gösteren ilişkileri
 
@@ -577,6 +579,7 @@ database "ContosoUniversity", table "dbo.Department", column 'DepartmentID'.
 ## <a name="apply-the-migration"></a>Geçiş Uygula
 
 Varolan bir veritabanınız olduğuna göre gelecekteki değişiklikleri uygulamak konusunda düşünmek gerekir. Bu öğreticide iki yaklaşım gösterilmektedir:
+
 * [Bırakın ve veritabanını yeniden oluşturun](#drop)
 * [Varolan bir veritabanına geçiş Uygula](#applyexisting). Bu yöntem daha karmaşık ve zaman alıcı olsa da, gerçek, üretim ortamları için tercih edilen yaklaşımdır. **Not**: isteğe bağlı bir bölüm öğreticinin budur. Açılan yapın ve adımları yeniden oluşturun ve bu bölümü atlayın. Bu bölümdeki adımları takip etmek istiyorsanız, yoksa açılan yapın ve adımları yeniden oluşturun. 
 

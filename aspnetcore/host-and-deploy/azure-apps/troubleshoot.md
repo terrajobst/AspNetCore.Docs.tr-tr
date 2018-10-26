@@ -1,17 +1,17 @@
 ---
-title: Azure App Service'te ASP.NET Core sorunlarını giderme
+title: Azure App Service'te ASP.NET Core başlangıç hatalarında sorun giderme
 author: guardrex
 description: ASP.NET Core Azure App Service dağıtım sorunlarını tanılamayı öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/31/2018
+ms.date: 10/24/2018
 uid: host-and-deploy/azure-apps/troubleshoot
-ms.openlocfilehash: a995c743b4e43be8bea5329affb3f2c736b1d016
-ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
+ms.openlocfilehash: 05bb024f5b0d2b554cc861c250a92fd7ae23437f
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41902560"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090751"
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service"></a>Azure App Service'te ASP.NET Core sorunlarını giderme
 
@@ -108,7 +108,7 @@ ASP.NET Core modülü stdout günlük genellikle uygulama olay günlüğüne bul
 
 ## <a name="common-startup-errors"></a>Ortak başlatma hataları 
 
-Bkz: [ASP.NET Core sık karşılaşılan hatalar başvurusu](xref:host-and-deploy/azure-iis-errors-reference). Uygulama başlatma önleyen yaygın sorunların çoğunu başvuru konusunda ele alınmaktadır.
+Bkz. <xref:host-and-deploy/azure-iis-errors-reference>. Uygulama başlatma önleyen yaygın sorunların çoğunu başvuru konusunda ele alınmaktadır.
 
 ## <a name="slow-or-hanging-app"></a>Yavaş veya asılı uygulama
 
@@ -175,8 +175,8 @@ Daha fazla bilgi için [Azure App Service'te web apps için tanılama günlüğ�
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Hata ASP.NET çekirdek işleme giriş](xref:fundamentals/error-handling)
-* [Azure App Service ve IIS ile ASP.NET Core için sık karşılaşılan hatalar başvurusu](xref:host-and-deploy/azure-iis-errors-reference)
+* <xref:fundamentals/error-handling>
+* <xref:host-and-deploy/azure-iis-errors-reference>
 * [Visual Studio kullanarak Azure App Service'te bir web uygulaması sorunlarını giderme](/azure/app-service/web-sites-dotnet-troubleshoot-visual-studio)
 * ["502 hatalı ağ geçidi" ve "503 Hizmet kullanılamıyor" Azure web uygulamalarınızda HTTP hatalarını giderme](/azure/app-service/app-service-web-troubleshoot-http-502-http-503)
 * [Azure App Service'te yavaş web uygulaması performans sorunlarını giderme](/azure/app-service/app-service-web-troubleshoot-performance-degradation)

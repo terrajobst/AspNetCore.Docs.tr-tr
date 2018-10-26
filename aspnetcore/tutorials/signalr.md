@@ -7,23 +7,23 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 08/31/2018
 uid: tutorials/signalr
-ms.openlocfilehash: 55fb6b1c13549129a00541c1228956a93854ad78
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 77ad5c6869b87b832e2bdfa61da7b80961323783
+ms.sourcegitcommit: f2d14a7518d6ee51aca9333818ac1276e7b5ecef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48578035"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50134567"
 ---
 # <a name="tutorial-get-started-with-aspnet-core-signalr"></a>Öğretici: ASP.NET Core SignalR ile çalışmaya başlama
 
 Bu öğreticide SignalR kullanarak gerçek zamanlı bir uygulama oluşturmaya ilişkin temel bilgileri size öğretir. Aşağıdakilerin nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Bir web uygulaması projesi oluşturun.
+> * Web projesi oluşturun.
 > * SignalR istemci kitaplığı ekleyin.
 > * Bir SignalR hub'ı oluşturun.
 > * Projeyi SignalR kullanacak şekilde yapılandırın.
-> * Bağlanan tüm istemciler için herhangi bir istemciden ileti göndermek için hub'ı kullanan kodu ekleyin.
+> * Herhangi bir istemciden bağlanan tüm istemciler için iletileri gönderen kodu ekleyin.
 
 Sonunda, bir çalışma sohbet uygulaması oluşturmuş olacaksınız:
 

@@ -2,9 +2,11 @@
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-`MovieContext` Nesne veritabanına bağlanma ve eşleme görevi işleme `Movie` veritabanı kayıtlarını nesneleri. Veritabanı bağlamı kayıtlı [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısında `ConfigureServices` yönteminde *Startup.cs* dosyası:
+`MovieContext` Nesne veritabanına bağlanma ve eşleme görevi işleme `Movie` veritabanı kayıtlarını nesneleri. Veritabanı bağlamı kayıtlı [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection) kapsayıcısında `ConfigureServices` yönteminde *Startup.cs* dosyası:
 
 [!code-csharp[](code/Startup.cs?name=snippet2&highlight=6-8)]
+
+Kullanma hakkında daha fazla bilgi için `DbContext` DI ile bkz [kullanarak DbContext DI ile](/ef/core/miscellaneous/configuring-dbcontext#using-dbcontext-with-dependency-injection).
 
 ## <a name="sqlite"></a>SQLite
 

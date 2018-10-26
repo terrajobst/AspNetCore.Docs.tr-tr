@@ -1,103 +1,95 @@
 ---
-title: Dağıtılmış bir önbellekte ASP.NET Core ile çalışma
-author: ardalis
-description: Dağıtılmış ASP.NET Core uygulaması performans ve ölçeklenebilirlik, özellikle bir Bulutu vea sunucusu grubu ortamında artırmak için önbelleğe alma kullanmayı öğrenin.
+title: Dağıtılmış önbelleğe alma ASP.NET Core
+author: guardrex
+description: Uygulama performansı ve ölçeklenebilirlik, özellikle bir Bulutu vea sunucusu grubu ortamında artırmak için bir ASP.NET Core dağıtılmış önbellek kullanmayı öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/14/2017
+ms.date: 10/19/2018
 uid: performance/caching/distributed
-ms.openlocfilehash: 85da734f3ae7bcf0936888edfb6ac91d4362eef2
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: 46a93125e8b25a66b5a1ead3b72c55db146b5a10
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477482"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090569"
 ---
-# <a name="work-with-a-distributed-cache-in-aspnet-core"></a>Dağıtılmış bir önbellekte ASP.NET Core ile çalışma
+# <a name="distributed-caching-in-aspnet-core"></a>Dağıtılmış önbelleğe alma ASP.NET Core
 
-Tarafından [Steve Smith](https://ardalis.com/)
+Tarafından [Steve Smith](https://ardalis.com/) ve [Luke Latham](https://github.com/guardrex)
 
-Dağıtılmış önbellek, özellikle bulutta veya sunucu grubu içinde barındırıldığında ASP.NET Core uygulamaları, ölçeklenebilirliğini ve performansı artırabilir.
+Dağıtılmış bir önbellek genellikle bir dış hizmete erişebilmesi uygulama sunucularına olarak tutulur, birden çok uygulama sunucular tarafından paylaşılan bir önbellektir. Özellikle uygulama bir bulut hizmeti ya da bir sunucu grubu tarafından barındırıldığında dağıtılmış önbellek ASP.NET Core uygulaması, ölçeklenebilirliğini ve performansı artırabilir.
+
+Dağıtılmış önbellek tek tek uygulama sunucularında önbelleğe alınan verilerin depolandığı önbelleğe alma diğer senaryolar üzerinden çeşitli avantajları vardır.
+
+Önbelleğe alınan verilerin ne zaman dağıtılır, veri:
+
+* Olan *tutarlı* istekleri birden çok sunucu arasında (tutarlı).
+* Sunucu yeniden başlatıldıktan ve uygulama dağıtımlarını devam eder.
+* Yerel bellek kullanmaz.
+
+Dağıtılmış önbellek, uygulama belirli yapılandırmadır. Bu makalede, SQL Server yapılandırma ve dağıtılmış önbellek Redis açıklar. Üçüncü taraf uygulamalarında kullanılabilir olduğu gibi aynı zamanda [NCache](http://www.alachisoft.com/ncache/aspnet-core-idistributedcache-ncache.html) ([github'da NCache](https://github.com/Alachisoft/NCache)). Hangi uygulama bağımsız olarak işaretlenirse, uygulama önbellek kullanarak ile etkileşim <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> arabirimi.
 
 [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/distributed/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 
-## <a name="what-is-a-distributed-cache"></a>Dağıtılmış önbellek nedir
+## <a name="prerequisites"></a>Önkoşullar
 
-Dağıtılmış önbellek birden çok uygulama sunucuları tarafından paylaşılan (bkz [önbellek Temelleri](memory.md#caching-basics)). Tek tek web sunucuları bellekte önbellekte bilgi saklanmaz ve önbelleğe alınan verilerin tüm uygulama sunucuları için kullanılabilir. Bu, çeşitli avantajlar sağlar:
+::: moniker range=">= aspnetcore-2.1"
 
-1. Önbelleğe alınan tüm web sunucularında tutarlı verilerdir. Kullanıcıların bağlı olarak hangi web sunucusu isteği işleme farklı sonuçlar göremiyorum
+Bir SQL Server kullanmak için Dağıtılmış önbellek, başvuru [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app) veya paket başvurusu ekleme [Microsoft.Extensions.Caching.SqlServer](https://www.nuget.org/packages/Microsoft.Extensions.Caching.SqlServer) paket.
 
-2. Önbelleğe alınmış veriler, web sunucu yeniden başlatılır ve dağıtımları devam eder. Tek tek web sunucuları, kaldırıldı veya önbellek etkilemeden eklendi.
+Dağıtılmış önbellek, başvuru bir Redis kullanılacak [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app) ve için bir paket başvurusu ekleme [Microsoft.Extensions.Caching.Redis](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Redis) paket. Redis paket bulunup bulunmadığına `Microsoft.AspNetCore.App` paketlemek için Redis paket proje dosyanızda ayrı olarak başvurmalıdır.
 
-3. Kaynak veri deposu, kendisine (birden çok bellek içi önbellekler veya no ile tüm önbelleğe alma çok) daha az istekleri sahiptir.
+::: moniker-end
 
-> [!NOTE]
-> Bu avantajlar bazıları yalnızca bir SQL Server dağıtılmış önbellek kullanıyorsanız, önbellek için uygulamanın kaynak verileri için ayrı bir veritabanı kullanılıyorsa true.
+::: moniker range="= aspnetcore-2.0"
 
-Herhangi bir önbellek gibi dağıtılmış bir önbellek genellikle veri bir ilişkisel veritabanı (veya web hizmeti) çok daha hızlı bir şekilde önbelleğe alınabilir olduğundan bir uygulamanın yanıt verme hızını, önemli ölçüde artırabilir.
+Bir SQL Server kullanmak için Dağıtılmış önbellek, başvuru [Microsoft.AspNetCore.All metapackage](xref:fundamentals/metapackage) veya paket başvurusu ekleme [Microsoft.Extensions.Caching.SqlServer](https://www.nuget.org/packages/Microsoft.Extensions.Caching.SqlServer) paket.
 
-Önbellek, uygulama belirli yapılandırmadır. Bu makalede, SQL Server dağıtılmış önbelleğe alır ve nasıl yapılandırmak için her ikisi de Redis açıklanmaktadır. Hangi uygulamayı bağımsız olarak işaretlenirse, uygulama yaygın bir önbellek ile etkileşime giren `IDistributedCache` arabirimi.
+Dağıtılmış önbellek, başvuru bir Redis kullanılacak [Microsoft.AspNetCore.All metapackage](xref:fundamentals/metapackage) veya paket başvurusu ekleme [Microsoft.Extensions.Caching.Redis](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Redis) paket. Redis paketinde `Microsoft.AspNetCore.All` paketini ayrı olarak proje dosyanızda Redis paket başvurusu yapmak zorunda kalmazsınız.
 
-## <a name="the-idistributedcache-interface"></a>IDistributedCache arabirimi
+::: moniker-end
 
-`IDistributedCache` Arabirimi zaman uyumlu ve zaman uyumsuz yöntemler içerir. Arabirim öğeleri eklenen, alınan ve dağıtılmış önbellek uygulamasından kaldırıldı sağlar. `IDistributedCache` Arabirimi aşağıdaki yöntemleri içerir:
+::: moniker range="< aspnetcore-2.0"
 
-**GET, GetAsync**
+Dağıtılmış önbellek bir SQL Server kullanmak için paket başvurusu ekleme [Microsoft.Extensions.Caching.SqlServer](https://www.nuget.org/packages/Microsoft.Extensions.Caching.SqlServer) paket.
 
-Bir dize anahtarı alır ve önbelleğe alınan öğe olarak alır. bir `byte[]` , önbellekte bulundu.
+Dağıtılmış önbellek bir Redis kullanmak için paket başvurusu ekleme [Microsoft.Extensions.Caching.Redis](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Redis) paket.
 
-**SetAsync kümesi**
+::: moniker-end
 
-Bir öğe ekler (olarak `byte[]`) bir dize anahtarı kullanarak önbelleğe.
+## <a name="idistributedcache-interface"></a>IDistributedCache arabirimi
 
-**Yenileme, RefreshAsync**
+<xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> Arabirimi dağıtılmış önbellek uygulamasında öğelerini işlemek için aşağıdaki yöntemleri sağlar:
 
-Kendi kayan zaman aşımı (varsa) sıfırlama kendi anahtarını temel alan önbellekteki bir öğeyi yeniler.
+* <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache.Get*>, <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache.GetAsync*> &ndash; Dize anahtarı kabul eder ve önbelleğe alınan öğe olarak alır. bir `byte[]` , dizi önbellekte bulundu.
+* <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache.Set*>, <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache.SetAsync*> &ndash; Bir öğe ekler (olarak `byte[]` array) için bir dize anahtarı kullanarak önbelleğe.
+* <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache.Refresh*>, <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache.RefreshAsync*> &ndash; Önbelleğinde (varsa), kayan zaman aşımı sıfırlama kendi anahtarını temel alan bir öğeyi yeniler.
+* <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache.Remove*>, <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache.RemoveAsync*> &ndash; Önbellek öğesinin temel dize anahtarıyla kaldırır.
 
-**RemoveAsync Kaldır**
+## <a name="establish-distributed-caching-services"></a>Dağıtılmış önbelleğe alma hizmetleri oluşturma
 
-Kendi anahtarını temel alan bir önbellek girdisi kaldırır.
+Uygulaması kaydetme <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> içinde `Startup.ConfigureServices`. Bu konuda açıklanan framework tarafından sağlanan uygulamaları şunlardır:
 
-Kullanılacak `IDistributedCache` arabirimi:
+* [Dağıtılmış önbellek](#distributed-memory-cache)
+* [SQL Server dağıtılmış önbellek](#distributed-sql-server-cache)
+* [Dağıtılmış bir Redis önbelleği](#distributed-redis-cache)
 
-   1. Gerekli NuGet paketlerini proje dosyanıza ekleyin.
+### <a name="distributed-memory-cache"></a>Dağıtılmış önbellek
 
-   2. Özel uygulanışı yapılandırma `IDistributedCache` içinde `Startup` sınıfın `ConfigureServices` yöntemi ve kapsayıcıya var. ekleyin.
+Dağıtılmış önbellek (<xref:Microsoft.Extensions.DependencyInjection.MemoryCacheServiceCollectionExtensions.AddDistributedMemoryCache*>) bir framework tarafından sağlanan uygulamasıdır `IDistributedCache` , öğeleri bellekte depolar. Dağıtılmış önbellek gerçek bir dağıtılmış önbellek değildir. Önbelleğe alınmış öğeleri, uygulamanın çalıştığı sunucu üzerinde uygulama örneği tarafından depolanır.
 
-   3. Uygulamanın gelen [ara yazılım](xref:fundamentals/middleware/index) veya MVC denetleyici sınıflarına istek örneği `IDistributedCache` oluşturucudan. Örneği tarafından sağlanan [bağımlılık ekleme](../../fundamentals/dependency-injection.md) (dı).
+Dağıtılmış önbellek faydalı bir uygulamadır:
 
-> [!NOTE]
-> Bir Tekliyi veya kapsamındaki ömrü boyunca kullanılacak gerek yoktur `IDistributedCache` örnekleri (en az yerleşik uygulamalar için). Bir gereksinim duyabileceğiniz her yerde örneği de oluşturabilirsiniz (kullanmak yerine [bağımlılık ekleme](../../fundamentals/dependency-injection.md)), ancak bu kodunuzu test etmek daha zor hale getirebilir ve ihlal [açık bağımlılıkları ilkesine](http://deviq.com/explicit-dependencies-principle/).
+* Geliştirme ve test senaryoları.
+* Tek bir sunucu üretim ve bellek tüketimi kullanıldığında, bir sorun değildir. Dağıtılmış önbellek özetleri uygulama, veri depolama önbelleğe alınır. Birden çok düğüm veya hataya dayanıklılık gerekli hale ileride önbelleğe alma çözüme gerçek bir dağıtılmış uygulama için sağlar.
 
-Aşağıdaki örnek, bir örneğini kullanması gösterilmektedir `IDistributedCache` basit bir ara yazılım bileşeni içinde:
+Örnek uygulama, uygulama geliştirme ortamında çalıştırıldığında dağıtılmış bellek önbelleğini kullanma yapar:
 
-[!code-csharp[](distributed/sample/src/DistCacheSample/StartTimeHeader.cs)]
+[!code-csharp[](distributed/samples/2.x/DistCacheSample/Startup.cs?name=snippet_ConfigureServices&highlight=5)]
 
-Yukarıdaki kodda, önbelleğe alınan değeri okuyun, ancak hiçbir zaman yazılır. Bu örnekte, bir sunucu başlatıldığında ve değişmez değer yalnızca ayarlanır. Çok sunuculu bir senaryoda, diğer sunucular tarafından ayarlanan herhangi bir önceki değeri başlatmak için en son sunucu üzerine yazar. `Get` Ve `Set` yöntemleri `byte[]` türü. Bu nedenle, dize değeri kullanarak dönüştürülmelidir `Encoding.UTF8.GetString` (için `Get`) ve `Encoding.UTF8.GetBytes` (için `Set`).
+### <a name="distributed-sql-server-cache"></a>Dağıtılmış SQL Sunucusu Önbelleği
 
-Aşağıdaki kodu *Startup.cs* ayarlanan değer gösterir:
-
-[!code-csharp[](distributed/sample/src/DistCacheSample/Startup.cs?name=snippet1)]
-
-Bu yana `IDistributedCache` yapılandırılan `ConfigureServices` yöntemi, kullanılabilir `Configure` yönteme bir parametre olarak. Bir parametre olarak ekleme DI sağlanacak yapılandırılmış örneği izin verir.
-
-## <a name="using-a-redis-distributed-cache"></a>Dağıtılmış bir Redis önbelleği kullanma
-
-[Redis](https://redis.io/) dağıtılmış bir önbellek sık kullanılan bir açık kaynak bellek içi veri deposu. Yerel olarak kullanabilirsiniz ve yapılandırabileceğiniz bir [Azure Redis Cache](https://azure.microsoft.com/services/cache/) Azure'da barındırılan ASP.NET Core uygulamalarınız için. Önbellek uygulaması kullanarak ASP.NET Core uygulamanızı yapılandırır bir `RedisDistributedCache` örneği.
-
-Redis cache gerektirir [Microsoft.Extensions.Caching.Redis](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Redis/)
-
-Redis uygulamasında yapılandırma `ConfigureServices` ve uygulama kodunuzda bir örneğini isteyerek erişim `IDistributedCache` (Yukarıdaki kod bakın).
-
-Örnek kodda bir `RedisCache` uygulama kullanılan sunucu için yapılandırıldığında bir `Staging` ortam. Bu nedenle `ConfigureStagingServices` yöntemi yapılandırır `RedisCache`:
-
-[!code-csharp[](distributed/sample/src/DistCacheSample/Startup.cs?name=snippet2)]
-
-Yerel makinenizde Redis yüklemek için chocolatey paket yükleme [ https://chocolatey.org/packages/redis-64/ ](https://chocolatey.org/packages/redis-64/) çalıştırıp `redis-server` bir komut isteminden.
-
-## <a name="using-a-sql-server-distributed-cache"></a>SQL Server'ı kullanarak dağıtılmış önbellek
-
-SqlServerCache uygulama, yedekleme deposu bir SQL Server veritabanını kullanmak dağıtılmış bir önbellek sağlar. SQL Server'ı oluşturmak için belirttiğiniz ad ve şema ile sql önbelleği aracı, Aracı'nı kullanabilirsiniz. Tablo bir tablo oluşturur.
+Dağıtılmış SQL Server önbellek uygulaması (<xref:Microsoft.Extensions.DependencyInjection.SqlServerCachingServicesExtensions.AddDistributedSqlServerCache*>), yedekleme deposu bir SQL Server veritabanını kullanmak dağıtılmış bir önbellek sağlar. Bir SQL Server örneğinde SQL Server önbelleğe alınan öğe tablo oluşturmak için kullanabileceğiniz `sql-cache` aracı. Aracı adı ve belirttiğiniz şema ile bir tablo oluşturur.
 
 ::: moniker range="< aspnetcore-2.1"
 
@@ -105,48 +97,97 @@ Ekleme `SqlConfig.Tools` için `<ItemGroup>` proje dosyası ve çalışma öğes
 
 ```xml
 <ItemGroup>
-  <DotNetCliToolReference Include="Microsoft.Extensions.Caching.SqlConfig.Tools" 
+  <DotNetCliToolReference Include="Microsoft.Extensions.Caching.SqlConfig.Tools"
                           Version="2.0.2" />
 </ItemGroup>
 ```
 
 ::: moniker-end
 
-Aşağıdaki komutu çalıştırarak SqlConfig.Tools test edin:
+Çalıştırarak SQL Server'da bir tablo oluşturma `sql-cache create` komutu. SQL Server örneği sağlayın (`Data Source`), veritabanı (`Initial Catalog`), şema (örneğin, `dbo`) ve tablo adı (örneğin, `TestCache`):
 
 ```console
-dotnet sql-cache create --help
+dotnet sql-cache create "Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=DistCache;Integrated Security=True;" dbo TestCache
 ```
 
-SqlConfig.Tools kullanım, Seçenekler ve komut Yardımı görüntüler.
-
-Çalıştırarak SQL Server'da bir tablo oluşturma `sql-cache create` komutu:
+Aracı başarılı olduğunu belirten bir ileti kaydedilir:
 
 ```console
-dotnet sql-cache create "Data Source=(localdb)\v11.0;Initial Catalog=DistCache;Integrated Security=True;" dbo TestCache
-info: Microsoft.Extensions.Caching.SqlConfig.Tools.Program[0]
 Table and index were created successfully.
 ```
 
-Aşağıdaki şemayı oluşturduğunuz bir tabloya sahiptir:
+Tarafından oluşturulan tabloyu `sql-cache` aracı aşağıdaki şemayı sahiptir:
 
 ![SqlServer önbelleği tablosu](distributed/_static/SqlServerCacheTable.png)
 
-Tüm önbellek uygulaması gibi uygulamanız get ve set örneğini kullanarak önbellek değerleri `IDistributedCache`değil bir `SqlServerCache`. Örnek uygulayan `SqlServerCache` üretim ortamında (olarak yapılandırıldığı şekilde `ConfigureProductionServices`).
+> [!NOTE]
+> Bir uygulamanın bir örneğini kullanarak önbellek değerleri değiştirmelisiniz <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache>değil bir <xref:Microsoft.Extensions.Caching.SqlServer.SqlServerCache>.
 
-[!code-csharp[](distributed/sample/src/DistCacheSample/Startup.cs?name=snippet3)]
+Örnek uygulama uygular <xref:Microsoft.Extensions.Caching.SqlServer.SqlServerCache> olmayan geliştirme ortamında:
+
+[!code-csharp[](distributed/samples/2.x/DistCacheSample/Startup.cs?name=snippet_ConfigureServices&highlight=9-15)]
 
 > [!NOTE]
-> `ConnectionString` (Ve isteğe bağlı olarak `SchemaName` ve `TableName`) kimlik bilgilerini olabileceğinden genellikle (örneğin, UserSecrets), kaynak denetimi dışında depolanması gerekir.
+> A <xref:Microsoft.Extensions.Caching.SqlServer.SqlServerCacheOptions.ConnectionString*> (ve isteğe bağlı olarak <xref:Microsoft.Extensions.Caching.SqlServer.SqlServerCacheOptions.SchemaName*> ve <xref:Microsoft.Extensions.Caching.SqlServer.SqlServerCacheOptions.TableName*>) dışında kaynak denetimine genellikle depolanır (örneğin, tarafından depolanan [gizli dizi Yöneticisi](xref:security/app-secrets) veya *appsettings.json* / *appsettings. {Ortamı} .json* dosyaları). Bağlantı dizesi, kaynak denetimi sistemlerini dışında tutulması gereken kimlik bilgileri içeriyor olabilir.
+
+### <a name="distributed-redis-cache"></a>Dağıtılmış bir Redis önbelleği
+
+[Redis](https://redis.io/) dağıtılmış bir önbellek sık kullanılan bir açık kaynak bellek içi veri deposu. Yerel olarak Redis kullanın ve yapılandırabileceğiniz bir [Azure Redis Cache](https://azure.microsoft.com/services/cache/) Azure'da barındırılan ASP.NET Core uygulaması için. Önbellek uygulamasını kullanarak bir uygulamayı yapılandırır bir <xref:Microsoft.Extensions.Caching.Redis.RedisCache> örneği (<xref:Microsoft.Extensions.DependencyInjection.RedisCacheServiceCollectionExtensions.AddDistributedRedisCache*>):
+
+```csharp
+services.AddDistributedRedisCache(options =>
+{
+    options.Configuration = "localhost";
+    options.InstanceName = "SampleInstance";
+});
+```
+
+Yerel makinenizde Redis yüklemek için:
+
+* Yükleme [Chocolatey Redis paket](https://chocolatey.org/packages/redis-64/).
+* Çalıştırma `redis-server` bir komut isteminden.
+
+## <a name="use-the-distributed-cache"></a>Dağıtılmış önbellek kullanma
+
+Kullanılacak <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> arabirim, örneği istek `IDistributedCache` uygulamadaki herhangi bir oluşturucudan. Örneği tarafından sağlanan [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection).
+
+Uygulama başlatıldığında `IDistributedCache` içine eklenen `Startup.Configure`. Geçerli zamanı kullanarak önbelleğe alınmış <xref:Microsoft.AspNetCore.Hosting.IApplicationLifetime> (daha fazla bilgi için [Web ana bilgisayarı: IApplicationLifetime arabirimi](xref:fundamentals/host/web-host#iapplicationlifetime-interface)):
+
+[!code-csharp[](distributed/samples/2.x/DistCacheSample/Startup.cs?name=snippet_Configure&highlight=10)]
+
+Örnek uygulamayı eklediği `IDistributedCache` içine `IndexModel` dizin sayfası tarafından kullanılacak.
+
+Dizin Sayfası yüklendiği her durumda, önbelleğe alınan kez önbellek denetlenir `OnGetAsync`. Önbelleğe alınan süresi dolmadığından zaman görüntülenir. Önbelleğe alınan saati (Bu sayfayı yüklenen son saat) erişildi son daraltılmasından 20 saniye geçtikten sayfası görüntüler *önbelleğe alınmış süre doldu*.
+
+Önbelleğe alınan zaman seçerek geçerli saate hemen güncelleştirmek **sıfırlama önbelleğe alınmış süresi** düğmesi. Düğme tetikleyicisi `OnPostResetCachedTime` işleyicisi yöntemi.
+
+[!code-csharp[](distributed/samples/2.x/DistCacheSample/Pages/Index.cshtml.cs?name=snippet_IndexModel&highlight=7,14-20,25-29)]
+
+> [!NOTE]
+> Bir Tekliyi veya kapsamındaki ömrü boyunca kullanılacak gerek yoktur `IDistributedCache` örnekleri (en az yerleşik uygulamalar için).
+>
+> Ayrıca oluşturabilirsiniz bir `IDistributedCache` DI kullanmak yerine gerekebilir, ancak kodda bir örnek oluşturma yapabilir, kodunuzu test etmek daha zor bağlanmayacaktır örnek ve ihlal [açık bağımlılıkları ilkesine](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies).
 
 ## <a name="recommendations"></a>Önerileri
 
-Hangi uygulamasının verirken `IDistributedCache` SQL Server tabanlı mevcut altyapınıza ve ortam, performans gereksinimlerinizi ve takımınızın deneyimi ve Redis arasında doğrudan uygulamanız için seçin. Takımınız, Redis ile çalışma konusunda daha yetkin ise, mükemmel bir seçimdir. SQL Server takımınızın tercih ettiği, bu uygulamada emin olabilirsiniz. Geleneksel bir önbellek çözümü veri sağlayan hızlı verilerinin alınması için bellek içi içerdiğini unutmayın. Bir ön bellekte yaygın olarak kullanılan veri depolama ve SQL Server veya Azure depolama gibi bir arka uç kalıcı depoya tüm verileri depolar gerekir. Redis önbelleği SQL önbellek karşılaştırıldığında yüksek çıkış ve düşük gecikme sunan bir önbelleğe alma çözümüdür.
+Hangi uygulamasının verirken `IDistributedCache` uygulamanız için en iyisidir aşağıdakileri dikkate alın:
+
+* Var olan altyapı
+* Performans gereksinimleri
+* Maliyet
+* Takım deneyimi
+
+Önbelleğe alma çözümleri genellikle önbelleğe alınmış verileri hızlı alınmasını sağlamak için bellek içi depolama alanı kullanır, ancak bellektir sınırlı bir kaynağa ve masraflı genişletin. Bir ön bellekte yaygın olarak kullanılan veri yalnızca depolama.
+
+Genellikle, Redis önbelleği, yüksek aktarım hızı ve SQL Server önbelleğe göre daha düşük gecikme süresi sağlar. Ancak, değerlendirmesi önbelleğe alma stratejilerine performans özelliklerini belirlemek için genellikle gerekli değildir.
+
+SQL Server dağıtılmış önbellek yedekleme deposu kullanıldığında, önbellek ve uygulamanın normal veri depolama için aynı veritabanını kullanın ve alma, her ikisi de performansı olumsuz yönde etkileyebilir. Dağıtılmış önbellek yedekleme deposu için adanmış bir SQL Server örneği kullanmanızı öneririz.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Redis Cache azure'da](https://azure.microsoft.com/documentation/services/redis-cache/)
 * [Azure'da SQL veritabanı](https://azure.microsoft.com/documentation/services/sql-database/)
+* [ASP.NET Core Web gruplarındaki NCache IDistributedCache sağlayıcısı](http://www.alachisoft.com/ncache/aspnet-core-idistributedcache-ncache.html) ([github'da NCache](https://github.com/Alachisoft/NCache))
 * <xref:performance/caching/memory>
 * <xref:fundamentals/change-tokens>
 * <xref:performance/caching/response>

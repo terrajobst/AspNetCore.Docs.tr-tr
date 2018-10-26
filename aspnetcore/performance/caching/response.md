@@ -5,12 +5,12 @@ description: Önbelleğe alma daha düşük bant genişliği gereksinimlerine ya
 ms.author: riande
 ms.date: 09/20/2017
 uid: performance/caching/response
-ms.openlocfilehash: 4bf61502738d70760679ec98c8f2f303eca9d504
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: bbf5b649bac9d31aa6d0ecdc3828648677b05716
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477495"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090699"
 ---
 # <a name="response-caching-in-aspnet-core"></a>ASP.NET Core yanıt önbelleğe alma
 
@@ -68,7 +68,7 @@ Daha fazla bilgi için [bellek içi önbelleğe alma](xref:performance/caching/m
 
 Uygulamayı bir bulut veya sunucu grubunda barındırıldığında bellek verilerini depolamak için Dağıtılmış bir önbellek kullanın. Önbelleği istekleri işleyen sunucular arasında paylaşılır. Bir istemci, istemci için önbelleğe alınan verileri kullanılabilir ise gruptaki hiçbir sunucu tarafından işlenen bir istek gönderebilirsiniz. ASP.NET Core, SQL Server ve dağıtılmış Redis önbellekleri sunar.
 
-Daha fazla bilgi için [dağıtılmış Önbellekle çalışma](xref:performance/caching/distributed).
+Daha fazla bilgi için bkz. <xref:performance/caching/distributed>.
 
 ### <a name="cache-tag-helper"></a>Önbellek etiketi Yardımcısı
 
@@ -230,9 +230,9 @@ Cache-Control: public,max-age=60
 
 * [Yanıtları depolama önbelleklerinde](https://tools.ietf.org/html/rfc7234#section-3)
 * [Önbellek denetimi](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
-* [Belleğe yüklenmiş önbellek](xref:performance/caching/memory)
-* [Dağıtılmış önbellekle çalışma](xref:performance/caching/distributed)
-* [Değişiklik belirteçleri ile değişiklikleri algılama](xref:fundamentals/change-tokens)
-* [Yanıtları Önbelleğe Alma Ara Yazılımı](xref:performance/caching/middleware)
-* [Önbellek Etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [Dağıtılmış Önbellek Etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+* <xref:performance/caching/memory>
+* <xref:performance/caching/distributed>
+* <xref:fundamentals/change-tokens>
+* <xref:performance/caching/middleware>
+* <xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper>
+* <xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper>

@@ -4,14 +4,15 @@ author: rick-anderson
 description: ASP.NET Core Razor sayfasına doğrulamanın nasıl keşfedin.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 08/07/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: cd958b9c084de4b3e12784774544610873a519f9
-ms.sourcegitcommit: 317f9be24db600499e79d25872d743af74bd86c0
+ms.openlocfilehash: 2518b9911f13da79c76c84e530cf53fc2df474e5
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48045529"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090452"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Doğrulama için bir ASP.NET Core Razor sayfası ekleme
 
@@ -27,7 +28,7 @@ Razor sayfaları ve Entity Framework tarafından sağlanan doğrulama desteği, 
 
 ### <a name="adding-validation-rules-to-the-movie-model"></a>Film modeli doğrulama kuralları ekleme
 
-Açık *Models/Movie.cs* dosya. [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) yerleşik bir sınıf ya da özellik bildirimli olarak uygulanan doğrulama öznitelikleri kümesi sağlar. DataAnnotations gibi biçimlendirme öznitelikleri de içeren `DataType` biçimlendirmesinde yardımcı olabilecek ve doğrulama sağlaması gerekmez.
+Açık *Models/Movie.cs* dosya. [DataAnnotations](/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) yerleşik bir sınıf ya da özellik bildirimli olarak uygulanan doğrulama öznitelikleri kümesi sağlar. DataAnnotations gibi biçimlendirme öznitelikleri de içeren `DataType` biçimlendirmesinde yardımcı olabilecek ve doğrulama sağlaması gerekmez.
 
 Güncelleştirme `Movie` yararlanmak için sınıf `Required`, `StringLength`, `RegularExpression`, ve `Range` doğrulama öznitelikleri.
 
@@ -45,7 +46,7 @@ Güncelleştirme `Movie` yararlanmak için sınıf `Required`, `StringLength`, `
 
 Doğrulama özniteliklerinin zorlanan davranış modeli özellikleri belirtin:
 
-* `Required` Ve `MinimumLength` öznitelikleri belirtmek bir özelliği bir değere sahip olmalıdır. Ancak, hiçbir şey kullanıcı boş değer atanabilir bir tür için doğrulama kısıtlamasını karşılamak için boşluk girmesini engeller. Atanamayan [değer türleri](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/value-types) (gibi `decimal`, `int`, `float`, ve `DateTime`) kendiliğinden gereklidir ve gerekmeyen `Required` özniteliği.
+* `Required` Ve `MinimumLength` öznitelikleri belirtmek bir özelliği bir değere sahip olmalıdır. Ancak, hiçbir şey kullanıcı boş değer atanabilir bir tür için doğrulama kısıtlamasını karşılamak için boşluk girmesini engeller. Atanamayan [değer türleri](/dotnet/csharp/language-reference/keywords/value-types) (gibi `decimal`, `int`, `float`, ve `DateTime`) kendiliğinden gereklidir ve gerekmeyen `Required` özniteliği.
 * `RegularExpression` Öznitelik, kullanıcının girebileceği karakter sınırlar. Önceki kodda, `Genre` bir veya daha fazla büyük harf ile başlamalı ve sıfır veya daha fazla harf, tek veya çift tırnak işareti, boşluk karakteri veya tire ile izleyin. `Rating` bir veya daha fazla büyük harf ile başlamalı ve ile sıfır veya daha fazla harf, sayı, tek veya çift tırnak, boşluk karakteri veya tire izleyin.
 * `Range` Özniteliği için belirtilen bir aralıktaki bir değer kısıtlar.
 * `StringLength` Öznitelik, bir dizenin maksimum uzunluğunu ve isteğe bağlı olarak en az uzunluk ayarlar. 
@@ -95,7 +96,7 @@ Aşağıdaki kod bir bölümü gösterilmektedir *Create.cshtml* öğreticinin �
 
 [!code-cshtml[](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Create.cshtml?range=14-20)]
 
-[Giriş etiketi Yardımcısı](xref:mvc/views/working-with-forms) kullanan [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) öznitelikleri ve jQuery doğrulaması istemci tarafında gereken HTML öznitelikleri oluşturur. [Doğrulama etiketi Yardımcısı](xref:mvc/views/working-with-forms#the-validation-tag-helpers) doğrulama hataları görüntüler. Bkz: [doğrulama](xref:mvc/models/validation) daha fazla bilgi için.
+[Giriş etiketi Yardımcısı](xref:mvc/views/working-with-forms) kullanan [DataAnnotations](/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) öznitelikleri ve jQuery doğrulaması istemci tarafında gereken HTML öznitelikleri oluşturur. [Doğrulama etiketi Yardımcısı](xref:mvc/views/working-with-forms#the-validation-tag-helpers) doğrulama hataları görüntüler. Bkz: [doğrulama](xref:mvc/models/validation) daha fazla bilgi için.
 
 Oluşturma ve düzenleme sayfaları hiçbir doğrulama kuralları olması. Doğrulama kuralları ve hata dizelerini yalnızca belirtilen `Movie` sınıfı. Bu doğrulama kuralları Düzenle Razor sayfaları için otomatik olarak uygulanacağını da `Movie` modeli.
 
@@ -166,10 +167,10 @@ Razor sayfaları giriş tamamlamak için teşekkür ederiz. Geri bildirim için 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Formlarla Çalışma](xref:mvc/views/working-with-forms)
-* [Genelleştirme ve yerelleştirme](xref:fundamentals/localization)
-* [Etiket Yardımcıları giriş](xref:mvc/views/tag-helpers/intro)
-* [Yazma etiketi Yardımcıları](xref:mvc/views/tag-helpers/authoring)
+* <xref:mvc/views/working-with-forms>
+* <xref:fundamentals/localization>
+* <xref:mvc/views/tag-helpers/intro>
+* <xref:mvc/views/tag-helpers/authoring>
 
 > [!div class="step-by-step"]
 > [Önceki: yeni alan ekleme](xref:tutorials/razor-pages/new-field)

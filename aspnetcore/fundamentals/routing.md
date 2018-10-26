@@ -6,18 +6,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/01/2018
 uid: fundamentals/routing
-ms.openlocfilehash: 500cefbc7caee2054b4afda7c1277685862f5ad4
-ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
+ms.openlocfilehash: 96df625113b0c33ee8a9e9bb7dccec9a2c28348a
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49348565"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091008"
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET Core yönlendirme
 
 Tarafından [Ryan Nowak](https://github.com/rynowak), [Steve Smith](https://ardalis.com/), ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Yönlendirme işlevini, gelen bir istek için bir rota işleyiciye eşleme sorumludur. Yollar uygulamada tanımlı ve uygulama başlatıldığında yapılandırılmış. Bir rota isteğe bağlı olarak istekte bulunan URL'den değerleri ayıklayabilir ve bu değerler daha sonra istek işleme için kullanılabilir. Uygulamadan rota bilgilerini kullanarak, yönlendirme de rota işleyicilerine eşleyen URL üretmek için bir işlevdir. Bu nedenle, yönlendirme bir URL veya yol işleyicisi bilgilere göre bir belirli bir rota işleyiciye karşılık gelen URL göre bir rota işleyiciye bulabilirsiniz.
+Yönlendirme işlevini, gelen bir istek için bir rota işleyiciye eşleme sorumludur. Yollar uygulamada tanımlı ve uygulama başlatıldığında yapılandırılmış. Bir rota isteğe bağlı olarak istekte bulunan URL'den değerleri ayıklayabilir ve bu değerler daha sonra istek işleme için kullanılabilir. Uygulamadan rota bilgilerini kullanarak, yönlendirme de rota işleyicilerine eşleyen URL üretmek için bir işlevdir. Bu nedenle, yönlendirme URL'sini temel alarak bir rota işleyiciye bulabilir, veya rota işleyicisi bilgilerini temel alarak bir belirtilen rota işleyiciye karşılık gelen URL bulun.
 
 > [!IMPORTANT]
 > Bu belge, alt düzey ASP.NET Core yönlendirme kapsar. ASP.NET Core MVC yönlendirme hakkında daha fazla bilgi için bkz: <xref:mvc/controllers/routing>.
@@ -47,7 +47,7 @@ Bir eşleşme sırasında `RouteAsync` özelliklerini de ayarlar `RouteContext.R
 
 [RouteData.Values](xref:Microsoft.AspNetCore.Routing.RouteData.Values*) sözlüğü olan *rota değerleri* route'tan üretti. Bu değerler, genellikle URL belirteç oluşturma tarafından belirlenir ve kullanıcı girişi kabul etmek veya daha fazla dispatching kararlar uygulaması içinde için kullanılabilir.
 
-[RouteData.DataTokens](xref:Microsoft.AspNetCore.Routing.RouteData.DataTokens*) olan bir özellik paketi eşlenen rotaya ilgili ek veriler. `DataTokens` uygulama daha sonra kararlar verebilen her yol ile ilişkilendirmeyi durumu verilerini destekleyecek şekilde sağlanan eşleşen hangi rotalar. Bu değerler Geliştirici tanımlı ve yapmak **değil** herhangi bir şekilde yönlendirme davranışını etkiler. Ayrıca, veri belirteçleri için gizli olan değerleri aksine bir kolayca dönüştürülemez, gelen dizeleri ve rota değerleri, herhangi bir türde olabilir.
+[RouteData.DataTokens](xref:Microsoft.AspNetCore.Routing.RouteData.DataTokens*) olan bir özellik paketi eşlenen rotaya ilgili ek veriler. `DataTokens` uygulama daha sonra kararlar verebilen her yol ile ilişkilendirmeyi durumu verilerini destekleyecek şekilde sağlanan eşleşen hangi rotalar. Bu değerler Geliştirici tanımlı ve yapmak **değil** herhangi bir şekilde yönlendirme davranışını etkiler. Ayrıca, değerleri, gizli `RouteData.DataTokens` aksine herhangi bir türde olabilir `RouteData.Values`, gelen dizeleri ve kolayca dönüştürülebilir olmalıdır.
 
 [RouteData.Routers](xref:Microsoft.AspNetCore.Routing.RouteData.Routers*) isteği başarıyla eşleşen yer alan yolları bir listesidir. Yollar başka içinde yuvalanabilir. `Routers` Özelliği üzerinden bir eşleşme ile sonuçlandı yolların mantıksal ağaç yolu gösterir. Genel olarak, listedeki ilk öğe `Routers` rota koleksiyonu ve URL üretmek için kullanılmamalıdır. Son öğenin `Routers` eşleşen bir rota işleyicisi.
 
@@ -63,7 +63,7 @@ Birincil giriş için `GetVirtualPath` şunlardır:
 * [VirtualPathContext.Values](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.Values*)
 * [VirtualPathContext.AmbientValues](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.AmbientValues*)
 
-Yollar, öncelikle tarafından sağlanan rota değerleri kullanın `Values` ve `AmbientValues` bir URL'yi oluşturmak mümkün olduğu ve hangi içerecek şekilde değerleri karar vermek için. `AmbientValues` Yönlendirme sistem geçerli istekle eşleşen dizinden üretilen rota değerlerini alır. Buna karşılık, `Values` geçerli işlem için istenen URL'yi oluşturmak nasıl belirten rota değerlerdir. `HttpContext` Hizmetleri ya da geçerli bağlam ile ilişkili ek veri almak bir rota ihtiyacı sağlanır.
+Yollar, öncelikle tarafından sağlanan rota değerleri kullanın `Values` ve `AmbientValues` bir URL'yi oluşturmak mümkün olup olmadığını ve hangi içerecek şekilde değerleri karar vermek için. `AmbientValues` Yönlendirme sistem geçerli istekle eşleşen dizinden üretilen rota değerlerini alır. Buna karşılık, `Values` geçerli işlem için istenen URL'yi oluşturmak nasıl belirten rota değerlerdir. `HttpContext` Hizmetleri ya da geçerli bağlam ile ilişkili ek veri almak bir rota ihtiyacı sağlanır.
 
 > [!TIP]
 > Düşünün [VirtualPathContext.Values](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.Values*) geçersiz kılmalar için bir dizi olarak [VirtualPathContext.AmbientValues](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.AmbientValues*). URL üretimi, rota değerleri için bağlantıları aynı yol ya da rota değerlerini kullanarak URL üretmek kolay hale getirmek için geçerli istek yeniden dener.

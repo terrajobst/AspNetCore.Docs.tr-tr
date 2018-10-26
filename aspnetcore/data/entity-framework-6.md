@@ -3,14 +3,15 @@ title: ASP.NET Core ve Entity Framework 6 ile çalışmaya başlama
 author: rick-anderson
 description: Bu makalede, bir ASP.NET Core uygulaması Entity Framework 6 kullanmayı gösterir.
 ms.author: tdykstra
-ms.date: 02/24/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/entity-framework-6
-ms.openlocfilehash: ba3ee137bfefd53cf2b7be2f328651ad38104ab5
-ms.sourcegitcommit: 70fb7c9d5f2ddfcf4747382a9f7159feca7a6aa7
+ms.openlocfilehash: b7679afbe4c364386fe8f16d22d7e9797a3e0c27
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45601749"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090065"
 ---
 # <a name="get-started-with-aspnet-core-and-entity-framework-6"></a>ASP.NET Core ve Entity Framework 6 ile çalışmaya başlama
 
@@ -20,7 +21,7 @@ Bu makalede, bir ASP.NET Core uygulaması Entity Framework 6 kullanmayı göster
 
 ## <a name="overview"></a>Genel Bakış
 
-Entity Framework 6 .NET Core desteklemediğinden Entity Framework 6 kullanmak için projeniz .NET Framework karşı derleme gerekir. Platformlar arası özelliklerine ihtiyacınız varsa, yükseltme gerekecektir [Entity Framework Core](https://docs.microsoft.com/ef/).
+Entity Framework 6 .NET Core desteklemediğinden Entity Framework 6 kullanmak için projeniz .NET Framework karşı derleme gerekir. Platformlar arası özelliklerine ihtiyacınız varsa, yükseltme gerekecektir [Entity Framework Core](/ef/).
 
 Entity Framework 6 içinde ASP.NET Core uygulamasını kullanmak için önerilen yöntem EF6 bağlam eklemektir ve model sınıfları bir sınıf kitaplığı'nda, Framework'ün tamamını hedefleyen proje. Sınıf kitaplığı ASP.NET Core projesi bir başvuru ekleyin. Örnek görmek [EF6 ve ASP.NET Core projeleri Visual Studio çözümüyle](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/entity-framework-6/sample/).
 

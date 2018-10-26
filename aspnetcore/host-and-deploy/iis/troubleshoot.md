@@ -4,14 +4,14 @@ author: guardrex
 description: Internet Information Services (IIS) ASP.NET Core uygulamaları dağıtımlarına sorunları tanılamayı öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/07/2018
+ms.date: 10/24/2018
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: f22914c9b0d6d1902dd37c9b21b80a18894c97e7
-ms.sourcegitcommit: d1c4580f56656b503cf528ec9f5ba570d790b57d
+ms.openlocfilehash: 6a53c1ba5badd741afc3321ce21b047965c611db
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41756090"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090608"
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>IIS üzerinde ASP.NET Core sorunlarını giderme
 
@@ -23,10 +23,10 @@ Visual Studio'da varsayılan olarak bir ASP.NET Core projesi [IIS Express](/iis/
 
 Ek sorun giderme konuları:
 
-[Azure App Service’te uygulama sorunlarını giderme](xref:host-and-deploy/azure-apps/troubleshoot)  
+<xref:host-and-deploy/azure-apps/troubleshoot>  
 App Service kullansa [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module) ve uygulamaları barındırın, IIS, App Service için özel yönergeler için adanmış konusuna bakın.
 
-[Hataları işleme](xref:fundamentals/error-handling)  
+<xref:fundamentals/error-handling>  
 Yerel bir sistemde geliştirme sırasında ASP.NET Core uygulamaları hataları işlemek nasıl keşfedin.
 
 [Visual Studio kullanarak hata ayıklamayı öğrenin](/visualstudio/debugger/getting-started-with-the-debugger)  
@@ -133,7 +133,7 @@ Stdout günlükleri görüntülemek ve etkinleştirmek için:
 
 ## <a name="common-startup-errors"></a>Ortak başlatma hataları 
 
-Bkz: [ASP.NET Core sık karşılaşılan hatalar başvurusu](xref:host-and-deploy/azure-iis-errors-reference). Uygulama başlatma önleyen yaygın sorunların çoğunu başvuru konusunda ele alınmaktadır.
+Bkz. <xref:host-and-deploy/azure-iis-errors-reference>. Uygulama başlatma önleyen yaygın sorunların çoğunu başvuru konusunda ele alınmaktadır.
 
 ## <a name="slow-or-hanging-app"></a>Yavaş veya asılı uygulama
 
@@ -167,7 +167,7 @@ Bazen ya da .NET Core SDK içinde uygulama geliştirme makine ya da paket sürü
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Hata ASP.NET çekirdek işleme giriş](xref:fundamentals/error-handling)
-* [Azure App Service ve IIS ile ASP.NET Core için sık karşılaşılan hatalar başvurusu](xref:host-and-deploy/azure-iis-errors-reference)
-* [ASP.NET Core Module yapılandırma başvurusu](xref:host-and-deploy/aspnet-core-module)
-* [Azure App Service’te uygulama sorunlarını giderme](xref:host-and-deploy/azure-apps/troubleshoot)
+* <xref:fundamentals/error-handling>
+* <xref:host-and-deploy/azure-iis-errors-reference>
+* <xref:host-and-deploy/aspnet-core-module>
+* <xref:host-and-deploy/azure-apps/troubleshoot>

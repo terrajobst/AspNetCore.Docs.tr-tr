@@ -4,14 +4,14 @@ author: rick-anderson
 description: Oluşturmayı Visual Studio'da yayımlama profilleri ve ASP.NET Core uygulama dağıtımlarını çeşitli hedeflere yönetmek için kullanın.
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/10/2018
+ms.date: 10/24/2018
 uid: host-and-deploy/visual-studio-publish-profiles
-ms.openlocfilehash: 751f25f74a0e24eb9ce4f2bd6b2fa462ccb03ecb
-ms.sourcegitcommit: a742b55e4b8276a48b8b4394784554fecd883c84
+ms.openlocfilehash: 4de92ba17e678eed1e95eacac7f9ca6578aa20c5
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45538407"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090400"
 ---
 # <a name="visual-studio-publish-profiles-for-aspnet-core-app-deployment"></a>Visual Studio yayımlama profilleri için ASP.NET Core uygulaması dağıtımı
 
@@ -21,7 +21,25 @@ Bu belge oluşturma ve kullanma için Visual Studio 2017'yi kullanmaya odaklanm�
 
 Aşağıdaki proje dosyasını komutu ile oluşturulmuş `dotnet new mvc`:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+::: moniker range=">= aspnetcore-2.1"
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+</Project>
+```
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -31,17 +49,15 @@ Aşağıdaki proje dosyasını komutu ile oluşturulmuş `dotnet new mvc`:
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.4" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.5" />
   </ItemGroup>
 
 </Project>
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -51,15 +67,15 @@ Aşağıdaki proje dosyasını komutu ile oluşturulmuş `dotnet new mvc`:
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore" Version="1.1.5" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.6" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="1.1.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.8" />
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.1.3" />
   </ItemGroup>
 
 </Project>
 ```
 
----
+::: moniker-end
 
 `<Project>` Öğenin `Sdk` özniteliği aşağıdaki görevleri gerçekleştirir:
 
@@ -114,14 +130,16 @@ dotnet publish C:\Webs\Web1
 
 Oluşturma ve bir web uygulaması yayımlamak için aşağıdaki komutları çalıştırın:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+::: moniker range=">= aspnetcore-2.0"
 
 ```console
 dotnet new mvc
 dotnet publish
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 ```console
 dotnet new mvc
@@ -129,7 +147,7 @@ dotnet restore
 dotnet publish
 ```
 
----
+::: moniker-end
 
 [Dotnet yayımlama](/dotnet/core/tools/dotnet-publish) komut aşağıdakine benzer bir çıktı üretir:
 

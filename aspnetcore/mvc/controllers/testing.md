@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/23/2018
 uid: mvc/controllers/testing
-ms.openlocfilehash: 582a5ba461ee2df73b99e4f499e8152f7c6cb7cf
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: 8fb50506e6f4e274592c4fd45d4c7876681ebc6d
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477169"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090209"
 ---
 # <a name="test-controller-logic-in-aspnet-core"></a>ASP.NET Core denetleyicisi mantıksal test
 
@@ -75,7 +75,7 @@ Adı olmayan sahte çağrıları normalde yoksayıldı, ancak arama `Verifiable`
 > [!NOTE]
 > Bu örnekte kullanılan Moq kitaplığı doğrulanabilir ya da "strict" mocks doğrulanamaz mocks ("belirsiz" mocks veya yer tutucular olarak da bilinir) ile birlikte mümkün kılar. Daha fazla bilgi edinin [Moq ile sahte davranışını özelleştirme](https://github.com/Moq/moq4/wiki/Quickstart#customizing-mock-behavior).
 
-Örnek uygulamada başka bir denetleyici belirli fırtınası oturumuyla ilgili bilgileri görüntüler. Denetleyici geçersiz dağıtılacak mantığı içerir `id` değerleri (iki `return` bu senaryolarınızı kapsaması amacıyla aşağıdaki örnek senaryolarda). En son `return` yeni bir ifade döndürür `StormSessionViewModel` görünümü:
+[SessionController](https://github.com/aspnet/Docs/blob/master/aspnetcore/mvc/controllers/testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs) örnek uygulama belirli fırtınası oturumuyla ilgili bilgileri görüntüler. Denetleyici geçersiz dağıtılacak mantığı içerir `id` değerleri (iki `return` bu senaryolarınızı kapsaması amacıyla aşağıdaki örnek senaryolarda). En son `return` yeni bir ifade döndürür `StormSessionViewModel` görünümüne (*Controllers/SessionController.cs*):
 
 [!code-csharp[](testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs?name=snippet_SessionController&highlight=12-16,18-22,31)]
 

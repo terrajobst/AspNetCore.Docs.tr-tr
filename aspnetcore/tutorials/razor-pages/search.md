@@ -6,18 +6,38 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/30/2018
 uid: tutorials/razor-pages/search
-ms.openlocfilehash: c88441b39d8c96ec817c58fc56ebd51a0887b077
-ms.sourcegitcommit: 317f9be24db600499e79d25872d743af74bd86c0
+ms.openlocfilehash: 80292f8cfecd5363fb8acc8578f9bb0ca9ee5969
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48045568"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090169"
 ---
 # <a name="add-search-to-aspnet-core-razor-pages"></a>ASP.NET Core Razor sayfaları için arama Ekle
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Bu belgede, arama özelliği tarafından arama filmler sağlayan dizin sayfasına eklenen *Tarz* veya *adı*.
+
+Vurgulanan aşağıdaki özelliği ekleyin *Pages/Movies/Index.cshtml.cs*:
+
+::: moniker range="= aspnetcore-2.0"
+
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs?name=snippet_newProps&highlight=11-999)]
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
+
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Pages/Movies/Index.cshtml.cs?name=snippet_newProps&highlight=11-999)]
+
+::: moniker-end
+
+* `SearchString`: kullanıcıların, arama metin kutusuna girdiğiniz metnin içerir.
+* `Genres`: tür listesini içerir. Bu kullanıcının listeden bir türe izin verir.
+* `MovieGenre`: belirli bir türe kullanıcı seçer (örneğin, "Batı") içeriyor.
+
+Birlikte çalışma `Genres` ve `MovieGenre` bu belgenin sonraki bölümlerinde özellikleri.
 
 Dizin sayfanın güncelleştirme `OnGetAsync` yöntemini aşağıdaki kod ile:
 
@@ -40,6 +60,8 @@ Varsa `searchString` parametresi içeren bir dize, filmler sorgu üzerinde arama
 `s => s.Title.Contains()` Kodu bir [Lambda ifadesi](/dotnet/csharp/programming-guide/statements-expressions-operators/lambda-expressions). Lambda ifadeleri yöntem tabanlı kullanılan [LINQ](/dotnet/csharp/programming-guide/concepts/linq/) gibi sorgularında standart sorgu işleci yöntemlerinin bağımsız değişkenleri olarak [burada](/dotnet/csharp/programming-guide/concepts/linq/query-syntax-and-method-syntax-in-linq) yöntemi veya `Contains` (Önceki kodda kullanılır). LINQ sorguları tanımlanan ya da bunlar bir yöntemi çağırarak değiştirildiğinde yürütülmez (gibi `Where`, `Contains` veya `OrderBy`). Bunun yerine, sorgu yürütme ertelenir. Bir ifade değerlendirmesi üzerinden gerçekleştirilen değerini yinelendiğinde kadar Gecikmeli anlamına veya `ToListAsync` yöntemi çağrılır. Bkz: [sorgu yürütme](/dotnet/framework/data/adonet/ef/language-reference/query-execution) daha fazla bilgi için.
 
 **Not:** [içerir](/dotnet/api/system.data.objects.dataclasses.entitycollection-1.contains) yöntemi, C# kodu değil, veritabanı üzerinde çalıştırılır. Büyük/küçük harf duyarlılığı sorguda, veritabanı ve harmanlama bağlıdır. SQL Server'da `Contains` eşlendiği [SQL gibi](/sql/t-sql/language-elements/like-transact-sql), büyük küçük harfe duyarlı olduğu. SQLite içinde varsayılan harmanlama ile büyük/küçük harfe duyarlıdır.
+
+Son olarak, son satırının `OnGetAsync` yöntemi doldurur `SearchString` özelliği kullanıcının arama değerine sahip. İle `SearchString` arama yürütüldükten sonra özellik arama değeriyle doldurulmuş, arama kutusuna korunur.
 
 Filmler sayfasına gidin ve bir sorgu dizesi gibi ekleme `?searchString=Ghost` URL'sine (örneğin, `http://localhost:5000/Movies?searchString=Ghost`). Filtrelenmiş filmler görüntülenir.
 
@@ -66,25 +88,6 @@ HTML `<form>` etiketi kullanan [Form etiketi Yardımcısı](xref:mvc/views/worki
 ![Dizin görünümünün başlık filtre metin kutusuna yazdığınız word ghost](search/_static/filter.png)
 
 ## <a name="search-by-genre"></a>Türe göre ara
-
-Vurgulanan aşağıdaki özelliği ekleyin *Pages/Movies/Index.cshtml.cs*:
-
-::: moniker range="= aspnetcore-2.0"
-
-[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index.cshtml.cs?name=snippet_newProps&highlight=11-999)]
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.1"
-
-[!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Pages/Movies/Index.cshtml.cs?name=snippet_newProps&highlight=11-999)]
-
-::: moniker-end
-
-
-`Genres` Özellik türleri listesini içerir. Bu kullanıcının listeden bir türe izin verir.
-
-`MovieGenre` Özelliği, kullanıcı seçer (örneğin, "Batı") belirli Tarz içerir.
 
 Güncelleştirme `OnGetAsync` yöntemini aşağıdaki kod ile:
 

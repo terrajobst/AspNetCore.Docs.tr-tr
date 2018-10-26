@@ -5,14 +5,14 @@ description: Azure Key Vault yapılandırma sağlayıcısı, çalışma zamanın
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/17/2018
+ms.date: 10/24/2018
 uid: security/key-vault-configuration
-ms.openlocfilehash: 474824cccdc63bb3dc3978ed68cf4c89cec12ad5
-ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
+ms.openlocfilehash: 06445eb2ecec4cf101b23a4bfe131b2c56a18f62
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49391148"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090312"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>ASP.NET Core, Azure Key Vault yapılandırma sağlayıcısı
 
@@ -151,7 +151,7 @@ Bu yaklaşım uyguladığınızda:
 
 Kullanım [gizli dizi Yöneticisi aracını](xref:security/app-secrets) korumak için `ClientSecret` proje kaynak ağacınız dışında. Gizli dizi Yöneticisi ile uygulama gizli anahtarlarının belirli bir proje ile ilişkilendirmek ve birden çok projede paylaşın.
 
-Sertifikalar'ı destekleyen bir ortamda bir .NET Framework uygulama geliştirirken, Azure anahtar Kasası'na bir X.509 sertifikası ile kimlik doğrulaması yapabilir. X.509 sertifikasının özel anahtar, işletim sistemi tarafından yönetilir. Daha fazla bilgi için [bir sertifika yerine istemci gizli anahtarı ile kimlik doğrulama](https://docs.microsoft.com/azure/key-vault/key-vault-use-from-web-application#authenticate-with-a-certificate-instead-of-a-client-secret). Kullanım `AddAzureKeyVault` kabul eden aşırı bir `X509Certificate2` (`_env` aşağıdaki örnekte:
+Sertifikalar'ı destekleyen bir ortamda bir .NET Framework uygulama geliştirirken, Azure anahtar Kasası'na bir X.509 sertifikası ile kimlik doğrulaması yapabilir. X.509 sertifikasının özel anahtar, işletim sistemi tarafından yönetilir. Daha fazla bilgi için [bir sertifika yerine istemci gizli anahtarı ile kimlik doğrulama](/azure/key-vault/key-vault-use-from-web-application#authenticate-with-a-certificate-instead-of-a-client-secret). Kullanım `AddAzureKeyVault` kabul eden aşırı bir `X509Certificate2` (`_env` aşağıdaki örnekte:
 
 ```csharp
 var builtConfig = config.Build();

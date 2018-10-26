@@ -3,14 +3,15 @@ title: -Eşzamanlılık - 8, 10 EF çekirdekli ASP.NET Core MVC
 author: rick-anderson
 description: Bu öğreticide, birden çok kullanıcı aynı anda aynı varlık güncelleştirdiğinizde çakışmalarına gösterilmektedir.
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: 9bf65621213c9657232dfff1701c9937d5105a9c
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 0ae566a76a2ef656843452ed537b8fdfbddaed22
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38186643"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090907"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---concurrency---8-of-10"></a>-Eşzamanlılık - 8, 10 EF çekirdekli ASP.NET Core MVC
 
@@ -219,7 +220,6 @@ HttpPost değiştirin `Delete` yöntemi (adlı `DeleteConfirmed`) aşağıdaki k
 
 Yalnızca değiştirilen iskele kurulmuş kod içinde bu yöntem yalnızca bir kayıt kimliği kabul:
 
-
 ```csharp
 public async Task<IActionResult> DeleteConfirmed(int id)
 ```
@@ -278,7 +278,7 @@ Değiştirin *Views/Departments/Create.cshtml* Seç seçeneğini aşağı açıl
 
 ## <a name="summary"></a>Özet
 
-Bu, eşzamanlılık çakışmalarını işleme giriş tamamlar. EF Core eşzamanlılık nasıl ele alınacağını hakkında daha fazla bilgi için bkz. [eşzamanlılık çakışmalarını](https://docs.microsoft.com/ef/core/saving/concurrency). Sonraki öğreticiye Eğitmen ve Öğrenci varlıklar için tablo başına hiyerarşi devralma uygulanması gösterilmektedir.
+Bu, eşzamanlılık çakışmalarını işleme giriş tamamlar. EF Core eşzamanlılık nasıl ele alınacağını hakkında daha fazla bilgi için bkz. [eşzamanlılık çakışmalarını](/ef/core/saving/concurrency). Sonraki öğreticiye Eğitmen ve Öğrenci varlıklar için tablo başına hiyerarşi devralma uygulanması gösterilmektedir.
 
 ::: moniker-end
 

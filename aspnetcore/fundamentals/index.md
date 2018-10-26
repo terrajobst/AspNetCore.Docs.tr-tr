@@ -4,22 +4,27 @@ author: rick-anderson
 description: ASP.NET Core uygulamaları oluşturmaya yönelik temel kavramları keşfedin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/20/2018
+ms.date: 10/25/2018
 uid: fundamentals/index
-ms.openlocfilehash: 83dfb5707700da01c45bae3c0c00e67ca397d402
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 56344315acc59003248ffaf1e61455b94a93a545
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49325477"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090725"
 ---
 # <a name="aspnet-core-fundamentals"></a>ASP.NET Core temelleri
 
-ASP.NET Core uygulaması bir web sunucusunu oluşturan bir konsol uygulaması olan kendi `Main` yöntemi:
+ASP.NET Core uygulaması bir web sunucusunu oluşturan bir konsol uygulaması olan kendi `Program.Main` yöntemi. `Main` Yöntemdir uygulamanın *yönetilen giriş noktasını*:
 
 ::: moniker range=">= aspnetcore-2.0"
 
 [!code-csharp[](index/snapshots/2.x/Program.cs)]
+
+.NET Core ana bilgisayarı:
+
+* Yükleri [.NET Core çalışma zamanı](https://github.com/dotnet/coreclr).
+* İlk komut satırı bağımsız değişkeni olarak giriş noktasını içeren yönetilen ikili dosya yolunu kullanır (`Main`) ve kod yürütmeyi başlatır.
 
 `Main` Yöntemini çağıran [WebHost.CreateDefaultBuilder](xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*), izleyen [Oluşturucu deseni](https://wikipedia.org/wiki/Builder_pattern) bir web ana bilgisayarı oluşturma. Web sunucusu tanımlayan yöntemleri Oluşturucusu vardır (örneğin, <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions.UseKestrel*>) ve başlangıç sınıfı (<xref:Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions.UseStartup*>). Önceki örnekte [Kestrel](xref:fundamentals/servers/kestrel) web sunucusu otomatik olarak ayrılır. IIS üzerinde çalıştırmak ASP.NET Core'nın web ana bilgisayarı varsa çalışır. Diğer web sunucuları gibi [HTTP.sys](xref:fundamentals/servers/httpsys), uygun bir genişletme yöntemi çağrılarak kullanılabilir. `UseStartup` açıklanan daha sonraki bölümde.
 
@@ -30,6 +35,11 @@ ASP.NET Core uygulaması bir web sunucusunu oluşturan bir konsol uygulaması ol
 ::: moniker range="< aspnetcore-2.0"
 
 [!code-csharp[](index/snapshots/1.x/Program.cs)]
+
+.NET Core ana bilgisayarı:
+
+* Yükleri [.NET Core çalışma zamanı](https://github.com/dotnet/coreclr).
+* İlk komut satırı bağımsız değişkeni olarak giriş noktasını içeren yönetilen ikili dosya yolunu kullanır (`Main`) ve kod yürütmeyi başlatır.
 
 `Main` Yöntemi kullanan <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder>, izleyen [Oluşturucu deseni](https://wikipedia.org/wiki/Builder_pattern) bir web uygulama ana bilgisayarı oluşturma. Web sunucusu tanımlayan yöntemleri Oluşturucusu vardır (örneğin, <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions.UseKestrel*>) ve başlangıç sınıfı (<xref:Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions.UseStartup*>). Önceki örnekte [Kestrel](xref:fundamentals/servers/kestrel) web sunucusu kullanılır. Diğer web sunucuları gibi [WebListener](xref:fundamentals/servers/weblistener), uygun bir genişletme yöntemi çağrılarak kullanılabilir. `UseStartup` açıklanan daha sonraki bölümde.
 
@@ -75,9 +85,11 @@ Daha fazla bilgi için bkz. <xref:fundamentals/startup>.
 
 Temel yol gibi uygulama tarafından kullanılan herhangi bir içerik için içerik köküdür [Razor sayfaları](xref:razor-pages/index), MVC görünümleri ve statik varlıklar. Varsayılan olarak, uygulama barındırma yürütülebilir dosyası için uygulama temel yolu ile aynı konumda içerik kök dizinidir.
 
-## <a name="web-root"></a>Web kökü
+## <a name="web-root-webroot"></a>Web kökü (webroot)
 
-Bir uygulamanın web kök CSS, JavaScript ve görüntü dosyaları gibi genel, statik kaynakları içeren proje dizinindedir.
+Bir uygulamanın webroot CSS, JavaScript ve görüntü dosyaları gibi genel, statik kaynakları içeren proje dizinindedir. Varsayılan olarak, *wwwroot* webroot olduğu.
+
+Razor için (*.cshtml*) dosyaları, eğik çizgi tilde `~/` webroot için işaret eder. İle başlayan yollar `~/` sanal yol adlandırılır.
 
 ## <a name="dependency-injection-services"></a>Bağımlılık ekleme (Hizmetler)
 
