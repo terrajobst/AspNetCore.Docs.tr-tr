@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 08/15/2018
 uid: web-api/index
-ms.openlocfilehash: d410f28ff7fda3bf33f73c06b3e626dfd4ee7dd8
-ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
+ms.openlocfilehash: 763b95fb8ed3806bc67b7ad199153ea1027efa57
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41822146"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090426"
 ---
 # <a name="build-web-apis-with-aspnet-core"></a>Web API ASP.NET Core ile oluşturma
 
@@ -47,7 +47,7 @@ ASP.NET Core 2.1 tanıtır [[ApiController]](xref:Microsoft.AspNetCore.Mvc.ApiCo
 
 [!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Controllers/ProductsController.cs?name=snippet_ControllerSignature&highlight=2)]
 
-2.1 veya üzeri uyumluluk sürümüyle kümesi aracılığıyla <xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*>, bu öznitelik kullanmak için gereklidir. Örneğin, vurgulanan kodu *Startup.ConfigureServices* 2.1 Uyumluluk bayrağını ayarlar:
+2.1 veya üzeri uyumluluk sürümüyle kümesi aracılığıyla <xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*>, bu öznitelik kullanmak için gereklidir. Örneğin, vurgulanan kodu *Startup.ConfigureServices* 2.2 Uyumluluk bayrağını ayarlar:
 
 [!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Startup.cs?name=snippet_SetCompatibilityVersion&highlight=2)]
 
@@ -61,15 +61,46 @@ Daha fazla bilgi için bkz. <xref:mvc/compatibility-version>.
 
 Aşağıdaki bölümlerde öznitelik tarafından eklenen kullanışlı özellikler açıklanmaktadır.
 
+### <a name="problem-details-responses-for-error-status-codes"></a>Hata durum kodları için yanıtları sorun ayrıntıları
+
+ASP.NET Core 2.1 ve üzeri içerir [ProblemDetails](xref:Microsoft.AspNetCore.Mvc.ProblemDetails), bir tür temel alarak [RFC 7807 belirtimi](https://tools.ietf.org/html/rfc7807). `ProblemDetails` Türü makine okunabilir bir HTTP yanıtında hata ayrıntılarını açıklamak için kullanılan standart bir biçim sağlar.
+
+ASP.NET Core 2.2 ve sonraki sürümlerinde, MVC ile bir sonuç için hata durumu kodu sonuçları (durum kodu 400 ve üzeri) dönüştüren `ProblemDetails`. Aşağıdaki kodu göz önünde bulundurun:
+
+[!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Controllers/PetsController.cs?name=snippet_ProblemDetails_StatusCode&highlight=4)]
+
+HTTP yanıtı `NotFound` sonucu olan bir 404 durum kodu ile bir `ProblemDetails` gövdesi aşağıdakine benzer:
+
+```js
+{
+    type: "https://tools.ietf.org/html/rfc7231#section-6.5.4",
+    title: "Not Found",
+    status: 404,
+    traceId: "0HLHLV31KRN83:00000001"
+}
+```
+
+Sorun ayrıntıları özelliği 2.2 veya üzeri uyumluluk bayrak gerektirir. Varsayılan davranışı devre dışı olduğunda [SuppressMapClientErrors](/dotnet/api/microsoft.aspnetcore.Mvc.ApiBehaviorOptions) <!--  Until these resolve, link to the parent class <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressMapClientErrors> --> özelliği `true`. Aşağıdaki vurgulanmış koddan `Startup.ConfigureServices` sorun ayrıntıları devre dışı bırakır:
+
+[!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Startup.cs?name=snippet_SetCompatibilityVersion&highlight=8)]
+
+Kullanım [ClientErrorMapping](/dotnet/api/microsoft.aspnetcore.Mvc.ApiBehaviorOptions) <!--  Until these resolve, link to the parent class <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.ClientErrorMapping> --> içeriğini yapılandırmak için özellik `ProblemDetails` yanıt. Örneğin, aşağıdaki güncelleştirmeleri kod `type` geçmesine karşın 404 yanıtlarını özelliği:
+
+[!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Startup.cs?name=snippet_SetCompatibilityVersion&highlight=10)]
+
 ### <a name="automatic-http-400-responses"></a>HTTP 400 otomatik yanıtlar
 
 Doğrulama hataları, HTTP 400 yanıt otomatik olarak tetikleyin. Aşağıdaki kod, Eylemler gereksiz olur:
 
 [!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api.Pre21/Controllers/PetsController.cs?name=snippet_ModelStateIsValidCheck)]
 
+Kullanım <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.InvalidModelStateResponseFactory> çıktısını özelleştirmek için verilen yanıtları.
+
 Varsayılan davranışı devre dışı olduğunda <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressModelStateInvalidFilter> özelliği `true`. Aşağıdaki kodu ekleyin *Startup.ConfigureServices* sonra `services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);`:
 
 [!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=5)]
+
+2.2 veya üzeri uyumluluk bayrağı ile 400 yanıtlar için döndürülen varsayılan yanıt türü olan bir <xref:Microsoft.AspNetCore.Mvc.ValidationProblemDetails>. Kullanma [SuppressUseValidationProblemDetailsForInvalidModelStateResponses](/dotnet/api/microsoft.aspnetcore.Mvc.ApiBehaviorOptions) <!--  <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressUseValidationProblemDetailsForInvalidModelStateResponses> --> özelliği ASP.NET Core 2.1 hata biçimini kullanın.
 
 ### <a name="binding-source-parameter-inference"></a>Kaynak parametre çıkarımı bağlama
 

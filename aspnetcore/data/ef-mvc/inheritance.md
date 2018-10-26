@@ -3,14 +3,15 @@ title: -Devralma - 9, 10 EF çekirdekli ASP.NET Core MVC
 author: rick-anderson
 description: Bu öğreticide, Entity Framework Core ASP.NET Core uygulamasını kullanarak veri modelinde, devralma uygulanması gösterilmektedir.
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-mvc/inheritance
-ms.openlocfilehash: a71954297f44f936893a7f1e9d3b0685f81378b9
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 60417040dd296311e1aecff8f224aadf8da82779
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38126710"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090764"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---inheritance---9-of-10"></a>-Devralma - 9, 10 EF çekirdekli ASP.NET Core MVC
 
@@ -142,7 +143,7 @@ Kişi tabloya sağ tıklayıp ardından **tablo verilerini Göster** ayrıştır
 
 ## <a name="summary"></a>Özet
 
-Tablo başına hiyerarşi devralma için uyguladık `Person`, `Student`, ve `Instructor` sınıfları. Entity Framework Core içinde devralma hakkında daha fazla bilgi için bkz. [devralma](https://docs.microsoft.com/ef/core/modeling/inheritance). Sonraki öğreticide, bir göreceli olarak Gelişmiş Entity Framework senaryoları işlemek nasıl görürsünüz.
+Tablo başına hiyerarşi devralma için uyguladık `Person`, `Student`, ve `Instructor` sınıfları. Entity Framework Core içinde devralma hakkında daha fazla bilgi için bkz. [devralma](/ef/core/modeling/inheritance). Sonraki öğreticide, bir göreceli olarak Gelişmiş Entity Framework senaryoları işlemek nasıl görürsünüz.
 
 ::: moniker-end
 

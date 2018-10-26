@@ -3,14 +3,15 @@ title: 10 - CRUD - 2 EF çekirdekli ASP.NET Core MVC
 author: rick-anderson
 description: ''
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-mvc/crud
-ms.openlocfilehash: de9b0bd1e0346d4c12f256e6226353f1ab47ed11
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: 34927415beadaa3f5c9035a9101e3c99f7cbc395
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477585"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090829"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---crud---2-of-10"></a>10 - CRUD - 2 EF çekirdekli ASP.NET Core MVC
 
@@ -91,7 +92,7 @@ Bu aşağıdaki HTML'yi oluşturur, `item.ID` 6:
 <a href="/Students/Edit?studentID=6">Edit</a>
 ```
 
-Etiket yardımcıları hakkında daha fazla bilgi için bkz: [etiket Yardımcıları ASP.NET Core](xref:mvc/views/tag-helpers/intro).
+Etiket yardımcıları hakkında daha fazla bilgi için bkz: <xref:mvc/views/tag-helpers/intro>.
 
 ### <a name="add-enrollments-to-the-details-view"></a>Ayrıntılar görünümü için kayıtlar ekleme
 
@@ -121,7 +122,7 @@ Bu kod, Öğrenciler varlığı için ASP.NET Core MVC model bağlayıcı taraf�
 
 Kaldırılan `ID` gelen `Bind` kimliği SQL Server, otomatik olarak satır ne zaman eklendiği ayarlayacak birincil anahtar değeri olduğundan özniteliği. Kullanıcı girişi kimlik değerini ayarlamaz.
 
-Dışındaki `Bind` try-catch bloğu özniteliktir iskele kurulan kodu için yaptığınız tek değişiklik. Türetilen bir özel durum, `DbUpdateException` olan değişiklikleri kaydedilirken yakalandı, genel bir hata iletisi görüntülenir. `DbUpdateException` Kullanıcı yeniden denemeniz önerilir özel durum bazen bir programlama hatası yerine bir uygulama için dış bir şey tarafından kaynaklanır. Bu örnekte uygulanmadı olsa da, üretim kalitesinde uygulaması özel durumu günlüğe kaydedersiniz. Daha fazla bilgi için **ilgili ayrıntılı bilgi için günlük** konusundaki [izleme ve Telemetri (gerçek hayatta kullanılan bulut uygulamaları Azure ile oluşturma)](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).
+Dışındaki `Bind` try-catch bloğu özniteliktir iskele kurulan kodu için yaptığınız tek değişiklik. Türetilen bir özel durum, `DbUpdateException` olan değişiklikleri kaydedilirken yakalandı, genel bir hata iletisi görüntülenir. `DbUpdateException` Kullanıcı yeniden denemeniz önerilir özel durum bazen bir programlama hatası yerine bir uygulama için dış bir şey tarafından kaynaklanır. Bu örnekte uygulanmadı olsa da, üretim kalitesinde uygulaması özel durumu günlüğe kaydedersiniz. Daha fazla bilgi için **ilgili ayrıntılı bilgi için günlük** konusundaki [izleme ve Telemetri (gerçek hayatta kullanılan bulut uygulamaları Azure ile oluşturma)](/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).
 
 `ValidateAntiForgeryToken` Öznitelik, siteler arası istek sahteciliği (CSRF) saldırılarını önlemeye yardımcı olur. Belirteç görünümde tarafından otomatik olarak eklenen [FormTagHelper](xref:mvc/views/working-with-forms#the-form-tag-helper) ve kullanıcı tarafından form gönderildiğinde dahildir. Belirteç tarafından doğrulanır `ValidateAntiForgeryToken` özniteliği. CSRF hakkında daha fazla bilgi için bkz: [istek sahteciliğinden koruma](../../security/anti-request-forgery.md).
 
@@ -277,7 +278,7 @@ Tıklayın **Sil**. Dizin Sayfası silinen Öğrenci görüntülenir. (Hata işl
 
 ## <a name="handling-transactions"></a>İşlem işleme
 
-Varsayılan olarak Entity Framework, örtük olarak işlemler uygular. Burada birden çok satır veya tablo için değişiklik ve sonra çağrı senaryolarda `SaveChanges`, Entity Framework otomatik olarak tüm değişikliklerinizi başarılı veya başarısız tüm emin olur. Bazı değişiklikler önce yapılır ve ardından bir hata olur, bu değişiklikleri otomatik olarak geri alınır. Daha denetlediğiniz--Örneğin, bir işlemde--Entity Framework dışında yapılan işlemler dahil etmek istiyorsanız senaryolar görmek için [işlemleri](https://docs.microsoft.com/ef/core/saving/transactions).
+Varsayılan olarak Entity Framework, örtük olarak işlemler uygular. Burada birden çok satır veya tablo için değişiklik ve sonra çağrı senaryolarda `SaveChanges`, Entity Framework otomatik olarak tüm değişikliklerinizi başarılı veya başarısız tüm emin olur. Bazı değişiklikler önce yapılır ve ardından bir hata olur, bu değişiklikleri otomatik olarak geri alınır. Daha denetlediğiniz--Örneğin, bir işlemde--Entity Framework dışında yapılan işlemler dahil etmek istiyorsanız senaryolar görmek için [işlemleri](/ef/core/saving/transactions).
 
 ## <a name="no-tracking-queries"></a>Hayır-izleme sorguları
 
@@ -291,7 +292,7 @@ Bir veritabanı bağlamını tablo satırları alır ve bunları temsil eden var
 
 * Bir varlığı güncelleştirmek için eklemek istediğiniz, ancak aynı varlığa farklı bir amaç için daha önce aldığınız. Varlık tarafından veritabanı bağlamı zaten izlenmekte olduğundan, değiştirmek istediğiniz varlığın eklenemiyor. Bu durum işlemek için bir yol çağırmaktır `AsNoTracking` önceki sorguda.
 
-Daha fazla bilgi için [izleme ile. Hayır-izleme](https://docs.microsoft.com/ef/core/querying/tracking).
+Daha fazla bilgi için [izleme ile. Hayır-izleme](/ef/core/querying/tracking).
 
 ## <a name="summary"></a>Özet
 

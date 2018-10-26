@@ -3,14 +3,15 @@ title: ASP.NET'ten ASP.NET Core 2.0 geçirme
 author: isaac2004
 description: Mevcut ASP.NET MVC veya Web API uygulamalarını geçirme ASP.NET Core 2.0 için rehberlik alın.
 ms.author: scaddie
-ms.date: 08/27/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: migration/mvc2
-ms.openlocfilehash: 42fbabb2fe5bd79a72cd220230faa9d75ff1c9d8
-ms.sourcegitcommit: a742b55e4b8276a48b8b4394784554fecd883c84
+ms.openlocfilehash: 006eeeba28dbd351698e46547abe3c96818a63d9
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45538394"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090465"
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core-20"></a>ASP.NET'ten ASP.NET Core 2.0 geçirme
 
@@ -28,7 +29,8 @@ Yükleme **bir** birini [.NET indirir: Windows](https://www.microsoft.com/net/do
   * **.NET core çoklu platform geliştirme** iş yükü
 
 ## <a name="target-frameworks"></a>Hedef Çerçeve
-ASP.NET Core 2.0 projeleri geliştiricilerin, .NET Core, .NET Framework veya her ikisi de hedefleme esnekliği sunar. Bkz: [sunucu uygulamaları için .NET Core ve .NET Framework arasında seçim](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server) hangi hedef çerçeveden en uygun olduğunu belirlemek için.
+
+ASP.NET Core 2.0 projeleri geliştiricilerin, .NET Core, .NET Framework veya her ikisi de hedefleme esnekliği sunar. Bkz: [sunucu uygulamaları için .NET Core ve .NET Framework arasında seçim](/dotnet/standard/choosing-core-framework-server) hangi hedef çerçeveden en uygun olduğunu belirlemek için.
 
 .NET Framework'ü hedefleyen, projeler tek NuGet paketlerini başvurmanız gerekir.
 
@@ -40,17 +42,20 @@ ASP.NET Core 2.0 projeleri geliştiricilerin, .NET Core, .NET Framework veya her
 </ItemGroup>
 ```
 
-Metapackage kullanıldığında metapackage içinde başvurulan paket uygulamayla birlikte dağıtılır. .NET Core çalışma zamanı Store bu varlıkları içerir ve bunlar performansını artırmak için önceden derlenmiş. Bkz: [Microsoft.AspNetCore.All metapackage ASP.NET Core 2.x](xref:fundamentals/metapackage) daha fazla ayrıntı için.
+Metapackage kullanıldığında metapackage içinde başvurulan paket uygulamayla birlikte dağıtılır. .NET Core çalışma zamanı Store bu varlıkları içerir ve bunlar performansını artırmak için önceden derlenmiş. Bkz: <xref:fundamentals/metapackage> daha fazla ayrıntı için.
 
 ## <a name="project-structure-differences"></a>Proje yapısına
-*.Csproj* dosya biçimi, ASP.NET Core basitleştirilmiştir. Bazı önemli değişiklikler şunları içerir:
-- Açık içerme dosyaları projenin bir parçası olarak değerlendirilmesi için gerekli değildir. Büyük takımlar üzerinde çalışırken bu XML birleştirme çakışmalarını riskini azaltır.
-- Hangi dosya okunabilirliği iyileştirilebileceği diğer projelere GUID tabanlı başvuru vardır.
-- Dosya, Visual Studio'da kaldırmadan düzenlenebilir:
 
-    ![Visual Studio 2017'de CSPROJ bağlam menüsü seçeneği Düzenle](_static/EditProjectVs2017.png)
+*.Csproj* dosya biçimi, ASP.NET Core basitleştirilmiştir. Bazı önemli değişiklikler şunları içerir:
+
+* Açık içerme dosyaları projenin bir parçası olarak değerlendirilmesi için gerekli değildir. Büyük takımlar üzerinde çalışırken bu XML birleştirme çakışmalarını riskini azaltır.
+* Hangi dosya okunabilirliği iyileştirilebileceği diğer projelere GUID tabanlı başvuru vardır.
+* Dosya, Visual Studio'da kaldırmadan düzenlenebilir:
+
+  ![Visual Studio 2017'de CSPROJ bağlam menüsü seçeneği Düzenle](_static/EditProjectVs2017.png)
 
 ## <a name="globalasax-file-replacement"></a>Global.asax dosyası değiştirme
+
 ASP.NET Core önyükleme bir uygulama için yeni bir mekanizma sunmuştur. ASP.NET uygulamaları için giriş noktası *Global.asax* dosya. Yol yapılandırması ve filtre ve alan kayıtları gibi görevleri işlenir *Global.asax* dosya.
 
 [!code-csharp[](samples/globalasax-sample.cs)]
@@ -77,9 +82,10 @@ ASP.NET Core, benzer bir yaklaşım kullanır, ancak giriş işlemek için OWIN 
 
 Konak ve uygulama, gelecekte farklı bir platform için taşıma esnekliği sağlayan ayrılmış.
 
-**Not:** ASP.NET Core başlangıç ve ara yazılım için daha ayrıntılı bir başvuru için bkz: [ASP.NET Core başlangıç](xref:fundamentals/startup)
+ASP.NET Core başlangıç ve ara yazılım için daha ayrıntılı bir başvuru için bkz: <xref:fundamentals/startup>.
 
 ## <a name="storing-configurations"></a>Depolama yapılandırmaları
+
 ASP.NET depolama ayarlarını destekler. Bu ayar, örneğin, uygulama dağıtılıp dağıtılmadığını ortamı desteklemek için kullanılır. Tüm özel anahtar-değer çiftlerini depolamak için ortak bir uygulama olan `<appSettings>` bölümünü *Web.config* dosyası:
 
 [!code-xml[](samples/webconfig-sample.xml)]
@@ -107,7 +113,7 @@ Uzantı işlemi kullanma gibi daha sağlam hale getirmek için bu yaklaşımın 
 services.Configure<AppConfiguration>(Configuration.GetSection("AppConfiguration"));
 ````
 
-**Not:** ASP.NET Core yapılandırma daha ayrıntılı bir başvuru için bkz: [ASP.NET Core yapılandırmasında](xref:fundamentals/configuration/index).
+**Not:** ASP.NET Core yapılandırma daha ayrıntılı bir başvuru için bkz: <xref:fundamentals/configuration/index>.
 
 ## <a name="native-dependency-injection"></a>Yerel bağımlılık ekleme
 
@@ -133,7 +139,7 @@ Bağımlılık ekleme ASP.NET Core parçası olduğundan, hizmetinizde ekleyebil
 
 Depoya her yerden, Unity ile doğru şekilde yerleştirilebilir.
 
-ASP.NET core'da bağımlılık ekleme hakkında daha fazla bilgi için bkz. [bağımlılık ekleme](xref:fundamentals/dependency-injection).
+ASP.NET core'da bağımlılık ekleme hakkında daha fazla bilgi için bkz. <xref:fundamentals/dependency-injection>.
 
 ## <a name="serving-static-files"></a>Statik dosyaları sunma
 
@@ -149,7 +155,7 @@ ASP.NET Core, statik dosyalar "web root" depolanır (*&lt;içerik kök&gt;/wwwro
 
 Örneğin, bir görüntü varlığı *wwwroot/görüntülerinden* klasörünün erişilebilir bir konumda tarayıcıya gibi `http://<app>/images/<imageFileName>`.
 
-**Not:** ASP.NET core'da statik dosyaları sunma daha ayrıntılı başvuru için bkz: [statik dosyalar](xref:fundamentals/static-files).
+**Not:** ASP.NET core'da statik dosyaları sunma daha ayrıntılı başvuru için bkz: <xref:fundamentals/static-files>.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
