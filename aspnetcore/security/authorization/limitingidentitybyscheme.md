@@ -1,24 +1,24 @@
 ---
-title: ASP.NET Core de belirli bir düzeni ile yetkilendirmek
+title: ASP.NET core'da belirli bir düzeni ile yetkilendirme
 author: rick-anderson
-description: Bu makalede, birden çok kimlik doğrulama yöntemleri ile çalışırken, belirli bir düzeni kimliğine sınırlamak açıklanmaktadır.
+description: Bu makalede, birden çok kimlik doğrulama yöntemleri ile çalışırken, belirli bir düzen kimliğini sınırlamak açıklanmaktadır.
 ms.author: riande
-ms.date: 10/12/2017
+ms.date: 10/22/2018
 uid: security/authorization/limitingidentitybyscheme
-ms.openlocfilehash: 231c664006ee7ff91f471aa8d16c1fd18dcbabb1
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: fbe9f32e01a214f41b5a6e9f43e8fdee5fc612df
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278206"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50089402"
 ---
-# <a name="authorize-with-a-specific-scheme-in-aspnet-core"></a><span data-ttu-id="8c5e8-103">ASP.NET Core de belirli bir düzeni ile yetkilendirmek</span><span class="sxs-lookup"><span data-stu-id="8c5e8-103">Authorize with a specific scheme in ASP.NET Core</span></span>
+# <a name="authorize-with-a-specific-scheme-in-aspnet-core"></a><span data-ttu-id="caac4-103">ASP.NET core'da belirli bir düzeni ile yetkilendirme</span><span class="sxs-lookup"><span data-stu-id="caac4-103">Authorize with a specific scheme in ASP.NET Core</span></span>
 
-<span data-ttu-id="8c5e8-104">Tek sayfa uygulamaları (SPAs) gibi bazı senaryolarda birden çok kimlik doğrulama yöntemlerini kullanmayı yaygındır.</span><span class="sxs-lookup"><span data-stu-id="8c5e8-104">In some scenarios, such as Single Page Applications (SPAs), it's common to use multiple authentication methods.</span></span> <span data-ttu-id="8c5e8-105">Örneğin, uygulama oturum açma tanımlama bilgisi tabanlı kimlik doğrulaması ve JWT taşıyıcı kimlik doğrulaması için JavaScript istekleri kullanabilir.</span><span class="sxs-lookup"><span data-stu-id="8c5e8-105">For example, the app may use cookie-based authentication to log in and JWT bearer authentication for JavaScript requests.</span></span> <span data-ttu-id="8c5e8-106">Bazı durumlarda, uygulama bir kimlik doğrulama işleyicisi birden çok örneği olabilir.</span><span class="sxs-lookup"><span data-stu-id="8c5e8-106">In some cases, the app may have multiple instances of an authentication handler.</span></span> <span data-ttu-id="8c5e8-107">Örneğin, iki tanımlama bilgisi işleyicileri burada temel bir kimlik içeriyor ve bir oluşturulduğunda bir multi-Factor authentication (MFA) tetiklendiğinde.</span><span class="sxs-lookup"><span data-stu-id="8c5e8-107">For example, two cookie handlers where one contains a basic identity and one is created when a multi-factor authentication (MFA) has been triggered.</span></span> <span data-ttu-id="8c5e8-108">Kullanıcıya ek güvenlik gerektiren bir işlem istediğinden MFA tetiklenebilir.</span><span class="sxs-lookup"><span data-stu-id="8c5e8-108">MFA may be triggered because the user requested an operation that requires extra security.</span></span>
+<span data-ttu-id="caac4-104">Tek sayfa uygulamaları (Spa'lar) gibi bazı senaryolarda birden çok kimlik doğrulama yöntemleri kullanan yaygındır.</span><span class="sxs-lookup"><span data-stu-id="caac4-104">In some scenarios, such as Single Page Applications (SPAs), it's common to use multiple authentication methods.</span></span> <span data-ttu-id="caac4-105">Örneğin, uygulama oturum açma tanımlama bilgisi tabanlı kimlik doğrulaması ve JWT taşıyıcı kimlik doğrulaması için JavaScript istekleri kullanabilir.</span><span class="sxs-lookup"><span data-stu-id="caac4-105">For example, the app may use cookie-based authentication to log in and JWT bearer authentication for JavaScript requests.</span></span> <span data-ttu-id="caac4-106">Bazı durumlarda, uygulama birden fazla örneğini bir kimlik doğrulama işleyicisi olabilir.</span><span class="sxs-lookup"><span data-stu-id="caac4-106">In some cases, the app may have multiple instances of an authentication handler.</span></span> <span data-ttu-id="caac4-107">Örneğin, iki tanımlama bilgisi işleyicileri burada temel bir kimlik içerir ve bir oluşturulduğunda bir multi-Factor authentication (MFA) tetiklendiğinde.</span><span class="sxs-lookup"><span data-stu-id="caac4-107">For example, two cookie handlers where one contains a basic identity and one is created when a multi-factor authentication (MFA) has been triggered.</span></span> <span data-ttu-id="caac4-108">Kullanıcıya ek güvenlik gerektiren bir işlem istediğinden MFA tetiklenebilir.</span><span class="sxs-lookup"><span data-stu-id="caac4-108">MFA may be triggered because the user requested an operation that requires extra security.</span></span>
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="8c5e8-109">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="8c5e8-109">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="caac4-109">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="caac4-109">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
 
-<span data-ttu-id="8c5e8-110">Kimlik doğrulama hizmeti kimlik doğrulama işlemi sırasında yapılandırıldığında, bir kimlik doğrulama düzeni olarak adlandırılır.</span><span class="sxs-lookup"><span data-stu-id="8c5e8-110">An authentication scheme is named when the authentication service is configured during authentication.</span></span> <span data-ttu-id="8c5e8-111">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="8c5e8-111">For example:</span></span>
+<span data-ttu-id="caac4-110">Kimlik doğrulaması sırasında kimlik doğrulama hizmeti tarafından yapılandırıldığında bir kimlik doğrulama düzeni olarak adlandırılır.</span><span class="sxs-lookup"><span data-stu-id="caac4-110">An authentication scheme is named when the authentication service is configured during authentication.</span></span> <span data-ttu-id="caac4-111">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="caac4-111">For example:</span></span>
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -36,14 +36,14 @@ public void ConfigureServices(IServiceCollection services)
         });
 ```
 
-<span data-ttu-id="8c5e8-112">Önceki kod, iki kimlik doğrulama işleyicisi eklenmiştir: tanımlama bilgileri, diğeri taşıyıcı için için.</span><span class="sxs-lookup"><span data-stu-id="8c5e8-112">In the preceding code, two authentication handlers have been added: one for cookies and one for bearer.</span></span>
+<span data-ttu-id="caac4-112">Önceki kodda, iki kimlik doğrulaması işleyici eklendi: biri tanımlama bilgileri, diğeri taşıyıcı için.</span><span class="sxs-lookup"><span data-stu-id="caac4-112">In the preceding code, two authentication handlers have been added: one for cookies and one for bearer.</span></span>
 
 >[!NOTE]
-><span data-ttu-id="8c5e8-113">Varsayılan düzeni belirtme sonuçlanıyor `HttpContext.User` kimliğe ayarlanan özelliği.</span><span class="sxs-lookup"><span data-stu-id="8c5e8-113">Specifying the default scheme results in the `HttpContext.User` property being set to that identity.</span></span> <span data-ttu-id="8c5e8-114">Bu davranışı isterseniz, bu değil parametresiz biçiminde çağırarak devre dışı `AddAuthentication`.</span><span class="sxs-lookup"><span data-stu-id="8c5e8-114">If that behavior isn't desired, disable it by invoking the parameterless form of `AddAuthentication`.</span></span>
+><span data-ttu-id="caac4-113">Varsayılan düzenini belirten sonuçlanıyor `HttpContext.User` kimliğe ayarlanan özelliği.</span><span class="sxs-lookup"><span data-stu-id="caac4-113">Specifying the default scheme results in the `HttpContext.User` property being set to that identity.</span></span> <span data-ttu-id="caac4-114">Bu davranışı gerekli değildir, parametresiz derleyeceği harekete geçirerek devre dışı `AddAuthentication`.</span><span class="sxs-lookup"><span data-stu-id="caac4-114">If that behavior isn't desired, disable it by invoking the parameterless form of `AddAuthentication`.</span></span>
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="8c5e8-115">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="8c5e8-115">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="caac4-115">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="caac4-115">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
 
-<span data-ttu-id="8c5e8-116">Kimlik doğrulama sırasında kimlik doğrulama middlewares yapılandırıldığında kimlik doğrulama şemasını adlandırılır.</span><span class="sxs-lookup"><span data-stu-id="8c5e8-116">Authentication schemes are named when authentication middlewares are configured during authentication.</span></span> <span data-ttu-id="8c5e8-117">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="8c5e8-117">For example:</span></span>
+<span data-ttu-id="caac4-116">Kimlik doğrulaması sırasında kimlik doğrulaması middlewares yapılandırıldığında kimlik doğrulama düzeni olarak adlandırılır.</span><span class="sxs-lookup"><span data-stu-id="caac4-116">Authentication schemes are named when authentication middlewares are configured during authentication.</span></span> <span data-ttu-id="caac4-117">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="caac4-117">For example:</span></span>
 
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
@@ -68,18 +68,18 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
     });
 ```
 
-<span data-ttu-id="8c5e8-118">Önceki kod, iki kimlik doğrulama middlewares eklenmiştir: tanımlama bilgileri, diğeri taşıyıcı için için.</span><span class="sxs-lookup"><span data-stu-id="8c5e8-118">In the preceding code, two authentication middlewares have been added: one for cookies and one for bearer.</span></span>
+<span data-ttu-id="caac4-118">Önceki kodda, iki kimlik doğrulaması middlewares eklenmiştir: biri tanımlama bilgileri, diğeri taşıyıcı için.</span><span class="sxs-lookup"><span data-stu-id="caac4-118">In the preceding code, two authentication middlewares have been added: one for cookies and one for bearer.</span></span>
 
 >[!NOTE]
-><span data-ttu-id="8c5e8-119">Varsayılan düzeni belirtme sonuçlanıyor `HttpContext.User` kimliğe ayarlanan özelliği.</span><span class="sxs-lookup"><span data-stu-id="8c5e8-119">Specifying the default scheme results in the `HttpContext.User` property being set to that identity.</span></span> <span data-ttu-id="8c5e8-120">Bu davranışı isterseniz, bu değil ayarlayarak devre dışı `AuthenticationOptions.AutomaticAuthenticate` özelliğine `false`.</span><span class="sxs-lookup"><span data-stu-id="8c5e8-120">If that behavior isn't desired, disable it by setting the `AuthenticationOptions.AutomaticAuthenticate` property to `false`.</span></span>
+><span data-ttu-id="caac4-119">Varsayılan düzenini belirten sonuçlanıyor `HttpContext.User` kimliğe ayarlanan özelliği.</span><span class="sxs-lookup"><span data-stu-id="caac4-119">Specifying the default scheme results in the `HttpContext.User` property being set to that identity.</span></span> <span data-ttu-id="caac4-120">Bu davranışı gerekli değildir, ayarı devre dışı `AuthenticationOptions.AutomaticAuthenticate` özelliğini `false`.</span><span class="sxs-lookup"><span data-stu-id="caac4-120">If that behavior isn't desired, disable it by setting the `AuthenticationOptions.AutomaticAuthenticate` property to `false`.</span></span>
 
 ---
 
-## <a name="selecting-the-scheme-with-the-authorize-attribute"></a><span data-ttu-id="8c5e8-121">Authorize özniteliği düzeniyle seçme</span><span class="sxs-lookup"><span data-stu-id="8c5e8-121">Selecting the scheme with the Authorize attribute</span></span>
+## <a name="selecting-the-scheme-with-the-authorize-attribute"></a><span data-ttu-id="caac4-121">Authorize özniteliği düzeni seçme</span><span class="sxs-lookup"><span data-stu-id="caac4-121">Selecting the scheme with the Authorize attribute</span></span>
 
-<span data-ttu-id="8c5e8-122">Yetkilendirme noktasında kullanılacak işleyici uygulamayı gösterir.</span><span class="sxs-lookup"><span data-stu-id="8c5e8-122">At the point of authorization, the app indicates the handler to be used.</span></span> <span data-ttu-id="8c5e8-123">Uygulama ile yetkilendirmek için kimlik doğrulama şemasını virgülle ayrılmış bir listesini geçirerek işleyici seçin `[Authorize]`.</span><span class="sxs-lookup"><span data-stu-id="8c5e8-123">Select the handler with which the app will authorize by passing a comma-delimited list of authentication schemes to `[Authorize]`.</span></span> <span data-ttu-id="8c5e8-124">`[Authorize]` Özniteliği, kimlik doğrulama düzeni veya varsayılan bir yapılandırılmış bağımsız olarak kullanılacak düzenleri belirtir.</span><span class="sxs-lookup"><span data-stu-id="8c5e8-124">The `[Authorize]` attribute specifies the authentication scheme or schemes to use regardless of whether a default is configured.</span></span> <span data-ttu-id="8c5e8-125">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="8c5e8-125">For example:</span></span>
+<span data-ttu-id="caac4-122">Yetkilendirme noktasında kullanılacak işleyici uygulamayı gösterir.</span><span class="sxs-lookup"><span data-stu-id="caac4-122">At the point of authorization, the app indicates the handler to be used.</span></span> <span data-ttu-id="caac4-123">Uygulama ile yetkilendirmek için kimlik doğrulama düzenleri, virgülle ayrılmış listesini geçirerek işleyiciyi seçin `[Authorize]`.</span><span class="sxs-lookup"><span data-stu-id="caac4-123">Select the handler with which the app will authorize by passing a comma-delimited list of authentication schemes to `[Authorize]`.</span></span> <span data-ttu-id="caac4-124">`[Authorize]` Kimlik doğrulama düzeni veya düzenleri varsayılan yapılandırılmış bağımsız olarak kullanılacak özniteliği belirtir.</span><span class="sxs-lookup"><span data-stu-id="caac4-124">The `[Authorize]` attribute specifies the authentication scheme or schemes to use regardless of whether a default is configured.</span></span> <span data-ttu-id="caac4-125">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="caac4-125">For example:</span></span>
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="8c5e8-126">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="8c5e8-126">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="caac4-126">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="caac4-126">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
 
 ```csharp
 [Authorize(AuthenticationSchemes = AuthSchemes)]
@@ -92,7 +92,7 @@ public class MixedController : Controller
         JwtBearerDefaults.AuthenticationScheme;
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="8c5e8-127">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="8c5e8-127">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="caac4-127">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="caac4-127">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
 
 ```csharp
 [Authorize(ActiveAuthenticationSchemes = AuthSchemes)]
@@ -107,9 +107,9 @@ public class MixedController : Controller
 
 ---
 
-<span data-ttu-id="8c5e8-128">Önceki örnekte tanımlama bilgisi ve taşıyıcı işleyicileri çalıştırın ve oluşturma ve geçerli kullanıcı için bir kimlik ekleme fırsatına sahip.</span><span class="sxs-lookup"><span data-stu-id="8c5e8-128">In the preceding example, both the cookie and bearer handlers run and have a chance to create and append an identity for the current user.</span></span> <span data-ttu-id="8c5e8-129">Yalnızca tek bir düzen belirterek, karşılık gelen işleyici çalışır.</span><span class="sxs-lookup"><span data-stu-id="8c5e8-129">By specifying a single scheme only, the corresponding handler runs.</span></span>
+<span data-ttu-id="caac4-128">Yukarıdaki örnekte tanımlama bilgisi ve taşıyıcı işleyicileri çalıştırın ve oluşturun ve geçerli kullanıcı için bir kimlik eklenecek şansına sahip olabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="caac4-128">In the preceding example, both the cookie and bearer handlers run and have a chance to create and append an identity for the current user.</span></span> <span data-ttu-id="caac4-129">Yalnızca tek bir düzen belirterek, karşılık gelen işleyici çalıştırır.</span><span class="sxs-lookup"><span data-stu-id="caac4-129">By specifying a single scheme only, the corresponding handler runs.</span></span>
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="8c5e8-130">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="8c5e8-130">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="caac4-130">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="caac4-130">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
 
 ```csharp
 [Authorize(AuthenticationSchemes = 
@@ -117,7 +117,7 @@ public class MixedController : Controller
 public class MixedController : Controller
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="8c5e8-131">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="8c5e8-131">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="caac4-131">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="caac4-131">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
 
 ```csharp
 [Authorize(ActiveAuthenticationSchemes = 
@@ -127,11 +127,11 @@ public class MixedController : Controller
 
 ---
 
-<span data-ttu-id="8c5e8-132">Önceki kodda yalnızca işleyici "Bearer" şema ile çalışır.</span><span class="sxs-lookup"><span data-stu-id="8c5e8-132">In the preceding code, only the handler with the "Bearer" scheme runs.</span></span> <span data-ttu-id="8c5e8-133">Tanımlama bilgisi tabanlı kimlikleri göz ardı edilir.</span><span class="sxs-lookup"><span data-stu-id="8c5e8-133">Any cookie-based identities are ignored.</span></span>
+<span data-ttu-id="caac4-132">Önceki kodda; yalnızca işleyici "Bearer" düzeni ile çalışır.</span><span class="sxs-lookup"><span data-stu-id="caac4-132">In the preceding code, only the handler with the "Bearer" scheme runs.</span></span> <span data-ttu-id="caac4-133">Tanımlama bilgisi tabanlı hiç kimlik yok sayılır.</span><span class="sxs-lookup"><span data-stu-id="caac4-133">Any cookie-based identities are ignored.</span></span>
 
-## <a name="selecting-the-scheme-with-policies"></a><span data-ttu-id="8c5e8-134">İlkeleri düzeniyle seçme</span><span class="sxs-lookup"><span data-stu-id="8c5e8-134">Selecting the scheme with policies</span></span>
+## <a name="selecting-the-scheme-with-policies"></a><span data-ttu-id="caac4-134">İlkeleriyle düzenini seçme</span><span class="sxs-lookup"><span data-stu-id="caac4-134">Selecting the scheme with policies</span></span>
 
-<span data-ttu-id="8c5e8-135">İstenen düzenleri belirtmek istiyorsanız [İlkesi](xref:security/authorization/policies), ayarlayabileceğiniz `AuthenticationSchemes` ilkeniz eklerken koleksiyonu:</span><span class="sxs-lookup"><span data-stu-id="8c5e8-135">If you prefer to specify the desired schemes in [policy](xref:security/authorization/policies), you can set the `AuthenticationSchemes` collection when adding your policy:</span></span>
+<span data-ttu-id="caac4-135">İstenen düzenleri belirtmek istiyorsanız [ilke](xref:security/authorization/policies), ayarlayabileceğiniz `AuthenticationSchemes` ilkenizi eklerken koleksiyonu:</span><span class="sxs-lookup"><span data-stu-id="caac4-135">If you prefer to specify the desired schemes in [policy](xref:security/authorization/policies), you can set the `AuthenticationSchemes` collection when adding your policy:</span></span>
 
 ```csharp
 services.AddAuthorization(options =>
@@ -145,9 +145,62 @@ services.AddAuthorization(options =>
 });
 ```
 
-<span data-ttu-id="8c5e8-136">Önceki örnekte, "Over18" ilke "Bearer" işleyicisi tarafından oluşturulan kimlik karşı yalnızca çalışır.</span><span class="sxs-lookup"><span data-stu-id="8c5e8-136">In the preceding example, the "Over18" policy only runs against the identity created by the "Bearer" handler.</span></span> <span data-ttu-id="8c5e8-137">İlke ayarı kullanın `[Authorize]` özniteliğin `Policy` özelliği:</span><span class="sxs-lookup"><span data-stu-id="8c5e8-137">Use the policy by setting the `[Authorize]` attribute's `Policy` property:</span></span>
+<span data-ttu-id="caac4-136">Önceki örnekte, "Over18" ilke karşı "Bearer" işleyicisi tarafından oluşturulan kimlik yalnızca çalışır.</span><span class="sxs-lookup"><span data-stu-id="caac4-136">In the preceding example, the "Over18" policy only runs against the identity created by the "Bearer" handler.</span></span> <span data-ttu-id="caac4-137">Bir ilke ayarlayarak kullanın `[Authorize]` özniteliğin `Policy` özelliği:</span><span class="sxs-lookup"><span data-stu-id="caac4-137">Use the policy by setting the `[Authorize]` attribute's `Policy` property:</span></span>
 
 ```csharp
 [Authorize(Policy = "Over18")]
 public class RegistrationController : Controller
 ```
+
+::: moniker range=">= aspnetcore-2.0"
+
+## <a name="use-multiple-authentication-schemes"></a><span data-ttu-id="caac4-138">Birden fazla kimlik doğrulama şeması kullanma</span><span class="sxs-lookup"><span data-stu-id="caac4-138">Use multiple authentication schemes</span></span>
+
+<span data-ttu-id="caac4-139">Bazı uygulamalar birden çok kimlik doğrulama türlerini desteklemek gerekebilir.</span><span class="sxs-lookup"><span data-stu-id="caac4-139">Some apps may need to support multiple types of authentication.</span></span> <span data-ttu-id="caac4-140">Örneğin, uygulamanız kullanıcıların Azure Active Directory'den ve kullanıcıların veritabanından kimlik doğrulaması.</span><span class="sxs-lookup"><span data-stu-id="caac4-140">For example, your app might authenticate users from Azure Active Directory and from a users database.</span></span> <span data-ttu-id="caac4-141">Başka bir örnek, hem Active Directory Federasyon Hizmetleri, hem de Azure Active Directory B2C kullanıcılarının kimliğini doğrulayan bir uygulamadır.</span><span class="sxs-lookup"><span data-stu-id="caac4-141">Another example is an app that authenticates users from both Active Directory Federation Services and Azure Active Directory B2C.</span></span> <span data-ttu-id="caac4-142">Bu durumda, uygulama, JWT taşıyıcı belirtecinden birkaç verenler kabul etmelidir.</span><span class="sxs-lookup"><span data-stu-id="caac4-142">In this case, the app should accept a JWT bearer token from several issuers.</span></span>
+
+<span data-ttu-id="caac4-143">Kabul etmek istediğiniz tüm kimlik doğrulama düzenleri ekleyin.</span><span class="sxs-lookup"><span data-stu-id="caac4-143">Add all authentication schemes you'd like to accept.</span></span> <span data-ttu-id="caac4-144">Aşağıdaki örnek, kod `Startup.ConfigureServices` farklı verenler ile iki JWT taşıyıcı kimlik doğrulama düzenleri ekler:</span><span class="sxs-lookup"><span data-stu-id="caac4-144">For example, the following code in `Startup.ConfigureServices` adds two JWT bearer authentication schemes with different issuers:</span></span>
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    // Code omitted for brevity
+
+    services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+        .AddJwtBearer(options =>
+        {
+            options.Audience = "https://localhost:5000/";
+            options.Authority = "https://localhost:5000/identity/";
+        })
+        .AddJwtBearer("AzureAD", options =>
+        {
+            options.Audience = "https://localhost:5000/";
+            options.Authority = "https://login.microsoftonline.com/eb971100-6f99-4bdc-8611-1bc8edd7f436/";
+        });
+}
+```
+
+> [!NOTE]
+> <span data-ttu-id="caac4-145">Yalnızca bir JWT taşıyıcı kimlik doğrulaması varsayılan kimlik doğrulama düzeni kayıtlı `JwtBearerDefaults.AuthenticationScheme`.</span><span class="sxs-lookup"><span data-stu-id="caac4-145">Only one JWT bearer authentication is registered with the default authentication scheme `JwtBearerDefaults.AuthenticationScheme`.</span></span> <span data-ttu-id="caac4-146">Ek kimlik doğrulama bir benzersiz kimlik doğrulama düzeni ile kayıtlı olması gerekir.</span><span class="sxs-lookup"><span data-stu-id="caac4-146">Additional authentication has to be registered with a unique authentication scheme.</span></span>
+
+<span data-ttu-id="caac4-147">Sonraki adım her iki kimlik doğrulama düzenleri kabul etmek için varsayılan yetkilendirme ilkesi güncelleştirmektir.</span><span class="sxs-lookup"><span data-stu-id="caac4-147">The next step is to update the default authorization policy to accept both authentication schemes.</span></span> <span data-ttu-id="caac4-148">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="caac4-148">For example:</span></span>
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    // Code omitted for brevity
+
+    services.AddAuthorization(options =>
+    {
+        var defaultAuthorizationPolicyBuilder = new AuthorizationPolicyBuilder(
+            JwtBearerDefaults.AuthenticationScheme,
+            "AzureAD");
+        defaultAuthorizationPolicyBuilder = 
+            defaultAuthorizationPolicyBuilder.RequireAuthenticatedUser();
+        options.DefaultPolicy = defaultAuthorizationPolicyBuilder.Build();
+    });
+}
+```
+
+<span data-ttu-id="caac4-149">Varsayılan yetkilendirme ilkesi geçersiz kılınan gibi basit bir kullanmak mümkün `[Authorize]` denetleyicileri özniteliği.</span><span class="sxs-lookup"><span data-stu-id="caac4-149">As the default authorization policy is overridden, it's possible to use a simple `[Authorize]` attribute in controllers.</span></span> <span data-ttu-id="caac4-150">Denetleyici ardından istekleri ile ilk veya ikinci veren tarafından verilen JWT kabul eder.</span><span class="sxs-lookup"><span data-stu-id="caac4-150">The controller then accepts requests with JWT issued by the first or second issuer.</span></span>
+
+::: moniker-end
