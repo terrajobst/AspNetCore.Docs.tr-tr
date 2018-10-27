@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/10/2018
 uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
-ms.openlocfilehash: 7d64c500168166b0a7a29d5b92473726d5a9f49a
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 2590682755721a4bb14902b9fe7138a3bff56d31
+ms.sourcegitcommit: 54655f1e1abf0b64d19506334d94cfdb0caf55f6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49325347"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50148817"
 ---
 # <a name="cache-tag-helper-in-aspnet-core-mvc"></a>Önbellek etiketi Yardımcısı, ASP.NET Core MVC
 
@@ -119,7 +119,7 @@ Aşağıdaki örnekte üst bilgi değeri izler `User-Agent`. Bu örnek için iç
 | -------------- | -------------------- |
 | Dize         | `Make`, `Make,Model` |
 
-`vary-by-query` üst bilgi değeri değiştiğinde bir önbellek yenileme tetikleyen üstbilgi değerlerini virgülle ayrılmış listesini kabul eder.
+`vary-by-query` bir virgülle ayrılmış listesini kabul eder <xref:Microsoft.AspNetCore.Http.IQueryCollection.Keys*> bir sorgu dizesinde (<xref:Microsoft.AspNetCore.Http.HttpRequest.Query*>), tetikleme önbellek yenileme herhangi bir değerini listelenen anahtar değişiklikler.
 
 Aşağıdaki örnek değerleri izler `Make` ve `Model`. Bu örnek için içerikleri önbelleğe alan her farklı `Make` ve `Model` web sunucusuna sunulur:
 
