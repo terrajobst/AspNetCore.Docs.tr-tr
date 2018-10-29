@@ -7,12 +7,12 @@ ms.author: mimengis
 ms.custom: mvc
 ms.date: 10/18/2018
 uid: signalr/java-client
-ms.openlocfilehash: 3d2cfe5f58cc41741512c68cebbbc90e8f714cba
-ms.sourcegitcommit: 54655f1e1abf0b64d19506334d94cfdb0caf55f6
+ms.openlocfilehash: 646118c78d5d38b44b89d399cd06a5332a11d064
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50148791"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207777"
 ---
 # <a name="aspnet-core-signalr-java-client"></a>ASP.NET Core SignalR Java istemci
 
@@ -22,7 +22,7 @@ Android uygulamaları dahil olmak üzere Java koddan bir ASP.NET Core SignalR su
 
 Bu makalede bahsedilen örnek Java konsol uygulaması SignalR Java istemcisi kullanır.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/java-client/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/java-client/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="install-the-signalr-java-client-package"></a>SignalR Java istemci paketini yükle
 

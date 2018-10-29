@@ -5,12 +5,12 @@ description: ASP.NET Core uygulamaları birden fazla ortam arasında uygulama da
 ms.author: riande
 ms.date: 07/03/2018
 uid: fundamentals/environments
-ms.openlocfilehash: de3c3fd5a2f0e49366d9d5b4e992d0247bcab0e5
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 865257d127084671036147dd1f28c9c4843feef6
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48577529"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206854"
 ---
 # <a name="use-multiple-environments-in-aspnet-core"></a>ASP.NET Core birden çok ortam kullanma
 
@@ -18,7 +18,7 @@ Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ASP.NET Core, bir ortam değişkeni kullanarak çalışma zamanı ortama göre uygulama davranışını yapılandırır.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/environments/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/environments/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="environments"></a>Ortamlar
 
@@ -278,7 +278,7 @@ Yapılandırma ortamı tarafından yüklenecek öneririz:
 
 * *appSettings* dosyaları (* appsettings.&lt; <Environment> &gt;.json). Bkz: [yapılandırma: dosya yapılandırma sağlayıcısı](xref:fundamentals/configuration/index#file-configuration-provider).
 * ortam değişkenleri (her sisteminde uygulamanın barındırıldığı ayarlanır). Bkz: [yapılandırma: dosya yapılandırma sağlayıcısı](xref:fundamentals/configuration/index#file-configuration-provider) ve [geliştirmede uygulama gizli anahtarlarının güvenli bir şekilde depolanması: ortam değişkenlerini](xref:security/app-secrets#environment-variables).
-* Gizli dizi Yöneticisi (geliştirme ortamındaki yalnızca). Bkz: <xref:security/app-secrets>.
+* Gizli dizi Yöneticisi (geliştirme ortamındaki yalnızca). Bkz. <xref:security/app-secrets>.
 
 ## <a name="environment-based-startup-class-and-methods"></a>Ortam tabanlı başlangıç sınıfı ve yöntemleri
 

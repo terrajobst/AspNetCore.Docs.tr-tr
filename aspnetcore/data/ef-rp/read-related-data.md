@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: b3a60c3f983dba8761b219773f827c39ff82cb01
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: cf8733e1e806c4be0c4b217fc45c7a338a03a3ce
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090868"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207562"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>ASP.NET core'da - EF çekirdekli Razor sayfaları 6 8 - ilgili verileri okuma
 
@@ -21,7 +21,7 @@ Tarafından [Tom Dykstra](https://github.com/tdykstra), [Jon P Smith](https://tw
 
 Bu öğreticide, ilgili verileri okuma ve görüntülenir. İlgili verileri EF Core Gezinti özelliklerini yüklenen verilerdir.
 
-Olamaz çözmenize, sorunlarla karşılaşırsanız, [indirin veya tamamlanmış uygulamayı görüntüleyin.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples) [Yükleme yönergeleri](xref:tutorials/index#how-to-download-a-sample).
+Olamaz çözmenize, sorunlarla karşılaşırsanız, [indirin veya tamamlanmış uygulamayı görüntüleyin.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples) [Yükleme yönergeleri](xref:index#how-to-download-a-sample).
 
 Aşağıdaki çizimler, Bu öğretici için tamamlanmış sayfaların göstermektedir:
 

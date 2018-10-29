@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/13/2018
 uid: fundamentals/configuration/platform-specific-configuration
-ms.openlocfilehash: 2eddfa03b28564fcca7cc098e353b05e23b7c6f6
-ms.sourcegitcommit: a669c4e3f42e387e214a354ac4143555602e6f66
+ms.openlocfilehash: a06c2da04c1631f5811a535c891ca5190b0d8864
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336246"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207569"
 ---
 # <a name="enhance-an-app-from-an-external-assembly-in-aspnet-core-with-ihostingstartup"></a>ASP.NET core'da Ihostingstartup ile dış bütünleştirilmiş koddan uygulama geliştirin
 
@@ -20,7 +20,7 @@ Tarafından [Luke Latham](https://github.com/guardrex)
 
 Bir [Ihostingstartup](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup) (Başlangıç barındıran) uygulama geliştirmeleri dış bütünleştirilmiş koddan bir uygulamanın başlangıçta ekler. Örneğin, bir harici kitaplık ek yapılandırma sağlayıcıları ya da bir uygulama hizmetlerini barındıran bir başlangıç uygulaması kullanabilirsiniz. `IHostingStartup` *ASP.NET Core 2.0 veya sonraki sürümlerinde kullanılabilir.*
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/host/platform-specific-configuration/samples/) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/host/platform-specific-configuration/samples/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="hostingstartup-attribute"></a>HostingStartup özniteliği
 
@@ -381,7 +381,7 @@ Bir barındırma başlangıç geliştirmesi tarafından sağlanan bir *bin*-Geli
 
 ## <a name="sample-code"></a>Örnek kod
 
-[Örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/host/platform-specific-configuration/samples/) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample)) barındırma başlangıç uygulama senaryolarını gösterir:
+[Örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/host/platform-specific-configuration/samples/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample)) barındırma başlangıç uygulama senaryolarını gösterir:
 
 * İki barındırma başlangıç derlemeleri (sınıf kitaplıkları), bellek içi yapılandırma anahtar-değer çiftleri her bir çifti ayarlayın:
   * NuGet paketini (*HostingStartupPackage*)

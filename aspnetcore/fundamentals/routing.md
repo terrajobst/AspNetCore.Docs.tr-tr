@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/01/2018
 uid: fundamentals/routing
-ms.openlocfilehash: 96df625113b0c33ee8a9e9bb7dccec9a2c28348a
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 06059d720bd4444b1ec12e42d466ee54d1658203
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50091008"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207762"
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET Core yönlendirme
 
@@ -22,7 +22,7 @@ Yönlendirme işlevini, gelen bir istek için bir rota işleyiciye eşleme sorum
 > [!IMPORTANT]
 > Bu belge, alt düzey ASP.NET Core yönlendirme kapsar. ASP.NET Core MVC yönlendirme hakkında daha fazla bilgi için bkz: <xref:mvc/controllers/routing>.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/samples) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="routing-basics"></a>Yönlendirme Temelleri
 

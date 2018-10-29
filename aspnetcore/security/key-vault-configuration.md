@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: security/key-vault-configuration
-ms.openlocfilehash: 06445eb2ecec4cf101b23a4bfe131b2c56a18f62
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: c6dc8b9c462841351b3ada72deeae727da356a6c
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090312"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207894"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>ASP.NET Core, Azure Key Vault yapılandırma sağlayıcısı
 
@@ -20,7 +20,7 @@ Tarafından [Luke Latham](https://github.com/guardrex) ve [Andrew Stanton-Nurse]
 
 Bu belgenin nasıl kullanıldığını açıklar [Microsoft Azure Key Vault](https://azure.microsoft.com/services/key-vault/) yapılandırma sağlayıcısı, Azure Key Vault gizli diziler uygulama yapılandırma değeri yüklenemiyor. Azure Key Vault, şifreleme anahtarlarını ve gizli uygulamaları ve Hizmetleri tarafından kullanılan korumanıza yardımcı olan bir bulut tabanlı bir hizmettir. Yapılandırma hassas verilere erişimi denetleme yaygın senaryolar şunlardır ve FIPS 140-2 gereksinimini karşılayan 2. düzey donanım güvenlik modülleri (HSM's) yapılandırma verileri depolarken doğrulandı. Bu özellik, daha yüksek veya ASP.NET Core 1.1 hedefleyen uygulamalar için kullanılabilir.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="package"></a>Paket
 

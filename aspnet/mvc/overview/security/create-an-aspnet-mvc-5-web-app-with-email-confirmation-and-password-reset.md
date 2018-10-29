@@ -8,12 +8,12 @@ ms.date: 03/26/2015
 ms.assetid: d4911cb3-1afb-4805-b860-10818c4b1280
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset
 msc.type: authoredcontent
-ms.openlocfilehash: 02a0153f20e9390a5ab8d4ecb4f73556b339d9a9
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 5092476c6cf59bea6fab6fa6f169ff11ec4c9c4a
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48576473"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207491"
 ---
 <a name="create-a-secure-aspnet-mvc-5-web-app-with-log-in-email-confirmation-and-password-reset-c"></a>E-posta onayı ve parola sıfırlama (C#) oturum açma, güvenli bir ASP.NET MVC 5 web uygulaması oluşturma
 ====================
@@ -56,6 +56,8 @@ Genellikle, yeni kullanıcıların e-posta, SMS mesajı ya da başka bir mekaniz
 
 <a id="SG"></a>
 ## <a name="hook-up-sendgrid"></a>SendGrid bağlama
+
+Bu bölümdeki yönergelere geçerli değildir. Bkz: [yapılandırma SendGrid e-posta sağlayıcısı](/aspnet/core/security/authentication/accconfirm#configure-email-provider) yönergeleri güncelleştirildi.
 
 Bu öğreticide yalnızca e-posta bildirimi aracılığıyla ekleme gösterir, ancak [SendGrid](http://sendgrid.com/), e-posta SMTP veya başka mekanizmalar kullanılarak gönderebilirsiniz (bkz [ek kaynaklar](#addRes)).
 

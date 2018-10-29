@@ -1,23 +1,25 @@
 ---
-title: ASP.NET Core uygulaması başlangıç
+title: ASP.NET core'da uygulama başlatma
 author: ardalis
 description: ASP.NET core'da başlangıç sınıfı, hizmet ve uygulamaların istek işlem hattı nasıl yapılandırdığını açıklar.
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 4/13/2018
 uid: fundamentals/startup
-ms.openlocfilehash: 20c7630d949f78e737fdcaad0f189cd30cdebbfa
-ms.sourcegitcommit: ce6b6792c650708e92cdea051a5d166c0708c7c0
+ms.openlocfilehash: 2212344cb3c651714e8c520b096ab0c4eaf5a180
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652325"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206462"
 ---
-# <a name="application-startup-in-aspnet-core"></a>ASP.NET Core uygulaması başlangıç
+# <a name="app-startup-in-aspnet-core"></a>ASP.NET core'da uygulama başlatma
 
 Tarafından [Steve Smith](https://ardalis.com), [Tom Dykstra](https://github.com/tdykstra), ve [Luke Latham](https://github.com/guardrex)
 
 `Startup` Sınıfı, hizmetleri ve uygulamanın istek ardışık düzenini yapılandırır.
+
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/startup/sample/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample)).
 
 ## <a name="the-startup-class"></a>Başlangıç sınıfı
 
@@ -96,7 +98,7 @@ Kullanım [IStartupFilter](/dotnet/api/microsoft.aspnetcore.hosting.istartupfilt
 
 Her `IStartupFilter` istek işlem hattı, bir veya daha fazla middlewares uygular. Filtreler, hizmet kapsayıcıya eklendikleri sırayla çağrılır. Ara yazılım önce filtreler ekleyebilir veya denetim sıradaki filtreye denetimini geçtikten sonra bu nedenle bunlar başına veya sonuna kadar uygulama ardışık ekleyin.
 
-[Örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/startup/sample/) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample)) ile bir ara yazılım kaydettirmek gösterilmektedir `IStartupFilter`. Örnek uygulama, bir ara yazılım seçenekleri değerini ayarlayan bir sorgu dizesi parametresi içerir:
+Örnek uygulama ile bir ara yazılım kaydettirmek gösterilmektedir `IStartupFilter`. Örnek uygulama, bir ara yazılım seçenekleri değerini ayarlayan bir sorgu dizesi parametresi içerir:
 
 [!code-csharp[](startup/sample/RequestSetOptionsMiddleware.cs?name=snippet1)]
 

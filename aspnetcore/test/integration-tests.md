@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/30/2018
 uid: test/integration-tests
-ms.openlocfilehash: 15186383497f8dd9a9766f8fe7cf32f70a121c8e
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: a136a362cd8973b3684f9a70bd4792d75238eab0
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477598"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207881"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>ASP.NET core'da tümleştirme testleri
 
@@ -22,7 +22,7 @@ Tümleştirme testleri, bir uygulamanın bileşenleri içeren bir veritabanı, d
 
 Bu konuda, birim testleri temel bir anlayış varsayılır. Bilinmeyen test kavramlarına aşina değilse [birim testi .NET Core ve .NET Standard](/dotnet/core/testing/) konu ve bağlantılı içeriği.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/integration-tests/samples) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/integration-tests/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 Örnek uygulama bir Razor sayfaları uygulamasıdır ve Razor sayfaları temel bir anlayış varsayar. Tanınmayan Razor sayfalarıyla istiyorsanız, aşağıdaki konulara bakın:
 

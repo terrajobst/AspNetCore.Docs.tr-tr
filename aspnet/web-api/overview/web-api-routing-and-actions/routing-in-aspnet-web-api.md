@@ -4,16 +4,16 @@ title: ASP.NET Web API'de yönlendirme | Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: riande
-ms.date: 02/11/2012
+ms.date: 10/29/2018
 ms.assetid: 0675bdc7-282f-4f47-b7f3-7e02133940ca
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/routing-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 458f9a6369fe97bab33d70bf31bd470b1b0e593c
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: a7bc998fc23c0453fc9cd6ac1e7b9af7bd516225
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41754716"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207309"
 ---
 <a name="routing-in-aspnet-web-api"></a>ASP.NET Web API'de yönlendirme
 ====================
@@ -22,8 +22,7 @@ tarafından [Mike Wasson](https://github.com/MikeWasson)
 Bu makalede, ASP.NET Web API HTTP isteklerini denetleyicilerine nasıl yönlendirdiğini açıklanır.
 
 > [!NOTE]
-> ASP.NET MVC ile bilginiz varsa, Web API yönlendirmeye MVC yönlendirme için çok benzer. Web API eylemi seçmek için URI yolu HTTP yöntemini kullanır ana farktır. MVC stili Web API'de yönlendirme de kullanabilirsiniz. Bu makalede, ASP.NET MVC, herhangi bir Bilgi Bankası varsaymaz.
-
+> ASP.NET MVC ile bilginiz varsa, Web API yönlendirmeye MVC yönlendirme için çok benzer. Web API eylemi seçmek için HTTP fiili, URI yolu kullanır ana farktır. MVC stili Web API'de yönlendirme de kullanabilirsiniz. Bu makalede, ASP.NET MVC, herhangi bir Bilgi Bankası varsaymaz.
 
 ## <a name="routing-tables"></a>Yönlendirme tabloları
 
@@ -33,13 +32,13 @@ ASP.NET Web API, bir *denetleyicisi* HTTP isteklerini işleyen sınıftır. Dene
 
 [!code-csharp[Main](routing-in-aspnet-web-api/samples/sample1.cs)]
 
-Bu rota uygulamada yerleştirilen WebApiConfig.cs dosyasında tanımlanan\_başlangıç dizini:
+Bu rota tanımlanan *WebApiConfig.cs* yerleştirilen dosya *uygulama\_Başlat* dizini:
 
 ![](routing-in-aspnet-web-api/_static/image1.png)
 
-Hakkında daha fazla bilgi için **WebApiConfig** sınıfı [ASP.NET Web API'sini yapılandırma](../advanced/configuring-aspnet-web-api.md).
+Hakkında daha fazla bilgi için `WebApiConfig` sınıfı [ASP.NET Web API'sini yapılandırma](../advanced/configuring-aspnet-web-api.md).
 
-Web API Self barındırıyorsanız, doğrudan yönlendirme tablosu ayarlamalısınız **HttpSelfHostConfiguration** nesne. Daha fazla bilgi için [barındırılan Web API'si](../older-versions/self-host-a-web-api.md).
+Web API Self barındırıyorsanız, doğrudan yönlendirme tablosu ayarlamalısınız `HttpSelfHostConfiguration` nesne. Daha fazla bilgi için [barındırılan Web API'si](../older-versions/self-host-a-web-api.md).
 
 Yönlendirme tablosundaki her bir giriş içeren bir *rota şablonu*. Web API'si için varsayılan rota şablonudur &quot;API / {denetleyici} / {id}&quot;. Bu şablona &quot;API&quot; değişmez bir yol kesimi ve {denetleyici} ve {id} yer tutucusu değişkenlerdir.
 
@@ -59,7 +58,7 @@ Eksik olduğundan ancak, aşağıdaki URI, eşleşmiyor &quot;API&quot; segment:
 Eşleşen bir rota bulunduktan sonra Web API denetleyici ve eylem seçer:
 
 - Web API denetleyicisi ekler &quot;denetleyicisi&quot; değerine *{denetleyici}* değişkeni.
-- Eylem bulmak için Web API'si HTTP yöntemi arar ve bir eylem adı, HTTP yöntemi adı ile başlayan arar. Örneğin, bir GET isteği ile Web API ile başlayan bir eylem arar &quot;Al... &quot;, gibi &quot;GetContact&quot; veya &quot;GetAllContacts&quot;. Bu kuralı, yalnızca alın, sonrası, koy ve Sil yöntemlerini uygular. Diğer HTTP yöntemleri denetleyicinizde öznitelikleri kullanarak etkinleştirebilirsiniz. Bu örnek daha sonra göreceğiz.
+- Eylem bulmak için Web API'si HTTP fiili arar ve bir eylem adı, HTTP fiili adı ile başlayan arar. Örneğin, bir eylem ön eki için bir GET isteği ile Web API görünür &quot;alma&quot;, gibi &quot;GetContact&quot; veya &quot;GetAllContacts&quot;. Bu kuralı, yalnızca GET, sonrası, PUT, DELETE, HEAD, seçenekleri ve fiilleri düzeltme eki uygular. Diğer HTTP fiilleri denetleyicinizde öznitelikleri kullanarak etkinleştirebilirsiniz. Bu örnek daha sonra göreceğiz.
 - Rota şablonu diğer yer tutucu değişkenleri gibi *{id}* eylem parametrelerini eşlenir.
 
 Bir örneğe göz atalım. Aşağıdaki denetleyicisi tanımladığınız varsayalım:
@@ -68,7 +67,7 @@ Bir örneğe göz atalım. Aşağıdaki denetleyicisi tanımladığınız varsay
 
 Her biri için çağrılır eylemi yanı sıra bazı olası HTTP isteklerini şunlardır:
 
-| HTTP yöntemi | URI yolu | Eylem | Parametre |
+| HTTP fiili | URI yolu | Eylem | Parametre |
 | --- | --- | --- | --- |
 | AL | API/ürünleri | GetAllProducts | *(hiçbiri)* |
 | AL | API/ürünler/4 | GetProductById | 4 |
@@ -83,38 +82,46 @@ Ayrıca, denetleyici tanımlamaz çünkü POST isteği reddeder unutmayın bir &
 
 Önceki bölümde, ASP.NET Web API'si için temel yönlendirme mekanizması açıklanmaktadır. Bu bölümde, bazı farklılıklar açıklanmaktadır.
 
-### <a name="http-methods"></a>HTTP yöntemleri
+### <a name="http-verbs"></a>HTTP fiilleri
 
-HTTP yöntemleri için adlandırma kuralı kullanmak yerine, açıkça bir eylem için HTTP yöntemi eylem yöntemiyle tasarlayarak belirtebilirsiniz **HttpGet**, **HttpPut**, **HttpPost** , veya **HttpDelete** özniteliği.
+HTTP fiilleri için adlandırma kuralı kullanmak yerine, açıkça HTTP edimi bir eylem için eylem yöntemine aşağıdaki özniteliklerden birini tasarlayarak belirtebilirsiniz:
 
-Aşağıdaki örnekte, FindProduct yöntemi GET istekleri için eşlenmiş durumda:
+- `[HttpGet]`
+- `[HttpPut]`
+- `[HttpPost]`
+- `[HttpDelete]`
+- `[HttpHead]`
+- `[HttpOptions]`
+- `[HttpPatch]`
+
+Aşağıdaki örnekte, `FindProduct` yöntemi GET istekleri için eşleştirilen:
 
 [!code-csharp[Main](routing-in-aspnet-web-api/samples/sample3.cs)]
 
-Bir eylem için birden çok HTTP yöntemleri izin vermek veya dışındaki GET, PUT, POST ve DELETE HTTP yöntemlerini izin vermek için **AcceptVerbs** özniteliği HTTP yöntemlerinin listesini alır.
+Bir eylem için birden çok HTTP fiillere izin verme veya GET, PUT, POST, DELETE, HEAD, SEÇENEKLERİNİ ve düzeltme eki dışındaki HTTP fiillerine izin vermek için `[AcceptVerbs]` özniteliği HTTP fiilleri listesini alır.
 
 [!code-csharp[Main](routing-in-aspnet-web-api/samples/sample4.cs)]
 
 <a id="routing_by_action_name"></a>
 ### <a name="routing-by-action-name"></a>Eylem adına göre yönlendirme
 
-Varsayılan yönlendirme şablonu ile Web API eylemi seçmek için HTTP yöntemini kullanır. Bununla birlikte, eylem adı URI'de burada dahil bir yol oluşturabilirsiniz:
+Varsayılan yönlendirme şablonu ile bir eylem seçmek için HTTP fiili Web API'sini kullanır. Bununla birlikte, eylem adı URI'de burada dahil bir yol oluşturabilirsiniz:
 
 [!code-csharp[Main](routing-in-aspnet-web-api/samples/sample5.cs)]
 
-Bu yol şablonunda *{action}* parametre adları denetleyici eylem yöntemi. Yönlendirme bu stil ile öznitelikleri izin verilen HTTP yöntemleri belirtmek için kullanın. Örneğin, aşağıdaki yöntemi denetleyicinizin olduğunu varsayın:
+Bu yol şablonunda *{action}* parametre adları denetleyici eylem yöntemi. Yönlendirme bu stil ile öznitelikleri izin verilen HTTP fiilleri kullanın. Örneğin, aşağıdaki yöntemi denetleyicinizin olduğunu varsayın:
 
 [!code-csharp[Main](routing-in-aspnet-web-api/samples/sample6.cs)]
 
-Bu durumda, "API/ürünler/Ayrıntılar/1" için bir GET isteği ayrıntıları yönteme harita. Bu stil, yönlendirme, ASP.NET MVC için benzer ve bir RPC-style API'si için uygun olabilir.
+Bu durumda, "API/ürünler/Ayrıntılar/1" için bir GET isteği eşlemek `Details` yöntemi. Bu stil, yönlendirme, ASP.NET MVC için benzer ve bir RPC-style API'si için uygun olabilir.
 
-Eylem adı kullanılarak kılabilirsiniz **ActionName** özniteliği. Aşağıdaki örnekte, eşlenen iki bir eylem olmadığından &quot;ürünler/API/küçük/*kimliği*. Bir GET ve POST diğer destekler:
+Eylem adı kullanılarak kılabilirsiniz `[ActionName]` özniteliği. Aşağıdaki örnekte, eşlenen iki bir eylem olmadığından &quot;ürünler/API/küçük/*kimliği*. Bir GET ve POST diğer destekler:
 
 [!code-csharp[Main](routing-in-aspnet-web-api/samples/sample7.cs)]
 
 ### <a name="non-actions"></a>Eylemleri
 
-Bir yöntem bir eylem olarak çağrılan önlemek için **NonAction** özniteliği. Aksi takdirde yönlendirme kurallarını BC olsa bile bu framework yöntemin bir eylem değil bildirir.
+Bir yöntem bir eylem olarak çağrılan önlemek için `[NonAction]` özniteliği. Aksi takdirde yönlendirme kurallarını BC olsa bile bu framework yöntemin bir eylem değil bildirir.
 
 [!code-csharp[Main](routing-in-aspnet-web-api/samples/sample8.cs)]
 

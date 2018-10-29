@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/18/2018
 uid: fundamentals/static-files
-ms.openlocfilehash: 5d34bd18c263a9dc2c126be3de53726979d8358e
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 5d00e6ba57053d17b45a24a1c57a446cb3db22ca
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090779"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207140"
 ---
 # <a name="static-files-in-aspnet-core"></a>ASP.NET core'da statik dosyalar
 
@@ -19,7 +19,7 @@ Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT) ve [Scott Addie](ht
 
 Statik dosyaları, HTML, CSS, görüntü ve JavaScript gibi ASP.NET Core uygulaması doğrudan istemcilere hizmet varlıklardır. Bazı yapılandırma hizmeti bu dosyaların etkinleştirmek için gereklidir.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/static-files/samples) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/static-files/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="serve-static-files"></a>Statik dosyaları işleme
 

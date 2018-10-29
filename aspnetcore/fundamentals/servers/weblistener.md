@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: fundamentals/servers/weblistener
-ms.openlocfilehash: e359d8d3ff443009128d7c76bf13f3c9a0a54730
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 5d72672cc48243f8ee17df615e3379143ed868f6
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090582"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206448"
 ---
 # <a name="weblistener-web-server-implementation-in-aspnet-core"></a>ASP.NET core'da WebListener web sunucusu uygulaması
 
@@ -39,7 +39,7 @@ Desteklenen Windows sürümleri:
 
 - Windows 7 ve Windows Server 2008 R2 ve üzeri
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/weblistener/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/weblistener/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-weblistener"></a>WebListener kullanıldığı durumlar
 

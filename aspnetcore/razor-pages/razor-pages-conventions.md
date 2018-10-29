@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 10/12/2018
 uid: razor-pages/razor-pages-conventions
-ms.openlocfilehash: 13fd6c156afd5ab62739b09296a929120ce3450f
-ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
+ms.openlocfilehash: f04e0930966c9aaf38543729565b1ef4a80a09e2
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49348539"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207699"
 ---
 # <a name="razor-pages-route-and-app-conventions-in-aspnet-core"></a>İçinde ASP.NET Core Razor sayfalar yol ve uygulama kuralları
 
@@ -25,7 +25,7 @@ Bir sayfa yolu belirtin, yol kesimleri ekleyin veya bir rota için parametreleri
 
 Yol segmentlerini veya parametre adları kullanılamaz, ayrılmış sözcükler vardır. Daha fazla bilgi için [yönlendirme: Yönlendirme adları ayrılmış](xref:fundamentals/routing#reserved-routing-names).
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/sample/) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/sample/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ::: moniker range="= aspnetcore-2.0"
 

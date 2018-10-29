@@ -7,12 +7,12 @@ author: BillWagner
 ms.author: wiwagn
 ms.date: 02/01/2017
 ms.assetid: c9f1d52c-b4bd-4b5d-b7f9-8f9ceaf778c4
-ms.openlocfilehash: b3eb643daf230336ce5def96007b6096f86390e6
-ms.sourcegitcommit: 54655f1e1abf0b64d19506334d94cfdb0caf55f6
+ms.openlocfilehash: 7b34187747d3081998b8b60a72adae78cafe2c3e
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50148947"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207972"
 ---
 # <a name="migrating-aspnet-mvc-applications-to-windows-containers"></a>ASP.NET MVC Uygulamalarını Windows Kapsayıcılarına Geçirme
 
@@ -71,7 +71,7 @@ Tıklayın **Yayımla**, ve Visual Studio gerekli tüm varlıkları hedef klasö
 Docker görüntünüzü bir Dockerfile içinde tanımlayın. Dockerfile, temel görüntü, ek bileşenler, çalıştırmak istediğiniz uygulamayı ve diğer yapılandırma görüntüleri için yönergeler içerir.  Dockerfile giriştir `docker build` oluşturan görüntü komutu.
 
 Temel alan bir görüntü oluşturacaksınız `microsoft/aspnet` görüntü bulunan [Docker Hub](https://hub.docker.com/r/microsoft/aspnet/).
-Temel görüntü `microsoft/aspnet`, bir Windows Server görüntüsüdür. Bu, Windows Server Core, IIS ve ASP.NET 4.6.2 içerir. Bu görüntünün kapsayıcınızda çalıştırdığınızda, IIS otomatik olarak başlatılır ve yüklü Web sitelerini.
+Temel görüntü `microsoft/aspnet`, bir Windows Server görüntüsüdür. Bu, Windows Server Core, IIS ve ASP.NET 4.7.2 içerir. Bu görüntünün kapsayıcınızda çalıştırdığınızda, IIS otomatik olarak başlatılır ve yüklü Web sitelerini.
 
 Dockerfile, görüntüyü oluşturan şöyle görünür:
 
@@ -122,18 +122,7 @@ docker run -d --name randomanswers mvcrandomanswers
 
 ## <a name="verify-in-the-browser"></a>Tarayıcıda doğrulayın
 
-> [!NOTE]
-> Geçerli Windows kapsayıcı sürümü için göz atamazsınız `http://localhost`.
-> Bu bilinen bir WinNAT, davranıştır ve gelecekte çözümlenir. Çözümlenene kadar kapsayıcının IP adresini kullanmanız gerekir.
-
-Kapsayıcı başladıktan sonra çalışan kapsayıcınıza bir tarayıcıdan bağlanabilmek için IP adresini bulun:
-
-```console
-docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" randomanswers
-172.31.194.61
-```
-
-IPv4 adresi, çalışan kapsayıcıya bağlanmak `http://172.31.194.61` ' de gösterilen örnekteki. Bu URL'yi tarayıcınıza yazın ve çalışan site görmeniz gerekir.
+Kapsayıcı başladıktan sonra çalışan kullanarak kapsayıcı bağlanmak `http://localhost` ' de gösterilen örnekteki. Bu URL'yi tarayıcınıza yazın ve çalışan site görmeniz gerekir.
 
 > [!NOTE]
 > Bazı VPN veya proxy yazılım sitenize gitmesini engelliyor olabilir.
@@ -145,10 +134,9 @@ GitHub üzerinde örnek dizin içeren bir [PowerShell Betiği](https://github.co
 ./run.ps1
 ```
 
-Yukarıdaki komut görüntüyü oluşturur, makinenizde görüntülerin listesini görüntüler, bir kapsayıcısı başlatır ve bu kapsayıcı için IP adresini görüntüler.
+Yukarıdaki komut görüntüyü oluşturur, makinenizde görüntülerin listesini görüntüler ve bir kapsayıcısı başlatır.
 
-Kapsayıcınızı durdurmak için sorun bir `docker
-stop` komutu:
+Kapsayıcınızı durdurmak için sorun bir `docker stop` komutu:
 
 ```console
 docker stop randomanswers

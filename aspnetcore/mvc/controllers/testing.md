@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/23/2018
 uid: mvc/controllers/testing
-ms.openlocfilehash: 8fb50506e6f4e274592c4fd45d4c7876681ebc6d
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 18674f85a0cf8c6dfffa94a2160f7182752674f7
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090209"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207998"
 ---
 # <a name="test-controller-logic-in-aspnet-core"></a>ASP.NET Core denetleyicisi mantıksal test
 
@@ -19,7 +19,7 @@ Tarafından [Steve Smith](https://ardalis.com/)
 
 [Denetleyicileri](xref:mvc/controllers/actions) merkezi bir rol herhangi bir ASP.NET Core MVC uygulamasında Yürüt. Bu nedenle, denetleyicileri beklendiği gibi davranan bir güven olması gerekir. Uygulamayı bir üretim ortamına dağıtılmadan önce otomatikleştirilmiş testleri hatalar da algılanabilir.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/testing/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/testing/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="unit-tests-of-controller-logic"></a>Denetleyici mantıksal birim testleri
 

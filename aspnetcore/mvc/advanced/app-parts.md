@@ -5,16 +5,16 @@ description: Uygulama kaynaklarını özetlerdir, uygulama bölümleri bulmak ve
 ms.author: riande
 ms.date: 01/04/2017
 uid: mvc/extensibility/app-parts
-ms.openlocfilehash: 41ae3fd4059844698ded4551dcedc8933ab8cff6
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: c0d3ad6bcdf2e56df915b176b28759c59e76faf6
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011319"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206569"
 ---
 # <a name="application-parts-in-aspnet-core"></a>ASP.NET core'da uygulama bölümleri
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 Bir *uygulama bölümü* etiket Yardımcıları bulunabileceğini veya MVC denetleyicileri, görünüm bileşenleri gibi özellikleri, bir uygulamanın kaynaklar üzerinde bir soyutlamadır. Bir uygulama bölümü bir bütünleştirilmiş kod başvurusu ve düzenlemenizi sağlayan türler ve derleme başvurularını kapsülleyen bir AssemblyPart örneğidir. *Özellik sağlayıcıları* bir ASP.NET Core MVC uygulaması özelliklerini doldurmak için uygulama bölümleri ile çalışır. Bul (veya yüklenmesini önlemek için) yapılandırmanız, izin vermek için uygulama bölümleri için ana kullanım örneği olan bir derlemeden MVC özellikleri.
 

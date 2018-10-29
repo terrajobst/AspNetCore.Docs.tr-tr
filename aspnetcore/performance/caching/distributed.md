@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/19/2018
 uid: performance/caching/distributed
-ms.openlocfilehash: 46a93125e8b25a66b5a1ead3b72c55db146b5a10
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 37806cc5c8da115f6a95fdad5ccc716d6375cb6e
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090569"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206255"
 ---
 # <a name="distributed-caching-in-aspnet-core"></a>Dağıtılmış önbelleğe alma ASP.NET Core
 
@@ -29,7 +29,7 @@ Dağıtılmış önbellek tek tek uygulama sunucularında önbelleğe alınan ve
 
 Dağıtılmış önbellek, uygulama belirli yapılandırmadır. Bu makalede, SQL Server yapılandırma ve dağıtılmış önbellek Redis açıklar. Üçüncü taraf uygulamalarında kullanılabilir olduğu gibi aynı zamanda [NCache](http://www.alachisoft.com/ncache/aspnet-core-idistributedcache-ncache.html) ([github'da NCache](https://github.com/Alachisoft/NCache)). Hangi uygulama bağımsız olarak işaretlenirse, uygulama önbellek kullanarak ile etkileşim <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> arabirimi.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/distributed/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/distributed/samples/) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="prerequisites"></a>Önkoşullar
 

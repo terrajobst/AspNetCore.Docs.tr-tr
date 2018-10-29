@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/14/2018
 uid: fundamentals/app-state
-ms.openlocfilehash: 7383d123be4d1e7a20eb93646e630119583350e6
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: da20538a0dc6e13caedaf6a1130e66981dcb7af2
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50091099"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207296"
 ---
 # <a name="session-and-app-state-in-aspnet-core"></a>ASP.NET core'da oturum ve uygulama durumu
 
@@ -19,7 +19,7 @@ Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [Steve Smith](http
 
 HTTP durum bilgisi olmayan bir protokoldür. Ek adımlar yapmadan kullanıcı değerleri veya uygulama durumunu tutmaz bağımsız mesaj HTTP isteği adı verilir. Bu makalede, istekler arasında kullanıcı verileri ve uygulama durumunu korumak için çeşitli yaklaşımlar açıklanır.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/app-state/samples) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/app-state/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="state-management"></a>Durum Yönetimi
 
@@ -128,8 +128,8 @@ Oturum Varsayılanları geçersiz kılmak için kullanın [SessionOptions](/dotn
 | Seçenek | Açıklama |
 | ------ | ----------- |
 | [Tanımlama bilgisi](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.cookie) | Tanımlama bilgisi oluşturmak için kullanılan ayarları belirler. [Adı](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.name) varsayılan olarak [SessionDefaults.CookieName](/dotnet/api/microsoft.aspnetcore.session.sessiondefaults.cookiename) (`.AspNetCore.Session`). [Yol](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.path) varsayılan olarak [SessionDefaults.CookiePath](/dotnet/api/microsoft.aspnetcore.session.sessiondefaults.cookiepath) (`/`). [SameSite](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.samesite) varsayılan olarak [SameSiteMode.Lax](/dotnet/api/microsoft.aspnetcore.http.samesitemode) (`1`). [HttpOnly](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.httponly) varsayılan olarak `true`. [IsEssential](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.isessential) varsayılan olarak `false`. |
-| [IdleTimeout](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.idletimeout) | `IdleTimeout` İçeriğini terk önce ne kadar süreyle oturumun boşta kalabileceği gösterir. Her oturum erişimi zaman aşımı sıfırlar. Bu, yalnızca oturum tanımlama içeriği geçerlidir unutmayın. Varsayılan değer 20 dakikadır. |
-| [IOTimeout](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.iotimeout) | En yüksek süreyi Mağaza'dan oturum yüklemek veya geri depoya kaydetmeye izin. Bu, yalnızca zaman uyumsuz işlemler için uygulanabilir unutmayın. Bu zaman aşımı kullanarak devre dışı bırakılabilir [InfiniteTimeSpan](/dotnet/api/system.threading.timeout.infinitetimespan). Varsayılan değer 1 dakikadır. |
+| [IdleTimeout](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.idletimeout) | `IdleTimeout` İçeriğini terk önce ne kadar süreyle oturumun boşta kalabileceği gösterir. Her oturum erişimi zaman aşımı sıfırlar. Bu ayar, yalnızca oturum tanımlama içerik için geçerlidir. Varsayılan değer 20 dakikadır. |
+| [IOTimeout](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.iotimeout) | En yüksek süreyi Mağaza'dan oturum yüklemek veya geri depoya kaydetmeye izin. Bu ayar, yalnızca zaman uyumsuz işlemler için geçerli olabilir. Bu zaman aşımı kullanarak devre dışı bırakılabilir [InfiniteTimeSpan](/dotnet/api/system.threading.timeout.infinitetimespan). Varsayılan değer 1 dakikadır. |
 
 Oturum tanımlama bilgisi istekleri tek bir tarayıcıdan belirlemek ve izlemek için kullanır. Varsayılan olarak, bu tanımlama bilgisi adlı `.AspNetCore.Session`, ve bir yol kullanır `/`. Tanımlama bilgisinin varsayılan bir etki alanını belirtmeyen çünkü, istemci tarafı komut dosyası için sayfada kullanılabilir değil (çünkü [HttpOnly](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.httponly) varsayılan olarak `true`).
 

@@ -5,18 +5,18 @@ description: URL yeniden yazma ve URL yeniden yazma ara yazılımı ile ASP.NET 
 ms.author: riande
 ms.date: 08/17/2017
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: d9f33f34f75fe7bf534146c5a426335e74635018
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 5a1891c838436467fb49ff6288587fab08201179
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49326075"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207192"
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>URL yeniden yazma ara yazılımı ASP.NET core'da
 
 Tarafından [Luke Latham](https://github.com/guardrex) ve [Mikael Mengistu](https://github.com/mikaelm12)
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/sample/) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/sample/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 URL yeniden yazma URL bir veya daha fazla önceden tanımlanmış kurallara göre istek değiştirme işlemidir. Böylece konumları ve adresleri sıkı şekilde bağlı olmayan URL yeniden yazma kaynak konumları ve adresleri arasında bir Özet oluşturur. URL yeniden yazma yararlı olduğu bazı senaryolar vardır:
 
@@ -399,9 +399,9 @@ Ara yazılım, aşağıdaki IIS URL yeniden yazma modülü sunucu değişkenleri
 
 ### <a name="method-based-rule"></a>Metot tabanlı kuralı
 
-Kullanım `Add(Action<RewriteContext> applyRule)` bir yöntemde kendi kural mantığı uygulamak için. `RewriteContext` Sunan `HttpContext` yönteminiz olarak kullanmak için. `context.Result` Nasıl ek işlem hattı belirler işleme gerçekleştirilir.
+Kullanım `Add(Action<RewriteContext> applyRule)` bir yöntemde kendi kural mantığı uygulamak için. `RewriteContext` Sunan `HttpContext` yönteminiz olarak kullanmak için. `RewriteContext.Result` Nasıl ek işlem hattı belirler işleme gerçekleştirilir.
 
-| bağlamı. Sonuç                       | Eylem                                                          |
+| `RewriteContext.Result`              | Eylem                                                          |
 | ------------------------------------ | --------------------------------------------------------------- |
 | `RuleResult.ContinueRules` (varsayılan) | Devam kuralları uygulama                                         |
 | `RuleResult.EndResponse`             | Kuralları uygulanmasını durdurmak ve yanıtı gönder                       |
@@ -437,7 +437,7 @@ public void Configure(IApplicationBuilder app)
 
 ### <a name="irule-based-rule"></a>Kural Irule tabanlı
 
-Kullanım `Add(IRule)` türetildiği bir sınıf kendi kural mantığı kullanmak `IRule`. Kullanarak bir `IRule` yöntemi dayalı kural yaklaşımı kullanarak üzerinde daha fazla esneklik sağlar. Burada, geçirebilirsiniz parametreleri için bir oluşturucu, türetilmiş sınıfınızın içerebilir `ApplyRule` yöntemi.
+Kullanım `Add(IRule)` uygulayan bir sınıf kendi kural mantığı kapsülleyen `IRule` arabirimi. Kullanarak bir `IRule` yöntemi dayalı kural yaklaşımı kullanarak üzerinde daha fazla esneklik sağlar. Burada, geçirebilirsiniz parametreleri için bir oluşturucu, uygulama sınıfınıza içerebilir `ApplyRule` yöntemi.
 
 ::: moniker range=">= aspnetcore-2.0"
 

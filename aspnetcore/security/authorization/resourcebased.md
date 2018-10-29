@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 11/07/2017
 uid: security/authorization/resourcebased
-ms.openlocfilehash: 6a110a69c58d5e20a15198378510486daec3d452
-ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
+ms.openlocfilehash: 2cb3844a38f7482c27fb471343109d51a516ea20
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39342295"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206702"
 ---
 # <a name="resource-based-authorization-in-aspnet-core"></a>ASP.NET core'da kaynak tabanlı yetkilendirme
 
@@ -19,7 +19,7 @@ Erişilen kaynak yetkilendirme stratejisi bağlıdır. Bir yazar özelliğine sa
 
 Öznitelik değerlendirme, veri bağlama ve sayfa işleyicisi veya belge yükleyen eylem yürütme önce gerçekleşir. Bu nedenlerle, bildirim temelli yetkilendirme ile bir `[Authorize]` olmaz özniteliği yeterli. Bunun yerine, bir özel yetkilendirme yöntemi çağırabilirsiniz&mdash;kesinlik temelli yetkilendirme bilinen bir stili.
 
-Kullanım [örnek uygulamalar](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/resourcebased/samples) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample)) için bu konuda açıklanan özellikleri keşfedin.
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/resourcebased/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample)).
 
 [Kullanıcı verilerinin yetkilendirme tarafından korunduğu ile bir ASP.NET Core uygulaması oluşturma](xref:security/authorization/secure-data) kaynak tabanlı yetkilendirme kullanan bir örnek uygulamayı içerir.
 

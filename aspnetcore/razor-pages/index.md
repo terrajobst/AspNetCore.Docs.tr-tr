@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/12/2018
 uid: razor-pages/index
-ms.openlocfilehash: 7bd597acedade65f2be53f4f50a436981e576b1f
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 7fc048e427fd49e2142160615a12989fd4f40303
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49326127"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207621"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>ASP.NET Core Razor sayfalar giriş
 
@@ -236,7 +236,7 @@ Düğme seçildiğinde, bir form `POST` isteği sunucuya gönderilir. Kural gere
 
 ::: moniker range=">= aspnetcore-2.1"
 
-## <a name="mark-page-properties-required"></a>Gerekli işareti sayfa özellikleri
+## <a name="mark-page-properties-as-required"></a>Sayfa özelliklerini gerektiği gibi işaretleme
 
 Özellikleri bir `PageModel` ile donatılmış [gerekli](/dotnet/api/system.componentmodel.dataannotations.requiredattribute) özniteliği:
 

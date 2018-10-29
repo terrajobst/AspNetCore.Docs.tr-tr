@@ -7,18 +7,18 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 09/12/2018
 uid: signalr/hubs
-ms.openlocfilehash: 17e3ee23967bc1097a3121b3e3e5b58cebe3887d
-ms.sourcegitcommit: a742b55e4b8276a48b8b4394784554fecd883c84
+ms.openlocfilehash: be42314afad4ff43d2fcf1abbc96c5b78c773977
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45538368"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206022"
 ---
 # <a name="use-hubs-in-signalr-for-aspnet-core"></a>ASP.NET Core signalr'da hubs'ı kullanma
 
 Tarafından [Rachel Appel](https://twitter.com/rachelappel) ve [Kevin Griffin](https://twitter.com/1kevgriff)
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/hubs/sample/ ) [(karşıdan yükleme)](xref:tutorials/index#how-to-download-a-sample)
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/hubs/sample/ ) [(karşıdan yükleme)](xref:index#how-to-download-a-sample)
 
 ## <a name="what-is-a-signalr-hub"></a>Bir SignalR hub'ı nedir
 

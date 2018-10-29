@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/25/2018
 uid: fundamentals/index
-ms.openlocfilehash: 56344315acc59003248ffaf1e61455b94a93a545
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: ab140051648c1640b3c4f382bfd8201c5c0c2039
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090725"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207478"
 ---
 # <a name="aspnet-core-fundamentals"></a>ASP.NET Core temelleri
 
@@ -159,36 +159,6 @@ ASP.NET Core, yol işleyicisi uygulama isteklerinin Yönlendirme senaryoları su
 
 Daha fazla bilgi için bkz. <xref:fundamentals/routing>.
 
-## <a name="file-providers"></a>Dosya sağlayıcıları
-
-ASP.NET Core, dosya sistemi erişimini kullanarak platformlar arasında dosyaları ile çalışma için ortak bir arabirim sunan dosya sağlayıcıları soyutlar.
-
-Daha fazla bilgi için bkz. <xref:fundamentals/file-providers>.
-
-## <a name="static-files"></a>Statik dosyalar
-
-Statik dosya ara yazılımı, HTML, CSS, görüntü ve JavaScript dosyaları gibi statik dosyalar işlevi görür.
-
-Daha fazla bilgi için bkz. <xref:fundamentals/static-files>.
-
-## <a name="session-and-app-state"></a>Oturum ve uygulama durumu
-
-ASP.NET Core, bir kullanıcı bir web uygulaması gözatar sırada oturum ve uygulama durumu korumak için çeşitli yaklaşımlar sunar.
-
-Daha fazla bilgi için bkz. <xref:fundamentals/app-state>.
-
-## <a name="globalization-and-localization"></a>Genelleştirme ve yerelleştirme
-
-ASP.NET Core ile çok dilli bir Web sitesi oluşturma sitenizin daha geniş kitlelere ulaşmasını sağlar. ASP.NET Core, içeriği yerelleştirmek için farklı dillere ve kültürlere Hizmetleri ve ara yazılım sağlar.
-
-Daha fazla bilgi için bkz. <xref:fundamentals/localization>.
-
-## <a name="request-features"></a>İstek özellikleri
-
-Web sunucusu uygulaması ayrıntıları HTTP istekleriyle ilgili ve yanıtları arabirimlerde tanımlanır. Bu arabirimler, uygulamanın barındırma işlem hattı oluşturup için sunucu uygulamaları ve ara yazılım tarafından kullanılır.
-
-Daha fazla bilgi için bkz. <xref:fundamentals/request-features>.
-
 ## <a name="background-tasks"></a>Arka plan görevleri
 
 Arka plan görevleri olarak gerçekleştirilen *barındırılan hizmetleri*. Barındırılan hizmet arka plan görevi uygulayan bir mantıksal ile bir sınıftır <xref:Microsoft.Extensions.Hosting.IHostedService> arabirimi.
@@ -200,43 +170,3 @@ Daha fazla bilgi için bkz. <xref:fundamentals/host/hosted-services>.
 `HttpContext` Razor sayfaları ve MVC isteklerini işleme sırasında otomatik olarak kullanılabilir. Durumlarda burada `HttpContext` değil kullanıma hazır erişebileceğiniz `HttpContext` aracılığıyla <xref:Microsoft.AspNetCore.Http.IHttpContextAccessor> arabirimi ve kendi varsayılan uygulama <xref:Microsoft.AspNetCore.Http.HttpContextAccessor>.
 
 Daha fazla bilgi için bkz. <xref:fundamentals/httpcontext>.
-
-## <a name="websockets"></a>WebSockets
-
-[WebSocket](https://wikipedia.org/wiki/WebSocket) üzerinden TCP bağlantıları kalıcı iki yönlü iletişim kanalı sağlayan bir protokoldür. Sohbet, yürütebilmektedir oyunlar gibi uygulamalar için kullanılır ve gerçek zamanlı bir web uygulaması işlevindeki istediğiniz herhangi bir yerde. ASP.NET Core web yuvası senaryolarını destekler.
-
-Daha fazla bilgi için bkz. <xref:fundamentals/websockets>.
-
-::: moniker range=">= aspnetcore-2.1"
-
-## <a name="microsoftaspnetcoreapp-metapackage"></a>Microsoft.AspNetCore.App metapackage
-
-[Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App/) metapackage paket Yönetimi basitleştirir.
-
-Daha fazla bilgi için bkz. <xref:fundamentals/metapackage-app>.
-
-::: moniker-end
-
-::: moniker range="= aspnetcore-2.0"
-
-## <a name="microsoftaspnetcoreall-metapackage"></a>Microsoft.AspNetCore.All metapackage
-
-[Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) metapackage ASP.NET Core içerir:
-
-* Tüm paketleri ASP.NET Core ekibi tarafından desteklenir.
-* Tüm paketleri Entity Framework Core tarafından desteklenmiyor.
-* ASP.NET Core ve Entity Framework Core tarafından kullanılan iç ve 3. taraf bağımlılıkları.
-
-Daha fazla bilgi için bkz. <xref:fundamentals/metapackage>.
-
-::: moniker-end
-
-## <a name="net-core-vs-net-framework-runtime"></a>.NET core ve .NET Framework çalışma zamanı
-
-ASP.NET Core uygulaması, .NET Core veya .NET Framework çalışma zamanı hedefleyebilirsiniz.
-
-Daha fazla bilgi için [.NET Core ve .NET Framework arasında seçim yapma](/dotnet/articles/standard/choosing-core-framework-server).
-
-## <a name="choose-between-aspnet-core-and-aspnet"></a>ASP.NET Core ile ASP.NET arasında seçim yapma
-
-ASP.NET Core ile ASP.NET arasında seçim yapma hakkında daha fazla bilgi için bkz: <xref:fundamentals/choose-between-aspnet-and-aspnetcore>.

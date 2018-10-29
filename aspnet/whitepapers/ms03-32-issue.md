@@ -8,12 +8,12 @@ ms.date: 02/10/2010
 ms.assetid: 1365eebb-bdf7-4a05-8d18-7f200531be55
 msc.legacyurl: /whitepapers/ms03-32-issue
 msc.type: content
-ms.openlocfilehash: ce2d705a93577b0c6d28f86069873c6ecd891db6
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 9041f8d15a449a517594f8051c3d9f0ceb18a8a3
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41754066"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207023"
 ---
 <a name="fix-for-server-application-unavailable-error-after-applying-security-update-for-ie"></a>IE için güvenlik güncelleştirmesi uygulandıktan sonra 'Sunucu uygulaması kullanılamıyor' hatası için düzeltme
 ====================
@@ -38,7 +38,7 @@ Bu sorun için kalıcı bir çözüm üzerinde çalışıyoruz. Bu sırada, soru
 4. ASP.NET yeniden kaydeder. Bu hesap için yeni rastgele bir parola oluşturur ve onu için varsayılan ASP.NET erişim denetimi ayarlarını uygular
 5. IIS hizmetini yeniden başlatır
 
-Toplu iş dosyası, sabit kodlanmış geçici bir parola içeren "<strong>1pass@word</strong>", olacağı için toplu iş dosyasını çalıştırdığınızda runas komutunu girmesi istenir. Runas komut tamamlandıktan sonra ASPNET hesap parolası ile rastgele bir güçlü değeri yeniden oluşturulur. Toplu iş dosyası kodlanmış parola ortamınızdaki parola karmaşıklık gereksinimlerini karşılamıyorsa başarısız olabileceğini unutmayın. Bu durumda, ortamınız için uygun olan başka bir değerle değiştirebilirsiniz.
+Toplu iş dosyası, sabit kodlanmış geçici bir parola içeren "<strong>1pass\@word</strong>", olacağı için toplu iş dosyasını çalıştırdığınızda runas komutunu girmesi istenir. Runas komut tamamlandıktan sonra ASPNET hesap parolası ile rastgele bir güçlü değeri yeniden oluşturulur. Toplu iş dosyası kodlanmış parola ortamınızdaki parola karmaşıklık gereksinimlerini karşılamıyorsa başarısız olabileceğini unutmayın. Bu durumda, ortamınız için uygun olan başka bir değerle değiştirebilirsiniz.
 
 *> [!IMPORTANT]* Özel erişim denetimi ayarları veya veritabanı hesap izinlerini hesabından eklediyseniz, bu toplu iş dosyası tamamlandıktan sonra yeniden oluşturulması gerekir. Hesabı yeniden oluşturulduğunda, yeni bir güvenlik tanımlayıcısı (SID) alırsınız olmasıdır.
 
@@ -51,7 +51,7 @@ Toplu iş dosyası, aşağıdaki kendiliğinden arşive eklenmiştir. Bunu kulla
 3. C:\ içeriği Ayıkla
 4. Select... Başlat menüsünden çalıştırın ve girin `cmd.exe`
 5. Açık komut windows yazın `c:\fixup.cmd`.
-6. İstendiğinde girin <strong>1pass@word</strong> parolası.
+6. İstendiğinde girin <strong>1pass\@word</strong> parolası.
 7. Daha önce özel erişim denetimi ayarları ya da ASP.NET hesabından veritabanı hesabı izinleri varsa, bu ayarlar artık yeniden uygulamanız gerekir.
 
 Birçok neden bu sorundan dolayı özür. Kullanıma sunulduğunda size ek bilgi gönderecektir.
