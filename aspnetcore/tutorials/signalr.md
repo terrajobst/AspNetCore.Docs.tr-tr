@@ -7,132 +7,132 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 08/31/2018
 uid: tutorials/signalr
-ms.openlocfilehash: 77ad5c6869b87b832e2bdfa61da7b80961323783
-ms.sourcegitcommit: f2d14a7518d6ee51aca9333818ac1276e7b5ecef
+ms.openlocfilehash: c059ace7ebe0e65ecb3ac068677d65ae148322a0
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50134567"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207686"
 ---
-# <a name="tutorial-get-started-with-aspnet-core-signalr"></a><span data-ttu-id="63790-103">Öğretici: ASP.NET Core SignalR ile çalışmaya başlama</span><span class="sxs-lookup"><span data-stu-id="63790-103">Tutorial: Get started with ASP.NET Core SignalR</span></span>
+# <a name="tutorial-get-started-with-aspnet-core-signalr"></a><span data-ttu-id="a7a29-103">Öğretici: ASP.NET Core SignalR ile çalışmaya başlama</span><span class="sxs-lookup"><span data-stu-id="a7a29-103">Tutorial: Get started with ASP.NET Core SignalR</span></span>
 
-<span data-ttu-id="63790-104">Bu öğreticide SignalR kullanarak gerçek zamanlı bir uygulama oluşturmaya ilişkin temel bilgileri size öğretir.</span><span class="sxs-lookup"><span data-stu-id="63790-104">This tutorial teaches the basics of building a real-time app using SignalR.</span></span> <span data-ttu-id="63790-105">Aşağıdakilerin nasıl yapıldığını öğreneceksiniz:</span><span class="sxs-lookup"><span data-stu-id="63790-105">You learn how to:</span></span>
+<span data-ttu-id="a7a29-104">Bu öğreticide SignalR kullanarak gerçek zamanlı bir uygulama oluşturmaya ilişkin temel bilgileri size öğretir.</span><span class="sxs-lookup"><span data-stu-id="a7a29-104">This tutorial teaches the basics of building a real-time app using SignalR.</span></span> <span data-ttu-id="a7a29-105">Aşağıdakilerin nasıl yapıldığını öğreneceksiniz:</span><span class="sxs-lookup"><span data-stu-id="a7a29-105">You learn how to:</span></span>
 
 > [!div class="checklist"]
-> * <span data-ttu-id="63790-106">Web projesi oluşturun.</span><span class="sxs-lookup"><span data-stu-id="63790-106">Create a web project.</span></span>
-> * <span data-ttu-id="63790-107">SignalR istemci kitaplığı ekleyin.</span><span class="sxs-lookup"><span data-stu-id="63790-107">Add the SignalR client library.</span></span>
-> * <span data-ttu-id="63790-108">Bir SignalR hub'ı oluşturun.</span><span class="sxs-lookup"><span data-stu-id="63790-108">Create a SignalR hub.</span></span>
-> * <span data-ttu-id="63790-109">Projeyi SignalR kullanacak şekilde yapılandırın.</span><span class="sxs-lookup"><span data-stu-id="63790-109">Configure the project to use SignalR.</span></span>
-> * <span data-ttu-id="63790-110">Herhangi bir istemciden bağlanan tüm istemciler için iletileri gönderen kodu ekleyin.</span><span class="sxs-lookup"><span data-stu-id="63790-110">Add code that sends messages from any client to all connected clients.</span></span>
+> * <span data-ttu-id="a7a29-106">Web projesi oluşturun.</span><span class="sxs-lookup"><span data-stu-id="a7a29-106">Create a web project.</span></span>
+> * <span data-ttu-id="a7a29-107">SignalR istemci kitaplığı ekleyin.</span><span class="sxs-lookup"><span data-stu-id="a7a29-107">Add the SignalR client library.</span></span>
+> * <span data-ttu-id="a7a29-108">Bir SignalR hub'ı oluşturun.</span><span class="sxs-lookup"><span data-stu-id="a7a29-108">Create a SignalR hub.</span></span>
+> * <span data-ttu-id="a7a29-109">Projeyi SignalR kullanacak şekilde yapılandırın.</span><span class="sxs-lookup"><span data-stu-id="a7a29-109">Configure the project to use SignalR.</span></span>
+> * <span data-ttu-id="a7a29-110">Herhangi bir istemciden bağlanan tüm istemciler için iletileri gönderen kodu ekleyin.</span><span class="sxs-lookup"><span data-stu-id="a7a29-110">Add code that sends messages from any client to all connected clients.</span></span>
 
-<span data-ttu-id="63790-111">Sonunda, bir çalışma sohbet uygulaması oluşturmuş olacaksınız:</span><span class="sxs-lookup"><span data-stu-id="63790-111">At the end, you'll have a working chat app:</span></span>
+<span data-ttu-id="a7a29-111">Sonunda, bir çalışma sohbet uygulaması oluşturmuş olacaksınız:</span><span class="sxs-lookup"><span data-stu-id="a7a29-111">At the end, you'll have a working chat app:</span></span>
 
 ![SignalR örnek uygulaması](signalr/_static/signalr-get-started-finished.png)
 
-<span data-ttu-id="63790-113">[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/signalr/sample) ([nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample)).</span><span class="sxs-lookup"><span data-stu-id="63790-113">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/signalr/sample) ([how to download](xref:tutorials/index#how-to-download-a-sample)).</span></span>
+<span data-ttu-id="a7a29-113">[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/signalr/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample)).</span><span class="sxs-lookup"><span data-stu-id="a7a29-113">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/signalr/sample) ([how to download](xref:index#how-to-download-a-sample)).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="63790-114">Önkoşullar</span><span class="sxs-lookup"><span data-stu-id="63790-114">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="a7a29-114">Önkoşullar</span><span class="sxs-lookup"><span data-stu-id="a7a29-114">Prerequisites</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="63790-115">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="63790-115">Visual Studio</span></span>](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="a7a29-115">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="a7a29-115">Visual Studio</span></span>](#tab/visual-studio)
 
-* <span data-ttu-id="63790-116">[Visual Studio 2017 sürüm 15,8 veya üzeri](https://www.visualstudio.com/downloads/) ile **ASP.NET ve web geliştirme** iş yükü</span><span class="sxs-lookup"><span data-stu-id="63790-116">[Visual Studio 2017 version 15.8 or later](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload</span></span>
-* [<span data-ttu-id="63790-117">.NET core SDK 2.1 veya üzeri</span><span class="sxs-lookup"><span data-stu-id="63790-117">.NET Core SDK 2.1 or later</span></span>](https://www.microsoft.com/net/download/all)
+* <span data-ttu-id="a7a29-116">[Visual Studio 2017 sürüm 15,8 veya üzeri](https://www.visualstudio.com/downloads/) ile **ASP.NET ve web geliştirme** iş yükü</span><span class="sxs-lookup"><span data-stu-id="a7a29-116">[Visual Studio 2017 version 15.8 or later](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload</span></span>
+* [<span data-ttu-id="a7a29-117">.NET core SDK 2.1 veya üzeri</span><span class="sxs-lookup"><span data-stu-id="a7a29-117">.NET Core SDK 2.1 or later</span></span>](https://www.microsoft.com/net/download/all)
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="63790-118">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="63790-118">Visual Studio Code</span></span>](#tab/visual-studio-code)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="a7a29-118">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="a7a29-118">Visual Studio Code</span></span>](#tab/visual-studio-code)
 
-* [<span data-ttu-id="63790-119">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="63790-119">Visual Studio Code</span></span>](https://code.visualstudio.com/download)
-* [<span data-ttu-id="63790-120">.NET core SDK 2.1 veya üzeri</span><span class="sxs-lookup"><span data-stu-id="63790-120">.NET Core SDK 2.1 or later</span></span>](https://www.microsoft.com/net/download/all)
-* [<span data-ttu-id="63790-121">Visual Studio Code için C#</span><span class="sxs-lookup"><span data-stu-id="63790-121">C# for Visual Studio Code</span></span>](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+* [<span data-ttu-id="a7a29-119">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="a7a29-119">Visual Studio Code</span></span>](https://code.visualstudio.com/download)
+* [<span data-ttu-id="a7a29-120">.NET core SDK 2.1 veya üzeri</span><span class="sxs-lookup"><span data-stu-id="a7a29-120">.NET Core SDK 2.1 or later</span></span>](https://www.microsoft.com/net/download/all)
+* [<span data-ttu-id="a7a29-121">Visual Studio Code için C#</span><span class="sxs-lookup"><span data-stu-id="a7a29-121">C# for Visual Studio Code</span></span>](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="63790-122">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="63790-122">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="a7a29-122">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="a7a29-122">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
 
-* [<span data-ttu-id="63790-123">Sürüm 7.5.4 Mac için Visual Studio veya üzeri</span><span class="sxs-lookup"><span data-stu-id="63790-123">Visual Studio for Mac version 7.5.4 or later</span></span>](https://www.visualstudio.com/downloads/)
-* <span data-ttu-id="63790-124">[.NET core SDK 2.1 veya üzeri](https://www.microsoft.com/net/download/all) (Visual Studio yüklemesine dahil)</span><span class="sxs-lookup"><span data-stu-id="63790-124">[.NET Core SDK 2.1 or later](https://www.microsoft.com/net/download/all) (included in the Visual Studio install)</span></span>
+* [<span data-ttu-id="a7a29-123">Sürüm 7.5.4 Mac için Visual Studio veya üzeri</span><span class="sxs-lookup"><span data-stu-id="a7a29-123">Visual Studio for Mac version 7.5.4 or later</span></span>](https://www.visualstudio.com/downloads/)
+* <span data-ttu-id="a7a29-124">[.NET core SDK 2.1 veya üzeri](https://www.microsoft.com/net/download/all) (Visual Studio yüklemesine dahil)</span><span class="sxs-lookup"><span data-stu-id="a7a29-124">[.NET Core SDK 2.1 or later](https://www.microsoft.com/net/download/all) (included in the Visual Studio install)</span></span>
 
 ---
 
-## <a name="create-a-web-project"></a><span data-ttu-id="63790-125">Bir web projesi oluşturma</span><span class="sxs-lookup"><span data-stu-id="63790-125">Create a web project</span></span>
+## <a name="create-a-web-project"></a><span data-ttu-id="a7a29-125">Bir web projesi oluşturma</span><span class="sxs-lookup"><span data-stu-id="a7a29-125">Create a web project</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="63790-126">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="63790-126">Visual Studio</span></span>](#tab/visual-studio/)
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="a7a29-126">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="a7a29-126">Visual Studio</span></span>](#tab/visual-studio/)
 
-* <span data-ttu-id="63790-127">Menüden **Dosya > Yeni proje**.</span><span class="sxs-lookup"><span data-stu-id="63790-127">From the menu, select **File > New Project**.</span></span>
+* <span data-ttu-id="a7a29-127">Menüden **Dosya > Yeni proje**.</span><span class="sxs-lookup"><span data-stu-id="a7a29-127">From the menu, select **File > New Project**.</span></span>
 
-* <span data-ttu-id="63790-128">İçinde **yeni proje** iletişim kutusunda **yüklü > Visual C# > Web > ASP.NET Core Web uygulaması**.</span><span class="sxs-lookup"><span data-stu-id="63790-128">In the **New Project** dialog, select **Installed > Visual C# > Web > ASP.NET Core Web Application**.</span></span> <span data-ttu-id="63790-129">Projeyi adlandırın *SignalRChat*.</span><span class="sxs-lookup"><span data-stu-id="63790-129">Name the project *SignalRChat*.</span></span>
+* <span data-ttu-id="a7a29-128">İçinde **yeni proje** iletişim kutusunda **yüklü > Visual C# > Web > ASP.NET Core Web uygulaması**.</span><span class="sxs-lookup"><span data-stu-id="a7a29-128">In the **New Project** dialog, select **Installed > Visual C# > Web > ASP.NET Core Web Application**.</span></span> <span data-ttu-id="a7a29-129">Projeyi adlandırın *SignalRChat*.</span><span class="sxs-lookup"><span data-stu-id="a7a29-129">Name the project *SignalRChat*.</span></span>
 
   ![Visual Studio'da yeni proje iletişim kutusu](signalr/_static/signalr-new-project-dialog.png)
 
-* <span data-ttu-id="63790-131">Seçin **Web uygulaması** Razor sayfaları kullanan bir proje oluşturmak için.</span><span class="sxs-lookup"><span data-stu-id="63790-131">Select **Web Application** to create a project that uses Razor Pages.</span></span>
+* <span data-ttu-id="a7a29-131">Seçin **Web uygulaması** Razor sayfaları kullanan bir proje oluşturmak için.</span><span class="sxs-lookup"><span data-stu-id="a7a29-131">Select **Web Application** to create a project that uses Razor Pages.</span></span>
 
-* <span data-ttu-id="63790-132">Bir hedef Framework'ü seçin **.NET Core**seçin **ASP.NET Core 2.1**, tıklatıp **Tamam**.</span><span class="sxs-lookup"><span data-stu-id="63790-132">Select a target framework of **.NET Core**, select **ASP.NET Core 2.1**, and click **OK**.</span></span>
+* <span data-ttu-id="a7a29-132">Bir hedef Framework'ü seçin **.NET Core**seçin **ASP.NET Core 2.1**, tıklatıp **Tamam**.</span><span class="sxs-lookup"><span data-stu-id="a7a29-132">Select a target framework of **.NET Core**, select **ASP.NET Core 2.1**, and click **OK**.</span></span>
 
   ![Visual Studio'da yeni proje iletişim kutusu](signalr/_static/signalr-new-project-choose-type.png)
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="63790-134">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="63790-134">Visual Studio Code</span></span>](#tab/visual-studio-code/)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="a7a29-134">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="a7a29-134">Visual Studio Code</span></span>](#tab/visual-studio-code/)
 
-* <span data-ttu-id="63790-135">Yeni bir proje için kullanabileceğiniz bir klasöre açın.</span><span class="sxs-lookup"><span data-stu-id="63790-135">Open a folder that you can use for a new project.</span></span>
+* <span data-ttu-id="a7a29-135">Yeni bir proje için kullanabileceğiniz bir klasöre açın.</span><span class="sxs-lookup"><span data-stu-id="a7a29-135">Open a folder that you can use for a new project.</span></span>
 
-* <span data-ttu-id="63790-136">İçinde **tümleşik Terminalini**, aşağıdaki komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="63790-136">In the **Integrated Terminal**, run the following command:</span></span>
+* <span data-ttu-id="a7a29-136">İçinde **tümleşik Terminalini**, aşağıdaki komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="a7a29-136">In the **Integrated Terminal**, run the following command:</span></span>
 
    ```console
    dotnet new webapp -o SignalRChat
    ```
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="63790-137">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="63790-137">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="a7a29-137">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="a7a29-137">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
 
-* <span data-ttu-id="63790-138">Menüden **Dosya > Yeni Çözüm**.</span><span class="sxs-lookup"><span data-stu-id="63790-138">From the menu, select **File > New Solution**.</span></span>
+* <span data-ttu-id="a7a29-138">Menüden **Dosya > Yeni Çözüm**.</span><span class="sxs-lookup"><span data-stu-id="a7a29-138">From the menu, select **File > New Solution**.</span></span>
 
-* <span data-ttu-id="63790-139">Seçin **.NET Core > Uygulama > ASP.NET Core Web uygulaması** (seçmeyin **ASP.NET Core Web uygulaması (MVC)**).</span><span class="sxs-lookup"><span data-stu-id="63790-139">Select **.NET Core > App > ASP.NET Core Web App** (Don't select **ASP.NET Core Web App (MVC)**).</span></span>
+* <span data-ttu-id="a7a29-139">Seçin **.NET Core > Uygulama > ASP.NET Core Web uygulaması** (seçmeyin **ASP.NET Core Web uygulaması (MVC)**).</span><span class="sxs-lookup"><span data-stu-id="a7a29-139">Select **.NET Core > App > ASP.NET Core Web App** (Don't select **ASP.NET Core Web App (MVC)**).</span></span>
 
-* <span data-ttu-id="63790-140">Seçin **sonraki**.</span><span class="sxs-lookup"><span data-stu-id="63790-140">Select **Next**.</span></span>
+* <span data-ttu-id="a7a29-140">Seçin **sonraki**.</span><span class="sxs-lookup"><span data-stu-id="a7a29-140">Select **Next**.</span></span>
 
-* <span data-ttu-id="63790-141">Projeyi adlandırın *SignalRChat*ve ardından **Oluştur**.</span><span class="sxs-lookup"><span data-stu-id="63790-141">Name the project *SignalRChat*, and then select **Create**.</span></span>
+* <span data-ttu-id="a7a29-141">Projeyi adlandırın *SignalRChat*ve ardından **Oluştur**.</span><span class="sxs-lookup"><span data-stu-id="a7a29-141">Name the project *SignalRChat*, and then select **Create**.</span></span>
 
 ---
 
-## <a name="add-the-signalr-client-library"></a><span data-ttu-id="63790-142">SignalR istemci kitaplığı Ekle</span><span class="sxs-lookup"><span data-stu-id="63790-142">Add the SignalR client library</span></span>
+## <a name="add-the-signalr-client-library"></a><span data-ttu-id="a7a29-142">SignalR istemci kitaplığı Ekle</span><span class="sxs-lookup"><span data-stu-id="a7a29-142">Add the SignalR client library</span></span>
 
-<span data-ttu-id="63790-143">SignalR server kitaplığı dahil `Microsoft.AspNetCore.App` metapackage.</span><span class="sxs-lookup"><span data-stu-id="63790-143">The SignalR server library is included in the `Microsoft.AspNetCore.App` metapackage.</span></span> <span data-ttu-id="63790-144">JavaScript istemci kitaplığı, otomatik olarak projeye dahil değil.</span><span class="sxs-lookup"><span data-stu-id="63790-144">The JavaScript client library isn't automatically included in the project.</span></span> <span data-ttu-id="63790-145">Bu öğretici için Kitaplık Yöneticisi'ni (LibMan) istemci kitaplığını almak için kullanmak *unpkg*.</span><span class="sxs-lookup"><span data-stu-id="63790-145">For this tutorial, you use Library Manager (LibMan) to get the client library from *unpkg*.</span></span> <span data-ttu-id="63790-146">unpkg bir içerik teslim ağı (CDN) olan), teslim edebilir herhangi bir şey npm, Node.js Paket Yöneticisi bulunamadı.</span><span class="sxs-lookup"><span data-stu-id="63790-146">unpkg is a content delivery network (CDN)) that can deliver anything found in npm, the Node.js package manager.</span></span>
+<span data-ttu-id="a7a29-143">SignalR server kitaplığı dahil `Microsoft.AspNetCore.App` metapackage.</span><span class="sxs-lookup"><span data-stu-id="a7a29-143">The SignalR server library is included in the `Microsoft.AspNetCore.App` metapackage.</span></span> <span data-ttu-id="a7a29-144">JavaScript istemci kitaplığı, otomatik olarak projeye dahil değil.</span><span class="sxs-lookup"><span data-stu-id="a7a29-144">The JavaScript client library isn't automatically included in the project.</span></span> <span data-ttu-id="a7a29-145">Bu öğretici için Kitaplık Yöneticisi'ni (LibMan) istemci kitaplığını almak için kullanmak *unpkg*.</span><span class="sxs-lookup"><span data-stu-id="a7a29-145">For this tutorial, you use Library Manager (LibMan) to get the client library from *unpkg*.</span></span> <span data-ttu-id="a7a29-146">unpkg bir içerik teslim ağı (CDN) olan), teslim edebilir herhangi bir şey npm, Node.js Paket Yöneticisi bulunamadı.</span><span class="sxs-lookup"><span data-stu-id="a7a29-146">unpkg is a content delivery network (CDN)) that can deliver anything found in npm, the Node.js package manager.</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="63790-147">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="63790-147">Visual Studio</span></span>](#tab/visual-studio/)
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="a7a29-147">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="a7a29-147">Visual Studio</span></span>](#tab/visual-studio/)
 
-* <span data-ttu-id="63790-148">İçinde **Çözüm Gezgini**projeye sağ tıklayıp seçin **Ekle** > **istemci tarafı kitaplık**.</span><span class="sxs-lookup"><span data-stu-id="63790-148">In **Solution Explorer**, right-click the project, and select **Add** > **Client-Side Library**.</span></span>
+* <span data-ttu-id="a7a29-148">İçinde **Çözüm Gezgini**projeye sağ tıklayıp seçin **Ekle** > **istemci tarafı kitaplık**.</span><span class="sxs-lookup"><span data-stu-id="a7a29-148">In **Solution Explorer**, right-click the project, and select **Add** > **Client-Side Library**.</span></span>
 
-* <span data-ttu-id="63790-149">İçinde **istemci tarafı kitaplık Ekle** iletişim için **sağlayıcısı** seçin **unpkg**.</span><span class="sxs-lookup"><span data-stu-id="63790-149">In the **Add Client-Side Library** dialog, for **Provider** select **unpkg**.</span></span> 
+* <span data-ttu-id="a7a29-149">İçinde **istemci tarafı kitaplık Ekle** iletişim için **sağlayıcısı** seçin **unpkg**.</span><span class="sxs-lookup"><span data-stu-id="a7a29-149">In the **Add Client-Side Library** dialog, for **Provider** select **unpkg**.</span></span> 
 
-* <span data-ttu-id="63790-150">İçin **Kitaplığı**, girin `@aspnet/signalr@1`, Önizleme olmayan en son sürümü seçin.</span><span class="sxs-lookup"><span data-stu-id="63790-150">For **Library**, enter `@aspnet/signalr@1`, and select the latest version that isn't preview.</span></span>
+* <span data-ttu-id="a7a29-150">İçin **Kitaplığı**, girin `@aspnet/signalr@1`, Önizleme olmayan en son sürümü seçin.</span><span class="sxs-lookup"><span data-stu-id="a7a29-150">For **Library**, enter `@aspnet/signalr@1`, and select the latest version that isn't preview.</span></span>
 
   ![İstemci tarafı kitaplık iletişim - select Kütüphane ekleyin](signalr/_static/libman1.png)
 
-* <span data-ttu-id="63790-152">Seçin **belirli dosyaları seçin**, genişletme *dist/tarayıcı* klasörü ve select *signalr.js* ve *signalr.min.js*.</span><span class="sxs-lookup"><span data-stu-id="63790-152">Select **Choose specific files**, expand the *dist/browser* folder, and select *signalr.js* and *signalr.min.js*.</span></span>
+* <span data-ttu-id="a7a29-152">Seçin **belirli dosyaları seçin**, genişletme *dist/tarayıcı* klasörü ve select *signalr.js* ve *signalr.min.js*.</span><span class="sxs-lookup"><span data-stu-id="a7a29-152">Select **Choose specific files**, expand the *dist/browser* folder, and select *signalr.js* and *signalr.min.js*.</span></span>
 
-* <span data-ttu-id="63790-153">Ayarlama **hedef konum** için *wwwroot/lib/signalr/* seçip **yükleme**.</span><span class="sxs-lookup"><span data-stu-id="63790-153">Set **Target Location** to *wwwroot/lib/signalr/*, and select **Install**.</span></span>
+* <span data-ttu-id="a7a29-153">Ayarlama **hedef konum** için *wwwroot/lib/signalr/* seçip **yükleme**.</span><span class="sxs-lookup"><span data-stu-id="a7a29-153">Set **Target Location** to *wwwroot/lib/signalr/*, and select **Install**.</span></span>
 
   ![İstemci tarafı kitaplık iletişim - dosyaları seçin ve hedef Ekle](signalr/_static/libman2.png)
 
-  <span data-ttu-id="63790-155">LibMan oluşturur bir *wwwroot/lib/signalr* klasörü ve seçili dosyaları kopyalar.</span><span class="sxs-lookup"><span data-stu-id="63790-155">LibMan creates a *wwwroot/lib/signalr* folder and copies the selected files to it.</span></span>
+  <span data-ttu-id="a7a29-155">LibMan oluşturur bir *wwwroot/lib/signalr* klasörü ve seçili dosyaları kopyalar.</span><span class="sxs-lookup"><span data-stu-id="a7a29-155">LibMan creates a *wwwroot/lib/signalr* folder and copies the selected files to it.</span></span>
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="63790-156">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="63790-156">Visual Studio Code</span></span>](#tab/visual-studio-code/)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="a7a29-156">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="a7a29-156">Visual Studio Code</span></span>](#tab/visual-studio-code/)
 
-* <span data-ttu-id="63790-157">İçinde **tümleşik Terminalini**, LibMan yüklemek için aşağıdaki komutu çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="63790-157">In the **Integrated Terminal**, run the following command to install LibMan.</span></span>
+* <span data-ttu-id="a7a29-157">İçinde **tümleşik Terminalini**, LibMan yüklemek için aşağıdaki komutu çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="a7a29-157">In the **Integrated Terminal**, run the following command to install LibMan.</span></span>
 
   ```console
   dotnet tool install -g Microsoft.Web.LibraryManager.Cli
   ```
 
-* <span data-ttu-id="63790-158">Proje klasörüne gidin (içeren *SignalRChat.csproj* dosyası).</span><span class="sxs-lookup"><span data-stu-id="63790-158">Navigate to the project folder (the one that contains the *SignalRChat.csproj* file).</span></span>
+* <span data-ttu-id="a7a29-158">Proje klasörüne gidin (içeren *SignalRChat.csproj* dosyası).</span><span class="sxs-lookup"><span data-stu-id="a7a29-158">Navigate to the project folder (the one that contains the *SignalRChat.csproj* file).</span></span>
 
-* <span data-ttu-id="63790-159">SignalR istemci kitaplığı LibMan almak için aşağıdaki komutu çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="63790-159">Run the following command to get the SignalR client library by using LibMan.</span></span> <span data-ttu-id="63790-160">Çıktıyı görmeye önce birkaç saniye beklemeniz gerekebilir.</span><span class="sxs-lookup"><span data-stu-id="63790-160">You might have to wait a few seconds before seeing output.</span></span>
+* <span data-ttu-id="a7a29-159">SignalR istemci kitaplığı LibMan almak için aşağıdaki komutu çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="a7a29-159">Run the following command to get the SignalR client library by using LibMan.</span></span> <span data-ttu-id="a7a29-160">Çıktıyı görmeye önce birkaç saniye beklemeniz gerekebilir.</span><span class="sxs-lookup"><span data-stu-id="a7a29-160">You might have to wait a few seconds before seeing output.</span></span>
 
   ```console
   libman install @aspnet/signalr -p unpkg -d wwwroot/lib/signalr --files dist/browser/signalr.js --files dist/browser/signalr.min.js
   ```
 
-  <span data-ttu-id="63790-161">Parametreleri aşağıdaki seçenekleri belirtin:</span><span class="sxs-lookup"><span data-stu-id="63790-161">The parameters specify the following options:</span></span>
-  * <span data-ttu-id="63790-162">Unpkg sağlayıcısını kullanın.</span><span class="sxs-lookup"><span data-stu-id="63790-162">Use the unpkg provider.</span></span>
-  * <span data-ttu-id="63790-163">Dosyaları kopyalamak *wwwroot/lib/signalr* hedef.</span><span class="sxs-lookup"><span data-stu-id="63790-163">Copy files to the *wwwroot/lib/signalr* destination.</span></span>
-  * <span data-ttu-id="63790-164">Yalnızca belirtilen dosyaları kopyalayın.</span><span class="sxs-lookup"><span data-stu-id="63790-164">Copy only the specified files.</span></span>
+  <span data-ttu-id="a7a29-161">Parametreleri aşağıdaki seçenekleri belirtin:</span><span class="sxs-lookup"><span data-stu-id="a7a29-161">The parameters specify the following options:</span></span>
+  * <span data-ttu-id="a7a29-162">Unpkg sağlayıcısını kullanın.</span><span class="sxs-lookup"><span data-stu-id="a7a29-162">Use the unpkg provider.</span></span>
+  * <span data-ttu-id="a7a29-163">Dosyaları kopyalamak *wwwroot/lib/signalr* hedef.</span><span class="sxs-lookup"><span data-stu-id="a7a29-163">Copy files to the *wwwroot/lib/signalr* destination.</span></span>
+  * <span data-ttu-id="a7a29-164">Yalnızca belirtilen dosyaları kopyalayın.</span><span class="sxs-lookup"><span data-stu-id="a7a29-164">Copy only the specified files.</span></span>
 
-  <span data-ttu-id="63790-165">Çıktı aşağıdaki örnekteki gibi görünür:</span><span class="sxs-lookup"><span data-stu-id="63790-165">The output looks like the following example:</span></span>
+  <span data-ttu-id="a7a29-165">Çıktı aşağıdaki örnekteki gibi görünür:</span><span class="sxs-lookup"><span data-stu-id="a7a29-165">The output looks like the following example:</span></span>
 
   ```console
   wwwroot/lib/signalr/dist/browser/signalr.js written to disk
@@ -140,28 +140,28 @@ ms.locfileid: "50134567"
   Installed library "@aspnet/signalr@1.0.3" to "wwwroot/lib/signalr"
   ```
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="63790-166">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="63790-166">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="a7a29-166">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="a7a29-166">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
 
-* <span data-ttu-id="63790-167">İçinde **Terminal**, LibMan yüklemek için aşağıdaki komutu çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="63790-167">In the **Terminal**, run the following command to install LibMan.</span></span>
+* <span data-ttu-id="a7a29-167">İçinde **Terminal**, LibMan yüklemek için aşağıdaki komutu çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="a7a29-167">In the **Terminal**, run the following command to install LibMan.</span></span>
 
   ```console
   dotnet tool install -g Microsoft.Web.LibraryManager.Cli
   ```
 
-* <span data-ttu-id="63790-168">Proje klasörüne gidin (içeren *SignalRChat.csproj* dosyası).</span><span class="sxs-lookup"><span data-stu-id="63790-168">Navigate to the project folder (the one that contains the *SignalRChat.csproj* file).</span></span>
+* <span data-ttu-id="a7a29-168">Proje klasörüne gidin (içeren *SignalRChat.csproj* dosyası).</span><span class="sxs-lookup"><span data-stu-id="a7a29-168">Navigate to the project folder (the one that contains the *SignalRChat.csproj* file).</span></span>
 
-* <span data-ttu-id="63790-169">SignalR istemci kitaplığı LibMan almak için aşağıdaki komutu çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="63790-169">Run the following command to get the SignalR client library by using LibMan.</span></span>
+* <span data-ttu-id="a7a29-169">SignalR istemci kitaplığı LibMan almak için aşağıdaki komutu çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="a7a29-169">Run the following command to get the SignalR client library by using LibMan.</span></span>
 
   ```console
   libman install @aspnet/signalr -p unpkg -d wwwroot/lib/signalr --files dist/browser/signalr.js --files dist/browser/signalr.min.js
   ```
 
-  <span data-ttu-id="63790-170">Parametreleri aşağıdaki seçenekleri belirtin:</span><span class="sxs-lookup"><span data-stu-id="63790-170">The parameters specify the following options:</span></span>
-  * <span data-ttu-id="63790-171">Unpkg sağlayıcısını kullanın.</span><span class="sxs-lookup"><span data-stu-id="63790-171">Use the unpkg provider.</span></span>
-  * <span data-ttu-id="63790-172">Dosyaları kopyalamak *wwwroot/lib/signalr* hedef.</span><span class="sxs-lookup"><span data-stu-id="63790-172">Copy files to the *wwwroot/lib/signalr* destination.</span></span>
-  * <span data-ttu-id="63790-173">Yalnızca belirtilen dosyaları kopyalayın.</span><span class="sxs-lookup"><span data-stu-id="63790-173">Copy only the specified files.</span></span>
+  <span data-ttu-id="a7a29-170">Parametreleri aşağıdaki seçenekleri belirtin:</span><span class="sxs-lookup"><span data-stu-id="a7a29-170">The parameters specify the following options:</span></span>
+  * <span data-ttu-id="a7a29-171">Unpkg sağlayıcısını kullanın.</span><span class="sxs-lookup"><span data-stu-id="a7a29-171">Use the unpkg provider.</span></span>
+  * <span data-ttu-id="a7a29-172">Dosyaları kopyalamak *wwwroot/lib/signalr* hedef.</span><span class="sxs-lookup"><span data-stu-id="a7a29-172">Copy files to the *wwwroot/lib/signalr* destination.</span></span>
+  * <span data-ttu-id="a7a29-173">Yalnızca belirtilen dosyaları kopyalayın.</span><span class="sxs-lookup"><span data-stu-id="a7a29-173">Copy only the specified files.</span></span>
 
-  <span data-ttu-id="63790-174">Çıktı aşağıdaki örnekteki gibi görünür:</span><span class="sxs-lookup"><span data-stu-id="63790-174">The output looks like the following example:</span></span>
+  <span data-ttu-id="a7a29-174">Çıktı aşağıdaki örnekteki gibi görünür:</span><span class="sxs-lookup"><span data-stu-id="a7a29-174">The output looks like the following example:</span></span>
 
   ```console
   wwwroot/lib/signalr/dist/browser/signalr.js written to disk
@@ -171,92 +171,92 @@ ms.locfileid: "50134567"
 
 ---
 
-## <a name="create-a-signalr-hub"></a><span data-ttu-id="63790-175">Bir SignalR hub'ı oluşturma</span><span class="sxs-lookup"><span data-stu-id="63790-175">Create a SignalR hub</span></span>
+## <a name="create-a-signalr-hub"></a><span data-ttu-id="a7a29-175">Bir SignalR hub'ı oluşturma</span><span class="sxs-lookup"><span data-stu-id="a7a29-175">Create a SignalR hub</span></span>
 
-<span data-ttu-id="63790-176">A *hub* istemci-sunucu iletişimi işleyen bir üst düzey işlem hattı hizmet veren bir sınıftır.</span><span class="sxs-lookup"><span data-stu-id="63790-176">A *hub* is a class that serves as a high-level pipeline that handles client-server communication.</span></span>
+<span data-ttu-id="a7a29-176">A *hub* istemci-sunucu iletişimi işleyen bir üst düzey işlem hattı hizmet veren bir sınıftır.</span><span class="sxs-lookup"><span data-stu-id="a7a29-176">A *hub* is a class that serves as a high-level pipeline that handles client-server communication.</span></span>
 
-* <span data-ttu-id="63790-177">Oluşturma SignalRChat proje klasöründe bir *Hubs* klasör.</span><span class="sxs-lookup"><span data-stu-id="63790-177">In the SignalRChat project folder, create a *Hubs* folder.</span></span>
+* <span data-ttu-id="a7a29-177">Oluşturma SignalRChat proje klasöründe bir *Hubs* klasör.</span><span class="sxs-lookup"><span data-stu-id="a7a29-177">In the SignalRChat project folder, create a *Hubs* folder.</span></span>
 
-* <span data-ttu-id="63790-178">İçinde *Hubs* klasör oluşturma bir *ChatHub.cs* dosyasındaki kodu aşağıdaki kodla:</span><span class="sxs-lookup"><span data-stu-id="63790-178">In the *Hubs* folder, create a *ChatHub.cs* file with the following code:</span></span>
+* <span data-ttu-id="a7a29-178">İçinde *Hubs* klasör oluşturma bir *ChatHub.cs* dosyasındaki kodu aşağıdaki kodla:</span><span class="sxs-lookup"><span data-stu-id="a7a29-178">In the *Hubs* folder, create a *ChatHub.cs* file with the following code:</span></span>
 
   [!code-csharp[Startup](signalr/sample/Hubs/ChatHub.cs)]
 
-  <span data-ttu-id="63790-179">`ChatHub` Sınıfından devralan SignalR öğesinden `Hub` sınıfı.</span><span class="sxs-lookup"><span data-stu-id="63790-179">The `ChatHub` class inherits from the SignalR `Hub` class.</span></span> <span data-ttu-id="63790-180">`Hub` Sınıfı, bağlantılar, grupları ve mesajlaşma yönetir.</span><span class="sxs-lookup"><span data-stu-id="63790-180">The `Hub` class manages connections, groups, and messaging.</span></span>
+  <span data-ttu-id="a7a29-179">`ChatHub` Sınıfından devralan SignalR öğesinden `Hub` sınıfı.</span><span class="sxs-lookup"><span data-stu-id="a7a29-179">The `ChatHub` class inherits from the SignalR `Hub` class.</span></span> <span data-ttu-id="a7a29-180">`Hub` Sınıfı, bağlantılar, grupları ve mesajlaşma yönetir.</span><span class="sxs-lookup"><span data-stu-id="a7a29-180">The `Hub` class manages connections, groups, and messaging.</span></span>
 
-  <span data-ttu-id="63790-181">`SendMessage` Yöntemi herhangi bir bağlı istemci tarafından çağrılabilir.</span><span class="sxs-lookup"><span data-stu-id="63790-181">The `SendMessage` method can be called by any connected client.</span></span> <span data-ttu-id="63790-182">Bu, tüm istemcilere alınan ileti gönderir.</span><span class="sxs-lookup"><span data-stu-id="63790-182">It sends the received message to all clients.</span></span> <span data-ttu-id="63790-183">SignalR kodudur maksimum ölçeklenebilirlik sağlamak için zaman uyumsuz.</span><span class="sxs-lookup"><span data-stu-id="63790-183">SignalR code is asynchronous to provide maximum scalability.</span></span>
+  <span data-ttu-id="a7a29-181">`SendMessage` Yöntemi herhangi bir bağlı istemci tarafından çağrılabilir.</span><span class="sxs-lookup"><span data-stu-id="a7a29-181">The `SendMessage` method can be called by any connected client.</span></span> <span data-ttu-id="a7a29-182">Bu, tüm istemcilere alınan ileti gönderir.</span><span class="sxs-lookup"><span data-stu-id="a7a29-182">It sends the received message to all clients.</span></span> <span data-ttu-id="a7a29-183">SignalR kodudur maksimum ölçeklenebilirlik sağlamak için zaman uyumsuz.</span><span class="sxs-lookup"><span data-stu-id="a7a29-183">SignalR code is asynchronous to provide maximum scalability.</span></span>
 
-## <a name="configure-signalr"></a><span data-ttu-id="63790-184">SignalR yapılandırın</span><span class="sxs-lookup"><span data-stu-id="63790-184">Configure SignalR</span></span>
+## <a name="configure-signalr"></a><span data-ttu-id="a7a29-184">SignalR yapılandırın</span><span class="sxs-lookup"><span data-stu-id="a7a29-184">Configure SignalR</span></span>
 
-<span data-ttu-id="63790-185">SignalR sunucusu, SignalR için SignalR isteklerini iletmek için yapılandırılmalıdır.</span><span class="sxs-lookup"><span data-stu-id="63790-185">The SignalR server must be configured to pass SignalR requests to SignalR.</span></span>
+<span data-ttu-id="a7a29-185">SignalR sunucusu, SignalR için SignalR isteklerini iletmek için yapılandırılmalıdır.</span><span class="sxs-lookup"><span data-stu-id="a7a29-185">The SignalR server must be configured to pass SignalR requests to SignalR.</span></span>
 
-* <span data-ttu-id="63790-186">Aşağıdaki vurgulanmış kodu ekleyin *Startup.cs* dosya.</span><span class="sxs-lookup"><span data-stu-id="63790-186">Add the following highlighted code to the *Startup.cs* file.</span></span>
+* <span data-ttu-id="a7a29-186">Aşağıdaki vurgulanmış kodu ekleyin *Startup.cs* dosya.</span><span class="sxs-lookup"><span data-stu-id="a7a29-186">Add the following highlighted code to the *Startup.cs* file.</span></span>
 
   [!code-csharp[Startup](signalr/sample/Startup.cs?highlight=7,33,52-55)]
 
-  <span data-ttu-id="63790-187">Bu değişiklikler, ASP.NET Core bağımlılık ekleme sistemi ve ara yazılım ardışık düzenini SignalR ekleyin.</span><span class="sxs-lookup"><span data-stu-id="63790-187">These changes add SignalR to the ASP.NET Core dependency injection system and the middleware pipeline.</span></span>
+  <span data-ttu-id="a7a29-187">Bu değişiklikler, ASP.NET Core bağımlılık ekleme sistemi ve ara yazılım ardışık düzenini SignalR ekleyin.</span><span class="sxs-lookup"><span data-stu-id="a7a29-187">These changes add SignalR to the ASP.NET Core dependency injection system and the middleware pipeline.</span></span>
 
-## <a name="add-signalr-client-code"></a><span data-ttu-id="63790-188">SignalR istemci kodu ekleyin</span><span class="sxs-lookup"><span data-stu-id="63790-188">Add SignalR client code</span></span>
+## <a name="add-signalr-client-code"></a><span data-ttu-id="a7a29-188">SignalR istemci kodu ekleyin</span><span class="sxs-lookup"><span data-stu-id="a7a29-188">Add SignalR client code</span></span>
 
-* <span data-ttu-id="63790-189">İçeriği Değiştir *Pages\Index.cshtml* aşağıdaki kod ile:</span><span class="sxs-lookup"><span data-stu-id="63790-189">Replace the content in *Pages\Index.cshtml* with the following code:</span></span>
+* <span data-ttu-id="a7a29-189">İçeriği Değiştir *Pages\Index.cshtml* aşağıdaki kod ile:</span><span class="sxs-lookup"><span data-stu-id="a7a29-189">Replace the content in *Pages\Index.cshtml* with the following code:</span></span>
 
   [!code-cshtml[Index](signalr/sample/Pages/Index.cshtml)]
 
-  <span data-ttu-id="63790-190">Yukarıdaki kod:</span><span class="sxs-lookup"><span data-stu-id="63790-190">The preceding code:</span></span>
+  <span data-ttu-id="a7a29-190">Yukarıdaki kod:</span><span class="sxs-lookup"><span data-stu-id="a7a29-190">The preceding code:</span></span>
 
-  * <span data-ttu-id="63790-191">Metin kutuları için adı ve ileti metni ve bir Gönder düğmesi oluşturur.</span><span class="sxs-lookup"><span data-stu-id="63790-191">Creates text boxes for name and message text, and a submit button.</span></span>
-  * <span data-ttu-id="63790-192">İçeren bir liste oluşturur `id="messagesList"` SignalR hub'ından alınan iletileri görüntülemek için.</span><span class="sxs-lookup"><span data-stu-id="63790-192">Creates a list with `id="messagesList"` for displaying messages that are received from the SignalR hub.</span></span>
-  * <span data-ttu-id="63790-193">SignalR için komut dosyası başvuruları içerir ve *chat.js* sonraki adımda oluşturduğunuz uygulama kodu.</span><span class="sxs-lookup"><span data-stu-id="63790-193">Includes script references to SignalR and the *chat.js* application code that you create in the next step.</span></span>
+  * <span data-ttu-id="a7a29-191">Metin kutuları için adı ve ileti metni ve bir Gönder düğmesi oluşturur.</span><span class="sxs-lookup"><span data-stu-id="a7a29-191">Creates text boxes for name and message text, and a submit button.</span></span>
+  * <span data-ttu-id="a7a29-192">İçeren bir liste oluşturur `id="messagesList"` SignalR hub'ından alınan iletileri görüntülemek için.</span><span class="sxs-lookup"><span data-stu-id="a7a29-192">Creates a list with `id="messagesList"` for displaying messages that are received from the SignalR hub.</span></span>
+  * <span data-ttu-id="a7a29-193">SignalR için komut dosyası başvuruları içerir ve *chat.js* sonraki adımda oluşturduğunuz uygulama kodu.</span><span class="sxs-lookup"><span data-stu-id="a7a29-193">Includes script references to SignalR and the *chat.js* application code that you create in the next step.</span></span>
 
-* <span data-ttu-id="63790-194">İçinde *wwwroot/js* klasör oluşturma bir *chat.js* dosyasındaki kodu aşağıdaki kodla:</span><span class="sxs-lookup"><span data-stu-id="63790-194">In the *wwwroot/js* folder, create a *chat.js* file with the following code:</span></span>
+* <span data-ttu-id="a7a29-194">İçinde *wwwroot/js* klasör oluşturma bir *chat.js* dosyasındaki kodu aşağıdaki kodla:</span><span class="sxs-lookup"><span data-stu-id="a7a29-194">In the *wwwroot/js* folder, create a *chat.js* file with the following code:</span></span>
 
   [!code-javascript[Index](signalr/sample/wwwroot/js/chat.js)]
 
-  <span data-ttu-id="63790-195">Yukarıdaki kod:</span><span class="sxs-lookup"><span data-stu-id="63790-195">The preceding code:</span></span>
+  <span data-ttu-id="a7a29-195">Yukarıdaki kod:</span><span class="sxs-lookup"><span data-stu-id="a7a29-195">The preceding code:</span></span>
 
-  * <span data-ttu-id="63790-196">Oluşturur ve bir bağlantı başlatır.</span><span class="sxs-lookup"><span data-stu-id="63790-196">Creates and starts a connection.</span></span>
-  * <span data-ttu-id="63790-197">Gönder düğmesine hub'a iletiler gönderen bir işleyici ekler.</span><span class="sxs-lookup"><span data-stu-id="63790-197">Adds to the submit button a handler that sends messages to the hub.</span></span>
-  * <span data-ttu-id="63790-198">Bağlantı nesnesi için hub'ından iletiler alan ve bunları listeye ekler bir işleyici ekler.</span><span class="sxs-lookup"><span data-stu-id="63790-198">Adds to the connection object a handler that receives messages from the hub and adds them to the list.</span></span>
+  * <span data-ttu-id="a7a29-196">Oluşturur ve bir bağlantı başlatır.</span><span class="sxs-lookup"><span data-stu-id="a7a29-196">Creates and starts a connection.</span></span>
+  * <span data-ttu-id="a7a29-197">Gönder düğmesine hub'a iletiler gönderen bir işleyici ekler.</span><span class="sxs-lookup"><span data-stu-id="a7a29-197">Adds to the submit button a handler that sends messages to the hub.</span></span>
+  * <span data-ttu-id="a7a29-198">Bağlantı nesnesi için hub'ından iletiler alan ve bunları listeye ekler bir işleyici ekler.</span><span class="sxs-lookup"><span data-stu-id="a7a29-198">Adds to the connection object a handler that receives messages from the hub and adds them to the list.</span></span>
 
-## <a name="run-the-app"></a><span data-ttu-id="63790-199">Uygulamayı çalıştırma</span><span class="sxs-lookup"><span data-stu-id="63790-199">Run the app</span></span>
+## <a name="run-the-app"></a><span data-ttu-id="a7a29-199">Uygulamayı çalıştırma</span><span class="sxs-lookup"><span data-stu-id="a7a29-199">Run the app</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="63790-200">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="63790-200">Visual Studio</span></span>](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="a7a29-200">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="a7a29-200">Visual Studio</span></span>](#tab/visual-studio)
 
-* <span data-ttu-id="63790-201">Tuşuna **CTRL + F5** uygulamayı hata ayıklama olmadan çalıştırmak için.</span><span class="sxs-lookup"><span data-stu-id="63790-201">Press **CTRL+F5** to run the app without debugging.</span></span>
+* <span data-ttu-id="a7a29-201">Tuşuna **CTRL + F5** uygulamayı hata ayıklama olmadan çalıştırmak için.</span><span class="sxs-lookup"><span data-stu-id="a7a29-201">Press **CTRL+F5** to run the app without debugging.</span></span>
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="63790-202">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="63790-202">Visual Studio Code</span></span>](#tab/visual-studio-code)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="a7a29-202">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="a7a29-202">Visual Studio Code</span></span>](#tab/visual-studio-code)
 
-* <span data-ttu-id="63790-203">Tuşuna **CTRL + F5** uygulamayı hata ayıklama olmadan çalıştırmak için.</span><span class="sxs-lookup"><span data-stu-id="63790-203">Press **CTRL+F5** to run the app without debugging.</span></span>
+* <span data-ttu-id="a7a29-203">Tuşuna **CTRL + F5** uygulamayı hata ayıklama olmadan çalıştırmak için.</span><span class="sxs-lookup"><span data-stu-id="a7a29-203">Press **CTRL+F5** to run the app without debugging.</span></span>
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="63790-204">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="63790-204">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="a7a29-204">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="a7a29-204">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
 
-* <span data-ttu-id="63790-205">Menüden **çalıştırın > hata ayıklama olmadan Başlat**.</span><span class="sxs-lookup"><span data-stu-id="63790-205">From the menu, select **Run > Start Without Debugging**.</span></span>
+* <span data-ttu-id="a7a29-205">Menüden **çalıştırın > hata ayıklama olmadan Başlat**.</span><span class="sxs-lookup"><span data-stu-id="a7a29-205">From the menu, select **Run > Start Without Debugging**.</span></span>
 
 ---
 
-* <span data-ttu-id="63790-206">Adres çubuğundan URL'yi kopyalayın, başka bir tarayıcı örneğinde veya sekmesi açın ve adres çubuğuna URL'yi yapıştırın.</span><span class="sxs-lookup"><span data-stu-id="63790-206">Copy the URL from the address bar, open another browser instance or tab, and paste the URL in the address bar.</span></span>
+* <span data-ttu-id="a7a29-206">Adres çubuğundan URL'yi kopyalayın, başka bir tarayıcı örneğinde veya sekmesi açın ve adres çubuğuna URL'yi yapıştırın.</span><span class="sxs-lookup"><span data-stu-id="a7a29-206">Copy the URL from the address bar, open another browser instance or tab, and paste the URL in the address bar.</span></span>
 
-* <span data-ttu-id="63790-207">Ya da tarayıcı seçin, bir ad ve ileti girin ve seçin **Gönder** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="63790-207">Choose either browser, enter a name and message, and select the **Send** button.</span></span>
+* <span data-ttu-id="a7a29-207">Ya da tarayıcı seçin, bir ad ve ileti girin ve seçin **Gönder** düğmesi.</span><span class="sxs-lookup"><span data-stu-id="a7a29-207">Choose either browser, enter a name and message, and select the **Send** button.</span></span>
 
-  <span data-ttu-id="63790-208">Her iki sayfalarında, adını ve iletisini anında görüntülenir.</span><span class="sxs-lookup"><span data-stu-id="63790-208">The name and message are displayed on both pages instantly.</span></span>
+  <span data-ttu-id="a7a29-208">Her iki sayfalarında, adını ve iletisini anında görüntülenir.</span><span class="sxs-lookup"><span data-stu-id="a7a29-208">The name and message are displayed on both pages instantly.</span></span>
 
   ![SignalR örnek uygulaması](signalr/_static/signalr-get-started-finished.png)
 
 > [!TIP]
-> <span data-ttu-id="63790-210">Uygulama işe yaramazsa, tarayıcı Geliştirici Araçları'nı (F12) açın ve konsoluna gidin.</span><span class="sxs-lookup"><span data-stu-id="63790-210">If the app doesn't work, open your browser developer tools (F12) and go to the console.</span></span> <span data-ttu-id="63790-211">HTML ve JavaScript kodunuza ilgili hatalar görebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="63790-211">You might see errors related to your HTML and JavaScript code.</span></span> <span data-ttu-id="63790-212">Örneğin, eklediğiniz varsayalım *signalr.js* yönlendirilmiş değerinden farklı bir klasöre.</span><span class="sxs-lookup"><span data-stu-id="63790-212">For example, suppose you put *signalr.js* in a different folder than directed.</span></span> <span data-ttu-id="63790-213">Bu durumda bu dosyaya başvuru çalışmaz ve bir 404 hatası konsolunda görürsünüz.</span><span class="sxs-lookup"><span data-stu-id="63790-213">In that case the reference to that file won't work and you'll see a 404 error in the console.</span></span>
-> <span data-ttu-id="63790-214">![signalr.js bulunamadı hatası](signalr/_static/f12-console.png)</span><span class="sxs-lookup"><span data-stu-id="63790-214">![signalr.js not found error](signalr/_static/f12-console.png)</span></span>
+> <span data-ttu-id="a7a29-210">Uygulama işe yaramazsa, tarayıcı Geliştirici Araçları'nı (F12) açın ve konsoluna gidin.</span><span class="sxs-lookup"><span data-stu-id="a7a29-210">If the app doesn't work, open your browser developer tools (F12) and go to the console.</span></span> <span data-ttu-id="a7a29-211">HTML ve JavaScript kodunuza ilgili hatalar görebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="a7a29-211">You might see errors related to your HTML and JavaScript code.</span></span> <span data-ttu-id="a7a29-212">Örneğin, eklediğiniz varsayalım *signalr.js* yönlendirilmiş değerinden farklı bir klasöre.</span><span class="sxs-lookup"><span data-stu-id="a7a29-212">For example, suppose you put *signalr.js* in a different folder than directed.</span></span> <span data-ttu-id="a7a29-213">Bu durumda bu dosyaya başvuru çalışmaz ve bir 404 hatası konsolunda görürsünüz.</span><span class="sxs-lookup"><span data-stu-id="a7a29-213">In that case the reference to that file won't work and you'll see a 404 error in the console.</span></span>
+> <span data-ttu-id="a7a29-214">![signalr.js bulunamadı hatası](signalr/_static/f12-console.png)</span><span class="sxs-lookup"><span data-stu-id="a7a29-214">![signalr.js not found error](signalr/_static/f12-console.png)</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="63790-215">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="63790-215">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="a7a29-215">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="a7a29-215">Next steps</span></span>
 
-<span data-ttu-id="63790-216">Bu öğreticide şunları öğrendiniz: nasıl yapılır:</span><span class="sxs-lookup"><span data-stu-id="63790-216">In this tutorial, you learned how to:</span></span>
+<span data-ttu-id="a7a29-216">Bu öğreticide şunları öğrendiniz: nasıl yapılır:</span><span class="sxs-lookup"><span data-stu-id="a7a29-216">In this tutorial, you learned how to:</span></span>
 
 > [!div class="checklist"]
-> * <span data-ttu-id="63790-217">Bir web uygulaması projesi oluşturun.</span><span class="sxs-lookup"><span data-stu-id="63790-217">Create a web app project.</span></span>
-> * <span data-ttu-id="63790-218">SignalR istemci kitaplığı ekleyin.</span><span class="sxs-lookup"><span data-stu-id="63790-218">Add the SignalR client library.</span></span>
-> * <span data-ttu-id="63790-219">Bir SignalR hub'ı oluşturun.</span><span class="sxs-lookup"><span data-stu-id="63790-219">Create a SignalR hub.</span></span>
-> * <span data-ttu-id="63790-220">Projeyi SignalR kullanacak şekilde yapılandırın.</span><span class="sxs-lookup"><span data-stu-id="63790-220">Configure the project to use SignalR.</span></span>
-> * <span data-ttu-id="63790-221">Bağlanan tüm istemciler için herhangi bir istemciden ileti göndermek için hub'ı kullanan kodu ekleyin.</span><span class="sxs-lookup"><span data-stu-id="63790-221">Add code that uses the hub to send messages from any client to all connected clients.</span></span>
+> * <span data-ttu-id="a7a29-217">Bir web uygulaması projesi oluşturun.</span><span class="sxs-lookup"><span data-stu-id="a7a29-217">Create a web app project.</span></span>
+> * <span data-ttu-id="a7a29-218">SignalR istemci kitaplığı ekleyin.</span><span class="sxs-lookup"><span data-stu-id="a7a29-218">Add the SignalR client library.</span></span>
+> * <span data-ttu-id="a7a29-219">Bir SignalR hub'ı oluşturun.</span><span class="sxs-lookup"><span data-stu-id="a7a29-219">Create a SignalR hub.</span></span>
+> * <span data-ttu-id="a7a29-220">Projeyi SignalR kullanacak şekilde yapılandırın.</span><span class="sxs-lookup"><span data-stu-id="a7a29-220">Configure the project to use SignalR.</span></span>
+> * <span data-ttu-id="a7a29-221">Bağlanan tüm istemciler için herhangi bir istemciden ileti göndermek için hub'ı kullanan kodu ekleyin.</span><span class="sxs-lookup"><span data-stu-id="a7a29-221">Add code that uses the hub to send messages from any client to all connected clients.</span></span>
 
-<span data-ttu-id="63790-222">SignalR hakkında daha fazla bilgi için girişine bakın:</span><span class="sxs-lookup"><span data-stu-id="63790-222">To learn more about SignalR, see the introduction:</span></span>
+<span data-ttu-id="a7a29-222">SignalR hakkında daha fazla bilgi için girişine bakın:</span><span class="sxs-lookup"><span data-stu-id="a7a29-222">To learn more about SignalR, see the introduction:</span></span>
 
 > [!div class="nextstepaction"]
-> [<span data-ttu-id="63790-223">ASP.NET Core signalr'a giriş</span><span class="sxs-lookup"><span data-stu-id="63790-223">Introduction to ASP.NET Core SignalR</span></span>](xref:signalr/introduction)
+> [<span data-ttu-id="a7a29-223">ASP.NET Core signalr'a giriş</span><span class="sxs-lookup"><span data-stu-id="a7a29-223">Introduction to ASP.NET Core SignalR</span></span>](xref:signalr/introduction)
