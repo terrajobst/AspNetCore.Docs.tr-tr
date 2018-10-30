@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: tutorials/razor-pages-vsc/razor-pages-start
-ms.openlocfilehash: 9ea66134c524a6a1a670d55bae4e66cf38a45274
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: f18d0a8b3ce24c9844b02f8a0b6360f7e1b1bdb7
+ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50089858"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50244859"
 ---
 # <a name="get-started-with-aspnet-core-razor-pages-in-visual-studio-code"></a>Visual Studio code'da ASP.NET Core Razor sayfaları kullanmaya başlama
 
@@ -65,7 +65,7 @@ Visual Studio Code'dan (VS Code), seçin **Dosya > Klasör Aç**ve ardından *Ra
 
 ### <a name="launch-the-app"></a>Uygulamayı başlatın
 
-Hata ayıklama olmadan uygulamayı başlatmak için CTRL + F5 tuşlarına basın. Alternatif olarak, gelen **hata ayıklama** menüsünde **hata ayıklama olmadan Başlat**.
+Gelen **hata ayıklama** menüsünde **hata ayıklama olmadan Başlat**. Alternatif olarak, menü seçeneğinin yanında görüntülenen klavye kısayoluna basabilirsiniz. Bu kısayol, işletim sisteminize bağlı olarak değişir.
 
 Sonraki öğreticide, projeye bir model ekleyeceğiz. 
 

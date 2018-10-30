@@ -6,18 +6,29 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/01/2018
 uid: fundamentals/routing
-ms.openlocfilehash: 06059d720bd4444b1ec12e42d466ee54d1658203
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: a014782ba503bc8bd0fdefb4cb4f382aa8fde4cd
+ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207762"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50244976"
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET Core yönlendirme
 
 Tarafından [Ryan Nowak](https://github.com/rynowak), [Steve Smith](https://ardalis.com/), ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Yönlendirme işlevini, gelen bir istek için bir rota işleyiciye eşleme sorumludur. Yollar uygulamada tanımlı ve uygulama başlatıldığında yapılandırılmış. Bir rota isteğe bağlı olarak istekte bulunan URL'den değerleri ayıklayabilir ve bu değerler daha sonra istek işleme için kullanılabilir. Uygulamadan rota bilgilerini kullanarak, yönlendirme de rota işleyicilerine eşleyen URL üretmek için bir işlevdir. Bu nedenle, yönlendirme URL'sini temel alarak bir rota işleyiciye bulabilir, veya rota işleyicisi bilgilerini temel alarak bir belirtilen rota işleyiciye karşılık gelen URL bulun.
+
+Çoğu uygulama, URL'leri okunaklı ve anlamlı olacak şekilde basit ve açıklayıcı bir yönlendirme düzeni seçmeniz gerekir. Varsayılan geleneksel yolu `{controller=Home}/{action=Index}/{id?}`:
+
+* Temel ve açıklayıcı bir yönlendirme düzenini destekler:
+* İyi bir başlangıç noktası tarayıcılar tarafından kullanılmak üzere tasarlanmış web uygulamaları için olan.
+
+Özel durumlarda (örneğin, blog, e-ticaret) uygulamasının yüksek trafik alanlarına ek kısa yollar eklemek için ortak olan kullanarak [öznitelik yönlendirme](xref:mvc/controllers/routing#attribute-routing) veya Geleneksel rotaları dedicated.
+
+Web API'leri öznitelik yönlendirme uygulamanın işlevselliğini bir kaynak kümesi olarak model için işlemleri burada HTTP fiilleri tarafından temsil edilir kullanmanız gerekir. Başka bir deyişle, aynı mantıksal kaynak üzerinde birçok işlemler (örneğin, GET, POST) aynı URL'yi kullanır. Öznitelik yönlendirmeyi dikkatli bir şekilde bir API uygulamasının URL'si alanı tasarımı için gereken denetim düzeyi sağlar.
+
+MVC'nin URL oluşturma desteği, uygulamayı birbirine bağlamak için URL'leri Sabit kodlama olmadan geliştirilecek okumasına izin verir. Bu, temel bir yönlendirme yapılandırmayla başlatma ve uygulamanın şekli belirlendikten sonra yolları değiştirme sağlar.
 
 > [!IMPORTANT]
 > Bu belge, alt düzey ASP.NET Core yönlendirme kapsar. ASP.NET Core MVC yönlendirme hakkında daha fazla bilgi için bkz: <xref:mvc/controllers/routing>.

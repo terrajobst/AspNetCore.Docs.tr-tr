@@ -8,12 +8,12 @@ ms.date: 10/17/2013
 ms.assetid: 08815768-2702-42ae-ae85-0a59934a11d1
 msc.legacyurl: /visual-studio/overview/2013/release-notes
 msc.type: authoredcontent
-ms.openlocfilehash: 44ab88b61a96235da27ff41d6b649bfd7fce3e38
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 43878bc101ef97e8bbb6c150f4125707da7660c9
+ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41757025"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50244963"
 ---
 <a name="aspnet-and-web-tools-for-visual-studio-2013-release-notes"></a>ASP.NET ve Web Araçları Visual Studio 2013 sürüm notları
 ====================
@@ -574,7 +574,7 @@ Yeni özellikler ve Entity Framework 6 diğer değişiklikler listesi için bkz.
 
 ASP.NET Razor 3, aşağıdaki yeni özellikler içerir:
 
-- İçin sekmesinde düzenleme desteği. Preivously, **belgeyi Biçimlendir** komutu, otomatik girintileme ve biçimlendirme Visual Studio'da otomatik çalışmadığı doğru kullanırken **sekmeleri tut** seçeneği. Bu değişiklik, Visual Studio için sekmesinde biçimlendirme Razor kodu biçimlendirme düzeltir.
+- İçin sekmesinde düzenleme desteği. Daha önce **belgeyi Biçimlendir** komutu, otomatik girintileme ve biçimlendirme Visual Studio'da otomatik çalışmadığı doğru kullanırken **sekmeleri tut** seçeneği. Bu değişiklik, Visual Studio için sekmesinde biçimlendirme Razor kodu biçimlendirme düzeltir.
 - Bağlantılar oluşturulurken URL yeniden yazma kuralları için destek.
 - Saydam güvenlik özniteliğine kaldırılması.
   > [!NOTE]

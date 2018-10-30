@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/27/2017
 uid: tutorials/razor-pages-vsc/model
-ms.openlocfilehash: b891b921baf1fe6d167c7bfb8b4c5278ce9fe9f5
-ms.sourcegitcommit: 847cc1de5526ff42a7303491e6336c2dbdb45de4
+ms.openlocfilehash: c4aef369bb3965b70d1b461cf63e6f5a26a00628
+ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43055870"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50244729"
 ---
 # <a name="add-a-model-to-an-aspnet-core-razor-pages-app-with-visual-studio-code"></a>Visual Studio Code ile ASP.NET Core Razor sayfalar uygulama için model ekleme
 
@@ -35,7 +35,13 @@ Komut satırından aşağıdaki .NET Core CLI komutunu çalıştırın:
 dotnet add package Microsoft.EntityFrameworkCore.SQLite
 ```
 
-[!code-csharp[](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Startup.cs?name=snippet_ConfigureServices2&highlight=3-4)]
+<a name="reg"></a>
+
+### <a name="register-the-database-context"></a>Veritabanı bağlamı Kaydet
+
+Veritabanı bağlamı ile kaydetme [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısında *Startup.cs* dosya.
+
+[!code-csharp[](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Startup.cs?name=snippet_ConfigureServices2&highlight=10-11)]
 
 Aşağıdaki `using` deyimleri en üstündeki *Startup.cs*:
 
@@ -46,45 +52,24 @@ using Microsoft.EntityFrameworkCore;
 
 Herhangi bir hata yoksa doğrulamak için projeyi derleyin.
 
-### <a name="entity-framework-core-nuget-packages-for-migrations"></a>Geçişler için Entity Framework Core NuGet paketleri
-
-EF Araçları komut satırı arabirimi (CLI) için sağlanan [Microsoft.EntityFrameworkCore.Tools.DotNet](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools.DotNet). Bu paketi yüklemek için eklemeniz `DotNetCliToolReference` koleksiyonda *.csproj* dosya. **Not:** düzenleyerek bu paketi yüklemek sahip olduğunuz *.csproj* dosya; kullanamazsınız `install-package` komut veya Paket Yöneticisi GUI.
-
-Düzen *RazorPagesMovie.csproj* dosyası:
-
-* Seçin **dosya** > **açık dosya**ve ardından *RazorPagesMovie.csproj* dosya.
-* Aracı başvurusunu eklemek `Microsoft.EntityFrameworkCore.Tools.DotNet` ikinci  **\<ItemGroup >**:
-
-[!code-xml[](../../tutorials/razor-pages/razor-pages-start/snapshot_cli_sample/RazorPagesMovie/RazorPagesMovie.cli.csproj)]
-
 [!INCLUDE [model 3](../../includes/RP/model3.md)]
 
 <a name="scaffold"></a>
+
 ### <a name="scaffold-the-movie-model"></a>Film modeli iskelesini
 
 * Proje dizininde bir komut penceresi açın (içeren dizine *Program.cs*, *Startup.cs*, ve *.csproj* dosyaları).
-* Şu komutu çalıştırın:
-
-**Not: Windows üzerinde aşağıdaki komutu çalıştırın. Sonraki komut, MacOS ve Linux için bkz.**
+* **Windows için**: aşağıdaki komutu çalıştırın:
 
   ```console
   dotnet aspnet-codegenerator razorpage -m Movie -dc MovieContext -udl -outDir Pages\Movies --referenceScriptLibraries
   ```
 
-* MacOS ve Linux üzerinde aşağıdaki komutu çalıştırın:
+* **MacOS ve Linux için**: aşağıdaki komutu çalıştırın:
 
   ```console
   dotnet aspnet-codegenerator razorpage -m Movie -dc MovieContext -udl -outDir Pages/Movies --referenceScriptLibraries
   ```
-
-Hatası alırsanız:
-  ```
-  The process cannot access the file 
- 'RazorPagesMovie/bin/Debug/netcoreapp2.0/RazorPagesMovie.dll' 
-  because it is being used by another process.
-  ```
-
-Visual Studio çıkın ve komutu yeniden çalıştırın.
 
 [!INCLUDE [model 4](../../includes/RP/model4.md)]
 

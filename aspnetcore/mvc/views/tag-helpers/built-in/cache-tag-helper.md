@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/10/2018
 uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
-ms.openlocfilehash: 2590682755721a4bb14902b9fe7138a3bff56d31
-ms.sourcegitcommit: 54655f1e1abf0b64d19506334d94cfdb0caf55f6
+ms.openlocfilehash: fb69584f6e9d4756e175bbd6f3deb1f413b80fc5
+ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50148817"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50244820"
 ---
 # <a name="cache-tag-helper-in-aspnet-core-mvc"></a>Önbellek etiketi Yardımcısı, ASP.NET Core MVC
 
@@ -135,7 +135,7 @@ Aşağıdaki örnek değerleri izler `Make` ve `Model`. Bu örnek için içerikl
 | -------------- | -------------------- |
 | Dize         | `Make`, `Make,Model` |
 
-`vary-by-route` Rota veri parametre değeri değiştiğinde bir önbellek yenileme tetikleyen üstbilgi değerlerini virgülle ayrılmış listesini kabul eder.
+`vary-by-route` Rota veri parametre değeri değiştiğinde bir önbellek yenileme tetikleyen rota parametre adlarının virgülle ayrılmış listesini kabul eder.
 
 Örnek:
 
@@ -161,7 +161,7 @@ routes.MapRoute(
 | -------------- | -------------------------------------------------------------------------------- |
 | Dize         | `.AspNetCore.Identity.Application`, `.AspNetCore.Identity.Application,HairColor` |
 
-`vary-by-cookie` Önbellek yenileme üstbilgi değerleri değiştiğinde tetikleyen üstbilgi değerlerini virgülle ayrılmış listesini kabul eder.
+`vary-by-cookie` tanımlama bilgisi değerleri değiştiğinde önbelleği yenileme tetiklemek tanımlama bilgisi adlarının virgülle ayrılmış listesini kabul eder.
 
 Aşağıdaki örnek, ASP.NET Core kimliği ile ilişkili tanımlama izler. Bir kullanıcının kimliği doğrulandığında, kimlik tanımlama değişikliği bir önbellek yenileme tetikleyen:
 
