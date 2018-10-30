@@ -6,40 +6,40 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/10/2018
 uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
-ms.openlocfilehash: 2590682755721a4bb14902b9fe7138a3bff56d31
-ms.sourcegitcommit: 54655f1e1abf0b64d19506334d94cfdb0caf55f6
+ms.openlocfilehash: fb69584f6e9d4756e175bbd6f3deb1f413b80fc5
+ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50148817"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50244820"
 ---
-# <a name="cache-tag-helper-in-aspnet-core-mvc"></a><span data-ttu-id="f3bf7-103">Önbellek etiketi Yardımcısı, ASP.NET Core MVC</span><span class="sxs-lookup"><span data-stu-id="f3bf7-103">Cache Tag Helper in ASP.NET Core MVC</span></span>
+# <a name="cache-tag-helper-in-aspnet-core-mvc"></a><span data-ttu-id="5e331-103">Önbellek etiketi Yardımcısı, ASP.NET Core MVC</span><span class="sxs-lookup"><span data-stu-id="5e331-103">Cache Tag Helper in ASP.NET Core MVC</span></span>
 
-<span data-ttu-id="f3bf7-104">Tarafından [Peter Kellner](http://peterkellner.net) ve [Luke Latham](https://github.com/guardrex)</span><span class="sxs-lookup"><span data-stu-id="f3bf7-104">By [Peter Kellner](http://peterkellner.net) and [Luke Latham](https://github.com/guardrex)</span></span> 
+<span data-ttu-id="5e331-104">Tarafından [Peter Kellner](http://peterkellner.net) ve [Luke Latham](https://github.com/guardrex)</span><span class="sxs-lookup"><span data-stu-id="5e331-104">By [Peter Kellner](http://peterkellner.net) and [Luke Latham](https://github.com/guardrex)</span></span> 
 
-<span data-ttu-id="f3bf7-105">Önbellek etiketi Yardımcısı iç ASP.NET Core önbelleği sağlayıcısı için içeriği önbelleğe alarak ASP.NET Core uygulamanızı performansını olanağı sağlar.</span><span class="sxs-lookup"><span data-stu-id="f3bf7-105">The Cache Tag Helper provides the ability to improve the performance of your ASP.NET Core app by caching its content to the internal ASP.NET Core cache provider.</span></span>
+<span data-ttu-id="5e331-105">Önbellek etiketi Yardımcısı iç ASP.NET Core önbelleği sağlayıcısı için içeriği önbelleğe alarak ASP.NET Core uygulamanızı performansını olanağı sağlar.</span><span class="sxs-lookup"><span data-stu-id="5e331-105">The Cache Tag Helper provides the ability to improve the performance of your ASP.NET Core app by caching its content to the internal ASP.NET Core cache provider.</span></span>
 
-<span data-ttu-id="f3bf7-106">Etiket Yardımcıları genel bakış için bkz. <xref:mvc/views/tag-helpers/intro>.</span><span class="sxs-lookup"><span data-stu-id="f3bf7-106">For an overview of Tag Helpers, see <xref:mvc/views/tag-helpers/intro>.</span></span>
+<span data-ttu-id="5e331-106">Etiket Yardımcıları genel bakış için bkz. <xref:mvc/views/tag-helpers/intro>.</span><span class="sxs-lookup"><span data-stu-id="5e331-106">For an overview of Tag Helpers, see <xref:mvc/views/tag-helpers/intro>.</span></span>
 
-<span data-ttu-id="f3bf7-107">Aşağıdaki Razor biçimlendirme, geçerli tarihi önbelleğe alır:</span><span class="sxs-lookup"><span data-stu-id="f3bf7-107">The following Razor markup caches the current date:</span></span>
+<span data-ttu-id="5e331-107">Aşağıdaki Razor biçimlendirme, geçerli tarihi önbelleğe alır:</span><span class="sxs-lookup"><span data-stu-id="5e331-107">The following Razor markup caches the current date:</span></span>
 
 ```cshtml
 <cache>@DateTime.Now</cache>
 ```
 
-<span data-ttu-id="f3bf7-108">Etiket Yardımcısını içeren sayfasında ilk isteği, geçerli tarihi görüntüler.</span><span class="sxs-lookup"><span data-stu-id="f3bf7-108">The first request to the page that contains the Tag Helper displays the current date.</span></span> <span data-ttu-id="f3bf7-109">(Varsayılan 20 dakika) önbelleğe süresi dolana kadar veya önbellekten önbelleğe alınan tarih veriler çıkarıldığında kadar ek isteklerin önbelleğe alınan değeri gösterilir.</span><span class="sxs-lookup"><span data-stu-id="f3bf7-109">Additional requests show the cached value until the cache expires (default 20 minutes) or until the cached date is evicted from the cache.</span></span>
+<span data-ttu-id="5e331-108">Etiket Yardımcısını içeren sayfasında ilk isteği, geçerli tarihi görüntüler.</span><span class="sxs-lookup"><span data-stu-id="5e331-108">The first request to the page that contains the Tag Helper displays the current date.</span></span> <span data-ttu-id="5e331-109">(Varsayılan 20 dakika) önbelleğe süresi dolana kadar veya önbellekten önbelleğe alınan tarih veriler çıkarıldığında kadar ek isteklerin önbelleğe alınan değeri gösterilir.</span><span class="sxs-lookup"><span data-stu-id="5e331-109">Additional requests show the cached value until the cache expires (default 20 minutes) or until the cached date is evicted from the cache.</span></span>
 
-## <a name="cache-tag-helper-attributes"></a><span data-ttu-id="f3bf7-110">Önbellek etiketi Yardımcısı öznitelikleri</span><span class="sxs-lookup"><span data-stu-id="f3bf7-110">Cache Tag Helper Attributes</span></span>
+## <a name="cache-tag-helper-attributes"></a><span data-ttu-id="5e331-110">Önbellek etiketi Yardımcısı öznitelikleri</span><span class="sxs-lookup"><span data-stu-id="5e331-110">Cache Tag Helper Attributes</span></span>
 
-### <a name="enabled"></a><span data-ttu-id="f3bf7-111">Etkin</span><span class="sxs-lookup"><span data-stu-id="f3bf7-111">enabled</span></span>
+### <a name="enabled"></a><span data-ttu-id="5e331-111">Etkin</span><span class="sxs-lookup"><span data-stu-id="5e331-111">enabled</span></span>
 
-| <span data-ttu-id="f3bf7-112">Öznitelik türü</span><span class="sxs-lookup"><span data-stu-id="f3bf7-112">Attribute Type</span></span>  | <span data-ttu-id="f3bf7-113">Örnekler</span><span class="sxs-lookup"><span data-stu-id="f3bf7-113">Examples</span></span>        | <span data-ttu-id="f3bf7-114">Varsayılan</span><span class="sxs-lookup"><span data-stu-id="f3bf7-114">Default</span></span> |
+| <span data-ttu-id="5e331-112">Öznitelik türü</span><span class="sxs-lookup"><span data-stu-id="5e331-112">Attribute Type</span></span>  | <span data-ttu-id="5e331-113">Örnekler</span><span class="sxs-lookup"><span data-stu-id="5e331-113">Examples</span></span>        | <span data-ttu-id="5e331-114">Varsayılan</span><span class="sxs-lookup"><span data-stu-id="5e331-114">Default</span></span> |
 | --------------- | --------------- | ------- |
-| <span data-ttu-id="f3bf7-115">Boole değeri</span><span class="sxs-lookup"><span data-stu-id="f3bf7-115">Boolean</span></span>         | <span data-ttu-id="f3bf7-116">`true`, `false`</span><span class="sxs-lookup"><span data-stu-id="f3bf7-116">`true`, `false`</span></span> | `true`  |
+| <span data-ttu-id="5e331-115">Boole değeri</span><span class="sxs-lookup"><span data-stu-id="5e331-115">Boolean</span></span>         | <span data-ttu-id="5e331-116">`true`, `false`</span><span class="sxs-lookup"><span data-stu-id="5e331-116">`true`, `false`</span></span> | `true`  |
 
-<span data-ttu-id="f3bf7-117">`enabled` Önbellek etiketi Yardımcısı tarafından alınmış içeriği önbelleğe alınmış belirler.</span><span class="sxs-lookup"><span data-stu-id="f3bf7-117">`enabled` determines if the content enclosed by the Cache Tag Helper is cached.</span></span> <span data-ttu-id="f3bf7-118">Varsayılan, `true` değeridir.</span><span class="sxs-lookup"><span data-stu-id="f3bf7-118">The default is `true`.</span></span> <span data-ttu-id="f3bf7-119">Varsa kümesine `false`, işlenmiş çıktı **değil** önbelleğe alınmış.</span><span class="sxs-lookup"><span data-stu-id="f3bf7-119">If set to `false`, the rendered output is **not** cached.</span></span>
+<span data-ttu-id="5e331-117">`enabled` Önbellek etiketi Yardımcısı tarafından alınmış içeriği önbelleğe alınmış belirler.</span><span class="sxs-lookup"><span data-stu-id="5e331-117">`enabled` determines if the content enclosed by the Cache Tag Helper is cached.</span></span> <span data-ttu-id="5e331-118">Varsayılan, `true` değeridir.</span><span class="sxs-lookup"><span data-stu-id="5e331-118">The default is `true`.</span></span> <span data-ttu-id="5e331-119">Varsa kümesine `false`, işlenmiş çıktı **değil** önbelleğe alınmış.</span><span class="sxs-lookup"><span data-stu-id="5e331-119">If set to `false`, the rendered output is **not** cached.</span></span>
 
-<span data-ttu-id="f3bf7-120">Örnek:</span><span class="sxs-lookup"><span data-stu-id="f3bf7-120">Example:</span></span>
+<span data-ttu-id="5e331-120">Örnek:</span><span class="sxs-lookup"><span data-stu-id="5e331-120">Example:</span></span>
 
 ```cshtml
 <cache enabled="true">
@@ -47,15 +47,15 @@ ms.locfileid: "50148817"
 </cache>
 ```
 
-### <a name="expires-on"></a><span data-ttu-id="f3bf7-121">süresi dolmadan açma</span><span class="sxs-lookup"><span data-stu-id="f3bf7-121">expires-on</span></span>
+### <a name="expires-on"></a><span data-ttu-id="5e331-121">süresi dolmadan açma</span><span class="sxs-lookup"><span data-stu-id="5e331-121">expires-on</span></span>
 
-| <span data-ttu-id="f3bf7-122">Öznitelik türü</span><span class="sxs-lookup"><span data-stu-id="f3bf7-122">Attribute Type</span></span>   | <span data-ttu-id="f3bf7-123">Örnek</span><span class="sxs-lookup"><span data-stu-id="f3bf7-123">Example</span></span>                            |
+| <span data-ttu-id="5e331-122">Öznitelik türü</span><span class="sxs-lookup"><span data-stu-id="5e331-122">Attribute Type</span></span>   | <span data-ttu-id="5e331-123">Örnek</span><span class="sxs-lookup"><span data-stu-id="5e331-123">Example</span></span>                            |
 | ---------------- | ---------------------------------- |
 | `DateTimeOffset` | `@new DateTime(2025,1,29,17,02,0)` |
 
-<span data-ttu-id="f3bf7-124">`expires-on` önbelleğe alınan öğe için bir mutlak sona erme tarihi ayarlar.</span><span class="sxs-lookup"><span data-stu-id="f3bf7-124">`expires-on` sets an absolute expiration date for the cached item.</span></span>
+<span data-ttu-id="5e331-124">`expires-on` önbelleğe alınan öğe için bir mutlak sona erme tarihi ayarlar.</span><span class="sxs-lookup"><span data-stu-id="5e331-124">`expires-on` sets an absolute expiration date for the cached item.</span></span>
 
-<span data-ttu-id="f3bf7-125">Aşağıdaki örnek, 17:02:00 29 Ocak 2025 üzerinde kadar önbellek etiketi Yardımcısı içeriğini önbelleğe alır:</span><span class="sxs-lookup"><span data-stu-id="f3bf7-125">The following example caches the contents of the Cache Tag Helper until 5:02 PM on January 29, 2025:</span></span>
+<span data-ttu-id="5e331-125">Aşağıdaki örnek, 17:02:00 29 Ocak 2025 üzerinde kadar önbellek etiketi Yardımcısı içeriğini önbelleğe alır:</span><span class="sxs-lookup"><span data-stu-id="5e331-125">The following example caches the contents of the Cache Tag Helper until 5:02 PM on January 29, 2025:</span></span>
 
 ```cshtml
 <cache expires-on="@new DateTime(2025,1,29,17,02,0)">
@@ -63,15 +63,15 @@ ms.locfileid: "50148817"
 </cache>
 ```
 
-### <a name="expires-after"></a><span data-ttu-id="f3bf7-126">süresi dolduktan sonra</span><span class="sxs-lookup"><span data-stu-id="f3bf7-126">expires-after</span></span>
+### <a name="expires-after"></a><span data-ttu-id="5e331-126">süresi dolduktan sonra</span><span class="sxs-lookup"><span data-stu-id="5e331-126">expires-after</span></span>
 
-| <span data-ttu-id="f3bf7-127">Öznitelik türü</span><span class="sxs-lookup"><span data-stu-id="f3bf7-127">Attribute Type</span></span> | <span data-ttu-id="f3bf7-128">Örnek</span><span class="sxs-lookup"><span data-stu-id="f3bf7-128">Example</span></span>                      | <span data-ttu-id="f3bf7-129">Varsayılan</span><span class="sxs-lookup"><span data-stu-id="f3bf7-129">Default</span></span>    |
+| <span data-ttu-id="5e331-127">Öznitelik türü</span><span class="sxs-lookup"><span data-stu-id="5e331-127">Attribute Type</span></span> | <span data-ttu-id="5e331-128">Örnek</span><span class="sxs-lookup"><span data-stu-id="5e331-128">Example</span></span>                      | <span data-ttu-id="5e331-129">Varsayılan</span><span class="sxs-lookup"><span data-stu-id="5e331-129">Default</span></span>    |
 | -------------- | ---------------------------- | ---------- |
-| `TimeSpan`     | `@TimeSpan.FromSeconds(120)` | <span data-ttu-id="f3bf7-130">20 dakika</span><span class="sxs-lookup"><span data-stu-id="f3bf7-130">20 minutes</span></span> |
+| `TimeSpan`     | `@TimeSpan.FromSeconds(120)` | <span data-ttu-id="5e331-130">20 dakika</span><span class="sxs-lookup"><span data-stu-id="5e331-130">20 minutes</span></span> |
 
-<span data-ttu-id="f3bf7-131">`expires-after` İçeriği önbelleğe almak için ilk isteği zamanından sürenin uzunluğunu ayarlar.</span><span class="sxs-lookup"><span data-stu-id="f3bf7-131">`expires-after` sets the length of time from the first request time to cache the contents.</span></span>
+<span data-ttu-id="5e331-131">`expires-after` İçeriği önbelleğe almak için ilk isteği zamanından sürenin uzunluğunu ayarlar.</span><span class="sxs-lookup"><span data-stu-id="5e331-131">`expires-after` sets the length of time from the first request time to cache the contents.</span></span>
 
-<span data-ttu-id="f3bf7-132">Örnek:</span><span class="sxs-lookup"><span data-stu-id="f3bf7-132">Example:</span></span>
+<span data-ttu-id="5e331-132">Örnek:</span><span class="sxs-lookup"><span data-stu-id="5e331-132">Example:</span></span>
 
 ```cshtml
 <cache expires-after="@TimeSpan.FromSeconds(120)">
@@ -79,17 +79,17 @@ ms.locfileid: "50148817"
 </cache>
 ```
 
-<span data-ttu-id="f3bf7-133">Razor görüntüleme motorunu varsayılan ayarlar `expires-after` yirmi dakika değeri.</span><span class="sxs-lookup"><span data-stu-id="f3bf7-133">The Razor View Engine sets the default `expires-after` value to twenty minutes.</span></span>
+<span data-ttu-id="5e331-133">Razor görüntüleme motorunu varsayılan ayarlar `expires-after` yirmi dakika değeri.</span><span class="sxs-lookup"><span data-stu-id="5e331-133">The Razor View Engine sets the default `expires-after` value to twenty minutes.</span></span>
 
-### <a name="expires-sliding"></a><span data-ttu-id="f3bf7-134">süresi dolmadan kayan</span><span class="sxs-lookup"><span data-stu-id="f3bf7-134">expires-sliding</span></span>
+### <a name="expires-sliding"></a><span data-ttu-id="5e331-134">süresi dolmadan kayan</span><span class="sxs-lookup"><span data-stu-id="5e331-134">expires-sliding</span></span>
 
-| <span data-ttu-id="f3bf7-135">Öznitelik türü</span><span class="sxs-lookup"><span data-stu-id="f3bf7-135">Attribute Type</span></span> | <span data-ttu-id="f3bf7-136">Örnek</span><span class="sxs-lookup"><span data-stu-id="f3bf7-136">Example</span></span>                     |
+| <span data-ttu-id="5e331-135">Öznitelik türü</span><span class="sxs-lookup"><span data-stu-id="5e331-135">Attribute Type</span></span> | <span data-ttu-id="5e331-136">Örnek</span><span class="sxs-lookup"><span data-stu-id="5e331-136">Example</span></span>                     |
 | -------------- | --------------------------- |
 | `TimeSpan`     | `@TimeSpan.FromSeconds(60)` |
 
-<span data-ttu-id="f3bf7-137">Değerini erişilmeyen, önbellek girişi çıkarılacak süreyi ayarlar.</span><span class="sxs-lookup"><span data-stu-id="f3bf7-137">Sets the time that a cache entry should be evicted if its value hasn't been accessed.</span></span>
+<span data-ttu-id="5e331-137">Değerini erişilmeyen, önbellek girişi çıkarılacak süreyi ayarlar.</span><span class="sxs-lookup"><span data-stu-id="5e331-137">Sets the time that a cache entry should be evicted if its value hasn't been accessed.</span></span>
 
-<span data-ttu-id="f3bf7-138">Örnek:</span><span class="sxs-lookup"><span data-stu-id="f3bf7-138">Example:</span></span>
+<span data-ttu-id="5e331-138">Örnek:</span><span class="sxs-lookup"><span data-stu-id="5e331-138">Example:</span></span>
 
 ```cshtml
 <cache expires-sliding="@TimeSpan.FromSeconds(60)">
@@ -97,15 +97,15 @@ ms.locfileid: "50148817"
 </cache>
 ```
 
-### <a name="vary-by-header"></a><span data-ttu-id="f3bf7-139">Vary-tarafından-üstbilgisi</span><span class="sxs-lookup"><span data-stu-id="f3bf7-139">vary-by-header</span></span>
+### <a name="vary-by-header"></a><span data-ttu-id="5e331-139">Vary-tarafından-üstbilgisi</span><span class="sxs-lookup"><span data-stu-id="5e331-139">vary-by-header</span></span>
 
-| <span data-ttu-id="f3bf7-140">Öznitelik türü</span><span class="sxs-lookup"><span data-stu-id="f3bf7-140">Attribute Type</span></span> | <span data-ttu-id="f3bf7-141">Örnekler</span><span class="sxs-lookup"><span data-stu-id="f3bf7-141">Examples</span></span>                                    |
+| <span data-ttu-id="5e331-140">Öznitelik türü</span><span class="sxs-lookup"><span data-stu-id="5e331-140">Attribute Type</span></span> | <span data-ttu-id="5e331-141">Örnekler</span><span class="sxs-lookup"><span data-stu-id="5e331-141">Examples</span></span>                                    |
 | -------------- | ------------------------------------------- |
-| <span data-ttu-id="f3bf7-142">Dize</span><span class="sxs-lookup"><span data-stu-id="f3bf7-142">String</span></span>         | <span data-ttu-id="f3bf7-143">`User-Agent`, `User-Agent,content-encoding`</span><span class="sxs-lookup"><span data-stu-id="f3bf7-143">`User-Agent`, `User-Agent,content-encoding`</span></span> |
+| <span data-ttu-id="5e331-142">Dize</span><span class="sxs-lookup"><span data-stu-id="5e331-142">String</span></span>         | <span data-ttu-id="5e331-143">`User-Agent`, `User-Agent,content-encoding`</span><span class="sxs-lookup"><span data-stu-id="5e331-143">`User-Agent`, `User-Agent,content-encoding`</span></span> |
 
-<span data-ttu-id="f3bf7-144">`vary-by-header` Bunlar değiştirdiğinizde, önbellek yenileme tetiklemek üstbilgi değerlerini virgülle ayrılmış listesini kabul eder.</span><span class="sxs-lookup"><span data-stu-id="f3bf7-144">`vary-by-header` accepts a comma-delimited list of header values that trigger a cache refresh when they change.</span></span>
+<span data-ttu-id="5e331-144">`vary-by-header` Bunlar değiştirdiğinizde, önbellek yenileme tetiklemek üstbilgi değerlerini virgülle ayrılmış listesini kabul eder.</span><span class="sxs-lookup"><span data-stu-id="5e331-144">`vary-by-header` accepts a comma-delimited list of header values that trigger a cache refresh when they change.</span></span>
 
-<span data-ttu-id="f3bf7-145">Aşağıdaki örnekte üst bilgi değeri izler `User-Agent`.</span><span class="sxs-lookup"><span data-stu-id="f3bf7-145">The following example monitors the header value `User-Agent`.</span></span> <span data-ttu-id="f3bf7-146">Bu örnek için içerikleri önbelleğe alan her farklı `User-Agent` web sunucusuna sunulur:</span><span class="sxs-lookup"><span data-stu-id="f3bf7-146">The example caches the content for every different `User-Agent` presented to the web server:</span></span>
+<span data-ttu-id="5e331-145">Aşağıdaki örnekte üst bilgi değeri izler `User-Agent`.</span><span class="sxs-lookup"><span data-stu-id="5e331-145">The following example monitors the header value `User-Agent`.</span></span> <span data-ttu-id="5e331-146">Bu örnek için içerikleri önbelleğe alan her farklı `User-Agent` web sunucusuna sunulur:</span><span class="sxs-lookup"><span data-stu-id="5e331-146">The example caches the content for every different `User-Agent` presented to the web server:</span></span>
 
 ```cshtml
 <cache vary-by-header="User-Agent">
@@ -113,15 +113,15 @@ ms.locfileid: "50148817"
 </cache>
 ```
 
-### <a name="vary-by-query"></a><span data-ttu-id="f3bf7-147">farklı-tarafından-sorgu</span><span class="sxs-lookup"><span data-stu-id="f3bf7-147">vary-by-query</span></span>
+### <a name="vary-by-query"></a><span data-ttu-id="5e331-147">farklı-tarafından-sorgu</span><span class="sxs-lookup"><span data-stu-id="5e331-147">vary-by-query</span></span>
 
-| <span data-ttu-id="f3bf7-148">Öznitelik türü</span><span class="sxs-lookup"><span data-stu-id="f3bf7-148">Attribute Type</span></span> | <span data-ttu-id="f3bf7-149">Örnekler</span><span class="sxs-lookup"><span data-stu-id="f3bf7-149">Examples</span></span>             |
+| <span data-ttu-id="5e331-148">Öznitelik türü</span><span class="sxs-lookup"><span data-stu-id="5e331-148">Attribute Type</span></span> | <span data-ttu-id="5e331-149">Örnekler</span><span class="sxs-lookup"><span data-stu-id="5e331-149">Examples</span></span>             |
 | -------------- | -------------------- |
-| <span data-ttu-id="f3bf7-150">Dize</span><span class="sxs-lookup"><span data-stu-id="f3bf7-150">String</span></span>         | <span data-ttu-id="f3bf7-151">`Make`, `Make,Model`</span><span class="sxs-lookup"><span data-stu-id="f3bf7-151">`Make`, `Make,Model`</span></span> |
+| <span data-ttu-id="5e331-150">Dize</span><span class="sxs-lookup"><span data-stu-id="5e331-150">String</span></span>         | <span data-ttu-id="5e331-151">`Make`, `Make,Model`</span><span class="sxs-lookup"><span data-stu-id="5e331-151">`Make`, `Make,Model`</span></span> |
 
-<span data-ttu-id="f3bf7-152">`vary-by-query` bir virgülle ayrılmış listesini kabul eder <xref:Microsoft.AspNetCore.Http.IQueryCollection.Keys*> bir sorgu dizesinde (<xref:Microsoft.AspNetCore.Http.HttpRequest.Query*>), tetikleme önbellek yenileme herhangi bir değerini listelenen anahtar değişiklikler.</span><span class="sxs-lookup"><span data-stu-id="f3bf7-152">`vary-by-query` accepts a comma-delimited list of <xref:Microsoft.AspNetCore.Http.IQueryCollection.Keys*> in a query string (<xref:Microsoft.AspNetCore.Http.HttpRequest.Query*>) that trigger a cache refresh when the value of any listed key changes.</span></span>
+<span data-ttu-id="5e331-152">`vary-by-query` bir virgülle ayrılmış listesini kabul eder <xref:Microsoft.AspNetCore.Http.IQueryCollection.Keys*> bir sorgu dizesinde (<xref:Microsoft.AspNetCore.Http.HttpRequest.Query*>), tetikleme önbellek yenileme herhangi bir değerini listelenen anahtar değişiklikler.</span><span class="sxs-lookup"><span data-stu-id="5e331-152">`vary-by-query` accepts a comma-delimited list of <xref:Microsoft.AspNetCore.Http.IQueryCollection.Keys*> in a query string (<xref:Microsoft.AspNetCore.Http.HttpRequest.Query*>) that trigger a cache refresh when the value of any listed key changes.</span></span>
 
-<span data-ttu-id="f3bf7-153">Aşağıdaki örnek değerleri izler `Make` ve `Model`.</span><span class="sxs-lookup"><span data-stu-id="f3bf7-153">The following example monitors the values of `Make` and `Model`.</span></span> <span data-ttu-id="f3bf7-154">Bu örnek için içerikleri önbelleğe alan her farklı `Make` ve `Model` web sunucusuna sunulur:</span><span class="sxs-lookup"><span data-stu-id="f3bf7-154">The example caches the content for every different `Make` and `Model` presented to the web server:</span></span>
+<span data-ttu-id="5e331-153">Aşağıdaki örnek değerleri izler `Make` ve `Model`.</span><span class="sxs-lookup"><span data-stu-id="5e331-153">The following example monitors the values of `Make` and `Model`.</span></span> <span data-ttu-id="5e331-154">Bu örnek için içerikleri önbelleğe alan her farklı `Make` ve `Model` web sunucusuna sunulur:</span><span class="sxs-lookup"><span data-stu-id="5e331-154">The example caches the content for every different `Make` and `Model` presented to the web server:</span></span>
 
 ```cshtml
 <cache vary-by-query="Make,Model">
@@ -129,17 +129,17 @@ ms.locfileid: "50148817"
 </cache>
 ```
 
-### <a name="vary-by-route"></a><span data-ttu-id="f3bf7-155">farklı-tarafından-route</span><span class="sxs-lookup"><span data-stu-id="f3bf7-155">vary-by-route</span></span>
+### <a name="vary-by-route"></a><span data-ttu-id="5e331-155">farklı-tarafından-route</span><span class="sxs-lookup"><span data-stu-id="5e331-155">vary-by-route</span></span>
 
-| <span data-ttu-id="f3bf7-156">Öznitelik türü</span><span class="sxs-lookup"><span data-stu-id="f3bf7-156">Attribute Type</span></span> | <span data-ttu-id="f3bf7-157">Örnekler</span><span class="sxs-lookup"><span data-stu-id="f3bf7-157">Examples</span></span>             |
+| <span data-ttu-id="5e331-156">Öznitelik türü</span><span class="sxs-lookup"><span data-stu-id="5e331-156">Attribute Type</span></span> | <span data-ttu-id="5e331-157">Örnekler</span><span class="sxs-lookup"><span data-stu-id="5e331-157">Examples</span></span>             |
 | -------------- | -------------------- |
-| <span data-ttu-id="f3bf7-158">Dize</span><span class="sxs-lookup"><span data-stu-id="f3bf7-158">String</span></span>         | <span data-ttu-id="f3bf7-159">`Make`, `Make,Model`</span><span class="sxs-lookup"><span data-stu-id="f3bf7-159">`Make`, `Make,Model`</span></span> |
+| <span data-ttu-id="5e331-158">Dize</span><span class="sxs-lookup"><span data-stu-id="5e331-158">String</span></span>         | <span data-ttu-id="5e331-159">`Make`, `Make,Model`</span><span class="sxs-lookup"><span data-stu-id="5e331-159">`Make`, `Make,Model`</span></span> |
 
-<span data-ttu-id="f3bf7-160">`vary-by-route` Rota veri parametre değeri değiştiğinde bir önbellek yenileme tetikleyen üstbilgi değerlerini virgülle ayrılmış listesini kabul eder.</span><span class="sxs-lookup"><span data-stu-id="f3bf7-160">`vary-by-route` accepts a comma-delimited list of header values that trigger a cache refresh when the route data parameter value changes.</span></span>
+<span data-ttu-id="5e331-160">`vary-by-route` Rota veri parametre değeri değiştiğinde bir önbellek yenileme tetikleyen rota parametre adlarının virgülle ayrılmış listesini kabul eder.</span><span class="sxs-lookup"><span data-stu-id="5e331-160">`vary-by-route` accepts a comma-delimited list of route parameter names that trigger a cache refresh when the route data parameter value changes.</span></span>
 
-<span data-ttu-id="f3bf7-161">Örnek:</span><span class="sxs-lookup"><span data-stu-id="f3bf7-161">Example:</span></span>
+<span data-ttu-id="5e331-161">Örnek:</span><span class="sxs-lookup"><span data-stu-id="5e331-161">Example:</span></span>
 
-<span data-ttu-id="f3bf7-162">*Startup.cs*:</span><span class="sxs-lookup"><span data-stu-id="f3bf7-162">*Startup.cs*:</span></span>
+<span data-ttu-id="5e331-162">*Startup.cs*:</span><span class="sxs-lookup"><span data-stu-id="5e331-162">*Startup.cs*:</span></span>
 
 ```csharp
 routes.MapRoute(
@@ -147,7 +147,7 @@ routes.MapRoute(
     template: "{controller=Home}/{action=Index}/{Make?}/{Model?}");
 ```
 
-<span data-ttu-id="f3bf7-163">*Index.cshtml*:</span><span class="sxs-lookup"><span data-stu-id="f3bf7-163">*Index.cshtml*:</span></span>
+<span data-ttu-id="5e331-163">*Index.cshtml*:</span><span class="sxs-lookup"><span data-stu-id="5e331-163">*Index.cshtml*:</span></span>
 
 ```cshtml
 <cache vary-by-route="Make,Model">
@@ -155,15 +155,15 @@ routes.MapRoute(
 </cache>
 ```
 
-### <a name="vary-by-cookie"></a><span data-ttu-id="f3bf7-164">farklı-tarafından-tanımlama bilgisi</span><span class="sxs-lookup"><span data-stu-id="f3bf7-164">vary-by-cookie</span></span>
+### <a name="vary-by-cookie"></a><span data-ttu-id="5e331-164">farklı-tarafından-tanımlama bilgisi</span><span class="sxs-lookup"><span data-stu-id="5e331-164">vary-by-cookie</span></span>
 
-| <span data-ttu-id="f3bf7-165">Öznitelik türü</span><span class="sxs-lookup"><span data-stu-id="f3bf7-165">Attribute Type</span></span> | <span data-ttu-id="f3bf7-166">Örnekler</span><span class="sxs-lookup"><span data-stu-id="f3bf7-166">Examples</span></span>                                                                         |
+| <span data-ttu-id="5e331-165">Öznitelik türü</span><span class="sxs-lookup"><span data-stu-id="5e331-165">Attribute Type</span></span> | <span data-ttu-id="5e331-166">Örnekler</span><span class="sxs-lookup"><span data-stu-id="5e331-166">Examples</span></span>                                                                         |
 | -------------- | -------------------------------------------------------------------------------- |
-| <span data-ttu-id="f3bf7-167">Dize</span><span class="sxs-lookup"><span data-stu-id="f3bf7-167">String</span></span>         | <span data-ttu-id="f3bf7-168">`.AspNetCore.Identity.Application`, `.AspNetCore.Identity.Application,HairColor`</span><span class="sxs-lookup"><span data-stu-id="f3bf7-168">`.AspNetCore.Identity.Application`, `.AspNetCore.Identity.Application,HairColor`</span></span> |
+| <span data-ttu-id="5e331-167">Dize</span><span class="sxs-lookup"><span data-stu-id="5e331-167">String</span></span>         | <span data-ttu-id="5e331-168">`.AspNetCore.Identity.Application`, `.AspNetCore.Identity.Application,HairColor`</span><span class="sxs-lookup"><span data-stu-id="5e331-168">`.AspNetCore.Identity.Application`, `.AspNetCore.Identity.Application,HairColor`</span></span> |
 
-<span data-ttu-id="f3bf7-169">`vary-by-cookie` Önbellek yenileme üstbilgi değerleri değiştiğinde tetikleyen üstbilgi değerlerini virgülle ayrılmış listesini kabul eder.</span><span class="sxs-lookup"><span data-stu-id="f3bf7-169">`vary-by-cookie` accepts a comma-delimited list of header values that trigger a cache refresh when the header values change.</span></span>
+<span data-ttu-id="5e331-169">`vary-by-cookie` tanımlama bilgisi değerleri değiştiğinde önbelleği yenileme tetiklemek tanımlama bilgisi adlarının virgülle ayrılmış listesini kabul eder.</span><span class="sxs-lookup"><span data-stu-id="5e331-169">`vary-by-cookie` accepts a comma-delimited list of cookie names that trigger a cache refresh when the cookie values change.</span></span>
 
-<span data-ttu-id="f3bf7-170">Aşağıdaki örnek, ASP.NET Core kimliği ile ilişkili tanımlama izler.</span><span class="sxs-lookup"><span data-stu-id="f3bf7-170">The following example monitors the cookie associated with ASP.NET Core Identity.</span></span> <span data-ttu-id="f3bf7-171">Bir kullanıcının kimliği doğrulandığında, kimlik tanımlama değişikliği bir önbellek yenileme tetikleyen:</span><span class="sxs-lookup"><span data-stu-id="f3bf7-171">When a user is authenticated, a change in the Identity cookie triggers a cache refresh:</span></span>
+<span data-ttu-id="5e331-170">Aşağıdaki örnek, ASP.NET Core kimliği ile ilişkili tanımlama izler.</span><span class="sxs-lookup"><span data-stu-id="5e331-170">The following example monitors the cookie associated with ASP.NET Core Identity.</span></span> <span data-ttu-id="5e331-171">Bir kullanıcının kimliği doğrulandığında, kimlik tanımlama değişikliği bir önbellek yenileme tetikleyen:</span><span class="sxs-lookup"><span data-stu-id="5e331-171">When a user is authenticated, a change in the Identity cookie triggers a cache refresh:</span></span>
 
 ```cshtml
 <cache vary-by-cookie=".AspNetCore.Identity.Application">
@@ -171,15 +171,15 @@ routes.MapRoute(
 </cache>
 ```
 
-### <a name="vary-by-user"></a><span data-ttu-id="f3bf7-172">farklı kullanıcı tarafından</span><span class="sxs-lookup"><span data-stu-id="f3bf7-172">vary-by-user</span></span>
+### <a name="vary-by-user"></a><span data-ttu-id="5e331-172">farklı kullanıcı tarafından</span><span class="sxs-lookup"><span data-stu-id="5e331-172">vary-by-user</span></span>
 
-| <span data-ttu-id="f3bf7-173">Öznitelik türü</span><span class="sxs-lookup"><span data-stu-id="f3bf7-173">Attribute Type</span></span>  | <span data-ttu-id="f3bf7-174">Örnekler</span><span class="sxs-lookup"><span data-stu-id="f3bf7-174">Examples</span></span>        | <span data-ttu-id="f3bf7-175">Varsayılan</span><span class="sxs-lookup"><span data-stu-id="f3bf7-175">Default</span></span> |
+| <span data-ttu-id="5e331-173">Öznitelik türü</span><span class="sxs-lookup"><span data-stu-id="5e331-173">Attribute Type</span></span>  | <span data-ttu-id="5e331-174">Örnekler</span><span class="sxs-lookup"><span data-stu-id="5e331-174">Examples</span></span>        | <span data-ttu-id="5e331-175">Varsayılan</span><span class="sxs-lookup"><span data-stu-id="5e331-175">Default</span></span> |
 | --------------- | --------------- | ------- |
-| <span data-ttu-id="f3bf7-176">Boole değeri</span><span class="sxs-lookup"><span data-stu-id="f3bf7-176">Boolean</span></span>         | <span data-ttu-id="f3bf7-177">`true`, `false`</span><span class="sxs-lookup"><span data-stu-id="f3bf7-177">`true`, `false`</span></span> | `true`  |
+| <span data-ttu-id="5e331-176">Boole değeri</span><span class="sxs-lookup"><span data-stu-id="5e331-176">Boolean</span></span>         | <span data-ttu-id="5e331-177">`true`, `false`</span><span class="sxs-lookup"><span data-stu-id="5e331-177">`true`, `false`</span></span> | `true`  |
 
-<span data-ttu-id="f3bf7-178">`vary-by-user` oturum açmış kullanıcı (veya bağlam sorumlusu) değiştiğinde önbelleği sıfırlar olup olmadığını belirtir.</span><span class="sxs-lookup"><span data-stu-id="f3bf7-178">`vary-by-user` specifies whether or not the cache resets when the signed-in user (or Context Principal) changes.</span></span> <span data-ttu-id="f3bf7-179">Geçerli kullanıcı olarak da bilinen istek bağlamı sorumlusu ve bir Razor Görünümü'nde başvurarak görüntülenebilir `@User.Identity.Name`.</span><span class="sxs-lookup"><span data-stu-id="f3bf7-179">The current user is also known as the Request Context Principal and can be viewed in a Razor view by referencing `@User.Identity.Name`.</span></span>
+<span data-ttu-id="5e331-178">`vary-by-user` oturum açmış kullanıcı (veya bağlam sorumlusu) değiştiğinde önbelleği sıfırlar olup olmadığını belirtir.</span><span class="sxs-lookup"><span data-stu-id="5e331-178">`vary-by-user` specifies whether or not the cache resets when the signed-in user (or Context Principal) changes.</span></span> <span data-ttu-id="5e331-179">Geçerli kullanıcı olarak da bilinen istek bağlamı sorumlusu ve bir Razor Görünümü'nde başvurarak görüntülenebilir `@User.Identity.Name`.</span><span class="sxs-lookup"><span data-stu-id="5e331-179">The current user is also known as the Request Context Principal and can be viewed in a Razor view by referencing `@User.Identity.Name`.</span></span>
 
-<span data-ttu-id="f3bf7-180">Aşağıdaki örnek, geçerli bir önbellek yenileme tetiklemek için kullanıcı oturum izler:</span><span class="sxs-lookup"><span data-stu-id="f3bf7-180">The following example monitors the current logged in user to trigger a cache refresh:</span></span>
+<span data-ttu-id="5e331-180">Aşağıdaki örnek, geçerli bir önbellek yenileme tetiklemek için kullanıcı oturum izler:</span><span class="sxs-lookup"><span data-stu-id="5e331-180">The following example monitors the current logged in user to trigger a cache refresh:</span></span>
 
 ```cshtml
 <cache vary-by-user="true">
@@ -187,19 +187,19 @@ routes.MapRoute(
 </cache>
 ```
 
-<span data-ttu-id="f3bf7-181">Bu özniteliği kullanarak içerikleri önbellekte aracılığıyla bir oturum açma ve oturum kapatma döngüsü tutar.</span><span class="sxs-lookup"><span data-stu-id="f3bf7-181">Using this attribute maintains the contents in cache through a sign-in and sign-out cycle.</span></span> <span data-ttu-id="f3bf7-182">Değer ayarlandığında `true`, önbellek kimliği doğrulanmış kullanıcı için bir kimlik doğrulama döngüsü geçersiz kılar.</span><span class="sxs-lookup"><span data-stu-id="f3bf7-182">When the value is set to `true`, an authentication cycle invalidates the cache for the authenticated user.</span></span> <span data-ttu-id="f3bf7-183">Yeni bir benzersiz tanımlama bilgisi değeri, bir kullanıcının kimliği doğrulandığında oluşturulmuş olduğu için önbellek geçersiz kılınır.</span><span class="sxs-lookup"><span data-stu-id="f3bf7-183">The cache is invalidated because a new unique cookie value is generated when a user is authenticated.</span></span> <span data-ttu-id="f3bf7-184">Önbellek anonim durumu için tanımlama bilgisi mevcut olduğunda veya tanımlama bilgisinin doldu korunur.</span><span class="sxs-lookup"><span data-stu-id="f3bf7-184">Cache is maintained for the anonymous state when no cookie is present or the cookie has expired.</span></span> <span data-ttu-id="f3bf7-185">Kullanıcı, **değil** kimliği doğrulanmış ve önbellek korunur.</span><span class="sxs-lookup"><span data-stu-id="f3bf7-185">If the user is **not** authenticated, the cache is maintained.</span></span>
+<span data-ttu-id="5e331-181">Bu özniteliği kullanarak içerikleri önbellekte aracılığıyla bir oturum açma ve oturum kapatma döngüsü tutar.</span><span class="sxs-lookup"><span data-stu-id="5e331-181">Using this attribute maintains the contents in cache through a sign-in and sign-out cycle.</span></span> <span data-ttu-id="5e331-182">Değer ayarlandığında `true`, önbellek kimliği doğrulanmış kullanıcı için bir kimlik doğrulama döngüsü geçersiz kılar.</span><span class="sxs-lookup"><span data-stu-id="5e331-182">When the value is set to `true`, an authentication cycle invalidates the cache for the authenticated user.</span></span> <span data-ttu-id="5e331-183">Yeni bir benzersiz tanımlama bilgisi değeri, bir kullanıcının kimliği doğrulandığında oluşturulmuş olduğu için önbellek geçersiz kılınır.</span><span class="sxs-lookup"><span data-stu-id="5e331-183">The cache is invalidated because a new unique cookie value is generated when a user is authenticated.</span></span> <span data-ttu-id="5e331-184">Önbellek anonim durumu için tanımlama bilgisi mevcut olduğunda veya tanımlama bilgisinin doldu korunur.</span><span class="sxs-lookup"><span data-stu-id="5e331-184">Cache is maintained for the anonymous state when no cookie is present or the cookie has expired.</span></span> <span data-ttu-id="5e331-185">Kullanıcı, **değil** kimliği doğrulanmış ve önbellek korunur.</span><span class="sxs-lookup"><span data-stu-id="5e331-185">If the user is **not** authenticated, the cache is maintained.</span></span>
 
-### <a name="vary-by"></a><span data-ttu-id="f3bf7-186">değişiklik tarafından</span><span class="sxs-lookup"><span data-stu-id="f3bf7-186">vary-by</span></span>
+### <a name="vary-by"></a><span data-ttu-id="5e331-186">değişiklik tarafından</span><span class="sxs-lookup"><span data-stu-id="5e331-186">vary-by</span></span>
 
-| <span data-ttu-id="f3bf7-187">Öznitelik türü</span><span class="sxs-lookup"><span data-stu-id="f3bf7-187">Attribute Type</span></span> | <span data-ttu-id="f3bf7-188">Örnek</span><span class="sxs-lookup"><span data-stu-id="f3bf7-188">Example</span></span>  |
+| <span data-ttu-id="5e331-187">Öznitelik türü</span><span class="sxs-lookup"><span data-stu-id="5e331-187">Attribute Type</span></span> | <span data-ttu-id="5e331-188">Örnek</span><span class="sxs-lookup"><span data-stu-id="5e331-188">Example</span></span>  |
 | -------------- | -------- |
-| <span data-ttu-id="f3bf7-189">Dize</span><span class="sxs-lookup"><span data-stu-id="f3bf7-189">String</span></span>         | `@Model` |
+| <span data-ttu-id="5e331-189">Dize</span><span class="sxs-lookup"><span data-stu-id="5e331-189">String</span></span>         | `@Model` |
 
-<span data-ttu-id="f3bf7-190">`vary-by` hangi verilerin önbelleğe alınmış bir özelleştirme için sağlar.</span><span class="sxs-lookup"><span data-stu-id="f3bf7-190">`vary-by` allows for customization of what data is cached.</span></span> <span data-ttu-id="f3bf7-191">Önbellek etiketi Yardımcısı içeriğini özniteliğin dize değeri değiştiğinde tarafından başvurulan nesne güncelleştirildiğinde.</span><span class="sxs-lookup"><span data-stu-id="f3bf7-191">When the object referenced by the attribute's string value changes, the content of the Cache Tag Helper is updated.</span></span> <span data-ttu-id="f3bf7-192">Genellikle, model değerlerinin dize birleştirme bu özniteliğe atanır.</span><span class="sxs-lookup"><span data-stu-id="f3bf7-192">Often, a string-concatenation of model values are assigned to this attribute.</span></span> <span data-ttu-id="f3bf7-193">Etkili bir şekilde, burada önbellek nesnelerindeki değerleri herhangi bir güncelleştirme geçersiz kılar bir senaryoda sonuçlanır.</span><span class="sxs-lookup"><span data-stu-id="f3bf7-193">Effectively, this results in a scenario where an update to any of the concatenated values invalidates the cache.</span></span>
+<span data-ttu-id="5e331-190">`vary-by` hangi verilerin önbelleğe alınmış bir özelleştirme için sağlar.</span><span class="sxs-lookup"><span data-stu-id="5e331-190">`vary-by` allows for customization of what data is cached.</span></span> <span data-ttu-id="5e331-191">Önbellek etiketi Yardımcısı içeriğini özniteliğin dize değeri değiştiğinde tarafından başvurulan nesne güncelleştirildiğinde.</span><span class="sxs-lookup"><span data-stu-id="5e331-191">When the object referenced by the attribute's string value changes, the content of the Cache Tag Helper is updated.</span></span> <span data-ttu-id="5e331-192">Genellikle, model değerlerinin dize birleştirme bu özniteliğe atanır.</span><span class="sxs-lookup"><span data-stu-id="5e331-192">Often, a string-concatenation of model values are assigned to this attribute.</span></span> <span data-ttu-id="5e331-193">Etkili bir şekilde, burada önbellek nesnelerindeki değerleri herhangi bir güncelleştirme geçersiz kılar bir senaryoda sonuçlanır.</span><span class="sxs-lookup"><span data-stu-id="5e331-193">Effectively, this results in a scenario where an update to any of the concatenated values invalidates the cache.</span></span>
 
-<span data-ttu-id="f3bf7-194">Aşağıdaki örnek iki yol parametreleri, tamsayı değeri görünümü SUM'ları oluşturma denetleyici yöntemi varsayar `myParam1` ve `myParam2`ve tek bir model özelliği olarak toplamını döndürür.</span><span class="sxs-lookup"><span data-stu-id="f3bf7-194">The following example assumes the controller method rendering the view sums the integer value of the two route parameters, `myParam1` and `myParam2`, and returns the sum as the single model property.</span></span> <span data-ttu-id="f3bf7-195">Bu toplam değiştiğinde, önbellek etiketi Yardımcısı içeriğini oluşturulur ve tekrar önbelleğe alınmış.</span><span class="sxs-lookup"><span data-stu-id="f3bf7-195">When this sum changes, the content of the Cache Tag Helper is rendered and cached again.</span></span>  
+<span data-ttu-id="5e331-194">Aşağıdaki örnek iki yol parametreleri, tamsayı değeri görünümü SUM'ları oluşturma denetleyici yöntemi varsayar `myParam1` ve `myParam2`ve tek bir model özelliği olarak toplamını döndürür.</span><span class="sxs-lookup"><span data-stu-id="5e331-194">The following example assumes the controller method rendering the view sums the integer value of the two route parameters, `myParam1` and `myParam2`, and returns the sum as the single model property.</span></span> <span data-ttu-id="5e331-195">Bu toplam değiştiğinde, önbellek etiketi Yardımcısı içeriğini oluşturulur ve tekrar önbelleğe alınmış.</span><span class="sxs-lookup"><span data-stu-id="5e331-195">When this sum changes, the content of the Cache Tag Helper is rendered and cached again.</span></span>  
 
-<span data-ttu-id="f3bf7-196">Eylem:</span><span class="sxs-lookup"><span data-stu-id="f3bf7-196">Action:</span></span>
+<span data-ttu-id="5e331-196">Eylem:</span><span class="sxs-lookup"><span data-stu-id="5e331-196">Action:</span></span>
 
 ```csharp
 public IActionResult Index(string myParam1, string myParam2, string myParam3)
@@ -212,7 +212,7 @@ public IActionResult Index(string myParam1, string myParam2, string myParam3)
 }
 ```
 
-<span data-ttu-id="f3bf7-197">*Index.cshtml*:</span><span class="sxs-lookup"><span data-stu-id="f3bf7-197">*Index.cshtml*:</span></span>
+<span data-ttu-id="5e331-197">*Index.cshtml*:</span><span class="sxs-lookup"><span data-stu-id="5e331-197">*Index.cshtml*:</span></span>
 
 ```cshtml
 <cache vary-by="@Model">
@@ -220,15 +220,15 @@ public IActionResult Index(string myParam1, string myParam2, string myParam3)
 </cache>
 ```
 
-### <a name="priority"></a><span data-ttu-id="f3bf7-198">önceliği</span><span class="sxs-lookup"><span data-stu-id="f3bf7-198">priority</span></span>
+### <a name="priority"></a><span data-ttu-id="5e331-198">önceliği</span><span class="sxs-lookup"><span data-stu-id="5e331-198">priority</span></span>
 
-| <span data-ttu-id="f3bf7-199">Öznitelik türü</span><span class="sxs-lookup"><span data-stu-id="f3bf7-199">Attribute Type</span></span>      | <span data-ttu-id="f3bf7-200">Örnekler</span><span class="sxs-lookup"><span data-stu-id="f3bf7-200">Examples</span></span>                               | <span data-ttu-id="f3bf7-201">Varsayılan</span><span class="sxs-lookup"><span data-stu-id="f3bf7-201">Default</span></span>  |
+| <span data-ttu-id="5e331-199">Öznitelik türü</span><span class="sxs-lookup"><span data-stu-id="5e331-199">Attribute Type</span></span>      | <span data-ttu-id="5e331-200">Örnekler</span><span class="sxs-lookup"><span data-stu-id="5e331-200">Examples</span></span>                               | <span data-ttu-id="5e331-201">Varsayılan</span><span class="sxs-lookup"><span data-stu-id="5e331-201">Default</span></span>  |
 | ------------------- | -------------------------------------- | -------- |
-| `CacheItemPriority` | <span data-ttu-id="f3bf7-202">`High`, `Low`, `NeverRemove`, `Normal`</span><span class="sxs-lookup"><span data-stu-id="f3bf7-202">`High`, `Low`, `NeverRemove`, `Normal`</span></span> | `Normal` |
+| `CacheItemPriority` | <span data-ttu-id="5e331-202">`High`, `Low`, `NeverRemove`, `Normal`</span><span class="sxs-lookup"><span data-stu-id="5e331-202">`High`, `Low`, `NeverRemove`, `Normal`</span></span> | `Normal` |
 
-<span data-ttu-id="f3bf7-203">`priority` Yerleşik önbelleği sağlayıcısı için önbellek çıkarma rehberlik sağlar.</span><span class="sxs-lookup"><span data-stu-id="f3bf7-203">`priority` provides cache eviction guidance to the built-in cache provider.</span></span> <span data-ttu-id="f3bf7-204">Web sunucusu çıkarır `Low` bellek baskısı altında olduğunda girişleri ilk önbellek.</span><span class="sxs-lookup"><span data-stu-id="f3bf7-204">The web server evicts `Low` cache entries first when it's under memory pressure.</span></span>
+<span data-ttu-id="5e331-203">`priority` Yerleşik önbelleği sağlayıcısı için önbellek çıkarma rehberlik sağlar.</span><span class="sxs-lookup"><span data-stu-id="5e331-203">`priority` provides cache eviction guidance to the built-in cache provider.</span></span> <span data-ttu-id="5e331-204">Web sunucusu çıkarır `Low` bellek baskısı altında olduğunda girişleri ilk önbellek.</span><span class="sxs-lookup"><span data-stu-id="5e331-204">The web server evicts `Low` cache entries first when it's under memory pressure.</span></span>
 
-<span data-ttu-id="f3bf7-205">Örnek:</span><span class="sxs-lookup"><span data-stu-id="f3bf7-205">Example:</span></span>
+<span data-ttu-id="5e331-205">Örnek:</span><span class="sxs-lookup"><span data-stu-id="5e331-205">Example:</span></span>
 
 ```cshtml
 <cache priority="High">
@@ -236,11 +236,11 @@ public IActionResult Index(string myParam1, string myParam2, string myParam3)
 </cache>
 ```
 
-<span data-ttu-id="f3bf7-206">`priority` Özniteliği, belirli bir önbellek bekletme düzeyini garanti etmez.</span><span class="sxs-lookup"><span data-stu-id="f3bf7-206">The `priority` attribute doesn't guarantee a specific level of cache retention.</span></span> <span data-ttu-id="f3bf7-207">`CacheItemPriority` yalnızca bir öneridir.</span><span class="sxs-lookup"><span data-stu-id="f3bf7-207">`CacheItemPriority` is only a suggestion.</span></span> <span data-ttu-id="f3bf7-208">Bu öznitelik ayarını `NeverRemove` önbelleğe alınmış öğeleri her zaman korunur garanti etmez.</span><span class="sxs-lookup"><span data-stu-id="f3bf7-208">Setting this attribute to `NeverRemove` doesn't guarantee that cached items are always retained.</span></span> <span data-ttu-id="f3bf7-209">Konular, bkz: [ek kaynaklar](#additional-resources) bölümünde daha fazla bilgi için.</span><span class="sxs-lookup"><span data-stu-id="f3bf7-209">See the topics in the [Additional Resources](#additional-resources) section for more information.</span></span>
+<span data-ttu-id="5e331-206">`priority` Özniteliği, belirli bir önbellek bekletme düzeyini garanti etmez.</span><span class="sxs-lookup"><span data-stu-id="5e331-206">The `priority` attribute doesn't guarantee a specific level of cache retention.</span></span> <span data-ttu-id="5e331-207">`CacheItemPriority` yalnızca bir öneridir.</span><span class="sxs-lookup"><span data-stu-id="5e331-207">`CacheItemPriority` is only a suggestion.</span></span> <span data-ttu-id="5e331-208">Bu öznitelik ayarını `NeverRemove` önbelleğe alınmış öğeleri her zaman korunur garanti etmez.</span><span class="sxs-lookup"><span data-stu-id="5e331-208">Setting this attribute to `NeverRemove` doesn't guarantee that cached items are always retained.</span></span> <span data-ttu-id="5e331-209">Konular, bkz: [ek kaynaklar](#additional-resources) bölümünde daha fazla bilgi için.</span><span class="sxs-lookup"><span data-stu-id="5e331-209">See the topics in the [Additional Resources](#additional-resources) section for more information.</span></span>
 
-<span data-ttu-id="f3bf7-210">Önbellek etiketi Yardımcısı bağlıdır [bellek önbellek hizmeti](xref:performance/caching/memory).</span><span class="sxs-lookup"><span data-stu-id="f3bf7-210">The Cache Tag Helper is dependent on the [memory cache service](xref:performance/caching/memory).</span></span> <span data-ttu-id="f3bf7-211">Önbellek etiketi Yardımcısı eklenmemiş olan hizmet ekler.</span><span class="sxs-lookup"><span data-stu-id="f3bf7-211">The Cache Tag Helper adds the service if it hasn't been added.</span></span>
+<span data-ttu-id="5e331-210">Önbellek etiketi Yardımcısı bağlıdır [bellek önbellek hizmeti](xref:performance/caching/memory).</span><span class="sxs-lookup"><span data-stu-id="5e331-210">The Cache Tag Helper is dependent on the [memory cache service](xref:performance/caching/memory).</span></span> <span data-ttu-id="5e331-211">Önbellek etiketi Yardımcısı eklenmemiş olan hizmet ekler.</span><span class="sxs-lookup"><span data-stu-id="5e331-211">The Cache Tag Helper adds the service if it hasn't been added.</span></span>
 
-## <a name="additional-resources"></a><span data-ttu-id="f3bf7-212">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="f3bf7-212">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="5e331-212">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="5e331-212">Additional resources</span></span>
 
 * <xref:performance/caching/memory>
 * <xref:security/authentication/identity>
