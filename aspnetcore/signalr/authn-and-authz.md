@@ -7,12 +7,12 @@ ms.author: anurse
 ms.custom: mvc
 ms.date: 06/29/2018
 uid: signalr/authn-and-authz
-ms.openlocfilehash: 31d5f753e043157caf43fa8df54e310ea0efd17b
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 7cfe90115b0710fba196693efd309f7c914f0ad4
+ms.sourcegitcommit: 2ef32676c16f76282f7c23154d13affce8c8bf35
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207946"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50234546"
 ---
 # <a name="authentication-and-authorization-in-aspnet-core-signalr"></a>Kimlik doğrulama ve yetkilendirme ASP.NET Core SignalR
 
@@ -28,11 +28,13 @@ SignalR ile kullanılabilir [ASP.NET Core kimlik doğrulaması](xref:security/au
 
 Tarayıcı tabanlı bir uygulama, SignalR bağlantıları için otomatik olarak akış için mevcut kullanıcı kimlik bilgilerinizi tanımlama bilgisi kimlik doğrulamasını sağlar. Tarayıcı istemcisi kullanılırken, hiçbir ek yapılandırma gerekmez. SignalR bağlantı, otomatik olarak kullanıcı uygulamanızda oturum açtıysa, bu kimlik doğrulaması devralır.
 
-Tanımlama bilgisi kimlik doğrulamasını, uygulama tarayıcı istemci kullanıcıların kimliğini doğrulamak yalnızca gerekmedikçe önerilmez. Kullanırken [.NET istemci](xref:signalr/dotnet-client), `Cookies` özelliği yapılandırılabilir `.WithUrl` çağrısı bir tanımlama bilgisi sağlamak için. Ancak, .NET istemci tanımlama bilgisi kimlik doğrulamasını kullanarak kimlik doğrulama verilerini bir tanımlama bilgisi gönderip almak için bir API sağlamak için uygulama gerektirir.
+Tanımlama bilgileri için erişim belirteçleri göndermek için tarayıcı özel yol olsa da, tarayıcı olmayan istemciler, bunları gönderebilirsiniz. Kullanırken [.NET istemci](xref:signalr/dotnet-client), `Cookies` özelliği yapılandırılabilir `.WithUrl` çağrısı bir tanımlama bilgisi sağlamak için. Ancak, .NET istemci tanımlama bilgisi kimlik doğrulamasını kullanarak kimlik doğrulama verilerini bir tanımlama bilgisi gönderip almak için bir API sağlamak için uygulama gerektirir.
 
 ### <a name="bearer-token-authentication"></a>Taşıyıcı belirteç kimlik doğrulaması
 
-Taşıyıcı belirteci kimlik doğrulaması için önerilen tarayıcı istemci dışındaki istemcilerin kullanırken yaklaşımdır. Bu yaklaşımda, istemci sunucunun doğrular ve kullanıcıyı tanımlamak için kullandığı bir erişim belirteci sağlar. Taşıyıcı belirteç kimlik doğrulaması ayrıntılar bu belgenin kapsamı dışındadır bulunur. Sunucuda, taşıyıcı belirteci kimlik doğrulaması kullanılarak yapılandırılan [JWT taşıyıcı ara yazılımı](/dotnet/api/microsoft.extensions.dependencyinjection.jwtbearerextensions.addjwtbearer).
+İstemci, bir tanımlama bilgisi kullanmak yerine bir erişim belirteci sağlayabilirsiniz. Sunucu belirteci doğrular ve kullanıcıyı tanımlamak için kullanır. Bağlantı kurulduğunda bu doğrulama gerçekleştirilir. Bağlantının ömrünü sırasında sunucunun otomatik olarak için belirteç iptali denetlemek için düzeltin değil.
+
+Sunucuda, taşıyıcı belirteci kimlik doğrulaması kullanılarak yapılandırılan [JWT taşıyıcı ara yazılımı](/dotnet/api/microsoft.extensions.dependencyinjection.jwtbearerextensions.addjwtbearer).
 
 JavaScript istemci kullanarak belirteci sağlanabilir [accessTokenFactory](xref:signalr/configuration#configure-bearer-authentication) seçeneği.
 
@@ -55,6 +57,10 @@ var connection = new HubConnectionBuilder()
 Standart web API'leri bir HTTP üst bilgisinde taşıyıcı belirteçleri gönderilir. Ancak, SignalR bazı taşımalar kullanırken tarayıcılarda bu üstbilgileri ayarlanacak silemiyor. WebSockets ve Server-Sent olaylarını kullanarak belirteci bir sorgu dizesi parametresi iletilir. Bu sunucuda desteklemek için ek yapılandırma gerekli değildir:
 
 [!code-csharp[Configure Server to accept access token from Query String](authn-and-authz/sample/Startup.cs?name=snippet)]
+
+### <a name="cookies-vs-bearer-tokens"></a>Taşıyıcı belirteçleri ve tanımlama bilgileri 
+
+Tanımlama bilgilerini tarayıcılar belirli olduğundan, diğer istemciler türlerindeki göndererek taşıyıcı belirteçleri göndermeyi karşılaştırıldığında karmaşıklığı ekler. Tarayıcı istemcisi kullanıcıların kimliğini doğrulamak uygulamayı yalnızca gerekmedikçe, bu nedenle, tanımlama bilgisi kimlik doğrulamasını önerilmez. Taşıyıcı belirteci kimlik doğrulaması için önerilen tarayıcı istemci dışındaki istemcilerin kullanırken yaklaşımdır.
 
 ### <a name="windows-authentication"></a>Windows kimlik doğrulaması
 

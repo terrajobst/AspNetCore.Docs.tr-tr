@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: efc71cc8d072769cde07e129b6d9bb933fc2f7af
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 7319fbbfe3e78e61526f9042b2b6004a351c2186
+ms.sourcegitcommit: 2ef32676c16f76282f7c23154d13affce8c8bf35
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090222"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50234624"
 ---
 # <a name="tag-helpers-in-forms-in-aspnet-core"></a>ASP.NET Core formlarda etiket Yardımcıları
 
@@ -245,8 +245,7 @@ Aşağıdaki Razor, bir koleksiyon üzerinde yinelemek gösterilmektedir:
 
 [!code-HTML[](working-with-forms/sample/final/Views/Shared/EditorTemplates/ToDoItem.cshtml)]
 
->[!NOTE]
->Her zaman `for` (ve *değil* `foreach`) bir liste üzerinde yineleme yapmak için. Değerlendirme bir dizin oluşturucu bir LINQ ifadesi, pahalı olabilir ve küçültülmesine.
+`foreach` mümkün olduğunda kullanılacak değer geçerken kullanılmalıdır bir `asp-for` veya `Html.DisplayFor` eşdeğer bağlamı. Genel olarak, `for` göre daha iyidir `foreach` (senaryo izin verirse) bir numaralandırıcı; ayırmak gerekmez çünkü ancak bir oluşturucuda bir LINQ ifadesini değerlendirme pahalı olabilir ve küçültülmesine.
 
 &nbsp;
 

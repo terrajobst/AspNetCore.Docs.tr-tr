@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.date: 09/10/2018
 uid: signalr/version-differences
-ms.openlocfilehash: 4ac7952f26500285fc1c8f9453feb3ea8b33851a
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 3cec37719b743b3c805ada77249f526278e44599
+ms.sourcegitcommit: 2ef32676c16f76282f7c23154d13affce8c8bf35
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50089837"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50234611"
 ---
 # <a name="differences-between-aspnet-signalr-and-aspnet-core-signalr"></a>ASP.NET SignalR ile ASP.NET Core SignalR arasındaki farklar
 
@@ -56,9 +56,9 @@ app.UseSignalR(routes =>
 });
 ```
 
-### <a name="sticky-sessions-now-required"></a>Artık gerekli Yapışkan oturumlar
+### <a name="sticky-sessions"></a>Yapışkan oturumlar
 
-Ölçek genişletme ASP.NET SignalR öğesinde nasıl çalışılan nedeniyle, istemciler yeniden ve gruptaki herhangi bir sunucuya ileti göndermek. Ölçek genişletme modeli, hem de yeniden bağlantılar desteklemediğinden değişiklikler nedeniyle, bu artık desteklenmiyor. İstemci, sunucuya bağlanır. sonra bağlantının süresi boyunca ile aynı sunucuya etkileşim kurmalıdır.
+ASP.NET SignalR ölçeğini genişletme modeli yeniden ve gruptaki herhangi bir sunucuya ileti gönderme etmesine olanak tanır. ASP.NET Core SignalR öğesinde, istemci ile aynı sunucuya bağlantı süresi boyunca etkileşim kurmalıdır. Redis kullanarak genişletme için Yapışkan oturumlar gerekli olduğu anlamına gelir. Genişletme kullanma [Azure SignalR hizmeti](/azure/azure-signalr/), Yapışkan oturumlar bulunmamaktır hizmet bağlantıları istemcilere hallettiğinden. 
 
 ### <a name="single-hub-per-connection"></a>Bağlantı başına tek bir hub
 

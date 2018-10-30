@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/17/2018
 uid: tutorials/first-web-api
-ms.openlocfilehash: 2694388324cdbd246aad6c88d8439171704dfe89
-ms.sourcegitcommit: 29dfe436f54a27fbb4f6494bc639d16c75001fab
+ms.openlocfilehash: 88d1958ce5c42d559754972a855c1ffe22ab45a6
+ms.sourcegitcommit: 2ef32676c16f76282f7c23154d13affce8c8bf35
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39722522"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50234585"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio"></a>ASP.NET Core ve Visual Studio ile Web API'si oluşturma
 
@@ -21,7 +21,7 @@ Bu öğreticide web API'si "Yapılacaklar" öğelerinin listesini yönetmek içi
 
 Bu öğretici üç sürümü vardır:
 
-* Windows: Web API (Bu öğreticide) Windows üzerinde Visual Studio
+* Windows: Web API Windows üzerinde Visual Studio (Bu öğretici, bkz: [videosu](https://www.youtube.com/watch?v=TTkhEyGBfAk))
 * macOS: [Mac için Visual Studio ile Web API](xref:tutorials/first-web-api-mac)
 * macOS, Linux, Windows: [Visual Studio Code ile Web API](xref:tutorials/web-api-vsc)
 

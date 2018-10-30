@@ -28,7 +28,7 @@ Başlık öğesinde `MvcMovie` için `Movie App`. Düzen şablonu bağlantı met
 
 ::: moniker range=">= aspnetcore-2.1"
 
-[!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout21.cshtml?highlight=7,31)]
+[!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout21.cshtml?highlight=6,29)]
 
 ::: moniker-end
 

@@ -11,4 +11,4 @@
 * [Denetleyici eylemlerine yönlendirme](xref:mvc/controllers/routing)
 * [Web API ASP.NET Core ile oluşturma](xref:web-api/index)
 * [Denetleyici eylemi dönüş türleri](xref:web-api/action-return-types)
-* [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-web-api/samples). Bkz: [nasıl indirileceğini](xref:tutorials/index#how-to-download-a-sample).
+* [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-web-api/samples). Bkz: [nasıl indirileceğini](xref:index#how-to-download-a-sample).
