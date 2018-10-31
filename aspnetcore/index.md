@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: index
-ms.openlocfilehash: fcd95b88b970073f4d7eddf89729683d18be449d
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 37448b1b3d0da4e3cb34b1cd51f663b7e53ddced
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090660"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207400"
 ---
 # <a name="introduction-to-aspnet-core"></a>ASP.NET Core’a Giriş
 
@@ -66,6 +66,14 @@ ASP.NET Core 2.x, .NET Standard 2.0 ile uyumlu .NET Framework sürümlerinde des
 * Açık kaynak
 
 .NET Framework ile .NET Core arasındaki API açığını kapatmak için çok çalışıyoruz. [Windows Uyumluluk Paketi](/dotnet/core/porting/windows-compat-pack), .NET Core'da yalnızca Windows'a yönelik binlerce API'yi kullanıma sunmaktadır. Bu API'ler .NET Core 1.x'te sağlanmamıştı.
+
+## <a name="how-to-download-a-sample"></a>Örnek indirme
+
+Çoğu makale ve öğretici örnek koda bağlantılar içerir.
+
+1. [ASP.NET depo zip dosyasını indirin](https://codeload.github.com/aspnet/Docs/zip/master).
+1. *Docs-master.zip* dosyasının sıkıştırmasını açın.
+1. Örnek dizinde gezinmek için örnek bağlantıdaki URL’yi kullanın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
