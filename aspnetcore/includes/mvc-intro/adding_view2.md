@@ -115,6 +115,6 @@ Verileri URL'den gerçekleştirilen ve denetleyicisi kullanarak geçirilen [MVC 
 
 ![Hoş Geldiniz etiket ve Hello dört kez gösterilen Rick ifadesini gösteren görünümü hakkında](~/tutorials/first-mvc-app/adding-view/_static/rick2.png)
 
-Yukarıdaki örnekte kullandık `ViewData` denetleyicisinden bir görünüme veri iletmek için Sözlük. Öğreticinin sonraki bölümlerinde bir denetleyiciden bir görünüme veri iletmek için bir görünüm modeli kullanacağız. Veri geçirme görünüm modeli yaklaşım genellikle çok tercih üzerinden `ViewData` sözlük yaklaşım. Bkz: [ViewModel vs ViewData vs ViewBag vs TempData vs MVC oturumunda](http://www.mytecbits.com/microsoft/dot-net/viewmodel-viewdata-viewbag-tempdata-mvc) daha fazla bilgi için.
+Yukarıdaki örnekte kullandık `ViewData` denetleyicisinden bir görünüme veri iletmek için Sözlük. Öğreticinin sonraki bölümlerinde bir denetleyiciden bir görünüme veri iletmek için bir görünüm modeli kullanacağız. Veri geçirme görünüm modeli yaklaşım genellikle çok tercih üzerinden `ViewData` sözlük yaklaşım. Bkz: [ViewBag, ViewData veya TempData kullanıldığı durumlar ](http://www.rachelappel.com/when-to-use-viewbag-viewdata-or-tempdata-in-asp-net-mvc-3-applications/) daha fazla bilgi için.
 
 İyi modeli, ancak veritabanı türü için "M" bir tür olan. Ne biz öğrendiniz ve film veritabanı oluşturma ele alalım.

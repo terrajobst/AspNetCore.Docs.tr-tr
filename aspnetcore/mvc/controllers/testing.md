@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/23/2018
 uid: mvc/controllers/testing
-ms.openlocfilehash: 18674f85a0cf8c6dfffa94a2160f7182752674f7
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 939a4b0162fad778f5f4717462074b9390542a50
+ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207998"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50253001"
 ---
 # <a name="test-controller-logic-in-aspnet-core"></a>ASP.NET Core denetleyicisi mantıksal test
 
@@ -182,7 +182,6 @@ Geçerli bir oturum için `id`, son testte, onaylar:
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* <xref:test/index>
 * <xref:test/integration-tests>
 * [Oluşturma ve birim testlerini Visual Studio ile çalıştırma](/visualstudio/test/unit-test-your-code).
 * [Özel bağımlılıklar İlkesi](https://deviq.com/explicit-dependencies-principle/)

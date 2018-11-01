@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: security/index
-ms.openlocfilehash: f3b1f74f2e3a991b72cae94019f42548e3858f20
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 4277266e20ab1921a2ba24d4500358ba90330370
+ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50091034"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50252951"
 ---
 # <a name="overview-of-aspnet-core-security"></a>ASP.NET Core güvenliğine genel bakış
 
@@ -40,7 +40,7 @@ Bilmeniz gereken daha fazla güvenlik açıkları vardır. Daha fazla bilgi içi
 
 ## <a name="aspnet-core-security-documentation"></a>ASP.NET Core güvenlik belgeleri
 
-* [Kimlik Doğrulaması](xref:security/authentication/index)
+* Kimlik doğrulaması
   * [Kimliğe giriş](xref:security/authentication/identity)
   * [Facebook, Google ve diğer dış sağlayıcıları kullanarak kimlik doğrulamasını etkinleştirme](xref:security/authentication/social/index)
   * [WS-Federasyon ile kimlik doğrulamasını etkinleştirme](xref:security/authentication/ws-federation)
@@ -54,7 +54,7 @@ Bilmeniz gereken daha fazla güvenlik açıkları vardır. Daha fazla bilgi içi
     * [Azure AD kullanarak bir ASP.NET Core web uygulamasında Web API’si çağırma](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/)
     * [Azure AD B2C ile ASP.NET Core web uygulaması](https://azure.microsoft.com/resources/samples/active-directory-b2c-dotnetcore-webapp/)
   * [IdentityServer4 ile ASP.NET Core uygulamalarının güvenliğini sağlama](https://identityserver4.readthedocs.io)
-* [Yetkilendirme](xref:security/authorization/index)
+* Yetkilendirme
   * [Giriş](xref:security/authorization/introduction)
   * [Kullanıcı verilerinin yetkilendirme tarafından korunduğu bir uygulama oluşturma](xref:security/authorization/secure-data)
   * [Basit yetkilendirme](xref:security/authorization/simple)
@@ -65,10 +65,10 @@ Bilmeniz gereken daha fazla güvenlik açıkları vardır. Daha fazla bilgi içi
   * [Kaynak tabanlı yetkilendirme](xref:security/authorization/resourcebased)
   * [Görünüm tabanlı yetkilendirme](xref:security/authorization/views)
   * [Şemayla kimliği sınırlama](xref:security/authorization/limitingidentitybyscheme)
-* [Veri koruma](xref:security/data-protection/index)
+* Veri koruma
   * [Veri korumaya giriş](xref:security/data-protection/introduction)
   * [Veri Koruma API’lerini kullanmaya başlama](xref:security/data-protection/using-data-protection)
-  * [Tüketici API'leri](xref:security/data-protection/consumer-apis/index)
+  * Tüketici API’leri
     * [Tüketici API'lerine Genel Bakış](xref:security/data-protection/consumer-apis/overview)
     * [Amaç dizeleri](xref:security/data-protection/consumer-apis/purpose-strings)
     * [Amaç hiyerarşisi ve çok kiracılılık](xref:security/data-protection/consumer-apis/purpose-strings-multitenancy)

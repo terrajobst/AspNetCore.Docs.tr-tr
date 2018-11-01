@@ -1,4 +1,5 @@
 <a name="cli"></a>
+
 ## <a name="add-scaffold-tooling-and-perform-initial-migration"></a>Yapı iskelesi araçları ekleyin ve ilk geçiş gerçekleştirme
 
 Aşağıdaki satırları ekleyin *RazorPagesMovie.csproj* dosyasını kapatmadan önce yalnızca `</Project>` etiketi:
@@ -7,7 +8,8 @@ Aşağıdaki satırları ekleyin *RazorPagesMovie.csproj* dosyasını kapatmadan
 <ItemGroup>
   <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.1.0-preview1-final"/>
 </ItemGroup>
-```  
+```
+  
 Komut satırından aşağıdaki .NET Core CLI komutları çalıştırın:
 
 ```console

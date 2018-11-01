@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: mvc/models/validation
-ms.openlocfilehash: 73d41b4718071d00a6f80b33de182da2ad90f331
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 1063fdccb97e55e6b0eb6689187134ff41c10a02
+ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090956"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50253162"
 ---
 # <a name="model-validation-in-aspnet-core-mvc"></a>ASP.NET Core MVC model doğrulama
 
@@ -22,6 +22,8 @@ Tarafından [Rachel Appel](https://github.com/rachelappel)
 Uygulama, bir veritabanına veri depolayan önce uygulama verileri doğrulamak gerekir. Veri türü ve boyutu ile uygun şekilde biçimlendirilir ve, kurallara uymalıdır doğrulandı, olası güvenlik tehditlerini denetlenmesi gerekir. Yedekli ve uygulamak yorucu bir süreç olabilir ancak doğrulama gerekli değildir. MVC'de, doğrulama istemci ve sunucu üzerinde gerçekleşir.
 
 Neyse ki, .NET doğrulama içinde doğrulama özniteliklerinin soyutlanır. Bu öznitelikler, böylece yazmanız gereken kod miktarını azaltarak bir doğrulama kodu içerir.
+
+Belirtilen model grafik doğrulama gerektirmeyen belirleyebilirseniz ASP.NET Core 2.2 ve daha sonra ASP.NET Core çalışma zamanı (atlar) doğrulama short-circuits. Doğrulama atlama önemli performans geliştirmeleri, herhangi bir ilişkili Doğrulayıcıların yok veya model doğrulanırken sağlayabilir. Atlanan doğrulama temel elemanlar koleksiyonlar gibi nesneleri içerir (`byte[]`, `string[]`, `Dictionary<string, string>`, vs.), veya karmaşık nesne grafiklerini olmadan tüm doğrulayıcıları.
 
 [Görüntülemek veya örnek Github'dan indirin](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/models/validation/sample).
 

@@ -2,8 +2,8 @@
 
 * Kalıcı bir veritabanını kullanma hakkında daha fazla bilgi için bkz:
 
-  * [ASP.NET Core Razor sayfaları web uygulaması oluşturma](xref:tutorials/index)
-  * [ASP.NET Core’da verilerle çalışma](xref:data/index)
+  * <xref:tutorials/razor-pages/index>
+  * <xref:data/ef-rp/index>
 
 * <xref:host-and-deploy/azure-apps/index>
 * <xref:host-and-deploy/index>

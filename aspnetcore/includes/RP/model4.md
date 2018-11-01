@@ -1,4 +1,4 @@
-Aşağıdaki tabloda Ayrıntılar ASP.NET Core oluşturucuları parametreleri kod:
+Aşağıdaki tabloda, ASP.NET Core Kod Oluşturucu parametreleri ayrıntıları:
 
 | Parametre               | Açıklama|
 | ----------------- | ------------ |
@@ -13,10 +13,12 @@ Kullanım `h` hakkında Yardım almak için anahtar `aspnet-codegenerator razorp
 ```console
 dotnet aspnet-codegenerator razorpage -h
 ```
+
 <a name="test"></a>
+
 ### <a name="test-the-app"></a>Uygulamayı test etme
 
-* Uygulamayı çalıştırın ve ekleme `/Movies` tarayıcıda URL'sine (`http://localhost:port/movies`).
+* Uygulamayı çalıştırın ve ekleme `/Movies` tarayıcıda URL'sine (`http://localhost:port/Movies`).
 * Test **Oluştur** bağlantı.
 
   ![sayfası oluşturma](../../tutorials/razor-pages/model/_static/conan.png)
@@ -27,7 +29,4 @@ dotnet aspnet-codegenerator razorpage -h
 
 Aşağıdakine benzer bir hata alırsanız, geçişler çalıştırma ve veritabanına güncelleştirilmiş doğrulayın:
 
-```
-An unhandled exception occurred while processing the request.
-'no such table: Movie'.
-```
+`An unhandled exception occurred while processing the request. 'no such table: Movie'.`

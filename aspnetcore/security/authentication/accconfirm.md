@@ -5,12 +5,12 @@ description: E-posta onayı ve parola sıfırlama ile ASP.NET Core uygulaması o
 ms.author: riande
 ms.date: 7/11/2018
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 1fae5af24359afc991a30cd2b8e2f6927845962b
-ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
+ms.openlocfilehash: 4c2e62335bc7dd004829dbc2a8c1f62ea91f334f
+ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/30/2018
-ms.locfileid: "50244807"
+ms.locfileid: "50253045"
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Hesap onaylama ve parola kurtarma ASP.NET Core
 
@@ -27,7 +27,7 @@ Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT) ve [ALi Audette](ht
 Bu öğretici, e-posta onayı ve parola sıfırlama ile ASP.NET Core uygulaması oluşturma işlemi gösterilmektedir. Bu öğretici **değil** başına konu. Sahibi olmalısınız:
 
 * [ASP.NET Core](xref:tutorials/razor-pages/razor-pages-start)
-* [Kimlik Doğrulaması](xref:security/authentication/index)
+* [Kimlik Doğrulaması](xref:security/authentication/identity)
 * [Entity Framework Core](xref:data/ef-mvc/intro)
 
 <!-- see C:/Dropbox/wrk/Code/SendGridConsole/Program.cs -->

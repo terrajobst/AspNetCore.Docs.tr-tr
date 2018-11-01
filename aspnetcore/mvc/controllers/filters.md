@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/15/2018
 uid: mvc/controllers/filters
-ms.openlocfilehash: 6803e8e3a285716792427e9fb059c204f5a88ecb
-ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
+ms.openlocfilehash: e5305852fad058961661373f9310d6dcaf30aa16
+ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49391316"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50253201"
 ---
 # <a name="filters-in-aspnet-core"></a>ASP.NET core'da filtreleri
 
@@ -261,7 +261,7 @@ Yalnızca kendi yetkilendirme framework yazıyorsanız özel yetkilendirme filtr
 
 Hiçbir özel durum işleyecek bu yana yetkilendirme filtrelerini içinde özel durumlar olmamalıdır (özel durum filtreleri olmaz onları işleyebilirsiniz). Bir challenge, bir özel durum oluştuğunda vermeyi düşünün.
 
-Daha fazla bilgi edinin [yetkilendirme](../../security/authorization/index.md).
+Daha fazla bilgi edinin [yetkilendirme](xref:security/authorization/introduction).
 
 ## <a name="resource-filters"></a>Kaynak filtreleri
 

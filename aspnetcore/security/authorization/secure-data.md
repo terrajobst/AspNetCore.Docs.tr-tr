@@ -5,12 +5,12 @@ description: Kullanıcı verilerinin yetkilendirme tarafından korunduğu ile Ra
 ms.author: riande
 ms.date: 7/24/2018
 uid: security/authorization/secure-data
-ms.openlocfilehash: 786e83eb28722e83eea46def962593f58ad524e2
-ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
+ms.openlocfilehash: 185628d4e06c9b5ae7f2685c10ea9e46dd5abe92
+ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/30/2018
-ms.locfileid: "50244846"
+ms.locfileid: "50253227"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Kullanıcı verilerinin yetkilendirme tarafından korunduğu ile bir ASP.NET Core uygulaması oluşturma
 
@@ -71,16 +71,16 @@ Uygulama tarafından oluşturulan [yapı iskelesi](xref:tutorials/first-mvc-app-
 Bu öğreticide gelişmiştir. Sahibi olmalısınız:
 
 * [ASP.NET Core](xref:tutorials/first-mvc-app/start-mvc)
-* [Kimlik Doğrulaması](xref:security/authentication/index)
+* [Kimlik Doğrulaması](xref:security/authentication/identity)
 * [Hesap Onaylama ve Parola Kurtarma](xref:security/authentication/accconfirm)
-* [Yetkilendirme](xref:security/authorization/index)
+* [Yetkilendirme](xref:security/authorization/introduction)
 * [Entity Framework Core](xref:data/ef-mvc/intro)
 
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.1"
 
-ASP.NET Core 2.1 içinde `User.IsInRole` kullanırken başarısız `AddDefaultIdentity`. Bu öğreticide `AddDefaultIdentity` ve bu nedenle ASP.NET Core 2.2 Önizleme 1 veya üzerini gerektirir. Bkz: [bu GitHub sorunu](https://github.com/aspnet/Identity/issues/1813#issuecomment-394543909) geçici için.
+ASP.NET Core 2.1 içinde `User.IsInRole` kullanırken başarısız `AddDefaultIdentity`. Bu öğreticide `AddDefaultIdentity` ve bu nedenle ASP.NET Core 2.2 veya sonraki bir sürümü gerektirir. Bkz: [bu GitHub sorunu](https://github.com/aspnet/Identity/issues/1813#issuecomment-394543909) geçici için.
 
 ::: moniker-end
 
@@ -352,7 +352,7 @@ Test, uygulama veritabanını sağlanmış. DB ilgili herhangi bir satır varsa,
 
 * [Azure App Service'te .NET Core ve SQL veritabanı web uygulaması derleme](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb)
 * [ASP.NET Core yetkilendirme Laboratuvar](https://github.com/blowdart/AspNetAuthorizationWorkshop). Bu Laboratuvar, bu öğreticide sunulan güvenlik özellikleri hakkında daha fazla ayrıntıya gider.
-* [ASP.NET Core yetkilendirme: basit, rol, talep tabanlı ve özel](xref:security/authorization/index)
+* <xref:security/authorization/introduction>
 * [Özel ilke tabanlı yetkilendirme](xref:security/authorization/policies)
 
 ::: moniker-end

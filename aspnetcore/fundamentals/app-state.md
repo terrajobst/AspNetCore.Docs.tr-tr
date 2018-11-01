@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/14/2018
 uid: fundamentals/app-state
-ms.openlocfilehash: da20538a0dc6e13caedaf6a1130e66981dcb7af2
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 5ca909681ca9da3fae0391991902da97581852be
+ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207296"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50253188"
 ---
 # <a name="session-and-app-state-in-aspnet-core"></a>ASP.NET core'da oturum ve uygulama durumu
 
@@ -71,7 +71,7 @@ Oturum durumu aşağıdaki davranışları sergileyen:
 Bellek içi önbelleği sağlayıcısı uygulama bulunduğu sunucunun bellekte oturum verilerini depolar. Bir sunucu grubu senaryoda:
 
 * Kullanım *Yapışkan oturumlar* tek bir sunucu üzerinde her oturum belirli uygulama örneğine bağlamak için. [Azure App Service](https://azure.microsoft.com/services/app-service/) kullanan [uygulama isteği yönlendirme (ARR)](/iis/extensions/planning-for-arr/using-the-application-request-routing-module) Yapışkan oturumlar varsayılan olarak zorunlu kılmak için. Ancak, Yapışkan oturumlar ölçeklenebilirliği etkileyebilir ve web uygulama güncelleştirmeleri zorlaştırabilir. Bir Redis veya SQL Server kullanmak için daha iyi bir yaklaşım olan dağıtılmış önbellek, Yapışkan oturumlar gerektirmez. Daha fazla bilgi için bkz. <xref:performance/caching/distributed>.
-* Oturum tanımlama bilgisi ile şifrelenmiş [Idataprotector](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotector). Veri koruma, her bir makinede oturum tanımlama bilgileri okumak için düzgün şekilde yapılandırılmalıdır. Daha fazla bilgi için [ASP.NET Core veri koruması](xref:security/data-protection/index) ve [anahtar depolama sağlayıcıları](xref:security/data-protection/implementation/key-storage-providers).
+* Oturum tanımlama bilgisi ile şifrelenmiş [Idataprotector](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotector). Veri koruma, her bir makinede oturum tanımlama bilgileri okumak için düzgün şekilde yapılandırılmalıdır. Daha fazla bilgi için <xref:security/data-protection/introduction> ve [anahtar depolama sağlayıcıları](xref:security/data-protection/implementation/key-storage-providers).
 
 ### <a name="configure-session-state"></a>Oturum durumunu yapılandırın
 
@@ -274,7 +274,7 @@ TempData sağlayıcısı seçme gibi çeşitli konuları içerir:
 
 1. Uygulama zaten oturum durumu kullanıyor mu? Bu durumda, oturum durumu TempData sağlayıcısını kullanarak ek ücret ödemeden (yanı sıra veri boyutu) uygulamasına sahiptir.
 2. Uygulamayı yalnızca gelişigüzel TempData kullanmaz için görece küçük miktarlarda veri (bayt cinsinden en fazla 500)? Bu nedenle, tanımlama bilgisi TempData sağlayıcı her istek için küçük bir maliyet eklerse, TempData taşır. Aksi durumda, oturum durumu TempData sağlayıcısı TempData tüketilen kadar gidiş dönüşü her isteğin verilerde büyük miktarda önlemek yararlı olabilir.
-3. Uygulamayı bir sunucu grubunda birden çok sunucu üzerinde çalışıyor mu? Bu nedenle, varsa tanımlama bilgisi TempData sağlayıcısı veri koruma dışında kullanmak için ek yapılandırma (bkz [veri koruma](xref:security/data-protection/index) ve [anahtar depolama sağlayıcıları](xref:security/data-protection/implementation/key-storage-providers)).
+3. Uygulamayı bir sunucu grubunda birden çok sunucu üzerinde çalışıyor mu? Bu nedenle, varsa tanımlama bilgisi TempData sağlayıcısı veri koruma dışında kullanmak için ek yapılandırma (bkz <xref:security/data-protection/introduction> ve [anahtar depolama sağlayıcıları](xref:security/data-protection/implementation/key-storage-providers)).
 
 > [!NOTE]
 > Çoğu web istemcileri (örneğin, web tarayıcıları) her bir tanımlama bilgisi, tanımlama bilgilerinin toplam sayısı veya her ikisi de en büyük boyutu üst sınırı uygular. Tanımlama bilgisi TempData sağlayıcı kullanırken, uygulama bu sınırları aşmanız olmaz doğrulayın. Verilerin toplam boyutuna göz önünde bulundurun. Hesap için şifreleme ve Öbekleme nedeniyle tanımlama bilgisi boyutu artar.
@@ -376,7 +376,7 @@ Bu yaklaşım, aynı zamanda koddaki anahtar dizeleri kullanımı ortadan avanta
 
 Daha fazla bilgi için [yanıtları önbelleğe](xref:performance/caching/index) konu.
 
-## <a name="dependency-injection"></a>Bağımlılık ekleme
+## <a name="dependency-injection"></a>Bağımlılık Ekleme
 
 Kullanım [bağımlılık ekleme](xref:fundamentals/dependency-injection) veri tüm kullanıcılar için kullanılabilir hale getirmek için:
 

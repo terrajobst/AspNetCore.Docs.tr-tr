@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: d9eb6a01e096c7e8cbcb0979e24331a8d5316a14
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 3626ce834b904db64c1976aefc77dc60a7bfdf1c
+ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207660"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50253175"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>ASP.NET core'da bağımlılık ekleme
 
@@ -427,7 +427,7 @@ Bir ASP.NET Core içinde kullanılabilen hizmetler request `HttpContext` aracıl
 
 İstek Hizmetleri yapılandırılmış ve uygulamanın bir parçası istenen Hizmetleri temsil eder. Nesneleri bağımlılıkları belirttiğinizde, bu bulunan türleri tarafından karşılandığından `RequestServices`değil `ApplicationServices`.
 
-Genel olarak, uygulamayı doğrudan bu özellikleri kullanmamalısınız. Bunun yerine, sınıfları sınıf oluşturucuları gerektirir ve framework izin türlerini bağımlılıkları ekleme isteği. Bu, test etmek daha kolay sınıfları sağlar (bkz [Test ve hata ayıklama](xref:test/index) konuları).
+Genel olarak, uygulamayı doğrudan bu özellikleri kullanmamalısınız. Bunun yerine, sınıfları sınıf oluşturucuları gerektirir ve framework izin türlerini bağımlılıkları ekleme isteği. Bu, test etmek daha kolay olan sınıfları verir.
 
 > [!NOTE]
 > Erişim için oluşturucu parametresi olarak bağımlılıkları isteyen tercih `RequestServices` koleksiyonu.
@@ -558,7 +558,6 @@ DI olduğu bir *alternatif* statik/genel nesne erişim desenleri. Statik nesne e
 * <xref:mvc/controllers/dependency-injection>
 * <xref:security/authorization/dependencyinjection>
 * <xref:fundamentals/startup>
-* <xref:test/index>
 * <xref:fundamentals/middleware/extensibility>
 * [Bağımlılık ekleme (MSDN) ile ASP.NET Core kod yazma](https://msdn.microsoft.com/magazine/mt703433.aspx)
 * [Kapsayıcı-yönetilen uygulama tasarımı, tanıtımlar: Nereye ait kapsayıcı mu?](https://blogs.msdn.microsoft.com/nblumhardt/2008/12/26/container-managed-application-design-prelude-where-does-the-container-belong/)
