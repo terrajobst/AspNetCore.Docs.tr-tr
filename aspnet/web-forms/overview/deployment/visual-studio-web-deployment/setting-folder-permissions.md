@@ -52,7 +52,7 @@ ms.locfileid: "41754918"
 
 1. <span data-ttu-id="22e1d-132">İçinde **dosya Gezgini**, gitmek *C:\inetpub\wwwroot\ContosoUniversity*.</span><span class="sxs-lookup"><span data-stu-id="22e1d-132">In **File Explorer**, navigate to *C:\inetpub\wwwroot\ContosoUniversity*.</span></span> <span data-ttu-id="22e1d-133">Sağ *Elmah* klasörüne **özellikleri**ve ardından **güvenlik** sekmesi.</span><span class="sxs-lookup"><span data-stu-id="22e1d-133">Right-click the *Elmah* folder, select **Properties**, and then select the **Security** tab.</span></span>
 2. <span data-ttu-id="22e1d-134">
-              **Düzenle**‘ye tıklayın.</span><span class="sxs-lookup"><span data-stu-id="22e1d-134">Click **Edit**.</span></span>
+              \*\*Düzenle**‘ye tıklayın.</span><span class="sxs-lookup"><span data-stu-id="22e1d-134">Click **Edit**.</span></span>
 3. <span data-ttu-id="22e1d-135">İçinde **Elmah izinlerini** iletişim kutusunda **DefaultAppPool**ve ardından **yazma** onay kutusuna **izin** sütun.</span><span class="sxs-lookup"><span data-stu-id="22e1d-135">In the **Permissions for Elmah** dialog box, select **DefaultAppPool**, and then select the **Write** check box in the **Allow** column.</span></span>
 
     ![ELMAH klasörün izinlerini](setting-folder-permissions/_static/image3.png)
