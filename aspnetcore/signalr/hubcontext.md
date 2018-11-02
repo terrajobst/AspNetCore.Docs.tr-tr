@@ -5,14 +5,14 @@ description: Bir hub dışında istemcilere bildirimleri gönderme için ASP.NET
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 06/13/2018
+ms.date: 11/01/2018
 uid: signalr/hubcontext
-ms.openlocfilehash: 8be888e1f7b16d65ebbaa24b618e84fca029d80b
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: af125791a75a2dd68c236dd8c5b51eecff244ce4
+ms.sourcegitcommit: fc2486ddbeb15ab4969168d99b3fe0fbe91e8661
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207959"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50758160"
 ---
 # <a name="send-messages-from-outside-a-hub"></a>Bir hub dışında ileti gönderme
 
@@ -54,6 +54,27 @@ app.Use(next => async (context) =>
 
 > [!NOTE]
 > Ne zaman hub yöntemleri çağrıldığında gelen dışında `Hub` çağırmayla ilgili hiçbir arayan olduğunda, sınıf. Bu nedenle, erişim yoktur `ConnectionId`, `Caller`, ve `Others` özellikleri.
+
+### <a name="inject-a-strongly-typed-hubcontext"></a>Kesin türü belirtilmiş bir HubContext ekleme
+
+Hub'ınıza devraldığı kesin türü belirtilmiş bir HubContext eklemesine olun `Hub<T>`. Kullanarak ekleme `IHubContext<THub, T>` arabirimi yerine `IHubContext<THub>`.
+
+```csharp
+public class ChatController : Controller
+{
+    public IHubContext<ChatHub, IChatClient> _strongChatHubContext { get; }
+
+    public SampleDataController(IHubContext<ChatHub, IChatClient> chatHubContext)
+    {
+        _strongChatHubContext = chatHubContext;
+    }
+
+    public async Task SendMessage(string message)
+    {
+        await _strongChatHubContext.Clients.All.ReceiveMessage(message);
+    }
+}
+```
 
 ## <a name="related-resources"></a>İlgili kaynaklar
 

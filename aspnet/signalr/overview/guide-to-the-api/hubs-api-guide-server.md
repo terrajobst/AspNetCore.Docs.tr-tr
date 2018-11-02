@@ -8,12 +8,12 @@ ms.date: 06/10/2014
 ms.assetid: b19913e5-cd8a-4e4b-a872-5ac7a858a934
 msc.legacyurl: /signalr/overview/guide-to-the-api/hubs-api-guide-server
 msc.type: authoredcontent
-ms.openlocfilehash: 03dd8a73141330348f2877760a5978a8a0b95122
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 6545491cfa36bb9fee555eb0348ec0a319bff470
+ms.sourcegitcommit: fc2486ddbeb15ab4969168d99b3fe0fbe91e8661
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41755590"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50758251"
 ---
 <a name="aspnet-signalr-hubs-api-guide---server-c"></a>ASP.NET SignalR Hubs API Kılavuzu - sunucu (C#)
 ====================
@@ -304,6 +304,11 @@ Uzun süre çalışan sunucusu yönteminin yazma sırasında gibi zaman uyumsuz 
 
 [!code-csharp[Main](hubs-api-guide-server/samples/sample23.cs?highlight=5)]
 
+Bir istemci metodu çağrılırken bir zaman uyumsuz bir işlemdir ve döndürür bir `Task`. Kullanım `await`:
+
+* İleti emin olmak için hata gönderilir. 
+* Yakalama ve bir try-catch bloğu içinde hataları işleme sağlamak için.
+
 **Oluşturulan proxy kullanarak JavaScript istemcisi**
 
 [!code-html[Main](hubs-api-guide-server/samples/sample24.html?highlight=1)]
@@ -572,7 +577,7 @@ Aracılığıyla VB.NET veya türü kesin belirlenmiş bir hub'ı, arayanın dur
 
 ## <a name="how-to-handle-errors-in-the-hub-class"></a>Hub sınıfında hatalarını işleme
 
-Hub sınıfı yöntemlerinde meydana gelen hataları işlemek için bir veya daha fazla aşağıdaki yöntemlerden birini kullanın:
+Hub sınıfı yöntemlerinde meydana gelen hataları işlemek için önce "gözlemleyin" tüm özel durumlar (örneğin, istemci yöntemlerini çağırmaktan) zaman uyumsuz işlemleri kullanarak sağlayın `await`. Ardından bir veya daha fazla aşağıdaki yöntemlerden birini kullanın:
 
 - Try-catch bloğu içinde yöntemi kodunuzu sarın ve özel durum nesnesi oturum açın. Hata ayıklama amacıyla istemciye bir özel durum gönderebilir, ancak güvenlik için üretim istemciler için ayrıntılı bilgi gönderme nedeniyle önerilmez.
 - İşleme bir hub'ları işlem hattı modülünüzü oluşturmak [OnIncomingError](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.hubpipelinemodule.onincomingerror(v=vs.111).aspx) yöntemi. Aşağıdaki örnek, hatalar, modül hub ardışık düzene ekler. Startup.cs içindeki kod tarafından izlenen günlüklerini bir işlem hattı modül gösterir.

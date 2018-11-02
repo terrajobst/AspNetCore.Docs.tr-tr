@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 08/31/2018
 uid: tutorials/signalr
-ms.openlocfilehash: c059ace7ebe0e65ecb3ac068677d65ae148322a0
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: fcfe2fa6cc88b9eee1389e171fa5eb7711b4f14f
+ms.sourcegitcommit: fc2486ddbeb15ab4969168d99b3fe0fbe91e8661
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207686"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50758134"
 ---
 # <a name="tutorial-get-started-with-aspnet-core-signalr"></a>Öğretici: ASP.NET Core SignalR ile çalışmaya başlama
 
@@ -71,7 +71,7 @@ Sonunda, bir çalışma sohbet uygulaması oluşturmuş olacaksınız:
 
 * Yeni bir proje için kullanabileceğiniz bir klasöre açın.
 
-* İçinde **tümleşik Terminalini**, aşağıdaki komutu çalıştırın:
+* İçinde [tümleşik Terminalini](https://code.visualstudio.com/docs/editor/integrated-terminal), aşağıdaki komutu çalıştırın:
 
    ```console
    dotnet new webapp -o SignalRChat

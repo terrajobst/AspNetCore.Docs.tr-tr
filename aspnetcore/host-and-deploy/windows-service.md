@@ -2,16 +2,17 @@
 title: ASP.NET Core bir Windows hizmetinde barındırma
 author: guardrex
 description: ASP.NET Core uygulaması bir Windows hizmetinde barındırmayı öğrenin.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 09/25/2018
+ms.date: 10/30/2018
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: 6e8e3cdc9d40ebe00fb8b78107c585e57e9e7c73
-ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
+ms.openlocfilehash: 11913019bfe5d06c259b806fce9cc580a8280ad5
+ms.sourcegitcommit: fc2486ddbeb15ab4969168d99b3fe0fbe91e8661
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50244781"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50758199"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>ASP.NET Core bir Windows hizmetinde barındırma
 
@@ -29,38 +30,12 @@ Mevcut bir ASP.NET Core projesini ayarlarsınız bir hizmet olarak çalışacak 
 
    * Bir Windows varlığını onaylamak [çalışma zamanı tanımlayıcı (RID)](/dotnet/core/rid-catalog) veya eklemek `<PropertyGroup>` , hedef Framework'ü içerir:
 
-      ::: moniker range=">= aspnetcore-2.1"
-
       ```xml
       <PropertyGroup>
-        <TargetFramework>netcoreapp2.1</TargetFramework>
+        <TargetFramework>netcoreapp2.2</TargetFramework>
         <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
       </PropertyGroup>
       ```
-
-      ::: moniker-end
-
-      ::: moniker range="= aspnetcore-2.0"
-
-      ```xml
-      <PropertyGroup>
-        <TargetFramework>netcoreapp2.0</TargetFramework>
-        <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
-      </PropertyGroup>
-      ```
-
-      ::: moniker-end
-
-      ::: moniker range="< aspnetcore-2.0"
-
-      ```xml
-      <PropertyGroup>
-        <TargetFramework>netcoreapp1.1</TargetFramework>
-        <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
-      </PropertyGroup>
-      ```
-
-      ::: moniker-end
 
       İçin birden fazla RID yayımlamak için:
 
@@ -77,56 +52,88 @@ Mevcut bir ASP.NET Core projesini ayarlarsınız bir hizmet olarak çalışacak 
 
    * Çağrı [UseContentRoot](xref:fundamentals/host/web-host#content-root) ve uygulama için bir yol yerine konumu yayımlanan `Directory.GetCurrentDirectory()`.
 
-     ::: moniker range=">= aspnetcore-2.0"
-
      [!code-csharp[](windows-service/samples/2.x/AspNetCoreService/Program.cs?name=ServiceOnly&highlight=8-9,16)]
 
-     ::: moniker-end
+1. Kullanarak uygulama yayımlamayı [dotnet yayımlama](/dotnet/articles/core/tools/dotnet-publish), [Visual Studio yayımlama profilini](xref:host-and-deploy/visual-studio-publish-profiles), veya Visual Studio Code. Visual Studio kullanırken **FolderProfile** ve yapılandırma **hedef konum** seçmeden önce **Yayımla** düğmesi.
 
-     ::: moniker range="< aspnetcore-2.0"
-
-     [!code-csharp[](windows-service/samples_snapshot/1.x/AspNetCoreService/Program.cs?name=ServiceOnly&highlight=3-4,8,13)]
-
-     ::: moniker-end
-
-1. Uygulamayı yayımlayın. Kullanım [dotnet yayımlama](/dotnet/articles/core/tools/dotnet-publish) veya [Visual Studio yayımlama profilini](xref:host-and-deploy/visual-studio-publish-profiles). Visual Studio kullanırken **FolderProfile**.
-
-   Komut satırı arabirimi (CLI) araçlarını kullanarak örnek uygulamayı yayımlamak için çalıştırma [dotnet yayımlama](/dotnet/core/tools/dotnet-publish) proje klasöründeki bir komut isteminde komutu. RID belirtilmelidir `<RuntimeIdenfifier>` (veya `<RuntimeIdentifiers>`) özelliği proje dosyasının. Aşağıdaki örnekte, uygulama için sürüm yapılandırmasında yayımlanır `win7-x64` çalışma zamanı:
+   Komut satırı arabirimi (CLI) araçlarını kullanarak örnek uygulamayı yayımlamak için çalıştırma [dotnet yayımlama](/dotnet/core/tools/dotnet-publish) proje klasöründeki bir komut isteminde komutu. RID belirtilmelidir `<RuntimeIdenfifier>` (veya `<RuntimeIdentifiers>`) özelliği proje dosyasının. Aşağıdaki örnekte, uygulama için sürüm yapılandırmasında yayımlanır `win7-x64` çalışma zamanı sırasında oluşturulan bir klasöre *c:\\svc*:
 
    ```console
-   dotnet publish --configuration Release --runtime win7-x64
+   dotnet publish --configuration Release --runtime win7-x64 --output c:\svc
    ```
 
-1. Kullanım [sc.exe](https://technet.microsoft.com/library/bb490995) hizmeti oluşturmak için komut satırı aracı. `binPath` Değerdir yürütülebilir dosya adını içeren uygulamanın yürütülebilir dosyanın yolu. **Eşittir işareti ve tırnak karakteri yolunun başında arasındaki boşluk gereklidir.**
+1. Hizmet kullanımı için bir kullanıcı hesabı oluşturma `net user` komutu:
 
    ```console
-   sc create <SERVICE_NAME> binPath= "<PATH_TO_SERVICE_EXECUTABLE>"
+   net user {USER ACCOUNT} {PASSWORD} /add
    ```
 
-   Proje klasöründe yayımlanan bir hizmet için yolunu kullanın *yayımlama* hizmet oluşturmak için klasör. Aşağıdaki örnekte:
+   Örnek uygulama için bir kullanıcı hesabı adı ile oluşturun. `ServiceUser` ve parola. Aşağıdaki komutta `{PASSWORD}` ile bir [güçlü parola](/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements).
 
-   * Projenin bulunduğu *c:\\my_services\\AspNetCoreService* klasör.
-   * Proje yayınlanan `Release` yapılandırma.
-   * Hedef Çerçeve adı (TFM) olan `netcoreapp2.1`.
-   * Çalışma zamanı tanımlayıcı (RID) olan `win7-x64`.
-   * Uygulama yürütülebilir dosyası adlı *AspNetCoreService.exe*.
+   ```console
+   net user ServiceUser {PASSWORD} /add
+   ```
+
+   Bir gruba kullanıcı eklemeniz gerekiyorsa, kullanın `net localgroup` komutu, burada `{GROUP}` grubunun adıdır:
+
+   ```console
+   net localgroup {GROUP} {USER ACCOUNT} /add
+   ```
+
+   Daha fazla bilgi için [hizmeti kullanıcı hesaplarını](/windows/desktop/services/service-user-accounts).
+
+1. Uygulamanın klasörüne yazma/okuma/yürütme erişimi vermek kullanarak [icacls](/windows-server/administration/windows-commands/icacls) komutu:
+
+   ```console
+   icacls "{PATH}" /grant {USER ACCOUNT}:(OI)(CI){PERMISSION FLAGS} /t
+   ```
+
+   * `{PATH}` &ndash; Uygulamanın klasörün yolu.
+   * `{USER ACCOUNT}` &ndash; Kullanıcı hesabı (SID).
+   * `(OI)` &ndash; Nesne devral bayrağı dosyaları alt izinleri yayar.
+   * `(CI)` &ndash; Kapsayıcı devral bayrağı, alt klasörler için izinleri yayar.
+   * `{PERMISSION FLAGS}` &ndash; Uygulamanın erişim izinlerini ayarlar.
+     * Yazma (`W`)
+     * Okuma (`R`)
+     * Yürütme (`X`)
+     * Tam (`F`)
+     * Değiştir (`M`)
+   * `/t` &ndash; Yinelemeli olarak mevcut alt klasörler ve dosyalar için geçerlidir.
+
+   Örnek uygulamayı yayımlanan *c:\\svc* klasörü ve `ServiceUser` hesap yazma/okuma/Yürütme izinleri, aşağıdaki komutu kullanın:
+
+   ```console
+   icacls "c:\svc" /grant ServiceUser:(OI)(CI)WRX /t
+   ```
+
+   Daha fazla bilgi için [icacls](/windows-server/administration/windows-commands/icacls).
+
+1. Kullanım [sc.exe](https://technet.microsoft.com/library/bb490995) hizmeti oluşturmak için komut satırı aracı. `binPath` Değerdir yürütülebilir dosya adını içeren uygulamanın yürütülebilir dosyanın yolu. **Eşittir işareti ve tırnak karakteri her bir parametre ve değer arasında gerekli bir alandır.**
+
+   ```console
+   sc create {SERVICE NAME} binPath= "{PATH}" obj= "{DOMAIN}\{USER ACCOUNT}" password= "{PASSWORD}"
+   ```
+
+   * `{SERVICE NAME}` &ndash; Hizmete atanacak ad [Hizmet Denetimi Yöneticisi](/windows/desktop/services/service-control-manager).
+   * `{PATH}` &ndash; Hizmet yürütülebilir dosya yolu.
+   * `{DOMAIN}` (veya makinenin etki alanı yoksa katılmış yerel makine adını) ve `{USER ACCOUNT}` &ndash; etki alanı (veya yerel makine adı) ve hizmetin altında çalıştığı kullanıcı hesabı. Yapmak **değil** atlamak `obj` parametresi. İçin varsayılan değer `obj` olduğu [LocalSystem hesabı](/windows/desktop/services/localsystem-account) hesabı. Altında bir hizmeti çalıştıran `LocalSystem` hesabı önemli bir güvenlik riski sunar. Her zaman bir hizmeti bir kullanıcı hesabı altında sunucu üzerinde sınırlı ayrıcalıklarla çalıştırın.
+   * `{PASSWORD}` &ndash; Kullanıcı hesabı parolası.
+
+   Aşağıdaki örnekte:
+
    * Adlı hizmetin **MyService**.
-
-   Örnek:
+   * Yayınlanan hizmet bulunan *c:\\svc* klasör. Uygulama yürütülebilir dosyası adlı *AspNetCoreService.exe*. `binPath` Değerine düz tırnak işaretleri (") içine alınır.
+   * Altında çalışacağı `ServiceUser` hesabı. Değiştirin `{DOMAIN}` kullanıcı hesabının etki alanı veya yerel makine adı. İçine `obj` düz tırnak (") değeri. Örnek: barındıran sistemde adlı bir yerel makineye ise `MairaPC`ayarlayın `obj` için `"MairaPC\ServiceUser"`.
+   * Değiştirin `{PASSWORD}` ile kullanıcı hesabının parolası. `password` Değerine düz tırnak işaretleri (") içine alınır.
 
    ```console
-   sc create MyService binPath= "c:\my_services\AspNetCoreService\bin\Release\netcoreapp2.1\win7-x64\publish\AspNetCoreService.exe"
+   sc create MyService binPath= "c:\svc\aspnetcoreservice.exe" obj= "{DOMAIN}\ServiceUser" password= "{PASSWORD}"
    ```
 
    > [!IMPORTANT]
-   > Alanı arasında mevcut olduğundan emin olun `binPath=` bağımsız değişkeni ve değeri.
+   > Parametreleri eşittir işareti ve parametrelerin değerleri arasında boşluk bulunmadığından emin olun.
 
-   Yayımlama ve farklı bir klasör hizmeti başlatmak için:
-
-      * Kullanım [--çıktı &lt;OUTPUT_DIRECTORY&gt; ](/dotnet/core/tools/dotnet-publish#options) seçeneğini `dotnet publish` komutu. Visual Studio kullanıyorsanız, yapılandırma **hedef konum** içinde **FolderProfile** özellik sayfasında seçmeden önce yayımlama **Yayımla** düğmesi.
-      * Hizmetle `sc.exe` çıkış klasör yolunu kullanarak komutu. Sağlanan yol hizmetin yürütülebilir dosya adı dahil `binPath`.
-
-1. Hizmetle başlar `sc start <SERVICE_NAME>` komutu.
+1. Hizmetle başlar `sc start {SERVICE NAME}` komutu.
 
    Örnek uygulama hizmeti başlatmak için aşağıdaki komutu kullanın:
 
@@ -136,7 +143,7 @@ Mevcut bir ASP.NET Core projesini ayarlarsınız bir hizmet olarak çalışacak 
 
    Komut hizmeti başlatmak için birkaç saniye sürer.
 
-1. Hizmet durumunu denetlemek için kullanmak `sc query <SERVICE_NAME>` komutu. Durumu aşağıdaki değerlerden biri olarak bildirilir:
+1. Hizmet durumunu denetlemek için kullanmak `sc query {SERVICE NAME}` komutu. Durumu aşağıdaki değerlerden biri olarak bildirilir:
 
    * `START_PENDING`
    * `RUNNING`
@@ -153,7 +160,7 @@ Mevcut bir ASP.NET Core projesini ayarlarsınız bir hizmet olarak çalışacak 
 
    Örnek app service için uygulamaya Gözat `http://localhost:5000`.
 
-1. Hizmetle Durdur `sc stop <SERVICE_NAME>` komutu.
+1. Hizmetle Durdur `sc stop {SERVICE NAME}` komutu.
 
    Aşağıdaki komut örnek uygulama hizmetini durdurur:
 
@@ -161,7 +168,7 @@ Mevcut bir ASP.NET Core projesini ayarlarsınız bir hizmet olarak çalışacak 
    sc stop MyService
    ```
 
-1. Hizmeti ile bir hizmeti durdurmak için bir kısa bir gecikmeyle kaldırmanız `sc delete <SERVICE_NAME>` komutu.
+1. Hizmeti ile bir hizmeti durdurmak için bir kısa bir gecikmeyle kaldırmanız `sc delete {SERVICE NAME}` komutu.
 
    Örnek uygulama hizmeti durumunu kontrol edin:
 
@@ -179,22 +186,12 @@ Mevcut bir ASP.NET Core projesini ayarlarsınız bir hizmet olarak çalışacak 
 
 Çağıran kod eklemek için her zamanki şekilde bir hizmet dışında çalışırken hata ayıklama ve test etmek daha kolay `RunAsService` yalnızca belirli koşullar altında. Örneğin, bir konsol uygulaması olarak uygulama çalıştırabilirsiniz bir `--console` komut satırı bağımsız değişkeni veya hata ayıklayıcı eklenir:
 
-::: moniker range=">= aspnetcore-2.0"
-
 [!code-csharp[](windows-service/samples/2.x/AspNetCoreService/Program.cs?name=ServiceOrConsole)]
 
 ASP.NET Core yapılandırma komut satırı bağımsız değişkenleri için ad-değer çiftleri gerektirdiğinden `--console` anahtar için bağımsız değişkenler geçirilmeden önce kaldırılır [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder).
 
 > [!NOTE]
 > `isService` gelen geçirilen değil `Main` içine `CreateWebHostBuilder` çünkü imzası `CreateWebHostBuilder` olmalıdır `CreateWebHostBuilder(string[])` sırayla [tümleştirme testi](xref:test/integration-tests) düzgün çalışması için.
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-[!code-csharp[](windows-service/samples_snapshot/1.x/AspNetCoreService/Program.cs?name=ServiceOrConsole)]
-
-::: moniker-end
 
 ## <a name="handle-stopping-and-starting-events"></a>Durdurma ve başlatma olaylarını işleme
 
@@ -210,20 +207,10 @@ ASP.NET Core yapılandırma komut satırı bağımsız değişkenleri için ad-d
 
 3. İçinde `Program.Main`, yeni bir uzantı metodu çağırma `RunAsCustomService`, yerine [RunAsService](/dotnet/api/microsoft.aspnetcore.hosting.windowsservices.webhostwindowsserviceextensions.runasservice):
 
-   ::: moniker range=">= aspnetcore-2.0"
-
    [!code-csharp[](windows-service/samples/2.x/AspNetCoreService/Program.cs?name=HandleStopStart&highlight=17)]
 
    > [!NOTE]
    > `isService` gelen geçirilen değil `Main` içine `CreateWebHostBuilder` çünkü imzası `CreateWebHostBuilder` olmalıdır `CreateWebHostBuilder(string[])` sırayla [tümleştirme testi](xref:test/integration-tests) düzgün çalışması için.
-
-   ::: moniker-end
-
-   ::: moniker range="< aspnetcore-2.0"
-
-   [!code-csharp[](windows-service/samples_snapshot/1.x/AspNetCoreService/Program.cs?name=HandleStopStart&highlight=27)]
-
-   ::: moniker-end
 
 Varsa özel `WebHostService` kod bağımlılık ekleme (örneğin, bir Günlükçü) hizmetinden gerektirir,'ndan elde [IWebHost.Services](/dotnet/api/microsoft.aspnetcore.hosting.iwebhost.services) özelliği:
 
