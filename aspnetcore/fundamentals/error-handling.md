@@ -1,17 +1,17 @@
 ---
 title: ASP.NET core'da hatalarını işleme
-author: ardalis
+author: tdykstra
 description: ASP.NET Core uygulamaları hataları işlemek nasıl keşfedin.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 07/05/2018
+ms.date: 11/01/2018
 uid: fundamentals/error-handling
-ms.openlocfilehash: d1e94fdc89fbebc264dc001bbf35666af16f4799
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 89117d78486493747d649c3bb0d9cce9f97ef419
+ms.sourcegitcommit: 85f2939af7a167b9694e1d2093277ffc9a741b23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50208037"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50968325"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>ASP.NET core'da hatalarını işleme
 
@@ -119,17 +119,28 @@ Ara yazılım birkaç uzantı yöntemleri destekler. Bir yöntem, lambda ifadesi
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePages)]
 
-Başka bir yöntemi, bir içerik türü ve biçim dizesini alır:
+Bir aşırı yüklemesini `UseStatusCodePages` bir içerik türü ve biçim dizesini alır:
 
 ```csharp
 app.UseStatusCodePages("text/plain", "Status code page, status code: {0}");
 ```
+### <a name="redirect-re-execute-extension-methods"></a>Yeniden yönlendirme uzantı yöntemleri yeniden çalıştırma
 
-Ayrıca yeniden yönlendirme ve genişletme yöntemlerini yeniden çalıştırın. Yeniden yönlendirme yöntemini gönderen bir *302 bulundu* istemciye durum kodunu ve istemci için belirtilen konum URL şablonu yeniden yönlendirir. Şablon içerebilir bir `{0}` durum kodu için yer tutucu. İle başlayan URL'ler `~` başına temel yol vardır. İle başlamaz bir URL `~` olarak kullanılır.
+<xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePagesWithRedirects*>:
+
+* Gönderen bir *302 bulundu -* istemciye durum kodu.
+* İstemci URL'si şablonda verilen konuma yönlendirir. 
+
+Şablon içerebilir bir `{0}` durum kodu için yer tutucu. Şablonu bir eğik çizgi ile başlamalıdır (`/`).
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePagesWithRedirect)]
 
-Yeniden çalıştırma yöntemi istemciye özgün durum kodu döndürür ve yanıt gövdesinin başka bir yol kullanarak istek ardışık düzenini yeniden yürüterek oluşturulacağını belirtir. Bu yolu içerebilir bir `{0}` durum kodu için yer tutucu:
+<xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePagesWithReExecute*>:
+
+* Özgün durum kodunu istemciye döndürür.
+* Yanıt gövdesi alternatif bir yol kullanarak istek ardışık düzenini yeniden yürüterek oluşturulacağını belirtir. 
+
+Şablon içerebilir bir `{0}` durum kodu için yer tutucu. Şablonu bir eğik çizgi ile başlamalıdır (`/`).
 
 ```csharp
 app.UseStatusCodePagesWithReExecute("/error/{0}");
@@ -146,7 +157,7 @@ if (statusCodePagesFeature != null)
 }
 ```
 
-Kullanılıyorsa bir `UseStatusCodePages*` noktaları bir uç noktaya uygulama içinde oluşturduğunuz bir MVC görünümü ya da bir Razor sayfası uç nokta için aşırı yükleme. Örneğin, [yeni dotnet](/dotnet/core/tools/dotnet-new) aşağıdaki sayfasını ve sayfa modeli sınıfı için bir Razor sayfaları uygulaması şablonu üretir:
+Kullanılacak bir `UseStatusCodePages*` noktaları bir uç noktaya uygulama içinde oluşturduğunuz bir MVC görünümü ya da bir Razor sayfası uç nokta için aşırı yükleme. Örneğin, [yeni dotnet](/dotnet/core/tools/dotnet-new) aşağıdaki sayfasını ve sayfa modeli sınıfı için bir Razor sayfaları uygulaması şablonu üretir:
 
 *Error.cshtml*:
 

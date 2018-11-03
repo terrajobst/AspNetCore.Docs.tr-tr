@@ -179,8 +179,8 @@
 ### [Mac için Visual Studio ile Web API’si](xref:tutorials/first-web-api-mac)
 ### [Yerel mobil uygulamalar için Web API’si](xref:mobile/native-mobile-backend)
 ## Swagger / OpenAPI
-### [Genel bakış](xref:tutorials/get-started-with-swashbuckle)
-### [Swagger yardım sayfaları](xref:tutorials/web-api-help-pages-using-swagger)
+### [Genel bakış](xref:tutorials/web-api-help-pages-using-swagger)
+### [Swashbuckle kullanmaya başlama](xref:tutorials/get-started-with-swashbuckle)
 ### [NSwag Kullanmaya Başlama](xref:tutorials/get-started-with-nswag)
 ## [Eylem dönüş türleri](xref:web-api/action-return-types)
 ## [Yanıt verilerini biçimlendirme](xref:web-api/advanced/formatting)

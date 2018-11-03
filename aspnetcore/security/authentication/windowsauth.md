@@ -1,16 +1,17 @@
 ---
 title: ASP.NET Core Windows kimlik doğrulamasını yapılandırma
-author: ardalis
-description: Bu makalede, IIS Express, IIS, HTTP.sys ve WebListener kullanarak ASP.NET Core Windows kimlik doğrulaması yapılandırma açıklanır.
+author: scottaddie
+description: IIS Express, IIS, HTTP.sys ve WebListener kullanarak ASP.NET Core Windows kimlik doğrulaması yapılandırmayı öğrenin.
 ms.author: riande
-ms.date: 08/18/2018
+ms.custom: mvc
+ms.date: 11/01/2018
 uid: security/authentication/windowsauth
-ms.openlocfilehash: a8066d248c0d4db1d1f61b2a14bdb4656a2f4265
-ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
+ms.openlocfilehash: 87fcab75555c1dae0b2815c30d79fd4615df9660
+ms.sourcegitcommit: 85f2939af7a167b9694e1d2093277ffc9a741b23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43312418"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50968299"
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>ASP.NET Core Windows kimlik doğrulamasını yapılandırma
 
@@ -98,6 +99,9 @@ Windows kimlik doğrulaması Kestrel desteklemiyor olsa da, kullanabileceğiniz 
 
 > [!NOTE]
 > Çekirdek modu kimlik doğrulaması Kerberos kimlik doğrulama protokolü HTTP.sys temsil eder. Kullanıcı modu kimlik doğrulaması, Kerberos ve HTTP.sys ile desteklenmez. Makine hesabı Kerberos belirteci/Active Directory'den elde edilen anahtar şifresini çözmek için kullanılan ve kullanıcının kimliğini doğrulamak için istemcinin sunucuya iletilir. Hizmet asıl adı (SPN) konak için değil uygulamanın kullanıcı kaydedin.
+
+> [!NOTE]
+> HTTP.sys sürüm 1709 veya üzeri Nano Sunucu'da desteklenmemektedir. Windows kimlik doğrulaması ve HTTP.sys Nano Server ile kullanmak için bir [(microsoft/windowsservercore) Server Core kapsayıcı](https://hub.docker.com/r/microsoft/windowsservercore/). Sunucu Çekirdeği hakkında daha fazla bilgi için bkz. [Windows Server'da Sunucu Çekirdeği yükleme seçeneği nedir?](/windows-server/administration/server-core/what-is-server-core).
 
 ::: moniker-end
 
