@@ -8,12 +8,12 @@ ms.date: 02/07/2014
 ms.assetid: aa67d304-583b-4bf8-a231-195656cfb587
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-c
 msc.type: authoredcontent
-ms.openlocfilehash: 347e5ddbc02866887d3f422ecc291e5e3dfacaaf
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: b242bf52bbd63d726e6ce6ab7be01a1b81c5bf1b
+ms.sourcegitcommit: fc2486ddbeb15ab4969168d99b3fe0fbe91e8661
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207920"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50758264"
 ---
 <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-c"></a>ASP.NET Web programlama Razor söz dizimini (C#) kullanarak giriş
 ====================
@@ -342,13 +342,13 @@ Aşağıdaki tablo bazı yaygın dönüştürme ve test yöntemleri değişkenle
 
 :::row:::
     :::column:::
-        <strong>Method</strong>
+    <strong>Yöntemi</strong>
     :::column-end:::
     :::column:::
-        <strong>Description</strong>
+    <strong>Açıklama</strong>
     :::column-end:::
     :::column:::
-        <strong>Example</strong>
+    <strong>Örnek</strong>
     :::column-end:::
 :::row-end:::
 * * *
@@ -357,7 +357,7 @@ Aşağıdaki tablo bazı yaygın dönüştürme ve test yöntemleri değişkenle
         `AsInt(), IsInt()`
     :::column-end:::
     :::column:::
-        Converts a string that represents a whole number (like "593") to an integer.
+    ("593" gibi) bir tam sayı bir tamsayı olarak temsil eden bir dize dönüştürür.
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample28.cs)]
@@ -369,7 +369,7 @@ Aşağıdaki tablo bazı yaygın dönüştürme ve test yöntemleri değişkenle
         `AsBool(), IsBool()`
     :::column-end:::
     :::column:::
-        Converts a string like &quot;true&quot; or &quot;false&quot; to a Boolean type.
+    Gibi bir dize dönüştürür &quot;true&quot; veya &quot;false&quot; Boole türü.
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample29.cs)]
@@ -381,7 +381,7 @@ Aşağıdaki tablo bazı yaygın dönüştürme ve test yöntemleri değişkenle
         `AsFloat(), IsFloat()`
     :::column-end:::
     :::column:::
-        Converts a string that has a decimal value like &quot;1.3&quot; or &quot;7.439&quot; to a floating-point number.
+    Gibi ondalık bir değeri içeren bir dize dönüştürür &quot;1.3&quot; veya &quot;7.439&quot; bir kayan noktalı sayı.
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample30.cs)]
@@ -393,7 +393,7 @@ Aşağıdaki tablo bazı yaygın dönüştürme ve test yöntemleri değişkenle
         `AsDecimal(), IsDecimal()`
     :::column-end:::
     :::column:::
-        Converts a string that has a decimal value like &quot;1.3&quot; or &quot;7.439&quot; to a decimal number. (In ASP.NET, a decimal number is more precise than a floating-point number.)
+    Gibi ondalık bir değeri içeren bir dize dönüştürür &quot;1.3&quot; veya &quot;7.439&quot; ondalık bir sayı. (ASP.NET, bir ondalık kayan noktalı sayıdan daha kesin sayıdır.)
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample31.cs)]
@@ -405,7 +405,7 @@ Aşağıdaki tablo bazı yaygın dönüştürme ve test yöntemleri değişkenle
         `AsDateTime(), IsDateTime()`
     :::column-end:::
     :::column:::
-        Converts a string that represents a date and time value to the ASP.NET `DateTime` type.
+    ASP.NET için bir tarih ve saat değerini temsil eden bir dize dönüştürür `DateTime` türü.
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample32.cs)]
@@ -417,7 +417,7 @@ Aşağıdaki tablo bazı yaygın dönüştürme ve test yöntemleri değişkenle
         `ToString()`
     :::column-end:::
     :::column:::
-        Converts any other data type to a string.
+    Herhangi bir veri türü, bir dizeye dönüştürür.
     :::column-end:::
     :::column:::
         [!code-javascript[Main](introducing-razor-syntax-c/samples/sample33.js)]
@@ -431,13 +431,13 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
 
 :::row:::
     :::column:::
-        <strong>Operator</strong>
+    <strong>İşleci</strong>
     :::column-end:::
     :::column:::
-        <strong>Description</strong>
+    <strong>Açıklama</strong>
     :::column-end:::
     :::column:::
-        <strong>Examples</strong>
+    <strong>Örnekler</strong>
     :::column-end:::
 :::row-end:::
 * * *
@@ -446,7 +446,7 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
         `+` `-` `*` `/`
     :::column-end:::
     :::column:::
-        Math operators used in numerical expressions.
+    Sayısal ifadeler kullanılan matematik işleçleri.
     :::column-end:::
     :::column:::
         [!code-css[Main](introducing-razor-syntax-c/samples/sample34.css)]
@@ -458,7 +458,7 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
         `=`
     :::column-end:::
     :::column:::
-        Assignment. Assigns the value on the right side of a statement to the object on the left side.
+    Atama. Deyiminin sağ taraftaki değer sol tarafındaki nesnesi atar.
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample35.cs)]
@@ -470,7 +470,7 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
         `==`
     :::column-end:::
     :::column:::
-        Equality. Returns `true` if the values are equal. (Notice the distinction between the `=` operator and the `==` operator.)
+    Eşitlik. Döndürür `true` değerler eşitse. (Birbirinden fark `=` işleci ve `==` işleci.)
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample36.cs)]
@@ -482,7 +482,7 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
         `!=`
     :::column-end:::
     :::column:::
-        Inequality. Returns `true` if the values are not equal.
+    Eşitsizlik. Döndürür `true` değerler eşit değilse.
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample37.cs)]
@@ -494,7 +494,7 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
         `< > <= >=`
     :::column-end:::
     :::column:::
-        Less-than, greater-than, less-than-or-equal, and greater-than-or-equal.
+    Daha az-değerinden, büyük-küçük değerinden-veya-eşittir ve daha fazla-veya-eşittir büyüktür.
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample38.cs)]
@@ -506,7 +506,7 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
         `+`
     :::column-end:::
     :::column:::
-        Concatenation, which is used to join strings. ASP.NET knows the difference between this operator and the addition operator based on the data type of the expression.
+    Birleştirme dizeleri birleştirmek için kullanılır. ASP.NET bu operatörü ve ifade veri türüne göre toplama işleci arasındaki farkı bilir.
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample39.cs)]
@@ -518,7 +518,7 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
         `+=` `-=`
     :::column-end:::
     :::column:::
-        The increment and decrement operators, which add and subtract 1 (respectively) from a variable.
+    Ekleme ve 1 (sırasıyla) bir değişkenden gelen çıkarmayı artırma ve azaltma işleçleri.
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample40.cs)]
@@ -530,7 +530,7 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
         `.`
     :::column-end:::
     :::column:::
-        Dot. Used to distinguish objects and their properties and methods.
+    Nokta. Nesneleri ve özellikleri ve yöntemleri ayırt etmek için kullanılır.
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample41.cs)]
@@ -542,7 +542,7 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
         `()`
     :::column-end:::
     :::column:::
-        Parentheses. Used to group expressions and to pass parameters to methods.
+    Parantezler. Grup ifadeleri ve yönteme parametreleri geçirmek için kullanılır.
     :::column-end:::
     :::column:::
         [!code-javascript[Main](introducing-razor-syntax-c/samples/sample42.js)]
@@ -554,7 +554,7 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
         `[]`
     :::column-end:::
     :::column:::
-        Brackets. Used for accessing values in arrays or collections.
+    Köşeli ayraç. Değer dizileri veya koleksiyonlardaki erişmek için kullanılır.
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample43.cs)]
@@ -566,7 +566,7 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
         `!`
     :::column-end:::
     :::column:::
-        Not. Reverses a `true` value to `false` and vice versa. Typically used as a shorthand way to test for `false` (that is, for not `true`).
+    Değil. Tersine çevirir bir `true` değerini `false` ve bunun tersi de geçerlidir. Test etmek için bir toplu şekilde genellikle kullanılan `false` (diğer bir deyişle, için değil `true`).
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample44.cs)]
@@ -578,7 +578,7 @@ Bir anahtar sözcük veya ne tür bir ifadede gerçekleştirilecek komut ASP kar
         `&&` <code>&#124;&#124;</code>
     :::column-end:::
     :::column:::
-        Logical AND and OR, which are used to link conditions together.
+    Mantıksal AND ve OR koşulları birlikte hangi bağlamak için kullanılır.
     :::column-end:::
     :::column:::
         [!code-csharp[Main](introducing-razor-syntax-c/samples/sample45.cs)]

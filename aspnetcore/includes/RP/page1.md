@@ -4,7 +4,7 @@ Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Bu öğreticide, önceki öğreticide yapı iskelesi oluşturulmuş Razor sayfaları inceler. 
 
-[Görüntüleme veya indirme](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie) örnek.
+[Görüntüleme veya indirme](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie21) örnek.
 
 ## <a name="the-create-delete-details-and-edit-pages"></a>Oluşturma, silme, Ayrıntılar ve düzenleme sayfaları.
 
@@ -101,7 +101,7 @@ Değişiklik `<title>` öğesinde *Pages/Shared/_Layout.cshtml* daha kısa bir d
 
 [!code-cshtml[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/_Layout.cshtml?range=1-6&highlight=6)]
 
-Aşağıdaki bağlantı öğe Bul *Pages/_Layout.cshtml* dosya.
+Aşağıdaki bağlantı öğe Bul *Pages/Shared/_Layout.cshtml* dosya.
 
 ```cshtml
 <a asp-page="/Index" class="navbar-brand">RazorPagesMovie</a>
@@ -114,7 +114,7 @@ Aşağıdaki bağlantı öğe Bul *Pages/_Layout.cshtml* dosya.
 
 Önceki yer işareti öğesi bir [etiketi Yardımcısı](xref:mvc/views/tag-helpers/intro). Bu durumda sahip [yer işareti etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper). `asp-page="/Movies/Index"` Etiketi yardımcı öznitelik ve değer oluşturan bir bağlantı `/Movies/Index` Razor sayfası.
 
-Değişikliklerinizi kaydedip tıklayarak uygulamayı test etme **RpMovie** bağlantı. Bkz: [_Layout.cshtml](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/_Layout.cshtml) github'da dosya.
+Değişikliklerinizi kaydedip tıklayarak uygulamayı test etme **RpMovie** bağlantı. Bkz: [_Layout.cshtml](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/Shared/_Layout.cshtml) github'da dosya.
 
 ### <a name="the-create-page-model"></a>Oluşturma sayfa modeli
 
