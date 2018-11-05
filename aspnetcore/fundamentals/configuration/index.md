@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/09/2018
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 2af66c0f35109dc1de954bf501f33ad61ddef4db
-ms.sourcegitcommit: 85f2939af7a167b9694e1d2093277ffc9a741b23
+ms.openlocfilehash: 6dd478770d4eae4d497da576c17fbe7d2c133b89
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50968377"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021748"
 ---
 # <a name="configuration-in-aspnet-core"></a>ASP.NET core'da yapılandırma
 
@@ -1151,6 +1151,7 @@ public class Program
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 config.SetBasePath(Directory.GetCurrentDirectory());
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "path/to/files");
                 config.AddKeyPerFile(directoryPath: path, optional: true);
             })
             .UseStartup<Startup>();
@@ -1509,13 +1510,13 @@ viewModel.TvShow = tvShow;
 
 Yapılandırma anahtarları ve değerleri aşağıdaki tabloda gösterilen göz önünde bulundurun.
 
-| Anahtar     | Değer  |
-| :-----: | :----: |
-| dizi: 0 | value0 |
-| dizi: 1 | Değer1 |
-| dizi: 2 | Value2 |
-| dizi: 4 | Değer4 |
-| dizi: 5 | Değeri5 |
+| Anahtar             | Değer  |
+| :-------------: | :----: |
+| dizi: girişler: 0 | value0 |
+| dizi: girişler: 1 | Değer1 |
+| dizi: girişler: 2 | Value2 |
+| dizi: girişler: 4 | Değer4 |
+| dizi: girişler: 5 | Değeri5 |
 
 Bellek yapılandırma sağlayıcısı kullanan örnek uygulamasında, bu anahtarların ve değerlerin yüklenir:
 
@@ -1574,17 +1575,17 @@ _config.GetSection("array").Bind(arrayExample);
 
 İlişkili nesne, örneği `ArrayExample`, yapılandırmasından dizisi verileri alır.
 
-| `ArrayExamples.Entries` Dizin | `ArrayExamples.Entries` Değer |
-| :---------------------------: | :---------------------------: |
-| 0                             | value0                        |
-| 1.                             | Değer1                        |
-| 2                             | Value2                        |
-| 3                             | Değer4                        |
-| 4                             | Değeri5                        |
+| `ArrayExample.Entries` Dizin | `ArrayExample.Entries` Değer |
+| :--------------------------: | :--------------------------: |
+| 0                            | value0                       |
+| 1.                            | Değer1                       |
+| 2                            | Value2                       |
+| 3                            | Değer4                       |
+| 4                            | Değeri5                       |
 
 Dizin &num;3'te ilişkili nesne için yapılandırma verilerini tutan `array:4` yapılandırma anahtarı ve değeri `value4`. Bir diziyi içeren yapılandırma verilerini bağlandığında, dizi dizinleri yapılandırma anahtarları yalnızca nesne oluşturma sırasında yapılandırma verileri yinelemek için kullanılır. Yapılandırma verilerinde bir null değer tutulamıyor ve yapılandırma anahtarları bir dizide bir veya daha fazla dizinlerini atladığında null değerli bir girişi bir bağımlı nesne oluşturulmaz.
 
-Eksik yapılandırma öğesi için dizin &num;bağlama önce 3 sağlanabilir `ArrayExamples` örneği üretir yapılandırma doğru anahtar-değer çifti herhangi bir yapılandırma sağlayıcısı tarafından. Ek bir JSON yapılandırma sağlayıcısı eksik anahtar-değer çifti ile örneği varsa `ArrayExamples.Entries` yapılandırmanın tamamı dizisi ile eşleşen:
+Eksik yapılandırma öğesi için dizin &num;bağlama önce 3 sağlanabilir `ArrayExample` örneği üretir yapılandırma doğru anahtar-değer çifti herhangi bir yapılandırma sağlayıcısı tarafından. Ek bir JSON yapılandırma sağlayıcısı eksik anahtar-değer çifti ile örneği varsa `ArrayExample.Entries` yapılandırmanın tamamı dizisi ile eşleşen:
 
 *missing_value.JSON*:
 
@@ -1620,16 +1621,16 @@ Tabloda belirtilen anahtar-değer çifti yapılandırma yüklenir.
 | :-------------: | :----: |
 | dizi: girişler: 3 | Değeri3 |
 
-Varsa `ArrayExamples` sınıf örneği bağlı dizin için giriş JSON yapılandırma sağlayıcısı içerir sonra &num;3 `ArrayExamples.Entries` dizi değeri içerir.
+Varsa `ArrayExample` sınıf örneği bağlı dizin için giriş JSON yapılandırma sağlayıcısı içerir sonra &num;3 `ArrayExample.Entries` dizi değeri içerir.
 
-| `ArrayExamples.Entries` Dizin | `ArrayExamples.Entries` Değer |
-| :---------------------------: | :---------------------------: |
-| 0                             | value0                        |
-| 1.                             | Değer1                        |
-| 2                             | Value2                        |
-| 3                             | Değeri3                        |
-| 4                             | Değer4                        |
-| 5                             | Değeri5                        |
+| `ArrayExample.Entries` Dizin | `ArrayExample.Entries` Değer |
+| :--------------------------: | :--------------------------: |
+| 0                            | value0                       |
+| 1.                            | Değer1                       |
+| 2                            | Value2                       |
+| 3                            | Değeri3                       |
+| 4                            | Değer4                       |
+| 5                            | Değeri5                       |
 
 **JSON dizisi işleme**
 

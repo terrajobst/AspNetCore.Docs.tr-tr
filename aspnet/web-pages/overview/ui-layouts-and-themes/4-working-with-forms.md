@@ -1,19 +1,19 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/4-working-with-forms
 title: ASP.NET Web sayfaları (Razor) siteleri HTML formları ile çalışma | Microsoft Docs
-author: tfitzmac
+author: Rick-Anderson
 description: Metin kutuları, onay kutuları, radyo düğmeleri ve aşağı açılır listeleri gibi kullanıcı girişi denetimleri yerleştirdiğiniz yere bir bölümü bir HTML belgesinin biçimidir. Formları kullanma ne...
 ms.author: riande
 ms.date: 02/10/2014
 ms.assetid: f3f4b8c8-e8f6-4474-ad94-69228a6c01ee
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/4-working-with-forms
 msc.type: authoredcontent
-ms.openlocfilehash: 3f4effecb3b871f1bd7db1cd2a7aab6eeca80c50
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: de700055168f9d17167c82afe836b546160c6e91
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41752341"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021630"
 ---
 <a name="working-with-html-forms-in-aspnet-web-pages-razor-sites"></a>ASP.NET Web sayfaları (Razor) sitesinde HTML formlarla çalışma
 ====================

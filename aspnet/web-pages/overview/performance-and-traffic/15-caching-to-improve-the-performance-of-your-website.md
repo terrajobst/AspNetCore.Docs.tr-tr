@@ -1,19 +1,19 @@
 ---
 uid: web-pages/overview/performance-and-traffic/15-caching-to-improve-the-performance-of-your-website
 title: Daha iyi performans için sayfaları (Razor) sitesinde bir ASP.NET Web verileri önbelleğe alma | Microsoft Docs
-author: tfitzmac
+author: Rick-Anderson
 description: Sitenizi depolamak - diğer bir deyişle, sağlayarak önbellek - normalde almak veya önemli ölçüde zaman alabileceğini veri sonuçlarını hızlandırabilirsiniz bir...
 ms.author: riande
 ms.date: 02/14/2014
 ms.assetid: 961e525b-7700-469e-8a68-d7010b6fb68c
 msc.legacyurl: /web-pages/overview/performance-and-traffic/15-caching-to-improve-the-performance-of-your-website
 msc.type: authoredcontent
-ms.openlocfilehash: 53a3f38c23dc20479ddf231fe24a200d823d0345
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: ede341e02869a9c81cbe2fa7ef97345dc87519a1
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41753636"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51020371"
 ---
 <a name="caching-data-in-an-aspnet-web-pages-razor-site-for-better-performance"></a>Bir ASP.NET Web sayfaları (Razor) sitesinde daha iyi performans için verileri önbelleğe alma
 ====================

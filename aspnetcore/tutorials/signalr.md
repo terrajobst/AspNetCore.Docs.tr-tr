@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 08/31/2018
 uid: tutorials/signalr
-ms.openlocfilehash: fcfe2fa6cc88b9eee1389e171fa5eb7711b4f14f
-ms.sourcegitcommit: fc2486ddbeb15ab4969168d99b3fe0fbe91e8661
+ms.openlocfilehash: 7d9f3a3f8aa7a5e47169da66e6fa2d6a28de3853
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50758134"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021254"
 ---
 # <a name="tutorial-get-started-with-aspnet-core-signalr"></a>Öğretici: ASP.NET Core SignalR ile çalışmaya başlama
 
@@ -69,12 +69,13 @@ Sonunda, bir çalışma sohbet uygulaması oluşturmuş olacaksınız:
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
 
-* Yeni bir proje için kullanabileceğiniz bir klasöre açın.
+* Açık [tümleşik Terminalini](https://code.visualstudio.com/docs/editor/integrated-terminal) yeni proje klasörü oluşturulacağı klasör.
 
-* İçinde [tümleşik Terminalini](https://code.visualstudio.com/docs/editor/integrated-terminal), aşağıdaki komutu çalıştırın:
+* Aşağıdaki komutları çalıştırın:
 
    ```console
    dotnet new webapp -o SignalRChat
+   code -r SignalRChat
    ```
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
@@ -113,13 +114,11 @@ SignalR server kitaplığı dahil `Microsoft.AspNetCore.App` metapackage. JavaSc
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
 
-* İçinde **tümleşik Terminalini**, LibMan yüklemek için aşağıdaki komutu çalıştırın.
+* Tümleşik terminalde LibMan yüklemek için aşağıdaki komutu çalıştırın.
 
   ```console
   dotnet tool install -g Microsoft.Web.LibraryManager.Cli
   ```
-
-* Proje klasörüne gidin (içeren *SignalRChat.csproj* dosyası).
 
 * SignalR istemci kitaplığı LibMan almak için aşağıdaki komutu çalıştırın. Çıktıyı görmeye önce birkaç saniye beklemeniz gerekebilir.
 
@@ -225,8 +224,12 @@ SignalR sunucusu, SignalR için SignalR isteklerini iletmek için yapılandırı
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-* Tuşuna **CTRL + F5** uygulamayı hata ayıklama olmadan çalıştırmak için.
+* Tümleşik terminalde aşağıdaki komutu çalıştırın:
 
+  ```console
+  dotnet run -p SignalRChat
+  ```
+  
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
 * Menüden **çalıştırın > hata ayıklama olmadan Başlat**.

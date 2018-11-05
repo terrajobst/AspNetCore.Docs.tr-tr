@@ -1,19 +1,19 @@
 ---
 uid: web-forms/overview/presenting-and-managing-data/model-binding/sorting-paging-and-filtering-data
 title: Sıralama, sayfalama ve model bağlama ve web forms ile verileri filtreleme | Microsoft Docs
-author: tfitzmac
+author: Rick-Anderson
 description: Bu öğretici serisinde, model bağlama kullanarak bir ASP.NET Web formları projesi ile temel yönlerini gösterir. Model bağlama veri etkileşimi daha fazla düz - sağlar...
 ms.author: riande
 ms.date: 02/27/2014
 ms.assetid: 266e7866-e327-4687-b29d-627a0925e87d
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/sorting-paging-and-filtering-data
 msc.type: authoredcontent
-ms.openlocfilehash: 86ddedb68b8d18057cd2f7d68e795efda33734b1
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 624f98cea6030e0b7b022f86c4c1aa37f1db9726
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41754035"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51020961"
 ---
 <a name="sorting-paging-and-filtering-data-with-model-binding-and-web-forms"></a>Sıralama, sayfalama ve model bağlama ve web forms ile verileri filtreleme
 ====================

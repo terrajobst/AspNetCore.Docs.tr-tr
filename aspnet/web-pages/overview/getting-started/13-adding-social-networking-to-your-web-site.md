@@ -1,19 +1,19 @@
 ---
 uid: web-pages/overview/getting-started/13-adding-social-networking-to-your-web-site
 title: Sosyal ağ ekleme için ASP.NET Web sayfaları (Razor) siteler | Microsoft Docs
-author: tfitzmac
+author: Rick-Anderson
 description: Bu bölümde, sitenize sosyal ağ hizmetleriyle tümleştirmeye yönelik açıklanmaktadır. Bu bölümde, Web sitenizi yer işareti/bağlantı kişilere öğreneceksiniz...
 ms.author: riande
 ms.date: 02/21/2014
 ms.assetid: 03c342f9-b35c-4d7c-b9ed-cd9aaaffedb6
 msc.legacyurl: /web-pages/overview/getting-started/13-adding-social-networking-to-your-web-site
 msc.type: authoredcontent
-ms.openlocfilehash: 684fcfdde0aefeb168398bdf7a42f9fdbd6e48b3
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: d2b970e7b80e4129d0a912f648f9c4a54df531b2
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41756765"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021163"
 ---
 <a name="adding-social-networking-to-aspnet-web-pages-razor-sites"></a>ASP.NET Web sayfaları (Razor) siteleri sosyal ağ ekleme
 ====================

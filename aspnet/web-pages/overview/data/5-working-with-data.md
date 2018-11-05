@@ -1,19 +1,19 @@
 ---
 uid: web-pages/overview/data/5-working-with-data
 title: ASP.NET Web veritabanıyla çalışmaya giriş sayfaları (Razor) siteler | Microsoft Docs
-author: tfitzmac
+author: Rick-Anderson
 description: Bu bölümde, bir veritabanından veri erişim ve ASP.NET Web Pages kullanılarak görüntüleme açıklar.
 ms.author: riande
 ms.date: 02/18/2014
 ms.assetid: 673d502f-2c16-4a6f-bb63-dbfd9a77ef47
 msc.legacyurl: /web-pages/overview/data/5-working-with-data
 msc.type: authoredcontent
-ms.openlocfilehash: b6db23c6f9bba418dff7e6b50bbc1c54f13ccb70
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: a688761c87376aa93463c13eaa07858d3acb9dc2
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41753369"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021696"
 ---
 <a name="introduction-to-working-with-a-database-in-aspnet-web-pages-razor-sites"></a>ASP.NET Web veritabanıyla çalışmaya giriş sayfaları (Razor) siteler
 ====================
@@ -69,7 +69,7 @@ Veritabanlarının temel bilgilere sahip basit bir veritabanı oluşturma ve ekl
 > Bu makalede çok derin bir şekilde veritabanlarına gideceği anlamına gelmez. Ancak, bunlar hakkında biraz anlamak yararlı bulabilirsiniz. İlişkisel bir veritabanında bilgileri ayrı tablolara mantıksal olarak ayrılır. Örneğin, okullar için bir veritabanı sınıfı teklifleri ve öğrenciler için ayrı tablolar içerebilir. Dinamik olarak sağlayan veritabanı (SQL Server gibi) yazılım destekler güçlü komutlarını tablolar arasında ilişki oluşturun. Örneğin, bir zamanlama oluşturmak için öğrencilerinizi ve sınıflarınızı arasında mantıksal bir ilişki kurmak için ilişkisel veritabanını kullanabilirsiniz. Ayrı tablolarda veri depolama, tablo yapısı karmaşıklığını azaltır ve gereksiz verileri tabloda tutmak gereksinimini azaltır.
 
 
-## <a name="creating-a-database"></a>Veritabanı oluşturma
+## <a name="creating-a-database"></a>Veritabanı Oluşturma
 
 Bu yordam Webmatrix'te SQL Server Compact veritabanı tasarım aracı kullanarak SmallBakery adlı bir veritabanı oluşturma işlemini gösterir. Kod kullanarak bir veritabanı oluşturabilirsiniz, ancak WebMatrix gibi bir tasarım aracını kullanarak veritabanı tablo ve veritabanı oluşturmak için daha tipik bir durumdur.
 

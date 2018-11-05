@@ -8,12 +8,12 @@ ms.date: 06/26/2013
 ms.assetid: 23fc77da-2725-4434-99a0-ff872d96336b
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing
 msc.type: authoredcontent
-ms.openlocfilehash: 3b66f02c9be6441ff7d6c38d6180cc8556c6b8b9
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 18a44c280e6df1603837938d24d7d639d8c87cc2
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912897"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021423"
 ---
 <a name="create-a-rest-api-with-attribute-routing-in-aspnet-web-api-2"></a>ASP.NET Web API 2 yönlendirme özniteliğine sahip bir REST API'si oluşturma
 ====================
@@ -52,11 +52,11 @@ Entity Framework veri katmanı için kullanacağız. Kitap kayıtlarını, aşa�
 
 Visual Studio çalıştırarak başlayın. Gelen **dosya** menüsünde **yeni** seçip **proje**.
 
-Genişletin **yüklü** > **Visual C#** kategorisi. Altında **Visual C#** seçin **Web**. Proje şablonları listesinde seçin **ASP.NET MVC 4 Web uygulaması**. Projeyi adlandırın &quot;BooksAPI&quot;.
+Genişletin **yüklü** > **Visual C#** kategorisi. Altında **Visual C#** seçin **Web**. Proje şablonları listesinde seçin **ASP.NET Web uygulaması (.NET Framework)**. Projeyi adlandırın &quot;BooksAPI&quot;.
 
 ![](create-a-rest-api-with-attribute-routing/_static/image1.png)
 
-İçinde **yeni ASP.NET projesi** iletişim kutusunda **boş** şablonu. "Klasör eklemek ve çekirdek başvuruları için" altında seçin **Web API** onay kutusu. Tıklayın **projesi oluşturma**.
+İçinde **yeni ASP.NET Web uygulaması** iletişim kutusunda **boş** şablonu. "Klasör eklemek ve çekirdek başvuruları için" altında seçin **Web API** onay kutusu. **Tamam**'ı tıklatın.
 
 ![](create-a-rest-api-with-attribute-routing/_static/image2.png)
 
@@ -86,7 +86,7 @@ Projeyi oluşturmak için CTRL+SHIFT+B tuşlarına basın. Entity Framework veri
 
 ![](create-a-rest-api-with-attribute-routing/_static/image4.png)
 
-İçinde **İskele Ekle** iletişim kutusunda "Web API 2 denetleyici Entity Framework kullanarak okuma/yazma eylemleri ile."
+İçinde **İskele Ekle** iletişim kutusunda **Web API 2 denetleyici Entity Framework kullanarak Eylemler ile**.
 
 [![](create-a-rest-api-with-attribute-routing/_static/image6.png)](create-a-rest-api-with-attribute-routing/_static/image5.png)
 
@@ -102,7 +102,7 @@ Tıklayın **Ekle** içinde **denetleyici Ekle** iletişim. Yapı iskelesi adlı
 
 ![](create-a-rest-api-with-attribute-routing/_static/image9.png)
 
-### <a name="seed-the-database"></a>Veritabanının çekirdeğini oluşturma
+### <a name="seed-the-database"></a>Veritabanının Çekirdeğini Oluşturma
 
 Araçlar menüsü'nden seçin **NuGet Paket Yöneticisi**ve ardından **Paket Yöneticisi Konsolu**.
 

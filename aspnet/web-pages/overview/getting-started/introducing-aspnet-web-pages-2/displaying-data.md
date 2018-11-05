@@ -1,19 +1,19 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/displaying-data
 title: Verileri görüntüleme - ASP.NET Web sayfaları ile tanışın | Microsoft Docs
-author: tfitzmac
+author: Rick-Anderson
 description: Bu öğretici Webmatrix'te bir veritabanı oluşturulacağını ve ASP.NET Web sayfaları (Razor) kullanırken veritabanı verilerinin bir sayfada nasıl görüntüleneceğini gösterir. Bu, y varsayar...
 ms.author: riande
 ms.date: 05/28/2015
 ms.assetid: b3a006a0-3ea2-4d45-b833-e20e3a3c0a1a
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/displaying-data
 msc.type: authoredcontent
-ms.openlocfilehash: 864b9f7826763e307368706116458678abf50d3b
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 9158a1f53268daec6e6fbdf003dd73e1d62cc667
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41757290"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021593"
 ---
 <a name="introducing-aspnet-web-pages---displaying-data"></a>ASP.NET Web sayfalarına giriş - verileri görüntüleme
 ====================
@@ -62,7 +62,7 @@ Web uygulamalarında yaptığınız işin çoğunu veritabanından bilgileri oku
 
 Veritabanı iş artık çok karmaşık olabilir ve özel bilgi gerekli kılabilirsiniz. Bu öğretici kümesi için yine de, kullandıkça, tüm açıklanacaktır yalnızca temel kavramları anlamanız gerekir.
 
-## <a name="creating-a-database"></a>Veritabanı oluşturma
+## <a name="creating-a-database"></a>Veritabanı Oluşturma
 
 WebMatrix, bir veritabanı oluşturmak ve veritabanında tablolar oluşturmak için kolaylaştıran araçlar içerir. (Bir veritabanının yapısını veritabanı adlandırılır *şema*.) Bu öğretici kümesi için yalnızca bir tablo içerdiğinden bir veritabanı oluşturacaksınız &mdash; filmler.
 

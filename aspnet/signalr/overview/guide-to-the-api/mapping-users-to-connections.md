@@ -1,21 +1,21 @@
 ---
 uid: signalr/overview/guide-to-the-api/mapping-users-to-connections
 title: SignalR kullanıcılarını bağlantılarla eşleme | Microsoft Docs
-author: tfitzmac
+author: Rick-Anderson
 description: Bu konuda, kullanıcılar ve kendi bağlantılarını hakkındaki bilgileri saklamanın gösterilmektedir. Patrick Fletcher, bu konuda yazma yardımcı olmuştur. Bu konu başlığında kullanılan yazılım sürümleri...
 ms.author: riande
 ms.date: 12/30/2014
 ms.assetid: f80c08b1-3f1f-432c-980c-c7b6edeb31b1
 msc.legacyurl: /signalr/overview/guide-to-the-api/mapping-users-to-connections
 msc.type: authoredcontent
-ms.openlocfilehash: a3598eee30b29a95673cbc313adfb8f5b068ea24
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 5c7f710ec672d4f81ac0d1606640054e43fc5af8
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912585"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021241"
 ---
-<a name="mapping-signalr-users-to-connections"></a>SignalR kullanıcılarını bağlantılarla eşleme
+<a name="mapping-signalr-users-to-connections"></a>SignalR Kullanıcılarını Bağlantılarla Eşleme
 ====================
 tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
