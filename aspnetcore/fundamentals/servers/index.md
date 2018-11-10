@@ -1,17 +1,17 @@
 ---
 title: ASP.NET Core Web sunucu uygulamalarında
-author: rick-anderson
+author: guardrex
 description: ASP.NET Core için web sunucuları Kestrel ve HTTP.sys keşfedin. Bir sunucu seçin ve ne zaman bir ters proxy sunucusu kullanmayı öğrenin.
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 09/21/2018
 uid: fundamentals/servers/index
-ms.openlocfilehash: 6b6ebbe9d31d571ea470fba0989d622dcf6e68af
-ms.sourcegitcommit: fc2486ddbeb15ab4969168d99b3fe0fbe91e8661
+ms.openlocfilehash: 06d4bf09b07fc70a10b3e260e78c29fe189486c5
+ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50758212"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51505732"
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>ASP.NET Core Web sunucu uygulamalarında
 
@@ -144,7 +144,7 @@ Proje klasöründeki bir komut isteminden bir uygulamayı başlatırken [çalı�
 
 * [Kestrel](xref:fundamentals/servers/kestrel#http2-support)
   * İşletim sistemi
-    * Windows Server 2012 R2/Windows 8.1 veya üzeri
+    * Windows Server 2016/Windows 10 veya üzeri&dagger;
     * Linux OpenSSL 1.0.2 veya daha sonra (örneğin, Ubuntu 16.04 veya üzeri)
     * HTTP/2 macos'ta gelecek sürümlerde desteklenecektir.
   * Hedef çerçeve: .NET Core 2.2 veya üzeri
@@ -158,6 +158,8 @@ Proje klasöründeki bir komut isteminden bir uygulamayı başlatırken [çalı�
   * Windows Server 2016/Windows 10 veya üzeri; IIS 10 veya üzeri
   * HTTP/2 genel kullanıma yönelik uç sunucu bağlantılarını kullanın, ancak HTTP/1.1 Kestrel ters proxy bağlantı kullanır.
   * Hedef çerçeve: IIS işlem dışı dağıtımlar için geçerli değildir.
+
+&dagger;Kestrel'i HTTP/2 Windows Server 2012 R2 ve Windows 8.1 için destek sınırlıdır. Bu işletim sistemlerinde desteklenen TLS şifre paketlerinin listesini sınırlı olduğundan destek sınırlıdır. Bir Eliptik Eğri Dijital imza algoritması (ECDSA) kullanılarak oluşturulan bir sertifika, TLS bağlantıları güvenli hale getirmek için gerekebilir.
 
 ::: moniker-end
 

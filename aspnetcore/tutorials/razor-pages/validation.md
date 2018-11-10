@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: f46bddb618d2a030e29b7dfa1671ea53b0d4bcc2
-ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
+ms.openlocfilehash: d4cc0ab9de314c0c5a1a9016efd1e566ff1c47d2
+ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51021358"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51505784"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Doğrulama için bir ASP.NET Core Razor sayfası ekleme
 
@@ -61,8 +61,7 @@ Seçin **Yeni Oluştur** bağlantı. Bazı geçersiz değerlerle formu doldurun.
 
 ![Birden çok jQuery istemci tarafı doğrulama hatalarını film görünüm formu](validation/_static/val.png)
 
-> [!NOTE]
-> Ondalık nokta veya virgül, girmeniz mümkün olmayabilir `Price` alan. Desteklemek için [jQuery doğrulama](https://jqueryvalidation.org/) virgül İngilizce olmayan yerel (",") ondalık ve ABD İngilizce olmayan tarih biçimleri için uygulamanızı globalleştirmek için adımları izlemelisiniz. Bkz: [ek kaynaklar](#additional-resources) daha fazla bilgi için. Şimdilik yalnızca 10 gibi tam sayı girin.
+[!INCLUDE[](~/includes/currency.md)]
 
 Form otomatik olarak işlenen geçersiz bir değer içeren her bir alan bir doğrulama hatası iletisini nasıl dikkat edin. (Bir kullanıcının JavaScript devre dışı olduğunda) hataları hem istemci-tarafı (JavaScript ve jQuery kullanarak) hem de sunucu tarafı uygulanır.
 

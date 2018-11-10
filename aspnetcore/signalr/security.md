@@ -5,14 +5,14 @@ description: Kimlik doğrulama ve yetkilendirme ASP.NET Core SignalR kullanmayı
 monikerRange: '>= aspnetcore-2.1'
 ms.author: anurse
 ms.custom: mvc
-ms.date: 11/06/2018
+ms.date: 10/17/2018
 uid: signalr/security
-ms.openlocfilehash: f646d319cf3030fd4d769e882514da14b230bbdd
-ms.sourcegitcommit: c3fa5aded0bf76a7414047d50b8a2311d27ee1ef
-ms.translationtype: MT
+ms.openlocfilehash: be1dd24c40327d9a0d8f91bf75300128d3d52725
+ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51276151"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51225375"
 ---
 # <a name="security-considerations-in-aspnet-core-signalr"></a>ASP.NET Core signalr'da güvenlik konuları
 
@@ -35,7 +35,7 @@ CORS yapılandırma hakkında daha fazla bilgi için bkz. [etkinleştirme çık�
 * HTTP yöntemleri `GET` ve `POST` izin verilmesi gerekir.
 * Hatta kimlik doğrulama olmadığında kimlik bilgileri etkinleştirilmelidir.
 
-Örneğin, barındırılan bir SignalR tarayıcı istemcisi aşağıdaki CORS ilkesinin sağlar `https://example.com` barındırılan SignalR uygulamaya erişmek için `https://signalr.example.com`:
+Örneğin, barındırılan bir SignalR tarayıcı istemcisi aşağıdaki CORS ilkesinin sağlar `http://example.com` barındırılan SignalR uygulamaya erişmek için `http://signalr.example.com`:
 
 [!code-csharp[Main](security/sample/Startup.cs?name=snippet1)]
 
@@ -70,14 +70,7 @@ ASP.NET Core 2.1 ve sonraki sürümlerinde, üst bilgisi doğrulama yerleştiril
 
 ## <a name="access-token-logging"></a>Erişim belirteci günlüğü
 
-WebSockets veya Server-Sent olayları kullanırken, tarayıcı istemci erişim belirteci sorgu dizesinde yer gönderir. Sorgu dizesi aracılığıyla erişim belirteci alma standart kullanmak genellikle kadar güvenli `Authorization` başlığı. İstemci ve sunucu arasında güvenli bir uçtan uca bağlantı sağlamak için her zaman HTTPS kullanmanız gerekir. Birçok web sunucusu URL'si sorgu dizesi dahil olmak üzere her istek için oturum açın. URL'leri günlüğü erişim belirteci oturum açabilir. ASP.NET Core her istek için URL sorgu dizesini içeren varsayılan olarak günlüğe kaydeder. Örneğin:
-
-```
-info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
-      Request starting HTTP/1.1 GET http://localhost:5000/myhub?access_token=1234
-```
-
-Bu veri günlüğü, sunucu günlükleri ile ilgili endişeleriniz varsa, bu günlük tamamen yapılandırarak devre dışı bırakabilirsiniz `Microsoft.AspNetCore.Hosting` için Günlükçü `Warning` düzeyi veya üzeri (Bu iletiler yazıldığı `Info` düzeyi). İlgili belgelere bakın [günlük filtreleme](xref:fundamentals/logging/index#log-filtering) daha fazla bilgi için. Belirli istek bilgileri günlüğe kaydetmek isterseniz, [bir ara yazılım yazma](xref:fundamentals/middleware/index#write-middleware) gerektirir ve filtrelemek verilerini günlüğe kaydetmek `access_token` sorgu dize değeri (varsa).
+WebSockets veya Server-Sent olayları kullanırken, tarayıcı istemci erişim belirteci sorgu dizesinde yer gönderir. Sorgu dizesi aracılığıyla erişim belirteci alma standart kullanmak genellikle kadar güvenli `Authorization` başlığı. Ancak, birçok web sunucusu URL'si sorgu dizesi dahil olmak üzere her istek için oturum açın. URL'leri günlüğü erişim belirteci oturum açabilir. Web günlüğü erişim belirteçleri önlemek için sunucunun günlüğe kaydetme ayarlarını en iyi bir uygulamadır.
 
 ## <a name="exceptions"></a>Özel Durumlar
 

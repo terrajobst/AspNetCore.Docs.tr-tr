@@ -1,17 +1,17 @@
 ---
 title: ASP.NET Core Modülü
-author: rick-anderson
+author: guardrex
 description: ASP.NET Core modülü Kestrel web sunucusu, bir ters proxy sunucusu olarak IIS veya IIS Express kullanacak şekilde nasıl olanak tanıdığını öğrenin.
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 09/21/2018
 uid: fundamentals/servers/aspnet-core-module
-ms.openlocfilehash: 2f73a34b7d311c9e98ad2ecba11894d27bb2aa4d
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 39c1b364f9dab635c79e00561d212c858c0c4395
+ms.sourcegitcommit: 09affee3d234cb27ea6fe33bc113b79e68900d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48910895"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51191262"
 ---
 # <a name="aspnet-core-module"></a>ASP.NET Core Modülü
 

@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.date: 09/10/2018
 uid: signalr/version-differences
-ms.openlocfilehash: 3cec37719b743b3c805ada77249f526278e44599
-ms.sourcegitcommit: 2ef32676c16f76282f7c23154d13affce8c8bf35
+ms.openlocfilehash: 8f07647959b6ef815eed599703bdb1bfb446572f
+ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50234611"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51505758"
 ---
 # <a name="differences-between-aspnet-signalr-and-aspnet-core-signalr"></a>ASP.NET SignalR ile ASP.NET Core SignalR arasındaki farklar
 
@@ -36,6 +36,10 @@ ASP.NET Core SignalR öğesinde otomatik yeniden bağlantılar desteklenmez. İs
 ### <a name="protocol-support"></a>Protokol desteği
 
 ASP.NET Core Signalr'yi destekleyen dayalı yeni bir ikili Protokolü yanı sıra JSON [MessagePack](xref:signalr/messagepackhubprotocol). Ayrıca, özel protokoller oluşturulabilir.
+
+### <a name="transports"></a>Taşımalar
+
+ASP.NET Core SignalR öğesinde sonsuza kadar çerçeve taşıma desteklenmiyor.
 
 ## <a name="differences-on-the-server"></a>Sunucuda farkları
 
@@ -72,6 +76,14 @@ ASP.NET Core SignalR destekler [akış verileri](xref:signalr/streaming) istemci
 
 İlerleme durumu iletileri için destek yanı sıra hub'ı (HubState olarak da adlandırılır) ve istemciler arasında rastgele bir durum geçirme özelliği kaldırıldı. Şu anda hiçbir hub proxy karşılığı yoktur.
 
+### <a name="globalhost"></a>GlobalHost
+
+ASP.NET Core Framework'e yerleşik bağımlılık ekleme (dı) sahiptir. Hizmetleri DI erişmek için kullanabileceğiniz [HubContext](xref:signalr/hubcontext). `GlobalHost` ASP.NET SignalR öğesinde almak için kullanılan nesne bir `HubContext` ASP.NET Core SignalR öğesinde yok.
+
+### <a name="hubpipeline"></a>HubPipeline
+
+ASP.NET Core SignalR için destek yok `HubPipeline` modüller.
+
 ## <a name="differences-on-the-client"></a>İstemci üzerinde farkları
 
 ### <a name="typescript"></a>TypeScript
@@ -90,6 +102,10 @@ npm install @aspnet/signalr
 ### <a name="jquery"></a>jQuery
 
 JQuery bağımlı projeler jQuery kullanmaya devam edebilirsiniz ancak kaldırıldı.
+
+### <a name="internet-explorer-support"></a>Internet Explorer desteği
+
+ASP.NET Core SignalR (ASP.NET SignalR, Microsoft Internet Explorer 8 ve üzeri desteklenir) Microsoft Internet Explorer 11 veya üstü gerektirir.
 
 ### <a name="javascript-client-method-syntax"></a>JavaScript istemci yöntem sözdizimi
 

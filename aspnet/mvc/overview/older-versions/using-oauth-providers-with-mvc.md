@@ -1,21 +1,21 @@
 ---
 uid: mvc/overview/older-versions/using-oauth-providers-with-mvc
 title: MVC 4 ile OAuth sağlayıcıları kullanma | Microsoft Docs
-author: tfitzmac
+author: Rick-Anderson
 description: Bu öğreticide, kullanıcıların Facebo gibi bir dış sağlayıcı kimlik bilgileriyle oturum sağlayan bir ASP.NET MVC 4 web uygulaması oluşturma işlemini göstermektedir...
 ms.author: riande
 ms.date: 06/19/2013
 ms.assetid: 7a87f16f-0e19-4f15-a88a-094ae866c4a2
 msc.legacyurl: /mvc/overview/older-versions/using-oauth-providers-with-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 9b0db2775db5c74762bdc55328ad44ef7ebe75ce
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: d0203b62c911056fc56ed103c1c42f67816cbbf0
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41753810"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021761"
 ---
-<a name="using-oauth-providers-with-mvc-4"></a>MVC 4 ile OAuth sağlayıcıları kullanma
+<a name="using-oauth-providers-with-mvc-4"></a>MVC 4 ile OAuth Sağlayıcıları Kullanma
 ====================
 tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
@@ -83,7 +83,7 @@ Bu öğretici, bu sağlayıcıları ile kaydetmek için gerçekleştirmeniz gere
 - [Microsoft](http://manage.dev.live.com/)
 - [Twitter](https://dev.twitter.com/)
 
-Sitenizi Facebook ile kaydederken sağlayabilir &quot;localhost&quot; site etki alanı için ve `&quot;http://localhost/&quot;` aşağıdaki resimde gösterildiği gibi URL. Localhost kullanarak çoğu sağlayıcılarıyla birlikte çalışarak, ancak şu anda Microsoft sağlayıcı ile çalışmaz. Microsoft sağlayıcısı için geçerli bir web sitesi URL'si eklemeniz gerekir.
+Sitenizi Facebook ile kaydederken sağlayabilir &quot;localhost&quot; site etki alanı için ve `&quot; http://localhost/&quot;` aşağıdaki resimde gösterildiği gibi URL. Localhost kullanarak çoğu sağlayıcılarıyla birlikte çalışarak, ancak şu anda Microsoft sağlayıcı ile çalışmaz. Microsoft sağlayıcısı için geçerli bir web sitesi URL'si eklemeniz gerekir.
 
 ![sitesini kaydedin](using-oauth-providers-with-mvc/_static/image4.png)
 

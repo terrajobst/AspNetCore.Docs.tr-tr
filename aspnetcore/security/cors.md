@@ -4,14 +4,14 @@ author: rick-anderson
 description: Bilgi nasıl CORS izin verme veya reddetme ASP.NET Core uygulaması çıkış noktaları arası istekleri için standart olarak.
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/05/2018
+ms.date: 11/05/2018
 uid: security/cors
-ms.openlocfilehash: cfbf24edb1dae76f676d51738b0d57266688d53e
-ms.sourcegitcommit: 317f9be24db600499e79d25872d743af74bd86c0
+ms.openlocfilehash: 8e5056b448d47d75272e9394b03ce8a58b05a0f4
+ms.sourcegitcommit: 09affee3d234cb27ea6fe33bc113b79e68900d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48045594"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51191327"
 ---
 # <a name="enable-cross-origin-requests-cors-in-aspnet-core"></a>ASP.NET core'da çıkış noktaları arası istekleri (CORS) etkinleştirme
 
@@ -137,17 +137,37 @@ Bazı seçenekleri okumak yardımcı olabilecek [CORS nasıl çalıştığını]
 
 ### <a name="set-the-allowed-origins"></a>İzin verilen çıkış noktaları ayarlama
 
-Bir veya daha fazla belirli kaynaklara izin veren çağrı <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.WithOrigins*>:
+ASP.NET Core MVC CORS ara yazılımlar, izin verilen çıkış noktaları belirtmek için birkaç yolu vardır:
+
+* <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.WithOrigins*>: Bir veya daha fazla URL belirtmeye izin verir. URL şema, konak adı ve herhangi bir yol bilgisi olmadan bağlantı noktası içerebilir. Örneğin: `https://example.com` URL'nin sonunda bir eğik çizgi belirtilmelidir (`/`).
 
 [!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=20-24&highlight=4)]
 
-Tüm kaynaklara izin veren çağrı <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.AllowAnyOrigin*>:
+* <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.AllowAnyOrigin*>: Tüm şeması ile tüm kaynaklar CORS istekleri sağlar (`http` veya `https`).
 
 [!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=28-32&highlight=4)]
 
 Her türlü kaynağa gelen isteklere izin vermeden önce dikkatlice düşünün. Her türlü kaynağa gelen isteklere izin vererek anlamına *herhangi bir Web sitesinde* çıkış noktaları arası istekleri uygulamanıza yapabilirsiniz.
 
+::: moniker range=">= aspnetcore-2.2"
+
+> [!NOTE]
+> Belirtme `AllowAnyOrigin` ve `AllowCredentials` güvensiz bir yapılandırmadır ve siteler arası istek sahteciliğini neden olabilir. Bir uygulamayı iki yapılandırıldığında CORS hizmeti geçersiz bir CORS yanıt döndürür.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
+> [!NOTE]
+> Belirtme `AllowAnyOrigin` ve `AllowCredentials` güvensiz bir yapılandırmadır ve siteler arası istek sahteciliğini neden olabilir. İstemci sunucu kaynaklarına erişmek üzere yetkilendirmek gerekiyorsa, kaynakları tam bir listesi belirtmeyi düşünün.
+
+::: moniker-end
+
 Bu ayar etkiler [istekleri ve Access-Control-Allow-Origin üst bilgisi ön kontrol](#preflight-requests) (Bu konunun ilerleyen bölümlerinde açıklanmıştır).
+
+* <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.SetIsOriginAllowedToAllowWildcardSubdomains*> -Belirli bir etki alanının alt etki alanı CORS istekleri sağlar. Joker karakter düzeni olamaz.
+
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=98-104&highlight=4)]
 
 ### <a name="set-the-allowed-http-methods"></a>İzin verilen HTTP yöntemleri Ayarla
 

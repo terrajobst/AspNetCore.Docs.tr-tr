@@ -40,8 +40,7 @@ Dokunun **Yeni Oluştur** yeni bir film eklenecek bağlantı. Bazı geçersiz de
 
 ![Birden çok jQuery istemci tarafı doğrulama hataları film görüntüleme formu](~/tutorials/first-mvc-app/validation/_static/val.png)
 
-> [!NOTE]
-> Ondalık virgül kullanımı girmeniz mümkün olmayabilir `Price` alan. Desteklemek için [jQuery doğrulama](https://jqueryvalidation.org/) virgül İngilizce olmayan yerel ayarlar için (",") ondalık ve ABD İngilizce olmayan tarih biçimleri için uygulamanızı globalleştirmek için adımları izlemelisiniz. Bu [GitHub sorunu 4076](https://github.com/aspnet/Docs/issues/4076#issuecomment-326590420) ondalık virgülle ekleme hakkında yönergeler için. 
+[!INCLUDE[](~/includes/currency.md)]
 
 Form otomatik olarak işlenen bir uygun doğrulama hata iletisi geçersiz bir değer içeren her bir alanın nasıl dikkat edin. (Bir kullanıcı JavaScript devre dışı olması durumunda) hataları hem istemci-tarafı (JavaScript ve jQuery kullanarak) hem de sunucu tarafı uygulanır.
 
