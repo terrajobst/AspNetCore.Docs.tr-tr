@@ -8,14 +8,14 @@ ms.date: 06/06/2012
 ms.assetid: a585c9a2-7c8e-478b-9706-90f3739c50d1
 msc.legacyurl: /web-forms/overview/performance-and-caching/using-asynchronous-methods-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: 61bb977af9dca6fc080151ffd6ea3d966f1b1592
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 9a3c9fab4932c3bc85733a912cf1d1eaaecc1ab7
+ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49325425"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51225492"
 ---
-<a name="using-asynchronous-methods-in-aspnet-45"></a>ASP.NET 4.5 sürümünde zaman uyumsuz metotlar kullanma
+<a name="using-asynchronous-methods-in-aspnet-45"></a>ASP.NET 4.5 Sürümünde Zaman Uyumsuz Metotlar Kullanma
 ====================
 Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
@@ -198,9 +198,10 @@ Bir zaman uyumsuz web uygulamasının avantajlardan faydalanmak için varsayıla
   
   Not Yukarıdaki görüntüde uygulama havuzu .NET 4.5 kullanıyor olsa bile, .NET framework v4.0 listelenir. Bu tutarsızlık anlamak için aşağıdakilere bakın:
 
-        - [.NET Versioning and Multi-Targeting - .NET 4.5 is an in-place upgrade to .NET 4.0](http://www.hanselman.com/blog/NETVersioningAndMultiTargetingNET45IsAnInplaceUpgradeToNET40.aspx)
-        - [How to set an IIS Application or AppPool to use ASP.NET 3.5 rather than 2.0](http://www.hanselman.com/blog/HowToSetAnIISApplicationOrAppPoolToUseASPNET35RatherThan20.aspx)
-        - [.NET Framework Versions and Dependencies](https://msdn.microsoft.com/library/bb822049(VS.110).aspx)
+- [.NET sürüm oluşturma ve Multi-Targeting'e - .NET 4.5 olduğu .NET 4.0 için yerinde yükseltme](http://www.hanselman.com/blog/NETVersioningAndMultiTargetingNET45IsAnInplaceUpgradeToNET40.aspx)
+- [Bir IIS uygulama veya AppPool 2.0 yerine ASP.NET 3.5 kullanacak şekilde ayarlama](http://www.hanselman.com/blog/HowToSetAnIISApplicationOrAppPoolToUseASPNET35RatherThan20.aspx)
+- [.NET Framework Sürümleri ve Bağımlılıkları](https://msdn.microsoft.com/library/bb822049(VS.110).aspx)
+
 - Uygulamanız, web hizmetlerini kullanarak veya HTTP üzerinden arka ucunuzla iletişim için System.NET artırmanız gerekebilir [connectionManagement/maxconnection](https://msdn.microsoft.com/library/fb6y0fyc(VS.110).aspx) öğesi. ASP.NET uygulamaları için bu otomatik yapılandırma özelliği CPU sayısını 12 kat sınırlıdır. Bir dört proc üzerinde en fazla 12 olabileceği anlamına \* 4 = 48 bir IP uç noktası için eş zamanlı bağlantı. Bu bağlıdır çünkü [autoConfig](https://msdn.microsoft.com/library/7w2sway1(VS.110).aspx), artırmak için en kolay yolu `maxconnection` bir ASP.NET uygulaması ayarlamaktır [System.Net.ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit(VS.110).aspx) programlı olarak gelen `Application_Start` yönteminde *global.asax* dosya. Bir örnek için indirme örneğine bakın.
 - .NET 4.5, 5000 için varsayılan olarak [MaxConcurrentRequestsPerCPU](https://blogs.msdn.com/tmarq/archive/2007/07/21/asp-net-thread-usage-on-iis-7-0-and-6-0.aspx) ince olmalıdır.
 

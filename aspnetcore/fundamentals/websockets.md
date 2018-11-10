@@ -5,14 +5,14 @@ description: ASP.NET core'da WebSockets kullanmaya başlama hakkında bilgi edin
 monikerRange: '>= aspnetcore-1.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 06/28/2018
+ms.date: 11/06/2018
 uid: fundamentals/websockets
-ms.openlocfilehash: b0f1aeff6c7a5777993459274293ba23f2d9dc12
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 3a649f88699d61636d9aa7fbfe4468ca67b3b018
+ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206746"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51225414"
 ---
 # <a name="websockets-support-in-aspnet-core"></a>ASP.NET Core WebSockets desteği
 
@@ -29,7 +29,7 @@ Bu makalede, WebSockets içinde ASP.NET Core ile çalışmaya başlama açıklan
   
   * Windows 7 / Windows Server 2008 veya üstü
   * Linux
-  * MacOS
+  * macOS
   
 * IIS ile Windows uygulama çalışıyorsa:
 
@@ -72,10 +72,24 @@ WebSockets Ara yazılımında ekleme `Configure` yöntemi `Startup` sınıfı:
 
 ::: moniker-end
 
+::: moniker range="< aspnetcore-2.2"
+
 Aşağıdaki ayarlar yapılandırılabilir:
 
-* `KeepAliveInterval` -Nasıl "ping" çerçeveler proxy'leri emin olmak için istemci bağlantıyı açık tutma genellikle gönderilecek.
-* `ReceiveBufferSize` -Veri almak için kullanılan arabellek boyutu. Gelişmiş kullanıcılar, bu verilerin boyutunu temel alan performans ayarı için değiştirmeniz gerekebilir.
+* `KeepAliveInterval` -Nasıl "ping" çerçeveler proxy'leri emin olmak için istemci bağlantıyı açık tutma genellikle gönderilecek. İki dakika varsayılandır.
+* `ReceiveBufferSize` -Veri almak için kullanılan arabellek boyutu. Gelişmiş kullanıcılar, bu verilerin boyutunu temel alan performans ayarı için değiştirmeniz gerekebilir. Varsayılan değer 4 KB'dir.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+Aşağıdaki ayarlar yapılandırılabilir:
+
+* `KeepAliveInterval` -Nasıl "ping" çerçeveler proxy'leri emin olmak için istemci bağlantıyı açık tutma genellikle gönderilecek. İki dakika varsayılandır.
+* `ReceiveBufferSize` -Veri almak için kullanılan arabellek boyutu. Gelişmiş kullanıcılar, bu verilerin boyutunu temel alan performans ayarı için değiştirmeniz gerekebilir. Varsayılan değer 4 KB'dir.
+* `AllowedOrigins` -WebSocket istekleri için izin verilen çıkış noktaları üstbilgi değerleri listesi. Varsayılan olarak, tüm çıkış noktaları kullanılabilir. "WebSocket kaynak kısıtlama" Ayrıntılar için aşağıya bakın.
+
+::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -128,6 +142,32 @@ Web yuvası isteğini kabul eden daha önce gösterilen kod geçirir `WebSocket`
 ::: moniker-end
 
 Döngü başlamadan önce WebSocket bağlantısı kabul ederek, ara yazılım ardışık düzenini sona erer. Yuva kapatıldıktan sonra işlem hattını geriye doğru izler. Diğer bir deyişle, işlem hattı, WebSocket kabul edildiğinde ilerletme isteğini durdurur. Döngü tamamlandıktan ve yuva kapalı olduğunda, isteği yeniden işlem hattı devam eder.
+
+::: moniker range=">= aspnetcore-2.2"
+
+### <a name="websocket-origin-restriction"></a>WebSocket kaynak kısıtlama
+
+CORS tarafından sağlanan korumaları WebSockets için geçerli değildir. Tarayıcılar **değil**:
+
+* CORS uçuş öncesi istekler gerçekleştirin.
+* Belirtilen kısıtlamalarını dikkate `Access-Control` WebSocket istekleri yaparken üstbilgileri.
+
+Ancak, tarayıcılar gönderebilirsiniz `Origin` WebSocket istekleri gönderirken, üst bilgisi. Uygulamalar, beklenen kaynaklardan gelen WebSockets izin verildiğinden emin olmak için bu üstbilgileri doğrulamak için yapılandırılmalıdır.
+
+Sunucunuz koyduysanız "https://server.com"ve istemci üzerindeki barındırma"https://client.com", Ekle "https://client.com" için `AllowedOrigins` WebSockets doğrulamak için listesi.
+
+```csharp
+app.UseWebSockets(new WebSocketOptions()
+{
+    AllowedOrigins.Add("https://client.com");
+    AllowedOrigins.Add("https://www.client.com");
+});
+```
+
+> [!NOTE]
+> `Origin` Üst bilgisi, istemcinin ve gibi denetlenir `Referer` başlık sahte. Yapmak **değil** bir kimlik doğrulama mekanizması bu üst bilgi kullan.
+
+::: moniker-end
 
 ## <a name="iisiis-express-support"></a>IIS/IIS Express desteği
 

@@ -759,7 +759,7 @@ Aşağıdaki sürümleri [Globalize](https://github.com/jquery/globalize "Global
 
 ### <a name="respond-releases-on-the-cdn"></a>CDN yayınlara yanıt
 
-Aşağıdaki sürümleri [ https://github.com/scottjehl/Respond ] (https://github.com/scottjehl/Respond " https://github.com/scottjehl/Respond ") yanıt CDN'de barındırılan:
+Aşağıdaki sürümleri [https://github.com/scottjehl/Respond](https://github.com/scottjehl/Respond "https://github.com/scottjehl/Respond") yanıt CDN'de barındırılan:
 
 #### <a name="respond-version-142"></a>Sürüm 1.4.2 yanıt
 

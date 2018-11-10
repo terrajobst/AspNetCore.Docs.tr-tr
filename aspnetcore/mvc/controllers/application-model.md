@@ -1,26 +1,26 @@
 ---
-title: ASP.NET Core uygulama modelinde ile çalışma
+title: ASP.NET Core uygulama modeli ile çalışma
 author: ardalis
-description: Okuma ve ASP.NET Core MVC öğeleri nasıl davranacağını değiştirmek için uygulama modelle öğrenin.
+description: Okuma ve nasıl ASP.NET Core MVC öğeleri davranacağını değiştirmek için uygulama modeli ile düzenleme hakkında bilgi edinin.
 ms.author: riande
 ms.date: 10/14/2016
 uid: mvc/controllers/application-model
-ms.openlocfilehash: 7a03f5eaa561557f3abe9c8dd8f4e46a57413a55
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: f3e0aafa3e6a352c632e4abbf3943be61f11ea81
+ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277598"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51225505"
 ---
-# <a name="work-with-the-application-model-in-aspnet-core"></a>ASP.NET Core uygulama modelinde ile çalışma
+# <a name="work-with-the-application-model-in-aspnet-core"></a>ASP.NET Core uygulama modeli ile çalışma
 
 Tarafından [Steve Smith](https://ardalis.com/)
 
-ASP.NET Core MVC tanımlayan bir *uygulama modeli* bir MVC uygulamanın bileşenleri temsil eden. Okuma ve MVC öğeleri nasıl davranacağını değiştirmek için Bu modelle. Varsayılan olarak, MVC parametreleri ve yönlendirme nasıl davranacağını hangi sınıfların denetleyicileri olduğu kabul edilir ve bu sınıfların hangi yöntemlere eylemlerdir belirlemek için belirli kuralları izler. Bu davranış, kendi kuralları oluşturarak ve bunları genel olarak veya öznitelik olarak uygulayarak, uygulamanızın gereksinimlerine uyacak şekilde özelleştirebilirsiniz.
+ASP.NET Core MVC tanımlayan bir *uygulama modeli* bir MVC uygulaması bileşenleri temsil eden. Okuma ve MVC öğeleri nasıl davranacağını değiştirmek için Bu modelle. Varsayılan olarak, MVC denetleyicileri için hangi sınıflar olarak kabul edilir, bu sınıflar hangi yöntemlerin eylemlerdir ve parametreleri ve yönlendirme nasıl davranacağını belirlemek için belirli kuralları izler. Bu davranış, kendi kuralları oluşturarak ve bunları genel olarak veya öznitelikleri uygulayarak, uygulamanızın ihtiyaçlarına uyacak şekilde özelleştirebilirsiniz.
 
 ## <a name="models-and-providers"></a>Modelleri ve sağlayıcıları
 
-ASP.NET Core MVC uygulama modeli soyut arabirimleri ve bir MVC uygulaması açıklamak somut uygulama sınıfları içerir. Bu model uygulamanın denetleyicileri, Eylemler, eylem parametrelerini, yolları ve varsayılan kuralları göre filtreler keşfetme MVC sonucudur. Uygulama modeli çalışarak, uygulamanızın farklı kuralarına varsayılan MVC davranışı değiştirebilirsiniz. Parametreler, adları, yollar ve filtreleri tüm eylemlerin ve denetleyicilerin için yapılandırma verileri olarak kullanılır.
+ASP.NET Core MVC uygulama modeli, hem soyut arabirimleri hem de bir MVC uygulaması açıklayan somut uygulama sınıfları içerir. Bu model, MVC uygulamanın denetleyicileri, Eylemler, eylem parametrelerini, yollar ve varsayılan kuralları göre filtreler keşfetme sonucudur. Uygulama modeli ile birlikte çalışarak, varsayılan MVC davranış farklı kurallarına uygun şekilde değiştirebilirsiniz. Parametreler, adları, yollar ve filtreler tüm eylemlerin ve denetleyicilerin için yapılandırma verilerini kullanılır.
 
 ASP.NET Core MVC uygulama modeli aşağıdaki yapıya sahiptir:
 
@@ -29,76 +29,76 @@ ASP.NET Core MVC uygulama modeli aşağıdaki yapıya sahiptir:
         * Eylemler (ActionModel)
             * Parametreler (ParameterModel)
 
-Ortak bir modelin her düzeyi erişimi `Properties` koleksiyonu ve alt düzey erişmek ve hiyerarşideki üst düzeyler tarafından ayarlanan özellik değerlerini üzerine yazın. Özellikler için kalıcı `ActionDescriptor.Properties` Eylemler ne zaman oluşturulur. Bir istek işlenirken, ardından herhangi bir özellik eklenemez veya değiştirilemez bir kuralı aracılığıyla erişilebilir `ActionContext.ActionDescriptor.Properties`. Özellikleri kullanarak, filtreleri, model bağlayıcıları, vb. bir eylem başına temelinde yapılandırmak için harika bir yoludur.
+Modelin her düzeyi bir ortak erişimi `Properties` koleksiyonu ve alt düzey erişebilir ve hiyerarşideki üst düzey tarafından ayarlanan özellik değerlerini üzerine yazın. Özellikler için kalıcı `ActionDescriptor.Properties` eylemleri oluşturduğunuzda. İstek işlenirken, ardından herhangi bir özellik eklendiğinde veya değiştirildiğinde bir kural aracılığıyla erişilebilir `ActionContext.ActionDescriptor.Properties`. Özellikleri kullanarak, bir eylem başına temelinde filtreleri, model bağlayıcıları vb. yapılandırmak için harika bir yoludur.
 
 > [!NOTE]
-> `ActionDescriptor.Properties` Toplama, uygulama başlatma tamamlandıktan sonra iş parçacığı (yazar için) güvenli değil. Kuralları, güvenli bir şekilde veri bu koleksiyona eklemek için en iyi yoludur.
+> `ActionDescriptor.Properties` Koleksiyonu uygulama başlatma tamamlandıktan sonra iş parçacığı (yazma) güvenli değildir. Kuralları, güvenli bir şekilde veri bu koleksiyona eklemek için en iyi yoludur.
 
 ### <a name="iapplicationmodelprovider"></a>IApplicationModelProvider
 
-ASP.NET Core MVC tarafından tanımlanan bir sağlayıcı desenini kullanarak uygulama modelini yükler [IApplicationModelProvider](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.iapplicationmodelprovider) arabirimi. Bu bölümde bazı nasıl iç uygulama ayrıntılarını kapsayan bu sağlayıcı işlevleri. Bu ileri düzeyde bir konudur - uygulama modeli yararlanan çoğu uygulamaları kuralları ile çalışarak bunu yapmanız gerekir.
+ASP.NET Core MVC tarafından tanımlanan bir sağlayıcı desenini kullanarak uygulama modelini yükler [IApplicationModelProvider](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.iapplicationmodelprovider) arabirimi. Bu bölümde bazı nasıl iç uygulama ayrıntılarını kapsayan bu sağlayıcı işlevleri. Bu gelişmiş bir konudur - uygulama modeli yararlanan uygulamaların çoğu kuralları ile birlikte çalışarak bunu yapmanız gerekir.
 
-Uygulamaları `IApplicationModelProvider` arabirimi "kaydırma" birbirine, her uygulama arama ile `OnProvidersExecuting` göre artan kendi `Order` özelliği. `OnProvidersExecuted` Yöntemi sonra çağrılır ters sırada. Framework birkaç sağlayıcı tanımlar:
+Uygulamaları `IApplicationModelProvider` arabirimi "kaydırma", her uygulama arama ile `OnProvidersExecuting` göre artan kendi `Order` özelliği. `OnProvidersExecuted` Yöntemi ardından çağrılır ters sırada. Framework birkaç sağlayıcısı tanımlar:
 
 İlk (`Order=-1000`):
 
 * [`DefaultApplicationModelProvider`](/dotnet/api/microsoft.aspnetcore.mvc.internal.defaultapplicationmodelprovider)
 
-Sonra (`Order=-990`):
+Ardından (`Order=-990`):
 
 * [`AuthorizationApplicationModelProvider`](/dotnet/api/microsoft.aspnetcore.mvc.internal.authorizationapplicationmodelprovider)
 * [`CorsApplicationModelProvider`](/dotnet/api/microsoft.aspnetcore.mvc.cors.internal.corsapplicationmodelprovider)
 
 > [!NOTE]
-> Hangi iki sağlayıcıları için aynı değeri ile sırayla `Order` denir tanımlanmamış ve sonra bu nedenle dayanıyordu gerekir.
+> Hangi iki sağlayıcıları için aynı değeri ile sırayla `Order` adlandırılır tanımlı değildir ve bu nedenle üzerine dayanan olmamalıdır.
 
 > [!NOTE]
-> `IApplicationModelProvider` framework yazarların genişletmek için Gelişmiş bir kavramdır. Genel olarak, uygulama kuralları kullanmanız gerekir ve çerçeveleri sağlayıcıları kullanmanız gerekir. Anahtar fark sağlayıcıları her zaman önce kuralları çalıştırılan.
+> `IApplicationModelProvider` genişletmek framework yazarları için Gelişmiş bir kavramdır. Genel olarak, uygulamaların kurallarını kullanması gerekir ve çerçeveleri sağlayıcıları kullanmanız gerekir. Anahtar ayrımı sağlayıcıları her zaman önce kuralları çalışmasıdır.
 
-`DefaultApplicationModelProvider` ASP.NET Core MVC tarafından kullanılan varsayılan davranışlar çoğunu oluşturur. Sorumlulukları içerir:
+`DefaultApplicationModelProvider` ASP.NET Core MVC tarafından kullanılan varsayılan davranışlar birçoğu oluşturur. Sorumlulukları şunlardır:
 
-* Genel filtre bağlamına ekleme
-* Bağlamına denetleyicileri ekleme
-* Eylem olarak ortak denetleyicisi yöntemler ekleme
+* Genel filtrelerin bağlamına ekleme
+* Denetleyicileri için içerik ekleme
+* Eylem olarak genel denetleyicisi yöntemler ekleme
 * Eylem yöntemi parametrelerine bağlamına ekleme
-* Yol ve diğer öznitelikleri uygulama
+* Yol ve diğer özniteliklerini uygulama
 
-Bazı yerleşik davranışları tarafından uygulanan `DefaultApplicationModelProvider`. Bu sağlayıcı oluşturmaktan sorumlu [ `ControllerModel` ](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.controllermodel), sırayla başvuran [ `ActionModel` ](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.actionmodel#Microsoft_AspNetCore_Mvc_ApplicationModels_ActionModel), [ `PropertyModel` ](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.propertymodel), ve [ `ParameterModel` ](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.parametermodel#Microsoft_AspNetCore_Mvc_ApplicationModels_ParameterModel) örnekleri. `DefaultApplicationModelProvider` Ve gelecekte değiştirecek bir iç framework uygulaması ayrıntı bir sınıftır. 
+Bazı yerleşik davranışları tarafından uygulanan `DefaultApplicationModelProvider`. Bu sağlayıcı oluşturmaktan sorumlu [ `ControllerModel` ](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.controllermodel), sırayla başvuran [ `ActionModel` ](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.actionmodel#Microsoft_AspNetCore_Mvc_ApplicationModels_ActionModel), [ `PropertyModel` ](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.propertymodel), ve [ `ParameterModel` ](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.parametermodel#Microsoft_AspNetCore_Mvc_ApplicationModels_ParameterModel) örnekleri. `DefaultApplicationModelProvider` Sınıfı, bir iç uygulama ayrıntısı ve gelecekte değişecektir. 
 
-`AuthorizationApplicationModelProvider` İlişkili davranışı uygulamak için sorumlu `AuthorizeFilter` ve `AllowAnonymousFilter` öznitelikleri. [Bu öznitelikler hakkında daha fazla bilgi](xref:security/authorization/simple).
+`AuthorizationApplicationModelProvider` İle ilişkili davranışı uygulamak için sorumlu `AuthorizeFilter` ve `AllowAnonymousFilter` öznitelikleri. [Bu öznitelikler hakkında daha fazla bilgi](xref:security/authorization/simple).
 
-`CorsApplicationModelProvider` İlişkili davranışı uygulayan `IEnableCorsAttribute` ve `IDisableCorsAttribute`ve `DisableCorsAuthorizationFilter`. [CORS hakkında daha fazla bilgi](xref:security/cors).
+`CorsApplicationModelProvider` İlişkili davranışı uyguladığında `IEnableCorsAttribute` ve `IDisableCorsAttribute`ve `DisableCorsAuthorizationFilter`. [CORS hakkında daha fazla bilgi](xref:security/cors).
 
 ## <a name="conventions"></a>Kurallar
 
-Uygulama modeli tüm model veya sağlayıcısı geçersiz kılma daha modelleri davranışını özelleştirmek için basit bir yol sağlamak kuralı soyutlamalar tanımlar. Bu soyutlama, uygulamanızın davranışını değiştirmek için önerilen yoldur. Kuralları özelleştirmeleri dinamik olarak uygulanacak kod yazmak bir yol sağlar. Sırada [filtreleri](xref:mvc/controllers/filters) framework'ün davranışını değiştirme sağladıkları, özelleştirmeleri nasıl tüm uygulama birlikte kablolu denetlemenize olanak tanır.
+Uygulama modeli modelin tamamı veya sağlayıcı geçersiz kılma daha modelleri davranışını özelleştirmek için daha basit bir yol sağlayan kuralı soyutlama tanımlar. Bu soyutlama, uygulamanızın davranışını değiştirmek için önerilen yoldur. Kuralları özelleştirmeleri dinamik olarak geçerli kod yazmak bir yol sağlar. Sırada [filtreleri](xref:mvc/controllers/filters) framework'ün davranışı değiştirmenin bir yol sağlar, özelleştirmeler nasıl tüm uygulama birlikte kablolu denetlemenize olanak tanır.
 
-Aşağıdaki kuralları kullanılabilir:
+Aşağıdaki yöntemleri kullanılabilir:
 
 * [`IApplicationModelConvention`](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.iapplicationmodelconvention)
 * [`IControllerModelConvention`](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.icontrollermodelconvention)
 * [`IActionModelConvention`](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.iactionmodelconvention)
 * [`IParameterModelConvention`](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.iparametermodelconvention)
 
-MVC seçenekler ekleyerek veya uygulama kuralları uygulanır `Attribute`s ve bunları denetleyicileri, Eylemler veya eylem parametrelerini uygulayarak (benzer şekilde [ `Filters` ](xref:mvc/controllers/filters)). Uygulama başlıyor, her isteğin bir parçası değil, filtreleri farklı olarak, yalnızca kuralları çalıştırılır.
+MVC seçenekler ekleyerek veya uygulama kuralları uygulanır `Attribute`s ve denetleyicileri, Eylemler veya eylem parametrelerini uygulamadan (benzer şekilde [ `Filters` ](xref:mvc/controllers/filters)). Uygulama başlıyor, her isteğin bir parçası olarak değil, filtreleri yalnızca kuralları çalıştırılır.
 
 ### <a name="sample-modifying-the-applicationmodel"></a>Örnek: ApplicationModel değiştirme
 
-Aşağıdaki kural, bir özellik için uygulama modeli eklemek için kullanılır. 
+Aşağıdaki kural, uygulama modeli için bir özellik eklemek için kullanılır. 
 
 [!code-csharp[](./application-model/sample/src/AppModelSample/Conventions/ApplicationDescription.cs)]
 
-Uygulama modeli kuralları, seçeneği olarak uygulanır, MVC eklendiğinde `ConfigureServices` içinde `Startup`.
+Uygulama modeli kuralları, seçenek olarak uygulanır, MVC eklendiğinde `ConfigureServices` içinde `Startup`.
 
 [!code-csharp[](./application-model/sample/src/AppModelSample/Startup.cs?name=ConfigureServices&highlight=5)]
 
-Özellikler erişilebilir `ActionDescriptor` özellikler koleksiyonu içinde denetleyici eylemleri:
+Özellikleri erişilebilir `ActionDescriptor` özellikler koleksiyonu içinde denetleyici eylemleri:
 
 [!code-csharp[](./application-model/sample/src/AppModelSample/Controllers/AppModelController.cs?name=AppModelController)]
 
-### <a name="sample-modifying-the-controllermodel-description"></a>Örnek: ControllerModel açıklama değiştirme
+### <a name="sample-modifying-the-controllermodel-description"></a>Örnek: ControllerModel açıklamasını değiştirme
 
-Önceki örnekte olduğu gibi denetleyici modeline ayrıca özel özellikleri eklemek için değiştirilebilir. Bunlar mevcut özelliklerini uygulama modelde belirtilen aynı adda geçersiz kılar. Aşağıdaki kural öznitelik denetleyici düzeyinde bir açıklama ekler:
+Önceki örnekte olduğu gibi denetleyicisi modeli ayrıca özel özellikler eklemek için değiştirilebilir. Bu uygulama modeli belirtilen aynı ada sahip mevcut özellikleri kılar. Aşağıdaki kural öznitelik denetleyici düzeyinde bir açıklama ekler:
 
 [!code-csharp[](./application-model/sample/src/AppModelSample/Conventions/ControllerDescriptionAttribute.cs)]
 
@@ -106,46 +106,46 @@ Bu kural, bir denetleyici özniteliği olarak uygulanır.
 
 [!code-csharp[](./application-model/sample/src/AppModelSample/Controllers/DescriptionAttributesController.cs?name=ControllerDescription&highlight=1)]
 
-Önceki örneklerde olduğu gibi aynı şekilde "Açıklama" özelliği erişilebilir.
+"Description" özelliği, önceki örneklerde olduğu gibi aynı şekilde erişilir.
 
-### <a name="sample-modifying-the-actionmodel-description"></a>Örnek: ActionModel açıklama değiştirme
+### <a name="sample-modifying-the-actionmodel-description"></a>Örnek: ActionModel açıklamasını değiştirme
 
-Ayrı özniteliği kuralı ayrı Eylemler, uygulama veya denetleyici düzeyinde uygulanmış davranışı geçersiz kılma uygulanabilir.
+Ayrı özniteliği kural, uygulama veya denetleyici düzeyinde uygulanmış davranışı geçersiz kılma bireysel işlemlere uygulanabilir.
 
 [!code-csharp[](./application-model/sample/src/AppModelSample/Conventions/ActionDescriptionAttribute.cs)]
 
-Bu eylem önceki örnekteki denetleyicisi içinde uygulanan nasıl denetleyici düzeyinde kuralı geçersiz kılmaları gösterir:
+Bu eylem önceki örnekteki denetleyici içinde uygulanan nasıl denetleyici düzeyinde kuralı geçersiz kılmaları gösterir:
 
 [!code-csharp[](./application-model/sample/src/AppModelSample/Controllers/DescriptionAttributesController.cs?name=DescriptionAttributesController&highlight=9)]
 
 ### <a name="sample-modifying-the-parametermodel"></a>Örnek: ParameterModel değiştirme
 
-Aşağıdaki kural değiştirmek için eylem parametrelerini uygulanabilir kendi `BindingInfo`. Aşağıdaki kural parametresi bir rota parametresini olmalıdır; diğer olası bağlama kaynakları (örneğin, sorgu dizesi değerlerini) göz ardı edilir.
+Eylem parametreleri değiştirmek için aşağıdaki kuralı uygulanabilir kendi `BindingInfo`. Aşağıdaki kuralı parametresi bir rota parametresini olmasını gerektirir; diğer olası bağlama kaynakları (örneğin, sorgu dizesi değerlerini) göz ardı edilir.
 
 [!code-csharp[](./application-model/sample/src/AppModelSample/Conventions/MustBeInRouteParameterModelConvention.cs)]
 
-Öznitelik için herhangi bir eylem parametre uygulanabilir:
+Öznitelik, herhangi bir eylem parametre uygulanabilir:
 
 [!code-csharp[](./application-model/sample/src/AppModelSample/Controllers/ParameterModelController.cs?name=ParameterModelController&highlight=5)]
 
 ### <a name="sample-modifying-the-actionmodel-name"></a>Örnek: ActionModel adını değiştirme
 
-Aşağıdaki kural değiştirir `ActionModel` güncelleştirmek için *adı* onu Uygulanacağı eylem. Yeni bir ad özniteliği için bir parametre olarak sağlanır. Bu eylem yöntemine erişmek için kullanılan rota etkileyecek şekilde bu yeni ad yönlendirme tarafından kullanılır.
+Aşağıdaki kural değiştirir `ActionModel` güncelleştirilecek *adı* , uygulandığı eylem. Yeni bir ad, öznitelik bir parametre olarak sağlanır. Bu eylem yöntemine erişmek için kullanılan rota etkileyecek şekilde yönlendirerek, bu yeni adı kullanılır.
 
 [!code-csharp[](./application-model/sample/src/AppModelSample/Conventions/CustomActionNameAttribute.cs)]
 
-Bu öznitelik, bir eylem yöntemine uygulanan `HomeController`:
+Bu öznitelik bir eylem yöntemine uygulanan `HomeController`:
 
 [!code-csharp[](./application-model/sample/src/AppModelSample/Controllers/HomeController.cs?name=ActionModelConvention&highlight=2)]
 
-Yöntem adı olsa bile `SomeName`, özniteliğin yöntem adını kullanarak MVC kuralı geçersiz kılar ve eylem adı ile değiştirir `MyCoolAction`. Bu nedenle, bu eylem erişmek için kullanılan rota olduğu `/Home/MyCoolAction`.
+Yöntem adı olsa bile `SomeName`, özniteliğin yöntem adını kullanarak MVC kuralını geçersiz kılar ve eylem adıyla değiştirir `MyCoolAction`. Bu nedenle, bu eylem erişmek için kullanılan rota olan `/Home/MyCoolAction`.
 
 > [!NOTE]
-> Bu örnekte temelde aynı yerleşik kullanmakla, [EylemAdı](/dotnet/api/microsoft.aspnetcore.mvc.actionnameattribute) özniteliği.
+> Bu örnekte temelde yerleşik kullanarak aynıdır [ActionName](/dotnet/api/microsoft.aspnetcore.mvc.actionnameattribute) özniteliği.
 
 ### <a name="sample-custom-routing-convention"></a>Örnek: Özel yönlendirme kuralı
 
-Kullanabileceğiniz bir `IApplicationModelConvention` yönlendirmenin nasıl çalıştığını özelleştirmek için. Örneğin, aşağıdaki kural denetleyicileri ad alanları değiştirerek kendi yollar dahil `.` ile ad alanında `/` rotadaki:
+Kullanabileceğiniz bir `IApplicationModelConvention` yönlendirmenin nasıl çalıştığını özelleştirmek için. Örneğin, aşağıdaki kuralı denetleyicileri ad alanları değiştirerek kendi yolları birleştirecektir `.` ad ile `/` rotadaki:
 
 [!code-csharp[](./application-model/sample/src/AppModelSample/Conventions/NamespaceRoutingConvention.cs)]
 
@@ -154,26 +154,26 @@ Kuralı, bir başlatma seçeneği olarak eklenir.
 [!code-csharp[](./application-model/sample/src/AppModelSample/Startup.cs?name=ConfigureServices&highlight=6)]
 
 > [!TIP]
-> Kurallarına ekleyebilirsiniz, [ara yazılımı](xref:fundamentals/middleware/index) erişerek `MvcOptions` kullanma `services.Configure<MvcOptions>(c => c.Conventions.Add(YOURCONVENTION));`
+> Kurallarına ekleyebilirsiniz, [ara yazılım](xref:fundamentals/middleware/index) erişerek `MvcOptions` kullanma `services.Configure<MvcOptions>(c => c.Conventions.Add(YOURCONVENTION));`
 
-Bu örnek denetleyicisi "Namespace" adına sahip olduğu özniteliği yönlendirme kullanmıyorsanız yolları Bu kuralı uygular. Bu kural aşağıdaki denetleyicisiyle gösterir:
+Bu örnek özniteliği denetleyiciye "Namespace" adına sahip olduğu yönlendirmeyi kullanmayan yolları Bu kuralı uygular. Bu kural aşağıdaki denetleyicisi gösterir:
 
 [!code-csharp[](./application-model/sample/src/AppModelSample/Controllers/NamespaceRoutingController.cs?highlight=7-8)]
 
-## <a name="application-model-usage-in-webapicompatshim"></a>Uygulama modeli WebApiCompatShim kullanımda
+## <a name="application-model-usage-in-webapicompatshim"></a>Uygulama modeli WebApiCompatShim kullanımı
 
-ASP.NET Core MVC farklı kümesinden kuralları ASP.NET Web API 2 kullanır. Özel kuralları kullanarak, bir Web API uygulaması ile tutarlı olacak şekilde bir ASP.NET Core MVC uygulamanın davranışı değiştirebilirsiniz. Microsoft gelir [WebApiCompatShim](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.WebApiCompatShim/) özellikle bu amaç için.
+ASP.NET Core MVC, ASP.NET Web API 2'den farklı kuralları kümesi kullanır. Özel kuralları kullanarak, bir Web API'sini uygulama ile tutarlı olacak şekilde bir ASP.NET Core MVC uygulamanın davranışını değiştirebilirsiniz. Microsoft verilir [WebApiCompatShim](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.WebApiCompatShim/) özellikle bu amaç için.
 
 > [!NOTE]
-> Daha fazla bilgi edinmek [ASP.NET Web API geçiş](xref:migration/webapi).
+> Daha fazla bilgi edinin [ASP.NET Web API geçişini](xref:migration/webapi).
 
-Web API uyumluluk dolgusu kullanmak için paket projenize ekleyin ve ardından kuralları için MVC çağırarak eklemeniz gerekir `AddWebApiConventions` içinde `Startup`:
+Web API Uyumluluk dolgu kullanmak üzere, paketi projenize ekleyin ve ardından kuralları için MVC çağırarak eklemeniz gerekir `AddWebApiConventions` içinde `Startup`:
 
-```c#
+```csharp
 services.AddMvc().AddWebApiConventions();
 ```
 
-Dolgu tarafından sağlanan kuralları yalnızca uygulanmış belirli öznitelikler beklendiğinden uygulama bölümlerini uygulanır. Aşağıdaki dört öznitelikler denetleyicileri dolgu 's kuralları tarafından değiştirilmiş kendi kurallarına sahip denetlemek için kullanılır:
+Dolgu tarafından sağlanan kuralları, yalnızca belirli öznitelikleri uygulanmış olan uygulama bölümlerine uygulanır. Aşağıdaki dört öznitelikleri denetleyicileri dolgu'nın kuralları tarafından değiştirilmiş kendi kurallarına sahip denetlemek için kullanılır:
 
 * [UseWebApiActionConventionsAttribute](/dotnet/api/microsoft.aspnetcore.mvc.webapicompatshim.usewebapiactionconventionsattribute)
 * [UseWebApiOverloadingAttribute](/dotnet/api/microsoft.aspnetcore.mvc.webapicompatshim.usewebapioverloadingattribute)
@@ -182,25 +182,25 @@ Dolgu tarafından sağlanan kuralları yalnızca uygulanmış belirli öznitelik
 
 ### <a name="action-conventions"></a>Eylem kuralları
 
-`UseWebApiActionConventionsAttribute` Kendi adına göre eylemler için HTTP yöntemini eşlemek için kullanılır (örneğin, `Get` için eşleyen `HttpGet`). Yalnızca öznitelik yönlendirmeyi kullanmayan eylemleri için de geçerlidir.
+`UseWebApiActionConventionsAttribute` Eylemlerine kendi adına göre HTTP yöntemi eşleştirmek için kullanılır (örneğin, `Get` eşlemek `HttpGet`). Yalnızca öznitelik yönlendirme kullanmayan eylemleri için de geçerlidir.
 
 ### <a name="overloading"></a>Aşırı Yükleme
 
-`UseWebApiOverloadingAttribute` Uygulamak için kullanılan `WebApiOverloadingApplicationModelConvention` kuralı. Bu kuralı ekler bir `OverloadActionConstraint` eylem seçimi işlemi için hangi sınırlar bu isteği karşılayan tüm isteğe bağlı olmayan parametreler için aday eylemler.
+`UseWebApiOverloadingAttribute` Uygulamak için kullanılan `WebApiOverloadingApplicationModelConvention` kuralı. Bu kuralı ekler bir `OverloadActionConstraint` eylem seçim işlemi için bu isteği karşılayan tüm isteğe bağlı olmayan parametreler için aday eylemleri sınırlar.
 
 ### <a name="parameter-conventions"></a>Parametre kuralları
 
-`UseWebApiParameterConventionsAttribute` Uygulamak için kullanılan `WebApiParameterConventionsApplicationModelConvention` Eylem kuralı. Bu kural eylemi parametre olarak kullanılan basit türler karmaşık türler isteği gövdesinden bağlı sırasında varsayılan olarak, URI'den ilişkili belirtir.
+`UseWebApiParameterConventionsAttribute` Uygulamak için kullanılan `WebApiParameterConventionsApplicationModelConvention` eylem yöntemi. Bu kural, eylem parametre olarak kullanılan basit türler karmaşık türler gövdeden bağlı sırasında varsayılan olarak, URI'SİNDEN ilişkili belirtir.
 
 ### <a name="routes"></a>Yollar
 
-`UseWebApiRoutesAttribute` Denetimleri olup olmadığını `WebApiApplicationModelConvention` denetleyicisi kuralı uygulanır. Etkinleştirildiğinde, bu kural için destek eklemek için kullanılan [alanları](xref:mvc/controllers/areas) rota.
+`UseWebApiRoutesAttribute` Denetimleri olmadığını `WebApiApplicationModelConvention` denetleyicisi kuralı uygulanır. Etkin olduğunda, bu kuralı için destek eklemek için kullanılan [alanları](xref:mvc/controllers/areas) yönlendirmek için.
 
-Uyumluluk Paketi kuralları kümesi yanı sıra içerir bir `System.Web.Http.ApiController` temel Web API'si tarafından sağlanan yerini sınıfı. Web API ve devralma için yazılmış denetleyicilerinizi böylece gelen kendi `ApiController` bunlar, ASP.NET Core MVC çalıştırılırken tasarlanan şekilde çalışması için. Bu temel denetleyici sınıfı tüm ile donatılmış `UseWebApi*` yukarıda listelenen öznitelikleri. `ApiController` Özellikleri, yöntemleri ve Web API'si bulunanlar uyumlu sonuç türleri kullanıma sunar.
+Birtakım kuralları ek olarak, Uyumluluk Paketi içeren bir `System.Web.Http.ApiController` temel Web API'si tarafından sağlanan yerini sınıfı. Web API ve devralma için yazılan denetleyicilerinizi böylece gelen kendi `ApiController` bunlar, ASP.NET Core MVC çalıştırılırken tasarlanmış şekilde çalışması için. Bu temel denetleyici sınıfı tüm ile donatılmış `UseWebApi*` yukarıda listelenen öznitelikleri. `ApiController` Özellikleri, yöntemleri ve Web API'SİNDE bulunanlar ile uyumlu olan sonuç türleri kullanıma sunar.
 
-## <a name="using-apiexplorer-to-document-your-app"></a>Uygulamanızı belge için ApiExplorer kullanma
+## <a name="using-apiexplorer-to-document-your-app"></a>Uygulamanızı belge ApiExplorer kullanma
 
-Uygulama modeli kullanıma sunan bir [ `ApiExplorer` ](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.apiexplorermodel) her düzeyde uygulamanın yapısı geçiş yapmak için kullanılan özellik. Bunun için kullanılabilir [Swagger gibi araçları kullanarak, Web API'leri için Yardım sayfalarına üret](xref:tutorials/web-api-help-pages-using-swagger). `ApiExplorer` Özelliği düzenlemenizi sağlayan bir `IsVisible` uygulamanızın modeli hangi kısımlarının açılmamalıdır belirtmek için ayarlanabilir özelliği. Bir kural kullanarak bu ayarı yapılandırabilirsiniz:
+Uygulama modeli kullanıma sunan bir [ `ApiExplorer` ](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.apiexplorermodel) her düzeyde uygulamanın yapısını geçirmek için kullanılan özellik. Bunu yapmak için kullanılabilir [Swagger gibi araçlar kullanarak Web API'leri için Yardım sayfaları oluşturun](xref:tutorials/web-api-help-pages-using-swagger). `ApiExplorer` Özelliği kullanıma sunan bir `IsVisible` uygulamanızın modeli hangi parçalarının açılmamalıdır belirtmek için ayarlanabilir özelliği. Bir kural kullanarak bu ayarı yapılandırabilirsiniz:
 
 [!code-csharp[](./application-model/sample/src/AppModelSample/Conventions/EnableApiExplorerApplicationConvention.cs)]
 

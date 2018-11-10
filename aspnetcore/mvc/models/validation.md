@@ -4,14 +4,14 @@ author: tdykstra
 description: ASP.NET Core MVC model doğrulama hakkında bilgi edinin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 11/06/2018
 uid: mvc/models/validation
-ms.openlocfilehash: 1063fdccb97e55e6b0eb6689187134ff41c10a02
-ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
+ms.openlocfilehash: f1757f807e50019e5071abc42ec3129935ab77aa
+ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50253162"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51225466"
 ---
 # <a name="model-validation-in-aspnet-core-mvc"></a>ASP.NET Core MVC model doğrulama
 
@@ -33,10 +33,10 @@ Doğrulama özniteliklerinin model doğrulama veritabanı tablolarındaki alanla
 
 Doğrulama öznitelikleri özellik düzeyinde belirtilir: 
 
-```csharp 
-[Required] 
+```csharp
+[Required]
 public string MyProperty { get; set; } 
-``` 
+```
 
 Ek açıklama aşağıdadır `Movie` film ve TV programları hakkında bilgi depolayan bir uygulamadan model. Özelliklerin çoğu gerekli ve çeşitli dize özellikleri uzunluk gereksinimlerine sahiptir. Ayrıca, bir sayısal aralık kısıtlaması için bir yerde yoktur `Price` özelliğini 0 $999.99, birlikte özel doğrulama özniteliği.
 
@@ -82,13 +82,19 @@ Kullandığınızda, bir [Nullable\<T > türü](/dotnet/csharp/programming-guide
 
 Model durumu doğrulama hatalarını gönderilen HTML form değerleri temsil eder.
 
-MVC kadar ulaştığında alanları doğrulama hataları (varsayılan olarak, 200) sayısı devam eder. Aşağıdaki kodu ekleyerek bu sayı yapılandırabilirsiniz `ConfigureServices` yönteminde *Startup.cs* dosyası:
+MVC, en fazla hata sayısı (varsayılan olarak, 200) ulaşana kadar alanları doğrulama devam eder. Bu sayı aşağıdaki kod ile yapılandırabileceğiniz `Startup.ConfigureServices`:
 
 [!code-csharp[](validation/sample/Startup.cs?range=27)]
 
-## <a name="handling-model-state-errors"></a>İşleme Model durumu hataları
+## <a name="handle-model-state-errors"></a>Tanıtıcı Model durumu hataları
 
-Model doğrulama çağrılan her denetleyici eylemi önce oluşur ve incelemek için eylem yönteminin sorumluluğu olan `ModelState.IsValid` ve uygun şekilde tepki verin. Çoğu durumda, uygun tepki ideal model doğrulamasının başarısız olmasının nedeni gerçekleşen bir hata yanıtı geri döndürmektir.
+Model doğrulama bir denetleyici eylemi yürütmeden önce gerçekleşir. Eylemin sorumluluk incelemek için olan `ModelState.IsValid` ve uygun şekilde tepki verin. Çoğu durumda, uygun tepki ideal model doğrulamasının başarısız olmasının nedeni gerçekleşen bir hata yanıtı geri döndürmektir.
+
+::: moniker range=">= aspnetcore-2.1"
+
+Zaman `ModelState.IsValid` değerlendiren `false` kullanarak web API denetleyicilerinin içinde `[ApiController]` özniteliği, sorunun ayrıntılarını içeren bir otomatik HTTP 400 yanıt döndürülür. Daha fazla bilgi için [otomatik HTTP 400 yanıtları](xref:web-api/index#automatic-http-400-responses).
+
+::: moniker-end
 
 Bazı uygulamalar, durum filtre böyle bir ilke uygulamak için uygun bir yere olabilir, model doğrulama hataları başa çıkmak için standart bir kural uygulayın seçeceksiniz. Eylemlerinizi ile geçerli ve geçersiz model durumlarının nasıl davranacağını test etmeniz gerekir.
 
