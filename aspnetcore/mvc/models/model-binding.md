@@ -4,14 +4,14 @@ author: tdykstra
 description: ASP.NET Core MVC, model bağlama HTTP isteklerinden alınan verileri olarak eylem metodu parametreleriyle nasıl eşlendiğini öğrenin.
 ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 ms.author: tdykstra
-ms.date: 08/14/2018
+ms.date: 11/13/2018
 uid: mvc/models/model-binding
-ms.openlocfilehash: 0ce20a8040c6b19da1f57e1c053a7ef81d8bcb23
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 1dc9b41328ed78440622acc1865b6f088d394403
+ms.sourcegitcommit: 1d6ab43eed9cb3df6211c22b97bb3a9351ec4419
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41755673"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51597790"
 ---
 # <a name="model-binding-in-aspnet-core"></a>ASP.NET core'da model bağlama
 
@@ -55,7 +55,7 @@ Model bağlama için adlı bir anahtar sorunuz `id` ve bir şey yok adlı `id` f
 
 Şu ana kadar örnek, basit türler kullanır. MVC'de basit herhangi bir .NET basit türü veya dize türü dönüştürücü türüyle türleridir. Eylem yönteminin parametresi gibi bir sınıf olsaydı `Movie` hem basit hem de karmaşık türleri gibi özellikleri, MVC'ın model bağlama devam eder, düzgün şekilde işleyen içeren türü. Karmaşık türler için eşleşme arama özelliklerini geçirmek için yansıma ve özyineleme kullanır. Model bağlama desenini arar *parameter_name.property_name* özellikleri değerlerini bağlamak için. Eşleşen değerleri bu formu bulamazsa, bağlama yalnızca özellik adı kullanılarak dener. Bu türleri gibi `Collection` türleri, model bağlama için bir eşleşme arar *parameter_name [dizin]* veya yalnızca *[dizin]*. Model bağlama davranır `Dictionary` benzer şekilde, sorarak türleri *parameter_name [anahtarı]* veya yalnızca *[anahtarı]*, basit türler anahtarları olduğu sürece. Desteklenen anahtarlar aynı model türü için oluşturulan etiket yardımcıları ve HTML alan adları aynı. Bu, form alanlarını, oluşturma veya düzenleme ilişkili verileri doğrulama başarılı olmadı olduğunda, kolaylık sağlamak için kullanıcının girişi ile doldurulmuş kalır. böylece gidiş dönüşü değerleri sağlar.
 
-Gerçekleştirilecek bağlamanızın sınıfı ortak varsayılan oluşturucusu olmalıdır ve bağlı üye genel yazılabilir özellikleri olmalıdır. Model bağlama sınıfı yalnızca genel varsayılan oluşturucu kullanılarak oluşturulacak Böyle durumlarda özellikleri ayarlanabilir.
+Model bağlama mümkün kılmak için sınıf, genel bir varsayılan oluşturucu ve bağlamak için genel yazılabilir özellikleri olmalıdır. Model bağlama oluştuğunda genel varsayılan oluşturucu kullanılarak sınıfının örneği ve özellikleri ayarlayabilirsiniz.
 
 Bir parametre bağlandığında, model bağlama değerleri bu ada sahip mi arıyorsunuz durdurur ve bir sonraki parametreyi bağlamak taşır. Aksi takdirde, varsayılan model bağlama davranışı parametrelerini varsayılan değerlerine kendi türüne bağlı olarak ayarlar:
 

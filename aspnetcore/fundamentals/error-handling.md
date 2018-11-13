@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 11/01/2018
 uid: fundamentals/error-handling
-ms.openlocfilehash: 89117d78486493747d649c3bb0d9cce9f97ef419
-ms.sourcegitcommit: 85f2939af7a167b9694e1d2093277ffc9a741b23
+ms.openlocfilehash: fbc86d36f66e71e6ebd84f536148fba2e3c452d8
+ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50968325"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51570067"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>ASP.NET core'da hatalarını işleme
 
@@ -109,7 +109,7 @@ Bir satırı `Startup.Configure` yöntemi:
 app.UseStatusCodePages();
 ```
 
-<xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> istek işleme işlem hattındaki (örneğin, statik dosya ara yazılımı ve MVC ara yazılım) middlewares önce çağrılmalıdır.
+<xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> istek işleme işlem hattındaki (örneğin, statik dosya ara yazılımlarını ve MVC ara yazılım) middlewares önce çağrılmalıdır.
 
 Varsayılan olarak, yalnızca metin işleyicileri 404 gibi yaygın durum kodları için durum kod sayfaları ara yazılım ekler:
 

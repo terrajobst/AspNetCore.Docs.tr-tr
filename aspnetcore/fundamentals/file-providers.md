@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/01/2018
 uid: fundamentals/file-providers
-ms.openlocfilehash: 3274615a0d6b6f928301ce97d18f5d9768963a30
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 5d0d46ba82cd84e48e5a9b23d6d330d8888beb41
+ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207322"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51570106"
 ---
 # <a name="file-providers-in-aspnet-core"></a>ASP.NET core'da dosya sağlayıcıları
 
@@ -20,7 +20,7 @@ Tarafından [Steve Smith](https://ardalis.com/) ve [Luke Latham](https://github.
 ASP.NET Core, dosya sistemi erişimini kullanarak dosya sağlayıcıları soyutlar. Dosya sağlayıcıları, ASP.NET Core framework kullanılır:
 
 * [IHostingEnvironment](/dotnet/api/microsoft.extensions.hosting.ihostingenvironment) uygulamanın içerik kök ve web kökü olarak sunan `IFileProvider` türleri.
-* [Statik dosya ara yazılımı](xref:fundamentals/static-files) statik dosyaları bulmak üzere dosya sağlayıcıları kullanır.
+* [Statik dosya ara yazılımlarını](xref:fundamentals/static-files) statik dosyaları bulmak üzere dosya sağlayıcıları kullanır.
 * [Razor](xref:mvc/views/razor) sayfaları ve görünümlerini bulmak için dosya sağlayıcıları kullanır.
 * .NET core araçları, hangi dosyaların yayımlandığını belirtmek için dosya sağlayıcıları ve glob desenleri kullanır.
 

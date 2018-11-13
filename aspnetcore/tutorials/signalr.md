@@ -5,14 +5,14 @@ description: Bu öğreticide, ASP.NET Core SignalR kullanan bir sohbet uygulamas
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 08/31/2018
+ms.date: 11/13/2018
 uid: tutorials/signalr
-ms.openlocfilehash: 7d9f3a3f8aa7a5e47169da66e6fa2d6a28de3853
-ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
+ms.openlocfilehash: b7414b1981508f2424eccb147a44023058c7f97c
+ms.sourcegitcommit: 1d6ab43eed9cb3df6211c22b97bb3a9351ec4419
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51021254"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51597803"
 ---
 # <a name="tutorial-get-started-with-aspnet-core-signalr"></a>Öğretici: ASP.NET Core SignalR ile çalışmaya başlama
 
@@ -238,15 +238,11 @@ SignalR sunucusu, SignalR için SignalR isteklerini iletmek için yapılandırı
 
 * Adres çubuğundan URL'yi kopyalayın, başka bir tarayıcı örneğinde veya sekmesi açın ve adres çubuğuna URL'yi yapıştırın.
 
-* Ya da tarayıcı seçin, bir ad ve ileti girin ve seçin **Gönder** düğmesi.
+* Ya da tarayıcı seçin, bir ad ve ileti girin ve seçin **iletisi gönder** düğmesi.
 
   Her iki sayfalarında, adını ve iletisini anında görüntülenir.
 
   ![SignalR örnek uygulaması](signalr/_static/signalr-get-started-finished.png)
-
-> [!TIP]
-> Uygulama işe yaramazsa, tarayıcı Geliştirici Araçları'nı (F12) açın ve konsoluna gidin. HTML ve JavaScript kodunuza ilgili hatalar görebilirsiniz. Örneğin, eklediğiniz varsayalım *signalr.js* yönlendirilmiş değerinden farklı bir klasöre. Bu durumda bu dosyaya başvuru çalışmaz ve bir 404 hatası konsolunda görürsünüz.
-> ![signalr.js bulunamadı hatası](signalr/_static/f12-console.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

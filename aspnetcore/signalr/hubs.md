@@ -5,14 +5,14 @@ description: İçinde ASP.NET Core SignalR hub'ı kullanmayı öğrenin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 09/12/2018
+ms.date: 11/07/2018
 uid: signalr/hubs
-ms.openlocfilehash: 27aedc5b2f2060d961070fbd1ff5304eaa3956d1
-ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
-ms.translationtype: HT
+ms.openlocfilehash: 0413d354307208726f4252f431ac59526effed08
+ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51225362"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51569925"
 ---
 # <a name="use-hubs-in-signalr-for-aspnet-core"></a>ASP.NET Core signalr'da hubs'ı kullanma
 
@@ -38,7 +38,15 @@ ASP.NET Core uygulaması için SignalR işlevselliği ekleme, SignalR yollar ça
 
 Öğesinden devralınan bir sınıf bildirerek oluşturma `Hub`ve genel yöntemleri ekleyin. İstemcileri olarak tanımlanmış olan yöntemleri çağırabilir `public`.
 
-[!code-csharp[Create and use hubs](hubs/sample/hubs/chathub.cs?range=8-37)]
+```csharp
+public class ChatHub : Hub
+{
+    public Task SendMessage(string user, string message)
+    {
+        return Clients.All.SendAsync("ReceiveMessage", user, message);
+    }
+}
+```
 
 Dönüş türü ve parametreleri, tüm C# yönteminde olduğu gibi karmaşık türler ve diziler de dahil olmak üzere belirtebilirsiniz. SignalR serileştirme ve seri durumundan çıkarma karmaşık nesneler ve diziler parametreleri ve dönüş değerleri işler.
 
@@ -85,20 +93,24 @@ Dönüş türü ve parametreleri, tüm C# yönteminde olduğu gibi karmaşık t�
 | `AllExcept` | Bağlanan tüm istemciler belirtilen bağlantılar dışında bir yöntem çağırır. |
 | `Client` | Belirli bir bağlı istemci üzerinde bir yöntemi çağırır |
 | `Clients` | Belirli bir bağlı istemciler üzerinde bir yöntemi çağırır |
-| `Group` | Belirtilen grubun tüm bağlantılar için bir yöntem çağırır  |
-| `GroupExcept` | Belirtilen gruptaki belirtilen bağlantılar dışında tüm bağlantılar için bir yöntem çağırır. |
-| `Groups` | Birden çok gruba bağlantılarının bir metod çağırır  |
-| `OthersInGroup` | Bir hub yöntemini çağırmış istemciye hariç bağlantıları, grup için bir yöntem çağırır  |
-| `User` | Belirli bir kullanıcıyla ilişkili tüm bağlantıları için bir yöntem çağırır |
-| `Users` | Belirtilen kullanıcılar ile ilişkili tüm bağlantıları için bir yöntem çağırır |
+| `Group` | Belirtilen gruptaki tüm bağlantıları üzerinde bir yöntemi çağırır.  |
+| `GroupExcept` | Belirtilen gruptaki belirtilen bağlantılar dışında tüm bağlantıları üzerinde bir yöntemi çağırır. |
+| `Groups` | Birden çok bağlantı grupları üzerinde bir yöntemi çağırır  |
+| `OthersInGroup` | Bir hub yöntemini çağırmış istemciye hariç bağlantıları, grup üzerinde bir yöntemi çağırır  |
+| `User` | Belirli bir kullanıcıyla ilişkili tüm bağlantıları üzerinde bir yöntemi çağırır. |
+| `Users` | Belirtilen kullanıcılar ile ilişkili tüm bağlantıları üzerinde bir yöntemi çağırır. |
 
 Her bir özellik veya yöntemin önceki tablolarda sahip bir nesne döndürür. bir `SendAsync` yöntemi. `SendAsync` Yöntemi çağırmak için istemci yönteminin parametreleri ve adını girmesini sağlar.
 
 ## <a name="send-messages-to-clients"></a>İstemciler için iletileri gönder
 
-Özel istemciler çağrı yapmak için özelliklerini kullanmak `Clients` nesne. Aşağıdaki örnekte, `SendMessageToCaller` yöntemi gösterir hub yöntemini çağırmış bağlantıya ileti gönderme. `SendMessageToGroups` Yöntemi depolanan gruplara bir ileti gönderen bir `List` adlı `groups`.
+Özel istemciler çağrı yapmak için özelliklerini kullanmak `Clients` nesne. Aşağıdaki örnekte, üç Hub yöntemleri vardır:
 
-[!code-csharp[Send messages](hubs/sample/hubs/chathub.cs?range=15-24)]
+* `SendMessage` kullanan tüm bağlı istemciler için bir ileti gönderir `Clients.All`.
+* `SendMessageToCaller` kullanarak çağırana geri, bir ileti gönderir `Clients.Caller`.
+* `SendMessageToGroups` tüm istemciler için bir ileti gönderir `SignalR Users` grubu.
+
+[!code-csharp[Send messages](hubs/sample/hubs/chathub.cs?name=HubMethods)]
 
 ## <a name="strongly-typed-hubs"></a>Kesin türü belirtilmiş hub'ları
 
@@ -116,17 +128,42 @@ Kullanarak `Hub<IChatClient>` derleme zamanı istemci yöntemleri denetimini etk
 
 Türü kesin belirlenmiş kullanarak `Hub<T>` kullanma yeteneği devre dışı bırakır `SendAsync`.
 
+## <a name="change-the-name-of-a-hub-method"></a>Hub yönteminin adını değiştirin
+
+Varsayılan olarak, bir sunucu hub yönteminin adı, .NET yöntemi adıdır. Ancak, kullanabileceğiniz [HubMethodName](xref:Microsoft.AspNetCore.SignalR.HubMethodNameAttribute) el ile yöntemi için bir ad belirtin ve bu varsayılanı değiştirmek için özniteliği. İstemci yöntemi çağrılırken .NET yöntemi adı yerine bu adı kullanmalıdır.
+
+[!code-csharp[HubMethodName attribute](hubs/sample/hubs/chathub.cs?name=HubMethodName&highlight=1)]
+
 ## <a name="handle-events-for-a-connection"></a>Bağlantı olayları işleme
 
 SignalR hub'ları API sağlar `OnConnectedAsync` ve `OnDisconnectedAsync` yönetmek ve bağlantıları izlemek için sanal yöntemler. Geçersiz kılma `OnConnectedAsync` bir istemci bir gruba ekleme gibi Hub'ına bağlandığında eylemleri gerçekleştirmek için sanal bir yöntem.
 
-[!code-csharp[Handle events](hubs/sample/hubs/chathub.cs?range=26-36)]
+[!code-csharp[Handle connection](hubs/sample/hubs/chathub.cs?name=OnConnectedAsync)]
+
+Geçersiz kılma `OnDisconnectedAsync` istemci kestiğinde eylemleri gerçekleştirmek için sanal bir yöntem. İstemcinin kasıtlı olarak kesilirse (çağırarak `connection.stop()`, örneğin), `exception` parametre olacak `null`. Ancak, istemcinin (örneğin, bir ağ hatası), bir hata nedeniyle kesilmiş `exception` parametresi hatayı açıklayan bir özel durum içerir.
+
+[!code-csharp[Handle disconnection](hubs/sample/hubs/chathub.cs?name=OnDisconnectedAsync)]
 
 ## <a name="handle-errors"></a>Hatalarını işleme
 
 Özel durumlar, hub yöntemlerinde oluşturulan yöntemini çağırmış istemciye gönderilir. JavaScript istemci `invoke` yöntemi döndürür bir [JavaScript Promise](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Using_promises). İstemci bir işleyici ile bir hata aldığında bağlı promise kullanmaya `catch`, çağrılan ve bir JavaScript olarak geçirilen `Error` nesne.
 
 [!code-javascript[Error](hubs/sample/wwwroot/js/chat.js?range=23)]
+
+Hub'ınıza bir özel durum oluşturursa varsayılan olarak, SignalR istemci için genel bir hata iletisi döndürür. Örneğin:
+
+```
+Microsoft.AspNetCore.SignalR.HubException: An unexpected error occurred invoking 'MethodName' on the server.
+```
+
+Beklenmeyen özel durum, genellikle bir veritabanı sunucusu veritabanı bağlantısı başarısız olduğunda tetiklenen bir özel durum adı gibi hassas bilgiler içerebilir. SignalR, bir güvenlik önlemi olarak varsayılan olarak bu ayrıntılı hata iletileri ortaya çıkarmıyor. Bkz: [güvenlik konuları makale](xref:signalr/security#exceptions) neden hakkında daha fazla bilgi için özel durum ayrıntıları görüntülenmez.
+
+Varsa olağanüstü bir koşul, *yapmak* istemciye yayılması istiyorsanız, kullanabileceğiniz `HubException` sınıfı. Durum, bir `HubException` SignalR, hub yönteminden **olacak** tüm ileti üzerinde değişiklik yapılmadan, bir istemciye göndermek.
+
+[!code-csharp[ThrowHubException](hubs/sample/hubs/chathub.cs?name=ThrowHubException&highlight=3)]
+
+> [!NOTE]
+> SignalR yalnızca gönderir `Message` istemciye bir özel durum özelliği. İstemci için yığın izlemesi ve özel durum diğer özellikleri kullanılamaz.
 
 ## <a name="related-resources"></a>İlgili kaynaklar
 

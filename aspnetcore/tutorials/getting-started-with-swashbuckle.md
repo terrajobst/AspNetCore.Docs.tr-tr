@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 11/05/2018
 uid: tutorials/get-started-with-swashbuckle
-ms.openlocfilehash: 945a2ebe138ba6a1f6029f9e867887b1ce8d628f
-ms.sourcegitcommit: 09affee3d234cb27ea6fe33bc113b79e68900d22
-ms.translationtype: HT
+ms.openlocfilehash: b932a0a494366bd13549c1c6c7f7003133d120d4
+ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51191288"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51570145"
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Swashbuckle'ı ve ASP.NET Core ile çalışmaya başlama
 
@@ -97,7 +97,7 @@ Kullanmak için aşağıdaki ad alanı içe `Info` sınıfı:
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup2.cs?name=snippet_Configure&highlight=4,8-11)]
 
-Önceki `UseSwaggerUI` yöntem çağrısının sağlayan [statik dosya ara yazılımı](xref:fundamentals/static-files). .NET Framework veya .NET targeting, Core 1.x sürümüne, ekleme [Microsoft.AspNetCore.StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles/) NuGet paketini projeye.
+Önceki `UseSwaggerUI` yöntem çağrısının sağlayan [statik dosya ara yazılımlarını](xref:fundamentals/static-files). .NET Framework veya .NET targeting, Core 1.x sürümüne, ekleme [Microsoft.AspNetCore.StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles/) NuGet paketini projeye.
 
 Uygulamayı başlatın ve gidin `http://localhost:<port>/swagger/v1/swagger.json`. Uç noktaları açıklayan oluşturulan belgenin gösterildiği görünür [Swagger belirtimi (swagger.json)](xref:tutorials/web-api-help-pages-using-swagger#swagger-specification-swaggerjson).
 
@@ -401,7 +401,7 @@ Hem işlevsel hem de edileni hisse senedi kullanıcı Arabirimi. Ancak, API belg
 
 Önceki NuGet paketini, .NET Core'u hedefleyen zaten yüklü 2.x ve kullanarak [metapackage](xref:fundamentals/metapackage).
 
-Statik dosya ara yazılımı etkinleştir:
+Statik dosya ara yazılımlarını etkinleştir:
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup.cs?name=snippet_Configure&highlight=3)]
 
