@@ -185,6 +185,8 @@
 ## [Eylem dönüş türleri](xref:web-api/action-return-types)
 ## [Yanıt verilerini biçimlendirme](xref:web-api/advanced/formatting)
 ## [Özel biçimlendiriciler](xref:web-api/advanced/custom-formatters)
+## [Çözümleyiciler](xref:web-api/advanced/analyzers)
+## [Kurallar](xref:web-api/advanced/conventions)
 
 # Gerçek zamanlı uygulamalar
 ## [Genel bakış](xref:signalr/introduction)
