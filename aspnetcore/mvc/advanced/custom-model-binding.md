@@ -3,14 +3,14 @@ title: ASP.NET core'da özel Model bağlama
 author: ardalis
 description: Model bağlama denetleyici eylemleri doğrudan model türleri içinde ASP.NET Core ile çalışmaya nasıl olanak tanıdığını öğrenin.
 ms.author: riande
-ms.date: 04/10/2017
+ms.date: 11/13/2018
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: dc901aea3c20e7f2e955f39d923216de70ef015b
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 1da42829270e8ff4a626a45aec4d4e825062bd4f
+ms.sourcegitcommit: f202864efca81a72ea7120c0692940c40d9d0630
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090413"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51635303"
 ---
 # <a name="custom-model-binding-in-aspnet-core"></a>ASP.NET core'da özel Model bağlama
 
@@ -87,11 +87,14 @@ Aşağıdaki örnek kullanımları `ModelBinder` özniteliği `Author` modeli:
 
 [!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Data/Author.cs?highlight=10)]
 
-Önceki kodda, `ModelBinder` öznitelik türünü belirten `IModelBinder` bağlamak için kullanılmalıdır `Author` eylem parametreleri. 
+Önceki kodda, `ModelBinder` öznitelik türünü belirten `IModelBinder` bağlamak için kullanılmalıdır `Author` eylem parametreleri.
 
-`AuthorEntityBinder` Bağlamak için kullanılan bir `Author` Entity Framework Core kullanan bir veri kaynağından varlık getirilirken tarafından parametre ve bir `authorId`:
+Aşağıdaki `AuthorEntityBinder` sınıfı bağlamalar bir `Author` Entity Framework Core kullanan bir veri kaynağından varlık getirilirken tarafından parametre ve bir `authorId`:
 
 [!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Binders/AuthorEntityBinder.cs?name=demo)]
+
+> [!NOTE]
+> Önceki `AuthorEntityBinder` sınıfı özel bir model bağlayıcısını göstermek için tasarlanmıştır. Sınıfı, arama senaryo için en iyi yöntemleri göstermek için tasarlanmamıştır. Arama için bağlama `authorId` ve bir eylem yöntemi veritabanında sorgu. Bu yaklaşım, model bağlama hatalardan ayıran `NotFound` durumları.
 
 Aşağıdaki kod nasıl kullanılacağını gösterir `AuthorEntityBinder` bir eylem yöntemindeki:
 
@@ -107,7 +110,7 @@ Uygulayabileceğiniz `ModelBinder` özniteliği için ayrı modeli özellikleri 
 
 ### <a name="implementing-a-modelbinderprovider"></a>Bir ModelBinderProvider uygulama
 
-Uygulayabileceğiniz bir öznitelik uygulamak yerine `IModelBinderProvider`. Yerleşik bir çerçeve bağlayıcıları nasıl uygulandığını budur. Türü belirttiğinizde, bağlayıcı üzerinde çalışır, bu üretir, bağımsız değişken türünü belirtin **değil** , bağlayıcı giriş kabul eder. Aşağıdaki bağlayıcıyı çalışır `AuthorEntityBinder`. MVC'nin sağlayıcıları koleksiyonuna eklendiğinde kullanmanız gerekmez `ModelBinder` özniteliği `Author` veya `Author` yazılan parametreleri.
+Uygulayabileceğiniz bir öznitelik uygulamak yerine `IModelBinderProvider`. Yerleşik bir çerçeve bağlayıcıları nasıl uygulandığını budur. Türü belirttiğinizde, bağlayıcı üzerinde çalışır, bu üretir, bağımsız değişken türünü belirtin **değil** , bağlayıcı giriş kabul eder. Aşağıdaki bağlayıcıyı çalışır `AuthorEntityBinder`. MVC'nin sağlayıcıları koleksiyonuna eklendiğinde kullanmanız gerekmez `ModelBinder` özniteliği `Author` veya `Author`-yazılan parametreleri.
 
 [!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Binders/AuthorEntityBinderProvider.cs?highlight=17-20)]
 
@@ -130,6 +133,7 @@ Sağlayıcınız koleksiyonun sonuna ekleme, özel bağlayıcı şansı olmadan 
 ## <a name="recommendations-and-best-practices"></a>Öneriler ve en iyi uygulamalar
 
 Özel model bağlayıcıları:
+
 - Durum kodları ayarlamak veya sonuçları döndürmek çalışmayın (örneğin, 404 bulunamadı). Model bağlama başarısız olursa bir [eylem filtresi](xref:mvc/controllers/filters) veya eylem yöntemi bir mantık hatası işleme.
 - Yinelenen kod ve geniş kapsamlı kritik konular eylem yöntemlerinden ortadan kaldırmak için ekseriyetle faydalıdır.
 - Genellikle bir dize özel bir türe dönüştürmek için kullanılmaması bir [ `TypeConverter` ](/dotnet/api/system.componentmodel.typeconverter) genellikle daha iyi bir seçenektir.

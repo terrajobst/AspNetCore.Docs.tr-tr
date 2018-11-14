@@ -197,6 +197,7 @@
 ### [HubContext](xref:signalr/hubcontext)
 ### [Kullanıcılar ve gruplar](xref:signalr/groups)
 ### [Azure'a Yayımlama](xref:signalr/publish-to-azure-web-app)
+### [API tasarım etkenleri](xref:signalr/api-design)
 ## İstemciler
 ### [.NET istemcisi](xref:signalr/dotnet-client)
 ### [.NET API başvurusu](/dotnet/api/microsoft.aspnetcore.signalr.client)
