@@ -3,14 +3,15 @@ title: ASP.NET core'da Facebook dış oturum açma Kurulumu
 author: rick-anderson
 description: Bu öğreticide, mevcut bir ASP.NET Core uygulamasına Facebook hesabı kullanıcı kimlik doğrulaması tümleştirmesini gösterilmektedir.
 ms.author: riande
-ms.date: 08/01/2017
+ms.custom: mvc
+ms.date: 11/11/2018
 uid: security/authentication/facebook-logins
-ms.openlocfilehash: 3ba6fe7785afa268e54e6032f1963c1867f6bb27
-ms.sourcegitcommit: 74c09caec8992635825b45b7f065f871d33c077a
+ms.openlocfilehash: e8ae16538b5d6844af7d983071fad629ebbe6217
+ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42634815"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51708510"
 ---
 # <a name="facebook-external-login-setup-in-aspnet-core"></a>ASP.NET core'da Facebook dış oturum açma Kurulumu
 
@@ -28,19 +29,19 @@ Bu öğreticide, oluşturulan bir örnek ASP.NET Core 2.0 proje kullanarak kendi
 
 * Formu doldurun ve dokunun **uygulama kimliği oluşturma** düğmesi.
 
-   ![Yeni uygulama Kimliğini formu oluşturma](index/_static/FBNewAppId.png)
+  ![Yeni uygulama Kimliğini formu oluşturma](index/_static/FBNewAppId.png)
 
 * Üzerinde **bir ürün seçin** sayfasında **Ayarla** üzerinde **Facebook oturum açma** kart.
 
-   ![Ürün kurulum sayfası](index/_static/FBProductSetup.png)
+  ![Ürün kurulum sayfası](index/_static/FBProductSetup.png)
 
 * **Hızlı** Sihirbazı ile başlar **Platform seçin** ilk sayfası. Sihirbaz tıklayarak şimdilik atla **ayarları** sol taraftaki menüden bağlantı:
 
-   ![Ziyaretimde hızlı başlangıç](index/_static/FBSkipQuickStart.png)
+  ![Ziyaretimde hızlı başlangıç](index/_static/FBSkipQuickStart.png)
 
 * Size sunulan **istemci OAuth ayarları** sayfası:
 
-![İstemci OAuth Ayarları sayfası](index/_static/FBOAuthSetup.png)
+  ![İstemci OAuth Ayarları sayfası](index/_static/FBOAuthSetup.png)
 
 * Geliştirme sürecinizi URI girin ile */signin-facebook* içine eklenen **geçerli OAuth yeniden yönlendirme URI'leri** alan (örneğin: `https://localhost:44320/signin-facebook`). Bu öğreticinin ilerleyen bölümlerinde yapılandırılmış Facebook kimlik doğrulaması istekleri otomatik olarak işleyecek */signin-facebook* OAuth akışını uygulamak için rota.
 
@@ -49,10 +50,9 @@ Bu öğreticide, oluşturulan bir örnek ASP.NET Core 2.0 proje kullanarak kendi
 
 * Tıklayın **değişiklikleri kaydetmek**.
 
-* Tıklayın **Ayarları > temel** sol gezinti bağlantısı. 
+* Tıklayın **ayarları** > **temel** sol gezinti bağlantısı.
 
-    Bu sayfada, Not, `App ID` ve `App Secret`. Sonraki bölümde, ASP.NET Core uygulamasına hem de ekleyeceksiniz:
-
+  Bu sayfada, Not, `App ID` ve `App Secret`. Sonraki bölümde, ASP.NET Core uygulamasına hem de ekleyeceksiniz:
 
 * Sitenin dağıtım yaparken yeniden ziyaret etmeniz gerekir **Facebook oturum açma** Kurulum sayfasında ve yeni bir ortak URI kaydedin.
 
@@ -69,7 +69,7 @@ dotnet user-secrets set Authentication:Facebook:AppSecret <app-secret>
 
 ## <a name="configure-facebook-authentication"></a>Facebook kimlik doğrulamasını yapılandırma
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.0"
 
 Facebook hizmetinde ekleme `ConfigureServices` yönteminde *Startup.cs* dosyası:
 
@@ -87,9 +87,11 @@ services.AddAuthentication().AddFacebook(facebookOptions =>
 
 [!INCLUDE [default settings configuration](includes/default-settings.md)]
 
-[!INCLUDE[](~/includes/chain-auth-providers.md)]
+[!INCLUDE[](includes/chain-auth-providers.md)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 Yükleme [Microsoft.AspNetCore.Authentication.Facebook](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Facebook) paket.
 
@@ -108,7 +110,7 @@ app.UseFacebookAuthentication(new FacebookOptions()
 });
 ```
 
----
+::: moniker-end
 
 Bkz: [FacebookOptions](/dotnet/api/microsoft.aspnetcore.builder.facebookoptions) Facebook kimlik doğrulama tarafından desteklenen yapılandırma seçenekleri hakkında daha fazla bilgi için API Başvurusu. İçin yapılandırma seçenekleri kullanılabilir:
 
@@ -134,6 +136,8 @@ Facebook kimlik bilgilerinizi girdikten sonra e-postanızı ayarlayabildiğiniz 
 Şimdi, Facebook kimlik bilgilerinizi kullanarak kaydedilir:
 
 ![Web uygulaması: kimliği doğrulanmış kullanıcı](index/_static/Done.png)
+
+[!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]
 
 ## <a name="troubleshooting"></a>Sorun giderme
 

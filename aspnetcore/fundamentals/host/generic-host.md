@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/30/2018
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: 9943c9dd2d6dd67a79186ee880b181a5915d06be
-ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
+ms.openlocfilehash: cac5ccdea7838d26b7468f9bf1ab8d317b444b46
+ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51505719"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51708523"
 ---
 # <a name="net-generic-host"></a>.NET genel ana bilgisayar
 
@@ -75,7 +75,7 @@ Ana Bilgisayar Yapılandırması tarafından oluşturulur:
 **Tür**: *dize*  
 **Varsayılan**: uygulamanın giriş noktasını içeren derlemenin adı.  
 **Kullanılarak ayarlanan**: `HostBuilderContext.HostingEnvironment.ApplicationName`  
-**Ortam değişkeni**: `<PREFIX_>APPLICATIONNAME` (`<PREFIX_>` olduğu [isteğe bağlıdır ve kullanıcı tanımlı](#configuration-builder))
+**Ortam değişkeni**: `<PREFIX_>APPLICATIONNAME` (`<PREFIX_>` olduğu [isteğe bağlıdır ve kullanıcı tanımlı](#configurehostconfiguration))
 
 ### <a name="content-root"></a>İçerik kök
 
@@ -85,7 +85,7 @@ Bu ayar, içerik dosyalarını aramaya konak başladığı belirler.
 **Tür**: *dize*  
 **Varsayılan**: varsayılan olarak, uygulama derleme bulunduğu klasör.  
 **Kullanılarak ayarlanan**: `UseContentRoot`  
-**Ortam değişkeni**: `<PREFIX_>CONTENTROOT` (`<PREFIX_>` olduğu [isteğe bağlıdır ve kullanıcı tanımlı](#configuration-builder))
+**Ortam değişkeni**: `<PREFIX_>CONTENTROOT` (`<PREFIX_>` olduğu [isteğe bağlıdır ve kullanıcı tanımlı](#configurehostconfiguration))
 
 Yol mevcut değilse, konak başlatmak başarısız olur.
 
@@ -99,7 +99,7 @@ Uygulamanın ayarlar [ortam](xref:fundamentals/environments).
 **Tür**: *dize*  
 **Varsayılan**: üretim  
 **Kullanılarak ayarlanan**: `UseEnvironment`  
-**Ortam değişkeni**: `<PREFIX_>ENVIRONMENT` (`<PREFIX_>` olduğu [isteğe bağlıdır ve kullanıcı tanımlı](#configuration-builder))
+**Ortam değişkeni**: `<PREFIX_>ENVIRONMENT` (`<PREFIX_>` olduğu [isteğe bağlıdır ve kullanıcı tanımlı](#configurehostconfiguration))
 
 Ortamı, herhangi bir değere ayarlanabilir. Çerçeve tarafından tanımlanmış değerler `Development`, `Staging`, ve `Production`. Değerler büyük küçük harfe duyarlı değildir.
 

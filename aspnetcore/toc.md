@@ -332,7 +332,7 @@
 #### [Twitter kimlik doğrulaması](xref:security/authentication/twitter-logins)
 #### [Google kimlik doğrulaması](xref:security/authentication/google-logins)
 #### [Microsoft kimlik doğrulaması](xref:security/authentication/microsoft-logins)
-#### [Diğer kimlik doğrulama sağlayıcıları](xref:security/authentication/otherlogins)
+#### [Dış kimlik doğrulaması sağlayıcıları](xref:security/authentication/otherlogins)
 #### [Ek talepler](xref:security/authentication/social/additional-claims)
 ### [WS-Federasyon kimlik doğrulaması](xref:security/authentication/ws-federation)
 ### [Hesap onaylama ve parola kurtarma](xref:security/authentication/accconfirm)

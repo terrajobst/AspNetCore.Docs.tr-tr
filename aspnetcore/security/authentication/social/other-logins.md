@@ -1,50 +1,50 @@
 ---
-title: Diğer kimlik doğrulama sağlayıcıları kısa anket
+title: Dış OAuth kimlik doğrulama sağlayıcıları
 author: rick-anderson
+description: ASP.NET Core uygulamaları ile çalışan dış OAuth kimlik doğrulama sağlayıcıları keşfedin.
 ms.author: riande
-ms.date: 11/03/2016
+ms.custom: mvc
+ms.date: 11/11/2018
 uid: security/authentication/otherlogins
-ms.openlocfilehash: 9c2ce02f4613fddbe0e767724019d80ac056bf7b
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: b69c366ec1bf12ccf434991fc8a79eaf8c09da3d
+ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274059"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51708471"
 ---
-# <a name="short-survey-of-other-authentication-providers"></a>Diğer kimlik doğrulama sağlayıcıları kısa anket
+# <a name="external-oauth-authentication-providers"></a>Dış OAuth kimlik doğrulama sağlayıcıları
 
-<a name="security-authentication-other-logins"></a>
+Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [Pranav Rastogi'nin](https://github.com/rustd), ve [Valeriy Novytskyy](https://github.com/01binary)
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [Pranav Rastogi](https://github.com/rustd), ve [Valeriy Novytskyy](https://github.com/01binary)
+Aşağıdaki liste, ASP.NET Core uygulamaları ile çalışan yaygın dış OAuth kimlik doğrulama sağlayıcılarını içerir. Tarafından korunan olanlar gibi üçüncü taraf NuGet paketlerini [aspnet contrib](https://www.nuget.org/packages?q=owners%3Aaspnet-contrib+title%3AOAuth), ASP.NET Core ekibi tarafından gerçekleştirilen kimlik doğrulama sağlayıcıları tamamlamak için kullanılabilir.
 
-Burada bazı diğer ortak OAuth sağlayıcılar için yönergeler yukarı ayarlanır. Üçüncü taraf NuGet paketleri tarafından tutulan olanlar gibi [aspnet contrib](https://www.nuget.org/packages?q=owners%3Aaspnet-contrib+title%3AOAuth) ASP.NET Core ekibi tarafından gerçekleştirilen kimlik doğrulama sağlayıcıları tamamlamak için kullanılabilir.
+* [LinkedIn](https://www.linkedin.com/developer/apps) ([yönergeleri](https://developer.linkedin.com/docs/oauth2))
 
-* Ayarlanan **LinkedIn** oturum açın: [ https://www.linkedin.com/developer/apps ](https://www.linkedin.com/developer/apps). Bkz: [resmi adımları](https://developer.linkedin.com/docs/oauth2).
+* [Instagram](https://www.instagram.com/developer/register/) ([yönergeleri](https://www.instagram.com/developer/authentication/))
 
-* Ayarlanan **Instagram** oturum açın: [ https://www.instagram.com/developer/register/ ](https://www.instagram.com/developer/register/). Bkz: [resmi adımları](https://www.instagram.com/developer/authentication/).
+* [Reddit](https://www.reddit.com/login?dest=https%3A%2F%2Fwww.reddit.com%2Fprefs%2Fapps) ([yönergeleri](https://github.com/reddit/reddit/wiki/OAuth2-Quick-Start-Example))
 
-* Ayarlanan **Reddit** oturum açın: [ https://www.reddit.com/login?dest=https%3A%2F%2Fwww.reddit.com%2Fprefs%2Fapps ](https://www.reddit.com/login?dest=https%3A%2F%2Fwww.reddit.com%2Fprefs%2Fapps). Bkz: [resmi adımları](https://github.com/reddit/reddit/wiki/OAuth2-Quick-Start-Example).
+* [Github](https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fsettings%2Fapplications%2Fnew) ([yönergeleri](https://developer.github.com/v3/oauth/))
 
-* Ayarlanan **Github** oturum açın: [ https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fsettings%2Fapplications%2Fnew ](https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fsettings%2Fapplications%2Fnew). Bkz: [resmi adımları](https://developer.github.com/v3/oauth/).
+* [Yahoo](https://login.yahoo.com/config/login?src=devnet&.done=http%3A%2F%2Fdeveloper.yahoo.com%2Fapps%2Fcreate%2F) ([yönergeleri](https://developer.yahoo.com/bbauth/user.html))
 
-* Ayarlanan **Yahoo** oturum açın: [ https://login.yahoo.com/config/login?src=devnet&.done=http%3A%2F%2Fdeveloper.yahoo.com%2Fapps%2Fcreate%2F ](https://login.yahoo.com/config/login?src=devnet&.done=http%3A%2F%2Fdeveloper.yahoo.com%2Fapps%2Fcreate%2F). Bkz: [resmi adımları](https://developer.yahoo.com/bbauth/user.html).
+* [Tumblr](https://www.tumblr.com/oauth/apps) ([yönergeleri](https://www.tumblr.com/docs/api/v2#auth))
 
-* Ayarlanan **Tumblr** oturum açın: [ https://www.tumblr.com/oauth/apps ](https://www.tumblr.com/oauth/apps). Bkz: [resmi adımları](https://www.tumblr.com/docs/api/v2#auth).
+* [Pinterest](https://www.pinterest.com/login/?next=http%3A%2F%2Fdevsite%2Fapps%2F) ([yönergeleri](https://developers.pinterest.com/docs/api/overview/?))
 
-* Ayarlanan **Pinterest** oturum açın: [ https://www.pinterest.com/login/?next=http%3A%2F%2Fdevsite%2Fapps%2F ](https://www.pinterest.com/login/?next=http%3A%2F%2Fdevsite%2Fapps%2F). Bkz: [resmi adımları](https://developers.pinterest.com/docs/api/overview/?).
+* [Pocket](https://getpocket.com/developer/apps/new) ([yönergeleri](https://getpocket.com/developer/docs/authentication))
 
-* Ayarlanan **Pocket** oturum açın: [ https://getpocket.com/developer/apps/new ](https://getpocket.com/developer/apps/new). Bkz: [resmi adımları](https://getpocket.com/developer/docs/authentication).
+* [Flickr](https://www.flickr.com/services/apps/create) ([yönergeleri](https://www.flickr.com/services/api/auth.oauth.html))
 
-* Ayarlanan **Flickr** oturum açın: [ https://www.flickr.com/services/apps/create ](https://www.flickr.com/services/apps/create). Bkz: [resmi adımları](https://www.flickr.com/services/api/auth.oauth.html).
+* [Dribble](https://dribbble.com/signup) ([yönergeleri](http://developer.dribbble.com/v1/oauth/))
 
-* Ayarlanan **Dribble** oturum açın: [ https://dribbble.com/signup ](https://dribbble.com/signup). Bkz: [resmi adımları](http://developer.dribbble.com/v1/oauth/).
+* [Vimeo](https://vimeo.com/join) ([yönergeleri](https://developer.vimeo.com/api/authentication))
 
-* Ayarlanan **Vimeo** oturum açın: [ https://vimeo.com/join ](https://vimeo.com/join). Bkz: [resmi adımları](https://developer.vimeo.com/api/authentication).
+* [SoundCloud](https://soundcloud.com/you/apps/new) ([yönergeleri](https://developers.soundcloud.com/blog/we-love-oauth-2))
 
-* Ayarlanan **SoundCloud** oturum açın: [ https://soundcloud.com/you/apps/new ](https://soundcloud.com/you/apps/new). Bkz: [resmi adımları](https://developers.soundcloud.com/blog/we-love-oauth-2).
+* [VK](https://vk.com/apps?act=manage) ([yönergeleri](https://vk.com/pages?oid=-17680044&p=Authorizing_Sites))
 
-* Ayarlanan **VK** oturum açın: [ https://vk.com/apps?act=manage ](https://vk.com/apps?act=manage). Bkz: [resmi adımları](https://vk.com/pages?oid=-17680044&p=Authorizing_Sites).
+[!INCLUDE[Multiple authentication providers](includes/chain-auth-providers.md)]
 
-## <a name="multiple-authentication-providers"></a>Birden çok kimlik doğrulama sağlayıcıları
-
-[!INCLUDE[](~/includes/chain-auth-providers.md)]
+[!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]

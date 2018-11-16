@@ -5,14 +5,14 @@ description: Ek talep ve dış sağlayıcılardan gelen belirteçleri oluşturma
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/28/2018
+ms.date: 11/11/2018
 uid: security/authentication/social/additional-claims
-ms.openlocfilehash: dc8b3e32141466a12e4eff0c86d2d4bed689afe5
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 9a24ac138950ef2bedac48f506655d06520137cf
+ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206363"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51708367"
 ---
 # <a name="persist-additional-claims-and-tokens-from-external-providers-in-aspnet-core"></a>Ek talep ve ASP.NET Core, dış sağlayıcılardan gelen belirteçleri kalıcı
 
@@ -22,13 +22,11 @@ ASP.NET Core uygulaması ek talep ve Facebook, Google, Microsoft ve Twitter gibi
 
 [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/social/additional-claims/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
-## <a name="prerequisite"></a>Önkoşul
+## <a name="prerequisites"></a>Önkoşullar
 
 Uygulamayı desteklemek için hangi Dış kimlik doğrulama sağlayıcıları karar verin. Tüm sağlayıcılar için uygulamayı kaydetme ve bir istemci kimliği ve istemci gizli anahtarını alın. Daha fazla bilgi için bkz. <xref:security/authentication/social/index>. [Örnek uygulaması](#sample-app-instructions) kullanan [Google kimlik doğrulama sağlayıcısı](xref:security/authentication/google-logins).
 
-## <a name="authentication-provider-configuration"></a>Kimlik doğrulama sağlayıcısı yapılandırma
-
-### <a name="set-the-client-id-and-client-secret"></a>İstemci Kimliğini ve istemci gizli dizisi ayarlayın
+## <a name="set-the-client-id-and-client-secret"></a>İstemci Kimliğini ve istemci gizli dizisi ayarlayın
 
 OAuth kimlik doğrulama sağlayıcısı, bir istemci kimliği ve istemci gizli anahtarı kullanarak bir uygulama ile bir güven ilişkisi oluşturur. Uygulamayı sağlayıcıda kaydedildiğinde istemci Kimliğini ve istemci gizli değerleri uygulama için Dış kimlik doğrulama sağlayıcısı tarafından oluşturulur. Uygulamanın kullandığı her bir dış sağlayıcı bağımsız olarak sağlayıcının istemci Kimliğini ve istemci gizli anahtarı ile yapılandırılması gerekir. Daha fazla bilgi için senaryonuz için geçerli olan dış kimlik doğrulama sağlayıcısı konulara bakın:
 
@@ -43,7 +41,7 @@ OAuth kimlik doğrulama sağlayıcısı, bir istemci kimliği ve istemci gizli a
 
 [!code-csharp[](additional-claims/samples/2.x/AdditionalClaimsSample/Startup.cs?name=snippet_AddGoogle&highlight=4,6)]
 
-### <a name="establish-the-authentication-scope"></a>Kimlik doğrulama kapsamı oluşturmak
+## <a name="establish-the-authentication-scope"></a>Kimlik doğrulama kapsamı oluşturmak
 
 Belirterek sağlayıcıdan almak için izinler listesinden belirtin <xref:Microsoft.AspNetCore.Authentication.OAuth.OAuthOptions.Scope*>. Yaygın dış sağlayıcıları için kimlik doğrulaması kapsamları aşağıdaki tabloda görüntülenir.
 
@@ -58,7 +56,7 @@ Google örnek uygulamanın eklediği `plus.login` Google + oturum açma izinleri
 
 [!code-csharp[](additional-claims/samples/2.x/AdditionalClaimsSample/Startup.cs?name=snippet_AddGoogle&highlight=7)]
 
-### <a name="map-user-data-keys-and-create-claims"></a>Kullanıcı veri anahtarları eşleyin ve talep oluşturma
+## <a name="map-user-data-keys-and-create-claims"></a>Kullanıcı veri anahtarları eşleyin ve talep oluşturma
 
 Sağlayıcının seçeneklerinde belirtin bir <xref:Microsoft.AspNetCore.Authentication.ClaimActionCollectionMapExtensions.MapJsonKey*> her anahtarın dış sağlayıcının JSON kullanıcı verileri için oturum açma okumak uygulama kimliği. Talep türleri hakkında daha fazla bilgi için bkz. <xref:System.Security.Claims.ClaimTypes>.
 
@@ -72,7 +70,7 @@ Sağlayıcının seçeneklerinde belirtin bir <xref:Microsoft.AspNetCore.Authent
 
 [!code-csharp[](additional-claims/samples/2.x/AdditionalClaimsSample/Pages/Account/ExternalLogin.cshtml.cs?name=snippet_OnPostConfirmationAsync&highlight=30-31)]
 
-### <a name="save-the-access-token"></a>Erişim belirtecini kaydetme
+## <a name="save-the-access-token"></a>Erişim belirtecini kaydetme
 
 <xref:Microsoft.AspNetCore.Authentication.RemoteAuthenticationOptions.SaveTokens*> erişim ve yenileme belirteçleri de depolanıp depolanmayacağını tanımlar <xref:Microsoft.AspNetCore.Http.Authentication.AuthenticationProperties> başarılı yetkilendirme sonrasında. `SaveTokens` ayarlanır `false` son kimlik doğrulama tanımlama bilgisinin boyutunu azaltmak için varsayılan olarak.
 
@@ -93,7 +91,7 @@ Zaman `OnPostConfirmationAsync` yürütür, depolama ve erişim belirteci ([Exte
 
 [!code-csharp[](additional-claims/samples/2.x/AdditionalClaimsSample/Pages/Account/ExternalLogin.cshtml.cs?name=snippet_OnGetCallbackAsync&highlight=31-32)]
 
-### <a name="how-to-add-additional-custom-tokens"></a>Ek özel belirteçler ekleme
+## <a name="how-to-add-additional-custom-tokens"></a>Ek özel belirteçler ekleme
 
 Bir parçası olarak depolanan özel bir belirteç ekleme göstermek için `SaveTokens`, örnek uygulamayı ekler bir <xref:Microsoft.AspNetCore.Authentication.AuthenticationToken> geçerli <xref:System.DateTime> için bir [AuthenticationToken.Name](xref:Microsoft.AspNetCore.Authentication.AuthenticationToken.Name*) , `TicketCreated`:
 
@@ -143,3 +141,5 @@ Authentication Properties
 .expires
     Mon, 10 Sep 2018 18:08:05 GMT
 ```
+
+[!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]

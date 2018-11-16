@@ -3,14 +3,15 @@ title: Facebook, Google ve ASP.NET Core dış sağlayıcı kimlik doğrulaması
 author: rick-anderson
 description: Bu öğreticide bir ASP.NET Core ile dış kimlik doğrulama sağlayıcıları için OAuth 2.0 kullanarak 2.x uygulamasının nasıl oluşturulacağını gösterir.
 ms.author: riande
-ms.date: 11/01/2016
+ms.custom: mvc
+ms.date: 11/11/2018
 uid: security/authentication/social/index
-ms.openlocfilehash: 48a01ab241f9a6ad6ad3fb2ee9e210f459075c33
-ms.sourcegitcommit: a669c4e3f42e387e214a354ac4143555602e6f66
+ms.openlocfilehash: 19074d5014a09446ceec1b89449e78760fc8e7cf
+ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336126"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51708380"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Facebook, Google ve ASP.NET Core dış sağlayıcı kimlik doğrulaması
 
@@ -28,9 +29,9 @@ Not: Burada sunulan paketler OAuth kimlik doğrulaması akışı karmaşıklığ
 
 ## <a name="create-a-new-aspnet-core-project"></a>Yeni bir ASP.NET Core projesi oluşturma
 
-* Başlangıç sayfasından ya da aracılığıyla Visual Studio 2017'de yeni bir proje oluşturma **Dosya > Yeni > Proje**.
+* Başlangıç sayfasından ya da aracılığıyla Visual Studio 2017'de yeni bir proje oluşturma **dosya** > **yeni** > **proje**.
 
-* Seçin **ASP.NET Core Web uygulaması** kullanılabilir şablon **Visual C# > .NET Core** kategorisi:
+* Seçin **ASP.NET Core Web uygulaması** kullanılabilir şablon **Visual C#**   >  **.NET Core** kategorisi:
 
 ![Yeni Proje iletişim kutusu](index/_static/new-project.png)
 
@@ -51,9 +52,11 @@ Not: Bu öğretici, sihirbazın başında seçtiğiniz ASP.NET Core 2.0 SDK'sı 
 
 OAuth 2.0, HTTPS protokolü üzerinden kimlik doğrulaması için SSL kullanılmasını gerektirir.
 
-Not: kullanılarak oluşturulan projeler **Web uygulaması** veya **Web API** proje şablonları ASP.NET Core 2.x SSL'i etkinleştirin ve varsa https URL'si ile başlatma için otomatik olarak yapılandırılır **bireysel Kullanıcı hesaplarını** seçeneği seçilmiştir **kimlik doğrulamayı Değiştir iletişim** yukarıda da gösterildiği gibi Proje Sihirbazı'nda.
+Kullanılarak oluşturulan projeler **Web uygulaması** veya **Web API** proje şablonları ile ASP.NET Core 2.1 veya daha sonra otomatik olarak SSL'yi etkinleştirecek şekilde yapılandırılır. Uygulama, bir güvenli varsayılan uç nokta ile başlatılır **bireysel kullanıcı hesapları** seçeneği seçildiğinde, **kimlik doğrulamayı Değiştir iletişim** Proje Sihirbazı.
 
-* İçindeki adımları izleyerek sitenizde SSL gerektirmesini [SSL'yi zorunlu bir ASP.NET Core uygulaması](xref:security/enforcing-ssl) konu.
+Daha fazla bilgi için bkz. <xref:security/enforcing-ssl>.
+
+[!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]
 
 ## <a name="use-secretmanager-to-store-tokens-assigned-by-login-providers"></a>Oturum açma sağlayıcıları tarafından atanan belirteçlerini depolamak üzere SecretManager kullanın
 
@@ -74,7 +77,7 @@ Uygulamanızı ilgili sağlayıcı kullanacak şekilde yapılandırmak için aş
 * [Microsoft](xref:security/authentication/microsoft-logins) yönergeleri
 * [Diğer sağlayıcı](xref:security/authentication/otherlogins) yönergeleri
 
-[!INCLUDE[](~/includes/chain-auth-providers.md)]
+[!INCLUDE[](includes/chain-auth-providers.md)]
 
 ## <a name="optionally-set-password"></a>İsteğe bağlı olarak parolasını ayarlayın
 

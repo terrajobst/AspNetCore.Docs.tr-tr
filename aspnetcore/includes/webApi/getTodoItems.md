@@ -15,7 +15,7 @@ Yukarıdaki kod:
 * Bir API denetleyicisi sınıfı yöntemleri olmadan tanımlar.
 * Yeni bir Todo oluşturur öğe `TodoItems` boştur. Tüm Oluşturucu bir yeni bir IF oluşturduğundan Todo öğelerini silmek mümkün olmayacaktır `TodoItems` boştur.
 
-Sonraki bölümde, API'yi uygulamak için yöntemleri eklenir. Sınıf ile açıklanıyor bir `[ApiController]` kullanışlı bazı özellikleri etkinleştirmek için özniteliği. Özniteliği tarafından etkinleştirilen özellikler hakkında daha fazla bilgi için bkz: [ApiControllerAttribute ile ek açıklama](xref:web-api/index#annotation-with-apicontrollerattribute).
+Sonraki bölümde, API'yi uygulamak için yöntemleri eklenir. Sınıf ile açıklanıyor bir `[ApiController]` kullanışlı bazı özellikleri etkinleştirmek için özniteliği. Özniteliği tarafından etkinleştirilen özellikler hakkında daha fazla bilgi için bkz: [ApiController özniteliğiyle ek açıklama](xref:web-api/index#annotation-with-apicontroller-attribute).
 
 ::: moniker-end
 
