@@ -4,14 +4,14 @@ author: rick-anderson
 description: Modern, bulut tabanlı, İnternet bağlantılı uygulamalar oluşturmaya yönelik platformlar arası, yüksek performanslı, açık kaynak bir çerçeve olan ASP.NET Core’a giriş yapın.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/10/2018
+ms.date: 11/16/2018
 uid: index
-ms.openlocfilehash: 1699acc0086dfd50c573afc239bc8f37eb9e7af9
-ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.openlocfilehash: ccf00316218c0787136193a7acaf55b8687c6ede
+ms.sourcegitcommit: 04b55a5ce9d649ff2df926157ec28ae47afe79e2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569994"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52156951"
 ---
 # <a name="introduction-to-aspnet-core"></a>ASP.NET Core’a Giriş
 
@@ -77,7 +77,9 @@ ASP.NET Core 3.0 ve üzeri yalnızca .NET Core’da çalışır. Bu değişiklik
 1. *Docs-master.zip* dosyasının sıkıştırmasını açın.
 1. Örnek dizinde gezinmek için örnek bağlantıdaki URL’yi kullanın.
 
-Örnek uygulamalar birden çok senaryoyu göstermek amacıyla aynı koda ait farklı bölümleri seçmeli olarak derleyip çalıştırmak için `#define` ve `#if-#else/#elif-#endif` C# deyimlerinden yararlanır. Bu yaklaşımdan yararlanan örneklerde C# dosyalarının üst kısmındaki `#define` deyimini, çalıştırmak istediğiniz senaryoyla ilişkili olan simgeye ayarlayın. Bazı örnekler senaryoyu çalıştırmak için birden çok dosyanın üst kısmındaki simgeyi ayarlamanızı gerektirebilir.
+### <a name="preprocessor-directives-in-sample-code"></a>Örnek kodda ön işlemci yönergeleri
+
+Örnek uygulamalar birden çok senaryoyu göstermek amacıyla aynı koda ait farklı bölümleri seçmeli olarak derleyip çalıştırmak için `#define` ve `#if-#else/#elif-#endif` C# deyimlerini kullanır. Bu yaklaşımdan yararlanan örneklerde C# dosyalarının üst kısmındaki `#define` deyimini, çalıştırmak istediğiniz senaryoyla ilişkili olan simgeye ayarlayın. Bazı örnekler senaryoyu çalıştırmak için birden çok dosyanın üst kısmındaki simgenin ayarlanmasını gerektirebilir.
 
 Örneğin, aşağıdaki simge listesi `#define` dört senaryonun kullanılabilir olduğunu gösterir (her simge için bir senaryo). Geçerli örnek yapılandırması `TemplateCode` senaryosunu çalıştırır:
 
@@ -92,6 +94,33 @@ ASP.NET Core 3.0 ve üzeri yalnızca .NET Core’da çalışır. Bu değişiklik
 ```
 
 Kod bölümlerini seçmeli olarak derlemek üzere [C# ön işlemci yönergelerini](/dotnet/csharp/language-reference/preprocessor-directives/) kullanma hakkında daha fazla bilgi için bkz. [#define (C# Başvurusu)](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-define) ve [#if (C# Başvurusu)](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-if).
+
+### <a name="regions-in-sample-code"></a>Örnek kodda bölgeler
+
+Bazı örnek uygulamalar, [#region](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-region) ve [#end-region](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-endregion) C# deyimleri içine yerleştirilmiş kod bölümleri içerir. Belge derleme sistemi bu bölgeleri işlenmiş belge konularının içine ekler.  
+
+Bölge adları çoğunlukla şu sözcüğü içerir: "snippet." Aşağıdaki örnekte `snippet_FilterInCode` adlı bir bölge gösterilir:
+
+```csharp
+#region snippet_FilterInCode
+WebHost.CreateDefaultBuilder(args)
+    .UseStartup<Startup>()
+    .ConfigureLogging(logging =>
+        logging.AddFilter("System", LogLevel.Debug)
+            .AddFilter<DebugLoggerProvider>("Microsoft", LogLevel.Trace))
+            .Build();
+#endregion
+```
+
+Önündeki C# kod parçacığına, konunun markdown dosyasında aşağıdaki satırla başvurulur:
+
+```
+[!code-csharp[](sample/SampleApp/Program.cs?name=snippet_FilterInCode)]
+```
+
+Kodu çevreleyen `#region` ve `#end-region` deyimlerini rahatça yoksayabilirsiniz (veya kaldırabilirsiniz). Konuda açıklanan örnek senaryoları çalıştırmayı planlıyorsanız, bu deyimlerin anasındaki kodu değiştirmeyin. Başka senaryolarla denemeler yaparken kodu rahatça değiştirebilirsiniz.
+
+Daha fazla bilgi için bkz. [ASP.NET belgelerine katkıda bulunma: Kod parçacıkları](https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md#code-snippets).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
