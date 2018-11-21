@@ -34,7 +34,7 @@
 ## [Uygulama başlatma](xref:fundamentals/startup)
 ## [Bağımlılık ekleme (hizmetler)](xref:fundamentals/dependency-injection)
 ## [Yönlendirme](xref:fundamentals/routing)
-## [Birden çok ortam](xref:fundamentals/environments)
+## [Ortamlar (geliştirme, hazırlama, üretim)](xref:fundamentals/environments)
 ## [Yapılandırma](xref:fundamentals/configuration/index)
 ## [Seçenekler](xref:fundamentals/configuration/options)
 ## [Günlüğe kaydetme](xref:fundamentals/logging/index)
@@ -432,6 +432,7 @@
 ## [Yanıt sıkıştırma](xref:performance/response-compression)
 
 # Geçiş
+## [2.1’den 2.2’ye](xref:migration/21-to-22)
 ## [2.0’dan 2.1’e](xref:migration/20_21)
 ## 1.x’ten 2.0’a
 ### [Genel bakış](xref:migration/1x-to-2x/index)
