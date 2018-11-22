@@ -5,12 +5,12 @@ description: Kodu sunucu tabanlı Web sayfalarını eklemek için Razor söz diz
 ms.author: riande
 ms.date: 10/26/2018
 uid: mvc/views/razor
-ms.openlocfilehash: 10f0db168b36fed82def8227b3c3edcf5b57f6d7
-ms.sourcegitcommit: 54655f1e1abf0b64d19506334d94cfdb0caf55f6
+ms.openlocfilehash: ab9fb3f55399764c5fe985811d92c504ed210767
+ms.sourcegitcommit: ad28d1bc6657a743d5c2fa8902f82740689733bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50148895"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52256586"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>ASP.NET Core Razor söz dizimi başvurusu
 
@@ -197,7 +197,7 @@ HTML oluşturması gerektiğini bir kod bloğu alt tanımlamak için karakter i�
 
 Tarafından HTML etiketleri arasına olmayan HTML oluşturmak için bu yaklaşımı kullanın. Bir HTML veya Razor etiket olmadan, bir Razor çalışma zamanı hatası oluşur.
 
-**\<Metin >** etiketi, boşluk içeriği işlenirken denetlemek kullanışlıdır:
+ **\<Metin >** etiketi, boşluk içeriği işlenirken denetlemek kullanışlıdır:
 
 * Yalnızca arasında içerik  **\<metin >** etiketi işlenir. 
 * Hiçbir boşluk önce veya sonra  **\<metin >** etiketi HTML çıkışında görünür.
@@ -526,6 +526,105 @@ Aşağıdaki kodu oluşturulmuş Razor olan C# sınıfı:
 
 `@section` Yönergesi ile birlikte kullanılan [Düzen](xref:mvc/views/layout) içeriği HTML sayfasının farklı bölümlerini işlemek görünümlerini etkinleştirmek için. Daha fazla bilgi için [bölümleri](xref:mvc/views/layout#layout-sections-label).
 
+## <a name="templated-razor-delegates"></a>Şablonlu Razor temsilciler
+
+Razor şablonları aşağıdaki biçimde bir kullanıcı Arabirimi parçacığı tanımlamanıza izin ver:
+
+```cshtml
+@<tag>...</tag>
+```
+
+Aşağıdaki örnekte, şablonlu Razor temsilci olarak belirtmek verilmektedir bir <xref:System.Func`2>. [Dinamik tür](/dotnet/csharp/programming-guide/types/using-type-dynamic) temsilci kapsülleyen yönteminin parametresi için belirtilir. Bir [nesne türü](/dotnet/csharp/language-reference/keywords/object) temsilcinin dönüş değeri olarak belirtilir. Şablon ile kullanılan bir <xref:System.Collections.Generic.List`1> , `Pet` olan bir `Name` özelliği.
+
+```csharp
+public class Pet
+{
+    public string Name { get; set; }
+}
+```
+
+```cshtml
+@{
+    Func<dynamic, object> petTemplate = @<p>You have a pet named @item.Name.</p>;
+
+    var pets = new List<Pet>
+    {
+        new Pet { Name = "Rin Tin Tin" },
+        new Pet { Name = "Mr. Bigglesworth" },
+        new Pet { Name = "K-9" }
+    };
+}
+```
+
+Şablon ile işlenen `pets` tarafından sağlanan bir `foreach` deyimi:
+
+```cshtml
+@foreach (var pet in pets)
+{
+    @petTemplate2(pet)
+}
+```
+
+İşlenmiş çıkışı:
+
+```html
+<p>You have a pet named <strong>Rin Tin Tin</strong>.</p>
+<p>You have a pet named <strong>Mr. Bigglesworth</strong>.</p>
+<p>You have a pet named <strong>K-9</strong>.</p>
+```
+
+Bir yöntem bağımsız değişkeni olarak bir satır içi Razor şablonu da sağlayabilirsiniz. Aşağıdaki örnekte, `Repeat` yöntem Razor şablonu alır. Yöntemi, HTML içerik ile sağlanan bir listeden öğeleri yineler üretmek için şablonu kullanır:
+
+```cshtml
+@using Microsoft.AspNetCore.Html
+
+@functions {
+    public static IHtmlContent Repeat(IEnumerable<dynamic> items, int times, 
+        Func<dynamic, IHtmlContent> template)
+    {
+        var html = new HtmlContentBuilder();
+
+        foreach (var item in items)
+        {
+            for (var i = 0; i < times; i++)
+            {
+                html.AppendHtml(template(item));
+            }
+        }
+
+        return html;
+    }
+}
+```
+
+Önceki örnekte, Evcil Hayvanlar listesi kullanarak `Repeat` yöntemi çağrıldığında:
+
+* <xref:System.Collections.Generic.List`1> ' ın `Pet`.
+* Her evcil hayvan yineleme sayısı.
+* Satır içi şablon sırasız bir listesini liste öğeleri için kullanın.
+
+```cshtml
+<ul>
+    @Repeat(pets, 3, @<li>@item.Name</li>)
+</ul>
+```
+
+İşlenmiş çıkışı:
+
+```html
+<ul>
+    <li>Rin Tin Tin</li>
+    <li>Rin Tin Tin</li>
+    <li>Rin Tin Tin</li>
+    <li>Mr. Bigglesworth</li>
+    <li>Mr. Bigglesworth</li>
+    <li>Mr. Bigglesworth</li>
+    <li>K-9</li>
+    <li>K-9</li>
+    <li>K-9</li>
+</ul>
+```
+
 ## <a name="tag-helpers"></a>Etiket Yardımcıları
 
 İlgili üç yönergeleri vardır [etiket Yardımcıları](xref:mvc/views/tag-helpers/intro).
@@ -541,8 +640,8 @@ Aşağıdaki kodu oluşturulmuş Razor olan C# sınıfı:
 ### <a name="razor-keywords"></a>Razor anahtar sözcükleri
 
 * Sayfa (ASP.NET Core 2.0 ve sonraki sürümleri gerektirir)
-* ad alanı
-* işlevleri
+*  ad alanı
+*  işlevleri
 * Devralan
 * model
 * section
@@ -560,7 +659,7 @@ Razor anahtar sözcükleri kaçış ile `@(Razor Keyword)` (örneğin, `@(functi
 * if
 * else
 * lock
-* anahtarı
+*  anahtarı
 * deneyin
 * Yakalama
 * finally

@@ -85,7 +85,7 @@
 ##### [Sayfaları güncelleştirme](xref:tutorials/razor-pages-mac/da1)
 ##### [Arama ekleme](xref:tutorials/razor-pages-mac/search)
 ### [Filtreler](xref:razor-pages/filter)
-### [Sınıf kitaplıkları](xref:razor-pages/ui-class)
+### [Razor Sınıf Kitaplıkları](xref:razor-pages/ui-class)
 ### [Yol ve uygulama kuralları](xref:razor-pages/razor-pages-conventions)
 ### [Dosyaları karşıya yükleme](xref:razor-pages/upload-files)
 ### [Razor SDK](xref:razor-pages/sdk)
