@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/15/2018
 uid: fundamentals/routing
-ms.openlocfilehash: bfada2777551253d8bb5b3d6bf89d1b05b26c574
-ms.sourcegitcommit: 04b55a5ce9d649ff2df926157ec28ae47afe79e2
+ms.openlocfilehash: f18ec1da2affbf67b7ada570b68f98a42c7256a5
+ms.sourcegitcommit: ad28d1bc6657a743d5c2fa8902f82740689733bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/20/2018
-ms.locfileid: "52156977"
+ms.locfileid: "52256599"
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET Core yönlendirme
 
@@ -232,7 +232,7 @@ Uç noktası yönlendirme içinde ASP.NET Core 2.2 veya sonraki bir sürümü il
 
   İle `IRouter`-yönlendirme bağlı olarak, bu kod bir URI'sini oluşturur `/blog/ReadPost/17`, belirtilen rota değerin büyük küçük harfleri dikkate alır. ASP.NET Core 2.2 veya sonraki bir sürümde uç noktası yönlendirme üretir `/Blog/ReadPost/17` ("Blog" büyük harfle). Uç noktası yönlendirme sağlar `IOutboundParameterTransformer` bu davranışı genel özelleştirme veya URL'leri eşleme için farklı kuralları uygulamak için kullanılan arabirim.
 
-  Daha fazla bilgi için [parametre transformer başvurusu](xref:#parameter-transformer-reference) bölümü.
+  Daha fazla bilgi için [parametre transformer başvurusu](#parameter-transformer-reference) bölümü.
 
 * Geleneksel rotalarla MVC/Razor sayfaları tarafından kullanılan bağlantı oluşturma, bir denetleyici/eylem veya yok sayfasına bağlantı çalışırken farklı davranır.
 

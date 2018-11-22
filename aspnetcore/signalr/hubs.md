@@ -5,14 +5,14 @@ description: İçinde ASP.NET Core SignalR hub'ı kullanmayı öğrenin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 11/07/2018
+ms.date: 11/20/2018
 uid: signalr/hubs
-ms.openlocfilehash: 0413d354307208726f4252f431ac59526effed08
-ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.openlocfilehash: 91f92e9d6b776457cd319965d548ee401ddc5e0e
+ms.sourcegitcommit: 4225e2c49a0081e6ac15acff673587201f54b4aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569925"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282152"
 ---
 # <a name="use-hubs-in-signalr-for-aspnet-core"></a>ASP.NET Core signalr'da hubs'ı kullanma
 
@@ -85,7 +85,6 @@ Dönüş türü ve parametreleri, tüm C# yönteminde olduğu gibi karmaşık t�
 | `Caller` | Bir hub yöntemini çağırmış istemciye bir metod çağırır |
 | `Others` | Yöntemini çağırmış istemciye dışındaki bağlanan tüm istemciler üzerinde bir yöntemi çağırır. |
 
-
 `Hub.Clients` Ayrıca aşağıdaki yöntemleri içerir:
 
 | Yöntem | Açıklama |
@@ -126,7 +125,17 @@ Bu arabirim, önceki yeniden kullanılabilir `ChatHub` örnek.
 
 Kullanarak `Hub<IChatClient>` derleme zamanı istemci yöntemleri denetimini etkinleştirir. Bu Sihirli dize beri kullanımından kaynaklanan sorunları önler `Hub<T>` yalnızca arabirim içinde tanımlanmış yöntemleri erişim sağlayabilir.
 
-Türü kesin belirlenmiş kullanarak `Hub<T>` kullanma yeteneği devre dışı bırakır `SendAsync`.
+Türü kesin belirlenmiş kullanarak `Hub<T>` kullanma yeteneği devre dışı bırakır `SendAsync`. Arabirimde tanımlanan herhangi bir yöntemin zaman uyumsuz olarak yine de tanımlanabilir. Aslında, bu yöntemlerin her biri döndürmelidir bir `Task`. Bir arabirim olduğundan, kullanmayın `async` anahtar sözcüğü. Örneğin:
+
+```csharp
+public interface IClient
+{
+    Task ClientMethod();
+}
+```
+
+> [!NOTE]
+> `Async` Soneki olmayan bir yöntem adı kesilmiş. İstemci yönteminizi tanımlı olmadığı sürece `.on('MyMethodAsync')`, kullanmamalısınız `MyMethodAsync` adı.
 
 ## <a name="change-the-name-of-a-hub-method"></a>Hub yönteminin adını değiştirin
 
@@ -150,7 +159,7 @@ Geçersiz kılma `OnDisconnectedAsync` istemci kestiğinde eylemleri gerçekleş
 
 [!code-javascript[Error](hubs/sample/wwwroot/js/chat.js?range=23)]
 
-Hub'ınıza bir özel durum oluşturursa varsayılan olarak, SignalR istemci için genel bir hata iletisi döndürür. Örneğin:
+Hub'ınıza bir özel durum oluşturursa, kapatılan bağlantılar değildir. Varsayılan olarak, SignalR istemci için genel bir hata iletisi döndürür. Örneğin:
 
 ```
 Microsoft.AspNetCore.SignalR.HubException: An unexpected error occurred invoking 'MethodName' on the server.

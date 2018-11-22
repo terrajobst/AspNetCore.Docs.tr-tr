@@ -4,14 +4,14 @@ author: scottaddie
 description: Bir ASP.NET Core web uygulaması, statik kaynakları paketleme ve küçültme tekniklerini uygulayarak en iyi duruma getirmeyi öğrenin.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 10/04/2018
+ms.date: 11/20/2018
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: 152f3c810b587d734c1b1076a09ea38d13872e2d
-ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
+ms.openlocfilehash: 5d5f0aadb7740c9b2b959d12a585cd8c91758ce8
+ms.sourcegitcommit: 4225e2c49a0081e6ac15acff673587201f54b4aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48795411"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282153"
 ---
 # <a name="bundle-and-minify-static-assets-in-aspnet-core"></a>Paketleme ve küçültme ASP.NET Core statik varlıkları
 
@@ -67,9 +67,21 @@ MVC ve Razor sayfaları proje şablonları, paketleme ve küçültme içeren bir
 
 ## <a name="configure-bundling-and-minification"></a>Paketleme ve küçültme yapılandırın
 
-MVC ve Razor sayfaları proje şablonları sağlar bir *bundleconfig.json* her paket için seçenekleri tanımlayan bir yapılandırma dosyası. Varsayılan olarak, bir tek bir paket yapılandırmasını özel JavaScript için tanımlanır (*wwwroot/js/site.js*) ve stil sayfası (*wwwroot/css/site.css*) dosyaları:
+::: moniker range="<= aspnetcore-2.0"
+
+ASP.NET Core 2.0 veya daha önceki sürümlerde, MVC ve Razor sayfaları proje şablonları sağlar. bir *bundleconfig.json* her paket için seçenekleri tanımlayan yapılandırma dosyası:
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
+
+ASP.NET Core 2.1 veya daha sonra adlı yeni bir JSON dosyası ekleme *bundleconfig.json*, MVC veya Razor sayfaları proje kök dizini. Aşağıdaki JSON dosya başlangıç noktası olarak şunları içerir:
+
+::: moniker-end
 
 [!code-json[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/bundleconfig.json)]
+
+*Bundleconfig.json* dosyası, her paket için seçenekleri tanımlar. Önceki örnekte, bir tek bir paket yapılandırmasını özel JavaScript için tanımlanır (*wwwroot/js/site.js*) ve stil sayfası (*wwwroot/css/site.css*) dosyaları.
 
 Yapılandırma seçenekleri şunlardır:
 
@@ -216,27 +228,31 @@ Kullanarak sayfalarınıza eklemek için hangi dosyaların belirtin [ortam etike
 
 Aşağıdaki `environment` etiketi çalıştırıldığında işlenmemiş CSS dosyaları işler `Development` ortam:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.0"
 
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=21-24)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
+
+::: moniker range="<= aspnetcore-1.1"
 
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=9-12)]
 
----
+::: moniker-end
 
 Aşağıdaki `environment` etiketi ile birlikte gelen ve küçültülmüş CSS dosyaları dışındaki bir ortamda çalışan işler `Development`. Örneğin, çalışan `Production` veya `Staging` bu stil sayfaları işlenmesi tetikleyen:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.0"
 
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=5&range=25-30)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
+
+::: moniker range="<= aspnetcore-1.1"
 
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=13-18)]
 
----
+::: moniker-end
 
 ## <a name="consume-bundleconfigjson-from-gulp"></a>Gulp gelen bundleconfig.JSON kullanma
 
