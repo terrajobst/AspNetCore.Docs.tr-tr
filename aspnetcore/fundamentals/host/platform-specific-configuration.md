@@ -5,18 +5,18 @@ description: Uygulama Ihostingstartup kullanarak dış bütünleştirilmiş kodd
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/13/2018
+ms.date: 11/22/2018
 uid: fundamentals/configuration/platform-specific-configuration
-ms.openlocfilehash: a06c2da04c1631f5811a535c891ca5190b0d8864
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: ef3b48dc72f294a783d789c4c9a796e3498a91d9
+ms.sourcegitcommit: 710fc5fcac258cc8415976dc66bdb355b3e061d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207569"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52299462"
 ---
 # <a name="enhance-an-app-from-an-external-assembly-in-aspnet-core-with-ihostingstartup"></a>ASP.NET core'da Ihostingstartup ile dış bütünleştirilmiş koddan uygulama geliştirin
 
-Tarafından [Luke Latham](https://github.com/guardrex)
+Tarafından [Luke Latham](https://github.com/guardrex) ve [Pavel Krymets](https://github.com/pakrym)
 
 Bir [Ihostingstartup](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup) (Başlangıç barındıran) uygulama geliştirmeleri dış bütünleştirilmiş koddan bir uygulamanın başlangıçta ekler. Örneğin, bir harici kitaplık ek yapılandırma sağlayıcıları ya da bir uygulama hizmetlerini barındıran bir başlangıç uygulaması kullanabilirsiniz. `IHostingStartup` *ASP.NET Core 2.0 veya sonraki sürümlerinde kullanılabilir.*
 
@@ -113,14 +113,21 @@ Uygulama dizin sayfasına okur ve paketin barındırma başlangıç derlemesi ta
 
 *Bu yaklaşım, yalnızca .NET Framework .NET Core uygulamaları için kullanılabilir.*
 
-Bir konsol uygulaması giriş noktası olmayan bir derleme zamanı başvurusu için etkinleştirme gerektirmeyen bir dinamik barındırma başlangıç geliştirmesi sağlanabilir. Uygulamayı içeren bir `HostingStartup` özniteliği. Dinamik barındırma başlangıç oluşturmak için:
+Bir derleme zamanı başvurusu için etkinleştirme gerektirmeyen bir dinamik barındırma başlangıç geliştirmesi de içeren giriş noktası olmayan bir konsol uygulaması sağlanan bir `HostingStartup` özniteliği. Konsol uygulaması yayımlama, çalışma zamanı Mağazası'ndan kullanılabilen bir barındırma başlangıç bütünleştirilmiş kod üretir.
 
-1. Bir uygulama kitaplığı içeren sınıfından oluşturulur `IHostingStartup` uygulaması. Uygulama kitaplığı, normal bir paket olarak kabul edilir.
-1. Bir konsol uygulaması giriş noktası olmayan uygulama kitaplığı paketi başvuruyor. Bir konsol uygulaması için kullanılır:
-   * Bağımlılıkları dosyasının bir çalıştırılabilir uygulama varlık olduğundan kitaplık bağımlılıkları dosyasının furnish olamaz.
-   * Bir kitaplık doğrudan eklenemez [çalışma zamanı Paket Deposu](/dotnet/core/deploying/runtime-store), paylaşılan çalışma zamanını hedefleyen çalıştırılabilir bir proje gerektirir.
-1. Konsol uygulaması barındırma startup şirketinizin bağımlılıkları almak için yayımlanır. Kullanılmayan bağımlılıkları bağımlılıkları dosyasından atılır konsol uygulaması yayımlama bir sonuç olur.
-1. Uygulama ve onun bağımlılıklarını dosyası çalışma zamanı paketi deposuna yerleştirilir. Barındırma başlangıç derleme ve bağımlılıkları dosyasını bulmak için bunlar ortam değişkenlerinin bir çift başvurulan.
+Bir konsol uygulaması giriş noktası olmayan, çünkü bu işlemde kullanılır:
+
+* Bağımlılıkları dosya barındırma başlangıç derlemedeki barındırma için başlangıç kullanmak için gereklidir. Kitaplık değil bir uygulama yayımlama tarafından üretilen bir çalıştırılabilir uygulama varlık bağımlılıkları dosyasıdır.
+* Bir kitaplık doğrudan eklenemez [çalışma zamanı Paket Deposu](/dotnet/core/deploying/runtime-store), paylaşılan çalışma zamanını hedefleyen çalıştırılabilir bir proje gerektirir.
+
+Dinamik barındırma başlangıç oluşturulmasını içinde:
+
+* Bir giriş noktası olmadan bir barındırma başlangıç derleme konsol uygulamasından oluşturulur:
+  * İçeren bir sınıfı içeren `IHostingStartup` uygulaması.
+  * İçeren bir [HostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.hostingstartupattribute) tanımlamak için öznitelik `IHostingStartup` uygulama sınıfı.
+* Konsol uygulaması barındırma startup şirketinizin bağımlılıkları almak için yayımlanır. Kullanılmayan bağımlılıkları bağımlılıkları dosyasından atılır konsol uygulaması yayımlama bir sonuç olur.
+* Bağımlılıkları dosyası, çalışma zamanı barındırma başlangıç derleme konumunu ayarlamak için değiştirilir.
+* Barındırma başlangıç derleme ve bağımlılıkları dosyası çalışma zamanı paketi deposuna yerleştirilir. Barındırma başlangıç derleme ve bağımlılıkları dosyasını bulmak için bir ortam değişkenlerini çift içinde listelendikleri.
 
 Konsol uygulama başvuruları [Microsoft.AspNetCore.Hosting.Abstractions](https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.Abstractions/) paket:
 
@@ -167,187 +174,98 @@ Başlangıç etkinleştirme barındırmak için Seçenekler şunlardır:
 
 Barındırma başlangıç uygulaması yerleştirilir [çalışma zamanı deposu](/dotnet/core/deploying/runtime-store). Gelişmiş uygulama tarafından bir derleme zamanı başvurusu derleme için gerekli değildir.
 
-Barındırma başlangıç oluşturulduktan sonra bildirim dosyasını barındırma startup şirketinizin proje dosyası gören [dotnet deposu](/dotnet/core/tools/dotnet-store) komutu.
+Barındırma başlangıç oluşturulduktan sonra bir çalışma zamanı deposu bildirim proje dosyası kullanılarak oluşturulur ve [dotnet deposu](/dotnet/core/tools/dotnet-store) komutu.
 
 ```console
-dotnet store --manifest <PROJECT_FILE> --runtime <RUNTIME_IDENTIFIER>
+dotnet store --manifest {MANIFEST FILE} --runtime {RUNTIME IDENTIFIER} --output {OUTPUT LOCATION} --skip-optimization
 ```
 
-Bu komut, barındırma başlangıç derleme ve kullanıcı profilinin çalışma zamanı mağazada paylaşılan Framework'teki parçası olmayan diğer bağımlılıkları yerleştirir:
+Örnek uygulamada (*RuntimeStore* Proje) şu komut kullanılır:
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
-
-```
-%USERPROFILE%\.dotnet\store\x64\<TARGET_FRAMEWORK_MONIKER>\<ENHANCEMENT_ASSEMBLY_NAME>\<ENHANCEMENT_VERSION>\lib\<TARGET_FRAMEWORK_MONIKER>\
+``` console
+dotnet store --manifest store.manifest.csproj --runtime win7-x64 --output ./deployment/store --skip-optimization
 ```
 
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
-
-```
-/Users/<USER>/.dotnet/store/x64/<TARGET_FRAMEWORK_MONIKER>/<ENHANCEMENT_ASSEMBLY_NAME>/<ENHANCEMENT_VERSION>/lib/<TARGET_FRAMEWORK_MONIKER>/
-```
-
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
-
-```
-/Users/<USER>/.dotnet/store/x64/<TARGET_FRAMEWORK_MONIKER>/<ENHANCEMENT_ASSEMBLY_NAME>/<ENHANCEMENT_VERSION>/lib/<TARGET_FRAMEWORK_MONIKER>/
-```
-
----
-
-Derleme ve bağımlılıkları genel kullanım için yerleştirmek isterse ekleme `-o|--output` seçeneğini `dotnet store` komutunu şu yola sahip:
-
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
-
-```
-%PROGRAMFILES%\dotnet\store\x64\<TARGET_FRAMEWORK_MONIKER>\<ENHANCEMENT_ASSEMBLY_NAME>\<ENHANCEMENT_VERSION>\lib\<TARGET_FRAMEWORK_MONIKER>\
-```
-
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
-
-```
-/usr/local/share/dotnet/store/x64/<TARGET_FRAMEWORK_MONIKER>/<ENHANCEMENT_ASSEMBLY_NAME>/<ENHANCEMENT_VERSION>/lib/<TARGET_FRAMEWORK_MONIKER>/
-```
-
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
-
-```
-/usr/local/share/dotnet/store/x64/<TARGET_FRAMEWORK_MONIKER>/<ENHANCEMENT_ASSEMBLY_NAME>/<ENHANCEMENT_VERSION>/lib/<TARGET_FRAMEWORK_MONIKER>/
-```
-
----
+Çalışma zamanı deposu bulmak çalışma zamanı için çalışma zamanı deponun konumunu eklenen `DOTNET_SHARED_STORE` ortam değişkeni.
 
 **Değiştirme ve barındırma startup şirketinizin bağımlılıkları dosyasının yerleştirin**
 
-Çalışma zamanı konumun belirtildiğinden  *\*. deps.json* dosya. Geliştirmesini etkinleştirmek için `runtime` öğesi geliştirme'nın çalışma zamanı derleme konumunu belirtin. Önek `runtime` konumuyla `lib/<TARGET_FRAMEWORK_MONIKER>/`:
+Geliştirme için bir paket başvurusu olmadan geliştirme etkinleştirmek için çalışma zamanı ile ek bağımlılıklar belirtin `additionalDeps`. `additionalDeps` sağlar:
 
-[!code-json[](platform-specific-configuration/samples-snapshot/2.x/StartupEnhancement2.deps.json?range=2-13&highlight=8)]
+* Bir dizi ek sağlayarak uygulamanın kitaplığı grafı genişletmek  *\*. deps.json* uygulamanın ile kendi birleştirilecek dosyaları  *\*. deps.json* başlangıç dosyası.
+* Barındırma başlangıç derlemesine bulunabilir ve yüklenebilir olun.
 
-Örnek kodda (*StartupDiagnostics* Proje), değiştirilmesini  *\*. deps.json* dosya tarafından gerçekleştirilir bir [PowerShell](/powershell/scripting/powershell-scripting) betiği. PowerShell Betiği, bir yapı hedefi proje dosyasında tarafından otomatik olarak başlatılır.
+Ek Bağımlılıklar dosyası oluşturmak için önerilen yaklaşımdır:
 
-Uygulama kullanıcının  *\*. deps.json* dosya erişilebilir bir konumda olması gerekir.
+ 1. Yürütme `dotnet publish` önceki bölümde başvurulan çalışma zamanı deposu bildirim dosyası üzerinde.
+ 1. Kitaplıklarından bildirim referansını kaldırın ve `runtime` ortaya çıkan bölüm  *\*deps.json* dosya.
 
-Kullanıcı başına kullanım için dosyaya koyun *additonalDeps* kullanıcı profilinin klasöründe `.dotnet` ayarları:
+Örnek projesinde `store.manifest/1.0.0` özelliği kaldırılır `targets` ve `libraries` bölümü:
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
-
-```
-%USERPROFILE%\.dotnet\x64\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\<SHARED_FRAMEWORK_VERSION>\
-```
-
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
-
-```
-/Users/<USER>/.dotnet/x64/additionalDeps/<ENHANCEMENT_ASSEMBLY_NAME>/shared/Microsoft.NETCore.App/<SHARED_FRAMEWORK_VERSION>/
-```
-
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
-
-```
-/Users/<USER>/.dotnet/x64/additionalDeps/<ENHANCEMENT_ASSEMBLY_NAME>/shared/Microsoft.NETCore.App/<SHARED_FRAMEWORK_VERSION>/
-```
-
----
-
-Genel kullanım için dosyayı yerleştirmek *additonalDeps* .NET Core yükleme klasörü:
-
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
-
-```
-%PROGRAMFILES%\dotnet\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\<SHARED_FRAMEWORK_VERSION>\
-```
-
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
-
-```
-/usr/local/share/dotnet/additionalDeps/<ENHANCEMENT_ASSEMBLY_NAME>/shared/Microsoft.NETCore.App/<SHARED_FRAMEWORK_VERSION>/
-```
-
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
-
-```
-/usr/local/share/dotnet/additionalDeps/<ENHANCEMENT_ASSEMBLY_NAME>/shared/Microsoft.NETCore.App/<SHARED_FRAMEWORK_VERSION>/
-```
-
----
-
-Paylaşılan framework sürümünü hedef uygulamanın kullandığı paylaşılan çalışma zamanı sürümü yansıtır. Paylaşılan çalışma zamanı gösterilen  *\*. runtimeconfig.json* dosya. Örnek uygulamada (*HostingStartupApp*), paylaşılan çalışma zamanı içinde belirtilen *HostingStartupApp.runtimeconfig.json* dosya.
-
-**Barındırma startup şirketinizin bağımlılık dosya listesi**
-
-Uygulama kullanıcının konumunu  *\*. deps.json* dosya listelendiğinden `DOTNET_ADDITIONAL_DEPS` ortam değişkeni.
-
-Dosya bir kullanıcı profilin yerleştirilir *.dotnet* klasörü ortam değişken değerini ayarlayın:
-
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
-
-```
-%USERPROFILE%\.dotnet\x64\additionalDeps\
+```json
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v2.1",
+    "signature": "4ea77c7b75ad1895ae1ea65e6ba2399010514f99"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v2.1": {
+      "store.manifest/1.0.0": {
+        "dependencies": {
+          "StartupDiagnostics": "1.0.0"
+        },
+        "runtime": {
+          "store.manifest.dll": {}
+        }
+      },
+      "StartupDiagnostics/1.0.0": {
+        "runtime": {
+          "lib/netcoreapp2.1/StartupDiagnostics.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "store.manifest/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "StartupDiagnostics/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-oiQr60vBQW7+nBTmgKLSldj06WNLRTdhOZpAdEbCuapoZ+M2DJH2uQbRLvFT8EGAAv4TAKzNtcztpx5YOgBXQQ==",
+      "path": "startupdiagnostics/1.0.0",
+      "hashPath": "startupdiagnostics.1.0.0.nupkg.sha512"
+    }
+  }
+}
 ```
 
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
+Bir yerde  *\*. deps.json* dosyasına şu konumda:
 
 ```
-/Users/<USER>/.dotnet/x64/additionalDeps/
+{ADDITIONAL DEPENDENCIES PATH}/shared/{SHARED FRAMEWORK NAME}/{SHARED FRAMEWORK VERSION}/{ENHANCEMENT ASSEMBLY NAME}.deps.json
 ```
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+* `{ADDITIONAL DEPENDENCIES PATH}` &ndash; Eklenen konumu `DOTNET_ADDITIONAL_DEPS` ortam değişkeni.
+* `{SHARED FRAMEWORK NAME}` &ndash; Bu ek bağımlılıklar dosyası için gerekli framework paylaşılan.
+* `{SHARED FRAMEWORK VERSION}` &ndash; Minimum paylaşılan framework sürümü.
+* `{ENHANCEMENT ASSEMBLY NAME}` &ndash; Geliştirme'nın bütünleştirilmiş kod adı.
+
+Örnek uygulamada (*RuntimeStore* Proje), ek bağımlılıklar dosyası şu konuma yerleştirilir:
 
 ```
-/Users/<USER>/.dotnet/x64/additionalDeps/
+additionalDeps/shared/Microsoft.AspNetCore.App/2.1.0/StartupDiagnostics.deps.json
 ```
 
----
+Ek Bağımlılıklar dosya konumunu eklenir çalışma zamanı depolama konumu bulmak çalışma zamanı için `DOTNET_ADDITIONAL_DEPS` ortam değişkeni.
 
-.NET Core yüklemesinde genel kullanım dosya yerleştirilirse, dosyanın tam yolunu sağlayın:
-
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
-
-```
-%PROGRAMFILES%\dotnet\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\<SHARED_FRAMEWORK_VERSION>\<ENHANCEMENT_ASSEMBLY_NAME>.deps.json
-```
-
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
-
-```
-/usr/local/share/dotnet/additionalDeps/<ENHANCEMENT_ASSEMBLY_NAME>/shared/Microsoft.NETCore.App/<SHARED_FRAMEWORK_VERSION>/<ENHANCEMENT_ASSEMBLY_NAME>.deps.json
-```
-
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
-
-```
-/usr/local/share/dotnet/additionalDeps/<ENHANCEMENT_ASSEMBLY_NAME>/shared/Microsoft.NETCore.App/<SHARED_FRAMEWORK_VERSION>/<ENHANCEMENT_ASSEMBLY_NAME>.deps.json
-```
-
----
-
-Örnek uygulama için (*HostingStartupApp*) bağımlılıkları dosyayı bulmak için (*HostingStartupApp.runtimeconfig.json*), kullanıcının profilinde bağımlılıkları dosyasının yerleştirilir.
-
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
-
-Ayarlama `DOTNET_ADDITIONAL_DEPS` ortam değişkeni şu değere:
-
-```
-%UserProfile%\.dotnet\x64\additionalDeps\StartupDiagnostics\
-```
-
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
-
-Ayarlama `DOTNET_ADDITIONAL_DEPS` ortam değişkeni şu değere:
-
-```
-/Users/<USER>/.dotnet/x64/additionalDeps/StartupDiagnostics/
-```
-
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
-
-Ayarlama `DOTNET_ADDITIONAL_DEPS` ortam değişkeni şu değere:
-
-```
-/Users/<USER>/.dotnet/x64/additionalDeps/StartupDiagnostics/
-```
-
----
+Örnek uygulamada (*RuntimeStore* Proje), çalışma zamanı deposu oluşturma ve dosya kullanarak gerçekleştirilir ek bağımlılıklar oluşturma bir [PowerShell](/powershell/scripting/powershell-scripting) betiği.
 
 Çeşitli işletim sistemleri için ortam değişkenlerini ayarlama örnekleri için bkz: [birden fazla ortam kullanayım](xref:fundamentals/environments).
 
@@ -355,9 +273,9 @@ Ayarlama `DOTNET_ADDITIONAL_DEPS` ortam değişkeni şu değere:
 
 Bir barındırma başlatma multimachine ortamında dağıtımını kolaylaştırmak için örnek uygulamayı oluşturur. bir *dağıtım* içeren yayımlanan çıkış klasöründe:
 
-* Barındırma başlangıç derleme.
+* Barındırma başlangıç çalışma zamanı deposu.
 * Barındırma başlangıç bağımlılıkları dosyası.
-* Bir PowerShell Betiği oluşturur veya değiştirir `ASPNETCORE_HOSTINGSTARTUPASSEMBLIES` ve `DOTNET_ADDITIONAL_DEPS` barındırma başlangıç etkinleştirmeyi desteklemek için. Komut dosyası dağıtım sistemde bir yönetici PowerShell komut isteminden çalıştırın.
+* Bir PowerShell Betiği oluşturur veya değiştirir `ASPNETCORE_HOSTINGSTARTUPASSEMBLIES`, `DOTNET_SHARED_STORE`, ve `DOTNET_ADDITIONAL_DEPS` barındırma başlangıç etkinleştirmeyi desteklemek için. Komut dosyası dağıtım sistemde bir yönetici PowerShell komut isteminden çalıştırın.
 
 ### <a name="nuget-package"></a>NuGet paketi
 

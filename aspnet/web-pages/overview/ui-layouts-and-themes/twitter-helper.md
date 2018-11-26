@@ -4,20 +4,23 @@ title: Twitter ile ASP.NET Web sayfaları Yardımcısı | Microsoft Docs
 author: Rick-Anderson
 description: Bu konu başlığında ve uygulama bir Twitter Yardımcısı, WebMatrix 3'ü projenize ekleme işlemini göstermektedir. Twitter Yardımcısı kodunu içerir ve yardımcı çağırma gösterilmektedir...
 ms.author: riande
-ms.date: 02/07/2014
+ms.date: 11/26/2018
 ms.assetid: c1a1244e-b9c8-42e6-a00b-8456a4ec027c
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/twitter-helper
 msc.type: authoredcontent
-ms.openlocfilehash: 89c8c520cd32ca2ee24e6cd90e11f7bdf39c7a80
-ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
+ms.openlocfilehash: fabe9f2b84d278a766dc8d8b7bfc00e1eb967127
+ms.sourcegitcommit: 710fc5fcac258cc8415976dc66bdb355b3e061d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51020579"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52299436"
 ---
 <a name="twitter-helper-with-aspnet-web-pages"></a>ASP.NET Web Sayfaları ile Twitter Yardımcısı
 ====================
 tarafından [Tom FitzMacken](https://github.com/tfitzmac)
+
+> [!IMPORTANT]
+> Twitter Yardımcıları kullanım dışıdır. Twitter'ın en son engagement araçları için Web siteleri için bkz: [Twitter için Web siteleri genel bakış](https://developer.twitter.com/en/docs/twitter-for-websites/overview).
 
 > Bu konu başlığında ve uygulama bir Twitter Yardımcısı, WebMatrix 3'ü projenize ekleme işlemini göstermektedir. Twitter Yardımcısı kodunu içerir ve yardımcı yöntemleri çağırma gösterilmektedir.
 > 

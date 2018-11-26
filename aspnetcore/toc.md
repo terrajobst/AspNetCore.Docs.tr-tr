@@ -283,7 +283,7 @@
 ## Azure App Service’te barındırma
 ### [Genel bakış](xref:host-and-deploy/azure-apps/index)
 ### [Visual Studio ile yayımlama](xref:tutorials/publish-to-azure-webapp-using-vs)
-### [CLI araçları ile yayımlama](/azure/app-service/app-service-web-get-started-dotnet)
+### [CLI araçları ile yayımlama](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb)
 ### [Visual Studio ve Git ile yayımlama](xref:host-and-deploy/azure-apps/azure-continuous-deployment)
 ### [Azure Pipelines ile sürekli dağıtım](/azure/devops/pipelines/get-started-yaml)
 ### [Başlatma sorunlarını giderme](xref:host-and-deploy/azure-apps/troubleshoot)
@@ -313,7 +313,6 @@
 ## [Visual Studio yayımlama profilleri](xref:host-and-deploy/visual-studio-publish-profiles)
 ## [Dizin yapısı](xref:host-and-deploy/directory-structure)
 ## [Azure App Service ve IIS için hata başvurusu](xref:host-and-deploy/azure-iis-errors-reference)
-
 
 # Güvenlik ve Kimlik
 ## [Genel bakış](xref:security/index)

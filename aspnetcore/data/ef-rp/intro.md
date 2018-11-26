@@ -3,14 +3,14 @@ title: ASP.NET Core - Öğreticisi 1. 8'de Entity Framework Core ile Razor sayfa
 author: rick-anderson
 description: Entity Framework Core kullanan bir Razor sayfaları uygulamasının nasıl oluşturulacağını gösterir
 ms.author: riande
-ms.date: 6/31/2017
+ms.date: 11/22/2018
 uid: data/ef-rp/intro
-ms.openlocfilehash: a234d5fefd671d4503f6c63b79074d47c893f69c
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: afba4395fe9dbe22516b6c4ebdc4c582381981fd
+ms.sourcegitcommit: 710fc5fcac258cc8415976dc66bdb355b3e061d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207712"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52299475"
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>ASP.NET Core - Öğreticisi 1. 8'de Entity Framework Core ile Razor sayfaları
 
@@ -113,7 +113,7 @@ Oluşturma bir *modelleri* klasör. İçinde *modelleri* klasöründe adlı bir 
 
 `ID` Özelliği bu sınıfa karşılık gelen veritabanı (DB) tablosunun birincil anahtar sütunu duruma gelir. Varsayılan olarak EF Core adlı bir özellik yorumlar `ID` veya `classnameID` birincil anahtar olarak. İçinde `classnameID`, `classname` sınıf adıdır. Alternatif birincil anahtarı otomatik olarak kabul edilen `StudentID` önceki örnekte.
 
-`Enrollments` Özelliği bir [gezinti özelliği](/ef/core/modeling/relationship). Gezinti özellikleri bu varlıkla ilgili diğer varlıkları bağlayın. Bu durumda, `Enrollments` özelliği bir `Student entity` tüm tutan `Enrollment` olarak ilişkili varlıkları `Student`. Örneğin, bir öğrenci satır DB'de iki kayıt satırları ilgili olan `Enrollments` gezinti özelliği içerir, bu iki `Enrollment` varlıklar. İlgili `Enrollment` satırdır bu öğrencinin birincil anahtar değerini içeren bir satır `StudentID` sütun. Örneğin, Öğrenci kimlikli varsayalım = 1 olan iki satır `Enrollment` tablo. `Enrollment` Tablosunda var olan iki satır `StudentID` = 1. `StudentID` içinde bir yabancı anahtar `Enrollment` içinde Öğrenci belirten tablo `Student` tablo.
+`Enrollments` Özelliği bir [gezinti özelliği](/ef/core/modeling/relationships). Gezinti özellikleri bu varlıkla ilgili diğer varlıkları bağlayın. Bu durumda, `Enrollments` özelliği bir `Student entity` tüm tutan `Enrollment` olarak ilişkili varlıkları `Student`. Örneğin, bir öğrenci satır DB'de iki kayıt satırları ilgili olan `Enrollments` gezinti özelliği içerir, bu iki `Enrollment` varlıklar. İlgili `Enrollment` satırdır bu öğrencinin birincil anahtar değerini içeren bir satır `StudentID` sütun. Örneğin, Öğrenci kimlikli varsayalım = 1 olan iki satır `Enrollment` tablo. `Enrollment` Tablosunda var olan iki satır `StudentID` = 1. `StudentID` içinde bir yabancı anahtar `Enrollment` içinde Öğrenci belirten tablo `Student` tablo.
 
 Bir gezinme özelliği birden çok varlık tutarsanız gezinme özelliğini bir liste türü gibi olmalıdır `ICollection<T>`. `ICollection<T>` belirtilebilir, ya da bir tür gibi `List<T>` veya `HashSet<T>`. Zaman `ICollection<T>` olduğu EF Core kullanıldığında, oluşturur bir `HashSet<T>` varsayılan olarak koleksiyon. Birden çok varlık tutun Gezinti özellikleri çoktan çoğa ve bire çok ilişkileri gelir.
 

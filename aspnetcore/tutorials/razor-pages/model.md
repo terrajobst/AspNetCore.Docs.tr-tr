@@ -5,12 +5,12 @@ description: Entity Framework Core (EF Core) kullanarak bir veritabanında filml
 ms.author: riande
 ms.date: 05/30/2018
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 41a88e06afbe6e7accd03ff7b39aa69e15e0c0b4
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: c4b23f75da298e4ee804f649219c2ce466b6d6ea
+ms.sourcegitcommit: 710fc5fcac258cc8415976dc66bdb355b3e061d5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49325819"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52299449"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Bir ASP.NET Core Razor sayfaları uygulama için model ekleme
 
@@ -107,7 +107,7 @@ dotnet ef migrations add Initial
 dotnet ef database update
 ```
 
-Aşağıdaki uyarı iletisini yoksay, düzeltme, bir sonraki öğreticide:
+Bir sonraki öğreticide düzeltme aşağıdaki uyarı iletisini yoksay:
 
 ```console
 Microsoft.EntityFrameworkCore.Model.Validation[30000]
