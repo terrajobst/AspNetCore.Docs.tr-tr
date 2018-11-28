@@ -4,14 +4,14 @@ author: rick-anderson
 description: Barındırma ortamları hakkında bilgi edinmek ve ASP.NET Core uygulamaları dağıtın.
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/07/2017
+ms.date: 11/26/2018
 uid: host-and-deploy/index
-ms.openlocfilehash: 024275be3fc5db3f2ed2f7cea1582a1a5f12bda7
-ms.sourcegitcommit: 32f5ee0690604d451f61e9a5c28881c9fcf85738
+ms.openlocfilehash: f70b05df6bf710e2ab54a1eaafb71b4f9b306cbe
+ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47454765"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52450625"
 ---
 # <a name="host-and-deploy-aspnet-core"></a>Barındırma ve ASP.NET Core dağıtma
 
@@ -31,7 +31,7 @@ Genel olarak bir ASP.NET Core uygulaması için bir barındırma ortamı dağıt
 
 .NET Core uygulaması olarak yayımlanabilir *müstakil* veya *framework bağımlı* uygulama. Uygulama kendi içinde ise *.dll* .NET çalışma zamanı içeren dosyaları dahil edilecek *yayımlama* klasör. Uygulama framework bağlı ise, uygulamanın bir sürümü sunucuda yüklü .NET başvuru olduğundan, .NET çalışma zamanı dosyalarını dahil edilmez. Varsayılan dağıtım modeli framework bağlıdır. Daha fazla bilgi için [.NET Core uygulama dağıtımı](/dotnet/articles/core/deploying/index).
 
-Ek olarak *.exe* ve *.dll* dosyaları *yayımlama* ASP.NET Core uygulaması için klasör genellikle yapılandırma dosyalarını, statik varlıkları ve MVC görünümleri içerir. Daha fazla bilgi için [dizin yapısı](xref:host-and-deploy/directory-structure).
+Ek olarak *.exe* ve *.dll* dosyaları *yayımlama* ASP.NET Core uygulaması için klasör genellikle yapılandırma dosyalarını, statik varlıkları ve MVC görünümleri içerir. Daha fazla bilgi için bkz. <xref:host-and-deploy/directory-structure>.
 
 ## <a name="set-up-a-process-manager"></a>Bir işlem Yöneticisi'ni ayarlayın
 
@@ -46,31 +46,33 @@ ASP.NET Core uygulaması bir sunucu önyüklenir ve onu kilitlenmesi durumunda y
 
 ## <a name="set-up-a-reverse-proxy"></a>Bir ters Proxy'yi Ayarlama
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+::: moniker range=">= aspnetcore-2.0"
 
 Uygulama kullanıyorsa [Kestrel](xref:fundamentals/servers/kestrel) web sunucusu [Ngınx](xref:host-and-deploy/linux-nginx), [Apache](xref:host-and-deploy/linux-apache), veya [IIS](xref:host-and-deploy/iis/index) bir ters proxy sunucusu olarak kullanılabilir. Ters Ara sunucu, Internet'ten HTTP isteklerini alır ve bunları Kestrel için bazı ön işleme sonra iletir.
 
 Her iki yapılandırma&mdash;ile veya ters Ara sunucu olmadan&mdash;bir geçerli ve desteklenen barındırma ASP.NET Core 2.0 veya sonraki uygulamalar için bir yapılandırmadır. Daha fazla bilgi için [Kestrel ters Ara sunucu ile kullanmak ne zaman](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy).
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 Uygulama kullanıyorsa [Kestrel](xref:fundamentals/servers/kestrel) web sunucusu ve Internet'e, kullanım sunulur [Ngınx](xref:host-and-deploy/linux-nginx), [Apache](xref:host-and-deploy/linux-apache), veya [IIS](xref:host-and-deploy/iis/index) ters proxy sunucusu olarak. Ters Ara sunucu, Internet'ten HTTP isteklerini alır ve bunları Kestrel için bazı ön işleme sonra iletir. Ters proxy kullanarak ana nedeni, güvenlik sağlıyor. Daha fazla bilgi için [Kestrel ters Ara sunucu ile kullanmak ne zaman](xref:fundamentals/servers/kestrel?tabs=aspnetcore1x#when-to-use-kestrel-with-a-reverse-proxy).
 
----
+::: moniker-end
 
 ## <a name="proxy-server-and-load-balancer-scenarios"></a>Ara sunucu ve yük dengeleyici senaryoları
 
 Proxy sunucuları ve yük dengeleyici arkasında barındırılan uygulamalar için ek yapılandırma gerekebilir. Ek yapılandırma bir uygulama, şema (HTTP/HTTPS) ve uzak IP adresi için erişim isteği geldiği olmayabilir. Daha fazla bilgi için [proxy sunucuları ile çalışma ve yük Dengeleyiciler için ASP.NET Core yapılandırma](xref:host-and-deploy/proxy-load-balancer).
 
-## <a name="using-visual-studio-and-msbuild-to-automate-deployment"></a>Dağıtımı otomatik hale getirmek için Visual Studio ve MSBuild kullanma
+## <a name="use-visual-studio-and-msbuild-to-automate-deployments"></a>Dağıtımları otomatik hale getirmek için Visual Studio ve MSBuild kullanma
 
-Dağıtım genellikle çıktısı kopyalama yanı sıra ek görevler gerektirir [dotnet yayımlama](/dotnet/core/tools/dotnet-publish) sunucuya. Örneğin, ek dosyaları gereken veya dışında tutulan *yayımlama* klasör. Visual Studio web dağıtımı için MSBuild kullanır ve MSBuild, dağıtım sırasında birçok diğer görevleri yapmak için özelleştirilebilir. Daha fazla bilgi için [Visual Studio'da yayımlama profilleri](xref:host-and-deploy/visual-studio-publish-profiles) ve [kullanarak MSBuild ve Team Foundation derlemesi](http://msbuildbook.com/) rehberi.
+Dağıtım genellikle çıktısı kopyalama yanı sıra ek görevler gerektirir [dotnet yayımlama](/dotnet/core/tools/dotnet-publish) sunucuya. Örneğin, ek dosyaları gereken veya dışında tutulan *yayımlama* klasör. Visual Studio web dağıtımı için MSBuild kullanır ve MSBuild, dağıtım sırasında birçok diğer görevleri yapmak için özelleştirilebilir. Daha fazla bilgi için <xref:host-and-deploy/visual-studio-publish-profiles> ve [kullanarak MSBuild ve Team Foundation derlemesi](http://msbuildbook.com/) rehberi.
 
 Kullanarak [Web'de Yayımla özelliğini](xref:tutorials/publish-to-azure-webapp-using-vs) veya [yerleşik Git desteği](xref:host-and-deploy/azure-apps/azure-continuous-deployment), uygulamaları dağıtılan Azure App Service'te doğrudan Visual Studio'dan. Azure DevOps hizmetlerini destekleyen [Azure uygulama Hizmeti'ne sürekli dağıtım](/azure/devops/pipelines/targets/webapp).
 
-## <a name="publishing-to-azure"></a>Azure'da yayımlamak için
+## <a name="publish-to-azure"></a>Azure'a Yayımlama
 
-Bkz: [Visual Studio kullanarak Azure App Service'e bir ASP.NET Core web uygulaması yayımlama](xref:tutorials/publish-to-azure-webapp-using-vs) Visual Studio'yu kullanarak Azure'a uygulama yayımlama konusunda yönergeler için. Uygulama ayrıca Azure'dan yayımlanabilir [komut satırı](/azure/app-service/app-service-web-get-started-dotnet).
+Bkz: <xref:tutorials/publish-to-azure-webapp-using-vs> Visual Studio'yu kullanarak Azure'a uygulama yayımlama konusunda yönergeler için. Uygulama ayrıca Azure'dan yayımlanabilir [komut satırı](/azure/app-service/app-service-web-get-started-dotnet).
 
 ## <a name="host-in-a-web-farm"></a>Bir web grubunda barındırın
 
@@ -78,4 +80,5 @@ Bkz: [Visual Studio kullanarak Azure App Service'e bir ASP.NET Core web uygulama
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-Bir barındırma ortamı Docker'ı kullanma hakkında daha fazla bilgi için bkz. [Docker konağı ASP.NET Core uygulamalarında](xref:host-and-deploy/docker/index).
+* <xref:host-and-deploy/docker/index>
+* <xref:test/troubleshoot>

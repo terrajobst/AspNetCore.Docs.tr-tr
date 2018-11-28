@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core uygulaması bir web grubu ortamında paylaşılan kaynaklar ile birden çok örneğini barındırmayı öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/16/2018
+ms.date: 11/26/2018
 uid: host-and-deploy/web-farm
-ms.openlocfilehash: 2435c24bc205486331c828337ca81c43e6e60448
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 4873665e6174a6acf885e1ebb41fb005d646bd1f
+ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39096104"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52450677"
 ---
 # <a name="host-aspnet-core-in-a-web-farm"></a>Bir web grubundaki ASP.NET Core barındırma
 
@@ -49,7 +49,7 @@ Veri koruma ve önbelleğe alma, bir web grubuna dağıtılan uygulamalar için 
 
 [ASP.NET Core veri koruma sisteminde](xref:security/data-protection/introduction) verileri korumak için uygulamalar tarafından kullanılır. Veri koruması kullanır depolanan şifreleme anahtarları kümesi üzerinde bir *anahtar halkası*. Veri koruma sisteminde başlatıldığında, geçerli [varsayılan ayarları](xref:security/data-protection/configuration/default-settings) anahtar halkası yerel olarak depolar. Varsayılan yapılandırmada web grubunun her düğüme benzersiz bir anahtar halkası depolanır. Sonuç olarak, her web grubu düğümü, herhangi bir düğümde bir uygulama tarafından şifrelenmiş verilerin şifresini çözemez. Varsayılan yapılandırma, uygulamaları bir web grubunda barındırmak için genel kullanıma uygun değil. Paylaşılan bir anahtar halkası uygulama kullanıcı isteklerini her zaman aynı düğüme yönlendirmek alternatiftir. Web grubu dağıtımları için veri koruma sistem yapılandırması hakkında daha fazla bilgi için bkz. <xref:security/data-protection/configuration/overview>.
 
-### <a name="caching"></a>Önbelleğe alma
+### <a name="caching"></a>Önbelleğe Alma
 
 Bir web çiftliği ortamında, web grubun düğümlerde önbelleğe alınmış öğeleri önbelleğe alma mekanizması paylaşmanız gerekir. Önbelleğe alma ya da ortak bir Redis önbelleği, paylaşılan bir SQL Server veritabanı veya web grubunda önbelleğe alınmış öğeleri paylaşan özel bir önbelleğe alma uygulaması kullanmanız gerekir. Daha fazla bilgi için bkz. <xref:performance/caching/distributed>.
 
@@ -67,11 +67,13 @@ Aşağıdaki senaryoları, ek bir yapılandırma gerekmez, ancak yapılandırma 
 
 ## <a name="troubleshoot"></a>Sorun giderme
 
+### <a name="data-protection-and-caching"></a>Veri koruma ve önbelleğe alma
+
 Veri koruma veya önbelleğe alma için bir web grubu ortamında yapılandırılmamış, isteklerin işlenmesi aralıklı hatalar ortaya çıkar. Bu, çünkü kullanıcı istekleri her zaman aynı düğüme geri yönlendirilmesini değil ve düğümleri aynı kaynakları paylaşmayın oluşur.
 
 Tanımlama bilgisi kimlik doğrulamasını kullanarak uygulamada oturum oturum açtığında kullanıcıyı göz önünde bulundurun. Uygulama bir web grubu düğümü üzerinde kullanıcı işaretlerine. Bir sonraki istekte, bunlar burada açan aynı düğümde alınırsa, uygulama kimlik doğrulama tanımlama bilgisi şifresini ve uygulamanın kaynağa erişim izni verir. Bir sonraki istekte farklı bir düğümden alınırsa, uygulama düğümden burada kullanıcının oturum açtığı ve istenen kaynak için yetkilendirme başarısız kimlik doğrulama tanımlama bilgisinin şifresini çözemez.
 
-Aşağıdaki belirtilerden birini olduğunda **aralıklı olarak**, sorun genellikle bir web grubu ortamında hatalı veri koruması veya önbelleğe alma yapılandırmasını izlenen:
+Aşağıdaki belirtilerden birini olduğunda **aralıklı olarak**, sorun genellikle hatalı veri koruma veya bir web grubu ortamı için önbelleğe alma yapılandırmasını izlenen:
 
 * Kimlik doğrulaması sonları &ndash; kimlik doğrulama tanımlama bilgisi yanlış yapılandırılmış veya şifresi çözülemiyor. OAuth (Facebook, Microsoft, Twitter) veya Openıdconnect oturum açmalar "bağıntı başarısız oldu." hatasıyla başarısız
 * Yetkilendirme sonları &ndash; kimlik kaybolur.
@@ -81,3 +83,7 @@ Aşağıdaki belirtilerden birini olduğunda **aralıklı olarak**, sorun genell
 * Başarısız gönderileri &ndash; sahteciliğe karşı koruma denetimi başarısız olur.
 
 Web grubu dağıtımları için veri koruma yapılandırması hakkında daha fazla bilgi için bkz. <xref:security/data-protection/configuration/overview>. Web grubu dağıtımları için önbelleğe alma yapılandırması hakkında daha fazla bilgi için bkz. <xref:performance/caching/distributed>.
+
+## <a name="obtain-data-from-apps"></a>Uygulamaları, verileri alır
+
+Web grubu uygulamaları isteklere karşılık verebilen, terminal satır içi ara yazılımın kullanılması uygulamalardan isteği, bağlantı ve ek veri alın. Daha fazla bilgi ve örnek kod için bkz. <xref:test/troubleshoot#obtain-data-from-an-app>.

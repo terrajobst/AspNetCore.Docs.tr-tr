@@ -4,20 +4,23 @@ author: guardrex
 description: ASP.NET Core uygulamaları Windows Server Internet Information Services (IIS) üzerinde barındırmayı öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/10/2018
+ms.date: 11/26/2018
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 1b34195dc51ca8dab5e8eda10f05ff6678fbc78c
-ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.openlocfilehash: 77fa6e1ef6a7fc707c2665826d3c1f4c2691979c
+ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51570171"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52450807"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Windows IIS üzerinde ASP.NET Core barındırma
 
 Tarafından [Luke Latham](https://github.com/guardrex)
 
 [Paket barındırma .NET Core'u yükleme](#install-the-net-core-hosting-bundle)
+
+> [!NOTE]
+> ASP.NET Core içindekiler tablosuna yönelik önerilmiş olan yeni bir yapının kullanılabilirliğini test ediyoruz.  Geçerli veya önerilen içindekiler tablosunda 7 farklı konuyu bulmaya ilişkin alıştırmayı denemek için vaktiniz varsa lütfen [çalışmaya katılmak için buraya tıklayın](https://dpk4xbh5.optimalworkshop.com/treejack/rps16hd5).
 
 ## <a name="supported-operating-systems"></a>Desteklenen işletim sistemleri
 
@@ -416,31 +419,19 @@ Veri koruma anahtarı halka kalıcı hale getirmek için IIS altında yapıland�
 
   Veri koruma sisteminde bir varsayılan ayarı desteği sınırlıdır [makineye ilke](xref:security/data-protection/configuration/machine-wide-policy) veri koruma API'lerini kullanan tüm uygulamalar için. Daha fazla bilgi için bkz. <xref:security/data-protection/introduction>.
 
-## <a name="sub-application-configuration"></a>Alt uygulama yapılandırma
+## <a name="virtual-directories"></a>Sanal dizinler
 
-Kök uygulama altında eklenen alt uygulamalar, ASP.NET Core modülü bir işleyici içermemelidir. Modül bir alt uygulamasının işleyici olarak eklenip eklenmediğini *web.config* dosyası bir *iç sunucu hatası 500.19* hatalı yapılandırma dosyasına başvuran alındığında alt uygulama göz atmak çalışırken.
+[IIS sanal dizinlerinin](/iis/get-started/planning-your-iis-architecture/understanding-sites-applications-and-virtual-directories-on-iis#virtual-directories) ile ASP.NET Core uygulamaları desteklenmez. Bir uygulama olarak barındırılan bir [alt uygulama](#sub-applications).
 
-Aşağıdaki örnek bir yayımlanan gösterir *web.config* dosyası için bir ASP.NET Core alt uygulama:
+## <a name="sub-applications"></a>Alt uygulamalar
 
-::: moniker range=">= aspnetcore-2.2"
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<configuration>
-  <location path="." inheritInChildApplications="false">
-    <system.webServer>
-      <aspNetCore processPath="dotnet" 
-        arguments=".\MyApp.dll" 
-        stdoutLogEnabled="false" 
-        stdoutLogFile=".\logs\stdout" />
-    </system.webServer>
-  </location>
-</configuration>
-```
-
-::: moniker-end
+ASP.NET Core uygulaması olarak barındırılan bir [IIS alt uygulama (uygulama içi sub)](/iis/get-started/planning-your-iis-architecture/understanding-sites-applications-and-virtual-directories-on-iis#applications). Sub uygulamanın yolu, uygulama kök URL'SİNİN bir parçası haline gelir.
 
 ::: moniker range="< aspnetcore-2.2"
+
+Bir alt uygulama ASP.NET Core modülü bir işleyici içermemelidir. Modül bir alt uygulamasının işleyici olarak eklenip eklenmediğini *web.config* dosyası bir *iç sunucu hatası 500.19* hatalı yapılandırma dosyasına başvuran alındığında alt uygulama göz atmak çalışırken.
+
+Aşağıdaki örnek bir yayımlanan gösterir *web.config* dosyası için bir ASP.NET Core alt uygulama:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -454,7 +445,7 @@ Aşağıdaki örnek bir yayımlanan gösterir *web.config* dosyası için bir AS
 </configuration>
 ```
 
-ASP.NET Core uygulaması altında ASP.NET Core sub-uygulama barındırma, devralınan işleyici alt uygulamada açıkça Kaldır *web.config* dosyası:
+ASP.NET Core uygulaması altında ASP.NET Core sub-uygulama barındırma, devralınan işleyici sub-uygulamanın açıkça Kaldır *web.config* dosyası:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -473,7 +464,23 @@ ASP.NET Core uygulaması altında ASP.NET Core sub-uygulama barındırma, devral
 
 ::: moniker-end
 
-ASP.NET Core modülü yapılandırma hakkında daha fazla bilgi için bkz. [ASP.NET Core modülü için giriş](xref:fundamentals/servers/aspnet-core-module) konu ve [ASP.NET Core Module yapılandırma başvurusu](xref:host-and-deploy/aspnet-core-module).
+Alt uygulama içindeki statik varlık bağlantılar tilde eğik çizgi kullanılmalıdır (`~/`) gösterimi. Tilde eğik çizgi gösterimi Tetikleyiciler bir [etiketi Yardımcısı](xref:mvc/views/tag-helpers/intro) işlenmiş göreli bağlantısını için alt-uygulamanın pathbase önüne eklediğinizden. Alt uygulama için `/subapp_path`, bir görüntü ile bağlantılı `src="~/image.png"` olarak işlenen `src="/subapp_path/image.png"`. Kök uygulamanın statik dosya ara yazılımlarını statik dosya istek işlemiyor. İstek, alt uygulamanın statik dosya ara yazılımı tarafından işlenir.
+
+Statik bir varlık, ın `src` özniteliği için mutlak bir yol ayarlayın (örneğin, `src="/image.png"`), bağlantı alt uygulamanın pathbase işlenir. Kök uygulamanın statik dosya ara yazılımlarını kök uygulamanın varlığından hizmet dener [webroot](xref:fundamentals/index#web-root-webroot), hangi sonuçlanıyor bir *404 - Bulunamadı* yanıt statik varlık kök uygulama kullanılabilir değilse.
+
+ASP.NET Core uygulaması başka bir ASP.NET Core uygulaması altında bir alt uygulama olarak barındırmak için:
+
+1. Alt uygulama için bir uygulama havuzu oluşturun. Ayarlama **.NET CLR sürümü** için **yönetilen kod yok**.
+
+1. IIS Yöneticisi'nde kök sitenin kök site altında bir klasöre alt uygulama ekleyin.
+
+1. IIS Yöneticisi'nde alt uygulama klasörüne sağ tıklayıp **uygulamasına dönüştürün**.
+
+1. İçinde **uygulama Ekle** iletişim kutusunda, kullanmak **seçin** için düğme **uygulama havuzu** alt uygulama için oluşturduğunuz uygulama havuzuna atanamıyor. Seçin **Tamam**.
+
+Bir alt uygulama ayrı bir uygulama havuzuna atamasını işlem içi barındırma modeli kullanılırken zorunludur.
+
+Barındırma modeli ve ASP.NET Core modülü yapılandırma işlem hakkında daha fazla bilgi için bkz. <xref:fundamentals/servers/aspnet-core-module> ve <xref:host-and-deploy/aspnet-core-module>.
 
 ## <a name="configuration-of-iis-with-webconfig"></a>Web.config ile IIS yapılandırma
 
@@ -610,6 +617,7 @@ Sık karşılaşılan barındırırken IIS üzerinde ASP.NET Core uygulamaları 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
+* <xref:test/troubleshoot>
 * [ASP.NET Core'a giriş](xref:index)
 * [Resmi Microsoft IIS sitesi](https://www.iis.net/)
 * [Windows Server Teknik İçerik Kitaplığı](/windows-server/windows-server)

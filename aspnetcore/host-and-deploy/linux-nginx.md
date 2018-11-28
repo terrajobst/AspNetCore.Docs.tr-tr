@@ -4,14 +4,14 @@ author: rick-anderson
 description: Ngınx Kestrel üzerinde çalışan ASP.NET Core web uygulaması HTTP trafiği iletmek için Ubuntu 16.04 ters bir proxy olarak ayarlamayı öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/23/2018
+ms.date: 11/26/2018
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: d29a9287cbce27a54e779fadfa05e57febec0413
-ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
+ms.openlocfilehash: d4bffab80ba20d4cf77a358249c7b349033de5bd
+ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50253126"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52450794"
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>ASP.NET Core Nginx ile Linux'ta barındırma
 
@@ -186,7 +186,7 @@ Uygulama sunucu üzerinde çalışır, ancak Internet üzerinden yanıt verememe
 
 Uygulamayı test etme işiniz bittiğinde, uygulama ile kapatma `Ctrl+C` komut isteminde.
 
-## <a name="monitoring-the-app"></a>Uygulama izleme
+## <a name="monitor-the-app"></a>Uygulamayı izleme
 
 Sunucu yapılan istekleri iletmek üzere kurulur `http://<serveraddress>:80` sırasında Kestrel üzerinde çalışan ASP.NET Core uygulaması açın `http://127.0.0.1:5000`. Ancak, Ngınx Kestrel işlemini yönetmek için ayarlanmamış. *systemd* başlatmak ve temel alınan web uygulamasını izleme için bir hizmet dosyası oluşturmak için kullanılabilir. *systemd* başlatılmasını, durdurmasını ve işlemlerini yönetme için çok sayıda güçlü özellikler sağlar init sistemidir. 
 
@@ -268,7 +268,7 @@ Connection: Keep-Alive
 Transfer-Encoding: chunked
 ```
 
-### <a name="viewing-logs"></a>Günlükleri görüntüleme
+### <a name="view-logs"></a>Günlükleri görüntüle
 
 Web uygulaması bu yana Kestrel kullanarak kullanılarak yönetilir `systemd`, tüm olayları ve işlemler için merkezi bir günlüğe kaydedilir. Ancak, bu günlük tüm hizmetleri ve işlemleri tarafından yönetilen tüm girişleri içerir `systemd`. Görüntülenecek `kestrel-helloapp.service`-belirli öğeler, aşağıdaki komutu kullanın:
 
@@ -297,13 +297,13 @@ Kalıcı hale getirmek ve anahtar halkası şifrelemek için veri korumayı yap�
 * <xref:security/data-protection/implementation/key-storage-providers>
 * <xref:security/data-protection/implementation/key-encryption-at-rest>
 
-## <a name="securing-the-app"></a>Uygulama güvenliğini sağlama
+## <a name="secure-the-app"></a>Bir uygulamanın güvenliğini sağlama
 
 ### <a name="enable-apparmor"></a>AppArmor etkinleştir
 
 Linux güvenlik modülleri (LSM) itibaren Linux 2.6 Linux çekirdeğinin parçası olan bir çerçevedir. LSM güvenlik modülleri'nın farklı uygulamaları destekler. [AppArmor](https://wiki.ubuntu.com/AppArmor) sınırlı bir kaynak kümesini programa sınırlandırma izin veren bir zorunlu erişim denetimi sistemi uygulayan bir LSM olduğu. AppArmor etkin olduğundan ve doğru yapılandırıldığından emin olun.
 
-### <a name="configuring-the-firewall"></a>Güvenlik duvarını yapılandırma
+### <a name="configure-the-firewall"></a>Güvenlik duvarını yapılandırma
 
 Kullanılmayan tüm dış bağlantı devre dışı kapatın. Karmaşık güvenlik duvarı (ufw) sağlayan bir ön uç için `iptables` güvenlik duvarını yapılandırmak için bir komut satırı arabirimi sağlayarak.
 
@@ -322,7 +322,7 @@ sudo ufw allow 443/tcp
 sudo ufw enable
 ```
 
-### <a name="securing-nginx"></a>Ngınx'in güvenliğini sağlama
+### <a name="secure-nginx"></a>Güvenli Ngınx
 
 #### <a name="change-the-nginx-response-name"></a>Ngınx yanıt adını değiştirin
 
@@ -387,5 +387,6 @@ Satır Ekle `add_header X-Content-Type-Options "nosniff";` ve dosyayı kaydedin 
 
 * [Linux üzerinde .NET Core önkoşulları](/dotnet/core/linux-prerequisites)
 * [Ngınx: İkili sürümleri: resmi Debian/Ubuntu paketleri](https://www.nginx.com/resources/wiki/start/topics/tutorials/install/#official-debian-ubuntu-packages)
-* [ASP.NET Core, proxy sunucuları ile çalışma ve yük Dengeleyiciler için yapılandırma](xref:host-and-deploy/proxy-load-balancer)
+* <xref:test/troubleshoot>
+* <xref:host-and-deploy/proxy-load-balancer>
 * [NGINX: iletilen üstbilgi kullanma](https://www.nginx.com/resources/wiki/start/topics/examples/forwarded/)

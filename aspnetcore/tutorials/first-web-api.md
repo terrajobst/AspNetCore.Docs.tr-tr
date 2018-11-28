@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/17/2018
 uid: tutorials/first-web-api
-ms.openlocfilehash: 88d1958ce5c42d559754972a855c1ffe22ab45a6
-ms.sourcegitcommit: 2ef32676c16f76282f7c23154d13affce8c8bf35
+ms.openlocfilehash: eb23d5376742e04712f714263815582fddc5d18e
+ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50234585"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52450703"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio"></a>ASP.NET Core ve Visual Studio ile Web API'si oluşturma
 
@@ -26,6 +26,9 @@ Bu öğretici üç sürümü vardır:
 * macOS, Linux, Windows: [Visual Studio Code ile Web API](xref:tutorials/web-api-vsc)
 
 <!-- WARNING: The code AND images in this doc are used by uid: tutorials/web-api-vsc, tutorials/first-web-api-mac and tutorials/first-web-api. If you change any code/images in this tutorial, update uid: tutorials/web-api-vsc -->
+
+> [!NOTE]
+> ASP.NET Core içindekiler tablosuna yönelik önerilmiş olan yeni bir yapının kullanılabilirliğini test ediyoruz.  Geçerli veya önerilen içindekiler tablosunda 7 farklı konuyu bulmaya ilişkin alıştırmayı denemek için vaktiniz varsa lütfen [çalışmaya katılmak için buraya tıklayın](https://dpk4xbh5.optimalworkshop.com/treejack/rps16hd5).
 
 [!INCLUDE[intro to web API](../includes/webApi/intro.md)]
 

@@ -5,14 +5,14 @@ description: Bir uygulamanın bileşenleri doğru veritabanı, dosya sistemi ve 
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/30/2018
+ms.date: 11/26/2018
 uid: test/integration-tests
-ms.openlocfilehash: a136a362cd8973b3684f9a70bd4792d75238eab0
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 9729925c89c212bb6e6fac1a484b6288697afe57
+ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207881"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52450755"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>ASP.NET core'da tümleştirme testleri
 
@@ -100,8 +100,8 @@ Razor sayfaları uygulamaların testler için yapılandırma ve MVC uygulamalar�
 Test projesi gerekir:
 
 * Aşağıdaki paketler başvuru:
-  - [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App/)
-  - [Microsoft.AspNetCore.Mvc.Testing](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Testing/)
+  * [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App/)
+  * [Microsoft.AspNetCore.Mvc.Testing](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Testing/)
 * Proje dosyasında Web SDK'sı belirtin (`<Project Sdk="Microsoft.NET.Sdk.Web">`). Web SDK'sı başvururken gereklidir [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).
 
 Bu Önkoşullar şurada görülebilir [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/integration-tests/samples/). İnceleme *tests/RazorPagesProject.Tests/RazorPagesProject.Tests.csproj* dosya. Örnek uygulama kullandığı [xUnit](https://xunit.github.io/) test çerçevesi ve [AngleSharp](https://anglesharp.github.io/) örnek uygulamasını da başvurduğu için ayrıştırıcı kitaplığı:
@@ -316,6 +316,10 @@ Ekleme *xunit.runner.json* dosya aşağıdaki içeriğe sahip test projesinin k�
   "shadowCopy": false
 }
 ```
+
+## <a name="disposal-of-objects"></a>Nesne çıkarma
+
+Testleri sonra `IClassFixture` uygulama yürütüldüğünde, [TestServer](/dotnet/api/microsoft.aspnetcore.testhost.testserver) ve [HttpClient](/dotnet/api/system.net.http.httpclient) xUnit, siler, elden [WebApplicationFactory](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1) . Geliştirici tarafından oluşturulan nesneler elden ihtiyacınız varsa, dispose `IClassFixture` uygulaması. Daha fazla bilgi için [Dispose yöntemi uygulama](/dotnet/standard/garbage-collection/implementing-dispose).
 
 ## <a name="integration-tests-sample"></a>Tümleştirme testleri örneği
 
