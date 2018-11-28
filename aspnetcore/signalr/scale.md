@@ -1,0 +1,88 @@
+---
+title: ASP.NET Core SignalR üretim barındırma ve ölçeklendirme
+author: tdykstra
+description: Performans ve ASP.NET Core SignalR kullanan uygulamalarda sorunları ölçeklendirme hakkında bilgi edinin.
+monikerRange: '>= aspnetcore-2.1'
+ms.author: tdykstra
+ms.custom: mvc
+ms.date: 11/28/2018
+uid: signalr/scale
+ms.openlocfilehash: 94791ffb73b58a9026942d632bce59773e3fda5b
+ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453026"
+---
+# <a name="aspnet-core-signalr-hosting-and-scaling"></a><span data-ttu-id="66a3f-103">ASP.NET Core SignalR barındırma ve ölçeklendirme</span><span class="sxs-lookup"><span data-stu-id="66a3f-103">ASP.NET Core SignalR hosting and scaling</span></span>
+
+<span data-ttu-id="66a3f-104">Tarafından [Andrew Stanton-Nurse](https://twitter.com/anurse), [Brady Gaster](https://twitter.com/bradygaster), ve [Tom Dykstra](https://github.com/tdykstra),</span><span class="sxs-lookup"><span data-stu-id="66a3f-104">By [Andrew Stanton-Nurse](https://twitter.com/anurse), [Brady Gaster](https://twitter.com/bradygaster), and [Tom Dykstra](https://github.com/tdykstra),</span></span>
+
+<span data-ttu-id="66a3f-105">Bu makalede, barındırma ve ölçeklendirme ASP.NET Core SignalR kullanan yüksek trafik uygulamaları konuları açıklanmaktadır.</span><span class="sxs-lookup"><span data-stu-id="66a3f-105">This article explains hosting and scaling considerations for high-traffic apps that use ASP.NET Core SignalR.</span></span>
+
+## <a name="tcp-connection-resources"></a><span data-ttu-id="66a3f-106">TCP bağlantı kaynakları</span><span class="sxs-lookup"><span data-stu-id="66a3f-106">TCP connection resources</span></span>
+
+<span data-ttu-id="66a3f-107">Bir web sunucusu destekleyebileceği eş zamanlı TCP bağlantısı sayısı sınırlıdır.</span><span class="sxs-lookup"><span data-stu-id="66a3f-107">The number of concurrent TCP connections that a web server can support is limited.</span></span> <span data-ttu-id="66a3f-108">Standart HTTP istemciler *kısa ömürlü* bağlantıları.</span><span class="sxs-lookup"><span data-stu-id="66a3f-108">Standard HTTP clients use *ephemeral* connections.</span></span> <span data-ttu-id="66a3f-109">Bu bağlantılar, istemci boşta gider ve daha sonra yeniden açılmasını kapatılabilir.</span><span class="sxs-lookup"><span data-stu-id="66a3f-109">These connections can be closed when the client goes idle and reopened later.</span></span> <span data-ttu-id="66a3f-110">Öte yandan, SignalR bir bağlantıdır *kalıcı*.</span><span class="sxs-lookup"><span data-stu-id="66a3f-110">On the other hand, a SignalR connection is *persistent*.</span></span> <span data-ttu-id="66a3f-111">SignalR bağlantıları bile istemci boşta gittiğinde açık kalır.</span><span class="sxs-lookup"><span data-stu-id="66a3f-111">SignalR connections stay open even when the client goes idle.</span></span> <span data-ttu-id="66a3f-112">Birden çok istemci hizmet veren bir yüksek trafik uygulamasında bu kalıcı bağlantılar, bağlantı sayısı üst sınırı isabet sunucuları neden olabilir.</span><span class="sxs-lookup"><span data-stu-id="66a3f-112">In a high-traffic app that serves many clients, these persistent connections can cause servers to hit their maximum number of connections.</span></span>
+
+<span data-ttu-id="66a3f-113">Kalıcı bağlantılar, ayrıca her bağlantı izlemek için bazı ek bellek tüketir.</span><span class="sxs-lookup"><span data-stu-id="66a3f-113">Persistent connections also consume some additional memory, to track each connection.</span></span>
+
+<span data-ttu-id="66a3f-114">Aynı sunucuda barındırılan diğer web apps ile SignalR bağlantısı ile ilgili kaynakların aşırı kullanımı etkileyebilir.</span><span class="sxs-lookup"><span data-stu-id="66a3f-114">The heavy use of connection-related resources by SignalR can affect other web apps that are hosted on the same server.</span></span> <span data-ttu-id="66a3f-115">SignalR açar ve son kullanılabilir TCP bağlantıları tutar, aynı sunucuda diğer web uygulamalarını de kullanabilecekleri daha fazla bağlantı var.</span><span class="sxs-lookup"><span data-stu-id="66a3f-115">When SignalR opens and holds the last available TCP connections, other web apps on the same server also have no more connections available to them.</span></span>
+
+<span data-ttu-id="66a3f-116">Bir sunucu bağlantılar dışında çalıştırıyorsa, rastgele yuva hatalar görürsünüz ve bağlantı hataları sıfırlayın.</span><span class="sxs-lookup"><span data-stu-id="66a3f-116">If a server runs out of connections, you'll see random socket errors and connection reset errors.</span></span> <span data-ttu-id="66a3f-117">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="66a3f-117">For example:</span></span>
+
+```
+An attempt was made to access a socket in a way forbidden by its access permissions...
+```
+
+<span data-ttu-id="66a3f-118">Diğer web uygulamalarında hata neden SignalR kaynak kullanımı tutmak için SignalR diğer web uygulamalarınızı daha farklı sunucularda çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="66a3f-118">To keep SignalR resource usage from causing errors in other web apps, run SignalR on different servers than your other web apps.</span></span>
+
+<span data-ttu-id="66a3f-119">Bir SignalR uygulamasında hataları neden SignalR kaynak kullanımı tutmak için bir sunucu işlemek zorundadır bağlantı sayısını sınırlamak için ölçeği.</span><span class="sxs-lookup"><span data-stu-id="66a3f-119">To keep SignalR resource usage from causing errors in a SignalR app, scale out to limit the number of connections a server has to handle.</span></span>
+
+## <a name="scale-out"></a><span data-ttu-id="66a3f-120">Ölçeklendirme</span><span class="sxs-lookup"><span data-stu-id="66a3f-120">Scale out</span></span>
+
+<span data-ttu-id="66a3f-121">Bir sunucu grubu için sorunları oluşturan kendi bağlantılarını izlemek SignalR kullanan bir uygulamayı gerekir.</span><span class="sxs-lookup"><span data-stu-id="66a3f-121">An app that uses SignalR needs to keep track of all its connections, which creates problems for a server farm.</span></span> <span data-ttu-id="66a3f-122">Bir sunucu eklemek ve diğer sunuculara bilgi sahibi olmadığınız yeni bağlantıları alır.</span><span class="sxs-lookup"><span data-stu-id="66a3f-122">Add a server, and it gets new connections that the other servers don't know about.</span></span> <span data-ttu-id="66a3f-123">Örneğin, aşağıdaki diyagramda her bir sunucuda SignalR bağlantıları diğer sunucularda farkında değil.</span><span class="sxs-lookup"><span data-stu-id="66a3f-123">For example, SignalR on each server in the following diagram is unaware of the connections on the other servers.</span></span> <span data-ttu-id="66a3f-124">Tüm istemciler için bir ileti göndermek SignalR sunuculardan biri üzerinde istediği zaman, iletiyi yalnızca sunucuya bağlı istemcileri gider.</span><span class="sxs-lookup"><span data-stu-id="66a3f-124">When SignalR on one of the servers wants to send a message to all clients, the message only goes to the clients connected to that server.</span></span>
+
+![Bir devre kartı SignalR ölçeklendirme](scale/_static/scale-no-backplane.png)
+
+<span data-ttu-id="66a3f-126">Bu sorunu çözmek için Seçenekler [Azure SignalR hizmeti](#azure-signalr-service) ve [devre kartı olarak Redis](#redis-backplane).</span><span class="sxs-lookup"><span data-stu-id="66a3f-126">The options for solving this problem are the [Azure SignalR Service](#azure-signalr-service) and [Redis backplane](#redis-backplane).</span></span>
+
+## <a name="azure-signalr-service"></a><span data-ttu-id="66a3f-127">Azure SignalR hizmeti</span><span class="sxs-lookup"><span data-stu-id="66a3f-127">Azure SignalR Service</span></span>
+
+<span data-ttu-id="66a3f-128">Azure SignalR hizmeti, bir devre kartı yerine bir proxy ' dir.</span><span class="sxs-lookup"><span data-stu-id="66a3f-128">The Azure SignalR Service is a proxy rather than a backplane.</span></span> <span data-ttu-id="66a3f-129">Her zaman bir istemci, sunucunun bir bağlantı başlatır, hizmete bağlanmak için istemci yönlendirilir.</span><span class="sxs-lookup"><span data-stu-id="66a3f-129">Each time a client initiates a connection to the server, the client is redirected to connect to the service.</span></span> <span data-ttu-id="66a3f-130">Bu işlem, aşağıdaki diyagramda gösterilmiştir:</span><span class="sxs-lookup"><span data-stu-id="66a3f-130">That process is illustrated in the following diagram:</span></span>
+
+![Azure SignalR hizmeti bağlantı kurma](scale/_static/azure-signalr-service-one-connection.png)
+
+<span data-ttu-id="66a3f-132">Aşağıdaki diyagramda gösterildiği gibi küçük bir bağlantı hizmetine sabit sayısı her sunucu gereksinimlerini hizmet tüm istemci bağlantıları yönetir, sonucudur:</span><span class="sxs-lookup"><span data-stu-id="66a3f-132">The result is that the service manages all of the client connections, while each server needs only a small constant number of connections to the service, as shown in the following diagram:</span></span>
+
+![Hizmete bağlı istemciler hizmete bağlı sunucuları](scale/_static/azure-signalr-service-multiple-connections.png)
+
+<span data-ttu-id="66a3f-134">Bu yaklaşım, Ölçek genişletme için Redis devre kartı alternatif üzerinden çeşitli avantajları vardır:</span><span class="sxs-lookup"><span data-stu-id="66a3f-134">This approach to scale-out has several advantages over the Redis backplane alternative:</span></span>
+
+* <span data-ttu-id="66a3f-135">Olarak da bilinen, Yapışkan oturumlar [istemci benzeşimi](/iis/extensions/configuring-application-request-routing-arr/http-load-balancing-using-application-request-routing#step-3---configure-client-affinity), bağlandıklarında istemciler için Azure SignalR hizmeti hemen yönlendirilirsiniz çünkü gerekli değildir.</span><span class="sxs-lookup"><span data-stu-id="66a3f-135">Sticky sessions, also known as [client affinity](/iis/extensions/configuring-application-request-routing-arr/http-load-balancing-using-application-request-routing#step-3---configure-client-affinity), is not required, because clients are immediately redirected to the Azure SignalR Service when they connect.</span></span>
+* <span data-ttu-id="66a3f-136">Uygulama genişletebilir bir SignalR bağlantıları herhangi bir sayıda işlemek için otomatik olarak Azure SignalR hizmeti eşitlenene kadar gönderilen iletilerin sayısına göre.</span><span class="sxs-lookup"><span data-stu-id="66a3f-136">A SignalR app can scale out based on the number of messages sent, while the Azure SignalR Service automatically scales to handle any number of connections.</span></span> <span data-ttu-id="66a3f-137">Örneğin, binlerce istemciden olabilir, ancak yalnızca birkaç ileti saniye başına gönderilen, yalnızca bağlantıları işlemek için birden çok sunucuya ölçeğini genişletmek SignalR uygulama gerekmez.</span><span class="sxs-lookup"><span data-stu-id="66a3f-137">For example, there could be thousands of clients, but if only a few messages per second are sent, the SignalR app won't need to scale out to multiple servers just to handle the connections themselves.</span></span>
+* <span data-ttu-id="66a3f-138">Bir SignalR uygulama SignalR olmadan bir web uygulaması daha önemli ölçüde daha fazla bağlantı kaynaklarını kullanmaz.</span><span class="sxs-lookup"><span data-stu-id="66a3f-138">A SignalR app won't use significantly more connection resources than a web app without SignalR.</span></span>
+
+<span data-ttu-id="66a3f-139">Bu nedenlerle, App Service, VM'ler ve kapsayıcılar dahil olmak üzere, Azure üzerinde barındırılan tüm ASP.NET Core SignalR uygulamalar için Azure SignalR hizmeti öneririz.</span><span class="sxs-lookup"><span data-stu-id="66a3f-139">For these reasons, we recommend the Azure SignalR Service for all ASP.NET Core SignalR apps hosted on Azure, including App Service, VMs, and containers.</span></span>
+
+<span data-ttu-id="66a3f-140">Daha fazla bilgi için [Azure SignalR hizmeti belgeleri](/azure/azure-signalr/signalr-overview).</span><span class="sxs-lookup"><span data-stu-id="66a3f-140">For more information see the [Azure SignalR Service documentation](/azure/azure-signalr/signalr-overview).</span></span>
+
+## <a name="redis-backplane"></a><span data-ttu-id="66a3f-141">Redis devre kartı</span><span class="sxs-lookup"><span data-stu-id="66a3f-141">Redis backplane</span></span>
+
+<span data-ttu-id="66a3f-142">[Redis](https://redis.io/) bir Mesajlaşma sistemi ile bir yayımlama/abone olma modelini destekleyen bir bellek içi anahtar-değer deposudur.</span><span class="sxs-lookup"><span data-stu-id="66a3f-142">[Redis](https://redis.io/) is an in-memory key-value store that supports a messaging system with a publish/subscribe model.</span></span> <span data-ttu-id="66a3f-143">SignalR Redis devre kartına ileti başka bir sunucuya iletmek için pub/sub özelliğini kullanır.</span><span class="sxs-lookup"><span data-stu-id="66a3f-143">The SignalR Redis backplane uses the pub/sub feature to forward messages to other servers.</span></span> <span data-ttu-id="66a3f-144">Bir istemci bir bağlantı kurar, bağlantı bilgilerini devre kartına geçirilir.</span><span class="sxs-lookup"><span data-stu-id="66a3f-144">When a client makes a connection, the connection information is passed to the backplane.</span></span> <span data-ttu-id="66a3f-145">Tüm istemciler için bir ileti göndermek bir sunucu istediğinde devre kartına gönderir.</span><span class="sxs-lookup"><span data-stu-id="66a3f-145">When a server wants to send a message to all clients, it sends to the backplane.</span></span> <span data-ttu-id="66a3f-146">Devre kartına tüm bağlı istemcileri ve hangi bilir sunucuları oldukları üzerinde.</span><span class="sxs-lookup"><span data-stu-id="66a3f-146">The backplane knows all connected clients and which servers they're on.</span></span> <span data-ttu-id="66a3f-147">Tüm istemciler kendi ilgili sunucuları aracılığıyla ileti gönderir.</span><span class="sxs-lookup"><span data-stu-id="66a3f-147">It sends the message to all clients via their respective servers.</span></span> <span data-ttu-id="66a3f-148">Bu işlem, aşağıdaki diyagramda gösterilmiştir:</span><span class="sxs-lookup"><span data-stu-id="66a3f-148">This process is illustrated in the following diagram:</span></span>
+
+![Redis devre kartı, bir sunucudan tüm istemcilere gönderilen ileti](scale/_static/redis-backplane.png)
+
+<span data-ttu-id="66a3f-150">Redis devre kartına kendi altyapınızda barındırılan uygulamalar için önerilen genişleme yaklaşımdır.</span><span class="sxs-lookup"><span data-stu-id="66a3f-150">The Redis backplane is the recommended scale-out approach for apps hosted on your own infrastructure.</span></span> <span data-ttu-id="66a3f-151">Azure SignalR hizmeti ile şirket içi uygulamalar, veri merkezi ve Azure veri merkezi arasında bağlantı gecikme nedeniyle üretim kullanımı için pratik bir seçenek değildir.</span><span class="sxs-lookup"><span data-stu-id="66a3f-151">Azure SignalR Service isn't a practical option for production use with on-premises apps due to connection latency between your data center and an Azure data center.</span></span>
+
+<span data-ttu-id="66a3f-152">Azure SignalR hizmeti sağladığı daha önce not ettiğiniz Redis devre kartına dezavantajları şunlardır:</span><span class="sxs-lookup"><span data-stu-id="66a3f-152">The Azure SignalR Service advantages noted earlier are disadvantages for the Redis backplane:</span></span>
+
+* <span data-ttu-id="66a3f-153">Olarak da bilinen, Yapışkan oturumlar [istemci benzeşimi](/iis/extensions/configuring-application-request-routing-arr/http-load-balancing-using-application-request-routing#step-3---configure-client-affinity), gereklidir.</span><span class="sxs-lookup"><span data-stu-id="66a3f-153">Sticky sessions, also known as [client affinity](/iis/extensions/configuring-application-request-routing-arr/http-load-balancing-using-application-request-routing#step-3---configure-client-affinity), is required.</span></span> <span data-ttu-id="66a3f-154">Bir bağlantı, bir sunucu üzerinde başlatıldıktan sonra o sunucuda kalmak bağlantı vardır.</span><span class="sxs-lookup"><span data-stu-id="66a3f-154">Once a connection is initiated on a server, the connection has to stay on that server.</span></span>
+* <span data-ttu-id="66a3f-155">Birkaç iletilerinin gönderilme olsa bile bir SignalR uygulaması istemcilerin sayısına göre Ölçeklendirmesi gerekir.</span><span class="sxs-lookup"><span data-stu-id="66a3f-155">A SignalR app must scale out based on number of clients even if few messages are being sent.</span></span>
+* <span data-ttu-id="66a3f-156">Bir SignalR uygulaması önemli ölçüde daha fazla bağlantı kaynak SignalR olmadan bir web uygulaması kullanır.</span><span class="sxs-lookup"><span data-stu-id="66a3f-156">A SignalR app uses significantly more connection resources than a web app without SignalR.</span></span>
+
+## <a name="next-steps"></a><span data-ttu-id="66a3f-157">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="66a3f-157">Next steps</span></span>
+
+<span data-ttu-id="66a3f-158">Daha fazla bilgi için aşağıdaki kaynaklara bakın:</span><span class="sxs-lookup"><span data-stu-id="66a3f-158">For more information, see the following resources:</span></span>
+
+* [<span data-ttu-id="66a3f-159">Azure SignalR hizmeti belgeleri</span><span class="sxs-lookup"><span data-stu-id="66a3f-159">Azure SignalR Service documentation</span></span>](/azure/azure-signalr/signalr-overview)
+* [<span data-ttu-id="66a3f-160">Bir Redis devre kartı ayarlayın</span><span class="sxs-lookup"><span data-stu-id="66a3f-160">Set up a Redis backplane</span></span>](xref:signalr/redis-backplane)
