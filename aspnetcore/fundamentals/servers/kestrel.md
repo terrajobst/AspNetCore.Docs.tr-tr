@@ -4,14 +4,14 @@ author: guardrex
 description: Kestrel'i, ASP.NET Core için platformlar arası web sunucusu hakkında bilgi edinin.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 11/12/2018
+ms.date: 11/26/2018
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 793aa6e190da0170a395292ea661f7c828f817c1
-ms.sourcegitcommit: 1d6ab43eed9cb3df6211c22b97bb3a9351ec4419
+ms.openlocfilehash: 1ef9491ebbc31fd8aa3752b53123eb6c9cf31b42
+ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51597816"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52450849"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>ASP.NET core'da kestrel web sunucusu uygulaması
 
@@ -1027,7 +1027,8 @@ Konak filtreleme ara yazılım, varsayılan olarak devre dışıdır. Ara yazıl
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [HTTPS'yi Zorunlu Kılma](xref:security/enforcing-ssl)
+* <xref:test/troubleshoot>
+* <xref:security/enforcing-ssl>
+* <xref:host-and-deploy/proxy-load-balancer>
 * [Kestrel'i kaynak kodu](https://github.com/aspnet/KestrelHttpServer)
 * [RFC 7230: İleti söz dizimi ve yönlendirme (Bölüm 5.4: ana bilgisayar)](https://tools.ietf.org/html/rfc7230#section-5.4)
-* [ASP.NET Core, proxy sunucuları ile çalışma ve yük Dengeleyiciler için yapılandırma](xref:host-and-deploy/proxy-load-balancer)
