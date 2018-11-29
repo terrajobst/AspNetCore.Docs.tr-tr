@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 10/04/2018
 uid: client-side/using-gulp
-ms.openlocfilehash: 4f383be0498b5b861bd43cc0f0685b1e62c7571b
-ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
+ms.openlocfilehash: e280eabecbd427f3e1418b3d7a60e0ea3df46a5a
+ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48795531"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52450612"
 ---
 # <a name="use-gulp-in-aspnet-core"></a>ASP.NET Core Gulp kullanma
 
@@ -28,7 +28,7 @@ A *görev Çalıştırıcı* , bu yordamı geliştirme görevlerini ve daha fazl
 
 ## <a name="gulp"></a>Gulp
 
-Gulp bir JavaScript tabanlı akış derleme araç için istemci tarafı kod setidir. Ayrıca, bir derleme ortamında belirli bir olayı tetiklendiğinde süreçlerini bir dizi istemci-tarafı dosyaları akışla aktarma için yaygın olarak kullanılır. Örneğin, Gulp otomatikleştirmek için kullanılabilir [paketleme ve küçültme](bundling-and-minification.md) veya yeni bir yapıdan önce bir geliştirme ortamı temizleme.
+Gulp bir JavaScript tabanlı akış derleme araç için istemci tarafı kod setidir. Ayrıca, bir derleme ortamında belirli bir olayı tetiklendiğinde süreçlerini bir dizi istemci-tarafı dosyaları akışla aktarma için yaygın olarak kullanılır. Örneğin, Gulp otomatikleştirmek için kullanılabilir [paketleme ve küçültme](bundling-and-minification.md) veya yeni bir yapıdan önce bir geliştirme ortamı temizleniyor.
 
 Gulp görev kümesini tanımlanan *gulpfile.js*. Aşağıdaki JavaScript Gulp modüllerini içerir ve gelecek görevlerde başvurulabilmesi için dosya yollarını belirtir:
 
@@ -58,7 +58,7 @@ Yukarıdaki kod, düğüm modüllerine gerekli olduğunu belirtir. `require` İ�
 
 | Modül adı | Açıklama |
 | ----------- | ----------- |
-| gulp        | Akış Gulp derleme sistemi. Daha fazla bilgi için [gulp](https://www.npmjs.com/package/gulp). |
+| Gulp        | Akış Gulp derleme sistemi. Daha fazla bilgi için [gulp](https://www.npmjs.com/package/gulp). |
 | rimraf      | Bir düğüm silme modülü. Daha fazla bilgi için [rimraf](https://www.npmjs.com/package/rimraf). |
 | gulp Birleştir | İşletim sisteminin yeni satır karakterine bağlı dosyaları birleştiren bir modül. Daha fazla bilgi için [gulp concat](https://www.npmjs.com/package/gulp-concat). |
 | gulp cssmin | CSS dosyaları küçültür modülü. Daha fazla bilgi için [gulp cssmin](https://www.npmjs.com/package/gulp-cssmin). |
