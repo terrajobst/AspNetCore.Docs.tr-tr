@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/31/2018
 uid: getting-started
-ms.openlocfilehash: 4c899ff3c087f1b569521c6e2e8458fca01d6061
-ms.sourcegitcommit: bdfba5e7575b2a786ef27c0edf688c7dbd09ee95
+ms.openlocfilehash: 5b5384b0bfa933f40f82513b02f7a14367fbef76
+ms.sourcegitcommit: e8d80ff566bfe505b43389d7bc4551edb1c0c872
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52288648"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52549095"
 ---
 # <a name="tutorial-get-started-with-aspnet-core"></a>Öğretici: ASP.NET Core ile çalışmaya başlama
 
@@ -114,4 +114,4 @@ ASP.NET Core hakkında daha fazla bilgi için girişine bakın:
 
 
 > [!NOTE]
-> ASP.NET Core içindekiler için önerilen ve yeni bir yapıyı kullanılabilirliğini test ediyoruz.  Bir alıştırma 7 farklı konulara içeriğini, geçerli ya da önerilen tabloda Lütfen bulma denemek için birkaç dakika varsa [çalışmada katılmak için burayı tıklatın](https://dpk4xbh5.optimalworkshop.com/treejack/aa11wn82).
+> ASP.NET Core içindekiler tablosuna yönelik önerilmiş olan yeni bir yapının kullanılabilirliğini test ediyoruz.  Geçerli veya önerilen içindekiler tablosunda 7 farklı konuyu bulmaya ilişkin alıştırmayı denemek için vaktiniz varsa lütfen [çalışmaya katılmak için buraya tıklayın](https://dpk4xbh5.optimalworkshop.com/treejack/rps16hd5).

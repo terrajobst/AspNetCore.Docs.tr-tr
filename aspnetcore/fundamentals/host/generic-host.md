@@ -5,14 +5,14 @@ description: Uygulama başlatma ve ömür yönetimi için sorumlu .NET genel ana
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/30/2018
+ms.date: 11/28/2018
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: cac5ccdea7838d26b7468f9bf1ab8d317b444b46
-ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
+ms.openlocfilehash: 4d435984d8169b558ab026ef8541c90f7a2a96b9
+ms.sourcegitcommit: 0fc89b80bb1952852ecbcf3c5c156459b02a6ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51708523"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52618161"
 ---
 # <a name="net-generic-host"></a>.NET genel ana bilgisayar
 
@@ -44,6 +44,28 @@ Genel Host kitaplığı kullanılabilir <xref:Microsoft.Extensions.Hosting> ad a
 <xref:Microsoft.Extensions.Hosting.IHostBuilder> kitaplıkları ve uygulamaları, başlatmak, derleme ve konak çalıştırmak için kullandığınız ana bileşen şöyledir:
 
 [!code-csharp[](generic-host/samples-snapshot/2.x/GenericHostSample/Program.cs?name=snippet_HostBuilder)]
+
+## <a name="options"></a>Seçenekler
+
+<xref:Microsoft.Extensions.Hosting.HostOptions> seçeneklerini yapılandırmak <xref:Microsoft.Extensions.Hosting.IHost>.
+
+### <a name="shutdown-timeout"></a>Kapatma zaman aşımı
+
+<xref:Microsoft.Extensions.Hosting.HostOptions.ShutdownTimeout*> zaman aşımı'için ayarlar <xref:Microsoft.Extensions.Hosting.IHost.StopAsync*>. Varsayılan değer beş saniyedir.
+
+Aşağıdaki seçeneği yapılandırmada `Program.Main` varsayılan beş ikinci kapatma zaman aşımı süresi 20 saniye artırır:
+
+```csharp
+var host = new HostBuilder()
+    .ConfigureServices((hostContext, services) =>
+    {
+        services.Configure<HostOptions>(option =>
+        {
+            option.ShutdownTimeout = System.TimeSpan.FromSeconds(20);
+        });
+    })
+    .Build();
+```
 
 ## <a name="default-services"></a>Varsayılan hizmetler
 

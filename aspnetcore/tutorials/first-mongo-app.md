@@ -4,14 +4,14 @@ author: pratik-khandelwal
 description: Bu öğreticide bir ASP.NET Core web API'si kullanarak bir MongoDB NoSQL veritabanı oluşturma gösterilmektedir.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 11/26/2018
+ms.date: 11/29/2018
 uid: tutorials/first-mongo-app
-ms.openlocfilehash: c4e00eeb2c4aecde9c70c6902e21d06853be7696
-ms.sourcegitcommit: e7fafb153b9de7595c2558a0133f8d1c33a3bddb
+ms.openlocfilehash: becf55bf94a1bfe78935013d802168a0b05dccce
+ms.sourcegitcommit: 0fc89b80bb1952852ecbcf3c5c156459b02a6ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52458499"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52618096"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-mongodb"></a>MongoDB ile ASP.NET Core ile web API'si oluşturma
 
@@ -31,11 +31,26 @@ Bu öğreticide, şunların nasıl yapılır:
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* [.NET core SDK 2.1 veya üzeri](https://www.microsoft.com/net/download/all)
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+* [.NET core SDK 2.2 veya üzeri](https://www.microsoft.com/net/download/all)
+* [Visual Studio 2017 sürüm 15,9 veya üzeri](https://www.visualstudio.com/downloads/) ile **ASP.NET ve web geliştirme** iş yükü
+* [MongoDB](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/)
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
+* [.NET core SDK 2.2 veya üzeri](https://www.microsoft.com/net/download/all)
+* [Visual Studio Code](https://code.visualstudio.com/download)
+* [Visual Studio Code için C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
 * [MongoDB](https://docs.mongodb.com/manual/administration/install-community/)
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/) 15.7.3 sürümü veya üzeri aşağıdaki iş yükleri ile:
-  * **.NET core platformlar arası geliştirme**
-  * **ASP.NET ve web geliştirme**
+
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
+
+* [.NET core SDK 2.2 veya üzeri](https://www.microsoft.com/net/download/all)
+* [Mac 7,7 veya sonraki bir sürümü için Visual Studio](https://www.visualstudio.com/downloads/)
+* [MongoDB](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/)
+
+---
 
 ## <a name="configure-mongodb"></a>MongoDB yapılandırın
 
@@ -125,8 +140,10 @@ Veritabanı hazırdır. ASP.NET Core web API'si oluşturmaya başlayabilirsiniz.
 
 ## <a name="create-the-aspnet-core-web-api-project"></a>ASP.NET Core web API projesi oluşturma
 
-1. Visual Studio'da Git **dosya** > **yeni** > **proje**.
-1. Seçin **ASP.NET Core Web uygulaması**, projeyi adlandırın *BookMongo*, tıklatıp **Tamam**.
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+1. Git **dosya** > **yeni** > **proje**.
+1. Seçin **ASP.NET Core Web uygulaması**, projeyi adlandırın *BooksApi*, tıklatıp **Tamam**.
 1. Seçin **.NET Core** hedef çerçeve ve **ASP.NET Core 2.1**. Seçin **API** proje şablonu ve tıklayın **Tamam**:
 1. İçinde **Paket Yöneticisi Konsolu** penceresinde proje kök dizinine gidin. MongoDB için .NET sürücüsünü yüklemek için aşağıdaki komutu çalıştırın:
 
@@ -134,31 +151,61 @@ Veritabanı hazırdır. ASP.NET Core web API'si oluşturmaya başlayabilirsiniz.
     Install-Package MongoDB.Driver -Version 2.7.2
     ```
 
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
+1. Bir komut kabuğu'nda aşağıdaki komutları çalıştırın:
+
+    ```console
+    dotnet new webapi -o BooksApi
+    code BooksApi
+    ```
+
+    .NET Core'u hedefleyen yeni bir ASP.NET Core web API projesi oluşturulur ve Visual Studio Code'da açılır.
+
+1. Tıklayın **Evet** olduğunda *gerekli varlıkları oluşturun ve hata ayıklama 'BooksApi' eksik. Bunları eklensin mi?*  bildirim görüntülenir.
+1. Açık **tümleşik Terminalini** ve proje kök dizinine gidin. MongoDB için .NET sürücüsünü yüklemek için aşağıdaki komutu çalıştırın:
+
+    ```console
+    dotnet add BooksApi.csproj package MongoDB.Driver -v 2.7.2
+    ```
+
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
+
+1. Git **dosya** > **yeni çözüm** > **.NET Core** > **uygulama**.
+1. Seçin **ASP.NET Core Web API'si** C# proje şablonu ve tıklayın **sonraki**.
+1. Seçin **.NET Core 2.2** gelen **hedef Framework'ü** açılır listede seçeneğine tıklayıp **sonraki**.
+1. Girin *BooksApi* için **proje adı**, tıklatıp **Oluştur**.
+1. İçinde **çözüm** paneli, projenin sağ **bağımlılıkları** düğümünü seçip alt **paketleri Ekle**.
+1. Girin *MongoDB.Driver* arama kutusunda *MongoDB.Driver* paketini ve tıklayın **Paketi Ekle**.
+1. Tıklayın **kabul** düğmesine **lisans kabulü** iletişim.
+
+---
+
 ## <a name="add-a-model"></a>Model ekleme
 
-1. Ekleme bir *modelleri* proje kök klasör.
-1. Ekleme bir `Book` sınıfının *modelleri* aşağıdaki kodla klasörü:
+1. Ekleme bir *modelleri* proje kök dizini.
+1. Ekleme bir `Book` sınıfının *modelleri* aşağıdaki kod ile dizin:
 
-    [!code-csharp[](first-mongo-app/sample/BookstoreAPI/Models/Book.cs)]
+    [!code-csharp[](first-mongo-app/sample/BooksApi/Models/Book.cs)]
 
 Önceki sınıfında `Id` özelliği ortak dil çalışma zamanı (CLR) nesnesi için MongoDB koleksiyonu eşlemek için gereklidir. Sınıftaki diğer özellikler ile donatılmış `[BsonElement]` özniteliği. Özniteliğin değeri, özellik adı, MongoDB koleksiyonu temsil eder.
 
 ## <a name="add-a-crud-operations-class"></a>CRUD işlemleri sınıfı Ekle
 
-1. Ekleme bir *Hizmetleri* proje kök klasör.
-1. Ekleme bir `BookService` sınıfının *Hizmetleri* aşağıdaki kodla klasörü:
+1. Ekleme bir *Hizmetleri* proje kök dizini.
+1. Ekleme bir `BookService` sınıfının *Hizmetleri* aşağıdaki kod ile dizin:
 
-    [!code-csharp[](first-mongo-app/sample/BookstoreAPI/Services/BookService.cs?name=snippet_BookServiceClass)]
+    [!code-csharp[](first-mongo-app/sample/BooksApi/Services/BookService.cs?name=snippet_BookServiceClass)]
 
 1. MongoDB bağlantı dizesi Ekle *appsettings.json*:
 
-    [!code-csharp[](first-mongo-app/sample/BookstoreAPI/appsettings.json?highlight=2-4)]
+    [!code-csharp[](first-mongo-app/sample/BooksApi/appsettings.json?highlight=2-4)]
 
     Önceki `BookstoreDb` özelliğine erişilirse `BookService` sınıf oluşturucusu.
 
 1. İçinde `Startup.ConfigureServices`, kayıt `BookService` bağımlılık ekleme sistemiyle sınıfı:
 
-    [!code-csharp[](first-mongo-app/sample/BookstoreAPI/Startup.cs?name=snippet_ConfigureServices&highlight=3)]
+    [!code-csharp[](first-mongo-app/sample/BooksApi/Startup.cs?name=snippet_ConfigureServices&highlight=3)]
 
     Önceki hizmet kaydı sınıfları tüketen yapıcı eklemeyi desteklemek gereklidir.
 
@@ -166,7 +213,7 @@ Veritabanı hazırdır. ASP.NET Core web API'si oluşturmaya başlayabilirsiniz.
 
 * `MongoClient` &ndash; Veritabanı işlemleri gerçekleştirmek için kullanılan bir sunucuyu okur. Bu sınıfın oluşturucusu, MongoDB bağlantı dizesini sağlanır:
 
-    [!code-csharp[](first-mongo-app/sample/BookstoreAPI/Services/BookService.cs?name=snippet_BookServiceConstructor&highlight=3)]
+    [!code-csharp[](first-mongo-app/sample/BooksApi/Services/BookService.cs?name=snippet_BookServiceConstructor&highlight=3)]
 
 * `IMongoDatabase` &ndash; Mongo veritabanı işlemleri gerçekleştirmek için temsil eder. Bu öğreticide genel `GetCollection<T>(collection)` yöntemi belirli bir koleksiyondaki verileri erişim elde etmek için arabirim. Bu yöntemi çağrıldıktan sonra koleksiyonunda CRUD işlemleri gerçekleştirilebilir. İçinde `GetCollection<T>(collection)` yöntem çağrısı:
   * `collection` Koleksiyon adını temsil eder.
@@ -181,12 +228,9 @@ Veritabanı hazırdır. ASP.NET Core web API'si oluşturmaya başlayabilirsiniz.
 
 ## <a name="add-a-controller"></a>Denetleyici ekleme
 
-1. Sağ *denetleyicileri* klasöründe **Çözüm Gezgini**. Seçin **ekleme** > **denetleyicisi**.
-1. Seçin **API denetleyici - boş** öğe şablonu ve tıklayın **Ekle**.
-1. Girin *BooksController* içinde **Denetleyici adı** metin kutusu seçeneğine tıklayıp **Ekle**.
-1. Aşağıdaki kodu ekleyin *BooksController.cs*:
+1. Ekleme bir `BooksController` sınıfının *denetleyicileri* aşağıdaki kod ile dizin:
 
-    [!code-csharp[](first-mongo-app/sample/BookstoreAPI/Controllers/BooksController.cs)]
+    [!code-csharp[](first-mongo-app/sample/BooksApi/Controllers/BooksController.cs)]
 
     Önceki web API denetleyicisi:
 

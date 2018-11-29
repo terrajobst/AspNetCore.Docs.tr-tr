@@ -5,12 +5,12 @@ description: ASP.NET Core vs açıklar. ASP.NET 4.x ve bunlar arasında seçim y
 ms.author: riande
 ms.date: 09/11/2018
 uid: fundamentals/choose-between-aspnet-and-aspnetcore
-ms.openlocfilehash: 79e56e10b756677431ceff289300c251e54bf632
-ms.sourcegitcommit: bdfba5e7575b2a786ef27c0edf688c7dbd09ee95
+ms.openlocfilehash: fa281a068dfdcd8a7c45dd5d0a0c3084c4bc8dbc
+ms.sourcegitcommit: e8d80ff566bfe505b43389d7bc4551edb1c0c872
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52288674"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52549078"
 ---
 # <a name="choose-between-aspnet-4x-and-aspnet-core"></a>Seçin arasında ASP.NET 4.x ve ASP.NET Core
 
@@ -63,4 +63,4 @@ Bkz: [.NET Framework'ü hedefleyen ASP.NET Core](xref:index#target-framework) .N
 * <xref:host-and-deploy/azure-apps/index>
 
 > [!NOTE]
-> ASP.NET Core içindekiler için önerilen ve yeni bir yapıyı kullanılabilirliğini test ediyoruz.  Bir alıştırma 7 farklı konulara içeriğini, geçerli ya da önerilen tabloda Lütfen bulma denemek için birkaç dakika varsa [çalışmada katılmak için burayı tıklatın](https://dpk4xbh5.optimalworkshop.com/treejack/aa11wn82).
+> ASP.NET Core içindekiler tablosuna yönelik önerilmiş olan yeni bir yapının kullanılabilirliğini test ediyoruz.  Geçerli veya önerilen içindekiler tablosunda 7 farklı konuyu bulmaya ilişkin alıştırmayı denemek için vaktiniz varsa lütfen [çalışmaya katılmak için buraya tıklayın](https://dpk4xbh5.optimalworkshop.com/treejack/rps16hd5).

@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.date: 11/29/2018
 uid: performance/performance-best-practices
-ms.openlocfilehash: ced86dbc2d6f40b503493eda122d8977d6df7035
-ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
+ms.openlocfilehash: 9f3ed97bf4d4eb371ff5ae3874234b44745cc4ca
+ms.sourcegitcommit: 0fc89b80bb1952852ecbcf3c5c156459b02a6ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453034"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52618122"
 ---
 # <a name="aspnet-core-performance-best-practices"></a>ASP.NET Core performansı en iyi uygulamalar
 
@@ -24,7 +24,7 @@ Bu konu, ASP.NET Core ile en iyi performans için yönergeler sağlar.
 
 ## <a name="cache-aggressively"></a>Agresif bir biçimde önbelleğe alma
 
-Önbelleğe alma, bu belgenin birden fazla bölümde ele alınmıştır. Daha fazla bilgi için [ASP.NET Core yanıtlarını önbelleğe](xref:performance/caching/index).
+Önbelleğe alma, bu belgenin birden fazla bölümde ele alınmıştır. Daha fazla bilgi için bkz. <xref:performance/caching/response>.
 
 ## <a name="avoid-blocking-calls"></a>Çağrıları engellemekten kaçınacak
 
@@ -71,7 +71,7 @@ Bir veri deposunu veya diğer uzak Hizmetleri ile etkileşim genellikle en yava�
 
 * **Yapmak** tüm veri erişimi API'leri zaman uyumsuz olarak çağırın.
 * **Sağlamadığı** gerekli olandan daha fazla veri alın. Geçerli HTTP isteği için gerekli olan verileri döndürmek için sorgular yazarsınız.
-* **Yapmak** önbelleğe sık erişilen biraz güncel olmayan verileri için kabul edilebilir ise bir veritabanı veya uzak hizmetinden alınan verileri göz önünde bulundurun. Senaryoya bağlı olarak kullanabileceğinize bir [MemoryCache](xref:performance/caching/memory) veya [DistributedCache](xref:performance/caching/distributed). Daha fazla bilgi için [ASP.NET Core yanıtlarını önbelleğe](xref:performance/caching/index).
+* **Yapmak** önbelleğe sık erişilen biraz güncel olmayan verileri için kabul edilebilir ise bir veritabanı veya uzak hizmetinden alınan verileri göz önünde bulundurun. Senaryoya bağlı olarak kullanabileceğinize bir [MemoryCache](xref:performance/caching/memory) veya [DistributedCache](xref:performance/caching/distributed). Daha fazla bilgi için bkz. <xref:performance/caching/response>.
 * Simge Durumuna Küçült gidiş dönüş ağ. Tek bir çağrıda gereken tüm verileri yerine çeşitli çağrılar alınacak hedeftir.
 * **Yapmak** kullanın [Hayır izleme sorguları](/ef/core/querying/tracking#no-tracking-queries) salt okunur amacıyla verilere erişirken Entity Framework Core içinde. EF Core Hayır izleme sorguların sonuçlarını daha verimli bir şekilde döndürebilirsiniz.
 * **Yapmak** filtre ve toplama LINQ sorguları (ile `.Where`, `.Select`, veya `.Sum` deyimleri, örneğin) ve böylece filtreleme işlemi veritabanı tarafından yapılır.

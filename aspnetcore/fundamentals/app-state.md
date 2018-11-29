@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/14/2018
 uid: fundamentals/app-state
-ms.openlocfilehash: 5ca909681ca9da3fae0391991902da97581852be
-ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
+ms.openlocfilehash: ccaaa6fafd611c3cf35a9171d5bfd6100535eeb9
+ms.sourcegitcommit: 0fc89b80bb1952852ecbcf3c5c156459b02a6ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50253188"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52618135"
 ---
 # <a name="session-and-app-state-in-aspnet-core"></a>ASP.NET core'da oturum ve uygulama durumu
 
@@ -374,7 +374,7 @@ Bu yaklaşım, aynı zamanda koddaki anahtar dizeleri kullanımı ortadan avanta
 
 Önbelleğe alınan veriler belirli bir istek, kullanıcı veya oturum ile ilişkili değil. **Dikkatli olun diğer kullanıcıların isteklerinden alınan önbellek kullanıcıya özgü verilere değil.**
 
-Daha fazla bilgi için [yanıtları önbelleğe](xref:performance/caching/index) konu.
+Daha fazla bilgi için bkz. <xref:performance/caching/response>.
 
 ## <a name="dependency-injection"></a>Bağımlılık Ekleme
 
