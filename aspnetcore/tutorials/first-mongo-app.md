@@ -4,85 +4,100 @@ author: pratik-khandelwal
 description: Bu öğreticide bir ASP.NET Core web API'si kullanarak bir MongoDB NoSQL veritabanı oluşturma gösterilmektedir.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 11/26/2018
+ms.date: 11/29/2018
 uid: tutorials/first-mongo-app
-ms.openlocfilehash: c4e00eeb2c4aecde9c70c6902e21d06853be7696
-ms.sourcegitcommit: e7fafb153b9de7595c2558a0133f8d1c33a3bddb
+ms.openlocfilehash: becf55bf94a1bfe78935013d802168a0b05dccce
+ms.sourcegitcommit: 0fc89b80bb1952852ecbcf3c5c156459b02a6ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52458499"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52618096"
 ---
-# <a name="create-a-web-api-with-aspnet-core-and-mongodb"></a><span data-ttu-id="34c9f-103">MongoDB ile ASP.NET Core ile web API'si oluşturma</span><span class="sxs-lookup"><span data-stu-id="34c9f-103">Create a web API with ASP.NET Core and MongoDB</span></span>
+# <a name="create-a-web-api-with-aspnet-core-and-mongodb"></a><span data-ttu-id="3105a-103">MongoDB ile ASP.NET Core ile web API'si oluşturma</span><span class="sxs-lookup"><span data-stu-id="3105a-103">Create a web API with ASP.NET Core and MongoDB</span></span>
 
-<span data-ttu-id="34c9f-104">Tarafından [Pratik Khandelwal](https://twitter.com/K2Prk) ve [Scott Addie](https://twitter.com/Scott_Addie)</span><span class="sxs-lookup"><span data-stu-id="34c9f-104">By [Pratik Khandelwal](https://twitter.com/K2Prk) and [Scott Addie](https://twitter.com/Scott_Addie)</span></span>
+<span data-ttu-id="3105a-104">Tarafından [Pratik Khandelwal](https://twitter.com/K2Prk) ve [Scott Addie](https://twitter.com/Scott_Addie)</span><span class="sxs-lookup"><span data-stu-id="3105a-104">By [Pratik Khandelwal](https://twitter.com/K2Prk) and [Scott Addie](https://twitter.com/Scott_Addie)</span></span>
 
-<span data-ttu-id="34c9f-105">Bu öğreticide web API'si temel oluşturma, okuma, güncelleştirme ve silme (CRUD) işlemleri gerçekleştiren oluşturur bir [MongoDB](https://www.mongodb.com/what-is-mongodb) NoSQL veritabanı.</span><span class="sxs-lookup"><span data-stu-id="34c9f-105">This tutorial creates a web API that performs Create, Read, Update, and Delete (CRUD) operations on a [MongoDB](https://www.mongodb.com/what-is-mongodb) NoSQL database.</span></span>
+<span data-ttu-id="3105a-105">Bu öğreticide web API'si temel oluşturma, okuma, güncelleştirme ve silme (CRUD) işlemleri gerçekleştiren oluşturur bir [MongoDB](https://www.mongodb.com/what-is-mongodb) NoSQL veritabanı.</span><span class="sxs-lookup"><span data-stu-id="3105a-105">This tutorial creates a web API that performs Create, Read, Update, and Delete (CRUD) operations on a [MongoDB](https://www.mongodb.com/what-is-mongodb) NoSQL database.</span></span>
 
-<span data-ttu-id="34c9f-106">Bu öğreticide, şunların nasıl yapılır:</span><span class="sxs-lookup"><span data-stu-id="34c9f-106">In this tutorial, you learn how to:</span></span>
+<span data-ttu-id="3105a-106">Bu öğreticide, şunların nasıl yapılır:</span><span class="sxs-lookup"><span data-stu-id="3105a-106">In this tutorial, you learn how to:</span></span>
 
 > [!div class="checklist"]
-> * <span data-ttu-id="34c9f-107">MongoDB yapılandırın</span><span class="sxs-lookup"><span data-stu-id="34c9f-107">Configure MongoDB</span></span>
-> * <span data-ttu-id="34c9f-108">MongoDB veritabanı oluşturma</span><span class="sxs-lookup"><span data-stu-id="34c9f-108">Create a MongoDB database</span></span>
-> * <span data-ttu-id="34c9f-109">MongoDB koleksiyonu ve şema tanımlayın</span><span class="sxs-lookup"><span data-stu-id="34c9f-109">Define a MongoDB collection and schema</span></span>
-> * <span data-ttu-id="34c9f-110">Bir web API'sini MongoDB CRUD işlemleri gerçekleştirme</span><span class="sxs-lookup"><span data-stu-id="34c9f-110">Perform MongoDB CRUD operations from a web API</span></span>
+> * <span data-ttu-id="3105a-107">MongoDB yapılandırın</span><span class="sxs-lookup"><span data-stu-id="3105a-107">Configure MongoDB</span></span>
+> * <span data-ttu-id="3105a-108">MongoDB veritabanı oluşturma</span><span class="sxs-lookup"><span data-stu-id="3105a-108">Create a MongoDB database</span></span>
+> * <span data-ttu-id="3105a-109">MongoDB koleksiyonu ve şema tanımlayın</span><span class="sxs-lookup"><span data-stu-id="3105a-109">Define a MongoDB collection and schema</span></span>
+> * <span data-ttu-id="3105a-110">Bir web API'sini MongoDB CRUD işlemleri gerçekleştirme</span><span class="sxs-lookup"><span data-stu-id="3105a-110">Perform MongoDB CRUD operations from a web API</span></span>
 
-<span data-ttu-id="34c9f-111">[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-mongo-app/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))</span><span class="sxs-lookup"><span data-stu-id="34c9f-111">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-mongo-app/sample) ([how to download](xref:index#how-to-download-a-sample))</span></span>
+<span data-ttu-id="3105a-111">[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-mongo-app/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))</span><span class="sxs-lookup"><span data-stu-id="3105a-111">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-mongo-app/sample) ([how to download](xref:index#how-to-download-a-sample))</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="34c9f-112">Önkoşullar</span><span class="sxs-lookup"><span data-stu-id="34c9f-112">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="3105a-112">Önkoşullar</span><span class="sxs-lookup"><span data-stu-id="3105a-112">Prerequisites</span></span>
 
-* [<span data-ttu-id="34c9f-113">.NET core SDK 2.1 veya üzeri</span><span class="sxs-lookup"><span data-stu-id="34c9f-113">.NET Core SDK 2.1 or later</span></span>](https://www.microsoft.com/net/download/all)
-* [<span data-ttu-id="34c9f-114">MongoDB</span><span class="sxs-lookup"><span data-stu-id="34c9f-114">MongoDB</span></span>](https://docs.mongodb.com/manual/administration/install-community/)
-* <span data-ttu-id="34c9f-115">[Visual Studio 2017](https://www.visualstudio.com/downloads/) 15.7.3 sürümü veya üzeri aşağıdaki iş yükleri ile:</span><span class="sxs-lookup"><span data-stu-id="34c9f-115">[Visual Studio 2017](https://www.visualstudio.com/downloads/) version 15.7.3 or later with the following workloads:</span></span>
-  * <span data-ttu-id="34c9f-116">**.NET core platformlar arası geliştirme**</span><span class="sxs-lookup"><span data-stu-id="34c9f-116">**.NET Core cross-platform development**</span></span>
-  * <span data-ttu-id="34c9f-117">**ASP.NET ve web geliştirme**</span><span class="sxs-lookup"><span data-stu-id="34c9f-117">**ASP.NET and web development**</span></span>
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="3105a-113">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="3105a-113">Visual Studio</span></span>](#tab/visual-studio)
 
-## <a name="configure-mongodb"></a><span data-ttu-id="34c9f-118">MongoDB yapılandırın</span><span class="sxs-lookup"><span data-stu-id="34c9f-118">Configure MongoDB</span></span>
+* [<span data-ttu-id="3105a-114">.NET core SDK 2.2 veya üzeri</span><span class="sxs-lookup"><span data-stu-id="3105a-114">.NET Core SDK 2.2 or later</span></span>](https://www.microsoft.com/net/download/all)
+* <span data-ttu-id="3105a-115">[Visual Studio 2017 sürüm 15,9 veya üzeri](https://www.visualstudio.com/downloads/) ile **ASP.NET ve web geliştirme** iş yükü</span><span class="sxs-lookup"><span data-stu-id="3105a-115">[Visual Studio 2017 version 15.9 or later](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload</span></span>
+* [<span data-ttu-id="3105a-116">MongoDB</span><span class="sxs-lookup"><span data-stu-id="3105a-116">MongoDB</span></span>](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/)
 
-<span data-ttu-id="34c9f-119">Windows kullanıyorsanız, MongoDB yüklü *C:\Program Files\MongoDB* varsayılan olarak.</span><span class="sxs-lookup"><span data-stu-id="34c9f-119">If using Windows, MongoDB is installed at *C:\Program Files\MongoDB* by default.</span></span> <span data-ttu-id="34c9f-120">Ekleme *C:\Program Files\MongoDB\Server\<version_number > \bin* için `Path` ortam değişkeni.</span><span class="sxs-lookup"><span data-stu-id="34c9f-120">Add *C:\Program Files\MongoDB\Server\<version_number>\bin* to the `Path` environment variable.</span></span> <span data-ttu-id="34c9f-121">Bu değişiklik yerden MongoDB erişim sağlar, geliştirme makinenizde.</span><span class="sxs-lookup"><span data-stu-id="34c9f-121">This change enables MongoDB access from anywhere on your development machine.</span></span>
+# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="3105a-117">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="3105a-117">Visual Studio Code</span></span>](#tab/visual-studio-code)
 
-<span data-ttu-id="34c9f-122">Mongo kabuğunu veritabanı oluşturma, koleksiyonları yapın ve belgeleri depolamak için aşağıdaki adımları kullanın.</span><span class="sxs-lookup"><span data-stu-id="34c9f-122">Use the mongo Shell in the following steps to create a database, make collections, and store documents.</span></span> <span data-ttu-id="34c9f-123">Mongo Kabuğu komutları hakkında daha fazla bilgi için bkz. [mongo kabuğunu çalışma](https://docs.mongodb.com/manual/mongo/#working-with-the-mongo-shell).</span><span class="sxs-lookup"><span data-stu-id="34c9f-123">For more information on mongo Shell commands, see [Working with the mongo Shell](https://docs.mongodb.com/manual/mongo/#working-with-the-mongo-shell).</span></span>
+* [<span data-ttu-id="3105a-118">.NET core SDK 2.2 veya üzeri</span><span class="sxs-lookup"><span data-stu-id="3105a-118">.NET Core SDK 2.2 or later</span></span>](https://www.microsoft.com/net/download/all)
+* [<span data-ttu-id="3105a-119">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="3105a-119">Visual Studio Code</span></span>](https://code.visualstudio.com/download)
+* [<span data-ttu-id="3105a-120">Visual Studio Code için C#</span><span class="sxs-lookup"><span data-stu-id="3105a-120">C# for Visual Studio Code</span></span>](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+* [<span data-ttu-id="3105a-121">MongoDB</span><span class="sxs-lookup"><span data-stu-id="3105a-121">MongoDB</span></span>](https://docs.mongodb.com/manual/administration/install-community/)
 
-1. <span data-ttu-id="34c9f-124">Geliştirme makinenizde verilerin depolanması için bir dizin seçin.</span><span class="sxs-lookup"><span data-stu-id="34c9f-124">Choose a directory on your development machine for storing the data.</span></span> <span data-ttu-id="34c9f-125">Örneğin, *C:\BooksData* Windows üzerinde.</span><span class="sxs-lookup"><span data-stu-id="34c9f-125">For example, *C:\BooksData* on Windows.</span></span> <span data-ttu-id="34c9f-126">Yoksa dizini oluşturun.</span><span class="sxs-lookup"><span data-stu-id="34c9f-126">Create the directory if it doesn't exist.</span></span> <span data-ttu-id="34c9f-127">Mongo kabuğunu yeni dizinleri oluşturmaz.</span><span class="sxs-lookup"><span data-stu-id="34c9f-127">The mongo Shell doesn't create new directories.</span></span>
-1. <span data-ttu-id="34c9f-128">Bir komut kabuğunu açın.</span><span class="sxs-lookup"><span data-stu-id="34c9f-128">Open a command shell.</span></span> <span data-ttu-id="34c9f-129">Varsayılan bağlantı noktası 27017 mongodb'ye bağlanmak için aşağıdaki komutu çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="34c9f-129">Run the following command to connect to MongoDB on default port 27017.</span></span> <span data-ttu-id="34c9f-130">Değiştirmeyi unutmayın `<data_directory_path>` önceki adımda seçtiğiniz dizini.</span><span class="sxs-lookup"><span data-stu-id="34c9f-130">Remember to replace `<data_directory_path>` with the directory you chose in the previous step.</span></span>
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="3105a-122">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="3105a-122">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
+
+* [<span data-ttu-id="3105a-123">.NET core SDK 2.2 veya üzeri</span><span class="sxs-lookup"><span data-stu-id="3105a-123">.NET Core SDK 2.2 or later</span></span>](https://www.microsoft.com/net/download/all)
+* [<span data-ttu-id="3105a-124">Mac 7,7 veya sonraki bir sürümü için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="3105a-124">Visual Studio for Mac version 7.7 or later</span></span>](https://www.visualstudio.com/downloads/)
+* [<span data-ttu-id="3105a-125">MongoDB</span><span class="sxs-lookup"><span data-stu-id="3105a-125">MongoDB</span></span>](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/)
+
+---
+
+## <a name="configure-mongodb"></a><span data-ttu-id="3105a-126">MongoDB yapılandırın</span><span class="sxs-lookup"><span data-stu-id="3105a-126">Configure MongoDB</span></span>
+
+<span data-ttu-id="3105a-127">Windows kullanıyorsanız, MongoDB yüklü *C:\Program Files\MongoDB* varsayılan olarak.</span><span class="sxs-lookup"><span data-stu-id="3105a-127">If using Windows, MongoDB is installed at *C:\Program Files\MongoDB* by default.</span></span> <span data-ttu-id="3105a-128">Ekleme *C:\Program Files\MongoDB\Server\<version_number > \bin* için `Path` ortam değişkeni.</span><span class="sxs-lookup"><span data-stu-id="3105a-128">Add *C:\Program Files\MongoDB\Server\<version_number>\bin* to the `Path` environment variable.</span></span> <span data-ttu-id="3105a-129">Bu değişiklik yerden MongoDB erişim sağlar, geliştirme makinenizde.</span><span class="sxs-lookup"><span data-stu-id="3105a-129">This change enables MongoDB access from anywhere on your development machine.</span></span>
+
+<span data-ttu-id="3105a-130">Mongo kabuğunu veritabanı oluşturma, koleksiyonları yapın ve belgeleri depolamak için aşağıdaki adımları kullanın.</span><span class="sxs-lookup"><span data-stu-id="3105a-130">Use the mongo Shell in the following steps to create a database, make collections, and store documents.</span></span> <span data-ttu-id="3105a-131">Mongo Kabuğu komutları hakkında daha fazla bilgi için bkz. [mongo kabuğunu çalışma](https://docs.mongodb.com/manual/mongo/#working-with-the-mongo-shell).</span><span class="sxs-lookup"><span data-stu-id="3105a-131">For more information on mongo Shell commands, see [Working with the mongo Shell](https://docs.mongodb.com/manual/mongo/#working-with-the-mongo-shell).</span></span>
+
+1. <span data-ttu-id="3105a-132">Geliştirme makinenizde verilerin depolanması için bir dizin seçin.</span><span class="sxs-lookup"><span data-stu-id="3105a-132">Choose a directory on your development machine for storing the data.</span></span> <span data-ttu-id="3105a-133">Örneğin, *C:\BooksData* Windows üzerinde.</span><span class="sxs-lookup"><span data-stu-id="3105a-133">For example, *C:\BooksData* on Windows.</span></span> <span data-ttu-id="3105a-134">Yoksa dizini oluşturun.</span><span class="sxs-lookup"><span data-stu-id="3105a-134">Create the directory if it doesn't exist.</span></span> <span data-ttu-id="3105a-135">Mongo kabuğunu yeni dizinleri oluşturmaz.</span><span class="sxs-lookup"><span data-stu-id="3105a-135">The mongo Shell doesn't create new directories.</span></span>
+1. <span data-ttu-id="3105a-136">Bir komut kabuğunu açın.</span><span class="sxs-lookup"><span data-stu-id="3105a-136">Open a command shell.</span></span> <span data-ttu-id="3105a-137">Varsayılan bağlantı noktası 27017 mongodb'ye bağlanmak için aşağıdaki komutu çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="3105a-137">Run the following command to connect to MongoDB on default port 27017.</span></span> <span data-ttu-id="3105a-138">Değiştirmeyi unutmayın `<data_directory_path>` önceki adımda seçtiğiniz dizini.</span><span class="sxs-lookup"><span data-stu-id="3105a-138">Remember to replace `<data_directory_path>` with the directory you chose in the previous step.</span></span>
 
     ```console
     mongod --dbpath <data_directory_path>
     ```
 
-1. <span data-ttu-id="34c9f-131">Başka bir komut kabuğu örneği açın.</span><span class="sxs-lookup"><span data-stu-id="34c9f-131">Open another command shell instance.</span></span> <span data-ttu-id="34c9f-132">Aşağıdaki komutu çalıştırarak varsayılan test veritabanı'na bağlanma:</span><span class="sxs-lookup"><span data-stu-id="34c9f-132">Connect to the default test database by running the following command:</span></span>
+1. <span data-ttu-id="3105a-139">Başka bir komut kabuğu örneği açın.</span><span class="sxs-lookup"><span data-stu-id="3105a-139">Open another command shell instance.</span></span> <span data-ttu-id="3105a-140">Aşağıdaki komutu çalıştırarak varsayılan test veritabanı'na bağlanma:</span><span class="sxs-lookup"><span data-stu-id="3105a-140">Connect to the default test database by running the following command:</span></span>
 
     ```console
     mongo
     ```
 
-1. <span data-ttu-id="34c9f-133">Bir komut kabuğu'nda aşağıdaki komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="34c9f-133">Run the following in a command shell:</span></span>
+1. <span data-ttu-id="3105a-141">Bir komut kabuğu'nda aşağıdaki komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="3105a-141">Run the following in a command shell:</span></span>
 
     ```console
     use BookstoreDb
     ```
 
-    <span data-ttu-id="34c9f-134">Adlı bir veritabanı zaten mevcut olmayan halinde *BookstoreDb* oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="34c9f-134">If it doesn't already exist, a database named *BookstoreDb* is created.</span></span> <span data-ttu-id="34c9f-135">Veritabanı mevcut değilse, bağlantı işlemleri için açılır.</span><span class="sxs-lookup"><span data-stu-id="34c9f-135">If the database does exist, its connection is opened for transactions.</span></span>
+    <span data-ttu-id="3105a-142">Adlı bir veritabanı zaten mevcut olmayan halinde *BookstoreDb* oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="3105a-142">If it doesn't already exist, a database named *BookstoreDb* is created.</span></span> <span data-ttu-id="3105a-143">Veritabanı mevcut değilse, bağlantı işlemleri için açılır.</span><span class="sxs-lookup"><span data-stu-id="3105a-143">If the database does exist, its connection is opened for transactions.</span></span>
 
-1. <span data-ttu-id="34c9f-136">Oluşturma bir `Books` koleksiyon aşağıdaki komutu kullanarak:</span><span class="sxs-lookup"><span data-stu-id="34c9f-136">Create a `Books` collection using following command:</span></span>
+1. <span data-ttu-id="3105a-144">Oluşturma bir `Books` koleksiyon aşağıdaki komutu kullanarak:</span><span class="sxs-lookup"><span data-stu-id="3105a-144">Create a `Books` collection using following command:</span></span>
 
     ```console
     db.createCollection('Books')
     ```
 
-    <span data-ttu-id="34c9f-137">Aşağıdaki sonucu görüntülenir:</span><span class="sxs-lookup"><span data-stu-id="34c9f-137">The following result is displayed:</span></span>
+    <span data-ttu-id="3105a-145">Aşağıdaki sonucu görüntülenir:</span><span class="sxs-lookup"><span data-stu-id="3105a-145">The following result is displayed:</span></span>
 
     ```console
     { "ok" : 1 }
     ```
 
-1. <span data-ttu-id="34c9f-138">İçin bir şema tanımlayabilir `Books` toplama ve ekleme iki belge aşağıdaki komutu kullanarak:</span><span class="sxs-lookup"><span data-stu-id="34c9f-138">Define a schema for the `Books` collection and insert two documents using the following command:</span></span>
+1. <span data-ttu-id="3105a-146">İçin bir şema tanımlayabilir `Books` toplama ve ekleme iki belge aşağıdaki komutu kullanarak:</span><span class="sxs-lookup"><span data-stu-id="3105a-146">Define a schema for the `Books` collection and insert two documents using the following command:</span></span>
 
     ```console
     db.Books.insertMany([{'Name':'Design Patterns','Price':54.93,'Category':'Computers','Author':'Ralph Johnson'}, {'Name':'Clean Code','Price':43.15,'Category':'Computers','Author':'Robert C. Martin'}])
     ```
 
-    <span data-ttu-id="34c9f-139">Aşağıdaki sonucu görüntülenir:</span><span class="sxs-lookup"><span data-stu-id="34c9f-139">The following result is displayed:</span></span>
+    <span data-ttu-id="3105a-147">Aşağıdaki sonucu görüntülenir:</span><span class="sxs-lookup"><span data-stu-id="3105a-147">The following result is displayed:</span></span>
 
     ```console
     {
@@ -94,13 +109,13 @@ ms.locfileid: "52458499"
     }
     ```
 
-1. <span data-ttu-id="34c9f-140">Aşağıdaki komutu kullanarak veritabanında belgelerini görüntüleyin:</span><span class="sxs-lookup"><span data-stu-id="34c9f-140">View the documents in the database using the following command:</span></span>
+1. <span data-ttu-id="3105a-148">Aşağıdaki komutu kullanarak veritabanında belgelerini görüntüleyin:</span><span class="sxs-lookup"><span data-stu-id="3105a-148">View the documents in the database using the following command:</span></span>
 
     ```console
     db.Books.find({}).pretty()
     ```
 
-    <span data-ttu-id="34c9f-141">Aşağıdaki sonucu görüntülenir:</span><span class="sxs-lookup"><span data-stu-id="34c9f-141">The following result is displayed:</span></span>
+    <span data-ttu-id="3105a-149">Aşağıdaki sonucu görüntülenir:</span><span class="sxs-lookup"><span data-stu-id="3105a-149">The following result is displayed:</span></span>
 
     ```console
     {
@@ -119,81 +134,110 @@ ms.locfileid: "52458499"
     }
     ```
 
-    <span data-ttu-id="34c9f-142">Şema girmiş ekler `_id` türünün özelliği `ObjectId` her belge için.</span><span class="sxs-lookup"><span data-stu-id="34c9f-142">The schema adds an autogenerated `_id` property of type `ObjectId` for each document.</span></span>
+    <span data-ttu-id="3105a-150">Şema girmiş ekler `_id` türünün özelliği `ObjectId` her belge için.</span><span class="sxs-lookup"><span data-stu-id="3105a-150">The schema adds an autogenerated `_id` property of type `ObjectId` for each document.</span></span>
 
-<span data-ttu-id="34c9f-143">Veritabanı hazırdır.</span><span class="sxs-lookup"><span data-stu-id="34c9f-143">The database is ready.</span></span> <span data-ttu-id="34c9f-144">ASP.NET Core web API'si oluşturmaya başlayabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="34c9f-144">You can start creating the ASP.NET Core web API.</span></span>
+<span data-ttu-id="3105a-151">Veritabanı hazırdır.</span><span class="sxs-lookup"><span data-stu-id="3105a-151">The database is ready.</span></span> <span data-ttu-id="3105a-152">ASP.NET Core web API'si oluşturmaya başlayabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="3105a-152">You can start creating the ASP.NET Core web API.</span></span>
 
-## <a name="create-the-aspnet-core-web-api-project"></a><span data-ttu-id="34c9f-145">ASP.NET Core web API projesi oluşturma</span><span class="sxs-lookup"><span data-stu-id="34c9f-145">Create the ASP.NET Core web API project</span></span>
+## <a name="create-the-aspnet-core-web-api-project"></a><span data-ttu-id="3105a-153">ASP.NET Core web API projesi oluşturma</span><span class="sxs-lookup"><span data-stu-id="3105a-153">Create the ASP.NET Core web API project</span></span>
 
-1. <span data-ttu-id="34c9f-146">Visual Studio'da Git **dosya** > **yeni** > **proje**.</span><span class="sxs-lookup"><span data-stu-id="34c9f-146">In Visual Studio, go to **File** > **New** > **Project**.</span></span>
-1. <span data-ttu-id="34c9f-147">Seçin **ASP.NET Core Web uygulaması**, projeyi adlandırın *BookMongo*, tıklatıp **Tamam**.</span><span class="sxs-lookup"><span data-stu-id="34c9f-147">Select **ASP.NET Core Web Application**, name the project *BookMongo*, and click **OK**.</span></span>
-1. <span data-ttu-id="34c9f-148">Seçin **.NET Core** hedef çerçeve ve **ASP.NET Core 2.1**.</span><span class="sxs-lookup"><span data-stu-id="34c9f-148">Select the **.NET Core** target framework and **ASP.NET Core 2.1**.</span></span> <span data-ttu-id="34c9f-149">Seçin **API** proje şablonu ve tıklayın **Tamam**:</span><span class="sxs-lookup"><span data-stu-id="34c9f-149">Select the **API** project template, and click **OK**:</span></span>
-1. <span data-ttu-id="34c9f-150">İçinde **Paket Yöneticisi Konsolu** penceresinde proje kök dizinine gidin.</span><span class="sxs-lookup"><span data-stu-id="34c9f-150">In the **Package Manager Console** window, navigate to the project root.</span></span> <span data-ttu-id="34c9f-151">MongoDB için .NET sürücüsünü yüklemek için aşağıdaki komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="34c9f-151">Run the following command to install the .NET driver for MongoDB:</span></span>
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="3105a-154">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="3105a-154">Visual Studio</span></span>](#tab/visual-studio)
+
+1. <span data-ttu-id="3105a-155">Git **dosya** > **yeni** > **proje**.</span><span class="sxs-lookup"><span data-stu-id="3105a-155">Go to **File** > **New** > **Project**.</span></span>
+1. <span data-ttu-id="3105a-156">Seçin **ASP.NET Core Web uygulaması**, projeyi adlandırın *BooksApi*, tıklatıp **Tamam**.</span><span class="sxs-lookup"><span data-stu-id="3105a-156">Select **ASP.NET Core Web Application**, name the project *BooksApi*, and click **OK**.</span></span>
+1. <span data-ttu-id="3105a-157">Seçin **.NET Core** hedef çerçeve ve **ASP.NET Core 2.1**.</span><span class="sxs-lookup"><span data-stu-id="3105a-157">Select the **.NET Core** target framework and **ASP.NET Core 2.1**.</span></span> <span data-ttu-id="3105a-158">Seçin **API** proje şablonu ve tıklayın **Tamam**:</span><span class="sxs-lookup"><span data-stu-id="3105a-158">Select the **API** project template, and click **OK**:</span></span>
+1. <span data-ttu-id="3105a-159">İçinde **Paket Yöneticisi Konsolu** penceresinde proje kök dizinine gidin.</span><span class="sxs-lookup"><span data-stu-id="3105a-159">In the **Package Manager Console** window, navigate to the project root.</span></span> <span data-ttu-id="3105a-160">MongoDB için .NET sürücüsünü yüklemek için aşağıdaki komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="3105a-160">Run the following command to install the .NET driver for MongoDB:</span></span>
 
     ```powershell
     Install-Package MongoDB.Driver -Version 2.7.2
     ```
 
-## <a name="add-a-model"></a><span data-ttu-id="34c9f-152">Model ekleme</span><span class="sxs-lookup"><span data-stu-id="34c9f-152">Add a model</span></span>
+# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="3105a-161">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="3105a-161">Visual Studio Code</span></span>](#tab/visual-studio-code)
 
-1. <span data-ttu-id="34c9f-153">Ekleme bir *modelleri* proje kök klasör.</span><span class="sxs-lookup"><span data-stu-id="34c9f-153">Add a *Models* folder to the project root.</span></span>
-1. <span data-ttu-id="34c9f-154">Ekleme bir `Book` sınıfının *modelleri* aşağıdaki kodla klasörü:</span><span class="sxs-lookup"><span data-stu-id="34c9f-154">Add a `Book` class to the *Models* folder with the following code:</span></span>
+1. <span data-ttu-id="3105a-162">Bir komut kabuğu'nda aşağıdaki komutları çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="3105a-162">Run the following commands in a command shell:</span></span>
 
-    [!code-csharp[](first-mongo-app/sample/BookstoreAPI/Models/Book.cs)]
+    ```console
+    dotnet new webapi -o BooksApi
+    code BooksApi
+    ```
 
-<span data-ttu-id="34c9f-155">Önceki sınıfında `Id` özelliği ortak dil çalışma zamanı (CLR) nesnesi için MongoDB koleksiyonu eşlemek için gereklidir.</span><span class="sxs-lookup"><span data-stu-id="34c9f-155">In the preceding class, the `Id` property is required for mapping the Common Language Runtime (CLR) object to the MongoDB collection.</span></span> <span data-ttu-id="34c9f-156">Sınıftaki diğer özellikler ile donatılmış `[BsonElement]` özniteliği.</span><span class="sxs-lookup"><span data-stu-id="34c9f-156">Other properties in the class are decorated with the `[BsonElement]` attribute.</span></span> <span data-ttu-id="34c9f-157">Özniteliğin değeri, özellik adı, MongoDB koleksiyonu temsil eder.</span><span class="sxs-lookup"><span data-stu-id="34c9f-157">The attribute's value represents the property name in the MongoDB collection.</span></span>
+    <span data-ttu-id="3105a-163">.NET Core'u hedefleyen yeni bir ASP.NET Core web API projesi oluşturulur ve Visual Studio Code'da açılır.</span><span class="sxs-lookup"><span data-stu-id="3105a-163">A new ASP.NET Core web API project targeting .NET Core is generated and opened in Visual Studio Code.</span></span>
 
-## <a name="add-a-crud-operations-class"></a><span data-ttu-id="34c9f-158">CRUD işlemleri sınıfı Ekle</span><span class="sxs-lookup"><span data-stu-id="34c9f-158">Add a CRUD operations class</span></span>
+1. <span data-ttu-id="3105a-164">Tıklayın **Evet** olduğunda *gerekli varlıkları oluşturun ve hata ayıklama 'BooksApi' eksik. Bunları eklensin mi?*  bildirim görüntülenir.</span><span class="sxs-lookup"><span data-stu-id="3105a-164">Click **Yes** when the *Required assets to build and debug are missing from 'BooksApi'. Add them?* notification appears.</span></span>
+1. <span data-ttu-id="3105a-165">Açık **tümleşik Terminalini** ve proje kök dizinine gidin.</span><span class="sxs-lookup"><span data-stu-id="3105a-165">Open **Integrated Terminal** and navigate to the project root.</span></span> <span data-ttu-id="3105a-166">MongoDB için .NET sürücüsünü yüklemek için aşağıdaki komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="3105a-166">Run the following command to install the .NET driver for MongoDB:</span></span>
 
-1. <span data-ttu-id="34c9f-159">Ekleme bir *Hizmetleri* proje kök klasör.</span><span class="sxs-lookup"><span data-stu-id="34c9f-159">Add a *Services* folder to the project root.</span></span>
-1. <span data-ttu-id="34c9f-160">Ekleme bir `BookService` sınıfının *Hizmetleri* aşağıdaki kodla klasörü:</span><span class="sxs-lookup"><span data-stu-id="34c9f-160">Add a `BookService` class to the *Services* folder with the following code:</span></span>
+    ```console
+    dotnet add BooksApi.csproj package MongoDB.Driver -v 2.7.2
+    ```
 
-    [!code-csharp[](first-mongo-app/sample/BookstoreAPI/Services/BookService.cs?name=snippet_BookServiceClass)]
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="3105a-167">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="3105a-167">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
 
-1. <span data-ttu-id="34c9f-161">MongoDB bağlantı dizesi Ekle *appsettings.json*:</span><span class="sxs-lookup"><span data-stu-id="34c9f-161">Add the MongoDB connection string to *appsettings.json*:</span></span>
+1. <span data-ttu-id="3105a-168">Git **dosya** > **yeni çözüm** > **.NET Core** > **uygulama**.</span><span class="sxs-lookup"><span data-stu-id="3105a-168">Go to **File** > **New Solution** > **.NET Core** > **App**.</span></span>
+1. <span data-ttu-id="3105a-169">Seçin **ASP.NET Core Web API'si** C# proje şablonu ve tıklayın **sonraki**.</span><span class="sxs-lookup"><span data-stu-id="3105a-169">Select the **ASP.NET Core Web API** C# project template, and click **Next**.</span></span>
+1. <span data-ttu-id="3105a-170">Seçin **.NET Core 2.2** gelen **hedef Framework'ü** açılır listede seçeneğine tıklayıp **sonraki**.</span><span class="sxs-lookup"><span data-stu-id="3105a-170">Select **.NET Core 2.2** from the **Target Framework** drop-down list, and click **Next**.</span></span>
+1. <span data-ttu-id="3105a-171">Girin *BooksApi* için **proje adı**, tıklatıp **Oluştur**.</span><span class="sxs-lookup"><span data-stu-id="3105a-171">Enter *BooksApi* for the **Project Name**, and click **Create**.</span></span>
+1. <span data-ttu-id="3105a-172">İçinde **çözüm** paneli, projenin sağ **bağımlılıkları** düğümünü seçip alt **paketleri Ekle**.</span><span class="sxs-lookup"><span data-stu-id="3105a-172">In the **Solution** pad, right-click the project's **Dependencies** node and select **Add Packages**.</span></span>
+1. <span data-ttu-id="3105a-173">Girin *MongoDB.Driver* arama kutusunda *MongoDB.Driver* paketini ve tıklayın **Paketi Ekle**.</span><span class="sxs-lookup"><span data-stu-id="3105a-173">Enter *MongoDB.Driver* in the search box, select the *MongoDB.Driver* package, and click **Add Package**.</span></span>
+1. <span data-ttu-id="3105a-174">Tıklayın **kabul** düğmesine **lisans kabulü** iletişim.</span><span class="sxs-lookup"><span data-stu-id="3105a-174">Click the **Accept** button in the **License Acceptance** dialog.</span></span>
 
-    [!code-csharp[](first-mongo-app/sample/BookstoreAPI/appsettings.json?highlight=2-4)]
+---
 
-    <span data-ttu-id="34c9f-162">Önceki `BookstoreDb` özelliğine erişilirse `BookService` sınıf oluşturucusu.</span><span class="sxs-lookup"><span data-stu-id="34c9f-162">The preceding `BookstoreDb` property is accessed in the `BookService` class constructor.</span></span>
+## <a name="add-a-model"></a><span data-ttu-id="3105a-175">Model ekleme</span><span class="sxs-lookup"><span data-stu-id="3105a-175">Add a model</span></span>
 
-1. <span data-ttu-id="34c9f-163">İçinde `Startup.ConfigureServices`, kayıt `BookService` bağımlılık ekleme sistemiyle sınıfı:</span><span class="sxs-lookup"><span data-stu-id="34c9f-163">In `Startup.ConfigureServices`, register the `BookService` class with the Dependency Injection system:</span></span>
+1. <span data-ttu-id="3105a-176">Ekleme bir *modelleri* proje kök dizini.</span><span class="sxs-lookup"><span data-stu-id="3105a-176">Add a *Models* directory to the project root.</span></span>
+1. <span data-ttu-id="3105a-177">Ekleme bir `Book` sınıfının *modelleri* aşağıdaki kod ile dizin:</span><span class="sxs-lookup"><span data-stu-id="3105a-177">Add a `Book` class to the *Models* directory with the following code:</span></span>
 
-    [!code-csharp[](first-mongo-app/sample/BookstoreAPI/Startup.cs?name=snippet_ConfigureServices&highlight=3)]
+    [!code-csharp[](first-mongo-app/sample/BooksApi/Models/Book.cs)]
 
-    <span data-ttu-id="34c9f-164">Önceki hizmet kaydı sınıfları tüketen yapıcı eklemeyi desteklemek gereklidir.</span><span class="sxs-lookup"><span data-stu-id="34c9f-164">The preceding service registration is necessary to support constructor injection in consuming classes.</span></span>
+<span data-ttu-id="3105a-178">Önceki sınıfında `Id` özelliği ortak dil çalışma zamanı (CLR) nesnesi için MongoDB koleksiyonu eşlemek için gereklidir.</span><span class="sxs-lookup"><span data-stu-id="3105a-178">In the preceding class, the `Id` property is required for mapping the Common Language Runtime (CLR) object to the MongoDB collection.</span></span> <span data-ttu-id="3105a-179">Sınıftaki diğer özellikler ile donatılmış `[BsonElement]` özniteliği.</span><span class="sxs-lookup"><span data-stu-id="3105a-179">Other properties in the class are decorated with the `[BsonElement]` attribute.</span></span> <span data-ttu-id="3105a-180">Özniteliğin değeri, özellik adı, MongoDB koleksiyonu temsil eder.</span><span class="sxs-lookup"><span data-stu-id="3105a-180">The attribute's value represents the property name in the MongoDB collection.</span></span>
 
-<span data-ttu-id="34c9f-165">`BookService` Sınıfını kullanan aşağıdaki `MongoDB.Driver` veritabanında CRUD işlemleri gerçekleştirmek için üyeleri:</span><span class="sxs-lookup"><span data-stu-id="34c9f-165">The `BookService` class uses the following `MongoDB.Driver` members to perform CRUD operations against the database:</span></span>
+## <a name="add-a-crud-operations-class"></a><span data-ttu-id="3105a-181">CRUD işlemleri sınıfı Ekle</span><span class="sxs-lookup"><span data-stu-id="3105a-181">Add a CRUD operations class</span></span>
 
-* <span data-ttu-id="34c9f-166">`MongoClient` &ndash; Veritabanı işlemleri gerçekleştirmek için kullanılan bir sunucuyu okur.</span><span class="sxs-lookup"><span data-stu-id="34c9f-166">`MongoClient` &ndash; Reads the server instance for performing database operations.</span></span> <span data-ttu-id="34c9f-167">Bu sınıfın oluşturucusu, MongoDB bağlantı dizesini sağlanır:</span><span class="sxs-lookup"><span data-stu-id="34c9f-167">The constructor of this class is provided the MongoDB connection string:</span></span>
+1. <span data-ttu-id="3105a-182">Ekleme bir *Hizmetleri* proje kök dizini.</span><span class="sxs-lookup"><span data-stu-id="3105a-182">Add a *Services* directory to the project root.</span></span>
+1. <span data-ttu-id="3105a-183">Ekleme bir `BookService` sınıfının *Hizmetleri* aşağıdaki kod ile dizin:</span><span class="sxs-lookup"><span data-stu-id="3105a-183">Add a `BookService` class to the *Services* directory with the following code:</span></span>
 
-    [!code-csharp[](first-mongo-app/sample/BookstoreAPI/Services/BookService.cs?name=snippet_BookServiceConstructor&highlight=3)]
+    [!code-csharp[](first-mongo-app/sample/BooksApi/Services/BookService.cs?name=snippet_BookServiceClass)]
 
-* <span data-ttu-id="34c9f-168">`IMongoDatabase` &ndash; Mongo veritabanı işlemleri gerçekleştirmek için temsil eder.</span><span class="sxs-lookup"><span data-stu-id="34c9f-168">`IMongoDatabase` &ndash; Represents the Mongo database for performing operations.</span></span> <span data-ttu-id="34c9f-169">Bu öğreticide genel `GetCollection<T>(collection)` yöntemi belirli bir koleksiyondaki verileri erişim elde etmek için arabirim.</span><span class="sxs-lookup"><span data-stu-id="34c9f-169">This tutorial uses the generic `GetCollection<T>(collection)` method on the interface to gain access to data in a specific collection.</span></span> <span data-ttu-id="34c9f-170">Bu yöntemi çağrıldıktan sonra koleksiyonunda CRUD işlemleri gerçekleştirilebilir.</span><span class="sxs-lookup"><span data-stu-id="34c9f-170">CRUD operations can be performed against the collection after this method is called.</span></span> <span data-ttu-id="34c9f-171">İçinde `GetCollection<T>(collection)` yöntem çağrısı:</span><span class="sxs-lookup"><span data-stu-id="34c9f-171">In the `GetCollection<T>(collection)` method call:</span></span>
-  * <span data-ttu-id="34c9f-172">`collection` Koleksiyon adını temsil eder.</span><span class="sxs-lookup"><span data-stu-id="34c9f-172">`collection` represents the collection name.</span></span>
-  * <span data-ttu-id="34c9f-173">`T` Bir koleksiyonda depolanan CLR nesne türünü temsil eder.</span><span class="sxs-lookup"><span data-stu-id="34c9f-173">`T` represents the CLR object type stored in the collection.</span></span>
+1. <span data-ttu-id="3105a-184">MongoDB bağlantı dizesi Ekle *appsettings.json*:</span><span class="sxs-lookup"><span data-stu-id="3105a-184">Add the MongoDB connection string to *appsettings.json*:</span></span>
 
-<span data-ttu-id="34c9f-174">`GetCollection<T>(collection)` döndürür bir `MongoCollection` koleksiyonu temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="34c9f-174">`GetCollection<T>(collection)` returns a `MongoCollection` object representing the collection.</span></span> <span data-ttu-id="34c9f-175">Bu öğreticide, aşağıdaki yöntemlerden koleksiyonunda çağrılır:</span><span class="sxs-lookup"><span data-stu-id="34c9f-175">In this tutorial, the following methods are invoked on the collection:</span></span>
+    [!code-csharp[](first-mongo-app/sample/BooksApi/appsettings.json?highlight=2-4)]
 
-* <span data-ttu-id="34c9f-176">`Find<T>` &ndash; Sağlanan arama ölçütleriyle eşleşen koleksiyondaki tüm belgeleri döndürür.</span><span class="sxs-lookup"><span data-stu-id="34c9f-176">`Find<T>` &ndash; Returns all documents in the collection matching the provided search criteria.</span></span>
-* <span data-ttu-id="34c9f-177">`InsertOne` &ndash; Belirtilen nesne koleksiyonunda yeni bir belge olarak ekler.</span><span class="sxs-lookup"><span data-stu-id="34c9f-177">`InsertOne` &ndash; Inserts the provided object as a new document in the collection.</span></span>
-* <span data-ttu-id="34c9f-178">`ReplaceOne` &ndash; Sağlanan nesne ile sağlanan arama ölçütleriyle eşleşen tek bir belge değiştirir.</span><span class="sxs-lookup"><span data-stu-id="34c9f-178">`ReplaceOne` &ndash; Replaces the single document matching the provided search criteria with the provided object.</span></span>
-* <span data-ttu-id="34c9f-179">`DeleteOne` &ndash; Belirtilen arama ölçütleriyle eşleşen tek bir belge siler.</span><span class="sxs-lookup"><span data-stu-id="34c9f-179">`DeleteOne` &ndash; Deletes a single document matching the provided search criteria.</span></span>
+    <span data-ttu-id="3105a-185">Önceki `BookstoreDb` özelliğine erişilirse `BookService` sınıf oluşturucusu.</span><span class="sxs-lookup"><span data-stu-id="3105a-185">The preceding `BookstoreDb` property is accessed in the `BookService` class constructor.</span></span>
 
-## <a name="add-a-controller"></a><span data-ttu-id="34c9f-180">Denetleyici ekleme</span><span class="sxs-lookup"><span data-stu-id="34c9f-180">Add a controller</span></span>
+1. <span data-ttu-id="3105a-186">İçinde `Startup.ConfigureServices`, kayıt `BookService` bağımlılık ekleme sistemiyle sınıfı:</span><span class="sxs-lookup"><span data-stu-id="3105a-186">In `Startup.ConfigureServices`, register the `BookService` class with the Dependency Injection system:</span></span>
 
-1. <span data-ttu-id="34c9f-181">Sağ *denetleyicileri* klasöründe **Çözüm Gezgini**.</span><span class="sxs-lookup"><span data-stu-id="34c9f-181">Right-click the *Controllers* folder in **Solution Explorer**.</span></span> <span data-ttu-id="34c9f-182">Seçin **ekleme** > **denetleyicisi**.</span><span class="sxs-lookup"><span data-stu-id="34c9f-182">Select **Add** > **Controller**.</span></span>
-1. <span data-ttu-id="34c9f-183">Seçin **API denetleyici - boş** öğe şablonu ve tıklayın **Ekle**.</span><span class="sxs-lookup"><span data-stu-id="34c9f-183">Choose the **API Controller - Empty** item template, and click **Add**.</span></span>
-1. <span data-ttu-id="34c9f-184">Girin *BooksController* içinde **Denetleyici adı** metin kutusu seçeneğine tıklayıp **Ekle**.</span><span class="sxs-lookup"><span data-stu-id="34c9f-184">Enter *BooksController* in the **Controller name** text box, and click **Add**.</span></span>
-1. <span data-ttu-id="34c9f-185">Aşağıdaki kodu ekleyin *BooksController.cs*:</span><span class="sxs-lookup"><span data-stu-id="34c9f-185">Add the following code to *BooksController.cs*:</span></span>
+    [!code-csharp[](first-mongo-app/sample/BooksApi/Startup.cs?name=snippet_ConfigureServices&highlight=3)]
 
-    [!code-csharp[](first-mongo-app/sample/BookstoreAPI/Controllers/BooksController.cs)]
+    <span data-ttu-id="3105a-187">Önceki hizmet kaydı sınıfları tüketen yapıcı eklemeyi desteklemek gereklidir.</span><span class="sxs-lookup"><span data-stu-id="3105a-187">The preceding service registration is necessary to support constructor injection in consuming classes.</span></span>
 
-    <span data-ttu-id="34c9f-186">Önceki web API denetleyicisi:</span><span class="sxs-lookup"><span data-stu-id="34c9f-186">The preceding web API controller:</span></span>
+<span data-ttu-id="3105a-188">`BookService` Sınıfını kullanan aşağıdaki `MongoDB.Driver` veritabanında CRUD işlemleri gerçekleştirmek için üyeleri:</span><span class="sxs-lookup"><span data-stu-id="3105a-188">The `BookService` class uses the following `MongoDB.Driver` members to perform CRUD operations against the database:</span></span>
 
-    * <span data-ttu-id="34c9f-187">Kullanan `BookService` CRUD işlemleri gerçekleştirmek için sınıf.</span><span class="sxs-lookup"><span data-stu-id="34c9f-187">Uses the `BookService` class to perform CRUD operations.</span></span>
-    * <span data-ttu-id="34c9f-188">GET, POST, PUT ve DELETE HTTP isteklerini desteklemek için eylem yöntemleri içerir.</span><span class="sxs-lookup"><span data-stu-id="34c9f-188">Contains action methods to support GET, POST, PUT, and DELETE HTTP requests.</span></span>
-1. <span data-ttu-id="34c9f-189">Derleme ve uygulamayı çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="34c9f-189">Build and run the app.</span></span>
-1. <span data-ttu-id="34c9f-190">Gidin `http://localhost:<port>/api/books` tarayıcınızda.</span><span class="sxs-lookup"><span data-stu-id="34c9f-190">Navigate to `http://localhost:<port>/api/books` in your browser.</span></span> <span data-ttu-id="34c9f-191">Aşağıdaki JSON yanıtı gösterilir:</span><span class="sxs-lookup"><span data-stu-id="34c9f-191">The following JSON response is displayed:</span></span>
+* <span data-ttu-id="3105a-189">`MongoClient` &ndash; Veritabanı işlemleri gerçekleştirmek için kullanılan bir sunucuyu okur.</span><span class="sxs-lookup"><span data-stu-id="3105a-189">`MongoClient` &ndash; Reads the server instance for performing database operations.</span></span> <span data-ttu-id="3105a-190">Bu sınıfın oluşturucusu, MongoDB bağlantı dizesini sağlanır:</span><span class="sxs-lookup"><span data-stu-id="3105a-190">The constructor of this class is provided the MongoDB connection string:</span></span>
+
+    [!code-csharp[](first-mongo-app/sample/BooksApi/Services/BookService.cs?name=snippet_BookServiceConstructor&highlight=3)]
+
+* <span data-ttu-id="3105a-191">`IMongoDatabase` &ndash; Mongo veritabanı işlemleri gerçekleştirmek için temsil eder.</span><span class="sxs-lookup"><span data-stu-id="3105a-191">`IMongoDatabase` &ndash; Represents the Mongo database for performing operations.</span></span> <span data-ttu-id="3105a-192">Bu öğreticide genel `GetCollection<T>(collection)` yöntemi belirli bir koleksiyondaki verileri erişim elde etmek için arabirim.</span><span class="sxs-lookup"><span data-stu-id="3105a-192">This tutorial uses the generic `GetCollection<T>(collection)` method on the interface to gain access to data in a specific collection.</span></span> <span data-ttu-id="3105a-193">Bu yöntemi çağrıldıktan sonra koleksiyonunda CRUD işlemleri gerçekleştirilebilir.</span><span class="sxs-lookup"><span data-stu-id="3105a-193">CRUD operations can be performed against the collection after this method is called.</span></span> <span data-ttu-id="3105a-194">İçinde `GetCollection<T>(collection)` yöntem çağrısı:</span><span class="sxs-lookup"><span data-stu-id="3105a-194">In the `GetCollection<T>(collection)` method call:</span></span>
+  * <span data-ttu-id="3105a-195">`collection` Koleksiyon adını temsil eder.</span><span class="sxs-lookup"><span data-stu-id="3105a-195">`collection` represents the collection name.</span></span>
+  * <span data-ttu-id="3105a-196">`T` Bir koleksiyonda depolanan CLR nesne türünü temsil eder.</span><span class="sxs-lookup"><span data-stu-id="3105a-196">`T` represents the CLR object type stored in the collection.</span></span>
+
+<span data-ttu-id="3105a-197">`GetCollection<T>(collection)` döndürür bir `MongoCollection` koleksiyonu temsil eden nesne.</span><span class="sxs-lookup"><span data-stu-id="3105a-197">`GetCollection<T>(collection)` returns a `MongoCollection` object representing the collection.</span></span> <span data-ttu-id="3105a-198">Bu öğreticide, aşağıdaki yöntemlerden koleksiyonunda çağrılır:</span><span class="sxs-lookup"><span data-stu-id="3105a-198">In this tutorial, the following methods are invoked on the collection:</span></span>
+
+* <span data-ttu-id="3105a-199">`Find<T>` &ndash; Sağlanan arama ölçütleriyle eşleşen koleksiyondaki tüm belgeleri döndürür.</span><span class="sxs-lookup"><span data-stu-id="3105a-199">`Find<T>` &ndash; Returns all documents in the collection matching the provided search criteria.</span></span>
+* <span data-ttu-id="3105a-200">`InsertOne` &ndash; Belirtilen nesne koleksiyonunda yeni bir belge olarak ekler.</span><span class="sxs-lookup"><span data-stu-id="3105a-200">`InsertOne` &ndash; Inserts the provided object as a new document in the collection.</span></span>
+* <span data-ttu-id="3105a-201">`ReplaceOne` &ndash; Sağlanan nesne ile sağlanan arama ölçütleriyle eşleşen tek bir belge değiştirir.</span><span class="sxs-lookup"><span data-stu-id="3105a-201">`ReplaceOne` &ndash; Replaces the single document matching the provided search criteria with the provided object.</span></span>
+* <span data-ttu-id="3105a-202">`DeleteOne` &ndash; Belirtilen arama ölçütleriyle eşleşen tek bir belge siler.</span><span class="sxs-lookup"><span data-stu-id="3105a-202">`DeleteOne` &ndash; Deletes a single document matching the provided search criteria.</span></span>
+
+## <a name="add-a-controller"></a><span data-ttu-id="3105a-203">Denetleyici ekleme</span><span class="sxs-lookup"><span data-stu-id="3105a-203">Add a controller</span></span>
+
+1. <span data-ttu-id="3105a-204">Ekleme bir `BooksController` sınıfının *denetleyicileri* aşağıdaki kod ile dizin:</span><span class="sxs-lookup"><span data-stu-id="3105a-204">Add a `BooksController` class to the *Controllers* directory with the following code:</span></span>
+
+    [!code-csharp[](first-mongo-app/sample/BooksApi/Controllers/BooksController.cs)]
+
+    <span data-ttu-id="3105a-205">Önceki web API denetleyicisi:</span><span class="sxs-lookup"><span data-stu-id="3105a-205">The preceding web API controller:</span></span>
+
+    * <span data-ttu-id="3105a-206">Kullanan `BookService` CRUD işlemleri gerçekleştirmek için sınıf.</span><span class="sxs-lookup"><span data-stu-id="3105a-206">Uses the `BookService` class to perform CRUD operations.</span></span>
+    * <span data-ttu-id="3105a-207">GET, POST, PUT ve DELETE HTTP isteklerini desteklemek için eylem yöntemleri içerir.</span><span class="sxs-lookup"><span data-stu-id="3105a-207">Contains action methods to support GET, POST, PUT, and DELETE HTTP requests.</span></span>
+1. <span data-ttu-id="3105a-208">Derleme ve uygulamayı çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="3105a-208">Build and run the app.</span></span>
+1. <span data-ttu-id="3105a-209">Gidin `http://localhost:<port>/api/books` tarayıcınızda.</span><span class="sxs-lookup"><span data-stu-id="3105a-209">Navigate to `http://localhost:<port>/api/books` in your browser.</span></span> <span data-ttu-id="3105a-210">Aşağıdaki JSON yanıtı gösterilir:</span><span class="sxs-lookup"><span data-stu-id="3105a-210">The following JSON response is displayed:</span></span>
 
     ```json
     [
@@ -214,9 +258,9 @@ ms.locfileid: "52458499"
     ]
     ```
 
-## <a name="next-steps"></a><span data-ttu-id="34c9f-192">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="34c9f-192">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="3105a-211">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="3105a-211">Next steps</span></span>
 
-<span data-ttu-id="34c9f-193">ASP.NET Core web API'leri oluşturmaya daha fazla bilgi için aşağıdaki kaynaklara bakın:</span><span class="sxs-lookup"><span data-stu-id="34c9f-193">For more information on building ASP.NET Core web APIs, see the following resources:</span></span>
+<span data-ttu-id="3105a-212">ASP.NET Core web API'leri oluşturmaya daha fazla bilgi için aşağıdaki kaynaklara bakın:</span><span class="sxs-lookup"><span data-stu-id="3105a-212">For more information on building ASP.NET Core web APIs, see the following resources:</span></span>
 
 * <xref:web-api/index>
 * <xref:web-api/action-return-types>

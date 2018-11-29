@@ -413,6 +413,15 @@
 ## [Uygulamalar arasında tanımlama bilgilerini paylaşma](xref:security/cookie-sharing)
 ## [IP güvenli listesi](xref:security/ip-safelist)
 
+# Performans
+## [Genel bakış](xref:performance/performance-best-practices)
+##  Yanıtları Önbelleğe Alma
+### [Genel bakış](xref:performance/caching/response)
+### [Belleğe yüklenmiş önbellek](xref:performance/caching/memory)
+### [Dağıtılmış önbelleğe alma](xref:performance/caching/distributed)
+### [Yanıtları önbelleğe alma ara yazılımı](xref:performance/caching/middleware)
+## [Yanıt sıkıştırma](xref:performance/response-compression)
+
 # Diğer konular
 ## [Genelleştirme ve yerelleştirme](xref:fundamentals/localization)
 ## [Orchard Core ile Taşınabilir Nesne yerelleştirmesi](xref:fundamentals/portable-object-localization)
@@ -428,13 +437,6 @@
 ## [Microsoft.AspNetCore.All metapackage](xref:fundamentals/metapackage)
 ## [LoggerMessage ile günlüğe kaydetme](xref:fundamentals/logging/loggermessage)
 ## [Bir dosya izleyicisi kullanma](xref:tutorials/dotnet-watch)
-## Önbellek yanıtları
-### [Genel bakış](xref:performance/caching/index)
-### [Belleğe yüklenmiş önbellek](xref:performance/caching/memory)
-### [Dağıtılmış önbelleğe alma](xref:performance/caching/distributed)
-### [Yanıtları önbelleğe alma](xref:performance/caching/response)
-### [Yanıtları önbelleğe alma ara yazılımı](xref:performance/caching/middleware)
-## [Yanıt sıkıştırma](xref:performance/response-compression)
 
 # Geçiş
 ## [2.1’den 2.2’ye](xref:migration/21-to-22)
