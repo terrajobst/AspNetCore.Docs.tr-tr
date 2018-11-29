@@ -20,6 +20,7 @@
 ### [Visual Studio Code ile](xref:tutorials/web-api-vsc)
 ### [Mac için Visual Studio ile](xref:tutorials/first-web-api-mac)
 ### [Yerel mobil uygulamalar için](xref:mobile/native-mobile-backend)
+### [MongoDB ile](xref:tutorials/first-mongo-app)
 ## Gerçek zamanlı web uygulamaları
 ### [JavaScript ile SignalR](xref:tutorials/signalr)
 ### [TypeScript ile SignalR](xref:tutorials/signalr-typescript-webpack)
@@ -178,6 +179,7 @@
 ### [Visual Studio Code ile Web API’si](xref:tutorials/web-api-vsc)
 ### [Mac için Visual Studio ile Web API’si](xref:tutorials/first-web-api-mac)
 ### [Yerel mobil uygulamalar için Web API’si](xref:mobile/native-mobile-backend)
+### [MongoDB ile Web API](xref:tutorials/first-mongo-app)
 ## Swagger / OpenAPI
 ### [Genel bakış](xref:tutorials/web-api-help-pages-using-swagger)
 ### [Swashbuckle kullanmaya başlama](xref:tutorials/get-started-with-swashbuckle)
@@ -189,7 +191,7 @@
 ## [Kurallar](xref:web-api/advanced/conventions)
 
 # Gerçek zamanlı uygulamalar
-## [Genel bakış](xref:signalr/introduction)
+## [SignalR’a genel bakış](xref:signalr/introduction)
 ## [Desteklenen platformlar](xref:signalr/supported-platforms)
 ## Öğreticiler
 ### [JavaScript ile SignalR](xref:tutorials/signalr)
@@ -208,6 +210,10 @@
 ### [JavaScript istemcisi](xref:signalr/javascript-client)
 ### [JavaScript API'si başvurusu](/javascript/api/?view=signalr-js-latest)
 ### [WebPack ve TypeScript](xref:tutorials/signalr-typescript-webpack)
+## Barındırma ve ölçeklendirme
+### [Genel bakış](xref:signalr/scale)
+### [Azure SignalR Hizmeti](/azure/azure-signalr/signalr-overview)
+### [Redis devre kartı](xref:signalr/redis-backplane)
 ## [Yapılandırma](xref:signalr/configuration)
 ## [Kimlik Doğrulaması ve Yetkilendirme](xref:signalr/authn-and-authz)
 ## [Güvenlik konuları](xref:signalr/security)
