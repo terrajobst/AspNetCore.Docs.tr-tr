@@ -7,12 +7,12 @@ ms.author: pranavkm
 ms.custom: mvc
 ms.date: 11/13/2018
 uid: web-api/advanced/conventions
-ms.openlocfilehash: 023b8d09511aa42966e2a7d1c85e407bb6e79b0f
-ms.sourcegitcommit: f202864efca81a72ea7120c0692940c40d9d0630
+ms.openlocfilehash: ede9a46c160cf6a49aa93da710af0bf0b8f59acc
+ms.sourcegitcommit: c4572be5ebb301013a5698caf9b5572b76cb2e34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635369"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52710081"
 ---
 # <a name="use-web-api-conventions"></a>Web API kuralları kullanma
 
@@ -26,7 +26,7 @@ Varsayılan olarak, ASP.NET Core MVC 2.2 varsayılan kuralları, bir dizi ile bi
 
 ## <a name="apply-web-api-conventions"></a>Web API kuralları uygula
 
-Bir kuralı uygulamak için üç yolunuz vardır. Kuralları oluşturma yoksa, her eylem tam olarak bir kuralı ile ilişkili olabilir. (Aşağıda açıklanmıştır) daha belirli kuralları, daha özgül daha önceliklidir. İki veya daha fazla kurallar aynı öncelik için bir eylem uyguladığınızda seçim belirleyici değildir. Bir eylem için geçerli bir kural için aşağıdaki seçenekler mevcuttur. en az belirli belirli:
+Bir kuralı uygulamak için üç yolunuz vardır. Kuralları oluşturma yok. Her eylem, tam olarak bir kuralı ile ilişkilendirilmiş olabilir. (Aşağıda açıklanmıştır) daha belirli kuralları, daha özgül daha önceliklidir. İki veya daha fazla kurallar aynı öncelik için bir eylem uyguladığınızda seçim belirleyici değildir. Bir eylem için geçerli bir kural için aşağıdaki seçenekler mevcuttur. en az belirli belirli:
 
 1. `Microsoft.AspNetCore.Mvc.ApiConventionMethodAttribute` &mdash; Bireysel eylemleri için geçerlidir ve kuralı türü ve geçerli kuralı yöntemini belirtir. Aşağıdaki örnekte, kuralı yöntemi `Microsoft.AspNetCore.Mvc.DefaultApiConventions.Put` uygulanan `Update` eylem:
 

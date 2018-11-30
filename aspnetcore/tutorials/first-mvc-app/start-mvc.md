@@ -5,12 +5,12 @@ description: ASP.NET Core MVC ve Visual Studio ile çalışmaya başlama hakkın
 ms.author: riande
 ms.date: 10/07/2017
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: fe555e4cfcaec5d4bb8ccee00b06d1bbcaae9dcd
-ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
+ms.openlocfilehash: 9d50607899058c887597a3d73198552d3ef5b020
+ms.sourcegitcommit: c4572be5ebb301013a5698caf9b5572b76cb2e34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49391212"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52710094"
 ---
 # <a name="get-started-with-aspnet-core-mvc-and-visual-studio"></a>ASP.NET Core MVC ve Visual Studio ile çalışmaya başlama
 
@@ -23,6 +23,9 @@ Bu öğreticinin 3 sürümü vardır:
 * macOS: [Mac için Visual Studio ile ASP.NET Core MVC uygulaması oluşturma](xref:tutorials/first-mvc-app-mac/start-mvc)
 * Windows: [Visual Studio ile bir ASP.NET Core MVC uygulaması oluşturma](xref:tutorials/first-mvc-app/start-mvc)
 * macOS, Linux ve Windows: [Visual Studio Code ile ASP.NET Core MVC uygulaması oluşturma](xref:tutorials/first-mvc-app-xplat/start-mvc)
+
+> [!NOTE]
+> ASP.NET Core içindekiler tablosuna yönelik önerilmiş olan yeni bir yapının kullanılabilirliğini test ediyoruz.  Geçerli veya önerilen içindekiler tablosunda 7 farklı konuyu bulmaya ilişkin alıştırmayı denemek için vaktiniz varsa lütfen [çalışmaya katılmak için buraya tıklayın](https://dpk4xbh5.optimalworkshop.com/treejack/rps16hd5).
 
 ## <a name="install-visual-studio-and-net-core"></a>Visual Studio ve .NET Core yükleyin
 
@@ -81,26 +84,7 @@ Bu öğreticinin sonraki bölümünde, biz MVC konusunda bilgi ve biraz kod yazm
 
 ::: moniker range="<= aspnetcore-2.0"
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
-
 [!INCLUDE [](~/includes/net-core-prereqs.md)]
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
-
-Visual Studio Community 2017'yi yükleyin. Topluluk indir'i seçin. Visual Studio 2017 varsa bu adımı atlayın.
-
-* [Visual Studio 2017 giriş sayfası yükleyicisi](https://www.visualstudio.com/)
-
-Yükleyiciyi çalıştırın ve aşağıdaki iş yükleri seçin:
-
-* **ASP.NET ve web geliştirme** (altında **Web ve bulut**)
-* **.NET core çoklu platform geliştirme** (altında **diğer araç takımları**)
-
-![**ASP.NET ve web geliştirme ** (altında ** Web ve bulut **)](start-mvc/_static/web_workload.png)
-
-![* *.NET çekirdek arası arası platfrom geliştirme ** (altında ** diğer araç takımları **)](start-mvc/_static/x_plat_wl.png)
-
----
 
 ## <a name="create-a-web-app"></a>Bir web uygulaması oluşturma
 
@@ -117,8 +101,6 @@ Tamamlamak **yeni proje** iletişim:
 
 ![Yeni Proje iletişim kutusunda, sol bölmede, ASP.NET Core web'de .net core ](start-mvc/_static/new_project2.png)
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
 Tamamlamak **yeni ASP.NET Core Web uygulaması (.NET Core) - MvcMovie** iletişim:
 
 * Sürüm Seçici açılan kutusunda seçin **ASP.NET Core 2.-**
@@ -126,19 +108,6 @@ Tamamlamak **yeni ASP.NET Core Web uygulaması (.NET Core) - MvcMovie** iletişi
 * Dokunun **Tamam**.
 
 ![Yeni Proje iletişim kutusunda, sol bölmede, ASP.NET Core web'de .net core ](start-mvc/_static/new_project22.png)
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
-Tamamlamak **yeni ASP.NET Core Web uygulaması (.NET Core) - MvcMovie** iletişim:
-
-* Sürüm Seçici açılan kutusunda tap içindeki **ASP.NET Core 1.1**
-* Dokunun **Web uygulaması**
-* Varsayılan tutun **kimlik doğrulaması yok**
-* Dokunun **Tamam**.
-
-![Yeni ASP.NET Core web uygulaması](start-mvc/_static/p3.png)
-
----
 
 Visual Studio, yeni oluşturduğunuz MVC projesi için varsayılan bir şablon kullanılır. Çalışan bir uygulamayı şu anda bir proje adı girerek ve bazı Seçenekler'i seçerek sizde. Bu temel başlangıç projesini ve başlatmak için iyi bir yerdir,
 
