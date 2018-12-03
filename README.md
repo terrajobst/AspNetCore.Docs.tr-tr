@@ -1,13 +1,10 @@
-ASP.NET Docs
-============
+# <a name="aspnet-docs"></a><span data-ttu-id="e8055-101">ASP.NET belgeleri</span><span class="sxs-lookup"><span data-stu-id="e8055-101">ASP.NET Docs</span></span>
 
-This project provides the source for [docs.asp.net](http://docs.asp.net/). You can learn more about ASP.NET Core at the [Home](https://github.com/aspnet/home) repo. See the [Contributing Guide](CONTRIBUTING.md) and the [issues list](\https://github.com/aspnet/Docs/issues) if you would like to help out.
+<span data-ttu-id="e8055-102">Bu depo kavramsal ASP.NET Core içerir ve sitesinde barındırılan ASP.NET 4.x belgeler [docs.microsoft.com/aspnet](https://docs.microsoft.com/aspnet).</span><span class="sxs-lookup"><span data-stu-id="e8055-102">This repository contains the conceptual ASP.NET Core and ASP.NET 4.x documentation hosted at [docs.microsoft.com/aspnet](https://docs.microsoft.com/aspnet).</span></span> <span data-ttu-id="e8055-103">Bkz: [katkıda bulunan Kılavuzu](CONTRIBUTING.md) ve [sorunlar listesinde](https://github.com/aspnet/Docs/issues) yardımcı öğrenmek istiyorsanız.</span><span class="sxs-lookup"><span data-stu-id="e8055-103">See the [Contributing Guide](CONTRIBUTING.md) and the [issues list](https://github.com/aspnet/Docs/issues) if you would like to help out.</span></span>
 
-API PR's ( *api/autoapi/...* ) should not be made here. Changes to API documentation should be made in the source repository against the triple slash /// comments. 
+<span data-ttu-id="e8055-104">API belgeleri değişiklikleri içinde yapılacak [ApiDocs depo](https://github.com/aspnet/ApiDocs) üç eğik çizgi karşı `///` yorumlar.</span><span class="sxs-lookup"><span data-stu-id="e8055-104">API documentation changes should be made in the [ApiDocs repository](https://github.com/aspnet/ApiDocs) against the triple slash `///` comments.</span></span>
 
-This project has adopted the [Microsoft Open Source Code of
-Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct
-FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com)
-with any additional questions or comments.
+## <a name="microsoft-open-source-code-of-conduct"></a><span data-ttu-id="e8055-105">Microsoft açık kaynak kullanım kuralları</span><span class="sxs-lookup"><span data-stu-id="e8055-105">Microsoft Open Source Code of Conduct</span></span>
+
+<span data-ttu-id="e8055-106">Bu proje başlamıştır [Microsoft açık kaynak kullanım şartları](https://opensource.microsoft.com/codeofconduct/).</span><span class="sxs-lookup"><span data-stu-id="e8055-106">This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).</span></span>
+<span data-ttu-id="e8055-107">Daha fazla bilgi için [kullanım kuralları SSS](https://opensource.microsoft.com/codeofconduct/faq/) veya başvurun [ opencode@microsoft.com ](mailto:opencode@microsoft.com) herhangi bir ek sorularınız ya da yorumlarınız ile.</span><span class="sxs-lookup"><span data-stu-id="e8055-107">For more information, see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.</span></span>
