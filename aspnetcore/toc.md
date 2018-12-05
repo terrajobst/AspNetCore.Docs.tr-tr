@@ -6,24 +6,31 @@
 # [Kullanmaya başlama](xref:getting-started)
 
 # Öğreticiler
+## [Web API’si oluşturma](xref:tutorials/first-web-api)
 ## Web uygulamaları
 ### Razor Pages
-#### [Visual Studio ile](xref:tutorials/razor-pages/index)
-#### [Visual Studio Code ile](xref:tutorials/razor-pages-vsc/index)
-#### [Mac için Visual Studio ile](xref:tutorials/razor-pages-mac/index)
+#### [Razor Pages’e giriş](xref:razor-pages/index)
+
+#### [Razor Pages Öğreticisi](xref:tutorials/razor-pages/index)
+##### [Kullanmaya başlama](xref:tutorials/razor-pages/razor-pages-start)
+##### [Model ekleme](xref:tutorials/razor-pages/model)
+##### [Yapı iskelesi](xref:tutorials/razor-pages/page)
+##### [Veritabanı ile çalışma](xref:tutorials/razor-pages/sql)
+##### [Sayfaları güncelleştirme](xref:tutorials/razor-pages/da1)
+##### [Arama ekleme](xref:tutorials/razor-pages/search)
+##### [Yeni alan ekleme](xref:tutorials/razor-pages/new-field)
+##### [Doğrulama ekleme](xref:tutorials/razor-pages/validation)
+
 ### MVC
 #### [Visual Studio ile](xref:tutorials/first-mvc-app/index)
 #### [Visual Studio Code ile](xref:tutorials/first-mvc-app-xplat/index)
 #### [Mac için Visual Studio ile](xref:tutorials/first-mvc-app-mac/index)
-## Web API'leri
-### [Visual Studio ile](xref:tutorials/first-web-api)
-### [Visual Studio Code ile](xref:tutorials/web-api-vsc)
-### [Mac için Visual Studio ile](xref:tutorials/first-web-api-mac)
-### [Yerel mobil uygulamalar için](xref:mobile/native-mobile-backend)
-### [MongoDB ile](xref:tutorials/first-mongo-app)
+
 ## Gerçek zamanlı web uygulamaları
 ### [JavaScript ile SignalR](xref:tutorials/signalr)
 ### [TypeScript ile SignalR](xref:tutorials/signalr-typescript-webpack)
+## [Yerel mobil uygulamalar için arka uç hizmetleri oluşturma](xref:mobile/native-mobile-backend)
+
 ## Veri erişimi
 ### [Razor Pages ile EF Core](xref:data/ef-rp/index)
 ### [MVC ile EF Core, mevcut veritabanı](/ef/core/get-started/aspnetcore/existing-db)
@@ -58,33 +65,16 @@
 # Web uygulamaları
 ## Razor Pages
 ### [Genel bakış](xref:razor-pages/index)
-### Öğreticiler
-#### Visual Studio ile Razor Pages
-##### [Genel bakış](xref:tutorials/razor-pages/index)
-##### [Kullanmaya başlama](xref:tutorials/razor-pages/razor-pages-start)
-##### [Model ekleme](xref:tutorials/razor-pages/model)
-##### [Yapı iskelesi](xref:tutorials/razor-pages/page)
-##### [SQL Server](xref:tutorials/razor-pages/sql)
-##### [Sayfaları güncelleştirme](xref:tutorials/razor-pages/da1)
-##### [Arama ekleme](xref:tutorials/razor-pages/search)
-##### [Yeni alan ekleme](xref:tutorials/razor-pages/new-field)
-##### [Doğrulama ekleme](xref:tutorials/razor-pages/validation)
-#### Visual Studio Code ile Razor Pages
-##### [Genel bakış](xref:tutorials/razor-pages-vsc/index)
-##### [Razor Sayfaları kullanmaya başlama](xref:tutorials/razor-pages-vsc/razor-pages-start)
-##### [Model ekleme](xref:tutorials/razor-pages-vsc/model)
-##### [İskeleli Razor Sayfaları](xref:tutorials/razor-pages-vsc/page)
-##### [SQLite ile çalışma](xref:tutorials/razor-pages-vsc/sql)
-##### [Sayfaları güncelleştirme](xref:tutorials/razor-pages-vsc/da1)
-##### [Arama ekleme](xref:tutorials/razor-pages-vsc/search)
-#### Mac için Visual Studio ile Razor Pages
-##### [Genel bakış](xref:tutorials/razor-pages-mac/index)
-##### [Razor Sayfaları kullanmaya başlama](xref:tutorials/razor-pages-mac/razor-pages-start)
-##### [Model ekleme](xref:tutorials/razor-pages-mac/model)
-##### [İskeleli Razor Sayfaları](xref:tutorials/razor-pages-mac/page)
-##### [SQLite ile çalışma](xref:tutorials/razor-pages-mac/sql)
-##### [Sayfaları güncelleştirme](xref:tutorials/razor-pages-mac/da1)
-##### [Arama ekleme](xref:tutorials/razor-pages-mac/search)
+### [Razor Pages Öğreticisi](xref:tutorials/razor-pages/index)
+#### [Kullanmaya başlama](xref:tutorials/razor-pages/razor-pages-start)
+#### [Model ekleme](xref:tutorials/razor-pages/model)
+#### [Yapı iskelesi](xref:tutorials/razor-pages/page)
+#### [Veritabanı ile çalışma](xref:tutorials/razor-pages/sql)
+#### [Sayfaları güncelleştirme](xref:tutorials/razor-pages/da1)
+#### [Arama ekleme](xref:tutorials/razor-pages/search)
+#### [Yeni alan ekleme](xref:tutorials/razor-pages/new-field)
+#### [Doğrulama ekleme](xref:tutorials/razor-pages/validation)
+
 ### [Filtreler](xref:razor-pages/filter)
 ### [Razor Sınıf Kitaplıkları](xref:razor-pages/ui-class)
 ### [Yol ve uygulama kuralları](xref:razor-pages/razor-pages-conventions)
@@ -99,7 +89,7 @@
 ##### [Denetleyici ekleme](xref:tutorials/first-mvc-app/adding-controller)
 ##### [Görünüm ekleme](xref:tutorials/first-mvc-app/adding-view)
 ##### [Model ekleme](xref:tutorials/first-mvc-app/adding-model)
-##### [SQL Server ile çalışma](xref:tutorials/first-mvc-app/working-with-sql)
+##### [Veritabanı ile çalışma](xref:tutorials/first-mvc-app/working-with-sql)
 ##### [Denetleyici eylemleri ve görünümleri](xref:tutorials/first-mvc-app/controller-methods-views)
 ##### [Arama ekleme](xref:tutorials/first-mvc-app/search)
 ##### [Yeni alan ekleme](xref:tutorials/first-mvc-app/new-field)
@@ -174,12 +164,9 @@
 
 # Web API'leri
 ## [Genel bakış](xref:web-api/index)
-## Öğreticiler
-### [Visual Studio ile Web API’si](xref:tutorials/first-web-api)
-### [Visual Studio Code ile Web API’si](xref:tutorials/web-api-vsc)
-### [Mac için Visual Studio ile Web API’si](xref:tutorials/first-web-api-mac)
-### [Yerel mobil uygulamalar için Web API’si](xref:mobile/native-mobile-backend)
-### [MongoDB ile Web API](xref:tutorials/first-mongo-app)
+
+## [Web API’si oluşturma](xref:tutorials/first-web-api)
+
 ## Swagger / OpenAPI
 ### [Genel bakış](xref:tutorials/web-api-help-pages-using-swagger)
 ### [Swashbuckle kullanmaya başlama](xref:tutorials/get-started-with-swashbuckle)
@@ -187,6 +174,7 @@
 ## [Eylem dönüş türleri](xref:web-api/action-return-types)
 ## [Yanıt verilerini biçimlendirme](xref:web-api/advanced/formatting)
 ## [Özel biçimlendiriciler](xref:web-api/advanced/custom-formatters)
+
 ## [Çözümleyiciler](xref:web-api/advanced/analyzers)
 ## [Kurallar](xref:web-api/advanced/conventions)
 
@@ -209,7 +197,6 @@
 ### [Java API'si başvurusu](/java/api/com.microsoft.signalr?view=aspnet-signalr-java)
 ### [JavaScript istemcisi](xref:signalr/javascript-client)
 ### [JavaScript API'si başvurusu](/javascript/api/?view=signalr-js-latest)
-### [WebPack ve TypeScript](xref:tutorials/signalr-typescript-webpack)
 ## Barındırma ve ölçeklendirme
 ### [Genel bakış](xref:signalr/scale)
 ### [Azure SignalR Hizmeti](/azure/azure-signalr/signalr-overview)
@@ -319,6 +306,7 @@
 ## [Visual Studio yayımlama profilleri](xref:host-and-deploy/visual-studio-publish-profiles)
 ## [Dizin yapısı](xref:host-and-deploy/directory-structure)
 ## [Azure App Service ve IIS için hata başvurusu](xref:host-and-deploy/azure-iis-errors-reference)
+## [Sistem durumu denetimleri](xref:host-and-deploy/health-checks)
 
 # Güvenlik ve Kimlik
 ## [Genel bakış](xref:security/index)
@@ -455,6 +443,7 @@
 ### [HTTP modüllerinden ara yazılıma](xref:migration/http-modules)
 
 # Yenilikler
+## [2.2 sürümündeki yenilikler](xref:aspnetcore-2.2)
 ## [2.1 sürümündeki yenilikler](xref:aspnetcore-2.1)
 ## [2.0 sürümündeki yenilikler](xref:aspnetcore-2.0)
 ## [1.1 sürümündeki yenilikler](xref:aspnetcore-1.1)
