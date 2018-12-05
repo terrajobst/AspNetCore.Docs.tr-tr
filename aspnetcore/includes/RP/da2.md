@@ -1,16 +1,11 @@
-::: moniker range=">= aspnetcore-2.1"
-
-Kırmızı dalgalı çizgi üzerinde sağ tıklayın > **hızlı Eylemler ve yeniden düzenlemeler** üzerinde `[Column]` özniteliği çetele seçin `using System.ComponentModel.DataAnnotations.Schema;`
 
 `[Column(TypeName = "decimal(18, 2)")]` Veri ek açıklama, Entity Framework Core doğru şekilde eşleyebilirsiniz biçimde gereklidir `Price` veritabanında para birimi. Daha fazla bilgi için [veri türleri](/ef/core/modeling/relational/data-types).
 
 Tamamlanan modeli:
 
-[!code-csharp[Main](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie21/Models/MovieDateFixed.cs?name=snippet_1)]
+[!code-csharp[Main](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Models/MovieDateFixed.cs?name=snippet_1)]
 
-::: moniker-end
-
-Şu konulara değineceğiz [DataAnnotations](/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) sonraki öğreticide. [Görüntüleme](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.metadata.displaymetadata) öznitelik adı (Bu durumda "ReleaseDate" yerine "yayın tarihi") bir alan için görüntülenecek öğeleri belirtir. [DataType](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.internal.datatypeattributeadapter) öznitelik alanında depolanan saat bilgilerini görüntülenmediğini şekilde (tarih), veri türünü belirtir.
+[DataAnnotations](/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) sonraki öğreticide ele alınmıştır. [Görüntüleme](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.metadata.displaymetadata) öznitelik adı (Bu durumda "ReleaseDate" yerine "yayın tarihi") bir alan için görüntülenecek öğeleri belirtir. [DataType](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.internal.datatypeattributeadapter) öznitelik alanında depolanan saat bilgilerini görüntülenmediğini şekilde (tarih), veri türünü belirtir.
 
 Sayfa/film bulun ve üzerine bir **Düzenle** hedef URL'ye görmek için bağlantı.
 
@@ -69,23 +64,11 @@ Test etmek için `catch` engelle:
 
 Üretim kodu genellikle iki eşzamanlılık çakışmalarını algılamak veya daha fazla istemci aynı anda bir kayıt güncelleştirildi. Bkz: [eşzamanlılık çakışmalarını işleme](xref:data/ef-rp/concurrency) daha fazla bilgi için.
 
-::: moniker-end
-
 ### <a name="posting-and-binding-review"></a>Gönderme ve bağlama gözden geçirin
 
 İnceleme *Pages/Movies/Edit.cshtml.cs* dosyası:
 
-::: moniker range="= aspnetcore-2.0"
-
-[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Edit.cshtml.cs?name=snippet2)]
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.1"
-
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Edit21.cshtml.cs?name=snippet2)]
-
-::: moniker-end
 
 Bir HTTP GET isteği filmler/düzenleme sayfası için yapılan olduğunda (örneğin, `http://localhost:5000/Movies/Edit/2`):
 

@@ -7,12 +7,12 @@ ms.author: mimengis
 ms.custom: mvc
 ms.date: 11/07/2018
 uid: signalr/java-client
-ms.openlocfilehash: 78ffdf7488c95b1cf84a249d6d08b6acd23ec208
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: d0eff38c1f622b896ed1dc3002238aec7b6bfd38
+ms.sourcegitcommit: 8a65f6c2cbe290fb2418eed58f60fb74c95392c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861764"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52892100"
 ---
 # <a name="aspnet-core-signalr-java-client"></a>ASP.NET Core SignalR Java istemci
 
@@ -26,13 +26,12 @@ Bu makalede bahsedilen örnek Java konsol uygulaması SignalR Java istemcisi kul
 
 ## <a name="install-the-signalr-java-client-package"></a>SignalR Java istemci paketini yükle
 
-*1.0.0 preview3 35501 signalr* JAR dosyasını istemcilerin SignalR hub'ları bağlanmasına izin verir. JAR dosyası en son sürüm numarasını bulmak için bkz: [Maven arama sonuçları](https://search.maven.org/search?q=g:com.microsoft.signalr%20AND%20a:signalr).
+*Signalr 1.0.0* JAR dosyasını istemcilerin SignalR hub'ları bağlanmasına izin verir. JAR dosyası en son sürüm numarasını bulmak için bkz: [Maven arama sonuçları](https://search.maven.org/search?q=g:com.microsoft.signalr%20AND%20a:signalr).
 
 Gradle kullanıyorsanız, aşağıdaki satırı ekleyin `dependencies` bölümünü, *build.gradle* dosyası:
 
 ```gradle
-implementation 'com.microsoft.signalr:signalr:1.0.0-preview3-35501'
-implementation 'io.reactivex.rxjava2:rxjava:2.2.2'
+implementation 'com.microsoft.signalr:signalr:1.0.0'
 ```
 
 Maven kullanarak eklerseniz içinde aşağıdaki satırları `<dependencies>` öğesinin, *pom.xml* dosyası:
@@ -95,8 +94,6 @@ HubConnection hubConnection = HubConnectionBuilder.create("YOUR HUB URL HERE")
 ```
 
 ## <a name="known-limitations"></a>Bilinen sınırlamalar
-
-Bu bir Java istemci Önizleme sürümüdür. Bazı özellikler desteklenmez:
 
 * Yalnızca JSON Protokolü desteklenir.
 * WebSockets taşıma desteklenmiyor.

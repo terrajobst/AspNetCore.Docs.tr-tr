@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
 ms.date: 12/3/2018
 uid: tutorials/razor-pages/search
-ms.openlocfilehash: 0afd22be397f3f887fb6ce9718e01dc625548e71
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 8e047024180b20e3b649085647a9136140911fee
+ms.sourcegitcommit: 8a65f6c2cbe290fb2418eed58f60fb74c95392c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861959"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52892074"
 ---
 # <a name="add-search-to-aspnet-core-razor-pages"></a>ASP.NET Core Razor sayfaları için arama Ekle
 
@@ -28,8 +28,9 @@ Vurgulanan aşağıdaki özelliği ekleyin *Pages/Movies/Index.cshtml.cs*:
 * `SearchString`: kullanıcıların, arama metin kutusuna girdiğiniz metnin içerir. `SearchString` ile donatılmış [ `[BindProperty]` ](/dotnet/api/microsoft.aspnetcore.mvc.bindpropertyattribute) özniteliği. `[BindProperty]` Form değerlerini ve sorgu dizeleriyle özelliğiyle aynı ada bağlar. `(SupportsGet = true)` GET isteklerinde bağlama için gereklidir.
 * `Genres`: tür listesini içerir. `Genres` kullanıcının listeden bir türe izin verir. `SelectList` gerektirir `using Microsoft.AspNetCore.Mvc.Rendering;`
 * `MovieGenre`: belirli bir türe kullanıcı seçer (örneğin, "Batı") içeriyor.
+* `Genres` ve `MovieGenre` Bu öğreticinin ilerleyen bölümlerinde kullanılır.
 
-`Genres` Ve `MovieGenre` özellikleri, bu öğreticinin ilerleyen bölümlerinde kullanılır.
+[!INCLUDE[](~/includes/bind-get.md)]
 
 Dizin sayfanın güncelleştirme `OnGetAsync` yöntemini aşağıdaki kod ile:
 

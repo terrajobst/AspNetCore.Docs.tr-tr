@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/12/2018
 uid: razor-pages/index
-ms.openlocfilehash: 7fc048e427fd49e2142160615a12989fd4f40303
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: cc881ff42d57ab1654f492a70006a995939e4844
+ms.sourcegitcommit: 8a65f6c2cbe290fb2418eed58f60fb74c95392c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207621"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52892126"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>ASP.NET Core Razor sayfalar giriş
 
@@ -25,15 +25,15 @@ Bu belge, Razor sayfaları için bir giriş sağlar. Bir adım adım öğretici 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-[!INCLUDE [](~/includes/net-core-prereqs.md)]
+[!INCLUDE[](~/includes/net-core-prereqs-all-2.2.md)]
 
 <a name="rpvs17"></a>
 
-## <a name="creating-a-razor-pages-project"></a>Razor sayfaları proje oluşturma
+## <a name="create-a-razor-pages-project"></a>Razor sayfaları proje oluşturma
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-Bkz: [Razor sayfaları kullanmaya başlama](xref:tutorials/razor-pages/razor-pages-start) Visual Studio kullanarak Razor sayfaları oluşturma hakkında ayrıntılı yönergeler için proje.
+Bkz: [Razor sayfaları kullanmaya başlama](xref:tutorials/razor-pages/razor-pages-start) Razor sayfaları proje oluşturma konusunda ayrıntılı yönergeler için.
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
@@ -65,23 +65,9 @@ Oluşturulan açın *.csproj* Mac için Visual Studio'dan dosyası
 
 ::: moniker-end
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
-
-::: moniker range=">= aspnetcore-2.1"
-
-Çalıştırma `dotnet new webapp` komut satırından.
-
-::: moniker-end
-
-::: moniker range="= aspnetcore-2.0"
-
-Çalıştırma `dotnet new razor` komut satırından.
-
-::: moniker-end
-
 ---
 
-## <a name="razor-pages"></a>Razor sayfaları
+## <a name="razor-pages"></a>Razor Pages
 
 Razor sayfaları etkin *Startup.cs*:
 
@@ -117,7 +103,7 @@ Notlar:
 * Razor sayfaları dosyalarında çalışma zamanı arar *sayfaları* varsayılan klasör.
 * `Index` bir URL bir sayfa içermediğinde varsayılan sayfasıdır.
 
-## <a name="writing-a-basic-form"></a>Temel bir form yazma
+## <a name="write-a-basic-form"></a>Temel bir form yazma
 
 Razor sayfaları web tarayıcıları ile kolay bir uygulama oluştururken uygulamak için kullanılan ortak desenler hale getirmek için tasarlanmıştır. [Model bağlama](xref:mvc/models/model-binding), [etiket Yardımcıları](xref:mvc/views/tag-helpers/intro)ve HTML yardımcılarını tüm *yalnızca iş* bir Razor sayfası sınıfta tanımlanan özelliklere sahip. "Bize başvurun" oluşturmak için temel bir uygulayan bir sayfa göz önünde bulundurun `Contact` modeli:
 
@@ -173,10 +159,7 @@ Gönderilen bir formu, (yani sunucuya geçirilir) doğrulama hataları olduğund
 
 Razor sayfaları varsayılan olarak, GET olmayan fiilleri yalnızca özelliklerle bağlayın. Özellikleri bağlama yazmanız gereken kod miktarını azaltır. Form alanlarını işlemek için aynı özellik kullanarak kod azaltır bağlama (`<input asp-for="Customer.Name" />`) ve giriş kabul edin.
 
-> [!NOTE]
-> Güvenlik nedenleriyle, sayfa modeli özellikleri için GET isteği veri bağlaması kabul gerekir. Özellikleri için eşleme önce kullanıcı girişi doğrulayın. Bu davranış için seçim olan sorgu dizesi veya rota değerlerini senaryoları belirtirken yararlıdır.
->
-> Bir özellik üzerinde GET istekleri bağlamak için ayarlanmış `[BindProperty]` özniteliğin `SupportsGet` özelliğini `true`: `[BindProperty(SupportsGet = true)]`
+[!INCLUDE[](~/includes/bind-get.md)]
 
 Giriş sayfası (*Index.cshtml*):
 
@@ -242,11 +225,11 @@ Düğme seçildiğinde, bir form `POST` isteği sunucuya gönderilir. Kural gere
 
 [!code-cs[](index/sample/Create.cshtml.cs?highlight=3,15-16)]
 
-Bkz: [Model doğrulama](xref:mvc/models/validation) daha fazla bilgi için.
+Daha fazla bilgi için [Model doğrulama](xref:mvc/models/validation).
 
 ## <a name="manage-head-requests-with-the-onget-handler"></a>HEAD isteklerini OnGet işleyici ile yönetme
 
-HEAD isteklerini belirli bir kaynak için üstbilgiler almanızı sağlar. GET istekleri, yanıt gövdesi HEAD isteklerini döndürmeyin. 
+HEAD isteklerini belirli bir kaynak için üstbilgiler almanızı sağlar. GET istekleri, yanıt gövdesi HEAD isteklerini döndürmeyin.
 
 Normalde, bir baş işleyici oluşturulur ve HEAD isteklerini çağrılır: 
 
@@ -477,7 +460,7 @@ Aşağıdaki biçimlendirmede *Pages/Customers/Index.cshtml* dosya değerini gö
 public string Message { get; set; }
 ```
 
-Bkz: [TempData](xref:fundamentals/app-state#tempdata) daha fazla bilgi için.
+Daha fazla bilgi için [TempData](xref:fundamentals/app-state#tempdata) .
 
 <a name="mhpp"></a>
 ## <a name="multiple-handlers-per-page"></a>Sayfa başına birden çok işleyicileri
