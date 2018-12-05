@@ -8,23 +8,23 @@ ms.date: 06/10/2014
 ms.assetid: 6ecd08c1-e364-4cd7-ad4c-806521911585
 msc.legacyurl: /signalr/overview/performance/scaleout-with-redis
 msc.type: authoredcontent
-ms.openlocfilehash: ebb61e4296f78bcd74622b729a10d45b60ebb724
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: f92946ae99bf8cb3840adb5d98004acb87e24925
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912793"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861296"
 ---
-<a name="signalr-scaleout-with-redis"></a>Redis ile SignalR ölçeğini genişletme
+<a name="signalr-scaleout-with-redis"></a>Redis ile SignalR Ölçeğini Genişletme
 ====================
-tarafından [Mike Wasson](https://github.com/MikeWasson), [Patrick Fletcher](https://github.com/pfletcher)
+tarafından [Mike Wasson](https://github.com/MikeWasson)
 
 > ## <a name="software-versions-used-in-this-topic"></a>Bu konu başlığında kullanılan yazılım sürümleri
 >
 >
 > - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
-> - SignalR sürüm 2
+> - SignalR sürüm 2.4
 >
 >
 >
@@ -65,7 +65,8 @@ Ayrıntılı Öğreticisine aldığımız önce ne yapacağını, hızlı bir ge
 2. Bu NuGet paketlerini uygulamanıza ekleyin:
 
     - [Microsoft.AspNet.SignalR](http://nuget.org/packages/Microsoft.AspNet.SignalR)
-    - [Microsoft.AspNet.SignalR.Redis](http://nuget.org/packages/Microsoft.AspNet.SignalR.Redis)
+    - [Microsoft.AspNet.SignalR.StackExchangeRedis](https://www.nuget.org/packages/Microsoft.AspNet.SignalR.StackExchangeRedis)
+    
 3. Bir SignalR uygulaması oluşturun.
 4. Devre kartına yapılandırmak için Startup.cs için aşağıdaki kodu ekleyin:
 
@@ -112,7 +113,7 @@ Bir SignalR uygulaması ya da bu öğreticileri izleyerek oluşturun:
 - [SignalR 2.0 ile çalışmaya başlama](../getting-started/tutorial-getting-started-with-signalr.md)
 - [SignalR 2.0 ve MVC 5 kullanmaya başlama](../getting-started/tutorial-getting-started-with-signalr-and-mvc.md)
 
-Ardından, biz sohbet uygulaması, Redis ile ölçeğini genişletme destekleyecek şekilde değiştireceksiniz. İlk olarak, SignalR.Redis NuGet paketini projenize ekleyin. Visual Studio'da gelen **Araçları** menüsünde **NuGet Paket Yöneticisi**, ardından **Paket Yöneticisi Konsolu**. Paket Yöneticisi konsolu penceresinde, aşağıdaki komutu girin:
+Ardından, biz sohbet uygulaması, Redis ile ölçeğini genişletme destekleyecek şekilde değiştireceksiniz. İlk olarak, ekleme `Microsoft.AspNet.SignalR.StackExchangeRedis` NuGet paketini projenize. Visual Studio'da gelen **Araçları** menüsünde **NuGet Paket Yöneticisi**, ardından **Paket Yöneticisi Konsolu**. Paket Yöneticisi konsolu penceresinde, aşağıdaki komutu girin:
 
 [!code-powershell[Main](scaleout-with-redis/samples/sample5.ps1)]
 

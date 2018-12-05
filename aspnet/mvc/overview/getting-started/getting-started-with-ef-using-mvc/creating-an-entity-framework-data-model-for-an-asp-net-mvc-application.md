@@ -3,16 +3,16 @@ uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-
 title: Entity Framework 6 Code MVC 5 kullanarak First ile çalışmaya başlama | Microsoft Docs
 author: tdykstra
 ms.author: riande
-ms.date: 10/04/2018
+ms.date: 12/04/2018
 ms.assetid: 00bc8b51-32ed-4fd3-9745-be4c2a9c1eaf
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 5dd9a5a24d8c67c5190c98e3240d132eaa27661c
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: c7ab9458f83e05af84f72d9a2519a8c1c39b84b5
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912416"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861439"
 ---
 # <a name="get-started-with-entity-framework-6-code-first-using-mvc-5"></a>Entity Framework 6 Code MVC 5 kullanarak First ile çalışmaya başlama
 
@@ -21,7 +21,7 @@ tarafından [Tom Dykstra](https://github.com/tdykstra)
 [Projeyi yükle](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
 > [!NOTE]
-> A [Bu öğretici serisinin daha yeni sürümü](/aspnet/core/tutorials/razor-pages/razor-pages-start?view=aspnetcore-2.1) olan kullanılabilir kullanan [Razor sayfaları](/aspnet/core/razor-pages). Razor sayfaları, sayfa tabanlı ve web kullanıcı Arabirimi daha kolay ve üretken bir hale getiren bir programlama modeli olur. MVC sürüm üzerinde Razor sayfaları öğretici öneririz. Razor sayfaları öğretici:
+> Yeni geliştirme projeleri için öneririz [ASP.NET Core Razor sayfalar](/aspnet/core/razor-pages) ASP.NET MVC denetleyicileri ve görünümleri üzerinden. Razor sayfaları için aşağıdakine benzer bir öğretici serisinin kullanılabilir [Razor sayfaları öğretici](/aspnet/core/tutorials/razor-pages/razor-pages-start):
 >
 > * İzlemek daha kolay olur.
 > * Daha fazla EF Core en iyi uygulamalar sağlanır.

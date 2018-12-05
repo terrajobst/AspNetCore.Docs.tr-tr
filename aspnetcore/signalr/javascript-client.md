@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 11/14/2018
 uid: signalr/javascript-client
-ms.openlocfilehash: 7de7abd7176e160154a458a3b90f662ba8f47f8c
-ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
+ms.openlocfilehash: 247ccd40412cdb41f38edccbe96d4832751f12cf
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51708393"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861998"
 ---
 # <a name="aspnet-core-signalr-javascript-client"></a>ASP.NET Core SignalR JavaScript istemcisi
 
@@ -113,7 +113,9 @@ Gerçek uygulama bir üstel geri alma kullanın veya ancak bir belirtilen sayıd
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [JavaScript API'si başvurusu](/javascript/api/?view=signalr-js-latest)
+* [JavaScript Öğreticisi](xref:tutorials/signalr)
+* [Web ve TypeScript Öğreticisi](xref:tutorials/signalr-typescript-webpack)
 * [Merkezler](xref:signalr/hubs)
 * [.NET istemcisi](xref:signalr/dotnet-client)
 * [Azure'a Yayımlama](xref:signalr/publish-to-azure-web-app)
-* [ASP.NET core'da çıkış noktaları arası istekleri (CORS) etkinleştirme](xref:security/cors)
+* [Çıkış noktaları arası istekleri (CORS)](xref:security/cors)

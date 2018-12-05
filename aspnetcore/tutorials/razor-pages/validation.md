@@ -2,17 +2,17 @@
 title: Doğrulama için bir ASP.NET Core Razor sayfası ekleme
 author: rick-anderson
 description: ASP.NET Core Razor sayfasına doğrulamanın nasıl keşfedin.
-monikerRange: '>= aspnetcore-2.0'
+monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 12/5/2018
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: d4cc0ab9de314c0c5a1a9016efd1e566ff1c47d2
-ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
+ms.openlocfilehash: 87171beb7c214b1370d4d4144a79cb6d2c56098f
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51505784"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52862375"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Doğrulama için bir ASP.NET Core Razor sayfası ekleme
 
@@ -22,7 +22,10 @@ Bu bölümde, doğrulama mantığı eklenen `Movie` modeli. Doğrulama kurallar�
 
 ## <a name="validation"></a>Doğrulama
 
-Bir anahtar uyarlamanız yazılım geliştirme adlı [KURU](https://wikipedia.org/wiki/Don%27t_repeat_yourself) ("**D**aşağıdakilerden **R**epeat **Y**ourself"). Razor sayfaları burada işlevselliği bir kez belirtildiğinden ve uygulama boyunca yansıtılır geliştirme teşvik eder. KURU, bir uygulamada kod miktarını azaltmaya yardımcı olabilir. KURU kod daha az hata yapmaya açık ve test etmek ve sürdürmek daha kolay sağlar.
+Bir anahtar uyarlamanız yazılım geliştirme adlı [KURU](https://wikipedia.org/wiki/Don%27t_repeat_yourself) ("**D**aşağıdakilerden **R**epeat **Y**ourself"). Razor sayfaları burada işlevselliği bir kez belirtildiğinden ve uygulama boyunca yansıtılır geliştirme teşvik eder. KURU yardımcı olabilir:
+
+* Bir uygulamada kod miktarını azaltır.
+* Kodu daha az hata yapmaya açık ve test etmek ve sürdürmek daha kolay olun.
 
 Razor sayfaları ve Entity Framework tarafından sağlanan doğrulama desteği, KURU İlkesi iyi bir örnektir. Doğrulama kuralları (model sınıfında) tek bir yerde bildirimli olarak belirtilir ve kuralları uygulamada her yerde uygulanır.
 
@@ -32,17 +35,7 @@ Açık *Models/Movie.cs* dosya. [DataAnnotations](/aspnet/mvc/overview/older-ver
 
 Güncelleştirme `Movie` yararlanmak için sınıf `Required`, `StringLength`, `RegularExpression`, ve `Range` doğrulama öznitelikleri.
 
-::: moniker range="= aspnetcore-2.0"
-
-[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieDateRatingDA.cs?name=snippet1)]
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.1"
-
-[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie21/Models/MovieDateRatingDA.cs?name=snippet1)]
-
-::: moniker-end
+[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Models/MovieDateRatingDA.cs?name=snippet1)]
 
 Doğrulama özniteliklerinin zorlanan davranış modeli özellikleri belirtin:
 
@@ -113,11 +106,8 @@ Doğrulama mantığını değişmesi gerektiğinde, yalnızca model içinde yap�
 
 `DataType.Date` Görüntülenen tarih biçimi belirtmiyor. Varsayılan olarak, sunucu üzerinde temel alan varsayılan biçimler göre veri alanı görüntülenir `CultureInfo`.
 
-::: moniker range=">= aspnetcore-2.1"
 
 `[Column(TypeName = "decimal(18, 2)")]` Veri ek açıklama, Entity Framework Core doğru şekilde eşleyebilirsiniz biçimde gereklidir `Price` veritabanında para birimi. Daha fazla bilgi için [veri türleri](/ef/core/modeling/relational/data-types).
-
-::: moniker-end
 
 `DisplayFormat` Açıkça tarih biçimini belirtmek için özniteliği kullanılır:
 
@@ -144,23 +134,13 @@ Bu genellikle Sabit tarihler kullanarak Modellerinizi derlemek için iyi bir uyg
 
 Aşağıdaki kod, bir satır birleştirme öznitelikleri gösterir:
 
-::: moniker range="= aspnetcore-2.0"
-
-[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRatingDAmult.cs?name=snippet1)]
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.1"
-
-[!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Models/MovieDateRatingDAmult.cs?name=snippet1)]
-
-::: moniker-end
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Models/MovieDateRatingDAmult.cs?name=snippet1)]
 
 [Razor sayfaları ve EF Core ile çalışmaya başlama](xref:data/ef-rp/intro) EF çekirdekli Razor sayfaları işlemleriyle Gelişmiş gösterir.
 
 ### <a name="publish-to-azure"></a>Azure'a Yayımlama
 
-Bkz: Azure'a dağıtma hakkında bilgi [öğretici: azure'da SQL veritabanı ile ASP.NET uygulaması derleme](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase). Bu yönergeler, bir ASP.NET uygulaması için bir ASP.NET Core uygulaması içindir ancak adımlar aynıdır.
+Azure'a dağıtma hakkında daha fazla bilgi için bkz. [öğretici: azure'da SQL veritabanı ile ASP.NET uygulaması derleme](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase). Bu yönergeler, bir ASP.NET uygulaması için bir ASP.NET Core uygulaması içindir ancak adımlar aynıdır.
 
 Razor sayfaları giriş tamamlamak için teşekkür ederiz. Geri bildirim için teşekkür ederiz. [Razor sayfaları ve EF Core ile çalışmaya başlama](xref:data/ef-rp/intro) olan Bu öğreticide kadar mükemmel bir izleyin.
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/15/2018
 uid: mvc/controllers/filters
-ms.openlocfilehash: e5305852fad058961661373f9310d6dcaf30aa16
-ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
+ms.openlocfilehash: d25976af860ed8733c0548a4102e0095969b2ba6
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50253201"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861855"
 ---
 # <a name="filters-in-aspnet-core"></a>ASP.NET core'da filtreleri
 
@@ -252,7 +252,8 @@ Bu filtre uygulanabilir, sınıfları veya yöntemleri kullanarak `[SampleAction
 
 ## <a name="authorization-filters"></a>Yetkilendirme filtreleri
 
-* Yetkilendirme filtreleri:
+*Yetkilendirme filtreleri*:
+
 * Eylem yöntemlerine erişimi denetler.
 * Filtre ardışık yürütülecek ilk filtrelerdir. 
 * Sahip bir yöntemi önce ancak bundan sonra yöntemi. 

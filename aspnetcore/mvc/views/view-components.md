@@ -3,14 +3,14 @@ title: ASP.NET core'da görünüm bileşenleri
 author: rick-anderson
 description: ASP.NET Core görünümü bileşenlerin nasıl kullanıldığı ve bunları için uygulamaları nasıl ekleyeceğinizi öğrenin.
 ms.author: riande
-ms.date: 02/14/2017
+ms.date: 12/03/2018
 uid: mvc/views/view-components
-ms.openlocfilehash: 91399acafb36f1f8759ed1783e70e59b631e3bf0
-ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
+ms.openlocfilehash: 5812abad80cd906d6b9a7175bd7cdefd03a99eb3
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50253139"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861335"
 ---
 # <a name="view-components-in-aspnet-core"></a>ASP.NET core'da görünüm bileşenleri
 
@@ -63,13 +63,13 @@ Bir görünümü bileşen sınıfı:
 
 ### <a name="view-component-methods"></a>Görünümü bileşen yöntemleri
 
-Görünümü bileşen kendi mantığı tanımlayan bir `InvokeAsync` döndüren yöntem bir `IViewComponentResult`. Parametreler doğrudan çağrı görünümü bileşeninin değil, model bağlama gelir. Bir görünümü bileşeni hiçbir zaman doğrudan bir isteği işler. Genellikle, bir görünüm bileşeni bir model başlatır ve çağırarak görünümüne geçirir `View` yöntemi. Özet olarak, bileşen yöntemleri görüntüleyin:
+Görünümü bileşen kendi mantığı tanımlayan bir `InvokeAsync` döndüren yöntem bir `Task<IViewComponentResult>` veya bir zaman uyumlu olarak `Invoke` döndüren yöntem bir `IViewComponentResult`. Parametreler doğrudan çağrı görünümü bileşeninin değil, model bağlama gelir. Bir görünümü bileşeni hiçbir zaman doğrudan bir isteği işler. Genellikle, bir görünüm bileşeni bir model başlatır ve çağırarak görünümüne geçirir `View` yöntemi. Özet olarak, bileşen yöntemleri görüntüleyin:
 
-* Tanımlayan bir `InvokeAsync` döndüren yöntem bir `IViewComponentResult`
-* Genellikle bir model başlatır ve çağırarak görünümüne geçirir `ViewComponent` `View` yöntemi
-* Parametreleri HTTP değil çağırma yönteminden gelir, model bağlama yok
-* Olan bir HTTP uç noktası olarak doğrudan ulaşılabilir değil, bunlar kodunuzu (genellikle, bir görünüm) çağrılır. Bir görünümü bileşeni hiçbir zaman bir isteği işler
-* Geçerli HTTP istek tüm ayrıntıları yerine imza aşırı
+* Tanımlayan bir `InvokeAsync` döndüren yöntem bir `Task<IViewComponentResult>` veya bir zaman uyumlu `Invoke` döndüren yöntem bir `IViewComponentResult`.
+* Genellikle bir model başlatır ve çağırarak görünümüne geçirir `ViewComponent` `View` yöntemi.
+* Parametreleri HTTP değil çağırma yönteminden gelir. Hiçbir model bağlama yoktur.
+* Doğrudan HTTP uç noktası ulaşılamıyor. Bunlar kodunuzu (genellikle, bir görünüm) çağrılır. Bir görünümü bileşeni hiçbir zaman bir isteği işler.
+* Geçerli HTTP istek tüm ayrıntıları yerine imza aşırı yüklenmesi sebebiyledir.
 
 ### <a name="view-search-path"></a>Görünüm arama yolu
 

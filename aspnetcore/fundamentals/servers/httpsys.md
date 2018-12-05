@@ -5,14 +5,14 @@ description: HTTP.sys, ASP.NET Core, Windows için bir web sunucusu hakkında bi
 monikerRange: '>= aspnetcore-2.0'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 11/26/2018
+ms.date: 12/01/2018
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: f5ab1a3cbd1020a5ab2bd64a81b5782fd116f069
-ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
+ms.openlocfilehash: 8810fd295e8c4269812e712ce2fdc9b9fa2bbb4f
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52450651"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861699"
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>ASP.NET core'da HTTP.sys web sunucusu uygulaması
 
@@ -21,7 +21,7 @@ Tarafından [Tom Dykstra](https://github.com/tdykstra), [Chris Ross](https://git
 > [!NOTE]
 > Bu konu, ASP.NET Core 2.0 veya sonraki bir sürüme geçerlidir. ASP.NET Core önceki sürümlerde HTTP.sys adlı [WebListener](xref:fundamentals/servers/weblistener).
 
-[HTTP.sys](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture#hypertext-transfer-protocol-stack-httpsys) olduğu bir [ASP.NET Core web sunucusu](xref:fundamentals/servers/index) Windows üzerinde yalnızca çalışır. HTTP.sys olan alternatif [Kestrel](xref:fundamentals/servers/kestrel) ve Kestrel sağlamaz bazı özellikler sunar.
+[HTTP.sys](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture#hypertext-transfer-protocol-stack-httpsys) olduğu bir [ASP.NET Core web sunucusu](xref:fundamentals/servers/index) Windows üzerinde yalnızca çalışır. HTTP.sys olan alternatif [Kestrel](xref:fundamentals/servers/kestrel) sunucu ve teklifler bazı özellikleri Kestrel sağlamaz.
 
 > [!IMPORTANT]
 > HTTP.sys uyumlu [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module) ve IIS veya IIS Express ile kullanılamaz.
@@ -33,7 +33,7 @@ HTTP.sys aşağıdaki özellikleri destekler:
 * SNI ile HTTPS
 * HTTP/2 üzerinden TLS (Windows 10 veya üzeri)
 * Doğrudan bir dosya aktarımı
-* Yanıtları önbelleğe alma
+* Yanıtları Önbelleğe Alma
 * WebSockets (Windows 8 veya üzeri)
 
 Desteklenen Windows sürümleri:

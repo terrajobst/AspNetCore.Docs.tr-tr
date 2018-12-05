@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core uygulamaları ve IIS modüllerini yönetmek nasıl etkin ve etkin olmayan IIS modülleri keşfedin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/12/2018
+ms.date: 11/30/2018
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: b417d479d0c3f8b3e739d4c72b52247de0e88e56
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: c6a6cc9b6b3410267c6f5034f824648a1ebbe10f
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49325958"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52862245"
 ---
 # <a name="iis-modules-with-aspnet-core"></a>ASP.NET Core içeren IIS modülleri
 
@@ -21,7 +21,7 @@ Bazı yerel IIS modülleri ve tüm yönetilen IIS modüllerini ASP.NET Core uygu
 
 ## <a name="native-modules"></a>Yerel modülleri
 
-Tablo, ASP.NET Core uygulamaları için ters proxy istekleri işlev yerel IIS modülleri gösterir.
+ASP.NET Core uygulamaları ile işlevsel yerel IIS modülleri ve ASP.NET Core modülü tabloyu belirtir.
 
 | Modül | ASP.NET Core uygulamaları ile işlev | ASP.NET Core seçeneği |
 | --- | :---: | --- |

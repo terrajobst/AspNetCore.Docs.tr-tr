@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/19/2018
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: 98787891a97e49081d72107484f030d216d82f45
-ms.sourcegitcommit: ad28d1bc6657a743d5c2fa8902f82740689733bb
+ms.openlocfilehash: 84052789717738a48c346d35d1a2642017a9ab93
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52256573"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861920"
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>URL yeniden yazma ara yazılımı ASP.NET core'da
 
@@ -210,7 +210,7 @@ Aşağıdaki `^rewrite-rule/` bölümü ifadesi, iki yakalama grupları vardır 
 Hiçbir kaynak almak için sunucuya gidiş dönüş yoktur. Kaynağın mevcut durumunda getirilen ve istemciye döndürülen bir *200 - OK* durum kodu. Tarayıcının adres çubuğuna URL'yi, istemci yeniden yönlendirilen değildir çünkü değiştirmez. İstemciler, bir URL yeniden yazma işlemi sunucuda oluştu algılayamaz.
 
 > [!NOTE]
-> Kullanım `skipRemainingRules: true` her olası kurallarına çünkü hesaplama açısından pahalıdır ve uygulama yanıt süresini azaltır. Hızlı Uygulama yanıtı:
+> Kullanım `skipRemainingRules: true` her olası kurallarına çünkü hesaplama açısından pahalıdır ve uygulama yanıt süresini artırır. Hızlı Uygulama yanıtı:
 >
 > * Sipariş en sık eşleşen kural kurallardan az sık eşleşen kural yeniden yazın.
 > * Bir eşleşme olursa ve hiçbir ek kural işleme gerekli olduğunda kalan kurallarının işlenmesini atlayın.

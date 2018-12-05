@@ -4,14 +4,14 @@ author: shirhatti
 description: IIS Windows Server'da çalışan ASP.NET Core uygulamalarında hata ayıklamaya yönelik destek keşfedin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/26/2018
+ms.date: 11/30/2018
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: 65dbe690a33d82a4edddf315803dc4c656db27a0
-ms.sourcegitcommit: e8d80ff566bfe505b43389d7bc4551edb1c0c872
+ms.openlocfilehash: 51375e6a6bb25a469d467ca97a151abd305c1ece
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52549110"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52862388"
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>Geliştirme zamanı IIS, ASP.NET Core için Visual Studio desteği
 
@@ -54,7 +54,7 @@ IIS yüklemesi zaten varsa, bir **varsayılan Web sitesi** uygulamanın başlatm
 ## <a name="enable-development-time-iis-support-in-visual-studio"></a>Visual Studio'da geliştirme zamanı IIS desteğini etkinleştirin
 
 1. Visual Studio Yükleyicisi'ni başlatın.
-1. Seçin **geliştirme zamanı IIS desteğini** bileşeni. Bileşen isteğe bağlı olarak, listelenen **özeti** panelinde **ASP.NET ve web geliştirme** iş yükü. Bileşeni yükler [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module), ASP.NET Core, bir ters proxy yapılandırma IIS arkasında uygulamaları çalıştırmak için gereken yerel bir IIS modül olduğu.
+1. Seçin **geliştirme zamanı IIS desteğini** bileşeni. Bileşen isteğe bağlı olarak, listelenen **özeti** panelinde **ASP.NET ve web geliştirme** iş yükü. Bileşeni yükler [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module), ASP.NET Core uygulamaları ile IIS çalıştırmak için gereken yerel bir IIS modül olduğu.
 
 ![Visual Studio özellikleri değiştirerek: iş yüklerini sekmesi seçilmiştir. Web ve bulut bölümünde, ASP.NET ve web geliştirme paneli seçilir. Özet panelini isteğe bağlı alanında sağ tarafta, geliştirme zamanı IIS desteğini için bir onay kutusu yok.](development-time-iis-support/_static/development_time_support.png)
 

@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core uygulamaları barındırmak için gereken ASP.NET Core modülü yapılandırmayı öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/12/2018
+ms.date: 12/01/2018
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: 5a3fd9c3453c07ee550c7de0333c9a49d5d5d1af
-ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
+ms.openlocfilehash: 0feb93c4cbda3a13421c3e120c6f6b7fab626541
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52450664"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861608"
 ---
 # <a name="aspnet-core-module-configuration-reference"></a>ASP.NET Core Module yapılandırma başvurusu
 
@@ -37,7 +37,7 @@ Procsess barındırma katılımı olan mevcut uygulamalar için ancak [yeni dotn
 
 Aşağıdaki özellikler, işlem içi barındırırken geçerlidir:
 
-* [Kestrel sunucu](xref:fundamentals/servers/kestrel) kullanılmaz. Özel bir <xref:Microsoft.AspNetCore.Hosting.Server.IServer> uygulaması `IISHttpServer` uygulamanın sunucusu işlevi görür.
+* IIS HTTP sunucusu (`IISHttpServer`) yerine kullanılan [Kestrel](xref:fundamentals/servers/kestrel) sunucusu. IIS HTTP sunucusu (`IISHttpServer`) başka bir özelliktir <xref:Microsoft.AspNetCore.Hosting.Server.IServer> yerel istekler IIS içinde ASP.NET Core dönüştüren uygulama isteklerini işlemek için uygulama tarafından yönetilen.
 
 * [RequestTimeout özniteliği](#attributes-of-the-aspnetcore-element) işlem içi barındırmak için geçerli değildir.
 

@@ -4,14 +4,14 @@ author: zuckerthoben
 description: Swagger kullanıcı arabirimini tümleştirmek için ASP.NET Core web API projesi için Swashbuckle eklemeyi öğrenin.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 11/14/2018
+ms.date: 11/30/2018
 uid: tutorials/get-started-with-swashbuckle
-ms.openlocfilehash: 9832e1ea2b59085b6680820469b16d549f4b0582
-ms.sourcegitcommit: f202864efca81a72ea7120c0692940c40d9d0630
+ms.openlocfilehash: 9229b4536c3d5090e640de71357c728ddbd5dcc3
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635348"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52862349"
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Swashbuckle'ı ve ASP.NET Core ile çalışmaya başlama
 
@@ -108,7 +108,7 @@ Swagger kullanıcı arabirimini şu yolda bulunabilir: `http://localhost:<port>/
 >
 > [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup3.cs?name=snippet_UseSwaggerUI&highlight=4)]
 
-Sanal dizinler (IIS veya örneğin bir ters proxy ile) kullanarak ayarlarsanız Swagger uç nokta kullanarak bir göreli yol `./` önek. Örneğin: `./swagger/v1/swagger.json` Kullanarak `/swagger/v1/swagger.json` URL (artı kullandıysanız rota öneki) true kökünde JSON dosyasını bulmak için uygulama bildirir. Örneğin, `http://localhost:<port>/<route_prefix>/swagger/v1/swagger.json` yerine `http://localhost:<port>/<virtual_directory>/<route_prefix>/swagger/v1/swagger.json`.
+IIS veya ters bir proxy ile #using Directories ayarlarsanız Swagger uç nokta kullanarak bir göreli yol `./` önek. Örneğin: `./swagger/v1/swagger.json` Kullanarak `/swagger/v1/swagger.json` URL (artı kullandıysanız rota öneki) true kökünde JSON dosyasını bulmak için uygulama bildirir. Örneğin, `http://localhost:<port>/<route_prefix>/swagger/v1/swagger.json` yerine `http://localhost:<port>/<virtual_directory>/<route_prefix>/swagger/v1/swagger.json`.
 
 ## <a name="customize-and-extend"></a>Özelleştirme ve genişletme
 

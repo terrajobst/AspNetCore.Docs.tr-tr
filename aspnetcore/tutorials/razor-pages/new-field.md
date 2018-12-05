@@ -5,25 +5,30 @@ description: Entity Framework Core ile bir Razor sayfası için yeni bir alan ek
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 12/5/2018
 uid: tutorials/razor-pages/new-field
-ms.openlocfilehash: f8be269887903797803257d8a21e002519102047
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: e280bc9553113982a1f1a77eabab32575c905237
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50089519"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52862297"
 ---
 # <a name="add-a-new-field-to-a-razor-page-in-aspnet-core"></a>ASP.NET Core Razor sayfasına yeni bir alan ekleyin
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Bu bölümde kullandığınız [Entity Framework](/ef/core/get-started/aspnetcore/new-db) veritabanına Code First Migrations'modeli için yeni bir alan ekleme ve bu geçiş için değiştirin.
+[!INCLUDE[](~/includes/rp/download.md)]
+
+Bu bölümdeki [Entity Framework](/ef/core/get-started/aspnetcore/new-db) için Code First Migrations kullanılır:
+
+* Modele yeni bir alan ekleyin.
+* Yeni alan şema değişikliği veritabanına geçirin.
 
 EF Code First otomatik olarak Code First bir veritabanı oluşturmak için kullanırken:
 
 * Veritabanı şeması öğesinden oluşturulan model sınıfları ile eşitlenmiş olup olmadığını izlemek için veritabanında bir tablo ekler.
-* EF, model sınıfları sahip bir veritabanı eşit değilse bir özel durum oluşturur. 
+* EF, model sınıfları sahip bir veritabanı eşit değilse bir özel durum oluşturur.
 
 Şema/modelinin eşitlenmiş otomatik doğrulama tutarsız veritabanı kod sorunlarını bulmayı kolaylaştırır.
 
@@ -31,47 +36,29 @@ EF Code First otomatik olarak Code First bir veritabanı oluşturmak için kulla
 
 Açık *Models/Movie.cs* dosya ve ekleme bir `Rating` özelliği:
 
-::: moniker range="= aspnetcore-2.0"
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Models/MovieDateRating.cs?highlight=13&name=snippet)]
 
-[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRating.cs?highlight=11&range=7-18)]
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.1"
-
-[!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Models/MovieDateRating.cs?highlight=13&name=snippet)]
-
-::: moniker-end
-
-(Ctrl + Shift + B) uygulaması oluşturun.
+Uygulama oluşturun.
 
 Düzen *Pages/Movies/Index.cshtml*ve bir `Rating` alan:
 
-[!code-cshtml[](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Index.cshtml?highlight=40-42,61-63)]
+[!code-cshtml[](razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/IndexRating.cshtml.?highlight=40-42,61-63)]
 
-Ekleme `Rating` silme ve ayrıntıları sayfaları alanı.
+Aşağıdaki sayfalar güncelleştirin:
 
-Güncelleştirme *Create.cshtml* ile bir `Rating` alan. Kopyalama/önceki yapıştırma `<div>` alanları güncelleştirme öğesi ve let IntelliSense yardımcı olur. IntelliSense ile birlikte çalışır [etiket Yardımcıları](xref:mvc/views/tag-helpers/intro).
-
-![Öznitelik değeri ASP R harfiyle Geliştirici yazdığını-için görünümün ikinci etiket öğesinde. IntelliSense bağlam menüsü listesinde otomatik olarak vurgulanır derecelendirme dahil olmak üzere kullanılabilir alanları gösteren görüntülendi. Geliştirici alana tıkladığında veya klavyedeki Enter tuşuna bastığında için derecelendirme değeri ayarlanır.](new-field/_static/cr.png)
-
-Aşağıdaki kodda gösterildiği *Create.cshtml* ile bir `Rating` alan:
-
-[!code-cshtml[](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Create.cshtml?highlight=36-40)]
-
-Ekleme `Rating` Düzenle sayfasında alanı.
+* Ekleme `Rating` silme ve ayrıntıları sayfaları alanı.
+* Güncelleştirme [Create.cshtml](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/Create.cshtml) ile bir `Rating` alan.
+* Ekleme `Rating` Düzenle sayfasında alanı.
 
 Uygulama DB yeni alanı içerecek şekilde güncelleştirilene kadar çalışmaz. Şimdi uygulamayı oluşturur çalıştırırsanız bir `SqlException`:
 
-```
-SqlException: Invalid column name 'Rating'.
-```
+`SqlException: Invalid column name 'Rating'.`
 
 Bu hata, veritabanının film tablonun şeması farklı olan güncelleştirilmiş film model sınıfı kaynaklanır. (Yok hiçbir `Rating` veritabanı tablosundaki sütun.)
 
 Hatayı çözümlemek için birkaç yaklaşım vardır:
 
-1. Otomatik olarak bırakın ve yeni model sınıfı şeması kullanarak veritabanını yeniden oluşturma Entity Framework vardır. Bu yaklaşım, Geliştirme döngüsünün başlarında kullanışlıdır; model ve veritabanı şeması birlikte hızla geliştirilebilen olanak tanır. Olumsuz tarafı, veritabanındaki mevcut verileri kaybetmek ' dir. Bu yaklaşım bir üretim veritabanında kullanmak istemiyorsanız! Bir veritabanı üzerinde şema değişikliklerini bırakarak ve veritabanı test verileri ile otomatik olarak oluşturmak için bir Başlatıcısı kullanarak genellikle bir uygulama geliştirmek için bir üretken yoludur.
+1. Otomatik olarak bırakın ve yeni model sınıfı şeması kullanarak veritabanını yeniden oluşturma Entity Framework vardır. Bu yaklaşım, Geliştirme döngüsünün başlarında kullanışlıdır; model ve veritabanı şeması birlikte hızla geliştirilebilen olanak tanır. Olumsuz tarafı, veritabanındaki mevcut verileri kaybetmek ' dir. Bu yaklaşım, bir üretim veritabanında kullanmayın! Bir veritabanı üzerinde şema değişikliklerini bırakarak ve veritabanı test verileri ile otomatik olarak oluşturmak için bir Başlatıcısı kullanarak genellikle bir uygulama geliştirmek için bir üretken yoludur.
 
 2. Açıkça model sınıfları eşleşecek şekilde var olan veritabanı şeması değiştirin. Bu yaklaşımın avantajı, verilerinizi korumak olmasıdır. Bu değişikliği yapmak ya da el ile veya bir veritabanı oluşturma betiği değiştirin.
 
@@ -81,23 +68,18 @@ Bu öğreticide, Code First Migrations'ı kullanın.
 
 Güncelleştirme `SeedData` böylece yeni bir sütun için bir değer sağlar sınıfını. Aşağıda bir örnek değişikliği gösterilmiştir, ancak her biri için bu değişikliği yapmak istersiniz `new Movie` blok.
 
-[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/SeedDataRating.cs?name=snippet1&highlight=8)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Models/SeedDataRating.cs?name=snippet1&highlight=8)]
 
-::: moniker range="= aspnetcore-2.0"
-
-Bkz: [SeedData.cs dosya tamamlandı](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Models/SeedDataRating.cs).
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.1"
-
-Bkz: [SeedData.cs dosya tamamlandı](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie21/Models/SeedDataRating.cs).
-
-::: moniker-end
+Bkz: [SeedData.cs dosya tamamlandı](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Models/SeedDataRating.cs).
 
 Çözümü oluşturun.
 
+<!-- VS -------------------------->
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
 <a name="pmc"></a>
+
+### <a name="add-a-migration-for-the-rating-field"></a>Derecelendirme alanı için bir geçiş ekleyin
 
 Gelen **Araçları** menüsünde **NuGet Paket Yöneticisi > Paket Yöneticisi Konsolu**.
 PMC'de aşağıdaki komutları girin:
@@ -128,7 +110,40 @@ DB tüm kayıtların silerseniz, başlatıcı DB çekirdeğini ve dahil `Rating`
   Update-Database
   ```
 
-Uygulamayı çalıştırın ve kontrol edebilirsiniz oluşturma/düzenleme/görüntüleme filmlerle bir `Rating` alan. Veritabanı çekirdek değeri oluşturulmuş değil, IIS Express durdurun ve ardından uygulamayı çalıştırın.
+<!-- Code -------------------------->
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
+<!-- copy/paste this tab to the next. Not worth an include  --> SQLite geçişleri desteklemez.
+
+* Veritabanını silin veya veritabanı adını değiştirmek *appsettings.json* dosya.
+* Silme *geçişler* klasörü (ve klasördeki tüm dosyaları).
+
+Aşağıdaki .NET Core CLI komutları çalıştırın:
+
+```console
+dotnet ef migrations add Rating
+dotnet ef database update
+```
+
+<!-- Mac -------------------------->
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
+
+SQLite geçişleri desteklemez.
+
+* Veritabanını silin veya veritabanı adını değiştirmek *appsettings.json* dosya.
+* Silme *geçişler* klasörü (ve klasördeki tüm dosyaları).
+
+Aşağıdaki .NET Core CLI komutları çalıştırın:
+
+```console
+dotnet ef migrations add Rating
+dotnet ef database update
+```
+
+---  
+<!-- End of VS tabs -->
+
+Uygulamayı çalıştırın ve kontrol edebilirsiniz oluşturma/düzenleme/görüntüleme filmlerle bir `Rating` alan. Veritabanı çekirdek değeri oluşturulmuş değil, bir kesme noktası ayarlayın `SeedData.Initialize` yöntemi.
 
 > [!div class="step-by-step"]
 > [Önceki: Arama ekleme](xref:tutorials/razor-pages/search)

@@ -4,14 +4,14 @@ author: rick-anderson
 description: Bir ASP.NET Core web uygulamasını HTTPS/TLS gerektirir öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/18/2018
+ms.date: 12/01/2018
 uid: security/enforcing-ssl
-ms.openlocfilehash: d287d30203fbf367203afe65e05478806fafab34
-ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.openlocfilehash: b15c6b5ac77f047c40704c9e164165c55b6ae93b
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51570054"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861530"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>ASP.NET core'da HTTPS'yi zorunlu kılma
 
@@ -76,12 +76,12 @@ Aşağıdaki yaklaşımlardan birini kullanarak HTTPS bağlantı noktasını bel
   Yapılandırma sırasında bir <xref:Microsoft.AspNetCore.Hosting.IWebHostBuilder> içinde `Program`:
 
   [!code-csharp[](enforcing-ssl/sample-snapshot/Program.cs?name=snippet_Program&highlight=10)]
-* Güvenli düzenini kullanarak bir bağlantı noktası belirtmek `ASPNETCORE_URLS` ortam değişkeni. Ortam değişkenini sunucusunu yapılandırır. Ara yazılım HTTPS bağlantı noktası üzerinden dolaylı olarak bulur <xref:Microsoft.AspNetCore.Hosting.Server.Features.IServerAddressesFeature>. (Mu **değil** ters proxy dağıtımlarında çalışır.)
+* Güvenli düzenini kullanarak bir bağlantı noktası belirtmek `ASPNETCORE_URLS` ortam değişkeni. Ortam değişkenini sunucusunu yapılandırır. Ara yazılım HTTPS bağlantı noktası üzerinden dolaylı olarak bulur <xref:Microsoft.AspNetCore.Hosting.Server.Features.IServerAddressesFeature>. Bu yaklaşım ters proxy dağıtımlarda çalışmaz.
 * Bir HTTPS URL'si, geliştirme kümesinde *launchsettings.json*. IIS Express kullanıldığında HTTPS etkinleştirin.
-* Genel kullanıma yönelik edge dağıtımı için bir HTTPS URL'si uç nokta yapılandırma [Kestrel](xref:fundamentals/servers/kestrel) veya [HTTP.sys](xref:fundamentals/servers/httpsys). Yalnızca **bir HTTPS bağlantı noktası** uygulama tarafından kullanılır. Ara yazılım aracılığıyla bağlantı noktası bulur <xref:Microsoft.AspNetCore.Hosting.Server.Features.IServerAddressesFeature>.
+* Genel kullanıma yönelik edge dağıtımı için bir HTTPS URL'si uç nokta yapılandırma [Kestrel](xref:fundamentals/servers/kestrel) sunucu veya [HTTP.sys](xref:fundamentals/servers/httpsys) sunucusu. Yalnızca **bir HTTPS bağlantı noktası** uygulama tarafından kullanılır. Ara yazılım aracılığıyla bağlantı noktası bulur <xref:Microsoft.AspNetCore.Hosting.Server.Features.IServerAddressesFeature>.
 
 > [!NOTE]
-> Bir uygulama bir ters proxy (örneğin, IIS, IIS Express) çalıştırın, `IServerAddressesFeature` kullanılamaz. Bağlantı noktasını el ile yapılandırılması gerekir. Bağlantı noktası olarak değil, istekleri yeniden yönlendirilen değildir.
+> Bir ters proxy yapılandırması'nda bir uygulama çalıştırıldığında <xref:Microsoft.AspNetCore.Hosting.Server.Features.IServerAddressesFeature> kullanılamaz. Bu bölümde açıklanan yaklaşımlardan birini kullanarak bağlantı noktasını ayarlayın.
 
 Kestrel'i veya HTTP.sys genel kullanıma yönelik bir uç sunucusu olarak kullanıldığında, hem de dinlenecek Kestrel veya HTTP.sys yapılandırılmalıdır:
 

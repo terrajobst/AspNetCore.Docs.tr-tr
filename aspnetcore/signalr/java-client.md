@@ -5,14 +5,14 @@ description: ASP.NET Core SignalR Java istemcisi kullanmayı öğrenin.
 monikerRange: '>= aspnetcore-2.2'
 ms.author: mimengis
 ms.custom: mvc
-ms.date: 11/06/2018
+ms.date: 11/07/2018
 uid: signalr/java-client
-ms.openlocfilehash: 4ee4e61fc301ebeec4d95b1167f94f16c38f3ac5
-ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
+ms.openlocfilehash: 78ffdf7488c95b1cf84a249d6d08b6acd23ec208
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51225427"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861764"
 ---
 # <a name="aspnet-core-signalr-java-client"></a>ASP.NET Core SignalR Java istemci
 
@@ -75,6 +75,12 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 
 Bu güvenle yoksayılabilir.
 
+## <a name="android-development-notes"></a>Android geliştirme notları
+
+SignalR istemcisi özellikleri için Android SDK'sı uyumluluk bakımından, hedef Android SDK sürümünü belirtmek için aşağıdakileri göz önünde bulundurun:
+
+* SignalR Java istemci Android API düzeyi 16 ve daha sonra çalışır.
+* Azure SignalR hizmeti aracılığıyla bağlanma Android API düzeyi 20 ve sonraki sürümleri gerektirir çünkü [Azure SignalR hizmeti](/azure/azure-signalr/signalr-overview) TLS 1.2 gerektirir ve SHA-1 tabanlı şifre paketleri desteklemez. Android [destek SHA-256 (ve üstü) şifre paketleri eklenen](https://developer.android.com/reference/javax/net/ssl/SSLSocket) API düzeyi 20 içinde.
 
 ## <a name="configure-bearer-token-authentication"></a>Taşıyıcı belirteci kimlik doğrulamasını yapılandırma
 

@@ -2,17 +2,17 @@
 title: TypeScript ve Web ile ASP.NET Core SignalR kullanma
 author: ssougnez
 description: Bu öğreticide, Web, istemci, içinde TypeScript yazılmış bir ASP.NET Core SignalR web uygulaması derleme ve paket için yapılandırın.
-monikerRange: '>= aspnetcore-2.1'
+monikerRange: '>= aspnetcore-2.2'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 06/29/2018
+ms.date: 11/30/2018
 uid: tutorials/signalr-typescript-webpack
-ms.openlocfilehash: a7b39bbf657244db83e9d60014a5759000eb5f14
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: b2d59dfc449953cc2d747b507295c00ac0f652dd
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206958"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52862258"
 ---
 # <a name="use-aspnet-core-signalr-with-typescript-and-webpack"></a>TypeScript ve Web ile ASP.NET Core SignalR kullanma
 
@@ -31,22 +31,7 @@ Bu öğreticide, şunların nasıl yapılır:
 
 [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/signalr-typescript-webpack/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
-## <a name="prerequisites"></a>Önkoşullar
-
-Aşağıdaki yazılımları yükleyin:
-
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
-
-* [.NET core SDK 2.1 veya üzeri](https://www.microsoft.com/net/download/all)
-* [Node.js](https://nodejs.org/) ile [npm](https://www.npmjs.com/)
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/) 15.7.3 sürümünü veya üstünü **ASP.NET ve web geliştirme** iş yükü
-
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
-
-* [.NET core SDK 2.1 veya üzeri](https://www.microsoft.com/net/download/all)
-* [Node.js](https://nodejs.org/) ile [npm](https://www.npmjs.com/)
-
----
+[!INCLUDE [Prerequisites](~/includes/net-core-prereqs-vs-vsc-2.2.md)]
 
 ## <a name="create-the-aspnet-core-web-app"></a>ASP.NET Core web uygulaması oluşturma
 
@@ -54,18 +39,18 @@ Aşağıdaki yazılımları yükleyin:
 
 ' Nde npm aramak için Visual Studio'yu yapılandırma *yolu* ortam değişkeni. Varsayılan olarak, Visual Studio, yükleme dizininde bulunan npm sürümünü kullanır. Visual Studio'da bu yönergeleri izleyin:
 
-1. Gidin **Araçları** > **seçenekleri** > **projeler ve çözümler** > **Web paketi Yönetimi**  >  **Dış Web Araçları**.
-1. Seçin *$(PATH)* listeden girişi. Giriş listede ikinci konuma taşımak için yukarı oka tıklayın. Dallarınız için projenin yerel paketleri ilk giriş ifade eder.
+1. Gidin **Araçları** > **seçenekleri** > **projeler ve çözümler** > **WebpaketYönetimi**  >  **Dış Web Araçları**.
+1. Seçin *$(PATH)* listeden girişi. Giriş listede ikinci konuma taşımak için yukarı oka tıklayın.
 
     ![Visual Studio yapılandırması](signalr-typescript-webpack/_static/signalr-configure-path-visual-studio.png)
 
 Visual Studio yapılandırması tamamlandı. Projeyi oluşturmak için zaman var.
 
 1. Kullanım **dosya** > **yeni** > **proje** menüsünde seçenek ve **ASP.NET Core Web uygulaması** şablonu.
-1. Projeyi adlandırın *SignalRWebPack*, tıklatıp **Tamam** düğmesi.
-1. Seçin *.NET Core* açılır ve select hedef çerçeveden *ASP.NET Core 2.1* framework Seçici açılan menüsü'nden. Seçin **boş** şablon seçeneğine tıklayıp **Tamam** düğmesi.
+1. Projeyi adlandırın *SignalRWebPack*seçip **Tamam**.
+1. Seçin *.NET Core* açılır ve select hedef çerçeveden *ASP.NET Core 2.2* framework Seçici açılan menüsü'nden. Seçin **boş** şablonu ve select **Tamam**.
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Aşağıdaki komutu çalıştırın **tümleşik Terminalini**:
 
@@ -228,7 +213,7 @@ Uygulama aşağıdaki adımlarla çalışır durumda olduğunu doğrulayın.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-1. Web Çalıştır *yayın* modu. Kullanarak **Paket Yöneticisi Konsolu** penceresinde proje kök dizininde aşağıdaki komutu yürütün:
+1. Web Çalıştır *yayın* modu. Kullanarak **Paket Yöneticisi Konsolu** penceresinde proje kök dizininde aşağıdaki komutu yürütün. Proje kök dizininde değilse girin `cd SignalRWebPack` komutu ulaşmadan önce.
 
     [!INCLUDE [npm-run-release](../includes/signalr-typescript-webpack/npm-run-release.md)]
 
@@ -238,7 +223,7 @@ Uygulama aşağıdaki adımlarla çalışır durumda olduğunu doğrulayın.
 
 1. Ya da tarayıcı seçin, bir **ileti** metin kutusu seçeneğine tıklayıp **Gönder** düğmesi. Benzersiz kullanıcı adı ve ileti iki sayfalarında anında görüntülenir.
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 1. Web Çalıştır *yayın* proje kök dizininde aşağıdaki komutu yürüterek modu:
 

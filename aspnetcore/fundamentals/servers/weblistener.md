@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: fundamentals/servers/weblistener
-ms.openlocfilehash: eaf76a44bc7750aef94319042e61aa294c6cba35
-ms.sourcegitcommit: 09affee3d234cb27ea6fe33bc113b79e68900d22
+ms.openlocfilehash: 92a2e567e968cce59ba7b6f374ebd4bc189b81ee
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51191275"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52862128"
 ---
 # <a name="weblistener-web-server-implementation-in-aspnet-core"></a>ASP.NET core'da WebListener web sunucusu uygulaması
 
@@ -32,7 +32,7 @@ WebListener aşağıdaki özellikleri destekler:
 - SNI ile HTTPS
 - HTTP/2 üzerinden TLS (Windows 10)
 - Doğrudan bir dosya aktarımı
-- Yanıtları önbelleğe alma
+- Yanıtları Önbelleğe Alma
 - WebSockets (Windows 8)
 
 Desteklenen Windows sürümleri:
@@ -87,7 +87,7 @@ Ayrıca [Http.Sys kayıt defteri ayarları](https://support.microsoft.com/kb/820
 
 * URL ve bağlantı noktası dinleyecek şekilde yapılandırma 
 
-  Varsayılan olarak, ASP.NET Core bağlar `http://localhost:5000`. URL ön ekleri ve bağlantı noktalarını yapılandırmak için kullanabileceğiniz `UseURLs` genişletme yöntemi `urls` komut satırı bağımsız değişkeni veya ASP.NET Core yapılandırma sistemi. Daha fazla bilgi için bkz. [ASP.NET Core(xref:fundamentals/host/index) ana bilgisayar.
+  Varsayılan olarak, ASP.NET Core bağlar `http://localhost:5000`. URL ön ekleri ve bağlantı noktalarını yapılandırmak için kullanabileceğiniz `UseURLs` genişletme yöntemi `urls` komut satırı bağımsız değişkeni veya ASP.NET Core yapılandırma sistemi. Daha fazla bilgi için [ASP.NET Core ana](xref:fundamentals/host/index).
 
   Dinleyici kullanan web [Http.Sys önek dize biçimleri](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx). WebListener için özel ön eki dizesi biçimi gereksinimi yoktur.
 

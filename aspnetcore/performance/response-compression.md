@@ -5,14 +5,14 @@ description: Yanıt sıkıştırma ve ASP.NET Core uygulamalarında yanıt sık�
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/21/2018
+ms.date: 12/01/2018
 uid: performance/response-compression
-ms.openlocfilehash: 8c3d74b6a346d51507d3c278b03ddc842feea13e
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 2516fbb30e55990dc4ad0d92069853bc26874bc9
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207985"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861894"
 ---
 # <a name="response-compression-in-aspnet-core"></a>ASP.NET core'da yanıt sıkıştırma
 
@@ -24,7 +24,7 @@ Ağ bant genişliği sınırlı bir kaynaktır. Yanıt boyutu genellikle azaltma
 
 ## <a name="when-to-use-response-compression-middleware"></a>Yanıt sıkıştırma ara yazılımı kullanma zamanı
 
-IIS, Apache veya Ngınx sunucu tabanlı yanıt sıkıştırma teknolojileri kullanın. Ara yazılım performansını büyük olasılıkla, sunucu modüllerinin eşleşmiyor. [HTTP.sys sunucu](xref:fundamentals/servers/httpsys) ve [Kestrel](xref:fundamentals/servers/kestrel) şu anda yerleşik sıkıştırma desteği sunmamaktadır.
+IIS, Apache veya Ngınx sunucu tabanlı yanıt sıkıştırma teknolojileri kullanın. Ara yazılım performansını büyük olasılıkla, sunucu modüllerinin eşleşmiyor. [HTTP.sys sunucu](xref:fundamentals/servers/httpsys) sunucu ve [Kestrel](xref:fundamentals/servers/kestrel) sunucusu şu anda yerleşik sıkıştırma desteği sağlamaz.
 
 Yanıt sıkıştırma ara yazılımı, işiniz kullanın:
 
@@ -33,8 +33,8 @@ Yanıt sıkıştırma ara yazılımı, işiniz kullanın:
   * [Apache mod_deflate Modülü](http://httpd.apache.org/docs/current/mod/mod_deflate.html)
   * [Ngınx sıkıştırma ve açma](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)
 * Doğrudan barındırma:
-  * [HTTP.sys sunucu](xref:fundamentals/servers/httpsys) (eski adıyla [WebListener](xref:fundamentals/servers/weblistener))
-  * [Kestrel](xref:fundamentals/servers/kestrel)
+  * [HTTP.sys](xref:fundamentals/servers/httpsys) sunucu (eski adıyla [WebListener](xref:fundamentals/servers/weblistener))
+  * [Kestrel'i](xref:fundamentals/servers/kestrel) sunucusu
 
 ## <a name="response-compression"></a>Yanıt sıkıştırma
 
@@ -432,7 +432,7 @@ Yanıtları sıkıştırma zaman temelinde `Accept-Encoding` üst bilgi, potansi
 
 ## <a name="middleware-issue-when-behind-an-nginx-reverse-proxy"></a>Ters proxy arkasında olduğunda bir Ngınx ara yazılım sorunu
 
-Bir isteği Ngınx tarafından proxy olduğunda `Accept-Encoding` üstbilgi kaldırılır. Bu, ara yazılımın yanıt sıkıştırmasını önler. Daha fazla bilgi için [NGINX: sıkıştırma ve açma](https://www.nginx.com/resources/admin-guide/compression-and-decompression/). Bu sorunu tarafından izlenen [Ngınx (BasicMiddleware #123) için doğrudan sıkıştırma ekleyeceğimi](https://github.com/aspnet/BasicMiddleware/issues/123).
+Bir isteği Ngınx tarafından proxy olduğunda `Accept-Encoding` üstbilgi kaldırılır. Kaldırılmasını `Accept-Encoding` üst bilgi yanıtı sıkıştırmasını ara yazılım engeller. Daha fazla bilgi için [NGINX: sıkıştırma ve açma](https://www.nginx.com/resources/admin-guide/compression-and-decompression/). Bu sorunu tarafından izlenen [Nginx için doğrudan sıkıştırma ekleyeceğimi (aspnet/BasicMiddleware \#123)](https://github.com/aspnet/BasicMiddleware/issues/123).
 
 ## <a name="working-with-iis-dynamic-compression"></a>IIS dinamik sıkıştırması ile çalışma
 

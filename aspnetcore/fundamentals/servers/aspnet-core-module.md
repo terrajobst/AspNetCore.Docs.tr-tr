@@ -1,17 +1,17 @@
 ---
 title: ASP.NET Core Modülü
 author: guardrex
-description: ASP.NET Core modülü Kestrel web sunucusu, bir ters proxy sunucusu olarak IIS veya IIS Express kullanacak şekilde nasıl olanak tanıdığını öğrenin.
+description: ASP.NET Core modülü Kestrel web sunucusunu IIS veya IIS Express kullanacak şekilde nasıl olanak tanıdığını öğrenin.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 09/21/2018
+ms.date: 11/30/2018
 uid: fundamentals/servers/aspnet-core-module
-ms.openlocfilehash: 39c1b364f9dab635c79e00561d212c858c0c4395
-ms.sourcegitcommit: 09affee3d234cb27ea6fe33bc113b79e68900d22
+ms.openlocfilehash: d3f3a42dd7aebc425905b865376a584bcf0e5153
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51191262"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861465"
 ---
 # <a name="aspnet-core-module"></a>ASP.NET Core Modülü
 
@@ -36,7 +36,7 @@ Desteklenen Windows sürümleri:
 
 ::: moniker range=">= aspnetcore-2.2"
 
-İşlem içi barındırırken modülü, kendi sunucu uygulamaya sahip `IISHttpServer`.
+Barındırma işlemi içinde IIS işlem sunucusu uygulaması, IIS HTTP sunucusu modülü kullanır (`IISHttpServer`).
 
 İşlem dışı barındırırken, modülü yalnızca Kestrel ile çalışır. Uyumlu bir modüldür [HTTP.sys](xref:fundamentals/servers/httpsys) (eski adıyla [WebListener](xref:fundamentals/servers/weblistener)).
 
@@ -73,9 +73,9 @@ Aşağıdaki diyagram IIS, ASP.NET Core modülü arasındaki ilişkiyi gösterir
 
 ![ASP.NET Core Modülü](aspnet-core-module/_static/ancm-inprocess.png)
 
-Bir istek için çekirdek modu HTTP.sys sürücüsünü Web'den ulaşır. Sürücü IIS Web sitesinin yapılandırılan bağlantı noktası, genellikle 80 (HTTP) veya 443 (HTTPS) üzerinde yerel istek yönlendirir. Modülü yerel isteği alır ve denetimi geçirir `IISHttpServer`, olduğu ne isteği Yerelden yönetilene dönüştürür.
+Bir istek için çekirdek modu HTTP.sys sürücüsünü Web'den ulaşır. Sürücü IIS Web sitesinin yapılandırılan bağlantı noktası, genellikle 80 (HTTP) veya 443 (HTTPS) üzerinde yerel istek yönlendirir. Modülün yerel isteği alır ve IIS HTTP sunucusuna geçirir (`IISHttpServer`). IIS HTTP sunucusu isteği Yerelden yönetilene dönüştüren bir IIS işlemdeki sunucu uygulamasıdır.
 
-Sonra `IISHttpServer` çekme isteği, istek ASP.NET Core ara yazılım ardışık düzende gönderildi. Ara yazılım ardışık düzenini isteği işler ve olarak geçirir bir `HttpContext` örneği uygulama mantığına. Uygulamanın yanıt IIS, yeniden istek başlatılan HTTP istemcisi için hangi bildirim geçirilir.
+IIS HTTP sunucusu isteği işledikten sonra ASP.NET Core ara yazılım ardışık düzende isteği gönderilir. Ara yazılım ardışık düzenini isteği işler ve olarak geçirir bir `HttpContext` örneği uygulama mantığına. Uygulamanın yanıt IIS, yeniden istek başlatılan istemciye hangi bildirim geçirilir.
 
 ### <a name="out-of-process-hosting-model"></a>İşlem dışı barındırma modeli
 

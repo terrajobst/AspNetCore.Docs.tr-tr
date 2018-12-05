@@ -1,0 +1,2 @@
+* [Visual Studio 2017 sürüm 15,9 veya üzeri](https://visualstudio.microsoft.com/downloads/) ile **ASP.NET ve web geliştirme** iş yükü
+* [.NET core SDK 2.2 veya üzeri](https://www.microsoft.com/net/download/all)

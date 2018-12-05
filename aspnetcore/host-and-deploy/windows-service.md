@@ -2,17 +2,17 @@
 title: ASP.NET Core bir Windows hizmetinde barındırma
 author: guardrex
 description: ASP.NET Core uygulaması bir Windows hizmetinde barındırmayı öğrenin.
-monikerRange: '>= aspnetcore-2.2'
+monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 11/26/2018
+ms.date: 12/01/2018
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: f857e96108b68bb6ec64a85910bf4d889cdf2822
-ms.sourcegitcommit: e7fafb153b9de7595c2558a0133f8d1c33a3bddb
+ms.openlocfilehash: f53c303dc63e092f08e933fea79eb805523cde9b
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52458523"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52861400"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>ASP.NET Core bir Windows hizmetinde barındırma
 
@@ -38,202 +38,250 @@ Hedef sistemdeki paylaşılan Bileşenler'in müstakil dağıtım (SCD) içermez
 
 Uygulamayı bir hizmet olarak çalıştırmak için mevcut bir ASP.NET Core projesi için aşağıdaki değişiklikleri yapın:
 
-1. Tercih ettiğiniz tabanlı [dağıtım türü](#deployment-type), proje dosyasını güncelleştirin:
+### <a name="project-file-updates"></a>Proje dosyası güncelleştirmeleri
 
-   * **Framework bağımlı dağıtım (FDD)** &ndash; bir Windows ekleme [çalışma zamanı tanımlayıcı (RID)](/dotnet/core/rid-catalog) için `<PropertyGroup>` , hedef Framework'ü içerir. Ekleme `<SelfContained>` özelliğini `false`. Oluşturulmasını devre dışı bir *web.config* ekleyerek dosya `<IsTransformWebConfigDisabled>` özelliğini `true`.
+Tercih ettiğiniz tabanlı [dağıtım türü](#deployment-type), proje dosyasını güncelleştirin:
 
-     ```xml
-     <PropertyGroup>
-       <TargetFramework>netcoreapp2.2</TargetFramework>
-       <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
-       <SelfContained>false</SelfContained>
-       <IsTransformWebConfigDisabled>true</IsTransformWebConfigDisabled>
-     </PropertyGroup>
-     ```
+#### <a name="framework-dependent-deployment-fdd"></a>Framework bağımlı dağıtım (FDD)
 
-     **Kendi başına dağıtım (SCD)** &ndash; bir Windows varlığını onaylamak [çalışma zamanı tanımlayıcı (RID)](/dotnet/core/rid-catalog) veya eklemek için bir RID `<PropertyGroup>` , hedef Framework'ü içerir. Oluşturulmasını devre dışı bir *web.config* ekleyerek dosya `<IsTransformWebConfigDisabled>` özelliğini `true`.
+Bir Windows ekleme [çalışma zamanı tanımlayıcı (RID)](/dotnet/core/rid-catalog) için `<PropertyGroup>` , hedef Framework'ü içerir. Ekleme `<SelfContained>` özelliğini `false`. Oluşturulmasını devre dışı bir *web.config* ekleyerek dosya `<IsTransformWebConfigDisabled>` özelliğini `true`.
 
-     ```xml
-     <PropertyGroup>
-       <TargetFramework>netcoreapp2.2</TargetFramework>
-       <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
-       <IsTransformWebConfigDisabled>true</IsTransformWebConfigDisabled>
-     </PropertyGroup>
-     ```
+::: moniker range=">= aspnetcore-2.2"
 
-     İçin birden fazla RID yayımlamak için:
+```xml
+<PropertyGroup>
+  <TargetFramework>netcoreapp2.2</TargetFramework>
+  <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
+  <SelfContained>false</SelfContained>
+  <IsTransformWebConfigDisabled>true</IsTransformWebConfigDisabled>
+</PropertyGroup>
+```
 
-     * RID noktalı virgülle ayrılmış bir liste sağlar.
-     * Özellik adını kullanan `<RuntimeIdentifiers>` (çoğul).
+::: moniker-end
 
-     Daha fazla bilgi için [.NET Core RID Kataloğu](/dotnet/core/rid-catalog).
+::: moniker range="= aspnetcore-2.1"
 
-   * İçin bir paket başvurusu ekleme [Microsoft.AspNetCore.Hosting.WindowsServices](https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.WindowsServices).
+```xml
+<PropertyGroup>
+  <TargetFramework>netcoreapp2.1</TargetFramework>
+  <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
+  <UseAppHost>true</UseAppHost>
+  <SelfContained>false</SelfContained>
+  <IsTransformWebConfigDisabled>true</IsTransformWebConfigDisabled>
+</PropertyGroup>
+```
 
-   * Windows olay günlüğü günlük kaydını etkinleştirmek için paket başvurusu ekleyin [Microsoft.Extensions.Logging.EventLog](https://www.nuget.org/packages/Microsoft.Extensions.Logging.EventLog).
+::: moniker-end
 
-     Daha fazla bilgi için [başlatılması ve durdurulması olaylarını işlemek](#handle-starting-and-stopping-events) bölümü.
+#### <a name="self-contained-deployment-scd"></a>Kendi başına dağıtım (SCD)
 
-1. Aşağıdaki değişiklikleri yapın `Program.Main`:
+Bir Windows varlığını onaylamak [çalışma zamanı tanımlayıcı (RID)](/dotnet/core/rid-catalog) veya eklemek için bir RID `<PropertyGroup>` , hedef Framework'ü içerir. Oluşturulmasını devre dışı bir *web.config* ekleyerek dosya `<IsTransformWebConfigDisabled>` özelliğini `true`.
 
-   * Test ve hizmet dışında çalışırken hata ayıklama için uygulamayı bir hizmet veya bir konsol uygulaması olarak çalışıp çalışmadığını belirlemek için kod ekleyin. Hata ayıklayıcıyı eklediyseniz veya inceleyin `--console` komut satırı bağımsız değişkeni varsa.
+```xml
+<PropertyGroup>
+  <TargetFramework>netcoreapp2.2</TargetFramework>
+  <RuntimeIdentifier>win7-x64</RuntimeIdentifier>
+  <IsTransformWebConfigDisabled>true</IsTransformWebConfigDisabled>
+</PropertyGroup>
+```
 
-     İki koşuldan birinin (uygulamayı değil çalıştırma hizmet olarak) true ise, çağrı <xref:Microsoft.AspNetCore.Hosting.WebHostExtensions.Run*> Web ana bilgisayarı üzerinde.
+İçin birden fazla RID yayımlamak için:
 
-     Koşullar (uygulama, hizmet olarak çalıştırıldığında) false olduğunda:
+* RID noktalı virgülle ayrılmış bir liste sağlar.
+* Özellik adını kullanan `<RuntimeIdentifiers>` (çoğul).
 
-     * Çağrı <xref:Microsoft.Extensions.Hosting.HostingHostBuilderExtensions.UseContentRoot*> ve uygulamanın yayımlanmış konumuna bir yol kullanın. Remove() çağırmayın <xref:System.IO.Directory.GetCurrentDirectory*> bir Windows hizmeti uygulaması döndürüldüğünden yolunu almak için *C:\\WINDOWS\\system32* klasör zaman `GetCurrentDirectory` çağrılır. Daha fazla bilgi için [geçerli dizin ve içerik kök](#current-directory-and-content-root) bölümü.
-     * Çağrı <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostWindowsServiceExtensions.RunAsService*> uygulamasını bir hizmet olarak çalıştırmak için.
+  Daha fazla bilgi için [.NET Core RID Kataloğu](/dotnet/core/rid-catalog).
 
-     Çünkü [komut satırı yapılandırma sağlayıcısı](xref:fundamentals/configuration/index#command-line-configuration-provider) komut satırı bağımsız değişkenleri için ad-değer çiftleri gerektirir `--console` anahtarı bağımsız değişkenlerden önce kaldırılır <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> bunları alır.
+İçin bir paket başvurusu ekleme [Microsoft.AspNetCore.Hosting.WindowsServices](https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.WindowsServices).
 
-   * Windows olay günlüğüne yazmak için olay günlüğü Sağlayıcısı Ekle <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder.ConfigureLogging*>. İle günlük tutma düzeyini ayarlamaya `Logging:LogLevel:Default` anahtarını *appsettings. Production.JSON* dosya. Tanıtım ve test amacıyla örnek uygulamanın üretim ayarları dosyası günlüğe kaydetme düzeyini ayarlar `Information`. Üretim ortamında genellikle değerine `Error`. Daha fazla bilgi için bkz. <xref:fundamentals/logging/index#windows-eventlog-provider>.
+Windows olay günlüğü günlük kaydını etkinleştirmek için paket başvurusu ekleyin [Microsoft.Extensions.Logging.EventLog](https://www.nuget.org/packages/Microsoft.Extensions.Logging.EventLog).
 
-   [!code-csharp[](windows-service/samples/2.x/AspNetCoreService/Program.cs?name=snippet_Program)]
+Daha fazla bilgi için [başlatılması ve durdurulması olaylarını işlemek](#handle-starting-and-stopping-events) bölümü.
 
-1. Kullanarak uygulama yayımlamayı [dotnet yayımlama](/dotnet/articles/core/tools/dotnet-publish), [Visual Studio yayımlama profilini](xref:host-and-deploy/visual-studio-publish-profiles), veya Visual Studio Code. Visual Studio kullanırken **FolderProfile** ve yapılandırma **hedef konum** seçmeden önce **Yayımla** düğmesi.
+### <a name="programmain-updates"></a>Program.Main güncelleştirmeleri
 
-   Komut satırı arabirimi (CLI) araçlarını kullanarak örnek uygulamayı yayımlamak için çalıştırma [dotnet yayımlama](/dotnet/core/tools/dotnet-publish) geçirilen bir sürüm yapılandırması ile proje klasöründeki bir komut isteminde komutunu [- c |--yapılandırma](/dotnet/core/tools/dotnet-publish#options)seçeneği. Kullanım [-o |--çıktı](/dotnet/core/tools/dotnet-publish#options) uygulama dışında bir klasöre yayımlamak için bir yol ile seçeneği.
+Aşağıdaki değişiklikleri yapın `Program.Main`:
 
-   * **Framework bağımlı dağıtım (FDD)**
+* Test ve hizmet dışında çalışırken hata ayıklama için uygulamayı bir hizmet veya bir konsol uygulaması olarak çalışıp çalışmadığını belirlemek için kod ekleyin. Hata ayıklayıcıyı eklediyseniz veya inceleyin `--console` komut satırı bağımsız değişkeni varsa.
 
-     Aşağıdaki örnekte, uygulama için yayımlanan *c:\\svc* klasörü:
+  İki koşuldan birinin (uygulamayı değil çalıştırma hizmet olarak) true ise, çağrı <xref:Microsoft.AspNetCore.Hosting.WebHostExtensions.Run*> Web ana bilgisayarı üzerinde.
 
-     ```console
-     dotnet publish --configuration Release --output c:\svc
-     ```
+  Koşullar (uygulama, hizmet olarak çalıştırıldığında) false olduğunda:
 
-   * **Kendi başına dağıtım (SCD)** &ndash; RID belirtilmelidir `<RuntimeIdenfifier>` (veya `<RuntimeIdentifiers>`) özelliği proje dosyasının. Çalışma zamanı kaynağı [- r |--çalışma zamanı](/dotnet/core/tools/dotnet-publish#options) seçeneği `dotnet publish` komutu.
+  * Çağrı <xref:Microsoft.Extensions.Hosting.HostingHostBuilderExtensions.UseContentRoot*> ve uygulamanın yayımlanmış konumuna bir yol kullanın. Remove() çağırmayın <xref:System.IO.Directory.GetCurrentDirectory*> bir Windows hizmeti uygulaması döndürüldüğünden yolunu almak için *C:\\WINDOWS\\system32* klasör zaman `GetCurrentDirectory` çağrılır. Daha fazla bilgi için [geçerli dizin ve içerik kök](#current-directory-and-content-root) bölümü.
+  * Çağrı <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostWindowsServiceExtensions.RunAsService*> uygulamasını bir hizmet olarak çalıştırmak için.
 
-     Aşağıdaki örnekte, uygulama için yayımlanan `win7-x64` çalışma zamanına *c:\\svc* klasörü:
+  Çünkü [komut satırı yapılandırma sağlayıcısı](xref:fundamentals/configuration/index#command-line-configuration-provider) komut satırı bağımsız değişkenleri için ad-değer çiftleri gerektirir `--console` anahtarı bağımsız değişkenlerden önce kaldırılır <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> bunları alır.
 
-     ```console
-     dotnet publish --configuration Release --runtime win7-x64 --output c:\svc
-     ```
+* Windows olay günlüğüne yazmak için olay günlüğü Sağlayıcısı Ekle <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder.ConfigureLogging*>. İle günlük tutma düzeyini ayarlamaya `Logging:LogLevel:Default` anahtarını *appsettings. Production.JSON* dosya. Tanıtım ve test amacıyla örnek uygulamanın üretim ayarları dosyası günlüğe kaydetme düzeyini ayarlar `Information`. Üretim ortamında genellikle değerine `Error`. Daha fazla bilgi için bkz. <xref:fundamentals/logging/index#windows-eventlog-provider>.
 
-1. Hizmet kullanımı için bir kullanıcı hesabı oluşturma `net user` komutu:
+[!code-csharp[](windows-service/samples/2.x/AspNetCoreService/Program.cs?name=snippet_Program)]
 
-   ```console
-   net user {USER ACCOUNT} {PASSWORD} /add
-   ```
+### <a name="publish-the-app"></a>Uygulamayı yayımlama
 
-   Örnek uygulama için bir kullanıcı hesabı adı ile oluşturun. `ServiceUser` ve parola. Aşağıdaki komutta `{PASSWORD}` ile bir [güçlü parola](/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements).
+Kullanarak uygulama yayımlamayı [dotnet yayımlama](/dotnet/articles/core/tools/dotnet-publish), [Visual Studio yayımlama profilini](xref:host-and-deploy/visual-studio-publish-profiles), veya Visual Studio Code. Visual Studio kullanırken **FolderProfile** ve yapılandırma **hedef konum** seçmeden önce **Yayımla** düğmesi.
 
-   ```console
-   net user ServiceUser {PASSWORD} /add
-   ```
+Komut satırı arabirimi (CLI) araçlarını kullanarak örnek uygulamayı yayımlamak için çalıştırma [dotnet yayımlama](/dotnet/core/tools/dotnet-publish) geçirilen bir sürüm yapılandırması ile proje klasöründeki bir komut isteminde komutunu [- c |--yapılandırma](/dotnet/core/tools/dotnet-publish#options)seçeneği. Kullanım [-o |--çıktı](/dotnet/core/tools/dotnet-publish#options) uygulama dışında bir klasöre yayımlamak için bir yol ile seçeneği.
 
-   Bir gruba kullanıcı eklemeniz gerekiyorsa, kullanın `net localgroup` komutu, burada `{GROUP}` grubunun adıdır:
+#### <a name="publish-a-framework-dependent-deployment-fdd"></a>Framework bağımlı dağıtım (FDD) yayımlama
 
-   ```console
-   net localgroup {GROUP} {USER ACCOUNT} /add
-   ```
+Aşağıdaki örnekte, uygulama için yayımlanan *c:\\svc* klasörü:
 
-   Daha fazla bilgi için [hizmeti kullanıcı hesaplarını](/windows/desktop/services/service-user-accounts).
+```console
+dotnet publish --configuration Release --output c:\svc
+```
 
-1. Uygulamanın klasörüne yazma/okuma/yürütme erişimi vermek kullanarak [icacls](/windows-server/administration/windows-commands/icacls) komutu:
+#### <a name="publish-a-self-contained-deployment-scd"></a>Kendi içinde bir dağıtım (SCD) yayımlama
 
-   ```console
-   icacls "{PATH}" /grant {USER ACCOUNT}:(OI)(CI){PERMISSION FLAGS} /t
-   ```
+RID belirtilmelidir `<RuntimeIdenfifier>` (veya `<RuntimeIdentifiers>`) özelliği proje dosyasının. Çalışma zamanı kaynağı [- r |--çalışma zamanı](/dotnet/core/tools/dotnet-publish#options) seçeneği `dotnet publish` komutu.
 
-   * `{PATH}` &ndash; Uygulamanın klasörün yolu.
-   * `{USER ACCOUNT}` &ndash; Kullanıcı hesabı (SID).
-   * `(OI)` &ndash; Nesne devral bayrağı dosyaları alt izinleri yayar.
-   * `(CI)` &ndash; Kapsayıcı devral bayrağı, alt klasörler için izinleri yayar.
-   * `{PERMISSION FLAGS}` &ndash; Uygulamanın erişim izinlerini ayarlar.
-     * Yazma (`W`)
-     * Okuma (`R`)
-     * Yürütme (`X`)
-     * Tam (`F`)
-     * Değiştir (`M`)
-   * `/t` &ndash; Yinelemeli olarak mevcut alt klasörler ve dosyalar için geçerlidir.
+Aşağıdaki örnekte, uygulama için yayımlanan `win7-x64` çalışma zamanına *c:\\svc* klasörü:
 
-   Örnek uygulamayı yayımlanan *c:\\svc* klasörü ve `ServiceUser` hesap yazma/okuma/Yürütme izinleri, aşağıdaki komutu kullanın:
+```console
+dotnet publish --configuration Release --runtime win7-x64 --output c:\svc
+```
 
-   ```console
-   icacls "c:\svc" /grant ServiceUser:(OI)(CI)WRX /t
-   ```
+### <a name="create-a-user-account"></a>Bir kullanıcı hesabı oluşturun
 
-   Daha fazla bilgi için [icacls](/windows-server/administration/windows-commands/icacls).
+Hizmet kullanımı için bir kullanıcı hesabı oluşturma `net user` komutu:
 
-1. Kullanım [sc.exe](https://technet.microsoft.com/library/bb490995) hizmeti oluşturmak için komut satırı aracı. `binPath` Değerdir yürütülebilir dosya adını içeren uygulamanın yürütülebilir dosyanın yolu. **Eşittir işareti ve tırnak karakteri her bir parametre ve değer arasında gerekli bir alandır.**
+```console
+net user {USER ACCOUNT} {PASSWORD} /add
+```
 
-   ```console
-   sc create {SERVICE NAME} binPath= "{PATH}" obj= "{DOMAIN}\{USER ACCOUNT}" password= "{PASSWORD}"
-   ```
+Örnek uygulama için bir kullanıcı hesabı adı ile oluşturun. `ServiceUser` ve parola. Aşağıdaki komutta `{PASSWORD}` ile bir [güçlü parola](/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements).
 
-   * `{SERVICE NAME}` &ndash; Hizmete atanacak ad [Hizmet Denetimi Yöneticisi](/windows/desktop/services/service-control-manager).
-   * `{PATH}` &ndash; Hizmet yürütülebilir dosya yolu.
-   * `{DOMAIN}` &ndash; Etki alanına katılmış bir makine etki alanı. Makine etki alanına katılmış değilse yerel makine adını.
-   * `{USER ACCOUNT}` &ndash; Hizmetinin çalıştığı kullanıcı hesabı.
-   * `{PASSWORD}` &ndash; Kullanıcı hesabı parolası.
+```console
+net user ServiceUser {PASSWORD} /add
+```
 
-   > [!WARNING]
-   > Yapmak **değil** atlamak `obj` parametresi. İçin varsayılan değer `obj` olduğu [LocalSystem hesabı](/windows/desktop/services/localsystem-account) hesabı. Altında bir hizmeti çalıştıran `LocalSystem` hesabı önemli bir güvenlik riski sunar. Her zaman bir servis ayrıcalıkları sınırlı sahip bir kullanıcı hesabı ile çalıştırın.
+Bir gruba kullanıcı eklemeniz gerekiyorsa, kullanın `net localgroup` komutu, burada `{GROUP}` grubunun adıdır:
 
-   Aşağıdaki örnekte örnek uygulama için:
+```console
+net localgroup {GROUP} {USER ACCOUNT} /add
+```
 
-   * Adlı hizmetin **MyService**.
-   * Yayınlanan hizmet bulunan *c:\\svc* klasör. Uygulama yürütülebilir dosyası adlı *SampleApp.exe*. İçine `binPath` çift tırnak (") değeri.
-   * Altında çalışacağı `ServiceUser` hesabı. Değiştirin `{DOMAIN}` kullanıcı hesabının etki alanı veya yerel makine adı. İçine `obj` çift tırnak (") değeri. Örnek: barındıran sistemde adlı bir yerel makineye ise `MairaPC`ayarlayın `obj` için `"MairaPC\ServiceUser"`.
-   * Değiştirin `{PASSWORD}` ile kullanıcı hesabının parolası. İçine `password` çift tırnak (") değeri.
+Daha fazla bilgi için [hizmeti kullanıcı hesaplarını](/windows/desktop/services/service-user-accounts).
 
-   ```console
-   sc create MyService binPath= "c:\svc\sampleapp.exe" obj= "{DOMAIN}\ServiceUser" password= "{PASSWORD}"
-   ```
+### <a name="set-permissions"></a>İzinleri ayarlama
 
-   > [!IMPORTANT]
-   > Parametreleri eşittir işareti ve parametrelerin değerleri arasında boşluk bulunmadığından emin olun.
+Uygulamanın klasörüne yazma/okuma/yürütme erişimi vermek kullanarak [icacls](/windows-server/administration/windows-commands/icacls) komutu:
 
-1. Hizmetle başlar `sc start {SERVICE NAME}` komutu.
+```console
+icacls "{PATH}" /grant {USER ACCOUNT}:(OI)(CI){PERMISSION FLAGS} /t
+```
 
-   Örnek uygulama hizmeti başlatmak için aşağıdaki komutu kullanın:
+* `{PATH}` &ndash; Uygulamanın klasörün yolu.
+* `{USER ACCOUNT}` &ndash; Kullanıcı hesabı (SID).
+* `(OI)` &ndash; Nesne devral bayrağı dosyaları alt izinleri yayar.
+* `(CI)` &ndash; Kapsayıcı devral bayrağı, alt klasörler için izinleri yayar.
+* `{PERMISSION FLAGS}` &ndash; Uygulamanın erişim izinlerini ayarlar.
+  * Yazma (`W`)
+  * Okuma (`R`)
+  * Yürütme (`X`)
+  * Tam (`F`)
+  * Değiştir (`M`)
+* `/t` &ndash; Yinelemeli olarak mevcut alt klasörler ve dosyalar için geçerlidir.
 
-   ```console
-   sc start MyService
-   ```
+Örnek uygulamayı yayımlanan *c:\\svc* klasörü ve `ServiceUser` hesap yazma/okuma/Yürütme izinleri, aşağıdaki komutu kullanın:
 
-   Komut hizmeti başlatmak için birkaç saniye sürer.
+```console
+icacls "c:\svc" /grant ServiceUser:(OI)(CI)WRX /t
+```
 
-1. Hizmet durumunu denetlemek için kullanmak `sc query {SERVICE NAME}` komutu. Durumu aşağıdaki değerlerden biri olarak bildirilir:
+Daha fazla bilgi için [icacls](/windows-server/administration/windows-commands/icacls).
 
-   * `START_PENDING`
-   * `RUNNING`
-   * `STOP_PENDING`
-   * `STOPPED`
+## <a name="manage-the-service"></a>Hizmeti yönetme
 
-   Örnek uygulama hizmeti durumunu denetlemek için aşağıdaki komutu kullanın:
+### <a name="create-the-service"></a>Hizmet oluşturma
 
-   ```console
-   sc query MyService
-   ```
+Kullanım [sc.exe](https://technet.microsoft.com/library/bb490995) hizmeti oluşturmak için komut satırı aracı. `binPath` Değerdir yürütülebilir dosya adını içeren uygulamanın yürütülebilir dosyanın yolu. **Eşittir işareti ve tırnak karakteri her bir parametre ve değer arasında gerekli bir alandır.**
 
-1. Hizmet olduğunda `RUNNING` durum ve hizmeti bir web uygulaması ise, uygulama, bir yola göz atın (varsayılan olarak, `http://localhost:5000`, hangi yönlendiren `https://localhost:5001` kullanırken [HTTPS yeniden yönlendirmesi ara yazılım](xref:security/enforcing-ssl)).
+```console
+sc create {SERVICE NAME} binPath= "{PATH}" obj= "{DOMAIN}\{USER ACCOUNT}" password= "{PASSWORD}"
+```
 
-   Örnek app service için uygulamaya Gözat `http://localhost:5000`.
+* `{SERVICE NAME}` &ndash; Hizmete atanacak ad [Hizmet Denetimi Yöneticisi](/windows/desktop/services/service-control-manager).
+* `{PATH}` &ndash; Hizmet yürütülebilir dosya yolu.
+* `{DOMAIN}` &ndash; Etki alanına katılmış bir makine etki alanı. Makine etki alanına katılmış değilse yerel makine adını.
+* `{USER ACCOUNT}` &ndash; Hizmetinin çalıştığı kullanıcı hesabı.
+* `{PASSWORD}` &ndash; Kullanıcı hesabı parolası.
 
-1. Hizmetle Durdur `sc stop {SERVICE NAME}` komutu.
+> [!WARNING]
+> Yapmak **değil** atlamak `obj` parametresi. İçin varsayılan değer `obj` olduğu [LocalSystem hesabı](/windows/desktop/services/localsystem-account) hesabı. Altında bir hizmeti çalıştıran `LocalSystem` hesabı önemli bir güvenlik riski sunar. Her zaman bir servis ayrıcalıkları sınırlı sahip bir kullanıcı hesabı ile çalıştırın.
 
-   Aşağıdaki komut örnek uygulama hizmetini durdurur:
+Aşağıdaki örnekte örnek uygulama için:
 
-   ```console
-   sc stop MyService
-   ```
+* Adlı hizmetin **MyService**.
+* Yayınlanan hizmet bulunan *c:\\svc* klasör. Uygulama yürütülebilir dosyası adlı *SampleApp.exe*. İçine `binPath` çift tırnak (") değeri.
+* Altında çalışacağı `ServiceUser` hesabı. Değiştirin `{DOMAIN}` kullanıcı hesabının etki alanı veya yerel makine adı. İçine `obj` çift tırnak (") değeri. Örnek: barındıran sistemde adlı bir yerel makineye ise `MairaPC`ayarlayın `obj` için `"MairaPC\ServiceUser"`.
+* Değiştirin `{PASSWORD}` ile kullanıcı hesabının parolası. İçine `password` çift tırnak (") değeri.
 
-1. Hizmeti ile bir hizmeti durdurmak için bir kısa bir gecikmeyle kaldırmanız `sc delete {SERVICE NAME}` komutu.
+```console
+sc create MyService binPath= "c:\svc\sampleapp.exe" obj= "{DOMAIN}\ServiceUser" password= "{PASSWORD}"
+```
 
-   Örnek uygulama hizmeti durumunu kontrol edin:
+> [!IMPORTANT]
+> Parametreleri eşittir işareti ve parametrelerin değerleri arasında boşluk bulunmadığından emin olun.
 
-   ```console
-   sc query MyService
-   ```
+### <a name="start-the-service"></a>Hizmeti Başlat
 
-   Örnek uygulama hizmeti olduğunda `STOPPED` durum, örnek uygulama hizmeti kaldırmak için aşağıdaki komutu kullanın:
+Hizmetle başlar `sc start {SERVICE NAME}` komutu.
 
-   ```console
-   sc delete MyService
-   ```
+Örnek uygulama hizmeti başlatmak için aşağıdaki komutu kullanın:
+
+```console
+sc start MyService
+```
+
+Komut hizmeti başlatmak için birkaç saniye sürer.
+
+### <a name="determine-the-service-status"></a>Hizmet durumunu belirleme
+
+Hizmet durumunu denetlemek için kullanmak `sc query {SERVICE NAME}` komutu. Durumu aşağıdaki değerlerden biri olarak bildirilir:
+
+* `START_PENDING`
+* `RUNNING`
+* `STOP_PENDING`
+* `STOPPED`
+
+Örnek uygulama hizmeti durumunu denetlemek için aşağıdaki komutu kullanın:
+
+```console
+sc query MyService
+```
+
+### <a name="browse-a-web-app-service"></a>Bir web app service Gözat
+
+Hizmet olduğunda `RUNNING` durum ve hizmeti bir web uygulaması ise, uygulama, bir yola göz atın (varsayılan olarak, `http://localhost:5000`, hangi yönlendiren `https://localhost:5001` kullanırken [HTTPS yeniden yönlendirmesi ara yazılım](xref:security/enforcing-ssl)).
+
+Örnek app service için uygulamaya Gözat `http://localhost:5000`.
+
+### <a name="stop-the-service"></a>Hizmeti Durdur
+
+Hizmetle Durdur `sc stop {SERVICE NAME}` komutu.
+
+Aşağıdaki komut örnek uygulama hizmetini durdurur:
+
+```console
+sc stop MyService
+```
+
+### <a name="delete-the-service"></a>Hizmeti Sil
+
+Hizmeti ile bir hizmeti durdurmak için bir kısa bir gecikmeyle kaldırmanız `sc delete {SERVICE NAME}` komutu.
+
+Örnek uygulama hizmeti durumunu kontrol edin:
+
+```console
+sc query MyService
+```
+
+Örnek uygulama hizmeti olduğunda `STOPPED` durum, örnek uygulama hizmeti kaldırmak için aşağıdaki komutu kullanın:
+
+```console
+sc delete MyService
+```
 
 ## <a name="handle-starting-and-stopping-events"></a>Başlatma ve durdurma olayları işleme
 

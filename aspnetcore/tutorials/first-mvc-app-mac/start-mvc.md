@@ -3,20 +3,21 @@ title: Mac için Visual Studio ile ASP.NET Core MVC ile çalışmaya başlama
 author: rick-anderson
 description: ASP.NET Core MVC ve Visual Studio ile çalışmaya başlama hakkında bilgi edinin
 ms.author: riande
-ms.date: 8/23/2017
+ms.custom: mvc
+ms.date: 12/01/2018
 uid: tutorials/first-mvc-app-mac/start-mvc
-ms.openlocfilehash: 059ac1f7fa94d97adc958be3c0b936cdfa7f6d3e
-ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
+ms.openlocfilehash: 1e3cc91003ac946ac2e5efcd79e20d9215ded902
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51225479"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52862232"
 ---
 # <a name="get-started-with-aspnet-core-mvc-and-visual-studio-for-mac"></a>Mac için Visual Studio ile ASP.NET Core MVC ile çalışmaya başlama
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Bu öğreticide bir ASP.NET Core MVC kullanarak web uygulamasını oluşturmaya ilişkin temel bilgileri öğretir [Mac için Visual Studio](https://www.visualstudio.com/vs/visual-studio-mac/). 
+Bu öğreticide bir ASP.NET Core MVC kullanarak web uygulamasını oluşturmaya ilişkin temel bilgileri öğretir [Mac için Visual Studio](https://www.visualstudio.com/vs/visual-studio-mac/).
 
 [!INCLUDE [consider RP](../../includes/razor.md)]
 
@@ -32,11 +33,11 @@ Bu öğreticinin 3 sürümü vardır:
 
 ## <a name="create-a-web-app"></a>Bir web uygulaması oluşturma
 
-Visual Studio'dan seçin **Dosya > Yeni Çözüm**.
+Visual Studio'dan seçin **dosya** > **yeni çözüm**.
 
 ![Yeni çözüm macOS](../first-web-api-mac/_static/sln.png)
 
-Seçin **.NET Core uygulaması > ASP.NET Core > ASP.NET Core Web uygulaması (MVC) > sonraki**.
+Seçin **.NET Core uygulaması** > **ASP.NET Core** > **ASP.NET Core Web uygulaması (MVC)** > **sonraki**.
 
 ![macOS yeni proje iletişim kutusu](start-mvc/1.png)
 
@@ -46,14 +47,14 @@ Projeyi adlandırın **MvcMovie**ve ardından **Oluştur**.
 
 ### <a name="launch-the-app"></a>Uygulamayı başlatın
 
-Visual Studio'da **çalıştırın > hata ayıklama olmadan Başlat** uygulamayı başlatın. Visual Studio başlatır [Kestrel](xref:fundamentals/servers/index#kestrel), bir tarayıcı başlatır ve gider `http://localhost:port`burada *bağlantı noktası* bir rastgele seçilen bağlantı noktası numarasıdır.
+Visual Studio'da **çalıştırma** > **hata ayıklama olmadan Başlat** uygulamayı başlatın. Visual Studio başlatır [Kestrel](xref:fundamentals/servers/index#kestrel) sunucusunda, bir tarayıcı başlatır ve gider `http://localhost:port`burada *bağlantı noktası* bir rastgele seçilen bağlantı noktası numarasıdır.
 
 ![Yeni Proje ile tarayıcı](start-mvc/b1.png)
 
 * Adres çubuğu gösterir `localhost:port#` gibi bir şey `example.com`. Çünkü `localhost` standart, yerel bilgisayar adıdır. Visual Studio, bir web projesi oluşturduğunda, web sunucusu için rastgele bir bağlantı noktası kullanılır. Uygulamayı çalıştırdığınızda, farklı bir bağlantı noktası görürsünüz.
 * Uygulamada hata ayıklama veya hata ayıklama olmayan moddan başlatabilirsiniz **çalıştırma** menüsü.
 
-Varsayılan şablonu size **hakkında giriş** ve **kişi** bağlantıları. Yukarıdaki tarayıcı resimde, bu bağlantıları göstermez. Tarayıcınız boyutuna bağlı olarak, gösterileceğinin Gezinti simgesine tıklamanız gerekebilir.
+Varsayılan şablonu size **giriş**, **hakkında**, ve **kişi** bağlantıları. Önceki tarayıcı resimde, bu bağlantıları göstermez. Tarayıcınız boyutuna bağlı olarak, gösterileceğinin Gezinti simgesine tıklamanız gerekebilir.
 
 ![Yeni Proje ile tarayıcı](start-mvc/b2.png)
 

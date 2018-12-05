@@ -2,53 +2,136 @@
 title: ASP.NET Core uygulaması oluşturulan sayfaları güncelleştirme
 author: rick-anderson
 description: ASP.NET Core uygulaması oluşturulan sayfaları güncelleştirme hakkında bilgi edinin.
-monikerRange: '>= aspnetcore-2.0'
+monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
-ms.date: 05/30/2018
+ms.date: 12/3/2018
 uid: tutorials/razor-pages/da1
-ms.openlocfilehash: f47a68840a6307b69bc92a7b157037d91dce5422
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: b88dcd12ee670eb2e0919bdb07b9b7556a5b80e7
+ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477221"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52862414"
 ---
 # <a name="update-the-generated-pages-in-an-aspnet-core-app"></a>ASP.NET Core uygulaması oluşturulan sayfaları güncelleştirme
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Film uygulaması için iyi bir başlangıç sahibiz ancak sunu ideal değildir. Saat (12:00: 00'da aşağıdaki görüntüde) görmesini istemediğiniz ve **ReleaseDate** olmalıdır **yayın tarihi** (iki kelimeye).
+İskele kurulmuş film uygulaması için iyi bir başlangıç olsa da, sunu ideal değildir. **ReleaseDate** olmalıdır **yayın tarihi** (iki kelimeye).
 
-![Film verileri gösteren Chrome'da açık film uygulaması](sql/_static/m55.png)
+![Chrome'da açık film uygulaması](sql/_static/m55.png)
 
 ## <a name="update-the-generated-code"></a>Oluşturulan kodu güncelleştirme
 
 Açık *Models/Movie.cs* dosya ve aşağıdaki kodda gösterilen vurgulanan satırları ekleyin:
 
-::: moniker range="= aspnetcore-2.0"
+[!code-csharp[Main](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Models/MovieDateFixed.cs?name=snippet_1&highlight=12,17)]
 
-[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Models/MovieDate.cs?name=snippet_1&highlight=10-11)]
+`[Column(TypeName = "decimal(18, 2)")]` Veri ek açıklama sağlayan doğru eşlemek Entity Framework Core `Price` veritabanında para birimi. Daha fazla bilgi için [veri türleri](/ef/core/modeling/relational/data-types).
 
-::: moniker-end
+[DataAnnotations](/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) sonraki öğreticide ele alınmıştır. [Görüntüleme](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.metadata.displaymetadata) öznitelik adı (Bu durumda "ReleaseDate" yerine "yayın tarihi") bir alan için görüntülenecek öğeleri belirtir. [DataType](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.internal.datatypeattributeadapter) öznitelik alanında depolanan saat bilgilerini görüntülenmediğini şekilde (tarih), veri türünü belirtir.
 
-::: moniker range=">= aspnetcore-2.1"
+Sayfa/film bulun ve üzerine bir **Düzenle** hedef URL'ye görmek için bağlantı.
 
-[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie21/Models/MovieDate.cs?name=snippet_1&highlight=10-11,15)]
+![Düzenleme bağlantısını ve bir bağlantı üzerinde fare ile tarayıcı penceresinde URL'sini http://localhost:1234/Movies/Edit/5 gösterilir](~/tutorials/razor-pages/da1/edit7.png)
 
-::: moniker-end
+**Düzenle**, **ayrıntıları**, ve **Sil** tarafından oluşturulan bağlantıları [yer işareti etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) içinde *sayfaları/filmler / Index.cshtml* dosya.
 
-Kırmızı dalgalı çizgi üzerinde sağ tıklayın > **hızlı Eylemler ve yeniden düzenlemeler**.
+[!code-cshtml[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?highlight=16-18&range=32-)]
 
-  ![Bağlamsal menüyü gösterir ** > Hızlı Eylemler ve yeniden düzenlemeler **.](da1/qa.png)
+[Etiket Yardımcıları](xref:mvc/views/tag-helpers/intro), Razor dosyalarında HTML öğelerinin oluşturulmasına ve işlenmesine sunucu tarafı kodun katılmasını etkinleştir. Önceki kodda, `AnchorTagHelper` dinamik olarak HTML oluşturan `href` Razor (yol göreli) sayfasından, öznitelik değeri `asp-page`ve rota kimliği (`asp-route-id`). Bkz: [sayfaları için URL üretimi](xref:razor-pages/index#url-generation-for-pages) daha fazla bilgi için.
 
-Seçin `using System.ComponentModel.DataAnnotations;`
+Kullanım **kaynağı görüntüle** oluşturulan biçimlendirme incelemek için sık kullanılan tarayıcınızdan. Oluşturulan HTML değerinin bir bölümü aşağıda gösterilmiştir:
 
-  ![listenin en üstünde System.ComponentModel.DataAnnotations kullanma](da1/da.png)
+```html
+<td>
+  <a href="/Movies/Edit?id=1">Edit</a> |
+  <a href="/Movies/Details?id=1">Details</a> |
+  <a href="/Movies/Delete?id=1">Delete</a>
+</td>
+```
 
-  Visual Studio ekler `using System.ComponentModel.DataAnnotations;`.
+Dinamik olarak oluşturulmuş bağlantıları film Kimliğine sahip bir sorgu dizesi geçirin (örneğin, `?id=1` içinde `https://localhost:5001/Movies/Details?id=1`).
 
-[!INCLUDE [model1](~/includes/RP/da2.md)]
+Düzenle, Ayrıntılar ve Razor Sayfaları Sil "{kimliği: int}" rota şablonu kullanmak için güncelleştirin. Her biri bu sayfaları için sayfa yönergesi değiştirme `@page` için `@page "{id:int}"`. Uygulamayı çalıştırın ve ardından kaynağı görüntüleyin. Oluşturulan HTML kimliği URL'nin yol kısmı ekler:
+
+```html
+<td>
+  <a href="/Movies/Edit/1">Edit</a> |
+  <a href="/Movies/Details/1">Details</a> |
+  <a href="/Movies/Delete/1">Delete</a>
+</td>
+```
+
+"{Kimliği: int}" rota şablonuyla yapan sayfasına bir istek **değil** dahil tamsayı HTTP 404 (bulunamadı) hatası döndürür. Örneğin, `http://localhost:5000/Movies/Details` 404 hatası döndürür. Kimliği isteğe bağlı yapmak için URL'ye `?` rota kısıtlaması için:
+
+ ```cshtml
+@page "{id:int?}"
+```
+
+Bu davranışı sınamasını veya `@page "{id:int?}"`:
+
+* Sayfa yönergesi kümesinde *Pages/Movies/Details.cshtml* için `@page "{id:int?}"`
+* Bir kesme noktası kümesinde `public async Task<IActionResult> OnGetAsync(int? id)` (içinde *Pages/Movies/Details.cshtml.cs*).
+* Gidin  `https://localhost:5001/Movies/Details/`
+
+İle `@page "{id:int}"` yönergesi, kesme noktası hiçbir zaman ulaşılır. Yönlendirme altyapısını, HTTP 404 döndürür. Kullanarak `@page "{id:int?}"`, `OnGetAsync` yöntemi döndürür `NotFound` (HTTP 404).
+
+Önerilmese de yazabilirsiniz delete yöntemini olarak:
+
+[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/Delete.cshtml.cs?name=snippet)]
+
+Yukarıdaki kod test edin:
+
+* Bir silme bağlantısı seçin.
+* URL'deki kimliği kaldırın. Örneğin, değiştirme `https://localhost:5001/Movies/Delete/8` için `https://localhost:5001/Movies/Delete`
+* Hata ayıklayıcı kodda adım adım.
+
+### <a name="review-concurrency-exception-handling"></a>Eşzamanlılık özel durum işleme gözden geçirin
+
+Gözden geçirme `OnPostAsync` yönteminde *Pages/Movies/Edit.cshtml.cs* dosyası:
+
+[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/Edit.cshtml.cs?name=snippet)]
+
+Önceki kod, bir istemci film siler ve diğer istemci film değişiklikleri gönderir eşzamanlılık özel durumları algılar.
+
+Test etmek için `catch` engelle:
+
+* Bir kesme noktası ayarlayın `catch (DbUpdateConcurrencyException)`
+* Seçin **Düzenle** bir filmi için değişiklik, ancak girmeyin **Kaydet**.
+* Başka bir tarayıcı penceresinde seçin **Sil** bağlamak için aynı film ve film silin.
+* Önceki tarayıcı penceresinde film değişiklikleri yayınlayın.
+
+Eşzamanlılık çakışmalarını algılamak üzere üretim kodu isteyebilirsiniz. Bkz: [eşzamanlılık çakışmalarını işleme](xref:data/ef-rp/concurrency) daha fazla bilgi için.
+
+### <a name="posting-and-binding-review"></a>Gönderme ve bağlama gözden geçirin
+
+İnceleme *Pages/Movies/Edit.cshtml.cs* dosyası:
+
+[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Edit21.cshtml.cs?name=snippet2)]
+
+Bir HTTP GET isteği filmler/düzenleme sayfası için yapılan olduğunda (örneğin, `http://localhost:5000/Movies/Edit/2`):
+
+* `OnGetAsync` Yöntemi film veritabanından veri getirir ve döndürür `Page` yöntemi. 
+* `Page` Yöntemi işler *Pages/Movies/Edit.cshtml* Razor sayfası. *Pages/Movies/Edit.cshtml* dosyasını içeren model yönergesi (`@model RazorPagesMovie.Pages.Movies.EditModel`), hangi film modeli kullanıma sunar sayfasında.
+* Düzenleme formu film değerlerle görüntülenir.
+
+Filmler/düzenleme sayfası gönderildiğinde:
+
+* Form değerlerini sayfasında bağlı olan `Movie` özelliği. `[BindProperty]` Özniteliği etkinleştirir [Model bağlama](xref:mvc/models/model-binding).
+
+  ```csharp
+  [BindProperty]
+  public Movie Movie { get; set; }
+  ```
+
+* Model durumuna bir hata varsa (örneğin, `ReleaseDate` tarihe dönüştürülür), formu yeniden gönderilen değerleri ile birlikte gönderilir.
+* Film modeli hata varsa, kaydedilir.
+
+Dizin oluşturma ve silme Razor sayfaları HTTP GET yöntemleri benzer bir desen izleyin. HTTP POST `OnPostAsync` Razor sayfası oluşturma yöntemi için benzer bir desen izler `OnPostAsync` Razor sayfasını Düzenle yöntemi.
+
+Sonraki öğreticide arama eklenir.
 
 > [!div class="step-by-step"]
-> [Önceki: SQL Server LocalDB ile çalışma](xref:tutorials/razor-pages/sql)
+> [Önceki: bir veritabanı ile çalışmaya](xref:tutorials/razor-pages/sql)
 > [sonraki: arama Ekle](xref:tutorials/razor-pages/search)
