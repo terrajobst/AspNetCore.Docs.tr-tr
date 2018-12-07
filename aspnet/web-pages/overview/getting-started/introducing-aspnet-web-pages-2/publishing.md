@@ -8,12 +8,12 @@ ms.date: 05/28/2015
 ms.assetid: 7e85c70e-1a88-4408-8b3d-29611c7713ed
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/publishing
 msc.type: authoredcontent
-ms.openlocfilehash: fe196e5db8fd1cecbe84b2eb970939303f9313d1
-ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
+ms.openlocfilehash: bd6611a03ee4940f5d4176ce23464f313b9ec884
+ms.sourcegitcommit: eef99d14d96dc8c3c1bb0e2c4cb14da152f8a952
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51021462"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53022511"
 ---
 <a name="introducing-aspnet-web-pages---publishing-a-site-by-using-webmatrix"></a>WebMatrix kullanarak Site yayımlama - ASP.NET Web sayfalarına giriş
 ====================
@@ -50,7 +50,7 @@ Bu öğreticide, dört bölüm içerir:
 <a id="defaultpage"></a>
 ## <a name="setting-up-the-default-page"></a>Varsayılan sayfayı ayarlama
 
-Bir kullanıcının web siteniz için temel adresi gittiğinde, siteniz için varsayılan sayfa kullanıcıya görüntülenir. Default.htm www.contoso.com site için varsayılan sayfa olarak ayarlandığında, örneğin, ardından giderek <strong>www.contoso.com</strong> giderek aynı <strong>www.contoso.com/Default.htm</strong>.
+Bir kullanıcının web siteniz için temel adresi gittiğinde, siteniz için varsayılan sayfa kullanıcıya görüntülenir. Örneğin, *Default.htm* sitede için varsayılan sayfa olarak ayarla `www.contoso.com`, ardından giderek `www.contoso.com` giderek aynı `www.contoso.com/Default.htm`.
 
 Siteniz şu anda kullandığı **Default.cshtml** varsayılan sayfa olarak. Bu sayfada varsayılan sayfanız için uygundur, ancak boş bir sayfa görüntülemek için Bu öğreticide, herhangi bir içerik söz konusu sayfaya eklemediniz. Default.cshtml açın ve içeriğini aşağıdaki kodla değiştirin.
 

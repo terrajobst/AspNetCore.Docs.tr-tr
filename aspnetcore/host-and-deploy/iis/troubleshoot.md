@@ -4,14 +4,14 @@ author: guardrex
 description: Internet Information Services (IIS) ASP.NET Core uygulamaları dağıtımlarına sorunları tanılamayı öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/30/2018
+ms.date: 12/05/2018
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: 10c40746ffca1343c84f6a7388f3b2d7ab77ab02
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 7d9485180cc4d857058597b018a43aae99e1f3c3
+ms.sourcegitcommit: eef99d14d96dc8c3c1bb0e2c4cb14da152f8a952
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861588"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53022537"
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>IIS üzerinde ASP.NET Core sorunlarını giderme
 
@@ -92,6 +92,26 @@ Uygulamayı başlatır, ancak bir hata sunucu isteği yerine getirmesini önler.
 
 Bu hata, başlatma sırasında veya bir yanıt oluşturulurken uygulamanın kod içinde oluşur. Yanıtın içerik içerebilir veya yanıt olarak görünebilir bir *500 İç sunucu hatası* tarayıcıda. Uygulama olay günlüğü, genellikle uygulama normal şekilde çalışmaya belirtir. Sunucunun açısından bakıldığında, doğru olmasıdır. Uygulama başladı, ancak geçerli bir yanıt oluşturulamıyor. [Uygulamayı bir komut isteminde aşağıdakini çalıştırın](#run-the-app-at-a-command-prompt) sunucuda veya [ASP.NET Core modülü stdout günlüğünü etkinleştir](#aspnet-core-module-stdout-log) sorunu gidermek için.
 
+### <a name="failed-to-start-application-errorcode-0x800700c1"></a>Uygulama (hata kodu: '0x800700c1') başlatılamadı.
+
+```
+EventID: 1010
+Source: IIS AspNetCore Module V2
+Failed to start application '/LM/W3SVC/6/ROOT/', ErrorCode '0x800700c1'.
+```
+
+Uygulama başlatılamadı uygulamanın derleme (*.dll*) yüklenmesi tamamlanamadı.
+
+W3wp/ıısexpress işlemi ile yayımlanan uygulama arasındaki bir bit genişliği uyuşmazlığı olduğunda bu hata oluşur.
+
+Uygulama havuzunun 32-bit ayarının doğru olduğundan emin olun:
+
+1. IIS Yöneticisi'nin uygulama havuzunu seçin **uygulama havuzları**.
+1. Seçin **Gelişmiş ayarlar** altında **uygulama havuzunu Düzenle** içinde **eylemleri** paneli.
+1. Ayarlama **32-Bit uygulamaları etkinleştir**:
+   * Bir 32-bit (x86) dağıtma, uygulama ayarlarsanız değer `True`.
+   * Bir 64-bit (x64) dağıtma, uygulama ayarlarsanız değer `False`.
+
 ### <a name="connection-reset"></a>Bağlantı sıfırlama
 
 Üst bilgileri gönderildiğinde sonra bir hata oluşursa, sunucunun göndermek çok geç bir **500 İç sunucu hatası** bir hata oluştuğunda. Bu durum, genellikle bir yanıt için karmaşık nesne serileştirme sırasında bir hata oluştuğunda gerçekleşir. Bu tür olarak görünür bir *bağlantı sıfırlama* istemci üzerinde hata. [Uygulama günlüğü](xref:fundamentals/logging/index) bu tür hataları gidermeye yardımcı olabilir.
@@ -101,6 +121,21 @@ Bu hata, başlatma sırasında veya bir yanıt oluşturulurken uygulamanın kod 
 ASP.NET Core modülü ile bir varsayılan yapılandırılmış *startupTimeLimit* 120 saniye. Varsayılan değer olarak sol uygulama modülü bir işlem hatası oturum önce başlatmak için iki dakika sürebilir. Modül yapılandırma hakkında daha fazla bilgi için bkz. [aspNetCore öğenin öznitelikleri](xref:host-and-deploy/aspnet-core-module#attributes-of-the-aspnetcore-element).
 
 ## <a name="troubleshoot-app-startup-errors"></a>Uygulama başlatma hatalarını giderme
+
+### <a name="enable-the-aspnet-core-module-debug-log"></a>ASP.NET Core modülü hata ayıklama günlüğünü etkinleştir
+
+Uygulamanın aşağıdaki işleyicisi ayarları ekleyerek *web.config* ASP.NET Core modülü hata ayıklama günlükleri için dosyası:
+
+```xml
+<aspNetCore ...>
+  <handlerSettings>
+    <handlerSetting name="debugLevel" value="file" />
+    <handlerSetting name="debugFile" value="c:\temp\ancm.log" />
+  </handlerSettings>
+</aspNetCore>
+```
+
+Günlüğü için belirtilen yolun var olduğundan ve uygulama havuzu kimliğinin konumuna yazma izinlerine sahip olduğunu doğrulayın.
 
 ### <a name="application-event-log"></a>Uygulama olay günlüğü
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/01/2018
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 1680b1377351fbfbfc38249868da389012dd5fb6
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: a5a6e2a5a08f369884221e6d03a27029a6c671b8
+ms.sourcegitcommit: eef99d14d96dc8c3c1bb0e2c4cb14da152f8a952
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862193"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53022498"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Windows IIS üzerinde ASP.NET Core barındırma
 
@@ -329,6 +329,10 @@ Uygulamaları olan sunuculara dağıtırken [Web dağıtımı](/iis/publish/usin
    ![Yönetilen kod yok, .NET CLR sürümü için ayarlayın.](index/_static/edit-apppool-ws2016.png)
 
     ASP.NET Core, ayrı bir işlemde çalıştırır ve çalışma zamanı yönetir. ASP.NET Core, Masaüstü CLR yüklemede de içermez. Ayarı **.NET CLR sürümü** için **yönetilen kod yok** isteğe bağlıdır.
+
+1. *ASP.NET Core 2.2 veya üzeri*: için bir 64 bit (x 64) [müstakil dağıtım](/dotnet/core/deploying/#self-contained-deployments-scd) kullanan [işlem içi barındırma modeli](xref:fundamentals/servers/aspnet-core-module#in-process-hosting-model), 32 bit (x 86) işlemleri için uygulama havuzunu devre dışı bırakır.
+
+   İçinde **eylemleri** kenar, IIS Yöneticisi'nin **uygulama havuzları**seçin **uygulama havuzu Varsayılanlarını Ayarla** veya **Gelişmiş ayarlar**. Bulun **etkinleştirme 32-Bit uygulamaları** ve değerine `False`. Bu ayar için dağıtılan uygulamaları etkilemez [barındırma işlemi çıkış](xref:fundamentals/servers/aspnet-core-module#out-of-process-hosting-model).
 
 1. İşlem modeli kimliği uygun izinlere sahip olduğunu doğrulayın.
 

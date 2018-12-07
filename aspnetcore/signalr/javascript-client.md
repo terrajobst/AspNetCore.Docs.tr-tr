@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 11/14/2018
 uid: signalr/javascript-client
-ms.openlocfilehash: 247ccd40412cdb41f38edccbe96d4832751f12cf
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: cd64a65889227d84615768bc3d8fddcd362fbba4
+ms.sourcegitcommit: eef99d14d96dc8c3c1bb0e2c4cb14da152f8a952
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861998"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53022485"
 ---
 # <a name="aspnet-core-signalr-javascript-client"></a>ASP.NET Core SignalR JavaScript istemcisi
 
@@ -45,7 +45,7 @@ SignalR JavaScript istemci başvuru `<script>` öğesi.
 
 Aşağıdaki kod oluşturur ve bir bağlantı başlatır. Hub'ının adı büyük/küçük harfe duyarlıdır.
 
-[!code-javascript[Call hub methods](javascript-client/sample/wwwroot/js/chat.js?range=9-12,28)]
+[!code-javascript[Call hub methods](javascript-client/sample/wwwroot/js/chat.js?range=9-12)]
 
 ### <a name="cross-origin-connections"></a>Çıkış noktaları arası bağlantılar
 
@@ -86,7 +86,7 @@ SignalR yöntem adını eşleştirerek çağırmak için hangi istemci yöntemin
 
 Zincir bir `catch` sonuna yöntemi `start` istemci tarafı hataları işlemek için yöntemi. Kullanım `console.error` tarayıcının konsola çıktı hataları.
 
-[!code-javascript[Error handling](javascript-client/sample/wwwroot/js/chat.js?range=28)]
+[!code-javascript[Error handling](javascript-client/sample/wwwroot/js/chat.js?range=43-45)]
 
 Bağlantı kurulduğunda oturum için bir Günlükçü ve olay türünü geçirerek istemci tarafı günlük izleme ayarlayın. Belirtilen günlük düzeyi ve üzeri, iletileri günlüğe kaydedilir. Kullanılabilir günlük düzeyleri aşağıdaki gibidir:
 
@@ -106,7 +106,7 @@ SignalR için JavaScript istemci otomatik olarak yeniden değil. İstemcinizi el
 1. Bir işlev (Bu durumda, `start` işlevi) bağlantıyı başlatmak için oluşturulur.
 1. Çağrı `start` bağlantının işlevinde `onclose` olay işleyicisi.
 
-[!code-javascript[Reconnect the JavaScript client](javascript-client/sample/wwwroot/js/chat.js?range=30-42)]
+[!code-javascript[Reconnect the JavaScript client](javascript-client/sample/wwwroot/js/chat.js?range=28-40)]
 
 Gerçek uygulama bir üstel geri alma kullanın veya ancak bir belirtilen sayıda vazgeçmeden önce yeniden deneyin. 
 
