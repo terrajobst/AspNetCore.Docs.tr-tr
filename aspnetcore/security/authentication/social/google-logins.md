@@ -3,15 +3,15 @@ title: ASP.NET core'da Google dış oturum açma Kurulumu
 author: rick-anderson
 description: Bu öğreticide, mevcut bir ASP.NET Core uygulamasına Google hesabı kullanıcı kimlik doğrulaması tümleştirmesini gösterilmektedir.
 ms.author: riande
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.date: 11/11/2018
 uid: security/authentication/google-logins
-ms.openlocfilehash: dfda83e1d7cf3c5ff8e31de20c15d468de5d15c0
-ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
+ms.openlocfilehash: e5deda5d521643e3155be00f4630a86c6a82575c
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51708458"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121537"
 ---
 # <a name="google-external-login-setup-in-aspnet-core"></a>ASP.NET core'da Google dış oturum açma Kurulumu
 
@@ -27,7 +27,7 @@ Bu öğreticide, oluşturulan bir örnek ASP.NET Core 2.0 proje kullanarak kendi
 
 * Yönlendirilirsiniz **API Yöneticisi Kitaplığı** sayfası:
 
-![API Yöneticisi kitaplığı sayfası](index/_static/GoogleConsoleSwitchboard.png)
+![API Yöneticisi kitaplık sayfasında giriş](index/_static/GoogleConsoleSwitchboard.png)
 
 * Dokunun **Oluştur** girin, **proje adı**:
 
@@ -35,15 +35,15 @@ Bu öğreticide, oluşturulan bir örnek ASP.NET Core 2.0 proje kullanarak kendi
 
 * İletişim kutusunu kabul ettikten sonra yeni uygulamanız için Özellikler'i seçmenize olanak tanıyan kitaplığı sayfasına yönlendirilirsiniz. Bulma **Google + API** listesi ve API özelliği eklemek için kendi bağlantısına tıklayın:
 
-![API Yöneticisi kitaplığı sayfası](index/_static/GoogleConsoleChooseApi.png)
+!["Google + API için" API Yöneticisi kitaplığı sayfada arama](index/_static/GoogleConsoleChooseApi.png)
 
 * Yeni eklenen API için sayfa görüntülenir. Dokunun **etkinleştirme** Google + oturum özelliği uygulamanıza eklemek için:
 
-![API Yöneticisi Google + API sayfası](index/_static/GoogleConsoleEnableApi.png)
+![API Yöneticisi Google + API sayfasındaki giriş](index/_static/GoogleConsoleEnableApi.png)
 
 * API'ı etkinleştirdikten sonra dokunun **kimlik bilgilerini oluştur** gizli dizileri yapılandırmak için:
 
-![API Yöneticisi Google + API sayfası](index/_static/GoogleConsoleGoCredentials.png)
+![API Yöneticisi Google + API sayfasında kimlik bilgilerini düğme oluşturma](index/_static/GoogleConsoleGoCredentials.png)
 
 * Şunu seçin:
   * **Google + API**

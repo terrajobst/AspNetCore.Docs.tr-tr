@@ -1,20 +1,20 @@
 ---
-title: ASP.NET core'da Ihostingstartup ile dış bütünleştirilmiş koddan uygulama geliştirin
+title: ASP.NET Core barındırma başlangıç derlemeleri kullanma
 author: guardrex
 description: Uygulama Ihostingstartup kullanarak dış bütünleştirilmiş koddan bir ASP.NET Core uygulaması geliştirmek nasıl keşfedin.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.custom: mvc
+ms.custom: mvc,seodec18
 ms.date: 11/22/2018
 uid: fundamentals/configuration/platform-specific-configuration
-ms.openlocfilehash: ef3b48dc72f294a783d789c4c9a796e3498a91d9
-ms.sourcegitcommit: 710fc5fcac258cc8415976dc66bdb355b3e061d5
+ms.openlocfilehash: 6c38242afee46b80bafcba47a8f77e2c05f6537e
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52299462"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121732"
 ---
-# <a name="enhance-an-app-from-an-external-assembly-in-aspnet-core-with-ihostingstartup"></a>ASP.NET core'da Ihostingstartup ile dış bütünleştirilmiş koddan uygulama geliştirin
+# <a name="use-hosting-startup-assemblies-in-aspnet-core"></a>ASP.NET Core barındırma başlangıç derlemeleri kullanma
 
 Tarafından [Luke Latham](https://github.com/guardrex) ve [Pavel Krymets](https://github.com/pakrym)
 

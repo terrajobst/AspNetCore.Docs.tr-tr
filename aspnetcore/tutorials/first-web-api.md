@@ -7,12 +7,12 @@ monikerRange: '> aspnetcore-2.1'
 ms.custom: mvc
 ms.date: 11/19/2018
 uid: tutorials/first-web-api
-ms.openlocfilehash: 6e71771cd76b83da98bbad3e96469f635909198f
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 1af14b85cbaefc00fd97db7c721c4f9436a65fb2
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862401"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121472"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core-mvc"></a>Öğretici: ASP.NET Core MVC ile bir web API'si oluşturma
 
@@ -20,7 +20,7 @@ Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT) ve [Mike Wasson](ht
 
 Bu öğretici, bir web API ASP.NET Core ile oluşturmaya ilişkin temel bilgileri öğretir.
 
-Bu öğreticide, şunların nasıl yapılır:
+Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Web API projesi oluşturun.
@@ -45,8 +45,8 @@ Bu öğretici yandaki API oluşturur:
 |/Api/TODO Al | Tüm yapılacak iş öğeleri al | Yok. | Yapılacaklar öğelerinin bir dizisi|
 |Alma/API'si/todo / {id} | Bir öğeyi Kimliğine göre Al | Yok. | Yapılacak iş öğesi|
 |Todo/api/gönderin | Yeni Öğe Ekle | Yapılacak iş öğesi | Yapılacak iş öğesi |
-|PUT/API'si/todo / {id} | Mevcut öğeyi güncelleştirin &nbsp; | Yapılacak iş öğesi | Yok. |
-|/ API'si/todo / {id} Sil &nbsp; &nbsp; | Öğeyi Sil &nbsp; &nbsp; | Yok. | Yok.|
+|PUT/API'si/todo / {id} | Mevcut öğeyi güncelleştirin &nbsp; | Yapılacak iş öğesi | Hiçbiri |
+|/ API'si/todo / {id} Sil &nbsp; &nbsp; | Öğeyi Sil &nbsp; &nbsp; | Hiçbiri | Hiçbiri|
 
 Aşağıdaki diyagramda, bu uygulamanın tasarımını gösterir.
 
@@ -88,6 +88,8 @@ Aşağıdaki diyagramda, bu uygulamanın tasarımını gösterir.
 * Seçin **.NET Core uygulaması** > **ASP.NET Core Web API'sini** > **sonraki**.
 
   ![macOS yeni proje iletişim kutusu](first-web-api-mac/_static/1.png)
+  
+* İçinde **, yeni ASP.NET Core Web API'sini yapılandırma** iletişim kutusunda varsayılan değerleri kabul **hedef Framework'ü** , **.NET Core 2.2*.
 
 * Girin *TodoApi* için **proje adı** seçip **Oluştur**.
 
@@ -268,7 +270,7 @@ Bir tarayıcıdan iki uç nokta çağırarak uygulamayı test edin. Örneğin:
 
 Aşağıdaki `GetTodoItem` yöntemi `"{id}"` yapılacak iş öğesi benzersiz tanımlayıcısı için bir yer tutucu değişkendir. Zaman `GetTodoItem` çağrılır, değerini `"{id}"` yöntemine URL'de sağlanan kendi`id` parametresi.
 
-[!code-csharp[](first-web-api/samples/2.2/TodoApi/Controllers/TodoController.cs?name=snippet_GetTodoItem&highlight=1-2)]
+[!code-csharp[](first-web-api/samples/2.2/TodoApi/Controllers/TodoController.cs?name=snippet_GetByID&highlight=1-2)]
 
 `Name = "GetTodo"` Adlandırılan bir rota parametresi oluşturur. Uygulama için rota adlarını kullanarak bir HTTP bağlantısı oluşturmak için adı daha sonra nasıl kullanabileceğinizi görürsünüz.
 
@@ -298,7 +300,7 @@ Bu öğreticide Postman web API'si test etmek için kullanılır.
   * HTTP yöntemi kümesine **alma**.
   * İstek URL'si kümesine `https://localhost:<port>/api/todo`. Örneğin: `https://localhost:5001/api/todo`
 * Ayarlama **iki bölme görünümü** postman'deki.
-* Seçin **Gönder**.
+* **Gönder**’i seçin.
 
 ![Get isteğiyle postman](first-web-api/_static/2pv.png)
 
@@ -334,7 +336,7 @@ Yukarıdaki kod tarafından belirtildiği gibi bir HTTP POST yöntemi olup [[Htt
     }
     ```
 
-* Seçin **Gönder**.
+* **Gönder**’i seçin.
 
   ![Postman ile isteği oluştur](first-web-api/_static/create.png)
 
@@ -349,7 +351,7 @@ Yukarıdaki kod tarafından belirtildiği gibi bir HTTP POST yöntemi olup [[Htt
 
 * Yöntemini GET öğesine Ayarla.
 * URİ'sini yapıştırın (örneğin, `https://localhost:5001/api/Todo/2`)
-* Seçin **Gönder**.
+* **Gönder**’i seçin.
 
 ## <a name="add-a-puttodoitem-method"></a>PutTodoItem yöntemi ekleme
 
@@ -365,6 +367,7 @@ Kimliğine sahip bir yapılacak iş öğesi güncelleştirme = 1 ve "balık akı
 
 ```json
   {
+    "ID":1,
     "name":"feed fish",
     "isComplete":true
   }
@@ -461,7 +464,7 @@ Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide şunları öğrendiniz: nasıl yapılır:
+Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
 > * Web API projesi oluşturun.

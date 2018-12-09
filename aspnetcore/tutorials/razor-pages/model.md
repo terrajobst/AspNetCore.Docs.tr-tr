@@ -6,12 +6,12 @@ ms.author: riande
 monikerRange: '>= aspnetcore-2.2'
 ms.date: 12/3/2018
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 3c9b96c8e56672a3c4268d8cd507f30127a812dd
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 91fee1db820493be671fecaee3cfb4c1b7df8bd3
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861478"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121369"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Bir ASP.NET Core Razor sayfaları uygulama için model ekleme
 
@@ -94,7 +94,7 @@ Tamamlamak **ekleme Razor sayfaları (CRUD) Entity Framework kullanarak** ileti�
 
 * İçinde **Model sınıfı** seçin, açılan menü **film (RazorPagesMovie.Models)**.
 * İçinde **veri bağlamı sınıfının** satır, select **+** (artı) oturum açın ve oluşturulan adı kabul **RazorPagesMovie.Models.RazorPagesMovieContext**.
-* Seçin **ekleme**.
+* **Add (Ekle)** seçeneğini belirleyin.
 
 ![Önceki yönergeleri görüntüden.](model/_static/arp.png)
 
@@ -108,6 +108,12 @@ Tamamlamak **ekleme Razor sayfaları (CRUD) Entity Framework kullanarak** ileti�
 -->
 
 * Proje dizininde bir komut penceresi açın (içeren dizine *Program.cs*, *Startup.cs*, ve *.csproj* dosyaları).
+* Yapı iskelesi Aracı'nı yükleyin:
+
+  ```console
+   dotnet tool install --global dotnet-aspnet-codegenerator
+   ```
+
 * **Windows için**: aşağıdaki komutu çalıştırın:
 
   ```console

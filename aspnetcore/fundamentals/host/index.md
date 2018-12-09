@@ -1,19 +1,19 @@
 ---
-title: ASP.NET core'da konak
+title: Web ana bilgisayarı ve ASP.NET Core genel ana bilgisayar
 author: guardrex
 description: Uygulama başlatma ve ömür yönetimi için sorumlu ASP.NET Core Web ana bilgisayarı ve .NET genel ana bilgisayar hakkında bilgi edinin.
 ms.author: riande
-ms.custom: mvc
+ms.custom: mvc,seodec18
 ms.date: 08/28/2018
 uid: fundamentals/host/index
-ms.openlocfilehash: 9927722b5080beb94e5628d9e7b54e6d50a5bff8
-ms.sourcegitcommit: a669c4e3f42e387e214a354ac4143555602e6f66
+ms.openlocfilehash: 3e67d8338aa7ac1b1530d0498ee0126d36a8d72b
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336056"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121524"
 ---
-# <a name="host-in-aspnet-core"></a>ASP.NET core'da konak
+# <a name="web-host-and-generic-host-in-aspnet-core"></a>Web ana bilgisayarı ve ASP.NET Core genel ana bilgisayar
 
 .NET uygulamaları ve başlatma yapılandırma bir *konak*. Uygulama başlatma ve ömür yönetimi için konak sorumludur. İki ana API'leri kullanılabilir duruma gelir:
 

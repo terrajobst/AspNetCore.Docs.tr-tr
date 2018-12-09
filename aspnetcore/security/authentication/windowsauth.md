@@ -3,15 +3,15 @@ title: ASP.NET Core Windows kimlik doğrulamasını yapılandırma
 author: scottaddie
 description: IIS Express, IIS, HTTP.sys ve WebListener kullanarak ASP.NET Core Windows kimlik doğrulaması yapılandırmayı öğrenin.
 ms.author: riande
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.date: 11/01/2018
 uid: security/authentication/windowsauth
-ms.openlocfilehash: 87fcab75555c1dae0b2815c30d79fd4615df9660
-ms.sourcegitcommit: 85f2939af7a167b9694e1d2093277ffc9a741b23
+ms.openlocfilehash: 342759a6ff4b5679e0d54c979188ae66d339562d
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50968299"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121303"
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>ASP.NET Core Windows kimlik doğrulamasını yapılandırma
 
@@ -47,7 +47,7 @@ IIS Express kullanarak, geliştirme iş için Windows kimlik doğrulamasını ku
 
 Visual Studio projesini **özellikleri** sayfanın **hata ayıklama** sekmesi, Windows kimlik doğrulaması ve anonim kimlik doğrulaması için onay kutularını sağlar.
 
-![Windows kimlik doğrulaması tarayıcı ekran görüntüsü](windowsauth/_static/vs-auth-property-menu.png)
+![Windows kimlik doğrulaması tarayıcı kimlik doğrulama seçenekleri vurgulanmış ekran görüntüsü](windowsauth/_static/vs-auth-property-menu.png)
 
 Alternatif olarak, bu iki özellik de yapılandırılabilir *launchSettings.json* dosyası:
 

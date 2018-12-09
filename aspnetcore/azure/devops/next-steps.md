@@ -1,17 +1,17 @@
 ---
-title: ASP.NET Core ve Azure ile DevOps | Sonraki adımlar
+title: Sonraki adımlar - ASP.NET Core ve Azure ile DevOps
 author: CamSoper
-description: Azure'da barındırılan bir ASP.NET Core uygulaması için bir DevOps işlem hattı oluşturmaya uçtan uca yönergeler sağlar. bir kılavuz.
+description: Ek ASP.NET Core ve Azure ile DevOps için öğrenme yolları.
 ms.author: casoper
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.date: 10/24/2018
 uid: azure/devops/next-steps
-ms.openlocfilehash: b82e7251b507f8d141930673d50722cfaa576db5
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 7c3b1c701b13b2a2052c72f5f84bba33d4995ad7
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50089887"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121330"
 ---
 # <a name="next-steps"></a>Sonraki adımlar
 

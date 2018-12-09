@@ -5,13 +5,14 @@ description: İki öğeli kimlik doğrulamayı (2FA) ile ASP.NET Core uygulamas�
 monikerRange: < aspnetcore-2.0
 ms.author: riande
 ms.date: 09/22/2018
+ms.custom: seodec18
 uid: security/authentication/2fa
-ms.openlocfilehash: 5b0866ecf15381b040e3646eecc22374b6b0c9e2
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 6f20928b0dec9b235fa17c1b44c81a48d031e9e0
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50205892"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121667"
 ---
 # <a name="two-factor-authentication-with-sms-in-aspnet-core"></a>ASP.NET Core SMS ile iki öğeli kimlik doğrulama
 
@@ -97,7 +98,7 @@ Açık *Views/Manage/Index.cshtml* Razor görünüm dosyası ve yorum karakterle
 
 * Etkinleştirir, kullanıcı adına dokunun `Index` Yönet denetleyicideki eylem yöntemi. Telefon numarası'e dokunun **Ekle** bağlantı.
 
-![Görünümü yönetme](2fa/_static/login2fa2.png)
+![Görünüm yönetme - "Ekle" bağlantısına dokunun](2fa/_static/login2fa2.png)
 
 * Doğrulama kodu almak ve dokunun telefon numarası ekleme **doğrulama kodu Gönder**.
 
@@ -111,11 +112,11 @@ Kısa mesaj alamazsanız, twilio günlüğü sayfasında bakın.
 
 * Telefon numaranızı başarıyla eklendi yönet görünümü gösterir.
 
-![Görünümü yönetme](2fa/_static/login2fa5.png)
+![Telefon numarası başarıyla eklendi görünümü - yönetme](2fa/_static/login2fa5.png)
 
 * Dokunun **etkinleştirme** iki öğeli kimlik doğrulamasını etkinleştirmek için.
 
-![Görünümü yönetme](2fa/_static/login2fa6.png)
+![Görünüm yönetme - iki öğeli kimlik doğrulamayı etkinleştirme](2fa/_static/login2fa6.png)
 
 ### <a name="test-two-factor-authentication"></a>İki öğeli kimlik doğrulamasını Sına
 

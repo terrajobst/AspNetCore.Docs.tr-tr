@@ -3,14 +3,15 @@ title: Kullanıcı verilerinin yetkilendirme tarafından korunduğu ile bir ASP.
 author: rick-anderson
 description: Kullanıcı verilerinin yetkilendirme tarafından korunduğu ile Razor sayfaları uygulaması oluşturmayı öğrenin. HTTPS, kimlik doğrulama, güvenlik, ASP.NET Core kimliği içerir.
 ms.author: riande
-ms.date: 7/24/2018
+ms.date: 12/07/2018
+ms.custom: seodec18
 uid: security/authorization/secure-data
-ms.openlocfilehash: 185628d4e06c9b5ae7f2685c10ea9e46dd5abe92
-ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
+ms.openlocfilehash: d49ee7779b425d625b81c8a65694121c616bfba6
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50253227"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121641"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Kullanıcı verilerinin yetkilendirme tarafından korunduğu ile bir ASP.NET Core uygulaması oluşturma
 
@@ -38,21 +39,21 @@ Bu öğretici, kullanıcı verilerinin yetkilendirme tarafından korunduğu ile 
 
 Aşağıdaki görüntüde, kullanıcı Rick (`rick@example.com`) açmıştır. Rick yalnızca onaylanan kişiler görüntüleyebilir ve **Düzenle**/**Sil**/**Yeni Oluştur** kendi kişiler için bağlantılar. Yalnızca en son kaydını görüntüler Rick tarafından oluşturulan **Düzenle** ve **Sil** bağlantıları. Bir yöneticinin "Onaylandı" durum olana kadar diğer kullanıcılar en son kaydını görmez.
 
-![Görüntü, önceki açıklanan](secure-data/_static/rick.png)
+![Oturum Rick gösteren ekran görüntüsü](secure-data/_static/rick.png)
 
 Aşağıdaki görüntüde, `manager@contoso.com` ve yöneticileri rolünde imzalanır:
 
-![Görüntü, önceki açıklanan](secure-data/_static/manager1.png)
+![Gösteren ekran görüntüsü manager@contoso.com oturum açıldı](secure-data/_static/manager1.png)
 
 Aşağıdaki resimde, bir kişi ayrıntıları görünümünü yöneticileri gösterilmektedir:
 
-![Görüntü, önceki açıklanan](secure-data/_static/manager.png)
+![Bir kişinin yöneticisinin görüntüle](secure-data/_static/manager.png)
 
 **Onayla** ve **Reddet** düğmeleri yalnızca Yöneticiler ve Yöneticiler için görüntülenir.
 
 Aşağıdaki görüntüde, `admin@contoso.com` ve yöneticiler rolünde imzalanır:
 
-![Görüntü, önceki açıklanan](secure-data/_static/admin.png)
+![Gösteren ekran görüntüsü admin@contoso.com oturum açıldı](secure-data/_static/admin.png)
 
 Yöneticisinin tüm ayrıcalıklara sahip değil. Okuma/düzenleme/silme herhangi iletişime geçebiliriz ve kişiler birinin durumunu değiştirin.
 
@@ -281,25 +282,32 @@ Bkz: [bu sorunu](https://github.com/aspnet/Docs/issues/8502) hakkında bilgi iç
 
 ## <a name="test-the-completed-app"></a>Tamamlanmış uygulamayı test etme
 
+Kapsanan kullanıcı hesapları için bir parola belirlemediyseniz kullanın [gizli dizi Yöneticisi aracını](xref:security/app-secrets#secret-manager) parola ayarlamak için:
+
+* Güçlü bir parola seçin: kullanım sekiz veya daha fazla karakter ve en az bir büyük harf karakter, sayı ve simge. Örneğin, `Passw0rd!` güçlü parola gereksinimlerini karşılıyor.
+* Aşağıdaki komutu yürütün proje klasöründen burada `<PW>` parola:
+
+  ```console
+  dotnet user-secrets set SeedUserPW <PW>
+  ```
+
 Uygulamanın, kişiler varsa:
 
-* Tüm kayıtları silme `Contact` tablo.
+* Tüm kayıtları silin `Contact` tablo.
 * Veritabanının çekirdeğini oluşturma için uygulamayı yeniden başlatın.
 
-Bir kullanıcı kişiler göz atmak için kaydedin.
+Tamamlanmış uygulamayı test etmek için kolay bir yolu, üç farklı tarayıcılar (veya ıncognito/InPrivate oturumları) başlatılmasıdır. Yeni bir kullanıcı bir tarayıcıda kaydedin (örneğin, `test@example.com`). Her bir tarayıcıya farklı bir kullanıcı ile oturum açın. Aşağıdaki işlemleri doğrulayın:
 
-Tamamlanmış uygulamayı test etmek için kolay bir yolu, üç farklı tarayıcılar (veya ıncognito/InPrivate sürümleri) başlatılmasıdır. Yeni bir kullanıcı bir tarayıcıda kaydedin (örneğin, `test@example.com`). Her bir tarayıcıya farklı bir kullanıcı ile oturum açın. Aşağıdaki işlemleri doğrulayın:
-
-* Kayıtlı kullanıcılar, tüm onaylanmış kişi verilerini görüntüleyebilir.
+* Kayıtlı kullanıcılar tüm onaylanmış kişi verilerini görüntüleyebilir.
 * Kayıtlı kullanıcıların kendi verilerini düzenleme/silebilir.
-* Yöneticileri onaylayabilir veya kişi verilerinizi reddedebilirsiniz. `Details` Görüntülemek gösterir **Onayla** ve **Reddet** düğmeleri.
-* Yöneticiler Onayla/Reddet ve herhangi bir veri düzenleme/silme.
+* Yöneticileri Onayla/kişi verilerini reddet. `Details` Görüntülemek gösterir **Onayla** ve **Reddet** düğmeleri.
+* Yöneticiler Onayla/Reddet ve tüm verileri düzenleme/silme.
 
-| Kullanıcı| Seçenekler |
-| ------------ | ---------|
-| test@example.com | Kendi veri düzenleme/silebilir |
-| manager@contoso.com | Onayla/Reddet ve düzenleme/silme, veri sahip olabilir |
-| admin@contoso.com | Düzenleme/silme ve tüm verileri Onayla/Reddet kullanabilirsiniz|
+| Kullanıcı                | Uygulama tarafından sağlanmış | Seçenekler                                  |
+| ------------------- | :---------------: | ---------------------------------------- |
+| test@example.com    | Hayır                | Kendi veri düzenleme veya silme.                |
+| manager@contoso.com | Evet               | Onayla/Reddet ve kendi veri düzenleme/silme. |
+| admin@contoso.com   | Evet               | Onayla/Reddet ve tüm verileri düzenleme/silme. |
 
 Bir kişi, yöneticinin tarayıcıda oluşturur. Silme için URL'yi kopyalayın ve yönetici kişiden düzenleyin. Bu bağlantıları test kullanıcı bu işlemleri gerçekleştiremezsiniz doğrulamak için test kullanıcının tarayıcısına yapıştırın.
 

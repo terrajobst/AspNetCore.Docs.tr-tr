@@ -1,19 +1,19 @@
 ---
-title: Web API ASP.NET Core, Azure Active Directory B2C ile bulut kimlik doğrulaması
+title: Web API ASP.NET Core, Azure Active Directory B2C ile kimlik doğrulaması
 author: camsoper
 description: ASP.NET Core Web API'si ile Azure Active Directory B2C kimlik doğrulaması kurma keşfedin. Kimliği doğrulanmış web API'si Postman ile test edin.
 ms.author: casoper
 ms.date: 09/21/2018
-ms.custom: mvc
+ms.custom: mvc, seodec18
 uid: security/authentication/azure-ad-b2c-webapi
-ms.openlocfilehash: a7a109909d66b1016e78eedc8b802068143c65e3
-ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
+ms.openlocfilehash: e8ac1e33819dd369460139df25597e1aa0979c91
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49348552"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121719"
 ---
-# <a name="cloud-authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a>Web API ASP.NET Core, Azure Active Directory B2C ile bulut kimlik doğrulaması
+# <a name="authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a>Web API ASP.NET Core, Azure Active Directory B2C ile kimlik doğrulaması
 
 Tarafından [Cam Soper](https://twitter.com/camsoper)
 
@@ -122,10 +122,10 @@ Aşağıdaki değerleri kullanın:
 Yeni kaydettiğiniz web uygulaması, kullanıcının adına web API'sine erişim izni gerekir.  
 
 1. Seçin **Postman** uygulamaları ve ardından listesinde **API erişimi** sol taraftaki menüden.
-1. Seçin **+ Ekle**.
+1. **+ Ekle** öğesini seçin.
 1. İçinde **API seçin** açılır listesinde, web API'si adını seçin.
 1. İçinde **kapsamları seçin** açılır listesinde, tüm kapsamlar seçili emin olun.
-1. Seçin **Tamam**.
+1. **Tamam**’ı seçin.
 
 Taşıyıcı belirteç almak için gerekli Postman uygulamanın uygulama Kimliğini not alın.
 
@@ -200,7 +200,7 @@ Seçin **Gönder** düğmesini isteği yeniden gönderin. Bu kez, yanıt durumu 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide şunları öğrendiniz: nasıl yapılır:
+Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
 > * Azure Active Directory B2C kiracısı oluşturun.

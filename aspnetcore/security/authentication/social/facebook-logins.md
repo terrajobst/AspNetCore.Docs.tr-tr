@@ -3,15 +3,15 @@ title: ASP.NET core'da Facebook dış oturum açma Kurulumu
 author: rick-anderson
 description: Bu öğreticide, mevcut bir ASP.NET Core uygulamasına Facebook hesabı kullanıcı kimlik doğrulaması tümleştirmesini gösterilmektedir.
 ms.author: riande
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.date: 11/11/2018
 uid: security/authentication/facebook-logins
-ms.openlocfilehash: e8ae16538b5d6844af7d983071fad629ebbe6217
-ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
+ms.openlocfilehash: 8bb22dc6df9879e827ff9a5ac11e9e3ad5346dc2
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51708510"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121511"
 ---
 # <a name="facebook-external-login-setup-in-aspnet-core"></a>ASP.NET core'da Facebook dış oturum açma Kurulumu
 
@@ -129,7 +129,7 @@ Tıkladığınızda **Facebook**, kimlik doğrulaması için Facebook için yön
 
 Facebook kimlik doğrulaması varsayılan olarak genel profil ve e-posta adresi ister:
 
-![Facebook kimlik doğrulaması sayfası](index/_static/FBLoginDone.png)
+![Facebook kimlik doğrulaması sayfası onay ekranı](index/_static/FBLoginDone.png)
 
 Facebook kimlik bilgilerinizi girdikten sonra e-postanızı ayarlayabildiğiniz sitenize geri yönlendirilir.
 

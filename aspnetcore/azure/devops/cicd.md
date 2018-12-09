@@ -1,16 +1,17 @@
 ---
-title: ASP.NET Core ve Azure ile DevOps | Sürekli tümleştirme ve dağıtım
+title: Sürekli tümleştirme ve dağıtım - ASP.NET Core ve Azure ile DevOps
 author: CamSoper
-description: Azure'da barındırılan bir ASP.NET Core uygulaması için bir DevOps işlem hattı oluşturmaya uçtan uca yönergeler sağlar. bir kılavuz.
+description: Sürekli tümleştirme ve dağıtım ASP.NET Core ve Azure ile DevOps
 ms.author: scaddie
 ms.date: 10/24/2018
+ms.custom: seodec18
 uid: azure/devops/cicd
-ms.openlocfilehash: edaf2c2e1428e5e82104786d94584a4ef08f9ee3
-ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.openlocfilehash: e5bddde41291c9573f58d749bbf830de9ea9319d
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51570093"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121602"
 ---
 # <a name="continuous-integration-and-deployment"></a>Sürekli tümleştirme ve dağıtım
 
@@ -150,7 +151,7 @@ Tamamlamak için üç ayrı adımlar vardır. Aşağıdaki üç bölüm sonuçla
 1. Yapı tanımı adı seçin *MyFirstProject ASP.NET Core-CI*, gelen **kaynak (derleme tanımı)** açılır.
 1. Seçin *son* gelen **varsayılan sürüm** açılır. Bu seçenek, derleme tanımının en son çalışma tarafından üretilen yapıtları oluşturur.
 1. Metni Değiştir **kaynak diğer adı** textbox ile *bırak*.
-1. Tıklayın **Ekle** düğmesi. **Yapıtları** değişiklikleri görüntülemek için güncelleştirmeleri bölümü.
+1. **Ekle** düğmesine tıklayın. **Yapıtları** değişiklikleri görüntülemek için güncelleştirmeleri bölümü.
 1. Sürekli dağıtımı etkinleştirmek için Şimşek simgesi tıklayın:
 
     ![Yayın işlem hattı Yapıtları - Şimşek simgesi](media/cicd/vsts-artifacts-lightning-bolt.png)
@@ -158,7 +159,7 @@ Tamamlamak için üç ayrı adımlar vardır. Aşağıdaki üç bölüm sonuçla
     Bu seçenek etkinleştirildiğinde, her seferinde yeni bir derleme kullanılabilir bir dağıtım gerçekleşir.
 1. A **sürekli dağıtım tetikleyicisi** paneli sağ tarafta görüntülenir. Özelliği etkinleştirmek için iki durumlu düğmeye tıklayın. Etkinleştirmek gerekli değildir **çekme isteği tetikleyicisi**.
 1. Tıklayın **Ekle** açılan menü **derleme dalı filtreleri** bölümü. Seçin **derleme tanımının varsayılan dalı** seçeneği. Bu filtre yalnızca GitHub deposundan ait bir derleme için tetiklemek yayın neden *ana* dal.
-1. Tıklayın **Kaydet** düğmesi. Tıklayın **Tamam** sonuç düğmesine **Kaydet** kalıcı iletişim kutusu.
+1. **Kaydet** düğmesine tıklayın. Tıklayın **Tamam** sonuç düğmesine **Kaydet** kalıcı iletişim kutusu.
 1. Tıklayın **ortam 1** kutusu. Bir **ortam** paneli sağ tarafta görüntülenir. Değişiklik *ortam 1* metinde **ortam adı** TextBox'a *üretim*.
 
    ![Yayın işlem hattı - ortam ad metin kutusu](media/cicd/vsts-environment-name-textbox.png)
@@ -174,12 +175,12 @@ Tamamlamak için üç ayrı adımlar vardır. Aşağıdaki üç bölüm sonuçla
 1. Seçin *mywebapp şeklindedir / < unique_number / >* gelen **uygulama hizmeti adı** açılır.
 1. Seçin *AzureTutorial* gelen **kaynak grubu** açılır.
 1. Seçin *hazırlama* gelen **yuvası** açılır.
-1. Tıklayın **Kaydet** düğmesi.
+1. **Kaydet** düğmesine tıklayın.
 1. Varsayılan yayın işlem hattı adının üzerine gelin. Düzenlemek için Kalem simgesine tıklayın. Kullanım *MyFirstProject ASP.NET Core-CD* adı.
 
     ![Yayın işlem hattı adı](media/cicd/vsts-release-definition-name.png)
 
-1. Tıklayın **Kaydet** düğmesi.
+1. **Kaydet** düğmesine tıklayın.
 
 ## <a name="commit-changes-to-github-and-automatically-deploy-to-azure"></a>Değişiklikleri Github'a işleyin ve otomatik olarak Azure'a dağıtma
 
@@ -235,15 +236,15 @@ Yapı tanımının **görevleri** sekmesi, kullanılan tek tek adımları listel
 
 Yapı tanımının tıklayın **özeti** bağlantı tanımı yapılarla geçmişini görüntülemek için:
 
-![derleme tanımı geçmişi](media/cicd/build-definition-summary.png)
+![Ekran gösterme derleme tanımı geçmişi](media/cicd/build-definition-summary.png)
 
 Sonuçta elde edilen sayfanın benzersiz derleme numarasına karşılık gelen bağlantıya tıklayın:
 
-![derleme tanımı Özet sayfası](media/cicd/build-definition-completed.png)
+![Ekran görüntüsü derleme tanımı özeti sayfasında gösterme](media/cicd/build-definition-completed.png)
 
 Bu belirli derleme özeti görüntülenir. Tıklayın **Yapıtları** sekmesini tıklatıp dikkat edin *bırak* derleme tarafından üretilen klasör listelenir:
 
-![derleme tanımı yapıları - bırakma klasörü](media/cicd/build-definition-artifacts.png)
+![Derleme tanımı yapıtları - bırakma klasörü gösteren ekran görüntüsü](media/cicd/build-definition-artifacts.png)
 
 Kullanım **indirme** ve **Araştır** yayımlanan yapıtlar incelemek için bağlantılar.
 
@@ -251,25 +252,25 @@ Kullanım **indirme** ve **Araştır** yayımlanan yapıtlar incelemek için ba�
 
 Yayın işlem hattı adı ile oluşturulmuş *MyFirstProject ASP.NET Core-CD*:
 
-![Yayın işlem hattı genel bakış](media/cicd/release-definition-overview.png)
+![Ekran gösteren yayın işlem hattı genel bakış](media/cicd/release-definition-overview.png)
 
 Sürüm ardışık düzeninin iki ana bileşenleri **Yapıtları** ve **ortamları**. Kutuya tıkladığınızda **Yapıtları** bölümü aşağıdaki paneli gösterir:
 
-![Yayın işlem hattı yapıtları](media/cicd/release-definition-artifacts.png)
+![Ekran gösteren yayın işlem hattı yapıtları](media/cicd/release-definition-artifacts.png)
 
 **Kaynak (derleme tanımı)** değeri bu yayın ardışık düzeni bağlantılı yapı tanımını temsil eder. *.Zip* bir derleme tanımının başarılı çalışma tarafından üretilen dosya sağlanan *üretim* azure'a dağıtım ortamı. Tıklayın *Aşama 1, 2 görevler* bağlantısını *üretim* ortam kutusu yayın işlem hattı görevleri görüntülemek için:
 
-![Yayın işlem hattı görevleri](media/cicd/release-definition-tasks.png)
+![Ekran gösteren yayın işlem hattı görevleri](media/cicd/release-definition-tasks.png)
 
 Sürüm ardışık iki görevden oluşur: *yuvası Azure App Service'e dağıtma* ve *yönetme Azure App Service - yuvasını*. İlk görev tıklayarak aşağıdaki görev yapılandırmasını gösterir:
 
-![Yayın işlem hattı dağıtım görevi](media/cicd/release-definition-task1.png)
+![Ekran gösteren yayın ardışık düzeni dağıtım görevi](media/cicd/release-definition-task1.png)
 
 Azure aboneliği, hizmet türü, web uygulaması adı, kaynak grubu ve dağıtım yuvası dağıtımı görevinin tanımlanır. **Paket veya klasör** textbox tutan *.zip* ayıklanır ve dağıtılan için dosya yolu *hazırlama* yuvasını *mywebapp şeklindedir\<benzersiz _son\>*  web uygulaması.
 
 Yuvası takas görev tıklayarak aşağıdaki görev yapılandırmasını gösterir:
 
-![Yayın işlem hattı yuvası takas görevi](media/cicd/release-definition-task2.png)
+![Ekran gösteren yayın işlem hattı yuvası takas görevi](media/cicd/release-definition-task2.png)
 
 Abonelik, kaynak grubu, hizmet türü, web uygulaması adı ve dağıtım yuvası Ayrıntılar sağlanır. **Üretim ile takas** onay kutusunun işaretli. BITS sonuç olarak, dağıtılan *hazırlama* yuvası üretim ortamına takas.
 

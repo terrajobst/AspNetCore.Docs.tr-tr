@@ -1,17 +1,17 @@
 ---
 title: MongoDB ile ASP.NET Core ile Web API oluşturma
-author: pratik-khandelwal
+author: prkhandelwal
 description: Bu öğreticide bir ASP.NET Core web API'si kullanarak bir MongoDB NoSQL veritabanı oluşturma gösterilmektedir.
 ms.author: scaddie
-ms.custom: mvc
+ms.custom: mvc,seodec18
 ms.date: 11/29/2018
 uid: tutorials/first-mongo-app
-ms.openlocfilehash: becf55bf94a1bfe78935013d802168a0b05dccce
-ms.sourcegitcommit: 0fc89b80bb1952852ecbcf3c5c156459b02a6ceb
+ms.openlocfilehash: df3b8656618c813838d6618efc9394f0ccb6e563
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52618096"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121485"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-mongodb"></a>MongoDB ile ASP.NET Core ile web API'si oluşturma
 
@@ -19,7 +19,7 @@ Tarafından [Pratik Khandelwal](https://twitter.com/K2Prk) ve [Scott Addie](http
 
 Bu öğreticide web API'si temel oluşturma, okuma, güncelleştirme ve silme (CRUD) işlemleri gerçekleştiren oluşturur bir [MongoDB](https://www.mongodb.com/what-is-mongodb) NoSQL veritabanı.
 
-Bu öğreticide, şunların nasıl yapılır:
+Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
 > * MongoDB yapılandırın
@@ -236,7 +236,7 @@ Veritabanı hazırdır. ASP.NET Core web API'si oluşturmaya başlayabilirsiniz.
 
     * Kullanan `BookService` CRUD işlemleri gerçekleştirmek için sınıf.
     * GET, POST, PUT ve DELETE HTTP isteklerini desteklemek için eylem yöntemleri içerir.
-1. Derleme ve uygulamayı çalıştırın.
+1. Uygulamayı derleyin ve çalıştırın.
 1. Gidin `http://localhost:<port>/api/books` tarayıcınızda. Aşağıdaki JSON yanıtı gösterilir:
 
     ```json

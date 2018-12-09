@@ -1,17 +1,17 @@
 ---
-title: ASP.NET Core ve Azure ile DevOps | İzleme ve hata ayıklama
+title: İzleme ve hata ayıklama - ASP.NET Core ve Azure ile DevOps
 author: CamSoper
-description: Azure'da barındırılan bir ASP.NET Core uygulaması için bir DevOps işlem hattı oluşturmaya uçtan uca yönergeler sağlar. bir kılavuz.
+description: İzleme ve ASP.NET Core ve Azure ile DevOps çözümün bir parçası kodunuzun hatalarını ayıklama
 ms.author: casoper
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.date: 10/24/2018
 uid: azure/devops/monitor
-ms.openlocfilehash: c4013de574fdf34114f2ae6c6a2150d72f807578
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: e005b951aec578b396fc19dec5d2f55cbce4f664
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090210"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121615"
 ---
 # <a name="monitor-and-debug"></a>İzleme ve hata ayıklama
 
@@ -35,7 +35,7 @@ App Service web uygulamalarını kolayca gerçek zamanlı olarak izlenir. Azure 
 
 1. **Genel bakış** sekmesi son ölçümleri gösteren grafikler de dahil olmak üzere faydalı "bir bakışta" bilgiler görüntüler.
 
-    ![Genel bakış paneli](./media/monitoring/overview.png)
+    ![Ekran gösteren genel bakış paneli](./media/monitoring/overview.png)
 
     * **HTTP 5xx**: sunucu tarafı hataların sayısını, genellikle ASP.NET Core kod özel durum.
     * **Verileri**: web uygulamanıza gelen veri girişi.
@@ -45,7 +45,7 @@ App Service web uygulamalarını kolayca gerçek zamanlı olarak izlenir. Azure 
 
     Sorun giderme ve en iyi duruma getirme için Self Servis çeşitli araçlar Ayrıca bu sayfada bulunur.
 
-    ![Self Servis Araçları](./media/monitoring/wizards.png)
+    ![Self Servis gösteren araçları ekran](./media/monitoring/wizards.png)
 
     * **Sorunları tanılama ve çözme** olan bir Self Servis sorun giderici.
     * **Application Insights** performans ve uygulama davranışını profil oluşturma için olan ve daha sonra bu bölümde ele alınmıştır.
@@ -69,7 +69,7 @@ App Service web uygulamalarını kolayca gerçek zamanlı olarak izlenir. Azure 
     ![Application Insights Kurulumu](./media/monitoring/new-app-insights.png)
 
 1. İçin **çalışma zamanı/Framework**seçin **ASP.NET Core**. Varsayılan ayarları kabul edin.
-1. Seçin **Tamam**. Onaylamanız istendiğinde belirleyin **devam**.
+1. **Tamam**’ı seçin. Onaylamanız istendiğinde belirleyin **devam**.
 1. Kaynak oluşturulduktan sonra Application Insights sayfasına doğrudan gitmek için Application Insights kaynağı adına tıklayın.
 
     ![Yeni Application Insights kaynağı hazır](./media/monitoring/new-app-insights-done.png)
@@ -103,7 +103,7 @@ Uygulama ve web sunucusu günlükleri, portal üzerinden gerçek zamanlı aktar�
 1. Açık [Azure portalında](https://portal.azure.com)gidin *mywebapp şeklindedir\<unique_number\>*  App Service.
 1. Sol menüde, aşağı kaydırarak **izleme** seçin ve bölüm **günlük akışı**.
 
-    ![Günlük akışı bağlantı](./media/monitoring/log-stream.png)
+    ![Ekran gösteren günlük akış bağlantısı](./media/monitoring/log-stream.png)
 
 Günlükleri de olabilir [Azure CLI veya Azure PowerShell](/azure/app-service/web-sites-enable-diagnostic-log#streamlogs)de dahil olmak üzere Cloud Shell aracılığıyla.
 

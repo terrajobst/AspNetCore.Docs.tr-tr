@@ -1,17 +1,17 @@
 ---
-title: ASP.NET Core ve Azure ile DevOps | Bir uygulamayı App Service'e dağıtma
+title: App Service - ASP.NET Core ve Azure ile DevOps uygulama dağıtma
 author: CamSoper
-description: Azure'da barındırılan bir ASP.NET Core uygulaması için bir DevOps işlem hattı oluşturmaya uçtan uca yönergeler sağlar. bir kılavuz.
+description: Azure App Service'e ilk adımı ASP.NET Core ve Azure ile DevOps için bir ASP.NET Core uygulaması dağıtın.
 ms.author: casoper
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.date: 10/24/2018
 uid: azure/devops/deploy-to-app-service
-ms.openlocfilehash: 33026ed510aae63a9e580aa5d708f94aad778fca
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 4424d3d15cbd234357c8265fa276834cb9abf352
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090943"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121226"
 ---
 # <a name="deploy-an-app-to-app-service"></a>Bir uygulamayı App Service'e dağıtma
 
@@ -150,12 +150,12 @@ Uygulamayı komut kabuğu'ndan zaten dağıtıldı. Bir güncelleştirme uygulam
 3. Tuşuna **Ctrl**+**Shift**+**B** uygulamayı oluşturun.
 4. Çözüm Gezgini'nde projeye sağ tıklayın ve **Yayımla**.
 
-    ![Sağ tıklayın, yayımlama](./media/deploying-to-app-service/publish.png)
+    ![Sağ tıklayın, yayımlama gösteren ekran görüntüsü](./media/deploying-to-app-service/publish.png)
 5. Visual Studio, yeni bir App Service kaynak oluşturabilirsiniz, ancak bu güncelleştirme, var olan dağıtım yayımlanacak. İçinde **yayımlama hedefi seçin** iletişim kutusunda **App Service** sol taraftaki listeden seçip **var olanı Seç**. Tıklayın **yayımlama**.
 6. İçinde **App Service** iletişim kutusunda, Microsoft veya Azure aboneliğinizi oluşturmak için kullanılan Kurumsal hesap, sağ üst köşede görüntülendiğinden emin olun. Yüklü değilse, açılan tıklayın ve bunu ekleyin.
 7. Onaylayın doğru Azure **abonelik** seçilir. İçin **görünümü**seçin **kaynak grubu**. Genişletin **AzureTutorial** kaynak grubunu ve mevcut web uygulamasını seçin. **Tamam**'ı tıklatın.
 
-    ![App Service iletişim yayımlama](./media/deploying-to-app-service/publish-dialog.png)
+    ![App Service yayımlama iletişim gösteren ekran görüntüsü](./media/deploying-to-app-service/publish-dialog.png)
 
 Visual Studio, derleme ve uygulamayı Azure'a dağıtır. Web uygulaması URL'sine gidin. Doğrulamak `<h2>` öğesi değişiklik Canlı.
 
@@ -211,7 +211,7 @@ Dağıtım yuvaları, üretimde çalışan uygulama etkilemeden hazırlama deği
 
 6. Hazırlama yuvasını v3 dağıtıldığını doğrulamak için iki tarayıcı penceresi açın. Tek bir pencerede, özgün web uygulaması URL'sine gidin. Diğer pencere hazırlama web uygulaması URL'sine gidin. Üretim URL'si V2 uygulama hizmet verir. Hazırlama URL'si uygulamanın V3 işlevi görür.
 
-    ![Tarayıcı pencerelerini karşılaştırma](./media/deploying-to-app-service/ready-to-swap.png)
+    ![Tarayıcı pencerelerini karşılaştırma ekran görüntüsü](./media/deploying-to-app-service/ready-to-swap.png)
 
 7. Cloud Shell'de doğrulandı/warmed'li hazırlama yuvasını üretime taşır.
 

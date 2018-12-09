@@ -6,16 +6,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: tutorials/publish-to-azure-webapp-using-vs
-ms.openlocfilehash: a5a02112d87563a47d5e2dab355359fa39da9a89
-ms.sourcegitcommit: c4572be5ebb301013a5698caf9b5572b76cb2e34
+ms.openlocfilehash: 7eab773746f76b00e8e796387c4ee1dc042a4c23
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/03/2018
-ms.locfileid: "50090361"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121277"
 ---
 # <a name="publish-an-aspnet-core-app-to-azure-with-visual-studio"></a>Visual Studio ile Azure'a bir ASP.NET Core uygulaması yayımlama
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [Cesar Blum Silveira](https://github.com/cesarbs), ve [Rachel Appel](https://twitter.com/rachelappel)
+Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [Cesar Blum Silveira](https://github.com/cesarbs)
 
 [!INCLUDE [Azure App Service Preview Notice](../includes/azure-apps-preview-notice.md)]
 
@@ -27,7 +27,7 @@ App Service dağıtım sorun gidermek için bkz: <xref:host-and-deploy/azure-app
 
 * Açık bir [ücretsiz Azure hesabı](https://azure.microsoft.com/free/dotnet/) tane yoksa. 
 
-## <a name="create-a-web-app"></a>Bir web uygulaması oluşturma
+## <a name="create-a-web-app"></a>Web uygulaması oluşturma
 
 Visual Studio Başlangıç sayfasında, seçin **Dosya > Yeni > Proje...**
 
@@ -37,7 +37,7 @@ Tamamlamak **yeni proje** iletişim:
 
 * Sol bölmede seçin **.NET Core**.
 * Orta bölmede seçin **ASP.NET Core Web uygulaması**.
-* Seçin **Tamam**.
+* **Tamam**’ı seçin.
 
 ![Yeni Proje iletişim kutusu](publish-to-azure-webapp-using-vs/_static/new_prj.png)
 
@@ -119,7 +119,7 @@ Yeni kullanıcı kaydetmek için kullanılan e-posta uygulaması görüntüler v
 
 ![SQL Server iletişim yapılandırın](publish-to-azure-webapp-using-vs/_static/conf_servername.png)
 
-* Seçin **Tamam**.
+* **Tamam**’ı seçin.
 
 Visual Studio döner **App Service Oluştur** iletişim.
 
@@ -138,7 +138,7 @@ Dağıtım tamamlandığında, seçin **ayarları**:
   * Genişletin **veritabanları** ve **çalışma zamanında Bu bağlantı dizesini kullan**.
   * Genişletin **varlık çerçevesi geçişleriyle** ve **bu geçişi yayımlama Uygula**.
 
-* Seçin **Kaydet**. Visual Studio döner **Yayımla** iletişim. 
+* **Kaydet**’i seçin. Visual Studio döner **Yayımla** iletişim. 
 
 ![Yayımla iletişim kutusu: ayarlar paneli](publish-to-azure-webapp-using-vs/_static/pubs.png)
 
@@ -186,5 +186,5 @@ Uygulamayı test etme işlemini tamamladığınızda, Git [Azure portalında](ht
 
 * [Azure uygulama hizmeti](/azure/app-service/app-service-web-overview)
 * [Azure kaynak grupları](/azure/azure-resource-manager/resource-group-overview#resource-groups)
-* [Azure SQL veritabanı](/azure/sql-database/)
+* [Azure SQL Veritabanı](/azure/sql-database/)
 * <xref:host-and-deploy/azure-apps/troubleshoot>

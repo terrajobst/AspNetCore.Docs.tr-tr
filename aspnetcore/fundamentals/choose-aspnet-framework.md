@@ -3,14 +3,15 @@ title: Seçin arasında ASP.NET 4.x ve ASP.NET Core
 author: rick-anderson
 description: ASP.NET Core vs açıklar. ASP.NET 4.x ve bunlar arasında seçim yapma.
 ms.author: riande
+ms.custom: seodec18
 ms.date: 09/11/2018
 uid: fundamentals/choose-between-aspnet-and-aspnetcore
-ms.openlocfilehash: 79e56e10b756677431ceff289300c251e54bf632
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: b75fbea330e48075c4a2789454e973d4c56ffa53
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861621"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121186"
 ---
 # <a name="choose-between-aspnet-4x-and-aspnet-core"></a>Seçin arasında ASP.NET 4.x ve ASP.NET Core
 
@@ -37,7 +38,7 @@ Aşağıdaki tabloda karşılaştırılmıştır ASP.NET Core, ASP.NET 4.x.
 |Makine başına birden çok sürümü|Makine başına bir sürümü|
 |Visual Studio ile geliştirin [Mac için Visual Studio](https://www.visualstudio.com/vs/visual-studio-mac/), veya [Visual Studio Code](https://code.visualstudio.com/) kullanarak C# veyaF#|Visual Studio kullanarak ile geliştirme C#, VB, veyaF#|
 |Daha yüksek performansa ASP.NET 4.x|İyi bir performans|
-|[.NET Framework veya .NET Core çalışma zamanı seçin](/dotnet/articles/standard/choosing-core-framework-server)|.NET Framework çalışma zamanını kullanma|
+|[.NET Framework veya .NET Core çalışma zamanı seçin](/dotnet/standard/choosing-core-framework-server)|.NET Framework çalışma zamanını kullanma|
 
 Bkz: [.NET Framework'ü hedefleyen ASP.NET Core](xref:index#target-framework) .NET Framework üzerinde ASP.NET Core 2.x desteği hakkında daha fazla bilgi için.
 
@@ -45,14 +46,14 @@ Bkz: [.NET Framework'ü hedefleyen ASP.NET Core](xref:index#target-framework) .N
 
 * [Razor sayfaları](xref:razor-pages/index) itibarıyla ASP.NET Core Web kullanıcı Arabirimi oluşturmak için önerilen yaklaşımdır 2.x.
 * [Web siteleri](xref:tutorials/first-mvc-app/index)
-* [API'leri](xref:tutorials/first-web-api)
+* [API'ler](xref:tutorials/first-web-api)
 * [Gerçek zamanlı](xref:signalr/index)
 * [Azure'da ASP.NET Core uygulaması dağıtma](/azure/app-service/app-service-web-get-started-dotnet)
 
 ## <a name="aspnet-4x-scenarios"></a>ASP.NET 4.x senaryoları
 
 * [Web siteleri](/aspnet/mvc)
-* [API'leri](/aspnet/web-api)
+* [API'ler](/aspnet/web-api)
 * [Gerçek zamanlı](/aspnet/signalr)
 * [Azure'da ASP.NET 4.x web uygulaması oluşturma](/azure/app-service/app-service-web-get-started-dotnet-framework)
 
