@@ -6,20 +6,11 @@
 # [Kullanmaya başlama](xref:getting-started)
 
 # Öğreticiler
-## [Web API’si oluşturma](xref:tutorials/first-web-api)
+## Web API'leri
+### [Web API’si oluşturma](xref:tutorials/first-web-api)
+### [MongoDB ile Web API](xref:tutorials/first-mongo-app)
 ## Web uygulamaları
-### Razor Pages
-#### [Razor Pages’e giriş](xref:razor-pages/index)
-
-#### [Razor Pages Öğreticisi](xref:tutorials/razor-pages/index)
-##### [Kullanmaya başlama](xref:tutorials/razor-pages/razor-pages-start)
-##### [Model ekleme](xref:tutorials/razor-pages/model)
-##### [Yapı iskelesi](xref:tutorials/razor-pages/page)
-##### [Veritabanı ile çalışma](xref:tutorials/razor-pages/sql)
-##### [Sayfaları güncelleştirme](xref:tutorials/razor-pages/da1)
-##### [Arama ekleme](xref:tutorials/razor-pages/search)
-##### [Yeni alan ekleme](xref:tutorials/razor-pages/new-field)
-##### [Doğrulama ekleme](xref:tutorials/razor-pages/validation)
+### [Razor Sayfaları](xref:tutorials/razor-pages/index)
 
 ### MVC
 #### [Visual Studio ile](xref:tutorials/first-mvc-app/index)
@@ -65,7 +56,7 @@
 # Web uygulamaları
 ## Razor Pages
 ### [Genel bakış](xref:razor-pages/index)
-### [Razor Pages Öğreticisi](xref:tutorials/razor-pages/index)
+### [Razor Pages öğreticisi](xref:tutorials/razor-pages/index)
 #### [Kullanmaya başlama](xref:tutorials/razor-pages/razor-pages-start)
 #### [Model ekleme](xref:tutorials/razor-pages/model)
 #### [Yapı iskelesi](xref:tutorials/razor-pages/page)
@@ -165,7 +156,9 @@
 # Web API'leri
 ## [Genel bakış](xref:web-api/index)
 
-## [Web API’si oluşturma](xref:tutorials/first-web-api)
+## Öğreticiler
+### [Web API’si oluşturma](xref:tutorials/first-web-api)
+### [MongoDB ile Web API](xref:tutorials/first-mongo-app)
 
 ## Swagger / OpenAPI
 ### [Genel bakış](xref:tutorials/web-api-help-pages-using-swagger)
@@ -420,7 +413,7 @@
 ## [Belirteçleri değiştirme](xref:fundamentals/change-tokens)
 ## [.NET için Açık Web Arabirimi (OWIN)](xref:fundamentals/owin)
 ## [Barındırılan hizmetler ile arka plan görevleri](xref:fundamentals/host/hosted-services)
-## [Dış bütünleştirilmiş koddan bir uygulamayı geliştirme](xref:fundamentals/configuration/platform-specific-configuration)
+## [Başlangıç bütünleştirilmiş kodlarını barındırma](xref:fundamentals/configuration/platform-specific-configuration)
 ## [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app)
 ## [Microsoft.AspNetCore.All metapackage](xref:fundamentals/metapackage)
 ## [LoggerMessage ile günlüğe kaydetme](xref:fundamentals/logging/loggermessage)
