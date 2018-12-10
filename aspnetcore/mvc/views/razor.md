@@ -5,12 +5,12 @@ description: Kodu sunucu tabanlı Web sayfalarını eklemek için Razor söz diz
 ms.author: riande
 ms.date: 10/26/2018
 uid: mvc/views/razor
-ms.openlocfilehash: ab9fb3f55399764c5fe985811d92c504ed210767
-ms.sourcegitcommit: ad28d1bc6657a743d5c2fa8902f82740689733bb
+ms.openlocfilehash: 2ec86c774e0fd26c4455829680a2b1db687b8090
+ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52256586"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121598"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>ASP.NET Core Razor söz dizimi başvurusu
 
@@ -197,7 +197,7 @@ HTML oluşturması gerektiğini bir kod bloğu alt tanımlamak için karakter i�
 
 Tarafından HTML etiketleri arasına olmayan HTML oluşturmak için bu yaklaşımı kullanın. Bir HTML veya Razor etiket olmadan, bir Razor çalışma zamanı hatası oluşur.
 
- **\<Metin >** etiketi, boşluk içeriği işlenirken denetlemek kullanışlıdır:
+**\<Metin >** etiketi, boşluk içeriği işlenirken denetlemek kullanışlıdır:
 
 * Yalnızca arasında içerik  **\<metin >** etiketi işlenir. 
 * Hiçbir boşluk önce veya sonra  **\<metin >** etiketi HTML çıkışında görünür.
@@ -640,8 +640,8 @@ Bir yöntem bağımsız değişkeni olarak bir satır içi Razor şablonu da sa�
 ### <a name="razor-keywords"></a>Razor anahtar sözcükleri
 
 * Sayfa (ASP.NET Core 2.0 ve sonraki sürümleri gerektirir)
-*  ad alanı
-*  işlevleri
+* ad alanı
+* işlevleri
 * Devralan
 * model
 * section
@@ -659,7 +659,7 @@ Razor anahtar sözcükleri kaçış ile `@(Razor Keyword)` (örneğin, `@(functi
 * if
 * else
 * lock
-*  anahtarı
+* anahtarı
 * deneyin
 * Yakalama
 * finally
@@ -741,7 +741,7 @@ Razor görüntüleme motorunu büyük küçük harfe duyarlı aramalar, görün�
 
 Geliştiriciler, dosya ve dizin adlarını büyük küçük harfleri büyük/küçük harf eşleşmesi için önerilir:
 
-    * Alan, denetleyici ve eylem adları.
-    * Razor sayfaları.
+* Alan, denetleyici ve eylem adları.
+* Razor sayfaları.
 
 Eşleşen servis talebi, temel alınan dosya sisteminden bağımsız olarak kendi görünümler dağıtımları Bul sağlar.
