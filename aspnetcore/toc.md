@@ -441,6 +441,6 @@
 ## [2.0 sürümündeki yenilikler](xref:aspnetcore-2.0)
 ## [1.1 sürümündeki yenilikler](xref:aspnetcore-1.1)
 
-# [API başvurusu](/dotnet/api/?view=aspnetcore-2.0)
+# [API başvurusu](/dotnet/api/?view=aspnetcore-2.2)
 
 # [Katkıda bulunun](https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md)
