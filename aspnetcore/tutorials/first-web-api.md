@@ -5,14 +5,14 @@ description: Bir web API ASP.NET Core MVC ile oluşturma
 ms.author: riande
 monikerRange: '> aspnetcore-2.1'
 ms.custom: mvc
-ms.date: 11/19/2018
+ms.date: 12/10/2018
 uid: tutorials/first-web-api
-ms.openlocfilehash: 1af14b85cbaefc00fd97db7c721c4f9436a65fb2
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: 614732ede6734aa9a7b190db2fd22e55c3dc6bb3
+ms.sourcegitcommit: 1872d2e6f299093c78a6795a486929ffb0bbffff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121472"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53216865"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core-mvc"></a>Öğretici: ASP.NET Core MVC ile bir web API'si oluşturma
 
@@ -75,9 +75,9 @@ Aşağıdaki diyagramda, bu uygulamanın tasarımını gösterir.
    code -r TodoApi
    ```
 
-  Bu komutlar, yeni bir web API projesi oluşturun ve Visual Studio Code yeni bir örneğini kendisi içinde yeni proje klasörü açın.
+  Bu komutlar, yeni bir web API projesi oluşturun ve yeni proje klasöründe Visual Studio Code yeni bir örneğini açın.
 
-* Bir iletişim kutusu gerekli varlıklar projeye eklemek isteyip istemediğinizi seçin sorduğunda **Evet**
+* Bir iletişim kutusu gerekli varlıklar projeye eklemek isteyip istemediğinizi seçin sorduğunda **Evet**.
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
@@ -359,7 +359,7 @@ Aşağıdaki `PutTodoItem` yöntemi:
 
 [!code-csharp[](first-web-api/samples/2.2/TodoApi/Controllers/TodoController.cs?name=snippet_Update)]
 
-`PutTodoItem` benzer `PostTodoItem`, HTTP PUT kullanır. Yanıt [204 (içerik yok)](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html). HTTP belirtimine göre bir PUT İsteği tüm güncelleştirilmiş varlık yalnızca değişiklikler değil göndermek istemci gerektirir. Kısmi güncelleştirmeleri desteklemek için kullanma [HTTP PATCH](/dotnet/api/microsoft.aspnetcore.mvc.httppostattribute).
+`PutTodoItem` benzer `PostTodoItem`, HTTP PUT kullanır. Yanıt [204 (içerik yok)](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html). HTTP belirtimine göre bir PUT İsteği tüm güncelleştirilmiş varlık yalnızca değişiklikler değil göndermek istemci gerektirir. Kısmi güncelleştirmeleri desteklemek için kullanma [HTTP PATCH](xref:Microsoft.AspNetCore.Mvc.HttpPatchAttribute).
 
 ### <a name="test-the-puttodoitem-method"></a>Test PutTodoItem yöntemi
 

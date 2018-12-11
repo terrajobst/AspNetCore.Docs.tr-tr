@@ -4,14 +4,14 @@ author: ardalis
 description: Bir web API uygulaması için ASP.NET Core MVC ASP.NET 4.x Web API'si geçirmeyi öğrenin.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 10/01/2018
+ms.date: 12/10/2018
 uid: migration/webapi
-ms.openlocfilehash: f5d886a7c3182b5cd372762ade67c2e748051049
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 9806c502f8f5244740f9f9614657a40cfaa03314
+ms.sourcegitcommit: 1872d2e6f299093c78a6795a486929ffb0bbffff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207283"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53216839"
 ---
 # <a name="migrate-from-aspnet-web-api-to-aspnet-core"></a>ASP.NET Web API ASP.NET Core için geçirme
 
@@ -23,8 +23,7 @@ ASP.NET 4.x Web API'si, istemciler, tarayıcılar ve mobil cihazlar dahil olmak 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* [.NET core 2.1 SDK veya üzeri](https://www.microsoft.com/net/download/all)
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/) 15.7.3 sürümünü veya üstünü **ASP.NET ve web geliştirme** iş yükü
+[!INCLUDE [net-core-prereqs-vs-2.2](../includes/net-core-prereqs-vs-2.2.md)]
 
 ## <a name="review-aspnet-4x-web-api-project"></a>ASP.NET 4.x Web API projesi gözden geçirin
 
@@ -34,15 +33,15 @@ Bu makalede bir başlangıç noktası olarak kullandığı *ProductsApp* oluştu
 
 [!code-csharp[](webapi/sample/ProductsApp/Global.asax.cs?highlight=14)]
 
-`WebApiConfig` tanımlanan *App_Start* klasör. Yalnızca bir statik olan `Register` yöntemi:
+`WebApiConfig` Sınıfı içinde bulunan *App_Start* klasör ve bir statik `Register` yöntemi:
 
-[!code-csharp[](webapi/sample/ProductsApp/App_Start/WebApiConfig.cs?highlight=15-20)]
+[!code-csharp[](webapi/sample/ProductsApp/App_Start/WebApiConfig.cs)]
 
 Bu sınıf yapılandırır [öznitelik yönlendirme](/aspnet/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2), ancak aslında projede kullanılıyor. Ayrıca, ASP.NET Web API'si tarafından kullanılan yönlendirme tablosunun yapılandırır. Bu durumda, biçim ile eşleşmesi için URL ASP.NET 4.x Web API bekliyor `/api/{controller}/{id}`, ile `{id}` isteğe bağlı olan.
 
-*ProductsApp* proje bir denetleyici içerir. Denetleyici devraldığı `ApiController` ve iki yöntem sunar:
+*ProductsApp* proje bir denetleyici içerir. Denetleyici devraldığı `ApiController` ve iki eylemleri içerir:
 
-[!code-csharp[](webapi/sample/ProductsApp/Controllers/ProductsController.cs?highlight=19,24)]
+[!code-csharp[](webapi/sample/ProductsApp/Controllers/ProductsController.cs?highlight=28,33)]
 
 `Product` Modeli tarafından kullanılan `ProductsController` basit sınıfı:
 
@@ -88,6 +87,12 @@ Bu noktada, derleme hataları çeşitli uygulama sonuçları oluşturma. Aşağ�
 1. `using System.Web.Http;` klasörünü silin.
 1. Değişiklik `GetProduct` eylemin dönüş türünden `IHttpActionResult` için `ActionResult<Product>`.
 
+Basitleştirmek `GetProduct` eylemin `return` aşağıdaki deyimi:
+
+```csharp
+return product;
+```
+
 ## <a name="configure-routing"></a>Yönlendirmeyi Yapılandırma
 
 Yönlendirmeyi şu şekilde yapılandırın:
@@ -102,11 +107,19 @@ Yönlendirmeyi şu şekilde yapılandırın:
     Önceki [[yol]](xref:Microsoft.AspNetCore.Mvc.RouteAttribute) özniteliği, denetleyicinin öznitelik yönlendirme deseni yapılandırır. [[ApiController]](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) özniteliği öznitelik bu denetleyicide tüm eylemler için bir gereksinim yönlendirme sağlar.
 
     Öznitelik yönlendirme belirteçleri destekler, gibi `[controller]` ve `[action]`. Çalışma zamanında her belirteç denetleyici veya eylemin, adıyla sırasıyla özniteliği uygulanmış değiştirilir. Belirteçler, projedeki Sihirli dize sayısını azaltın. Belirteçleri de yollar ilgili denetleyicileri ile eşitlenmiş olarak kalır ve otomatik yeniden adlandırdığınızda yeniden düzenlemeler eylemleri uygulanan emin olun.
+1. Projenin uyumluluk modu için ASP.NET Core 2.2 ayarlayın:
+
+    [!code-csharp[](webapi/sample/ProductsCore/Startup.cs?name=snippet_ConfigureServices&highlight=4)]
+
+    Yukarıdaki değişikliği:
+
+    * Kullanmak için gerekli `[ApiController]` denetleyici düzeyinde özniteliği.
+    * ASP.NET Core 2.2 içinde tanıtılan davranışları bozucu olabilecek için kabul eder.
 1. HTTP Get isteklerini etkinleştirme `ProductController` eylemler:
     * Uygulama [[HttpGet]](xref:Microsoft.AspNetCore.Mvc.HttpGetAttribute) özniteliğini `GetAllProducts` eylem.
     * Uygulama `[HttpGet("{id}")]` özniteliğini `GetProduct` eylem.
 
-Bu değişiklikler, kullanılmayan kaldırılmasını ve sonra `using` deyimleri *ProductsController.cs* dosya şu şekilde görünür:
+Önceki değişiklikler ve kullanılmayan kaldırılmasını sonra `using` deyimleri *ProductsController.cs* dosya şu şekilde görünür:
 
 [!code-csharp[](webapi/sample/ProductsCore/Controllers/ProductsController.cs)]
 
@@ -147,3 +160,4 @@ Uyumluluk dolgu kullanmak üzere:
 
 * <xref:web-api/index>
 * <xref:web-api/action-return-types>
+* <xref:mvc/compatibility-version>

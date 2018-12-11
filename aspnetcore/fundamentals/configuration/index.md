@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core uygulaması yapılandırmak için yapılandırma API'sini kullanmayı öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/15/2018
+ms.date: 12/07/2018
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 766ac77a2af01509f8e4bc646a18f7dfbc923511
-ms.sourcegitcommit: d3392f688cfebc1f25616da7489664d69c6ee330
+ms.openlocfilehash: 6f0378ffc4f9a1efa95c8f70d70e7799abef130b
+ms.sourcegitcommit: 1872d2e6f299093c78a6795a486929ffb0bbffff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51818401"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53216904"
 ---
 # <a name="configuration-in-aspnet-core"></a>ASP.NET core'da yapılandırma
 
@@ -21,7 +21,7 @@ ASP.NET core'da uygulama yapılandırması tarafından kurulan anahtar-değer ç
 
 ::: moniker range=">= aspnetcore-2.1"
 
-* Azure anahtar kasası
+* Azure Key Vault
 * Komut satırı bağımsız değişkenleri
 * (Yüklü veya oluşturulan) özel sağlayıcılar
 * Dizin dosyaları
@@ -33,7 +33,7 @@ ASP.NET core'da uygulama yapılandırması tarafından kurulan anahtar-değer ç
 
 ::: moniker range="= aspnetcore-2.0 || aspnetcore-1.1"
 
-* Azure anahtar kasası
+* Azure Key Vault
 * Komut satırı bağımsız değişkenleri
 * (Yüklü veya oluşturulan) özel sağlayıcılar
 * Ortam değişkenleri
@@ -149,7 +149,7 @@ Aşağıdaki tabloda, ASP.NET Core uygulamaları için kullanılabilir yapıland
 
 | Sağlayıcı | Yapılandırmasından sağlar&hellip; |
 | -------- | ----------------------------------- |
-| [Azure Key Vault yapılandırma sağlayıcısı](xref:security/key-vault-configuration) (*güvenlik* konuları) | Azure anahtar kasası |
+| [Azure Key Vault yapılandırma sağlayıcısı](xref:security/key-vault-configuration) (*güvenlik* konuları) | Azure Key Vault |
 | [Komut satırı yapılandırma sağlayıcısı](#command-line-configuration-provider) | Komut satırı parametreleri |
 | [Özel yapılandırma sağlayıcısı](#custom-configuration-provider) | Özel kaynak |
 | [Ortam değişkenlerini yapılandırma sağlayıcısı](#environment-variables-configuration-provider) | Ortam değişkenleri |
@@ -164,7 +164,7 @@ Aşağıdaki tabloda, ASP.NET Core uygulamaları için kullanılabilir yapıland
 
 | Sağlayıcı | Yapılandırmasından sağlar&hellip; |
 | -------- | ----------------------------------- |
-| [Azure Key Vault yapılandırma sağlayıcısı](xref:security/key-vault-configuration) (*güvenlik* konuları) | Azure anahtar kasası |
+| [Azure Key Vault yapılandırma sağlayıcısı](xref:security/key-vault-configuration) (*güvenlik* konuları) | Azure Key Vault |
 | [Komut satırı yapılandırma sağlayıcısı](#command-line-configuration-provider) | Komut satırı parametreleri |
 | [Özel yapılandırma sağlayıcısı](#custom-configuration-provider) | Özel kaynak |
 | [Ortam değişkenlerini yapılandırma sağlayıcısı](#environment-variables-configuration-provider) | Ortam değişkenleri |
@@ -192,7 +192,7 @@ Yapılandırma sağlayıcıları başlatma sırasında belirttiğiniz sırayla y
 Yapılandırma sağlayıcıları, tipik bir dizisidir:
 
 1. Dosyaları (*appsettings.json*, *appsettings. { Ortam} .json*burada `{Environment}` uygulamanın geçerli barındırma ortamı)
-1. [Azure anahtar kasası](xref:security/key-vault-configuration)
+1. [Azure Anahtar Kasası.](xref:security/key-vault-configuration)
 1. [Kullanıcı parolaları (gizli dizi Yöneticisi)](xref:security/app-secrets) (geliştirme ortamındaki yalnızca)
 1. Ortam değişkenleri
 1. Komut satırı bağımsız değişkenleri
@@ -201,7 +201,7 @@ Komut satırı yapılandırma sağlayıcısı yapılandırması diğer sağlayı
 
 ::: moniker range=">= aspnetcore-2.0"
 
-Yeni bir başlattığınızda bu sağlayıcıları dizi yerine konur <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> ile <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*>. Daha fazla bilgi için [Web ana bilgisayarı: bir konak ayarlamanız](xref:fundamentals/host/web-host#set-up-a-host).
+Yeni bir başlattığınızda bu sağlayıcıları dizi yerine konur <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> ile <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*>. Daha fazla bilgi için [Web ana bilgisayarı: Bir konak ayarlamanız](xref:fundamentals/host/web-host#set-up-a-host).
 
 ::: moniker-end
 
@@ -260,7 +260,7 @@ Komut satırı yapılandırmasını etkinleştirmek için <xref:Microsoft.Extens
 
 ::: moniker range=">= aspnetcore-2.0"
 
-`AddCommandLine` Yeni bir başlattığınızda otomatik olarak çağrılır <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> ile <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*>. Daha fazla bilgi için [Web ana bilgisayarı: bir konak ayarlamanız](xref:fundamentals/host/web-host#set-up-a-host).
+`AddCommandLine` Yeni bir başlattığınızda otomatik olarak çağrılır <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> ile <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*>. Daha fazla bilgi için [Web ana bilgisayarı: Bir konak ayarlamanız](xref:fundamentals/host/web-host#set-up-a-host).
 
 `CreateDefaultBuilder` Ayrıca yükler:
 
@@ -534,11 +534,11 @@ Ortam değişkenlerini yapılandırma etkinleştirmek için çağrı <xref:Micro
 
 Ortam değişkenleri, iki nokta üst üste ayırıcı hiyerarşik anahtarlarla çalışırken (`:`) tüm platformlarda çalışmayabilir. Çift alt çizgi (`__`) tüm platformları tarafından desteklenir ve virgül ile değiştirilir.
 
-[Azure App Service](https://azure.microsoft.com/services/app-service/) ortam değişkenlerini yapılandırma Sağlayıcısı'nı kullanarak uygulama yapılandırması geçersiz kılabilirsiniz Azure portalında ortam değişkenlerini ayarlamak için verir. Daha fazla bilgi için [Azure uygulamaları: Geçersiz Uygulama yapılandırması Azure portalını kullanarak](xref:host-and-deploy/azure-apps/index#override-app-configuration-using-the-azure-portal).
+[Azure App Service](https://azure.microsoft.com/services/app-service/) ortam değişkenlerini yapılandırma Sağlayıcısı'nı kullanarak uygulama yapılandırması geçersiz kılabilirsiniz Azure portalında ortam değişkenlerini ayarlamak için verir. Daha fazla bilgi için [Azure uygulamaları: Azure portalını kullanarak uygulama yapılandırmasını geçersiz kılma](xref:host-and-deploy/azure-apps/index#override-app-configuration-using-the-azure-portal).
 
 ::: moniker range=">= aspnetcore-2.0"
 
-`AddEnvironmentVariables` ortam değişkenlerini ön eki için otomatik olarak çağrılır `ASPNETCORE_` yeni başlatırken <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder>. Daha fazla bilgi için [Web ana bilgisayarı: bir konak ayarlamanız](xref:fundamentals/host/web-host#set-up-a-host).
+`AddEnvironmentVariables` ortam değişkenlerini ön eki için otomatik olarak çağrılır `ASPNETCORE_` yeni başlatırken <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder>. Daha fazla bilgi için [Web ana bilgisayarı: Bir konak ayarlamanız](xref:fundamentals/host/web-host#set-up-a-host).
 
 `CreateDefaultBuilder` Ayrıca yükler:
 
@@ -703,7 +703,7 @@ Yapılandırma API'si, dört bağlantı dizesi ortam değişkenleri için app or
 | ------------------------ | -------- |
 | `CUSTOMCONNSTR_` | Özel sağlayıcı |
 | `MYSQLCONNSTR_` | [MySQL](https://www.mysql.com/) |
-| `SQLAZURECONNSTR_` | [Azure SQL veritabanı](https://azure.microsoft.com/services/sql-database/) |
+| `SQLAZURECONNSTR_` | [Azure SQL Veritabanı](https://azure.microsoft.com/services/sql-database/) |
 | `SQLCONNSTR_` | [SQL Server](https://www.microsoft.com/sql-server/) |
 
 Ne zaman bir ortam değişkeni bulunur ve herhangi bir tabloda gösterilen dört öneklerini yapılandırmasını yüklendi:
@@ -714,9 +714,9 @@ Ne zaman bir ortam değişkeni bulunur ve herhangi bir tabloda gösterilen dört
 | Ortam değişkeni anahtarı | Dönüştürülen yapılandırma anahtarı | Sağlayıcı Yapılandırması girdisi                                                    |
 | ------------------------ | --------------------------- | ------------------------------------------------------------------------------- |
 | `CUSTOMCONNSTR_<KEY>`    | `ConnectionStrings:<KEY>`   | Yapılandırma girişi oluşturulmadı.                                                |
-| `MYSQLCONNSTR_<KEY>`     | `ConnectionStrings:<KEY>`   | Anahtar: `ConnectionStrings:<KEY>_ProviderName`:<br>Değer: `MySql.Data.MySqlClient` |
-| `SQLAZURECONNSTR_<KEY>`  | `ConnectionStrings:<KEY>`   | Anahtar: `ConnectionStrings:<KEY>_ProviderName`:<br>Değer: `System.Data.SqlClient`  |
-| `SQLCONNSTR_<KEY>`       | `ConnectionStrings:<KEY>`   | Anahtar: `ConnectionStrings:<KEY>_ProviderName`:<br>Değer: `System.Data.SqlClient`  |
+| `MYSQLCONNSTR_<KEY>`     | `ConnectionStrings:<KEY>`   | Anahtar: `ConnectionStrings:<KEY>_ProviderName`:<br>Değer:`MySql.Data.MySqlClient` |
+| `SQLAZURECONNSTR_<KEY>`  | `ConnectionStrings:<KEY>`   | Anahtar: `ConnectionStrings:<KEY>_ProviderName`:<br>Değer:`System.Data.SqlClient`  |
+| `SQLCONNSTR_<KEY>`       | `ConnectionStrings:<KEY>`   | Anahtar: `ConnectionStrings:<KEY>_ProviderName`:<br>Değer:`System.Data.SqlClient`  |
 
 ## <a name="file-configuration-provider"></a>Dosya yapılandırma sağlayıcısı
 
@@ -859,7 +859,7 @@ Aşırı yüklemeler belirtme izin ver:
 * *appSettings.JSON* &ndash; bu dosyayı ilk okuyun. Dosyanın ortam sürümü tarafından sağlanan değerleri geçersiz kılabilir *appsettings.json* dosya.
 * *appSettings. {Ortamı} .json* &ndash; dosyanın ortam sürümünü temel alınarak yüklenir [IHostingEnvironment.EnvironmentName](xref:Microsoft.Extensions.Hosting.IHostingEnvironment.EnvironmentName*).
 
-Daha fazla bilgi için [Web ana bilgisayarı: bir konak ayarlamanız](xref:fundamentals/host/web-host#set-up-a-host).
+Daha fazla bilgi için [Web ana bilgisayarı: Bir konak ayarlamanız](xref:fundamentals/host/web-host#set-up-a-host).
 
 `CreateDefaultBuilder` Ayrıca yükler:
 
@@ -1137,6 +1137,8 @@ Aşırı yüklemeler belirtme izin ver:
 * Bir `Action<KeyPerFileConfigurationSource>` kaynağını yapılandırır temsilci.
 * Dizin isteğe bağlı olup olmadığını ve dizinin yolu.
 
+Çift alt çizgi (`__`) dosya adları içinde yapılandırma anahtar sınırlayıcı olarak kullanılır. Örneğin, dosya adı `Logging__LogLevel__System` üretir yapılandırma anahtarı `Logging:LogLevel:System`.
+
 Çağrı <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> uygulamanın yapılandırmasını belirlemek için konak oluştururken:
 
 ```csharp
@@ -1355,7 +1357,7 @@ var children = configSection.GetChildren();
 
 ::: moniker range=">= aspnetcore-2.0"
 
-### <a name="exists"></a>Var.
+### <a name="exists"></a>Var
 
 Kullanım [ConfigurationExtensions.Exists](xref:Microsoft.Extensions.Configuration.ConfigurationExtensions.Exists*) yapılandırma bölümü olup olmadığını belirlemek için:
 
@@ -1810,7 +1812,7 @@ public class Startup
 }
 ```
 
-Başlangıç kullanışlı yöntemler kullanarak yapılandırma erişme ilişkin bir örnek için bkz [uygulama başlatma: yöntemler](xref:fundamentals/startup#convenience-methods).
+Başlangıç kullanışlı yöntemler kullanarak yapılandırma erişme ilişkin bir örnek için bkz [uygulama başlatma: Yöntemler](xref:fundamentals/startup#convenience-methods).
 
 ## <a name="access-configuration-in-a-razor-pages-page-or-mvc-view"></a>Erişim yapılandırmasında bir Razor sayfaları sayfası veya MVC görünümü
 

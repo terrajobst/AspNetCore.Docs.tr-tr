@@ -3,14 +3,14 @@ title: ASP.NET'ten ASP.NET Core geçişi
 author: isaac2004
 description: ASP.NET Core.web için geçirme mevcut ASP.NET MVC veya Web API uygulamaları için yol gösteren yönergeler alır
 ms.author: scaddie
-ms.date: 08/27/2017
+ms.date: 12/10/2018
 uid: migration/proper-to-2x/index
-ms.openlocfilehash: 1a3e3f0b514c262cfe13ea8391ab97b95aa4384e
-ms.sourcegitcommit: 54655f1e1abf0b64d19506334d94cfdb0caf55f6
+ms.openlocfilehash: 6808fefb890dcdec6abdd0604ab61dfd2573d910
+ms.sourcegitcommit: 1872d2e6f299093c78a6795a486929ffb0bbffff
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50148804"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53216800"
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core"></a>ASP.NET'ten ASP.NET Core geçişi
 
@@ -66,7 +66,7 @@ ASP.NET Core, benzer bir yaklaşım kullanır, ancak giriş işlemek için OWIN 
 
 `Startup` içermelidir bir `Configure` yöntemi. İçinde `Configure`, gerekli bir ara yazılım ardışık düzenine ekleyin. (Şablondan varsayılan web sitesi) aşağıdaki örnekte, birkaç genişletme yöntemleri için destek ile işlem hattını yapılandırmak için kullanılır:
 
-* [BrowserLink](http://vswebessentials.com/features/browserlink)
+* [Tarayıcı Bağlantısı](xref:client-side/using-browserlink)
 * Hata sayfaları
 * Statik dosyalar
 * ASP.NET Core MVC
