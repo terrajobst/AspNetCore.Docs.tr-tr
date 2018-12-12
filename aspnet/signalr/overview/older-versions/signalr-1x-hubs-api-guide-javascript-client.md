@@ -8,16 +8,18 @@ ms.date: 04/17/2013
 ms.assetid: dcd4593b-1118-418a-af71-d12ff33fb36d
 msc.legacyurl: /signalr/overview/older-versions/signalr-1x-hubs-api-guide-javascript-client
 msc.type: authoredcontent
-ms.openlocfilehash: 993ad7924d8335f79aa2c3e41c00ddfa8bc26874
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 2d50a92cff96be5c5c60105bba6682d38f9666b6
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41753617"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53288098"
 ---
-<a name="signalr-1x-hubs-api-guide---javascript-client"></a>SignalR 1.x Hubs API Kılavuzu - JavaScript istemcisi
+<a name="signalr-1x-hubs-api-guide---javascript-client"></a>SignalR 1.x Hubs API Kılavuzu - JavaScript İstemcisi
 ====================
 tarafından [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](https://github.com/tdykstra)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > Bu belge, SignalR sürüm 1.1 tarayıcıları ve Windows Store (WinJS) uygulamalar gibi JavaScript istemcileri için hub'ları API kullanmaya giriş bilgileri sağlar.
 > 
@@ -445,7 +447,7 @@ SignalR işleyebilirsiniz ömür olayları aşağıdaki bağlantı sağlar:
 
 - `starting`: Herhangi bir veri bağlantısı üzerinden gönderilmeden önce oluşturulur.
 - `received`: Herhangi bir veri bağlantısı alındığında oluşturulur. Alınan veriler sağlar.
-- `connectionSlow`: Bir istemci yavaş veya sık bırakma bağlantı algıladığında oluşturulur.
+- `connectionSlow`: İstemci yavaş veya sık bırakma bağlantı tespit ettiğinde oluşturulur.
 - `reconnecting`: Temel alınan aktarımda yeniden bağlanmayı başladığında oluşturulur.
 - `reconnected`: Temel alınan aktarımda bağlandığınızda oluşturulur.
 - `stateChanged`: Bağlantı durumu değiştiğinde oluşturulur. Eski durum ve yeni bir durum (bağlanma, bağlı, yeniden bağlanılıyor veya bağlantısı kesilmiş) sağlar.

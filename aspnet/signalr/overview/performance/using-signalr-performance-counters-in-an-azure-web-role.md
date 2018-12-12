@@ -9,16 +9,18 @@ ms.date: 10/03/2018
 ms.assetid: 2a127d3b-21ed-4cc9-bec0-cdab4e742a25
 msc.legacyurl: /signalr/overview/performance/using-signalr-performance-counters-in-an-azure-web-role
 msc.type: authoredcontent
-ms.openlocfilehash: 7304ff17bb53f94bdee1e90602d206bf32184e37
-ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
+ms.openlocfilehash: bdd875201895c6eaf155b54582d0898c2570d93c
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48795466"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287722"
 ---
 # <a name="using-signalr-performance-counters-in-an-azure-web-role"></a>Bir Azure Web rolünde SignalR performans sayaçları kullanma
 
 Tarafından [Luke Latham](https://github.com/guardrex)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 SignalR performans sayaçları, Azure Web rolünde uygulamanızın performansını izlemek için kullanılır. Sayaçlar, Microsoft Azure tanılama tarafından yakalanır. Azure ile SignalR performans sayaçları yüklediğiniz *signalr.exe*, tek başına veya şirket içi uygulamalar için kullanılan aynı aracı. Azure rolleri geçici olduğundan, bir uygulama yüklemek ve SignalR performans sayaçları başlatma kaydetmek için yapılandırın.
 
@@ -26,7 +28,7 @@ SignalR performans sayaçları, Azure Web rolünde uygulamanızın performansın
 
 * Visual Studio 2015 veya [2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)
 * [Visual Studio için Microsoft Azure SDK'sı](https://azure.microsoft.com/downloads/) **Not: SDK'yı yükledikten sonra bilgisayarınızı yeniden başlatın.**
-* Microsoft Azure aboneliği: ücretsiz Azure deneme hesabı için kaydolmak için bkz: [Azure ücretsiz deneme](https://azure.microsoft.com/free/).
+* Microsoft Azure aboneliği: Ücretsiz Azure deneme hesabı için kaydolmak için bkz: [Azure ücretsiz deneme](https://azure.microsoft.com/free/).
 
 ## <a name="creating-an-azure-web-role-application-that-exposes-signalr-performance-counters"></a>SignalR performans sayaçları sunan bir Azure Web rolü uygulama oluşturma
 
@@ -43,7 +45,7 @@ SignalR performans sayaçları, Azure Web rolünde uygulamanızın performansın
    >
    > ![Visual Studio Yükleyicisi'deki Azure geliştirme iş yükü](using-signalr-performance-counters-in-an-azure-web-role/_static/azure-development-workload.png)
 
-4. İçinde **yeni Microsoft Azure bulut hizmeti** iletişim kutusunda **ASP.NET Web rolü** seçin > rolü projeye eklemek için düğme. Seçin **Tamam**.
+4. İçinde **yeni Microsoft Azure bulut hizmeti** iletişim kutusunda **ASP.NET Web rolü** seçin > rolü projeye eklemek için düğme. **Tamam**’ı seçin.
 
    ![ASP.NET Web rolü ekleme](using-signalr-performance-counters-in-an-azure-web-role/_static/image2.png)
 

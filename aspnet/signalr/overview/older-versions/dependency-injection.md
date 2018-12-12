@@ -8,16 +8,18 @@ ms.date: 05/15/2013
 ms.assetid: eaa206c4-edb3-487e-8fcb-54a3261fed36
 msc.legacyurl: /signalr/overview/older-versions/dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: 905dea4918be731673c39e788069ce2dc78e1649
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 2035b3feebfa32dd7ec4d6adf715a7fee5e7b74f
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48910700"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287390"
 ---
-<a name="dependency-injection-in-signalr-1x"></a>Signalr'da bağımlılık ekleme 1.x
+<a name="dependency-injection-in-signalr-1x"></a>SignalR 1.x Sürümünde Bağımlılık Ekleme
 ====================
 tarafından [Mike Wasson](https://github.com/MikeWasson), [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 Bağımlılık ekleme (sahte nesneler kullanılarak) test etmek için ya da bir nesnenin bağımlılıkları değiştirin veya çalışma zamanı davranışını değiştirmek için daha kolay hale getirme nesneleri arasındaki sabit kodlu bağımlılıkları kaldırmak için bir yoldur. Bu öğreticide SignalR hub'larında bağımlılık ekleme yapmak nasıl gösterir. Ayrıca SignalR ile IOC kapsayıcıları kullanmayı gösterir. IOC kapsayıcı için bağımlılık ekleme genel bir çerçevedir.
 
@@ -81,7 +83,7 @@ Sohbet uygulaması büyük olasılıkla bir IOC kapsayıcısından yararlanmak b
 
 StockTicker örnek iki ana sınıf tanımlar:
 
-- `StockTickerHub`: İstemci bağlantıları yönetir hub sınıfı.
+- `StockTickerHub`: Hub sınıfına istemci bağlantıları yönetir.
 - `StockTicker`: Hisse senedi fiyatlarına tutar ve bunları düzenli aralıklarla güncelleştiren bir tekli.
 
 `StockTickerHub` bir başvuru tutan `StockTicker` tekil, ancak `StockTicker` bir başvuru tutan **IHubConnectionContext** için `StockTickerHub`. Bu arabirim ile iletişim kurmak için kullandığı `StockTickerHub` örnekleri. (Daha fazla bilgi için [ASP.NET SignalR ile sunucu yayını](index.md).)

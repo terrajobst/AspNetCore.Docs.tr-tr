@@ -8,16 +8,19 @@ ms.date: 07/16/2014
 ms.assetid: ba07958c-42e1-4da0-81db-ba6925ed6db0
 msc.legacyurl: /signalr/overview/getting-started/real-time-web-applications-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 59831fb8497c86ec5e02de3912b36a15f416597c
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: de2f2349fc284e167bd8227ae55da79b9f1f4549
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913248"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53288015"
 ---
 <a name="hands-on-lab-real-time-web-applications-with-signalr"></a>Uygulamalı Laboratuvar: SignalR ile gerçek zamanlı Web uygulamaları
 ====================
+
 Tarafından [Team Web Kampları](https://twitter.com/webcamps)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 [Eğitim Seti Web Kampları indirin](http://aka.ms/webcamps-training-kit)
 
@@ -25,9 +28,9 @@ Tarafından [Team Web Kampları](https://twitter.com/webcamps)
 > 
 > **SignalR** ayrıca istemciye RPC sunucusu yapmak için basit, üst düzey bir API sağlar. (sunucu tarafı .NET kodundan müşterilerinizin tarayıcılarında JavaScript işlevleri çağırmak) ASP.NET uygulamanızı, aynı zamanda bağlantı yönetimi, kullanışlı kancaları ekleme olayları bağlama/bağlantısını kes, bağlantıları gruplandırma ve yetkilendirme gibi.
 > 
-> **SignalR** bazı istemci ve sunucu arasında gerçek zamanlı iş yapmak için gerekli olan taşımalar üzerinde bir soyutlamadır. A **SignalR** bağlantı HTTP başlar ve sonra yükseltilen bir **WebSocket** bağlantı varsa. **WebSocket** için ideal aktarım **SignalR**, sunucu bellek en verimli bir şekilde kullanılmasını kolaylaştırır. bu yana varsa gecikme süresi en düşük ve en alttaki özellikler (gibi istemci arasındaki tam çift yönlü iletişim ve sunucu için), ancak ayrıca en katı gereksinimleri vardır: **WebSocket** sunucusu kullanılmasını gerektirir **Windows Server 2012** veya **Windows 8**, yanısıra **.NET framework 4.5**. Bu gereksinimler karşılanmazsa **SignalR** bağlantılarından olmak için diğer taşımalar kullanmayı dener (gibi *Ajax uzun yoklama*).
+> **SignalR** bazı istemci ve sunucu arasında gerçek zamanlı iş yapmak için gerekli olan taşımalar üzerinde bir soyutlamadır. A **SignalR** bağlantı HTTP başlar ve sonra yükseltilen bir **WebSocket** bağlantı varsa. **WebSocket** için ideal aktarım **SignalR**, sunucu bellek en verimli bir şekilde kullanılmasını kolaylaştırır. bu yana varsa gecikme süresi en düşük ve en alttaki özellikler (gibi istemci arasındaki tam çift yönlü iletişim ve sunucu için), ancak ayrıca en katı gereksinimleri vardır: **WebSocket** sunucusu kullanılmasını gerektirir **Windows Server 2012** veya **Windows 8**, birlikte **.NET Framework 4.5**. Bu gereksinimler karşılanmazsa **SignalR** bağlantılarından olmak için diğer taşımalar kullanmayı dener (gibi *Ajax uzun yoklama*).
 > 
-> **SignalR** API içeren istemciler ve sunucular arasında iletişim kurmak için iki modeli: **kalıcı bağlantılar** ve **Hubs**. A **bağlantı** tek alıcısı, gönderme gruplandırılmış veya yayın iletileri için basit bir uç noktasını temsil eder. A **Hub** olduğundan, istemci ve sunucunun doğrudan birbirleri üzerinde yöntemleri çağırmak verir bağlantı API üzerinde derlenmiş daha üst düzey bir işlem hattı.
+> **SignalR** API, istemciler ve sunucular arasında iletişim kurmak için iki modeli içerir: **Kalıcı bağlantılar** ve **Hubs**. A **bağlantı** tek alıcısı, gönderme gruplandırılmış veya yayın iletileri için basit bir uç noktasını temsil eder. A **Hub** olduğundan, istemci ve sunucunun doğrudan birbirleri üzerinde yöntemleri çağırmak verir bağlantı API üzerinde derlenmiş daha üst düzey bir işlem hattı.
 > 
 > ![SignalR mimarisi](real-time-web-applications-with-signalr/_static/image1.png)
 > 
@@ -269,9 +272,9 @@ SignalR devre kartına, bunu okuyun işleyişi hakkında daha fazla bilgi için 
 > [!NOTE]
 > Burada bir devre kartı bir performans sorunu haline gelebilir bazı senaryolar vardır. Bazı tipik SignalR senaryolar aşağıda verilmiştir:
 > 
-> - [Sunucu yayın](tutorial-server-broadcast-with-signalr.md) (örneğin, bandı): Backplanes sunucu iletileri gönderilir oranı denetlediğinden bu senaryo için iyi çalışır.
-> - [İstemci istemci](tutorial-getting-started-with-signalr.md) (örneğin, sohbet edin): ileti sayısını ölçeklendirir istemci sayısı, bu senaryoda, bir performans sorunu devre kartına olabilir; diğer bir deyişle, orantılı olarak daha fazla istemciye iletileri oranı büyürse katılın.
-> - [Yüksek sıklıkta gerçek zamanlı](tutorial-high-frequency-realtime-with-signalr.md) (örneğin, gerçek zamanlı oyun): Bu senaryo için bir devre kartı önerilmez.
+> - [Sunucu yayın](tutorial-server-broadcast-with-signalr.md) (örneğin, bandı): Sunucu iletilerinin gönderilme oranı denetlediğinden Backplanes bu senaryo için iyi çalışır.
+> - [İstemci istemci](tutorial-getting-started-with-signalr.md) (örneğin, sohbet edin): Bu senaryoda, istemci sayısı ile ileti sayısını ölçeklenirse devre kartına bir performans sorunu olabilir; diğer bir deyişle, iletileri oranı büyürse orantılı olarak daha fazla istemciye katılın.
+> - [Yüksek sıklıkta gerçek zamanlı](tutorial-high-frequency-realtime-with-signalr.md) (örneğin, gerçek zamanlı oyun): Bir devre kartı, bu senaryo için önerilmez.
 
 
 Bu alıştırmada, kullanacağınız **SQL Server** iletilerini arasında dağıtmak için **Geek test** uygulama. Bu görevleri öğrenmenin yapılandırmayı ayarlamak için ancak tam etkiyi görmek için bir tek test makinesinde çalışır, iki veya daha fazla sunucu SignalR uygulamayı dağıtmak ihtiyacınız olacak. SQL Server sunuculardan biri üzerinde veya ayrılmış ayrı bir sunucuya yüklemeniz gerekir.
@@ -375,7 +378,7 @@ Bu görevde, yapılandıracağınız **Geek test** SQL Server devre kartına ba�
 5. Yeniden **Visual Studio** iki örneği başlatacak **Geek test** farklı bağlantı noktaları. Sol tarafta, ekranınızın sağ taraftaki diğer tarayıcılardan birini sabitleme ve kimlik bilgilerinizle oturum açın. Meraklısına Notlar sayfanın sol tarafta tutun ve Git **istatistikleri** pageın doğru tarayıcı.
 6. Sol tarayıcıda soruyu yanıtlayarak başlatın. Bu kez, **istatistikleri** sayfası devre kartına sayesinde güncelleştirildi. Uygulamalar arasında geçiş yapma (**istatistikleri** solda, sunulmuştur ve **Meraklısına Notlar** sağ tarafta olduğundan) ve test için her iki örnek çalıştığını doğrulamak için yineleyin. Devre kartı olarak hizmet veren bir *paylaşımlı önbellek* bağlı her sunucu ve her sunucu için iletilerin iletileri bağlı istemcilere dağıtmak için kendi yerel önbellekte depolar.
 7. Visual Studio'ya geri dönün ve hata ayıklamayı durdurun.
-8. SQL Server devre kartı bileşeni, belirtilen veritabanında gerekli tabloları otomatik olarak oluşturur. İçinde **SQL Server Nesne Gezgini** panelinde, devre kartı için oluşturduğunuz veritabanına açın (örn: SignalR) ve alt tablolar'ı genişletin. Aşağıdaki tablolarda görmeniz gerekir:
+8. SQL Server devre kartı bileşeni, belirtilen veritabanında gerekli tabloları otomatik olarak oluşturur. İçinde **SQL Server Nesne Gezgini** panelinde, devre kartı için oluşturduğunuz veritabanına açın (örneğin: SignalR) ve alt tablolar'ı genişletin. Aşağıdaki tablolarda görmeniz gerekir:
 
     ![Devre kartına tabloları oluşturulan](real-time-web-applications-with-signalr/_static/image27.png)
 

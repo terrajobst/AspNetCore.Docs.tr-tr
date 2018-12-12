@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 11/28/2018
 uid: signalr/redis-backplane
-ms.openlocfilehash: c8b09c0d482da344b54d167c0c9757167eaa6186
-ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
+ms.openlocfilehash: 343cb5b2c7ed7162bae7865553a783fea45f0cfb
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453033"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284482"
 ---
 # <a name="set-up-a-redis-backplane-for-aspnet-core-signalr-scale-out"></a>Bir Redis devre kartı ASP.NET Core SignalR genişleme için ayarlama
 
@@ -32,7 +32,7 @@ Bu makalede, SignalR özgü yönlerini ayarlama açıklanmaktadır bir [Redis](h
 
 ::: moniker range="= aspnetcore-2.1"
 
-* SignalR uygulamada, yükleme `Microsoft.AspNetCore.SignalR.Redis` NuGet paketi.
+* SignalR uygulamada, yükleme `Microsoft.AspNetCore.SignalR.Redis` NuGet paketi. (Ayrıca bir `Microsoft.AspNetCore.SignalR.StackExchangeRedis` ASP.NET Core 2.2 ve daha sonra biridir ancak bu, paket.)
 
 * İçinde `Startup.ConfigureServices` yöntemi, çağrı `AddRedis` sonra `AddSignalR`:
 
@@ -59,7 +59,10 @@ Bu makalede, SignalR özgü yönlerini ayarlama açıklanmaktadır bir [Redis](h
 
 ::: moniker range="> aspnetcore-2.1"
 
-* SignalR uygulamada, yükleme `Microsoft.AspNetCore.SignalR.StackExchangeRedis` NuGet paketi.
+* SignalR uygulamasında aşağıdaki NuGet paketlerini yükleyin:
+
+  * `Microsoft.AspNetCore.SignalR.StackExchangeRedis` -StackExchange.Redis 2.X.X üzerinde bağlıdır. Bu daha sonra ve ASP.NET Core 2.2 için önerilen pakettir.
+  * `Microsoft.AspNetCore.SignalR.Redis` -StackExchange.Redis 1.X.X üzerinde bağlıdır. Bu paket, ASP.NET Core 3. 0'sevkiyat değil.
 
 * İçinde `Startup.ConfigureServices` yöntemi, çağrı `AddStackExchangeRedis` sonra `AddSignalR`:
 

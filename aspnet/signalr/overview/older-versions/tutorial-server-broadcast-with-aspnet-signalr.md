@@ -8,16 +8,18 @@ ms.date: 04/10/2013
 ms.assetid: ab7b2554-956a-4f6d-b2a0-4ae0c62e8580
 msc.legacyurl: /signalr/overview/older-versions/tutorial-server-broadcast-with-aspnet-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 7d604af11ade848358e291d1df25f2f8df850132
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: d5c09f6493c4dedb4fc2ecbf9055dd014ede71f2
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911987"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53288059"
 ---
 <a name="tutorial-server-broadcast-with-aspnet-signalr-1x"></a>Öğretici: ASP.NET SignalR ile sunucu yayını 1.x
 ====================
 tarafından [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](https://github.com/tdykstra)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > Bu öğreticide, sunucu yayın işlevselliği sağlamak için ASP.NET SignalR kullanan bir web uygulaması oluşturma işlemi gösterilmektedir. Sunucu yayın istemcilere gönderilen iletişimleri sunucu tarafından başlatılır anlamına gelir. Bu senaryo, eşler arası senaryoları istemcilere iletişimler bir veya daha fazla istemcileri tarafından başlatılır, sohbet uygulamaları gibi daha farklı bir programlama yaklaşım gerektirir.
 > 
@@ -272,7 +274,7 @@ Sunucu kodu ayarlama tamamladınız. Sonraki bölümde, istemci ayarlamanız.
 
 <a id="enablelogging"></a>
 
-## <a name="enable-logging"></a>Günlüğe kaydetmeyi etkinleştirme
+## <a name="enable-logging"></a>Günlü kaydını etkinleştir
 
 SignalR istemcide giderilmesine yardımcı olmak için etkinleştirebileceğiniz bir yerleşik günlük işleve sahiptir. Bu bölümdeki günlük kaydını etkinleştirmek ve nasıl günlükleri SignalR kullanarak, aşağıdaki taşıma yöntemleri size gösteren örneklere bakın:
 
@@ -330,9 +332,9 @@ Tarafından yüklenen StockTicker uygulama [Microsoft.AspNet.SignalR.Sample](htt
     > [!NOTE]
     > Yükleme SignalR.Sample NuGet paketi uygulamanızdaki jQuery sürümü değişebilir, *betikleri* klasör. Yeni *StockTicker.html* paketi yükler dosya *SignalR.Sample* klasörü orijinal çalıştırmakistiyorsanızancakyükleyenpaket,jQuerysürümüileuyumluolacak*StockTicker.html* yeniden dosya, komut dosyası etiketi jQuery başvurusunda önce güncelleştirmeniz gerekebilir.
 
-### <a name="run-the-application"></a>Uygulamayı çalıştırın
+### <a name="run-the-application"></a>Uygulamayı çalıştırma
 
-1. Uygulamayı çalıştırmak için F5 tuşuna basın.
+1. Uygulamayı çalıştırmak için F5'e basın.
 
     Daha önce gördüğünüzle kılavuza ek olarak, tam borsa uygulama aynı stok verileri görüntüleyen bir yatay kaydırma penceresi gösterilmektedir. Uygulamayı ilk kez çalıştırdığınızda, "pazar" "kapalı" ve statik bir kılavuz ve kaydırma değil bir bandı penceresi görürsünüz.
 

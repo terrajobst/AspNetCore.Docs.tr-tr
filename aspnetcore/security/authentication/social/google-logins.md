@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc, seodec18
 ms.date: 11/11/2018
 uid: security/authentication/google-logins
-ms.openlocfilehash: e5deda5d521643e3155be00f4630a86c6a82575c
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: 372504eb4f6fea412b5b160e0d5e9251dafe0d56
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121537"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284500"
 ---
 # <a name="google-external-login-setup-in-aspnet-core"></a>ASP.NET core'da Google dış oturum açma Kurulumu
 
@@ -50,7 +50,7 @@ Bu öğreticide, oluşturulan bir örnek ASP.NET Core 2.0 proje kullanarak kendi
   * **Web sunucusu (örn: node.js, Tomcat)**, ve
   * **Kullanıcı verilerini**:
 
-![API Yöneticisi kimlik bilgileri sayfası: ne tür, kimlik bilgileri kullanıma Bul paneli gerekir](index/_static/GoogleConsoleChooseCred.png)
+![API Yöneticisi kimlik bilgileri sayfası: Ne tür, kimlik bilgileri kullanıma Bul paneli gerekir](index/_static/GoogleConsoleChooseCred.png)
 
 * Dokunun **hangi kimlik bilgileri gerekiyor?** aldığı, uygulama yapılandırması, ikinci adım için **OAuth 2.0 istemci kimlik oluşturma**:
 
@@ -73,7 +73,7 @@ Bu öğreticide, oluşturulan bir örnek ASP.NET Core 2.0 proje kullanarak kendi
 
 * Dokunun **devam** son adım, devam etmek için **kimlik bilgilerini indirme**:
 
-![API Yöneticisi kimlik bilgileri sayfası: kimlik bilgilerini indirme](index/_static/GoogleConsoleFinish.png)
+![API Yöneticisi kimlik bilgileri sayfası: Kimlik bilgilerini indirin.](index/_static/GoogleConsoleFinish.png)
 
 * Dokunun **indirme** uygulama gizli öğeleri bir JSON dosyası kaydetmek için ve **Bitti** yeni uygulama oluşturmayı tamamlamak için.
 
@@ -136,7 +136,7 @@ Bkz: [GoogleOptions](/dotnet/api/microsoft.aspnetcore.builder.googleoptions) Goo
 
 Uygulamanızı çalıştırın ve tıklayın **oturum**. Google ile oturum açmak için bir seçenek görüntülenir:
 
-![Microsoft Edge'de çalışan web uygulaması: kullanıcı kimliği](index/_static/DoneGoogle.png)
+![Microsoft Edge'de çalışan web uygulaması: Kullanıcı Kimliği](index/_static/DoneGoogle.png)
 
 Google'da tıkladığınızda, kimlik doğrulaması için Google'a yönlendirilir:
 
@@ -146,14 +146,14 @@ Google kimlik bilgilerinizi girdikten sonra ardından web e-postanızı ayarlaya
 
 Şimdi, Google kimlik bilgilerinizi kullanarak kaydedilir:
 
-![Microsoft Edge'de çalışan web uygulaması: kimliği doğrulanmış kullanıcı](index/_static/Done.png)
+![Microsoft Edge'de çalışan web uygulaması: Kimliği doğrulanmış kullanıcı](index/_static/Done.png)
 
 [!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
 * Alırsanız bir `403 (Forbidden)` geliştirme modu (veya aynı hata ayıklayıcısına kesme) çalışıyor olun, kendi uygulamanızı hata sayfasından **Google + API** içinde etkin **APIYöneticisikitaplığı** listelenen adımları takip ederek [bu sayfadaki önceki](#create-the-app-in-google-api-console). Hataları almıyor olabilirler ve oturum açma işe yaramazsa, sorunu hata ayıklama daha kolay hale getirmek için geliştirme moduna geçin.
-* **ASP.NET Core 2.x yalnızca:** , kimlik, çağırarak yapılandırılmamış `services.AddIdentity` içinde `ConfigureServices`, kimlik doğrulaması yapmaya sonuçlanır *ArgumentException: 'SignInScheme' seçeneği belirtilmelidir*. Bu öğreticide kullanılan proje şablonu, bu gerçekleştirilir sağlar.
+* **ASP.NET Core 2.x yalnızca:** Kimlik çağırarak yapılandırılmazsa `services.AddIdentity` içinde `ConfigureServices`, kimlik doğrulaması yapmaya sonuçlanır *ArgumentException: 'SignInScheme' seçeneği belirtilmelidir*. Bu öğreticide kullanılan proje şablonu, bu gerçekleştirilir sağlar.
 * Site veritabanı, ilk geçiş uygulayarak oluşturulmamış alırsa *bir veritabanı işlemi başarısız istek işlenirken* hata. Dokunun **geçerli geçişleri** veritabanı oluşturma ve hata devam etmek için yenilemek için.
 
 ## <a name="next-steps"></a>Sonraki adımlar

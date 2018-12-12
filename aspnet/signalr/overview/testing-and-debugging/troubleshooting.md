@@ -8,16 +8,18 @@ ms.date: 06/10/2014
 ms.assetid: 4b559e6c-4fb0-4a04-9812-45cf08ae5779
 msc.legacyurl: /signalr/overview/testing-and-debugging/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: bdb0562955f3bde56a95ce937c27fdbe4aa94823
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: e41061f0310c021b10dc6667a5c3297788213b0a
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911702"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287962"
 ---
-<a name="signalr-troubleshooting"></a>SignalR sorunlarını giderme
+<a name="signalr-troubleshooting"></a>SignalR Sorunlarını Giderme
 ====================
 tarafından [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > Bu belge, SignalR ile ortak sorun giderme konularını açıklar.
 >
@@ -71,7 +73,7 @@ SignalR, bir JSON ayrıştırıcı, sunucu ve istemci arasındaki çağrıların
 
 ### <a name="mixing-hub-and-persistentconnection-syntax"></a>Hub ve PersistentConnection sözdiziminin karışık kullanımına
 
-SignalR iki iletişim modeli kullanır: hub'ları ve PersistentConnections. Bu iki iletişim modeller çağırma söz dizimi, istemci kodu farklıdır. Sunucu kodunuzdaki bir hub eklediyseniz, istemci kodunuzun tamamını kullandığını hub'ı uygun söz dizimini doğrulayın.
+SignalR iki iletişim modeli kullanır: Hub'ları ve PersistentConnections. Bu iki iletişim modeller çağırma söz dizimi, istemci kodu farklıdır. Sunucu kodunuzdaki bir hub eklediyseniz, istemci kodunuzun tamamını kullandığını hub'ı uygun söz dizimini doğrulayın.
 
 **JavaScript istemci olarak bir PersistentConnection oluşturan JavaScript istemci kodu**
 
@@ -187,10 +189,10 @@ Burada etki alanları arası iletişimin düzgün şekilde etkinleştirilmedi et
 
 Bu sorunun çeşitli nedenleri vardır. Aşağıdakilerin tümü doğrulayın:
 
-- **Hub proxy adresi başvurusu düzgün biçimlendirilmemiş:** oluşturulan hub proxy adresi başvurusu doğru biçimlendirilmemiş varsa bu hatanın yaygın olarak görülür. Hub adresine başvuru düzgün yapıldığını doğrulayın. Bkz: [nasıl dinamik olarak oluşturulan proxy başvuru](../guide-to-the-api/hubs-api-guide-javascript-client.md#dynamicproxy) Ayrıntılar için.
-- **Hub rotasını eklemeden önce uygulama için yollar ekleme:** uygulamanız başka bir yolun kullanıyorsa, eklenen ilk rota çağrısı olduğunu doğrulayın `MapSignalR`.
-- **IIS 7 ya da güncelleştirme olmadan 7.5 uzantısız URL'lerle ilgili kullanma:** kullanarak IIS 7 veya 7.5 gerektiren bir güncelleştirme uzantısız URL'lerle ilgili sunucu hub tanımlarını erişim sağlayabilmesi `/signalr/hubs`. Güncelleştirme bulunabilir [burada](https://support.microsoft.com/kb/980368).
-- **IIS önbelleğe güncel değil veya bozuk:** önbellek içeriği güncel olmadığını doğrulamak için önbelleği temizlemek için bir PowerShell penceresinde aşağıdaki komutu girin:
+- **Hub proxy adresi başvurusu düzgün biçimlendirilmemiş:** Bu hata, oluşturulan hub proxy adresi başvurusu doğru şekilde biçimlendirilmemiş, yaygın olarak görülür. Hub adresine başvuru düzgün yapıldığını doğrulayın. Bkz: [nasıl dinamik olarak oluşturulan proxy başvuru](../guide-to-the-api/hubs-api-guide-javascript-client.md#dynamicproxy) Ayrıntılar için.
+- **Hub rotasını eklemeden önce uygulama için yollar ekleme:** Uygulamanız diğer yollar kullanıyorsa, eklenen ilk rota çağrısı olduğunu doğrulayın `MapSignalR`.
+- **IIS 7 ya da güncelleştirme olmadan 7.5 uzantısız URL'lerle ilgili kullanarak:** IIS 7 veya 7.5 kullanılması bir güncelleştirme uzantısız URL'lerle ilgili sunucu hub tanımlarını erişim sağlayabilmesi `/signalr/hubs`. Güncelleştirme bulunabilir [burada](https://support.microsoft.com/kb/980368).
+- **IIS önbelleği güncel değil veya bozuk:** Önbellek içeriği güncel olmadığını doğrulamak için önbelleği temizlemek için bir PowerShell penceresinde aşağıdaki komutu girin:
 
     [!code-powershell[Main](troubleshooting/samples/sample11.ps1)]
 
@@ -212,7 +214,7 @@ Bu hataya neden olur çağrısı `MapSignalR` düzgün yapılmaz. Bkz: [SignalR 
 
 Doğrulamak için yöntemlerinizi gönderdiğiniz parametreleri seri hale getirilemeyen türleri (örneğin, dosya tanıtıcıları veya veritabanı bağlantıları) içermez. İstemci (veya güvenlik için serileştirme nedeniyle), kullanım gönderilmesini istemiyorsanız bir sunucu tarafı nesne üyeleri kullanmanız gerekiyorsa `JSONIgnore` özniteliği.
 
-### <a name="protocol-error-unknown-transport-error"></a>"Protokol hatası: Bilinmeyen aktarım" hatası
+### <a name="protocol-error-unknown-transport-error"></a>"Protokol hatası: Bilinmeyen aktarım"hatası
 
 İstemci SignalR kullanan taşımalar desteklemiyorsa bu hata oluşabilir. Bkz: [aktarım ve geri dönüşler](../getting-started/introduction-to-signalr.md#transports) hangi tarayıcılar kullanılabilir SignalR ile bilgi.
 
@@ -228,7 +230,7 @@ Bu hata, kimlik doğrulaması kullanılır ve istemci bağlantı durdurulmadan �
 
 SignalR JavaScript istemci çalıştırmak için jQuery gerektirir. JQuery yönelik başvurunuz kullanılan yolun geçerli olduğunu ve jQuery başvuru SignalR başvurusu önce olduğunu doğru olduğunu doğrulayın.
 
-### <a name="uncaught-typeerror-cannot-read-property-ltpropertygt-of-undefined-error"></a>"Yakalanmamış TypeError: özelliği okunamıyor '&lt;özelliği&gt;' undefined'ın" hatası
+### <a name="uncaught-typeerror-cannot-read-property-ltpropertygt-of-undefined-error"></a>"Yakalanmamış TypeError: Özelliği okunamıyor '&lt;özelliği&gt;' undefined'ın "hatası
 
 JQuery veya düzgün başvurulan hub proxy kalmamasını değil Bu hata oluşur. Başvurunuz jQuery ve hub proxy için kullanılan yolun geçerli olduğunu ve jQuery başvurusunu başvuru hub proxy için önce olduğunu doğru olduğundan emin olun. Hub proxy için varsayılan başvuru aşağıdaki gibi görünmelidir:
 
@@ -282,7 +284,7 @@ Sunucu kullanarak olayları Silverlight'ın gönderilen iletileri gecikir. Uzun 
 
 Açıklanan bilinen bir sorun budur [burada](https://github.com/SignalR/SignalR/issues/1963). En son JQuery kitaplığını kullanarak bu belirti görülebilir; JQuery 1.8.2 uygulamanıza düşürmek çözüm olabilir.
 
-### <a name="invalidoperationexception-not-a-valid-web-socket-request"></a>"InvalidOperationException: geçerli bir web yuvası isteğini.
+### <a name="invalidoperationexception-not-a-valid-web-socket-request"></a>"InvalidOperationException: Değil geçerli web yuvası isteği.
 
 Bu hata WebSocket protokolü kullanılır, ancak istek üstbilgilerini ağ proxy değiştiriyor ortaya çıkabilir. Proxy bağlantı noktası 80 üzerinde WebSocket izin verecek şekilde yapılandırmak için kullanılan çözümüdür.
 

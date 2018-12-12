@@ -8,16 +8,18 @@ ms.date: 06/05/2013
 ms.assetid: 347210ba-c452-4feb-886f-b51d89f58971
 msc.legacyurl: /signalr/overview/older-versions/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: df949347cecd9ac617a52ad798f37bebdb8524fa
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 6c2a8e72959c9370ff46084ca135c2b2977f4f42
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41752135"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287703"
 ---
-<a name="signalr-troubleshooting-signalr-1x"></a>SignalR sorunlarını giderme (SignalR 1.x)
+<a name="signalr-troubleshooting-signalr-1x"></a>SignalR Sorunlarını Giderme (SignalR 1.x)
 ====================
 tarafından [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > Bu belge, SignalR ile ortak sorun giderme konularını açıklar.
 
@@ -53,7 +55,7 @@ SignalR, bir JSON ayrıştırıcı, sunucu ve istemci arasındaki çağrıların
 
 ### <a name="mixing-hub-and-persistentconnection-syntax"></a>Hub ve PersistentConnection sözdiziminin karışık kullanımına
 
-SignalR iki iletişim modeli kullanır: hub'ları ve PersistentConnections. Bu iki iletişim modeller çağırma söz dizimi, istemci kodu farklıdır. Sunucu kodunuzdaki bir hub eklediyseniz, istemci kodunuzun tamamını kullandığını hub'ı uygun söz dizimini doğrulayın.
+SignalR iki iletişim modeli kullanır: Hub'ları ve PersistentConnections. Bu iki iletişim modeller çağırma söz dizimi, istemci kodu farklıdır. Sunucu kodunuzdaki bir hub eklediyseniz, istemci kodunuzun tamamını kullandığını hub'ı uygun söz dizimini doğrulayın.
 
 **JavaScript istemci olarak bir PersistentConnection oluşturan JavaScript istemci kodu**
 
@@ -157,8 +159,8 @@ Burada etki alanları arası iletişimin düzgün şekilde etkinleştirilmedi et
 
 Bu sorunun çeşitli nedenleri vardır. Aşağıdakilerin tümü doğrulayın:
 
-- **Hub proxy adresi başvurusu düzgün biçimlendirilmemiş:** oluşturulan hub proxy adresi başvurusu doğru biçimlendirilmemiş varsa bu hatanın yaygın olarak görülür. Hub adresine başvuru düzgün yapıldığını doğrulayın. Bkz: [nasıl dinamik olarak oluşturulan proxy başvuru](../guide-to-the-api/hubs-api-guide-javascript-client.md#dynamicproxy) Ayrıntılar için.
-- **Hub rotasını eklemeden önce uygulama için yollar ekleme:** uygulamanız başka bir yolun kullanıyorsa, eklenen ilk rota çağrısı olduğunu doğrulayın `MapHubs`.
+- **Hub proxy adresi başvurusu düzgün biçimlendirilmemiş:** Bu hata, oluşturulan hub proxy adresi başvurusu doğru şekilde biçimlendirilmemiş, yaygın olarak görülür. Hub adresine başvuru düzgün yapıldığını doğrulayın. Bkz: [nasıl dinamik olarak oluşturulan proxy başvuru](../guide-to-the-api/hubs-api-guide-javascript-client.md#dynamicproxy) Ayrıntılar için.
+- **Hub rotasını eklemeden önce uygulama için yollar ekleme:** Uygulamanız diğer yollar kullanıyorsa, eklenen ilk rota çağrısı olduğunu doğrulayın `MapHubs`.
 
 ### <a name="500-internal-server-error"></a>"500 İç sunucu hatası"
 
@@ -172,7 +174,7 @@ Bu hataya neden olur çağrısı `MapHubs` düzgün yapılmaz. Bkz: [SignalR yol
 
 Doğrulamak için yöntemlerinizi gönderdiğiniz parametreleri seri hale getirilemeyen türleri (örneğin, dosya tanıtıcıları veya veritabanı bağlantıları) içermez. İstemci (veya güvenlik için serileştirme nedeniyle), kullanım gönderilmesini istemiyorsanız bir sunucu tarafı nesne üyeleri kullanmanız gerekiyorsa `JSONIgnore` özniteliği.
 
-### <a name="protocol-error-unknown-transport-error"></a>"Protokol hatası: Bilinmeyen aktarım" hatası
+### <a name="protocol-error-unknown-transport-error"></a>"Protokol hatası: Bilinmeyen aktarım"hatası
 
 İstemci SignalR kullanan taşımalar desteklemiyorsa bu hata oluşabilir. Bkz: [aktarım ve geri dönüşler](../getting-started/introduction-to-signalr.md#transports) hangi tarayıcılar kullanılabilir SignalR ile bilgi.
 
@@ -188,7 +190,7 @@ Bu hata, kimlik doğrulaması kullanılır ve istemci bağlantı durdurulmadan �
 
 SignalR JavaScript istemci çalıştırmak için jQuery gerektirir. JQuery yönelik başvurunuz kullanılan yolun geçerli olduğunu ve jQuery başvuru SignalR başvurusu önce olduğunu doğru olduğunu doğrulayın.
 
-### <a name="uncaught-typeerror-cannot-read-property-ltpropertygt-of-undefined-error"></a>"Yakalanmamış TypeError: özelliği okunamıyor '&lt;özelliği&gt;' undefined'ın" hatası
+### <a name="uncaught-typeerror-cannot-read-property-ltpropertygt-of-undefined-error"></a>"Yakalanmamış TypeError: Özelliği okunamıyor '&lt;özelliği&gt;' undefined'ın "hatası
 
 JQuery veya düzgün başvurulan hub proxy kalmamasını değil Bu hata oluşur. Başvurunuz jQuery ve hub proxy için kullanılan yolun geçerli olduğunu ve jQuery başvurusunu başvuru hub proxy için önce olduğunu doğru olduğundan emin olun. Hub proxy için varsayılan başvuru aşağıdaki gibi görünmelidir:
 

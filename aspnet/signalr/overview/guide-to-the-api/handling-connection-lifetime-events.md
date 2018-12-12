@@ -8,16 +8,18 @@ ms.date: 06/10/2014
 ms.assetid: 03960de2-8d95-4444-9169-4426dcc64913
 msc.legacyurl: /signalr/overview/guide-to-the-api/handling-connection-lifetime-events
 msc.type: authoredcontent
-ms.openlocfilehash: 1783a3ab292a5460d5cc1b7ad78073071d65d379
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 6a354179a82eba1d4a64184bfdeb302472fabf5f
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911962"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287994"
 ---
-<a name="understanding-and-handling-connection-lifetime-events-in-signalr"></a>Anlama ve signalr'da bağlantı ömrü olaylarını işleme
+<a name="understanding-and-handling-connection-lifetime-events-in-signalr"></a>SignalR’da Bağlantı Ömrü Olaylarını Anlama ve İşleme
 ====================
 tarafından [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](https://github.com/tdykstra)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > Bu makalede başa çıkabilir SignalR bağlantı yeniden bağlanma ve bağlantıyı kesme olaylarını ve yapılandırabileceğiniz zaman aşımı ve keepalive ayarları genel bir bakış sağlar.
 >
@@ -43,7 +45,6 @@ tarafından [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](http
 > ## <a name="questions-and-comments"></a>Sorularınız ve yorumlarınız
 >
 > Lütfen bu öğreticide sevmediğinizi nasıl ve ne sayfanın alt kısmındaki açıklamalarda geliştirebileceğimiz hakkında geri bildirim bırakın. Öğretici için doğrudan ilgili olmayan sorularınız varsa, bunları gönderebilir [ASP.NET SignalR Forumu](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) veya [StackOverflow.com](http://stackoverflow.com/).
-
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -81,7 +82,7 @@ API başvuru konularına bağlar API .NET 4.5 sürümü var. .NET 4 kullanıyors
 Bu makalede birbirinden ayırt *SignalR bağlantıları*, *taşıma bağlantıları*, ve *fiziksel bağlantıları*:
 
 - **SignalR bağlantı** bir istemci ve sunucu URL'si, SignalR API'sı tarafından bakımı yapılan ve benzersiz bir bağlantı kimliği tarafından tanımlanan arasında mantıksal bir ilişki başvurur Bu ilişki hakkındaki verileri SignalR tarafından korunur ve aktarım bağlantı kurmak için kullanılır. İlişki sona erer ve SignalR istemci çağırdığında verilerini siler `Stop` yöntemi ve bir zaman aşımı sınırı SignalR kayıp taşıma bağlantısını yeniden kurmaya çalışıyor durumdayken ulaşıldığında.
-- **Aktarım bağlantı** dört aktarım API'lerini biri tarafından korunan bir sunucu ile istemci arasındaki mantıksal ilişkisi başvuruyor: WebSockets, sunucu tarafından gönderilen olaylar, sonsuza kadar çerçeve veya uzun yoklama. Aktarım bağlantısı oluşturmak için API taşıma SignalR kullanır ve aktarım API Aktarım bağlantısı oluşturmak için bir fiziksel ağ bağlantısı varlığı üzerinde bağlıdır. SignalR sonlandığında veya taşıma API'si fiziksel bağlantının bozuk olduğunu algıladığında taşıma bağlantısını sonlandırır.
+- **Aktarım bağlantı** dört aktarım API'lerini biri tarafından korunan bir sunucu ile istemci arasındaki mantıksal ilişkisi ifade eder: WebSockets, sunucu tarafından gönderilen olayları, sonsuza kadar çerçeve veya uzun yoklama. Aktarım bağlantısı oluşturmak için API taşıma SignalR kullanır ve aktarım API Aktarım bağlantısı oluşturmak için bir fiziksel ağ bağlantısı varlığı üzerinde bağlıdır. SignalR sonlandığında veya taşıma API'si fiziksel bağlantının bozuk olduğunu algıladığında taşıma bağlantısını sonlandırır.
 - **Fiziksel bağlantı** --kablo, fiziksel ağ bağlantıları kablosuz sinyalleri, yönlendiriciler, bir istemci bilgisayarı ile sunucu bilgisayarı arasındaki iletişimi kolaylaştırır vb.--başvuruyor. Fiziksel bağlantı Aktarım bağlantısı kurabilmek için mevcut olması gerekir ve bir SignalR bağlantısı kurabilmek için taşıma bağlantı kurulması gerekir. Bu konunun ilerleyen kısımlarında açıklandığı gibi ancak fiziksel bağlantı kesme her zaman hemen taşıma veya SignalR bağlantısı sonlanmıyor.
 
 Aşağıdaki diyagramda, SignalR bağlantı hub'ları API ve PersistentConnection API SignalR katmanı tarafından temsil edilen, Aktarım bağlantısı taşımalar katmanı tarafından temsil edilir ve fiziksel bağlantı sunucusu arasındaki çizgilerle gösterilir ve istemciler.

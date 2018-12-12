@@ -1,19 +1,19 @@
 ---
-title: ASP.NET Core ile Git ve Visual Studio ile Azure'a sürekli dağıtım
+title: ASP.NET Core ile Visual Studio ve Git kullanarak Azure’a sürekli dağıtım
 author: rick-anderson
 description: Visual Studio kullanarak ASP.NET Core web uygulaması oluşturmayı öğrenin ve Git kullanarak sürekli dağıtım için Azure App Service'e dağıtın.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/14/2016
+ms.date: 12/06/2018
 uid: host-and-deploy/azure-apps/azure-continuous-deployment
-ms.openlocfilehash: 5ae8ce01610828417fc76ed6626e518c8493bd0f
-ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
+ms.openlocfilehash: e12c2ee0b78db105b431770e8644e7d19d915765
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44340205"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284450"
 ---
-# <a name="continuous-deployment-to-azure-with-visual-studio-and-git-with-aspnet-core"></a>ASP.NET Core ile Git ve Visual Studio ile Azure'a sürekli dağıtım
+# <a name="continuous-deployment-to-azure-with-visual-studio-and-git-with-aspnet-core"></a>ASP.NET Core ile Visual Studio ve Git kullanarak Azure’a sürekli dağıtım
 
 tarafından [Erik Reitan](https://github.com/Erikre)
 
@@ -36,7 +36,7 @@ Bu öğreticide, aşağıdaki yazılımın yüklü olduğu varsayılır:
 
 ## <a name="create-an-aspnet-core-web-app"></a>Bir ASP.NET Core web uygulaması oluşturma
 
-1. Visual Studio'yu başlatın.
+1. Visual Studio’yu çalıştırın.
 
 1. Gelen **dosya** menüsünde **yeni** > **proje**.
 
@@ -71,7 +71,7 @@ Aşağıdaki adımlar, Azure Portalı'nda bir web uygulaması oluşturur:
 
 1. Seçin **Web + mobil** > **Web uygulaması**.
 
-   ![Microsoft Azure portalı: Yeni düğme: Web + mobil Market altında: Web uygulaması düğmesi altında öne çıkan uygulamalar](azure-continuous-deployment/_static/05-azure-newwebapp.png)
+   ![Microsoft Azure portalı: Yeni düğme: Web + mobil Market altında: Web uygulama düğmesine altında öne çıkan uygulamalar](azure-continuous-deployment/_static/05-azure-newwebapp.png)
 
 1. İçinde **Web uygulaması** dikey penceresinde için benzersiz bir değer girin **uygulama hizmeti adı**.
 
@@ -82,9 +82,9 @@ Aşağıdaki adımlar, Azure Portalı'nda bir web uygulaması oluşturur:
 
    Ayrıca **Web uygulaması** dikey penceresinde, mevcut bir seçin **App Service planı/konumu** veya yeni bir tane oluşturun. Yeni bir plan oluşturuyorsanız, fiyatlandırma katmanını, konum ve diğer seçenekleri'ni seçin. App Service planları hakkında daha fazla bilgi için bkz. [Azure App Service planlarına ayrıntılı genel bakış](/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview).
 
-1. Seçin **oluşturma**. Azure, sağlama ve web uygulaması başlatın.
+1. **Oluştur**’u seçin. Azure, sağlama ve web uygulaması başlatın.
 
-   ![Azure portalı: Örnek Web uygulamasını tanıtım 01 hakkında temel bilgiler dikey penceresi](azure-continuous-deployment/_static/07-azure-webappblade.png)
+   ![Azure portalı: Örnek Web uygulaması Tanıtımı 01 temel bilgileri dikey penceresi](azure-continuous-deployment/_static/07-azure-webappblade.png)
 
 ## <a name="enable-git-publishing-for-the-new-web-app"></a>Yeni web uygulaması için Git yayımlamayı etkinleştirme
 
@@ -98,15 +98,15 @@ Git, bir Azure App Service web uygulaması dağıtmak için kullanılan bir dağ
 
 1. İçinde **dağıtım** dikey penceresinde **dağıtım seçenekleri** > **Kaynağı Seç** > **yerel Git deposu**.
 
-   ![Ayarlar dikey penceresi: dağıtım kaynağı dikey penceresi: kaynak dikey penceresini seçin](azure-continuous-deployment/_static/deployment-options.png)
+   ![Ayarlar dikey penceresinde: Dağıtım kaynağı dikey penceresi: Kaynak dikey penceresini seçin](azure-continuous-deployment/_static/deployment-options.png)
 
-1. Seçin **Tamam**.
+1. **Tamam**’ı seçin.
 
 1. Dağıtım kimlik bilgileri, bir web uygulaması veya diğer App Service uygulaması yayımlamak için önceden kurulmuş yüklemediyseniz, bunları şimdi ayarlayın:
 
    * Seçin **ayarları** > **dağıtım kimlik bilgileri**. **Dağıtım kimlik bilgilerini ayarla** dikey penceresi görüntülenir.
    * Bir kullanıcı adı ve parola oluşturun. Git'i kurma ayarlarken daha sonra kullanmak için parola kaydedin.
-   * Seçin **Kaydet**.
+   * **Kaydet**’i seçin.
 
 1. İçinde **Web uygulaması** dikey penceresinde **ayarları** > **özellikleri**. Dağıtmak için Uzak Git deposunun URL'sini altında gösterilen **GIT URL'si**.
 
@@ -184,7 +184,7 @@ Azure web app aktarımı yerel bir ortamdan başarılı olduğunu doğrulayın.
 
 İçinde [Azure portalı](https://portal.azure.com), web uygulamasını seçin. Seçin **dağıtım** > **dağıtım seçenekleri**.
 
-![Azure portalı: Ayarlar dikey penceresi: başarılı dağıtımı gösteren dağıtımları dikey penceresi](azure-continuous-deployment/_static/13-verify-deployment.png)
+![Azure portalı: Ayarlar dikey penceresinde: Dağıtımları dikey penceresini gösteren başarılı dağıtım](azure-continuous-deployment/_static/13-verify-deployment.png)
 
 ## <a name="run-the-app-in-azure"></a>Uygulamayı Azure'da çalıştırın
 
@@ -230,3 +230,4 @@ Güncelleştirilen web uygulamasını seçerek görüntüleme **Gözat** bir tar
 
 * [Azure işlem hattı ile ilk işlem hattınızı oluşturun](/azure/devops/pipelines/get-started-yaml)
 * [Kudu projesi](https://github.com/projectkudu/kudu/wiki)
+* <xref:host-and-deploy/visual-studio-publish-profiles>

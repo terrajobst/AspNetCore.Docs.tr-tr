@@ -1,6 +1,6 @@
 ---
 uid: signalr/overview/getting-started/tutorial-high-frequency-realtime-with-signalr
-title: 'Öğretici: SignalR 2 ile yüksek sıklıkta gerçek | Microsoft Docs'
+title: 'Öğretici: SignalR 2 ile yüksek sıklıkta gerçek zamanlı | Microsoft Docs'
 author: pfletcher
 description: Bu öğretici, ASP.NET SignalR, yüksek frekanslı Mesajlaşma işlevleri sağlamak için kullanan bir web uygulaması oluşturma işlemi gösterilmektedir. Yüksek frekanslı..., Mesajlaşma
 ms.author: riande
@@ -8,16 +8,18 @@ ms.date: 06/10/2014
 ms.assetid: 9f969dda-78ea-4329-b1e3-e51c02210a2b
 msc.legacyurl: /signalr/overview/getting-started/tutorial-high-frequency-realtime-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 23dc9cc7fd469e934ed9915922a3baa772d9e1ab
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 04ce650509268ee63daafe24bc8dcc9725aea16b
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912043"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287738"
 ---
-<a name="tutorial-high-frequency-realtime-with-signalr-2"></a>Öğretici: SignalR 2 ile yüksek sıklıkta gerçek
+<a name="tutorial-high-frequency-realtime-with-signalr-2"></a>Öğretici: SignalR 2 ile yüksek sıklıkta gerçek zamanlı
 ====================
 tarafından [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 [Projeyi yükle](http://code.msdn.microsoft.com/SignalR-20-MoveShape-Demo-6285b83a)
 

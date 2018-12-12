@@ -4,14 +4,14 @@ author: rick-anderson
 description: Visual Studio kullanarak Azure App Service'e bir ASP.NET Core uygulaması yayımlama hakkında bilgi edinin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 12/06/2018
 uid: tutorials/publish-to-azure-webapp-using-vs
-ms.openlocfilehash: 7eab773746f76b00e8e796387c4ee1dc042a4c23
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: d713a520368ba86726e46203da5ea33eed4f6e2c
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121277"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284597"
 ---
 # <a name="publish-an-aspnet-core-app-to-azure-with-visual-studio"></a>Visual Studio ile Azure'a bir ASP.NET Core uygulaması yayımlama
 
@@ -68,10 +68,10 @@ Visual Studio çözüm oluşturur.
 
 * Seçin **kaydetme** ve yeni bir kullanıcı kaydı. Kurgusal bir e-posta adresini kullanabilirsiniz. Gönderdiğinizde, sayfa şu iletiyi görüntüler:
 
-    *"İç sunucu hatası: veritabanı işlemi, istek işlenirken başarısız oldu. SQL özel durum: veritabanı açılamıyor. Uygulama DB bağlamı için mevcut geçişler uygulama bu sorunu çözebilir."*
+    *"İç sunucu hatası: İstek işlenirken bir veritabanı işlemi başarısız. SQL özel durum: Veritabanı açılamıyor. Uygulama DB bağlamı için mevcut geçişler uygulama bu sorunu çözebilir."*
 * Seçin **geçerli geçişleri** ve Sayfa güncelleştirmelerini yenileyin sonra sayfa.
 
-![İç sunucu hatası: İstek işlenirken bir veritabanı işlemi başarısız oldu. SQL özel durum: veritabanı açılamıyor. Uygulama DB bağlamı için mevcut geçişler uygulama, bu sorunu çözebilir.](publish-to-azure-webapp-using-vs/_static/mig.png)
+![İç sunucu hatası: İstek işlenirken bir veritabanı işlemi başarısız. SQL özel durum: Veritabanı açılamıyor. Uygulama DB bağlamı için mevcut geçişler uygulama, bu sorunu çözebilir.](publish-to-azure-webapp-using-vs/_static/mig.png)
 
 Yeni kullanıcı kaydetmek için kullanılan e-posta uygulaması görüntüler ve **oturumunuzu** bağlantı.
 
@@ -140,7 +140,7 @@ Dağıtım tamamlandığında, seçin **ayarları**:
 
 * **Kaydet**’i seçin. Visual Studio döner **Yayımla** iletişim. 
 
-![Yayımla iletişim kutusu: ayarlar paneli](publish-to-azure-webapp-using-vs/_static/pubs.png)
+![Yayımla iletişim kutusu: Ayarlar paneli](publish-to-azure-webapp-using-vs/_static/pubs.png)
 
 Tıklayın **yayımlama**. Visual Studio, uygulamanızı Azure'a yayımlar. Dağıtım tamamlandığında, uygulamayı bir tarayıcıda açılır.
 
@@ -170,7 +170,7 @@ Uygulamayı test etme işlemini tamamladığınızda, Git [Azure portalında](ht
 
 * Seçin **kaynak grupları**, ardından oluşturduğunuz kaynak grubunu seçin.
 
-![Azure portalı: Kaynak gruplarını kenar çubuğu menüsü](publish-to-azure-webapp-using-vs/_static/portalrg.png)
+![Azure portalı: Kenar menüsündeki kaynak grupları](publish-to-azure-webapp-using-vs/_static/portalrg.png)
 
 * İçinde **kaynak grupları** sayfasında **Sil**.
 
@@ -187,4 +187,5 @@ Uygulamayı test etme işlemini tamamladığınızda, Git [Azure portalında](ht
 * [Azure uygulama hizmeti](/azure/app-service/app-service-web-overview)
 * [Azure kaynak grupları](/azure/azure-resource-manager/resource-group-overview#resource-groups)
 * [Azure SQL Veritabanı](/azure/sql-database/)
+* <xref:host-and-deploy/visual-studio-publish-profiles>
 * <xref:host-and-deploy/azure-apps/troubleshoot>

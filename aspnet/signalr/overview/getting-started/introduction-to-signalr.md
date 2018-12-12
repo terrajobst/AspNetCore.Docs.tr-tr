@@ -8,26 +8,26 @@ ms.date: 06/10/2014
 ms.assetid: 0fab5e35-8c1f-43d4-8635-b8aba8766a71
 msc.legacyurl: /signalr/overview/getting-started/introduction-to-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 0b7e223b6b793d1860797157be6021ffb7f1bc12
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: c865078c14b8615faa278819f86a9dd623a42f36
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090299"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287596"
 ---
-<a name="introduction-to-signalr"></a>Signalr'a giriş
+<a name="introduction-to-signalr"></a>SignalR’a Giriş
 ====================
 
-Bkz: [ASP.NET Core signalr'a giriş](/aspnet/core/signalr/introduction) güncelleştirilmiş bir sürümü Visual Studio'nun en son sürümünü kullanan Bu öğretici için. Yeni öğreticide [ASP.NET Core](/aspnet/core/), Bu öğretici birçok geliştirme sağlar.
-
 tarafından [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
+
 
 > Bu makalede, SignalR nedir ve bazı çözümler oluşturmak için tasarlandığı açıklanır. 
 > 
 > ## <a name="questions-and-comments"></a>Sorularınız ve yorumlarınız
 > 
 > Lütfen bu öğreticide sevmediğinizi nasıl ve ne sayfanın alt kısmındaki açıklamalarda geliştirebileceğimiz hakkında geri bildirim bırakın. Öğretici için doğrudan ilgili olmayan sorularınız varsa, bunları gönderebilir [ASP.NET SignalR Forumu](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) veya [StackOverflow.com](https://stackoverflow.com/questions/tagged/signalr).
-
 
 ## <a name="what-is-signalr"></a>SignalR nedir?
 
@@ -57,7 +57,7 @@ SignalR, mevcut olduğunda yeni WebSocket taşıma kullanır ve gerektiğinde da
 
 ## <a name="transports-and-fallbacks"></a>Aktarım ve geri dönüşler
 
-SignalR, bir Özet, bazı istemci ve sunucu arasında gerçek zamanlı iş yapmak için gerekli olan taşımalar sona erer. Bir SignalR bağlantısı HTTP başlatır ve sonra WebSocket bağlantısı varsa yükseltilir. WebSocket ideal taşıma için SignalR, sunucu bellek kullanımını en verimli hale getirir, en düşük gecikme süresine sahip ve (örneğin, istemci ve sunucu arasında tam çift yönlü iletişimi için) en temel özelliklere sahip, ancak ayrıca en katı sahip olduğu gereksinimleri: WebSocket sunucu Windows Server 2012 veya Windows 8 ve .NET Framework 4.5 kullanılmasını gerektirir. Bu gereksinimler karşılanmazsa, SignalR bağlantılarından olmak için diğer aktarımlar'ı kullanmayı dener.
+SignalR, bir Özet, bazı istemci ve sunucu arasında gerçek zamanlı iş yapmak için gerekli olan taşımalar sona erer. Bir SignalR bağlantısı HTTP başlatır ve sonra WebSocket bağlantısı varsa yükseltilir. WebSocket ideal taşıma için SignalR, sunucu bellek kullanımını en verimli hale getirir, en düşük gecikme süresine sahip ve (örneğin, istemci ve sunucu arasında tam çift yönlü iletişimi için) en temel özelliklere sahip, ancak ayrıca en katı sahip olduğu Gereksinimler: WebSocket sunucu Windows Server 2012 veya Windows 8 ve .NET Framework 4.5 kullanılmasını gerektirir. Bu gereksinimler karşılanmazsa, SignalR bağlantılarından olmak için diğer aktarımlar'ı kullanmayı dener.
 
 ### <a name="html-5-transports"></a>HTML 5 taşır
 
@@ -132,7 +132,7 @@ Dize sabitleri taşımalar belirtmek için şu şekilde tanımlanır:
 
 ## <a name="connections-and-hubs"></a>Bağlantıları ve hub'ları
 
-İstemciler ve sunucular arasında iletişim kurmak için iki modeli SignalR API içeriyor: kalıcı bağlantılarını ve hub.
+SignalR API, istemciler ve sunucular arasında iletişim kurmak için iki modeli içerir: Kalıcı bağlantılarını ve hub.
 
 Bir bağlantı, tek alıcı, gruplandırılmış veya yayın ileti gönderme için basit bir uç noktasını temsil eder. Geliştirici doğrudan erişim SignalR sunan alt düzey iletişim protokolü için kalıcı bağlantı (.NET kodda PersistentConnection sınıfı tarafından temsil edilen) API sağlar. Bağlantı iletişim modelini kullanarak Windows Communication Foundation gibi bağlantı tabanlı API'leri kullanan geliştiriciler için tanıdık gelecektir.
 

@@ -8,16 +8,18 @@ ms.date: 06/10/2014
 ms.assetid: ce1305f9-30fd-49e3-bf38-d0a78dfb06c3
 msc.legacyurl: /signalr/overview/performance/scaleout-with-windows-azure-service-bus
 msc.type: authoredcontent
-ms.openlocfilehash: 3adc8768eb7271de32180ba98f67864b22283510
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 5cdb9b5eb6d3f5ebd5c96e4b0d89926c18bddadd
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48910804"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287617"
 ---
-<a name="signalr-scaleout-with-azure-service-bus"></a>Azure Service Bus ile SignalR ölçeğini genişletme
+<a name="signalr-scaleout-with-azure-service-bus"></a>Azure Service Bus ile SignalR Ölçeğini Genişletme
 ====================
 tarafından [Mike Wasson](https://github.com/MikeWasson), [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 Bu öğreticide, bir Windows Azure Web her rol örneği iletilerini dağıtmak için Service Bus devre kartına kullanarak rol bir SignalR uygulamayı dağıtacaksınız. (Service Bus devre kartı ile de kullanabilirsiniz [web uygulamaları Azure App Service'te](https://docs.microsoft.com/azure/app-service-web/).)
 
@@ -49,13 +51,13 @@ Ayrıntılı Öğreticisine aldığımız önce ne yapacağını, hızlı bir ge
 
     [!code-csharp[Main](scaleout-with-windows-azure-service-bus/samples/sample1.cs)]
 
-Bu kod için varsayılan değerlerle devre kartına yapılandırır [TopicCount](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.servicebusscaleoutconfiguration.topiccount(v=vs.118).aspx) ve [MaxQueueLength](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.scaleoutconfiguration.maxqueuelength(v=vs.118).aspx). Bu değerleri değiştirme hakkında daha fazla bilgi için bkz: [SignalR performansı: genişletme ölçümleri](signalr-performance.md#scaleout_metrics).
+Bu kod için varsayılan değerlerle devre kartına yapılandırır [TopicCount](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.servicebusscaleoutconfiguration.topiccount(v=vs.118).aspx) ve [MaxQueueLength](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.scaleoutconfiguration.maxqueuelength(v=vs.118).aspx). Bu değerleri değiştirme hakkında daha fazla bilgi için bkz: [SignalR performansı: Genişletme ölçümleri](signalr-performance.md#scaleout_metrics).
 
 Her uygulama için "Uygulamanızınadı" için farklı bir değer seçin. Aynı değeri, birden çok uygulamada kullanmayın.
 
 ## <a name="create-the-azure-services"></a>Azure hizmetleri oluşturma
 
-Bölümünde anlatıldığı gibi bir bulut hizmeti oluşturma [bir bulut hizmeti oluşturma ve dağıtma konusunda](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy). Bölümündeki adımları "nasıl yapılır: hızlı Oluştur kullanarak bir bulut hizmeti oluşturma". Bu öğreticide, bir sertifikayı karşıya yüklemek gerekmez.
+Bölümünde anlatıldığı gibi bir bulut hizmeti oluşturma [bir bulut hizmeti oluşturma ve dağıtma konusunda](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy). Bölümündeki adımları "nasıl yapılır: Hızlı oluşturma yöntemini kullanarak bir bulut hizmeti oluşturma". Bu öğreticide, bir sertifikayı karşıya yüklemek gerekmez.
 
 ![](scaleout-with-windows-azure-service-bus/_static/image2.png)
 
@@ -69,7 +71,7 @@ Açıklanan şekilde yeni bir Service Bus ad alanı oluşturma [nasıl kullanım
 
 ## <a name="create-the-visual-studio-project"></a>Visual Studio projesi oluşturma
 
-Visual Studio'yu başlatın. Gelen **dosya** menüsünü tıklatın **yeni proje**.
+Visual Studio’yu çalıştırın. Gelen **dosya** menüsünü tıklatın **yeni proje**.
 
 İçinde **yeni proje** iletişim kutusunda **Visual C#**. Altında **yüklü şablonlar**seçin **bulut** seçip **Windows Azure bulut hizmeti**. Varsayılan .NET Framework 4.5 tutun. ChatService uygulamaya bir ad ve tıklayın **Tamam**.
 
@@ -88,7 +90,7 @@ Fareyi yeni rol, bu nedenle gelin Kurşun Kalem simgesi görünür. Rolü yenide
 Proje Sihirbazı, iki proje oluşturur:
 
 - ChatService: Bu proje, Windows Azure uygulamasıdır. Bu, Azure rolleri ve diğer yapılandırma seçenekleri tanımlar.
-- SignalRChat: Bu proje, ASP.NET MVC 5 projesidir.
+- SignalRChat: ASP.NET MVC 5 projeniz projesidir.
 
 ## <a name="create-the-signalr-chat-application"></a>SignalR sohbet uygulaması oluşturma
 
@@ -128,7 +130,7 @@ SignalRChat role sağ tıklayıp **özellikleri**. Seçin **yapılandırma** sek
 
 Değişiklikleri kaydedin.
 
-Çözüm Gezgini'nde ChatService projeye sağ tıklayın. Seçin **yayımlama**.
+Çözüm Gezgini'nde ChatService projeye sağ tıklayın. **Yayımla**’yı seçin.
 
 ![](scaleout-with-windows-azure-service-bus/_static/image11.png)
 

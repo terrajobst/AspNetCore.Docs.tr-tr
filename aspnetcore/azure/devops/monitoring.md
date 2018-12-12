@@ -6,12 +6,12 @@ ms.author: casoper
 ms.custom: mvc, seodec18
 ms.date: 10/24/2018
 uid: azure/devops/monitor
-ms.openlocfilehash: e005b951aec578b396fc19dec5d2f55cbce4f664
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: 00489bd92dfff8fd80bd24c2e60193d32031d7c4
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121615"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284376"
 ---
 # <a name="monitor-and-debug"></a>İzleme ve hata ayıklama
 
@@ -37,11 +37,11 @@ App Service web uygulamalarını kolayca gerçek zamanlı olarak izlenir. Azure 
 
     ![Ekran gösteren genel bakış paneli](./media/monitoring/overview.png)
 
-    * **HTTP 5xx**: sunucu tarafı hataların sayısını, genellikle ASP.NET Core kod özel durum.
-    * **Verileri**: web uygulamanıza gelen veri girişi.
-    * **Veri çıkışı**: veri istemcilere web uygulamanızdan çıkış.
-    * **İstekleri**: HTTP isteklerinin sayısı.
-    * **Ortalama yanıt süresi**: ortalama süresi için HTTP isteklerine yanıt vermek web uygulaması.
+    * **HTTP 5xx**: Sunucu tarafı hataları, genellikle ASP.NET Core kod özel durum sayısı.
+    * **Verileri**: Web uygulamanıza gelen veri girişi.
+    * **Veri çıkışı**: İstemcilere web uygulamanızdan veri çıkışı.
+    * **İstekleri**: HTTP isteği sayısı.
+    * **Ortalama yanıt süresi**: HTTP isteklerine yanıt vermek web uygulaması için ortalama süre.
 
     Sorun giderme ve en iyi duruma getirme için Self Servis çeşitli araçlar Ayrıca bu sayfada bulunur.
 
@@ -111,7 +111,7 @@ Günlükleri de olabilir [Azure CLI veya Azure PowerShell](/azure/app-service/we
 
 Azure İzleyici ayrıca sağlar [gerçek zamanlı uyarılar](/azure/monitoring-and-diagnostics/insights-alerts-portal) ölçümleri, yönetim olayları ve diğer ölçütlere göre.
 
-> *Not: Şu anda üzerinde web uygulaması ölçümleri uyarıları yalnızca uyarılar (Klasik) hizmeti sağlanır.*
+> *Not: Şu anda üzerinde web uygulaması ölçümleri uyarı yalnızca uyarılar (Klasik) hizmeti kullanılabilir.*
 
 [Uyarılar (Klasik) hizmeti](/azure/monitoring-and-diagnostics/monitor-quick-resource-metric-alert-portal) Azure İzleyicisi'nde veya altında bulunabilir **izleme** App Service ayarları bölümü.
 

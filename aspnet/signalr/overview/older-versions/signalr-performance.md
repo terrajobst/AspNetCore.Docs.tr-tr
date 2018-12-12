@@ -2,22 +2,24 @@
 uid: signalr/overview/older-versions/signalr-performance
 title: SignalR performansı (SignalR 1.x) | Microsoft Docs
 author: pfletcher
-description: SignalR performansı
+description: SignalR Performansı
 ms.author: riande
 ms.date: 07/03/2013
 ms.assetid: 9594d644-66b6-4223-acdd-23e29a6e4c46
 msc.legacyurl: /signalr/overview/older-versions/signalr-performance
 msc.type: authoredcontent
-ms.openlocfilehash: 3ac62639617e1ff83761d0a1d45c27303d0b820d
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: ea2d3908544ac8b3ea17ceceaf1d2905c5c6f322
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912767"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287592"
 ---
-<a name="signalr-performance-signalr-1x"></a>SignalR performansı (SignalR 1.x)
+<a name="signalr-performance-signalr-1x"></a>SignalR Performansı (SignalR 1.x)
 ====================
 tarafından [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > Bu konuda, SignalR uygulama performansını artırmak için tasarlayın ve ölçmek açıklar.
 
@@ -71,7 +73,7 @@ Aşağıdaki yapılandırma ayarları, SignalR uygulamada daha iyi performans i�
 
 **SignalR yapılandırma ayarları**
 
-- **DefaultMessageBufferSize**: varsayılan olarak, SignalR hub'ı bağlantı başına başına bellek 1000 iletilerinde korur. Büyük iletileri kullanılıyorsa, bu, bu değer azaltarak alleviated bellek sorunlarını oluşturabilir. Bu ayar ayarlanabilir `Application_Start` olay işleyicisi bir ASP.NET uygulaması ya da `Configuration` yöntemi OWIN başlangıç sınıfı şirket içinde barındırılan bir uygulamada. Aşağıdaki örnek, kullanılan sunucu bellek miktarını azaltmak için uygulamanızın bellek ayak izini azaltmak için bu değeri azaltmanız gösterilmektedir:
+- **DefaultMessageBufferSize**: Varsayılan olarak, SignalR hub'ı bağlantı başına başına bellek 1000 iletilerinde korur. Büyük iletileri kullanılıyorsa, bu, bu değer azaltarak alleviated bellek sorunlarını oluşturabilir. Bu ayar ayarlanabilir `Application_Start` olay işleyicisi bir ASP.NET uygulaması ya da `Configuration` yöntemi OWIN başlangıç sınıfı şirket içinde barındırılan bir uygulamada. Aşağıdaki örnek, kullanılan sunucu bellek miktarını azaltmak için uygulamanızın bellek ayak izini azaltmak için bu değeri azaltmanız gösterilmektedir:
 
     **Varsayılan ileti arabellek boyutunu azaltmak için .NET sunucu kodunda Global.asax**
 
@@ -79,7 +81,7 @@ Aşağıdaki yapılandırma ayarları, SignalR uygulamada daha iyi performans i�
 
 **IIS yapılandırma ayarları**
 
-- **Uygulama başına en fazla eş zamanlı istek**: eş zamanlı IIS sayısının artırılması istekleri isteklerine hizmet için kullanılabilir sunucu kaynaklarına artacaktır. Varsayılan değer 5000'dir; Bu ayar artırmak için yükseltilmiş bir komut isteminde aşağıdaki komutları yürütün:
+- **Uygulama başına en fazla eş zamanlı istek**: Eş zamanlı IIS sayısının artırılması, istekleri isteklerine hizmet için kullanılabilir sunucu kaynaklarına artacaktır. Varsayılan değer 5000'dir; Bu ayar artırmak için yükseltilmiş bir komut isteminde aşağıdaki komutları yürütün:
 
     [!code-console[Main](signalr-performance/samples/sample4.cmd)]
 
@@ -92,10 +94,10 @@ Bu bölümü, ayarlanabilen yapılandırma ayarlarını içerir `aspnet.config` 
 
 SignalR performansı iyileştirebilir ASP.NET ayarları aşağıdakileri içerir:
 
-- **CPU başına en fazla eş zamanlı istek**: Bu ayar artan performans sorunları hafifletmek. Bu ayar artırmak için aşağıdaki yapılandırma ayarı ekleme `aspnet.config` dosyası:
+- **CPU başına en fazla eş zamanlı istek**: Bu ayar artan performans sorunlarını giderebilir. Bu ayar artırmak için aşağıdaki yapılandırma ayarı ekleme `aspnet.config` dosyası:
 
     [!code-xml[Main](signalr-performance/samples/sample5.xml?highlight=4)]
-- **Sıra sınırı iste**: toplam bağlantı sayısını aştığında `maxConcurrentRequestsPerCPU` ayarlama, ASP.NET bir kuyruk kullanma istekleri azaltma başlar. Sıranın boyutunu artırmak için artırabilirsiniz `requestQueueLimit` ayarı. Bunu yapmak için aşağıdaki yapılandırma ayarı ekleme `processModel` düğümünde `config/machine.config` (yerine `aspnet.config`):
+- **Sıra sınırı iste**: Toplam bağlantı sayısını aştığında `maxConcurrentRequestsPerCPU` ayarlama, ASP.NET bir kuyruk kullanma istekleri azaltma başlar. Sıranın boyutunu artırmak için artırabilirsiniz `requestQueueLimit` ayarı. Bunu yapmak için aşağıdaki yapılandırma ayarı ekleme `processModel` düğümünde `config/machine.config` (yerine `aspnet.config`):
 
     [!code-xml[Main](signalr-performance/samples/sample6.xml)]
 
@@ -178,13 +180,13 @@ Aşağıdaki ölçümler, iç SignalR ileti veri, tüm gelen ve giden SignalR il
 SignalR ileti trafiği tarafından oluşturulan hatalar aşağıdaki ölçümleri ölçün. **Hub çözümleme** hataları bir hub veya hub'yöntemini çözümlenemiyor olduğunda oluşur. **Hub çağırma** hataları olan bir hub yöntemi çağrılırken oluşan özel durum. **Aktarım** bir HTTP isteği veya yanıtı sırasında oluşturulan bağlantı hataları hatalardır.
 
 - **Hataları: Tüm toplam**
-- **Hata: All/sn**
+- **Hataları: All/sn**
 - **Hataları: Hub çözümleme toplam**
-- **Hata: Hub çözümleme/sn**
+- **Hataları: Hub çözümleme/sn**
 - **Hataları: Hub çağırma toplam**
-- **Hata: Hub çağırma/sn**
-- **Hata: Aktarım toplam**
-- **Hata: Aktarım/sn**
+- **Hataları: Hub çağırma/sn**
+- **Hataları: Aktarım toplam**
+- **Hataları: Aktarım/sn**
 
 **Genişletme ölçümleri**
 

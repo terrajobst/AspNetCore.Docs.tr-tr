@@ -1,39 +1,45 @@
 ---
 title: ASP.NET Core dizin yapısı
 author: guardrex
-description: Yayımlanan ASP.NET Core uygulamaları dizin yapısı hakkında bilgi edinin.
+description: Dizin yapısı, yayımlanmış ASP.NET Core uygulamaları hakkında bilgi edinin.
+monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/09/2018
+ms.date: 12/11/2018
 uid: host-and-deploy/directory-structure
-ms.openlocfilehash: 8e2693397f826d0e9a36ff52aa1d1d623b31043d
-ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
+ms.openlocfilehash: ee0bebb8b5c688f8471d6420d1641b87ac271f6c
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36960833"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284571"
 ---
 # <a name="aspnet-core-directory-structure"></a>ASP.NET Core dizin yapısı
 
 Tarafından [Luke Latham](https://github.com/guardrex)
 
-ASP.NET Core, yayımlanan uygulama dizini içinde *yayımlama*, uygulama dosyaları, yapılandırma dosyaları, statik varlıklar, paketleri ve çalışma zamanı oluşur (için [müstakil dağıtımları](/dotnet/core/deploying/#self-contained-deployments-scd)).
+*Yayımlama* dizinini içeren uygulamanın dağıtılabilir varlıklar tarafından üretilen [dotnet yayımlama](/dotnet/core/tools/dotnet-publish) komutu. Dizini içerir:
 
+* Uygulama dosyaları
+* Yapılandırma dosyaları
+* Statik varlıklar
+* Paketler
+* Bir çalışma zamanı ([müstakil dağıtım](/dotnet/core/deploying/#self-contained-deployments-scd) yalnızca)
 
 | Uygulama türü | Dizin yapısı |
 | -------- | ------------------- |
-| [Framework bağımlı dağıtım](/dotnet/core/deploying/#framework-dependent-deployments-fdd) | <ul><li>Yayımlama&dagger;<ul><li>Günlükleri&dagger; (isteğe bağlı stdout günlükleri almak için gerekli olmadıkça)</li><li>Görünümler&dagger; (MVC uygulamaları; görünümleri önceden derlenmiş değil ise)</li><li>Sayfaları&dagger; (sayfaları önceden derlenmiş değil, MVC veya Razor sayfalarının uygulamaları;)</li><li>wwwroot&dagger;</li><li>*\.DLL dosyaları</li><li>\<derleme adı >. deps.json</li><li>\<derleme adı > .dll</li><li>\<derleme adı > .pdb</li><li>\<derleme adı >. PrecompiledViews.dll</li><li>\<derleme adı >. PrecompiledViews.pdb</li><li>\<derleme adı >. runtimeconfig.json</li><li>Web.config (IIS dağıtımlar)</li></ul></li></ul> |
-| [Kendi içinde bulunan dağıtım](/dotnet/core/deploying/#self-contained-deployments-scd) | <ul><li>Yayımlama&dagger;<ul><li>Günlükleri&dagger; (isteğe bağlı stdout günlükleri almak için gerekli olmadıkça)</li><li>refs&dagger;</li><li>Görünümler&dagger; (MVC uygulamaları; görünümleri önceden derlenmiş değil ise)</li><li>Sayfaları&dagger; (sayfaları önceden derlenmiş değil, MVC veya Razor sayfalarının uygulamaları;)</li><li>wwwroot&dagger;</li><li>\*.dll dosyaları</li><li>\<derleme adı >. deps.json</li><li>\<derleme adı > .exe</li><li>\<derleme adı > .pdb</li><li>\<derleme adı >. PrecompiledViews.dll</li><li>\<derleme adı >. PrecompiledViews.pdb</li><li>\<derleme adı >. runtimeconfig.json</li><li>Web.config (IIS dağıtımlar)</li></ul></li></ul> |
+| [Framework bağımlı dağıtım](/dotnet/core/deploying/#framework-dependent-deployments-fdd) | <ul><li>Yayımlama&dagger;<ul><li>Günlükleri&dagger; (isteğe bağlı stdout günlükleri almak için gerektirdiği durumlar haricinde)</li><li>Görünümleri&dagger; (MVC uygulamaları; görünümleri önceden derlenmiş değil)</li><li>Sayfaları&dagger; (sayfaları önceden derlenmiş değil, MVC veya Razor sayfaları uygulamaları;)</li><li>wwwroot&dagger;</li><li>*\.DLL dosyaları</li><li>{DERLEME adı}.deps.JSON</li><li>{DERLEME adı} .dll</li><li>{DERLEME adı} .pdb</li><li>{} DERLEME ADI. Views.dll</li><li>{} DERLEME ADI. Views.pdb</li><li>{DERLEME adı}.runtimeconfig.json</li><li>Web.config (IIS dağıtımlar)</li></ul></li></ul> |
+| [Kendi içinde dağıtım](/dotnet/core/deploying/#self-contained-deployments-scd) | <ul><li>Yayımlama&dagger;<ul><li>Günlükleri&dagger; (isteğe bağlı stdout günlükleri almak için gerektirdiği durumlar haricinde)</li><li>Görünümleri&dagger; (MVC uygulamaları; görünümleri önceden derlenmiş değil)</li><li>Sayfaları&dagger; (sayfaları önceden derlenmiş değil, MVC veya Razor sayfaları uygulamaları;)</li><li>wwwroot&dagger;</li><li>\*.dll dosyaları</li><li>{DERLEME adı}.deps.JSON</li><li>{DERLEME adı} .dll</li><li>{DERLEME adı} .exe</li><li>{DERLEME adı} .pdb</li><li>{} DERLEME ADI. Views.dll</li><li>{} DERLEME ADI. Views.pdb</li><li>{DERLEME adı}.runtimeconfig.json</li><li>Web.config (IIS dağıtımlar)</li></ul></li></ul> |
 
 &dagger;Bir dizini gösterir
 
-*Yayımlama* directory temsil eden *içerik kök yolu*, olarak da bilinir *uygulama temel yolu*, dağıtım. Hangi adı verilir *yayımlama* Dizin sunucusundaki dağıtılan uygulamanın konumuna barındırılan uygulamasının fiziksel yolu sunucunun görür.
+*Yayımlama* dizini temsil eder *içerik kök yolu*ayrıca adlı *uygulama temel yolu*, dağıtım. Dilediğiniz adı verilir *yayımlama* dizin sunucusuna dağıtılan uygulamanın konumuna barındırılan uygulamasının fiziksel yolu sunucunun görür.
 
-*Wwwroot* dizini, varsa, yalnızca içeren statik varlıklar.
+*Wwwroot* dizini varsa yalnızca içeren statik varlıklar.
 
-Stdout *günlükleri* iki yaklaşımın şunlardan birini kullanarak dağıtım için dizin oluşturulabilir:
+Stdout *günlükleri* aşağıdaki iki yaklaşımdan birini kullanarak dağıtım için dizin oluşturulabilir:
 
-* Aşağıdakileri ekleyin `<Target>` proje dosyası öğesine:
+* Aşağıdaki `<Target>` proje dosyasına öğe:
 
    ```xml
    <Target Name="CreateLogsFolder" AfterTargets="Publish">
@@ -46,8 +52,15 @@ Stdout *günlükleri* iki yaklaşımın şunlardan birini kullanarak dağıtım 
    </Target>
    ```
 
-   `<MakeDir>` Öğesi oluşturur boş bir *günlükleri* yayımlanan çıkış klasöründe. Öğesini kullanan `PublishDir` klasörü oluşturmak için hedef konum belirlemek için özellik. Web dağıtımı gibi birkaç dağıtım yöntemleri, dağıtım sırasında boş klasörler atlayın. `<WriteLinesToFile>` Öğesi oluşturur bir dosyada *günlükleri* sunucu klasörüne dağıtımını garanti klasör. Çalışan işlemi, hedef klasöre yazma erişimi yoksa, klasör oluşturma yine başarısız olabilir unutmayın.
+   `<MakeDir>` Öğesi boş bir oluşturur *günlükleri* yayımlanan çıkış klasöründe. Öğesini kullanan `PublishDir` özelliği klasörü oluşturmak için hedef konumu belirlenemiyor. Web dağıtımı gibi çeşitli dağıtım yöntemleri, dağıtım sırasında boş klasörler atlayın. `<WriteLinesToFile>` Öğesi bir dosya oluşturur *günlükleri* klasörü, sunucu klasörünün dağıtım garanti eder. Çalışan işlemi, hedef klasöre yazma erişimi yoksa, bu yaklaşımı kullanarak klasör oluşturma başarısız olur.
 
-* Fiziksel olarak oluşturma *günlükleri* dağıtımdaki sunucuya dizin.
+* Fiziksel olarak oluşturma *günlükleri* dağıtım sunucusunda dizin.
 
-Dağıtım dizini okuma/Yürütme izinleri gerektirir. *Günlükleri* dizin okuma/yazma izinleri gerektirir. Dosyaları yazılacağı ek dizinler okuma/yazma izinleri gerektirir.
+Dağıtım dizini okuma/Yürütme izinleri gerektirir. *Günlükleri* dizin okuma/yazma izinleri gerektirir. Dosyaları yazılacağı ek dizinleri okuma/yazma izinleri gerektirir.
+
+## <a name="additional-resources"></a>Ek kaynaklar
+
+* [dotnet publish](/dotnet/core/tools/dotnet-publish)
+* [.NET core uygulama dağıtımı](/dotnet/core/deploying/)
+* [Hedef çerçeveler](/dotnet/standard/frameworks)
+* [.NET core RID Kataloğu](/dotnet/core/rid-catalog)

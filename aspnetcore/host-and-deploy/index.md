@@ -4,14 +4,14 @@ author: guardrex
 description: Barındırma ortamları hakkında bilgi edinmek ve ASP.NET Core uygulamaları dağıtın.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/01/2018
+ms.date: 12/06/2018
 uid: host-and-deploy/index
-ms.openlocfilehash: 86022c33a3c5a8b82b14ae51b98c44497f39bd16
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: f443a8ee28a859b5075a8bb03016407af9a3ddb1
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862453"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284532"
 ---
 # <a name="host-and-deploy-aspnet-core"></a>Barındırma ve ASP.NET Core dağıtma
 
@@ -72,7 +72,11 @@ Kullanarak [Web'de Yayımla özelliğini](xref:tutorials/publish-to-azure-webapp
 
 ## <a name="publish-to-azure"></a>Azure'a Yayımlama
 
-Bkz: <xref:tutorials/publish-to-azure-webapp-using-vs> Visual Studio'yu kullanarak Azure'a uygulama yayımlama konusunda yönergeler için. Uygulama ayrıca Azure'dan yayımlanabilir [komut satırı](/azure/app-service/app-service-web-get-started-dotnet).
+Bkz: <xref:tutorials/publish-to-azure-webapp-using-vs> Visual Studio'yu kullanarak Azure'a uygulama yayımlama konusunda yönergeler için. Ek bir örnek tarafından sağlanan [Azure'da ASP.NET Core web uygulaması oluşturma](/azure/app-service/app-service-web-get-started-dotnet).
+
+## <a name="publish-with-msdeploy-on-windows"></a>Windows üzerinde MSDeploy ile yayımlama
+
+Bkz: <xref:host-and-deploy/visual-studio-publish-profiles> yayımlama profilini bir Visual Studio ile uygulama yayımlama konusunda yönergeler için kullanarak bir Windows komut istemi dahil olmak üzere [dotnet msbuild](/dotnet/core/tools/dotnet-msbuild) komutu.
 
 ## <a name="host-in-a-web-farm"></a>Bir web grubunda barındırın
 

@@ -8,16 +8,18 @@ ms.date: 06/10/2014
 ms.assetid: 6d02d9f7-94e5-4140-9f51-5a6040f274f6
 msc.legacyurl: /signalr/overview/guide-to-the-api/hubs-api-guide-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: 2d7dd1480694eacffc0cfa60ac0179b16348488d
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 0a2b24039259ef90579a7f215bb9e35ebef7b9b9
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913001"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53288053"
 ---
 <a name="aspnet-signalr-hubs-api-guide---net-client-c"></a>ASP.NET SignalR Hubs API Kılavuzu - .NET istemcisi (C#)
 ====================
 tarafından [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](https://github.com/tdykstra)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > Bu belge, SignalR sürüm 2 (WinRT) Windows Store, WPF, Silverlight ve konsol uygulamaları gibi .NET istemcileri için hub'ları API kullanmaya giriş bilgileri sağlar.
 >
@@ -41,7 +43,6 @@ tarafından [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](http
 > ## <a name="questions-and-comments"></a>Sorularınız ve yorumlarınız
 >
 > Lütfen bu öğreticide sevmediğinizi nasıl ve ne sayfanın alt kısmındaki açıklamalarda geliştirebileceğimiz hakkında geri bildirim bırakın. Öğretici için doğrudan ilgili olmayan sorularınız varsa, bunları gönderebilir [ASP.NET SignalR Forumu](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) veya [StackOverflow.com](http://stackoverflow.com/).
-
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -330,7 +331,7 @@ Sunucu yönteminin dönüş değeri varsa, dönüş türü genel türü olarak b
 SignalR işleyebilirsiniz ömür olayları aşağıdaki bağlantı sağlar:
 
 - `Received`: Herhangi bir veri bağlantısı alındığında oluşturulur. Alınan veriler sağlar.
-- `ConnectionSlow`: Bir istemci yavaş veya sık bırakma bağlantı algıladığında oluşturulur.
+- `ConnectionSlow`: İstemci yavaş veya sık bırakma bağlantı tespit ettiğinde oluşturulur.
 - `Reconnecting`: Temel alınan aktarımda yeniden bağlanmayı başladığında oluşturulur.
 - `Reconnected`: Temel alınan aktarımda bağlandığınızda oluşturulur.
 - `StateChanged`: Bağlantı durumu değiştiğinde oluşturulur. Eski durum ve yeni durum sağlar. Durum değerleri bağlantısı hakkında bilgi için bkz [ConnectionState numaralandırma](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.connectionstate(v=vs.111).aspx).

@@ -4,16 +4,16 @@ author: rick-anderson
 description: Oluşturur ve ASP.NET Core kullanarak basit bir Hello World uygulaması çalıştıran bir hızlı öğretici.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/01/2018
+ms.date: 12/11/2018
 uid: getting-started
-ms.openlocfilehash: 29a328b610b0a6e1616cd6ebc70a8fa3e515eb92
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: cf9e731f7638687b3f40b42864ef7ee8f5522b39
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861712"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284363"
 ---
-# <a name="tutorial-get-started-with-aspnet-core"></a>Öğretici: ASP.NET Core ile çalışmaya başlama
+# <a name="tutorial-get-started-with-aspnet-core"></a>Öğretici: ASP.NET Core kullanmaya başlayın
 
 Bu öğreticide, ASP.NET Core web uygulaması oluşturmak için .NET Core komut satırı arabirimi kullanmayı gösterir.
 
@@ -31,7 +31,7 @@ Sonunda, yerel makinenizde çalışan bir çalışan web uygulaması oluşturmu�
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Yükleme [!INCLUDE [](~/includes/2.1-SDK.md)].
+* [.NET core SDK'sını 2.2](https://www.microsoft.com/net/download/all)
 
 ## <a name="create-a-web-app-project"></a>Bir web uygulaması projesi oluşturma
 
@@ -91,15 +91,15 @@ Gözat [ https://localhost:5001 ](https://localhost:5001). Tıklayın **kabul** 
 
 ## <a name="edit-a-razor-page"></a>Bir Razor sayfası Düzenle
 
-Açık *Pages/About.cshtml* ve sayfanın vurgulanan aşağıdaki işaretlemeyle değiştirin:
+Açık *Pages/Index.cshtml* ve sayfanın vurgulanan aşağıdaki işaretlemeyle değiştirin:
 
-[!code-cshtml[](sample/getting-started/about.cshtml?highlight=9)]
+[!code-cshtml[](sample/index.cshtml?highlight=9)]
 
-Gözat [ https://localhost:5001/About ](https://localhost:5001/About) ve değişiklikleri görüntülenir doğrulayın.
+Gözat [ https://localhost:5001 ](https://localhost:5001), değişiklikleri görüntülenir doğrulayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide şunları öğrendiniz: nasıl yapılır:
+Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
 > * Bir web uygulaması projesi oluşturun.

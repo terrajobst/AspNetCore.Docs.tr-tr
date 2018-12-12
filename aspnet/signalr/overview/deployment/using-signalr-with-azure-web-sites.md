@@ -8,16 +8,18 @@ ms.date: 07/01/2015
 ms.assetid: 2a7517a0-b88c-4162-ade3-9bf6ca7062fd
 msc.legacyurl: /signalr/overview/deployment/using-signalr-with-azure-web-sites
 msc.type: authoredcontent
-ms.openlocfilehash: c5ede2891ef18b622ed269723603dea3b67a135d
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: da69e1aba1b56d69ad8e710cddd2b492168f1255
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912611"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287775"
 ---
-<a name="using-signalr-with-web-apps-in-azure-app-service"></a>Azure App Service'te Web Apps ile SignalR kullanma
+<a name="using-signalr-with-web-apps-in-azure-app-service"></a>Azure App Service'te Web Apps ile SignalR Kullanma
 ====================
 tarafından [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > Bu belge, Microsoft Azure üzerinde çalışan bir SignalR uygulamasını yapılandırmak açıklar.
 >
@@ -54,7 +56,7 @@ ASP.NET SignalR, yeni bir düzeye sunucuları ve web veya .NET istemcileri aras�
 
 SignalR herhangi belirli bir zorluk, şirket içi bir sunucuya dağıtma ve bir uygulamayı azure'a dağıtmak için eklemez. SignalR kullanan bir uygulama yapılandırma ya da diğer ayarları herhangi bir değişiklik yapmadan Azure'da barındırılabilir (ancak WebSockets desteği için bkz. [etkinleştirme WebSockets Azure App Service'te](#websocket) aşağıda.) Bu öğreticide, oluşturulan uygulamayı dağıtacaksınız [başlangıç Öğreticisi](../getting-started/tutorial-getting-started-with-signalr.md) azure'a.
 
-**Önkoşullar
+**Önkoşullar**
 
 - Visual Studio 2013. Visual Studio 2013 Express Web için Visual Studio sahip değilseniz Azure SDK'yı yükleme, dahil edilir.
 - [Visual Studio 2013 için Azure SDK 2.3](https://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409) veya [Visual Studio 2012 için Azure SDK 2.3](https://go.microsoft.com/fwlink/p/?linkid=323511).
@@ -69,7 +71,7 @@ SignalR herhangi belirli bir zorluk, şirket içi bir sunucuya dağıtma ve bir 
     ![Azure Web siteleri seçin](using-signalr-with-azure-web-sites/_static/image1.png)
 4. Microsoft hesabınızda oturum açmadıysanız, tıklayın **oturum aç...**  "mevcut Web sitesi seçin" iletişim ve oturum açın.
 
-    ![Mevcut Web sitesini seçin](using-signalr-with-azure-web-sites/_static/image2.png)    ![Azure'da oturum açın](using-signalr-with-azure-web-sites/_static/image3.png)
+    ![Mevcut Web sitesini seçin](using-signalr-with-azure-web-sites/_static/image2.png)    ![Azure'da oturum açma](using-signalr-with-azure-web-sites/_static/image3.png)
 5. "Mevcut Web sitesi seçin" iletişim kutusunda tıklatın **yeni**.
 
     ![Yeni Web sitesi](using-signalr-with-azure-web-sites/_static/image4.png)
@@ -98,7 +100,7 @@ Yapılandırma sayfasında üst kısmında, .NET 4.5 web uygulamanız için kull
 
 Yapılandırma sayfasında, **WebSockets** ayarını seçin **üzerinde**.
 
-![WebSockets ayarı: üzerinde](using-signalr-with-azure-web-sites/_static/image10.png)
+![WebSockets ayarı: Açık](using-signalr-with-azure-web-sites/_static/image10.png)
 
 Yapılandırma sayfasında sonunda seçin **Kaydet** yaptığınız değişiklikleri kaydedin.
 

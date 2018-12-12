@@ -3,14 +3,14 @@ title: ASP.NET'ten ASP.NET Core geçişi
 author: isaac2004
 description: ASP.NET Core.web için geçirme mevcut ASP.NET MVC veya Web API uygulamaları için yol gösteren yönergeler alır
 ms.author: scaddie
-ms.date: 12/10/2018
+ms.date: 12/11/2018
 uid: migration/proper-to-2x/index
-ms.openlocfilehash: 6808fefb890dcdec6abdd0604ab61dfd2573d910
-ms.sourcegitcommit: 1872d2e6f299093c78a6795a486929ffb0bbffff
+ms.openlocfilehash: a9eef832a68afa1a73e3c7c545378da190602ce2
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53216800"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284402"
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core"></a>ASP.NET'ten ASP.NET Core geçişi
 
@@ -20,7 +20,7 @@ Bu makalede, ASP.NET Core geçirme ASP.NET uygulamaları için bir başvuru kıl
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-[!INCLUDE [](~/includes/net-core-sdk-download-link.md)]
+[.NET core SDK 2.2 veya üzeri](https://www.microsoft.com/net/download)
 
 ## <a name="target-frameworks"></a>Hedef Çerçeve
 
@@ -28,15 +28,15 @@ ASP.NET Core projeleri, geliştiricilerin .NET Core, .NET Framework veya her iki
 
 .NET Framework'ü hedefleyen, projeler tek NuGet paketlerini başvurmanız gerekir.
 
-.NET Core'u hedefleyen ASP.NET Core sayesinde çok sayıda açık paket başvuruları ortadan olanak tanır [metapackage](xref:fundamentals/metapackage). Yükleme `Microsoft.AspNetCore.All` metapackage projenizdeki:
+.NET Core'u hedefleyen ASP.NET Core sayesinde çok sayıda açık paket başvuruları ortadan olanak tanır [metapackage](xref:fundamentals/metapackage-app). Yükleme `Microsoft.AspNetCore.App` metapackage projenizdeki:
 
 ```xml
 <ItemGroup>
-  <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.9" />
+   <PackageReference Include="Microsoft.AspNetCore.App" />
 </ItemGroup>
 ```
 
-Metapackage kullanıldığında metapackage içinde başvurulan paket uygulamayla birlikte dağıtılır. .NET Core çalışma zamanı Store bu varlıkları içerir ve bunlar performansını artırmak için önceden derlenmiş. Bkz: [Microsoft.AspNetCore.All metapackage ASP.NET Core 2.x](xref:fundamentals/metapackage) daha fazla ayrıntı için.
+Metapackage kullanıldığında metapackage içinde başvurulan paket uygulamayla birlikte dağıtılır. .NET Core çalışma zamanı Store bu varlıkları içerir ve bunlar performansını artırmak için önceden derlenmiş. Bkz: [Microsoft.AspNetCore.App metapackage ASP.NET Core](xref:fundamentals/metapackage-app) daha fazla ayrıntı için.
 
 ## <a name="project-structure-differences"></a>Proje yapısına
 
@@ -64,15 +64,14 @@ ASP.NET Core, benzer bir yaklaşım kullanır, ancak giriş işlemek için OWIN 
 
 [!code-csharp[](samples/program.cs)]
 
-`Startup` içermelidir bir `Configure` yöntemi. İçinde `Configure`, gerekli bir ara yazılım ardışık düzenine ekleyin. (Şablondan varsayılan web sitesi) aşağıdaki örnekte, birkaç genişletme yöntemleri için destek ile işlem hattını yapılandırmak için kullanılır:
+`Startup` içermelidir bir `Configure` yöntemi. İçinde `Configure`, gerekli bir ara yazılım ardışık düzenine ekleyin. (Şablondan varsayılan web sitesi) aşağıdaki örnekte, genişletme yöntemleri için destek ile işlem hattı yapılandırın:
 
-* [Tarayıcı Bağlantısı](xref:client-side/using-browserlink)
 * Hata sayfaları
-* Statik dosyalar
+* HTTP katı aktarım güvenliği
+* HTTPS için HTTP yeniden yönlendirmesi
 * ASP.NET Core MVC
-* Kimlik
 
-[!code-csharp[](../../common/samples/WebApplication1/Startup.cs?highlight=8,9,10,14,17,19,21&start=58&end=84)]
+[!code-csharp[](samples/startup.cs)]
 
 Konak ve uygulama, gelecekte farklı bir platform için taşıma esnekliği sağlayan ayrılmış.
 

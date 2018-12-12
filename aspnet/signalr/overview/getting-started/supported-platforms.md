@@ -8,23 +8,24 @@ ms.date: 04/18/2018
 ms.assetid: eac31beb-0f46-4afa-9def-e80904dea4f0
 msc.legacyurl: /signalr/overview/getting-started/supported-platforms
 msc.type: authoredcontent
-ms.openlocfilehash: d522602c3523d97a12c74b2d901391bd00d4f2b9
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: e270f9a328f36854fdfb3e23b78e0b40cdda6411
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41757056"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287389"
 ---
 <a name="supported-platforms"></a>Desteklenen Platformlar
 ====================
 tarafından [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > Bu makalede, hangi istemcilere ve sunuculara SignalR tarafından desteklenen açıklanır. 
 > 
 > ## <a name="questions-and-comments"></a>Sorularınız ve yorumlarınız
 > 
 > Lütfen bu öğreticide sevmediğinizi nasıl ve ne sayfanın alt kısmındaki açıklamalarda geliştirebileceğimiz hakkında geri bildirim bırakın. Öğretici için doğrudan ilgili olmayan sorularınız varsa, bunları gönderebilir [ASP.NET SignalR Forumu](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) veya [StackOverflow.com](http://stackoverflow.com/).
-
 
 SignalR çeşitli altında sunucu ve istemci yapılandırmaları desteklenir. Ayrıca, her bir aktarım seçeneğin kendi gereksinimler kümesi vardır; Aktarım için sistem gereksinimleri, kullanılabilir durumda değilse, SignalR devreder düzgün bir şekilde diğer taşımalar için. SignalR destekleyen aktarımları hakkında daha fazla bilgi için bkz. [aktarım ve geri dönüşler](introduction-to-signalr.md#transports).
 
@@ -91,7 +92,7 @@ Bazı tarayıcılar gerektiren ek olarak, SignalR kullanan çeşitli taşımalar
 | ForeverFrame | 8+ | Yok | Yok | Yok | 4.1 |
 | Uzun yoklama | 8+ | Geçerli - 1 | Geçerli - 1 | Geçerli - 1 | 4.1 |
 
-\*: 6 + tam işlevselliği için gerekli.
+\*: 6 tam işlevsellik için + gereklidir.
 
 #### <a name="unsupported-browsers"></a>Desteklenmeyen tarayıcılar
 

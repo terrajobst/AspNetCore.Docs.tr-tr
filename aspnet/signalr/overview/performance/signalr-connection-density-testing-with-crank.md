@@ -8,21 +8,23 @@ ms.date: 02/22/2015
 ms.assetid: 148d9ca7-1af1-44b6-a9fb-91e261b9b463
 msc.legacyurl: /signalr/overview/performance/signalr-connection-density-testing-with-crank
 msc.type: authoredcontent
-ms.openlocfilehash: 556accb1bcc18e9e4d1f813a87fc6f4b67bda088
-ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
+ms.openlocfilehash: 308fed51953b085506488c5e0dda1ced9f4d09fb
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51021488"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287597"
 ---
 <a name="signalr-connection-density-testing-with-crank"></a>Crank ile SignalR Bağlantı Yoğunluğu Testi
 ====================
 tarafından [Tom FitzMacken](https://github.com/tfitzmac)
 
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
+
 > Bu makalede, bir uygulama birden çok sanal istemcileri ile test etmek için mili Aracı'nı kullanmayı açıklar.
 
 
-Uygulamanızı (ya da bir Azure web rolü, IIS veya Owın kullanarak şirket içinde barındırılan), barındırma ortamı içinde çalışır duruma geçtikten sonra yüksek düzeyde bağlantı yoğunluğu testi mili aracını kullanarak bir uygulamanın yanıt test edebilirsiniz. Barındırma ortamı, Internet Information Services (IIS) sunucu, bir Owın konak veya bir Azure web rolü olabilir. (Not: performans sayaçları kullanılabilir değil Azure App Service Web Apps üzerinde performans verilerini öğesinden bir bağlantı yoğunluğu testi almanız mümkün olmayacak şekilde.)
+Uygulamanızı (ya da bir Azure web rolü, IIS veya Owın kullanarak şirket içinde barındırılan), barındırma ortamı içinde çalışır duruma geçtikten sonra yüksek düzeyde bağlantı yoğunluğu testi mili aracını kullanarak bir uygulamanın yanıt test edebilirsiniz. Barındırma ortamı, Internet Information Services (IIS) sunucu, bir Owın konak veya bir Azure web rolü olabilir. (Not: Öğesinden bir bağlantı yoğunluğu testi performans verilerini almanız mümkün olmayacak şekilde performans sayaçları Azure App Service Web Apps üzerinde kullanılabilir değil.)
 
 Bağlantı yoğunluğu testi bir sunucuda kurulabilecek eş zamanlı TCP bağlantılarını sayısını ifade eder. Her TCP bağlantısı kendi ek yüke neden olur ve çok sayıda boşta kalan bağlantıların açma sonunda bir bellek sorunu oluşturacaksınız.
 
@@ -44,22 +46,22 @@ Bu bölümde bir SignalR uygulama bağlantı yoğunluğu testi çalıştırmak i
 
 Mili aracı için kullanılabilir seçenekler şunlardır:
 
-- **/?** : Yardım ekranı gösterilir. Kullanılabilir seçenekler de görüntülenir **Url** parametresi atlanırsa.
+- **/?** : Yardım ekranını gösterir. Kullanılabilir seçenekler de görüntülenir **Url** parametresi atlanırsa.
 - **/ Url**: SignalR bağlantıları için URL. Bu parametre gereklidir. Bir SignalR uygulama için varsayılan eşlemeyi kullanarak yolun içinde sona erecek "/ signalr".
-- **/ Aktarım**: kullanılan taşıma adı. Varsayılan `auto`, en iyi kullanılabilir protokol seçer. Seçenekleriniz `WebSockets`, `ServerSentEvents`, ve `LongPolling` (`ForeverFrame` yerine Internet Explorer kullanıldığı bir seçenek mili için bu yana .NET istemci değildir). SignalR taşımalar nasıl seçer? daha fazla bilgi için bkz: [aktarım ve geri dönüşler](../getting-started/introduction-to-signalr.md#transports).
-- **/ BatchSize**: her toplu eklenen istemci sayısı. Varsayılan değer 50'dir.
-- **/ ConnectInterval**: bağlantıları eklenmesi arasındaki milisaniye cinsinden aralığı. Varsayılan değer 500'dür.
-- **Bağlantı**: yük testi uygulama için kullanılan bağlantı sayısı. Varsayılan değer 100. 000 ' dir.
-- **/ ConnectTimeout**: test çalışmasını iptal etmeden önce saniye cinsinden zaman aşımı. Varsayılan değer 300'dür.
-- **MinServerMBytes**: ulaşmak için en düşük sunucu megabayt. Varsayılan değer 500'dür.
-- **SendBytes**: boyutu bayt cinsinden sunucuya gönderilen yük. Varsayılan değer 0'dır.
-- **SendInterval**: sunucuya iletileri arasında geçen milisaniye cinsinden gecikme. Varsayılan değer 500'dür.
-- **SendTimeout**: sunucuya ileti için milisaniye cinsinden zaman aşımı. Varsayılan değer 300'dür.
-- **ControllerUrl**: bir istemci ana bilgisayar denetleyicisi hub Url. Varsayılan olarak NULL'dur (denetleyici hub). Denetleyici hub mili oturumu başladığında başlatıldı; Daha fazla kişi denetleyicisi hub'ı ve mili arasında yapılır.
-- **NumClients**: uygulamaya bağlanmak için sanal istemci sayısı. Varsayılan biridir.
-- **Günlük dosyası**: test çalıştırması için bir günlük dosyası için dosya adı. Varsayılan, `crank.csv` değeridir.
-- **SampleInterval**: performans sayacı Örnekler arasındaki milisaniye olarak süre. Varsayılan değer 1000'dir.
-- **SignalRInstance**: sunucu üzerindeki performans sayaçları için örnek adı. Varsayılan istemci bağlantı durumu kullanmaktır.
+- **/ Aktarım**: Kullanılan taşıma adı. Varsayılan `auto`, en iyi kullanılabilir protokol seçer. Seçenekleriniz `WebSockets`, `ServerSentEvents`, ve `LongPolling` (`ForeverFrame` yerine Internet Explorer kullanıldığı bir seçenek mili için bu yana .NET istemci değildir). SignalR taşımalar nasıl seçer? daha fazla bilgi için bkz: [aktarım ve geri dönüşler](../getting-started/introduction-to-signalr.md#transports).
+- **/ BatchSize**: Her toplu eklenen istemcilere sayısı. Varsayılan değer 50'dir.
+- **/ ConnectInterval**: Bağlantılar ekleme arasındaki milisaniye cinsinden aralığı. Varsayılan değer 500'dür.
+- **Bağlantı**: Uygulama yük testi için kullanılan bağlantı sayısı. Varsayılan değer 100. 000 ' dir.
+- **/ ConnectTimeout**: Test çalışmasını iptal etmeden önce saniye cinsinden zaman aşımı. Varsayılan değer 300'dür.
+- **MinServerMBytes**: Ulaşmak için en düşük sunucu megabayt. Varsayılan değer 500'dür.
+- **SendBytes**: Boyutu bayt cinsinden sunucusuna gönderilen yük. Varsayılan değer 0'dır.
+- **SendInterval**: Sunucuya iletileri arasında geçen milisaniye cinsinden gecikme. Varsayılan değer 500'dür.
+- **SendTimeout**: İletileri sunucusu için milisaniye cinsinden zaman aşımı. Varsayılan değer 300'dür.
+- **ControllerUrl**: Burada bir istemci bir denetleyici hub'ı barındıracak URL'si. Varsayılan olarak NULL'dur (denetleyici hub). Denetleyici hub mili oturumu başladığında başlatıldı; Daha fazla kişi denetleyicisi hub'ı ve mili arasında yapılır.
+- **NumClients**: Uygulamaya bağlanmak için sanal istemci sayısı. Varsayılan biridir.
+- **Günlük dosyası**: Test çalıştırması için bir günlük dosyası için dosya adı. Varsayılan, `crank.csv` değeridir.
+- **SampleInterval**: Performans sayacı Örnekler arasındaki milisaniye olarak süre. Varsayılan değer 1000'dir.
+- **SignalRInstance**: Sunucusunda performans sayaçları için örnek adı. Varsayılan istemci bağlantı durumu kullanmaktır.
 
 ### <a name="example"></a>Örnek
 

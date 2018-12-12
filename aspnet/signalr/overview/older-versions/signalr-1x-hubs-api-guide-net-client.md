@@ -8,16 +8,18 @@ ms.date: 04/17/2013
 ms.assetid: c334adc3-d6dc-44f3-9f06-f7634475aad3
 msc.legacyurl: /signalr/overview/older-versions/signalr-1x-hubs-api-guide-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: 5889429645ea1c682ea43c4b17afb3745318e32d
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 34356338f24788226351e8e22b47eaaf7ea03e61
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41755861"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287992"
 ---
 <a name="aspnet-signalr-hubs-api-guide---net-client-signalr-1x"></a>ASP.NET SignalR Hubs API Kılavuzu - .NET istemcisi (SignalR 1.x)
 ====================
 tarafından [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](https://github.com/tdykstra)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > Bu belge, SignalR sürüm 2 (WinRT) Windows Store, WPF, Silverlight ve konsol uygulamaları gibi .NET istemcileri için hub'ları API kullanmaya giriş bilgileri sağlar.
 > 
@@ -315,7 +317,7 @@ Sunucu yönteminin dönüş değeri varsa, dönüş türü genel türü olarak b
 SignalR işleyebilirsiniz ömür olayları aşağıdaki bağlantı sağlar:
 
 - `Received`: Herhangi bir veri bağlantısı alındığında oluşturulur. Alınan veriler sağlar.
-- `ConnectionSlow`: Bir istemci yavaş veya sık bırakma bağlantı algıladığında oluşturulur.
+- `ConnectionSlow`: İstemci yavaş veya sık bırakma bağlantı tespit ettiğinde oluşturulur.
 - `Reconnecting`: Temel alınan aktarımda yeniden bağlanmayı başladığında oluşturulur.
 - `Reconnected`: Temel alınan aktarımda bağlandığınızda oluşturulur.
 - `StateChanged`: Bağlantı durumu değiştiğinde oluşturulur. Eski durum ve yeni durum sağlar. Durum değerleri bağlantısı hakkında bilgi için bkz [ConnectionState numaralandırma](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.client.connectionstate(v=vs.111).aspx).

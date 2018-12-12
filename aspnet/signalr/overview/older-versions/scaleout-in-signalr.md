@@ -8,16 +8,18 @@ ms.date: 04/29/2013
 ms.assetid: 3fd9f11c-799b-4001-bd60-1e70cfc61c19
 msc.legacyurl: /signalr/overview/older-versions/scaleout-in-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 0cd1e64af031fea8078c8c1ca4c64b1e2e69d7e9
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: fffa424ea4b62a54b9df48aaa409541ab5d1608f
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41756207"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287604"
 ---
-<a name="introduction-to-scaleout-in-signalr-1x"></a>Signalr'da ölçek genişletmeye giriş 1.x
+<a name="introduction-to-scaleout-in-signalr-1x"></a>SignalR 1.x Sürümünde Ölçek Genişletmeye Giriş
 ====================
 tarafından [Mike Wasson](https://github.com/MikeWasson), [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 Genel olarak, bir web uygulamasını ölçeklendirmek için iki yol vardır: *ölçeği* ve *ölçeğini*.
 
@@ -60,9 +62,9 @@ Bir istemci üzerinde farklı bir sunucuya yönlendirilmesini bile yeniden bağl
 
 Bir devre kartı kullanarak, en fazla ileti işleme hızı istemcileri doğrudan tek bir sunucu düğüme konuşurken olduğundan daha küçük. Devre kartına bir performans sorunu olabilmesi için her düğüme her ileti devre kartı iletir olmasıdır. Bu sınırlama bir sorun olup olmadığını, uygulamaya bağlıdır. Örneğin, bazı tipik SignalR senaryoları şunlardır:
 
-- [Sunucu yayın](tutorial-server-broadcast-with-aspnet-signalr.md) (örneğin, bandı): Backplanes sunucu iletileri gönderilir oranı denetlediğinden bu senaryo için iyi çalışır.
-- [İstemci istemci](tutorial-getting-started-with-signalr.md) (örneğin, sohbet edin): ileti sayısını ölçeklendirir istemci sayısı, bu senaryoda, bir performans sorunu devre kartına olabilir; diğer bir deyişle, orantılı olarak daha fazla istemciye iletileri oranı büyürse katılın.
-- [Yüksek sıklıkta gerçek zamanlı](tutorial-high-frequency-realtime-with-signalr.md) (örneğin, gerçek zamanlı oyun): Bu senaryo için bir devre kartı önerilmez.
+- [Sunucu yayın](tutorial-server-broadcast-with-aspnet-signalr.md) (örneğin, bandı): Sunucu iletilerinin gönderilme oranı denetlediğinden Backplanes bu senaryo için iyi çalışır.
+- [İstemci istemci](tutorial-getting-started-with-signalr.md) (örneğin, sohbet edin): Bu senaryoda, istemci sayısı ile ileti sayısını ölçeklenirse devre kartına bir performans sorunu olabilir; diğer bir deyişle, iletileri oranı büyürse orantılı olarak daha fazla istemciye katılın.
+- [Yüksek sıklıkta gerçek zamanlı](tutorial-high-frequency-realtime-with-signalr.md) (örneğin, gerçek zamanlı oyun): Bir devre kartı, bu senaryo için önerilmez.
 
 ## <a name="enabling-tracing-for-signalr-scaleout"></a>SignalR ölçeğini genişletme için izlemeyi etkinleştirme
 

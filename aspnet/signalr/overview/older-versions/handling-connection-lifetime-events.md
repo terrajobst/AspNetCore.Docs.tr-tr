@@ -8,16 +8,18 @@ ms.date: 06/05/2013
 ms.assetid: e608e263-264d-448b-b0eb-6eeb77713b22
 msc.legacyurl: /signalr/overview/older-versions/handling-connection-lifetime-events
 msc.type: authoredcontent
-ms.openlocfilehash: 5a0e912540bf24abd8a7e91c73c87ed9213be487
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: f965c38e18c442268f9bb1d7ffb5e98a135efade
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41755668"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287690"
 ---
 <a name="understanding-and-handling-connection-lifetime-events-in-signalr-1x"></a>Anlama ve signalr'da bağlantı ömrü olaylarını işleme 1.x
 ====================
 tarafından [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](https://github.com/tdykstra)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > Bu makalede başa çıkabilir SignalR bağlantı yeniden bağlanma ve bağlantıyı kesme olaylarını ve yapılandırabileceğiniz zaman aşımı ve keepalive ayarları genel bir bakış sağlar.
 > 
@@ -63,7 +65,7 @@ API başvuru konularına bağlar API .NET 4.5 sürümü var. .NET 4 kullanıyors
 Bu makalede birbirinden ayırt *SignalR bağlantıları*, *taşıma bağlantıları*, ve *fiziksel bağlantıları*:
 
 - **SignalR bağlantı** bir istemci ve sunucu URL'si, SignalR API'sı tarafından bakımı yapılan ve benzersiz bir bağlantı kimliği tarafından tanımlanan arasında mantıksal bir ilişki başvurur Bu ilişki hakkındaki verileri SignalR tarafından korunur ve aktarım bağlantı kurmak için kullanılır. İlişki sona erer ve SignalR istemci çağırdığında verilerini siler `Stop` yöntemi ve bir zaman aşımı sınırı SignalR kayıp taşıma bağlantısını yeniden kurmaya çalışıyor durumdayken ulaşıldığında.
-- **Aktarım bağlantı** dört aktarım API'lerini biri tarafından korunan bir sunucu ile istemci arasındaki mantıksal ilişkisi başvuruyor: WebSockets, sunucu tarafından gönderilen olaylar, sonsuza kadar çerçeve veya uzun yoklama. Aktarım bağlantısı oluşturmak için API taşıma SignalR kullanır ve aktarım API Aktarım bağlantısı oluşturmak için bir fiziksel ağ bağlantısı varlığı üzerinde bağlıdır. SignalR sonlandığında veya taşıma API'si fiziksel bağlantının bozuk olduğunu algıladığında taşıma bağlantısını sonlandırır.
+- **Aktarım bağlantı** dört aktarım API'lerini biri tarafından korunan bir sunucu ile istemci arasındaki mantıksal ilişkisi ifade eder: WebSockets, sunucu tarafından gönderilen olayları, sonsuza kadar çerçeve veya uzun yoklama. Aktarım bağlantısı oluşturmak için API taşıma SignalR kullanır ve aktarım API Aktarım bağlantısı oluşturmak için bir fiziksel ağ bağlantısı varlığı üzerinde bağlıdır. SignalR sonlandığında veya taşıma API'si fiziksel bağlantının bozuk olduğunu algıladığında taşıma bağlantısını sonlandırır.
 - **Fiziksel bağlantı** --kablo, fiziksel ağ bağlantıları kablosuz sinyalleri, yönlendiriciler, bir istemci bilgisayarı ile sunucu bilgisayarı arasındaki iletişimi kolaylaştırır vb.--başvuruyor. Fiziksel bağlantı Aktarım bağlantısı kurabilmek için mevcut olması gerekir ve bir SignalR bağlantısı kurabilmek için taşıma bağlantı kurulması gerekir. Bu konunun ilerleyen kısımlarında açıklandığı gibi ancak fiziksel bağlantı kesme her zaman hemen taşıma veya SignalR bağlantısı sonlanmıyor.
 
 Aşağıdaki diyagramda, SignalR bağlantı hub'ları API ve PersistentConnection API SignalR katmanı tarafından temsil edilen, Aktarım bağlantısı taşımalar katmanı tarafından temsil edilir ve fiziksel bağlantı sunucusu arasındaki çizgilerle gösterilir ve istemciler.

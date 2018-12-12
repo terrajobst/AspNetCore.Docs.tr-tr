@@ -1,6 +1,6 @@
 ---
 uid: signalr/overview/deployment/tutorial-signalr-self-host
-title: 'Öğretici: SignalR barındırma | Microsoft Docs'
+title: 'Öğretici: Şirket içinde SignalR barındırma | Microsoft Docs'
 author: pfletcher
 description: Bu öğretici, şirket içinde barındırılan bir SignalR 2 sunucunun nasıl oluşturulacağını ve bir JavaScript istemcisi ile bağlanmak nasıl gösterir. V öğreticide kullanılan yazılım sürümleri...
 ms.author: riande
@@ -8,16 +8,18 @@ ms.date: 06/10/2014
 ms.assetid: 400db427-27af-4f2f-abf0-5486d5e024b5
 msc.legacyurl: /signalr/overview/deployment/tutorial-signalr-self-host
 msc.type: authoredcontent
-ms.openlocfilehash: a08ce2e89ae13125cbc3915b44bcd1120fc22150
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 48cb3d4d71c33ac3382b2b35b5a19fa1c4958874
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911541"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287409"
 ---
-<a name="tutorial-signalr-self-host"></a>Öğretici: SignalR barındırma
+<a name="tutorial-signalr-self-host"></a>Öğretici: Şirket içinde SignalR barındırma
 ====================
 tarafından [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 [Projeyi yükle](http://code.msdn.microsoft.com/SignalR-Self-Host-Sample-6da0f383)
 
@@ -91,7 +93,7 @@ Bu öğreticide, bir konsol uygulamasında barındırılan bir sunucu oluşturac
 
     Yukarıdaki kod, üç sınıfları içerir:
 
-    - **Program**de dahil olmak üzere **ana** yürütme birincil yolu tanımlama yöntemi. Bu yöntemde, bir web uygulaması türünün **başlangıç** belirtilen URL'deki başlatılır (`http://localhost:8080`). SSL güvenlik uç noktada gerekiyorsa uygulanabilir. Bkz: [nasıl yapılır: bir SSL sertifikası ile bir bağlantı noktası yapılandırma](https://msdn.microsoft.com/library/ms733791.aspx) daha fazla bilgi için.
+    - **Program**de dahil olmak üzere **ana** yürütme birincil yolu tanımlama yöntemi. Bu yöntemde, bir web uygulaması türünün **başlangıç** belirtilen URL'deki başlatılır (`http://localhost:8080`). SSL güvenlik uç noktada gerekiyorsa uygulanabilir. Bkz: [nasıl yapılır: Bir SSL sertifikası ile bir bağlantı noktası yapılandırma](https://msdn.microsoft.com/library/ms733791.aspx) daha fazla bilgi için.
     - **Başlangıç**, SignalR sunucusu yapılandırmasını içeren sınıf (Bu öğreticide yalnızca yapılandırma çağrıdır `UseCors`) ve çağrısı `MapSignalR`, projede herhangi bir Hub nesne için rotalar oluşturur.
     - **MyHub**, istemcilere uygulama sağlayacak SignalR Hub sınıfı. Bu sınıfın tek bir yöntemi vardır **Gönder**, istemcilerin diğer tüm bağlı istemcileri için bir ileti yayınlamak için çağırır.
 6. Derleme ve uygulamayı çalıştırın. Konsol penceresinde çalıştıran bir sunucuda adresini göstermelidir.

@@ -8,16 +8,18 @@ ms.date: 05/01/2013
 ms.assetid: 501db899-e68c-49ff-81b2-1dc561bfe908
 msc.legacyurl: /signalr/overview/older-versions/scaleout-with-windows-azure-service-bus
 msc.type: authoredcontent
-ms.openlocfilehash: d597eebc958815b1b1b9fdffc256c4453efce6b3
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 687d3d7787baa69410ee35d651a029c69d28c70b
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48910960"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53287006"
 ---
-<a name="signalr-scaleout-with-azure-service-bus-signalr-1x"></a>Azure Service Bus ile SignalR ölçeğini genişletme (SignalR 1.x)
+<a name="signalr-scaleout-with-azure-service-bus-signalr-1x"></a>Azure Service Bus ile SignalR Ölçeğini Genişletme (SignalR 1.x)
 ====================
 tarafından [Mike Wasson](https://github.com/MikeWasson), [Patrick Fletcher](https://github.com/pfletcher)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 Bu öğreticide, bir Windows Azure Web her rol örneği iletilerini dağıtmak için Service Bus devre kartına kullanarak rol bir SignalR uygulamayı dağıtacaksınız.
 
@@ -53,7 +55,7 @@ Her uygulama için "Uygulamanızınadı" için farklı bir değer seçin. Aynı 
 
 ## <a name="create-the-azure-services"></a>Azure hizmetleri oluşturma
 
-Bölümünde anlatıldığı gibi bir bulut hizmeti oluşturma [bir bulut hizmeti oluşturma ve dağıtma konusunda](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy). Bölümündeki adımları "nasıl yapılır: hızlı Oluştur kullanarak bir bulut hizmeti oluşturma". Bu öğreticide, bir sertifikayı karşıya yüklemek gerekmez.
+Bölümünde anlatıldığı gibi bir bulut hizmeti oluşturma [bir bulut hizmeti oluşturma ve dağıtma konusunda](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy). Bölümündeki adımları "nasıl yapılır: Hızlı oluşturma yöntemini kullanarak bir bulut hizmeti oluşturma". Bu öğreticide, bir sertifikayı karşıya yüklemek gerekmez.
 
 ![](scaleout-with-windows-azure-service-bus/_static/image2.png)
 
@@ -67,7 +69,7 @@ Açıklanan şekilde yeni bir Service Bus ad alanı oluşturma [nasıl kullanım
 
 ## <a name="create-the-visual-studio-project"></a>Visual Studio projesi oluşturma
 
-Visual Studio'yu başlatın. Gelen **dosya** menüsünü tıklatın **yeni proje**.
+Visual Studio’yu çalıştırın. Gelen **dosya** menüsünü tıklatın **yeni proje**.
 
 İçinde **yeni proje** iletişim kutusunda **Visual C#**. Altında **yüklü şablonlar**seçin **bulut** seçip **Windows Azure bulut hizmeti**. Varsayılan .NET Framework 4.5 tutun. ChatService uygulamaya bir ad ve tıklayın **Tamam**.
 
@@ -82,7 +84,7 @@ Fareyi yeni rol, bu nedenle gelin Kurşun Kalem simgesi görünür. Rolü yenide
 İçinde **yeni ASP.NET MVC 4 proje** seçin **Internet uygulaması**. **Tamam**'ı tıklatın. Proje Sihirbazı, iki proje oluşturur:
 
 - ChatService: Bu proje, Windows Azure uygulamasıdır. Bu, Azure rolleri ve diğer yapılandırma seçenekleri tanımlar.
-- SignalRChat: Bu, ASP.NET MVC 4 Proje projesidir.
+- SignalRChat: ASP.NET MVC 4 Proje projesidir.
 
 ## <a name="create-the-signalr-chat-application"></a>SignalR sohbet uygulaması oluşturma
 
@@ -122,7 +124,7 @@ SignalRChat role sağ tıklayıp **özellikleri**. Seçin **yapılandırma** sek
 
 Değişiklikleri kaydedin.
 
-Çözüm Gezgini'nde ChatService projeye sağ tıklayın. Seçin **yayımlama**.
+Çözüm Gezgini'nde ChatService projeye sağ tıklayın. **Yayımla**’yı seçin.
 
 ![](scaleout-with-windows-azure-service-bus/_static/image10.png)
 

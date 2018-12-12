@@ -8,16 +8,18 @@ ms.date: 09/28/2015
 ms.assetid: a9fd4dc0-1b96-4443-82ca-932a5b4a8ea4
 msc.legacyurl: /signalr/overview/guide-to-the-api/hubs-api-guide-javascript-client
 msc.type: authoredcontent
-ms.openlocfilehash: 9edb7fd100a3f4c5331454045ac206d2f7a81961
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 8e493eda256351904da49e1222773f188e6a2058
+ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912455"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53288072"
 ---
 <a name="aspnet-signalr-hubs-api-guide---javascript-client"></a>ASP.NET SignalR Hubs API Kılavuzu - JavaScript istemcisi
 ====================
 tarafından [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](https://github.com/tdykstra)
+
+[!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
 > Bu belge için SignalR sürüm 2 JavaScript istemcilerinin, tarayıcıları ve Windows Store (WinJS) uygulamalar gibi hub'ları API kullanmaya giriş bilgileri sağlar.
 >
@@ -41,7 +43,6 @@ tarafından [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](http
 > ## <a name="questions-and-comments"></a>Sorularınız ve yorumlarınız
 >
 > Lütfen bu öğreticide sevmediğinizi nasıl ve ne sayfanın alt kısmındaki açıklamalarda geliştirebileceğimiz hakkında geri bildirim bırakın. Öğretici için doğrudan ilgili olmayan sorularınız varsa, bunları gönderebilir [ASP.NET SignalR Forumu](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) veya [StackOverflow.com](http://stackoverflow.com/).
-
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -226,7 +227,7 @@ SignalR 1.x, etki alanı istekleri çapraz tek bir EnableCrossDomain tarafından
 
 (Eski tarayıcılarda etki alanları arası istekleri desteklemek için) istemcide JSONP gerekiyorsa, ayarlayarak açıkça etkinleştirilmesi gerekecektir `EnableJSONP` üzerinde `HubConfiguration` nesnesini `true`, aşağıda gösterildiği gibi. CORS az güvenli olsa da JSONP varsayılan olarak devre dışıdır.
 
-**Microsoft.Owin.Cors projenize ekleme:** bu kitaplığını yüklemek için Paket Yöneticisi konsolunda aşağıdaki komutu çalıştırın:
+**Microsoft.Owin.Cors projenize ekleme:** Bu kitaplığını yüklemek için Paket Yöneticisi konsolunda aşağıdaki komutu çalıştırın:
 
 `Install-Package Microsoft.Owin.Cors`
 
@@ -466,7 +467,7 @@ SignalR işleyebilirsiniz ömür olayları aşağıdaki bağlantı sağlar:
 
 - `starting`: Herhangi bir veri bağlantısı üzerinden gönderilmeden önce oluşturulur.
 - `received`: Herhangi bir veri bağlantısı alındığında oluşturulur. Alınan veriler sağlar.
-- `connectionSlow`: Bir istemci yavaş veya sık bırakma bağlantı algıladığında oluşturulur.
+- `connectionSlow`: İstemci yavaş veya sık bırakma bağlantı tespit ettiğinde oluşturulur.
 - `reconnecting`: Temel alınan aktarımda yeniden bağlanmayı başladığında oluşturulur.
 - `reconnected`: Temel alınan aktarımda bağlandığınızda oluşturulur.
 - `stateChanged`: Bağlantı durumu değiştiğinde oluşturulur. Eski durum ve yeni bir durum (bağlanma, bağlı, yeniden bağlanılıyor veya bağlantısı kesilmiş) sağlar.

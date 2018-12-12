@@ -6,12 +6,12 @@ ms.author: casoper
 ms.custom: mvc, seodec18
 ms.date: 10/24/2018
 uid: azure/devops/deploy-to-app-service
-ms.openlocfilehash: 4424d3d15cbd234357c8265fa276834cb9abf352
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: 9fe17c9e210d4dda9b74818104fc52a60d4f0077
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121226"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284545"
 ---
 # <a name="deploy-an-app-to-app-service"></a>Bir uygulamayı App Service'e dağıtma
 
@@ -35,7 +35,7 @@ Kodu gözden çekinmeyin, ancak bu uygulama hakkında özel bir şey olduğunu a
 
 Bir komut kabuğundan, kodu indirmek, projeyi oluşturun ve aşağıdaki gibi çalıştırın.
 
-> *Not: Linux/macOS kullanıcılarını uygun yolları, örneğin, eğik çizgi kullanarak değişiklik (`/`) ters eğik çizgi yerine (`\`).*
+> *Not: Linux/macOS kullanıcılarını yaptığınızda uygun yolları, örn, eğik çizgi kullanarak (`/`) ters eğik çizgi yerine (`\`).*
 
 1. Kodu yerel makinenizde bir klasöre kopyalayın.
 
@@ -73,7 +73,7 @@ Bir komut kabuğundan, kodu indirmek, projeyi oluşturun ve aşağıdaki gibi ç
 
 Uygulamayı dağıtmak için bir App Service oluşturma gerekecektir [Web uygulaması](/azure/app-service/app-service-web-overview). Web uygulamasının oluşturulduktan sonra ona Git kullanarak yerel makinenizde dağıtacaksınız.
 
-1. Oturum [Azure Cloud Shell'i](https://shell.azure.com/bash). Not: yapılandırma dosyalarını bir depolama hesabı oluşturmak için Cloud Shell ilk kez oturum açtığınızda, ister. Varsayılanları kabul edin veya benzersiz bir ad belirtin.
+1. Oturum [Azure Cloud Shell'i](https://shell.azure.com/bash). Not: İlk kez oturum açtığınızda, yapılandırma dosyaları için bir depolama hesabı oluşturmak için Cloud Shell ister. Varsayılanları kabul edin veya benzersiz bir ad belirtin.
 
 2. Cloud Shell için aşağıdaki adımları kullanın.
 
@@ -141,7 +141,7 @@ Uygulamayı dağıtmak için bir App Service oluşturma gerekecektir [Web uygula
 
 ## <a name="deployment-with-visual-studio"></a>Visual Studio ile dağıtım
 
-> *Not: Bu bölüm yalnızca Windows için geçerlidir. Linux ve Macos'ta kullanıcılar, 2. adım açıklanan değişikliği yapmanız gerekir. Dosyayı kaydedin ve değişikliği ile yerel deponuza işleyin `git commit`. Son olarak, değişiklik ile anında iletme `git push`, ilk bölümde gibi.*
+> *Not: Bu bölüm, yalnızca Windows için geçerlidir. Linux ve Macos'ta kullanıcılar, 2. adım açıklanan değişikliği yapmanız gerekir. Dosyayı kaydedin ve değişikliği ile yerel deponuza işleyin `git commit`. Son olarak, değişiklik ile anında iletme `git push`, ilk bölümde gibi.*
 
 Uygulamayı komut kabuğu'ndan zaten dağıtıldı. Bir güncelleştirme uygulamasına dağıtmak için Visual Studio'nun tümleşik araçları kullanalım. Arka planda, Visual Studio Araçları komut satırı, ancak Visual Studio'nun alışık olduğunuz kullanıcı Arabirimi içinde aynı şeyi gerçekleştirir.
 

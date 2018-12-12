@@ -6,12 +6,12 @@ ms.author: riande
 monikerRange: '>= aspnetcore-2.2'
 ms.date: 12/3/2018
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 91fee1db820493be671fecaee3cfb4c1b7df8bd3
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: 667009ced46efc07c2b4e79306382272aa5779b0
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121369"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284519"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Bir ASP.NET Core Razor sayfaları uygulama için model ekleme
 
@@ -114,16 +114,16 @@ Tamamlamak **ekleme Razor sayfaları (CRUD) Entity Framework kullanarak** ileti�
    dotnet tool install --global dotnet-aspnet-codegenerator
    ```
 
-* **Windows için**: aşağıdaki komutu çalıştırın:
+* **Windows için**: Şu komutu çalıştırın:
 
   ```console
-  dotnet aspnet-codegenerator razorpage -m Movie -dc MovieContext -udl -outDir Pages\Movies --referenceScriptLibraries
+  dotnet aspnet-codegenerator razorpage -m Movie -dc RazorPagesMovieContext -udl -outDir Pages\Movies --referenceScriptLibraries
   ```
 
-* **MacOS ve Linux için**: aşağıdaki komutu çalıştırın:
+* **MacOS ve Linux için**: Şu komutu çalıştırın:
 
   ```console
-  dotnet aspnet-codegenerator razorpage -m Movie -dc MovieContext -udl -outDir Pages/Movies --referenceScriptLibraries
+  dotnet aspnet-codegenerator razorpage -m Movie -dc RazorPagesMovieContext -udl -outDir Pages/Movies --referenceScriptLibraries
   ```
 
 [!INCLUDE [explains scaffold gen params](~/includes/RP/model4.md)]
@@ -133,6 +133,11 @@ Tamamlamak **ekleme Razor sayfaları (CRUD) Entity Framework kullanarak** ileti�
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
 * Proje dizininde bir komut penceresi açın (içeren dizine *Program.cs*, *Startup.cs*, ve *.csproj* dosyaları).
+* Yapı iskelesi Aracı'nı yükleyin:
+
+  ```console
+   dotnet tool install --global dotnet-aspnet-codegenerator
+   ```
 * Şu komutu çalıştırın:
 
   ```console
@@ -147,7 +152,7 @@ Tamamlamak **ekleme Razor sayfaları (CRUD) Entity Framework kullanarak** ileti�
 
 ### <a name="files-created"></a>Oluşturulan dosyalar
 
-* *Sayfa/filmler*: oluşturma, silme, Ayrıntılar, düzenleme ve dizin.
+* *Sayfa/filmler*: Oluşturma, silme, Ayrıntılar, düzenleme ve dizin.
 * *Data/RazorPagesMovieContext.cs*
 
 ### <a name="file-updated"></a>Dosya güncelleştirildi
@@ -266,4 +271,4 @@ Sonraki öğreticiye yapı iskelesi tarafından oluşturulan dosyaları açıkla
 
 > [!div class="step-by-step"]
 > [Önceki: Başlama](xref:tutorials/razor-pages/razor-pages-start)
-> [sonraki: Razor sayfaları için iskele kurulmuş](xref:tutorials/razor-pages/page)
+> [sonraki: İskeleli Razor sayfaları](xref:tutorials/razor-pages/page)

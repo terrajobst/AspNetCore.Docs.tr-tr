@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc, seodec18
 ms.date: 11/11/2018
 uid: security/authentication/facebook-logins
-ms.openlocfilehash: 8bb22dc6df9879e827ff9a5ac11e9e3ad5346dc2
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: d4f3e210b0d3c79eaf2233f97a29a6d96cd69b39
+ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121511"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53284389"
 ---
 # <a name="facebook-external-login-setup-in-aspnet-core"></a>ASP.NET core'da Facebook dış oturum açma Kurulumu
 
@@ -121,7 +121,7 @@ Bkz: [FacebookOptions](/dotnet/api/microsoft.aspnetcore.builder.facebookoptions)
 
 Uygulamanızı çalıştırın ve tıklayın **oturum**. Facebook ile oturum açmak için bir seçenek görürsünüz.
 
-![Web uygulaması: kullanıcı kimliği](index/_static/DoneFacebook.png)
+![Web uygulaması: Kullanıcı Kimliği](index/_static/DoneFacebook.png)
 
 Tıkladığınızda **Facebook**, kimlik doğrulaması için Facebook için yönlendirilirsiniz:
 
@@ -135,13 +135,13 @@ Facebook kimlik bilgilerinizi girdikten sonra e-postanızı ayarlayabildiğiniz 
 
 Şimdi, Facebook kimlik bilgilerinizi kullanarak kaydedilir:
 
-![Web uygulaması: kimliği doğrulanmış kullanıcı](index/_static/Done.png)
+![Web uygulaması: Kimliği doğrulanmış kullanıcı](index/_static/Done.png)
 
 [!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
-* **ASP.NET Core 2.x yalnızca:** , kimlik, çağırarak yapılandırılmamış `services.AddIdentity` içinde `ConfigureServices`, kimlik doğrulaması yapmaya sonuçlanır *ArgumentException: 'SignInScheme' seçeneği belirtilmelidir*. Bu öğreticide kullanılan proje şablonu, bu gerçekleştirilir sağlar.
+* **ASP.NET Core 2.x yalnızca:** Kimlik çağırarak yapılandırılmazsa `services.AddIdentity` içinde `ConfigureServices`, kimlik doğrulaması yapmaya sonuçlanır *ArgumentException: 'SignInScheme' seçeneği belirtilmelidir*. Bu öğreticide kullanılan proje şablonu, bu gerçekleştirilir sağlar.
 * Site veritabanı, ilk geçiş uygulayarak oluşturulmamış varsa *bir veritabanı işlemi başarısız istek işlenirken* hata. Dokunun **geçerli geçişleri** veritabanı oluşturma ve hata devam etmek için yenilemek için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
