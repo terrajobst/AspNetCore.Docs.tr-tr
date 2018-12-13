@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: seodec18
 ms.date: 09/11/2018
 uid: fundamentals/choose-between-aspnet-and-aspnetcore
-ms.openlocfilehash: b75fbea330e48075c4a2789454e973d4c56ffa53
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: eb216bdac7dd029c3d985f2edd9e70eb91f42883
+ms.sourcegitcommit: a16352c1c88a71770ab3922200a8cd148fb278a6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121186"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53335355"
 ---
 # <a name="choose-between-aspnet-4x-and-aspnet-core"></a>Seçin arasında ASP.NET 4.x ve ASP.NET Core
 
@@ -62,6 +62,3 @@ Bkz: [.NET Framework'ü hedefleyen ASP.NET Core](xref:index#target-framework) .N
 * [ASP.NET'e giriş](/aspnet/overview)
 * [ASP.NET Core'a giriş](xref:index)
 * <xref:host-and-deploy/azure-apps/index>
-
-> [!NOTE]
-> ASP.NET Core içindekiler tablosuna yönelik önerilmiş olan yeni bir yapının kullanılabilirliğini test ediyoruz.  Geçerli veya önerilen içindekiler tablosunda 7 farklı konuyu bulmaya ilişkin alıştırmayı denemek için vaktiniz varsa lütfen [çalışmaya katılmak için buraya tıklayın](https://dpk4xbh5.optimalworkshop.com/treejack/aa11wn82).

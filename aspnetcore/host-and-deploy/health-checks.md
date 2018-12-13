@@ -5,14 +5,14 @@ description: Uygulamaları ve veritabanları gibi ASP.NET Core altyapısı için
 monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/03/2018
+ms.date: 12/12/2018
 uid: host-and-deploy/health-checks
-ms.openlocfilehash: 6c1c644b2cd44cd00c68a8fd7d1e7d496ec91a59
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
+ms.openlocfilehash: cf2aea91221887dad5646604214f810493d4b175
+ms.sourcegitcommit: 1ea1b4fc58055c62728143388562689f1ef96cb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284688"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53329152"
 ---
 # <a name="health-checks-in-aspnet-core"></a>ASP.NET Core durum denetimleri
 
@@ -36,10 +36,12 @@ Sistem durumu denetimleri, genellikle bir uygulama durumunu denetlemek için bir
 
 Başvuru [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app) veya paket başvurusu ekleme [Microsoft.AspNetCore.Diagnostics.HealthChecks](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics.HealthChecks) paket.
 
-Örnek uygulama için birkaç senaryo durum denetimleri göstermek için başlangıç kodunu sağlar. [Veritabanı araştırma](#database-probe) senaryosu kullanarak bir veritabanı bağlantısı, sistem durumu araştırmaları [BeatPulse](https://github.com/Xabaril/BeatPulse). [DbContext araştırma](#entity-framework-core-dbcontext-probe) senaryo araştırmaları EF Core kullanarak veritabanı `DbContext`. Örnek uygulamayı kullanarak veritabanı senaryolarını keşfetmek için:
+Başlangıç kodu için birkaç senaryo durum denetimleri göstermek için örnek uygulamayı sağlar. [Veritabanı araştırma](#database-probe) senaryo denetimleri kullanarak bir veritabanı bağlantı durumu [BeatPulse](https://github.com/Xabaril/BeatPulse). [DbContext araştırma](#entity-framework-core-dbcontext-probe) senaryo denetler EF Core kullanarak veritabanı `DbContext`. Örnek uygulamayı veritabanına senaryolarını keşfetmek için:
 
-* Bir veritabanı oluşturun ve kendi bağlantı dizesinde sağlamak *appsettings.json* uygulamanın dosya.
-* Paket başvurusu ekleme [AspNetCore.HealthChecks.SqlServer](https://www.nuget.org/packages/AspNetCore.HealthChecks.SqlServer/).
+* Bir veritabanı oluşturur ve kendi bağlantı dizesinde sağlar *appsettings.json* dosya.
+* Aşağıdaki paket başvuruları, proje dosyasında sahiptir:
+  * [AspNetCore.HealthChecks.SqlServer](https://www.nuget.org/packages/AspNetCore.HealthChecks.SqlServer/)
+  * [Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore](https://www.nuget.org/packages/Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore/)
 
 > [!NOTE]
 > [BeatPulse](https://github.com/Xabaril/BeatPulse) tutulan veya Microsoft tarafından desteklenmiyor.
@@ -314,9 +316,17 @@ dotnet run --scenario db
 
 ## <a name="entity-framework-core-dbcontext-probe"></a>Entity Framework Core DbContext araştırma
 
-`DbContext` Onay kullanan uygulamalarda desteklenen [Entity Framework (EF) çekirdek](/ef/core/). Bu denetimi uygulamanın bir EF Core için yapılandırılmış veritabanı ile iletişim kurabildiğini doğrular `DbContext`. Varsayılan olarak, `DbContextHealthCheck` EF Core'nın çağıran `CanConnectAsync` yöntemi. Kullanarak sistem durumu denetimi, aşırı yüklemeleri hangi işlemin çalıştırıldığı özelleştirebilirsiniz `AddDbContextCheck` yöntemi.
+`DbContext` Onay onaylar uygulamayı bir EF Core için yapılandırılmış veritabanı ile iletişim kurabildiğini `DbContext`. `DbContext` Onay uygulamalarında desteklenen:
 
-`AddDbContextCheck<TContext>` Sistem durumu denetimi için kayıtları bir `DbContext` (`TContext`). Varsayılan olarak, sistem durumu denetimini adını adıdır `TContext` türü. Aşırı hata durumu, etiketler ve özel test sorgusu yapılandırmak kullanılabilir.
+* Kullanım [Entity Framework (EF) çekirdek](/ef/core/).
+* Bir paket başvuru eklemek [Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore](https://www.nuget.org/packages/Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore/).
+
+`AddDbContextCheck<TContext>` Sistem durumu denetimi için kayıtları bir `DbContext`. `DbContext` Olarak sağlanan `TContext` yöntemi. Aşırı hata durumu, etiketler ve özel test sorgusu yapılandırmak kullanılabilir.
+
+Varsayılan olarak:
+
+* `DbContextHealthCheck` EF Core'nın çağıran `CanConnectAsync` yöntemi. Hangi işlemin kullanarak sistem durumu denetlenirken çalıştırıldığı özelleştirebilirsiniz `AddDbContextCheck` yöntemi aşırı yüklemeleri.
+* Sistem durumu denetimini adını adıdır `TContext` türü.
 
 Örnek uygulamada `AppDbContext` için sağlanan `AddDbContextCheck` ve bir hizmet olarak kayıtlı `Startup.ConfigureServices`.
 

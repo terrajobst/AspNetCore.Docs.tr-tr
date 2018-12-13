@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/15/2018
 uid: fundamentals/routing
-ms.openlocfilehash: f18ec1da2affbf67b7ada570b68f98a42c7256a5
-ms.sourcegitcommit: ad28d1bc6657a743d5c2fa8902f82740689733bb
+ms.openlocfilehash: 66d719bb14095dcec4c2cfa15b63cf74ad7a0d49
+ms.sourcegitcommit: 1ea1b4fc58055c62728143388562689f1ef96cb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52256599"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53329165"
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET Core yönlendirme
 
@@ -276,7 +276,7 @@ Uç noktası yönlendirme içinde ASP.NET Core 2.2 veya sonraki bir sürümü il
 
   Uç noktasında yönlendirme ile ASP.NET Core 2.2 veya üzeri sonucudur `/Login`. Ortam değerleri bağlı hedef farklı bir eylem veya sayfası olduğunda yeniden değildir.
 
-* Gidiş dönüşü rota parametresi söz dizimi: eğik bir çift yıldız kullanırken kodlanmış olmayan (`**`) genel parametresi söz dizimi.
+* Gidiş dönüşü rota parametresi söz dizimi: Eğik olmayan kodlanmış bir yıldız işareti çift kullanırken (`**`) genel parametresi söz dizimi.
 
   Bağlantı oluşturma sırasında bir çift yıldız yakalanan değer yönlendirme sistem kodlar (`**`) genel parametresi (örneğin, `{**myparametername}`) eğik hariç. Catch-tüm çift yıldız işareti ile desteklenen `IRouter`-ASP.NET Core 2.2 veya sonraki bir sürümde yönlendirme tabanlı.
 
@@ -679,12 +679,23 @@ Parametre dönüştürücüler:
 
 Örneğin, bir özel `slugify` parametresi transformer yol deseninde `blog\{article:slugify}` ile `Url.Action(new { article = "MyTestArticle" })` oluşturur `blog\my-test-article`.
 
+Yol deseninde bir parametre transformer kullanmak için yapılandırmanız ilk kullanarak <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap> içinde `Startup.ConfigureServices`:
+
+```csharp
+services.AddRouting(options =>
+{
+    // Replace the type and the name used to refer to it with your own
+    // IOutboundParameterTransformer implementation
+    options.ConstraintMap["slugify"] = typeof(SlugifyParameterTransformer);
+});
+```
+
 Parametre dönüştürücüler, burada bir uç nokta çözümler URI dönüştürmek için framework tarafından kullanılır. Örneğin, ASP.NET Core MVC eşleştirmek için kullanılan rota değeri dönüştürmek için parametre dönüştürücüler kullanan bir `area`, `controller`, `action`, ve `page`.
 
 ```csharp
 routes.MapRoute(
     name: "default",
-    template: "{controller=Home:slugify}/{action=Index:slugify}/{id?}");
+    template: "{controller:slugify=Home}/{action:slugify=Index}/{id?}");
 ```
 
 Önceki yol, bir eylem ile `SubscriptionManagementController.GetAll()` URI'si ile eşleşen `/subscription-management/get-all`. Bir parametre transformer giden bir bağlantı oluşturmak için kullanılan rota değerlerini değiştirmez. Örneğin, `Url.Action("GetAll", "SubscriptionManagement")` çıkarır `/subscription-management/get-all`.

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/5/2018
 uid: tutorials/razor-pages/new-field
-ms.openlocfilehash: e280bc9553113982a1f1a77eabab32575c905237
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 9b3ad5f6c4b1c9b5f016f5591127c8d1b213948d
+ms.sourcegitcommit: 1ea1b4fc58055c62728143388562689f1ef96cb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862297"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53329139"
 ---
 # <a name="add-a-new-field-to-a-razor-page-in-aspnet-core"></a>ASP.NET Core Razor sayfasına yeni bir alan ekleyin
 
@@ -96,14 +96,18 @@ Update-Database
 
 Adı "Sıralama" isteğe bağlıdır ve geçiş dosyasını adlandırmak için kullanılır. Geçiş dosya için anlamlı bir ad kullanmak yararlıdır.
 
+`Update-Database` Komutu veritabanı için şema değişiklikleri uygulamak için framework bildirir.
+
 <a name="ssox"></a>
 
-DB tüm kayıtların silerseniz, başlatıcı DB çekirdeğini ve dahil `Rating` alan. Tarayıcıda veya gelen silme bağlantıları kullanarak bunu yapabilirsiniz [Sql Server Nesne Gezgini](xref:tutorials/razor-pages/sql#ssox) (SSOX). SSOX veritabanını silmek için:
+DB tüm kayıtların silerseniz, başlatıcı DB çekirdeğini ve dahil `Rating` alan. Tarayıcıda veya gelen silme bağlantıları kullanarak bunu yapabilirsiniz [Sql Server Nesne Gezgini](xref:tutorials/razor-pages/sql#ssox) (SSOX).
+
+Başka bir seçenek veritabanını silin ve veritabanını yeniden oluşturmaya geçişleri kullanmaktır. SSOX veritabanında silmek için:
 
 * Veritabanı içinde SSOX seçin.
 * Veritabanını sağ tıklatın ve seçin *Sil*.
 * Denetleme **var olan bağlantıları kapatın**.
-* Seçin **Tamam**.
+* **Tamam**’ı seçin.
 * İçinde [PMC](xref:tutorials/razor-pages/new-field#pmc), veritabanını güncelleştir:
 
   ```powershell
@@ -111,12 +115,9 @@ DB tüm kayıtların silerseniz, başlatıcı DB çekirdeğini ve dahil `Rating`
   ```
 
 <!-- Code -------------------------->
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code'u / Visual Studio Mac için](#tab/visual-studio-code+visual-studio-mac)
 
-<!-- copy/paste this tab to the next. Not worth an include  --> SQLite geçişleri desteklemez.
-
-* Veritabanını silin veya veritabanı adını değiştirmek *appsettings.json* dosya.
-* Silme *geçişler* klasörü (ve klasördeki tüm dosyaları).
+<!-- copy/paste this tab to the next. Not worth an include  -->
 
 Aşağıdaki .NET Core CLI komutları çalıştırın:
 
@@ -125,20 +126,28 @@ dotnet ef migrations add Rating
 dotnet ef database update
 ```
 
-<!-- Mac -------------------------->
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
+`ef migrations add` Komutu framework bildirir:
 
-SQLite geçişleri desteklemez.
+* Karşılaştırma `Movie` ile model `Movie` DB şema.
+* Yeni modeline DB şema geçişi için kod oluşturun.
 
-* Veritabanını silin veya veritabanı adını değiştirmek *appsettings.json* dosya.
-* Silme *geçişler* klasörü (ve klasördeki tüm dosyaları).
+Adı "Sıralama" isteğe bağlıdır ve geçiş dosyasını adlandırmak için kullanılır. Geçiş dosya için anlamlı bir ad kullanmak yararlıdır.
 
-Aşağıdaki .NET Core CLI komutları çalıştırın:
+`ef database update` Komutu veritabanı için şema değişiklikleri uygulamak için framework bildirir.
+
+DB tüm kayıtların silerseniz, başlatıcı DB çekirdeğini ve dahil `Rating` alan. Delete bağlantıları tarayıcıda veya bir SQLite aracını kullanarak yapın.
+
+Başka bir seçenek veritabanını silin ve veritabanını yeniden oluşturmaya geçişleri kullanmaktır. Veritabanını silmek için veritabanı dosyasını silin (*MvcMovie.db*). Ardından çalıştırın `ef database update` komutu: 
 
 ```console
-dotnet ef migrations add Rating
 dotnet ef database update
 ```
+
+> [!NOTE]
+> Birçok şema değiştirme işlemlerini EF Core SQLite sağlayıcı tarafından desteklenmiyor. Örneğin, sütun ekleme desteklenir, ancak bir sütun kaldırılması desteklenmiyor. Bir sütunu kaldırmak için bir geçiş eklerseniz `ef migrations add` komut başarılı ancak `ef database update` komutu başarısız oluyor. Bazı kısıtlamalar nedeniyle geçici olarak bir tablo yeniden oluşturma gerçekleştirmek için geçiş kodu el ile yazarak çalışabilir. Bir tablo yeniden oluşturma, varolan bir tabloyu yeniden adlandırma, yeni bir tablo oluşturma, yeni tabloya veri kopyalama ve eski tablo bırakılırken içerir. Daha fazla bilgi için aşağıdaki kaynaklara bakın:
+> * [SQLite EF Core veritabanı sağlayıcısı sınırlamaları](/ef/core/providers/sqlite/limitations)
+> * [Geçiş kodu özelleştirme](/ef/core/managing-schemas/migrations/#customize-migration-code)
+> * [Veri çekirdeği oluşturma](/ef/core/modeling/data-seeding)
 
 ---  
 <!-- End of VS tabs -->
@@ -147,4 +156,4 @@ Uygulamayı çalıştırın ve kontrol edebilirsiniz oluşturma/düzenleme/gör�
 
 > [!div class="step-by-step"]
 > [Önceki: Arama ekleme](xref:tutorials/razor-pages/search)
-> [sonraki: doğrulama ekleme](xref:tutorials/razor-pages/validation)
+> [sonraki: Doğrulama ekleme](xref:tutorials/razor-pages/validation)

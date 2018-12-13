@@ -2,17 +2,16 @@
 title: TypeScript ve Web ile ASP.NET Core SignalR kullanma
 author: ssougnez
 description: Bu öğreticide, Web, istemci, içinde TypeScript yazılmış bir ASP.NET Core SignalR web uygulaması derleme ve paket için yapılandırın.
-monikerRange: '>= aspnetcore-2.2'
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 11/30/2018
 uid: tutorials/signalr-typescript-webpack
-ms.openlocfilehash: b2d59dfc449953cc2d747b507295c00ac0f652dd
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 92709beb7a99289b8639135aab9d821937825103
+ms.sourcegitcommit: a16352c1c88a71770ab3922200a8cd148fb278a6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862258"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53335292"
 ---
 # <a name="use-aspnet-core-signalr-with-typescript-and-webpack"></a>TypeScript ve Web ile ASP.NET Core SignalR kullanma
 
@@ -20,7 +19,7 @@ Tarafından [Sébastien Sougnez](https://twitter.com/ssougnez) ve [Scott Addie](
 
 [Web](https://webpack.js.org/) geliştiricilerin paket ve derleme bir web uygulamasının istemci-tarafı kaynakları sağlar. Web istemcisi yazılmış bir ASP.NET Core SignalR web uygulaması kullanarak bu eğitimde [TypeScript](https://www.typescriptlang.org/).
 
-Bu öğreticide, şunların nasıl yapılır:
+Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Bir başlangıç ASP.NET Core SignalR uygulaması iskelesini
@@ -103,9 +102,9 @@ Aşağıdaki adımlar, JavaScript, TypeScript, dönüştürme ve istemci tarafı
 
     Bazı komut dosyaları açıklaması:
 
-    * `build`: Geliştirme modunda istemci-tarafı kaynaklarınızı oluşturur ve dosya değişikliklerini izler. Dosya İzleyici, paket her zaman bir proje dosya değişiklikleri yeniden neden olur. `mode` Seçeneği, ağaç sallayabilir ve küçültme gibi üretim iyileştirmeleri devre dışı bırakır. Yalnızca `build` geliştirme.
+    * `build`: İstemci tarafı kaynaklarınızı geliştirme modunda oluşturur ve dosya değişikliklerini izler. Dosya İzleyici, paket her zaman bir proje dosya değişiklikleri yeniden neden olur. `mode` Seçeneği, ağaç sallayabilir ve küçültme gibi üretim iyileştirmeleri devre dışı bırakır. Yalnızca `build` geliştirme.
     * `release`: İstemci tarafı kaynaklarınızı üretim modunda oluşturur.
-    * `publish`: Çalıştıran `release` üretim modunda istemci-tarafı kaynakları paket betiği. .NET Core CLI'ın çağırdığı [yayımlama](/dotnet/core/tools/dotnet-publish) uygulamayı yayımlamak için komutu.
+    * `publish`: Çalıştırmaları `release` üretim modunda istemci-tarafı kaynakları paket betiği. .NET Core CLI'ın çağırdığı [yayımlama](/dotnet/core/tools/dotnet-publish) uygulamayı yayımlamak için komutu.
 
 1. Adlı bir dosya oluşturun *webpack.config.js*, proje kökündeki aşağıdaki içeriğe sahip:
 
@@ -144,7 +143,7 @@ Aşağıdaki adımlar, JavaScript, TypeScript, dönüştürme ve istemci tarafı
 
     Önceki TypeScript DOM öğeleri için başvuru alır ve iki olay işleyicisi ekler:
 
-    * `keyup`: Kullanıcı bir şey olarak tanımlanmış metin kutusuna yazdığında bu olay harekete `tbMessage`. `send` İşlevi, kullanıcının bastığında çağrılır **Enter** anahtarı.
+    * `keyup`: Kullanıcı bir şey olarak tanımlanmış metin kutusuna yazdığında, bu olay harekete `tbMessage`. `send` İşlevi, kullanıcının bastığında çağrılır **Enter** anahtarı.
     * `click`: Kullanıcı tıkladığında bu olay harekete **Gönder** düğmesi. `send` İşlevi çağrılır.
 
 ## <a name="configure-the-aspnet-core-app"></a>ASP.NET Core uygulaması yapılandırma

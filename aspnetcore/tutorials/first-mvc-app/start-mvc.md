@@ -5,12 +5,12 @@ description: ASP.NET Core MVC ve Visual Studio ile çalışmaya başlama hakkın
 ms.author: riande
 ms.date: 10/07/2017
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: 738c49272c2ae2b075866001f06ad09fe73969f9
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: dfc9a864cf10db5fc44d5631dcbb2f73325d9e14
+ms.sourcegitcommit: a16352c1c88a71770ab3922200a8cd148fb278a6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862206"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53335331"
 ---
 # <a name="get-started-with-aspnet-core-mvc-and-visual-studio"></a>ASP.NET Core MVC ve Visual Studio ile çalışmaya başlama
 
@@ -20,12 +20,9 @@ Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Bu öğreticinin 3 sürümü vardır:
 
-* macOS: [Mac için Visual Studio ile ASP.NET Core MVC uygulaması oluşturma](xref:tutorials/first-mvc-app-mac/start-mvc)
+* macOS: [Mac için Visual Studio ile bir ASP.NET Core MVC uygulaması oluşturma](xref:tutorials/first-mvc-app-mac/start-mvc)
 * Windows: [Visual Studio ile bir ASP.NET Core MVC uygulaması oluşturma](xref:tutorials/first-mvc-app/start-mvc)
-* macOS, Linux ve Windows: [Visual Studio Code ile ASP.NET Core MVC uygulaması oluşturma](xref:tutorials/first-mvc-app-xplat/start-mvc)
-
-> [!NOTE]
-> ASP.NET Core içindekiler tablosuna yönelik önerilmiş olan yeni bir yapının kullanılabilirliğini test ediyoruz.  Geçerli veya önerilen içindekiler tablosunda 7 farklı konuyu bulmaya ilişkin alıştırmayı denemek için vaktiniz varsa lütfen [çalışmaya katılmak için buraya tıklayın](https://dpk4xbh5.optimalworkshop.com/treejack/aa11wn82).
+* macOS, Linux ve Windows için: [Visual Studio kodu ile bir ASP.NET Core MVC uygulaması oluşturma](xref:tutorials/first-mvc-app-xplat/start-mvc)
 
 ## <a name="install-visual-studio-and-net-core"></a>Visual Studio ve .NET Core yükleyin
 
@@ -33,7 +30,7 @@ Bu öğreticinin 3 sürümü vardır:
 
 [!INCLUDE [](~/includes/net-core-prereqs-windows.md)]
 
-## <a name="create-a-web-app"></a>Bir web uygulaması oluşturma
+## <a name="create-a-web-app"></a>Web uygulaması oluşturma
 
 Visual Studio'dan seçin **Dosya > Yeni > Proje**.
 
@@ -86,7 +83,7 @@ Bu öğreticinin sonraki bölümünde, biz MVC konusunda bilgi ve biraz kod yazm
 
 [!INCLUDE [](~/includes/net-core-prereqs.md)]
 
-## <a name="create-a-web-app"></a>Bir web uygulaması oluşturma
+## <a name="create-a-web-app"></a>Web uygulaması oluşturma
 
 Visual Studio'dan seçin **Dosya > Yeni > Proje**.
 
