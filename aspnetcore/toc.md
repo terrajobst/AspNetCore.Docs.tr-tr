@@ -177,6 +177,7 @@
 ## Öğreticiler
 ### [JavaScript ile SignalR](xref:tutorials/signalr)
 ### [TypeScript ile SignalR](xref:tutorials/signalr-typescript-webpack)
+## [Örnekler](https://github.com/aspnet/SignalR-samples)
 ## Sunucu kavramları
 ### [Merkezler](xref:signalr/hubs)
 ### [HubContext](xref:signalr/hubcontext)
@@ -402,6 +403,7 @@
 ### [Dağıtılmış önbelleğe alma](xref:performance/caching/distributed)
 ### [Yanıtları önbelleğe alma ara yazılımı](xref:performance/caching/middleware)
 ## [Yanıt sıkıştırma](xref:performance/response-compression)
+## [Tanılama Araçları](xref:performance/diagnostic-tools)
 
 # Diğer konular
 ## [Genelleştirme ve yerelleştirme](xref:fundamentals/localization)
