@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/16/2018
 uid: index
-ms.openlocfilehash: 708fa3438c9d22a25eae9f37e4d17f69e27d3be9
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: fed81090f123084f3f33e75f86d09f55ac7fb481
+ms.sourcegitcommit: a16352c1c88a71770ab3922200a8cd148fb278a6
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121745"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53335305"
 ---
 # <a name="introduction-to-aspnet-core"></a>ASP.NET Core’a Giriş
 
@@ -130,6 +130,3 @@ Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 * <xref:tutorials/publish-to-azure-webapp-using-vs>
 * [ASP.NET Core temelleri](xref:fundamentals/index)
 * [Haftalık ASP.NET topluluğu toplantısında](https://live.asp.net/), takımın ilerleme durumu ve planları ele alınır. Yeni bloglara ve üçüncü taraf yazılıma yer verilir.
-
-> [!NOTE]
-> ASP.NET Core içindekiler tablosuna yönelik önerilmiş olan yeni bir yapının kullanılabilirliğini test ediyoruz.  Geçerli veya önerilen içindekiler tablosunda 7 farklı konuyu bulmaya ilişkin alıştırmayı denemek için vaktiniz varsa lütfen [çalışmaya katılmak için buraya tıklayın](https://dpk4xbh5.optimalworkshop.com/treejack/aa11wn82).
