@@ -479,7 +479,7 @@ Bu yaklaşımları kullanarak sağlanan değer, bir veya daha fazla HTTP ve HTTP
 Aşağıdaki *appsettings.json* örneği:
 
 * Ayarlama **AllowInvalid** için `true` geçersiz sertifikaları (örneğin, otomatik olarak imzalanan sertifikalar) izin verilir.
-* Bir sertifika belirtmeyen herhangi bir HTTPS uç noktası (**HttpsDefaultCert** örnekte) bölümünde tanımlanan sertifika için geri döner **sertifikaları** > **varsayılan ** veya geliştirme sertifikası.
+* Bir sertifika belirtmeyen herhangi bir HTTPS uç noktası (**HttpsDefaultCert** örnekte) bölümünde tanımlanan sertifika için geri döner **sertifikaları** > **varsayılan** veya geliştirme sertifikası.
 
 ```json
 {
