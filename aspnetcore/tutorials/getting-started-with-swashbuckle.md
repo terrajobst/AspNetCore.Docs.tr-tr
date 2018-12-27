@@ -4,14 +4,14 @@ author: zuckerthoben
 description: Swagger kullanıcı arabirimini tümleştirmek için ASP.NET Core web API projesi için Swashbuckle eklemeyi öğrenin.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 11/30/2018
+ms.date: 12/18/2018
 uid: tutorials/get-started-with-swashbuckle
-ms.openlocfilehash: 9229b4536c3d5090e640de71357c728ddbd5dcc3
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: a8c3d999cfddb4d3d888455d7cc0b899a71e427e
+ms.sourcegitcommit: ea215df889e89db44037a6ac2f01baede0450da9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862349"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53595353"
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Swashbuckle'ı ve ASP.NET Core ile çalışmaya başlama
 
@@ -25,7 +25,7 @@ Swashbuckle'ı için üç ana bileşeni vardır:
 
 * [Swashbuckle.AspNetCore.SwaggerGen](https://www.nuget.org/packages/Swashbuckle.AspNetCore.SwaggerGen/): oluşturan bir Swagger Oluşturucusu `SwaggerDocument` nesneleri doğrudan, rotalara, denetleyicilere ve modeller. Bu genellikle otomatik olarak Swagger JSON kullanıma sunmak için Swagger uç nokta ara yazılımı ile birleştirilir.
 
-* [Swashbuckle.AspNetCore.SwaggerUI](https://www.nuget.org/packages/Swashbuckle.AspNetCore.SwaggerUI/): katıştırılmış bir Swagger kullanıcı arabirimini aracı sürümü. Bu Web API'SİNİN işlevselliğini tanımlamak için zengin, özelleştirilebilir bir deneyim oluşturmak için Swagger JSON yorumlar. Genel metotlar için yerleşik test harnesses içerir.
+* [Swashbuckle.AspNetCore.SwaggerUI](https://www.nuget.org/packages/Swashbuckle.AspNetCore.SwaggerUI/): katıştırılmış bir Swagger kullanıcı arabirimini aracı sürümü. Bu, web API işlevleri tanımlamak için zengin, özelleştirilebilir bir deneyim oluşturmak için Swagger JSON yorumlar. Genel metotlar için yerleşik test harnesses içerir.
 
 ## <a name="package-installation"></a>Paket yüklemesi
 
@@ -258,7 +258,7 @@ Oluşturulan XML dosyasını kullanmak için Swagger'ı yapılandırın. Linux v
 
 ::: moniker-end
 
-Önceki kodda, [yansıma](/dotnet/csharp/programming-guide/concepts/reflection) Web API projesi, eşleşen bir XML dosya adı oluşturmak için kullanılır. [AppContext.BaseDirectory](/dotnet/api/system.appcontext.basedirectory#System_AppContext_BaseDirectory) özelliği, bir XML dosyasının yolu oluşturmak için kullanılır.
+Önceki kodda, [yansıma](/dotnet/csharp/programming-guide/concepts/reflection) web API projesi, eşleşen bir XML dosya adı oluşturmak için kullanılır. [AppContext.BaseDirectory](xref:System.AppContext.BaseDirectory*) özelliği, bir XML dosyasının yolu oluşturmak için kullanılır.
 
 Swagger kullanıcı arabirimini üç eğik çizgi açıklama eklemek için bir eylem için bölüm başlığı açıklama ekleyerek geliştirir. Ekleme bir [ \<Özet >](/dotnet/csharp/programming-guide/xmldoc/summary) öğesi yukarıdaki `Delete` eylem:
 
@@ -367,11 +367,11 @@ Ekleme `[Produces("application/json")]` özniteliği için API denetleyicisi. De
 
 ![Swagger kullanıcı Arabirimi ile varsayılan yanıt içerik türü](web-api-help-pages-using-swagger/_static/json-response-content-type.png)
 
-Web API'sindeki veri ek açıklamaları kullanımı arttıkça, UI ve API tarafından Yardım sayfaları daha açıklayıcı ve yararlı olur.
+Web API'SİNDEKİ veri ek açıklamaları kullanımı arttıkça, UI ve API tarafından Yardım sayfaları daha açıklayıcı ve yararlı olur.
 
 ### <a name="describe-response-types"></a>Yanıt türleri açıklanmaktadır
 
-Kullanan geliştiriciler hangi iade ile en ilgili&mdash;özellikle yanıt türleri ve hata kodları (standart varsa). Hata kodları ve yanıt türleri XML açıklamaları ve verileri ek açıklamalar içinde belirtilir.
+Bir web API'sini kullanan geliştiriciler hangi iade ile en ilgili&mdash;özellikle yanıt türleri ve hata kodları (standart varsa). Hata kodları ve yanıt türleri XML açıklamaları ve verileri ek açıklamalar içinde belirtilir.
 
 `Create` Eylem başarılı olduğunda bir HTTP 201 durum kodunu döndürür. Gönderilen istek gövdesi null olduğunda, bir HTTP 400 durum kodu döndürülür. Swagger kullanıcı arabirimini uygun belgelerinde tüketici bu beklenen sonuçları bilgisine sahip değil. Aşağıdaki örnekte vurgulanan satırları ekleyerek bu sorunu düzeltin:
 
@@ -390,6 +390,12 @@ Kullanan geliştiriciler hangi iade ile en ilgili&mdash;özellikle yanıt türle
 Swagger kullanıcı arabirimini açıkça beklenen HTTP yanıt kodları artık belgeler:
 
 ![Swagger kullanıcı Arabirimi POST yanıt sınıf açıklaması 'yeni oluşturulan bir Todo öğesini döndürür' gösteren ve '400 - öğe null ise' durum kodu ve yanıt iletilerinin altında nedeni](web-api-help-pages-using-swagger/_static/data-annotations-response-types.png)
+
+::: moniker range=">= aspnetcore-2.2"
+
+Açıkça bireysel eylemleri dekore etmeye alternatif olarak ASP.NET Core 2.2 veya sonraki sürümlerde, kuralları kullanılabilir `[ProducesResponseType]`. Daha fazla bilgi için bkz. <xref:web-api/advanced/conventions>.
+
+::: moniker-end
 
 ### <a name="customize-the-ui"></a>Kullanıcı arabirimini özelleştirme
 

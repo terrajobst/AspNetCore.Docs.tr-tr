@@ -3,14 +3,14 @@ title: ASP.NET core'da anahtar depolama sağlayıcıları
 author: rick-anderson
 description: Anahtar depolama sağlayıcıları ASP.NET Core ve anahtar depolama konumları yapılandırma hakkında bilgi edinin.
 ms.author: riande
-ms.date: 12/06/2018
+ms.date: 12/19/2018
 uid: security/data-protection/implementation/key-storage-providers
-ms.openlocfilehash: e10271d5979b503a8a842f8866a0e2a3fa040656
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: d6dabc9e4581e0891d1dd14f73e086d50b45bba4
+ms.sourcegitcommit: 3e94d192b2ed9409fe72e3735e158b333354964c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121459"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735745"
 ---
 # <a name="key-storage-providers-in-aspnet-core"></a>ASP.NET core'da anahtar depolama sağlayıcıları
 
@@ -125,6 +125,38 @@ EF Core sağlayıcısını yapılandırmak için çağrı [ `PersistKeysToDbCont
 Genel parametre `TContext`, devralmalıdır [DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext) ve [IDataProtectionKeyContext](/dotnet/api/microsoft.aspnetcore.dataprotection.entityframeworkcore.idataprotectionkeycontext):
 
 [!code-csharp[Main](key-storage-providers/sample/MyKeysContext.cs)]
+
+Oluşturma `DataProtectionKeys` tablo. 
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+Aşağıdaki komutları yürütün **Paket Yöneticisi Konsolu** (PMC) penceresi:
+
+```PowerShell
+Add-Migration AddDataProtectionKeys -Context MyKeysContext
+Update-Database -Context MyKeysContext
+```
+
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+
+Bir komut kabuğu'nda aşağıdaki komutları yürütün:
+
+```console
+dotnet ef migrations add AddDataProtectionKeys --context MyKeysContext
+dotnet ef database update --context MyKeysContext
+```
+
+---
+
+`MyKeysContext` olan `DbContext` Yukarıdaki kod örneğinde tanımlanan. Kullanıyorsanız, bir `DbContext` farklı bir adla değiştirin, `DbContext` adı `MyKeysContext`.
+
+`DataProtectionKeys` Varlık sınıfının başına aşağıdaki tabloda gösterilmektedir yapı devralır.
+
+| Özellik/alan | CLR türü | SQL türü              |
+| -------------- | -------- | --------------------- |
+| `Id`           | `int`    | `int`, PK, null değil   |
+| `FriendlyName` | `string` | `nvarchar(MAX)`, null |
+| `Xml`          | `string` | `nvarchar(MAX)`, null |
 
 ::: moniker-end
 

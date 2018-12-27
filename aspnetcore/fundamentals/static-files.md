@@ -4,14 +4,14 @@ author: rick-anderson
 description: Hizmet ve statik dosyaların güvenliğini sağlamak ve ASP.NET Core web uygulaması ara yazılım davranışları barındırma statik dosya yapılandırma hakkında bilgi edinin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/18/2018
+ms.date: 12/18/2018
 uid: fundamentals/static-files
-ms.openlocfilehash: fb92141b1864574242b29ecc386024ce72a6be87
-ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.openlocfilehash: 4c08d65cc1f658ef08a9b4b362ac7f8a3a243557
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51570132"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637787"
 ---
 # <a name="static-files-in-aspnet-core"></a>ASP.NET core'da statik dosyalar
 
@@ -246,7 +246,7 @@ Yukarıdaki kod ile bir isteği bir dosyayla bilinmeyen bir içerik türü için
 
 * İle kullanıma sunulan içerik için URL'leri `UseDirectoryBrowser` ve `UseStaticFiles` büyük küçük harf duyarlılığı ve temel alınan dosya sisteminin karakter kısıtlamaları tabidir. Örneğin, Windows büyük küçük harfe duyarlı&mdash;macOS ve Linux değildir.
 
-* IIS kullanımda barındırılan ASP.NET Core uygulamaları [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module) tüm statik dosya istekleri dahil olmak üzere uygulama isteklerini iletmek için. IIS statik dosya işleyicisi kullanılmaz. Modül tarafından işlenen önce isteklerini işlemek için bir şans var.
+* IIS kullanımda barındırılan ASP.NET Core uygulamaları [ASP.NET Core Modülü](xref:host-and-deploy/aspnet-core-module) tüm statik dosya istekleri dahil olmak üzere uygulama isteklerini iletmek için. IIS statik dosya işleyicisi kullanılmaz. Modül tarafından işlenen önce isteklerini işlemek için bir şans var.
 
 * Sunucu veya Web sitesi düzeyinde IIS statik dosya işleyicisi kaldırmak için IIS Yöneticisi'nde aşağıdaki adımları tamamlayın:
     1. Gidin **modülleri** özelliği.

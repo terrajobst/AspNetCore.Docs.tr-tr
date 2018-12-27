@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core Azure App Service dağıtım sorunlarını tanılamayı öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 12/18/2018
 uid: host-and-deploy/azure-apps/troubleshoot
-ms.openlocfilehash: 05bb024f5b0d2b554cc861c250a92fd7ae23437f
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: b36c321c6ba6801a32b5187651063337b4533fd1
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090751"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637659"
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service"></a>Azure App Service'te ASP.NET Core sorunlarını giderme
 
@@ -26,7 +26,7 @@ Bu makalede, Azure App Service'nın tanılama araçlarını kullanarak uygulama 
 **502.5 işlem hatası**  
 Çalışan işlemi başarısız olur. Uygulama başlamaz.
 
-[ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module) başlatmak çalışan işlemi ancak başlatma girişimleri başarısız. Genellikle uygulama olay günlüğünü inceleyerek bu tür bir sorun gidermenize yardımcı olur. Günlük erişme bölümünde açıklanmıştır [uygulama olay günlüğüne](#application-event-log) bölümü.
+[ASP.NET Core Modülü](xref:host-and-deploy/aspnet-core-module) başlatmak çalışan işlemi ancak başlatma girişimleri başarısız. Genellikle uygulama olay günlüğünü inceleyerek bu tür bir sorun gidermenize yardımcı olur. Günlük erişme bölümünde açıklanmıştır [uygulama olay günlüğüne](#application-event-log) bölümü.
 
 *502.5 işlem hatası* hata sayfası, yanlış yapılandırılmış bir uygulama çalışan işleminin başarısız olmasına neden olduğunda döndürülür:
 
@@ -164,7 +164,7 @@ Başarısız istek izleme günlükleri (FREB günlükleri) görüntülemek için
 1. Gidin **Tanıla ve problemleri çözmenize** Azure portalındaki dikey penceresinde.
 1. Seçin **başarısız istek günlükleri izleme** gelen **Destek Araçları** kenar alanı.
 
-Bkz: [başarısız istek konuda Azure App Service web apps için etkinleştirme tanılama günlüğünü bölümünü izler](/azure/app-service/web-sites-enable-diagnostic-log#failed-request-traces) ve [azure'daki Web uygulamaları için uygulama performansı ile ilgili SSS: nasıl başarısız istek izlemeyi kapatırım?](/azure/app-service/app-service-web-availability-performance-application-issues-faq#how-do-i-turn-on-failed-request-tracing) Daha fazla bilgi için.
+Bkz: [başarısız istek konuda Azure App Service web apps için etkinleştirme tanılama günlüğünü bölümünü izler](/azure/app-service/web-sites-enable-diagnostic-log#failed-request-traces) ve [azure'daki Web uygulamaları için uygulama performansı ile ilgili SSS: Başarısız istek izlemeyi nasıl kapatırım? ](/azure/app-service/app-service-web-availability-performance-application-issues-faq#how-do-i-turn-on-failed-request-tracing) daha fazla bilgi için.
 
 Daha fazla bilgi için [Azure App Service'te web apps için tanılama günlüğünü etkinleştirme](/azure/app-service/web-sites-enable-diagnostic-log).
 

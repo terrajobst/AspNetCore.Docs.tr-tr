@@ -3,14 +3,14 @@ title: Kimlik doğrulaması ve kimlik için ASP.NET Core 2.0 geçirme
 author: scottaddie
 description: Bu makalede, ASP.NET Core 2.0 için geçirme ASP.NET Core 1.x kimlik doğrulaması ve kimlik için en yaygın adımlar özetlenmektedir.
 ms.author: scaddie
-ms.date: 10/26/2017
+ms.date: 12/18/2018
 uid: migration/1x-to-2x/identity-2x
-ms.openlocfilehash: 6d457d42ad29ca579ba74e3b097d143bd6531b72
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: d28b4af483c7ec9d6cff6db3e2f1693e765d4202
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41755900"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637618"
 ---
 # <a name="migrate-authentication-and-identity-to-aspnet-core-20"></a>Kimlik doğrulaması ve kimlik için ASP.NET Core 2.0 geçirme
 
@@ -283,7 +283,7 @@ Windows kimlik doğrulamasının iki çeşidi vardır:
 
 Yukarıda açıklanan Birincisi 2.0 değişikliklerden etkilenmez.
 
-Yukarıda açıklanan İkincisiyse 2.0 değişikliklerden etkilenir. Örneğin, anonim kullanıcılar uygulamanıza IIS sağlayan veya [HTTP.sys](xref:fundamentals/servers/weblistener) katman denetleyici düzeyinde ancak yetki verme kullanıcılar. Bu senaryoda, varsayılan düzenini ayarlayın `IISDefaults.AuthenticationScheme` içinde `ConfigureServices` yöntemi *Startup.cs*:
+Yukarıda açıklanan İkincisiyse 2.0 değişikliklerden etkilenir. Örneğin, anonim kullanıcılar uygulamanıza IIS sağlayan veya [HTTP.sys](xref:fundamentals/servers/httpsys) katman denetleyici düzeyinde ancak yetki verme kullanıcılar. Bu senaryoda, varsayılan düzenini ayarlayın `IISDefaults.AuthenticationScheme` içinde `Startup.ConfigureServices` yöntemi:
 
 ```csharp
 services.AddAuthentication(IISDefaults.AuthenticationScheme);

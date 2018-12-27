@@ -4,16 +4,16 @@ title: Yönlendirme ve eylem seçimi ASP.NET Web API'de | Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: riande
-ms.date: 07/27/2012
+ms.date: 12/14/2018
 ms.assetid: bcf2d223-cb7f-411e-be05-f43e96a14015
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/routing-and-action-selection
 msc.type: authoredcontent
-ms.openlocfilehash: b4912d3ee1e13651f2a63d54d7dbfd92e00f85f8
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: ce54181996376cb5dde3b91c10c16f33b3c6a570
+ms.sourcegitcommit: 6548c19f345850ee22b50f7ef9fca732895d9e08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41757289"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53425178"
 ---
 <a name="routing-and-action-selection-in-aspnet-web-api"></a>Yönlendirme ve eylem seçimi ASP.NET Web API
 ====================
@@ -62,7 +62,7 @@ Rota Varsayılanları sağlarsanız, bu kesimleri eksik bir URI eşleşir. Örne
 
 [!code-csharp[Main](routing-and-action-selection/samples/sample4.cs)]
 
-URI "`http://localhost/api/products`" Bu rotayla eşleşir. "{Category}" segment "tüm" varsayılan değer atanır.
+Bir URI'leri `http://localhost/api/products/all` ve `http://localhost/api/products` önceki rota ile eşleşmekte. İkinci uri'sindeki eksik `{category}` segment, varsayılan değer atanır `all`.
 
 ### <a name="route-dictionary"></a>Rota sözlüğünü
 
@@ -122,7 +122,7 @@ Seçimi algoritması aramadan önce denetleyici eylemleri hakkında bazı şeyle
 
 **HTTP yöntemleri.** Framework, aşağıdaki gibi belirlenen isteğin HTTP yöntemi ile eşleşen eylemleri yalnızca seçer:
 
-1. HTTP yöntemi ile bir öznitelik belirtebilirsiniz: **AcceptVerbs**, **HttpDelete**, **HttpGet**, **HttpHead**,  **HttpOptions**, **HttpPatch**, **HttpPost**, veya **HttpPut**.
+1. HTTP yöntemi ile bir öznitelik belirtebilirsiniz: **AcceptVerbs**, **HttpDelete**, **HttpGet**, **HttpHead**, **HttpOptions**, **HttpPatch**, **HttpPost**, veya **HttpPut**.
 2. Denetleyici yöntemin adı "Get", "Post", "Put", "Delete", "Ana", "Seçenekler" veya "Düzeltme" ile başlıyorsa, aksi takdirde, sonra Kural gereği eylemi, HTTP yöntemini destekler.
 3. Yukarıdakilerin hiçbiri, POST yöntemi destekler.
 

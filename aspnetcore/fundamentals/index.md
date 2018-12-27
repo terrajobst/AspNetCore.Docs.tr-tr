@@ -4,14 +4,14 @@ author: rick-anderson
 description: ASP.NET Core uygulamaları oluşturmaya yönelik temel kavramları keşfedin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/01/2018
+ms.date: 12/18/2018
 uid: fundamentals/index
-ms.openlocfilehash: 8bd447632f915cadcc5199ec50b292ad27f6c3ba
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 11dc6336ae7667038983c967f28232bef325f5bb
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861595"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637776"
 ---
 # <a name="aspnet-core-fundamentals"></a>ASP.NET Core temelleri
 
@@ -41,7 +41,7 @@ ASP.NET Core uygulaması bir web sunucusunu oluşturan bir konsol uygulaması ol
 * Yükleri [.NET Core çalışma zamanı](https://github.com/dotnet/coreclr).
 * İlk komut satırı bağımsız değişkeni olarak giriş noktasını içeren yönetilen ikili dosya yolunu kullanır (`Main`) ve kod yürütmeyi başlatır.
 
-`Main` Yöntemi kullanan <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder>, izleyen [Oluşturucu deseni](https://wikipedia.org/wiki/Builder_pattern) bir web uygulama ana bilgisayarı oluşturma. Web sunucusu tanımlayan yöntemleri Oluşturucusu vardır (örneğin, <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions.UseKestrel*>) ve başlangıç sınıfı (<xref:Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions.UseStartup*>). Önceki örnekte [Kestrel](xref:fundamentals/servers/kestrel) web sunucusu kullanılır. Diğer web sunucuları gibi [WebListener](xref:fundamentals/servers/weblistener), uygun bir genişletme yöntemi çağrılarak kullanılabilir. `UseStartup` açıklanan daha sonraki bölümde.
+`Main` Yöntemi kullanan <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder>, izleyen [Oluşturucu deseni](https://wikipedia.org/wiki/Builder_pattern) bir web uygulama ana bilgisayarı oluşturma. Web sunucusu tanımlayan yöntemleri Oluşturucusu vardır (örneğin, <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions.UseKestrel*>) ve başlangıç sınıfı (<xref:Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions.UseStartup*>). Önceki örnekte [Kestrel](xref:fundamentals/servers/kestrel) web sunucusu kullanılır. Diğer web sunucuları gibi [HTTP.sys](xref:fundamentals/servers/httpsys), uygun bir genişletme yöntemi çağrılarak kullanılabilir. `UseStartup` açıklanan daha ayrıntılı olarak [başlangıç](#startup) bölümü.
 
 `WebHostBuilder` dahil olmak üzere birçok isteğe bağlı yöntemler sağlar <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> IIS ve IIS Express barındırmak ve <xref:Microsoft.Extensions.Hosting.HostingHostBuilderExtensions.UseContentRoot*> kök içerik dizini belirtmek için. <xref:Microsoft.AspNetCore.Hosting.IWebHostBuilder.Build*> Ve <xref:Microsoft.AspNetCore.Hosting.WebHostExtensions.Run*> yöntemleri yapı <xref:Microsoft.AspNetCore.Hosting.IWebHost> nesnesini uygulamasını barındıran ve HTTP isteklerini dinlemeye başlar.
 
@@ -140,7 +140,7 @@ Barındırma modeli ASP.NET Core doğrudan isteklerini dinlemez. Uygulama isteğ
 ASP.NET Core aşağıdaki sunucu uygulamaları sağlar:
 
 * [Kestrel'i](xref:fundamentals/servers/kestrel) yönetilen, platformlar arası web sunucusu sunucusudur. Kestrel'i, kullanılarak bir ters proxy yapılandırma genellikle çalıştırılır [IIS](https://www.iis.net/). Kestrel'i doğrudan Internet'e ASP.NET Core 2.0 veya sonraki sürümlerinde sunulan genel kullanıma yönelik bir uç sunucusu olarak da çalıştırılabilir.
-* IIS HTTP sunucusu (`IISHttpServer`) olan bir [IIS işlem sunucusu](xref:fundamentals/servers/aspnet-core-module#in-process-hosting-model).
+* IIS HTTP sunucusu (`IISHttpServer`) olan bir [işlem sunucusu](xref:fundamentals/servers/index#in-process-hosting-model) IIS için.
 * [HTTP.sys](xref:fundamentals/servers/httpsys) sunucusu, Windows üzerinde ASP.NET Core bir web sunucusudur.
 
 # <a name="macostabmacos"></a>[macOS](#tab/macos)

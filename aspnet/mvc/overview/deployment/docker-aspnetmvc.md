@@ -5,14 +5,14 @@ description: Mevcut bir ASP.NET MVC uygulamasını alıp Windows Docker kapsayı
 keywords: Windows Containers,Docker,ASP.NET MVC
 author: BillWagner
 ms.author: wiwagn
-ms.date: 02/01/2017
+ms.date: 12/14/2018
 ms.assetid: c9f1d52c-b4bd-4b5d-b7f9-8f9ceaf778c4
-ms.openlocfilehash: 7b34187747d3081998b8b60a72adae78cafe2c3e
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: ef184f4256c20e2a66de8fd2d4f8e67f07d9a086
+ms.sourcegitcommit: 6548c19f345850ee22b50f7ef9fca732895d9e08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207972"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53425165"
 ---
 # <a name="migrating-aspnet-mvc-applications-to-windows-containers"></a>ASP.NET MVC Uygulamalarını Windows Kapsayıcılarına Geçirme
 
@@ -68,9 +68,9 @@ Tıklayın **Yayımla**, ve Visual Studio gerekli tüm varlıkları hedef klasö
 
 ## <a name="build-the-image"></a>Görüntüyü oluşturma
 
-Docker görüntünüzü bir Dockerfile içinde tanımlayın. Dockerfile, temel görüntü, ek bileşenler, çalıştırmak istediğiniz uygulamayı ve diğer yapılandırma görüntüleri için yönergeler içerir.  Dockerfile giriştir `docker build` oluşturan görüntü komutu.
+Adlı yeni bir dosya oluşturun *Dockerfile* Docker görüntünüzü tanımlamak için. *Dockerfile* son görüntü oluşturmak için yönergeler içerir ve herhangi bir temel görüntü adı, gerekli bileşenleri, çalıştırmak istediğiniz uygulamayı ve diğer yapılandırma görüntüleri içerir. *Dockerfile* giriştir `docker build` görüntüyü oluşturan komutu.
 
-Temel alan bir görüntü oluşturacaksınız `microsoft/aspnet` görüntü bulunan [Docker Hub](https://hub.docker.com/r/microsoft/aspnet/).
+Bu alıştırma için temel alan bir görüntü oluşturacaksınız `microsoft/aspnet` görüntü bulunan [Docker Hub](https://hub.docker.com/r/microsoft/aspnet/).
 Temel görüntü `microsoft/aspnet`, bir Windows Server görüntüsüdür. Bu, Windows Server Core, IIS ve ASP.NET 4.7.2 içerir. Bu görüntünün kapsayıcınızda çalıştırdığınızda, IIS otomatik olarak başlatılır ve yüklü Web sitelerini.
 
 Dockerfile, görüntüyü oluşturan şöyle görünür:

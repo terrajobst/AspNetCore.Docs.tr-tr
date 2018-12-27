@@ -4,14 +4,14 @@ author: shirhatti
 description: IIS Windows Server'da çalışan ASP.NET Core uygulamalarında hata ayıklamaya yönelik destek keşfedin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/30/2018
+ms.date: 12/18/2018
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: 51375e6a6bb25a469d467ca97a151abd305c1ece
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 44570bb28451ce4c5fde12ec77e3856fb5bd3062
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862388"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637670"
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>Geliştirme zamanı IIS, ASP.NET Core için Visual Studio desteği
 
@@ -54,9 +54,9 @@ IIS yüklemesi zaten varsa, bir **varsayılan Web sitesi** uygulamanın başlatm
 ## <a name="enable-development-time-iis-support-in-visual-studio"></a>Visual Studio'da geliştirme zamanı IIS desteğini etkinleştirin
 
 1. Visual Studio Yükleyicisi'ni başlatın.
-1. Seçin **geliştirme zamanı IIS desteğini** bileşeni. Bileşen isteğe bağlı olarak, listelenen **özeti** panelinde **ASP.NET ve web geliştirme** iş yükü. Bileşeni yükler [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module), ASP.NET Core uygulamaları ile IIS çalıştırmak için gereken yerel bir IIS modül olduğu.
+1. Seçin **geliştirme zamanı IIS desteğini** bileşeni. Bileşen isteğe bağlı olarak, listelenen **özeti** panelinde **ASP.NET ve web geliştirme** iş yükü. Bileşeni yükler [ASP.NET Core Modülü](xref:host-and-deploy/aspnet-core-module), ASP.NET Core uygulamaları ile IIS çalıştırmak için gereken yerel bir IIS modül olduğu.
 
-![Visual Studio özellikleri değiştirerek: iş yüklerini sekmesi seçilmiştir. Web ve bulut bölümünde, ASP.NET ve web geliştirme paneli seçilir. Özet panelini isteğe bağlı alanında sağ tarafta, geliştirme zamanı IIS desteğini için bir onay kutusu yok.](development-time-iis-support/_static/development_time_support.png)
+![Visual Studio özellikleri değiştirme: İş yükleri sekmesi seçili. Web ve bulut bölümünde, ASP.NET ve web geliştirme paneli seçilir. Özet panelini isteğe bağlı alanında sağ tarafta, geliştirme zamanı IIS desteğini için bir onay kutusu yok.](development-time-iis-support/_static/development_time_support.png)
 
 ## <a name="configure-the-project"></a>Proje yapılandırma
 
@@ -146,6 +146,6 @@ Güvenilmeyen bir geliştirme sertifikası kullanıyorsanız, tarayıcı Güveni
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Windows IIS üzerinde ASP.NET Core barındırma](xref:host-and-deploy/iis/index)
-* [ASP.NET Core modülü için giriş](xref:fundamentals/servers/aspnet-core-module)
+* [ASP.NET Core modülü için giriş](xref:host-and-deploy/aspnet-core-module)
 * [ASP.NET Core Module yapılandırma başvurusu](xref:host-and-deploy/aspnet-core-module)
 * [HTTPS'yi Zorunlu Kılma](xref:security/enforcing-ssl)

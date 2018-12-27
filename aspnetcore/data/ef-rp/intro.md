@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: seodec18
 ms.date: 11/22/2018
 uid: data/ef-rp/intro
-ms.openlocfilehash: 34c7238b689993245e033625dcd0e728b7c45163
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: b66d20a46b29b6975512026fa940f7f9e50deeb5
+ms.sourcegitcommit: 6548c19f345850ee22b50f7ef9fca732895d9e08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121706"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53425139"
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>ASP.NET Core - Öğreticisi 1. 8'de Entity Framework Core ile Razor sayfaları
 
@@ -65,7 +65,7 @@ Bu sitenin UI Stili yerleşik şablonları tarafından üretilen yakın ' dir. E
 * Yeni bir ASP.NET Core Web uygulaması oluşturun. Projeyi adlandırın **ContosoUniversity**. Projeyi adlandırın önemlidir *ContosoUniversity* kod kopyalanıp/yapıştırılmış ad alanları eşleştirmek için.
 * Seçin **ASP.NET Core 2.1** açılır ve ardından **Web uygulaması**.
 
-Önceki adımlarda görüntüleri için bkz: [Razor web uygulaması oluşturma](xref:tutorials/razor-pages/razor-pages-start#create-a-razor-web-app).
+Önceki adımlarda görüntüleri için bkz: [Razor web uygulaması oluşturma](xref:tutorials/razor-pages/razor-pages-start#create-a-razor-pages-web-app).
 Uygulamayı çalıştırın.
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
@@ -190,8 +190,8 @@ dotnet aspnet-codegenerator razorpage -m Student -dc ContosoUniversity.Models.Sc
 
 ### <a name="file-updates"></a>Dosya güncelleştirmeleri
 
-* *Startup.cs* : Bu dosyada yapılan değişiklikler sonraki bölümde ayrıntılı.
-* *appSettings.JSON* : yerel bir veritabanına bağlanmak için kullanılan bağlantı dizesi eklenir.
+* *Startup.cs* : Bu dosyada yapılan değişiklikler, sonraki bölümde açıklanmıştır.
+* *appSettings.JSON* : Yerel bir veritabanına bağlanmak için kullanılan bağlantı dizesi eklenir.
 
 ## <a name="examine-the-context-registered-with-dependency-injection"></a>Bağımlılık ekleme ile kayıtlı bağlamını İnceleme
 

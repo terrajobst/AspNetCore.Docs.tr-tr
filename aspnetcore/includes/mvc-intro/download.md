@@ -1,0 +1,1 @@
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-mvc-app/start-mvc/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample)).

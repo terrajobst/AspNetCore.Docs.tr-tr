@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/11/2018
 uid: security/authentication/social/index
-ms.openlocfilehash: 19074d5014a09446ceec1b89449e78760fc8e7cf
-ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
+ms.openlocfilehash: 47ac1f966ff727957e6ed700c3c68efa16b1b38b
+ms.sourcegitcommit: 3e94d192b2ed9409fe72e3735e158b333354964c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51708380"
+ms.lasthandoff: 12/24/2018
+ms.locfileid: "53735732"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Facebook, Google ve ASP.NET Core dış sağlayıcı kimlik doğrulaması
 
@@ -24,8 +24,6 @@ Bu öğreticide bir ASP.NET Core, OAuth 2.0 ile dış kimlik sağlayıcılarına
 ![Facebook, Twitter, Google artı ve Windows için sosyal medya simgeler](index/_static/social.png)
 
 Kullanıcıların mevcut kimlik bilgileri ile oturum açmanız, kullanıcılar için uygun olan ve birçok üzerine bir üçüncü taraf oturum açma işlemi yönetmenin karmaşıklığını kaydırır. Örnek olay incelemeleri tarafından nasıl sosyal oturum açma bilgileri, örnek trafiği ve müşteri dönüştürmeler yönlendirebilirsiniz için bkz: [Facebook](https://www.facebook.com/unsupportedbrowser) ve [Twitter](https://dev.twitter.com/resources/case-studies).
-
-Not: Burada sunulan paketler OAuth kimlik doğrulaması akışı karmaşıklığını büyük ölçüde abstract, ancak Ayrıntıları Anlama sorunlarını giderirken gerekebilir. Birçok kaynak bulunur; Örneğin, [OAuth 2 giriş](https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2) veya [anlama OAuth 2](http://www.bubblecode.net/2016/01/22/understanding-oauth2/). Bazı sorunlar bakarak çözülebilir [sağlayıcısı paketleri için ASP.NET Core kaynak kodu](https://github.com/aspnet/Security/tree/master/src).
 
 ## <a name="create-a-new-aspnet-core-project"></a>Yeni bir ASP.NET Core projesi oluşturma
 

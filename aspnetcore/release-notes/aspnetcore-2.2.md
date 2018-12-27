@@ -4,14 +4,14 @@ author: tdykstra
 description: ASP.NET Core 2.2 yeni özellikler hakkında bilgi edinin.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 12/03/2018
+ms.date: 12/18/2018
 uid: aspnetcore-2.2
-ms.openlocfilehash: 7429cb725a630c080690d81ec75d291bf48be2fc
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 13d7dec834a5661b445b4fc0c0be8be9b7b41b9e
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862829"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637735"
 ---
 # <a name="whats-new-in-aspnet-core-22"></a>ASP.NET Core 2.2 içinde yenilikler nelerdir?
 
@@ -23,14 +23,23 @@ Açık API (Swagger da bilinir), REST API'leri açıklayan bir dilden belirtimdi
 
 Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-* <xref:tutorials/web-api-help-pages-using-swagger>
-* [ASP.NET Core 2.2.0-preview1: açık API Çözümleyicileri & kuralları](https://blogs.msdn.microsoft.com/webdev/2018/08/23/asp-net-core-2-20-preview1-open-api-analyzers-conventions/).
+* <xref:web-api/advanced/analyzers>
+* <xref:web-api/advanced/conventions>
+* [ASP.NET Core 2.2.0-preview1: Açık API Çözümleyicileri & kuralları](https://blogs.msdn.microsoft.com/webdev/2018/08/23/asp-net-core-2-20-preview1-open-api-analyzers-conventions/)
+
+## <a name="problem-details-support"></a>Sorun ayrıntıları desteği
+
+ASP.NET Core 2.1 sunulan `ProblemDetails`bağlı olarak bir HTTP yanıtı ile ilgili bir hata ayrıntılarını taşınma RFC 7807 belirtimi. 2.2 içinde `ProblemDetails` hata kodları denetleyicileri ile oluşturulan istemci için standart yanıt `ApiControllerAttribute`. Bir `IActionResult` istemci hatası durum kodu (4xx) şimdi döndürür döndüren bir `ProblemDetails` gövdesi. Sonuç, ayrıca istek günlükleri kullanarak hatayı ilişkilendirmek için kullanılan bir bağıntı kimliği içerir. İstemci hataları `ProducesResponseType` kullanarak varsayılanlarını `ProblemDetails` yanıt türü. Bu, açık API belgelenen / NSwag veya Swashbuckle.AspNetCore kullanılarak oluşturulan çıktı Swagger.
 
 ## <a name="endpoint-routing"></a>Uç noktası yönlendirme
 
-ASP.NET Core 2.2 kullanan yeni bir *uç noktası yönlendirme* sistemi için geliştirilmiş istekleri gönderme. Değişiklikler yeni nesil API üyeleri bağlayın.
+ASP.NET Core 2.2 kullanan yeni bir *uç noktası yönlendirme* sistemi için geliştirilmiş istekleri gönderme. Değişiklikler yeni nesil API üyeleri bağlantı ve parametre dönüştürücüler yol.
 
-Daha fazla bilgi için [IRouter ve uç nokta tabanlı yönlendirme arasındaki farklar](xref:fundamentals/routing?view=aspnetcore-2.2#differences-from-earlier-versions-of-routing).
+Daha fazla bilgi için aşağıdaki kaynaklara bakın:
+
+* [Uç nokta 2.2 içinde yönlendirme](https://blogs.msdn.microsoft.com/webdev/2018/08/27/asp-net-core-2-2-0-preview1-endpoint-routing/)
+* [Rota parametresinin dönüştürücüler](https://www.hanselman.com/blog/ASPNETCore22ParameterTransformersForCleanURLGenerationAndSlugsInRazorPagesOrMVC.aspx) (bkz **yönlendirme** bölüm)
+* [IRouter ve uç nokta tabanlı yönlendirme arasındaki farklar](xref:fundamentals/routing?view=aspnetcore-2.2#differences-from-earlier-versions-of-routing)
 
 ## <a name="health-checks"></a>Sistem durumu denetimleri
 
@@ -38,7 +47,7 @@ Yeni bir sistem durumu hizmeti, Kubernetes gibi sistem durumu denetimleri gerekt
 
 Sistem durumu denetimleri veya yük dengeleyici hızlı bir şekilde bir sistemi istekleri için normalde yanıt verdiğini belirlemek için bir kapsayıcı Düzenleyicisi tarafından kullanılır. Kapsayıcı Düzenleyicisi başarısız durum yanıt dağıtım çalışırken veya kapsayıcı yeniden durdurma tarafından kontrol edin. Bir yük dengeleyici, hizmetin başarısız örneğini ayrılmak yönlendirme trafiği için sistem durumu denetimi yanıt verebilir.
 
-Sistem durumu denetimleri, izleme sistemlerinden tarafından kullanılan bir HTTP uç noktası olarak bir uygulama tarafından sunulur. Sistem durumu denetimleri, gerçek zamanlı izleme senaryoları ve izleme sistemlerinden çeşitli için yapılandırılabilir.
+Sistem durumu denetimleri, izleme sistemlerinden tarafından kullanılan bir HTTP uç noktası olarak bir uygulama tarafından sunulur. Sistem durumu denetimleri, gerçek zamanlı izleme senaryoları ve izleme sistemlerinden çeşitli için yapılandırılabilir. Sistem durumu hizmeti ile tümleştirilir denetimleri [BeatPulse proje](https://github.com/Xabaril/BeatPulse). hangi onlarca popüler sistemler ve bağımlılıkları için denetimleri eklemek kolaylaştırır.
 
 Daha fazla bilgi için [durum denetimleri ASP.NET Core](xref:host-and-deploy/health-checks).
 
@@ -61,9 +70,9 @@ ASP.NET Core önceki sürümlerinde çağırarak Kestrel seçenekleri yapıland�
 
 ## <a name="iis-in-process-hosting"></a>İşlem içi IIS barındırma
 
-ASP.NET Core önceki sürümlerinde, IIS ters bir proxy olarak görev yapar. 2.2 içinde ASP.NET Core modülü CoreCLR önyükleme ve IIS çalışan işlemi içinde bir uygulamayı barındırmak (*w3wp.exe*). Barındırma işlemi içinde önemli bir performans ve tanılama kazançlar IIS ile çalıştırırken sağlar.
+ASP.NET Core önceki sürümlerinde, IIS ters bir proxy olarak görev yapar. 2.2 içinde ASP.NET Core modülü CoreCLR önyükleme ve IIS çalışan işlemi içinde bir uygulamayı barındırmak (*w3wp.exe*). Barındırma işlemi içinde performans ve tanılama kazançlar IIS ile çalıştırırken sağlar.
 
-Daha fazla bilgi için [IIS işlem içi barındırma](xref:fundamentals/servers/aspnet-core-module?view=aspnetcore-2.2#in-process-hosting-model).
+Daha fazla bilgi için [işlemdeki için IIS barındırma](xref:host-and-deploy/aspnet-core-module?view=aspnetcore-2.2#in-process-hosting-model).
 
 ## <a name="signalr-java-client"></a>SignalR Java istemci
 

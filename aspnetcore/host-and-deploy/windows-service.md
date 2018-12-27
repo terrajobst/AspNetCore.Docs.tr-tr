@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 12/01/2018
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: f53c303dc63e092f08e933fea79eb805523cde9b
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: bdb29c318c66ac884b9225ba8c2a0dfc1f364255
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861400"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637709"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>ASP.NET Core bir Windows hizmetinde barındırma
 
@@ -108,7 +108,7 @@ Aşağıdaki değişiklikleri yapın `Program.Main`:
 
   Koşullar (uygulama, hizmet olarak çalıştırıldığında) false olduğunda:
 
-  * Çağrı <xref:Microsoft.Extensions.Hosting.HostingHostBuilderExtensions.UseContentRoot*> ve uygulamanın yayımlanmış konumuna bir yol kullanın. Remove() çağırmayın <xref:System.IO.Directory.GetCurrentDirectory*> bir Windows hizmeti uygulaması döndürüldüğünden yolunu almak için *C:\\WINDOWS\\system32* klasör zaman `GetCurrentDirectory` çağrılır. Daha fazla bilgi için [geçerli dizin ve içerik kök](#current-directory-and-content-root) bölümü.
+  * Çağrı <xref:System.IO.Directory.SetCurrentDirectory*> ve uygulamanın yayımlanmış konumuna bir yol kullanın. Remove() çağırmayın <xref:System.IO.Directory.GetCurrentDirectory*> bir Windows hizmeti uygulaması döndürüldüğünden yolunu almak için *C:\\WINDOWS\\system32* klasör zaman `GetCurrentDirectory` çağrılır. Daha fazla bilgi için [geçerli dizin ve içerik kök](#current-directory-and-content-root) bölümü.
   * Çağrı <xref:Microsoft.AspNetCore.Hosting.WindowsServices.WebHostWindowsServiceExtensions.RunAsService*> uygulamasını bir hizmet olarak çalıştırmak için.
 
   Çünkü [komut satırı yapılandırma sağlayıcısı](xref:fundamentals/configuration/index#command-line-configuration-provider) komut satırı bağımsız değişkenleri için ad-değer çiftleri gerektirir `--console` anahtarı bağımsız değişkenlerden önce kaldırılır <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> bunları alır.
@@ -214,7 +214,7 @@ Aşağıdaki örnekte örnek uygulama için:
 
 * Adlı hizmetin **MyService**.
 * Yayınlanan hizmet bulunan *c:\\svc* klasör. Uygulama yürütülebilir dosyası adlı *SampleApp.exe*. İçine `binPath` çift tırnak (") değeri.
-* Altında çalışacağı `ServiceUser` hesabı. Değiştirin `{DOMAIN}` kullanıcı hesabının etki alanı veya yerel makine adı. İçine `obj` çift tırnak (") değeri. Örnek: barındıran sistemde adlı bir yerel makineye ise `MairaPC`ayarlayın `obj` için `"MairaPC\ServiceUser"`.
+* Altında çalışacağı `ServiceUser` hesabı. Değiştirin `{DOMAIN}` kullanıcı hesabının etki alanı veya yerel makine adı. İçine `obj` çift tırnak (") değeri. Örnek: Barındıran sistemde adlı bir yerel makineye ise `MairaPC`ayarlayın `obj` için `"MairaPC\ServiceUser"`.
 * Değiştirin `{PASSWORD}` ile kullanıcı hesabının parolası. İçine `password` çift tırnak (") değeri.
 
 ```console
@@ -323,16 +323,16 @@ Geçerli çalışma dizini çağırarak döndürülen <xref:System.IO.Directory.
 
 ### <a name="set-the-content-root-path-to-the-apps-folder"></a>Uygulamanın klasör için içerik kök yolu ayarlayın
 
-<xref:Microsoft.Extensions.Hosting.IHostingEnvironment.ContentRootPath*> Sağlanan aynı yol `binPath` hizmeti oluşturulduğunda bağımsız değişken. Çağırmak yerine `GetCurrentDirectory` ayarları dosyalara olan yolları oluşturmak için arama <xref:Microsoft.Extensions.Hosting.HostingHostBuilderExtensions.UseContentRoot*> ile içerik uygulamanın kök yolu.
+<xref:Microsoft.Extensions.Hosting.IHostingEnvironment.ContentRootPath*> Sağlanan aynı yol `binPath` hizmeti oluşturulduğunda bağımsız değişken. Çağırmak yerine `GetCurrentDirectory` ayarları dosyalara olan yolları oluşturmak için arama <xref:System.IO.Directory.SetCurrentDirectory*> ile içerik uygulamanın kök yolu.
 
 İçinde `Program.Main`, hizmetin yürütülebilir dosya klasörü yolunu belirlemek ve uygulamanın içerik kök'kurmak için yolunu kullanın:
 
 ```csharp
 var pathToExe = Process.GetCurrentProcess().MainModule.FileName;
 var pathToContentRoot = Path.GetDirectoryName(pathToExe);
+Directory.SetCurrentDirectory(pathToContentRoot);
 
 CreateWebHostBuilder(args)
-    .UseContentRoot(pathToContentRoot)
     .Build()
     .RunAsService();
 ```

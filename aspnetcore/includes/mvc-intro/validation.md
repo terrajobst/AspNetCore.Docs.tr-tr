@@ -60,11 +60,11 @@ Bir kesme noktası ayarlayabilirsiniz `[HttpPost] Create` yöntemi ve doğrulama
 
 Aşağıdaki görüntüde, FireFox tarayıcıda JavaScript devre dışı bırakma işlemi gösterilmektedir.
 
-![Firefox: seçenekleri içeriği sekmesinde Javascript etkinleştir onay kutusunu temizleyin.](~/tutorials/first-mvc-app/validation/_static/ff.png)
+![Firefox: Seçenekleri içeriği sekmesinde Javascript etkinleştir onay kutusunu temizleyin.](~/tutorials/first-mvc-app/validation/_static/ff.png)
 
 Aşağıdaki resimde Chrome tarayıcıda JavaScript devre dışı bırakma işlemi gösterilmektedir.
 
-![Google Chrome: İçerik ayarları bölümüne, Javascript, select JavaScript çalıştırmak herhangi bir siteyi izin vermez.](~/tutorials/first-mvc-app/validation/_static/chrome.png)
+![Google Chrome: İçerik ayarlarını Javascript bölümünü seçin JavaScript çalıştırmak herhangi bir siteyi izin vermez.](~/tutorials/first-mvc-app/validation/_static/chrome.png)
 
 JavaScript devre dışı bıraktıktan sonra geçersiz veri ve hata ayıklayıcı ile adım gönderin.
 

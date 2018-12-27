@@ -7,11 +7,11 @@ ms.author: riande
 ms.date: 12/3/2018
 uid: tutorials/razor-pages/search
 ms.openlocfilehash: 8e047024180b20e3b649085647a9136140911fee
-ms.sourcegitcommit: 8a65f6c2cbe290fb2418eed58f60fb74c95392c8
+ms.sourcegitcommit: 3e94d192b2ed9409fe72e3735e158b333354964c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52892074"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735823"
 ---
 # <a name="add-search-to-aspnet-core-razor-pages"></a>ASP.NET Core Razor sayfaları için arama Ekle
 
@@ -52,7 +52,7 @@ Varsa `SearchString` özelliği null veya boş değil, filmler sorgu üzerinde a
 
 `s => s.Title.Contains()` Kodu bir [Lambda ifadesi](/dotnet/csharp/programming-guide/statements-expressions-operators/lambda-expressions). Lambda ifadeleri yöntem tabanlı kullanılan [LINQ](/dotnet/csharp/programming-guide/concepts/linq/) gibi sorgularında standart sorgu işleci yöntemlerinin bağımsız değişkenleri olarak [burada](/dotnet/csharp/programming-guide/concepts/linq/query-syntax-and-method-syntax-in-linq) yöntemi veya `Contains` (Önceki kodda kullanılır). LINQ sorguları tanımlanan ya da bunlar bir yöntemi çağırarak değiştirildiğinde yürütülmez (gibi `Where`, `Contains` veya `OrderBy`). Bunun yerine, sorgu yürütme ertelenir. Bir ifade değerlendirmesi üzerinden gerçekleştirilen değerini yinelendiğinde kadar Gecikmeli anlamına veya `ToListAsync` yöntemi çağrılır. Bkz: [sorgu yürütme](/dotnet/framework/data/adonet/ef/language-reference/query-execution) daha fazla bilgi için.
 
-**Not:** [içerir](/dotnet/api/system.data.objects.dataclasses.entitycollection-1.contains) yöntemi, C# kodu değil, veritabanı üzerinde çalıştırılır. Büyük/küçük harf duyarlılığı sorguda, veritabanı ve harmanlama bağlıdır. SQL Server'da `Contains` eşlendiği [SQL gibi](/sql/t-sql/language-elements/like-transact-sql), büyük küçük harfe duyarlı olduğu. SQLite içinde varsayılan harmanlama ile büyük/küçük harfe duyarlıdır.
+**Not:** [İçerir](/dotnet/api/system.data.objects.dataclasses.entitycollection-1.contains) yöntemi çalıştırılır veritabanında de C# kod. Büyük/küçük harf duyarlılığı sorguda, veritabanı ve harmanlama bağlıdır. SQL Server'da `Contains` eşlendiği [SQL gibi](/sql/t-sql/language-elements/like-transact-sql), büyük küçük harfe duyarlı olduğu. SQLite içinde varsayılan harmanlama ile büyük/küçük harfe duyarlıdır.
 
 Filmler sayfasına gidin ve bir sorgu dizesi gibi ekleme `?searchString=Ghost` URL'sine (örneğin, `https://localhost:5001/Movies?searchString=Ghost`). Filtrelenmiş filmler görüntülenir.
 
@@ -108,5 +108,5 @@ Güncelleştirme *Index.cshtml* gibi:
 Uygulama Tarz, film adı ve her ikisi tarafından arama yaparak test edin.
 
 > [!div class="step-by-step"]
-> [Önceki: sayfaları güncelleştirme](xref:tutorials/razor-pages/da1)
-> [sonraki: yeni alan ekleme](xref:tutorials/razor-pages/new-field)
+> [Önceki: Sayfaları güncelleştirme](xref:tutorials/razor-pages/da1)
+> [sonraki: Yeni alan ekleme](xref:tutorials/razor-pages/new-field)

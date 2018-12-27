@@ -1,33 +1,43 @@
 ---
-title: ASP.NET Core Module yapılandırma başvurusu
+title: ASP.NET Core Modülü
 author: guardrex
 description: ASP.NET Core uygulamaları barındırmak için gereken ASP.NET Core modülü yapılandırmayı öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/10/2018
+ms.date: 12/18/2018
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: b6fdca7e5d59fbfb80428f77b5c772cc04daf4b0
-ms.sourcegitcommit: 1872d2e6f299093c78a6795a486929ffb0bbffff
+ms.openlocfilehash: dee4fe7a498d211cb8ef6a3c49017c3cc8a56847
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53216891"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637865"
 ---
-# <a name="aspnet-core-module-configuration-reference"></a>ASP.NET Core Module yapılandırma başvurusu
+# <a name="aspnet-core-module"></a>ASP.NET Core Modülü
 
-Tarafından [Luke Latham](https://github.com/guardrex), [Rick Anderson](https://twitter.com/RickAndMSFT), [Sourabh Shirhatti](https://twitter.com/sshirhatti), ve [Justin Kotalik](https://github.com/jkotalik)
-
-Bu belge, ASP.NET Core uygulamaları barındırmak için gereken ASP.NET Core modülü yapılandırma hakkında yönergeler sağlar. Yükleme yönergeleri ve ASP.NET Core modülü için giriş için bkz [ASP.NET Core modülü genel bakış](xref:fundamentals/servers/aspnet-core-module).
+Tarafından [Tom Dykstra](https://github.com/tdykstra), [Rick Strahl](https://github.com/RickStrahl), [Chris Ross](https://github.com/Tratcher), [Rick Anderson](https://twitter.com/RickAndMSFT), [Sourabh Shirhatti](https://twitter.com/sshirhatti), [ Justin Kotalik](https://github.com/jkotalik), ve [Luke Latham](https://github.com/guardrex)
 
 ::: moniker range=">= aspnetcore-2.2"
 
-## <a name="hosting-model"></a>Barındırma modeli
+ASP.NET Core modülü ya da IIS kanala takılan yerel bir IIS modülüdür:
 
-.NET Core 2.2 veya sonraki sürümlerde çalışan uygulamalarda, modül ters proxy (giden işlem) barındırmak için karşılaştırıldığında geliştirilmiş performans için bir işlem içi barındırma modelini destekler. Daha fazla bilgi için bkz. <xref:fundamentals/servers/aspnet-core-module#aspnet-core-module-description>.
+* IIS çalışan işlemi içinde ASP.NET Core uygulaması ana bilgisayar (`w3wp.exe`) adlı [işlem içi barındırma modeli](#in-process-hosting-model).
+* Arka uç, çalışan bir ASP.NET Core uygulaması için web istekleri iletmek [Kestrel sunucu](xref:fundamentals/servers/kestrel)adlı [işlem dışı barındırma modeli](#out-of-process-hosting-model).
 
-Procsess barındırma katılımı olan mevcut uygulamalar için ancak [yeni dotnet](/dotnet/core/tools/dotnet-new) işlemdeki tüm IIS ve IIS Express senaryoları için barındırma modelini varsayılan şablonları.
+Desteklenen Windows sürümleri:
 
-İşlem içi barındırmak için bir uygulamayı yapılandırmak için Ekle `<AspNetCoreHostingModel>` özelliği uygulamanın proje dosyasına (örneğin, *MyApp.csproj*) değerini `InProcess` (işlem dışı barındırma ile ayarlanır `outofprocess`):
+* Windows 7 veya üzeri
+* Windows Server 2008 R2 veya üzeri
+
+İşlem içi barındırırken modülü bir işlem sunucusu uygulama IIS HTTP sunucusu olarak adlandırılır, IIS için kullanır. (`IISHttpServer`).
+
+İşlem dışı barındırırken, modülü yalnızca Kestrel ile çalışır. Uyumlu bir modüldür [HTTP.sys](xref:fundamentals/servers/httpsys).
+
+## <a name="hosting-models"></a>Barındırma modeli
+
+### <a name="in-process-hosting-model"></a>İşlem içi barındırma modeli
+
+İşlem içi barındırmak için bir uygulamayı yapılandırmak için Ekle `<AspNetCoreHostingModel>` özellik değerini içeren uygulamanın proje dosyasına `InProcess` (işlem dışı barındırma ile ayarlanır `OutOfProcess`):
 
 ```xml
 <PropertyGroup>
@@ -35,9 +45,11 @@ Procsess barındırma katılımı olan mevcut uygulamalar için ancak [yeni dotn
 </PropertyGroup>
 ```
 
+Varsa `<AspNetCoreHostingModel>` özelliği dosyasında mevcut değilse, varsayılan değer `OutOfProcess`.
+
 Aşağıdaki özellikler, işlem içi barındırırken geçerlidir:
 
-* IIS HTTP sunucusu (`IISHttpServer`) yerine kullanılan [Kestrel](xref:fundamentals/servers/kestrel) sunucusu. IIS HTTP sunucusu (`IISHttpServer`) başka bir özelliktir <xref:Microsoft.AspNetCore.Hosting.Server.IServer> yerel istekler IIS içinde ASP.NET Core dönüştüren uygulama isteklerini işlemek için uygulama tarafından yönetilen.
+* IIS HTTP sunucusu (`IISHttpServer`) yerine kullanılan [Kestrel](xref:fundamentals/servers/kestrel) sunucusu.
 
 * [RequestTimeout özniteliği](#attributes-of-the-aspnetcore-element) işlem içi barındırmak için geçerli değildir.
 
@@ -55,6 +67,21 @@ Aşağıdaki özellikler, işlem içi barındırırken geçerlidir:
 
   Uygulamanın geçerli dizin ayarlar örnek kod için bkz: [CurrentDirectoryHelpers sınıfı](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/aspnet-core-module/samples_snapshot/2.x/CurrentDirectoryHelpers.cs). Çağrı `SetCurrentDirectory` yöntemi. Yapılan sonraki çağrılar <xref:System.IO.Directory.GetCurrentDirectory*> uygulamanın dizinine sağlayın.
 
+### <a name="out-of-process-hosting-model"></a>İşlem dışı barındırma modeli
+
+İşlem dışı barındırmak için bir uygulamayı yapılandırmak için proje dosyasında aşağıdaki yaklaşımlardan birini kullanın:
+
+* Belirtmeyin `<AspNetCoreHostingModel>` özelliği. Varsa `<AspNetCoreHostingModel>` özelliği dosyasında mevcut değilse, varsayılan değer `OutOfProcess`.
+* Değerini `<AspNetCoreHostingModel>` özelliğini `OutOfProcess` (işlem içi barındırma ile ayarlanır `InProcess`):
+
+```xml
+<PropertyGroup>
+  <AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>
+</PropertyGroup>
+```
+
+[Kestrel'i](xref:fundamentals/servers/kestrel) sunucusu yerine IIS HTTP sunucusu kullanılır (`IISHttpServer`).
+
 ### <a name="hosting-model-changes"></a>Barındırma modeli değişiklikleri
 
 Varsa `hostingModel` ayar değiştirildiğinde *web.config* dosya (açıklandığı [web.config yapılandırmasıyla](#configuration-with-webconfig) bölümü), modülü için IIS çalışan işlemi geri dönüştürür.
@@ -66,6 +93,43 @@ Modülü, IIS Express için çalışan işlemi geri dönüşüm değil ancak bun
 `Process.GetCurrentProcess().ProcessName` raporları `w3wp` / `iisexpress` (işlem içi) veya `dotnet` (giden işlem).
 
 ::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
+ASP.NET Core modülü, uygulama arka ucu ASP.NET Core web isteklerini iletmek için IIS ardışık düzende takılan yerel bir IIS modülüdür.
+
+Desteklenen Windows sürümleri:
+
+* Windows 7 veya üzeri
+* Windows Server 2008 R2 veya üzeri
+
+Modül yalnızca Kestrel ile çalışır. Uyumlu bir modüldür [HTTP.sys](xref:fundamentals/servers/httpsys).
+
+Bir işlem içinde çalıştırmak, ASP.NET Core uygulamaları IIS çalışan işleminden ayrı olduğundan, modül işlem yönetimi da işler. İlk istek ulaştığında ve onu bir çökme gerçekleşirse, uygulama yeniden başlatmalarını modülü ASP.NET Core uygulaması için bir işlem başlar. Bu aslında aynı işlemde çalışan ASP.NET 4.x uygulamalar ile görüldüğü gibi davranıştır tarafından yönetildiği IIS'de [Windows İşlem Etkinleştirme Hizmeti (WAS)](/iis/manage/provisioning-and-managing-iis/features-of-the-windows-process-activation-service-was).
+
+Aşağıdaki diyagramda, IIS, ASP.NET Core modülü ve uygulama arasındaki ilişki gösterilmektedir:
+
+![ASP.NET Core Modülü](aspnet-core-module/_static/ancm-outofprocess.png)
+
+İstekleri için çekirdek modu HTTP.sys sürücüsünü Web'den ulaşır. Sürücü istekler IIS Web sitesinin yapılandırılan bağlantı noktası, genellikle 80 (HTTP) veya 443 (HTTPS) üzerinde yönlendirir. Modül Kestrel rastgele bağlantı noktası için 80 veya 443 bağlantı noktası olmadığından uygulama isteklerini iletir.
+
+Modülü başlatma sırasında bir ortam değişkeni aracılığıyla bağlantı noktasını belirtir ve IIS tümleştirme ara yazılımı üzerinde dinlemek üzere yapılandırır `http://localhost:{port}`. Ek denetimler gerçekleştirilir ve modülünden değilsiniz kaynaklı istekler reddedilir. İstekler HTTP üzerinden HTTPS üzerinden IIS tarafından alınan bile iletilir modülü HTTPS iletmeyi desteklemez.
+
+Modül istekten Kestrel seçer sonra ASP.NET Core ara yazılım ardışık düzende isteği gönderilir. Ara yazılım ardışık düzenini isteği işler ve olarak geçirir bir `HttpContext` örneği uygulama mantığına. IIS tümleştirme tarafından eklenen bir ara yazılım istek için Kestrel iletmek için hesap için şema, uzak IP ve pathbase güncelleştirir. Uygulamanın yanıt IIS, yeniden istek başlatılan HTTP istemcisi için hangi bildirim geçirilir.
+
+::: moniker-end
+
+Windows kimlik doğrulaması gibi birçok yerel modül etkin kalır. ASP.NET Core modülü içeren etkin IIS modülleri hakkında daha fazla bilgi için bkz: <xref:host-and-deploy/iis/modules>.
+
+ASP.NET Core modülü de yapabilirsiniz:
+
+* Çalışan işlemi için ortam değişkenlerini ayarlayın.
+* Çıkış başlatma sorunlarını gidermek için dosya depolama için stdout'u günlüğe kaydeder.
+* Windows kimlik doğrulama belirteçlerinizi iletin.
+
+## <a name="how-to-install-and-use-the-aspnet-core-module"></a>Yükleme ve ASP.NET Core modülü kullanın
+
+Yükleme ve ASP.NET Core modülü kullanma hakkında yönergeler için bkz. <xref:host-and-deploy/iis/index>.
 
 ## <a name="configuration-with-webconfig"></a>Web.config ile yapılandırma
 
@@ -481,3 +545,9 @@ Barındırma Paket Yükleyici günlükleri modülü için adresten *C:\\kullanı
    * %ProgramFiles%\IIS Express\config\templates\PersonalWebServer\applicationHost.config
 
 Dosyalar için arama yaparak bulunabilir *aspnetcore* içinde *applicationHost.config* dosya.
+
+## <a name="additional-resources"></a>Ek kaynaklar
+
+* <xref:host-and-deploy/iis/index>
+* [ASP.NET Core modülü GitHub deposu (başvuru kaynağı)](https://github.com/aspnet/AspNetCoreModule)
+* <xref:host-and-deploy/iis/modules>

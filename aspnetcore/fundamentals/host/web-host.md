@@ -4,14 +4,14 @@ author: guardrex
 description: Uygulama başlatma ve ömür yönetimi için sorumlu olan ASP.NET Core web ana bilgisayar hakkında bilgi edinin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/01/2018
+ms.date: 12/18/2018
 uid: fundamentals/host/web-host
-ms.openlocfilehash: bc77413127273aba207e68e7fbcb8ad916267e8e
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 7215027a083c0ed0bc3b15196e390a31c5dcfc14
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862284"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637852"
 ---
 # <a name="aspnet-core-web-host"></a>ASP.NET Core Web ana bilgisayarı
 
@@ -57,7 +57,7 @@ public class Program
   * Ortam değişkenleri.
   * Komut satırı bağımsız değişkenleri.
 * Yapılandırır [günlüğü](xref:fundamentals/logging/index) konsol ve hata ayıklama çıktı. Günlük kaydı içerir [günlük filtreleme](xref:fundamentals/logging/index#log-filtering) günlüğe kaydetme yapılandırma bölümünde belirtilen kuralları bir *appsettings.json* veya *appsettings. { Ortam} .json* dosya.
-* Arkasında IIS ile çalıştırırken [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module), `CreateDefaultBuilder` sağlayan [IIS tümleştirme](xref:host-and-deploy/iis/index), uygulamanın taban adresini ve bağlantı noktasını yapılandırır. IIS tümleştirme, ayrıca uygulamaya yapılandırır [yakalama başlatma hataları](#capture-startup-errors). IIS varsayılan seçenekleri için bkz <xref:host-and-deploy/iis/index#iis-options>.
+* Arkasında IIS ile çalıştırırken [ASP.NET Core Modülü](xref:host-and-deploy/aspnet-core-module), `CreateDefaultBuilder` sağlayan [IIS tümleştirme](xref:host-and-deploy/iis/index), uygulamanın taban adresini ve bağlantı noktasını yapılandırır. IIS tümleştirme, ayrıca uygulamaya yapılandırır [yakalama başlatma hataları](#capture-startup-errors). IIS varsayılan seçenekleri için bkz <xref:host-and-deploy/iis/index#iis-options>.
 * Kümeleri [ServiceProviderOptions.ValidateScopes](/dotnet/api/microsoft.extensions.dependencyinjection.serviceprovideroptions.validatescopes) için `true` uygulamanın ortamı geliştirme ise. Daha fazla bilgi için [kapsam doğrulama](#scope-validation).
 
 Tarafından tanımlanan yapılandırma `CreateDefaultBuilder` geçersiz kılındı ve tarafından Genişletilmiş [ConfigureAppConfiguration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configureappconfiguration), [ConfigureLogging](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configurelogging), diğer yöntemler ve uzantı yöntemlerinin [ IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder). Aşağıda birkaç örnek verilmiştir:
@@ -137,7 +137,7 @@ Konak, bir değer, en son hangi seçeneği ayarlar kullanır. Daha fazla bilgi i
 
 **Anahtar**: applicationName  
 **Tür**: *dize*  
-**Varsayılan**: uygulamanın giriş noktasını içeren derlemenin adı.  
+**Varsayılan**: Uygulamanın giriş içeren bütünleştirilmiş kodun ad'ı seçin.  
 **Kullanılarak ayarlanan**: `UseSetting`  
 **Ortam değişkeni**: `ASPNETCORE_APPLICATIONNAME`
 
@@ -152,7 +152,7 @@ Bu ayar, başlangıç hatalarını yakalama denetler.
 
 **Anahtar**: captureStartupErrors  
 **Tür**: *bool* (`true` veya `1`)  
-**Varsayılan**: varsayılan olarak `false` IIS, varsayılan olduğu arkasında Kestrel ile uygulamanın çalıştığı sürece `true`.  
+**Varsayılan**: Varsayılan olarak `false` IIS, varsayılan olduğu arkasında Kestrel ile uygulamanın çalıştığı sürece `true`.  
 **Kullanılarak ayarlanan**: `CaptureStartupErrors`  
 **Ortam değişkeni**: `ASPNETCORE_CAPTURESTARTUPERRORS`
 
@@ -169,7 +169,7 @@ Bu ayar, ASP.NET Core MVC görünümleri gibi içerik dosyalarını aramasını 
 
 **Anahtar**: contentRoot  
 **Tür**: *dize*  
-**Varsayılan**: varsayılan olarak, uygulama derleme bulunduğu klasör.  
+**Varsayılan**: Uygulama derleme bulunduğu klasör varsayılan olur.  
 **Kullanılarak ayarlanan**: `UseContentRoot`  
 **Ortam değişkeni**: `ASPNETCORE_CONTENTROOT`
 
@@ -203,7 +203,7 @@ Uygulamanın ortamı ayarlar.
 
 **Anahtar**: ortam  
 **Tür**: *dize*  
-**Varsayılan**: üretim  
+**Varsayılan**: Üretim  
 **Kullanılarak ayarlanan**: `UseEnvironment`  
 **Ortam değişkeni**: `ASPNETCORE_ENVIRONMENT`
 
@@ -220,7 +220,7 @@ Uygulamanın barındırma başlangıç derlemeleri ayarlar.
 
 **Anahtar**: hostingStartupAssemblies  
 **Tür**: *dize*  
-**Varsayılan**: boş dize  
+**Varsayılan**: Boş dize  
 **Kullanılarak ayarlanan**: `UseSetting`  
 **Ortam değişkeni**: `ASPNETCORE_HOSTINGSTARTUPASSEMBLIES`
 
@@ -238,9 +238,9 @@ WebHost.CreateDefaultBuilder(args)
 HTTPS, yeniden yönlendirme bağlantı noktasını ayarlayın. Kullanılan [HTTPS zorlama](xref:security/enforcing-ssl).
 
 **Anahtar**: https_port **türü**: *dize*
-**varsayılan**: varsayılan bir değer ayarlanmamış.
-**Kullanılarak ayarlanan**: `UseSetting` 
- **ortam değişkeni**: `ASPNETCORE_HTTPS_PORT`
+**varsayılan**: Varsayılan bir değer ayarlanmamış.
+**Kullanılarak ayarlanan**: `UseSetting`
+**Ortam değişkeni**: `ASPNETCORE_HTTPS_PORT`
 
 ```csharp
 WebHost.CreateDefaultBuilder(args)
@@ -253,7 +253,7 @@ Başlangıçta hariç tutmak için başlangıç derlemeleri barındırma bir nok
 
 **Anahtar**: hostingStartupExcludeAssemblies  
 **Tür**: *dize*  
-**Varsayılan**: boş dize  
+**Varsayılan**: Boş dize  
 **Kullanılarak ayarlanan**: `UseSetting`  
 **Ortam değişkeni**: `ASPNETCORE_HOSTINGSTARTUPEXCLUDEASSEMBLIES`
 
@@ -341,7 +341,7 @@ Aramak için derleme belirler `Startup` sınıfı.
 
 **Anahtar**: startupAssembly  
 **Tür**: *dize*  
-**Varsayılan**: uygulamanın derleme  
+**Varsayılan**: Uygulamanın derleme  
 **Kullanılarak ayarlanan**: `UseStartup`  
 **Ortam değişkeni**: `ASPNETCORE_STARTUPASSEMBLY`
 
@@ -363,7 +363,7 @@ Uygulamanın statik varlıklar için göreli yolunu ayarlar.
 
 **Anahtar**: webroot  
 **Tür**: *dize*  
-**Varsayılan**: belirtilmezse varsayılan "(Content Root)/wwwroot olan", yol varsa. Yol mevcut değilse, ardından İşlemsiz dosya sağlayıcısı kullanılır.  
+**Varsayılan**: Belirtilmezse, varsayılan "(Content Root)/wwwroot olur.", yol varsa. Yol mevcut değilse, ardından İşlemsiz dosya sağlayıcısı kullanılır.  
 **Kullanılarak ayarlanan**: `UseWebRoot`  
 **Ortam değişkeni**: `ASPNETCORE_WEBROOT`
 

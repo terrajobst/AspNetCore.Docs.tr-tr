@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/11/2018
 uid: security/authentication/twitter-logins
-ms.openlocfilehash: 43a5ea59d8853d297ae2c1ec3f4b1c0c14ec80c3
-ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
+ms.openlocfilehash: 49db8b921fde169380ca284f46e535786b2b8a30
+ms.sourcegitcommit: 3e94d192b2ed9409fe72e3735e158b333354964c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51708432"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735810"
 ---
 # <a name="twitter-external-login-setup-with-aspnet-core"></a>ASP.NET Core ile twitter dış oturum açma Kurulumu
 
@@ -62,9 +62,9 @@ Bu öğreticide kullanılan proje şablonu sağlar [Microsoft.AspNetCore.Authent
 Twitter hizmetinde ekleme `ConfigureServices` yönteminde *Startup.cs* dosyası:
 
 ```csharp
-services.AddIdentity<ApplicationUser, IdentityRole>()
-        .AddEntityFrameworkStores<ApplicationDbContext>()
-        .AddDefaultTokenProviders();
+services.AddDefaultIdentity<IdentityUser>()
+        .AddDefaultUI(UIFramework.Bootstrap4)
+        .AddEntityFrameworkStores<ApplicationDbContext>();
 
 services.AddAuthentication().AddTwitter(twitterOptions =>
 {
@@ -99,7 +99,7 @@ Bkz: [TwitterOptions](/dotnet/api/microsoft.aspnetcore.builder.twitteroptions) T
 
 Uygulamanızı çalıştırın ve tıklayın **oturum**. Twitter ile oturum açmak için bir seçenek görüntülenir:
 
-![Web uygulaması: kullanıcı kimliği](index/_static/DoneTwitter.png)
+![Web uygulaması: Kullanıcı Kimliği](index/_static/DoneTwitter.png)
 
 Tıklayarak **Twitter** kimlik doğrulaması için Twitter'a yönlendirir:
 
@@ -109,13 +109,13 @@ Twitter kimlik bilgilerinizi girdikten sonra web, e-posta ayarlayabileceğiniz s
 
 Artık Twitter kimlik bilgilerinizi kullanarak günlüğe kaydedilir:
 
-![Web uygulaması: kimliği doğrulanmış kullanıcı](index/_static/Done.png)
+![Web uygulaması: Kimliği doğrulanmış kullanıcı](index/_static/Done.png)
 
 [!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
-* **ASP.NET Core 2.x yalnızca:** , kimlik, çağırarak yapılandırılmamış `services.AddIdentity` içinde `ConfigureServices`, kimlik doğrulaması yapmaya sonuçlanır *ArgumentException: 'SignInScheme' seçeneği belirtilmelidir*. Bu öğreticide kullanılan proje şablonu, bu gerçekleştirilir sağlar.
+* **ASP.NET Core 2.x yalnızca:** Kimlik çağırarak yapılandırılmazsa `services.AddIdentity` içinde `ConfigureServices`, kimlik doğrulaması yapmaya sonuçlanır *ArgumentException: 'SignInScheme' seçeneği belirtilmelidir*. Bu öğreticide kullanılan proje şablonu, bu gerçekleştirilir sağlar.
 * Site veritabanı, ilk geçiş uygulayarak oluşturulmamış alırsa *bir veritabanı işlemi başarısız istek işlenirken* hata. Dokunun **geçerli geçişleri** veritabanı oluşturma ve hata devam etmek için yenilemek için.
 
 ## <a name="next-steps"></a>Sonraki adımlar

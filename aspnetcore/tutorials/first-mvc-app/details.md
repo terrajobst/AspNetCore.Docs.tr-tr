@@ -3,14 +3,14 @@ title: Ayrıntılarını inceleyin ve Delete metotlarını bir ASP.NET Core uygu
 author: rick-anderson
 description: Ayrıntıları denetleyicisi yöntem hakkında bilgi edinin ve temel bir ASP.NET Core MVC uygulamasında görüntüleyebilirsiniz.
 ms.author: riande
-ms.date: 03/07/2017
+ms.date: 12/25/2018
 uid: tutorials/first-mvc-app/details
-ms.openlocfilehash: c5d21bc70aae4c1a1d10bb333871eeef25a1879c
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 51609518b97d848aad90eeab0ed40abab2d53d51
+ms.sourcegitcommit: 4e87712029de2aceb1cf2c52e9e3dda8195a5b8e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50208011"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53381971"
 ---
 # <a name="examine-the-details-and-delete-methods-of-an-aspnet-core-app"></a>Ayrıntılarını inceleyin ve Delete metotlarını bir ASP.NET Core uygulaması
 
@@ -18,17 +18,7 @@ Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Film denetleyicisi açın ve incelemek `Details` yöntemi:
 
-::: moniker range=">= aspnetcore-2.1"
-
-[!code-csharp[](start-mvc/sample/MvcMovie21/Controllers/MoviesController.cs?name=snippet_details)]
-
-::: moniker-end
-
-::: moniker range="<= aspnetcore-2.0"
-
-[!code-csharp[](start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_details)]
-
-::: moniker-end
+[!code-csharp[](start-mvc/sample/MvcMovie22/Controllers/MoviesController.cs?name=snippet_details)]
 
 Bu eylem yöntemine oluşturulan MVC yapı iskelesi altyapısı yöntemi çağıran bir HTTP isteği gösteren bir yorum ekler. Bu durumda, üç URL kesimleri ile bir GET isteği, `Movies` denetleyicisi `Details` yöntemi ve bir `id` değeri. Bu kesimler tanımlanmış geri çağırma *Startup.cs*.
 
@@ -38,17 +28,7 @@ EF kullanarak verileri için arama yapmayı kolaylaştırır `SingleOrDefaultAsy
 
 İnceleme `Delete` ve `DeleteConfirmed` yöntemleri.
 
-::: moniker range=">= aspnetcore-2.1"
-
-[!code-csharp[](start-mvc/sample/MvcMovie21/Controllers/MoviesController.cs?name=snippet_delete)]
-
-::: moniker-end
-
-::: moniker range="<= aspnetcore-2.0"
-
-[!code-csharp[](start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_delete)]
-
-::: moniker-end
+[!code-csharp[](start-mvc/sample/MvcMovie22/Controllers/MoviesController.cs?name=snippet_delete)]
 
 Unutmayın `HTTP GET Delete` yöntemi belirtilen film silme değil, film bir görünümünü (HttpPost) gönderebileceği silme işlemi geri döndürür. Bir GET'e yanıt olarak bir silme işlemi gerçekleştirme isteği (veya bir düzenleme işlemini gerçekleştirirken bu konular için işlem veya veriler değiştiğinde başka bir işlem oluşturun) bir güvenlik boşluğu açılır.
 
@@ -58,10 +38,9 @@ Unutmayın `HTTP GET Delete` yöntemi belirtilen film silme değil, film bir gö
 
 [!code-csharp[](start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_delete3)]
 
-
 Ortak dil çalışma zamanı (CLR) aşırı yüklenmiş yöntemler benzersiz parametre imzası (yöntemi aynı ada ancak farklı parametre listesi) olmasını gerektirir. Bununla birlikte, burada iki gerekir `Delete` --Get--diğeri POST yöntemleri her ikisi de aynı parametre imzasına sahip. (Her ikisi de tek bir tamsayı bir parametre olarak kabul etmeniz gerekir.)
 
-Bu sorunun iki yaklaşım vardır, yöntemleri farklı adlar vermek için biridir. Önceki örnekte yapı iskelesi mekanizması ne yaptığını olmasıdır. Ancak, bu küçük bir sorunla sunar: ASP.NET eylem yöntemleri için bir URL kesimleri adıyla eşler ve bir yöntem yeniden adlandırırsanız, normal olarak Yönlendirme bu yöntem bulmak saptayamazdınız. Eklenecek olan örnekte gördüğünüz çözümüdür `ActionName("Delete")` özniteliğini `DeleteConfirmed` yöntemi. Bu öznitelik bir POST isteği için /Delete/ içeren bir URL bulabilirsiniz, böylece eşleme için yönlendirme sistem gerçekleştirir. `DeleteConfirmed` yöntemi.
+Bu sorunun iki yaklaşım vardır, yöntemleri farklı adlar vermek için biridir. Önceki örnekte yapı iskelesi mekanizması ne yaptığını olmasıdır. Bununla birlikte, küçük bir sorunla sunar: ASP.NET bir URL kesimleri eylem yöntemleri adıyla eşler ve bir yöntem yeniden adlandırırsanız, normal olarak Yönlendirme bu yöntem bulmak saptayamazdınız. Eklenecek olan örnekte gördüğünüz çözümüdür `ActionName("Delete")` özniteliğini `DeleteConfirmed` yöntemi. Bu öznitelik bir POST isteği için /Delete/ içeren bir URL bulabilirsiniz, böylece eşleme için yönlendirme sistem gerçekleştirir. `DeleteConfirmed` yöntemi.
 
 Bir ek eklemek için POST yöntemini imzası yapay olarak değiştirmek için başka bir yaygın geçici aynı adlara ve imzaları olan yöntemler için olan (kullanılmayan) parametre. Eklediğimiz olduğunda ne önceki gönderide yaptığımız olan `notUsed` parametresi. Aynı şeyi burada yapabilirsiniz `[HttpPost] Delete` yöntemi:
 
@@ -71,9 +50,9 @@ Bir ek eklemek için POST yöntemini imzası yapay olarak değiştirmek için ba
 public async Task<IActionResult> Delete(int id, bool notUsed)
 ```
 
-### <a name="publish-to-azure"></a>Azure'da yayımlama
+### <a name="publish-to-azure"></a>Azure'a Yayımlama
 
-Azure'a dağıtma hakkında daha fazla bilgi için bkz. [öğretici: Azure App Service'te .NET Core ve SQL veritabanı web uygulaması derleme](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb).
+Azure'a dağıtma hakkında daha fazla bilgi için bkz. [Öğreticisi: Azure App Service'te .NET Core ve SQL veritabanı web uygulaması derleme](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb).
 
 > [!div class="step-by-step"]
 > [Önceki](validation.md)

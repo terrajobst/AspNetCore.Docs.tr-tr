@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/ef-mvc/intro
-ms.openlocfilehash: f1682203850f2c5440fe8d0b98830ca8772ff70f
-ms.sourcegitcommit: c4572be5ebb301013a5698caf9b5572b76cb2e34
+ms.openlocfilehash: 1191632555dc9331f815c1bfb1f313459824754a
+ms.sourcegitcommit: 68a3081dd175d6518d1bfa31b4712bd8a2dd3864
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "50244898"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53577909"
 ---
 # <a name="aspnet-core-mvc-with-entity-framework-core---tutorial-1-of-10"></a>Entity Framework Core - öğretici 1 / 10 ile ASP.NET Core MVC
 
@@ -75,7 +75,7 @@ Visual Studio'yu açın ve "ContosoUniversity" adlı yeni bir ASP.NET Core C# we
 
 * Seçin **ASP.NET Core 2.0** ve **Web uygulaması (Model-View-Controller)** şablonu.
 
-  **Not:** Bu öğretici, ASP.NET Core 2.0 ve EF Core 2.0 veya sonraki--emin gerektirir **ASP.NET Core 1.1** seçilmez.
+  **Not:** Bu öğreticide, ASP.NET Core 2.0 ve EF Core 2.0 veya sonraki--emin olun gerektirir **ASP.NET Core 1.1** seçilmez.
 
 * Emin **kimlik doğrulaması** ayarlanır **kimlik doğrulaması yok**.
 
@@ -245,7 +245,7 @@ CRUD eylem yöntemleri ve görünümler otomatik olarak oluşturulmasını, yap�
 
 Varsa **MVC bağımlılıkları Ekle** iletişim kutusu görüntülenir:
 
-* [Visual Studio en son sürüme güncelleştirme](https://www.visualstudio.com/downloads/). Visual Studio sürümlerini 15.5 önce bu iletişim kutusunu göster.
+* [Visual Studio en son sürüme güncelleştirme](https://www.visualstudio.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017). Visual Studio sürümlerini 15.5 önce bu iletişim kutusunu göster.
 * Güncelleştiremiyorsanız, seçin **Ekle**ve ekleme denetleyicisi adımları tekrar uygulayın.
 
 * İçinde **İskele Ekle** iletişim kutusunda:

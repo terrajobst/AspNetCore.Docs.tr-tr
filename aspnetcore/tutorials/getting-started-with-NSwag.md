@@ -4,14 +4,14 @@ author: zuckerthoben
 description: NSwag belgeler oluşturmak ve Yardım sayfaları için bir ASP.NET Core web API'sini kullanmayı öğrenin.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 09/20/2018
+ms.date: 12/18/2018
 uid: tutorials/get-started-with-nswag
-ms.openlocfilehash: 6c7d76e2202bf47c8d3e5d296e64e9e8c820e2a1
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 8af5bed1e042c4f6d83043b05084c51b3064a548
+ms.sourcegitcommit: ea215df889e89db44037a6ac2f01baede0450da9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207855"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53595366"
 ---
 # <a name="get-started-with-nswag-and-aspnet-core"></a>NSwag ve ASP.NET Core ile çalışmaya başlama
 
@@ -280,9 +280,11 @@ NSwag kullanan [yansıma](/dotnet/csharp/programming-guide/concepts/reflection),
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.NSwag/Controllers/TodoController.cs?name=snippet_CreateAction)]
 
-Önceki eylemi döndürür `ActionResult<T>`, ancak eylemi içinde ya da döndürmektir [CreatedAtRoute](/dotnet/api/system.web.http.apicontroller.createdatroute). Denetleyici ile donatılmış olduğundan [[ApiController]](/dotnet/api/microsoft.aspnetcore.mvc.apicontrollerattribute) öznitelik, bir [BadRequest](/dotnet/api/system.web.http.apicontroller.badrequest) olası çok olan yanıt. Bkz: [otomatik HTTP 400 yanıtları](xref:web-api/index#automatic-http-400-responses) daha fazla bilgi için. Veri ek açıklamaları, istemciler bu eylem geri dönmek için bilinen hangi HTTP durum kodları bildirmek için kullanılır. Aşağıdaki özniteliklerle eylem süslemek:
+Önceki eylemi döndürür `ActionResult<T>`. Eylem içinde döndüren [CreatedAtRoute](xref:System.Web.Http.ApiController.CreatedAtRoute*). Denetleyici ile donatılmış olduğundan [[ApiController]](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) öznitelik, bir [BadRequest](xref:System.Web.Http.ApiController.BadRequest*) mümkün çok olan yanıt. Daha fazla bilgi için [otomatik HTTP 400 yanıtları](xref:web-api/index#automatic-http-400-responses). Veri ek açıklamaları, istemciler bu eylem geri dönmek için bilinen hangi HTTP durum kodları bildirmek için kullanılır. Aşağıdaki özniteliklerle eylem süslemek:
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.NSwag/Controllers/TodoController.cs?name=snippet_CreateActionAttributes)]
+
+Açıkça bireysel eylemleri dekore etmeye alternatif olarak ASP.NET Core 2.2 veya sonraki sürümlerde, kuralları kullanılabilir `[ProducesResponseType]`. Daha fazla bilgi için bkz. <xref:web-api/advanced/conventions>.
 
 ::: moniker-end
 

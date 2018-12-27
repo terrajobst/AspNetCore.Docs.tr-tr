@@ -1,23 +1,23 @@
 ---
 title: ASP.NET Core Windows kimlik doğrulamasını yapılandırma
 author: scottaddie
-description: IIS Express, IIS, HTTP.sys ve WebListener kullanarak ASP.NET Core Windows kimlik doğrulaması yapılandırmayı öğrenin.
+description: IIS Express, IIS ve HTTP.sys kullanarak ASP.NET Core Windows kimlik doğrulaması yapılandırmayı öğrenin.
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 11/01/2018
+ms.date: 12/18/2018
 uid: security/authentication/windowsauth
-ms.openlocfilehash: 15e388433cc9b01e9db3e2fb56aca1ebb5ba5ba4
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
+ms.openlocfilehash: 94dff2f47b2b076cb15f8d385239179b52786678
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284437"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637826"
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>ASP.NET Core Windows kimlik doğrulamasını yapılandırma
 
 Tarafından [Steve Smith](https://ardalis.com) ve [Scott Addie](https://twitter.com/Scott_Addie)
 
-Windows kimlik doğrulaması, IIS ile barındırılan ASP.NET Core uygulamaları için yapılandırılabilir [HTTP.sys](xref:fundamentals/servers/httpsys), veya [WebListener](xref:fundamentals/servers/weblistener).
+Windows kimlik doğrulaması, IIS ile barındırılan ASP.NET Core uygulamaları için yapılandırılabilir veya [HTTP.sys](xref:fundamentals/servers/httpsys).
 
 ## <a name="windows-authentication"></a>Windows Kimlik Doğrulaması
 
@@ -55,7 +55,7 @@ Alternatif olarak, bu iki özellik de yapılandırılabilir *launchSettings.json
 
 ## <a name="enable-windows-authentication-with-iis"></a>IIS ile Windows kimlik doğrulamasını etkinleştirme
 
-IIS kullanan [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module) konak ASP.NET Core uygulamaları için. Windows kimlik doğrulaması, IIS, uygulama yapılandırılır. Aşağıdaki bölümlerde, ASP.NET Core uygulaması Windows kimlik doğrulaması kullanacak şekilde yapılandırmak için IIS Yöneticisi'ni kullanmayı göstermektedir.
+IIS kullanan [ASP.NET Core Modülü](xref:host-and-deploy/aspnet-core-module) konak ASP.NET Core uygulamaları için. Windows kimlik doğrulaması, IIS, uygulama yapılandırılır. Aşağıdaki bölümlerde, ASP.NET Core uygulaması Windows kimlik doğrulaması kullanacak şekilde yapılandırmak için IIS Yöneticisi'ni kullanmayı göstermektedir.
 
 ### <a name="iis-configuration"></a>IIS yapılandırması
 
@@ -89,8 +89,6 @@ Daha fazla bilgi edinin [IIS yayımlama](xref:host-and-deploy/iis/index).
 
 Windows kimlik doğrulaması çalıştığını doğrulamak için uygulamayı başlatın.
 
-::: moniker range=">= aspnetcore-2.0"
-
 ## <a name="enable-windows-authentication-with-httpsys"></a>HTTP.sys ile Windows kimlik doğrulamasını etkinleştirme
 
 Windows kimlik doğrulaması Kestrel desteklemiyor olsa da, kullanabileceğiniz [HTTP.sys](xref:fundamentals/servers/httpsys) Windows üzerinde şirket içinde barındırılan senaryoları desteklemek için. Aşağıdaki örnek, HTTP.sys ile Windows kimlik doğrulaması kullanmak için uygulamanın web ana bilgisayarı yapılandırır:
@@ -103,28 +101,13 @@ Windows kimlik doğrulaması Kestrel desteklemiyor olsa da, kullanabileceğiniz 
 > [!NOTE]
 > HTTP.sys sürüm 1709 veya üzeri Nano Sunucu'da desteklenmemektedir. Windows kimlik doğrulaması ve HTTP.sys Nano Server ile kullanmak için bir [(microsoft/windowsservercore) Server Core kapsayıcı](https://hub.docker.com/r/microsoft/windowsservercore/). Sunucu Çekirdeği hakkında daha fazla bilgi için bkz. [Windows Server'da Sunucu Çekirdeği yükleme seçeneği nedir?](/windows-server/administration/server-core/what-is-server-core).
 
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-## <a name="enable-windows-authentication-with-weblistener"></a>WebListener ile Windows kimlik doğrulamasını etkinleştirme
-
-Windows kimlik doğrulaması Kestrel desteklemiyor olsa da, kullanabileceğiniz [WebListener](xref:fundamentals/servers/weblistener) Windows üzerinde şirket içinde barındırılan senaryoları desteklemek için. Aşağıdaki örnekte, uygulamanın web ana bilgisayarı WebListener Windows kimlik doğrulaması ile kullanılacak yapılandırır:
-
-[!code-csharp[](windowsauth/sample/Program1x.cs?highlight=6-11)]
-
-> [!NOTE]
-> Çekirdek modu kimlik doğrulaması Kerberos kimlik doğrulama protokolü WebListener temsil eder. Kullanıcı modu kimlik doğrulaması, Kerberos ve WebListener ile desteklenmez. Makine hesabı Kerberos belirteci/Active Directory'den elde edilen anahtar şifresini çözmek için kullanılan ve kullanıcının kimliğini doğrulamak için istemcinin sunucuya iletilir. Hizmet asıl adı (SPN) konak için değil uygulamanın kullanıcı kaydedin.
-
-::: moniker-end
-
 ## <a name="work-with-windows-authentication"></a>Windows kimlik doğrulaması ile çalışma
 
 Anonim erişim yapılandırma durumunu yolla belirler `[Authorize]` ve `[AllowAnonymous]` öznitelikleri, uygulamada kullanılır. Aşağıdaki iki bölümü anonim erişime izin verilmeyen ve izin verilen yapılandırma durumunu nasıl ele alınacağını açıklar.
 
 ### <a name="disallow-anonymous-access"></a>Anonim erişime izin verme
 
-Windows kimlik doğrulaması etkinleştirildiğinde ve adsız erişim devre dışıysa, `[Authorize]` ve `[AllowAnonymous]` özniteliklerinin etkisi yoktur. IIS sitesi (veya HTTP.sys veya WebListener sunucusu), anonim erişime izin vermeyecek şekilde yapılandırıldığından, istek, uygulamanızı hiçbir zaman ulaşır. Bu nedenle, `[AllowAnonymous]` özniteliği geçerli değil.
+Windows kimlik doğrulaması etkinleştirildiğinde ve adsız erişim devre dışıysa, `[Authorize]` ve `[AllowAnonymous]` özniteliklerinin etkisi yoktur. IIS sitesi (veya HTTP.sys), anonim erişime izin vermeyecek şekilde yapılandırıldığından, istek, uygulamanızı hiçbir zaman ulaşır. Bu nedenle, `[AllowAnonymous]` özniteliği geçerli değil.
 
 ### <a name="allow-anonymous-access"></a>Anonim erişime izin ver
 

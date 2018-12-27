@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core uygulamaları Windows Server Internet Information Services (IIS) üzerinde barındırmayı öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/11/2018
+ms.date: 12/18/2018
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 175df4ab633c1d84de645208cd97e8a675fb169c
-ms.sourcegitcommit: a16352c1c88a71770ab3922200a8cd148fb278a6
+ms.openlocfilehash: 4356d986731f915c2e76a4c4863f951572820de0
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53335396"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637887"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Windows IIS üzerinde ASP.NET Core barındırma
 
@@ -26,7 +26,7 @@ Aşağıdaki işletim sistemleri desteklenir:
 * Windows 7 veya üzeri
 * Windows Server 2008 R2 veya üzeri
 
-[HTTP.sys sunucu](xref:fundamentals/servers/httpsys) (eski adıyla [WebListener](xref:fundamentals/servers/weblistener)) IIS ile bir ters proxy yapılandırması çalışmaz. Kullanım [Kestrel sunucu](xref:fundamentals/servers/kestrel).
+[HTTP.sys sunucu](xref:fundamentals/servers/httpsys) (eski adıyla çağrılan WebListener), ııs'li bir ters proxy yapılandırması çalışmaz. Kullanım [Kestrel sunucu](xref:fundamentals/servers/kestrel).
 
 Azure'da barındırma hakkında daha fazla bilgi için bkz: <xref:host-and-deploy/azure-apps/index>.
 
@@ -74,7 +74,7 @@ public static IWebHost BuildWebHost(string[] args) =>
 
 **İşlem dışı barındırma modeli**
 
-IIS ile işlem dışı barındırmak için `CreateDefaultBuilder` yapılandırır [Kestrel](xref:fundamentals/servers/kestrel) web sunucusu olarak ve bağlantı noktası ve temel yolunu yapılandırarak IIS tümleştirme sağlar [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module).
+IIS ile işlem dışı barındırmak için `CreateDefaultBuilder` yapılandırır [Kestrel](xref:fundamentals/servers/kestrel) web sunucusu olarak ve bağlantı noktası ve temel yolunu yapılandırarak IIS tümleştirme sağlar [ASP.NET Core Modülü](xref:host-and-deploy/aspnet-core-module).
 
 ASP.NET Core modülü arka uç işleme atamak için dinamik bir bağlantı noktası oluşturur. `CreateDefaultBuilder` çağrıları <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> yöntemi. `UseIISIntegration` Kestrel'i localhost IP adresi dinamik bir bağlantı noktası dinleyecek şekilde yapılandırır (`127.0.0.1`). Dinamik bağlantı noktası 1234 ise sırasında Kestrel dinler `127.0.0.1:1234`. Bu yapılandırma tarafından sağlanan diğer URL'yi yapılandırmaları değiştirir:
 
@@ -84,13 +84,13 @@ ASP.NET Core modülü arka uç işleme atamak için dinamik bir bağlantı nokta
 
 Çağrılar `UseUrls` veya Kestrel'ın `Listen` Modülü'nü kullanırken API gerekli değildir. Varsa `UseUrls` veya `Listen` çağrılır, yalnızca IIS gerekmeden uygulamayı çalıştırırken belirttiğiniz bağlantı noktalarındaki Kestrel dinlediği.
 
-İşlem içi ve dışı işlem barındırma modelleri hakkında daha fazla bilgi için bkz. [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module) ve [ASP.NET Core Module yapılandırma başvurusu](xref:host-and-deploy/aspnet-core-module).
+İşlem içi ve dışı işlem barındırma modelleri hakkında daha fazla bilgi için bkz. [ASP.NET Core Modülü](xref:host-and-deploy/aspnet-core-module) ve [ASP.NET Core Module yapılandırma başvurusu](xref:host-and-deploy/aspnet-core-module).
 
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.1"
 
-`CreateDefaultBuilder` yapılandırır [Kestrel](xref:fundamentals/servers/kestrel) web sunucusu olarak ve bağlantı noktası ve temel yolunu yapılandırarak IIS tümleştirme sağlar [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module).
+`CreateDefaultBuilder` yapılandırır [Kestrel](xref:fundamentals/servers/kestrel) web sunucusu olarak ve bağlantı noktası ve temel yolunu yapılandırarak IIS tümleştirme sağlar [ASP.NET Core Modülü](xref:host-and-deploy/aspnet-core-module).
 
 ASP.NET Core modülü arka uç işleme atamak için dinamik bir bağlantı noktası oluşturur. `CreateDefaultBuilder` çağrıları [UseIISIntegration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions.useiisintegration) yöntemi. `UseIISIntegration` Kestrel'i localhost IP adresi dinamik bir bağlantı noktası dinleyecek şekilde yapılandırır (`127.0.0.1`). Dinamik bağlantı noktası 1234 ise sırasında Kestrel dinler `127.0.0.1:1234`. Bu yapılandırma tarafından sağlanan diğer URL'yi yapılandırmaları değiştirir:
 
@@ -104,7 +104,7 @@ ASP.NET Core modülü arka uç işleme atamak için dinamik bir bağlantı nokta
 
 ::: moniker range="= aspnetcore-2.0"
 
-`CreateDefaultBuilder` yapılandırır [Kestrel](xref:fundamentals/servers/kestrel) web sunucusu olarak ve bağlantı noktası ve temel yolunu yapılandırarak IIS tümleştirme sağlar [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module).
+`CreateDefaultBuilder` yapılandırır [Kestrel](xref:fundamentals/servers/kestrel) web sunucusu olarak ve bağlantı noktası ve temel yolunu yapılandırarak IIS tümleştirme sağlar [ASP.NET Core Modülü](xref:host-and-deploy/aspnet-core-module).
 
 ASP.NET Core modülü arka uç işleme atamak için dinamik bir bağlantı noktası oluşturur. `CreateDefaultBuilder` çağrıları [UseIISIntegration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions.useiisintegration) yöntemi. `UseIISIntegration` Kestrel'i localhost IP adresi dinamik bir bağlantı noktası dinleyecek şekilde yapılandırır (`localhost`). Dinamik bağlantı noktası 1234 ise sırasında Kestrel dinler `localhost:1234`. Bu yapılandırma tarafından sağlanan diğer URL'yi yapılandırmaları değiştirir:
 
@@ -187,13 +187,13 @@ services.Configure<IISOptions>(options =>
 
 ### <a name="webconfig-file"></a>Web.config dosyası
 
-*Web.config* dosya yapılandırır [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module). Oluşturma, dönüştürme ve yayımlama *web.config* dosya bir MSBuild hedefi tarafından gerçekleştirilir (`_TransformWebConfig`) projeyi ne zaman yayımlanır. Bu Web SDK'sı hedeflerin mevcut hedefidir (`Microsoft.NET.Sdk.Web`). SDK'sı, proje dosyasının en üstüne ayarlanır:
+*Web.config* dosya yapılandırır [ASP.NET Core Modülü](xref:host-and-deploy/aspnet-core-module). Oluşturma, dönüştürme ve yayımlama *web.config* dosya bir MSBuild hedefi tarafından gerçekleştirilir (`_TransformWebConfig`) projeyi ne zaman yayımlanır. Bu Web SDK'sı hedeflerin mevcut hedefidir (`Microsoft.NET.Sdk.Web`). SDK'sı, proje dosyasının en üstüne ayarlanır:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk.Web">
 ```
 
-Varsa bir *web.config* dosyası projedeki mevcut değil, dosyanın doğru oluşturulması *processPath* ve *bağımsız değişkenleri* yapılandırmak için [ASP.NET Core Modül](xref:fundamentals/servers/aspnet-core-module) ve taşınabilir [yayımlanmış çıktısı](xref:host-and-deploy/directory-structure).
+Varsa bir *web.config* dosyası projedeki mevcut değil, dosyanın doğru oluşturulması *processPath* ve *bağımsız değişkenleri* yapılandırmak için [ASP.NET Core Modül](xref:host-and-deploy/aspnet-core-module) ve taşınabilir [yayımlanmış çıktısı](xref:host-and-deploy/directory-structure).
 
 Varsa bir *web.config* dosyası projesinde, dosyanın doğru dönüştürülür *processPath* ve *bağımsız değişkenleri* ASP.NET Core modülü yapılandırmak için ve azure'a taşındı yayımlanmış çıktısı. Dönüştürme, IIS yapılandırma ayarları dosyasında değiştirmez.
 
@@ -265,7 +265,7 @@ Etkinleştirme **IIS Yönetim Konsolu** ve **World Wide Web Hizmetleri**.
 
 ## <a name="install-the-net-core-hosting-bundle"></a>Paket barındırma .NET Core'u yükleme
 
-Yükleme *.NET Core barındırma paket* barındıran sistemde. .NET Core çalışma zamanı, .NET Core kitaplığı paketi yükler ve [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module). Modül IIS çalıştırılacak uygulamaları ASP.NET Core sağlar. Sistem, Internet bağlantısı yoksa, alma ve yükleme [Microsoft Visual C++ 2015 yeniden dağıtılabilir](https://www.microsoft.com/download/details.aspx?id=53840) .NET Core barındırma paketini yüklemeden önce.
+Yükleme *.NET Core barındırma paket* barındıran sistemde. .NET Core çalışma zamanı, .NET Core kitaplığı paketi yükler ve [ASP.NET Core Modülü](xref:host-and-deploy/aspnet-core-module). Modül IIS çalıştırılacak uygulamaları ASP.NET Core sağlar. Sistem, Internet bağlantısı yoksa, alma ve yükleme [Microsoft Visual C++ 2015 yeniden dağıtılabilir](https://www.microsoft.com/download/details.aspx?id=53840) .NET Core barındırma paketini yüklemeden önce.
 
 > [!IMPORTANT]
 > Barındırma paket önce IIS yüklü değilse, paket yükleme onarılmalıdır. IIS yeniden yükledikten sonra paket barındırma yükleyiciyi çalıştırın.
@@ -335,9 +335,9 @@ Uygulamaları olan sunuculara dağıtırken [Web dağıtımı](/iis/publish/usin
 
     ASP.NET Core, ayrı bir işlemde çalıştırır ve çalışma zamanı yönetir. ASP.NET Core, Masaüstü CLR yüklemede de içermez. Ayarı **.NET CLR sürümü** için **yönetilen kod yok** isteğe bağlıdır.
 
-1. *ASP.NET Core 2.2 veya üzeri*: Bir 64-bit (x64) için [müstakil dağıtım](/dotnet/core/deploying/#self-contained-deployments-scd) kullanan [işlem içi barındırma modeli](xref:fundamentals/servers/aspnet-core-module#in-process-hosting-model), 32 bit (x 86) işlemleri için uygulama havuzunu devre dışı bırakır.
+1. *ASP.NET Core 2.2 veya üzeri*: Bir 64-bit (x64) için [müstakil dağıtım](/dotnet/core/deploying/#self-contained-deployments-scd) kullanan [işlem içi barındırma modeli](xref:fundamentals/servers/index#in-process-hosting-model), 32 bit (x 86) işlemleri için uygulama havuzunu devre dışı bırakır.
 
-   İçinde **eylemleri** kenar, IIS Yöneticisi'nin **uygulama havuzları**seçin **uygulama havuzu Varsayılanlarını Ayarla** veya **Gelişmiş ayarlar**. Bulun **etkinleştirme 32-Bit uygulamaları** ve değerine `False`. Bu ayar için dağıtılan uygulamaları etkilemez [barındırma işlemi çıkış](xref:fundamentals/servers/aspnet-core-module#out-of-process-hosting-model).
+   İçinde **eylemleri** kenar, IIS Yöneticisi'nin **uygulama havuzları**seçin **uygulama havuzu Varsayılanlarını Ayarla** veya **Gelişmiş ayarlar**. Bulun **etkinleştirme 32-Bit uygulamaları** ve değerine `False`. Bu ayar için dağıtılan uygulamaları etkilemez [barındırma işlemi çıkış](xref:host-and-deploy/aspnet-core-module#out-of-process-hosting-model).
 
 1. İşlem modeli kimliği uygun izinlere sahip olduğunu doğrulayın.
 
@@ -489,7 +489,7 @@ ASP.NET Core uygulaması başka bir ASP.NET Core uygulaması altında bir alt uy
 
 Bir alt uygulama ayrı bir uygulama havuzuna atamasını işlem içi barındırma modeli kullanılırken zorunludur.
 
-Barındırma modeli ve ASP.NET Core modülü yapılandırma işlem hakkında daha fazla bilgi için bkz. <xref:fundamentals/servers/aspnet-core-module> ve <xref:host-and-deploy/aspnet-core-module>.
+Barındırma modeli ve ASP.NET Core modülü yapılandırma işlem hakkında daha fazla bilgi için bkz. <xref:host-and-deploy/aspnet-core-module> ve <xref:host-and-deploy/aspnet-core-module>.
 
 ## <a name="configuration-of-iis-with-webconfig"></a>Web.config ile IIS yapılandırma
 
@@ -579,7 +579,7 @@ Daha fazla bilgi için [icacls](/windows-server/administration/windows-commands/
 
 Bir HTTP/2 bağlantı kurulduğunda, işlem içi dağıtımı için [HttpRequest.Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) raporları `HTTP/2`. Bir HTTP/2 bağlantı kurulduğunda, bir işlem dışı dağıtım için [HttpRequest.Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) raporları `HTTP/1.1`.
 
-İşlem içi ve dışı işlem barındırma modelleri hakkında daha fazla bilgi için bkz. <xref:fundamentals/servers/aspnet-core-module> konu ve <xref:host-and-deploy/aspnet-core-module>.
+İşlem içi ve dışı işlem barındırma modelleri hakkında daha fazla bilgi için bkz. <xref:host-and-deploy/aspnet-core-module> konu ve <xref:host-and-deploy/aspnet-core-module>.
 
 ::: moniker-end
 
@@ -607,7 +607,7 @@ IIS IIS belgelerinde kapsamlı hakkında bilgi edinin.
 [.NET core uygulama dağıtımı](/dotnet/core/deploying/)
 
 ASP.NET Core modülü Kestrel web sunucusu, bir ters proxy sunucusu olarak IIS veya IIS Express kullanacak şekilde nasıl olanak tanıdığını öğrenin.  
-[ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module)
+[ASP.NET Core Modülü](xref:host-and-deploy/aspnet-core-module)
 
 ASP.NET Core uygulamaları barındırmak için gereken ASP.NET Core modülü yapılandırmayı öğrenin.  
 [ASP.NET Core Module yapılandırma başvurusu](xref:host-and-deploy/aspnet-core-module)

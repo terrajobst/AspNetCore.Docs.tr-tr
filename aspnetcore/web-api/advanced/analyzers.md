@@ -5,18 +5,18 @@ description: Web API Çözümleyicileri Microsoft.AspNetCore.Mvc.Api.Analyzers i
 monikerRange: '>= aspnetcore-2.2'
 ms.author: pranavkm
 ms.custom: mvc
-ms.date: 11/13/2018
+ms.date: 12/14/2018
 uid: web-api/advanced/analyzers
-ms.openlocfilehash: 89424d89ec2b3125fd3c6b7c86fed2d292b153e6
-ms.sourcegitcommit: f202864efca81a72ea7120c0692940c40d9d0630
+ms.openlocfilehash: 7558552586d3056c43d8bfd9ef74cbcb3396726f
+ms.sourcegitcommit: 6548c19f345850ee22b50f7ef9fca732895d9e08
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635368"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53425100"
 ---
 # <a name="use-web-api-analyzers"></a>Web API Çözümleyicileri kullanma
 
-ASP.NET Core 2.2 tanıtır [Microsoft.AspNetCore.Mvc.Api.Analyzers](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Api.Analyzers) web API'leri için çözümleyicilerini içeren bir NuGet paketi. Denetleyicileri ile açıklanan Çözümleyicileri çalışmak <xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute>, oluşturmaya çalışırken [API kuralları](xref:web-api/advanced/conventions).
+ASP.NET Core 2.2 ve sonraki sürümleri içeren [Microsoft.AspNetCore.Mvc.Api.Analyzers](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Api.Analyzers) web API'leri için çözümleyicilerini içeren bir NuGet paketi. Denetleyicileri ile açıklanan Çözümleyicileri çalışmak <xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute>, oluşturmaya çalışırken [API kuralları](xref:web-api/advanced/conventions).
 
 ## <a name="package-installation"></a>Paket yüklemesi
 
@@ -66,10 +66,16 @@ dotnet add ApiConventions.csproj package Microsoft.AspNetCore.Mvc.Api.Analyzers
 
 ## <a name="analyzers-for-api-conventions"></a>API kuralları için Çözümleyicileri
 
-Açık API belgeleri, durum kodları ve eylem döndürebilir ve yanıt türleri içerir. ASP.NET Core MVC gibi öznitelikleri <xref:Microsoft.AspNetCore.Mvc.ProducesResponseTypeAttribute> ve <xref:Microsoft.AspNetCore.Mvc.ProducesAttribute> eylem belgelemek için kullanılır. <xref:tutorials/web-api-help-pages-using-swagger> API'nizi belgeleme üzerinde daha fazla ayrıntıya gider.
+Openapı belgeleri, durum kodları ve eylem döndürebilir ve yanıt türleri içerir. ASP.NET Core MVC gibi öznitelikleri <xref:Microsoft.AspNetCore.Mvc.ProducesResponseTypeAttribute> ve <xref:Microsoft.AspNetCore.Mvc.ProducesAttribute> eylem belgelemek için kullanılır. <xref:tutorials/web-api-help-pages-using-swagger> API'nizi belgeleme üzerinde daha fazla ayrıntıya gider.
 
 Paketteki Çözümleyicileri birini inceler denetleyicileri ile açıklanan <xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute> ve yanıtlarını tamamen belge yok eylemleri tanımlar. Aşağıdaki örnek göz önünde bulundurun:
 
 [!code-csharp[](conventions/sample/Controllers/ContactsController.cs?name=missing404docs&highlight=9)]
 
 Önceki eylemi HTTP başarı dönüş türü, ancak belge olmayan HTTP 404 hatası durum kodu 200 belgeler. Çözümleyici eksik HTTP 404 durum kodu belgelerine bir uyarı olarak bildirir. Sorunu düzeltmek için bir seçenek sağlanır.
+
+## <a name="additional-resources"></a>Ek kaynaklar
+
+* <xref:web-api/advanced/conventions>
+* <xref:tutorials/web-api-help-pages-using-swagger>
+* [Ek açıklama ApiController özniteliğine sahip](xref:web-api/index#annotation-with-apicontroller-attribute)

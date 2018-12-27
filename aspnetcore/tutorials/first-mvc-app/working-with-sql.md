@@ -1,44 +1,52 @@
 ---
-title: Bir ASP.NET Core MVC uygulaması, SQL Server LocalDB ile çalışma
+title: Bir ASP.NET Core MVC uygulaması SQL ile çalışma
 author: rick-anderson
-description: SQL Server LocalDB basit bir ASP.NET Core MVC uygulamasında kullanma hakkında bilgi edinin.
+description: Bir ASP.NET Core MVC uygulamasında SQL Server LocalDB veya SQLite kullanma hakkında bilgi edinin.
 ms.author: riande
 ms.date: 03/07/2017
 uid: tutorials/first-mvc-app/working-with-sql
-ms.openlocfilehash: 49615c25d51cfa671157c2e56b8e0753719c678a
-ms.sourcegitcommit: c4572be5ebb301013a5698caf9b5572b76cb2e34
+ms.openlocfilehash: 3757b972694a41cb87beb8ebee818cd498be6764
+ms.sourcegitcommit: 4e87712029de2aceb1cf2c52e9e3dda8195a5b8e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52710107"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53382036"
 ---
-# <a name="work-with-sql-server-localdb-in-aspnet-core"></a>ASP.NET Core, SQL Server LocalDB ile çalışma
+# <a name="work-with-sql-in-aspnet-core"></a>ASP.NET core'da SQL ile çalışma
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 `MvcMovieContext` Nesne veritabanına bağlanma ve eşleme görevi işleme `Movie` veritabanı kayıtlarını nesneleri. Veritabanı bağlamı kayıtlı [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısında `ConfigureServices` yönteminde *Startup.cs* dosyası:
 
-::: moniker range=">= aspnetcore-2.1"
+<!-- VS -------------------------->
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Startup.cs?name=ConfigureServices&highlight=13-99)]
-
-::: moniker-end
-
-::: moniker range="<= aspnetcore-2.0"
-
-[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=ConfigureServices&highlight=6-7)]
-
-::: moniker-end
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Startup.cs?name=snippet_ConfigureServices&highlight=13-99)]
 
 ASP.NET Core [yapılandırma](xref:fundamentals/configuration/index) sistem okuma `ConnectionString`. İsteğe bağlı olarak yerel geliştirme için bağlantı dizesinden alır *appsettings.json* dosyası:
 
 [!code-json[](start-mvc/sample/MvcMovie/appsettings.json?highlight=2&range=8-10)]
 
+<!-- Code -------------------------->
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code'u / Visual Studio Mac için](#tab/visual-studio-code+visual-studio-mac)
+
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Startup.cs?name=snippet_UseSqlite&highlight=11-12)]
+
+ASP.NET Core [yapılandırma](xref:fundamentals/configuration/index) sistem okuma `ConnectionString`. İsteğe bağlı olarak yerel geliştirme için bağlantı dizesinden alır *appsettings.json* dosyası:
+
+[!code-json[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/appsettingsSQLite.json?highlight=2&range=8-10)]
+
+---  
+<!-- End of VS tabs -->
+
 Bir test veya üretim sunucusuna uygulamasını dağıttığınızda, bir ortam değişkenine ya da başka bir kullanabilirsiniz yaklaşım gerçek bir SQL Server'a bağlantı dizesini ayarlayalım. Bkz: [yapılandırma](xref:fundamentals/configuration/index) daha fazla bilgi için.
+
+<!-- VS -------------------------->
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 ## <a name="sql-server-express-localdb"></a>SQL Server Express LocalDB
 
-LocalDB, SQL Server Express Veritabanı Altyapısı'nın hedeflenen program geliştirme için basit bir sürümüdür. LocalDB, isteğe bağlı olarak başlar ve karmaşık yapılandırma olduğundan kullanıcı modunda çalışır. Varsayılan olarak LocalDB veritabanına oluşturur "\*.mdf" dosyalar *C:/Users/\<kullanıcı\>*  dizin.
+LocalDB, SQL Server Express Veritabanı Altyapısı'nın hedeflenen program geliştirme için basit bir sürümüdür. LocalDB, isteğe bağlı olarak başlar ve karmaşık yapılandırma olduğundan kullanıcı modunda çalışır. Varsayılan olarak LocalDB veritabanına oluşturur *.mdf* dosyalar *C:/Users / {user}* dizin.
 
 * Gelen **görünümü** menüsünde, açık **SQL Server Nesne Gezgini** (SSOX).
 
@@ -58,11 +66,18 @@ Anahtar simgesinin yanındaki Not `ID`. Varsayılan olarak EF adlı bir özellik
 
   ![Tablo verilerini gösteren açık film tablo](working-with-sql/_static/vd22.png)
 
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code'u / Visual Studio Mac için](#tab/visual-studio-code+visual-studio-mac)
+
+[!INCLUDE[](~/includes/rp/sqlite.md)]
+
+---  
+<!-- End of VS tabs -->
+
 ## <a name="seed-the-database"></a>Veritabanının çekirdeğini oluşturma
 
 Adlı yeni bir sınıf oluşturun `SeedData` içinde *modelleri* klasör. Oluşturulan kodu aşağıdakiyle değiştirin:
 
-[!code-csharp[](start-mvc/sample/MvcMovie/Models/SeedData.cs?name=snippet_1)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Models/SeedData.cs?name=snippet_1)]
 
 Varsa tüm film DB'de, çekirdek Başlatıcı döndürür ve film eklenir.
 
@@ -78,21 +93,12 @@ if (context.Movie.Any())
 
 Öğesinin içeriğini değiştirin *Program.cs* aşağıdaki kod ile:
 
-::: moniker range=">= aspnetcore-2.1"
-
-[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Program.cs)]
-
-::: moniker-end
-
-::: moniker range="<= aspnetcore-2.0"
-
-İçin çekirdek Başlatıcı Ekle `Main` yönteminde *Program.cs* dosyası:
-
-[!code-csharp[](start-mvc/sample/MvcMovie/Program.cs?highlight=6,14-32)]
-
-::: moniker-end
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Program.cs)]
 
 Uygulamayı test etme
+
+<!-- VS -------------------------->
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Veritabanındaki tüm kayıtları silin. Tarayıcıda veya SSOX silme bağlantıları kullanarak bunu yapabilirsiniz.
 * Başlatmaya zorlamak (yöntemleri çağırmak `Startup` sınıfı) bu nedenle seed yöntemi çalıştırılır. Başlatma zorlamak için IIS Express durdurulup yeniden gerekir. Bunu aşağıdaki yaklaşımlardan birini yapabilirsiniz:
@@ -105,6 +111,14 @@ Uygulamayı test etme
 
     * VS hata ayıklama olmayan modda çalışıyormuş, hata ayıklama modunda çalıştırmak için F5 tuşuna basın.
     * VS hata ayıklama modunda çalıştırdığınız, hata ayıklayıcıyı durdurun ve F5 tuşuna basın
+
+<!-- Code -------------------------->
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code'u / Visual Studio Mac için](#tab/visual-studio-code+visual-studio-mac)
+
+Bu nedenle (seed yöntemi çalıştırılır) veritabanındaki tüm kayıtları silin. Veritabanının çekirdeğini oluşturma için app durdurup yeniden açın.
+
+---  
+<!-- End of VS tabs -->
 
 Uygulama, çekirdeği oluşturulmuş veri gösterir.
 

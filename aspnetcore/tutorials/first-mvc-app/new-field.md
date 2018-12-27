@@ -4,78 +4,86 @@ author: rick-anderson
 description: Bir model için yeni bir alan ekleyin ve bu değişiklik veritabanına geçirmek için Entity Framework Code First Migrations'ı kullanmayı öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 12/25/2018
 uid: tutorials/first-mvc-app/new-field
-ms.openlocfilehash: e58d5af90b997c66cb749ab8f1b2f8049b8f7303
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 3c29b01cc97dbfd93c21131c3d96ed309715da1a
+ms.sourcegitcommit: 4e87712029de2aceb1cf2c52e9e3dda8195a5b8e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50089692"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53382023"
 ---
 # <a name="add-a-new-field-to-an-aspnet-core-mvc-app"></a>Bir ASP.NET Core MVC uygulaması için yeni bir alan ekleyin
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Bu bölümde kullanacaksınız [Entity Framework](/ef/core/get-started/aspnetcore/new-db) veritabanına Code First Migrations'modeli için yeni bir alan ekleme ve bu geçiş için değiştirin.
+Bu bölümdeki [Entity Framework](/ef/core/get-started/aspnetcore/new-db) için Code First Migrations kullanılır:
 
-EF Code First otomatik olarak bir veritabanı oluşturmak için kullandığınızda, Code First bir tablo veritabanı şeması öğesinden oluşturulan model sınıfları ile eşitlenmiş olup olmadığını izlenmesine yardımcı olması için veritabanına ekler. EF, bunlar eşit değilse bir özel durum oluşturur. Bu, tutarsız veritabanı kod sorunlarını bulmayı kolaylaştırır.
+* Modele yeni bir alan ekleyin.
+* Yeni alan veritabanına geçirin.
 
-## <a name="adding-a-rating-property-to-the-movie-model"></a>Film modeli derecelendirme özellik ekleme
+EF Code First için otomatik olarak kullanıldığında, Code First bir veritabanı oluşturun:
 
-Açık *Models/Movie.cs* dosya ve ekleme bir `Rating` özelliği:
+* Bir tablo veritabanı şeması izlemek için veritabanına ekler.
+* Veritabanı öğesinden oluşturulan model sınıfları ile eşitlenmiş olduğunu doğrulayın. EF, bunlar eşit değilse bir özel durum oluşturur. Bu, tutarsız veritabanı kod sorunlarını bulmayı kolaylaştırır.
 
-::: moniker range=">= aspnetcore-2.1"
+## <a name="add-a-rating-property-to-the-movie-model"></a>Film modeli için bir derecelendirme özelliği Ekle
 
-[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Models/MovieDateRating.cs?highlight=13&name=snippet)]
+Ekleme bir `Rating` özelliğini *Models/Movie.cs*:
 
-::: moniker-end
-
-::: moniker range="<= aspnetcore-2.0"
-
-[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieDateRating.cs?highlight=11&range=7-18)]
-
-::: moniker-end
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Models/MovieDateRating.cs?highlight=13&name=snippet)]
 
 (Ctrl + Shift + B) uygulaması oluşturun.
 
-Yeni bir alan eklediğiniz çünkü `Movie` sınıfı da gereken bağlama beyaz liste bu yeni özellik dahil olacak şekilde güncelleştirin. İçinde *MoviesController.cs*, güncelleştirme `[Bind]` özniteliği hem de `Create` ve `Edit` dahil etmek için eylem yöntemleri `Rating` özelliği:
+Yeni bir alan eklediğiniz çünkü `Movie` sınıfı için gereksinim duyduğunuz bağlama beyaz liste bu yeni özellik dahil olacak şekilde güncelleştirin. İçinde *MoviesController.cs*, güncelleştirme `[Bind]` özniteliği hem de `Create` ve `Edit` dahil etmek için eylem yöntemleri `Rating` özelliği:
 
 ```csharp
 [Bind("ID,Title,ReleaseDate,Genre,Price,Rating")]
    ```
 
-Ayrıca görüntülemek, oluşturmak ve bunları yeni düzenleme görünümü şablonları güncelleştirmeye gerek duyduğunuz `Rating` Tarayıcı Görünümü özelliği.
+Görünüm şablonları görüntülemek, oluşturmak ve yeni düzenlemek için güncelleştirme `Rating` Tarayıcı Görünümü özelliği.
 
 Düzen */Views/Movies/Index.cshtml* dosya ve ekleme bir `Rating` alan:
 
-[!code-HTML[](start-mvc/sample/MvcMovie/Views/Movies/IndexGenreRating.cshtml?highlight=17,39&range=24-64)]
+[!code-HTML[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/Movies/IndexGenreRating.cshtml?highlight=17,39&range=24-64)]
 
-Güncelleştirme */Views/Movies/Create.cshtml* ile bir `Rating` alan. Önceki "form grubu" kopyala/yapıştır ve alanları güncelleştirin IntelliSense Yardım sağlar. IntelliSense ile birlikte çalışır [etiket Yardımcıları](xref:mvc/views/tag-helpers/intro). Not: Visual Studio 2017'in RTM sürümü yüklemeniz gerekir [Razor dil Hizmetleri](https://marketplace.visualstudio.com/items?itemName=ms-madsk.RazorLanguageServices) Razor IntelliSense. Bu, sonraki sürümde düzeltilecektir.
+Güncelleştirme */Views/Movies/Create.cshtml* ile bir `Rating` alan. 
+
+<!-- VS -------------------------->
+# <a name="visual-studio--visual-studio-for-mactabvisual-studiovisual-studio-mac"></a>[Visual Studio / Visual Studio Mac için](#tab/visual-studio+visual-studio-mac)
+
+Önceki "form grubu" kopyala/yapıştır ve alanları güncelleştirin IntelliSense Yardım sağlar. IntelliSense ile birlikte çalışır [etiket Yardımcıları](xref:mvc/views/tag-helpers/intro).
 
 ![Öznitelik değeri ASP R harfiyle Geliştirici yazdığını-için görünümün ikinci etiket öğesinde. IntelliSense bağlam menüsü listesinde otomatik olarak vurgulanır derecelendirme dahil olmak üzere kullanılabilir alanları gösteren görüntülendi. Geliştirici alana tıkladığında veya klavyedeki Enter tuşuna bastığında için derecelendirme değeri ayarlanır.](new-field/_static/cr.png)
 
-Uygulama, yeni alan eklemek için bir veritabanı güncelleştiriyoruz kadar çalışmaz. Şimdi çalıştırırsanız, aşağıdaki elde edecekleriniz `SqlException`:
-
-`SqlException: Invalid column name 'Rating'.`
-
-Güncelleştirilmiş film modeli sınıfı var olan veritabanının film tablonun şeması farklı olduğu için bu hatayı görüyorsunuz. (Veritabanı tablosunda hiçbir derecesi sütun var.)
-
-Hatayı çözümlemek için birkaç yaklaşım vardır:
-
-1. Otomatik olarak bırakın ve yeni model sınıfı şemasını temel alan veritabanını yeniden oluşturma Entity Framework vardır. Bu yaklaşım bir test veritabanında etkin geliştirme işi yaparken zaman Geliştirme döngüsünün başlarında çok kullanışlıdır; model ve veritabanı şeması birlikte hızla geliştirilebilen olanak tanır. Olumsuz tarafı, yine de veritabanında var olan veri kaybı olan — bir üretim veritabanında bu yaklaşımı kullanmak istemediğiniz şekilde! Bir başlatıcı bir veritabanı test verileri ile otomatik olarak oluşturmak için genellikle bir uygulama geliştirmek için üretken bir şekilde kullanmaktır.
-
-2. Açıkça model sınıfları eşleşecek şekilde var olan veritabanı şeması değiştirin. Bu yaklaşımın avantajı, verilerinizi korumak olmasıdır. Bu değişikliği yapmak ya da el ile veya bir veritabanı oluşturma betiği değiştirin.
-
-3. Veritabanı şemasını güncelleştirmek için Code First Migrations'ı kullanın.
-
-Bu öğreticide, Code First Migrations kullanacağız.
+<!-- Code -------------------------->
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+<!-- This tab intentionally left blank. -->
+---  
+<!-- End of VS tabs -->
 
 Güncelleştirme `SeedData` böylece yeni bir sütun için bir değer sağlar sınıfını. Aşağıda bir örnek değişikliği gösterilmiştir, ancak her biri için bu değişikliği yapmak istersiniz `new Movie`.
 
 [!code-csharp[](start-mvc/sample/MvcMovie/Models/SeedDataRating.cs?name=snippet1&highlight=6)]
 
-Çözümü oluşturun.
+Uygulama DB yeni alanı içerecek şekilde güncelleştirilene kadar çalışmaz. Şimdi aşağıdaki çalıştırıldıysa `SqlException` oluşturulur:
+
+`SqlException: Invalid column name 'Rating'.`
+
+Güncelleştirilmiş film model sınıfı var olan veritabanının film tablo şemasından farklı olduğundan, bu hata oluşur. (Yok hiçbir `Rating` veritabanı tablosundaki sütun.)
+
+Hatayı çözümlemek için birkaç yaklaşım vardır:
+
+1. Otomatik olarak bırakın ve yeni model sınıfı şemasını temel alan veritabanını yeniden oluşturma Entity Framework vardır. Bu yaklaşım bir test veritabanında etkin geliştirme işi yaparken zaman Geliştirme döngüsünün başlarında çok kullanışlıdır; model ve veritabanı şeması birlikte hızla geliştirilebilen olanak tanır. Olumsuz tarafı, yine de veritabanında var olan veri kaybı olan — bir üretim veritabanında bu yaklaşımı kullanmak istemediğiniz şekilde! Bir başlatıcı bir veritabanı test verileri ile otomatik olarak oluşturmak için genellikle bir uygulama geliştirmek için üretken bir şekilde kullanmaktır. İyi bir yaklaşım erken geliştirmeye yönelik ve SQLite kullanırken budur.
+
+2. Açıkça model sınıfları eşleşecek şekilde var olan veritabanı şeması değiştirin. Bu yaklaşımın avantajı, verilerinizi korumak olmasıdır. Bu değişikliği yapmak ya da el ile veya bir veritabanı oluşturma betiği değiştirin.
+
+3. Veritabanı şemasını güncelleştirmek için Code First Migrations'ı kullanın.
+
+Bu öğreticide, Code First Migrations kullanılır.
+
+<!-- VS -------------------------->
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Gelen **Araçları** menüsünde **NuGet Paket Yöneticisi > Paket Yöneticisi Konsolu**.
 
@@ -88,11 +96,27 @@ Add-Migration Rating
 Update-Database
 ```
 
-`Add-Migration` Komut Framework'e geçerli incelemek için geçiş `Movie` geçerli model `Movie` DB şema ve DB yeni modeline geçirme için gereken kodu oluşturun. Adı "Sıralama" isteğe bağlıdır ve geçiş dosyasını adlandırmak için kullanılır. Geçiş dosya için anlamlı bir ad kullanmak yararlıdır.
+`Add-Migration` Komut Framework'e geçerli incelemek için geçiş `Movie` geçerli model `Movie` DB şema ve DB yeni modeline geçirme için gereken kodu oluşturun.
 
-DB tüm kayıtların silerseniz, başlatma DB çekirdeğini ve dahil `Rating` alan. Tarayıcıda veya SSOX silme bağlantıları kullanarak bunu yapabilirsiniz.
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code'u / Visual Studio Mac için](#tab/visual-studio-code+visual-studio-mac)
 
-Uygulamayı çalıştırın ve kontrol edebilirsiniz oluşturma/düzenleme/görüntüleme filmlerle bir `Rating` alan. De eklemeniz gerekir `Rating` alanı `Edit`, `Details`, ve `Delete` şablonlarını görüntüleyin.
+[!INCLUDE[](~/includes/RP-mvc-shared/sqlite-warn.md)]
+
+Şu komutu çalıştırın:
+
+```cli
+dotnet ef migrations add Rating
+dotnet ef database update
+```
+
+---  
+<!-- End of VS tabs -->
+
+Adı "Sıralama" isteğe bağlıdır ve geçiş dosyasını adlandırmak için kullanılır. Geçiş dosya için anlamlı bir ad kullanmak yararlıdır.
+
+Veritabanındaki tüm kayıtları silinen, Initialize yöntemi DB çekirdeğini ve dahil `Rating` alan.
+
+Uygulamayı çalıştırın ve kontrol edebilirsiniz oluşturma/düzenleme/görüntüleme filmlerle bir `Rating` alan. Eklemeniz gerekir `Rating` alanı `Edit`, `Details`, ve `Delete` şablonlarını görüntüleyin.
 
 > [!div class="step-by-step"]
 > [Önceki](search.md)

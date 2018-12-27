@@ -3,15 +3,15 @@ title: Kullanıcı verilerinin yetkilendirme tarafından korunduğu ile bir ASP.
 author: rick-anderson
 description: Kullanıcı verilerinin yetkilendirme tarafından korunduğu ile Razor sayfaları uygulaması oluşturmayı öğrenin. HTTPS, kimlik doğrulama, güvenlik, ASP.NET Core kimliği içerir.
 ms.author: riande
-ms.date: 12/07/2018
+ms.date: 12/18/2018
 ms.custom: seodec18
 uid: security/authorization/secure-data
-ms.openlocfilehash: d49ee7779b425d625b81c8a65694121c616bfba6
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: fa82d3d99f4e4b7ad17ed385fb7c029745797e8d
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121641"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637839"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Kullanıcı verilerinin yetkilendirme tarafından korunduğu ile bir ASP.NET Core uygulaması oluşturma
 
@@ -57,14 +57,14 @@ Aşağıdaki görüntüde, `admin@contoso.com` ve yöneticiler rolünde imzalan�
 
 Yöneticisinin tüm ayrıcalıklara sahip değil. Okuma/düzenleme/silme herhangi iletişime geçebiliriz ve kişiler birinin durumunu değiştirin.
 
-Uygulama tarafından oluşturulan [yapı iskelesi](xref:tutorials/first-mvc-app-xplat/adding-model#scaffold-the-moviecontroller) aşağıdaki `Contact` modeli:
+Uygulama tarafından oluşturulan [yapı iskelesi](xref:tutorials/first-mvc-app/adding-model#scaffold-the-movie-model) aşağıdaki `Contact` modeli:
 
 [!code-csharp[](secure-data/samples/starter2.1/Models/Contact.cs?name=snippet)]
 
 Örnek aşağıdaki yetkilendirme işleyicilerini içerir:
 
 * `ContactIsOwnerAuthorizationHandler`: Bir kullanıcı yalnızca kendi verilerini düzenleyebilir sağlar.
-* `ContactManagerAuthorizationHandler`: Onaylama veya reddetme kişiler yöneticileri sağlar.
+* `ContactManagerAuthorizationHandler`: Yöneticileri onaylayabilir veya kişiler sağlar.
 * `ContactAdministratorsAuthorizationHandler`: Yöneticilerin onaylama veya reddetme kişiler ve kişiler düzenleme/silme olanak sağlar.
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -284,7 +284,7 @@ Bkz: [bu sorunu](https://github.com/aspnet/Docs/issues/8502) hakkında bilgi iç
 
 Kapsanan kullanıcı hesapları için bir parola belirlemediyseniz kullanın [gizli dizi Yöneticisi aracını](xref:security/app-secrets#secret-manager) parola ayarlamak için:
 
-* Güçlü bir parola seçin: kullanım sekiz veya daha fazla karakter ve en az bir büyük harf karakter, sayı ve simge. Örneğin, `Passw0rd!` güçlü parola gereksinimlerini karşılıyor.
+* Güçlü bir parola seçin: Sekiz kullanın veya daha fazla karakter ve en az bir büyük harf karakter, sayı ve simge. Örneğin, `Passw0rd!` güçlü parola gereksinimlerini karşılıyor.
 * Aşağıdaki komutu yürütün proje klasöründen burada `<PW>` parola:
 
   ```console

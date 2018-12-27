@@ -5,14 +5,14 @@ description: Yanıt sıkıştırma ve ASP.NET Core uygulamalarında yanıt sık�
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/01/2018
+ms.date: 12/18/2018
 uid: performance/response-compression
-ms.openlocfilehash: 2516fbb30e55990dc4ad0d92069853bc26874bc9
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 51ab51652a7b3f9b4ef97b3abbffe2e398c0bfb5
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861894"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637761"
 ---
 # <a name="response-compression-in-aspnet-core"></a>ASP.NET core'da yanıt sıkıştırma
 
@@ -33,8 +33,8 @@ Yanıt sıkıştırma ara yazılımı, işiniz kullanın:
   * [Apache mod_deflate Modülü](http://httpd.apache.org/docs/current/mod/mod_deflate.html)
   * [Ngınx sıkıştırma ve açma](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)
 * Doğrudan barındırma:
-  * [HTTP.sys](xref:fundamentals/servers/httpsys) sunucu (eski adıyla [WebListener](xref:fundamentals/servers/weblistener))
-  * [Kestrel'i](xref:fundamentals/servers/kestrel) sunucusu
+  * [HTTP.sys sunucu](xref:fundamentals/servers/httpsys) (eski adıyla WebListener olarak adlandırılır)
+  * [Kestrel'i sunucusu](xref:fundamentals/servers/kestrel)
 
 ## <a name="response-compression"></a>Yanıt sıkıştırma
 
@@ -50,7 +50,7 @@ Sıkıştırılmış içerik işleme bir istemci, istemci yeteneklerini sunucusu
 | `deflate`                       | Hayır                   | [DEFLATE sıkıştırılmış veri biçimi](https://tools.ietf.org/html/rfc1951) |
 | `exi`                           | Hayır                   | [W3C XML verimli değişimi](https://tools.ietf.org/id/draft-varga-netconf-exi-capability-00.html) |
 | `gzip`                          | Evet                  | [Gzip dosya biçimi](https://tools.ietf.org/html/rfc1952) |
-| `identity`                      | Evet                  | "Kodlaması" tanımlayıcısı: yanıt değil kodlanmış olması gerekir. |
+| `identity`                      | Evet                  | "Kodlaması" tanımlayıcısı: Yanıt kodlanmalı değil. |
 | `pack200-gzip`                  | Hayır                   | [Ağ aktarım biçimi için Java arşivleri](https://jcp.org/aboutJava/communityprocess/review/jsr200/index.html) |
 | `*`                             | Evet                  | Kodlama açıkça istenen herhangi bir kullanılabilir içerik |
 
@@ -64,7 +64,7 @@ Sıkıştırılmış içerik işleme bir istemci, istemci yeteneklerini sunucusu
 | `deflate`                       | Hayır                   | [DEFLATE sıkıştırılmış veri biçimi](https://tools.ietf.org/html/rfc1951) |
 | `exi`                           | Hayır                   | [W3C XML verimli değişimi](https://tools.ietf.org/id/draft-varga-netconf-exi-capability-00.html) |
 | `gzip`                          | Evet (varsayılan)        | [Gzip dosya biçimi](https://tools.ietf.org/html/rfc1952) |
-| `identity`                      | Evet                  | "Kodlaması" tanımlayıcısı: yanıt değil kodlanmış olması gerekir. |
+| `identity`                      | Evet                  | "Kodlaması" tanımlayıcısı: Yanıt kodlanmalı değil. |
 | `pack200-gzip`                  | Hayır                   | [Ağ aktarım biçimi için Java arşivleri](https://jcp.org/aboutJava/communityprocess/review/jsr200/index.html) |
 | `*`                             | Evet                  | Kodlama açıkça istenen herhangi bir kullanılabilir içerik |
 
@@ -74,7 +74,7 @@ Daha fazla bilgi için [IANA resmi içerik kodlama listesi](http://www.iana.org/
 
 Ara yazılım özel ek sıkıştırmasını sağlayıcıları eklemenizi sağlayan `Accept-Encoding` üstbilgi değerleri. Daha fazla bilgi için [özel sağlayıcılar](#custom-providers) aşağıda.
 
-Ara yazılım kalite değeri tepki uyumlu (qvalue, `q`) sıkıştırma düzeni önceliğini belirlemek için istemci tarafından gönderilen ağırlığı. Daha fazla bilgi için [RFC 7231: kabul kodlama](https://tools.ietf.org/html/rfc7231#section-5.3.4).
+Ara yazılım kalite değeri tepki uyumlu (qvalue, `q`) sıkıştırma düzeni önceliğini belirlemek için istemci tarafından gönderilen ağırlığı. Daha fazla bilgi için [RFC 7231: Kabul kodlama](https://tools.ietf.org/html/rfc7231#section-5.3.4).
 
 Sıkıştırma hız ve sıkıştırma verimliliğini arasında bir denge sıkıştırma algoritmaları tabidir. *Verimliliği* bu bağlamda sıkıştırma sonrasında çıkış boyutunu ifade eder. En küçük boyuta göre en sağlanır *en iyi* sıkıştırma.
 
@@ -432,7 +432,7 @@ Yanıtları sıkıştırma zaman temelinde `Accept-Encoding` üst bilgi, potansi
 
 ## <a name="middleware-issue-when-behind-an-nginx-reverse-proxy"></a>Ters proxy arkasında olduğunda bir Ngınx ara yazılım sorunu
 
-Bir isteği Ngınx tarafından proxy olduğunda `Accept-Encoding` üstbilgi kaldırılır. Kaldırılmasını `Accept-Encoding` üst bilgi yanıtı sıkıştırmasını ara yazılım engeller. Daha fazla bilgi için [NGINX: sıkıştırma ve açma](https://www.nginx.com/resources/admin-guide/compression-and-decompression/). Bu sorunu tarafından izlenen [Nginx için doğrudan sıkıştırma ekleyeceğimi (aspnet/BasicMiddleware \#123)](https://github.com/aspnet/BasicMiddleware/issues/123).
+Bir isteği Ngınx tarafından proxy olduğunda `Accept-Encoding` üstbilgi kaldırılır. Kaldırılmasını `Accept-Encoding` üst bilgi yanıtı sıkıştırmasını ara yazılım engeller. Daha fazla bilgi için [NGINX: Sıkıştırma ve açma](https://www.nginx.com/resources/admin-guide/compression-and-decompression/). Bu sorunu tarafından izlenen [Nginx için doğrudan sıkıştırma ekleyeceğimi (aspnet/BasicMiddleware \#123)](https://github.com/aspnet/BasicMiddleware/issues/123).
 
 ## <a name="working-with-iis-dynamic-compression"></a>IIS dinamik sıkıştırması ile çalışma
 
@@ -464,7 +464,7 @@ Gibi bir araç kullanın [Fiddler](https://www.telerik.com/fiddler), [Firebug](h
 
 * <xref:fundamentals/startup>
 * <xref:fundamentals/middleware/index>
-* [Mozilla Geliştirici ağ: Kabul-Encoding](https://developer.mozilla.org/docs/Web/HTTP/Headers/Accept-Encoding)
+* [Mozilla Geliştirici ağ: Kabul kodlama](https://developer.mozilla.org/docs/Web/HTTP/Headers/Accept-Encoding)
 * [RFC 7231 bölüm 3.1.2.1: İçerik Codings](https://tools.ietf.org/html/rfc7231#section-3.1.2.1)
 * [RFC 7230 bölüm 4.2.3: Gzip kodlama](https://tools.ietf.org/html/rfc7230#section-4.2.3)
 * [GZIP dosyası biçim belirtimi sürümü 4.3](http://www.ietf.org/rfc/rfc1952.txt)

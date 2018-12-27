@@ -4,14 +4,14 @@ author: guardrex
 description: Internet Information Services (IIS) ASP.NET Core uygulamaları dağıtımlarına sorunları tanılamayı öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/06/2018
+ms.date: 12/18/2018
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: 6d43057639ea88bb21ac66f2799062e06fffc530
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: 68fcd578c051ae9ba6234cad0465a7ef42f1ed14
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121693"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637696"
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>IIS üzerinde ASP.NET Core sorunlarını giderme
 
@@ -34,7 +34,7 @@ Visual Studio'da varsayılan olarak bir ASP.NET Core projesi [IIS Express](/iis/
 Ek sorun giderme konuları:
 
 <xref:host-and-deploy/azure-apps/troubleshoot>  
-App Service kullansa [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module) ve uygulamaları barındırın, IIS, App Service için özel yönergeler için adanmış konusuna bakın.
+App Service kullansa [ASP.NET Core Modülü](xref:host-and-deploy/aspnet-core-module) ve uygulamaları barındırın, IIS, App Service için özel yönergeler için adanmış konusuna bakın.
 
 <xref:fundamentals/error-handling>  
 Yerel bir sistemde geliştirme sırasında ASP.NET Core uygulamaları hataları işlemek nasıl keşfedin.

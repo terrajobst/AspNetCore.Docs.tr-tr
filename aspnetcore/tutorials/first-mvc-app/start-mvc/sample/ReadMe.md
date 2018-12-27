@@ -1,0 +1,1 @@
+Tamamlanan örnek bulunduğu *2.2 tamamlandı* klasör. *MvcMovie22* örnek kullanmak zordur ve belgeleri için kullanılır.

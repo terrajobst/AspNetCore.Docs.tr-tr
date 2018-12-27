@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 9a0d5a8e722487ccf7e08aadb39f838a0963451d
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 930a6f2b860c71b6f499cff53e0d909a130f7948
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090985"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637904"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>ASP.NET core'da - veri modeli - 8'in 5 EF çekirdekli Razor sayfaları
 
@@ -444,7 +444,7 @@ Varsa `Enrollment` tablo vermedi sınıf bilgileri eklemeyi unutmayın, yalnızc
 
 `Instructor` Ve `Course` varlıkların saf birleştirme tablo kullanarak bir çoktan çoğa ilişki.
 
-Not: EF 6.x destekler çoktan çoğa ilişkiler ancak EF Core için örtük birleşim tabloları değil. Daha fazla bilgi için [çoktan çoğa ilişkilerde EF Core 2.0](https://blog.oneunicorn.com/2017/09/25/many-to-many-relationships-in-ef-core-2-0-part-1-the-basics/).
+Not: Çoktan çoğa ilişkiler ancak EF Core için örtük birleşim tabloları değil EF 6.x destekler. Daha fazla bilgi için [çoktan çoğa ilişkilerde EF Core 2.0](https://blog.oneunicorn.com/2017/09/25/many-to-many-relationships-in-ef-core-2-0-part-1-the-basics/).
 
 ## <a name="the-courseassignment-entity"></a>CourseAssignment varlık
 
@@ -538,10 +538,7 @@ Kodu güncelleştirme *Data/DbInitializer.cs*:
 
 [!code-csharp[](intro/samples/cu21/Data/DbInitializer.cs?name=snippet_Final)]
 
-Yukarıdaki kod yeni varlıklar için çekirdek veri sağlar. Bu kod çoğu, yeni varlık nesnesi oluşturur ve örnek verileri yükler. Örnek verileri, test etmek için kullanılır. Yukarıdaki kod, aşağıdaki bir çoktan çoğa ilişkiler oluşturur:
-
-* `Enrollments`
-* `CourseAssignment`
+Yukarıdaki kod yeni varlıklar için çekirdek veri sağlar. Bu kod çoğu, yeni varlık nesnesi oluşturur ve örnek verileri yükler. Örnek verileri, test etmek için kullanılır. Bkz: `Enrollments` ve `CourseAssignments` nasıl çoktan çoğa tabloları birleştirme örnekleri sağlanmış için.
 
 ## <a name="add-a-migration"></a>Bir geçiş ekleyin
 
@@ -581,7 +578,7 @@ database "ContosoUniversity", table "dbo.Department", column 'DepartmentID'.
 Varolan bir veritabanınız olduğuna göre gelecekteki değişiklikleri uygulamak konusunda düşünmek gerekir. Bu öğreticide iki yaklaşım gösterilmektedir:
 
 * [Bırakın ve veritabanını yeniden oluşturun](#drop)
-* [Varolan bir veritabanına geçiş Uygula](#applyexisting). Bu yöntem daha karmaşık ve zaman alıcı olsa da, gerçek, üretim ortamları için tercih edilen yaklaşımdır. **Not**: isteğe bağlı bir bölüm öğreticinin budur. Açılan yapın ve adımları yeniden oluşturun ve bu bölümü atlayın. Bu bölümdeki adımları takip etmek istiyorsanız, yoksa açılan yapın ve adımları yeniden oluşturun. 
+* [Varolan bir veritabanına geçiş Uygula](#applyexisting). Bu yöntem daha karmaşık ve zaman alıcı olsa da, gerçek, üretim ortamları için tercih edilen yaklaşımdır. **Not**: Bu, öğreticinin isteğe bağlı bir bölümüdür. Açılan yapın ve adımları yeniden oluşturun ve bu bölümü atlayın. Bu bölümdeki adımları takip etmek istiyorsanız, yoksa açılan yapın ve adımları yeniden oluşturun. 
 
 <a name="drop"></a>
 

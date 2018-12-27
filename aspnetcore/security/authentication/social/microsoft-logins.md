@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/11/2018
 uid: security/authentication/microsoft-logins
-ms.openlocfilehash: 89969370cea66b7b6632f1b0be59e135767c831e
-ms.sourcegitcommit: 09bcda59a58019fdf47b2db5259fe87acf19dd38
+ms.openlocfilehash: 4909a0084994654777ad7a6ebda866ac727f0528
+ms.sourcegitcommit: 3e94d192b2ed9409fe72e3735e158b333354964c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51708406"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735758"
 ---
 # <a name="microsoft-account-external-login-setup-with-aspnet-core"></a>ASP.NET Core ile Microsoft Account dış oturum açma Kurulumu
 
@@ -80,9 +80,9 @@ Bu öğreticide kullanılan proje şablonu sağlar [Microsoft.AspNetCore.Authent
 Microsoft Account hizmetini de eklemek `ConfigureServices` yönteminde *Startup.cs* dosyası:
 
 ```csharp
-services.AddIdentity<ApplicationUser, IdentityRole>()
-        .AddEntityFrameworkStores<ApplicationDbContext>()
-        .AddDefaultTokenProviders();
+services.AddDefaultIdentity<IdentityUser>()
+        .AddDefaultUI(UIFramework.Bootstrap4)
+        .AddEntityFrameworkStores<ApplicationDbContext>();
 
 services.AddAuthentication().AddMicrosoftAccount(microsoftOptions =>
 {
@@ -119,7 +119,7 @@ Bkz: [MicrosoftAccountOptions](/dotnet/api/microsoft.aspnetcore.builder.microsof
 
 Uygulamanızı çalıştırın ve tıklayın **oturum**. Microsoft'ta oturum açmak için bir seçenek görüntülenir:
 
-![Web uygulaması günlük sayfasındaki: kullanıcı kimliği](index/_static/DoneMicrosoft.png)
+![Web uygulaması günlüğü sayfasında: Kullanıcı Kimliği](index/_static/DoneMicrosoft.png)
 
 Microsoft'a tıkladığınızda, kimlik doğrulaması için Microsoft'a yönlendirilir. (Zaten açtıysanız) Microsoft Account imzaladıktan sonra uygulamayı bilgilere erişmesine izin istenir:
 
@@ -129,7 +129,7 @@ Dokunun **Evet** ve web e-postanızı ayarlayabileceğiniz siteye geri yönlendi
 
 Artık, Microsoft kimlik bilgilerinizi kullanarak kaydedilir:
 
-![Web uygulaması: kimliği doğrulanmış kullanıcı](index/_static/Done.png)
+![Web uygulaması: Kimliği doğrulanmış kullanıcı](index/_static/Done.png)
 
 [!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]
 
@@ -138,7 +138,7 @@ Artık, Microsoft kimlik bilgilerinizi kullanarak kaydedilir:
 * Microsoft Account sağlayıcısı oturum açma hatası sayfasına yönlendirir, doğrudan aşağıdaki hata başlığı ve açıklamayı sorgu dizesi parametrelerini Not `#` (diyez etiketi) URI.
 
   Microsoft kimlik doğrulama ile ilgili bir sorun göstermek için hata iletisini gibi görünüyor ancak uygulamanızı herhangi bir eşleşmeyen URI en yaygın nedeni **yeniden yönlendirme URI'leri** için belirtilen **Web** platformu .
-* **ASP.NET Core 2.x yalnızca:** , kimlik, çağırarak yapılandırılmamış `services.AddIdentity` içinde `ConfigureServices`, kimlik doğrulaması yapmaya sonuçlanır *ArgumentException: 'SignInScheme' seçeneği belirtilmelidir*. Bu öğreticide kullanılan proje şablonu, bu gerçekleştirilir sağlar.
+* **ASP.NET Core 2.x yalnızca:** Kimlik çağırarak yapılandırılmazsa `services.AddIdentity` içinde `ConfigureServices`, kimlik doğrulaması yapmaya sonuçlanır *ArgumentException: 'SignInScheme' seçeneği belirtilmelidir*. Bu öğreticide kullanılan proje şablonu, bu gerçekleştirilir sağlar.
 * Site veritabanı, ilk geçiş uygulayarak oluşturulmamış alırsa *bir veritabanı işlemi başarısız istek işlenirken* hata. Dokunun **geçerli geçişleri** veritabanı oluşturma ve hata devam etmek için yenilemek için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
