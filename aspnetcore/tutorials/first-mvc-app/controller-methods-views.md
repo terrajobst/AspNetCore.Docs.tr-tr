@@ -3,40 +3,162 @@ title: Denetleyici metotları ve görünümleri ASP.NET Core
 author: rick-anderson
 description: Denetleyici yöntemlerinde, görünümler ve ASP.NET core'da DataAnnotations ile çalışmayı öğrenin.
 ms.author: riande
-ms.date: 03/07/2017
+ms.date: 12/25/2018
 uid: tutorials/first-mvc-app/controller-methods-views
-ms.openlocfilehash: 42a63044cd14873ff334a728c6c8304214ee8575
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 5984194194f14153aaa1e80df028bbaaf182e02b
+ms.sourcegitcommit: 4e87712029de2aceb1cf2c52e9e3dda8195a5b8e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011345"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53382049"
 ---
-# <a name="controller-methods-and-views-in-aspnet-core"></a><span data-ttu-id="42ca4-103">Denetleyici metotları ve görünümleri ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="42ca4-103">Controller methods and views in ASP.NET Core</span></span>
+# <a name="controller-methods-and-views-in-aspnet-core"></a><span data-ttu-id="f940c-103">Denetleyici metotları ve görünümleri ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="f940c-103">Controller methods and views in ASP.NET Core</span></span>
 
-<span data-ttu-id="42ca4-104">Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="42ca4-104">By [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
+<span data-ttu-id="f940c-104">Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="f940c-104">By [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
 
-<span data-ttu-id="42ca4-105">Film uygulaması için iyi bir başlangıç sahibiz ancak sunu ideal değildir.</span><span class="sxs-lookup"><span data-stu-id="42ca4-105">We have a good start to the movie app, but the presentation isn't ideal.</span></span> <span data-ttu-id="42ca4-106">Saat (12:00: 00'da aşağıdaki görüntüde) görmesini istemediğiniz ve **ReleaseDate** iki kelimeye olmalıdır.</span><span class="sxs-lookup"><span data-stu-id="42ca4-106">We don't want to see the time (12:00:00 AM in the image below) and **ReleaseDate** should be two words.</span></span>
+<span data-ttu-id="f940c-105">Film uygulaması için iyi bir başlangıç sahibiz ancak sunu ideal değildir.</span><span class="sxs-lookup"><span data-stu-id="f940c-105">We have a good start to the movie app, but the presentation isn't ideal.</span></span> <span data-ttu-id="f940c-106">Saat (12:00: 00'da aşağıdaki görüntüde) görmesini istemediğiniz ve **ReleaseDate** iki kelimeye olmalıdır.</span><span class="sxs-lookup"><span data-stu-id="f940c-106">We don't want to see the time (12:00:00 AM in the image below) and **ReleaseDate** should be two words.</span></span>
 
-![Dizini görüntüle: yayın tarihi bir sözcük (boşluk) ve her film yayın tarihi 12: 00 süresini gösterir.](working-with-sql/_static/m55.png)
+![Dizini görüntüle: Yayın tarihi bir sözcük (boşluk) ve her film yayın tarihi 12: 00 süresini gösterir.](working-with-sql/_static/m55.png)
 
-<span data-ttu-id="42ca4-108">Açık *Models/Movie.cs* dosya ve aşağıda vurgulanan satırları ekleyin:</span><span class="sxs-lookup"><span data-stu-id="42ca4-108">Open the *Models/Movie.cs* file and add the highlighted lines shown below:</span></span>
+<span data-ttu-id="f940c-108">Açık *Models/Movie.cs* dosya ve aşağıda vurgulanan satırları ekleyin:</span><span class="sxs-lookup"><span data-stu-id="f940c-108">Open the *Models/Movie.cs* file and add the highlighted lines shown below:</span></span>
+
+[!code-csharp[](start-mvc/sample/MvcMovie22/Models/MovieDateFixed.cs?name=snippet_1&highlight=2,3,12-13,17)]
+
+<span data-ttu-id="f940c-109">Biz karşılarız [DataAnnotations](/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) sonraki öğreticide.</span><span class="sxs-lookup"><span data-stu-id="f940c-109">We cover [DataAnnotations](/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) in the next tutorial.</span></span> <span data-ttu-id="f940c-110">[Görüntüleme](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.metadata.displaymetadata) öznitelik adı (Bu durumda "ReleaseDate" yerine "yayın tarihi") bir alan için görüntülenecek öğeleri belirtir.</span><span class="sxs-lookup"><span data-stu-id="f940c-110">The [Display](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.metadata.displaymetadata) attribute specifies what to display for the name of a field (in this case "Release Date" instead of "ReleaseDate").</span></span> <span data-ttu-id="f940c-111">[DataType](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.internal.datatypeattributeadapter) öznitelik alanında depolanan saat bilgilerini görüntülenmediğini şekilde (tarih), veri türünü belirtir.</span><span class="sxs-lookup"><span data-stu-id="f940c-111">The [DataType](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.internal.datatypeattributeadapter) attribute specifies the type of the data (Date), so the time information stored in the field isn't displayed.</span></span>
+
+<span data-ttu-id="f940c-112">`[Column(TypeName = "decimal(18, 2)")]` Veri ek açıklama, Entity Framework Core doğru şekilde eşleyebilirsiniz biçimde gereklidir `Price` veritabanında para birimi.</span><span class="sxs-lookup"><span data-stu-id="f940c-112">The `[Column(TypeName = "decimal(18, 2)")]` data annotation is required so Entity Framework Core can correctly map `Price` to currency in the database.</span></span> <span data-ttu-id="f940c-113">Daha fazla bilgi için [veri türleri](/ef/core/modeling/relational/data-types).</span><span class="sxs-lookup"><span data-stu-id="f940c-113">For more information, see [Data Types](/ef/core/modeling/relational/data-types).</span></span>
+
+<span data-ttu-id="f940c-114">Gözat `Movies` denetleyicisi ve fare işaretçisini tutun bir **Düzenle** hedef URL'ye görmek için bağlantıyı.</span><span class="sxs-lookup"><span data-stu-id="f940c-114">Browse to the `Movies` controller and hold the mouse pointer over an **Edit** link to see the target URL.</span></span>
+
+![Düzenleme bağlantısını ve bir bağlantı üzerinde fare ile tarayıcı penceresinde URL'sini https://localhost:5001/Movies/Edit/5 gösterilir](~/tutorials/first-mvc-app/controller-methods-views/_static/edit7.png)
+
+<span data-ttu-id="f940c-116">**Düzenle**, **ayrıntıları**, ve **Sil** bağlantıları Core MVC yer işareti etiketi Yardımcısı tarafından üretilen *Views/Movies/Index.cshtml* dosya.</span><span class="sxs-lookup"><span data-stu-id="f940c-116">The **Edit**, **Details**, and **Delete** links are generated by the Core MVC Anchor Tag Helper in the *Views/Movies/Index.cshtml* file.</span></span>
+
+[!code-HTML[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexOriginal.cshtml?highlight=1-3&range=46-50)]
+
+<span data-ttu-id="f940c-117">[Etiket Yardımcıları](xref:mvc/views/tag-helpers/intro), Razor dosyalarında HTML öğelerinin oluşturulmasına ve işlenmesine sunucu tarafı kodun katılmasını etkinleştir.</span><span class="sxs-lookup"><span data-stu-id="f940c-117">[Tag Helpers](xref:mvc/views/tag-helpers/intro) enable server-side code to participate in creating and rendering HTML elements in Razor files.</span></span> <span data-ttu-id="f940c-118">Yukarıdaki kodda `AnchorTagHelper` dinamik olarak HTML oluşturan `href` denetleyici eylem yöntemi ve rota kimliğinden öznitelik değeri. Kullandığınız **kaynağı görüntüle** sık kullandığınız tarayıcıyı ya da kullanım oluşturulan biçimlendirme incelemek için geliştirici araçları.</span><span class="sxs-lookup"><span data-stu-id="f940c-118">In the code above, the `AnchorTagHelper` dynamically generates the HTML `href` attribute value from the controller action method and route id. You use **View Source** from your favorite browser or use the developer tools to examine the generated markup.</span></span> <span data-ttu-id="f940c-119">Oluşturulan HTML değerinin bir bölümü aşağıda gösterilmiştir:</span><span class="sxs-lookup"><span data-stu-id="f940c-119">A portion of the generated HTML is shown below:</span></span>
+
+```html
+ <td>
+    <a href="/Movies/Edit/4"> Edit </a> |
+    <a href="/Movies/Details/4"> Details </a> |
+    <a href="/Movies/Delete/4"> Delete </a>
+</td>
+```
+
+<span data-ttu-id="f940c-120">Biçim için geri çağırma [yönlendirme](xref:mvc/controllers/routing) kümesinde *Startup.cs* dosyası:</span><span class="sxs-lookup"><span data-stu-id="f940c-120">Recall the format for [routing](xref:mvc/controllers/routing) set in the *Startup.cs* file:</span></span>
+
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
+
+<span data-ttu-id="f940c-121">ASP.NET Core çevirir `https://localhost:5001/Movies/Edit/4` bir istek halinde `Edit` eylem yöntemi `Movies` denetleyicisi parametresiyle `Id` 4.</span><span class="sxs-lookup"><span data-stu-id="f940c-121">ASP.NET Core translates `https://localhost:5001/Movies/Edit/4` into a request to the `Edit` action method of the `Movies` controller with the parameter `Id` of 4.</span></span> <span data-ttu-id="f940c-122">(Denetleyici olarak da bilinen eylem yöntemleri yöntemlerdir.)</span><span class="sxs-lookup"><span data-stu-id="f940c-122">(Controller methods are also known as action methods.)</span></span>
+
+<span data-ttu-id="f940c-123">[Etiket Yardımcıları](xref:mvc/views/tag-helpers/intro) ASP.NET Core en popüler yeni özellikler biridir.</span><span class="sxs-lookup"><span data-stu-id="f940c-123">[Tag Helpers](xref:mvc/views/tag-helpers/intro) are one of the most popular new features in ASP.NET Core.</span></span> <span data-ttu-id="f940c-124">Bkz: [ek kaynaklar](#additional-resources) daha fazla bilgi için.</span><span class="sxs-lookup"><span data-stu-id="f940c-124">See [Additional resources](#additional-resources) for more information.</span></span>
+
+<span data-ttu-id="f940c-125">Açık `Movies` denetleyicisi ve iki inceleyin `Edit` eylem yöntemleri.</span><span class="sxs-lookup"><span data-stu-id="f940c-125">Open the `Movies` controller and examine the two `Edit` action methods.</span></span> <span data-ttu-id="f940c-126">Aşağıdaki kodda gösterildiği `HTTP GET Edit` film getirir ve tarafından oluşturulan düzenleme formu dolduran yöntemi *Edit.cshtml* Razor dosya.</span><span class="sxs-lookup"><span data-stu-id="f940c-126">The following code shows the `HTTP GET Edit` method, which fetches the movie and populates the edit form generated by the *Edit.cshtml* Razor file.</span></span>
 
 ::: moniker range=">= aspnetcore-2.1"
 
-[!code-csharp[](start-mvc/sample/MvcMovie21/Models/MovieDateFixed.cs?name=snippet_1&highlight=2,3,12-13,17)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Controllers/MC1.cs?name=snippet_edit1)]
+
+<span data-ttu-id="f940c-127">Aşağıdaki kodda gösterildiği `HTTP POST Edit` gönderilen film değerleri işleyen yöntemi:</span><span class="sxs-lookup"><span data-stu-id="f940c-127">The following code shows the `HTTP POST Edit` method, which processes the posted movie values:</span></span>
+
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit2)]
 
 ::: moniker-end
 
 ::: moniker range="<= aspnetcore-2.0"
 
-[!code-csharp[](start-mvc/sample/MvcMovie/Models/MovieDateWithExtraUsings.cs?name=snippet_1&highlight=13-14)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit1)]
+
+<span data-ttu-id="f940c-128">Aşağıdaki kodda gösterildiği `HTTP POST Edit` gönderilen film değerleri işleyen yöntemi:</span><span class="sxs-lookup"><span data-stu-id="f940c-128">The following code shows the `HTTP POST Edit` method, which processes the posted movie values:</span></span>
+
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit2)]
 
 ::: moniker-end
 
-[!INCLUDE [adding-model](~/includes/mvc-intro/controller-methods-views.md)]
+<span data-ttu-id="f940c-129">`[Bind]` Özniteliktir karşı korumak için bir yol [aşırı yayınlayarak](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost).</span><span class="sxs-lookup"><span data-stu-id="f940c-129">The `[Bind]` attribute is one way to protect against [over-posting](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost).</span></span> <span data-ttu-id="f940c-130">Özellikler yalnızca içermelidir `[Bind]` değiştirmek istediğiniz özniteliği.</span><span class="sxs-lookup"><span data-stu-id="f940c-130">You should only include properties in the `[Bind]` attribute that you want to change.</span></span> <span data-ttu-id="f940c-131">Bkz: [denetleyicinizin atlayarak nakil korumak](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application) daha fazla bilgi için.</span><span class="sxs-lookup"><span data-stu-id="f940c-131">See [Protect your controller from over-posting](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application) for more information.</span></span> <span data-ttu-id="f940c-132">[Viewmodel'lar](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/) atlayarak önlemek için alternatif bir yaklaşım sağlar.</span><span class="sxs-lookup"><span data-stu-id="f940c-132">[ViewModels](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/) provide an alternative approach to prevent over-posting.</span></span>
+
+<span data-ttu-id="f940c-133">İkinci fark `Edit` eylem yöntemine öncesinde `[HttpPost]` özniteliği.</span><span class="sxs-lookup"><span data-stu-id="f940c-133">Notice the second `Edit` action method is preceded by the `[HttpPost]` attribute.</span></span>
+
+::: moniker range=">= aspnetcore-2.1"
+
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Controllers/MC1.cs?name=snippet_edit2&highlight=1)]
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-2.0"
+
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit2&highlight=4)]
+
+::: moniker-end
+
+<span data-ttu-id="f940c-134">`HttpPost` Özniteliği belirtir bu `Edit` yöntemi çağrılacak *yalnızca* için `POST` istekleri.</span><span class="sxs-lookup"><span data-stu-id="f940c-134">The `HttpPost` attribute specifies that this `Edit` method can be invoked *only* for `POST` requests.</span></span> <span data-ttu-id="f940c-135">Geçerli olabilir `[HttpGet]` ilk özniteliği Düzenle yöntemi, ancak gerekli değildir çünkü `[HttpGet]` varsayılandır.</span><span class="sxs-lookup"><span data-stu-id="f940c-135">You could apply the `[HttpGet]` attribute to the first edit method, but that's not necessary because `[HttpGet]` is the default.</span></span>
+
+<span data-ttu-id="f940c-136">`ValidateAntiForgeryToken` Özniteliktir için kullanılan [istek sahteciliğini önleme](xref:security/anti-request-forgery) ve düzenleme görünümü dosyasında oluşturulan bir sahteciliğe karşı koruma belirteci ile eşleştirilmiş (*Views/Movies/Edit.cshtml*).</span><span class="sxs-lookup"><span data-stu-id="f940c-136">The `ValidateAntiForgeryToken` attribute is used to [prevent forgery of a request](xref:security/anti-request-forgery) and is paired up with an anti-forgery token generated in the edit view file (*Views/Movies/Edit.cshtml*).</span></span> <span data-ttu-id="f940c-137">Sahteciliğe karşı koruma belirteci ile düzenleme görünüm dosyası oluşturur [Form etiketi Yardımcısı](xref:mvc/views/working-with-forms).</span><span class="sxs-lookup"><span data-stu-id="f940c-137">The edit view file generates the anti-forgery token with the [Form Tag Helper](xref:mvc/views/working-with-forms).</span></span>
+
+[!code-HTML[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/Edit.cshtml?range=9)]
+
+<span data-ttu-id="f940c-138">[Form etiketi Yardımcısı](xref:mvc/views/working-with-forms) eşleşmelidir gizli bir sahteciliğe karşı koruma belirteci oluşturan `[ValidateAntiForgeryToken]` oluşturulan sahteciliğe karşı koruma belirtecine `Edit` denetleyici filmler yöntemi.</span><span class="sxs-lookup"><span data-stu-id="f940c-138">The [Form Tag Helper](xref:mvc/views/working-with-forms) generates a hidden anti-forgery token that must match the `[ValidateAntiForgeryToken]` generated anti-forgery token in the `Edit` method of the Movies controller.</span></span> <span data-ttu-id="f940c-139">Daha fazla bilgi için [istek sahteciliğinden koruma](xref:security/anti-request-forgery).</span><span class="sxs-lookup"><span data-stu-id="f940c-139">For more information, see [Anti-Request Forgery](xref:security/anti-request-forgery).</span></span>
+
+<span data-ttu-id="f940c-140">`HttpGet Edit` Yöntemi alır film `ID` parametresini arar Entity Framework kullanarak filmi `SingleOrDefaultAsync` yöntemi ve düzenleme görünümü seçili film döndürür.</span><span class="sxs-lookup"><span data-stu-id="f940c-140">The `HttpGet Edit` method takes the movie `ID` parameter, looks up the movie using the Entity Framework `SingleOrDefaultAsync` method, and returns the selected movie to the Edit view.</span></span> <span data-ttu-id="f940c-141">Bir filmi bulunamazsa `NotFound` (HTTP 404) döndürülür.</span><span class="sxs-lookup"><span data-stu-id="f940c-141">If a movie cannot be found, `NotFound` (HTTP 404) is returned.</span></span>
+
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Controllers/MC1.cs?name=snippet_edit1)]
+
+<span data-ttu-id="f940c-142">Yapı iskelesi sistem düzenleme görünümü oluşturduğunuzda, onu incelenirken `Movie` sınıfı ve işlemek için oluşturulan kodu `<label>` ve `<input>` sınıfın her bir özellik için öğeleri.</span><span class="sxs-lookup"><span data-stu-id="f940c-142">When the scaffolding system created the Edit view, it examined the `Movie` class and created code to render `<label>` and `<input>` elements for each property of the class.</span></span> <span data-ttu-id="f940c-143">Aşağıdaki örnek, Visual Studio yapı iskelesi sistem tarafından oluşturulan düzenleme görünümünü gösterir:</span><span class="sxs-lookup"><span data-stu-id="f940c-143">The following example shows the Edit view that was generated by the Visual Studio scaffolding system:</span></span>
+
+[!code-HTML[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/Movies/EditOriginal.cshtml)]
+
+<span data-ttu-id="f940c-144">Şablonu Görüntüle nasıl olduğunu fark bir `@model MvcMovie.Models.Movie` deyimini dosyanın üst.</span><span class="sxs-lookup"><span data-stu-id="f940c-144">Notice how the view template has a `@model MvcMovie.Models.Movie` statement at the top of the file.</span></span> <span data-ttu-id="f940c-145">`@model MvcMovie.Models.Movie` Görünüm model görünüm şablonu türünde olmasını bekliyor belirtir `Movie`.</span><span class="sxs-lookup"><span data-stu-id="f940c-145">`@model MvcMovie.Models.Movie` specifies that the view expects the model for the view template to be of type `Movie`.</span></span>
+
+<span data-ttu-id="f940c-146">İskele kurulan kodu birkaç etiketi Yardımcısı yöntemleri HTML biçimlendirmeyi kolaylaştırmak için kullanır.</span><span class="sxs-lookup"><span data-stu-id="f940c-146">The scaffolded code uses several Tag Helper methods to streamline the HTML markup.</span></span> <span data-ttu-id="f940c-147">[Etiket etiketi Yardımcısı](xref:mvc/views/working-with-forms) ("Title", "ReleaseDate", "Tarzı" veya "Price") alanın adını görüntüler.</span><span class="sxs-lookup"><span data-stu-id="f940c-147">The - [Label Tag Helper](xref:mvc/views/working-with-forms) displays the name of the field ("Title", "ReleaseDate", "Genre", or "Price").</span></span> <span data-ttu-id="f940c-148">[Giriş etiketi Yardımcısı](xref:mvc/views/working-with-forms) bir HTML işleyen `<input>` öğesi.</span><span class="sxs-lookup"><span data-stu-id="f940c-148">The [Input Tag Helper](xref:mvc/views/working-with-forms) renders an HTML `<input>` element.</span></span> <span data-ttu-id="f940c-149">[Doğrulama etiketi Yardımcısı](xref:mvc/views/working-with-forms) bu özellikle ilişkili herhangi bir doğrulama iletisi görüntüler.</span><span class="sxs-lookup"><span data-stu-id="f940c-149">The [Validation Tag Helper](xref:mvc/views/working-with-forms) displays any validation messages associated with that property.</span></span>
+
+<span data-ttu-id="f940c-150">Uygulamayı çalıştırmak ve gidin `/Movies` URL'si.</span><span class="sxs-lookup"><span data-stu-id="f940c-150">Run the application and navigate to the `/Movies` URL.</span></span> <span data-ttu-id="f940c-151">' A tıklayın bir **Düzenle** bağlantı.</span><span class="sxs-lookup"><span data-stu-id="f940c-151">Click an **Edit** link.</span></span> <span data-ttu-id="f940c-152">Tarayıcıda, sayfa için kaynağı görüntüleyin.</span><span class="sxs-lookup"><span data-stu-id="f940c-152">In the browser, view the source for the page.</span></span> <span data-ttu-id="f940c-153">İçin oluşturulan HTML `<form>` öğesi aşağıda gösterilmektedir.</span><span class="sxs-lookup"><span data-stu-id="f940c-153">The generated HTML for the `<form>` element is shown below.</span></span>
+
+[!code-HTML[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/edit_view_source.html?highlight=1,6,10,17,24,28)]
+
+<span data-ttu-id="f940c-154">`<input>` Öğeler içinde bir `HTML <form>` öğesi olan `action` özniteliğinin ayarlanmış gönderinin yayımlanacağı `/Movies/Edit/id` URL'si.</span><span class="sxs-lookup"><span data-stu-id="f940c-154">The `<input>` elements are in an `HTML <form>` element whose `action` attribute is set to post to the `/Movies/Edit/id` URL.</span></span> <span data-ttu-id="f940c-155">Form verileri sunucuya yayımlanacak olduğunda `Save` düğmesine tıklandığında.</span><span class="sxs-lookup"><span data-stu-id="f940c-155">The form data will be posted to the server when the `Save` button is clicked.</span></span> <span data-ttu-id="f940c-156">Son satırı kapatmadan önce `</form>` öğenin gizli gösterir [XSRF](xref:security/anti-request-forgery) tarafından oluşturulan belirteç [Form etiketi Yardımcısı](xref:mvc/views/working-with-forms).</span><span class="sxs-lookup"><span data-stu-id="f940c-156">The last line before the closing `</form>` element shows the hidden [XSRF](xref:security/anti-request-forgery) token generated by the [Form Tag Helper](xref:mvc/views/working-with-forms).</span></span>
+
+## <a name="processing-the-post-request"></a><span data-ttu-id="f940c-157">POST isteğini işleme</span><span class="sxs-lookup"><span data-stu-id="f940c-157">Processing the POST Request</span></span>
+
+<span data-ttu-id="f940c-158">Aşağıdaki liste gösterildiği `[HttpPost]` sürümünü `Edit` eylem yöntemi.</span><span class="sxs-lookup"><span data-stu-id="f940c-158">The following listing shows the `[HttpPost]` version of the `Edit` action method.</span></span>
+
+::: moniker range=">= aspnetcore-2.1"
+
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Controllers/MC1.cs?name=snippet_edit2)]
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-2.0"
+
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit2)]
+
+::: moniker-end
+
+<span data-ttu-id="f940c-159">`[ValidateAntiForgeryToken]` Özniteliği gizli doğrular [XSRF](xref:security/anti-request-forgery) içinde sahteciliğe karşı koruma belirteci Oluşturucu tarafından oluşturulan belirteç [Form etiketi Yardımcısı](xref:mvc/views/working-with-forms)</span><span class="sxs-lookup"><span data-stu-id="f940c-159">The `[ValidateAntiForgeryToken]` attribute validates the hidden [XSRF](xref:security/anti-request-forgery) token generated by the anti-forgery token generator in the [Form Tag Helper](xref:mvc/views/working-with-forms)</span></span>
+
+<span data-ttu-id="f940c-160">[Model bağlama](xref:mvc/models/model-binding) sistem gönderilen form değerlerini alır ve oluşturan bir `Movie` olarak geçirilen nesne `movie` parametresi.</span><span class="sxs-lookup"><span data-stu-id="f940c-160">The [model binding](xref:mvc/models/model-binding) system takes the posted form values and creates a `Movie` object that's passed as the `movie` parameter.</span></span> <span data-ttu-id="f940c-161">`ModelState.IsValid` Yöntemi doğrular (düzenleme veya güncelleştirme) değiştirileceğini biçiminde gönderilen veriler kullanılabilir bir `Movie` nesne.</span><span class="sxs-lookup"><span data-stu-id="f940c-161">The `ModelState.IsValid` method verifies that the data submitted in the form can be used to modify (edit or update) a `Movie` object.</span></span> <span data-ttu-id="f940c-162">Veriler geçerliyse kaydedilir.</span><span class="sxs-lookup"><span data-stu-id="f940c-162">If the data is valid it's saved.</span></span> <span data-ttu-id="f940c-163">Güncelleştirilmiş (düzenlenen) film verileri çağırarak veritabanına kaydedilir `SaveChangesAsync` veritabanı bağlamının yöntemi.</span><span class="sxs-lookup"><span data-stu-id="f940c-163">The updated (edited) movie data is saved to the database by calling the `SaveChangesAsync` method of database context.</span></span> <span data-ttu-id="f940c-164">Verileri kaydettikten sonra kodu kullanıcı için yönlendiren `Index` eylem yöntemi `MoviesController` yaptığınız değişiklikleri içeren film koleksiyonu görüntüleyen sınıfı.</span><span class="sxs-lookup"><span data-stu-id="f940c-164">After saving the data, the code redirects the user to the `Index` action method of the `MoviesController` class, which displays the movie collection, including the changes just made.</span></span>
+
+<span data-ttu-id="f940c-165">Form, sunucuya gönderilen önce istemci tarafı doğrulama alanlarda tüm doğrulama kurallarını denetler.</span><span class="sxs-lookup"><span data-stu-id="f940c-165">Before the form is posted to the server, client side validation checks any validation rules on the fields.</span></span> <span data-ttu-id="f940c-166">Herhangi bir doğrulama hatası varsa, bir hata iletisi görüntülenir ve form gönderilen değil.</span><span class="sxs-lookup"><span data-stu-id="f940c-166">If there are any validation errors, an error message is displayed and the form isn't posted.</span></span> <span data-ttu-id="f940c-167">JavaScript devre dışı bırakılırsa, istemci tarafı doğrulama olmaz ancak sunucu, geçerli olmayan gönderilen değerlerden algılar ve form değerleri, hata iletileri ile yeniden.</span><span class="sxs-lookup"><span data-stu-id="f940c-167">If JavaScript is disabled, you won't have client side validation but the server will detect the posted values that are not valid, and the form values will be redisplayed with error messages.</span></span> <span data-ttu-id="f940c-168">Öğreticinin ilerleyen bölümlerinde inceleyeceğiz [Model doğrulama](xref:mvc/models/validation) daha ayrıntılı bir şekilde.</span><span class="sxs-lookup"><span data-stu-id="f940c-168">Later in the tutorial we examine [Model Validation](xref:mvc/models/validation) in more detail.</span></span> <span data-ttu-id="f940c-169">[Doğrulama etiketi Yardımcısı](xref:mvc/views/working-with-forms) içinde *Views/Movies/Edit.cshtml* görünüm şablonu uygun hata iletilerini görüntüleme üstlenir.</span><span class="sxs-lookup"><span data-stu-id="f940c-169">The [Validation Tag Helper](xref:mvc/views/working-with-forms) in the *Views/Movies/Edit.cshtml* view template takes care of displaying appropriate error messages.</span></span>
+
+![Görünümü düzenleyin: Yanlış bir fiyat değer için bir özel durum ABC Fiyat alanı bir sayı olmalıdır belirtir.](~/tutorials/first-mvc-app/controller-methods-views/_static/val.png)
+
+<span data-ttu-id="f940c-172">Tüm `HttpGet` film denetleyici yöntemleri benzer bir desen uygulayın.</span><span class="sxs-lookup"><span data-stu-id="f940c-172">All the `HttpGet` methods in the movie controller follow a similar pattern.</span></span> <span data-ttu-id="f940c-173">Bir film nesnesi aldıkları (veya durumunda nesnelerin listesini `Index`) ve ' % s'nesne (modeli) görünümüne geçirin.</span><span class="sxs-lookup"><span data-stu-id="f940c-173">They get a movie object (or list of objects, in the case of `Index`), and pass the object (model) to the view.</span></span> <span data-ttu-id="f940c-174">`Create` Boş film nesneye yöntemi geçirir `Create` görünümü.</span><span class="sxs-lookup"><span data-stu-id="f940c-174">The `Create` method passes an empty movie object to the `Create` view.</span></span> <span data-ttu-id="f940c-175">Bu nedenle, oluşturmak, düzenlemek, silmek veya aksi halde verileri değiştiren tüm yöntemler yapmak `[HttpPost]` yöntemi aşırı yüklemesi.</span><span class="sxs-lookup"><span data-stu-id="f940c-175">All the methods that create, edit, delete, or otherwise modify data do so in the `[HttpPost]` overload of the method.</span></span> <span data-ttu-id="f940c-176">Verileri değiştirme bir `HTTP GET` bir güvenlik riski yöntemidir.</span><span class="sxs-lookup"><span data-stu-id="f940c-176">Modifying data in an `HTTP GET` method is a security risk.</span></span> <span data-ttu-id="f940c-177">Verileri değiştirme bir `HTTP GET` yöntemi de ihlal HTTP en iyi yöntemler ve mimari [REST](http://rest.elkstein.org/) desen, GET istekleri, uygulamanızın durumunu değiştirmemeniz belirtir.</span><span class="sxs-lookup"><span data-stu-id="f940c-177">Modifying data in an `HTTP GET` method also violates HTTP best practices and the architectural [REST](http://rest.elkstein.org/) pattern, which specifies that GET requests shouldn't change the state of your application.</span></span> <span data-ttu-id="f940c-178">Diğer bir deyişle, bir GET işlemi gerçekleştirilirken yan etkileri olan ve verilerinizi kalıcı değiştirmez güvenli bir işlem olmalıdır.</span><span class="sxs-lookup"><span data-stu-id="f940c-178">In other words, performing a GET operation should be a safe operation that has no side effects and doesn't modify your persisted data.</span></span>
+
+## <a name="additional-resources"></a><span data-ttu-id="f940c-179">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="f940c-179">Additional resources</span></span>
+
+* [<span data-ttu-id="f940c-180">Genelleştirme ve yerelleştirme</span><span class="sxs-lookup"><span data-stu-id="f940c-180">Globalization and localization</span></span>](xref:fundamentals/localization)
+* [<span data-ttu-id="f940c-181">Etiket Yardımcıları giriş</span><span class="sxs-lookup"><span data-stu-id="f940c-181">Introduction to Tag Helpers</span></span>](xref:mvc/views/tag-helpers/intro)
+* [<span data-ttu-id="f940c-182">Yazma etiketi Yardımcıları</span><span class="sxs-lookup"><span data-stu-id="f940c-182">Author Tag Helpers</span></span>](xref:mvc/views/tag-helpers/authoring)
+* [<span data-ttu-id="f940c-183">İstek Sahteciliğinden Koruma</span><span class="sxs-lookup"><span data-stu-id="f940c-183">Anti-Request Forgery</span></span>](xref:security/anti-request-forgery)
+* <span data-ttu-id="f940c-184">Denetleyicinizden korumak [aşırı gönderme](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application)</span><span class="sxs-lookup"><span data-stu-id="f940c-184">Protect your controller from [over-posting](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application)</span></span>
+* [<span data-ttu-id="f940c-185">Viewmodel'lar</span><span class="sxs-lookup"><span data-stu-id="f940c-185">ViewModels</span></span>](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/)
+* [<span data-ttu-id="f940c-186">Form Etiketi Yardımcısı</span><span class="sxs-lookup"><span data-stu-id="f940c-186">Form Tag Helper</span></span>](xref:mvc/views/working-with-forms)
+* [<span data-ttu-id="f940c-187">Giriş Etiketi Yardımcısı</span><span class="sxs-lookup"><span data-stu-id="f940c-187">Input Tag Helper</span></span>](xref:mvc/views/working-with-forms)
+* [<span data-ttu-id="f940c-188">Etiket Etiketi Yardımcısı</span><span class="sxs-lookup"><span data-stu-id="f940c-188">Label Tag Helper</span></span>](xref:mvc/views/working-with-forms)
+* [<span data-ttu-id="f940c-189">Seçim Etiketi Yardımcısı</span><span class="sxs-lookup"><span data-stu-id="f940c-189">Select Tag Helper</span></span>](xref:mvc/views/working-with-forms)
+* [<span data-ttu-id="f940c-190">Doğrulama etiketi Yardımcısı</span><span class="sxs-lookup"><span data-stu-id="f940c-190">Validation Tag Helper</span></span>](xref:mvc/views/working-with-forms)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="42ca4-109">[Önceki](working-with-sql.md)
-> [İleri](search.md)</span><span class="sxs-lookup"><span data-stu-id="42ca4-109">[Previous](working-with-sql.md)
+> <span data-ttu-id="f940c-191">[Önceki](working-with-sql.md)
+> [İleri](search.md)</span><span class="sxs-lookup"><span data-stu-id="f940c-191">[Previous](working-with-sql.md)
 [Next](search.md)</span></span>  

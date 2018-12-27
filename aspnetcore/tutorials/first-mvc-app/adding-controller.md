@@ -5,33 +5,135 @@ description: Bir denetleyici için basit bir ASP.NET Core MVC uygulaması ekleme
 ms.author: riande
 ms.date: 02/28/2017
 uid: tutorials/first-mvc-app/adding-controller
-ms.openlocfilehash: 5686c4de6960e49714b822200212ea66cfa4b37c
-ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
+ms.openlocfilehash: bbb7b06e2c9c63f44cb7f7a8ee63bffa1e316b3e
+ms.sourcegitcommit: 4e87712029de2aceb1cf2c52e9e3dda8195a5b8e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37938426"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53381874"
 ---
-# <a name="add-a-controller-to-an-aspnet-core-mvc-app"></a><span data-ttu-id="e9d58-103">Denetleyici için bir ASP.NET Core MVC uygulaması ekleme</span><span class="sxs-lookup"><span data-stu-id="e9d58-103">Add a controller to an ASP.NET Core MVC app</span></span>
+# <a name="add-a-controller-to-an-aspnet-core-mvc-app"></a><span data-ttu-id="d30bd-103">Denetleyici için bir ASP.NET Core MVC uygulaması ekleme</span><span class="sxs-lookup"><span data-stu-id="d30bd-103">Add a controller to an ASP.NET Core MVC app</span></span>
 
-<span data-ttu-id="e9d58-104">Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="e9d58-104">By [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
+<span data-ttu-id="d30bd-104">Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="d30bd-104">By [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
 
-[!INCLUDE [adding-controller1](~/includes/mvc-intro/adding-controller1.md)]
+<span data-ttu-id="d30bd-105">Model-View-Controller (MVC) tasarım örüntüsü, bir uygulamayı üç ana bileşene ayırır: **M**odel, **V**görünümü, ve **C**ontroller.</span><span class="sxs-lookup"><span data-stu-id="d30bd-105">The Model-View-Controller (MVC) architectural pattern separates an app into three main components: **M**odel, **V**iew, and **C**ontroller.</span></span> <span data-ttu-id="d30bd-106">MVC örüntüsü, daha fazla test edilebilir ve geleneksel tek yapılı uygulamaları daha kolay güncelleştirmek uygulamalar oluşturmanıza yardımcı olur.</span><span class="sxs-lookup"><span data-stu-id="d30bd-106">The MVC pattern helps you create apps that are more testable and easier to update than traditional monolithic apps.</span></span> <span data-ttu-id="d30bd-107">MVC tabanlı uygulamalar içerir:</span><span class="sxs-lookup"><span data-stu-id="d30bd-107">MVC-based apps contain:</span></span>
 
-* <span data-ttu-id="e9d58-105">İçinde **Çözüm Gezgini**, sağ **denetleyicileri > Ekle > Yeni öğe**</span><span class="sxs-lookup"><span data-stu-id="e9d58-105">In **Solution Explorer**, right-click **Controllers > Add > New Item**</span></span>
+* <span data-ttu-id="d30bd-108">**M**odels: Uygulama verilerini temsil eden sınıf.</span><span class="sxs-lookup"><span data-stu-id="d30bd-108">**M**odels: Classes that represent the data of the app.</span></span> <span data-ttu-id="d30bd-109">Model sınıfları, veriler için iş kuralları zorlamak için doğrulama mantığını kullanın.</span><span class="sxs-lookup"><span data-stu-id="d30bd-109">The model classes use validation logic to enforce business rules for that data.</span></span> <span data-ttu-id="d30bd-110">Genellikle, model nesneleri alabilir ve model durumu bir veritabanında depolar.</span><span class="sxs-lookup"><span data-stu-id="d30bd-110">Typically, model objects retrieve and store model state in a database.</span></span> <span data-ttu-id="d30bd-111">Bu öğreticide, bir `Movie` model film verileri bir veritabanından alır, görünüme sağlar veya güncelleştirir.</span><span class="sxs-lookup"><span data-stu-id="d30bd-111">In this tutorial, a `Movie` model retrieves movie data from a database, provides it to the view or updates it.</span></span> <span data-ttu-id="d30bd-112">Güncelleştirilmiş veriyi veritabanına yazılır.</span><span class="sxs-lookup"><span data-stu-id="d30bd-112">Updated data is written to a database.</span></span>
 
-![Bağlamsal menü](adding-controller/_static/add_controller.png)
+* <span data-ttu-id="d30bd-113">**V**iews: Görünümler, uygulamanın kullanıcı arabirimini (UI) görüntüleyen bileşenlerdir.</span><span class="sxs-lookup"><span data-stu-id="d30bd-113">**V**iews: Views are the components that display the app's user interface (UI).</span></span> <span data-ttu-id="d30bd-114">Genellikle, bu UI model verileri görüntüler.</span><span class="sxs-lookup"><span data-stu-id="d30bd-114">Generally, this UI displays the model data.</span></span>
 
-* <span data-ttu-id="e9d58-107">Seçin **denetleyici sınıfı**</span><span class="sxs-lookup"><span data-stu-id="e9d58-107">Select **Controller Class**</span></span>
-* <span data-ttu-id="e9d58-108">İçinde **Yeni Öğe Ekle** iletişim kutusunda girin **HelloWorldController**.</span><span class="sxs-lookup"><span data-stu-id="e9d58-108">In the **Add New Item** dialog, enter **HelloWorldController**.</span></span>
+* <span data-ttu-id="d30bd-115">**C**ontrollers: Tarayıcı istekleri işleyen sınıflar.</span><span class="sxs-lookup"><span data-stu-id="d30bd-115">**C**ontrollers: Classes that handle browser requests.</span></span> <span data-ttu-id="d30bd-116">Bunlar, model verileri almak ve bir yanıt döndüreceğini görünüm şablonları arayın.</span><span class="sxs-lookup"><span data-stu-id="d30bd-116">They retrieve model data and call view templates that return a response.</span></span> <span data-ttu-id="d30bd-117">Bir MVC uygulamasında, görünüm yalnızca bilgileri görüntüler; Denetleyici, işler ve kullanıcı girişini ve etkileşimini yanıt verir.</span><span class="sxs-lookup"><span data-stu-id="d30bd-117">In an MVC app, the view only displays information; the controller handles and responds to user input and interaction.</span></span> <span data-ttu-id="d30bd-118">Örneğin, denetleyici rota veri ve sorgu dizesi değerlerini işler ve bu değerleri modele geçirir.</span><span class="sxs-lookup"><span data-stu-id="d30bd-118">For example, the controller handles route data and query-string values, and passes these values to the model.</span></span> <span data-ttu-id="d30bd-119">Model, bu değerleri, veritabanını sorgulamak için kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="d30bd-119">The model might use these values to query the database.</span></span> <span data-ttu-id="d30bd-120">Örneğin, `https://localhost:1234/Home/About` rota verilerini sahip `Home` (denetleyicisi) ve `About` (giriş denetleyicisine çağrılacak eylem yöntemi).</span><span class="sxs-lookup"><span data-stu-id="d30bd-120">For example, `https://localhost:1234/Home/About` has route data of `Home` (the controller) and `About` (the action method to call on the home controller).</span></span> <span data-ttu-id="d30bd-121">`https://localhost:1234/Movies/Edit/5` kimlikli film düzenlemek için bir istek = 5 film denetleyicisi kullanarak.</span><span class="sxs-lookup"><span data-stu-id="d30bd-121">`https://localhost:1234/Movies/Edit/5` is a request to edit the movie with ID=5 using the movie controller.</span></span> <span data-ttu-id="d30bd-122">Rota verileri, öğreticinin ilerleyen bölümlerinde açıklanmıştır.</span><span class="sxs-lookup"><span data-stu-id="d30bd-122">Route data is explained later in the tutorial.</span></span>
 
-![MVC denetleyicisi ekleyin ve adlandırın](adding-controller/_static/ac.png)
+<span data-ttu-id="d30bd-123">MVC örüntüsü, öğeler arasında gevşek bir bağlantı sağlamasının yanı sıra uygulama (giriş mantığı, iş mantığı ve UI mantığı) farklı yönlerini birbirlerinden ayıran uygulamalar oluşturmanıza yardımcı olur.</span><span class="sxs-lookup"><span data-stu-id="d30bd-123">The MVC pattern helps you create apps that separate the different aspects of the app (input logic, business logic, and UI logic), while providing a loose coupling between these elements.</span></span> <span data-ttu-id="d30bd-124">Her bir mantık türünün uygulamanın nerede bulunmalıdır desenini belirtir.</span><span class="sxs-lookup"><span data-stu-id="d30bd-124">The pattern specifies where each kind of logic should be located in the app.</span></span> <span data-ttu-id="d30bd-125">UI mantığı görünümde yer alır.</span><span class="sxs-lookup"><span data-stu-id="d30bd-125">The UI logic belongs in the view.</span></span> <span data-ttu-id="d30bd-126">Giriş mantığı denetleyicide yer alır.</span><span class="sxs-lookup"><span data-stu-id="d30bd-126">Input logic belongs in the controller.</span></span> <span data-ttu-id="d30bd-127">İş mantığı modelde yer alır.</span><span class="sxs-lookup"><span data-stu-id="d30bd-127">Business logic belongs in the model.</span></span> <span data-ttu-id="d30bd-128">Bu ayırma, uygulama oluştururken başka kodunu etkilemeden aynı anda bir yönüne çalışmanıza olanak sağladığından karmaşıklığını yönetmenize yardımcı olur.</span><span class="sxs-lookup"><span data-stu-id="d30bd-128">This separation helps you manage complexity when you build an app, because it enables you to work on one aspect of the implementation at a time without impacting the code of another.</span></span> <span data-ttu-id="d30bd-129">Örneğin, kodu görüntüle bağlı iş mantığı kod olarak üzerinde çalışabilir.</span><span class="sxs-lookup"><span data-stu-id="d30bd-129">For example, you can work on the view code without depending on the business logic code.</span></span>
 
-[!INCLUDE [adding-controller2](~/includes/mvc-intro/adding-controller2.md)]
+<span data-ttu-id="d30bd-130">Biz Bu öğretici serisinin bu kavramları kapsar ve bunları bir film uygulaması oluşturmak için nasıl kullanacağınızı gösterir.</span><span class="sxs-lookup"><span data-stu-id="d30bd-130">We cover these concepts in this tutorial series and show you how to use them to build a movie app.</span></span> <span data-ttu-id="d30bd-131">MVC proje klasörleri içeren *denetleyicileri* ve *görünümleri*.</span><span class="sxs-lookup"><span data-stu-id="d30bd-131">The MVC project contains folders for the *Controllers* and *Views*.</span></span>
 
-<span data-ttu-id="e9d58-110">Visual Studio'da hata ayıklama olmayan modu (Ctrl + F5), uygulama kodu değiştirdikten sonra oluşturmanız gerekmez.</span><span class="sxs-lookup"><span data-stu-id="e9d58-110">In Visual Studio, in non-debug mode (Ctrl+F5), you don't need to build the app after changing  code.</span></span> <span data-ttu-id="e9d58-111">Dosya kaydetme yalnızca tarayıcınızı yenileyin ve değişiklikleri görebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="e9d58-111">Just save the file, refresh your browser and you can see the changes.</span></span>
+## <a name="add-a-controller"></a><span data-ttu-id="d30bd-132">Denetleyici ekleme</span><span class="sxs-lookup"><span data-stu-id="d30bd-132">Add a controller</span></span>
+
+<!-- VS -------------------------->
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="d30bd-133">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="d30bd-133">Visual Studio</span></span>](#tab/visual-studio)
+
+* <span data-ttu-id="d30bd-134">İçinde **Çözüm Gezgini**, sağ **denetleyicileri > Ekle > denetleyicisi**
+  ![bağlamsal menü](adding-controller/_static/add_controller.png)</span><span class="sxs-lookup"><span data-stu-id="d30bd-134">In **Solution Explorer**, right-click **Controllers > Add > Controller**
+![Contextual menu](adding-controller/_static/add_controller.png)</span></span>
+
+* <span data-ttu-id="d30bd-135">İçinde **İskele Ekle** iletişim kutusunda **MVC denetleyicisi - boş**</span><span class="sxs-lookup"><span data-stu-id="d30bd-135">In the **Add Scaffold** dialog box, select **MVC Controller - Empty**</span></span>
+
+  ![MVC denetleyicisi ekleyin ve adlandırın](adding-controller/_static/ac.png)
+
+* <span data-ttu-id="d30bd-137">İçinde **boş MVC denetleyicisi Ekle iletişim**, girin **HelloWorldController** seçip **ekleme**.</span><span class="sxs-lookup"><span data-stu-id="d30bd-137">In the **Add Empty MVC Controller dialog**, enter **HelloWorldController** and select **ADD**.</span></span>
+
+<!-- Code -------------------------->
+# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="d30bd-138">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="d30bd-138">Visual Studio Code</span></span>](#tab/visual-studio-code)
+
+<span data-ttu-id="d30bd-139">Seçin **GEZGİNİ** simgesine ve ardından Denetim tıklayın (sağ tıklama) **denetleyicileri > yeni dosya** ve yeni dosya adı *HelloWorldController.cs*.</span><span class="sxs-lookup"><span data-stu-id="d30bd-139">Select the **EXPLORER** icon and then control-click (right-click) **Controllers > New File** and name the new file *HelloWorldController.cs*.</span></span>
+
+  ![Bağlamsal menü](~/tutorials/first-mvc-app-xplat/adding-controller/_static/new_file.png)
+
+<!-- Mac -------------------------->
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="d30bd-141">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="d30bd-141">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
+
+<span data-ttu-id="d30bd-142">İçinde **Çözüm Gezgini**, sağ **denetleyicileri > Ekle > yeni dosya**.</span><span class="sxs-lookup"><span data-stu-id="d30bd-142">In **Solution Explorer**, right-click **Controllers > Add > New File**.</span></span>
+<span data-ttu-id="d30bd-143">![Bağlamsal menü](~/tutorials/first-mvc-app-mac/adding-controller/_static/add_controller.png)</span><span class="sxs-lookup"><span data-stu-id="d30bd-143">![Contextual menu](~/tutorials/first-mvc-app-mac/adding-controller/_static/add_controller.png)</span></span>
+
+<span data-ttu-id="d30bd-144">Seçin **ASP.NET Core** ve **MVC denetleyici sınıfı**.</span><span class="sxs-lookup"><span data-stu-id="d30bd-144">Select **ASP.NET Core** and **MVC Controller Class**.</span></span>
+
+<span data-ttu-id="d30bd-145">Denetleyici adı **HelloWorldController**.</span><span class="sxs-lookup"><span data-stu-id="d30bd-145">Name the controller **HelloWorldController**.</span></span>
+
+![MVC denetleyicisi ekleyin ve adlandırın](~/tutorials/first-mvc-app-mac/adding-controller/_static/ac.png)
+
+---
+<!-- End of VS tabs -->
+
+<span data-ttu-id="d30bd-147">Öğesinin içeriğini değiştirin *Controllers/HelloWorldController.cs* aşağıdaki:</span><span class="sxs-lookup"><span data-stu-id="d30bd-147">Replace the contents of *Controllers/HelloWorldController.cs* with the following:</span></span>
+
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_1)]
+
+<span data-ttu-id="d30bd-148">Her `public` bir denetleyici yöntemi bir HTTP uç noktası olarak çağrılabilir.</span><span class="sxs-lookup"><span data-stu-id="d30bd-148">Every `public` method in a controller is callable as an HTTP endpoint.</span></span> <span data-ttu-id="d30bd-149">Yukarıdaki örnekte her iki yöntem bir dize döndürür.</span><span class="sxs-lookup"><span data-stu-id="d30bd-149">In the sample above, both methods return a string.</span></span> <span data-ttu-id="d30bd-150">Her bir yöntemin önceki yorumlar unutmayın.</span><span class="sxs-lookup"><span data-stu-id="d30bd-150">Note the comments preceding each method.</span></span>
+
+<span data-ttu-id="d30bd-151">Web uygulamasındaki hedeflenebilir bir URL bir HTTP uç noktası olduğu gibi `https://localhost:5001/HelloWorld`ve kullanılan protokol birleştirir: `HTTPS`, (TCP bağlantı noktası dahil) web sunucusu ağ konumu: `localhost:5001` ve hedef URI `HelloWorld`.</span><span class="sxs-lookup"><span data-stu-id="d30bd-151">An HTTP endpoint is a targetable URL in the web application, such as `https://localhost:5001/HelloWorld`, and combines the protocol used: `HTTPS`, the network location of the web server (including the TCP port): `localhost:5001` and the target URI `HelloWorld`.</span></span>
+
+<span data-ttu-id="d30bd-152">İlk yorum durumları bu bir [HTTP GET](https://www.w3schools.com/tags/ref_httpmethods.asp) ekleyerek çağrılan yöntem `/HelloWorld/` temel URL'si.</span><span class="sxs-lookup"><span data-stu-id="d30bd-152">The first comment states this is an [HTTP GET](https://www.w3schools.com/tags/ref_httpmethods.asp) method that's invoked by appending `/HelloWorld/` to the base URL.</span></span> <span data-ttu-id="d30bd-153">İkinci yorumu belirtir bir [HTTP GET](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) ekleyerek çağrılan yöntem `/HelloWorld/Welcome/` URL'si.</span><span class="sxs-lookup"><span data-stu-id="d30bd-153">The second comment specifies an [HTTP GET](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) method that's invoked by appending `/HelloWorld/Welcome/` to the URL.</span></span> <span data-ttu-id="d30bd-154">Daha sonra öğreticide yapı iskelesi altyapısı oluşturmak için kullanılan `HTTP POST` verileri güncelleştirme yöntemleri.</span><span class="sxs-lookup"><span data-stu-id="d30bd-154">Later on in the tutorial the scaffolding engine is used to generate `HTTP POST` methods which update data.</span></span>
+
+<span data-ttu-id="d30bd-155">Uygulamayı hata ayıklama olmayan modda çalıştırın ve adres çubuğuna yoluna "HelloWorld" ekleyin.</span><span class="sxs-lookup"><span data-stu-id="d30bd-155">Run the app in non-debug mode and append "HelloWorld" to the path in the address bar.</span></span> <span data-ttu-id="d30bd-156">`Index` Yöntemi bir dize döndürür.</span><span class="sxs-lookup"><span data-stu-id="d30bd-156">The `Index` method returns a string.</span></span>
+
+![Bu bir uygulama yanıtı gösteren tarayıcı penceresinde my varsayılan eylemi değildir](~/tutorials/first-mvc-app/adding-controller/_static/hell1.png)
+
+<span data-ttu-id="d30bd-158">MVC denetleyici sınıflarına (ve içlerindeki eylem yöntemleri) gelen URL bağlı olarak çağırır.</span><span class="sxs-lookup"><span data-stu-id="d30bd-158">MVC invokes controller classes (and the action methods within them) depending on the incoming URL.</span></span> <span data-ttu-id="d30bd-159">Varsayılan [URL yönlendirme mantığı](xref:mvc/controllers/routing) MVC tarafından bu gibi bir biçim ne çağırmak için kod belirlemek için kullanır:</span><span class="sxs-lookup"><span data-stu-id="d30bd-159">The default [URL routing logic](xref:mvc/controllers/routing) used by MVC uses a format like this to determine what code to invoke:</span></span>
+
+`/[Controller]/[ActionName]/[Parameters]`
+
+<span data-ttu-id="d30bd-160">Yönlendirme biçimini ayarlama `Configure` yönteminde *Startup.cs* dosya.</span><span class="sxs-lookup"><span data-stu-id="d30bd-160">The routing format is set in the `Configure` method in *Startup.cs* file.</span></span>
+
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
+
+<!-- 
+Add link to explain lambda.
+Remove link for simplified tutorial.
+-->
+
+<span data-ttu-id="d30bd-161">Uygulamaya göz atma ve herhangi bir URL kesimleri kaynağı yok, "Home" denetleyiciye varsayılanlar ve "Index" yöntem yukarıda vurgulanmış olan şablon satırında belirtilen.</span><span class="sxs-lookup"><span data-stu-id="d30bd-161">When you browse to the app and don't supply any URL segments, it defaults to the "Home" controller and the "Index" method specified in the template line highlighted above.</span></span>
+
+<span data-ttu-id="d30bd-162">İlk URL kesimini çalıştırmak için denetleyici sınıfını belirler.</span><span class="sxs-lookup"><span data-stu-id="d30bd-162">The first URL segment determines the controller class to run.</span></span> <span data-ttu-id="d30bd-163">Bu nedenle `localhost:xxxx/HelloWorld` eşlendiği `HelloWorldController` sınıfı.</span><span class="sxs-lookup"><span data-stu-id="d30bd-163">So `localhost:xxxx/HelloWorld` maps to the `HelloWorldController` class.</span></span> <span data-ttu-id="d30bd-164">URL kesimi ikinci bölümü sınıfı eylem yöntemine belirler.</span><span class="sxs-lookup"><span data-stu-id="d30bd-164">The second part of the URL segment determines the action method on the class.</span></span> <span data-ttu-id="d30bd-165">Bu nedenle `localhost:xxxx/HelloWorld/Index` neden `Index` yöntemi `HelloWorldController` çalıştırmak için sınıf.</span><span class="sxs-lookup"><span data-stu-id="d30bd-165">So `localhost:xxxx/HelloWorld/Index` would cause the `Index` method of the `HelloWorldController` class to run.</span></span> <span data-ttu-id="d30bd-166">Yalnızca gözatmak için olan bildirim `localhost:xxxx/HelloWorld` ve `Index` yöntemi varsayılan olarak çağrıldı.</span><span class="sxs-lookup"><span data-stu-id="d30bd-166">Notice that you only had to browse to `localhost:xxxx/HelloWorld` and the `Index` method was called by default.</span></span> <span data-ttu-id="d30bd-167">Bunun nedeni, `Index` bir yöntem adı açıkça belirtilmezse, bir denetleyicisinde çağrılacak için varsayılan yöntemdir.</span><span class="sxs-lookup"><span data-stu-id="d30bd-167">This is because `Index` is the default method that will be called on a controller if a method name isn't explicitly specified.</span></span> <span data-ttu-id="d30bd-168">URL kesimi üçüncü bölümü ( `id`) için rota veri.</span><span class="sxs-lookup"><span data-stu-id="d30bd-168">The third part of the URL segment ( `id`) is for route data.</span></span> <span data-ttu-id="d30bd-169">Rota verileri, öğreticinin ilerleyen bölümlerinde açıklanmıştır.</span><span class="sxs-lookup"><span data-stu-id="d30bd-169">Route data is explained later in the tutorial.</span></span>
+
+<span data-ttu-id="d30bd-170">konumuna gözatın `https://localhost:xxxx/HelloWorld/Welcome`.</span><span class="sxs-lookup"><span data-stu-id="d30bd-170">Browse to `https://localhost:xxxx/HelloWorld/Welcome`.</span></span> <span data-ttu-id="d30bd-171">`Welcome` Yöntemi çalışır ve bir dize döndürür `This is the Welcome action method...`.</span><span class="sxs-lookup"><span data-stu-id="d30bd-171">The `Welcome` method runs and returns the string `This is the Welcome action method...`.</span></span> <span data-ttu-id="d30bd-172">Bu URL için denetleyicisidir `HelloWorld` ve `Welcome` eylem yöntemi.</span><span class="sxs-lookup"><span data-stu-id="d30bd-172">For this URL, the controller is `HelloWorld` and `Welcome` is the action method.</span></span> <span data-ttu-id="d30bd-173">Kullanmadığınız `[Parameters]` henüz URL parçası.</span><span class="sxs-lookup"><span data-stu-id="d30bd-173">You haven't used the `[Parameters]` part of the URL yet.</span></span>
+
+![Bu bir uygulama yanıtı gösteren tarayıcı penceresi olan Hoş Geldiniz eylem yöntemi](~/tutorials/first-mvc-app/adding-controller/_static/welcome.png)
+
+<span data-ttu-id="d30bd-175">Bazı parametre bilgileri URL'den denetleyiciye geçirmek için kodu değiştirin.</span><span class="sxs-lookup"><span data-stu-id="d30bd-175">Modify the code to pass some parameter information from the URL to the controller.</span></span> <span data-ttu-id="d30bd-176">Örneğin: `/HelloWorld/Welcome?name=Rick&numtimes=4`</span><span class="sxs-lookup"><span data-stu-id="d30bd-176">For example, `/HelloWorld/Welcome?name=Rick&numtimes=4`.</span></span> <span data-ttu-id="d30bd-177">Değişiklik `Welcome` aşağıdaki kodda gösterildiği gibi iki parametre eklemek için yöntemi.</span><span class="sxs-lookup"><span data-stu-id="d30bd-177">Change the `Welcome` method to include two parameters as shown in the following code.</span></span>
+
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_2)]
+
+<span data-ttu-id="d30bd-178">Yukarıdaki kod:</span><span class="sxs-lookup"><span data-stu-id="d30bd-178">The preceding code:</span></span>
+
+* <span data-ttu-id="d30bd-179">C# isteğe bağlı parametre özelliği belirtmek için kullanılan `numTimes` parametre varsayılan olarak 1 için bu parametre için değer iletilmezse.</span><span class="sxs-lookup"><span data-stu-id="d30bd-179">Uses the C# optional-parameter feature to indicate that the `numTimes` parameter defaults to 1 if no value is passed for that parameter.</span></span> <!-- remove for simplified -->
+* <span data-ttu-id="d30bd-180">Kullanan`HtmlEncoder.Default.Encode` kötü amaçlı giriş (yani, JavaScript) uygulama korumak için.</span><span class="sxs-lookup"><span data-stu-id="d30bd-180">Uses`HtmlEncoder.Default.Encode` to protect the app from malicious input (namely JavaScript).</span></span>
+* <span data-ttu-id="d30bd-181">Kullanan [Ara değerli dizeler](/dotnet/articles/csharp/language-reference/keywords/interpolated-strings) içinde `$"Hello {name}, NumTimes is: {numTimes}"`.</span><span class="sxs-lookup"><span data-stu-id="d30bd-181">Uses [Interpolated Strings](/dotnet/articles/csharp/language-reference/keywords/interpolated-strings) in `$"Hello {name}, NumTimes is: {numTimes}"`.</span></span> <!-- remove for simplified -->
+
+<span data-ttu-id="d30bd-182">Uygulamayı çalıştırın ve göz atın:</span><span class="sxs-lookup"><span data-stu-id="d30bd-182">Run the app and browse to:</span></span>
+
+   `https://localhost:xxxx/HelloWorld/Welcome?name=Rick&numtimes=4`
+
+<span data-ttu-id="d30bd-183">(Xxxx, bağlantı noktası numarasıyla değiştirin.) İçin farklı değerler deneyebilirsiniz `name` ve `numtimes` URL.</span><span class="sxs-lookup"><span data-stu-id="d30bd-183">(Replace xxxx with your port number.) You can try different values for `name` and `numtimes` in the URL.</span></span> <span data-ttu-id="d30bd-184">MVC [model bağlama](xref:mvc/models/model-binding) sistem yönteminizi parametrelerinde adres çubuğundaki Sorgu dizesinden adlandırılmış parametreleri otomatik olarak eşlenir.</span><span class="sxs-lookup"><span data-stu-id="d30bd-184">The MVC [model binding](xref:mvc/models/model-binding) system automatically maps the named parameters from the query string in the address bar to parameters in your method.</span></span> <span data-ttu-id="d30bd-185">Bkz: [Model bağlama](xref:mvc/models/model-binding) daha fazla bilgi için.</span><span class="sxs-lookup"><span data-stu-id="d30bd-185">See [Model Binding](xref:mvc/models/model-binding) for more information.</span></span>
+
+![Bir uygulama yanıtı Hello Rick NumTimes gösteren tarayıcı penceresinde: 4](~/tutorials/first-mvc-app/adding-controller/_static/rick4.png)
+
+<span data-ttu-id="d30bd-187">URL kesimi yukarıdaki görüntüde (`Parameters`) kullanılmaz, `name` ve `numTimes` parametreleri olarak geçirilir [sorgu dizeleri](https://wikipedia.org/wiki/Query_string).</span><span class="sxs-lookup"><span data-stu-id="d30bd-187">In the image above, the URL segment (`Parameters`) isn't used, the `name` and `numTimes` parameters are passed as [query strings](https://wikipedia.org/wiki/Query_string).</span></span> <span data-ttu-id="d30bd-188">`?` (Soru işareti) ayırıcı yukarıdaki URL'ye olduğu ve sorgu dizelerini izleyin.</span><span class="sxs-lookup"><span data-stu-id="d30bd-188">The `?` (question mark) in the above URL is a separator, and the query strings follow.</span></span> <span data-ttu-id="d30bd-189">`&` Karakter sorgu dizeleri ayırır.</span><span class="sxs-lookup"><span data-stu-id="d30bd-189">The `&` character separates query strings.</span></span>
+
+<span data-ttu-id="d30bd-190">Değiştirin `Welcome` yöntemini aşağıdaki kod ile:</span><span class="sxs-lookup"><span data-stu-id="d30bd-190">Replace the `Welcome` method with the following code:</span></span>
+
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_3)]
+
+<span data-ttu-id="d30bd-191">Uygulamayı çalıştırın ve aşağıdaki URL'yi girin: `https://localhost:xxx/HelloWorld/Welcome/3?name=Rick`</span><span class="sxs-lookup"><span data-stu-id="d30bd-191">Run the app and enter the following URL: `https://localhost:xxx/HelloWorld/Welcome/3?name=Rick`</span></span>
+
+<span data-ttu-id="d30bd-192">Bu süre üçüncü URL kesimini eşleşen bir rota parametresini `id`.</span><span class="sxs-lookup"><span data-stu-id="d30bd-192">This time the third URL segment matched the route parameter `id`.</span></span> <span data-ttu-id="d30bd-193">`Welcome` Yöntemi içeren bir parametre `id` URL şablonda eşleşen `MapRoute` yöntemi.</span><span class="sxs-lookup"><span data-stu-id="d30bd-193">The `Welcome` method contains a parameter `id` that matched the URL template in the `MapRoute` method.</span></span> <span data-ttu-id="d30bd-194">Sondaki `?` (içinde `id?`) gösteren `id` parametresi isteğe bağlıdır.</span><span class="sxs-lookup"><span data-stu-id="d30bd-194">The trailing `?` (in `id?`) indicates the `id` parameter is optional.</span></span>
+
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
+
+<span data-ttu-id="d30bd-195">Bu örneklerde denetleyici MVC "VC" kısmını yapmak - diğer bir deyişle, denetleyici ve görünüm iş.</span><span class="sxs-lookup"><span data-stu-id="d30bd-195">In these examples the controller has been doing the "VC" portion of MVC - that is, the view and controller work.</span></span> <span data-ttu-id="d30bd-196">Denetleyici HTML doğrudan döndürüyor.</span><span class="sxs-lookup"><span data-stu-id="d30bd-196">The controller is returning HTML directly.</span></span> <span data-ttu-id="d30bd-197">Genellikle, kod ve sürdürmek için çok kullanışsız olur beri HTML doğrudan döndürerek denetleyicileri istemezsiniz.</span><span class="sxs-lookup"><span data-stu-id="d30bd-197">Generally you don't want controllers returning HTML directly, since that becomes very cumbersome to code and maintain.</span></span> <span data-ttu-id="d30bd-198">Bunun yerine, genellikle ayrı bir Razor görünüm şablon dosyası HTML yanıtı oluşturmak için kullanın.</span><span class="sxs-lookup"><span data-stu-id="d30bd-198">Instead you typically use a separate Razor view template file to help generate the HTML response.</span></span> <span data-ttu-id="d30bd-199">Sonraki öğreticide bunu.</span><span class="sxs-lookup"><span data-stu-id="d30bd-199">You do that in the next tutorial.</span></span>
+
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="e9d58-112">[Önceki](start-mvc.md)
-> [İleri](adding-view.md)</span><span class="sxs-lookup"><span data-stu-id="e9d58-112">[Previous](start-mvc.md)
+> <span data-ttu-id="d30bd-200">[Önceki](start-mvc.md)
+> [İleri](adding-view.md)</span><span class="sxs-lookup"><span data-stu-id="d30bd-200">[Previous](start-mvc.md)
 [Next](adding-view.md)</span></span>
