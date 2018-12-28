@@ -11,11 +11,7 @@
 ### [MongoDB ile Web API](xref:tutorials/first-mongo-app)
 ## Web uygulamaları
 ### [Razor Sayfaları](xref:tutorials/razor-pages/index)
-
-### MVC
-#### [Visual Studio ile](xref:tutorials/first-mvc-app/index)
-#### [Visual Studio Code ile](xref:tutorials/first-mvc-app-xplat/index)
-#### [Mac için Visual Studio ile](xref:tutorials/first-mvc-app-mac/index)
+### [MVC](xref:tutorials/first-mvc-app/index)
 
 ## Gerçek zamanlı web uygulamaları
 ### [JavaScript ile SignalR](xref:tutorials/signalr)
@@ -46,11 +42,7 @@
 ### [Genel bakış](xref:fundamentals/host/index)
 ### [Web Ana Bilgisayarı](xref:fundamentals/host/web-host)
 ### [Genel Ana Bilgisayar](xref:fundamentals/host/generic-host)
-## Sunucular
-### [Genel bakış](xref:fundamentals/servers/index)
-### [Kestrel](xref:fundamentals/servers/kestrel)
-### [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module)
-### [HTTP.sys](xref:fundamentals/servers/httpsys)
+## [Sunucular](xref:fundamentals/servers/index)
 ## [HTTP isteklerini başlatma](xref:fundamentals/http-requests)
 
 # Web uygulamaları
@@ -66,50 +58,26 @@
 #### [Yeni alan ekleme](xref:tutorials/razor-pages/new-field)
 #### [Doğrulama ekleme](xref:tutorials/razor-pages/validation)
 
+## MVC
+### [MVC’ye genel bakış](xref:mvc/overview)
+### [MVC öğreticisi](xref:tutorials/first-mvc-app/index)
+#### [Kullanmaya başlama](xref:tutorials/first-mvc-app/start-mvc)
+#### [Denetleyici ekleme](xref:tutorials/first-mvc-app/adding-controller)
+#### [Görünüm ekleme](xref:tutorials/first-mvc-app/adding-view)
+#### [Model ekleme](xref:tutorials/first-mvc-app/adding-model)
+#### [Veritabanı ile çalışma](xref:tutorials/first-mvc-app/working-with-sql)
+#### [Denetleyici eylemleri ve görünümleri](xref:tutorials/first-mvc-app/controller-methods-views)
+#### [Arama ekleme](xref:tutorials/first-mvc-app/search)
+#### [Yeni alan ekleme](xref:tutorials/first-mvc-app/new-field)
+#### [Doğrulama ekleme](xref:tutorials/first-mvc-app/validation)
+#### [Details ve Delete metotlarını inceleme](xref:tutorials/first-mvc-app/details)
+
 ### [Filtreler](xref:razor-pages/filter)
 ### [Razor Sınıf Kitaplıkları](xref:razor-pages/ui-class)
 ### [Yol ve uygulama kuralları](xref:razor-pages/razor-pages-conventions)
 ### [Dosyaları karşıya yükleme](xref:razor-pages/upload-files)
 ### [Razor SDK](xref:razor-pages/sdk)
-## MVC
-### [Genel bakış](xref:mvc/overview)
-### Öğreticiler
-#### Visual Studio ile MVC
-##### [Genel bakış](xref:tutorials/first-mvc-app/index)
-##### [Kullanmaya başlama](xref:tutorials/first-mvc-app/start-mvc)
-##### [Denetleyici ekleme](xref:tutorials/first-mvc-app/adding-controller)
-##### [Görünüm ekleme](xref:tutorials/first-mvc-app/adding-view)
-##### [Model ekleme](xref:tutorials/first-mvc-app/adding-model)
-##### [Veritabanı ile çalışma](xref:tutorials/first-mvc-app/working-with-sql)
-##### [Denetleyici eylemleri ve görünümleri](xref:tutorials/first-mvc-app/controller-methods-views)
-##### [Arama ekleme](xref:tutorials/first-mvc-app/search)
-##### [Yeni alan ekleme](xref:tutorials/first-mvc-app/new-field)
-##### [Doğrulama ekleme](xref:tutorials/first-mvc-app/validation)
-##### [Details ve Delete metotlarını inceleme](xref:tutorials/first-mvc-app/details)
-#### Visual Studio Code ile MVC
-##### [Genel bakış](xref:tutorials/first-mvc-app-xplat/index)
-##### [Kullanmaya başlama](xref:tutorials/first-mvc-app-xplat/start-mvc)
-##### [Denetleyici ekleme](xref:tutorials/first-mvc-app-xplat/adding-controller)
-##### [Görünüm ekleme](xref:tutorials/first-mvc-app-xplat/adding-view)
-##### [Model ekleme](xref:tutorials/first-mvc-app-xplat/adding-model)
-##### [SQLite ile çalışma](xref:tutorials/first-mvc-app-xplat/working-with-sql)
-##### [Denetleyici metotları ve görünümleri](xref:tutorials/first-mvc-app-xplat/controller-methods-views)
-##### [Arama ekleme](xref:tutorials/first-mvc-app-xplat/search)
-##### [Yeni alan ekleme](xref:tutorials/first-mvc-app-xplat/new-field)
-##### [Doğrulama ekleme](xref:tutorials/first-mvc-app-xplat/validation)
-##### [Details ve Delete metotlarını inceleme](xref:tutorials/first-mvc-app/details)
-#### Mac için Visual Studio ile MVC
-##### [Genel bakış](xref:tutorials/first-mvc-app-mac/index)
-##### [Kullanmaya başlama](xref:tutorials/first-mvc-app-mac/start-mvc)
-##### [Denetleyici ekleme](xref:tutorials/first-mvc-app-mac/adding-controller)
-##### [Görünüm ekleme](xref:tutorials/first-mvc-app-mac/adding-view)
-##### [Model ekleme](xref:tutorials/first-mvc-app-mac/adding-model)
-##### [SQLite ile çalışma](xref:tutorials/first-mvc-app-mac/working-with-sql)
-##### [Denetleyici metotları ve görünümleri](xref:tutorials/first-mvc-app-mac/controller-methods-views)
-##### [Arama ekleme](xref:tutorials/first-mvc-app-mac/search)
-##### [Yeni alan ekleme](xref:tutorials/first-mvc-app-mac/new-field)
-##### [Doğrulama ekleme](xref:tutorials/first-mvc-app-mac/validation)
-##### [Details ve Delete metotlarını inceleme](xref:tutorials/first-mvc-app/details)
+
 ### [Görünümler](xref:mvc/views/overview)
 ### [Kısmi görünümler](xref:mvc/views/partial)
 ### [Denetleyiciler](xref:mvc/controllers/actions)
@@ -284,9 +252,11 @@
 ## IIS ile Windows’da barındırma
 ### [Genel bakış](xref:host-and-deploy/iis/index)
 ### [IIS üzerinde sorun giderme](xref:host-and-deploy/iis/troubleshoot)
-### [ASP.NET Core Modülü başvurusu](xref:host-and-deploy/aspnet-core-module)
+### [ASP.NET Core Modülü](xref:host-and-deploy/aspnet-core-module)
 ### [Visual Studio'da IIS desteği](xref:host-and-deploy/iis/development-time-iis-support)
 ### [IIS Modülleri](xref:host-and-deploy/iis/modules)
+## [Kestrel](xref:fundamentals/servers/kestrel)
+## [HTTP.sys](xref:fundamentals/servers/httpsys)
 ## [Windows hizmetinde barındırma](xref:host-and-deploy/windows-service)
 ## [Nginx ile Linux’ta barındırma](xref:host-and-deploy/linux-nginx)
 ## [Apache ile Linux’ta barındırma](xref:host-and-deploy/linux-apache)
