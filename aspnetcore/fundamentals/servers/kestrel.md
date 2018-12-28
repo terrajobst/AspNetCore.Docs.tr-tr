@@ -4,14 +4,14 @@ author: guardrex
 description: Kestrel'i, ASP.NET Core için platformlar arası web sunucusu hakkında bilgi edinin.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 12/01/2018
+ms.date: 12/18/2018
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 2a6a3786aa3a78bb83f497db22acac873512f939
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: af1f330f2afa340ef98a6b4bd5008859f4b0f914
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861933"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637917"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>ASP.NET core'da kestrel web sunucusu uygulaması
 
@@ -25,7 +25,7 @@ Bu konuda 1.1 sürümü için indirme [Kestrel web server (sürüm 1.1, PDF) ASP
 
 Kestrel'i olduğu bir platformlar arası [ASP.NET Core web sunucusu](xref:fundamentals/servers/index). Kestrel'i ASP.NET Core proje şablonları, varsayılan olarak bulunan bir web sunucusudur.
 
-Kestrel'i aşağıdaki özellikleri destekler:
+Kestrel'i aşağıdaki senaryoları destekler:
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -76,7 +76,11 @@ HTTP/2 varsayılan olarak devre dışıdır. Yapılandırma hakkında daha fazla
 
 Tek başına veya birlikte Kestrel kullanabileceğiniz bir *ters Ara sunucu*, gibi [Internet Information Services (IIS)](https://www.iis.net/), [Ngınx](http://nginx.org), veya [Apache](https://httpd.apache.org/). Ters Ara sunucu HTTP isteklerinin ağdan alır ve bunları Kestrel için iletir.
 
+Bir edge (Internet'e yönelik) web sunucusu olarak kullanılan kestrel:
+
 ![Kestrel'i ters Ara sunucu olmadan Internet ile doğrudan iletişim kurar](kestrel/_static/kestrel-to-internet2.png)
+
+Ters proxy yapılandırmasında kullanılan kestrel:
 
 ![Kestrel'i dolaylı olarak IIS, Ngınx veya Apache gibi bir ters Ara sunucu üzerinden Internet ile iletişim kurar](kestrel/_static/kestrel-to-internet.png)
 
@@ -470,7 +474,7 @@ Kullanarak URL'leri belirtin:
 
 Daha fazla bilgi için [sunucu URL'leri](xref:fundamentals/host/web-host#server-urls) ve [geçersiz kılma yapılandırmasını](xref:fundamentals/host/web-host#override-configuration).
 
-Bu yaklaşımları kullanarak sağlanan değer, bir veya daha fazla HTTP ve HTTPS uç noktası (varsayılan sertifika varsa HTTPS) olabilir. Değer noktalı virgülle ayrılmış listesini yapılandırın (örneğin, `"Urls": "http://localhost:8000;http://localhost:8001"`).
+Bu yaklaşımları kullanarak sağlanan değer, bir veya daha fazla HTTP ve HTTPS uç noktası (varsayılan sertifika varsa HTTPS) olabilir. Değer noktalı virgülle ayrılmış listesini yapılandırın (örneğin, `"Urls": "http://localhost:8000; http://localhost:8001"`).
 
 *Varsayılan Sertifika yapılandırmasından değiştirin*
 
@@ -790,7 +794,7 @@ Bu yöntemler, kod Kestrel dışında sunucuları ile iş yapmak için kullanı�
 
 ### <a name="iis-endpoint-configuration"></a>IIS bitiş noktası yapılandırması
 
-IIS geçersiz kılmak için IIS, URL bağlamaları kullanırken bağlamalar tarafından ayarlanan `Listen` veya `UseUrls`. Daha fazla bilgi için [ASP.NET Core Modülü](xref:fundamentals/servers/aspnet-core-module) konu.
+IIS geçersiz kılmak için IIS, URL bağlamaları kullanırken bağlamalar tarafından ayarlanan `Listen` veya `UseUrls`. Daha fazla bilgi için [ASP.NET Core Modülü](xref:host-and-deploy/aspnet-core-module) konu.
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -1033,4 +1037,4 @@ Konak filtreleme ara yazılım, varsayılan olarak devre dışıdır. Ara yazıl
 * <xref:security/enforcing-ssl>
 * <xref:host-and-deploy/proxy-load-balancer>
 * [Kestrel'i kaynak kodu](https://github.com/aspnet/KestrelHttpServer)
-* [RFC 7230: İleti söz dizimi ve yönlendirme (Bölüm 5.4: ana bilgisayar)](https://tools.ietf.org/html/rfc7230#section-5.4)
+* [RFC 7230: İleti söz dizimi ve yönlendirme (Bölüm 5.4: Ana bilgisayarı)](https://tools.ietf.org/html/rfc7230#section-5.4)
