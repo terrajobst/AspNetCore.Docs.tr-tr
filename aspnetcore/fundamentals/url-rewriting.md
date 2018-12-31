@@ -4,14 +4,14 @@ author: guardrex
 description: URL yeniden yazma ve URL yeniden yazma ara yazılımı ile ASP.NET Core uygulamalarında yeniden yönlendirme hakkında bilgi edinin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/19/2018
+ms.date: 12/18/2018
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: 84052789717738a48c346d35d1a2642017a9ab93
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: d2dd5e9b7f196bcbd1940f7ef58331dabd2367a1
+ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861920"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53637813"
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>URL yeniden yazma ara yazılımı ASP.NET core'da
 
@@ -56,7 +56,7 @@ Varsa `/resource` olduğu *yeniden yönlendirilen* için `/different-resource`, 
 
 * *302 bulundu -* durum kodu yeniden yönlendirme geçici olduğu veya değiştirilebilir genel olarak kullanılır. 302 durum kodu olmayan mağaza URL'sini ve gelecekte kullanmak üzere istemciye gösterir.
 
-Durum kodları hakkında daha fazla bilgi için bkz. [RFC 2616: durum kodu tanımları](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
+Durum kodları hakkında daha fazla bilgi için bkz. [RFC 2616: Durum kodu tanımları](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
 
 A *URL yeniden yazma* istenen istemci farklı bir kaynak adresten bir kaynak sağlayan bir sunucu tarafı işlemdir. Bir URL yeniden yazma sunucuya gidiş dönüş gerektirmez. Yeniden URL istemciye döndürülen değildir ve tarayıcınızın adres çubuğuna görünmez.
 
@@ -78,7 +78,7 @@ URL yeniden yazma ara yazılımı, aşağıdaki yaklaşımlardan kullanamaz oldu
 * [Apache sunucuda Apache mod_rewrite Modülü](https://httpd.apache.org/docs/2.4/rewrite/)
 * [Ngınx üzerinde yeniden yazma URL'si](https://www.nginx.com/blog/creating-nginx-rewrite-rules/)
 
-Uygulama üzerinde barındırılıyorsa, ayrıca, kullanılacak Ara yazılımları kullanmayı [HTTP.sys sunucu](xref:fundamentals/servers/httpsys) (eski adıyla [WebListener](xref:fundamentals/servers/weblistener)).
+Uygulama üzerinde barındırılıyorsa, ayrıca, kullanılacak Ara yazılımları kullanmayı [HTTP.sys sunucu](xref:fundamentals/servers/httpsys) (eski adıyla WebListener olarak adlandırılır).
 
 IIS, Apache, Nginx teknolojileri yeniden sunucu tabanlı URL'sini kullanmak üzere temel neden şunlardır:
 
