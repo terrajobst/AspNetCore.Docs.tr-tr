@@ -5,24 +5,24 @@ description: Oluşturma ve web ASP.NET Core API'leri için özel biçimlendirici
 ms.author: tdykstra
 ms.date: 02/08/2017
 uid: web-api/advanced/custom-formatters
-ms.openlocfilehash: ee6f166ced41c41506f2a17a7d362399c165b718
-ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
+ms.openlocfilehash: 2861a15a80725dcc237d33313a24822cf8aa9c7e
+ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51020656"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53997298"
 ---
 # <a name="custom-formatters-in-aspnet-core-web-api"></a>ASP.NET Core Web API'si, özel biçimlendiriciler
 
 tarafından [Tom Dykstra](https://github.com/tdykstra)
 
-ASP.NET Core MVC, JSON, XML veya düz metin biçimleri kullanarak, web API'leri veri değişimi için yerleşik destek sunmaktadır. Bu makalede, özel biçimlendiriciler oluşturarak ek biçimleri için destek eklenecek şekilde gösterilmektedir.
+ASP.NET Core MVC, JSON veya XML kullanarak, web API'leri veri değişimi için yerleşik destek sunmaktadır. Bu makalede, özel biçimlendiriciler oluşturarak ek biçimleri için destek eklenecek şekilde gösterilmektedir.
 
 [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-custom-formatters"></a>Özel biçimlendiriciler kullanıldığı durumlar
 
-İstediğiniz zaman bir özel biçimlendiricisini kullanmayı [içerik anlaşması](xref:web-api/advanced/formatting#content-negotiation) yerleşik biçimlendiricileri (JSON, XML ve düz metin) tarafından desteklenmeyen bir içerik türünü desteklemek üzere işlem.
+İstediğiniz zaman bir özel biçimlendiricisini kullanmayı [içerik anlaşması](xref:web-api/advanced/formatting#content-negotiation) yerleşik biçimlendiricileri (JSON ve XML) tarafından desteklenmeyen bir içerik türünü desteklemek üzere işlem.
 
 Örneğin, web API'niz için olan istemcilerin bazılarını işleyebilir [Protobuf](https://github.com/google/protobuf) biçimi daha etkilidir çünkü Protobuf istemcilerle kullanmak isteyebilirsiniz. Veya kişi adlarını ve adreslerini göndermek için web API'nizi isteyebileceğiniz [vCard](https://wikipedia.org/wiki/VCard) biçimi, kişi veri değişimi için yaygın olarak kullanılan bir biçimi. Bu makalede sağlanan örnek uygulama basit vCard biçimlendirici uygular.
 
@@ -103,7 +103,8 @@ Biçimlendiricileri ekledikten sırayla değerlendirilir. Birinci öncelik kazan
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bkz: [örnek uygulama](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample), uygulayan basit vCard giriş ve çıkış biçimlendiricileri. Uygulama okur ve aşağıdaki gibi görünen vCard Yazar:
+* [Düz metin GitHub üzerinde örnek kod biçimlendiricisi.](https://github.com/aspnet/Entropy/tree/master/samples/Mvc.Formatters)
+* [Bu belge için örnek uygulama](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample), uygulayan basit vCard giriş ve çıkış biçimlendiricileri. Uygulamaları okur ve aşağıdaki gibi görünen vCard Yazar:
 
 ```
 BEGIN:VCARD

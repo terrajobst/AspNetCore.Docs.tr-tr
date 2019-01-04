@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/14/2018
 uid: fundamentals/app-state
-ms.openlocfilehash: ccaaa6fafd611c3cf35a9171d5bfd6100535eeb9
-ms.sourcegitcommit: 0fc89b80bb1952852ecbcf3c5c156459b02a6ceb
+ms.openlocfilehash: 2d9fe4fc7c69f23a903b4ada44e328ef140963db
+ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52618135"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53997311"
 ---
 # <a name="session-and-app-state-in-aspnet-core"></a>ASP.NET core'da oturum ve uygulama durumu
 
@@ -64,6 +64,7 @@ Oturum durumu aşağıdaki davranışları sergileyen:
 * Uygulamayı sınırlı bir süre sonra son istek için bir oturum korur. Uygulama oturum zaman aşımı ayarlar veya 20 dakikalık varsayılan değeri kullanır. Oturum durumu, belirli bir oturum için özeldir ancak burada veri oturumlarda kalıcı depolama alanı gerektirmez kullanıcı verilerini depolamak için idealdir.
 * Oturum verileri silinir ya da [ISession.Clear](/dotnet/api/microsoft.aspnetcore.http.isession.clear) oturum süresinin sona erdiği veya uygulama çağrılır.
 * Uygulama kodu istemci tarayıcısı kapatıldı veya ne zaman oturum tanımlama bilgisi silindi veya istemcide süresi size bildirmek için varsayılan bir mekanizma yoktur.
+ASP.NET Core MVC ve Razor sayfaları şablonlar için destek içeren [genel veri koruma yönetmeliği (GDPR) Destek](xref:security/gdpr). [Oturum durumu tanımlama bilgileri olmayan temel](xref:security/gdpr#tempdata-provider-and-session-state-cookies-are-not-essential), izleme devre dışı bırakıldığında oturum durumu işlevsel değildir.
 
 > [!WARNING]
 > Hassas verileri kavramak depolamayın. Kullanıcı olmayan Tarayıcıyı kapatın ve oturum tanımlama bilgisini temizlemek. Bazı tarayıcılar tarayıcı pencereleri arasında geçerli bir oturum tanımlama bilgileri korur. Bir oturum için tek bir kullanıcı kısıtlı olmayabilir&mdash;sonraki kullanıcı aynı oturum tanımlama bilgisinin uygulamayla göz atmak devam edebilir.

@@ -4,14 +4,14 @@ author: rick-anderson
 description: Nasıl ASP.NET Core yönlendirme uç noktaları için eşleme isteği için uç nokta seçici bir URI'leri ve dispatching gelen istekleri sorumludur keşfedin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/15/2018
+ms.date: 12/29/2018
 uid: fundamentals/routing
-ms.openlocfilehash: 66d719bb14095dcec4c2cfa15b63cf74ad7a0d49
-ms.sourcegitcommit: 1ea1b4fc58055c62728143388562689f1ef96cb2
+ms.openlocfilehash: c57b309e4474f9aff5c0594a3d9d1c796990d31e
+ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53329165"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53997363"
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET Core yönlendirme
 
@@ -292,6 +292,8 @@ Uç noktası yönlendirme içinde ASP.NET Core 2.2 veya sonraki bir sürümü il
 Aşağıdaki örnekte, bir ara yazılım kullanan `LinkGenerator` listeleyen bir eylem yöntemine giden bağlantı oluşturmak için API ürünleri depolayın. Bir sınıf ve arama ekleyerek bağlantı oluşturucuyu kullanarak `GenerateLink` bir uygulamada herhangi bir sınıf için kullanılabilir.
 
 ```csharp
+using Microsoft.AspNetCore.Routing;
+
 public class ProductsLinkMiddleware
 {
     private readonly LinkGenerator _linkGenerator;
@@ -303,8 +305,7 @@ public class ProductsLinkMiddleware
 
     public async Task InvokeAsync(HttpContext httpContext)
     {
-        var url = _linkGenerator.GenerateLink(new { controller = "Store",
-                                                    action = "ListProducts" });
+        var url = _linkGenerator.GetPathByAction("ListProducts", "Store");
 
         httpContext.Response.ContentType = "text/plain";
 

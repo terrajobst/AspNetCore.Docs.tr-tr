@@ -4,16 +4,16 @@ title: ASP.NET 4.5 sürümünde zaman uyumsuz metotlar kullanma | Microsoft Docs
 author: Rick-Anderson
 description: Bu öğreticide ücretsiz bir Web için Visual Studio Express 2012 kullanarak zaman uyumsuz bir ASP.NET Web Forms uygulaması oluşturmaya yönelik temel bilgiler sağlanır...
 ms.author: riande
-ms.date: 06/06/2012
+ms.date: 01/02/2019
 ms.assetid: a585c9a2-7c8e-478b-9706-90f3739c50d1
 msc.legacyurl: /web-forms/overview/performance-and-caching/using-asynchronous-methods-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: 9a3c9fab4932c3bc85733a912cf1d1eaaecc1ab7
-ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
+ms.openlocfilehash: c36749f82051ee8965035eca9c2e4e57a5dbd616
+ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51225492"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53997350"
 ---
 <a name="using-asynchronous-methods-in-aspnet-45"></a>ASP.NET 4.5 Sürümünde Zaman Uyumsuz Metotlar Kullanma
 ====================
@@ -38,7 +38,7 @@ ASP.NET 4.5 Web sayfaları birlikte [.NET 4.5](https://msdn.microsoft.com/librar
 
 Kullanma hakkında daha fazla bilgi için [await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx) ve [zaman uyumsuz](https://msdn.microsoft.com/library/hh156513(VS.110).aspx) anahtar sözcükleri ve [görev](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) ad alanı, aşağıdaki kaynaklara bakın.
 
-- [Teknik İnceleme: .NET zaman uyumsuzluğu](https://go.microsoft.com/fwlink/?LinkId=204844)
+- [Teknik İnceleme: . NET'te zaman uyumsuzluğu](https://go.microsoft.com/fwlink/?LinkId=204844)
 - [Async/Await ile ilgili SSS](https://blogs.msdn.com/b/pfxteam/archive/2012/04/12/10293335.aspx)
 - [Visual Studio zaman uyumsuz programlama](https://msdn.microsoft.com/vstudio/gg316360)
 
@@ -68,7 +68,7 @@ Genel olarak, aşağıdaki koşullar için zaman uyumsuz yöntemleri kullanın:
 - , Ağa bağlı veya miyim/O-bağlı CPU bağımlı yerine işlemlerdir.
 - Paralellik kod basitliğinin daha önemlidir.
 - Uzun süre çalışan isteğini iptal et kullanıcıların olanak sağlayan bir mekanizma sunmak istiyorsunuz.
-- Ne zaman iş parçacıklarını geçiş avantajı, içerik anahtarı maliyetini ağırlık verir. Hiçbir iş yaparken ASP.NET isteği iş parçacığı zaman uyumlu yöntem engelliyorsa, genel olarak, bir yöntem zaman uyumsuz yapmanız. Arama zaman uyumsuz hale getirerek, ASP.NET isteği iş parçacığı için web hizmeti isteğini tamamlamak beklerken hiçbir iş yapan engellenir.
+- Ne zaman iş parçacıkları geçiş avantajı içerik anahtarının maliyetinden ağır. Hiçbir iş yaparken ASP.NET isteği iş parçacığı zaman uyumlu yöntem engelliyorsa, genel olarak, bir yöntem zaman uyumsuz yapmanız. Arama zaman uyumsuz hale getirerek, ASP.NET isteği iş parçacığı için web hizmeti isteğini tamamlamak beklerken hiçbir iş yapan engellenir.
 - Test engelleme işlemleri performans sitesini bir performans sorunu olduğunu ve IIS istek engelleme bu çağrılar için zaman uyumsuz yöntemler kullanarak hizmet gösterir.
 
   İndirilebilir örnek zaman uyumsuz yöntemlerin etkili bir şekilde nasıl kullanılacağını gösterir. Sağlanan örnek ASP.NET 4.5 içinde zaman uyumsuz programlama basit bir gösterimini sağlamak için tasarlanmıştır. Örnek ASP.NET içinde zaman uyumsuz programlama için bir başvuru mimarisi olacak şekilde tasarlanmamıştır. Örnek program çağrıları [ASP.NET Web API](../../../web-api/index.md) sırayla çağırın yöntemleri [Task.Delay](https://msdn.microsoft.com/library/hh139096(VS.110).aspx) uzun süre çalışan web hizmeti çağrıları benzetimini yapmak için. Üretim uygulamalarının çoğu zaman uyumsuz metotlar kullanma gibi belirgin avantajları göstermez.   
@@ -80,8 +80,8 @@ Bazı uygulamalar, tüm yöntemler, zaman uyumsuz olarak gerektirir. Genellikle,
 Örnek uygulamayı indirebilirsiniz [ https://github.com/RickAndMSFT/Async-ASP.NET ](https://github.com/RickAndMSFT/Async-ASP.NET) üzerinde [GitHub](https://github.com/) site. Depo üç projelerin oluşur:
 
 - *WebAppAsync*: Web API'sini kullanan ASP.NET Web formları projesi **WebAPIpwg** hizmeti. Bu öğreticide bu işlemi için çoğu kod projesi.
-- *WebAPIpgw*: uygulayan ASP.NET MVC 4 Web API projesi `Products, Gizmos and Widgets` denetleyicileri. İçin veri sağlar *WebAppAsync* proje ve *Mvc4Async* proje.
-- *Mvc4Async*: başka bir öğreticide kullanılan kod içeren bir ASP.NET MVC 4 projesi. Web API çağrıları yapan **WebAPIpwg** hizmeti.
+- *WebAPIpgw*: Uygulayan ASP.NET MVC 4 Web API projesi `Products, Gizmos and Widgets` denetleyicileri. İçin veri sağlar *WebAppAsync* proje ve *Mvc4Async* proje.
+- *Mvc4Async*: Başka bir öğreticide kullanılan kodu içeren ASP.NET MVC 4 proje. Web API çağrıları yapan **WebAPIpwg** hizmeti.
 
 ## <a id="GizmosSynch"></a>  Şeyler zaman uyumlu sayfası
 

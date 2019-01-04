@@ -3,14 +3,14 @@ title: Denetleyici metotları ve görünümleri ASP.NET Core
 author: rick-anderson
 description: Denetleyici yöntemlerinde, görünümler ve ASP.NET core'da DataAnnotations ile çalışmayı öğrenin.
 ms.author: riande
-ms.date: 12/25/2018
+ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/controller-methods-views
-ms.openlocfilehash: 5984194194f14153aaa1e80df028bbaaf182e02b
-ms.sourcegitcommit: 4e87712029de2aceb1cf2c52e9e3dda8195a5b8e
+ms.openlocfilehash: e6bdaec6dfe681582a54bd39ce1c76bebe6f5fb2
+ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53382049"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53997259"
 ---
 # <a name="controller-methods-and-views-in-aspnet-core"></a>Denetleyici metotları ve görünümleri ASP.NET Core
 
@@ -52,7 +52,7 @@ Biçim için geri çağırma [yönlendirme](xref:mvc/controllers/routing) kümes
 
 ASP.NET Core çevirir `https://localhost:5001/Movies/Edit/4` bir istek halinde `Edit` eylem yöntemi `Movies` denetleyicisi parametresiyle `Id` 4. (Denetleyici olarak da bilinen eylem yöntemleri yöntemlerdir.)
 
-[Etiket Yardımcıları](xref:mvc/views/tag-helpers/intro) ASP.NET Core en popüler yeni özellikler biridir. Bkz: [ek kaynaklar](#additional-resources) daha fazla bilgi için.
+[Etiket Yardımcıları](xref:mvc/views/tag-helpers/intro) ASP.NET Core en popüler yeni özellikler biridir. Daha fazla bilgi için [ek kaynaklar](#additional-resources).
 
 Açık `Movies` denetleyicisi ve iki inceleyin `Edit` eylem yöntemleri. Aşağıdaki kodda gösterildiği `HTTP GET Edit` film getirir ve tarafından oluşturulan düzenleme formu dolduran yöntemi *Edit.cshtml* Razor dosya.
 
@@ -76,7 +76,7 @@ Aşağıdaki kodda gösterildiği `HTTP POST Edit` gönderilen film değerleri i
 
 ::: moniker-end
 
-`[Bind]` Özniteliktir karşı korumak için bir yol [aşırı yayınlayarak](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost). Özellikler yalnızca içermelidir `[Bind]` değiştirmek istediğiniz özniteliği. Bkz: [denetleyicinizin atlayarak nakil korumak](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application) daha fazla bilgi için. [Viewmodel'lar](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/) atlayarak önlemek için alternatif bir yaklaşım sağlar.
+`[Bind]` Özniteliktir karşı korumak için bir yol [aşırı yayınlayarak](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost). Özellikler yalnızca içermelidir `[Bind]` değiştirmek istediğiniz özniteliği. Daha fazla bilgi için [denetleyicinizin atlayarak nakil korumak](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application). [Viewmodel'lar](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/) atlayarak önlemek için alternatif bir yaklaşım sağlar.
 
 İkinci fark `Edit` eylem yöntemine öncesinde `[HttpPost]` özniteliği.
 

@@ -4,14 +4,14 @@ description: Apache CentOS, ters Ara sunucu olarak Kestrel üzerinde çalışan 
 author: spboyer
 ms.author: spboyer
 ms.custom: mvc
-ms.date: 12/01/2018
+ms.date: 12/20/2018
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: 46cdb764b872e86f0fd7d19133aae14891bdd452
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 8c590743328885336498ca2446c618b13a7d2ce2
+ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862466"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53997233"
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>ASP.NET Core Apache ile Linux'ta barındırma
 
@@ -160,7 +160,7 @@ Adlı bir yapılandırma dosyası oluşturma *helloapp.conf*, uygulama için:
 </VirtualHost>
 ```
 
-`VirtualHost` Blok bir sunucuda bir veya daha fazla dosya içinde birden çok kez görünebilir. Önceki yapılandırma dosyasında Apache 80 numaralı bağlantı noktasında ortak trafiği kabul eder. Etki alanı `www.example.com` hizmet verilen ve `*.example.com` diğer çözümler için aynı Web sitesi. Bkz: [sanal ana bilgisayar adı tabanlı destek](https://httpd.apache.org/docs/current/vhosts/name-based.html) daha fazla bilgi için. İstekleri kök 127.0.0.1 server örneğinin 5000 numaralı bağlantı noktasına taşınır. Çift yönlü iletişim için `ProxyPass` ve `ProxyPassReverse` gereklidir. Kestrel'i'nın IP/bağlantı noktasını değiştirmek için bkz [Kestrel: uç nokta Yapılandırması](xref:fundamentals/servers/kestrel#endpoint-configuration).
+`VirtualHost` Blok bir sunucuda bir veya daha fazla dosya içinde birden çok kez görünebilir. Önceki yapılandırma dosyasında Apache 80 numaralı bağlantı noktasında ortak trafiği kabul eder. Etki alanı `www.example.com` hizmet verilen ve `*.example.com` diğer çözümler için aynı Web sitesi. Bkz: [sanal ana bilgisayar adı tabanlı destek](https://httpd.apache.org/docs/current/vhosts/name-based.html) daha fazla bilgi için. İstekleri kök 127.0.0.1 server örneğinin 5000 numaralı bağlantı noktasına taşınır. Çift yönlü iletişim için `ProxyPass` ve `ProxyPassReverse` gereklidir. Kestrel'i'nın IP/bağlantı noktasını değiştirmek için bkz [Kestrel: Uç nokta Yapılandırması](xref:fundamentals/servers/kestrel#endpoint-configuration).
 
 > [!WARNING]
 > Uygun belirtmek için hata [ServerName yönergesi](https://httpd.apache.org/docs/current/mod/core.html#servername) içinde **VirtualHost** blok uygulamanıza güvenlik açıklarını kullanıma sunar. Alt etki alanı joker bağlama (örneğin, `*.example.com`) tüm üst etki alanını denetimi bu güvenlik riski yoktur (başlangıcı yerine sonundan `*.com`, güvenlik açığı olan). Bkz: [rfc7230 bölümü-5.4](https://tools.ietf.org/html/rfc7230#section-5.4) daha fazla bilgi için.
@@ -259,7 +259,7 @@ Connection: Keep-Alive
 Transfer-Encoding: chunked
 ```
 
-### <a name="view-logs"></a>Günlükleri görüntüle
+### <a name="view-logs"></a>Günlükleri görüntüleme
 
 Web uygulaması bu yana Kestrel kullanarak kullanılarak yönetilir *systemd*, olaylar ve işlemleri için merkezi bir günlüğe kaydedilir. Ancak, bu günlük girişlerini tüm hizmetleri ve işlemleri tarafından yönetilen içerir *systemd*. Görüntülenecek `kestrel-helloapp.service`-belirli öğeler, aşağıdaki komutu kullanın:
 
@@ -471,6 +471,7 @@ Kullanarak *mod_ratelimit*, içinde bulunan *httpd* modülü, bant genişliği i
 ```bash
 sudo nano /etc/httpd/conf.d/ratelimit.conf
 ```
+
 Örnek dosyası kök konumu altında 600 KB/sn olarak bant genişliği sınırları:
 
 ```
@@ -481,6 +482,13 @@ sudo nano /etc/httpd/conf.d/ratelimit.conf
     </Location>
 </IfModule>
 ```
+
+### <a name="long-request-header-fields"></a>Uzun bir isteği üst bilgi alanları
+
+Uygulama isteği üstbilgi alanlarını ayarlama (genellikle 8,190 bayt) proxy sunucunun varsayılan olarak izin verilenden daha uzun gerektiriyorsa, değerini ayarla [LimitRequestFieldSize](https://httpd.apache.org/docs/2.4/mod/core.html#LimitRequestFieldSize) yönergesi. Uygulamak için değer senaryoya bağlıdır. Daha fazla bilgi için sunucunuzun belgelerine bakın.
+
+> [!WARNING]
+> Varsayılan değer olan artırmaz `LimitRequestFieldSize` sürece gerekli. (Taşma) arabellek taşması riskini artırır değeri artırmak ve kötü amaçlı kullanıcılar tarafından hizmet reddi (DoS) saldırıları.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

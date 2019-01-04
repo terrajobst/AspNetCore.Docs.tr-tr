@@ -4,14 +4,14 @@ author: rick-anderson
 description: ASP.NET Core uygulaması oluşturulan sayfaları güncelleştirme hakkında bilgi edinin.
 monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
-ms.date: 12/3/2018
+ms.date: 12/20/2018
 uid: tutorials/razor-pages/da1
-ms.openlocfilehash: b88dcd12ee670eb2e0919bdb07b9b7556a5b80e7
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 396cb9b9eeaab2d3db6108feeba71dbc2bc8981d
+ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862414"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53997207"
 ---
 # <a name="update-the-generated-pages-in-an-aspnet-core-app"></a>ASP.NET Core uygulaması oluşturulan sayfaları güncelleştirme
 
@@ -69,22 +69,22 @@ Düzenle, Ayrıntılar ve Razor Sayfaları Sil "{kimliği: int}" rota şablonu k
 @page "{id:int?}"
 ```
 
-Bu davranışı sınamasını veya `@page "{id:int?}"`:
+Davranışını test etmek için `@page "{id:int?}"`:
 
-* Sayfa yönergesi kümesinde *Pages/Movies/Details.cshtml* için `@page "{id:int?}"`
+* Sayfa yönergesi kümesinde *Pages/Movies/Details.cshtml* için `@page "{id:int?}"`.
 * Bir kesme noktası kümesinde `public async Task<IActionResult> OnGetAsync(int? id)` (içinde *Pages/Movies/Details.cshtml.cs*).
-* Gidin  `https://localhost:5001/Movies/Details/`
+* `https://localhost:5001/Movies/Details/` sayfasına gidin.
 
 İle `@page "{id:int}"` yönergesi, kesme noktası hiçbir zaman ulaşılır. Yönlendirme altyapısını, HTTP 404 döndürür. Kullanarak `@page "{id:int?}"`, `OnGetAsync` yöntemi döndürür `NotFound` (HTTP 404).
 
-Önerilmese de yazabilirsiniz delete yöntemini olarak:
+Önerilmese de yazabilirsiniz `OnGetAsync` yöntemi (içinde *Pages/Movies/Delete.cshtml.cs*) olarak:
 
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Pages/Movies/Delete.cshtml.cs?name=snippet)]
 
 Yukarıdaki kod test edin:
 
-* Bir silme bağlantısı seçin.
-* URL'deki kimliği kaldırın. Örneğin, değiştirme `https://localhost:5001/Movies/Delete/8` için `https://localhost:5001/Movies/Delete`
+* Seçin bir **Sil** bağlantı.
+* URL'deki kimliği kaldırın. Örneğin, değiştirme `https://localhost:5001/Movies/Delete/8` için `https://localhost:5001/Movies/Delete`.
 * Hata ayıklayıcı kodda adım adım.
 
 ### <a name="review-concurrency-exception-handling"></a>Eşzamanlılık özel durum işleme gözden geçirin
@@ -125,7 +125,7 @@ Filmler/düzenleme sayfası gönderildiğinde:
   public Movie Movie { get; set; }
   ```
 
-* Model durumuna bir hata varsa (örneğin, `ReleaseDate` tarihe dönüştürülür), formu yeniden gönderilen değerleri ile birlikte gönderilir.
+* Model durumuna bir hata varsa (örneğin, `ReleaseDate` tarihe dönüştürülür), form gönderilen değerleri görüntülenir.
 * Film modeli hata varsa, kaydedilir.
 
 Dizin oluşturma ve silme Razor sayfaları HTTP GET yöntemleri benzer bir desen izleyin. HTTP POST `OnPostAsync` Razor sayfası oluşturma yöntemi için benzer bir desen izler `OnPostAsync` Razor sayfasını Düzenle yöntemi.
@@ -133,5 +133,5 @@ Dizin oluşturma ve silme Razor sayfaları HTTP GET yöntemleri benzer bir desen
 Sonraki öğreticide arama eklenir.
 
 > [!div class="step-by-step"]
-> [Önceki: bir veritabanı ile çalışmaya](xref:tutorials/razor-pages/sql)
-> [sonraki: arama Ekle](xref:tutorials/razor-pages/search)
+> [Önceki: Bir veritabanı ile çalışmaya](xref:tutorials/razor-pages/sql)
+> [sonraki: Arama ekleme](xref:tutorials/razor-pages/search)

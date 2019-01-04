@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 11/30/2018
 uid: tutorials/signalr
-ms.openlocfilehash: 904031c58b06f12d41902802f8ab3927b29ae94b
-ms.sourcegitcommit: a16352c1c88a71770ab3922200a8cd148fb278a6
+ms.openlocfilehash: 36296513726f7e098a536afc22fcbfb2cafe946d
+ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53335357"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53997285"
 ---
 # <a name="tutorial-get-started-with-aspnet-core-signalr"></a>Öğretici: ASP.NET Core Signalr'yi kullanmaya başlayın
 
@@ -163,7 +163,7 @@ A *hub* istemci-sunucu iletişimi işleyen bir üst düzey işlem hattı hizmet 
 
   `ChatHub` Sınıfından devralan SignalR öğesinden `Hub` sınıfı. `Hub` Sınıfı, bağlantılar, grupları ve mesajlaşma yönetir.
 
-  `SendMessage` Yöntemi herhangi bir bağlı istemci tarafından çağrılabilir. Bu, tüm istemcilere alınan ileti gönderir. SignalR kodudur maksimum ölçeklenebilirlik sağlamak için zaman uyumsuz.
+  `SendMessage` Yöntemi, tüm istemciler için bir ileti göndermek için bir bağlı istemci tarafından çağrılabilir. Bu yöntemi çağıran JavaScript istemci kodu öğreticinin ilerleyen bölümlerinde gösterilmektedir. SignalR kodudur maksimum ölçeklenebilirlik sağlamak için zaman uyumsuz.
 
 ## <a name="configure-signalr"></a>SignalR yapılandırın
 

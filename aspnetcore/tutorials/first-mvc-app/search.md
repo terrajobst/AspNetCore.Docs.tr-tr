@@ -3,20 +3,20 @@ title: Bir ASP.NET Core MVC uygulaması için arama Ekle
 author: rick-anderson
 description: Basit bir ASP.NET Core MVC uygulaması için arama ekleme işlemi açıklanır
 ms.author: riande
-ms.date: 12/25/2018
+ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/search
-ms.openlocfilehash: 3814acf0f1cf1572f1c30ce952df910ce40b4141
-ms.sourcegitcommit: 4e87712029de2aceb1cf2c52e9e3dda8195a5b8e
+ms.openlocfilehash: 8686041c3629faf9ffc4ab766e8d78eda00740dc
+ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53381835"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53997272"
 ---
 # <a name="add-search-to-an-aspnet-core-mvc-app"></a>Bir ASP.NET Core MVC uygulaması için arama Ekle
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Bu bölümde eklediğiniz için arama yeteneğine `Index` olanak sağlayan bir eylem yöntemi tarafından filmler arama *Tarz* veya *adı*.
+Bu bölümde, arama özelliği ekleyin `Index` olanak sağlayan bir eylem yöntemi tarafından filmler arama *Tarz* veya *adı*.
 
 Güncelleştirme `Index` yöntemini aşağıdaki kod ile:
 
@@ -35,7 +35,7 @@ Varsa `searchString` parametresi içeren bir dize, filmler sorgu arama dizesinin
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_SearchNull2)]
 
-`s => s.Title.Contains()` Kodu yukarıdaki bir [Lambda ifadesi](/dotnet/csharp/programming-guide/statements-expressions-operators/lambda-expressions). Lambda ifadeleri yöntem tabanlı kullanılan [LINQ](/dotnet/standard/using-linq) gibi sorgularında standart sorgu işleci yöntemlerinin bağımsız değişkenleri olarak [burada](/dotnet/api/system.linq.enumerable.where) yöntemi veya `Contains` (Yukarıdaki kod kullanılır). LINQ sorguları tanımlanan ya da bunlar bir yöntemi çağırarak değiştirildiğinde yürütülmez `Where`, `Contains` veya `OrderBy`. Bunun yerine, sorgu yürütme ertelenir.  Anlamına gerçekleşen değeri gerçekten üzerinden yinelenir kadar bir ifade değerlendirmesi ertelendi veya `ToListAsync` yöntemi çağrılır. Ertelenen sorgu yürütme hakkında daha fazla bilgi için bkz. [sorgu yürütme](/dotnet/framework/data/adonet/ef/language-reference/query-execution).
+`s => s.Title.Contains()` Kodu yukarıdaki bir [Lambda ifadesi](/dotnet/csharp/programming-guide/statements-expressions-operators/lambda-expressions). Lambda ifadeleri yöntem tabanlı kullanılan [LINQ](/dotnet/standard/using-linq) gibi sorgularında standart sorgu işleci yöntemlerinin bağımsız değişkenleri olarak [burada](/dotnet/api/system.linq.enumerable.where) yöntemi veya `Contains` (Yukarıdaki kod kullanılır). LINQ sorguları tanımlanan ya da bunlar bir yöntemi çağırarak değiştirildiğinde yürütülmez `Where`, `Contains`, veya `OrderBy`. Bunun yerine, sorgu yürütme ertelenir.  Anlamına gerçekleşen değeri gerçekten üzerinden yinelenir kadar bir ifade değerlendirmesi ertelendi veya `ToListAsync` yöntemi çağrılır. Ertelenen sorgu yürütme hakkında daha fazla bilgi için bkz. [sorgu yürütme](/dotnet/framework/data/adonet/ef/language-reference/query-execution).
 
 Not: [İçerir](/dotnet/api/system.data.objects.dataclasses.entitycollection-1.contains) yöntemi, yukarıda gösterilen c# kodunda değil, veritabanı üzerinde çalıştırılır. Büyük/küçük harf duyarlılığı sorguda, veritabanı ve harmanlama bağlıdır. SQL Server'da [içerir](/dotnet/api/system.data.objects.dataclasses.entitycollection-1.contains) eşlendiği [SQL gibi](/sql/t-sql/language-elements/like-transact-sql), büyük küçük harfe duyarlı olduğu. SQLlite içinde varsayılan harmanlama ile büyük/küçük harfe duyarlıdır.
 
