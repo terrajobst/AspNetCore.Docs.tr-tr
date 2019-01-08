@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 11/28/2018
 uid: signalr/redis-backplane
-ms.openlocfilehash: 343cb5b2c7ed7162bae7865553a783fea45f0cfb
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
+ms.openlocfilehash: fde7f08ae2310b0b9bf9b7fe25a1dfc4a568adb6
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284482"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54099361"
 ---
 # <a name="set-up-a-redis-backplane-for-aspnet-core-signalr-scale-out"></a>Bir Redis devre kartı ASP.NET Core SignalR genişleme için ayarlama
 
@@ -24,7 +24,10 @@ Bu makalede, SignalR özgü yönlerini ayarlama açıklanmaktadır bir [Redis](h
 
 * Bir Redis sunucusuna dağıtın.
 
-  Üretim kullanımı için yalnızca şirket içi altyapı için bir Redis devre kartı önerilir. Gecikme süresini en aza indirmek için aynı veri merkezinde SignalR uygulama olarak Redis sunucusu olmalıdır. SignalR uygulamanızı Azure bulutunda çalışır durumdaysa bir Redis devre kartı yerine Azure SignalR hizmeti öneririz. Azure Redis Cache hizmeti kullanmak için geliştirme ve test ortamları. Daha fazla bilgi için aşağıdaki kaynaklara bakın:
+  > [!IMPORTANT] 
+  > Yalnızca aynı veri merkezinde SignalR uygulama olarak çalıştırılan Redis devre kartı üretim kullanımı için önerilir. Aksi takdirde, ağ gecikmesi, performansı düşürür. SignalR uygulamanızı Azure bulutunda çalışır durumdaysa bir Redis devre kartı yerine Azure SignalR hizmeti öneririz. Azure Redis Cache hizmeti kullanmak için geliştirme ve test ortamları.
+
+  Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
   * <xref:signalr/scale>
   * [Redis belgeleri](https://redis.io/)

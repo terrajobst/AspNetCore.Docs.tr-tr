@@ -4,14 +4,14 @@ author: tdykstra
 description: ASP.NET Core MVC model doğrulama hakkında bilgi edinin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/06/2018
+ms.date: 01/04/2019
 uid: mvc/models/validation
-ms.openlocfilehash: f1757f807e50019e5071abc42ec3129935ab77aa
-ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
+ms.openlocfilehash: f3a34972006b5fdee307c9a8d9989b2cc1e36893
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51225466"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54099389"
 ---
 # <a name="model-validation-in-aspnet-core-mvc"></a>ASP.NET Core MVC model doğrulama
 
@@ -50,17 +50,17 @@ Yalnızca modeliyle okuma kodun bakımını yapma, bu uygulamaya ilişkin verile
 
 * `[EmailAddress]`: Doğrulama e-posta biçimini özelliğine sahiptir.
 
-* `[Phone]`: Doğrulama telefon biçimi özelliğine sahiptir.
+* `[Phone]`: Onaylar özelliği, bir telefon biçimdedir.
 
 * `[Range]`: Belirtilen aralık içinde özellik değeri düştüğünde doğrular.
 
-* `[RegularExpression]`: Veri belirtilen normal ifadeyle eşleştiğini doğrular.
+* `[RegularExpression]`: Verileri belirtilen normal ifadeyle eşleştiğini doğrular.
 
 * `[Required]`: Gerekli bir özellik sağlar.
 
 * `[StringLength]`: Bir dize özelliğini verilen en fazla uzunluğu en fazla sahip olduğunu doğrular.
 
-* `[Url]`: Doğrulama özellik bir URL biçimine sahip.
+* `[Url]`: Onaylar özelliği, bir URL biçimine sahip.
 
 MVC destekler, türetilen herhangi bir öznitelik `ValidationAttribute` doğrulama amacıyla. Birçok yararlı doğrulama öznitelikleri bulunabilir [System.ComponentModel.DataAnnotations](/dotnet/api/system.componentmodel.dataannotations) ad alanı.
 
@@ -84,7 +84,7 @@ Model durumu doğrulama hatalarını gönderilen HTML form değerleri temsil ede
 
 MVC, en fazla hata sayısı (varsayılan olarak, 200) ulaşana kadar alanları doğrulama devam eder. Bu sayı aşağıdaki kod ile yapılandırabileceğiniz `Startup.ConfigureServices`:
 
-[!code-csharp[](validation/sample/Startup.cs?range=27)]
+[!code-csharp[](validation/sample/Startup.cs?name=snippet_MaxModelValidationErrors)]
 
 ## <a name="handle-model-state-errors"></a>Tanıtıcı Model durumu hataları
 

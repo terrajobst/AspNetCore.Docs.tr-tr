@@ -4,18 +4,18 @@ title: Düzenleme metotlarını ve düzenleme görünümünü İnceleme | Micros
 author: Rick-Anderson
 description: ''
 ms.author: riande
-ms.date: 05/22/2015
+ms.date: 01/06/2019
 ms.assetid: 52a4d5fe-aa31-4471-b3cb-a064f82cb791
 msc.legacyurl: /mvc/overview/getting-started/introduction/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
-ms.openlocfilehash: 29ece7754bc6e25ea968c25a99a2f48ab837e12c
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 75fd3a7dd55107cbdb9095d5b54b616133b4f65e
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911555"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54099402"
 ---
-<a name="examining-the-edit-methods-and-edit-view"></a>Düzenleme metotlarını ve düzenleme görünümünü İnceleme
+<a name="examining-the-edit-methods-and-edit-view"></a>Düzenleme Metotlarını ve Düzenleme Görünümünü İnceleme
 ====================
 Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
@@ -83,15 +83,19 @@ Aşağıdaki liste gösterildiği `HttpPost` sürümünü `Edit` eylem yöntemi.
 
 [ValidateAntiForgeryToken](https://msdn.microsoft.com/library/system.web.mvc.validateantiforgerytokenattribute(v=vs.108).aspx) özniteliği doğrular [XSRF](../../security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages.md) tarafından oluşturulan belirteç `@Html.AntiForgeryToken()` Görünümü'nde arayın.
 
-[ASP.NET MVC model bağlayıcı](https://msdn.microsoft.com/library/dd410405.aspx) gönderilen form değerlerini alır ve oluşturur bir `Movie` olarak geçirilen nesne `movie` parametresi. `ModelState.IsValid` Yöntemi doğrular (düzenleme veya güncelleştirme) değiştirileceğini biçiminde gönderilen veriler kullanılabilir bir `Movie` nesne. Veriler geçerliyse, film verileri kaydedilen `Movies` koleksiyonunu `db(MovieDBContext` örnek). Çağrı yaparak yeni film verileri veritabanına kaydedilir `SaveChanges` yöntemi `MovieDBContext`. Verileri kaydettikten sonra kodu kullanıcı için yönlendiren `Index` eylem yöntemi `MoviesController` yaptığınız değişiklikleri içeren film koleksiyonu görüntüleyen sınıfı.
+[ASP.NET MVC model bağlayıcı](https://msdn.microsoft.com/library/dd410405.aspx) gönderilen form değerlerini alır ve oluşturur bir `Movie` olarak geçirilen nesne `movie` parametresi. `ModelState.IsValid` Biçiminde gönderilen veriler (düzenleme veya güncelleştirme) değiştirileceğini kullanılabilir doğrular bir `Movie` nesne. Veriler geçerliyse, film verileri kaydedilen `Movies` koleksiyonunu `db`(`MovieDBContext` örnek). Çağrı yaparak yeni film verileri veritabanına kaydedilir `SaveChanges` yöntemi `MovieDBContext`. Verileri kaydettikten sonra kodu kullanıcı için yönlendiren `Index` eylem yöntemi `MoviesController` yaptığınız değişiklikleri içeren film koleksiyonu görüntüleyen sınıfı.
 
-Bir alan değerleri geçerli olmayan istemci tarafı doğrulama belirler hemen sonra bir hata iletisi görüntülenir. JavaScript devre dışı bırakırsanız, istemci tarafı doğrulama olmaz ancak sunucu algılar gönderilen değerler geçerli değil ve form değerleri, hata iletileri ile yeniden. Öğreticinin ilerleyen bölümlerinde daha ayrıntılı bir doğrulama inceleyeceğiz.
+Bir alanın değeri geçerli değil, istemci tarafı doğrulama belirler hemen sonra bir hata iletisi görüntülenir. JavaScript devre dışı bırakılırsa, istemci tarafı doğrulamasını devre dışı bırakıldı. Ancak, sunucuya gönderilen değerler geçerli değil ve form değerleri, hata iletileri ile yeniden görüntülenir algılar.
+
+Doğrulama, öğreticinin ilerleyen bölümlerinde daha ayrıntılı olarak incelenir.
 
 `Html.ValidationMessageFor` Yardımcılar olarak *Edit.cshtml* görünüm şablonu uygun hata iletilerini görüntüleme ilgileniriz.
 
 ![abcNotValid](examining-the-edit-methods-and-edit-view/_static/image4.png)
 
 Tüm `HttpGet` benzer bir desen yöntemleri uygulayın. Bir film nesnesi aldıkları (veya durumunda bir nesneler listesi `Index`) ve model görünümüne geçirin. `Create` Yöntemi bir boş film nesne oluşturma görünümüne geçirir. Bu nedenle, oluşturmak, düzenlemek, silmek veya aksi halde verileri değiştiren tüm yöntemler yapmak `HttpPost` yöntemi aşırı yüklemesi. Bir HTTP GET yöntemi verileri değiştirmek, bir güvenlik riski blog gönderisi girişi açıklandığı [ASP.NET MVC ipucu #46 – bunlar güvenlik açıkları oluşturduğundan Sil bağlantılarını kullanmayın](http://stephenwalther.com/blog/archive/2009/01/21/asp.net-mvc-tip-46-ndash-donrsquot-use-delete-links-because.aspx). Bir GET yöntemi verilerde değişiklik de ihlal HTTP en iyi yöntemler ve mimari [REST](http://en.wikipedia.org/wiki/Representational_State_Transfer) desen, GET istekleri, uygulamanızın durumunu değiştirmemesi gerekir belirtir. Diğer bir deyişle, bir GET işlemi gerçekleştirilirken yan etkileri olan ve verilerinizi kalıcı değiştirmez güvenli bir işlem olmalıdır.
+
+## <a name="jquery-validation-for-non-english-locales"></a>İngilizce dışındaki diller için jQuery doğrulama
 
 ABD İngilizcesi bilgisayar kullanıyorsanız, bu bölümü atlayın ve sonraki öğreticiye geçin. Bu öğreticide Globalize sürümünü indirebilirsiniz [burada](https://archive.msdn.microsoft.com/Project/Download/FileDownload.aspx?ProjectName=aspnetmvcsamples&amp;DownloadId=16475). Bir mükemmel iki bölümlü öğreticisi için uluslararası duruma getirme bkz [Nadeem'ın ASP.NET MVC 5 uluslararası duruma getirme](http://afana.me/post/aspnet-mvc-internationalization.aspx).
 
