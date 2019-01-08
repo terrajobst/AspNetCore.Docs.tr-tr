@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/11/2018
 uid: security/authentication/social/index
-ms.openlocfilehash: 47ac1f966ff727957e6ed700c3c68efa16b1b38b
-ms.sourcegitcommit: 3e94d192b2ed9409fe72e3735e158b333354964c
+ms.openlocfilehash: 063d452fb6ab91b712ade7f7b7ed99823dbdc657
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/24/2018
-ms.locfileid: "53735732"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098824"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Facebook, Google ve ASP.NET Core dış sağlayıcı kimlik doğrulaması
 
@@ -46,11 +46,11 @@ Not: Bu öğretici, sihirbazın başında seçtiğiniz ASP.NET Core 2.0 SDK'sı 
 * Yeni hesap için e-posta ve parola girin ve ardından **kaydetme**.
 * Geçişleri uygulamak için yönergeleri izleyin.
 
-## <a name="require-ssl"></a>SSL iste
+## <a name="require-https"></a>HTTPS'yi zorunlu
 
-OAuth 2.0, HTTPS protokolü üzerinden kimlik doğrulaması için SSL kullanılmasını gerektirir.
+OAuth 2.0, HTTPS protokolü üzerinden kimlik doğrulaması için SSL/TLS kullanılmasını gerektirir.
 
-Kullanılarak oluşturulan projeler **Web uygulaması** veya **Web API** proje şablonları ile ASP.NET Core 2.1 veya daha sonra otomatik olarak SSL'yi etkinleştirecek şekilde yapılandırılır. Uygulama, bir güvenli varsayılan uç nokta ile başlatılır **bireysel kullanıcı hesapları** seçeneği seçildiğinde, **kimlik doğrulamayı Değiştir iletişim** Proje Sihirbazı.
+Kullanılarak oluşturulan projeler **Web uygulaması** veya **Web API** proje şablonları ile ASP.NET Core 2.1 veya daha sonra otomatik olarak HTTPS'yi etkinleştirmek için yapılandırılır. Uygulama, bir güvenli varsayılan uç nokta ile başlatılır **bireysel kullanıcı hesapları** seçeneği seçildiğinde, **kimlik doğrulamayı Değiştir iletişim** Proje Sihirbazı.
 
 Daha fazla bilgi için bkz. <xref:security/enforcing-ssl>.
 

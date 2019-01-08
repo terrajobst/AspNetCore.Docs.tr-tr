@@ -6,12 +6,12 @@ ms.author: riande
 ms.date: 12/18/2018
 ms.custom: seodec18
 uid: security/authorization/secure-data
-ms.openlocfilehash: fa82d3d99f4e4b7ad17ed385fb7c029745797e8d
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: bdba706c1ef24ebe35129cb8bb2d9949196245a1
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637839"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098928"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Kullanıcı verilerinin yetkilendirme tarafından korunduğu ile bir ASP.NET Core uygulaması oluşturma
 
@@ -59,7 +59,7 @@ Yöneticisinin tüm ayrıcalıklara sahip değil. Okuma/düzenleme/silme herhang
 
 Uygulama tarafından oluşturulan [yapı iskelesi](xref:tutorials/first-mvc-app/adding-model#scaffold-the-movie-model) aşağıdaki `Contact` modeli:
 
-[!code-csharp[](secure-data/samples/starter2.1/Models/Contact.cs?name=snippet)]
+[!code-csharp[](secure-data/samples/starter2.1/Models/Contact.cs?name=snippet1)]
 
 Örnek aşağıdaki yetkilendirme işleyicilerini içerir:
 
@@ -314,33 +314,33 @@ Bir kişi, yöneticinin tarayıcıda oluşturur. Silme için URL'yi kopyalayın 
 ## <a name="create-the-starter-app"></a>Başlangıç uygulaması oluşturun
 
 * "ContactManager" adlı bir Razor sayfaları uygulaması oluşturma
-   * Uygulamayı oluşturma **bireysel kullanıcı hesapları**.
-   * Örnekte kullanılan ad alanı ad alanı eşleşecek şekilde "ContactManager" adlandırın.
-   * `-uld` LocalDB yerine SQLite belirtir
+  * Uygulamayı oluşturma **bireysel kullanıcı hesapları**.
+  * Örnekte kullanılan ad alanı ad alanı eşleşecek şekilde "ContactManager" adlandırın.
+  * `-uld` LocalDB yerine SQLite belirtir
 
   ```console
   dotnet new webapp -o ContactManager -au Individual -uld
   ```
 
-* Ekleme *Models\Contact.cs*:
+* Ekleme *Models/Contact.cs*:
 
   [!code-csharp[](secure-data/samples/starter2.1/Models/Contact.cs?name=snippet1)]
 
 * İskele `Contact` modeli.
 * İlk geçiş oluşturun ve veritabanını güncelleştir:
 
-```console
-dotnet aspnet-codegenerator razorpage -m Contact -udl -dc ApplicationDbContext -outDir Pages\Contacts --referenceScriptLibraries
-dotnet ef database drop -f
-dotnet ef migrations add initial
-dotnet ef database update
-```
+  ```console
+  dotnet aspnet-codegenerator razorpage -m Contact -udl -dc ApplicationDbContext -outDir Pages\Contacts --referenceScriptLibraries
+  dotnet ef database drop -f
+  dotnet ef migrations add initial
+  dotnet ef database update
+  ```
 
 * Güncelleştirme **ContactManager** içinde yer işareti *Pages/_Layout.cshtml* dosyası:
 
-```cshtml
-<a asp-page="/Contacts/Index" class="navbar-brand">ContactManager</a>
-```
+  ```cshtml
+  <a asp-page="/Contacts/Index" class="navbar-brand">ContactManager</a>
+  ```
 
 * Oluşturma, düzenleme ve silme kişi uygulamayı test etme
 

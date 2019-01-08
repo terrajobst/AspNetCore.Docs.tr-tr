@@ -4,18 +4,18 @@ title: Doğrulama ekleme | Microsoft Docs
 author: Rick-Anderson
 description: ''
 ms.author: riande
-ms.date: 10/17/2013
+ms.date: 01/06/2019
 ms.assetid: 9f35ca15-e216-4db6-9ebf-24380b0f31b4
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 22e59a99a179a7a414447036b973e3ad3b462515
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 6831259ce19c3747c179d6fc1b7e2095051a603b
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48577957"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54099032"
 ---
-<a name="adding-validation"></a>Doğrulama ekleme
+<a name="adding-validation"></a>Doğrulama Ekleme
 ====================
 Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
@@ -97,7 +97,7 @@ Denetleyici veya görünümleri kodda herhangi bir güncelleştirme olmadan UI d
 
 [!code-csharp[Main](adding-validation/samples/sample5.cs)]
 
-İlk (HTTP GET) `Create` eylem yönteminin ilk oluşturma formu görüntüler. İkinci (`[HttpPost]`) sürümü, form postası işler. İkinci `Create` yöntemi ( `HttpPost` sürümü) çağrılarını `ModelState.IsValid` film doğrulama hataları olup olmadığını denetlemek için. Bu yöntemi çağırmadan nesneye uygulanan herhangi bir doğrulama özniteliği değerlendirir. Nesne doğrulama hataları varsa `Create` yöntemi yeniden form görüntüler. Herhangi bir hata varsa, yöntemin yeni filmden veritabanına kaydeder. Film örneğimizde **doğrulama hataları algılandı; istemci tarafında varken form sunucusuna gönderilen değil ikinci** `Create` **yöntemi asla çağrılmaz**. Tarayıcınızda Javascript'i devre dışı bırakırsanız istemci doğrulaması devre dışı bırakıldı ve HTTP POST `Create` yöntem çağrılarını `ModelState.IsValid` film doğrulama hataları olup olmadığını denetlemek için.
+İlk (HTTP GET) `Create` eylem yönteminin ilk oluşturma formu görüntüler. İkinci (`[HttpPost]`) sürümü, form postası işler. İkinci `Create` yöntemi ( `HttpPost` sürümünü) denetler `ModelState.IsValid` film doğrulama hataları olup olmadığını görmek için. Bu özellik alma nesneye uygulanan herhangi bir doğrulama özniteliği değerlendirir. Nesne doğrulama hataları varsa `Create` yöntemi form görüntüler. Herhangi bir hata varsa, yöntemin yeni filmden veritabanına kaydeder. Film örneğimizde **doğrulama hataları algılandı; istemci tarafında olduğunda formun sunucuya gönderilen değil ikinci** `Create` **yöntemi asla çağrılmaz**. Tarayıcınızda Javascript'i devre dışı bırak, istemci doğrulama devre dışı bırakıldı ve HTTP POST ise `Create` yöntemi alır `ModelState.IsValid` film doğrulama hataları olup olmadığını denetlemek için.
 
 Bir kesme noktası ayarlayabilirsiniz `HttpPost Create` yöntemi ve doğrulama yöntemi asla çağrılmaz, istemci tarafı doğrulama değil gönderme form verileri doğrulama hatalar algılandığında. Tarayıcınızda Javascript'i devre dışı bırakın, ardından hataları içeren form gönderme seçerseniz kesme noktası isabet. Yine de JavaScript olmadan tam doğrulama sahip olursunuz. Aşağıdaki görüntüde, JavaScript'i Internet Explorer'da devre dışı bırakma işlemi gösterilmektedir.
 
@@ -159,7 +159,7 @@ Kullanırsanız `DataType` özniteliği belirtmek zorunda bir tarih alanı ile `
 
 Aşağıdaki kod, bir satır birleştirme öznitelikleri gösterir:
 
-[!code-csharp[Main](adding-validation/samples/sample10.cs?highlight=6,10)]
+[!code-csharp[Main](adding-validation/samples/sample10.cs?highlight=4,6,10,12)]
 
 Serinin sonraki bölümünde, biz uygulama gözden geçirin ve bazı iyileştirmeler otomatik olarak oluşturulan yapın `Details` ve `Delete` yöntemleri.
 

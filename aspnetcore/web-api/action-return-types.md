@@ -4,14 +4,14 @@ author: scottaddie
 description: Bir ASP.NET Core Web API'si çeşitli denetleyici eylem yönteminin dönüş türleri kullanma hakkında bilgi edinin.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 07/23/2018
+ms.date: 01/04/2019
 uid: web-api/action-return-types
-ms.openlocfilehash: 84300eae4271c3ee4387be022c3576dc83e144eb
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 98d70e0379d353cff98a6d7a13f2dd00eb4da206
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207530"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098746"
 ---
 # <a name="controller-action-return-types-in-aspnet-core-web-api"></a>ASP.NET Core Web API denetleyici eylemi dönüş türleri
 
@@ -68,13 +68,18 @@ Aşağıdaki iki olası dönüş türleri olduğu zaman uyumlu eylemi göz önü
 
 [!code-csharp[](../web-api/action-return-types/samples/WebApiSample.Api.Pre21/Controllers/ProductsController.cs?name=snippet_CreateAsync&highlight=8,13)]
 
-Model doğrulama başarısız olduğunda önceki eylemi, bir 400 durum kodu döndürülür ve [BadRequest](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.badrequest) yardımcı yöntemi çağrılır. Örneğin, şu model istekleri sağlamalısınız gösterir `Name` özelliği ve bir değer. Bu nedenle, uygun sağlamak için hata `Name` istekte model doğrulamasının başarısız olmasına neden olur.
+Yukarıdaki kodda:
 
-[!code-csharp[](../web-api/action-return-types/samples/WebApiSample.DataAccess/Models/Product.cs?name=snippet_ProductClass&highlight=5-6)]
+* Bir 400 durum kodu ([BadRequest](xref:Microsoft.AspNetCore.Mvc.ControllerBase.BadRequest*)) ürün açıklaması "XYZ Widget" içerdiğinde ASP.NET Core çalışma zamanı tarafından döndürülür.
+* 201 durum kodu tarafından oluşturulan [CreatedAtAction](xref:Microsoft.AspNetCore.Mvc.ControllerBase.CreatedAtAction*) bir ürün oluşturulduğunda yöntemi. Bu kod yolunda `Product` nesne döndürülür.
 
-Önceki eyleme ait diğer bilinen dönüş kodu tarafından oluşturulan bir 201 olan [CreatedAtAction](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.createdataction) yardımcı yöntemi. Bu yol içerisindeki `Product` nesne döndürülür.
+Örneğin, şu model istekleri içermelidir gösterir `Name` ve `Description` özellikleri. Bu nedenle, sunulamamasından `Name` ve `Description` istekte model doğrulamasının başarısız olmasına neden olur.
+
+[!code-csharp[](../web-api/action-return-types/samples/WebApiSample.DataAccess/Models/Product.cs?name=snippet_ProductClass&highlight=5-6,8-9)]
 
 ::: moniker range=">= aspnetcore-2.1"
+
+Varsa [[ApiController]](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) özniteliği ASP.NET Core 2.1 veya daha sonra uygulandığında, model doğrulama hataları 400 durum koduna neden. Daha fazla bilgi için [otomatik HTTP 400 yanıtları](xref:web-api/index#automatic-http-400-responses).
 
 ## <a name="actionresultt-type"></a>ActionResult\<T > türü
 
@@ -114,7 +119,12 @@ public ActionResult<IEnumerable<Product>> Get()
 
 [!code-csharp[](../web-api/action-return-types/samples/WebApiSample.Api.21/Controllers/ProductsController.cs?name=snippet_CreateAsync&highlight=8,13)]
 
-Model doğrulama başarısız olursa, [BadRequest](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.badrequest#Microsoft_AspNetCore_Mvc_ControllerBase_BadRequest_Microsoft_AspNetCore_Mvc_ModelBinding_ModelStateDictionary_) yöntemi, bir 400 durum kodunu döndürmek için çağrılır. [ModelState](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.modelstate) belirli doğrulama hatalarını içeren özellik kendisine geçirilir. Model doğrulama başarılı olursa, ürün veritabanında oluşturulur. 201 durum kodunu döndürdü.
+Yukarıdaki kodda:
+
+* Bir 400 durum kodu ([BadRequest](xref:Microsoft.AspNetCore.Mvc.ControllerBase.BadRequest*)) ASP.NET Core çalışma zamanı tarafından döndürülen zaman:
+  * [[ApiController]](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) özniteliği uygulandı, model doğrulama başarısız olur.
+  * Ürün açıklaması "XYZ Widget" içerir.
+* 201 durum kodu tarafından oluşturulan [CreatedAtAction](xref:Microsoft.AspNetCore.Mvc.ControllerBase.CreatedAtAction*) bir ürün oluşturulduğunda yöntemi. Bu kod yolunda `Product` nesne döndürülür.
 
 > [!TIP]
 > Denetleyici sınıfı ile donatılmış ASP.NET Core 2.1 itibarıyla eylem parametresi bağlama kaynağı çıkarımı etkinleştirilir `[ApiController]` özniteliği. Karmaşık tür parametreleri, istek gövdesi kullanarak otomatik olarak bağlanır. Sonuç olarak, önceki eyleme ait `product` parametresine değil açıkça ile Açıklama [[FromBody]](/dotnet/api/microsoft.aspnetcore.mvc.frombodyattribute) özniteliği.

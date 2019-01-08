@@ -5,14 +5,14 @@ description: HTTP.sys, ASP.NET Core, Windows için bir web sunucusu hakkında bi
 monikerRange: '>= aspnetcore-2.0'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 01/03/2019
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: a779fee53109d4c1cabb2005896e757f23467540
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: 46538d256ae2c5f3b7e6c725fa8f29092759f69f
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637631"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098860"
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>ASP.NET core'da HTTP.sys web sunucusu uygulaması
 
@@ -21,7 +21,7 @@ Tarafından [Tom Dykstra](https://github.com/tdykstra), [Chris Ross](https://git
 [HTTP.sys](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture#hypertext-transfer-protocol-stack-httpsys) olduğu bir [ASP.NET Core web sunucusu](xref:fundamentals/servers/index) Windows üzerinde yalnızca çalışır. HTTP.sys olan alternatif [Kestrel](xref:fundamentals/servers/kestrel) sunucu ve teklifler bazı özellikleri Kestrel sağlamaz.
 
 > [!IMPORTANT]
-> HTTP.sys uyumlu [ASP.NET Core Modülü](xref:host-and-deploy/aspnet-core-module) ve IIS veya IIS Express ile kullanılamaz.
+> HTTP.sys ile uyumlu olmayan [ASP.NET Core Modülü](xref:host-and-deploy/aspnet-core-module) ve IIS veya IIS Express ile kullanılamaz.
 
 HTTP.sys aşağıdaki özellikleri destekler:
 
@@ -134,62 +134,133 @@ HTTP/2 varsayılan olarak etkindir. Bir HTTP/2 bağlantı değil, bağlantı, HT
 
 ### <a name="configure-windows-server"></a>Windows Server'ı yapılandırma
 
+1. Uygulamayı açmak ve Windows Güvenlik Duvarı bağlantı noktalarını belirlemek veya [PowerShell cmdlet'leri](https://technet.microsoft.com/library/jj554906) trafiğin HTTP.sys ulaşmasına izin vermek için güvenlik duvarı bağlantı noktalarını açın. Bir Azure VM Dağıtım yaparken, bağlantı noktaları açma [ağ güvenlik grubu](/azure/virtual-network/security-overview). Aşağıdaki komutları ve uygulama yapılandırması, 443 numaralı bağlantı noktası kullanılır.
+
+1. Edinin ve gerektiğinde X.509 sertifikaları yükleyin.
+
+   Otomatik olarak imzalanan sertifikaları kullanarak Windows üzerinde oluşturun [New-SelfSignedCertificate PowerShell cmdlet'i](/powershell/module/pkiclient/new-selfsignedcertificate). Desteklenmeyen bir örnek için bkz [UpdateIISExpressSSLForChrome.ps1](https://github.com/aspnet/Docs/tree/master/aspnetcore/includes/make-x509-cert/UpdateIISExpressSSLForChrome.ps1).
+
+   Sunucunun otomatik olarak imzalanan veya CA imzalı sertifika yükleme **yerel makine** > **kişisel** depolayın.
+
 1. Uygulama ise bir [framework bağımlı dağıtım](/dotnet/core/deploying/#framework-dependent-deployments-fdd), .NET Core, .NET Framework veya her ikisi de (uygulama .NET Framework'ü hedefleyen bir .NET Core uygulaması ise) yükleyin.
 
-   * **.NET core** &ndash; uygulama, .NET Core gerektiriyorsa, edinme ve .NET Core Yükleyicisi'nden çalıştırmak [.NET tüm indirmeleri](https://www.microsoft.com/net/download/all).
-   * **.NET framework** &ndash; uygulama .NET Framework gerekiyorsa, bkz. [.NET Framework: Yükleme Kılavuzu](/dotnet/framework/install/) yükleme yönergeleri bulmak için. Gerekli .NET Framework'ü yükleyin. En son .NET Framework yükleyicisi şu yolda bulunabilir: [.NET tüm indirmeleri](https://www.microsoft.com/net/download/all).
+   * **.NET core** &ndash; uygulama, .NET Core gerektiriyorsa, edinme ve çalıştırma **.NET Core çalışma zamanı** Yükleyicisi'nden [.NET Core indirir](https://dotnet.microsoft.com/download). SDK tamamını sunucuda yüklemeyin.
+   * **.NET framework** &ndash; uygulama .NET Framework gerekiyorsa, bkz. [.NET Framework Yükleme Kılavuzu](/dotnet/framework/install/). Gerekli .NET Framework'ü yükleyin. En son .NET Framework yükleyicisi öğesinden kullanılabilir [.NET Core indirir](https://dotnet.microsoft.com/download) sayfası.
 
-2. URL'ler ve uygulama için bağlantı noktalarını yapılandırın.
+   Uygulama ise bir [müstakil dağıtım](/dotnet/core/deploying/#framework-dependent-deployments-scd), uygulama çalışma zamanı, dağıtımda içerir. Sunucuda hiçbir framework yüklemesi gerekir.
 
-   Varsayılan olarak, ASP.NET Core bağlar `http://localhost:5000`. URL ön ekleri ve bağlantı noktalarını yapılandırmak için kullanmayı seçenekleri içerir:
+1. Uygulama URL'lerini ve bağlantı noktalarını yapılandırın.
+
+   Varsayılan olarak, ASP.NET Core bağlar `http://localhost:5000`. URL ön ekleri ve bağlantı noktalarını yapılandırmak için Seçenekler şunlardır:
 
    * [UseUrls](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.useurls)
    * `urls` komut satırı bağımsız değişkeni
    * `ASPNETCORE_URLS` ortam değişkeni
    * [UrlPrefixes](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions.urlprefixes)
 
-   Aşağıdaki kod örneği kullanma işlemini gösterir [UrlPrefixes](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions.urlprefixes):
+   Aşağıdaki kod örneği kullanma işlemini gösterir [UrlPrefixes](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions.urlprefixes) sunucunun yerel IP adresi ile `10.0.0.4` 443 numaralı bağlantı noktasında:
 
-   [!code-csharp[](httpsys/sample/Program.cs?name=snippet1&highlight=11)]
+   [!code-csharp[](httpsys/sample_snapshot/Program.cs?name=snippet1&highlight=11)]
 
    Bir avantajı `UrlPrefixes` bir hata iletisi hemen düzgün biçimlendirilmemiş ön ekleri için oluşturuldu.
 
-   Ayarlarında `UrlPrefixes` geçersiz kılma `UseUrls` / `urls` / `ASPNETCORE_URLS` ayarları. Bu nedenle, bir avantajı `UseUrls`, `urls`ve `ASPNETCORE_URLS` ortam değişkenidir Kestrel ve HTTP.sys arasında geçiş yapmak kolaydır. Daha fazla bilgi için `UseUrls`, `urls`, ve `ASPNETCORE_URLS`, bakın [ASP.NET Core ana](xref:fundamentals/host/index) konu.
+   Ayarlarında `UrlPrefixes` geçersiz kılma `UseUrls` / `urls` / `ASPNETCORE_URLS` ayarları. Bu nedenle, bir avantajı `UseUrls`, `urls`ve `ASPNETCORE_URLS` ortam değişkenidir Kestrel ve HTTP.sys arasında geçiş yapmak kolaydır. Daha fazla bilgi için bkz. <xref:fundamentals/host/web-host>.
 
    HTTP.sys kullanan [HTTP Sunucusu API UrlPrefix dize biçimleri](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx).
 
    > [!WARNING]
-   > Üst düzey joker bağlamaları (`http://*:80/` ve `http://+:80`) gereken **değil** kullanılır. Üst düzey joker bağlamaları uygulamanızı güvenlik açıklarından açabilirsiniz. Bu, güçlü ve zayıf joker karakterler için geçerlidir. Joker karakterler yerine açık bir ana bilgisayar adları kullanın. Alt etki alanı joker bağlama (örneğin, `*.mysub.com`) tüm üst etki alanını denetimi bu güvenlik riski yok (başlangıcı yerine sonundan `*.com`, güvenlik açığı olan). Bkz: [rfc7230 bölümü-5.4](https://tools.ietf.org/html/rfc7230#section-5.4) daha fazla bilgi için.
+   > Üst düzey joker bağlamaları (`http://*:80/` ve `http://+:80`) gereken **değil** kullanılır. Üst düzey joker bağlamaları, güvenlik açıklarını uygulama oluşturun. Bu, güçlü ve zayıf joker karakterler için geçerlidir. Açık bir ana bilgisayar adlarını veya IP adresleri yerine joker karakterler kullanın. Alt etki alanı joker bağlama (örneğin, `*.mysub.com`) tüm üst etki alanını denetleyen bir güvenlik riski değildir (başlangıcı yerine sonundan `*.com`, güvenlik açığı olan). Daha fazla bilgi için [RFC 7230: Bölüm 5.4: Konak](https://tools.ietf.org/html/rfc7230#section-5.4).
 
-3. HTTP.sys için bağlama ve x.509 sertifikaları ayarlama yapılacak URL ön ekleri preregister.
+1. URL ön ekleri sunucuda preregister.
 
-   URL ön ekleri Windows önceden kayıtlı olmayan uygulama yönetici ayrıcalıklarıyla çalıştırın. Tek özel durum 1024'ten büyük bir bağlantı noktası numarası ile HTTP (HTTPS değil)'ı kullanarak Localhost'a bağlama sırasında dir. Bu durumda, yönetici ayrıcalıkları gerekli değildir.
+   HTTP.sys yapılandırmak için yerleşik bir aracı *netsh.exe*. *Netsh.exe* URL ön ekleri ayırabilir ve X.509 sertifikaları atamak için kullanılır. Aracı yöneticisi ayrıcalıkları gerektirir.
 
-   1. HTTP.sys yapılandırmak için yerleşik bir aracı *netsh.exe*. *Netsh.exe* URL ön ekleri ayırabilir ve X.509 sertifikaları atamak için kullanılır. Aracı yöneticisi ayrıcalıkları gerektirir.
+   Kullanım *netsh.exe* aracı uygulama için URL'leri kaydetmek için:
 
-      Aşağıdaki örnek, 80 ve 443 bağlantı noktaları için URL ön ekleri ayırmada komutları gösterir:
+   ```console
+   netsh http add urlacl url=<URL> user=<USER>
+   ```
 
-      ```console
-      netsh http add urlacl url=http://+:80/ user=Users
-      netsh http add urlacl url=https://+:443/ user=Users
-      ```
+   * `<URL>` &ndash; Tam Tekdüzen Kaynak Konum Belirleyicisi (URL). Joker karakter bağlama kullanmayın. Geçerli ana bilgisayar adı veya yerel IP adresi kullanın. *URL'nin sonunda bir eğik çizgi içermelidir.*
+   * `<USER>` &ndash; Kullanıcı veya kullanıcı grubunun adını belirtir.
 
-      Aşağıdaki örnek, bir X.509 sertifikası atamak gösterilmektedir:
+   Aşağıdaki örnekte, yerel sunucunun IP adresi olan `10.0.0.4`:
 
-      ```console
-      netsh http add sslcert ipport=0.0.0.0:443 certhash=MyCertHash_Here appid="{00000000-0000-0000-0000-000000000000}"
-      ```
+   ```console
+   netsh http add urlacl url=https://10.0.0.4:443/ user=Users
+   ```
 
-      Başvuru belgeleri için *netsh.exe*:
+   Bir URL kaydedildiğinde, bu aracı ile yanıt veren `URL reservation successfully added`.
 
-      * [Köprü metni için Netsh komutları Aktarım Protokolü (HTTP)](https://technet.microsoft.com/library/cc725882.aspx)
-      * [UrlPrefix dizeleri](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx)
+   Kayıtlı bir URL silmek için kullanın `delete urlacl` komutu:
 
-   2. Gerekli olursa, otomatik olarak imzalanan X.509 sertifikaları oluşturun.
+   ```console
+   netsh http delete urlacl url=<URL>
+   ```
 
-      [!INCLUDE [How to make an X.509 cert](~/includes/make-x509-cert.md)]
+1. X.509 sertifikaları sunucusuna kaydedin.
 
-4. Trafiğin HTTP.sys ulaşmasına izin vermek için güvenlik duvarı bağlantı noktalarını açın. Kullanım *netsh.exe* veya [PowerShell cmdlet'leri](https://technet.microsoft.com/library/jj554906).
+   Kullanım *netsh.exe* aracı uygulama için sertifikaları kaydetmek için:
+
+   ```console
+   netsh http add sslcert ipport=<IP>:<PORT> certhash=<THUMBPRINT> appid="{<GUID>}"
+   ```
+
+   * `<IP>` &ndash; Bağlama için yerel IP adresi belirtir. Joker karakter bağlama kullanmayın. Geçerli bir IP adresi kullanın.
+   * `<PORT>` &ndash; Bağlama için bir bağlantı noktasını belirtir.
+   * `<THUMBPRINT>` &ndash; X.509 sertifika parmak izi.
+   * `<GUID>` &ndash; Bilgilendirme amacıyla uygulamayı temsil etmek için bir geliştirici tarafından oluşturulan GUID.
+
+   Başvuru amacıyla GUID uygulamada bir paket etiket olarak depola:
+
+   * Visual Studio'da:
+     * Uygulamada sağ tıklayarak uygulamanın proje özelliklerini açın **Çözüm Gezgini** seçerek **özellikleri**.
+     * Seçin **paket** sekmesi.
+     * Oluşturduğunuz GUID girin **etiketleri** alan.
+   * Visual Studio kullanmadığınız durumlarda:
+     * Uygulamanın proje dosyasını açın.
+     * Ekleme bir `<PackageTags>` mevcut veya yeni bir özellik `<PropertyGroup>` oluşturduğunuz GUID'e sahip:
+
+       ```xml
+       <PropertyGroup>
+         <PackageTags>9412ee86-c21b-4eb8-bd89-f650fbf44931</PackageTags>
+       </PropertyGroup>
+       ```
+
+   Aşağıdaki örnekte:
+
+   * Yerel sunucunun IP adresidir `10.0.0.4`.
+   * Çevrimiçi rastgele bir GUID Oluşturucu sağlar `appid` değeri.
+
+   ```console
+   netsh http add sslcert 
+       ipport=10.0.0.4:443 
+       certhash=b66ee04419d4ee37464ab8785ff02449980eae10 
+       appid="{9412ee86-c21b-4eb8-bd89-f650fbf44931}"
+   ```
+
+   Bir sertifika kaydedildiğinde, bu aracı ile yanıt veren `SSL Certificate successfully added`.
+
+   Sertifika kaydı silmek için kullanın `delete sslcert` komutu:
+
+   ```console
+   netsh http delete sslcert ipport=<IP>:<PORT>
+   ```
+
+   Başvuru belgeleri için *netsh.exe*:
+
+   * [Köprü metni için Netsh komutları Aktarım Protokolü (HTTP)](https://technet.microsoft.com/library/cc725882.aspx)
+   * [UrlPrefix dizeleri](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx)
+
+1. Uygulamayı çalıştırın.
+
+   Yönetici ayrıcalıkları ile 1024'ten büyük bir bağlantı noktası numarası için localhost HTTP (HTTPS değil) kullanarak bağlanırken, uygulamayı çalıştırmak için gerekli değildir. Diğer yapılandırmalar için (örneğin, yerel bir IP adresi kullanarak veya bağlama bağlantı noktası 443) uygulamayı yönetici ayrıcalıklarıyla çalıştırın.
+
+   Uygulama sunucusunun genel IP adresinde yanıt verir. Bu örnekte, genel IP adresi, Internet'ten sunucuya ulaştı `104.214.79.47`.
+
+   Bu örnekte, bir geliştirme sertifikası kullanılır. Tarayıcının güvenilmeyen bir sertifika uyarısı atlayarak sonra sayfa güvenli bir şekilde yükler.
+
+   ![Uygulamanın dizin sayfasını gösteren bir tarayıcı penceresi yüklenmedi](httpsys/_static/browser.png)
 
 ## <a name="proxy-server-and-load-balancer-scenarios"></a>Ara sunucu ve yük dengeleyici senaryoları
 
@@ -197,6 +268,7 @@ Internet'ten veya kurumsal ağ istekleri etkileşim HTTP.sys tarafından barınd
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
+* [HTTP.sys ile Windows kimlik doğrulamasını etkinleştirme](xref:security/authentication/windowsauth#enable-windows-authentication-with-httpsys)
 * [HTTP Sunucusu API](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx)
 * [ASP.NET/HttpSysServer GitHub deposu (kaynak kodu)](https://github.com/aspnet/HttpSysServer/)
 * <xref:fundamentals/host/index>

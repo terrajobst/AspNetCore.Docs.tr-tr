@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/01/2018
 uid: security/enforcing-ssl
-ms.openlocfilehash: b15c6b5ac77f047c40704c9e164165c55b6ae93b
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 0c3add9c8860a47932cda3a8b07c83dc774bf1f1
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861530"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098980"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>ASP.NET core'da HTTPS'yi zorunlu kılma
 
@@ -69,9 +69,9 @@ Aşağıdaki yaklaşımlardan birini kullanarak HTTPS bağlantı noktasını bel
 
   **Anahtar**: `https_port`  
   **Tür**: *dize*  
-  **Varsayılan**: varsayılan bir değer ayarlanmamış.  
+  **Varsayılan**: Varsayılan bir değer ayarlanmamış.  
   **Kullanılarak ayarlanan**: `UseSetting`  
-  **Ortam değişkeni**: `<PREFIX_>HTTPS_PORT` (ön ek `ASPNETCORE_` kullanırken [Web ana bilgisayarı](xref:fundamentals/host/web-host).)
+  **Ortam değişkeni**: `<PREFIX_>HTTPS_PORT` (Önek `ASPNETCORE_` kullanırken [Web ana bilgisayarı](xref:fundamentals/host/web-host).)
 
   Yapılandırma sırasında bir <xref:Microsoft.AspNetCore.Hosting.IWebHostBuilder> içinde `Program`:
 
@@ -98,7 +98,7 @@ Daha fazla bilgi için [Kestrel uç nokta Yapılandırması](xref:fundamentals/s
 
 İstekleri bir ters proxy yapılandırma iletilir kullanırsanız [iletilen üstbilgileri ara yazılım](xref:host-and-deploy/proxy-load-balancer) çağırmadan önce HTTPS yeniden yönlendirmesi ara yazılım. Üst bilgileri ara yazılım güncelleştirmeleri iletilen `Request.Scheme`kullanarak `X-Forwarded-Proto` başlığı. Ara yazılım verir yeniden yönlendirme URI'leri ve diğer güvenlik ilkeleri düzgün çalışması için. İletilen üstbilgileri ara yazılımı kullanılmaz, arka uç uygulama doğru düzenini almak değil ve bir yeniden yönlendirme döngüsüne. Ortak bir son kullanıcı hata iletisi, çok fazla yeniden yönlendirmeleri oluşmuş ' dir.
 
-Azure App Service'e dağıtım yaparken, sunulan yönergeleri [öğretici: Azure Web Apps'e mevcut özel bir SSL sertifikası bağlama](/azure/app-service/app-service-web-tutorial-custom-ssl).
+Azure App Service'e dağıtım yaparken, sunulan yönergeleri [Öğreticisi: Azure Web Apps'e mevcut özel bir SSL sertifikası bağlama](/azure/app-service/app-service-web-tutorial-custom-ssl).
 
 ### <a name="options"></a>Seçenekler
 
@@ -214,7 +214,7 @@ Onay kutusunu temizleyin **HTTPS için Yapılandır** onay kutusu.
 
 #   <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli) 
 
-Kullanım `--no-https` seçeneği. Örneğin
+Kullanım `--no-https` seçeneği. Örneğin:
 
 ```console
 dotnet new webapp --no-https
@@ -260,7 +260,7 @@ Bkz: [bu GitHub sorunu](https://github.com/aspnet/Docs/issues/6199).
 ## <a name="additional-information"></a>Ek bilgiler
 
 * <xref:host-and-deploy/proxy-load-balancer>
-* [Apache ile Linux'ta ASP.NET Core barındıran: SSL yapılandırması](xref:host-and-deploy/linux-apache#ssl-configuration)
-* [Nginx ile Linux'ta ASP.NET Core barındıran: SSL yapılandırması](xref:host-and-deploy/linux-nginx#configure-ssl)
+* [Apache ile Linux'ta ASP.NET Core barındırın: HTTPS yapılandırma](xref:host-and-deploy/linux-apache#https-configuration)
+* [Nginx ile Linux'ta ASP.NET Core barındırın: HTTPS yapılandırma](xref:host-and-deploy/linux-nginx#https-configuration)
 * [IIS'de SSL ayarlama](/iis/manage/configuring-security/how-to-set-up-ssl-on-iis)
 * [OWASP HSTS tarayıcı desteği](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet#Browser_Support)

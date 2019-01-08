@@ -8,14 +8,14 @@ ms.date: 10/17/2013
 ms.assetid: 4085de68-d243-4378-8a64-86236ea8d2da
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-new-field
 msc.type: authoredcontent
-ms.openlocfilehash: 87bb2c5f64e714268f5e2631b44fbb8a93a6a4b6
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 950ae17ebd6b0f15520c2a4e9372703f5374dfbe
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48578100"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098694"
 ---
-<a name="adding-a-new-field"></a>Yeni alan ekleme
+<a name="adding-a-new-field"></a>Yeni Alan Ekleme
 ====================
 Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
@@ -94,7 +94,7 @@ Code First geçişleri başka bir sınıf dosyasında oluşturur *geçişler* kl
 
 ![](adding-a-new-field/_static/image7.png)
 
-Bir tablo zaten var ve oluşturulamaz belirten bir hata alırsanız, veritabanını ve yürüttüğünüz önce uygulamayı çalıştırdığınız için büyük olasılıkla olduğu `update-database`. Bu durumda, silme *Movies.mdf* yeniden dosya ve yeniden deneyin `update-database` komutu. Hata almaya devam ediyorsanız geçişleri klasörünü ve içeriğini silin daha sonra bu sayfanın üst kısmındaki yönergeleri ile başlatın (delete olan *Movies.mdf* dosya sonra Enable-geçişler için devam edin). Bir yayımlandığında almaya devam ediyorsanız SQL Server nesne Gezgini'ni açın ve veritabanı listeden kaldırın.
+Bir tablo zaten var ve oluşturulamaz belirten bir hata alırsanız, veritabanını ve yürüttüğünüz önce uygulamayı çalıştırdığınız için büyük olasılıkla olduğu `update-database`. Bu durumda, silme *Movies.mdf* yeniden dosya ve yeniden deneyin `update-database` komutu. Hata almaya devam ediyorsanız geçişleri klasörünü ve içeriğini silin daha sonra bu sayfanın üst kısmındaki yönergeleri ile başlatın (delete olan *Movies.mdf* dosya sonra Enable-geçişler için devam edin). Hala bir hata alırsanız, SQL Server nesne Gezgini'ni açın ve veritabanı listeden kaldırın.
 
 Uygulamayı çalıştırmak ve gidin */Movies* URL'si. Çekirdek veriler görüntülenir.
 

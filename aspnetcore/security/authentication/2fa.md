@@ -7,12 +7,12 @@ ms.author: riande
 ms.date: 09/22/2018
 ms.custom: seodec18
 uid: security/authentication/2fa
-ms.openlocfilehash: 6f20928b0dec9b235fa17c1b44c81a48d031e9e0
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: 48bfc50378fc0ec212f5b9d4e7ce05bb4fc97b9d
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121667"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098902"
 ---
 # <a name="two-factor-authentication-with-sms-in-aspnet-core"></a>ASP.NET Core SMS ile iki öğeli kimlik doğrulama
 
@@ -27,25 +27,25 @@ Bu öğreticide, SMS kullanarak iki öğeli kimlik doğrulamasını (2FA) ayarla
 
 ## <a name="create-a-new-aspnet-core-project"></a>Yeni bir ASP.NET Core projesi oluşturma
 
-Adlı yeni bir ASP.NET Core web uygulaması oluşturma `Web2FA` bireysel kullanıcı hesapları ile. Bölümündeki yönergeleri [SSL'yi zorunlu bir ASP.NET Core uygulaması](xref:security/enforcing-ssl) ayarlamak ve SSL gerektirmek için.
+Adlı yeni bir ASP.NET Core web uygulaması oluşturma `Web2FA` bireysel kullanıcı hesapları ile. Bölümündeki yönergeleri <xref:security/enforcing-ssl> ayarlama ve HTTPS gerektirir.
 
 ### <a name="create-an-sms-account"></a>SMS hesap oluşturma
 
-Örneğin, bir SMS hesap oluşturma [twilio](https://www.twilio.com/) veya [ASPSMS](https://www.aspsms.com/asp.net/identity/core/testcredits/). Kimlik doğrulama bilgileri kaydetmek (twilio'dan: accountSid ve ASPSMS için bir authToken: Userkey ve parola).
+Örneğin, bir SMS hesap oluşturma [twilio](https://www.twilio.com/) veya [ASPSMS](https://www.aspsms.com/asp.net/identity/core/testcredits/). Kimlik doğrulama bilgileri kaydetmek (twilio'dan: accountSid ve authToken, ASPSMS için: Userkey ve parola).
 
 #### <a name="figuring-out-sms-provider-credentials"></a>SMS Sağlayıcısı kimlik bilgilerini başarınızda
 
 **Twilio:** Twilio hesabınızın Pano sekmesinden kopyalama **hesap SID'si** ve **kimlik doğrulama belirteci**.
 
-**ASPSMS:** , hesap ayarlarınıza gidin **Userkey** ve birlikte kopyalayın, **parola**.
+**ASPSMS:** Hesap ayarlarınıza gidin **Userkey** ve birlikte kopyalayın, **parola**.
 
 Daha sonra bu değerleri gizli dizi Yöneticisi Aracı anahtarları içinde oturum depolarız `SMSAccountIdentification` ve `SMSAccountPassword`.
 
 #### <a name="specifying-senderid--originator"></a>Senderıd belirtme / Düzenleyicisi
 
-**Twilio:** numaraları sekmesinden, Twilio kopyalama **telefon numarası**.
+**Twilio:** Sayı sekmesinden, Twilio kopyalama **telefon numarası**.
 
-**ASPSMS:** kilidini düzenleyicileri menüsünde içinde bir veya daha fazla düzenleyicileri kilidini veya bir alfasayısal gönderen (tüm ağlar tarafından desteklenmez) seçin.
+**ASPSMS:** Kilidini düzenleyicileri menüsünde içinde bir veya daha fazla düzenleyicileri kilidini veya bir alfasayısal gönderen (tüm ağlar tarafından desteklenmez) seçin.
 
 Gizli dizi Yöneticisi Aracı anahtarı içinde bu değer daha sonra depolarız `SMSAccountFrom`.
 

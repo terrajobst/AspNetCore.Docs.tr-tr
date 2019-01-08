@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core uygulamalarında ilgili ayar gruplarını temsil etmek için seçenekleri deseni kullanmayı keşfedin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/28/2018
+ms.date: 12/29/2018
 uid: fundamentals/configuration/options
-ms.openlocfilehash: 0e3784de18be16e3217a015dd94f1b43b6621c1c
-ms.sourcegitcommit: 68a3081dd175d6518d1bfa31b4712bd8a2dd3864
+ms.openlocfilehash: 20365a078327d76693a40fa79a4a594e29e0901c
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53577896"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54099253"
 ---
 # <a name="options-pattern-in-aspnet-core"></a>ASP.NET Core desende seçenekleri
 
@@ -217,7 +217,7 @@ snapshot option1 = value1_from_json UPDATED, snapshot option2 = 200
 
 Seçenekleri desteğiyle adlı <xref:Microsoft.Extensions.Options.IConfigureNamedOptions`1> örnek olarak gösterilmiştir &num;örnek uygulamada 6.
 
-*Seçenekleri adlı* adlandırılmış seçeneklerini yapılandırmaları arasında ayrım yapmak uygulama desteği sağlar. Örnek uygulamada, adlandırılmış seçenekleri ile bildirilen <xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.Configure*>. `Configure` genişletme yöntemi çağıran <xref:Microsoft.Extensions.Options.ConfigureNamedOptions`1.Configure*> yöntemi:
+*Seçenekleri adlı* adlandırılmış seçeneklerini yapılandırmaları arasında ayrım yapmak uygulama desteği sağlar. Örnek uygulamada, adlandırılmış seçenekleri ile bildirilen [OptionsServiceCollectionExtensions.Configure](xref:Microsoft.Extensions.DependencyInjection.OptionsServiceCollectionExtensions.Configure*), çağıran [ConfigureNamedOptions\<TOptions >. Yapılandırma](xref:Microsoft.Extensions.Options.ConfigureNamedOptions`1.Configure*) genişletme yöntemi:
 
 [!code-csharp[](options/samples/2.x/OptionsSample/Startup.cs?name=snippet_Example6)]
 

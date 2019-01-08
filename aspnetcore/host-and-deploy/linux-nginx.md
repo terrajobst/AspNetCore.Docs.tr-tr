@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/20/2018
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: 534c62c127e685af9c6076932943def25bd3ac06
-ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
+ms.openlocfilehash: 24973e7bedcb219ac411948db8aa27d7219eac31
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53997337"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54099292"
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>ASP.NET Core Nginx ile Linux'ta barındırma
 
@@ -68,7 +68,7 @@ Ters proxy hizmet dinamik web uygulamaları için ortak bir kurulum var. Ters pr
 
 ### <a name="use-a-reverse-proxy-server"></a>Ters proxy sunucusu kullan
 
-Kestrel'i, ASP.NET Core dinamik içerik hizmet vermek için idealdir. Ancak, zengin olarak IIS, Apache veya Ngınx gibi sunucuları olarak web hizmeti özellikleri değildir. Ters proxy sunucusu, statik içerik sunan, istekleri önbelleğe alma, istekler ve SSL sonlandırma HTTP sunucusundan sıkıştırma gibi iş boşaltabilirsiniz. Ters proxy sunucusu adanmış bir makinede bulunabilir veya bir HTTP sunucusu dağıtılır.
+Kestrel'i, ASP.NET Core dinamik içerik hizmet vermek için idealdir. Ancak, zengin olarak IIS, Apache veya Ngınx gibi sunucuları olarak web hizmeti özellikleri değildir. Ters proxy sunucusu, statik içerik sunan, istekleri önbelleğe alma, istekleri ve HTTPS sonlandırma HTTP sunucusundan sıkıştırma gibi iş boşaltabilirsiniz. Ters proxy sunucusu adanmış bir makinede bulunabilir veya bir HTTP sunucusu dağıtılır.
 
 Bu kılavuzun amacı doğrultusunda, Ngınx tek bir örneği kullanılır. Aynı sunucuda, HTTP sunucusu ile birlikte çalışır. Gereksinimlerinize bağlı olarak, bu farklı kurulum seçmiş olabilirsiniz.
 
@@ -349,7 +349,7 @@ static char ngx_http_server_full_string[] = "Server: Web Server" CRLF;
 
 Ek gerekli modülleri ile yapılandırın. Bir web uygulaması güvenlik duvarı gibi kullanmayı göz önünde bulundurun [ModSecurity](https://www.modsecurity.org/)uygulama sağlamlaştırmak için.
 
-#### <a name="configure-ssl"></a>SSL'yi yapılandırma
+#### <a name="https-configuration"></a>HTTPS yapılandırma
 
 * Bağlantı HTTPS trafiği için dinlemek üzere yapılandırmak `443` belirterek bir güvenilen sertifika yetkilisi (CA) tarafından verilen geçerli bir sertifika.
 
@@ -357,7 +357,7 @@ Ek gerekli modülleri ile yapılandırın. Bir web uygulaması güvenlik duvarı
 
 * Ekleme bir `HTTP Strict-Transport-Security` (HSTS) üst bilgisi olan HTTPS üzerinden istemci tarafından yapılan tüm sonraki istekleri sağlar.
 
-* HSTS üst bilgi eklemeyin veya uygun bir seçtiğiniz `max-age` , SSL gelecekte devre dışı bırakılır.
+* HSTS üst bilgi eklemeyin veya uygun bir seçtiğiniz `max-age` varsa HTTPS gelecekte devre dışı bırakılır.
 
 Ekleme */etc/nginx/proxy.conf* yapılandırma dosyası:
 

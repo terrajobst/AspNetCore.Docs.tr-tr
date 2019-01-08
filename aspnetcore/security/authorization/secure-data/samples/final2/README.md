@@ -8,4 +8,4 @@
 
     `dotnet ef database update`
 
-* Projede SSL'i etkinleştirin
+* Projede HTTPS'yi etkinleştirme

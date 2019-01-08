@@ -5,12 +5,12 @@ description: ASP.NET Core ile Azure Active Directory B2C kimlik doğrulaması ku
 ms.date: 01/25/2018
 ms.custom: mvc
 uid: security/authentication/azure-ad-b2c
-ms.openlocfilehash: 73a66cea1533cc835796f673021bfa45c35f5935
-ms.sourcegitcommit: 4cd8dce371d63a66d780e4af1baab2bcf9d61b24
+ms.openlocfilehash: 2c544475ccd3eb76f2737fec1cf269ac86add372
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43893200"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098993"
 ---
 # <a name="cloud-authentication-with-azure-active-directory-b2c-in-aspnet-core"></a>Azure Active Directory B2C'de ASP.NET Core ile bulut kimlik doğrulaması
 
@@ -19,7 +19,7 @@ Tarafından [Cam Soper](https://twitter.com/camsoper)
 [Azure Active Directory B2C](/azure/active-directory-b2c/active-directory-b2c-overview) (Azure AD B2C) olan bir bulut kimlik yönetimi çözümü, web ve mobil uygulamaları için. Hizmet, bulutta ve şirket içinde barındırılan uygulamalar için kimlik doğrulaması sağlar. Kimlik doğrulama türleri bireysel hesaplar, sosyal ağ hesabı, içerir ve kurumsal hesaplarda Federasyon. Ayrıca, Azure AD B2C minimal yapılandırma ile çok faktörlü kimlik doğrulaması sağlar.
 
 > [!TIP]
-> Azure Active Directory (Azure AD) ve Azure AD B2C olan ayrı bir ürün teklifleri. Azure AD kiracısı, Azure AD B2C kiracısı ile bağlı olan taraf uygulamaları kullanılacak kimlikleri koleksiyonunu temsil ederken, bir kuruluşun temsil eder. Daha fazla bilgi için bkz. [Azure AD B2C: sık sorulan sorular (SSS)](/azure/active-directory-b2c/active-directory-b2c-faqs).
+> Azure Active Directory (Azure AD) ve Azure AD B2C olan ayrı bir ürün teklifleri. Azure AD kiracısı, Azure AD B2C kiracısı ile bağlı olan taraf uygulamaları kullanılacak kimlikleri koleksiyonunu temsil ederken, bir kuruluşun temsil eder. Daha fazla bilgi için bkz: [Azure AD B2C: Sık sorulan sorular (SSS)](/azure/active-directory-b2c/active-directory-b2c-faqs).
 
 Bu öğreticide, bilgi nasıl yapılır:
 
@@ -96,7 +96,7 @@ Visual Studio'da:
 B2C uygulaması özelliklerde hala açık tarayıcı penceresine dönün. Geçici değiştirme **yanıt URL'si** belirtilen değere önceki Visual Studio'dan kopyalanır. Seçin **Kaydet** pencerenin üst kısmındaki.
 
 > [!TIP]
-> Yanıt URL'si kopyalarsanız yaramadı web proje özelliklerinde hata ayıklama sekmesinden SSL adresi kullanın ve ekleme **CallbackPath** değerini *appsettings.json*.
+> Yanıt URL'si kopyalarsanız yaramadı web proje özelliklerinde hata ayıklama sekmesinden HTTPS adresi kullanın ve ekleme **CallbackPath** değerini *appsettings.json*.
 
 ## <a name="configure-policies"></a>ilkeleri yapılandırma
 
@@ -121,7 +121,7 @@ Başarıyla oturum açtıktan sonra tarayıcının, web uygulamasına yeniden y�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide şunları öğrendiniz: nasıl yapılır:
+Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
 > * Azure Active Directory B2C kiracısı oluşturma

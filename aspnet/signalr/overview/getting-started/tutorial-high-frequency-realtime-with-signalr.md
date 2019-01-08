@@ -1,228 +1,255 @@
 ---
 uid: signalr/overview/getting-started/tutorial-high-frequency-realtime-with-signalr
-title: 'Öğretici: SignalR 2 ile yüksek sıklıkta gerçek zamanlı | Microsoft Docs'
+title: 'Öğretici: SignalR 2 ile yüksek sıklıkta gerçek zamanlı uygulama oluşturma | Microsoft Docs'
 author: pfletcher
-description: Bu öğretici, ASP.NET SignalR, yüksek frekanslı Mesajlaşma işlevleri sağlamak için kullanan bir web uygulaması oluşturma işlemi gösterilmektedir. Yüksek frekanslı..., Mesajlaşma
+description: Bu öğretici, ASP.NET SignalR, yüksek frekanslı Mesajlaşma işlevleri sağlamak için kullanan bir web uygulaması oluşturma işlemi gösterilmektedir.
 ms.author: riande
-ms.date: 06/10/2014
+ms.date: 01/02/2019
 ms.assetid: 9f969dda-78ea-4329-b1e3-e51c02210a2b
 msc.legacyurl: /signalr/overview/getting-started/tutorial-high-frequency-realtime-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 04ce650509268ee63daafe24bc8dcc9725aea16b
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.topic: tutorial
+ms.openlocfilehash: 85503db0b41be6f87136627667d6dd71f0d4f609
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53287738"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098596"
 ---
-<a name="tutorial-high-frequency-realtime-with-signalr-2"></a>Öğretici: SignalR 2 ile yüksek sıklıkta gerçek zamanlı
-====================
-tarafından [Patrick Fletcher](https://github.com/pfletcher)
+# <a name="tutorial-create-high-frequency-real-time-app-with-signalr-2"></a>Öğretici: SignalR 2 ile yüksek sıklıkta gerçek zamanlı uygulama oluşturma
+
+Bu öğreticide, yüksek frekanslı Mesajlaşma işlevleri sağlamak için ASP.NET SignalR 2 kullanan bir web uygulaması oluşturma işlemi gösterilmektedir. Bu durumda, "yüksek sıklıkta ileti" sunucu sabit bir fiyat karşılığında güncelleştirmeler gönderir anlamına gelir. Saniyede en fazla 10 iletileri gönderir.
+
+Oluşturduğunuz uygulama, kullanıcıların sürükleyebilirsiniz bir şekil görüntüler. Sunucu, Zamanlanmış güncelleştirmeleri kullanarak sürüklenen şekli konumunu eşleşecek şekilde tüm bağlı tarayıcıların şekil konumunu güncelleştirir.
+
+Bu öğreticide tanıtılan kavramları, gerçek zamanlı oyun uygulamaları ve diğer benzetimi uygulamaları vardır.
+
+Bu öğreticide şunları yaptınız:
+
+> [!div class="checklist"]
+> * Projesi kurun
+> * Temel uygulama oluşturma
+> * Uygulama başlatıldığında hub'ına eşleme
+> * İstemci Ekle
+> * Uygulamayı çalıştırma
+> * İstemci döngü Ekle
+> * Sunucu döngü Ekle
+> * Kesintisiz animasyon ekleme
 
 [!INCLUDE [Consider ASP.NET Core SignalR](~/includes/signalr/signalr-version-disambiguation.md)]
 
-[Projeyi yükle](http://code.msdn.microsoft.com/SignalR-20-MoveShape-Demo-6285b83a)
-
-> Bu öğreticide, yüksek frekanslı Mesajlaşma işlevleri sağlamak için ASP.NET SignalR 2 kullanan bir web uygulaması oluşturma işlemi gösterilmektedir. Yüksek frekanslı Mesajlaşma bu durumda sabit bir fiyat karşılığında gönderilen güncelleştirmeleri anlamına gelir; Bu uygulama söz konusu olduğunda, en fazla 10 saniyenin iletileri.
->
-> Bu öğreticide oluşturacağınız uygulama kullanıcıları sürükleyebilirsiniz bir şekil görüntüler. Diğer tüm bağlı tarayıcıların şekil konumunu Zamanlanmış güncelleştirmeleri kullanarak sürüklenen şekli konumunu eşleşecek şekilde güncelleştirilecektir.
->
-> Bu öğreticide tanıtılan kavramları, gerçek zamanlı oyun uygulamaları ve diğer benzetimi uygulamaları vardır.
->
-> ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
->
->
-> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
-> - .NET 4.5
-> - SignalR sürüm 2
->
->
->
-> ## <a name="using-visual-studio-2012-with-this-tutorial"></a>Bu öğreticide Visual Studio 2012 kullanarak
->
->
-> Visual Studio 2012 bu öğreticiyle kullanmak için aşağıdakileri yapın:
->
-> - Güncelleştirme, [Paket Yöneticisi](http://docs.nuget.org/docs/start-here/installing-nuget) en son sürüme.
-> - Yükleme [Web Platformu yükleyicisi](https://www.microsoft.com/web/downloads/platform.aspx).
-> - Web Platformu Yükleyicisi'nde arama ve yükleme **ASP.NET ve Web Araçları 2013.1 Visual Studio 2012 için**. Bu SignalR sınıflar için Visual Studio şablonları gibi yükleyecek **Hub**.
-> - Bazı şablonlar (gibi **OWIN başlangıç sınıfı**) kullanılabilir; olmayacaktır, bunlar için sınıf dosyası kullanın.
->
->
-> ## <a name="tutorial-versions"></a>Öğretici sürümleri
->
-> SignalR eski sürümleri hakkında daha fazla bilgi için bkz: [SignalR eski sürümleri](../older-versions/index.md).
->
-> ## <a name="questions-and-comments"></a>Sorularınız ve yorumlarınız
->
-> Lütfen bu öğreticide sevmediğinizi nasıl ve ne sayfanın alt kısmındaki açıklamalarda geliştirebileceğimiz hakkında geri bildirim bırakın. Öğretici için doğrudan ilgili olmayan sorularınız varsa, bunları gönderebilir [ASP.NET SignalR Forumu](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) veya [StackOverflow.com](http://stackoverflow.com/).
-
-
-## <a name="overview"></a>Genel Bakış
-
-Bu öğreticide, diğer tarayıcılarda gerçek zamanlı olarak bir nesnenin durumu paylaşan bir uygulamanın nasıl oluşturulacağını gösterir. Uygulama oluşturacağız MoveShape çağrılır. Kullanıcı sürükleyebilirsiniz bir HTML Div öğesi MoveShape sayfası görüntüler; Kullanıcı Div sürüklediğinde, yeni konumuna ardından eşleştirilecek şeklin konum güncelleştirmek için diğer tüm bağlı istemcileri söyleyecektir sunucuya gönderilir.
-
-![Uygulama penceresi](tutorial-high-frequency-realtime-with-signalr/_static/image1.png)
-
-Bu öğreticide oluşturulan uygulama tarafından Damian Edwards bir tanıtım temel alır. Bu Tanıtım içeren bir video görülebilir [burada](https://channel9.msdn.com/Series/Building-Web-Apps-with-ASP-NET-Jump-Start/Building-Web-Apps-with-ASPNET-Jump-Start-08-Real-time-Communication-with-SignalR).
-
-Öğreticiyi şekli sürüklediğiniz olarak çalıştırılan her olaydan SignalR iletileri göndermek nasıl yazılacağını gösteren tarafından başlatılır. Her bağlı istemci, her zaman bir ileti alındığında sonra yerel sürüm şeklin konumunu güncelleştirir.
-
-Bu yöntemi kullanarak uygulama çalışır durumdayken olacaktır, böylece istemciler ve sunucu iletileri ile dolmasını ve performans düşmesine neden gönderilen ileti sayısı için üst sınır bu yana bu önerilen bir programlama modeli değil . İstemci üzerinde görüntülenen animasyonu da şekli anında her yöntemle taşındı ayrık yerine her yeni konuma sorunsuz taşıma olacaktır. Öğreticinin sonraki bölümlerde, iletileri istemci veya sunucu tarafından gönderilen en yüksek hızı kısıtlayan bir zamanlayıcı işlevinin nasıl oluşturulacağı ve şekli sorunsuz konumlar arasında taşıma gösterilecektir. Bu öğreticide oluşturduğunuz uygulamanın son sürümü yüklenebilir [kod Galerisi](https://code.msdn.microsoft.com/SignalR-20-MoveShape-Demo-6285b83a).
-
-Bu öğreticide, aşağıdaki bölümleri içerir:
-
-- [Önkoşullar](#prerequisites)
-- [Projeyi oluşturmak ve SignalR ve JQuery.UI NuGet paketi ekleme](#createtheproject2013)
-- [Temel uygulama oluşturma](#baseapp)
-- [Uygulama başladığında hub'ı başlatma](#startup2013)
-- [İstemci döngü Ekle](#clientloop)
-- [Sunucu döngü Ekle](#serverloop)
-- [İstemcide düzgün animasyon ekleme](#animation)
-- [Başka bir adım](#furthersteps)
-
-<a id="prerequisites"></a>
-
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu öğretici, Visual Studio 2013 gerektirir.
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) ile **ASP.NET ve web geliştirme** iş yükü.
 
-<a id="createtheproject2013"></a>
+## <a name="set-up-the-project"></a>Projesi kurun
 
-## <a name="create-the-project-and-add-the-signalr-and-jqueryui-nuget-package"></a>Projeyi oluşturmak ve SignalR ve JQuery.UI NuGet paketi ekleme
+Bu bölümde, Visual Studio 2017'de bir proje oluşturun.
 
-Bu bölümde, projenin Visual Studio 2013'te oluşturacağız.
+Bu bölümde, boş bir ASP.NET Web uygulaması oluşturma ve SignalR ve jQuery.UI kitaplıkları eklemek için Visual Studio 2017'yi kullanmayı gösterir.
 
-ASP.NET boş Web uygulaması oluşturma ve SignalR ve jQuery.UI kitaplıkları eklemek için Visual Studio 2013'ün aşağıdaki adımları kullanın:
+1. Visual Studio kullanarak ASP.NET Web uygulaması oluşturun.
 
-1. Visual Studio'da ASP.NET Web uygulaması oluşturun.
+    ![Web oluşturma](tutorial-high-frequency-realtime-with-signalr/_static/image1.png)
 
-    ![Web oluşturma](tutorial-high-frequency-realtime-with-signalr/_static/image2.png)
-2. İçinde **yeni ASP.NET projesi** penceresinde bırakın **boş** tıklatın ve seçili **proje oluştur**.
+1. İçinde **yeni ASP.NET Web uygulaması - MoveShapeDemo** penceresinde bırakın **boş** seçin ve seçilen **Tamam**.
 
-    ![Boş web oluşturma](tutorial-high-frequency-realtime-with-signalr/_static/image3.png)
-3. İçinde **Çözüm Gezgini**, projeye sağ tıklayın, **Ekle | SignalR Hub sınıfı (v2)**. Sınıf adı **MoveShapeHub.cs** ve projeye ekleyin. Bu adımda oluşturulur **MoveShapeHub** sınıfı ve bir dizi komut dosyaları ve Signalr'yi destekleyen bir bütünleştirilmiş kod başvuruları projeye ekler.
+1. İçinde **Çözüm Gezgini**, projeye sağ tıklayıp seçin **Ekle** > **yeni öğe**.
 
-    > [!NOTE]
-    > Tıklayarak bir projeye SignalR ekleyebilirsiniz **Araçlar > NuGet Paket Yöneticisi > Paket Yöneticisi Konsolu** ve bir komutu çalıştırın:
+1. İçinde **Yeni Öğe Ekle - MoveShapeDemo**seçin **yüklü** > **Visual C#**   >  **Web**  >  **SignalR** seçip **SignalR Hub sınıfı (v2)**.
 
-    `install-package Microsoft.AspNet.SignalR`.
+1. Sınıf adı *MoveShapeHub* ve projeye ekleyin.
 
-    SignalR eklemek için konsolunu kullanırsanız, SignalR hub sınıfı SignalR ekledikten sonra ayrı bir adım olarak oluşturun.
-4. Tıklayın **Araçlar > NuGet Paket Yöneticisi > Paket Yöneticisi Konsolu**. Paket Yöneticisi penceresinde aşağıdaki komutu çalıştırın:
+    Bu adımda oluşturulur *MoveShapeHub.cs* sınıf dosyası. Aynı anda bir dizi komut dosyaları ve projeye Signalr'yi destekleyen derleme başvurularını ekler.
 
-    `Install-Package jQuery.UI.Combined`
+1. Seçin **Araçları** > **NuGet Paket Yöneticisi** > **Paket Yöneticisi Konsolu**.
 
-    Bu şeklin animasyon uygulamak için kullanacağınız jQuery kullanıcı Arabirimi kitaplığı yükler.
-5. İçinde **Çözüm Gezgini** betikleri düğümünü genişletin. Betik kitaplıkları için jQuery jQueryUI ve SignalR projesinde görünür.
+1. İçinde **Paket Yöneticisi Konsolu**, şu komutu çalıştırın:
 
-    ![Komut dosyası kitaplık başvuruları](tutorial-high-frequency-realtime-with-signalr/_static/image4.png)
+    ```console
+    Install-Package jQuery.UI.Combined
+    ```
 
-<a id="baseapp"></a>
+    Komut, jQuery kullanıcı Arabirimi kitaplığı yükler. Şekil animasyon uygulamak için kullanın.
+
+1. İçinde **Çözüm Gezgini**, betikleri düğümünü genişletin.
+
+    ![Komut dosyası kitaplık başvuruları](tutorial-high-frequency-realtime-with-signalr/_static/image2.png)
+
+    Betik kitaplıkları için jQuery jQueryUI ve SignalR projesinde görünür.
 
 ## <a name="create-the-base-application"></a>Temel uygulama oluşturma
 
-Bu bölümde, Şekil konumunu sunucuya her fare hareketi olayını sırasında gönderir. bir tarayıcı uygulaması oluşturacağız. Alınan sunucu daha sonra diğer tüm bağlı istemcileri bu bilgileri yayınlar. Sonraki bölümlerde bu uygulamada şirket genişletin.
+Bu bölümde, bir tarayıcı uygulaması oluşturun. Uygulama, her fare hareketi olayını sırasında şekil konumunu sunucusuna gönderir. Sunucu, bu bilgiler diğer bağlı istemcilere gerçek zamanlı olarak yayınlar. Sonraki bölümlerde bu uygulama hakkında daha fazla bilgi.
 
-1. Zaten MoveShapeHub.cs sınıf oluşturduğunuz yapmadıysanız, **Çözüm Gezgini**, projeye sağ tıklayıp **Ekle**, **sınıfı...** . Sınıf adı **MoveShapeHub** tıklatıp **Ekle**.
-2. Yeni bir kodu **MoveShapeHub** aşağıdaki kodla sınıfı.
+1. Açık *MoveShapeHub.cs* dosya.
+
+1. Değiştirin *MoveShapeHub.cs* Bu kod dosyası:
 
     [!code-csharp[Main](tutorial-high-frequency-realtime-with-signalr/samples/sample1.cs)]
 
-    `MoveShapeHub` Yukarıdaki sınıfı, bir SignalR hub'ı uygulaması. Olarak [SignalR ile çalışmaya başlama](tutorial-getting-started-with-signalr.md) Öğreticisi, hub'ına istemcileri doğrudan çağıran bir yöntem. Bu durumda, istemci içeren yeni bir nesne gönderir sonra diğer tüm bağlı istemcileri yayımladınız sunucunun şekle X ve Y koordinatları. SignalR, otomatik olarak JSON'ı kullanarak bu nesneyi serileştirmek.
+1. Dosyayı kaydedin.
 
-    İstemciye gönderilecek nesne (`ShapeModel`) şekil konumunu saklamak için üyeleri içerir. Belirli bir istemci, kendi veri gönderilmez, böylece nesnenin sunucuda hangi istemci verilerinin depolandığını, izlemek için bir üyesi de içerir. Bu üyeyi kullanan `JsonIgnore` , serileştirilmiş ve istemciye gönderilen tutmak için özniteliği.
+`MoveShapeHub` Uygulaması bir SignalR hub'ın bir sınıftır. Olarak [SignalR ile çalışmaya başlama](tutorial-getting-started-with-signalr.md) Öğreticisi, hub'ına istemcileri doğrudan çağıran bir yöntem. Bu durumda, bir nesne yeni X ve Y koordinatları sunucuya şeklin istemci gönderir. Bu koordinatları, diğer tüm bağlı istemcileri yayımladınız. SignalR otomatik olarak JSON'ı kullanarak bu nesneyi serileştirir.
 
-<a id="startup2013"></a>
-## <a name="starting-the-hub-when-the-application-starts"></a>Uygulama başladığında hub'ı başlatma
+Uygulama gönderen `ShapeModel` istemciye nesne. Şeklin konum depolamak için üyeleri var. Sunucuda nesnenin hangi istemci verilerinin depolandığını izlemek için bir üyesi de sahiptir. Bu nesne, sunucunun geri kendisine bir istemcinin veri göndermesini engeller. Bu üyeyi kullanan `JsonIgnore` uygulama verileri seri hale getirme ve istemciye geri göndermeden tutmak için özniteliği.
 
-1. Uygulama başladığında ardından, biz hub'ına eşleme ayarlarsınız. SignalR 2'de bu çağıracak bir OWIN başlangıç sınıfı ekleyerek yapılır `MapSignalR` olduğunda Başlangıç sınıfı `Configuration` yöntemi OWIN başladığında yürütülür. Sınıf için OWIN'ın başlangıç eklenir oluşturabilirsiniz.computercube `OwinStartup` derleme özniteliği.
+## <a name="map-to-the-hub-when-app-starts"></a>Uygulama başlatıldığında hub'ına eşleme
 
-    İçinde **Çözüm Gezgini**, projeyi sağ tıklatın ve ardından **Ekle | OWIN başlangıç sınıfı**. Sınıf adı *başlangıç* tıklatıp **Tamam**.
-2. Startup.cs içeriğini aşağıdaki gibi değiştirin:
+Ardından, uygulama başlatıldığında hub'ına eşleme ayarlayın. SignalR 2'de bir OWIN başlangıç sınıfı ekleme eşleme oluşturur.
+
+1. İçinde **Çözüm Gezgini**, projeye sağ tıklayıp seçin **Ekle** > **yeni öğe**.
+
+1. İçinde **Yeni Öğe Ekle - MoveShapeDemo** seçin **yüklü** > **Visual C#**   >  **Web** ve ardından seçin **OWIN başlangıç sınıfı**.
+
+1. Sınıf adı *başlangıç* seçip **Tamam**.
+
+1. Varsayılan kodda değiştirin *Startup.cs* Bu kod dosyası:
 
     [!code-csharp[Main](tutorial-high-frequency-realtime-with-signalr/samples/sample2.cs)]
 
-<a id="client"></a>
-## <a name="adding-the-client"></a>İstemci ekleme
+OWIN başlangıç sınıfı çağrıları `MapSignalR` zaman uygulama yürütür `Configuration` yöntemi. OWIN'ın başlangıç sınıfa işlemi kullanarak uygulamanın eklediği `OwinStartup` derleme özniteliği.
 
-1. Ardından, istemci ekleyeceğiz. İçinde **Çözüm Gezgini**, projeyi sağ tıklatın ve ardından **Ekle | Yeni öğe**. İçinde **Yeni Öğe Ekle** iletişim kutusunda **Html sayfası**. Sayfayı adlandırın **Default.html** tıklatıp **Ekle**.
-2. İçinde **Çözüm Gezgini**, yeni oluşturduğunuz sayfanın sağ tıklatıp **Başlangıç Sayfası Ayarla**.
-3. Varsayılan HTML sayfasını aşağıdaki kod parçacığı ile değiştirin.
+## <a name="add-the-client"></a>İstemci Ekle
 
-    > [!NOTE]
-    > Komut dosyası projenize betikler klasörüne eklenen paketler eşleşme başvurduğunu doğrulayın.
+HTML sayfası için istemci ekleyin.
 
-    [!code-html[Main](tutorial-high-frequency-realtime-with-signalr/samples/sample3.html)]
+1. İçinde **Çözüm Gezgini**, projeye sağ tıklayıp seçin **Ekle** > **HTML sayfası**.
 
-    Yukarıdaki HTML ve JavaScript kodunu adlı şekli kırmızı bir Div oluşturur, jQuery kitaplığını kullanarak şeklin sürükleyerek davranışını etkinleştirir ve şeklin `drag` şeklin konum sunucuya göndermek için olay.
-4. F5 tuşuna basarak uygulamayı başlatın. Sayfanın URL'sini kopyalayın ve ikinci bir tarayıcı penceresine yapıştırın. Şekil tarayıcı pencerelerini birinde sürükleyin. Şekil bir tarayıcı penceresinde taşımanız gerekir.
+1. Sayfayı adlandırın **varsayılan** seçip **Tamam**.
 
-    ![Uygulama penceresi](tutorial-high-frequency-realtime-with-signalr/_static/image5.png)
+1. İçinde **Çözüm Gezgini**, sağ *Default.html* seçip **Başlangıç Sayfası Ayarla**.
 
-<a id="clientloop"></a>
+1. Varsayılan kodda değiştirin *Default.html* Bu kod dosyası:
+
+    [!code-html[Main](tutorial-high-frequency-realtime-with-signalr/samples/sample3.html?highlight=14-16)]
+
+1. İçinde **Çözüm Gezgini**, genişletme **betikleri**.
+
+    JQuery ve SignalR için betik kitaplıkları projesinde görünür.
+
+    > [!IMPORTANT]
+    > Paket Yöneticisi SignalR betikleri daha sonraki bir sürümünü yükler.
+
+1. Komut dosyalarını projedeki sürümleri değerine karşılık gelen kod bloğundaki komut dosyası başvuruları güncelleştirin.
+
+Bu HTML ve JavaScript kodu kırmızı oluşturur `div` adlı `shape`. JQuery kitaplığını kullanarak şeklin sürükleyerek davranışını etkinleştirir ve kullandığı `drag` şeklin konum sunucuya göndermek için olay.
+
+## <a name="run-the-app"></a>Uygulamayı çalıştırma
+
+Uygulamayı çalıştırdığınız için se'e çalışabilirsiniz. Bir tarayıcı penceresi şekli sürüklediğinizde, Şekil diğer tarayıcılarda çok taşır.
+
+1. Araç çubuğunda, açma **betik hata ayıklamasını** ve ardından uygulamayı hata ayıklama modunda çalıştırmak için Yürüt düğmesini seçin.
+
+    ![Hata ayıklama modu ve Çalıştır'ı seçerek kullanıcı görüntüsü.](tutorial-high-frequency-realtime-with-signalr/_static/image3.png)
+
+    Sağ üst köşesindeki kırmızı şeklinde bir tarayıcı penceresi açılır.
+
+1. Sayfanın URL'sini kopyalayın.
+
+1. Başka bir tarayıcı açın ve adres çubuğuna URL'yi yapıştırın.
+
+1. Şekil tarayıcı pencerelerini birinde sürükleyin. Şekil bir tarayıcı penceresinde izler.
+
+Uygulama çalışırken İşlevler, bu yöntemi kullanarak, önerilen bir programlama modeli değil. Gönderilen ileti sayısı üst sınırı yoktur. Sonuç olarak, istemciler ve sunucu iletileri ile dolmasını ve performansı düşürür. Ayrıca, uygulama istemcide kopuk bir animasyon görüntüler. Şekil anında her yöntemle taşıdığı düzensiz animasyon gerçekleşir. Şekil sorunsuz her yeni bir konuma taşınırsa, daha iyidir. Ardından, bu sorunları gidermek nasıl öğrenin.
 
 ## <a name="add-the-client-loop"></a>İstemci döngü Ekle
 
-Her fare hareketi olayını şeklinizde konumunu gönderme gerekli olmayan miktarda ağ trafiği oluşturur, istemciden gelen iletileri kısıtlanabilir gerekir. Javascript kullanacağız `setInterval` sabit bir hızda sunucuya yeni konum bilgileri gönderen bir döngü ayarlamak için işlevi. Bu döngü bir "Oyun döngüsü", tüm işlevlerin bir oyun veya diğer benzetimi sürücüleri tekrar tekrar çağrılan bir işlevin çok basit bir gösterimidir.
+Her fare hareketi olayını şeklinizde konumunu gönderme gereksiz miktarda ağ trafiği oluşturur. Uygulama, istemciden gelen iletileri kısıtlama gerekir.
 
-1. İstemci kodu HTML sayfasındaki, aşağıdaki kod parçacığı eşleşecek şekilde güncelleştirin.
+Javascript kullanan `setInterval` sabit bir hızda sunucuya yeni konum bilgileri gönderen bir döngü ayarlamak için işlevi. Bu döngü bir "Oyun döngüsü." temel gösterimidir Oyun işlevselliğini tüm sürücüleri tekrar tekrar çağrılan bir işlevdir.
 
-    [!code-html[Main](tutorial-high-frequency-realtime-with-signalr/samples/sample4.html)]
+1. İstemci kodu değiştirin *Default.html* Bu kod dosyası:
 
-    Yukarıdaki güncelleştirme ekler `updateServerModel` işlevi çağrılan bir sabit sıklığı temel. Bu işlev, sunucuya konum verileri gönderir her `moved` bayrağı, yeni konum verileri göndermek için olduğunu gösterir.
-2. F5 tuşuna basarak uygulamayı başlatın. Sayfanın URL'sini kopyalayın ve ikinci bir tarayıcı penceresine yapıştırın. Şekil tarayıcı pencerelerini birinde sürükleyin. Şekil bir tarayıcı penceresinde taşımanız gerekir. Animasyon, sunucuya gönderilen ileti sayısını kısıtlanacak olduğundan, önceki bölümdeki kesintisiz olarak görünmez.
+    [!code-html[Main](tutorial-high-frequency-realtime-with-signalr/samples/sample4.html?highlight=14-16)]
 
-    ![Uygulama penceresi](tutorial-high-frequency-realtime-with-signalr/_static/image6.png)
+    > [!IMPORTANT]
+    > Komut dosyası başvuruları yeniden değiştirmek zorunda. Bunlar, projeyi betiklerde sürümleri eşleşmelidir.
 
-<a id="serverloop"></a>
+    Bu yeni bir kod ekler `updateServerModel` işlevi. Bir sabit sıklığına adlı. İşlev konum verileri sunucusuna gönderir. her `moved` bayrağı, yeni konum verileri göndermek için olduğunu gösterir.
+
+1. Uygulamayı başlatmak için Yürüt düğmesini seçin.
+
+1. Sayfanın URL'sini kopyalayın.
+
+1. Başka bir tarayıcı açın ve adres çubuğuna URL'yi yapıştırın.
+
+1. Şekil tarayıcı pencerelerini birinde sürükleyin. Şekil bir tarayıcı penceresinde izler.
+
+Uygulama animasyon kesintisiz olarak görünmez sunucuya gönderilen ileti sayısını kısıtlar bu yana ilk başta vermedi.
 
 ## <a name="add-the-server-loop"></a>Sunucu döngü Ekle
 
-Geçerli uygulamada, sunucudan istemciye gönderilen iletileri alındıkları sıklıkta gönderilir. İstemcide görülen benzer bir sorun gösterir; iletiler daha sık gerekli olan ve bağlantı sonucunda yayılmamış olabilir gönderilebilir. Bu bölümde, giden iletiler oranını kısıtlar bir zamanlayıcı uygulamak için sunucu güncelleştirme işlemi açıklanmaktadır.
+Geçerli uygulamada, sunucudan istemciye gönderilen iletileri alındıklarında sıklıkta gönderilir. İstemcide görüyoruz gibi benzer bir sorun bu ağ trafiğini gösterir.
 
-1. Öğesinin içeriğini değiştirin `MoveShapeHub.cs` aşağıdaki kod parçacığı ile.
+Uygulamayı, ihtiyaç duyulan daha sık ileti gönderebilir. Sonuç olarak bağlantı yayılmamış olabilir. Bu bölümde, giden iletiler oranını kısıtlar Zamanlayıcı eklemek için sunucu güncelleştirme işlemi açıklanmaktadır.
+
+1. Öğesinin içeriğini değiştirin `MoveShapeHub.cs` Bu kod ile:
 
     [!code-csharp[Main](tutorial-high-frequency-realtime-with-signalr/samples/sample5.cs)]
 
-    Yukarıdaki kod eklemek için istemci genişletir `Broadcaster` giden kısıtlar sınıfı iletileri kullanarak `Timer` .NET Framework sınıfı.
+1. Uygulamayı başlatmak için Yürüt düğmesini seçin.
 
-    Hub geçici olduğundan (her zaman gerekli oluşturulduktan), `Broadcaster` tekil olarak oluşturulur. Bu, Zamanlayıcıyı başlatılmadan önce ilk hub örneği tamamen oluşturulduktan gerekli kadar oluşturulduktan erteleneceği yavaş başlatma (.NET 4'te sunulmuştur) kullanılır.
+1. Sayfanın URL'sini kopyalayın.
 
-    İstemcilerin çağrısı `UpdateShape` işlevi ardından hub dışında taşınmış `UpdateModel` yöntemi, böylece onun artık hemen gelen mesajların alındığı zaman çağrılır. Bunun yerine, istemciler için iletileri, saniye başına 25 çağrılarının bir hızda gönderilecek tarafından yönetilen `_broadcastLoop` içinden Zamanlayıcı `Broadcaster` sınıfı.
+1. Başka bir tarayıcı açın ve adres çubuğuna URL'yi yapıştırın.
 
-    Son olarak, istemci yöntemi hub'dan doğrudan çağırmak yerine `Broadcaster` sınıfı gerekiyor şu anda işletim hub'ına bir başvuru almak (`_hubContext`) kullanarak `GlobalHost`.
-2. F5 tuşuna basarak uygulamayı başlatın. Sayfanın URL'sini kopyalayın ve ikinci bir tarayıcı penceresine yapıştırın. Şekil tarayıcı pencerelerini birinde sürükleyin. Şekil bir tarayıcı penceresinde taşımanız gerekir. Önceki bölümde tarayıcınızda görünür bir farkı olmayacak, ancak istemciye gönderilen ileti sayısını kısıtlanır.
+1. Şekil tarayıcı pencerelerini birinde sürükleyin.
 
-    ![Uygulama penceresi](tutorial-high-frequency-realtime-with-signalr/_static/image7.png)
+Bu kod eklemek için istemci genişletir `Broadcaster` sınıfı. Yeni bir sınıf kullanarak giden iletiler kısıtlar `Timer` .NET Framework sınıfı.
 
-<a id="animation"></a>
+Hub geçici olduğunu öğrenmek uygundur. Gereken her zaman oluşturulur. Uygulamayı oluşturur `Broadcaster` singleton olarak. Yavaş başlatma erteleneceği kullanan `Broadcaster`'s, gerekli olana kadar oluşturma. Bu, uygulamanın ilk hub örneği tamamen Zamanlayıcı başlatmadan önce oluşturduğu garanti eder.
 
-## <a name="add-smooth-animation-on-the-client"></a>İstemcide düzgün animasyon ekleme
+İstemcilerin çağrısı `UpdateShape` işlevi ardından hub dışında taşınmış `UpdateModel` yöntemi. Artık her hemen uygulama gelen iletiler aldığında çağrılır. Bunun yerine, uygulama, saniye başına 25 çağrılarının bir hızda istemcilere iletileri gönderir. İşlem tarafından yönetilen `_broadcastLoop` içinden Zamanlayıcı `Broadcaster` sınıfı.
 
-Uygulama neredeyse tamamlandı, ancak biz yanıt olarak sunucu ileti taşınırken bir daha fazla geliştirme istemcide şeklin halindeki yapabilir. Sunucu tarafından verilen yeni bir konuma şekil konumunu ayarlamak yerine JQuery kullanıcı Arabirimi kitaplığın kullanacağız `animate` şekli sorunsuz geçerli ve yeni konumu arasında taşımak için işlevi.
+Son olarak, istemci yöntemi hub'dan doğrudan çağırmak yerine `Broadcaster` sınıfı şu anda çalışan bir başvuru almak için gereksinim duyduğu `_hubContext` hub. Başvuru ile alır `GlobalHost`.
 
-1. İstemci güncelleştirme `updateShape` yöntemi aramak için aşağıdaki vurgulanmış kodu ister:
+## <a name="add-smooth-animation"></a>Kesintisiz animasyon ekleme
+
+Neredeyse tamamlanmış bir uygulamadır, ancak biz tek daha fazla iyileştirme yapabilirsiniz. Uygulama sunucusu iletilere yanıt olarak istemcide şekli taşır. JQuery kullanıcı Arabirimi kitaplık sunucusu tarafından verilen yeni bir konuma şekil konumunu ayarlamak yerine kullanın `animate` işlevi. Bu şeklin sorunsuz geçerli ve yeni konumu arasında taşıyabilirsiniz.
+
+1. İstemci güncelleştirme `updateShape` yönteminde *Default.html* dosyasının vurgulanan kod gibi:
 
     [!code-html[Main](tutorial-high-frequency-realtime-with-signalr/samples/sample6.html?highlight=33-40)]
 
-    Yukarıdaki kod şekli eski konumundan (Bu durumda, 100 milisaniye) animasyon aralığı boyunca sunucu tarafından verilen yeni bir tane taşır. Yeni animasyon başlatılmadan önce şekli üzerinde çalışan herhangi bir önceki animasyon temizlenir.
-2. F5 tuşuna basarak uygulamayı başlatın. Sayfanın URL'sini kopyalayın ve ikinci bir tarayıcı penceresine yapıştırın. Şekil tarayıcı pencerelerini birinde sürükleyin. Şekil bir tarayıcı penceresinde taşımanız gerekir. Diğer pencere şeklinde hareketini hareketini gelen ileti başına bir kez ayarlanan yerine zaman içinde ilişkilendirilmiş daha az düzensiz görüntülenmesi gerekir.
+1. Uygulamayı başlatmak için Yürüt düğmesini seçin.
 
-    ![Uygulama penceresi](tutorial-high-frequency-realtime-with-signalr/_static/image8.png)
+1. Sayfanın URL'sini kopyalayın.
 
-<a id="furthersteps"></a>
+1. Başka bir tarayıcı açın ve adres çubuğuna URL'yi yapıştırın.
 
-## <a name="further-steps"></a>Başka bir adım
+1. Şekil tarayıcı pencerelerini birinde sürükleyin.
 
-Bu öğreticide, istemciler ve sunucular arasında yüksek frekanslı iletiler gönderen bir SignalR uygulama programı öğrendiniz. Bu iletişim paradigma çevrimiçi oyunlar ve diğer simülasyonları gibi geliştirmek için kullanışlıdır [SignalR ile oluşturulan ShootR game](https://shootr.azurewebsites.net/).
+Diğer pencere şeklinde hareketini daha az düzensiz görünür. Uygulama hareketi gelen ileti başına bir kez ayarlanan yerine zaman içinde ilişkilendirir.
 
-Bu öğreticide oluşturduğunuz uygulamanın indirilebileceğini [kod Galerisi](https://code.msdn.microsoft.com/SignalR-20-MoveShape-Demo-6285b83a).
+Bu kod, yeni bir tane eski konumdan şekli taşır. Sunucu, animasyon zaman aralığı boyunca şekil konumunu sağlar. Bu durumda, 100 milisaniyeden kısadır. Uygulama, yeni animasyon başlatılmadan önce şekli üzerinde çalışan herhangi bir önceki animasyon temizler.
 
-SignalR geliştirme kavramları hakkında daha fazla bilgi edinmek için SignalR kaynak kodu ve kaynaklar için aşağıdaki siteleri ziyaret edin:
+## <a name="additional-resources"></a>Ek kaynaklar
 
-- [SignalR projesi](http://signalr.net)
-- [SignalR Github ve örnekleri](https://github.com/SignalR/SignalR)
-- [SignalR Wiki](https://github.com/SignalR/SignalR/wiki)
+Yalnızca öğrendiğiniz hakkında iletişim paradigma çevrimiçi oyunlar ve diğer simülasyonları gibi geliştirmek için kullanışlıdır [SignalR ile oluşturulan ShootR game](https://shootr.azurewebsites.net/).
 
-Bir SignalR uygulamayı azure'a dağıtma hakkında kılavuz için bkz. [Azure App service'taki Web Apps ile SignalR kullanarak](../deployment/using-signalr-with-azure-web-sites.md). Visual Studio web projesini bir Windows Azure Web sitesine dağıtma hakkında ayrıntılı bilgi için bkz. [Azure App Service'te ASP.NET web uygulaması oluşturma](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/).
+SignalR hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
+
+* [SignalR projesi](http://signalr.net)
+
+* [SignalR GitHub ve örnekleri](https://github.com/SignalR/SignalR)
+
+* [SignalR Wiki](https://github.com/SignalR/SignalR/wiki)
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+Bu öğreticide şunları yaptınız:
+
+> [!div class="checklist"]
+> * Projesi kurun
+> * Temel bir uygulama oluşturdu
+> * Uygulama başlatıldığında hub'ına eşlendi
+> * İstemci eklendi
+> * Bir uygulamayı çalıştırdınız
+> * İstemci döngüsü eklendi
+> * Sunucu döngü eklendi
+> * Eklenen kesintisiz animasyon
+
+ASP.NET SignalR 2 sunucu yayın işlevselliği sağlamak için kullandığı bir web uygulamasının nasıl oluşturulacağını öğrenmek için sonraki makaleye ilerleyin.
+> [!div class="nextstepaction"]
+> [SignalR 2 ile sunucu yayını](tutorial-server-broadcast-with-signalr.md)

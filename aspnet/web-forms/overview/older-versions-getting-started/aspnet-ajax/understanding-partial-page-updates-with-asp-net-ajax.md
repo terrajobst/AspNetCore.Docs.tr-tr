@@ -8,14 +8,14 @@ ms.date: 03/28/2008
 ms.assetid: 54d9df99-1161-4899-b4e8-2679c85915e7
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-partial-page-updates-with-asp-net-ajax
 msc.type: authoredcontent
-ms.openlocfilehash: 2e0b1e1d4cbb282e7fd4b27e0a93ba1b9702edea
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 4883046aa16d5e67b7f0c92e15c897ef1a933b67
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41757286"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098941"
 ---
-<a name="understanding-partial-page-updates-with-aspnet-ajax"></a>ASP.NET AJAX ile kısmi sayfa anlama güncelleştirir
+<a name="understanding-partial-page-updates-with-aspnet-ajax"></a>ASP.NET AJAX ile Kısmi Sayfa Güncelleştirmelerini Anlama
 ====================
 tarafından [Scott Cate](https://github.com/scottcate)
 
@@ -46,7 +46,7 @@ Belki de en çok görünen ASP.NET AJAX uzantılarını artımlı ya da kısmi S
 
 Kısmi sayfa işleme tümleştirme olanağı, projenize çok az değişiklikle ASP.NET ile tümleşiktir.
 
-## <a name="walkthrough-integrating-partial-rendering-into-an-existing-project"></a>İzlenecek yol: Kısmi işleme varolan bir projeye tümleştirme
+## <a name="walkthrough-integrating-partial-rendering-into-an-existing-project"></a>İzlenecek yol: Varolan bir projeye kısmi işleme tümleştirme
 
 
 1. Microsoft Visual Studio 2008'de giderek yeni bir ASP.NET Web sitesi projesi oluşturma <em>dosya</em>  <em>- &gt; yeni</em>  <em>- &gt; Websitesi</em> ve ASP.NET Web sitesi iletişim kutusundan seçme. İstediğiniz gibi adlandırabilirsiniz ve dosya sistemi veya Internet Information Services (IIS) içinde yükleyebilir.
@@ -57,7 +57,7 @@ Kısmi sayfa işleme tümleştirme olanağı, projenize çok az değişiklikle A
 
 [!code-aspx[Main](understanding-partial-page-updates-with-asp-net-ajax/samples/sample1.aspx)]
 
-**Kod 2: (default.aspx.cs içinde kırpılmış) Codebehind**
+**Kod 2: Codebehind (default.aspx.cs içinde kırpılmış)**
 
 [!code-csharp[Main](understanding-partial-page-updates-with-asp-net-ajax/samples/sample2.cs)]
 
@@ -91,7 +91,7 @@ Kısmi sayfa işleme tümleştirme olanağı, projenize çok az değişiklikle A
 
 1. Web.config dosyanızı açın. Visual Studio System.Web.Extensions.dll derleme başvurusu otomatik olarak eklemiştir dikkat edin.
 
-1. Visual Studio 2008'deki yenilikler: ASP.NET Web sitesi proje şablonlarıyla otomatik olarak gelen web.config ASP.NET AJAX uzantıları için gereken tüm başvurular içerir ve açıklamalı bölümlerini olabilir yapılandırma bilgilerini içerir Ek işlevselliğini etkinleştirmek için açıklamalı kaydetmeyin. ASP.NET 2.0 AJAX uzantıları yüklediğinizde visual Studio 2005 benzer şablonları vardı. Ancak, Visual Studio 2008'de çevirme AJAX uzantıları varsayılan olarak (diğer bir deyişle, bunlar varsayılan olarak başvurulur, ancak başvuru olarak kaldırılabilir).
+1. Visual Studio 2008'de yenilikler: ASP.NET Web projesi şablonları otomatik olarak ASP.NET AJAX uzantıları için gereken tüm başvurular içerir ve içerir sitesi ile birlikte gelen web.config ek etkinleştirmek için beklemediğiniz açıklamalı yapılandırma bilgilerini bölümlerini yorum yaptı işlevselliği. ASP.NET 2.0 AJAX uzantıları yüklediğinizde visual Studio 2005 benzer şablonları vardı. Ancak, Visual Studio 2008'de çevirme AJAX uzantıları varsayılan olarak (diğer bir deyişle, bunlar varsayılan olarak başvurulur, ancak başvuru olarak kaldırılabilir).
 
 
 [![](understanding-partial-page-updates-with-asp-net-ajax/_static/image8.png)](understanding-partial-page-updates-with-asp-net-ajax/_static/image7.png)
@@ -111,7 +111,7 @@ Visual Studio 2008 ile bir ASP.NET AJAX etkinleştirilmiş web sitesi için önc
 
 Biçimlendirme etkin özellikler:
 
-| **Özellik adı** | **Türü** | **Açıklama** |
+| **Özellik adı** | **Tür** | **Açıklama** |
 | --- | --- | --- |
 | AllowCustomErrors-yeniden yönlendirme | bool | Özel hata bölümü web.config dosyasının hataları işlemek için kullanılıp kullanılmayacağını belirtir. |
 | AsyncPostBackError iletisi | Dize | Alır veya ayarlar bir hata oluşturulursa istemciye gönderilen hata iletisi. |
@@ -124,7 +124,7 @@ Biçimlendirme etkin özellikler:
 
 Yalnızca kod özellikleri:
 
-| **Özellik adı** | **Türü** | **Açıklama** |
+| **Özellik adı** | **Tür** | **Açıklama** |
 | --- | --- | --- |
 | AuthenticationService | AuthenticationService Yöneticisi | İstemciye gönderilecek ASP.NET kimlik doğrulama hizmeti proxy ayrıntılarını alır. |
 | IsDebuggingEnabled | bool | Olup olmadığını alır betik ve kod hata ayıklaması etkinleştirildi. |
@@ -136,7 +136,7 @@ Yalnızca kod özellikleri:
 
 Ortak kod yöntemleri:
 
-| **Yöntem adı** | **Türü** | **Açıklama** |
+| **Yöntem adı** | **Tür** | **Açıklama** |
 | --- | --- | --- |
 | SetFocus(string) | Geçersiz kılma | İstek tamamlandıktan sonra istemcinin odağı özel bir denetime ayarlar. |
 
@@ -153,7 +153,7 @@ Biçimlendirme alt öğeleri:
 
 ScriptManager, ASP.NET AJAX uzantıları için temel çekirdek denetimidir. Kod kitaplığı (kapsamlı istemci tarafı komut dosyası tür sistemine dahil) erişim sağlar, kısmi işleme destekler ve ek ASP.NET Hizmetleri (örneğin, kimlik doğrulaması ve profil oluşturma, aynı zamanda diğer Web hizmetlerini) için kapsamlı destek sağlar. ScriptManager denetimini Genelleştirme ve yerelleştirme için istemci betiklerini desteği de sağlar.
 
-## <a name="providing-alterative-and-supplemental-scripts"></a>Diğer ve ek betikleri sağlama
+## <a name="providing-alternative-and-supplemental-scripts"></a>Alternatif ve ek betikleri sağlama
 
 Microsoft ASP.NET 2.0 AJAX uzantıları hem hata ayıklama tüm betik kodu içerebilir ve başvurulan bütünleştirilmiş kod içinde gömülü kaynaklar. sürümleri yayın olsa da geliştiriciler yanı sıra ScriptManager yeniden yönlendirmek için özelleştirilmiş komut dosyaları kaydetmek ücretsiz Ek gerekli betikler.
 
@@ -169,7 +169,7 @@ AsyncPostBackError olay tüketen tarafından belirttiğiniz `AsyncPostBackErrorM
 
 İstemci tarafı özelleştirmesi, varsayılan uyarı kutusunu kullanmak yerine mümkündür; Örneğin, özelleştirilmiş görüntülemek isteyebilirsiniz `<div>` varsayılan tarayıcı kalıcı iletişim kutusu yerine öğesi. Bu durumda, istemci komut dosyası hata işleyebilir:
 
-**5 listeleniyor: özel hataları görüntülemek için istemci tarafı betiği**
+**5 listesi: Özel hatalar görüntülemek için istemci tarafı komut dosyası**
 
 [!code-html[Main](understanding-partial-page-updates-with-asp-net-ajax/samples/sample4.html)]
 
@@ -185,7 +185,7 @@ ScriptManager denetimini yerelleştirme betik dizeleri ve kullanıcı arabirimi 
 
 Biçimlendirme etkin özellikler:
 
-| **Özellik adı** | **Türü** | **Açıklama** |
+| **Özellik adı** | **Tür** | **Açıklama** |
 | --- | --- | --- |
 | Na | bool | Alt denetimler otomatik geri gönderme yenileme çağırma belirtir. |
 | RenderMode | Enum (blok, satır içi) | İçerik yolu görsel olarak sunulur belirtir. |
@@ -193,7 +193,7 @@ Biçimlendirme etkin özellikler:
 
 Yalnızca kod özellikleri:
 
-| **Özellik adı** | **Türü** | **Açıklama** |
+| **Özellik adı** | **Tür** | **Açıklama** |
 | --- | --- | --- |
 | IsInPartialRendering | bool | UpdatePanel geçerli istek için kısmi işleme destekleyen olup olmadığını alır. |
 | ContentTemplate | ITemplate | Biçimlendirme şablonu güncelleştirme isteği alır. |
@@ -202,7 +202,7 @@ Yalnızca kod özellikleri:
 
 Ortak kod yöntemleri:
 
-| **Yöntem adı** | **Türü** | **Açıklama** |
+| **Yöntem adı** | **Tür** | **Açıklama** |
 | --- | --- | --- |
 | Update() | Geçersiz kılma | Belirtilen UpdatePanel programlı olarak güncelleştirir. Kısmi bir işleme, aksi takdirde untriggered UpdatePanel tetiklemek sunucu isteği sağlar. |
 
@@ -280,7 +280,7 @@ Son olarak, bir uygulama UpdatePanels kullanılmasını gerektiriyorsa, aşağı
 
 Biçimlendirme etkin özellikler:
 
-| **Özellik adı** | **Türü** | **Açıklama** |
+| **Özellik adı** | **Tür** | **Açıklama** |
 | --- | --- | --- |
 | AssociatedUpdate PanelID | Dize | Bu UpdateProgress üzerinde bildirmelisiniz UpdatePanel Kimliğini belirtir. |
 | DisplayAfter | int | Bu denetim, zaman uyumsuz istek başladıktan sonra görüntülenmeden önce zaman aşımını milisaniye cinsinden belirtir. |

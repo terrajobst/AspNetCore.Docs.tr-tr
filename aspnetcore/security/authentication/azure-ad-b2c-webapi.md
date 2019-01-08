@@ -6,12 +6,12 @@ ms.author: casoper
 ms.date: 09/21/2018
 ms.custom: mvc, seodec18
 uid: security/authentication/azure-ad-b2c-webapi
-ms.openlocfilehash: 9c541644d276bbdc990bb01f8bd80c92862cd6f0
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
+ms.openlocfilehash: 6d0365b103572d6059ce61c54b9b3406da9e5bd4
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284623"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098707"
 ---
 # <a name="authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a>Web API ASP.NET Core, Azure Active Directory B2C ile kimlik doğrulaması
 
@@ -157,8 +157,8 @@ Web API'si kimlik doğrulaması gerektiren doğrulamak için ilk kimlik doğrula
     ![yanıt 401 Yetkisiz](./azure-ad-b2c-webapi/postman-401-status.png)
 
 > [!IMPORTANT]
-> "Herhangi bir yanıt alınamadı" bir hata alırsanız, SSL sertifika doğrulamayı devre dışı bırakmanız gerekebilir [Postman ayarları](https://learning.getpostman.com/docs/postman/launching_postman/settings). 
- 
+> "Herhangi bir yanıt alınamadı" bir hata alırsanız, SSL sertifika doğrulamayı devre dışı bırakmanız gerekebilir [Postman ayarları](https://learning.getpostman.com/docs/postman/launching_postman/settings).
+
 ### <a name="obtain-a-bearer-token"></a>Taşıyıcı belirteç edinme
 
 Web API'sine kimliği doğrulanmış bir isteği yapmak için bir taşıyıcı belirteç gereklidir. Postman, Azure AD B2C kiracısı için oturum açın ve bir belirteç almak kolaylaştırır.

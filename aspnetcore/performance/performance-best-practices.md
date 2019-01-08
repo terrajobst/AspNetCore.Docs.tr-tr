@@ -4,14 +4,14 @@ author: mjrousos
 description: Genel performans sorunlarını önleme ve ASP.NET Core uygulamaları performansını artırmak için ipuçları.
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
-ms.date: 11/29/2018
+ms.date: 1/9/2019
 uid: performance/performance-best-practices
-ms.openlocfilehash: 9f3ed97bf4d4eb371ff5ae3874234b44745cc4ca
-ms.sourcegitcommit: 0fc89b80bb1952852ecbcf3c5c156459b02a6ceb
+ms.openlocfilehash: 25aa4c1e22ead7db4775c6e5e81b6fd627c6d7a6
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52618122"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54099071"
 ---
 # <a name="aspnet-core-performance-best-practices"></a>ASP.NET Core performansı en iyi uygulamalar
 
@@ -19,8 +19,7 @@ Tarafından [Mike Rousos](https://github.com/mjrousos)
 
 Bu konu, ASP.NET Core ile en iyi performans için yönergeler sağlar.
 
-<a name="hot"></a>
-<!-- TODO review hot code paths is jargon that won't MT (machine translate) and is not well defined for native speakers. --> Bu belgede, sık erişimli kod yolu sık çağrılır ve yürütme süresi çoğunu oluştuğu bir kod yolu olarak tanımlanır. Sık erişimli kod yollarını genellikle uygulama ölçeklendirme ve performans sınırlayın.
+<a name="hot"></a> Bu belgede, sık erişimli kod yolu sık çağrılır ve yürütme süresi çoğunu oluştuğu bir kod yolu olarak tanımlanır. Sık erişimli kod yollarını genellikle uygulama ölçeklendirme ve performans sınırlayın.
 
 ## <a name="cache-aggressively"></a>Agresif bir biçimde önbelleğe alma
 
@@ -129,6 +128,10 @@ ASP.NET Core uygulamaları karmaşık ön uç ile sık birçok JavaScript, CSS v
 
 * **Yapmak** kullanan ASP.NET Core'nın [yerleşik destek](xref:client-side/bundling-and-minification) paketleme ve küçültme istemci varlıklar için.
 * **Yapmak** gibi diğer üçüncü taraf araçları göz önünde bulundurun [Gulp](uid:client-side/bundling-and-minification#consume-bundleconfigjson-from-gulp) veya [Web](https://webpack.js.org/) daha karmaşık istemci varlık yönetimi.
+
+## <a name="compress-responses"></a>Yanıtları sıkıştırma
+
+ Yanıt boyutu genellikle azaltma, uygulama yanıt verme hızını genellikle önemli ölçüde artırır. Yük boyutları azaltmak için bir uygulamanın yanıtları sıkıştırma yoludur. Daha fazla bilgi için [yanıt sıkıştırma](xref:performance/response-compression).
 
 ## <a name="use-the-latest-aspnet-core-release"></a>ASP.NET Core en son sürümü kullan
 

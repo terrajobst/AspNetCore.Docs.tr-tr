@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/18/2018
 uid: performance/response-compression
-ms.openlocfilehash: 51ab51652a7b3f9b4ef97b3abbffe2e398c0bfb5
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: a9f72a6816298b11e7b7d30b2b4bd44083baab3a
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637761"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54099045"
 ---
 # <a name="response-compression-in-aspnet-core"></a>ASP.NET core'da yanıt sıkıştırma
 
@@ -143,8 +143,10 @@ public class Startup
 }
 ```
 
-> [!NOTE]
-> Gibi bir araç kullanın [Fiddler](http://www.telerik.com/fiddler), [Firebug](http://getfirebug.com/), veya [Postman](https://www.getpostman.com/) ayarlanacak `Accept-Encoding` istek üst bilgisi ve yanıt üstbilgileri, boyutu ve gövde çalışın.
+Notlar: 
+
+* `app.UseResponseCompression` önce çağrılmalıdır `app.UseMvc`.
+* Gibi bir araç kullanın [Fiddler](http://www.telerik.com/fiddler), [Firebug](http://getfirebug.com/), veya [Postman](https://www.getpostman.com/) ayarlanacak `Accept-Encoding` istek üst bilgisi ve yanıt üstbilgileri, boyutu ve gövde çalışın.
 
 Örnek uygulamaya talebinizi `Accept-Encoding` üstbilgi ve yanıt sıkıştırılmamış olup olmadığına bakın. `Content-Encoding` Ve `Vary` üstbilgileri yanıtta mevcut değildir.
 

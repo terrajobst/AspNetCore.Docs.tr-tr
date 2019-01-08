@@ -5,14 +5,14 @@ description: Bir MVC uygulaması için bir görünüm ekleme
 ms.author: riande
 ms.date: 09/1721/2017
 uid: mvc/overview/getting-started/introduction/adding-a-view
-ms.openlocfilehash: 56c00d5992a95971f48bb6e1ec30d63706948997
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 47447c82506cc0eb4dafabe272b3204f76a2edd7
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48578243"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098668"
 ---
-<a name="adding-a-view"></a>Görünüm ekleme
+<a name="adding-a-view"></a>Görünüm Ekleme
 ====================
 Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
@@ -22,7 +22,7 @@ Bu bölümde, değiştirilecek yedekleyeceksiniz `HelloWorldController` sınıf�
 
 Görünüm şablonu kullanarak dosyanın oluşturacaksınız [Razor görünüm altyapısı](../../../../web-pages/overview/getting-started/introducing-razor-syntax-c.md). Razor tabanlı bir görünüm şablonları bir *.cshtml* dosya uzantısı ve C# kullanarak çıktısını HTML oluşturmak için zarif bir yol sağlar. Razor karakterler ve bir şablonu görüntüleme yazarken gerekli tuş vuruşları sayısını en aza indirir ve iş akışı kodlama daha hızlı bir akış sağlar.
 
-Şu anda `Index` yöntemi controller sınıfında sabit kodlu olduğunu belirten bir ileti içeren bir dize döndürür. Değişiklik `Index` döndürülecek yöntemi bir `View` aşağıdaki kodda gösterildiği gibi nesne:
+Şu anda `Index` yöntemi controller sınıfında sabit kodlu olduğunu belirten bir ileti içeren bir dize döndürür. Değişiklik `Index` denetleyicileri çağrılacak yöntem [görünümü](/dotnet/api/microsoft.aspnetcore.mvc.controller.view#Microsoft_AspNetCore_Mvc_Controller_View) aşağıdaki kodda gösterildiği gibi yöntemi:
 
 [!code-csharp[Main](adding-a-view/samples/sample1.cs?highlight=1,3)]
 
@@ -112,7 +112,7 @@ Bizim küçük bit &quot;veri&quot; (Bu durumda &quot;bizim görünümü şablon
 
 Bir veritabanına gidin ve modelleri hakkında konuşmak önce ilk görünümü denetleyicisi bilgi geçirme hakkında konuşalım. Denetleyici sınıflarına gelen bir URL isteğine yanıt olarak çağrılır. Denetleyici sınıfı Burada, istekleri, bir veritabanından veri alır ve sonuçta ne tür bir tarayıcıya gönderilecek yanıt verirse gelen tarayıcı işleyen kodu yazdığınız yerdedir. Görünüm şablonları oluşturmak ve bir HTML yanıtını tarayıcıya biçimlendirmek için bir denetleyiciden sonra kullanılabilir.
 
-Denetleyicileri, seçtiğiniz veri veya nesneleri tarayıcı yanıt işlemek bir şablonu görüntüleme için sırayla gerekli sağlamaktan sorumludur. En iyi yöntem: **şablonu görüntüle hiçbir zaman iş mantığını gerçekleştirebilirsiniz veya bir veritabanıyla doğrudan etkileşim**. Bunun yerine, bir şablonu görüntüleme için denetleyici tarafından sağlanan veri ile çalışması gerekir. Bu koruma &quot;görev ayrımı nettir&quot; yardımcı olur, kodunuzu temiz, test edilebilir ve daha sürdürülebilir tutun.
+Denetleyicileri, seçtiğiniz veri veya nesneleri tarayıcı yanıt işlemek bir şablonu görüntüleme için sırayla gerekli sağlamaktan sorumludur. En iyi yöntem: **Şablonu Görüntüle hiçbir zaman iş mantığını gerçekleştirebilirsiniz veya bir veritabanıyla doğrudan etkileşim**. Bunun yerine, bir şablonu görüntüleme için denetleyici tarafından sağlanan veri ile çalışması gerekir. Bu koruma &quot;görev ayrımı nettir&quot; yardımcı olur, kodunuzu temiz, test edilebilir ve daha sürdürülebilir tutun.
 
 Şu anda `Welcome` eylem yönteminde `HelloWorldController` sınıfı alır bir `name` ve `numTimes` parametresi ve çıkışları doğrudan tarayıcıya değerleri. Bu yanıt dize olarak işleme denetleyiciniz yerine denetleyici görünüm şablonu kullanmayı değiştirelim. Şablonu Görüntüle yanıtı oluşturmak için uygun veri bitleri denetleyicisinden görünüme iletmek gerektiği anlamına gelir dinamik bir yanıt oluşturur. Şablonu görüntüleme, gereken dinamik (Parametreler) verilerinizden denetleyicisi sağlayarak bunu yapabilirsiniz bir `ViewBag` görünüm şablonu erişebiliyorsa nesne.
 

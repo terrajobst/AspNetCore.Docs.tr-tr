@@ -3,14 +3,14 @@ title: ASP.NET Core yanıt önbelleğe alma
 author: rick-anderson
 description: Önbelleğe alma daha düşük bant genişliği gereksinimlerine yanıt kullanmayı öğrenin ve ASP.NET Core uygulamaları performansını artırın.
 ms.author: riande
-ms.date: 09/20/2017
+ms.date: 01/07/2018
 uid: performance/caching/response
-ms.openlocfilehash: 99093cd281ffa8dddc574dc27254c0175e2651b3
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 5fbcaddff6e53d01a19ba8a7455c719feb614326
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207374"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098954"
 ---
 # <a name="response-caching-in-aspnet-core"></a>ASP.NET Core yanıt önbelleğe alma
 
@@ -23,7 +23,7 @@ Tarafından [John Luo](https://github.com/JunTaoLuo), [Rick Anderson](https://tw
 
 Yanıt önbelleğe alma, bir istemci ya da proxy web sunucusunda yapar istek sayısını azaltır. Yanıtları önbelleğe alma de azaltır çalışmanın bir yanıtı oluşturmak için web sunucusu gerçekleştirir. Yanıt önbelleğe alma, istemci proxy ve önbellek yanıtları Ara yazılımıyla nasıl istediğinizi belirtmek üstbilgileri tarafından denetlenir.
 
-Web sunucusu eklediğinizde, yanıtları önbelleğe alabilir [yanıt önbelleğe alma ara yazılımı](xref:performance/caching/middleware).
+[ResponseCache özniteliği](#responsecache-attribute) yanıt üst bilgileri, hangi istemcilerin yanıtları önbelleğe alırken dikkate, önbelleğe alma ayarını katılır. [Yanıtları önbelleğe alma ara yazılımı](xref:performance/caching/middleware) sunucusunda önbellek yanıtları için kullanılabilir. Ara yazılım kullanabilirsiniz `ResponseCache` özniteliği sunucu tarafı önbelleğe alma davranışını etkilemek için özellikleri.
 
 ## <a name="http-based-response-caching"></a>HTTP tabanlı yanıt önbelleğe alma
 
@@ -36,8 +36,8 @@ Ortak `Cache-Control` yönergeleri, aşağıdaki tabloda gösterilmiştir.
 | [public](https://tools.ietf.org/html/rfc7234#section-5.2.2.5)   | Bir önbellek yanıt depolayabilir. |
 | [private](https://tools.ietf.org/html/rfc7234#section-5.2.2.6)  | Yanıt tarafından paylaşılan bir önbellek depolanması gerekir. Özel bir önbellek depolayın ve yanıt yeniden kullanın. |
 | [Maksimum yaş](https://tools.ietf.org/html/rfc7234#section-5.2.1.1)  | İstemci, yaş, belirtilen sayıda saniye büyük bir yanıtı kabul edilmeyecektir. Örnekler: `max-age=60` (60 saniye) `max-age=2592000` (1 ay) |
-| [önbellek yok](https://tools.ietf.org/html/rfc7234#section-5.2.1.4) | **İsteklerinde**: önbellek isteği karşılamak için saklı bir yanıt kullanmamalıdır. Not: Yeniden için istemci kaynak sunucu yanıtı oluşturur ve önbelleğinde depolanan yanıtta ara yazılım güncelleştirmeleri.<br><br>**Yanıtlar üzerinde**: kaynak sunucu doğrulaması olmadan bir sonraki istek için yanıt kullanılmamalıdır. |
-| [No-store](https://tools.ietf.org/html/rfc7234#section-5.2.1.5) | **İsteklerinde**: önbellek isteği depolamamayı gerekir.<br><br>**Yanıtlar üzerinde**: önbellek yanıt herhangi bir bölümünü depolamamayı gerekir. |
+| [önbellek yok](https://tools.ietf.org/html/rfc7234#section-5.2.1.4) | **İsteklerinde**: Bir önbellekte depolanmış bir yanıt isteği karşılamak için kullanmamalıdır. Not: İçin istemci yanıt kaynak sunucuya yeniden oluşturur ve ara yazılım önbelleğinde depolanan yanıtta güncelleştirir.<br><br>**Yanıtlar üzerinde**: Kaynak sunucu doğrulaması olmadan bir sonraki istek için yanıt kullanılmamalıdır. |
+| [No-store](https://tools.ietf.org/html/rfc7234#section-5.2.1.5) | **İsteklerinde**: Bir önbellek isteği depolamamayı gerekir.<br><br>**Yanıtlar üzerinde**: Bir önbellek yanıt herhangi bir bölümünü depolamamayı gerekir. |
 
 Önbelleğe alma bir rol oynar diğer önbellek üst bilgileri aşağıdaki tabloda gösterilmektedir.
 
@@ -54,7 +54,7 @@ Ortak `Cache-Control` yönergeleri, aşağıdaki tabloda gösterilmiştir.
 
 Her zaman istemci uygularken `Cache-Control` HTTP önbelleğe alma amacı gerçekleştiriliyorsa, istek üst bilgilerini mantıklı. Altında bir resmi belirtimi, önbelleğe alma, istemcileri ve proxy sunucuları, ağ üzerinden isteklerini karşılamak gecikme süresi ve ağ yükünü azaltmak için tasarlanmıştır. Mutlaka, kaynak sunucu üzerindeki yükü denetlemek için bir yol değil.
 
-Kullanırken bu önbelleğe alma davranışı üzerinde geçerli bir geliştirici denetimi yoktur olan [yanıt önbelleğe alma ara yazılımı](xref:performance/caching/middleware) çünkü resmi belirtimi önbelleğe alma ara yazılımı uyar. [Ara yazılıma gelecekteki iyileştirmeler](https://github.com/aspnet/ResponseCaching/issues/96) bir isteğin yoksaymak için bir ara yazılım yapılandırma izin verecek `Cache-Control` önbelleğe alınan yanıt hizmet verirken başlığı. Ara yazılım kullandığınızda bu, sunucunuzdaki yük daha iyi denetim için bir fırsat sunar.
+Kullanırken bu önbelleğe alma davranışı üzerinde Geliştirici denetimi olan [yanıt önbelleğe alma ara yazılımı](xref:performance/caching/middleware) çünkü resmi belirtimi önbelleğe alma ara yazılımı uyar. [Ara yazılım geliştirmeler planlı](https://github.com/aspnet/AspNetCore/issues/2612) bir isteğin yoksaymak için bir ara yazılım yapılandırmak için bir fırsat `Cache-Control` önbelleğe alınan yanıt hizmet verirken başlığı. Planlanan geliştirmeleri daha iyi denetim sunucu iş yükü için bir fırsat sağlar.
 
 ## <a name="other-caching-technology-in-aspnet-core"></a>ASP.NET core'da diğer önbelleğe alma teknolojisini
 
@@ -91,7 +91,7 @@ Daha fazla bilgi için [dağıtılmış önbellek etiketi Yardımcısı](xref:mv
 
 [VaryByQueryKeys](/dotnet/api/microsoft.aspnetcore.mvc.responsecacheattribute.varybyquerykeys) saklı yanıt sorgu anahtarları ait belirtilen liste değerleriyle göre değişir. Tek bir değeri `*` ara yazılım değişir, yanıtların tümü tarafından istek sorgu dizesi parametreleri sağlanır. `VaryByQueryKeys` ASP.NET Core 1.1 veya sonraki bir sürümü gerektirir.
 
-Ayarlanacak yanıt önbelleğe alma ara yazılımı etkinleştirilmelidir `VaryByQueryKeys` özelliği; Aksi takdirde, çalışma zamanı özel durum oluşturulur. Karşılık gelen bir HTTP üst bilgisi için hiç `VaryByQueryKeys` özelliği. Özelliği, yanıt önbelleğe alma ara yazılımı tarafından işlenen bir HTTP özelliğidir. Önbelleğe alınan yanıt verecek ara yazılımı için sorgu dizesi ve sorgu dizesi değerini, önceki bir istek eşleşmelidir. Örneğin, istekler ve sonuçları aşağıdaki tabloda gösterilen bir dizi göz önünde bulundurun.
+[Yanıtları önbelleğe alma ara yazılımı](xref:performance/caching/middleware) ayarlamak için etkinleştirilmelidir `VaryByQueryKeys` özelliği; Aksi takdirde, çalışma zamanı özel durum oluşturulur. Karşılık gelen bir HTTP üst bilgisi için hiç `VaryByQueryKeys` özelliği. Özelliği, yanıt önbelleğe alma ara yazılımı tarafından işlenen bir HTTP özelliğidir. Önbelleğe alınan yanıt verecek ara yazılımı için sorgu dizesi ve sorgu dizesi değerini, önceki bir istek eşleşmelidir. Örneğin, istekler ve sonuçları aşağıdaki tabloda gösterilen bir dizi göz önünde bulundurun.
 
 | İstek                          | Sonuç                   |
 | -------------------------------- | ------------------------ |

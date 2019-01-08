@@ -6,16 +6,16 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: security/index
-ms.openlocfilehash: 579e472e01efd08bbafe949e37a3b655a42a5b46
-ms.sourcegitcommit: 04b55a5ce9d649ff2df926157ec28ae47afe79e2
+ms.openlocfilehash: 933501411169d89c4b24edda743c47591aa7a87a
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52156925"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098967"
 ---
 # <a name="overview-of-aspnet-core-security"></a>ASP.NET Core güvenliğine genel bakış
 
-ASP.NET Core geliştiricilerinin kolayca yapılandırmak ve uygulamalarını için güvenliği yönetmek etkinleştirir. ASP.NET Core kimlik doğrulaması, yetkilendirme, veri koruma, SSL zorlama, uygulama gizli anahtarlarının, istek sahteciliğinden koruma koruması ve CORS yönetim yönetmeye yönelik özellikler içerir. Bu güvenlik özellikleri, güçlü derleme henüz ASP.NET Core uygulamalarının güvenliğini sağlama imkan tanır.
+ASP.NET Core geliştiricilerinin kolayca yapılandırmak ve uygulamalarını için güvenliği yönetmek etkinleştirir. ASP.NET Core kimlik doğrulaması, yetkilendirme, veri koruma, HTTPS zorlama, uygulama gizli anahtarlarının, istek sahteciliğinden koruma koruması ve CORS yönetim yönetmeye yönelik özellikler içerir. Bu güvenlik özellikleri, güçlü derleme henüz ASP.NET Core uygulamalarının güvenliğini sağlama imkan tanır.
 
 ## <a name="aspnet-core-security-features"></a>ASP.NET Core güvenlik özellikleri
 

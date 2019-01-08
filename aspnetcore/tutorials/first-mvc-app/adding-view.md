@@ -5,12 +5,12 @@ description: Basit bir ASP.NET Core MVC uygulaması görünüm ekleme
 ms.author: riande
 ms.date: 03/04/2017
 uid: tutorials/first-mvc-app/adding-view
-ms.openlocfilehash: 5267e5a49bb6ecdd4cef671989f111eae7a64ec4
-ms.sourcegitcommit: 4e87712029de2aceb1cf2c52e9e3dda8195a5b8e
+ms.openlocfilehash: 0c9c682f39bf86b4d83841eca21fc67b718950e9
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53381822"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098720"
 ---
 # <a name="add-a-view-to-an-aspnet-core-mvc-app"></a>Bir ASP.NET Core MVC uygulaması için bir Görünüm Ekle
 
@@ -24,7 +24,7 @@ Razor kullanarak görünüm şablon dosyası oluşturun. Razor tabanlı bir gör
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_4)]
 
-Yukarıdaki kod döndürür bir `View` nesne. Bir şablonu görüntüleme, tarayıcının bir HTML yanıtı oluşturmak için kullanır. Denetleyici yöntemlerinde (eylem yöntemleri olarak da bilinir) gibi `Index` yukarıdaki yöntemi genellikle iade bir [IActionResult](/dotnet/api/microsoft.aspnetcore.mvc.iactionresult) (veya türetilmiş bir sınıf `ActionResult`), dize gibi bir tür değil.
+Önceki kod, denetleyicinin çağırır <xref:Microsoft.AspNetCore.Mvc.Controller.View*> yöntemi. HTML yanıtı oluşturmak için bir görünüm şablonu kullanır. Denetleyici yöntemlerinde (olarak da bilinen *eylem yöntemleri*), gibi `Index` yukarıdaki yöntemi genellikle iade bir <xref:Microsoft.AspNetCore.Mvc.IActionResult> (veya türetilmiş bir sınıf <xref:Microsoft.AspNetCore.Mvc.ActionResult>), bir tür değil istediğiniz `string`.
 
 ## <a name="add-a-view"></a>Görünüm ekleme
 

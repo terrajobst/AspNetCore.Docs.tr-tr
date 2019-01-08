@@ -5,12 +5,12 @@ description: Kimlik ile bir ASP.NET Core uygulaması kullanın. Parola gereksini
 ms.author: riande
 ms.date: 08/08/2018
 uid: security/authentication/identity
-ms.openlocfilehash: 099ebd398238173079e5e659171f31ee5b1f7452
-ms.sourcegitcommit: 85f2939af7a167b9694e1d2093277ffc9a741b23
+ms.openlocfilehash: 03f89114b516a37ee1d06934f2e549b4d56ff099
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50968338"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54098775"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>ASP.NET core'da kimliğe giriş
 
@@ -29,13 +29,13 @@ Bu konuda, kimlik kaydolun, oturum açma için nasıl kullanacağınızı öğre
 <a name="adi"></a>
 ## <a name="adddefaultidentity-and-addidentity"></a>AddDefaultIdentity ve AddIdentity
 
-[AddDefaultIdentity](/dotnet/api/microsoft.extensions.dependencyinjection.identityservicecollectionuiextensions.adddefaultidentity?view=aspnetcore-2.1#Microsoft_Extensions_DependencyInjection_IdentityServiceCollectionUIExtensions_AddDefaultIdentity__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_Microsoft_AspNetCore_Identity_IdentityOptions__) ASP kullanıma sunulmuştur. Core 2.1. Çağırma `AddDefaultIdentity` aşağıdaki çağırmak için benzer:
+[AddDefaultIdentity](/dotnet/api/microsoft.extensions.dependencyinjection.identityservicecollectionuiextensions.adddefaultidentity?view=aspnetcore-2.1#Microsoft_Extensions_DependencyInjection_IdentityServiceCollectionUIExtensions_AddDefaultIdentity__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_Microsoft_AspNetCore_Identity_IdentityOptions__) ASP.NET Core 2.1 içinde kullanılmaya başlandı. Çağırma `AddDefaultIdentity` aşağıdaki çağırmak için benzer:
 
 * [AddIdentity](/dotnet/api/microsoft.extensions.dependencyinjection.identityservicecollectionextensions.addidentity?view=aspnetcore-2.1#Microsoft_Extensions_DependencyInjection_IdentityServiceCollectionExtensions_AddIdentity__2_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_Microsoft_AspNetCore_Identity_IdentityOptions__)
 * [AddDefaultUI](/dotnet/api/microsoft.aspnetcore.identity.identitybuilderuiextensions.adddefaultui?view=aspnetcore-2.1#Microsoft_AspNetCore_Identity_IdentityBuilderUIExtensions_AddDefaultUI_Microsoft_AspNetCore_Identity_IdentityBuilder_)
 * [AddDefaultTokenProviders](/dotnet/api/microsoft.aspnetcore.identity.identitybuilderextensions.adddefaulttokenproviders?view=aspnetcore-2.1#Microsoft_AspNetCore_Identity_IdentityBuilderExtensions_AddDefaultTokenProviders_Microsoft_AspNetCore_Identity_IdentityBuilder_)
 
-Bkz: [AddDefaultIdentity kaynak](https://github.com/aspnet/Identity/blob/2634637fd535b229762b5e4a49cdd128f4d8f12e/src/UI/IdentityServiceCollectionUIExtensions.cs#L47-L64) daha fazla bilgi için.
+Bkz: [AddDefaultIdentity kaynak](https://github.com/aspnet/AspNetCore/blob/release/2.2/src/Identity/UI/src/IdentityServiceCollectionUIExtensions.cs#L47-L63) daha fazla bilgi için.
 
 ::: moniker-end
 
@@ -45,7 +45,7 @@ Bireysel kullanıcı hesapları ile bir ASP.NET Core Web uygulaması projesi olu
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Seçin **dosya** > **yeni** > **proje**.
+* **Dosya** > **Yeni** > **Proje**’yi seçin.
 * Seçin **ASP.NET Core Web uygulaması**. Projeyi adlandırın **WebApp1** proje indirme ile aynı ad alanına sahip. **Tamam**'ı tıklatın.
 * Bir ASP.NET Core seçin **Web uygulaması** ASP.NET Core 2.1 için seçip **kimlik doğrulamayı Değiştir**.
 * Seçin **bireysel kullanıcı hesapları** tıklatıp **Tamam**.
@@ -151,7 +151,7 @@ PowerShell komut ayırıcı olarak virgül kullanır. PowerShell kullanarak, dos
 
    Kullanıcı başarıyla oluşturulmuş olsa bile, kullanıcı çağırarak oturum `_signInManager.SignInAsync`.
 
-   **Not:** bkz [hesap onayı](xref:security/authentication/accconfirm#prevent-login-at-registration) kayıt sırasında hemen oturum açma önlemek adımlar.
+   **Not:** Bkz: [hesap onayı](xref:security/authentication/accconfirm#prevent-login-at-registration) adımları hemen oturum açma işleminde kayıt önlemek için.
 
 ### <a name="log-in"></a>Oturum aç
 
@@ -182,7 +182,7 @@ Temel (`Controller` veya `PageModel`) sınıfı kullanıma sunan bir `User` öze
 
 ::: moniker-end
 
-### <a name="log-out"></a>Oturumu Kapat
+### <a name="log-out"></a>Oturumu kapat
 
 ::: moniker range=">= aspnetcore-2.1"
 

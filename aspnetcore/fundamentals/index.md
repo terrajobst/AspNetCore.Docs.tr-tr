@@ -4,14 +4,14 @@ author: rick-anderson
 description: ASP.NET Core uygulamaları oluşturmaya yönelik temel kavramları keşfedin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 01/06/2019
 uid: fundamentals/index
-ms.openlocfilehash: 11dc6336ae7667038983c967f28232bef325f5bb
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: a56beebd796448705c7b84f47699e9739f451419
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637776"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54099240"
 ---
 # <a name="aspnet-core-fundamentals"></a>ASP.NET Core temelleri
 
@@ -63,7 +63,7 @@ ASP.NET Core uygulaması bir web sunucusunu oluşturan bir konsol uygulaması ol
 
 ::: moniker-end
 
-`Startup` Sınıfıdır istek işleme ardışık düzen tanımladığınız ve uygulama tarafından gereken diğer hizmetler yapılandırıldığı. `Startup` Sınıfı genel olmalıdır ve aşağıdaki yöntemleri içerir:
+`Startup` Sınıfı, burada uygulaması için gereken tüm hizmetleri yapılandırılır ve istek işleme ardışık düzen tanımlanır. `Startup` Sınıfı genel olmalıdır ve genellikle aşağıdaki yöntemleri içerir. `Startup.ConfigureServices` isteğe bağlıdır.
 
 ::: moniker range=">= aspnetcore-2.0"
 

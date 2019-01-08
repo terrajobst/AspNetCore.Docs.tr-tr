@@ -4,14 +4,14 @@ author: rick-anderson
 description: Formlarda etiket yardımcılarını kullanılan yerleşik açıklar.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 1/11/2019
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: 7319fbbfe3e78e61526f9042b2b6004a351c2186
-ms.sourcegitcommit: 2ef32676c16f76282f7c23154d13affce8c8bf35
+ms.openlocfilehash: cd15c641fbf702071bd57510a1d51737f6ab8e19
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50234624"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54099019"
 ---
 # <a name="tag-helpers-in-forms-in-aspnet-core"></a>ASP.NET Core formlarda etiket Yardımcıları
 
@@ -108,7 +108,7 @@ Type expected
 |---|---|
 |bool|tür "onay kutusu" =|
 |Dize|tür = "text"|
-|DateTime|tür "datetime" =|
+|DateTime|tür =["yerel datetime"](https://developer.mozilla.org/docs/Web/HTML/Element/input/datetime-local)|
 |Bayt|tür = "number"|
 |int|tür = "number"|
 |Tek, Double|tür = "number"|
@@ -364,7 +364,7 @@ MVC (örneğin, sahip olduğunuz özel sunucu tarafı doğrulama veya istemci ta
 |--- |--- |
 |ValidationSummary.All|Özellik ve model düzeyi|
 |ValidationSummary.ModelOnly|Model|
-|ValidationSummary.None|Yok.|
+|ValidationSummary.None|Hiçbiri|
 
 ### <a name="sample"></a>Örnek
 
