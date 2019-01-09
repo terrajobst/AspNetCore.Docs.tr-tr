@@ -153,7 +153,7 @@ items:
           href: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment.md
         - name: 'Senaryo: Web Dağıtımı için Test Ortamı Yapılandırma'
           href: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-test-environment-for-web-deployment.md
-        - name: 'Senaryo: Web Dağıtımı için Hazırlama Ortamı Yapılandırma'
+        - name: 'Senaryo: Web Dağıtımı için Hazırlık Ortamı Yapılandırma'
           href: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment.md
         - name: 'Senaryo: Web Dağıtımı için Üretim Ortamı Yapılandırma'
           href: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-production-environment-for-web-deployment.md
@@ -218,21 +218,21 @@ items:
       - name: ASP.NET 4 - Tailspin Spyworks
         href: web-forms/overview/older-versions-getting-started/tailspin-spyworks/index.md
         items:
-        - name: '1. Bölüm: Dosya -> Yeni Proje'
+        - name: 'Bölüm 1: Dosya-> Yeni Proje'
           href: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-1.md
-        - name: '2. Bölüm: Veri Erişim Katmanı'
+        - name: 'Bölüm 2: Veri Erişim Katmanı'
           href: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-2.md
-        - name: '3. Bölüm: Düzen ve Kategori Menüsü'
+        - name: 'Bölüm 3: Düzen ve Kategori Menüsü'
           href: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-3.md
-        - name: '4. Bölüm: Ürünleri Listeleme'
+        - name: 'Bölüm 4: Ürünleri Listeleme'
           href: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-4.md
-        - name: '5. Bölüm: İş Mantığı'
+        - name: 'Bölüm 5: İş Mantığı'
           href: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-5.md
-        - name: '6. Bölüm: ASP.NET Üyeliği'
+        - name: 'Bölüm 6: ASP.NET Üyeliği'
           href: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-6.md
-        - name: '7. Bölüm: Özellik Ekleme'
+        - name: 'Bölüm 7: Özellik Ekleme'
           href: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-7.md
-        - name: '8. Bölüm: Son Sayfalar, Özel Durum İşleme ve Sonuç'
+        - name: 'Bölüm 8: Son Sayfalar, Özel Durum İşleme ve Sonuç'
           href: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-8.md
       - name: ASP.NET 4 - Entity Framework 4 ve Web Forms ile Çalışmaya Başlama
         href: web-forms/overview/older-versions-getting-started/getting-started-with-ef/index.md
@@ -256,11 +256,11 @@ items:
       - name: ASP.NET 4 - Entity Framework 4 ve Web Forms ile Devam Etme
         href: web-forms/overview/older-versions-getting-started/continuing-with-ef/index.md
         items:
-        - name: 'Entity Framework 4.0 ve ObjectDataSource Denetimi, 1. Bölüm: Başlarken'
+        - name: 'Entity Framework 4.0 ve ObjectDataSource Denetimi, Bölüm 1: Başlarken'
           href: web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started.md
-        - name: 'Entity Framework 4.0 ve ObjectDataSource Denetimi, 2. Bölüm: İş Mantığı Katmanı ve Birim Testleri Ekleme'
+        - name: 'Entity Framework 4.0 ve ObjectDataSource Denetimi, Bölüm 2: İş Mantığı Katmanı ve Birim Testleri Ekleme'
           href: web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md
-        - name: 'Entity Framework 4.0 ve ObjectDataSource Denetimi, 3. Bölüm: Sıralama ve Filtreleme'
+        - name: 'Entity Framework 4.0 ve ObjectDataSource Denetimi, Bölüm 3: Sıralama ve Filtreleme'
           href: web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering.md
         - name: ASP.NET 4 Sürümünde Entity Framework 4.0 ile Eş Zamanlılığı İşleme
           href: web-forms/overview/older-versions-getting-started/continuing-with-ef/handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application.md
@@ -1550,7 +1550,7 @@ items:
         href: web-forms/videos/migrating/intro-to-aspnet-for-jsp-developers-welcome-to-aspnet-20.md
       - name: 'JSP Geliştiricileri için ASP.NET’e Giriş: Uygulama Oluşturma'
         href: web-forms/videos/migrating/intro-to-aspnet-for-jsp-developers-building-applications.md
-      - name: 'ColdFusion Geliştiricileri için ASP.NET’e Giriş: ASP.NET’i Repertuarınıza Ekleme'
+      - name: 'ColdFusion Geliştiricileri için ASP.NET’e Giriş: ASP.NET’i Repertuvarınıza Ekleme'
         href: web-forms/videos/migrating/intro-to-aspnet-for-coldfusion-developers-adding-aspnet-to-your-repertoire.md
       - name: 'ColdFusion Geliştiricileri için ASP.NET’e Giriş: ASP.NET Uygulaması Oluşturma'
         href: web-forms/videos/migrating/introduction-to-aspnet-for-coldfusion-developers-building-an-aspnet-application.md
@@ -1814,7 +1814,7 @@ items:
           href: web-forms/videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-linqdatasource.md
         - name: 'LINQ to SQL: Özel LinqDataSource'
           href: web-forms/videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-custom-linqdatasource.md
-        - name: 'LINQ to SQL: Saklı Yordamlar Kullanma'
+        - name: 'LINQ to SQL: Saklı Yordamları Kullanma'
           href: web-forms/videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-using-stored-procedures.md
         - name: 'LINQ to SQL: Saklı Yordamlarla Güncelleştirme'
           href: web-forms/videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-updating-with-stored-procedures.md
@@ -2309,25 +2309,25 @@ items:
       - name: MVC 3 Müzik Deposu
         href: mvc/overview/older-versions/mvc-music-store/index.md
         items:
-        - name: '1. Bölüm: Genel Bakış ve Dosya->Yeni Proje'
+        - name: 'Bölüm 1: Genel Bakış ve Dosya->Yeni Proje'
           href: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-1.md
-        - name: '2. Bölüm: Denetleyiciler'
+        - name: 'Bölüm 2: Denetleyiciler'
           href: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-2.md
-        - name: '3. Bölüm: Görünümler ve ViewModel’lar'
+        - name: 'Bölüm 3: Görünümler ve Görünüm Modelleri'
           href: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-3.md
-        - name: '4. Bölüm: Modeller ve Veri Erişimi'
+        - name: 'Bölüm 4: Modeller ve Veri Erişimi'
           href: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-4.md
-        - name: '5. Bölüm: Formları Düzenleme ve Şablon Oluşturma'
+        - name: 'Bölüm 5: Formları Düzenleme ve Şablon Oluşturma'
           href: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-5.md
-        - name: '6. Bölüm: Model Doğrulama için Veri Ek Açıklamalarını Kullanma'
+        - name: 'Bölüm 6: Model Doğrulama için Veri Açıklamalarını Kullanma'
           href: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6.md
-        - name: '7. Bölüm: Üyelik ve Yetkilendirme'
+        - name: 'Bölüm 7: Üyelik ve Yetkilendirme'
           href: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-7.md
-        - name: '8. Bölüm: Ajax Güncelleştirmeleriyle Alışveriş Sepeti'
+        - name: 'Bölüm 8: Ajax Güncelleştirmeleriyle Alışveriş Sepeti'
           href: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-8.md
-        - name: '9. Bölüm: Kayıt ve Kasa İşlemleri'
+        - name: 'Bölüm 9: Kayıt ve Kasa İşlemleri'
           href: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-9.md
-        - name: '10. Bölüm: Gezinti ve Site Tasarımına Yönelik Son Güncelleştirmeler, Sonuç'
+        - name: 'Bölüm 10: Gezinti ve Site Tasarımına Yönelik Son Güncelleştirmeler, Sonuç'
           href: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-10.md
       - name: MVC 3 - HTML5 ve jQuery Kullanıcı Arabirimi Tarih Seçici Açılan Takvimi
         href: mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/index.md
@@ -2659,22 +2659,22 @@ items:
       - name: Geri Kalanımız için ASP.NET MVC
         href: mvc/videos/mvc-2/aspnet-mvc-for-the-rest-of-us/index.md
         items:
-        - name: 'Geri Kalanımız için ASP.NET MVC: 1. Bölüm'
+        - name: 'Geri Kalanımız için ASP.NET MVC: Bölüm 1'
           href: mvc/videos/mvc-2/aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-1.md
-        - name: 'Geri Kalanımız için ASP.NET MVC: 2. Bölüm'
+        - name: 'Geri Kalanımız için ASP.NET MVC: Bölüm 2'
           href: mvc/videos/mvc-2/aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-2.md
-        - name: 'Geri Kalanımız için ASP.NET MVC: 3. Bölüm'
+        - name: 'Geri Kalanımız için ASP.NET MVC: Bölüm 3'
           href: mvc/videos/mvc-2/aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-3.md
-        - name: 'Geri Kalanımız için ASP.NET MVC: 4. Bölüm'
+        - name: 'Geri Kalanımız için ASP.NET MVC: Bölüm 4'
           href: mvc/videos/mvc-2/aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-4.md
       - name: Müzik Deposu
         href: mvc/videos/mvc-2/music-store/index.md
         items:
-        - name: 'MVC Müzik Deposu 1. Bölüm: Giriş, Araçlar ve Proje Yapısı'
+        - name: 'MVC Müzik Deposu Bölüm 1: Giriş, Araçlar ve Proje Yapısı'
           href: mvc/videos/mvc-2/music-store/mvc-music-store-part-1-intro-tools-and-project-structure.md
-        - name: 'MVC Müzik Deposu 2. Bölüm: Denetleyiciler'
+        - name: 'MVC Müzik Deposu Bölüm 2: Denetleyiciler'
           href: mvc/videos/mvc-2/music-store/mvc-music-store-part-2-controllers.md
-        - name: 'MVC Müzik Deposu 3. Bölüm: Görünümler ve ViewModel’lar'
+        - name: 'MVC Müzik Deposu Bölüm 3: Görünümler ve Görünüm Modelleri'
           href: mvc/videos/mvc-2/music-store/mvc-music-store-part-3-views-and-viewmodels.md
     - name: ASP.NET MVC 1
       href: mvc/videos/mvc-1/index.md
@@ -2682,55 +2682,55 @@ items:
       - name: ASP.NET MVC Storefront
         href: mvc/videos/mvc-1/aspnet-mvc-storefront/index.md
         items:
-        - name: 'ASP.NET MVC Storefront 1. Bölüm: Mimari Tartışma ve Genel Bakış'
+        - name: 'ASP.NET MVC Storefront Bölüm 1: Mimari Tartışması ve Genel Bakış'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-1-architectural-discussion-and-overview.md
-        - name: 'ASP.NET MVC Storefront 2. Bölüm: Depo Deseni'
+        - name: 'ASP.NET MVC Storefront Bölüm 2: Depo Düzeni'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-2-the-repository-pattern.md
-        - name: 'ASP.NET MVC Storefront 3. Bölüm: Kanallar ve Filtreler'
+        - name: 'ASP.NET MVC Storefront Bölüm 3: Kanallar ve Filtreler'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-3-pipes-and-filters.md
-        - name: 'ASP.NET MVC Storefront 4. Bölüm: Linq To zSql Ani Artışı'
+        - name: 'ASP.NET MVC Storefront Bölüm 4: Linq To Sql Değişikliği'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-4-linq-to-sql-spike.md
-        - name: 'ASP.NET MVC Storefront 5. Bölüm: Genelleştirme'
+        - name: 'ASP.NET MVC Storefront Bölüm 5: Genelleştirme'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-5-globalization.md
-        - name: 'ASP.NET MVC Storefront 6. Bölüm: Depoyu Tamamlama ve İlk Kullanıcı Arabirimi İşi'
+        - name: 'ASP.NET MVC Storefront Bölüm 6: Depoyu Tamamlama ve İlk Kullanıcı Arabirimi İşi'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-6-finishing-the-repository-and-initial-ui-work.md
-        - name: 'ASP.NET MVC Storefront 7. Bölüm: Yönlendirme ve Kullanıcı Arabirimi İşi'
+        - name: 'ASP.NET MVC Storefront Bölüm 7: Yönlendirme ve Kullanıcı Arabirimi işi'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-7-routing-and-ui-work.md
-        - name: 'ASP.NET MVC Storefront 8. Bölüm: Denetleyiciler Test Ediliyor, 1. Yineleme Tamamlandı'
+        - name: 'ASP.NET MVC Storefront Bölüm 8: Test Denetleyicileri, 1. Yineleme Tamamlandı'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-8-testing-controllers-iteration-1-complete.md
-        - name: 'ASP.NET MVC Storefront 9. Bölüm: Alışverişi Sepeti'
+        - name: 'ASP.NET MVC Storefront Bölüm 9: Alışveriş Sepeti'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-9-the-shopping-cart.md
-        - name: 'ASP.NET MVC Storefront 10. Bölüm: Alışveriş Sepeti Yeniden Düzenleme ve Yetkilendirme'
+        - name: 'ASP.NET MVC Storefront Bölüm 10: Alışveriş Sepetini Yeniden Düzenleme ve Yetkilendirme'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-10-shopping-cart-refactor-and-authorization.md
-        - name: 'ASP.NET MVC Storefront 11. Bölüm: Alışveriş Sepetini Ayarlama ve Bileşenleri Kullanma'
+        - name: 'ASP.NET MVC Storefront Bölüm 11: Alışveriş Sepetini Ayarlama ve Bileşenleri Kullanma'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-11-hooking-up-the-shopping-cart-and-using-components.md
-        - name: 'ASP.NET MVC Storefront 12. Bölüm: Sahte İşlem'
+        - name: 'ASP.NET MVC Storefront Bölüm 12: Sahte işlem'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-12-mocking.md
-        - name: 'ASP.NET MVC Storefront 13. Bölüm: Bağımlılık Ekleme'
+        - name: 'ASP.NET MVC Storefront Bölüm 13: Bağımlılık Ekleme'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-13-dependency-injection.md
-        - name: 'ASP.NET MVC Storefront 14. Bölüm: İstemci Etkileşimi'
+        - name: 'ASP.NET MVC Storefront Bölüm 14: Zengin İstemci Etkileşimi'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-14-rich-client-interaction.md
-        - name: 'ASP.NET MVC Mağaza 15. Bölüm: Genel Kod gözden geçirme'
+        - name: 'ASP.NET MVC Storefront Bölüm 15: Genel Kod İncelemesi'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-15-public-code-review.md
-        - name: 'ASP.NET MVC Storefront 16. Bölüm: OpenID ile Üyelik Yineleme'
+        - name: 'ASP.NET MVC Storefront Bölüm 16: OpenID ile Üyelik Yineleme'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-16-membership-redo-with-openid.md
-        - name: 'ASP.NET MVC Storefront 17. Bölüm: Jeff Atwood ile Kasa İşlemleri'
+        - name: 'ASP.NET MVC Storefront Bölüm 17: Jeff Atwood ile Kasa İşlemleri'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-17-checkout-with-jeff-atwood.md
-        - name: 'ASP.NET MVC Storefront 18. Bölüm: Deneyimi Oluşturma'
+        - name: 'ASP.NET MVC Storefront Bölüm 18: Oluşturma Deneyimi'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-18-creating-an-experience.md
-        - name: 'ASP.NET MVC Storefront 19. Bölüm: Windows Workflow ile Siparişleri İşleme'
+        - name: 'ASP.NET MVC Storefront Bölüm 19: Windows Workflow ile Siparişleri İşleme'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-19-processing-orders-with-windows-workflow.md
-        - name: 'ASP.NET MVC Storefront 19a Bölümü: Windows Workflow izleme'
+        - name: 'ASP.NET MVC Storefront Bölüm 19a: Windows Workflow İzleme'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-19a-windows-workflow-followup.md
-        - name: 'ASP.NET MVC Storefront 20. Bölüm: Günlüğe Kaydetme'
+        - name: 'ASP.NET MVC Storefront Bölüm 20: Günlüğe Kaydetme'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-20-logging.md
-        - name: 'ASP.NET MVC Storefront 21. Bölüm: Sipariş Yöneticisi ve Kişiselleştirme'
+        - name: 'ASP.NET MVC Storefront Bölüm 21: Sipariş Yöneticisi ve Kişiselleştirme'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-21-order-manager-and-personalization.md
-        - name: 'ASP.NET MVC Storefront 22. Bölüm: Yeniden Yapılandırma, Yeniden Yönlendirme ve PayPal'
+        - name: 'ASP.NET MVC Storefront Bölüm 22: Yeniden Yapılandırma, Yeniden Yönlendirme ve PayPal'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-22-restructuring-rerouting-and-paypal.md
-        - name: 'ASP.NET MVC Storefront 23. Bölüm: Etki Alanı Odaklı Tasarım ile Çalışmaya Başlama'
+        - name: 'ASP.NET MVC Storefront Bölüm 23: Etki Alanı Odaklı Tasarım ile Çalışmaya Başlama'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-23-getting-started-with-domain-driven-design.md
-        - name: 'ASP.NET MVC Storefront 24. Bölüm: Son'
+        - name: 'ASP.NET MVC Storefront Bölüm 24: Finis'
           href: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-24-finis.md
       - name: Konuşmalar
         href: mvc/videos/mvc-1/conference-presentations/index.md
@@ -2766,7 +2766,7 @@ items:
         href: web-api/overview/getting-started-with-aspnet-web-api/using-web-api-with-aspnet-web-forms.md
       - name: Web API Yardım Sayfaları Oluşturma
         href: web-api/overview/getting-started-with-aspnet-web-api/creating-api-help-pages.md
-      - name: 'Uygulamalı Laboratuvar: ASP.NET Web API ve Angular.js ile Tek Sayfalı Uygulama (SPA) Oluşturma'
+      - name: 'Uygulamalı Laboratuvar: ASP.NET Web API’si ve Angular.js ile Tek Sayfalı Uygulama (SPA) Oluşturma'
         href: web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs.md
     - name: Yönlendirme
       href: web-api/overview/web-api-routing-and-actions/index.md
@@ -2929,9 +2929,9 @@ items:
         href: web-api/overview/advanced/http-message-handlers.md
       - name: Web API’de HttpClient İleti İşleyicileri
         href: web-api/overview/advanced/httpclient-message-handlers.md
-      - name: 'Web API’de HTML Form Verileri Gönderme: Form-urlencoded Verileri'
+      - name: 'Web API’sinde HTML Form Verileri Gönderme: Form-urlencoded Verileri'
         href: web-api/overview/advanced/sending-html-form-data-part-1.md
-      - name: 'Web API’de HTML Form Verileri Gönderme: Karşıya Dosya Yükleme ve Çok Parçalı MIME'
+      - name: 'Web API’sinde HTML Form Verileri Gönderme: Karşıya Dosya Yükleme ve Çok Parçalı MIME'
         href: web-api/overview/advanced/sending-html-form-data-part-2.md
       - name: ASP.NET Web API’de HTTP Tanımlama Bilgileri
         href: web-api/overview/advanced/http-cookies.md
@@ -2978,17 +2978,17 @@ items:
       items:
       - name: ASP.NET Web API
         href: web-api/videos/getting-started/aspnet-web-api.md
-      - name: 'ASP.NET Web API, 1. Bölüm: İlke Web API’niz'
+      - name: 'ASP.NET Web API’si, Bölüm 1: İlk Web API’niz'
         href: web-api/videos/getting-started/your-first-web-api.md
-      - name: 'ASP.NET Web API, 2. Bölüm: Verileri Alma'
+      - name: 'ASP.NET Web API’si, Bölüm 2: Veri Alma'
         href: web-api/videos/getting-started/getting-data.md
-      - name: 'ASP.NET Web API, 3. Bölüm: Silme ve Güncelleştirme'
+      - name: 'ASP.NET Web API’si, Bölüm 3: Silme ve Güncelleştirme'
         href: web-api/videos/getting-started/delete-and-update.md
-      - name: 'ASP.NET Web API, 4. Bölüm: Sayfalama ve Sorgulama'
+      - name: 'ASP.NET Web API’si, Bölüm 4: Sayfalandırma ve Sorgulama'
         href: web-api/videos/getting-started/paging-and-querying.md
-      - name: 'ASP.NET Web API, 5. Bölüm: Özel Doğrulama'
+      - name: 'ASP.NET Web API’si, Bölüm 5: Özel Doğrulama'
         href: web-api/videos/getting-started/custom-validation.md
-      - name: 'ASP.NET Web API, 6. Bölüm: Yetkilendirme'
+      - name: 'ASP.NET Web API’si, Bölüm 6: Yetkilendirme'
         href: web-api/videos/getting-started/authorization.md
   - name: Web API Örnekleri Listesi
     href: web-api/samples-list.md
@@ -3208,13 +3208,13 @@ items:
         href: signalr/overview/getting-started/introduction-to-signalr.md
       - name: Desteklenen Platformlar
         href: signalr/overview/getting-started/supported-platforms.md
-      - name: 'Öğretici: SignalR 2 ile Çalışmaya Başlama'
+      - name: SignalR 2 ile gerçek zamanlı sohbet
         href: signalr/overview/getting-started/tutorial-getting-started-with-signalr.md
-      - name: 'Öğretici: SignalR 2 ve MVC 5 ile Çalışmaya Başlama'
+      - name: SignalR 2 ve MVC 5 ile gerçek zamanlı sohbet
         href: signalr/overview/getting-started/tutorial-getting-started-with-signalr-and-mvc.md
-      - name: 'Öğretici: SignalR 2 ile Yüksek Sıklıkta Gerçek Zamanlı'
+      - name: SignalR 2 yüksek sıklıkta gerçek zamanlı
         href: signalr/overview/getting-started/tutorial-high-frequency-realtime-with-signalr.md
-      - name: 'Öğretici: SignalR 2 ile Sunucu Yayını'
+      - name: SignalR 2 ile Sunucu Yayını
         href: signalr/overview/getting-started/tutorial-server-broadcast-with-signalr.md
       - name: 'Uygulamalı Laboratuvar: SignalR ile Gerçek Zamanlı Web Uygulamaları'
         href: signalr/overview/getting-started/real-time-web-applications-with-signalr.md
@@ -3430,7 +3430,7 @@ items:
     href: visual-studio/overview/2013/aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes.md
   - name: 'Uygulamalı Laboratuvar: Visual Studio 2013 Web Araçları'
     href: visual-studio/overview/2013/visual-studio-2013-web-tools.md
-  - name: 'Uygulamalı Laboratuvar: Tek ASP.NET: ASP.NET Web Forms, MVC ve Web API’yi Tümleştirme'
+  - name: 'Uygulamalı Laboratuvar: Tek ASP.NET: ASP.NET Web Forms, MVC ve Web API’sini Tümleştirme'
     href: visual-studio/overview/2013/one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api.md
 - name: Visual Studio 2012
   href: visual-studio/overview/2012/index.md
@@ -3745,7 +3745,7 @@ items:
       href: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/more-patterns-and-guidance.md
     - name: 'Ek: Düzelt Örnek Uygulaması'
       href: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/the-fix-it-sample-application.md
-  - name: 'Uygulamalı Laboratuvar: Sürdürülebilir Azure Web Siteleri: Değişiklikleri ve Ölçeği Yönetme'
+  - name: 'Uygulamalı Laboratuvar: Sürdürülebilir Azure Web Siteleri: Değişikliği ve Ölçeği Yönetme'
     href: aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale.md
 - name: OWIN ve Katana
   href: aspnet/overview/owin-and-katana/index.md
@@ -3790,7 +3790,7 @@ items:
     href: whitepapers/mvc4-beta-release-notes.md
   - name: IIS 6.0 ile Çalışan ASP.NET 1.1
     href: whitepapers/aspnet-and-iis6.md
-  - name: 'Nasıl Yapılır: ASP.NET Web Forms/MVC Uygulamanıza Mobil Sayfalar Ekleme'
+  - name: 'Nasıl yapılır: ASP.NET Web Forms/MVC Uygulamanıza Mobil Sayfalar Ekleme'
     href: whitepapers/add-mobile-pages-to-your-aspnet-web-forms-mvc-application.md
   - name: IE için Güvenlik Güncelleştirmesi Uygulandıktan Sonra Oluşan 'Sunucu Uygulaması Kullanılamıyor' Hatasının Çözümü
     href: whitepapers/ms03-32-issue.md
@@ -3810,9 +3810,9 @@ items:
     href: whitepapers/whats-new-in-aspnet-45-and-visual-studio-2012.md
 - name: API başvurusu
   href: api-ref.md
-ms.openlocfilehash: 6c6d8fc996066fef18c8a9396ec6eed6e4e3fec6
-ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
+ms.openlocfilehash: cb887e46701baa93d1deed63eb01c7c0dc1faa55
+ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52450826"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54099311"

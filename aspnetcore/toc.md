@@ -179,7 +179,9 @@
 ## [Anlık görüntü hatalarını ayıklama](/azure/application-insights/app-insights-snapshot-debugger)
 ## [Visual Studio'da anlık görüntü hatalarını ayıklama](/visualstudio/debugger/debug-live-azure-applications)
 ## [Tümleştirme testleri](xref:test/integration-tests)
+## [Yükleme ve stres testleri](xref:test/loadtests)
 ## [Sorun giderme](xref:test/troubleshoot)
+## [Günlüğe kaydetme](xref:fundamentals/logging/index)
 
 # Veri erişimi
 ## Öğreticiler
@@ -392,6 +394,7 @@
 ## [Bir dosya izleyicisi kullanma](xref:tutorials/dotnet-watch)
 
 # Geçiş
+## [2.2’den 3.0’a](xref:migration/22-to-30)
 ## [2.1’den 2.2’ye](xref:migration/21-to-22)
 ## [2.0’dan 2.1’e](xref:migration/20_21)
 ## 1.x’ten 2.0’a
@@ -406,6 +409,7 @@
 ### [ClaimsPrincipal.Current](xref:migration/claimsprincipal-current)
 ### [Üyelikten Kimliğe](xref:migration/proper-to-2x/membership-to-core-identity)
 ### [HTTP modüllerinden ara yazılıma](xref:migration/http-modules)
+## [Günlüğe kaydetme (ASP.NET Core harici)](xref:migration/logging-nonaspnetcore)
 
 # Yenilikler
 ## [2.2 sürümündeki yenilikler](xref:aspnetcore-2.2)
