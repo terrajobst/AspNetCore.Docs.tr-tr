@@ -1,3 +1,5 @@
+# [ASP.NET Core belgeleri](/aspnet/#pivot=core)
+
 # Genel Bakış
 ## [ASP.NET Core Hakkında](xref:index)
 ## [ASP.NET Core ve ASP.NET Karşılaştırması](xref:fundamentals/choose-between-aspnet-and-aspnetcore)
@@ -5,8 +7,14 @@
 
 # [Kullanmaya başlama](xref:getting-started)
 
+# Yenilikler
+## [2.2 sürümündeki yenilikler](xref:aspnetcore-2.2)
+## [2.1 sürümündeki yenilikler](xref:aspnetcore-2.1)
+## [2.0 sürümündeki yenilikler](xref:aspnetcore-2.0)
+## [1.1 sürümündeki yenilikler](xref:aspnetcore-1.1)
+
 # Öğreticiler
-## Web API'leri
+## Web API’si uygulamaları
 ### [Web API’si oluşturma](xref:tutorials/first-web-api)
 ### [MongoDB ile Web API](xref:tutorials/first-mongo-app)
 ## Web uygulamaları
@@ -121,7 +129,7 @@
 ### [Özel model bağlama](xref:mvc/advanced/custom-model-binding)
 ### [Uyumluluk sürümü](xref:mvc/compatibility-version)
 
-# Web API'leri
+# Web API’si uygulamaları
 ## [Genel bakış](xref:web-api/index)
 
 ## Öğreticiler
@@ -376,6 +384,7 @@
 ### [Yanıtları önbelleğe alma ara yazılımı](xref:performance/caching/middleware)
 ## [Yanıt sıkıştırma](xref:performance/response-compression)
 ## [Tanılama Araçları](xref:performance/diagnostic-tools)
+## [Yükleme ve stres testleri](xref:test/loadtests)
 
 # Diğer konular
 ## [Genelleştirme ve yerelleştirme](xref:fundamentals/localization)
@@ -410,12 +419,6 @@
 ### [Üyelikten Kimliğe](xref:migration/proper-to-2x/membership-to-core-identity)
 ### [HTTP modüllerinden ara yazılıma](xref:migration/http-modules)
 ## [Günlüğe kaydetme (ASP.NET Core harici)](xref:migration/logging-nonaspnetcore)
-
-# Yenilikler
-## [2.2 sürümündeki yenilikler](xref:aspnetcore-2.2)
-## [2.1 sürümündeki yenilikler](xref:aspnetcore-2.1)
-## [2.0 sürümündeki yenilikler](xref:aspnetcore-2.0)
-## [1.1 sürümündeki yenilikler](xref:aspnetcore-1.1)
 
 # [API başvurusu](/dotnet/api/?view=aspnetcore-2.2)
 
