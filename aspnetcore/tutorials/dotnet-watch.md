@@ -5,12 +5,12 @@ description: Bu öğreticide, aracı yükleme ve .NET Core CLI'ın dosya İzleyi
 ms.author: riande
 ms.date: 05/31/2018
 uid: tutorials/dotnet-watch
-ms.openlocfilehash: fc08efa433f688a0b9009aed35fdee2b0c228619
-ms.sourcegitcommit: e12f45ddcbe99102a74d4077df27d6c0ebba49c1
+ms.openlocfilehash: f1e0d91b27df4af7cbfb6f2547c94c0370c65d0d
+ms.sourcegitcommit: cec77d5ad8a0cedb1ecbec32834111492afd0cd2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/15/2018
-ms.locfileid: "39063305"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54207508"
 ---
 # <a name="develop-aspnet-core-apps-using-a-file-watcher"></a>Bir dosya İzleyicisi'ni kullanarak ASP.NET Core uygulamaları geliştirin
 
@@ -20,7 +20,7 @@ Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT) ve [Victor Hurdugac
 
 Bu öğreticide iki uç nokta ile mevcut bir web API'si:, toplam ve bir ürün döndüren bir döndürür. Bu öğreticide sabit bir hata, ürün yöntemi vardır.
 
-İndirme [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/dotnet-watch/sample). İki projeden oluşan: *WebApp* (bir ASP.NET Core web API'si) ve *WebAppTests* (web API'si için birim testleri).
+İndirme [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/dotnet-watch/sample). Bu iki projeden oluşan: *WebApp* (bir ASP.NET Core web API'si) ve *WebAppTests* (web API'si için birim testleri).
 
 Komut kabuğu'na gidin *WebApp* klasör. Şu komutu çalıştırın:
 
@@ -99,7 +99,7 @@ Doğrulama `http://localhost:<port number>/api/math/product?a=4&b=5` doğru sonu
 1. Değişiklik `Product` yöntemi *MathController.cs* toplamını döndüren geri dönün. Dosyayı kaydedin.
 1. Komut kabuğu'na gidin *WebAppTests* klasör.
 1. Çalıştırma [dotnet restore](/dotnet/core/tools/dotnet-restore).
-1. Çalıştırma `dotnet watch test`. Bir testin başarısız olduğunu ve İzleyici dosya değişiklikleri bekliyor çıktısını gösterir:
+1. `dotnet watch test`'i çalıştırın. Bir testin başarısız olduğunu ve İzleyici dosya değişiklikleri bekliyor çıktısını gösterir:
 
      ```console
      Total tests: 2. Passed: 1. Failed: 1. Skipped: 0.
@@ -179,4 +179,4 @@ Herhangi bir dosya ya da test projesinde değiştiğinde VSTest yürütür.
 
 ## <a name="dotnet-watch-in-github"></a>`dotnet-watch` Github'da
 
-`dotnet-watch` GitHub parçasıdır [DotNetTools depo](https://github.com/aspnet/DotNetTools/tree/master/src/dotnet-watch).
+`dotnet-watch` GitHub parçasıdır [aspnet/AspNetCore depo](https://github.com/aspnet/AspNetCore/tree/master/src/Tools/dotnet-watch).

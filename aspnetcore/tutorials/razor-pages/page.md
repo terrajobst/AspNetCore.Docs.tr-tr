@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 12/4/2018
 uid: tutorials/razor-pages/page
-ms.openlocfilehash: acfc446732803c67714943fe3e5b7a31055ebcd7
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 2b68523ac84596bda2914d9c348ddea8c7ea9465
+ms.sourcegitcommit: cec77d5ad8a0cedb1ecbec32834111492afd0cd2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862011"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54207388"
 ---
 # <a name="scaffolded-razor-pages-in-aspnet-core"></a>ASP.NET core'da iskeleli Razor sayfaları
 
@@ -57,6 +57,12 @@ Aşağıdaki HTML Yardımcısı kullanılan bir lambda ifadesi inceleyin:
 [!code-cshtml[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?range=1-2&highlight=2)]
 
 `@model` Yönergesi için Razor sayfası geçirilen modelin türünü belirtir. Önceki örnekte `@model` satır yapar `PageModel`-türetilmiş sınıf için bir Razor sayfası kullanılabilir. Model kullanılır `@Html.DisplayNameFor` ve `@Html.DisplayFor` [HTML Yardımcıları](/aspnet/mvc/overview/older-versions-1/views/creating-custom-html-helpers-cs#understanding-html-helpers) sayfasında.
+
+### <a name="the-layout-page"></a>Düzen Sayfası
+
+Menü bağlantıyı seçin (**RazorPagesMovie**, **giriş**, ve **gizlilik**). Her sayfada aynı menüsü düzeni gösterilir. Menüsü düzeni uygulanan *Pages/Shared/_Layout.cshtml* dosya. Açık *Pages/Shared/_Layout.cshtml* dosya.
+
+[Düzen](xref:mvc/views/layout) , tek bir yerde sitenizin HTML kapsayıcı düzenini belirtin ve ardından sitenizdeki birden çok sayfada uygulamak şablonlar sağlar. Bulma `@RenderBody()` satır. `RenderBody` olan bir yer tutucu burada tüm sayfaya özgü görünümler oluşturma Göster, *sarmalanmış* Düzen sayfasında. Örneğin, **gizlilik** bağlantı **Pages/Privacy.cshtml** görünümü içinde işlenir `RenderBody` yöntemi.
 
 <a name="vd"></a>
 ### <a name="viewdata-and-layout"></a>ViewData ve düzeni
@@ -168,5 +174,5 @@ Yapı iskelesi altyapısı Razor işaretlemesi için her bir alan (ID dışında
 [Giriş etiketi Yardımcısı](xref:mvc/views/working-with-forms) (`<input asp-for="Movie.Title" class="form-control" />`) kullanan [DataAnnotations](/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) öznitelikleri ve jQuery doğrulaması istemci tarafında gereken HTML öznitelikleri oluşturur.
 
 > [!div class="step-by-step"]
-> [Önceki: model ekleme](xref:tutorials/razor-pages/model)
-> [sonraki: veri tabanı](xref:tutorials/razor-pages/sql)
+> [Önceki: Model ekleme](xref:tutorials/razor-pages/model)
+> [sonraki: Veri tabanı](xref:tutorials/razor-pages/sql)

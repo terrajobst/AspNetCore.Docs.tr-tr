@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/new-field
-ms.openlocfilehash: c6e7fe13a55a14533949d212bfb149ccd91103e5
-ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
+ms.openlocfilehash: 7993b36bf9115225e082d2929bb253aba5b18310
+ms.sourcegitcommit: cec77d5ad8a0cedb1ecbec32834111492afd0cd2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53997246"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54207375"
 ---
 # <a name="add-a-new-field-to-an-aspnet-core-mvc-app"></a>Bir ASP.NET Core MVC uygulaması için yeni bir alan ekleyin
 
@@ -45,7 +45,7 @@ Görünüm şablonları görüntülemek, oluşturmak ve yeni düzenlemek için g
 
 Düzen */Views/Movies/Index.cshtml* dosya ve ekleme bir `Rating` alan:
 
-[!code-HTML[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/Movies/IndexGenreRating.cshtml?highlight=17,39&range=24-64)]
+[!code-HTML[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/Movies/IndexGenreRating.cshtml?highlight=16,38&range=24-64)]
 
 Güncelleştirme */Views/Movies/Create.cshtml* ile bir `Rating` alan.
 
