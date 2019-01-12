@@ -5,14 +5,14 @@ description: Bir uygulamanın bileşenleri doğru veritabanı, dosya sistemi ve 
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/26/2018
+ms.date: 01/11/2019
 uid: test/integration-tests
-ms.openlocfilehash: 9729925c89c212bb6e6fac1a484b6288697afe57
-ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
+ms.openlocfilehash: 0f919d7715a26f1efdb37d35b047a7050e46a272
+ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52450755"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54249522"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>ASP.NET core'da tümleştirme testleri
 
@@ -26,7 +26,7 @@ Bu konuda, birim testleri temel bir anlayış varsayılır. Bilinmeyen test kavr
 
 Örnek uygulama bir Razor sayfaları uygulamasıdır ve Razor sayfaları temel bir anlayış varsayar. Tanınmayan Razor sayfalarıyla istiyorsanız, aşağıdaki konulara bakın:
 
-* [Razor sayfaları giriş](xref:razor-pages/index)
+* [Razor Pages’e giriş](xref:razor-pages/index)
 * [Razor Sayfaları kullanmaya başlama](xref:tutorials/razor-pages/razor-pages-start)
 * [Razor Sayfaları birim testleri](xref:test/razor-pages-tests)
 
@@ -72,9 +72,9 @@ Tümleştirme testleri, normal içeren olayların sırasını izleyin *Yerleşti
 
 1. SUT'ın web ana bilgisayarı yapılandırılır.
 1. Bir test sunucusu istemci uygulamanın istekleri göndermek için oluşturulur.
-1. *Yerleştir* test adımı yürütülür: istek test uygulaması hazırlar.
-1. *Yasası* test adımı yürütülür: istemci isteği gönderir ve yanıtı alır.
-1. *Assert* test adımı yürütülür: *gerçek* yanıt olarak doğrulanmış bir *geçirmek* veya *başarısız* dayalı bir *bekleniyor*  yanıt.
+1. *Yerleştir* test adımı yürütülür: Bir isteği test uygulaması hazırlar.
+1. *Yasası* test adımı yürütülür: İstemci isteği gönderir ve yanıtı alır.
+1. *Assert* test adımı yürütülür: *Gerçek* yanıt olarak doğrulanmış bir *geçirmek* veya *başarısız* dayalı bir *beklenen* yanıt.
 1. İşlem, tüm testleri yürütülür kadar devam eder.
 1. Test sonuçları raporlanır.
 
@@ -114,7 +114,7 @@ Bu Önkoşullar şurada görülebilir [örnek uygulaması](https://github.com/as
 
 [WebApplicationFactory&lt;TEntryPoint&gt; ](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1) oluşturmak için kullanılan bir [TestServer](/dotnet/api/microsoft.aspnetcore.testhost.testserver) tümleştirme testleri için. `TEntryPoint` Giriş noktası SUT genellikle sınıfıdır `Startup` sınıfı.
 
-Test sınıfları uygulama bir *sınıfı düzeni* arabirimi (`IClassFixture`) sınıfı testleri içeren ve paylaşılan nesne örneklerini sınıfındaki sağlamak belirtmek için.
+Test sınıfları uygulama bir *sınıfı düzeni* arabirimi ([IClassFixture](https://xunit.github.io/docs/shared-context#class-fixture)) sınıfı testleri içeren ve paylaşılan nesne örneklerini sınıfındaki sağlamak belirtmek için.
 
 ### <a name="basic-test-of-app-endpoints"></a>Uygulama uç noktalar için temel test
 
@@ -173,9 +173,9 @@ SUT yapılan tüm POST istekleri otomatik olarak uygulama tarafından yapılan a
 
 * `GetDocumentAsync` &ndash; Alan [HttpResponseMessage](/dotnet/api/system.net.http.httpresponsemessage) ve döndüren bir `IHtmlDocument`. `GetDocumentAsync` hazırlayan bir Fabrika kullanan bir *sanal yanıt* özgün tabanlı `HttpResponseMessage`. Daha fazla bilgi için [AngleSharp belgeleri](https://github.com/AngleSharp/AngleSharp#documentation).
 * `SendAsync` için genişletme yöntemleri `HttpClient` oluşturan bir [HttpRequestMessage](/dotnet/api/system.net.http.httprequestmessage) ve çağrı [SendAsync(HttpRequestMessage)](/dotnet/api/system.net.http.httpclient.sendasync#System_Net_Http_HttpClient_SendAsync_System_Net_Http_HttpRequestMessage_) SUT istekleri göndermek için. İçin aşırı yüklediği `SendAsync` HTML formu kabul (`IHtmlFormElement`) ve aşağıdaki:
-  - Düğmeyi form gönderme (`IHtmlElement`)
-  - Form değerleri koleksiyonunu (`IEnumerable<KeyValuePair<string, string>>`)
-  - Gönder düğmesine (`IHtmlElement`) ve form değerleri (`IEnumerable<KeyValuePair<string, string>>`)
+  * Düğmeyi form gönderme (`IHtmlElement`)
+  * Form değerleri koleksiyonunu (`IEnumerable<KeyValuePair<string, string>>`)
+  * Gönder düğmesine (`IHtmlElement`) ve form değerleri (`IEnumerable<KeyValuePair<string, string>>`)
 
 > [!NOTE]
 > [AngleSharp](https://anglesharp.github.io/) üçüncü taraf ayrıştırma olan bu konu ve örnek uygulamayı tanıtım amacıyla kullanılan kitaplığı. AngleSharp desteklenen veya tümleştirme ASP.NET Core uygulamalarını test etmek için gerekli değildir. Diğer Çözümleyicileri, aşağıdaki gibi kullanılabilir [Html çevikliği paketi (HAP)](http://html-agility-pack.net/). Başka bir yaklaşım antiforgery sistemin istek Doğrulama belirtecini ve antiforgery tanımlama bilgisi doğrudan işlemek için kod yazmaktır.

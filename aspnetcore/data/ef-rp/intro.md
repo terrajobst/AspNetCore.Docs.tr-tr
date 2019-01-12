@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: seodec18
 ms.date: 11/22/2018
 uid: data/ef-rp/intro
-ms.openlocfilehash: b66d20a46b29b6975512026fa940f7f9e50deeb5
-ms.sourcegitcommit: 6548c19f345850ee22b50f7ef9fca732895d9e08
+ms.openlocfilehash: 868163ed621ef9818759efd72ed3d233dc958219
+ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53425139"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54249509"
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>ASP.NET Core - Öğreticisi 1. 8'de Entity Framework Core ile Razor sayfaları
 
@@ -261,6 +261,8 @@ EF Core boş bir veritabanı oluşturur. Bu bölümde, bir `Initialize` yöntemi
 İçinde *veri* klasöründe adlı yeni bir sınıf dosyası oluşturma *DbInitializer.cs* ve aşağıdaki kodu ekleyin:
 
 [!code-csharp[](intro/samples/cu21/Data/DbInitializer.cs?name=snippet_Intro)]
+
+Not: Önceki kod `Models` ad alanı (`namespace ContosoUniversity.Models`) yerine `Data`. `Models` iskele kurucu tarafından oluşturulan kod ile tutarlıdır. Daha fazla bilgi için [bu GitHub yapı iskelesi sorunu](https://github.com/aspnet/Scaffolding/issues/822).
 
 Kod DB'de tüm Öğrenciler olup olmadığını denetler. DB'de Öğrenci varsa, bir veritabanı test verileri ile başlatılır. Diziye test verileri yükler yerine `List<T>` performansını iyileştirmek için koleksiyonları.
 

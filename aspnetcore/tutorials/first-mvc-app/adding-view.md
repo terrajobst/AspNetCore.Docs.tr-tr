@@ -5,12 +5,12 @@ description: Basit bir ASP.NET Core MVC uygulaması görünüm ekleme
 ms.author: riande
 ms.date: 03/04/2017
 uid: tutorials/first-mvc-app/adding-view
-ms.openlocfilehash: 0c9c682f39bf86b4d83841eca21fc67b718950e9
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: 321ffd6b0168d4befc950a58035d19561e879491
+ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54098720"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54249457"
 ---
 # <a name="add-a-view-to-an-aspnet-core-mvc-app"></a>Bir ASP.NET Core MVC uygulaması için bir Görünüm Ekle
 
@@ -86,9 +86,9 @@ Menü bağlantıyı seçin (**MvcMovie**, **giriş**, ve **gizlilik**). Her sayf
 
 [Düzen](xref:mvc/views/layout) , tek bir yerde sitenizin HTML kapsayıcı düzenini belirtin ve ardından sitenizdeki birden çok sayfada uygulamak şablonlar sağlar. Bulma `@RenderBody()` satır. `RenderBody` olduğundan burada tüm görünüm özel sayfalar, yer tutucu oluşturma Göster, *sarmalanmış* Düzen sayfasında. Örneğin, **gizlilik** bağlantı **Views/Home/Privacy.cshtml** görünümü içinde işlenir `RenderBody` yöntemi.
 
-## <a name="change-the-title-and-menu-link-in-the-layout-file"></a>Düzen dosyası başlığı ve menü Bağlantıyı Değiştir
+## <a name="change-the-title-footer-and-menu-link-in-the-layout-file"></a>Düzen dosyası başlık, alt bilgi ve menü Bağlantıyı Değiştir
 
-* Başlık öğesinde `MvcMovie` için `Movie App`.
+* Başlık ve alt öğelerini değiştirmeniz `MvcMovie` için `Movie App`.
 * Bağlayıcı bir öğe değiştirme `<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MvcMovie</a>` için `<a class="navbar-brand" asp-controller="Movies" asp-action="Index">Movie App</a>`.
 
 Aşağıdaki biçimlendirmede vurgulanan değişiklikleri gösterir:

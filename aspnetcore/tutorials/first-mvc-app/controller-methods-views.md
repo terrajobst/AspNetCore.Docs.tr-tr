@@ -5,18 +5,18 @@ description: Denetleyici yöntemlerinde, görünümler ve ASP.NET core'da DataAn
 ms.author: riande
 ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/controller-methods-views
-ms.openlocfilehash: e6bdaec6dfe681582a54bd39ce1c76bebe6f5fb2
-ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
+ms.openlocfilehash: cd1b0f2ccffaa660f137b8d739933e56018f2702
+ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53997259"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54249418"
 ---
 # <a name="controller-methods-and-views-in-aspnet-core"></a>Denetleyici metotları ve görünümleri ASP.NET Core
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Film uygulaması için iyi bir başlangıç sahibiz ancak sunu ideal değildir. Saat (12:00: 00'da aşağıdaki görüntüde) görmesini istemediğiniz ve **ReleaseDate** iki kelimeye olmalıdır.
+Film uygulaması için iyi bir başlangıç sahibiz ancak sunu Örneğin, ideal olarak, değildir **ReleaseDate** iki kelimeye olmalıdır.
 
 ![Dizini görüntüle: Yayın tarihi bir sözcük (boşluk) ve her film yayın tarihi 12: 00 süresini gösterir.](working-with-sql/_static/m55.png)
 

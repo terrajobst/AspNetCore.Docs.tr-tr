@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core uygulamaları Windows Server Internet Information Services (IIS) üzerinde barındırmayı öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 01/11/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 4356d986731f915c2e76a4c4863f951572820de0
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: 3239b4652d739ed2ac205c9daae7754dbd8e918c
+ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637887"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54249566"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Windows IIS üzerinde ASP.NET Core barındırma
 
@@ -71,6 +71,8 @@ public static IWebHost BuildWebHost(string[] args) =>
 **İşlem içi barındırma modeli**
 
 `CreateDefaultBuilder` çağrıları `UseIIS` önyükleme yöntemi [CoreCLR](/dotnet/standard/glossary#coreclr) ve IIS çalışan işlemi uygulama barındırın (*w3wp.exe* veya *iisexpress.exe*). Performans testleri belirten bir .NET Core uygulaması işlem içi barındırma için uygulama işlem dışı ve proxy isteklerini barındırma kıyasla önemli ölçüde daha yüksek istek üretilen işini teslim [Kestrel](xref:fundamentals/servers/kestrel) sunucusu.
+
+İşlem içi barındırma modeli, .NET Framework'ü hedefleyen ASP.NET Core uygulamaları için desteklenmez.
 
 **İşlem dışı barındırma modeli**
 

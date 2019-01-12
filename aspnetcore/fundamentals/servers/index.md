@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core için web sunucuları Kestrel ve HTTP.sys keşfedin. Bir sunucu seçin ve ne zaman bir ters proxy sunucusu kullanmayı öğrenin.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 01/11/2019
 uid: fundamentals/servers/index
-ms.openlocfilehash: 2c209942ed219b6d6ca309d8aba94b264d421158
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: 4210d67397c85a1608f79fc4ed9d283521356226
+ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637748"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54249496"
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>ASP.NET Core Web sunucu uygulamalarında
 
@@ -48,6 +48,8 @@ ASP.NET Core Modülü:
   * Yükleri [CoreCLR](/dotnet/standard/glossary#coreclr).
   * Çağrıları `Program.Main`.
 * Yerel IIS istek ömrünü işler.
+
+İşlem içi barındırma modeli, .NET Framework'ü hedefleyen ASP.NET Core uygulamaları için desteklenmez.
 
 Aşağıdaki diyagram IIS, ASP.NET Core modülü arasındaki ilişkiyi gösterir ve uygulama işlemde barındırılan:
 
