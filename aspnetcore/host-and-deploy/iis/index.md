@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/11/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 3239b4652d739ed2ac205c9daae7754dbd8e918c
-ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
+ms.openlocfilehash: 83c084beb059d803811e9739d34bdbdd6bcff463
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54249566"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341803"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Windows IIS üzerinde ASP.NET Core barındırma
 
@@ -312,11 +312,6 @@ Uygulamaları olan sunuculara dağıtırken [Web dağıtımı](/iis/publish/usin
 ## <a name="create-the-iis-site"></a>IIS sitesi oluştur
 
 1. Barındıran sistemde, uygulamanın yayımlanmış klasörleri ve dosyaları saklamak için bir klasör oluşturun. Bir uygulamanın dağıtım Düzen açıklanan [dizin yapısı](xref:host-and-deploy/directory-structure) konu.
-
-1. Yeni bir klasör içinde oluşturun bir *günlükleri* stdout günlüğe kaydetme etkinleştirilmişse ASP.NET Core modülü stdout günlükleri tutmak için klasör. Uygulama ile dağıtılırsa bir *günlükleri* yükü klasöründe bu adımı atlayın. Oluşturmak MSBuild'ı etkinleştirme hakkında yönergeler için *günlükleri* otomatik olarak projeyi yerel olarak yapılandırıldığında klasörü görmek [dizin yapısı](xref:host-and-deploy/directory-structure) konu.
-
-   > [!IMPORTANT]
-   > Yalnızca uygulama başlatma hataları gidermek için stdout günlük kullanın. Hiçbir stdout günlük kaydı için rutin uygulama günlüğü kullanın. Günlük dosyası boyutunu sınırlama yok veya oluşturulan günlük dosyası sayısı yoktur. Uygulama havuzu günlüklerin yazılacağı konumuna yazma erişimi olması gerekir. Tüm Günlük konumu yolu klasörlerde mevcut olması gerekir. Stdout günlüğü hakkında daha fazla bilgi için bkz. [günlük oluşturma ve yönlendirme](xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection). ASP.NET Core uygulaması, günlüğe kaydetme hakkında daha fazla bilgi için bkz: [günlüğü](xref:fundamentals/logging/index) konu.
 
 1. İçinde **IIS Yöneticisi'ni**, sunucunun düğümünde açın **bağlantıları** paneli. Sağ **siteleri** klasör. Seçin **Web sitesi Ekle** bağlam menüsünde.
 

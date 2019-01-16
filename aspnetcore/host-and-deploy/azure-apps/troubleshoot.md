@@ -1,17 +1,17 @@
 ---
-title: Azure App Service'te ASP.NET Core başlangıç hatalarında sorun giderme
+title: Azure App Service'te ASP.NET Core sorunlarını giderme
 author: guardrex
 description: ASP.NET Core Azure App Service dağıtım sorunlarını tanılamayı öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 01/11/2019
 uid: host-and-deploy/azure-apps/troubleshoot
-ms.openlocfilehash: b36c321c6ba6801a32b5187651063337b4533fd1
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: 65a5e355bc15db6de9060331395c441160c8b62d
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637659"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341647"
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service"></a>Azure App Service'te ASP.NET Core sorunlarını giderme
 
@@ -51,15 +51,15 @@ ASP.NET Core modülü ile bir varsayılan yapılandırılmış *startupTimeLimit
 
 Uygulama olay günlüğüne erişmek için **Tanıla ve problemleri çözmenize** Azure portalındaki dikey penceresinde:
 
-1. Azure portalında uygulama dikey pencerede açmak **uygulama hizmetleri** dikey penceresi.
-1. Seçin **tanılayın ve sorunlarını çözmek** dikey penceresi.
-1. Altında **sorun KATEGORİSİ seçin**seçin **Web uygulaması kapalı** düğmesi.
-1. Altında **önerilen çözümleri**, bölmesini açmak **uygulama olay günlüklerini açın**. Seçin **açık uygulama olay günlüklerini** düğmesi.
-1. Tarafından sağlanan en son hatasını inceleyin *IIS AspNetCoreModule* içinde **kaynak** sütun.
+1. Azure portalında, uygulamada açmak **uygulama hizmetleri**.
+1. Seçin **tanılayın ve sorunlarını çözmek**.
+1. Seçin **tanılama araçları** başlığı.
+1. Altında **Destek Araçları**seçin **uygulama olayları** düğmesi.
+1. Tarafından sağlanan en son hatasını inceleyin *IIS AspNetCoreModule* veya *IIS AspNetCoreModule V2* girişi **kaynak** sütun.
 
 Kullanmaya alternatif **tanılayın ve sorunlarını çözmek** dikey olan kullanarak doğrudan uygulama olay günlüğü dosyasını incelemek için [Kudu](https://github.com/projectkudu/kudu/wiki):
 
-1. Seçin **Gelişmiş Araçlar** dikey penceresinde **geliştirme araçları** alan. Seçin **Git&rarr;**  düğmesi. Kudu konsolunu bir yeni tarayıcı sekmesinde veya penceresinde açılır.
+1. Açık **Gelişmiş Araçlar** içinde **geliştirme araçları** alan. Seçin **Git&rarr;**  düğmesi. Kudu konsolunu bir yeni tarayıcı sekmesinde veya penceresinde açılır.
 1. Sayfanın en üstünde gezinti çubuğunu kullanarak açmak **hata ayıklama konsoluna** seçip **CMD**.
 1. Açık **LogFiles** klasör.
 1. Kalem simgesini seçin *eventlog.xml* dosya.
@@ -69,7 +69,7 @@ Kullanmaya alternatif **tanılayın ve sorunlarını çözmek** dikey olan kulla
 
 Başlatma hataları birçok yararlı bilgiler uygulama olay günlüğü'ndeki üretmediği. Uygulamayı çalıştırabilirsiniz [Kudu](https://github.com/projectkudu/kudu/wiki) hatayı bulmak için uzaktan yürütme konsolu:
 
-1. Seçin **Gelişmiş Araçlar** dikey penceresinde **geliştirme araçları** alan. Seçin **Git&rarr;**  düğmesi. Kudu konsolunu bir yeni tarayıcı sekmesinde veya penceresinde açılır.
+1. Açık **Gelişmiş Araçlar** içinde **geliştirme araçları** alan. Seçin **Git&rarr;**  düğmesi. Kudu konsolunu bir yeni tarayıcı sekmesinde veya penceresinde açılır.
 1. Sayfanın en üstünde gezinti çubuğunu kullanarak açmak **hata ayıklama konsoluna** seçip **CMD**.
 1. Klasör yolu açın **site** > **wwwroot**.
 1. Konsolda, uygulamanın derleme yürüterek uygulamayı çalıştırın.
@@ -95,7 +95,7 @@ ASP.NET Core modülü stdout günlük genellikle uygulama olay günlüğüne bul
 1. İnceleme **değiştirilen** son değiştirilme tarihi ile oturum sütun ve stdout düzenlemek için kalem simgesini seçin.
 1. Günlük dosyası açıldığında bir hata görüntülenmiyor.
 
-**Önemli!** Sorun giderme işlemi tamamlandıktan sonra stdout günlüğü devre dışı bırakın.
+Sorun giderme işlemi tamamlandıktan sonra stdout günlüğü devre dışı bırakın:
 
 1. Kudu içinde **tanılama Konsolu**, dönüş yoluna **site** > **wwwroot** açığa çıkarmak için *web.config* dosya. Açık **web.config** kalem simgesini seçerek yeniden dosya.
 1. Ayarlama **stdoutLogEnabled** için `false`.
@@ -106,7 +106,37 @@ ASP.NET Core modülü stdout günlük genellikle uygulama olay günlüğüne bul
 >
 > Genel ASP.NET Core uygulaması başlatma işleminden sonra için günlüğü, günlük dosyası boyutunu sınırlar ve günlükleri döndürür bir günlük kitaplığını kullanın. Daha fazla bilgi için [üçüncü taraf günlük sağlayıcıları](xref:fundamentals/logging/index#third-party-logging-providers).
 
-## <a name="common-startup-errors"></a>Ortak başlatma hataları 
+::: moniker range=">= aspnetcore-2.2"
+
+### <a name="aspnet-core-module-debug-log"></a>ASP.NET Core modülü hata ayıklama günlüğü
+
+ASP.NET Core modülü hata ayıklama günlüğünü ek, daha ayrıntılı günlük kaydı, ASP.NET Core modülü sağlar. Stdout günlükleri görüntülemek ve etkinleştirmek için:
+
+1. Gelişmiş Tanılama Günlüğü etkinleştirmek için aşağıdakilerden birini gerçekleştirin:
+   * Bölümündeki yönergeleri [Gelişmiş tanılama günlükleri](xref:host-and-deploy/aspnet-core-module#enhanced-diagnostic-logs) uygulama için Gelişmiş tanılama günlük kaydını yapılandırmak için. Uygulamayı yeniden dağıtın.
+   * Ekleme `<handlerSettings>` gösterilen [Gelişmiş tanılama günlükleri](xref:host-and-deploy/aspnet-core-module#enhanced-diagnostic-logs) için Canlı uygulamanın *web.config* Kudu konsolunu kullanarak dosya:
+     1. Açık **Gelişmiş Araçlar** içinde **geliştirme araçları** alan. Seçin **Git&rarr;**  düğmesi. Kudu konsolunu bir yeni tarayıcı sekmesinde veya penceresinde açılır.
+     1. Sayfanın en üstünde gezinti çubuğunu kullanarak açmak **hata ayıklama konsoluna** seçip **CMD**.
+     1. Klasör yolu açın **site** > **wwwroot**. Düzen *web.config* Kalem düğmesine seçerek dosya. Ekleme `<handlerSettings>` bölümünde gösterildiği gibi [Gelişmiş tanılama günlükleri](xref:host-and-deploy/aspnet-core-module#enhanced-diagnostic-logs). **Kaydet** düğmesini seçin.
+1. Açık **Gelişmiş Araçlar** içinde **geliştirme araçları** alan. Seçin **Git&rarr;**  düğmesi. Kudu konsolunu bir yeni tarayıcı sekmesinde veya penceresinde açılır.
+1. Sayfanın en üstünde gezinti çubuğunu kullanarak açmak **hata ayıklama konsoluna** seçip **CMD**.
+1. Klasör yolu açın **site** > **wwwroot**. İçin bir yol belirtmediyseniz, *aspnetcore debug.log* dosya, dosya, listede görünür. Bir yol belirtilirse, günlük dosyasının konumuna gidin.
+1. Dosya adının yanındaki kalem düğmesine ile günlük dosyasını açın.
+
+Sorun giderme işlemi tamamlandıktan sonra hata ayıklama günlüğü devre dışı bırakın:
+
+1. Gelişmiş hata ayıklama günlüğü, genellikle aşağıdakilerden birini devre dışı bırakmak için:
+   * Kaldırma `<handlerSettings>` gelen *web.config* dosyasını yerel ve uygulamayı yeniden dağıtın.
+   * Düzenlemek için Kudu Konsolu kullanın *web.config* dosya ve kaldırma `<handlerSettings>` bölümü. Dosyayı kaydedin.
+
+> [!WARNING]
+> Uygulama veya sunucu başarısızlığı için hata ayıklama günlüğünü devre dışı bırakmak için hata neden olabilir. Günlük dosyası boyutu sınırı yoktur. Yalnızca uygulama başlatma sorunlarını gidermek için hata ayıklama günlüğü kullanın.
+>
+> Genel ASP.NET Core uygulaması başlatma işleminden sonra için günlüğü, günlük dosyası boyutunu sınırlar ve günlükleri döndürür bir günlük kitaplığını kullanın. Daha fazla bilgi için [üçüncü taraf günlük sağlayıcıları](xref:fundamentals/logging/index#third-party-logging-providers).
+
+::: moniker-end
+
+## <a name="common-startup-errors"></a>Ortak başlatma hataları
 
 Bkz. <xref:host-and-deploy/azure-iis-errors-reference>. Uygulama başlatma önleyen yaygın sorunların çoğunu başvuru konusunda ele alınmaktadır.
 
@@ -157,7 +187,7 @@ Tanılama günlüğüne kaydetmeyi etkinleştirmek için devam edin:
 1. Uygulamaya bir istek oluşturun.
 1. Hatanın nedenini günlük akış verilerini içinde belirtilir.
 
-**Önemli!** Sorun giderme işlemi tamamlandıktan sonra stdout günlüğünü devre dışı emin olun. Yönergelere bakın [ASP.NET Core modülü stdout günlük](#aspnet-core-module-stdout-log) bölümü.
+Sorun giderme işlemi tamamlandıktan sonra stdout günlüğünü devre dışı emin olun. Yönergelere bakın [ASP.NET Core modülü stdout günlük](#aspnet-core-module-stdout-log) bölümü.
 
 Başarısız istek izleme günlükleri (FREB günlükleri) görüntülemek için:
 

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/11/2018
 uid: host-and-deploy/directory-structure
-ms.openlocfilehash: ee0bebb8b5c688f8471d6420d1641b87ac271f6c
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
+ms.openlocfilehash: 4bc5ead8e24c4bb7fe6cd2f52fd2aa622187180c
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284571"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341400"
 ---
 # <a name="aspnet-core-directory-structure"></a>ASP.NET Core dizin yapısı
 
@@ -37,7 +37,7 @@ Tarafından [Luke Latham](https://github.com/guardrex)
 
 *Wwwroot* dizini varsa yalnızca içeren statik varlıklar.
 
-Stdout *günlükleri* aşağıdaki iki yaklaşımdan birini kullanarak dağıtım için dizin oluşturulabilir:
+A *günlükleri* aşağıdaki iki yaklaşımdan birini kullanarak dağıtım için dizin oluşturulabilir:
 
 * Aşağıdaki `<Target>` proje dosyasına öğe:
 
@@ -57,6 +57,8 @@ Stdout *günlükleri* aşağıdaki iki yaklaşımdan birini kullanarak dağıtı
 * Fiziksel olarak oluşturma *günlükleri* dağıtım sunucusunda dizin.
 
 Dağıtım dizini okuma/Yürütme izinleri gerektirir. *Günlükleri* dizin okuma/yazma izinleri gerektirir. Dosyaları yazılacağı ek dizinleri okuma/yazma izinleri gerektirir.
+
+[ASP.NET Core modülü stdout günlük](xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection) gerektirmeyen bir *günlükleri* dağıtım klasörü. Modül içindeki herhangi bir klasörde istemcilerinizle `stdoutLogFile` günlük dosyası oluşturulduğunda yolu. Oluşturma bir *günlükleri* klasördür yararlı [ASP.NET Core modülü Gelişmiş hata ayıklama günlüğü](xref:host-and-deploy/aspnet-core-module#enhanced-diagnostic-logs). Sağlanan yolda `<handlerSetting>` değer modülü tarafından otomatik olarak oluşturulmaz ve dağıtım hata ayıklama günlüğünü yazılacak modülüne izin verecek şekilde önceden mevcut olmalıdır.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

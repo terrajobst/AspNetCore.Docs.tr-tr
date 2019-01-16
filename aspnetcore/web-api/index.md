@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 01/11/2019
 uid: web-api/index
-ms.openlocfilehash: a826bdecdd3a25eb23597123166695c169ba4229
-ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
+ms.openlocfilehash: 8ba20c51f38a43adca4133a402c6d741379a4c54
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54249444"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341634"
 ---
 # <a name="build-web-apis-with-aspnet-core"></a>Web API ASP.NET Core ile oluşturma
 
@@ -133,7 +133,9 @@ Bir bağlama kaynak özniteliği bir eylem parametresinin değeri bulunduğu kon
 > [!WARNING]
 > Kullanmayın `[FromRoute]` değerleri içerebilir zaman `%2f` (diğer bir deyişle `/`). `%2f` unescaped olmaz `/`. Kullanım `[FromQuery]` değer içerebilir, `%2f`.
 
-Olmadan `[ApiController]` öznitelikler açıkça tanımlanmış kaynağını bağlama özniteliği. Aşağıdaki örnekte, `[FromQuery]` özniteliği gösterir `discontinuedOnly` parametre değeri, istek URL'SİNİN sorgu dizesinde sağlanır:
+Olmadan `[ApiController]` öznitelikler açıkça tanımlanmış kaynağını bağlama özniteliği. Olmadan `[ApiController]` veya diğer bağlama kaynak özniteliklerini `[FromQuery]`, ASP.NET Core çalışma zamanı, karmaşık nesne model bağlayıcısını kullanmayı dener. Karmaşık nesne model Bağlayıcısı (tanımlanmış bir sıralama olan) değerini sağlayıcılardan veri çeker. Örneğin, 'model bağlayıcı Gövde' olduğundan her zaman kabul etme.
+
+Aşağıdaki örnekte, `[FromQuery]` özniteliği gösterir `discontinuedOnly` parametre değeri, istek URL'SİNİN sorgu dizesinde sağlanır:
 
 [!code-csharp[](define-controller/samples/WebApiSample.Api.21/Controllers/ProductsController.cs?name=snippet_BindingSourceAttributes&highlight=3)]
 
@@ -245,3 +247,4 @@ Kullanım `ClientErrorMapping` içeriğini yapılandırmak için özellik `Probl
 * <xref:web-api/advanced/formatting>
 * <xref:tutorials/web-api-help-pages-using-swagger>
 * <xref:mvc/controllers/routing>
+****

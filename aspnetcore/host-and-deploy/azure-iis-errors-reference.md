@@ -1,234 +1,370 @@
 ---
-title: Azure App Service ve ASP.NET Core IIS için ortak hataları başvurusu
+title: Azure App Service ve IIS ile ASP.NET Core için sık karşılaşılan hatalar başvurusu
 author: guardrex
-description: Sık karşılaşılan Azure uygulama hizmeti ve IIS üzerinde ASP.NET Core uygulamaları barındırdığında ayırt.
+description: Azure uygulama hizmeti ve IIS üzerinde ASP.NET Core uygulamaları barındırırken sık karşılaşılan hatalar için sorun giderme tavsiyeleri edinin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/13/2017
+ms.date: 01/11/2018
 uid: host-and-deploy/azure-iis-errors-reference
-ms.openlocfilehash: 30b7f1d8e1cfdfd3d1db865ff428eb2094a84d32
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 887482d61ffa74bc8ffb39d0af8507fd10199eb8
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277325"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341504"
 ---
-# <a name="common-errors-reference-for-azure-app-service-and-iis-with-aspnet-core"></a>Azure App Service ve ASP.NET Core IIS için ortak hataları başvurusu
+# <a name="common-errors-reference-for-azure-app-service-and-iis-with-aspnet-core"></a>Azure App Service ve IIS ile ASP.NET Core için sık karşılaşılan hatalar başvurusu
 
 Tarafından [Luke Latham](https://github.com/guardrex)
 
-Aşağıdaki hatalar, tam bir listesi değildir. Burada listelenmeyen bir hatayla karşılaşırsanız [yeni bir sorun açmak](https://github.com/aspnet/Docs/issues/new) hatayı yeniden oluşturmaya yönelik ayrıntılı yönergeler ile.
+Bu konuda, Azure uygulama hizmeti ve IIS üzerinde ASP.NET Core uygulamaları barındırırken sık karşılaşılan hatalar için sorun giderme tavsiyeleri sunar.
 
 Aşağıdaki bilgileri toplayın:
 
-* Tarayıcı davranışı
+* Tarayıcı davranışı (durum kodu ve hata iletisi)
 * Uygulama olay günlüğü girişleri
-* ASP.NET Core modül stdout günlük girişleri
+  * Azure App Service'e &ndash; bkz <xref:host-and-deploy/azure-apps/troubleshoot>.
+  * IIS
+    1. Seçin **Başlat** üzerinde **Windows** menüsü, türü *Olay Görüntüleyicisi'ni*basın **Enter**.
+    1. Sonra **Olay Görüntüleyicisi'ni** açıldığında genişletin **Windows Günlükleri** > **uygulama** Kenar çubuğunda.
+* ASP.NET Core modülü stdout ve hata ayıklama günlük girişleri
+  * Azure App Service'e &ndash; bkz <xref:host-and-deploy/azure-apps/troubleshoot>.
+  * IIS &ndash; yönergeleri [günlük oluşturma ve yönlendirme](xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection) ve [Gelişmiş tanılama günlükleri](xref:host-and-deploy/aspnet-core-module#enhanced-diagnostic-logs) ASP.NET Core modülü konunun bölümleri.
 
-Aşağıdaki sık karşılaşılan bilgileri karşılaştırın. Bir eşleşme olursa, sorun giderme önerileri izleyin.
+Aşağıdaki sık karşılaşılan hata bilgilerini karşılaştırın. Bir eşleşme bulunursa, sorun giderme tavsiyeleri izleyin.
 
-[!INCLUDE [Azure App Service Preview Notice](../includes/azure-apps-preview-notice.md)]
+Bu konudaki hataların listesi kapsamlı değildir. Burada listelenmeyen bir hatayla karşılaşırsanız, kullanarak yeni bir sorun açın **içerik geri bildirimi** hatayı yeniden oluşturmaya ilişkin ayrıntılı yönergeler içeren bu konunun sonundaki düğmesi.
 
-## <a name="installer-unable-to-obtain-vc-redistributable"></a>Yükleyici VC ++ Redistributable alınamıyor
+[!INCLUDE[Azure App Service Preview Notice](../includes/azure-apps-preview-notice.md)]
 
-* **Yükleyici özel durum:** 0x80072efd veya 0x80072f76 - belirtilmeyen hata
+## <a name="installer-unable-to-obtain-vc-redistributable"></a>Yükleyici VC ++ yeniden dağıtılabilir alamadı
 
-* **Yükleyici günlük özel durum&#8224;:** hata 0x80072efd veya 0x80072f76: EXE paketini yürütülemedi.
+* **Yükleyici özel durum:** 0x80072EFD **--veya--** 0x80072f76 - belirtilmeyen hata
 
-  &#8224;Günlük C:\Users bulunduğu\\{USER}\AppData\Local\Temp\dd_DotNetCoreWinSvrHosting__{timestamp}.log.
+* **Yükleyici günlük özel durum&#8224;:** Hata 0x80072efd **--veya--** 0x80072f76: EXE paket yürütülemedi
+
+  &#8224;Günlük şu konumdadır *C:\Users\{USER}\AppData\Local\Temp\dd_DotNetCoreWinSvrHosting__{TIMESTAMP}.log*.
 
 Sorun giderme:
 
-* Sistem, barındırma paket yüklenirken Internet erişimi yoksa, bu özel durum oluştu yükleyici almasını engellendiğinde *Microsoft Visual C++ 2015 Redistributable*. Bir yükleyicisinden elde [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53840). Yükleyici başarısız olursa sunucunun framework bağımlı dağıtım (FDD) barındırmak için gerekli .NET çekirdeği çalışma zamanı almayabilir. Bir FDD barındırma, çalışma zamanı programlarında yüklendiğinden emin olmak &amp; özellikleri. Gerekirse, bir çalışma zamanı Yükleyicisi'nden elde [.NET tüm yüklemelerini](https://www.microsoft.com/net/download/all). Çalışma zamanı yüklendikten sonra sistemi yeniden başlatın veya yürüterek IIS'yi yeniden **net stop edildi /y** arkasından **net start w3svc** bir komut isteminden.
+Sistem, Internet erişimi yoksa, [.NET Core barındırma paket yükleme](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle), yükleyici elde edilen engellendiğinde, bu özel durum oluştu *Microsoft Visual C++ 2015 yeniden dağıtılabilir*. Bir Yükleyicisi'nden elde [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53840). Yükleyici başarısız olursa sunucunun barındırmak için gereken .NET Core çalışma zamanı almayabilir bir [framework bağımlı dağıtım (FDD)](/dotnet/core/deploying/#framework-dependent-deployments-fdd). Bir FDD barındırma, çalışma zamanı içinde yüklü olduğunu onaylayın **programlar ve Özellikler** veya **uygulamalar ve Özellikler**. Belirli bir çalışma zamanı gerekiyorsa, çalışma zamanını şuradan indirin [.NET indirme arşivleri](https://dotnet.microsoft.com/download/archives) ve sisteme yükleyin. Çalışma zamanını yükledikten sonra sistemi yeniden başlatın veya yürüterek IIS'yi yeniden **net stop olan /y** ardından **net start w3svc** bir komut isteminden.
 
-## <a name="os-upgrade-removed-the-32-bit-aspnet-core-module"></a>İşletim sistemi yükseltme 32-bit ASP.NET Core modül kaldırılır
+## <a name="os-upgrade-removed-the-32-bit-aspnet-core-module"></a>İşletim sistemi yükseltme 32-bit ASP.NET Core modülü kaldırıldı
 
-* **Uygulama günlüğü:** modül DLL'si **C:\WINDOWS\system32\inetsrv\aspnetcore.dll** yüklenemedi. Veride hata yer almaktadır.
+**Uygulama günlüğü:** Modülü DLL **C:\WINDOWS\system32\inetsrv\aspnetcore.dll** yüklenemedi. Veride hata yer almaktadır.
 
 Sorun giderme:
 
-* İşletim sistemi olmayan dosyaları **C:\Windows\SysWOW64\inetsrv** directory olmayan bir işletim sistemi sırasında korunur yükseltme. ASP.NET çekirdeği modülü öncesinde yüklüyse, bir işletim sistemi yükseltme ve ardından tüm AppPool çalıştırıldığında 32-bit modunda işletim sistemi yükseltme işleminden sonra bu sorunla karşılaştı. Bir işletim sistemi yükseltme sonrasında ASP.NET Core Modülü'nü onarın. Bkz: [.NET Core barındırma paketini yüklemeniz](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle). Seçin **onarım** yükleyici çalıştırıldığında.
+Olmayan işletim sistemi dosyaları **C:\Windows\SysWOW64\inetsrv** dizin korunur olmayan bir işletim sistemi yükseltme. Öncesinde ASP.NET Core Modülü yüklü bir işletim sistemi yükseltmesi ve ardından bir uygulama havuzu çalıştırılır 32-bit modunda işletim sistemi yükseltme sonrasında, bu sorunla karşılaştık. Bir işletim sistemi yükseltme sonrasında ASP.NET Core Modülü'nü onarın. Bkz: [.NET Core barındırma paketini yüklemeniz](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle). Seçin **onarım** yükleyici ne zaman çalıştırılır.
+
+## <a name="an-x86-app-is-deployed-but-the-app-pool-isnt-enabled-for-32-bit-apps"></a>Uygulamanın dağıtıldığı bir x86 ancak uygulama havuzunun 32-bit uygulamalar için etkin değil
+
+* **Tarayıcı:** HTTP Hatası 500.30 - ANCM işlem içi başlatma hatası
+
+* **Uygulama günlüğü:** Uygulama '/ LM/W3SVC/5/ROOT' fiziksel ile beklenmeyen yönetilen özel durum, özel durum kodu '{PATH}' kök isabet = '0xe0434352'. Daha fazla bilgi için stderr günlüklerini gözden geçirin. Uygulama '/ LM/W3SVC/5/ROOT' ile fiziksel kök '{PATH}' clr ve yönetilen uygulama yüklenemedi. CLR çalışan iş parçacığı beklenenden önce çıkıldı
+
+* **ASP.NET Core modülü stdout günlüğü:** Günlük dosyası oluşturuldu, ancak boş olur.
+
+::: moniker range=">= aspnetcore-2.2"
+
+* **ASP.NET Core modülü hata ayıklama günlüğü:** Başarısız HRESULT döndürdü: 0x8007023e
+
+::: moniker-end
+
+Bu senaryo, kendi içinde bir uygulama yayımlama sırasında SDK tarafından yakalanır. Platform hedefi RID eşleşmiyorsa SDK'sı bir hata oluşturur. (örneğin, `win10-x64` ile RID `<PlatformTarget>x86</PlatformTarget>` proje dosyasında).
+
+Sorun giderme:
+
+X x86 için framework bağımlı dağıtım (`<PlatformTarget>x86</PlatformTarget>`), 32-bit uygulamalar için IIS uygulama havuzu etkinleştirin. IIS Yöneticisi'nde açın ve uygulama havuzun **Gelişmiş ayarlar** ve **etkinleştirme 32-Bit uygulamaları** için **True**.
 
 ## <a name="platform-conflicts-with-rid"></a>RID Platform çakışıyor
 
 * **Tarayıcı:** HTTP hatası 502.5 - işlem hatası
 
-* **Uygulama günlüğü:** uygulama ' MACHINE/WEBROOT/APPHOST / {DERLEMESİ} ' fiziksel kök ile ' C:\{yolu}\' komut satırı ile işlemi başlatılamadı ' "C:\\{PATH} {derleme}. { exe | dll} "', hata kodu = ' 0x80004005: ff.
+* **Uygulama günlüğü:** Uygulama ' makine/WEBROOT/APPHOST / {DERLEMESİ} ' fiziksel kök ile ' C:\{yolu}\' ile komut satırı işlemi başlatılamadı ' "C:\{yolu} {DERLEMESİ}. { exe | dll} "', ErrorCode = ' 0x80004005: ff.
 
-* **ASP.NET çekirdeği modülü günlüğü:** işlenmeyen bir özel durum: System.BadImageFormatException: '{} derlemesi .dll' dosya veya derleme yüklenemedi. Yanlış biçime sahip bir program yüklemek için girişimde bulunuldu.
-
-Sorun giderme:
-
-* Uygulamayı yerel olarak Kestrel üzerinde çalıştığını doğrulayın. İşlem hatası uygulamada bir sorun sonucu olabilir. Daha fazla bilgi için bkz: [sorun giderme](xref:host-and-deploy/iis/troubleshoot).
-
-* Onaylayın `<PlatformTarget>` içinde *.csproj* RID ile çakışan değil. Örneğin, belirtmeyin bir `<PlatformTarget>` , `x86` ve bir RID yayınlama `win10-x64`, kullanarak ya da *dotnet Yayımla - c yayın - r win10-x64* veya ayarlayarak `<RuntimeIdentifiers>` içinde *.csproj*  için `win10-x64`. Proje uyarı veya hata yayımlar ancak sistemdeki yukarıdaki oturum durumlarla başarısız olur.
-
-* Bu özel bir Azure uygulamaları dağıtım için bir uygulama yükseltirken oluşur ve yeni derlemeleri dağıtma el ile tüm dosyaların önceki dağıtımından silerseniz. Uyumsuz derlemeleri kalan içinde sonuçlanabilir bir `System.BadImageFormatException` yükseltilmiş bir uygulama dağıtımı sırasında özel durum.
-
-## <a name="uri-endpoint-wrong-or-stopped-website"></a>URI uç nokta yanlış ya da durdurulmuş Web sitesi
-
-* **Tarayıcı:** ERR_CONNECTION_REFUSED
-
-* **Uygulama günlüğü:** girişi yok
-
-* **ASP.NET çekirdeği modülü günlüğü:** günlük dosyası oluşturulmadı
+* **ASP.NET Core modülü stdout günlüğü:** İşlenmeyen özel durum: : System.BadImageFormatException '{} DERLEMESİ .dll' dosya veya derleme yüklenemedi. Bir programı hatalı biçimde yüklemek için girişimde bulunuldu.
 
 Sorun giderme:
 
-* Doğru URI uç nokta uygulaması için kullanılan onaylayın. Bağlamaları denetleyin.
+* Uygulamayı yerel olarak Kestrel üzerinde çalıştığını doğrulayın. Bir işlem hatası sonucu uygulama içinde ilgili bir sorun olabilir. Daha fazla bilgi için [sorun giderme (IIS)](xref:host-and-deploy/iis/troubleshoot) veya [sorun giderme (Azure App Service)](xref:host-and-deploy/azure-apps/troubleshoot).
+
+* Bu özel durum için bir Azure uygulama dağıtımı bir uygulama yükseltme sırasında gerçekleşir ve yeni derlemeleri dağıtma el ile tüm dosyaları önceki silebilir. Uyumsuz derlemeleri kalan sonuçlanabilir bir `System.BadImageFormatException` yükseltilmiş bir uygulama dağıtımı sırasında özel durum.
+
+## <a name="uri-endpoint-wrong-or-stopped-website"></a>URI uç nokta yanlış veya durdurulmuş Web sitesi
+
+* **Tarayıcı:** ERR_CONNECTION_REFUSED **--veya--** bağlanılamıyor
+
+* **Uygulama günlüğü:** Giriş yok
+
+* **ASP.NET Core modülü stdout günlüğü:** Günlük dosyası oluşturulmaz.
+
+::: moniker range=">= aspnetcore-2.2"
+
+* **ASP.NET Core modülü hata ayıklama günlüğü:** Günlük dosyası oluşturulmaz.
+
+::: moniker-end
+
+Sorun giderme:
+
+* Uygulama için doğru URI uç nokta kullanımda olduğunu onaylayın. Bağlamaları kontrol edin.
 
 * IIS Web sitesinin içinde olmadığını onaylayın *durduruldu* durumu.
 
 ## <a name="corewebengine-or-w3svc-server-features-disabled"></a>Devre dışı CoreWebEngine veya W3SVC sunucusu özellikleri
 
-* **İşletim sistemi özel durum:** ASP.NET Core modülü kullanmak için IIS 7.0 CoreWebEngine ve W3SVC özellikleri yüklü olmalıdır.
+**İşletim sistemi özel durum:** ASP.NET Core modülü kullanmak için IIS 7.0 CoreWebEngine ve W3SVC özelliklerini yüklenmesi gerekir.
 
 Sorun giderme:
 
-* Uygun rol ve özellikleri etkinleştirildiğini onaylayın. Bkz: [IIS yapılandırmasını](xref:host-and-deploy/iis/index#iis-configuration).
+Uygun rol ve özellikleri etkinleştirildiğini doğrulayın. Bkz: [IIS yapılandırması](xref:host-and-deploy/iis/index#iis-configuration).
 
-## <a name="incorrect-website-physical-path-or-app-missing"></a>Yanlış Web sitesi fiziksel yolu veya uygulama eksik
+## <a name="incorrect-website-physical-path-or-app-missing"></a>Yanlış bir Web sitesi fiziksel yolunu veya uygulama eksik
 
-* **Tarayıcı:** 403 Yasak - erişim reddedildi **--veya--** 403.14 Yasak - Web sunucusu bu dizinin içindekileri listelemeyecek şekilde yapılandırılmış.
+* **Tarayıcı:** 403 Yasak - erişim reddedildi **--veya--** 403.14 Yasak - Web sunucusu bu dizinin içeriklerini listesinde olmayan şekilde yapılandırılmıştır.
 
-* **Uygulama günlüğü:** girişi yok
+* **Uygulama günlüğü:** Giriş yok
 
-* **ASP.NET çekirdeği modülü günlüğü:** günlük dosyası oluşturulmadı
+* **ASP.NET Core modülü stdout günlüğü:** Günlük dosyası oluşturulmaz.
 
-Sorun giderme:
+::: moniker range=">= aspnetcore-2.2"
 
-* IIS Web sitesini denetleyin **temel ayarları** ve fiziksel uygulama klasör. Uygulama IIS Web sitesinde klasöründe olduğunu onaylayın **fiziksel yolu**.
+* **ASP.NET Core modülü hata ayıklama günlüğü:** Günlük dosyası oluşturulmaz.
 
-## <a name="incorrect-role-module-not-installed-or-incorrect-permissions"></a>Yanlış rol, modül yüklü değil veya yanlış izinler
-
-* **Tarayıcı:** iç sunucu hatası 500.19 - sayfayla ilgili yapılandırma verileri geçersiz olduğundan istenen sayfaya erişilemiyor.
-
-* **Uygulama günlüğü:** girişi yok
-
-* **ASP.NET çekirdeği modülü günlüğü:** günlük dosyası oluşturulmadı
+::: moniker-end
 
 Sorun giderme:
 
-* Uygun rolde etkinleştirilmiş olduğunu doğrulayın. Bkz: [IIS yapılandırmasını](xref:host-and-deploy/iis/index#iis-configuration).
+IIS Web sitesini denetleyin **temel ayarları** ve fiziksel uygulaması klasörü. Uygulama IIS Web sitesinde bir klasör olduğunu onaylayın **fiziksel yolu**.
 
-* Denetleme **programlar &amp; özellikleri** onaylayın **Microsoft ASP.NET Core Modülü** yüklendi. Varsa **Microsoft ASP.NET Core Modülü** yüklü programlar listesinde yer almayan modülünü yükleyin. Bkz: [paket barındırma .NET Core yükleme](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle).
+## <a name="incorrect-role-aspnet-core-module-not-installed-or-incorrect-permissions"></a>Hatalı bir rol, ASP.NET Core Modülü yüklü değil veya yanlış izinler
 
-* Olduğundan emin olun **uygulama havuzu** > **işlem modeli** > **kimlik** ayarlanır **ApplicationPoolIdentity** veya özel kimlik uygulamanın dağıtım klasörüne erişmek için doğru izinlere sahip.
+* **Tarayıcı:** 500.19 iç sunucu hatası: sayfa için ilgili yapılandırma verileri geçersiz olduğundan istenen sayfayı erişilemez. **--VEYA--** bu sayfa görüntülenemiyor
 
-## <a name="incorrect-processpath-missing-path-variable-hosting-bundle-not-installed-systemiis-not-restarted-vc-redistributable-not-installed-or-dotnetexe-access-violation"></a>Yanlış processPath, eksik PATH değişkeni, yüklü paketi barındırma, sistem/IIS yeniden, VC ++ yüklü değil, Redistributable veya dotnet.exe erişim ihlali
+* **Uygulama günlüğü:** Giriş yok
+
+* **ASP.NET Core modülü stdout günlüğü:** Günlük dosyası oluşturulmaz.
+
+::: moniker range=">= aspnetcore-2.2"
+
+* **ASP.NET Core modülü hata ayıklama günlüğü:** Günlük dosyası oluşturulmaz.
+
+::: moniker-end
+
+Sorun giderme:
+
+* Uygun rol etkin olduğunu onaylayın. Bkz: [IIS yapılandırması](xref:host-and-deploy/iis/index#iis-configuration).
+
+* Açık **programlar ve Özellikler** veya **uygulamalar ve Özellikler** doğrulayın **Windows Server'ı barındıran** yüklenir. Varsa **Windows Server'ı barındıran** yüklü programlar, indirme ve yükleme .NET Core barındırma paket listesinde bulunmaz.
+
+  [Geçerli .NET Core barındırma Paket Yükleyici (doğrudan indirme)](https://www.microsoft.com/net/permalink/dotnetcore-current-windows-runtime-bundle-installer)
+
+  Daha fazla bilgi için [.NET Core barındırma paketini yüklemeniz](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle).
+
+* Emin olun **uygulama havuzu** > **işlem modeli** > **kimlik** ayarlanır **ApplicationPoolIdentity** veya özel kimlik uygulamanın dağıtım klasörüne erişmek için doğru izinlere sahip.
+
+## <a name="incorrect-processpath-missing-path-variable-hosting-bundle-not-installed-systemiis-not-restarted-vc-redistributable-not-installed-or-dotnetexe-access-violation"></a>Yanlış processPath, eksik PATH değişkenine, yüklü paket barındırma, yeniden system/IIS, VC ++ yüklü yeniden dağıtılabilir veya dotnet.exe erişim ihlali
+
+::: moniker range=">= aspnetcore-2.2"
+
+* **Tarayıcı:** HTTP Hatası 500.0 - ANCM işlem içi işleyici yükleme hatası
+
+* **Uygulama günlüğü:** Uygulama ' makine/WEBROOT/APPHOST / {DERLEMESİ} ' fiziksel kök ile ' C:\{yolu}\' ile komut satırı işlemi başlatılamadı ' "{...}" ', ErrorCode = ' 0x80070002: 0. '{PATH}' uygulama başlatmanız mümkün değildi. Yürütülebilir dosya '{PATH}' bulunamadı. Uygulama başlatılamadı. '/ LM/W3SVC/2/ROOT', '0x8007023e' hata kodu.
+
+* **ASP.NET Core modülü stdout günlüğü:** Günlük dosyası oluşturulmaz.
+
+* **ASP.NET Core modülü hata ayıklama günlüğü:** Olay günlüğü: ' Uygulama '{PATH}' başlatmanız mümkün değildi. Yürütülebilir dosya '{PATH}' bulunamadı. Başarısız HRESULT döndürdü: 0x8007023e
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
 
 * **Tarayıcı:** HTTP hatası 502.5 - işlem hatası
 
-* **Uygulama günlüğü:** uygulama ' MACHINE/WEBROOT/APPHOST / {DERLEMESİ} ' fiziksel kök ile ' C:\\{PATH}\' komut satırı ile işlemi başlatılamadı ' ".\{ derleme} .exe"', hata kodu = ' 0x80070002: 0.
+* **Uygulama günlüğü:** Uygulama ' makine/WEBROOT/APPHOST / {DERLEMESİ} ' fiziksel kök ile ' C:\{yolu}\' ile komut satırı işlemi başlatılamadı ' "{...}" ', ErrorCode = ' 0x80070002: 0.
 
-* **ASP.NET çekirdeği modülü günlüğü:** günlük dosyası oluşturuldu ancak boş
+* **ASP.NET Core modülü stdout günlüğü:** Günlük dosyası oluşturuldu, ancak boş olur.
+
+::: moniker-end
 
 Sorun giderme:
 
-* Uygulamayı yerel olarak Kestrel üzerinde çalıştığını doğrulayın. İşlem hatası uygulamada bir sorun sonucu olabilir. Daha fazla bilgi için bkz: [sorun giderme](xref:host-and-deploy/iis/troubleshoot).
+* Uygulamayı yerel olarak Kestrel üzerinde çalıştığını doğrulayın. Bir işlem hatası sonucu uygulama içinde ilgili bir sorun olabilir. Daha fazla bilgi için [sorun giderme (IIS)](xref:host-and-deploy/iis/troubleshoot) veya [sorun giderme (Azure App Service)](xref:host-and-deploy/azure-apps/troubleshoot).
 
-* Denetleme *processPath* özniteliği `<aspNetCore>` öğesinde *web.config* olduğundan emin olmak için *dotnet* framework bağımlı dağıtım (FDD) veya *. \{derleme} .exe* müstakil dağıtımı (SCD).
+* Denetleme *processPath* özniteliği `<aspNetCore>` öğesinde *web.config* olduğundan emin olmak için `dotnet` framework bağımlı dağıtım (FDD) veya `.\{ASSEMBLY}.exe` bir için[müstakil dağıtım (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd).
 
-* Bir FDD için *dotnet.exe* yol ayarları erişilebilir olmayabilir. Onaylayın * C:\Program Files\dotnet\* sistem yolu ayarlarında bulunmaktadır.
+* Bir FDD için *dotnet.exe* yol ayarları erişilebilir olmayabilir. Onaylayın * C:\Program Files\dotnet\* sistem yolu ayarlarında yok.
 
-* Bir FDD için *dotnet.exe* uygulama havuzu kullanıcı kimliği için erişilebilir olmayabilir. Uygulama havuzu kullanıcı kimliği için erişimi olduğunu doğrulamak *C:\Program Files\dotnet* dizini. Uygulama havuzu kullanıcı kimliği için yapılandırılmış hiçbir izin verme kuralı olduğundan emin olun *C:\Program Files\dotnet* ve uygulama dizinleri.
+* Bir FDD için *dotnet.exe* uygulama havuzu kullanıcı kimliği için erişilebilir olmayabilir. Uygulama havuzu kullanıcı kimliği için erişimi olduğunu doğrulamak *C:\Program Files\dotnet* dizin. Uygulama havuzu kullanıcı kimliğini için yapılandırılmış hiçbir Reddet kural onaylayın *C:\Program Files\dotnet* ve uygulama dizinler.
 
-* Bir FDD dağıtılan ve IIS'yi yeniden başlatmadan .NET Core yüklü. Sunucuyu yeniden başlatın veya yürüterek IIS'yi yeniden **net stop edildi /y** arkasından **net start w3svc** bir komut isteminden.
+* Bir FDD dağıtılan ve .NET Core IIS yeniden başlatmanıza gerek kalmadan yüklenir. Sunucuyu yeniden başlatın veya yürüterek IIS'yi yeniden **net stop olan /y** ardından **net start w3svc** bir komut isteminden.
 
-* Bir FDD barındıran sistemde .NET çekirdeği çalışma zamanı yüklemeden dağıtılmış. .NET çekirdeği çalışma zamanı yüklenmemiştir çalıştırırsanız **.NET Core barındırma Paket Yükleyici** sistemdeki. Bkz: [paket barındırma .NET Core yükleme](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle). Internet bağlantısı olmadan bir sistemde .NET çekirdeği çalışma zamanı yükleme girişimi varsa, çalışma alanından elde [.NET tüm yüklemelerini](https://www.microsoft.com/net/download/all) ve ASP.NET Core modülünü yüklemek için barındırma paket yükleyiciyi çalıştırın. Sistemi yeniden başlatmayı veya yürüterek IIS yeniden yüklemeyi tamamlamak **net stop edildi /y** arkasından **net start w3svc** bir komut isteminden.
+* Bir FDD barındıran sistemde .NET Core çalışma zamanı yüklemeden dağıtılmış. .NET Core çalışma zamanı yüklü olmadığından çalıştırırsanız **.NET Core barındırma Paket Yükleyici** sistem üzerinde.
 
-* Bir FDD dağıtılan ve *Microsoft Visual C++ 2015 Redistributable (x64)* sistemde yüklü değil. Bir yükleyicisinden elde [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53840).
+  [Geçerli .NET Core barındırma Paket Yükleyici (doğrudan indirme)](https://www.microsoft.com/net/permalink/dotnetcore-current-windows-runtime-bundle-installer)
 
-## <a name="incorrect-arguments-of-aspnetcore-element"></a>Yanlış bağımsız \<aspNetCore\> öğesi
+  Daha fazla bilgi için [.NET Core barındırma paketini yüklemeniz](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle).
+
+  Belirli bir çalışma zamanı gerekiyorsa, çalışma zamanını şuradan indirin [.NET indirme arşivleri](https://dotnet.microsoft.com/download/archives) ve sisteme yükleyin. Sistem başlatarak veya yürüterek IIS'yi yeniden başlatmak ve yüklemeyi tamamlamak **net stop olan /y** ardından **net start w3svc** bir komut isteminden.
+
+* Bir FDD dağıtılan ve *Microsoft Visual C++ 2015 yeniden dağıtılabilir (x64)* sistemde yüklü değil. Bir Yükleyicisi'nden elde [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53840).
+
+## <a name="incorrect-arguments-of-aspnetcore-element"></a>Hatalı bağımsız değişkenleri \<aspNetCore > öğesi
+
+::: moniker range=">= aspnetcore-2.2"
+
+* **Tarayıcı:** HTTP Hatası 500.0 - ANCM işlem içi işleyici yükleme hatası
+
+* **Uygulama günlüğü:** Yerel bağımlılıkları bulmadan Başarısız InProcess istek işleyicisi bulmak için hostfxr çağrılıyor. Uygulama hatalı yapılandırılmış, büyük olasılıkla bunun anlamı uygulama tarafından hedeflenen ve makinede yüklü sürümler Microsoft.NetCore.App ve Microsoft.AspNetCore.App gözden geçirin. InProcess istek işleyicisi bulunamadı. Hostfxr çağırma gelen yakalanan çıktısı: Dotnet SDK komutları çalıştırmak mı amaçlamıştınız? Lütfen dotnet SDK'sını yükleyin gelen: https://go.microsoft.com/fwlink/?LinkID=798306&clcid=0x409 Uygulama başlatılamadı. '/ LM/W3SVC/3/ROOT', '0x8000ffff' hata kodu.
+
+* **ASP.NET Core modülü stdout günlüğü:** Dotnet SDK komutları çalıştırmak mı amaçlamıştınız? Lütfen dotnet SDK'sını yükleyin gelen: https://go.microsoft.com/fwlink/?LinkID=798306&clcid=0x409
+
+* **ASP.NET Core modülü hata ayıklama günlüğü:** Yerel bağımlılıkları bulmadan Başarısız InProcess istek işleyicisi bulmak için hostfxr çağrılıyor. Uygulama hatalı yapılandırılmış, büyük olasılıkla bunun anlamı uygulama tarafından hedeflenen ve makinede yüklü sürümler Microsoft.NetCore.App ve Microsoft.AspNetCore.App gözden geçirin. Başarısız HRESULT döndürdü: 0x8000ffff InProcess istek işleyicisi bulunamadı. Hostfxr çağırma gelen yakalanan çıktısı: Dotnet SDK komutları çalıştırmak mı amaçlamıştınız? Lütfen dotnet SDK'sını yükleyin gelen: https://go.microsoft.com/fwlink/?LinkID=798306&clcid=0x409 Başarısız HRESULT döndürdü: 0x8000ffff
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
 
 * **Tarayıcı:** HTTP hatası 502.5 - işlem hatası
 
-* **Uygulama günlüğü:** uygulama ' MACHINE/WEBROOT/APPHOST / {DERLEMESİ} ' fiziksel kök ile ' C:\\{PATH}\' komut satırı ile işlemi başlatılamadı ' "dotnet".\{ .dll derleme}', hata kodu = ' 0x80004005: 80008081.
+* **Uygulama günlüğü:** Uygulama ' makine/WEBROOT/APPHOST / {DERLEMESİ} ' fiziksel kök ile ' C:\{yolu}\' ile komut satırı işlemi başlatılamadı ' "dotnet".\{ DERLEME} .dll ', ErrorCode = ' 0x80004005: 80008081.
 
-* **ASP.NET çekirdeği modülü günlüğü:** yürütmek için uygulama yok: ' yolu\{derleme} .dll '
+* **ASP.NET Core modülü stdout günlüğü:** Uygulamayı çalıştırmak için mevcut değil: Yolu\{derleme} .dll '
 
-Sorun giderme:
-
-* Uygulamayı yerel olarak Kestrel üzerinde çalıştığını doğrulayın. İşlem hatası uygulamada bir sorun sonucu olabilir. Daha fazla bilgi için bkz: [sorun giderme](xref:host-and-deploy/iis/troubleshoot).
-
-* İncelemek *bağımsız değişkenleri* özniteliği `<aspNetCore>` öğesinde *web.config* ya da olduğunu onaylamak için (a) *.\{ derleme} .dll* framework bağımlı dağıtım (FDD); veya (b yok, boş bir dize) (*bağımsız değişkenleri = ""*), veya bir uygulamanın bağımsız değişkenleri listesi (*bağımsız değişkenler "arg1, arg2,..." =*) kendi içinde bulunan dağıtımlar için (SCD).
-
-## <a name="missing-net-framework-version"></a>Eksik .NET Framework sürümü
-
-* **Tarayıcı:** 502.3 hatalı ağ geçidi - bağlantı hatası isteği yönlendirmek çalışılırken oluştu.
-
-* **Uygulama günlüğü:** HataKodu = uygulama ' MACHINE/WEBROOT/APPHOST / {DERLEMESİ} ' fiziksel kök ile ' C:\\{PATH}\' komut satırı ile işlemi başlatılamadı ' "dotnet".\{ .dll derleme}', hata kodu = ' 0x80004005: 80008081.
-
-* **ASP.NET çekirdeği modülü günlüğü:** yöntemi, dosya veya derleme özel durum eksik. Yöntemi, dosya veya derleme özel durum belirtildi bir .NET Framework yöntemi, dosya veya derleme olabilir.
+::: moniker-end
 
 Sorun giderme:
 
-* Sistemden eksik .NET Framework sürümünü yükleyin.
+* Uygulamayı yerel olarak Kestrel üzerinde çalıştığını doğrulayın. Bir işlem hatası sonucu uygulama içinde ilgili bir sorun olabilir. Daha fazla bilgi için [sorun giderme (IIS)](xref:host-and-deploy/iis/troubleshoot) veya [sorun giderme (Azure App Service)](xref:host-and-deploy/azure-apps/troubleshoot).
 
-* Bir framework bağımlı dağıtım (FDD) için doğru çalışma zamanı sistemde yüklü olduğunu onaylayın. Proje 1.1 barındırma sisteme dağıtılan 2.0 sürümüne yükseltilir ve bu özel durumun sonucu, 2.0 framework barındıran sistemde olduğundan emin olun.
+* İnceleme *bağımsız değişkenleri* özniteliği `<aspNetCore>` öğesinde *web.config* ya da olduğunu onaylamak için (a) `.\{ASSEMBLY}.dll` framework bağımlı dağıtım (FDD); veya (b) yoksa, bir boş dize (`arguments=""`), veya bir uygulamanın bağımsız değişkenleri listesi (`arguments="{ARGUMENT_1}, {ARGUMENT_2}, ... {ARGUMENT_X}"`) için kendi içinde bir dağıtım (SCD).
+
+::: moniker range=">= aspnetcore-2.2"
+
+## <a name="missing-net-core-shared-framework"></a>.NET Core paylaşılan çerçeve eksik
+
+* **Tarayıcı:** HTTP Hatası 500.0 - ANCM işlem içi işleyici yükleme hatası
+
+* **Uygulama günlüğü:** Yerel bağımlılıkları bulmadan Başarısız InProcess istek işleyicisi bulmak için hostfxr çağrılıyor. Uygulama hatalı yapılandırılmış, büyük olasılıkla bunun anlamı uygulama tarafından hedeflenen ve makinede yüklü sürümler Microsoft.NetCore.App ve Microsoft.AspNetCore.App gözden geçirin. InProcess istek işleyicisi bulunamadı. Hostfxr çağırma gelen yakalanan çıktısı: Tüm uyumlu çerçeve sürümü bulmak mümkün değildi. Belirtilen çerçeve 'Microsoft.AspNetCore.App', '{VERSION} sürümü bulunamadı.
+
+Uygulama başlatılamadı. '/ LM/W3SVC/5/ROOT', '0x8000ffff' hata kodu.
+
+* **ASP.NET Core modülü stdout günlüğü:** Tüm uyumlu çerçeve sürümü bulmak mümkün değildi. Belirtilen çerçeve 'Microsoft.AspNetCore.App', '{VERSION} sürümü bulunamadı.
+
+* **ASP.NET Core modülü hata ayıklama günlüğü:** Başarısız HRESULT döndürdü: 0x8000ffff
+
+::: moniker-end
+
+Sorun giderme:
+
+Framework bağımlı dağıtım (FDD), doğru çalışma zamanı için sistemde yüklü olduğunu onaylayın.
 
 ## <a name="stopped-application-pool"></a>Durdurulan uygulama havuzunu
 
 * **Tarayıcı:** 503 Hizmet kullanılamıyor
 
-* **Uygulama günlüğü:** girişi yok
+* **Uygulama günlüğü:** Giriş yok
 
-* **ASP.NET çekirdeği modülü günlüğü:** günlük dosyası oluşturulmadı
+* **ASP.NET Core modülü stdout günlüğü:** Günlük dosyası oluşturulmaz.
 
-Sorun giderme
+::: moniker range=">= aspnetcore-2.2"
 
-* Uygulama havuzu içinde olmadığını onaylayın *durduruldu* durumu.
+* **ASP.NET Core modülü hata ayıklama günlüğü:** Günlük dosyası oluşturulmaz.
 
-## <a name="iis-integration-middleware-not-implemented"></a>IIS tümleştirme Ara uygulanmadı
+::: moniker-end
 
-* **Tarayıcı:** HTTP hatası 502.5 - işlem hatası
+Sorun giderme:
 
-* **Uygulama günlüğü:** uygulama ' MACHINE/WEBROOT/APPHOST / {DERLEMESİ} ' fiziksel kök ile ' C:\\{PATH}\' işlem komut satırı ile oluşturulan ' "C:\\{PATH}\{derleme}. { exe | dll} "' ancak kilitlendi veya değil yanıt vermedi ya da verilen bağlantı noktası üzerinde '{PORT}', ErrorCode dinleme değil '0x800705b4' =
+Uygulama havuzu içinde olmadığını onaylayın *durduruldu* durumu.
 
-* **ASP.NET çekirdeği modülü günlüğü:** günlük dosyası oluşturulur ve normal işlemi gösterir.
-
-Sorun giderme
-
-* Uygulamayı yerel olarak Kestrel üzerinde çalıştığını doğrulayın. İşlem hatası uygulamada bir sorun sonucu olabilir. Daha fazla bilgi için bkz: [sorun giderme](xref:host-and-deploy/iis/troubleshoot).
-
-* Ya da onaylayın:
-  * Referencedby IIS tümleştirme Ara yazılımıdır çağırma `UseIISIntegration` uygulamanın yöntemi `WebHostBuilder` (ASP.NET Core 1.x)
-  * Uygulamaları kullanan `CreateDefaultBuilder` yöntemi (ASP.NET Core 2.x).
-  
-  Bkz: [ASP.NET Core ana](xref:fundamentals/host/index) Ayrıntılar için.
-
-## <a name="sub-application-includes-a-handlers-section"></a>Alt uygulama içeren bir \<işleyicileri\> bölümü
+## <a name="sub-application-includes-a-handlers-section"></a>Alt uygulama içeren bir \<işleyicileri > bölümü
 
 * **Tarayıcı:** HTTP Hatası 500.19 - iç sunucu hatası
 
-* **Uygulama günlüğü:** girişi yok
+* **Uygulama günlüğü:** Giriş yok
 
-* **ASP.NET çekirdeği modülü günlüğü:** günlük dosyası oluşturulur ve kök uygulaması için normal işlem gösterir. Günlük dosyası için alt uygulaması oluşturulmamış.
+* **ASP.NET Core modülü stdout günlüğü:** Kök uygulama günlük dosyası oluşturulur ve normal işlemini gösterir. Sub uygulamanın günlük dosyası oluşturulmaz.
 
-Sorun giderme
+::: moniker range=">= aspnetcore-2.2"
 
-* Onaylayın alt uygulamanın *web.config* dosya içermez bir `<handlers>` bölümü.
+* **ASP.NET Core modülü hata ayıklama günlüğü:** Kök uygulama günlük dosyası oluşturulur ve normal işlemini gösterir. Sub uygulamanın günlük dosyası oluşturulmaz.
+
+::: moniker-end
+
+Sorun giderme:
+
+::: moniker range=">= aspnetcore-2.2"
+
+Onaylayın alt uygulamanın *web.config* dosya içermez bir `<handlers>` bölüm veya alt uygulama üst uygulamanın işleyicileri devralmaz.
+
+Üst uygulamanın `<system.webServer>` bölümünü *web.config* içine yerleştirilen bir `<location>` öğesi. <xref:System.Configuration.SectionInformation.InheritInChildApplications*> Özelliği `false` ayarları içinde belirtilen belirtmek için [ \<konum >](/iis/manage/managing-your-configuration-settings/understanding-iis-configuration-delegation#the-concept-of-location) öğesi olmayan üst uygulamanın bir alt dizinde bulunan uygulamalar tarafından devralınan. Daha fazla bilgi için bkz. <xref:host-and-deploy/aspnet-core-module>.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
+Onaylayın alt uygulamanın *web.config* dosya içermez bir `<handlers>` bölümü.
+
+::: moniker-end
 
 ## <a name="stdout-log-path-incorrect"></a>STDOUT günlük yolu yanlış
 
-* **Tarayıcı:** uygulama normalde yanıt verir.
+* **Tarayıcı:** Uygulama normal şekilde yanıt verir.
 
-* **Uygulama günlüğü:** Uyarı: stdoutLogFile oluşturulamadı \\? \C:\_apps\app_folder\bin\Release\netcoreapp2.0\win10-x64\publish\logs\path_doesnt_exist\stdout_8748_201831835937.log, HataKodu = - 2147024893.
+::: moniker range=">= aspnetcore-2.2"
 
-* **ASP.NET çekirdeği modülü günlüğü:** günlük dosyası oluşturulmadı
+* **Uygulama günlüğü:** STDOUT yeniden yönlendirme C:\Program Files\IIS\Asp.Net çekirdek Module\V2\aspnetcorev2.dll başlatılamadı. Özel durum iletisi: {PATH}\aspnetcoremodulev2\commonlib\fileoutputmanager.cpp:84. döndürülen HRESULT 0x80070005 STDOUT yeniden yönlendirmeyi C:\Program Files\IIS\Asp.Net çekirdek Module\V2\aspnetcorev2.dll durdurulamadı. Özel durum iletisi: HRESULT 0x80070002 {PATH} döndürdü. {PATH}\aspnetcorev2_inprocess.dll. yeniden yönlendirme STDOUT başlatılamadı
 
-Sorun giderme
+* **ASP.NET Core modülü stdout günlüğü:** Günlük dosyası oluşturulmaz.
 
-* `stdoutLogFile` Belirtilen yola `<aspNetCore>` öğesinin *web.config* yok. Daha fazla bilgi için bkz: [günlük oluşturma ve yeniden yönlendirme](xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection) ASP.NET Core modülü yapılandırması başvuru konusu bölümü.
+* **ASP.NET Core modülü hata ayıklama günlüğü:** STDOUT yeniden yönlendirme C:\Program Files\IIS\Asp.Net çekirdek Module\V2\aspnetcorev2.dll başlatılamadı. Özel durum iletisi: {PATH}\aspnetcoremodulev2\commonlib\fileoutputmanager.cpp:84. döndürülen HRESULT 0x80070005 STDOUT yeniden yönlendirmeyi C:\Program Files\IIS\Asp.Net çekirdek Module\V2\aspnetcorev2.dll durdurulamadı. Özel durum iletisi: HRESULT 0x80070002 {PATH} döndürdü. {PATH}\aspnetcorev2_inprocess.dll. yeniden yönlendirme STDOUT başlatılamadı
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
+* **Uygulama günlüğü:** Uyarı: StdoutLogFile oluşturulamadı \\?\{ ErrorCode yolu} \path_doesnt_exist\stdout_ {işlem kimliği} _ {zaman damgası} .log-2147024893 =.
+
+* **ASP.NET Core modülü stdout günlüğü:** Günlük dosyası oluşturulmaz.
+
+::: moniker-end
+
+Sorun giderme:
+
+* `stdoutLogFile` Belirtilen yola `<aspNetCore>` öğesinin *web.config* yok. Daha fazla bilgi için [ASP.NET Core Modülü: Günlük oluşturma ve yönlendirme](xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection).
+
+* Uygulama havuzu kullanıcısı stdout günlük yolu yazma erişimi yok.
 
 ## <a name="application-configuration-general-issue"></a>Uygulama yapılandırma genel sorunu
 
+::: moniker range=">= aspnetcore-2.2"
+
+* **Tarayıcı:** HTTP Hatası 500.0 - ANCM işlem içi işleyici yükleme hatası **--veya--** HTTP Hatası 500.30 - ANCM işlem içi başlatma hatası
+
+* **Uygulama günlüğü:** Değişken
+
+* **ASP.NET Core modülü stdout günlüğü:** Günlük dosyası uygulama başarısız kadar oluşturulmuş ancak boş veya normal girişleri ile oluşturulan noktasıdır.
+
+* **ASP.NET Core modülü hata ayıklama günlüğü:** Değişken
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
 * **Tarayıcı:** HTTP hatası 502.5 - işlem hatası
 
-* **Uygulama günlüğü:** uygulama ' MACHINE/WEBROOT/APPHOST / {DERLEMESİ} ' fiziksel kök ile ' C:\\{PATH}\' işlem komut satırı ile oluşturulan ' "C:\\{PATH}\{derleme}. { exe | dll} "' ancak kilitlendi veya değil yanıt vermedi ya da verilen bağlantı noktası üzerinde '{PORT}', ErrorCode dinleme değil '0x800705b4' =
+* **Uygulama günlüğü:** Uygulama ' makine/WEBROOT/APPHOST / {DERLEMESİ} ' fiziksel kök ile ' C:\{yolu}\' işlemi komut satırı ile oluşturulan ' "C:\{yolu}\{derleme}. { exe | dll} "' ancak arda veya yanıt vermediğinden ya da verilen bağlantı noktası üzerinde '{PORT}', ErrorCode dinleme değil = '{hata kodu}'
 
-* **ASP.NET çekirdeği modülü günlüğü:** günlük dosyası oluşturuldu ancak boş
+* **ASP.NET Core modülü stdout günlüğü:** Günlük dosyası oluşturuldu, ancak boş olur.
 
-Sorun giderme
+::: moniker-end
 
-* Bu genel bir özel durum işlem başlatma, büyük olasılıkla bir uygulama yapılandırma sorunu nedeniyle başarısız olduğunu gösterir. Başvuran [dizin yapısını](xref:host-and-deploy/directory-structure), uygulamanın dağıtılan dosyaları ve klasörleri uygun ve uygulamanın yapılandırma dosyalarının mevcut olduğunu onaylayın ve ortam ve uygulama için doğru ayarları içerir. Daha fazla bilgi için bkz: [sorun giderme](xref:host-and-deploy/iis/troubleshoot).
+Sorun giderme:
+
+İşlem, büyük olasılıkla bir uygulama yapılandırma veya programlama sorunu nedeniyle başlatılamadı.
+
+Daha fazla bilgi için aşağıdaki konulara bakın:
+
+* <xref:host-and-deploy/iis/troubleshoot>
+* <xref:host-and-deploy/azure-apps/troubleshoot>
+* <xref:test/troubleshoot>

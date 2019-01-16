@@ -1,40 +1,49 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application
-title: ASP.NET MVC uygulamasındaki Entity Framework ile temel CRUD işlevselliği uygulama | Microsoft Docs
+title: "Öğretici: ASP.NET MVC'de Entity Framework ile CRUD işlevselliği uygulama | Microsoft Docs"
+description: Gözden geçirin ve oluşturma özelleştirme, okuyabilir, güncelleştirebilir, MVC yapı iskelesinde denetleyicileri ve görünümleri otomatik olarak oluşturur (CRUD) kodu silin.
 author: tdykstra
-description: Contoso University örnek web uygulaması Entity Framework 6 Code First ve Visual Studio kullanarak ASP.NET MVC 5 uygulamalarının nasıl oluşturulacağını gösterir...
 ms.author: riande
-ms.date: 10/05/2015
+ms.date: 01/11/2019
+ms.topic: tutorial
 ms.assetid: a2f70ba4-83d1-4002-9255-24732726c4f2
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 08b5d38b38d3323e347f0f849ccc0c25fe49efb9
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 9c6f8f3a2ffc0a9c5e15111ae47c331dab24ff43
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912676"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341730"
 ---
-<a name="implementing-basic-crud-functionality-with-the-entity-framework-in-aspnet-mvc-application"></a>ASP.NET MVC uygulamasındaki Entity Framework ile temel CRUD işlevselliği uygulama
-====================
-tarafından [Tom Dykstra](https://github.com/tdykstra)
+# <a name="tutorial-implement-crud-functionality-with-the-entity-framework-in-aspnet-mvc"></a>Öğretici: ASP.NET MVC'de Entity Framework ile CRUD işlevselliği uygulama
 
-[Projeyi yükle](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
-
-> Contoso University örnek web uygulaması Entity Framework 6 Code First ve Visual Studio kullanarak ASP.NET MVC 5 uygulamalarının nasıl oluşturulacağını gösterir. Öğretici serisinin hakkında daha fazla bilgi için bkz. [serideki ilk öğreticide](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
-
-Önceki öğreticide, depolar ve SQL Server LocalDB ve Entity Framework kullanarak verileri görüntüleyen bir MVC uygulaması oluşturdunuz. Bu öğreticide, gözden geçirin ve oluşturma özelleştirme, okuyabilir, güncelleştirebilir, MVC yapı iskelesi otomatik olarak denetleyicileri ve görünümleri oluşturur (CRUD) kodu silin.
+İçinde [önceki öğreticide](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md), depolar ve Entity Framework (EF) 6 ve SQL Server LocalDB kullanarak verileri görüntüleyen bir MVC uygulaması oluşturuldu. Bu öğreticide, gözden geçirin ve oluşturma özelleştirme, okuyabilir, güncelleştirebilir, MVC yapı iskelesi otomatik olarak denetleyicileri ve görünümleri oluşturur (CRUD) kodu silin.
 
 > [!NOTE]
-> Denetleyicinizi ve veri erişim katmanı arasında bir Soyutlama Katmanı oluşturmak için havuz deseni uygulamak için yaygın bir uygulamadır. Bu öğreticiler basit ve Entity Framework kullanma eğitiminde odaklanmıştır tutmak için bunlar depoları kullanmayın. Depoları gerçekleştirme hakkında daha fazla bilgi için bkz. [ASP.NET Data Access içerik haritası](../../../../whitepapers/aspnet-data-access-content-map.md).
+> Denetleyicinizi ve veri erişim katmanı arasında bir Soyutlama Katmanı oluşturmak için havuz deseni uygulamak için yaygın bir uygulamadır. Bu öğreticiler basit ve EF 6 kendisini kullanmayı eğitiminde odaklanmıştır tutmak için bunlar depoları kullanmayın. Depoları gerçekleştirme hakkında daha fazla bilgi için bkz. [ASP.NET Data Access içerik haritası](../../../../whitepapers/aspnet-data-access-content-map.md).
 
-Bu öğreticide, aşağıdaki web sayfalarını oluşturacaksınız:
+Oluşturduğunuz web sayfaları örnekleri aşağıda verilmiştir:
 
-![Student_Details_page](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image1.png)
+![Öğrenci ayrıntıları sayfasının ekran görüntüsü.](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image1.png)
 
-![Student_Edit_page](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image2.png)
+![Öğrenci görüntüsü oluşturma sayfası.](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image2.png)
 
-![Student_delete_page](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image3.png)
+![Ekran ot Öğrenci sayfayı silin.](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image3.png)
+
+Bu öğreticide şunları yaptınız:
+
+> [!div class="checklist"]
+> * Ayrıntılar sayfası oluşturma
+> * Güncelleştirme Oluştur sayfası
+> * Güncelleştirme HttpPost düzenleme yöntemi
+> * Silme sayfası
+> * Kapat veritabanı bağlantıları
+> * Tanıtıcı işlemleri
+
+## <a name="prerequisites"></a>Önkoşullar
+
+* [Entity Framework veri modeli oluşturma](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)
 
 ## <a name="create-a-details-page"></a>Ayrıntılar sayfası oluşturma
 
@@ -46,7 +55,7 @@ Bu öğreticide, aşağıdaki web sayfalarını oluşturacaksınız:
 
 Anahtar değeri yöntemine geçirilen `id` parametresi ve geldiği *verilerini yönlendirme* içinde **ayrıntıları** dizini sayfasında köprü.
 
-### <a name="tip-route-data"></a>İpucu: **verilerini yönlendirme**
+### <a name="tip-route-data"></a>İpucu: **Rota verileri**
 
 Rota verilerini, model Bağlayıcısı yönlendirme tablosunda belirtilen URL kesimi bulunan verilerdir. Örneğin, varsayılan yolu belirtir `controller`, `action`, ve `id` segmentleri:
 
@@ -86,9 +95,7 @@ Aşağıdaki kodda, `courseID` sorgu dizesi olarak eklenir, böylece varsayılan
 
 3. Programını başlatarak Ayrıntılar sayfasını açın (**Ctrl**+**F5**), seçme **Öğrenciler** sekmesini ve ardından **Ayrıntıları** Alexander Carson bağlantısı. (Tuşuna basarsanız **Ctrl**+**F5** sırada *Details.cshtml* dosya açıksa, bir HTTP 400 hata alıyorsunuz. Visual Studio Ayrıntılar sayfası çalıştırmayı dener, ancak görüntülemek için Öğrenci belirten bir bağlantı üst sınırına değildi budur. Bu, "Öğrenci/Details" URL'den kaldırın ve yeniden deneyin veya tarayıcıyı kapatın, projeye sağ tıklayın ve tıklayın ortaya çıkarsa **görünümü** > **tarayıcıda görüntüle**.)
 
-    Seçili Öğrenci için kursları ve notlarınızı listesi görürsünüz:
-
-    ![Student_Details_page](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image4.png)
+    Seçili Öğrenci için kursları ve notlarınızı listesini görürsünüz.
 
 4. Tarayıcıyı kapatın.
 
@@ -136,19 +143,15 @@ Aşağıdaki kodda, `courseID` sorgu dizesi olarak eklenir, böylece varsayılan
 
 3. Adları ve geçersiz bir tarih girin ve tıklayın **Oluştur** hata iletisini görmek için.
 
-    ![Students_Create_page_error_message](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image6.png)
-
     Varsayılan olarak aldığınız sunucu tarafı doğrulama budur. Bir sonraki öğreticide, istemci tarafı doğrulama kodunu oluşturmak öznitelikleri ekleme görürsünüz. Model doğrulama denetimi ile aşağıdaki vurgulanmış kodu gösterir **Oluştur** yöntemi.
 
     [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample10.cs?highlight=1)]
 
 4. Tarihi geçerli bir değere değiştirip'ı **Oluştur** görünen yeni Öğrenci görmek için **dizin** sayfası.
 
-    ![Students_Index_page_with_new_student](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image7.png)
-
 5. Tarayıcıyı kapatın.
 
-## <a name="update-the-edit-httppost-method"></a>Güncelleştirmeyi Düzenle HttpPost yöntemi
+## <a name="update-httppost-edit-method"></a>Güncelleştirme HttpPost Düzenle yöntemi
 
 1. Değiştirin <xref:System.Web.Mvc.HttpPostAttribute> `Edit` eylem yöntemini aşağıdaki kod ile:
 
@@ -189,11 +192,7 @@ Aşağıdaki kodda, `courseID` sorgu dizesi olarak eklenir, böylece varsayılan
 
 2. Programını başlatarak çalıştırırsanız seçerek **Öğrenciler** sekmesini ve ardından bir **Düzenle** köprü.
 
-   ![Student_Edit_page](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image8.png)
-
 3. Bazı tıklayın ve veri değiştirme **Kaydet**. Dizin sayfasında değiştirilen verileri görürsünüz.
-
-   ![Students_Index_page_after_edit](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image9.png)
 
 4. Tarayıcıyı kapatın.
 
@@ -229,9 +228,7 @@ Ekleyeceğiniz bir `try-catch` bloğunu <xref:System.Web.Mvc.HttpPostAttribute> 
 
     [!code-cshtml[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample15.cshtml?highlight=2)]
 
-4. Programını başlatarak çalıştırırsanız seçerek **Öğrenciler** sekmesini ve ardından bir **Sil** köprü:
-
-    ![Student_Delete_page](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image10.png)
+4. Programını başlatarak çalıştırırsanız seçerek **Öğrenciler** sekmesini ve ardından bir **Sil** köprü.
 
 5. Seçin **Sil** bildiren sayfasında **bu silmek istediğinizden emin misiniz?**.
 
@@ -249,16 +246,24 @@ Temel `Controller` sınıf zaten uygular `IDisposable` Bu kod yalnızca bir geç
 
 Varsayılan olarak Entity Framework, örtük olarak işlemler uygular. Burada birden çok satır veya tablo için değişiklik ve sonra çağrı senaryolarda `SaveChanges`, Entity Framework otomatik olarak tüm değişikliklerinizi başarılı veya başarısız tüm emin olur. Bazı değişiklikler önce yapılır ve ardından bir hata olur, bu değişiklikleri otomatik olarak geri alınır. Daha denetlediğiniz senaryoları için&mdash;Entity Framework dışında bir işlemde yapılan işlemler dahil etmek istiyorsanız, örneğin&mdash;bkz [işlemleri çalışma](/ef/ef6/saving/transactions).
 
-## <a name="summary"></a>Özet
+## <a name="additional-resources"></a>Ek kaynaklar
 
-Artık sahip olduğunuz için basit CRUD işlemleri gerçekleştiren sayfalar eksiksiz bir kümesini `Student` varlıklar. MVC Yardımcıları veri alanları için kullanıcı Arabirimi öğeleri oluşturmak için kullanılır. MVC yardımcıları hakkında daha fazla bilgi için bkz: [formu kullanarak bir HTML Yardımcıları oluşturma](/previous-versions/aspnet/dd410596(v=vs.98)) (MVC 3 ancak hala MVC 5 için ilgili makaleyi belirtilir).
+Artık sahip olduğunuz için basit CRUD işlemleri gerçekleştiren sayfalar eksiksiz bir kümesini `Student` varlıklar. MVC Yardımcıları veri alanları için kullanıcı Arabirimi öğeleri oluşturmak için kullanılır. MVC yardımcıları hakkında daha fazla bilgi için bkz. [formu kullanarak bir HTML Yardımcıları oluşturma](/previous-versions/aspnet/dd410596(v=vs.98)) (MVC 3 ancak hala MVC 5 için ilgili makaleyi belirtilir).
 
-Sonraki öğreticide, sayfalama ve sıralama ekleyerek dizin sayfası işlevselliğini genişletin.
+EF 6 diğer kaynakların bağlantılarını bulunabilir [ASP.NET veri erişimi - önerilen kaynaklar](../../../../whitepapers/aspnet-data-access-content-map.md).
 
-Lütfen bu öğreticide sevmediğinizi nasıl ve ne geliştirebileceğimiz hakkında geri bildirim bırakın.
+## <a name="next-steps"></a>Sonraki adımlar
 
-Entity Framework diğer kaynakların bağlantılarını bulunabilir [ASP.NET veri erişimi - önerilen kaynaklar](../../../../whitepapers/aspnet-data-access-content-map.md).
+Bu öğreticide şunları yaptınız:
 
-> [!div class="step-by-step"]
-> [Önceki](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)
-> [İleri](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [!div class="checklist"]
+> * Ayrıntılar sayfası oluşturuldu
+> * Oluştur sayfası güncelleştirildi
+> * HttpPost düzenleme yöntemi güncelleştirildi
+> * Silme sayfası güncelleştirildi
+> * Kapalı veritabanı bağlantıları
+> * İşlenmiş işlemleri
+
+Sıralama, filtreleme ve sayfalama projeye ekleme hakkında bilgi edinmek için sonraki makaleye ilerleyin.
+> [!div class="nextstepaction"]
+> [Sıralama, Filtreleme ve Sayfalama](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application.md)

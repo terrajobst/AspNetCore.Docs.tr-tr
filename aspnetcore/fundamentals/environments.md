@@ -5,12 +5,12 @@ description: ASP.NET Core uygulamaları birden fazla ortam arasında uygulama da
 ms.author: riande
 ms.date: 07/03/2018
 uid: fundamentals/environments
-ms.openlocfilehash: 865257d127084671036147dd1f28c9c4843feef6
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 642af9e8f9e322e3624dad46bb1463f6525f5c9e
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206854"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341673"
 ---
 # <a name="use-multiple-environments-in-aspnet-core"></a>ASP.NET Core birden çok ortam kullanma
 
@@ -22,7 +22,7 @@ ASP.NET Core, bir ortam değişkeni kullanarak çalışma zamanı ortama göre u
 
 ## <a name="environments"></a>Ortamlar
 
-ASP.NET Core ortam değişkenini okur `ASPNETCORE_ENVIRONMENT` uygulamanın başlangıcında ve değeri depolar [IHostingEnvironment.EnvironmentName](/dotnet/api/microsoft.aspnetcore.hosting.ihostingenvironment.environmentname). Ayarlayabileceğiniz `ASPNETCORE_ENVIRONMENT` herhangi bir değere ancak [üç değerden](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) framework tarafından desteklenir: [geliştirme](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [hazırlama](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging), ve [üretim](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production). Varsa `ASPNETCORE_ENVIRONMENT` değil, varsayılan olarak, belirlenen `Production`.
+ASP.NET Core ortam değişkenini okur `ASPNETCORE_ENVIRONMENT` uygulamanın başlangıcında ve değeri depolar [IHostingEnvironment.EnvironmentName](/dotnet/api/microsoft.aspnetcore.hosting.ihostingenvironment.environmentname). Ayarlayabileceğiniz `ASPNETCORE_ENVIRONMENT` herhangi bir değere ancak [üç değerden](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) framework tarafından desteklenir: [Geliştirme](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [hazırlama](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging), ve [üretim](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production). Varsa `ASPNETCORE_ENVIRONMENT` değil, varsayılan olarak, belirlenen `Production`.
 
 [!code-csharp[](environments/sample/EnvironmentsSample/Startup.cs?name=snippet)]
 
@@ -111,9 +111,9 @@ Aşağıdaki JSON üç profillerden gösterir bir *launchSettings.json* dosyası
 
 Ne zaman uygulama başlatıldığında ile [çalıştırma dotnet](/dotnet/core/tools/dotnet-run), ilk profiliyle `"commandName": "Project"` kullanılır. Değerini `commandName` başlatmak için web sunucusunu belirtir. `commandName` aşağıdakilerden herhangi biri olabilir:
 
-* IIS Express
-* IIS
-* (Bu Kestrel başlatır) projesi
+* `IISExpress`
+* `IIS`
+* `Project` (hangi Kestrel başlatır)
 
 Ne zaman bir uygulama başlatıldığında ile [çalıştırma dotnet](/dotnet/core/tools/dotnet-run):
 
@@ -183,7 +183,7 @@ Ortamı ayarlamak için [Azure App Service](https://azure.microsoft.com/services
 1. İçinde **ayarları** grubu, select **uygulama ayarları** dikey penceresi.
 1. İçinde **uygulama ayarları** alanında **yeni ayar Ekle**.
 1. İçin **bir ad girin**, sağlayan `ASPNETCORE_ENVIRONMENT`. İçin **bir değer girin**, ortamı sağlayın (örneğin, `Staging`).
-1. Seçin **yuva ayarı** ortam ayarını, dağıtım yuvaları takas zaman ile geçerli yuvadaki kalmasına istiyorsanız kutuyu. Daha fazla bilgi için [Azure belgeleri: hangi ayarların takas?](/azure/app-service/web-sites-staged-publishing).
+1. Seçin **yuva ayarı** ortam ayarını, dağıtım yuvaları takas zaman ile geçerli yuvadaki kalmasına istiyorsanız kutuyu. Daha fazla bilgi için [Azure belgeleri: Hangi ayarların değiştirilir? ](/azure/app-service/web-sites-staged-publishing).
 1. Seçin **Kaydet** dikey penceresinin üstünde.
 
 Bir uygulama ayarı (ortam değişkeni) eklenmesine, değiştirilmesine veya Azure portalda silinen sonra azure App Service uygulama otomatik olarak yeniden başlatılır.
@@ -248,7 +248,7 @@ Ayarlanacak `ASPNETCORE_ENVIRONMENT` bir yalıtılmış uygulama (IIS 10.0 veya 
 > * Yürütme `net stop was /y` ardından `net start w3svc` bir komut isteminden.
 > * Sunucuyu yeniden başlatın.
 
-### <a name="macos"></a>MacOS
+### <a name="macos"></a>macOS
 
 MacOS olabilir geçerli ortamı ayarı satır içi uygulamayı çalıştırırken gerçekleştirmiştir:
 
@@ -276,8 +276,8 @@ Linux dağıtımları için kullanmak `export` oturum tabanlı değişken ayarla
 
 Yapılandırma ortamı tarafından yüklenecek öneririz:
 
-* *appSettings* dosyaları (* appsettings.&lt; <Environment> &gt;.json). Bkz: [yapılandırma: dosya yapılandırma sağlayıcısı](xref:fundamentals/configuration/index#file-configuration-provider).
-* ortam değişkenleri (her sisteminde uygulamanın barındırıldığı ayarlanır). Bkz: [yapılandırma: dosya yapılandırma sağlayıcısı](xref:fundamentals/configuration/index#file-configuration-provider) ve [geliştirmede uygulama gizli anahtarlarının güvenli bir şekilde depolanması: ortam değişkenlerini](xref:security/app-secrets#environment-variables).
+* *appSettings* dosyaları (* appsettings.&lt; <Environment> &gt;.json). Bkz: [yapılandırma: Dosya yapılandırma sağlayıcısı](xref:fundamentals/configuration/index#file-configuration-provider).
+* ortam değişkenleri (her sisteminde uygulamanın barındırıldığı ayarlanır). Bkz: [yapılandırma: Dosya yapılandırma sağlayıcısı](xref:fundamentals/configuration/index#file-configuration-provider) ve [geliştirmede uygulama gizli anahtarlarının Güvenli Depolama: Ortam değişkenlerini](xref:security/app-secrets#environment-variables).
 * Gizli dizi Yöneticisi (geliştirme ortamındaki yalnızca). Bkz. <xref:security/app-secrets>.
 
 ## <a name="environment-based-startup-class-and-methods"></a>Ortam tabanlı başlangıç sınıfı ve yöntemleri

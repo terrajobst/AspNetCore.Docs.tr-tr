@@ -6,12 +6,12 @@ ms.author: riande
 monikerRange: '>= aspnetcore-2.2'
 ms.date: 12/3/2018
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 0915c525d5fb96a3d32f91fbd65a4e1f62ee28b8
-ms.sourcegitcommit: 68a3081dd175d6518d1bfa31b4712bd8a2dd3864
+ms.openlocfilehash: 9aa3171c2d47c4cc5827ab480d1e7d3d4c38d28e
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53577870"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341426"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Bir ASP.NET Core Razor sayfaları uygulama için model ekleme
 
@@ -147,6 +147,10 @@ Tamamlamak **ekleme Razor sayfaları (CRUD) Entity Framework kullanarak** ileti�
 [!INCLUDE [explains scaffold gen params](~/includes/RP/model4.md)]
 
 ---
+
+Yukarıdaki komutlarda aşağıdaki uyarı oluştur: "Hiçbir türü ondalık sütunu 'Fiyat' varlık türünün 'Film' için belirtildi. Bu, bunlar varsayılan kesinlik ve ölçek uygun değilse sessizce kesilebilir değerleri neden olur. "Açıkça 'HasColumnType()' kullanarak tüm değerleri uyum SQL server sütun türü belirtin."
+
+Bu uyarıyı yoksayabilirsiniz, bir sonraki öğreticide düzeltilecektir.
 
 İskele işlem oluşturur ve aşağıdaki dosyaları güncelleştirir:
 

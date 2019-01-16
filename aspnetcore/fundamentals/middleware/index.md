@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/10/2018
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 4e5da1036b77e876899ccdea48bdec69454e1657
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: c55dbd5a9ac31f55daf1cb3146fb18b91b016919
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861491"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341595"
 ---
 # <a name="aspnet-core-middleware"></a>ASP.NET Core ara yazılımı
 
@@ -20,7 +20,7 @@ Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT) ve [Steve Smith](ht
 Ara yazılım isteklerini ve yanıtlarını işlemek için bir uygulama ardışık birleştirilmiş bir yazılımdır. Her bileşen için:
 
 * İstek ardışık düzende sonraki bileşene geçmek bu seçeneği seçer.
-* İş, önce ve ardışık düzende sonraki bileşene çağrıldıktan sonra gerçekleştirebilirsiniz.
+* İşlem hattı, iş önce ve sonraki bileşen sonra gerçekleştirebilirsiniz.
 
 İstek Temsilciler, istek ardışık düzenini oluşturmak için kullanılır. İstek temsilcileri her HTTP isteği işler.
 
@@ -54,7 +54,7 @@ Birden çok istek temsilciler birlikte zincirleme <xref:Microsoft.AspNetCore.Bui
 >
 > <xref:Microsoft.AspNetCore.Http.HttpResponse.HasStarted*> üstbilgileri gönderildikten veya için gövde yazılmadan belirtmek için kullanışlı bir ipucudur.
 
-## <a name="order"></a>Sırası
+## <a name="order"></a>Sipariş verme
 
 Ara yazılım bileşenleri içinde eklenen sırasını `Startup.Configure` yöntemi, istekler ve yanıt için ters sırada ara yazılımı bileşenleri çağrılır sırasını tanımlar. Güvenlik, performans ve işlev için sırasını kritiktir.
 
@@ -230,7 +230,7 @@ app.Map("/level1", level1App => {
 
 ASP.NET Core aşağıdaki ara yazılımı bileşenleri ile birlikte gelir. *Sipariş* sütun Ara yerleştirme istek ardışık düzenini ve ara yazılım hangi koşullar altında ilgili notlar istek sonlandırmak ve diğer ara yazılımdan, bir isteğin işlenmesini önlemek sağlar.
 
-| Ara yazılım | Açıklama | Sırası |
+| Ara yazılım | Açıklama | Sipariş verme |
 | ---------- | ----------- | ----- |
 | [Kimlik Doğrulaması](xref:security/authentication/identity) | Kimlik doğrulama desteği sağlar. | Önce `HttpContext.User` gereklidir. Terminal OAuth geri çağırmalar için. |
 | [Tanımlama bilgisi ilkesi](xref:security/gdpr) | Onay kullanıcıların kişisel bilgilerini depolamak için ve izler, tanımlama bilgisi alanları için en düşük standartlara zorlayan `secure` ve `SameSite`. | Önce bir ara yazılım, tanımlama bilgileri verir. Örnekler: Kimlik doğrulaması, oturum, MVC (TempData). |

@@ -5,12 +5,12 @@ description: Bir model için basit bir ASP.NET Core uygulamasını ekleyin.
 ms.author: riande
 ms.date: 12/8/2017
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: 630b4b0549a8549d9570d701fb1691310ec442c3
-ms.sourcegitcommit: 4e87712029de2aceb1cf2c52e9e3dda8195a5b8e
+ms.openlocfilehash: 062a248ffdf8e30ed01a72e0a555c1c9a1ab1b6d
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53381861"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341618"
 ---
 # <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>Bir ASP.NET Core MVC uygulaması için bir model ekleme
 
@@ -171,6 +171,10 @@ Update-Database
 
 ---  
 <!-- End of VS tabs -->
+
+Yukarıdaki komutlarda aşağıdaki uyarı oluştur: "Hiçbir türü ondalık sütunu 'Fiyat' varlık türünün 'Film' için belirtildi. Bu, bunlar varsayılan kesinlik ve ölçek uygun değilse sessizce kesilebilir değerleri neden olur. "Açıkça 'HasColumnType()' kullanarak tüm değerleri uyum SQL server sütun türü belirtin."
+
+Bu uyarıyı yoksayabilirsiniz, bir sonraki öğreticide düzeltilecektir.
 
 Belirtilen model şeması dayanır `DbContext` (içinde *Models/MvcMovieContext.cs* dosyası). `InitialCreate` Bağımsız değişkeni, geçişlerin adlandırmak için kullanılır. Herhangi bir ad kullanılabilir, ancak bir adı seçili kural gereği, geçiş açıklar.
 

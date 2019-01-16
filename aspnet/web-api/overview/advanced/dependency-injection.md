@@ -8,12 +8,12 @@ ms.date: 01/20/2014
 ms.assetid: e3d3e7ba-87f0-4032-bdd3-31f3c1aa9d9c
 msc.legacyurl: /web-api/overview/advanced/dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: c58b06af0044144cf28cc36c16a41672aa1f6eb3
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 318a2f1c587feb360212a390bb5de7bdc127513d
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911271"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341832"
 ---
 <a name="dependency-injection-in-aspnet-web-api-2"></a>ASP.NET Web API 2'de bağımlılık ekleme
 ====================
@@ -88,7 +88,7 @@ IOC kapsayıcı bağımlılıkları yönetmekten sorumlu olan bir yazılım bile
 > "IoC" anlamına gelir "tersine çevirme denetimi için", burada bir çerçeve koduna çağrı genel düzen olduğu. IOC kapsayıcı nesnelerinizi sizin için "Normal denetim akışını tersine çevirir" oluşturur.
 
 
-Bu öğreticide, kullanacağız [Unity](https://msdn.microsoft.com/library/ff647202.aspx) Microsoft Patterns gelen &amp; yöntemler. (Diğer popüler kitaplıkları içerir [Castle Windsor](http://www.castleproject.org/), [Spring.Net](http://www.springframework.net/), [Autofac](https://code.google.com/p/autofac/), [Ninject](http://www.ninject.org/), ve [StructureMap ](http://docs.structuremap.net/).) Instalovat Unity için NuGet Paket Yöneticisi'ni kullanabilirsiniz. Gelen **Araçları** Visual Studio'da seçim menüsünde **NuGet Paket Yöneticisi**, ardından **Paket Yöneticisi Konsolu**. Paket Yöneticisi konsolu penceresinde, aşağıdaki komutu yazın:
+Bu öğreticide, kullanacağız [Unity](https://msdn.microsoft.com/library/ff647202.aspx) Microsoft Patterns gelen &amp; yöntemler. (Diğer popüler kitaplıkları içerir [Castle Windsor](http://www.castleproject.org/), [Spring.Net](http://www.springframework.net/), [Autofac](https://code.google.com/p/autofac/), [Ninject](http://www.ninject.org/), ve [StructureMap ](http://structuremap.github.io/documentation/).) Instalovat Unity için NuGet Paket Yöneticisi'ni kullanabilirsiniz. Gelen **Araçları** Visual Studio'da seçim menüsünde **NuGet Paket Yöneticisi**, ardından **Paket Yöneticisi Konsolu**. Paket Yöneticisi konsolu penceresinde, aşağıdaki komutu yazın:
 
 [!code-console[Main](dependency-injection/samples/sample7.cmd)]
 

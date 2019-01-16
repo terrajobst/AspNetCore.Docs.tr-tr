@@ -1,33 +1,39 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application
-title: Bağlantı dayanıklılığı ve komut durdurma bir ASP.NET MVC uygulamasındaki Entity Framework ile | Microsoft Docs
+title: 'Öğretici: Bağlantı dayanıklılığı ve komut durdurma EF ile bir ASP.NET MVC uygulamasında kullanın.'
 author: tdykstra
-description: Contoso University örnek web uygulaması Entity Framework 6 Code First ve Visual Studio kullanarak ASP.NET MVC 5 uygulamalarının nasıl oluşturulacağını gösterir...
+description: Bu öğreticide bağlantı dayanıklılığı ve komut durdurma kullanmayı öğreneceksiniz. Bunlar, Entity Framework 6 iki önemli özellikleri şunlardır.
 ms.author: riande
-ms.date: 01/13/2015
+ms.date: 01/14/2018
+ms.topic: tutorial
 ms.assetid: c89d809f-6c65-4425-a3fa-c9f6e8ac89f2
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: ab6a553100d704746840eaad512ec140d4576c44
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: fae5c7e1ad1000ed90630c3620b853de3a735d60
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911792"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341738"
 ---
-<a name="connection-resiliency-and-command-interception-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Bağlantı dayanıklılığı ve komut durdurma bir ASP.NET MVC uygulamasındaki Entity Framework ile
-====================
-tarafından [Tom Dykstra](https://github.com/tdykstra)
-
-[Projeyi yükle](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
-
-> Contoso University örnek web uygulaması Entity Framework 6 Code First ve Visual Studio kullanarak ASP.NET MVC 5 uygulamalarının nasıl oluşturulacağını gösterir. Öğretici serisinin hakkında daha fazla bilgi için bkz. [serideki ilk öğreticide](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
+# <a name="tutorial-use-connection-resiliency-and-command-interception-with-entity-framework-in-an-aspnet-mvc-app"></a>Öğretici: Bağlantı dayanıklılığı ve komut durdurma Entity Framework ile bir ASP.NET MVC uygulamasında kullanın.
 
 Şu ana kadar uygulamayı yerel olarak IIS Express'te URL'i geliştirme bilgisayarınızda çalışıyor. Gerçek bir uygulamada Internet üzerinden diğer kullanıcılar için kullanılabilir hale getirmek için bir web barındırma sağlayıcısına dağıtmanız ve veritabanı bir veritabanı sunucusuna dağıtmak zorunda.
 
-Bu öğreticide, bulut ortamında dağıtırken, özellikle iki Entity Framework 6 özelliklerinin nasıl kullanılacağını öğreneceksiniz: (geçici hatalar için otomatik yeniden denemeler) bağlantı dayanıklılığı ve komut durdurma (catch tüm SQL sorguları veritabanına oturum veya bunları değiştirmek için gönderilen).
+Bu öğreticide bağlantı dayanıklılığı ve komut durdurma kullanmayı öğreneceksiniz. Bulut ortamı dağıtıyorsanız, özellikle iki önemli özellikleri Entity Framework 6 oldukları: (geçici hatalar için otomatik yeniden denemeler) bağlantı dayanıklılığı ve komut durdurma (catch veritabanına gönderilen tüm SQL sorguları oturum veya bunları değiştirmek için).
 
 Bu bağlantı dayanıklılığı ve komut durdurma Öğreticisi isteğe bağlıdır. Bu öğreticiyi atlayabilir, birkaç küçük ayarlamalar sonraki öğreticilerde yapılması gerekecektir.
+
+Bu öğreticide şunları yaptınız:
+
+> [!div class="checklist"]
+> * Bağlantı dayanıklılığı etkinleştir
+> * Komut durdurma etkinleştir
+> * Yeni yapılandırmayı test etme
+
+## <a name="prerequisites"></a>Önkoşullar
+
+* [Sıralama, Filtreleme ve Sayfalama](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application.md)
 
 ## <a name="enable-connection-resiliency"></a>Bağlantı dayanıklılığı etkinleştir
 
@@ -135,7 +141,7 @@ Ardından veritabanı, geçici hataların benzetimini yapmak için tek ve günl�
 
     Geçici hatalar kullanıcı Arabiriminde farklı bir değer girerek neden olanak tanır şekilde, geçici hata benzetimi kodu yazdığınız. Alternatif olarak, her zaman belirli bir parametre için denetlemeden geçici özel durumlar dizisi oluşturmak için dinleyiciyi kod yazabilirsiniz. Yalnızca geçici hataları oluşturmak istediğinizde dinleyiciyi sonra ekleyebilirsiniz. Ancak, veritabanı başlatma tamamlandıktan sonra bunu yaparsanız, dinleyiciyi kadar eklemeyin. Diğer bir deyişle, geçici hatalar üretme başlamadan önce varlık kümelerini birinde bir sorgu gibi en az bir veritabanı işlemi yapın. Entity Framework, veritabanı başlatma sırasında çeşitli sorguları yürütür ve başlatma sırasında hatalar tutarsız bir duruma geçmesine alınacak bağlam neden olabilir, bu işlem, yürütülen değildir.
 
-## <a name="test-logging-and-connection-resiliency"></a>Test günlüğü ve bağlantı dayanıklılığı
+## <a name="test-the-new-configuration"></a>Yeni yapılandırmayı test etme
 
 1. Tuşuna **F5** uygulamayı hata ayıklama modunda çalıştırın ve ardından **Öğrenciler** sekmesi.
 2. Konum Visual Studio **çıkış** izleme çıktısını görmek için penceresi. Yukarı doğru ilerleyin, Günlükçü tarafından yazılan günlükleri almak için bazı JavaScript hataları geçmiş gerekebilir.
@@ -167,14 +173,19 @@ Ardından veritabanı, geçici hataların benzetimini yapmak için tek ve günl�
     ![İşlevsiz özel durumu](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
 5. Açıklamadan çıkarın *SetExecutionStrategy* satırına *SchoolConfiguration.cs*.
 
-## <a name="summary"></a>Özet
-
-Bu öğreticide bağlantı dayanıklılığı etkinleştirmek ve Entity Framework oluşturur ve veritabanına gönderir SQL komutları oturum öğrendiniz. Sonraki öğreticide veritabanını dağıtmak için Code First Migrations'ı kullanarak İnternet'e uygulama dağıtacaksınız.
-
-Lütfen bu öğreticide sevmediğinizi nasıl ve ne geliştirebileceğimiz hakkında geri bildirim bırakın.
+## <a name="additional-resources"></a>Ek kaynaklar
 
 Entity Framework diğer kaynakların bağlantılarını bulunabilir [ASP.NET veri erişimi - önerilen kaynaklar](../../../../whitepapers/aspnet-data-access-content-map.md).
 
-> [!div class="step-by-step"]
-> [Önceki](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-> [İleri](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+## <a name="next-steps"></a>Sonraki adımlar
+
+Bu öğreticide şunları yaptınız:
+
+> [!div class="checklist"]
+> * Etkin bağlantı dayanıklılığı
+> * Etkin komut durdurma
+> * Yeni yapılandırmayı test
+
+Code First geçişleri ve Azure dağıtım hakkında bilgi edinmek için sonraki makaleye ilerleyin.
+> [!div class="nextstepaction"]
+> [Kod First geçişleri ve Azure dağıtım](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application.md)

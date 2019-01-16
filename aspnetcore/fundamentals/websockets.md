@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 11/06/2018
 uid: fundamentals/websockets
-ms.openlocfilehash: 3a649f88699d61636d9aa7fbfe4468ca67b3b018
-ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
+ms.openlocfilehash: 6c32269181ea3311c4aea99c08a1c043e7833b05
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51225414"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341461"
 ---
 # <a name="websockets-support-in-aspnet-core"></a>ASP.NET Core WebSockets desteği
 
@@ -156,13 +156,7 @@ Ancak, tarayıcılar gönderebilirsiniz `Origin` WebSocket istekleri gönderirke
 
 Sunucunuz koyduysanız "https://server.com"ve istemci üzerindeki barındırma"https://client.com", Ekle "https://client.com" için `AllowedOrigins` WebSockets doğrulamak için listesi.
 
-```csharp
-app.UseWebSockets(new WebSocketOptions()
-{
-    AllowedOrigins.Add("https://client.com");
-    AllowedOrigins.Add("https://www.client.com");
-});
-```
+[!code-csharp[](websockets/samples/2.x/WebSocketsSample/Startup.cs?name=UseWebSocketsOptionsAO&highlight=6-7)]
 
 > [!NOTE]
 > `Origin` Üst bilgisi, istemcinin ve gibi denetlenir `Referer` başlık sahte. Yapmak **değil** bir kimlik doğrulama mekanizması bu üst bilgi kullan.
@@ -184,10 +178,10 @@ Windows Server 2012 veya sonraki sürümlerde WebSocket Protokolü desteğini et
 > Bu adımları IIS Express kullanırken gerekli değildir
 
 1. Kullanım **rol ve Özellik Ekle** Sihirbazı'ndan **Yönet** menüsü ya da bağlantı **Sunucu Yöneticisi**.
-1. Seçin **rol tabanlı veya özellik tabanlı yükleme**. Seçin **sonraki**.
-1. (Yerel sunucu varsayılan olarak seçilidir) uygun sunucuyu seçin. Seçin **sonraki**.
+1. Seçin **rol tabanlı veya özellik tabanlı yükleme**. **İleri**’yi seçin.
+1. (Yerel sunucu varsayılan olarak seçilidir) uygun sunucuyu seçin. **İleri**’yi seçin.
 1. Genişletin **Web sunucusu (IIS)** içinde **rolleri** ağacında, genişletme **Web sunucusu**ve ardından **uygulama geliştirme**.
-1. Seçin **WebSocket Protokolü**. Seçin **sonraki**.
+1. Seçin **WebSocket Protokolü**. **İleri**’yi seçin.
 1. Ek özelliklere ihtiyaç duyulmayan, seçin **sonraki**.
 1. **Yükle**'yi seçin.
 1. Yükleme tamamlandığında seçin **Kapat** sihirbazdan çıkmak için.
@@ -199,7 +193,7 @@ Windows 8 veya sonraki sürümlerde WebSocket Protokolü desteğini etkinleştir
 
 1. Gidin **Denetim Masası** > **programlar** > **programlar ve Özellikler** > **kapatma Windows özellikleri hakkında ya da kapalı** (ekranın sol).
 1. Aşağıdaki düğümler açın: **Internet Information Services** > **World Wide Web Hizmetleri** > **uygulama geliştirme özellikleri**.
-1. Seçin **WebSocket Protokolü** özelliği. Seçin **Tamam**.
+1. Seçin **WebSocket Protokolü** özelliği. **Tamam**’ı seçin.
 
 ### <a name="disable-websocket-when-using-socketio-on-nodejs"></a>Socket.io, Node.js dosyasını kullanırken WebSocket devre dışı bırak
 

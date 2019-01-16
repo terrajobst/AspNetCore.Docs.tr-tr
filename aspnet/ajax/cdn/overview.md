@@ -8,12 +8,12 @@ ms.date: 10/14/2017
 ms.assetid: 8935bf14-ca6d-4a4e-9dbe-b96ce74cef49
 msc.legacyurl: /ajax/cdn
 msc.type: content
-ms.openlocfilehash: 2445d788df8ae80ccaad2dfeb19d1ccb91954d40
-ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
+ms.openlocfilehash: 65eee9bc477fc8adf10e8d819b93375ffbb72d7b
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54249587"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341845"
 ---
 <a name="microsoft-ajax-content-delivery-network"></a>Microsoft Ajax Content Delivery Network
 ====================
@@ -595,7 +595,7 @@ Bu CDN üzerinde jQuery kullanıcı Arabirimi kitaplığı aşağıdaki sürüml
 - [jQuery kullanıcı Arabirimi 1.8.8](jquery-ui/cdnjqueryui188.md "kullanıcı Arabirimi 1.8.8 Microsoft Ajax CDN üzerinde jQuery")
 - [jQuery kullanıcı Arabirimi 1.8.7](jquery-ui/cdnjqueryui187.md "kullanıcı Arabirimi 1.8.7 Microsoft Ajax CDN üzerinde jQuery")
 - [jQuery kullanıcı Arabirimi 1.8.6](jquery-ui/cdnjqueryui186.md "kullanıcı Arabirimi 1.8.6 Microsoft Ajax CDN üzerinde jQuery")
-- [jQuery kullanıcı arabirimi 1.8.5](jquery-ui/cdnjqueryui185.md "jQuery kullanıcı arabirimi 1.8.5")
+- [jQuery UI 1.8.5](jquery-ui/cdnjqueryui185.md "jQuery UI 1.8.5")
 
 <a id="jQuery_Validation_Releases_on_the_CDN_3"></a>
 
@@ -672,12 +672,12 @@ Bu CDN üzerinde jQuery DataTable eklentisi aşağıdaki sürümleri barındır�
 
 - [jQuery DataTable 1.10.5](jquery-datatables/cdnjquerydatatables105.md "jQuery DataTable 1.10.5")
 - [jQuery DataTables 1.10.4](jquery-datatables/cdnjquerydatatables104.md "jQuery DataTables 1.10.4")
-- [jQuery DataTable 1.9.4](jquery-datatables/cdnjquerydatatables194.md "jQuery DataTable 1.9.4")
-- [jQuery DataTable 1.9.3](jquery-datatables/cdnjquerydatatables193.md "jQuery DataTable 1.9.3")
-- [jQuery DataTable 1.9.2](jquery-datatables/cdnjquerydatatables192.md "jQuery DataTable 1.9.2")
-- [jQuery DataTable 1.9.1](jquery-datatables/cdnjquerydatatables191.md "jQuery DataTable 1.9.1")
-- [jQuery DataTable 1.9.0](jquery-datatables/cdnjquerydatatables190.md "jQuery DataTable 1.9.0")
-- [jQuery DataTable 1.8.2](jquery-datatables/cdnjquerydatatables182.md "jQuery DataTable 1.8.2")
+- [jQuery DataTables 1.9.4](jquery-datatables/cdnjquerydatatables194.md "jQuery DataTables 1.9.4")
+- [jQuery DataTables 1.9.3](jquery-datatables/cdnjquerydatatables193.md "jQuery DataTables 1.9.3")
+- [jQuery DataTables 1.9.2](jquery-datatables/cdnjquerydatatables192.md "jQuery DataTables 1.9.2")
+- [jQuery DataTables 1.9.1](jquery-datatables/cdnjquerydatatables191.md "jQuery DataTables 1.9.1")
+- [jQuery DataTables 1.9.0](jquery-datatables/cdnjquerydatatables190.md "jQuery DataTables 1.9.0")
+- [jQuery DataTables 1.8.2](jquery-datatables/cdnjquerydatatables182.md "jQuery DataTables 1.8.2")
 
 <a id="Modernizr_Releases_on_the_CDN_8"></a>
 
@@ -797,6 +797,21 @@ Aşağıdaki sürümleri [https://github.com/scottjehl/Respond](https://github.c
 
 Aşağıdaki sürümleri [getbootstrap.com](http://getbootstrap.com "getbootstrap.com") bootstrap, CDN'de barındırılır:
 
+#### <a name="bootstrap-version-421"></a>Önyükleme sürüm 4.2.1
+
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/bootstrap.js
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/bootstrap.min.js
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/bootstrap.bundle.js
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/css/bootstrap.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/css/bootstrap.css.map
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/css/bootstrap.min.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/css/bootstrap-grid.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/css/bootstrap-grid.min.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/css/bootstrap-grid.css.map
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/css/bootstrap-reboot.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/css/bootstrap-reboot.min.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/css/bootstrap-reboot.css.map
+
 #### <a name="bootstrap-version-411"></a>Önyükleme sürüm 4.1.1
 
 - https://ajax.aspnetcdn.com/ajax/bootstrap/4.1.1/bootstrap.js
@@ -826,6 +841,22 @@ Aşağıdaki sürümleri [getbootstrap.com](http://getbootstrap.com "getbootstra
 - https://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/css/bootstrap-reboot.css
 - https://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/css/bootstrap-reboot.min.css
 - https://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/css/bootstrap-reboot.css.map
+
+#### <a name="bootstrap-version-340"></a>Önyükleme sürüm 3.4.0
+
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/bootstrap.js
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/bootstrap.min.js
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/css/bootstrap.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/css/bootstrap.css.map
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/css/bootstrap.min.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/css/bootstrap-theme.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/css/bootstrap-theme.css.map
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/css/bootstrap-theme.min.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/fonts/glyphicons-halflings-regular.eot
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/fonts/glyphicons-halflings-regular.svg
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/fonts/glyphicons-halflings-regular.ttf
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/fonts/glyphicons-halflings-regular.woff
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/fonts/glyphicons-halflings-regular.woff2
 
 #### <a name="bootstrap-version-337"></a>Önyükleme sürüm 3.3.7
 
