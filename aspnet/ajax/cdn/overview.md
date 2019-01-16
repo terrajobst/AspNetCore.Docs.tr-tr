@@ -8,163 +8,163 @@ ms.date: 10/14/2017
 ms.assetid: 8935bf14-ca6d-4a4e-9dbe-b96ce74cef49
 msc.legacyurl: /ajax/cdn
 msc.type: content
-ms.openlocfilehash: 2445d788df8ae80ccaad2dfeb19d1ccb91954d40
-ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
+ms.openlocfilehash: 65eee9bc477fc8adf10e8d819b93375ffbb72d7b
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54249587"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341845"
 ---
-<a name="microsoft-ajax-content-delivery-network"></a><span data-ttu-id="f0901-102">Microsoft Ajax Content Delivery Network</span><span class="sxs-lookup"><span data-stu-id="f0901-102">Microsoft Ajax Content Delivery Network</span></span>
+<a name="microsoft-ajax-content-delivery-network"></a><span data-ttu-id="9b6e8-102">Microsoft Ajax Content Delivery Network</span><span class="sxs-lookup"><span data-stu-id="9b6e8-102">Microsoft Ajax Content Delivery Network</span></span>
 ====================
 > [!WARNING]
-> <span data-ttu-id="f0901-103">Üretim uygulamaları, sabit bir bağımlılık CDN varlıklar üzerinde almamalıdır.</span><span class="sxs-lookup"><span data-stu-id="f0901-103">Production applications should not take a hard dependency on CDN assets.</span></span> <span data-ttu-id="f0901-104">Uygulamaları test başvurulan CDN varlık için ve CDN mevcut olmadığında, bir geri dönüş varlığını kullanan gerekir.</span><span class="sxs-lookup"><span data-stu-id="f0901-104">Applications should test for the CDN asset referenced, and use a fallback asset when the CDN is not available.</span></span> 
+> <span data-ttu-id="9b6e8-103">Üretim uygulamaları, sabit bir bağımlılık CDN varlıklar üzerinde almamalıdır.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-103">Production applications should not take a hard dependency on CDN assets.</span></span> <span data-ttu-id="9b6e8-104">Uygulamaları test başvurulan CDN varlık için ve CDN mevcut olmadığında, bir geri dönüş varlığını kullanan gerekir.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-104">Applications should test for the CDN asset referenced, and use a fallback asset when the CDN is not available.</span></span> 
 >
-> <span data-ttu-id="f0901-105">Microsoft Ajax CDN, Azure CDN kullanarak sunmayan SLA yoktur.</span><span class="sxs-lookup"><span data-stu-id="f0901-105">The Microsoft Ajax CDN has no SLA above and beyond using an Azure CDN.</span></span>
+> <span data-ttu-id="9b6e8-105">Microsoft Ajax CDN, Azure CDN kullanarak sunmayan SLA yoktur.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-105">The Microsoft Ajax CDN has no SLA above and beyond using an Azure CDN.</span></span>
 >
-> <span data-ttu-id="f0901-106">Kullanım [bu GitHub sorunu](https://github.com/aspnet/Docs/issues/5832) Microsoft Ajax CDN ile yaşayabileceğiniz sorunları.</span><span class="sxs-lookup"><span data-stu-id="f0901-106">Use [this GitHub issue](https://github.com/aspnet/Docs/issues/5832) to report problems with the Microsoft Ajax CDN.</span></span>
+> <span data-ttu-id="9b6e8-106">Kullanım [bu GitHub sorunu](https://github.com/aspnet/Docs/issues/5832) Microsoft Ajax CDN ile yaşayabileceğiniz sorunları.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-106">Use [this GitHub issue](https://github.com/aspnet/Docs/issues/5832) to report problems with the Microsoft Ajax CDN.</span></span>
 
-## <a name="table-of-contents"></a><span data-ttu-id="f0901-107">İçindekiler tablosu</span><span class="sxs-lookup"><span data-stu-id="f0901-107">Table of Contents</span></span>
+## <a name="table-of-contents"></a><span data-ttu-id="9b6e8-107">İçindekiler tablosu</span><span class="sxs-lookup"><span data-stu-id="9b6e8-107">Table of Contents</span></span>
 
-<span data-ttu-id="f0901-108">**[ajax.microsoft.com AJAX.aspnetcdn.com için yeniden adlandırıldı](#ajaxmicrosoftcom_renamed_to_ajaxaspnetcdncom_18)**</span><span class="sxs-lookup"><span data-stu-id="f0901-108">**[ajax.microsoft.com renamed to ajax.aspnetcdn.com](#ajaxmicrosoftcom_renamed_to_ajaxaspnetcdncom_18)**</span></span>  
-<span data-ttu-id="f0901-109">**[Visual Studio .vsdoc desteği](#Visual_Studio_vsdoc_Support_19)**</span><span class="sxs-lookup"><span data-stu-id="f0901-109">**[Visual Studio .vsdoc Support](#Visual_Studio_vsdoc_Support_19)**</span></span>  
-<span data-ttu-id="f0901-110">**[ASP.NET Ajax CDN kullanma](#Using_ASPNET_Ajax_from_the_CDN_20)**</span><span class="sxs-lookup"><span data-stu-id="f0901-110">**[Using ASP.NET Ajax from the CDN](#Using_ASPNET_Ajax_from_the_CDN_20)**</span></span>  
-<span data-ttu-id="f0901-111">**[JQuery CDN kullanma](#Using_jQuery_from_the_CDN_21)**</span><span class="sxs-lookup"><span data-stu-id="f0901-111">**[Using jQuery from the CDN](#Using_jQuery_from_the_CDN_21)**</span></span>  
-<span data-ttu-id="f0901-112">**[JQuery kullanıcı Arabirimi CDN kullanma](#Using_jQuery_UI_from_the_CDN_22)**</span><span class="sxs-lookup"><span data-stu-id="f0901-112">**[Using jQuery UI from the CDN](#Using_jQuery_UI_from_the_CDN_22)**</span></span>  
-<span data-ttu-id="f0901-113">**[Üçüncü taraf CDN dosyaları](#Third-Party_Files_on_the_CDN_23)**</span><span class="sxs-lookup"><span data-stu-id="f0901-113">**[Third-Party Files on the CDN](#Third-Party_Files_on_the_CDN_23)**</span></span>  
+<span data-ttu-id="9b6e8-108">**[ajax.microsoft.com AJAX.aspnetcdn.com için yeniden adlandırıldı](#ajaxmicrosoftcom_renamed_to_ajaxaspnetcdncom_18)**</span><span class="sxs-lookup"><span data-stu-id="9b6e8-108">**[ajax.microsoft.com renamed to ajax.aspnetcdn.com](#ajaxmicrosoftcom_renamed_to_ajaxaspnetcdncom_18)**</span></span>  
+<span data-ttu-id="9b6e8-109">**[Visual Studio .vsdoc desteği](#Visual_Studio_vsdoc_Support_19)**</span><span class="sxs-lookup"><span data-stu-id="9b6e8-109">**[Visual Studio .vsdoc Support](#Visual_Studio_vsdoc_Support_19)**</span></span>  
+<span data-ttu-id="9b6e8-110">**[ASP.NET Ajax CDN kullanma](#Using_ASPNET_Ajax_from_the_CDN_20)**</span><span class="sxs-lookup"><span data-stu-id="9b6e8-110">**[Using ASP.NET Ajax from the CDN](#Using_ASPNET_Ajax_from_the_CDN_20)**</span></span>  
+<span data-ttu-id="9b6e8-111">**[JQuery CDN kullanma](#Using_jQuery_from_the_CDN_21)**</span><span class="sxs-lookup"><span data-stu-id="9b6e8-111">**[Using jQuery from the CDN](#Using_jQuery_from_the_CDN_21)**</span></span>  
+<span data-ttu-id="9b6e8-112">**[JQuery kullanıcı Arabirimi CDN kullanma](#Using_jQuery_UI_from_the_CDN_22)**</span><span class="sxs-lookup"><span data-stu-id="9b6e8-112">**[Using jQuery UI from the CDN](#Using_jQuery_UI_from_the_CDN_22)**</span></span>  
+<span data-ttu-id="9b6e8-113">**[Üçüncü taraf CDN dosyaları](#Third-Party_Files_on_the_CDN_23)**</span><span class="sxs-lookup"><span data-stu-id="9b6e8-113">**[Third-Party Files on the CDN](#Third-Party_Files_on_the_CDN_23)**</span></span>  
   
- [<span data-ttu-id="f0901-114">CDN üzerinde jQuery yayınlar</span><span class="sxs-lookup"><span data-stu-id="f0901-114">jQuery Releases on the CDN</span></span>](#jQuery_Releases_on_the_CDN_0)  
- [<span data-ttu-id="f0901-115">CDN üzerinde jQuery geçirme yayınlar</span><span class="sxs-lookup"><span data-stu-id="f0901-115">jQuery Migrate Releases on the CDN</span></span>](#jQuery_Migrate_Releases_on_the_CDN_1)  
- [<span data-ttu-id="f0901-116">jQuery kullanıcı Arabirimi yayınlar CDN hakkında</span><span class="sxs-lookup"><span data-stu-id="f0901-116">jQuery UI Releases on the CDN</span></span>](#jQuery_UI_Releases_on_the_CDN_2)  
- [<span data-ttu-id="f0901-117">jQuery doğrulama yayınlar CDN hakkında</span><span class="sxs-lookup"><span data-stu-id="f0901-117">jQuery Validation Releases on the CDN</span></span>](#jQuery_Validation_Releases_on_the_CDN_3)  
- [<span data-ttu-id="f0901-118">jQuery Mobile yayınlar CDN hakkında</span><span class="sxs-lookup"><span data-stu-id="f0901-118">jQuery Mobile Releases on the CDN</span></span>](#jQuery_Mobile_Releases_on_the_CDN_4)  
- [<span data-ttu-id="f0901-119">jQuery şablonları yayınlar CDN hakkında</span><span class="sxs-lookup"><span data-stu-id="f0901-119">jQuery Templates Releases on the CDN</span></span>](#jQuery_Templates_Releases_on_the_CDN_5)  
- [<span data-ttu-id="f0901-120">jQuery döngüsü yayınlar CDN hakkında</span><span class="sxs-lookup"><span data-stu-id="f0901-120">jQuery Cycle Releases on the CDN</span></span>](#jQuery_Cycle_Releases_on_the_CDN_6)  
- [<span data-ttu-id="f0901-121">DataTable yayınlar CDN üzerinde jQuery</span><span class="sxs-lookup"><span data-stu-id="f0901-121">jQuery DataTables Releases on the CDN</span></span>](#jQuery_DataTables_Releases_on_the_CDN_7)  
- [<span data-ttu-id="f0901-122">CDN üzerinde Modernizr yayınlar</span><span class="sxs-lookup"><span data-stu-id="f0901-122">Modernizr Releases on the CDN</span></span>](#Modernizr_Releases_on_the_CDN_8)  
- [<span data-ttu-id="f0901-123">CDN üzerindeki JSHint yayınlar</span><span class="sxs-lookup"><span data-stu-id="f0901-123">JSHint Releases on the CDN</span></span>](#JSHint_Releases_on_the_CDN_10)  
- [<span data-ttu-id="f0901-124">Knockout yayınlar CDN hakkında</span><span class="sxs-lookup"><span data-stu-id="f0901-124">Knockout Releases on the CDN</span></span>](#Knockout_Releases_on_the_CDN_11)  
- [<span data-ttu-id="f0901-125">CDN yayınlara globalize</span><span class="sxs-lookup"><span data-stu-id="f0901-125">Globalize Releases on the CDN</span></span>](#Globalize_Releases_on_the_CDN_12)  
- [<span data-ttu-id="f0901-126">CDN yayınlara yanıt</span><span class="sxs-lookup"><span data-stu-id="f0901-126">Respond Releases on the CDN</span></span>](#Respond_Releases_on_the_CDN_13)  
- [<span data-ttu-id="f0901-127">Önyükleme yayınlar CDN hakkında</span><span class="sxs-lookup"><span data-stu-id="f0901-127">Bootstrap Releases on the CDN</span></span>](#Bootstrap_Releases_on_the_CDN_14)  
- [<span data-ttu-id="f0901-128">Önyükleme TouchCarousel yayınlar CDN hakkında</span><span class="sxs-lookup"><span data-stu-id="f0901-128">Bootstrap TouchCarousel Releases on the CDN</span></span>](#BootstrapTouchCarousel_Releases_on_the_CDN_18)  
- [<span data-ttu-id="f0901-129">CDN üzerinde Hammer.js yayınlar</span><span class="sxs-lookup"><span data-stu-id="f0901-129">Hammer.js Releases on the CDN</span></span>](#Hammerjs_Releases_on_the_CDN_19)  
- [<span data-ttu-id="f0901-130">ASP.NET Web Forms ve Ajax yayınlar CDN hakkında</span><span class="sxs-lookup"><span data-stu-id="f0901-130">ASP.NET Web Forms and Ajax Releases on the CDN</span></span>](#ASPNET_Web_Forms_and_Ajax_Releases_on_the_CDN_15)  
- [<span data-ttu-id="f0901-131">ASP.NET MVC CDN'de serbest bırakır.</span><span class="sxs-lookup"><span data-stu-id="f0901-131">ASP.NET MVC Releases on the CDN</span></span>](#ASPNET_MVC_Releases_on_the_CDN_16)  
- [<span data-ttu-id="f0901-132">ASP.NET SignalR CDN'de serbest bırakır.</span><span class="sxs-lookup"><span data-stu-id="f0901-132">ASP.NET SignalR Releases on the CDN</span></span>](#ASPNET_SignalR_Releases_on_the_CDN_17)
+ [<span data-ttu-id="9b6e8-114">CDN üzerinde jQuery yayınlar</span><span class="sxs-lookup"><span data-stu-id="9b6e8-114">jQuery Releases on the CDN</span></span>](#jQuery_Releases_on_the_CDN_0)  
+ [<span data-ttu-id="9b6e8-115">CDN üzerinde jQuery geçirme yayınlar</span><span class="sxs-lookup"><span data-stu-id="9b6e8-115">jQuery Migrate Releases on the CDN</span></span>](#jQuery_Migrate_Releases_on_the_CDN_1)  
+ [<span data-ttu-id="9b6e8-116">jQuery kullanıcı Arabirimi yayınlar CDN hakkında</span><span class="sxs-lookup"><span data-stu-id="9b6e8-116">jQuery UI Releases on the CDN</span></span>](#jQuery_UI_Releases_on_the_CDN_2)  
+ [<span data-ttu-id="9b6e8-117">jQuery doğrulama yayınlar CDN hakkında</span><span class="sxs-lookup"><span data-stu-id="9b6e8-117">jQuery Validation Releases on the CDN</span></span>](#jQuery_Validation_Releases_on_the_CDN_3)  
+ [<span data-ttu-id="9b6e8-118">jQuery Mobile yayınlar CDN hakkında</span><span class="sxs-lookup"><span data-stu-id="9b6e8-118">jQuery Mobile Releases on the CDN</span></span>](#jQuery_Mobile_Releases_on_the_CDN_4)  
+ [<span data-ttu-id="9b6e8-119">jQuery şablonları yayınlar CDN hakkında</span><span class="sxs-lookup"><span data-stu-id="9b6e8-119">jQuery Templates Releases on the CDN</span></span>](#jQuery_Templates_Releases_on_the_CDN_5)  
+ [<span data-ttu-id="9b6e8-120">jQuery döngüsü yayınlar CDN hakkında</span><span class="sxs-lookup"><span data-stu-id="9b6e8-120">jQuery Cycle Releases on the CDN</span></span>](#jQuery_Cycle_Releases_on_the_CDN_6)  
+ [<span data-ttu-id="9b6e8-121">DataTable yayınlar CDN üzerinde jQuery</span><span class="sxs-lookup"><span data-stu-id="9b6e8-121">jQuery DataTables Releases on the CDN</span></span>](#jQuery_DataTables_Releases_on_the_CDN_7)  
+ [<span data-ttu-id="9b6e8-122">CDN üzerinde Modernizr yayınlar</span><span class="sxs-lookup"><span data-stu-id="9b6e8-122">Modernizr Releases on the CDN</span></span>](#Modernizr_Releases_on_the_CDN_8)  
+ [<span data-ttu-id="9b6e8-123">CDN üzerindeki JSHint yayınlar</span><span class="sxs-lookup"><span data-stu-id="9b6e8-123">JSHint Releases on the CDN</span></span>](#JSHint_Releases_on_the_CDN_10)  
+ [<span data-ttu-id="9b6e8-124">Knockout yayınlar CDN hakkında</span><span class="sxs-lookup"><span data-stu-id="9b6e8-124">Knockout Releases on the CDN</span></span>](#Knockout_Releases_on_the_CDN_11)  
+ [<span data-ttu-id="9b6e8-125">CDN yayınlara globalize</span><span class="sxs-lookup"><span data-stu-id="9b6e8-125">Globalize Releases on the CDN</span></span>](#Globalize_Releases_on_the_CDN_12)  
+ [<span data-ttu-id="9b6e8-126">CDN yayınlara yanıt</span><span class="sxs-lookup"><span data-stu-id="9b6e8-126">Respond Releases on the CDN</span></span>](#Respond_Releases_on_the_CDN_13)  
+ [<span data-ttu-id="9b6e8-127">Önyükleme yayınlar CDN hakkında</span><span class="sxs-lookup"><span data-stu-id="9b6e8-127">Bootstrap Releases on the CDN</span></span>](#Bootstrap_Releases_on_the_CDN_14)  
+ [<span data-ttu-id="9b6e8-128">Önyükleme TouchCarousel yayınlar CDN hakkında</span><span class="sxs-lookup"><span data-stu-id="9b6e8-128">Bootstrap TouchCarousel Releases on the CDN</span></span>](#BootstrapTouchCarousel_Releases_on_the_CDN_18)  
+ [<span data-ttu-id="9b6e8-129">CDN üzerinde Hammer.js yayınlar</span><span class="sxs-lookup"><span data-stu-id="9b6e8-129">Hammer.js Releases on the CDN</span></span>](#Hammerjs_Releases_on_the_CDN_19)  
+ [<span data-ttu-id="9b6e8-130">ASP.NET Web Forms ve Ajax yayınlar CDN hakkında</span><span class="sxs-lookup"><span data-stu-id="9b6e8-130">ASP.NET Web Forms and Ajax Releases on the CDN</span></span>](#ASPNET_Web_Forms_and_Ajax_Releases_on_the_CDN_15)  
+ [<span data-ttu-id="9b6e8-131">ASP.NET MVC CDN'de serbest bırakır.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-131">ASP.NET MVC Releases on the CDN</span></span>](#ASPNET_MVC_Releases_on_the_CDN_16)  
+ [<span data-ttu-id="9b6e8-132">ASP.NET SignalR CDN'de serbest bırakır.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-132">ASP.NET SignalR Releases on the CDN</span></span>](#ASPNET_SignalR_Releases_on_the_CDN_17)
 
-<span data-ttu-id="f0901-133">Microsoft Ajax Content Delivery Network (CDN), jQuery gibi popüler üçüncü taraf JavaScript kitaplıklarını barındırır ve bunları, Web uygulamalarınıza kolayca eklemenizi sağlar.</span><span class="sxs-lookup"><span data-stu-id="f0901-133">The Microsoft Ajax Content Delivery Network (CDN) hosts popular third party JavaScript libraries such as jQuery and enables you to easily add them to your Web applications.</span></span> <span data-ttu-id="f0901-134">Örneğin, yalnızca ekleyerek bu CDN'de barındırılan jQuery kullanmaya başlayabilirsiniz bir &lt;betik&gt; ajax.aspnetcdn.com için işaret eden sayfanıza etiketi.</span><span class="sxs-lookup"><span data-stu-id="f0901-134">For example, you can start using jQuery which is hosted on this CDN simply by adding a &lt;script&gt; tag to your page that points to ajax.aspnetcdn.com.</span></span>
+<span data-ttu-id="9b6e8-133">Microsoft Ajax Content Delivery Network (CDN), jQuery gibi popüler üçüncü taraf JavaScript kitaplıklarını barındırır ve bunları, Web uygulamalarınıza kolayca eklemenizi sağlar.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-133">The Microsoft Ajax Content Delivery Network (CDN) hosts popular third party JavaScript libraries such as jQuery and enables you to easily add them to your Web applications.</span></span> <span data-ttu-id="9b6e8-134">Örneğin, yalnızca ekleyerek bu CDN'de barındırılan jQuery kullanmaya başlayabilirsiniz bir &lt;betik&gt; ajax.aspnetcdn.com için işaret eden sayfanıza etiketi.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-134">For example, you can start using jQuery which is hosted on this CDN simply by adding a &lt;script&gt; tag to your page that points to ajax.aspnetcdn.com.</span></span>
 
-<span data-ttu-id="f0901-135">CDN avantajlarından yararlanarak, Ajax uygulamalarınızın performansını önemli ölçüde artırabilir.</span><span class="sxs-lookup"><span data-stu-id="f0901-135">By taking advantage of the CDN, you can significantly improve the performance of your Ajax applications.</span></span> <span data-ttu-id="f0901-136">CDN içeriğini, tüm dünyada bulunan sunucularda önbelleğe alınır.</span><span class="sxs-lookup"><span data-stu-id="f0901-136">The contents of the CDN are cached on servers located around the world.</span></span> <span data-ttu-id="f0901-137">Ayrıca, CDN önbelleğe alınan üçüncü taraf web siteleri, farklı etki alanlarında bulunan JavaScript dosyaları yeniden tarayıcılar sağlar.</span><span class="sxs-lookup"><span data-stu-id="f0901-137">In addition, the CDN enables browsers to reuse cached third party JavaScript files for web sites that are located in different domains.</span></span>
+<span data-ttu-id="9b6e8-135">CDN avantajlarından yararlanarak, Ajax uygulamalarınızın performansını önemli ölçüde artırabilir.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-135">By taking advantage of the CDN, you can significantly improve the performance of your Ajax applications.</span></span> <span data-ttu-id="9b6e8-136">CDN içeriğini, tüm dünyada bulunan sunucularda önbelleğe alınır.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-136">The contents of the CDN are cached on servers located around the world.</span></span> <span data-ttu-id="9b6e8-137">Ayrıca, CDN önbelleğe alınan üçüncü taraf web siteleri, farklı etki alanlarında bulunan JavaScript dosyaları yeniden tarayıcılar sağlar.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-137">In addition, the CDN enables browsers to reuse cached third party JavaScript files for web sites that are located in different domains.</span></span>
 
-<span data-ttu-id="f0901-138">CDN SSL (HTTPS), Güvenli Yuva Katmanı'nı kullanarak bir web sayfası hizmet gerektiği durumlarda destekler.</span><span class="sxs-lookup"><span data-stu-id="f0901-138">The CDN supports SSL (HTTPS) in case you need to serve a web page using the Secure Sockets Layer.</span></span>
+<span data-ttu-id="9b6e8-138">CDN SSL (HTTPS), Güvenli Yuva Katmanı'nı kullanarak bir web sayfası hizmet gerektiği durumlarda destekler.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-138">The CDN supports SSL (HTTPS) in case you need to serve a web page using the Secure Sockets Layer.</span></span>
 
-<span data-ttu-id="f0901-139">CDN, karşıya yüklediğiniz ve sizin için bu kitaplıkları sahipleri tarafından lisanslanır aşağıdaki üçüncü taraf betik kitaplıkları barındırır:</span><span class="sxs-lookup"><span data-stu-id="f0901-139">The CDN hosts the following third party script libraries which have been uploaded, and are licensed to you, by the owners of those libraries:</span></span>
+<span data-ttu-id="9b6e8-139">CDN, karşıya yüklediğiniz ve sizin için bu kitaplıkları sahipleri tarafından lisanslanır aşağıdaki üçüncü taraf betik kitaplıkları barındırır:</span><span class="sxs-lookup"><span data-stu-id="9b6e8-139">The CDN hosts the following third party script libraries which have been uploaded, and are licensed to you, by the owners of those libraries:</span></span>
 
-- <span data-ttu-id="f0901-140">jQuery (www.jquery.com)</span><span class="sxs-lookup"><span data-stu-id="f0901-140">jQuery (www.jquery.com)</span></span>
-- <span data-ttu-id="f0901-141">jQuery kullanıcı Arabirimi (www.jqueryui.com)</span><span class="sxs-lookup"><span data-stu-id="f0901-141">jQuery UI (www.jqueryui.com)</span></span>
-- <span data-ttu-id="f0901-142">jQuery Mobile (www.jquerymobile.com)</span><span class="sxs-lookup"><span data-stu-id="f0901-142">jQuery Mobile (www.jquerymobile.com)</span></span>
-- <span data-ttu-id="f0901-143">jQuery doğrulaması (www.jquery.com)</span><span class="sxs-lookup"><span data-stu-id="f0901-143">jQuery Validation (www.jquery.com)</span></span>
-- <span data-ttu-id="f0901-144">jQuery döngüsü (www.malsup.com/jquery/cycle/)</span><span class="sxs-lookup"><span data-stu-id="f0901-144">jQuery Cycle (www.malsup.com/jquery/cycle/)</span></span>
-- <span data-ttu-id="f0901-145">jQuery DataTable (http://datatables.net/)</span><span class="sxs-lookup"><span data-stu-id="f0901-145">jQuery DataTables (http://datatables.net/)</span></span>
+- <span data-ttu-id="9b6e8-140">jQuery (www.jquery.com)</span><span class="sxs-lookup"><span data-stu-id="9b6e8-140">jQuery (www.jquery.com)</span></span>
+- <span data-ttu-id="9b6e8-141">jQuery kullanıcı Arabirimi (www.jqueryui.com)</span><span class="sxs-lookup"><span data-stu-id="9b6e8-141">jQuery UI (www.jqueryui.com)</span></span>
+- <span data-ttu-id="9b6e8-142">jQuery Mobile (www.jquerymobile.com)</span><span class="sxs-lookup"><span data-stu-id="9b6e8-142">jQuery Mobile (www.jquerymobile.com)</span></span>
+- <span data-ttu-id="9b6e8-143">jQuery doğrulaması (www.jquery.com)</span><span class="sxs-lookup"><span data-stu-id="9b6e8-143">jQuery Validation (www.jquery.com)</span></span>
+- <span data-ttu-id="9b6e8-144">jQuery döngüsü (www.malsup.com/jquery/cycle/)</span><span class="sxs-lookup"><span data-stu-id="9b6e8-144">jQuery Cycle (www.malsup.com/jquery/cycle/)</span></span>
+- <span data-ttu-id="9b6e8-145">jQuery DataTable (http://datatables.net/)</span><span class="sxs-lookup"><span data-stu-id="9b6e8-145">jQuery DataTables (http://datatables.net/)</span></span>
 
-<span data-ttu-id="f0901-146">Microsoft Ajax CDN ayrıca Microsoft tarafından karşıya yüklenen aşağıdaki kitaplıklarını içerir:</span><span class="sxs-lookup"><span data-stu-id="f0901-146">The Microsoft Ajax CDN also includes the following libraries which have been uploaded by Microsoft:</span></span>
+<span data-ttu-id="9b6e8-146">Microsoft Ajax CDN ayrıca Microsoft tarafından karşıya yüklenen aşağıdaki kitaplıklarını içerir:</span><span class="sxs-lookup"><span data-stu-id="9b6e8-146">The Microsoft Ajax CDN also includes the following libraries which have been uploaded by Microsoft:</span></span>
 
-- <span data-ttu-id="f0901-147">ASP.NET Ajax</span><span class="sxs-lookup"><span data-stu-id="f0901-147">ASP.NET Ajax</span></span>
-- <span data-ttu-id="f0901-148">ASP.NET MVC JavaScript dosyaları</span><span class="sxs-lookup"><span data-stu-id="f0901-148">ASP.NET MVC JavaScript Files</span></span>
-- <span data-ttu-id="f0901-149">ASP.NET SignalR JavaScript dosyaları</span><span class="sxs-lookup"><span data-stu-id="f0901-149">ASP.NET SignalR JavaScript Files</span></span>
+- <span data-ttu-id="9b6e8-147">ASP.NET Ajax</span><span class="sxs-lookup"><span data-stu-id="9b6e8-147">ASP.NET Ajax</span></span>
+- <span data-ttu-id="9b6e8-148">ASP.NET MVC JavaScript dosyaları</span><span class="sxs-lookup"><span data-stu-id="9b6e8-148">ASP.NET MVC JavaScript Files</span></span>
+- <span data-ttu-id="9b6e8-149">ASP.NET SignalR JavaScript dosyaları</span><span class="sxs-lookup"><span data-stu-id="9b6e8-149">ASP.NET SignalR JavaScript Files</span></span>
 
-<span data-ttu-id="f0901-150">Microsoft, bu CDN'de barındırılan herhangi bir üçüncü taraf kitaplıkların mülkiyeti üzerine hak iddia değil.</span><span class="sxs-lookup"><span data-stu-id="f0901-150">Microsoft does not claim ownership of any third-party libraries hosted on this CDN.</span></span> <span data-ttu-id="f0901-151">Telif hakkı sahipleri kitaplıkları, bu kitaplıklara lisans.</span><span class="sxs-lookup"><span data-stu-id="f0901-151">The copyright owners of the libraries are licensing these libraries to you.</span></span> <span data-ttu-id="f0901-152">Tür kitaplıkları indirip olabilecek herhangi bir hakkı, yalnızca ilgili telif hakkı sahipleri tarafından verilir.</span><span class="sxs-lookup"><span data-stu-id="f0901-152">Any rights that you may have to download and use such libraries are granted solely by the respective copyright owners.</span></span> <span data-ttu-id="f0901-153">Bunlar Microsoft kitaplıkları olmadığından, Microsoft bu CDN'de barındırılan üçüncü taraf kitaplıklar için hiçbir garanti veya fikri mülkiyet hakları lisansları (zımni hiçbir patent hakkı dahil) sağlar.</span><span class="sxs-lookup"><span data-stu-id="f0901-153">Because these are not Microsoft libraries, Microsoft provides no warranties or intellectual property rights licenses (including no implied patent rights) for the third party libraries hosted on this CDN.</span></span>
+<span data-ttu-id="9b6e8-150">Microsoft, bu CDN'de barındırılan herhangi bir üçüncü taraf kitaplıkların mülkiyeti üzerine hak iddia değil.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-150">Microsoft does not claim ownership of any third-party libraries hosted on this CDN.</span></span> <span data-ttu-id="9b6e8-151">Telif hakkı sahipleri kitaplıkları, bu kitaplıklara lisans.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-151">The copyright owners of the libraries are licensing these libraries to you.</span></span> <span data-ttu-id="9b6e8-152">Tür kitaplıkları indirip olabilecek herhangi bir hakkı, yalnızca ilgili telif hakkı sahipleri tarafından verilir.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-152">Any rights that you may have to download and use such libraries are granted solely by the respective copyright owners.</span></span> <span data-ttu-id="9b6e8-153">Bunlar Microsoft kitaplıkları olmadığından, Microsoft bu CDN'de barındırılan üçüncü taraf kitaplıklar için hiçbir garanti veya fikri mülkiyet hakları lisansları (zımni hiçbir patent hakkı dahil) sağlar.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-153">Because these are not Microsoft libraries, Microsoft provides no warranties or intellectual property rights licenses (including no implied patent rights) for the third party libraries hosted on this CDN.</span></span>
 
-<span data-ttu-id="f0901-154">JavaScript Kitaplığı'nıza göndermek istediğiniz ve kitaplığınıza ilk JavaScript kitaplıklarını biridir (listelenmiş olarak http://trends.builtwith.com) veya uzantıları/eklentileri (a) popüler; veya (b) ASP.NET kullanmak faydalı sonra lütfen başvurun bu kitaplıklara AjaxCDNSubmission@Microsoft.com.</span><span class="sxs-lookup"><span data-stu-id="f0901-154">If you wish to submit your JavaScript library and your library is one of the top JavaScript libraries (as listed on http://trends.builtwith.com) or extensions/plugins to these libraries that are (a) popular; or (b) helpful for use on ASP.NET then please contact AjaxCDNSubmission@Microsoft.com.</span></span>
+<span data-ttu-id="9b6e8-154">JavaScript Kitaplığı'nıza göndermek istediğiniz ve kitaplığınıza ilk JavaScript kitaplıklarını biridir (listelenmiş olarak http://trends.builtwith.com) veya uzantıları/eklentileri (a) popüler; veya (b) ASP.NET kullanmak faydalı sonra lütfen başvurun bu kitaplıklara AjaxCDNSubmission@Microsoft.com.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-154">If you wish to submit your JavaScript library and your library is one of the top JavaScript libraries (as listed on http://trends.builtwith.com) or extensions/plugins to these libraries that are (a) popular; or (b) helpful for use on ASP.NET then please contact AjaxCDNSubmission@Microsoft.com.</span></span>
 
 <a id="ajaxmicrosoftcom_renamed_to_ajaxaspnetcdncom_18"></a>
 
-## <a name="ajaxmicrosoftcom-renamed-to-ajaxaspnetcdncom"></a><span data-ttu-id="f0901-155">ajax.microsoft.com AJAX.aspnetcdn.com için yeniden adlandırıldı</span><span class="sxs-lookup"><span data-stu-id="f0901-155">ajax.microsoft.com renamed to ajax.aspnetcdn.com</span></span>
+## <a name="ajaxmicrosoftcom-renamed-to-ajaxaspnetcdncom"></a><span data-ttu-id="9b6e8-155">ajax.microsoft.com AJAX.aspnetcdn.com için yeniden adlandırıldı</span><span class="sxs-lookup"><span data-stu-id="9b6e8-155">ajax.microsoft.com renamed to ajax.aspnetcdn.com</span></span>
 
-<span data-ttu-id="f0901-156">CDN microsoft.com etki alanı adını kullanmak için kullanılan ve aspnetcdn.com etki alanı adını kullanacak şekilde değiştirildi.</span><span class="sxs-lookup"><span data-stu-id="f0901-156">The CDN used to use the microsoft.com domain name and has been changed to use the aspnetcdn.com domain name.</span></span> <span data-ttu-id="f0901-157">Bir tarayıcı microsoft.com etki alanı başvurulduğunda, tanımlama bilgilerini bu etki alanından her istekle kablo üzerinden gönderir gibi olduğundan, performansı artırmak için bu değişiklik yapılmıştır.</span><span class="sxs-lookup"><span data-stu-id="f0901-157">This change was made to increase performance because when a browser referenced the microsoft.com domain it would send any cookies from that domain across the wire with each request.</span></span> <span data-ttu-id="f0901-158">Microsoft.com dışındaki bir etki alanı adı için yeniden adlandırarak performans tarafından % 25 daha fazla artırılabilir.</span><span class="sxs-lookup"><span data-stu-id="f0901-158">By renaming to a domain name other than microsoft.com performance can be increased by as much to 25%.</span></span> <span data-ttu-id="f0901-159">Not ajax.microsoft.com çalışmaya devam eder ancak ajax.aspnetcdn.com tavsiye edilir.</span><span class="sxs-lookup"><span data-stu-id="f0901-159">Note ajax.microsoft.com will continue to function but ajax.aspnetcdn.com is recommended.</span></span>
+<span data-ttu-id="9b6e8-156">CDN microsoft.com etki alanı adını kullanmak için kullanılan ve aspnetcdn.com etki alanı adını kullanacak şekilde değiştirildi.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-156">The CDN used to use the microsoft.com domain name and has been changed to use the aspnetcdn.com domain name.</span></span> <span data-ttu-id="9b6e8-157">Bir tarayıcı microsoft.com etki alanı başvurulduğunda, tanımlama bilgilerini bu etki alanından her istekle kablo üzerinden gönderir gibi olduğundan, performansı artırmak için bu değişiklik yapılmıştır.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-157">This change was made to increase performance because when a browser referenced the microsoft.com domain it would send any cookies from that domain across the wire with each request.</span></span> <span data-ttu-id="9b6e8-158">Microsoft.com dışındaki bir etki alanı adı için yeniden adlandırarak performans tarafından % 25 daha fazla artırılabilir.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-158">By renaming to a domain name other than microsoft.com performance can be increased by as much to 25%.</span></span> <span data-ttu-id="9b6e8-159">Not ajax.microsoft.com çalışmaya devam eder ancak ajax.aspnetcdn.com tavsiye edilir.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-159">Note ajax.microsoft.com will continue to function but ajax.aspnetcdn.com is recommended.</span></span>
 
-- <span data-ttu-id="f0901-160">Eski biçimi: https://ajax.microsoft.com/ajax/jQuery/jquery-1.8.0.js</span><span class="sxs-lookup"><span data-stu-id="f0901-160">Old Format: https://ajax.microsoft.com/ajax/jQuery/jquery-1.8.0.js</span></span>
-- <span data-ttu-id="f0901-161">Yeni biçim: https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js</span><span class="sxs-lookup"><span data-stu-id="f0901-161">New Format: https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js</span></span>
+- <span data-ttu-id="9b6e8-160">Eski biçimi: https://ajax.microsoft.com/ajax/jQuery/jquery-1.8.0.js</span><span class="sxs-lookup"><span data-stu-id="9b6e8-160">Old Format: https://ajax.microsoft.com/ajax/jQuery/jquery-1.8.0.js</span></span>
+- <span data-ttu-id="9b6e8-161">Yeni biçim: https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js</span><span class="sxs-lookup"><span data-stu-id="9b6e8-161">New Format: https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js</span></span>
 
 <a id="Visual_Studio_vsdoc_Support_19"></a>
 
-## <a name="visual-studio-vsdoc-support"></a><span data-ttu-id="f0901-162">Visual Studio .vsdoc desteği</span><span class="sxs-lookup"><span data-stu-id="f0901-162">Visual Studio .vsdoc Support</span></span>
+## <a name="visual-studio-vsdoc-support"></a><span data-ttu-id="9b6e8-162">Visual Studio .vsdoc desteği</span><span class="sxs-lookup"><span data-stu-id="9b6e8-162">Visual Studio .vsdoc Support</span></span>
 
-<span data-ttu-id="f0901-163">.Vsdoc dosyaları VS 2008 SP1'e sahip olduğunuzdan emin olmak için gereken Visual Studio 2008 ile düzgün bir şekilde kullanmak için yüklü ve vsdoc dosyaları düzeltmesinin yüklü.</span><span class="sxs-lookup"><span data-stu-id="f0901-163">To use the .vsdoc files properly with Visual Studio 2008 you need to make sure that you have VS 2008 SP1 installed and the hotfix for vsdoc files installed.</span></span> <span data-ttu-id="f0901-164">Bu uygulamaya buradan edinebilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="f0901-164">You can get these from here:</span></span>
+<span data-ttu-id="9b6e8-163">.Vsdoc dosyaları VS 2008 SP1'e sahip olduğunuzdan emin olmak için gereken Visual Studio 2008 ile düzgün bir şekilde kullanmak için yüklü ve vsdoc dosyaları düzeltmesinin yüklü.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-163">To use the .vsdoc files properly with Visual Studio 2008 you need to make sure that you have VS 2008 SP1 installed and the hotfix for vsdoc files installed.</span></span> <span data-ttu-id="9b6e8-164">Bu uygulamaya buradan edinebilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="9b6e8-164">You can get these from here:</span></span>
 
-- [<span data-ttu-id="f0901-165">Visual Studio 2008 SP1'i indirmek</span><span class="sxs-lookup"><span data-stu-id="f0901-165">Download Visual Studio 2008 SP1</span></span>](https://www.microsoft.com/downloads/en/details.aspx?FamilyId=FBEE1648-7106-44A7-9649-6D9F6D58056E&amp;displaylang=en "Visual Studio 2008 SP1'i indirin")
-- [<span data-ttu-id="f0901-166">Visual Studio 2008 SP1 için .vsdoc düzeltmeyi indirmek</span><span class="sxs-lookup"><span data-stu-id="f0901-166">Download .vsdoc hotfix for Visual Studio 2008 SP1</span></span>](https://code.msdn.microsoft.com/KB958502/Release/ProjectReleases.aspx?ReleaseId=1736 ".vsdoc düzeltme için Visual Studio 2008 SP1 indirin")
+- [<span data-ttu-id="9b6e8-165">Visual Studio 2008 SP1'i indirmek</span><span class="sxs-lookup"><span data-stu-id="9b6e8-165">Download Visual Studio 2008 SP1</span></span>](https://www.microsoft.com/downloads/en/details.aspx?FamilyId=FBEE1648-7106-44A7-9649-6D9F6D58056E&amp;displaylang=en "Visual Studio 2008 SP1'i indirin")
+- [<span data-ttu-id="9b6e8-166">Visual Studio 2008 SP1 için .vsdoc düzeltmeyi indirmek</span><span class="sxs-lookup"><span data-stu-id="9b6e8-166">Download .vsdoc hotfix for Visual Studio 2008 SP1</span></span>](https://code.msdn.microsoft.com/KB958502/Release/ProjectReleases.aspx?ReleaseId=1736 ".vsdoc düzeltme için Visual Studio 2008 SP1 indirin")
 
-<span data-ttu-id="f0901-167">Visual Studio 2010, ek düzeltme eklerinin olmadan .vsdoc dosyalarını destekler.</span><span class="sxs-lookup"><span data-stu-id="f0901-167">Visual Studio 2010 supports .vsdoc files without any additional patches.</span></span>
+<span data-ttu-id="9b6e8-167">Visual Studio 2010, ek düzeltme eklerinin olmadan .vsdoc dosyalarını destekler.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-167">Visual Studio 2010 supports .vsdoc files without any additional patches.</span></span>
 
 <a id="Using_ASPNET_Ajax_from_the_CDN_20"></a>
 
-## <a name="using-aspnet-ajax-from-the-cdn"></a><span data-ttu-id="f0901-168">ASP.NET Ajax CDN kullanma</span><span class="sxs-lookup"><span data-stu-id="f0901-168">Using ASP.NET Ajax from the CDN</span></span>
+## <a name="using-aspnet-ajax-from-the-cdn"></a><span data-ttu-id="9b6e8-168">ASP.NET Ajax CDN kullanma</span><span class="sxs-lookup"><span data-stu-id="9b6e8-168">Using ASP.NET Ajax from the CDN</span></span>
 
-<span data-ttu-id="f0901-169">ASP.NET 4 kullanırken, ASP.NET framework komut dosyaları için tüm istekler için CDN yönlendirebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="f0901-169">When using ASP.NET 4, you can redirect all requests for ASP.NET framework scripts to the CDN.</span></span> <span data-ttu-id="f0901-170">Betikleri yerel web sunucunuzun yerine CDN alınırken genel ASP.NET Web sitesi performansını önemli ölçüde artırabilir.</span><span class="sxs-lookup"><span data-stu-id="f0901-170">Retrieving scripts from the CDN instead of your local web server can substantially improve the performance of public ASP.NET websites.</span></span>
+<span data-ttu-id="9b6e8-169">ASP.NET 4 kullanırken, ASP.NET framework komut dosyaları için tüm istekler için CDN yönlendirebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-169">When using ASP.NET 4, you can redirect all requests for ASP.NET framework scripts to the CDN.</span></span> <span data-ttu-id="9b6e8-170">Betikleri yerel web sunucunuzun yerine CDN alınırken genel ASP.NET Web sitesi performansını önemli ölçüde artırabilir.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-170">Retrieving scripts from the CDN instead of your local web server can substantially improve the performance of public ASP.NET websites.</span></span>
 
-<span data-ttu-id="f0901-171">Microsoft Ajax CDN için tüm ASP.NET framework betik istekleri yeniden yönlendirmek için ScriptManager EnableCDN özelliğini kullanın:</span><span class="sxs-lookup"><span data-stu-id="f0901-171">Use the ScriptManager EnableCDN property to redirect all ASP.NET framework script requests to the Microsoft Ajax CDN:</span></span>
+<span data-ttu-id="9b6e8-171">Microsoft Ajax CDN için tüm ASP.NET framework betik istekleri yeniden yönlendirmek için ScriptManager EnableCDN özelliğini kullanın:</span><span class="sxs-lookup"><span data-stu-id="9b6e8-171">Use the ScriptManager EnableCDN property to redirect all ASP.NET framework script requests to the Microsoft Ajax CDN:</span></span>
 
 [!code-aspx[Main](overview/samples/sample1.aspx)]
 
 <a id="Using_jQuery_from_the_CDN_21"></a>
 
-## <a name="using-jquery-from-the-cdn"></a><span data-ttu-id="f0901-172">JQuery CDN kullanma</span><span class="sxs-lookup"><span data-stu-id="f0901-172">Using jQuery from the CDN</span></span>
+## <a name="using-jquery-from-the-cdn"></a><span data-ttu-id="9b6e8-172">JQuery CDN kullanma</span><span class="sxs-lookup"><span data-stu-id="9b6e8-172">Using jQuery from the CDN</span></span>
 
-<span data-ttu-id="f0901-173">Bir sayfaya aşağıdaki betiği öğesi ekleyerek Web uygulamanızda CDN'de barındırılan jQuery betikleri kullanabilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="f0901-173">You can use jQuery scripts hosted on CDN in your Web application by adding the following script element to a page:</span></span>
+<span data-ttu-id="9b6e8-173">Bir sayfaya aşağıdaki betiği öğesi ekleyerek Web uygulamanızda CDN'de barındırılan jQuery betikleri kullanabilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="9b6e8-173">You can use jQuery scripts hosted on CDN in your Web application by adding the following script element to a page:</span></span>
 
 [!code-html[Main](overview/samples/sample2.html)]
 
-<span data-ttu-id="f0901-174">CDN edinebilirsiniz jQuery betik küçültülmüş sürümünü de içerir. aşağıdaki öğesini kullanarak:</span><span class="sxs-lookup"><span data-stu-id="f0901-174">The CDN also includes the minified version of the jQuery script, which you can get using the following element:</span></span>
+<span data-ttu-id="9b6e8-174">CDN edinebilirsiniz jQuery betik küçültülmüş sürümünü de içerir. aşağıdaki öğesini kullanarak:</span><span class="sxs-lookup"><span data-stu-id="9b6e8-174">The CDN also includes the minified version of the jQuery script, which you can get using the following element:</span></span>
 
 [!code-html[Main](overview/samples/sample3.html)]
 
-<span data-ttu-id="f0901-175">CDN kullanılamaz durumda, jQuery, kendi Web sitesinde bir yerel yolundan yüklenirken için geri dönüş sayfanıza izin vermek için öğenin CDN başvuran hemen sonra aşağıdaki öğeyi ekleyin:</span><span class="sxs-lookup"><span data-stu-id="f0901-175">To allow your page to fallback to loading jQuery from a local path on your own website if the CDN happens to be unavailable, add the following element immediately after the element referencing the CDN:</span></span>
+<span data-ttu-id="9b6e8-175">CDN kullanılamaz durumda, jQuery, kendi Web sitesinde bir yerel yolundan yüklenirken için geri dönüş sayfanıza izin vermek için öğenin CDN başvuran hemen sonra aşağıdaki öğeyi ekleyin:</span><span class="sxs-lookup"><span data-stu-id="9b6e8-175">To allow your page to fallback to loading jQuery from a local path on your own website if the CDN happens to be unavailable, add the following element immediately after the element referencing the CDN:</span></span>
 
 [!code-html[Main](overview/samples/sample4.html)]
 
-<span data-ttu-id="f0901-176">Aşağıdaki örnek sayfası, bir düğmeye tıklandığında bir div öğesine içeriğini görüntülemek için jQuery kitaplığı (ile yerel bir kopya için geri dönüş) CDN sürümünü kullanır.</span><span class="sxs-lookup"><span data-stu-id="f0901-176">The following sample page uses the CDN version of the jQuery library (with fallback to a local copy) to display the contents of a div element when a button is clicked.</span></span>
+<span data-ttu-id="9b6e8-176">Aşağıdaki örnek sayfası, bir düğmeye tıklandığında bir div öğesine içeriğini görüntülemek için jQuery kitaplığı (ile yerel bir kopya için geri dönüş) CDN sürümünü kullanır.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-176">The following sample page uses the CDN version of the jQuery library (with fallback to a local copy) to display the contents of a div element when a button is clicked.</span></span>
 
 [!code-html[Main](overview/samples/sample5.html)]
 
-<span data-ttu-id="f0901-177">JQuery hakkında daha fazla bilgi edinin ve jQuery yerel bir kopyasını indirin ederek [jQuery](http://jquery.com/) Web sitesi.</span><span class="sxs-lookup"><span data-stu-id="f0901-177">You can learn more about jQuery and download a local copy of jQuery by visiting the [jQuery](http://jquery.com/) Web site.</span></span>
+<span data-ttu-id="9b6e8-177">JQuery hakkında daha fazla bilgi edinin ve jQuery yerel bir kopyasını indirin ederek [jQuery](http://jquery.com/) Web sitesi.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-177">You can learn more about jQuery and download a local copy of jQuery by visiting the [jQuery](http://jquery.com/) Web site.</span></span>
 
 <a id="Using_jQuery_UI_from_the_CDN_22"></a>
 
-## <a name="using-jquery-ui-from-the-cdn"></a><span data-ttu-id="f0901-178">JQuery kullanıcı Arabirimi CDN kullanma</span><span class="sxs-lookup"><span data-stu-id="f0901-178">Using jQuery UI from the CDN</span></span>
+## <a name="using-jquery-ui-from-the-cdn"></a><span data-ttu-id="9b6e8-178">JQuery kullanıcı Arabirimi CDN kullanma</span><span class="sxs-lookup"><span data-stu-id="9b6e8-178">Using jQuery UI from the CDN</span></span>
 
-<span data-ttu-id="f0901-179">CDN ayrıca jQuery kullanıcı Arabirimi kitaplığı barındırır.</span><span class="sxs-lookup"><span data-stu-id="f0901-179">The CDN also hosts the jQuery UI library.</span></span> <span data-ttu-id="f0901-180">JQuery kullanıcı Arabirimi kitaplığı zengin bir pencere öğeleri ve ASP.NET uygulamalarınızda kullanabileceğiniz etkileri içerir.</span><span class="sxs-lookup"><span data-stu-id="f0901-180">The jQuery UI library includes a rich set of widgets and effects that you can use in your ASP.NET applications.</span></span> <span data-ttu-id="f0901-181">Örneğin, aşağıdaki sayfa açılır takvimi görüntülemek için bir ASP.NET Web Forms uygulaması bağlamında jQuery UI Datepicker nasıl kullanabileceğinizi gösteren:</span><span class="sxs-lookup"><span data-stu-id="f0901-181">For example, the following page illustrates how you can use the jQuery UI Datepicker in the context of an ASP.NET Web Forms application to display a pop-up calendar:</span></span>
+<span data-ttu-id="9b6e8-179">CDN ayrıca jQuery kullanıcı Arabirimi kitaplığı barındırır.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-179">The CDN also hosts the jQuery UI library.</span></span> <span data-ttu-id="9b6e8-180">JQuery kullanıcı Arabirimi kitaplığı zengin bir pencere öğeleri ve ASP.NET uygulamalarınızda kullanabileceğiniz etkileri içerir.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-180">The jQuery UI library includes a rich set of widgets and effects that you can use in your ASP.NET applications.</span></span> <span data-ttu-id="9b6e8-181">Örneğin, aşağıdaki sayfa açılır takvimi görüntülemek için bir ASP.NET Web Forms uygulaması bağlamında jQuery UI Datepicker nasıl kullanabileceğinizi gösteren:</span><span class="sxs-lookup"><span data-stu-id="9b6e8-181">For example, the following page illustrates how you can use the jQuery UI Datepicker in the context of an ASP.NET Web Forms application to display a pop-up calendar:</span></span>
 
 [!code-aspx[Main](overview/samples/sample6.aspx)]
 
-<span data-ttu-id="f0901-182">Klavyenizi kullanarak metin kutusu için odağı taşıyın, bir takvim görüntülenir:</span><span class="sxs-lookup"><span data-stu-id="f0901-182">When you move focus to the TextBox using your keyboard, a calendar is displayed:</span></span>
+<span data-ttu-id="9b6e8-182">Klavyenizi kullanarak metin kutusu için odağı taşıyın, bir takvim görüntülenir:</span><span class="sxs-lookup"><span data-stu-id="9b6e8-182">When you move focus to the TextBox using your keyboard, a calendar is displayed:</span></span>
 
 ![DatePicker oluşturulan açılan takvimi](overview/_static/image1.png)
 
-<span data-ttu-id="f0901-184">Yukarıdaki kodda CDN üç dosyayı içermelidir dikkat edin:</span><span class="sxs-lookup"><span data-stu-id="f0901-184">Notice that you must include three files from the CDN in the code above:</span></span>
+<span data-ttu-id="9b6e8-184">Yukarıdaki kodda CDN üç dosyayı içermelidir dikkat edin:</span><span class="sxs-lookup"><span data-stu-id="9b6e8-184">Notice that you must include three files from the CDN in the code above:</span></span>
 
-- <span data-ttu-id="f0901-185">JQuery Kitaplığı &mdash; jQuery kullanıcı Arabirimi kitaplığı jQuery kitaplık bağlıdır.</span><span class="sxs-lookup"><span data-stu-id="f0901-185">The jQuery library &mdash; The jQuery UI library depends on the jQuery library.</span></span> <span data-ttu-id="f0901-186">JQuery kullanıcı Arabirimi kitaplığı eklemeden önce sayfanıza jQuery kitaplığa eklemeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="f0901-186">You must add the jQuery library to your page before you add the jQuery UI library.</span></span>
-- <span data-ttu-id="f0901-187">JQuery kullanıcı Arabirimi Kitaplığı &mdash; tüm pencere öğeleri gibi yukarıdaki kullanılan Datepicker pencere öğesi ve jQuery UI etkileri jQuery kullanıcı Arabirimi kitaplığı içerir.</span><span class="sxs-lookup"><span data-stu-id="f0901-187">The jQuery UI library &mdash; The jQuery UI library contains all of the jQuery UI effects and widgets such as the Datepicker widget used in the page above.</span></span>
-- <span data-ttu-id="f0901-188">JQuery kullanıcı Arabirimi teması &mdash; farklı Temalar jQuery kullanıcı Arabirimi destekler.</span><span class="sxs-lookup"><span data-stu-id="f0901-188">A jQuery UI theme &mdash; The jQuery UI supports different themes.</span></span> <span data-ttu-id="f0901-189">Yukarıdaki sayfayı Redmond temayı içeri aktarmak için bir CSS dosyası için bir bağlantı içerir.</span><span class="sxs-lookup"><span data-stu-id="f0901-189">The page above includes a link to a CSS file to import the Redmond theme.</span></span>
+- <span data-ttu-id="9b6e8-185">JQuery Kitaplığı &mdash; jQuery kullanıcı Arabirimi kitaplığı jQuery kitaplık bağlıdır.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-185">The jQuery library &mdash; The jQuery UI library depends on the jQuery library.</span></span> <span data-ttu-id="9b6e8-186">JQuery kullanıcı Arabirimi kitaplığı eklemeden önce sayfanıza jQuery kitaplığa eklemeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-186">You must add the jQuery library to your page before you add the jQuery UI library.</span></span>
+- <span data-ttu-id="9b6e8-187">JQuery kullanıcı Arabirimi Kitaplığı &mdash; tüm pencere öğeleri gibi yukarıdaki kullanılan Datepicker pencere öğesi ve jQuery UI etkileri jQuery kullanıcı Arabirimi kitaplığı içerir.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-187">The jQuery UI library &mdash; The jQuery UI library contains all of the jQuery UI effects and widgets such as the Datepicker widget used in the page above.</span></span>
+- <span data-ttu-id="9b6e8-188">JQuery kullanıcı Arabirimi teması &mdash; farklı Temalar jQuery kullanıcı Arabirimi destekler.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-188">A jQuery UI theme &mdash; The jQuery UI supports different themes.</span></span> <span data-ttu-id="9b6e8-189">Yukarıdaki sayfayı Redmond temayı içeri aktarmak için bir CSS dosyası için bir bağlantı içerir.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-189">The page above includes a link to a CSS file to import the Redmond theme.</span></span>
 
-<span data-ttu-id="f0901-190">Tüm standart jQuery kullanıcı Arabirimi teması, CDN'de barındırılan.</span><span class="sxs-lookup"><span data-stu-id="f0901-190">All of the standard jQuery UI themes are hosted on the CDN.</span></span> <span data-ttu-id="f0901-191">[Bu sayfayı ziyaret](jquery-ui/cdnjqueryui1910.md "kullanıcı Arabirimi 1.8.10 Microsoft Ajax CDN üzerinde jQuery") her teması için küçük resimleri görüntülemek için.</span><span class="sxs-lookup"><span data-stu-id="f0901-191">[Visit this page](jquery-ui/cdnjqueryui1910.md "jQuery UI 1.8.10 on the Microsoft Ajax CDN") to view thumbnails for each theme.</span></span>
+<span data-ttu-id="9b6e8-190">Tüm standart jQuery kullanıcı Arabirimi teması, CDN'de barındırılan.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-190">All of the standard jQuery UI themes are hosted on the CDN.</span></span> <span data-ttu-id="9b6e8-191">[Bu sayfayı ziyaret](jquery-ui/cdnjqueryui1910.md "kullanıcı Arabirimi 1.8.10 Microsoft Ajax CDN üzerinde jQuery") her teması için küçük resimleri görüntülemek için.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-191">[Visit this page](jquery-ui/cdnjqueryui1910.md "jQuery UI 1.8.10 on the Microsoft Ajax CDN") to view thumbnails for each theme.</span></span>
 
-<span data-ttu-id="f0901-192">JQuery kullanıcı Arabirimi Kitaplığı hakkında daha fazla bilgi edinmek için resmi ziyaret [jQuery UI Web sitesi](http://jQueryUI.com "jQuery UI Web sitesi").</span><span class="sxs-lookup"><span data-stu-id="f0901-192">To learn more about the jQuery UI library, visit the official [jQuery UI website](http://jQueryUI.com "jQuery UI website").</span></span>
+<span data-ttu-id="9b6e8-192">JQuery kullanıcı Arabirimi Kitaplığı hakkında daha fazla bilgi edinmek için resmi ziyaret [jQuery UI Web sitesi](http://jQueryUI.com "jQuery UI Web sitesi").</span><span class="sxs-lookup"><span data-stu-id="9b6e8-192">To learn more about the jQuery UI library, visit the official [jQuery UI website](http://jQueryUI.com "jQuery UI website").</span></span>
 
 <a id="Third-Party_Files_on_the_CDN_23"></a>
 
-## <a name="third-party-files-on-the-cdn"></a><span data-ttu-id="f0901-193">Üçüncü taraf CDN dosyaları</span><span class="sxs-lookup"><span data-stu-id="f0901-193">Third-Party Files on the CDN</span></span>
+## <a name="third-party-files-on-the-cdn"></a><span data-ttu-id="9b6e8-193">Üçüncü taraf CDN dosyaları</span><span class="sxs-lookup"><span data-stu-id="9b6e8-193">Third-Party Files on the CDN</span></span>
 
-<span data-ttu-id="f0901-194">CDN, en popüler üçüncü taraf JavaScript kitaplıkları bazıları barındırır.</span><span class="sxs-lookup"><span data-stu-id="f0901-194">The CDN hosts some of the most popular third party JavaScript libraries.</span></span> <span data-ttu-id="f0901-195">Microsoft, bu CDN'de barındırılan herhangi bir üçüncü taraf kitaplıkların mülkiyeti üzerine hak iddia değil.</span><span class="sxs-lookup"><span data-stu-id="f0901-195">Microsoft does not claim ownership of any third-party libraries hosted on this CDN.</span></span> <span data-ttu-id="f0901-196">Telif hakkı sahipleri kitaplıkları, bu kitaplıklara lisans.</span><span class="sxs-lookup"><span data-stu-id="f0901-196">The copyright owners of the libraries are licensing these libraries to you.</span></span> <span data-ttu-id="f0901-197">Tür kitaplıkları indirip olabilecek herhangi bir hakkı, yalnızca ilgili telif hakkı sahipleri tarafından verilir.</span><span class="sxs-lookup"><span data-stu-id="f0901-197">Any rights that you may have to download and use such libraries are granted solely by the respective copyright owners.</span></span> <span data-ttu-id="f0901-198">Bunlar Microsoft kitaplıkları olmadığından, Microsoft bu CDN'de barındırılan üçüncü taraf kitaplıklar için hiçbir garanti veya fikri mülkiyet hakları lisansları (zımni hiçbir patent hakkı dahil) sağlar.</span><span class="sxs-lookup"><span data-stu-id="f0901-198">Because these are not Microsoft libraries, Microsoft provides no warranties or intellectual property rights licenses (including no implied patent rights) for the third party libraries hosted on this CDN.</span></span>
+<span data-ttu-id="9b6e8-194">CDN, en popüler üçüncü taraf JavaScript kitaplıkları bazıları barındırır.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-194">The CDN hosts some of the most popular third party JavaScript libraries.</span></span> <span data-ttu-id="9b6e8-195">Microsoft, bu CDN'de barındırılan herhangi bir üçüncü taraf kitaplıkların mülkiyeti üzerine hak iddia değil.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-195">Microsoft does not claim ownership of any third-party libraries hosted on this CDN.</span></span> <span data-ttu-id="9b6e8-196">Telif hakkı sahipleri kitaplıkları, bu kitaplıklara lisans.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-196">The copyright owners of the libraries are licensing these libraries to you.</span></span> <span data-ttu-id="9b6e8-197">Tür kitaplıkları indirip olabilecek herhangi bir hakkı, yalnızca ilgili telif hakkı sahipleri tarafından verilir.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-197">Any rights that you may have to download and use such libraries are granted solely by the respective copyright owners.</span></span> <span data-ttu-id="9b6e8-198">Bunlar Microsoft kitaplıkları olmadığından, Microsoft bu CDN'de barındırılan üçüncü taraf kitaplıklar için hiçbir garanti veya fikri mülkiyet hakları lisansları (zımni hiçbir patent hakkı dahil) sağlar.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-198">Because these are not Microsoft libraries, Microsoft provides no warranties or intellectual property rights licenses (including no implied patent rights) for the third party libraries hosted on this CDN.</span></span>
 
 <a id="jQuery_Releases_on_the_CDN_0"></a>
 
-### <a name="jquery-releases-on-the-cdn"></a><span data-ttu-id="f0901-199">CDN üzerinde jQuery yayınlar</span><span class="sxs-lookup"><span data-stu-id="f0901-199">jQuery Releases on the CDN</span></span>
+### <a name="jquery-releases-on-the-cdn"></a><span data-ttu-id="9b6e8-199">CDN üzerinde jQuery yayınlar</span><span class="sxs-lookup"><span data-stu-id="9b6e8-199">jQuery Releases on the CDN</span></span>
 
-<span data-ttu-id="f0901-200">JQuery aşağıdaki sürümleri, CDN'de barındırılan:</span><span class="sxs-lookup"><span data-stu-id="f0901-200">The following releases of jQuery are hosted on the CDN:</span></span>
+<span data-ttu-id="9b6e8-200">JQuery aşağıdaki sürümleri, CDN'de barındırılan:</span><span class="sxs-lookup"><span data-stu-id="9b6e8-200">The following releases of jQuery are hosted on the CDN:</span></span>
 
-#### <a name="jquery-version-331"></a><span data-ttu-id="f0901-201">jQuery sürüm 3.3.1</span><span class="sxs-lookup"><span data-stu-id="f0901-201">jQuery version 3.3.1</span></span>
+#### <a name="jquery-version-331"></a><span data-ttu-id="9b6e8-201">jQuery sürüm 3.3.1</span><span class="sxs-lookup"><span data-stu-id="9b6e8-201">jQuery version 3.3.1</span></span>
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.map
@@ -172,7 +172,7 @@ ms.locfileid: "54249587"
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.slim.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.slim.min.map
 
-#### <a name="jquery-version-321"></a><span data-ttu-id="f0901-202">3.2.1 jQuery sürümü</span><span class="sxs-lookup"><span data-stu-id="f0901-202">jQuery version 3.2.1</span></span>
+#### <a name="jquery-version-321"></a><span data-ttu-id="9b6e8-202">3.2.1 jQuery sürümü</span><span class="sxs-lookup"><span data-stu-id="9b6e8-202">jQuery version 3.2.1</span></span>
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.map
@@ -180,7 +180,7 @@ ms.locfileid: "54249587"
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.slim.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.slim.min.map
 
-#### <a name="jquery-version-320"></a><span data-ttu-id="f0901-203">jQuery sürüm 3.2.0</span><span class="sxs-lookup"><span data-stu-id="f0901-203">jQuery version 3.2.0</span></span>
+#### <a name="jquery-version-320"></a><span data-ttu-id="9b6e8-203">jQuery sürüm 3.2.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-203">jQuery version 3.2.0</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.min.js
@@ -189,7 +189,7 @@ ms.locfileid: "54249587"
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.slim.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.slim.min.map
 
-#### <a name="jquery-version-311"></a><span data-ttu-id="f0901-204">3.1.1 jQuery sürümü</span><span class="sxs-lookup"><span data-stu-id="f0901-204">jQuery version 3.1.1</span></span>
+#### <a name="jquery-version-311"></a><span data-ttu-id="9b6e8-204">3.1.1 jQuery sürümü</span><span class="sxs-lookup"><span data-stu-id="9b6e8-204">jQuery version 3.1.1</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js
@@ -198,7 +198,7 @@ ms.locfileid: "54249587"
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.slim.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.slim.min.map
 
-#### <a name="jquery-version-310"></a><span data-ttu-id="f0901-205">jQuery sürüm 3.1.0</span><span class="sxs-lookup"><span data-stu-id="f0901-205">jQuery version 3.1.0</span></span>
+#### <a name="jquery-version-310"></a><span data-ttu-id="9b6e8-205">jQuery sürüm 3.1.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-205">jQuery version 3.1.0</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.0.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.0.min.js
@@ -207,7 +207,7 @@ ms.locfileid: "54249587"
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.0.slim.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.0.slim.min.map
 
-#### <a name="jquery-version-300"></a><span data-ttu-id="f0901-206">jQuery sürüm 3.0.0</span><span class="sxs-lookup"><span data-stu-id="f0901-206">jQuery version 3.0.0</span></span>
+#### <a name="jquery-version-300"></a><span data-ttu-id="9b6e8-206">jQuery sürüm 3.0.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-206">jQuery version 3.0.0</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.0.0.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.0.0.min.js
@@ -216,303 +216,303 @@ ms.locfileid: "54249587"
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.0.0.slim.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.0.0.slim.min.map
 
-#### <a name="jquery-version-224"></a><span data-ttu-id="f0901-207">jQuery sürüm 2.2.4</span><span class="sxs-lookup"><span data-stu-id="f0901-207">jQuery version 2.2.4</span></span>
+#### <a name="jquery-version-224"></a><span data-ttu-id="9b6e8-207">jQuery sürüm 2.2.4</span><span class="sxs-lookup"><span data-stu-id="9b6e8-207">jQuery version 2.2.4</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.4.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.4.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.4.min.map
 
-#### <a name="jquery-version-223"></a><span data-ttu-id="f0901-208">jQuery sürüm 2.2.3</span><span class="sxs-lookup"><span data-stu-id="f0901-208">jQuery version 2.2.3</span></span>
+#### <a name="jquery-version-223"></a><span data-ttu-id="9b6e8-208">jQuery sürüm 2.2.3</span><span class="sxs-lookup"><span data-stu-id="9b6e8-208">jQuery version 2.2.3</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.3.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.3.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.3.min.map
 
-#### <a name="jquery-version-222"></a><span data-ttu-id="f0901-209">jQuery sürüm 2.2.2</span><span class="sxs-lookup"><span data-stu-id="f0901-209">jQuery version 2.2.2</span></span>
+#### <a name="jquery-version-222"></a><span data-ttu-id="9b6e8-209">jQuery sürüm 2.2.2</span><span class="sxs-lookup"><span data-stu-id="9b6e8-209">jQuery version 2.2.2</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.2.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.2.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.2.min.map
 
-#### <a name="jquery-version-221"></a><span data-ttu-id="f0901-210">jQuery sürüm 2.2.1</span><span class="sxs-lookup"><span data-stu-id="f0901-210">jQuery version 2.2.1</span></span>
+#### <a name="jquery-version-221"></a><span data-ttu-id="9b6e8-210">jQuery sürüm 2.2.1</span><span class="sxs-lookup"><span data-stu-id="9b6e8-210">jQuery version 2.2.1</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.1.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.1.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.1.min.map
 
-#### <a name="jquery-version-220"></a><span data-ttu-id="f0901-211">jQuery sürüm 2.2.0</span><span class="sxs-lookup"><span data-stu-id="f0901-211">jQuery version 2.2.0</span></span>
+#### <a name="jquery-version-220"></a><span data-ttu-id="9b6e8-211">jQuery sürüm 2.2.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-211">jQuery version 2.2.0</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.0.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.0.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.0.min.map
 
-#### <a name="jquery-version-214"></a><span data-ttu-id="f0901-212">jQuery sürüm larını 2.1.4</span><span class="sxs-lookup"><span data-stu-id="f0901-212">jQuery version 2.1.4</span></span>
+#### <a name="jquery-version-214"></a><span data-ttu-id="9b6e8-212">jQuery sürüm larını 2.1.4</span><span class="sxs-lookup"><span data-stu-id="9b6e8-212">jQuery version 2.1.4</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.4.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.4.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.4.min.map
 
-#### <a name="jquery-version-213"></a><span data-ttu-id="f0901-213">jQuery sürüm 2.1.3</span><span class="sxs-lookup"><span data-stu-id="f0901-213">jQuery version 2.1.3</span></span>
+#### <a name="jquery-version-213"></a><span data-ttu-id="9b6e8-213">jQuery sürüm 2.1.3</span><span class="sxs-lookup"><span data-stu-id="9b6e8-213">jQuery version 2.1.3</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.3.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.3.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.3.min.map
 
-#### <a name="jquery-version-212"></a><span data-ttu-id="f0901-214">jQuery sürüm 2.1.2'ye</span><span class="sxs-lookup"><span data-stu-id="f0901-214">jQuery version 2.1.2</span></span>
+#### <a name="jquery-version-212"></a><span data-ttu-id="9b6e8-214">jQuery sürüm 2.1.2'ye</span><span class="sxs-lookup"><span data-stu-id="9b6e8-214">jQuery version 2.1.2</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.2.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.2.min.js
 
-#### <a name="jquery-version-211"></a><span data-ttu-id="f0901-215">jQuery sürüm 2.1.1</span><span class="sxs-lookup"><span data-stu-id="f0901-215">jQuery version 2.1.1</span></span>
+#### <a name="jquery-version-211"></a><span data-ttu-id="9b6e8-215">jQuery sürüm 2.1.1</span><span class="sxs-lookup"><span data-stu-id="9b6e8-215">jQuery version 2.1.1</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.min.map
 
-#### <a name="jquery-version-210"></a><span data-ttu-id="f0901-216">jQuery sürüm 2.1.0</span><span class="sxs-lookup"><span data-stu-id="f0901-216">jQuery version 2.1.0</span></span>
+#### <a name="jquery-version-210"></a><span data-ttu-id="9b6e8-216">jQuery sürüm 2.1.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-216">jQuery version 2.1.0</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.0.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.0.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.0-vsdoc.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.0.min.map
 
-#### <a name="jquery-version-203"></a><span data-ttu-id="f0901-217">jQuery sürüm 2.0.3 sürümünü</span><span class="sxs-lookup"><span data-stu-id="f0901-217">jQuery version 2.0.3</span></span>
+#### <a name="jquery-version-203"></a><span data-ttu-id="9b6e8-217">jQuery sürüm 2.0.3 sürümünü</span><span class="sxs-lookup"><span data-stu-id="9b6e8-217">jQuery version 2.0.3</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3-vsdoc.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.map
 
-#### <a name="jquery-version-202"></a><span data-ttu-id="f0901-218">jQuery sürüm 2.0.2</span><span class="sxs-lookup"><span data-stu-id="f0901-218">jQuery version 2.0.2</span></span>
+#### <a name="jquery-version-202"></a><span data-ttu-id="9b6e8-218">jQuery sürüm 2.0.2</span><span class="sxs-lookup"><span data-stu-id="9b6e8-218">jQuery version 2.0.2</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.2.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.2.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.2-vsdoc.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.2.min.map
 
-#### <a name="jquery-version-201"></a><span data-ttu-id="f0901-219">jQuery sürüm 2.0.1</span><span class="sxs-lookup"><span data-stu-id="f0901-219">jQuery version 2.0.1</span></span>
+#### <a name="jquery-version-201"></a><span data-ttu-id="9b6e8-219">jQuery sürüm 2.0.1</span><span class="sxs-lookup"><span data-stu-id="9b6e8-219">jQuery version 2.0.1</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.1.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.1.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.1-vsdoc.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.1.min.map
 
-#### <a name="jquery-version-200"></a><span data-ttu-id="f0901-220">jQuery sürüm 2.0.0</span><span class="sxs-lookup"><span data-stu-id="f0901-220">jQuery version 2.0.0</span></span>
+#### <a name="jquery-version-200"></a><span data-ttu-id="9b6e8-220">jQuery sürüm 2.0.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-220">jQuery version 2.0.0</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.0.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.0.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.0-vsdoc.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.0.min.map
 
-#### <a name="jquery-version-1124"></a><span data-ttu-id="f0901-221">jQuery sürüm 1.12.4</span><span class="sxs-lookup"><span data-stu-id="f0901-221">jQuery version 1.12.4</span></span>
+#### <a name="jquery-version-1124"></a><span data-ttu-id="9b6e8-221">jQuery sürüm 1.12.4</span><span class="sxs-lookup"><span data-stu-id="9b6e8-221">jQuery version 1.12.4</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.map
 
-#### <a name="jquery-version-1123"></a><span data-ttu-id="f0901-222">jQuery sürüm 1.12.3</span><span class="sxs-lookup"><span data-stu-id="f0901-222">jQuery version 1.12.3</span></span>
+#### <a name="jquery-version-1123"></a><span data-ttu-id="9b6e8-222">jQuery sürüm 1.12.3</span><span class="sxs-lookup"><span data-stu-id="9b6e8-222">jQuery version 1.12.3</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.3.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.3.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.3.min.map
 
-#### <a name="jquery-version-1122"></a><span data-ttu-id="f0901-223">jQuery sürüm 1.12.2</span><span class="sxs-lookup"><span data-stu-id="f0901-223">jQuery version 1.12.2</span></span>
+#### <a name="jquery-version-1122"></a><span data-ttu-id="9b6e8-223">jQuery sürüm 1.12.2</span><span class="sxs-lookup"><span data-stu-id="9b6e8-223">jQuery version 1.12.2</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.2.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.2.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.2.min.map
 
-#### <a name="jquery-version-1121"></a><span data-ttu-id="f0901-224">jQuery sürüm 1.12.1</span><span class="sxs-lookup"><span data-stu-id="f0901-224">jQuery version 1.12.1</span></span>
+#### <a name="jquery-version-1121"></a><span data-ttu-id="9b6e8-224">jQuery sürüm 1.12.1</span><span class="sxs-lookup"><span data-stu-id="9b6e8-224">jQuery version 1.12.1</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.1.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.1.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.1.min.map
 
-#### <a name="jquery-version-1120"></a><span data-ttu-id="f0901-225">jQuery sürüm 1.12.0</span><span class="sxs-lookup"><span data-stu-id="f0901-225">jQuery version 1.12.0</span></span>
+#### <a name="jquery-version-1120"></a><span data-ttu-id="9b6e8-225">jQuery sürüm 1.12.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-225">jQuery version 1.12.0</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.map
 
-#### <a name="jquery-version-1113"></a><span data-ttu-id="f0901-226">jQuery sürüm 1.11.3</span><span class="sxs-lookup"><span data-stu-id="f0901-226">jQuery version 1.11.3</span></span>
+#### <a name="jquery-version-1113"></a><span data-ttu-id="9b6e8-226">jQuery sürüm 1.11.3</span><span class="sxs-lookup"><span data-stu-id="9b6e8-226">jQuery version 1.11.3</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.3.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.3.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.3.min.map
 
-#### <a name="jquery-version-1112"></a><span data-ttu-id="f0901-227">jQuery sürüm 1.11.2</span><span class="sxs-lookup"><span data-stu-id="f0901-227">jQuery version 1.11.2</span></span>
+#### <a name="jquery-version-1112"></a><span data-ttu-id="9b6e8-227">jQuery sürüm 1.11.2</span><span class="sxs-lookup"><span data-stu-id="9b6e8-227">jQuery version 1.11.2</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.map
 
-#### <a name="jquery-version-1111"></a><span data-ttu-id="f0901-228">jQuery sürüm 1.11.1</span><span class="sxs-lookup"><span data-stu-id="f0901-228">jQuery version 1.11.1</span></span>
+#### <a name="jquery-version-1111"></a><span data-ttu-id="9b6e8-228">jQuery sürüm 1.11.1</span><span class="sxs-lookup"><span data-stu-id="9b6e8-228">jQuery version 1.11.1</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.1.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.1.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.1.min.map
 
-#### <a name="jquery-version-1110"></a><span data-ttu-id="f0901-229">jQuery sürüm 1.11.0</span><span class="sxs-lookup"><span data-stu-id="f0901-229">jQuery version 1.11.0</span></span>
+#### <a name="jquery-version-1110"></a><span data-ttu-id="9b6e8-229">jQuery sürüm 1.11.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-229">jQuery version 1.11.0</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.0.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.0.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.0-vsdoc.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.0.min.map
 
-#### <a name="jquery-version-1102"></a><span data-ttu-id="f0901-230">jQuery sürüm 1.10.2</span><span class="sxs-lookup"><span data-stu-id="f0901-230">jQuery version 1.10.2</span></span>
+#### <a name="jquery-version-1102"></a><span data-ttu-id="9b6e8-230">jQuery sürüm 1.10.2</span><span class="sxs-lookup"><span data-stu-id="9b6e8-230">jQuery version 1.10.2</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.2.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.2.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.2-vsdoc.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.2.min.map
 
-#### <a name="jquery-version-1101"></a><span data-ttu-id="f0901-231">jQuery sürüm 1.10.1</span><span class="sxs-lookup"><span data-stu-id="f0901-231">jQuery version 1.10.1</span></span>
+#### <a name="jquery-version-1101"></a><span data-ttu-id="9b6e8-231">jQuery sürüm 1.10.1</span><span class="sxs-lookup"><span data-stu-id="9b6e8-231">jQuery version 1.10.1</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.1.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.1.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.1-vsdoc.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.1.min.map
 
-#### <a name="jquery-version-1100"></a><span data-ttu-id="f0901-232">jQuery sürüm 1.10.0</span><span class="sxs-lookup"><span data-stu-id="f0901-232">jQuery version 1.10.0</span></span>
+#### <a name="jquery-version-1100"></a><span data-ttu-id="9b6e8-232">jQuery sürüm 1.10.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-232">jQuery version 1.10.0</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.0.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.0.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.0-vsdoc.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.0.min.map
 
-#### <a name="jquery-version-191"></a><span data-ttu-id="f0901-233">jQuery sürüm 1.9.1</span><span class="sxs-lookup"><span data-stu-id="f0901-233">jQuery version 1.9.1</span></span>
+#### <a name="jquery-version-191"></a><span data-ttu-id="9b6e8-233">jQuery sürüm 1.9.1</span><span class="sxs-lookup"><span data-stu-id="9b6e8-233">jQuery version 1.9.1</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1-vsdoc.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.map
 
-#### <a name="jquery-version-190"></a><span data-ttu-id="f0901-234">jQuery sürüm 1.9.0</span><span class="sxs-lookup"><span data-stu-id="f0901-234">jQuery version 1.9.0</span></span>
+#### <a name="jquery-version-190"></a><span data-ttu-id="9b6e8-234">jQuery sürüm 1.9.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-234">jQuery version 1.9.0</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.0.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.0.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.0-vsdoc.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.0.min.map
 
-#### <a name="jquery-version-183"></a><span data-ttu-id="f0901-235">jQuery sürüm 1.8.3</span><span class="sxs-lookup"><span data-stu-id="f0901-235">jQuery version 1.8.3</span></span>
+#### <a name="jquery-version-183"></a><span data-ttu-id="9b6e8-235">jQuery sürüm 1.8.3</span><span class="sxs-lookup"><span data-stu-id="9b6e8-235">jQuery version 1.8.3</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3-vsdoc.js
 
-#### <a name="jquery-version-182"></a><span data-ttu-id="f0901-236">jQuery sürüm 1.8.2</span><span class="sxs-lookup"><span data-stu-id="f0901-236">jQuery version 1.8.2</span></span>
+#### <a name="jquery-version-182"></a><span data-ttu-id="9b6e8-236">jQuery sürüm 1.8.2</span><span class="sxs-lookup"><span data-stu-id="9b6e8-236">jQuery version 1.8.2</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2-vsdoc.js
 
-#### <a name="jquery-version-181"></a><span data-ttu-id="f0901-237">jQuery sürümü 1.8.1</span><span class="sxs-lookup"><span data-stu-id="f0901-237">jQuery version 1.8.1</span></span>
+#### <a name="jquery-version-181"></a><span data-ttu-id="9b6e8-237">jQuery sürümü 1.8.1</span><span class="sxs-lookup"><span data-stu-id="9b6e8-237">jQuery version 1.8.1</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.1.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.1.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.1-vsdoc.js
 
-#### <a name="jquery-version-180"></a><span data-ttu-id="f0901-238">jQuery sürüm 1.8.0</span><span class="sxs-lookup"><span data-stu-id="f0901-238">jQuery version 1.8.0</span></span>
+#### <a name="jquery-version-180"></a><span data-ttu-id="9b6e8-238">jQuery sürüm 1.8.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-238">jQuery version 1.8.0</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0-vsdoc.js
 
-#### <a name="jquery-version-172"></a><span data-ttu-id="f0901-239">jQuery sürüm 1.7.2</span><span class="sxs-lookup"><span data-stu-id="f0901-239">jQuery version 1.7.2</span></span>
+#### <a name="jquery-version-172"></a><span data-ttu-id="9b6e8-239">jQuery sürüm 1.7.2</span><span class="sxs-lookup"><span data-stu-id="9b6e8-239">jQuery version 1.7.2</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.2.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.2.min.js
 
-#### <a name="jquery-version-171"></a><span data-ttu-id="f0901-240">jQuery sürüm 1.7.1</span><span class="sxs-lookup"><span data-stu-id="f0901-240">jQuery version 1.7.1</span></span>
+#### <a name="jquery-version-171"></a><span data-ttu-id="9b6e8-240">jQuery sürüm 1.7.1</span><span class="sxs-lookup"><span data-stu-id="9b6e8-240">jQuery version 1.7.1</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1-vsdoc.js
 
-#### <a name="jquery-version-17"></a><span data-ttu-id="f0901-241">jQuery sürüm 1.7</span><span class="sxs-lookup"><span data-stu-id="f0901-241">jQuery version 1.7</span></span>
+#### <a name="jquery-version-17"></a><span data-ttu-id="9b6e8-241">jQuery sürüm 1.7</span><span class="sxs-lookup"><span data-stu-id="9b6e8-241">jQuery version 1.7</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7-vsdoc.js
 
-#### <a name="jquery-version-164"></a><span data-ttu-id="f0901-242">jQuery sürüm 1.6.4</span><span class="sxs-lookup"><span data-stu-id="f0901-242">jQuery version 1.6.4</span></span>
+#### <a name="jquery-version-164"></a><span data-ttu-id="9b6e8-242">jQuery sürüm 1.6.4</span><span class="sxs-lookup"><span data-stu-id="9b6e8-242">jQuery version 1.6.4</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.4.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.4.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.4-vsdoc.js
 
-#### <a name="jquery-version-163"></a><span data-ttu-id="f0901-243">jQuery sürüm 1.6.3</span><span class="sxs-lookup"><span data-stu-id="f0901-243">jQuery version 1.6.3</span></span>
+#### <a name="jquery-version-163"></a><span data-ttu-id="9b6e8-243">jQuery sürüm 1.6.3</span><span class="sxs-lookup"><span data-stu-id="9b6e8-243">jQuery version 1.6.3</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.3.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.3.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.3-vsdoc.js
 
-#### <a name="jquery-version-162"></a><span data-ttu-id="f0901-244">jQuery sürüm 1.6.2</span><span class="sxs-lookup"><span data-stu-id="f0901-244">jQuery version 1.6.2</span></span>
+#### <a name="jquery-version-162"></a><span data-ttu-id="9b6e8-244">jQuery sürüm 1.6.2</span><span class="sxs-lookup"><span data-stu-id="9b6e8-244">jQuery version 1.6.2</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.2.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.2.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.2-vsdoc.js
 
-#### <a name="jquery-version-161"></a><span data-ttu-id="f0901-245">jQuery sürümü 1.6.1</span><span class="sxs-lookup"><span data-stu-id="f0901-245">jQuery version 1.6.1</span></span>
+#### <a name="jquery-version-161"></a><span data-ttu-id="9b6e8-245">jQuery sürümü 1.6.1</span><span class="sxs-lookup"><span data-stu-id="9b6e8-245">jQuery version 1.6.1</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.1.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.1.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.1-vsdoc.js
 
-#### <a name="jquery-version-16"></a><span data-ttu-id="f0901-246">jQuery sürüm 1.6</span><span class="sxs-lookup"><span data-stu-id="f0901-246">jQuery version 1.6</span></span>
+#### <a name="jquery-version-16"></a><span data-ttu-id="9b6e8-246">jQuery sürüm 1.6</span><span class="sxs-lookup"><span data-stu-id="9b6e8-246">jQuery version 1.6</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6-vsdoc.js
 
-#### <a name="jquery-version-152"></a><span data-ttu-id="f0901-247">1.5.2 jQuery sürümü</span><span class="sxs-lookup"><span data-stu-id="f0901-247">jQuery version 1.5.2</span></span>
+#### <a name="jquery-version-152"></a><span data-ttu-id="9b6e8-247">1.5.2 jQuery sürümü</span><span class="sxs-lookup"><span data-stu-id="9b6e8-247">jQuery version 1.5.2</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.5.2.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.5.2.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.5.2-vsdoc.js
 
-#### <a name="jquery-version-151"></a><span data-ttu-id="f0901-248">1.5.1 jQuery sürümü</span><span class="sxs-lookup"><span data-stu-id="f0901-248">jQuery version 1.5.1</span></span>
+#### <a name="jquery-version-151"></a><span data-ttu-id="9b6e8-248">1.5.1 jQuery sürümü</span><span class="sxs-lookup"><span data-stu-id="9b6e8-248">jQuery version 1.5.1</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.5.1.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.5.1.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.5.1-vsdoc.js
 
-#### <a name="jquery-version-15"></a><span data-ttu-id="f0901-249">jQuery sürüm 1.5</span><span class="sxs-lookup"><span data-stu-id="f0901-249">jQuery version 1.5</span></span>
+#### <a name="jquery-version-15"></a><span data-ttu-id="9b6e8-249">jQuery sürüm 1.5</span><span class="sxs-lookup"><span data-stu-id="9b6e8-249">jQuery version 1.5</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.5.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.5.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.5-vsdoc.js
 
-#### <a name="jquery-version-144"></a><span data-ttu-id="f0901-250">jQuery sürüm 1.4.4</span><span class="sxs-lookup"><span data-stu-id="f0901-250">jQuery version 1.4.4</span></span>
+#### <a name="jquery-version-144"></a><span data-ttu-id="9b6e8-250">jQuery sürüm 1.4.4</span><span class="sxs-lookup"><span data-stu-id="9b6e8-250">jQuery version 1.4.4</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.4.4.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.4.4.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.4.4-vsdoc.js
 
-#### <a name="jquery-version-143"></a><span data-ttu-id="f0901-251">jQuery sürüm 1.4.3</span><span class="sxs-lookup"><span data-stu-id="f0901-251">jQuery version 1.4.3</span></span>
+#### <a name="jquery-version-143"></a><span data-ttu-id="9b6e8-251">jQuery sürüm 1.4.3</span><span class="sxs-lookup"><span data-stu-id="9b6e8-251">jQuery version 1.4.3</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.4.3.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.4.3.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.4.3-vsdoc.js
 
-#### <a name="jquery-version-142"></a><span data-ttu-id="f0901-252">jQuery sürüm 1.4.2</span><span class="sxs-lookup"><span data-stu-id="f0901-252">jQuery version 1.4.2</span></span>
+#### <a name="jquery-version-142"></a><span data-ttu-id="9b6e8-252">jQuery sürüm 1.4.2</span><span class="sxs-lookup"><span data-stu-id="9b6e8-252">jQuery version 1.4.2</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.4.2.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.4.2.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.4.2-vsdoc.js
 
-#### <a name="jquery-version-141"></a><span data-ttu-id="f0901-253">jQuery sürüm 1.4.1</span><span class="sxs-lookup"><span data-stu-id="f0901-253">jQuery version 1.4.1</span></span>
+#### <a name="jquery-version-141"></a><span data-ttu-id="9b6e8-253">jQuery sürüm 1.4.1</span><span class="sxs-lookup"><span data-stu-id="9b6e8-253">jQuery version 1.4.1</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.4.1.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.4.1.min.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.4.1-vsdoc.js
 
-#### <a name="jquery-version-14"></a><span data-ttu-id="f0901-254">jQuery sürüm 1.4</span><span class="sxs-lookup"><span data-stu-id="f0901-254">jQuery version 1.4</span></span>
+#### <a name="jquery-version-14"></a><span data-ttu-id="9b6e8-254">jQuery sürüm 1.4</span><span class="sxs-lookup"><span data-stu-id="9b6e8-254">jQuery version 1.4</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.4.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.4.min.js
 
-#### <a name="jquery-version-132"></a><span data-ttu-id="f0901-255">jQuery sürüm 1.3.2</span><span class="sxs-lookup"><span data-stu-id="f0901-255">jQuery version 1.3.2</span></span>
+#### <a name="jquery-version-132"></a><span data-ttu-id="9b6e8-255">jQuery sürüm 1.3.2</span><span class="sxs-lookup"><span data-stu-id="9b6e8-255">jQuery version 1.3.2</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.3.2.js
 - https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.3.2.min.js
@@ -521,169 +521,169 @@ ms.locfileid: "54249587"
 
 <a id="jQuery_Migrate_Releases_on_the_CDN_1"></a>
 
-### <a name="jquery-migrate-releases-on-the-cdn"></a><span data-ttu-id="f0901-256">CDN üzerinde jQuery geçirme yayınlar</span><span class="sxs-lookup"><span data-stu-id="f0901-256">jQuery Migrate Releases on the CDN</span></span>
+### <a name="jquery-migrate-releases-on-the-cdn"></a><span data-ttu-id="9b6e8-256">CDN üzerinde jQuery geçirme yayınlar</span><span class="sxs-lookup"><span data-stu-id="9b6e8-256">jQuery Migrate Releases on the CDN</span></span>
 
-<span data-ttu-id="f0901-257">JQuery geçirme aşağıdaki sürümleri, CDN'de barındırılan:</span><span class="sxs-lookup"><span data-stu-id="f0901-257">The following releases of jQuery Migrate are hosted on the CDN:</span></span>
+<span data-ttu-id="9b6e8-257">JQuery geçirme aşağıdaki sürümleri, CDN'de barındırılan:</span><span class="sxs-lookup"><span data-stu-id="9b6e8-257">The following releases of jQuery Migrate are hosted on the CDN:</span></span>
 
-#### <a name="jquery-migrate-version-300"></a><span data-ttu-id="f0901-258">jQuery sürüm 3.0.0 geçirme</span><span class="sxs-lookup"><span data-stu-id="f0901-258">jQuery Migrate version 3.0.0</span></span>
+#### <a name="jquery-migrate-version-300"></a><span data-ttu-id="9b6e8-258">jQuery sürüm 3.0.0 geçirme</span><span class="sxs-lookup"><span data-stu-id="9b6e8-258">jQuery Migrate version 3.0.0</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jquery.migrate/jquery-migrate-3.0.0.js
 - https://ajax.aspnetcdn.com/ajax/jquery.migrate/jquery-migrate-3.0.0.min.js
 
-#### <a name="jquery-migrate-version-121"></a><span data-ttu-id="f0901-259">jQuery geçirme 1.2.1 sürümü</span><span class="sxs-lookup"><span data-stu-id="f0901-259">jQuery Migrate version 1.2.1</span></span>
+#### <a name="jquery-migrate-version-121"></a><span data-ttu-id="9b6e8-259">jQuery geçirme 1.2.1 sürümü</span><span class="sxs-lookup"><span data-stu-id="9b6e8-259">jQuery Migrate version 1.2.1</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jquery.migrate/jquery-migrate-1.2.1.js
 - https://ajax.aspnetcdn.com/ajax/jquery.migrate/jquery-migrate-1.2.1.min.js
 
-<span data-ttu-id="f0901-260">jQuery sürümü 1.2.0 geçirme</span><span class="sxs-lookup"><span data-stu-id="f0901-260">jQuery Migrate version 1.2.0</span></span>
+<span data-ttu-id="9b6e8-260">jQuery sürümü 1.2.0 geçirme</span><span class="sxs-lookup"><span data-stu-id="9b6e8-260">jQuery Migrate version 1.2.0</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jquery.migrate/jquery-migrate-1.2.0.js
 - https://ajax.aspnetcdn.com/ajax/jquery.migrate/jquery-migrate-1.2.0.min.js
 
-#### <a name="jquery-migrate-version-111"></a><span data-ttu-id="f0901-261">jQuery sürüm 1.1.1 geçirme</span><span class="sxs-lookup"><span data-stu-id="f0901-261">jQuery Migrate version 1.1.1</span></span>
+#### <a name="jquery-migrate-version-111"></a><span data-ttu-id="9b6e8-261">jQuery sürüm 1.1.1 geçirme</span><span class="sxs-lookup"><span data-stu-id="9b6e8-261">jQuery Migrate version 1.1.1</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jquery.migrate/jquery-migrate-1.1.1.js
 - https://ajax.aspnetcdn.com/ajax/jquery.migrate/jquery-migrate-1.1.1.min.js
 
-#### <a name="jquery-migrate-version-110"></a><span data-ttu-id="f0901-262">jQuery sürüm 1.1.0 geçirme</span><span class="sxs-lookup"><span data-stu-id="f0901-262">jQuery Migrate version 1.1.0</span></span>
+#### <a name="jquery-migrate-version-110"></a><span data-ttu-id="9b6e8-262">jQuery sürüm 1.1.0 geçirme</span><span class="sxs-lookup"><span data-stu-id="9b6e8-262">jQuery Migrate version 1.1.0</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jquery.migrate/jquery-migrate-1.1.0.js
 - https://ajax.aspnetcdn.com/ajax/jquery.migrate/jquery-migrate-1.1.0.min.js
 
-#### <a name="jquery-migrate-version-100"></a><span data-ttu-id="f0901-263">jQuery sürüm 1.0.0 geçirme</span><span class="sxs-lookup"><span data-stu-id="f0901-263">jQuery Migrate version 1.0.0</span></span>
+#### <a name="jquery-migrate-version-100"></a><span data-ttu-id="9b6e8-263">jQuery sürüm 1.0.0 geçirme</span><span class="sxs-lookup"><span data-stu-id="9b6e8-263">jQuery Migrate version 1.0.0</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jquery.migrate/jquery-migrate-1.0.0.js
 - https://ajax.aspnetcdn.com/ajax/jquery.migrate/jquery-migrate-1.0.0.min.js
 
 <a id="jQuery_UI_Releases_on_the_CDN_2"></a>
 
-### <a name="jquery-ui-releases-on-the-cdn"></a><span data-ttu-id="f0901-264">jQuery kullanıcı Arabirimi yayınlar CDN hakkında</span><span class="sxs-lookup"><span data-stu-id="f0901-264">jQuery UI Releases on the CDN</span></span>
+### <a name="jquery-ui-releases-on-the-cdn"></a><span data-ttu-id="9b6e8-264">jQuery kullanıcı Arabirimi yayınlar CDN hakkında</span><span class="sxs-lookup"><span data-stu-id="9b6e8-264">jQuery UI Releases on the CDN</span></span>
 
-<span data-ttu-id="f0901-265">Bu CDN üzerinde jQuery kullanıcı Arabirimi kitaplığı aşağıdaki sürümleri barındırılır.</span><span class="sxs-lookup"><span data-stu-id="f0901-265">The following releases of the jQuery UI library are hosted on this CDN.</span></span> <span data-ttu-id="f0901-266">Dosyaların gerçek listesini görmek için her bir bağlantıya tıklayın.</span><span class="sxs-lookup"><span data-stu-id="f0901-266">Click each link to see the actual list of files.</span></span>
+<span data-ttu-id="9b6e8-265">Bu CDN üzerinde jQuery kullanıcı Arabirimi kitaplığı aşağıdaki sürümleri barındırılır.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-265">The following releases of the jQuery UI library are hosted on this CDN.</span></span> <span data-ttu-id="9b6e8-266">Dosyaların gerçek listesini görmek için her bir bağlantıya tıklayın.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-266">Click each link to see the actual list of files.</span></span>
 
-- [<span data-ttu-id="f0901-267">jQuery kullanıcı Arabirimi 1.12.1</span><span class="sxs-lookup"><span data-stu-id="f0901-267">jQuery UI 1.12.1</span></span>](jquery-ui/cdnjqueryui1121.md "kullanıcı Arabirimi 1.12.1 Microsoft Ajax CDN üzerinde jQuery")
-- [<span data-ttu-id="f0901-268">jQuery kullanıcı Arabirimi 1.12.0</span><span class="sxs-lookup"><span data-stu-id="f0901-268">jQuery UI 1.12.0</span></span>](jquery-ui/cdnjqueryui1120.md "kullanıcı Arabirimi 1.12.0 Microsoft Ajax CDN üzerinde jQuery")
-- [<span data-ttu-id="f0901-269">jQuery kullanıcı Arabirimi 1.11.4</span><span class="sxs-lookup"><span data-stu-id="f0901-269">jQuery UI 1.11.4</span></span>](jquery-ui/cdnjqueryui1114.md "kullanıcı Arabirimi 1.11.4 Microsoft Ajax CDN üzerinde jQuery")
-- [<span data-ttu-id="f0901-270">jQuery kullanıcı Arabirimi 1.11.3</span><span class="sxs-lookup"><span data-stu-id="f0901-270">jQuery UI 1.11.3</span></span>](jquery-ui/cdnjqueryui1113.md "kullanıcı Arabirimi 1.11.3 Microsoft Ajax CDN üzerinde jQuery")
-- [<span data-ttu-id="f0901-271">jQuery kullanıcı Arabirimi 1.11.2</span><span class="sxs-lookup"><span data-stu-id="f0901-271">jQuery UI 1.11.2</span></span>](jquery-ui/cdnjqueryui1112.md "kullanıcı Arabirimi 1.11.2 Microsoft Ajax CDN üzerinde jQuery")
-- [<span data-ttu-id="f0901-272">jQuery kullanıcı Arabirimi 1.11.1</span><span class="sxs-lookup"><span data-stu-id="f0901-272">jQuery UI 1.11.1</span></span>](jquery-ui/cdnjqueryui1111.md "kullanıcı Arabirimi 1.11.1 Microsoft Ajax CDN üzerinde jQuery")
-- [<span data-ttu-id="f0901-273">jQuery kullanıcı Arabirimi 1.11.0</span><span class="sxs-lookup"><span data-stu-id="f0901-273">jQuery UI 1.11.0</span></span>](jquery-ui/cdnjqueryui1110.md "kullanıcı Arabirimi 1.11.0 Microsoft Ajax CDN üzerinde jQuery")
-- [<span data-ttu-id="f0901-274">jQuery kullanıcı Arabirimi 1.10.4</span><span class="sxs-lookup"><span data-stu-id="f0901-274">jQuery UI 1.10.4</span></span>](jquery-ui/cdnjqueryui1104.md "kullanıcı Arabirimi 1.10.4 Microsoft Ajax CDN üzerinde jQuery")
-- [<span data-ttu-id="f0901-275">jQuery kullanıcı Arabirimi 1.10.3</span><span class="sxs-lookup"><span data-stu-id="f0901-275">jQuery UI 1.10.3</span></span>](jquery-ui/cdnjqueryui1103.md "kullanıcı Arabirimi 1.10.3 Microsoft Ajax CDN üzerinde jQuery")
-- [<span data-ttu-id="f0901-276">jQuery kullanıcı Arabirimi 1.10.2</span><span class="sxs-lookup"><span data-stu-id="f0901-276">jQuery UI 1.10.2</span></span>](jquery-ui/cdnjqueryui1102.md "kullanıcı Arabirimi 1.10.2 Microsoft Ajax CDN üzerinde jQuery")
-- [<span data-ttu-id="f0901-277">jQuery kullanıcı Arabirimi 1.10.1</span><span class="sxs-lookup"><span data-stu-id="f0901-277">jQuery UI 1.10.1</span></span>](jquery-ui/cdnjqueryui1101.md "kullanıcı Arabirimi 1.10.1 Microsoft Ajax CDN üzerinde jQuery")
-- [<span data-ttu-id="f0901-278">jQuery kullanıcı Arabirimi 1.10.0</span><span class="sxs-lookup"><span data-stu-id="f0901-278">jQuery UI 1.10.0</span></span>](jquery-ui/cdnjqueryui1100.md "kullanıcı Arabirimi 1.10.0 Microsoft Ajax CDN üzerinde jQuery")
-- [<span data-ttu-id="f0901-279">jQuery kullanıcı Arabirimi 1.9.2</span><span class="sxs-lookup"><span data-stu-id="f0901-279">jQuery UI 1.9.2</span></span>](jquery-ui/cdnjqueryui192.md "kullanıcı Arabirimi 1.9.2 Microsoft Ajax CDN üzerinde jQuery")
-- [<span data-ttu-id="f0901-280">jQuery kullanıcı Arabirimi 1.9.1</span><span class="sxs-lookup"><span data-stu-id="f0901-280">jQuery UI 1.9.1</span></span>](jquery-ui/cdnjqueryui191.md "kullanıcı Arabirimi 1.9.1 Microsoft Ajax CDN üzerinde jQuery")
-- [<span data-ttu-id="f0901-281">jQuery kullanıcı Arabirimi 1.9.0</span><span class="sxs-lookup"><span data-stu-id="f0901-281">jQuery UI 1.9.0</span></span>](jquery-ui/cdnjqueryui190.md "kullanıcı Arabirimi 1.9.0 Microsoft Ajax CDN üzerinde jQuery")
-- [<span data-ttu-id="f0901-282">jQuery kullanıcı Arabirimi 1.8.24</span><span class="sxs-lookup"><span data-stu-id="f0901-282">jQuery UI 1.8.24</span></span>](jquery-ui/cdnjqueryui1824.md "kullanıcı Arabirimi 1.8.24 Microsoft Ajax CDN üzerinde jQuery")
-- [<span data-ttu-id="f0901-283">jQuery kullanıcı Arabirimi 1.8.23</span><span class="sxs-lookup"><span data-stu-id="f0901-283">jQuery UI 1.8.23</span></span>](jquery-ui/cdnjqueryui1823.md "kullanıcı Arabirimi 1.8.23 Microsoft Ajax CDN üzerinde jQuery")
-- [<span data-ttu-id="f0901-284">jQuery kullanıcı Arabirimi 1.8.22</span><span class="sxs-lookup"><span data-stu-id="f0901-284">jQuery UI 1.8.22</span></span>](jquery-ui/cdnjqueryui1822.md "kullanıcı Arabirimi 1.8.22 Microsoft Ajax CDN üzerinde jQuery")
-- [<span data-ttu-id="f0901-285">jQuery kullanıcı Arabirimi 1.8.21</span><span class="sxs-lookup"><span data-stu-id="f0901-285">jQuery UI 1.8.21</span></span>](jquery-ui/cdnjqueryui1821.md "kullanıcı Arabirimi 1.8.21 Microsoft Ajax CDN üzerinde jQuery")
-- [<span data-ttu-id="f0901-286">jQuery kullanıcı Arabirimi 1.8.20</span><span class="sxs-lookup"><span data-stu-id="f0901-286">jQuery UI 1.8.20</span></span>](jquery-ui/cdnjqueryui1820.md "kullanıcı Arabirimi 1.8.20 Microsoft Ajax CDN üzerinde jQuery")
-- [<span data-ttu-id="f0901-287">jQuery kullanıcı Arabirimi 1.8.19</span><span class="sxs-lookup"><span data-stu-id="f0901-287">jQuery UI 1.8.19</span></span>](jquery-ui/cdnjqueryui1819.md "kullanıcı Arabirimi 1.8.19 Microsoft Ajax CDN üzerinde jQuery")
-- [<span data-ttu-id="f0901-288">jQuery kullanıcı Arabirimi 1.8.18</span><span class="sxs-lookup"><span data-stu-id="f0901-288">jQuery UI 1.8.18</span></span>](jquery-ui/cdnjqueryui1818.md "kullanıcı Arabirimi 1.8.18 Microsoft Ajax CDN üzerinde jQuery")
-- [<span data-ttu-id="f0901-289">jQuery kullanıcı Arabirimi 1.8.17</span><span class="sxs-lookup"><span data-stu-id="f0901-289">jQuery UI 1.8.17</span></span>](jquery-ui/cdnjqueryui1817.md "kullanıcı Arabirimi 1.8.17 Microsoft Ajax CDN üzerinde jQuery")
-- [<span data-ttu-id="f0901-290">jQuery kullanıcı Arabirimi 1.8.16</span><span class="sxs-lookup"><span data-stu-id="f0901-290">jQuery UI 1.8.16</span></span>](jquery-ui/cdnjqueryui1816.md "kullanıcı Arabirimi 1.8.16 Microsoft Ajax CDN üzerinde jQuery")
-- [<span data-ttu-id="f0901-291">jQuery kullanıcı Arabirimi 1.8.15</span><span class="sxs-lookup"><span data-stu-id="f0901-291">jQuery UI 1.8.15</span></span>](jquery-ui/cdnjqueryui1815.md "kullanıcı Arabirimi 1.8.15 Microsoft Ajax CDN üzerinde jQuery")
-- [<span data-ttu-id="f0901-292">jQuery kullanıcı Arabirimi 1.8.14</span><span class="sxs-lookup"><span data-stu-id="f0901-292">jQuery UI 1.8.14</span></span>](jquery-ui/cdnjqueryui1814.md "kullanıcı Arabirimi 1.8.14 Microsoft Ajax CDN üzerinde jQuery")
-- [<span data-ttu-id="f0901-293">jQuery kullanıcı Arabirimi 1.8.13</span><span class="sxs-lookup"><span data-stu-id="f0901-293">jQuery UI 1.8.13</span></span>](jquery-ui/cdnjqueryui1813.md "kullanıcı Arabirimi 1.8.13 Microsoft Ajax CDN üzerinde jQuery")
-- [<span data-ttu-id="f0901-294">jQuery kullanıcı Arabirimi 1.8.12</span><span class="sxs-lookup"><span data-stu-id="f0901-294">jQuery UI 1.8.12</span></span>](jquery-ui/cdnjqueryui1812.md "kullanıcı Arabirimi 1.8.12 Microsoft Ajax CDN üzerinde jQuery")
-- [<span data-ttu-id="f0901-295">jQuery kullanıcı Arabirimi 1.8.11</span><span class="sxs-lookup"><span data-stu-id="f0901-295">jQuery UI 1.8.11</span></span>](jquery-ui/cdnjqueryui1811.md "kullanıcı Arabirimi 1.8.11 Microsoft Ajax CDN üzerinde jQuery")
-- [<span data-ttu-id="f0901-296">jQuery kullanıcı Arabirimi 1.8.10</span><span class="sxs-lookup"><span data-stu-id="f0901-296">jQuery UI 1.8.10</span></span>](jquery-ui/cdnjqueryui1910.md "kullanıcı Arabirimi 1.8.10 Microsoft Ajax CDN üzerinde jQuery")
-- [<span data-ttu-id="f0901-297">jQuery kullanıcı Arabirimi 1.8.9</span><span class="sxs-lookup"><span data-stu-id="f0901-297">jQuery UI 1.8.9</span></span>](jquery-ui/cdnjqueryui189.md "kullanıcı Arabirimi 1.8.9 Microsoft Ajax CDN üzerinde jQuery")
-- [<span data-ttu-id="f0901-298">jQuery kullanıcı Arabirimi 1.8.8</span><span class="sxs-lookup"><span data-stu-id="f0901-298">jQuery UI 1.8.8</span></span>](jquery-ui/cdnjqueryui188.md "kullanıcı Arabirimi 1.8.8 Microsoft Ajax CDN üzerinde jQuery")
-- [<span data-ttu-id="f0901-299">jQuery kullanıcı Arabirimi 1.8.7</span><span class="sxs-lookup"><span data-stu-id="f0901-299">jQuery UI 1.8.7</span></span>](jquery-ui/cdnjqueryui187.md "kullanıcı Arabirimi 1.8.7 Microsoft Ajax CDN üzerinde jQuery")
-- [<span data-ttu-id="f0901-300">jQuery kullanıcı Arabirimi 1.8.6</span><span class="sxs-lookup"><span data-stu-id="f0901-300">jQuery UI 1.8.6</span></span>](jquery-ui/cdnjqueryui186.md "kullanıcı Arabirimi 1.8.6 Microsoft Ajax CDN üzerinde jQuery")
-- [<span data-ttu-id="f0901-301">jQuery kullanıcı arabirimi 1.8.5</span><span class="sxs-lookup"><span data-stu-id="f0901-301">jQuery UI 1.8.5</span></span>](jquery-ui/cdnjqueryui185.md "jQuery kullanıcı arabirimi 1.8.5")
+- [<span data-ttu-id="9b6e8-267">jQuery kullanıcı Arabirimi 1.12.1</span><span class="sxs-lookup"><span data-stu-id="9b6e8-267">jQuery UI 1.12.1</span></span>](jquery-ui/cdnjqueryui1121.md "kullanıcı Arabirimi 1.12.1 Microsoft Ajax CDN üzerinde jQuery")
+- [<span data-ttu-id="9b6e8-268">jQuery kullanıcı Arabirimi 1.12.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-268">jQuery UI 1.12.0</span></span>](jquery-ui/cdnjqueryui1120.md "kullanıcı Arabirimi 1.12.0 Microsoft Ajax CDN üzerinde jQuery")
+- [<span data-ttu-id="9b6e8-269">jQuery kullanıcı Arabirimi 1.11.4</span><span class="sxs-lookup"><span data-stu-id="9b6e8-269">jQuery UI 1.11.4</span></span>](jquery-ui/cdnjqueryui1114.md "kullanıcı Arabirimi 1.11.4 Microsoft Ajax CDN üzerinde jQuery")
+- [<span data-ttu-id="9b6e8-270">jQuery kullanıcı Arabirimi 1.11.3</span><span class="sxs-lookup"><span data-stu-id="9b6e8-270">jQuery UI 1.11.3</span></span>](jquery-ui/cdnjqueryui1113.md "kullanıcı Arabirimi 1.11.3 Microsoft Ajax CDN üzerinde jQuery")
+- [<span data-ttu-id="9b6e8-271">jQuery kullanıcı Arabirimi 1.11.2</span><span class="sxs-lookup"><span data-stu-id="9b6e8-271">jQuery UI 1.11.2</span></span>](jquery-ui/cdnjqueryui1112.md "kullanıcı Arabirimi 1.11.2 Microsoft Ajax CDN üzerinde jQuery")
+- [<span data-ttu-id="9b6e8-272">jQuery kullanıcı Arabirimi 1.11.1</span><span class="sxs-lookup"><span data-stu-id="9b6e8-272">jQuery UI 1.11.1</span></span>](jquery-ui/cdnjqueryui1111.md "kullanıcı Arabirimi 1.11.1 Microsoft Ajax CDN üzerinde jQuery")
+- [<span data-ttu-id="9b6e8-273">jQuery kullanıcı Arabirimi 1.11.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-273">jQuery UI 1.11.0</span></span>](jquery-ui/cdnjqueryui1110.md "kullanıcı Arabirimi 1.11.0 Microsoft Ajax CDN üzerinde jQuery")
+- [<span data-ttu-id="9b6e8-274">jQuery kullanıcı Arabirimi 1.10.4</span><span class="sxs-lookup"><span data-stu-id="9b6e8-274">jQuery UI 1.10.4</span></span>](jquery-ui/cdnjqueryui1104.md "kullanıcı Arabirimi 1.10.4 Microsoft Ajax CDN üzerinde jQuery")
+- [<span data-ttu-id="9b6e8-275">jQuery kullanıcı Arabirimi 1.10.3</span><span class="sxs-lookup"><span data-stu-id="9b6e8-275">jQuery UI 1.10.3</span></span>](jquery-ui/cdnjqueryui1103.md "kullanıcı Arabirimi 1.10.3 Microsoft Ajax CDN üzerinde jQuery")
+- [<span data-ttu-id="9b6e8-276">jQuery kullanıcı Arabirimi 1.10.2</span><span class="sxs-lookup"><span data-stu-id="9b6e8-276">jQuery UI 1.10.2</span></span>](jquery-ui/cdnjqueryui1102.md "kullanıcı Arabirimi 1.10.2 Microsoft Ajax CDN üzerinde jQuery")
+- [<span data-ttu-id="9b6e8-277">jQuery kullanıcı Arabirimi 1.10.1</span><span class="sxs-lookup"><span data-stu-id="9b6e8-277">jQuery UI 1.10.1</span></span>](jquery-ui/cdnjqueryui1101.md "kullanıcı Arabirimi 1.10.1 Microsoft Ajax CDN üzerinde jQuery")
+- [<span data-ttu-id="9b6e8-278">jQuery kullanıcı Arabirimi 1.10.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-278">jQuery UI 1.10.0</span></span>](jquery-ui/cdnjqueryui1100.md "kullanıcı Arabirimi 1.10.0 Microsoft Ajax CDN üzerinde jQuery")
+- [<span data-ttu-id="9b6e8-279">jQuery kullanıcı Arabirimi 1.9.2</span><span class="sxs-lookup"><span data-stu-id="9b6e8-279">jQuery UI 1.9.2</span></span>](jquery-ui/cdnjqueryui192.md "kullanıcı Arabirimi 1.9.2 Microsoft Ajax CDN üzerinde jQuery")
+- [<span data-ttu-id="9b6e8-280">jQuery kullanıcı Arabirimi 1.9.1</span><span class="sxs-lookup"><span data-stu-id="9b6e8-280">jQuery UI 1.9.1</span></span>](jquery-ui/cdnjqueryui191.md "kullanıcı Arabirimi 1.9.1 Microsoft Ajax CDN üzerinde jQuery")
+- [<span data-ttu-id="9b6e8-281">jQuery kullanıcı Arabirimi 1.9.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-281">jQuery UI 1.9.0</span></span>](jquery-ui/cdnjqueryui190.md "kullanıcı Arabirimi 1.9.0 Microsoft Ajax CDN üzerinde jQuery")
+- [<span data-ttu-id="9b6e8-282">jQuery kullanıcı Arabirimi 1.8.24</span><span class="sxs-lookup"><span data-stu-id="9b6e8-282">jQuery UI 1.8.24</span></span>](jquery-ui/cdnjqueryui1824.md "kullanıcı Arabirimi 1.8.24 Microsoft Ajax CDN üzerinde jQuery")
+- [<span data-ttu-id="9b6e8-283">jQuery kullanıcı Arabirimi 1.8.23</span><span class="sxs-lookup"><span data-stu-id="9b6e8-283">jQuery UI 1.8.23</span></span>](jquery-ui/cdnjqueryui1823.md "kullanıcı Arabirimi 1.8.23 Microsoft Ajax CDN üzerinde jQuery")
+- [<span data-ttu-id="9b6e8-284">jQuery kullanıcı Arabirimi 1.8.22</span><span class="sxs-lookup"><span data-stu-id="9b6e8-284">jQuery UI 1.8.22</span></span>](jquery-ui/cdnjqueryui1822.md "kullanıcı Arabirimi 1.8.22 Microsoft Ajax CDN üzerinde jQuery")
+- [<span data-ttu-id="9b6e8-285">jQuery kullanıcı Arabirimi 1.8.21</span><span class="sxs-lookup"><span data-stu-id="9b6e8-285">jQuery UI 1.8.21</span></span>](jquery-ui/cdnjqueryui1821.md "kullanıcı Arabirimi 1.8.21 Microsoft Ajax CDN üzerinde jQuery")
+- [<span data-ttu-id="9b6e8-286">jQuery kullanıcı Arabirimi 1.8.20</span><span class="sxs-lookup"><span data-stu-id="9b6e8-286">jQuery UI 1.8.20</span></span>](jquery-ui/cdnjqueryui1820.md "kullanıcı Arabirimi 1.8.20 Microsoft Ajax CDN üzerinde jQuery")
+- [<span data-ttu-id="9b6e8-287">jQuery kullanıcı Arabirimi 1.8.19</span><span class="sxs-lookup"><span data-stu-id="9b6e8-287">jQuery UI 1.8.19</span></span>](jquery-ui/cdnjqueryui1819.md "kullanıcı Arabirimi 1.8.19 Microsoft Ajax CDN üzerinde jQuery")
+- [<span data-ttu-id="9b6e8-288">jQuery kullanıcı Arabirimi 1.8.18</span><span class="sxs-lookup"><span data-stu-id="9b6e8-288">jQuery UI 1.8.18</span></span>](jquery-ui/cdnjqueryui1818.md "kullanıcı Arabirimi 1.8.18 Microsoft Ajax CDN üzerinde jQuery")
+- [<span data-ttu-id="9b6e8-289">jQuery kullanıcı Arabirimi 1.8.17</span><span class="sxs-lookup"><span data-stu-id="9b6e8-289">jQuery UI 1.8.17</span></span>](jquery-ui/cdnjqueryui1817.md "kullanıcı Arabirimi 1.8.17 Microsoft Ajax CDN üzerinde jQuery")
+- [<span data-ttu-id="9b6e8-290">jQuery kullanıcı Arabirimi 1.8.16</span><span class="sxs-lookup"><span data-stu-id="9b6e8-290">jQuery UI 1.8.16</span></span>](jquery-ui/cdnjqueryui1816.md "kullanıcı Arabirimi 1.8.16 Microsoft Ajax CDN üzerinde jQuery")
+- [<span data-ttu-id="9b6e8-291">jQuery kullanıcı Arabirimi 1.8.15</span><span class="sxs-lookup"><span data-stu-id="9b6e8-291">jQuery UI 1.8.15</span></span>](jquery-ui/cdnjqueryui1815.md "kullanıcı Arabirimi 1.8.15 Microsoft Ajax CDN üzerinde jQuery")
+- [<span data-ttu-id="9b6e8-292">jQuery kullanıcı Arabirimi 1.8.14</span><span class="sxs-lookup"><span data-stu-id="9b6e8-292">jQuery UI 1.8.14</span></span>](jquery-ui/cdnjqueryui1814.md "kullanıcı Arabirimi 1.8.14 Microsoft Ajax CDN üzerinde jQuery")
+- [<span data-ttu-id="9b6e8-293">jQuery kullanıcı Arabirimi 1.8.13</span><span class="sxs-lookup"><span data-stu-id="9b6e8-293">jQuery UI 1.8.13</span></span>](jquery-ui/cdnjqueryui1813.md "kullanıcı Arabirimi 1.8.13 Microsoft Ajax CDN üzerinde jQuery")
+- [<span data-ttu-id="9b6e8-294">jQuery kullanıcı Arabirimi 1.8.12</span><span class="sxs-lookup"><span data-stu-id="9b6e8-294">jQuery UI 1.8.12</span></span>](jquery-ui/cdnjqueryui1812.md "kullanıcı Arabirimi 1.8.12 Microsoft Ajax CDN üzerinde jQuery")
+- [<span data-ttu-id="9b6e8-295">jQuery kullanıcı Arabirimi 1.8.11</span><span class="sxs-lookup"><span data-stu-id="9b6e8-295">jQuery UI 1.8.11</span></span>](jquery-ui/cdnjqueryui1811.md "kullanıcı Arabirimi 1.8.11 Microsoft Ajax CDN üzerinde jQuery")
+- [<span data-ttu-id="9b6e8-296">jQuery kullanıcı Arabirimi 1.8.10</span><span class="sxs-lookup"><span data-stu-id="9b6e8-296">jQuery UI 1.8.10</span></span>](jquery-ui/cdnjqueryui1910.md "kullanıcı Arabirimi 1.8.10 Microsoft Ajax CDN üzerinde jQuery")
+- [<span data-ttu-id="9b6e8-297">jQuery kullanıcı Arabirimi 1.8.9</span><span class="sxs-lookup"><span data-stu-id="9b6e8-297">jQuery UI 1.8.9</span></span>](jquery-ui/cdnjqueryui189.md "kullanıcı Arabirimi 1.8.9 Microsoft Ajax CDN üzerinde jQuery")
+- [<span data-ttu-id="9b6e8-298">jQuery kullanıcı Arabirimi 1.8.8</span><span class="sxs-lookup"><span data-stu-id="9b6e8-298">jQuery UI 1.8.8</span></span>](jquery-ui/cdnjqueryui188.md "kullanıcı Arabirimi 1.8.8 Microsoft Ajax CDN üzerinde jQuery")
+- [<span data-ttu-id="9b6e8-299">jQuery kullanıcı Arabirimi 1.8.7</span><span class="sxs-lookup"><span data-stu-id="9b6e8-299">jQuery UI 1.8.7</span></span>](jquery-ui/cdnjqueryui187.md "kullanıcı Arabirimi 1.8.7 Microsoft Ajax CDN üzerinde jQuery")
+- [<span data-ttu-id="9b6e8-300">jQuery kullanıcı Arabirimi 1.8.6</span><span class="sxs-lookup"><span data-stu-id="9b6e8-300">jQuery UI 1.8.6</span></span>](jquery-ui/cdnjqueryui186.md "kullanıcı Arabirimi 1.8.6 Microsoft Ajax CDN üzerinde jQuery")
+- [<span data-ttu-id="9b6e8-301">jQuery UI 1.8.5</span><span class="sxs-lookup"><span data-stu-id="9b6e8-301">jQuery UI 1.8.5</span></span>](jquery-ui/cdnjqueryui185.md "jQuery UI 1.8.5")
 
 <a id="jQuery_Validation_Releases_on_the_CDN_3"></a>
 
-### <a name="jquery-validation-releases-on-the-cdn"></a><span data-ttu-id="f0901-302">jQuery doğrulama yayınlar CDN hakkında</span><span class="sxs-lookup"><span data-stu-id="f0901-302">jQuery Validation Releases on the CDN</span></span>
+### <a name="jquery-validation-releases-on-the-cdn"></a><span data-ttu-id="9b6e8-302">jQuery doğrulama yayınlar CDN hakkında</span><span class="sxs-lookup"><span data-stu-id="9b6e8-302">jQuery Validation Releases on the CDN</span></span>
 
-<span data-ttu-id="f0901-303">Bu CDN üzerinde jQuery doğrulama Kitaplığı'nın aşağıdaki sürümleri barındırılır.</span><span class="sxs-lookup"><span data-stu-id="f0901-303">The following releases of the jQuery Validation library are hosted on this CDN.</span></span> <span data-ttu-id="f0901-304">Dosyaların gerçek listesini görmek için her bir bağlantıya tıklayın.</span><span class="sxs-lookup"><span data-stu-id="f0901-304">Click each link to see the actual list of files.</span></span>
+<span data-ttu-id="9b6e8-303">Bu CDN üzerinde jQuery doğrulama Kitaplığı'nın aşağıdaki sürümleri barındırılır.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-303">The following releases of the jQuery Validation library are hosted on this CDN.</span></span> <span data-ttu-id="9b6e8-304">Dosyaların gerçek listesini görmek için her bir bağlantıya tıklayın.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-304">Click each link to see the actual list of files.</span></span>
 
-- [<span data-ttu-id="f0901-305">jQuery doğrulama 1.19.0</span><span class="sxs-lookup"><span data-stu-id="f0901-305">jQuery Validate 1.19.0</span></span>](jquery-validate/cdnjqueryvalidate1190.md "jQuery doğrulaması 1.19.0")
-- [<span data-ttu-id="f0901-306">jQuery doğrulama 1.17.0</span><span class="sxs-lookup"><span data-stu-id="f0901-306">jQuery Validate 1.17.0</span></span>](jquery-validate/cdnjqueryvalidate1170.md "jQuery doğrulaması 1.17.0")
-- [<span data-ttu-id="f0901-307">jQuery doğrulama 1.16.0</span><span class="sxs-lookup"><span data-stu-id="f0901-307">jQuery Validate 1.16.0</span></span>](jquery-validate/cdnjqueryvalidate1160.md "jQuery doğrulaması 1.16.0")
-- [<span data-ttu-id="f0901-308">jQuery doğrulama 1.15.1</span><span class="sxs-lookup"><span data-stu-id="f0901-308">jQuery Validate 1.15.1</span></span>](jquery-validate/cdnjqueryvalidate1151.md "jQuery doğrulaması 1.15.1")
-- [<span data-ttu-id="f0901-309">jQuery doğrulama 1.15.0</span><span class="sxs-lookup"><span data-stu-id="f0901-309">jQuery Validate 1.15.0</span></span>](jquery-validate/cdnjqueryvalidate1150.md "jQuery doğrulaması 1.15.0")
-- [<span data-ttu-id="f0901-310">jQuery doğrulama 1.14.0</span><span class="sxs-lookup"><span data-stu-id="f0901-310">jQuery Validate 1.14.0</span></span>](jquery-validate/cdnjqueryvalidate1140.md "jQuery doğrulaması 1.14.0")
-- [<span data-ttu-id="f0901-311">jQuery doğrulama 1.13.1</span><span class="sxs-lookup"><span data-stu-id="f0901-311">jQuery Validate 1.13.1</span></span>](jquery-validate/cdnjqueryvalidate1131.md "jQuery doğrulaması 1.13.1")
-- [<span data-ttu-id="f0901-312">jQuery doğrulama 1.13.0</span><span class="sxs-lookup"><span data-stu-id="f0901-312">jQuery Validate 1.13.0</span></span>](jquery-validate/cdnjqueryvalidate1130.md "jQuery doğrulaması 1.13.0")
-- [<span data-ttu-id="f0901-313">jQuery doğrulama 1.12.0</span><span class="sxs-lookup"><span data-stu-id="f0901-313">jQuery Validate 1.12.0</span></span>](jquery-validate/cdnjqueryvalidate1120.md "jQuery doğrulaması 1.12.0")
-- [<span data-ttu-id="f0901-314">jQuery doğrulama 1.11.1</span><span class="sxs-lookup"><span data-stu-id="f0901-314">jQuery Validate 1.11.1</span></span>](jquery-validate/cdnjqueryvalidate1111.md "jQuery doğrulaması 1.11.1")
-- [<span data-ttu-id="f0901-315">jQuery doğrulama 1.11.0</span><span class="sxs-lookup"><span data-stu-id="f0901-315">jQuery Validate 1.11.0</span></span>](jquery-validate/cdnjqueryvalidate111.md "jQuery doğrulaması 1.11.0")
-- [<span data-ttu-id="f0901-316">jQuery doğrulama 1.10.0</span><span class="sxs-lookup"><span data-stu-id="f0901-316">jQuery Validate 1.10.0</span></span>](jquery-validate/cdnjqueryvalidate110.md "jQuery doğrulaması 1.10.0")
-- [<span data-ttu-id="f0901-317">jQuery doğrulama 1.9</span><span class="sxs-lookup"><span data-stu-id="f0901-317">jQuery Validate 1.9</span></span>](jquery-validate/cdnjqueryvalidate19.md "jquery.validate sürümü 1.9")
-- [<span data-ttu-id="f0901-318">jQuery doğrulama 1.8.1</span><span class="sxs-lookup"><span data-stu-id="f0901-318">jQuery Validate 1.8.1</span></span>](jquery-validate/cdnjqueryvalidate181.md "jquery.validate sürümü 1.8.1")
-- [<span data-ttu-id="f0901-319">jQuery doğrulama 1.8</span><span class="sxs-lookup"><span data-stu-id="f0901-319">jQuery Validate 1.8</span></span>](jquery-validate/cdnjqueryvalidate18.md "jquery.validate sürümü 1.8")
-- [<span data-ttu-id="f0901-320">jQuery doğrulama 1.7</span><span class="sxs-lookup"><span data-stu-id="f0901-320">jQuery Validate 1.7</span></span>](jquery-validate/cdnjqueryvalidate17.md "jquery.validate sürümü 1.7")
-- [<span data-ttu-id="f0901-321">jQuery doğrulama 1.6</span><span class="sxs-lookup"><span data-stu-id="f0901-321">jQuery Validate 1.6</span></span>](jquery-validate/cdnjqueryvalidate16.md "jQuery doğrulama 1.6")
-- [<span data-ttu-id="f0901-322">jQuery doğrulama 1.5.5</span><span class="sxs-lookup"><span data-stu-id="f0901-322">jQuery Validate 1.5.5</span></span>](jquery-validate/cdnjqueryvalidate155.md "jQuery doğrulama 1.5.5")
+- [<span data-ttu-id="9b6e8-305">jQuery doğrulama 1.19.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-305">jQuery Validate 1.19.0</span></span>](jquery-validate/cdnjqueryvalidate1190.md "jQuery doğrulaması 1.19.0")
+- [<span data-ttu-id="9b6e8-306">jQuery doğrulama 1.17.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-306">jQuery Validate 1.17.0</span></span>](jquery-validate/cdnjqueryvalidate1170.md "jQuery doğrulaması 1.17.0")
+- [<span data-ttu-id="9b6e8-307">jQuery doğrulama 1.16.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-307">jQuery Validate 1.16.0</span></span>](jquery-validate/cdnjqueryvalidate1160.md "jQuery doğrulaması 1.16.0")
+- [<span data-ttu-id="9b6e8-308">jQuery doğrulama 1.15.1</span><span class="sxs-lookup"><span data-stu-id="9b6e8-308">jQuery Validate 1.15.1</span></span>](jquery-validate/cdnjqueryvalidate1151.md "jQuery doğrulaması 1.15.1")
+- [<span data-ttu-id="9b6e8-309">jQuery doğrulama 1.15.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-309">jQuery Validate 1.15.0</span></span>](jquery-validate/cdnjqueryvalidate1150.md "jQuery doğrulaması 1.15.0")
+- [<span data-ttu-id="9b6e8-310">jQuery doğrulama 1.14.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-310">jQuery Validate 1.14.0</span></span>](jquery-validate/cdnjqueryvalidate1140.md "jQuery doğrulaması 1.14.0")
+- [<span data-ttu-id="9b6e8-311">jQuery doğrulama 1.13.1</span><span class="sxs-lookup"><span data-stu-id="9b6e8-311">jQuery Validate 1.13.1</span></span>](jquery-validate/cdnjqueryvalidate1131.md "jQuery doğrulaması 1.13.1")
+- [<span data-ttu-id="9b6e8-312">jQuery doğrulama 1.13.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-312">jQuery Validate 1.13.0</span></span>](jquery-validate/cdnjqueryvalidate1130.md "jQuery doğrulaması 1.13.0")
+- [<span data-ttu-id="9b6e8-313">jQuery doğrulama 1.12.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-313">jQuery Validate 1.12.0</span></span>](jquery-validate/cdnjqueryvalidate1120.md "jQuery doğrulaması 1.12.0")
+- [<span data-ttu-id="9b6e8-314">jQuery doğrulama 1.11.1</span><span class="sxs-lookup"><span data-stu-id="9b6e8-314">jQuery Validate 1.11.1</span></span>](jquery-validate/cdnjqueryvalidate1111.md "jQuery doğrulaması 1.11.1")
+- [<span data-ttu-id="9b6e8-315">jQuery doğrulama 1.11.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-315">jQuery Validate 1.11.0</span></span>](jquery-validate/cdnjqueryvalidate111.md "jQuery doğrulaması 1.11.0")
+- [<span data-ttu-id="9b6e8-316">jQuery doğrulama 1.10.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-316">jQuery Validate 1.10.0</span></span>](jquery-validate/cdnjqueryvalidate110.md "jQuery doğrulaması 1.10.0")
+- [<span data-ttu-id="9b6e8-317">jQuery doğrulama 1.9</span><span class="sxs-lookup"><span data-stu-id="9b6e8-317">jQuery Validate 1.9</span></span>](jquery-validate/cdnjqueryvalidate19.md "jquery.validate sürümü 1.9")
+- [<span data-ttu-id="9b6e8-318">jQuery doğrulama 1.8.1</span><span class="sxs-lookup"><span data-stu-id="9b6e8-318">jQuery Validate 1.8.1</span></span>](jquery-validate/cdnjqueryvalidate181.md "jquery.validate sürümü 1.8.1")
+- [<span data-ttu-id="9b6e8-319">jQuery doğrulama 1.8</span><span class="sxs-lookup"><span data-stu-id="9b6e8-319">jQuery Validate 1.8</span></span>](jquery-validate/cdnjqueryvalidate18.md "jquery.validate sürümü 1.8")
+- [<span data-ttu-id="9b6e8-320">jQuery doğrulama 1.7</span><span class="sxs-lookup"><span data-stu-id="9b6e8-320">jQuery Validate 1.7</span></span>](jquery-validate/cdnjqueryvalidate17.md "jquery.validate sürümü 1.7")
+- [<span data-ttu-id="9b6e8-321">jQuery doğrulama 1.6</span><span class="sxs-lookup"><span data-stu-id="9b6e8-321">jQuery Validate 1.6</span></span>](jquery-validate/cdnjqueryvalidate16.md "jQuery doğrulama 1.6")
+- [<span data-ttu-id="9b6e8-322">jQuery doğrulama 1.5.5</span><span class="sxs-lookup"><span data-stu-id="9b6e8-322">jQuery Validate 1.5.5</span></span>](jquery-validate/cdnjqueryvalidate155.md "jQuery doğrulama 1.5.5")
 
 <a id="jQuery_Mobile_Releases_on_the_CDN_4"></a>
 
-### <a name="jquery-mobile-releases-on-the-cdn"></a><span data-ttu-id="f0901-323">jQuery Mobile yayınlar CDN hakkında</span><span class="sxs-lookup"><span data-stu-id="f0901-323">jQuery Mobile Releases on the CDN</span></span>
+### <a name="jquery-mobile-releases-on-the-cdn"></a><span data-ttu-id="9b6e8-323">jQuery Mobile yayınlar CDN hakkında</span><span class="sxs-lookup"><span data-stu-id="9b6e8-323">jQuery Mobile Releases on the CDN</span></span>
 
-<span data-ttu-id="f0901-324">Bu CDN üzerinde jQuery Mobile Kitaplığı'nın aşağıdaki sürümleri barındırılır.</span><span class="sxs-lookup"><span data-stu-id="f0901-324">The following releases of the jQuery Mobile library are hosted on this CDN.</span></span> <span data-ttu-id="f0901-325">Dosyaların gerçek listesini görmek için her bir bağlantıya tıklayın.</span><span class="sxs-lookup"><span data-stu-id="f0901-325">Click each link to see the actual list of files.</span></span>
+<span data-ttu-id="9b6e8-324">Bu CDN üzerinde jQuery Mobile Kitaplığı'nın aşağıdaki sürümleri barındırılır.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-324">The following releases of the jQuery Mobile library are hosted on this CDN.</span></span> <span data-ttu-id="9b6e8-325">Dosyaların gerçek listesini görmek için her bir bağlantıya tıklayın.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-325">Click each link to see the actual list of files.</span></span>
 
-- [<span data-ttu-id="f0901-326">jQuery Mobile 1.4.5</span><span class="sxs-lookup"><span data-stu-id="f0901-326">jQuery Mobile 1.4.5</span></span>](jquery-mobile/cdnjquerymobile145.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.4.5")
-- [<span data-ttu-id="f0901-327">jQuery Mobile 1.4.2</span><span class="sxs-lookup"><span data-stu-id="f0901-327">jQuery Mobile 1.4.2</span></span>](jquery-mobile/cdnjquerymobile142.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.4.2")
-- [<span data-ttu-id="f0901-328">jQuery Mobile 1.4.1</span><span class="sxs-lookup"><span data-stu-id="f0901-328">jQuery Mobile 1.4.1</span></span>](jquery-mobile/cdnjquerymobile141.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.4.1")
-- [<span data-ttu-id="f0901-329">jQuery Mobile 1.4.0</span><span class="sxs-lookup"><span data-stu-id="f0901-329">jQuery Mobile 1.4.0</span></span>](jquery-mobile/cdnjquerymobile140.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.4.0")
-- [<span data-ttu-id="f0901-330">jQuery Mobile 1.3.2</span><span class="sxs-lookup"><span data-stu-id="f0901-330">jQuery Mobile 1.3.2</span></span>](jquery-mobile/cdnjquerymobile132.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.3.2")
-- [<span data-ttu-id="f0901-331">jQuery Mobile 1.3.1</span><span class="sxs-lookup"><span data-stu-id="f0901-331">jQuery Mobile 1.3.1</span></span>](jquery-mobile/cdnjquerymobile131.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.3.1")
-- [<span data-ttu-id="f0901-332">jQuery Mobile 1.3.0</span><span class="sxs-lookup"><span data-stu-id="f0901-332">jQuery Mobile 1.3.0</span></span>](jquery-mobile/cdnjquerymobile130.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.3.0")
-- [<span data-ttu-id="f0901-333">jQuery Mobile 1.2.0</span><span class="sxs-lookup"><span data-stu-id="f0901-333">jQuery Mobile 1.2.0</span></span>](jquery-mobile/cdnjquerymobile120.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.2.0")
-- [<span data-ttu-id="f0901-334">jQuery Mobile 1.1.2</span><span class="sxs-lookup"><span data-stu-id="f0901-334">jQuery Mobile 1.1.2</span></span>](jquery-mobile/cdnjquerymobile112.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.1.2")
-- [<span data-ttu-id="f0901-335">jQuery Mobile 1.1.1</span><span class="sxs-lookup"><span data-stu-id="f0901-335">jQuery Mobile 1.1.1</span></span>](jquery-mobile/cdnjquerymobile111.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.1.1")
-- [<span data-ttu-id="f0901-336">jQuery Mobile 1.1.0</span><span class="sxs-lookup"><span data-stu-id="f0901-336">jQuery Mobile 1.1.0</span></span>](jquery-mobile/cdnjquerymobile110.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.1.0")
-- [<span data-ttu-id="f0901-337">jQuery Mobile 1.1.0 RC 2</span><span class="sxs-lookup"><span data-stu-id="f0901-337">jQuery Mobile 1.1.0 RC 2</span></span>](jquery-mobile/cdnjquerymobile110rc2.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.1.0 RC2")
-- [<span data-ttu-id="f0901-338">jQuery Mobile 1.0.1</span><span class="sxs-lookup"><span data-stu-id="f0901-338">jQuery Mobile 1.0.1</span></span>](jquery-mobile/cdnjquerymobile101.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.0.1")
-- [<span data-ttu-id="f0901-339">jQuery Mobile 1.0</span><span class="sxs-lookup"><span data-stu-id="f0901-339">jQuery Mobile 1.0</span></span>](jquery-mobile/cdnjquerymobile10.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.0")
-- [<span data-ttu-id="f0901-340">jQuery Mobile 1.0 RC 2</span><span class="sxs-lookup"><span data-stu-id="f0901-340">jQuery Mobile 1.0 RC 2</span></span>](jquery-mobile/cdnjquerymobile10rc2.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.0 RC2")
-- [<span data-ttu-id="f0901-341">jQuery Mobile 1.0 RC 1</span><span class="sxs-lookup"><span data-stu-id="f0901-341">jQuery Mobile 1.0 RC 1</span></span>](jquery-mobile/cdnjquerymobile10rc1.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.0 RC1")
-- [<span data-ttu-id="f0901-342">jQuery Mobile 1.0 beta 3</span><span class="sxs-lookup"><span data-stu-id="f0901-342">jQuery Mobile 1.0 beta 3</span></span>](jquery-mobile/cdnjquerymobile10b3.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.0 Beta 3")
+- [<span data-ttu-id="9b6e8-326">jQuery Mobile 1.4.5</span><span class="sxs-lookup"><span data-stu-id="9b6e8-326">jQuery Mobile 1.4.5</span></span>](jquery-mobile/cdnjquerymobile145.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.4.5")
+- [<span data-ttu-id="9b6e8-327">jQuery Mobile 1.4.2</span><span class="sxs-lookup"><span data-stu-id="9b6e8-327">jQuery Mobile 1.4.2</span></span>](jquery-mobile/cdnjquerymobile142.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.4.2")
+- [<span data-ttu-id="9b6e8-328">jQuery Mobile 1.4.1</span><span class="sxs-lookup"><span data-stu-id="9b6e8-328">jQuery Mobile 1.4.1</span></span>](jquery-mobile/cdnjquerymobile141.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.4.1")
+- [<span data-ttu-id="9b6e8-329">jQuery Mobile 1.4.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-329">jQuery Mobile 1.4.0</span></span>](jquery-mobile/cdnjquerymobile140.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.4.0")
+- [<span data-ttu-id="9b6e8-330">jQuery Mobile 1.3.2</span><span class="sxs-lookup"><span data-stu-id="9b6e8-330">jQuery Mobile 1.3.2</span></span>](jquery-mobile/cdnjquerymobile132.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.3.2")
+- [<span data-ttu-id="9b6e8-331">jQuery Mobile 1.3.1</span><span class="sxs-lookup"><span data-stu-id="9b6e8-331">jQuery Mobile 1.3.1</span></span>](jquery-mobile/cdnjquerymobile131.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.3.1")
+- [<span data-ttu-id="9b6e8-332">jQuery Mobile 1.3.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-332">jQuery Mobile 1.3.0</span></span>](jquery-mobile/cdnjquerymobile130.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.3.0")
+- [<span data-ttu-id="9b6e8-333">jQuery Mobile 1.2.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-333">jQuery Mobile 1.2.0</span></span>](jquery-mobile/cdnjquerymobile120.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.2.0")
+- [<span data-ttu-id="9b6e8-334">jQuery Mobile 1.1.2</span><span class="sxs-lookup"><span data-stu-id="9b6e8-334">jQuery Mobile 1.1.2</span></span>](jquery-mobile/cdnjquerymobile112.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.1.2")
+- [<span data-ttu-id="9b6e8-335">jQuery Mobile 1.1.1</span><span class="sxs-lookup"><span data-stu-id="9b6e8-335">jQuery Mobile 1.1.1</span></span>](jquery-mobile/cdnjquerymobile111.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.1.1")
+- [<span data-ttu-id="9b6e8-336">jQuery Mobile 1.1.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-336">jQuery Mobile 1.1.0</span></span>](jquery-mobile/cdnjquerymobile110.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.1.0")
+- [<span data-ttu-id="9b6e8-337">jQuery Mobile 1.1.0 RC 2</span><span class="sxs-lookup"><span data-stu-id="9b6e8-337">jQuery Mobile 1.1.0 RC 2</span></span>](jquery-mobile/cdnjquerymobile110rc2.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.1.0 RC2")
+- [<span data-ttu-id="9b6e8-338">jQuery Mobile 1.0.1</span><span class="sxs-lookup"><span data-stu-id="9b6e8-338">jQuery Mobile 1.0.1</span></span>](jquery-mobile/cdnjquerymobile101.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.0.1")
+- [<span data-ttu-id="9b6e8-339">jQuery Mobile 1.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-339">jQuery Mobile 1.0</span></span>](jquery-mobile/cdnjquerymobile10.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.0")
+- [<span data-ttu-id="9b6e8-340">jQuery Mobile 1.0 RC 2</span><span class="sxs-lookup"><span data-stu-id="9b6e8-340">jQuery Mobile 1.0 RC 2</span></span>](jquery-mobile/cdnjquerymobile10rc2.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.0 RC2")
+- [<span data-ttu-id="9b6e8-341">jQuery Mobile 1.0 RC 1</span><span class="sxs-lookup"><span data-stu-id="9b6e8-341">jQuery Mobile 1.0 RC 1</span></span>](jquery-mobile/cdnjquerymobile10rc1.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.0 RC1")
+- [<span data-ttu-id="9b6e8-342">jQuery Mobile 1.0 beta 3</span><span class="sxs-lookup"><span data-stu-id="9b6e8-342">jQuery Mobile 1.0 beta 3</span></span>](jquery-mobile/cdnjquerymobile10b3.md "Microsoft Ajax CDN üzerinde jQuery Mobile 1.0 Beta 3")
 
 <a id="jQuery_Templates_Releases_on_the_CDN_5"></a>
 
-### <a name="jquery-templates-releases-on-the-cdn"></a><span data-ttu-id="f0901-343">jQuery şablonları yayınlar CDN hakkında</span><span class="sxs-lookup"><span data-stu-id="f0901-343">jQuery Templates Releases on the CDN</span></span>
+### <a name="jquery-templates-releases-on-the-cdn"></a><span data-ttu-id="9b6e8-343">jQuery şablonları yayınlar CDN hakkında</span><span class="sxs-lookup"><span data-stu-id="9b6e8-343">jQuery Templates Releases on the CDN</span></span>
 
-<span data-ttu-id="f0901-344">Bu CDN üzerinde jQuery şablonları eklentisi aşağıdaki sürümleri barındırılır.</span><span class="sxs-lookup"><span data-stu-id="f0901-344">The following releases of the jQuery Templates plugin are hosted on this CDN.</span></span> <span data-ttu-id="f0901-345">Dosyaların gerçek listesini görmek için her bir bağlantıya tıklayın.</span><span class="sxs-lookup"><span data-stu-id="f0901-345">Click each link to see the actual list of files.</span></span>
+<span data-ttu-id="9b6e8-344">Bu CDN üzerinde jQuery şablonları eklentisi aşağıdaki sürümleri barındırılır.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-344">The following releases of the jQuery Templates plugin are hosted on this CDN.</span></span> <span data-ttu-id="9b6e8-345">Dosyaların gerçek listesini görmek için her bir bağlantıya tıklayın.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-345">Click each link to see the actual list of files.</span></span>
 
-- [<span data-ttu-id="f0901-346">jQuery şablonları Beta 1</span><span class="sxs-lookup"><span data-stu-id="f0901-346">jQuery Templates Beta 1</span></span>](jquery-templates/cdnjquerytemplatesbeta1.md "jQuery şablonları Beta 1")
+- [<span data-ttu-id="9b6e8-346">jQuery şablonları Beta 1</span><span class="sxs-lookup"><span data-stu-id="9b6e8-346">jQuery Templates Beta 1</span></span>](jquery-templates/cdnjquerytemplatesbeta1.md "jQuery şablonları Beta 1")
 
 <a id="jQuery_Cycle_Releases_on_the_CDN_6"></a>
 
-### <a name="jquery-cycle-releases-on-the-cdn"></a><span data-ttu-id="f0901-347">jQuery döngüsü yayınlar CDN hakkında</span><span class="sxs-lookup"><span data-stu-id="f0901-347">jQuery Cycle Releases on the CDN</span></span>
+### <a name="jquery-cycle-releases-on-the-cdn"></a><span data-ttu-id="9b6e8-347">jQuery döngüsü yayınlar CDN hakkında</span><span class="sxs-lookup"><span data-stu-id="9b6e8-347">jQuery Cycle Releases on the CDN</span></span>
 
-<span data-ttu-id="f0901-348">Bu CDN üzerinde jQuery döngüsü eklentisi aşağıdaki sürümleri barındırılır.</span><span class="sxs-lookup"><span data-stu-id="f0901-348">The following releases of the jQuery Cycle plugin are hosted on this CDN.</span></span> <span data-ttu-id="f0901-349">Dosyaların gerçek listesini görmek için her bir bağlantıya tıklayın.</span><span class="sxs-lookup"><span data-stu-id="f0901-349">Click each link to see the actual list of files.</span></span>
+<span data-ttu-id="9b6e8-348">Bu CDN üzerinde jQuery döngüsü eklentisi aşağıdaki sürümleri barındırılır.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-348">The following releases of the jQuery Cycle plugin are hosted on this CDN.</span></span> <span data-ttu-id="9b6e8-349">Dosyaların gerçek listesini görmek için her bir bağlantıya tıklayın.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-349">Click each link to see the actual list of files.</span></span>
 
-- [<span data-ttu-id="f0901-350">jQuery döngüsü 2.99</span><span class="sxs-lookup"><span data-stu-id="f0901-350">jQuery Cycle 2.99</span></span>](jquery-cycle/cdnjquerycycle299.md "jQuery döngüsü 2.99")
-- [<span data-ttu-id="f0901-351">jQuery döngüsü 2.94</span><span class="sxs-lookup"><span data-stu-id="f0901-351">jQuery Cycle 2.94</span></span>](jquery-cycle/cdnjquerycycle294.md "jQuery döngüsü 2.94")
-- [<span data-ttu-id="f0901-352">jQuery döngüsü 2.88</span><span class="sxs-lookup"><span data-stu-id="f0901-352">jQuery Cycle 2.88</span></span>](jquery-cycle/cdnjquerycycle288.md "jQuery döngüsü 2.88")
+- [<span data-ttu-id="9b6e8-350">jQuery döngüsü 2.99</span><span class="sxs-lookup"><span data-stu-id="9b6e8-350">jQuery Cycle 2.99</span></span>](jquery-cycle/cdnjquerycycle299.md "jQuery döngüsü 2.99")
+- [<span data-ttu-id="9b6e8-351">jQuery döngüsü 2.94</span><span class="sxs-lookup"><span data-stu-id="9b6e8-351">jQuery Cycle 2.94</span></span>](jquery-cycle/cdnjquerycycle294.md "jQuery döngüsü 2.94")
+- [<span data-ttu-id="9b6e8-352">jQuery döngüsü 2.88</span><span class="sxs-lookup"><span data-stu-id="9b6e8-352">jQuery Cycle 2.88</span></span>](jquery-cycle/cdnjquerycycle288.md "jQuery döngüsü 2.88")
 
 <a id="jQuery_DataTables_Releases_on_the_CDN_7"></a>
 
-### <a name="jquery-datatables-releases-on-the-cdn"></a><span data-ttu-id="f0901-353">DataTable yayınlar CDN üzerinde jQuery</span><span class="sxs-lookup"><span data-stu-id="f0901-353">jQuery DataTables Releases on the CDN</span></span>
+### <a name="jquery-datatables-releases-on-the-cdn"></a><span data-ttu-id="9b6e8-353">DataTable yayınlar CDN üzerinde jQuery</span><span class="sxs-lookup"><span data-stu-id="9b6e8-353">jQuery DataTables Releases on the CDN</span></span>
 
-<span data-ttu-id="f0901-354">Bu CDN üzerinde jQuery DataTable eklentisi aşağıdaki sürümleri barındırılır.</span><span class="sxs-lookup"><span data-stu-id="f0901-354">The following releases of the jQuery DataTables plugin are hosted on this CDN.</span></span> <span data-ttu-id="f0901-355">Dosyaların gerçek listesini görmek için her bir bağlantıya tıklayın.</span><span class="sxs-lookup"><span data-stu-id="f0901-355">Click each link to see the actual list of files.</span></span>
+<span data-ttu-id="9b6e8-354">Bu CDN üzerinde jQuery DataTable eklentisi aşağıdaki sürümleri barındırılır.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-354">The following releases of the jQuery DataTables plugin are hosted on this CDN.</span></span> <span data-ttu-id="9b6e8-355">Dosyaların gerçek listesini görmek için her bir bağlantıya tıklayın.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-355">Click each link to see the actual list of files.</span></span>
 
-- [<span data-ttu-id="f0901-356">jQuery DataTable 1.10.5</span><span class="sxs-lookup"><span data-stu-id="f0901-356">jQuery DataTables 1.10.5</span></span>](jquery-datatables/cdnjquerydatatables105.md "jQuery DataTable 1.10.5")
-- [<span data-ttu-id="f0901-357">jQuery DataTables 1.10.4</span><span class="sxs-lookup"><span data-stu-id="f0901-357">jQuery DataTables 1.10.4</span></span>](jquery-datatables/cdnjquerydatatables104.md "jQuery DataTables 1.10.4")
-- [<span data-ttu-id="f0901-358">jQuery DataTable 1.9.4</span><span class="sxs-lookup"><span data-stu-id="f0901-358">jQuery DataTables 1.9.4</span></span>](jquery-datatables/cdnjquerydatatables194.md "jQuery DataTable 1.9.4")
-- [<span data-ttu-id="f0901-359">jQuery DataTable 1.9.3</span><span class="sxs-lookup"><span data-stu-id="f0901-359">jQuery DataTables 1.9.3</span></span>](jquery-datatables/cdnjquerydatatables193.md "jQuery DataTable 1.9.3")
-- [<span data-ttu-id="f0901-360">jQuery DataTable 1.9.2</span><span class="sxs-lookup"><span data-stu-id="f0901-360">jQuery DataTables 1.9.2</span></span>](jquery-datatables/cdnjquerydatatables192.md "jQuery DataTable 1.9.2")
-- [<span data-ttu-id="f0901-361">jQuery DataTable 1.9.1</span><span class="sxs-lookup"><span data-stu-id="f0901-361">jQuery DataTables 1.9.1</span></span>](jquery-datatables/cdnjquerydatatables191.md "jQuery DataTable 1.9.1")
-- [<span data-ttu-id="f0901-362">jQuery DataTable 1.9.0</span><span class="sxs-lookup"><span data-stu-id="f0901-362">jQuery DataTables 1.9.0</span></span>](jquery-datatables/cdnjquerydatatables190.md "jQuery DataTable 1.9.0")
-- [<span data-ttu-id="f0901-363">jQuery DataTable 1.8.2</span><span class="sxs-lookup"><span data-stu-id="f0901-363">jQuery DataTables 1.8.2</span></span>](jquery-datatables/cdnjquerydatatables182.md "jQuery DataTable 1.8.2")
+- [<span data-ttu-id="9b6e8-356">jQuery DataTable 1.10.5</span><span class="sxs-lookup"><span data-stu-id="9b6e8-356">jQuery DataTables 1.10.5</span></span>](jquery-datatables/cdnjquerydatatables105.md "jQuery DataTable 1.10.5")
+- [<span data-ttu-id="9b6e8-357">jQuery DataTables 1.10.4</span><span class="sxs-lookup"><span data-stu-id="9b6e8-357">jQuery DataTables 1.10.4</span></span>](jquery-datatables/cdnjquerydatatables104.md "jQuery DataTables 1.10.4")
+- [<span data-ttu-id="9b6e8-358">jQuery DataTables 1.9.4</span><span class="sxs-lookup"><span data-stu-id="9b6e8-358">jQuery DataTables 1.9.4</span></span>](jquery-datatables/cdnjquerydatatables194.md "jQuery DataTables 1.9.4")
+- [<span data-ttu-id="9b6e8-359">jQuery DataTables 1.9.3</span><span class="sxs-lookup"><span data-stu-id="9b6e8-359">jQuery DataTables 1.9.3</span></span>](jquery-datatables/cdnjquerydatatables193.md "jQuery DataTables 1.9.3")
+- [<span data-ttu-id="9b6e8-360">jQuery DataTables 1.9.2</span><span class="sxs-lookup"><span data-stu-id="9b6e8-360">jQuery DataTables 1.9.2</span></span>](jquery-datatables/cdnjquerydatatables192.md "jQuery DataTables 1.9.2")
+- [<span data-ttu-id="9b6e8-361">jQuery DataTables 1.9.1</span><span class="sxs-lookup"><span data-stu-id="9b6e8-361">jQuery DataTables 1.9.1</span></span>](jquery-datatables/cdnjquerydatatables191.md "jQuery DataTables 1.9.1")
+- [<span data-ttu-id="9b6e8-362">jQuery DataTables 1.9.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-362">jQuery DataTables 1.9.0</span></span>](jquery-datatables/cdnjquerydatatables190.md "jQuery DataTables 1.9.0")
+- [<span data-ttu-id="9b6e8-363">jQuery DataTables 1.8.2</span><span class="sxs-lookup"><span data-stu-id="9b6e8-363">jQuery DataTables 1.8.2</span></span>](jquery-datatables/cdnjquerydatatables182.md "jQuery DataTables 1.8.2")
 
 <a id="Modernizr_Releases_on_the_CDN_8"></a>
 
-### <a name="modernizr-releases-on-the-cdn"></a><span data-ttu-id="f0901-364">CDN üzerinde Modernizr yayınlar</span><span class="sxs-lookup"><span data-stu-id="f0901-364">Modernizr Releases on the CDN</span></span>
+### <a name="modernizr-releases-on-the-cdn"></a><span data-ttu-id="9b6e8-364">CDN üzerinde Modernizr yayınlar</span><span class="sxs-lookup"><span data-stu-id="9b6e8-364">Modernizr Releases on the CDN</span></span>
 
-<span data-ttu-id="f0901-365">Aşağıdaki sürümleri [Modernizr](http://www.modernizr.com "Modernizr") CDN'de barındırılan:</span><span class="sxs-lookup"><span data-stu-id="f0901-365">The following releases of [Modernizr](http://www.modernizr.com "Modernizr") are hosted on the CDN:</span></span>
+<span data-ttu-id="9b6e8-365">Aşağıdaki sürümleri [Modernizr](http://www.modernizr.com "Modernizr") CDN'de barındırılan:</span><span class="sxs-lookup"><span data-stu-id="9b6e8-365">The following releases of [Modernizr](http://www.modernizr.com "Modernizr") are hosted on the CDN:</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/modernizr/modernizr-3.5.0.js
 - https://ajax.aspnetcdn.com/ajax/modernizr/modernizr-2.8.3.js
@@ -695,17 +695,17 @@ ms.locfileid: "54249587"
 
 <a id="JSHint_Releases_on_the_CDN_10"></a>
 
-### <a name="jshint-releases-on-the-cdn"></a><span data-ttu-id="f0901-366">CDN üzerindeki JSHint yayınlar</span><span class="sxs-lookup"><span data-stu-id="f0901-366">JSHint Releases on the CDN</span></span>
+### <a name="jshint-releases-on-the-cdn"></a><span data-ttu-id="9b6e8-366">CDN üzerindeki JSHint yayınlar</span><span class="sxs-lookup"><span data-stu-id="9b6e8-366">JSHint Releases on the CDN</span></span>
 
-<span data-ttu-id="f0901-367">Aşağıdaki sürümleri [JSHint](http://www.jshint.com "JSHint") CDN'de barındırılan:</span><span class="sxs-lookup"><span data-stu-id="f0901-367">The following releases of [JSHint](http://www.jshint.com "JSHint") are hosted on the CDN:</span></span>
+<span data-ttu-id="9b6e8-367">Aşağıdaki sürümleri [JSHint](http://www.jshint.com "JSHint") CDN'de barındırılan:</span><span class="sxs-lookup"><span data-stu-id="9b6e8-367">The following releases of [JSHint](http://www.jshint.com "JSHint") are hosted on the CDN:</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/jshint/r07/jshint.js
 
 <a id="Knockout_Releases_on_the_CDN_11"></a>
 
-### <a name="knockout-releases-on-the-cdn"></a><span data-ttu-id="f0901-368">Knockout yayınlar CDN hakkında</span><span class="sxs-lookup"><span data-stu-id="f0901-368">Knockout Releases on the CDN</span></span>
+### <a name="knockout-releases-on-the-cdn"></a><span data-ttu-id="9b6e8-368">Knockout yayınlar CDN hakkında</span><span class="sxs-lookup"><span data-stu-id="9b6e8-368">Knockout Releases on the CDN</span></span>
 
-<span data-ttu-id="f0901-369">Aşağıdaki sürümleri [Knockout](http://www.knockoutjs.com "Knockout") CDN'de barındırılan:</span><span class="sxs-lookup"><span data-stu-id="f0901-369">The following releases of [Knockout](http://www.knockoutjs.com "Knockout") are hosted on the CDN:</span></span>
+<span data-ttu-id="9b6e8-369">Aşağıdaki sürümleri [Knockout](http://www.knockoutjs.com "Knockout") CDN'de barındırılan:</span><span class="sxs-lookup"><span data-stu-id="9b6e8-369">The following releases of [Knockout](http://www.knockoutjs.com "Knockout") are hosted on the CDN:</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js
 - https://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.debug.js
@@ -730,11 +730,11 @@ ms.locfileid: "54249587"
 
 <a id="Globalize_Releases_on_the_CDN_12"></a>
 
-### <a name="globalize-releases-on-the-cdn"></a><span data-ttu-id="f0901-370">CDN yayınlara globalize</span><span class="sxs-lookup"><span data-stu-id="f0901-370">Globalize Releases on the CDN</span></span>
+### <a name="globalize-releases-on-the-cdn"></a><span data-ttu-id="9b6e8-370">CDN yayınlara globalize</span><span class="sxs-lookup"><span data-stu-id="9b6e8-370">Globalize Releases on the CDN</span></span>
 
-<span data-ttu-id="f0901-371">Aşağıdaki sürümleri [Globalize](https://github.com/jquery/globalize "Globalize") CDN'de barındırılan:</span><span class="sxs-lookup"><span data-stu-id="f0901-371">The following releases of [Globalize](https://github.com/jquery/globalize "Globalize") are hosted on the CDN:</span></span>
+<span data-ttu-id="9b6e8-371">Aşağıdaki sürümleri [Globalize](https://github.com/jquery/globalize "Globalize") CDN'de barındırılan:</span><span class="sxs-lookup"><span data-stu-id="9b6e8-371">The following releases of [Globalize](https://github.com/jquery/globalize "Globalize") are hosted on the CDN:</span></span>
 
-#### <a name="globalize-version-100"></a><span data-ttu-id="f0901-372">Sürüm 1.0.0 globalize</span><span class="sxs-lookup"><span data-stu-id="f0901-372">Globalize version 1.0.0</span></span>
+#### <a name="globalize-version-100"></a><span data-ttu-id="9b6e8-372">Sürüm 1.0.0 globalize</span><span class="sxs-lookup"><span data-stu-id="9b6e8-372">Globalize version 1.0.0</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/globalize/1.0.0/globalize.js
 - https://ajax.aspnetcdn.com/ajax/globalize/1.0.0/node-main.js
@@ -745,59 +745,74 @@ ms.locfileid: "54249587"
 - https://ajax.aspnetcdn.com/ajax/globalize/1.0.0/globalize/plural.js
 - https://ajax.aspnetcdn.com/ajax/globalize/1.0.0/globalize/relative-time.js
 
-#### <a name="globalize-version-011"></a><span data-ttu-id="f0901-373">Sürüm 0.1.1 globalize</span><span class="sxs-lookup"><span data-stu-id="f0901-373">Globalize version 0.1.1</span></span>
+#### <a name="globalize-version-011"></a><span data-ttu-id="9b6e8-373">Sürüm 0.1.1 globalize</span><span class="sxs-lookup"><span data-stu-id="9b6e8-373">Globalize version 0.1.1</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/globalize/0.1.1/globalize.min.js
 - https://ajax.aspnetcdn.com/ajax/globalize/0.1.1/globalize.js
 - https://ajax.aspnetcdn.com/ajax/globalize/0.1.1/cultures/globalize.cultures.js
 
-    - <span data-ttu-id="f0901-374">tüm kültürler</span><span class="sxs-lookup"><span data-stu-id="f0901-374">all cultures</span></span>
+    - <span data-ttu-id="9b6e8-374">tüm kültürler</span><span class="sxs-lookup"><span data-stu-id="9b6e8-374">all cultures</span></span>
 - https://ajax.aspnetcdn.com/ajax/globalize/0.1.1/cultures/globalize.culture.{culture-code}.js
 
-    - <span data-ttu-id="f0901-375">"{Kodu kültüre}" istenen kültürü kod ile değiştirin, örneğin globalize.culture.en GB.js== Microsoft CDN'de dosyaları bu == kitaplıkları Microsoft tarafından karşıya yüklendi.</span><span class="sxs-lookup"><span data-stu-id="f0901-375">Replace "{culture-code}" with the desired culture code, e.g. globalize.culture.en-GB.js== Microsoft Files on the CDN ==These libraries were uploaded by Microsoft.</span></span>
+    - <span data-ttu-id="9b6e8-375">"{Kodu kültüre}" istenen kültürü kod ile değiştirin, örneğin globalize.culture.en GB.js== Microsoft CDN'de dosyaları bu == kitaplıkları Microsoft tarafından karşıya yüklendi.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-375">Replace "{culture-code}" with the desired culture code, e.g. globalize.culture.en-GB.js== Microsoft Files on the CDN ==These libraries were uploaded by Microsoft.</span></span>
 
 <a id="Respond_Releases_on_the_CDN_13"></a>
 
-### <a name="respond-releases-on-the-cdn"></a><span data-ttu-id="f0901-376">CDN yayınlara yanıt</span><span class="sxs-lookup"><span data-stu-id="f0901-376">Respond Releases on the CDN</span></span>
+### <a name="respond-releases-on-the-cdn"></a><span data-ttu-id="9b6e8-376">CDN yayınlara yanıt</span><span class="sxs-lookup"><span data-stu-id="9b6e8-376">Respond Releases on the CDN</span></span>
 
-<span data-ttu-id="f0901-377">Aşağıdaki sürümleri [https://github.com/scottjehl/Respond](https://github.com/scottjehl/Respond "https://github.com/scottjehl/Respond") yanıt CDN'de barındırılan:</span><span class="sxs-lookup"><span data-stu-id="f0901-377">The following releases of [https://github.com/scottjehl/Respond](https://github.com/scottjehl/Respond "https://github.com/scottjehl/Respond") Respond are hosted on the CDN:</span></span>
+<span data-ttu-id="9b6e8-377">Aşağıdaki sürümleri [https://github.com/scottjehl/Respond](https://github.com/scottjehl/Respond "https://github.com/scottjehl/Respond") yanıt CDN'de barındırılan:</span><span class="sxs-lookup"><span data-stu-id="9b6e8-377">The following releases of [https://github.com/scottjehl/Respond](https://github.com/scottjehl/Respond "https://github.com/scottjehl/Respond") Respond are hosted on the CDN:</span></span>
 
-#### <a name="respond-version-142"></a><span data-ttu-id="f0901-378">Sürüm 1.4.2 yanıt</span><span class="sxs-lookup"><span data-stu-id="f0901-378">Respond version 1.4.2</span></span>
+#### <a name="respond-version-142"></a><span data-ttu-id="9b6e8-378">Sürüm 1.4.2 yanıt</span><span class="sxs-lookup"><span data-stu-id="9b6e8-378">Respond version 1.4.2</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/respond/1.4.2/respond.js
 - https://ajax.aspnetcdn.com/ajax/respond/1.4.2/respond.min.js
 - https://ajax.aspnetcdn.com/ajax/respond/1.4.2/respond.matchmedia.addListener.js
 - https://ajax.aspnetcdn.com/ajax/respond/1.4.2/respond.matchmedia.addListener.min.js
 
-#### <a name="respond-version-141"></a><span data-ttu-id="f0901-379">Sürüm 1.4.1 yanıt</span><span class="sxs-lookup"><span data-stu-id="f0901-379">Respond version 1.4.1</span></span>
+#### <a name="respond-version-141"></a><span data-ttu-id="9b6e8-379">Sürüm 1.4.1 yanıt</span><span class="sxs-lookup"><span data-stu-id="9b6e8-379">Respond version 1.4.1</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/respond/1.4.1/respond.js
 - https://ajax.aspnetcdn.com/ajax/respond/1.4.1/respond.min.js
 - https://ajax.aspnetcdn.com/ajax/respond/1.4.1/respond.matchmedia.addListener.js
 - https://ajax.aspnetcdn.com/ajax/respond/1.4.1/respond.matchmedia.addListener.min.js
 
-#### <a name="respond-version-140"></a><span data-ttu-id="f0901-380">Sürüm 1.4.0 yanıt</span><span class="sxs-lookup"><span data-stu-id="f0901-380">Respond version 1.4.0</span></span>
+#### <a name="respond-version-140"></a><span data-ttu-id="9b6e8-380">Sürüm 1.4.0 yanıt</span><span class="sxs-lookup"><span data-stu-id="9b6e8-380">Respond version 1.4.0</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/respond/1.4.0/respond.js
 - https://ajax.aspnetcdn.com/ajax/respond/1.4.0/respond.min.js
 - https://ajax.aspnetcdn.com/ajax/respond/1.4.0/respond.matchmedia.addListener.js
 - https://ajax.aspnetcdn.com/ajax/respond/1.4.0/respond.matchmedia.addListener.min.js
 
-#### <a name="respond-version-130"></a><span data-ttu-id="f0901-381">Yanıt sürüm 1.3.0</span><span class="sxs-lookup"><span data-stu-id="f0901-381">Respond version 1.3.0</span></span>
+#### <a name="respond-version-130"></a><span data-ttu-id="9b6e8-381">Yanıt sürüm 1.3.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-381">Respond version 1.3.0</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/respond/1.3.0/respond.js
 
-#### <a name="respond-version-120"></a><span data-ttu-id="f0901-382">Yanıt sürümü 1.2.0</span><span class="sxs-lookup"><span data-stu-id="f0901-382">Respond version 1.2.0</span></span>
+#### <a name="respond-version-120"></a><span data-ttu-id="9b6e8-382">Yanıt sürümü 1.2.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-382">Respond version 1.2.0</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/respond/1.2.0/respond.js
 
 <a id="Bootstrap_Releases_on_the_CDN_14"></a>
 
-### <a name="bootstrap-releases-on-the-cdn"></a><span data-ttu-id="f0901-383">Önyükleme yayınlar CDN hakkında</span><span class="sxs-lookup"><span data-stu-id="f0901-383">Bootstrap Releases on the CDN</span></span>
+### <a name="bootstrap-releases-on-the-cdn"></a><span data-ttu-id="9b6e8-383">Önyükleme yayınlar CDN hakkında</span><span class="sxs-lookup"><span data-stu-id="9b6e8-383">Bootstrap Releases on the CDN</span></span>
 
-<span data-ttu-id="f0901-384">Aşağıdaki sürümleri [getbootstrap.com](http://getbootstrap.com "getbootstrap.com") bootstrap, CDN'de barındırılır:</span><span class="sxs-lookup"><span data-stu-id="f0901-384">The following releases of [getbootstrap.com](http://getbootstrap.com "getbootstrap.com") bootstrap are hosted on the CDN:</span></span>
+<span data-ttu-id="9b6e8-384">Aşağıdaki sürümleri [getbootstrap.com](http://getbootstrap.com "getbootstrap.com") bootstrap, CDN'de barındırılır:</span><span class="sxs-lookup"><span data-stu-id="9b6e8-384">The following releases of [getbootstrap.com](http://getbootstrap.com "getbootstrap.com") bootstrap are hosted on the CDN:</span></span>
 
-#### <a name="bootstrap-version-411"></a><span data-ttu-id="f0901-385">Önyükleme sürüm 4.1.1</span><span class="sxs-lookup"><span data-stu-id="f0901-385">Bootstrap version 4.1.1</span></span>
+#### <a name="bootstrap-version-421"></a><span data-ttu-id="9b6e8-385">Önyükleme sürüm 4.2.1</span><span class="sxs-lookup"><span data-stu-id="9b6e8-385">Bootstrap version 4.2.1</span></span>
+
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/bootstrap.js
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/bootstrap.min.js
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/bootstrap.bundle.js
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/css/bootstrap.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/css/bootstrap.css.map
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/css/bootstrap.min.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/css/bootstrap-grid.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/css/bootstrap-grid.min.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/css/bootstrap-grid.css.map
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/css/bootstrap-reboot.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/css/bootstrap-reboot.min.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/4.2.1/css/bootstrap-reboot.css.map
+
+#### <a name="bootstrap-version-411"></a><span data-ttu-id="9b6e8-386">Önyükleme sürüm 4.1.1</span><span class="sxs-lookup"><span data-stu-id="9b6e8-386">Bootstrap version 4.1.1</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/bootstrap/4.1.1/bootstrap.js
 - https://ajax.aspnetcdn.com/ajax/bootstrap/4.1.1/bootstrap.min.js
@@ -812,7 +827,7 @@ ms.locfileid: "54249587"
 - https://ajax.aspnetcdn.com/ajax/bootstrap/4.1.1/css/bootstrap-reboot.min.css
 - https://ajax.aspnetcdn.com/ajax/bootstrap/4.1.1/css/bootstrap-reboot.css.map
 
-#### <a name="bootstrap-version-400"></a><span data-ttu-id="f0901-386">Önyükleme sürüm 4.0.0</span><span class="sxs-lookup"><span data-stu-id="f0901-386">Bootstrap version 4.0.0</span></span>
+#### <a name="bootstrap-version-400"></a><span data-ttu-id="9b6e8-387">Önyükleme sürüm 4.0.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-387">Bootstrap version 4.0.0</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/bootstrap.js
 - https://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/bootstrap.min.js
@@ -827,7 +842,23 @@ ms.locfileid: "54249587"
 - https://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/css/bootstrap-reboot.min.css
 - https://ajax.aspnetcdn.com/ajax/bootstrap/4.0.0/css/bootstrap-reboot.css.map
 
-#### <a name="bootstrap-version-337"></a><span data-ttu-id="f0901-387">Önyükleme sürüm 3.3.7</span><span class="sxs-lookup"><span data-stu-id="f0901-387">Bootstrap version 3.3.7</span></span>
+#### <a name="bootstrap-version-340"></a><span data-ttu-id="9b6e8-388">Önyükleme sürüm 3.4.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-388">Bootstrap version 3.4.0</span></span>
+
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/bootstrap.js
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/bootstrap.min.js
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/css/bootstrap.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/css/bootstrap.css.map
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/css/bootstrap.min.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/css/bootstrap-theme.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/css/bootstrap-theme.css.map
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/css/bootstrap-theme.min.css
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/fonts/glyphicons-halflings-regular.eot
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/fonts/glyphicons-halflings-regular.svg
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/fonts/glyphicons-halflings-regular.ttf
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/fonts/glyphicons-halflings-regular.woff
+- https://ajax.aspnetcdn.com/ajax/bootstrap/3.4.0/fonts/glyphicons-halflings-regular.woff2
+
+#### <a name="bootstrap-version-337"></a><span data-ttu-id="9b6e8-389">Önyükleme sürüm 3.3.7</span><span class="sxs-lookup"><span data-stu-id="9b6e8-389">Bootstrap version 3.3.7</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.js
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js
@@ -843,7 +874,7 @@ ms.locfileid: "54249587"
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/fonts/glyphicons-halflings-regular.woff
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/fonts/glyphicons-halflings-regular.woff2
 
-#### <a name="bootstrap-version-336"></a><span data-ttu-id="f0901-388">Önyükleme sürüm 3.3.6</span><span class="sxs-lookup"><span data-stu-id="f0901-388">Bootstrap version 3.3.6</span></span>
+#### <a name="bootstrap-version-336"></a><span data-ttu-id="9b6e8-390">Önyükleme sürüm 3.3.6</span><span class="sxs-lookup"><span data-stu-id="9b6e8-390">Bootstrap version 3.3.6</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/bootstrap.js
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/bootstrap.min.js
@@ -859,7 +890,7 @@ ms.locfileid: "54249587"
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.woff
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/fonts/glyphicons-halflings-regular.woff2
 
-#### <a name="bootstrap-version-335"></a><span data-ttu-id="f0901-389">Önyükleme sürüm 3.3.5</span><span class="sxs-lookup"><span data-stu-id="f0901-389">Bootstrap version 3.3.5</span></span>
+#### <a name="bootstrap-version-335"></a><span data-ttu-id="9b6e8-391">Önyükleme sürüm 3.3.5</span><span class="sxs-lookup"><span data-stu-id="9b6e8-391">Bootstrap version 3.3.5</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/bootstrap.js
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/bootstrap.min.js
@@ -875,7 +906,7 @@ ms.locfileid: "54249587"
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/fonts/glyphicons-halflings-regular.woff
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/fonts/glyphicons-halflings-regular.woff2
 
-#### <a name="bootstrap-version-334"></a><span data-ttu-id="f0901-390">Önyükleme sürüm 3.3.4</span><span class="sxs-lookup"><span data-stu-id="f0901-390">Bootstrap version 3.3.4</span></span>
+#### <a name="bootstrap-version-334"></a><span data-ttu-id="9b6e8-392">Önyükleme sürüm 3.3.4</span><span class="sxs-lookup"><span data-stu-id="9b6e8-392">Bootstrap version 3.3.4</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.4/bootstrap.js
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.4/bootstrap.min.js
@@ -891,7 +922,7 @@ ms.locfileid: "54249587"
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.4/fonts/glyphicons-halflings-regular.woff
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.4/fonts/glyphicons-halflings-regular.woff2
 
-#### <a name="bootstrap-version-332"></a><span data-ttu-id="f0901-391">3.3.2 önyükleme sürümü</span><span class="sxs-lookup"><span data-stu-id="f0901-391">Bootstrap version 3.3.2</span></span>
+#### <a name="bootstrap-version-332"></a><span data-ttu-id="9b6e8-393">3.3.2 önyükleme sürümü</span><span class="sxs-lookup"><span data-stu-id="9b6e8-393">Bootstrap version 3.3.2</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.js
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js
@@ -907,7 +938,7 @@ ms.locfileid: "54249587"
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/fonts/glyphicons-halflings-regular.woff
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/fonts/glyphicons-halflings-regular.woff2
 
-#### <a name="bootstrap-version-331"></a><span data-ttu-id="f0901-392">Önyükleme sürüm 3.3.1</span><span class="sxs-lookup"><span data-stu-id="f0901-392">Bootstrap version 3.3.1</span></span>
+#### <a name="bootstrap-version-331"></a><span data-ttu-id="9b6e8-394">Önyükleme sürüm 3.3.1</span><span class="sxs-lookup"><span data-stu-id="9b6e8-394">Bootstrap version 3.3.1</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.1/bootstrap.js
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.1/bootstrap.min.js
@@ -922,7 +953,7 @@ ms.locfileid: "54249587"
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.1/fonts/glyphicons-halflings-regular.ttf
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.1/fonts/glyphicons-halflings-regular.woff
 
-#### <a name="bootstrap-version-330"></a><span data-ttu-id="f0901-393">Önyükleme sürüm 3.3.0</span><span class="sxs-lookup"><span data-stu-id="f0901-393">Bootstrap version 3.3.0</span></span>
+#### <a name="bootstrap-version-330"></a><span data-ttu-id="9b6e8-395">Önyükleme sürüm 3.3.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-395">Bootstrap version 3.3.0</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.0/bootstrap.js
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.0/bootstrap.min.js
@@ -937,7 +968,7 @@ ms.locfileid: "54249587"
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.0/fonts/glyphicons-halflings-regular.ttf
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.0/fonts/glyphicons-halflings-regular.woff
 
-#### <a name="bootstrap-version-320"></a><span data-ttu-id="f0901-394">Önyükleme sürüm 3.2.0</span><span class="sxs-lookup"><span data-stu-id="f0901-394">Bootstrap version 3.2.0</span></span>
+#### <a name="bootstrap-version-320"></a><span data-ttu-id="9b6e8-396">Önyükleme sürüm 3.2.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-396">Bootstrap version 3.2.0</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.2.0/bootstrap.js
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.2.0/bootstrap.min.js
@@ -952,7 +983,7 @@ ms.locfileid: "54249587"
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.2.0/fonts/glyphicons-halflings-regular.ttf
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.2.0/fonts/glyphicons-halflings-regular.woff
 
-#### <a name="bootstrap-version-311"></a><span data-ttu-id="f0901-395">3.1.1 önyükleme sürümü</span><span class="sxs-lookup"><span data-stu-id="f0901-395">Bootstrap version 3.1.1</span></span>
+#### <a name="bootstrap-version-311"></a><span data-ttu-id="9b6e8-397">3.1.1 önyükleme sürümü</span><span class="sxs-lookup"><span data-stu-id="9b6e8-397">Bootstrap version 3.1.1</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.1.1/bootstrap.js
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.1.1/bootstrap.min.js
@@ -967,7 +998,7 @@ ms.locfileid: "54249587"
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.1.1/fonts/glyphicons-halflings-regular.ttf
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.1.1/fonts/glyphicons-halflings-regular.woff
 
-#### <a name="bootstrap-version-310"></a><span data-ttu-id="f0901-396">Önyükleme sürüm 3.1.0</span><span class="sxs-lookup"><span data-stu-id="f0901-396">Bootstrap version 3.1.0</span></span>
+#### <a name="bootstrap-version-310"></a><span data-ttu-id="9b6e8-398">Önyükleme sürüm 3.1.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-398">Bootstrap version 3.1.0</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.1.0/bootstrap.js
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.1.0/bootstrap.min.js
@@ -982,7 +1013,7 @@ ms.locfileid: "54249587"
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.1.0/fonts/glyphicons-halflings-regular.ttf
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.1.0/fonts/glyphicons-halflings-regular.woff
 
-#### <a name="bootstrap-version-303"></a><span data-ttu-id="f0901-397">Önyükleme sürüm 3.0.3</span><span class="sxs-lookup"><span data-stu-id="f0901-397">Bootstrap version 3.0.3</span></span>
+#### <a name="bootstrap-version-303"></a><span data-ttu-id="9b6e8-399">Önyükleme sürüm 3.0.3</span><span class="sxs-lookup"><span data-stu-id="9b6e8-399">Bootstrap version 3.0.3</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.0.3/bootstrap.js
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.0.3/bootstrap.min.js
@@ -995,7 +1026,7 @@ ms.locfileid: "54249587"
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.0.3/fonts/glyphicons-halflings-regular.ttf
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.0.3/fonts/glyphicons-halflings-regular.woff
 
-#### <a name="bootstrap-version-302"></a><span data-ttu-id="f0901-398">Önyükleme sürüm 3.0.2</span><span class="sxs-lookup"><span data-stu-id="f0901-398">Bootstrap version 3.0.2</span></span>
+#### <a name="bootstrap-version-302"></a><span data-ttu-id="9b6e8-400">Önyükleme sürüm 3.0.2</span><span class="sxs-lookup"><span data-stu-id="9b6e8-400">Bootstrap version 3.0.2</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.0.2/bootstrap.js
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.0.2/bootstrap.min.js
@@ -1008,7 +1039,7 @@ ms.locfileid: "54249587"
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.0.2/fonts/glyphicons-halflings-regular.ttf
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.0.2/fonts/glyphicons-halflings-regular.woff
 
-#### <a name="bootstrap-version-301"></a><span data-ttu-id="f0901-399">Önyükleme 3.0.1 sürümü</span><span class="sxs-lookup"><span data-stu-id="f0901-399">Bootstrap version 3.0.1</span></span>
+#### <a name="bootstrap-version-301"></a><span data-ttu-id="9b6e8-401">Önyükleme 3.0.1 sürümü</span><span class="sxs-lookup"><span data-stu-id="9b6e8-401">Bootstrap version 3.0.1</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.0.1/bootstrap.js
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.0.1/bootstrap.min.js
@@ -1021,7 +1052,7 @@ ms.locfileid: "54249587"
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.0.1/fonts/glyphicons-halflings-regular.ttf
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.0.1/fonts/glyphicons-halflings-regular.woff
 
-#### <a name="bootstrap-version-300"></a><span data-ttu-id="f0901-400">Önyükleme sürüm 3.0.0</span><span class="sxs-lookup"><span data-stu-id="f0901-400">Bootstrap version 3.0.0</span></span>
+#### <a name="bootstrap-version-300"></a><span data-ttu-id="9b6e8-402">Önyükleme sürüm 3.0.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-402">Bootstrap version 3.0.0</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.0.0/bootstrap.js
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.0.0/bootstrap.min.js
@@ -1034,7 +1065,7 @@ ms.locfileid: "54249587"
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.0.0/fonts/glyphicons-halflings-regular.ttf
 - https://ajax.aspnetcdn.com/ajax/bootstrap/3.0.0/fonts/glyphicons-halflings-regular.woff
 
-#### <a name="bootstrap-version-232"></a><span data-ttu-id="f0901-401">Önyükleme sürüm 2.3.2</span><span class="sxs-lookup"><span data-stu-id="f0901-401">Bootstrap version 2.3.2</span></span>
+#### <a name="bootstrap-version-232"></a><span data-ttu-id="9b6e8-403">Önyükleme sürüm 2.3.2</span><span class="sxs-lookup"><span data-stu-id="9b6e8-403">Bootstrap version 2.3.2</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/bootstrap/2.3.2/bootstrap.js
 - https://ajax.aspnetcdn.com/ajax/bootstrap/2.3.2/bootstrap.min.js
@@ -1045,7 +1076,7 @@ ms.locfileid: "54249587"
 - https://ajax.aspnetcdn.com/ajax/bootstrap/2.3.2/img/glyphicons-halflings.png
 - https://ajax.aspnetcdn.com/ajax/bootstrap/2.3.2/img/glyphicons-halflings-white.png
 
-#### <a name="bootstrap-version-231"></a><span data-ttu-id="f0901-402">Önyükleme sürüm 2.3.1</span><span class="sxs-lookup"><span data-stu-id="f0901-402">Bootstrap version 2.3.1</span></span>
+#### <a name="bootstrap-version-231"></a><span data-ttu-id="9b6e8-404">Önyükleme sürüm 2.3.1</span><span class="sxs-lookup"><span data-stu-id="9b6e8-404">Bootstrap version 2.3.1</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/bootstrap/2.3.1/bootstrap.js
 - https://ajax.aspnetcdn.com/ajax/bootstrap/2.3.1/bootstrap.min.js
@@ -1058,22 +1089,22 @@ ms.locfileid: "54249587"
 
 <a id="BootstrapTouchCarousel_Releases_on_the_CDN_18"></a>
 
-### <a name="bootstrap-touchcarousel-releases-on-the-cdn"></a><span data-ttu-id="f0901-403">Önyükleme TouchCarousel yayınlar CDN hakkında</span><span class="sxs-lookup"><span data-stu-id="f0901-403">Bootstrap TouchCarousel Releases on the CDN</span></span>
+### <a name="bootstrap-touchcarousel-releases-on-the-cdn"></a><span data-ttu-id="9b6e8-405">Önyükleme TouchCarousel yayınlar CDN hakkında</span><span class="sxs-lookup"><span data-stu-id="9b6e8-405">Bootstrap TouchCarousel Releases on the CDN</span></span>
 
-<span data-ttu-id="f0901-404">Aşağıdaki sürümleri [https://github.com/ixisio/bootstrap-touch-carousel](https://github.com/ixisio/bootstrap-touch-carousel "https://github.com/ixisio/bootstrap-touch-carousel") önyükleme TouchCarousel yayınlar CDN'de barındırılan:</span><span class="sxs-lookup"><span data-stu-id="f0901-404">The following releases of [https://github.com/ixisio/bootstrap-touch-carousel](https://github.com/ixisio/bootstrap-touch-carousel "https://github.com/ixisio/bootstrap-touch-carousel") Bootstrap TouchCarousel releases are hosted on the CDN:</span></span>
+<span data-ttu-id="9b6e8-406">Aşağıdaki sürümleri [https://github.com/ixisio/bootstrap-touch-carousel](https://github.com/ixisio/bootstrap-touch-carousel "https://github.com/ixisio/bootstrap-touch-carousel") önyükleme TouchCarousel yayınlar CDN'de barındırılan:</span><span class="sxs-lookup"><span data-stu-id="9b6e8-406">The following releases of [https://github.com/ixisio/bootstrap-touch-carousel](https://github.com/ixisio/bootstrap-touch-carousel "https://github.com/ixisio/bootstrap-touch-carousel") Bootstrap TouchCarousel releases are hosted on the CDN:</span></span>
 
-#### <a name="bootstrap-touchcarousel-version-080"></a><span data-ttu-id="f0901-405">Önyükleme TouchCarousel 0.8.0 sürümü</span><span class="sxs-lookup"><span data-stu-id="f0901-405">Bootstrap TouchCarousel version 0.8.0</span></span>
+#### <a name="bootstrap-touchcarousel-version-080"></a><span data-ttu-id="9b6e8-407">Önyükleme TouchCarousel 0.8.0 sürümü</span><span class="sxs-lookup"><span data-stu-id="9b6e8-407">Bootstrap TouchCarousel version 0.8.0</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/bootstrap-touch-carousel/0.8.0/css/bootstrap-touch-carousel.css
 - https://ajax.aspnetcdn.com/ajax/bootstrap-touch-carousel/0.8.0/js/bootstrap-touch-carousel.js
 
 <a id="Hammerjs_Releases_on_the_CDN_19"></a>
 
-### <a name="hammerjs-releases-on-the-cdn"></a><span data-ttu-id="f0901-406">CDN üzerinde Hammer.js yayınlar</span><span class="sxs-lookup"><span data-stu-id="f0901-406">Hammer.js Releases on the CDN</span></span>
+### <a name="hammerjs-releases-on-the-cdn"></a><span data-ttu-id="9b6e8-408">CDN üzerinde Hammer.js yayınlar</span><span class="sxs-lookup"><span data-stu-id="9b6e8-408">Hammer.js Releases on the CDN</span></span>
 
-<span data-ttu-id="f0901-407">Aşağıdaki sürümleri [http://hammerjs.github.io/](http://hammerjs.github.io/ "http://hammerjs.github.io/") Hammer.js yayınlar CDN'de barındırılan:</span><span class="sxs-lookup"><span data-stu-id="f0901-407">The following releases of [http://hammerjs.github.io/](http://hammerjs.github.io/ "http://hammerjs.github.io/") Hammer.js releases are hosted on the CDN:</span></span>
+<span data-ttu-id="9b6e8-409">Aşağıdaki sürümleri [http://hammerjs.github.io/](http://hammerjs.github.io/ "http://hammerjs.github.io/") Hammer.js yayınlar CDN'de barındırılan:</span><span class="sxs-lookup"><span data-stu-id="9b6e8-409">The following releases of [http://hammerjs.github.io/](http://hammerjs.github.io/ "http://hammerjs.github.io/") Hammer.js releases are hosted on the CDN:</span></span>
 
-#### <a name="hammerjs-version-204"></a><span data-ttu-id="f0901-408">2.0.4 Hammer.js sürümü</span><span class="sxs-lookup"><span data-stu-id="f0901-408">Hammer.js version 2.0.4</span></span>
+#### <a name="hammerjs-version-204"></a><span data-ttu-id="9b6e8-410">2.0.4 Hammer.js sürümü</span><span class="sxs-lookup"><span data-stu-id="9b6e8-410">Hammer.js version 2.0.4</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/hammer.js/2.0.4/hammer.js
 - https://ajax.aspnetcdn.com/ajax/hammer.js/2.0.4/hammer.min.js
@@ -1081,41 +1112,41 @@ ms.locfileid: "54249587"
 
 <a id="ASPNET_Web_Forms_and_Ajax_Releases_on_the_CDN_15"></a>
 
-### <a name="aspnet-web-forms-and-ajax-releases-on-the-cdn"></a><span data-ttu-id="f0901-409">ASP.NET Web Forms ve Ajax yayınlar CDN hakkında</span><span class="sxs-lookup"><span data-stu-id="f0901-409">ASP.NET Web Forms and Ajax Releases on the CDN</span></span>
+### <a name="aspnet-web-forms-and-ajax-releases-on-the-cdn"></a><span data-ttu-id="9b6e8-411">ASP.NET Web Forms ve Ajax yayınlar CDN hakkında</span><span class="sxs-lookup"><span data-stu-id="9b6e8-411">ASP.NET Web Forms and Ajax Releases on the CDN</span></span>
 
-<span data-ttu-id="f0901-410">ASP.NET Ajax Kitaplığı'nın aşağıdaki sürümleri, CDN'de barındırılan.</span><span class="sxs-lookup"><span data-stu-id="f0901-410">The following releases of the ASP.NET Ajax Library are hosted on the CDN.</span></span> <span data-ttu-id="f0901-411">Dosyaların gerçek listesini görmek için her bir bağlantıya tıklayın.</span><span class="sxs-lookup"><span data-stu-id="f0901-411">Click each link to see the actual list of files.</span></span>
+<span data-ttu-id="9b6e8-412">ASP.NET Ajax Kitaplığı'nın aşağıdaki sürümleri, CDN'de barındırılan.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-412">The following releases of the ASP.NET Ajax Library are hosted on the CDN.</span></span> <span data-ttu-id="9b6e8-413">Dosyaların gerçek listesini görmek için her bir bağlantıya tıklayın.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-413">Click each link to see the actual list of files.</span></span>
 
-- [<span data-ttu-id="f0901-412">ASP.NET Web Forms ve Ajax sürüm 4.5.2</span><span class="sxs-lookup"><span data-stu-id="f0901-412">ASP.NET Web Forms and Ajax version 4.5.2</span></span>](cdnajax452.md "ASP.NET Web Forms ve Ajax 4.5.2")
-- [<span data-ttu-id="f0901-413">ASP.NET Web Forms ve Ajax sürüm 4</span><span class="sxs-lookup"><span data-stu-id="f0901-413">ASP.NET Web Forms and Ajax version 4</span></span>](cdnajax4.md "ASP.NET Web Forms ve Ajax 4")
-- [<span data-ttu-id="f0901-414">ASP.NET Ajax sürüm 3.5</span><span class="sxs-lookup"><span data-stu-id="f0901-414">ASP.NET Ajax version 3.5</span></span>](cdnajax35.md "ASP.NET Ajax 3.5")
+- [<span data-ttu-id="9b6e8-414">ASP.NET Web Forms ve Ajax sürüm 4.5.2</span><span class="sxs-lookup"><span data-stu-id="9b6e8-414">ASP.NET Web Forms and Ajax version 4.5.2</span></span>](cdnajax452.md "ASP.NET Web Forms ve Ajax 4.5.2")
+- [<span data-ttu-id="9b6e8-415">ASP.NET Web Forms ve Ajax sürüm 4</span><span class="sxs-lookup"><span data-stu-id="9b6e8-415">ASP.NET Web Forms and Ajax version 4</span></span>](cdnajax4.md "ASP.NET Web Forms ve Ajax 4")
+- [<span data-ttu-id="9b6e8-416">ASP.NET Ajax sürüm 3.5</span><span class="sxs-lookup"><span data-stu-id="9b6e8-416">ASP.NET Ajax version 3.5</span></span>](cdnajax35.md "ASP.NET Ajax 3.5")
 
 <a id="ASPNET_MVC_Releases_on_the_CDN_16"></a>
 
-### <a name="aspnet-mvc-releases-on-the-cdn"></a><span data-ttu-id="f0901-415">ASP.NET MVC CDN'de serbest bırakır.</span><span class="sxs-lookup"><span data-stu-id="f0901-415">ASP.NET MVC Releases on the CDN</span></span>
+### <a name="aspnet-mvc-releases-on-the-cdn"></a><span data-ttu-id="9b6e8-417">ASP.NET MVC CDN'de serbest bırakır.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-417">ASP.NET MVC Releases on the CDN</span></span>
 
-<span data-ttu-id="f0901-416">Aşağıdaki ASP.NET MVC JavaScript dosyaları üzerinde bu CDN barındırılır:</span><span class="sxs-lookup"><span data-stu-id="f0901-416">The following ASP.NET MVC JavaScript files are hosted on this CDN:</span></span>
+<span data-ttu-id="9b6e8-418">Aşağıdaki ASP.NET MVC JavaScript dosyaları üzerinde bu CDN barındırılır:</span><span class="sxs-lookup"><span data-stu-id="9b6e8-418">The following ASP.NET MVC JavaScript files are hosted on this CDN:</span></span>
 
-#### <a name="aspnet-mvc-523"></a><span data-ttu-id="f0901-417">ASP.NET MVC 5.2.3</span><span class="sxs-lookup"><span data-stu-id="f0901-417">ASP.NET MVC 5.2.3</span></span>
+#### <a name="aspnet-mvc-523"></a><span data-ttu-id="9b6e8-419">ASP.NET MVC 5.2.3</span><span class="sxs-lookup"><span data-stu-id="9b6e8-419">ASP.NET MVC 5.2.3</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/mvc/5.2.3/jquery.validate.unobtrusive.js
 - https://ajax.aspnetcdn.com/ajax/mvc/5.2.3/jquery.validate.unobtrusive.min.js
 
-#### <a name="aspnet-mvc-51"></a><span data-ttu-id="f0901-418">ASP.NET MVC 5.1</span><span class="sxs-lookup"><span data-stu-id="f0901-418">ASP.NET MVC 5.1</span></span>
+#### <a name="aspnet-mvc-51"></a><span data-ttu-id="9b6e8-420">ASP.NET MVC 5.1</span><span class="sxs-lookup"><span data-stu-id="9b6e8-420">ASP.NET MVC 5.1</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/mvc/5.1/jquery.validate.unobtrusive.js
 - https://ajax.aspnetcdn.com/ajax/mvc/5.1/jquery.validate.unobtrusive.min.js
 
-#### <a name="aspnet-mvc-50"></a><span data-ttu-id="f0901-419">ASP.NET MVC 5.0</span><span class="sxs-lookup"><span data-stu-id="f0901-419">ASP.NET MVC 5.0</span></span>
+#### <a name="aspnet-mvc-50"></a><span data-ttu-id="9b6e8-421">ASP.NET MVC 5.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-421">ASP.NET MVC 5.0</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/mvc/5.0/jquery.validate.unobtrusive.js
 - https://ajax.aspnetcdn.com/ajax/mvc/5.0/jquery.validate.unobtrusive.min.js
 
-#### <a name="aspnet-mvc-40"></a><span data-ttu-id="f0901-420">ASP.NET MVC 4.0</span><span class="sxs-lookup"><span data-stu-id="f0901-420">ASP.NET MVC 4.0</span></span>
+#### <a name="aspnet-mvc-40"></a><span data-ttu-id="9b6e8-422">ASP.NET MVC 4.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-422">ASP.NET MVC 4.0</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/mvc/4.0/jquery.validate.unobtrusive.js
 - https://ajax.aspnetcdn.com/ajax/mvc/4.0/jquery.validate.unobtrusive.min.js
 
-#### <a name="aspnet-mvc-30"></a><span data-ttu-id="f0901-421">ASP.NET MVC 3.0</span><span class="sxs-lookup"><span data-stu-id="f0901-421">ASP.NET MVC 3.0</span></span>
+#### <a name="aspnet-mvc-30"></a><span data-ttu-id="9b6e8-423">ASP.NET MVC 3.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-423">ASP.NET MVC 3.0</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/mvc/3.0/jquery.unobtrusive-ajax.js
 - https://ajax.aspnetcdn.com/ajax/mvc/3.0/jquery.unobtrusive-ajax.min.js
@@ -1128,85 +1159,85 @@ ms.locfileid: "54249587"
 - https://ajax.aspnetcdn.com/ajax/mvc/3.0/MicrosoftMvcAjax.js
 - https://ajax.aspnetcdn.com/ajax/mvc/3.0/MicrosoftMvcAjax.debug.js
 
-#### <a name="aspnet-mvc-20"></a><span data-ttu-id="f0901-422">ASP.NET MVC 2.0</span><span class="sxs-lookup"><span data-stu-id="f0901-422">ASP.NET MVC 2.0</span></span>
+#### <a name="aspnet-mvc-20"></a><span data-ttu-id="9b6e8-424">ASP.NET MVC 2.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-424">ASP.NET MVC 2.0</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/mvc/2.0/MicrosoftMvcAjax.js
 - https://ajax.aspnetcdn.com/ajax/mvc/2.0/MicrosoftMvcAjax.debug.js
 
-#### <a name="aspnet-mvc-10"></a><span data-ttu-id="f0901-423">ASP.NET MVC 1.0</span><span class="sxs-lookup"><span data-stu-id="f0901-423">ASP.NET MVC 1.0</span></span>
+#### <a name="aspnet-mvc-10"></a><span data-ttu-id="9b6e8-425">ASP.NET MVC 1.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-425">ASP.NET MVC 1.0</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/mvc/1.0/MicrosoftMvcAjax.js
 - https://ajax.aspnetcdn.com/ajax/mvc/1.0/MicrosoftMvcAjax.debug.js
 
 <a id="ASPNET_SignalR_Releases_on_the_CDN_17"></a>
 
-### <a name="aspnet-signalr-releases-on-the-cdn"></a><span data-ttu-id="f0901-424">ASP.NET SignalR CDN'de serbest bırakır.</span><span class="sxs-lookup"><span data-stu-id="f0901-424">ASP.NET SignalR Releases on the CDN</span></span>
+### <a name="aspnet-signalr-releases-on-the-cdn"></a><span data-ttu-id="9b6e8-426">ASP.NET SignalR CDN'de serbest bırakır.</span><span class="sxs-lookup"><span data-stu-id="9b6e8-426">ASP.NET SignalR Releases on the CDN</span></span>
 
-<span data-ttu-id="f0901-425">Aşağıdaki ASP.NET SignalR JavaScript dosyaları üzerinde bu CDN barındırılır:</span><span class="sxs-lookup"><span data-stu-id="f0901-425">The following ASP.NET SignalR JavaScript files are hosted on this CDN:</span></span>
+<span data-ttu-id="9b6e8-427">Aşağıdaki ASP.NET SignalR JavaScript dosyaları üzerinde bu CDN barındırılır:</span><span class="sxs-lookup"><span data-stu-id="9b6e8-427">The following ASP.NET SignalR JavaScript files are hosted on this CDN:</span></span>
 
-#### <a name="aspnet-signalr-222"></a><span data-ttu-id="f0901-426">ASP.NET SignalR 2.2.2</span><span class="sxs-lookup"><span data-stu-id="f0901-426">ASP.NET SignalR 2.2.2</span></span>
+#### <a name="aspnet-signalr-222"></a><span data-ttu-id="9b6e8-428">ASP.NET SignalR 2.2.2</span><span class="sxs-lookup"><span data-stu-id="9b6e8-428">ASP.NET SignalR 2.2.2</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-2.2.2.min.js
 - https://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-2.2.2.js
 
-#### <a name="aspnet-signalr-221"></a><span data-ttu-id="f0901-427">ASP.NET SignalR 2.2.1</span><span class="sxs-lookup"><span data-stu-id="f0901-427">ASP.NET SignalR 2.2.1</span></span>
+#### <a name="aspnet-signalr-221"></a><span data-ttu-id="9b6e8-429">ASP.NET SignalR 2.2.1</span><span class="sxs-lookup"><span data-stu-id="9b6e8-429">ASP.NET SignalR 2.2.1</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-2.2.1.min.js
 - https://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-2.2.1.js
 
-#### <a name="aspnet-signalr-220"></a><span data-ttu-id="f0901-428">ASP.NET SignalR 2.2.0</span><span class="sxs-lookup"><span data-stu-id="f0901-428">ASP.NET SignalR 2.2.0</span></span>
+#### <a name="aspnet-signalr-220"></a><span data-ttu-id="9b6e8-430">ASP.NET SignalR 2.2.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-430">ASP.NET SignalR 2.2.0</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-2.2.0.min.js
 - https://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-2.2.0.js
 
-#### <a name="aspnet-signalr-210"></a><span data-ttu-id="f0901-429">ASP.NET SignalR 2.1.0</span><span class="sxs-lookup"><span data-stu-id="f0901-429">ASP.NET SignalR 2.1.0</span></span>
+#### <a name="aspnet-signalr-210"></a><span data-ttu-id="9b6e8-431">ASP.NET SignalR 2.1.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-431">ASP.NET SignalR 2.1.0</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-2.1.0.min.js
 - https://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-2.1.0.js
 
-#### <a name="aspnet-signalr-203"></a><span data-ttu-id="f0901-430">ASP.NET SignalR 2.0.3</span><span class="sxs-lookup"><span data-stu-id="f0901-430">ASP.NET SignalR 2.0.3</span></span>
+#### <a name="aspnet-signalr-203"></a><span data-ttu-id="9b6e8-432">ASP.NET SignalR 2.0.3</span><span class="sxs-lookup"><span data-stu-id="9b6e8-432">ASP.NET SignalR 2.0.3</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-2.0.3.min.js
 - https://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-2.0.3.js
 
-#### <a name="aspnet-signalr-202"></a><span data-ttu-id="f0901-431">ASP.NET SignalR 2.0.2</span><span class="sxs-lookup"><span data-stu-id="f0901-431">ASP.NET SignalR 2.0.2</span></span>
+#### <a name="aspnet-signalr-202"></a><span data-ttu-id="9b6e8-433">ASP.NET SignalR 2.0.2</span><span class="sxs-lookup"><span data-stu-id="9b6e8-433">ASP.NET SignalR 2.0.2</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-2.0.2.min.js
 - https://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-2.0.2.js
 
-#### <a name="aspnet-signalr-201"></a><span data-ttu-id="f0901-432">ASP.NET SignalR 2.0.1</span><span class="sxs-lookup"><span data-stu-id="f0901-432">ASP.NET SignalR 2.0.1</span></span>
+#### <a name="aspnet-signalr-201"></a><span data-ttu-id="9b6e8-434">ASP.NET SignalR 2.0.1</span><span class="sxs-lookup"><span data-stu-id="9b6e8-434">ASP.NET SignalR 2.0.1</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-2.0.1.min.js
 - https://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-2.0.1.js
 
-#### <a name="aspnet-signalr-200"></a><span data-ttu-id="f0901-433">ASP.NET SignalR 2.0.0</span><span class="sxs-lookup"><span data-stu-id="f0901-433">ASP.NET SignalR 2.0.0</span></span>
+#### <a name="aspnet-signalr-200"></a><span data-ttu-id="9b6e8-435">ASP.NET SignalR 2.0.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-435">ASP.NET SignalR 2.0.0</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-2.0.0.min.js
 - https://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-2.0.0.js
 
-#### <a name="aspnet-signalr-113"></a><span data-ttu-id="f0901-434">ASP.NET SignalR 1.1.3</span><span class="sxs-lookup"><span data-stu-id="f0901-434">ASP.NET SignalR 1.1.3</span></span>
+#### <a name="aspnet-signalr-113"></a><span data-ttu-id="9b6e8-436">ASP.NET SignalR 1.1.3</span><span class="sxs-lookup"><span data-stu-id="9b6e8-436">ASP.NET SignalR 1.1.3</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-1.1.3.min.js
 - https://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-1.1.3.js
 
-#### <a name="aspnet-signalr-112"></a><span data-ttu-id="f0901-435">ASP.NET SignalR 1.1.2</span><span class="sxs-lookup"><span data-stu-id="f0901-435">ASP.NET SignalR 1.1.2</span></span>
+#### <a name="aspnet-signalr-112"></a><span data-ttu-id="9b6e8-437">ASP.NET SignalR 1.1.2</span><span class="sxs-lookup"><span data-stu-id="9b6e8-437">ASP.NET SignalR 1.1.2</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-1.1.2.min.js
 - https://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-1.1.2.js
 
-#### <a name="aspnet-signalr-111"></a><span data-ttu-id="f0901-436">ASP.NET SignalR 1.1.1</span><span class="sxs-lookup"><span data-stu-id="f0901-436">ASP.NET SignalR 1.1.1</span></span>
+#### <a name="aspnet-signalr-111"></a><span data-ttu-id="9b6e8-438">ASP.NET SignalR 1.1.1</span><span class="sxs-lookup"><span data-stu-id="9b6e8-438">ASP.NET SignalR 1.1.1</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-1.1.1.min.js
 - https://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-1.1.1.js
 
-#### <a name="aspnet-signalr-110"></a><span data-ttu-id="f0901-437">ASP.NET SignalR 1.1.0</span><span class="sxs-lookup"><span data-stu-id="f0901-437">ASP.NET SignalR 1.1.0</span></span>
+#### <a name="aspnet-signalr-110"></a><span data-ttu-id="9b6e8-439">ASP.NET SignalR 1.1.0</span><span class="sxs-lookup"><span data-stu-id="9b6e8-439">ASP.NET SignalR 1.1.0</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-1.1.0.min.js
 - https://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-1.1.0.js
 
-#### <a name="aspnet-signalr-101"></a><span data-ttu-id="f0901-438">ASP.NET SignalR 1.0.1</span><span class="sxs-lookup"><span data-stu-id="f0901-438">ASP.NET SignalR 1.0.1</span></span>
+#### <a name="aspnet-signalr-101"></a><span data-ttu-id="9b6e8-440">ASP.NET SignalR 1.0.1</span><span class="sxs-lookup"><span data-stu-id="9b6e8-440">ASP.NET SignalR 1.0.1</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-1.0.1.min.js
 - https://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-1.0.1.js
 
-<span data-ttu-id="f0901-439">CDN kullanım koşulları hakkında daha fazla bilgi için bkz: [Microsoft Ajax CDN kullanım koşulları](https://www.asp.net/terms-of-use "Microsoft Ajax CDN kullanım koşulları").</span><span class="sxs-lookup"><span data-stu-id="f0901-439">For information about the terms of use for the CDN, see [Microsoft Ajax CDN Terms of Use](https://www.asp.net/terms-of-use "Microsoft Ajax CDN Terms of Use").</span></span>
+<span data-ttu-id="9b6e8-441">CDN kullanım koşulları hakkında daha fazla bilgi için bkz: [Microsoft Ajax CDN kullanım koşulları](https://www.asp.net/terms-of-use "Microsoft Ajax CDN kullanım koşulları").</span><span class="sxs-lookup"><span data-stu-id="9b6e8-441">For information about the terms of use for the CDN, see [Microsoft Ajax CDN Terms of Use](https://www.asp.net/terms-of-use "Microsoft Ajax CDN Terms of Use").</span></span>
