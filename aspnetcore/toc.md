@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: a3ac1ac389892681e8c122d569e6325353ed6e88
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341686"
+---
 # [ASP.NET Core belgeleri](/aspnet/#pivot=core)
 
 # Genel Bakış
@@ -251,7 +259,9 @@
 ### [CLI araçları ile yayımlama](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb)
 ### [Visual Studio ve Git ile yayımlama](xref:host-and-deploy/azure-apps/azure-continuous-deployment)
 ### [Azure Pipelines ile sürekli dağıtım](/azure/devops/pipelines/get-started-yaml)
-### [Başlatma sorunlarını giderme](xref:host-and-deploy/azure-apps/troubleshoot)
+### [ASP.NET Core Modülü](xref:host-and-deploy/aspnet-core-module)
+### [Sorun giderme](xref:host-and-deploy/azure-apps/troubleshoot)
+### [Hata başvurusu](xref:host-and-deploy/azure-iis-errors-reference)
 ## DevOps 
 ### [Genel bakış](xref:azure/devops/index)
 ### [Araçlar ve indirmeler](xref:azure/devops/tools-and-downloads)
@@ -261,10 +271,11 @@
 ### [Sonraki adımlar](xref:azure/devops/next-steps)
 ## IIS ile Windows’da barındırma
 ### [Genel bakış](xref:host-and-deploy/iis/index)
-### [IIS üzerinde sorun giderme](xref:host-and-deploy/iis/troubleshoot)
 ### [ASP.NET Core Modülü](xref:host-and-deploy/aspnet-core-module)
 ### [Visual Studio'da IIS desteği](xref:host-and-deploy/iis/development-time-iis-support)
 ### [IIS Modülleri](xref:host-and-deploy/iis/modules)
+### [Sorun giderme](xref:host-and-deploy/iis/troubleshoot)
+### [Hata başvurusu](xref:host-and-deploy/azure-iis-errors-reference)
 ## [Kestrel](xref:fundamentals/servers/kestrel)
 ## [HTTP.sys](xref:fundamentals/servers/httpsys)
 ## [Windows hizmetinde barındırma](xref:host-and-deploy/windows-service)
@@ -279,7 +290,6 @@
 ## [Bir web grubunda barındırma](xref:host-and-deploy/web-farm)
 ## [Visual Studio yayımlama profilleri](xref:host-and-deploy/visual-studio-publish-profiles)
 ## [Dizin yapısı](xref:host-and-deploy/directory-structure)
-## [Azure App Service ve IIS için hata başvurusu](xref:host-and-deploy/azure-iis-errors-reference)
 ## [Sistem durumu denetimleri](xref:host-and-deploy/health-checks)
 
 # Güvenlik ve Kimlik
@@ -390,7 +400,7 @@
 ## [Genelleştirme ve yerelleştirme](xref:fundamentals/localization)
 ## [Orchard Core ile Taşınabilir Nesne yerelleştirmesi](xref:fundamentals/portable-object-localization)
 ## [URL yeniden yazma](xref:fundamentals/url-rewriting)
-## [Dosya sağlayıcıları](xref:fundamentals/file-providers)
+## [Dosya Sağlayıcıları](xref:fundamentals/file-providers)
 ## [İstek Özellikleri](xref:fundamentals/request-features)
 ## [HttpContext’e Erişim](xref:fundamentals/httpcontext)
 ## [Belirteçleri değiştirme](xref:fundamentals/change-tokens)
@@ -420,6 +430,6 @@
 ### [HTTP modüllerinden ara yazılıma](xref:migration/http-modules)
 ## [Günlüğe kaydetme (ASP.NET Core harici)](xref:migration/logging-nonaspnetcore)
 
-# [API başvurusu](/dotnet/api/?view=aspnetcore-2.2)
+# [API başvurusu](/dotnet/api/?view=aspnetcore-2.1)
 
 # [Katkıda bulunun](https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md)
