@@ -4,14 +4,14 @@ author: tdykstra
 description: ASP.NET core'da günlüğe kaydetme çerçevesi hakkında bilgi edinin. Yerleşik günlük sağlayıcıları bulmak ve popüler üçüncü taraf sağlayıcılar hakkında daha fazla bilgi edinin.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 10/11/2018
+ms.date: 01/14/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: f7cfb3823a188f28398d59e0d009e9ddc159dc32
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 0908cc6eeaaba4006a0029ef86d3e47dcf3f9a28
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207582"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341751"
 ---
 # <a name="logging-in-aspnet-core"></a>ASP.NET core'da günlüğe kaydetme
 
@@ -272,7 +272,7 @@ Aşağıdaki kod oluşturur `Information` ve `Warning` günlükleri:
 
 Önceki kodda, ilk parametredir [oturum öğesini belirten Olay No.](#log-event-id). İkinci parametre, kalan yöntem parametreleri tarafından sağlanan bağımsız değişken değerleri yer tutucuları olan bir ileti şablonudur. Yöntem parametreleri açıklandığı [ileti şablon bölümü](#log-message-template) bu makalenin ilerleyen bölümlerinde.
 
-Günlük düzeyi yöntem adı'içeren yöntemleri (örneğin, `LogInformation` ve `LogWarning`) olan [için ILogger genişletme yöntemleri](xref:Microsoft.Extensions.Logging.LoggerExtensions). Bu yöntemleri çağırmak bir `Log` gereken yöntemini bir `LogLevel` parametresi. Çağırabilirsiniz `Log` biri bu genişletme yöntemleri, ancak söz dizimi yerine doğrudan yöntemi nispeten karmaşık. Daha fazla bilgi için <xref:Microsoft.Extensions.Logging.ILogger> ve [Günlükçü uzantılarını kaynak kodu](https://github.com/aspnet/Logging/blob/master/src/Microsoft.Extensions.Logging.Abstractions/LoggerExtensions.cs).
+Günlük düzeyi yöntem adı'içeren yöntemleri (örneğin, `LogInformation` ve `LogWarning`) olan [için ILogger genişletme yöntemleri](xref:Microsoft.Extensions.Logging.LoggerExtensions). Bu yöntemleri çağırmak bir `Log` gereken yöntemini bir `LogLevel` parametresi. Çağırabilirsiniz `Log` biri bu genişletme yöntemleri, ancak söz dizimi yerine doğrudan yöntemi nispeten karmaşık. Daha fazla bilgi için <xref:Microsoft.Extensions.Logging.ILogger> ve [Günlükçü uzantılarını kaynak kodu](https://github.com/aspnet/Extensions/blob/release/2.2/src/Logging/Logging.Abstractions/src/LoggerExtensions.cs).
 
 ASP.NET Core burada en düşük en üst derecesi sıralı aşağıdaki günlük düzeyleri tanımlar.
 
@@ -282,7 +282,7 @@ ASP.NET Core burada en düşük en üst derecesi sıralı aşağıdaki günlük 
 
 * Hata ayıklama = 1
 
-  Bilgi için geliştirme ve hata ayıklama için yararlı olabilir. Örnek: `Entering method Configure with flag set to true.` etkinleştirme `Debug` düzeyi yalnızca, yüksek hacimli günlükleri nedeniyle sorun giderme sırasında üretimde günlüğe kaydeder.
+  Bilgi için geliştirme ve hata ayıklama için yararlı olabilir. Örnek: `Entering method Configure with flag set to true.` Etkinleştirme `Debug` düzeyi yalnızca, yüksek hacimli günlükleri nedeniyle sorun giderme sırasında üretimde günlüğe kaydeder.
 
 * Bilgi = 2
 
@@ -497,7 +497,7 @@ Her bir sağlayıcı tanımlar bir *diğer* yapılandırmasında tam nitelikli t
 
 * Konsol
 * Hata ayıklama
-* Olay günlüğü
+* EventLog
 * AzureAppServices
 * TraceSource
 * EventSource
@@ -863,7 +863,7 @@ Application Insights SDK'sı, toplamak ve ASP.NET Core günlük kaydı altyapıs
 
 * [Application Insights'a genel bakış](/azure/application-insights/app-insights-overview)
 * [ASP.NET Core için Application Insights](/azure/application-insights/app-insights-asp-net-core)
-* [Applicationınsights/Microsoft-aspnetcore Wiki: günlük](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Logging).
+* [Applicationınsights/Microsoft-aspnetcore Wiki: Günlüğe kaydetme](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Logging).
 
 ::: moniker-end
 
