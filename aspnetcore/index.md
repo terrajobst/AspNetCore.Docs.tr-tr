@@ -4,14 +4,14 @@ author: rick-anderson
 description: Modern, bulut tabanlı, İnternet bağlantılı uygulamalar oluşturmaya yönelik platformlar arası, yüksek performanslı, açık kaynak bir çerçeve olan ASP.NET Core’a giriş yapın.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/16/2018
+ms.date: 01/15/2019
 uid: index
-ms.openlocfilehash: fed81090f123084f3f33e75f86d09f55ac7fb481
-ms.sourcegitcommit: a16352c1c88a71770ab3922200a8cd148fb278a6
+ms.openlocfilehash: e7c81ff82e5206a5aca217417f6cb1c339d72e89
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53335305"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54341413"
 ---
 # <a name="introduction-to-aspnet-core"></a>ASP.NET Core’a Giriş
 
@@ -97,7 +97,7 @@ Kod bölümlerini seçmeli olarak derlemek üzere [C# ön işlemci yönergelerin
 
 ### <a name="regions-in-sample-code"></a>Örnek kodda bölgeler
 
-Bazı örnek uygulamalar, [#region](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-region) ve [#end-region](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-endregion) C# deyimleri içine yerleştirilmiş kod bölümleri içerir. Belge derleme sistemi bu bölgeleri işlenmiş belge konularının içine ekler.  
+Bazı örnek uygulamalar, [#region](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-region) ve [#endregion](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-endregion) C# deyimleri içine yerleştirilmiş kod bölümleri içerir. Belge derleme sistemi bu bölgeleri işlenmiş belge konularının içine ekler.  
 
 Bölge adları çoğunlukla şu sözcüğü içerir: "snippet." Aşağıdaki örnekte `snippet_FilterInCode` adlı bir bölge gösterilir:
 
@@ -118,7 +118,7 @@ WebHost.CreateDefaultBuilder(args)
 [!code-csharp[](sample/SampleApp/Program.cs?name=snippet_FilterInCode)]
 ```
 
-Kodu çevreleyen `#region` ve `#end-region` deyimlerini rahatça yoksayabilirsiniz (veya kaldırabilirsiniz). Konuda açıklanan örnek senaryoları çalıştırmayı planlıyorsanız, bu deyimlerin anasındaki kodu değiştirmeyin. Başka senaryolarla denemeler yaparken kodu rahatça değiştirebilirsiniz.
+Kodu çevreleyen `#region` ve `#endregion` deyimlerini rahatça yoksayabilirsiniz (veya kaldırabilirsiniz). Konuda açıklanan örnek senaryoları çalıştırmayı planlıyorsanız, bu deyimlerin anasındaki kodu değiştirmeyin. Başka senaryolarla denemeler yaparken kodu rahatça değiştirebilirsiniz.
 
 Daha fazla bilgi için bkz. [ASP.NET belgelerine katkıda bulunma: Kod parçacıkları](https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md#code-snippets).
 

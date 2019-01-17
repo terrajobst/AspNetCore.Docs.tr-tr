@@ -6,10 +6,10 @@ ms.author: riande
 ms.date: 10/26/2018
 uid: mvc/views/razor
 ms.openlocfilehash: 2ec86c774e0fd26c4455829680a2b1db687b8090
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2018
+ms.lasthandoff: 01/17/2019
 ms.locfileid: "53121598"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>ASP.NET Core Razor söz dizimi başvurusu
@@ -737,7 +737,7 @@ Razor görüntüleme motorunu büyük küçük harfe duyarlı aramalar, görün�
 * Dosya tabanlı kaynağı:
   * Büyük küçük harfe duyarlı dosya sistemleri (örneğin, Windows) ile işletim sistemlerinde, fiziksel dosya sağlayıcısı aramaları büyük küçük harfe duyarlı. Örneğin, `return View("Test")` eşleşmelerini sonuçlanıyor */Views/Home/Test.cshtml*, */Views/home/test.cshtml*ve diğer büyük/küçük harf değişken.
   * Büyük küçük harfe duyarlı dosya sistemlerindeki (örneğin, Linux, OSX ile `EmbeddedFileProvider`), büyük küçük harfe duyarlı aramalar. Örneğin, `return View("Test")` özellikle eşleşen */Views/Home/Test.cshtml*.
-* Görünümleri önceden derlenmiş: ASP.NET Core 2.0 ve sonraki sürümleri, önceden derlenmiş görünümleri arama büyük/küçük harf tüm işletim sistemlerinde büyük harflere duyarlı değildir. Davranış Windows fiziksel dosya Sağlayıcısı'nın davranış aynıdır. Önceden derlenmiş iki görünüm yalnızca durumda farklıysa, arama sonucu belirleyici değildir.
+* Önceden derlenmiş görünümler: ASP.NET Core 2.0 ve daha sonra önceden derlenmiş görünümleri arama büyük/küçük harf tüm işletim sistemlerinde büyük harflere duyarlı değildir. Davranış Windows fiziksel dosya Sağlayıcısı'nın davranış aynıdır. Önceden derlenmiş iki görünüm yalnızca durumda farklıysa, arama sonucu belirleyici değildir.
 
 Geliştiriciler, dosya ve dizin adlarını büyük küçük harfleri büyük/küçük harf eşleşmesi için önerilir:
 
