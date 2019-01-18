@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/11/2019
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: a39ece169199d256b2914d6b1a6d24dbf6a276d6
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
+ms.openlocfilehash: 192e4bf8e970083cc05babcd7fb3cf52985e35bf
+ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341790"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396330"
 ---
 # <a name="aspnet-core-module"></a>ASP.NET Core Modülü
 
@@ -544,7 +544,9 @@ Barındırma Paket Yükleyici günlükleri modülü için adresten *C:\\kullanı
 
 **IIS Express**
 
-   * %ProgramFiles%\IIS Express\config\templates\PersonalWebServer\applicationHost.config
+   * Visual Studio: {Uygulama KÖKÜ}\\.vs\config\applicationHost.config
+   
+   * *iisexpress.exe* CLI: %USERPROFILE%\Documents\IISExpress\config\applicationhost.config
 
 Dosyalar için arama yaparak bulunabilir *aspnetcore* içinde *applicationHost.config* dosya.
 

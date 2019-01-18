@@ -1,114 +1,123 @@
 ---
 title: ASP.NET core'da uygulama başlatma
-author: ardalis
-description: ASP.NET core'da başlangıç sınıfı, hizmet ve uygulamaların istek işlem hattı nasıl yapılandırdığını açıklar.
+author: tdykstra
+description: ASP.NET core'da başlangıç sınıfı, hizmet ve uygulamaların istek işlem hattı nasıl yapılandırdığını öğrenmek.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 4/13/2018
+ms.date: 01/17/2019
 uid: fundamentals/startup
-ms.openlocfilehash: 2212344cb3c651714e8c520b096ab0c4eaf5a180
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 685b496943642b349321a36a7200d6d51ecf4d6e
+ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206462"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396239"
 ---
 # <a name="app-startup-in-aspnet-core"></a>ASP.NET core'da uygulama başlatma
 
-Tarafından [Steve Smith](https://ardalis.com), [Tom Dykstra](https://github.com/tdykstra), ve [Luke Latham](https://github.com/guardrex)
+Tarafından [Tom Dykstra](https://github.com/tdykstra), [Luke Latham](https://github.com/guardrex), ve [Steve Smith](https://ardalis.com)
 
 `Startup` Sınıfı, hizmetleri ve uygulamanın istek ardışık düzenini yapılandırır.
-
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/startup/sample/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample)).
 
 ## <a name="the-startup-class"></a>Başlangıç sınıfı
 
 ASP.NET Core uygulamaları kullanımı bir `Startup` adlı sınıfı `Startup` kural tarafından. `Startup` Sınıfı:
 
-* İsteğe bağlı olarak dahil edebilirsiniz bir [Createservicereplicalisteners()](/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configureservices) uygulamanın hizmetlerini yapılandırmak için yöntemi.
-* İçermelidir bir [yapılandırma](/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configure) uygulamanın istek işleme ardışık düzenini oluşturmak için yöntemi.
+* İsteğe bağlı olarak içeren bir <xref:Microsoft.AspNetCore.Hosting.StartupBase.ConfigureServices*> uygulamanın yapılandırmak için yöntem *Hizmetleri*. Uygulama işlevselliği sağlayan bir yeniden kullanılabilir bileşen hizmetidir. Hizmetleri yapılandırılmış&mdash;olarak da açıklanan *kayıtlı*&mdash;içinde `ConfigureServices` ve uygulama boyunca tüketilen [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection) veya <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder.ApplicationServices*>.
+* İçeren bir <xref:Microsoft.AspNetCore.Hosting.StartupBase.Configure*> uygulamanın istek işleme ardışık düzenini oluşturmak için yöntemi.
 
 `ConfigureServices` ve `Configure` uygulama başlatıldığında çalışma zamanı tarafından çağrılır:
 
-[!code-csharp[](startup/snapshot_sample/Startup1.cs)]
+[!code-csharp[](startup/sample_snapshot/Startup1.cs?highlight=4,10)]
 
-Belirtin `Startup` sınıfıyla [WebHostBuilderExtensions](/dotnet/api/Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions) [UseStartup&lt;TStartup&gt; ](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.usestartup#Microsoft_AspNetCore_Hosting_WebHostBuilderExtensions_UseStartup__1_Microsoft_AspNetCore_Hosting_IWebHostBuilder_) yöntemi:
+`Startup` Sınıfı, uygulamaya belirtilirse, uygulamanın [konak](xref:fundamentals/host/index) oluşturulmuştur. Konak uygulamanın ne zaman oluşturulmuştur `Build` konak Oluşturucusu'nda üzerinde çağrılır `Program` sınıfı. `Startup` Sınıf genellikle belirtilen çağırarak [WebHostBuilderExtensions.UseStartup\<TStartup >](xref:Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions.UseStartup*) konak Oluşturucu yöntemi:
 
-[!code-csharp[](../common/samples/WebApplication1DotNetCore2.0App/Program.cs?name=snippet_Main&highlight=10)]
+[!code-csharp[](startup/sample_snapshot/Program3.cs?name=snippet_Program&highlight=10)]
 
-Web ana bilgisayarı için kullanılabilen bazı hizmetleri sağlayan `Startup` sınıf oluşturucusu. Ek hizmetler aracılığıyla uygulamanın eklediği `ConfigureServices`. Hem konak hem de uygulama hizmetleri ardından kullanılabilir `Configure` ve uygulama boyunca.
+Kullanılabilir hizmet ana bilgisayarının sağladığı `Startup` sınıf oluşturucusu. Ek hizmetler aracılığıyla uygulamanın eklediği `ConfigureServices`. Hem konak hem de uygulama hizmetleri ardından kullanılabilir `Configure` ve uygulama boyunca.
 
 Yaygın [bağımlılık ekleme](xref:fundamentals/dependency-injection) içine `Startup` sınıftır eklemesine:
 
-* [IHostingEnvironment](/dotnet/api/Microsoft.AspNetCore.Hosting.IHostingEnvironment) ortamı tarafından hizmetleri yapılandırmak için.
-* [IConfiguration](/dotnet/api/microsoft.extensions.configuration.iconfiguration) yapılandırması okunamıyor.
-* [System.Diagnostics.tracesorce](/dotnet/api/microsoft.extensions.logging.iloggerfactory) bir Günlükçü içinde oluşturulacağı `Startup.ConfigureServices`.
+* <xref:Microsoft.AspNetCore.Hosting.IHostingEnvironment> ortamı tarafından hizmetleri yapılandırmak için.
+* <xref:Microsoft.Extensions.Configuration.IConfigurationBuilder> yapılandırması okunamıyor.
+* <xref:Microsoft.Extensions.Logging.ILoggerFactory> içinde bir Günlükçü oluşturmak için `Startup.ConfigureServices`.
 
-[!code-csharp[](startup/snapshot_sample/Startup2.cs)]
+[!code-csharp[](startup/sample_snapshot/Startup2.cs?highlight=7-8)]
 
 Ekleme alternatif `IHostingEnvironment` kurallarına dayalı bir yaklaşım kullanmaktır. Ne zaman uygulama tanımlar ayrı `Startup` sınıflar farklı ortamlar için (örneğin, `StartupDevelopment`), uygun `Startup` sınıfı çalışma zamanında seçilen. Geçerli ortamı olan adı sonekiyle sınıfı kurtarılmasına öncelik verilir. Uygulama geliştirme ortamında çalıştırılır ve her ikisi de içeren bir `Startup` sınıfı ve `StartupDevelopment` sınıfı `StartupDevelopment` sınıfı kullanılır. Daha fazla bilgi için [birden fazla ortam kullanayım](xref:fundamentals/environments#environment-based-startup-class-and-methods).
 
-Hakkında daha fazla bilgi edinmek için `WebHostBuilder`, bkz: [barındırma](xref:fundamentals/host/index) konu. Başlatma sırasında hataları işleme hakkında daha fazla bilgi için bkz: [başlangıç özel durum işleme](xref:fundamentals/error-handling#startup-exception-handling).
+Konak hakkında daha fazla bilgi için bkz: <xref:fundamentals/host/index>. Başlatma sırasında hataları işleme hakkında daha fazla bilgi için bkz: [başlangıç özel durum işleme](xref:fundamentals/error-handling#startup-exception-handling).
 
 ## <a name="the-configureservices-method"></a>Createservicereplicalisteners() yöntemi
 
-[Createservicereplicalisteners()](/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configureservices) yöntemdir:
+<xref:Microsoft.AspNetCore.Hosting.StartupBase.ConfigureServices*> Yöntemdir:
 
-* İsteğe Bağlı
-* Önce web ana bilgisayarı tarafından çağrılan `Configure` uygulamanın hizmetlerini yapılandırmak için yöntemi.
+* İsteğe bağlı.
+* Önce konak tarafından çağrılan `Configure` uygulamanın hizmetlerini yapılandırmak için yöntemi.
 * Burada [yapılandırma seçenekleri](xref:fundamentals/configuration/index) kurala göre ayarlanır.
 
-Tipik bir düzen tüm çağırmaktır `Add{Service}` yöntemleri ve sonra çağrı tüm `services.Configure{Service}` yöntemleri. Örneğin, [yapılandırma kimlik Hizmetleri](xref:security/authentication/identity#pw).
+Tipik bir düzen tüm çağırmaktır `Add{Service}` yöntemleri ve tüm çağrı `services.Configure{Service}` yöntemleri. Örneğin, [yapılandırma kimlik Hizmetleri](xref:security/authentication/identity#pw).
 
-Hizmet kapsayıcıya Hizmetleri ekleme kullanımınıza bunları uygulama içinde hem de `Configure` yöntemi. Hizmetleri aracılığıyla çözümlenir [bağımlılık ekleme](xref:fundamentals/dependency-injection) veya [IApplicationBuilder.ApplicationServices](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder.applicationservices).
+Bazı hizmetler önce konak yapılandırabilirsiniz `Startup` yöntemi çağrılır. Daha fazla bilgi için bkz. <xref:fundamentals/host/index>.
 
-Bazı hizmetler önce web ana bilgisayarı yapılandırabilirsiniz `Startup` yöntemi çağrılır. Ayrıntılar kullanılabilir [ASP.NET Core ana](xref:fundamentals/host/index) konu.
+Önemli kurulum gerektiren özellikler için vardır `Add{Service}` üzerinde genişletme yöntemleri <xref:Microsoft.Extensions.DependencyInjection.IServiceCollection>. Tipik bir ASP.NET Core uygulaması için Entity Framework, kimlik ve MVC Hizmetleri kaydeder:
 
-Önemli kurulum gerektiren özellikler için vardır `Add[Service]` üzerinde genişletme yöntemleri [IServiceCollection](/dotnet/api/Microsoft.Extensions.DependencyInjection.IServiceCollection). Tipik bir ASP.NET Core uygulaması için Entity Framework, kimlik ve MVC Hizmetleri kaydeder:
+[!code-csharp[](startup/sample_snapshot/Startup3.cs?highlight=4,7,11)]
 
-[!code-csharp[](../common/samples/WebApplication1/Startup.cs?highlight=4,7,11&start=40&end=55)]
+Hizmet kapsayıcıya Hizmetleri ekleme kullanımınıza bunları uygulama içinde hem de `Configure` yöntemi. Hizmetleri aracılığıyla çözümlenir [bağımlılık ekleme](xref:fundamentals/dependency-injection) veya <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder.ApplicationServices*>.
 
 ## <a name="the-configure-method"></a>Yapılandırma yöntemi
 
-[Yapılandırma](/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configure) yöntemi, uygulamanın HTTP isteklerine nasıl yanıt verdiğini belirlemek için kullanılır. İstek ardışık düzenini ekleyerek yapılandırılır [ara yazılım](xref:fundamentals/middleware/index) bileşenleri bir [IApplicationBuilder](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder) örneği. `IApplicationBuilder` kullanılabilir `Configure` yöntemi, ancak service kapsayıcısında kayıtlı değil. Barındırma oluşturur bir `IApplicationBuilder` ve doğrudan geçirir `Configure`.
+<xref:Microsoft.AspNetCore.Hosting.StartupBase.Configure*> Yöntemi, uygulamanın HTTP isteklerine nasıl yanıt verdiğini belirlemek için kullanılır. İstek ardışık düzenini ekleyerek yapılandırılır [ara yazılım](xref:fundamentals/middleware/index) bileşenleri bir <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder> örneği. `IApplicationBuilder` kullanılabilir `Configure` yöntemi, ancak service kapsayıcısında kayıtlı değil. Barındırma oluşturur bir `IApplicationBuilder` ve doğrudan geçirir `Configure`.
 
-[ASP.NET Core şablonları](/dotnet/core/tools/dotnet-new) desteğiyle bir geliştirici özel durum sayfasında, işlem hattını yapılandırmanız [BrowserLink](http://vswebessentials.com/features/browserlink), hata sayfaları, statik dosyalar ve ASP.NET Core MVC:
+[ASP.NET Core şablonları](/dotnet/core/tools/dotnet-new) desteği ile işlem hattı yapılandırın:
 
-[!code-csharp[](../common/samples/WebApplication1DotNetCore2.0App/Startup.cs?range=28-48&highlight=5,6,10,13,15)]
+* [Geliştirici özel durumu sayfası](xref:fundamentals/error-handling#the-developer-exception-page)
+* [Özel durum işleyicisi](xref:fundamentals/error-handling#configure-a-custom-exception-handling-page)
+* [HTTP katı aktarım güvenliği (HSTS)](xref:security/enforcing-ssl#http-strict-transport-security-protocol-hsts)
+* [HTTPS yeniden yönlendirmesi](xref:security/enforcing-ssl)
+* [Statik dosyalar](xref:fundamentals/static-files)
+* [Genel veri koruma yönetmeliği (GDPR)](xref:security/gdpr)
+* ASP.NET Core [MVC](xref:mvc/overview) ve [Razor sayfaları](xref:razor-pages/index)
 
-Her `Use` genişletme yöntemi, talep ardışık düzenine bir ara yazılım bileşeni ekler. Örneğin, `UseMvc` genişletme yöntemi ekler [yönlendirme ara yazılım](xref:fundamentals/routing) istek ardışık düzenine ve yapılandırır [MVC](xref:mvc/overview) varsayılan işleç olarak eşleştirir.
+[!code-csharp[](startup/sample_snapshot/Startup4.cs)]
+
+Her `Use` genişletme yöntemi, bir veya daha fazla ara yazılımı bileşenleri istek ardışık düzene ekler. Örneğin, `UseMvc` genişletme yöntemi ekler [yönlendirme ara yazılım](xref:fundamentals/routing) istek ardışık düzenine ve yapılandırır [MVC](xref:mvc/overview) varsayılan işleç olarak eşleştirir.
 
 Her ara yazılım bileşeni istek ardışık düzende, ardışık düzende sonraki bileşene çağırma veya zincir uygunsa kısa devre sorumludur. Kısa devre ara yazılım zincirinde oluşmuyorsa, her bir ara yazılım istemciye gönderilmeden önce isteği işlemek için ikinci bir şans sahiptir.
 
-Gibi ek hizmetleri `IHostingEnvironment` ve `ILoggerFactory`, Yöntem imzasında de belirtilebilir. Kullanılabilir iseler ek hizmetler belirtildiğinde, eklenmiş.
+Gibi ek hizmetleri `IHostingEnvironment` ve `ILoggerFactory`, içinde belirtilebilir `Configure` metodu imzası. Kullanılabilir iseler ek hizmetler belirtildiğinde, eklenmiş.
 
-Nasıl kullanılacağı hakkında daha fazla bilgi için `IApplicationBuilder` ve ara yazılım işlenme sırasını [ara yazılım](xref:fundamentals/middleware/index).
+Nasıl kullanılacağı hakkında daha fazla bilgi için `IApplicationBuilder` ve ara yazılım işlenme sırasını <xref:fundamentals/middleware/index>.
 
 ## <a name="convenience-methods"></a>Yöntemler
 
-[Createservicereplicalisteners()](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder.configureservices) ve [yapılandırma](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configure) kullanışlı yöntemler belirtmek yerine kullanılabileceği bir `Startup` sınıfı. Birden çok çağrılar `ConfigureServices` birbirine ekleyin. Birden çok çağrılar `Configure` son yöntem çağrısı kullanın.
+Kullanmadan, hizmetler ve istek işleme ardışık düzenini yapılandırmak için bir `Startup` sınıfı, çağrı `ConfigureServices` ve `Configure` konak oluşturucu üzerinde kullanışlı yöntemler. Birden çok çağrılar `ConfigureServices` birbirine ekleyin. Birden çok `Configure` yöntem çağrıları vardır, son `Configure` çağrısı kullanılır.
 
-[!code-csharp[](startup/snapshot_sample/Program.cs?highlight=18,22)]
+[!code-csharp[](startup/sample_snapshot/Program1.cs?highlight=18,22)]
 
 ## <a name="extend-startup-with-startup-filters"></a>Başlangıç başlangıç filtreleri ile genişletme
 
-Kullanım [IStartupFilter](/dotnet/api/microsoft.aspnetcore.hosting.istartupfilter) uygulamanın başında veya sonunda ara yazılımını yapılandırma [yapılandırma](#the-configure-method) ara yazılım ardışık düzenini. `IStartupFilter` bir ara yazılım önce veya sonra Ara yazılım tarafından kitaplıkları başında veya uygulamanın istek işleme ardışık sonuna eklenen çalıştığından emin olmak kullanışlıdır.
+Kullanım <xref:Microsoft.AspNetCore.Hosting.IStartupFilter> uygulamanın başında veya sonunda ara yazılımını yapılandırma [yapılandırma](#the-configure-method) ara yazılım ardışık düzenini. `IStartupFilter` bir ara yazılım önce veya sonra Ara yazılım tarafından kitaplıkları başında veya uygulamanın istek işleme ardışık sonuna eklenen çalıştığından emin olmak kullanışlıdır.
 
-`IStartupFilter` tek bir yöntem uygular [yapılandırma](/dotnet/api/microsoft.aspnetcore.hosting.istartupfilter.configure), alır ve döndürür bir `Action<IApplicationBuilder>`. Bir [IApplicationBuilder](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder) uygulamanın istek ardışık düzenini yapılandırmak için bir sınıf tanımlar. Daha fazla bilgi için [IApplicationBuilder ile bir ara yazılım ardışık düzenini oluşturma](xref:fundamentals/middleware/index#create-a-middleware-pipeline-with-iapplicationbuilder).
+`IStartupFilter` tek bir yöntem uygular <xref:Microsoft.AspNetCore.Hosting.StartupBase.Configure*>, alır ve döndürür bir `Action<IApplicationBuilder>`. Bir <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder> uygulamanın istek ardışık düzenini yapılandırmak için bir sınıf tanımlar. Daha fazla bilgi için [IApplicationBuilder ile bir ara yazılım ardışık düzenini oluşturma](xref:fundamentals/middleware/index#create-a-middleware-pipeline-with-iapplicationbuilder).
 
 Her `IStartupFilter` istek işlem hattı, bir veya daha fazla middlewares uygular. Filtreler, hizmet kapsayıcıya eklendikleri sırayla çağrılır. Ara yazılım önce filtreler ekleyebilir veya denetim sıradaki filtreye denetimini geçtikten sonra bu nedenle bunlar başına veya sonuna kadar uygulama ardışık ekleyin.
 
-Örnek uygulama ile bir ara yazılım kaydettirmek gösterilmektedir `IStartupFilter`. Örnek uygulama, bir ara yazılım seçenekleri değerini ayarlayan bir sorgu dizesi parametresi içerir:
+Aşağıdaki örnek bir ara yazılımla kaydettirmek gösterilmektedir `IStartupFilter`.
 
-[!code-csharp[](startup/sample/RequestSetOptionsMiddleware.cs?name=snippet1)]
+`RequestSetOptionsMiddleware` Ara yazılım, bir sorgu dizesi parametresi bir seçenek değeri ayarlar:
+
+[!code-csharp[](startup/sample_snapshot/RequestSetOptionsMiddleware.cs?name=snippet1&highlight=21)]
 
 `RequestSetOptionsMiddleware` Yapılandırılan `RequestSetOptionsStartupFilter` sınıfı:
 
-[!code-csharp[](startup/sample/RequestSetOptionsStartupFilter.cs?name=snippet1&highlight=7)]
+[!code-csharp[](startup/sample_snapshot/RequestSetOptionsStartupFilter.cs?name=snippet1&highlight=7)]
 
-`IStartupFilter` Service kapsayıcısında kayıtlı [IWebHostBuilder.ConfigureServices](xref:Microsoft.AspNetCore.Hosting.IWebHostBuilder.ConfigureServices*) nasıl başlangıç filtre artırmaktadır göstermek için `Startup` gelen dışında `Startup` sınıfı:
+`IStartupFilter` Service kapsayıcısında kayıtlı <xref:Microsoft.AspNetCore.Hosting.StartupBase.ConfigureServices*> ve artırmaktadır `Startup` gelen dışında `Startup` sınıfı:
 
-[!code-csharp[](startup/sample/Program.cs?name=snippet1&highlight=4-5)]
+[!code-csharp[](startup/sample_snapshot/Program2.cs?name=snippet1&highlight=4-5)]
 
 Bir sorgu dizesi parametresi için zaman `option` MVC ara yazılımın yanıt işlemeden önce ara değer atama işlemleri sağlanır:
 
@@ -121,7 +130,7 @@ Yürütme sırası ara yazılım tarafından sırasına göre ayarlanmış `ISta
 
 ## <a name="add-configuration-at-startup-from-an-external-assembly"></a>Yapılandırma, başlatma sırasında dış bütünleştirilmiş koddan ekleyin.
 
-Bir [Ihostingstartup](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup) uygulama sağlayan uygulamanın dışındaki dış bütünleştirilmiş koddan başlatma sırasında bir uygulama için geliştirmeler ekleme `Startup` sınıfı. Daha fazla bilgi için [dış bütünleştirilmiş koddan uygulama geliştiren](xref:fundamentals/configuration/platform-specific-configuration).
+Bir <xref:Microsoft.AspNetCore.Hosting.IHostingStartup> uygulama sağlayan uygulamanın dışındaki dış bütünleştirilmiş koddan başlatma sırasında bir uygulama için geliştirmeler ekleme `Startup` sınıfı. Daha fazla bilgi için bkz. <xref:fundamentals/configuration/platform-specific-configuration>.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

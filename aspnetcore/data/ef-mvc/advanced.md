@@ -3,14 +3,15 @@ title: -EF çekirdekli ASP.NET Core MVC Gelişmiş - 10 10
 author: rick-anderson
 description: Bu öğretici, Entity Framework Core kullanan ASP.NET Core web uygulamaları geliştirmenin temellerini ötesine geçmesini yararlı konuları tanıtır.
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: 5cdba79c0b8edd9b865bda8328c86356cbe6a0a2
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: ba3834b29e78972bf914a5cba1a2cae3cc19a315
+ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46010929"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "50090790"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---advanced---10-of-10"></a>-EF çekirdekli ASP.NET Core MVC Gelişmiş - 10 10
 
@@ -100,7 +101,7 @@ Tıklayın **listesine geri** kredi düzeltilmiş sayısı kurslarıyla listesin
 
 Üretim kodu her zaman geçerli veri sonucunda güncelleştirmelerinin sağlar unutmayın. Burada gösterilen Basitleştirilmiş kod 5'ten büyük bir sayı elde etmek yeterli kredi sayısı çarpabilirsiniz. ( `Credits` Özelliğine sahip bir `[Range(0, 5)]` özniteliği.) Güncelleştirme sorgu işe yarar, ancak geçersiz veri, kredi sayısı 5 veya daha az olduğu varsayılır diğer bölümlerinde sistemin beklenmeyen sonuçlara neden.
 
-Ham SQL sorguları hakkında daha fazla bilgi için bkz. [ham SQL sorguları](https://docs.microsoft.com/ef/core/querying/raw-sql).
+Ham SQL sorguları hakkında daha fazla bilgi için bkz. [ham SQL sorguları](/ef/core/querying/raw-sql).
 
 ## <a name="examine-sql-sent-to-the-database"></a>SQL veritabanına gönderilen inceleyin
 
@@ -176,7 +177,7 @@ Kaynak kodu açık olsa da, Entity Framework Core tam olarak bir Microsoft ürü
 
 ## <a name="reverse-engineer-from-existing-database"></a>Mevcut veritabanından ters mühendislik
 
-Varolan bir veritabanından varlık sınıfları da dahil olmak üzere bir veri modeli tersine mühendislik için kullanın [iskele dbcontext](https://docs.microsoft.com/ef/core/miscellaneous/cli/powershell#scaffold-dbcontext) komutu. Bkz: [başlangıç Öğreticisi](https://docs.microsoft.com/ef/core/get-started/aspnetcore/existing-db).
+Varolan bir veritabanından varlık sınıfları da dahil olmak üzere bir veri modeli tersine mühendislik için kullanın [iskele dbcontext](/ef/core/miscellaneous/cli/powershell#scaffold-dbcontext) komutu. Bkz: [başlangıç Öğreticisi](/ef/core/get-started/aspnetcore/existing-db).
 
 <a id="dynamic-linq"></a>
 ## <a name="use-dynamic-linq-to-simplify-sort-selection-code"></a>Sıralama seçimi kodu basitleştirmek için dinamik LINQ kullanma
@@ -189,11 +190,11 @@ Varolan bir veritabanından varlık sınıfları da dahil olmak üzere bir veri 
 
 Bu, Bu öğretici serisinde, Entity Framework Core kullanarak bir ASP.NET Core MVC uygulamasındaki tamamlar.
 
-EF Core hakkında daha fazla bilgi için bkz. [Entity Framework Core belgeleri](https://docs.microsoft.com/ef/core). Bir kitap de kullanılabilir: [Entity Framework Core uygulamada](https://www.manning.com/books/entity-framework-core-in-action).
+EF Core hakkında daha fazla bilgi için bkz. [Entity Framework Core belgeleri](/ef/core). Bir kitap de kullanılabilir: [Entity Framework Core uygulamada](https://www.manning.com/books/entity-framework-core-in-action).
 
-Bir web uygulamasının nasıl dağıtılacağı hakkında daha fazla bilgi için bkz: [konak dağıtıp](xref:host-and-deploy/index).
+Bir web uygulamasının nasıl dağıtılacağı hakkında daha fazla bilgi için bkz: <xref:host-and-deploy/index>.
 
-ASP.NET Core MVC için kimlik doğrulaması ve yetkilendirme gibi ilgili diğer konular hakkında bilgi için bkz. [ASP.NET Core belgeleri](xref:index).
+ASP.NET Core MVC için kimlik doğrulaması ve yetkilendirme gibi ilgili diğer konular hakkında bilgi için bkz. <xref:index>.
 
 ## <a name="acknowledgments"></a>İlgili kaynaklar
 
@@ -239,7 +240,7 @@ dotnet ef database drop
 
 Hata iletisi:
 
-> Bir SQL Server bağlantısı kurulurken ağla ilgili veya örneğe özel bir hata oluştu. Sunucu bulunamadı veya erişilebilir durumda değildi. Örnek adının doğru olduğundan ve SQL Server Uzak bağlantılara izin verecek şekilde yapılandırıldığını doğrulayın. (sağlayıcı: SQL ağ arabirimleri, hata: 26 - Server/örneği belirtilen hata bulma)
+> Bir SQL Server bağlantısı kurulurken ağla ilgili veya örneğe özel bir hata oluştu. Sunucu bulunamadı veya erişilebilir durumda değildi. Örnek adının doğru olduğundan ve SQL Server Uzak bağlantılara izin verecek şekilde yapılandırıldığını doğrulayın. (sağlayıcısı: SQL ağ arabirimleri, hata: 26 - Server/örneği belirtilen bulma hatası)
 
 Çözüm:
 

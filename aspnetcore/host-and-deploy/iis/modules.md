@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core uygulamaları ve IIS modüllerini yönetmek nasıl etkin ve etkin olmayan IIS modülleri keşfedin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/30/2018
+ms.date: 01/17/2019
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: c6a6cc9b6b3410267c6f5034f824648a1ebbe10f
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 8c32a668b3945f0da0194162e19e965b4aed3934
+ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862245"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396278"
 ---
 # <a name="iis-modules-with-aspnet-core"></a>ASP.NET Core içeren IIS modülleri
 
@@ -105,13 +105,13 @@ Yapılandırma ayarlarıyla modülleri devre dışı bırakma hakkında daha faz
 
 Bir ayar modülü kaldırmak için kabul edilirse, *web.config*, modülün kilidini açmak ve kilidini `<modules>` bölümünü *web.config* ilk:
 
-1. Sunucu düzeyinde modülün kilidini açın. IIS Yöneticisi'nde IIS sunucusu **bağlantıları** kenar çubuğu. Açık **modülleri** içinde **IIS** alan. Modül listesinde seçin. İçinde **eylemleri** sağ kenar seçin **kilidini**. Kilidini kaldırmak planlarken kadar modülleri *web.config* daha sonra.
+1. Sunucu düzeyinde modülün kilidini açın. IIS Yöneticisi'nde IIS sunucusu **bağlantıları** kenar çubuğu. Açık **modülleri** içinde **IIS** alan. Modül listesinde seçin. İçinde **eylemleri** sağ kenar seçin **kilidini**. Modül için eylem girişi olarak görünüyorsa **kilit**, modül zaten açılmış ve Eylem gerekmiyor. Kilidini kaldırmak planlarken kadar modülleri *web.config* daha sonra.
 
 2. Gerekmeden uygulamayı dağıtma bir `<modules>` konusundaki *web.config*. Bir uygulama ile dağıtılırsa bir *web.config* içeren `<modules>` bölüm bölüm Configuration Manager IIS Yöneticisi'nde ilk kilidi kalmadan, bölümün kilidini açmak çalışırken bir özel durum oluşturur. Bu nedenle, gerekmeden uygulamayı dağıtma bir `<modules>` bölümü.
 
-3. Kilit açma `<modules>` bölümünü *web.config*. İçinde **bağlantıları** kenar, Web sitesi seçin **siteleri**. İçinde **Yönetim** alanında açık **yapılandırma Düzenleyicisi**. Gezinti denetimlerinin seçmek için kullanın `system.webServer/modules` bölümü. İçinde **eylemleri** sağ kenar Seç **kilidini** bölümü.
+3. Kilit açma `<modules>` bölümünü *web.config*. İçinde **bağlantıları** kenar, Web sitesi seçin **siteleri**. İçinde **Yönetim** alanında açık **yapılandırma Düzenleyicisi**. Gezinti denetimlerinin seçmek için kullanın `system.webServer/modules` bölümü. İçinde **eylemleri** sağ kenar Seç **kilidini** bölümü. Modül bölümü için eylem girişi olarak görünüp görünmeyeceğini **bölümü kilitle**modülü bölüm kilidi zaten açılmış ve Eylem gerekmiyor.
 
-4. Bu noktada, bir `<modules>` bölüm eklenebilir *web.config* ile dosya bir `<remove>` uygulamadan modülünü kaldırmak için öğesi. Birden çok `<remove>` öğeleri birden çok modül kaldırmak için eklenebilir. Varsa *web.config* sunucu üzerinde yapılan değişiklikler, hemen aynı projenin değişiklik *web.config* dosyasını yerel. Bu şekilde bir modül kaldırma, sunucudaki diğer uygulamalarla modülü kullanımını etkilemez.
+4. Ekleme bir `<modules>` uygulama bölümüne yerel *web.config* ile dosya bir `<remove>` uygulamadan modülünü kaldırmak için öğesi. Birden çok ekleme `<remove>` öğeleri birden çok modül kaldırmak için. Varsa *web.config* sunucu üzerinde yapılan değişiklikler, hemen aynı projenin değişiklik *web.config* dosyasını yerel. Bu yaklaşımı kullanarak bir modülü kaldırma, sunucudaki diğer uygulamalarla modülü kullanımını etkilemez.
 
    ```xml
    <configuration>
@@ -122,6 +122,26 @@ Bir ayar modülü kaldırmak için kabul edilirse, *web.config*, modülün kilid
     </system.webServer>
    </configuration>
    ```
+   
+Eklemek veya kaldırmak için IIS Express kullanarak modüller için *web.config*, değişiklik *applicationHost.config* kilidini açmak için `<modules>` bölümü:
+
+1. Açık *{uygulama KÖKÜ}\\.vs\config\applicationhost.config*.
+
+1. Bulun `<section>` öğesi IIS modüllerini ve değişiklik `overrideModeDefault` gelen `Deny` için `Allow`:
+
+   ```xml
+   <section name="modules" 
+            allowDefinition="MachineToApplication" 
+            overrideModeDefault="Allow" />
+   ```
+   
+1. Bulun `<location path="" overrideMode="Allow"><system.webServer><modules>` bölümü. Kaldırmak istediğiniz tüm modüller için ayarlanmış `lockItem` gelen `true` için `false`. Aşağıdaki örnekte, kilitli olduğundan CGI Modülü:
+
+   ```xml
+   <add name="CgiModule" lockItem="false" />
+   ```
+   
+1. Sonra `<modules>` eklemek veya uygulamanın kullanarak IIS modülleri kaldırmak ücretsiz, bölüm ve tek tek modüllerinin kilidi *web.config* IIS Express'te uygulamayı çalıştırmak için dosya.
 
 Bir IIS modülü ile de kaldırılabilir *Appcmd.exe*. Sağlamak `MODULE_NAME` ve `APPLICATION_NAME` komutta:
 

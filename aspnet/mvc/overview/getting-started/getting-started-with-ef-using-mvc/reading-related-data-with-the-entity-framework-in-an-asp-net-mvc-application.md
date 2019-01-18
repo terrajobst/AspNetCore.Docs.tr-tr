@@ -1,28 +1,22 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
-title: Bir ASP.NET MVC uygulamasındaki Entity Framework ile ilgili verileri okuma | Microsoft Docs
+title: 'Öğretici: ASP.NET MVC uygulaması EF ile ilgili verileri okuma'
+description: Bu öğreticide okuma ve ilgili verileri görüntüleyen — diğer bir deyişle, Entity Framework Gezinti özelliklerini yükler veri.
 author: tdykstra
-description: /AJAX/Tutorials/using-AJAX-Control-Toolkit-Controls-and-Control-extenders-vb
 ms.author: riande
-ms.date: 11/07/2014
+ms.date: 01/17/2019
+ms.topic: tutorial
 ms.assetid: 18cdd896-8ed9-4547-b143-114711e3eafb
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 18d3720f891e2356af42b58389776f2d04eee39d
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 8660a75655b801364cce7c4b59847c5c00562a27
+ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913209"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396213"
 ---
-<a name="reading-related-data-with-the-entity-framework-in-an-aspnet-mvc-application"></a>İlgili varlık Çerçevesi'nde bir ASP.NET MVC uygulaması ile verilerini okuma
-====================
-tarafından [Tom Dykstra](https://github.com/tdykstra)
-
-[Projeyi yükle](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
-
-> Contoso University örnek web uygulaması Entity Framework 6 Code First ve Visual Studio kullanarak ASP.NET MVC 5 uygulamalarının nasıl oluşturulacağını gösterir. Öğretici serisinin hakkında daha fazla bilgi için bkz. [serideki ilk öğreticide](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
-
+# <a name="tutorial-read-related-data-with-ef-in-an-aspnet-mvc-app"></a>Öğretici: ASP.NET MVC uygulaması EF ile ilgili verileri okuma
 
 Önceki öğreticide Okul veri modeli tamamlandı. Bu öğreticide okuma ve ilgili verileri görüntüleyen — diğer bir deyişle, Entity Framework Gezinti özelliklerini yükler veri.
 
@@ -32,7 +26,18 @@ Aşağıdaki çizimler ile çalışmak sayfaları göstermektedir.
 
 ![Instructors_index_page_with_instructor_and_course_selected](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image2.png)
 
-## <a name="lazy-eager-and-explicit-loading-of-related-data"></a>Yavaş, duymayı ve açık ilgili verileri yükleme
+Bu öğreticide şunları yaptınız:
+
+> [!div class="checklist"]
+> * İlgili veri yükleme konusunda bilgi edinin
+> * Kursları sayfası oluşturma
+> * Eğitmenler sayfası oluşturma
+
+## <a name="prerequisites"></a>Önkoşullar
+
+* [Daha karmaşık bir veri modeli oluşturma](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md)
+
+## <a name="learn-how-to-load-related-data"></a>İlgili veri yükleme konusunda bilgi edinin
 
 Entity Framework Gezinti özelliklerini bir varlığın ilgili verileri yükleyebilir birkaç yolu vardır:
 
@@ -54,7 +59,7 @@ Entity Framework Gezinti özelliklerini bir varlığın ilgili verileri yükleye
 
 Öte yandan, bazı senaryolarda yavaş yükleniyor daha verimli olur. İstekli yükleme, SQL Server'ın etkili bir şekilde işleyemiyor oluşturulması çok karmaşık birleştirme neden olabilir. Veya bir varlığın yalnızca bir alt kümesini bir dizi varlık Gezinti özellikleri erişmeniz gerekiyorsa, işleme, istekli yükleme ihtiyacınız olandan daha fazla veri alması nedeniyle yavaş yükleniyor daha iyi gerçekleştirebilir. Performans kritik ise, en iyi seçim yapmak için her iki yönde performansını test etmek idealdir.
 
-Yavaş yükleniyor, performans sorunlarına neden olan kod maskeleyebilirsiniz. Örneğin, eager veya açık yükleme belirtmeyen ancak varlıkları yüksek hacimli işler ve her yinelemede birkaç Gezinti özellikleri kullanan kodu (nedeniyle veritabanı çok sayıda gidiş dönüş) çok verimsiz olabilir. İyi bir şirket içi SQL server'ı kullanarak geliştirme gerçekleştiren bir uygulama, Azure SQL veritabanı'na daha yüksek gecikme süresi ve yavaş yükleme nedeniyle taşındıklarında performans sorunları olabilir. Veritabanı sorguları gerçekçi test yük ile profil oluşturma, yavaş yükleniyor uygun olup olmadığını belirlemenize yardımcı olur. Daha fazla bilgi için [Demystifying Entity Framework stratejileri: ilgili veri yükleme](https://msdn.microsoft.com/magazine/hh205756.aspx) ve [SQL Azure için ağ gecikme süresini azaltmak için Entity Framework kullanarak](https://msdn.microsoft.com/magazine/gg309181.aspx).
+Yavaş yükleniyor, performans sorunlarına neden olan kod maskeleyebilirsiniz. Örneğin, eager veya açık yükleme belirtmeyen ancak varlıkları yüksek hacimli işler ve her yinelemede birkaç Gezinti özellikleri kullanan kodu (nedeniyle veritabanı çok sayıda gidiş dönüş) çok verimsiz olabilir. İyi bir şirket içi SQL server'ı kullanarak geliştirme gerçekleştiren bir uygulama, Azure SQL veritabanı'na daha yüksek gecikme süresi ve yavaş yükleme nedeniyle taşındıklarında performans sorunları olabilir. Veritabanı sorguları gerçekçi test yük ile profil oluşturma, yavaş yükleniyor uygun olup olmadığını belirlemenize yardımcı olur. Daha fazla bilgi için [Demystifying Entity Framework stratejileri: İlgili verileri yükleme](https://msdn.microsoft.com/magazine/hh205756.aspx) ve [SQL Azure ağ gecikme süresini azaltmak için Entity Framework kullanarak](https://msdn.microsoft.com/magazine/gg309181.aspx).
 
 ### <a name="disable-lazy-loading-before-serialization"></a>Serileştirme önce Gecikmeli yüklemeyi devre dışı
 
@@ -73,13 +78,19 @@ Diğer bir kısmının işte [Gecikmeli yüklemeyi devre dışı yolları](https
 
     [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs)]
 
-## <a name="create-a-courses-page-that-displays-department-name"></a>Bu görüntüler bölüm adı kursları sayfası oluşturma
+## <a name="create-a-courses-page"></a>Kursları sayfası oluşturma
 
 `Course` Varlığı içeren bir gezinme özelliği içeren `Department` kursu atandığı departmanı varlık. Atanan bölüm adını kursları listesinde görüntülenecek almanız gereken `Name` özelliğinden `Department` olan varlık `Course.Department` gezinme özelliği.
 
-Adlı bir denetleyici oluşturma `CourseController` (CoursesController değil) için `Course` varlık türü, aynı seçenekleri kullanarak **MVC 5 denetleyici Entity Framework kullanarak görünümler ile** içindahaönceyaptığınıziskelekurucu`Student` denetleyicisi, aşağıdaki çizimde gösterildiği gibi:
+Adlı bir denetleyici oluşturma `CourseController` (CoursesController değil) için `Course` varlık türü, aynı seçenekleri kullanarak **MVC 5 denetleyici Entity Framework kullanarak görünümler ile** içindahaönceyaptığınıziskelekurucu`Student` denetleyicisi:
 
-![Add_Controller_dialog_box_for_Course_controller](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
+| Ayar | Değer |
+| ------- | ----- |
+| Model sınıfı | Seçin **kurs (ContosoUniversity.Models)**. |
+| Veri bağlamı sınıfı | Seçin **SchoolContext (ContosoUniversity.DAL)**. |
+| Denetleyici adı | Girin *CourseController*. Yeniden değil *CoursesController* ile bir *s*. Seçili olduğunda **kurs (ContosoUniversity.Models)**, **Denetleyici adı** değeri otomatik olarak doldurulur. Değeri değiştirmek zorunda. |
+
+Diğer varsayılan değerleri bırakın ve denetleyici ekleyin.
 
 Açık *Controllers\CourseController.cs* bakın `Index` yöntemi:
 
@@ -103,15 +114,9 @@ Bölüm sütun için iskele kurulan kodu görüntülendiğine dikkat edin `Name`
 
 Çalıştırırsanız (seçin **kursları** Contoso University giriş sayfasında sekmesi) bölüm adları listesi.
 
-![Courses_index_page_with_department_names](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
+## <a name="create-an-instructors-page"></a>Eğitmenler sayfası oluşturma
 
-## <a name="create-an-instructors-page-that-shows-courses-and-enrollments"></a>Kursları ve kayıtları gösterir bir eğitmen sayfası oluşturma
-
-Bu bölümde bir denetleyici oluşturacak ve görüntüleme `Instructor` varlık Eğitmenler sayfasını görüntülemek için:
-
-![Instructors_index_page_with_instructor_and_course_selected](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image5.png)
-
-Bu sayfada okur ve ilgili verileri aşağıdaki yollarla görüntüler:
+Bu bölümde bir denetleyici oluşturacak ve görüntüleme `Instructor` Eğitmenler sayfasını görüntülemek için varlık. Bu sayfada okur ve ilgili verileri aşağıdaki yollarla görüntüler:
 
 - Eğitmenler listesini ilgili verileri görüntüleyen `OfficeAssignment` varlık. `Instructor` Ve `OfficeAssignment` bir sıfır-veya-bir ilişkide varlıklardır. İstekli yükleme için kullanacağınız `OfficeAssignment` varlıklar. Birincil tablo alınan tüm satırlarının için ilgili verileri gerektiğinde daha önce açıklandığı gibi istekli yükleme genellikle daha verimli olur. Bu durumda, tüm görüntülenen Eğitmenler office atamalarını görüntülemek istiyorsunuz.
 - Kullanıcı, ilgili eğitmenin seçtiğinde `Course` varlıkları görüntülenir. `Instructor` Ve `Course` bir çoktan çoğa ilişki içinde varlıklardır. İstekli yükleme için kullanacağınız `Course` varlıkları ve bunların ilgili `Department` varlıklar. Bu durumda, yalnızca seçili eğitmen için kursları gerektiğinden Gecikmeli yükleme daha verimli olabilir. Ancak, bu örnek, kendilerini Gezinti özelliklerdir varlıkların içinde gezinme özelliklerinin istekli yükleme kullanmayı gösterir.
@@ -127,9 +132,15 @@ Eğitmenler sayfada üç farklı tabloda gösterilir. Bu nedenle, her bir tablo 
 
 ### <a name="create-the-instructor-controller-and-views"></a>Eğitmen denetleyici ve görünümler oluşturma
 
-Oluşturma bir `InstructorController` (InstructorsController değil) aşağıdaki çizimde gösterildiği gibi EF okuma/yazma eylemleri ile denetleyicisi:
+Oluşturma bir `InstructorController` (InstructorsController değil) denetleyicisi EF okuma/yazma eylemi:
 
-![Add_Controller_dialog_box_for_Instructor_controller](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image6.png)
+| Ayar | Değer |
+| ------- | ----- |
+| Model sınıfı | Seçin **Eğitmen (ContosoUniversity.Models)**. |
+| Veri bağlamı sınıfı | Seçin **SchoolContext (ContosoUniversity.DAL)**. |
+| Denetleyici adı | Girin *InstructorController*. Yeniden değil *InstructorsController* ile bir *s*. Seçili olduğunda **kurs (ContosoUniversity.Models)**, **Denetleyici adı** değeri otomatik olarak doldurulur. Değeri değiştirmek zorunda. |
+
+Diğer varsayılan değerleri bırakın ve denetleyici ekleyin.
 
 Açık *Controllers\InstructorController.cs* ve ekleme bir `using` bildirimi `ViewModels` ad alanı:
 
@@ -193,8 +204,6 @@ Varolan kodu aşağıdaki değişiklikler yaptınız:
 
 Uygulamayı çalıştırmak ve seçmek **Eğitmenler** sekmesi. Sayfa görüntüler `Location` ilgili özelliği `OfficeAssignment` varlıkları ve boş bir tablo hücresi olduğunda ilgili Hayır `OfficeAssignment` varlık.
 
-![Instructors_index_page_with_nothing_selected](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image7.png)
-
 İçinde *Views\Instructor\Index.cshtml* Kapanıştan sonra dosyayı `table` öğesi (sonunda dosyası), aşağıdaki kodu ekleyin. Bu kod bir eğitmen seçildiğinde bir eğitmen için ilgili kurslar listesini görüntüler.
 
 [!code-cshtml[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample18.cshtml)]
@@ -203,8 +212,6 @@ Bu kodu okuyan `Courses` özelliği kursları listesini görüntülemek için G�
 
 Sayfayı çalıştırın ve bir eğitmen seçin. Seçili eğitmen için atanan kursları görüntüleyen bir kılavuz göreceksiniz ve her kurs için atanan bölüm adını görürsünüz.
 
-![Instructors_index_page_with_instructor_selected](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image8.png)
-
 Yeni eklediğiniz kod bloğundan sonra aşağıdaki kodu ekleyin. Bu kurs seçildiğinde bu kurs kayıtlı öğrencilere listesini görüntüler.
 
 [!code-cshtml[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample19.cshtml)]
@@ -212,8 +219,6 @@ Yeni eklediğiniz kod bloğundan sonra aşağıdaki kodu ekleyin. Bu kurs seçil
 Bu kodu okuyan `Enrollments` Öğrenciler listesini görüntülemek için Görünüm modeli özelliği kursun kayıtlı.
 
 Sayfayı çalıştırın ve bir eğitmen seçin. Ardından bir kurs kayıtlı Öğrenci ve kendi derece listesini görmek için seçin.
-
-![Instructors_index_page_with_instructor_and_course_selected](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image9.png)
 
 ### <a name="adding-explicit-loading"></a>Açık yükleme ekleme
 
@@ -239,14 +244,20 @@ Kullandığınız bildirimi `Collection` bir koleksiyon özelliği yüklemek iç
 
 Eğitmen dizin sayfası artık çalıştırın ve verileri nasıl alınır değiştirdik ancak sayfasında, görüntülenen içinde herhangi bir fark görürsünüz.
 
-## <a name="summary"></a>Özet
-
-Şimdi, ilgili verileri Gezinti özelliklerini yüklemek için tüm üç yol (lazy, duymayı ve açık) kullandınız. Sonraki öğreticide ilgili verileri güncelleştirme öğreneceksiniz.
-
-Lütfen bu öğreticide sevmediğinizi nasıl ve ne geliştirebileceğimiz hakkında geri bildirim bırakın.
+## <a name="additional-resources"></a>Ek kaynaklar
 
 Entity Framework diğer kaynakların bağlantılarını bulunabilir [ASP.NET veri erişimi - önerilen kaynaklar](../../../../whitepapers/aspnet-data-access-content-map.md).
 
-> [!div class="step-by-step"]
-> [Önceki](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md)
-> [İleri](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+## <a name="next-steps"></a>Sonraki adımlar
+
+Bu öğreticide şunları yaptınız:
+
+> [!div class="checklist"]
+> * İlgili veri yükleme işleminin nasıl yapılacağını öğrendiniz
+> * Kursları sayfa oluşturuldu
+> * Eğitmenler sayfa oluşturuldu
+
+İlgili verileri güncelleştirme hakkında bilgi edinmek için sonraki makaleye ilerleyin.
+
+> [!div class="nextstepaction"]
+> [İlgili verileri güncelleştirme](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)

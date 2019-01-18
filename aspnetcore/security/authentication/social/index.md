@@ -4,20 +4,20 @@ author: rick-anderson
 description: Bu öğreticide bir ASP.NET Core ile dış kimlik doğrulama sağlayıcıları için OAuth 2.0 kullanarak 2.x uygulamasının nasıl oluşturulacağını gösterir.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/11/2018
+ms.date: 1/19/2019
 uid: security/authentication/social/index
-ms.openlocfilehash: 063d452fb6ab91b712ade7f7b7ed99823dbdc657
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: 48dd8b772234ff18158423a36ed1716102bc2f31
+ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54098824"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396148"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Facebook, Google ve ASP.NET Core dış sağlayıcı kimlik doğrulaması
 
 Tarafından [Valeriy Novytskyy](https://github.com/01binary) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Bu öğreticide bir ASP.NET Core, OAuth 2.0 ile dış kimlik sağlayıcılarına ait kimlik bilgilerini kullanarak oturum açmasına sağlayan 2.x uygulamasının nasıl oluşturulacağını gösterir.
+Bu öğretici, OAuth 2.0 ile dış kimlik sağlayıcılarına ait kimlik bilgilerini kullanarak oturum açmasına olanak tanıyan bir ASP.NET Core 2.2 uygulamasının nasıl oluşturulacağını gösterir.
 
 [Facebook](xref:security/authentication/facebook-logins), [Twitter](xref:security/authentication/twitter-logins), [Google](xref:security/authentication/google-logins), ve [Microsoft](xref:security/authentication/microsoft-logins) sağlayıcıları aşağıdaki bölümlerde ele alınmıştır. Diğer sağlayıcılar gibi üçüncü taraf paketleri kullanılabilir [AspNet.Security.OAuth.Providers](https://github.com/aspnet-contrib/AspNet.Security.OAuth.Providers) ve [AspNet.Security.OpenId.Providers](https://github.com/aspnet-contrib/AspNet.Security.OpenId.Providers).
 
@@ -30,29 +30,13 @@ Kullanıcıların mevcut kimlik bilgileri ile oturum açmanız, kullanıcılar i
 * Başlangıç sayfasından ya da aracılığıyla Visual Studio 2017'de yeni bir proje oluşturma **dosya** > **yeni** > **proje**.
 
 * Seçin **ASP.NET Core Web uygulaması** kullanılabilir şablon **Visual C#**   >  **.NET Core** kategorisi:
-
-![Yeni Proje iletişim kutusu](index/_static/new-project.png)
-
-* Dokunun **Web uygulaması** ve doğrulama **kimlik doğrulaması** ayarlanır **bireysel kullanıcı hesapları**:
-
-![Yeni Web uygulaması iletişim kutusu](index/_static/select-project.png)
-
-Not: Bu öğretici, sihirbazın başında seçtiğiniz ASP.NET Core 2.0 SDK'sı sürümü için geçerlidir.
+* Seçin **kimlik doğrulamayı Değiştir** ve kimlik doğrulaması için **bireysel kullanıcı hesapları**.
 
 ## <a name="apply-migrations"></a>Geçişleri Uygula
 
-* Uygulamayı çalıştırmak ve seçmek **oturum** bağlantı.
-* Seçin **kayıt yeni bir kullanıcı olarak** bağlantı.
+* Uygulamayı çalıştırmak ve seçmek **kaydetme** bağlantı.
 * Yeni hesap için e-posta ve parola girin ve ardından **kaydetme**.
 * Geçişleri uygulamak için yönergeleri izleyin.
-
-## <a name="require-https"></a>HTTPS'yi zorunlu
-
-OAuth 2.0, HTTPS protokolü üzerinden kimlik doğrulaması için SSL/TLS kullanılmasını gerektirir.
-
-Kullanılarak oluşturulan projeler **Web uygulaması** veya **Web API** proje şablonları ile ASP.NET Core 2.1 veya daha sonra otomatik olarak HTTPS'yi etkinleştirmek için yapılandırılır. Uygulama, bir güvenli varsayılan uç nokta ile başlatılır **bireysel kullanıcı hesapları** seçeneği seçildiğinde, **kimlik doğrulamayı Değiştir iletişim** Proje Sihirbazı.
-
-Daha fazla bilgi için bkz. <xref:security/enforcing-ssl>.
 
 [!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]
 
@@ -83,11 +67,11 @@ Bir dış oturum açma sağlayıcısıyla kaydolduğunuzda, bir parola ile uygul
 
 Bir parola oluşturmasını ve dış sağlayıcılarıyla oturum açma işlemi sırasında ayarladığınız e-postanızı kullanarak oturum için:
 
-* Dokunun **Hello &lt;e-posta diğer&gt;**  gitmek için sağ üst köşedeki bağlantıda **Yönet** görünümü.
+* Seçin **Hello &lt;e-posta diğer&gt;**  gitmek için sağ üst köşedeki bağlantıda **Yönet** görünümü.
 
 ![Web uygulaması yönetme görünümü](index/_static/pass1a.png)
 
-* Dokunun **oluşturma**
+* **Oluştur**’u seçin
 
 ![Parola sayfanızı ayarlama](index/_static/pass2a.png)
 
