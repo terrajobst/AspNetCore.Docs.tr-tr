@@ -4,162 +4,72 @@ author: rick-anderson
 description: Bu öğreticide, mevcut bir ASP.NET Core uygulamasına Google hesabı kullanıcı kimlik doğrulaması tümleştirmesini gösterilmektedir.
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 11/11/2018
+ms.date: 1/11/2019
 uid: security/authentication/google-logins
-ms.openlocfilehash: 4bb5a36cf654deb694d60da126fa42baf382f729
-ms.sourcegitcommit: 3e94d192b2ed9409fe72e3735e158b333354964c
+ms.openlocfilehash: 98857a84238124e75d695242c8d421b9a29f02e7
+ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53735771"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54396099"
 ---
-# <a name="google-external-login-setup-in-aspnet-core"></a><span data-ttu-id="f7778-103">ASP.NET core'da Google dış oturum açma Kurulumu</span><span class="sxs-lookup"><span data-stu-id="f7778-103">Google external login setup in ASP.NET Core</span></span>
+# <a name="google-external-login-setup-in-aspnet-core"></a><span data-ttu-id="27a53-103">ASP.NET core'da Google dış oturum açma Kurulumu</span><span class="sxs-lookup"><span data-stu-id="27a53-103">Google external login setup in ASP.NET Core</span></span>
 
-<span data-ttu-id="f7778-104">Tarafından [Valeriy Novytskyy](https://github.com/01binary) ve [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="f7778-104">By [Valeriy Novytskyy](https://github.com/01binary) and [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
+<span data-ttu-id="27a53-104">Tarafından [Valeriy Novytskyy](https://github.com/01binary) ve [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="27a53-104">By [Valeriy Novytskyy](https://github.com/01binary) and [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
 
-<span data-ttu-id="f7778-105">Bu öğreticide, oluşturulan bir örnek ASP.NET Core 2.0 proje kullanarak kendi Google + hesabı ile oturum açmalarına işlemini göstermektedir [önceki sayfaya](xref:security/authentication/social/index).</span><span class="sxs-lookup"><span data-stu-id="f7778-105">This tutorial shows you how to enable your users to sign in with their Google+ account using a sample ASP.NET Core 2.0 project created on the [previous page](xref:security/authentication/social/index).</span></span> <span data-ttu-id="f7778-106">İzleyerek Başlangıç [resmi adımları](https://developers.google.com/identity/sign-in/web/devconsole-project) Google API konsolu içinde yeni bir uygulama oluşturmak için.</span><span class="sxs-lookup"><span data-stu-id="f7778-106">We start by following the [official steps](https://developers.google.com/identity/sign-in/web/devconsole-project) to create a new app in Google API Console.</span></span>
+<span data-ttu-id="27a53-105">Google Ocak 2019 başladı [kapatma](https://developers.google.com/+/api-shutdown) Google + oturum açın ve geliştiricilerin konumsa için yeni bir Google oturum sistemde Mart tarafından.</span><span class="sxs-lookup"><span data-stu-id="27a53-105">In January 2019 Google started to [shut down](https://developers.google.com/+/api-shutdown) Google+ sign in and developers must move to a new Google sign in system by March.</span></span> <span data-ttu-id="27a53-106">ASP.NET Core 2.1 ve Google kimlik doğrulaması için 2.2 paketleri değişiklikleri uyum sağlamak için Şubat ayında güncelleştirilir.</span><span class="sxs-lookup"><span data-stu-id="27a53-106">The ASP.NET Core 2.1 and 2.2 packages for Google Authentication will be updated in February to accommodate the changes.</span></span> <span data-ttu-id="27a53-107">Daha fazla bilgi ve ASP.NET Core için geçici risk azaltma işlemleri için bkz. [bu GitHub sorunu](https://github.com/aspnet/AspNetCore/issues/6486).</span><span class="sxs-lookup"><span data-stu-id="27a53-107">For more information and temporary mitigations for ASP.NET Core, see [this GitHub issue](https://github.com/aspnet/AspNetCore/issues/6486).</span></span> <span data-ttu-id="27a53-108">Bu öğreticide yeni Kurulum işlemine güncelleştirildi.</span><span class="sxs-lookup"><span data-stu-id="27a53-108">This tutorial has been updated with the new setup process.</span></span>
 
-## <a name="create-the-app-in-google-api-console"></a><span data-ttu-id="f7778-107">Google API konsolunda uygulaması oluşturma</span><span class="sxs-lookup"><span data-stu-id="f7778-107">Create the app in Google API Console</span></span>
+<span data-ttu-id="27a53-109">Bu öğreticide oluşturulan ASP.NET Core 2.2 projesini kullanarak kendi Google hesabıyla oturum açmasını sağlamak gösterilmektedir [önceki sayfaya](xref:security/authentication/social/index).</span><span class="sxs-lookup"><span data-stu-id="27a53-109">This tutorial shows you how to enable users to sign in with their Google account using the ASP.NET Core 2.2 project created on the [previous page](xref:security/authentication/social/index).</span></span>
 
-* <span data-ttu-id="f7778-108">Gidin [ https://console.developers.google.com/projectselector/apis/library ](https://console.developers.google.com/projectselector/apis/library) ve oturum açın.</span><span class="sxs-lookup"><span data-stu-id="f7778-108">Navigate to [https://console.developers.google.com/projectselector/apis/library](https://console.developers.google.com/projectselector/apis/library) and sign in.</span></span> <span data-ttu-id="f7778-109">Bir Google hesabınız yoksa kullanırsanız **daha fazla seçenek** > **[hesabı oluşturma](https://accounts.google.com/SignUpWithoutGmail?service=cloudconsole&continue=https%3A%2F%2Fconsole.developers.google.com%2Fprojectselector%2Fapis%2Flibrary&ltmpl=api)**  bağlantı oluşturmak için:</span><span class="sxs-lookup"><span data-stu-id="f7778-109">If you don't already have a Google account, use **More options** > **[Create account](https://accounts.google.com/SignUpWithoutGmail?service=cloudconsole&continue=https%3A%2F%2Fconsole.developers.google.com%2Fprojectselector%2Fapis%2Flibrary&ltmpl=api)** link to create one:</span></span>
+## <a name="create-a-google-api-console-project-and-client-id"></a><span data-ttu-id="27a53-110">Google API Konsolu proje ve istemci kodu oluşturma</span><span class="sxs-lookup"><span data-stu-id="27a53-110">Create a Google API Console project and client ID</span></span>
 
-![Google API Konsolu](index/_static/GoogleConsoleLogin.png)
+* <span data-ttu-id="27a53-111">Gidin [tümleştirme Google oturum açma web uygulamanıza](https://developers.google.com/identity/sign-in/web/devconsole-project) seçip **bir proje yapılandırma**.</span><span class="sxs-lookup"><span data-stu-id="27a53-111">Navigate to [Integrating Google Sign-In into your web app](https://developers.google.com/identity/sign-in/web/devconsole-project) and select **CONFIGURE A PROJECT**.</span></span>
+* <span data-ttu-id="27a53-112">İçinde **OAuth istemcinizi yapılandırma** iletişim kutusunda **Web sunucusu**.</span><span class="sxs-lookup"><span data-stu-id="27a53-112">In the **Configure your OAuth client** dialog, select **Web server**.</span></span>
+* <span data-ttu-id="27a53-113">İçinde **yetkili yeniden yönlendirme URI'leri** metin girişi kutusunu, yeniden yönlendirme URI'sini ayarlayın.</span><span class="sxs-lookup"><span data-stu-id="27a53-113">In the **Authorized redirect URIs** text entry box, set the redirect URI.</span></span> <span data-ttu-id="27a53-114">Örneğin, `https://localhost:5001/signin-google`</span><span class="sxs-lookup"><span data-stu-id="27a53-114">For example, `https://localhost:5001/signin-google`</span></span>
+* <span data-ttu-id="27a53-115">Kaydet **istemci kimliği** ve **gizli**.</span><span class="sxs-lookup"><span data-stu-id="27a53-115">Save the **Client ID** and **Client Secret**.</span></span>
+* <span data-ttu-id="27a53-116">Sitenin dağıtım yaparken, yeni genel URL'den kaydetme **Google konsolunu**.</span><span class="sxs-lookup"><span data-stu-id="27a53-116">When deploying the site, register the new public url from the **Google Console**.</span></span>
 
-* <span data-ttu-id="f7778-111">Yönlendirilirsiniz **API Yöneticisi Kitaplığı** sayfası:</span><span class="sxs-lookup"><span data-stu-id="f7778-111">You are redirected to **API Manager Library** page:</span></span>
+## <a name="store-google-clientid-and-clientsecret"></a><span data-ttu-id="27a53-117">Store Google ClientID ve ClientSecret</span><span class="sxs-lookup"><span data-stu-id="27a53-117">Store Google ClientID and ClientSecret</span></span>
 
-![API Yöneticisi kitaplık sayfasında giriş](index/_static/GoogleConsoleSwitchboard.png)
+<span data-ttu-id="27a53-118">Google gibi hassas ayarlar Store `Client ID` ve `Client Secret` ile [gizli dizi Yöneticisi](xref:security/app-secrets).</span><span class="sxs-lookup"><span data-stu-id="27a53-118">Store sensitive settings such as the Google `Client ID` and `Client Secret` with the [Secret Manager](xref:security/app-secrets).</span></span> <span data-ttu-id="27a53-119">Bu öğreticinin amaçları doğrultusunda, belirteçleri ad `Authentication:Google:ClientId` ve `Authentication:Google:ClientSecret`:</span><span class="sxs-lookup"><span data-stu-id="27a53-119">For the purposes of this tutorial, name the tokens `Authentication:Google:ClientId` and `Authentication:Google:ClientSecret`:</span></span>
 
-* <span data-ttu-id="f7778-113">Dokunun **Oluştur** girin, **proje adı**:</span><span class="sxs-lookup"><span data-stu-id="f7778-113">Tap **Create** and enter your **Project name**:</span></span>
-
-![Yeni Proje iletişim kutusu](index/_static/GoogleConsoleNewProj.png)
-
-* <span data-ttu-id="f7778-115">İletişim kutusunu kabul ettikten sonra yeni uygulamanız için Özellikler'i seçmenize olanak tanıyan kitaplığı sayfasına yönlendirilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="f7778-115">After accepting the dialog, you are redirected back to the Library page allowing you to choose features for your new app.</span></span> <span data-ttu-id="f7778-116">Bulma **Google + API** listesi ve API özelliği eklemek için kendi bağlantısına tıklayın:</span><span class="sxs-lookup"><span data-stu-id="f7778-116">Find **Google+ API** in the list and click on its link to add the API feature:</span></span>
-
-!["Google + API için" API Yöneticisi kitaplığı sayfada arama](index/_static/GoogleConsoleChooseApi.png)
-
-* <span data-ttu-id="f7778-118">Yeni eklenen API için sayfa görüntülenir.</span><span class="sxs-lookup"><span data-stu-id="f7778-118">The page for the newly added API is displayed.</span></span> <span data-ttu-id="f7778-119">Dokunun **etkinleştirme** Google + oturum özelliği uygulamanıza eklemek için:</span><span class="sxs-lookup"><span data-stu-id="f7778-119">Tap **Enable** to add Google+ sign in feature to your app:</span></span>
-
-![API Yöneticisi Google + API sayfasındaki giriş](index/_static/GoogleConsoleEnableApi.png)
-
-* <span data-ttu-id="f7778-121">API'ı etkinleştirdikten sonra dokunun **kimlik bilgilerini oluştur** gizli dizileri yapılandırmak için:</span><span class="sxs-lookup"><span data-stu-id="f7778-121">After enabling the API, tap **Create credentials** to configure the secrets:</span></span>
-
-![API Yöneticisi Google + API sayfasında kimlik bilgilerini düğme oluşturma](index/_static/GoogleConsoleGoCredentials.png)
-
-* <span data-ttu-id="f7778-123">Şunu seçin:</span><span class="sxs-lookup"><span data-stu-id="f7778-123">Choose:</span></span>
-  * <span data-ttu-id="f7778-124">**Google + API**</span><span class="sxs-lookup"><span data-stu-id="f7778-124">**Google+ API**</span></span>
-  * <span data-ttu-id="f7778-125">**Web sunucusu (örn: node.js, Tomcat)**, ve</span><span class="sxs-lookup"><span data-stu-id="f7778-125">**Web server (e.g. node.js, Tomcat)**, and</span></span>
-  * <span data-ttu-id="f7778-126">**Kullanıcı verilerini**:</span><span class="sxs-lookup"><span data-stu-id="f7778-126">**User data**:</span></span>
-
-![API Yöneticisi kimlik bilgileri sayfası: Ne tür, kimlik bilgileri kullanıma Bul paneli gerekir](index/_static/GoogleConsoleChooseCred.png)
-
-* <span data-ttu-id="f7778-128">Dokunun **hangi kimlik bilgileri gerekiyor?** aldığı, uygulama yapılandırması, ikinci adım için **OAuth 2.0 istemci kimlik oluşturma**:</span><span class="sxs-lookup"><span data-stu-id="f7778-128">Tap **What credentials do I need?** which takes you to the second step of app configuration, **Create an OAuth 2.0 client ID**:</span></span>
-
-![API Yöneticisi kimlik bilgileri sayfası: OAuth 2.0 istemci kimlik oluşturma](index/_static/GoogleConsoleCreateClient.png)
-
-* <span data-ttu-id="f7778-130">Tek bir özellik (biz girebilirsiniz aynı oturum açma), Google + proje oluşturuyoruz çünkü **adı** proje için kullandığımız bir OAuth 2.0 istemci kimliği.</span><span class="sxs-lookup"><span data-stu-id="f7778-130">Because we are creating a Google+ project with just one feature (sign in), we can enter the same **Name** for the OAuth 2.0 client ID as the one we used for the project.</span></span>
-
-* <span data-ttu-id="f7778-131">Geliştirme sürecinizi URI girin ile `/signin-google` içine eklenen **yetkili yeniden yönlendirme URI'leri** alan (örneğin: `https://localhost:44320/signin-google`).</span><span class="sxs-lookup"><span data-stu-id="f7778-131">Enter your development URI with `/signin-google` appended into the **Authorized redirect URIs** field (for example: `https://localhost:44320/signin-google`).</span></span> <span data-ttu-id="f7778-132">Bu öğreticinin ilerleyen bölümlerinde yapılandırılmış Google kimlik doğrulama istekleri otomatik olarak işleyecek `/signin-google` OAuth akışını uygulamak için rota.</span><span class="sxs-lookup"><span data-stu-id="f7778-132">The Google authentication configured later in this tutorial will automatically handle requests at `/signin-google` route to implement the OAuth flow.</span></span>
-
-> [!NOTE]
-> <span data-ttu-id="f7778-133">URI segmenti `/signin-google` Google kimlik doğrulama sağlayıcısı varsayılan geri arama olarak ayarlanır.</span><span class="sxs-lookup"><span data-stu-id="f7778-133">The URI segment `/signin-google` is set as the default callback of the Google authentication provider.</span></span> <span data-ttu-id="f7778-134">Google kimlik doğrulaması ara yazılımı üzerinden devralınan yapılandırırken, varsayılan geri arama URI'si değiştirebilirsiniz [RemoteAuthenticationOptions.CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath) özelliği [GoogleOptions](/dotnet/api/microsoft.aspnetcore.authentication.google.googleoptions) sınıfı.</span><span class="sxs-lookup"><span data-stu-id="f7778-134">You can change the default callback URI while configuring the Google authentication middleware via the inherited [RemoteAuthenticationOptions.CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath) property of the [GoogleOptions](/dotnet/api/microsoft.aspnetcore.authentication.google.googleoptions) class.</span></span>
-
-* <span data-ttu-id="f7778-135">Eklemek için SEKME tuşuna basın **yetkili yeniden yönlendirme URI'leri** girişi.</span><span class="sxs-lookup"><span data-stu-id="f7778-135">Press TAB to add the **Authorized redirect URIs** entry.</span></span>
-
-* <span data-ttu-id="f7778-136">Dokunun **istemci kodu oluşturma**, aldığı, üçüncü adım **OAuth 2.0 onay ekranı ayarlama**:</span><span class="sxs-lookup"><span data-stu-id="f7778-136">Tap **Create client ID**, which takes you to the third step, **Set up the OAuth 2.0 consent screen**:</span></span>
-
-![API Yöneticisi kimlik bilgileri sayfası: OAuth 2.0 onay ekranı ayarlama](index/_static/GoogleConsoleAddCred.png)
-
-* <span data-ttu-id="f7778-138">Genel kullanıma girin **e-posta adresi** ve **ürün adı** uygulamanız için gösterilen Google + oturum açmak için kullanıcıya sorar.</span><span class="sxs-lookup"><span data-stu-id="f7778-138">Enter your public facing **Email address** and the **Product name** shown for your app when Google+ prompts the user to sign in.</span></span> <span data-ttu-id="f7778-139">Ek seçenekleri altında kullanılabilir **daha fazla özelleştirme seçenekleri**.</span><span class="sxs-lookup"><span data-stu-id="f7778-139">Additional options are available under **More customization options**.</span></span>
-
-* <span data-ttu-id="f7778-140">Dokunun **devam** son adım, devam etmek için **kimlik bilgilerini indirme**:</span><span class="sxs-lookup"><span data-stu-id="f7778-140">Tap **Continue** to proceed to the last step, **Download credentials**:</span></span>
-
-![API Yöneticisi kimlik bilgileri sayfası: Kimlik bilgilerini indirin.](index/_static/GoogleConsoleFinish.png)
-
-* <span data-ttu-id="f7778-142">Dokunun **indirme** uygulama gizli öğeleri bir JSON dosyası kaydetmek için ve **Bitti** yeni uygulama oluşturmayı tamamlamak için.</span><span class="sxs-lookup"><span data-stu-id="f7778-142">Tap **Download** to save a JSON file with application secrets, and **Done** to complete creation of the new app.</span></span>
-
-* <span data-ttu-id="f7778-143">Site dağıtırken yeniden ziyaret etmeniz gerekir **Google konsolunu** ve yeni bir genel url kaydedin.</span><span class="sxs-lookup"><span data-stu-id="f7778-143">When deploying the site you'll need to revisit the **Google Console** and register a new public url.</span></span>
-
-## <a name="store-google-clientid-and-clientsecret"></a><span data-ttu-id="f7778-144">Store Google ClientID ve ClientSecret</span><span class="sxs-lookup"><span data-stu-id="f7778-144">Store Google ClientID and ClientSecret</span></span>
-
-<span data-ttu-id="f7778-145">Bağlantı Google gibi hassas ayarları `Client ID` ve `Client Secret` yapılandırma kullanarak uygulama [gizli dizi Yöneticisi](xref:security/app-secrets).</span><span class="sxs-lookup"><span data-stu-id="f7778-145">Link sensitive settings like Google `Client ID` and `Client Secret` to your application configuration using the [Secret Manager](xref:security/app-secrets).</span></span> <span data-ttu-id="f7778-146">Bu öğreticinin amaçları doğrultusunda, belirteçleri ad `Authentication:Google:ClientId` ve `Authentication:Google:ClientSecret`.</span><span class="sxs-lookup"><span data-stu-id="f7778-146">For the purposes of this tutorial, name the tokens `Authentication:Google:ClientId` and `Authentication:Google:ClientSecret`.</span></span>
-
-<span data-ttu-id="f7778-147">Bu belirteçler değerlerini altında önceki adımda yüklenen JSON dosyasında bulunabilir `web.client_id` ve `web.client_secret`.</span><span class="sxs-lookup"><span data-stu-id="f7778-147">The values for these tokens can be found in the JSON file downloaded in the previous step under `web.client_id` and `web.client_secret`.</span></span>
-
-## <a name="configure-google-authentication"></a><span data-ttu-id="f7778-148">Google kimlik doğrulamasını yapılandırma</span><span class="sxs-lookup"><span data-stu-id="f7778-148">Configure Google Authentication</span></span>
-
-::: moniker range=">= aspnetcore-2.0"
-
-<span data-ttu-id="f7778-149">Google hizmet ekleme `ConfigureServices` yönteminde *Startup.cs* dosyası:</span><span class="sxs-lookup"><span data-stu-id="f7778-149">Add the Google service in the `ConfigureServices` method in *Startup.cs* file:</span></span>
-
-```csharp
-services.AddDefaultIdentity<IdentityUser>()
-        .AddDefaultUI(UIFramework.Bootstrap4)
-        .AddEntityFrameworkStores<ApplicationDbContext>();
-
-services.AddAuthentication().AddGoogle(googleOptions =>
-{
-    googleOptions.ClientId = Configuration["Authentication:Google:ClientId"];
-    googleOptions.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
-});
+```console
+dotnet user-secrets set "Authentication:Google:ClientId" "X.apps.googleusercontent.com"
+dotnet user-secrets set "Authentication:Google:ClientSecret" "<client secret>"
 ```
 
-[!INCLUDE [default settings configuration](includes/default-settings.md)]
+<span data-ttu-id="27a53-120">API kimlik bilgileri ve kullanımı ile yönetebileceğiniz [API Konsolu](https://console.developers.google.com/apis/dashboard).</span><span class="sxs-lookup"><span data-stu-id="27a53-120">You can manage your API credentials and usage in the [API Console](https://console.developers.google.com/apis/dashboard).</span></span>
 
-[!INCLUDE[](includes/chain-auth-providers.md)]
+## <a name="configure-google-authentication"></a><span data-ttu-id="27a53-121">Google kimlik doğrulamasını yapılandırma</span><span class="sxs-lookup"><span data-stu-id="27a53-121">Configure Google authentication</span></span>
 
-::: moniker-end
+<span data-ttu-id="27a53-122">Google hizmetine ekleme `Startup.ConfigureServices`.</span><span class="sxs-lookup"><span data-stu-id="27a53-122">Add the Google service to `Startup.ConfigureServices`.</span></span>
 
-::: moniker range="< aspnetcore-2.0"
+[!INCLUDE [default settings configuration](includes/default-settings2-2.md)]
 
-<span data-ttu-id="f7778-150">Bu öğreticide kullanılan proje şablonu sağlar [Microsoft.AspNetCore.Authentication.Google](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Google) paket yüklenir.</span><span class="sxs-lookup"><span data-stu-id="f7778-150">The project template used in this tutorial ensures that [Microsoft.AspNetCore.Authentication.Google](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Google) package is installed.</span></span>
+## <a name="sign-in-with-google"></a><span data-ttu-id="27a53-123">Google ile oturum aç</span><span class="sxs-lookup"><span data-stu-id="27a53-123">Sign in with Google</span></span>
 
-* <span data-ttu-id="f7778-151">Visual Studio 2017 ile bu paketi yüklemek için projeyi sağ tıklatın ve **NuGet paketlerini Yönet**.</span><span class="sxs-lookup"><span data-stu-id="f7778-151">To install this package with Visual Studio 2017, right-click on the project and select **Manage NuGet Packages**.</span></span>
-* <span data-ttu-id="f7778-152">.NET Core CLI ile yüklemek için proje dizininizde aşağıdakileri yürütün:</span><span class="sxs-lookup"><span data-stu-id="f7778-152">To install with .NET Core CLI, execute the following in your project directory:</span></span>
-
-`dotnet add package Microsoft.AspNetCore.Authentication.Google`
-
-<span data-ttu-id="f7778-153">Google Ara yazılımında ekleme `Configure` yönteminde *Startup.cs* dosyası:</span><span class="sxs-lookup"><span data-stu-id="f7778-153">Add the Google middleware in the `Configure` method in *Startup.cs* file:</span></span>
-
-```csharp
-app.UseGoogleAuthentication(new GoogleOptions()
-{
-    ClientId = Configuration["Authentication:Google:ClientId"],
-    ClientSecret = Configuration["Authentication:Google:ClientSecret"]
-});
-```
-
-::: moniker-end
-
-<span data-ttu-id="f7778-154">Bkz: [GoogleOptions](/dotnet/api/microsoft.aspnetcore.builder.googleoptions) Google kimlik doğrulama tarafından desteklenen yapılandırma seçenekleri hakkında daha fazla bilgi için API Başvurusu.</span><span class="sxs-lookup"><span data-stu-id="f7778-154">See the [GoogleOptions](/dotnet/api/microsoft.aspnetcore.builder.googleoptions) API reference for more information on configuration options supported by Google authentication.</span></span> <span data-ttu-id="f7778-155">Bu kullanıcı ile ilgili farklı bilgi istemek için kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="f7778-155">This can be used to request different information about the user.</span></span>
-
-## <a name="sign-in-with-google"></a><span data-ttu-id="f7778-156">Google ile oturum aç</span><span class="sxs-lookup"><span data-stu-id="f7778-156">Sign in with Google</span></span>
-
-<span data-ttu-id="f7778-157">Uygulamanızı çalıştırın ve tıklayın **oturum**.</span><span class="sxs-lookup"><span data-stu-id="f7778-157">Run your application and click **Log in**.</span></span> <span data-ttu-id="f7778-158">Google ile oturum açmak için bir seçenek görüntülenir:</span><span class="sxs-lookup"><span data-stu-id="f7778-158">An option to sign in with Google appears:</span></span>
-
-![Microsoft Edge'de çalışan web uygulaması: Kullanıcı Kimliği](index/_static/DoneGoogle.png)
-
-<span data-ttu-id="f7778-160">Google'da tıkladığınızda, kimlik doğrulaması için Google'a yönlendirilir:</span><span class="sxs-lookup"><span data-stu-id="f7778-160">When you click on Google, you are redirected to Google for authentication:</span></span>
-
-![Google kimlik doğrulama iletişim](index/_static/GoogleLogin.png)
-
-<span data-ttu-id="f7778-162">Google kimlik bilgilerinizi girdikten sonra ardından web e-postanızı ayarlayabileceğiniz siteye geri yönlendirilir.</span><span class="sxs-lookup"><span data-stu-id="f7778-162">After entering your Google credentials, then you are redirected back to the web site where you can set your email.</span></span>
-
-<span data-ttu-id="f7778-163">Şimdi, Google kimlik bilgilerinizi kullanarak kaydedilir:</span><span class="sxs-lookup"><span data-stu-id="f7778-163">You are now logged in using your Google credentials:</span></span>
-
-![Microsoft Edge'de çalışan web uygulaması: Kimliği doğrulanmış kullanıcı](index/_static/Done.png)
+* <span data-ttu-id="27a53-124">Uygulamayı çalıştırın ve tıklayın **oturum**.</span><span class="sxs-lookup"><span data-stu-id="27a53-124">Run the app and click **Log in**.</span></span> <span data-ttu-id="27a53-125">Google ile oturum açmak için bir seçenek görüntülenir.</span><span class="sxs-lookup"><span data-stu-id="27a53-125">An option to sign in with Google appears.</span></span>
+* <span data-ttu-id="27a53-126">Tıklayın **Google** düğmesi için Google kimlik doğrulaması için yönlendirir.</span><span class="sxs-lookup"><span data-stu-id="27a53-126">Click the **Google** button, which redirects to Google for authentication.</span></span>
+* <span data-ttu-id="27a53-127">Google kimlik bilgilerinizi girdikten sonra web sitesine yönlendirilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="27a53-127">After entering your Google credentials, you are redirected back to the web site.</span></span>
 
 [!INCLUDE[Forward request information when behind a proxy or load balancer section](includes/forwarded-headers-middleware.md)]
 
-## <a name="troubleshooting"></a><span data-ttu-id="f7778-165">Sorun giderme</span><span class="sxs-lookup"><span data-stu-id="f7778-165">Troubleshooting</span></span>
+[!INCLUDE[](includes/chain-auth-providers.md)]
 
-* <span data-ttu-id="f7778-166">Alırsanız bir `403 (Forbidden)` geliştirme modu (veya aynı hata ayıklayıcısına kesme) çalışıyor olun, kendi uygulamanızı hata sayfasından **Google + API** içinde etkin **APIYöneticisikitaplığı** listelenen adımları takip ederek [bu sayfadaki önceki](#create-the-app-in-google-api-console).</span><span class="sxs-lookup"><span data-stu-id="f7778-166">If you receive a `403 (Forbidden)` error page from your own app when running in development mode (or break into the debugger with the same error), ensure that **Google+ API** has been enabled in the **API Manager Library** by following the steps listed [earlier on this page](#create-the-app-in-google-api-console).</span></span> <span data-ttu-id="f7778-167">Hataları almıyor olabilirler ve oturum açma işe yaramazsa, sorunu hata ayıklama daha kolay hale getirmek için geliştirme moduna geçin.</span><span class="sxs-lookup"><span data-stu-id="f7778-167">If the sign in doesn't work and you aren't getting any errors, switch to development mode to make the issue easier to debug.</span></span>
-* <span data-ttu-id="f7778-168">**ASP.NET Core 2.x yalnızca:** Kimlik çağırarak yapılandırılmazsa `services.AddIdentity` içinde `ConfigureServices`, kimlik doğrulaması yapmaya sonuçlanır *ArgumentException: 'SignInScheme' seçeneği belirtilmelidir*.</span><span class="sxs-lookup"><span data-stu-id="f7778-168">**ASP.NET Core 2.x only:** If Identity isn't configured by calling `services.AddIdentity` in `ConfigureServices`, attempting to authenticate will result in *ArgumentException: The 'SignInScheme' option must be provided*.</span></span> <span data-ttu-id="f7778-169">Bu öğreticide kullanılan proje şablonu, bu gerçekleştirilir sağlar.</span><span class="sxs-lookup"><span data-stu-id="f7778-169">The project template used in this tutorial ensures that this is done.</span></span>
-* <span data-ttu-id="f7778-170">Site veritabanı, ilk geçiş uygulayarak oluşturulmamış alırsa *bir veritabanı işlemi başarısız istek işlenirken* hata.</span><span class="sxs-lookup"><span data-stu-id="f7778-170">If the site database has not been created by applying the initial migration, you will get *A database operation failed while processing the request* error.</span></span> <span data-ttu-id="f7778-171">Dokunun **geçerli geçişleri** veritabanı oluşturma ve hata devam etmek için yenilemek için.</span><span class="sxs-lookup"><span data-stu-id="f7778-171">Tap **Apply Migrations** to create the database and refresh to continue past the error.</span></span>
+<span data-ttu-id="27a53-128">Bkz: [GoogleOptions](/dotnet/api/microsoft.aspnetcore.builder.googleoptions) Google kimlik doğrulama tarafından desteklenen yapılandırma seçenekleri hakkında daha fazla bilgi için API Başvurusu.</span><span class="sxs-lookup"><span data-stu-id="27a53-128">See the [GoogleOptions](/dotnet/api/microsoft.aspnetcore.builder.googleoptions) API reference for more information on configuration options supported by Google authentication.</span></span> <span data-ttu-id="27a53-129">Bu kullanıcı ile ilgili farklı bilgi istemek için kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="27a53-129">This can be used to request different information about the user.</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="f7778-172">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="f7778-172">Next steps</span></span>
+## <a name="change-the-default-callback-uri"></a><span data-ttu-id="27a53-130">Varsayılan geri arama URI'si değiştirme</span><span class="sxs-lookup"><span data-stu-id="27a53-130">Change the default callback URI</span></span>
 
-* <span data-ttu-id="f7778-173">Bu makalede, Google ile kimliğini nasıl doğrulayabileceğiniz gösterdi.</span><span class="sxs-lookup"><span data-stu-id="f7778-173">This article showed how you can authenticate with Google.</span></span> <span data-ttu-id="f7778-174">Listelenen diğer sağlayıcıları ile kimlik doğrulaması için benzer bir yaklaşım izleyerek [önceki sayfaya](xref:security/authentication/social/index).</span><span class="sxs-lookup"><span data-stu-id="f7778-174">You can follow a similar approach to authenticate with other providers listed on the [previous page](xref:security/authentication/social/index).</span></span>
+<span data-ttu-id="27a53-131">URI segmenti `/signin-google` Google kimlik doğrulama sağlayıcısı varsayılan geri arama olarak ayarlanır.</span><span class="sxs-lookup"><span data-stu-id="27a53-131">The URI segment `/signin-google` is set as the default callback of the Google authentication provider.</span></span> <span data-ttu-id="27a53-132">Google kimlik doğrulaması ara yazılımı üzerinden devralınan yapılandırırken, varsayılan geri arama URI'si değiştirebilirsiniz [RemoteAuthenticationOptions.CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath) özelliği [GoogleOptions](/dotnet/api/microsoft.aspnetcore.authentication.google.googleoptions) sınıfı.</span><span class="sxs-lookup"><span data-stu-id="27a53-132">You can change the default callback URI while configuring the Google authentication middleware via the inherited [RemoteAuthenticationOptions.CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath) property of the [GoogleOptions](/dotnet/api/microsoft.aspnetcore.authentication.google.googleoptions) class.</span></span>
 
-* <span data-ttu-id="f7778-175">Web sitenizi Azure web uygulaması yayımladıktan sonra sıfırlamalısınız `ClientSecret` Google API konsolunda.</span><span class="sxs-lookup"><span data-stu-id="f7778-175">Once you publish your web site to Azure web app, you should reset the `ClientSecret` in the Google API Console.</span></span>
+## <a name="troubleshooting"></a><span data-ttu-id="27a53-133">Sorun giderme</span><span class="sxs-lookup"><span data-stu-id="27a53-133">Troubleshooting</span></span>
 
-* <span data-ttu-id="f7778-176">Ayarlama `Authentication:Google:ClientId` ve `Authentication:Google:ClientSecret` Azure portalında uygulama ayarları olarak.</span><span class="sxs-lookup"><span data-stu-id="f7778-176">Set the `Authentication:Google:ClientId` and `Authentication:Google:ClientSecret` as application settings in the Azure portal.</span></span> <span data-ttu-id="f7778-177">Yapılandırma sistemi ortam değişkenlerinden anahtarları okumak için ayarlanır.</span><span class="sxs-lookup"><span data-stu-id="f7778-177">The configuration system is set up to read keys from environment variables.</span></span>
+* <span data-ttu-id="27a53-134">Hataları almıyor olabilirler ve oturum açma işe yaramazsa, sorunu hata ayıklama daha kolay hale getirmek için geliştirme moduna geçin.</span><span class="sxs-lookup"><span data-stu-id="27a53-134">If the sign-in doesn't work and you aren't getting any errors, switch to development mode to make the issue easier to debug.</span></span>
+* <span data-ttu-id="27a53-135">Kimlik çağırarak yapılandırılmazsa `services.AddIdentity` içinde `ConfigureServices`, sonuçları kimlik doğrulaması girişimi sırasında *ArgumentException: 'SignInScheme' seçeneği belirtilmelidir*.</span><span class="sxs-lookup"><span data-stu-id="27a53-135">If Identity isn't configured by calling `services.AddIdentity` in `ConfigureServices`, attempting to authenticate results in *ArgumentException: The 'SignInScheme' option must be provided*.</span></span> <span data-ttu-id="27a53-136">Bu öğreticide kullanılan proje şablonu, bu gerçekleştirilir sağlar.</span><span class="sxs-lookup"><span data-stu-id="27a53-136">The project template used in this tutorial ensures that this is done.</span></span>
+* <span data-ttu-id="27a53-137">Site veritabanı, ilk geçiş uygulayarak oluşturulmamış varsa *bir veritabanı işlemi başarısız istek işlenirken* hata.</span><span class="sxs-lookup"><span data-stu-id="27a53-137">If the site database has not been created by applying the initial migration, you get *A database operation failed while processing the request* error.</span></span> <span data-ttu-id="27a53-138">Dokunun **geçerli geçişleri** veritabanı oluşturma ve hata devam etmek için yenilemek için.</span><span class="sxs-lookup"><span data-stu-id="27a53-138">Tap **Apply Migrations** to create the database and refresh to continue past the error.</span></span>
+
+## <a name="next-steps"></a><span data-ttu-id="27a53-139">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="27a53-139">Next steps</span></span>
+
+* <span data-ttu-id="27a53-140">Bu makalede, Google ile kimliğini nasıl doğrulayabileceğiniz gösterdi.</span><span class="sxs-lookup"><span data-stu-id="27a53-140">This article showed how you can authenticate with Google.</span></span> <span data-ttu-id="27a53-141">Listelenen diğer sağlayıcıları ile kimlik doğrulaması için benzer bir yaklaşım izleyerek [önceki sayfaya](xref:security/authentication/social/index).</span><span class="sxs-lookup"><span data-stu-id="27a53-141">You can follow a similar approach to authenticate with other providers listed on the [previous page](xref:security/authentication/social/index).</span></span>
+* <span data-ttu-id="27a53-142">Uygulamayı Azure'a yayımlama sonra sıfırlama `ClientSecret` Google API konsolunda.</span><span class="sxs-lookup"><span data-stu-id="27a53-142">Once you publish the app to Azure, reset the `ClientSecret` in the Google API Console.</span></span>
+* <span data-ttu-id="27a53-143">Ayarlama `Authentication:Google:ClientId` ve `Authentication:Google:ClientSecret` Azure portalında uygulama ayarları olarak.</span><span class="sxs-lookup"><span data-stu-id="27a53-143">Set the `Authentication:Google:ClientId` and `Authentication:Google:ClientSecret` as application settings in the Azure portal.</span></span> <span data-ttu-id="27a53-144">Yapılandırma sistemi ortam değişkenlerinden anahtarları okumak için ayarlanır.</span><span class="sxs-lookup"><span data-stu-id="27a53-144">The configuration system is set up to read keys from environment variables.</span></span>
