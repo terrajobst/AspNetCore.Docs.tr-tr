@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 12/18/2018
 uid: aspnetcore-2.2
-ms.openlocfilehash: 13d7dec834a5661b445b4fc0c0be8be9b7b41b9e
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: b8279588e674e3ada486f61bac2c216f1359e86d
+ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637735"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54444395"
 ---
 # <a name="whats-new-in-aspnet-core-22"></a>ASP.NET Core 2.2 içinde yenilikler nelerdir?
 
@@ -57,7 +57,7 @@ ASP.NET Core 2.2 HTTP/2 desteği ekler.
 
 HTTP/2 HTTP protokolü, büyük bir düzeltme'dir. HTTP/2'in önemli özelliklerinden bazıları, üst bilgi sıkıştırma desteği olan ve tam olarak tek bir bağlantı üzerinden akışları multiplexed. HTTP/2 (HTTP üstbilgileri, yöntemler vb.) HTTP'ın semantiğini korur ancak bu verilerin nasıl Çerçeveli ve kablo üzerinden gönderilen üzerinde HTTP/1.x bozucu değişiklik var.
 
-Söz konusu kümelerdeki bu değişikliği çerçeveleme, sunucular ve istemciler kullanılan protokolü sürümü anlaşma gerekir. Uygulama katmanı protokol anlaşması (ALPN) sunucu ve istemci, TLS anlaşması bir parçası olarak kullanılan protokolü sürümü anlaşma izin veren bir TLS uzantısıdır. Sunucu ve istemci arasındaki önceki bilgisine protokolüne sahip mümkün olsa da, tüm bilinen tarayıcılar HTTP/2 bağlantı kurmak için tek yolu ALPN destekler.
+Söz konusu kümelerdeki bu değişikliği çerçeveleme, sunucular ve istemciler kullanılan protokolü sürümü anlaşma gerekir. Uygulama katmanı protokol anlaşması (ALPN) sunucu ve istemci, TLS anlaşması bir parçası olarak kullanılan protokolü sürümü anlaşmak üzere izin veren bir TLS uzantısıdır. Sunucu ve istemci arasındaki önceki bilgisine protokolüne sahip mümkün olsa da, tüm bilinen tarayıcılar HTTP/2 bağlantı kurmak için tek yolu ALPN destekler.
 
 Daha fazla bilgi için [HTTP/2 desteği](xref:fundamentals/servers/index?view=aspnetcore-2.2#http2-support).
 

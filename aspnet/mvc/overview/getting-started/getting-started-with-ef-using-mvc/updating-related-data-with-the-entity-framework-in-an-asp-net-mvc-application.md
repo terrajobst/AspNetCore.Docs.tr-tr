@@ -1,30 +1,24 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
-title: Bir ASP.NET MVC uygulamasındaki Entity Framework ile ilgili verileri güncelleştirme | Microsoft Docs
+title: 'Öğretici: Bir ASP.NET MVC uygulamasında EF ile ilgili verileri güncelleştirme'
+description: Bu öğreticide ilgili verileri güncelleştirin. Çoğu ilişki için bu yabancı anahtar alanları veya gezinti özelliklerini güncelleştirerek yapılabilir.
 author: tdykstra
-description: Contoso University örnek web uygulaması Entity Framework 6 Code First ve Visual Studio kullanarak ASP.NET MVC 5 uygulamalarının nasıl oluşturulacağını gösterir...
 ms.author: riande
-ms.date: 05/01/2015
+ms.date: 01/17/2019
+ms.topic: tutorial
 ms.assetid: 7ba88418-5d0a-437d-b6dc-7c3816d4ec07
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 647793a65dec8feaf37de561ad77b4585bb869a8
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 3f95470fd1832d7d25a331a1b6a9dfede7356f38
+ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912221"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54444317"
 ---
-<a name="updating-related-data-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Bir ASP.NET MVC uygulamasındaki Entity Framework ile ilgili verileri güncelleştirme
-====================
-tarafından [Tom Dykstra](https://github.com/tdykstra)
+# <a name="tutorial-update-related-data-with-ef-in-an-aspnet-mvc-app"></a>Öğretici: Bir ASP.NET MVC uygulamasında EF ile ilgili verileri güncelleştirme
 
-[Projeyi yükle](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
-
-> Contoso University örnek web uygulaması Entity Framework 6 Code First ve Visual Studio kullanarak ASP.NET MVC 5 uygulamalarının nasıl oluşturulacağını gösterir. Öğretici serisinin hakkında daha fazla bilgi için bkz. [serideki ilk öğreticide](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
-
-
-Önceki öğreticide ilgili veriler görüntülenecek; Bu öğreticide ilgili verileri güncelleştirin. Çoğu ilişki için bu yabancı anahtar alanları veya gezinti özelliklerini güncelleştirerek yapılabilir. Varlıklar için ve uygun Gezinti özelliklerinden ekleyip şekilde çoktan çoğa ilişkiler için Entity Framework birleşim tablosundan doğrudan ortaya çıkarmıyor.
+Önceki öğreticide ilgili verileri görüntülenir. Bu öğreticide ilgili verileri güncelleştirin. Çoğu ilişki için bu yabancı anahtar alanları veya gezinti özelliklerini güncelleştirerek yapılabilir. Varlıklar için ve uygun Gezinti özelliklerinden ekleyip şekilde çoktan çoğa ilişkiler için Entity Framework birleşim tablosundan doğrudan ortaya çıkarmıyor.
 
 Aşağıdaki çizimler ile çalışma sayfaları bazılarını göstermektedir.
 
@@ -34,7 +28,20 @@ Aşağıdaki çizimler ile çalışma sayfaları bazılarını göstermektedir.
 
 ![Kurslarıyla Eğitmen Düzenle](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
 
-## <a name="customize-the-create-and-edit-pages-for-courses"></a>Kursları oluşturma ve düzenleme sayfalarını özelleştirme
+Bu öğreticide şunları yaptınız:
+
+> [!div class="checklist"]
+> * Kursları sayfalarını özelleştirme
+> * Office Eğitmenler sayfasına ekleme
+> * Kursları Eğitmenler sayfasına ekleme
+> * Güncelleştirme DeleteConfirmed
+> * Ofis konumu ve kurslar oluşturma sayfasına ekleme
+
+## <a name="prerequisites"></a>Önkoşullar
+
+* [İlgili Verileri Okuma](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+
+## <a name="customize-courses-pages"></a>Kursları sayfalarını özelleştirme
 
 Yeni bir kurs varlık oluşturulduğunda, var olan bir bölüm arasında bir ilişki olması gerekir. Bunu kolaylaştırmak için iskele kurulan kodu denetleyici metotları ve departman seçmek için aşağı açılan listede yer oluşturma ve düzenleme görünümleri içerir. Açılır listede kümeleri `Course.DepartmentID` yabancı anahtar özellik ve tüm yük için Entity Framework gereken `Department` uygun sahip gezinme özelliği `Department` varlık. İskele kurulan kodu kullanır ancak biraz hata işleme eklemek ve açılan listeyi sıralamak için değiştirmeniz.
 
@@ -82,19 +89,20 @@ Gizli bir alan zaten var. (`Html.HiddenFor` Yardımcısı) düzenleme Görünüm
 
 Çalıştırma **Oluştur** sayfa (kurs dizin sayfasını görüntüleyin ve tıklayın **Yeni Oluştur**) ve yeni bir kurs için veri girin:
 
-![Course_create_page](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
+| Değer | Ayar |
+| ----- | ------- |
+| Sayı | Girin *1000*. |
+| Başlık | Girin *Cebir*. |
+| Jenerik | Girin *4*. |
+|Bölüm | Seçin **matematik**. |
 
 **Oluştur**'u tıklatın. Listeye eklenen yeni kurs ile kurs dizin sayfası görüntülenir. Bölüm adı dizin sayfası listesinde ilişki doğru şekilde kurulduğundan gösteren navigation özelliğinden gelir.
 
-![Course_Index_page_showing_new_course](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image5.png)
-
 Çalıştırma **Düzenle** sayfa (kurs dizin sayfasını görüntüleyin ve tıklayın **Düzenle** kurs üzerinde).
-
-![Course_edit_page](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image6.png)
 
 Sayfadaki verileri değiştirip'ı **Kaydet**. Güncelleştirilmiş kurs verilerle kurs dizin sayfası görüntülenir.
 
-## <a name="adding-an-edit-page-for-instructors"></a>Eğitmen için bir düzen sayfası ekleme
+## <a name="add-office-to-instructors-page"></a>Office Eğitmenler sayfasına ekleme
 
 Bir eğitmen kaydı düzenlediğinizde, eğitmen ofis ataması güncelleştirilecek yönetebilmek istiyorsunuz. `Instructor` Varlığı ile bir sıfır-veya-bir ilişkisi vardır `OfficeAssignment` aşağıdaki durumlarda işlemek gerekir yani varlık:
 
@@ -116,7 +124,7 @@ Değiştirin `HttpPost` `Edit` yöntemini aşağıdaki kod ile. hangi office ata
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample11.cs)]
 
-Başvuru `RetryLimitExceededException` gerektirir bir `using` eklemek için sağ deyimi; `RetryLimitExceededException`ve ardından **çözmek** - **System.Data.Entity.Infrastructurekullanarak**.
+Başvuru `RetryLimitExceededException` gerektiren bir `using` deyimi. Eklemek için üzerine `RetryLimitExceededException`. Sorun açıklaması görünür. Seçin **olası düzeltmeleri göster** ve ardından **System.Data.Entity.Infrastructure; kullanarak**.
 
 ![Yeniden deneme özel durumu çözümleyin](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image7.png)
 
@@ -138,13 +146,9 @@ Kod şunları yapar:
 
 Sayfayı çalıştırın (seçin **Eğitmenler** sekmesine ve ardından **Düzenle** bir eğitmen üzerinde). Değişiklik **ofis konumu** tıklatıp **Kaydet**.
 
-![Changing_the_office_location](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image8.png)
+## <a name="add-courses-to-instructors-page"></a>Kursları Eğitmenler sayfasına ekleme
 
-## <a name="adding-course-assignments-to-the-instructor-edit-page"></a>Eğitmen ekleme kurs atamaları sayfayı Düzenle
-
-Eğitmenler kursları herhangi bir sayıda öğretin. Artık aşağıdaki ekran görüntüsünde gösterildiği gibi bir grup onay kutularını kullanarak kurs atamalarını değiştirme olanağı ekleyerek Eğitmen Düzenle sayfasında geliştirmek:
-
-![Instructor_edit_page_with_courses](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image9.png)
+Eğitmenler kursları herhangi bir sayıda öğretin. Artık bir grup onay kutularını kullanarak kurs atamalarını değiştirme olanağı ekleyerek Eğitmen Düzenle sayfasında geliştirmek.
 
 Arasındaki ilişkiyi `Course` ve `Instructor` varlıklar olduğunu çoktan çoğa, birleştirme tabloda yer alan yabancı anahtar özelliklerini doğrudan erişim sahip olmadığınız anlamına gelir. Bunun yerine, ekleyip varlıkları ve ondan `Instructor.Courses` gezinme özelliği.
 
@@ -204,20 +208,15 @@ Ardından office konumu ayrıntı hücre hemen ardından, yeni bir ayrıntı hü
 
 [!code-cshtml[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample23.cshtml?highlight=7-14)]
 
-Çalıştırma **Eğitmen dizin** her eğitmen için atanan kursları görmek için sayfayı:
-
-![Instructor_index_page](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image10.png)
+Çalıştırma **Eğitmen dizin** her eğitmen için atanan kursları görmek için sayfayı.
 
 Tıklayın **Düzenle** üzerinde bir eğitmen Düzen sayfasına bakın.
 
-![Instructor_edit_page_with_courses](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image11.png)
-
 Bazı kurs atamalarını değiştirip'ı **Kaydet**. Dizin sayfasında, yaptığınız değişiklikler yansıtılır.
 
- Not: Burada Eğitmen kurs verileri düzenlemek için uygulanan yaklaşıma de sınırlı sayıda kursları olduğunda çalışır. Farklı bir kullanıcı Arabirimi ve farklı bir güncelleştirme yöntemi, daha büyük olan koleksiyonları için gerekli olacaktır.
+ Not: Eğitmen kurs verileri düzenlemek için burada uygulanan yaklaşıma de sınırlı sayıda kursları olduğunda çalışır. Farklı bir kullanıcı Arabirimi ve farklı bir güncelleştirme yöntemi, daha büyük olan koleksiyonları için gerekli olacaktır.
 
-
-## <a name="update-the-deleteconfirmed-method"></a>Güncelleştirme DeleteConfirmed yöntemi
+## <a name="update-deleteconfirmed"></a>Güncelleştirme DeleteConfirmed
 
 İçinde *InstructorController.cs*, silme `DeleteConfirmed` aşağıdaki kodu yerine yöntemi ve ekleme.
 
@@ -258,21 +257,31 @@ Kod yapıştırıldıktan sonra daha önce düzenleme sayfası için yaptığın
 
 Oluştur sayfasında çalıştırın ve bir eğitmen ekleyin.
 
-![Eğitmen kurslarıyla oluşturma](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image12.png)
-
 <a id="transactions"></a>
+
 ## <a name="handling-transactions"></a>İşlem işleme
 
 İçinde anlatıldığı gibi [temel CRUD işlevselliği öğretici](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md), varsayılan olarak Entity Framework örtük olarak işlemler uygular. Daha denetlediğiniz--Örneğin, bir işlemde--Entity Framework dışında yapılan işlemler dahil etmek istiyorsanız senaryolar görmek için [işlemleri çalışma](https://msdn.microsoft.com/data/dn456843) MSDN'de.
 
-## <a name="summary"></a>Özet
+## <a name="get-the-code"></a>Kodu alma
 
-Bu giriş, ilgili verilerle çalışmaya tamamladınız. Şu ana kadar bu öğreticileri, zaman uyumlu g/ç gerçekleştiren kod ile çalıştım. Zaman uyumsuz kod uygulama tarafından web sunucu kaynaklarını daha verimli bir şekilde kullanma uygulama yapabilir ve sonraki öğreticide yaparsınız.
+[Projeyi yükle](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
-Lütfen bu öğreticide sevmediğinizi nasıl ve ne geliştirebileceğimiz hakkında geri bildirim bırakın.
+## <a name="additional-resources"></a>Ek kaynaklar
 
 Entity Framework diğer kaynakların bağlantılarını bulunabilir [ASP.NET veri erişimi - önerilen kaynaklar](../../../../whitepapers/aspnet-data-access-content-map.md).
 
-> [!div class="step-by-step"]
-> [Önceki](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-> [İleri](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+## <a name="next-step"></a>Sonraki adım
+
+Bu öğreticide şunları yaptınız:
+
+> [!div class="checklist"]
+> * Özelleştirilmiş kursları sayfaları
+> * Eğitmenler sayfasına eklenen office
+> * Eğitmenler sayfasına eklenen kursları
+> * Güncelleştirilmiş DeleteConfirmed
+> * Eklenen ofis konumu ve kurslar Oluştur sayfası
+
+Bir zaman uyumsuz programlama modeli uygulama hakkında bilgi edinmek için sonraki makaleye ilerleyin.
+> [!div class="nextstepaction"]
+> [Zaman uyumsuz programlama modeli](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application.md)

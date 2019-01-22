@@ -1,35 +1,42 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application
-title: Sıralama, filtreleme ve bir ASP.NET MVC uygulamasındaki Entity Framework ile sayfalama | Microsoft Docs
+title: 'Öğretici: Sıralama, filtreleme ve bir ASP.NET MVC uygulamasındaki Entity Framework ile sayfalama ekleme | Microsoft Docs'
 author: tdykstra
-description: Contoso University örnek web uygulaması Entity Framework 6 Code First ve Visual Studio kullanarak ASP.NET MVC 5 uygulamalarının nasıl oluşturulacağını gösterir...
+description: Bu öğreticide, sıralama, filtreleme ve sayfalama işlevsellik eklemek **Öğrenciler** dizin sayfası. Bir basit gruplandırma sayfa oluşturabilir.
 ms.author: riande
-ms.date: 10/08/2018
+ms.date: 01/14/2019
 ms.assetid: d5723e46-41fe-4d09-850a-e03b9e285bfa
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 9fabb5a90af715d4e96ff79b43bfff5a4600ac08
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.topic: tutorial
+ms.openlocfilehash: 1f18a15d39d58ffb4ac48cfccee6519d33294e85
+ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912780"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54444201"
 ---
-# <a name="sorting-filtering-and-paging-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Sıralama, filtreleme ve bir ASP.NET MVC uygulamasındaki Entity Framework ile sayfalama
+# <a name="tutorial-add-sorting-filtering-and-paging-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Öğretici: Sıralama, filtreleme ve bir ASP.NET MVC uygulamasındaki Entity Framework ile sayfalama ekleme
 
-tarafından [Tom Dykstra](https://github.com/tdykstra)
+İçinde [önceki öğreticide](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md), web sayfaları için temel CRUD işlemleri için bir dizi uygulanan `Student` varlıklar. Bu öğreticide, sıralama, filtreleme ve sayfalama işlevsellik eklemek **Öğrenciler** dizin sayfası. Bir basit gruplandırma sayfa oluşturabilir.
 
-[Projeyi yükle](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
-
-> Contoso University örnek web uygulaması Entity Framework 6 Code First ve Visual Studio kullanarak ASP.NET MVC 5 uygulamalarının nasıl oluşturulacağını gösterir. Öğretici serisinin hakkında daha fazla bilgi için bkz. [serideki ilk öğreticide](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
-
-Önceki öğreticide, bir dizi web sayfaları için temel CRUD işlemleri için uygulanan `Student` varlıklar. Bu öğreticide, sıralama, filtreleme ve sayfalama işlevselliğinin ekleyeceksiniz **Öğrenciler** dizin sayfası. Basit gruplandırma yapan bir sayfa da oluşturacaksınız.
-
-Aşağıdaki çizim, hazır olduğunuzda sayfanın nasıl görüneceğini gösterir. Sütun başlıkları, kullanıcının sütuna göre sıralamak için tıklayabileceği bağlantılar verilmiştir. Bir sütun başlığına tekrar tekrar tıklayarak, artan veya azalan sıralama düzeni arasında geçiş yapar.
+Aşağıdaki görüntüde, hazır olduğunuzda sayfanın nasıl görüneceğini gösterir. Sütun başlıkları, kullanıcının sütuna göre sıralamak için tıklayabileceği bağlantılar verilmiştir. Bir sütun başlığına tekrar tekrar tıklayarak, artan veya azalan sıralama düzeni arasında geçiş yapar.
 
 ![Students_Index_page_with_paging](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image1.png)
 
-## <a name="add-column-sort-links-to-the-students-index-page"></a>Öğrenciler dizin sayfasına Sütun sıralama bağlantılar ekleme
+Bu öğreticide şunları yaptınız:
+
+> [!div class="checklist"]
+> * Sütun sıralama bağlantılar ekleme
+> * Bir arama kutusu ekleme
+> * Sayfalama ekleme
+> * Hakkında sayfası oluşturma
+
+## <a name="prerequisites"></a>Önkoşullar
+
+* [Temel CRUD İşlevselliği Uygulama](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)
+
+## <a name="add-column-sort-links"></a>Sütun sıralama bağlantılar ekleme
 
 Öğrenci dizin sayfasına sıralama eklemek için değiştireceksiniz `Index` yöntemi `Student` denetleyicisi ve kodu ekleyin `Student` dizin görünümü.
 
@@ -70,13 +77,9 @@ Her bir sıralama düzeni için farklı LINQ deyimleri yazılırken alternatif o
 
 2. Sayfayı çalıştırın ve tıklayın **Soyadı** ve **kayıt tarihi** sütun başlıkları, sıralama doğrulamak için çalışır.
 
-   ![Students_Index_page_with_sort_hyperlinks](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image2.png)
-
    Tıkladıktan sonra **Soyadı** başlığı Öğrenciler soyadına göre azalan düzende görüntülenir.
 
-   ![Web tarayıcısında Öğrenci dizini görüntüle](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
-
-## <a name="add-a-search-box-to-the-students-index-page"></a>Bir arama kutusu Öğrenciler dizin sayfasına ekleme
+## <a name="add-a-search-box"></a>Bir arama kutusu ekleme
 
 Öğrenciler dizin sayfasına filtre eklemek için görünümü için metin kutusu ve bir Gönder düğmesi ekleyin ve karşılık gelen değişiklik `Index` yöntemi. Metin kutusu için ad ve soyadı alanları aramak için bir dize girmenize olanak tanır.
 
@@ -103,15 +106,11 @@ Kod ekler bir `searchString` parametresi `Index` yöntemi. Dizin görünümüne 
 
 2. Çalıştırırsanız, bir arama dizesi girin ve tıklayın **arama** filtreleme çalıştığını doğrulayın.
 
-   ![Students_Index_page_with_search_box](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
-
    Bu sayfaya yer işareti, yer işareti kullandığınızda, filtrelenmiş liste vermeyecektir, yani "bir" arama dizesi, URL içermiyor dikkat edin. Tam listeyi sıralamak şekilde bu sütun sıralama bağlantıları için de geçerlidir. Değiştireceksiniz **arama** sorgu dizeleri için filtre ölçütlerini öğreticinin ilerleyen bölümlerinde kullanmak için düğme.
 
-## <a name="add-paging-to-the-students-index-page"></a>Disk belleği Öğrenciler dizin sayfasına ekleme
+## <a name="add-paging"></a>Sayfalama ekleme
 
-Disk belleği Öğrenciler dizin sayfasına eklemek için yükleyerek başlayacaksınız **PagedList.Mvc** NuGet paketi. Sonra ek değişiklik yapacaksınız `Index` yöntemi ve disk belleği bağlantılar ekleme `Index` görünümü. **PagedList.Mvc** birçok iyi sayfalama ve paketler için ASP.NET MVC sıralamayı biridir ve kullanımını burada yalnızca diğer seçenekleri üzerinde onun için bir öneri olarak değil, örnek olarak tasarlanmıştır. Aşağıdaki çizimde, disk belleği bağlantılarını gösterir.
-
-![Students_index_page_with_paging](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image5.png)
+Disk belleği Öğrenciler dizin sayfasına eklemek için yükleyerek başlayacaksınız **PagedList.Mvc** NuGet paketi. Sonra ek değişiklik yapacaksınız `Index` yöntemi ve disk belleği bağlantılar ekleme `Index` görünümü. **PagedList.Mvc** birçok iyi sayfalama ve paketler için ASP.NET MVC sıralamayı biridir ve kullanımını burada yalnızca diğer seçenekleri üzerinde onun için bir öneri olarak değil, örnek olarak tasarlanmıştır.
 
 ### <a name="install-the-pagedlistmvc-nuget-package"></a>PagedList.MVC NuGet paketini yükle
 
@@ -124,8 +123,6 @@ NuGet **PagedList.Mvc** paket otomatik olarak yükler **PagedList** paketi bir b
    ```text
    Install-Package PagedList.Mvc
    ```
-
-   ![PagedList.Mvc yükleyin](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image6.png)
 
 3. Projeyi oluşturun.
 
@@ -197,13 +194,9 @@ NuGet **PagedList.Mvc** paket otomatik olarak yükler **PagedList** paketi bir b
 
 2. Sayfayı çalıştırın.
 
-   ![Disk belleği ile Öğrenciler dizin sayfası](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image7.png)
-
    Disk belleği works emin olmak için farklı sıralamalar sayfalama bağlantıları tıklatın. Ardından bir arama dizesi girin ve yeniden disk belleği de doğru sıralama ve filtreleme ile çalıştığını doğrulamak için disk belleği'ni deneyin.
 
-   ![Öğrenciler, sayfanın arama filtre metni olan dizin](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image8.png)
-
-## <a name="create-an-about-page-that-shows-student-statistics"></a>Öğrenci istatistiklerini gösteren bir hakkında sayfası oluşturma
+## <a name="create-an-about-page"></a>Hakkında sayfası oluşturma
 
 Contoso University sitesinin için sayfa hakkında kaç Öğrenciler her kayıt tarihi için kayıtlı olan görüntüleyeceksiniz. Bu gruplar üzerinde gruplandırma ve basit hesaplama gerektirir. Bunu yapmak için aşağıdakileri:
 
@@ -249,14 +242,24 @@ Oluşturma bir *Viewmodel'lar* proje klasöründe. Bu klasörde bir sınıf dosy
 
    ![About_page](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image9.png)
 
-## <a name="summary"></a>Özet
+## <a name="get-the-code"></a>Kodu alma
 
-Bu öğreticide bir veri modeli oluşturma ve sıralama, filtreleme, sayfalama ve gruplandırma işlevi temel CRUD uygulama gördünüz. Sonraki öğreticide, veri modelini genişleterek daha ileri seviyeli konulara arama başlarsınız.
+[Projeyi yükle](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
-Lütfen bu öğreticide sevmediğinizi nasıl ve ne geliştirebileceğimiz hakkında geri bildirim bırakın.
+## <a name="additional-resources"></a>Ek kaynaklar
 
 Entity Framework diğer kaynakların bağlantılarını bulunabilir [ASP.NET veri erişimi - önerilen kaynaklar](../../../../whitepapers/aspnet-data-access-content-map.md).
 
-> [!div class="step-by-step"]
-> [Önceki](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)
-> [İleri](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+## <a name="next-steps"></a>Sonraki adımlar
+
+Bu öğreticide şunları yaptınız:
+
+> [!div class="checklist"]
+> * Sütun sıralama bağlantılar ekleme
+> * Bir arama kutusu ekleme
+> * Sayfalama ekleme
+> * Hakkında sayfası oluşturma
+
+Bağlantı dayanıklılığı ve komut durdurma kullanma hakkında bilgi edinmek için sonraki makaleye ilerleyin.
+> [!div class="nextstepaction"]
+> [Bağlantı dayanıklılığı ve komut durdurma](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md)

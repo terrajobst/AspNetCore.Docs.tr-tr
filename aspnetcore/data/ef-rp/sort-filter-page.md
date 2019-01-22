@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 19fe24e0f901c50e8425db7665b5b2257b608146
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 350243fb94b4798293a5a61b580c3b3b4d8c6d4a
+ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090894"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54444304"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>ASP.NET core'da - EF çekirdekli Razor sayfaları sıralama, filtreleme, sayfalama - 8'in 3
 
@@ -122,7 +122,7 @@ Yukarıdaki kod:
 * Ekler `searchString` parametresi `OnGetAsync` yöntemi. Sonraki bölümde eklenen bir metin kutusundan arama dizesi değeri alındı.
 * LINQ deyime eklenen bir `Where` yan tümcesi. `Where` Yan tümcesi yalnızca Öğrenciler, ad ve Soyadı arama dizesini içeren seçer. Aramak için bir değer yoksa, LINQ ifade yürütülür.
 
-Not: Yukarıdaki kod çağrıları `Where` metodunda bir `IQueryable` nesne ve filtre sunucuda işlenir. Bazı senaryolarda, uygulama çağırma `Where` yöntemi olarak bir genişletme yöntemi bir bellek içi koleksiyonu. Örneğin, varsayalım `_context.Students` değişiklikleri EF Core `DbSet` döndüren bir depo yönteme bir `IEnumerable` koleksiyonu. Sonuç, normalde aynı kalır ancak bazı durumlarda farklı olabilir.
+Not: Önceki kod çağrıları `Where` metodunda bir `IQueryable` nesne ve filtre sunucuda işlenir. Bazı senaryolarda, uygulama çağırma `Where` yöntemi olarak bir genişletme yöntemi bir bellek içi koleksiyonu. Örneğin, varsayalım `_context.Students` değişiklikleri EF Core `DbSet` döndüren bir depo yönteme bir `IEnumerable` koleksiyonu. Sonuç, normalde aynı kalır ancak bazı durumlarda farklı olabilir.
 
 Örneğin, .NET Framework uygulamasını `Contains` varsayılan olarak büyük küçük harfe duyarlı bir karşılaştırma gerçekleştirir. SQL Server'da `Contains` büyük küçük harf duyarlılığı, SQL Server örneğinin harmanlama ayarı tarafından belirlenir. SQL Server için büyük küçük harf duyarsız olarak varsayılır. `ToUpper` test açıkça duyarlı hale getirmek için çağrılabilir:
 
@@ -258,6 +258,8 @@ Oluşturma bir *SchoolViewModels* klasöründe *modelleri* klasör.
 [!code-csharp[](intro/samples/cu21/Models/SchoolViewModels/EnrollmentDateGroup.cs)]
 
 ### <a name="update-the-about-page-model"></a>Güncelleştirme hakkında sayfa modeli
+
+ASP.NET Core 2.2 içinde web şablonları hakkında sayfası dahil değildir. ASP.NET Core 2.2 kullanıyorsanız hakkında Razor sayfası oluşturun.
 
 Güncelleştirme *Pages/About.cshtml.cs* dosyasındaki kodu aşağıdaki kodla:
 

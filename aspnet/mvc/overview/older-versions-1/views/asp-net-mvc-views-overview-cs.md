@@ -8,14 +8,14 @@ ms.date: 02/16/2008
 ms.assetid: 152ab1e5-aec2-4ea7-b8cc-27a24dd9acb8
 msc.legacyurl: /mvc/overview/older-versions-1/views/asp-net-mvc-views-overview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ac47caa46d93c6157926f1c9b5112555fae4f8f5
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: a8e64a99549584f150d64d909ac97210257b1147
+ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41752760"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54444135"
 ---
-<a name="aspnet-mvc-views-overview-c"></a>ASP.NET MVC görünümlerine genel bakış (C#)
+<a name="aspnet-mvc-views-overview-c"></a>ASP.NET MVC Görünümlerine Genel Bakış (C#)
 ====================
 tarafından [Stephen Walther](https://github.com/StephenWalther)
 
@@ -28,7 +28,7 @@ Bu öğreticide, ASP.NET MVC görünümleri, görünüm verilerini ve HTML yard�
 
 ASP.NET MVC, ASP.NET veya Active Server Pages için doğrudan bir sayfasına karşılık gelen herhangi bir şey içermez. Bir ASP.NET MVC uygulamasındaki değil bir sayfa tarayıcınızın adres çubuğuna yazın URL yoluna karşılık gelen disk üzerinde. Bir ASP.NET MVC uygulamasındaki bir sayfaya en yakın şey şeydir adlı bir *görünümü*.
 
-ASP.NET MVC denetleyici eylemleri için tarayıcı uygulaması, gelen istekler eşlenir. Bir denetleyici eylemi bir görünüm döndürebilir. Ancak, bir denetleyici eylemi, başka türden başka bir denetleyici eylemi için yönlendirme gibi eylem gerçekleştirebilir.
+Bir ASP.NET MVC uygulamasındaki gelen tarayıcı istekler denetleyici eylemlerine eşlenir. Bir denetleyici eylemi bir görünüm döndürebilir. Ancak, bir denetleyici eylemi, başka türden başka bir denetleyici eylemi için yönlendirme gibi eylem gerçekleştirebilir.
 
 1 listeleme HomeController adlı basit bir denetleyici içerir. HomeController İNDİS() ve Details() adlı iki denetleyici eylemleri gösterir.
 
@@ -91,7 +91,7 @@ Response.Write() çoğunlukla çağrısından Microsoft, bir kısayol Response.W
 
 [!code-aspx[Main](asp-net-mvc-views-overview-cs/samples/sample3.aspx)]
 
-Dinamik içerik Görünümü'nde oluşturmak için dilediğiniz .NET dilini kullanabilirsiniz. Normalde, ll Visual Basic .NET veya C# görünümleri ve denetleyicileri yazmak için kullanın.
+Dinamik içerik Görünümü'nde oluşturmak için dilediğiniz .NET dilini kullanabilirsiniz. Normalde, ya da Visual BASİC.NET kullanacağınız veya C# görünümleri ve denetleyicileri yazılacak.
 
 ## <a name="using-html-helpers-to-generate-view-content"></a>İçerik görünümü oluşturmak için HTML yardımcılarını kullanma
 
@@ -106,7 +106,7 @@ Dinamik içerik Görünümü'nde oluşturmak için dilediğiniz .NET dilini kull
 
 [![Yeni Proje iletişim kutusu](asp-net-mvc-views-overview-cs/_static/image1.jpg)](asp-net-mvc-views-overview-cs/_static/image1.png)
 
-**Şekil 01**: standart bir oturum açma formu ([tam boyutlu görüntüyü görmek için tıklatın](asp-net-mvc-views-overview-cs/_static/image2.png))
+**Şekil 01**: Standart bir oturum açma formu ([tam boyutlu görüntüyü görmek için tıklatın](asp-net-mvc-views-overview-cs/_static/image2.png))
 
 
 HTML Yardımcıları yöntemlerin tümü, görünümün Html özelliği çağrılır. Örneğin, TextBox Html.TextBox() yöntemi çağırarak işler.
@@ -133,13 +133,13 @@ Denetleyici ViewData özelliği, ad ve değer çifti koleksiyonunu temsil eder. 
 
 Listeleme 7 görünüm, görünüm verileri iletiyi alır ve tarayıcıya ileti işler.
 
-**7--listeleme \Views\Product\Index.aspx**
+**Listing 7 -- \Views\Product\Index.aspx**
 
 [!code-aspx[Main](asp-net-mvc-views-overview-cs/samples/sample7.aspx)]
 
 Görünüm iletisi işlenirken Html.Encode() HTML yardımcı yöntemi avantajlarından sağladığına dikkat edin. Html.Encode() HTML Yardımcısı gibi özel karakterleri kodlar &lt; ve &gt; içine bir web sayfasında görüntülenecek güvenli karakterler. Bir Web sitesine bir kullanıcının gönderdiğini içerik işleme her JavaScript ekleme saldırılarını önlemek için içerik kodlama.
 
-(İleti kendimize ProductController oluşturduğumuz için şu t ki kurmalıdır iletisine kodlayın. Ancak, bu içeriği görüntüleyen bir görünüm içindeki görünümü verileri alınırken her zaman Html.Encode() yöntemini çağırmak için iyi bir alışkanlıktır.)
+(İleti kendimize ProductController oluşturduğumuz çünkü gerçekten iletisini kodlamak gerekmez. Ancak, bu içeriği görüntüleyen bir görünüm içindeki görünümü verileri alınırken her zaman Html.Encode() yöntemini çağırmak için iyi bir alışkanlıktır.)
 
 Listeleme 7'de basit dize iletisi denetleyiciden bir görünüme iletmek için Görünüm verileri avantajlarından attık. Görünüm verilerini, diğer türde bir koleksiyon veritabanı kayıtlarını, görünüm denetleyiciye gibi verileri geçirmek için de kullanabilirsiniz. Örneğin, veritabanı koleksiyonu geçip geçmeyeceğini sonra ürünleri veritabanı tablosunun bir görünümü'nde görüntülemek istiyorsanız, görünüm verileri kaydeder.
 

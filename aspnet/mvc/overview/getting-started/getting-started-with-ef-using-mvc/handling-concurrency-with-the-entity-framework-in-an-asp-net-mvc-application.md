@@ -1,36 +1,41 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application
-title: Bir ASP.NET MVC 5 uygulamasında (10 12) Entity Framework 6 ile eşzamanlılığı işleme | Microsoft Docs
+title: 'Öğretici: Bir ASP.NET MVC 5 uygulamasında eşzamanlılık EF ile işleme'
+description: Bu öğreticide, iyimser eşzamanlılık birden çok kullanıcı aynı anda aynı varlık güncelleştirme çakışmaları işlemek için nasıl kullanılacağını gösterir.
 author: tdykstra
-description: Contoso University örnek web uygulaması Entity Framework 6 Code First ve Visual Studio kullanarak ASP.NET MVC 5 uygulamalarının nasıl oluşturulacağını gösterir...
 ms.author: riande
-ms.date: 12/08/2014
+ms.date: 01/21/2019
+ms.topic: tutorial
 ms.assetid: be0c098a-1fb2-457e-b815-ddca601afc65
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 22fd6bc92aa0d516e1bfeb5aa6a67d7246d977ac
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: b77b8d6f952472f4d3030f54665f970b8ace2caf
+ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913261"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54444187"
 ---
-<a name="handling-concurrency-with-the-entity-framework-6-in-an-aspnet-mvc-5-application-10-of-12"></a>Bir ASP.NET MVC 5 uygulamasında (10 12) Entity Framework 6 ile eşzamanlılığı işleme
-====================
-tarafından [Tom Dykstra](https://github.com/tdykstra)
+# <a name="tutorial-handle-concurrency-with-ef-in-an-aspnet-mvc-5-app"></a>Öğretici: Bir ASP.NET MVC 5 uygulamasında eşzamanlılık EF ile işleme
 
-[Projeyi yükle](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
+Önceki öğreticilerde, verileri güncelleştirmek öğrendiniz. Bu öğreticide, iyimser eşzamanlılık birden çok kullanıcı aynı anda aynı varlık güncelleştirme çakışmaları işlemek için nasıl kullanılacağını gösterir. Çalışan web sayfalarını değiştirmesine `Department` varlık böylece bunlar eşzamanlılık hata işleme. Aşağıdaki çizimler bir eşzamanlılık çakışması ortaya çıkarsa, gösterilen bazı iletileri de dahil olmak üzere düzenleme ve silme sayfalar gösterir.
 
-> Contoso University örnek web uygulaması Entity Framework 6 Code First ve Visual Studio kullanarak ASP.NET MVC 5 uygulamalarının nasıl oluşturulacağını gösterir. Öğretici serisinin hakkında daha fazla bilgi için bkz. [serideki ilk öğreticide](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
+![Department_Edit_page_2_after_clicking_Save](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image10.png)
 
+![Department_Edit_page_2_after_clicking_Save](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image15.png)
 
-Önceki öğreticilerde, verileri güncelleştirmek öğrendiniz. Bu öğreticide, birden çok kullanıcı aynı anda aynı varlık güncelleştirdiğinizde çakışmalarına gösterilmektedir.
+Bu öğreticide şunları yaptınız:
 
-Çalışan web sayfalarının değiştireceksiniz `Department` varlık böylece bunlar eşzamanlılık hata işleme. Aşağıdaki çizimler bir eşzamanlılık çakışması ortaya çıkarsa, gösterilen bazı iletileri de dahil olmak üzere dizin ve silmeyi sayfalar gösterir.
+> [!div class="checklist"]
+> * Eşzamanlılık çakışmalarını hakkında bilgi edinin
+> * İyimser eşzamanlılık ekleme
+> * Departman denetleyicisini değiştirmek
+> * Test eşzamanlılığı işleme
+> * Silme sayfası
 
-![Department_Index_page_before_edits](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image1.png)
+## <a name="prerequisites"></a>Önkoşullar
 
-![Department_Edit_page_2_after_clicking_Save](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image2.png)
+* [Zaman Uyumsuz ve Saklı Yordamlar](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application.md)
 
 ## <a name="concurrency-conflicts"></a>Eşzamanlılık çakışmaları
 
@@ -46,11 +51,7 @@ Kilitleri yönetmek dezavantajları vardır. Programa karmaşık olabilir. Önem
 
 Kötümser eşzamanlılık alternatifi *iyimser eşzamanlılık*. İyimser eşzamanlılık, eşzamanlılık çakışmalarını olmasını sağlar ve eğer uygun şekilde tepki anlamına gelir. Örneğin, John Departmanlar Düzenle sayfasında, değişiklikleri çalışır **bütçe** 350,000.00 $ 0,00 ABD Doları İngilizce departmanına tutar.
 
-![Changing_English_dept_budget_to_100000](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
-
 John tıkladığında önce **Kaydet**, Jane çalışan aynı sayfa ve değişiklikleri **başlangıç tarihi** alanı 1/9/2007'den 8/8/2013.
-
-![Changing_English_dept_start_date_to_1999](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
 
 John tıkladığında **Kaydet** ilk ve tarayıcı dizin sayfasına, sonra Jane döndürdüğünde değişikliğinin tıkladığında görür **Kaydet**. Sonraki işlemin ne eşzamanlılık çakışmalarını nasıl ele tarafından belirlenir. Bazı seçenekleri şunlardır:
 
@@ -75,7 +76,7 @@ John tıkladığında **Kaydet** ilk ve tarayıcı dizin sayfasına, sonra Jane 
 
 Bu öğreticinin geri kalanında, ekleyeceksiniz bir [rowversion](https://msdn.microsoft.com/library/ms182776(v=sql.110).aspx) özelliğini izleme `Department` varlık, bir denetleyici ve Görünüm ve her şeyin düzgün çalıştığını doğrulamak için test edin.
 
-## <a name="add-an-optimistic-concurrency-property-to-the-department-entity"></a>Departman varlık için bir iyimser eşzamanlılık özelliği Ekle
+## <a name="add-optimistic-concurrency"></a>İyimser eşzamanlılık ekleme
 
 İçinde *Models\Department.cs*, adlı bir izleme özelliği ekleme `RowVersion`:
 
@@ -91,7 +92,7 @@ Başka bir geçiş gerçekleştirmeniz gereken şekilde bir özellik ekleyerek v
 
 [!code-console[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample3.cmd)]
 
-## <a name="modify-the-department-controller"></a>Departman denetleyicisini değiştirmek
+## <a name="modify-department-controller"></a>Departman denetleyicisini değiştirmek
 
 İçinde *Controllers\DepartmentController.cs*, ekleme bir `using` deyimi:
 
@@ -135,37 +136,23 @@ Son olarak, kod ayarlar `RowVersion` değerini `Department` yeni değere nesne v
 
 [!code-cshtml[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample12.cshtml?highlight=18)]
 
-## <a name="testing-optimistic-concurrency-handling"></a>İyimser eşzamanlılık işleme test etme
+## <a name="test-concurrency-handling"></a>Test eşzamanlılığı işleme
 
-Siteyi çalıştırın ve tıklayın **Departmanlar**:
-
-![Department_Index_page_before_edits](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image5.png)
+Siteyi çalıştırın ve tıklayın **Departmanlar**.
 
 Sağ tıklayın **Düzenle** seçin ve İngilizce departmanı için köprü **yeni sekmede aç** ardından **Düzenle** İngilizce departmanı için köprü. İki sekme aynı bilgileri görüntüler.
 
-![Department_Edit_page_before_changes](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image6.png)
-
 İlk tarayıcı sekmesine bir alana değiştirin ve tıklatın **Kaydet**.
-
-![Department_Edit_page_1_after_change](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image7.png)
 
 Tarayıcı değişmiş değer ile dizin sayfası gösterilir.
 
-![Departments_Index_page_after_first_budget_edit](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image8.png)
-
-Bir alan ikinci bir tarayıcı sekmesinde değiştirip'ı **Kaydet**.
-
-![Department_Edit_page_2_after_change](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image9.png)
-
-Tıklayın **Kaydet** ikinci tarayıcı sekmesinde. Bir hata iletisi görürsünüz:
+Bir alan ikinci bir tarayıcı sekmesinde değiştirip'ı **Kaydet**. Bir hata iletisi görürsünüz:
 
 ![Department_Edit_page_2_after_clicking_Save](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image10.png)
 
 Tıklayın **Kaydet** yeniden. İkinci tarayıcı sekmesinde girdiğiniz değer, ilk tarayıcıda değiştirilen verileri özgün değeri ile birlikte kaydedilir. Dizin Sayfası göründüğünde, kaydedilen değerler görürsünüz.
 
-![Department_Index_page_with_change_from_second_browser](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image11.png)
-
-## <a name="updating-the-delete-page"></a>Delete sayfa güncelleştiriliyor
+## <a name="update-the-delete-page"></a>Silme sayfası
 
 Silme sayfası için Entity Framework, birisi başka benzer bir şekilde bölüm düzenleme nedeni eşzamanlılık çakışmalarını algılar. Zaman `HttpGet` `Delete` yöntemi görüntüler onay görünümü, görünümün özgün içerir `RowVersion` gizli bir alan değeri. Değer daha sonra kullanılabilir olduğunu `HttpPost` `Delete` kullanıcının silmeyi onaylaması çağrılan yöntem. Entity Framework, SQL oluşturduğunda `DELETE` komutunu içerdiği bir `WHERE` yan tümcesinin orijinal `RowVersion` değeri. Sıfır satır komutu sonuçları (satır silme onayı sayfasında görüntülenen sonra değiştirildiği anlamına gelir) etkileniyorsa, bir eşzamanlılık özel durum oluşturulur ve `HttpGet Delete` ayarlamak bir hata bayrağıyla yöntemi çağrıldığında `true` görüntülemek için bir hata iletisiyle onay sayfası. Bu durumda farklı bir hata iletisi görüntülenir, böylece satırın başka bir kullanıcı tarafından silindiğinden sıfır satır etkilenmiştir mümkündür.
 
@@ -209,17 +196,11 @@ Son olarak, onu gizli alanlar için ekler `DepartmentID` ve `RowVersion` sonra �
 
 Departmanlar dizin sayfası çalıştırın. Sağ tıklayın **Sil** seçin ve İngilizce departmanı için köprü **yeni sekmede aç** birinci sekmede ardından **Düzenle** İngilizce departmanı için köprü.
 
-İlk penceresinde değerlerden birini değiştirin ve tıklayın **Kaydet** :
-
-![Department_Edit_page_after_change_before_delete](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image12.png)
+İlk penceresinde değerlerden birini değiştirin ve tıklayın **Kaydet**.
 
 Dizin Sayfası değişikliği doğrular.
 
-![Departments_Index_page_after_budget_edit_before_delete](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image13.png)
-
 İkinci sekmesini tıklatın **Sil**.
-
-![Department_Delete_confirmation_page_before_concurrency_error](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image14.png)
 
 Eşzamanlılık hata iletisini görüntüleyin ve departman değerlerini şu anda veritabanında nedir ile yenilenir.
 
@@ -227,12 +208,27 @@ Eşzamanlılık hata iletisini görüntüleyin ve departman değerlerini şu and
 
 Tıklarsanız **Sil** yeniden departman silindiğini gösterir dizin sayfasına yönlendirilirsiniz.
 
-## <a name="summary"></a>Özet
+## <a name="get-the-code"></a>Kodu alma
 
-Bu, eşzamanlılık çakışmalarını işleme giriş tamamlar. Çeşitli eşzamanlılık senaryoları işlemek için diğer yollar hakkında daha fazla bilgi için bkz: [iyimser eşzamanlılık desenlerinin](https://msdn.microsoft.com/data/jj592904) ve [özellik değerleri ile çalışma](https://msdn.microsoft.com/data/jj592677) MSDN'de. Sonraki öğreticide için tablo başına hiyerarşi devralma uygulamak gösterilmektedir `Instructor` ve `Student` varlıklar.
+[Projeyi yükle](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
+
+## <a name="additional-resources"></a>Ek kaynaklar
 
 Entity Framework diğer kaynakların bağlantılarını bulunabilir [ASP.NET veri erişimi - önerilen kaynaklar](../../../../whitepapers/aspnet-data-access-content-map.md).
 
-> [!div class="step-by-step"]
-> [Önceki](async-and-stored-procedures-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-> [İleri](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+Çeşitli eşzamanlılık senaryoları işlemek için diğer yollar hakkında daha fazla bilgi için bkz: [iyimser eşzamanlılık desenlerinin](https://msdn.microsoft.com/data/jj592904) ve [özellik değerleri ile çalışma](https://msdn.microsoft.com/data/jj592677) MSDN'de. Sonraki öğreticide için tablo başına hiyerarşi devralma uygulamak gösterilmektedir `Instructor` ve `Student` varlıklar.
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+Bu öğreticide şunları yaptınız:
+
+> [!div class="checklist"]
+> * Eşzamanlılık çakışmalarını hakkında bilgi edindiniz
+> * Eklenen iyimser eşzamanlılık
+> * Değiştirilmiş bölüm denetleyicisi
+> * Test edilen eşzamanlılık işleme
+> * Silme sayfası güncelleştirildi
+
+Veri modelinde devralma uygulama hakkında bilgi edinmek için sonraki makaleye ilerleyin.
+> [!div class="nextstepaction"]
+> [Veri modelinde devralma uygulama](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application.md)

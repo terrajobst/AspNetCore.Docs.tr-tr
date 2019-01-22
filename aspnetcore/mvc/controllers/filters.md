@@ -4,23 +4,20 @@ author: ardalis
 description: Filtreleri nasıl çalıştığını ve ASP.NET Core MVC nasıl kullanacağınızı öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/15/2018
+ms.date: 1/15/2019
 uid: mvc/controllers/filters
-ms.openlocfilehash: d4fe49a9225b9980a956ef9c773ad631beb557ae
-ms.sourcegitcommit: cec77d5ad8a0cedb1ecbec32834111492afd0cd2
+ms.openlocfilehash: fe3082481b51c968fd361dbcc9553c4e35a36f2a
+ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54207466"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54444356"
 ---
 # <a name="filters-in-aspnet-core"></a>ASP.NET core'da filtreleri
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://github.com/tdykstra/), ve [Steve Smith](https://ardalis.com/)
 
 *Filtreler* ASP.NET Core MVC önce veya sonra istek işleme ardışık düzeninde belirli aşamalara kod çalıştırmanıza olanak tanır.
-
-> [!IMPORTANT]
-> Bu konu daha önceden **değil** Razor sayfaları için geçerlidir. ASP.NET Core 2.1 ve üzeri destekler [IPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter?view=aspnetcore-2.0) ve [IAsyncPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncpagefilter?view=aspnetcore-2.0) Razor sayfaları için. Daha fazla bilgi için [yöntemleri Razor sayfaları için filtre](xref:razor-pages/filter).
 
  Yerleşik filtreler gibi görevleri işler:
 
@@ -32,7 +29,7 @@ Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](http
 
 [Görüntülemek veya örnek Github'dan indirin](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/filters/sample).
 
-## <a name="how-do-filters-work"></a>Filtreleri nasıl çalışır?
+## <a name="how-filters-work"></a>Filtreler nasıl çalışır
 
 Filtre çalıştırma içinde *MVC eylemi çağırma işlem hattı*bazen denilen *filtre ardışık düzen*.  Filtre ardışık düzen, yürütülecek eylemi MVC seçtikten sonra çalışır.
 
@@ -46,7 +43,7 @@ Her filtre türü, farklı bir aşamada filtre ardışık düzende yürütülür
 
 * [Kaynak filtreleri](#resource-filters) yetkilendirme sonrasında bir isteği işlemek için ilk olan.  Kod ve filtre işlem hattının işlem hattı geri kalanını tamamlandıktan sonra geri kalan önce çalışabilirler. Bunlar yararlı önbelleğe almayı uygulayın ya da aksi takdirde performansı artırmak için filtre ardışık düzenini kısa devre oluşturur. Model bağlama üzerinde etki oluşturabilirsiniz böylece bunlar model bağlama önce çalıştırın.
 
-* [Eylem filtreleri](#action-filters) kod hemen önce ve tek bir eylem yöntemi çağrıldıktan sonra çalıştırabilirsiniz. Bir eyleme geçirilen bağımsız değişkenleri ve döndürülen eylem sonucu işlemek için kullanılabilir.
+* [Eylem filtreleri](#action-filters) kod hemen önce ve tek bir eylem yöntemi çağrıldıktan sonra çalıştırabilirsiniz. Bir eyleme geçirilen bağımsız değişkenleri ve döndürülen eylem sonucu işlemek için kullanılabilir. Eylem filtreleri Razor sayfalarında desteklenmiyor.
 
 * [Özel durum filtreleri](#exception-filters) yanıt gövdesi için herhangi bir şey yazılmadan önce gerçekleşen işlenmeyen özel durumlar genel ilkeleri uygulamak için kullanılır.
 
@@ -68,14 +65,13 @@ Zaman uyumsuz filtre üzerinde tek bir tanımlama*aşama*ExecutionAsync yöntemi
 
 [!code-csharp[](./filters/sample/src/FiltersSample/Filters/SampleAsyncActionFilter.cs?highlight=6,8-10,13)]
 
-Tek bir sınıftaki birden çok filtre aşamalar için arabirim uygulayabilir. Örneğin, [ActionFilterAttribute](/dotnet/api/microsoft.aspnetcore.mvc.filters.actionfilterattribute?view=aspnetcore-2.0) sınıfının Implements `IActionFilter`, `IResultFilter`ve zaman uyumsuz eşdeğerlerine.
+Tek bir sınıftaki birden çok filtre aşamalar için arabirim uygulayabilir. Örneğin, <xref:Microsoft.AspNetCore.Mvc.Filters.ActionFilterAttribute> sınıfının Implements `IActionFilter`, `IResultFilter`ve zaman uyumsuz eşdeğerlerine.
 
 > [!NOTE]
-> Uygulama **ya da** zaman uyumlu veya zaman uyumsuz sürümü filtre arabirimi, her ikisini birden değil. Framework ilk filtre zaman uyumsuz arabirimini uygulayan ve çağrı yaptığı bu durumda olup olmadığını denetler. Aksi durumda, zaman uyumlu arabirim yöntemleri çağırır. Her iki arabirimde üzerinde bir sınıf uygulamak için olsaydı, yalnızca zaman uyumsuz yöntem çağrılır. Soyut sınıflar gibi kullanırken [ActionFilterAttribute](/dotnet/api/microsoft.aspnetcore.mvc.filters.actionfilterattribute?view=aspnetcore-2.0) yalnızca zaman uyumlu metotları veya zaman uyumsuz yöntem her filtre türü için geçersiz kılarsınız.
+> Uygulama **ya da** zaman uyumlu veya zaman uyumsuz sürümü filtre arabirimi, her ikisini birden değil. Framework ilk filtre zaman uyumsuz arabirimini uygulayan ve çağrı yaptığı bu durumda olup olmadığını denetler. Aksi durumda, zaman uyumlu arabirim yöntemleri çağırır. Her iki arabirimde üzerinde bir sınıf uygulamak için olsaydı, yalnızca zaman uyumsuz yöntem çağrılır. Soyut sınıflar gibi kullanırken <xref:Microsoft.AspNetCore.Mvc.Filters.ActionFilterAttribute> yalnızca zaman uyumlu metotları veya zaman uyumsuz yöntem her filtre türü için geçersiz kılarsınız.
 
 ### <a name="ifilterfactory"></a>IFilterFactory
-
-[IFilterFactory](/dotnet/api/microsoft.aspnetcore.mvc.filters.ifilterfactory) uygulayan [IFilterMetadata](/dotnet/api/microsoft.aspnetcore.mvc.filters.ifiltermetadata). Bu nedenle, bir `IFilterFactory` örneği olarak kullanılabilir bir `IFilterMetadata` filtre işlem hattının herhangi bir yerindeki örneği. Framework filtre çağırmak hazırlanırken yayınlayacağınızı çalışır bir `IFilterFactory`. Bu tür dönüştürme başarılı olursa [CreateInstance](/dotnet/api/microsoft.aspnetcore.mvc.filters.ifilterfactory.createinstance) yöntemi oluşturmak için çağrılır `IFilterMetadata` çağrılan örnek. Bu, kesin filtre ardışık düzen uygulama başlatıldığında açıkça ayarlanması gerekmez bu yana esnek bir tasarım sağlar.
+[IFilterFactory](/dotnet/api/microsoft.aspnetcore.mvc.filters.ifilterfactory) uygulayan <xref:Microsoft.AspNetCore.Mvc.Filters.IFilterMetadata>. Bu nedenle, bir `IFilterFactory` örneği olarak kullanılabilir bir `IFilterMetadata` filtre işlem hattının herhangi bir yerindeki örneği. Framework filtre çağırmak hazırlanırken yayınlayacağınızı çalışır bir `IFilterFactory`. Bu tür dönüştürme başarılı olursa [CreateInstance](/dotnet/api/microsoft.aspnetcore.mvc.filters.ifilterfactory.createinstance) yöntemi oluşturmak için çağrılır `IFilterMetadata` çağrılan örnek. Bu, kesin filtre ardışık düzen uygulama başlatıldığında açıkça ayarlanması gerekmez bu yana esnek bir tasarım sağlar.
 
 Uygulayabileceğiniz `IFilterFactory` filtreleri oluşturma başka bir yaklaşım olarak kendi öznitelik uygulamaları üzerinde:
 
@@ -280,6 +276,9 @@ Kaynak filtreleri, bir istek yapıyor çoğunu iki faydalıdır. Örneğin, yan�
 
 ## <a name="action-filters"></a>Eylem filtreleri
 
+> [!IMPORTANT]
+> Eylem filtreleri yapmak **değil** Razor sayfaları için geçerlidir. Razor sayfaları destekler <xref:Microsoft.AspNetCore.Mvc.Filters.IPageFilter> ve <xref:Microsoft.AspNetCore.Mvc.Filters.IAsyncPageFilter> . Daha fazla bilgi için [yöntemleri Razor sayfaları için filtre](xref:razor-pages/filter).
+
 *Eylem filtreleri*:
 
 * Ya da uygulama `IActionFilter` veya `IAsyncActionFilter` arabirimi.
@@ -289,13 +288,13 @@ Kaynak filtreleri, bir istek yapıyor çoğunu iki faydalıdır. Örneğin, yan�
 
 [!code-csharp[](./filters/sample/src/FiltersSample/Filters/SampleActionFilter.cs?name=snippet_ActionFilter)]
 
-[ActionExecutingContext](/dotnet/api/microsoft.aspnetcore.mvc.filters.actionexecutingcontext) aşağıdaki özellikleri sağlar:
+<xref:Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext> Aşağıdaki özellikleri sağlar:
 
 * `ActionArguments` -eyleme yönelik girişleri işleme sağlar.
 * `Controller` -denetleyici örneği yönlendirme sağlar. 
 * `Result` -Bu ayarı short-circuits sonraki eylem filtreleri eylem yöntemi ve yürütme. Bir özel durum da eylem yöntemi ve sonraki filtrelerin yürütülmesini engeller ancak başarılı sonuç yerine bir hata olarak kabul edilir.
 
-[ActionExecutedContext](/dotnet/api/microsoft.aspnetcore.mvc.filters.actionexecutedcontext) sağlar `Controller` ve `Result` ayrıca aşağıdaki özellikleri:
+<xref:Microsoft.AspNetCore.Mvc.Filters.ActionExecutedContext> Sağlar `Controller` ve `Result` ayrıca aşağıdaki özellikleri:
 
 * `Canceled` -Eylem yürütme başka bir filtre tarafından kısa devre yapılma durumlarda true olur.
 * `Exception` -Eylem veya bir sonraki eylem filtresi bir özel durum oluşturduysa null olmayan olacaktır. Bu özelliği etkili bir şekilde null olarak ayarlamak 'işler' bir özel durum, ve `Result` eylem yönteminden normalde döndürülmedi yokmuş gibi yürütülür.
@@ -391,4 +390,5 @@ Ardından `MiddlewareFilterAttribute` seçili denetleyici veya eylem için bir a
 
 ## <a name="next-actions"></a>Sonraki Eylemler
 
-Filtrelerle denemeler için [indirin, test ve örneği değiştirirseniz](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/filters/sample).
+* Bkz: [yöntemleri Razor sayfaları için filtre](xref:razor-pages/filter)
+* Filtrelerle denemeler için [indirin, test ve Github örneği değiştirirseniz](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/filters/sample).

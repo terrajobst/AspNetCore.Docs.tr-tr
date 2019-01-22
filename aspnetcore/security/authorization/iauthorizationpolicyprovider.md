@@ -4,14 +4,14 @@ author: mjrousos
 description: Özel IAuthorizationPolicyProvider Yetkilendirme İlkeleri dinamik olarak oluşturmak için ASP.NET Core uygulamanızı kullanmayı öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/02/2018
+ms.date: 01/21/2019
 uid: security/authorization/iauthorizationpolicyprovider
-ms.openlocfilehash: ef3e81da6fb9e2e332b553607be35fcd79e9362d
-ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
+ms.openlocfilehash: ca57a9fd8e3c11f15fe14bbe4538bc748c4c84b6
+ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54249379"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54444161"
 ---
 # <a name="custom-authorization-policy-providers-using-iauthorizationpolicyprovider-in-aspnet-core"></a>Özel yetkilendirme ilkesi IAuthorizationPolicyProvider kullanarak ASP.NET Core sağlayıcıları 
 
@@ -25,8 +25,7 @@ Senaryo örnekleri özel durumlarda [IAuthorizationPolicyProvider](/dotnet/api/m
 * (İçin farklı bir oda numaralarını veya örnek şu yaşlardaki) birçok farklı ilkeleri kullanarak, bu nedenle, değil mantıklı her tek yetkilendirme ilkesi ile eklemek için bir `AuthorizationOptions.AddPolicy` çağırın.
 * Çalışma zamanında bir dış veri kaynağı (örneğin, bir veritabanı) içindeki bilgileri temel alan ilkeleri oluşturma veya yetkilendirme gereksinimleriyle başka bir mekanizma aracılığıyla dinamik olarak belirleme.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore/tree/release/2.2/src/AuthSamples/) gelen [AspNetCore GitHub deposu](https://github.com/aspnet/AspNetCore). ASP.NET/AuthSamples depo ZIP dosyasını indirin.
-Unzip *AuthSamples-master.zip* dosya. Gidin *samples/CustomPolicyProvider* proje klasörü.
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore/tree/release/2.2/src/Security/samples/CustomPolicyProvider) gelen [AspNetCore GitHub deposu](https://github.com/aspnet/AspNetCore). ASP.NET/AspNetCore depo ZIP dosyasını indirin. Dosyanın sıkıştırmasını açın. Gidin *src/güvenlik/samples/CustomPolicyProvider* proje klasörü.
 
 ## <a name="customize-policy-retrieval"></a>İlke alma işlemi özelleştirme
 
@@ -154,4 +153,4 @@ public Task<AuthorizationPolicy> GetDefaultPolicyAsync() =>
 services.AddSingleton<IAuthorizationPolicyProvider, MinimumAgePolicyProvider>();
 ```
 
-Tam bir özel `IAuthorizationPolicyProvider` örnek kullanılabilir [aspnet/AuthSamples GitHub deposu](https://github.com/aspnet/AuthSamples/tree/master/samples/CustomPolicyProvider).
+Tam bir özel `IAuthorizationPolicyProvider` örnek kullanılabilir [aspnet/AuthSamples GitHub deposu](https://github.com/aspnet/AspNetCore/tree/release/2.2/src/Security/samples/CustomPolicyProvider).

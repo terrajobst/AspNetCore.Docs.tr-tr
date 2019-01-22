@@ -1,36 +1,39 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application
-title: İlk geçişleri ve dağıtımı ile bir ASP.NET MVC uygulamasındaki Entity Framework code | Microsoft Docs
+title: "Öğretici: EF geçişleri, bir ASP.NET MVC uygulamasında kullanın ve Azure'a dağıtma"
 author: tdykstra
-description: Contoso University örnek web uygulaması Entity Framework 6 Code First ve Visual Studio kullanarak ASP.NET MVC 5 uygulamalarının nasıl oluşturulacağını gösterir...
+description: Bu öğreticide, Code First migrations'ı etkinleştirme ve Azure bulutta uygulamayı dağıtın.
 ms.author: riande
-ms.date: 10/08/2018
+ms.date: 01/16/2019
+ms.topic: tutorial
 ms.assetid: d4dfc435-bda6-4621-9762-9ba270f8de4e
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 5c926c61cec5c7de43e2c3f0e377023b8ee799d0
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 131540113f5ac8ce9e15c8ab92b8dc7ee11de115
+ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913027"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54444226"
 ---
-<a name="code-first-migrations-and-deployment-with-the-entity-framework-in-an-aspnet-mvc-application"></a>İlk geçişleri ve dağıtımı ile bir ASP.NET MVC uygulamasındaki Entity Framework code
-====================
-tarafından [Tom Dykstra](https://github.com/tdykstra)
+# <a name="tutorial-use-ef-migrations-in-an-aspnet-mvc-app-and-deploy-to-azure"></a>Öğretici: EF geçişleri, bir ASP.NET MVC uygulamasında kullanın ve Azure'a dağıtma
 
-[Projeyi yükle](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
-
-> Contoso University örnek web uygulaması Entity Framework 6 Code First ve Visual Studio kullanarak ASP.NET MVC 5 uygulamalarının nasıl oluşturulacağını gösterir. Öğretici serisinin hakkında daha fazla bilgi için bkz. [serideki ilk öğreticide](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
-
-Şu ana kadar uygulamayı yerel olarak IIS Express'te URL'i geliştirme bilgisayarınızda çalışıyor. Gerçek bir uygulamada Internet üzerinden diğer kullanıcılar için kullanılabilir hale getirmek için bir web barındırma sağlayıcısına dağıtmak zorunda. Bu öğreticide, Azure bulutunda Contoso University uygulamayı dağıtacaksınız.
-
-Bu öğreticide, aşağıdaki bölümleri içerir:
+Şu ana kadar Contoso University örnek web uygulamasını yerel olarak IIS Express'te URL'i geliştirme bilgisayarınızda çalışıyor. Gerçek bir uygulamada Internet üzerinden diğer kullanıcılar için kullanılabilir hale getirmek için bir web barındırma sağlayıcısına dağıtmak zorunda. Bu öğreticide, Code First migrations'ı etkinleştirme ve uygulamayı Azure bulutta dağıtın:
 
 - Code First geçişleri etkinleştirin. Geçişleri özelliği, veri modeli değiştirmek ve veritabanı şemasını bırakın ve veritabanını yeniden oluşturmak zorunda kalmadan güncelleştirerek, değişikliklerinizi üretim ortamına dağıtmak sağlar.
 - Azure'a dağıtın. Bu adım isteğe bağlıdır; Proje dağıtılan olmadan kalan öğreticileri ile devam edebilirsiniz.
 
 Dağıtım için bir sürekli tümleştirme işlem ile kaynak denetimi kullanın, ancak bu Öğreticide bu konuları ele alınmamaktadır öneririz. Daha fazla bilgi için [kaynak denetimi](xref:aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control) ve [sürekli tümleştirme](xref:aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) bölümleri [Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma](xref:aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction).
+
+Bu öğreticide şunları yaptınız:
+
+> [!div class="checklist"]
+> * Code First migrations'ı etkinleştirme
+> * Azure (isteğe bağlı) uygulamayı dağıtma
+
+## <a name="prerequisites"></a>Önkoşullar
+
+- [Bağlantı Dayanıklılığı ve Komut Durdurma](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md)
 
 ## <a name="enable-code-first-migrations"></a>Code First migrations'ı etkinleştirme
 
@@ -55,15 +58,11 @@ Veritabanı veri modeli ile eşitlenmiş tutmak için bu yöntemi de uygulamayı
     add-migration InitialCreate
     ```
 
-    ![geçişleri etkinleştir komutu](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image1.png)
-
     `enable-migrations` Komut oluşturur bir *geçişler* ContosoUniversity proje ve klasöre koyar, bu klasörde bir *Configuration.cs* geçişler yapılandırmak için düzenleyebileceğiniz bir dosya.
 
     (Veritabanı adını değiştirmek için yönlendiren Yukarıdaki adımı kaçırdıysanız, geçişler var olan veritabanını bulun ve otomatik olarak `add-migration` komutu. Bu sorun, yalnızca veritabanı dağıtmadan önce test geçişleri kod çalışmadığından geldiğini değildir. Daha sonra çalıştırdığınızda `update-database` komut hiçbir şey veritabanı zaten mevcut olduğundan.)
 
-    ![Geçişleri klasörü](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image2.png)
-
-    Daha önce gördüğünüz Başlatıcı sınıfı gibi `Configuration` sınıfı içeren bir `Seed` yöntemi.
+    Açık *ContosoUniversity\Migrations\Configuration.cs* dosya. Daha önce gördüğünüz Başlatıcı sınıfı gibi `Configuration` sınıfı içeren bir `Seed` yöntemi.
 
     [!code-csharp[Main](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample3.cs)]
 
@@ -121,8 +120,6 @@ Veritabanı zaten mevcut olduğunda ilk geçiş oluşturduysanız, veritabanı o
 
     `update-database`
 
-    ![](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
-
     `update-database` Komutu çalıştırmaları `Up` veritabanını ve ardından yöntemini çalıştırır `Seed` veritabanını doldurmak için yöntemi. Uygulamayı dağıttıktan sonra aşağıdaki bölümde göreceğiniz gibi aynı işlem üretim ortamında otomatik olarak çalıştırır.
 2. Kullanım **Sunucu Gezgini** ilk öğreticide yaptığınız gibi veritabanı incelemek ve her şeyin hala aynı önceki gibi çalıştığını doğrulamak için uygulamayı çalıştırın.
 
@@ -157,8 +154,6 @@ Veritabanını Azure SQL veritabanı'na dağıtacaksınız. SQL veritabanı, SQL
 
 2. Bir dize girin **uygulama adı** kutusunu uygulamanız için benzersiz bir URL olarak kullanın. Burada Azure App Services'ın varsayılan etki alanı kullandıklarınızla tam URL'yi oluşur (. azurewebsites.net). Varsa **uygulama adı** zaten, sihirbaz kırmızı bildirir alınmış *uygulama adı kullanılamıyor* ileti. Varsa **uygulama adı** olan kullanılabilir, yeşil bir onay işareti görürsünüz.
 
-    ![Yönetim Portalı'nda veritabanı bağlantısı oluşturma](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/create-web-app-sql-resource.png)
-
 3. İçinde **abonelik** kutusunda, istediğiniz Azure aboneliği seçin **App Service** bulunmasını.
 
 4. İçinde **kaynak grubu** metin kutusuna bir kaynak grubu seçin veya yeni bir tane oluşturun. Bu ayar, web siteniz çalışır veri merkezini belirtir. Kaynak grupları hakkında daha fazla bilgi için bkz. [kaynak grupları](/azure/azure-resource-manager/resource-group-overview#resource-groups).
@@ -166,8 +161,6 @@ Veritabanını Azure SQL veritabanı'na dağıtacaksınız. SQL veritabanı, SQL
 5. Yeni bir **App Service planı** tıklayarak *App Service bölümünde*, **Yeni Oluştur**, doldurun **App Service planı** (adıyla aynı olabilir App Service), **konumu**, ve **fiyatlandırma katmanı** (ücretsiz bir seçenek mevcuttur).
 
 6. Tıklayın **SQL veritabanı**ve ardından **yeni veritabanı oluştur** veya varolan bir veritabanını seçin.
-
-    ![](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/new-sql-database.png)
 
 7. İçinde **adı** kutusunda, veritabanınız için bir ad girin.
 8. Tıklayın **hedef sunucu** kutusuna ve ardından **yeni sunucu oluştur**. Alternatif olarak, daha önce bir sunucu oluşturduysanız, bu sunucu kullanılabilir sunucu listesinden seçebilirsiniz.
@@ -187,8 +180,6 @@ Veritabanını Azure SQL veritabanı'na dağıtacaksınız. SQL veritabanı, SQL
 
 1. Visual Studio'da projeye sağ **Çözüm Gezgini** seçip **Yayımla** bağlam menüsünden.
 
-    ![Menü öğesi Çözüm Gezgini'ndeki yayımlama](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image10.png)
-
 2. Üzerinde **yayımlama hedefi seçin** sayfasında **App Service** ardından **var olanı Seç**ve ardından **Yayımla**.
 
     ![Yayımlama hedefi sayfası seçin](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/publish-select-existing-azure-app-service.png)
@@ -197,11 +188,7 @@ Veritabanını Azure SQL veritabanı'na dağıtacaksınız. SQL veritabanı, SQL
 
 4. Üzerinde **App Service** sayfasında **abonelik** App Service'e eklenir. Altında **görünümü**seçin **kaynak grubu**. App Service için eklenen kaynak grubunu genişletin ve ardından App Service'ı seçin. Seçin **Tamam** uygulama yayımlama.
 
-    ![App Service'ı seçin](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/app-service-page.png)
-
 5. **Çıkış** penceresi hangi dağıtım eylemlerinin gerçekleştirildiğini gösterir ve dağıtımın başarılı olarak tamamlanmasına bildirir.
-
-    ![Çıkış penceresinde dağıtımın başarılı olduğunu bildiren](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/publish-output.png)
 
 6. Başarılı dağıtımdan sonra varsayılan tarayıcı otomatik olarak dağıtılan web sitesinin URL'sini açar.
 
@@ -217,7 +204,7 @@ Dağıtım işlemi de oluşturulan yeni bir bağlantı dizesi *(SchoolContext\_D
 
 ![Web.config dosyasındaki bağlantı dizesi](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image26.png)
 
-Web.config dosyasının içinde kendi bilgisayarınıza dağıtılmış sürümünde bulabilirsiniz *ContosoUniversity\obj\Release\Package\PackageTmp\Web.config*. Dağıtılan erişim *Web.config* kendisini FTP kullanarak dosya. Yönergeler için [Visual Studio kullanarak ASP.NET Web Dağıtımı: kod güncelleştirmesi dağıtma](xref:web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update). İle başlayan yönergeleri "bir FTP aracını kullanmak için üç şeyi gerekir: FTP URL'si, kullanıcı adı ve parola."
+Web.config dosyasının içinde kendi bilgisayarınıza dağıtılmış sürümünde bulabilirsiniz *ContosoUniversity\obj\Release\Package\PackageTmp\Web.config*. Dağıtılan erişim *Web.config* kendisini FTP kullanarak dosya. Yönergeler için [Visual Studio kullanarak ASP.NET Web Dağıtımı: Kod güncelleştirmesi dağıtma](xref:web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update). İle başlayan yönergeleri "bir FTP aracını kullanmak için üç şeyi gerekir: FTP URL'si, kullanıcı adı ve parola."
 
 > [!NOTE]
 > URL bulur herkes veri değiştirebilmeniz için web uygulaması güvenlik uygulamaz. Web sitesini güvenli hale getirmek yönergeler için bkz: [bir üyelik, OAuth ve SQL veritabanı ile güvenli bir ASP.NET MVC uygulamasını Azure'a dağıtma](/aspnet/core/security/authorization/secure-data). Diğer kişilerin Azure Yönetim Portalı kullanılarak hizmetini durdurarak site kullanılmasını önleyebilir veya **Sunucu Gezgini** Visual Studio'da.
@@ -234,16 +221,24 @@ Diğer geçiş senaryoları hakkında daha fazla bilgi için bkz. [geçişler ya
 
 Dağıtım bölümünde gördüğünüz [MigrateDatabaseToLatestVersion](https://msdn.microsoft.com/library/hh829476(v=vs.103).aspx) kullanılan başlatıcı. Kod ilk dahil olmak üzere diğer başlatıcılar, ayrıca sağlar [Createdatabaseıfnotexists](https://msdn.microsoft.com/library/gg679221(v=vs.103).aspx) (varsayılan), [DropCreateDatabaseIfModelChanges](https://msdn.microsoft.com/library/gg679604(v=VS.103).aspx) (Bu, daha önce kullandığınız) ve [ DropCreateDatabaseAlways](https://msdn.microsoft.com/library/gg679506(v=VS.103).aspx). `DropCreateAlways` Başlatıcı birim testleri için koşullar ayarlamak için yararlı olabilir. Ayrıca, kendi başlatıcılar yazabilirsiniz ve uygulama okur veya veritabanına yazar beklemek istemiyorsanız, bir başlatıcı açıkça çağırabilirsiniz.
 
-Başlatıcılar hakkında daha fazla bilgi için bkz: [anlama veritabanı başlatıcılar, Entity Framework Code First](http://www.codeguru.com/csharp/article.php/c19999/Understanding-Database-Initializers-in-Entity-Framework-Code-First.htm) ve Bölüm 6 kitabın [Entity Framework programlama: Code First](http://shop.oreilly.com/product/0636920022220.do) Julie Lerman tarafından ve Rowan Miller.
+Başlatıcılar hakkında daha fazla bilgi için bkz: [anlama veritabanı başlatıcılar, Entity Framework Code First](http://www.codeguru.com/csharp/article.php/c19999/Understanding-Database-Initializers-in-Entity-Framework-Code-First.htm) ve Bölüm 6 kitabın [Entity Framework programlama: Code First](http://shop.oreilly.com/product/0636920022220.do) Julie Lerman ve Rowan Miller.
 
-## <a name="summary"></a>Özet
+## <a name="get-the-code"></a>Kodu alma
 
-Bu öğreticide, migrations'ı etkinleştirme ve uygulamayı dağıtmayı öğrendiniz. Sonraki öğreticide, veri modelini genişleterek daha ileri seviyeli konulara arama başlarsınız.
+[Projeyi yükle](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
-Lütfen bu öğreticide sevmediğinizi nasıl ve ne geliştirebileceğimiz hakkında geri bildirim bırakın.
+## <a name="additional-resources"></a>Ek kaynaklar
 
 Entity Framework diğer kaynakların bağlantılarını bulunabilir [ASP.NET veri erişimi - önerilen kaynaklar](xref:whitepapers/aspnet-data-access-content-map).
 
-> [!div class="step-by-step"]
-> [Önceki](xref:mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application)
-> [İleri](xref:mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-a-more-complex-data-model-for-an-asp-net-mvc-application)
+## <a name="next-steps"></a>Sonraki adımlar
+
+Bu öğreticide şunları yaptınız:
+
+> [!div class="checklist"]
+> * Etkin Code First geçişleri
+> * Dağıtılan uygulamanızı Azure'a (isteğe bağlı)
+
+Daha karmaşık bir veri modeli için bir ASP.NET MVC uygulaması oluşturma hakkında bilgi edinmek için sonraki makaleye ilerleyin.
+> [!div class="nextstepaction"]
+> [Daha karmaşık bir veri modeli oluşturma](creating-a-more-complex-data-model-for-an-asp-net-mvc-application.md)

@@ -7,12 +7,12 @@ ms.author: riande
 ms.date: 11/28/2017
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 62e99a41ba935470c39476c9aea8ee4193543425
-ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
+ms.openlocfilehash: 7bec95af4532535f0d620bfe6862958907466874
+ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48795299"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54444265"
 ---
 <a name="get-started-with-aspnet-web-api-2-c"></a>ASP.NET Web API 2 (C#) ile çalışmaya başlama
 ====================
@@ -51,7 +51,7 @@ Visual Studio'yu başlatın ve seçin **yeni proje** gelen **Başlat** sayfası.
 > Kullanarak bir Web API projesi oluşturabilirsiniz &quot;Web API&quot; şablonu. API Yardım sayfaları sağlamak için ASP.NET MVC Web API şablonu kullanır. MVC olmadan Web API gösterilecek istediğinden Bu öğretici için boş şablonu kullanıyorum. Genel olarak, ASP.NET MVC, Web API'sini kullanmak için bilmeniz gerekmez.
 
 
-## <a name="adding-a-model"></a>Model ekleme
+## <a name="adding-a-model"></a>Model Ekleme
 
 A *modeli* uygulamanızdaki verileri temsil eden bir nesnedir. ASP.NET Web API'si, JSON, XML veya başka bir biçime modelinizi otomatik serileştir ve HTTP yanıt iletisinin gövdesine serileştirilmiş veriler yazın. Bir istemci serileştirme biçimi okuyabilirsiniz sürece, nesne seri durumdan çıkarabiliyorsa. Çoğu istemci, XML veya JSON ayrıştırabilirsiniz. Ayrıca, istemci HTTP isteğine bir Accept üst bilgisi ayarlayarak istediği hangi biçimi belirtebilirsiniz.
 
@@ -65,7 +65,7 @@ Sınıf adı &quot;ürün&quot;. Aşağıdaki özellikleri `Product` sınıfı.
 
 [!code-csharp[Main](tutorial-your-first-web-api/samples/sample1.cs)]
 
-## <a name="adding-a-controller"></a>Denetleyici ekleme
+## <a name="adding-a-controller"></a>Denetleyici Ekleme
 
 Web API'de bir *denetleyicisi* HTTP isteklerini işleyen bir nesnedir. Ürünlerin listesini ya da kimliği ile belirtilen tek bir ürün döndürebilen bir denetleyici ekleyeceğiz.
 
@@ -150,7 +150,7 @@ Hala diyoruz `getJSON` AJAX isteği, ancak bu kez göndermek için biz kimliği 
 
 ## <a name="running-the-application"></a>Uygulamayı Çalıştırma
 
-Uygulama hata ayıklamayı başlatmak için F5 tuşuna basın. Web sayfasını aşağıdaki gibi görünmelidir:
+Uygulamada hata ayıklamaya başlamak için F5'e basın. Web sayfasını aşağıdaki gibi görünmelidir:
 
 ![](tutorial-your-first-web-api/_static/image11.png)
 
@@ -178,7 +178,7 @@ Yanıt gövdesi sekmesini tıklatırsanız, nasıl ürün listesi JSON için ser
 
 Canlı web uygulaması olarak çalışan tamamlanmış site görmek ister misiniz? Aşağıdaki düğmeye tıklayarak Azure hesabınızda bir tam sürümü uygulama dağıtabilirsiniz.
 
-[![](http://azuredeploy.net/deploybutton.png)](https://deploy.azure.com/?WT.mc_id=deploy_azure_aspnet&repository=https://github.com/tfitzmac/WebAPI-ProductsApp#/form/setup)
+[![](https://azuredeploy.net/deploybutton.png)](https://deploy.azure.com/?WT.mc_id=deploy_azure_aspnet&repository=https://github.com/tfitzmac/WebAPI-ProductsApp#/form/setup)
 
 Bu çözüm, Azure'a dağıtmak için bir Azure hesabına ihtiyacınız var. Bir hesap zaten yoksa, aşağıdaki seçenekleriniz:
 
