@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: a3ac1ac389892681e8c122d569e6325353ed6e88
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341686"
----
 # [ASP.NET Core belgeleri](/aspnet/#pivot=core)
 
 # Genel Bakış
@@ -25,6 +17,8 @@ ms.locfileid: "54341686"
 ## Web API’si uygulamaları
 ### [Web API’si oluşturma](xref:tutorials/first-web-api)
 ### [MongoDB ile Web API](xref:tutorials/first-mongo-app)
+### [Mobil için arka uç](xref:mobile/native-mobile-backend)
+
 ## Web uygulamaları
 ### [Razor Sayfaları](xref:tutorials/razor-pages/index)
 ### [MVC](xref:tutorials/first-mvc-app/index)
@@ -32,7 +26,6 @@ ms.locfileid: "54341686"
 ## Gerçek zamanlı web uygulamaları
 ### [JavaScript ile SignalR](xref:tutorials/signalr)
 ### [TypeScript ile SignalR](xref:tutorials/signalr-typescript-webpack)
-## [Yerel mobil uygulamalar için arka uç hizmetleri oluşturma](xref:mobile/native-mobile-backend)
 
 ## Veri erişimi
 ### [Razor Pages ile EF Core](xref:data/ef-rp/index)
@@ -50,16 +43,13 @@ ms.locfileid: "54341686"
 ## [Seçenekler](xref:fundamentals/configuration/options)
 ## [Günlüğe kaydetme](xref:fundamentals/logging/index)
 ## [Hataları işleme](xref:fundamentals/error-handling)
-## Ara yazılım
-### [Genel bakış](xref:fundamentals/middleware/index)
-### [Fabrika tabanlı ara yazılım](xref:fundamentals/middleware/extensibility)
-### [Üçüncü taraf kapsayıcı ile fabrika tabanlı ara yazılım](xref:fundamentals/middleware/extensibility-third-party-container)
+## [Ara Yazılım](xref:fundamentals/middleware/index)
 ## Ana bilgisayar
 ### [Genel bakış](xref:fundamentals/host/index)
 ### [Web Ana Bilgisayarı](xref:fundamentals/host/web-host)
 ### [Genel Ana Bilgisayar](xref:fundamentals/host/generic-host)
 ## [Sunucular](xref:fundamentals/servers/index)
-## [HTTP isteklerini başlatma](xref:fundamentals/http-requests)
+## [HTTP isteğinde bulunma](xref:fundamentals/http-requests)
 
 # Web uygulamaları
 ## Razor Pages
@@ -286,6 +276,7 @@ ms.locfileid: "54341686"
 ### [Docker görüntüleri oluşturma](/dotnet/articles/core/docker/building-net-docker-images)
 ### [Visual Studio Araçları](xref:host-and-deploy/docker/visual-studio-tools-for-docker)
 ### [Docker görüntüsüne yayımlama](/azure/vs-azure-tools-docker-hosting-web-apps-in-docker)
+### [Örnek Docker görüntüleri](https://github.com/dotnet/dotnet-docker/blob/master/samples/aspnetapp/README.md)
 ## [Proxy ve yük dengeleyici yapılandırma](xref:host-and-deploy/proxy-load-balancer)
 ## [Bir web grubunda barındırma](xref:host-and-deploy/web-farm)
 ## [Visual Studio yayımlama profilleri](xref:host-and-deploy/visual-studio-publish-profiles)
@@ -373,7 +364,7 @@ ms.locfileid: "54341686"
 #### [Kısa ömürlü veri koruma sağlayıcıları](xref:security/data-protection/implementation/key-storage-ephemeral)
 ### Uyumluluk
 #### [Genel bakış](xref:security/data-protection/compatibility/index)
-#### [ASP.NET’te <machineKey> değiştirme](xref:security/data-protection/compatibility/replacing-machinekey)
+#### [ASP.NET'te machineKey değiştirme](xref:security/data-protection/compatibility/replacing-machinekey)
 ## [Geliştirmede gizli dizileri koruma](xref:security/app-secrets)
 ## [HTTPS'yi Zorunlu Kılma](xref:security/enforcing-ssl)
 ## [AB Genel Veri Koruma Yönetmeliği (GDPR) desteği](xref:security/gdpr)
@@ -396,12 +387,14 @@ ms.locfileid: "54341686"
 ## [Tanılama Araçları](xref:performance/diagnostic-tools)
 ## [Yükleme ve stres testleri](xref:test/loadtests)
 
-# Diğer konular
-## [Genelleştirme ve yerelleştirme](xref:fundamentals/localization)
-## [Orchard Core ile Taşınabilir Nesne yerelleştirmesi](xref:fundamentals/portable-object-localization)
+# Genelleştirme ve yerelleştirme
+## [Genel bakış](xref:fundamentals/localization)
+## [Taşınabilir Nesne yerelleştirmesi](xref:fundamentals/portable-object-localization)
+
+# Gelişmiş
 ## [URL yeniden yazma](xref:fundamentals/url-rewriting)
 ## [Dosya Sağlayıcıları](xref:fundamentals/file-providers)
-## [İstek Özellikleri](xref:fundamentals/request-features)
+## [Özellik isteği arabirimleri](xref:fundamentals/request-features)
 ## [HttpContext’e Erişim](xref:fundamentals/httpcontext)
 ## [Belirteçleri değiştirme](xref:fundamentals/change-tokens)
 ## [.NET için Açık Web Arabirimi (OWIN)](xref:fundamentals/owin)
@@ -411,6 +404,8 @@ ms.locfileid: "54341686"
 ## [Microsoft.AspNetCore.All metapackage](xref:fundamentals/metapackage)
 ## [LoggerMessage ile günlüğe kaydetme](xref:fundamentals/logging/loggermessage)
 ## [Bir dosya izleyicisi kullanma](xref:tutorials/dotnet-watch)
+### [Fabrika tabanlı ara yazılım](xref:fundamentals/middleware/extensibility)
+### [Üçüncü taraf kapsayıcı ile fabrika tabanlı ara yazılım](xref:fundamentals/middleware/extensibility-third-party-container)
 
 # Geçiş
 ## [2.2’den 3.0’a](xref:migration/22-to-30)
