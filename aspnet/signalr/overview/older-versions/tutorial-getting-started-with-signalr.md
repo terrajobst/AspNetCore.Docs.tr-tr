@@ -1,21 +1,21 @@
 ---
 uid: signalr/overview/older-versions/tutorial-getting-started-with-signalr
 title: 'Öğretici: SignalR ile çalışmaya başlama 1.x | Microsoft Docs'
-author: pfletcher
+author: bradygaster
 description: ASP.NET SignalR, bir HTML sayfasında bir gerçek zamanlı bir sohbet uygulaması oluşturmak için kullanın.
-ms.author: riande
+ms.author: bradyg
 ms.date: 02/18/2013
 ms.assetid: fdc3599a-5217-44c1-951f-0eec9812dce7
 msc.legacyurl: /signalr/overview/older-versions/tutorial-getting-started-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 720a4879f5fbe3c0c2b4c7809cb94c22547329c3
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: b4b632a84e40aa0b73dfc7a30da0cf28249cc5b4
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53287385"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836642"
 ---
-<a name="tutorial-getting-started-with-signalr-1x"></a>Öğretici: SignalR ile çalışmaya başlama 1.x
+<a name="tutorial-getting-started-with-signalr-1x"></a>Öğretici: SignalR 1.x ile Çalışmaya Başlama
 ====================
 tarafından [Patrick Fletcher](https://github.com/pfletcher), [Tim Teebken](https://github.com/timlt)
 
@@ -123,7 +123,7 @@ ASP.NET boş Web uygulaması oluşturma ve SignalR Kitaplığı eklemek için Vi
 
 SignalR sohbet uygulaması iki temel SignalR geliştirme görevleri gösterir: sunucunun ana koordinasyon nesne olarak bir hub'ı oluşturma ve ileti göndermek ve almak için SignalR jQuery kitaplığı kullanma.
 
-### <a name="signalr-hubs"></a>SignalR hub'ları
+### <a name="signalr-hubs"></a>SignalR Hubs
 
 Kod örneğinde **ChatHub** sınıf türetilir **Microsoft.AspNet.SignalR.Hub** sınıfı. Öğesinden türetme **Hub** SignalR uygulama oluşturmak için kullanışlı bir yöntem bir sınıftır. Hub sınıfınıza genel yöntemleri oluşturun ve bu yöntemler bir web sayfasında jQuery betiklerden çağırarak erişin.
 

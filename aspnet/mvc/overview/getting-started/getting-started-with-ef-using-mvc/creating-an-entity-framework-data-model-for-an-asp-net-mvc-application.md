@@ -4,17 +4,17 @@ title: 'Öğretici: Entity Framework 6 Code MVC 5 kullanarak First ile çalışm
 description: Bu öğretici serisinde, veri erişimi için Entity Framework 6 kullanan bir ASP.NET MVC 5 uygulaması derlemeyi öğrenin.
 author: tdykstra
 ms.author: riande
-ms.date: 01/10/2019
+ms.date: 01/22/2019
 ms.topic: tutorial
 ms.assetid: 00bc8b51-32ed-4fd3-9745-be4c2a9c1eaf
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 5d524c981af2d9d8f44254c61631937e6f049cdb
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
-ms.translationtype: MT
+ms.openlocfilehash: b72a4ae1a89fd47d9c6ff63ccd45b26324508a63
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341712"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836187"
 ---
 # <a name="tutorial-get-started-with-entity-framework-6-code-first-using-mvc-5"></a>Öğretici: Entity Framework 6 Code MVC 5 kullanarak First ile çalışmaya başlama
 
@@ -286,6 +286,11 @@ Sizin için tam bir veritabanı oluşturmak Entity Framework için sırayla yazm
 - Adlandırılmışsa, bu özellik bir yabancı anahtar özellik olarak yorumlanır *&lt;gezinme özelliği adı&gt;&lt;birincil anahtar özelliği adı&gt;* (örneğin, `StudentID` için`Student` gezinti özelliği bu yana `Student` varlığın birincil anahtarı `ID`). Yabancı anahtar özellikleri de adı aynı yalnızca &lt;birincil anahtar özelliği adı&gt; (örneğin, `EnrollmentID` beri `Enrollment` varlığın birincil anahtarı `EnrollmentID`).
 
 Kuralları geçersiz kılınabilir gördünüz. Örneğin, tablo adları olmamalıdır pluralized ve daha sonra göreceğiniz belirtilen nasıl açıkça bir özelliği bir yabancı anahtar özellik olarak işaretleyin.
+
+## <a name="get-the-code"></a>Kodu alma
+
+[Projeyi yükle](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
+
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 EF 6 hakkında daha fazla bilgi için şu makalelere bakın:

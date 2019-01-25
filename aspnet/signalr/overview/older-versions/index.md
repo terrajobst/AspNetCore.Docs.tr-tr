@@ -1,29 +1,29 @@
 ---
 uid: signalr/overview/older-versions/index
 title: SignalR eski sürümleri | Microsoft Docs
-author: rick-anderson
+author: bradygaster
 description: SignalR eski sürümleri için ilgili belgeleri.
-ms.author: riande
+ms.author: bradyg
 ms.date: 09/19/2014
 ms.assetid: 607f4617-380f-41fa-bf46-147e82bb8124
 msc.legacyurl: /signalr/overview/older-versions
 msc.type: chapter
-ms.openlocfilehash: b0cb625166f9d9c669891be1efc2b119ff1f92b9
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 160c3b2f0d255314bdf9fef3eda22cb578de476e
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41752975"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837059"
 ---
 <a name="signalr-older-versions"></a>SignalR eski sürümleri
 ====================
 > SignalR eski sürümleri için ilgili belgeleri.
 
 
-- [Öğretici: SignalR 1.x ile Çalışmaya Başlama](tutorial-getting-started-with-signalr.md)
-- [Öğretici: SignalR 1.x ve MVC 4 ile Çalışmaya Başlama](tutorial-getting-started-with-signalr-and-mvc-4.md)
+- [Öğretici: SignalR ile çalışmaya başlama 1.x](tutorial-getting-started-with-signalr.md)
+- [Öğretici: SignalR ile çalışmaya başlama 1.x ve MVC 4](tutorial-getting-started-with-signalr-and-mvc-4.md)
 - [SignalR 1.x ile Yüksek Sıklıkta Gerçek Zamanlı](tutorial-high-frequency-realtime-with-signalr.md)
-- [Öğretici: ASP.NET SignalR 1x ile Sunucu Yayını](tutorial-server-broadcast-with-aspnet-signalr.md)
+- [Öğretici: ASP.NET SignalR ile sunucu yayını 1.x](tutorial-server-broadcast-with-aspnet-signalr.md)
 - [Hubs API Kılavuzu - Sunucu](signalr-1x-hubs-api-guide-server.md)
 - [SignalR 1.x Hubs API Kılavuzu - JavaScript İstemcisi](signalr-1x-hubs-api-guide-javascript-client.md)
 - [Hub API Kılavuzu - .NET İstemcisi](signalr-1x-hubs-api-guide-net-client.md)

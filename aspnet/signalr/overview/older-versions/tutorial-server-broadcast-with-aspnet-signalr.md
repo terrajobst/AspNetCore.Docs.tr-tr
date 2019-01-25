@@ -1,21 +1,21 @@
 ---
 uid: signalr/overview/older-versions/tutorial-server-broadcast-with-aspnet-signalr
 title: 'Öğretici: ASP.NET SignalR ile sunucu yayını 1.x | Microsoft Docs'
-author: pfletcher
+author: bradygaster
 description: Bu öğreticide, sunucu yayın işlevselliği sağlamak için ASP.NET SignalR kullanan bir web uygulaması oluşturma işlemi gösterilmektedir. Sunucu anlamına gelir, communic yayını...
-ms.author: riande
+ms.author: bradyg
 ms.date: 04/10/2013
 ms.assetid: ab7b2554-956a-4f6d-b2a0-4ae0c62e8580
 msc.legacyurl: /signalr/overview/older-versions/tutorial-server-broadcast-with-aspnet-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: d5c09f6493c4dedb4fc2ecbf9055dd014ede71f2
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: 258a55bf72c4b3425d001f478620fa9651952b3f
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53288059"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837474"
 ---
-<a name="tutorial-server-broadcast-with-aspnet-signalr-1x"></a>Öğretici: ASP.NET SignalR ile sunucu yayını 1.x
+<a name="tutorial-server-broadcast-with-aspnet-signalr-1x"></a>Öğretici: ASP.NET SignalR 1x ile Sunucu Yayını
 ====================
 tarafından [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](https://github.com/tdykstra)
 

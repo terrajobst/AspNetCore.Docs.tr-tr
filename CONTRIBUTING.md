@@ -34,7 +34,7 @@ Her bir Markdown dosyası için bir klasörü görüntüler ve örnek kod için 
 ![description of image for alt attribute](configuration/index/_static/imagename.png)
 ```
 
-Tüm görüntüleri olmalıdır [alternatif (alt) metin](https://wikipedia.org/wiki/Alt_attribute). Çevrimiçi kaynaklar alternatif metin belirtme hakkında daha fazla öneri için bkz. gibi [WebAIM: alternatif metin](https://webaim.org/techniques/alttext/).
+Tüm görüntüleri olmalıdır [alternatif (alt) metin](https://wikipedia.org/wiki/Alt_attribute). Çevrimiçi kaynaklar alternatif metin belirtme hakkında daha fazla öneri için bkz. gibi [WebAIM: Alternatif metin](https://webaim.org/techniques/alttext/).
 
 Küçük Markdown dosya adlarını ve görüntü dosya adları için kullanın.
 
@@ -124,22 +124,20 @@ DocFX gerektirir:
 
 ### <a name="mono-instructions"></a>Mono yönergeleri
 
-* Homebrew aracılığıyla Mono'yu yükleyin: `brew install mono`.
+* Homebrew aracılığıyla Mono'yu yükleyin:
+
+  ```
+  brew install mono
+  ```
 * İndirme [DocFX en son sürümünü](https://github.com/dotnet/docfx/releases).
-* Ayıklamak `\bin\docfx`.
-* İçin bir diğer ad oluşturma **docfx**:
+* Arşive ayıklamak *$ giriş/bin/docfx*.
+* Bir çift için diğer adlar oluşturma **docfx** bir bash kabuğunda. İlk ve diğer belgeler oluşturmak için kullanılır. İkinci ve diğer belgeler derler ve için kullanılır.
 
   ```
-  function docfx {
-    mono $HOME/bin/docfx/docfx.exe
-  }
-    
-  function docfx-serve {
-    mono $HOME/bin/docfx/docfx.exe serve _site
-  }
+  alias docfx='mono $HOME/bin/docfx/docfx.exe'
+  alias docfx-serve='mono $HOME/bin/docfx/docfx.exe --serve'
   ```
-
-* Çalıştırma `docfx` içinde *Docs\aspnet* veya *Docs\aspnetcore* site oluşturmak için dizin. Çalıştırma `docfx-serve` sitede görüntülemek için `http://localhost:8080`.
+* Yürütme `docfx` site oluşturmak için depo kökünden. Yürütme `docfx-serve` sitede görüntülemek için `http://localhost:8080`.
 
 ## <a name="voice-and-tone"></a>Ses ve sesi
 

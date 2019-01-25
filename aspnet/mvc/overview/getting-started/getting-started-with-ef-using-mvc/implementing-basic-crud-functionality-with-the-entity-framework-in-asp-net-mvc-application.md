@@ -4,17 +4,17 @@ title: "Öğretici: ASP.NET MVC'de Entity Framework ile CRUD işlevselliği uygu
 description: Gözden geçirin ve oluşturma özelleştirme, okuyabilir, güncelleştirebilir, MVC yapı iskelesinde denetleyicileri ve görünümleri otomatik olarak oluşturur (CRUD) kodu silin.
 author: tdykstra
 ms.author: riande
-ms.date: 01/11/2019
+ms.date: 01/22/2019
 ms.topic: tutorial
 ms.assetid: a2f70ba4-83d1-4002-9255-24732726c4f2
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 9c6f8f3a2ffc0a9c5e15111ae47c331dab24ff43
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
-ms.translationtype: MT
+ms.openlocfilehash: 42971b4e15c4aaf85d0ea50bf63934ba4a78ed91
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341730"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836240"
 ---
 # <a name="tutorial-implement-crud-functionality-with-the-entity-framework-in-aspnet-mvc"></a>Öğretici: ASP.NET MVC'de Entity Framework ile CRUD işlevselliği uygulama
 
@@ -245,6 +245,10 @@ Temel `Controller` sınıf zaten uygular `IDisposable` Bu kod yalnızca bir geç
 ## <a name="handle-transactions"></a>Tanıtıcı işlemleri
 
 Varsayılan olarak Entity Framework, örtük olarak işlemler uygular. Burada birden çok satır veya tablo için değişiklik ve sonra çağrı senaryolarda `SaveChanges`, Entity Framework otomatik olarak tüm değişikliklerinizi başarılı veya başarısız tüm emin olur. Bazı değişiklikler önce yapılır ve ardından bir hata olur, bu değişiklikleri otomatik olarak geri alınır. Daha denetlediğiniz senaryoları için&mdash;Entity Framework dışında bir işlemde yapılan işlemler dahil etmek istiyorsanız, örneğin&mdash;bkz [işlemleri çalışma](/ef/ef6/saving/transactions).
+
+## <a name="get-the-code"></a>Kodu alma
+
+[Projeyi yükle](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

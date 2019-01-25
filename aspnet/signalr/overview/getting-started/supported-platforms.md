@@ -1,19 +1,19 @@
 ---
 uid: signalr/overview/getting-started/supported-platforms
 title: Desteklenen platformlar | Microsoft Docs
-author: pfletcher
+author: bradygaster
 description: Bu makalede, hangi istemcilere ve sunuculara SignalR tarafından desteklenen açıklanır.
-ms.author: riande
+ms.author: bradyg
 ms.date: 04/18/2018
 ms.assetid: eac31beb-0f46-4afa-9def-e80904dea4f0
 msc.legacyurl: /signalr/overview/getting-started/supported-platforms
 msc.type: authoredcontent
-ms.openlocfilehash: e270f9a328f36854fdfb3e23b78e0b40cdda6411
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: 60fa74b54797efbe14ba525160b2f750a4f5a451
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53287389"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836057"
 ---
 <a name="supported-platforms"></a>Desteklenen Platformlar
 ====================
@@ -113,8 +113,8 @@ Bir web tarayıcısında çalıştırmanın yanı sıra, tek başına Windows is
 | --- | --- | --- |
 | Web yuvaları | Windows 8 + ve .NET 4.5 + | Yok |
 | Her zaman çerçevesi | Yok | Yok |
-| Sunucu tarafından gönderilen olayları | .NET 4 + | 5+ |
-| Uzun yoklama | .NET 4 + | 5+ |
+| Sunucu tarafından gönderilen olayları | .NET 4+ | 5+ |
+| Uzun yoklama | .NET 4+ | 5+ |
 
 <a id="android"></a>
 

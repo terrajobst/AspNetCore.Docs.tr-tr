@@ -1,19 +1,19 @@
 ---
 uid: signalr/overview/releases/upgrading-signalr-1x-projects-to-20
 title: SignalR 1.x projelerini 2 sürümüne yükseltme | Microsoft Docs
-author: pfletcher
+author: bradygaster
 description: Bu konu, SignalR için mevcut bir SignalR 1.x projesini yükseltmek açıklar 2.x ve yükseltme işlemi sırasında oluşabilecek sorunların nasıl giderileceği...
-ms.author: riande
+ms.author: bradyg
 ms.date: 06/10/2014
 ms.assetid: adcfef99-9bc5-489d-a91b-9b7c2bc35e04
 msc.legacyurl: /signalr/overview/releases/upgrading-signalr-1x-projects-to-20
 msc.type: authoredcontent
-ms.openlocfilehash: 23ea23585b15395cf86bdad13885af32d1b64e79
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: a1cb4903f3cdeef70ffd0f624a3a2170f641a395
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53286850"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837344"
 ---
 <a name="upgrading-signalr-1x-projects-to-version-2"></a>SignalR 1.x Projelerini 2 sürümüne yükseltme
 ====================

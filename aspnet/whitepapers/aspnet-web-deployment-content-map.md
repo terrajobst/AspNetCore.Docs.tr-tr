@@ -8,18 +8,18 @@ ms.date: 03/14/2014
 ms.assetid: 58b583cd-c4ab-47a3-8527-8c92c298c91f
 msc.legacyurl: /whitepapers/aspnet-web-deployment-content-map
 msc.type: content
-ms.openlocfilehash: c970d929c4e6b581bedd2947982926ac448facfa
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 6df0c9d2f38ad1d39abd62787c600ef80da8e8e0
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41753929"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836227"
 ---
-<a name="aspnet-web-deployment---recommended-resources"></a>ASP.NET Web dağıtımı - önerilen kaynaklar
+<a name="aspnet-web-deployment---recommended-resources"></a>ASP.NET Web Dağıtımı - Önerilen Kaynaklar
 ====================
 > Bu konu, belgeleri (ASP.NET Yayımlama) nasıl dağıtılacağı hakkında daha fazla kaynak web bağlantılarını sağlar. Visual Studio 2010 Visual Web Developer 2010 ve sonraki sürümler kullanarak IIS uygulamaları.
 > 
-> Harika bir blog gönderisi, biliyorsanız [stackoverflow](http://stackoverflow.com) iş parçacığı veya kullanışlı olabilecek diğer bir bağlantı [bize bir e-posta gönderin](mailto:aspnetue@microsoft.com?subject=Deployment Content Map) bağlantı.
+> Harika bir blog gönderisi, biliyorsanız [stackoverflow](http://stackoverflow.com) iş parçacığı veya kullanışlı olabilecek diğer bir bağlantı [bize bir e-posta gönderin](mailto:aspnetue@microsoft.com?subject=Deployment%20Content%20Map) bağlantı.
 > 
 > > [!NOTE] 
 > > 
@@ -75,7 +75,7 @@ Bu konu aşağıdaki bölümleri içermektedir:
 
 - [Bir Windows Azure Web sitesinin nasıl dağıtılacağı](https://docs.microsoft.com/azure/app-service-web/web-sites-deploy). Seçenekleri açıklar ve web projeleri için Windows Azure Web sitelerini dağıtmaya yönelik kaynaklara bağlantılar sağlanmaktadır. Visual Studio'dan dağıtma hakkında daha fazla bölüm içerir.
 - [Visual Studio kullanarak ASP.NET Web dağıtımı](../web-forms/overview/deployment/visual-studio-web-deployment/introduction.md). 12 bölümden öğretici serisinde, SQL Server veritabanları ile web uygulamaları dağıtma gösterilmektedir. Veritabanı için dağıtım dbDacFx sağlayıcısı ve Entity Framework Code First Migrations'ı kullanır. Ayrıca hakkında bilgiler içerir [Web.config dosyası dönüşümleri](../web-forms/overview/deployment/visual-studio-web-deployment/web-config-transformations.md), [tek tek dosyaları dağıtma](../web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update.md#specificfiles), [komut satırı dağıtımı](../web-forms/overview/deployment/visual-studio-web-deployment/command-line-deployment.md), ve [nasıl Visual Studio web özelleştirme .pubxml dosyalarını düzenleyerek yayımlama kanalı](../web-forms/overview/deployment/visual-studio-web-deployment/deploying-extra-files.md). Web Forms, MVC ve Web API'sini dahil olmak üzere tüm ASP.NET web projeleri için geçerlidir.)
-- [Nasıl yapılır: bir Web projesi kullanarak tek tıklamayla yayımlama Visual Studio'da dağıtma](https://msdn.microsoft.com/library/dd465337.aspx) (başvuru bilgilerini Visual Studio Web Yayımlama Sihirbazı'nı.)
+- [Nasıl yapılır: Bir Web projesi kullanarak tek tıklamayla yayımlama Visual Studio'da dağıtma](https://msdn.microsoft.com/library/dd465337.aspx) (başvuru bilgilerini Visual Studio Web Yayımlama Sihirbazı'nı.)
 - [SQL Server Visual Studio kullanarak Compact ile bir ASP.NET Web uygulaması dağıtma](../web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12.md). Önceki bir sürümünü budur **Visual Studio kullanarak ASP.NET Web dağıtımı** bu bölümün başında listelenen. Çoğunlukla yararlı şimdi SQL Server Compact veritabanları dağıtma ve SQL Server Compact'dan SQL Server'ın tam sürüme geçirme hakkında bilgi için.
 - [.NET çok katmanlı depolama tabloları, kuyrukları ve Blobları](https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36) (Microsoft Azure site). 5 bölümden oluşan öğretici, bir MVC projesi oluşturma ve bir Windows Azure bulut hizmetinde dağıtmayı gösterir.
 
@@ -100,7 +100,7 @@ Ayrıca aşağıdaki bölüme bakın.
 - [Sürekli tümleştirme ve sürekli teslim (Windows Azure'la gerçek hayatta kullanılan bulut uygulamaları oluşturma).](../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery.md) Sürekli tümleştirme ve sürekli teslim E-kitap bölümü.
 - [Bir Windows Azure Web sitesinin nasıl dağıtılacağı](https://docs.microsoft.com/azure/app-service-web/web-sites-deploy). Web projeleri için Windows Azure Web siteleri dağıtmak için kaynaklara seçenekleri ve bağlantıları açıklar. Kaynak denetiminden dağıtım otomatikleştirme hakkında bir bölüm içerir.
 - [Kurumsal senaryolarda Web uygulamaları dağıtma](../web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md). 40 bölümlü öğretici serisinde, Visual Studio 2010 ve Team Foundation Server 2010'u kullanarak bir CI işlemi dağıtımı otomatik hale getirmek nasıl gösterir.
-- [Microsoft Build Engine içinde: MSBuild ve Team Foundation derlemesi Sayed Hashimi ve William Bartholomew kullanarak](http://msbuildbook.com). Bu, bir web kaynağı olmak üzere bir kitap, ancak öğrenme MSBuild sürekli tümleştirme senaryoları için nasıl yapılandıracağınızı öğrenmek için temel bir kılavuz değildir.
+- [Microsoft Build Engine içinde: MSBuild ile Team Foundation derlemesi Sayed Hashimi ve William Bartholomew](http://msbuildbook.com). Bu, bir web kaynağı olmak üzere bir kitap, ancak öğrenme MSBuild sürekli tümleştirme senaryoları için nasıl yapılandıracağınızı öğrenmek için temel bir kılavuz değildir.
 - [MSBuild uzantı paketi](https://github.com/mikefourie/MSBuildExtensionPack). Dağıtım görevlerini içerir.
 - [Team Foundation Yapı Özelleştirme Kılavuzu](https://aka.ms/vsarsolutions). Team Foundation Server'ı ayarlama ALM Rangers tarafından belgeleri, web dağıtımı kapsar ve öğreticiler ve videolar içerir.
 - [SlowCheetah XML dönüştüren bir CI sunucudan](http://sedodream.com/2011/12/12/SlowCheetahXMLTransformsFromACIServer.aspx) (Sayed Hashimi'nın blogu). Visual Studio app.config ve diğer XML dosyalarını dönüştürme eklentisi, SlowCheetah kullanmayı açıklar.
@@ -127,8 +127,8 @@ Ayrıca bkz: [bir uygulama olduğundan emin olarak çevrimdışı dağıtım sı
 
 ## <a name="using-web-deploy-parameters-to-change-settings-in-the-destination-web-application-during-deployment"></a>Dağıtım sırasında hedef web uygulaması ayarlarını değiştirmek için Web dağıtımı parametreleri kullanma
 
-- [Nasıl yapılır: kullanım Web Dağıtımı Web dağıtım paketi parametrelerinde](https://msdn.microsoft.com/library/ff398068.aspx) (MSDN).
-- [MSDeploy: Yayımla üzerinde uygulama ayarlarını güncelleştirme yayımlama profiline dayalı](http://sedodream.com/2013/03/02/MSDeployHowToUpdateAppSettingsOnPublishBasedOnThePublishProfile.aspx) (Sayed Hashimi'nın blogu). Visual Studio'ya parametreleri nasıl tümleştirmek için Web dağıtımı yayımlama profilleri gösterir.
+- [Nasıl yapılır: Kullanım Web Dağıtımı Web dağıtım paketi parametrelerinde](https://msdn.microsoft.com/library/ff398068.aspx) (MSDN).
+- [MSDeploy: Yayımlama üzerinde uygulama ayarlarını güncelleştirme yayımlama profiline dayalı](http://sedodream.com/2013/03/02/MSDeployHowToUpdateAppSettingsOnPublishBasedOnThePublishProfile.aspx) (Sayed Hashimi'nın blogu). Visual Studio'ya parametreleri nasıl tümleştirmek için Web dağıtımı yayımlama profilleri gösterir.
 - [Web dağıtımı Parametreleştirme](https://www.iis.net/learn/publish/using-web-deploy/web-deploy-parameterization) (IIS.NET web sitesi).
 - [Web eylemi Parametreleştirme dağıtma](http://vishaljoshi.blogspot.com/2010/07/web-deploy-parameterization-in-action.html) (Vishal Joshi'nın blogu).
 - [Web dağıtımı Parametreleştirme vs. Web.config dönüşümünün](http://vishaljoshi.blogspot.com/2010/06/parameterization-vs-webconfig.html) (Vishal Joshi'nın blogu).
@@ -140,7 +140,7 @@ Ayrıca bkz: [bir uygulama olduğundan emin olarak çevrimdışı dağıtım sı
 
 ## <a name="making-sure-an-application-is-off-line-during-deployment"></a>Bir uygulama dağıtımı sırasında çevrimdışı olduğundan emin
 
-- [Visual Studio kullanarak ASP.NET Web Dağıtımı: kod güncelleştirmesi dağıtma](../web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update.md). Bölümüne bakın **uygulama dağıtımı sırasında çevrimdışı duruma alın.**
+- [Visual Studio kullanarak ASP.NET Web Dağıtımı: Kod güncelleştirmesi dağıtma](../web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update.md). Bölümüne bakın **uygulama dağıtımı sırasında çevrimdışı duruma alın.**
 - [Bir uygulamayı yayımlamadan önce çevrimdışına](https://www.iis.net/learn/publish/deploying-application-packages/taking-an-application-offline-before-publishing) (IIS.NET site). Web dağıtımı otomatik hale getiren bir uygulamanın işleme 3.0 yerleşik bir özellik açıklanmaktadır\_offline.htm dosya. Bu özellik, özel uygulama ile çalışmıyor\_offline.htm dosyaları.
 - [Yayımlama sırasında çevrimdışı web uygulamanızı nasıl](http://sedodream.com/2012/01/08/HowToTakeYourWebAppOfflineDuringPublishing.aspx) (Sayed Hashimi'nın blogu). Özel bir uygulama kullanma işlemi otomatik hale getirmek nasıl\_offline.htm dosya.
 - [Uygulama çevrimdışı ve usechecksum güncelleştirmelerin yayınlanması web](https://blogs.msdn.com/b/webdev/archive/2013/10/30/web-publishing-updates-for-app-offline-and-usechecksum.aspx) (Microsoft Web geliştirme blogu). Uygulama kullanımını otomatikleştirme için başka bir seçenek\_offline.htm dosya.
@@ -154,7 +154,7 @@ Ayrıca bkz: [bir uygulama olduğundan emin olarak çevrimdışı dağıtım sı
 
 - [Visual Studio'da veritabanı dağıtımı yapılandırma](https://msdn.microsoft.com/library/dd394698.aspx#dbdeployment) (MSDN). Bir veritabanı ile bir web projesi dağıtma seçeneklerine genel bakış.
 - [Visual Studio kullanarak ASP.NET Web dağıtımı](../web-forms/overview/deployment/visual-studio-web-deployment/introduction.md). 12 bölümden öğretici serisi dbDacFx sağlayıcısı ve Entity Framework Code First Migrations'ı kullanarak veritabanı dağıtımı gösterir.
-- [Nasıl yapılır: bir Web dağıtımı kullanarak tek tıklamayla projeyi Visual Studio'da yayımlama](https://msdn.microsoft.com/library/dd465337.aspx) (MSDN).
+- [Nasıl yapılır: Bir Web dağıtımı kullanarak tek tıklamayla projeyi Visual Studio'da yayımlama](https://msdn.microsoft.com/library/dd465337.aspx) (MSDN).
 - [Bir Windows Azure Web sitesine bir üyelik, OAuth ve SQL veritabanı ile güvenli bir ASP.NET MVC 5 uygulaması dağıtın](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data). Oluşturan ve dağıtan tek bir SQL Server kullanan bir uygulamayı uzun bir öğretici için üyeliği ve uygulama verilerini hem de veritabanı.
 - [SQL Server Visual Studio kullanarak Compact ile bir ASP.NET Web uygulaması dağıtma](../web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12.md). 12 bölümden öğretici serisinde, SQL Server Compact veritabanları dağıtma ve SQL Server Compact'dan SQL Server'ın tam sürüme geçirmek nasıl gösterir.
 
@@ -211,7 +211,7 @@ Ayrıca oluşturarak ve web dağıtım paketi yükleme ve bu sayfada daha önce 
 
 ## <a name="automating-common-deployment-tasks-that-are-not-automated-out-of-the-box"></a>Kullanıma hazır otomatik değil genel dağıtım görevleri otomatikleştirme
 
-- [Visual Studio kullanarak ASP.NET Web Dağıtımı: ek dosyaları dağıtma](../web-forms/overview/deployment/visual-studio-web-deployment/deploying-extra-files.md).
+- [Visual Studio kullanarak ASP.NET Web Dağıtımı: Ek dosyaları dağıtma](../web-forms/overview/deployment/visual-studio-web-deployment/deploying-extra-files.md).
 - [Web yayımlama üzerinde klasör izinlerini ayarlama](http://sedodream.com/2011/11/08/SettingFolderPermissionsOnWebPublish.aspx) (Sayed Hashimi'nın blogu).
 - [Web proje paketi için kayıt defteri ayarları içerecek şekilde hedef dosya genişletme](https://blogs.msdn.com/webdevtools/archive/2010/02/09/how-to-extend-target-file-to-include-registry-settings-for-web-project-package.aspx) (Web geliştirme araçları blog).
 - [XML (Web.config) dönüştürme genişletme](http://sedodream.com/2010/09/09/ExtendingXMLWebconfigConfigTransformation.aspx) (Sayed Hashimi'nın blogu). Özel XDT dönüşümler oluşturma işlemi gösterilmektedir.
@@ -244,7 +244,7 @@ Ayrıca oluşturarak ve web dağıtım paketi yükleme ve bu sayfada daha önce 
 ## <a name="troubleshooting-deployment-problems"></a>Dağıtım sorunlarını giderme
 
 - [Visual Studio'da Windows Azure Web Siteleri'nde sorun giderme](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-troubleshoot-visual-studio) (Microsoft Azure site).
-- [Visual Studio kullanarak ASP.NET Web Dağıtımı: sorun giderme](../web-forms/overview/deployment/visual-studio-web-deployment/troubleshooting.md).
+- [Visual Studio kullanarak ASP.NET Web Dağıtımı: Sorun giderme](../web-forms/overview/deployment/visual-studio-web-deployment/troubleshooting.md).
 - [Web ile karşılaşılan sorun giderme dağıtma](https://www.iis.net/learn/publish/troubleshooting-web-deploy/troubleshooting-common-problems-with-web-deploy).
 - [Web dağıtımı hata kodları](https://www.iis.net/learn/publish/troubleshooting-web-deploy/web-deploy-error-codes) (IIS.NET site).
 - [Web için Visual Studio ve ASP.NET dağıtım hakkında SSS](https://msdn.microsoft.com/library/ee942158.aspx) (MSDN).

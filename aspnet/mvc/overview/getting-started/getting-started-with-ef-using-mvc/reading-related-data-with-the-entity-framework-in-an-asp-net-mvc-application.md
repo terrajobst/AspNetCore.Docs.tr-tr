@@ -4,17 +4,17 @@ title: 'Öğretici: ASP.NET MVC uygulaması EF ile ilgili verileri okuma'
 description: Bu öğreticide okuma ve ilgili verileri görüntüleyen — diğer bir deyişle, Entity Framework Gezinti özelliklerini yükler veri.
 author: tdykstra
 ms.author: riande
-ms.date: 01/17/2019
+ms.date: 01/22/2019
 ms.topic: tutorial
 ms.assetid: 18cdd896-8ed9-4547-b143-114711e3eafb
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 8660a75655b801364cce7c4b59847c5c00562a27
-ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
-ms.translationtype: MT
+ms.openlocfilehash: 5f45820cd7abd60e69c19368cee50e91e31a75a0
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396213"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836837"
 ---
 # <a name="tutorial-read-related-data-with-ef-in-an-aspnet-mvc-app"></a>Öğretici: ASP.NET MVC uygulaması EF ile ilgili verileri okuma
 
@@ -243,6 +243,10 @@ Açıkça her yüklendikten sonra `Enrollment` varlık ilgili `Student` varlık:
 Kullandığınız bildirimi `Collection` bir koleksiyon özelliği yüklemek için gereken yöntemini ancak yalnızca bir varlık tutan bir özelliği için kullandığınız `Reference` yöntemi.
 
 Eğitmen dizin sayfası artık çalıştırın ve verileri nasıl alınır değiştirdik ancak sayfasında, görüntülenen içinde herhangi bir fark görürsünüz.
+
+## <a name="get-the-code"></a>Kodu alma
+
+[Projeyi yükle](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

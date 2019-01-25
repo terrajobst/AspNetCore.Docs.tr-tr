@@ -1,18 +1,18 @@
 ---
 title: ASP.NET Core SignalR üretim barındırma ve ölçeklendirme
-author: tdykstra
+author: bradygaster
 description: Performans ve ASP.NET Core SignalR kullanan uygulamalarda sorunları ölçeklendirme hakkında bilgi edinin.
 monikerRange: '>= aspnetcore-2.1'
-ms.author: tdykstra
+ms.author: bradyg
 ms.custom: mvc
 ms.date: 11/28/2018
 uid: signalr/scale
-ms.openlocfilehash: 94791ffb73b58a9026942d632bce59773e3fda5b
-ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
+ms.openlocfilehash: 4ac4509acc89d0091a3757c7cfbc9981614f29ad
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453026"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836928"
 ---
 # <a name="aspnet-core-signalr-hosting-and-scaling"></a>ASP.NET Core SignalR barındırma ve ölçeklendirme
 
@@ -46,7 +46,7 @@ Bir sunucu grubu için sorunları oluşturan kendi bağlantılarını izlemek Si
 
 Bu sorunu çözmek için Seçenekler [Azure SignalR hizmeti](#azure-signalr-service) ve [devre kartı olarak Redis](#redis-backplane).
 
-## <a name="azure-signalr-service"></a>Azure SignalR hizmeti
+## <a name="azure-signalr-service"></a>Azure SignalR Hizmeti
 
 Azure SignalR hizmeti, bir devre kartı yerine bir proxy ' dir. Her zaman bir istemci, sunucunun bir bağlantı başlatır, hizmete bağlanmak için istemci yönlendirilir. Bu işlem, aşağıdaki diyagramda gösterilmiştir:
 

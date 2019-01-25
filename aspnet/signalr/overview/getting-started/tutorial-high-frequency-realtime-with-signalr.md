@@ -1,20 +1,20 @@
 ---
 uid: signalr/overview/getting-started/tutorial-high-frequency-realtime-with-signalr
 title: 'Öğretici: SignalR 2 ile yüksek sıklıkta gerçek zamanlı uygulama oluşturma | Microsoft Docs'
-author: pfletcher
+author: bradygaster
 description: Bu öğretici, ASP.NET SignalR, yüksek frekanslı Mesajlaşma işlevleri sağlamak için kullanan bir web uygulaması oluşturma işlemi gösterilmektedir.
-ms.author: riande
-ms.date: 01/02/2019
+ms.author: bradyg
+ms.date: 01/22/2019
 ms.assetid: 9f969dda-78ea-4329-b1e3-e51c02210a2b
 msc.legacyurl: /signalr/overview/getting-started/tutorial-high-frequency-realtime-with-signalr
 msc.type: authoredcontent
 ms.topic: tutorial
-ms.openlocfilehash: 85503db0b41be6f87136627667d6dd71f0d4f609
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: 44aaa2b0c059de310e963f642fa56c2f00a7e443
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54098596"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836733"
 ---
 # <a name="tutorial-create-high-frequency-real-time-app-with-signalr-2"></a>Öğretici: SignalR 2 ile yüksek sıklıkta gerçek zamanlı uygulama oluşturma
 
@@ -223,6 +223,10 @@ Neredeyse tamamlanmış bir uygulamadır, ancak biz tek daha fazla iyileştirme 
 Diğer pencere şeklinde hareketini daha az düzensiz görünür. Uygulama hareketi gelen ileti başına bir kez ayarlanan yerine zaman içinde ilişkilendirir.
 
 Bu kod, yeni bir tane eski konumdan şekli taşır. Sunucu, animasyon zaman aralığı boyunca şekil konumunu sağlar. Bu durumda, 100 milisaniyeden kısadır. Uygulama, yeni animasyon başlatılmadan önce şekli üzerinde çalışan herhangi bir önceki animasyon temizler.
+
+## <a name="get-the-code"></a>Kodu alma
+
+[Projeyi yükle](http://code.msdn.microsoft.com/SignalR-20-MoveShape-Demo-6285b83a)
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

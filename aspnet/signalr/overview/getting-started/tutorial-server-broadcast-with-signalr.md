@@ -3,18 +3,18 @@ uid: signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
 title: 'Öğretici: SignalR 2 ile sunucu yayını | Microsoft Docs'
 author: tdykstra
 description: Bu öğreticide, ASP.NET SignalR 2 sunucu yayın işlevselliği sağlamak için kullanan bir web uygulaması oluşturma işlemi gösterilmektedir.
-ms.author: riande
+ms.author: bradyg
 ms.date: 01/02/2019
 ms.topic: tutorial
 ms.assetid: 1568247f-60b5-4eca-96e0-e661fbb2b273
 msc.legacyurl: /signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: a6014e604613492db91b2dc6f846c3c73d938d99
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: a243c78c7d552f1c82a88c6083871fcd16538618
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54099305"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837435"
 ---
 # <a name="tutorial-server-broadcast-with-signalr-2"></a>Öğretici: SignalR 2 ile yayın sunucusu
 
@@ -81,7 +81,7 @@ SignalR hub'ı API sunucusu istemci etkileşimi işlemek için kullanacaksınız
 
 Yalnızca bir örneğini istediğiniz `StockTicker` sınıfı, bu nedenle her bir başvuru ayarlamanız gerekir sunucuda çalıştırılacak `StockTickerHub` tekli örneğine `StockTicker` örneği. `StockTicker` Sınıfında stok verileri içeren ve güncelleştirmeleri Tetikleyiciler olduğundan istemcilere yayın ancak `StockTicker` değil bir `Hub` sınıfı. `StockTicker` Sınıfında SignalR hub'ı bağlantı kapsamı nesnesine bir başvuru almak. Bunu daha sonra SignalR bağlantı bağlam nesnesi istemcilere yayınlamak için kullanabilirsiniz.
 
-#### <a name="create-stocktickerhubcs"></a>StockTickerHub.cs oluşturma
+#### <a name="create-stocktickerhubcs"></a>Create StockTickerHub.cs
 
 1. İçinde **Çözüm Gezgini**, projeye sağ tıklayıp seçin **Ekle** > **yeni öğe**.
 
@@ -232,7 +232,7 @@ HTML sayfasını verileri görüntüler ve JavaScript dosyasını verileri düze
 
 1. İçinde **Çözüm Gezgini**, sağ *StockTicker.html*ve ardından **Başlangıç Sayfası Ayarla**.
 
-#### <a name="create-stocktickerjs"></a>StockTicker.js oluşturma
+#### <a name="create-stocktickerjs"></a>Create StockTicker.js
 
 Artık JavaScript dosyası oluşturun.
 

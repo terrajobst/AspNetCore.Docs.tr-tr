@@ -1,21 +1,21 @@
 ---
 uid: signalr/overview/deployment/tutorial-signalr-self-host
 title: 'Öğretici: Şirket içinde SignalR barındırma | Microsoft Docs'
-author: pfletcher
+author: bradygaster
 description: Bu öğretici, şirket içinde barındırılan bir SignalR 2 sunucunun nasıl oluşturulacağını ve bir JavaScript istemcisi ile bağlanmak nasıl gösterir. V öğreticide kullanılan yazılım sürümleri...
-ms.author: riande
+ms.author: bradyg
 ms.date: 06/10/2014
 ms.assetid: 400db427-27af-4f2f-abf0-5486d5e024b5
 msc.legacyurl: /signalr/overview/deployment/tutorial-signalr-self-host
 msc.type: authoredcontent
-ms.openlocfilehash: 48cb3d4d71c33ac3382b2b35b5a19fa1c4958874
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: 6a6359d59a4b715e13fe2bbcef57da6d6d6294b5
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53287409"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54835758"
 ---
-<a name="tutorial-signalr-self-host"></a>Öğretici: Şirket içinde SignalR barındırma
+<a name="tutorial-signalr-self-host"></a>Öğretici: Şirket İçinde SignalR Barındırma
 ====================
 tarafından [Patrick Fletcher](https://github.com/pfletcher)
 

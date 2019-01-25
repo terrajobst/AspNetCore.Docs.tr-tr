@@ -4,17 +4,17 @@ title: Bir Azure Web rolünde SignalR performans sayaçlarını kullanarak | Mic
 author: guardrex
 description: Nasıl yükleyin ve bir Azure Web rolünde SignalR performans sayaçları kullanma.
 keywords: ASP.NET,signalr,Performance sayacı, azure web rolü
-ms.author: riande
+ms.author: bradyg
 ms.date: 10/03/2018
 ms.assetid: 2a127d3b-21ed-4cc9-bec0-cdab4e742a25
 msc.legacyurl: /signalr/overview/performance/using-signalr-performance-counters-in-an-azure-web-role
 msc.type: authoredcontent
-ms.openlocfilehash: bdd875201895c6eaf155b54582d0898c2570d93c
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: 8e17e945bc144731dd149bd7ddfc9e29160eaf0b
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53287722"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836495"
 ---
 # <a name="using-signalr-performance-counters-in-an-azure-web-role"></a>Bir Azure Web rolünde SignalR performans sayaçları kullanma
 
@@ -55,7 +55,7 @@ SignalR performans sayaçları, Azure Web rolünde uygulamanızın performansın
 
 6. İçinde **Çözüm Gezgini**açın *diagnostics.wadcfgx* altında dosya **WebRole1**.
 
-   ![Çözüm Gezgini diagnostics.wadcfgx](using-signalr-performance-counters-in-an-azure-web-role/_static/image4.png)
+   ![Solution Explorer diagnostics.wadcfgx](using-signalr-performance-counters-in-an-azure-web-role/_static/image4.png)
 
 7. Dosyanın içeriğini aşağıdaki yapılandırma ile değiştirin ve dosyayı kaydedin:
 

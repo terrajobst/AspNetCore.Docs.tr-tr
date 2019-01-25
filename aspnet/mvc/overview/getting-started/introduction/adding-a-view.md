@@ -3,14 +3,14 @@ title: Bir MVC uygulaması için bir görünüm ekleme
 author: Rick-Anderson
 description: Bir MVC uygulaması için bir görünüm ekleme
 ms.author: riande
-ms.date: 09/1721/2017
+ms.date: 01/23/2019
 uid: mvc/overview/getting-started/introduction/adding-a-view
-ms.openlocfilehash: 47447c82506cc0eb4dafabe272b3204f76a2edd7
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: afa7584529566ebe82a0eb3849de89bd0df064bd
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54098668"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837760"
 ---
 <a name="adding-a-view"></a>Görünüm Ekleme
 ====================
@@ -60,7 +60,7 @@ Alternatif olarak, uygulamayı çalıştırmak ve göz atın `HelloWorld` denetl
 
 ![](adding-a-view/_static/image6.png)
 
-Oldukça iyi görünüyor. Tarayıcının başlık çubuğunda gösterilir, ancak, fark &quot;Index - My ASP.NET Uy "ve büyük bağlantı sayfanın üstündeki"Uygulama adı"diyor. Tarayıcı pencerenizin nasıl küçük yaptığınız bağlı olarak görmek için sağ üst köşedeki üç çubuğa tıklayın gerekebilir için **giriş**, **hakkında**, **kişi**, **Kaydetme** ve **oturum** bağlantıları.
+Oldukça iyi görünüyor. Ancak, "Dizin – My ASP.NET Application," tarayıcının başlık çubuğunda gösterilir ve büyük bağlantı sayfanın üstündeki "Uygulama adı" ifadesini içeren dikkat edin Tarayıcı pencerenizin nasıl küçük yaptığınız bağlı olarak görmek için sağ üst köşedeki üç çubuğa tıklayın gerekebilir için **giriş**, **hakkında**, **kişi**, **Kaydetme** ve **oturum** bağlantıları.
 
 ## <a name="changing-views-and-layout-pages"></a>Görünümlere ve sayfalara düzenini değiştirme
 

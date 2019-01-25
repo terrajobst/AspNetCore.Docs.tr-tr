@@ -1,19 +1,19 @@
 ---
 uid: signalr/overview/guide-to-the-api/hubs-api-guide-server
 title: ASP.NET SignalR Hubs API Kılavuzu - sunucu (C#) | Microsoft Docs
-author: pfletcher
+author: bradygaster
 description: Bu belge, sunucu tarafı ASP.NET SignalR hub'ları API sürüm 2, SignalR için gösteren kod örnekleri ile programlamaya giriş sağlar...
-ms.author: riande
+ms.author: bradyg
 ms.date: 06/10/2014
 ms.assetid: b19913e5-cd8a-4e4b-a872-5ac7a858a934
 msc.legacyurl: /signalr/overview/guide-to-the-api/hubs-api-guide-server
 msc.type: authoredcontent
-ms.openlocfilehash: 4730c4d9f601f561cfc884e0a9c2c2d12785ae0f
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: a28663c8d5c679f85e863e7d0b4523a6f4dd4a1f
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53288111"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54837461"
 ---
 <a name="aspnet-signalr-hubs-api-guide---server-c"></a>ASP.NET SignalR Hubs API Kılavuzu - sunucu (C#)
 ====================
@@ -196,7 +196,7 @@ Varsayılan olarak, JavaScript istemcilerinin, sınıf adı ortası büyük kü�
 
 <a id="multiplehubs"></a>
 
-### <a name="multiple-hubs"></a>Birden çok hub'ları
+### <a name="multiple-hubs"></a>Multiple Hubs
 
 Bir uygulamada birden fazla Hub sınıfı tanımlayabilirsiniz. Bunu yaptığınızda, paylaşılan bir bağlantısı ancak grupları ayrı:
 

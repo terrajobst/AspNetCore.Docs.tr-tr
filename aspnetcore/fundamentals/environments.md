@@ -3,14 +3,14 @@ title: ASP.NET Core birden çok ortam kullanma
 author: rick-anderson
 description: ASP.NET Core uygulamaları birden fazla ortam arasında uygulama davranışını denetleme konusunda bilgi edinin.
 ms.author: riande
-ms.date: 07/03/2018
+ms.date: 01/22/2019
 uid: fundamentals/environments
-ms.openlocfilehash: 642af9e8f9e322e3624dad46bb1463f6525f5c9e
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
+ms.openlocfilehash: 39e1b48481832a6d76de605b37410fe2e16dcd88
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341673"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836746"
 ---
 # <a name="use-multiple-environments-in-aspnet-core"></a>ASP.NET Core birden çok ortam kullanma
 
@@ -237,6 +237,20 @@ Zaman `ASPNETCORE_ENVIRONMENT` ortam değişkeni genel olarak ayarlandığında,
 **Web.config**
 
 Ayarlanacak `ASPNETCORE_ENVIRONMENT` ortam değişkeni ile *web.config*, bkz: *ortam değişkenlerini ayarlama* bölümünü <xref:host-and-deploy/aspnet-core-module#setting-environment-variables>. Zaman `ASPNETCORE_ENVIRONMENT` ile ortam değişkeninin ayarlı *web.config*, sistem düzeyindeki bir ayarı değerini geçersiz kılar.
+
+::: moniker range=">= aspnetcore-2.2"
+
+**Proje dosyası veya yayımlama profili**
+
+**Windows IIS dağıtımlar için:** Dahil `<EnvironmentName>` yayımlama profilini özelliğinde (*.pubxml*) ya da proje dosyası. Bu yaklaşım ortamı ayarlar *web.config* proje yayımlandığında ne zaman:
+
+```xml
+<PropertyGroup>
+  <EnvironmentName>Development</EnvironmentName>
+</PropertyGroup>
+```
+
+::: moniker-end
 
 **IIS uygulama havuzu başına**
 

@@ -1,22 +1,22 @@
 ---
 uid: signalr/overview/getting-started/tutorial-getting-started-with-signalr
 title: 'Öğretici: SignalR 2 ile gerçek zamanlı bir sohbet | Microsoft Docs'
-author: pfletcher
+author: bradygaster
 description: Bu öğreticide SignalR kullanarak gerçek zamanlı bir sohbet uygulaması oluşturma işlemi gösterilir. SignalR için boş bir ASP.NET web uygulamasına ekleyin.
-ms.author: riande
-ms.date: 01/02/2019
+ms.author: bradyg
+ms.date: 01/22/2019
 ms.assetid: a8b3b778-f009-4369-85c7-e90f9878d8b4
 msc.legacyurl: /signalr/overview/getting-started/tutorial-getting-started-with-signalr
 msc.type: authoredcontent
 ms.topic: tutorial
-ms.openlocfilehash: aa015abc47bb2450e04e167c0404aaa1d119ba2c
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: 90f2c03fbda522e3a46200bc0132cc74100ce70f
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54098630"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836798"
 ---
-# <a name="tutorial-real-time-chat-with-signalr-2"></a>Öğretici: SignalR 2 ile gerçek zamanlı bir sohbet
+# <a name="tutorial-real-time-chat-with-signalr-2"></a>Öğretici: SignalR 2 ile gerçek zamanlı sohbet
 
 Bu öğreticide SignalR gerçek zamanlı bir sohbet uygulaması oluşturmak için nasıl kullanılacağını gösterir. Boş bir ASP.NET web uygulaması için SignalR eklediğinizde ve gönderin ve iletileri görüntülemek için bir HTML sayfası oluşturun.
 
@@ -161,6 +161,10 @@ Bu kod hub'ı ile bir bağlantı açar.
 > Bu yaklaşım, olay işleyici yürütülmeden önce kodu bir bağlantı kurar sağlar.
 
 Kod bağlantı başlar ve ardından üzerinde click olayını işlemek için bir işlev geçirir **Gönder** HTML sayfasındaki düğmesi.
+
+## <a name="get-the-code"></a>Kodu alma
+
+[Projeyi yükle](http://code.msdn.microsoft.com/SignalR-Getting-Started-b9d18aa9)
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

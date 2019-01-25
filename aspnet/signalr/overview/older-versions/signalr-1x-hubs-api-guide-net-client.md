@@ -1,19 +1,19 @@
 ---
 uid: signalr/overview/older-versions/signalr-1x-hubs-api-guide-net-client
 title: ASP.NET SignalR Hubs API Kılavuzu - .NET istemcisi (SignalR 1.x) | Microsoft Docs
-author: pfletcher
+author: bradygaster
 description: Bu belge, SignalR sürüm 2 (WinRT) Windows Store, WPF, Silverlight ve simgeler gibi .NET istemcileri için hub'ları API kullanarak bir giriş sağlar...
-ms.author: riande
+ms.author: bradyg
 ms.date: 04/17/2013
 ms.assetid: c334adc3-d6dc-44f3-9f06-f7634475aad3
 msc.legacyurl: /signalr/overview/older-versions/signalr-1x-hubs-api-guide-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: 34356338f24788226351e8e22b47eaaf7ea03e61
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: dbf62b2f9851e3612885aa5375cd2c3432570643
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53287992"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836209"
 ---
 <a name="aspnet-signalr-hubs-api-guide---net-client-signalr-1x"></a>ASP.NET SignalR Hubs API Kılavuzu - .NET istemcisi (SignalR 1.x)
 ====================

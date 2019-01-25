@@ -4,14 +4,14 @@ author: prkhandelwal
 description: Bu öğreticide bir ASP.NET Core web API'si kullanarak bir MongoDB NoSQL veritabanı oluşturma gösterilmektedir.
 ms.author: scaddie
 ms.custom: mvc, seodec18
-ms.date: 11/29/2018
+ms.date: 01/23/2019
 uid: tutorials/first-mongo-app
-ms.openlocfilehash: bd9a36c5eb06542c820e71e937b8da10f735a0f8
-ms.sourcegitcommit: 68a3081dd175d6518d1bfa31b4712bd8a2dd3864
+ms.openlocfilehash: 6375ae618816671bd9c64f038603747c64cdce56
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53577844"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54835602"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-mongodb"></a>MongoDB ile ASP.NET Core ile web API'si oluşturma
 
@@ -54,11 +54,11 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 ## <a name="configure-mongodb"></a>MongoDB yapılandırın
 
-Windows kullanıyorsanız, MongoDB yüklü *C:\Program Files\MongoDB* varsayılan olarak. Ekleme *C:\Program Files\MongoDB\Server\<version_number > \bin* için `Path` ortam değişkeni. Bu değişiklik yerden MongoDB erişim sağlar, geliştirme makinenizde.
+Windows kullanıyorsanız, MongoDB yüklü *C:\\Program dosyaları\\MongoDB* varsayılan olarak. Ekleme *C:\\Program dosyaları\\MongoDB\\sunucu\\\<version_number >\\bin* için `Path` ortam değişkeni. Bu değişiklik yerden MongoDB erişim sağlar, geliştirme makinenizde.
 
 Mongo kabuğunu veritabanı oluşturma, koleksiyonları yapın ve belgeleri depolamak için aşağıdaki adımları kullanın. Mongo Kabuğu komutları hakkında daha fazla bilgi için bkz. [mongo kabuğunu çalışma](https://docs.mongodb.com/manual/mongo/#working-with-the-mongo-shell).
 
-1. Geliştirme makinenizde verilerin depolanması için bir dizin seçin. Örneğin, *C:\BooksData* Windows üzerinde. Yoksa dizini oluşturun. Mongo kabuğunu yeni dizinleri oluşturmaz.
+1. Geliştirme makinenizde verilerin depolanması için bir dizin seçin. Örneğin, *C:\\BooksData* Windows üzerinde. Yoksa dizini oluşturun. Mongo kabuğunu yeni dizinleri oluşturmaz.
 1. Bir komut kabuğunu açın. Varsayılan bağlantı noktası 27017 mongodb'ye bağlanmak için aşağıdaki komutu çalıştırın. Değiştirmeyi unutmayın `<data_directory_path>` önceki adımda seçtiğiniz dizini.
 
     ```console
@@ -188,7 +188,13 @@ Veritabanı hazırdır. ASP.NET Core web API'si oluşturmaya başlayabilirsiniz.
 
     [!code-csharp[](first-mongo-app/sample/BooksApi/Models/Book.cs)]
 
-Önceki sınıfında `Id` özelliği ortak dil çalışma zamanı (CLR) nesnesi için MongoDB koleksiyonu eşlemek için gereklidir. Sınıftaki diğer özellikler ile donatılmış `[BsonElement]` özniteliği. Özniteliğin değeri, özellik adı, MongoDB koleksiyonu temsil eder.
+Önceki sınıfında `Id` özelliği:
+
+* Ortak dil çalışma zamanı (CLR) nesnesi için MongoDB koleksiyonu eşlemek için gereklidir.
+* İle açıklanıyor `[BsonId]` belgenin birincil anahtarı olarak bu özellik belirlemek için.
+* İle açıklanıyor `[BsonRepresentation(BsonType.ObjectId)]` parametre türü olarak geçirerek izin vermek için `string` yerine `ObjectId`. Mongo işleme dönüştürme `string` için `ObjectId`.
+
+Sınıftaki diğer özellikler ile açıklamalı olan `[BsonElement]` özniteliği. Özniteliğin değeri, özellik adı, MongoDB koleksiyonu temsil eder.
 
 ## <a name="add-a-crud-operations-class"></a>CRUD işlemleri sınıfı Ekle
 

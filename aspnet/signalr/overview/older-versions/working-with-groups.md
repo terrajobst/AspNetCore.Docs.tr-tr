@@ -1,19 +1,19 @@
 ---
 uid: signalr/overview/older-versions/working-with-groups
 title: Signalr'da gruplarla çalışma 1.x | Microsoft Docs
-author: pfletcher
+author: bradygaster
 description: Bu konu, grup üyeliği bilgileri Hub API'si ile kalıcı hale getirmek açıklar.
-ms.author: riande
+ms.author: bradyg
 ms.date: 10/21/2013
 ms.assetid: 22929efd-68c9-4609-b76d-f8ba42fda01e
 msc.legacyurl: /signalr/overview/older-versions/working-with-groups
 msc.type: authoredcontent
-ms.openlocfilehash: 5096e7a5eb8704762a21eeb88a128d92e75ede60
-ms.sourcegitcommit: 74e3be25ea37b5fc8b4b433b0b872547b4b99186
+ms.openlocfilehash: e8ef7b34af4341fb97f54e2aab1d8971cce46af3
+ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53287500"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54836161"
 ---
 <a name="working-with-groups-in-signalr-1x"></a>SignalR 1.x Sürümünde Gruplarla Çalışma
 ====================
