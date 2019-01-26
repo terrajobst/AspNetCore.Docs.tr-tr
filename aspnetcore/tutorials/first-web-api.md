@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/24/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: f677af6a86e20b95efcd16c7472cd9e14169e6cd
-ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
-ms.translationtype: HT
+ms.openlocfilehash: 65af70be2cec68d30dd712b80312ebcd40ea0624
+ms.sourcegitcommit: c6db8b14521814f1f7e528d7aa06e474e4c04a1f
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54889983"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "55065054"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core-mvc"></a>Öğretici: ASP.NET Core MVC ile bir web API'si oluşturma
 
@@ -257,7 +257,7 @@ Bir tarayıcıdan iki uç nokta çağırarak uygulamayı test edin. Örneğin:
   [!code-csharp[](first-web-api/samples/2.2/TodoApi/Controllers/TodoController.cs?name=TodoController&highlight=3)]
 
 * Değiştirin `[controller]` denetleyicinin adı ile kural tarafından olduğu "Controller" soneki eksi denetleyici sınıfı adı. Bu örnek, denetleyici sınıfı adı olan **Todo**Denetleyici adı "todo" Bu nedenle denetleyicisi. ASP.NET Core [yönlendirme](xref:mvc/controllers/routing) büyük/küçük harfe duyarlıdır.
-* Varsa `[HttpGet]` özniteliğine sahip bir rota şablonu (örneğin, `[HttpGet("/products")]`, yolunu ekleyin. Bu örnek, bir şablon kullanmaz. Daha fazla bilgi için [özniteliği Http [eylem] özniteliği ile yönlendirme](xref:mvc/controllers/routing#attribute-routing-with-httpverb-attributes).
+* Varsa `[HttpGet]` özniteliğine sahip bir rota şablonu (örneğin, `[HttpGet("products")]`), yolunu ekleyin. Bu örnek, bir şablon kullanmaz. Daha fazla bilgi için [özniteliği Http [eylem] özniteliği ile yönlendirme](xref:mvc/controllers/routing#attribute-routing-with-httpverb-attributes).
 
 Aşağıdaki `GetTodoItem` yöntemi `"{id}"` yapılacak iş öğesi benzersiz tanımlayıcısı için bir yer tutucu değişkendir. Zaman `GetTodoItem` çağrılır, değerini `"{id}"` yöntemine URL'de sağlanan kendi`id` parametresi.
 
@@ -329,7 +329,7 @@ Yukarıdaki kod tarafından belirtildiği gibi bir HTTP POST yöntemi olup [[Htt
 
   ![Postman ile isteği oluştur](first-web-api/_static/create.png)
 
-  405 bir yönteme izin verilmiyor hata alırsanız, büyük olasılıkla proje sonra ekleme ekledikten sonra derleme değil sonucudur `PostTodoItem` yöntemi.
+  405 bir yönteme izin verilmiyor hata alırsanız, büyük olasılıkla projeye ekledikten sonra derleme değil sonucudur `PostTodoItem` yöntemi.
 
 ### <a name="test-the-location-header-uri"></a>Konum üst bilgisi URI test
 
