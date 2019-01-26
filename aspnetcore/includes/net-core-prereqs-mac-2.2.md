@@ -1,2 +1,2 @@
-* [<span data-ttu-id="7da13-101">Mac 7,7 veya sonraki bir sürümü için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="7da13-101">Visual Studio for Mac version 7.7 or later</span></span>](https://www.visualstudio.com/downloads/)
-* [<span data-ttu-id="7da13-102">.NET core SDK 2.2 veya üzeri</span><span class="sxs-lookup"><span data-stu-id="7da13-102">.NET Core SDK 2.2 or later</span></span>](https://www.microsoft.com/net/download/all)
+* [<span data-ttu-id="74047-101">Mac 7,7 veya sonraki bir sürümü için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="74047-101">Visual Studio for Mac version 7.7 or later</span></span>](https://www.visualstudio.com/downloads/)
+* [<span data-ttu-id="74047-102">.NET core SDK 2.2 veya üzeri</span><span class="sxs-lookup"><span data-stu-id="74047-102">.NET Core SDK 2.2 or later</span></span>](https://www.microsoft.com/net/download/all)
