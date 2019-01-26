@@ -5,12 +5,12 @@ description: ASP.NET Core iki öğeli kimlik doğrulama ile çalışmasını TOT
 ms.author: riande
 ms.date: 08/14/2018
 uid: security/authentication/identity-enable-qrcodes
-ms.openlocfilehash: 437f354f71128a98bae9abdced291e04efc9f48e
-ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
+ms.openlocfilehash: cf99cc21a7a1bb4d01c7cc092106d23375a1a76f
+ms.sourcegitcommit: ca5f03210bedc61c6639a734ae5674bfe095dee8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51225388"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55073133"
 ---
 # <a name="enable-qr-code-generation-for-totp-authenticator-apps-in-aspnet-core"></a>ASP.NET core'da TOTP authenticator uygulamaları için QR kodu oluşturmayı etkinleştirme
 
@@ -25,6 +25,8 @@ QR kodları, ASP.NET Core 2.0 veya sonraki sürümünü gerektirir.
 ASP.NET Core, bireysel kimlik doğrulaması için Doğrulayıcı uygulamalar için destek ile birlikte gelir. Kullanarak bir zamana bağlı kerelik parola algoritması (TOTP), iki öğeli kimlik doğrulamayı (2FA) kimlik doğrulayıcısı uygulamalarını önerilen yaklaşımı 2FA için sektöre var. 2fa'yı kullanarak TOTP SMS 2FA için tercih edilir. Authenticator uygulaması, kullanıcı adı ve parola onayladıktan sonra hangi kullanıcıların girmelisiniz 8 6 rakamlı bir kod sağlar. Genellikle bir kimlik doğrulayıcı uygulaması, bir akıllı telefonda yüklenir.
 
 ASP.NET Core web uygulaması şablonları kimlik doğrulayıcılar destekler, ancak QRCode oluşturulması için destek sağlaması gerekmez. QRCode oluşturucuları 2FA kurulumu kolaylaştırır. Bu belgede eklerken size yol gösterecek [QR kodunu](https://wikipedia.org/wiki/QR_code) 2fa'yı yapılandırma sayfasına oluşturma.
+
+İki Etmenli kimlik doğrulamasının olmayacak gibi bir dış kimlik doğrulama sağlayıcısı kullanarak [Google](xref:security/authentication/google-logins) veya [Facebook](xref:security/authentication/facebook-logins). Harici oturum açmaları korunmasını dış oturum açma sağlayıcısı tarafından herhangi bir mekanizma sağlar. Örneğin, düşünün [Microsoft](xref:security/authentication/microsoft-logins) kimlik doğrulama sağlayıcısı, donanım anahtarı veya başka bir 2FA yaklaşım gerektirir. "Yerel" 2fa'yı varsayılan şablonlar zorunlu, kullanıcıların yaygın olarak kullanılan bir senaryo değildir iki 2FA yaklaşım karşılamak için duyacaktır.
 
 ## <a name="adding-qr-codes-to-the-2fa-configuration-page"></a>QR kodları 2fa'yı yapılandırma sayfasına ekleme
 

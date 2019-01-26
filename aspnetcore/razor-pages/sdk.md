@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc, seodec18
 ms.date: 10/25/2018
 uid: razor-pages/sdk
-ms.openlocfilehash: 2df7dc4234207d3dbac8a4ff47751adc8fc6a192
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
+ms.openlocfilehash: 0e6cfeb1863ed14ffe670cf082e99f28b26718dd
+ms.sourcegitcommit: ca5f03210bedc61c6639a734ae5674bfe095dee8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284457"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55073107"
 ---
 # <a name="aspnet-core-razor-sdk"></a>ASP.NET Core Razor SDK'sı
 
@@ -80,7 +80,7 @@ Aşağıdaki özellikler proje derlemesi bir parçası olarak Razor'ın SDK davr
 | `RazorTargetName` | Razor tarafından üretilen derleme dosya adı (uzantısı olmadan). | 
 | `RazorOutputPath` | Razor çıkış dizini. |
 | `RazorCompileToolset` | Razor derlemesi oluşturmak için kullanılan araç kümesini belirlemek için kullanılır. Geçerli değerler `Implicit`, `RazorSDK`, ve `PrecompilationTool`. |
-| `EnableDefaultContentItems` | Zaman `true`, aşağıdakiler gibi belirli dosya türlerini içerir *.cshtml* içerik olarak proje dosyaları. Aracılığıyla başvurulduğunda `Microsoft.NET.Sdk.Web`, altında dosyaları *wwwroot* ve yapılandırma dosyaları da dahil edilir. |
+| [EnableDefaultContentItems](https://github.com/aspnet/websdk/blob/rel-2.0.0/src/ProjectSystem/Microsoft.NET.Sdk.Web.ProjectSystem.Targets/netstandard1.0/Microsoft.NET.Sdk.Web.ProjectSystem.targets#L21) | Varsayılan değer `true`. Zaman `true`, içeren *web.config*, *.json*, ve *.cshtml* içerik olarak proje dosyaları. Aracılığıyla başvurulduğunda `Microsoft.NET.Sdk.Web`, altında dosyaları *wwwroot* ve yapılandırma dosyaları da dahil edilir. |
 | `EnableDefaultRazorGenerateItems` | Zaman `true`, içeren *.cshtml* dosyalarını `Content` öğeler `RazorGenerate` öğeleri. |
 | `GenerateRazorTargetAssemblyInfo` | Zaman `true`, oluşturur bir *.cs* tarafından belirtilen öznitelikler içeren dosya `RazorAssemblyAttribute` ve derleme çıkış dosyası içerir. |
 | `EnableDefaultRazorTargetAssemblyInfoAttributes` | Zaman `true`, derleme öznitelikleri için varsayılan ayarı ekler `RazorAssemblyAttribute`. |
@@ -89,6 +89,8 @@ Aşağıdaki özellikler proje derlemesi bir parçası olarak Razor'ın SDK davr
 | `IncludeRazorContentInPack` | Zaman `true`, tüm Razor içerik öğeleri (*.cshtml* dosyaları) üretilen NuGet paketini eklenmek üzere işaretlenir. Varsayılan olarak `false`. |
 | `EmbedRazorGenerateSources` | Zaman `true`, RazorGenerate ekler (*.cshtml*) öğeleri olarak oluşturulmuş Razor derlemesine katıştırılmış dosyaları. Varsayılan olarak `false`. |
 | `UseRazorBuildServer` | Zaman `true`, kod oluşturma iş yüklerini boşaltmak üzere bir sürekli derleme sunucu işlemi kullanır. Varsayılan olarak, değeri olarak `UseSharedCompilation`. |
+
+Özellikler hakkında daha fazla bilgi için bkz. [MSBuild özellikleri](/visualstudio/msbuild/msbuild-properties).
 
 ### <a name="targets"></a>Hedefler
 

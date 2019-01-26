@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 12/4/2018
 uid: tutorials/razor-pages/page
-ms.openlocfilehash: 2b68523ac84596bda2914d9c348ddea8c7ea9465
-ms.sourcegitcommit: cec77d5ad8a0cedb1ecbec32834111492afd0cd2
+ms.openlocfilehash: c902e9e258b4f436e2f19e2940246b80549238b8
+ms.sourcegitcommit: ca5f03210bedc61c6639a734ae5674bfe095dee8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54207388"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55073120"
 ---
 # <a name="scaffolded-razor-pages-in-aspnet-core"></a>ASP.NET core'da iskeleli Razor sayfaları
 
@@ -107,7 +107,7 @@ Aşağıdaki bağlantı öğe Bul *Pages/Shared/_Layout.cshtml* dosya.
 
 Değişikliklerinizi kaydedip tıklayarak uygulamayı test etme **RpMovie** bağlantı. Bkz: [_Layout.cshtml](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Pages/Shared/_Layout.cshtml) herhangi bir sorun varsa GitHub dosya.
 
-Test diğer bağlantılardan (**giriş**, **RpMovie**, **Oluştur**, **Düzenle**, ve **Sil**). Her sayfada başlık, tarayıcı sekmesinde görebilirsiniz ayarlar. Bir sayfaya yer işareti başlık yer işareti için kullanılır. *Pages/Index.cshtml* ve *Pages/Movies/Index.cshtml* şu anda aynı başlığa sahip, ancak bunları farklı değerlere sahip değiştirebilirsiniz.
+Test diğer bağlantılardan (**giriş**, **RpMovie**, **Oluştur**, **Düzenle**, ve **Sil**). Her sayfada başlık, tarayıcı sekmesinde görebilirsiniz ayarlar. Bir sayfaya yer işareti başlık yer işareti için kullanılır.
 
 > [!NOTE]
 > Ondalık virgül kullanımı girmeniz mümkün olmayabilir `Price` alan. Desteklemek için [jQuery doğrulama](https://jqueryvalidation.org/) virgül İngilizce olmayan yerel ayarlar için (",") ondalık ve ABD İngilizce olmayan tarih biçimleri için uygulamanızı globalleştirmek için adımları izlemelisiniz. Bu [GitHub sorunu 4076](https://github.com/aspnet/Docs/issues/4076#issuecomment-326590420) ondalık virgülle ekleme hakkında yönergeler için.

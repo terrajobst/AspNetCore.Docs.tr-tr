@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core uygulaması yapılandırmak için yapılandırma API'sini kullanmayı öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/07/2018
+ms.date: 01/25/2019
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 6f0378ffc4f9a1efa95c8f70d70e7799abef130b
-ms.sourcegitcommit: 1872d2e6f299093c78a6795a486929ffb0bbffff
+ms.openlocfilehash: 2465570e469020ae2855508bd1bfc8528e188ebb
+ms.sourcegitcommit: ca5f03210bedc61c6639a734ae5674bfe095dee8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53216904"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55073172"
 ---
 # <a name="configuration-in-aspnet-core"></a>ASP.NET core'da yapılandırma
 
@@ -56,12 +56,6 @@ ASP.NET core'da uygulama yapılandırması tarafından kurulan anahtar-değer ç
 
 [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
-Bu konudaki sağladığınız örnekleri temel kullanır:
-
-* Temel yol ile uygulama ayarı <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>. `SetBasePath` başvurarak bir uygulama için kullanılabilir hale getirileceğini [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) paket.
-* Yapılandırma dosyalarıyla bölümlerini çözümleme <xref:Microsoft.Extensions.Configuration.ConfigurationSection.GetSection*>. `GetSection` başvurarak bir uygulama için kullanılabilir hale getirileceğini [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) paket.
-* .NET için bağlama yapılandırması sınıfları ile <xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> ve [alma&lt;T&gt;](xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Get*). `Bind` ve `Get<T>` başvurarak bir uygulama için kullanılabilir yapılır [Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder/) paket. `Get<T>` ASP.NET Core 1.1 veya üzeri sürümlerde kullanılabilir.
-
 ::: moniker range=">= aspnetcore-2.1"
 
 Bu üç paketi içinde yer [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).
@@ -77,6 +71,22 @@ Bu üç paketi içinde yer [Microsoft.AspNetCore.All metapackage](xref:fundament
 ## <a name="host-vs-app-configuration"></a>Uygulama yapılandırması barındırın
 
 Uygulama yapılandırılmış ve başlatıldı, önce bir *konak* başlatılan ve yapılandırılır. Uygulama başlatma ve ömür yönetimi için konak sorumludur. Bu konuda açıklanan yapılandırma sağlayıcıları kullanarak, hem uygulama hem de konak yapılandırılır. Ana bilgisayar yapılandırma anahtar-değer çiftleri uygulamanın genel yapılandırmasının bir parçası haline gelir. Yapılandırma sağlayıcıları konak oluşturulduğunda kullanılan yapılandırma ve yapılandırma kaynaklarını nasıl etkileyeceğini nasıl barındırmak daha fazla bilgi için bkz: <xref:fundamentals/host/index>.
+
+## <a name="default-configuration"></a>Varsayılan yapılandırma
+
+Web uygulamaları üzerinde ASP.NET Core tabanlı [yeni dotnet](/dotnet/core/tools/dotnet-new) şablonları çağrı <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> bir konak oluştururken. `CreateDefaultBuilder` uygulama için varsayılan yapılandırma sağlar.
+
+* Ana bilgisayar yapılandırma öğesinden sağlanır:
+  * Ortam değişkenlerini önekiyle `ASPNETCORE_` (örneğin, `ASPNETCORE_ENVIRONMENT`) kullanarak [ortam değişkenlerini yapılandırma sağlayıcısı](#environment-variables-configuration-provider).
+  * Komut satırı bağımsız değişkenleri kullanarak [komut satırı yapılandırma sağlayıcısı](#command-line-configuration-provider).
+* Uygulama Yapılandırma (aşağıdaki sırayla) sağlanır:
+  * *appSettings.JSON* kullanarak [dosya yapılandırma sağlayıcısı](#file-configuration-provider).
+  * *appSettings. {Ortamı} .json* kullanarak [dosya yapılandırma sağlayıcısı](#file-configuration-provider).
+  * [Gizli dizi Yöneticisi](xref:security/app-secrets) uygulamayı çalıştırdığında `Development` giriş bütünleştirilmiş kod kullanarak ortamı.
+  * Ortam değişkenlerini kullanarak [ortam değişkenlerini yapılandırma sağlayıcısı](#environment-variables-configuration-provider).
+  * Komut satırı bağımsız değişkenleri kullanarak [komut satırı yapılandırma sağlayıcısı](#command-line-configuration-provider).
+
+Yapılandırma sağlayıcıları, bu konunun ilerleyen bölümlerinde açıklanmıştır. Konak hakkında daha fazla bilgi ve `CreateDefaultBuilder`, bkz: <xref:fundamentals/host/web-host#set-up-a-host>.
 
 ## <a name="security"></a>Güvenlik
 
@@ -116,7 +126,7 @@ Dosya yapılandırma okuduğunuzda benzersiz anahtarlar özgün hiyerarşik veri
 * section1:key0
 * section1:key1
 
-<xref:Microsoft.Extensions.Configuration.ConfigurationSection.GetSection*> ve <xref:Microsoft.Extensions.Configuration.IConfiguration.GetChildren*> yöntemlerdir bölümler ve yapılandırma verilerini bir bölümde alt yalıtmak kullanılabilir. Bu yöntem daha sonra açıklanmıştır [GetSection GetChildren ve Exists](#getsection-getchildren-and-exists).
+<xref:Microsoft.Extensions.Configuration.ConfigurationSection.GetSection*> ve <xref:Microsoft.Extensions.Configuration.IConfiguration.GetChildren*> yöntemlerdir bölümler ve yapılandırma verilerini bir bölümde alt yalıtmak kullanılabilir. Bu yöntem daha sonra açıklanmıştır [GetSection GetChildren ve Exists](#getsection-getchildren-and-exists). `GetSection` içinde [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) bulunduğu paketini [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).
 
 ## <a name="conventions"></a>Kurallar
 
@@ -238,7 +248,8 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Yukarıdaki örnekte, ortam adı (`env.EnvironmentName`) ve uygulama derleme adı (`env.ApplicationName`) tarafından sağlanan <xref:Microsoft.Extensions.Hosting.IHostingEnvironment>. Daha fazla bilgi için bkz. <xref:fundamentals/environments>.
+Yukarıdaki örnekte, ortam adı (`env.EnvironmentName`) ve uygulama derleme adı (`env.ApplicationName`) tarafından sağlanan <xref:Microsoft.Extensions.Hosting.IHostingEnvironment>. Daha fazla bilgi için bkz. <xref:fundamentals/environments>. Temel yol ile ayarlanır <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>. `SetBasePath` içinde [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) bulunduğu paketini [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).
+biçimindeki telefon numarasıdır.
 
 ::: moniker-end
 
@@ -246,7 +257,7 @@ Yukarıdaki örnekte, ortam adı (`env.EnvironmentName`) ve uygulama derleme ad�
 
 ## <a name="configureappconfiguration"></a>ConfigureAppConfiguration
 
-Çağrı <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> ne zaman bunlara ek olarak, uygulamanın yapılandırma sağlayıcıları belirtmek için Web ana bilgisayarını oluşturma eklenen tarafından otomatik olarak <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*>:
+Çağrı <xref:Microsoft.Extensions.Hosting.HostBuilder.ConfigureAppConfiguration*> zaman oluşturmaya ek olarak, uygulamanın yapılandırma sağlayıcıları belirtmek için bir konak eklediğiniz tarafından otomatik olarak <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*>:
 
 [!code-csharp[](index/samples/2.x/ConfigurationSample/Program.cs?name=snippet_Program&highlight=19)]
 
@@ -763,6 +774,8 @@ public class Program
 }
 ```
 
+Temel yol ile ayarlanır <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>. `SetBasePath` içinde [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) bulunduğu paketini [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).
+
 Oluştururken bir <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> doğrudan çağırmak <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> yapılandırmayla:
 
 ::: moniker-end
@@ -793,6 +806,8 @@ public class Program
 }
 ```
 
+Temel yol ile ayarlanır <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>. `SetBasePath` içinde [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) bulunduğu paketini [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).
+
 Oluştururken bir <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> doğrudan çağırmak <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> yapılandırmayla:
 
 ::: moniker-end
@@ -814,6 +829,8 @@ var host = new WebHostBuilder()
     .UseKestrel()
     .UseStartup<Startup>();
 ```
+
+Temel yol ile ayarlanır <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>. `SetBasePath` içinde [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) bulunduğu paketini [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).
 
 Genel bir INI yapılandırma dosyası örneği:
 
@@ -894,6 +911,8 @@ public class Program
 }
 ```
 
+Temel yol ile ayarlanır <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>. `SetBasePath` içinde [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) bulunduğu paketini [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).
+
 Oluştururken bir <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> doğrudan çağırmak <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> yapılandırmayla:
 
 ::: moniker-end
@@ -926,6 +945,8 @@ public class Program
 }
 ```
 
+Temel yol ile ayarlanır <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>. `SetBasePath` içinde [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) bulunduğu paketini [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).
+
 Oluştururken bir <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> doğrudan çağırmak <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> yapılandırmayla:
 
 ::: moniker-end
@@ -947,6 +968,8 @@ var host = new WebHostBuilder()
     .UseKestrel()
     .UseStartup<Startup>();
 ```
+
+Temel yol ile ayarlanır <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>. `SetBasePath` içinde [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) bulunduğu paketini [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).
 
 **Örnek**
 
@@ -1009,6 +1032,8 @@ public class Program
 }
 ```
 
+Temel yol ile ayarlanır <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>. `SetBasePath` içinde [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) bulunduğu paketini [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).
+
 Oluştururken bir <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> doğrudan çağırmak <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> yapılandırmayla:
 
 ::: moniker-end
@@ -1039,6 +1064,8 @@ public class Program
 }
 ```
 
+Temel yol ile ayarlanır <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>. `SetBasePath` içinde [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) bulunduğu paketini [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).
+
 Oluştururken bir <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> doğrudan çağırmak <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> yapılandırmayla:
 
 ::: moniker-end
@@ -1060,6 +1087,8 @@ var host = new WebHostBuilder()
     .UseKestrel()
     .UseStartup<Startup>();
 ```
+
+Temel yol ile ayarlanır <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>. `SetBasePath` içinde [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) bulunduğu paketini [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).
 
 XML yapılandırma dosyalarını, yinelenen bölümler için ayrı bir öğe adları kullanabilirsiniz:
 
@@ -1160,6 +1189,8 @@ public class Program
             .UseStartup<Startup>();
 }
 ```
+
+Temel yol ile ayarlanır <xref:Microsoft.Extensions.Configuration.FileConfigurationExtensions.SetBasePath*>. `SetBasePath` içinde [Microsoft.Extensions.Configuration.FileExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions/) bulunduğu paketini [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).
 
 Oluştururken bir <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> doğrudan çağırmak <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> yapılandırmayla:
 
@@ -1326,13 +1357,15 @@ Dosya yapılandırma okuduğunuzda aşağıdaki benzersiz hiyerarşik anahtarlar
 
 ### <a name="getsection"></a>GetSection
 
-[IConfiguration.GetSection](xref:Microsoft.Extensions.Configuration.IConfiguration.GetSection*) yapılandırma bölümüne belirtilen alt anahtarını ayıklar.
+[IConfiguration.GetSection](xref:Microsoft.Extensions.Configuration.IConfiguration.GetSection*) yapılandırma bölümüne belirtilen alt anahtarını ayıklar. `GetSection` içinde [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) bulunduğu paketini [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).
 
 Döndürülecek bir <xref:Microsoft.Extensions.Configuration.IConfigurationSection> yalnızca anahtar-değer çiftlerini içeren `section1`, çağrı `GetSection` ve bölüm adı verin:
 
 ```csharp
 var configSection = _config.GetSection("section1");
 ```
+
+`configSection` Bir değeri, yalnızca bir anahtar ve bir yolu yoktur.
 
 Benzer şekilde, anahtarları değerlerini almak için `section2:subsection0`, çağrı `GetSection` ve bölüm yolunu sağlayın:
 
@@ -1341,6 +1374,8 @@ var configSection = _config.GetSection("section2:subsection0");
 ```
 
 `GetSection` hiç dönmüyor `null`. Eşleşen bir bölümü olmadığından bulunamazsa, boş bir `IConfigurationSection` döndürülür.
+
+Zaman `GetSection` eşleşen bir bölümü döndürür <xref:Microsoft.Extensions.Configuration.IConfigurationSection.Value> doldurulmuş değil. A <xref:Microsoft.Extensions.Configuration.IConfigurationSection.Key> ve <xref:Microsoft.Extensions.Configuration.IConfigurationSection.Path> bölümü varsa, döndürülür.
 
 ### <a name="getchildren"></a>GetChildren
 
@@ -1373,7 +1408,7 @@ Belirtilen örnek veri `sectionExists` olduğu `false` olmadığından bir `sect
 
 Yapılandırma kullanarak ilgili ayar gruplarını temsil eden sınıflar için bağlanabilir *seçenekleri deseni*. Daha fazla bilgi için bkz. <xref:fundamentals/configuration/options>.
 
-Yapılandırma değerleri döndürülür dizeler olarak çağıran <xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> oluşumu sağlayan [POCO](https://wikipedia.org/wiki/Plain_Old_CLR_Object) nesneleri.
+Yapılandırma değerleri döndürülür dizeler olarak çağıran <xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> oluşumu sağlayan [POCO](https://wikipedia.org/wiki/Plain_Old_CLR_Object) nesneleri. `Bind` içinde [Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder/) bulunduğu paketini [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).
 
 Örnek uygulamayı içeren bir `Starship` modeli (*Models/Starship.cs*):
 
@@ -1408,9 +1443,9 @@ Aşağıdaki yapılandırma anahtar-değer çiftleri oluşturulur:
 | Anahtar                   | Değer                                             |
 | --------------------- | ------------------------------------------------- |
 | starship: adı         | USS Enterprise                                    |
-| starship: kayıt defteri     | NCC 1701                                          |
-| starship: sınıfı        | Anayasa                                      |
-| starship: uzunluğu       | 304.8                                             |
+| starship:registry     | NCC 1701                                          |
+| starship:class        | Anayasa                                      |
+| starship:length       | 304.8                                             |
 | starship: yetkilendirilen | False                                             |
 | Ticari marka             | Paramount resimleri Corp. http://www.paramount.com |
 
@@ -1428,9 +1463,11 @@ Aşağıdaki yapılandırma anahtar-değer çiftleri oluşturulur:
 
 ::: moniker-end
 
+`GetSection` içinde [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) bulunduğu paketini [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).
+
 ## <a name="bind-to-an-object-graph"></a>Bir nesne grafiği için bağlama
 
-<xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> Tüm POCO Nesne grafiğini bağlama yeteneğine sahiptir.
+<xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> Tüm POCO Nesne grafiğini bağlama yeteneğine sahiptir. `Bind` içinde [Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder/) bulunduğu paketini [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).
 
 Örnek içeren bir `TvShow` olan nesne grafiğini içeren model `Metadata` ve `Actors` sınıfları (*Models/TvShow.cs*):
 
@@ -1500,11 +1537,13 @@ viewModel.TvShow = tvShow;
 
 ::: moniker-end
 
+<xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Get*> içinde [Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder/) bulunduğu paketini [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app). `Get<T>` ASP.NET Core 1.1 veya üzeri sürümlerde kullanılabilir. `GetSection` içinde [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) bulunduğu paketini [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).
+
 ## <a name="bind-an-array-to-a-class"></a>Bir dizi bir sınıfa Bağla
 
 *Örnek uygulama, bu bölümde açıklanan kavramları göstermektedir.*
 
-<xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> Dizi dizinleri yapılandırma anahtarlarını kullanarak nesnelere bağlama dizilerini destekler. Sayısal bir anahtar kesimi sunan herhangi bir dizi biçimi (`:0:`, `:1:`, &hellip; `:{n}:`) dizisi bağlama POCO sınıfı dizisine sahiptir.
+<xref:Microsoft.Extensions.Configuration.ConfigurationBinder.Bind*> Dizi dizinleri yapılandırma anahtarlarını kullanarak nesnelere bağlama dizilerini destekler. Sayısal bir anahtar kesimi sunan herhangi bir dizi biçimi (`:0:`, `:1:`, &hellip; `:{n}:`) dizisi bağlama POCO sınıfı dizisine sahiptir. ' Bağlama '' bulunduğu [Microsoft.Extensions.Configuration.Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder/) bulunduğu paketini [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).
 
 > [!NOTE]
 > Bağlama, kural olarak sağlanır. Özel yapılandırma sağlayıcıları dizi bağlama uygulamak için gerekli değildir.
@@ -1557,6 +1596,8 @@ Yapılandırma verilerini nesnesine bağlıdır:
 var arrayExample = new ArrayExample();
 _config.GetSection("array").Bind(arrayExample);
 ```
+
+`GetSection` içinde [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration/) bulunduğu paketini [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).
 
 ::: moniker range=">= aspnetcore-1.1"
 
@@ -1655,7 +1696,7 @@ JSON yapılandırma sağlayıcısı, aşağıdaki anahtar-değer çiftlerine yap
 
 | Anahtar                     | Değer  |
 | ----------------------- | :----: |
-| json_array:Key          | Değera |
+| json_array:key          | Değera |
 | json_array:subsection:0 | Değerb |
 | json_array:subsection:1 | valueC |
 | json_array:subsection:2 | Değerli |

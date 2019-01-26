@@ -5,6 +5,3 @@ Bu öğretici, görünümleri ve denetleyicileri ile ASP.NET Core MVC ve Entity 
 * Daha verimli sorgular kullanır.
 * En yeni API ile daha güncel değil.
 * Daha fazla özellikleri kapsar.
-* Yeni uygulama geliştirme için tercih edilen yaklaşımdır.
-
-Bu öğreticide üzerinden seçerseniz [Razor sayfaları](xref:data/ef-rp/intro) sürüm, bunun nedenini de bize izin [bu GitHub sorunu](https://github.com/aspnet/Docs/issues/6146).
