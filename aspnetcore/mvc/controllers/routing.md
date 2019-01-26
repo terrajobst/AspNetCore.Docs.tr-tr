@@ -3,20 +3,20 @@ title: ASP.NET core'da denetleyici eylemlerine yönlendirme
 author: rick-anderson
 description: Ara yazılım yönlendirme ASP.NET Core MVC URL'leri gelen isteklerin aynı ve onları eylemleri eşlemek için nasıl kullandığını öğrenin.
 ms.author: riande
-ms.date: 09/17/2018
+ms.date: 01/24/2019
 uid: mvc/controllers/routing
-ms.openlocfilehash: 2f6328a5efaa96fd8e4f0cafdbde77dd63a1548f
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: f5104bc53581a41fa8c25d8c67e08e038c275391
+ms.sourcegitcommit: c6db8b14521814f1f7e528d7aa06e474e4c04a1f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477650"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "55065015"
 ---
 # <a name="routing-to-controller-actions-in-aspnet-core"></a>ASP.NET core'da denetleyici eylemlerine yönlendirme
 
 Tarafından [Ryan Nowak](https://github.com/rynowak) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-ASP.NET Core MVC yönlendirme kullanan [ara yazılım](xref:fundamentals/middleware/index) URL'leri gelen isteklerin aynı ve eylemlere eşleştirebilirsiniz. Yollar, başlatma kodu veya öznitelikleri tanımlanır. Yollar, URL yolu için Eylemler nasıl eşleştirilmesi gerektiğini açıklar. Yolları (için bağlantılar) gönderilen yanıtlarını URL'lerini oluşturmak için de kullanılır. 
+ASP.NET Core MVC yönlendirme kullanan [ara yazılım](xref:fundamentals/middleware/index) URL'leri gelen isteklerin aynı ve eylemlere eşleştirebilirsiniz. Yollar, başlatma kodu veya öznitelikleri tanımlanır. Yollar, URL yolu için Eylemler nasıl eşleştirilmesi gerektiğini açıklar. Yolları (için bağlantılar) gönderilen yanıtlarını URL'lerini oluşturmak için de kullanılır.
 
 Eylemler genel yönlendirilir veya öznitelik yönlendirilir. Bir rota denetleyici veya eylem getirir, yönlendirilmiş özniteliği. Bkz: [yönlendirme karma](#routing-mixed-ref-label) daha fazla bilgi için.
 
@@ -191,7 +191,6 @@ Birden çok yol eşleşen ve MVC 'en iyi' yolu bulunamıyor, throw bir `Ambiguou
 
 Dizeleri `"blog"` ve `"default"` aşağıdaki örneklerde, rota adlarıdır:
 
-
 ```csharp
 app.UseMvc(routes =>
 {
@@ -339,7 +338,7 @@ public class ProductsApiController : Controller
 
 Bu örnekte URL yolu `/products` eşleşebilir `ProductsApi.ListProducts`ve URL yolunu `/products/5` eşleşebilir `ProductsApi.GetProduct(int)`. Bu eylemlerin her ikisi de yalnızca HTTP eşleşen `GET` ile belirtilmiş çünkü `HttpGetAttribute`.
 
-Rota ile başlayan bir eyleme uygulanan şablonlar bir `/` rota şablonuyla denetleyiciye uygulanan birleştirilmiş yok. URL yolu için benzer bir dizi şu örnekle eşleşir *varsayılan rota*.
+Rota ile başlayan bir eyleme uygulanan şablonlar `/` veya `~/` rota şablonuyla denetleyiciye uygulanan birleştirilmiş yok. URL yolu için benzer bir dizi şu örnekle eşleşir *varsayılan rota*.
 
 ```csharp
 [Route("Home")]
@@ -377,7 +376,7 @@ Tanımlanan bir sırayla yürütmek geleneksel yollar aksine öznitelik yönlend
 > [!TIP]
 > Yapılandırmanıza bağlı olarak önlemek `Order`. Sonra URL alanını doğru bir şekilde yönlendirmek için Açık sipariş değerleri gerektiriyorsa, istemcilere de büyük olasılıkla karmaşık olur. Genel öznitelik yönlendirme ile URL ile eşleşen doğru yolu seçer. URL üretimi için kullanılan varsayılan düzenini çalışmıyorsa, bir geçersiz kılma uygulama daha genellikle daha basit olduğu rota adı kullanılarak `Order` özelliği.
 
-Yönlendirme razor sayfaları ve MVC denetleyicisi yönlendirme paylaşım uygulaması. Rota sırası Razor sayfaları konularında bilgi şu adreste [Razor sayfaları yol ve uygulama kuralları: rota sırasını](xref:razor-pages/razor-pages-conventions#route-order).
+Yönlendirme razor sayfaları ve MVC denetleyicisi yönlendirme paylaşım uygulaması. Rota sırası Razor sayfaları konularında bilgi şu adreste [Razor sayfaları yol ve uygulama kuralları: Rota sırası](xref:razor-pages/razor-pages-conventions#route-order).
 
 <a name="routing-token-replacement-templates-ref-label"></a>
 
@@ -549,7 +548,7 @@ Yukarıdaki örnekte öznitelik otomatik olarak ayarlar `Template` için `"api/[
 
 <a name="routing-mixed-ref-label"></a>
 
-## <a name="mixed-routing-attribute-routing-vs-conventional-routing"></a>Karma yönlendirme: vs geleneksel yönlendirmesi özniteliği
+## <a name="mixed-routing-attribute-routing-vs-conventional-routing"></a>Karma yönlendirme: VS geleneksel yönlendirmesi özniteliği
 
 MVC uygulamaları geleneksel Yönlendirme ve öznitelik yönlendirme karıştırabilirsiniz. Tarayıcılar için HTML sayfalarını sunmadan denetleyicileri için geleneksel yollar kullanın ve REST API'leri sunan denetleyicileri için yönlendirme özniteliği için tipik bir durumdur.
 

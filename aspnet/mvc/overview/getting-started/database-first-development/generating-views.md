@@ -1,60 +1,63 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/generating-views
-title: 'İlk ASP.NET MVC ile EF veritabanında: görünümler oluşturma | Microsoft Docs'
+title: 'Öğretici: Görünümleri EF veritabanı ilk için ile ASP.NET MVC uygulaması oluşturma'
+description: Bu makalede, görünümleri ve denetleyicileri oluşturmak için ASP.NET iskeleti oluşturma kullanmaya odaklanmıştır.
 author: Rick-Anderson
-description: MVC, Entity Framework ve ASP.NET iskeleti oluşturma kullanarak mevcut bir veritabanı için bir arabirim sunan bir web uygulaması oluşturabilirsiniz. Bu öğretici seri...
 ms.author: riande
-ms.date: 12/29/2014
+ms.date: 01/23/2019
+ms.topic: tutorial
 ms.assetid: 669367cf-8e30-4eb6-821d-10a7d9bb906c
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/generating-views
 msc.type: authoredcontent
-ms.openlocfilehash: 7d925573dd4cdf5c1a36e51f312e18093bd35043
-ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
+ms.openlocfilehash: e1f6646cdf10d293268b92f44b018709e70c0f86
+ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51021098"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54889788"
 ---
-<a name="ef-database-first-with-aspnet-mvc-generating-views"></a>İlk ASP.NET MVC ile EF veritabanında: görünümler oluşturma
-====================
-tarafından [Tom FitzMacken](https://github.com/tfitzmac)
+# <a name="tutorial-generate-views-for-ef-database-first-with-aspnet-mvc-app"></a>Öğretici: Görünümleri EF veritabanı ilk için ile ASP.NET MVC uygulaması oluşturma
 
-> MVC, Entity Framework ve ASP.NET iskeleti oluşturma kullanarak mevcut bir veritabanı için bir arabirim sunan bir web uygulaması oluşturabilirsiniz. Bu öğretici serisinde, otomatik olarak kullanıcıların görüntüleme, düzenleme, oluşturma olanak sağlayan bir kod oluşturmak ve bir veritabanı tablosu, bulunan verileri silmek gösterilir. Oluşturulan kod, veritabanı tablosundaki sütunlara karşılık gelir.
-> 
-> Bu serinin görünümleri ve denetleyicileri oluşturmak için ASP.NET iskeleti oluşturma kullanmaya odaklanmıştır.
+MVC, Entity Framework ve ASP.NET iskeleti oluşturma kullanarak mevcut bir veritabanı için bir arabirim sunan bir web uygulaması oluşturabilirsiniz. Bu öğretici serisinde, otomatik olarak kullanıcıların görüntüleme, düzenleme, oluşturma olanak sağlayan bir kod oluşturmak ve bir veritabanı tablosu, bulunan verileri silmek gösterilir. Oluşturulan kod, veritabanı tablosundaki sütunlara karşılık gelir.
 
+Bu makalede, görünümleri ve denetleyicileri oluşturmak için ASP.NET iskeleti oluşturma kullanmaya odaklanmıştır.
+
+Bu öğreticide şunları yaptınız:
+
+> [!div class="checklist"]
+> * Yapı iskelesi Ekle
+> * Yeni görünümlere bağlantılar ekleme
+> * Öğrenci görünümleri görüntüler
+> * Kayıt görünümleri görüntüler
+
+## <a name="prerequisite"></a>Önkoşul
+
+* [Web uygulama ve veri modelleri oluşturma](creating-the-web-application.md)
 
 ## <a name="add-scaffold"></a>Yapı iskelesi Ekle
 
 Standart veri modeli sınıfları işlemlerinde sağlayacak kodu oluşturmak hazır olursunuz. Bir yapı iskelesi öğesi ekleyerek, kodu ekleyin. Yapı iskelesi ekleyebileceğiniz türü için pek çok seçenek vardır; Bu öğreticide, iskele bir denetleyici ve önceki bölümde oluşturduğunuz Öğrenci ve kayıt modelleri karşılık gelen görünümleri içerir.
 
-Projenizdeki tutarlılık sağlamak için yeni denetleyici varolan ekleyeceksiniz **denetleyicileri** klasör. Sağ **denetleyicileri** klasörü ve select **Ekle** – **yeni iskele kurulmuş öğe**.
-
-![Yapı iskelesi Ekle](generating-views/_static/image1.png)
+Projenizdeki tutarlılık sağlamak için yeni denetleyici varolan ekleyeceksiniz **denetleyicileri** klasör. Sağ **denetleyicileri** klasörü ve select **Ekle** > **yeni iskele kurulmuş öğe**.
 
 Seçin **MVC 5 denetleyici Entity Framework kullanarak görünümler ile** seçeneği. Bu seçenek, güncelleştirme, silme, oluşturma ve veri modelinizde görüntüleme için Görünüm ve denetleyici oluşturur.
 
 ![MVC denetleyicisi Ekle](generating-views/_static/image2.png)
 
-Seçin **Öğrenci** model sınıfı ve seçin için **ContosoUniversityEntities** bağlamı sınıfı. Denetleyici adı olarak tutmak **StudentsController**,
-
-![Denetleyici belirtin](generating-views/_static/image3.png)
+Seçin **Öğrenci (ContosoSite.Models)** seçin ve model sınıfı için **ContosoUniversityDataEntities (ContosoSite.Models)** bağlamı sınıfı. Denetleyici adı olarak tutmak **StudentsController**.
 
 **Ekle**'yi tıklatın.
 
 Bir hata alırsanız, projeyi önceki bölümde derlenmedi olabilir. Bu durumda, projeyi derlemeyi deneyin ve ardından iskele kurulmuş öğe yeniden ekleyin.
 
-Kod oluşturma işlemi tamamlandıktan sonra yeni bir denetleyici ve görünüm projenizde görürsünüz.
+Kod oluşturma işlemi tamamlandıktan sonra yeni bir denetleyici ve görünüm projenizin görürsünüz **denetleyicileri** ve **görünümleri** > **Öğrenciler** klasörleri .
 
-![Görünümleri Göster](generating-views/_static/image4.png)
 
-Aynı adımları yeniden gerçekleştirin, ancak kayıt sınıfı için bir yapı iskelesi Ekle. İşiniz bittiğinde, olmalıdır bir **EnrollmentsController.cs** dosya ve klasör altında **görünümleri** adlı **kayıtları** oluşturma, silme, Ayrıntılar, düzenleme ve dizin ile Görünümler.
-
-![Görünümleri Göster](generating-views/_static/image5.png)
+Aynı adımları yeniden gerçekleştirir, ancak için bir yapı iskelesi Ekle **kayıt** sınıfı. İşiniz bittiğinde, sahip olduğunuz bir **EnrollmentsController.cs** dosya ve klasör altında **görünümleri** adlı **kayıtları** oluşturma, silme, Ayrıntılar, düzenleme ve dizin görünümlere sahip.
 
 ## <a name="add-links-to-new-views"></a>Yeni görünümlere bağlantılar ekleme
 
-Yeni görünümlerinizde gitmek kolaylaştırmak için birkaç köprüler dizin görünümlerine Öğrenciler ve kayıtlar için ekleyebilirsiniz. Dosyayı açmak **Views/Home/Index.cshtml**, siteniz için giriş sayfası olduğu. Jumbotron altına aşağıdaki kodu ekleyin.
+Yeni görünümlerinizde gitmek kolaylaştırmak için birkaç köprüler dizin görünümlerine Öğrenciler ve kayıtlar için ekleyebilirsiniz. Dosyayı açmak **görünümleri** > **giriş** > *Index.cshtml*, siteniz için giriş sayfası olduğu. Jumbotron altına aşağıdaki kodu ekleyin.
 
 [!code-cshtml[Main](generating-views/samples/sample1.cshtml)]
 
@@ -64,31 +67,15 @@ ActionLink için ilk parametre bağlantıdaki görüntülenecek metin yöntemidi
 
 Doğru projenize eklediğiniz kodun Öğrenciler listesini görüntüler ve kullanıcıların düzenleme, oluşturma veya veritabanında Öğrenci kayıt silme sağlayan doğrular.
 
-Sağ **Views/Home/Index.cshtml** dosya ve seçin **tarayıcıda görüntüle**. Bu sayfada, Öğrenciler listesi için bağlantıya tıklayın.
+Sağ **görünümleri** > **giriş** > *Index.cshtml* dosya ve seçin **tarayıcıda görüntüle**. Uygulama giriş sayfasında **Öğrenciler listesi**.
 
 ![](generating-views/_static/image6.png)
 
-Bu sayfada Öğrenciler ve bağlantıları bu verileri değiştirmek için listesini dikkat edin.
+Üzerinde **dizin** sayfasında, Öğrenciler ve bağlantıları bu verileri değiştirmek için listesi dikkat edin. Seçin **Yeni Oluştur** bağlamak ve yeni bir öğrenci için bazı değerler sağlayın. Tıklayın **Oluştur**ve yeni Öğrenci listenize eklenir dikkat edin.
 
-![Öğrenciler listesi](generating-views/_static/image7.png)
-
-Tıklayın **Yeni Oluştur** bağlamak ve yeni bir öğrenci için bazı değerler sağlayın.
-
-![Yeni Öğrenci oluşturma](generating-views/_static/image8.png)
-
-Tıklayın **Oluştur**ve yeni Öğrenci listenize eklenir dikkat edin.
-
-![Yeni Öğrenci listesi](generating-views/_static/image9.png)
-
-Seçin **Düzenle** bağlamak ve bazı değerler için bir öğrenci değiştirin.
-
-![öğrenciyi Düzenle](generating-views/_static/image10.png)
-
-Tıklayın **Kaydet**, Öğrenci kayıt değiştirildi dikkat edin.
+Yeniden **dizin** sayfasında **Düzenle** bağlamak ve bazı değerler için bir öğrenci değiştirin. Tıklayın **Kaydet**, Öğrenci kayıt değiştirildi dikkat edin.
 
 Son olarak, seçin **Sil** tıklayarak kaydı silmek istediğinizi onaylayın ve bağlama **Sil** düğmesi.
-
-![Öğrenci Sil](generating-views/_static/image11.png)
 
 Herhangi bir kod yazmadan Öğrenci tablodaki verileri ortak işlemleri görünümleri ekledik.
 
@@ -96,16 +83,24 @@ Bir alan için bir metin etiketi veritabanı özelliği dayalı olduğunu fark e
 
 ## <a name="display-enrollment-views"></a>Kayıt görünümleri görüntüler
 
-Veritabanınızı Öğrenci ve kayıt tabloları ve kursa ve kayıt tablolar arasında bir-çok ilişki arasında bir-çok ilişkisi içerir. Kayıt görünümleri bu ilişkilerin düzgün bir şekilde işler. Sitenizi ve seçin için giriş sayfasına gidin **kayıtları listesi** bağlantısını ve ardından **Yeni Oluştur** bağlantı. Görünüm, yeni bir kayıt oluşturmak için bir form görüntüler. Özellikle, formun ilgili tablolardan değerlerle doldurulur iki açılır liste içerdiğine dikkat edin.
+Veritabanınızı Öğrenci ve kayıt tabloları ve kursa ve kayıt tablolar arasında bir-çok ilişki arasında bir-çok ilişkisi içerir. Kayıt görünümleri bu ilişkilerin düzgün bir şekilde işler. Sitenizi ve seçin için giriş sayfasına gidin **kayıtları listesi** bağlantısını ve ardından **Yeni Oluştur** bağlantı.
 
-![kayıt oluşturma](generating-views/_static/image12.png)
+Görünüm, yeni bir kayıt oluşturmak için bir form görüntüler. Özellikle, formun içerdiğini fark bir **CourseID** aşağı açılan liste ve **StudentID** aşağı açılan listesi. Her ikisi de, ilgili tablolardan değerlerle doldurulur.
 
-Ayrıca, sağlanan değerlerin doğrulama otomatik olarak temel alan veri türünü uygulanır. Sınıf bir sayı, gerekli, uyumlu olmayan bir değer sağlamak denerseniz bir hata iletisi görüntülenir.
-
-![doğrulama iletisi](generating-views/_static/image13.png)
+Ayrıca, sağlanan değerlerin doğrulama otomatik olarak temel alan veri türünü uygulanır. **Sınıf** sayı, gerekli uyumlu olmayan bir değer sağlamak denerseniz bir hata iletisi görüntülenir: *Sınıf alan bir sayı olmalıdır.*
 
 Otomatik olarak oluşturulan görünümler veritabanındaki verilerle çalışmak kullanıcıları etkinleştirmek doğrulanmıştır. Bu serideki sonraki öğretici, veritabanını güncellemek ve web uygulamasında karşılık gelen değişiklikleri yapın.
 
-> [!div class="step-by-step"]
-> [Önceki](creating-the-web-application.md)
-> [İleri](changing-the-database.md)
+## <a name="next-steps"></a>Sonraki adımlar
+
+Bu öğreticide şunları yaptınız:
+
+> [!div class="checklist"]
+> * Eklenen yapı iskelesi
+> * Yeni görünümlere eklenmiş bağlantılar
+> * Görüntülenen Öğrenci görünümleri
+> * Görüntülenen kayıt görünümleri
+
+Veritabanını değiştirme hakkında bilgi edinmek için sonraki makaleye ilerleyin.
+> [!div class="nextstepaction"]
+> [Veritabanını değiştirme](changing-the-database.md)

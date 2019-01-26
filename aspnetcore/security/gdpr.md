@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/29/2018
 uid: security/gdpr
-ms.openlocfilehash: 7688ac6264b089ebd3544494c967684cb291a547
-ms.sourcegitcommit: cec77d5ad8a0cedb1ecbec32834111492afd0cd2
+ms.openlocfilehash: 5f5ed96354b0b71961c122506602e60b95b809fa
+ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54207521"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54889749"
 ---
 # <a name="eu-general-data-protection-regulation-gdpr-support-in-aspnet-core"></a>ASP.NET Core AB genel veri koruma yönetmeliği (GDPR) desteği
 
@@ -92,6 +92,7 @@ Notlar:
 * Oluşturulacak `Account/Manage` kod bkz [İskele kimlik](xref:security/authentication/scaffold-identity).
 * **Sil** ve **indirme** bağlantıları, yalnızca varsayılan kimlik verileri davranacak. Özel kullanıcı verilerini oluşturduğunuz uygulamalar, özel kullanıcı verilerini silme/indirilecek genişletilmelidir. Daha fazla bilgi için [Ekle, indirme ve silme özel kullanıcı verilerini kimliğe](xref:security/authentication/add-user-data).
 * Kimlik veritabanı tablosunda depolanan kullanıcı için belirteç kaydedildi `AspNetUserTokens` basamaklı silme davranışı nedeniyle aracılığıyla kullanıcı silindiğinde silinir [yabancı anahtar](https://github.com/aspnet/Identity/blob/release/2.1/src/EF/IdentityUserContext.cs#L152).
+* [Dış sağlayıcı kimlik doğrulaması](xref:security/authentication/social/index), Facebook ve Google değil gibi kullanılabilir tanımlama bilgisi ilkesi kabul edilmeden önce.
 
 ## <a name="encryption-at-rest"></a>Bekleme sırasında şifreleme
 

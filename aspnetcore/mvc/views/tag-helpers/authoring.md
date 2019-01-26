@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: mvc/views/tag-helpers/authoring
-ms.openlocfilehash: 16f3a435af267a5a17a24ee9fbda2b1c7c8818fd
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: c21decd39b7855cf2eefb2bb482e5e91b9487863
+ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121628"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54889944"
 ---
 # <a name="author-tag-helpers-in-aspnet-core"></a>ASP.NET core'da Yazar etiket Yardımcıları
 
@@ -96,7 +96,7 @@ Güncelleştirme `EmailTagHelper` aşağıdaki sınıfı:
 
 [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/EmailTagHelperMailTo.cs?range=6-22)]
 
-* İçine çevrilmiş Pascal büyük küçük harfleri sınıf ve özellik adlarını etiket Yardımcıları için kendi [alt kebab çalışması](https://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101). Bu nedenle, kullanılacak `MailTo` kullanacağınız özniteliği `<email mail-to="value"/>` eşdeğer.
+* İçine çevrilmiş Pascal büyük küçük harfleri sınıf ve özellik adlarını etiket Yardımcıları için kendi [kebab çalışması](https://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101). Bu nedenle, kullanılacak `MailTo` kullanacağınız özniteliği `<email mail-to="value"/>` eşdeğer.
 
 * Son satırı tamamlanmış içeriği bizim için en düşük düzeyde işlevsel etiket Yardımcısı ayarlar.
 
@@ -189,7 +189,7 @@ Ayrıca `[HtmlTargetElement]` hedeflenen öğesi adını değiştirmek için. İ
 
    [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/WebsiteInformationTagHelper.cs)]
 
-   * Daha önce belirtildiği gibi etiket Yardımcıları çevirir Pascal büyük küçük harfleri C# sınıf adları ve Özellikler etiket Yardımcıları için [alt kebab çalışması](http://wiki.c2.com/?KebabCase). Bu nedenle, kullanılacak `WebsiteInformationTagHelper` Razor içinde yazacaksınız `<website-information />`.
+   * Daha önce belirtildiği gibi etiket Yardımcıları çevirir Pascal büyük küçük harfleri C# sınıf adları ve Özellikler etiket Yardımcıları için [kebab çalışması](http://wiki.c2.com/?KebabCase). Bu nedenle, kullanılacak `WebsiteInformationTagHelper` Razor içinde yazacaksınız `<website-information />`.
 
    * Açıkça hedef öğeyi tanımlayan değil `[HtmlTargetElement]` özniteliği, bunu varsayılan `website-information` hedeflenir. Aşağıdaki özniteliği (kebab durum geçerli değildir ama sınıfın adıyla eşleşen unutmayın) uygulandığında:
 
@@ -197,7 +197,7 @@ Ayrıca `[HtmlTargetElement]` hedeflenen öğesi adını değiştirmek için. İ
    [HtmlTargetElement("WebsiteInformation")]
    ```
 
-   Daha düşük kebab case etiketi `<website-information />` eşleşen mıydı. Kullanmak istediğiniz `[HtmlTargetElement]` özniteliği, aşağıda gösterildiği gibi kebab çalışması kullanmanız:
+   Kebab case etiketi `<website-information />` eşleşen mıydı. Kullanmak istediğiniz `[HtmlTargetElement]` özniteliği, aşağıda gösterildiği gibi kebab çalışması kullanmanız:
 
    ```csharp
    [HtmlTargetElement("Website-Information")]

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/14/2019
 uid: fundamentals/routing
-ms.openlocfilehash: 070200b6fdc8b3178e2b7b12375ba1dd56080697
-ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
+ms.openlocfilehash: c5303ad418660fa31fe9094f0e61ee31f5d988f7
+ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54444382"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54890022"
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET Core yönlendirme
 
@@ -665,6 +665,26 @@ Sık sık yönlendirme kullanılan normal ifadeler ile giriş işaretini Başlat
 Normal ifade söz dizimi hakkında daha fazla bilgi için bkz. [.NET Framework normal ifadelerinde](/dotnet/standard/base-types/regular-expression-language-quick-reference).
 
 Olası değerler bilinen bir dizi parametre sınırlamak için normal bir ifade kullanın. Örneğin, `{action:regex(^(list|get|create)$)}` yalnızca eşleşen `action` yönlendirmek için değer `list`, `get`, veya `create`. Dize kısıtlamaları sözlük geçirilen `^(list|get|create)$` eşdeğerdir. Bilinen kısıtlamalardan biri eşleşmiyor (hizalı şablon içinde değil) kısıtlamaları sözlükteki geçirilen kısıtlamalar da normal ifadeler şeklinde kabul edilir.
+
+## <a name="custom-route-constraints"></a>Özel rota kısıtlamaları
+
+Yerleşik rota kısıtlamalara ek olarak, özel rota kısıtlamalarını uygulayarak oluşturulabilir <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> arabirimi. `IRouteConstraint` Arabirimi içeren tek bir yöntem `Match`, döndüren `true` kısıtlaması gerçekleştiyse ve `false` Aksi takdirde.
+
+Özel kullanılacak `IRouteConstraint`, rota kısıtlama türü uygulama kaydedilmelidir `RouteOptions.ConstraintMap` uygulamanın service kapsayıcısında. A <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap> kısıtlama anahtarlarını haritalar rota bir sözlük `IRouteConstraint` kısıtlamalar doğrulayan uygulamalar. Bir uygulamanın `RouteOptions.ConstraintMap` içinde güncelleştirilebilir `Startup.ConfigureServices` parçası olarak ya da bir `services.AddRouting` çağrı yapma veya yapılandırmayı `RouteOptions` ile doğrudan `services.Configure<RouteOptions>`. Örneğin:
+
+```csharp
+services.AddRouting(options =>
+{
+    options.ConstraintMap.Add("customName", typeof(MyCustomConstraint));
+});
+```
+
+Kısıtlama sonra yolları kısıtlama türü kaydı sırasında belirtilen adı kullanarak her zamanki şekilde uygulanabilir. Örneğin:
+
+```csharp
+[HttpGet("{id:customName}")]
+public ActionResult<string> Get(string id)
+```
 
 ::: moniker range=">= aspnetcore-2.2"
 

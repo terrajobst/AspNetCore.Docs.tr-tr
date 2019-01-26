@@ -4,14 +4,14 @@ author: rick-anderson
 description: Bir web API ASP.NET Core MVC ile oluşturma
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/10/2018
+ms.date: 01/24/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 03936ee74836c7b214cb3dc4023a6e3c252f2a26
-ms.sourcegitcommit: cec77d5ad8a0cedb1ecbec32834111492afd0cd2
-ms.translationtype: MT
+ms.openlocfilehash: f677af6a86e20b95efcd16c7472cd9e14169e6cd
+ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54207453"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54889983"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core-mvc"></a>Öğretici: ASP.NET Core MVC ile bir web API'si oluşturma
 
@@ -168,13 +168,9 @@ Model sınıfları herhangi bir projede gidip ancak *modelleri* klasörü, kural
 
 * Sağ *modelleri* klasörü ve select **Ekle** > **sınıfı**. Sınıf adı *TodoContext* tıklatıp **Ekle**.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code'u / Visual Studio Mac için](#tab/visual-studio-code+visual-studio-mac)
 
 * Ekleme bir `TodoContext` sınıfının *modelleri* klasör.
-
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
-
-* Ekleme bir `TodoContext` sınıfını *modelleri* klasörü:
 
 ---
 
@@ -207,13 +203,9 @@ Yukarıdaki kod:
 
   ![Yeni öğe iletişim denetleyicisiyle seçilen arama kutusu ve web API denetleyicisi Ekle](first-web-api/_static/new_controller.png)
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code'u / Visual Studio Mac için](#tab/visual-studio-code+visual-studio-mac)
 
 * İçinde *denetleyicileri* klasör adında bir sınıf oluşturma `TodoController`.
-
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
-
-* İçinde *denetleyicileri* klasörü, sınıf ekleme `TodoController`.
 
 ---
 
@@ -271,8 +263,6 @@ Aşağıdaki `GetTodoItem` yöntemi `"{id}"` yapılacak iş öğesi benzersiz ta
 
 [!code-csharp[](first-web-api/samples/2.2/TodoApi/Controllers/TodoController.cs?name=snippet_GetByID&highlight=1-2)]
 
-`Name = "GetTodo"` Adlandırılan bir rota parametresi oluşturur. Uygulama için rota adlarını kullanarak bir HTTP bağlantısı oluşturmak için adı daha sonra nasıl kullanabileceğinizi görürsünüz.
-
 ## <a name="return-values"></a>Döndürülen değerler
 
 Dönüş türünü `GetTodoItems` ve `GetTodoItem` yöntemler [actionresult öğesini\<T > türü](xref:web-api/action-return-types#actionresultt-type). ASP.NET Core, nesneyi otomatik olarak serileştiren [JSON](https://www.json.org/) ve yanıt iletisinin gövdesine JSON yazar. Yanıt kodu 200 bu dönüş türü için olduğu varsayılırsa işlenmeyen özel durumlar vardır. İşlenmeyen özel durumları 5xx hatalarla karşılaşırsanız çevrilir.
@@ -313,9 +303,9 @@ Yukarıdaki kod tarafından belirtildiği gibi bir HTTP POST yöntemi olup [[Htt
 
 `CreatedAtAction` Yöntemi:
 
-* 201 yanıtı döndürür. HTTP 201 sunucuda yeni bir kaynak oluşturan bir HTTP POST yöntemi için standart yanıttır.
-* Bir konum üst bilgisi yanıta ekler. Location üst bilgisini, yeni oluşturulan yapılacak iş öğesi URI'sini belirtir. Daha fazla bilgi için [10.2.2 201 oluşturuldu](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
-* URL oluşturmak için "adlı rota GetTodo" kullanır. "Adlı rota GetTodo" içinde tanımlanan `GetTodoItem`:
+* Başarılı olursa, bir HTTP 201 durum kodunu döndürür. HTTP 201 sunucuda yeni bir kaynak oluşturan bir HTTP POST yöntemi için standart yanıttır.
+* Ekler bir `Location` yanıt üst bilgisi. `Location` Üst bilgisi, yeni oluşturulan yapılacak iş öğesi URI'sini belirtir. Daha fazla bilgi için [10.2.2 201 oluşturuldu](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
+* Başvuruları `GetTodoItem` oluşturmak için eylem `Location` başlığının URI. C# `nameof` Eylem adı, sabit kodlama önlemek için kullanılan anahtar sözcüğü `CreatedAtAction` çağırın.
 
   [!code-csharp[](first-web-api/samples/2.2/TodoApi/Controllers/TodoController.cs?name=snippet_GetByID&highlight=1-2)]
 
