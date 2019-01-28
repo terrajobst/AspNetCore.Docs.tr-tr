@@ -1,0 +1,814 @@
+items:
+- name: ASP.NET Core belgeleri
+  href: /aspnet/#pivot=core
+- name: Genel Bakış
+  items:
+  - uid: index
+    name: ASP.NET Core Hakkında
+  - uid: fundamentals/choose-between-aspnet-and-aspnetcore
+    name: ASP.NET Core ile ASP.NET Karşılaştırması
+  - name: .NET Core ile .NET Framework Karşılaştırması
+    href: /dotnet/standard/choosing-core-framework-server
+- uid: getting-started
+  name: Kullanmaya başlayın
+- name: Yenilikler
+  items:
+  - uid: aspnetcore-2.2
+    name: 2.2 sürümündeki yenilikler
+  - uid: aspnetcore-2.1
+    name: 2.1 sürümündeki yenilikler
+  - uid: aspnetcore-2.0
+    name: 2.0 sürümündeki yenilikler
+  - uid: aspnetcore-1.1
+    name: 1.1 sürümündeki yenilikler
+- name: Öğreticiler
+  items:
+  - name: Web API’si uygulamaları
+    items:
+    - uid: tutorials/first-web-api
+      name: Web API’si oluşturma
+    - uid: tutorials/first-mongo-app
+      name: MongoDB ile Web API
+    - uid: mobile/native-mobile-backend
+      name: Mobil için arka uç
+  - name: Web uygulamaları
+    items:
+    - uid: tutorials/razor-pages/index
+      name: Razor Pages
+    - uid: tutorials/first-mvc-app/index
+      name: MVC
+  - name: Gerçek zamanlı web uygulamaları
+    items:
+    - uid: tutorials/signalr
+      name: JavaScript ile SignalR
+    - uid: tutorials/signalr-typescript-webpack
+      name: TypeScript ile SignalR
+  - name: Veri erişimi
+    items:
+    - uid: data/ef-rp/index
+      name: Razor Pages ile EF Core
+    - name: MVC ile EF Core, mevcut veritabanı
+      href: /ef/core/get-started/aspnetcore/existing-db
+    - name: MVC ile EF Core, yeni veritabanı
+      href: /ef/core/get-started/aspnetcore/new-db
+    - uid: data/ef-mvc/index
+      name: MVC ile EF Core, uzun öğretici
+- name: Temeller
+  items:
+  - uid: fundamentals/index
+    name: Genel Bakış
+  - uid: fundamentals/startup
+    name: Uygulama başlatma
+  - uid: fundamentals/dependency-injection
+    name: Bağımlılık ekleme (hizmetler)
+  - uid: fundamentals/routing
+    name: Yönlendirme
+  - uid: fundamentals/environments
+    name: Ortamlar (geliştirme, hazırlama, üretim)
+  - uid: fundamentals/configuration/index
+    name: Yapılandırma
+  - uid: fundamentals/configuration/options
+    name: Seçenekler
+  - uid: fundamentals/logging/index
+    name: Günlüğe Kaydetme
+  - uid: fundamentals/error-handling
+    name: Hataları işleme
+  - uid: fundamentals/middleware/index
+    name: Ara yazılım
+  - name: Ana bilgisayar
+    items:
+    - uid: fundamentals/host/index
+      name: Genel Bakış
+    - uid: fundamentals/host/web-host
+      name: Web konağı
+    - uid: fundamentals/host/generic-host
+      name: Genel konak
+  - uid: fundamentals/servers/index
+    name: Sunucular
+  - uid: fundamentals/http-requests
+    name: HTTP isteğinde bulunma
+- name: Web uygulamaları
+  items:
+  - name: Razor Pages
+    items:
+    - uid: razor-pages/index
+      name: Genel Bakış
+    - uid: tutorials/razor-pages/index
+      name: Eğitmen
+      items:
+      - uid: tutorials/razor-pages/razor-pages-start
+        name: Kullanmaya başlayın
+      - uid: tutorials/razor-pages/model
+        name: Model ekleme
+      - uid: tutorials/razor-pages/page
+        name: Yapı iskelesi
+      - uid: tutorials/razor-pages/sql
+        name: Veritabanı ile çalışma
+      - uid: tutorials/razor-pages/da1
+        name: Sayfaları güncelleştirme
+      - uid: tutorials/razor-pages/search
+        name: Arama ekleme
+      - uid: tutorials/razor-pages/new-field
+        name: Yeni alan ekleme
+      - uid: tutorials/razor-pages/validation
+        name: Doğrulama ekleme
+    - uid: razor-pages/filter
+      name: Filtreler
+    - uid: razor-pages/ui-class
+      name: Razor Sınıf Kitaplıkları
+    - uid: razor-pages/razor-pages-conventions
+      name: Yol ve uygulama kuralları
+    - uid: razor-pages/upload-files
+      name: Dosyaları karşıya yükleme
+    - uid: razor-pages/sdk
+      name: Razor SDK
+  - name: MVC
+    items:
+    - uid: mvc/overview
+      name: Genel Bakış
+    - uid: tutorials/first-mvc-app/index
+      name: Eğitmen
+      items:
+      - uid: tutorials/first-mvc-app/start-mvc
+        name: Kullanmaya başlayın
+      - uid: tutorials/first-mvc-app/adding-controller
+        name: Denetleyici ekleme
+      - uid: tutorials/first-mvc-app/adding-view
+        name: Görünüm ekleme
+      - uid: tutorials/first-mvc-app/adding-model
+        name: Model ekleme
+      - uid: tutorials/first-mvc-app/working-with-sql
+        name: Veritabanı ile çalışma
+      - uid: tutorials/first-mvc-app/controller-methods-views
+        name: Denetleyici eylemleri ve görünümleri
+      - uid: tutorials/first-mvc-app/search
+        name: Arama ekleme
+      - uid: tutorials/first-mvc-app/new-field
+        name: Yeni alan ekleme
+      - uid: tutorials/first-mvc-app/validation
+        name: Doğrulama ekleme
+      - uid: tutorials/first-mvc-app/details
+        name: Details ve Delete yöntemlerini inceleme
+    - uid: mvc/views/overview
+      name: Görünümler
+    - uid: mvc/views/partial
+      name: Kısmı görünümler
+    - uid: mvc/controllers/actions
+      name: Denetleyiciler
+    - uid: mvc/controllers/routing
+      name: Yönlendirme
+    - uid: mvc/models/file-uploads
+      name: Dosya karşıya yüklemeleri
+    - uid: mvc/controllers/dependency-injection
+      name: Bağımlılık ekleme - denetleyiciler
+    - uid: mvc/views/dependency-injection
+      name: Bağımlılık ekleme - görünümler
+    - uid: mvc/controllers/testing
+      name: Birim testi
+  - uid: fundamentals/app-state
+    name: Oturum ve uygulama durumu
+  - name: Etiket Yardımcıları
+    items:
+    - uid: mvc/views/tag-helpers/intro
+      name: Genel Bakış
+    - uid: mvc/views/tag-helpers/authoring
+      name: Etiket Yardımcıları oluşturma
+    - uid: mvc/views/working-with-forms
+      name: Formlarda Etiket Yardımcılarını kullanma
+    - uid: mvc/views/tag-helpers/th-components
+      name: Etiket Yardımcısı Bileşenleri
+    - name: Yerleşik Etiket Yardımcıları
+      items:
+      - uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
+        name: Yer işareti
+      - uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
+        name: Önbellek
+      - uid: mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper
+        name: Dağıtılmış Önbellek
+      - uid: mvc/views/tag-helpers/builtin-th/environment-tag-helper
+        name: Ortam
+      - name: Form
+        href: mvc/views/working-with-forms.md#the-form-tag-helper
+      - uid: mvc/views/tag-helpers/builtin-th/image-tag-helper
+        name: Görüntü
+      - name: Giriş
+        href: mvc/views/working-with-forms.md#the-input-tag-helper
+      - name: Etiketle
+        href: mvc/views/working-with-forms.md#the-label-tag-helper
+      - uid: mvc/views/tag-helpers/builtin-th/partial-tag-helper
+        name: Kısmi
+      - name: Seçim
+        href: mvc/views/working-with-forms.md#the-select-tag-helper
+      - name: Metin Alanı
+        href: mvc/views/working-with-forms.md#the-textarea-tag-helper
+      - name: Doğrulama İletisi
+        href: mvc/views/working-with-forms.md#the-validation-message-tag-helper
+      - name: Doğrulama Özeti
+        href: mvc/views/working-with-forms.md#the-validation-summary-tag-helper
+  - uid: mvc/views/layout
+    name: Düzen
+  - uid: fundamentals/static-files
+    name: Statik dosyalar
+  - uid: mvc/models/model-binding
+    name: Model bağlama
+  - uid: mvc/models/validation
+    name: Model doğrulaması
+  - uid: mvc/views/razor
+    name: Razor söz dizimi
+  - name: Gelişmiş
+    items:
+    - uid: mvc/views/view-components
+      name: Görünüm bileşenleri
+    - uid: mvc/views/view-compilation
+      name: Görünüm derlemesi
+    - uid: mvc/controllers/application-model
+      name: Uygulama modeli
+    - uid: mvc/controllers/filters
+      name: FilTReleri
+    - uid: mvc/controllers/areas
+      name: Alanlar
+    - uid: mvc/extensibility/app-parts
+      name: Uygulama bölümleri
+    - uid: mvc/advanced/custom-model-binding
+      name: Özel model bağlama
+    - uid: mvc/compatibility-version
+      name: Uyumluluk sürümü
+- name: Web API’si uygulamaları
+  items:
+  - uid: web-api/index
+    name: Genel Bakış
+  - name: Öğreticiler
+    items:
+    - uid: tutorials/first-web-api
+      name: Web API’si oluşturma
+    - uid: tutorials/first-mongo-app
+      name: MongoDB ile Web API
+  - name: Swagger / OpenAPI
+    items:
+    - uid: tutorials/web-api-help-pages-using-swagger
+      name: Genel Bakış
+    - uid: tutorials/get-started-with-swashbuckle
+      name: Swashbuckle kullanmaya başlama
+    - uid: tutorials/get-started-with-nswag
+      name: NSwag kullanmaya başlama
+  - uid: web-api/action-return-types
+    name: Eylem dönüş türleri
+  - uid: web-api/advanced/formatting
+    name: Yanıt verilerini biçimlendirme
+  - uid: web-api/advanced/custom-formatters
+    name: Özel biçimlendiriciler
+  - uid: web-api/advanced/analyzers
+    name: Çözümleyiciler
+  - uid: web-api/advanced/conventions
+    name: Kurallar
+- name: Gerçek zamanlı uygulamalar
+  items:
+  - uid: signalr/introduction
+    name: SignalR’a genel bakış
+  - uid: signalr/supported-platforms
+    name: Desteklenen platformlar
+  - name: Öğreticiler
+    items:
+    - uid: tutorials/signalr
+      name: JavaScript ile SignalR
+    - uid: tutorials/signalr-typescript-webpack
+      name: TypeScript ile SignalR
+  - name: Örnekler
+    href: https://github.com/aspnet/SignalR-samples
+  - name: Sunucu kavramları
+    items:
+    - uid: signalr/hubs
+      name: Merkezler
+    - uid: signalr/hubcontext
+      name: Merkezin dışından gönderme
+    - uid: signalr/groups
+      name: Kullanıcılar ve gruplar
+    - uid: signalr/publish-to-azure-web-app
+      name: Azure'a Yayımlama
+    - uid: signalr/api-design
+      name: API tasarımı etkenleri
+  - name: İstemciler
+    items:
+    - uid: signalr/dotnet-client
+      name: .NET istemcisi
+    - name: .NET API'si başvurusu
+      href: /dotnet/api/microsoft.aspnetcore.signalr.client
+    - uid: signalr/java-client
+      name: Java istemcisi
+    - name: Java API'si başvurusu
+      href: /java/api/com.microsoft.signalr?view=aspnet-signalr-java
+    - uid: signalr/javascript-client
+      name: JavaScript istemcisi
+    - name: JavaScript API'si başvurusu
+      href: /javascript/api/?view=signalr-js-latest
+  - name: Barındırma ve ölçeklendirme
+    items:
+    - uid: signalr/scale
+      name: Genel Bakış
+    - name: Azure SignalR Hizmeti
+      href: /azure/azure-signalr/signalr-overview
+    - uid: signalr/redis-backplane
+      name: Redis kartı
+  - uid: signalr/configuration
+    name: Yapılandırma
+  - uid: signalr/authn-and-authz
+    name: Kimlik doğrulaması ve yetkilendirme
+  - uid: signalr/security
+    name: Güvenlik konuları
+  - uid: signalr/messagepackhubprotocol
+    name: MessagePack Hub Protokolü
+  - uid: signalr/streaming
+    name: Akış
+  - uid: signalr/version-differences
+    name: SignalR ile SignalR Core Karşılaştırması
+  - uid: fundamentals/websockets
+    name: SignalR olmadan WebSockets
+- name: Test etme, hata ayıklama ve sorun giderme
+  items:
+  - name: Birim testi
+    href: /dotnet/core/testing/unit-testing-with-dotnet-test
+  - uid: test/razor-pages-tests
+    name: Razor Pages birim testleri
+  - uid: mvc/controllers/testing
+    name: Test denetleyicileri
+  - name: Uzaktan hata ayıklama
+    href: /visualstudio/debugger/remote-debugging-azure
+  - name: Anlık görüntü hatalarını ayıklama
+    href: /azure/application-insights/app-insights-snapshot-debugger
+  - name: Visual Studio'da anlık görüntü hatalarını ayıklama
+    href: /visualstudio/debugger/debug-live-azure-applications
+  - uid: test/integration-tests
+    name: Tümleştirme testleri
+  - uid: test/loadtests
+    name: Yükleme ve stres testleri
+  - uid: test/troubleshoot
+    name: Sorun giderme
+  - uid: fundamentals/logging/index
+    name: Günlüğe Kaydetme
+- name: Veri erişimi
+  items:
+  - name: Öğreticiler
+    items:
+    - name: Razor Pages ile EF Core
+      items:
+      - uid: data/ef-rp/index
+        name: Genel Bakış
+      - uid: data/ef-rp/intro
+        name: Kullanmaya başlayın
+      - uid: data/ef-rp/crud
+        name: Oluşturma, Okuma, Güncelleştirme ve Silme
+      - uid: data/ef-rp/sort-filter-page
+        name: Sıralama, filtreleme, sayfalama ve gruplandırma
+      - uid: data/ef-rp/migrations
+        name: Geçişler
+      - uid: data/ef-rp/complex-data-model
+        name: Karmaşık veri modeli oluşturma
+      - uid: data/ef-rp/read-related-data
+        name: İlgili verileri okuma
+      - uid: data/ef-rp/update-related-data
+        name: İlgili verileri güncelleştirme
+      - uid: data/ef-rp/concurrency
+        name: Eşzamanlılık çakışmalarını işleme
+    - name: MVC ile EF Core, yeni veritabanı
+      href: /ef/core/get-started/aspnetcore/new-db
+    - name: MVC ile EF Core, mevcut veritabanı
+      href: /ef/core/get-started/aspnetcore/existing-db
+    - name: MVC ile EF Core, uzun öğretici
+      items:
+      - uid: data/ef-mvc/index
+        name: Genel Bakış
+      - uid: data/ef-mvc/intro
+        name: Kullanmaya başlayın
+      - uid: data/ef-mvc/crud
+        name: Oluşturma, Okuma, Güncelleştirme ve Silme
+      - uid: data/ef-mvc/sort-filter-page
+        name: Sıralama, filtreleme, sayfalama ve gruplandırma
+      - uid: data/ef-mvc/migrations
+        name: Geçişler
+      - uid: data/ef-mvc/complex-data-model
+        name: Karmaşık veri modeli oluşturma
+      - uid: data/ef-mvc/read-related-data
+        name: İlgili verileri okuma
+      - uid: data/ef-mvc/update-related-data
+        name: İlgili verileri güncelleştirme
+      - uid: data/ef-mvc/concurrency
+        name: Eşzamanlılık çakışmalarını işleme
+      - uid: data/ef-mvc/inheritance
+        name: Devralma
+      - uid: data/ef-mvc/advanced
+        name: Gelişmiş konular
+  - uid: data/entity-framework-6
+    name: ASP.NET Core ile EF 6
+  - name: Visual Studio ile Azure Depolama
+    items:
+    - name: Bağlı Hizmetler
+      href: /azure/vs-azure-tools-connected-services-storage
+    - name: Blob depolama
+      href: /azure/vs-storage-aspnet5-getting-started-blobs/
+    - name: Kuyruk depolama
+      href: /azure/vs-storage-aspnet5-getting-started-queues/
+    - name: Tablo depolama
+      href: /azure/vs-storage-aspnet5-getting-started-tables/
+- name: İstemci tarafı geliştirme
+  items:
+  - uid: client-side/index
+    name: Genel Bakış
+  - uid: client-side/using-gulp
+    name: Gulp
+  - uid: client-side/using-grunt
+    name: Grunt
+  - name: LibMan
+    items:
+    - uid: client-side/libman/index
+      name: Genel Bakış
+    - uid: client-side/libman/libman-cli
+      name: CLI
+    - uid: client-side/libman/libman-vs
+      name: Visual Studio
+  - uid: client-side/bower
+    name: Bower
+  - uid: client-side/less-sass-fa
+    name: LESS, Sass ve Font Awesome
+  - uid: client-side/bundling-and-minification
+    name: Paketleme ve küçültme
+  - uid: client-side/using-browserlink
+    name: Tarayıcı Bağlantısı
+  - name: Tek Sayfalı Uygulamalar
+    items:
+    - uid: spa/index
+      name: Genel Bakış
+    - uid: spa/angular
+      name: Angular
+    - uid: spa/react
+      name: React
+    - uid: spa/react-with-redux
+      name: Redux ile React
+    - uid: client-side/spa-services
+      name: JavaScriptServices
+- name: Barındırma ve dağıtım
+  items:
+  - uid: host-and-deploy/index
+    name: Genel Bakış
+  - name: Azure App Service’te barındırma
+    items:
+    - uid: host-and-deploy/azure-apps/index
+      name: Genel Bakış
+    - uid: tutorials/publish-to-azure-webapp-using-vs
+      name: Visual Studio ile yayımlama
+    - name: CLI araçları ile yayımlama
+      href: /azure/app-service/app-service-web-tutorial-dotnetcore-sqldb
+    - uid: host-and-deploy/azure-apps/azure-continuous-deployment
+      name: Visual Studio ve Git ile yayımlama
+    - name: Azure Pipelines ile sürekli dağıtım
+      href: /azure/devops/pipelines/get-started-yaml
+    - uid: host-and-deploy/aspnet-core-module
+      name: ASP.NET Core Modülü
+    - uid: host-and-deploy/azure-apps/troubleshoot
+      name: Sorun giderme
+    - uid: host-and-deploy/azure-iis-errors-reference
+      name: Hata başvurusu
+  - name: DevOps
+    items:
+    - uid: azure/devops/index
+      name: Genel Bakış
+    - uid: azure/devops/tools-and-downloads
+      name: Araçlar ve indirmeler
+    - uid: azure/devops/deploy-to-app-service
+      name: App Service’e dağıtma
+    - uid: azure/devops/cicd
+      name: Sürekli tümleştirme ve dağıtım
+    - uid: azure/devops/monitor
+      name: İzleme ve sorun giderme
+    - uid: azure/devops/next-steps
+      name: Sonraki adımlar
+  - name: IIS ile Windows’da barındırma
+    items:
+    - uid: host-and-deploy/iis/index
+      name: Genel Bakış
+    - uid: host-and-deploy/aspnet-core-module
+      name: ASP.NET Core Modülü
+    - uid: host-and-deploy/iis/development-time-iis-support
+      name: Visual Studio'da IIS desteği
+    - uid: host-and-deploy/iis/modules
+      name: IIS Modülleri
+    - uid: host-and-deploy/iis/troubleshoot
+      name: Sorun giderme
+    - uid: host-and-deploy/azure-iis-errors-reference
+      name: Hata başvurusu
+  - uid: fundamentals/servers/kestrel
+    name: Kestrel
+  - uid: fundamentals/servers/httpsys
+    name: HTTP.sys
+  - uid: host-and-deploy/windows-service
+    name: Windows hizmetinde barındırma
+  - uid: host-and-deploy/linux-nginx
+    name: Nginx ile Linux’ta barındırma
+  - uid: host-and-deploy/linux-apache
+    name: Apache ile Linux’ta barındırma
+  - name: Docker’da barındırma
+    items:
+    - uid: host-and-deploy/docker/index
+      name: Genel Bakış
+    - name: Docker görüntüleri oluşturma
+      href: /dotnet/core/docker/building-net-docker-images
+    - uid: host-and-deploy/docker/visual-studio-tools-for-docker
+      name: Visual Studio Araçları
+    - name: Docker görüntüsüne yayımlama
+      href: /azure/vs-azure-tools-docker-hosting-web-apps-in-docker
+    - name: Örnek Docker görüntüleri
+      href: https://github.com/dotnet/dotnet-docker/blob/master/samples/aspnetapp/README.md
+  - uid: host-and-deploy/proxy-load-balancer
+    name: Ara sunucu ve yük dengeleyiciyi yapılandırma
+  - uid: host-and-deploy/web-farm
+    name: Web grubunda barındırma
+  - uid: host-and-deploy/visual-studio-publish-profiles
+    name: Visual Studio yayımlama profilleri
+  - uid: host-and-deploy/directory-structure
+    name: Dizin yapısı
+  - uid: host-and-deploy/health-checks
+    name: Sistem durumu denetimleri
+- name: Güvenlik ve Kimlik
+  items:
+  - uid: security/index
+    name: Genel Bakış
+  - name: Kimlik doğrulaması
+    items:
+    - uid: security/authentication/identity
+      name: Kimliğe giriş
+    - uid: security/authentication/scaffold-identity
+      name: İskele Kimliği
+    - uid: security/authentication/add-user-data
+      name: Özel kullanıcı verilerini Kimlik’e ekleme
+    - uid: security/authentication/customize_identity_model
+      name: Kimlik Özelleştirme
+    - uid: security/authentication/community
+      name: Topluluk OSS kimlik doğrulama seçenekleri
+    - uid: security/authentication/identity-configuration
+      name: Kimliği Yapılandırma
+    - uid: security/authentication/windowsauth
+      name: Windows Kimlik Doğrulaması Yapılandırma
+    - uid: security/authentication/identity-custom-storage-providers
+      name: Kimlik için özel depolama sağlayıcıları
+    - name: Google, Facebook ...
+      items:
+      - uid: security/authentication/social/index
+        name: Genel Bakış
+      - uid: security/authentication/google-logins
+        name: Google kimlik doğrulaması
+      - uid: security/authentication/facebook-logins
+        name: Facebook kimlik doğrulaması
+      - uid: security/authentication/microsoft-logins
+        name: Microsoft kimlik doğrulaması
+      - uid: security/authentication/twitter-logins
+        name: Twitter kimlik doğrulaması
+      - uid: security/authentication/otherlogins
+        name: Diğer sağlayıcılar
+      - uid: security/authentication/social/additional-claims
+        name: Ek talepler
+    - uid: security/authentication/ws-federation
+      name: WS-Federasyon kimlik doğrulaması
+    - uid: security/authentication/accconfirm
+      name: Hesap onaylama ve parola kurtarma
+    - uid: security/authentication/identity-enable-qrcodes
+      name: Kimlik’te QR kodu oluşturmayı etkinleştirme
+    - uid: security/authentication/2fa
+      name: SMS ile iki öğeli kimlik doğrulama
+    - uid: security/authentication/cookie
+      name: Kimlik olmadan Tanımlama Bilgisi Kimlik Doğrulaması kullanma
+    - name: Azure Active Directory
+      items:
+      - uid: security/authentication/azure-active-directory/index
+        name: Genel Bakış
+      - name: Azure AD’yi web uygulamasıyla tümleştirme
+        href: https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore/
+      - uid: security/authentication/azure-ad-b2c
+        name: Azure AD BC2’yi web uygulamasıyla tümleştirme
+      - uid: security/authentication/azure-ad-b2c-webapi
+        name: Azure AD BC2’yi web API’siyle tümleştirme
+      - name: WPF'den bir web API’sini çağırma
+        href: https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore/
+      - name: Azure AD kullanarak bir web uygulamasında Web API’sini çağırma
+        href: https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/
+    - name: IdentityServer4 ile ASP.NET Core uygulamalarının güvenliğini sağlama
+      href: https://identityserver4.readthedocs.io/
+    - name: Azure App Service kimlik doğrulaması (Kolay Kimlik Doğrulaması) ile ASP.NET Core uygulamalarının güvenliğini sağlama
+      href: /azure/app-service/app-service-authentication-overview
+    - uid: security/authentication/individual
+      name: Bireysel kullanıcı hesapları
+  - name: Yetkilendirme
+    items:
+    - uid: security/authorization/introduction
+      name: Genel Bakış
+    - uid: security/authorization/secure-data
+      name: Yetkilendirme içeren bir web uygulaması oluşturma
+    - uid: security/authorization/razor-pages-authorization
+      name: Razor Pages yetkilendirme kuralları
+    - uid: security/authorization/simple
+      name: Basit yetkilendirme
+    - uid: security/authorization/roles
+      name: Rol tabanlı yetkilendirme
+    - uid: security/authorization/claims
+      name: Talep tabanlı yetkilendirme
+    - uid: security/authorization/policies
+      name: İlke tabanlı yetkilendirme
+    - uid: security/authorization/iauthorizationpolicyprovider
+      name: Yetkilendirme ilkesi sağlayıcıları
+    - uid: security/authorization/dependencyinjection
+      name: Gereksinim işleyicilerine bağımlılık ekleme
+    - uid: security/authorization/resourcebased
+      name: Kaynak tabanlı yetkilendirme
+    - uid: security/authorization/views
+      name: Görünüm tabanlı yetkilendirme
+    - uid: security/authorization/limitingidentitybyscheme
+      name: Şemayla kimliği sınırlama
+  - name: Veri koruma
+    items:
+    - uid: security/data-protection/introduction
+      name: Genel Bakış
+    - uid: security/data-protection/using-data-protection
+      name: Veri koruma API'leri
+    - name: Tüketici API’leri
+      items:
+      - uid: security/data-protection/consumer-apis/overview
+        name: Genel Bakış
+      - uid: security/data-protection/consumer-apis/purpose-strings
+        name: Amaç dizeleri
+      - uid: security/data-protection/consumer-apis/purpose-strings-multitenancy
+        name: Amaç hiyerarşisi ve çok kiracılılık
+      - uid: security/data-protection/consumer-apis/password-hashing
+        name: Karma parolalar
+      - uid: security/data-protection/consumer-apis/limited-lifetime-payloads
+        name: Korumalı yüklerin ömrünü sınırlama
+      - uid: security/data-protection/consumer-apis/dangerous-unprotect
+        name: Anahtarları iptal edilen yüklerin korumasını kaldırma
+    - name: Yapılandırma
+      items:
+      - uid: security/data-protection/configuration/index
+        name: Genel Bakış
+      - uid: security/data-protection/configuration/overview
+        name: Veri korumasını yapılandırma
+      - uid: security/data-protection/configuration/default-settings
+        name: Varsayılan ayarlar
+      - uid: security/data-protection/configuration/machine-wide-policy
+        name: Makine geneli ilke
+      - uid: security/data-protection/configuration/non-di-scenarios
+        name: DI bilgisi içermeyen senaryolar
+    - name: Genişletilebilirlik API’leri
+      items:
+      - uid: security/data-protection/extensibility/index
+        name: Genel Bakış
+      - uid: security/data-protection/extensibility/core-crypto
+        name: Çekirdek şifreleme genişletilebilirliği
+      - uid: security/data-protection/extensibility/key-management
+        name: Anahtar yönetimi genişletilebilirliği
+      - uid: security/data-protection/extensibility/misc-apis
+        name: Çeşitli API'ler
+    - name: Uygulama
+      items:
+      - uid: security/data-protection/implementation/index
+        name: Genel Bakış
+      - uid: security/data-protection/implementation/authenticated-encryption-details
+        name: Kimliği doğrulanmış şifreleme ayrıntıları
+      - uid: security/data-protection/implementation/subkeyderivation
+        name: Alt anahtar türetme ve kimliği doğrulanmış şifreleme
+      - uid: security/data-protection/implementation/context-headers
+        name: Bağlam üst bilgileri
+      - uid: security/data-protection/implementation/key-management
+        name: Anahtar yönetimi
+      - uid: security/data-protection/implementation/key-storage-providers
+        name: Anahtar depolama sağlayıcıları
+      - uid: security/data-protection/implementation/key-encryption-at-rest
+        name: Bekleme durumunda anahtar şifreleme
+      - uid: security/data-protection/implementation/key-immutability
+        name: Anahtar değiştirilemezliği ve ayarlar
+      - uid: security/data-protection/implementation/key-storage-format
+        name: Anahtar depolama biçimi
+      - uid: security/data-protection/implementation/key-storage-ephemeral
+        name: Kısa ömürlü veri koruma sağlayıcıları
+    - name: Uyumluluk
+      items:
+      - uid: security/data-protection/compatibility/index
+        name: Genel Bakış
+      - uid: security/data-protection/compatibility/replacing-machinekey
+        name: ASP.NET'te machineKey değiştirme
+  - uid: security/app-secrets
+    name: Geliştirmede gizli dizileri koruma
+  - uid: security/enforcing-ssl
+    name: HTTPS'yi zorunlu tutma
+  - uid: security/gdpr
+    name: AB Genel Veri Koruma Yönetmeliği (GDPR) desteği
+  - uid: security/key-vault-configuration
+    name: Azure Key Vault yapılandırma sağlayıcısı
+  - uid: security/anti-request-forgery
+    name: İstek sahteciliğinden koruma
+  - uid: security/preventing-open-redirects
+    name: Açık yeniden yönlendirme saldırılarını önleme
+  - uid: security/cross-site-scripting
+    name: Siteler Arası Betik kullanmayı önleme
+  - uid: security/cors
+    name: Kaynaklar Arası İstekleri (CORS) etkinleştirme
+  - uid: security/cookie-sharing
+    name: Uygulamalar arasında tanımlama bilgilerini paylaşma
+  - uid: security/ip-safelist
+    name: IP güvenli listesi
+- name: Performans
+  items:
+  - uid: performance/performance-best-practices
+    name: Genel Bakış
+  - name: Yanıtları Önbelleğe Alma
+    items:
+    - uid: performance/caching/response
+      name: Genel Bakış
+    - uid: performance/caching/memory
+      name: Belleğe yüklenmiş önbellek
+    - uid: performance/caching/distributed
+      name: Dağıtılmış önbelleğe alma
+    - uid: performance/caching/middleware
+      name: Yanıtları önbelleğe alma ara yazılımı
+  - uid: performance/response-compression
+    name: Yanıt sıkıştırma
+  - uid: performance/diagnostic-tools
+    name: Tanılama araçları
+  - uid: test/loadtests
+    name: Yükleme ve stres testleri
+- name: Genelleştirme ve yerelleştirme
+  items:
+  - uid: fundamentals/localization
+    name: Genel Bakış
+  - uid: fundamentals/portable-object-localization
+    name: Taşınabilir Nesne yerelleştirmesi
+- name: Gelişmiş
+  items:
+  - uid: fundamentals/url-rewriting
+    name: URL yeniden yazma
+  - uid: fundamentals/file-providers
+    name: Dosya sağlayıcıları
+  - uid: fundamentals/request-features
+    name: Özellik isteği arabirimleri
+  - uid: fundamentals/httpcontext
+    name: HttpContext’e erişim
+  - uid: fundamentals/change-tokens
+    name: Belirteçleri değiştirme
+  - uid: fundamentals/owin
+    name: .NET için Açık Web Arabirimi (OWIN)
+  - uid: fundamentals/host/hosted-services
+    name: Barındırılan hizmetler ile arka plan görevleri
+  - uid: fundamentals/configuration/platform-specific-configuration
+    name: Başlangıç derlemelerini barındırma
+  - uid: fundamentals/metapackage-app
+    name: Microsoft.AspNetCore.App metapackage
+  - uid: fundamentals/metapackage
+    name: Microsoft.AspNetCore.All metapackage
+  - uid: fundamentals/logging/loggermessage
+    name: LoggerMessage ile günlüğe kaydetme
+  - uid: tutorials/dotnet-watch
+    name: Dosya izleyicisi kullanma
+    items:
+    - uid: fundamentals/middleware/extensibility
+      name: Fabrika tabanlı ara yazılım
+    - uid: fundamentals/middleware/extensibility-third-party-container
+      name: Üçüncü taraf kapsayıcı ile fabrika tabanlı ara yazılım
+- name: Geçiş
+  items:
+  - uid: migration/22-to-30
+    name: 2.2’den 3.0’a
+  - uid: migration/21-to-22
+    name: 2.1’den 2.2’ye
+  - uid: migration/20_21
+    name: 2.0’dan 2.1’e
+  - name: 1.x’ten 2.0’a
+    items:
+    - uid: migration/1x-to-2x/index
+      name: Genel Bakış
+    - uid: migration/1x-to-2x/identity-2x
+      name: Kimlik Doğrulaması ve Kimlik
+  - name: ASP.NET’ten ASP.NET Core’a
+    items:
+    - uid: migration/proper-to-2x/index
+      name: Genel Bakış
+    - uid: migration/mvc
+      name: MVC
+    - uid: migration/webapi
+      name: Web API
+    - uid: migration/configuration
+      name: Yapılandırma
+    - uid: migration/identity
+      name: Kimlik Doğrulaması ve Kimlik
+    - uid: migration/claimsprincipal-current
+      name: ClaimsPrincipal.Current
+    - uid: migration/proper-to-2x/membership-to-core-identity
+      name: Üyelikten Kimliğe
+    - uid: migration/http-modules
+      name: HTTP modüllerinden ara yazılıma
+  - uid: migration/logging-nonaspnetcore
+    name: Günlüğe kaydetme (ASP.NET Core dışında)
+- name: API başvurusu
+  href: /dotnet/api/?view=aspnetcore-2.1
+- name: Katkıda Bulun
+  href: https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md
+ms.openlocfilehash: 4f8ccb592b7f95794cad01edd1e0f514bd9943c1
+ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54890077"
