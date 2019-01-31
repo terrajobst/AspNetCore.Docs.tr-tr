@@ -4,22 +4,22 @@ title: ASP.NET Web API 2'de kaynaklar arası istekleri etkinleştirme | Microsof
 author: MikeWasson
 description: ASP.NET Web API'de çıkış noktaları arası kaynak paylaşımı (CORS) destekleyecek şekilde gösterilmektedir.
 ms.author: riande
-ms.date: 10/10/2018
+ms.date: 01/29/2019
 ms.assetid: 9b265a5a-6a70-4a82-adce-2d7c56ae8bdd
 msc.legacyurl: /web-api/overview/security/enabling-cross-origin-requests-in-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 118b779c89edb874f7f928315d1094738be5f097
-ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
+ms.openlocfilehash: 97a0027194b019b09e220493dcb593e682027fe3
+ms.sourcegitcommit: d22b3c23c45a076c4f394a70b1c8df2fbcdf656d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49348526"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55428453"
 ---
 <a name="enable-cross-origin-requests-in-aspnet-web-api-2"></a>ASP.NET Web API 2'de kaynaklar arası istekleri etkinleştirme
 ====================
 tarafından [Mike Wasson](https://github.com/MikeWasson)
 
-> Tarayıcı Güvenliği, bir web sayfası, başka bir etki alanına AJAX istekleri yapmasını engeller. Bu kısıtlama adlı *aynı çıkış noktası İlkesi*ve kötü amaçlı bir siteyi başka bir siteden hassas verileri okumasını önler. Ancak, bazen, web API'si çağırma diğer sitelere izin vermek isteyebilirsiniz.
+> Tarayıcı güvenliği, bir web sitesinin başka bir etki alanına AJAX istekleri göndermesini engeller. Bu kısıtlama adlı *aynı çıkış noktası İlkesi*ve kötü amaçlı bir siteyi başka bir siteden hassas verileri okumasını önler. Ancak, bazen, web API'si çağırma diğer sitelere izin vermek isteyebilirsiniz.
 >
 > [Kaynağın kaynak paylaşımını çapraz](http://www.w3.org/TR/cors/) (CORS) olan gevşek bir aynı çıkış noktası ilkesi izin veren bir W3C standart. CORS kullanarak, bir sunucu açıkça bazı çıkış noktaları arası istekleri izin verirken diğerlerini. CORS güvenli ve önceki teknikler daha esnek gibi [JSONP](http://en.wikipedia.org/wiki/JSONP). Bu öğreticide, Web API uygulamanıza CORS'yi etkinleştirme işlemi gösterilmektedir.
 >
@@ -67,7 +67,7 @@ Bu URL'ler önceki değerinden farklı kaynakları iki vardır:
 
    [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample1.cs)]
 
-4. Uygulamayı yerel olarak çalıştırmak veya Azure'a dağıtın. (Ekran görüntüleri için Bu öğreticide, Azure App Service Web Apps için uygulamayı dağıtır.) Web API'si çalıştığını doğrulamak için gidin `http://hostname/api/test/`burada *hostname* uygulamanın dağıtıldığı etki alanıdır. Yanıt metni görmelisiniz &quot;Al: sınama iletisi&quot;.
+4. Uygulamayı yerel olarak çalıştırmak veya Azure'a dağıtın. (Ekran görüntüleri için Bu öğreticide, Azure App Service Web Apps için uygulamayı dağıtır.) Web API'si çalıştığını doğrulamak için gidin `http://hostname/api/test/`burada *hostname* uygulamanın dağıtıldığı etki alanıdır. Yanıt metni görmelisiniz &quot;alın: Sınama iletisi&quot;.
 
    ![Web tarayıcı gösteren sınama iletisi](enabling-cross-origin-requests-in-web-api/_static/image4.png)
 
@@ -90,7 +90,7 @@ Bu URL'ler önceki değerinden farklı kaynakları iki vardır:
 ![Tarayıcı 'try' hatası](enabling-cross-origin-requests-in-web-api/_static/image7.png)
 
 > [!NOTE]
-> Bir aracının HTTP trafiğini izleme hoşlanıyorsanız [Fiddler](http://www.telerik.com/fiddler), tarayıcı GET isteği gönderir ve isteğin başarılı ancak AJAX çağrısı bir hata döndürür görürsünüz. Aynı çıkış noktası İlkesi tarayıcıdan engellemez anlaşılması önemlidir *gönderme* istek. Bunun yerine, uygulama görmesini engeller *yanıt*.
+> Bir aracının HTTP trafiğini izleme hoşlanıyorsanız [Fiddler](https://www.telerik.com/fiddler), tarayıcı GET isteği gönderir ve isteğin başarılı ancak AJAX çağrısı bir hata döndürür görürsünüz. Aynı çıkış noktası İlkesi tarayıcıdan engellemez anlaşılması önemlidir *gönderme* istek. Bunun yerine, uygulama görmesini engeller *yanıt*.
 
 ![Fiddler'ı web hata ayıklayıcısı Web istekleri gösteriliyor](enabling-cross-origin-requests-in-web-api/_static/image8.png)
 
@@ -156,7 +156,7 @@ Denetim öncesi isteğinin bir örneği aşağıda verilmiştir:
 
 Uçuş öncesi isteğinin HTTP OPTIONS yöntemini kullanır. Bu, iki özel üst bilgileri içerir:
 
-- Access-Control-Request-Method: fiili istek için kullanılacak HTTP yöntemi.
+- Erişim-Control-Request-Method: Fiili istek için kullanılacak HTTP yöntemi.
 - Access-Control-Request-Headers: İstek üst bilgilerinin bir listesi, *uygulama* gerçek istek üzerinde ayarlanan. (Yeniden, bu tarayıcı ayarlar üst bilgileri içermez.)
 
 Sunucunun isteği izin varsayılarak bir yanıt örneği, şu şekildedir:
@@ -164,6 +164,22 @@ Sunucunun isteği izin varsayılarak bir yanıt örneği, şu şekildedir:
 [!code-console[Main](enabling-cross-origin-requests-in-web-api/samples/sample9.cmd?highlight=6-7)]
 
 Yanıt, izin verilen yöntemleri listeleyen bir erişim-denetim-Allow-Methods üst bilgisi ve isteğe bağlı olarak izin verilen üstbilgileri listeleyen bir Access-Control-izin ver-Headers üstbilgisi içeriyor. Denetim öncesi isteği başarıyla sonuçlanırsa, tarayıcı daha önce açıklandığı gibi gerçek bir istek gönderir.
+
+Uç nokta denetim öncesi OPTIONS istekleri ile test etmek için yaygın olarak kullanılan araçlar (örneğin, [Fiddler](https://www.telerik.com/fiddler) ve [Postman](https://www.getpostman.com/)) varsayılan olarak gerekli seçenekleri üst bilgileri gönderme. Onaylayın `Access-Control-Request-Method` ve `Access-Control-Request-Headers` üstbilgileri, istekle birlikte gönderilir ve Seçenekler üst bilgileri uygulama IIS üzerinden ulaşın.
+
+IIS almak ve seçeneği isteklerini işlemek bir ASP.NET uygulaması izin verecek şekilde yapılandırmak için aşağıdaki yapılandırma uygulamanın ekleme *web.config* dosyası `<system.webServer><handlers>` bölümü:
+
+```xml
+<system.webServer>
+  <handlers>
+    <remove name="ExtensionlessUrlHandler-Integrated-4.0" />
+    <remove name="OPTIONSVerbHandler" />
+    <add name="ExtensionlessUrlHandler-Integrated-4.0" path="*." verb="*" type="System.Web.Handlers.TransferRequestHandler" preCondition="integratedMode,runtimeVersionv4.0" />
+  </handlers>
+</system.webServer>
+```
+
+Kaldırılmasını `OPTIONSVerbHandler` IIS OPTIONS istekleri işleme öğesinden engeller. Adlandırılan `ExtensionlessUrlHandler-Integrated-4.0` OPTIONS istekleri varsayılan modülün kaydını yalnızca GET, HEAD, POST ve hata ayıklama isteği uzantısız URL'lerle izin verdiğinden, uygulamanıza ulaşmasına izin verir.
 
 ## <a name="scope-rules-for-enablecors"></a>Kapsam kuralları [EnableCors] için
 
@@ -230,7 +246,7 @@ Varsayılan olarak, tarayıcı tüm yanıt üstbilgilerini uygulamaya kullanıma
 - İçerik Türü
 - Süre sonu
 - Son değiştirilme
-- Pragması
+- Pragma
 
 CORS spec bu çağrıları [basit yanıt üstbilgilerini](https://dvcs.w3.org/hg/cors/raw-file/tip/Overview.html#simple-response-header). Diğer üst bilgileri uygulama için kullanılabilir hale getirmek için ayarlanmış *exposedHeaders* parametresinin **[EnableCors]**.
 

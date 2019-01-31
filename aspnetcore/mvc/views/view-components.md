@@ -3,14 +3,14 @@ title: ASP.NET core'da görünüm bileşenleri
 author: rick-anderson
 description: ASP.NET Core görünümü bileşenlerin nasıl kullanıldığı ve bunları için uygulamaları nasıl ekleyeceğinizi öğrenin.
 ms.author: riande
-ms.date: 12/03/2018
+ms.date: 1/30/2019
 uid: mvc/views/view-components
-ms.openlocfilehash: 31c0d8f2c08eb06633b604c949cadff24ed5cb7e
-ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
+ms.openlocfilehash: d0e528fcf9e20afee98e74fbc09c67b81e123e95
+ms.sourcegitcommit: d22b3c23c45a076c4f394a70b1c8df2fbcdf656d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55236360"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55428401"
 ---
 # <a name="view-components-in-aspnet-core"></a>ASP.NET core'da görünüm bileşenleri
 
@@ -75,9 +75,11 @@ Görünümü bileşen kendi mantığı tanımlayan bir `InvokeAsync` döndüren 
 
 Çalışma zamanı aşağıdaki yollardan görünümünde arar:
 
-* /Pages/bileşenleri / {View bileşen adı} / {View adı}
 * {Denetleyici adı} /Views/ /Components/ {görünümü bileşen adı} / {View adı}
 * / Görünümler/paylaşılan/bileşenleri / {View bileşen adı} / {View adı}
+* / Sayfaları/paylaşılan/bileşenleri / {View bileşen adı} / {View adı}
+
+Arama yolu, denetleyicileri + görünümleri ve Razor sayfaları kullanan projeler için geçerlidir.
 
 Bir görünümü bileşen için varsayılan görünüm adı *varsayılan*, yani dosyasını görüntüle genellikle adlandırılacağını *Default.cshtml*. Görünüm bileşen sonucu oluştururken veya çağırırken farklı görünüm adı belirtebilirsiniz `View` yöntemi.
 
