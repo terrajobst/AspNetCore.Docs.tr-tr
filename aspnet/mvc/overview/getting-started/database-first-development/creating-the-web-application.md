@@ -1,26 +1,26 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/creating-the-web-application
 title: 'Öğretici: Oluşturma veritabanı ilk ASP.NET MVC ile EF için veri modelleri ve Web uygulaması'
-description: Bu makalede bir web uygulaması oluşturma ve veritabanı tablolarınızı dayalı veri modelleri oluşturma odaklanır.
+description: Bu öğreticide web uygulaması oluşturma ve veritabanı tablolarınızı dayalı veri modelleri oluşturma odaklanır.
 author: Rick-Anderson
 ms.author: riande
-ms.date: 01/23/2019
+ms.date: 01/28/2019
 ms.topic: tutorial
 ms.assetid: bc8f2bd5-ff57-4dcd-8418-a5bd517d8953
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/creating-the-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: 095d355866c9ab8fba3759f3e05e2a521992f3d6
-ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
+ms.openlocfilehash: dced55386c3f810e406c5c2b3f0071b45e3b2dbd
+ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54889775"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55236373"
 ---
 # <a name="tutorial-create-the-the-web-application-and-data-models-for-ef-database-first-with-aspnet-mvc"></a>Öğretici: Oluşturma veritabanı ilk ASP.NET MVC ile EF için veri modelleri ve Web uygulaması
 
  MVC, Entity Framework ve ASP.NET iskeleti oluşturma kullanarak mevcut bir veritabanı için bir arabirim sunan bir web uygulaması oluşturabilirsiniz. Bu öğretici serisinde, otomatik olarak kullanıcıların görüntüleme, düzenleme, oluşturma olanak sağlayan bir kod oluşturmak ve bir veritabanı tablosu, bulunan verileri silmek gösterilir. Oluşturulan kod, veritabanı tablosundaki sütunlara karşılık gelir.
 
-Bu makalede bir web uygulaması oluşturma ve veritabanı tablolarınızı dayalı veri modelleri oluşturma odaklanır.
+Bu öğreticide web uygulaması oluşturma ve veritabanı tablolarınızı dayalı veri modelleri oluşturma odaklanır.
 
 Bu öğreticide şunları yaptınız:
 
@@ -102,6 +102,6 @@ Bu öğreticide şunları yaptınız:
 > * ASP.NET web uygulaması oluşturuldu
 > * Model
 
-Nasıl oluşturulacağını öğrenmek için sonraki makaleye ilerleyin veri modellerine göre kod oluşturur.
+Veri modellerine göre kod oluşturmak nasıl oluşturulacağını öğrenmek için sonraki öğreticiye ilerleyin.
 > [!div class="nextstepaction"]
 > [Görünüm oluşturma](generating-views.md)

@@ -4,31 +4,30 @@ title: Web API 2 Entity Framework 6 ile kullanma | Microsoft Docs
 author: MikeWasson
 description: Bu öğreticide arka ucu ASP.NET Web API'si ile bir web uygulaması oluşturma hakkındaki temel bilgileri sağlanır. Öğretici, verileri yerleşim için Entity Framework 6 kullanır...
 ms.author: riande
-ms.date: 05/28/2015
+ms.date: 01/17/2019
 ms.assetid: e879487e-dbcd-4b33-b092-d67c37ae768c
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-1
 msc.type: authoredcontent
-ms.openlocfilehash: d65c0ea35ec766ef9d9093c6502230f9de72a3f3
-ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
+ms.openlocfilehash: 266c808e3525787181038d2de473194989039e02
+ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48795220"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55236529"
 ---
-<a name="using-web-api-2-with-entity-framework-6"></a>Web API 2 Entity Framework 6 ile kullanma
+<a name="using-web-api-2-with-entity-framework-6"></a>Web API 2’yi Entity Framework 6 ile Kullanma
 ====================
-tarafından [Mike Wasson](https://github.com/MikeWasson)
 
 [Projeyi yükle](https://github.com/MikeWasson/BookService)
 
-> Bu öğreticide arka ucu ASP.NET Web API'si ile bir web uygulaması oluşturma hakkındaki temel bilgileri sağlanır. Öğretici, istemci tarafı JavaScript uygulaması için Entity Framework 6 veri katmanı ve Knockout.js için kullanır. Öğreticide ayrıca uygulamasını Azure App Service Web Apps'e dağıtma gösterilmektedir.
+> Bu öğreticide bir ASP.NET Web API ile bir web uygulaması oluşturma hakkındaki temel bilgileri arka ucu öğretir. Öğretici, istemci tarafı JavaScript uygulaması için Entity Framework 6 veri katmanı ve Knockout.js için kullanır. Öğreticide ayrıca uygulamasını Azure App Service Web Apps'e dağıtma gösterilmektedir.
 >
 > ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
 >
 > - Web API 2.1
-> - Visual Studio 2013 (Visual Studio 2017'yi indirin [burada](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017))
+> - Visual Studio 2017 (Visual Studio 2017'yi indirin [burada](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017))
 > - Entity Framework 6
-> - .NET 4.5
+> - .NET 4.7
 > - [Knockout.js](http://knockoutjs.com/) 3.1
 
 Bu öğreticide, bir arka uç veritabanı işleyen bir web uygulaması oluşturmak için Entity Framework 6 ile ASP.NET Web API 2 kullanılır. Oluşturacağınız uygulama ekran görüntüsü aşağıda verilmiştir.
@@ -48,7 +47,7 @@ Bu uygulama için temel yapı taşları şunlardır:
 
 ## <a name="see-this-app-running-on-azure"></a>Azure üzerinde çalışan bu uygulamayı bakın
 
-Canlı web uygulaması olarak çalışan tamamlanmış site görmek ister misiniz? Aşağıdaki düğmeye tıklayarak Azure hesabınızda bir tam sürümü uygulama dağıtabilirsiniz.
+Canlı web uygulaması olarak çalışan tamamlanmış site görmek ister misiniz? Aşağıdaki düğmesini seçerek Azure hesabınızda bir tam sürümü uygulama dağıtabilirsiniz.
 
 [![](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/?WT.mc_id=deploy_azure_aspnet&repository=https://github.com/tfitzmac/BookService)
 
@@ -57,31 +56,49 @@ Bu çözüm, Azure'a dağıtmak için bir Azure hesabına ihtiyacınız var. Bir
 - [Ücretsiz bir Azure hesabı açabilirsiniz](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604) -KREDİLERİ edinin, ücretli Azure hizmetlerini denemek için kullanabileceğiniz ve hatta kullanıldıktan sonra en fazla hesabı tutabilir ve ücretsiz Azure hizmetlerini kullanabilirsiniz.
 - [MSDN abone Avantajlarınızı etkinleştirebilir](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604) -MSDN aboneliğiniz size kredi verir, ücretli Azure hizmetlerinizi kullanabildiğiniz her ay.
 
-## <a name="create-the-project"></a>Proje oluşturma
+## <a name="create-the-project"></a>Projeyi oluşturma
 
 Visual Studio'yu açın. Gelen **dosya** menüsünde **yeni**, ardından **proje**. (Veya **yeni proje** başlangıç sayfasında.)
 
-İçinde **yeni proje** iletişim kutusunda, tıklayın **Web** sol bölmede ve **ASP.NET Web uygulaması** orta bölmesinde. BookService Projeyi adlandırın ve tıklayın **Tamam**.
+İçinde **yeni proje** iletişim kutusunda **Web** sol bölmede ve **ASP.NET Web uygulaması (.NET Framework)** orta bölmesinde. Projeyi adlandırın **BookService** seçip **Tamam**.
 
-[![](part-1/_static/image4.png)](part-1/_static/image3.png)
+[![](part-1/_static/image11.png)](part-1/_static/image11.png)
 
 İçinde **yeni ASP.NET projesi** iletişim kutusunda **Web API** şablonu.
 
-[![](part-1/_static/image6.png)](part-1/_static/image5.png)
+[![](part-1/_static/image12.png)](part-1/_static/image12.png)
 
-Projeye bir Azure App Service'te barındırmak istediğiniz tutulacaksa **bulutta Barındır** kutusunu işaretli.
 
-Tıklayın **Tamam** projeyi oluşturmak için.
+Seçin **Tamam** projeyi oluşturmak için.
 
 ## <a name="configure-azure-settings-optional"></a>(İsteğe bağlı) Azure ayarlarını yapılandırma
 
-Bırakılırsa **buluttaki konak** seçeneğinin işaretli, Visual Studio, Microsoft Azure'da oturum açmanızı ister
+Projeyi oluşturduktan sonra Azure App Service Web Apps için herhangi bir zamanda dağıtmayı tercih edebilirsiniz. 
 
-[![](part-1/_static/image8.png)](part-1/_static/image7.png)
+1. Çözüm Gezgini'nde seçin ve proje üzerinde sağ **Yayımla**.
 
-Azure'da oturum açtıktan sonra Visual Studio web uygulamasını yapılandırmak isteyip istemediğinizi sorar. Site için bir ad girin, Azure aboneliğinizi seçin ve bir coğrafi bölge seçin. Altında **veritabanı sunucusu**seçin **yeni sunucu oluştur**. Bir yönetici kullanıcı adı ve parola girin.
+2. Açılan pencerede seçin **Başlat**. **Yayımlama hedefi seçin** iletişim kutusu görüntülenir.
 
-[![](part-1/_static/image10.png)](part-1/_static/image9.png)
+   [![](part-1/_static/image14.png)](part-1/_static/image14.png)
+
+3. Seçin **profili oluşturma**. **App Service Oluştur** iletişim kutusu görüntülenir.
+
+   [![](part-1/_static/image15.png)](part-1/_static/image15.png)
+
+   Varsayılanları kabul edin veya ilgili uygulama adı, kaynak grubu, barındırma planı, Azure aboneliği ve coğrafi bölge için farklı değerler girebilirsiniz. 
+
+4. Seçin **SQL veritabanı oluşturma**. **SQL Server'ı Yapılandır** iletişim kutusu görüntülenir. 
+
+   [![](part-1/_static/image16.png)](part-1/_static/image16.png)
+
+   Varsayılanları kabul edin veya farklı değerler girebilirsiniz. Girin bir **Yöneticisi kullanıcı adı** ve **yönetici parolası** yeni veritabanınız için. Seçin **Tamam** bitirdiğinizde. **App Service Oluştur** sayfası yeniden görüntülenir.
+
+5. Seçin **Oluştur** profilinizi oluşturmak için. Sağ alt köşedeki dağıtımın devam ettiğini belirten bir ileti görüntülenir. Kısa bir süre sonra **Yayımla** penceresi görüntülenir.
+
+    [![](part-1/_static/image17.png)](part-1/_static/image17.png)
+   
+    Uygulamayı dağıtmak için oluşturduğunuz profili artık kullanılabilir. 
+
 
 > [!div class="step-by-step"]
 > [Next](part-2.md)

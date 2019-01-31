@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/13/2018
 uid: web-api/advanced/conventions
-ms.openlocfilehash: 892fb8898c78a1645c766544715a8256462207c6
-ms.sourcegitcommit: ec71fd5a988f927ae301813aae5ff764feb3bb6a
+ms.openlocfilehash: 5ae96b213a19464045e1d0b1a76f8eb81089dc5b
+ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54249392"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55236347"
 ---
 # <a name="use-web-api-conventions"></a>Web API kuralları kullanma
 
@@ -58,7 +58,7 @@ Daha fazla bilgi için `[ProducesDefaultResponseType]`, bkz: [varsayılan yanıt
 
     [!code-csharp[](conventions/sample/Controllers/ContactsConventionController.cs?name=snippet_ApiConventionTypeAttribute&highlight=2)]
 
-1. `Microsoft.AspNetCore.Mvc.ApiConventionTypeAttribute` bir derlemeye uygulanan &mdash; belirtilen kural türü geçerli derlemedeki tüm denetleyicileri için geçerlidir. Bir öneri olarak, derleme düzeyinde öznitelikler için geçerli `Startup` sınıfı.
+1. `Microsoft.AspNetCore.Mvc.ApiConventionTypeAttribute` bir derlemeye uygulanan &mdash; belirtilen kural türü geçerli derlemedeki tüm denetleyicileri için geçerlidir. Bir öneri, derleme düzeyinde öznitelikler uygulamak *Startup.cs* dosya.
 
     Aşağıdaki örnekte, varsayılan kuralları kümesi derlemedeki tüm denetleyicileri uygulanır:
 

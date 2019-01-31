@@ -8,14 +8,14 @@ ms.date: 08/15/2012
 ms.assetid: c7e4e1ab-4932-4614-9f53-aaf7c706d498
 msc.legacyurl: /mvc/overview/views/using-page-inspector-in-aspnet-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: c465b0bac9af90a892d6e62a327ba36977d08d4a
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 0dea8b077878139a3f513cb51447b86a93fe55b8
+ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41755625"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55236542"
 ---
-<a name="using-page-inspector-in-aspnet-mvc"></a>ASP.NET MVC'de sayfa denetçisini kullanma
+<a name="using-page-inspector-in-aspnet-mvc"></a>ASP.NET MVC'de Sayfa Denetçisini Kullanma
 ====================
 Tim Ammann tarafından
 
@@ -27,7 +27,7 @@ Tim Ammann tarafından
 > 
 > Öğretici aşağıdaki bölümleri içerir:
 > 
-> - [Önkoşulları](#_1_prerequisites)
+> - [Önkoşullar](#_1_prerequisites)
 > - [Bir Web uygulaması oluşturun](#_2_creating_a)
 > - [Görünüme Gözat sayfa denetçisini kullanma](#_3_using_page)
 > - [İnceleme modu etkinleştir](#_4_inspection_mode)
@@ -81,7 +81,7 @@ Visual Studio 2012'de, projenizde select herhangi bir görünümü sağ tıklaya
 
 ![Sayfa Denetçisi'nde Index.cshtml görüntüleyin](using-page-inspector-in-aspnet-mvc/_static/image8.png)
 
-Varsayılan olarak, Page Inspector, Visual Studio ortamını sol tarafında bir pencere olarak sabitlenmiştir. Tercih ederseniz, başka bir yerde sabitlemek veya pencere çıkar. Bkz: [nasıl yapılır: pencereleri düzenleme ve yerleştirme Windows](https://msdn.microsoft.com/library/z4y0hsax.aspx).
+Varsayılan olarak, Page Inspector, Visual Studio ortamını sol tarafında bir pencere olarak sabitlenmiştir. Tercih ederseniz, başka bir yerde sabitlemek veya pencere çıkar. Bkz: [nasıl yapılır: Pencereleri düzenleme ve yerleştirme Windows](https://msdn.microsoft.com/library/z4y0hsax.aspx).
 
 Sayfa denetçisi pencerenin en üst bölmesi, geçerli sayfada bir tarayıcı penceresinde gösterilir. Alt bölme sayfası, sayfayı farklı yönlerini incelemenize olanak bazı sekmeler yanı sıra HTML biçimlendirmesi olarak gösterir. Alt bölme benzer [F12 Geliştirici araçlarıyla](https://msdn.microsoft.com/ie/aa740478) Internet Explorer'da.
 
@@ -174,7 +174,7 @@ Yeniden onay kutusunu işaretleyin, sonra özellik değerini çift tıklatın ve
 **Stilleri** kendisini sayfa kolayca test edin ve CSS Önizleme değiştirirse stil ve değişiklikleri göndermeden önce penceresi yapar.
 
 <a id="css_auto_sync"></a>
-## <a name="css-auto-sync"></a>CSS otomatik eşitleme
+## <a name="css-auto-sync"></a>CSS Auto Sync
 
 > [!NOTE]
 > Bu özellik, sayfa denetçisi 1.3 sürümünü gerektirir.

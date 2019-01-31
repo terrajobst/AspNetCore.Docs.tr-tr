@@ -4,35 +4,32 @@ title: Hesap onaylama ve parola kurtarma ASP.NET Identity (C#) ile | Microsoft D
 author: HaoK
 description: Önce tamamlamanız gereken Bu öğreticiyi gerçekleştirmeden önce oturum açma, e-posta onayı ve parola sıfırlama ile güvenli bir ASP.NET MVC 5 web uygulaması oluşturun. Bu öğreticide...
 ms.author: riande
-ms.date: 03/26/2015
+ms.date: 01/23/2019
 ms.assetid: 8d54180d-f826-4df7-b503-7debf5ed9fb3
 msc.legacyurl: /identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 84f35cfc0f0e0f1c268e0e9c18fd47aa68deb7d1
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 47dc2c1044a5964624ba2f8af4f174a2fd99d3e8
+ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48577840"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55236412"
 ---
-<a name="account-confirmation-and-password-recovery-with-aspnet-identity-c"></a>Hesap onaylama ve parola kurtarma ile ASP.NET Identity (C#)
-====================
-tarafından [Hao Kung](https://github.com/HaoK), [Pranav Rastogi'nin](https://github.com/rustd), [Rick Anderson]((https://twitter.com/RickAndMSFT)), [Suhas Joshi](https://github.com/suhasj)
+# <a name="account-confirmation-and-password-recovery-with-aspnet-identity-c"></a>Hesap onaylama ve parola kurtarma ASP.NET Identity ile (C#)
 
-> Önce tamamlamanız gereken Bu öğreticiyi tamamlamadan önce [oturum açma, e-posta onayı ve parola sıfırlama ile güvenli bir ASP.NET MVC 5 web uygulaması oluşturma](../../../mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md). Bu öğretici, daha fazla ayrıntı içerir ve e-posta için yerel hesap onaylama ve ASP.NET ıdentity'de Unutulan parolalarını sıfırlamasına izin yapmayı gösterir. Bu makale Rick Anderson tarafından yazılmış ([@RickAndMSFT](https://twitter.com/#!/RickAndMSFT)), Pranav Rastogi'nin ([@rustd](https://twitter.com/rustd)), Hao Kung ve Suhas Joshi. NuGet örnek öncelikle Hao Kung tarafından yazılmıştır.
-
+> Önce tamamlamanız gereken Bu öğreticiyi tamamlamadan önce [oturum açma, e-posta onayı ve parola sıfırlama ile güvenli bir ASP.NET MVC 5 web uygulaması oluşturma](../../../mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md). Bu öğretici, daha fazla ayrıntı içerir ve e-posta için yerel hesap onaylama ve ASP.NET ıdentity'de Unutulan parolalarını sıfırlamasına izin yapmayı gösterir.
 
 Kullanıcı hesabı için bir parola oluşturmak bir yerel kullanıcı hesabı gerektirir ve bu parola web uygulamasında (güvenli) depolanır. ASP.NET Identity, kullanıcının uygulama için bir parola oluşturması gerektirmeyen sosyal medya hesaplarını da destekler. [Sosyal medya hesaplarını](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) kullanıcıların kimliğini doğrulamak için bir üçüncü taraf (örneğin, Google, Twitter, Facebook veya Microsoft) kullanın. Bu konu başlığı altında aşağıdakileri içerir:
 
 - [Bir ASP.NET MVC uygulaması oluşturma](#createMvc) ve ASP.NET Identity özelliklerini keşfedin.
-- [Kimliği örneği oluşturma](#build)
+- [Derleme kimliği örneği](#build)
 - [E-posta onayı ayarlama](#email)
 
 Yeni kullanıcılar yerel bir hesap oluşturur, e-posta diğer kaydedin.
 
 ![](account-confirmation-and-password-recovery-with-aspnet-identity/_static/image1.png)
 
-Kaydet düğmesine tıklayarak bir e-posta adresi doğrulama belirteci içeren bir onay e-posta gönderir.
+Kayıt düğmesini seçerek bir e-posta adresi doğrulama belirteci içeren bir onay e-posta gönderir.
 
 ![](account-confirmation-and-password-recovery-with-aspnet-identity/_static/image2.png)
 
@@ -40,7 +37,7 @@ Kullanıcı, kendi hesabı için bir onay belirteci ile bir e-posta gönderilir.
 
 ![](account-confirmation-and-password-recovery-with-aspnet-identity/_static/image3.png)
 
-Bağlantıya tıklamak, hesap onaylar.
+Bağlantıyı seçerek hesap onaylar.
 
 ![](account-confirmation-and-password-recovery-with-aspnet-identity/_static/image4.png)
 
@@ -55,33 +52,30 @@ Kendi parolanızı unutursanız yerel kullanıcılar, bunları kullanıcının p
 Kullanıcı, yakında kullanıcının parolasını sıfırlamak için bir bağlantı ile bir e-posta alırsınız.  
   
 ![](account-confirmation-and-password-recovery-with-aspnet-identity/_static/image6.png)  
-Bağlantıya tıklayarak bunları sıfırlama sayfasına gideceksiniz.  
+Bağlantıyı seçerek bunları sıfırlama sayfasına gideceksiniz.  
   
 ![](account-confirmation-and-password-recovery-with-aspnet-identity/_static/image7.png)  
   
-Tıklayarak **sıfırlama** düğmesi, parola sıfırlama olmadığını onaylayın.  
+Seçme **sıfırlama** düğmesi, parola sıfırlama olmadığını onaylayın.  
   
 ![](account-confirmation-and-password-recovery-with-aspnet-identity/_static/image8.png)
 
 <a id="createMvc"></a>
 
-## <a name="create-an-aspnet-web-app"></a>Bir ASP.NET Web uygulaması oluşturma
+## <a name="create-an-aspnet-web-app"></a>ASP.NET web uygulaması oluşturma
 
-Yükleme ve çalıştırmaya başlayın [Visual Studio Express 2013 Web](https://go.microsoft.com/fwlink/?LinkId=299058) veya [Visual Studio 2013](https://go.microsoft.com/fwlink/?LinkId=306566). Visual Studio yükleme [2013 güncelleştirmesi 2](https://go.microsoft.com/fwlink/?LinkId=390521) veya üzeri.
-
-> [!NOTE]
-> Uyarı: Visual Studio yüklemeniz gerekir [2013 güncelleştirmesi 2](https://go.microsoft.com/fwlink/?LinkId=390521) Bu öğreticiyi tamamlamak için.
+Yükleme ve çalıştırmaya başlayın [Visual Studio 2017](https://visualstudio.microsoft.com/).
 
 
-1. Yeni ASP.NET Web projesi oluşturun ve MVC şablonu seçin. Web Forms da destekler ASP.NET Identity şekilde bir web forms uygulaması benzer adımları izleyebilirsiniz.
-2. Varsayılan kimlik doğrulaması olarak bırakın **bireysel kullanıcı hesapları**.
-3. Uygulamayı çalıştırın, tıklayın **kaydetme** bağlamak ve bir kullanıcı kaydı. Yalnızca e-posta doğrulamasını bu noktada, olan [[EmailAddress]](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.emailaddressattribute(v=vs.110).aspx) özniteliği.
-4. Sunucu Gezgini'nde gidin **veri Connections\DefaultConnection\Tables\AspNetUsers**sağ tıklayın ve seçin **tablo tanımını açın**.
+1. Yeni ASP.NET Web projesi oluşturun ve MVC şablonu seçin. Bir web forms uygulaması benzer adımları izleyebilirsiniz. Bu nedenle web Forms, ASP.NET Identity da destekler.
+2. Kimlik doğrulaması için değiştirmeniz **bireysel kullanıcı hesapları**.
+3. Uygulamayı çalıştırın, seçin **kaydetme** bağlamak ve bir kullanıcı kaydı. Yalnızca e-posta doğrulamasını bu noktada, olan [[EmailAddress]](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.emailaddressattribute(v=vs.110).aspx) özniteliği.
+4. Sunucu Gezgini'nde gidin **veri Connections\DefaultConnection\Tables\AspNetUsers**seçin ve sağ tıklatıp **tablo tanımını açın**.
 
     Aşağıdaki görüntüde `AspNetUsers` şema:
 
     ![](account-confirmation-and-password-recovery-with-aspnet-identity/_static/image9.png)
-5. Sağ tıklayın **AspNetUsers** tablosunu seçip **tablo verilerini Göster**.  
+5. Sağ **AspNetUsers** tablosunu seçip **tablo verilerini Göster**.  
   
     ![](account-confirmation-and-password-recovery-with-aspnet-identity/_static/image10.png)  
   
@@ -97,7 +91,7 @@ Tanımlama bilgisi Ara her istekte tanımlama bilgisi denetler. `SecurityStampVa
 
 Kod açıklamaları başına `UseCookieAuthentication` yöntemi tanımlama bilgisi kimlik doğrulamasını destekler. `SecurityStamp` Alan ve ilişkili kod ek bir koruma katmanı sağlar, parola değiştirdiğinizde, uygulamanıza güvenlik, oturumunuz ile tarayıcı dışında günlüğe kaydedilir. `SecurityStampValidator.OnValidateIdentity` , Parola değiştirdiğinizde veya dış oturum kullandığınızda kullanılan uygulama kullanıcı oturum açtığında güvenlik belirteci doğrulamak yöntem sağlar. Bu, eski parola ile oluşturulan tüm belirteçleri (tanımlama) geçersiz emin olmak için gereklidir. Örnek Proje değiştirirseniz kullanıcı için kullanıcı parolalarının sonra yeni bir belirteç oluşturulur, önceki tarafından istenen belirteçleri geçersiz kılınır ve `SecurityStamp` alan güncelleştirilir.
 
-Kimlik sistemi izin Uygulamanızı yapılandırmak için bunu kullanıcılar güvenlik profil değiştiğinde (örneğin, kullanıcı parolalarını veya değişiklikleri değiştiğinde giriş ilişkili (Facebook, Google'nın gelenler gibi Microsoft hesabı, vb.), tüm kullanıcı oturum Tarayıcı örnekleri. Örneğin, görüntüyü aşağıda gösterildiği [çoklu oturum kapatma örnek](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/SingleSignOutSample/readme.txt) tüm tarayıcı örnekleri (Bu durumda, IE, Firefox ve Chrome) dışında bir düğmeye tıklayarak oturum açmasını sağlayan uygulama. Alternatif olarak, örnek bir belirli bir tarayıcı örneğinde dışında yalnızca oturum sağlar.
+Kimlik sistemi izin Uygulamanızı yapılandırmak için bunu kullanıcılar güvenlik profil değiştiğinde (örneğin, kullanıcı parolalarını veya değişiklikleri değiştiğinde giriş ilişkili (Facebook, Google'nın gelenler gibi Microsoft hesabı, vb.), tüm kullanıcı oturum Tarayıcı örnekleri. Örneğin, görüntüyü aşağıda gösterildiği [çoklu oturum kapatma örnek](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/SingleSignOutSample/readme.txt) tüm tarayıcı örnekleri (Bu durumda, IE, Firefox ve Chrome) dışında bir düğmeyi seçerek oturum açmasını sağlayan uygulama. Alternatif olarak, örnek bir belirli bir tarayıcı örneğinde dışında yalnızca oturum sağlar.
 
 ![](account-confirmation-and-password-recovery-with-aspnet-identity/_static/image11.png)
 
@@ -138,25 +132,25 @@ OWIN `AuthenticationManager.SignIn` yöntemi de geçer `ClaimsIdentity` ve kulla
 
 ## <a name="email-confirmation"></a>E-posta onayı
 
-Bunlar değil kimliğe bürünerek başka birisi doğrulamak için ile yeni bir kullanıcı kaydı e-postayı onaylamak için iyi bir fikirdir (diğer bir deyişle, bunlar başka birinin e-posta ile kayıtlı olmayabilirsiniz). Tartışma Forumu tablonuz olduğunu varsayın engellemek istiyorsunuz `"bob@example.com"` olarak kaydetme gelen `"joe@contoso.com"`. E-posta onayı olmadan `"joe@contoso.com"` uygulamanızdan istenmeyen e-posta alabilir. Bob yanlışlıkla kayıtlı varsayalım `"bib@example.com"` ve bunu fark yüklediniz o uygulamayı doğru e-postasını olmadığı için parola kurtarma kullanın saptayamazdınız. E-posta onayı robotlar yalnızca sınırlı koruma sağlar ve belirlenen istenmeyen posta gönderenlere koruma sağlamaz, sahip oldukları çok sayıda çalışan e-posta diğer adlar kaydetmek için kullanabilirsiniz. Aşağıdaki örnekte, kullanıcı hesabını onaylanana kadar parola değiştirmesi mümkün olmayacaktır (bunları tarafından alınan bir onay bağlantısına tıklayarak kayıtlı ile e-posta hesabı.) Diğer senaryolarda, örneğin onaylamak ve profillerini vb. değiştirdikten sonra kullanıcı bir e-posta gönderme Yöneticisi tarafından oluşturulan yeni hesapları parola sıfırlama için bağlantı gönderme, bu iş akışı uygulayabilirsiniz. Genellikle, yeni kullanıcıların e-posta, SMS mesajı ya da başka bir mekanizma onaylanmıştır önce web sitenizi herhangi bir veri gönderme engellemek istiyorsunuz. <a id="build"></a>
+Bunlar değil kimliğe bürünerek başka birisi doğrulamak için ile yeni bir kullanıcı kaydı e-postayı onaylamak için iyi bir fikirdir (diğer bir deyişle, bunlar başka birinin e-posta ile kayıtlı olmayabilirsiniz). Tartışma Forumu tablonuz olduğunu varsayın engellemek istiyorsunuz `"bob@example.com"` olarak kaydetme gelen `"joe@contoso.com"`. E-posta onayı olmadan `"joe@contoso.com"` uygulamanızdan istenmeyen e-posta alabilir. Bob yanlışlıkla kayıtlı varsayalım `"bib@example.com"` ve bunu fark yüklediniz o uygulamayı doğru e-postasını olmadığı için parola kurtarma kullanın saptayamazdınız. E-posta onayı robotlar yalnızca sınırlı koruma sağlar ve belirlenen istenmeyen posta gönderenlere koruma sağlamaz, sahip oldukları çok sayıda çalışan e-posta diğer adlar kaydetmek için kullanabilirsiniz. Aşağıdaki örnekte, kullanıcı hesabını (göre bunları ile kayıtlı e-posta hesabı alınan bir onay bağlantısını seçerek.) onaylanana kadar parola değiştirmesi mümkün olmayacaktır Diğer senaryolarda, örneğin onaylamak ve profillerini vb. değiştirdikten sonra kullanıcı bir e-posta gönderme Yöneticisi tarafından oluşturulan yeni hesapları parola sıfırlama için bağlantı gönderme, bu iş akışı uygulayabilirsiniz. Genellikle, yeni kullanıcıların e-posta, SMS mesajı ya da başka bir mekanizma onaylanmıştır önce web sitenizi herhangi bir veri gönderme engellemek istiyorsunuz. <a id="build"></a>
 
-## <a name="building-a-more-complete-sample"></a>Daha eksiksiz bir örnek oluşturma
+## <a name="build-a-more-complete-sample"></a>Daha eksiksiz bir örnek oluşturun
 
 Bu bölümde, NuGet ile çalışacağız daha eksiksiz bir örnek yüklemek için kullanacaksınız.
 
 1. Yeni bir ***boş*** ASP.NET Web projesi.
-2. Paket Yöneticisi Konsolu'nda aşağıdaki girin aşağıdaki komutları: 
+2. Paket Yöneticisi konsolunda, aşağıdaki komutları girin: 
 
     [!code-console[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample4.cmd)]
 
    Bu öğreticide, kullanacağız [SendGrid](http://sendgrid.com/) e-posta göndermek için. `Identity.Samples` Çalışmalarımız ile kod paketi yükler.
 3. Ayarlama [SSL kullanmak üzere proje](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md).
-4. Yerel hesap oluşturma tıklayarak uygulamayı çalıştırarak test **kaydetme** bağlantısını ve kayıt form gönderme.
-5. E-posta onayı benzetim tanıtım e-posta bağlantısına tıklayın.
+4. Yerel hesap oluşturma, uygulamayı çalıştırarak test seçerek **kaydetme** bağlantısını ve kayıt form gönderme.
+5. E-posta onayı benzetim tanıtım e-posta bağlantısını seçin.
 6. Tanıtım e-posta bağlantısı onay kodu örnekten Kaldır ( `ViewBag.Link` kodunda hesap denetleyicisi. Bkz: `DisplayEmail` ve `ForgotPasswordConfirmation` eylem yöntemleri ve razor görünümleri).
 
-> [!NOTE]
-> Uyarı: Bu örnekte güvenlik ayarlarından herhangi birini değiştirirseniz, üretim uygulamaları yapılan değişiklikleri açıkça çağıran bir güvenlik denetimi geçmeleri gerekir.
+> [!WARNING]
+> Bu örnekte güvenlik ayarlarından herhangi birini değiştirirseniz, üretim uygulamaları yapılan değişiklikleri açıkça çağıran bir güvenlik denetimi geçmeleri gerekir.
 
 
 ## <a name="examine-the-code-in-appstartidentityconfigcs"></a>Uygulama kodu inceleyin\_Start\IdentityConfig.cs
@@ -176,7 +170,7 @@ Yerel hesap olarak bir kullanıcı kayıt olurkenki `HTTP Post Register` yöntem
 
 [!code-csharp[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample6.cs)]
 
-Yukarıdaki kod, e-posta ve girilen parolayı kullanarak yeni bir kullanıcı hesabı oluşturmak için model verileri kullanır. E-posta diğer veri deposunda ise, hesap oluşturma başarısız olur ve formu yeniden görüntülenir. `GenerateEmailConfirmationTokenAsync` Yöntemi güvenli onay belirteci oluşturur ve ASP.NET Identity veri deposunda saklar. [Url.Action](https://msdn.microsoft.com/library/dd505232(v=vs.118).aspx) yöntemi oluşturur bağlantısı içeren `UserId` ve onay simgesi. Bu bağlantının ardından kullanıcıya e-posta ile, kullanıcı hesabını onaylamak için kendi e-posta uygulaması bağlantıya tıklayabilirsiniz.
+Yukarıdaki kod, e-posta ve girilen parolayı kullanarak yeni bir kullanıcı hesabı oluşturmak için model verileri kullanır. E-posta diğer veri deposunda ise, hesap oluşturma başarısız olur ve formu yeniden görüntülenir. `GenerateEmailConfirmationTokenAsync` Yöntemi güvenli onay belirteci oluşturur ve ASP.NET Identity veri deposunda saklar. [Url.Action](https://msdn.microsoft.com/library/dd505232(v=vs.118).aspx) yöntemi oluşturur bağlantısı içeren `UserId` ve onay simgesi. Bu bağlantının ardından kullanıcıya e-posta ile, kullanıcı hesabını onaylamak için kendi e-posta uygulaması bağlantıya seçebilirsiniz.
 
 <a id="email"></a>
 
@@ -198,9 +192,9 @@ Aşağıdaki kodu kullanarak e-posta göndermek nasıl gösterir [MailMessage](h
 > Güvenlik - hiçbir zaman deposu hassas verileri, kaynak kodunuzdaki. Kimlik ve hesap appSetting içinde depolanır. Azure üzerinde güvenli bir şekilde bu değerleri üzerinde depolamanın **[yapılandırma](https://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx)** Azure portalında sekmesi. Bkz: [parolalar ve diğer hassas verileri ASP.NET ve Azure'a dağıtmak için en iyi yöntemler](best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md).
 
 
-SendGrid kimlik bilgilerinizi girin, uygulamayı çalıştırın, bir e-posta takma ad ile kayıt e-postanıza onaylayın bağlantısına tıklayabilirsiniz. İle bunun nasıl yapılacağını görmek için [Outlook.com](http://outlook.com) hesabı e-posta, John Atten'ın bkz [Outlook.Com SMTP konağı için SMTP yapılandırması C#](http://typecastexception.com/post/2013/12/20/C-SMTP-Configuration-for-OutlookCom-SMTP-Host.aspx) ve parolasını[ASP.NET Identity 2.0: Hesap doğrulama ayarı ve iki Faktörlü yetkilendirmeyi](http://typecastexception.com/post/2014/04/20/ASPNET-Identity-20-Setting-Up-Account-Validation-and-Two-Factor-Authorization.aspx) gönderir.
+SendGrid kimlik bilgilerinizi girin, uygulamayı çalıştırın, e-postanızda bir e-posta diğer kaydı Onayla bağlantı seçebilirsiniz. İle bunun nasıl yapılacağını görmek için [Outlook.com](http://outlook.com) hesabı e-posta, John Atten'ın bkz [ C# Outlook.Com SMTP konağı için SMTP Yapılandırması](http://typecastexception.com/post/2013/12/20/C-SMTP-Configuration-for-OutlookCom-SMTP-Host.aspx) ve parolasını[ASP.NET Identity 2.0: Hesap doğrulama ayarı ve iki Faktörlü yetkilendirmeyi](http://typecastexception.com/post/2014/04/20/ASPNET-Identity-20-Setting-Up-Account-Validation-and-Two-Factor-Authorization.aspx) gönderir.
 
-Kullanıcı bir kez **kaydetme** düğmesi için kendi e-posta adresi doğrulama belirteci içeren bir onay e-posta gönderilir.
+Bir kullanıcı seçtikten sonra **kaydetme** düğmesi için kendi e-posta adresi doğrulama belirteci içeren bir onay e-posta gönderilir.
 
 ![](account-confirmation-and-password-recovery-with-aspnet-identity/_static/image12.png)
 
@@ -210,13 +204,13 @@ Kullanıcı, kendi hesabı için bir onay belirteci ile bir e-posta gönderilir.
 
 ## <a name="examine-the-code"></a>Kod İnceleme
 
-Aşağıdaki kodda gösterildiği `POST ForgotPassword` yöntemi.
+Aşağıdaki kodda `POST ForgotPassword` metodu gösterilmektedir.
 
 [!code-csharp[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample9.cs)]
 
 Kullanıcı e-posta onaylanmamıştır yöntemi sessizce başarısız olur. Bir hata için bir geçersiz e-posta adresi gönderildi, kötü amaçlı kullanıcıların saldırmak için geçerli kullanıcı (e-posta takma adlardır) bulmak için bu bilgileri kullanabilirsiniz.
 
-Aşağıdaki kodda gösterildiği `ConfirmEmail` kullanıcı kendilerine gönderilen e-posta onayı bağlantıya tıkladığında çağrılır hesap denetleyicideki yöntemi:
+Aşağıdaki kodda gösterildiği `ConfirmEmail` kullanıcı kendilerine gönderilen e-postada onay bağlantısını seçtiğinde çağrılır hesap denetleyicideki yöntemi:
 
 [!code-csharp[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample10.cs)]
 
@@ -233,10 +227,10 @@ Aşağıdaki kod, e-posta onayı yöntemi gösterir:
  Uygulamanızı daha güvenli hale getirmek için iki öğeli kimlik doğrulamayı (2FA) ASP.NET Identity destekler. Bkz: [ASP.NET Identity 2.0: Hesap doğrulama ve iki Faktörlü yetkilendirmeyi ayarlama](http://typecastexception.com/post/2014/04/20/ASPNET-Identity-20-Setting-Up-Account-Validation-and-Two-Factor-Authorization.aspx) John Atten tarafından. Hesap kilitleme oturum açma parola denemesi hatalarında ayarlayabilirsiniz olsa da, bu yaklaşım, oturum açma bilgilerinizi getirir [DOS](http://en.wikipedia.org/wiki/Denial-of-service_attack) kilitlemeleri uygulayın. Hesap kilitleme yalnızca 2FA ile kullanmanızı öneririz.  
 <a id="addRes"></a>
 
-## <a name="additional-resources"></a>Ek Kaynaklar
+## <a name="additional-resources"></a>Ek kaynaklar
 
 - [ASP.NET Identity için Özel Depolama Sağlayıcılarına Genel Bakış](../extensibility/overview-of-custom-storage-providers-for-aspnet-identity.md)
 - [Facebook, Twitter, LinkedIn ve Google OAuth2 oturum açma ile MVC 5 uygulaması](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) Ayrıca kullanıcıların tablosuna profil bilgilerini ekleme işlemini gösterir.
-- [ASP.NET MVC ve kimlik 2.0: temellerini anlama](http://typecastexception.com/post/2014/04/20/ASPNET-MVC-and-Identity-20-Understanding-the-Basics.aspx) John Atten tarafından.
+- [ASP.NET MVC ve 2.0 kimlik: Temellerini anlama](http://typecastexception.com/post/2014/04/20/ASPNET-MVC-and-Identity-20-Understanding-the-Basics.aspx) John Atten tarafından.
 - [ASP.NET Identity’ye Giriş](../getting-started/introduction-to-aspnet-identity.md)
 - [ASP.NET kimlik 2.0.0 RTM Duyurusu](https://blogs.msdn.com/b/webdev/archive/2014/03/20/test-announcing-rtm-of-asp-net-identity-2-0-0.aspx) Pranav rastogi'nin.

@@ -5,12 +5,12 @@ description: Ayrıntıları denetleyicisi yöntem hakkında bilgi edinin ve teme
 ms.author: riande
 ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/details
-ms.openlocfilehash: c02a85b7c92a0cfa6125c5033b6cadd965f1662e
-ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
+ms.openlocfilehash: f674ca1761f85ce127121603286c97d5936f6716
+ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53997194"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55236334"
 ---
 # <a name="examine-the-details-and-delete-methods-of-an-aspnet-core-app"></a>Ayrıntılarını inceleyin ve Delete metotlarını bir ASP.NET Core uygulaması
 
@@ -24,7 +24,7 @@ Bu eylem yöntemine oluşturulan MVC yapı iskelesi altyapısı yöntemi çağı
 
 [!code-csharp[](start-mvc/sample/MvcMovie/Startup.cs?highlight=5&name=snippet_1)]
 
-EF kullanarak verileri için arama yapmayı kolaylaştırır `SingleOrDefaultAsync` yöntemi. Yönteme yerleşik bir önemli güvenlik kod arama yöntemi şey denemeden önce bir filmi buldu doğrular özelliğidir. Örneğin, bir bilgisayar korsanının hataları siteye bağlantılardan tarafından oluşturulan URL değiştirerek neden olabilirdi `http://localhost:xxxx/Movies/Details/1` gibi bir şey `http://localhost:xxxx/Movies/Details/12345` (veya gerçek bir film temsil etmez başka bir değer). Null film denetlemedi, uygulama bir özel durumlar oluşturan.
+EF kullanarak verileri için arama yapmayı kolaylaştırır `FirstOrDefaultAsync` yöntemi. Yönteme yerleşik bir önemli güvenlik kod arama yöntemi şey denemeden önce bir filmi buldu doğrular özelliğidir. Örneğin, bir bilgisayar korsanının hataları siteye bağlantılardan tarafından oluşturulan URL değiştirerek neden olabilirdi `http://localhost:xxxx/Movies/Details/1` gibi bir şey `http://localhost:xxxx/Movies/Details/12345` (veya gerçek bir film temsil etmez başka bir değer). Null film denetlemedi, uygulama bir özel durumlar oluşturan.
 
 İnceleme `Delete` ve `DeleteConfirmed` yöntemleri.
 

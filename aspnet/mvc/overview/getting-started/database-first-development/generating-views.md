@@ -1,26 +1,26 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/generating-views
 title: 'Öğretici: Görünümleri EF veritabanı ilk için ile ASP.NET MVC uygulaması oluşturma'
-description: Bu makalede, görünümleri ve denetleyicileri oluşturmak için ASP.NET iskeleti oluşturma kullanmaya odaklanmıştır.
+description: Bu öğreticide, görünümleri ve denetleyicileri oluşturmak için ASP.NET iskeleti oluşturma kullanmaya odaklanmıştır.
 author: Rick-Anderson
 ms.author: riande
-ms.date: 01/23/2019
+ms.date: 01/28/2019
 ms.topic: tutorial
 ms.assetid: 669367cf-8e30-4eb6-821d-10a7d9bb906c
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/generating-views
 msc.type: authoredcontent
-ms.openlocfilehash: e1f6646cdf10d293268b92f44b018709e70c0f86
-ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
+ms.openlocfilehash: 7a56c0f9197a99427bcde6103ebc69d245e8ce63
+ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54889788"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55236425"
 ---
 # <a name="tutorial-generate-views-for-ef-database-first-with-aspnet-mvc-app"></a>Öğretici: Görünümleri EF veritabanı ilk için ile ASP.NET MVC uygulaması oluşturma
 
 MVC, Entity Framework ve ASP.NET iskeleti oluşturma kullanarak mevcut bir veritabanı için bir arabirim sunan bir web uygulaması oluşturabilirsiniz. Bu öğretici serisinde, otomatik olarak kullanıcıların görüntüleme, düzenleme, oluşturma olanak sağlayan bir kod oluşturmak ve bir veritabanı tablosu, bulunan verileri silmek gösterilir. Oluşturulan kod, veritabanı tablosundaki sütunlara karşılık gelir.
 
-Bu makalede, görünümleri ve denetleyicileri oluşturmak için ASP.NET iskeleti oluşturma kullanmaya odaklanmıştır.
+Bu öğreticide, görünümleri ve denetleyicileri oluşturmak için ASP.NET iskeleti oluşturma kullanmaya odaklanmıştır.
 
 Bu öğreticide şunları yaptınız:
 
@@ -101,6 +101,6 @@ Bu öğreticide şunları yaptınız:
 > * Görüntülenen Öğrenci görünümleri
 > * Görüntülenen kayıt görünümleri
 
-Veritabanını değiştirme hakkında bilgi edinmek için sonraki makaleye ilerleyin.
+Veritabanını değiştirme hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.
 > [!div class="nextstepaction"]
 > [Veritabanını değiştirme](changing-the-database.md)

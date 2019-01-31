@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/5/2018
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 87171beb7c214b1370d4d4144a79cb6d2c56098f
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 99b1073fe025ee8693d9fe833402d245f78a603d
+ms.sourcegitcommit: e7276930515216338a33c4a03c0d7a87fc718ffe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52862375"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55293526"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Doğrulama için bir ASP.NET Core Razor sayfası ekleme
 
@@ -140,9 +140,9 @@ Aşağıdaki kod, bir satır birleştirme öznitelikleri gösterir:
 
 ### <a name="publish-to-azure"></a>Azure'a Yayımlama
 
-Azure'a dağıtma hakkında daha fazla bilgi için bkz. [öğretici: azure'da SQL veritabanı ile ASP.NET uygulaması derleme](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase). Bu yönergeler, bir ASP.NET uygulaması için bir ASP.NET Core uygulaması içindir ancak adımlar aynıdır.
+Azure'a dağıtma hakkında daha fazla bilgi için bkz. [Öğreticisi: Azure'da SQL veritabanı ile ASP.NET uygulaması derleme](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase). Bu yönergeler, bir ASP.NET uygulaması için bir ASP.NET Core uygulaması içindir ancak adımlar aynıdır.
 
-Razor sayfaları giriş tamamlamak için teşekkür ederiz. Geri bildirim için teşekkür ederiz. [Razor sayfaları ve EF Core ile çalışmaya başlama](xref:data/ef-rp/intro) olan Bu öğreticide kadar mükemmel bir izleyin.
+Razor sayfaları giriş tamamlamak için teşekkür ederiz. [Razor sayfaları ve EF Core ile çalışmaya başlama](xref:data/ef-rp/intro) olan Bu öğreticide kadar mükemmel bir izleyin.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
@@ -152,4 +152,4 @@ Razor sayfaları giriş tamamlamak için teşekkür ederiz. Geri bildirim için 
 * <xref:mvc/views/tag-helpers/authoring>
 
 > [!div class="step-by-step"]
-> [Önceki: yeni alan ekleme](xref:tutorials/razor-pages/new-field)
+> [Önceki: Yeni alan ekleme](xref:tutorials/razor-pages/new-field)
