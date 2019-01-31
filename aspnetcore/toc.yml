@@ -113,7 +113,7 @@ items:
       - uid: tutorials/razor-pages/validation
         name: Doğrulama ekleme
     - uid: razor-pages/filter
-      name: Filtreler
+      name: FilTReleri
     - uid: razor-pages/ui-class
       name: Razor Sınıf Kitaplıkları
     - uid: razor-pages/razor-pages-conventions
@@ -455,6 +455,8 @@ items:
       name: Genel Bakış
     - uid: tutorials/publish-to-azure-webapp-using-vs
       name: Visual Studio ile yayımlama
+    - name: Mac için Visual Studio ile yayımlama
+      href: /visualstudio/mac/publish-app-svc
     - name: CLI araçları ile yayımlama
       href: /azure/app-service/app-service-web-tutorial-dotnetcore-sqldb
     - uid: host-and-deploy/azure-apps/azure-continuous-deployment
@@ -523,6 +525,8 @@ items:
     name: Web grubunda barındırma
   - uid: host-and-deploy/visual-studio-publish-profiles
     name: Visual Studio yayımlama profilleri
+  - name: Mac için Visual Studio yayımlama klasörü
+    href: /visualstudio/mac/publish-folder
   - uid: host-and-deploy/directory-structure
     name: Dizin yapısı
   - uid: host-and-deploy/health-checks
@@ -539,6 +543,8 @@ items:
       name: İskele Kimliği
     - uid: security/authentication/add-user-data
       name: Özel kullanıcı verilerini Kimlik’e ekleme
+    - uid: security/authentication/samples
+      name: Kimlik doğrulaması örnekleri
     - uid: security/authentication/customize_identity_model
       name: Kimlik Özelleştirme
     - uid: security/authentication/community
@@ -806,9 +812,9 @@ items:
   href: /dotnet/api/?view=aspnetcore-2.1
 - name: Katkıda Bulun
   href: https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md
-ms.openlocfilehash: 4f8ccb592b7f95794cad01edd1e0f514bd9943c1
-ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
+ms.openlocfilehash: a6169489db7d7365e254c8f1213de348a4429c49
+ms.sourcegitcommit: e7276930515216338a33c4a03c0d7a87fc718ffe
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54890077"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55293524"
