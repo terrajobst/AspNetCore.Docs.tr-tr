@@ -4,20 +4,18 @@ title: ASP.NET Web API 2.2 kullanarak bir OData v4 uç noktası oluşturma | Mic
 author: MikeWasson
 description: Açık Veri Protokolü (OData), web için veri erişim protokolüdür. OData sorgu ve veri kümeleri aracılığıyla CRUD işlemleri işlemek için Tekdüzen bir yol sağlar...
 ms.author: riande
-ms.date: 06/24/2014
+ms.date: 01/23/2019
 ms.assetid: 1e1927c0-ded1-4752-80fd-a146628d2f09
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v4-endpoint
 msc.type: authoredcontent
-ms.openlocfilehash: 48c1a78c96cb0ebfa0b053dfef84e76433112650
-ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
+ms.openlocfilehash: c6a4aa4eb563fd77d5afd9248175d5f5b7984d19
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48795424"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667576"
 ---
-<a name="create-an-odata-v4-endpoint-using-aspnet-web-api-22"></a>ASP.NET Web API 2.2 kullanarak bir OData v4 uç noktası oluşturma
-====================
-tarafından [Mike Wasson](https://github.com/MikeWasson)
+# <a name="create-an-odata-v4-endpoint-using-aspnet-web-api"></a>ASP.NET Web API kullanarak bir OData v4 uç noktası oluşturma 
 
 > Açık Veri Protokolü (OData), web için veri erişim protokolüdür. OData sorgu ve veri kümeleri aracılığıyla CRUD işlemleri işlemek için Tekdüzen bir yol sağlar (oluşturma, okuma, güncelleştirme ve silme).
 >
@@ -27,11 +25,11 @@ tarafından [Mike Wasson](https://github.com/MikeWasson)
 >
 > ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
 >
-> - Web API 2.2
+> - Web API 5.2
 > - OData v4
-> - Visual Studio 2013 (Visual Studio 2017'yi indirin [burada](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017))
+> - Visual Studio 2017 (Visual Studio 2017'yi indirin [burada](https://visualstudio.microsoft.com/downloads/))
 > - Entity Framework 6
-> - .NET 4.5
+> - .NET 4.7.2
 >
 > ## <a name="tutorial-versions"></a>Öğretici sürümleri
 >
@@ -41,13 +39,17 @@ tarafından [Mike Wasson](https://github.com/MikeWasson)
 
 Visual Studio'da gelen **dosya** menüsünde **yeni** &gt; **proje**.
 
-Genişletin **yüklü** &gt; **şablonları** &gt; **Visual C#** &gt; **Web**, seçin **ASP.NET Web uygulaması** şablonu. Projeyi adlandırın &quot;ProductService&quot;.
+Genişletin **yüklü** &gt; **Visual C#**  &gt; **Web**seçip **ASP.NET Web uygulaması (.NET Framework)**  şablonu. Projeyi adlandırın &quot;ProductService&quot;.
 
-[![](create-an-odata-v4-endpoint/_static/image2.png)](create-an-odata-v4-endpoint/_static/image1.png)
+[![](create-an-odata-v4-endpoint/_static/image7.png)](create-an-odata-v4-endpoint/_static/image7.png)
 
-İçinde **yeni proje** iletişim kutusunda **boş** şablonu. Altında &quot;klasörleri ekleyin ve çekirdek başvuruları... &quot;, tıklayın **Web API**. **Tamam**'ı tıklatın.
+**Tamam**’ı seçin.
 
-[![](create-an-odata-v4-endpoint/_static/image4.png)](create-an-odata-v4-endpoint/_static/image3.png)
+
+
+[![](create-an-odata-v4-endpoint/_static/image8.png)](create-an-odata-v4-endpoint/_static/image8.png)
+
+Seçin **boş** şablonu. Altında **klasörleri ekleyin ve çekirdek başvuruları:** seçin **Web API**. **Tamam**’ı seçin.
 
 ## <a name="install-the-odata-packages"></a>OData paketleri yükleme
 
@@ -57,7 +59,7 @@ Gelen **Araçları** menüsünde **NuGet Paket Yöneticisi** &gt; **Paket Yönet
 
 Bu komut, en son OData NuGet paketlerini yükler.
 
-## <a name="add-a-model-class"></a>Bir Model sınıfı ekleme
+## <a name="add-a-model-class"></a>Bir model sınıfı ekleme
 
 A *modeli* uygulamanızda bir veri varlığı temsil eden bir nesnedir.
 
@@ -138,7 +140,7 @@ Denetleyici kullandığı `ProductsContext` EF kullanarak veritabanına erişmek
 
 Bu denetleyici için başlangıç noktasıdır. Ardından, tüm CRUD işlemleri için yöntemler ekleyeceğiz.
 
-## <a name="querying-the-entity-set"></a>Varlık kümesi sorgulama
+## <a name="query-the-entity-set"></a>Varlık kümesi sorgulama
 
 Aşağıdaki yöntemi ekleyin `ProductsController`.
 
@@ -148,13 +150,13 @@ Parametresiz sürümünü `Get` yöntemi tüm ürünleri koleksiyonu döndürür
 
 **[EnableQuery]** özniteliği $filter $sort ve $page gibi sorgu Seçenekleri'ni kullanarak sorgu değiştirmek istemcileri etkinleştirir. Daha fazla bilgi için [OData sorgu seçeneklerini destekleme](../supporting-odata-query-options.md).
 
-## <a name="adding-an-entity-to-the-entity-set"></a>Varlık kümesine varlık ekleme
+## <a name="add-an-entity-to-the-entity-set"></a>Varlık kümesi için bir varlık ekleme
 
 Yeni ürün eklemek istemcileri etkinleştirmek için aşağıdaki yöntemi ekleyin. `ProductsController`.
 
 [!code-csharp[Main](create-an-odata-v4-endpoint/samples/sample10.cs)]
 
-## <a name="updating-an-entity"></a>Bir varlığı güncelleştirmek
+## <a name="update-an-entity"></a>Varlığı güncelleştirme
 
 OData, düzeltme eki ve PUT bir varlığı güncelleştirmek için iki farklı semantikler destekler.
 
@@ -169,7 +171,7 @@ Herhangi bir durumda, hem düzeltme eki hem de PUT yöntemleri için kod şu şe
 
 Düzeltme eki söz konusu olduğunda denetleyicisi kullanan **Delta&lt;T&gt;**  değişiklikleri izlemek için türü.
 
-## <a name="deleting-an-entity"></a>Bir varlığı silme
+## <a name="delete-an-entity"></a>Bir varlığı silme
 
 Bir ürün veritabanından silmek istemcileri etkinleştirmek için aşağıdaki yöntemi ekleyin. `ProductsController`.
 

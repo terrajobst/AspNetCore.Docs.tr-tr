@@ -1,36 +1,34 @@
 ---
 uid: web-api/overview/testing-and-debugging/troubleshooting-http-405-errors-after-publishing-web-api-applications
-title: Sorun giderme HTTP 405 hatalarıyla yayımlamadan sonra Web API 2 uygulamaları | Microsoft Docs
+title: Sorun giderme HTTP 405 hatalarıyla yayımlamadan sonra Web API uygulamaları | Microsoft Docs
 author: rmcmurray
 description: Bu öğreticide, bir üretim web sunucusu için bir Web API'sini uygulama yayımlandıktan sonra HTTP 405 hatalarıyla ilgili sorunları giderme açıklar.
 ms.author: riande
-ms.date: 05/01/2014
+ms.date: 01/23/2019
 ms.assetid: 07ec7d37-023f-43ea-b471-60b08ce338f7
 msc.legacyurl: /web-api/overview/testing-and-debugging/troubleshooting-http-405-errors-after-publishing-web-api-applications
 msc.type: authoredcontent
-ms.openlocfilehash: 735b8ceeafa63e0546529ef17f103070dc760794
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: ce5b617cc1032d190cc2450aa554b462ea6f6156
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41756498"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667420"
 ---
-<a name="troubleshooting-http-405-errors-after-publishing-web-api-2-applications"></a>Sorun giderme HTTP 405 hatalarıyla yayımlamadan sonra Web API 2 uygulamaları
-====================
-tarafından [Robert McMurray '](https://github.com/rmcmurray)
+# <a name="troubleshooting-http-405-errors-after-publishing-web-api-applications"></a>Web API uygulamaları yayımlandıktan sonra HTTP 405 hatalarında sorun giderme
 
 > Bu öğreticide, bir üretim web sunucusu için bir Web API'sini uygulama yayımlandıktan sonra HTTP 405 hatalarıyla ilgili sorunları giderme açıklar.
 > 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Bu öğreticide kullanılan yazılım sürümleri
+> ## <a name="software-used-in-this-tutorial"></a>Bu öğreticide kullanılan yazılım
 > 
 > 
 > - [Internet Information Services (IIS)](https://www.iis.net/) (sürüm 7 veya üzeri)
-> - [Web API](../../index.md) (sürüm 1 veya 2)
+> - [Web API](../../index.md) 
 
 
 Web API uygulamaları, genellikle birden çok genel HTTP fiilleri kullanın: GET, POST, PUT, DELETE ve bazen düzeltme eki. Başka bir deyişle, geliştiriciler burada bu fiilleri tarafından uygulanır Visual Studio'da veya bir geliştirme sunucusunda düzgün çalıştığını bir Web API denetleyicisi döndürür burada bir durum için müşteri adayları, üretim sunucusu üzerinde başka bir IIS modül durumları içine çalıştırılabilir bir HTTP 405 bir üretim sunucusuna dağıtıldığında hata. Neyse ki bu sorunu kolayca çözümlenir, ancak çözümleme sorunu neden oluştuğunu bir açıklama gerektirir.
 
-## <a name="what-causes-http-405-errors"></a>Hangi neden HTTP 405 hataları
+## <a name="what-causes-http-405-errors"></a>Hangi HTTP 405 hatalarına neden olur
 
 HTTP 405 hatalarını sorun öğrenirken ilk adımı, bir HTTP 405 hata gerçekten anlamı öğrenmektir. Birincil yöneten belge HTTP için [RFC 2616](http://www.ietf.org/rfc/rfc2616.txt), HTTP 405 durum kodu olarak tanımlayan ***yönteme izin verilmiyor***ve bir durum olarak bu durum kodu daha ayrıntılı açıklanmıştır burada &quot;yöntemi Belirtilen istek satırı Request-URI tarafından tanımlanan kaynak için izin verilmiyor.&quot; Diğer bir deyişle, bir HTTP istemci istedi belirli URL için HTTP fiili izin verilmez.
 
@@ -38,9 +36,9 @@ Kısa bir inceleme İşte birkaç en çok kullanılan HTTP yöntemleri RFC 2616 
 
 | HTTP yöntemi | Açıklama |
 | --- | --- |
-| **AL** | Bu yöntem, verileri bir URI ve onu büyük olasılıkla en çok kullanılan HTTP yöntemi almak için kullanılır. |
+| **GET** | Bu yöntem, verileri bir URI ve onu büyük olasılıkla en çok kullanılan HTTP yöntemi almak için kullanılır. |
 | **HEAD** | Bu yöntem alma yöntemini benzer olduğunu aslında istek URI'SİNDE veri almıyorsa - yalnızca HTTP durumunu alır dışında. |
-| **YAYINLA** | Bu yöntem, genellikle yeni bir veri URI'si göndermek için kullanılır; POST, genellikle form verileri göndermek için kullanılır. |
+| **POST** | Bu yöntem, genellikle yeni bir veri URI'si göndermek için kullanılır; POST, genellikle form verileri göndermek için kullanılır. |
 | **PUT** | Bu yöntem, genellikle URI ham veri göndermek için kullanılır; PUT genellikle JSON veya XML verisi Web API uygulamalarına göndermek için kullanılır. |
 | **DELETE** | Bu yöntem, verileri bir URI'den kaldırmak için kullanılır. |
 | **SEÇENEKLER** | Bu yöntem, genellikle bir URI için desteklenen HTTP yöntemleri listesini almak için kullanılır. |
@@ -75,7 +73,7 @@ HTTP yanıtı:
 
 Bu örnekte, geçerli bir JSON isteği HTTP istemcisi bir web sunucusunda bir Web API uygulaması URL'sini gönderilen, ancak sunucu PUT yöntemini URL'sini izin verilmedi olduğunu belirten bir HTTP 405 hata iletisi döndürdü. Buna karşılık, istek URI'si, Web API uygulaması için bir rota ile eşleşmedi, sunucunun bir HTTP 404 döndürecekti ***bulunamadı*** hata.
 
-## <a name="resolving-http-405-errors"></a>HTTP 405 çözümleme hataları
+## <a name="resolve-http-405-errors"></a>HTTP 405 hataları çözün
 
 Neden belirli bir HTTP fiiline izin, ancak baştaki IIS'de bu hatanın nedenini olan birincil senaryo yoktur birkaç nedeni vardır: birden fazla işleyici aynı fiili/yöntem için tanımlanan ve işleyiciler birini beklenen işleyicisinden engelleme isteği işleniyor. Açıklama yoluyla, sipariş işleyici girişleri nerede yolu, fiil, kaynak, vs. ilk eşleşen birleşimi isteği işlemek için kullanılacak applicationHost.config ve web.config dosyalarında son dayalı olarak ilk işleyicilerindeki IIS işler.
 
@@ -93,7 +91,7 @@ Bu alıntıda uzantısız URL işleyicisi ASP.NET Web API'sini uygulama ile kull
 
 [!code-xml[Main](troubleshooting-http-405-errors-after-publishing-web-api-applications/samples/sample5.xml)]
 
-Bu senaryo genellikle bir uygulama geliştirme ortamından üretim ortamına yayınlandıktan sonra işleyicileri/modüllerin listesini, geliştirme ve üretim ortamları arasında farklı olduğu için bu gerçekleşir karşılaşıldı. Örneğin, bir Web API uygulaması geliştirme için Visual Studio 2012 veya 2013 kullanıyorsanız, IIS Express 8 test etmek için varsayılan web sunucusu olabilir. Bu geliştirme web sunucusu bir sunucu üründe gönderilen tam IIS işlevselliğini ölçeği aşağı sürümüdür ve bu geliştirme web sunucusu geliştirme senaryoları için eklenmiş olan bazı değişiklikler içerir. Örneğin, gerçek kullanımda olmayabilir rağmen WebDAV modülü genellikle tam IIS sürümünü çalıştıran bir üretim web sunucusuna yüklenir. IIS, (IIS Express) geliştirme sürümünü WebDAV modülünü yükler, ancak özellikle, IIS Express yapılandırması yapmadığınız sürece WebDAV modülü hiçbir zaman IIS Express'te yüklenmesi için girişler WebDAV modülü için kasıtlı olarak, yorum eklenmiş IIS Express yüklemenizi WebDAV işlevselliği eklemek için Ayarlar'ı tıklatın. Sonuç olarak, web uygulamanızı geliştirme bilgisayarınızda doğru çalışmayabilir, ancak üretim web sunucunuza Web API uygulamanızı yayımladığınızda, HTTP 405 hatalarla karşılaşabilirsiniz.
+Bu senaryo genellikle bir uygulama geliştirme ortamından üretim ortamına yayınlandıktan sonra işleyicileri/modüllerin listesini, geliştirme ve üretim ortamları arasında farklı olduğu için bu gerçekleşir karşılaşıldı. Örneğin, Visual Studio 2012 kullanıyorsanız veya daha sonra bir Web API uygulaması geliştirmek için IIS Express test etmek için varsayılan web sunucusu olabilir. Bu geliştirme web sunucusu bir sunucu üründe gönderilen tam IIS işlevselliğini ölçeği aşağı sürümüdür ve bu geliştirme web sunucusu geliştirme senaryoları için eklenmiş olan bazı değişiklikler içerir. Örneğin, gerçek kullanımda olmayabilir rağmen WebDAV modülü genellikle tam IIS sürümünü çalıştıran bir üretim web sunucusuna yüklenir. IIS, (IIS Express) geliştirme sürümünü WebDAV modülünü yükler, ancak özellikle, IIS Express yapılandırması yapmadığınız sürece WebDAV modülü hiçbir zaman IIS Express'te yüklenmesi için girişler WebDAV modülü için kasıtlı olarak, yorum eklenmiş IIS Express yüklemenizi WebDAV işlevselliği eklemek için Ayarlar'ı tıklatın. Sonuç olarak, web uygulamanızı geliştirme bilgisayarınızda doğru çalışmayabilir, ancak üretim web sunucunuza Web API uygulamanızı yayımladığınızda, HTTP 405 hatalarla karşılaşabilirsiniz.
 
 ## <a name="summary"></a>Özet
 

@@ -5,18 +5,22 @@ description: Bu öğretici serisinde, ASP.NET Core Razor sayfaları kullanma iş
 ms.author: riande
 ms.date: 12/5/2018
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 929bc72b16e302a5018038bc449704b7078dd33a
-ms.sourcegitcommit: 6548c19f345850ee22b50f7ef9fca732895d9e08
+ms.openlocfilehash: bec5838c2efaffb933828260eaf1a840ff202140
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53425087"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667771"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Öğretici: ASP.NET Core Razor sayfaları kullanmaya başlama
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Bu, bir serinin ilk öğreticidir. [Serinin](xref:tutorials/razor-pages/index) bir ASP.NET Core Razor sayfaları web uygulaması oluşturmaya ilişkin temel bilgileri size öğretir. Serinin sonunda bir film veritabanı yöneten bir uygulaması oluşturmuş olacaksınız.  
+Bu, bir serinin ilk öğreticidir. [Serinin](xref:tutorials/razor-pages/index) bir ASP.NET Core Razor sayfaları web uygulaması oluşturmaya ilişkin temel bilgileri size öğretir.
+
+[!INCLUDE[](~/includes/advancedRP.md)]
+
+Serinin sonunda bir film veritabanı yöneten bir uygulaması oluşturmuş olacaksınız.  
 
 [!INCLUDE[View or download sample code](~/includes/rp/download.md)]
 
@@ -29,7 +33,7 @@ Bu öğreticide şunları yaptınız:
 
 Bu öğreticinin sonunda çalışan bir sonraki öğreticilerde oluşturacağınız Razor sayfaları web uygulaması gerekir.
 
-[Giriş ya da dizin sayfası](razor-pages-start/_static/home2.2.png)
+![Giriş ya da dizin sayfası](razor-pages-start/_static/home2.2.png)
 
 [!INCLUDE[](~/includes/net-core-prereqs-all-2.2.md)]
 

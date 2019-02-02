@@ -8,12 +8,12 @@ ms.date: 08/29/2011
 ms.assetid: c23d27f7-b0cf-44f2-8445-fb69e045c674
 msc.legacyurl: /mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: a4cd6e9adfcd85503b9843232903a243bc07c959
-ms.sourcegitcommit: 392a36ed269b88899d6bb652aa7f4dfb72e43e7f
+ms.openlocfilehash: 3e700d2db4f86fe6734e2f08b01c9f8a8a69b6c3
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50220667"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667797"
 ---
 <a name="using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc---part-1"></a>ASP.NET MVC - bölüm 1 ile HTML5 ve jQuery UI Datepicker Popup Calendar kullanma
 ====================
@@ -36,7 +36,7 @@ Bu öğreticide bölümünü tamamladığınız varsayılır [MVC 3 ile çalış
 
 Bu öğreticide kod C# dilinde gösterilir. Ancak, [başlangıç projesini](https://archive.msdn.microsoft.com/Project/Download/FileDownload.aspx?ProjectName=aspnetmvcsamples&amp;DownloadId=15800) ve projeyi de Visual Basic'te kullanılabilir.
 
-C# ve Visual Basic kaynak kodu ile bir Visual Studio projesi bu konuya eşlik etmek üzere kullanılabilir: [indirme](https://archive.msdn.microsoft.com/Project/Download/FileDownload.aspx?ProjectName=aspnetmvcsamples&amp;DownloadId=15800).
+Visual Studio projesi ile C# ve Visual Basic kaynak kodu bu konuya eşlik etmek üzere kullanılabilir: [İndirme](https://archive.msdn.microsoft.com/Project/Download/FileDownload.aspx?ProjectName=aspnetmvcsamples&amp;DownloadId=15800).
 
 ### <a name="what-youll-build"></a>Ne oluşturacaksınız
 
@@ -54,7 +54,11 @@ C# ve Visual Basic kaynak kodu ile bir Visual Studio projesi bu konuya eşlik et
 
 ### <a name="getting-started"></a>Başlarken
 
-Başlangıç projesini film listeleme uygulamadan zaten sahip değilseniz, aşağıdaki bağlantıyı kullanarak indirin: [indirme](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098). Ardından Windows Gezgini'nde sağ tıklayarak *MvcMovie.zip* seçin ve dosya **özellikleri**. İçinde **MvcMovie.zip özellikleri** iletişim kutusunda **Engellemeyi Kaldır**. (Engellemesinin kaldırılması kullanmaya çalıştığınızda oluşan bir güvenlik uyarısı engelleyen bir *.zip* Web'den indirdiğiniz dosyayı.)
+Başlangıç projesini film listeleme uygulamadan yoksa indirin: 
+
+* [İndirme](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098).
+* Windows Gezgini'nde sağ *MvcMovie.zip* seçin ve dosya **özellikleri**. 
+* İçinde **MvcMovie.zip özellikleri** iletişim kutusunda **Engellemeyi Kaldır**. (Engellemesinin kaldırılması kullanmaya çalıştığınızda oluşan bir güvenlik uyarısı engelleyen bir *.zip* Web'den indirdiğiniz dosyayı.)
 
 ![](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1/_static/image2.png)
 

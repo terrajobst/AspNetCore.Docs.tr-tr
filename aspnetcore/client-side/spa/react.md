@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 02/21/2018
 uid: spa/react
-ms.openlocfilehash: c83b119e81d7d0abfd727cb8c72abb09763d9448
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: d83bff8abcd5b59d8bc4a51a101510755394f0c4
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011438"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667693"
 ---
 # <a name="use-the-react-project-template-with-aspnet-core"></a>ASP.NET Core ile React proje şablonu kullanın
 
@@ -27,7 +27,7 @@ Güncelleştirilmiş React proje şablonu uygun bir başlama noktası ASP.NET Co
 
 Şablon, hem bir API arka ucu görev yapacak bir ASP.NET Core projesi ve bir kullanıcı Arabirimi, ancak her ikisi de oluşturduğu ve tek bir birim olarak yayımlanan tek uygulama projesinde barındırma birlikte yapması standart bir CRA React proje oluşturmaya eşdeğerdir.
 
-## <a name="create-a-new-app"></a>Yeni uygulama oluştur
+## <a name="create-a-new-app"></a>Yeni bir uygulama oluşturma
 
 ::: moniker range="= aspnetcore-2.0"
 
@@ -97,14 +97,22 @@ Proje, ASP.NET Core uygulaması geliştirme modunda başlatıldığında, arka p
 
 Bu varsayılan ayarı bir dezavantajı vardır. C# kodunuzu ve ASP.NET Core uygulamasını yeniden başlatmak için gereken her değiştirdiğinizde CRA sunucuyu yeniden başlatır. Birkaç saniyede yedekleme başlatmak için gereklidir. Sık C# kod düzenleme yapıyorsanız ve yeniden başlatmak için CRA sunucusu beklemek istemiyorsanız, harici olarak CRA sunucunun ASP.NET Core işlemden bağımsız olarak çalıştırın. Bunu yapmak için:
 
-1. Komut isteminde, geçiş *ClientApp* alt ve CRA geliştirme sunucusu başlatma:
+1. Ekleme bir *.env* dosyasını *ClientApp* aşağıdaki ayar alt dizini:
+
+    ```
+    BROWSER=none
+    ```
+    
+    Harici olarak CRA sunucunun başlatırken bu web tarayıcınız açılmasını engeller.
+
+2. Komut isteminde, geçiş *ClientApp* alt ve CRA geliştirme sunucusu başlatma:
 
     ```console
     cd ClientApp
     npm start
     ```
 
-2. ASP.NET Core uygulamanızı biri kendi başlatma yerine dış CRA server örneğini kullanacak şekilde değiştirin. İçinde *başlangıç* sınıfı, yerine `spa.UseReactDevelopmentServer` aşağıdaki çağrı:
+3. ASP.NET Core uygulamanızı biri kendi başlatma yerine dış CRA server örneğini kullanacak şekilde değiştirin. İçinde *başlangıç* sınıfı, yerine `spa.UseReactDevelopmentServer` aşağıdaki çağrı:
 
     ```csharp
     spa.UseProxyToSpaDevelopmentServer("http://localhost:3000");

@@ -8,12 +8,12 @@ ms.date: 08/31/2011
 ms.assetid: d916dbe0-1895-491b-8bb6-93f4594ce757
 msc.legacyurl: /mvc/overview/getting-started
 msc.type: chapter
-ms.openlocfilehash: c815a98c536159df44b775fd5130029446e1ad73
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: a2b96388cb7408d3c5fa548d0f43cfb2287661bf
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41752323"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667290"
 ---
 <a name="aspnet-mvc-getting-started"></a>ASP.NET MVC'yi kullanmaya başlama
 ====================
@@ -55,7 +55,6 @@ ms.locfileid: "41752323"
     - [Veritabanını Değiştirme](database-first-development/changing-the-database.md)
     - [Bir Görünümü Özelleştirme](database-first-development/customizing-a-view.md)
     - [Veri Doğrulamayı Geliştirme](database-first-development/enhancing-data-validation.md)
-    - [Azure'a Yayımlama](database-first-development/publish-to-azure.md)
 - [Bir ASP.NET MVC 5 Uygulamasının Yaşam Döngüsü](lifecycle-of-an-aspnet-mvc-5-application.md)
 - [MVC Tarafından Önerilen Kaynaklar](recommended-resources-for-mvc.md)
 - [MVC tarafından önerilen öğreticiler ve makaleler](mvc-learning-sequence.md)

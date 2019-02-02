@@ -114,30 +114,34 @@ DocFX gerektirir:
 
 * İndirip sıkıştırmasını *docfx.zip* gelen [DocFX sürümleri](https://github.com/dotnet/docfx/releases).
 * DocFX YOLUNUZA ekleyin.
-* Bir komut satırı penceresinde içeren uygun klasöre gidin *docfx.json* dosyası (*aspnet* ASP.NET içeriği veya *aspnetcore* ASP.NET Core içerik ) ve aşağıdaki komutu çalıştırın:
+* Bir komut kabuğu'nda içeren klasöre gidin *docfx.json* dosyası (*aspnet* ASP.NET içeriği veya *aspnetcore* ASP.NET Core içerik için) ve çalıştırma Aşağıdaki komutu:
 
-  ```
+  ```console
   docfx --serve
   ```
-    
-* Bir tarayıcıda gidin `http://localhost:8080`.
+* Bir tarayıcıda gidin `http://localhost:8080/group1-dest/`.
 
 ### <a name="mono-instructions"></a>Mono yönergeleri
 
 * Homebrew aracılığıyla Mono'yu yükleyin:
 
-  ```
+  ```console
   brew install mono
   ```
 * İndirme [DocFX en son sürümünü](https://github.com/dotnet/docfx/releases).
 * Arşive ayıklamak *$ giriş/bin/docfx*.
 * Bir çift için diğer adlar oluşturma **docfx** bir bash kabuğunda. İlk ve diğer belgeler oluşturmak için kullanılır. İkinci ve diğer belgeler derler ve için kullanılır.
 
-  ```
+  ```console
   alias docfx='mono $HOME/bin/docfx/docfx.exe'
   alias docfx-serve='mono $HOME/bin/docfx/docfx.exe --serve'
   ```
-* Yürütme `docfx` site oluşturmak için depo kökünden. Yürütme `docfx-serve` sitede görüntülemek için `http://localhost:8080`.
+* Bir komut kabuğu'nda içeren klasöre gidin *docfx.json* dosyası (*aspnet* ASP.NET içeriği veya *aspnetcore* ASP.NET Core içerik için) ve çalıştırma Aşağıdaki komut aracılığıyla diğer adıyla docs derler ve için:
+
+  ```console
+  docfx-serve
+  ```
+* Bir tarayıcıda gidin `http://localhost:8080/group1-dest/`.
 
 ## <a name="voice-and-tone"></a>Ses ve sesi
 

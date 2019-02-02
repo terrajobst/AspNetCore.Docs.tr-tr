@@ -6,16 +6,20 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 09/08/2017
 uid: tutorials/razor-pages/index
-ms.openlocfilehash: 981460e63be611f8b9b5ceda73c2d6b8f2e4962e
-ms.sourcegitcommit: 6548c19f345850ee22b50f7ef9fca732895d9e08
+ms.openlocfilehash: db0dab630f986b6f60e24b7a39e20c7a4607f931
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53425074"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667381"
 ---
 # <a name="tutorial-create-a-razor-pages-web-app-with-aspnet-core"></a>Öğretici: ASP.NET Core Razor sayfaları web uygulaması oluşturma
 
-Bu öğretici serisinde, Razor sayfaları web uygulaması oluşturmaya ilişkin temel bilgileri açıklar. Aşağıdaki öğreticilerde serisi içerir:
+Bu öğretici serisinde, Razor sayfaları web uygulaması oluşturmaya ilişkin temel bilgileri açıklar. 
+
+[!INCLUDE[](~/includes/advancedRP.md)]
+
+Bu seri, aşağıdaki öğreticilerde içerir:
 
 1. [Razor Sayfaları web uygulaması oluşturma](xref:tutorials/razor-pages/razor-pages-start)
 1. [Model için bir Razor sayfaları uygulaması ekleme](xref:tutorials/razor-pages/model)

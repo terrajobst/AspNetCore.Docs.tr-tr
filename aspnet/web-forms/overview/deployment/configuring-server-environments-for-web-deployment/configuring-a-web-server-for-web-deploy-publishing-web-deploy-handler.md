@@ -4,20 +4,18 @@ title: Bir Web sunucusunu yapılandırma için Web dağıtımı yayımlama (Web 
 author: jrjlee
 description: Bu konu, Web'de yayımlama ve dağıtma IIS Web Han kullanarak dağıtımını desteklemek için bir Internet Information Services (IIS) web sunucusu yapılandırmanız açıklar...
 ms.author: riande
-ms.date: 05/04/2012
+ms.date: 01/29/2017
 ms.assetid: 90ebf911-1c46-4470-b876-1335bd0f590f
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler
 msc.type: authoredcontent
-ms.openlocfilehash: 13e4fdf77daf26abe837a90db9c11ecbe1957823
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: cf18a8860d34daa23f61e3dde13c2c79c6c0d4a5
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41752120"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667329"
 ---
-<a name="configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler"></a>Bir Web sunucusunu yapılandırma için Web dağıtımı yayımlama (Web dağıtımı işleyicisi)
-====================
-tarafından [Jason Lee](https://github.com/jrjlee)
+# <a name="configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler"></a>Bir Web Sunucusunu Web Dağıtımı Yayımlama için Yapılandırma (Web Dağıtımı İşleyicisi)
 
 [PDF'yi indirin](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
@@ -57,9 +55,9 @@ Kabul etmek ve Web dağıtımı işleyicisi yaklaşımı kullanarak uzak bir bil
 - .NET Framework 4. 0'ı yükleyin.
 - ASP.NET MVC 3 yükleyin.
 
-Bu konuda, bu yordamların her biri gerçekleştirme gösterilmektedir. Bu konudaki yönergeler ve görevleri ile birlikte Windows Server 2008 R2 çalıştıran bir temiz sunucusu derleme başlatılıyor varsayılır. Devam etmeden önce şunlardan emin olun:
+Bu konuda, bu yordamların her biri gerçekleştirme gösterilmektedir. Bu konudaki yönergeler ve görevleri ile birlikte Windows Server 2016 çalıştıran bir temiz sunucusu derleme başlatılıyor varsayılır. Devam etmeden önce şunlardan emin olun:
 
-- Windows Server 2008 R2 Service Pack 1 ve tüm kullanılabilir güncelleştirmeler yüklenir.
+- Windows Server 2016
 - Etki alanına katılmış sunucusudur.
 - Sunucuda bir statik IP adresi var.
 
@@ -81,7 +79,7 @@ Bu durumda, bunları yüklemeniz gerekir:
 - **ASP.NET MVC 3**. Bu, MVC 3 uygulamaları çalıştırmak için gereken bütünleştirilmiş kodları yükler.
 
 > [!NOTE]
-> Bu izlenecek yol çeşitli bileşenlerini yükleme ve yapılandırma için Web Platformu yükleyicisi kullanımını açıklar. Web Platformu Yükleyicisi'ni kullanmanız gerekmez ancak otomatik olarak bağımlılıkları algılamasını ve her zaman en son ürün sürümlerini alma sağlayarak yükleme işlemini basitleştirir. Daha fazla bilgi için [Microsoft Web Platformu yükleyicisi 3.0](https://go.microsoft.com/?linkid=9805118).
+> Bu izlenecek yol çeşitli bileşenlerini yükleme ve yapılandırma için Web Platformu yükleyicisi kullanımını açıklar. Web Platformu Yükleyicisi'ni kullanmanız gerekmez ancak otomatik olarak bağımlılıkları algılamasını ve her zaman en son ürün sürümlerini alma sağlayarak yükleme işlemini basitleştirir. Daha fazla bilgi için [Microsoft Web Platformu yükleyicisi](https://go.microsoft.com/?linkid=9805118).
 
 
 **Gerekli ürün ve bileşenlerini yüklemek için**
@@ -91,7 +89,7 @@ Bu durumda, bunları yüklemeniz gerekir:
 
     > [!NOTE]
     > Şimdi Web Platformu yükleyicisi diledikleri zaman başlatabilirsiniz **Başlat** menüsü. Bunu yapmak için **Başlat** menüsünü tıklatın **tüm programlar**ve ardından **Microsoft Web Platformu yükleyicisi**.
-3. Üst kısmındaki **Web Platformu yükleyicisi 3.0** penceresinde tıklayın **ürünleri**.
+3. Üst kısmındaki **Web Platformu yükleyicisi** penceresinde tıklayın **ürünleri**.
 4. Gezinti bölmesinde, pencerenin sol tarafındaki tıklayarak **çerçeveleri**.
 5. İçinde **Microsoft .NET Framework 4** .NET Framework zaten yüklü değilse, satırı tıklatın **Ekle**.
 
@@ -103,13 +101,13 @@ Bu durumda, bunları yüklemeniz gerekir:
 7. Gezinti bölmesinde **sunucu**.
 8. İçinde **IIS 7 önerilen Yapılandırması** satır, tıklayın **Ekle**.
 9. İçinde **Web dağıtım aracı 2.1** satır, tıklayın **Ekle**.
-10. İçinde **IIS: temel kimlik doğrulaması** satır, tıklayın **Ekle**.
+10. İçinde **IIS: Temel kimlik doğrulaması** satır, tıklayın **Ekle**.
 11. İçinde **IIS: Yönetim hizmeti** satır, tıklayın **Ekle**.
 12. **Yükle**'ye tıklatın. Web Platformu yükleyicisi ürünleri &#x2014; herhangi bir ilişkili bağımlılıkları &#x2014; yüklenecek birlikte listesini gösterir ve lisans koşullarını kabul isteyip istemediğinizi sorar.
 
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image2.png)
 13. Lisans koşullarını gözden geçirin ve koşulları kabul ediyorsa **kabul ediyorum**.
-14. Yükleme tamamlandığında, tıklayın **son**ve ardından kapatın **Web Platformu yükleyicisi 3.0** penceresi.
+14. Yükleme tamamlandığında, tıklayın **son**ve ardından kapatın **Web Platformu yükleyicisi** penceresi.
 
 IIS yüklemeden önce .NET Framework 4.0 yüklü değilse, çalıştırmanız gerekir [ASP.NET IIS Kayıt Aracı](https://msdn.microsoft.com/library/k6h9cz8h(v=VS.100).aspx) (aspnet\_regiis.exe) IIS ile ASP.NET en son sürümünü kaydetmek için. Bunu yapmazsanız, herhangi bir sorun IIS (HTML dosyaları gibi) statik içerik sunmak bulabilirsiniz, ancak onu döndürür **HTTP Hatası 404.0 – bulunamadı** çalıştığınızda ASP.NET içeriği gidin. ASP.NET 4.0 kayıtlı olduğundan emin olmak için bir sonraki yordamı kullanın.
 
@@ -145,7 +143,7 @@ IIS yüklemeden önce .NET Framework 4.0 yüklü değilse, çalıştırmanız ge
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image3.png)
 3. Orta bölmede altında **IIS**, çift **kimlik doğrulaması**.
 
-    ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image4.png)
+    ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image20.png)
 4. Sağ **temel kimlik doğrulaması**ve ardından **etkinleştirme**.
 
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image5.png)
@@ -207,7 +205,7 @@ Bu yaklaşım olmasa da nothing IIS'de varsayılan Web sitesine içerik dağıt�
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image11.png)
 
     > [!NOTE]
-    > Bir üretim ortamında, büyük olasılıkla, Web sitesi bağlantı noktası 80 üzerinde barındırmak ve DNS kayıtlarını eşleşen birlikte bir konak üstbilgisi yapılandırma isteyeceksiniz. IIS 7'de konak üstbilgileri yapılandırma hakkında daha fazla bilgi için bkz. [bir Web sitesi (IIS 7) için bir konak üstbilgisi yapılandırma](https://technet.microsoft.com/library/cc753195(WS.10).aspx). Windows Server 2008 R2'de DNS sunucusu rolü hakkında daha fazla bilgi için bkz. [DNS sunucusuna genel bakış](https://technet.microsoft.com/en-gb/library/cc770392.aspx) ve [DNS sunucusu](https://technet.microsoft.com/windowsserver/dd448607).
+    > Bir üretim ortamında, büyük olasılıkla, Web sitesi bağlantı noktası 80 üzerinde barındırmak ve DNS kayıtlarını eşleşen birlikte bir konak üstbilgisi yapılandırma isteyeceksiniz. IIS 7'de konak üstbilgileri yapılandırma hakkında daha fazla bilgi için bkz. [bir Web sitesi (IIS 7) için bir konak üstbilgisi yapılandırma](https://technet.microsoft.com/library/cc753195(WS.10).aspx). Windows Server'da DNS sunucusu rolü hakkında daha fazla bilgi için bkz. [DNS sunucusuna genel bakış](https://technet.microsoft.com/en-gb/library/cc770392.aspx) ve [DNS sunucusu](https://technet.microsoft.com/windowsserver/dd448607).
 9. **Eylemler** bölmesinde, **Site Düzenle**altında, **Bağlamalar**'ı tıklatın.
 10. İçinde **Site bağlamaları** iletişim kutusu, tıklayın **Ekle**.
 
@@ -222,9 +220,9 @@ Bu yaklaşım olmasa da nothing IIS'de varsayılan Web sitesine içerik dağıt�
 13. İçinde **Site bağlamaları** iletişim kutusu, tıklayın **Kapat**.
 14. İçinde **bağlantıları** bölmesinde tıklayın **uygulama havuzları**.
 15. İçinde **uygulama havuzları** bölmesinde, uygulama havuzunuzu adına sağ tıklayın ve ardından **temel ayarları**. Varsayılan olarak, Web sitenizin adı, uygulama havuzunun adı eşleşir (örneğin, **DemoSite**).
-16. İçinde **.NET Framework sürümünü** listesinden **.NET Framework v4.0.30319**ve ardından **Tamam**.
+16. İçinde **.NET CLR sürümü** listesinden **.NET CLR v4.0.30319**ve ardından **Tamam**.
 
-    ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image14.png)
+    ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image21.png)
 
     > [!NOTE]
     > Örnek çözüm, .NET Framework 4.0 gerektirir. Bu bir gereksinim Web dağıtımı için genel olarak geçerli değildir.

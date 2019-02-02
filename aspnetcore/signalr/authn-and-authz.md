@@ -3,16 +3,16 @@ title: Kimlik doğrulama ve yetkilendirme ASP.NET Core SignalR
 author: bradygaster
 description: Kimlik doğrulama ve yetkilendirme ASP.NET Core SignalR kullanmayı öğrenin.
 monikerRange: '>= aspnetcore-2.1'
-ms.author: anurse
+ms.author: bradyg
 ms.custom: mvc
-ms.date: 06/29/2018
+ms.date: 01/31/2019
 uid: signalr/authn-and-authz
-ms.openlocfilehash: c807b65e0047fe6cedff08aef9f758653fab6a0d
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: 5d4574775606b4354ec099b6b32e05294d9f0e45
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54835823"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667316"
 ---
 # <a name="authentication-and-authorization-in-aspnet-core-signalr"></a>Kimlik doğrulama ve yetkilendirme ASP.NET Core SignalR
 
@@ -68,22 +68,14 @@ Varsa [Windows kimlik doğrulaması](xref:security/authentication/windowsauth) y
 
 Uygulayan bir yeni sınıf ekleyin `IUserIdProvider` ve taleplerinden biri tanımlayıcı olarak kullanılacak kullanıcı almak. Örneğin, "Name" talep kullanmak için (Windows kullanıcı adı biçiminde olduğu `[Domain]\[Username]`), aşağıdaki sınıfı oluşturun:
 
-```csharp
-public class NameUserIdProvider : IUserIdProvider
-{
-    public string GetUserId(HubConnectionContext connection)
-    {
-        return connection.User?.FindFirst(ClaimTypes.Name)?.Value;
-    }
-}
-```
+[!code-csharp[Name based provider](authn-and-authz/sample/nameuseridprovider.cs?name=NameUserIdProvider)]
 
 Yerine `ClaimTypes.Name`, herhangi bir değer kullanabilirsiniz `User` (Windows SID tanımlayıcı gibi vb.).
 
 > [!NOTE]
 > Seçtiğiniz değer sisteminizdeki tüm kullanıcılar arasında benzersiz olması gerekir. Aksi takdirde, bir kullanıcıya yönelik bir ileti için farklı bir kullanıcı daha son.
 
-Bu bileşen, kaydetme, `Startup.ConfigureServices` yöntemi **sonra** çağrısı `.AddSignalR`
+Bu bileşen, kaydetme, `Startup.ConfigureServices` yöntemi.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -107,6 +99,27 @@ var connection = new HubConnectionBuilder()
 ```
 
 Windows kimlik doğrulaması, yalnızca Microsoft Internet Explorer veya Microsoft Edge kullanırken tarayıcı istemci tarafından desteklenir.
+
+### <a name="use-claims-to-customize-identity-handling"></a>Kimlik işleme özelleştirmek için talep kullanın
+
+Bir uygulama kullanıcılarının kimliğini doğrulayan SignalR kullanıcı kimlikleri gelen kullanıcı talepleri türetebilirsiniz. SignalR, kullanıcı kimliklerini nasıl oluşturur? belirtmek için uygulama `IUserIdProvider` ve uygulama kaydedin.
+
+Örnek kod, kullanıcının e-posta adresi tanımlayıcı bir özelliği seçmek için talep nasıl kullanacağınız gösterilmektedir. 
+
+> [!NOTE]
+> Seçtiğiniz değer sisteminizdeki tüm kullanıcılar arasında benzersiz olması gerekir. Aksi takdirde, bir kullanıcıya yönelik bir ileti için farklı bir kullanıcı daha son.
+
+[!code-csharp[Email provider](authn-and-authz/sample/EmailBasedUserIdProvider.cs?name=EmailBasedUserIdProvider)]
+
+Hesap kaydı türüyle bir talep ekler `ClaimsTypes.Email` ASP.NET kimlik veritabanı.
+
+[!code-csharp[Adding the email to the ASP.NET identity claims](authn-and-authz/sample/pages/account/Register.cshtml.cs?name=AddEmailClaim)]
+
+Bu bileşen, kaydetme, `Startup.ConfigureServices`.
+
+```csharp
+services.AddSingleton<IUserIdProvider, EmailBasedUserIdProvider>();
+```
 
 ## <a name="authorize-users-to-access-hubs-and-hub-methods"></a>Erişim hub'lar ve hub yöntemleri için kullanıcıları yetkilendirme
 

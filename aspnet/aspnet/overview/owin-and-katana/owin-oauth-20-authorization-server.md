@@ -4,20 +4,18 @@ title: OWIN OAuth 2.0 yetkilendirme sunucusu | Microsoft Docs
 author: hongyes
 description: Bu öğreticide bir OAuth 2.0 yetkilendirme sunucusu Ara OWIN OAuth kullanarak uygulama konusunda size yol gösterir. Bu, yalnızca Gr Gelişmiş bir öğreticidir...
 ms.author: riande
-ms.date: 03/20/2014
+ms.date: 01/28/2019
 ms.assetid: 20acee16-c70c-41e9-b38f-92bfcf9a4c1c
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server
 msc.type: authoredcontent
-ms.openlocfilehash: 095dad49a8e9f963d941a84398afe9da0f46ce0b
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: b8451d2d9e346bd5e2f51ba45e48030a5221b549
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912273"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667654"
 ---
-<a name="owin-oauth-20-authorization-server"></a>OWIN OAuth 2.0 yetkilendirme sunucusu
-====================
-tarafından [Hongye Sun](https://github.com/hongyes), [Praburaj Yöneticisi](https://github.com/Praburaj), [Rick Anderson]((https://twitter.com/RickAndMSFT))
+# <a name="owin-oauth-20-authorization-server"></a>OWIN OAuth 2.0 Yetkilendirme Sunucusu
 
 > Bu öğreticide bir OAuth 2.0 yetkilendirme sunucusu Ara OWIN OAuth kullanarak uygulama konusunda size yol gösterir. Bu yalnızca bir OWIN OAuth 2.0 yetkilendirme sunucusu oluşturma adımlarını özetleyen Gelişmiş bir öğreticidir. Bu adım adım öğretici değildir. [Örnek kodu indirdikten](https://code.msdn.microsoft.com/OWIN-OAuth-20-Authorization-ba2b8783/file/114932/1/AuthorizationServer.zip).
 >
@@ -29,9 +27,9 @@ tarafından [Hongye Sun](https://github.com/hongyes), [Praburaj Yöneticisi](htt
 >
 > | **Öğreticide gösterilen** | **İle de çalışır.** |
 > | --- | --- |
-> | Windows 8.1 | Windows 8, Windows 7 |
-> | [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013) | [Masaüstü için Visual Studio 2013 Express](https://my.visualstudio.com/Downloads?q=visual%20studio%202013#d-2013-express). Visual Studio 2012 en son güncelleştirmesi ile çalışması gerekir, ancak Eğitmeni ile test edilmemiştir ve bazı menü seçimlerini ve iletişim kutularında farklıdır. |
-> | .NET 4.5 |  |
+> | Windows 8.1 | Windows 10, Windows 8, Windows 7 |
+> | [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+> | .NET 4.7.2 |  |
 >
 > ## <a name="questions-and-comments"></a>Sorularınız ve yorumlarınız
 >
@@ -53,7 +51,7 @@ Bu öğreticide ele alınacaktır:
 <a id="prerequisites"></a>
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Visual Studio 2013'ün](https://www.microsoft.com/visualstudio/eng/downloads#d-2013-editions) veya ücretsiz [Visual Studio Express 2013](https://www.microsoft.com/visualstudio/eng/downloads#d-2013-express)belirtilen gibi **yazılım sürümleri** sayfanın üstünde.
+- [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) de gösterildiği gibi **yazılım sürümleri** sayfanın üstünde.
 - OWIN ile aşinalık. Bkz: [Katana projesi ile çalışmaya başlama](https://msdn.microsoft.com/magazine/dn451439.aspx) ve [OWIN ve Katana yenilikler](index.md).
 - Konusunda [OAuth](http://tools.ietf.org/html/rfc6749) terminolojisinde dahil olmak üzere [rolleri](http://tools.ietf.org/html/rfc6749#section-1.1), [Protokolü akış](http://tools.ietf.org/html/rfc6749#section-1.2), ve [yetkilendirme verme](http://tools.ietf.org/html/rfc6749#section-1.3). [OAuth 2.0 giriş](http://tools.ietf.org/html/rfc6749#section-1) iyi bir giriş sağlar.
 
@@ -80,17 +78,17 @@ Yukarıdaki kod, uygulama/dış oturum açma yetkilendirme sunucusu tarafından 
 `UseOAuthAuthorizationServer` Genişletme yöntemi olduğunu yetkilendirme sunucusu kurmak için. Kurulum seçenekleri şunlardır:
 
 - `AuthorizeEndpointPath`: İstek yolu istemci uygulamaları kullanıcıları almak için nereye Kullanıcı aracısını yönlendireceği bir belirteç veya kod vermek için onay. Bu örneğin, bir eğik çizgiyle başlamalıdır "`/Authorize`".
-- `TokenEndpointPath`: Erişim belirteci almak için istek yolu istemci uygulamaları doğrudan iletişim kurar. Önde gelen eğik çizgiyle "/ Token" gibi ile başlamalı. İstemci verilirse bir [istemci\_gizli](http://tools.ietf.org/html/rfc6749#appendix-A.2), bu uç noktaya sağlanmalıdır.
+- `TokenEndpointPath`: İstek yolu istemci uygulamaları, erişim belirteci almak için doğrudan iletişim kurar. Önde gelen eğik çizgiyle "/ Token" gibi ile başlamalı. İstemci verilirse bir [istemci\_gizli](http://tools.ietf.org/html/rfc6749#appendix-A.2), bu uç noktaya sağlanmalıdır.
 - `ApplicationCanDisplayErrors`: Kümesine `true` web uygulaması üzerinde özel hata sayfası için istemci doğrulama hatalarının oluşturmak isterse `/Authorize` uç noktası. Çalışmaları yönlendirilmeyen her yere tarayıcı istemci uygulamaya örneğin yedekleme için yalnızca bu gereklidir, `client_id` veya `redirect_uri` yanlış. `/Authorize` "Oauth. görmek uç nokta beklediğiniz Hata","oauth. ErrorDescription"ve"oauth. ErrorUri"özelliklerinin OWIN ortamına eklenir.
 
     > [!NOTE]
     > Aksi takdirde true, yetkilendirme sunucusu varsayılan bir hata sayfası ile hata ayrıntılarını döndürür.
-- `AllowInsecureHttp`: True yetkilendirme ve belirteç isteklerinin HTTP URI adreslerine ulaşmak ve gelen izin vermek için izin `redirect_uri` HTTP URI adreslerine sahip olmasına istek parametrelerini yetkilendirin.
+- `AllowInsecureHttp`: Yetkilendirme ve belirteç isteklerinin HTTP URI adreslerine ulaşmak ve gelen izin vermek için izin verilecekse true `redirect_uri` HTTP URI adreslerine sahip olmasına istek parametrelerini yetkilendirin.
 
     > [!WARNING]
     > Güvenlik - yalnızca geliştirme için budur.
 - `Provider`: Yetkilendirme sunucusu ara yazılımı tarafından başlatılan olayları işlemek üzere uygulama tarafından sağlanan nesne. Uygulama arabirimi tamamen uygulayabilir veya bir örneğini oluşturabilir `OAuthAuthorizationServerProvider` ve temsilcileri destekleyen bu sunucunun OAuth akışlar için gerekli atayabilir.
-- `AuthorizationCodeProvider`: İstemci uygulamaya geri dönmek için bir tek kullanımlık bir yetki kodu oluşturur. Uygulama olacak şekilde OAuth sunucusunun güvenli **gerekir** sağlamak için bir örneği `AuthorizationCodeProvider` nerede belirteci tarafından üretilen `OnCreate/OnCreateAsync` olay tek bir çağrı için geçerli kabul `OnReceive/OnReceiveAsync`.
+- `AuthorizationCodeProvider`: İstemci uygulamaya geri dönmek için tek kullanımlık bir yetki kodu oluşturur. Uygulama olacak şekilde OAuth sunucusunun güvenli **gerekir** sağlamak için bir örneği `AuthorizationCodeProvider` nerede belirteci tarafından üretilen `OnCreate/OnCreateAsync` olay tek bir çağrı için geçerli kabul `OnReceive/OnReceiveAsync`.
 - `RefreshTokenProvider`: Gerektiğinde yeni bir erişim belirteci oluşturmak için kullanılabilen bir yenileme belirteci oluşturur. Sağlanmadı yetkilendirme sunucusu yenileme belirteçleri döndürmez varsa `/Token` uç noktası.
 
 ## <a name="account-management"></a>Hesap Yönetimi
