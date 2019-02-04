@@ -92,10 +92,11 @@ items:
   - name: Razor Pages
     items:
     - uid: razor-pages/index
-      name: Genel Bakış
-    - uid: tutorials/razor-pages/index
-      name: Eğitmen
+      name: Giriş
+    - name: Eğitmen
       items:
+      - uid: tutorials/razor-pages/index
+        name: Genel Bakış
       - uid: tutorials/razor-pages/razor-pages-start
         name: Kullanmaya başlayın
       - uid: tutorials/razor-pages/model
@@ -165,6 +166,8 @@ items:
       name: Bağımlılık ekleme - görünümler
     - uid: mvc/controllers/testing
       name: Birim testi
+  - uid: razor-components/index
+    name: Razor Bileşenleri
   - uid: fundamentals/app-state
     name: Oturum ve uygulama durumu
   - name: Etiket Yardımcıları
@@ -433,6 +436,38 @@ items:
     name: Paketleme ve küçültme
   - uid: client-side/using-browserlink
     name: Tarayıcı Bağlantısı
+  - name: Razor Bileşenleri
+    items:
+    - uid: razor-components/index
+      name: Genel Bakış
+    - uid: razor-components/faq
+      name: SSS
+    - uid: razor-components/get-started
+      name: Kullanmaya başlayın
+    - uid: tutorials/first-blazor-app
+      name: İlk uygulamanızı oluşturma
+    - uid: razor-components/components
+      name: Bileşenler
+    - uid: razor-components/class-libraries
+      name: Bileşen kitaplıkları
+    - uid: razor-components/layouts
+      name: Düzenler
+    - uid: razor-components/dependency-injection
+      name: Bağımlılık ekleme
+    - uid: razor-components/routing
+      name: Yönlendirme
+    - uid: razor-components/javascript-interop
+      name: JavaScript ile birlikte çalışma
+    - uid: razor-components/debug
+      name: Hata ayıklama
+    - uid: razor-components/hosting-models
+      name: Barındırma modelleri
+    - name: Barındırma ve dağıtma
+      items:
+      - uid: host-and-deploy/razor-components/index
+        name: Genel Bakış
+      - uid: host-and-deploy/razor-components/configure-linker
+        name: Bağlayıcıyı yapılandırma
   - name: Tek Sayfalı Uygulamalar
     items:
     - uid: spa/index
@@ -531,6 +566,12 @@ items:
     name: Dizin yapısı
   - uid: host-and-deploy/health-checks
     name: Sistem durumu denetimleri
+  - name: Razor Bileşenleri
+    items:
+    - uid: host-and-deploy/razor-components/index
+      name: Genel Bakış
+    - uid: host-and-deploy/razor-components/configure-linker
+      name: Bağlayıcıyı yapılandırma
 - name: Güvenlik ve Kimlik
   items:
   - uid: security/index
@@ -812,9 +853,9 @@ items:
   href: /dotnet/api/?view=aspnetcore-2.1
 - name: Katkıda Bulun
   href: https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md
-ms.openlocfilehash: a6169489db7d7365e254c8f1213de348a4429c49
-ms.sourcegitcommit: e7276930515216338a33c4a03c0d7a87fc718ffe
+ms.openlocfilehash: 75c0220d1dac2fa2a51efd075e05cfd1e5070c8c
+ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55293524"
+ms.lasthandoff: 02/02/2019
+ms.locfileid: "55667810"
