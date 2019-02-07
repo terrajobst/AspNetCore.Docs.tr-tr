@@ -4,14 +4,14 @@ author: guardrex
 description: Azure uygulama hizmeti ve IIS üzerinde ASP.NET Core uygulamaları barındırırken sık karşılaşılan hatalar için sorun giderme tavsiyeleri edinin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/11/2018
+ms.date: 02/05/2019
 uid: host-and-deploy/azure-iis-errors-reference
-ms.openlocfilehash: 887482d61ffa74bc8ffb39d0af8507fd10199eb8
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
+ms.openlocfilehash: 976f7e3fbeab9e81ba99e2dd7d09a892b854651b
+ms.sourcegitcommit: 3c2ba9a0d833d2a096d9d800ba67a1a7f9491af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341504"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55854467"
 ---
 # <a name="common-errors-reference-for-azure-app-service-and-iis-with-aspnet-core"></a>Azure App Service ve IIS ile ASP.NET Core için sık karşılaşılan hatalar başvurusu
 
@@ -193,7 +193,7 @@ Sorun giderme:
 
 * Denetleme *processPath* özniteliği `<aspNetCore>` öğesinde *web.config* olduğundan emin olmak için `dotnet` framework bağımlı dağıtım (FDD) veya `.\{ASSEMBLY}.exe` bir için[müstakil dağıtım (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd).
 
-* Bir FDD için *dotnet.exe* yol ayarları erişilebilir olmayabilir. Onaylayın * C:\Program Files\dotnet\* sistem yolu ayarlarında yok.
+* Bir FDD için *dotnet.exe* yol ayarları erişilebilir olmayabilir. Onaylayın *C:\Program Files\dotnet\\*  sistem yolu ayarlarında yok.
 
 * Bir FDD için *dotnet.exe* uygulama havuzu kullanıcı kimliği için erişilebilir olmayabilir. Uygulama havuzu kullanıcı kimliği için erişimi olduğunu doğrulamak *C:\Program Files\dotnet* dizin. Uygulama havuzu kullanıcı kimliğini için yapılandırılmış hiçbir Reddet kural onaylayın *C:\Program Files\dotnet* ve uygulama dizinler.
 

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/29/2019
 uid: razor-components/hosting-models
-ms.openlocfilehash: dadae3de9ca3b67454865e2557d37c8b595f8f52
-ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
+ms.openlocfilehash: 9aba63860fd8c566b866bb1d3b50b29a7a33c6e8
+ms.sourcegitcommit: 3c2ba9a0d833d2a096d9d800ba67a1a7f9491af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55668183"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55854470"
 ---
 # <a name="razor-components-hosting-models"></a>Razor bileşenleri modelleri barındırma
 
@@ -59,7 +59,7 @@ Visual Studio içerir **Blazor (barındırılan ASP.NET Core)** WebAssembly üze
 
 ASP.NET Core Razor bileşenleri sunucu tarafı barındırma modeli içinde uygulama sunucusunda bir ASP.NET Core uygulaması içinde yürütülür. Kullanıcı Arabirimi güncelleştirmeleri, olay işleme ve JavaScript çağrılarını bir SignalR bağlantısı üzerinden işlenir.
 
-![ASP.NET Core Razor bileşenleri sunucu-tarafı: Tarayıcı uygulaması (bir ASP.NET Core uygulaması içinde barındırılan) ile sunucu üzerinde bir SignalR bağlantısı üzerinden etkileşim kurar.](hosting-models/_static/client-side.png)
+![ASP.NET Core Razor bileşenleri sunucu-tarafı: Tarayıcı uygulaması (bir ASP.NET Core uygulaması içinde barındırılan) ile sunucu üzerinde bir SignalR bağlantısı üzerinden etkileşim kurar.](hosting-models/_static/server-side.png)
 
 Sunucu tarafı barındırma modeli kullanarak bir Razor bileşenleri uygulaması oluşturmak için kullanın **Blazor (sunucu tarafı ASP.NET core'da)** şablonu (`blazorserver` kullanırken [yeni dotnet](/dotnet/core/tools/dotnet-new) bir komut isteminde). ASP.NET Core uygulaması Razor bileşenleri sunucu-tarafı uygulamasını barındıran ve istemcilerin eriştikleri SignalR uç noktasını ayarlar. ASP.NET Core uygulaması uygulamanın başvuran `Startup` sınıfı eklemek için:
 

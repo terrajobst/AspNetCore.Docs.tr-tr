@@ -5,12 +5,12 @@ description: ASP.NET Core kimliği olmadan tanımlama bilgisi kimlik doğrulamas
 ms.author: riande
 ms.date: 10/11/2017
 uid: security/authentication/cookie
-ms.openlocfilehash: f55b36cf3fc3b60e9d592348625f58ebaba90da7
-ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.openlocfilehash: f05e5b83359ec1739115293e092eaed0c811c046
+ms.sourcegitcommit: 3c2ba9a0d833d2a096d9d800ba67a1a7f9491af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51570119"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55854386"
 ---
 # <a name="use-cookie-authentication-without-aspnet-core-identity"></a>ASP.NET Core kimliği olmadan tanımlama bilgisi kimlik doğrulamasını kullan
 
@@ -53,7 +53,6 @@ Uygulamanın kimlik doğrulama düzeni, uygulamanın tanımlama bilgisi kimlik d
 | [AccessDeniedPath](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.accessdeniedpath?view=aspnetcore-2.0) | Bir 302 bulundu (URL yeniden yönlendirme) ile sağlamak için yolunu tarafından tetiklendiğinde `HttpContext.ForbidAsync`. Varsayılan değer `/Account/AccessDenied` şeklindedir. |
 | [ClaimsIssuer](/dotnet/api/microsoft.aspnetcore.authentication.authenticationschemeoptions.claimsissuer?view=aspnetcore-2.0) | İçin kullanılan verici [veren](/dotnet/api/system.security.claims.claim.issuer) tanımlama bilgisi kimlik doğrulama hizmeti tarafından oluşturulan herhangi bir talep özelliği. |
 | [Cookie.Domain](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.domain?view=aspnetcore-2.0) | Tanımlama bilgisi Burada sunulan etki alanı adı. Varsayılan olarak, isteğin ana bilgisayar adı budur. Tarayıcı yalnızca tanımlama bilgisi istekleri için eşleşen bir konak adı gönderir. Bu etki alanınızda tanımlama bilgilerini herhangi bir konağa kullanılabilir olmasını isteyebilirsiniz. Örneğin, tanımlama bilgisinin etki alanı ayarlama `.contoso.com` kullanılabilir hale getirir `contoso.com`, `www.contoso.com`, ve `staging.www.contoso.com`. |
-| [Cookie.Expiration](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.expiration?view=aspnetcore-2.0) | Alır veya ayarlar bir tanımlama bilgisinin ömrü. Şu anda ops Hayır seçeneği ve ASP.NET Core 2.1 + eski hale gelir. Kullanım `ExpireTimeSpan` tanımlama bilgisi süre sonunu ayarlama seçeneği. Daha fazla bilgi için [CookieAuthenticationOptions.Cookie.Expiration davranışını açıklamak](https://github.com/aspnet/Security/issues/1293). |
 | [Cookie.HttpOnly](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.httponly?view=aspnetcore-2.0) | Tanımlama bilgisinin yalnızca sunucular için erişilebilir olup olmayacağını belirten bir bayrak. Bu değer ile değiştirmek `false` tanımlama bilgisi erişmek için istemci tarafı betikleri verir ve uygulamanızı tanımlama bilgisi hırsızlığı için uygulamanızı olmalıdır açın bir [siteler arası betik (XSS)](xref:security/cross-site-scripting) güvenlik açığı. Varsayılan değer `true` şeklindedir. |
 | [Cookie.Name](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.name?view=aspnetcore-2.0) | Tanımlama bilgisinin adını ayarlar. |
 | [Cookie.Path](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.path?view=aspnetcore-2.0) | Aynı ana bilgisayar adını çalışan uygulamaları yalıtmak için kullanılır. Çalışan bir uygulama varsa `/app1` ve bu uygulama için tanımlama bilgileri kısıtlamak istediğiniz ayarlamak `CookiePath` özelliğini `/app1`. Bunu yaptığınızda, tanımlama bilgisinin yalnızca isteklerinde kullanılabilir `/app1` ve bunun altındaki herhangi bir uygulama. |
@@ -147,7 +146,7 @@ app.UseCookiePolicy(cookiePolicyOptions);
 | [MinimumSameSitePolicy](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions.minimumsamesitepolicy) | Tanımlama bilgisinin site aynı özniteliği (aşağıya bakın) etkiler. Varsayılan değer `SameSiteMode.Lax` şeklindedir. Bu seçenek için ASP.NET Core 2.0 + kullanılabilir. |
 | [OnAppendCookie](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions.onappendcookie) | Bir tanımlama bilgisi eklenir çağrılır. |
 | [OnDeleteCookie](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions.ondeletecookie) | Bir tanımlama bilgisi silindiğinde çağırılır. |
-| [güvenliğini sağlama](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions.secure) | Tanımlama bilgilerini güvenli mi etkiler. Varsayılan değer `CookieSecurePolicy.None` şeklindedir. |
+| [Güvenlik](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions.secure) | Tanımlama bilgilerini güvenli mi etkiler. Varsayılan değer `CookieSecurePolicy.None` şeklindedir. |
 
 **MinimumSameSitePolicy** (ASP.NET Core 2.0 + yalnızca)
 
@@ -196,7 +195,7 @@ await HttpContext.Authentication.SignInAsync(
 
 Kullanılan şifreleme ASP.NET Core'nın temel alıyor [veri koruma](xref:security/data-protection/using-data-protection#security-data-protection-getting-started) sistem. Birden çok makine, uygulamalar arasında Yük Dengeleme veya bir web grubu kullanarak uygulama düzenliyoruz. sonra yapmanız gerekenler [veri korumasını yapılandırma](xref:security/data-protection/configuration/overview) aynı anahtarı halka ve uygulama tanımlayıcısı.
 
-## <a name="sign-out"></a>Oturumu Kapat
+## <a name="sign-out"></a>Oturumu kapat
 
 ::: moniker range=">= aspnetcore-2.0"
 

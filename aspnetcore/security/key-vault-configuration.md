@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/28/2019
 uid: security/key-vault-configuration
-ms.openlocfilehash: 8e40c8308a692731e71fb8ebebfc64e606874290
-ms.sourcegitcommit: 98e9c7187772d4ddefe6d8e85d0d206749dbd2ef
+ms.openlocfilehash: d255321f6083747ce9b452e1efd4da5bc015bf64
+ms.sourcegitcommit: 3c2ba9a0d833d2a096d9d800ba67a1a7f9491af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55737661"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55854438"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>ASP.NET core'da Azure anahtar kasası yapılandırma sağlayıcısı
 
@@ -31,7 +31,7 @@ Bu senaryo, ASP.NET Core 2.1 hedefleyen uygulamalar için veya sonraki kullanıl
 
 Azure Key Vault yapılandırma sağlayıcısı kullanmak için bir paket başvurusu ekleme [Microsoft.Extensions.Configuration.AzureKeyVault](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureKeyVault/) paket.
 
-Azure yönetilen hizmet kimliği senaryo benimsemek için paket başvurusu ekleme [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/) paket.
+Benimsemeye [kimliklerini Azure kaynakları için yönetilen](/azure/active-directory/managed-identities-azure-resources/overview) senaryosu için bir paket başvurusu ekleme [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/) paket.
 
 > [!NOTE]
 > En son kararlı sürümünü yazma zamanında `Microsoft.Azure.Services.AppAuthentication`, sürüm `1.0.3`, için destek sağlar [sistem tarafından atanan kimlikleri yönetilen](/azure/active-directory/managed-identities-azure-resources/overview#how-does-the-managed-identities-for-azure-resources-worka-namehow-does-it-worka). Destek *kullanıcı tarafından atanan kimlikleri yönetilen* kullanılabilir `1.0.2-preview` paket. Bu konu, sistem tarafından yönetilen kimlikleri kullanımını gösterir ve sağlanan örnek uygulama sürümünü kullanan `1.0.3` , `Microsoft.Azure.Services.AppAuthentication` paket.
@@ -40,8 +40,8 @@ Azure yönetilen hizmet kimliği senaryo benimsemek için paket başvurusu eklem
 
 Örnek uygulama tarafından belirlenen iki moddan birini çalıştıran `#define` en üstündeki deyimi *Program.cs* dosyası:
 
-* `Basic` &ndash; Bir Azure anahtar kasası uygulama kimliği ve parolası (gizli) anahtar Kasası'nda depolanan gizli erişmek için kullanımını gösterir. Dağıtma `Basic` herhangi bir ana bilgisayara bir ASP.NET Core uygulaması hizmet örneğinin sürümü.
-* `Managed` &ndash; Azure'nın nasıl yapılacağı açıklanır [yönetilen hizmet kimliği (MSI)](/azure/active-directory/managed-identities-azure-resources/overview) uygulamanın kod veya yapılandırma depolanan kimlik bilgileri olmadan Azure anahtar kasası uygulama Azure AD kimlik doğrulaması ile kimlik doğrulaması için. MSI kimlik doğrulaması için kullanıldığında, bir Azure AD uygulama kimliği ve parolası (gizli) gerekli değildir. `Managed` Sürümünü Azure'a dağıtılması gerekir.
+* `Basic` &ndash; Bir Azure anahtar kasası uygulama kimliği ve parolası (gizli) anahtar Kasası'nda depolanan gizli erişmek için kullanımını gösterir. Dağıtma `Basic` herhangi bir ana bilgisayara bir ASP.NET Core uygulaması hizmet örneğinin sürümü. Sunulan yönergeleri [uygulama Kimliğini kullanın ve Azure'da barındırılan uygulamalar için gizli](#use-application-id-and-client-secret-for-non-azure-hosted-apps) bölümü.
+* `Managed` &ndash; Nasıl kullanılacağını gösteren [kimliklerini Azure kaynakları için yönetilen](/azure/active-directory/managed-identities-azure-resources/overview) uygulamanın kod veya yapılandırma depolanan kimlik bilgileri olmadan Azure anahtar kasası uygulama Azure AD kimlik doğrulaması ile kimlik doğrulaması için. Yönetilen kimlik doğrulamaya kullanırken, bir Azure AD uygulama kimliği ve parolası (gizli) gerekli değildir. `Managed` Sürümünü Azure'a dağıtılması gerekir. Sunulan yönergeleri [Azure kaynakları için yönetilen kimlikleri kullanmak](#use-managed-identities-for-azure-resources) bölümü.
 
 Önişlemci yönergeleri kullanarak örnek bir uygulama yapılandırma hakkında daha fazla bilgi için (`#define`), bkz: <xref:index#preprocessor-directives-in-sample-code>.
 
@@ -111,12 +111,12 @@ Tarafından sağlanan yönergeleri [hızlı başlangıç: Ayarlayın ve Azure CL
    az keyvault secret set --vault-name "{KEY VAULT NAME}" --name "Section--SecretName" --value "secret_value_2_prod"
    ```
 
-## <a name="use-application-id-and-client-secret"></a>Uygulama kimliği ve istemci gizli anahtarını kullanın
+## <a name="use-application-id-and-client-secret-for-non-azure-hosted-apps"></a>Azure'da barındırılan uygulamalar için uygulama kimliği ve istemci gizli anahtarını kullanın
 
-Azure AD'yi yapılandırma uygulamayı Azure dışında barındırıldığında, bir anahtar kasasına kimliğini doğrulamak için bir uygulama kimliği ve parolası (gizli) kullanmak için Azure anahtar kasası ve uygulama.
+Azure AD'yi yapılandırma Azure anahtar kasası ve uygulama kimliğini doğrulamak için bir uygulama kimliği ve parolası (gizli) bir anahtar kasasına kullanacak şekilde **uygulamayı Azure dışında barındırılan zaman**.
 
 > [!NOTE]
-> Azure'da barındırılan uygulamalar için bir uygulama kimliği ve parolası (gizli) kullanarak desteklenir, ancak kullanarak öneririz [yönetilen hizmet kimliği (MSI) sağlayıcısı](#use-the-managed-service-identity-msi-provider) uygulamanızı Azure'a barındırırken. MSI, genellikle daha güvenli bir yaklaşım kabul edilir, böylece uygulama veya özelliğin yapılandırmasından kimlik bilgilerini depolama gerektirmez.
+> Azure'da barındırılan uygulamalar için bir uygulama kimliği ve parolası (gizli) kullanarak desteklenir, ancak kullanarak öneririz [kimliklerini Azure kaynakları için yönetilen](#use-managed-identities-for-azure-resources) uygulamanızı Azure'a barındırırken. Yönetilen kimlikleri genellikle daha güvenli bir yaklaşım kabul edilir, böylece uygulama veya özelliğin yapılandırmasından kimlik bilgilerini depolama gerektirir.
 
 Örnek uygulama bir uygulama kimliği ve parolası (gizli) kullandığında `#define` en üstündeki deyimi *Program.cs* dosya ayarlanmış `Basic`.
 
@@ -155,11 +155,11 @@ Uygulama çağrıları `AddAzureKeyVault` tarafından sağlanan değerlerle *app
 
 Uygulamayı çalıştırdığınızda, bir Web sayfası yüklü gizli değerleri gösterir. Geliştirme ortamında ile gizli değerleri yük `_dev` soneki. İle üretim ortamında, değerleri yükleme `_prod` soneki.
 
-## <a name="use-the-managed-service-identity-msi-provider"></a>Yönetilen hizmet kimliği (MSI) sağlayıcısı kullanın
+## <a name="use-managed-identities-for-azure-resources"></a>Azure kaynakları için yönetilen kimlikleri kullanmak
 
-Azure'a dağıtılan bir uygulama, yönetilen hizmet kimliği (Azure Key Vault ile kimlik doğrulaması uygulamada depolanan kimlik bilgileri olmayan (uygulama kimliği ve parola/gizli) Azure AD kimlik doğrulamasını kullanarak veren MSI), avantajından yararlanabilir.
+**Azure'a dağıtılan bir uygulama** yararlanabilirsiniz [kimliklerini Azure kaynakları için yönetilen](/azure/active-directory/managed-identities-azure-resources/overview), kimlik bilgileri olmadan Azure AD kimlik doğrulamasını kullanarak Azure Key Vault ile kimlik doğrulaması bir uygulama sağlar (uygulama kimliği ve Password/Client gizli) uygulamada depolanan.
 
-MSI örnek uygulamanın kullandığı zaman `#define` en üstündeki deyimi *Program.cs* dosya ayarlanır `Managed`.
+Örnek uygulama, Azure kaynakları için yönetilen kimlikleri kullanır, `#define` en üstündeki deyimi *Program.cs* dosya ayarlanmış `Managed`.
 
 Uygulamanın kasa adını girin *appsettings.json* dosya. Örnek uygulama, bir uygulama kimliği ve parolası (gizli) ayarlandığında gerektirmeyen `Managed` yapılandırma girişler yoksayabilirsiniz. Bu nedenle sürüm. Uygulamayı Azure'a dağıtılır ve Azure kimlik doğrulaması, Azure anahtar Kasası'nın içinde depolanan yalnızca kasa adını kullanarak erişmek için uygulamayı *appsettings.json* dosya.
 
@@ -177,7 +177,7 @@ az keyvault set-policy --name '{KEY VAULT NAME}' --object-id {OBJECT ID} --secre
 
 Örnek uygulama:
 
-* Örneği oluşturur `AzureServiceTokenProvider` sınıf olmayan bir bağlantı dizesi. Bir bağlantı dizesi sağlanmayan, sağlayıcıyı konumundan MSI bir erişim belirteci almak çalışır.
+* Örneği oluşturur `AzureServiceTokenProvider` sınıf olmayan bir bağlantı dizesi. Bir bağlantı dizesi sağlanmayan, sağlayıcıyı Azure kaynakları için yönetilen kimlikleri bir erişim belirteci almak çalışır.
 * Yeni bir `KeyVaultClient` ile oluşturulan `AzureServiceTokenProvider` örneği belirteci geri çağırma.
 * `KeyVaultClient` Örneği varsayılan bir uygulama ile kullanılan `IKeyVaultSecretManager` tüm gizli değerleri yükler ve çift tire değiştirir (`--`) iki nokta üst üste ile (`:`) anahtar adları.
 

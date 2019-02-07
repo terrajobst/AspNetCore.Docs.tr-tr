@@ -6,12 +6,12 @@ ms.author: riande
 monikerRange: '>= aspnetcore-2.2'
 ms.date: 12/3/2018
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 5693fb833d19375ef53e0f367bc6064e239b01d3
-ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
+ms.openlocfilehash: 5447ad541ee62e0043cfec22b7dd1927737b6f2b
+ms.sourcegitcommit: 3c2ba9a0d833d2a096d9d800ba67a1a7f9491af0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54444110"
+ms.lasthandoff: 02/07/2019
+ms.locfileid: "55854399"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Bir ASP.NET Core Razor sayfaları uygulama için model ekleme
 
@@ -56,7 +56,7 @@ Sağ tıklayın *modelleri* klasör. Seçin **ekleme** > **sınıfı**. Sınıf 
 * İçinde **yeni dosya** iletişim:
 
   * Seçin **genel** sol bölmesinde.
-  * Seçin **boş sınıf** içinde merkezi kolaylaştırın.
+  * Seçin **boş sınıf** Orta bölmedeki.
   * Sınıf adı **film** seçip **yeni**.
 
 [!INCLUDE [model 1b](~/includes/RP/model1b.md)]
