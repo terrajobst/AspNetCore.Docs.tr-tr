@@ -4,14 +4,14 @@ author: ssougnez
 description: Bu öğreticide, Web, istemci, içinde TypeScript yazılmış bir ASP.NET Core SignalR web uygulaması derleme ve paket için yapılandırın.
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 11/30/2018
+ms.date: 02/11/2019
 uid: tutorials/signalr-typescript-webpack
-ms.openlocfilehash: 8292ab2e0ad1f5c67ac7f15c280b49700f6717ad
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: aaf9aa59928ed6b17bc0586d97dbdefc9e30362c
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54836330"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56102958"
 ---
 # <a name="use-aspnet-core-signalr-with-typescript-and-webpack"></a>TypeScript ve Web ile ASP.NET Core SignalR kullanma
 
@@ -80,13 +80,13 @@ Aşağıdaki adımlar, JavaScript, TypeScript, dönüştürme ve istemci tarafı
 1. Gerekli npm paketlerini yükleyin. Proje kökünden aşağıdaki komutu yürütün:
 
     ```console
-    npm install -D -E clean-webpack-plugin@0.1.19 css-loader@0.28.11 html-webpack-plugin@3.2.0 mini-css-extract-plugin@0.4.0 ts-loader@4.4.1 typescript@2.9.2 webpack@4.12.0 webpack-cli@3.0.6
+    npm install -D -E clean-webpack-plugin@1.0.1 css-loader@2.1.0 html-webpack-plugin@4.0.0-beta.5 mini-css-extract-plugin@0.5.0 ts-loader@5.3.3 typescript@3.3.3 webpack@4.29.3 webpack-cli@3.2.3
     ```
 
     Dikkat edilecek bazı komut ayrıntıları:
 
     * Bir sürüm numarasından `@` her paket adı için oturum açın. npm, bu belirli bir paket sürümlerini yükler.
-    * `-E` Seçeneği, yazma npm'ın varsayılan davranışı devre dışı bırakır [semantic versioning](https://semver.org/) işleçler için aralığı *package.json*. Örneğin, `"webpack": "4.12.0"` yerine kullanılan `"webpack": "^4.12.0"`. Bu seçenek, istenmeyen yükseltmeleri için yeni bir paket sürümlerini önler.
+    * `-E` Seçeneği, yazma npm'ın varsayılan davranışı devre dışı bırakır [semantic versioning](https://semver.org/) işleçler için aralığı *package.json*. Örneğin, `"webpack": "4.29.3"` yerine kullanılan `"webpack": "^4.29.3"`. Bu seçenek, istenmeyen yükseltmeleri için yeni bir paket sürümlerini önler.
 
     Resmi görmek [npm yükleme](https://docs.npmjs.com/cli/install) daha fazla ayrıntı için belgeleri.
 

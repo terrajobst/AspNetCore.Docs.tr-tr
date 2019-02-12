@@ -1,27 +1,20 @@
 ---
-title: -Eşzamanlılık - 8, 10 EF çekirdekli ASP.NET Core MVC
-author: rick-anderson
+title: 'Öğretici: Eşzamanlılık - EF çekirdekli ASP.NET MVC işleme'
 description: Bu öğreticide, birden çok kullanıcı aynı anda aynı varlık güncelleştirdiğinizde çakışmalarına gösterilmektedir.
+author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 02/05/2019
+ms.topic: tutorial
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: 0ae566a76a2ef656843452ed537b8fdfbddaed22
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 7b18927d5d528ec2951087502e26b2b30214f389
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090907"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56103026"
 ---
-# <a name="aspnet-core-mvc-with-ef-core---concurrency---8-of-10"></a>-Eşzamanlılık - 8, 10 EF çekirdekli ASP.NET Core MVC
-
-[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
-
-::: moniker range="= aspnetcore-2.0"
-
-Tarafından [Tom Dykstra](https://github.com/tdykstra) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
-
-Contoso University örnek web uygulaması, Entity Framework Core ve Visual Studio kullanarak ASP.NET Core MVC web uygulamalarının nasıl oluşturulacağını gösterir. Öğretici serisinin hakkında daha fazla bilgi için bkz. [serideki ilk öğreticide](intro.md).
+# <a name="tutorial-handle-concurrency---aspnet-mvc-with-ef-core"></a>Öğretici: Eşzamanlılık - EF çekirdekli ASP.NET MVC işleme
 
 Önceki öğreticilerde, verileri güncelleştirmek hakkında bilgi edindiniz. Bu öğreticide, birden çok kullanıcı aynı anda aynı varlık güncelleştirdiğinizde çakışmalarına gösterilmektedir.
 
@@ -30,6 +23,23 @@ Departman varlık ile çalışma ve eşzamanlılık hatalarını işleme web say
 ![Departman düzenleme sayfası](concurrency/_static/edit-error.png)
 
 ![Bölüm silme sayfası](concurrency/_static/delete-error.png)
+
+Bu öğreticide şunları yaptınız:
+
+> [!div class="checklist"]
+> * Eşzamanlılık çakışmalarını hakkında bilgi edinin
+> * İzleme özelliği ekleme
+> * Departmanlar denetleyici ve görünümler oluşturma
+> * Dizini görünümünü güncelleştirme
+> * Düzenleme metotlarını güncelleştir
+> * Güncelleştirme düzenleme görünümü
+> * Test eşzamanlılık çakışmaları
+> * Silme sayfası
+> * Güncelleştirme ayrıntıları ve görünümler oluşturma
+
+## <a name="prerequisites"></a>Önkoşullar
+
+* [Bir ASP.NET Core MVC web uygulamasında EF Core ile ilgili verileri güncelleştirme](update-related-data.md)
 
 ## <a name="concurrency-conflicts"></a>Eşzamanlılık çakışmaları
 
@@ -87,7 +97,7 @@ Bazı seçenekleri şunlardır:
 
 Bu öğreticinin geri kalanında, ekleyeceksiniz bir `rowversion` özelliği departmanı varlık izleme, bir denetleyici ve Görünüm ve her şeyin düzgün çalıştığını doğrulamak için sınama.
 
-## <a name="add-a-tracking-property-to-the-department-entity"></a>Departman varlığa izleme özelliği ekleme
+## <a name="add-a-tracking-property"></a>İzleme özelliği ekleme
 
 İçinde *Models/Department.cs*, RowVersion adlı izleme özelliği ekleyin:
 
@@ -114,7 +124,7 @@ dotnet ef migrations add RowVersion
 dotnet ef database update
 ```
 
-## <a name="create-a-departments-controller-and-views"></a>Departmanlar denetleyici ve görünümler oluşturma
+## <a name="create-departments-controller-and-views"></a>Departmanlar denetleyici ve görünümler oluşturma
 
 Öğrenciler, kurslara ve Eğitmenler için daha önce yaptığınız gibi Departmanlar denetleyici ve görünüm iskelesini.
 
@@ -124,7 +134,7 @@ dotnet ef database update
 
 [!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_Dropdown)]
 
-## <a name="update-the-departments-index-view"></a>Departmanlar dizini görünümünü güncelleştirme
+## <a name="update-index-view"></a>Dizini görünümünü güncelleştirme
 
 Yapı iskelesi altyapısı RowVersion sütun dizini Görünümü'nde oluşturulur, ancak bu alan görüntülenen olmamalıdır.
 
@@ -134,7 +144,7 @@ Değiştirin *Views/Departments/Index.cshtml* aşağıdaki kod ile.
 
 Bu "Bölümler" başlığı değiştirir, RowVersion sütun siler ve yönetici için tam adı ad yerine gösterir.
 
-## <a name="update-the-edit-methods-in-the-departments-controller"></a>Düzenleme metotlarını Departmanlar denetleyicisindeki güncelleştir
+## <a name="update-edit-methods"></a>Düzenleme metotlarını güncelleştir
 
 Her iki HttpGet içinde `Edit` yöntemi ve `Details` yöntemi ekleme `AsNoTracking`. İçinde HttpGet `Edit` yöntemi istekli yükleme için yönetici ekleyin.
 
@@ -172,7 +182,7 @@ Son olarak, kod ayarlar `RowVersion` değerini `departmentToUpdate` yeni değere
 
 `ModelState.Remove` Deyimi, çünkü gereklidir `ModelState` eski olan `RowVersion` değeri. Görünümü'nde `ModelState` değerinin ikisi de mevcut olduğunda alan üzerinde model özellik değerlerini öncelik kazanır.
 
-## <a name="update-the-department-edit-view"></a>Departman düzenleme görünümü güncelleştirme
+## <a name="update-edit-view"></a>Güncelleştirme düzenleme görünümü
 
 İçinde *Views/Departments/Edit.cshtml*, aşağıdaki değişiklikleri yapın:
 
@@ -182,7 +192,7 @@ Son olarak, kod ayarlar `RowVersion` değerini `departmentToUpdate` yeni değere
 
 [!code-html[](intro/samples/cu/Views/Departments/Edit.cshtml?highlight=16,34-36)]
 
-## <a name="test-concurrency-conflicts-in-the-edit-page"></a>Test eşzamanlılık çakışmaları düzenleme sayfası
+## <a name="test-concurrency-conflicts"></a>Test eşzamanlılık çakışmaları
 
 Uygulamayı çalıştırın ve Departmanlar dizin sayfasına gidin. Sağ **Düzenle** seçin ve İngilizce departmanı için köprü **yeni sekmede aç**, ardından **Düzenle** İngilizce departmanı için köprü. İki tarayıcı sekmeleri artık aynı bilgiyi görüntüler.
 
@@ -276,12 +286,29 @@ Değiştirin *Views/Departments/Create.cshtml* Seç seçeneğini aşağı açıl
 
 [!code-html[](intro/samples/cu/Views/Departments/Create.cshtml?highlight=32-34)]
 
-## <a name="summary"></a>Özet
+## <a name="get-the-code"></a>Kodu alma
 
-Bu, eşzamanlılık çakışmalarını işleme giriş tamamlar. EF Core eşzamanlılık nasıl ele alınacağını hakkında daha fazla bilgi için bkz. [eşzamanlılık çakışmalarını](/ef/core/saving/concurrency). Sonraki öğreticiye Eğitmen ve Öğrenci varlıklar için tablo başına hiyerarşi devralma uygulanması gösterilmektedir.
+[İndirme veya tamamlanmış uygulamanın görüntüleyin.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-::: moniker-end
+## <a name="additional-resources"></a>Ek kaynaklar
 
-> [!div class="step-by-step"]
-> [Önceki](update-related-data.md)
-> [İleri](inheritance.md)
+ EF Core eşzamanlılık nasıl ele alınacağını hakkında daha fazla bilgi için bkz. [eşzamanlılık çakışmalarını](/ef/core/saving/concurrency).
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+Bu öğreticide şunları yaptınız:
+
+> [!div class="checklist"]
+> * Eşzamanlılık çakışmalarını hakkında bilgi edindiniz
+> * İzleme özelliği eklendi
+> * Oluşturulan bölümler denetleyici ve Görünüm
+> * Güncelleştirilmiş dizini görünümü
+> * Düzenleme metotlarını güncelleştirildi
+> * Güncelleştirilmiş düzenleme görünümü
+> * Test edilen eşzamanlılık çakışmaları
+> * Silme sayfası güncelleştirildi
+> * Güncelleştirilen Ayrıntılar ve görünümler oluşturma
+
+Tablo başına hiyerarşi devralma Eğitmen ve Öğrenci varlıkların uygulama hakkında bilgi edinmek için sonraki makaleye ilerleyin.
+> [!div class="nextstepaction"]
+> [Tablo başına hiyerarşi devralma uygulama](inheritance.md)

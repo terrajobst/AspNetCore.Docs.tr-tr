@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/22/2019
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: 4eea360d08c79b889db00132109cf49492f84de6
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: 3de50233987998d6e0072a261dee29dd09f4ef89
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54837786"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56103156"
 ---
 # <a name="aspnet-core-module"></a>ASP.NET Core Modülü
 
@@ -33,7 +33,7 @@ Desteklenen Windows sürümleri:
 
 İşlem dışı barındırırken, modülü yalnızca Kestrel ile çalışır. Uyumlu bir modüldür [HTTP.sys](xref:fundamentals/servers/httpsys).
 
-## <a name="hosting-models"></a>Barındırma modeli
+## <a name="hosting-models"></a>Barındırma modelleri
 
 ### <a name="in-process-hosting-model"></a>İşlem içi barındırma modeli
 
@@ -497,6 +497,32 @@ ASP.NET Core modülü yükleyiciyi ayrıcalıklarıyla çalıştırır **sistem*
 1. Yükleyiciyi çalıştırın.
 1. Güncelleştirilmiş dışarı *applicationHost.config* dosya paylaşımına.
 1. IIS paylaşılan yapılandırması yeniden etkinleştirin.
+
+::: moniker range=">= aspnetcore-2.2"
+
+## <a name="application-initialization"></a>Uygulama başlatma
+
+[IIS uygulama başlatma](/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization) uygulama havuzunu başlatır veya geri dönüştürüldüğünde, uygulamaya bir HTTP isteği gönderir, bir IIS özelliğidir. İstek, uygulamanın başlatılması tetikler. Uygulama başlatma her ikisi için de kullanılabilir [işlem içi barındırma modeli](xref:fundamentals/servers/index#in-process-hosting-model) ve [işlem dışı barındırma modeli](xref:fundamentals/servers/index#out-of-process-hosting-model) ile ASP.NET Core modülü sürüm 2.
+
+Uygulama başlatma etkinleştirmek için:
+
+1. IIS uygulama başlatma rolü özelliği etkin olduğunu doğrulayın:
+   * Windows 7 veya sonraki sürümlerde: Gidin **Denetim Masası** > **programlar** > **programlar ve Özellikler** > **kapatma Windows özellikleri hakkında ya da kapalı** (ekranın sol). Açık **Internet Information Services** > **World Wide Web Hizmetleri** > **uygulama geliştirme özellikleri**. Onay kutusunu seçin **uygulama başlatma**.
+   * Windows Server 2008 R2 veya sonraki sürümlerde, açık **Ekle roller ve Özellikler Sihirbazı**. Ulaştığınızda **rol hizmetlerini seçin** paneli, açık **uygulama geliştirme** düğümünü seçip alt **uygulama başlatma** onay kutusu.
+1. IIS Yöneticisi'nde **uygulama havuzları** içinde **bağlantıları** paneli.
+1. Listede uygulamanın uygulama havuzunu seçin.
+1. Seçin **Gelişmiş ayarlar** altında **uygulama havuzunu Düzenle** içinde **eylemleri** paneli.
+1. Ayarlama **başlangıç modu** için **AlwaysRunning**.
+1. Açık **siteleri** düğümünde **bağlantıları** paneli.
+1. Uygulamayı seçin.
+1. Seçin **Gelişmiş ayarlar** altında **Web sitesini Yönet** içinde **eylemleri** paneli.
+1. Ayarlama **önceden yükleme etkin** için **True**.
+
+Daha fazla bilgi için [IIS 8.0 uygulama başlatma](/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization).
+
+Kullanan uygulamalar [işlem dışı barındırma modeli](xref:fundamentals/servers/index#out-of-process-hosting-model) uygulamanın çalışmasını sağlamak için düzenli aralıklarla ping göndermek için bir dış hizmet kullanmanız gerekir.
+
+::: moniker-end
 
 ## <a name="module-version-and-hosting-bundle-installer-logs"></a>Modül sürümü ve paket barındırma yükleyici günlükleri
 

@@ -1,26 +1,19 @@
 ---
-title: -EF çekirdekli ASP.NET Core MVC 6 10 - ilgili verileri okuma
-author: rick-anderson
+title: 'Öğretici: ASP.NET MVC ile EF Core - ilgili verileri okuma'
 description: Bu öğreticide okuyun ve ilgili verileri--diğer bir deyişle, Entity Framework Gezinti özelliklerini yükler verileri görüntüler.
+author: rick-anderson
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.date: 02/05/2019
+ms.topic: tutorial
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: a310c9e4b9cec6e2ab2477461f395c9bbd3fa364
-ms.sourcegitcommit: e12f45ddcbe99102a74d4077df27d6c0ebba49c1
+ms.openlocfilehash: 73e225c2cd6d9f88079c54115cccad48f43d7d0c
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/15/2018
-ms.locfileid: "39063292"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56103052"
 ---
-# <a name="aspnet-core-mvc-with-ef-core---read-related-data---6-of-10"></a>-EF çekirdekli ASP.NET Core MVC 6 10 - ilgili verileri okuma
-
-[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
-
-::: moniker range="= aspnetcore-2.0"
-
-Tarafından [Tom Dykstra](https://github.com/tdykstra) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
-
-Contoso University örnek web uygulaması, Entity Framework Core ve Visual Studio kullanarak ASP.NET Core MVC web uygulamalarının nasıl oluşturulacağını gösterir. Öğretici serisinin hakkında daha fazla bilgi için bkz. [serideki ilk öğreticide](intro.md).
+# <a name="tutorial-read-related-data---aspnet-mvc-with-ef-core"></a>Öğretici: ASP.NET MVC ile EF Core - ilgili verileri okuma
 
 Önceki öğreticide, okul veri modeli tamamlandı. Bu öğreticide, okuma ve ilgili verileri--diğer bir deyişle, Entity Framework Gezinti özelliklerini yükler verileri görüntüler.
 
@@ -30,7 +23,19 @@ Aşağıdaki çizimler ile çalışmak sayfaları göstermektedir.
 
 ![Eğitmenler dizin sayfası](read-related-data/_static/instructors-index.png)
 
-## <a name="eager-explicit-and-lazy-loading-of-related-data"></a>İlgili veri eager, açık ve yavaş yükleniyor
+Bu öğreticide şunları yaptınız:
+
+> [!div class="checklist"]
+> * İlgili veri yükleme konusunda bilgi edinin
+> * Kursları sayfası oluşturma
+> * Eğitmenler sayfası oluşturma
+> * Açık yükleme hakkında bilgi edinin
+
+## <a name="prerequisites"></a>Önkoşullar
+
+* [Daha karmaşık bir veri modeli EF Core ile ASP.NET Core MVC web uygulaması için oluşturma](complex-data-model.md)
+
+## <a name="learn-how-to-load-related-data"></a>İlgili veri yükleme konusunda bilgi edinin
 
 Birkaç yolu vardır, nesne ilişkisel eşleme (ORM) yazılım gibi Entity Framework ilgili verileri bir varlığın Gezinti özelliklerini yükleyebilirsiniz:
 
@@ -54,7 +59,7 @@ Birkaç yolu vardır, nesne ilişkisel eşleme (ORM) yazılım gibi Entity Frame
 
 Öte yandan, bazı senaryolarda ayrı sorgulara daha verimlidir. Bir sorgudaki tüm ilgili verilerin istekli yükleme, SQL Server'ın etkili bir şekilde işleyemiyor oluşturulması çok karmaşık birleştirme neden olabilir. Veya, bir varlığın yalnızca bir alt kümesini bir dizi işlem varlık Gezinti özellikleri erişmeniz gerekiyorsa, ayrı sorgulara Önden her şeyin istekli yükleme ihtiyacınız olandan daha fazla veri alması için daha iyi gerçekleştirebilir. Performans kritik ise, en iyi seçim yapmak için her iki yönde performansını test etmek idealdir.
 
-## <a name="create-a-courses-page-that-displays-department-name"></a>Bölüm adını görüntüleyen bir kursları sayfası oluşturma
+## <a name="create-a-courses-page"></a>Kursları sayfası oluşturma
 
 Kurs varlık kursu atandığı departmanı departmanı varlığı içeren bir gezinme özelliği içerir. Atanan bölüm adını kursları listesini görüntülemek için Name özelliği içinde departmanı varlıktan almanız gereken `Course.Department` gezinme özelliği.
 
@@ -88,7 +93,7 @@ Uygulamayı çalıştırmak ve seçmek **kursları** bölüm adları listesini g
 
 ![Kursları dizin sayfası](read-related-data/_static/courses-index.png)
 
-## <a name="create-an-instructors-page-that-shows-courses-and-enrollments"></a>Kursları ve kayıtları gösterir bir eğitmen sayfası oluşturma
+## <a name="create-an-instructors-page"></a>Eğitmenler sayfası oluşturma
 
 Bu bölümde, eğitmenler sayfasını görüntülemek için bir denetleyici ve görünüm Eğitmen varlığın oluşturacaksınız:
 
@@ -226,7 +231,7 @@ Sayfayı yenileyin ve bir eğitmen seçin. Ardından bir kurs kayıtlı Öğrenc
 
 ![Eğitmenler dizin sayfası Eğitmen ve seçilen kursu](read-related-data/_static/instructors-index.png)
 
-## <a name="explicit-loading"></a>Açık yükleme
+## <a name="about-explicit-loading"></a>Açık yükleme hakkında
 
 Alınan ne zaman eğitmenlerini listesini *InstructorsController.cs*, istekli yükleme için belirttiğiniz `CourseAssignments` gezinme özelliği.
 
@@ -238,12 +243,20 @@ Yeni kod bıraktığı *ThenInclude* yöntemini çağırır için kayıt veriler
 
 Çalıştırma verileri nasıl alınıp değiştirdik ancak Eğitmenler dizin sayfası artık ve, go uygulaması sayfasında, görüntülenen içinde herhangi bir fark görürsünüz.
 
-## <a name="summary"></a>Özet
+## <a name="get-the-code"></a>Kodu alma
 
-Artık istekli yükleme birden fazla sorgu içeren bir sorgu ile ilgili verileri Gezinti özelliklerini okumak için kullandınız. Sonraki öğreticide ilgili verileri güncelleştirme öğreneceksiniz.
+[İndirme veya tamamlanmış uygulamanın görüntüleyin.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-::: moniker-end
+## <a name="next-steps"></a>Sonraki adımlar
 
->[!div class="step-by-step"]
->[Önceki](complex-data-model.md)
->[İleri](update-related-data.md)
+Bu öğreticide şunları yaptınız:
+
+> [!div class="checklist"]
+> * İlgili veri yükleme işleminin nasıl yapılacağını öğrendiniz
+> * Kursları sayfa oluşturuldu
+> * Eğitmenler sayfa oluşturuldu
+> * Açık yükleme hakkında bilgi edindiniz
+
+İlgili verileri güncelleştirme hakkında bilgi edinmek için sonraki makaleye ilerleyin.
+> [!div class="nextstepaction"]
+> [İlgili verileri güncelleştirme](update-related-data.md)

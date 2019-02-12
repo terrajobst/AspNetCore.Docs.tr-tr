@@ -1,33 +1,40 @@
 ---
-title: -Devralma - 9, 10 EF çekirdekli ASP.NET Core MVC
-author: rick-anderson
+title: 'Öğretici: Devralma - EF çekirdekli ASP.NET MVC uygulama'
 description: Bu öğreticide, Entity Framework Core ASP.NET Core uygulamasını kullanarak veri modelinde, devralma uygulanması gösterilmektedir.
+author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 02/05/2019
+ms.topic: tutorial
 uid: data/ef-mvc/inheritance
-ms.openlocfilehash: 60417040dd296311e1aecff8f224aadf8da82779
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 0a5eb1aba43bc2adf746202772c7f98eff49b4ff
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090764"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56103013"
 ---
-# <a name="aspnet-core-mvc-with-ef-core---inheritance---9-of-10"></a>-Devralma - 9, 10 EF çekirdekli ASP.NET Core MVC
-
-[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
-
-::: moniker range="= aspnetcore-2.0"
-
-Tarafından [Tom Dykstra](https://github.com/tdykstra) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
-
-Contoso University örnek web uygulaması, Entity Framework Core ve Visual Studio kullanarak ASP.NET Core MVC web uygulamalarının nasıl oluşturulacağını gösterir. Öğretici serisinin hakkında daha fazla bilgi için bkz. [serideki ilk öğreticide](intro.md).
+# <a name="tutorial-implement-inheritance---aspnet-mvc-with-ef-core"></a>Öğretici: Devralma - EF çekirdekli ASP.NET MVC uygulama
 
 Önceki öğreticide eşzamanlılık özel durumları işlenir. Bu öğreticide, veri modelinde devralma uygulanması gösterilmektedir.
 
 Nesne yönelimli programlama, devralma, kod yeniden kullanımını kolaylaştırmak için kullanabilirsiniz. Bu öğreticide, değiştireceksiniz `Instructor` ve `Student` oldukları türetilmesi sınıflara bir `Person` temel gibi özellikler içeren sınıf `LastName` eğitmenler ve öğrenciler için ortak olan. Ekleyebilir veya herhangi bir web sayfalarını değiştirmesine olmaz ancak bazı kodları değiştireceksiniz ve bu değişiklikleri veritabanında otomatik olarak yansıtılır.
 
-## <a name="options-for-mapping-inheritance-to-database-tables"></a>Veritabanı tabloları devralma eşleme seçenekleri
+Bu öğreticide şunları yaptınız:
+
+> [!div class="checklist"]
+> * Devralma için veritabanı eşleme
+> * Kişi sınıfı oluşturma
+> * Güncelleştirme Eğitmen ve Öğrenci
+> * Modele Kişi Ekle
+> * Oluşturma ve geçişler güncelleştirme
+> * Uygulama testi
+
+## <a name="prerequisites"></a>Önkoşullar
+
+* [EF çekirdekli ASP.NET Core MVC web uygulamasında tanıtıcı eşzamanlılık](concurrency.md)
+
+## <a name="map-inheritance-to-database"></a>Devralma için veritabanı eşleme
 
 `Instructor` Ve `Student` sınıflarının Okul veri modelinde aynı olan çeşitli özellikler vardır:
 
@@ -64,7 +71,7 @@ Modeller klasörü Person.cs oluşturma ve şablon kodunu aşağıdaki kodla de�
 
 [!code-csharp[](intro/samples/cu/Models/Person.cs)]
 
-## <a name="make-student-and-instructor-classes-inherit-from-person"></a>Öğrenci ve Eğitmenler sınıfları kişiden devral olun
+## <a name="update-instructor-and-student"></a>Güncelleştirme Eğitmen ve Öğrenci
 
 İçinde *Instructor.cs*, kişi Eğitmen sınıf türetin ve anahtar ve ad alanlarını kaldırın. Kod, aşağıdaki örnekteki gibi görünür:
 
@@ -74,7 +81,7 @@ Modeller klasörü Person.cs oluşturma ve şablon kodunu aşağıdaki kodla de�
 
 [!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_AfterInheritance&highlight=8)]
 
-## <a name="add-the-person-entity-type-to-the-data-model"></a>Kişi varlık türü için veri modeli ekleme
+## <a name="add-person-to-the-model"></a>Modele Kişi Ekle
 
 Kişi varlık türüne eklemek *SchoolContext.cs*. Yeni satırlar vurgulanır.
 
@@ -82,7 +89,7 @@ Kişi varlık türüne eklemek *SchoolContext.cs*. Yeni satırlar vurgulanır.
 
 Entity Framework tablo başına hiyerarşi devralmayı yapılandırmak için gereken budur. Veritabanı güncelleştirildiğinde, göreceğiniz gibi Öğrenci ve Eğitmenler tabloları yerine kişi tabloya sahip olur.
 
-## <a name="create-and-customize-migration-code"></a>Oluşturma ve geçiş kodu özelleştirme
+## <a name="create-and-update-migrations"></a>Oluşturma ve geçişler güncelleştirme
 
 Yaptığınız değişiklikleri kaydedin ve projeyi derleyin. Ardından proje klasöründe komut penceresi açın ve aşağıdaki komutu girin:
 
@@ -129,7 +136,7 @@ dotnet ef database update
 > [!NOTE]
 > Diğer hatalar mevcut veriler varsa bir veritabanında şema değişiklik yaparken almak mümkündür. Gideremezsiniz Geçiş hataları alırsanız, bağlantı dizesi içinde veritabanı adını değiştirin veya veritabanını silin. Yeni bir veritabanı geçirmek için veri yok ve veritabanını güncelleştir komut hatasız tamamlanması daha olasıdır. Veritabanını silmek için SSOX kullandığınızda veya `database drop` CLI komutu.
 
-## <a name="test-with-inheritance-implemented"></a>Uygulanan devralma ile test
+## <a name="test-the-implementation"></a>Uygulama testi
 
 Uygulamayı çalıştırın ve çeşitli sayfalar deneyin. Önce yaptığınız gibi her şey aynı çalışır.
 
@@ -141,12 +148,26 @@ Kişi tabloya sağ tıklayıp ardından **tablo verilerini Göster** ayrıştır
 
 ![Kişi tablosunda SSOX - tablo verileri](inheritance/_static/ssox-person-data.png)
 
-## <a name="summary"></a>Özet
+## <a name="get-the-code"></a>Kodu alma
 
-Tablo başına hiyerarşi devralma için uyguladık `Person`, `Student`, ve `Instructor` sınıfları. Entity Framework Core içinde devralma hakkında daha fazla bilgi için bkz. [devralma](/ef/core/modeling/inheritance). Sonraki öğreticide, bir göreceli olarak Gelişmiş Entity Framework senaryoları işlemek nasıl görürsünüz.
+[İndirme veya tamamlanmış uygulamanın görüntüleyin.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-::: moniker-end
+## <a name="additional-resources"></a>Ek kaynaklar
 
-> [!div class="step-by-step"]
-> [Önceki](concurrency.md)
-> [İleri](advanced.md)
+Entity Framework Core içinde devralma hakkında daha fazla bilgi için bkz. [devralma](/ef/core/modeling/inheritance).
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+Bu öğreticide şunları yaptınız:
+
+> [!div class="checklist"]
+> * Veritabanı için eşlenen devralma
+> * Kişi Sınıf oluşturuldu
+> * Güncelleştirilmiş bir eğitmen ve Öğrenci
+> * Eklenen kişi modeli
+> * Oluşturulan ve güncelleştirme geçişleri
+> * Test uygulaması
+
+Çeşitli oldukça gelişmiş Entity Framework senaryoları ele öğrenmek için sonraki makaleye ilerleyin.
+> [!div class="nextstepaction"]
+> [Gelişmiş konular](advanced.md)

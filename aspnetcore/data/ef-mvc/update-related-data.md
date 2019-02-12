@@ -1,27 +1,20 @@
 ---
-title: ASP.NET Core MVC EF Core - güncelleştirme ile ilgili verileri - 10 7
-author: rick-anderson
+title: 'Öğretici: İlgili verileri - EF çekirdekli ASP.NET MVC güncelleştirme'
 description: Bu öğreticide yabancı anahtar alanları ve gezinti özellikleri güncelleştirerek ilgili verileri güncelleştirin.
+author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 02/05/2019
+ms.topic: tutorial
 uid: data/ef-mvc/update-related-data
-ms.openlocfilehash: 37985c945f2e4b15cfcefb0c126c3209e0bdeac4
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: ac94f2e2876c2d8d571a451e4641787ffe37b3d2
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090739"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56103039"
 ---
-# <a name="aspnet-core-mvc-with-ef-core---update-related-data---7-of-10"></a>ASP.NET Core MVC EF Core - güncelleştirme ile ilgili verileri - 10 7
-
-[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
-
-::: moniker range="= aspnetcore-2.0"
-
-Tarafından [Tom Dykstra](https://github.com/tdykstra) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
-
-Contoso University örnek web uygulaması, Entity Framework Core ve Visual Studio kullanarak ASP.NET Core MVC web uygulamalarının nasıl oluşturulacağını gösterir. Öğretici serisinin hakkında daha fazla bilgi için bkz. [serideki ilk öğreticide](intro.md).
+# <a name="tutorial-update-related-data---aspnet-mvc-with-ef-core"></a>Öğretici: İlgili verileri - EF çekirdekli ASP.NET MVC güncelleştirme
 
 Önceki öğreticide ilgili veriler görüntülenecek; Bu öğreticide yabancı anahtar alanları ve gezinti özellikleri güncelleştirerek ilgili verileri güncelleştirin.
 
@@ -31,7 +24,20 @@ Aşağıdaki çizimler ile çalışma sayfaları bazılarını göstermektedir.
 
 ![Eğitmen düzenleme sayfası](update-related-data/_static/instructor-edit-courses.png)
 
-## <a name="customize-the-create-and-edit-pages-for-courses"></a>Kursları oluşturma ve düzenleme sayfalarını özelleştirme
+Bu öğreticide şunları yaptınız:
+
+> [!div class="checklist"]
+> * Kursları sayfalarını özelleştirme
+> * Eğitmenler düzenleme sayfası Ekle
+> * Kursları Düzen sayfasına ekleme
+> * Güncelleştirme silme sayfası
+> * Ofis konumu ve kurslar oluşturma sayfasına ekleme
+
+## <a name="prerequisites"></a>Önkoşullar
+
+* [EF çekirdekli ASP.NET Core MVC web uygulaması ile ilgili verileri okuma](read-related-data.md)
+
+## <a name="customize-courses-pages"></a>Kursları sayfalarını özelleştirme
 
 Yeni bir kurs varlık oluşturulduğunda, var olan bir bölüm arasında bir ilişki olması gerekir. Bunu kolaylaştırmak için iskele kurulan kodu denetleyici metotları ve departman seçmek için aşağı açılan listede yer oluşturma ve düzenleme görünümleri içerir. Açılır listede kümeleri `Course.DepartmentID` yabancı anahtar özellik ve tüm yük için Entity Framework gereken `Department` uygun departmanı varlık sahip gezinme özelliği. İskele kurulan kodu kullanır ancak biraz hata işleme eklemek ve açılan listeyi sıralamak için değiştirmeniz.
 
@@ -103,7 +109,7 @@ Tıklayın **Düzenle** kursları dizin sayfası kurs üzerinde.
 
 Sayfadaki verileri değiştirip'ı **Kaydet**. Güncelleştirilmiş kurs verilerle kursları dizin sayfası görüntülenir.
 
-## <a name="add-an-edit-page-for-instructors"></a>Eğitmen için bir düzen sayfası Ekle
+## <a name="add-instructors-edit-page"></a>Eğitmenler düzenleme sayfası Ekle
 
 Bir eğitmen kaydı düzenlediğinizde, eğitmen ofis ataması güncelleştirilecek yönetebilmek istiyorsunuz. Eğitmen varlık aşağıdaki durumlarda işlemek kodunuzu sahip olduğu anlamına gelir OfficeAssignment varlıkla biri sıfır-veya-bir ilişkisi vardır:
 
@@ -163,7 +169,7 @@ Uygulamayı çalıştırın, seçin **Eğitmenler** sekmesine ve ardından **Dü
 
 ![Eğitmen düzenleme sayfası](update-related-data/_static/instructor-edit-office.png)
 
-## <a name="add-course-assignments-to-the-instructor-edit-page"></a>Kurs atamaları Eğitmen Düzen sayfasına ekleme
+## <a name="add-courses-to-edit-page"></a>Kursları Düzen sayfasına ekleme
 
 Eğitmenler kursları herhangi bir sayıda öğretin. Artık aşağıdaki ekran görüntüsünde gösterildiği gibi bir grup onay kutularını kullanarak kurs atamalarını değiştirme olanağı ekleyerek Eğitmen Düzenle sayfasında geliştirmek:
 
@@ -236,7 +242,7 @@ Bazı kurs atamaları değiştirin ve Kaydet'e tıklayın. Dizin sayfasında, ya
 > [!NOTE]
 > Eğitmen kurs verileri düzenlemek için burada uygulanan yaklaşıma de sınırlı sayıda kursları olduğunda çalışır. Farklı bir kullanıcı Arabirimi ve farklı bir güncelleştirme yöntemi, daha büyük olan koleksiyonları için gerekli olacaktır.
 
-## <a name="update-the-delete-page"></a>Silme sayfası
+## <a name="update-delete-page"></a>Güncelleştirme silme sayfası
 
 İçinde *InstructorsController.cs*, silme `DeleteConfirmed` aşağıdaki kodu yerine yöntemi ve ekleme.
 
@@ -248,7 +254,7 @@ Bu kod, aşağıdaki değişiklikleri yapar:
 
 * Eğitmen silinecek tüm bölümlerin bir yönetici olarak atanmış ise bu bölümlerden Eğitmen atama kaldırır.
 
-## <a name="add-office-location-and-courses-to-the-create-page"></a>Ofis konumu ve kurslar oluşturma sayfasına ekleme
+## <a name="add-office-location-and-courses-to-create-page"></a>Ofis konumu ve kurslar oluşturma sayfasına ekleme
 
 İçinde *InstructorsController.cs*, HttpGet silip HttpPost `Create` yöntemleri ve bunun yerine aşağıdaki kodu ekleyin:
 
@@ -293,12 +299,21 @@ Uygulamayı çalıştıran ve bir eğitmen oluşturarak test edin.
 
 İçinde anlatıldığı gibi [CRUD öğretici](crud.md), Entity Framework örtük olarak işlemler uygular. Daha denetlediğiniz--Örneğin, bir işlemde--Entity Framework dışında yapılan işlemler dahil etmek istiyorsanız senaryolar görmek için [işlemleri](/ef/core/saving/transactions).
 
-## <a name="summary"></a>Özet
+## <a name="get-the-code"></a>Kodu alma
 
-İlgili verilerle çalışmaya giriş tamamladınız. Sonraki öğreticide, eşzamanlılık çakışmalarını nasıl ele alınacağını görürsünüz.
+[İndirme veya tamamlanmış uygulamanın görüntüleyin.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-::: moniker-end
+## <a name="next-steps"></a>Sonraki adımlar
 
-> [!div class="step-by-step"]
-> [Önceki](read-related-data.md)
-> [İleri](concurrency.md)
+Bu öğreticide şunları yaptınız:
+
+> [!div class="checklist"]
+> * Özelleştirilmiş kursları sayfaları
+> * Eğitmenler düzenleme sayfası eklendi
+> * Düzen sayfasına eklenen kursları
+> * Güncelleştirilmiş silme sayfası
+> * Eklenen ofis konumu ve kurslar Oluştur sayfası
+
+Eşzamanlılık çakışmalarını işleme hakkında bilgi edinmek için sonraki makaleye ilerleyin.
+> [!div class="nextstepaction"]
+> [Eşzamanlılık çakışmalarını işleme](concurrency.md)

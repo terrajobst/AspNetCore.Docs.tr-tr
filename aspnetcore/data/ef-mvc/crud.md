@@ -1,42 +1,38 @@
 ---
-title: 10 - CRUD - 2 EF çekirdekli ASP.NET Core MVC
+title: 'Öğretici: CRUD işlevselliği - EF çekirdekli ASP.NET MVC uygulama'
+description: Bu öğreticide, gözden geçirmenizi ve özelleştirme CRUD (oluşturma, okuma, güncelleştirme ve silme) MVC yapı iskelesi otomatik olarak sizin için denetleyicileri ve görünümleri oluşturan kodu.
 author: rick-anderson
-description: ''
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 02/04/2019
+ms.topic: tutorial
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 34927415beadaa3f5c9035a9101e3c99f7cbc395
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 368b1774ba977ec8020a02d48705200fd54c3bbd
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090829"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56102987"
 ---
-# <a name="aspnet-core-mvc-with-ef-core---crud---2-of-10"></a>10 - CRUD - 2 EF çekirdekli ASP.NET Core MVC
-
-[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
-
-::: moniker range="= aspnetcore-2.0"
-
-Tarafından [Tom Dykstra](https://github.com/tdykstra) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
-
-Contoso University örnek web uygulaması, Entity Framework Core ve Visual Studio kullanarak ASP.NET Core MVC web uygulamalarının nasıl oluşturulacağını gösterir. Öğretici serisinin hakkında daha fazla bilgi için bkz. [serideki ilk öğreticide](intro.md).
+# <a name="tutorial-implement-crud-functionality---aspnet-mvc-with-ef-core"></a>Öğretici: CRUD işlevselliği - EF çekirdekli ASP.NET MVC uygulama
 
 Önceki öğreticide, depolar ve SQL Server LocalDB ve Entity Framework kullanarak verileri görüntüleyen bir MVC uygulaması oluşturdunuz. Bu öğreticide, gözden geçirmenizi ve özelleştirme CRUD (oluşturma, okuma, güncelleştirme ve silme) MVC yapı iskelesi otomatik olarak sizin için denetleyicileri ve görünümleri oluşturan kodu.
 
 > [!NOTE]
 > Denetleyicinizi ve veri erişim katmanı arasında bir Soyutlama Katmanı oluşturmak için havuz deseni uygulamak için yaygın bir uygulamadır. Bu öğreticiler basit ve Entity Framework kullanma eğitiminde odaklanmıştır tutmak için bunlar depoları kullanmayın. Depoları EF ile ilgili daha fazla bilgi için bkz: [bu serinin son öğreticide](advanced.md).
 
-Bu öğreticide aşağıdaki web sayfalarının iş:
+Bu öğreticide şunları yaptınız:
 
-![Öğrenci Ayrıntıları sayfası](crud/_static/student-details.png)
+> [!div class="checklist"]
+> * Ayrıntılar sayfasını özelleştirme
+> * Güncelleştirme Oluştur sayfası
+> * Güncelleştirme düzenleme sayfası
+> * Silme sayfası
+> * Kapat veritabanı bağlantıları
 
-![Öğrenci oluşturma sayfası](crud/_static/student-create.png)
+## <a name="prerequisites"></a>Önkoşullar
 
-![Öğrenci düzenleme sayfası](crud/_static/student-edit.png)
-
-![Öğrenci silme sayfası](crud/_static/student-delete.png)
+* [Bir ASP.NET Core MVC web uygulamasında EF Core ile çalışmaya başlama](intro.md)
 
 ## <a name="customize-the-details-page"></a>Ayrıntılar sayfasını özelleştirme
 
@@ -172,7 +168,7 @@ Tarihi geçerli bir değere değiştirip'ı **Oluştur** görünen yeni Öğrenc
 
 İçinde *StudentController.cs*, HttpGet `Edit` yöntemi (olmadan bir `HttpPost` özniteliği) kullanan `SingleOrDefaultAsync` gördüğünüz gibi seçili Öğrenci varlığı almak için yöntemi `Details` yöntemi. Bu yöntem değiştirmeniz gerekmez.
 
-### <a name="recommended-httppost-edit-code-read-and-update"></a>HttpPost düzenleme kod önerilir: Okuma ve güncelleştirme
+### <a name="recommended-httppost-edit-code-read-and-update"></a>Önerilen HttpPost düzenleme kodu: Okuma ve güncelleştirme
 
 HttpPost düzenleme eylem yöntemini aşağıdaki kodla değiştirin.
 
@@ -186,7 +182,7 @@ Tarafından güncelleştirilebilmesi için istediğiniz alanları overposting ö
 
 Bu değişiklikler, yöntem imzasını HttpPost sonucunda `Edit` yöntemi HttpGet aynı olup `Edit` yöntemi; bu nedenle, yöntem yeniden adlandırdıktan `EditPost`.
 
-### <a name="alternative-httppost-edit-code-create-and-attach"></a>Alternatif HttpPost düzenleme kod: oluşturma ve ekleme
+### <a name="alternative-httppost-edit-code-create-and-attach"></a>Alternatif HttpPost düzenleme kodu: Oluşturma ve ekleme
 
 Önerilen HttpPost düzenleme kod sağlar: Yalnızca değiştirilen sütun güncelleştirilmesi ve model bağlama için dahil edilen istemediğiniz özellikleri verilerini korur. Ancak, ek bir veritabanı okuma ve eşzamanlılık çakışmalarını işleme için daha karmaşık kod sonuçlanabilir okuma öncelikli bir yaklaşım gerektirir. EF bağlamı için model bağlayıcı tarafından oluşturulan bir varlık eklemek ve değiştirilmiş olarak işaretlemek için kullanılan bir alternatiftir. (Projenizi güncelleştirme ile bu kod, yalnızca isteğe bağlı bir yaklaşım göstermek için gösterilen.)
 
@@ -270,13 +266,13 @@ Uygulamayı çalıştırın, seçin **Öğrenciler** sekmesine ve tıklayın bir
 
 Tıklayın **Sil**. Dizin Sayfası silinen Öğrenci görüntülenir. (Hata işleme kodunu eyleminin eşzamanlılık öğreticideki örneği görürsünüz.)
 
-## <a name="closing-database-connections"></a>Veritabanı bağlantıları kapatma
+## <a name="close-database-connections"></a>Kapat veritabanı bağlantıları
 
 İle işiniz bittiğinde veritabanı bağlantısı tutan kaynakları boşaltmak için bağlam örneğinin olabildiğince çabuk çıkarılması gerekir. ASP.NET Core yerleşik [bağımlılık ekleme](../../fundamentals/dependency-injection.md) bu görev sizin için üstlenir.
 
 İçinde *Startup.cs*, çağırmanızı [AddDbContext genişletme yöntemi](https://github.com/aspnet/EntityFrameworkCore/blob/03bcb5122e3f577a84498545fcf130ba79a3d987/src/Microsoft.EntityFrameworkCore/EntityFrameworkServiceCollectionExtensions.cs) sağlama `DbContext` ASP.NET Core DI kapsayıcı sınıfı. Yöntem hizmet ömrü ayarlar `Scoped` varsayılan olarak. `Scoped` bağlam nesne ömrü web isteğinin yaşam süresi ile örtüşür anlamına gelir ve `Dispose` yöntemin çağrılacağı otomatik olarak web isteği sonunda.
 
-## <a name="handling-transactions"></a>İşlem işleme
+## <a name="handle-transactions"></a>Tanıtıcı işlemleri
 
 Varsayılan olarak Entity Framework, örtük olarak işlemler uygular. Burada birden çok satır veya tablo için değişiklik ve sonra çağrı senaryolarda `SaveChanges`, Entity Framework otomatik olarak tüm değişikliklerinizi başarılı veya başarısız tüm emin olur. Bazı değişiklikler önce yapılır ve ardından bir hata olur, bu değişiklikleri otomatik olarak geri alınır. Daha denetlediğiniz--Örneğin, bir işlemde--Entity Framework dışında yapılan işlemler dahil etmek istiyorsanız senaryolar görmek için [işlemleri](/ef/core/saving/transactions).
 
@@ -294,12 +290,21 @@ Bir veritabanı bağlamını tablo satırları alır ve bunları temsil eden var
 
 Daha fazla bilgi için [izleme ile. Hayır-izleme](/ef/core/querying/tracking).
 
-## <a name="summary"></a>Özet
+## <a name="get-the-code"></a>Kodu alma
 
-Eksiksiz bir öğrenci varlıklar için basit CRUD işlemleri gerçekleştirme sayfaları artık var. İşlevselliğini genişletin sonraki öğreticide **dizin** sıralama, filtreleme ve sayfalama ekleyerek, sayfa.
+[İndirme veya tamamlanmış uygulamanın görüntüleyin.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-::: moniker-end
+## <a name="next-steps"></a>Sonraki adımlar
 
-> [!div class="step-by-step"]
-> [Önceki](intro.md)
-> [İleri](sort-filter-page.md)
+Bu öğreticide şunları yaptınız:
+
+> [!div class="checklist"]
+> * Özelleştirilmiş Ayrıntılar sayfası
+> * Oluştur sayfası güncelleştirildi
+> * Düzenleme sayfası güncelleştirildi
+> * Silme sayfası güncelleştirildi
+> * Kapalı veritabanı bağlantıları
+
+İşlevlerini genişletmek hakkında bilgi edinmek için sonraki makaleye ilerleyin **dizin** sıralama, filtreleme ve sayfalama ekleyerek, sayfa.
+> [!div class="nextstepaction"]
+> [Sıralama, filtreleme ve sayfalama](sort-filter-page.md)

@@ -1,38 +1,44 @@
 ---
-title: Entity Framework Core - öğretici 1 / 10 ile ASP.NET Core MVC
+title: 'Öğretici: Bir ASP.NET MVC web uygulamasında EF Core ile çalışmaya başlama'
+description: Sıfırdan Contoso University örnek uygulamanın nasıl oluşturulacağını açıklayan öğreticileri serisinin ilk budur.
 author: rick-anderson
-description: ''
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 02/06/2019
+ms.topic: tutorial
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 1191632555dc9331f815c1bfb1f313459824754a
-ms.sourcegitcommit: 68a3081dd175d6518d1bfa31b4712bd8a2dd3864
+ms.openlocfilehash: f7b557c8e560393ae886c46fad95c48ccbcc65b4
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53577909"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56102974"
 ---
-# <a name="aspnet-core-mvc-with-entity-framework-core---tutorial-1-of-10"></a>Entity Framework Core - öğretici 1 / 10 ile ASP.NET Core MVC
-
-[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
-
-::: moniker range="= aspnetcore-2.0"
-
-Tarafından [Tom Dykstra](https://github.com/tdykstra) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
+# <a name="tutorial-get-started-with-ef-core-in-an-aspnet-mvc-web-app"></a>Öğretici: Bir ASP.NET MVC web uygulamasında EF Core ile çalışmaya başlama
 
 [!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc.md)]
 
-Contoso University örnek web uygulaması, Entity Framework (EF) Core 2.0 ve Visual Studio 2017 kullanarak ASP.NET Core 2.0 MVC web uygulamalarının nasıl oluşturulacağını gösterir.
+Contoso University örnek web uygulaması, Entity Framework (EF) Core 2.0 ve Visual Studio 2017 kullanarak ASP.NET Core 2.2 MVC web uygulamalarının nasıl oluşturulacağını gösterir.
 
 Örnek, bir web sitesi için kurgusal Contoso üniversite uygulamasıdır. Öğrenci giriş, kurs oluşturma ve Eğitmen atamaları gibi işlevleri içerir. Sıfırdan Contoso University örnek uygulamanın nasıl oluşturulacağını açıklayan öğreticileri serisinin ilk budur.
-
-[İndirme veya tamamlanmış uygulamanın görüntüleyin.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
 EF Core 2.0 EF en son sürümü, ancak henüz EF özelliklerinin tümünü yok 6.x. EF arasında seçim yapma hakkında bilgi için bkz: 6.x ve EF Core [EF Core vs. EF6.x](/ef/efcore-and-ef6/). EF seçerseniz 6.x, bkz: [Bu öğretici serisinin önceki sürümünü](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
 
 > [!NOTE]
 > Bu öğreticide ASP.NET Core 1.1 sürümü için bkz: [VS 2017 güncelleştirme 2 sürüm PDF biçimindeki bu öğreticinin](https://webpifeed.blob.core.windows.net/webpifeed/Partners/efmvc1.1.pdf).
+
+Bu öğreticide şunları yaptınız:
+
+> [!div class="checklist"]
+> * ASP.NET Core MVC web uygulaması oluşturma
+> * Site stili Ayarla
+> * EF Core NuGet paketleri hakkında bilgi edinin
+> * Veri modeli oluşturma
+> * Veritabanı bağlamı oluşturur
+> * SchoolContext kaydetme
+> * DB test verileri ile başlatılamıyor
+> * Denetleyici ve görünümler oluşturma
+> * Veritabanı görünümü
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -45,7 +51,7 @@ Bir sorunla karşılaşırsanız, çözümleyemiyor çalıştırırsanız, genel
 > [!TIP]
 > Önceki öğreticilerde bitti üzerinde her biri yapılar 10 öğreticiler, bir dizi budur. Her öğretici Kurulum başarıyla tamamlandıktan sonra projenin bir kopyasını kaydedebilirsiniz. Sorunlarla karşılaşırsanız, ardından yeniden yukarıda bahsedilen tüm dizileri başlangıcına yerine önceki öğreticiden başlayabilirsiniz.
 
-## <a name="the-contoso-university-web-application"></a>Contoso University web uygulaması
+## <a name="contoso-university-web-app"></a>Contoso University web uygulaması
 
 Aşağıdaki öğreticilerde oluşturmakta uygulama basit university web sitesidir.
 
@@ -57,7 +63,7 @@ Kullanıcılar görüntüleyebilir ve Öğrenci, kurs ve Eğitmen bilgileri gün
 
 Entity Framework ağırlıklı olarak nasıl kullanılacağı hakkında bir öğretici odaklanabilmeniz için kullanıcı Arabirimi stili bu sitenin yerleşik şablonları tarafından üretilen yakın tutulmuştur.
 
-## <a name="create-an-aspnet-core-mvc-web-application"></a>Bir ASP.NET Core MVC web uygulaması oluşturma
+## <a name="create-aspnet-core-mvc-web-app"></a>ASP.NET Core MVC web uygulaması oluşturma
 
 Visual Studio'yu açın ve "ContosoUniversity" adlı yeni bir ASP.NET Core C# web projesi oluşturun.
 
@@ -69,19 +75,19 @@ Visual Studio'yu açın ve "ContosoUniversity" adlı yeni bir ASP.NET Core C# we
 
 * Girin **ContosoUniversity** tıklayın ve adı olarak **Tamam**.
 
-  ![Yeni Proje iletişim kutusu](intro/_static/new-project.png)
+  ![Yeni Proje iletişim kutusu](intro/_static/new-project2.png)
 
 * Bekle **yeni ASP.NET Core Web uygulaması (.NET Core)** görüntülenecek iletişim
 
-* Seçin **ASP.NET Core 2.0** ve **Web uygulaması (Model-View-Controller)** şablonu.
+  ![Yeni ASP.NET Core projesi iletişim kutusu](intro/_static/new-aspnet2.png)
 
-  **Not:** Bu öğreticide, ASP.NET Core 2.0 ve EF Core 2.0 veya sonraki--emin olun gerektirir **ASP.NET Core 1.1** seçilmez.
+* Seçin **ASP.NET Core 2.2** ve **Web uygulaması (Model-View-Controller)** şablonu.
+
+  **Not:** Bu öğretici, ASP.NET Core 2.2 ve EF Core 2.0 veya sonraki sürümünü gerektirir.
 
 * Emin **kimlik doğrulaması** ayarlanır **kimlik doğrulaması yok**.
 
 * **Tamam**’a tıklayın.
-
-  ![Yeni ASP.NET Core projesi iletişim kutusu](intro/_static/new-aspnet.png)
 
 ## <a name="set-up-the-site-style"></a>Site stili Ayarla
 
@@ -91,11 +97,11 @@ Açık *Views/Shared/_Layout.cshtml* ve aşağıdaki değişiklikleri yapın:
 
 * "Contoso Üniversitesi" için "ContosoUniversity" her örneğini değiştirin. Üç örnekleri vardır.
 
-* Menü girdileri eklemek **Öğrenciler**, **kursları**, **Eğitmenler**, ve **Departmanlar**ve silme **başvurun** menüsü girişi.
+* Menü girdileri eklemek **hakkında**, **Öğrenciler**, **kursları**, **Eğitmenler**, ve **Departmanlar**, ve silme **gizlilik** menüsü girişi.
 
 Değişiklikler vurgulanır.
 
-[!code-cshtml[](intro/samples/cu/Views/Shared/_Layout.cshtml?highlight=6,30,36-39,48)]
+[!code-cshtml[](intro/samples/cu/Views/Shared/_Layout.cshtml?highlight=6,32-36,51)]
 
 İçinde *Views/Home/Index.cshtml*, dosyanın içeriğini bu uygulamayla ilgili metin ile ASP.NET ve MVC hakkında metnin değiştirmek için aşağıdaki kodla değiştirin:
 
@@ -105,7 +111,7 @@ Projeyi çalıştırmak veya seçmek için CTRL + F5 tuşlarına basın **hata a
 
 ![Contoso University giriş sayfası](intro/_static/home-page.png)
 
-## <a name="entity-framework-core-nuget-packages"></a>Entity Framework Core NuGet paketleri
+## <a name="about-ef-core-nuget-packages"></a>EF Core NuGet paketleri hakkında
 
 EF Core desteği için bir proje eklemek için hedeflemek istediğiniz veritabanı sağlayıcısı yükleyin. Bu öğreticide SQL Server kullanır ve sağlayıcı paketi [Microsoft.EntityFrameworkCore.SqlServer](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/). Bu paket dahil [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app), uygulamanız için bir paket başvurusu varsa paket başvurusu yapmak zorunda kalmazsınız `Microsoft.AspNetCore.App` paket.
 
@@ -185,7 +191,7 @@ Veritabanı oluşturulduğunda EF aynı adlara sahip tablolar oluşturur `DbSet`
 
 [!code-csharp[](intro/samples/cu/Data/SchoolContext.cs?name=snippet_TableNames&highlight=16-21)]
 
-## <a name="register-the-context-with-dependency-injection"></a>Bağımlılık ekleme bağlam kaydı
+## <a name="register-the-schoolcontext"></a>SchoolContext kaydetme
 
 ASP.NET Core uygulayan [bağımlılık ekleme](../../fundamentals/dependency-injection.md) varsayılan olarak. Hizmetler (örneğin, EF veritabanı bağlamı), uygulama başlatma sırasında bağımlılık ekleme ile kaydedilir. Bu hizmetler (örneğin, MVC denetleyicileri) gerektiren bileşenler bu hizmetler Oluşturucu parametresi üzerinden sağlanır. Bu öğreticide daha sonra bir bağlam örneğini alır denetleyici Oluşturucu kodunu görürsünüz.
 
@@ -207,7 +213,7 @@ Açık *appsettings.json* dosya ve aşağıdaki örnekte gösterildiği gibi bir
 
 Bir SQL Server LocalDB veritabanına bağlantı dizesini belirtir. LocalDB, SQL Server Express veritabanı Motoru'nu hafif bir sürümüdür ve uygulama geliştirme, üretim kullanımı için tasarlanmıştır. LocalDB, isteğe bağlı olarak başlar ve karmaşık yapılandırma olduğundan kullanıcı modunda çalışır. Varsayılan olarak LocalDB oluşturur *.mdf* veritabanı dosyası `C:/Users/<user>` dizin.
 
-## <a name="add-code-to-initialize-the-database-with-test-data"></a>Veritabanı test verileri ile başlatmak için kod ekleyin
+## <a name="initialize-db-with-test-data"></a>DB test verileri ile başlatılamıyor
 
 Entity Framework sizin için boş bir veritabanı oluşturur. Bu bölümde, test verileri ile doldurmak için veritabanı oluşturulduktan sonra çağrılan yöntemi yazın.
 
@@ -235,7 +241,7 @@ Ekleme `using` ifadeleri:
 
 Şimdi uygulamayı çalıştırdığınız ilk kez veritabanı oluşturulacak ve test verileri ile çekirdek değeri oluşturulmuş. Veri modelinizi değiştirdiğinizde, veritabanını silin, çekirdek yönteminizi güncelleştirin ve yeni bir veritabanı ile aynı şekilde parçalarından başlatın. Sonraki öğreticilerde, silinmesi ve yeniden oluşturulmadan değişiklik veri modelini kullanırken, veritabanı değiştirme görürsünüz.
 
-## <a name="create-a-controller-and-views"></a>Bir denetleyici ve görünümler oluşturma
+## <a name="create-controller-and-views"></a>Denetleyici ve görünümler oluşturma
 
 Ardından, bir MVC denetleyicisi ve EF sorgu ve veri kaydetmek için kullanacağı görünümleri eklemek için Visual Studio yapı iskelesi altyapısı kullanacaksınız.
 
@@ -252,9 +258,9 @@ Varsa **MVC bağımlılıkları Ekle** iletişim kutusu görüntülenir:
 
   * Seçin **Entity Framework kullanarak görünümler ile MVC denetleyicisi**.
 
-  * **Ekle**'yi tıklatın.
+  * **Ekle**'yi tıklatın. **Ekleme Entity Framework kullanarak görünümlere sahip MVC denetleyici,** iletişim kutusu görüntülenir.
 
-* İçinde **denetleyici Ekle** iletişim kutusunda:
+    ![İskele Öğrenci](intro/_static/scaffold-student2.png)
 
   * İçinde **Model sınıfı** seçin **Öğrenci**.
 
@@ -263,8 +269,6 @@ Varsa **MVC bağımlılıkları Ekle** iletişim kutusu görüntülenir:
   * Varsayılan değerleri kabul **StudentsController** adı.
 
   * **Ekle**'yi tıklatın.
-
-  ![İskele Öğrenci](intro/_static/scaffold-student.png)
 
   Tıkladığınızda **Ekle**, Visual Studio yapı iskelesi motoru oluşturur bir *StudentsController.cs* dosyası ve bir görünüm kümesi (*.cshtml* dosyaları) Denetleyici ile çalışır.
 
@@ -360,11 +364,27 @@ Entity Framework kullanan zaman uyumsuz kod zaman yazıyorsanız dikkat edilecek
 
 . NET'te zaman uyumsuz programlama hakkında daha fazla bilgi için bkz. [zaman uyumsuz genel bakış](/dotnet/articles/standard/async).
 
-## <a name="summary"></a>Özet
+## <a name="get-the-code"></a>Kodu alma
 
-Depolamak ve verileri görüntülemek için Entity Framework Core ve SQL Server Express LocalDB kullanan basit bir uygulama oluşturdunuz. Aşağıdaki öğreticide, temel CRUD gerçekleştirmeyi öğreneceksiniz (oluşturma, okuma, güncelleştirme ve silme) işlemleri.
+[İndirme veya tamamlanmış uygulamanın görüntüleyin.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-::: moniker-end
+## <a name="next-steps"></a>Sonraki adımlar
 
-> [!div class="step-by-step"]
-> [Next](crud.md)
+Bu öğreticide şunları yaptınız:
+
+> [!div class="checklist"]
+> * Oluşturulan ASP.NET Core MVC web uygulaması
+> * Site stili Ayarla
+> * EF Core NuGet paketleri hakkında bilgi edindiniz
+> * Veri modeli oluşturduk
+> * Veritabanı bağlamı oluşturuldu
+> * SchoolContext kayıtlı
+> * Test verileri ile başlatılmış DB
+> * Oluşturulan denetleyici ve Görünüm
+> * Veritabanı görüntülenebilir
+
+Aşağıdaki öğreticide, temel CRUD gerçekleştirmeyi öğreneceksiniz (oluşturma, okuma, güncelleştirme ve silme) işlemleri.
+
+Temel CRUD gerçekleştirme hakkında bilgi edinmek için sonraki makaleye ilerleyin (oluşturma, okuma, güncelleştirme ve silme) işlemleri.
+> [!div class="nextstepaction"]
+> [Temel CRUD işlevselliği uygulama](crud.md)

@@ -5,14 +5,14 @@ description: Bileşenleri Razor bileşenleri uygulamalardan bir dış bileşen k
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/29/2019
+ms.date: 02/09/2019
 uid: razor-components/class-libraries
-ms.openlocfilehash: e43755f606d2c843fe6b12f06e1e96626e0f3cdf
-ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
+ms.openlocfilehash: f5073337db88f05f3911fdfb1f29e7302c7cddec
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55668156"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56102909"
 ---
 # <a name="razor-components-class-libraries"></a>Razor bileşenleri sınıf kitaplıkları
 
@@ -31,7 +31,7 @@ Bileşenleri bileşen kitaplıklarında, projeler arasında paylaşılabilir. Bi
 
 Normal .NET türleri yalnızca bileşenlerdir gibi normal .NET derlemeleri bileşen kitaplıkları vardır.
 
-Yeni bir bileşen kitaplığı oluşturmak için kullanın `blazorlib` şablonuyla [yeni dotnet](/dotnet/core/tools/dotnet-new) komutu. Yüklü Şablonlar bir parçası olan şablondur olduğunda [Razor bileşenleri ayarlama](/docs/get-started.html#setup).
+Yeni bir bileşen kitaplığı oluşturmak için kullanın `blazorlib` şablonuyla [yeni dotnet](/dotnet/core/tools/dotnet-new) komutu. Yüklü Şablonlar bir parçası olan şablondur olduğunda [Razor bileşenleri ayarlama](xref:razor-components/get-started).
 
 ```console
 dotnet new blazorlib -o MyComponentLib1

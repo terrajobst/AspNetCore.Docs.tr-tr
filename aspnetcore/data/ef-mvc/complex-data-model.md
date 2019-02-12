@@ -1,27 +1,20 @@
 ---
-title: Itanium tabanlı sistemler için ASP.NET Core MVC ile EF Core - veri modeli - 5 / 10
-author: rick-anderson
+title: 'Öğretici: ASP.NET MVC ile EF Core - karmaşık veri modeli oluşturma'
 description: Bu öğreticide, daha fazla varlıklar ve ilişkiler ekleyin ve veri modelini, doğrulama, biçimlendirme ve eşleme kuralları belirterek özelleştirin.
+author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 02/05/2019
+ms.topic: tutorial
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: 87212edbfe34af6de938cf95314501e56e64a8be
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: c08fd6ff7c19c63161135b4c87609f6edd3edb80
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50091047"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56103130"
 ---
-# <a name="aspnet-core-mvc-with-ef-core---data-model---5-of-10"></a>Itanium tabanlı sistemler için ASP.NET Core MVC ile EF Core - veri modeli - 5 / 10
-
-[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
-
-::: moniker range="= aspnetcore-2.0"
-
-Tarafından [Tom Dykstra](https://github.com/tdykstra) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
-
-Contoso University örnek web uygulaması, Entity Framework Core ve Visual Studio kullanarak ASP.NET Core MVC web uygulamalarının nasıl oluşturulacağını gösterir. Öğretici serisinin hakkında daha fazla bilgi için bkz. [serideki ilk öğreticide](intro.md).
+# <a name="tutorial-create-a-complex-data-model---aspnet-mvc-with-ef-core"></a>Öğretici: ASP.NET MVC ile EF Core - karmaşık veri modeli oluşturma
 
 Önceki öğreticilerde, bir basit veri modeliyle üç varlıklarının oluşturulma çalışmıştır. Bu öğreticide, daha fazla varlıklar ve ilişkiler ekleyeceksiniz ve biçimlendirme, doğrulama ve veritabanı eşleme kurallarını belirterek veri modeli özelleştireceksiniz.
 
@@ -29,7 +22,27 @@ Contoso University örnek web uygulaması, Entity Framework Core ve Visual Studi
 
 ![Varlık diyagramı](complex-data-model/_static/diagram.png)
 
-## <a name="customize-the-data-model-by-using-attributes"></a>Öznitelikleri kullanarak veri modelini özelleştirin
+Bu öğreticide şunları yaptınız:
+
+> [!div class="checklist"]
+> * Veri modelini özelleştirin
+> * Öğrenci varlık için değişiklik
+> * Eğitmen varlık oluşturma
+> * OfficeAssignment varlık oluşturma
+> * Kurs varlığı değiştirme
+> * Departman varlık oluşturma
+> * Kayıt varlığı değiştirme
+> * Veritabanı bağlamı güncelleştir
+> * Çekirdek veritabanı test verileri ile
+> * Bir geçiş ekleyin
+> * Bağlantı dizesini değiştirin
+> * Veritabanını Güncelleştir
+
+## <a name="prerequisites"></a>Önkoşullar
+
+* [EF Core geçişleri özelliği için ASP.NET Core bir MVC web uygulamasında kullanma](migrations.md)
+
+## <a name="customize-the-data-model"></a>Veri modelini özelleştirin
 
 Bu bölümde, veri modeli, biçimlendirme, doğrulama ve veritabanı eşleme kurallarını belirten öznitelikleri kullanarak özelleştirmek nasıl görürsünüz. Daha sonra oluşturacağınız aşağıdaki bölümler birkaç ekleyerek eksiksiz Okul veri modeli sınıfları zaten oluşturduğunuz ve modelde kalan varlık türleri için yeni sınıflar oluşturma öznitelikleri.
 
@@ -97,9 +110,7 @@ dotnet ef database update
 
 Geçişleri dosya adının önüne zaman damgası, Entity Framework tarafından geçişlerin sıralamak için kullanılır. Veritabanını Güncelleştir komutu çalıştırmadan önce birden çok geçiş oluşturabilirsiniz ve ardından tüm geçişlerde içinde oluşturuldukları sırada uygulanır.
 
-Uygulamayı çalıştırın, seçin **Öğrenciler** sekmesinde **Yeni Oluştur**, 50 karakterden uzun ya da bir ad girin. Tıkladığınızda **Oluştur**, istemci tarafı doğrulama hata iletisi gösterir.
-
-![Dize uzunluğu hataları gösteren sayfa Öğrenciler dizin](complex-data-model/_static/string-length-errors.png)
+Uygulamayı çalıştırın, seçin **Öğrenciler** sekmesinde **Yeni Oluştur**, ya da adı 50 karakterden uzun girmeyi deneyin. Uygulama, bunu yapmanızı engeller. 
 
 ### <a name="the-column-attribute"></a>Sütun özniteliği
 
@@ -132,7 +143,7 @@ dotnet ef database update
 > [!Note]
 > Aşağıdaki bölümlerde tüm varlık sınıfları oluşturma tamamlanmadan önce derlemek denerseniz derleyici hataları alabilirsiniz.
 
-## <a name="final-changes-to-the-student-entity"></a>Öğrenci varlık için son değişiklikler
+## <a name="changes-to-student-entity"></a>Öğrenci varlık için değişiklikler
 
 ![Öğrenci varlık](complex-data-model/_static/student-entity.png)
 
@@ -160,7 +171,7 @@ public string LastName { get; set; }
 
 `FullName` diğer iki özellikleri birleştirilerek oluşturulur bir değer döndüren bir hesaplanan özelliktir. Bu nedenle yalnızca bir alma erişimcisi ve Hayır sahip `FullName` sütunu veritabanında oluşturulur.
 
-## <a name="create-the-instructor-entity"></a>Eğitmen varlık oluşturma
+## <a name="create-instructor-entity"></a>Eğitmen varlık oluşturma
 
 ![Eğitmen varlık](complex-data-model/_static/instructor-entity.png)
 
@@ -196,7 +207,7 @@ Contoso University iş kuralları durum bir eğitmen yalnızca en fazla bir offi
 public OfficeAssignment OfficeAssignment { get; set; }
 ```
 
-## <a name="create-the-officeassignment-entity"></a>OfficeAssignment varlık oluşturma
+## <a name="create-officeassignment-entity"></a>OfficeAssignment varlık oluşturma
 
 ![OfficeAssignment varlık](complex-data-model/_static/officeassignment-entity.png)
 
@@ -223,7 +234,7 @@ Boş değer atanabilir bir eğitmen varlık sahip `OfficeAssignment` gezinti öz
 
 Put bir `[Required]` Eğitmen Gezinti özelliğindeki ilgili Eğitmen olmalıdır, ancak, çünkü bunu yapmak zorunda olmadığınız belirtmek için özniteliği `InstructorID` (aynı zamanda olan bu tablo anahtarı), yabancı anahtar null atanamaz.
 
-## <a name="modify-the-course-entity"></a>Kurs varlığı değiştirme
+## <a name="modify-course-entity"></a>Kurs varlığı değiştirme
 
 ![Kurs varlık](complex-data-model/_static/course-entity.png)
 
@@ -272,7 +283,7 @@ Bir kurs birden çok Eğitmenler tarafından verilen böylece `CourseAssignments
 public ICollection<CourseAssignment> CourseAssignments { get; set; }
 ```
 
-## <a name="create-the-department-entity"></a>Departman varlık oluşturma
+## <a name="create-department-entity"></a>Departman varlık oluşturma
 
 ![Departman varlık](complex-data-model/_static/department-entity.png)
 
@@ -318,7 +329,7 @@ public ICollection<Course> Courses { get; set; }
 >    .OnDelete(DeleteBehavior.Restrict)
 > ```
 
-## <a name="modify-the-enrollment-entity"></a>Kayıt varlığı değiştirme
+## <a name="modify-enrollment-entity"></a>Kayıt varlığı değiştirme
 
 ![Kayıt varlık](complex-data-model/_static/enrollment-entity.png)
 
@@ -384,7 +395,7 @@ Aşağıdaki vurgulanmış kodu ekleyin *Data/SchoolContext.cs* dosyası:
 
 Bu kod, yeni varlıkları ekleyen ve CourseAssignment varlığın bileşik birincil anahtarını yapılandırır.
 
-## <a name="fluent-api-alternative-to-attributes"></a>Fluent API'si alternatif öznitelikleri
+## <a name="about-a-fluent-api-alternative"></a>Bir fluent API'si alternatif hakkında
 
 Kodda `OnModelCreating` yöntemi `DbContext` sınıfının kullandığı *fluent API'si* EF davranışı yapılandırmak için. Bu örnekte olduğu gibi tek bir deyimde içine bir dizi yöntem çağrılarını birlikte stringing genellikle kullanıldığından API'sı "fluent" çağrılan [EF Core belgeleri](/ef/core/modeling/#methods-of-configuration):
 
@@ -411,7 +422,7 @@ Aşağıdaki resimde tamamlanmış Okul model için Entity Framework Power Tools
 
 Çoğa bir ilişki yanı sıra (1 \*), eğitmen ve OfficeAssignment varlıkları ve sıfır-veya-bir-çok ilişki çizgisi arasındaki bir sıfır-veya-bir ilişki satırı (için 1 0..1) burada görebilirsiniz (0..1 için *) arasında Eğitmen ve departman varlıklar.
 
-## <a name="seed-the-database-with-test-data"></a>Test verileri ile veritabanının çekirdeğini oluşturma
+## <a name="seed-database-with-test-data"></a>Çekirdek veritabanı test verileri ile
 
 Değiştirin *Data/DbInitializer.cs* oluşturduğunuz yeni varlıklar için çekirdek veri sağlamak için aşağıdaki kodu dosyası.
 
@@ -456,7 +467,7 @@ Bir üretim uygulamasında, kod veya betiklerde departmanı satır eklemek ve ye
 
 Yaptığınız değişiklikleri kaydedin ve projeyi derleyin.
 
-## <a name="change-the-connection-string-and-update-the-database"></a>Bağlantı dizesini değiştirebilir ve veritabanını güncelleştir
+## <a name="change-the-connection-string"></a>Bağlantı dizesini değiştirin
 
 Artık bir artık yeni koda sahip `DbInitializer` yeni varlıklar için çekirdek veri için boş bir veritabanı ekler sınıfı. Yeni bir boş veritabanı oluşturma EF yapmak için bağlantı dizesinde veritabanının adını *appsettings.json* ContosoUniversity3 veya kullanmakta olduğunuz bilgisayarda kullanmadığınız bazı diğer adı.
 
@@ -474,6 +485,8 @@ Değişiklik Kaydet *appsettings.json*.
 > ```console
 > dotnet ef database drop
 > ```
+
+## <a name="update-the-database"></a>Veritabanını Güncelleştir
 
 Veritabanı adı değiştirilmiş veya silinmiş veritabanı sonra çalıştırın `database update` geçişlerin yürütmek için komut penceresinde komutu.
 
@@ -493,12 +506,28 @@ Sağ **CourseAssignment** tablosunu seçip **görünüm verilerini** , veri içi
 
 ![SSOX CourseAssignment verileri](complex-data-model/_static/ssox-ci-data.png)
 
-## <a name="summary"></a>Özet
+## <a name="get-the-code"></a>Kodu alma
 
-Artık daha karmaşık veri modeli ve karşılık gelen veritabanı vardır. Aşağıdaki öğreticide ilgili veri erişim hakkında daha fazla bilgi edineceksiniz.
+[İndirme veya tamamlanmış uygulamanın görüntüleyin.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-::: moniker-end
+## <a name="next-steps"></a>Sonraki adımlar
 
-> [!div class="step-by-step"]
-> [Önceki](migrations.md)
-> [İleri](read-related-data.md)
+Bu öğreticide şunları yaptınız:
+
+> [!div class="checklist"]
+> * Özelleştirilmiş veri modeli
+> * Öğrenci varlığa yapılan değişiklikler
+> * Oluşturulan Eğitmen varlık
+> * Oluşturulan OfficeAssignment varlık
+> * Değiştirilen kurs varlık
+> * Oluşturulan departmanı varlık
+> * Değiştirilen kayıt varlık
+> * Veritabanı bağlamı güncelleştirildi
+> * Kapsanan veritabanı test verileri ile
+> * Bir geçiş eklendi
+> * Bağlantı dizesi değişti
+> * Veritabanı güncelleştirildi
+
+İlgili veri erişimi hakkında daha fazla bilgi edinmek için sonraki makaleye ilerleyin.
+> [!div class="nextstepaction"]
+> [İlgili verileri erişimi](read-related-data.md)

@@ -1,41 +1,50 @@
 ---
-title: -Geçiş - 4 10 EF çekirdekli ASP.NET Core MVC
-author: rick-anderson
+title: 'Öğretici: -EF çekirdekli ASP.NET MVC geçişleri özelliğini kullanma'
 description: Bu öğreticide, ASP.NET Core MVC uygulamasındaki veri modeli değişikliklerini yönetmek için EF Core geçişleri özelliğini kullanarak başlatın.
+author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 02/04/2019
+ms.topic: tutorial
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: 21ef3a675579d8a6671343d84cbe4f4b62979679
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: ac924e7d6bee2f02ab11281a5c27f2c94a7183b3
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090816"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56103000"
 ---
-# <a name="aspnet-core-mvc-with-ef-core---migrations---4-of-10"></a>-Geçiş - 4 10 EF çekirdekli ASP.NET Core MVC
-
-[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
-
-::: moniker range="= aspnetcore-2.0"
-
-Tarafından [Tom Dykstra](https://github.com/tdykstra) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
-
-Contoso University örnek web uygulaması, Entity Framework Core ve Visual Studio kullanarak ASP.NET Core MVC web uygulamalarının nasıl oluşturulacağını gösterir. Öğretici serisinin hakkında daha fazla bilgi için bkz. [serideki ilk öğreticide](intro.md).
+# <a name="tutorial-using-the-migrations-feature---aspnet-mvc-with-ef-core"></a>Öğretici: -EF çekirdekli ASP.NET MVC geçişleri özelliğini kullanma
 
 Bu öğreticide, veri modeli değişikliklerini yönetmek için EF Core geçişleri özelliğini kullanarak başlatın. Sonraki öğreticilerde, veri modeli değiştikçe daha fazla geçişleri ekleyeceksiniz.
 
-## <a name="introduction-to-migrations"></a>Geçişleri giriş
+Bu öğreticide şunları yaptınız:
+
+> [!div class="checklist"]
+> * Geçiş hakkında bilgi edinin
+> * NuGet geçiş paketleri hakkında bilgi edinin
+> * Bağlantı dizesini değiştirin
+> * Bir başlangıç geçiş oluştur
+> * Yukarı ve aşağı yöntemleri inceleyin
+> * Veri modeli anlık görüntü hakkında bilgi edinin
+> * Geçiş Uygula
+
+
+## <a name="prerequisites"></a>Önkoşullar
+
+* [Sıralama, filtreleme ve EF Core ile bir ASP.NET Core MVC uygulamasında sayfalama ekleme](sort-filter-page.md)
+
+## <a name="about-migrations"></a>Geçiş hakkında
 
 Yeni bir uygulama geliştirdiğinizde, model değişiklikleri sık ve her zaman veri modelinizi değiştirir, veritabanı ile eşitlenmemiş alır. Bu öğretici, yoksa veritabanını oluşturmak için Entity Framework yapılandırarak başlatıldı. Ardından, veri modeli değiştirmek--eklemek, kaldırmak veya varlık sınıflarını değiştirmek veya DbContext sınıfınıza--değiştirmek, her zaman veritabanını silebilir ve EF modeli eşleşir ve test verileri ile çekirdeğini yeni bir tane oluşturur.
 
 Veritabanı veri modeli ile eşitlenmiş tutmak için bu yöntemi de uygulamayı üretim ortamına dağıtmadan kadar çalışır. Üretim ortamında genellikle tutmak istediğiniz ve her şey her zaman kaybetmek istemediğiniz veri depolama uygulama çalıştırılırken, yeni bir sütun ekleme gibi bir değişiklik yapın. EF Core geçişleri özelliği, yeni bir veritabanı oluşturmak yerine veritabanı şemasını güncelleştirmek EF sağlayarak bu sorunu çözer.
 
-## <a name="entity-framework-core-nuget-packages-for-migrations"></a>Geçişler için Entity Framework Core NuGet paketleri
+## <a name="about-nuget-migration-packages"></a>NuGet geçiş paketleri hakkında
 
 Migrations ile çalışmak için kullanabileceğiniz **Paket Yöneticisi Konsolu** (PMC) veya komut satırı arabirimi (CLI).  Bu öğreticiler CLI komutlarının nasıl kullanılacağını gösterir. PMC hakkında bilgilerine [Bu öğreticinin sonunda](#pmc).
 
-EF Araçları komut satırı arabirimi (CLI) için sağlanan [Microsoft.EntityFrameworkCore.Tools.DotNet](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools.DotNet). Bu paketi yüklemek için eklemeniz `DotNetCliToolReference` koleksiyonda *.csproj* gösterildiği gibi dosya. **Not:** düzenleyerek bu paketi yüklemek sahip olduğunuz *.csproj* dosya; kullanamazsınız `install-package` komut veya Paket Yöneticisi GUI. Düzenleyebileceğiniz *.csproj* proje adına sağ tıklanarak dosya **Çözüm Gezgini** seçerek **Düzenle ContosoUniversity.csproj**.
+EF Araçları komut satırı arabirimi (CLI) için sağlanan [Microsoft.EntityFrameworkCore.Tools.DotNet](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools.DotNet). Bu paketi yüklemek için eklemeniz `DotNetCliToolReference` koleksiyonda *.csproj* gösterildiği gibi dosya. **Not:** Düzenleyerek bu paketi yüklemek sahip olduğunuz *.csproj* dosya; kullanamazsınız `install-package` komut veya Paket Yöneticisi GUI. Düzenleyebileceğiniz *.csproj* proje adına sağ tıklanarak dosya **Çözüm Gezgini** seçerek **Düzenle ContosoUniversity.csproj**.
 
 [!code-xml[](intro/samples/cu/ContosoUniversity.csproj?range=12-15&highlight=2)]
 
@@ -60,7 +69,7 @@ Bu değişiklik, ilk geçiş yeni bir veritabanı oluşturacaksınız böylece p
 
 Yaptığınız değişiklikleri kaydedin ve projeyi derleyin. Ardından bir komut penceresi açın ve proje klasörüne gidin. Bunu yapmanın hızlı bir yolu aşağıda verilmiştir:
 
-* İçinde **Çözüm Gezgini**, projeye sağ tıklayıp seçin **dosya Gezgini'nde Aç** bağlam menüsünden.
+* İçinde **Çözüm Gezgini**, projeye sağ tıklayıp seçin **klasörü dosya Gezgini'nde Aç** bağlam menüsünden.
 
   ![Dosya Gezgini menü öğesini Aç](migrations/_static/open-in-file-explorer.png)
 
@@ -89,7 +98,7 @@ Done. To undo this action, use 'ef migrations remove'
 
 Bir hata iletisi görürseniz "*... dosyaya erişemiyor ContosoUniversity.dll başka bir işlem tarafından kullanıldığı için.* ", IIS Express simgesi Windows Sistem tepsisinde bulun ve sağ tıklayın ve ardından tıklayın **ContosoUniversity > durdurma Site**.
 
-## <a name="examine-the-up-and-down-methods"></a>Yöntemleri aşağı ve yukarı inceleyin
+## <a name="examine-up-and-down-methods"></a>Yukarı ve aşağı yöntemleri inceleyin
 
 Ne zaman yürütülen `migrations add` EF oluşturulan veritabanı sıfırdan oluşturacak kod komutu. Bu kodu *geçişler* klasöründe adlı dosyayı  *\<zaman damgası > _InitialCreate.cs*. `Up` Yöntemi `InitialCreate` sınıf veri modeli varlık kümeleri için karşılık gelen veritabanı tabloları oluşturur ve `Down` yöntemi siler, bunları, aşağıdaki örnekte gösterildiği gibi.
 
@@ -109,7 +118,7 @@ Bir geçiş silerken kullanın [dotnet ef geçişleri Kaldır](/ef/core/miscella
 
 Bkz: [EF Core geçişleri ekip ortamlarında](/ef/core/managing-schemas/migrations/teams) anlık görüntü dosyası nasıl kullanıldığı hakkında daha fazla bilgi için.
 
-## <a name="apply-the-migration-to-the-database"></a>Veritabanı geçiş Uygula
+## <a name="apply-the-migration"></a>Geçiş Uygula
 
 Komut penceresinde, tablo ve veritabanı içinde oluşturmak için aşağıdaki komutu girin.
 
@@ -151,24 +160,36 @@ Her şeyin hala önceki ile aynı çalıştığını doğrulamak için uygulamay
 ![Öğrenciler dizin sayfası](migrations/_static/students-index.png)
 
 <a id="pmc"></a>
-## <a name="command-line-interface-cli-vs-package-manager-console-pmc"></a>Komut satırı arabirimi (CLI) vs. Paket Yöneticisi Konsolu (PMC)
+
+## <a name="compare-cli-and-pmc"></a>CLI ile PMC karşılaştırma
 
 Geçişleri yönetme .NET Core CLI komutlarını veya Visual Studio'da PowerShell cmdlet'leri kullanılabilir EF tooling **Paket Yöneticisi Konsolu** (PMC) penceresi. Bu öğreticide, CLI'yı kullanma gösterilmektedir, ancak isterseniz PMC'yi kullanabilirsiniz.
 
 EF komutları PMC'yi komutlar için bulunan [Microsoft.EntityFrameworkCore.Tools](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools) paket. Bu paket dahil [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app), uygulamanız için bir paket başvurusu varsa, bir paket başvurusu ekleme yapmak zorunda kalmazsınız `Microsoft.AspNetCore.App`.
 
-**Önemli:** bu için CLI'ı yükleme düzenleyerek biri aynı pakette değil *.csproj* dosya. Bu ada içinde sona erecek `Tools`, biten CLI paket adı aksine `Tools.DotNet`.
+**Önemli:** Bunun için CLI'ı yükleme düzenleyerek biri aynı pakette olmadığını *.csproj* dosya. Bu ada içinde sona erecek `Tools`, biten CLI paket adı aksine `Tools.DotNet`.
 
 CLI komutları hakkında daha fazla bilgi için bkz. [.NET Core CLI](/ef/core/miscellaneous/cli/dotnet).
 
 PMC komutlar hakkında daha fazla bilgi için bkz. [Paket Yöneticisi Konsolu (Visual Studio)](/ef/core/miscellaneous/cli/powershell).
 
-## <a name="summary"></a>Özet
+## <a name="get-the-code"></a>Kodu alma
 
-Bu öğreticide, oluşturma ve ilk geçişinizi uygulama öğrendiniz. Sonraki öğreticide, veri modelini genişleterek daha ileri seviyeli konulara arama başlarsınız. Süreç boyunca oluşturun ve ek geçişlerin uygulayın.
+[İndirme veya tamamlanmış uygulamanın görüntüleyin.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-::: moniker-end
+## <a name="next-step"></a>Sonraki adım
 
-> [!div class="step-by-step"]
-> [Önceki](sort-filter-page.md)
-> [İleri](complex-data-model.md)
+Bu öğreticide şunları yaptınız:
+
+> [!div class="checklist"]
+> * Geçiş hakkında bilgi edindiniz
+> * NuGet geçiş paketleri hakkında bilgi edindiniz
+> * Bağlantı dizesi değişti
+> * Bir başlangıç geçiş oluşturulan
+> * Yukarı ve aşağı yöntem incelenir.
+> * Veri modeli anlık görüntü hakkında bilgi edindiniz
+> * Geçiş uygulandı
+
+Veri modelini genişletme hakkında daha ileri seviyeli konulara göz atan başlamak için sonraki makaleye ilerleyin. Süreç boyunca oluşturun ve ek geçişlerin uygulayın.
+> [!div class="nextstepaction"]
+> [Oluşturun ve ek geçişlerin uygulayın](complex-data-model.md)

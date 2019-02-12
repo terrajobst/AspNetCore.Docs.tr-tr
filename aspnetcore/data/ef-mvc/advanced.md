@@ -1,31 +1,41 @@
 ---
-title: -EF çekirdekli ASP.NET Core MVC Gelişmiş - 10 10
-author: rick-anderson
+title: 'Öğretici: Gelişmiş senaryoları hakkında - EF çekirdekli ASP.NET MVC ile bilgi edinin.'
 description: Bu öğretici, Entity Framework Core kullanan ASP.NET Core web uygulamaları geliştirmenin temellerini ötesine geçmesini yararlı konuları tanıtır.
+author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 02/05/2019
+ms.topic: tutorial
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: ba3834b29e78972bf914a5cba1a2cae3cc19a315
-ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
+ms.openlocfilehash: f02aa1d6d8e431e7e2613835b3216786aed4ecd4
+ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "50090790"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56103104"
 ---
-# <a name="aspnet-core-mvc-with-ef-core---advanced---10-of-10"></a>-EF çekirdekli ASP.NET Core MVC Gelişmiş - 10 10
-
-[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
-
-::: moniker range="= aspnetcore-2.0"
-
-Tarafından [Tom Dykstra](https://github.com/tdykstra) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
-
-Contoso University örnek web uygulaması, Entity Framework Core ve Visual Studio kullanarak ASP.NET Core MVC web uygulamalarının nasıl oluşturulacağını gösterir. Öğretici serisinin hakkında daha fazla bilgi için bkz. [serideki ilk öğreticide](intro.md).
+# <a name="tutorial-learn-about-advanced-scenarios---aspnet-mvc-with-ef-core"></a>Öğretici: Gelişmiş senaryoları hakkında - EF çekirdekli ASP.NET MVC ile bilgi edinin.
 
 Önceki öğreticide tablo başına hiyerarşi devralma uygulanır. Bu öğretici, ne zaman, Entity Framework Core kullanan ASP.NET Core web uygulamaları geliştirmenin temellerini gidin dikkat etmeniz yararlı olan çeşitli konuları tanıtır.
 
-## <a name="raw-sql-queries"></a>Ham SQL sorguları
+Bu öğreticide şunları yaptınız:
+
+> [!div class="checklist"]
+> * Ham SQL sorguları gerçekleştirme
+> * Bir sorguyu varlıkları arama
+> * Bir sorguyu diğer türleri çağırın
+> * Update sorgusu çağırın
+> * SQL sorguları inceleyin
+> * Bir soyutlama katmanı oluşturma
+> * Otomatik değiştirme algılama hakkında bilgi edinin
+> * EF Core kaynak kodu ve geliştirme planlar hakkında bilgi edinin
+> * Dinamik LINQ kodu basitleştirmek için kullanmayı öğrenin
+
+## <a name="prerequisites"></a>Önkoşullar
+
+* [Devralma EF Core ile bir ASP.NET Core MVC web uygulamasında uygulama](inheritance.md)
+
+## <a name="perform-raw-sql-queries"></a>Ham SQL sorguları gerçekleştirme
 
 Entity Framework kullanmanın avantajlarını önler, veri depolamanın çok yakından belirli bir yöntem, kodunuzu bağlamadan biridir. Bunu SQL sorgulara ve komutlara sizin için Ayrıca bunları kendiniz yazmak zorunda kalmanızı oluşturarak yapar. Ancak, el ile oluşturduğunuz belirli SQL sorguları çalıştırmak ihtiyacınız olduğunda olağanüstü senaryolar vardır. Bu senaryolar için Entity Framework kod ilk API SQL komutları doğrudan veritabanına geçirilecek sağlayan yöntemler içerir. EF Core 1.0 aşağıdaki seçenekleriniz vardır:
 
@@ -37,7 +47,7 @@ Varlık olmayan türler döndüren bir sorgu çalıştırmak ihtiyacınız varsa
 
 Bir web uygulamasında SQL komutları yürütme her zaman true olduğu gibi sitenizi SQL ekleme saldırılarına karşı korumak için önlemler almanız gerekir. Bunu yapmanın bir yolu, bir web sayfası tarafından gönderilen dizeleri SQL komutları yorumlanamıyor emin olmak için parametreli sorgular kullanmaktır. Bu öğreticide, kullanıcı girişi bir sorguya tümleştirdiğinizde parametreli sorgular kullanacaksınız.
 
-## <a name="call-a-query-that-returns-entities"></a>Varlık döndüren bir sorgu çağırın
+## <a name="call-a-query-to-return-entities"></a>Bir sorguyu varlıkları arama
 
 `DbSet<TEntity>` Sınıf türünde bir varlık döndüren bir sorgu yürütmek için kullanabileceğiniz bir yöntem sağlar `TEntity`. Bu, nasıl çalıştığını görmek için kodda değiştireceksiniz `Details` departmanı denetleyicinin yöntemi.
 
@@ -49,7 +59,7 @@ Yeni kod düzgün çalıştığını doğrulamak için **Departmanlar** sekmesin
 
 ![Departman ayrıntıları](advanced/_static/department-details.png)
 
-## <a name="call-a-query-that-returns-other-types"></a>Diğer türler döndüren bir sorgu çağırın
+## <a name="call-a-query-to-return-other-types"></a>Bir sorguyu diğer türleri çağırın
 
 Daha önce bir öğrenci istatistikleri kılavuz Öğrenci sayısı için her bir kayıt tarihi gösterdi hakkında sayfası için oluşturuldu. Veri Öğrenciler varlık kümesinde var (`_context.Students`) ve sonuçları bir liste halinde projeye LINQ kullanılan `EnrollmentDateGroup` model nesneleri görüntüleyin. SQL kendisi yerine LINQ kullanarak yazmak istediğinizi varsayalım. Bir SQL sorgusunu çalıştırmak ihtiyacınız olan şeyi için varlık nesnesi dışında bir şey döndürür. EF Core 1.0, bunu yapmak için bir ADO.NET kod yazma ve veritabanı bağlantısını almak EF yoludur.
 
@@ -83,7 +93,7 @@ Zaman **güncelleştirme** çarpanı olan metin kutusuna girilen değer düğmes
 
 İçinde **Çözüm Gezgini**, sağ *görünümler/kursları* klasörünü ve ardından **Ekle > Yeni öğe**.
 
-İçinde **Yeni Öğe Ekle** iletişim kutusunda, tıklayın **ASP.NET** altında **yüklü** sol bölmesinden **MVC görünüm sayfası**ve Yeni Görünüm adlandırın *UpdateCourseCredits.cshtml*.
+İçinde **Yeni Öğe Ekle** iletişim kutusunda, tıklayın **ASP.NET Core** altında **yüklü** sol bölmesinden **Razor Görünüm**ve Yeni Görünüm adlandırın *UpdateCourseCredits.cshtml*.
 
 İçinde *Views/Courses/UpdateCourseCredits.cshtml*, şablonu kodu aşağıdaki kodla değiştirin:
 
@@ -103,7 +113,7 @@ Tıklayın **listesine geri** kredi düzeltilmiş sayısı kurslarıyla listesin
 
 Ham SQL sorguları hakkında daha fazla bilgi için bkz. [ham SQL sorguları](/ef/core/querying/raw-sql).
 
-## <a name="examine-sql-sent-to-the-database"></a>SQL veritabanına gönderilen inceleyin
+## <a name="examine-sql-queries"></a>SQL sorguları inceleyin
 
 Bazen veritabanına gönderilen gerçek SQL sorguları görebilmeniz yararlıdır. ASP.NET Core için yerleşik günlüğü işlevini içeren SQL sorguları ve güncelleştirmeleri günlüklerini yazma izni EF Core tarafından otomatik olarak kullanılır. Bu bölümde bazı örnekler bir SQL günlük göreceksiniz.
 
@@ -139,7 +149,7 @@ Burada bir şey, sizi şaşırtabilir fark edeceksiniz: SQL 2 satırları seçer
 
 Hata ayıklama modunu kullanmak ve günlük çıktısı almak için bir kesme noktasında durdurmak yok Not **çıkış** penceresi. Bu günlük çıktısına görünmesini istediğiniz noktada durdurmak için yalnızca bir yoludur. Bunu yok ise, günlüğe kaydetmeye devam eder ve geri ilgilendiğiniz bölümleri bulmak için kaydırmak zorunda.
 
-## <a name="repository-and-unit-of-work-patterns"></a>Depo ve iş birimi desenleri
+## <a name="create-an-abstraction-layer"></a>Bir soyutlama katmanı oluşturma
 
 Birçok geliştiricinin depo ve iş birimi desenleri, Entity Framework ile çalışan kod çevresinde sarmalayıcı olarak uygulamak için kod yazın. Bu desenleri, veri erişim katmanı ve bir uygulamanın iş mantığı katmanı arasında bir Soyutlama Katmanı oluşturmak için tasarlanmıştır. Bu desenleri uygulama veri deposundaki değişiklikleri uygulamanızdan verenlerden yardımcı olabilir ve otomatik birim testi veya test odaklı geliştirme (TDD) kolaylaştırabilir. Ancak, bu desenleri uygulamak için ek kod yazmaya her zaman EF, çeşitli nedenlerle kullanan uygulamalar için en iyi seçenek değildir:
 
@@ -169,7 +179,7 @@ Aşağıdaki yöntemlerden birini bir döngüde birçok kez çağırmak ve çok 
 _context.ChangeTracker.AutoDetectChangesEnabled = false;
 ```
 
-## <a name="entity-framework-core-source-code-and-development-plans"></a>Entity Framework Core kaynak kodu ve Geliştirme planları
+## <a name="ef-core-source-code-and-development-plans"></a>EF Core kaynak kodu ve Geliştirme planları
 
 Entity Framework Core kaynak altındadır [ https://github.com/aspnet/EntityFrameworkCore ](https://github.com/aspnet/EntityFrameworkCore). EF Core deposu içeren gecelik derlemeler, sorun izleme, özellik özellikleri, toplantı notları, tasarım ve [gelecekteki geliştirme için yol haritası](https://github.com/aspnet/EntityFrameworkCore/wiki/Roadmap). Dosya veya hataları bulmak ve katkıda bulunun.
 
@@ -180,27 +190,19 @@ Kaynak kodu açık olsa da, Entity Framework Core tam olarak bir Microsoft ürü
 Varolan bir veritabanından varlık sınıfları da dahil olmak üzere bir veri modeli tersine mühendislik için kullanın [iskele dbcontext](/ef/core/miscellaneous/cli/powershell#scaffold-dbcontext) komutu. Bkz: [başlangıç Öğreticisi](/ef/core/get-started/aspnetcore/existing-db).
 
 <a id="dynamic-linq"></a>
-## <a name="use-dynamic-linq-to-simplify-sort-selection-code"></a>Sıralama seçimi kodu basitleştirmek için dinamik LINQ kullanma
+
+## <a name="use-dynamic-linq-to-simplify-code"></a>Kodu basitleştirmek için dinamik LINQ kullanma
 
 [Bu serinin üçüncü öğreticide](sort-filter-page.md) sabit kodlama sütun adları tarafından LINQ kodunu yazma işlemi gösterilmektedir bir `switch` deyimi. Aralarından seçim yapabileceğiniz iki sütunlu, bu düzgün çalışır, ancak çok sütun varsa kod ayrıntılı alabilir. Bu sorunu çözmek için kullanabileceğiniz `EF.Property` özellik adını bir dize olarak belirtmek için yöntemi. Bu yaklaşım denemek için değiştirin `Index` yönteminde `StudentsController` aşağıdaki kod ile.
 
 [!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DynamicLinq)]
 
-## <a name="next-steps"></a>Sonraki adımlar
-
-Bu, Bu öğretici serisinde, Entity Framework Core kullanarak bir ASP.NET Core MVC uygulamasındaki tamamlar.
-
-EF Core hakkında daha fazla bilgi için bkz. [Entity Framework Core belgeleri](/ef/core). Bir kitap de kullanılabilir: [Entity Framework Core uygulamada](https://www.manning.com/books/entity-framework-core-in-action).
-
-Bir web uygulamasının nasıl dağıtılacağı hakkında daha fazla bilgi için bkz: <xref:host-and-deploy/index>.
-
-ASP.NET Core MVC için kimlik doğrulaması ve yetkilendirme gibi ilgili diğer konular hakkında bilgi için bkz. <xref:index>.
-
 ## <a name="acknowledgments"></a>İlgili kaynaklar
 
-Tom Dykstra ve Rick Anderson (twitter @RickAndMSFT) bu Öğreticisi yazdı. Rowan Miller, Diego Vega ve diğer Entity Framework takım üyeleri kod incelemeleriyle Yardımlı ve kod öğreticileri için yazar, çıkan sorunlarında hata ayıklama yardımcı olmuştur.
+Tom Dykstra ve Rick Anderson (twitter @RickAndMSFT) bu Öğreticisi yazdı. Rowan Miller, Diego Vega ve diğer Entity Framework takım üyeleri kod incelemeleriyle Yardımlı ve kod öğreticileri için yazar, çıkan sorunlarında hata ayıklama yardımcı olmuştur. John Parente ve Paul Goldman öğretici ASP.NET Core 2.2 için güncelleştirme üzerinde çalışmıştır.
 
-## <a name="common-errors"></a>Sık karşılaşılan hatalar
+<a id="common-errors"></a>
+## <a name="troubleshoot-common-errors"></a>Sık karşılaşılan sorunları giderme
 
 ### <a name="contosouniversitydll-used-by-another-process"></a>Başka bir işlem tarafından kullanılan ContosoUniversity.dll
 
@@ -246,7 +248,33 @@ Hata iletisi:
 
 Bağlantı dizesini kontrol edin. Veritabanı dosyasını el ile sildiyseniz, yeni bir veritabanı ile baştan başlamak yapım dizesinde veritabanının adını değiştirin.
 
-::: moniker-end
+## <a name="get-the-code"></a>Kodu alma
 
-> [!div class="step-by-step"]
-> [Önceki](inheritance.md)
+[İndirme veya tamamlanmış uygulamanın görüntüleyin.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
+
+## <a name="additional-resources"></a>Ek kaynaklar
+
+EF Core hakkında daha fazla bilgi için bkz. [Entity Framework Core belgeleri](/ef/core). Bir kitap de kullanılabilir: [Entity Framework Core uygulamada](https://www.manning.com/books/entity-framework-core-in-action).
+
+Bir web uygulamasının nasıl dağıtılacağı hakkında daha fazla bilgi için bkz: <xref:host-and-deploy/index>.
+
+ASP.NET Core MVC için kimlik doğrulaması ve yetkilendirme gibi ilgili diğer konular hakkında bilgi için bkz. <xref:index>.
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+Bu öğreticide şunları yaptınız:
+
+> [!div class="checklist"]
+> * Gerçekleştirilen ham SQL sorguları
+> * Bir sorguyu varlıkları çağırılır
+> * Adlı bir sorguyu diğer türleri
+> * Update sorgusu çağırılır
+> * Denetlenen SQL sorguları
+> * Oluşturulan bir Soyutlama Katmanı
+> * Otomatik değiştirme algılama hakkında bilgi edindiniz
+> * EF Core kaynak kodu ve geliştirme planlar hakkında bilgi edindiniz
+> * Kodu basitleştirmek için dinamik LINQ kullanmayı öğrendiniz
+
+Bu, Bu öğretici serisinde, Entity Framework Core kullanarak bir ASP.NET Core MVC uygulamasındaki tamamlar. EF 6 ile ASP.NET Core kullanma hakkında bilgi edinmek istiyorsanız, sonraki makaleye bakın.
+> [!div class="nextstepaction"]
+> [ASP.NET Core ile EF 6](../entity-framework-6.md)
