@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/29/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: dfb67cd4c2a3f0e6fb270eb2e4850a664cdf5741
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: 9f7fc5571f8d1a6e5e2d84779082abb02d2fb292
+ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103169"
+ms.locfileid: "56159401"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Windows IIS üzerinde ASP.NET Core barındırma
 
@@ -410,7 +410,14 @@ Veri koruma anahtarı halka kalıcı hale getirmek için IIS altında yapıland�
 
 * **Kullanıcı profili yüklemek için IIS uygulama havuzu yapılandırma**
 
-  Bu ayar **işlem modeli** bölümüne **Gelişmiş ayarlar** uygulama havuzu için. Ayarlanan kullanıcı profilini Yükle `True`. Bu kullanıcı profili dizini altında anahtarlarını depolar ve bunları koruyan DPAPI ile uygulama havuzu tarafından kullanılan kullanıcı hesabı için belirli bir anahtar kullanarak.
+  Bu ayar **işlem modeli** bölümüne **Gelişmiş ayarlar** uygulama havuzu için. Ayarlama **kullanıcı profilini Yükle** için `True`. Ayarlandığında `True`, anahtarları kullanıcı profili dizinde depolanır ve kullanıcı hesabı için özel bir anahtarla DPAPI kullanılarak korunan. Anahtarlar için kaldı *%LOCALAPPDATA%/ASP.NET/DataProtection-Keys* klasör.
+
+  Uygulama havuzunun [setProfileEnvironment özniteliği](/iis/configuration/system.applicationhost/applicationpools/add/processmodel#configuration) etkinleştirilmiş olması da gerekir. Varsayılan değer olan `setProfileEnvironment` olduğu `true`. (Örneğin, Windows işletim sistemi), bazı senaryolarda `setProfileEnvironment` ayarlanır `false`. Kullanıcı profili dizinde anahtarları depolanmaz, beklenen:
+
+  1. Gidin *%windir%/system32/inetsrv/config* klasör.
+  1. Açık *applicationHost.config* dosya.
+  1. Bulun `<system.applicationHost><applicationPools><applicationPoolDefaults><processModel>` öğesi.
+  1. Onaylayın `setProfileEnvironment` özniteliği mevcut olmadığında, bunun varsayılan değeri için `true`, veya özniteliğin değerini açık olarak `true`.
 
 * **Dosya sistemi anahtarı halkası deposu olarak kullanın**
 

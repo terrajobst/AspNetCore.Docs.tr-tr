@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core uygulamaları barındırmak için gereken ASP.NET Core modülü yapılandırmayı öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/22/2019
+ms.date: 02/08/2019
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: 3de50233987998d6e0072a261dee29dd09f4ef89
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: 9270d7b462bbac1ae0ad896c0937ea6dd909b2cd
+ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103156"
+ms.locfileid: "56159561"
 ---
 # <a name="aspnet-core-module"></a>ASP.NET Core Modülü
 
@@ -51,7 +51,11 @@ Varsa `<AspNetCoreHostingModel>` özelliği dosyasında mevcut değilse, varsay�
 
 Aşağıdaki özellikler, işlem içi barındırırken geçerlidir:
 
-* IIS HTTP sunucusu (`IISHttpServer`) yerine kullanılan [Kestrel](xref:fundamentals/servers/kestrel) sunucusu.
+* IIS HTTP sunucusu (`IISHttpServer`) yerine kullanılan [Kestrel](xref:fundamentals/servers/kestrel) sunucusu. İşlem içinde için [CreateDefaultBuilder](xref:fundamentals/host/web-host#set-up-a-host) çağrıları <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIIS*> için:
+
+  * Kayıt `IISHttpServer`.
+  * Sunucu, ASP.NET Core modülü çalıştırırken dinleyecek temel yolu ve bağlantı noktası yapılandırın.
+  * Başlatma hataları yakalamak için ana yapılandırın.
 
 * [RequestTimeout özniteliği](#attributes-of-the-aspnetcore-element) işlem içi barındırmak için geçerli değildir.
 
@@ -83,6 +87,11 @@ Aşağıdaki özellikler, işlem içi barındırırken geçerlidir:
 ```
 
 [Kestrel'i](xref:fundamentals/servers/kestrel) sunucusu yerine IIS HTTP sunucusu kullanılır (`IISHttpServer`).
+
+Çıkış işlemini için [CreateDefaultBuilder](xref:fundamentals/host/web-host#set-up-a-host) çağrıları <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> için:
+
+* Sunucu, ASP.NET Core modülü çalıştırırken dinleyecek temel yolu ve bağlantı noktası yapılandırın.
+* Başlatma hataları yakalamak için ana yapılandırın.
 
 ### <a name="hosting-model-changes"></a>Barındırma modeli değişiklikleri
 

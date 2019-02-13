@@ -7,18 +7,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/29/2019
 uid: razor-components/layouts
-ms.openlocfilehash: c67ef1ae79f7961c571af7db3da0028cb870c7ed
-ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
+ms.openlocfilehash: 23d8f441c0b3bbde7a73717f6257013831617ec0
+ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55668182"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56159471"
 ---
 # <a name="razor-components-layouts"></a>Razor bileşenleri düzenleri
 
 By [Rainer Stropek](https://www.timecockpit.com)
-
-[!INCLUDE[](~/includes/razor-components-preview-notice.md)]
 
 Uygulamalar genellikle birden fazla sayfa içerir. Düzen öğeleri, logolar, menüler ve telif hakkı iletiler gibi tüm sayfalarında bulunması gerekir. Bu düzen öğelerin kod tüm uygulama sayfaları kopyalama etkili bir çözüm değildir. Böyle çoğaltma korumak zor olabilir ve büyük olasılıkla zaman içinde tutarsız içeriği yol açar. *Düzenleri* bu sorunu çözer.
 

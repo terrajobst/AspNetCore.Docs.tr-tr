@@ -4,14 +4,14 @@ author: ardalis
 description: Filtreleri nasıl çalıştığını ve ASP.NET Core MVC nasıl kullanacağınızı öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 1/15/2019
+ms.date: 02/08/2019
 uid: mvc/controllers/filters
-ms.openlocfilehash: fe3082481b51c968fd361dbcc9553c4e35a36f2a
-ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
+ms.openlocfilehash: 3cd576b389a2a4384c0ba90b5740ac42140533cc
+ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54444356"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56159320"
 ---
 # <a name="filters-in-aspnet-core"></a>ASP.NET core'da filtreleri
 
@@ -71,6 +71,7 @@ Tek bir sınıftaki birden çok filtre aşamalar için arabirim uygulayabilir. �
 > Uygulama **ya da** zaman uyumlu veya zaman uyumsuz sürümü filtre arabirimi, her ikisini birden değil. Framework ilk filtre zaman uyumsuz arabirimini uygulayan ve çağrı yaptığı bu durumda olup olmadığını denetler. Aksi durumda, zaman uyumlu arabirim yöntemleri çağırır. Her iki arabirimde üzerinde bir sınıf uygulamak için olsaydı, yalnızca zaman uyumsuz yöntem çağrılır. Soyut sınıflar gibi kullanırken <xref:Microsoft.AspNetCore.Mvc.Filters.ActionFilterAttribute> yalnızca zaman uyumlu metotları veya zaman uyumsuz yöntem her filtre türü için geçersiz kılarsınız.
 
 ### <a name="ifilterfactory"></a>IFilterFactory
+
 [IFilterFactory](/dotnet/api/microsoft.aspnetcore.mvc.filters.ifilterfactory) uygulayan <xref:Microsoft.AspNetCore.Mvc.Filters.IFilterMetadata>. Bu nedenle, bir `IFilterFactory` örneği olarak kullanılabilir bir `IFilterMetadata` filtre işlem hattının herhangi bir yerindeki örneği. Framework filtre çağırmak hazırlanırken yayınlayacağınızı çalışır bir `IFilterFactory`. Bu tür dönüştürme başarılı olursa [CreateInstance](/dotnet/api/microsoft.aspnetcore.mvc.filters.ifilterfactory.createinstance) yöntemi oluşturmak için çağrılır `IFilterMetadata` çağrılan örnek. Bu, kesin filtre ardışık düzen uygulama başlatıldığında açıkça ayarlanması gerekmez bu yana esnek bir tasarım sağlar.
 
 Uygulayabileceğiniz `IFilterFactory` filtreleri oluşturma başka bir yaklaşım olarak kendi öznitelik uygulamaları üzerinde:
@@ -348,8 +349,12 @@ Bir özel durumu işlemek üzere ayarlanmış `ExceptionContext.ExceptionHandled
 
 ## <a name="result-filters"></a>Sonuç filtreleri
 
-* Ya da uygulama `IResultFilter` veya `IAsyncResultFilter` arabirimi.
+* Bir arabirim uygular:
+  * `IResultFilter` veya `IAsyncResultFilter`.
+  * `IAlwaysRunResultFilter` veya `IAsyncAlwaysRunResultFilter`
 * Yürütülmesi, eylem sonuçlarını yürütülmesini çevreler. 
+
+### <a name="iresultfilter-and-iasyncresultfilter"></a>IResultFilter ve IAsyncResultFilter
 
 Bir HTTP üstbilgisi ekler bir sonuç filtresi örneği aşağıda verilmiştir.
 
@@ -371,6 +376,35 @@ Zaman `OnResultExecuted` yöntemi çalıştığında, yanıtı istemciye büyük
 İçin bir `IAsyncResultFilter` çağrısı `await next` üzerinde `ResultExecutionDelegate` herhangi bir sonraki sonuç filtre ve eylem sonucu yürütür. Kısa devre oluşturur, ayarlayın `ResultExecutingContext.Cancel` için doğru ve Remove() çağırmayın `ResultExectionDelegate`.
 
 Bir soyut bir çerçeve sağlar `ResultFilterAttribute` alt olabilir. [AddHeaderAttribute](#add-header-attribute) daha önce gösterilen sınıfı bir sonuç filtre özniteliği örneği verilmiştir.
+
+### <a name="ialwaysrunresultfilter-and-iasyncalwaysrunresultfilter"></a>IAlwaysRunResultFilter ve IAsyncAlwaysRunResultFilter
+
+<xref:Microsoft.AspNetCore.Mvc.Filters.IAlwaysRunResultFilter> Ve <xref:Microsoft.AspNetCore.Mvc.Filters.IAsyncAlwaysRunResultFilter> arabirimleri bildirmek bir <xref:Microsoft.AspNetCore.Mvc.Filters.IResultFilter> ilişkin eylem sonuçlarıyla çalışan uygulama. Filtre için eylem sonucunu sürece uygulanır bir <xref:Microsoft.AspNetCore.Mvc.Filters.IExceptionFilter> veya <xref:Microsoft.AspNetCore.Mvc.Filters.IAuthorizationFilter> ve yanıt short-circuits uygular.
+
+Her zaman çalıştır, bir özel durum veya yetkilendirme filtresi bunları ne zaman short-circuits dışında başka bir deyişle, bu "her zaman çalıştır" filtreler. Filtreler dışında `IExceptionFilter` ve `IAuthorizationFilter` bunları kısa devre yok.
+
+Örneğin, aşağıdaki filtre her zaman çalışır ve eylem sonucunu ayarlar (<xref:Microsoft.AspNetCore.Mvc.ObjectResult>) ile bir *422 işlenemeyen* içerik anlaşması başarısız olduğunda, durum kodu:
+
+```csharp
+public class UnprocessableResultFilter : Attribute, IAlwaysRunResultFilter
+{
+    public void OnResultExecuting(ResultExecutingContext context)
+    {
+        if (context.Result is StatusCodeResult statusCodeResult &&
+            statusCodeResult.StatusCode == 415)
+        {
+            context.Result = new ObjectResult("Can't process this!")
+            {
+                StatusCode = 422,
+            };
+        }
+    }
+
+    public void OnResultExecuted(ResultExecutedContext context)
+    {
+    }
+}
+```
 
 ## <a name="using-middleware-in-the-filter-pipeline"></a>Filtre işlem hattı, ara yazılımın kullanılması
 

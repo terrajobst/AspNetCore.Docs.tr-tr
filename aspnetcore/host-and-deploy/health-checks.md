@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/12/2018
 uid: host-and-deploy/health-checks
-ms.openlocfilehash: cf2aea91221887dad5646604214f810493d4b175
-ms.sourcegitcommit: 1ea1b4fc58055c62728143388562689f1ef96cb2
+ms.openlocfilehash: 8e1d29257738dd2902f8afb5685670a6e28b10e2
+ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53329152"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56159427"
 ---
 # <a name="health-checks-in-aspnet-core"></a>ASP.NET Core durum denetimleri
 
@@ -415,6 +415,8 @@ dotnet run --scenario liveness
 
 Bir tarayıcıda ziyaret `/health/ready` birkaç kez 15 saniye geçtikten kadar. Sistem durumunu denetleme raporları `Unhealthy` ilk 15 saniye. Uç nokta 15 saniye sonra raporları `Healthy`, barındırılan hizmeti tarafından tamamlanması uzun süre çalışan görev yansıtır.
 
+Bu örnek, aynı zamanda bir sistem durumu denetleme yayımcı oluşturur (`IHealthCheckPublisher` uygulaması), ilk hazırlık denetimi iki saniyelik bir gecikmenin ile çalışır. Daha fazla bilgi için [sistem durumu denetleme yayımcı](#health-check-publisher) bölümü.
+
 ### <a name="kubernetes-example"></a>Kubernetes örneği
 
 Ayrı hazırlık ve canlılık denetimleri kullanarak, bir ortamda kullanışlıdır gibi [Kubernetes](https://kubernetes.io/). Kubernetes, bir uygulama gibi bir temel alınan veritabanı kullanılabilirlik testi, istekleri kabul önce zaman başlatma işi gerçekleştirmek için gerekli olabilir. Ayrı denetimleri kullanarak orchestrator ayırt etmek için uygulamayı çalışan ancak henüz hazır olup olmadığını veya uygulamayı başlatmak çalıştıramadığını sağlar. Hazır olma ve kubernetes kapsayıcısında eşdeğerlik araştırmaları hakkında daha fazla bilgi için bkz. [canlılık yapılandırmak ve hazırlık araştırmaları](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/) Kubernetes belgelerinde.
@@ -638,6 +640,45 @@ Olduğunda bir `IHealthCheckPublisher` eklenen hizmet kapsayıcısı için siste
 ```csharp
 Task PublishAsync(HealthReport report, CancellationToken cancellationToken);
 ```
+
+`HealthCheckPublisherOptions` ayarlamanıza olanak sağlar:
+
+* `Delay` &ndash; Sonra uygulama geçerli başlangıç gecikmesi başlar yürütmeden önce `IHealthCheckPublisher` örnekleri. Gecikme, başlatma sırasında bir kez uygulanır ve sonraki yinelemeler için geçerli değildir. Varsayılan değer beş saniyedir.
+* `Period` &ndash; Süre `IHealthCheckPublisher` yürütme. Varsayılan değer 30 saniyedir.
+* `Predicate` &ndash; Varsa `Predicate` olduğu `null` (varsayılan), sistem durumu denetimi yayımcı hizmeti, tüm kayıtlı sistem durumu denetimleri çalıştırır. Sistem durumu denetimleri kümesini çalıştırmak için denetimleri kümesini filtreleyen bir işlev sağlar. Koşul her dönem değerlendirilir.
+* `Timeout` &ndash; Tüm sistem yürütme zaman aşımı denetler `IHealthCheckPublisher`örnekleri. Kullanım <xref:System.Threading.Timeout.InfiniteTimeSpan> bir zaman aşımı yürütülecek. Varsayılan değer 30 saniyedir.
+
+::: moniker range="= aspnetcore-2.2"
+
+> [!WARNING]
+> ASP.NET Core 2.2 sürümündeki ayarlama `Period` tarafından kabul değil `IHealthCheckPublisher` uygulama; değerini ayarlar `Delay`. ASP.NET Core 3. 0 ', bu sorun çözülecektir. Daha fazla bilgi için [HealthCheckPublisherOptions.Period değerini ayarlar. Gecikme](https://github.com/aspnet/Extensions/issues/1041).
+
+::: moniker-end
+
+Örnek uygulamada `ReadinessPublisher` olduğu bir `IHealthCheckPublisher` uygulaması. Onay durumu kaydedilir `Entries` ve her denetim için günlüğe kaydedilir:
+
+[!code-csharp[](health-checks/samples/2.x/HealthChecksSample/ReadinessPublisher.cs?name=snippet_ReadinessPublisher&highlight=20,22-23)]
+
+Örnek uygulamanın `LivenessProbeStartup` örnek, `StartupHostedService` hazırlık denetimi iki ikinci bir başlatma gecikmesi sahiptir ve her 30 saniyede denetimi çalıştırılır. Etkinleştirmek için `IHealthCheckPublisher` örnek uygulaması, kayıtları `ReadinessPublisher` tek hizmet olarak [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection) kapsayıcı:
+
+[!code-csharp[](health-checks/samples/2.x/HealthChecksSample/LivenessProbeStartup.cs?name=snippet_ConfigureServices&highlight=12-17,28)]
+
+::: moniker range="= aspnetcore-2.2"
+
+> [!NOTE]
+> Aşağıdaki geçici çözümü verir ekleyerek bir `IHealthCheckPublisher` uygulamaya, bir veya daha fazla barındırılan hizmet zaten eklenmiş hizmet kapsayıcı örneği. Bu çözüm, ASP.NET Core 3.0'ın yayınlanmasıyla birlikte gerekli olmayacaktır. Daha fazla bilgi için bkz: https://github.com/aspnet/Extensions/issues/639.
+>
+> ```csharp
+> private const string HealthCheckServiceAssembly = 
+>     "Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckPublisherHostedService";
+>
+> services.TryAddEnumerable(
+>     ServiceDescriptor.Singleton(typeof(IHostedService), 
+>         typeof(HealthCheckPublisherOptions).Assembly
+>             .GetType(HealthCheckServiceAssembly)));
+> ```
+
+::: moniker-end
 
 > [!NOTE]
 > [BeatPulse](https://github.com/Xabaril/BeatPulse) dahil olmak üzere çeşitli sistemler için yayımcılar içerir [Application Insights](/azure/application-insights/app-insights-overview).

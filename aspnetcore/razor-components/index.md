@@ -1,30 +1,54 @@
 ---
 title: Razor bileşenlerine giriş
 author: guardrex
-description: ASP.NET Core Razor bileşenleri keşfedin bir .NET framework kullanarak web C#/Razor ve HTML.
+description: ASP.NET Core Razor bileşenleri, etkileşimli istemci tarafı web kullanıcı Arabirimi ile .NET, ASP.NET Core uygulaması oluşturmak için bir yöntem keşfedin.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/09/2019
+ms.date: 02/12/2019
 uid: razor-components/index
-ms.openlocfilehash: e8d75a0647704f1ff05e70a96abbb2e448868165
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: 04a73d33cee0deedaf3dc97395836a936b580fbd
+ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/12/2019
-ms.locfileid: "56102935"
+ms.locfileid: "56159532"
 ---
 # <a name="introduction-to-razor-components"></a>Razor bileşenlerine giriş
 
 Tarafından [Daniel Roth](https://github.com/danroth27) ve [Luke Latham](https://github.com/guardrex)
 
-[!INCLUDE[](~/includes/razor-components-preview-notice.md)]
-
-*Razor bileşenleri* etkileşimli istemci tarafı web .NET ile kullanıcı arabirimini derlemek için yepyeni bir yoludur:
+*Razor bileşenleri* etkileşimli istemci tarafı web kullanıcı Arabirimi ile .NET derleme yolu:
 
 * Kullanarak zengin etkileşimli kullanıcı arabirimleri oluşturun C# JavaScript yerine.
 * .NET ile yazılan tüm sunucu tarafı ve istemci tarafı uygulama mantığı paylaşın.
 * HTML ve CSS olarak UI mobil tarayıcılar dahil olmak üzere geniş tarayıcı desteği işleyin.
+
+Razor bileşenleri dahil olmak üzere çoğu uygulama tarafından gereken çekirdek özellikleri destekler:
+
+* Parametreler
+* Olay işleme
+* Veri bağlama
+* Yönlendirme
+* Bağımlılık ekleme
+* Düzenler
+* Şablon oluşturma
+* Basamaklı değerler
+
+Kullanıcı Arabirimi güncelleştirmeleri nasıl uygulanacağını gelen bileşeni işleme mantığı Razor bileşeni birbirinden ayırır. ASP.NET Core Razor bileşenleri .NET Core 3. 0'ı ASP.NET Core uygulaması sunucusunda Razor bileşenlerini barındırma desteği ekler. Kullanıcı Arabirimi güncelleştirmeleri SignalR bağlantısı üzerinden işlenir.
+
+Çalışma zamanı:
+
+* UI olayları tarayıcıdan sunucuya gönderme işler.
+* Geçerli kullanıcı Arabirimi güncelleştirmeleri sunucu tarafından gönderilen bileşenleri çalıştırdıktan sonra tarayıcıya geri.
+
+Tarayıcı ile iletişim kurmak için Razor bileşenleri tarafından kullanılan bağlantı JavaScript birlikte çalışma çağrıları işlemek için de kullanılır.
+
+![Razor bileşenleri .NET kod sunucu üzerinde çalışır ve belge nesne modeli istemcide bir SignalR bağlantısı üzerinden etkileşim](index/_static/aspnet-core-razor-components.png)
+
+Daha fazla bilgi için bkz. <xref:razor-components/hosting-models#server-side-hosting-model>.
+
+*Blazor* Razor bileşenlerinin Deneysel istemci-tarafı barındırma modeli. Blazor transpilation eklentileri veya kod olmadan açık web standartları kullanarak tarayıcıda .NET üzerinde çalışır. Daha fazla bilgi için bkz. <xref:razor-components/hosting-models#client-side-hosting-model>.
 
 ## <a name="components"></a>Bileşenler
 
@@ -54,60 +78,13 @@ Bu bileşen, uygulamada başka bir yerde kullanıldığında, IntelliSense tamam
 
 Bileşenleri oluşturma DOM adlı tarayıcı bellek içi gösterimine bir *ağaç işleme* , ardından UI esnek ve verimli bir şekilde güncelleştirmek için kullanılabilir.
 
-Razor bileşenleri dahil olmak üzere çoğu uygulama tarafından gereken çekirdek özellikleri destekler:
-
-* Parametreler
-* Olay işleme
-* Veri bağlama
-* Yönlendirme
-* Bağımlılık ekleme
-* Düzenler
-* Şablon oluşturma
-* Basamaklı değerler
-
 ## <a name="javascript-interop"></a>JavaScript ile birlikte çalışma
 
-Üçüncü taraf JavaScript kitaplıklarını ve API'lerini tarayıcı gerektiren uygulamalar için Razor bileşenleri JavaScript ile çalışma. Razor bileşenleri herhangi bir kitaplığı veya JavaScript kullanabilmek için API kullanma yeteneği. C#kod, JavaScript kodu çağırabilir ve JavaScript kod içine çağırabilir C# kod. Daha fazla bilgi için [JavaScript birlikte çalışma](xref:razor-components/javascript-interop).
-
-## <a name="hosting-models"></a>Barındırma modelleri
-
-### <a name="server-side-hosting-model"></a>Sunucu tarafı barındırma modeli
-
-Kullanıcı Arabirimi güncelleştirmeleri nasıl uygulanacağını gelen bir bileşenin işleme mantığı Razor bileşenleri ayırın olduğundan esneklik nasıl Razor bileşenleri barındırılabilir içinde. ASP.NET Core Razor bileşenleri .NET Core 3. 0'ı ASP.NET Core uygulaması sunucusunda Razor bileşenlerini barındırma desteği ekler. Kullanıcı Arabirimi güncelleştirmeleri SignalR bağlantısı üzerinden işlenir.
-
-Çalışma zamanı:
-
-* UI olayları tarayıcıdan sunucuya gönderme işler.
-* Geçerli kullanıcı Arabirimi güncelleştirmeleri sunucu tarafından gönderilen bileşenleri çalıştırdıktan sonra tarayıcıya geri.
-
-Tarayıcı ile iletişim kurmak için Razor bileşenleri tarafından kullanılan bağlantı JavaScript birlikte çalışma çağrıları işlemek için de kullanılır.
-
-![Razor bileşenleri .NET kod sunucu üzerinde çalışır ve belge nesne modeli istemcide bir SignalR bağlantısı üzerinden etkileşim](index/_static/aspnet-core-razor-components.png)
-
-Daha fazla bilgi için bkz. <xref:razor-components/hosting-models#server-side-hosting-model>.
-
-### <a name="client-side-hosting-model"></a>İstemci tarafı barındırma modeli
-
-*Blazor* Razor bileşenlerinin Deneysel istemci-tarafı barındırma modeli. Blazor transpilation eklentileri veya kod olmadan açık web standartları kullanarak tarayıcıda .NET üzerinde çalışır. Mobil tarayıcılar dahil tüm modern web tarayıcılarında Blazor çalışır.
-
-Çalışan tarayıcılar içinde .NET kod tarafından yapılır [WebAssembly](http://webassembly.org) (kısaltılmış *wasm*). WebAssembly standart ve desteklenen web tarayıcılarından eklentileri olmadan'de açık bir web API'sidir. WebAssembly hızlı indirme ve maksimum yürütme hızı için iyileştirilmiş bir compact bayt biçimidir.
-
-WebAssembly kod tarayıcı yoluyla JavaScript birlikte çalışma'nin tam işlevselliği erişebilirsiniz. Aynı zamanda, kötü amaçlı Eylemler istemci makinede önlemek için JavaScript aynı güvenilir sanal WebAssembly kodu çalıştırır.
-
-![.NET kodu Blazor tarayıcı WebAssembly ile çalışır.](index/_static/blazor.png)
-
-Ne zaman Blazor uygulama oluşturulur ve bir tarayıcıda çalıştırın:
-
-* C#kod dosyaları ve Razor dosyaları .NET bütünleştirilmiş kodlarının derlenir.
-* Derlemeler ve .NET çalışma zamanı tarayıcıya indirilir.
-* Blazor .NET çalışma zamanı bootstrap için JavaScript kullanır ve çalışma zamanı derlemeleri yüklemek için yapılandırır. Belge nesne modeli (DOM) işleme ve tarayıcı API çağrıları, JavaScript birlikte çalışma aracılığıyla Blazor çalışma zamanı tarafından işlenir.
-
-WebAssembly desteklemeyen eski tarayıcılar desteklemek için kullanma [sunucu tarafı barındırma modeli](#server-side-hosting-model).
-
-Daha fazla bilgi için bkz. <xref:razor-components/hosting-models#client-side-hosting-model>.
+Üçüncü taraf JavaScript kitaplıklarını ve API'lerini tarayıcı gerektiren uygulamalar için bileşenleri JavaScript ile çalışma. Herhangi bir kitaplığı veya JavaScript kullanabilmek için API kullanma yeteneği bileşenlerdir. C#kod, JavaScript kodu çağırabilir ve JavaScript kod içine çağırabilir C# kod. Daha fazla bilgi için [JavaScript birlikte çalışma](xref:razor-components/javascript-interop).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
+* <xref:spa/blazor/index>
 * [WebAssembly](http://webassembly.org/)
 * [C# Kılavuzu](/dotnet/csharp/)
 * <xref:mvc/views/razor>

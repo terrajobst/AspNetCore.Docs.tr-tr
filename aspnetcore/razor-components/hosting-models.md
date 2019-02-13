@@ -7,22 +7,22 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/29/2019
 uid: razor-components/hosting-models
-ms.openlocfilehash: 9aba63860fd8c566b866bb1d3b50b29a7a33c6e8
-ms.sourcegitcommit: 3c2ba9a0d833d2a096d9d800ba67a1a7f9491af0
+ms.openlocfilehash: d1e0c472d7d10eeb4cef0da735cf703c98dd1645
+ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55854470"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56159506"
 ---
 # <a name="razor-components-hosting-models"></a>Razor bileşenleri modelleri barındırma
 
 Tarafından [Daniel Roth](https://github.com/danroth27)
 
-[!INCLUDE[](~/includes/razor-components-preview-notice.md)]
-
 Razor bileşenleri, istemci tarafı çalışmak üzere tasarlanmış bir web çerçevesi olan WebAssembly tabanlı .NET çalışma zamanı tarayıcıda (*Blazor*) veya sunucu tarafı ASP.NET Core (*ASP.NET Core Razor bileşenleri*). Barındırma modeli, uygulama ve bileşen modelleri bakılmaksızın *aynı kalması*. Bu makalede, kullanılabilen barındırma modelleri açıklanmaktadır.
 
 ## <a name="client-side-hosting-model"></a>İstemci tarafı barındırma modeli
+
+[!INCLUDE[](~/includes/razor-components-preview-notice.md)]
 
 Asıl barındırma Blazor için tarayıcıda çalışan istemci-tarafı modelidir. Bu modelde, tarayıcıya .NET çalışma zamanı Blazor uygulamayı ve bağımlılıkları indirilir. Uygulamayı doğrudan tarayıcıda kullanıcı Arabirimi iş parçacığında yürütülür. Tüm kullanıcı Arabirimi güncelleştirmeleri ve olay işleme, aynı işlem içinde gerçekleşir. Uygulama varlıkları ne olursa olsun web sunucusunu tercih edilen kullanarak statik dosya olarak dağıtılabilir (bkz [konak dağıtıp](xref:host-and-deploy/razor-components/index)).
 

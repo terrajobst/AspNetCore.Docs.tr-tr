@@ -3,14 +3,14 @@ title: Bir ASP.NET Core MVC uygulaması için bir model ekleme
 author: rick-anderson
 description: Bir model için basit bir ASP.NET Core uygulamasını ekleyin.
 ms.author: riande
-ms.date: 12/8/2017
+ms.date: 02/12/2019
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: 062a248ffdf8e30ed01a72e0a555c1c9a1ab1b6d
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
+ms.openlocfilehash: da30c1c97cbf40a89d163b2116c8d5f9ad422b25
+ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341618"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56159246"
 ---
 # <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>Bir ASP.NET Core MVC uygulaması için bir model ekleme
 
@@ -141,56 +141,57 @@ Veritabanını oluşturmak gereken ve EF Core kullandığınız [geçişler](xre
 
 ## <a name="initial-migration"></a>İlk geçiş
 
-<!-- VS -------------------------->
-
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
-
-Bu bölümde, Paket Yöneticisi Konsolu (PMC'yi) için kullanılır:
+Bu bölümde, aşağıdaki görevler tamamlanır:
 
 * Bir başlangıç geçiş ekleyin.
 * Veritabanı, ilk geçiş ile güncelleştirin.
 
-Gelen **Araçları** menüsünde **NuGet Paket Yöneticisi** > **Paket Yöneticisi Konsolu**.
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-  ![PMC menüsü](~/tutorials/first-mvc-app/adding-model/_static/pmc.png)
+1. Gelen **Araçları** menüsünde **NuGet Paket Yöneticisi** > **Paket Yöneticisi Konsolu** (PMC).
 
-PMC'de aşağıdaki komutları girin:
+   ![PMC menüsü](~/tutorials/first-mvc-app/adding-model/_static/pmc.png)
 
-```PMC
-Add-Migration Initial
-Update-Database
-```
+1. PMC'de aşağıdaki komutları girin:
 
-`Add-Migration` Komut, ilk veritabanı şeması oluşturmak için kod oluşturur.
-<!-- Code -------------------------->
+   ```console
+   Add-Migration Initial
+   Update-Database
+   ```
+
+   `Add-Migration` Komut, ilk veritabanı şeması oluşturmak için kod oluşturur.
+
+   Belirtilen model veritabanı şeması dayanır `MvcMovieContext` sınıfı (içinde *Data/MvcMovieContext.cs* dosyası). `Initial` Geçiş adı olmayan bağımsız değişken. Herhangi bir ad kullanılabilir, ancak kural olarak, geçiş tanımlayan bir ad kullanılır. Daha fazla bilgi için bkz. <xref:data/ef-mvc/migrations>.
+
+   `Update-Database` Komutu çalıştırmaları `Up` yöntemi *geçişleri / {zaman damgası} _InitialCreate.cs* dosyasını veritabanı oluşturur.
 
 # <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code'u / Visual Studio Mac için](#tab/visual-studio-code+visual-studio-mac)
 
 [!INCLUDE [initial migration](~/includes/RP/model3.md)]
+
 `ef migrations add InitialCreate` Komut, ilk veritabanı şeması oluşturmak için kod oluşturur.
 
+Belirtilen model veritabanı şeması dayanır `MvcMovieContext` sınıfı (içinde *Data/MvcMovieContext.cs* dosyası). `InitialCreate` Geçiş adı olmayan bağımsız değişken. Herhangi bir ad kullanılabilir, ancak kural olarak, geçiş tanımlayan bir ad seçilir.
+
 ---  
-<!-- End of VS tabs -->
 
-Yukarıdaki komutlarda aşağıdaki uyarı oluştur: "Hiçbir türü ondalık sütunu 'Fiyat' varlık türünün 'Film' için belirtildi. Bu, bunlar varsayılan kesinlik ve ölçek uygun değilse sessizce kesilebilir değerleri neden olur. "Açıkça 'HasColumnType()' kullanarak tüm değerleri uyum SQL server sütun türü belirtin."
+Yukarıdaki komutlarda aşağıdaki uyarı oluştur:
 
-Bu uyarıyı yoksayabilirsiniz, bir sonraki öğreticide düzeltilecektir.
+```text
+No type was specified for the decimal column 'Price' on entity type 'Movie'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'.
+```
 
-Belirtilen model şeması dayanır `DbContext` (içinde *Models/MvcMovieContext.cs* dosyası). `InitialCreate` Bağımsız değişkeni, geçişlerin adlandırmak için kullanılır. Herhangi bir ad kullanılabilir, ancak bir adı seçili kural gereği, geçiş açıklar.
-
-`ef database update` Komutu çalıştırmaları `Up` yönteminde *geçişleri /\<zaman damgası > _InitialCreate.cs* dosya. `Up` Yöntemi veritabanı oluşturur.
-
-<!-- VS -------------------------->
-
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+Bu uyarıyı yoksayabilirsiniz. Bir sonraki öğreticide düzeltilecektir.
 
 ## <a name="examine-the-context-registered-with-dependency-injection"></a>Bağımlılık ekleme ile kayıtlı bağlamını İnceleme
 
-ASP.NET Core ile oluşturulmuş [bağımlılık ekleme](xref:fundamentals/dependency-injection). Hizmetler (örneğin, EF Core DB bağlamı), uygulama başlatma sırasında bağımlılık ekleme ile kaydedilir. Bu hizmetler (örneğin, Razor sayfaları) gerektiren bileşenler bu hizmetler Oluşturucu parametresi üzerinden sağlanır. Bir DB bağlamı örneği alır Oluşturucu kodu öğreticinin ilerleyen bölümlerinde gösterilmektedir.
+ASP.NET Core ile oluşturulmuş [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection). Hizmetler (örneğin, EF Core DB bağlamı) DI, uygulama başlatma sırasında kaydedilir. Bu hizmetler (örneğin, Razor sayfaları) gerektiren bileşenler bu hizmetler Oluşturucu parametresi üzerinden sağlanır. Bir DB bağlamı örneği alır Oluşturucu kodu öğreticinin ilerleyen bölümlerinde gösterilmektedir.
 
-Yapı iskelesi aracı otomatik olarak oluşturulmuş bir veritabanı bağlamını ve bağımlılık ekleme kapsayıcısını ile kayıtlı.
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-İnceleme `Startup.ConfigureServices` yöntemi. Vurgulanan satırı iskele kurucu tarafından eklendi:
+Yapı iskelesi aracı otomatik olarak oluşturulmuş bir veritabanı bağlamını ve DI kapsayıcı ile kayıtlı.
+
+Aşağıdaki inceleyin `Startup.ConfigureServices` yöntemi. Vurgulanan satırı iskele kurucu tarafından eklendi:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Startup.cs?name=snippet_ConfigureServices&highlight=15-18)]
 
@@ -198,22 +199,15 @@ Yapı iskelesi aracı otomatik olarak oluşturulmuş bir veritabanı bağlamın�
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Data/MvcMovieContext.cs)]
 
-Yukarıdaki kod oluşturur bir [ `DbSet<Movie>` ](/dotnet/api/microsoft.entityframeworkcore.dbset-1) varlık kümesi özelliği. Entity Framework terminolojisinde, bir varlık kümesini genellikle bir veritabanı tablosuna karşılık gelir. Bir varlık tablosunda bir satıra karşılık gelir.
+Yukarıdaki kod oluşturur bir [olan DB\<film >](/dotnet/api/microsoft.entityframeworkcore.dbset-1) varlık kümesi özelliği. Entity Framework terminolojisinde, bir varlık kümesini genellikle bir veritabanı tablosuna karşılık gelir. Bir varlık tablosunda bir satıra karşılık gelir.
 
 Bağlantı dizesi adı için bağlam üzerinde bir yöntemi çağırarak geçirilen bir [DbContextOptions](/dotnet/api/microsoft.entityframeworkcore.dbcontextoptions) nesne. Yerel geliştirme için [ASP.NET Core yapılandırma sistemi](xref:fundamentals/configuration/index) bağlantı dizesinden okur *appsettings.json* dosya.
-<!-- Code -------------------------->
 
 # <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code'u / Visual Studio Mac için](#tab/visual-studio-code+visual-studio-mac)
 
-ASP.NET Core ile oluşturulmuş [bağımlılık ekleme](xref:fundamentals/dependency-injection). Hizmetler (örneğin, EF Core DB bağlamı), uygulama başlatma sırasında bağımlılık ekleme ile kaydedilir. Bu hizmetler (örneğin, Razor sayfaları) gerektiren bileşenler bu hizmetler Oluşturucu parametresi üzerinden sağlanır. Bir DB bağlamı örneği alır Oluşturucu kodu öğreticinin ilerleyen bölümlerinde gösterilmektedir.
-
-Bir DB bağlamı oluşturduğunuz ve bağımlılık ekleme kapsayıcısını ile kayıtlı.
+Bir DB bağlamı oluşturduğunuz ve DI kapsayıcı ile kayıtlı.
 
 ---
-
-Belirtilen model şeması dayanır `MvcMovieContext` (içinde *Data/MvcMovieContext.cs* dosyası). `Initial` Bağımsız değişkeni, geçişlerin adlandırmak için kullanılır. Herhangi bir ad kullanılabilir, ancak kurala göre geçiş tanımlayan bir ad kullanılır. Bkz: [geçişler giriş](xref:data/ef-mvc/migrations#introduction-to-migrations) daha fazla bilgi için.
-
-`Update-Database` Komutu çalıştırmaları `Up` yöntemi *geçişleri / {zaman damgası} _InitialCreate.cs* dosyasını veritabanı oluşturur.
 
 <a name="test"></a>
 

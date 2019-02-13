@@ -1,18 +1,18 @@
 ---
 title: Razor bileşenleri ilk uygulamanızı oluşturun
 author: guardrex
-description: Adım adım bir Razor bileşenleri uygulaması derleme ve temel Razor bileşenleri framework kavramlarını öğrenin.
+description: Adım adım bir Razor bileşenleri uygulaması derleme ve Razor bileşenleri temel kavramları öğrenin.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/04/2019
+ms.date: 02/11/2019
 uid: tutorials/first-razor-components-app
-ms.openlocfilehash: 4bf3884d5d9575ebf2a09237e364b37fa1b35246
-ms.sourcegitcommit: 3c2ba9a0d833d2a096d9d800ba67a1a7f9491af0
+ms.openlocfilehash: 0c3dd2366581d73bad44e2911602e13c6c0daf9a
+ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55854611"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56159349"
 ---
 # <a name="build-your-first-razor-components-app"></a>Razor bileşenleri ilk uygulamanızı oluşturun
 
@@ -20,23 +20,31 @@ Tarafından [Daniel Roth](https://github.com/danroth27) ve [Luke Latham](https:/
 
 [!INCLUDE[](~/includes/razor-components-preview-notice.md)]
 
-Bu öğretici, bir Razor bileşenleri uygulamasının nasıl oluşturulacağını gösterir ve temel Razor bileşenleri framework kavramlarını gösterir.
+Bu öğretici, Razor bileşenleri ile uygulama oluşturma işlemini göstermektedir ve Razor bileşenleri temel kavramlarını gösterir. Bu öğretici (.NET Core 3.0 veya sonraki sürümlerde desteklenir) ya da bir Razor bileşenleri tabanlı proje veya (.NET Core gelecekteki bir sürümde desteklenir) Blazor tabanlı bir proje kullanarak keyfini çıkarabilirsiniz.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/build-your-first-razor-components-app/samples/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample)). Bkz: [başlama](xref:razor-components/get-started) Önkoşullar için konu.
+ASP.NET Core Razor bileşenlerini kullanarak bir deneyim için (*önerilen*):
 
-## <a name="create-an-app-from-the-razor-components-template"></a>Razor bileşenleri şablondan uygulama oluşturma
+* Sunulan yönergeleri <xref:razor-components/get-started> Razor bileşenleri tabanlı bir proje oluşturmaktır.
+* Projeyi adlandırın `RazorComponents`.
+* Bir çoklu proje çözümü Razor bileşenleri şablonu oluşturulur. Razor bileşenleri proje olarak oluşturulan *RazorComponents.App*.
 
-Sunulan yönergeleri [başlama](xref:razor-components/get-started) Razor bileşenleri şablondan bir Razor bileşenleri projesi oluşturmak için konu. Çözüm adı *WebApplication1*. .NET Core CLI komutları ile Visual Studio ya da komut kabuğunu kullanabilirsiniz.
+Blazor kullanarak bir deneyim için:
+
+* Sunulan yönergeleri <xref:spa/blazor/get-started> Blazor tabanlı bir proje oluşturmaktır.
+* Projeyi adlandırın `Blazor`.
+* Bir tek proje çözüm Blazor şablonu oluşturulur.
+
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/build-your-first-razor-components-app/samples/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample)). Önkoşullar için aşağıdaki konulara bakın:
 
 ## <a name="build-components"></a>Yapı bileşenleri
 
-1. Her bir uygulamanın üç göz atın: Giriş, sayaç ve veri getirilemiyor. Bu sayfalar, Razor dosyalarında tarafından uygulanan *WebApplication1.App/Pages* klasörü: *Index.cshtml*, *Counter.cshtml*, ve *FetchData.cshtml*.
+1. Her bir uygulamanın üç göz atın: Giriş, sayaç ve veri getirilemiyor. Bu sayfalar, Razor dosyalarında tarafından uygulanan *sayfaları* klasörü: *Index.cshtml*, *Counter.cshtml*, ve *FetchData.cshtml*.
 
 1. Sayaç sayfasında **me tıklayın** sayfa yenileme olmadan sayaç artmaya düğmesi. Normal olarak artan bir Web sayfasındaki bir sayaç JavaScript Yazma gerektiriyor, ancak Razor bileşenleri sağlayan daha iyi bir yaklaşım kullanarak C#.
 
 1. Uygulama sayacı bileşenin inceleyin *Counter.cshtml* dosya.
 
-   *WebApplication1.App/Pages/Counter.cshtml*:
+   *Pages/Counter.cshtml*:
 
    [!code-cshtml[](build-your-first-razor-components-app/samples_snapshot/3.x/Counter1.cshtml)]
 
@@ -63,7 +71,9 @@ Bir HTML benzeri sözdizimi kullanarak başka bir bileşene dönüştürerek bil
 
 1. Sayaç bileşen uygulamanın dizini (giriş sayfası) bileşenine ekleyerek bir `<Counter />` dizin bileşeni öğesi.
 
-   *WebApplication1.App/Pages/Index.cshtml*:
+   Bu deneyim için bir anket istemi bileşeni Blazor kullanıyorsanız (`<SurveyPrompt>` öğesi) dizin bileşenidir. Değiştirin `<SurveyPrompt>` öğeyle `<Counter>` öğesi.
+
+   *Pages/Index.cshtml*:
 
    [!code-cshtml[](build-your-first-razor-components-app/samples_snapshot/3.x/Index.cshtml?highlight=7)]
 
@@ -78,9 +88,9 @@ Bileşenleri parametrelerini de sağlayabilirsiniz. Bileşen parametreleri, gene
    * Ekleme bir `IncrementAmount` özelliği düzenlenmiş ile `[Parameter]` özniteliği.
    * Değişiklik `IncrementCount` yönteminin kullanılacağını `IncrementAmount` değerini artırmayı olduğunda `currentCount`.
 
-   *WebApplication1.App/Pages/Counter.cshtml*:
+   *Pages/Counter.cshtml*:
 
-   [!code-cshtml[](build-your-first-razor-components-app/samples/3.x/WebApplication1/WebApplication1.App/Pages/Counter.cshtml?highlight=12,16)]
+   [!code-cshtml[](build-your-first-razor-components-app/samples/3.x/RazorComponents/RazorComponents.App/Pages/Counter.cshtml?highlight=12,16)]
 
 <!-- Add back when supported.
    > [!NOTE]
@@ -89,9 +99,9 @@ Bileşenleri parametrelerini de sağlayabilirsiniz. Bileşen parametreleri, gene
 
 1. Belirtin bir `IncrementAmount` ana bileşenin parametresinde `<Counter>` öğesini kullanarak bir öznitelik. Sayaç tarafından on Artır bir değere ayarlayın.
 
-   *WebApplication1.App/Pages/Index.cshtml*:
+   *Pages/Index.cshtml*:
 
-   [!code-cshtml[](build-your-first-razor-components-app/samples/3.x/WebApplication1/WebApplication1.App/Pages/Index.cshtml?highlight=7)]
+   [!code-cshtml[](build-your-first-razor-components-app/samples/3.x/RazorComponents/RazorComponents.App/Pages/Index.cshtml?highlight=7)]
 
 1. Sayfayı yeniden yükleyin. Giriş sayfası sayaç artırılır on tarafından her zaman **me tıklayın** düğmesi seçili. Sayaca sağ *sayacı* sayfasında artışlarla bir.
 
@@ -103,7 +113,7 @@ Bileşenleri parametrelerini de sağlayabilirsiniz. Bileşen parametreleri, gene
 
 Bileşenleri uygulamanın service kapsayıcısında kayıtlı hizmetlerinin kullanılabilir [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection). Halinde bileşenini kullanarak Hizmetleri ekleme `@inject` yönergesi.
 
-Parçalar bileşenin yönergeleri inceleyin (*WebApplication1.App/Pages/FetchData.cshtml*). `@inject` Yönergesi örneğini ekleme için kullanılan `WeatherForecastService` hizmet bileşeni içinde:
+Parçalar bileşenin yönergeleri inceleyin (*Pages/FetchData.cshtml*). `@inject` Yönergesi örneğini ekleme için kullanılan `WeatherForecastService` hizmet bileşeni içinde:
 
 [!code-cshtml[](build-your-first-razor-components-app/samples_snapshot/3.x/FetchData1.cshtml?highlight=3)]
 
@@ -121,7 +131,7 @@ A [ @foreach ](/dotnet/csharp/language-reference/keywords/foreach-in) döngü, h
 
 Bir basit bir Yapılacaklar listesi uygulayan uygulamaya yeni bir sayfa ekleyin.
 
-1. Boş bir dosyaya eklemek *WebApplication1.App/Pages* adlı klasöre *Todo.cshtml*.
+1. Boş bir dosyaya eklemek *sayfaları* adlı klasöre *Todo.cshtml*.
 
 1. Sayfa için ilk biçimlendirme sağlar:
 
@@ -133,9 +143,9 @@ Bir basit bir Yapılacaklar listesi uygulayan uygulamaya yeni bir sayfa ekleyin.
 
 1. Todo sayfa gezinti çubuğuna ekleyin.
 
-   NavMenu bileşeni (*WebApplication1/Shared/NavMenu.csthml*) uygulamanın düzende kullanılır. Düzenleri, uygulama içeriği yinelenmesini önlemek izin bileşenlerdir. Daha fazla bilgi için bkz. <xref:razor-components/layouts>.
+   NavMenu bileşeni (*Shared/NavMenu.csthml*) uygulamanın düzende kullanılır. Düzenleri, uygulama içeriği yinelenmesini önlemek izin bileşenlerdir. Daha fazla bilgi için bkz. <xref:razor-components/layouts>.
 
-   Ekleme bir `<NavLink>` için aşağıda bulunan mevcut liste öğelerini aşağıdaki liste öğesi işaretleme ekleyerek Todo sayfası *WebApplication1/Shared/NavMenu.csthml* dosyası:
+   Ekleme bir `<NavLink>` için aşağıda bulunan mevcut liste öğelerini aşağıdaki liste öğesi işaretleme ekleyerek Todo sayfası *Shared/NavMenu.csthml* dosyası:
 
    ```cshtml
    <li class="nav-item px-3">
@@ -149,7 +159,7 @@ Bir basit bir Yapılacaklar listesi uygulayan uygulamaya yeni bir sayfa ekleyin.
 
 1. Ekleme bir *TodoItem.cs* bir todo öğesini temsil eden bir sınıf tutmak için projenin kök dosya. Aşağıdaki C# için kod `TodoItem` sınıfı:
 
-   [!code-cshtml[](build-your-first-razor-components-app/samples/3.x/WebApplication1/WebApplication1.App/TodoItem.cs)]
+   [!code-cshtml[](build-your-first-razor-components-app/samples/3.x/RazorComponents/RazorComponents.App/TodoItem.cs)]
 
 1. Todo bileşenine döndürür (*Todo.cshtml*):
 
@@ -196,7 +206,7 @@ Bir basit bir Yapılacaklar listesi uygulayan uygulamaya yeni bir sayfa ekleyin.
 
 1. Tamamlanmış Todo bileşeni (*Todo.cshtml*):
 
-   [!code-cshtml[](build-your-first-razor-components-app/samples/3.x/WebApplication1/WebApplication1.App/Pages/Todo.cshtml)]
+   [!code-cshtml[](build-your-first-razor-components-app/samples/3.x/RazorComponents/RazorComponents.App/Pages/Todo.cshtml)]
 
 1. Yeniden oluşturun ve uygulamayı çalıştırın. Yeni kod test etmek için todo öğeleri ekleyin.
 

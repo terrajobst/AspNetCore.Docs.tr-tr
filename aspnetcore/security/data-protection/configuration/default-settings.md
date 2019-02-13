@@ -5,18 +5,18 @@ description: Veri koruma anahtar yönetimi ve ASP.NET Core yaşam süresi hakkı
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/configuration/default-settings
-ms.openlocfilehash: beff17dd81143db02a0cbc79fa7cb3a6a4deeda6
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 2f022a4c7519485fe629ce47c27d214c8c27d5bc
+ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095105"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56159217"
 ---
 # <a name="data-protection-key-management-and-lifetime-in-aspnet-core"></a>Veri koruma anahtar yönetimi ve ASP.NET Core yaşam süresi
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-## <a name="key-management"></a>Anahtar Yönetimi
+## <a name="key-management"></a>Anahtar yönetimi
 
 Uygulama, işletimsel ortamı algılamak ve kendi anahtar yapılandırması işlemek çalışır.
 
@@ -26,6 +26,13 @@ Uygulama, işletimsel ortamı algılamak ve kendi anahtar yapılandırması işl
    * Hazırlama ve üretim gibi farklı dağıtım yuvaları, anahtar halkası paylaşmayın. Örneğin hazırlık-üretim değiştirmeyi veya kullanan bir dağıtım yuvası arasında taktığınızda / B testi, veri korumayı kullanarak herhangi bir uygulama anahtarı halka önceki yuvasına kullanarak depolanan verilerin şifresini çözmek mümkün olmayacaktır. Bu, veri koruma, tanımlama bilgilerini korumak için kullandığı standart ASP.NET Core tanımlama bilgisi kimlik doğrulaması kullanan bir uygulamanın oturumunu günlüğe kaydedilmesini kullanıcılara yol açar. Yuva bağımsız anahtar halkaları isterse, Azure Blob Depolama, Azure Key Vault, bir SQL depolama gibi bir dış anahtar halkası sağlayıcısı kullanma veya Redis önbelleği.
 
 1. Anahtarları kalıcı kullanıcı profili varsa, *%LOCALAPPDATA%\ASP.NET\DataProtection-Keys* klasör. Windows işletim sistemi olması halinde, anahtarları DPAPI kullanılarak, bekleme sırasında şifrelenir.
+
+   Uygulama havuzunun [setProfileEnvironment özniteliği](/iis/configuration/system.applicationhost/applicationpools/add/processmodel#configuration) etkinleştirilmiş olması da gerekir. Varsayılan değer olan `setProfileEnvironment` olduğu `true`. (Örneğin, Windows işletim sistemi), bazı senaryolarda `setProfileEnvironment` ayarlanır `false`. Kullanıcı profili dizinde anahtarları depolanmaz, beklenen:
+
+   1. Gidin *%windir%/system32/inetsrv/config* klasör.
+   1. Açık *applicationHost.config* dosya.
+   1. Bulun `<system.applicationHost><applicationPools><applicationPoolDefaults><processModel>` öğesi.
+   1. Onaylayın `setProfileEnvironment` özniteliği mevcut olmadığında, bunun varsayılan değeri için `true`, veya özniteliğin değerini açık olarak `true`.
 
 1. Uygulama IIS'de barındırılıyorsa, anahtarları ACLed yalnızca çalışan işlem hesabı için bir özel kayıt defteri anahtarı ' HKLM Kayıt defterine kalıcıdır. Anahtarları DPAPI kullanılarak, bekleme sırasında şifrelenir.
 

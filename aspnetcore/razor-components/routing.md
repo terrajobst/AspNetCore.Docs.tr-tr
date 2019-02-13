@@ -7,18 +7,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/01/2019
 uid: razor-components/routing
-ms.openlocfilehash: 7ea7be33cf271ba1e58e74f1cf58dae998370575
-ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
+ms.openlocfilehash: 5c648ba1bb3846f5baa515e808a98a3b33f81438
+ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55668160"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56159468"
 ---
 # <a name="razor-components-routing"></a>Razor bileşenleri yönlendirme
 
 Tarafından [Luke Latham](https://github.com/guardrex)
-
-[!INCLUDE[](~/includes/razor-components-preview-notice.md)]
 
 Uygulamalar ve NavLink bileşenle ilgili istekleri yönlendirmeyi öğrenin.
 

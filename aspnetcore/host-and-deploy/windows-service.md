@@ -5,14 +5,14 @@ description: ASP.NET Core uygulaması bir Windows hizmetinde barındırmayı ö�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 01/22/2019
+ms.date: 02/07/2019
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: eedaf64710506f2a2aac65c178a9888d2ab33d38
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: 5393dcec4f5e2eb37ec9cac2435bf15eedb8e361
+ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54837487"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56159375"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>ASP.NET Core bir Windows hizmetinde barındırma
 
@@ -147,11 +147,13 @@ dotnet publish --configuration Release --runtime win7-x64 --output c:\svc
 
 ### <a name="create-a-user-account"></a>Bir kullanıcı hesabı oluşturun
 
-Hizmet kullanımı için bir kullanıcı hesabı oluşturma `net user` komutu:
+Hizmet kullanımı için bir kullanıcı hesabı oluşturma `net user` bir yönetici komut kabuğu komutunu:
 
 ```console
 net user {USER ACCOUNT} {PASSWORD} /add
 ```
+
+Varsayılan parola süre sonu altı hafta olur.
 
 Örnek uygulama için bir kullanıcı hesabı adı ile oluşturun. `ServiceUser` ve parola. Aşağıdaki komutta `{PASSWORD}` ile bir [güçlü parola](/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements).
 
@@ -167,9 +169,13 @@ net localgroup {GROUP} {USER ACCOUNT} /add
 
 Daha fazla bilgi için [hizmeti kullanıcı hesaplarını](/windows/desktop/services/service-user-accounts).
 
+Active Directory kullanarak kullanıcıları yönetme için alternatif bir yaklaşım, yönetilen hizmet hesaplarını kullanmaktır. Daha fazla bilgi için [Grup yönetilen hizmet hesaplarına genel bakış](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview).
+
 ### <a name="set-permissions"></a>İzinleri ayarlama
 
-Uygulamanın klasörüne yazma/okuma/yürütme erişimi vermek kullanarak [icacls](/windows-server/administration/windows-commands/icacls) komutu:
+#### <a name="access-to-the-app-folder"></a>Uygulama klasör erişimi
+
+Uygulamanın klasörüne yazma/okuma/yürütme erişimi vermek kullanarak [icacls](/windows-server/administration/windows-commands/icacls) bir yönetici komut kabuğu komutunu:
 
 ```console
 icacls "{PATH}" /grant {USER ACCOUNT}:(OI)(CI){PERMISSION FLAGS} /t
@@ -195,11 +201,23 @@ icacls "c:\svc" /grant ServiceUser:(OI)(CI)WRX /t
 
 Daha fazla bilgi için [icacls](/windows-server/administration/windows-commands/icacls).
 
+#### <a name="log-on-as-a-service"></a>Bir hizmet olarak oturum aç
+
+Vermek [hizmet oturum açma](/windows/security/threat-protection/security-policy-settings/log-on-as-a-service) ayrıcalıklı kullanıcı hesabı için:
+
+1. Bulun **kullanıcı hakları ataması** Yerel Güvenlik İlkesi konsolunu veya yerel Grup İlkesi Düzenleyicisi Konsolu ilkeleri. Yönergeler için, bkz: [Güvenlik İlkesi ayarlarını yapılandırma](/windows/security/threat-protection/security-policy-settings/how-to-configure-security-policy-settings).
+1. Bulun `Log on as a service` ilkesi. Açmak için ilkeye çift tıklayın.
+1. Seçin **kullanıcı veya grup ekleme**.
+1. Seçin **Gelişmiş** seçip **Şimdi Bul**.
+1. Oluşturulan kullanıcı hesabını seçin [bir kullanıcı hesabı oluşturma](#create-a-user-account) bölümüne. Seçin **Tamam** Seçimi kabul etmek için.
+1. Seçin **Tamam** nesne adının doğru olduğunu onayladıktan sonra.
+1. **Uygula**’yı seçin. Seçin **Tamam** İlkesi penceresini kapatın.
+
 ## <a name="manage-the-service"></a>Hizmeti yönetme
 
 ### <a name="create-the-service"></a>Hizmet oluşturma
 
-Kullanım [sc.exe](https://technet.microsoft.com/library/bb490995) hizmeti oluşturmak için komut satırı aracı. `binPath` Değerdir yürütülebilir dosya adını içeren uygulamanın yürütülebilir dosyanın yolu. **Eşittir işareti ve tırnak karakteri her bir parametre ve değer arasında gerekli bir alandır.**
+Kullanım [sc.exe](https://technet.microsoft.com/library/bb490995) bir yönetim komut kabuğu'ndan bir hizmet oluşturmak için komut satırı aracı. `binPath` Değerdir yürütülebilir dosya adını içeren uygulamanın yürütülebilir dosyanın yolu. **Eşittir işareti ve tırnak karakteri her bir parametre ve değer arasında gerekli bir alandır.**
 
 ```console
 sc create {SERVICE NAME} binPath= "{PATH}" obj= "{DOMAIN}\{USER ACCOUNT}" password= "{PASSWORD}"
@@ -207,7 +225,7 @@ sc create {SERVICE NAME} binPath= "{PATH}" obj= "{DOMAIN}\{USER ACCOUNT}" passwo
 
 * `{SERVICE NAME}` &ndash; Hizmete atanacak ad [Hizmet Denetimi Yöneticisi](/windows/desktop/services/service-control-manager).
 * `{PATH}` &ndash; Hizmet yürütülebilir dosya yolu.
-* `{DOMAIN}` &ndash; Etki alanına katılmış bir makine etki alanı. Makine etki alanına katılmış değilse yerel makine adını.
+* `{DOMAIN}` &ndash; Etki alanına katılmış bir makine etki alanı. Makine etki alanına katılmış değilse, yerel makine adını kullanın.
 * `{USER ACCOUNT}` &ndash; Hizmetinin çalıştığı kullanıcı hesabı.
 * `{PASSWORD}` &ndash; Kullanıcı hesabı parolası.
 

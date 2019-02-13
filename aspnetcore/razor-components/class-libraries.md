@@ -7,18 +7,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/09/2019
 uid: razor-components/class-libraries
-ms.openlocfilehash: f5073337db88f05f3911fdfb1f29e7302c7cddec
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: 0e644627178bae2b8880760335860b3e0ebef156
+ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/12/2019
-ms.locfileid: "56102909"
+ms.locfileid: "56159233"
 ---
 # <a name="razor-components-class-libraries"></a>Razor bileşenleri sınıf kitaplıkları
 
 Tarafından [Simon Timms](https://github.com/stimms)
-
-[!INCLUDE[](~/includes/razor-components-preview-notice.md)]
 
 > [!NOTE]
 > .NET Core 3.0 Önizleme 2 SDK Razor bileşen sınıf kitaplıkları için bir proje şablonu içermez, ancak gelecekteki bir önizlemede şablon eklemek bekliyoruz. Meantime bu konuda açıklanan Blazor bileşen sınıf kitaplığı şablonu kullanabilirsiniz.

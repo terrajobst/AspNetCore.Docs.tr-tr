@@ -3,14 +3,14 @@ title: ASP.NET Core kimliği yapılandırma
 author: AdrienTorris
 description: ASP.NET Core kimliği varsayılan değerleri anlamanıza ve özel değerler kullanılacak kimlik özelliklerini yapılandırmayı öğrenin.
 ms.author: riande
-ms.date: 08/14/2018
+ms.date: 02/11/2019
 uid: security/authentication/identity-configuration
-ms.openlocfilehash: 02441cd28c2a99eda7b50ed54f4437d4b52ca5d9
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 3213f669cbfccdcda7cc7c0142b8101e696678e6
+ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911957"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56159519"
 ---
 # <a name="configure-aspnet-core-identity"></a>ASP.NET Core kimliği yapılandırma
 
@@ -175,3 +175,23 @@ Uygulamanın tanımlama bilgisini yapılandırın `Startup.ConfigureServices`. [
 ::: moniker-end
 
 Daha fazla bilgi için [CookieAuthenticationOptions](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions).
+
+## <a name="password-hasher-options"></a>Parola karma değeri Oluşturucusu seçenekleri
+
+<xref:Microsoft.AspNetCore.Identity.PasswordHasherOptions> parola karma seçeneklerini ayarlar ve alır.
+
+| Seçenek | Açıklama |
+| ------ | ----------- |
+| <xref:Microsoft.AspNetCore.Identity.PasswordHasherOptions.CompatibilityMode> | Yeni parola kararken kullanılan uyumluluk modu. Varsayılan olarak <xref:Microsoft.AspNetCore.Identity.PasswordHasherCompatibilityMode.IdentityV3>. Adlı bir karma hale getirilen parolayla ilk baytına bir *biçimi işaret*, parola karması için kullanılan karma algoritması sürümünü belirtir. Parola Karması karşı doğrulanırken <xref:Microsoft.AspNetCore.Identity.PasswordHasher`1.VerifyHashedPassword*> yöntemi ilk baytın üzerinde göre doğru algoritmayı seçer. Bir istemci bakılmaksızın kimlik doğrulaması için parola karma hale hangi algoritmanın sürümü kullanıldı. Uyumluluk modu ayarını etkiler, karma *yeni parolalar*. |
+| <xref:Microsoft.AspNetCore.Identity.PasswordHasherOptions.IterationCount> | Parolaları PBKDF2 kullanarak kararken kullanılan yineleme sayısı. Bu değer, yalnızca kullanılan zaman <xref:Microsoft.AspNetCore.Identity.PasswordHasherOptions.CompatibilityMode> ayarlanır <xref:Microsoft.AspNetCore.Identity.PasswordHasherCompatibilityMode.IdentityV3>. Değer pozitif bir tamsayı ve varsayılan olarak olmalıdır `10000`. |
+
+Aşağıdaki örnekte, <xref:Microsoft.AspNetCore.Identity.PasswordHasherOptions.IterationCount> ayarlanır `12000` içinde `Startup.ConfigureServices`:
+
+```csharp
+// using Microsoft.AspNetCore.Identity;
+
+services.Configure<PasswordHasherOptions>(option =>
+{
+    option.IterationCount = 12000;
+});
+```
