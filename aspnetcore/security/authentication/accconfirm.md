@@ -3,14 +3,14 @@ title: Hesap onaylama ve parola kurtarma ASP.NET Core
 author: rick-anderson
 description: E-posta onayı ve parola sıfırlama ile ASP.NET Core uygulaması oluşturmayı öğrenin.
 ms.author: riande
-ms.date: 7/11/2018
+ms.date: 2/11/2019
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 0dc9907f9f54c8a0daf2e05a3769897e5145935f
-ms.sourcegitcommit: e418cb9cddeb3de06fa0cb4fdb5529da03ff6d63
+ms.openlocfilehash: 77d7b209d57f9ee44f158798ff780ce85c87aaf2
+ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "54444148"
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56159414"
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Hesap onaylama ve parola kurtarma ASP.NET Core
 
@@ -76,7 +76,7 @@ Bölümündeki yönergeleri [kimlik doğrulamasını etkinleştirme](xref:securi
 
 ## <a name="test-new-user-registration"></a>Test yeni kullanıcı kaydı
 
-Uygulamayı çalıştırın, seçin **kaydetme** bağlamak ve bir kullanıcı kaydı. Yalnızca e-posta doğrulamasını bu noktada, olan [[EmailAddress]](/dotnet/api/system.componentmodel.dataannotations.emailaddressattribute) özniteliği. Kayıt gönderdikten sonra uygulamaya günlüğe kaydedilir. E-postasına doğrulanır kadar yeni kullanıcılar oturum açamaz böylece daha sonra öğreticide kod güncelleştirilir.
+Uygulamayı çalıştırın, seçin **kaydetme** bağlamak ve bir kullanıcı kaydı. Yalnızca e-posta doğrulamasını bu noktada, olan [[EmailAddress]](/dotnet/api/system.componentmodel.dataannotations.emailaddressattribute) özniteliği. Kayıt gönderdikten sonra uygulamaya günlüğe kaydedilir. Yeni kullanıcıların e-postasına doğrulanır kadar oturum açamazsınız için öğreticinin sonraki bölümlerinde kod güncelleştirilir.
 
 [!INCLUDE[](~/includes/view-identity-db.md)]
 
@@ -166,7 +166,7 @@ Uygulama için `IEmailSender`, oluşturma *Services/EmailSender.cs* kodu aşağ�
 
 Aşağıdaki kodu ekleyin `ConfigureServices` yönteminde *Startup.cs* dosyası:
 
-* Ekleme `EmailSender` tek bir hizmet olarak.
+* Ekleme `EmailSender` geçici bir hizmet olarak.
 * Kayıt `AuthMessageSenderOptions` yapılandırma örneği.
 
 [!code-csharp[](accconfirm/sample/WebPWrecover21/Startup.cs?name=snippet2&highlight=12-99)]
@@ -195,8 +195,8 @@ Web uygulamasını çalıştırın ve hesap onaylama ve parola kurtarma akışı
 
 * Hesap onay bağlantısı için e-postanızı kontrol edin. Bkz: [hata ayıklama, e-posta](#debug) e-posta alırsanız yok.
 * E-postanızı doğrulamak için bağlantıya tıklayın.
-* E-posta ve parolayla oturum.
-* Oturumunuzu kapatın.
+* E-postanıza ve parola ile oturum açın.
+* Oturumu kapatın.
 
 ### <a name="view-the-manage-page"></a>Yönet sayfasını görüntüle
 
@@ -213,7 +213,7 @@ Kullanıcı adı görmek için Gezinti genişletmeniz gerekebilir.
 * Oturum açmadıysanız, seçin **oturum kapatma**.
 * Seçin **oturum** seçin ve bağlama **parolanızı mı unuttunuz?** bağlantı.
 * Hesap kaydolmak için kullandığınız e-posta girin.
-* Parolanızı sıfırlamak için bir bağlantı içeren bir e-posta gönderilir. E-postanızı kontrol edin ve parolanızı sıfırlamak için bağlantıya tıklayın. Parolanız başarıyla sıfırlandı sonra e-posta ve yeni bir parola ile oturum açabilir.
+* Parolanızı sıfırlamak için bir bağlantı içeren bir e-posta gönderilir. E-postanızı kontrol edin ve parolanızı sıfırlamak için bağlantıya tıklayın. Parolanızı başarıyla sıfırladıktan sonra e-posta ve yeni bir parola ile oturum açabilirsiniz.
 
 <a name="debug"></a>
 
@@ -246,7 +246,7 @@ Başka bir oturum açma hizmeti bağlantısını tıklayın ve uygulama istekler
 
 ![Facebook listeleme görünümünüzü harici oturum açmaları yönetme](accconfirm/_static/fb.png)
 
-İki hesap birleştirilmiştir. Herhangi bir hesabı ile oturum açabilir. Kullanıcılarınızın kendi sosyal oturum açma kimlik doğrulama hizmeti çalışmıyor veya bunlar sosyal hesaplarına erişim daha büyük bir olasılıkla kaybettiğinizde durumunda yerel hesaplar eklemek isteyebilirsiniz.
+İki hesap birleştirilmiştir. Her iki hesabıyla oturum açabilir. Kullanıcılarınızın kendi sosyal oturum açma kimlik doğrulama hizmeti çalışmıyor veya bunlar sosyal hesaplarına erişim daha büyük bir olasılıkla kaybettiğinizde durumunda yerel hesaplar eklemek isteyebilirsiniz.
 
 ## <a name="enable-account-confirmation-after-a-site-has-users"></a>Kullanıcılar bir siteye sahip olduktan sonra hesap onaylama etkinleştir
 
