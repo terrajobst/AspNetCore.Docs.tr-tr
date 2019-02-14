@@ -4,14 +4,14 @@ author: rick-anderson
 description: Nasıl ASP.NET Core yönlendirme uç noktaları için eşleme isteği için uç nokta seçici bir URI'leri ve dispatching gelen istekleri sorumludur keşfedin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/14/2019
+ms.date: 02/13/2019
 uid: fundamentals/routing
-ms.openlocfilehash: c5303ad418660fa31fe9094f0e61ee31f5d988f7
-ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
+ms.openlocfilehash: 3dbb2d358ec9e3dcdd96c3771576911d906d796f
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54890022"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248439"
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET Core yönlendirme
 
@@ -38,7 +38,7 @@ services.AddMvc()
     .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 ```
 
-`EnableEndpointRouting` Seçeneği yönlendirme dahili uç nokta tabanlı mantıksal kullanması gerekip gerekmediğini belirler veya <xref:Microsoft.AspNetCore.Routing.IRouter>-ASP.NET Core 2.1 veya daha önce mantığı. Uyumluluk sürümü 2.2 veya üzeri olarak ayarlandığında, varsayılan değer: `true`. Değerine `false` önceki yönlendirme mantığı kullanmak için:
+<xref:Microsoft.AspNetCore.Mvc.MvcOptions.EnableEndpointRouting> Seçeneği yönlendirme dahili uç nokta tabanlı mantıksal kullanması gerekip gerekmediğini belirler veya <xref:Microsoft.AspNetCore.Routing.IRouter>-ASP.NET Core 2.1 veya daha önce mantığı. Uyumluluk sürümü 2.2 veya üzeri olarak ayarlandığında, varsayılan değer: `true`. Değerine `false` önceki yönlendirme mantığı kullanmak için:
 
 ```csharp
 // Use the routing logic of ASP.NET Core 2.1 or earlier:
@@ -97,7 +97,7 @@ Yönlendirme sistem aşağıdaki özelliklere sahiptir:
 
 * Rota şablonu söz dizimi, parçalanmış rota parametrelerinin rotalarla tanımlamak için kullanılır.
 * Geleneksel stili ve öznitelik stili uç nokta yapılandırması izin verilir.
-* `IRouteConstraint` bir URL parametresi için belirtilen uç nokta kısıtlaması geçerli bir değer içerip içermediğini belirlemek için kullanılır.
+* <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> bir URL parametresi için belirtilen uç nokta kısıtlaması geçerli bir değer içerip içermediğini belirlemek için kullanılır.
 * MVC/Razor sayfaları gibi uygulama modelleri, tahmin edilebilir bir uygulama Yönlendirme senaryoları biri olan uç noktaları, tüm kaydedin.
 * Yönlendirme uygulama ara yazılım ardışık istenen her yerde yönlendirme kararlarını verir.
 * Yönlendirme Ara yazılımdan sonra görünen bir ara yazılım, belirli bir istek URI'si için uç nokta karar yönlendirme Ara sonucunu inceleyebilirsiniz.
@@ -105,8 +105,8 @@ Yönlendirme sistem aşağıdaki özelliklere sahiptir:
 * Uygulama yönlendirme (örneğin, yeniden yönlendirme veya bağlantıları) uç noktası bilgilerini temel alarak URL'lerini oluşturmak ve bu nedenle bakım yardımcı olan URL'ler, sabit kodlanmış önlemek için kullanabilirsiniz.
 * URL üretimi rastgele genişletilebilirlik desteği adreslerinde dayanır:
 
-  * Bağlantı oluşturucu API (`LinkGenerator`) herhangi bir yerde kullanarak çözülebilir [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection) URL'lerini oluşturmak için.
-  * Bağlantı oluşturucu API DI kullanılabilir olmayan `IUrlHelper` URL'ler oluşturma yöntemleri sunar.
+  * Bağlantı oluşturucu API (<xref:Microsoft.AspNetCore.Routing.LinkGenerator>) herhangi bir yerde kullanarak çözülebilir [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection) URL'lerini oluşturmak için.
+  * Bağlantı oluşturucu API DI kullanılabilir olmayan <xref:Microsoft.AspNetCore.Mvc.IUrlHelper> URL'ler oluşturma yöntemleri sunar.
 
 > [!NOTE]
 > Uç noktası ASP.NET Core 2.2 yönlendirme sürümle birlikte, uç nokta bağlama MVC/Razor sayfaları Eylemler ve sayfaları ile sınırlıdır. Uç nokta bağlama genişletmeleri özellikleri gelecekteki sürümlerde planlanmış.
@@ -126,10 +126,10 @@ Yönlendirme sistem aşağıdaki özelliklere sahiptir:
 
 * Rota şablonu söz dizimi, parçalanmış rota parametrelerinin rotalarla tanımlamak için kullanılır.
 * Geleneksel stili ve öznitelik stili uç nokta yapılandırması izin verilir.
-* `IRouteConstraint` bir URL parametresi için belirtilen uç nokta kısıtlaması geçerli bir değer içerip içermediğini belirlemek için kullanılır.
+* <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> bir URL parametresi için belirtilen uç nokta kısıtlaması geçerli bir değer içerip içermediğini belirlemek için kullanılır.
 * MVC/Razor sayfaları gibi uygulama modelleri Yönlendirme senaryoları, tahmin edilebilir bir uygulamasına sahipseniz, yolların kaydedin.
 * Yanıt, yönlendirme (örneğin, yeniden yönlendirme veya bağlantıları) rota bilgilerine dayalı URL'lerini oluşturmak ve bu nedenle bakım yardımcı olan URL'ler, sabit kodlanmış önlemek için kullanabilirsiniz.
-* URL üretimi rastgele genişletilebilirlik desteği yolları üzerinde temel alır. `IUrlHelper` URL'ler oluşturma yöntemleri sunar.
+* URL üretimi rastgele genişletilebilirlik desteği yolları üzerinde temel alır. <xref:Microsoft.AspNetCore.Mvc.IUrlHelper> URL'ler oluşturma yöntemleri sunar.
 
 ::: moniker-end
 
@@ -143,7 +143,7 @@ URL ile eşleşen işlemdir hangi yönlendirme dağıtımları tarafından gelen
 
 Uç nokta akışındaki yönlendirme sistemi için tüm dispatching kararlarını sorumludur. Ara yazılım seçilen uç noktasına göre ilkeleri uygulayan olduğundan, gönderme etkileyebilecek herhangi bir karar veya güvenlik ilkeleri uygulamayı, yönlendirme sistemin içine yapılan önemlidir.
 
-Uç nokta temsilci ne zaman çalıştırılır, özelliklerini `RouteContext.RouteData` şimdiye kadarki gerçekleştirilen istek işleme göre uygun değerlere ayarlayın.
+Uç nokta temsilci ne zaman çalıştırılır, özelliklerini [RouteContext.RouteData](xref:Microsoft.AspNetCore.Routing.RouteContext.RouteData) şimdiye kadarki gerçekleştirilen istek işleme göre uygun değerlere ayarlayın.
 
 ::: moniker-end
 
@@ -151,19 +151,19 @@ Uç nokta temsilci ne zaman çalıştırılır, özelliklerini `RouteContext.Rou
 
 URL ile eşleşen işlemdir hangi yönlendirme dağıtımları tarafından gelen bir istek için bir *işleyici*. Bu işlem URL yolunda verileri temel alır, ancak istekteki herhangi bir veri dikkate alınması gereken genişletilebilir. İşleyicileri ayırmak için istekleri gönderme olanağı, büyüklüğü ve karmaşıklığı ile bir uygulama, ölçeklendirme için anahtardır.
 
-Gelen istekleri girin `RouterMiddleware`, çağıran <xref:Microsoft.AspNetCore.Routing.IRouter.RouteAsync*> yöntemi dizideki her bir yol. <xref:Microsoft.AspNetCore.Routing.IRouter> Örneği seçer kullanılıp kullanılmayacağını *işlemek* ayarlayarak isteğin [RouteContext.Handler](xref:Microsoft.AspNetCore.Routing.RouteContext.Handler*) NULL olmayan <xref:Microsoft.AspNetCore.Http.RequestDelegate>. İstek için bir işleyici bir rotayı ayarlar, işlemenin durması yönlendirmek ve işleyicisi isteği işlemek için çağrılır. İsteği işlemek için hiçbir yol işleyicisi bulunursa, ara yazılım istek ardışık düzende sonraki ara yazılımı için devre dışı istek uygulamalı.
+Gelen istekleri girin <xref:Microsoft.AspNetCore.Builder.RouterMiddleware>, çağıran <xref:Microsoft.AspNetCore.Routing.IRouter.RouteAsync*> yöntemi dizideki her bir yol. <xref:Microsoft.AspNetCore.Routing.IRouter> Örneği seçer kullanılıp kullanılmayacağını *işlemek* ayarlayarak isteğin [RouteContext.Handler](xref:Microsoft.AspNetCore.Routing.RouteContext.Handler*) NULL olmayan <xref:Microsoft.AspNetCore.Http.RequestDelegate>. İstek için bir işleyici bir rotayı ayarlar, işlemenin durması yönlendirmek ve işleyicisi isteği işlemek için çağrılır. İsteği işlemek için hiçbir yol işleyicisi bulunursa, ara yazılım istek ardışık düzende sonraki ara yazılımı için devre dışı istek uygulamalı.
 
-Birincil Giriş `RouteAsync` olduğu [RouteContext.HttpContext](xref:Microsoft.AspNetCore.Routing.RouteContext.HttpContext*) geçerli istekle ilişkili. `RouteContext.Handler` Ve [RouteContext.RouteData](xref:Microsoft.AspNetCore.Routing.RouteContext.RouteData*) olduğunu çıkışları bir yol ile eşleşen sonra ayarlayın.
+Birincil Giriş <xref:Microsoft.AspNetCore.Routing.IRouter.RouteAsync*> olduğu [RouteContext.HttpContext](xref:Microsoft.AspNetCore.Routing.RouteContext.HttpContext*) geçerli istekle ilişkili. [RouteContext.Handler](xref:Microsoft.AspNetCore.Routing.RouteContext.Handler) ve [RouteContext.RouteData](xref:Microsoft.AspNetCore.Routing.RouteContext.RouteData*) olduğunu çıkışları bir yol ile eşleşen sonra ayarlayın.
 
-Çağıran bir eşleşme `RouteAsync` özelliklerini de ayarlar `RouteContext.RouteData` şimdiye kadarki gerçekleştirilen istek işleme göre uygun değerleri.
+Çağıran bir eşleşme <xref:Microsoft.AspNetCore.Routing.IRouter.RouteAsync*> özelliklerini de ayarlar [RouteContext.RouteData](xref:Microsoft.AspNetCore.Routing.RouteContext.RouteData) şimdiye kadarki gerçekleştirilen istek işleme göre uygun değerleri.
 
 ::: moniker-end
 
 [RouteData.Values](xref:Microsoft.AspNetCore.Routing.RouteData.Values*) sözlüğü olan *rota değerleri* route'tan üretti. Bu değerler, genellikle URL belirteç oluşturma tarafından belirlenir ve kullanıcı girişi kabul etmek veya daha fazla dispatching kararlar uygulaması içinde için kullanılabilir.
 
-[RouteData.DataTokens](xref:Microsoft.AspNetCore.Routing.RouteData.DataTokens*) olan bir özellik paketi eşlenen rotaya ilgili ek veriler. `DataTokens` Uygulama kararlar verebilen her yol ile ilişkilendirmeyi durumu verilerini destekleyecek şekilde sağlanan eşleşen hangi rotalar. Bu değerler Geliştirici tanımlı ve yapmak **değil** herhangi bir şekilde yönlendirme davranışını etkiler. Ayrıca, değerleri, gizli `RouteData.DataTokens` aksine herhangi bir türde olabilir `RouteData.Values`, gelen dizeleri ve dönüştürülebilir olmalıdır.
+[RouteData.DataTokens](xref:Microsoft.AspNetCore.Routing.RouteData.DataTokens*) olan bir özellik paketi eşlenen rotaya ilgili ek veriler. <xref:Microsoft.AspNetCore.Routing.RouteData.DataTokens*> Uygulama kararlar verebilen her yol ile ilişkilendirmeyi durumu verilerini destekleyecek şekilde sağlanan eşleşen hangi rotalar. Bu değerler Geliştirici tanımlı ve yapmak **değil** herhangi bir şekilde yönlendirme davranışını etkiler. Ayrıca, değerleri, gizli [RouteData.DataTokens](xref:Microsoft.AspNetCore.Routing.RouteData.DataTokens*) aksine herhangi bir türde olabilir [RouteData.Values](xref:Microsoft.AspNetCore.Routing.RouteData.Values), gelen dizeleri ve dönüştürülebilir olmalıdır.
 
-[RouteData.Routers](xref:Microsoft.AspNetCore.Routing.RouteData.Routers*) isteği başarıyla eşleşen yer alan yolları bir listesidir. Yollar başka içinde yuvalanabilir. `Routers` Özelliği üzerinden bir eşleşme ile sonuçlandı yolların mantıksal ağaç yolu gösterir. Genel olarak, listedeki ilk öğe `Routers` rota koleksiyonu ve URL üretmek için kullanılmamalıdır. Son öğenin `Routers` eşleşen bir rota işleyicisi.
+[RouteData.Routers](xref:Microsoft.AspNetCore.Routing.RouteData.Routers) isteği başarıyla eşleşen yer alan yolları bir listesidir. Yollar başka içinde yuvalanabilir. <xref:Microsoft.AspNetCore.Routing.RouteData.Routers> Özelliği üzerinden bir eşleşme ile sonuçlandı yolların mantıksal ağaç yolu gösterir. Genel olarak, listedeki ilk öğe <xref:Microsoft.AspNetCore.Routing.RouteData.Routers> rota koleksiyonu ve URL üretmek için kullanılmamalıdır. Son öğenin <xref:Microsoft.AspNetCore.Routing.RouteData.Routers> eşleşen bir rota işleyicisi.
 
 ### <a name="url-generation"></a>URL üretimi
 
@@ -171,45 +171,45 @@ Birincil Giriş `RouteAsync` olduğu [RouteContext.HttpContext](xref:Microsoft.A
 
 URL üretimi işlemdir hangi yönlendirerek, rota değerleri kümesine göre bir URL yolu oluşturabilirsiniz. Bu, uç noktaları ve erişim URL'leri arasında mantıksal bir ayrım sağlar.
 
-Bağlantı oluşturucu API uç noktası yönlendirme içerir (`LinkGenerator`). `LinkGenerator` DI alınan bir singleton hizmetidir. API, bir yürütme isteği bağlamı dışında kullanılabilir. MVC'ın `IUrlHelper` ve dayanan senaryoları `IUrlHelper`, gibi [etiket Yardımcıları](xref:mvc/views/tag-helpers/intro), HTML yardımcıları ve [eylem sonuçlarını](xref:mvc/controllers/actions), özellikleri oluşturma bağlantı sağlamak için bağlantı oluşturucuyu kullanın.
+Bağlantı oluşturucu API uç noktası yönlendirme içerir (<xref:Microsoft.AspNetCore.Routing.LinkGenerator>). <xref:Microsoft.AspNetCore.Routing.LinkGenerator> DI alınan bir singleton hizmetidir. API, bir yürütme isteği bağlamı dışında kullanılabilir. MVC'ın <xref:Microsoft.AspNetCore.Mvc.IUrlHelper> ve dayanan senaryoları <xref:Microsoft.AspNetCore.Mvc.IUrlHelper>, gibi [etiket Yardımcıları](xref:mvc/views/tag-helpers/intro), HTML yardımcıları ve [eylem sonuçlarını](xref:mvc/controllers/actions), özellikleri oluşturma bağlantı sağlamak için bağlantı oluşturucuyu kullanın.
 
 Bağlantı oluşturucu kavramı tarafından desteklenen bir *adresi* ve *adres düzenleri*. Adres düzeni bağlantı oluşturma için değerlendirilmesi gereken uç noktalarını belirleyen bir yoludur. Örneğin, rota adı ve rota değerleri senaryoları çok sayıda kullanıcı MVC/Razor sayfaları alışkın olduğunuz adres düzeni uygulanır.
 
 Bağlantı oluşturucunun MVC/Razor sayfaları Eylemler ve sayfaları aşağıdaki uzantı yöntemleri aracılığıyla bağlantı oluşturabilirsiniz:
 
-* `GetPathByAction`
-* `GetUriByAction`
-* `GetPathByPage`
-* `GetUriByPage`
+* <xref:Microsoft.AspNetCore.Routing.ControllerLinkGeneratorExtensions.GetPathByAction*>
+* <xref:Microsoft.AspNetCore.Routing.ControllerLinkGeneratorExtensions.GetUriByAction*>
+* <xref:Microsoft.AspNetCore.Routing.PageLinkGeneratorExtensions.GetPathByPage*>
+* <xref:Microsoft.AspNetCore.Routing.PageLinkGeneratorExtensions.GetUriByPage*>
 
 Bu yöntemlerin bir aşırı içeren bağımsız değişkenleri kabul eden `HttpContext`. Bu yöntemler işlevsel olarak eşdeğerdir `Url.Action` ve `Url.Page` ancak daha fazla esneklik ve seçenek sunar.
 
 `GetPath*` Yöntemleri en çok benzeyen `Url.Action` ve `Url.Page` içeren mutlak bir yol içeren bir URI hazırlanmasının. `GetUri*` Yöntemleri her zaman bir düzen ve konak içeren mutlak bir URI oluşturur. Kabul yöntemleri bir `HttpContext` yürütme isteği bağlamında bir URI oluşturmayı. Ortam rota değerleri, temel URL yolu, Düzen ve konak yürütülen istek, geçersiz kılınmadığı sürece kullanılır.
 
-`LinkGenerator` sahip bir adres olarak adlandırılır. Bir URI oluşturma iki adımda gerçekleştirilir:
+<xref:Microsoft.AspNetCore.Routing.LinkGenerator> sahip bir adres olarak adlandırılır. Bir URI oluşturma iki adımda gerçekleştirilir:
 
 1. Bir adres bir adres ile aynı uç noktalar listesine bağlanır.
 1. Her uç noktanın `RoutePattern` sağlanan değerler eşleşen bir rota deseni bulunana kadar değerlendirilir. Elde edilen çıkış, bağlantı oluşturucuya sağlanan ve döndürülen diğer URI bölümleri ile birleştirilir.
 
-Tarafından sağlanan yöntemleri `LinkGenerator` adresi herhangi bir türü için standart bağlantı oluşturma özellikleri destekler. Bağlantı oluşturucu kullanmanın en kolay yolu, işlemleri belirli adres türü için genişletme yöntemleri aracılığıyladır.
+Tarafından sağlanan yöntemleri <xref:Microsoft.AspNetCore.Routing.LinkGenerator> adresi herhangi bir türü için standart bağlantı oluşturma özellikleri destekler. Bağlantı oluşturucu kullanmanın en kolay yolu, işlemleri belirli adres türü için genişletme yöntemleri aracılığıyladır.
 
 | Genişletme yöntemi   | Açıklama                                                         |
 | ------------------ | ------------------------------------------------------------------- |
-| `GetPathByAddress` | Bir URI ile sağlanan değerlerine göre mutlak bir yol oluşturur. |
-| `GetUriByAddress`  | Sağlanan değerlere dayalı bir mutlak URI oluşturur.             |
+| <xref:Microsoft.AspNetCore.Routing.LinkGenerator.GetPathByAddress*> | Bir URI ile sağlanan değerlerine göre mutlak bir yol oluşturur. |
+| <xref:Microsoft.AspNetCore.Routing.LinkGenerator.GetUriByAddress*> | Sağlanan değerlere dayalı bir mutlak URI oluşturur.             |
 
 > [!WARNING]
-> Aşağıdaki arama etkilerini dikkat `LinkGenerator` yöntemleri:
+> Aşağıdaki arama etkilerini dikkat <xref:Microsoft.AspNetCore.Routing.LinkGenerator> yöntemleri:
 >
 > * Kullanım `GetUri*` genişletme yöntemleri dikkatle doğrulamaz bir uygulama yapılandırmasında `Host` , gelen istek üst bilgisi. Varsa `Host` değil, gelen istek üst bilgisi doğrulandı, güvenilmeyen istek girişi, URI'de bir görünüm/sayfasında istemcisine gönderilebilir. Tüm üretim uygulamaları doğrulamak için sunucu yapılandırmanızı öneririz `Host` bilinen geçerli değerler karşı başlığı.
 >
-> * Kullanım `LinkGenerator` Ara yazılımında birlikte dikkatle `Map` veya `MapWhen`. `Map*` bağlantı oluşturma çıkışını etkiler yürütülen istek temel yolunu değiştirir. Tüm `LinkGenerator` API'leri izin temel yolu belirtme. Her zaman geri almak için boş bir temel yol belirtmeniz `Map*`kullanıcının bağlantı nesil etkiler.
+> * Kullanım <xref:Microsoft.AspNetCore.Routing.LinkGenerator> Ara yazılımında birlikte dikkatle `Map` veya `MapWhen`. `Map*` bağlantı oluşturma çıkışını etkiler yürütülen istek temel yolunu değiştirir. Tüm <xref:Microsoft.AspNetCore.Routing.LinkGenerator> API'leri izin temel yolu belirtme. Her zaman geri almak için boş bir temel yol belirtmeniz `Map*`kullanıcının bağlantı nesil etkiler.
 
 ## <a name="differences-from-earlier-versions-of-routing"></a>Önceki sürümlerini yönlendirme arasındaki farklar
 
 Uç noktası yönlendirme içinde ASP.NET Core 2.2 veya sonraki bir sürümü ile ASP.NET Core yönlendirme önceki sürümleri arasında bazı farklar mevcuttur:
 
-* Uç noktası yönlendirme sistemi desteklemiyor `IRouter`-genişletilebilirlik dan devralan dahil olmak üzere, temel `Route`.
+* Uç noktası yönlendirme sistemi desteklemiyor <xref:Microsoft.AspNetCore.Routing.IRouter>-genişletilebilirlik dan devralan dahil olmak üzere, temel <xref:Microsoft.AspNetCore.Routing.Route>.
 
 * Uç nokta yönlendirmeyi desteklemiyor [WebApiCompatShim](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.WebApiCompatShim). Kullanım 2.1 [uyumluluk sürümü](xref:mvc/compatibility-version) (`.SetCompatibilityVersion(CompatibilityVersion.Version_2_1)`) uyumluluk dolgu kullanmaya devam etmek için.
 
@@ -230,7 +230,7 @@ Uç noktası yönlendirme içinde ASP.NET Core 2.2 veya sonraki bir sürümü il
   var link = Url.Action("ReadPost", "blog", new { id = 17, });
   ```
 
-  İle `IRouter`-yönlendirme bağlı olarak, bu kod bir URI'sini oluşturur `/blog/ReadPost/17`, belirtilen rota değerin büyük küçük harfleri dikkate alır. ASP.NET Core 2.2 veya sonraki bir sürümde uç noktası yönlendirme üretir `/Blog/ReadPost/17` ("Blog" büyük harfle). Uç noktası yönlendirme sağlar `IOutboundParameterTransformer` bu davranışı genel özelleştirme veya URL'leri eşleme için farklı kuralları uygulamak için kullanılan arabirim.
+  İle <xref:Microsoft.AspNetCore.Routing.IRouter>-yönlendirme bağlı olarak, bu kod bir URI'sini oluşturur `/blog/ReadPost/17`, belirtilen rota değerin büyük küçük harfleri dikkate alır. ASP.NET Core 2.2 veya sonraki bir sürümde uç noktası yönlendirme üretir `/Blog/ReadPost/17` ("Blog" büyük harfle). Uç noktası yönlendirme sağlar `IOutboundParameterTransformer` bu davranışı genel özelleştirme veya URL'leri eşleme için farklı kuralları uygulamak için kullanılan arabirim.
 
   Daha fazla bilgi için [parametre transformer başvurusu](#parameter-transformer-reference) bölümü.
 
@@ -289,7 +289,7 @@ Uç noktası yönlendirme içinde ASP.NET Core 2.2 veya sonraki bir sürümü il
 
 ### <a name="middleware-example"></a>Ara yazılım örneği
 
-Aşağıdaki örnekte, bir ara yazılım kullanan `LinkGenerator` listeleyen bir eylem yöntemine giden bağlantı oluşturmak için API ürünleri depolayın. Bir sınıf ve arama ekleyerek bağlantı oluşturucuyu kullanarak `GenerateLink` bir uygulamada herhangi bir sınıf için kullanılabilir.
+Aşağıdaki örnekte, bir ara yazılım kullanan <xref:Microsoft.AspNetCore.Routing.LinkGenerator> listeleyen bir eylem yöntemine giden bağlantı oluşturmak için API ürünleri depolayın. Bir sınıf ve arama ekleyerek bağlantı oluşturucuyu kullanarak `GenerateLink` bir uygulamada herhangi bir sınıf için kullanılabilir.
 
 ```csharp
 using Microsoft.AspNetCore.Routing;
@@ -320,20 +320,20 @@ public class ProductsLinkMiddleware
 
 URL üretimi işlemdir hangi yönlendirerek, rota değerleri kümesine göre bir URL yolu oluşturabilirsiniz. Bu yol işleyicisi ve bunlara erişim URL'leri arasında mantıksal bir ayrım sağlar.
 
-URL üretimi, benzer bir süreçtir takip eder, ancak kullanıcı veya framework kodu çağırma ile başlar <xref:Microsoft.AspNetCore.Routing.IRouter.GetVirtualPath*> yöntemi rota koleksiyonu. Her *rota* sahip kendi `GetVirtualPath` yöntemi null olmayan bir kadar sırayla çağrılır <xref:Microsoft.AspNetCore.Routing.VirtualPathData> döndürülür.
+URL üretimi, benzer bir süreçtir takip eder, ancak kullanıcı veya framework kodu çağırma ile başlar <xref:Microsoft.AspNetCore.Routing.IRouter.GetVirtualPath*> yöntemi rota koleksiyonu. Her *rota* sahip kendi <xref:Microsoft.AspNetCore.Routing.IRouter.GetVirtualPath*> yöntemi null olmayan bir kadar sırayla çağrılır <xref:Microsoft.AspNetCore.Routing.VirtualPathData> döndürülür.
 
-Birincil giriş için `GetVirtualPath` şunlardır:
+Birincil giriş için <xref:Microsoft.AspNetCore.Routing.IRouter.GetVirtualPath*> şunlardır:
 
-* [VirtualPathContext.HttpContext](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.HttpContext*)
-* [VirtualPathContext.Values](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.Values*)
-* [VirtualPathContext.AmbientValues](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.AmbientValues*)
+* [VirtualPathContext.HttpContext](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.HttpContext)
+* [VirtualPathContext.Values](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.Values)
+* [VirtualPathContext.AmbientValues](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.AmbientValues)
 
-Yollar, öncelikle tarafından sağlanan rota değerleri kullanın `Values` ve `AmbientValues` bir URL'yi oluşturmak mümkün olup olmadığını ve hangi içerecek şekilde değerleri karar vermek için. `AmbientValues` Geçerli isteğe eşleştirmeden üretilen rota değerlerini alır. Buna karşılık, `Values` geçerli işlem için istenen URL'yi oluşturmak nasıl belirten rota değerlerdir. `HttpContext` Olasılığına yol Hizmetleri ya da geçerli bağlam ile ilişkili ek veri edinmelidir sağlanır.
+Yollar, öncelikle tarafından sağlanan rota değerleri kullanın <xref:Microsoft.AspNetCore.Routing.VirtualPathContext.Values> ve <xref:Microsoft.AspNetCore.Routing.VirtualPathContext.AmbientValues> bir URL'yi oluşturmak mümkün olup olmadığını ve hangi içerecek şekilde değerleri karar vermek için. <xref:Microsoft.AspNetCore.Routing.VirtualPathContext.AmbientValues> Geçerli isteğe eşleştirmeden üretilen rota değerlerini alır. Buna karşılık, <xref:Microsoft.AspNetCore.Routing.VirtualPathContext.Values> geçerli işlem için istenen URL'yi oluşturmak nasıl belirten rota değerlerdir. <xref:Microsoft.AspNetCore.Routing.VirtualPathContext.HttpContext> Olasılığına yol Hizmetleri ya da geçerli bağlam ile ilişkili ek veri edinmelidir sağlanır.
 
 > [!TIP]
 > Düşünün [VirtualPathContext.Values](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.Values*) geçersiz kılmalar için bir dizi olarak [VirtualPathContext.AmbientValues](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.AmbientValues*). URL üretimi, rota değerleri için bağlantıları aynı yol ya da rota değerlerini kullanarak URL üretmek için geçerli istek yeniden dener.
 
-Çıkışı `GetVirtualPath` olduğu bir `VirtualPathData`. `VirtualPathData` Paralel olan `RouteData`. `VirtualPathData` içeren `VirtualPath` çıkış URL'si ve rota tarafından ayarlanması bazı ek özellikler.
+Çıkışı <xref:Microsoft.AspNetCore.Routing.IRouter.GetVirtualPath*> olduğu bir <xref:Microsoft.AspNetCore.Routing.VirtualPathData>. <xref:Microsoft.AspNetCore.Routing.VirtualPathData> Paralel olan <xref:Microsoft.AspNetCore.Routing.RouteData>. <xref:Microsoft.AspNetCore.Routing.VirtualPathData> içeren <xref:Microsoft.AspNetCore.Routing.VirtualPathData.VirtualPath> çıkış URL'si ve rota tarafından ayarlanması bazı ek özellikler.
 
 [VirtualPathData.VirtualPath](xref:Microsoft.AspNetCore.Routing.VirtualPathData.VirtualPath*) özelliği içeren *sanal yol* rota tarafından üretilen. Gereksinimlerinize bağlı olarak, daha fazla yolu işlem gerekebilir. Oluşturulan URL HTML işlemek istiyorsanız, uygulamanın taban yolu önüne ekleyin.
 
@@ -347,25 +347,25 @@ Yollar, öncelikle tarafından sağlanan rota değerleri kullanın `Values` ve `
 
 ::: moniker range="< aspnetcore-2.2"
 
-Yönlendirme sağlar <xref:Microsoft.AspNetCore.Routing.Route> sınıf öğesinin standart uygulaması olarak <xref:Microsoft.AspNetCore.Routing.IRouter>. `Route` kullanan *rota şablonu* karşı URL yolu eşleştirilecek desenleri tanımlamak için sözdizimi, <xref:Microsoft.AspNetCore.Routing.IRouter.RouteAsync*> çağrılır. `Route` bir URL'yi oluşturmak için aynı rota şablonunu kullanır, `GetVirtualPath` çağrılır.
+Yönlendirme sağlar <xref:Microsoft.AspNetCore.Routing.Route> sınıf öğesinin standart uygulaması olarak <xref:Microsoft.AspNetCore.Routing.IRouter>. <xref:Microsoft.AspNetCore.Routing.Route> kullanan *rota şablonu* karşı URL yolu eşleştirilecek desenleri tanımlamak için sözdizimi, <xref:Microsoft.AspNetCore.Routing.IRouter.RouteAsync*> çağrılır. <xref:Microsoft.AspNetCore.Routing.Route> bir URL'yi oluşturmak için aynı rota şablonunu kullanır, <xref:Microsoft.AspNetCore.Routing.IRouter.GetVirtualPath*> çağrılır.
 
 ::: moniker-end
 
-Çoğu uygulama çağırarak yollar oluşturma <xref:Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions.MapRoute*> veya benzer genişletme yöntemlerini tanımlanan <xref:Microsoft.AspNetCore.Routing.IRouteBuilder>. Herhangi bir `IRouteBuilder` genişletme yöntemleri öğesinin bir örneğini oluşturamıyor <xref:Microsoft.AspNetCore.Routing.Route> ve rota koleksiyona ekleyin.
+Çoğu uygulama çağırarak yollar oluşturma <xref:Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions.MapRoute*> veya benzer genişletme yöntemlerini tanımlanan <xref:Microsoft.AspNetCore.Routing.IRouteBuilder>. Herhangi bir <xref:Microsoft.AspNetCore.Routing.IRouteBuilder> genişletme yöntemleri öğesinin bir örneğini oluşturamıyor <xref:Microsoft.AspNetCore.Routing.Route> ve rota koleksiyona ekleyin.
 
 ::: moniker range=">= aspnetcore-2.2"
 
-`MapRoute` bir rota işleyicisi parametresini kabul etmez. `MapRoute` yalnızca tarafından işlenen rotalar ekler <xref:Microsoft.AspNetCore.Routing.RouteBuilder.DefaultHandler*>. MVC yönlendirme hakkında daha fazla bilgi için bkz: <xref:mvc/controllers/routing>.
+<xref:Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions.MapRoute*> bir rota işleyicisi parametresini kabul etmez. <xref:Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions.MapRoute*> yalnızca tarafından işlenen rotalar ekler <xref:Microsoft.AspNetCore.Routing.RouteBuilder.DefaultHandler*>. MVC yönlendirme hakkında daha fazla bilgi için bkz: <xref:mvc/controllers/routing>.
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.2"
 
-`MapRoute` bir rota işleyicisi parametresini kabul etmez. `MapRoute` yalnızca tarafından işlenen rotalar ekler <xref:Microsoft.AspNetCore.Routing.RouteBuilder.DefaultHandler*>. Varsayılan işleyici bir `IRouter`, ve işleyici isteği işlememesi. Örneğin, yalnızca işleyen bir varsayılan işleyici eşleşen bir kullanılabilir denetleyici ve eylem istekleri gibi ASP.NET Core MVC genellikle yapılandırılır. MVC yönlendirme hakkında daha fazla bilgi için bkz: <xref:mvc/controllers/routing>.
+<xref:Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions.MapRoute*> bir rota işleyicisi parametresini kabul etmez. <xref:Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions.MapRoute*> yalnızca tarafından işlenen rotalar ekler <xref:Microsoft.AspNetCore.Routing.RouteBuilder.DefaultHandler*>. Varsayılan işleyici bir `IRouter`, ve işleyici isteği işlememesi. Örneğin, yalnızca işleyen bir varsayılan işleyici eşleşen bir kullanılabilir denetleyici ve eylem istekleri gibi ASP.NET Core MVC genellikle yapılandırılır. MVC yönlendirme hakkında daha fazla bilgi için bkz: <xref:mvc/controllers/routing>.
 
 ::: moniker-end
 
-Aşağıdaki kod örneği, örneğidir bir `MapRoute` tipik bir ASP.NET Core MVC yönlendirme tanımı tarafından kullanılan arama:
+Aşağıdaki kod örneği, örneğidir bir <xref:Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions.MapRoute*> tipik bir ASP.NET Core MVC yönlendirme tanımı tarafından kullanılan arama:
 
 ```csharp
 routes.MapRoute(
@@ -391,9 +391,9 @@ routes.MapRoute(
 
 Bu şablon bir URL yolu gibi eşleşen `/Products/Details/17` ama `/Products/Details/Apples`. Rota kısıtlamalarını uygulamak <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> ve onları doğrulamak için rota değerlerini denetleyin. Bu örnekte, rota değeri `id` tamsayıya dönüştürülebilir olmalıdır. Bkz: [rota kısıtlaması başvurusu](#route-constraint-reference) rota kısıtlamaları framework tarafından sağlanan bir açıklaması için.
 
-Ek aşırı yüklemeleri `MapRoute` değerleri kabul edin `constraints`, `dataTokens`, ve `defaults`. Bu parametre normal kullanım, burada parametre adları anonim tür eşleşen özellik adlarını rota anonim olarak belirlenmiş bir nesne geçirmektir.
+Ek aşırı yüklemeleri <xref:Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions.MapRoute*> değerleri kabul edin `constraints`, `dataTokens`, ve `defaults`. Bu parametre normal kullanım, burada parametre adları anonim tür eşleşen özellik adlarını rota anonim olarak belirlenmiş bir nesne geçirmektir.
 
-Aşağıdaki `MapRoute` örnekler eşdeğer yollar oluşturur:
+Aşağıdaki <xref:Microsoft.AspNetCore.Builder.MapRouteRouteBuilderExtensions.MapRoute*> örnekler eşdeğer yollar oluşturur:
 
 ```csharp
 routes.MapRoute(
@@ -454,10 +454,10 @@ routes.MapRoute(
 
 ### <a name="route-class-url-generation"></a>Rota sınıfı URL üretimi
 
-`Route` Sınıfı da gerçekleştirebilirsiniz URL üretimi bir dizi rota değerleri, rota şablonu ile birleştirerek. Bu mantıksal olarak URL yolu eşleşen ters işlemidir.
+<xref:Microsoft.AspNetCore.Routing.Route> Sınıfı da gerçekleştirebilirsiniz URL üretimi bir dizi rota değerleri, rota şablonu ile birleştirerek. Bu mantıksal olarak URL yolu eşleşen ters işlemidir.
 
 > [!TIP]
-> URL üretimi daha iyi anlamak için oluşturmak ve ardından söz konusu URL rota şablonu nasıl BC hakkında düşünmek için hangi URL'yi düşünün. Hangi değerleri üretilen? Bu, URL üretimi nasıl çalıştığını kabaca eşdeğeridir `Route` sınıfı.
+> URL üretimi daha iyi anlamak için oluşturmak ve ardından söz konusu URL rota şablonu nasıl BC hakkında düşünmek için hangi URL'yi düşünün. Hangi değerleri üretilen? Bu, URL üretimi nasıl çalıştığını kabaca eşdeğeridir <xref:Microsoft.AspNetCore.Routing.Route> sınıfı.
 
 Aşağıdaki örnek, genel bir ASP.NET Core MVC varsayılan rota kullanır:
 
@@ -514,22 +514,22 @@ Tek bir yol yapılandırıyorsanız, çağrı <xref:Microsoft.AspNetCore.Builder
 
 Çerçeve rotalar oluşturma için genişletme yöntemleri kümesini sunar (<xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions>):
 
-* `MapDelete`
-* `MapGet`
-* `MapMiddlewareDelete`
-* `MapMiddlewareGet`
-* `MapMiddlewarePost`
-* `MapMiddlewarePut`
-* `MapMiddlewareRoute`
-* `MapMiddlewareVerb`
-* `MapPost`
-* `MapPut`
-* `MapRoute`
-* `MapVerb`
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapDelete*>
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapGet*>
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapMiddlewareDelete*>
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapMiddlewareGet*>
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapMiddlewarePost*>
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapMiddlewarePut*>
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapMiddlewareRoute*>
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapMiddlewareVerb*>
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapPost*>
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapPut*>
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapRoute*>
+* <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapVerb*>
 
 ::: moniker range="< aspnetcore-2.2"
 
-Listelenen bazı yöntemler gibi `MapGet`, gerekli bir `RequestDelegate`. `RequestDelegate` Olarak kullanılan *rota işleyiciye* zaman yol ile eşleşen. Bu serideki diğer yöntemleri rota işleyiciye bir ara yazılım ardışık düzenini kullanmak için yapılandırma sağlar. Varsa `Map*` değil accept yöntemi bir işleyici gibi `MapRoute`, kullandığı <xref:Microsoft.AspNetCore.Routing.RouteBuilder.DefaultHandler*>.
+Listelenen bazı yöntemler gibi <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapGet*>, gerekli bir <xref:Microsoft.AspNetCore.Http.RequestDelegate>. <xref:Microsoft.AspNetCore.Http.RequestDelegate> Olarak kullanılan *rota işleyiciye* zaman yol ile eşleşen. Bu serideki diğer yöntemleri rota işleyiciye bir ara yazılım ardışık düzenini kullanmak için yapılandırma sağlar. Varsa `Map*` değil accept yöntemi bir işleyici gibi <xref:Microsoft.AspNetCore.Routing.RequestDelegateRouteBuilderExtensions.MapRoute*>, kullandığı <xref:Microsoft.AspNetCore.Routing.RouteBuilder.DefaultHandler*>.
 
 ::: moniker-end
 
@@ -588,7 +588,7 @@ Aşağıdaki tabloda örnek rota şablonlarının ve davranışları gösterir.
 Şablon kullanarak genel yönlendirme en basit yaklaşımdır. Kısıtlamaları ve varsayılan rota şablonu dışında da belirtilebilir.
 
 > [!TIP]
-> Etkinleştirme [günlüğü](xref:fundamentals/logging/index) görmek için nasıl yerleşik uygulamaları gibi yönlendirme `Route`, eşleşen istekleri.
+> Etkinleştirme [günlüğü](xref:fundamentals/logging/index) görmek için nasıl yerleşik uygulamaları gibi yönlendirme <xref:Microsoft.AspNetCore.Routing.Route>, eşleşen istekleri.
 
 ## <a name="reserved-routing-names"></a>Yönlendirme ayrılmış adlar
 
@@ -668,9 +668,9 @@ Olası değerler bilinen bir dizi parametre sınırlamak için normal bir ifade 
 
 ## <a name="custom-route-constraints"></a>Özel rota kısıtlamaları
 
-Yerleşik rota kısıtlamalara ek olarak, özel rota kısıtlamalarını uygulayarak oluşturulabilir <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> arabirimi. `IRouteConstraint` Arabirimi içeren tek bir yöntem `Match`, döndüren `true` kısıtlaması gerçekleştiyse ve `false` Aksi takdirde.
+Yerleşik rota kısıtlamalara ek olarak, özel rota kısıtlamalarını uygulayarak oluşturulabilir <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> arabirimi. <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> Arabirimi içeren tek bir yöntem `Match`, döndüren `true` kısıtlaması gerçekleştiyse ve `false` Aksi takdirde.
 
-Özel kullanılacak `IRouteConstraint`, rota kısıtlama türü uygulama kaydedilmelidir `RouteOptions.ConstraintMap` uygulamanın service kapsayıcısında. A <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap> kısıtlama anahtarlarını haritalar rota bir sözlük `IRouteConstraint` kısıtlamalar doğrulayan uygulamalar. Bir uygulamanın `RouteOptions.ConstraintMap` içinde güncelleştirilebilir `Startup.ConfigureServices` parçası olarak ya da bir `services.AddRouting` çağrı yapma veya yapılandırmayı `RouteOptions` ile doğrudan `services.Configure<RouteOptions>`. Örneğin:
+Özel kullanılacak <xref:Microsoft.AspNetCore.Routing.IRouteConstraint>, rota kısıtlama türü uygulama kaydedilmelidir <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap> uygulamanın service kapsayıcısında. A <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap> kısıtlama anahtarlarını haritalar rota bir sözlük <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> kısıtlamalar doğrulayan uygulamalar. Bir uygulamanın <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap> içinde güncelleştirilebilir `Startup.ConfigureServices` parçası olarak ya da bir [Hizmetleri. AddRouting](xref:Microsoft.Extensions.DependencyInjection.RoutingServiceCollectionExtensions.AddRouting*) çağrı yapma veya yapılandırmayı <xref:Microsoft.AspNetCore.Routing.RouteOptions> ile doğrudan `services.Configure<RouteOptions>`. Örneğin:
 
 ```csharp
 services.AddRouting(options =>
@@ -692,7 +692,7 @@ public ActionResult<string> Get(string id)
 
 Parametre dönüştürücüler:
 
-* Bir bağlantı oluşturulurken yürütme bir `Route`.
+* Bir bağlantı oluşturulurken yürütme bir <xref:Microsoft.AspNetCore.Routing.Route>.
 * Uygulama `Microsoft.AspNetCore.Routing.IOutboundParameterTransformer`.
 * Kullanılarak yapılandırılmış <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap>.
 * Parametrenin rota değeri alın ve yeni bir dize değerine dönüştürün.
@@ -734,9 +734,9 @@ Aşağıdaki örnek, rota değerleri sözlüğü belirtilen bir rotaya bir bağl
 
 [!code-csharp[](routing/samples/2.x/RoutingSample/Startup.cs?name=snippet_Dictionary)]
 
-`VirtualPath` Önceki sonunda oluşturulan örnek `/package/create/123`. Sözlük sağlayan `operation` ve `id` rota değerleri "İzleme paketi yol" şablonunun `package/{operation}/{id}`. Örnek kodda Ayrıntılar için bkz [kullanım yönlendirme ara yazılım](#use-routing-middleware) bölüm veya [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/samples).
+<xref:Microsoft.AspNetCore.Routing.VirtualPathData.VirtualPath> Önceki sonunda oluşturulan örnek `/package/create/123`. Sözlük sağlayan `operation` ve `id` rota değerleri "İzleme paketi yol" şablonunun `package/{operation}/{id}`. Örnek kodda Ayrıntılar için bkz [kullanım yönlendirme ara yazılım](#use-routing-middleware) bölüm veya [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/samples).
 
-İkinci parametresi `VirtualPathContext` oluşturucudur koleksiyonu *ortam değerlerini*. Ortam değerlerini, bunların değerleri bir geliştirici, bir istek bağlamı içinde belirtmelisiniz sayısını sınırlamak kullanışlıdır. Geçerli isteğin geçerli rota değerleri için bağlantı oluşturma ortam değerleri olarak kabul edilir. Bir ASP.NET Core MVC uygulamasının `About` eylemi `HomeController`, bağlanmak için denetleyici rota değeri belirtmeniz gerekmez `Index` eylem&mdash;ortam değerini `Home` kullanılır.
+İkinci parametresi <xref:Microsoft.AspNetCore.Routing.VirtualPathContext> oluşturucudur koleksiyonu *ortam değerlerini*. Ortam değerlerini, bunların değerleri bir geliştirici, bir istek bağlamı içinde belirtmelisiniz sayısını sınırlamak kullanışlıdır. Geçerli isteğin geçerli rota değerleri için bağlantı oluşturma ortam değerleri olarak kabul edilir. Bir ASP.NET Core MVC uygulamasının `About` eylemi `HomeController`, bağlanmak için denetleyici rota değeri belirtmeniz gerekmez `Index` eylem&mdash;ortam değerini `Home` kullanılır.
 
 Bir parametre eşleşmeyen ortam değerleri yok sayılır. Ortam değerler, ortam değeri açıkça belirtilen bir değer geçersiz kıldığında da dikkate alınmaz. Eşleşen, soldan sağa doğru gerçekleşir URL.
 

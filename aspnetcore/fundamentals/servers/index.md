@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core için web sunucuları Kestrel ve HTTP.sys keşfedin. Bir sunucu seçin ve ne zaman bir ters proxy sunucusu kullanmayı öğrenin.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 01/17/2019
+ms.date: 02/13/2019
 uid: fundamentals/servers/index
-ms.openlocfilehash: a9f40ad7e9a63d6f88b6533578db8dfc55490bc9
-ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
+ms.openlocfilehash: 672fe2ce6fd0adae09c380fe508344a254f1a9fe
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396252"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248140"
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>ASP.NET Core Web sunucu uygulamalarında
 
@@ -36,7 +36,7 @@ Kullanırken [IIS](/iis/get-started/introduction-to-iis/introduction-to-iis-arch
 
 [ASP.NET Core Modülü](xref:host-and-deploy/aspnet-core-module) IIS ve işlem içi IIS HTTP sunucusu veya Kestrel arasında yerel IIS istekleri işleyen yerel bir IIS modülüdür. Daha fazla bilgi için bkz. <xref:host-and-deploy/aspnet-core-module>.
 
-## <a name="hosting-models"></a>Barındırma modeli
+## <a name="hosting-models"></a>Barındırma modelleri
 
 ### <a name="in-process-hosting-model"></a>İşlem içi barındırma modeli
 
@@ -132,7 +132,7 @@ ASP.NET Core ile birlikte gelir [Kestrel sunucu](xref:fundamentals/servers/kestr
 
 ::: moniker-end
 
-## <a name="kestrel"></a>Kestrel'i
+## <a name="kestrel"></a>Kestrel
 
 Kestrel'i ASP.NET Core proje şablonları dahil varsayılan web sunucusudur.
 
@@ -198,13 +198,13 @@ HTTP.sys yapılandırma yönergeleri için bkz <xref:fundamentals/servers/httpsy
 
 ## <a name="aspnet-core-server-infrastructure"></a>ASP.NET Core sunucu altyapısı
 
-[IApplicationBuilder](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder) bulunan `Startup.Configure` yöntemi kullanıma sunan [ServerFeatures](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder.serverfeatures) türünün özelliği [IFeatureCollection](/dotnet/api/microsoft.aspnetcore.http.features.ifeaturecollection). Kestrel ve HTTP.sys yalnızca tek bir özelliği her kullanıma [IServerAddressesFeature](/dotnet/api/microsoft.aspnetcore.hosting.server.features.iserveraddressesfeature), ancak farklı bir sunucu uygulamaları, ek işlevler sunarsınız.
+<xref:Microsoft.AspNetCore.Builder.IApplicationBuilder> Bulunan `Startup.Configure` yöntemi kullanıma sunan <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder.ServerFeatures> türünün özelliği <xref:Microsoft.AspNetCore.Http.Features.IFeatureCollection>. Kestrel ve HTTP.sys yalnızca tek bir özelliği her kullanıma <xref:Microsoft.AspNetCore.Hosting.Server.Features.IServerAddressesFeature>, ancak farklı bir sunucu uygulamaları, ek işlevler sunarsınız.
 
 `IServerAddressesFeature` Sunucu Uygulama çalışma zamanında bağlı bağlantı noktasını bulmak için kullanılabilir.
 
 ## <a name="custom-servers"></a>Özel sunucuları
 
-Özel sunucu uygulaması, yerleşik sunucuları uygulamanın gereksinimleri karşılamıyorsanız oluşturulabilir. [.NET (OWIN) kılavuzu için açık Web arabirimi](xref:fundamentals/owin) nasıl yazılacağını gösteren bir [Nowin](https://github.com/Bobris/Nowin)-tabanlı [IServer](/dotnet/api/microsoft.aspnetcore.hosting.server.iserver) uygulaması. Uygulamanın kullandığı özellik arabirimler uygulama, en az olsa gerektirir. yalnızca [IHttpRequestFeature](/dotnet/api/microsoft.aspnetcore.http.features.ihttprequestfeature) ve [IHttpResponseFeature](/dotnet/api/microsoft.aspnetcore.http.features.ihttpresponsefeature) desteklenmesi gerekir.
+Özel sunucu uygulaması, yerleşik sunucuları uygulamanın gereksinimleri karşılamıyorsanız oluşturulabilir. [.NET (OWIN) kılavuzu için açık Web arabirimi](xref:fundamentals/owin) nasıl yazılacağını gösteren bir [Nowin](https://github.com/Bobris/Nowin)-tabanlı <xref:Microsoft.AspNetCore.Hosting.Server.IServer> uygulaması. Uygulamanın kullandığı özellik arabirimler uygulama, en az olsa gerektirir. yalnızca <xref:Microsoft.AspNetCore.Http.Features.IHttpRequestFeature> ve <xref:Microsoft.AspNetCore.Http.Features.IHttpResponseFeature> desteklenmesi gerekir.
 
 ## <a name="server-startup"></a>Sunucu başlangıç
 
@@ -212,7 +212,7 @@ Sunucu tümleşik geliştirme ortamı (IDE) veya düzenleyicide uygulama başlat
 
 * [Visual Studio](https://www.visualstudio.com/vs/) &ndash; başlatma profilleri, uygulama ve sunucu ile başlatmak için kullanılabilir [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview)/[ASP.NET Core Modülü](xref:host-and-deploy/aspnet-core-module) veya Konsolu.
 * [Visual Studio Code](https://code.visualstudio.com/) &ndash; uygulama ve sunucu başlatılır [Omnisharp](https://github.com/OmniSharp/omnisharp-vscode), CoreCLR hata ayıklayıcı etkinleştirir.
-* [Mac için Visual Studio](https://www.visualstudio.com/vs/mac/) &ndash; uygulama ve sunucu başlatılır [Mono modu geçici hata ayıklayıcı](http://www.mono-project.com/docs/advanced/runtime/docs/soft-debugger/).
+* [Mac için Visual Studio](https://www.visualstudio.com/vs/mac/) &ndash; uygulama ve sunucu başlatılır [Mono modu geçici hata ayıklayıcı](https://www.mono-project.com/docs/advanced/runtime/docs/soft-debugger/).
 
 Proje klasöründeki bir komut isteminden uygulamayı başlatırken [çalıştırma dotnet](/dotnet/core/tools/dotnet-run) uygulama ve sunucu (Kestrel ve yalnızca HTTP.sys) başlatır. Yapılandırması tarafından belirtilen `-c|--configuration` ayarlandığından seçeneği `Debug` (varsayılan) veya `Release`. Başlatma profili varsa bir *launchSettings.json* dosya, kullanın `--launch-profile <NAME>` başlatma profili ayarlamak için seçeneği (örneğin, `Development` veya `Production`). Daha fazla bilgi için [çalıştırma dotnet](/dotnet/core/tools/dotnet-run) ve [.NET Core dağıtımı paketleme](/dotnet/core/build/distribution-packaging).
 

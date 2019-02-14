@@ -4,14 +4,14 @@ author: guardrex
 description: Uygulama performansı ve ölçeklenebilirlik, özellikle bir Bulutu vea sunucusu grubu ortamında artırmak için bir ASP.NET Core dağıtılmış önbellek kullanmayı öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/19/2018
+ms.date: 02/13/2019
 uid: performance/caching/distributed
-ms.openlocfilehash: d80cde372535aa04604ce0cd5a731a1448515093
-ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
+ms.openlocfilehash: a157eb075874d2118e3e34b51410b539a1ec37df
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50253014"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248594"
 ---
 # <a name="distributed-caching-in-aspnet-core"></a>Dağıtılmış önbelleğe alma ASP.NET Core
 
@@ -76,7 +76,7 @@ Uygulaması kaydetme <xref:Microsoft.Extensions.Caching.Distributed.IDistributed
 
 ### <a name="distributed-memory-cache"></a>Dağıtılmış önbellek
 
-Dağıtılmış önbellek (<xref:Microsoft.Extensions.DependencyInjection.MemoryCacheServiceCollectionExtensions.AddDistributedMemoryCache*>) bir framework tarafından sağlanan uygulamasıdır `IDistributedCache` , öğeleri bellekte depolar. Dağıtılmış önbellek gerçek bir dağıtılmış önbellek değildir. Önbelleğe alınmış öğeleri, uygulamanın çalıştığı sunucu üzerinde uygulama örneği tarafından depolanır.
+Dağıtılmış önbellek (<xref:Microsoft.Extensions.DependencyInjection.MemoryCacheServiceCollectionExtensions.AddDistributedMemoryCache*>) bir framework tarafından sağlanan uygulamasıdır <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> , öğeleri bellekte depolar. Dağıtılmış önbellek gerçek bir dağıtılmış önbellek değildir. Önbelleğe alınmış öğeleri, uygulamanın çalıştığı sunucu üzerinde uygulama örneği tarafından depolanır.
 
 Dağıtılmış önbellek faydalı bir uygulamadır:
 
@@ -149,13 +149,13 @@ Yerel makinenizde Redis yüklemek için:
 
 ## <a name="use-the-distributed-cache"></a>Dağıtılmış önbellek kullanma
 
-Kullanılacak <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> arabirim, örneği istek `IDistributedCache` uygulamadaki herhangi bir oluşturucudan. Örneği tarafından sağlanan [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection).
+Kullanılacak <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> arabirim, örneği istek <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> uygulamadaki herhangi bir oluşturucudan. Örneği tarafından sağlanan [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection).
 
-Uygulama başlatıldığında `IDistributedCache` içine eklenen `Startup.Configure`. Geçerli zamanı kullanarak önbelleğe alınmış <xref:Microsoft.AspNetCore.Hosting.IApplicationLifetime> (daha fazla bilgi için [Web ana bilgisayarı: IApplicationLifetime arabirimi](xref:fundamentals/host/web-host#iapplicationlifetime-interface)):
+Uygulama başlatıldığında <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> içine eklenen `Startup.Configure`. Geçerli zamanı kullanarak önbelleğe alınmış <xref:Microsoft.AspNetCore.Hosting.IApplicationLifetime> (daha fazla bilgi için [Web ana bilgisayarı: IApplicationLifetime arabirimi](xref:fundamentals/host/web-host#iapplicationlifetime-interface)):
 
 [!code-csharp[](distributed/samples/2.x/DistCacheSample/Startup.cs?name=snippet_Configure&highlight=10)]
 
-Örnek uygulamayı eklediği `IDistributedCache` içine `IndexModel` dizin sayfası tarafından kullanılacak.
+Örnek uygulamayı eklediği <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> içine `IndexModel` dizin sayfası tarafından kullanılacak.
 
 Dizin Sayfası yüklendiği her durumda, önbelleğe alınan kez önbellek denetlenir `OnGetAsync`. Önbelleğe alınan süresi dolmadığından zaman görüntülenir. Önbelleğe alınan saati (Bu sayfayı yüklenen son saat) erişildi son daraltılmasından 20 saniye geçtikten sayfası görüntüler *önbelleğe alınmış süre doldu*.
 
@@ -164,13 +164,13 @@ Dizin Sayfası yüklendiği her durumda, önbelleğe alınan kez önbellek denet
 [!code-csharp[](distributed/samples/2.x/DistCacheSample/Pages/Index.cshtml.cs?name=snippet_IndexModel&highlight=7,14-20,25-29)]
 
 > [!NOTE]
-> Bir Tekliyi veya kapsamındaki ömrü boyunca kullanılacak gerek yoktur `IDistributedCache` örnekleri (en az yerleşik uygulamalar için).
+> Bir Tekliyi veya kapsamındaki ömrü boyunca kullanılacak gerek yoktur <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> örnekleri (en az yerleşik uygulamalar için).
 >
-> Ayrıca oluşturabilirsiniz bir `IDistributedCache` DI kullanmak yerine gerekebilir, ancak kodda bir örnek oluşturma yapabilir, kodunuzu test etmek daha zor bağlanmayacaktır örnek ve ihlal [açık bağımlılıkları ilkesine](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies).
+> Ayrıca oluşturabilirsiniz bir <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> DI kullanmak yerine gerekebilir, ancak kodda bir örnek oluşturma yapabilir, kodunuzu test etmek daha zor bağlanmayacaktır örnek ve ihlal [açık bağımlılıkları ilkesine](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies).
 
-## <a name="recommendations"></a>Önerileri
+## <a name="recommendations"></a>Öneriler
 
-Hangi uygulamasının verirken `IDistributedCache` uygulamanız için en iyisidir aşağıdakileri dikkate alın:
+Hangi uygulamasının verirken <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> uygulamanız için en iyisidir aşağıdakileri dikkate alın:
 
 * Var olan altyapı
 * Performans gereksinimleri

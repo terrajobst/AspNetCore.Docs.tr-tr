@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core uygulamaları Windows Server Internet Information Services (IIS) üzerinde barındırmayı öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/29/2019
+ms.date: 02/13/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 9f7fc5571f8d1a6e5e2d84779082abb02d2fb292
-ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
+ms.openlocfilehash: 5d6ba8b7ee6f09a7d00aa0285802cf0aad267a1d
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56159401"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248426"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Windows IIS üzerinde ASP.NET Core barındırma
 
@@ -94,7 +94,7 @@ ASP.NET Core modülü arka uç işleme atamak için dinamik bir bağlantı nokta
 
 `CreateDefaultBuilder` yapılandırır [Kestrel](xref:fundamentals/servers/kestrel) web sunucusu olarak ve bağlantı noktası ve temel yolunu yapılandırarak IIS tümleştirme sağlar [ASP.NET Core Modülü](xref:host-and-deploy/aspnet-core-module).
 
-ASP.NET Core modülü arka uç işleme atamak için dinamik bir bağlantı noktası oluşturur. `CreateDefaultBuilder` çağrıları [UseIISIntegration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions.useiisintegration) yöntemi. `UseIISIntegration` Kestrel'i localhost IP adresi dinamik bir bağlantı noktası dinleyecek şekilde yapılandırır (`127.0.0.1`). Dinamik bağlantı noktası 1234 ise sırasında Kestrel dinler `127.0.0.1:1234`. Bu yapılandırma tarafından sağlanan diğer URL'yi yapılandırmaları değiştirir:
+ASP.NET Core modülü arka uç işleme atamak için dinamik bir bağlantı noktası oluşturur. `CreateDefaultBuilder` çağrıları <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> yöntemi. `UseIISIntegration` Kestrel'i localhost IP adresi dinamik bir bağlantı noktası dinleyecek şekilde yapılandırır (`127.0.0.1`). Dinamik bağlantı noktası 1234 ise sırasında Kestrel dinler `127.0.0.1:1234`. Bu yapılandırma tarafından sağlanan diğer URL'yi yapılandırmaları değiştirir:
 
 * `UseUrls`
 * [Kestrel'i'nın dinleme API](xref:fundamentals/servers/kestrel#endpoint-configuration)
@@ -108,7 +108,7 @@ ASP.NET Core modülü arka uç işleme atamak için dinamik bir bağlantı nokta
 
 `CreateDefaultBuilder` yapılandırır [Kestrel](xref:fundamentals/servers/kestrel) web sunucusu olarak ve bağlantı noktası ve temel yolunu yapılandırarak IIS tümleştirme sağlar [ASP.NET Core Modülü](xref:host-and-deploy/aspnet-core-module).
 
-ASP.NET Core modülü arka uç işleme atamak için dinamik bir bağlantı noktası oluşturur. `CreateDefaultBuilder` çağrıları [UseIISIntegration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions.useiisintegration) yöntemi. `UseIISIntegration` Kestrel'i localhost IP adresi dinamik bir bağlantı noktası dinleyecek şekilde yapılandırır (`localhost`). Dinamik bağlantı noktası 1234 ise sırasında Kestrel dinler `localhost:1234`. Bu yapılandırma tarafından sağlanan diğer URL'yi yapılandırmaları değiştirir:
+ASP.NET Core modülü arka uç işleme atamak için dinamik bir bağlantı noktası oluşturur. `CreateDefaultBuilder` çağrıları <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> yöntemi. `UseIISIntegration` Kestrel'i localhost IP adresi dinamik bir bağlantı noktası dinleyecek şekilde yapılandırır (`localhost`). Dinamik bağlantı noktası 1234 ise sırasında Kestrel dinler `localhost:1234`. Bu yapılandırma tarafından sağlanan diğer URL'yi yapılandırmaları değiştirir:
 
 * `UseUrls`
 * [Kestrel'i'nın dinleme API](xref:fundamentals/servers/kestrel#endpoint-configuration)
@@ -120,7 +120,7 @@ ASP.NET Core modülü arka uç işleme atamak için dinamik bir bağlantı nokta
 
 ::: moniker range="< aspnetcore-2.0"
 
-Bir bağımlılık dahil [Microsoft.AspNetCore.Server.IISIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IISIntegration/) uygulamanın bağımlılıklarını bir pakette. Ekleyerek IIS tümleştirme Ara yazılımları kullanmayı [UseIISIntegration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions.useiisintegration) genişletme yöntemi için [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder):
+Bir bağımlılık dahil [Microsoft.AspNetCore.Server.IISIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IISIntegration/) uygulamanın bağımlılıklarını bir pakette. Ekleyerek IIS tümleştirme Ara yazılımları kullanmayı <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> genişletme yöntemi için <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder>:
 
 ```csharp
 var host = new WebHostBuilder()
@@ -129,7 +129,7 @@ var host = new WebHostBuilder()
     ...
 ```
 
-Her ikisi de [UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel) ve [UseIISIntegration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions.useiisintegration) gereklidir. Kod arama `UseIISIntegration` kod taşınabilirliği etkilemez. Uygulamanın IIS çalıştırırsanız değildir (örneğin, uygulamayı doğrudan Kestrel üzerinde çalıştırılan) `UseIISIntegration` çalışmaz.
+Her ikisi de <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions.UseKestrel*> ve <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> gereklidir. Kod arama `UseIISIntegration` kod taşınabilirliği etkilemez. Uygulamanın IIS çalıştırırsanız değildir (örneğin, uygulamayı doğrudan Kestrel üzerinde çalıştırılan) `UseIISIntegration` çalışmaz.
 
 ASP.NET Core modülü arka uç işleme atamak için dinamik bir bağlantı noktası oluşturur. `UseIISIntegration` Kestrel'i localhost IP adresi dinamik bir bağlantı noktası dinleyecek şekilde yapılandırır (`localhost`). Dinamik bağlantı noktası 1234 ise sırasında Kestrel dinler `localhost:1234`. Bu yapılandırma tarafından sağlanan diğer URL'yi yapılandırmaları değiştirir:
 
@@ -150,7 +150,7 @@ Barındırma ile ilgili daha fazla bilgi için bkz: [ASP.NET Core ana](xref:fund
 
 **İşlem içi barındırma modeli**
 
-IIS sunucusu seçeneklerini yapılandırmak için bir hizmet yapılandırması dahil [IISServerOptions](/dotnet/api/microsoft.aspnetcore.builder.iisserveroptions) içinde [Createservicereplicalisteners()](/dotnet/api/microsoft.aspnetcore.hosting.istartup.configureservices). Aşağıdaki örnek AutomaticAuthentication devre dışı bırakır:
+IIS sunucusu seçeneklerini yapılandırmak için bir hizmet yapılandırması dahil <xref:Microsoft.AspNetCore.Builder.IISServerOptions> içinde <xref:Microsoft.AspNetCore.Hosting.IStartup.ConfigureServices*>. Aşağıdaki örnek AutomaticAuthentication devre dışı bırakır:
 
 ```csharp
 services.Configure<IISServerOptions>(options => 
@@ -168,7 +168,7 @@ services.Configure<IISServerOptions>(options =>
 
 ::: moniker-end
 
-IIS seçeneklerini yapılandırmak için bir hizmet yapılandırması dahil [IISOptions](/dotnet/api/microsoft.aspnetcore.builder.iisoptions) içinde [Createservicereplicalisteners()](/dotnet/api/microsoft.aspnetcore.hosting.istartup.configureservices). Aşağıdaki örnek uygulamayı doldurmasını önler `HttpContext.Connection.ClientCertificate`:
+IIS seçeneklerini yapılandırmak için bir hizmet yapılandırması dahil <xref:Microsoft.AspNetCore.Builder.IISOptions> içinde <xref:Microsoft.AspNetCore.Hosting.IStartup.ConfigureServices*>. Aşağıdaki örnek uygulamayı doldurmasını önler `HttpContext.Connection.ClientCertificate`:
 
 ```csharp
 services.Configure<IISOptions>(options => 
@@ -218,6 +218,10 @@ Ayarlamak için [ASP.NET Core Modülü](xref:host-and-deploy/aspnet-core-module)
 Mevcut uygulamanın fiziksel yola gibi hassas dosyalar  *\<derleme >. runtimeconfig.json*,  *\<derleme > .xml* (XML belgeleri açıklamaları) ve  *\<derleme >. deps.json*. Zaman *web.config* dosya varsa ve ve site normalde başlatır, bunların istenmesi halinde, IIS bu hassas dosyalar hizmet değil. Varsa *web.config* dosyası eksik, yanlış adlandırılan veya site için normal başlangıç yapılandırılamıyor, IIS hassas dosyalar genel olarak hizmet verebilir.
 
 ***Web.config* doğru adlı, dağıtımdaki her zaman mevcut ve yukarı site normal başlangıç için yapılandırmak için dosya olmalıdır. Hiçbir zaman Kaldır *web.config* dosyasından bir üretim dağıtımı.**
+
+### <a name="transform-webconfig"></a>Web.config Dönüştür
+
+Dönüştürmeniz gerekirse *web.config* (örneğin, ortam değişkenlerini ayarlama, yapılandırma, profili veya ortama göre), bkz: yayımlama sırasında <xref:host-and-deploy/iis/transform-webconfig>.
 
 ## <a name="iis-configuration"></a>IIS yapılandırması
 
@@ -641,3 +645,4 @@ Sık karşılaşılan barındırırken IIS üzerinde ASP.NET Core uygulamaları 
 * [Resmi Microsoft IIS sitesi](https://www.iis.net/)
 * [Windows Server Teknik İçerik Kitaplığı](/windows-server/windows-server)
 * [IIS HTTP/2](/iis/get-started/whats-new-in-iis-10/http2-on-iis)
+* <xref:host-and-deploy/iis/transform-webconfig>

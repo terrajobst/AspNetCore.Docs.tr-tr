@@ -5,14 +5,14 @@ description: Razor dosyaları ve Razor dosyası ön derleme içinde ASP.NET Core
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/23/2019
+ms.date: 02/13/2019
 uid: mvc/views/view-compilation
-ms.openlocfilehash: 2720708f8e58fdc55b82bfb56665005170e79934
-ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
+ms.openlocfilehash: c4e8f722fdf3d3f64807cc35ff9f349af7f32abd
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54889762"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248192"
 ---
 # <a name="razor-file-compilation-in-aspnet-core"></a>ASP.NET Core Razor dosyası derleme
 
@@ -98,7 +98,7 @@ A *< project_name >. PrecompiledViews.dll* derlenmiş Razor dosyalarını içere
 
 ## <a name="recompile-razor-files-on-change"></a>Razor dosyalarda değişiklik yeniden derleyin
 
-<xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions> `AllowRecompilingViewsOnFileChange` Razor dosyaları (Razor görünümleri ve Razor sayfaları) ve yeniden derlenen dosyalar diskte değiştirirseniz güncelleştirilmiş belirleyen bir değer alır veya ayarlar.
+<xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions> <xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions.AllowRecompilingViewsOnFileChange> Razor dosyaları (Razor görünümleri ve Razor sayfaları) ve yeniden derlenen dosyalar diskte değiştirirseniz güncelleştirilmiş belirleyen bir değer alır veya ayarlar.
 
 Ayarlandığında `true`, [IFileProvider.Watch](xref:Microsoft.Extensions.FileProviders.IFileProvider.Watch*) gözcüler Razor dosyalarında değişiklikler için yapılandırılmış <xref:Microsoft.Extensions.FileProviders.IFileProvider> örnekleri.
 
@@ -107,11 +107,11 @@ Varsayılan değer `true` için:
 * ASP.NET Core 2.1 veya daha eski uygulamaları.
 * ASP.NET Core 2.2 veya üzeri uygulamaları geliştirme ortamında.
 
-`AllowRecompilingViewsOnFileChange` Uyumluluk anahtarıyla ilişkili olan ve uygulama için yapılandırılan uyumluluk sürümüne bağlı olarak farklı bir davranış sağlayabilir. Ayarlayarak, uygulama yapılandırma `AllowRecompilingViewsOnFileChange` uygulamanın uyumluluk sürümü tarafından kapsanan değeri önceliklidir.
+<xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions.AllowRecompilingViewsOnFileChange> Uyumluluk anahtarıyla ilişkili olan ve uygulama için yapılandırılan uyumluluk sürümüne bağlı olarak farklı bir davranış sağlayabilir. Ayarlayarak, uygulama yapılandırma <xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions.AllowRecompilingViewsOnFileChange> uygulamanın uyumluluk sürümü tarafından kapsanan değeri önceliklidir.
 
-Cihazın uyumluluk sürümü ayarlanırsa <xref:Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1> veya daha önce `AllowRecompilingViewsOnFileChange` ayarlanır `true` açıkça şekilde yapılandırılmadıkça.
+Cihazın uyumluluk sürümü ayarlanırsa <xref:Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1> veya daha önce <xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions.AllowRecompilingViewsOnFileChange> ayarlanır `true` açıkça şekilde yapılandırılmadıkça.
 
-Cihazın uyumluluk sürümü ayarlanırsa `CompatibilityVersion.Version_2_2` ya da sonraki `AllowRecompilingViewsOnFileChange` ayarlanır `false` değeri açıkça yapılandırılmış ya da geliştirme ortamıdır.
+Cihazın uyumluluk sürümü ayarlanırsa <xref:Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_2> ya da sonraki <xref:Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions.AllowRecompilingViewsOnFileChange> ayarlanır `false` değeri açıkça yapılandırılmış ya da geliştirme ortamıdır.
 
 Yönergeler ve cihazın uyumluluk sürümü ayarlama örnekleri için bkz. <xref:mvc/compatibility-version>.
 

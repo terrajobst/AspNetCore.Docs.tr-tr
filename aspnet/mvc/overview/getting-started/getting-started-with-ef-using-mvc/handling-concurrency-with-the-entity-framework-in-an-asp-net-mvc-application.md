@@ -4,18 +4,21 @@ title: 'Öğretici: Bir ASP.NET MVC 5 uygulamasında eşzamanlılık EF ile işl
 description: Bu öğreticide, iyimser eşzamanlılık birden çok kullanıcı aynı anda aynı varlık güncelleştirme çakışmaları işlemek için nasıl kullanılacağını gösterir.
 author: tdykstra
 ms.author: riande
-ms.date: 01/21/2019
 ms.topic: tutorial
+ms.date: 01/15/2019
 ms.assetid: be0c098a-1fb2-457e-b815-ddca601afc65
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 2b41b51de5fd6d87b9905ba2bb3ddf7cedb47e69
-ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
+ms.openlocfilehash: b513d7d86d382068bc1a8f1bcc61289ee946d38b
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54889840"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248309"
 ---
+<a name="handling-concurrency-with-the-entity-framework-6-in-an-aspnet-mvc-5-application-10-of-12"></a>Bir ASP.NET MVC 5 uygulamasında (10 12) Entity Framework 6 ile eşzamanlılığı işleme
+====================
+
 # <a name="tutorial-handle-concurrency-with-ef-in-an-aspnet-mvc-5-app"></a>Öğretici: Bir ASP.NET MVC 5 uygulamasında eşzamanlılık EF ile işleme
 
 Önceki öğreticilerde, verileri güncelleştirmek öğrendiniz. Bu öğreticide, iyimser eşzamanlılık birden çok kullanıcı aynı anda aynı varlık güncelleştirme çakışmaları işlemek için nasıl kullanılacağını gösterir. Çalışan web sayfalarını değiştirmesine `Department` varlık böylece bunlar eşzamanlılık hata işleme. Aşağıdaki çizimler bir eşzamanlılık çakışması ortaya çıkarsa, gösterilen bazı iletileri de dahil olmak üzere düzenleme ve silme sayfalar gösterir.
@@ -26,12 +29,14 @@ ms.locfileid: "54889840"
 
 Bu öğreticide şunları yaptınız:
 
+
 > [!div class="checklist"]
 > * Eşzamanlılık çakışmalarını hakkında bilgi edinin
 > * İyimser eşzamanlılık ekleme
 > * Departman denetleyicisini değiştirmek
 > * Test eşzamanlılığı işleme
 > * Silme sayfası
+
 
 ## <a name="prerequisites"></a>Önkoşullar
 

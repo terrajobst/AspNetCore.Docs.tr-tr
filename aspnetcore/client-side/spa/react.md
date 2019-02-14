@@ -2,26 +2,19 @@
 title: ASP.NET Core ile React proje şablonu kullanın
 author: SteveSandersonMS
 description: React ve oluşturma-react-uygulama için ASP.NET Core tek sayfa uygulama (SPA) proje şablonu ile çalışmaya başlama hakkında bilgi edinin.
-monikerRange: '>= aspnetcore-2.0'
+monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 02/21/2018
+ms.date: 02/13/2019
 uid: spa/react
-ms.openlocfilehash: d83bff8abcd5b59d8bc4a51a101510755394f0c4
-ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
+ms.openlocfilehash: aa08a9d8d06d8b52be564fabf904d4923684d4e4
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55667693"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248036"
 ---
 # <a name="use-the-react-project-template-with-aspnet-core"></a>ASP.NET Core ile React proje şablonu kullanın
-
-::: moniker range="= aspnetcore-2.0"
-
-> [!NOTE]
-> Bu belge hakkında React proje şablonu, ASP.NET Core 2.0 sürümünde dahil değildir. Bu, el ile güncelleştirebilirsiniz yeni React hakkında şablonudur. Şablon içinde ASP.NET Core 2.1 varsayılan olarak dahil edilir.
-
-::: moniker-end
 
 Güncelleştirilmiş React proje şablonu uygun bir başlama noktası ASP.NET Core için React kullanan uygulamalar sağlar ve [oluşturma-react-app](https://github.com/facebookincubator/create-react-app) (CRA) kuralları, istemci tarafı zengin kullanıcı arabirimi (UI) uygulamak için.
 
@@ -29,17 +22,7 @@ Güncelleştirilmiş React proje şablonu uygun bir başlama noktası ASP.NET Co
 
 ## <a name="create-a-new-app"></a>Yeni bir uygulama oluşturma
 
-::: moniker range="= aspnetcore-2.0"
-
-ASP.NET Core 2.0 kullanıyorsanız, seçtiğiniz olun [güncelleştirilmiş React proje şablonu yüklü](xref:spa/index#installation).
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.1"
-
 ASP.NET Core 2.1 yüklü varsa, React proje şablonu yüklemek için gerek yoktur.
-
-::: moniker-end
 
 Yeni Proje Oluştur komutunu kullanarak bir komut isteminden `dotnet new react` boş bir dizin içinde. Örneğin, aşağıdaki komutları uygulamada oluşturma bir *-yeni-Uygulamam* dizini ve bu dizine geçin:
 

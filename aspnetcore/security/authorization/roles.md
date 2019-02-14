@@ -5,12 +5,12 @@ description: Authorize özniteliği için rolleri geçirerek ASP.NET Core denetl
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/authorization/roles
-ms.openlocfilehash: 59753b90d3196b0bc16d4963f45b995f5108bc8b
-ms.sourcegitcommit: d99a8554c91f626cf5e466911cf504dcbff0e02e
+ms.openlocfilehash: 0467ea82831bffe6882e584930c2fa1212a244c7
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39356681"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248101"
 ---
 # <a name="role-based-authorization-in-aspnet-core"></a>ASP.NET core'da rol tabanlı yetkilendirme
 
@@ -108,7 +108,8 @@ public void ConfigureServices(IServiceCollection services)
 
     services.AddAuthorization(options =>
     {
-        options.AddPolicy("RequireAdministratorRole", policy => policy.RequireRole("Administrator"));
+        options.AddPolicy("RequireAdministratorRole",
+             policy => policy.RequireRole("Administrator"));
     });
 }
 ```
@@ -131,3 +132,9 @@ options.AddPolicy("ElevatedRights", policy =>
 ```
 
 Bu örnekte ait kullanıcılar yetkilendirir `Administrator`, `PowerUser` veya `BackupAdministrator` rolleri.
+
+### <a name="add-role-services-to-identity"></a>Kimlik için rol hizmetleri Ekle
+
+Append [ndeki](/dotnet/api/microsoft.aspnetcore.identity.identitybuilder.addroles#Microsoft_AspNetCore_Identity_IdentityBuilder_AddRoles__1) rol hizmetlerini eklemek için:
+
+[!code-csharp[](roles/samples/Startup.cs?name=snippet&highlight=7)]

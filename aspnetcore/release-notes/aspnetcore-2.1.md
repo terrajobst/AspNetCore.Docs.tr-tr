@@ -4,14 +4,14 @@ author: isaac2004
 description: ASP.NET Core 2.1 yeni özellikler hakkında bilgi edinin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/30/2018
+ms.date: 02/13/2019
 uid: aspnetcore-2.1
-ms.openlocfilehash: e16bb874f317b922f3900b540596f6ff38debb2f
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 8299af819f86d3d2371650ce3d87deb817f0feb8
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206841"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248179"
 ---
 # <a name="whats-new-in-aspnet-core-21"></a>ASP.NET Core 2.1 yenilikler nelerdir?
 
@@ -70,7 +70,7 @@ HTTPS kullanımı daha fazla zorunlu kullanarak [HTTP katı Aktarım güvenlik p
 
 Üretim ortamında, HTTPS açıkça yapılandırılmış olması gerekir. 2.1 içinde Kestrel HTTPS yapılandırmak için varsayılan yapılandırma şeması eklendi. Uygulamaları kullanmak için yapılandırılabilir:
 
-* URL'leri dahil olmak üzere birden fazla uç nokta. Daha fazla bilgi için [Kestrel web sunucusu uygulaması: uç nokta Yapılandırması](xref:fundamentals/servers/kestrel#endpoint-configuration).
+* URL'leri dahil olmak üzere birden fazla uç nokta. Daha fazla bilgi için [Kestrel web sunucusu uygulaması: Uç nokta Yapılandırması](xref:fundamentals/servers/kestrel#endpoint-configuration).
 * HTTPS disk üzerindeki bir dosyadan veya bir sertifika deposu için kullanılacak sertifika.
 
 ## <a name="gdpr"></a>GDPR
@@ -131,7 +131,7 @@ Daha fazla bilgi için [HTTP isteklerini başlatma](xref:fundamentals/http-reque
 
 ## <a name="kestrel-transport-configuration"></a>Kestrel'i aktarım yapılandırma
 
-ASP.NET Core 2.1 sürümünde Kestrel'ın varsayılan aktarım artık Libuv üzerinde temel ancak bunun yerine yönetilen yuvalarda göre. Daha fazla bilgi için [Kestrel web sunucusu uygulaması: aktarım yapılandırma](xref:fundamentals/servers/kestrel#transport-configuration).
+ASP.NET Core 2.1 sürümünde Kestrel'ın varsayılan aktarım artık Libuv üzerinde temel ancak bunun yerine yönetilen yuvalarda göre. Daha fazla bilgi için [Kestrel web sunucusu uygulaması: Aktarım yapılandırma](xref:fundamentals/servers/kestrel#transport-configuration).
 
 ## <a name="generic-host-builder"></a>Genel konak Oluşturucusu
 
@@ -144,7 +144,12 @@ Daha fazla bilgi için [.NET genel ana bilgisayar](xref:fundamentals/host/generi
 Tek sayfalı uygulama şablonları için Angular, React ve Redux ile React standart proje yapılarını kullanın ve her bir çerçeve için sistemleri oluşturmak için güncelleştirilir.
 
 Angular CLI Angular şablonu temel alır ve React şablonlar oluşturma react-uygulama temel alır.
-Daha fazla bilgi için [ASP.NET Core ile tek sayfalı uygulama şablonlarını kullanma](xref:spa/index).
+
+Daha fazla bilgi için bkz.:
+
+* <xref:spa/angular>
+* <xref:spa/react>
+* <xref:spa/react-with-redux>
 
 ## <a name="razor-pages-search-for-razor-assets"></a>Razor sayfaları için Razor varlıkları arama
 

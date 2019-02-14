@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/18/2018
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: c70363c9cff94a682553745aba7fd4e396721f4e
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: 4c7f2348b13207fb6f2ff830bbf67ffa30e5489c
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637683"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248244"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>ASP.NET Core uygulamalarını Azure App Service'e dağıtma
 
@@ -215,6 +215,10 @@ Kendi içinde uygulama dağıtırken:
 
 Güvenli protokol bağlamalar HTTPS üzerinden isteklerine yanıt verirken kullanmak üzere bir sertifika belirtin izin verir. Bağlama, geçerli özel sertifikaları gerektirir (*.pfx*) belirli ana bilgisayar adı için verilmiş. Daha fazla bilgi için [Öğreticisi: Azure Web Apps'e mevcut özel bir SSL sertifikası bağlama](/azure/app-service/app-service-web-tutorial-custom-ssl).
 
+## <a name="transform-webconfig"></a>Web.config Dönüştür
+
+Dönüştürmeniz gerekirse *web.config* (örneğin, ortam değişkenlerini ayarlama, yapılandırma, profili veya ortama göre), bkz: yayımlama sırasında <xref:host-and-deploy/iis/transform-webconfig>.
+
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Web Apps'e genel bakış (5 dakikalık genel bakış videosu)](/azure/app-service/app-service-web-overview)
@@ -226,7 +230,6 @@ Güvenli protokol bağlamalar HTTPS üzerinden isteklerine yanıt verirken kulla
 Windows Server üzerinde Azure App Service kullanan [Internet Information Services (IIS)](https://www.iis.net/). Aşağıdaki konular temel alınan IIS teknolojiye ilgilidir:
 
 * <xref:host-and-deploy/iis/index>
-* <xref:host-and-deploy/aspnet-core-module>
 * <xref:host-and-deploy/aspnet-core-module>
 * <xref:host-and-deploy/iis/modules>
 * [Microsoft TechNet Kitaplığı: Windows Server](/windows-server/windows-server-versions)

@@ -2,44 +2,27 @@
 title: ASP.NET Core ile Angular proje şablonu kullanın
 author: SteveSandersonMS
 description: ASP.NET Core tek sayfa uygulama (SPA) proje şablonu ile Angular ve Angular CLI'yi kullanmaya nasıl başlayacağınızı öğrenin.
-monikerRange: '>= aspnetcore-2.0'
-ms.author: scaddie
+monikerRange: '>= aspnetcore-2.1'
+ms.author: stevesa
 ms.custom: mvc
-ms.date: 02/21/2018
+ms.date: 02/13/2019
 uid: spa/angular
-ms.openlocfilehash: 8283fe9e96acb57942040dd4c90fabd204a19663
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 35a839e31369e8dbf00f5dbfb3751a2985335755
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49326049"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248127"
 ---
 # <a name="use-the-angular-project-template-with-aspnet-core"></a>ASP.NET Core ile Angular proje şablonu kullanın
-
-::: moniker range="= aspnetcore-2.0"
-
-> [!NOTE]
-> Bu belge hakkında Angular proje şablonu, ASP.NET Core 2.0 sürümünde yer almıyor. Bu, el ile güncelleştirebilirsiniz yeni Angular hakkında şablonudur. Şablon içinde ASP.NET Core 2.1 varsayılan olarak dahil edilir.
-
-::: moniker-end
 
 Güncelleştirilmiş Angular proje şablonu, Angular ve Angular CLI'yi zengin, istemci tarafı kullanıcı arabirimini (UI) kullanarak uygulamaları ASP.NET Core için uygun bir başlama noktası sağlar.
 
 Şablon, bir API arka ucu görev yapacak bir ASP.NET Core projesi ve bir kullanıcı Arabirimi görev yapacak bir Angular CLI'yi projesi oluşturmaya eşdeğerdir. Şablon iki proje türü tek bir uygulama projesinde barındırma kolaylık sunar. Sonuç olarak, uygulama projesi oluşturulabilen ve tek bir birim olarak yayımlandı.
 
-## <a name="create-a-new-app"></a>Yeni uygulama oluştur
-
-::: moniker range="= aspnetcore-2.0"
-
-ASP.NET Core 2.0 kullanıyorsanız, seçtiğiniz olun [güncelleştirilmiş Angular proje şablonu yüklü](xref:spa/index#installation).
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.1"
+## <a name="create-a-new-app"></a>Yeni bir uygulama oluşturma
 
 ASP.NET Core 2.1 yüklü varsa, Angular proje şablonu yüklemek için gerek yoktur.
-
-::: moniker-end
 
 Yeni Proje Oluştur komutunu kullanarak bir komut isteminden `dotnet new angular` boş bir dizin içinde. Örneğin, aşağıdaki komutları uygulamada oluşturma bir *-yeni-Uygulamam* dizini ve bu dizine geçin:
 
@@ -70,7 +53,7 @@ Now listening on: http://localhost:<port>
 
 Bir tarayıcıda bu URL'ye gidin.
 
-Uygulama arka planda Angular CLI'yi sunucusu olan bir örneğini başlatır. Aşağıdakine benzer bir ileti günlüğe kaydedilir: *Live geliştirme sunucu komut localhost üzerinde dinleme:&lt;otherport&gt;, tarayıcınızı açmak http://localhost:&lt; otherport&gt; /*  . Bu iletiyi yoksayın&mdash;sahip **değil** birleşik ASP.NET Core ve Angular CLI'yi app URL'si.
+Uygulama arka planda Angular CLI'yi sunucusu olan bir örneğini başlatır. Aşağıdakine benzer bir ileti günlüğe kaydedilir: *Live geliştirme sunucu komut localhost üzerinde dinleme:&lt;otherport&gt;, tarayıcınızı açmak http://localhost:&lt; otherport&gt;/*. Bu iletiyi yoksayın&mdash;sahip **değil** birleşik ASP.NET Core ve Angular CLI'yi app URL'si.
 
 ---
 

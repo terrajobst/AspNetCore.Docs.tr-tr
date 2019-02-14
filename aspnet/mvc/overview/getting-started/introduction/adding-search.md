@@ -4,26 +4,36 @@ title: Arama | Microsoft Docs
 author: Rick-Anderson
 description: ''
 ms.author: riande
-ms.date: 05/22/2015
+ms.date: 01/17/2019
 ms.assetid: df001954-18bf-4550-b03d-43911a0ea186
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-search
 msc.type: authoredcontent
-ms.openlocfilehash: 31fd35ac63f3eb31d824e1710833ad83a0852ac9
-ms.sourcegitcommit: a91e8dd2f4b788114c8bc834507277f4b5e8d6c5
+ms.openlocfilehash: ada125c917656f3a83524ff39e53b4cfc041a497
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55712269"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248387"
 ---
 <a name="search"></a>Ara
 ====================
-Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 [!INCLUDE [Tutorial Note](sample/code-location.md)]
 
 ## <a name="adding-a-search-method-and-search-view"></a>Bir arama yöntemi ve arama görünümü ekleme
 
 Bu bölümde, arama özelliği ekleyeceksiniz `Index` olanak sağlayan bir eylem yöntemi filmler Tarz veya adı arayın.
+
+## <a name="prerequisites"></a>Önkoşullar
+
+Bu bölümün ekran görüntüleri eşleştirmek için uygulamayı (F5) çalıştırın ve aşağıdaki filmler veritabanına eklenmesi gerekir.
+
+| Başlık | Yayınlanma Tarihi | Tarzı | Fiyat |
+| ----- | ------------ | ----- | ----- |
+| Ghostbusters | 6/8/1984 | Komedi | 6.99 |
+| Ghostbusters II | 6/16/1989 | Komedi | 6.99 |
+| Apes, çok büyük | 3/27/1986 | Eylem | 5.99 |
+
 
 ## <a name="updating-the-index-form"></a>Dizin formun güncelleştiriliyor
 
@@ -68,7 +78,7 @@ Arama başlığı olarak bir sorgu dizesi değeri olarak rota verilerini (URL ke
 
 ![](adding-search/_static/image2.png)
 
-Ancak, bunlar bir filmi için arama yapmak istediğiniz her zaman URL'sini değiştirmek için kullanıcıların beklediğiniz olamaz. Artık, yardımcı olmak için kullanıcı Arabirimi ekleyeceksiniz filmler filtreleyebilirsiniz. İmzası değiştirdiyseniz `Index` metodu rota bağlı ID parametresine geçirilecek nasıl test etmek için değiştirme geri böylece, `Index` yöntemi adlı bir dize parametresi alır `searchString`:
+Ancak, bunlar bir filmi için arama yapmak istediğiniz her zaman URL'sini değiştirmek için kullanıcıların beklediğiniz olamaz. Şimdi, filmler filtre yardımcı olmak için kullanıcı Arabirimi ekleyeceksiniz. İmzası değiştirdiyseniz `Index` metodu rota bağlı ID parametresine geçirilecek nasıl test etmek için değiştirme geri böylece, `Index` yöntemi adlı bir dize parametresi alır `searchString`:
 
 [!code-csharp[Main](adding-search/samples/sample7.cs)]
 
@@ -120,7 +130,7 @@ Tüm türleri veritabanından alır bir LINQ Sorgu kodudur.
 
 [!code-csharp[Main](adding-search/samples/sample12.cs)]
 
-Kod `AddRange` genel yöntemini `List` farklı türleri listesine eklemek için koleksiyonu. (Olmadan `Distinct` değiştiricisi, yinelenen tür eklenecek — Örneğin, iki kez örneğimizi Komedi eklenir). Kod içinde türleri listesini ardından depolar `ViewBag.MovieGenre` nesne. Kategori veri (böyle bir film türe ait) olarak depolama bir [SelectList](https://msdn.microsoft.cus/library/system.web.mvc.selectlist(v=vs.108).aspx) nesnesine bir `ViewBag`, MVC uygulamaları için tipik bir yaklaşım ise bir açılan liste kutusunda kategori verilere erişme.
+Kod `AddRange` genel yöntemini `List` farklı türleri listesine eklemek için koleksiyonu. (Olmadan `Distinct` değiştiricisi, yinelenen tür eklenecek — Örneğin, iki kez örneğimizi Komedi eklenir). Kod içinde türleri listesini ardından depolar `ViewBag.MovieGenre` nesne. (Bu tür bir film türleri) kategori verilerinizi depolamanıza bir [SelectList](https://msdn.microsoft.cus/library/system.web.mvc.selectlist(v=vs.108).aspx) nesnesine bir `ViewBag`, MVC uygulamaları için tipik bir yaklaşım ise bir açılan liste kutusunda kategori verilere erişme.
 
 Aşağıdaki kod nasıl kontrol edileceğini göstermektedir `movieGenre` parametresi. Boş değilse, belirtilen türe seçili film sınırlamak için filmler sorgu kodu daha ayrıntılı kısıtlar.
 

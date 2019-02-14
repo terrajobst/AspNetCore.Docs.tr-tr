@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/22/2019
 uid: host-and-deploy/visual-studio-publish-profiles
-ms.openlocfilehash: 03acaa73fc2ebdc62522a1e081ca6ed72515483f
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: e1e8f99be18d6f395a146bda805f71c46cd0346d
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54836499"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248361"
 ---
 # <a name="visual-studio-publish-profiles-for-aspnet-core-app-deployment"></a>Visual Studio yayımlama profilleri için ASP.NET Core uygulaması dağıtımı
 
@@ -347,6 +347,8 @@ Dahil `<EnvironmentName>` yayımlama profilini özelliğinde (*.pubxml*) veya uy
 </PropertyGroup>
 ```
 
+Gerektiriyorsa *web.config* Dönüşümleri (yapılandırma, profili veya ortama göre örneğin, ortam değişkenlerini ayarlama), bkz: <xref:host-and-deploy/iis/transform-webconfig>.
+
 ## <a name="exclude-files"></a>Dosyaları dışarıda bırak
 
 ASP.NET Core web uygulamaları, yapılar ve içeriğini yayımlarken *wwwroot* klasörü dahil edilir. `msbuild` destekleyen [Glob desenlerinin](https://gruntjs.com/configuring-tasks#globbing-patterns). Örneğin, aşağıdaki `<Content>` öğesi hariç tüm metni (*.txt*) dosyalarını *wwwroot/içerik* klasör ve tüm alt klasörleri.
@@ -521,3 +523,4 @@ Seçin [hata ayıklama konsolunu](https://github.com/projectkudu/kudu/wiki/Kudu-
 * [Web Deploy](https://www.iis.net/downloads/microsoft/web-deploy) web uygulamaları ve IIS sunucuları için Web siteleri dağıtımı (MSDeploy) basitleştirir.
 * [https://github.com/aspnet/websdk](https://github.com/aspnet/websdk/issues): Dosya sorunları ve istek için dağıtım özellikleri.
 * [Visual Studio'dan Azure VM için bir ASP.NET Web uygulaması yayımlama](/azure/virtual-machines/windows/publish-web-app-from-visual-studio)
+* <xref:host-and-deploy/iis/transform-webconfig>

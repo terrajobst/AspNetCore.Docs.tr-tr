@@ -4,17 +4,17 @@ title: 'Öğretici: EF veritabanı MVC 5 kullanarak First ile çalışmaya başl
 description: Bu öğreticide, başlama mevcut bir veritabanı ve hızlı bir şekilde kullanıcıların verilerle etkileşime olanak sağlayan bir web uygulaması oluşturma gösterilmektedir.
 author: Rick-Anderson
 ms.author: riande
-ms.date: 01/28/2019
+ms.date: 01/15/2019
 ms.topic: tutorial
 ms.assetid: 095abad4-3bfe-4f06-b092-ae6a735b7e49
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/setting-up-database
 msc.type: authoredcontent
-ms.openlocfilehash: dfc6c7a7083524a1e7049fdc879fe679f951084d
-ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
+ms.openlocfilehash: d99fdb5382037038d4428ff1946f39aee380fb75
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55667745"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248231"
 ---
 # <a name="tutorial-get-started-with-ef-database-first-using-mvc-5"></a>Öğretici: EF veritabanı MVC 5 kullanarak First ile çalışmaya başlama
 
@@ -33,17 +33,16 @@ Bu öğreticide şunları yaptınız:
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)
+[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
 
-## <a name="introduction"></a>Giriş
-
-Bu öğreticide, bir veritabanına sahip ve bu veritabanının alanlara göre bir web uygulaması için kod oluşturmak istediğiniz durumu ele alır. Bu yaklaşım, ilk veritabanı geliştirme adı verilir. Mevcut bir veritabanı zaten yoksa, bunun yerine veri sınıfları tanımlama ve veritabanı oluşturma sınıfı özelliklerinden içerir Code First geliştirme olarak adlandırılan bir yaklaşımı kullanabilirsiniz.
 
 ## <a name="set-up-the-database"></a>Veritabanı ayarlama
 
 Mevcut bir veritabanına sahip olmanın ortamınızın benzetimini yapmak için önce önceden doldurulmuş bazı verilerle bir veritabanı oluşturun ve ardından veritabanına bağlanan web uygulamanızı oluşturma.
 
-Bu öğreticide, LocalDB kullanımıyla geliştirilmiştir. LocalDB yerine mevcut bir veritabanı sunucusunu kullanabilirsiniz, ancak Visual Studio ve veritabanı türüne, sürümüne bağlı olarak, tüm Visual Studio veri Araçları'nın desteklenmiyor. Araçları, veritabanı için mevcut değilse, veritabanınız için bazı yönetim paketi içinde veritabanı özgü adımlarını gerçekleştirmek gerekebilir.
+
+Bu öğreticide, LocalDB ile Visual Studio 2017 kullanılarak geliştirilmiştir. LocalDB yerine mevcut bir veritabanı sunucusunu kullanabilirsiniz, ancak Visual Studio ve veritabanı türüne, sürümüne bağlı olarak, tüm Visual Studio veri Araçları'nın desteklenmiyor. Araçları, veritabanı için mevcut değilse, veritabanınız için bazı yönetim paketi içinde veritabanı özgü adımlarını gerçekleştirmek gerekebilir.
+
 
 Visual Studio sürümünde veritabanı araçları ile ilgili bir sorun varsa, Veritabanı Araçları'nın en son sürümünü yüklediğinizden emin olun. Güncelleştirme veya veritabanı araçlarını yükleme hakkında daha fazla bilgi için bkz: [Microsoft SQL Server veri Araçları](https://msdn.microsoft.com/data/hh297027).
 

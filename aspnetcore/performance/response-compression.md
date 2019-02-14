@@ -5,14 +5,14 @@ description: Yanıt sıkıştırma ve ASP.NET Core uygulamalarında yanıt sık�
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 02/13/2019
 uid: performance/response-compression
-ms.openlocfilehash: a9f72a6816298b11e7b7d30b2b4bd44083baab3a
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: e87480ebb81791ed233f3e2308e35e21e081824f
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54099045"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248374"
 ---
 # <a name="response-compression-in-aspnet-core"></a>ASP.NET core'da yanıt sıkıştırma
 
@@ -143,7 +143,7 @@ public class Startup
 }
 ```
 
-Notlar: 
+Notlar:
 
 * `app.UseResponseCompression` önce çağrılmalıdır `app.UseMvc`.
 * Gibi bir araç kullanın [Fiddler](http://www.telerik.com/fiddler), [Firebug](http://getfirebug.com/), veya [Postman](https://www.getpostman.com/) ayarlanacak `Accept-Encoding` istek üst bilgisi ve yanıt üstbilgileri, boyutu ve gövde çalışın.
@@ -174,7 +174,7 @@ Notlar:
 
 ### <a name="brotli-compression-provider"></a>Brotli sıkıştırma sağlayıcısı
 
-Kullanım `BrotliCompressionProvider` ile yanıtları sıkıştırma [Brotli sıkıştırılmış veri biçimi](https://tools.ietf.org/html/rfc7932).
+Kullanım <xref:Microsoft.AspNetCore.ResponseCompression.BrotliCompressionProvider> ile yanıtları sıkıştırma [Brotli sıkıştırılmış veri biçimi](https://tools.ietf.org/html/rfc7932).
 
 Sıkıştırma yok sağlayıcıları için açıkça eklenirse <xref:Microsoft.AspNetCore.ResponseCompression.CompressionProviderCollection>:
 
@@ -190,22 +190,9 @@ public void ConfigureServices(IServiceCollection services)
 
 Tüm sıkıştırmasını sağlayıcıları açıkça eklendiğinde Brotoli sıkıştırma sağlayıcının eklenmesi gerekir:
 
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddResponseCompression(options =>
-    {
-        options.Providers.Add<BrotliCompressionProvider>();
-        options.Providers.Add<GzipCompressionProvider>();
-        options.Providers.Add<CustomCompressionProvider>();
-        options.MimeTypes = 
-            ResponseCompressionDefaults.MimeTypes.Concat(
-                new[] { "image/svg+xml" });
-    });
-}
-```
+[!code-csharp[](response-compression/samples/2.x/Startup.cs?name=snippet1&highlight=5)]
 
-Sıkıştırma düzeyi ile ayarlanmış `BrotliCompressionProviderOptions`. Brotli sıkıştırma sağlayıcısı varsayılan olarak en hızlı sıkıştırma düzeyini ([CompressionLevel.Fastest](xref:System.IO.Compression.CompressionLevel)), hangi değil üretebilir en verimli sıkıştırma. En verimli sıkıştırma isterseniz, ara yazılım en iyi sıkıştırma için yapılandırın.
+Sıkıştırma düzeyi ile ayarlanmış <xref:Microsoft.AspNetCore.ResponseCompression.BrotliCompressionProviderOptions>. Brotli sıkıştırma sağlayıcısı varsayılan olarak en hızlı sıkıştırma düzeyini ([CompressionLevel.Fastest](xref:System.IO.Compression.CompressionLevel)), hangi değil üretebilir en verimli sıkıştırma. En verimli sıkıştırma isterseniz, ara yazılım en iyi sıkıştırma için yapılandırın.
 
 | Sıkıştırma düzeyi | Açıklama |
 | ----------------- | ----------- |
@@ -258,30 +245,11 @@ Gzip sıkıştırma sağlayıcısı herhangi sıkıştırmasını sağlayıcıla
 
 ::: moniker range=">= aspnetcore-2.2"
 
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddResponseCompression(options =>
-    {
-        options.Providers.Add<BrotliCompressionProvider>();
-        options.Providers.Add<GzipCompressionProvider>();
-        options.Providers.Add<CustomCompressionProvider>();
-        options.MimeTypes = 
-            ResponseCompressionDefaults.MimeTypes.Concat(
-                new[] { "image/svg+xml" });
-    });
-}
-```
+[!code-csharp[](response-compression/samples/2.x/Startup.cs?name=snippet1&highlight=6)]
 
 ::: moniker-end
 
-::: moniker range="= aspnetcore-2.0 || aspnetcore-2.1"
-
-[!code-csharp[](response-compression/samples/2.x/Startup.cs?name=snippet1&highlight=5)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
+::: moniker range="< aspnetcore-2.2"
 
 [!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=5)]
 
@@ -315,48 +283,15 @@ public void ConfigureServices(IServiceCollection services)
 
 ::: moniker range=">= aspnetcore-2.2"
 
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddResponseCompression(options =>
-    {
-        options.Providers.Add<BrotliCompressionProvider>();
-        options.Providers.Add<GzipCompressionProvider>();
-        options.Providers.Add<CustomCompressionProvider>();
-        options.MimeTypes = 
-            ResponseCompressionDefaults.MimeTypes.Concat(
-                new[] { "image/svg+xml" });
-    });
-}
-```
-
-```csharp
-public class CustomCompressionProvider : ICompressionProvider
-{
-    public string EncodingName => "mycustomcompression";
-    public bool SupportsFlush => true;
-
-    public Stream CreateStream(Stream outputStream)
-    {
-        // Create a custom compression stream wrapper here
-        return outputStream;
-    }
-}
-```
-
-::: moniker-end
-
-::: moniker range="= aspnetcore-2.0 || aspnetcore-2.1"
-
-[!code-csharp[](response-compression/samples/2.x/Startup.cs?name=snippet1&highlight=6,12-15)]
+[!code-csharp[](response-compression/samples/2.x/Startup.cs?name=snippet1&highlight=7)]
 
 [!code-csharp[](response-compression/samples/2.x/CustomCompressionProvider.cs?name=snippet1)]
 
 ::: moniker-end
 
-::: moniker range="< aspnetcore-2.0"
+::: moniker range="< aspnetcore-2.2"
 
-[!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=6,12-15)]
+[!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=6)]
 
 [!code-csharp[](response-compression/samples/1.x/CustomCompressionProvider.cs?name=snippet1)]
 
@@ -383,30 +318,11 @@ Yanıt sıkıştırma ara yazılımı seçenekleri MIME türleri ekleyin veya de
 
 ::: moniker range=">= aspnetcore-2.2"
 
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddResponseCompression(options =>
-    {
-        options.Providers.Add<BrotliCompressionProvider>();
-        options.Providers.Add<GzipCompressionProvider>();
-        options.Providers.Add<CustomCompressionProvider>();
-        options.MimeTypes = 
-            ResponseCompressionDefaults.MimeTypes.Concat(
-                new[] { "image/svg+xml" });
-    });
-}
-```
+[!code-csharp[](response-compression/samples/2.x/Startup.cs?name=snippet1&highlight=8-10)]
 
 ::: moniker-end
 
-::: moniker range="= aspnetcore-2.0 || aspnetcore-2.1"
-
-[!code-csharp[](response-compression/samples/2.x/Startup.cs?name=snippet1&highlight=7-9)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
+::: moniker range="< aspnetcore-2.2"
 
 [!code-csharp[](response-compression/samples/1.x/Startup.cs?name=snippet2&highlight=7-9)]
 
@@ -467,6 +383,6 @@ Gibi bir araç kullanın [Fiddler](https://www.telerik.com/fiddler), [Firebug](h
 * <xref:fundamentals/startup>
 * <xref:fundamentals/middleware/index>
 * [Mozilla Geliştirici ağ: Kabul kodlama](https://developer.mozilla.org/docs/Web/HTTP/Headers/Accept-Encoding)
-* [RFC 7231 bölüm 3.1.2.1: İçerik Codings](https://tools.ietf.org/html/rfc7231#section-3.1.2.1)
+* [RFC 7231 bölüm 3.1.2.1: Content Codings](https://tools.ietf.org/html/rfc7231#section-3.1.2.1)
 * [RFC 7230 bölüm 4.2.3: Gzip kodlama](https://tools.ietf.org/html/rfc7230#section-4.2.3)
 * [GZIP dosyası biçim belirtimi sürümü 4.3](http://www.ietf.org/rfc/rfc1952.txt)

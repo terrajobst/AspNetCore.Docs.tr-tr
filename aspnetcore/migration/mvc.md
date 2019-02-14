@@ -3,14 +3,14 @@ title: ASP.NET Core MVC için ASP.NET MVC ' geçiş
 author: ardalis
 description: Bir ASP.NET MVC projesi için ASP.NET Core MVC geçişini kullanmaya nasıl başlayacağınızı öğrenin.
 ms.author: riande
-ms.date: 03/07/2017
+ms.date: 02/13/2019
 uid: migration/mvc
-ms.openlocfilehash: 7c9d927bbd06f96f130d53e946a2963b5804960b
-ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
+ms.openlocfilehash: 2ca51a145243444722ad8081fd8cdbb65d72b53a
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51505745"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248049"
 ---
 # <a name="migrate-from-aspnet-mvc-to-aspnet-core-mvc"></a>ASP.NET Core MVC için ASP.NET MVC ' geçiş
 
@@ -29,7 +29,7 @@ Yükseltme göstermek için bir ASP.NET MVC uygulaması oluşturarak başlayaca�
 
 ![Yeni Web uygulaması iletişim kutusu: ASP.NET şablonları panelinde seçili MVC proje şablonu](mvc/_static/new-project-select-mvc-template.png)
 
-*İsteğe bağlı:* çözümden adını değiştirmek *WebApp1* için *Mvc5*. Visual Studio yeni çözüm adını görüntüler (*Mvc5*), kolaylaştırır bu projeyi bir sonraki projenizde söylemek.
+*İsteğe bağlı:* Çözüm adını değiştirmek *WebApp1* için *Mvc5*. Visual Studio yeni çözüm adını görüntüler (*Mvc5*), kolaylaştırır bu projeyi bir sonraki projenizde söylemek.
 
 ## <a name="create-the-aspnet-core-project"></a>ASP.NET Core projesi oluşturma
 
@@ -39,7 +39,7 @@ Yeni bir *boş* önceki projeyle aynı ada sahip bir ASP.NET Core web uygulamas�
 
 ![Yeni ASP.NET Web uygulaması iletişim kutusu: ASP.NET Core şablonları panelinde seçili boş proje şablonu](mvc/_static/new-project-select-empty-aspnet5-template.png)
 
-* *İsteğe bağlı:* kullanarak yeni bir ASP.NET Core uygulaması oluşturma *Web uygulaması* proje şablonu. Projeyi adlandırın *WebApp1*ve bir kimlik doğrulama seçeneği işaretleyin **bireysel kullanıcı hesapları**. Bu uygulamayı yeniden adlandır *FullAspNetCore*. Size zaman kazandırır proje dönüştürme oluşturuluyor. Şablon tarafından oluşturulan kodu sonuç görmek için veya dönüştürme projeye kodu kopyalamak göz atabilirsiniz. Şablon tarafından oluşturulan proje ile karşılaştırılacak bir dönüştürme adımında takılı kalarak olduğunda da yararlıdır.
+* *İsteğe bağlı:* Yeni bir ASP.NET Core uygulamasını kullanarak oluşturma *Web uygulaması* proje şablonu. Projeyi adlandırın *WebApp1*ve bir kimlik doğrulama seçeneği işaretleyin **bireysel kullanıcı hesapları**. Bu uygulamayı yeniden adlandır *FullAspNetCore*. Size zaman kazandırır proje dönüştürme oluşturuluyor. Şablon tarafından oluşturulan kodu sonuç görmek için veya dönüştürme projeye kodu kopyalamak göz atabilirsiniz. Şablon tarafından oluşturulan proje ile karşılaştırılacak bir dönüştürme adımında takılı kalarak olduğunda da yararlıdır.
 
 ## <a name="configure-the-site-to-use-mvc"></a>Siteyi MVC kullanacak şekilde yapılandırma
 
@@ -149,7 +149,7 @@ ASP.NET MVC eski proje kullandığı [önyükleme](https://getbootstrap.com/) ö
 
 * Oluşturma bir *görünümler/paylaşılan* klasör.
 
-* *İsteğe bağlı:* kopyalama *_viewımports.cshtml* gelen *FullAspNetCore* MVC projenin *görünümleri* ASP.NET Core proje klasörüne  *Görünümleri* klasör. Herhangi bir ad alanı bildiriminde kaldırmak *_viewımports.cshtml* dosya. *_Viewımports.cshtml* dosya ad alanları için tüm görünüm dosyaları sağlar ve getirdiği [etiket Yardımcıları](xref:mvc/views/tag-helpers/intro). Etiket Yardımcıları yeni bir düzen dosyasında kullanılır. *_Viewımports.cshtml* dosya ASP.NET Core için yenidir.
+* *İsteğe bağlı:* Kopyalama *_viewımports.cshtml* gelen *FullAspNetCore* MVC projenin *görünümleri* ASP.NET Core proje klasörüne *görünümleri* klasör. Herhangi bir ad alanı bildiriminde kaldırmak *_viewımports.cshtml* dosya. *_Viewımports.cshtml* dosya ad alanları için tüm görünüm dosyaları sağlar ve getirdiği [etiket Yardımcıları](xref:mvc/views/tag-helpers/intro). Etiket Yardımcıları yeni bir düzen dosyasında kullanılır. *_Viewımports.cshtml* dosya ASP.NET Core için yenidir.
 
 * Kopyalama *_Layout.cshtml* eski ASP.NET MVC proje dosyasından *görünümler/paylaşılan* ASP.NET Core proje klasörüne *görünümler/paylaşılan* klasör.
 
@@ -188,7 +188,7 @@ Güncelleştirilmiş *_Layout.cshtml* dosya aşağıda gösterilmektedir:
 
 Site tarayıcıda görüntüleme. Bunu artık doğru yerde beklenen stilleri ile yüklemeniz gerekir.
 
-* *İsteğe bağlı:* yeni Düzen dosyası kullanarak denemek isteyebilirsiniz. Bu proje için Düzen dosyasından kopyalayabilirsiniz *FullAspNetCore* proje. Yeni düzen dosyası kullanan [etiket Yardımcıları](xref:mvc/views/tag-helpers/intro) ve diğer iyileştirmeler yapılmıştır.
+* *İsteğe bağlı:* Yeni düzen dosyası kullanarak denemek isteyebilirsiniz. Bu proje için Düzen dosyasından kopyalayabilirsiniz *FullAspNetCore* proje. Yeni düzen dosyası kullanan [etiket Yardımcıları](xref:mvc/views/tag-helpers/intro) ve diğer iyileştirmeler yapılmıştır.
 
 ## <a name="configure-bundling-and-minification"></a>Paketleme ve küçültme yapılandırın
 
@@ -204,5 +204,5 @@ ASP.NET Core web uygulamasında işlenmeyen özel durumları HTTP 500 hata yanı
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [İstemci tarafı geliştirme](xref:client-side/index)
-* [Etiket Yardımcıları](xref:mvc/views/tag-helpers/intro)
+* <xref:razor-components/index>
+* <xref:mvc/views/tag-helpers/intro>
