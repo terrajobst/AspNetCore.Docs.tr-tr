@@ -416,28 +416,6 @@ items:
       href: /azure/vs-storage-aspnet5-getting-started-tables/
 - name: İstemci tarafı geliştirme
   items:
-  - uid: client-side/index
-    name: Genel Bakış
-  - uid: client-side/using-gulp
-    name: Gulp
-  - uid: client-side/using-grunt
-    name: Grunt
-  - name: LibMan
-    items:
-    - uid: client-side/libman/index
-      name: Genel Bakış
-    - uid: client-side/libman/libman-cli
-      name: CLI
-    - uid: client-side/libman/libman-vs
-      name: Visual Studio
-  - uid: client-side/bower
-    name: Bower
-  - uid: client-side/less-sass-fa
-    name: LESS, Sass ve Font Awesome
-  - uid: client-side/bundling-and-minification
-    name: Paketleme ve küçültme
-  - uid: client-side/using-browserlink
-    name: Tarayıcı Bağlantısı
   - name: Razor Bileşenleri
     items:
     - uid: razor-components/index
@@ -470,8 +448,36 @@ items:
         name: Bağlayıcıyı yapılandırma
   - name: Tek Sayfalı Uygulamalar
     items:
-    - uid: spa/index
-      name: Genel Bakış
+    - name: Blazor
+      items:
+      - uid: spa/blazor/index
+        name: Genel Bakış
+      - uid: spa/blazor/get-started
+        name: Kullanmaya başlayın
+      - uid: tutorials/first-razor-components-app
+        name: İlk uygulamanızı oluşturma
+      - uid: razor-components/components
+        name: Bileşenler
+      - uid: razor-components/class-libraries
+        name: Bileşen kitaplıkları
+      - uid: razor-components/layouts
+        name: Düzenler
+      - uid: razor-components/dependency-injection
+        name: Bağımlılık ekleme
+      - uid: razor-components/routing
+        name: Yönlendirme
+      - uid: razor-components/javascript-interop
+        name: JavaScript ile birlikte çalışma
+      - uid: razor-components/debug
+        name: Hata ayıklama
+      - uid: razor-components/hosting-models
+        name: Barındırma modelleri
+      - name: Barındırma ve dağıtma
+        items:
+        - uid: host-and-deploy/razor-components/index
+          name: Genel Bakış
+        - uid: host-and-deploy/razor-components/configure-linker
+          name: Bağlayıcıyı yapılandırma
     - uid: spa/angular
       name: Angular
     - uid: spa/react
@@ -480,6 +486,26 @@ items:
       name: Redux ile React
     - uid: client-side/spa-services
       name: JavaScriptServices
+  - name: LibMan
+    items:
+    - uid: client-side/libman/index
+      name: Genel Bakış
+    - uid: client-side/libman/libman-cli
+      name: CLI
+    - uid: client-side/libman/libman-vs
+      name: Visual Studio
+  - uid: client-side/using-gulp
+    name: Gulp
+  - uid: client-side/using-grunt
+    name: Grunt
+  - uid: client-side/bower
+    name: Bower
+  - uid: client-side/less-sass-fa
+    name: LESS, Sass ve Font Awesome
+  - uid: client-side/bundling-and-minification
+    name: Paketleme ve küçültme
+  - uid: client-side/using-browserlink
+    name: Tarayıcı Bağlantısı
 - name: Barındırma ve dağıtım
   items:
   - uid: host-and-deploy/index
@@ -852,9 +878,9 @@ items:
   href: /dotnet/api/?view=aspnetcore-2.2
 - name: Katkıda Bulun
   href: https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md
-ms.openlocfilehash: 202bb46df6692e84e8abcefbd333abf3a3fafb7f
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: 7c9baf2a9e3a800ff9abfcb757ffde039d49a9a4
+ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103143"
+ms.locfileid: "56159548"
