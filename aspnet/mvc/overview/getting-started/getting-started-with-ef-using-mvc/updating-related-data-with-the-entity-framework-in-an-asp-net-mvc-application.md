@@ -4,18 +4,22 @@ title: 'Öğretici: Bir ASP.NET MVC uygulamasında EF ile ilgili verileri günce
 description: Bu öğreticide ilgili verileri güncelleştirin. Çoğu ilişki için bu yabancı anahtar alanları veya gezinti özelliklerini güncelleştirerek yapılabilir.
 author: tdykstra
 ms.author: riande
-ms.date: 01/17/2019
+ms.date: 01/19/2019
 ms.topic: tutorial
 ms.assetid: 7ba88418-5d0a-437d-b6dc-7c3816d4ec07
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: daefbcea39dc341c6fc72eb344b05eb2dbf0c3ba
-ms.sourcegitcommit: d5223cf6a2cf80b4f5dc54169b0e376d493d2d3a
+ms.openlocfilehash: 1ef4242ff3bd1dd86f4d58bd04ba08e8b90fdaa4
+ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54889853"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56248283"
 ---
+<a name="updating-related-data-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Bir ASP.NET MVC uygulamasındaki Entity Framework ile ilgili verileri güncelleştirme
+====================
+
+
 # <a name="tutorial-update-related-data-with-ef-in-an-aspnet-mvc-app"></a>Öğretici: Bir ASP.NET MVC uygulamasında EF ile ilgili verileri güncelleştirme
 
 Önceki öğreticide ilgili verileri görüntülenir. Bu öğreticide ilgili verileri güncelleştirin. Çoğu ilişki için bu yabancı anahtar alanları veya gezinti özelliklerini güncelleştirerek yapılabilir. Varlıklar için ve uygun Gezinti özelliklerinden ekleyip şekilde çoktan çoğa ilişkiler için Entity Framework birleşim tablosundan doğrudan ortaya çıkarmıyor.
@@ -124,9 +128,12 @@ Değiştirin `HttpPost` `Edit` yöntemini aşağıdaki kod ile. hangi office ata
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample11.cs)]
 
-Başvuru `RetryLimitExceededException` gerektiren bir `using` deyimi. Eklemek için üzerine `RetryLimitExceededException`. Sorun açıklaması görünür. Seçin **olası düzeltmeleri göster** ve ardından **System.Data.Entity.Infrastructure; kullanarak**.
+Başvuru `RetryLimitExceededException` gerektiren bir `using` ekleyin-fareyi üzerine deyimi; `RetryLimitExceededException`. Aşağıdaki ileti görünür: ![ Özel durum iletisi yeniden deneyin](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image13.png)
 
-![Yeniden deneme özel durumu çözümleyin](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image7.png)
+
+Seçin **potentital düzeltmeleri göster**, ardından **System.Data.Entity.Infrastructure kullanma**
+
+![Yeniden deneme özel durumu çözümleyin](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image14.png)
 
 Kod şunları yapar:
 

@@ -5,7 +5,7 @@ ASP.NET Core aşağıdaki avantajları sağlar:
 * [Razor sayfaları](xref:razor-pages/index) kodlama sayfa odaklı senaryolar daha kolay ve daha verimli hale getirir.
 * Geliştirme ve Windows, macOS ve Linux üzerinde çalıştırma olanağı.
 * Açık kaynak ve [topluluk odaklı](https://live.asp.net/).
-* [Modern istemci tarafı çerçeveler](xref:client-side/index) ile geliştirme iş akışlarının tümleştirilmesi.
+* [Modern istemci tarafı çerçeveler](xref:razor-components/index) ile geliştirme iş akışlarının tümleştirilmesi.
 * Bulutta kullanıma hazır, ortam tabanlı bir [yapılandırma sistemi](xref:fundamentals/configuration/index).
 * Yerleşik [bağımlılık ekleme](xref:fundamentals/dependency-injection).
 * Basit, [yüksek performanslı](https://github.com/aspnet/benchmarks) ve modüler bir HTTP istek işlem hattı.
