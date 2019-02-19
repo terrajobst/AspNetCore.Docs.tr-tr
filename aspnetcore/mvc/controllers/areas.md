@@ -5,12 +5,12 @@ description: Alanlar (yönlendirme için) ayrı bir ad ve klasör yapısını (i
 ms.author: riande
 ms.date: 02/14/2017
 uid: mvc/controllers/areas
-ms.openlocfilehash: b78bb5146f1ab9039fa9ff015471654510718ed6
-ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
+ms.openlocfilehash: 19e818fa198936ea1bee0da8039e88a3c0abbf6b
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43312224"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410618"
 ---
 # <a name="areas-in-aspnet-core"></a>ASP.NET core'da alanları
 
@@ -38,40 +38,24 @@ Alan özellikleri:
 
 * Farklı sahip oldukları sürece aynı ada sahip birden çok denetleyicileri destek alanları *alanları*.
 
-Alanlarını nasıl oluşturulduğunu ve kullanılan göstermek için örnek bir göz atalım. İki ayrı gruplandırmaları görünümleri ve denetleyicileri içeren bir mağaza uygulaması sahip düşünelim: Ürün ve Hizmetleri. Tipik bir klasör yapısı için MVC alanlara kullanarak aşağıda benzer olduğunu:
+Alanlarını nasıl oluşturulduğunu ve kullanılan göstermek için örnek bir göz atalım. İki ayrı gruplandırmaları görünümleri ve denetleyicileri içeren bir mağazası uygulamanız varsa varsayalım: Ürün ve Hizmetleri. Tipik bir klasör yapısı için MVC alanlara kullanarak aşağıda benzer olduğunu:
 
 * Proje adı
-
-  * Alanları
-
+  * Alanlar
     * Ürünler
-
       * Denetleyiciler
-
         * HomeController.cs
-
         * ManageController.cs
-
       * Görünümler
-
         * Ana Sayfası
-
           * Index.cshtml
-
         * yönetme
-
           * Index.cshtml
-
     * Hizmetler
-
       * Denetleyiciler
-
         * HomeController.cs
-
       * Görünümler
-
         * Ana Sayfası
-
           * Index.cshtml
 
 Varsayılan olarak bir alanda görünüm işlemek MVC çalıştığında, aşağıdaki konumlarda aramak çalışır:

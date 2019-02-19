@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/11/2019
 uid: spa/blazor/index
-ms.openlocfilehash: 0d22365701a4fc1857582c13459280e50d59c858
-ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
+ms.openlocfilehash: a83863fa82595a875b73e04604167c7d00d39a81
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56159627"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410264"
 ---
 # <a name="introduction-to-blazor"></a>Blazor giriş
 
@@ -27,7 +27,7 @@ Blazor .NET ile etkileşimli istemci tarafı Web uygulamaları oluşturmaya yön
 * **C#Dil**: Kod yazmaya C# JavaScript yerine.
 * **.NET ekosisteminin**: .NET kitaplıkları mevcut ekosistemi yararlanın.
 * **Tam yığın geliştirme**: Sunucu ve istemci tarafı mantığını paylaşın.
-* **Hız ve ölçeklenebilirlik**: AĞ performansı, güvenilirliği ve güvenliği için oluşturulmuştur.
+* **Hız ve ölçeklenebilirlik**: .NET, performans, güvenilirlik ve güvenlik derlendiği.
 * **Sektör lideri Araçları**: Windows, Linux ve macOS üzerinde Visual Studio üretken kalın.
 * **Kararlılık ve tutarlılık**:  Bir commonset dillerin, çerçevelerin ve tutarlı, zengin ve kullanımı kolay Araçlar'ın üzerinde oluşturun.
 

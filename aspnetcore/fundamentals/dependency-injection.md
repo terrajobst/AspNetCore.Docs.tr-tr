@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 3626ce834b904db64c1976aefc77dc60a7bfdf1c
-ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
+ms.openlocfilehash: 5e5b9746da9bbc13a147b807aabfd3d9ab90a0ca
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50253175"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410514"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>ASP.NET core'da bağımlılık ekleme
 
@@ -341,15 +341,15 @@ Bir `OperationService` kayıtlı, bağlı her diğer `Operation` türleri. Zaman
 
 Denetleyici işlemler:
 
-Geçici: d233e165-f417-469b-a866-1cf1935d2518  
-Kapsamlı: 5d997e2d-55f5-4a64-8388-51c4e3a1ad19  
+Transient: d233e165-f417-469b-a866-1cf1935d2518  
+Kapsamı: 5d997e2d-55f5-4a64-8388-51c4e3a1ad19  
 Singleton: 01271bc1-9e31-48e7-8f7c-7261b040ded9  
 Örnek: 00000000-0000-0000-0000-000000000000
 
 `OperationService` İşlemler:
 
-Geçici: c6b049eb-1318-4e31-90f1-eb2dd849ff64  
-Kapsamlı: 5d997e2d-55f5-4a64-8388-51c4e3a1ad19  
+Transient: c6b049eb-1318-4e31-90f1-eb2dd849ff64  
+Kapsamı: 5d997e2d-55f5-4a64-8388-51c4e3a1ad19  
 Singleton: 01271bc1-9e31-48e7-8f7c-7261b040ded9  
 Örnek: 00000000-0000-0000-0000-000000000000
 
@@ -358,14 +358,14 @@ Singleton: 01271bc1-9e31-48e7-8f7c-7261b040ded9
 Denetleyici işlemler:
 
 Geçici: b63bd538-0a37-4ff1-90ba-081c5138dda0  
-Kapsamlı: 31e820c5-4834-4d22-83fc-a60118acb9f4  
+Kapsamı: 31e820c5-4834-4d22-83fc-a60118acb9f4  
 Singleton: 01271bc1-9e31-48e7-8f7c-7261b040ded9  
 Örnek: 00000000-0000-0000-0000-000000000000
 
 `OperationService` İşlemler:
 
-Geçici: c4cbacb8-36a2-436d-81c8-8c1b78808aaf  
-Kapsamlı: 31e820c5-4834-4d22-83fc-a60118acb9f4  
+Transient: c4cbacb8-36a2-436d-81c8-8c1b78808aaf  
+Kapsamı: 31e820c5-4834-4d22-83fc-a60118acb9f4  
 Singleton: 01271bc1-9e31-48e7-8f7c-7261b040ded9  
 Örnek: 00000000-0000-0000-0000-000000000000
 
@@ -437,10 +437,9 @@ Genel olarak, uygulamayı doğrudan bu özellikleri kullanmamalısınız. Bunun 
 İçin en iyi uygulamalar şunlardır:
 
 * Bağımlılık ekleme bağımlılıklarını almak için kullanmak üzere hizmetlerin tasarlayın.
-* Durum bilgisi olan ve statik yöntem çağrıları kaçının (olarak bilinen bir yöntem [statik cling](https://deviq.com/static-cling/)).
+* Durum bilgisi olan ve statik yöntem çağrıları kaçının.
 * Bağımlı hizmetleri sınıfları doğrudan örneğinin kaçının. Doğrudan, kodu belirli bir uygulamaya couples.
-
-İzleyerek [KATI ilkeler, nesne yönelimli tasarım](https://deviq.com/solid/), uygulama sınıfları doğal olarak eğilimli küçük, katsayıları iyi belirlenmiş ve kolayca test edilmiş olması.
+* Uygulama sınıfları küçük, katsayıları iyi belirlenmiş ve test edilmiş kolayca yapın.
 
 Bir sınıf çok fazla eklenen bağımlılıklara sahip gibi görünüyor. Bu genellikle bir oturum sınıfı için çok fazla sorumluluklara sahiptir ve ihlal varsa, [tek sorumluluk İlkesi'ni (SRP)](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#single-responsibility). Sınıfının yeni bir sınıf bazı sorumlulukları taşıyarak yeniden deneyin. Razor sayfaları sayfa modeli sınıfları ve MVC denetleyici sınıflarına kullanıcı Arabirimi konuları üzerinde durmalısınız aklınızda bulundurun. İş kuralları ve veri erişim uygulama ayrıntılarını saklanır bunları uygun sınıflardaki [konuları ayrı](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#separation-of-concerns).
 
@@ -488,7 +487,7 @@ Yerleşik hizmet kapsayıcı framework ve çoğu tüketici uygulamalarına gerek
 * Özel ömür Yönetimi
 * `Func<T>` Yavaş başlatma desteği
 
-Bkz: [bağımlılık ekleme Benioku.MD dosyası](https://github.com/aspnet/DependencyInjection#using-other-containers-with-microsoftextensionsdependencyinjection) bazı bağdaştırıcıları destekleyen kapsayıcıların listesi.
+Bkz: [bağımlılık ekleme Benioku.MD dosyası](https://github.com/aspnet/Extensions/tree/master/src/DependencyInjection) bazı bağdaştırıcıları destekleyen kapsayıcıların listesi.
 
 Aşağıdaki örnek yerleşik kapsayıcıyla değiştirir [Autofac](https://autofac.org/):
 
@@ -536,7 +535,7 @@ Singleton hizmetinin iş parçacığı güvenli olması gerekir. Tek bir hizmet 
 
 İkinci bağımsız değişkeni gibi tek hizmet Üreteç yöntemi [AddSingleton&lt;TService&gt;(IServiceCollection, Func&lt;IServiceProvider, TService&gt;)](/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectionserviceextensions.addsingleton#Microsoft_Extensions_DependencyInjection_ServiceCollectionServiceExtensions_AddSingleton__1_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Func_System_IServiceProvider___0__), değil iş parçacığı açısından güvenli olması gerekir. Gibi bir tür (`static`) oluşturucusu, onu garanti tek bir iş parçacığı tarafından bir kez çağrılabilir.
 
-## <a name="recommendations"></a>Önerileri
+## <a name="recommendations"></a>Öneriler
 
 * `async/await` ve `Task` tabanlı hizmet çözümlemesi desteklenmiyor. C#, zaman uyumsuz oluşturucuları desteklemez, dolayısıyla önerilen Düzen zaman uyumsuz yöntemleri zaman uyumlu olarak hizmet çözdükten sonra kullanmaktır.
 
@@ -560,8 +559,7 @@ DI olduğu bir *alternatif* statik/genel nesne erişim desenleri. Statik nesne e
 * <xref:fundamentals/startup>
 * <xref:fundamentals/middleware/extensibility>
 * [Bağımlılık ekleme (MSDN) ile ASP.NET Core kod yazma](https://msdn.microsoft.com/magazine/mt703433.aspx)
-* [Kapsayıcı-yönetilen uygulama tasarımı, tanıtımlar: Nereye ait kapsayıcı mu?](https://blogs.msdn.microsoft.com/nblumhardt/2008/12/26/container-managed-application-design-prelude-where-does-the-container-belong/)
+* [Kapsayıcı-yönetilen uygulama tasarımı, tanıtımlar: Burada kapsayıcı ait mu?](https://blogs.msdn.microsoft.com/nblumhardt/2008/12/26/container-managed-application-design-prelude-where-does-the-container-belong/)
 * [Özel bağımlılıklar İlkesi](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies)
 * [Tersine çevirme denetimi kapsayıcıları ve bağımlılık ekleme desenini (Martin Fowler)](https://www.martinfowler.com/articles/injection.html)
-* [Birleştirici (belirli bir uygulama kodu "yapıştırmak") yenilikler](https://ardalis.com/new-is-glue)
 * [Bir hizmet birden fazla arabirimde ASP.NET Core DI ile kaydetme](https://andrewlock.net/how-to-register-a-service-with-multiple-interfaces-for-in-asp-net-core-di/)

@@ -5,14 +5,14 @@ description: Uygulama Ihostingstartup kullanarak dış bütünleştirilmiş kodd
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 11/22/2018
+ms.date: 02/14/2019
 uid: fundamentals/configuration/platform-specific-configuration
-ms.openlocfilehash: cf7114698635ab2d61fa19eb15b6a8c61a751e5b
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
+ms.openlocfilehash: cffad201c84414ee4788877d80d3619a9013ae99
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284727"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410501"
 ---
 # <a name="use-hosting-startup-assemblies-in-aspnet-core"></a>ASP.NET Core barındırma başlangıç derlemeleri kullanma
 
@@ -82,7 +82,7 @@ Bir barındırma başlangıç geliştirme'de sınıf kitaplığının sağlanabi
 * Bir barındırma başlangıç sınıfı içeren `ServiceKeyInjection`, uygulayan `IHostingStartup`. `ServiceKeyInjection` bellek içi yapılandırma Sağlayıcısı'nı kullanarak uygulamanın yapılandırmasına hizmet dizeleri çifti ekler ([AddInMemoryCollection](/dotnet/api/microsoft.extensions.configuration.memoryconfigurationbuilderextensions.addinmemorycollection)).
 * İçeren bir `HostingStartup` barındırma startup şirketinizin ad alanını ve sınıf tanımlayan özniteliği.
 
-`ServiceKeyInjection` Sınıfın [yapılandırma](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup.configure) yöntemi kullanan bir [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder) geliştirmeleri için uygulama ekleme. `IHostingStartup.Configure` barındırma başlangıç derleme önce çalışma zamanı tarafından çağrılır `Startup.Configure` kullanıcı kodunda barındırma başlangıç derlemesi tarafından sağlanan herhangi bir yapılandırma üzerine yazmak kullanıcı kodu sağlar.
+`ServiceKeyInjection` Sınıfın [yapılandırma](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup.configure) yöntemi kullanan bir [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder) geliştirmeleri için uygulama ekleme.
 
 *HostingStartupLibrary/ServiceKeyInjection.cs*:
 
@@ -146,6 +146,46 @@ Oluşturma sırasında bir `IHostingStartup` proje bağımlılıkları dosyasın
 [!code-json[](platform-specific-configuration/samples-snapshot/2.x/StartupEnhancement1.deps.json?range=2-13&highlight=8)]
 
 Dosyanın yalnızca bir parçası olarak gösterilir. Derleme adı örnekte `StartupEnhancement`.
+
+## <a name="configuration-provided-by-the-hosting-startup"></a>Barındırma için başlangıç tarafından sağlanan yapılandırma
+
+İşleme barındırma startup şirketinizin yapılandırma öncelikli için istediğinize bağlı olarak, yapılandırma veya öncelikli için uygulamanın yapılandırma için iki yaklaşım vardır:
+
+1. Yapılandırma kullanarak uygulama sağlamak <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder.ConfigureAppConfiguration*> uygulamanın sonra yapılandırmayı <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder.ConfigureAppConfiguration*> temsilciler yürütün. Barındırma başlangıç yapılandırmasını, bu yaklaşımı kullanarak uygulamanın yapılandırma üzerinde önceliklidir.
+1. Yapılandırma kullanarak uygulama sağlamak <xref:Microsoft.AspNetCore.Hosting.HostingAbstractionsWebHostBuilderExtensions.UseConfiguration*> önce uygulamanın yapılandırmasını <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder.ConfigureAppConfiguration*> temsilciler yürütün. Uygulamanın yapılandırma değerleri, bu yaklaşımı kullanarak barındırma için başlangıç tarafından sağlanan üzerine öncelik alır.
+
+```csharp
+public class ConfigurationInjection : IHostingStartup
+{
+    public void Configure(IWebHostBuilder builder)
+    {
+        Dictionary<string, string> dict;
+
+        builder.ConfigureAppConfiguration(config =>
+        {
+            dict = new Dictionary<string, string>
+            {
+                {"ConfigurationKey1", 
+                    "From IHostingStartup: Higher priority than the app's configuration."},
+            };
+
+            config.AddInMemoryCollection(dict);
+        });
+
+        dict = new Dictionary<string, string>
+        {
+            {"ConfigurationKey2", 
+                "From IHostingStartup: Lower priority than the app's configuration."},
+        };
+
+        var builtConfig = new ConfigurationBuilder()
+            .AddInMemoryCollection(dict)
+            .Build();
+
+        builder.UseConfiguration(builtConfig);
+    }
+}
+```
 
 ## <a name="specify-the-hosting-startup-assembly"></a>Barındırma başlangıç derlemeyi belirtin
 

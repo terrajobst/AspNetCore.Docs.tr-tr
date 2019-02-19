@@ -5,12 +5,12 @@ description: ASP.NET Core MVC denetleyicileri bağımlılıklarını oluşturucu
 ms.author: riande
 ms.date: 10/14/2016
 uid: mvc/controllers/dependency-injection
-ms.openlocfilehash: 12247dbbbb6de3f8feb7bc37caec4ecf4bd21719
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 9d9d0a68927da62fad8df72c868eaf4b8ada440d
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206348"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410277"
 ---
 # <a name="dependency-injection-into-controllers-in-aspnet-core"></a>ASP.NET core'da denetleyicilere bağımlılık ekleme
 
@@ -22,9 +22,9 @@ ASP.NET Core MVC denetleyicileri bağımlılıklarını oluşturucuları aracıl
 
 [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/dependency-injection/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
-## <a name="dependency-injection"></a>Bağımlılık ekleme
+## <a name="dependency-injection"></a>Bağımlılık Ekleme
 
-Bağımlılık ekleme, izleyen bir teknik [bağımlılık tersine çevirme ilkesine](http://deviq.com/dependency-inversion-principle/), gevşek modüllerinin oluşturulması uygulamalara izin verme. ASP.NET Core için yerleşik desteği vardır [bağımlılık ekleme](../../fundamentals/dependency-injection.md), getiren uygulamaları test etmek ve sürdürmek daha kolay.
+ASP.NET Core için yerleşik desteği vardır [bağımlılık ekleme](../../fundamentals/dependency-injection.md), getiren uygulamaları test etmek ve sürdürmek daha kolay.
 
 ## <a name="constructor-injection"></a>Oluşturucu ekleme
 
@@ -63,7 +63,7 @@ Hizmet yapılandırıldıktan sonra uygulamayı çalıştıran ve giriş sayfas�
 ![Sunucu karşılaması](dependency-injection/_static/server-greeting.png)
 
 >[!TIP]
-> Bkz: [Test denetleyicisi mantığı](testing.md) açık şekilde istek bağımlılıkları öğrenmek için [ http://deviq.com/explicit-dependencies-principle/ ](http://deviq.com/explicit-dependencies-principle/) denetleyicileri kodu test etmek daha kolay hale getirir.
+> Bkz: [Test denetleyicisi mantığı](testing.md) kod test denetleyicileri bağımlılıkları açıkça isteyerek daha kolay hale getirmek hakkında bilgi edinmek için.
 
 ASP.NET Core'nın yerleşik bağımlılık ekleme sınıfları Hizmetleri istemek için yalnızca tek bir oluşturucu sahip destekler. Birden fazla Oluşturucu varsa belirten bir durum karşılaşabilirsiniz:
 
@@ -101,4 +101,4 @@ Bir türü kesin belirlenmiş bir yapılandırma nesnesi, belirttiğiniz sonra (
 
 [!code-csharp[](./dependency-injection/sample/src/ControllerDI/Controllers/SettingsController.cs?highlight=3,5,7&range=7-22)]
 
-Seçenekleri düzenini izleyerek birbirlerinden ölçeklendirilebilmeleri ayarlarını ve yapılandırmasını sağlar ve denetleyici takip sağlar [görev ayrımı nettir](http://deviq.com/separation-of-concerns/), burada veya nasıl bilmeniz gerekmez bu yana ayarları bulunamıyor bilgiler. Ayrıca denetleyicisi birim testi kolaylaştırır [Test denetleyicisi mantığı](testing.md), olduğundan hiçbir [statik cling](http://deviq.com/static-cling/) veya doğrudan örneğinin ayarları sınıfları için denetleyici sınıfı.
+Seçenekleri düzenini izleyerek birbirlerinden ölçeklendirilebilmeleri ayarlarını ve yapılandırmasını sağlar ve denetleyici takip sağlar [görev ayrımı nettir](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#separation-of-concerns), burada veya nasıl bilmeniz gerekmez bu yana ayarları bulunamıyor bilgiler. Ayrıca denetleyici kolaylaştırır [birim testi](testing.md), hiçbir doğrudan ayarları sınıfları için denetleyici sınıfı örneğinin olduğundan.

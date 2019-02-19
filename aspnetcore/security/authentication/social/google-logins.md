@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc, seodec18
 ms.date: 1/11/2019
 uid: security/authentication/google-logins
-ms.openlocfilehash: 98857a84238124e75d695242c8d421b9a29f02e7
-ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
+ms.openlocfilehash: 5b6bfaafba68eaf15a60b7c512a9e7406e3112ee
+ms.sourcegitcommit: 6d8c362a3cb4c634e64cbb3d28069c36bc973581
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396099"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56418672"
 ---
 # <a name="google-external-login-setup-in-aspnet-core"></a>ASP.NET core'da Google dış oturum açma Kurulumu
 
@@ -56,7 +56,7 @@ Google hizmetine ekleme `Startup.ConfigureServices`.
 
 [!INCLUDE[](includes/chain-auth-providers.md)]
 
-Bkz: [GoogleOptions](/dotnet/api/microsoft.aspnetcore.builder.googleoptions) Google kimlik doğrulama tarafından desteklenen yapılandırma seçenekleri hakkında daha fazla bilgi için API Başvurusu. Bu kullanıcı ile ilgili farklı bilgi istemek için kullanılabilir.
+Bkz: [GoogleOptions](/dotnet/api/microsoft.aspnetcore.authentication.google.googleoptions) Google kimlik doğrulama tarafından desteklenen yapılandırma seçenekleri hakkında daha fazla bilgi için API Başvurusu. Bu kullanıcı ile ilgili farklı bilgi istemek için kullanılabilir.
 
 ## <a name="change-the-default-callback-uri"></a>Varsayılan geri arama URI'si değiştirme
 

@@ -5,14 +5,14 @@ description: Yapılandırma ve ASP.NET Core yanıt önbelleğe alma ara yazılı
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/26/2017
+ms.date: 02/16/2019
 uid: performance/caching/middleware
-ms.openlocfilehash: 4b2c71aad4b5bcfee14a271303df5874ccfedb90
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: bb265d04022ec2f8fdb3f2f3bc42f6b3f0b2b338
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207335"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410329"
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Yanıt önbelleğe alma ara yazılımı ASP.NET core'da
 
@@ -103,8 +103,8 @@ Yanıtları önbelleğe alma ara yazılımı tarafından HTTP üst bilgileri kul
 | Üstbilgi | Ayrıntılar |
 | ------ | ------- |
 | Yetkilendirme | Yanıt üstbilgisi mevcutsa önbelleğe değil. |
-| Önbellek denetimi | İle işaretlenen yanıtları önbelleğe alma ara yazılımı yalnızca dikkate `public` önbellek yönergesi. Aşağıdaki parametrelerle önbelleğe alma denetler:<ul><li>Maksimum yaş</li><li>en çok eski&#8224;</li><li>Min-yeni</li><li>revalidate gerekir</li><li>önbellek yok</li><li>No-store</li><li>yalnızca IF-önbelleğe alma</li><li>private</li><li>public</li><li>s maxage</li><li>Proxy revalidate&#8225;</li></ul>&#8224;Sınır belirtilirse `max-stale`, ara yazılımın herhangi bir eylemi alır.<br>&#8225;`proxy-revalidate`aynı etkiye sahiptir `must-revalidate`.<br><br>Daha fazla bilgi için [RFC 7231: İstek ön bellek denetimi yönergelerini](https://tools.ietf.org/html/rfc7234#section-5.2.1). |
-| Pragması | A `Pragma: no-cache` istek üstbilgisinde üretir ile aynı etkiye `Cache-Control: no-cache`. Bu üstbilginin ilgili yönergeleri tarafından geçersiz kılınır `Cache-Control` üst bilgi, varsa. HTTP/1.0 ile geriye dönük uyumluluk için kabul edilir. |
+| Önbellek denetimi | İle işaretlenen yanıtları önbelleğe alma ara yazılımı yalnızca dikkate `public` önbellek yönergesi. Aşağıdaki parametrelerle önbelleğe alma denetler:<ul><li>Maksimum yaş</li><li>en çok eski&#8224;</li><li>Min-yeni</li><li>revalidate gerekir</li><li>önbellek yok</li><li>No-store</li><li>yalnızca IF-önbelleğe alma</li><li>private</li><li>public</li><li>s maxage</li><li>Proxy revalidate&#8225;</li></ul>&#8224;Sınır belirtilirse `max-stale`, ara yazılımın herhangi bir eylemi alır.<br>&#8225;`proxy-revalidate`aynı etkiye sahiptir `must-revalidate`.<br><br>Daha fazla bilgi için [RFC 7231: İstek önbellek denetimi yönergelerini](https://tools.ietf.org/html/rfc7234#section-5.2.1). |
+| Pragma | A `Pragma: no-cache` istek üstbilgisinde üretir ile aynı etkiye `Cache-Control: no-cache`. Bu üstbilginin ilgili yönergeleri tarafından geçersiz kılınır `Cache-Control` üst bilgi, varsa. HTTP/1.0 ile geriye dönük uyumluluk için kabul edilir. |
 | Tanımlama bilgisi-Ayarla | Yanıt üstbilgisi mevcutsa önbelleğe değil. Yanıt önbelleğe alınan yanıtları önbelleğe alma ara yazılımı Ara yazılımların, bir veya daha fazla tanımlama bilgisi ayarlar istek işleme ardışık düzeninde engeller (örneğin, [tanımlama bilgisi tabanlı TempData sağlayıcısı](xref:fundamentals/app-state#tempdata)).  |
 | değişiklik | `Vary` Üst bilgisi önbelleğe alınan yanıtın farklılık için kullanılan başka bir üstbilgisi tarafından. Örneğin, dahil ederek kodlayarak yanıtları önbelleğe `Vary: Accept-Encoding` üst bilgisi için istek üst bilgilerini yanıtlarını önbelleğe kaydeder `Accept-Encoding: gzip` ve `Accept-Encoding: text/plain` ayrı olarak. Yanıt üst bilgisi değeri `*` hiçbir zaman depolanır. |
 | Süre sonu | Bu üstbilgisi tarafından eski yorumlanamayacağını yanıt olmadığı veya depolanan diğer tarafından geçersiz kılınmadığı sürece alınan `Cache-Control` üstbilgileri. |
@@ -112,7 +112,7 @@ Yanıtları önbelleğe alma ara yazılımı tarafından HTTP üst bilgileri kul
 | If-Modified-Since | Varsa `If-None-Match` üstbilgisi mevcut değilse, önbelleğe alınan yanıt tarihi sağlanan değer yeniyse tam yanıtı önbelleğinden sunulur. Aksi takdirde, 304 (değiştirilmedi) yanıtı sunulur. |
 | Tarih | Önbellekten yüklenir, hizmet zaman `Date` üst bilgi, ara yazılım tarafından ayarlanır, özgün yanıtta verildiyse değildi. |
 | İçerik Uzunluğu | Önbellekten yüklenir, hizmet zaman `Content-Length` üst bilgi, ara yazılım tarafından ayarlanır, özgün yanıtta verildiyse değildi. |
-| Geçerlilik süresi | `Age` Özgün Yanıtta gönderilen üstbilgi göz ardı edilir. Ara yazılım, hizmet veren bir önbelleğe alınan yanıt zaman yeni bir değer hesaplar. |
+| Yaş | `Age` Özgün Yanıtta gönderilen üstbilgi göz ardı edilir. Ara yazılım, hizmet veren bir önbelleğe alınan yanıt zaman yeni bir değer hesaplar. |
 
 ## <a name="caching-respects-request-cache-control-directives"></a>Önbelleğe alma isteği ön bellek denetimi yönergelerini uyar
 
@@ -138,7 +138,7 @@ Test etme ve sorun giderme önbelleğe alma davranışını bir tarayıcı isten
 
 * İstek sunucu yanıtı bir 200 (Tamam) durum kodu ile sonuçlanması gerekir.
 * İstek yöntemini GET veya HEAD olmalıdır.
-* Terminal bir ara yazılım gibi [statik dosya ara yazılımlarını](xref:fundamentals/static-files), yanıtları önbelleğe alma ara yazılımı önce yanıt işlemez gerekir.
+* Terminal ara yazılımın yanıt yanıt önbelleğe alma ara yazılımı önce işlem gerekir.
 * `Authorization` Üstbilgisi mevcut olmamalıdır.
 * `Cache-Control` üst bilgi parametreleri geçerli olmalıdır ve yanıt işaretlenmelidir `public` ve işaretlenmemiş `private`.
 * `Pragma: no-cache` Üstbilgisi mevcut olmamalıdır, `Cache-Control` üst bilgi olarak mevcut olmayan `Cache-Control` üst bilgisi geçersiz kılar `Pragma` üst bilgisi mevcut olduğunda.
@@ -148,7 +148,7 @@ Test etme ve sorun giderme önbelleğe alma davranışını bir tarayıcı isten
 * [IHttpSendFileFeature](/dotnet/api/microsoft.aspnetcore.http.features.ihttpsendfilefeature) kullanılmaz.
 * Yanıt belirtildiği gibi eski olmamalıdır `Expires` üstbilgi ve `max-age` ve `s-maxage` önbelleğe yönergeleri.
 * Yanıt arabelleğe alma başarılı olmalıdır ve yanıt boyutu yapılandırılmış küçük veya varsayılan `SizeLimit`.
-* Yanıt önbelleğe göre [RFC 7234](https://tools.ietf.org/html/rfc7234) belirtimleri. Örneğin, `no-store` yönergesi istek veya yanıt üst bilgisi alanlarında mevcut olmalıdır. Bkz: *3. Bölüm: önbellekler yanıtlarını depolama* , [RFC 7234](https://tools.ietf.org/html/rfc7234) Ayrıntılar için.
+* Yanıt önbelleğe göre [RFC 7234](https://tools.ietf.org/html/rfc7234) belirtimleri. Örneğin, `no-store` yönergesi istek veya yanıt üst bilgisi alanlarında mevcut olmalıdır. Bkz: *3. Bölüm: Yanıtları depolama önbelleklerinde* , [RFC 7234](https://tools.ietf.org/html/rfc7234) Ayrıntılar için.
 
 > [!NOTE]
 > Siteler arası istek sahteciliği (CSRF) önlemek için güvenli belirteçleri oluşturmak için Antiforgery sistem kümeleri saldırıları `Cache-Control` ve `Pragma` üstbilgileri `no-cache` böylece yanıtları önbelleğe değildir. Antiforgery belirteçleri için bir HTML form öğelerini devre dışı bırakma hakkında daha fazla bilgi için bkz: [ASP.NET Core antiforgery yapılandırma](xref:security/anti-request-forgery#aspnet-core-antiforgery-configuration).

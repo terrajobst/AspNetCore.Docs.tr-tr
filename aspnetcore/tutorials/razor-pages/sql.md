@@ -2,16 +2,15 @@
 title: Bir veritabanı ve ASP.NET Core ile çalışma
 author: rick-anderson
 description: Veritabanı ile ASP.NET Core ile çalışmayı açıklar.
-monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
 ms.date: 12/07/2017
 uid: tutorials/razor-pages/sql
-ms.openlocfilehash: 817102a7b89ef4f078d7d0a0bf03ba7cb2745a5d
-ms.sourcegitcommit: 9bb58d7c8dad4bbd03419bcc183d027667fefa20
+ms.openlocfilehash: 3e05f5dbc73c35f1f938346b2eaab8c0fa7d8ab9
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52861283"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410303"
 ---
 # <a name="work-with-a-database-and-aspnet-core"></a>Bir veritabanı ve ASP.NET Core ile çalışma
 
@@ -133,7 +132,7 @@ Aşağıdaki kod güncelleştirilmiş gösterir *Program.cs* dosya.
 
 Bir üretim uygulaması değil çağırırsınız `Database.Migrate`. Aşağıdaki özel durumu önlemek için önceki koda eklenir, `Update-Database` değil çalıştırın:
 
-Hata: "21 RazorPagesMovieContext" oturum açma tarafından istenen veritabanı açılamıyor. Oturum açma başarısız.
+SqlException: "21 RazorPagesMovieContext" oturum açma tarafından istenen veritabanı açılamıyor. Oturum açma başarısız.
 Oturum açma 'kullanıcı adı' kullanıcı için başarısız oldu.
 
 ### <a name="test-the-app"></a>Uygulamayı test etme
@@ -179,5 +178,5 @@ Uygulama, çekirdeği oluşturulmuş veri gösterilir:
 Sonraki öğreticiye verilerin sunuyu temizler.
 
 > [!div class="step-by-step"]
-> [Önceki: İskele kurulmuş Razor sayfaları](xref:tutorials/razor-pages/page)
-> [sonraki: sayfaları güncelleştirme](xref:tutorials/razor-pages/da1)
+> [Önceki: Razor sayfaları için iskele kurulmuş](xref:tutorials/razor-pages/page)
+> [sonraki: Sayfaları güncelleştirme](xref:tutorials/razor-pages/da1)

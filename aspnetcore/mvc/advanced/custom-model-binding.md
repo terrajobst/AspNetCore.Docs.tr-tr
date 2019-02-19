@@ -5,12 +5,12 @@ description: Model bağlama denetleyici eylemleri doğrudan model türleri için
 ms.author: riande
 ms.date: 11/13/2018
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: 1da42829270e8ff4a626a45aec4d4e825062bd4f
-ms.sourcegitcommit: f202864efca81a72ea7120c0692940c40d9d0630
+ms.openlocfilehash: 33551c9fc22561b992b4a09a4c7187ade136c09c
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635303"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410251"
 ---
 # <a name="custom-model-binding-in-aspnet-core"></a>ASP.NET core'da özel Model bağlama
 
@@ -104,7 +104,7 @@ Aşağıdaki kod nasıl kullanılacağını gösterir `AuthorEntityBinder` bir e
 
 [!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Controllers/BoundAuthorsController.cs?name=demo1&highlight=2)]
 
-Bu örnekte, varsayılan bağımsız değişken adını değil bu yana `authorId`, parametresini kullanarak belirtilen `ModelBinder` özniteliği. Denetleyici ve eylem yöntemi Basitleştirilmiş, eylem yönteminin varlığı bakmak için karşılaştırıldığında unutmayın. Entity Framework Core kullanan Yazar getirilecek mantıksal model bağlayıcıya taşınır. Bağlama çeşitli yöntemler varsa, bu önemli ölçüde basitleştirme olabilir `Author` model ve izlemek için yardımcı olabileceğini [KURU ilkesine](http://deviq.com/don-t-repeat-yourself/).
+Bu örnekte, varsayılan bağımsız değişken adını değil bu yana `authorId`, parametresini kullanarak belirtilen `ModelBinder` özniteliği. Denetleyici ve eylem yöntemi Basitleştirilmiş, eylem yönteminin varlığı bakmak için karşılaştırıldığında unutmayın. Entity Framework Core kullanan Yazar getirilecek mantıksal model bağlayıcıya taşınır. Bağlama için çeşitli yöntemler varsa, bu önemli ölçüde basitleştirme olabilir `Author` modeli.
 
 Uygulayabileceğiniz `ModelBinder` özniteliği için ayrı modeli özellikleri (gibi bir viewmodel üzerinde) veya olarak eylem metodu parametreleriyle belirli bir model bağlayıcı veya yalnızca bu tür veya eylem için model adını belirtmek için.
 

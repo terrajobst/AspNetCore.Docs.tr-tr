@@ -5,12 +5,12 @@ description: ASP.NET Core MVC web uygulamaları oluşturmaya yönelik zengin bir
 ms.author: riande
 ms.date: 01/08/2018
 uid: mvc/overview
-ms.openlocfilehash: d2a50e48c20fe69b1fe691bfc9c91a27d4219922
-ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
+ms.openlocfilehash: 205948cb45709b4eb6014aaf4960bf193a20dc30
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41902605"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410316"
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>ASP.NET Core MVC’ye Genel Bakış
 
@@ -20,13 +20,13 @@ ASP.NET Core MVC web uygulamaları oluşturmaya yönelik zengin bir altyapı ola
 
 ## <a name="what-is-the-mvc-pattern"></a>MVC düzeni nedir?
 
-Model-View-Controller (MVC) tasarım örüntüsü uygulamanın üç ana bileşenleri gruplar halinde ayırır: modelleri, görünümleri ve denetleyicileri. Bu düzen, elde yardımcı olur [görev ayrımı nettir](http://deviq.com/separation-of-concerns/). Bu düzeni kullanmak, kullanıcı isteklerini, kullanıcı eylemlerini gerçekleştirmek ve/veya sorguların sonuçlarını almak için modeli ile çalışmak için sorumlu denetleyicisi yönlendirilir. Denetleyici kullanıcıya görüntülenecek görünüm seçer ve gerektirdiği modeli verilerle sağlar.
+Model-View-Controller (MVC) tasarım örüntüsü, uygulamanın üç ana bileşenleri gruplar halinde ayırır: Modelleri, görünümleri ve denetleyicileri. Bu düzen, elde yardımcı olur [görev ayrımı nettir](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#separation-of-concerns). Bu düzeni kullanmak, kullanıcı isteklerini, kullanıcı eylemlerini gerçekleştirmek ve/veya sorguların sonuçlarını almak için modeli ile çalışmak için sorumlu denetleyicisi yönlendirilir. Denetleyici kullanıcıya görüntülenecek görünüm seçer ve gerektirdiği modeli verilerle sağlar.
 
 Aşağıdaki diyagramda üç ana bileşenleri gösterilmektedir ve hangilerinin diğer başvuru:
 
 ![MVC düzeni](overview/_static/mvc.png)
 
-Bu kabul edilebilir açıklıkta sorumlulukları karmaşıklık açısından uygulama kodu, hata ayıklama ve sorun (model, görünüm veya denetleyicisi) tek bir iş olan test etmek daha kolay ölçeklendirme yardımcı olur (ve izleyen [tek Sorumluluklar İlkesi ](http://deviq.com/single-responsibility-principle/)). Bu güncelleştirme, test ve iki veya daha fazlası üç bu alanlar arasında yayılabilir bağımlılıkları olan hata ayıklama kodu daha zordur. Örneğin, kullanıcı arabirimi mantığı, iş mantığı daha sık değiştirmek için eğilimi gösterir. Sunu kod ve iş mantığı tek bir nesnede birleştirildiğinde, kullanıcı arabirimi her değiştiğinde iş mantığı içeren bir nesne değiştirilmesi gerekir. Bu genellikle hataları sunar ve iş mantığı her en düşük kullanıcı arabirimi değişiklikten sonra çözülüp gerektirir.
+Bu kabul edilebilir açıklıkta sorumlulukları karmaşıklık açısından uygulama kodu, hata ayıklama ve sorun (model, görünüm veya denetleyicisi) tek bir iş olan test etmek daha kolay ölçeklendirme yardımcı olur. Bu güncelleştirme, test ve iki veya daha fazlası üç bu alanlar arasında yayılabilir bağımlılıkları olan hata ayıklama kodu daha zordur. Örneğin, kullanıcı arabirimi mantığı, iş mantığı daha sık değiştirmek için eğilimi gösterir. Sunu kod ve iş mantığı tek bir nesnede birleştirildiğinde, kullanıcı arabirimi her değiştiğinde iş mantığı içeren bir nesne değiştirilmesi gerekir. Bu genellikle hataları sunar ve iş mantığı her en düşük kullanıcı arabirimi değişiklikten sonra çözülüp gerektirir.
 
 > [!NOTE]
 > Hem görünümü hem de denetleyicisi modeline bağlıdır. Ancak, model, görünüm ne denetleyici bağlıdır. Bu, ayrımı başlıca avantajlarından biridir. Bu ayrım modeli oluşturulan test edilmiş ve görsel sunumunu bağımsız sağlar.
@@ -34,9 +34,6 @@ Bu kabul edilebilir açıklıkta sorumlulukları karmaşıklık açısından uyg
 ### <a name="model-responsibilities"></a>Model sorumlulukları
 
 Bir MVC uygulamasında Model, uygulama ve iş mantığı veya tarafından yapılması gereken işlemlerin durumunu temsil eder. İş mantığı modelde, uygulamanın durumunu kalıcı hale getirmeniz için herhangi bir uygulama mantığı ile birlikte kapsüllenmiş. Kesin türü belirtilmiş görünümler, verileri içerecek şekilde tasarlanmış ViewModel türleri genellikle bu görünümde göstermek için kullanın. Denetleyici oluşturur ve bu ViewModel örnekler modelinden doldurur.
-
-> [!NOTE]
-> Model içinde MVC elde edilen mimari deseni kullanan bir uygulamayı düzenlemek için birçok yolu vardır. Bazı hakkında daha fazla bilgi [model türleri farklı türde](http://deviq.com/kinds-of-models/).
 
 ### <a name="view-responsibilities"></a>Görünümünü Sorumluluklar
 
@@ -47,10 +44,10 @@ Görünümler kullanıcı arabirimi aracılığıyla içerik sunmak için soruml
 Denetleyicileri, kullanıcı etkileşimi işlemek, modelle çalışan ve sonuç olarak işlemek için bir görünüm seçin bileşenlerdir. Bir MVC uygulamasında, görünüm yalnızca bilgileri görüntüler; Denetleyici, işler ve kullanıcı girişini ve etkileşimini yanıt verir. MVC örüntüsü, denetleyici ilk giriş noktasıdır ve hangi modelle çalışmak için türleri ve işlemek için hangi görünümün seçmek için sorumludur (Bu nedenle adını - denetimleri uygulama için belirtilen bir isteğin nasıl yanıt vereceğini).
 
 > [!NOTE]
-> Denetleyicileri, çok fazla sorumluluklara göre aşırı karmaşık olmamalıdır. Fazla karmaşık hale gelmesini denetleyicisi mantıksal tutmak için kullanın [tek sorumluluk İlkesi](http://deviq.com/single-responsibility-principle/) denetleyicisi dışında ve etki alanı modeline anında iletme iş mantığı.
+> Denetleyicileri, çok fazla sorumluluklara göre aşırı karmaşık olmamalıdır. Fazla karmaşık hale gelmesini denetleyicisi mantıksal tutmak için iş mantığı denetleyicisi dışında ve etki alanı modeline gönderin.
 
 >[!TIP]
-> Denetleyici eylemleri sık aynı tür eylemler gerçekleştirmek bulursanız, izleyebilirsiniz [kendiniz İlkesi yineleme](http://deviq.com/don-t-repeat-yourself/) bu ortak Eylemler içine taşıyarak [filtreleri](#filters).
+> Denetleyici eylemleri sık aynı tür eylemler gerçekleştirmek bulursanız, bu ortak Eylemler içine Taşı [filtreleri](#filters).
 
 ## <a name="what-is-aspnet-core-mvc"></a>ASP.NET Core MVC nedir
 
@@ -107,7 +104,7 @@ ASP.NET Core MVC [model bağlama](models/model-binding.md) istemci isteği veril
 public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = null) { ... }
    ```
 
-### <a name="model-validation"></a>Model doğrulama
+### <a name="model-validation"></a>Model doğrulaması
 
 ASP.NET Core MVC destekler [doğrulama](models/validation.md) modeli nesnenizle veri ek açıklama doğrulama özniteliklerinin dekorasyon olarak. Doğrulama özniteliklerinin değerleri sunucuya gönderilen önce istemci tarafında denetlenir yanı denetleyici eylemini önce sunucu üzerinde çağrılır.
 
@@ -146,7 +143,7 @@ public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = 
 
 ### <a name="dependency-injection"></a>Bağımlılık ekleme
 
-ASP.NET Core için yerleşik desteği vardır [bağımlılık ekleme (dı)](../fundamentals/dependency-injection.md). ASP.NET Core MVC, [denetleyicileri](controllers/dependency-injection.md) istek gerekli hizmetleri aracılığıyla bunları izlemek izin verme oluşturucuları, [açık bağımlılıkları ilkesine](http://deviq.com/explicit-dependencies-principle/).
+ASP.NET Core için yerleşik desteği vardır [bağımlılık ekleme (dı)](../fundamentals/dependency-injection.md). ASP.NET Core MVC, [denetleyicileri](controllers/dependency-injection.md) istek gerekli hizmetleri aracılığıyla bunları izlemek izin verme oluşturucuları, [açık bağımlılıkları ilkesine](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies).
 
 Uygulamanızı kullanabilirsiniz [görünümünde bağımlılık ekleme dosyaları](views/dependency-injection.md)kullanarak `@inject` yönergesi:
 
@@ -173,7 +170,7 @@ Uygulamanızı kullanabilirsiniz [görünümünde bağımlılık ekleme dosyalar
    {
 ```
 
-### <a name="areas"></a>Alanları
+### <a name="areas"></a>Alanlar
 
 [Alanları](controllers/areas.md) büyük bir ASP.NET Core MVC Web uygulaması işlevsel gruplamalarda daha küçük bölümlere ayırmak için bir yol sağlar. Bir alan, bir uygulama içinde bir MVC yapısıdır. Bir MVC projesi mantıksal bileşenler modeli, denetleyici ve görünüm gibi farklı klasörlerde tutulur ve MVC bu bileşenler arasındaki ilişki oluşturmak için adlandırma kuralları kullanır. Büyük bir uygulama için ayrı yüksek düzey alanlarına işlev uygulamasını bölümleme için yararlı olabilir. Örneğin, bir e-ticaret uygulamayla kullanıma alma ve faturalandırma arama vb. gibi birden çok iş birimleri. Bu birimlerin her biri kendi mantıksal bileşen görünümleri, denetleyicilere ve modelleri sahip.
 

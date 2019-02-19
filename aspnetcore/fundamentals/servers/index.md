@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core için web sunucuları Kestrel ve HTTP.sys keşfedin. Bir sunucu seçin ve ne zaman bir ters proxy sunucusu kullanmayı öğrenin.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/13/2019
+ms.date: 02/14/2019
 uid: fundamentals/servers/index
-ms.openlocfilehash: 672fe2ce6fd0adae09c380fe508344a254f1a9fe
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: 4fa32fb4fe1d482f1000cd803cd2d26cd9ff2341
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248140"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410540"
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>ASP.NET Core Web sunucu uygulamalarında
 
@@ -57,7 +57,7 @@ Aşağıdaki diyagram IIS, ASP.NET Core modülü arasındaki ilişkiyi gösterir
 
 Bir istek için çekirdek modu HTTP.sys sürücüsünü Web'den ulaşır. Sürücü IIS Web sitesinin yapılandırılan bağlantı noktası, genellikle 80 (HTTP) veya 443 (HTTPS) üzerinde yerel istek yönlendirir. Modülün yerel isteği alır ve IIS HTTP sunucusuna geçirir (`IISHttpServer`). IIS HTTP isteği Yerelden yönetilene dönüştürür IIS için bir işlem sunucusu uygulama sunucusudur.
 
-IIS HTTP sunucusu isteği işledikten sonra ASP.NET Core ara yazılım ardışık düzende isteği gönderilir. Ara yazılım ardışık düzenini isteği işler ve olarak geçirir bir `HttpContext` örneği uygulama mantığına. Uygulamanın yanıt IIS, yeniden istek başlatılan istemciye hangi bildirim geçirilir.
+IIS HTTP sunucusu isteği işledikten sonra ASP.NET Core ara yazılım ardışık düzende isteği gönderilir. Ara yazılım ardışık düzenini isteği işler ve olarak geçirir bir `HttpContext` örneği uygulama mantığına. Uygulamanın yanıt IIS IIS HTTP sunucusu üzerinden geçirilir. IIS istek başlatılan istemci yanıta gönderir.
 
 Barındırma işlemi içinde olan mevcut uygulamalar için katılımı ancak [yeni dotnet](/dotnet/core/tools/dotnet-new) işlemdeki tüm IIS ve IIS Express senaryoları için barındırma modelini varsayılan şablonları.
 

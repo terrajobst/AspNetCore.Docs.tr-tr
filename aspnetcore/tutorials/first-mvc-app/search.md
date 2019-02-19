@@ -5,12 +5,12 @@ description: Basit bir ASP.NET Core MVC uygulaması için arama ekleme işlemi a
 ms.author: riande
 ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/search
-ms.openlocfilehash: 8686041c3629faf9ffc4ab766e8d78eda00740dc
-ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
+ms.openlocfilehash: e5dce35b60080ef752f8e6c6004158219015cbf5
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53997272"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410644"
 ---
 # <a name="add-search-to-an-aspnet-core-mvc-app"></a>Bir ASP.NET Core MVC uygulaması için arama Ekle
 
@@ -51,11 +51,11 @@ Parametre değiştirme `id` ve tüm oluşumlarını `searchString` değiştirmek
 
 Önceki `Index` yöntemi:
 
-[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?highlight=1,8&name=snippet_1stSearch)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?highlight=1,6,8&name=snippet_1stSearch)]
 
 Güncelleştirilmiş `Index` yöntemiyle `id` parametresi:
 
-[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?highlight=1,8&name=snippet_SearchID)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?highlight=1,6,8&name=snippet_SearchID)]
 
 Arama başlığı olarak bir sorgu dizesi değeri olarak rota verilerini (URL kesimi) yerine artık geçirebilirsiniz.
 
@@ -63,7 +63,7 @@ Arama başlığı olarak bir sorgu dizesi değeri olarak rota verilerini (URL ke
 
 Ancak, bunlar bir filmi için arama yapmak istediğiniz her zaman URL'sini değiştirmek için kullanıcıların beklediğiniz olamaz. Şimdi, filmler filtre yardımcı olmak için kullanıcı Arabirimi öğeleri ekleyeceksiniz. İmzası değiştirdiyseniz `Index` rota bağlı nasıl test etmek için yöntemi `ID` parametresi, yeniden adlandırılmış bir parametre alır, böylece değişiklik `searchString`:
 
-[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?highlight=1,8&name=snippet_1stSearch)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?highlight=1,6,8&name=snippet_1stSearch)]
 
 Açık *Views/Movies/Index.cshtml* dosya ve ekleme `<form>` biçimlendirme vurgulanmış aşağıda:
 

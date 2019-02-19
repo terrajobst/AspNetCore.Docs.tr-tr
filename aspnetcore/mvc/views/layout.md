@@ -5,12 +5,12 @@ description: Yaygın düzenlerini kullanmayı, yönergeleri paylaşın ve işlem
 ms.author: riande
 ms.date: 10/18/2018
 uid: mvc/views/layout
-ms.openlocfilehash: b23fd4e0b1d91a4dd5aae548aa2b2081aa37a561
-ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
+ms.openlocfilehash: 1bd225c804b333efea834a46b7d9ba46b1bb69d8
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49391303"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410579"
 ---
 # <a name="layout-in-aspnet-core"></a>ASP.NET core'da düzeni
 
@@ -22,7 +22,7 @@ Sayfalar ve görünümler sık görsel ve programlama öğeleri paylaşın. Bu m
 * Yönergeleri paylaşın.
 * İşleme sayfaları veya görünümleri önce ortak kodu çalıştırın.
 
-Bu belge için ASP.NET Core MVC iki farklı yaklaşım düzenleri ele alınmaktadır: Razor sayfaları ve görünüm denetleyicileri. Bu konu için en az bir fark vardır:
+Bu belge düzenleri için ASP.NET Core MVC iki farklı yaklaşım açıklanmaktadır: Razor sayfaları ve görünüm denetleyicileri. Bu konu için en az bir fark vardır:
 
 * Razor sayfaları bulunduğunuz *sayfaları* klasör.
 * Görünümler kullanan denetleyicileriyle bir *görünümleri* görünümleri için klasör.
@@ -33,11 +33,11 @@ Bu belge için ASP.NET Core MVC iki farklı yaklaşım düzenleri ele alınmakta
 
 ![Sayfa düzeni örneği](layout/_static/page-layout.png)
 
-Betikleri ve stil sayfalarını gibi ortak HTML yapıları, bir uygulama içinde birçok sayfaları da sık sık kullanılır. Tüm bu paylaşılan öğeleri içinde tanımlanabilir bir *Düzen* dosya, uygulama içinde kullanılan herhangi bir görünüm tarafından başvurulabilir. Düzenleri azaltmaya yardımcı görünümlerde yinelenen kod izleyin [yoksa yineleyin kendiniz (KURU) İlkesi](http://deviq.com/don-t-repeat-yourself/).
+Betikleri ve stil sayfalarını gibi ortak HTML yapıları, bir uygulama içinde birçok sayfaları da sık sık kullanılır. Tüm bu paylaşılan öğeleri içinde tanımlanabilir bir *Düzen* dosya, uygulama içinde kullanılan herhangi bir görünüm tarafından başvurulabilir. Düzenleri görünümleri yinelenen kodları azaltabilir.
 
 Kural gereği, ASP.NET Core uygulaması için varsayılan düzen adlı *_Layout.cshtml*. Düzen dosyası şablonları ile oluşturulan yeni ASP.NET Core projeleri için:
 
-* Razor sayfaları: *Pages/Shared/_Layout.cshtml*
+* Razor sayfaları için: *Pages/Shared/_Layout.cshtml*
 
   ![Çözüm Gezgini sayfalar klasöründe](layout/_static/rp-web-project-views.png)
 

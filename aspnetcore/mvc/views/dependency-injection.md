@@ -5,18 +5,18 @@ description: ASP.NET Core MVC görünümlere bağımlılık ekleme nasıl destek
 ms.author: riande
 ms.date: 10/14/2016
 uid: mvc/views/dependency-injection
-ms.openlocfilehash: 9b437d27a8d391db4533596674d144628a0c10b1
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: dfadafe9ebb5799b45ef68653f20c5fc1a2506b5
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207068"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410566"
 ---
 # <a name="dependency-injection-into-views-in-aspnet-core"></a>ASP.NET core'da görünümlere bağımlılık ekleme
 
 Tarafından [Steve Smith](https://ardalis.com/)
 
-ASP.NET Core destekler [bağımlılık ekleme](xref:fundamentals/dependency-injection) görünümlere. Bu, yerelleştirme veya yalnızca görünüm öğeleri doldurmak için gerekli veriler gibi özel görünüm Hizmetleri için yararlı olabilir. Korunacak denemelisiniz [görev ayrımı nettir](http://deviq.com/separation-of-concerns/) denetleyici ve görünüm arasında. Kendi görünümlerinizi görüntüleyin verilerden en iyi şekilde denetleyicisinden geçirilmelidir.
+ASP.NET Core destekler [bağımlılık ekleme](xref:fundamentals/dependency-injection) görünümlere. Bu, yerelleştirme veya yalnızca görünüm öğeleri doldurmak için gerekli veriler gibi özel görünüm Hizmetleri için yararlı olabilir. Korunacak denemelisiniz [görev ayrımı nettir](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#separation-of-concerns) denetleyici ve görünüm arasında. Kendi görünümlerinizi görüntüleyin verilerden en iyi şekilde denetleyicisinden geçirilmelidir.
 
 [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/dependency-injection/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
@@ -81,4 +81,4 @@ Var olan hizmetleri genişletmek isterseniz, dan devralan veya mevcut bir uygula
 
 ## <a name="see-also"></a>Ayrıca Bkz.
 
-* Simon Timms Blog: [görünümünüzü arama verilerini alma](http://blog.simontimms.com/2015/06/09/getting-lookup-data-into-you-view/)
+* Simon Timms Blog: [Arama verileri görünümünüzü alma](http://blog.simontimms.com/2015/06/09/getting-lookup-data-into-you-view/)

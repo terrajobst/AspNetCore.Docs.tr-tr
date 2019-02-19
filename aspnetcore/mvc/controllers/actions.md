@@ -5,100 +5,100 @@ description: ''
 ms.author: riande
 ms.date: 07/03/2017
 uid: mvc/controllers/actions
-ms.openlocfilehash: 3f3f565021d484b69401a3e03a2a966c92764a49
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 8289424b3cd3678bea18a25c7850e409795d1577
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36275666"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410449"
 ---
 # <a name="handle-requests-with-controllers-in-aspnet-core-mvc"></a>ASP.NET Core MVC denetleyicileri tanıtıcı istekleri
 
 Tarafından [Steve Smith](https://ardalis.com/) ve [Scott Addie](https://github.com/scottaddie)
 
-Denetleyicileri, Eylemler ve eylem sonucu, nasıl ASP.NET Core MVC kullanarak uygulamaları geliştiriciler, temel bir parçasıdır.
+Denetleyicileri, eylemleri ve eylem sonuçlarını nasıl geliştiriciler ASP.NET Core MVC kullanarak uygulamalar oluşturun, temel bir parçasıdır.
 
 ## <a name="what-is-a-controller"></a>Bir denetleyici nedir?
 
-Bir denetleyici tanımlamak ve eylemleri kümesini gruplamak için kullanılır. Bir eylem (veya *eylem yönteminin*) istekleri işleyen bir denetleyicisine yöntemidir. Denetleyicileri mantıksal olarak benzer eylemler gruplandırın. Bu toplama eylemlerin ortak yönlendirme, önbelleğe alma ve topluca uygulanacak yetkilendirme gibi kurallar kümesi sağlar. İstekleri eylemlerine eşlendi [yönlendirme](xref:mvc/controllers/routing).
+Bir denetleyici tanımlayın ve bir dizi eylemi gruplandırmak için kullanılır. Bir eylem (veya *eylem yöntemine*) isteklerini yürüten bir denetleyicisinde bir yöntemdir. Denetleyicileri mantıksal olarak benzer işlemler gruplandırın. Bu toplama eylemlerin gibi yönlendirme, önbelleğe alma ve topluca uygulanacak yetkilendirme kurallarının genel ayarlar sağlar. İstekleri Eylemler ile eşlendiğinden [yönlendirme](xref:mvc/controllers/routing).
 
-Kurala göre denetleyici sınıfları:
-* Projenin kök düzeyinde içinde bulunan *denetleyicileri* klasörü
-* Devralınmalıdır `Microsoft.AspNetCore.Mvc.Controller`
+Kural gereği, denetleyici sınıflarına:
+* Projenin kök düzey içinde bulunan *denetleyicileri* klasörü
+* Devralma `Microsoft.AspNetCore.Mvc.Controller`
 
-Aşağıdaki koşulların en az biri doğru olduğu bir instantiable sınıfı denetleyicisidir:
-* Sınıf adı "Controller" sonekine sahip
-* Adı "Controller" sonekine sahip bir sınıf sınıfının devraldığı
+Bir denetleyici, en az biri aşağıdaki koşulların true olduğu bir instantiable sınıfı şöyledir:
+* Sınıf adı, "Controller" soneki
+* Adlarında "Controller" sonekine sahip bir sınıftan sınıfından devralan
 * Sınıf ile donatılmış `[Controller]` özniteliği
 
-Denetleyici sınıfını ilişkili bir olmamalıdır `[NonController]` özniteliği.
+Denetleyici sınıfı bir ilişkili olmamalıdır `[NonController]` özniteliği.
 
-Denetleyicileri izlemelidir [açık bağımlılıkları ilkesine](http://deviq.com/explicit-dependencies-principle/). Birkaç Bu ilkeyi uygulamak için yaklaşım vardır. Aynı hizmetin birden fazla denetleyici eylemleri ihtiyacınız varsa kullanmayı [Oluşturucu ekleme](xref:mvc/controllers/dependency-injection#constructor-injection) bu bağımlılıkların istemek için. Hizmetin yalnızca bir tek eylem yöntemi tarafından gerekirse kullanmayı [eylem ekleme](xref:mvc/controllers/dependency-injection#action-injection-with-fromservices) bağımlılık istemek için.
+Denetleyicileri izlemelidir [açık bağımlılıkları ilkesine](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies). Bu ilkeyi uygulamak için yaklaşımların birkaç vardır. Aynı hizmetin birden fazla denetleyici eylemleri ihtiyacınız varsa kullanmayı [Oluşturucu ekleme](xref:mvc/controllers/dependency-injection#constructor-injection) bu bağımlılıkların istemek için. Hizmet yalnızca bir tek bir eylem yöntemi tarafından gerekirse kullanmayı [eylem ekleme](xref:mvc/controllers/dependency-injection#action-injection-with-fromservices) bağımlılık istemek için.
 
-İçinde **M**odel -**V**görünümü -**C**ontroller deseni, bir denetleyici isteğin ilk işleme ve modeli örneklemesi için sorumlu. Genellikle, iş kararları içindeki model gerçekleştirilmesi gerekir.
+İçinde **M**odel -**V**görüntüle -**C**ontroller desen, bir denetleyici isteğin ilk işleme ve modeli örneğinin sorumludur. Genellikle, iş kararlarını model içinde gerçekleştirilmelidir.
 
-Denetleyici (varsa) modelin işlem sonucunu alır ve doğru görünüm ve ilişkili görünüm verileri veya API çağrısının sonucunu döndürür. Hakkında daha fazla bilgi edinin [ASP.NET Core MVC genel bakış](xref:mvc/overview) ve [ASP.NET Core MVC ve Visual Studio ile çalışmaya başlama](xref:tutorials/first-mvc-app/start-mvc).
+Denetleyici modelinin (varsa) işlem sonucunu alır ve doğru görünüm ve, ilişkili görünüm verileri veya API çağrısının sonucunu döndürür. Daha fazla bilgi [ASP.NET Core MVC genel bakış](xref:mvc/overview) ve [ASP.NET Core MVC ve Visual Studio ile çalışmaya başlama](xref:tutorials/first-mvc-app/start-mvc).
 
-Denetleyicisidir bir *UI düzeyi* Özet. Sorumlulukları istek verileri geçerli olduğundan emin olun ve hangi görünüm (veya bir API için sonuç) döndürülmelidir seçmek için ' dir. İyi faktörlere göre uygulamalarda, doğrudan veri erişim veya iş mantığı içermez. Bunun yerine, denetleyici bu Sorumluluklar işleme Hizmetleri atar.
+Denetleyici bir *UI düzeyi* Özet. Sorumlulukları şunlardır: İstek verileri geçerli olduğundan emin olmak için ve hangi görünümü (veya bir API için sonuç) döndürülmesi gerektiğini seçmek için. Katsayıları iyi belirlenmiş uygulamalarda, doğrudan veri erişim veya iş mantığı içermez. Bunun yerine, denetleyici bu sorumlulukları işleme Hizmetleri atar.
 
 ## <a name="defining-actions"></a>Eylemleri tanımlama
 
-Genel yöntemler bir denetleyicisinde ile donatılmış hariç `[NonAction]` özniteliği, eylemlerdir. Eylemler parametrelere istek verilerini bağlı ve kullanılarak doğrulandı [model bağlama](xref:mvc/models/model-binding). Model doğrulama modeline bağlı olan her şeyi için oluşur. `ModelState.IsValid` Özellik değeri, model bağlama ve doğrulama başarılı olup olmadığını gösterir.
+Bir denetleyici genel yöntemleri ile donatılmış hariç `[NonAction]` özniteliği, eylemlerdir. Eylemlerdeki parametreleri istek verilerini bağlı ve kullanılarak doğrulandı [model bağlama](xref:mvc/models/model-binding). Model doğrulama modeline bağlı olan her şey için gerçekleşir. `ModelState.IsValid` Özellik değeri, model bağlama ve doğrulama başarılı olup olmadığını gösterir.
 
-Eylem yöntemleri iş sorunu için bir istek eşleme mantığı içermelidir. İş sorunları genellikle temsil denetleyicisi aracılığıyla erişen Hizmetleri olarak [bağımlılık ekleme](xref:mvc/controllers/dependency-injection). Bir uygulama durumu sonra harita iş eylemin sonucu eylemleri.
+Eylem yöntemleri için iş önemli bir talep eşleme için mantıksal içermelidir. İşle ilgili genellikle temsil edilemiyor denetleyicisi aracılığıyla eriştiği Hizmetleri olarak [bağımlılık ekleme](xref:mvc/controllers/dependency-injection). Eylemler, ardından iş eylem sonucu bir uygulama durumuna eşlenir.
 
-Eylemler herhangi bir şeyi geri ancak sık örneği döndürür `IActionResult` (veya `Task<IActionResult>` zaman uyumsuz yöntemleri için) bir yanıt oluşturur. Eylem yöntemi seçme için sorumlu olduğu *ne tür bir yanıt*. Eylem sonucu *yanıt vermiyor*.
+Eylemler herhangi bir şey getirmesi ama sık örneğini döner `IActionResult` (veya `Task<IActionResult>` zaman uyumsuz yöntemler için), bir yanıt oluşturur. Eylem yöntemi, tercih ettiğiniz için sorumlu *ne tür bir yanıt*. Eylem sonucu *yanıt vermiyor*.
 
 ### <a name="controller-helper-methods"></a>Denetleyici yardımcı yöntemler
 
-Denetleyicileri genellikle devral [denetleyicisi](/dotnet/api/microsoft.aspnetcore.mvc.controller), ancak bu zorunlu değildir. Türetme `Controller` yardımcı yöntemlerinin üç kategoride erişim sağlar:
+Denetleyicileri genellikle devralınan [denetleyicisi](/dotnet/api/microsoft.aspnetcore.mvc.controller), ancak bu zorunlu değildir. Öğesinden türetme `Controller` yardımcı yöntemler üç kategorisi erişim sağlar:
 
-#### <a name="1-methods-resulting-in-an-empty-response-body"></a>1. Bir boş yanıt gövdesinde kaynaklanan yöntemleri
+#### <a name="1-methods-resulting-in-an-empty-response-body"></a>1. Bunun sonucunda bir boş yanıt gövdesi içinde yöntemleri
 
-Hayır `Content-Type` HTTP yanıt üstbilgisi eklenmiştir, yanıt gövdesi açıklamak için içerik eksik olduğundan.
+Hayır `Content-Type` yanıt gövdesi açıklamak için içerik eksik olduğundan HTTP yanıt üst bilgisi dahil.
 
-Bu kategoride iki sonuç türü vardır: yeniden yönlendirme ve HTTP durum kodu.
+Bu kategorideki iki sonuç türleri şunlardır: Yeniden yönlendirme ve HTTP durum kodu.
 
 * **HTTP durum kodu**
 
-    Bu tür bir HTTP durum kodu döndürür. Bu tür yardımcı yöntemler birkaç olan `BadRequest`, `NotFound`, ve `Ok`. Örneğin, `return BadRequest();` çalıştırıldığında 400 durum kodu oluşturur. Zaman gibi yöntemler `BadRequest`, `NotFound`, ve `Ok` olan içerik anlaşması yer aldığı bu yana aşırı, bunlar artık HTTP durum kodu Yanıtlayıcı hakkını kullanmaya devam eder.
+    Bu tür bir HTTP durum kodu döndürür. Bu tür yardımcı yöntemler birkaç olan `BadRequest`, `NotFound`, ve `Ok`. Örneğin, `return BadRequest();` yürütüldüğünde bir 400 durum kodu üretir. Zaman gibi yöntemler `BadRequest`, `NotFound`, ve `Ok` olan içerik anlaşması gerçekleşen beri aşırı, bunlar artık HTTP durum kodu Yanıtlayıcı niteleyin.
 
 * **yeniden yönlendirme**
 
-    Bu tür bir yeniden yönlendirme için bir eylem veya hedef döndürür (kullanarak `Redirect`, `LocalRedirect`, `RedirectToAction`, veya `RedirectToRoute`). Örneğin, `return RedirectToAction("Complete", new {id = 123});` yönlendirir `Complete`, anonim bir nesne geçirme.
+    Bu tür bir eylem veya hedef bir yeniden yönlendirme döndürür (kullanarak `Redirect`, `LocalRedirect`, `RedirectToAction`, veya `RedirectToRoute`). Örneğin, `return RedirectToAction("Complete", new {id = 123});` yönlendirir `Complete`, anonim bir nesne geçirme.
 
-    HTTP durum kodu türünde öncelikle ek yeniden yönlendirme sonuç türü farklı bir `Location` HTTP yanıt üst bilgisi.
+    Yeniden yönlendirme sonuç türü birincil ek olarak HTTP durum kodu türünden farklı bir `Location` HTTP yanıt üst bilgisi.
 
-#### <a name="2-methods-resulting-in-a-non-empty-response-body-with-a-predefined-content-type"></a>2. Önceden tanımlanmış bir içerik türüyle boş yanıt gövdesi sonuçta yöntemleri
+#### <a name="2-methods-resulting-in-a-non-empty-response-body-with-a-predefined-content-type"></a>2. Önceden tanımlanmış bir içerik türüyle boş yanıt gövdesi içinde elde edilen yöntemleri
 
-Bu kategorideki çoğu yardımcı yöntemler içerir bir `ContentType` ayarlamanıza olanak veren özelliği, `Content-Type` yanıt gövdesi açıklamak için yanıt üstbilgisi.
+Bu kategorideki çoğu yardımcı yöntemler içerir. bir `ContentType` ayarlamanızı izin verme özelliği `Content-Type` yanıt gövdesi açıklamak için yanıt üst bilgisi.
 
-Bu kategoride iki sonuç türü vardır: [Görünüm](xref:mvc/views/overview) ve [biçimlendirilmiş yanıt](xref:web-api/advanced/formatting).
+Bu kategorideki iki sonuç türleri şunlardır: [Görünüm](xref:mvc/views/overview) ve [yanıt biçimlendirilmiş](xref:web-api/advanced/formatting).
 
 * **Görünümü**
 
-    Bu tür HTML oluşturmak için bir model kullanan bir görünüm verir. Örneğin, `return View(customer);` görünüm veri bağlama için bir model geçirir.
+    Bu tür HTML oluşturmak için bir modeli kullanan bir görünüm verir. Örneğin, `return View(customer);` görünüm veri bağlama için bir model geçirir.
 
 * **Biçimlendirilmiş yanıt**
 
-    Bu tür bir nesne belirli bir şekilde temsil etmek için JSON veya benzer bir veri değişimi biçimi döndürür. Örneğin, `return Json(customer);` sağlanan nesneyi JSON biçimine serileştiren.
+    Bu tür bir nesne belirli bir şekilde temsil etmek için JSON veya benzer bir veri değişimi biçimi döndürür. Örneğin, `return Json(customer);` belirtilen nesneyi JSON biçimine serileştiren.
     
-    Bu tür ortak diğer yöntemleri kapsar `File`, `PhysicalFile`, ve `VirtualFile`. Örneğin, `return PhysicalFile(customerFilePath, "text/xml");` tarafından açıklanan bir XML dosyası döndüren bir `Content-Type` "text/xml" yanıt üstbilgisi değeri.
+    Bu tür genel diğer yöntemleri kapsar `File` ve `PhysicalFile`. Örneğin, `return PhysicalFile(customerFilePath, "text/xml");` döndürür [PhysicalFileResult](/dotnet/api/microsoft.aspnetcore.mvc.physicalfileresult).
 
-#### <a name="3-methods-resulting-in-a-non-empty-response-body-formatted-in-a-content-type-negotiated-with-the-client"></a>3. İstemciyle anlaşılan bir içerik türü boş yanıt gövdesi içinde kaynaklanan yöntemleri biçimlendirilmiş
+#### <a name="3-methods-resulting-in-a-non-empty-response-body-formatted-in-a-content-type-negotiated-with-the-client"></a>3. İstemciyle anlaşılan bir içerik türü boş yanıt gövdesi içinde elde edilen yöntemleri biçimlendirilmiş
 
-Bu kategori daha iyi denir **içerik anlaşması**. [İçerik anlaşması](xref:web-api/advanced/formatting#content-negotiation) bir eylem döndürür her geçerli bir [ObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.objectresult) türü veya dışında bir şey bir [IActionResult](/dotnet/api/microsoft.aspnetcore.mvc.iactionresult) uygulaması. Olmayan bir döndüren bir eylem`IActionResult` uygulaması (örneğin, `object`) de biçimlendirilmiş bir yanıt döndürür.
+Bu kategoriye daha iyi denir **içerik anlaşması**. [İçerik anlaşması](xref:web-api/advanced/formatting#content-negotiation) bir eylem döndürür. her geçerli bir [ObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.objectresult) türü veya dışında bir şey bir [IActionResult](/dotnet/api/microsoft.aspnetcore.mvc.iactionresult) uygulaması. Olmayan bir döndüren bir eylem`IActionResult` uygulaması (örneğin, `object`) da biçimlendirilmiş bir yanıt döndürür.
 
-Bu türdeki bazı yardımcı yöntemler içerir `BadRequest`, `CreatedAtRoute`, ve `Ok`. Bu yöntemler örnekleridir `return BadRequest(modelState);`, `return CreatedAtRoute("routename", values, newobject);`, ve `return Ok(value);`sırasıyla. Unutmayın `BadRequest` ve `Ok` yalnızca bir değer geçirildiğinde içerik anlaşması gerçekleştirin; bir değer geçirilen olmadan, bunun yerine HTTP durum kodu sonuç türleri olarak verdikleri. `CreatedAtRoute` Yöntemi, diğer yandan, içerik anlaşmasını tüm gerektiren bir değere geçirilecek kendi aşırı itibaren her zaman gerçekleştirir.
+Bu tür bazı yardımcı yöntemler içerir `BadRequest`, `CreatedAtRoute`, ve `Ok`. Bu yöntemlerin örnekler `return BadRequest(modelState);`, `return CreatedAtRoute("routename", values, newobject);`, ve `return Ok(value);`sırasıyla. Unutmayın `BadRequest` ve `Ok` yalnızca bir değer geçirildiğinde içerik anlaşması gerçekleştirir; bir değer olmadan geçirilen, bunun yerine HTTP durum kodu sonuç türleri verdikleri. `CreatedAtRoute` Yöntemi, diğer taraftan, içerik anlaşmasını tüm gerektiren bir değere geçirilecek bunun aşırı yüklerinden beri her zaman gerçekleştirir.
 
-### <a name="cross-cutting-concerns"></a>Çapraz kesme sorunları
+### <a name="cross-cutting-concerns"></a>Geniş kapsamlı kritik konular
 
-Uygulamalar genellikle kendi iş akışının bölümlerini paylaşır. Alışveriş sepeti erişmek için kimlik doğrulaması gerektiren bir uygulama veya bazı sayfalarında verileri önbelleğe alarak bir uygulama örnek olarak verilebilir. Önce veya sonra bir eylem yönteminin mantığı gerçekleştirmek için bir *filtre*. Kullanarak [filtreleri](xref:mvc/controllers/filters) üzerinde çapraz kesme sorunları izlemek vermeden çoğaltma azaltabilir [yok yineleyin kendiniz (KURU) İlkesi](http://deviq.com/don-t-repeat-yourself/).
+Uygulamalar genellikle kendi iş akışının bölümlerini paylaşın. Alışveriş sepetini erişmek için kimlik doğrulaması gerektiren bir uygulama veya bazı sayfalar verileri önbelleğe alan bir uygulama verilebilir. Önce veya sonra bir eylem yöntemi mantığını gerçekleştirmek için bir *filtre*. Kullanarak [filtreleri](xref:mvc/controllers/filters) geniş kapsamlı kritik konular üzerinde çoğaltma azaltabilir.
 
-En filtre öznitelikleri gibi `[Authorize]`, ayrıntı düzeyi istenen düzeye bağlı olarak denetleyici veya eylem düzeyinde uygulanabilir.
+En filtre öznitelikleri gibi `[Authorize]`, istediğiniz ayrıntı düzeyi düzeye bağlı olarak denetleyici veya eylem düzeyinde uygulanabilir.
 
-Hata işleme ve yanıt önbelleğe alma genellikle arası kesme sorunları şunlardır:
+Hata işleme ve yanıt önbelleğe alma genellikle geniş kapsamlı kritik konular şunlardır:
    * [Hataları işleme](xref:mvc/controllers/filters#exception-filters)
    * [Yanıtları Önbelleğe Alma](xref:performance/caching/response)
 
-Filtre ya da özel kullanılarak birçok arası kesme sorunları işlenebilir [Ara](xref:fundamentals/middleware/index).
+Çok geniş kapsamlı kritik konular, filtreler veya özel kullanılarak işlenebilir [ara yazılım](xref:fundamentals/middleware/index).

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/21/2017
 uid: security/authorization/policies
-ms.openlocfilehash: 937c73c26cd3935c5069d4735e754d1a567f41f4
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: be4812487c92a16c44e3983b234bc9e31be65190
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248114"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410395"
 ---
 # <a name="policy-based-authorization-in-aspnet-core"></a>ASP.NET core'da ilke tabanlı yetkilendirme
 
@@ -120,7 +120,7 @@ Hangi getirdikten bir ilke kod içinde ifade basit olduğu durumlar olabilir. Sa
 
 Örneğin, MVC bir örneğini geçirir [AuthorizationFilterContext](/dotnet/api/?term=AuthorizationFilterContext) içinde `Resource` özelliği. Bu özellik erişim sağlayan `HttpContext`, `RouteData`ve başka MVC ve Razor sayfaları tarafından sağlanan her şey.
 
-Kullanımını `Resource` framework belirli bir özelliktir. Bilgileri kullanarak `Resource` özelliği, Yetkilendirme İlkeleri belirli çerçeveleri için sınırlar. Cast `Resource` özelliğini kullanarak `as` anahtar sözcüğü, atama işlemi başarılı değil, kodunuzu kilitlenme emin olmak için onaylayın ile bir `InvalidCastException` diğer çerçeveler çalıştırdığınızda:
+Kullanımını `Resource` framework belirli bir özelliktir. Bilgileri kullanarak `Resource` özelliği, Yetkilendirme İlkeleri belirli çerçeveleri için sınırlar. Cast `Resource` özelliğini kullanarak `is` anahtar sözcüğü, dönüştürme işleminin başarılı değil, kodunuzu kilitlenme emin olmak için onaylayın ile bir `InvalidCastException` diğer çerçeveler çalıştırdığınızda:
 
 ```csharp
 // Requires the following import:

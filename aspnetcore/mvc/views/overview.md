@@ -5,12 +5,12 @@ description: Uygulamanın verilerini sunumu ve kullanıcı etkileşimine karşı
 ms.author: riande
 ms.date: 12/12/2017
 uid: mvc/views/overview
-ms.openlocfilehash: 276540a5d77b1d65119d1b2104508d77f45d5588
-ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
+ms.openlocfilehash: 6c5b4d7b89ac07a85b5aad626e37855de98064eb
+ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219374"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56410450"
 ---
 # <a name="views-in-aspnet-core-mvc"></a>ASP.NET Core MVC görünümleri
 
@@ -34,7 +34,7 @@ Kullanım [düzenleri](xref:mvc/views/layout) tutarlı Web Bölümleri sağlamak
 
 ## <a name="benefits-of-using-views"></a>Görünümleri kullanmanın avantajları
 
-Görünümleri yardımcı kurmak için bir [kaygıları ayırma (SoC) tasarım](http://deviq.com/separation-of-concerns/) uygulamanın diğer bölümlerden kullanıcı arabirimi biçimlendirme ayırarak bir MVC uygulaması içinde. SoC tasarım aşağıdaki uygulamanızı çeşitli avantajlar sağlayan modüler, yapar:
+Görünümleri yardımcı kurmak için [görev ayrımı nettir](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#separation-of-concerns) uygulamanın diğer bölümlerden kullanıcı arabirimi biçimlendirme ayırarak bir MVC uygulaması içinde. SoC tasarım aşağıdaki uygulamanızı çeşitli avantajlar sağlayan modüler, yapar:
 
 * Uygulama, daha iyi organize çünkü korumak daha kolay olur. Görünümler, genel olarak app özelliği tarafından gruplandırılır. Bu, bir özellik üzerinde çalışırken ilgili görünümleri bulmayı kolaylaştırır.
 * Uygulama bölümleri birbirine sıkı şekilde bağlı. Derleme ve iş mantığı ve verileri erişim bileşenleri ayrı olarak uygulamanın görünümleri güncelleştirin. Uygulama görünümlerini mutlaka uygulamanın diğer bölümlerini güncelleştirmek zorunda kalmadan değiştirebilirsiniz.
