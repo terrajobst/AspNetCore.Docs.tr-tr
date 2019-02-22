@@ -4,14 +4,8 @@ author: rick-anderson
 description: ASP.NET Core ara yazılım ve istek ardışık düzenini hakkında bilgi edinin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/10/2018
+ms.date: 02/17/2019
 uid: fundamentals/middleware/index
-ms.openlocfilehash: c55dbd5a9ac31f55daf1cb3146fb18b91b016919
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341595"
 ---
 # <a name="aspnet-core-middleware"></a>ASP.NET Core ara yazılımı
 
@@ -24,7 +18,7 @@ Ara yazılım isteklerini ve yanıtlarını işlemek için bir uygulama ardış�
 
 İstek Temsilciler, istek ardışık düzenini oluşturmak için kullanılır. İstek temsilcileri her HTTP isteği işler.
 
-Temsilcileri kullanarak yapılandırılmış olan istek <xref:Microsoft.AspNetCore.Builder.RunExtensions.Run*>, <xref:Microsoft.AspNetCore.Builder.MapExtensions.Map*>, ve <xref:Microsoft.AspNetCore.Builder.UseExtensions.Use*> genişletme yöntemleri. Tek tek istekler temsilci (satır içi ara yazılımı olarak adlandırılır) bir anonim yöntem belirtilen satır içi olabilir veya yeniden kullanılabilir bir sınıf içinde tanımlanabilir. Bu yeniden kullanılabilir sınıfları ve satır içi anonim yöntemler *ara yazılım*ayrıca adlı *ara yazılımı bileşenleri*. Her ara yazılım bileşeni istek ardışık düzende, ardışık düzende sonraki bileşene çağırma veya işlem hattı kısa devre sorumludur.
+Temsilcileri kullanarak yapılandırılmış olan istek <xref:Microsoft.AspNetCore.Builder.RunExtensions.Run*>, <xref:Microsoft.AspNetCore.Builder.MapExtensions.Map*>, ve <xref:Microsoft.AspNetCore.Builder.UseExtensions.Use*> genişletme yöntemleri. Tek tek istekler temsilci (satır içi ara yazılımı olarak adlandırılır) bir anonim yöntem belirtilen satır içi olabilir veya yeniden kullanılabilir bir sınıf içinde tanımlanabilir. Bu yeniden kullanılabilir sınıfları ve satır içi anonim yöntemler *ara yazılım*ayrıca adlı *ara yazılımı bileşenleri*. Her ara yazılım bileşeni istek ardışık düzende, ardışık düzende sonraki bileşene çağırma veya işlem hattı kısa devre sorumludur. Olduğunda bir ara yazılım short-circuits, çağrıldığı bir *terminal ara yazılım* isteği işlemesini daha fazla ara yazılımı önlediği için.
 
 <xref:migration/http-modules> İstek hatlarında ASP.NET Core ve ASP.NET arasındaki farkı açıklar 4.x ve daha fazla ara yazılım örnekleri sağlar.
 
@@ -34,7 +28,7 @@ Temsilcileri kullanarak yapılandırılmış olan istek <xref:Microsoft.AspNetCo
 
 ![İstek işleme düzeni ulaşan, işlem üç middlewares ve uygulamadan ayrılmasını yanıt bir istek gösteriliyor. Her bir ara yazılım, mantığını çalışır ve izin isteği next() deyimindeki sonraki ara yazılımı için uygulamalı. Üçüncü bir ara yazılım isteği işler sonra ters sırada kendi next() deyimleri istemciye yanıt olarak uygulama çıkmadan önce sonra ek işleme için önceki iki middlewares üzerinden geri istek geçirir.](index/_static/request-delegate-pipeline.png)
 
-Her temsilci önce ve sonra İleri temsilci işlemleri gerçekleştirebilir. Bir istek çağrılır sonraki temsilcisine geçirmemesi bir temsilci da karar verebilirsiniz *istek ardışık düzenini kısa devre*. Gereksiz iş önlediği için kısa devre genellikle tercih edilir. Örneğin, statik dosya ara yazılımlarını statik bir dosya için bir istek dönün ve kalan ardışık düzenini kısa devre oluşturur. Bunlar işlem hattının sonraki aşamasında oluşan özel durumları yakalayabilirsiniz özel durum işleme temsilciler kanal içinde çağrılır.
+Her temsilci önce ve sonra İleri temsilci işlemleri gerçekleştirebilir. Bunlar işlem hattının sonraki aşamasında oluşan özel durumları yakalayabilirsiniz özel durum işleme temsilciler kanal içinde çağrılmalıdır.
 
 Tüm istekleri işleyen bir tek istek temsilci basit olası ASP.NET Core uygulaması ayarlar. Bu durumda, bir gerçek istek ardışık düzeni dahil değildir. Bunun yerine, tek bir anonim işlev, her bir HTTP isteğine yanıt olarak adlandırılır.
 
@@ -45,6 +39,8 @@ Tüm istekleri işleyen bir tek istek temsilci basit olası ASP.NET Core uygulam
 Birden çok istek temsilciler birlikte zincirleme <xref:Microsoft.AspNetCore.Builder.UseExtensions.Use*>. `next` Parametresi ardışık düzende sonraki temsilciyi temsil eder. İşlem hattı tarafından kısa devre oluşturur *değil* çağırma *sonraki* parametresi. Aşağıdaki örnekte de gösterildiği gibi öncesinde ve sonrasında sonraki temsilci, genellikle eylemleri gerçekleştirebilirsiniz:
 
 [!code-csharp[](index/snapshot/Chain/Startup.cs?name=snippet1)]
+
+Bir temsilci sonraki temsilci atamak için bir istek başarısız olduğunda çağrılır *istek ardışık düzenini kısa devre*. Gereksiz iş önlediği için kısa devre genellikle tercih edilir. Örneğin, [statik dosya ara yazılımlarını](xref:fundamentals/static-files) olarak davranıp bir *terminal ara yazılım* statik bir dosya için bir istek işleme ve kalan ardışık düzenini kısa devre. Ara yazılım ardışık düzene daha fazla işleme sonlandıran bir ara yazılım koddan sonra hala işlemeden önce eklenen kendi `next.Invoke` deyimleri. Bununla birlikte, zaten gönderilen yanıt yazma girişiminde bulunulurken hakkında aşağıdaki uyarıyı görürsünüz.
 
 > [!WARNING]
 > Remove() çağırmayın `next.Invoke` istemciye yanıt gönderildikten sonra. Değişikliklerini <xref:Microsoft.AspNetCore.Http.HttpResponse> yanıt başlatıldıktan sonra bir özel durum. Örneğin, üst bilgileri ve durum kodu ayarlama gibi değişiklikler, bir özel durum. Yanıt gövdesi için çağırdıktan sonra Yazma `next`:
@@ -228,7 +224,7 @@ app.Map("/level1", level1App => {
 
 ## <a name="built-in-middleware"></a>Yerleşik ara yazılım
 
-ASP.NET Core aşağıdaki ara yazılımı bileşenleri ile birlikte gelir. *Sipariş* sütun Ara yerleştirme istek ardışık düzenini ve ara yazılım hangi koşullar altında ilgili notlar istek sonlandırmak ve diğer ara yazılımdan, bir isteğin işlenmesini önlemek sağlar.
+ASP.NET Core aşağıdaki ara yazılımı bileşenleri ile birlikte gelir. *Sipariş* sütun sağlar ara yazılım yerleştirme istek işleme ardışık düzeninde ve ara yazılım hangi koşullar altında ilgili notlar isteği işlemeyi sonlandır. Bir ara yazılım ardışık düzen işleme isteği short-circuits ve istek önlediği daha da aşağı akış ara yazılım adlı bir *terminal ara yazılım*. Kısa devre daha fazla bilgi için bkz: [IApplicationBuilder ile bir ara yazılım ardışık düzenini oluşturma](#create-a-middleware-pipeline-with-iapplicationbuilder) bölümü.
 
 | Ara yazılım | Açıklama | Sipariş verme |
 | ---------- | ----------- | ----- |

@@ -4,14 +4,8 @@ author: guardrex
 description: ASP.NET Core uygulamaları Windows Server Internet Information Services (IIS) üzerinde barındırmayı öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/13/2019
+ms.date: 02/19/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 5d6ba8b7ee6f09a7d00aa0285802cf0aad267a1d
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248426"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Windows IIS üzerinde ASP.NET Core barındırma
 
@@ -219,7 +213,7 @@ Mevcut uygulamanın fiziksel yola gibi hassas dosyalar  *\<derleme >. runtimecon
 
 ***Web.config* doğru adlı, dağıtımdaki her zaman mevcut ve yukarı site normal başlangıç için yapılandırmak için dosya olmalıdır. Hiçbir zaman Kaldır *web.config* dosyasından bir üretim dağıtımı.**
 
-### <a name="transform-webconfig"></a>Web.config Dönüştür
+### <a name="transform-webconfig"></a>Web.config’i dönüştürme
 
 Dönüştürmeniz gerekirse *web.config* (örneğin, ortam değişkenlerini ayarlama, yapılandırma, profili veya ortama göre), bkz: yayımlama sırasında <xref:host-and-deploy/iis/transform-webconfig>.
 
@@ -296,13 +290,14 @@ Yükleyici önceki bir sürümünü almak için:
 
 ### <a name="install-the-hosting-bundle"></a>Barındırma paket yükleme
 
-1. Sunucuda yükleyiciyi çalıştırın. Yükleyiciyi bir yönetici komut isteminden çalıştırırken aşağıdaki anahtarlar kullanılabilir:
+1. Sunucuda yükleyiciyi çalıştırın. Aşağıdaki parametreleri, yükleyici komut kabuğunu yönetici olarak çalıştırılırken kullanılabilir:
 
    * `OPT_NO_ANCM=1` &ndash; ASP.NET Core modülü yükleme atlanıyor.
    * `OPT_NO_RUNTIME=1` &ndash; .NET Core çalışma zamanı yükleme atlanıyor.
    * `OPT_NO_SHAREDFX=1` &ndash; ASP.NET paylaşılan Framework (ASP.NET çalışma zamanı) yükleme atlanıyor.
-   * `OPT_NO_X86=1` &ndash; X86 yükleme atlanıyor çalışma zamanları. 32-bit uygulamaları barındırma gerekmez, bildiğiniz durumlarda bu anahtarı kullanın. Hem 32 bit hem de 64-bit uygulamaları gelecekte barındıracak ihtimali varsa, yoksa bu anahtarı kullanın ve her iki çalışma zamanları yükleyin.
-1. Sistemi yeniden başlatın veya yürütme **net stop olan /y** ardından **net start w3svc** bir komut isteminden. Sistemde bir değişiklik'kurmak IIS çekme yeniden bir ortam değişkenidir, yol yapılan yükleyicisi tarafından.
+   * `OPT_NO_X86=1` &ndash; X86 yükleme atlanıyor çalışma zamanları. 32-bit uygulamaları barındırma gerekmez, bildiğiniz durumlarda bu parametreyi kullanın. Hem 32 bit hem de 64-bit uygulamaları gelecekte barındıracak ihtimali varsa, yoksa bu parametreyi kullanın ve her iki çalışma zamanları yükleyin.
+   * `OPT_NO_SHARED_CONFIG_CHECK=1` &ndash; IIS paylaşılan yapılandırması kullanmak için denetimi devre dışı olduğunda paylaşılan yapılandırma (*applicationHost.config*) IIS yüklemesi ile aynı makinede olduğu. *Yalnızca, ASP.NET Core 2.2 veya üzeri barındırma Bundler yükleyicileri için de kullanılabilir.* Daha fazla bilgi için bkz. <xref:host-and-deploy/aspnet-core-module#aspnet-core-module-with-an-iis-shared-configuration>.
+1. Sistemi yeniden başlatın veya yürütme **net stop olan /y** ardından **net start w3svc** komut kabuğundan. Sistemde bir değişiklik'kurmak IIS çekme yeniden bir ortam değişkenidir, yol yapılan yükleyicisi tarafından.
 
 Windows barındırma Paket Yükleyici IIS yüklemesini tamamlamak için bir sıfırlama gerektiren algılarsa, yükleyici IIS sıfırlar. Yükleyici IIS sıfırlama tetiklenirse, tüm Web siteleri ve IIS uygulama havuzları yeniden başlatılır.
 

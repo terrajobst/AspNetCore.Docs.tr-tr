@@ -5,14 +5,14 @@ description: Yapılandırma ve ASP.NET Core yanıt önbelleğe alma ara yazılı
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/16/2019
+ms.date: 02/20/2019
 uid: performance/caching/middleware
-ms.openlocfilehash: bb265d04022ec2f8fdb3f2f3bc42f6b3f0b2b338
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: c7c3dbd0c9cf029fa6921d77450e780768c8aa6e
+ms.sourcegitcommit: 0945078a09c372f17e9b003758ed87e99c2449f4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410329"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56647921"
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Yanıt önbelleğe alma ara yazılımı ASP.NET core'da
 
@@ -138,7 +138,7 @@ Test etme ve sorun giderme önbelleğe alma davranışını bir tarayıcı isten
 
 * İstek sunucu yanıtı bir 200 (Tamam) durum kodu ile sonuçlanması gerekir.
 * İstek yöntemini GET veya HEAD olmalıdır.
-* Terminal ara yazılımın yanıt yanıt önbelleğe alma ara yazılımı önce işlem gerekir.
+* İçinde `Startup.Configure`, yanıtları önbelleğe alma ara yazılımı gerektiren sıkıştırma ara yazılımı önce yerleştirilmelidir. Daha fazla bilgi için bkz. <xref:fundamentals/middleware/index>.
 * `Authorization` Üstbilgisi mevcut olmamalıdır.
 * `Cache-Control` üst bilgi parametreleri geçerli olmalıdır ve yanıt işaretlenmelidir `public` ve işaretlenmemiş `private`.
 * `Pragma: no-cache` Üstbilgisi mevcut olmamalıdır, `Cache-Control` üst bilgi olarak mevcut olmayan `Cache-Control` üst bilgisi geçersiz kılar `Pragma` üst bilgisi mevcut olduğunda.

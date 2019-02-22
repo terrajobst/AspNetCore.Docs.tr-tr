@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core uygulamaları barındırmak için gereken ASP.NET Core modülü yapılandırmayı öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/08/2019
+ms.date: 02/19/2019
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: 9270d7b462bbac1ae0ad896c0937ea6dd909b2cd
-ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
+ms.openlocfilehash: e7eed467a0f54df5d0e067efabf6f821b7647d70
+ms.sourcegitcommit: 0945078a09c372f17e9b003758ed87e99c2449f4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56159561"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56647973"
 ---
 # <a name="aspnet-core-module"></a>ASP.NET Core Modülü
 
@@ -500,12 +500,35 @@ Eşleşme bir belirteç Kestrel tarafından alınan isteklerden IIS tarafından 
 
 ## <a name="aspnet-core-module-with-an-iis-shared-configuration"></a>Bir IIS ile ASP.NET Core modülü paylaşılan yapılandırma
 
-ASP.NET Core modülü yükleyiciyi ayrıcalıklarıyla çalıştırır **sistem** hesabı. IIS paylaşılan yapılandırması tarafından kullanılan paylaşımı yol için izne sahip yerel sistem hesabı olmayan değiştirme çünkü Yükleyici bir erişim reddedildi hatası modül ayarlarını yapılandırılmaya çalışılırken İsabetleri *applicationHost.config* paylaşımda. IIS paylaşılan yapılandırmaya kullanırken, şu adımları izleyin:
+ASP.NET Core modülü yükleyiciyi ayrıcalıklarıyla çalıştırır **TrustedInstaller** hesabı. IIS paylaşılan yapılandırması tarafından kullanılan paylaşımı yol için izne sahip yerel sistem hesabı olmayan değiştirme çünkü Yükleyici bir erişim reddedildi hatası modül ayarlarını yapılandırılmaya çalışılırken oluşturur *applicationHost.config*  Dosya paylaşımındaki.
+
+::: moniker range=">= aspnetcore-2.2"
+
+IIS paylaşılan yapılandırmaya, IIS yüklemesi ile aynı makinede kullanırken, ASP.NET Core barındırma Paket Yükleyici ile çalıştırma `OPT_NO_SHARED_CONFIG_CHECK` parametresini `1`:
+
+```console
+dotnet-hosting-{VERSION}.exe OPT_NO_SHARED_CONFIG_CHECK=1
+```
+
+Paylaşılan yapılandırma yolu IIS yüklemesi ile aynı makinede olmadığı durumlarda, aşağıdaki adımları izleyin:
 
 1. IIS paylaşılan yapılandırması devre dışı bırakın.
 1. Yükleyiciyi çalıştırın.
 1. Güncelleştirilmiş dışarı *applicationHost.config* dosya paylaşımına.
 1. IIS paylaşılan yapılandırması yeniden etkinleştirin.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
+IIS paylaşılan yapılandırmaya kullanırken, şu adımları izleyin:
+
+1. IIS paylaşılan yapılandırması devre dışı bırakın.
+1. Yükleyiciyi çalıştırın.
+1. Güncelleştirilmiş dışarı *applicationHost.config* dosya paylaşımına.
+1. IIS paylaşılan yapılandırması yeniden etkinleştirin.
+
+::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.2"
 
