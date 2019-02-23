@@ -5,12 +5,12 @@ description: ''
 ms.author: tdykstra
 ms.date: 12/07/2016
 uid: migration/http-modules
-ms.openlocfilehash: 9dd28b86966912cce87166feb37e65adf3dd6dcb
-ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
+ms.openlocfilehash: 601b93fb12ab5b37b7d8ad8fd9825accc6e314cd
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41902677"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56743861"
 ---
 # <a name="migrate-http-handlers-and-modules-to-aspnet-core-middleware"></a>ASP.NET Core Ara yazılımıyla HTTP işleyicilerini ve modülleri geçirme
 
@@ -46,7 +46,7 @@ ASP.NET Core ara yazılımı için devam etmeden önce şimdi ilk HTTP modüller
 
 **Hangi modüllerin gelen istekleri işleme sırası tarafından belirlenir:**
 
-   1. [Uygulama yaşam döngüsü](https://msdn.microsoft.com/library/ms227673.aspx), ASP.NET tarafından tetiklenen bir serisi olayları olduğu: [BeginRequest](/dotnet/api/system.web.httpapplication.beginrequest), [AuthenticateRequest](/dotnet/api/system.web.httpapplication.authenticaterequest)vb. Her modülü, bir veya daha fazla olay işleyicisi oluşturabilirsiniz.
+   1. [Uygulama yaşam döngüsü](https://msdn.microsoft.com/library/ms227673.aspx), ASP.NET tarafından tetiklenen bir serisi olayları olduğu: [BeginRequest](/dotnet/api/system.web.httpapplication.beginrequest), [AuthenticateRequest](/dotnet/api/system.web.httpapplication.authenticaterequest), etc. Her modülü, bir veya daha fazla olay işleyicisi oluşturabilirsiniz.
 
    2. Aynı olay, siparişin, bunlar yapılandırılmış için *Web.config*.
 
@@ -96,7 +96,7 @@ Gösterildiği [ara yazılım](xref:fundamentals/middleware/index) sayfasında, 
 
 [!code-csharp[](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyMiddleware.cs?highlight=9,13,20,24,28,30,32)]
 
-Yukarıdaki ara yazılım şablonu bölümünden alındığı [yazma ara yazılımı](xref:fundamentals/middleware/index#write-middleware).
+Yukarıdaki ara yazılım şablonu bölümünden alındığı [yazma ara yazılımı](xref:fundamentals/middleware/write).
 
 *MyMiddlewareExtensions* yardımcı bir sınıf içinde ara yazılımını yapılandırma kolaylaştırır, `Startup` sınıfı. `UseMyMiddleware` Yöntemi, ara yazılım sınıfı istek ardışık düzene ekler. Ara yazılım tarafından gerekli hizmetleri Ara oluşturucuda eklenen.
 

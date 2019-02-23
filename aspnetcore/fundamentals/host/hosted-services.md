@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/28/2018
 uid: fundamentals/host/hosted-services
-ms.openlocfilehash: de419357d4d96a6e348a77055e67c0fcd190ae42
-ms.sourcegitcommit: 0fc89b80bb1952852ecbcf3c5c156459b02a6ceb
+ms.openlocfilehash: 3b48b32e6abfb02c0f8d2ebdc3aca9f02324df6c
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52618148"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56744072"
 ---
 # <a name="background-tasks-with-hosted-services-in-aspnet-core"></a>ASP.NET core'da barındırılan hizmetler ile arka plan görevleri
 
@@ -28,7 +28,7 @@ ASP.NET Core, arka plan görevleri olarak uygulanabilir *barındırılan hizmetl
 
 Örnek uygulama, iki sürümde sağlanır:
 
-* Web ana bilgisayar &ndash; Web ana bilgisayarı, web uygulamalarını barındırmak için kullanışlıdır. Bu konuda gösterilen örnek kod örnek Web ana bilgisayarı sürümünden ' dir. Daha fazla bilgi için [Web ana bilgisayarı](xref:fundamentals/host/web-host) konu.
+* Web ana bilgisayar &ndash; Web ana bilgisayarı, web uygulamalarını barındırmak için kullanışlıdır. Bu konu başlığında gösterilen örnek kodunu Web ana bilgisayar örneği sürümünden ' dir. Daha fazla bilgi için [Web ana bilgisayarı](xref:fundamentals/host/web-host) konu.
 * Genel konak &ndash; ASP.NET Core 2.1 içinde genel ana bilgisayar içindir. Daha fazla bilgi için [genel ana bilgisayar](xref:fundamentals/host/generic-host) konu.
 
 ## <a name="package"></a>Paket

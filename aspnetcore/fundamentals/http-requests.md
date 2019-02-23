@@ -1,5 +1,5 @@
 ---
-title: HTTP isteklerini başlatma
+title: ASP.NET Core IHttpClientFactory kullanarak HTTP istekleri
 author: stevejgordon
 description: ASP.NET core'da mantıksal HttpClient örneğini yönetmek için IHttpClientFactory arabirimi kullanma hakkında bilgi edinin.
 monikerRange: '>= aspnetcore-2.1'
@@ -7,14 +7,14 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 01/25/2019
 uid: fundamentals/http-requests
-ms.openlocfilehash: 4fc4e602b809563ea78b6a3af5e5eb5c0ebeddea
-ms.sourcegitcommit: c6db8b14521814f1f7e528d7aa06e474e4c04a1f
+ms.openlocfilehash: a4026addaa55d463c41aadd0a7a39606c88fcb84
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "55065041"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56744215"
 ---
-# <a name="initiate-http-requests"></a>HTTP isteklerini başlatma
+# <a name="make-http-requests-using-ihttpclientfactory-in-aspnet-core"></a>ASP.NET Core IHttpClientFactory kullanarak HTTP istekleri
 
 Tarafından [Glenn Condron](https://github.com/glennc), [Ryan Nowak](https://github.com/rynowak), ve [Steve Gordon](https://github.com/stevejgordon)
 
@@ -274,3 +274,9 @@ Günlük kategorisinde istemci adı dahil olmak üzere, gerektiğinde belirli ad
 Bir `IHttpClientBuilder` adlı eklerken, veya yazılan istemciler döndürülür. <xref:Microsoft.Extensions.DependencyInjection.HttpClientBuilderExtensions.ConfigurePrimaryHttpMessageHandler*> Genişletme yöntemi, bir temsilci tanımlamak için kullanılabilir. Temsilci oluşturmak ve birincil yapılandırmak için kullanılan `HttpMessageHandler` istemci tarafından kullanılan:
 
 [!code-csharp[Main](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet12)]
+
+## <a name="additional-resources"></a>Ek kaynaklar
+
+* [Dayanıklı HTTP isteklerini uygulamak için HttpClientFactory kullanma](/dotnet/standard/microservices-architecture/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests)
+* [HttpClientFactory ve Polly üstel geri alma ile HTTP çağrı yeniden uygulayın](/dotnet/standard/microservices-architecture/implement-resilient-applications/implement-http-call-retries-exponential-backoff-polly)
+* [Devre Kesici desenini uygulama](/dotnet/standard/microservices-architecture/implement-resilient-applications/implement-circuit-breaker-pattern)

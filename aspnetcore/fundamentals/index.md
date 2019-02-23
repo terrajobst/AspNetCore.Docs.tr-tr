@@ -1,137 +1,143 @@
 ---
 title: ASP.NET Core temelleri
 author: rick-anderson
-description: ASP.NET Core uygulamaları oluşturmaya yönelik temel kavramları keşfedin.
+description: ASP.NET Core uygulamaları oluşturmaya yönelik temel kavramları öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/06/2019
+ms.date: 02/14/2019
 uid: fundamentals/index
-ms.openlocfilehash: a56beebd796448705c7b84f47699e9739f451419
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54099240"
 ---
 # <a name="aspnet-core-fundamentals"></a>ASP.NET Core temelleri
 
-ASP.NET Core uygulaması bir web sunucusunu oluşturan bir konsol uygulaması olan kendi `Program.Main` yöntemi. `Main` Yöntemdir uygulamanın *yönetilen giriş noktasını*:
+Bu makalede, ASP.NET Core uygulamaları geliştirmek nasıl anlamaya yönelik önemli konular bir genel bakıştır.
+
+## <a name="the-startup-class"></a>Başlangıç sınıfı
+
+`Startup` Sınıftır yeri:
+
+* Uygulama tarafından gereken diğer hizmetler yapılandırılır.
+* Ardışık Düzen işleme isteği tanımlanır.
+
+* Kod yapılandırmak için (veya *kaydetme*) Hizmetleri eklenir `Startup.ConfigureServices` yöntemi. *Hizmetleri* uygulama tarafından kullanılan bileşenlerdir. Örneğin, bir Entity Framework Core bağlam nesnesi bir hizmettir.
+* Ardışık Düzen işleme isteği yapılandırmak için kod eklenir `Startup.Configure` yöntemi. İşlem hattı, bir dizi olarak oluşan *ara yazılım* bileşenleri. Örneğin, bir ara yazılım bir statik dosyaları için istekleri işleyecek veya HTTP isteklerini HTTPS'ye yönlendiriyor. Zaman uyumsuz işlemler gerçekleştirir her bir ara yazılım bir `HttpContext` ve ardışık düzende sonraki ara yazılımı çağırır veya istek sonlandırır.
 
 ::: moniker range=">= aspnetcore-2.0"
 
-[!code-csharp[](index/snapshots/2.x/Program.cs)]
+Bir örneği aşağıdadır `Startup` sınıfı:
 
-.NET Core ana bilgisayarı:
-
-* Yükleri [.NET Core çalışma zamanı](https://github.com/dotnet/coreclr).
-* İlk komut satırı bağımsız değişkeni olarak giriş noktasını içeren yönetilen ikili dosya yolunu kullanır (`Main`) ve kod yürütmeyi başlatır.
-
-`Main` Yöntemini çağıran [WebHost.CreateDefaultBuilder](xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*), izleyen [Oluşturucu deseni](https://wikipedia.org/wiki/Builder_pattern) bir web ana bilgisayarı oluşturma. Oluşturucu bir web sunucusu tanımlayan yöntemleri vardır (örneğin, <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions.UseKestrel*>) ve başlangıç sınıfı (<xref:Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions.UseStartup*>). Önceki örnekte [Kestrel](xref:fundamentals/servers/kestrel) web sunucusu otomatik olarak ayrılır. ASP.NET Core'nın web ana bilgisayarı denemeleri çalıştırmak [Internet Information Services (IIS)](https://www.iis.net/)varsa. Diğer web sunucuları gibi [HTTP.sys](xref:fundamentals/servers/httpsys), uygun bir genişletme yöntemi çağrılarak kullanılabilir. `UseStartup` açıklanan daha ayrıntılı olarak [başlangıç](#startup) bölümü.
-
-<xref:Microsoft.AspNetCore.Hosting.IWebHostBuilder>, dönüş türünü `WebHost.CreateDefaultBuilder` çağrısı birçok isteğe bağlı yöntemler sağlar. Bu yöntemlerin bazıları `UseHttpSys` HTTP.sys uygulamada barındırmak ve <xref:Microsoft.Extensions.Hosting.HostingHostBuilderExtensions.UseContentRoot*> kök içerik dizini belirtmek için. <xref:Microsoft.AspNetCore.Hosting.IWebHostBuilder.Build*> Ve <xref:Microsoft.AspNetCore.Hosting.WebHostExtensions.Run*> yöntemleri yapı <xref:Microsoft.AspNetCore.Hosting.IWebHost> nesnesini uygulamasını barındıran ve HTTP isteklerini dinlemeye başlar.
+[!code-csharp[](index/snapshots/2.x/Startup1.cs?highlight=3,12)]
 
 ::: moniker-end
 
-::: moniker range="< aspnetcore-2.0"
+Daha fazla bilgi için [uygulama başlatma](xref:fundamentals/startup).
 
-[!code-csharp[](index/snapshots/1.x/Program.cs)]
+## <a name="dependency-injection-services"></a>Bağımlılık ekleme (hizmetler)
 
-.NET Core ana bilgisayarı:
-
-* Yükleri [.NET Core çalışma zamanı](https://github.com/dotnet/coreclr).
-* İlk komut satırı bağımsız değişkeni olarak giriş noktasını içeren yönetilen ikili dosya yolunu kullanır (`Main`) ve kod yürütmeyi başlatır.
-
-`Main` Yöntemi kullanan <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder>, izleyen [Oluşturucu deseni](https://wikipedia.org/wiki/Builder_pattern) bir web uygulama ana bilgisayarı oluşturma. Web sunucusu tanımlayan yöntemleri Oluşturucusu vardır (örneğin, <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions.UseKestrel*>) ve başlangıç sınıfı (<xref:Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions.UseStartup*>). Önceki örnekte [Kestrel](xref:fundamentals/servers/kestrel) web sunucusu kullanılır. Diğer web sunucuları gibi [HTTP.sys](xref:fundamentals/servers/httpsys), uygun bir genişletme yöntemi çağrılarak kullanılabilir. `UseStartup` açıklanan daha ayrıntılı olarak [başlangıç](#startup) bölümü.
-
-`WebHostBuilder` dahil olmak üzere birçok isteğe bağlı yöntemler sağlar <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> IIS ve IIS Express barındırmak ve <xref:Microsoft.Extensions.Hosting.HostingHostBuilderExtensions.UseContentRoot*> kök içerik dizini belirtmek için. <xref:Microsoft.AspNetCore.Hosting.IWebHostBuilder.Build*> Ve <xref:Microsoft.AspNetCore.Hosting.WebHostExtensions.Run*> yöntemleri yapı <xref:Microsoft.AspNetCore.Hosting.IWebHost> nesnesini uygulamasını barındıran ve HTTP isteklerini dinlemeye başlar.
-
-::: moniker-end
-
-## <a name="startup"></a>Başlangıç
-
-`UseStartup` Metodunda `WebHostBuilder` belirtir `Startup` uygulamanız için sınıf:
+ASP.NET Core yerleşik bağımlılık ekleme (dı) framework uygulamanın sınıfları için kullanılabilir yapar yapılandırılmış hizmet vardır. Bir sınıf içinde bir hizmet örneği yapmanın bir yolu, gerekli türünde bir parametre ile bir oluşturucu oluşturmaktır. Parametresi, hizmet türü veya arabirim olabilir. DI sistemi hizmeti zamanında sağlar.
 
 ::: moniker range=">= aspnetcore-2.0"
 
-[!code-csharp[](index/snapshots/2.x/Program.cs?highlight=10)]
+Bir Entity Framework Core bağlam nesnesini almak için DI kullanan bir sınıf aşağıda verilmiştir. Vurgulanan satırı Oluşturucu ekleme örneği verilmiştir:
+
+[!code-csharp[](index/snapshots/2.x/Index.cshtml.cs?highlight=5)]
 
 ::: moniker-end
 
-::: moniker range="< aspnetcore-2.0"
+DI oluşturulmuş olsa da tercih ederseniz üçüncü taraf bir denetimi tersine çevirme (IOC) kapsayıcı takın izin verecek şekilde tasarlanmıştır.
 
-[!code-csharp[](index/snapshots/1.x/Program.cs?highlight=7)]
-
-::: moniker-end
-
-`Startup` Sınıfı, burada uygulaması için gereken tüm hizmetleri yapılandırılır ve istek işleme ardışık düzen tanımlanır. `Startup` Sınıfı genel olmalıdır ve genellikle aşağıdaki yöntemleri içerir. `Startup.ConfigureServices` isteğe bağlıdır.
-
-::: moniker range=">= aspnetcore-2.0"
-
-[!code-csharp[](index/snapshots/2.x/Startup.cs)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-[!code-csharp[](index/snapshots/1.x/Startup.cs)]
-
-::: moniker-end
-
-<xref:Microsoft.AspNetCore.Hosting.IStartup.ConfigureServices*> tanımlar [Hizmetleri](#dependency-injection-services) uygulamanız (örneğin, ASP.NET Core MVC, Entity Framework Core kimlik) tarafından kullanılır. <xref:Microsoft.AspNetCore.Hosting.IStartup.Configure*> tanımlar [ara yazılım](xref:fundamentals/middleware/index) isteği işlem hattında çağrılır.
-
-Daha fazla bilgi için bkz. <xref:fundamentals/startup>.
-
-## <a name="content-root"></a>İçerik kök
-
-Temel yol gibi uygulama tarafından kullanılan herhangi bir içerik için içerik köküdür [Razor sayfaları](xref:razor-pages/index), MVC görünümleri ve statik varlıklar. Varsayılan olarak, uygulama barındırma yürütülebilir dosyası için uygulama temel yolu ile aynı konumda içerik kök dizinidir.
-
-## <a name="web-root-webroot"></a>Web kökü (webroot)
-
-Bir uygulamanın webroot CSS, JavaScript ve görüntü dosyaları gibi genel, statik kaynakları içeren proje dizinindedir. Varsayılan olarak, *wwwroot* webroot olduğu.
-
-Razor için (*.cshtml*) dosyaları, eğik çizgi tilde `~/` webroot için işaret eder. İle başlayan yollar `~/` sanal yol adlandırılır.
-
-## <a name="dependency-injection-services"></a>Bağımlılık ekleme (Hizmetler)
-
-A *hizmet* bir uygulamada ortak tüketim için hazırlanmış bir bileşendir. Hizmetleri aracılığıyla yapılan [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection). ASP.NET Core içeren destekleyen yerel bir denetimi tersine çevirme (IOC) kapsayıcı [Oluşturucu ekleme](xref:mvc/controllers/dependency-injection#constructor-injection) varsayılan olarak. İsterseniz, varsayılan kapsayıcı değiştirebilirsiniz. Ek olarak kendi [kaybolmasını avantajı eşlenmesiyle](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#encapsulation), DI Hizmetleri gibi yapar [günlüğü](xref:fundamentals/logging/index), uygulamanız genelinde kullanılabilir.
-
-Daha fazla bilgi için bkz. <xref:fundamentals/dependency-injection>.
+Daha fazla bilgi için [bağımlılık ekleme](xref:fundamentals/dependency-injection).
 
 ## <a name="middleware"></a>Ara yazılım
 
-ASP.NET Core, istek kullanarak işlem hattı oluşturma [ara yazılım](xref:fundamentals/middleware/index). ASP.NET Core ara yazılım üzerinde zaman uyumsuz işlemler gerçekleştiren bir `HttpContext` ve ardışık düzende sonraki ara yazılımı çağırır veya istek sonlandırır.
+Ardışık Düzen işleme isteği ara yazılımı bileşenleri bir dizi olarak oluşur. Zaman uyumsuz işlemler gerçekleştirir her bileşen bir `HttpContext` ve ardışık düzende sonraki ara yazılımı çağırır veya istek sonlandırır.
 
-Kural gereği, çağırarak "XYZ" adlı bir ara yazılım bileşeni ardışık düzenine eklenen bir `UseXYZ` uzantı yönteminde `Configure` yöntemi.
+Kural gereği, harekete geçirerek bir ara yazılım bileşeni ardışık düzenine eklenen kendi `Use...` uzantı yönteminde `Startup.Configure` yöntemi. Örneğin, statik dosyaları işleme olanağı çağrı `UseStaticFiles`.
 
-ASP.NET Core içeren zengin bir yerleşik ara yazılım ve kendi özel bir ara yazılım yazabilirsiniz. [.NET (OWIN) için açık Web arabirimi](xref:fundamentals/owin), web sunucuları, ölçeklendirilebilmeleri web apps sağlayan ASP.NET Core uygulamalarında desteklenir.
+::: moniker range=">= aspnetcore-2.0"
 
-Daha fazla bilgi için bkz. <xref:fundamentals/middleware/index> ve <xref:fundamentals/owin>.
+Aşağıdaki örnekte vurgulanmış kodu ardışık düzen işleme isteği yapılandırır:
 
-::: moniker range=">= aspnetcore-2.1"
-
-## <a name="initiate-http-requests"></a>HTTP isteklerini başlatma
-
-<xref:System.Net.Http.IHttpClientFactory> erişmek kullanılabilir <xref:System.Net.Http.HttpClient> HTTP isteğinde bulunmak için örnekleri.
-
-Daha fazla bilgi için bkz. <xref:fundamentals/http-requests>.
+[!code-csharp[](index/snapshots/2.x/Startup1.cs?highlight=14-16)]
 
 ::: moniker-end
 
-## <a name="environments"></a>Ortamlar
+ASP.NET Core içeren zengin bir yerleşik ara yazılım ve özel bir ara yazılım yazabilirsiniz.
 
-Ortamları gibi *geliştirme* ve *üretim*, ASP.NET Core, birinci sınıf bir kavram olan ve bir ortam değişkeni, ayarlar dosyası ve komut satırı bağımsız değişkeni kullanılarak ayarlanabilir.
+Daha fazla bilgi için [ara yazılım](xref:fundamentals/middleware/index).
 
-Daha fazla bilgi için bkz. <xref:fundamentals/environments>.
+<a id="host"/>
 
-## <a name="hosting"></a>Barındırma
+## <a name="the-host"></a>Ana bilgisayar
 
-ASP.NET Core uygulamaları yapılandırmak ve başlatmak bir *konak*, uygulama başlatma ve ömür yönetimi için sorumlu olduğu.
+ASP.NET Core uygulaması derleme bir *konak* başlangıç. Konak tüm yalıtan bir nesne olan uygulamanın kaynakları gibi:
 
-Daha fazla bilgi için bkz. <xref:fundamentals/host/index>.
+* Bir HTTP sunucusu uygulamasını
+* Ara yazılım bileşenleri
+* Günlüğe Kaydetme
+* DI
+* Yapılandırma
+
+Tüm bağımlı kaynakları uygulamanın bir nesnesinde de dahil olmak üzere ana nedeni ömrü yönetimi,: uygulama başlatma ve normal şekilde kapatılmasını üzerinde denetim.
+
+Bir ana bilgisayar oluşturmak için kod `Program.Main` ve izleyen [Oluşturucu deseni](https://wikipedia.org/wiki/Builder_pattern). Konak bir parçası olan her bir kaynak yapılandırmak için yöntem çağrılır. Bu istek için bir oluşturucu yöntemi çağrılır hep birlikte ve konak nesnesi örneği oluşturun.
+
+::: moniker range="<= aspnetcore-2.2"
+
+ASP.NET Core 2.x kullanan Web ana bilgisayarı ( `WebHost` sınıfı) web uygulamaları için. Bir çerçeve sağlar `CreateDefaultBuilder` kullanılan aşağıdaki gibi seçeneklere sahip bir konak için yaygın olarak ayarlamak genişletme yöntemleri:
+
+* Kullanım [Kestrel](#servers) web sunucusu ve etkin IIS tümleştirme olarak.
+* Yük yapılandırmasından *appsettings.json*, ortam değişkenleri, komut satırı bağımsız değişkenleri ve diğer kaynakları.
+* Günlük çıktısı, konsol ve hata ayıklama sağlayıcılarına gönderin.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.0 <= aspnetcore-2.2"
+
+Bir konak yapılar örnek kod aşağıda verilmiştir:
+
+[!code-csharp[](index/snapshots/2.x/Program1.cs?highlight=9)]
+
+Daha fazla bilgi için [Web ana bilgisayarı](xref:fundamentals/host/web-host).
+
+::: moniker-end
+
+::: moniker range="> aspnetcore-2.2"
+
+ASP.NET Core 3.0, Web ana bilgisayarı (`WebHost` sınıfı) veya genel ana bilgisayar (`Host` sınıfı) bir web uygulamasında kullanılabilir. Genel konak önerilir ve Web ana bilgisayarı, kullanılabilir geriye dönük uyumluluk.
+
+Bir çerçeve sağlar `CreateDefaultBuilder` ve `ConfigureWebHostDefaults` kullanılan aşağıdaki gibi seçeneklere sahip bir konak için yaygın olarak ayarlamak genişletme yöntemleri:
+
+* Kullanım [Kestrel](#servers) web sunucusu ve etkin IIS tümleştirme olarak.
+* Yük yapılandırmasından *appsettings.json*, *appsettings. [ EnvironmentName] .json*, ortam değişkenleri ve komut satırı bağımsız değişkenleri.
+* Günlük çıktısı, konsol ve hata ayıklama sağlayıcılarına gönderin.
+
+Bir konak yapılar örnek kod aşağıda verilmiştir. Yaygın olarak kullanılan seçenekler konakla ayarlama genişletme yöntemleri vurgulanır.
+
+[!code-csharp[](index/snapshots/3.x/Program1.cs?highlight=9-10)]
+
+Daha fazla bilgi için [genel ana bilgisayar](xref:fundamentals/host/generic-host) ve [Web ana bilgisayarı](xref:fundamentals/host/web-host)
+
+::: moniker-end
+
+### <a name="advanced-host-scenarios"></a>Gelişmiş Ana senaryoları
+
+::: moniker range=">= aspnetcore-2.1 <= aspnetcore-2.2"
+
+Web ana bilgisayarı .NET uygulamalarının diğer türleri için gerekli olmayan bir HTTP sunucusu uygulamasını dahil etmek için tasarlanmıştır. 2.1, genel konak başlatılıyor (`Host` sınıfı) bir .NET Core uygulaması kullanmak kullanılabilir&mdash;yalnızca ASP.NET Core uygulamaları. Genel ana bilgisayar günlüğü, diğer uygulama türleri DI, yapılandırma ve uygulama ömrü yönetimi gibi çapraz kesme özellikleri kullanmanıza olanak sağlar. Daha fazla bilgi için [genel ana bilgisayar](xref:fundamentals/host/generic-host).
+
+::: moniker-end
+
+::: moniker range="> aspnetcore-2.2"
+
+Genel konak kullanmak .NET Core için herhangi bir uygulama kullanılabilir&mdash;yalnızca ASP.NET Core uygulamaları. Genel ana bilgisayar günlüğü, diğer uygulama türleri DI, yapılandırma ve uygulama ömrü yönetimi gibi çapraz kesme özellikleri kullanmanıza olanak sağlar. Daha fazla bilgi için [genel ana bilgisayar](xref:fundamentals/host/generic-host).
+
+::: moniker-end
+
+Konak, arka plan görevleri çalıştırmak için de kullanabilirsiniz. Daha fazla bilgi için [arka plan görevleri](xref:fundamentals/host/hosted-services).
 
 ## <a name="servers"></a>Sunucular
 
-Barındırma modeli ASP.NET Core doğrudan isteklerini dinlemez. Uygulama isteği iletmek için bir HTTP sunucusu uygulamasını barındırma modeli kullanır.
+ASP.NET Core uygulaması, HTTP isteklerini dinlemek için bir HTTP sunucusu uygulamasını kullanır. Uygulamaya bir dizi olarak sunucu yüzeyleri istekleri [istek özellikleri](xref:fundamentals/request-features) içine oluşan bir `HttpContext`.
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -139,17 +145,17 @@ Barındırma modeli ASP.NET Core doğrudan isteklerini dinlemez. Uygulama isteğ
 
 ASP.NET Core aşağıdaki sunucu uygulamaları sağlar:
 
-* [Kestrel'i](xref:fundamentals/servers/kestrel) yönetilen, platformlar arası web sunucusu sunucusudur. Kestrel'i, kullanılarak bir ters proxy yapılandırma genellikle çalıştırılır [IIS](https://www.iis.net/). Kestrel'i doğrudan Internet'e ASP.NET Core 2.0 veya sonraki sürümlerinde sunulan genel kullanıma yönelik bir uç sunucusu olarak da çalıştırılabilir.
-* IIS HTTP sunucusu (`IISHttpServer`) olan bir [işlem sunucusu](xref:fundamentals/servers/index#in-process-hosting-model) IIS için.
-* [HTTP.sys](xref:fundamentals/servers/httpsys) sunucusu, Windows üzerinde ASP.NET Core bir web sunucusudur.
+* *Kestrel'i* bir platformlar arası web sunucusudur. Kestrel'i, kullanılarak bir ters proxy yapılandırma genellikle çalıştırılır [IIS](https://www.iis.net/). ASP.NET Core 2.0 veya sonraki sürümlerde, Kestrel doğrudan Internet'e açık genel kullanıma yönelik bir uç sunucusu olarak çalıştırılabilir.
+* *IIS HTTP sunucusu* IIS kullanan bir windows Server'de olduğu. IIS ve ASP.NET Core uygulaması, bu sunucu ile aynı işlem içinde çalıştırın.
+* *HTTP.sys* , IIS ile kullanılmayan Windows için sunucusudur.
 
 # <a name="macostabmacos"></a>[macOS](#tab/macos)
 
-ASP.NET Core kullanan [Kestrel](xref:fundamentals/servers/kestrel) sunucusu uygulaması. Kestrel'i yönetilen, platformlar arası web sunucusudur. Kestrel'i doğrudan Internet'e ASP.NET Core 2.0 veya sonraki sürümlerinde sunulan genel kullanıma yönelik bir uç sunucusu olarak da çalıştırılabilir.
+ASP.NET Core sağlar *Kestrel* platformlar arası sunucusu uygulaması. ASP.NET Core 2.0 veya sonraki sürümlerde, Kestrel doğrudan Internet'e açık genel kullanıma yönelik bir uç sunucusu olarak çalıştırılabilir. Kestrel'i bir ters proxy yapılandırması ile çalıştırmak genellikle [Ngınx](https://nginx.org) veya [Apache](https://httpd.apache.org/).
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
-ASP.NET Core kullanan [Kestrel](xref:fundamentals/servers/kestrel) sunucusu uygulaması. Kestrel'i yönetilen, platformlar arası web sunucusudur. Kestrel'i bir ters proxy yapılandırması ile çalıştırmak genellikle [Ngınx](http://nginx.org) veya [Apache](https://httpd.apache.org/). Kestrel'i doğrudan Internet'e ASP.NET Core 2.0 veya sonraki sürümlerinde sunulan genel kullanıma yönelik bir uç sunucusu olarak da çalıştırılabilir.
+ASP.NET Core sağlar *Kestrel* platformlar arası sunucusu uygulaması. ASP.NET Core 2.0 veya sonraki sürümlerde, Kestrel doğrudan Internet'e açık genel kullanıma yönelik bir uç sunucusu olarak çalıştırılabilir. Kestrel'i bir ters proxy yapılandırması ile çalıştırmak genellikle [Ngınx](https://nginx.org) veya [Apache](https://httpd.apache.org/).
 
 ---
 
@@ -161,55 +167,143 @@ ASP.NET Core kullanan [Kestrel](xref:fundamentals/servers/kestrel) sunucusu uygu
 
 ASP.NET Core aşağıdaki sunucu uygulamaları sağlar:
 
-* [Kestrel'i](xref:fundamentals/servers/kestrel) yönetilen, platformlar arası web sunucusu sunucusudur. Kestrel'i, kullanılarak bir ters proxy yapılandırma genellikle çalıştırılır [IIS](https://www.iis.net/). Kestrel'i doğrudan Internet'e ASP.NET Core 2.0 veya sonraki sürümlerinde sunulan genel kullanıma yönelik bir uç sunucusu olarak da çalıştırılabilir.
-* [HTTP.sys](xref:fundamentals/servers/httpsys) sunucusu, Windows üzerinde ASP.NET Core bir web sunucusudur.
+* *Kestrel'i* bir platformlar arası web sunucusudur. Kestrel'i, kullanılarak bir ters proxy yapılandırma genellikle çalıştırılır [IIS](https://www.iis.net/). ASP.NET Core 2.0 veya sonraki sürümlerde, Kestrel doğrudan Internet'e açık genel kullanıma yönelik bir uç sunucusu olarak çalıştırılabilir.
+* *HTTP.sys* , IIS ile kullanılmayan Windows için sunucusudur.
 
 # <a name="macostabmacos"></a>[macOS](#tab/macos)
 
-ASP.NET Core kullanan [Kestrel](xref:fundamentals/servers/kestrel) sunucusu uygulaması. Kestrel'i yönetilen, platformlar arası web sunucusudur. Kestrel'i doğrudan Internet'e ASP.NET Core 2.0 veya sonraki sürümlerinde sunulan genel kullanıma yönelik bir uç sunucusu olarak da çalıştırılabilir.
+ASP.NET Core sağlar *Kestrel* platformlar arası sunucusu uygulaması. ASP.NET Core 2.0 veya sonraki sürümlerde, Kestrel doğrudan Internet'e açık genel kullanıma yönelik bir uç sunucusu olarak çalıştırılabilir. Kestrel'i bir ters proxy yapılandırması ile çalıştırmak genellikle [Ngınx](https://nginx.org) veya [Apache](https://httpd.apache.org/).
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
-ASP.NET Core kullanan [Kestrel](xref:fundamentals/servers/kestrel) sunucusu uygulaması. Kestrel'i yönetilen, platformlar arası web sunucusudur. Kestrel'i bir ters proxy yapılandırması ile çalıştırmak genellikle [Ngınx](http://nginx.org) veya [Apache](https://httpd.apache.org/). Kestrel'i doğrudan Internet'e ASP.NET Core 2.0 veya sonraki sürümlerinde sunulan genel kullanıma yönelik bir uç sunucusu olarak da çalıştırılabilir.
+ASP.NET Core sağlar *Kestrel* platformlar arası sunucusu uygulaması. ASP.NET Core 2.0 veya sonraki sürümlerde, Kestrel doğrudan Internet'e açık genel kullanıma yönelik bir uç sunucusu olarak çalıştırılabilir. Kestrel'i bir ters proxy yapılandırması ile çalıştırmak genellikle [Ngınx](http://nginx.org) veya [Apache](https://httpd.apache.org/).
 
 ---
 
 ::: moniker-end
 
-Daha fazla bilgi için bkz. <xref:fundamentals/servers/index>.
+Daha fazla bilgi için [sunucuları](xref:fundamentals/servers/index).
 
 ## <a name="configuration"></a>Yapılandırma
 
-ASP.NET Core ad-değer çiftlerine göre bir yapılandırma modeli kullanır. Yapılandırma modeli temel almayan <xref:System.Configuration> veya *web.config*. Yapılandırma ayarları sıralı bir dizi yapılandırma sağlayıcıları alır. Yerleşik yapılandırma sağlayıcıları, çeşitli dosya biçimleri (XML, JSON, INI), ortam değişkenleri ve komut satırı bağımsız değişkenleri destekler. Ayrıca, kendi özel yapılandırma sağlayıcıları yazabilirsiniz.
+ASP.NET Core ayarları ad-değer çiftleri olarak sıralı bir dizi yapılandırma sağlayıcıları alır bir yapılandırma çerçevesi sağlar. Yerleşik yapılandırma sağlayıcıları vardır, kaynakları çeşitli gibi *.json* dosyaları *.xml* dosyaları, ortam değişkenleri ve komut satırı bağımsız değişkenleri. Özel yapılandırma sağlayıcıları da yazabilirsiniz.
 
-Daha fazla bilgi için bkz. <xref:fundamentals/configuration/index>.
+Örneğin, bu yapılandırma geldiği belirtebilirsiniz *appsettings.json* ve ortam değişkenleri. Sonra ne zaman değerini *ConnectionString* istenildiğinde, framework ilk olarak görünür *appsettings.json* dosya. Değer var. bulunursa, aynı zamanda bir ortam değişkeni, ortam değişkeninin değerini öncelik kazanır.
+
+ASP.NET Core sağlar parolalar gibi gizli yapılandırma verilerini yönetmek için bir [gizli dizi Yöneticisi aracını](xref:security/app-secrets). Üretim gizli öğeleri için öneririz [Azure anahtar kasası](/aspnet/core/security/key-vault-configuration).
+
+Daha fazla bilgi için [yapılandırma](xref:fundamentals/configuration/index).
+
+## <a name="options"></a>Seçenekler
+
+Mümkünse, ASP.NET Core aşağıdaki *seçenekleri deseni* depolamak ve yapılandırma değerleri almak için. Seçenekleri deseni sınıfları, ilgili ayar gruplarını temsil etmek için kullanır.
+
+Örneğin, aşağıdaki kodu WebSockets seçeneklerini ayarlar:
+
+```csharp
+var options = new WebSocketOptions  
+{  
+   KeepAliveInterval = TimeSpan.FromSeconds(120),  
+   ReceiveBufferSize = 4096
+};  
+app.UseWebSockets(options);
+```
+
+Daha fazla bilgi için [seçenekleri](xref:fundamentals/configuration/options).
+
+## <a name="environments"></a>Ortamlar
+
+Yürütme ortamlarını gibi *geliştirme*, *hazırlama*, ve *üretim*, ASP.NET Core, birinci sınıf bir kavram olan. Bir uygulama ortamı çalışır ayarlayarak belirtebilirsiniz `ASPNETCORE_ENVIRONMENT` ortam değişkeni. ASP.NET Core uygulaması başlatma sırasında bu ortam değişkenini okur ve değerini depolayan bir `IHostingEnvironment` uygulaması. Ortam nesnesi herhangi bir uygulamayı DI aracılığıyla kullanıma sunulmuştur.
+
+::: moniker range=">= aspnetcore-2.0"
+
+Aşağıdaki örnek, koddan `Startup` sınıfı yalnızca geliştirme çalıştığında, ayrıntılı hata bilgileri sağlamak için uygulama yapılandırır:
+
+[!code-csharp[](index/snapshots/2.x/Startup2.cs?highlight=3-6)]
+
+::: moniker-end
+
+Daha fazla bilgi için [ortamları](xref:fundamentals/environments).
 
 ## <a name="logging"></a>Günlüğe Kaydetme
 
-ASP.NET Core bir çeşitli günlük sağlayıcılar ile çalışan API'si günlük kaydını destekler. Yerleşik sağlayıcılar, bir veya daha fazla hedefe gönderen günlükleri destekler. Üçüncü taraf günlük altyapılarına kullanılabilir.
+ASP.NET Core çeşitli günlük yerleşik ve üçüncü taraf sağlayıcılar ile çalışan bir günlüğe kaydetme API'si destekler. Kullanılabilir sağlayıcılar şunları içerir:
 
-Daha fazla bilgi için bkz. <xref:fundamentals/logging/index>.
+* Konsol
+* Hata ayıklama
+* Windows olay izleme
+* Windows olay günlüğü
+* TraceSource
+* Azure uygulama hizmeti
+* Azure Application Insights
 
-## <a name="error-handling"></a>Hata işleme
+Yazma günlükleri öğesinden herhangi bir uygulamanın kodu alarak bir `ILogger` DI ve günlük metotları çağırma nesnesi.
 
-ASP.NET Core uygulamalarında Geliştirici özel durum sayfasında, özel hata sayfaları, statik durumu kod sayfaları ve başlangıç özel durum işleme dahil olmak üzere, hataları işleme için yerleşik senaryolar vardır.
+::: moniker range=">= aspnetcore-2.0"
 
-Daha fazla bilgi için bkz. <xref:fundamentals/error-handling>.
+İşte kullanan örnek kodu bir `ILogger` Oluşturucu ekleme ve vurgulanmış günlük yöntem çağrılarını içeren bir nesne.
+
+[!code-csharp[](index/snapshots/2.x/TodoController.cs?highlight=5,13,17)]
+
+::: moniker-end
+
+`ILogger` Arabirimi herhangi bir sayıda alanlar için oturum açma sağlayıcısı geçirmenize olanak tanır. Alanları bir ileti dizesi oluşturmak için yaygın olarak kullanılır, ancak sağlayıcısı Ayrıca bunları ayrı alanlar olarak bir veri deposuna gönderebilir. Bu özelliği uygulamak günlük sağlayıcıları için mümkün kılar [yapılandırılmış günlük kaydı olarak da bilinen anlamlı günlük kaydını](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
+
+Daha fazla bilgi için [günlüğü](xref:fundamentals/logging/index).
 
 ## <a name="routing"></a>Yönlendirme
 
-ASP.NET Core, yol işleyicisi uygulama isteklerinin Yönlendirme senaryoları sunar.
+A *rota* bir işleyici eşlenmiş bir URL deseni şudur. İşleyici, bir Razor sayfası, bir MVC denetleyicisi veya bir ara yazılım bir eylem yöntemi genellikle oluşur. Uygulamanız tarafından kullanılan URL'leri üzerinde denetim ASP.NET Core yönlendirme sağlar.
 
-Daha fazla bilgi için bkz. <xref:fundamentals/routing>.
+Daha fazla bilgi için [yönlendirme](xref:fundamentals/routing).
 
-## <a name="background-tasks"></a>Arka plan görevleri
+## <a name="error-handling"></a>Hata işleme
 
-Arka plan görevleri olarak gerçekleştirilen *barındırılan hizmetleri*. Barındırılan hizmet arka plan görevi uygulayan bir mantıksal ile bir sınıftır <xref:Microsoft.Extensions.Hosting.IHostedService> arabirimi.
+ASP.NET Core gibi hataları işlemek için yerleşik özelliklere sahiptir:
 
-Daha fazla bilgi için bkz. <xref:fundamentals/host/hosted-services>.
+* Bir geliştirici özel durumu sayfası
+* Özel hata sayfaları
+* Statik durumu kod sayfaları
+* Başlangıç özel durum işleme
 
-## <a name="access-httpcontext"></a>Erişim HttpContext
+Daha fazla bilgi için [hata işleme](xref:fundamentals/error-handling).
 
-`HttpContext` Razor sayfaları ve MVC isteklerini işleme sırasında otomatik olarak kullanılabilir. Durumlarda burada `HttpContext` değil kullanıma hazır erişebileceğiniz `HttpContext` aracılığıyla <xref:Microsoft.AspNetCore.Http.IHttpContextAccessor> arabirimi ve kendi varsayılan uygulama <xref:Microsoft.AspNetCore.Http.HttpContextAccessor>.
+::: moniker range=">= aspnetcore-2.1"
 
-Daha fazla bilgi için bkz. <xref:fundamentals/httpcontext>.
+## <a name="make-http-requests"></a>HTTP isteğinde bulunma
+
+Uygulanışı `IHttpClientFactory` oluşturmak için kullanılabilir `HttpClient` örnekleri. Fabrika:
+
+* Adlandırma ve mantıksal yapılandırmak için merkezi bir konum sağlar `HttpClient` örnekleri. Örneğin, bir *github* istemci kayıtlı ve GitHub erişim sağlamak için yapılandırılmış. Varsayılan istemci diğer amaçlar için kaydedilebilir.
+* Kayıt ve giden bir istek ara yazılım ardışık düzenini oluşturmak için birden fazla temsilci işleyicileri zincirleme destekler. Bu düzen, ASP.NET Core gelen ara yazılım ardışık benzerdir. Desen etrafında HTTP isteklerini, önbelleğe alma, hata, seri hale getirme, işleme ve günlüğe kaydetme gibi çapraz kesme konuları yönetmek için bir mekanizma sağlar.
+* Tümleşik şekilde çalışarak *Polly*, geçici hata işlemeye yönelik popüler bir üçüncü taraf kitaplığı.
+* Havuzu ve arka plandaki, yaşam süresini yöneten `HttpClientMessageHandler` el ile yönetilmesi sırasında oluşan Genel DNS sorunları önlemek için örnekleri `HttpClient` yaşam süresi yok.
+* Yapılandırılabilir günlük deneyimi ekler (aracılığıyla *ILogger*) fabrikası tarafından oluşturulan istemcileri aracılığıyla gönderilen tüm istekler için.
+
+Daha fazla bilgi için [olun HTTP istekleri](xref:fundamentals/http-requests).
+
+::: moniker-end
+
+## <a name="content-root"></a>İçerik kök
+
+Temel yol, Razor dosyaları gibi uygulama tarafından kullanılan herhangi bir özel içerik için içerik köküdür. Varsayılan olarak, içerik kök uygulama barındırma yürütülebilir dosya için taban yoludur. Alternatif bir konuma olabilir belirtilen [konak oluşturmaya](#host).
+
+::: moniker range="<= aspnetcore-2.2"
+
+Daha fazla bilgi için [içerik kök](xref:fundamentals/host/web-host#content-root).
+
+::: moniker-end
+
+::: moniker range="> aspnetcore-2.2"
+
+Daha fazla bilgi için [içerik kök](xref:fundamentals/host/generic-host#content-root).
+
+::: moniker-end
+
+## <a name="web-root"></a>Web kökü
+
+Web kökü (diğer adıyla *webroot*) genel, statik kaynakları, CSS, JavaScript ve görüntü dosyaları gibi temel yolu. Statik dosya ara yazılımı, varsayılan olarak yalnızca bir hizmet web kök dizinine (ve alt dizinleri) dosyalarından verecektir. Varsayılan olarak web kök yolu  *\<içerik kök > / wwwroot*, ancak farklı bir konuma A'da belirtildiği zaman [konak oluşturmaya](#host).
+
+Razor'daki (*.cshtml*) dosyaları, eğik çizgi tilde `~/` web kök dizinine işaret eder. İle başlayan yollar `~/` sanal yol adlandırılır.
+
+Daha fazla bilgi için [statik dosyalar](xref:fundamentals/static-files).

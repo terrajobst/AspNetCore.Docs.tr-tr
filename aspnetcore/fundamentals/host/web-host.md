@@ -1,21 +1,23 @@
 ---
 title: ASP.NET Core Web ana bilgisayarı
 author: guardrex
-description: Uygulama başlatma ve ömür yönetimi için sorumlu olan ASP.NET Core web ana bilgisayar hakkında bilgi edinin.
+description: Uygulama başlatma ve ömür yönetimi için sorumlu olan ASP.NET Core Web ana bilgisayar hakkında bilgi edinin.
 ms.author: riande
 ms.custom: mvc
 ms.date: 12/18/2018
 uid: fundamentals/host/web-host
-ms.openlocfilehash: 7215027a083c0ed0bc3b15196e390a31c5dcfc14
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: 878fbaa1a61946dadf23ba8fefbf22021e547cc2
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637852"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56744098"
 ---
 # <a name="aspnet-core-web-host"></a>ASP.NET Core Web ana bilgisayarı
 
 Tarafından [Luke Latham](https://github.com/guardrex)
+
+ASP.NET Core uygulamaları yapılandırmak ve başlatmak bir *konak*. Uygulama başlatma ve ömür yönetimi için konak sorumludur. En az bir sunucu ve istek işleme ardışık konak yapılandırır. Konak, günlüğe kaydetme, bağımlılık ekleme ve yapılandırma de ayarlayabilirsiniz.
 
 ::: moniker range="<= aspnetcore-1.1"
 
@@ -23,7 +25,17 @@ Bu konuda 1.1 sürümü için indirme [ASP.NET Core Web ana bilgisayarı (sürü
 
 ::: moniker-end
 
-ASP.NET Core uygulamaları yapılandırmak ve başlatmak bir *konak*. Uygulama başlatma ve ömür yönetimi için konak sorumludur. En az bir sunucu ve istek işleme ardışık konak yapılandırır. Bu konu, ASP.NET Core Web ana bilgisayarı kapsar ([IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder)), web uygulamalarını barındırmak için kullanışlı olduğu. Kapsamı .NET genel ana bilgisayar için ([IHostBuilder](/dotnet/api/microsoft.extensions.hosting.ihostbuilder)), bkz: <xref:fundamentals/host/generic-host>.
+::: moniker range=">= aspnetcore-2.1 <= aspnetcore-2.2"
+
+Bu makalede, ASP.NET Core Web ana bilgisayarı yer almaktadır (<xref:Microsoft.AspNetCore.Hosting.IWebHostBuilder>), web uygulamalarını barındırmak için olduğu. .NET genel ana bilgisayar hakkında bilgi için ([IHostBuilder](/dotnet/api/microsoft.extensions.hosting.ihostbuilder)), bkz: <xref:fundamentals/host/generic-host>.
+
+::: moniker-end
+
+::: moniker range="> aspnetcore-2.2"
+
+Bu makalede, ASP.NET Core Web ana bilgisayarı yer almaktadır ([IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder)). ASP.NET Core 3.0 sürümünde, Web barındırma genel ana bilgisayar değiştirir. Daha fazla bilgi için [konak](xref:fundamentals/index#host).
+
+::: moniker-end
 
 ## <a name="set-up-a-host"></a>Bir ana bilgisayar kümesi
 
@@ -51,7 +63,7 @@ public class Program
   * Ortam değişkenlerini önekiyle `ASPNETCORE_` (örneğin, `ASPNETCORE_ENVIRONMENT`).
   * Komut satırı bağımsız değişkenleri.
 * Uygulama yapılandırması ile aşağıdaki sırada yükler:
-  * *appSettings.JSON*.
+  * *appsettings.json*.
   * *appSettings. {Ortamı} .json*.
   * [Gizli dizi Yöneticisi](xref:security/app-secrets) uygulamayı çalıştırdığında `Development` giriş bütünleştirilmiş kod kullanarak ortamı.
   * Ortam değişkenleri.
@@ -374,7 +386,7 @@ WebHost.CreateDefaultBuilder(args)
 
 ## <a name="override-configuration"></a>Yapılandırma geçersiz kıl
 
-Kullanım [yapılandırma](xref:fundamentals/configuration/index) web ana bilgisayarı yapılandırılamadı. Aşağıdaki örnekte, ana bilgisayar yapılandırması isteğe bağlı olarak belirtilen bir *hostsettings.json* dosya. Herhangi bir yapılandırma öğesinden yüklenen *hostsettings.json* dosya tarafından komut satırı bağımsız değişkenleri geçersiz. Yerleşik yapılandırma (içinde `config`) ana bilgisayarı yapılandırmak için kullanılan [UseConfiguration](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.useconfiguration). `IWebHostBuilder` yapılandırma, uygulamanın yapılandırma için eklenir, ancak listesiyse true değil&mdash; `ConfigureAppConfiguration` etkilemez `IWebHostBuilder` yapılandırma.
+Kullanım [yapılandırma](xref:fundamentals/configuration/index) Web ana bilgisayarı yapılandırılamadı. Aşağıdaki örnekte, ana bilgisayar yapılandırması isteğe bağlı olarak belirtilen bir *hostsettings.json* dosya. Herhangi bir yapılandırma öğesinden yüklenen *hostsettings.json* dosya tarafından komut satırı bağımsız değişkenleri geçersiz. Yerleşik yapılandırma (içinde `config`) ana bilgisayarı yapılandırmak için kullanılan [UseConfiguration](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.useconfiguration). `IWebHostBuilder` yapılandırma, uygulamanın yapılandırma için eklenir, ancak listesiyse true değil&mdash; `ConfigureAppConfiguration` etkilemez `IWebHostBuilder` yapılandırma.
 
 Tarafından sağlanan yapılandırma geçersiz kılma `UseUrls` ile *hostsettings.json* config ilk, komut satırı bağımsız değişkeni config ikinci:
 
@@ -669,7 +681,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-`IHostingEnvironment` içine yerleştirilebilir `Invoke` özel oluştururken yöntemi [ara yazılım](xref:fundamentals/middleware/index#write-middleware):
+`IHostingEnvironment` içine yerleştirilebilir `Invoke` özel oluştururken yöntemi [ara yazılım](xref:fundamentals/middleware/write):
 
 ```csharp
 public async Task Invoke(HttpContext context, IHostingEnvironment env)

@@ -5,14 +5,14 @@ description: Azure Key Vault yapılandırma sağlayıcısı, çalışma zamanın
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/08/2019
+ms.date: 02/22/2019
 uid: security/key-vault-configuration
-ms.openlocfilehash: f70389c86420d81e284ecc863ac8386f726ed2cf
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: 2188929d6f380327465e8ce0fd8ad659188416d3
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103117"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56743991"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>ASP.NET core'da Azure anahtar kasası yapılandırma sağlayıcısı
 
@@ -116,7 +116,7 @@ Tarafından sağlanan yönergeleri [hızlı başlangıç: Ayarlayın ve Azure CL
 Azure AD'yi yapılandırma Azure anahtar kasası ve uygulama kimliğini doğrulamak için bir uygulama kimliği ve parolası (gizli) bir anahtar kasasına kullanacak şekilde **uygulamayı Azure dışında barındırılan zaman**.
 
 > [!NOTE]
-> Azure'da barındırılan uygulamalar için bir uygulama kimliği ve parolası (gizli) kullanarak desteklenir, ancak kullanarak öneririz [kimliklerini Azure kaynakları için yönetilen](#use-managed-identities-for-azure-resources) uygulamanızı Azure'a barındırırken. Yönetilen kimlikleri genellikle daha güvenli bir yaklaşım kabul edilir, böylece uygulama veya özelliğin yapılandırmasından kimlik bilgilerini depolama gerektirir.
+> Azure'da barındırılan uygulamalar için bir uygulama kimliği ve parolası (gizli) kullanarak desteklenir, ancak kullanarak öneririz [kimliklerini Azure kaynakları için yönetilen](#use-managed-identities-for-azure-resources) uygulamanızı Azure'a barındırırken. Yönetilen kimlikleri, genellikle daha güvenli bir yaklaşım kabul edilir, böylece uygulama veya özelliğin yapılandırmasından kimlik bilgilerini depolama gerektirmez.
 
 Örnek uygulama bir uygulama kimliği ve parolası (gizli) kullandığında `#define` en üstündeki deyimi *Program.cs* dosya ayarlanmış `Basic`.
 

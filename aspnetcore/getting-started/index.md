@@ -6,12 +6,6 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/15/2019
 uid: getting-started
-ms.openlocfilehash: eee927f4306fa7757f3f361e6c6f367658512897
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341816"
 ---
 # <a name="tutorial-get-started-with-aspnet-core"></a>Öğretici: ASP.NET Core kullanmaya başlayın
 
@@ -107,7 +101,7 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > * Projeyi çalıştırın.
 > * Bir değişiklik yapın.
 
-ASP.NET Core hakkında daha fazla bilgi için girişine bakın:
+ASP.NET Core hakkında daha fazla bilgi için önerilen öğrenme yolunu giriş bakın:
 
 > [!div class="nextstepaction"]
-> <xref:index>
+> <xref:index#recommended-learning-path>

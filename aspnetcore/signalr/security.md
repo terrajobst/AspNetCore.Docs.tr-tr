@@ -7,12 +7,12 @@ ms.author: anurse
 ms.custom: mvc
 ms.date: 11/06/2018
 uid: signalr/security
-ms.openlocfilehash: 52cfac6be8e61572acdf0b19dab574b607314d97
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: 6e9f849ed856cf1cbf989b8b16cab5209c465471
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54836070"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56743793"
 ---
 # <a name="security-considerations-in-aspnet-core-signalr"></a>ASP.NET Core signalr'da güvenlik konuları
 
@@ -77,7 +77,7 @@ info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
       Request starting HTTP/1.1 GET http://localhost:5000/myhub?access_token=1234
 ```
 
-Bu veri günlüğü, sunucu günlükleri ile ilgili endişeleriniz varsa, bu günlük tamamen yapılandırarak devre dışı bırakabilirsiniz `Microsoft.AspNetCore.Hosting` için Günlükçü `Warning` düzeyi veya üzeri (Bu iletiler yazıldığı `Info` düzeyi). İlgili belgelere bakın [günlük filtreleme](xref:fundamentals/logging/index#log-filtering) daha fazla bilgi için. Belirli istek bilgileri günlüğe kaydetmek isterseniz, [bir ara yazılım yazma](xref:fundamentals/middleware/index#write-middleware) gerektirir ve filtrelemek verilerini günlüğe kaydetmek `access_token` sorgu dize değeri (varsa).
+Bu veri günlüğü, sunucu günlükleri ile ilgili endişeleriniz varsa, bu günlük tamamen yapılandırarak devre dışı bırakabilirsiniz `Microsoft.AspNetCore.Hosting` için Günlükçü `Warning` düzeyi veya üzeri (Bu iletiler yazıldığı `Info` düzeyi). İlgili belgelere bakın [günlük filtreleme](xref:fundamentals/logging/index#log-filtering) daha fazla bilgi için. Belirli istek bilgileri günlüğe kaydetmek isterseniz, [bir ara yazılım yazma](xref:fundamentals/middleware/write) gerektirir ve filtrelemek verilerini günlüğe kaydetmek `access_token` sorgu dize değeri (varsa).
 
 ## <a name="exceptions"></a>Özel Durumlar
 

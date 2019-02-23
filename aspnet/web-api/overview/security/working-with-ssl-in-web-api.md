@@ -4,16 +4,16 @@ title: Web API'de SSL ile çalışma | Microsoft Docs
 author: MikeWasson
 description: SSL SSL istemci sertifikaları kullanma dahil olmak üzere ASP.NET Web API ile kullanma işlemi gösterilmektedir.
 ms.author: riande
-ms.date: 12/12/2012
+ms.date: 02/22/2019
 ms.assetid: 97f6164f-59cf-45c0-b820-e4aa29b45396
 msc.legacyurl: /web-api/overview/security/working-with-ssl-in-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: b11b35f58a1f033423f5e6ea5f5373df0d1fcb5f
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 69c0d217f605096d968435c062ee9931f8dff75f
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41752123"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56744111"
 ---
 <a name="working-with-ssl-in-web-api"></a>Web API'de SSL ile çalışma
 ====================
@@ -59,7 +59,7 @@ SSL, ortak anahtar altyapısı sertifikalarını kullanarak kimlik doğrulaması
 3. Altında **istemci sertifikaları**, aşağıdaki seçeneklerden birini seçin: 
 
     - **Kabul**: IIS istemci sertifika kabul eder, ancak bir gerektirmez.
-    - **Gerekli**: bir istemci sertifikası gerektirir. (Bu seçeneği etkinleştirmek için de "SSL iste" seçmeniz gerekir)
+    - **Gerekli**: Bir istemci sertifikası gerektirir. (Bu seçeneği etkinleştirmek için de "SSL iste" seçmeniz gerekir)
 
 Bu gibi durumlarda, bu seçenekler ayrıca ApplicationHost.config dosyasında ayarlayabilirsiniz:
 
@@ -69,7 +69,7 @@ Bu gibi durumlarda, bu seçenekler ayrıca ApplicationHost.config dosyasında ay
 
 ### <a name="creating-a-client-certificate-for-testing"></a>Test etmek için bir istemci sertifikası oluşturma
 
-Test amacıyla kullanabilirsiniz [MakeCert.exe](https://msdn.microsoft.com/library/bfsktky3.aspx) bir istemci sertifikası oluşturmak için. İlk olarak, bir test kök yetkilisi oluşturun:
+Test amacıyla kullanabilirsiniz [MakeCert.exe](/windows/desktop/SecCrypto/makecert) bir istemci sertifikası oluşturmak için. İlk olarak, bir test kök yetkilisi oluşturun:
 
 [!code-console[Main](working-with-ssl-in-web-api/samples/sample4.cmd)]
 

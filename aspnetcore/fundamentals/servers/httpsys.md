@@ -5,14 +5,14 @@ description: HTTP.sys, ASP.NET Core, Windows için bir web sunucusu hakkında bi
 monikerRange: '>= aspnetcore-2.0'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/13/2019
+ms.date: 02/21/2019
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: 859e3daeba125ab1a9392c1bdbf2733de2f79a34
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: abb426b1a41226e52d9b9b5c00c41ff816890d36
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248348"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56744137"
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>ASP.NET core'da HTTP.sys web sunucusu uygulaması
 
@@ -86,7 +86,7 @@ HTTP/2 varsayılan olarak etkindir. Bir HTTP/2 bağlantı değil, bağlantı, HT
 
 1. Proje dosyasındaki bir paket başvurusu kullanırken gerekli değildir [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app) ([nuget.org](https://www.nuget.org/packages/Microsoft.AspNetCore.App/)) (ASP.NET Core 2.1 veya üzeri). Değil kullanırken `Microsoft.AspNetCore.App` metapackage, paket başvurusu ekleme [Microsoft.AspNetCore.Server.HttpSys](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.HttpSys/).
 
-2. Çağrı <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderHttpSysExtensions.UseHttpSys*> gerekli belirtme web ana bilgisayarı oluşturulurken genişletme yöntemi <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions>:
+2. Çağrı <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderHttpSysExtensions.UseHttpSys*> Web ana bilgisayarı, gerekli belirtme oluştururken genişletme yöntemi <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions>:
 
    [!code-csharp[](httpsys/sample/Program.cs?name=snippet1&highlight=4-12)]
 
@@ -135,7 +135,9 @@ HTTP/2 varsayılan olarak etkindir. Bir HTTP/2 bağlantı değil, bağlantı, HT
 
 ### <a name="configure-windows-server"></a>Windows Server'ı yapılandırma
 
-1. Uygulamayı açmak ve Windows Güvenlik Duvarı bağlantı noktalarını belirlemek veya [PowerShell cmdlet'leri](https://technet.microsoft.com/library/jj554906) trafiğin HTTP.sys ulaşmasına izin vermek için güvenlik duvarı bağlantı noktalarını açın. Bir Azure VM Dağıtım yaparken, bağlantı noktaları açma [ağ güvenlik grubu](/azure/virtual-network/security-overview). Aşağıdaki komutları ve uygulama yapılandırması, 443 numaralı bağlantı noktası kullanılır.
+1. Uygulama ve kullanımı için açılacak bağlantı noktaları belirleme [Windows Güvenlik Duvarı](/windows/security/threat-protection/windows-firewall/create-an-inbound-port-rule) veya [New-NetFirewallRule](/powershell/module/netsecurity/new-netfirewallrule) trafiğin HTTP.sys ulaşmasına izin vermek için güvenlik duvarı bağlantı noktalarını açmak için PowerShell cmdlet'i. Aşağıdaki komutları ve uygulama yapılandırması, 443 numaralı bağlantı noktası kullanılır.
+
+1. Bir Azure VM Dağıtım yaparken, bağlantı noktaları açma [ağ güvenlik grubu](/azure/virtual-machines/windows/nsg-quickstart-portal). Aşağıdaki komutları ve uygulama yapılandırması, 443 numaralı bağlantı noktası kullanılır.
 
 1. Edinin ve gerektiğinde X.509 sertifikaları yükleyin.
 
@@ -272,5 +274,5 @@ Internet'ten veya kurumsal ağ istekleri etkileşim HTTP.sys tarafından barınd
 * [HTTP.sys ile Windows kimlik doğrulamasını etkinleştirme](xref:security/authentication/windowsauth#enable-windows-authentication-with-httpsys)
 * [HTTP Sunucusu API](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx)
 * [ASP.NET/HttpSysServer GitHub deposu (kaynak kodu)](https://github.com/aspnet/HttpSysServer/)
-* <xref:fundamentals/host/index>
+* [Ana bilgisayar](xref:fundamentals/index#host)
 * <xref:test/troubleshoot>

@@ -1,28 +1,51 @@
 ---
 title: .NET genel ana bilgisayar
 author: guardrex
-description: Uygulama başlatma ve ömür yönetimi için sorumlu .NET genel ana bilgisayar hakkında bilgi edinin.
+description: ASP.NET Core'nın genel ana bilgisayar hakkında uygulama başlatma ve ömür yönetimi için sorumlu olduğu öğrenin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 11/28/2018
 uid: fundamentals/host/generic-host
-ms.openlocfilehash: 4d435984d8169b558ab026ef8541c90f7a2a96b9
-ms.sourcegitcommit: 0fc89b80bb1952852ecbcf3c5c156459b02a6ceb
+ms.openlocfilehash: a128b7c19d544d1dd28ab16f7a208ceef680ce81
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52618161"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56743848"
 ---
 # <a name="net-generic-host"></a>.NET genel ana bilgisayar
 
 Tarafından [Luke Latham](https://github.com/guardrex)
 
-.NET core uygulamaları yapılandırmak ve başlatmak bir *konak*. Uygulama başlatma ve ömür yönetimi için konak sorumludur. Bu konu, ASP.NET Core genel ana bilgisayar kapsar (<xref:Microsoft.Extensions.Hosting.HostBuilder>), HTTP isteklerini mıdl'ye işleme uygulamaları barındırmak için kullanışlı olduğu. İçin Web ana bilgisayarı kapsamını (<xref:Microsoft.AspNetCore.Hosting.WebHostBuilder>), bkz: <xref:fundamentals/host/web-host>.
+::: moniker range="<= aspnetcore-2.2"
 
-Amacı genel ana bilgisayar, ana senaryoları daha geniş bir dizi etkinleştirmek için Web ana bilgisayar API'sinden HTTP ardışık düzen ayırmaktır. Mesajlaşma, arka plan görevleri ve diğer yapılandırma, bağımlılık ekleme (dı) ve günlüğe kaydetme gibi çapraz kesme özellikleri genel ana bilgisayar avantajından temel HTTP olmayan iş yükleri.
+ASP.NET Core uygulamaları yapılandırın ve bir konak başlatın. Uygulama başlatma ve ömür yönetimi için konak sorumludur.
 
-Genel ana bilgisayar, ASP.NET Core 2.1 içinde yenidir ve web barındırma senaryoları için uygun değildir. Web barındırma senaryoları için [Web ana bilgisayarı](xref:fundamentals/host/web-host). Gelecek sürümlerden birinde Web ana bilgisayarı değiştirin ve hem HTTP hem de HTTP olmayan senaryolar birincil konak API olarak davranmak için geliştirme aşamasındaki genel ana bilgisayardır.
+Bu makalede, ASP.NET Core genel ana bilgisayar yer almaktadır (<xref:Microsoft.Extensions.Hosting.HostBuilder>), HTTP isteklerini mıdl'ye işleme uygulamaları için kullanılır.
+
+Amacı genel ana bilgisayar, ana senaryoları daha geniş bir dizi etkinleştirmek için Web ana bilgisayar API'sinden HTTP ardışık düzen ayırmaktır. Mesajlaşma, arka plan görevleri ve diğer genel ana bilgisayar yapılandırma, bağımlılık ekleme (dı) ve günlüğe kaydetme gibi çapraz kesme özellikleri avantajından temel HTTP olmayan iş yükleri.
+
+Genel ana bilgisayar, ASP.NET Core 2.1 içinde yenidir ve web barındırma senaryoları için uygun değildir. Web barındırma senaryoları için [Web ana bilgisayarı](xref:fundamentals/host/web-host). Genel konak Web ana bilgisayarı gelecekteki bir sürümde değiştirin ve hem HTTP hem de HTTP olmayan senaryolar birincil konak API işlevi görür.
+
+::: moniker-end
+
+::: moniker range="> aspnetcore-2.2"
+
+ASP.NET Core uygulamaları yapılandırın ve bir konak başlatın. Uygulama başlatma ve ömür yönetimi için konak sorumludur.
+
+Bu makalede, .NET Core genel ana bilgisayar yer almaktadır (<xref:Microsoft.Extensions.Hosting.HostBuilder>).
+
+Genel konak Web Konaktan farklıdır HTTP ardışık düzen tarafından ana senaryoları daha geniş bir dizi etkinleştirmek için Web ana bilgisayar API ayırır. Mesajlaşma, arka plan görevleri ve diğer HTTP olmayan iş yükleri, genel ana bilgisayar kullanın ve yapılandırma, bağımlılık ekleme (dı) ve günlüğe kaydetme gibi çapraz kesme özellikleri yararlanın.
+
+ASP.NET Core 3. 0'dan başlayarak, genel ana bilgisayar hem HTTP hem de HTTP olmayan iş yükleri için önerilir. Bir HTTP sunucusu uygulamasını eklenirse, uygulaması çalışan <xref:Microsoft.Extensions.Hosting.IHostedService>. `IHostedService` diğer iş yükleri için de kullanılabilir bir arabirimdir.
+
+Web ana bilgisayarı artık web apps için önerilir, ancak geriye dönük uyumluluk için kullanılabilir durumda kalır.
+
+> [!NOTE]
+> Bu makalenin kalan kısmı için 3.0 henüz güncelleştirilmemiş.
+
+::: moniker-end
 
 [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/host/generic-host/samples/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
@@ -95,7 +118,7 @@ Ana Bilgisayar Yapılandırması tarafından oluşturulur:
 
 **Anahtar**: applicationName  
 **Tür**: *dize*  
-**Varsayılan**: uygulamanın giriş noktasını içeren derlemenin adı.  
+**Varsayılan**: Uygulamanın giriş içeren bütünleştirilmiş kodun ad'ı seçin.  
 **Kullanılarak ayarlanan**: `HostBuilderContext.HostingEnvironment.ApplicationName`  
 **Ortam değişkeni**: `<PREFIX_>APPLICATIONNAME` (`<PREFIX_>` olduğu [isteğe bağlıdır ve kullanıcı tanımlı](#configurehostconfiguration))
 
@@ -105,7 +128,7 @@ Bu ayar, içerik dosyalarını aramaya konak başladığı belirler.
 
 **Anahtar**: contentRoot  
 **Tür**: *dize*  
-**Varsayılan**: varsayılan olarak, uygulama derleme bulunduğu klasör.  
+**Varsayılan**: Uygulama derleme bulunduğu klasör varsayılan olur.  
 **Kullanılarak ayarlanan**: `UseContentRoot`  
 **Ortam değişkeni**: `<PREFIX_>CONTENTROOT` (`<PREFIX_>` olduğu [isteğe bağlıdır ve kullanıcı tanımlı](#configurehostconfiguration))
 
@@ -119,7 +142,7 @@ Uygulamanın ayarlar [ortam](xref:fundamentals/environments).
 
 **Anahtar**: ortam  
 **Tür**: *dize*  
-**Varsayılan**: üretim  
+**Varsayılan**: Üretim  
 **Kullanılarak ayarlanan**: `UseEnvironment`  
 **Ortam değişkeni**: `<PREFIX_>ENVIRONMENT` (`<PREFIX_>` olduğu [isteğe bağlıdır ve kullanıcı tanımlı](#configurehostconfiguration))
 
@@ -170,7 +193,7 @@ Uygulama Yapılandırması tarafından sağlanan ana bilgisayar yapılandırmas�
 
 [!code-csharp[](generic-host/samples-snapshot/2.x/GenericHostSample/Program.cs?name=snippet_ConfigureAppConfiguration)]
 
-*appSettings.JSON*:
+*appsettings.json*:
 
 [!code-csharp[](generic-host/samples/2.x/GenericHostSample/appsettings.json)]
 

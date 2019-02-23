@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 01/17/2019
 uid: fundamentals/startup
-ms.openlocfilehash: 685b496943642b349321a36a7200d6d51ecf4d6e
-ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
+ms.openlocfilehash: cfd0a57d5d0b60862b017a170b6d5cbddf56f15a
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396239"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56744189"
 ---
 # <a name="app-startup-in-aspnet-core"></a>ASP.NET core'da uygulama başlatma
 
@@ -31,7 +31,7 @@ ASP.NET Core uygulamaları kullanımı bir `Startup` adlı sınıfı `Startup` k
 
 [!code-csharp[](startup/sample_snapshot/Startup1.cs?highlight=4,10)]
 
-`Startup` Sınıfı, uygulamaya belirtilirse, uygulamanın [konak](xref:fundamentals/host/index) oluşturulmuştur. Konak uygulamanın ne zaman oluşturulmuştur `Build` konak Oluşturucusu'nda üzerinde çağrılır `Program` sınıfı. `Startup` Sınıf genellikle belirtilen çağırarak [WebHostBuilderExtensions.UseStartup\<TStartup >](xref:Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions.UseStartup*) konak Oluşturucu yöntemi:
+`Startup` Sınıfı, uygulamaya belirtilirse, uygulamanın [konak](xref:fundamentals/index#host) oluşturulmuştur. Konak uygulamanın ne zaman oluşturulmuştur `Build` konak Oluşturucusu'nda üzerinde çağrılır `Program` sınıfı. `Startup` Sınıf genellikle belirtilen çağırarak [WebHostBuilderExtensions.UseStartup\<TStartup >](xref:Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions.UseStartup*) konak Oluşturucu yöntemi:
 
 [!code-csharp[](startup/sample_snapshot/Program3.cs?name=snippet_Program&highlight=10)]
 
@@ -47,7 +47,7 @@ Yaygın [bağımlılık ekleme](xref:fundamentals/dependency-injection) içine `
 
 Ekleme alternatif `IHostingEnvironment` kurallarına dayalı bir yaklaşım kullanmaktır. Ne zaman uygulama tanımlar ayrı `Startup` sınıflar farklı ortamlar için (örneğin, `StartupDevelopment`), uygun `Startup` sınıfı çalışma zamanında seçilen. Geçerli ortamı olan adı sonekiyle sınıfı kurtarılmasına öncelik verilir. Uygulama geliştirme ortamında çalıştırılır ve her ikisi de içeren bir `Startup` sınıfı ve `StartupDevelopment` sınıfı `StartupDevelopment` sınıfı kullanılır. Daha fazla bilgi için [birden fazla ortam kullanayım](xref:fundamentals/environments#environment-based-startup-class-and-methods).
 
-Konak hakkında daha fazla bilgi için bkz: <xref:fundamentals/host/index>. Başlatma sırasında hataları işleme hakkında daha fazla bilgi için bkz: [başlangıç özel durum işleme](xref:fundamentals/error-handling#startup-exception-handling).
+Konak hakkında daha fazla bilgi için bkz. [konak](xref:fundamentals/index#host). Başlatma sırasında hataları işleme hakkında daha fazla bilgi için bkz: [başlangıç özel durum işleme](xref:fundamentals/error-handling#startup-exception-handling).
 
 ## <a name="the-configureservices-method"></a>Createservicereplicalisteners() yöntemi
 
@@ -59,7 +59,7 @@ Konak hakkında daha fazla bilgi için bkz: <xref:fundamentals/host/index>. Baş
 
 Tipik bir düzen tüm çağırmaktır `Add{Service}` yöntemleri ve tüm çağrı `services.Configure{Service}` yöntemleri. Örneğin, [yapılandırma kimlik Hizmetleri](xref:security/authentication/identity#pw).
 
-Bazı hizmetler önce konak yapılandırabilirsiniz `Startup` yöntemi çağrılır. Daha fazla bilgi için bkz. <xref:fundamentals/host/index>.
+Bazı hizmetler önce konak yapılandırabilirsiniz `Startup` yöntemi çağrılır. Daha fazla bilgi için [konak](xref:fundamentals/index#host).
 
 Önemli kurulum gerektiren özellikler için vardır `Add{Service}` üzerinde genişletme yöntemleri <xref:Microsoft.Extensions.DependencyInjection.IServiceCollection>. Tipik bir ASP.NET Core uygulaması için Entity Framework, kimlik ve MVC Hizmetleri kaydeder:
 
@@ -134,7 +134,7 @@ Bir <xref:Microsoft.AspNetCore.Hosting.IHostingStartup> uygulama sağlayan uygul
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* <xref:fundamentals/host/index>
+* [Ana bilgisayar](xref:fundamentals/index#host)
 * <xref:fundamentals/environments>
 * <xref:fundamentals/middleware/index>
 * <xref:fundamentals/logging/index>

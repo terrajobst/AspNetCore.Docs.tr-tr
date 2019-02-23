@@ -248,63 +248,9 @@ ASP.NET Core aşağıdaki ara yazılımı bileşenleri ile birlikte gelir. *Sipa
 | [URL yeniden yazma](xref:fundamentals/url-rewriting) | URL yeniden yazma ve istekleri yönlendirme için destek sağlar. | Bileşenlerinden önce bu URL'yi kullanır. |
 | [WebSockets](xref:fundamentals/websockets) | WebSockets Protokolü sağlar. | WebSocket isteklerini kabul etmek için gerekli bileşenleri önce. |
 
-## <a name="write-middleware"></a>Ara yazılım yazma
-
-Ara yazılım genellikle bir sınıfta kapsüllenmiş ve bir genişletme yöntemi ile kullanıma sunulan. Kültür geçerli istek için Sorgu dizesinden ayarlar aşağıdaki Ara göz önünde bulundurun:
-
-[!code-csharp[](index/snapshot/Culture/StartupCulture.cs?name=snippet1)]
-
-Yukarıdaki örnek kod, bir ara yazılım bileşeni oluşturma göstermek için kullanılır. Bkz: ASP.NET Core'nın yerleşik yerelleştirme desteğini <xref:fundamentals/localization>.
-
-Ara yazılım kültür, örneğin geçirerek sınayabilirsiniz `http://localhost:7997/?culture=no`.
-
-Aşağıdaki kod, bir sınıf için ara yazılım temsilci taşır:
-
-[!code-csharp[](index/snapshot/Culture/RequestCultureMiddleware.cs)]
-
-::: moniker range="< aspnetcore-2.0"
-
-Ara yazılım `Task` yöntemin adı olmalıdır `Invoke`. ASP.NET Core 2.0 veya sonraki sürümlerde, ad ya da olabilir `Invoke` veya `InvokeAsync`.
-
-::: moniker-end
-
-Aşağıdaki uzantı yöntemi ara yazılımı üzerinden kullanıma sunan <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder>:
-
-[!code-csharp[](index/snapshot/Culture/RequestCultureMiddlewareExtensions.cs)]
-
-Aşağıdaki kod ara yazılımı gelen çağrıları `Startup.Configure`:
-
-[!code-csharp[](index/snapshot/Culture/Startup.cs?name=snippet1&highlight=5)]
-
-Ara yazılım izlemelidir [açık bağımlılıkları İlkesi](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies) tarafından kendi oluşturucusuna bağımlılıkları gösterme. Ara yazılım yapılandırılmıştır kez başına *uygulama ömrü*. Bkz: [istek başına bağımlılıkları](#per-request-dependencies) istek içinde ara yazılım ile Hizmetleri paylaşan gerekiyorsa bölümü.
-
-Ara yazılım bileşenleri, bunların bağımlılıklarını giderebilir [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection) Oluşturucu parametresi üzerinden. [UseMiddleware&lt;T&gt; ](/dotnet/api/microsoft.aspnetcore.builder.usemiddlewareextensions.usemiddleware#Microsoft_AspNetCore_Builder_UseMiddlewareExtensions_UseMiddleware_Microsoft_AspNetCore_Builder_IApplicationBuilder_System_Type_System_Object___) ek parametreler doğrudan da kabul edebilir.
-
-### <a name="per-request-dependencies"></a>İstek başına bağımlılıkları
-
-Ara yazılım değil istek, uygulama başlatma sırasında oluşturulur çünkü *kapsamlı* ara yazılım oluşturucular tarafından kullanılan etkin kalma süresi olmayan paylaşılan hizmetler diğer bağımlılık eklenen türleriyle her isteği sırasında. Paylaşmanız gerekir durumunda bir *kapsamlı* hizmet Ara yazılımınızı ve diğer türleri arasında bu hizmetlere ekleme `Invoke` yöntemin imzası. `Invoke` Yöntemi tarafından DI doldurulur ek parametreleri kabul edebilir:
-
-```csharp
-public class CustomMiddleware
-{
-    private readonly RequestDelegate _next;
-
-    public CustomMiddleware(RequestDelegate next)
-    {
-        _next = next;
-    }
-
-    // IMyScopedService is injected into Invoke
-    public async Task Invoke(HttpContext httpContext, IMyScopedService svc)
-    {
-        svc.MyProperty = 1000;
-        await _next(httpContext);
-    }
-}
-```
-
 ## <a name="additional-resources"></a>Ek kaynaklar
 
+* <xref:fundamentals/middleware/write>
 * <xref:migration/http-modules>
 * <xref:fundamentals/startup>
 * <xref:fundamentals/request-features>

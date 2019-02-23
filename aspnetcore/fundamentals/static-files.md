@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/18/2018
 uid: fundamentals/static-files
-ms.openlocfilehash: 4c08d65cc1f658ef08a9b4b362ac7f8a3a243557
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: e6bda5dd60c62c7bdbfa81f34c14cfcd07e8d700
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637787"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56744059"
 ---
 # <a name="static-files-in-aspnet-core"></a>ASP.NET core'da statik dosyalar
 
@@ -23,7 +23,7 @@ Statik dosyaları, HTML, CSS, görüntü ve JavaScript gibi ASP.NET Core uygulam
 
 ## <a name="serve-static-files"></a>Statik dosyaları işleme
 
-Statik dosyaları, projenizin web kök dizininde depolanır. Varsayılan dizin,  *\<content_root > / wwwroot*, ancak aracılığıyla değiştirilebilir [UseWebRoot](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usewebroot#Microsoft_AspNetCore_Hosting_HostingAbstractionsWebHostBuilderExtensions_UseWebRoot_Microsoft_AspNetCore_Hosting_IWebHostBuilder_System_String_) yöntemi. Bkz: [içerik kök](xref:fundamentals/index#content-root) ve [Web kök](xref:fundamentals/index#web-root-webroot) daha fazla bilgi için.
+Statik dosyaları, projenizin web kök dizininde depolanır. Varsayılan dizin,  *\<content_root > / wwwroot*, ancak aracılığıyla değiştirilebilir [UseWebRoot](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usewebroot#Microsoft_AspNetCore_Hosting_HostingAbstractionsWebHostBuilderExtensions_UseWebRoot_Microsoft_AspNetCore_Hosting_IWebHostBuilder_System_String_) yöntemi. Bkz: [içerik kök](xref:fundamentals/index#content-root) ve [Web kök](xref:fundamentals/index#web-root) daha fazla bilgi için.
 
 Uygulamanın web ana bilgisayarı, içerik kök dizini kullanan yapılmalıdır.
 
@@ -82,7 +82,7 @@ Parametresiz `UseStaticFiles` yöntemi aşırı yüklemesini dosyaları web kök
 
 [!code-cshtml[](static-files/samples/1x/Views/Home/Index.cshtml?name=snippet_static_file_wwwroot)]
 
-Önceki kodda, tilde karakteri `~/` webroot için işaret eder. Daha fazla bilgi için [Web kök](xref:fundamentals/index#web-root-webroot).
+Önceki kodda, tilde karakteri `~/` webroot için işaret eder. Daha fazla bilgi için [Web kök](xref:fundamentals/index#web-root).
 
 ### <a name="serve-files-outside-of-web-root"></a>Web kökünün dışında dosyaları işleme
 
@@ -94,7 +94,7 @@ Statik dosyaların sunulmasını web kökünün dışında bulunduğu dizin sır
   * **js**
 * **MyStaticFiles**
   * **Görüntüleri**
-      * *banner1.SVG*
+      * *banner1.svg*
 
 Bir isteği erişip *banner1.svg* statik dosya ara yazılımlarını şu şekilde yapılandırarak dosyası:
 
@@ -193,7 +193,7 @@ Aşağıdaki dizin hiyerarşi göz önünde bulundurun:
   * **js**
 * **MyStaticFiles**
   * **Görüntüleri**
-      * *banner1.SVG*
+      * *banner1.svg*
   * *default.HTML*
 
 Aşağıdaki kod, statik dosyalar, varsayılan dosya ve Dizin tarama etkinleştirir `MyStaticFiles`:
@@ -208,7 +208,7 @@ Aşağıdaki kod, statik dosyalar, varsayılan dosya ve Dizin tarama etkinleşti
 
 | URI            |                             Yanıt  |
 | ------- | ------|
-| *http://\<server_address > /StaticFiles/images/banner1.svg*    |      MyStaticFiles/images/banner1.svg |
+| *http://\<server_address>/StaticFiles/images/banner1.svg*    |      MyStaticFiles/images/banner1.svg |
 | *http://\<server_address > / StaticFiles*             |     MyStaticFiles/default.html |
 
 Varsayılan adlı dosya varsa *MyStaticFiles* dizin *http://\<server_address > / StaticFiles* dizin ile tıklanabilir bağlantılar listesi döndürür:

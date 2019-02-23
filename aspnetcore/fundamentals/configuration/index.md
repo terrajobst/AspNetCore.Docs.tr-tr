@@ -6,12 +6,6 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/25/2019
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 2465570e469020ae2855508bd1bfc8528e188ebb
-ms.sourcegitcommit: ca5f03210bedc61c6639a734ae5674bfe095dee8
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55073172"
 ---
 # <a name="configuration-in-aspnet-core"></a>ASP.NET core'da yapılandırma
 
@@ -70,7 +64,7 @@ Bu üç paketi içinde yer [Microsoft.AspNetCore.All metapackage](xref:fundament
 
 ## <a name="host-vs-app-configuration"></a>Uygulama yapılandırması barındırın
 
-Uygulama yapılandırılmış ve başlatıldı, önce bir *konak* başlatılan ve yapılandırılır. Uygulama başlatma ve ömür yönetimi için konak sorumludur. Bu konuda açıklanan yapılandırma sağlayıcıları kullanarak, hem uygulama hem de konak yapılandırılır. Ana bilgisayar yapılandırma anahtar-değer çiftleri uygulamanın genel yapılandırmasının bir parçası haline gelir. Yapılandırma sağlayıcıları konak oluşturulduğunda kullanılan yapılandırma ve yapılandırma kaynaklarını nasıl etkileyeceğini nasıl barındırmak daha fazla bilgi için bkz: <xref:fundamentals/host/index>.
+Uygulama yapılandırılmış ve başlatıldı, önce bir *konak* başlatılan ve yapılandırılır. Uygulama başlatma ve ömür yönetimi için konak sorumludur. Bu konuda açıklanan yapılandırma sağlayıcıları kullanarak, hem uygulama hem de konak yapılandırılır. Ana bilgisayar yapılandırma anahtar-değer çiftleri uygulamanın genel yapılandırmasının bir parçası haline gelir. Yapılandırma sağlayıcıları konak oluşturulduğunda kullanılan yapılandırma ve yapılandırma kaynaklarını nasıl etkileyeceğini nasıl barındırmak daha fazla bilgi için bkz: [konak](xref:fundamentals/index#host).
 
 ## <a name="default-configuration"></a>Varsayılan yapılandırma
 

@@ -5,12 +5,12 @@ description: Bireysel kullanıcı hesapları ile oluşturulan ASP.NET Core proje
 ms.author: riande
 ms.date: 11/30/2017
 uid: security/authentication/individual
-ms.openlocfilehash: ac843342ffc73632fbf9f6359c6c1a5878dcef0d
-ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
+ms.openlocfilehash: c73365eafaf2c38ef02c3c83ccf5ced4264f7dc0
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523070"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56743780"
 ---
 # <a name="articles-based-on-aspnet-core-projects-created-with-individual-user-accounts"></a>Bireysel kullanıcı hesapları ile oluşturulan ASP.NET Core projeleri göre makaleler
 
@@ -22,7 +22,6 @@ ASP.NET Core kimliği "Bireysel kullanıcı hesapları" seçeneği ile Visual St
 
 ```console
 dotnet new mvc -au Individual
-dotnet new webapi -au Individual
 dotnet new webapp -au Individual
 ```
 
@@ -32,11 +31,12 @@ dotnet new webapp -au Individual
 
 ```console
 dotnet new mvc -au Individual
-dotnet new webapi -au Individual
 dotnet new razor -au Individual
 ```
 
 ::: moniker-end
+
+Bkz: [bu GitHub sorunu](https://github.com/aspnet/AspNetCore/issues/5833) web API'si kimlik doğrulama için.
 
 <a name="no"></a>
 ## <a name="no-authentication"></a>Kimlik doğrulama yok
