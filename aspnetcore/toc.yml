@@ -58,35 +58,35 @@ items:
   - uid: fundamentals/index
     name: Genel Bakış
   - uid: fundamentals/startup
-    name: Uygulama başlatma
+    name: Başlangıç sınıfı
   - uid: fundamentals/dependency-injection
     name: Bağımlılık ekleme (hizmetler)
-  - uid: fundamentals/routing
-    name: Yönlendirme
-  - uid: fundamentals/environments
-    name: Ortamlar (geliştirme, hazırlama, üretim)
+  - uid: fundamentals/middleware/index
+    name: Ara yazılım
+  - name: Konak
+    items:
+    - uid: fundamentals/host/web-host
+      name: Web Konağı
+    - uid: fundamentals/host/generic-host
+      name: Genel Konak
+  - uid: fundamentals/servers/index
+    name: Sunucular
   - uid: fundamentals/configuration/index
     name: Yapılandırma
   - uid: fundamentals/configuration/options
     name: Seçenekler
+  - uid: fundamentals/environments
+    name: Ortamlar (geliştirme, hazırlama, üretim)
   - uid: fundamentals/logging/index
     name: Günlüğe Kaydetme
+  - uid: fundamentals/routing
+    name: Yönlendirme
   - uid: fundamentals/error-handling
     name: Hataları işleme
-  - uid: fundamentals/middleware/index
-    name: Ara yazılım
-  - name: Ana bilgisayar
-    items:
-    - uid: fundamentals/host/index
-      name: Genel Bakış
-    - uid: fundamentals/host/web-host
-      name: Web konağı
-    - uid: fundamentals/host/generic-host
-      name: Genel konak
-  - uid: fundamentals/servers/index
-    name: Sunucular
   - uid: fundamentals/http-requests
     name: HTTP isteğinde bulunma
+  - uid: fundamentals/static-files
+    name: Statik dosyalar
 - name: Web uygulamaları
   items:
   - name: Razor Pages
@@ -210,8 +210,6 @@ items:
         href: mvc/views/working-with-forms.md#the-validation-summary-tag-helper
   - uid: mvc/views/layout
     name: Düzen
-  - uid: fundamentals/static-files
-    name: Statik dosyalar
   - uid: mvc/models/model-binding
     name: Model bağlama
   - uid: mvc/models/validation
@@ -814,6 +812,8 @@ items:
     name: Taşınabilir Nesne yerelleştirmesi
 - name: Gelişmiş
   items:
+  - uid: fundamentals/middleware/write
+    name: Ara yazılım yazma
   - uid: fundamentals/url-rewriting
     name: URL yeniden yazma
   - uid: fundamentals/file-providers
@@ -880,9 +880,9 @@ items:
   href: /dotnet/api/?view=aspnetcore-2.2
 - name: Katkıda Bulun
   href: https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md
-ms.openlocfilehash: d2015955147460621d64ea6035f5f8118a02469b
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: e55cfa30103c2a89007f2bc5e9d133dea7f8c6d5
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248400"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56744004"
