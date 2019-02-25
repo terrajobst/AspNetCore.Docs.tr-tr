@@ -1,17 +1,11 @@
 ---
 title: ASP.NET Core’a Giriş
 author: rick-anderson
-description: Modern, bulut tabanlı, İnternet bağlantılı uygulamalar oluşturmaya yönelik platformlar arası, yüksek performanslı, açık kaynak bir çerçeve olan ASP.NET Core’a giriş yapın.
+description: 'Modern, bulut tabanlı, İnternet bağlantılı uygulamalar oluşturmaya yönelik platformlar arası, yüksek performanslı, açık kaynak bir çerçeve olan ASP.NET Core’a giriş yapın.'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/13/2019
+ms.date: 02/14/2019
 uid: index
-ms.openlocfilehash: c3f07814bfab19a0f070e0b48b0d2ef6cfc1594e
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
-ms.translationtype: HT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248166"
 ---
 # <a name="introduction-to-aspnet-core"></a>ASP.NET Core’a Giriş
 
@@ -68,6 +62,34 @@ ASP.NET Core 3.0 ve üzeri yalnızca .NET Core’da çalışır. Bu değişiklik
 * Açık kaynak
 
 .NET Framework ile .NET Core arasındaki API açığını kapatmak için çok çalışıyoruz. [Windows Uyumluluk Paketi](/dotnet/core/porting/windows-compat-pack), .NET Core'da yalnızca Windows'a yönelik binlerce API'yi kullanıma sunmaktadır. Bu API'ler .NET Core 1.x'te sağlanmamıştı.
+
+## <a name="recommended-learning-path"></a>Önerilen öğrenme yolu
+
+ASP.NET Core uygulamaları geliştirmeye başlamak için şu öğreticileri ve makaleleri takip etmenizi öneririz:
+
+1. Geliştirmek veya yönetmek istediğiniz uygulama türüne yönelik bir öğreticiyi takip edin:
+
+   |Uygulama türü  |Senaryo  |Eğitmen  |
+   |----------|----------|----------|
+   |Web uygulaması       | Yeni proje geliştirmek için        |[Razor Sayfaları kullanmaya başlama](xref:tutorials/razor-pages/razor-pages-start) |
+   |Web uygulaması       | MVC uygulaması yönetmek için |[MVC ile çalışmaya başlama](xref:tutorials/first-mvc-app/start-mvc)|
+   |Web API       |                            |[Web API’si oluşturma](xref:tutorials/first-web-api)\*  |
+   |Gerçek zamanlı uygulama |                            |[SignalR ile çalışmaya başlama](xref:tutorials/signalr) |
+
+1. Temel veri erişiminin nasıl yapıldığını gösteren bir öğreticiyi takip edin:
+
+   |Senaryo  |Eğitmen  |
+   |----------|----------|
+   | Yeni proje geliştirmek için        |[Entity Framework Core ile Razor Pages](xref:data/ef-rp/intro) |
+   | MVC uygulaması yönetmek için |[Entity Framework Core ile MVC](xref:data/ef-mvc/intro)
+
+1. Tüm uygulama türleri için geçerli olan ASP.NET Core özelliklerine yönelik genel bakışı okuyun:
+
+   * [Temeller](xref:fundamentals/index)
+
+1. İlgilendiğiniz diğer konular için İçindekiler Tablosu’na göz atın.
+
+Tarayıcıda tamamını takip ettiğiniz ve yerel IDE yüklemesi gerektirmeyen \* yeni bir [web API’si öğreticisi var](https://docs.microsoft.com/learn/modules/build-web-api-net-core).  Kod [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/)’de çalışır, [curl](https://curl.haxx.se/) ise test için kullanılır.
 
 ## <a name="how-to-download-a-sample"></a>Örnek indirme
 
@@ -126,7 +148,7 @@ Daha fazla bilgi için bkz. [ASP.NET belgelerine katkıda bulunma: Kod parçacı
 
 Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-* [Razor Sayfaları kullanmaya başlama](xref:tutorials/razor-pages/razor-pages-start)
+* <xref:getting-started>
 * <xref:tutorials/publish-to-azure-webapp-using-vs>
 * [ASP.NET Core temelleri](xref:fundamentals/index)
 * [Haftalık ASP.NET topluluğu toplantısında](https://live.asp.net/), takımın ilerleme durumu ve planları ele alınır. Yeni bloglara ve üçüncü taraf yazılıma yer verilir.
