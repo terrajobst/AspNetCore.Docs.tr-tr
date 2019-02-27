@@ -3,167 +3,134 @@ title: ASP.NET core'da alanları
 author: rick-anderson
 description: Alanlar (yönlendirme için) ayrı bir ad ve klasör yapısını (için görünümler) bir gruba ilgili işlevleri düzenlemek için kullanılan bir ASP.NET MVC özelliği nasıl olduğunu öğrenin.
 ms.author: riande
-ms.date: 02/14/2017
+ms.date: 02/14/2019
 uid: mvc/controllers/areas
-ms.openlocfilehash: 19e818fa198936ea1bee0da8039e88a3c0abbf6b
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: c21eed04ea68512515da262b6b6895dc1a821039
+ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410618"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833533"
 ---
-# <a name="areas-in-aspnet-core"></a><span data-ttu-id="0e8ad-103">ASP.NET core'da alanları</span><span class="sxs-lookup"><span data-stu-id="0e8ad-103">Areas in ASP.NET Core</span></span>
+# <a name="areas-in-aspnet-core"></a><span data-ttu-id="89f8b-103">ASP.NET core'da alanları</span><span class="sxs-lookup"><span data-stu-id="89f8b-103">Areas in ASP.NET Core</span></span>
 
-<span data-ttu-id="0e8ad-104">Tarafından [Dhananjay Kumar](https://twitter.com/debug_mode) ve [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="0e8ad-104">By [Dhananjay Kumar](https://twitter.com/debug_mode)  and [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
+<span data-ttu-id="89f8b-104">Tarafından [Dhananjay Kumar](https://twitter.com/debug_mode) ve [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="89f8b-104">By [Dhananjay Kumar](https://twitter.com/debug_mode) and [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
 
-<span data-ttu-id="0e8ad-105">Alanlar, ilgili işlevleri (yönlendirme için) ayrı bir ad ve klasör yapısını (için görünümler) bir gruba düzenlemek için kullanılan bir ASP.NET MVC özelliğidir.</span><span class="sxs-lookup"><span data-stu-id="0e8ad-105">Areas are an ASP.NET MVC feature used to organize related functionality into a group as a separate namespace (for routing) and folder structure (for views).</span></span> <span data-ttu-id="0e8ad-106">Alanlara kullanarak başka bir rota parametresini ekleyerek yönlendirme amacıyla hiyerarşi oluşturur `area`, `controller` ve `action`.</span><span class="sxs-lookup"><span data-stu-id="0e8ad-106">Using areas creates a hierarchy for the purpose of routing by adding another route parameter, `area`, to `controller` and `action`.</span></span>
+<span data-ttu-id="89f8b-105">Alanlar (yönlendirme için) ayrı bir ad ve klasör yapısını (için görünümler) bir gruba ilgili işlevleri düzenlemek için kullanılan, ASP.NET bir özelliğidir.</span><span class="sxs-lookup"><span data-stu-id="89f8b-105">Areas are an ASP.NET feature used to organize related functionality into a group as a separate namespace (for routing) and folder structure (for views).</span></span> <span data-ttu-id="89f8b-106">Alanlara kullanarak başka bir rota parametresini ekleyerek yönlendirme amacıyla hiyerarşi oluşturur `area`, `controller` ve `action` veya bir Razor sayfası `page`.</span><span class="sxs-lookup"><span data-stu-id="89f8b-106">Using areas creates a hierarchy for the purpose of routing by adding another route parameter, `area`, to `controller` and `action` or a Razor Page `page`.</span></span>
 
-<span data-ttu-id="0e8ad-107">Alanları büyük bir ASP.NET Core MVC Web uygulaması işlevsel gruplamalarda daha küçük bölümlere ayırmak için bir yol sağlar.</span><span class="sxs-lookup"><span data-stu-id="0e8ad-107">Areas provide a way to partition a large ASP.NET Core MVC Web app into smaller functional groupings.</span></span> <span data-ttu-id="0e8ad-108">Bir MVC yapı bir uygulama içinde etkili bir şekilde alanıdır.</span><span class="sxs-lookup"><span data-stu-id="0e8ad-108">An area is effectively an MVC structure inside an application.</span></span> <span data-ttu-id="0e8ad-109">Bir MVC projesi mantıksal bileşenler modeli, denetleyici ve görünüm gibi farklı klasörlerde tutulur ve MVC bu bileşenler arasındaki ilişki oluşturmak için adlandırma kuralları kullanır.</span><span class="sxs-lookup"><span data-stu-id="0e8ad-109">In an MVC project, logical components like Model, Controller, and View are kept in different folders, and MVC uses naming conventions to create the relationship between these components.</span></span> <span data-ttu-id="0e8ad-110">Büyük bir uygulama için ayrı yüksek düzey alanlarına işlev uygulamasını bölümleme için yararlı olabilir.</span><span class="sxs-lookup"><span data-stu-id="0e8ad-110">For a large app, it may be advantageous to partition the  app into separate high level areas of functionality.</span></span> <span data-ttu-id="0e8ad-111">Örneğin, bir e-ticaret uygulamayla kullanıma alma ve faturalandırma arama vb. gibi birden çok iş birimleri. Bu birimlerin her biri kendi mantıksal bileşen görünümleri, denetleyicilere ve modelleri sahip.</span><span class="sxs-lookup"><span data-stu-id="0e8ad-111">For instance, an e-commerce app with multiple business units, such as checkout, billing, and search etc. Each of these units have their own logical component views, controllers, and models.</span></span> <span data-ttu-id="0e8ad-112">Bu senaryoda, fiziksel olarak aynı projede iş bileşenleri bölümlemek için alanlar kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="0e8ad-112">In this scenario, you can use Areas to physically partition the business components in the same project.</span></span>
+<span data-ttu-id="89f8b-107">Alanları bir ASP.NET Core Web uygulaması daha küçük işlevsel gruplar halinde bölümlere ayırmak için bir yol her biri kendi Razor sayfaları, denetleyicileri, görünümler ve modeller kümesi sağlar.</span><span class="sxs-lookup"><span data-stu-id="89f8b-107">Areas provide a way to partition an ASP.NET Core Web app into smaller functional groups, each  with its own set of Razor Pages, controllers, views, and models.</span></span> <span data-ttu-id="89f8b-108">Bir alan etkin bir uygulama içinde bir yapıdır.</span><span class="sxs-lookup"><span data-stu-id="89f8b-108">An area is effectively a structure inside an app.</span></span> <span data-ttu-id="89f8b-109">Bir ASP.NET Core web projesinde farklı klasörlerde bulunan sayfaları, Model, denetleyici ve görünüm gibi mantıksal bileşenler tutulur.</span><span class="sxs-lookup"><span data-stu-id="89f8b-109">In an ASP.NET Core web project, logical components like Pages, Model, Controller, and View are kept in different folders.</span></span> <span data-ttu-id="89f8b-110">ASP.NET Core çalışma zamanı, bu bileşenler arasındaki ilişki oluşturmak için adlandırma kuralları kullanır.</span><span class="sxs-lookup"><span data-stu-id="89f8b-110">The ASP.NET Core runtime uses naming conventions to create the relationship between these components.</span></span> <span data-ttu-id="89f8b-111">Büyük bir uygulama için ayrı yüksek düzey alanlarına işlev uygulamasını bölümleme için yararlı olabilir.</span><span class="sxs-lookup"><span data-stu-id="89f8b-111">For a large app, it may be advantageous to partition the app into separate high level areas of functionality.</span></span> <span data-ttu-id="89f8b-112">Örneğin, bir e-ticaret uygulamayla kullanıma alma, fatura ve arama gibi birden çok iş birimleri.</span><span class="sxs-lookup"><span data-stu-id="89f8b-112">For instance, an e-commerce app with multiple business units, such as checkout, billing, and search.</span></span> <span data-ttu-id="89f8b-113">Bu birimleri her görünümleri, denetleyicileri, Razor sayfaları ve modelleri içerecek şekilde kendi alanı vardır.</span><span class="sxs-lookup"><span data-stu-id="89f8b-113">Each of these units have their own area to contain views, controllers, Razor Pages, and models.</span></span>
 
-<span data-ttu-id="0e8ad-113">Bir alanı denetleyicileri, görünümler ve modelleri, kendi kümesi ile ASP.NET Core MVC projesinde daha küçük işlevsel birimi olarak tanımlanabilir.</span><span class="sxs-lookup"><span data-stu-id="0e8ad-113">An area can be defined as smaller functional units in an ASP.NET Core MVC project with its own set of controllers, views, and models.</span></span>
+<span data-ttu-id="89f8b-114">Alanları projesinde kullanmayı olduğunda:</span><span class="sxs-lookup"><span data-stu-id="89f8b-114">Consider using Areas in an project when:</span></span>
 
-<span data-ttu-id="0e8ad-114">Bir MVC alanlardaki ne zaman proje:</span><span class="sxs-lookup"><span data-stu-id="0e8ad-114">Consider using Areas in an MVC project when:</span></span>
+* <span data-ttu-id="89f8b-115">Uygulama, mantıksal olarak ayrılabilen birden çok üst düzey işlevsel bileşenden.</span><span class="sxs-lookup"><span data-stu-id="89f8b-115">The app is made of multiple high-level functional components that can be logically separated.</span></span>
+* <span data-ttu-id="89f8b-116">Böylece her işlevsel alan üzerinde bağımsız olarak çalışılabilecek uygulamasını bölümleme istiyorsunuz.</span><span class="sxs-lookup"><span data-stu-id="89f8b-116">You want to partition the app so that each functional area can be worked on independently.</span></span>
 
-* <span data-ttu-id="0e8ad-115">Uygulamanız, mantıksal olarak ayrılması birden çok üst düzey işlevsel bileşenden</span><span class="sxs-lookup"><span data-stu-id="0e8ad-115">Your application is made of multiple high-level functional components that should be logically separated</span></span>
+<span data-ttu-id="89f8b-117">[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/areas/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample)).</span><span class="sxs-lookup"><span data-stu-id="89f8b-117">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/areas/samples) ([how to download](xref:index#how-to-download-a-sample)).</span></span> <span data-ttu-id="89f8b-118">İndirme örnek alanları test etmek için temel bir uygulama sağlar.</span><span class="sxs-lookup"><span data-stu-id="89f8b-118">The download sample provides a basic app for testing areas.</span></span>
 
-* <span data-ttu-id="0e8ad-116">Böylece her işlevsel alan üzerinde bağımsız olarak çalışılabilecek MVC projenize bölümlemek istediğiniz</span><span class="sxs-lookup"><span data-stu-id="0e8ad-116">You want to partition your MVC project so that each functional area can be worked on independently</span></span>
+## <a name="areas-for-controllers-with-views"></a><span data-ttu-id="89f8b-119">Görünüm denetleyicileri için alanları</span><span class="sxs-lookup"><span data-stu-id="89f8b-119">Areas for controllers with views</span></span>
 
-<span data-ttu-id="0e8ad-117">Alan özellikleri:</span><span class="sxs-lookup"><span data-stu-id="0e8ad-117">Area features:</span></span>
+<span data-ttu-id="89f8b-120">Alanları denetleyicileri ve görünümleri tipik bir ASP.NET Core web uygulaması şunları içerir:</span><span class="sxs-lookup"><span data-stu-id="89f8b-120">A typical ASP.NET Core web app using areas, controllers, and views contains the following:</span></span>
 
-* <span data-ttu-id="0e8ad-118">Bir ASP.NET Core MVC uygulaması herhangi bir sayıda alanları olabilir.</span><span class="sxs-lookup"><span data-stu-id="0e8ad-118">An ASP.NET Core MVC app can have any number of areas.</span></span>
+* <span data-ttu-id="89f8b-121">Bir [alan klasör yapısını](#area-folder-structure).</span><span class="sxs-lookup"><span data-stu-id="89f8b-121">An [Area folder structure](#area-folder-structure).</span></span>
+* <span data-ttu-id="89f8b-122">Denetleyicileri düzenlenmiş ile [ &lbrack;alan&rbrack; ](#attribute) denetleyici alanı ile ilişkilendirilecek özniteliği: [!code-csharp[](areas/samples/MVCareas/Areas/Products/Controllers/ManageController.cs?name=snippet2)]</span><span class="sxs-lookup"><span data-stu-id="89f8b-122">Controllers decorated with the [&lbrack;Area&rbrack;](#attribute) attribute to associate the controller with the area: [!code-csharp[](areas/samples/MVCareas/Areas/Products/Controllers/ManageController.cs?name=snippet2)]</span></span>
+* <span data-ttu-id="89f8b-123">[Başlangıç olarak eklenen alan yolu](#add-area-route): [!code-csharp[](areas/samples/MVCareas/Startup.cs?name=snippet2&highlight=3-6)]</span><span class="sxs-lookup"><span data-stu-id="89f8b-123">The [area route added to startup](#add-area-route): [!code-csharp[](areas/samples/MVCareas/Startup.cs?name=snippet2&highlight=3-6)]</span></span>
 
-* <span data-ttu-id="0e8ad-119">Her alan kendi denetleyicileri, modelleri ve görünümleri sahiptir.</span><span class="sxs-lookup"><span data-stu-id="0e8ad-119">Each area has its own controllers, models, and views.</span></span>
+## <a name="area-folder-structure"></a><span data-ttu-id="89f8b-124">Alan klasör yapısı</span><span class="sxs-lookup"><span data-stu-id="89f8b-124">Area folder structure</span></span>
+<span data-ttu-id="89f8b-125">İki mantıksal gruplar olan bir uygulama düşünün *ürünleri* ve *Hizmetleri*.</span><span class="sxs-lookup"><span data-stu-id="89f8b-125">Consider an app that has two logical groups, *Products* and *Services*.</span></span> <span data-ttu-id="89f8b-126">Alanlara kullanarak klasör yapısı şuna benzer olacaktır:</span><span class="sxs-lookup"><span data-stu-id="89f8b-126">Using areas, the folder structure would be similar to the following:</span></span>
 
-* <span data-ttu-id="0e8ad-120">Alanları üzerinde bağımsız olarak çalışması birden çok üst düzey bileşenlerine büyük MVC projeleri düzenlemenize olanak sağlar.</span><span class="sxs-lookup"><span data-stu-id="0e8ad-120">Areas allow you to organize large MVC projects into multiple high-level components that can be worked on independently.</span></span>
+* <span data-ttu-id="89f8b-127">Proje adı</span><span class="sxs-lookup"><span data-stu-id="89f8b-127">Project name</span></span>
+  * <span data-ttu-id="89f8b-128">Alanlar</span><span class="sxs-lookup"><span data-stu-id="89f8b-128">Areas</span></span>
+    * <span data-ttu-id="89f8b-129">Ürünler</span><span class="sxs-lookup"><span data-stu-id="89f8b-129">Products</span></span>
+      * <span data-ttu-id="89f8b-130">Denetleyiciler</span><span class="sxs-lookup"><span data-stu-id="89f8b-130">Controllers</span></span>
+        * <span data-ttu-id="89f8b-131">HomeController.cs</span><span class="sxs-lookup"><span data-stu-id="89f8b-131">HomeController.cs</span></span>
+        * <span data-ttu-id="89f8b-132">ManageController.cs</span><span class="sxs-lookup"><span data-stu-id="89f8b-132">ManageController.cs</span></span>
+      * <span data-ttu-id="89f8b-133">Görünümler</span><span class="sxs-lookup"><span data-stu-id="89f8b-133">Views</span></span>
+        * <span data-ttu-id="89f8b-134">Ana Sayfası</span><span class="sxs-lookup"><span data-stu-id="89f8b-134">Home</span></span>
+          * <span data-ttu-id="89f8b-135">Index.cshtml</span><span class="sxs-lookup"><span data-stu-id="89f8b-135">Index.cshtml</span></span>
+        * <span data-ttu-id="89f8b-136">yönetme</span><span class="sxs-lookup"><span data-stu-id="89f8b-136">Manage</span></span>
+          * <span data-ttu-id="89f8b-137">Index.cshtml</span><span class="sxs-lookup"><span data-stu-id="89f8b-137">Index.cshtml</span></span>
+          * <span data-ttu-id="89f8b-138">About.cshtml</span><span class="sxs-lookup"><span data-stu-id="89f8b-138">About.cshtml</span></span>
+    * <span data-ttu-id="89f8b-139">Hizmetler</span><span class="sxs-lookup"><span data-stu-id="89f8b-139">Services</span></span>
+      * <span data-ttu-id="89f8b-140">Denetleyiciler</span><span class="sxs-lookup"><span data-stu-id="89f8b-140">Controllers</span></span>
+        * <span data-ttu-id="89f8b-141">HomeController.cs</span><span class="sxs-lookup"><span data-stu-id="89f8b-141">HomeController.cs</span></span>
+      * <span data-ttu-id="89f8b-142">Görünümler</span><span class="sxs-lookup"><span data-stu-id="89f8b-142">Views</span></span>
+        * <span data-ttu-id="89f8b-143">Ana Sayfası</span><span class="sxs-lookup"><span data-stu-id="89f8b-143">Home</span></span>
+          * <span data-ttu-id="89f8b-144">Index.cshtml</span><span class="sxs-lookup"><span data-stu-id="89f8b-144">Index.cshtml</span></span>
 
-* <span data-ttu-id="0e8ad-121">Farklı sahip oldukları sürece aynı ada sahip birden çok denetleyicileri destek alanları *alanları*.</span><span class="sxs-lookup"><span data-stu-id="0e8ad-121">Areas support multiple controllers with the same name, as long as they have different *areas*.</span></span>
-
-<span data-ttu-id="0e8ad-122">Alanlarını nasıl oluşturulduğunu ve kullanılan göstermek için örnek bir göz atalım.</span><span class="sxs-lookup"><span data-stu-id="0e8ad-122">Let's take a look at an example to illustrate how Areas are created and used.</span></span> <span data-ttu-id="0e8ad-123">İki ayrı gruplandırmaları görünümleri ve denetleyicileri içeren bir mağazası uygulamanız varsa varsayalım: Ürün ve Hizmetleri.</span><span class="sxs-lookup"><span data-stu-id="0e8ad-123">Let's say you have a store app that has two distinct groupings of controllers and views: Products and Services.</span></span> <span data-ttu-id="0e8ad-124">Tipik bir klasör yapısı için MVC alanlara kullanarak aşağıda benzer olduğunu:</span><span class="sxs-lookup"><span data-stu-id="0e8ad-124">A typical folder structure for that using MVC areas looks like below:</span></span>
-
-* <span data-ttu-id="0e8ad-125">Proje adı</span><span class="sxs-lookup"><span data-stu-id="0e8ad-125">Project name</span></span>
-  * <span data-ttu-id="0e8ad-126">Alanlar</span><span class="sxs-lookup"><span data-stu-id="0e8ad-126">Areas</span></span>
-    * <span data-ttu-id="0e8ad-127">Ürünler</span><span class="sxs-lookup"><span data-stu-id="0e8ad-127">Products</span></span>
-      * <span data-ttu-id="0e8ad-128">Denetleyiciler</span><span class="sxs-lookup"><span data-stu-id="0e8ad-128">Controllers</span></span>
-        * <span data-ttu-id="0e8ad-129">HomeController.cs</span><span class="sxs-lookup"><span data-stu-id="0e8ad-129">HomeController.cs</span></span>
-        * <span data-ttu-id="0e8ad-130">ManageController.cs</span><span class="sxs-lookup"><span data-stu-id="0e8ad-130">ManageController.cs</span></span>
-      * <span data-ttu-id="0e8ad-131">Görünümler</span><span class="sxs-lookup"><span data-stu-id="0e8ad-131">Views</span></span>
-        * <span data-ttu-id="0e8ad-132">Ana Sayfası</span><span class="sxs-lookup"><span data-stu-id="0e8ad-132">Home</span></span>
-          * <span data-ttu-id="0e8ad-133">Index.cshtml</span><span class="sxs-lookup"><span data-stu-id="0e8ad-133">Index.cshtml</span></span>
-        * <span data-ttu-id="0e8ad-134">yönetme</span><span class="sxs-lookup"><span data-stu-id="0e8ad-134">Manage</span></span>
-          * <span data-ttu-id="0e8ad-135">Index.cshtml</span><span class="sxs-lookup"><span data-stu-id="0e8ad-135">Index.cshtml</span></span>
-    * <span data-ttu-id="0e8ad-136">Hizmetler</span><span class="sxs-lookup"><span data-stu-id="0e8ad-136">Services</span></span>
-      * <span data-ttu-id="0e8ad-137">Denetleyiciler</span><span class="sxs-lookup"><span data-stu-id="0e8ad-137">Controllers</span></span>
-        * <span data-ttu-id="0e8ad-138">HomeController.cs</span><span class="sxs-lookup"><span data-stu-id="0e8ad-138">HomeController.cs</span></span>
-      * <span data-ttu-id="0e8ad-139">Görünümler</span><span class="sxs-lookup"><span data-stu-id="0e8ad-139">Views</span></span>
-        * <span data-ttu-id="0e8ad-140">Ana Sayfası</span><span class="sxs-lookup"><span data-stu-id="0e8ad-140">Home</span></span>
-          * <span data-ttu-id="0e8ad-141">Index.cshtml</span><span class="sxs-lookup"><span data-stu-id="0e8ad-141">Index.cshtml</span></span>
-
-<span data-ttu-id="0e8ad-142">Varsayılan olarak bir alanda görünüm işlemek MVC çalıştığında, aşağıdaki konumlarda aramak çalışır:</span><span class="sxs-lookup"><span data-stu-id="0e8ad-142">When MVC tries to render a view in an Area, by default, it tries to look in the following locations:</span></span>
+<span data-ttu-id="89f8b-145">Önceki Düzen alanları kullanılırken tipik olsa da, yalnızca görünüm dosyaları bu klasör yapısı kullanmak için gereklidir.</span><span class="sxs-lookup"><span data-stu-id="89f8b-145">While the preceding layout is typical when using Areas, only the view files are required to use this folder structure.</span></span> <span data-ttu-id="89f8b-146">Görünüm bulma eşleşen bir alan görünüm dosyası şu sırayla arar:</span><span class="sxs-lookup"><span data-stu-id="89f8b-146">View discovery searches for a matching area view file in the following order:</span></span>
 
 ```text
 /Areas/<Area-Name>/Views/<Controller-Name>/<Action-Name>.cshtml
-   /Areas/<Area-Name>/Views/Shared/<Action-Name>.cshtml
-   /Views/Shared/<Action-Name>.cshtml
+/Areas/<Area-Name>/Views/Shared/<Action-Name>.cshtml
+/Views/Shared/<Action-Name>.cshtml
+/Pages/Shared/<Action-Name>.cshtml
    ```
 
-<span data-ttu-id="0e8ad-143">Bunlar aracılığıyla değiştirilebilen varsayılan konumları `AreaViewLocationFormats` üzerinde `Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions`.</span><span class="sxs-lookup"><span data-stu-id="0e8ad-143">These are the default locations which can be changed via the `AreaViewLocationFormats` on the `Microsoft.AspNetCore.Mvc.Razor.RazorViewEngineOptions`.</span></span>
+<span data-ttu-id="89f8b-147">Klasörleri görüntüle konumunu ister *denetleyicileri* ve *modelleri* mu **değil** önemi.</span><span class="sxs-lookup"><span data-stu-id="89f8b-147">The location of non-view folders like *Controllers* and *Models* does **not** matter.</span></span> <span data-ttu-id="89f8b-148">Örneğin, *denetleyicileri* ve *modelleri* klasörü gerekli değildir.</span><span class="sxs-lookup"><span data-stu-id="89f8b-148">For example, the *Controllers* and *Models* folder are not required.</span></span> <span data-ttu-id="89f8b-149">İçeriği *denetleyicileri* ve *modelleri* bir .dll derlenmiş kodudur.</span><span class="sxs-lookup"><span data-stu-id="89f8b-149">The content of *Controllers* and *Models* is code which gets compiled into a .dll.</span></span> <span data-ttu-id="89f8b-150">İçeriği *görünümleri* , görünüm için bir istek yayınlanana kadar derlenmiş değil.</span><span class="sxs-lookup"><span data-stu-id="89f8b-150">The content of the *Views* isn't compiled until a request to that view has been made.</span></span>
 
-<span data-ttu-id="0e8ad-144">Örneğin, 'Alanları olarak' klasör adı yerine aşağıdaki kodu, bu 'Kategorilere' değiştirildi.</span><span class="sxs-lookup"><span data-stu-id="0e8ad-144">For example, in the below code instead of having the folder name as 'Areas', it has been changed to 'Categories'.</span></span>
+<!-- TODO review:
+The content of the *Views* isn't compiled until a request to that view has been made.
 
-```csharp
-services.Configure<RazorViewEngineOptions>(options =>
-   {
-       options.AreaViewLocationFormats.Clear();
-       options.AreaViewLocationFormats.Add("/Categories/{2}/Views/{1}/{0}.cshtml");
-       options.AreaViewLocationFormats.Add("/Categories/{2}/Views/Shared/{0}.cshtml");
-       options.AreaViewLocationFormats.Add("/Views/Shared/{0}.cshtml");
-   });
-   ```
+What about precompiled views? 
+ -->
+<a name="attribute"></a>
 
-<span data-ttu-id="0e8ad-145">Unutmayın olmasıdır yapısını *görünümleri* burada önemli olarak kabul edilen tek bir klasördür ve klasörleri geri kalanını içeriği gibi *denetleyicileri* ve *modelleri* mu **değil** önemi.</span><span class="sxs-lookup"><span data-stu-id="0e8ad-145">One thing to note is that the structure of the *Views* folder is the only one which is considered important here and the content of the rest of the folders like *Controllers* and *Models* does **not** matter.</span></span> <span data-ttu-id="0e8ad-146">Örneğin, sahip bir *denetleyicileri* ve *modelleri* hiç klasör.</span><span class="sxs-lookup"><span data-stu-id="0e8ad-146">For example, you need not have a *Controllers* and *Models* folder at all.</span></span> <span data-ttu-id="0e8ad-147">Bunun çalışmasının nedeni içeriğini *denetleyicileri* ve *modelleri* içeriği burada olarak derlenmiş bir .dll, yalnızca kod *görünümleri* , isteğine kadar değil Görünüm yapıldı.</span><span class="sxs-lookup"><span data-stu-id="0e8ad-147">This works because the content of *Controllers* and *Models* is just code which gets compiled into a .dll where as the content of the *Views* isn't until a request to that view has been made.</span></span>
+### <a name="associate-the-controller-with-an-area"></a><span data-ttu-id="89f8b-151">Denetleyici ile bir alanı ilişkilendirin</span><span class="sxs-lookup"><span data-stu-id="89f8b-151">Associate the controller with an Area</span></span>
 
-<span data-ttu-id="0e8ad-148">Klasör hiyerarşisini tanımladınız sonra MVC denetleyicisi her bir alanı ile ilişkili olduğunu bildirmek gerekir.</span><span class="sxs-lookup"><span data-stu-id="0e8ad-148">Once you've defined the folder hierarchy, you need to tell MVC that each controller is associated with an area.</span></span> <span data-ttu-id="0e8ad-149">Denetleyici adı ile tasarlayarak bunu `[Area]` özniteliği.</span><span class="sxs-lookup"><span data-stu-id="0e8ad-149">You do that by decorating the controller name with the `[Area]` attribute.</span></span>
+<span data-ttu-id="89f8b-152">Alanı denetleyicileri ile atanır [ &lbrack;alan&rbrack; ](xref:Microsoft.AspNetCore.Mvc.AreaAttribute) özniteliği:</span><span class="sxs-lookup"><span data-stu-id="89f8b-152">Area controllers are designated with the [&lbrack;Area&rbrack;](xref:Microsoft.AspNetCore.Mvc.AreaAttribute) attribute:</span></span>
 
-```csharp
-...
-   namespace MyStore.Areas.Products.Controllers
-   {
-       [Area("Products")]
-       public class HomeController : Controller
-       {
-           // GET: /Products/Home/Index
-           public IActionResult Index()
-           {
-               return View();
-           }
+[!code-csharp[](areas/samples/MVCareas/Areas/Products/Controllers/ManageController.cs?highlight=5&name=snippet)]
 
-           // GET: /Products/Home/Create
-           public IActionResult Create()
-           {
-               return View();
-           }
-       }
-   }
-   ```
+### <a name="add-area-route"></a><span data-ttu-id="89f8b-153">Alan yolu ekleme</span><span class="sxs-lookup"><span data-stu-id="89f8b-153">Add Area route</span></span>
 
-<span data-ttu-id="0e8ad-150">Yeni oluşturulan alanlarınızı çalışır bir yönlendirme tanımı ayarlayın.</span><span class="sxs-lookup"><span data-stu-id="0e8ad-150">Set up a route definition that works with your newly created areas.</span></span> <span data-ttu-id="0e8ad-151">[Denetleyici eylemleri için rota](routing.md) öznitelik rotaları karşı geleneksel yollar kullanarak da dahil olmak üzere, yönlendirme tanımları oluşturma hakkında daha fazla ayrıntı makale gider.</span><span class="sxs-lookup"><span data-stu-id="0e8ad-151">The [Route to controller actions](routing.md) article goes into detail about how to create route definitions, including using conventional routes versus attribute routes.</span></span> <span data-ttu-id="0e8ad-152">Bu örnekte, geleneksel bir rota kullanacağız.</span><span class="sxs-lookup"><span data-stu-id="0e8ad-152">In this example, we'll use a conventional route.</span></span> <span data-ttu-id="0e8ad-153">Bunu yapmak için açık *Startup.cs* ekleyerek değiştirin ve dosya `areaRoute` rota tanımını aşağıdaki adlı.</span><span class="sxs-lookup"><span data-stu-id="0e8ad-153">To do so, open the *Startup.cs* file and modify it by adding the `areaRoute` named route definition below.</span></span>
+<span data-ttu-id="89f8b-154">Alan yolları, genellikle geleneksel özniteliği yerine yönlendirmesi kullanır.</span><span class="sxs-lookup"><span data-stu-id="89f8b-154">Area routes typically use conventional routing rather than attribute routing.</span></span> <span data-ttu-id="89f8b-155">Geleneksel yönlendirme sipariş bağlıdır.</span><span class="sxs-lookup"><span data-stu-id="89f8b-155">Conventional routing is order-dependent.</span></span> <span data-ttu-id="89f8b-156">Genel olarak, bunlar olmadan bir alan yolları daha ayrıntılı olarak alanları rotalarla önceki rota tablosunda yerleştirilmelidir.</span><span class="sxs-lookup"><span data-stu-id="89f8b-156">In general, routes with areas should be placed earlier in the route table as they're more specific than routes without an area.</span></span>
 
-```csharp
-...
-   app.UseMvc(routes =>
-   {
-     routes.MapRoute(
-         name: "areaRoute",
-         template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+<span data-ttu-id="89f8b-157">`{area:...}` URL alanı tüm alanlar arasında Tekdüzen ise, rota şablonlarındaki bir belirteci olarak kullanılabilir:</span><span class="sxs-lookup"><span data-stu-id="89f8b-157">`{area:...}` can be used as a token in route templates if url space is uniform across all areas:</span></span>
 
-     routes.MapRoute(
-         name: "default",
-         template: "{controller=Home}/{action=Index}/{id?}");
-   });
-   ```
+[!code-csharp[](areas/samples/MVCareas/Startup.cs?name=snippet&highlight=18-21)]
 
-<span data-ttu-id="0e8ad-154">Gözatmaya `http://<yourApp>/products`, `Index` eylem yöntemi `HomeController` içinde `Products` alan çağrılacak.</span><span class="sxs-lookup"><span data-stu-id="0e8ad-154">Browsing to `http://<yourApp>/products`, the `Index` action method of the `HomeController` in the `Products` area will be invoked.</span></span>
+<span data-ttu-id="89f8b-158">Önceki kodda, `exists` yol alanı eşleşmelidir kısıtlama uygular.</span><span class="sxs-lookup"><span data-stu-id="89f8b-158">In the preceding code, `exists` applies a constraint that the route must match an area.</span></span> <span data-ttu-id="89f8b-159">Kullanarak `{area:...}` alanlarına yönlendirme eklemeye az karmaşık mekanizmadır.</span><span class="sxs-lookup"><span data-stu-id="89f8b-159">Using `{area:...}` is the least complicated mechanism to adding routing to areas.</span></span>
 
-## <a name="link-generation"></a><span data-ttu-id="0e8ad-155">Bağlantı oluşturma</span><span class="sxs-lookup"><span data-stu-id="0e8ad-155">Link Generation</span></span>
+<span data-ttu-id="89f8b-160">Aşağıdaki kod <xref:Microsoft.AspNetCore.Builder.MvcAreaRouteBuilderExtensions.MapAreaRoute*> alan yolları adlı iki oluşturmak için:</span><span class="sxs-lookup"><span data-stu-id="89f8b-160">The following code uses <xref:Microsoft.AspNetCore.Builder.MvcAreaRouteBuilderExtensions.MapAreaRoute*> to create two named area routes:</span></span>
 
-* <span data-ttu-id="0e8ad-156">Bir alanda bir eylem bağlantıları oluşturmak aynı denetleyici içinde başka bir eylem denetleyiciye bağlı.</span><span class="sxs-lookup"><span data-stu-id="0e8ad-156">Generating links from an action within an area based controller to another action within the same controller.</span></span>
+[!code-csharp[](areas/samples/MVCareas/StartupMapAreaRoute.cs?name=snippet&highlight=18-27)]
 
-  <span data-ttu-id="0e8ad-157">Geçerli isteğin yolu gibi diyelim ki `/Products/Home/Create`</span><span class="sxs-lookup"><span data-stu-id="0e8ad-157">Let's say the current request's path is like `/Products/Home/Create`</span></span>
+<span data-ttu-id="89f8b-161">Kullanırken `MapAreaRoute` bkz: ASP.NET Core 2.2 ile [bu GitHub sorunu](https://github.com/aspnet/AspNetCore/issues/7772).</span><span class="sxs-lookup"><span data-stu-id="89f8b-161">When using `MapAreaRoute` with ASP.NET Core 2.2, see [this GitHub issue](https://github.com/aspnet/AspNetCore/issues/7772).</span></span>
 
-  <span data-ttu-id="0e8ad-158">HtmlHelper sözdizimi: `@Html.ActionLink("Go to Product's Home Page", "Index")`</span><span class="sxs-lookup"><span data-stu-id="0e8ad-158">HtmlHelper syntax: `@Html.ActionLink("Go to Product's Home Page", "Index")`</span></span>
+<span data-ttu-id="89f8b-162">Daha fazla bilgi için [alan yönlendirme](xref:mvc/controllers/routing#areas).</span><span class="sxs-lookup"><span data-stu-id="89f8b-162">For more information, see [Area routing](xref:mvc/controllers/routing#areas).</span></span>
 
-  <span data-ttu-id="0e8ad-159">TagHelper sözdizimi: `<a asp-action="Index">Go to Product's Home Page</a>`</span><span class="sxs-lookup"><span data-stu-id="0e8ad-159">TagHelper syntax: `<a asp-action="Index">Go to Product's Home Page</a>`</span></span>
+### <a name="link-generation-with-areas"></a><span data-ttu-id="89f8b-163">Alanları ile bağlantı oluşturma</span><span class="sxs-lookup"><span data-stu-id="89f8b-163">Link Generation with Areas</span></span>
 
-  <span data-ttu-id="0e8ad-160">Unutmayın, biz 'alanı' ve 'controller' değerlerini belirtmeniz değil, zaten geçerli istek bağlamında kullanılabilir burada.</span><span class="sxs-lookup"><span data-stu-id="0e8ad-160">Note that we need not supply the 'area' and 'controller' values here as they're already available in the context of the current request.</span></span> <span data-ttu-id="0e8ad-161">Bu tür değerlere çağrılır `ambient` değerleri.</span><span class="sxs-lookup"><span data-stu-id="0e8ad-161">These kind of values are called `ambient` values.</span></span>
+<span data-ttu-id="89f8b-164">Aşağıdaki kodu [örnek indirme](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/areas/samples) gösterir, belirtilen alanla nesil bağlantı:</span><span class="sxs-lookup"><span data-stu-id="89f8b-164">The following code from the [sample download](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/areas/samples) shows link generation with the area specified:</span></span>
 
-* <span data-ttu-id="0e8ad-162">Başka bir eylem farklı denetleyicisine denetleyiciye bağlı bir alanda bir eylem bağlantıları oluşturmak</span><span class="sxs-lookup"><span data-stu-id="0e8ad-162">Generating links from an action within an area based controller to another action on a different controller</span></span>
+[!code-cshtml[](areas/samples/MVCareas/Views/Shared/_testLinksPartial.cshtml?name=snippet)]
 
-  <span data-ttu-id="0e8ad-163">Geçerli isteğin yolu gibi diyelim ki `/Products/Home/Create`</span><span class="sxs-lookup"><span data-stu-id="0e8ad-163">Let's say the current request's path is like `/Products/Home/Create`</span></span>
+<span data-ttu-id="89f8b-165">Yukarıdaki kod ile oluşturulan herhangi bir uygulamada geçerli bağlantılardır.</span><span class="sxs-lookup"><span data-stu-id="89f8b-165">The links generated with the preceding code are valid anywhere in the app.</span></span>
 
-  <span data-ttu-id="0e8ad-164">HtmlHelper sözdizimi: `@Html.ActionLink("Go to Manage Products Home Page", "Index", "Manage")`</span><span class="sxs-lookup"><span data-stu-id="0e8ad-164">HtmlHelper syntax: `@Html.ActionLink("Go to Manage Products Home Page", "Index", "Manage")`</span></span>
+<span data-ttu-id="89f8b-166">Örnek indirme içeren bir [kısmi Görünüm](xref:mvc/views/partial) içeren önceki bağlantıları ve aynı bağlantı alanı belirtmeden.</span><span class="sxs-lookup"><span data-stu-id="89f8b-166">The sample download includes a [partial view](xref:mvc/views/partial) that contains the preceding links and the same links without specifying the area.</span></span> <span data-ttu-id="89f8b-167">Kısmi görünüm başvurulduğundan [Düzen dosyası](), uygulamayı her sayfa oluşturulan bağlantıları görüntüler.</span><span class="sxs-lookup"><span data-stu-id="89f8b-167">The partial view is referenced in the [layout file](), so every page in the app displays the generated links.</span></span> <span data-ttu-id="89f8b-168">Alanı belirtmeden oluşturulan bağlantıları, yalnızca bir sayfa aynı alan ve denetleyici başvurulduğunda geçerlidir.</span><span class="sxs-lookup"><span data-stu-id="89f8b-168">The links generated without specifying the area are only valid when referenced from a page in the same area and controller.</span></span>
 
-  <span data-ttu-id="0e8ad-165">TagHelper sözdizimi: `<a asp-controller="Manage" asp-action="Index">Go to Manage Products Home Page</a>`</span><span class="sxs-lookup"><span data-stu-id="0e8ad-165">TagHelper syntax: `<a asp-controller="Manage" asp-action="Index">Go to Manage Products Home Page</a>`</span></span>
+<span data-ttu-id="89f8b-169">Alan veya denetleyici belirtilmediğinde yönlendirme bağlıdır *ortam* değerleri.</span><span class="sxs-lookup"><span data-stu-id="89f8b-169">When the area or controller is not specified, routing depends on the *ambient* values.</span></span> <span data-ttu-id="89f8b-170">Geçerli isteğin geçerli rota değerleri için bağlantı oluşturma ortam değerleri olarak kabul edilir.</span><span class="sxs-lookup"><span data-stu-id="89f8b-170">The current route values of the current request are considered ambient values for link generation.</span></span> <span data-ttu-id="89f8b-171">Örnek uygulama için çoğu durumda, ortam değerleri kullanarak yanlış bağlantılar oluşturur.</span><span class="sxs-lookup"><span data-stu-id="89f8b-171">In many cases for the sample app, using the ambient values generates incorrect links.</span></span>
 
-  <span data-ttu-id="0e8ad-166">Burada ortam 'alanı' değeri kullanılmıştır, ancak 'controller' değeri açıkça yukarıda belirtilen unutmayın.</span><span class="sxs-lookup"><span data-stu-id="0e8ad-166">Note that here the ambient value of an 'area' is used but the 'controller' value is specified explicitly above.</span></span>
+<span data-ttu-id="89f8b-172">Daha fazla bilgi için [denetleyici eylemlerine yönlendirme](xref:mvc/controllers/routing).</span><span class="sxs-lookup"><span data-stu-id="89f8b-172">For more information, see [Routing to controller actions](xref:mvc/controllers/routing).</span></span>
 
-* <span data-ttu-id="0e8ad-167">Bir alanda bir eylem bağlantıları oluşturmak için başka bir eylem denetleyicisi farklı bir denetleyici ve farklı bir alana göre.</span><span class="sxs-lookup"><span data-stu-id="0e8ad-167">Generating links from an action within an area based controller to another action on a different controller and a different area.</span></span>
+### <a name="shared-layout-for-areas-using-the-viewstartcshtml-file"></a><span data-ttu-id="89f8b-173">Düzen _ViewStart.cshtml dosyasını kullanarak alanları için paylaşılan</span><span class="sxs-lookup"><span data-stu-id="89f8b-173">Shared layout for Areas using the _ViewStart.cshtml file</span></span>
 
-  <span data-ttu-id="0e8ad-168">Geçerli isteğin yolu gibi diyelim ki `/Products/Home/Create`</span><span class="sxs-lookup"><span data-stu-id="0e8ad-168">Let's say the current request's path is like `/Products/Home/Create`</span></span>
+<span data-ttu-id="89f8b-174">Uygulamanın tamamında için yaygın bir düzen paylaşmak için taşıma *_ViewStart.cshtml* uygulama kök klasörüne.</span><span class="sxs-lookup"><span data-stu-id="89f8b-174">To share a common layout for the entire app, move the *_ViewStart.cshtml* to the application root folder.</span></span>
 
-  <span data-ttu-id="0e8ad-169">HtmlHelper sözdizimi: `@Html.ActionLink("Go to Services Home Page", "Index", "Home", new { area = "Services" })`</span><span class="sxs-lookup"><span data-stu-id="0e8ad-169">HtmlHelper syntax: `@Html.ActionLink("Go to Services Home Page", "Index", "Home", new { area = "Services" })`</span></span>
+<!-- This section will be completed after https://github.com/aspnet/Docs/pull/10978 is merged.
+<a name="arp"></a>
 
-  <span data-ttu-id="0e8ad-170">TagHelper sözdizimi: `<a asp-area="Services" asp-controller="Home" asp-action="Index">Go to Services Home Page</a>`</span><span class="sxs-lookup"><span data-stu-id="0e8ad-170">TagHelper syntax: `<a asp-area="Services" asp-controller="Home" asp-action="Index">Go to Services Home Page</a>`</span></span>
+## Areas for Razor Pages
+-->
+<a name="rename"></a>
 
-  <span data-ttu-id="0e8ad-171">Unutmayın burada hiçbir ortam değerler kullanılır.</span><span class="sxs-lookup"><span data-stu-id="0e8ad-171">Note that here no ambient values are used.</span></span>
+### <a name="change-default-area-folder-where-views-are-stored"></a><span data-ttu-id="89f8b-175">Görünümleri depolandığı varsayılan alanı klasörü Değiştir</span><span class="sxs-lookup"><span data-stu-id="89f8b-175">Change default area folder where views are stored</span></span>
 
-* <span data-ttu-id="0e8ad-172">İçinde bir temel alan denetleyici eylem bağlantıları farklı bir denetleyici üzerinde başka bir eylem oluşturmak ve **değil** bir alana.</span><span class="sxs-lookup"><span data-stu-id="0e8ad-172">Generating links from an action within an area based controller to another action on a different controller and **not** in an area.</span></span>
+<span data-ttu-id="89f8b-176">Varsayılan alan klasöründen aşağıdaki kod değişiklikleri `"Areas"` için `"MyAreas"`:</span><span class="sxs-lookup"><span data-stu-id="89f8b-176">The following code changes the default area folder from `"Areas"` to `"MyAreas"`:</span></span>
 
-  <span data-ttu-id="0e8ad-173">HtmlHelper sözdizimi: `@Html.ActionLink("Go to Manage Products  Home Page", "Index", "Home", new { area = "" })`</span><span class="sxs-lookup"><span data-stu-id="0e8ad-173">HtmlHelper syntax: `@Html.ActionLink("Go to Manage Products  Home Page", "Index", "Home", new { area = "" })`</span></span>
+[!code-csharp[](areas/samples/MVCareas/Startup2.cs?name=snippet)]
 
-  <span data-ttu-id="0e8ad-174">TagHelper sözdizimi: `<a asp-area="" asp-controller="Manage" asp-action="Index">Go to Manage Products Home Page</a>`</span><span class="sxs-lookup"><span data-stu-id="0e8ad-174">TagHelper syntax: `<a asp-area="" asp-controller="Manage" asp-action="Index">Go to Manage Products Home Page</a>`</span></span>
+<!-- TODO review - can we delete this. Areas doesn't change publishing - right? -->
+### <a name="publishing-areas"></a><span data-ttu-id="89f8b-177">Yayımlama alanları</span><span class="sxs-lookup"><span data-stu-id="89f8b-177">Publishing Areas</span></span>
 
-  <span data-ttu-id="0e8ad-175">Oluşturulacak istediğinden alanı olmayan bağlantılar denetleyici eylemi boş biz 'alanı' burada için ortam değerine göre.</span><span class="sxs-lookup"><span data-stu-id="0e8ad-175">Since we want to generate links to a non-area based controller action, we empty the ambient value for 'area' here.</span></span>
-
-## <a name="publishing-areas"></a><span data-ttu-id="0e8ad-176">Yayımlama alanları</span><span class="sxs-lookup"><span data-stu-id="0e8ad-176">Publishing Areas</span></span>
-
-<span data-ttu-id="0e8ad-177">Tüm `*.cshtml` ve `wwwroot/**` dosyaları ne zaman çıkış yayımlanır `<Project Sdk="Microsoft.NET.Sdk.Web">` dahil *.csproj* dosya.</span><span class="sxs-lookup"><span data-stu-id="0e8ad-177">All `*.cshtml` and `wwwroot/**` files are published to output when `<Project Sdk="Microsoft.NET.Sdk.Web">` is included in the *.csproj* file.</span></span>
+<span data-ttu-id="89f8b-178">Tüm `*.cshtml` ve `wwwroot/**` dosyaları ne zaman çıkış yayımlanır `<Project Sdk="Microsoft.NET.Sdk.Web">` dahil *.csproj* dosya.</span><span class="sxs-lookup"><span data-stu-id="89f8b-178">All `*.cshtml` and `wwwroot/**` files are published to output when `<Project Sdk="Microsoft.NET.Sdk.Web">` is included in the *.csproj* file.</span></span>
