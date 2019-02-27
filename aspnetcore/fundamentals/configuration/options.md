@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core uygulamalarında ilgili ayar gruplarını temsil etmek için seçenekleri deseni kullanmayı keşfedin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/29/2018
+ms.date: 02/26/2019
 uid: fundamentals/configuration/options
-ms.openlocfilehash: 20365a078327d76693a40fa79a4a594e29e0901c
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: 9566ed75375bdfaa9d6d8bf898b9fb2054356017
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54099253"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56899326"
 ---
 # <a name="options-pattern-in-aspnet-core"></a>ASP.NET Core desende seçenekleri
 
@@ -274,18 +274,22 @@ services.AddOptions<MyOptions>("optionalName")
     .Configure(o => o.Property = "named");
 ```
 
-## <a name="configurelttoptions-tdep1--tdep4gt-method"></a>Yapılandırma&lt;TOptions, TDep1,... TDep4&gt; yöntemi
+## <a name="use-di-services-to-configure-options"></a>Seçeneklerini yapılandırmak için DI hizmetlerini kullanma
 
-DI hizmetlerinden uygulayarak seçeneklerini yapılandırmak için kullanarak `IConfigure[Named]Options` şekilde bir ortak ayrıntılıdır. İçin aşırı yüklediği `ConfigureOptions` üzerinde `OptionsBuilder<TOptions>` seçeneklerini yapılandırmak için en fazla beş kullanmanıza olanak sağlar:
+İki yolla Seçenekleri'ni yapılandırırken bağımlılık ekleme diğer hizmetlere erişebilirsiniz:
 
-```csharp
-services.AddOptions<MyOptions>("optionalName")
-    .Configure<Service1, Service2, Service3, Service4, Service5>(
-        (o, s, s2, s3, s4, s5) => 
-            o.Property = DoSomethingWith(s, s2, s3, s4, s5));
-```
+* Bir yapılandırma temsilciye geçirmek [yapılandırma](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*) üzerinde [OptionsBuilder\<TOptions >](xref:Microsoft.Extensions.Options.OptionsBuilder`1). [OptionsBuilder\<TOptions >](xref:Microsoft.Extensions.Options.OptionsBuilder`1) aşırı sağlar [yapılandırma](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*) seçeneklerini yapılandırmak için en fazla beş kullanmanıza izin ver:
 
-Aşırı yükleme geçici genel kaydeder <xref:Microsoft.Extensions.Options.IConfigureNamedOptions`1>, genel hizmet türlerini kabul eden bir oluşturucuya belirtildiği. 
+  ```csharp
+  services.AddOptions<MyOptions>("optionalName")
+      .Configure<Service1, Service2, Service3, Service4, Service5>(
+          (o, s, s2, s3, s4, s5) => 
+              o.Property = DoSomethingWith(s, s2, s3, s4, s5));
+  ```
+
+* Uygulayan kendi tür oluşturma <xref:Microsoft.Extensions.Options.IConfigureOptions`1> veya <xref:Microsoft.Extensions.Options.IConfigureNamedOptions`1> ve türünü bir hizmet olarak kaydedin.
+
+Bir yapılandırma temsilciye geçirme öneririz [yapılandırma](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*), hizmet oluşturma daha karmaşık olduğundan. Kendi tür oluşturma kullandığınızda framework sizin için ne yaptığını için eşdeğer [yapılandırma](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*). Çağırma [yapılandırma](xref:Microsoft.Extensions.Options.OptionsBuilder`1.Configure*) geçici genel kaydeder <xref:Microsoft.Extensions.Options.IConfigureNamedOptions`1>, genel hizmet türlerini kabul eden bir oluşturucuya belirtildiği. 
 
 ::: moniker range=">= aspnetcore-2.2"
 

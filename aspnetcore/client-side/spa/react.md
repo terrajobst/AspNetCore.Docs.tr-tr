@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 02/13/2019
 uid: spa/react
-ms.openlocfilehash: aa08a9d8d06d8b52be564fabf904d4923684d4e4
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: 3b2b2e67b5d577872bafefef5624a13ca1a22449
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248036"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56899183"
 ---
 # <a name="use-the-react-project-template-with-aspnet-core"></a>ASP.NET Core ile React proje şablonu kullanın
 
@@ -102,3 +102,6 @@ Bu varsayılan ayarı bir dezavantajı vardır. C# kodunuzu ve ASP.NET Core uygu
     ```
 
 ASP.NET Core uygulamanızı başlattığınızda CRA sunucusu başlatma olmaz. El ile başlatılan örneği yerine kullanılır. Bu başlatma ve hızlı yeniden başlatma için sağlar. Artık her seferinde yeniden oluşturmasıyla React uygulamanız için bekliyor.
+
+> [!IMPORTANT]
+> "Sunucu tarafı işleme" Bu şablonun desteklenen bir özellik değil. Hedefimiz bu şablonla, "oluşturma-react-app" eşlikli karşılamak sağlamaktır. Bu nedenle, senaryolar ve Özellikler (SSR gibi) bir "Oluştur-react-app" projeye dahil değil desteklenmez ve kullanıcı için bir alıştırma olarak kalır.

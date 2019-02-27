@@ -7,12 +7,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 11/14/2018
 uid: signalr/javascript-client
-ms.openlocfilehash: dd40a64d3c8405e92337ac640ad5cbe913cd849f
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: db9a8bbc8f111728f0827e3639e40785149bf79e
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54835576"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56899222"
 ---
 # <a name="aspnet-core-signalr-javascript-client"></a>ASP.NET Core SignalR JavaScript istemcisi
 
@@ -45,7 +45,7 @@ SignalR JavaScript istemci başvuru `<script>` öğesi.
 
 Aşağıdaki kod oluşturur ve bir bağlantı başlatır. Hub'ının adı büyük/küçük harfe duyarlıdır.
 
-[!code-javascript[Call hub methods](javascript-client/sample/wwwroot/js/chat.js?range=9-12)]
+[!code-javascript[Call hub methods](javascript-client/sample/wwwroot/js/chat.js?range=9-13,43-45)]
 
 ### <a name="cross-origin-connections"></a>Çıkış noktaları arası bağlantılar
 
@@ -86,7 +86,7 @@ SignalR yöntem adını eşleştirerek çağırmak için hangi istemci yöntemin
 
 Zincir bir `catch` sonuna yöntemi `start` istemci tarafı hataları işlemek için yöntemi. Kullanım `console.error` tarayıcının konsola çıktı hataları.
 
-[!code-javascript[Error handling](javascript-client/sample/wwwroot/js/chat.js?range=43-45)]
+[!code-javascript[Error handling](javascript-client/sample/wwwroot/js/chat.js?range=49-51)]
 
 Bağlantı kurulduğunda oturum için bir Günlükçü ve olay türünü geçirerek istemci tarafı günlük izleme ayarlayın. Belirtilen günlük düzeyi ve üzeri, iletileri günlüğe kaydedilir. Kullanılabilir günlük düzeyleri aşağıdaki gibidir:
 

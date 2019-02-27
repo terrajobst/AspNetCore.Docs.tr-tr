@@ -7,12 +7,12 @@ ms.author: stevesa
 ms.custom: mvc
 ms.date: 02/13/2019
 uid: spa/angular
-ms.openlocfilehash: 35a839e31369e8dbf00f5dbfb3751a2985335755
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: f33f4b96faf71440c3e8878c0480f2908ace70d1
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248127"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56899261"
 ---
 # <a name="use-the-angular-project-template-with-aspnet-core"></a>ASP.NET Core ile Angular proje şablonu kullanın
 
@@ -117,51 +117,6 @@ Bu varsayılan ayarı bir dezavantajı vardır. C# kodunuzu ve ASP.NET Core uygu
     ```
 
 ASP.NET Core uygulamanızı başlattığınızda, Angular CLI'yi sunucusu başlatma olmaz. El ile başlatılan örneği yerine kullanılır. Bu başlatma ve hızlı yeniden başlatma için sağlar. İstemci uygulamanızı her seferinde yeniden oluşturmasıyla Angular CLI için artık bekliyor.
-
-## <a name="server-side-rendering"></a>Sunucu tarafı işleme
-
-Bir performans özelliği, sunucu hem de istemcide çalışan Angular uygulamanızı önceden işlenecek seçim yapabilirsiniz. Bu tarayıcılar, hatta indiriliyor ve, JavaScript paketleri yürütmeden önce görüntülemek için uygulamanızın ilk kullanıcı Arabirimi temsil eden HTML biçimlendirmesi aldığınız anlamına gelir. Çoğu uygulama bu adlı bir Angular özellikten gelen [Angular Evrensel](https://universal.angular.io/).
-
-> [!TIP]
-> Sunucu tarafı işleme etkinleştirme (SSR) birkaç fazladan zorluk hem geliştirme ve dağıtım sırasında ortaya çıkarır. Okuma [SSR dezavantajları](#drawbacks-of-ssr) SSR gereksinimleriniz için uygun olup olmadığını belirlemek için.
-
-SSR etkinleştirmek için projenizi eklemeleri bir dizi yapmanız gerekir.
-
-İçinde *başlangıç* sınıfı *sonra* yapılandırır satırı `spa.Options.SourcePath`, ve *önce* çağrısı `UseAngularCliServer` veya `UseProxyToSpaDevelopmentServer`, aşağıdakileri ekleyin:
-
-[!code-csharp[](sample/AngularServerSideRendering/Startup.cs?name=snippet_Call_UseSpa&highlight=5-12)]
-
-Geliştirme modunda, betik çalıştırarak SSR paket oluşturmak Bu kod çalışır `build:ssr`, tanımlanan *ClientApp\package.json*. Bu adlı bir Angular uygulama derlemeleri `ssr`, henüz tanımlı değil.
-
-Sonunda `apps` içindeki dizi *ClientApp/.angular-cli.json*, ek bir uygulama adıyla tanımlama `ssr`. Aşağıdaki seçenekleri kullanın:
-
-[!code-json[](sample/AngularServerSideRendering/ClientApp/.angular-cli.json?range=24-41)]
-
-Bu yeni SSR özellikli uygulama yapılandırmasını iki ek dosyalar gerektirir: *tsconfig.server.json* ve *main.server.ts*. *Tsconfig.server.json* dosyasını TypeScript derleme seçenekleri belirtir. *Main.server.ts* dosya SSR sırasında kod giriş noktası olarak görev yapar.
-
-Adlı yeni bir dosya ekleme *tsconfig.server.json* içinde *ClientApp/src* (varolan yanı sıra *tsconfig.app.json*), aşağıdakileri içeren:
-
-[!code-json[](sample/AngularServerSideRendering/ClientApp/src/tsconfig.server.json)]
-
-Bu dosya adlı bir modül için aramak için Angular AoT derleyici yapılandırır `app.server.module`. Bu, yeni bir dosya oluşturarak ekleyin *ClientApp/src/app/app.server.module.ts* (varolan yanı sıra *app.module.ts*) aşağıdakileri içeren:
-
-[!code-typescript[](sample/AngularServerSideRendering/ClientApp/src/app/app.server.module.ts)]
-
-Bu modül istemci-tarafı devralan `app.module` ve fazladan Angular modüllerine SSR sırasında kullanılabilir tanımlar.
-
-Bu geri çağırma yeni `ssr` girişi *.angular cli.json* adlı bir giriş noktası dosyası başvurulan *main.server.ts*. Bu dosya henüz eklemediniz ve artık bunu yapmak için zamanı geldi. En yeni bir dosya oluşturun *ClientApp/src/main.server.ts* (varolan yanı sıra *main.ts*), aşağıdakileri içeren:
-
-[!code-typescript[](sample/AngularServerSideRendering/ClientApp/src/main.server.ts)]
-
-Bu dosyanın kodu çalıştığında ne ASP.NET Core için her bir isteği yürütür `UseSpaPrerendering` eklediğiniz bir ara yazılım *başlangıç* sınıfı. Alma ile ilgilenen `params` (örneğin, istenen URL) .NET kodu ve sonuçta elde edilen HTML almak için Angular SSR API çağrıları yapma.
-
-Kesinlikle konuşulur, bu SSR geliştirme modunda etkinleştirmek yeterli olur. Böylece uygulamanızın düzgün çalıştığını yayımlandığında bir son değişiklik yapmak için gereklidir. Uygulamanızın ana içinde *.csproj* dosya, ayarlama `BuildServerSideRenderer` özellik değerini `true`:
-
-[!code-xml[](sample/AngularServerSideRendering/AngularServerSideRendering.csproj?name=snippet_EnableBuildServerSideRenderer)]
-
-Bu yapı işlemini çalıştırın yapılandırır `build:ssr` yayımlama sırasında ve SSR dosya sunucusuna dağıtın. Bu etkinleştirme SSR üretimde başarısız olur.
-
-Angular kod HTML olarak sunucuda uygulamanızı geliştirme veya üretim modunda çalışırken, önceden işler. İstemci tarafı kod, normal olarak yürütür.
 
 ### <a name="pass-data-from-net-code-into-typescript-code"></a>TypeScript koduna .NET kodundan verisini geçirin
 

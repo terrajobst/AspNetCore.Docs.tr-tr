@@ -3,14 +3,14 @@ title: ASP.NET core'da düzeni
 author: ardalis
 description: Yaygın düzenlerini kullanmayı, yönergeleri paylaşın ve işleme görünümleri önce ortak kod içinde ASP.NET Core uygulaması çalıştırma hakkında bilgi edinin.
 ms.author: riande
-ms.date: 10/18/2018
+ms.date: 02/26/2019
 uid: mvc/views/layout
-ms.openlocfilehash: 1bd225c804b333efea834a46b7d9ba46b1bb69d8
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: 7a60ee15e688d6f0e531302457604fa759213758
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410579"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56899248"
 ---
 # <a name="layout-in-aspnet-core"></a>ASP.NET core'da düzeni
 
@@ -49,15 +49,15 @@ Düzen görünümleri için üst düzey şablon uygulamada tanımlar. Uygulamala
 
 Aşağıdaki kod projesi bir denetleyici ve görünümler ile oluşturulmuş bir şablonu Düzen dosyası gösterir:
 
-[!code-html[](~/common/samples/WebApplication1/Views/Shared/_Layout.cshtml?highlight=44,72)]
+[!code-cshtml[](~/common/samples/WebApplication1/Views/Shared/_Layout.cshtml?highlight=44,72)]
 
 ## <a name="specifying-a-layout"></a>Bir düzen belirtme
 
 Razor görünümleri olan bir `Layout` özelliği. Tek bir görünüm bu özelliğini ayarlayarak bir düzen belirtin:
 
-[!code-html[](../../common/samples/WebApplication1/Views/_ViewStart.cshtml?highlight=2)]
+[!code-cshtml[](../../common/samples/WebApplication1/Views/_ViewStart.cshtml?highlight=2)]
 
-Belirtilen düzen bir tam yol kullanabilirsiniz (örneğin, */Pages/Shared/_Layout.cshtml* veya */Views/Shared/_Layout.cshtml*) ya da kısmi bir ad (örnek: `_Layout`). Kısmi bir adı sağlandığında, Razor görünüm altyapısını kullanarak kendi standart bulma işlemi için yerleşim dosyası arar. İşleyici yöntemi (veya denetleyicisi) bulunduğu klasör, ilk olarak, arkasından aranır *paylaşılan* klasör. Bu bulma işlemi için keşfetmek için kullanılan bir aynıdır [kısmi görünümler](partial.md).
+Belirtilen düzen bir tam yol kullanabilirsiniz (örneğin, */Pages/Shared/_Layout.cshtml* veya */Views/Shared/_Layout.cshtml*) ya da kısmi bir ad (örnek: `_Layout`). Kısmi bir adı sağlandığında, Razor görünüm altyapısını kullanarak kendi standart bulma işlemi için yerleşim dosyası arar. İşleyici yöntemi (veya denetleyicisi) bulunduğu klasör, ilk olarak, arkasından aranır *paylaşılan* klasör. Bu bulma işlemi için keşfetmek için kullanılan işlem aynıdır [kısmi görünümler](xref:mvc/views/partial#partial-view-discovery).
 
 Varsayılan olarak, her Düzen çağırmalıdır `RenderBody`. Her yerde çağrısı `RenderBody` olan konumdaki görünüm içeriğinin işlenir.
 
@@ -123,7 +123,7 @@ Dosya, İşlevler ve bölüm tanımları gibi diğer Razor özellikleri destekle
 
 Bir örnek `_ViewImports.cshtml` dosyası:
 
-[!code-html[](../../common/samples/WebApplication1/Views/_ViewImports.cshtml)]
+[!code-cshtml[](../../common/samples/WebApplication1/Views/_ViewImports.cshtml)]
 
 *_Viewımports.cshtml* bir ASP.NET Core MVC uygulaması genellikle yerleştirilir için dosya *sayfaları* (veya *görünümleri*) klasörü. A *_viewımports.cshtml* herhangi bir klasör içinde dosya yerleştirilebileceğini, bu durumda, yalnızca sayfa veya görünümler bu klasöre ve alt klasörleri içinde uygulanır. `_ViewImports` dosyaları kök düzeyinde ve ardından sayfanın konumunu öncesinde her klasör için başlangıç işlenir veya kendisini görüntüleyin. `_ViewImports` kök düzeyindeki ayarları klasör düzeyinde geçersiz kılınabilir.
 
@@ -151,7 +151,7 @@ Her görünüm veya sayfa önce çalıştırmak için gereken kodu yerleştirilm
 
 Bir örnek *_ViewStart.cshtml* dosyası:
 
-[!code-html[](../../common/samples/WebApplication1/Views/_ViewStart.cshtml)]
+[!code-cshtml[](../../common/samples/WebApplication1/Views/_ViewStart.cshtml)]
 
 Yukarıdaki dosyanın tüm görünümlere kullanacağını belirtir *_Layout.cshtml* düzeni.
 

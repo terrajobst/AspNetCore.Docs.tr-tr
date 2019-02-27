@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/27/2018
 uid: fundamentals/httpcontext
-ms.openlocfilehash: babc637cdec8590ac14f7924c17e862e5b2f6a81
-ms.sourcegitcommit: d22b3c23c45a076c4f394a70b1c8df2fbcdf656d
+ms.openlocfilehash: 446882297524af3cbaed3ba7f941935debf5e7f4
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55428492"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56899209"
 ---
 # <a name="access-httpcontext-in-aspnet-core"></a>ASP.NET core'da erişim HttpContext
 
@@ -131,3 +131,36 @@ public class UserRepository : IUserRepository
     }
 }
 ```
+
+## <a name="httpcontext-access-from-a-background-thread"></a>Arka plan iş parçacığından HttpContext erişim
+
+`HttpContext` iş parçacığı açısından güvenli değildir. Okuma veya yazma özelliklerinin `HttpContext` bir isteği işlerken dışında neden olabilir bir `NullReferenceException`.
+
+> [!NOTE]
+> Kullanarak `HttpContext` genellikle bir isteğin işlenmesinin dışında sonuçlanır bir `NullReferenceException`. Uygulamanız kullanımın oluşturuyorsa `NullReferenceException`s, kodun arka plan işlemesi başlatın veya bir istek tamamlandıktan sonra işleme devam gözden geçirme bölümleri. Bir denetleyici yöntemi olarak tanımlama gibi bir hataları arayın `async void`.
+
+Arka plan işleri ile güvenli bir şekilde gerçekleştirmek için `HttpContext` veri:
+
+* İstek işlenirken gerekli verileri kopyalayın.
+* Kopyalanan veriler için bir arka plan görevi geçirin.
+
+Güvenli olmayan kod önlemek için hiçbir zaman geçmesi `HttpContext` çalışma - arka planda bir yönteme ihtiyacınız bunun yerine verileri geçirin.
+
+```csharp
+public class EmailController
+{
+    public ActionResult SendEmail(string email)
+    {
+        var correlationId = HttpContext.Request.Headers["x-correlation-id"].ToString();
+
+        // Starts sending an email, but doesn't wait for it to complete
+        _ = SendEmailCore(correlationId);
+        return View();
+    }
+
+    private async Task SendEmailCore(string correlationId)
+    {
+        // send the email
+    }
+}
+

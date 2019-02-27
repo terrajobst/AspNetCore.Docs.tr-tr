@@ -5,14 +5,14 @@ description: ASP.NET Core barındırılan hizmetler ile arka plan görevleri uyg
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/20/2019
+ms.date: 02/25/2019
 uid: fundamentals/host/hosted-services
-ms.openlocfilehash: 737cdac512f80955c6965dfe8675d42355ca7161
-ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
-ms.translationtype: HT
+ms.openlocfilehash: d10a335429752c1a52c1b3619adecc41725a819a
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833715"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56899313"
 ---
 # <a name="background-tasks-with-hosted-services-in-aspnet-core"></a>ASP.NET core'da barındırılan hizmetler ile arka plan görevleri
 
@@ -21,7 +21,7 @@ Tarafından [Luke Latham](https://github.com/guardrex)
 ASP.NET Core, arka plan görevleri olarak uygulanabilir *barındırılan hizmetleri*. Barındırılan hizmet arka plan görevi uygulayan bir mantıksal ile bir sınıftır <xref:Microsoft.Extensions.Hosting.IHostedService> arabirimi. Bu konu başlığı altında üç barındırılan hizmet örnekleri sağlar:
 
 * Bir zamanlayıcıyı temel çalışan arka plan görev.
-* Kapsamlı bir hizmet etkinleştirir, barındırılan hizmeti. Kapsamlı hizmet, bağımlılık ekleme kullanabilirsiniz.
+* Barındırılan hizmet etkinleştiren bir [hizmet kapsamlı](xref:fundamentals/dependency-injection#service-lifetimes). Kapsamlı hizmet, bağımlılık ekleme kullanabilirsiniz.
 * Sırayla çalışır kuyruğa alınmış arka plan görevleri.
 
 [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/host/hosted-services/samples/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
@@ -71,7 +71,7 @@ Hizmet kayıtlı `Startup.ConfigureServices` ile `AddHostedService` genişletme 
 
 ## <a name="consuming-a-scoped-service-in-a-background-task"></a>Kapsamlı bir hizmet bir arka plan görevi olarak kullanma
 
-Kapsamlı Hizmetleri içinde kullanmak için bir `IHostedService`, bir kapsam oluşturun. Kapsam, bir barındırılan hizmet için varsayılan olarak oluşturulur.
+Kullanılacak [Hizmetleri kapsamlı](xref:fundamentals/dependency-injection#service-lifetimes) içinde bir `IHostedService`, bir kapsam oluşturun. Kapsam, bir barındırılan hizmet için varsayılan olarak oluşturulur.
 
 Kapsamlı bir arka plan görev hizmeti arka plan görev mantığını içerir. Aşağıdaki örnekte, bir <xref:Microsoft.Extensions.Logging.ILogger> hizmetinde eklenmiş olur:
 
@@ -102,7 +102,7 @@ Hizmetleri kayıtlı `Startup.ConfigureServices`. `IHostedService` Uygulaması i
 Dizin Sayfası model sınıfı:
 
 * `IBackgroundTaskQueue` Oluşturucuya eklenen ve atanan `Queue`.
-* Bir <xref:Microsoft.Extensions.DependencyInjection.IServiceScopeFactory> eklenen ve atanan `_serviceScopeFactory`. Factory örnekleri oluşturmak için kullanılan <xref:Microsoft.Extensions.DependencyInjection.IServiceScope>, bir kapsamdaki hizmetleri oluşturmak için kullanılır. Uygulamanın kullanmak için bir kapsam oluşturulan `AppDbContext` (veritabanı kayıtları yazmak için bir kapsamlı hizmet) `IBackgroundTaskQueue` (tek bir hizmet).
+* Bir <xref:Microsoft.Extensions.DependencyInjection.IServiceScopeFactory> eklenen ve atanan `_serviceScopeFactory`. Factory örnekleri oluşturmak için kullanılan <xref:Microsoft.Extensions.DependencyInjection.IServiceScope>, bir kapsamdaki hizmetleri oluşturmak için kullanılır. Uygulamanın kullanmak için bir kapsam oluşturulan `AppDbContext` (bir [hizmet kapsamlı](xref:fundamentals/dependency-injection#service-lifetimes)) veritabanı kayıtları yazmak için `IBackgroundTaskQueue` (tek bir hizmet).
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample-WebHost/Pages/Index.cshtml.cs?name=snippet1)]
 

@@ -5,25 +5,18 @@ description: Authorize özniteliği için rolleri geçirerek ASP.NET Core denetl
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/authorization/roles
-ms.openlocfilehash: 0467ea82831bffe6882e584930c2fa1212a244c7
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: c38e7144166ce7741eee6e3acb4d1c952ad4f024
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248101"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56899170"
 ---
 # <a name="role-based-authorization-in-aspnet-core"></a>ASP.NET core'da rol tabanlı yetkilendirme
 
 <a name="security-authorization-role-based"></a>
 
 Bir kimlik oluşturulduğunda bir veya daha fazla role ait olabilir. Örneğin, Scott yalnızca kullanıcı rolünde yer artırabileceksiniz Tracy yönetici ve kullanıcı rollerine ait olabilir. Bu roller nasıl oluşturulduğunu ve yönetilen yedekleme deposu Yetkilendirme işlemi bağlıdır. Rolleri geliştiricilere sunulur [IPrincipal](/dotnet/api/system.security.principal.genericprincipal.isinrole) metodunda [ClaimsPrincipal](/dotnet/api/system.security.claims.claimsprincipal) sınıfı.
-
-::: moniker range=">= aspnetcore-2.0"
-
-> [!IMPORTANT]
-> Bu konu daha önceden **değil** Razor sayfaları için geçerlidir. Razor sayfaları destekler [IPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter) ve [IAsyncPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncpagefilter). Daha fazla bilgi için [yöntemleri Razor sayfaları için filtre](xref:razor-pages/filter).
-
-::: moniker-end
 
 ## <a name="adding-role-checks"></a>Rol denetimleri ekleme
 
@@ -94,6 +87,28 @@ public class ControlPanelController : Controller
     }
 }
 ```
+
+::: moniker range=">= aspnetcore-2.0"
+
+Razor sayfaları için `AuthorizeAttribute` ya da uygulanabilir:
+
+* Kullanarak bir [kuralı](xref:razor-pages/razor-pages-conventions#page-model-action-conventions), veya
+* Uygulama `AuthorizeAttribute` için `PageModel` örneği:
+
+```csharp
+[Authorize(Policy = "RequireAdministratorRole")]
+public class UpdateModel : PageModel
+{
+    public ActionResult OnPost()
+    {
+    }
+}
+```
+
+> [!IMPORTANT]
+> Özniteliklerini dahil olmak üzere, filtre `AuthorizeAttribute`Pagemodel'a yalnızca uygulanabilir ve belirli bir sayfaya işleyici yöntemleri için uygulanamaz.
+::: moniker-end
+
 
 <a name="security-authorization-role-policy"></a>
 

@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core uygulamaları barındırmak için gereken ASP.NET Core modülü yapılandırmayı öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/19/2019
+ms.date: 02/26/2019
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: a955cc98dc60d2f8178cb771f31a8b243f2567f3
-ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
-ms.translationtype: HT
+ms.openlocfilehash: 302cfb00127c223aeb5e51e4d0a9ef3cb69b10eb
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833598"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56899378"
 ---
 # <a name="aspnet-core-module"></a>ASP.NET Core Modülü
 
@@ -261,7 +261,7 @@ IIS alt uygulama yapılandırma hakkında daha fazla bilgi için bkz: <xref:host
 | `disableStartUpErrorPage` | <p>İsteğe bağlı Boolean özniteliği.</p><p>TRUE ise **502.5 - işlem hatası** sayfa geçersiz kılınır ve 502 durumu kod sayfası yapılandırılan *web.config* önceliklidir.</p> | `false` |
 | `forwardWindowsAuthToken` | <p>İsteğe bağlı Boolean özniteliği.</p><p>TRUE ise, istek başına 'MS-ASPNETCORE-WINAUTHTOKEN' üst bilgi olarak ASPNETCORE_PORT % üzerinde dinleme alt işlem belirteci iletilir. İstek başına Bu belirteci CloseHandle çağırmak için işlemin sorumluluğundadır.</p> | `true` |
 | `hostingModel` | <p>İsteğe bağlı dize özniteliği.</p><p>Barındırma modeli işlemdeki belirtir (`InProcess`) veya işlem dışı (`OutOfProcess`).</p> | `OutOfProcess` |
-| `processesPerApplication` | <p>İsteğe bağlı tamsayı özniteliği.</p><p>Belirtilen işlem örneklerinin sayısını belirtir **processPath** ayarı hazırladık yedekleme uygulama.</p><p>&dagger;İşlem içi barındırmak için değer sınırlı olan `1`.</p> | Varsayılan: `1`<br>En küçük: `1`<br>En fazla: `100`&dagger; |
+| `processesPerApplication` | <p>İsteğe bağlı tamsayı özniteliği.</p><p>Belirtilen işlem örneklerinin sayısını belirtir **processPath** ayarı hazırladık yedekleme uygulama.</p><p>&dagger;İşlem içi barındırmak için değer sınırlı olan `1`.</p><p>Ayar `processesPerApplication` önerilmez. Bu öznitelik, gelecekteki bir sürümde kaldırılacak.</p> | Varsayılan: `1`<br>En küçük: `1`<br>En fazla: `100`&dagger; |
 | `processPath` | <p>Gerekli dize özniteliği.</p><p>HTTP istekleri için dinleme işlemini başlatan yürütülebilir dosya yolu. Göreli yollar desteklenir. Yol ile başlıyorsa `.`, yolun site köküne göreli olarak kabul edilir.</p> | |
 | `rapidFailsPerMinute` | <p>İsteğe bağlı tamsayı özniteliği.</p><p>Belirtilen işlem sayısını belirtir **processPath** dakika başına kilitlenme izin verilmez. Bu sınır aşılırsa, dakikanın geri kalanı için işlem başlatılırken modülü durdurur.</p><p>İşlem içi barındırma ile desteklenmez.</p> | Varsayılan: `10`<br>En küçük: `0`<br>En fazla: `100` |
 | `requestTimeout` | <p>İsteğe bağlı timespan özniteliği.</p><p>ASP.NET Core modülü ASPNETCORE_PORT % üzerinde dinleme işleminden yanıt almayı bekleyeceği süreyi belirtir.</p><p>ASP.NET Core 2.1 veya daha sonra sürüm ile birlikte gelen ASP.NET Core modülü sürümlerinde `requestTimeout` saat, dakika ve saniye olarak belirtilir.</p><p>İşlem içi barındırmak için geçerli değildir. İşlem içi barındırmak için modülü isteği işlemek için uygulamada bekler.</p> | Varsayılan: `00:02:00`<br>En küçük: `00:00:00`<br>En fazla: `360:00:00` |
@@ -279,7 +279,7 @@ IIS alt uygulama yapılandırma hakkında daha fazla bilgi için bkz: <xref:host
 | `arguments` | <p>İsteğe bağlı dize özniteliği.</p><p>Belirtilen yürütülebilir dosya için bağımsız değişkenler **processPath**.</p>| |
 | `disableStartUpErrorPage` | <p>İsteğe bağlı Boolean özniteliği.</p><p>TRUE ise **502.5 - işlem hatası** sayfa geçersiz kılınır ve 502 durumu kod sayfası yapılandırılan *web.config* önceliklidir.</p> | `false` |
 | `forwardWindowsAuthToken` | <p>İsteğe bağlı Boolean özniteliği.</p><p>TRUE ise, istek başına 'MS-ASPNETCORE-WINAUTHTOKEN' üst bilgi olarak ASPNETCORE_PORT % üzerinde dinleme alt işlem belirteci iletilir. İstek başına Bu belirteci CloseHandle çağırmak için işlemin sorumluluğundadır.</p> | `true` |
-| `processesPerApplication` | <p>İsteğe bağlı tamsayı özniteliği.</p><p>Belirtilen işlem örneklerinin sayısını belirtir **processPath** ayarı hazırladık yedekleme uygulama.</p> | Varsayılan: `1`<br>En küçük: `1`<br>En fazla: `100` |
+| `processesPerApplication` | <p>İsteğe bağlı tamsayı özniteliği.</p><p>Belirtilen işlem örneklerinin sayısını belirtir **processPath** ayarı hazırladık yedekleme uygulama.</p><p>Ayar `processesPerApplication` önerilmez. Bu öznitelik, gelecekteki bir sürümde kaldırılacak.</p> | Varsayılan: `1`<br>En küçük: `1`<br>En fazla: `100` |
 | `processPath` | <p>Gerekli dize özniteliği.</p><p>HTTP istekleri için dinleme işlemini başlatan yürütülebilir dosya yolu. Göreli yollar desteklenir. Yol ile başlıyorsa `.`, yolun site köküne göreli olarak kabul edilir.</p> | |
 | `rapidFailsPerMinute` | <p>İsteğe bağlı tamsayı özniteliği.</p><p>Belirtilen işlem sayısını belirtir **processPath** dakika başına kilitlenme izin verilmez. Bu sınır aşılırsa, dakikanın geri kalanı için işlem başlatılırken modülü durdurur.</p> | Varsayılan: `10`<br>En küçük: `0`<br>En fazla: `100` |
 | `requestTimeout` | <p>İsteğe bağlı timespan özniteliği.</p><p>ASP.NET Core modülü ASPNETCORE_PORT % üzerinde dinleme işleminden yanıt almayı bekleyeceği süreyi belirtir.</p><p>ASP.NET Core 2.1 veya daha sonra sürüm ile birlikte gelen ASP.NET Core modülü sürümlerinde `requestTimeout` saat, dakika ve saniye olarak belirtilir.</p> | Varsayılan: `00:02:00`<br>En küçük: `00:00:00`<br>En fazla: `360:00:00` |
@@ -297,7 +297,7 @@ IIS alt uygulama yapılandırma hakkında daha fazla bilgi için bkz: <xref:host
 | `arguments` | <p>İsteğe bağlı dize özniteliği.</p><p>Belirtilen yürütülebilir dosya için bağımsız değişkenler **processPath**.</p>| |
 | `disableStartUpErrorPage` | <p>İsteğe bağlı Boolean özniteliği.</p><p>TRUE ise **502.5 - işlem hatası** sayfa geçersiz kılınır ve 502 durumu kod sayfası yapılandırılan *web.config* önceliklidir.</p> | `false` |
 | `forwardWindowsAuthToken` | <p>İsteğe bağlı Boolean özniteliği.</p><p>TRUE ise, istek başına 'MS-ASPNETCORE-WINAUTHTOKEN' üst bilgi olarak ASPNETCORE_PORT % üzerinde dinleme alt işlem belirteci iletilir. İstek başına Bu belirteci CloseHandle çağırmak için işlemin sorumluluğundadır.</p> | `true` |
-| `processesPerApplication` | <p>İsteğe bağlı tamsayı özniteliği.</p><p>Belirtilen işlem örneklerinin sayısını belirtir **processPath** ayarı hazırladık yedekleme uygulama.</p> | Varsayılan: `1`<br>En küçük: `1`<br>En fazla: `100` |
+| `processesPerApplication` | <p>İsteğe bağlı tamsayı özniteliği.</p><p>Belirtilen işlem örneklerinin sayısını belirtir **processPath** ayarı hazırladık yedekleme uygulama.</p><p>Ayar `processesPerApplication` önerilmez. Bu öznitelik, gelecekteki bir sürümde kaldırılacak.</p> | Varsayılan: `1`<br>En küçük: `1`<br>En fazla: `100` |
 | `processPath` | <p>Gerekli dize özniteliği.</p><p>HTTP istekleri için dinleme işlemini başlatan yürütülebilir dosya yolu. Göreli yollar desteklenir. Yol ile başlıyorsa `.`, yolun site köküne göreli olarak kabul edilir.</p> | |
 | `rapidFailsPerMinute` | <p>İsteğe bağlı tamsayı özniteliği.</p><p>Belirtilen işlem sayısını belirtir **processPath** dakika başına kilitlenme izin verilmez. Bu sınır aşılırsa, dakikanın geri kalanı için işlem başlatılırken modülü durdurur.</p> | Varsayılan: `10`<br>En küçük: `0`<br>En fazla: `100` |
 | `requestTimeout` | <p>İsteğe bağlı timespan özniteliği.</p><p>ASP.NET Core modülü ASPNETCORE_PORT % üzerinde dinleme işleminden yanıt almayı bekleyeceği süreyi belirtir.</p><p>ASP.NET Core 2.0 veya daha önceki sürüm ile birlikte gelen ASP.NET Core modülü sürümlerinde `requestTimeout` yalnızca tam dakikalar içinde aksi 2 dakika için varsayılan olarak belirtilmelidir.</p> | Varsayılan: `00:02:00`<br>En küçük: `00:00:00`<br>En fazla: `360:00:00` |

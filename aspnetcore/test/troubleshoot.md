@@ -4,14 +4,14 @@ author: Rick-Anderson
 description: Anlama ve uyarıları ve ASP.NET Core projeleriyle hataları giderebilirsiniz.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/26/2018
+ms.date: 02/26/2019
 uid: test/troubleshoot
-ms.openlocfilehash: 7a3361970bde2b8761c76884fc1905957d075c5c
-ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
+ms.openlocfilehash: c8b34f51fd329eb9a7c34f7be93bd7f2aa054283
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52450781"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56899300"
 ---
 # <a name="troubleshoot-aspnet-core-projects"></a>ASP.NET Core projelerinde sorun giderme
 
@@ -22,7 +22,7 @@ Aşağıdaki bağlantılar, sorun giderme kılavuzu sağlar:
 * <xref:host-and-deploy/azure-apps/troubleshoot>
 * <xref:host-and-deploy/iis/troubleshoot>
 * <xref:host-and-deploy/azure-iis-errors-reference>
-* [NDC konferansı (Londra, 2018): ASP.NET Core uygulamaları tanılama sorunları](https://www.youtube.com/watch?v=RYI0DHoIVaA)
+* [NDC konferansı (Londra, 2018): ASP.NET Core uygulamalarında sorunları tanılama](https://www.youtube.com/watch?v=RYI0DHoIVaA)
 * [ASP.NET Web günlüğü: ASP.NET Core performans sorunlarını giderme](https://blogs.msdn.microsoft.com/webdev/2018/05/23/asp-net-core-performance-improvements/)
 
 ## <a name="net-core-sdk-warnings"></a>.NET core SDK'sı uyarıları
@@ -63,10 +63,10 @@ Bu uyarıyı engellemek için 32-bit .NET Core SDK kaldırın. Kaldırın **Dene
 
 ![Bir uyarı iletisi gösteren OneASP.NET iletişim kutusunun ekran görüntüsü](troubleshoot/_static/NoNetCore.png)
 
-Bu uyarı görüntülenir ortam değişkenini `PATH` tüm .NET Core SDK'ları makinede işaret etmiyor. Bu sorunu çözmek için:
+Bu uyarı görüntülenir ortam değişkenini `PATH` tüm .NET Core SDK'ları makinede işaret etmiyor (örneğin, `C:\Program Files\dotnet\` ve `C:\Program Files (x86)\dotnet\`). Bu sorunu çözmek için:
 
-* Yükleme veya .NET Core SDK'sı yüklü olmadığını doğrulayın.
-* Doğrulayın `PATH` ortam değişkeni, SDK'ın yüklendiği konumun işaret eder. Yükleyici normalde ayarlar `PATH`.
+* Yükleme veya .NET Core SDK'sı yüklü olmadığını doğrulayın. En son Yükleyicisi'nden elde [.NET indirir](https://dotnet.microsoft.com/download). 
+* Doğrulayın `PATH` ortam değişkeni SDK'sı yüklü olduğu konuma işaret eder. Yükleyici normalde ayarlar `PATH`.
 
 ## <a name="obtain-data-from-an-app"></a>Bir uygulamadan veri alın
 

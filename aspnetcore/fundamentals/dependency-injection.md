@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core bağımlılık ekleme nasıl uyguladığını ve nasıl kullanılacağını öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 02/25/2019
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: b08e9cb8a848675df1e25477a6aef85ddff7b070
-ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
+ms.openlocfilehash: 5e1522e0819d989a7029c2928c1c33624c1774c7
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56743978"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56899365"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>ASP.NET core'da bağımlılık ekleme
 
@@ -253,7 +253,7 @@ Ne zaman Hizmetleri çözülmüş tarafından `ActivatorUtilities`, oluşturucu 
 
 ## <a name="entity-framework-contexts"></a>Entity Framework bağlamları
 
-Entity Framework bağlamları kapsamlı ömrü kullanarak hizmet kapsayıcıya eklenmesi gerekir. Bu otomatik olarak bir çağrı ile işlenir [AddDbContext](/dotnet/api/microsoft.extensions.dependencyinjection.entityframeworkservicecollectionextensions.adddbcontext) veritabanı bağlamı kaydederken yöntemi. Veritabanı bağlamı kullanan hizmetler ayrıca kapsamlı ömrü kullanmanız gerekir.
+Entity Framework bağlamları, hizmeti kullanarak kapsayıcı genellikle eklenir [kapsamlı ömrü](#service-lifetimes) web uygulama veritabanı işlemlerini normalde isteğini kapsamındaki olduğundan. Bir yaşam süresi tarafından belirtilmezse varsayılan yaşam süresi kapsamlıdır bir <xref:Microsoft.Extensions.DependencyInjection.EntityFrameworkServiceCollectionExtensions.AddDbContext*> veritabanı bağlamı kaydederken aşırı yükleme. Belirli bir yaşam süresi Hizmetleri, hizmet daha kısa bir yaşam süresi ile bir veritabanı bağlamı kullanmamalısınız.
 
 ## <a name="lifetime-and-registration-options"></a>Yaşam süresi ve kayıt seçenekleri
 

@@ -5,12 +5,12 @@ description: Bu öğretici serisinde, ASP.NET Core Razor sayfaları kullanma iş
 ms.author: riande
 ms.date: 12/5/2018
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: acebe52719e1876dc6808441fcff6fe849e36983
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: 81a2a76fc1cecc78b69226fe714d7c9272b04bf7
+ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410420"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56899204"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Öğretici: ASP.NET Core Razor sayfaları kullanmaya başlama
 
@@ -96,23 +96,29 @@ Visual Studio'dan seçin **Dosya > Aç**ve ardından *RazorPagesMovie.csproj* do
 
 ---
 
-## <a name="run-the-web-app"></a>Web uygulamasını çalıştırma
+## <a name="run-the-app"></a>Uygulamayı çalıştırma
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Hata Ayıklayıcı olmadan çalıştırmak için CTRL + F5 tuşlarına basın.
 
-  Visual Studio başlatır [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) ve uygulamayı çalıştırır. Adres çubuğu gösterir `localhost:port#` gibi bir şey `example.com`. Çünkü `localhost` standart yerel bilgisayar adıdır. Localhost yalnızca yerel bilgisayara gelen web isteklerini işlevi görür. Visual Studio, bir web projesi oluşturduğunda, web sunucusu için rastgele bir bağlantı noktası kullanılır. Yukarıdaki görüntüde, 5001 bağlantı noktası numarasıdır. Uygulamayı çalıştırdığınızda, farklı bir bağlantı noktası görürsünüz.
+  [!INCLUDE[](~/includes/trustCertVS.md)]
+
+  Visual Studio başlatır [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) ve uygulamayı çalıştırır. Adres çubuğu gösterir `localhost:port#` gibi bir şey `example.com`. Çünkü `localhost` standart yerel bilgisayar adıdır. Localhost yalnızca yerel bilgisayara gelen web isteklerini işlevi görür. Visual Studio, bir web projesi oluşturduğunda, web sunucusu için rastgele bir bağlantı noktası kullanılır.
   
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * Tuşuna **Ctrl-F5** hata ayıklayıcı olmadan çalıştırılacak.
+
+  [!INCLUDE[](~/includes/trustCertVSC.md)]
 
   Visual Studio Code başlar [Kestrel](xref:fundamentals/servers/kestrel), bir tarayıcı başlatır ve gider `http://localhost:5001`. Adres çubuğu gösterir `localhost:port#` gibi bir şey `example.com`. Çünkü `localhost` standart yerel bilgisayar adıdır. Localhost yalnızca yerel bilgisayara gelen web isteklerini işlevi görür.
   
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
 Seçin **çalıştırın > hata ayıklama olmadan Başlat** uygulamayı başlatın. Visual Studio başlatır [Kestrel](xref:fundamentals/servers/kestrel), bir tarayıcı başlatır ve gider `http://localhost:5001`.
+
+[!INCLUDE[](~/includes/trustCertMac.md)]
 
 <!-- End of VS tabs -->
 

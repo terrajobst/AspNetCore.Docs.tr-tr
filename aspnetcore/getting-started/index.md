@@ -47,7 +47,7 @@ dotnet dev-certs https --trust
 
 Yukarıdaki komut, aşağıdaki iletişim kutusunu görüntüler:
 
-![Güvenlik Uyarısı iletişim kutusu](_static/cert.png)
+![Güvenlik Uyarısı iletişim kutusu](~/getting-started/_static/cert.png)
 
 Seçin **Evet** geliştirme sertifikasına güvenmek kabul etmesi durumunda.
 
@@ -59,18 +59,17 @@ dotnet dev-certs https --trust
 
 Yukarıdaki komut, şu iletiyi görüntüler:
 
-*HTTPS geliştirme sertifikaya güvenme istendi. Sertifika zaten güvenilir değilse aşağıdaki komutu çalıştıracağız:* `'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain <<certificate>>'`.  
-* Bu komut, üzerinde sistem Anahtarlık sertifikayı yüklemek, parola isteyebilir.
-
-Parola: *
-
-Geliştirme sertifikasına güvenmek kabul ediyorsanız, parolanızı girin.
+*HTTPS geliştirme sertifikaya güvenme istendi. Sertifika zaten güvenilir değilse aşağıdaki komutu çalıştıracağız:* `'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain <<certificate>>'`.
+ 
+Bu komut komutu üzerinde sistem Anahtarlık sertifikayı yüklemek, parola isteyebilir. Geliştirme sertifikasına güvenmek kabul ediyorsanız, parolanızı girin.
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
 HTTPS geliştirme sertifikasına güvenmek nasıl Linux dağıtımınız için belgelere bakın.
 
 ---
+
+Daha fazla bilgi için [ASP.NET Core HTTPS geliştirme sertifikasına güvenmek](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos)
 
 ## <a name="run-the-app"></a>Uygulamayı çalıştırma
 

@@ -5,7 +5,7 @@ description: 'Bu makalede, Azure konak bağlantı içerir ve kaynakları dağıt
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/25/2019
+ms.date: 02/26/2019
 uid: host-and-deploy/azure-apps/index
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>ASP.NET Core uygulamalarını Azure App Service'e dağıtma
@@ -19,7 +19,7 @@ Azure [Web Apps belgeleri](/azure/app-service/) Azure uygulamaları belgeler, ö
 [Azure'da ASP.NET Core web uygulaması oluşturma](/azure/app-service/app-service-web-get-started-dotnet)  
 Visual Studio, oluşturmak ve Windows üzerinde Azure App Service'e bir ASP.NET Core web uygulaması dağıtmak için kullanın.
 
-[Oluşturma bir .NET Core uygulamasını Linux üzerinde App Service'te](/azure/app-service/containers/quickstart-dotnetcore)  
+[Linux üzerinde App Service'te bir ASP.NET Core uygulaması oluşturma](/azure/app-service/containers/quickstart-dotnetcore)  
 Oluşturmak ve Linux üzerinde Azure App Service'e bir ASP.NET Core web uygulaması dağıtmak için komut satırını kullanın.
 
 ASP.NET Core belgelerinde aşağıdaki makalelere kullanılabilir:
