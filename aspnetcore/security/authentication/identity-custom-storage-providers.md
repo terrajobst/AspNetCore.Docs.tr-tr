@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: b10731261ca0c748548fcba94a229ba055d46eb5
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: ccd56d0c15639e1ad29094e947f8055702ee2264
+ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090842"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833676"
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>ASP.NET Core kimliği için özel depolama sağlayıcıları
 
@@ -106,7 +106,7 @@ Kullanıcı oturum açma bilgilerini (örneğin, bir dış kimlik doğrulama sa�
 
 Hangi rol için hangi kullanıcıların atandığı alır ve depolar. [Örnek](/dotnet/api/microsoft.aspnet.identity.corecompat.userstore-1)
 
-**İpucu:** uygulamanızda kullanmayı düşündüğünüz sınıfları yalnızca uygulayın.
+**İPUCU:** Yalnızca uygulamanızda kullanmak istediğiniz sınıfları uygulayın.
 
 Veri erişim sınıflarda, Kalıcılık mekanizması için veri işlemleri gerçekleştirmek için kod sağlayın. Örneğin, özel bir sağlayıcı içinde yeni bir kullanıcı oluşturmak için aşağıdaki kodu sahip olabileceğiniz *depolamak* sınıfı:
 
@@ -133,8 +133,8 @@ Oluşturma bir `UserStore` kullanıcının tüm veri işlemleri için yöntemler
 * [Iuserpasswordstore](/dotnet/api/microsoft.aspnetcore.identity.iuserpasswordstore-1)
 * [IUserSecurityStampStore](/dotnet/api/microsoft.aspnetcore.identity.iusersecuritystampstore-1)
 * [Iuseremailstore](/dotnet/api/microsoft.aspnetcore.identity.iuseremailstore-1)
-* [IPhoneNumberStore](/dotnet/api/microsoft.aspnetcore.identity.iphonenumberstore-1)
-* [Iqueryableuserstore](/dotnet/api/microsoft.aspnetcore.identity.iqueryableuserstore-1)
+* [IUserPhoneNumberStore](/dotnet/api/microsoft.aspnetcore.identity.iuserphonenumberstore-1)
+* [IQueryableUserStore](/dotnet/api/microsoft.aspnetcore.identity.iqueryableuserstore-1)
 * [Iuserloginstore](/dotnet/api/microsoft.aspnetcore.identity.iuserloginstore-1)
 * [Iusertwofactorstore](/dotnet/api/microsoft.aspnetcore.identity.iusertwofactorstore-1)
 * [Iuserlockoutstore](/dotnet/api/microsoft.aspnetcore.identity.iuserlockoutstore-1)
@@ -167,7 +167,7 @@ Oluşturma bir `UserStore` kullanıcının tüm veri işlemleri için yöntemler
  [Iuseremailstore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuseremailstore-1) arabirimi uygulayan kullanıcı e-posta adresleri saklamak için yöntemleri tanımlar. Bu, alma ve e-posta adresini ve e-posta olup olmadığını onaylandıktan ayarlama için yöntemleri içerir.
 * **Iuserlockoutstore**  
  [Iuserlockoutstore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserlockoutstore-1) arabirimi uygulayan bir hesap kilitleme hakkında bilgi depolamak için yöntemleri tanımlar. Bu, başarısız erişim denemesi ve kilitlenmeleri izlemek için yöntemler içerir.
-* **Iqueryableuserstore**  
+* **IQueryableUserStore**  
  [Iqueryableuserstore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iqueryableuserstore-1) arabirimi uygulayan sorgulanabilir bir kullanıcı deposunun sağlamak için üyeleri tanımlar.
 
 Uygulamanızda'de gerekli arabirimleri uygulayın. Örneğin:

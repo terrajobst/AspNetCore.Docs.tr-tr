@@ -3,14 +3,14 @@ title: ASP.NET Core kimliği olmadan tanımlama bilgisi kimlik doğrulamasını 
 author: rick-anderson
 description: ASP.NET Core kimliği olmadan tanımlama bilgisi kimlik doğrulamasını kullanarak bir açıklama
 ms.author: riande
-ms.date: 10/11/2017
+ms.date: 02/25/2019
 uid: security/authentication/cookie
-ms.openlocfilehash: f05e5b83359ec1739115293e092eaed0c811c046
-ms.sourcegitcommit: 3c2ba9a0d833d2a096d9d800ba67a1a7f9491af0
-ms.translationtype: MT
+ms.openlocfilehash: 7e975da3a276ffb6a3de7ee02f7cc5be67cbbebe
+ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55854386"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833624"
 ---
 # <a name="use-cookie-authentication-without-aspnet-core-identity"></a>ASP.NET Core kimliği olmadan tanımlama bilgisi kimlik doğrulamasını kullan
 
@@ -39,6 +39,8 @@ Uygulama kullanmıyorsa [Microsoft.AspNetCore.App metapackage](xref:fundamentals
 `AuthenticationScheme` geçirilen `AddAuthentication` uygulama için varsayılan kimlik doğrulama şeması ayarlar. `AuthenticationScheme` tanımlama bilgisi kimlik doğrulamasını birden çok örneği vardır ve istediğiniz durumlarda kullanışlıdır [belirli bir düzeni ile yetkilendirme](xref:security/authorization/limitingidentitybyscheme). Ayarı `AuthenticationScheme` için `CookieAuthenticationDefaults.AuthenticationScheme` düzeni için "Tanımlama bilgileri" değerini sağlar. Düzeni ayırt eden herhangi bir dize değeri sağlayabilirsiniz.
 
 Uygulamanın kimlik doğrulama düzeni, uygulamanın tanımlama bilgisi kimlik doğrulaması düzeninden farklıdır. Ne zaman bir tanımlama bilgisi kimlik doğrulama düzeni değildir sağlanan <xref:Microsoft.Extensions.DependencyInjection.CookieExtensions.AddCookie*>, kullandığı [CookieAuthenticationDefaults.AuthenticationScheme](xref:Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationDefaults.AuthenticationScheme) ("tanımlama bilgileri").
+
+Kimlik doğrulama tanımlama bilgisinin <xref:Microsoft.AspNetCore.Http.CookieBuilder.IsEssential> özelliği `true` varsayılan olarak. Kimlik doğrulaması tanımlama bilgileri, bir ziyaretçi için veri toplama tarafından onaylanan taşınmadığından olduğunda izin verilir. Daha fazla bilgi için bkz. <xref:security/gdpr#essential-cookies>.
 
 İçinde `Configure` yöntemi, kullanım `UseAuthentication` ayarlar kimlik doğrulaması ara yazılımı çağrılacak yöntem `HttpContext.User` özelliği. Çağrı `UseAuthentication` yöntemi çağırmadan önce `UseMvcWithDefaultRoute` veya `UseMvc`:
 

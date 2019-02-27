@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/08/2019
 uid: mvc/controllers/filters
-ms.openlocfilehash: 3cd576b389a2a4384c0ba90b5740ac42140533cc
-ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
+ms.openlocfilehash: a9081a9938d56b7612bba13937eba384ff02455b
+ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56159320"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833741"
 ---
 # <a name="filters-in-aspnet-core"></a>ASP.NET core'da filtreleri
 
@@ -316,7 +316,7 @@ Model durumu doğrulamak ve durumu geçersiz olduğunda herhangi bir hata dönd�
 `OnActionExecuted` Yöntemi çalıştırıldıktan sonra eylem yöntemi ve can görebilir ve eylemin sonuçlarını işlemek `ActionExecutedContext.Result` özelliği. `ActionExecutedContext.Canceled` Eylem yürütme başka bir filtre tarafından kısa devre yapılma gerekiyorsa true olarak ayarlanır. `ActionExecutedContext.Exception` Eylem veya bir sonraki eylem filtresi bir özel durum oluşturduysa, bir null olmayan değere ayarlanır. Ayar `ActionExecutedContext.Exception` null:
 
 * Etkili bir şekilde 'bir özel durum işleme'.
-* `ActionExectedContext.Result` Bu normalde eylem yönteminden döndürülen yokmuş gibi yürütülür.
+* `ActionExecutedContext.Result` Bu normalde eylem yönteminden döndürülen yokmuş gibi yürütülür.
 
 ## <a name="exception-filters"></a>Özel durum filtreleri
 

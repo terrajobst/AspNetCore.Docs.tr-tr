@@ -3,14 +3,14 @@ title: Bir ASP.NET Core MVC uygulaması için bir model ekleme
 author: rick-anderson
 description: Bir model için basit bir ASP.NET Core uygulamasını ekleyin.
 ms.author: riande
-ms.date: 02/12/2019
+ms.date: 02/25/2019
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: da30c1c97cbf40a89d163b2116c8d5f9ad422b25
-ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
+ms.openlocfilehash: ccdb7b920517c94b9154fe73b4ef1633f4ad0157
+ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56159246"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833559"
 ---
 # <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>Bir ASP.NET Core MVC uygulaması için bir model ekleme
 
@@ -173,15 +173,7 @@ Bu bölümde, aşağıdaki görevler tamamlanır:
 
 Belirtilen model veritabanı şeması dayanır `MvcMovieContext` sınıfı (içinde *Data/MvcMovieContext.cs* dosyası). `InitialCreate` Geçiş adı olmayan bağımsız değişken. Herhangi bir ad kullanılabilir, ancak kural olarak, geçiş tanımlayan bir ad seçilir.
 
----  
-
-Yukarıdaki komutlarda aşağıdaki uyarı oluştur:
-
-```text
-No type was specified for the decimal column 'Price' on entity type 'Movie'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'HasColumnType()'.
-```
-
-Bu uyarıyı yoksayabilirsiniz. Bir sonraki öğreticide düzeltilecektir.
+---
 
 ## <a name="examine-the-context-registered-with-dependency-injection"></a>Bağımlılık ekleme ile kayıtlı bağlamını İnceleme
 

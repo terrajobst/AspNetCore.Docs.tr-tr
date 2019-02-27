@@ -1,18 +1,12 @@
 ---
 title: ASP.NET Core uygulamalarını Azure App Service'e dağıtma
 author: guardrex
-description: Bu makalede, Azure konak bağlantı içerir ve kaynakları dağıtma.
+description: 'Bu makalede, Azure konak bağlantı içerir ve kaynakları dağıtma.'
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 02/25/2019
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 4c7f2348b13207fb6f2ff830bbf67ffa30e5489c
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248244"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>ASP.NET Core uygulamalarını Azure App Service'e dağıtma
 
@@ -22,10 +16,10 @@ ms.locfileid: "56248244"
 
 Azure [Web Apps belgeleri](/azure/app-service/) Azure uygulamaları belgeler, öğreticiler, örnekler, nasıl yapılır kılavuzları ve diğer kaynaklar için platformdur. ASP.NET Core uygulamaları barındırmak için ilgilidir iki önemli öğreticiler şunlardır:
 
-[Hızlı Başlangıç: Azure'da ASP.NET Core web uygulaması oluşturma](/azure/app-service/app-service-web-get-started-dotnet)  
+[Azure'da ASP.NET Core web uygulaması oluşturma](/azure/app-service/app-service-web-get-started-dotnet)  
 Visual Studio, oluşturmak ve Windows üzerinde Azure App Service'e bir ASP.NET Core web uygulaması dağıtmak için kullanın.
 
-[Hızlı Başlangıç: Linux üzerinde App Service'te .NET Core web uygulaması oluşturma](/azure/app-service/containers/quickstart-dotnetcore)  
+[Oluşturma bir .NET Core uygulamasını Linux üzerinde App Service'te](/azure/app-service/containers/quickstart-dotnetcore)  
 Oluşturmak ve Linux üzerinde Azure App Service'e bir ASP.NET Core web uygulaması dağıtmak için komut satırını kullanın.
 
 ASP.NET Core belgelerinde aşağıdaki makalelere kullanılabilir:
@@ -215,7 +209,7 @@ Kendi içinde uygulama dağıtırken:
 
 Güvenli protokol bağlamalar HTTPS üzerinden isteklerine yanıt verirken kullanmak üzere bir sertifika belirtin izin verir. Bağlama, geçerli özel sertifikaları gerektirir (*.pfx*) belirli ana bilgisayar adı için verilmiş. Daha fazla bilgi için [Öğreticisi: Azure Web Apps'e mevcut özel bir SSL sertifikası bağlama](/azure/app-service/app-service-web-tutorial-custom-ssl).
 
-## <a name="transform-webconfig"></a>Web.config Dönüştür
+## <a name="transform-webconfig"></a>Web.config’i dönüştürme
 
 Dönüştürmeniz gerekirse *web.config* (örneğin, ortam değişkenlerini ayarlama, yapılandırma, profili veya ortama göre), bkz: yayımlama sırasında <xref:host-and-deploy/iis/transform-webconfig>.
 

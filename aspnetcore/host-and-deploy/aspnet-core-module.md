@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/19/2019
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: e7eed467a0f54df5d0e067efabf6f821b7647d70
-ms.sourcegitcommit: 0945078a09c372f17e9b003758ed87e99c2449f4
-ms.translationtype: MT
+ms.openlocfilehash: a955cc98dc60d2f8178cb771f31a8b243f2567f3
+ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56647973"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833598"
 ---
 # <a name="aspnet-core-module"></a>ASP.NET Core Modülü
 
@@ -69,9 +69,24 @@ Aşağıdaki özellikler, işlem içi barındırırken geçerlidir:
 
 * İstemci bağlantısını keser algılanır. [HttpContext.RequestAborted](xref:Microsoft.AspNetCore.Http.HttpContext.RequestAborted*) istemci kestiğinde iptal belirteci iptal edildi.
 
-* <xref:System.IO.Directory.GetCurrentDirectory*> uygulamanın dizinine yerine IIS tarafından başlatılan işlem alt dizinini döndürür (örneğin, *C:\Windows\System32\inetsrv* için *w3wp.exe*).
+* ASP.NET core'da 2.2.1 veya daha önce <xref:System.IO.Directory.GetCurrentDirectory*> uygulamanın dizinine yerine IIS tarafından başlatılan işlem alt dizinini döndürür (örneğin, *C:\Windows\System32\inetsrv* için *w3wp.exe*) .
 
   Uygulamanın geçerli dizin ayarlar örnek kod için bkz: [CurrentDirectoryHelpers sınıfı](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/aspnet-core-module/samples_snapshot/2.x/CurrentDirectoryHelpers.cs). Çağrı `SetCurrentDirectory` yöntemi. Yapılan sonraki çağrılar <xref:System.IO.Directory.GetCurrentDirectory*> uygulamanın dizinine sağlayın.
+  
+* İşlem içinde barındırırken <xref:Microsoft.AspNetCore.Authentication.AuthenticationService.AuthenticateAsync*> dahili olarak bir kullanıcı başlatmak için çağırılır değil. Bu nedenle, bir <xref:Microsoft.AspNetCore.Authentication.IClaimsTransformation> her kimlik doğrulaması varsayılan olarak etkinleştirilmez sonra talepleri dönüştürmek için kullanılan uygulama. Talepleri ile dönüştürülürken bir <xref:Microsoft.AspNetCore.Authentication.IClaimsTransformation> uygulaması, çağrı <xref:Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions.AddAuthentication*> kimlik doğrulama hizmetlerini eklemek için:
+
+  ```csharp
+  public void ConfigureServices(IServiceCollection services)
+  {
+      services.AddTransient<IClaimsTransformation, ClaimsTransformer>();
+      services.AddAuthentication(IISServerDefaults.AuthenticationScheme);
+  }
+  
+  public void Configure(IApplicationBuilder app)
+  {
+      app.UseAuthentication();
+  }
+  ```
 
 ### <a name="out-of-process-hosting-model"></a>İşlem dışı barındırma modeli
 

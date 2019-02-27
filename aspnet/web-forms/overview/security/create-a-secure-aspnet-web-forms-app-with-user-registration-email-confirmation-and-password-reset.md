@@ -8,14 +8,14 @@ ms.date: 10/02/2014
 ms.assetid: 0a8d6044-5fab-4213-82d6-5618d5601358
 msc.legacyurl: /web-forms/overview/security/create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset
 msc.type: authoredcontent
-ms.openlocfilehash: b964257165f8a50bef5cb5d8cee4fb30a5e91cf0
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: acc13776840408756901e20589b9efacc83ff2a9
+ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41754261"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833689"
 ---
-<a name="create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset-c"></a>E-posta onayı ve parola sıfırlama (C#) ile kullanıcı kaydı, güvenli bir ASP.NET Web Forms uygulaması oluşturma
+<a name="create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset-c"></a>Kullanıcı kaydı, e-posta onayı ve parola sıfırlama özellikli, güvenli bir ASP.NET Web Forms uygulaması oluşturma (C#)
 ====================
 tarafından [Erik Reitan](https://github.com/Erikre)
 
@@ -70,6 +70,8 @@ Genellikle, yeni kullanıcıların ya da e-posta, SMS mesajı ya da başka bir m
 
 <a id="SG"></a>
 ## <a name="hook-up-sendgrid"></a>SendGrid bağlama
+
+SendGrid, API, Bu öğretici yazıldığı yana değişti. Geçerli SendGrid yönergeler için bkz: [SendGrid](http://sendgrid.com/) veya [hesap onaylama ve parola kurtarmayı etkinleştir](xref:security/authentication/accconfirm#enable-account-confirmation-and-password-recovery).
 
 Bu öğreticide yalnızca e-posta bildirimi aracılığıyla ekleme gösterir, ancak [SendGrid](http://sendgrid.com/), e-posta SMTP veya başka mekanizmalar kullanılarak gönderebilirsiniz (bkz [ek kaynaklar](#addRes)).
 

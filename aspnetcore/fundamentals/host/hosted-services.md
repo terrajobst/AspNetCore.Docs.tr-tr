@@ -5,14 +5,14 @@ description: ASP.NET Core barındırılan hizmetler ile arka plan görevleri uyg
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/28/2018
+ms.date: 02/20/2019
 uid: fundamentals/host/hosted-services
-ms.openlocfilehash: 3b48b32e6abfb02c0f8d2ebdc3aca9f02324df6c
-ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
-ms.translationtype: MT
+ms.openlocfilehash: 737cdac512f80955c6965dfe8675d42355ca7161
+ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56744072"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56833715"
 ---
 # <a name="background-tasks-with-hosted-services-in-aspnet-core"></a>ASP.NET core'da barındırılan hizmetler ile arka plan görevleri
 
@@ -99,7 +99,10 @@ Hizmetleri kayıtlı `Startup.ConfigureServices`. `IHostedService` Uygulaması i
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample-WebHost/Startup.cs?name=snippet3)]
 
-Dizin Sayfası model sınıfında `IBackgroundTaskQueue` oluşturucuya eklenen ve atanan `Queue`:
+Dizin Sayfası model sınıfı:
+
+* `IBackgroundTaskQueue` Oluşturucuya eklenen ve atanan `Queue`.
+* Bir <xref:Microsoft.Extensions.DependencyInjection.IServiceScopeFactory> eklenen ve atanan `_serviceScopeFactory`. Factory örnekleri oluşturmak için kullanılan <xref:Microsoft.Extensions.DependencyInjection.IServiceScope>, bir kapsamdaki hizmetleri oluşturmak için kullanılır. Uygulamanın kullanmak için bir kapsam oluşturulan `AppDbContext` (veritabanı kayıtları yazmak için bir kapsamlı hizmet) `IBackgroundTaskQueue` (tek bir hizmet).
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample-WebHost/Pages/Index.cshtml.cs?name=snippet1)]
 
@@ -110,4 +113,4 @@ Zaman **Görev Ekle** düğmesi seçili dizin sayfasında `OnPostAddTask` yönte
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Ihostedservice ve BackgroundService sınıfı ile mikro hizmetler içindeki arka plan görevlerini uygulama](/dotnet/standard/microservices-architecture/multi-container-microservice-net-applications/background-tasks-with-ihostedservice)
-* [Süre System.Threading.Timer](xref:System.Threading.Timer)
+* <xref:System.Threading.Timer>

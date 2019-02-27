@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/13/2019
 uid: razor-components/components
-ms.openlocfilehash: d1e8075ff1ac6695c98973e6abd8480a78761d92
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: 1533587f9f11e99f24d860c02f0efb6713119308
+ms.sourcegitcommit: 30f313c63c5b2922bcd1150fe8161b09c730fef0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410425"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56839081"
 ---
 # <a name="create-and-use-razor-components"></a>Oluşturma ve Razor bileşenleri kullanma
 
@@ -447,14 +447,14 @@ Razor yönergeleri, aşağıdaki tabloda gösterilmiştir.
 
 | Yönergesi | Açıklama |
 | --------- | ----------- |
-| [@functions](xref:mvc/views/razor#section-5) | Ekler bir C# bileşenine kod bloğu. |
+| [\@İşlevleri](xref:mvc/views/razor#section-5) | Ekler bir C# bileşenine kod bloğu. |
 | `@implements` | Oluşturulan bileşen sınıfı için bir arabirim uygular. |
-| [@inherits](xref:mvc/views/razor#section-3) | Bileşen devralan sınıf tam denetim sağlar. |
-| [@inject](xref:mvc/views/razor#section-4) | Hizmet ekleme gelen etkinleştirir [hizmet kapsayıcı](xref:fundamentals/dependency-injection). Daha fazla bilgi için [görünümlere bağımlılık ekleme](xref:mvc/views/dependency-injection). |
+| [\@Devralan](xref:mvc/views/razor#section-3) | Bileşen devralan sınıf tam denetim sağlar. |
+| [\@ekleme](xref:mvc/views/razor#section-4) | Hizmet ekleme gelen etkinleştirir [hizmet kapsayıcı](xref:fundamentals/dependency-injection). Daha fazla bilgi için [görünümlere bağımlılık ekleme](xref:mvc/views/dependency-injection). |
 | `@layout` | Bir düzen bileşeni belirtir. Düzen bileşenleri, kod yinelemesi ve tutarsızlık önlemek için kullanılır. |
-| [@page](xref:razor-pages/index#razor-pages) | Bileşen doğrudan istekleri işleyeceğini belirtir. `@page` Yönergesi, bir rota ve isteğe bağlı parametreler ile belirtilebilir. Razor sayfaları aksine `@page` yönergesi üst dosyanın ilk yönerge olması gerekmez. Daha fazla bilgi için [yönlendirme](xref:razor-components/routing). |
-| [@using](xref:mvc/views/razor#using) | Ekler C# `using` yönergesini oluşturulan bileşen sınıfı. |
-| [@addTagHelper](xref:mvc/views/razor#tag-helpers) | Kullanma `@addTagHelper` uygulamanın derleme farklı bir derleme bir bileşeni kullanmak için. |
+| [\@Sayfa](xref:razor-pages/index#razor-pages) | Bileşen doğrudan istekleri işleyeceğini belirtir. `@page` Yönergesi, bir rota ve isteğe bağlı parametreler ile belirtilebilir. Razor sayfaları aksine `@page` yönergesi üst dosyanın ilk yönerge olması gerekmez. Daha fazla bilgi için [yönlendirme](xref:razor-components/routing). |
+| [\@kullanma](xref:mvc/views/razor#using) | Ekler C# `using` yönergesini oluşturulan bileşen sınıfı. |
+| [\@addTagHelper](xref:mvc/views/razor#tag-helpers) | Kullanma `@addTagHelper` uygulamanın derleme farklı bir derleme bir bileşeni kullanmak için. |
 
 **Koşullu öznitelikleri**
 
