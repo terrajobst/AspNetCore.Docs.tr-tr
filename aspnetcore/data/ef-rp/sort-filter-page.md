@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 350243fb94b4798293a5a61b580c3b3b4d8c6d4a
-ms.sourcegitcommit: 728f4e47be91e1c87bb7c0041734191b5f5c6da3
+ms.openlocfilehash: 4616e93e0cfc25f3ad66721856a4e48910f2fcf5
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54444304"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57345969"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>ASP.NET core'da - EF çekirdekli Razor sayfaları sıralama, filtreleme, sayfalama - 8'in 3
 
@@ -282,6 +282,7 @@ Olamaz çözmek sorunlarla karşılaşırsanız, indirme [Bu aşama için tamaml
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [ASP.NET Core 2.x kaynak hata ayıklama](https://github.com/aspnet/Docs/issues/4155)
+* [Bu öğreticide YouTube sürümü](https://www.youtube.com/watch?v=MDs7PFpoMqI)
 
 Sonraki öğreticide uygulama, veri modeli güncelleştirmek için geçişleri kullanır.
 

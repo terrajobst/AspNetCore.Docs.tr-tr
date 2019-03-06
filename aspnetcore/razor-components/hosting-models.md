@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/29/2019
 uid: razor-components/hosting-models
-ms.openlocfilehash: d1e0c472d7d10eeb4cef0da735cf703c98dd1645
-ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
+ms.openlocfilehash: 8ffc22201b88b59077a98bd46cbf95e93d2d86e2
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56159506"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57345661"
 ---
 # <a name="razor-components-hosting-models"></a>Razor bileşenleri modelleri barındırma
 
@@ -28,7 +28,7 @@ Asıl barındırma Blazor için tarayıcıda çalışan istemci-tarafı modelidi
 
 ![Blazor istemci-tarafı: Tarayıcı içinde bir kullanıcı Arabirimi iş parçacığında Blazor uygulama çalışır.](hosting-models/_static/client-side.png)
 
-İstemci tarafı barındırma modeli kullanarak bir Blazor uygulaması oluşturmak için kullanın **Blazor** veya **Blazor (ASP.NET Core barındırılan)** proje şablonları (`blazor` veya `blazorhosted` kullanırkenşablonu[yeni dotnet](/dotnet/core/tools/dotnet-new) komutu bir komut isteminde). Dahil edilen *blazor.webassembly.js* betik tanıtıcıları:
+İstemci tarafı barındırma modeli kullanarak bir Blazor uygulaması oluşturmak için kullanın **Blazor** veya **Blazor (ASP.NET Core barındırılan)** proje şablonları (`blazor` veya `blazorhosted` kullanırkenşablonu[yeni dotnet](/dotnet/core/tools/dotnet-new) komutu bir komut isteminde). Dahil edilen *components.webassembly.js* betik tanıtıcıları:
 
 * .NET çalışma zamanı, uygulama ve onun bağımlılıklarını karşıdan yükleniyor.
 * Uygulamayı çalıştırmak için çalışma zamanı başlatma.
@@ -68,7 +68,7 @@ Sunucu tarafı barındırma modeli kullanarak bir Razor bileşenleri uygulaması
 
 [!code-csharp[](hosting-models/samples_snapshot/Startup.cs?highlight=5,27)]
 
-*Blazor.server.js* betik&dagger; istemci bağlantı kurar. Bunu kalıcı hale getirmek ve gerektiğinde (örneğin, durumunda kayıp ağ bağlantısı) uygulama durumunu geri yüklemek için uygulamanın sorumluluğudur.
+*Components.server.js* betik&dagger; istemci bağlantı kurar. Bunu kalıcı hale getirmek ve gerektiğinde (örneğin, durumunda kayıp ağ bağlantısı) uygulama durumunu geri yüklemek için uygulamanın sorumluluğudur.
 
 Sunucu tarafı barındırma modeli, çeşitli avantajlar sunar:
 
@@ -86,4 +86,4 @@ Sunucu tarafı barındırma downsides vardır:
 * Ölçeklenebilirlik azalttı: Sunucu, birden çok istemci bağlantılarını yönetme ve istemci durumu işleme.
 * Uygulama hizmet vermek için bir ASP.NET Core sunucusu gerekir. Dağıtım bir sunucudan (örneğin, bir CDN) olmadan mümkün değildir.
 
-&dagger;*Blazor.server.js* betik aşağıdaki yola yayımlanan: *bin / {hata ayıklama | Yayın} / {hedef çerçeve} /publish/ {uygulama-adı}. Uygulama/dağıtım/_framework*.
+&dagger;*Components.server.js* betik aşağıdaki yola yayımlanan: *bin / {hata ayıklama | Yayın} / {hedef çerçeve} /publish/ {uygulama-adı}. Uygulama/dağıtım/_framework*.

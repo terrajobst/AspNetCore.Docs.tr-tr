@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.date: 10/24/2018
 ms.custom: seodec18
 uid: azure/devops/cicd
-ms.openlocfilehash: e5bddde41291c9573f58d749bbf830de9ea9319d
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: 906aae3fd4b4abd0becc8847b0f54c372bda300a
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121602"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346313"
 ---
 # <a name="continuous-integration-and-deployment"></a>Sürekli tümleştirme ve dağıtım
 
@@ -60,9 +60,9 @@ Aşağıdaki adımlarla yerel Git dağıtımını kaldırın. Azure işlem hatla
 
     ![Web uygulaması arama terimi hazırlama](media/cicd/portal-search-box.png)
 
-1. Tıklayın **dağıtım seçenekleri**. Yeni bir panel açılır. Tıklayın **Bağlantıyı Kes** önceki bölümde eklenmiş olan yerel Git kaynak denetimi yapılandırması kaldırılamadı. Kaldırma işlemi onaylamak **Evet** düğmesi.
+1. Tıklayın **Dağıtım Merkezi**. Yeni bir panel açılır. Tıklayın **Bağlantıyı Kes** önceki bölümde eklenmiş olan yerel Git kaynak denetimi yapılandırması kaldırılamadı. Kaldırma işlemi onaylamak **Evet** düğmesi.
 1. Gidin *mywebapp şeklindedir < unique_number >* App Service. App Service hızlıca bulmak için portal'ın arama kutusuna bir anımsatıcı kullanılabilir.
-1. Tıklayın **dağıtım seçenekleri**. Yeni bir panel açılır. Tıklayın **Bağlantıyı Kes** önceki bölümde eklenmiş olan yerel Git kaynak denetimi yapılandırması kaldırılamadı. Kaldırma işlemi onaylamak **Evet** düğmesi.
+1. Tıklayın **Dağıtım Merkezi**. Yeni bir panel açılır. Tıklayın **Bağlantıyı Kes** önceki bölümde eklenmiş olan yerel Git kaynak denetimi yapılandırması kaldırılamadı. Kaldırma işlemi onaylamak **Evet** düğmesi.
 
 ## <a name="create-an-azure-devops-organization"></a>Azure DevOps kuruluş oluştur
 
@@ -262,7 +262,7 @@ Sürüm ardışık düzeninin iki ana bileşenleri **Yapıtları** ve **ortamlar
 
 ![Ekran gösteren yayın işlem hattı görevleri](media/cicd/release-definition-tasks.png)
 
-Sürüm ardışık iki görevden oluşur: *yuvası Azure App Service'e dağıtma* ve *yönetme Azure App Service - yuvasını*. İlk görev tıklayarak aşağıdaki görev yapılandırmasını gösterir:
+Sürüm ardışık iki görevden oluşur: *Azure App Service'e yuvasına dağıtım* ve *yuvası takas Azure App Service - Yönetim*. İlk görev tıklayarak aşağıdaki görev yapılandırmasını gösterir:
 
 ![Ekran gösteren yayın ardışık düzeni dağıtım görevi](media/cicd/release-definition-task1.png)
 

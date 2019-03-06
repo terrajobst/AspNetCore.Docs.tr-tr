@@ -5,12 +5,12 @@ description: Oluşturma, okuma, güncelleştirme ve EF Core ile silme işlemini 
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/crud
-ms.openlocfilehash: 4af16bdf3928609214c1255cdd411312c8b7d3f3
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: adb281277599456356251c6ee30772a25f14ac58
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477442"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346060"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---crud---2-of-8"></a>ASP.NET core'da - CRUD - 2 8 EF çekirdekli Razor sayfaları
 
@@ -189,13 +189,13 @@ Bir varlık birinde olabilir [durumları izleyen](/dotnet/api/microsoft.entityfr
 
 * `Added`: Varlık DB'de henüz mevcut değil. `SaveChanges` Yöntemi sorunları INSERT deyimi.
 
-* `Unchanged`: Herhangi bir değişiklik ile bu varlık kaydedilmesi gerekir. Veritabanından okurken bir varlık bu duruma sahip.
+* `Unchanged`: Hiçbir değişiklik bu varlıkla kaydedilmesi gerekir. Veritabanından okurken bir varlık bu duruma sahip.
 
-* `Modified`: Bazılarını veya tümünü varlığın özellik değerleri değiştirilmiş. `SaveChanges` Yöntemi, bir güncelleştirme deyimiyle verir.
+* `Modified`: Bazıları veya tümü varlığın özellik değerleri değiştirilmiş. `SaveChanges` Yöntemi, bir güncelleştirme deyimiyle verir.
 
 * `Deleted`: Varlık silinmek üzere işaretlendi. `SaveChanges` Yöntemi DELETE deyimi verir.
 
-* `Detached`: Varlık DB bağlamı tarafından izleniyor değil.
+* `Detached`: Varlık veritabanı bağlamını izleniyor değil.
 
 İçinde bir masaüstü uygulaması, durum değişikliklerini genellikle otomatik olarak ayarlanır. Bir varlık okuma, değişiklik yapıldıysa ve otomatik olarak değiştirilecek şekilde varlık durumu `Modified`. Çağırma `SaveChanges` yalnızca değiştirilen özellikler güncelleştiren SQL UPDATE deyimi oluşturur.
 
@@ -247,6 +247,10 @@ Razor sayfası doğru içerdiğini doğrulayın `@page` yönergesi. Örneğin, �
 Her bir Razor sayfası içermelidir `@page` yönergesi.
 
 ::: moniker-end
+
+## <a name="additional-resources"></a>Ek kaynaklar
+
+* [Bu öğreticide YouTube sürümü](https://www.youtube.com/watch?v=F0SP7Ry4flQ&list=PLnVvOWNfuhGV45HnNgd0vuIIkoQ1UaVBf)
 
 > [!div class="step-by-step"]
 > [Önceki](xref:data/ef-rp/intro)

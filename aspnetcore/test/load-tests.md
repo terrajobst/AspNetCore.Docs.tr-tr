@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/04/2019
 uid: test/loadtests
-ms.openlocfilehash: d989bc841a372bed7ebf2c84c6abe1a57762ad04
-ms.sourcegitcommit: cec77d5ad8a0cedb1ecbec32834111492afd0cd2
+ms.openlocfilehash: 587df6e216943d3eeec779df4d0554dd0fc2fda0
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54207362"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57345434"
 ---
 # <a name="load-and-stress-testing-aspnet-core"></a>Yük ve stres testi ASP.NET Core
 
@@ -25,6 +25,10 @@ Yük testi ve stres testi yüksek performanslı bir web uygulaması olduğundan 
 * Sınırlı bilgi işlem kaynakları.  
 
 Baskı altında uygulama hatasından kurtarabilmek ve düzgün bir şekilde beklenen bir davranış döndürür? Baskı altında uygulamadır *değil* normal koşullar altında çalıştırın.
+
+Yük test etme özelliklerine sahip son Visual Studio sürümü, Visual Studio 2019 olacaktır. Yük test etme araçlarına ihtiyaç duyan müşteriler için Apache JMeter, Akamai CloudTest, Blazemeter gibi alternatif yük test etme araçlarının kullanılmasını öneririz. Daha fazla bilgi için [Visual Studio 2019 Preview sürüm notları](/visualstudio/releases/2019/release-notes-preview#test-tools).
+
+Yük testi hizmetinin Azure DevOps 2020'de sona eriyor. Daha fazla bilgi için [bulut tabanlı yük test etme hizmeti sona erecek](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/).
 
 ## <a name="visual-studio-tools"></a>Visual Studio Araçları
 

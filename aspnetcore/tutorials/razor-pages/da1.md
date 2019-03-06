@@ -5,12 +5,12 @@ description: ASP.NET Core uygulaması oluşturulan sayfaları güncelleştirme h
 ms.author: riande
 ms.date: 12/20/2018
 uid: tutorials/razor-pages/da1
-ms.openlocfilehash: 62385f33dc86609726305728fbc19dd9ff27dc87
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: 19f54e04e748f5cf0469c2b5428800694d2c9344
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410200"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346112"
 ---
 # <a name="update-the-generated-pages-in-an-aspnet-core-app"></a>ASP.NET Core uygulaması oluşturulan sayfaları güncelleştirme
 
@@ -130,6 +130,10 @@ Filmler/düzenleme sayfası gönderildiğinde:
 Dizin oluşturma ve silme Razor sayfaları HTTP GET yöntemleri benzer bir desen izleyin. HTTP POST `OnPostAsync` Razor sayfası oluşturma yöntemi için benzer bir desen izler `OnPostAsync` Razor sayfasını Düzenle yöntemi.
 
 Sonraki öğreticide arama eklenir.
+
+## <a name="additional-resources"></a>Ek kaynaklar
+
+* [Bu öğreticide YouTube sürümü](https://youtu.be/yLnnleREMtQ)
 
 > [!div class="step-by-step"]
 > [Önceki: Bir veritabanı ile çalışmaya](xref:tutorials/razor-pages/sql)

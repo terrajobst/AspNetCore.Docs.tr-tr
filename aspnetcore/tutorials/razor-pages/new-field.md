@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/5/2018
 uid: tutorials/razor-pages/new-field
-ms.openlocfilehash: 98de39c63c992dce7d60563df316d848339b811a
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: f8661a48ddd6fc616c141435edc603117b4925fb
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410381"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57345903"
 ---
 # <a name="add-a-new-field-to-a-razor-page-in-aspnet-core"></a>ASP.NET Core Razor sayfasına yeni bir alan ekleyin
 
@@ -152,6 +152,10 @@ dotnet ef database update
 <!-- End of VS tabs -->
 
 Uygulamayı çalıştırın ve kontrol edebilirsiniz oluşturma/düzenleme/görüntüleme filmlerle bir `Rating` alan. Veritabanı çekirdek değeri oluşturulmuş değil, bir kesme noktası ayarlayın `SeedData.Initialize` yöntemi.
+
+## <a name="additional-resources"></a>Ek kaynaklar
+
+* [Bu öğreticide YouTube sürümü](https://youtu.be/3i7uMxiGGR8)
 
 > [!div class="step-by-step"]
 > [Önceki: Arama ekleme](xref:tutorials/razor-pages/search)

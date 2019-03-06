@@ -1,0 +1,1 @@
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/2.2-stage-samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample)).

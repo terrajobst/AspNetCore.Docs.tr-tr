@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: cf8733e1e806c4be0c4b217fc45c7a338a03a3ce
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 140f482e136acf4daba1248fecc87e06db6866f3
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207562"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57345904"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>ASP.NET core'da - EF çekirdekli Razor sayfaları 6 8 - ilgili verileri okuma
 
@@ -42,11 +42,11 @@ EF Core Gezinti özelliklerini bir varlığın ilgili verileri yükleyebilir bir
   * Ana sorgu için bir sorgu 
   * "Edge" Yük ağacında her bir koleksiyon için bir sorgu.
 
-* Ayrı sorgularla `Load`: veriler ayrı sorgularda alınabilir ve EF Core "düzeltmeler" Gezinti özellikleri. "düzeltmeler yukarı" anlamına gelir EF Core gezinme özelliklerini otomatik olarak doldurur. Ayrı sorgularla `Load` işinizi daha istekli yükleme yükleme gibi daha.
+* Ayrı sorgularla `Load`: Veriler ayrı sorgularda alınabilir ve EF Core "gezinme özelliklerini düzeltmeler". "düzeltmeler yukarı" anlamına gelir EF Core gezinme özelliklerini otomatik olarak doldurur. Ayrı sorgularla `Load` işinizi daha istekli yükleme yükleme gibi daha.
 
   ![Ayrı sorguları örneği](read-related-data/_static/separate-queries.png)
 
-  Not: EF Core Gezinti özellikleri bağlam örneğine önceden yüklenmiş herhangi bir varlık için otomatik olarak düzeltir. Bir gezinme özelliği için veri olsa bile *değil* açıkça dahil, özellik hala bazıları doldurulabilir veya tüm ilişkili varlıkları daha önce yüklenmiş.
+  Not: EF Core, gezinti özellikleri bağlam örneğine önceden yüklenmiş herhangi bir varlık için otomatik olarak düzeltir. Bir gezinme özelliği için veri olsa bile *değil* açıkça dahil, özellik hala bazıları doldurulabilir veya tüm ilişkili varlıkları daha önce yüklenmiş.
 
 * [Açık yükleme](/ef/core/querying/related-data#explicit-loading). Varlığın ilk okunduğunda, ilgili verileri alınan değil. Kod gerektiğinde ilgili verileri almak üzere yazılmış olmalıdır. Birden çok sorgu Veritabanına gönderilir açık yükleme ayrı sorgular ile sonuçlanır. Açık yükleme ile kod yüklenmesine, gezinti özellikleri belirtir. Kullanım `Load` açık yükleme yapmak için yöntemi. Örneğin:
 
@@ -184,8 +184,8 @@ Sorguyu inceleyin *Pages/Instructors/Index.cshtml.cs* dosyası:
 
 İki sorgu içeren içerir:
 
-* `OfficeAssignment`: İçinde görüntülenen [Eğitmenler görünümü](#IP).
-* `CourseAssignments`: Bu, verilen derslerimiz getirir.
+* `OfficeAssignment`: Görüntülenen [Eğitmenler görünümü](#IP).
+* `CourseAssignments`: Hangi verilen derslerimiz getirir.
 
 
 ### <a name="update-the-instructors-index-page"></a>Eğitmenler dizin sayfası
@@ -330,6 +330,11 @@ Açıklama çıkış kodu önceki fark `.AsNoTracking()`. Gezinti özellikleri, 
 Uygulamayı test etme. Kullanıcılar açısından bakıldığında, app, önceki sürüme aynı şekilde davranır.
 
 Sonraki öğreticide, ilgili verileri güncelleştirme işlemi gösterilmektedir.
+
+## <a name="additional-resources"></a>Ek kaynaklar
+
+* [Bu öğreticide (Bölüm 1) YouTube sürümü](https://www.youtube.com/watch?v=PzKimUDmrvE)
+* [Bu öğreticide (Bölüm 2) YouTube sürümü](https://www.youtube.com/watch?v=xvDDrIHv5ko)
 
 >[!div class="step-by-step"]
 >[Önceki](xref:data/ef-rp/complex-data-model)

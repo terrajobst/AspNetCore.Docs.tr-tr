@@ -4,14 +4,14 @@ author: rick-anderson
 description: İstekleri arasında oturum ve uygulama durumunu korumak için yaklaşımları keşfedin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/14/2018
+ms.date: 03/04/2019
 uid: fundamentals/app-state
-ms.openlocfilehash: a510e4f49e158203dd7c5e1e0bd28472541f7925
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: 2e3591ac1d6b1670b27b1ed9e42f59ba2b956b37
+ms.sourcegitcommit: 6ddd8a7675c1c1d997c8ab2d4498538e44954cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54836343"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57400716"
 ---
 # <a name="session-and-app-state-in-aspnet-core"></a>ASP.NET core'da oturum ve uygulama durumu
 
@@ -64,7 +64,7 @@ Oturum durumu aşağıdaki davranışları sergileyen:
 * Uygulamayı sınırlı bir süre sonra son istek için bir oturum korur. Uygulama oturum zaman aşımı ayarlar veya 20 dakikalık varsayılan değeri kullanır. Oturum durumu, belirli bir oturum için özeldir ancak burada veri oturumlarda kalıcı depolama alanı gerektirmez kullanıcı verilerini depolamak için idealdir.
 * Oturum verileri silinir ya da [ISession.Clear](/dotnet/api/microsoft.aspnetcore.http.isession.clear) oturum süresinin sona erdiği veya uygulama çağrılır.
 * Uygulama kodu istemci tarayıcısı kapatıldı veya ne zaman oturum tanımlama bilgisi silindi veya istemcide süresi size bildirmek için varsayılan bir mekanizma yoktur.
-ASP.NET Core MVC ve Razor sayfaları şablonlar için destek içeren [genel veri koruma yönetmeliği (GDPR) Destek](xref:security/gdpr). [Oturum durumu tanımlama bilgileri olmayan temel](xref:security/gdpr#tempdata-provider-and-session-state-cookies-are-not-essential), izleme devre dışı bırakıldığında oturum durumu işlevsel değildir.
+Razor sayfaları şablonları ve ASP.NET Core MVC genel veri koruma yönetmeliği (GDPR) için destek içerir. Oturum durumu tanımlama bilgileri, izleme, site ziyaretçisi tarafından izin verilmediği sürece oturum durumu işlev bu nedenle varsayılan olarak, temel olarak işaretlenmez. Daha fazla bilgi için bkz. <xref:security/gdpr#tempdata-provider-and-session-state-cookies-are-not-essential>.
 
 > [!WARNING]
 > Hassas verileri kavramak depolamayın. Kullanıcı olmayan Tarayıcıyı kapatın ve oturum tanımlama bilgisini temizlemek. Bazı tarayıcılar tarayıcı pencereleri arasında geçerli bir oturum tanımlama bilgileri korur. Bir oturum için tek bir kullanıcı kısıtlı olmayabilir&mdash;sonraki kullanıcı aynı oturum tanımlama bilgisinin uygulamayla göz atmak devam edebilir.

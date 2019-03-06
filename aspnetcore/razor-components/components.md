@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/13/2019
 uid: razor-components/components
-ms.openlocfilehash: 1533587f9f11e99f24d860c02f0efb6713119308
-ms.sourcegitcommit: 30f313c63c5b2922bcd1150fe8161b09c730fef0
+ms.openlocfilehash: 436a0eddd432d355d709262199344df47a920404
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56839081"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346248"
 ---
 # <a name="create-and-use-razor-components"></a>Oluşturma ve Razor bileşenleri kullanma
 
@@ -105,6 +105,14 @@ Kullanarak `bind` ile bir `CurrentValue` özelliği (`<input bind="@CurrentValue
 
 Bileşen işlendiğinde `value` giriş öğesinin geldiği `CurrentValue` özelliği. Kullanıcı, metin kutusuna yazdığında `onchange` olay tetiklenir ve `CurrentValue` özelliği değiştirilmiş değerine ayarlanır. Gerçekte, kod oluşturma biraz daha karmaşık olduğundan `bind` tür dönüştürmeleri gerçekleştirildiği birkaç durum işler. Giren İlkesi `bind` geçerli değerini bir ifade ile ilişkilendirir bir `value` kayıtlı işleyici kullanarak öznitelik ve işleyicilerini değişiklikler.
 
+Ek olarak `onchange`, özelliği gibi diğer olayları kullanarak bağlanabilir `oninput` bağlamak gerekenler hakkında daha fazla açık olan tarafından:
+
+```cshtml
+<input type="text" bind-value-oninput="@CurrentValue" />
+```
+
+Farklı `onchange`, `oninput` metin kutusuna giriş her karakter için ateşlenir.
+
 **Biçim dizeleri**
 
 Veri bağlama ile birlikte çalışır <xref:System.DateTime> biçim dizeleri. Para birimi veya sayı biçimleri gibi diğer biçim ifadeleri şu anda kullanılamıyor.
@@ -168,8 +176,6 @@ Alt bileşeni:
 }
 ```
 
-`Year` Bir yardımcı olduğundan parametre bağlanabilir `YearChanged` türüyle eşleşen olay `Year` parametresi.
-
 Yükleme `ParentComponent` aşağıdaki biçimlendirme oluşturur:
 
 ```html
@@ -193,6 +199,16 @@ Varsa değerini `ParentYear` düğmesini seçerek özelliği değiştirildiğind
 
 <p>Year: 1986</p>
 ```
+
+`Year` Bir yardımcı olduğundan parametre bağlanabilir `YearChanged` türüyle eşleşen olay `Year` parametresi.
+
+Kural olarak, `<ChildComponent bind-Year="@ParentYear" />` yazmak, temelde eşdeğerdir
+
+```cshtml
+    <ChildComponent bind-Year-YearChanged="@ParentYear" />
+```
+
+Genel olarak, bir özelliği karşılık gelen olay işleyicisi kullanarak bir bağlanabilir `bind-property-event` özniteliği.
 
 ## <a name="event-handling"></a>Olay işleme
 
@@ -265,7 +281,7 @@ Genellikle gibi ek değerler kapatmak uygun olan öğeleri kümesi yineleme oldu
 {
     var buttonNumber = i;
 
-    <button class="btn btn-primary" 
+    <button class="btn btn-primary"
             onclick="@(e => UpdateHeading(e, buttonNumber))">
         Button #@i
     </button>
@@ -281,6 +297,9 @@ Genellikle gibi ek değerler kapatmak uygun olan öğeleri kümesi yineleme oldu
     }
 }
 ```
+
+> [!NOTE]
+> Yapmak **değil** Döngü değişkeninin kullanın (`i`) içinde bir `for` bir lambda ifadesinde doğrudan döngü. Aksi takdirde aynı değişkene neden tüm lambda ifadeleri tarafından kullanılan `i`değerini tüm lambda içinde ile aynı. Yerel bir değişkende değeri her zaman yakalama (`buttonNumber` önceki örnekte) ve ardından kullanın.
 
 ## <a name="capture-references-to-components"></a>Bileşenleri başvurular yakalama
 
@@ -618,7 +637,7 @@ public class ThemeInfo
 *Shared/CascadingValuesParametersLayout.cshtml*:
 
 ```cshtml
-@inherits BlazorLayoutComponent
+@inherits LayoutComponentBase
 @using BlazorSample.UIThemeClasses
 
 <div class="container-fluid">

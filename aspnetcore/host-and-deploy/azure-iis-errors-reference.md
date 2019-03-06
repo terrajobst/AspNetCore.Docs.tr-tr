@@ -4,14 +4,14 @@ author: guardrex
 description: Azure uygulama hizmeti ve IIS üzerinde ASP.NET Core uygulamaları barındırırken sık karşılaşılan hatalar için sorun giderme tavsiyeleri edinin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/21/2019
+ms.date: 02/28/2019
 uid: host-and-deploy/azure-iis-errors-reference
-ms.openlocfilehash: d1cdac4d27ee1bc3ebb4329c1bbd3bdacb34a58c
-ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
+ms.openlocfilehash: 1c8cb31b306b38ec17596af0a84f22ca0e3d911c
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56743953"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346232"
 ---
 # <a name="common-errors-reference-for-azure-app-service-and-iis-with-aspnet-core"></a>Azure App Service ve IIS ile ASP.NET Core için sık karşılaşılan hatalar başvurusu
 
@@ -56,6 +56,39 @@ Sistem, Internet erişimi yoksa, [.NET Core barındırma paket yükleme](xref:ho
 Sorun giderme:
 
 Olmayan işletim sistemi dosyaları **C:\Windows\SysWOW64\inetsrv** dizin korunur olmayan bir işletim sistemi yükseltme. Öncesinde ASP.NET Core Modülü yüklü bir işletim sistemi yükseltmesi ve ardından bir uygulama havuzu çalıştırılır 32-bit modunda işletim sistemi yükseltme sonrasında, bu sorunla karşılaştık. Bir işletim sistemi yükseltme sonrasında ASP.NET Core Modülü'nü onarın. Bkz: [.NET Core barındırma paketini yüklemeniz](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle). Seçin **onarım** yükleyici ne zaman çalıştırılır.
+
+## <a name="missing-site-extension-32-bit-x86-and-64-bit-x64-site-extensions-installed-or-wrong-process-bitness-set"></a>Site uzantıları yüklü site uzantısı, (x86) 32-bit ve 64-bit (x64) eksik veya yanlış işlem bit genişliği ayarlama
+
+*Azure App Services tarafından barındırılan uygulamalar için geçerlidir.*
+
+* **Tarayıcı:** HTTP Hatası 500.0 - ANCM işlem içi işleyici yükleme hatası 
+
+* **Uygulama günlüğü:** Yerel bağımlılıkları bulmadan Başarısız InProcess istek işleyicisi bulmak için hostfxr çağrılıyor. InProcess istek işleyicisi bulunamadı. Hostfxr çağırma gelen yakalanan çıktısı: Tüm uyumlu çerçeve sürümü bulmak mümkün değildi. Belirtilen çerçeve 'Microsoft.AspNetCore.App', Sürüm ' {VERSION} - preview -\*' bulunamadı. Uygulama başlatılamadı. '/ LM/W3SVC/1416782824/ROOT', '0x8000ffff' hata kodu.
+
+* **ASP.NET Core modülü stdout günlüğü:** Tüm uyumlu çerçeve sürümü bulmak mümkün değildi. Belirtilen çerçeve 'Microsoft.AspNetCore.App', Sürüm ' {VERSION} - preview -\*' bulunamadı.
+
+::: moniker range=">= aspnetcore-2.2"
+
+* **ASP.NET Core modülü hata ayıklama günlüğü:** Yerel bağımlılıkları bulmadan Başarısız InProcess istek işleyicisi bulmak için hostfxr çağrılıyor. Uygulama hatalı yapılandırılmış, büyük olasılıkla bunun anlamı uygulama tarafından hedeflenen ve makinede yüklü sürümler Microsoft.NetCore.App ve Microsoft.AspNetCore.App gözden geçirin. Başarısız HRESULT döndürdü: 0x8000ffff. InProcess istek işleyicisi bulunamadı. Tüm uyumlu çerçeve sürümü bulmak mümkün değildi. Belirtilen çerçeve 'Microsoft.AspNetCore.App', Sürüm ' {VERSION} - preview -\*' bulunamadı.
+
+::: moniker-end
+
+Sorun giderme:
+
+* Uygulamayı bir önizleme çalışma zamanı üzerinde çalışan 32-bit (x86) yükleyin **veya** 64-bit (x64) site mi uygulama ve uygulamanın çalışma zamanı sürümü eşleşen uzantısı. **Uzantıları veya uzantı birden fazla çalışma zamanı sürümünü hem yüklemeyin.**
+
+  * ASP.NET Core {çalışma zamanı sürümü} (x 86) çalışma zamanı
+  * ASP.NET Core {çalışma zamanı sürümü} (x 64) çalışma zamanı
+
+  Uygulamayı yeniden başlatın. Uygulama için yeniden başlatmak için birkaç saniye bekleyin. 
+
+* Uygulama önizlemesi çalışma zamanı ve hem 32-bit (x86) hem de 64-bit (x64) üzerinde çalışıyorsa [site uzantıları](xref:host-and-deploy/azure-apps/index#install-the-preview-site-extension) olan uygulama genişliğinde eşleşmeyen bir site uzantısı yüklü kaldırın. Site uzantısı kaldırdıktan sonra uygulamayı yeniden başlatın. Uygulama için yeniden başlatmak için birkaç saniye bekleyin.
+
+* Uygulama uzantının bit genişliği doğrulayın, uygulamanın bir eşleşme önizlemesi çalışma zamanı ve site üzerinde çalışıyorsa Önizleme site uzantısı'nın *çalışma zamanı sürümü* uygulamanın çalışma zamanı sürümü ile eşleşir.
+
+* Onaylayın uygulamanın **Platform** içinde **uygulama ayarları** bit uygulama ile eşleşir.
+
+Daha fazla bilgi için bkz. <xref:host-and-deploy/azure-apps/index#install-the-preview-site-extension>.
 
 ## <a name="an-x86-app-is-deployed-but-the-app-pool-isnt-enabled-for-32-bit-apps"></a>Uygulamanın dağıtıldığı bir x86 ancak uygulama havuzunun 32-bit uygulamalar için etkin değil
 

@@ -5,12 +5,12 @@ description: Bu öğreticide yabancı anahtar alanları ve gezinti özellikleri 
 ms.author: riande
 ms.date: 11/15/2017
 uid: data/ef-rp/update-related-data
-ms.openlocfilehash: 4306118240c052585a5c2eeb2053ce03534b547c
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: c3dbfe57a832ba63c5da2f89c0d29e443a1277a7
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207549"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57345768"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---update-related-data---7-of-8"></a>ASP.NET core'da - EF çekirdekli Razor sayfaları, ilgili verileri - 7, 8 güncelleştirme
 
@@ -197,7 +197,7 @@ Onay kutularını başlangıçta işlendiğinde, eğitmen için atanan kursları
 
 Uygulamayı çalıştırın ve güncelleştirilmiş Eğitmenler düzenleme sayfası test edin. Bazı kurs atamalarını değiştirin. Dizin sayfasında değişiklikler yansıtılır.
 
-Not: Burada Eğitmen kurs verileri düzenlemek için uygulanan yaklaşıma de sınırlı sayıda kursları olduğunda çalışır. Çok daha büyük olan koleksiyonları için farklı bir kullanıcı Arabirimi ve farklı bir güncelleştirme yöntemi daha kullanılabilir ve daha verimli olacaktır.
+Not: Eğitmen kurs verileri düzenlemek için burada uygulanan yaklaşıma de sınırlı sayıda kursları olduğunda çalışır. Çok daha büyük olan koleksiyonları için farklı bir kullanıcı Arabirimi ve farklı bir güncelleştirme yöntemi daha kullanılabilir ve daha verimli olacaktır.
 
 ### <a name="update-the-instructors-create-page"></a>Eğitmenler Oluştur sayfası
 
@@ -224,6 +224,11 @@ Yukarıdaki kod, aşağıdaki değişiklikleri yapar:
 * İstekli yükleme için kullandığı `CourseAssignments` gezinme özelliği. `CourseAssignments` dahil edilmesi gereken veya Eğitmen silindiğinde silinmez. Onları okumanıza gerek kalmadan için veritabanını art arda silme yapılandırın.
 
 * Eğitmen silinecek tüm bölümlerin bir yönetici olarak atanmış ise bu bölümlerden Eğitmen atama kaldırır.
+
+## <a name="additional-resources"></a>Ek kaynaklar
+
+* [Bu öğreticide (Kısım 1) YouTube sürümü](https://www.youtube.com/watch?v=Csh6gkmwc9E)
+* [Bu öğreticide (Bölüm 2) YouTube sürümü](https://www.youtube.com/watch?v=mOAankB_Zgc)
 
 > [!div class="step-by-step"]
 > [Önceki](xref:data/ef-rp/read-related-data)

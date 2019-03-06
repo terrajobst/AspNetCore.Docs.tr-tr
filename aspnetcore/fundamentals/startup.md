@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 01/17/2019
 uid: fundamentals/startup
-ms.openlocfilehash: cfd0a57d5d0b60862b017a170b6d5cbddf56f15a
-ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
+ms.openlocfilehash: d629c2f02f9021454d8f8539018f3e2ca4703a00
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56744189"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346404"
 ---
 # <a name="app-startup-in-aspnet-core"></a>ASP.NET core'da uygulama başlatma
 
@@ -40,7 +40,7 @@ Kullanılabilir hizmet ana bilgisayarının sağladığı `Startup` sınıf olu�
 Yaygın [bağımlılık ekleme](xref:fundamentals/dependency-injection) içine `Startup` sınıftır eklemesine:
 
 * <xref:Microsoft.AspNetCore.Hosting.IHostingEnvironment> ortamı tarafından hizmetleri yapılandırmak için.
-* <xref:Microsoft.Extensions.Configuration.IConfigurationBuilder> yapılandırması okunamıyor.
+* <xref:Microsoft.Extensions.Configuration.IConfiguration> yapılandırması okunamıyor.
 * <xref:Microsoft.Extensions.Logging.ILoggerFactory> içinde bir Günlükçü oluşturmak için `Startup.ConfigureServices`.
 
 [!code-csharp[](startup/sample_snapshot/Startup2.cs?highlight=7-8)]
@@ -73,7 +73,7 @@ Hizmet kapsayıcıya Hizmetleri ekleme kullanımınıza bunları uygulama içind
 
 [ASP.NET Core şablonları](/dotnet/core/tools/dotnet-new) desteği ile işlem hattı yapılandırın:
 
-* [Geliştirici özel durumu sayfası](xref:fundamentals/error-handling#the-developer-exception-page)
+* [Geliştirici özel durumu sayfası](xref:fundamentals/error-handling#developer-exception-page)
 * [Özel durum işleyicisi](xref:fundamentals/error-handling#configure-a-custom-exception-handling-page)
 * [HTTP katı aktarım güvenliği (HSTS)](xref:security/enforcing-ssl#http-strict-transport-security-protocol-hsts)
 * [HTTPS yeniden yönlendirmesi](xref:security/enforcing-ssl)

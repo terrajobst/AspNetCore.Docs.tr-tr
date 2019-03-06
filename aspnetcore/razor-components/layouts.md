@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/29/2019
 uid: razor-components/layouts
-ms.openlocfilehash: 23d8f441c0b3bbde7a73717f6257013831617ec0
-ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
+ms.openlocfilehash: fdb352701cf664dfb1efab5d05c37ee6a930cc4f
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56159471"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57345797"
 ---
 # <a name="razor-components-layouts"></a>Razor bileşenleri düzenleri
 
@@ -22,13 +22,13 @@ Uygulamalar genellikle birden fazla sayfa içerir. Düzen öğeleri, logolar, me
 
 Teknik olarak, bir düzen başka bir bileşendir. Bir düzen Razor şablonu veya tanımlanan C# kod ve veri bağlama, bağımlılık ekleme ve bileşenlerinin sıradan diğer özellikler içerebilir. İki ek yönleri etkinleştirmek bir *bileşen* içine bir *Düzen*:
 
-* Düzen bileşen devralmalıdır `BlazorLayoutComponent`. `BlazorLayoutComponent` tanımlayan bir `Body` içinde düzenini işlenmek üzere içeriği özelliği.
+* Düzen bileşen devralmalıdır `LayoutComponentBase`. `LayoutComponentBase` tanımlayan bir `Body` içinde düzenini işlenmek üzere içeriği özelliği.
 * Düzen bileşen `Body` özelliği gövde içeriği olması gereken yerde belirtmek için Razor sözdizimi kullanılarak oluşturulması `@Body`. İşleme sırasında `@Body` düzeni içerik ile değiştirilir.
 
-Aşağıdaki kod örneği, Razor şablonu Düzen bileşeninin gösterir. Kullanımına dikkat edin `BlazorLayoutComponent` ve `@Body`:
+Aşağıdaki kod örneği, Razor şablonu Düzen bileşeninin gösterir. Kullanımına dikkat edin `LayoutComponentBase` ve `@Body`:
 
 ```csharp
-@inherits BlazorLayoutComponent
+@inherits LayoutComponentBase
 
 <header>
     <h1>ERP Master 3000</h1>
@@ -96,7 +96,7 @@ Aşağıdaki kod örnekleri, iç içe geçmiş düzenlerini kullanmayı gösterm
 
 ```csharp
 @layout MainLayout
-@inherits BlazorLayoutComponent
+@inherits LayoutComponentBase
 
 <nav>
     <!-- Menu structure of master data module -->
@@ -111,7 +111,7 @@ Son olarak, `MainLayout` üstbilgi, altbilgi ve ana menüsü gibi üst düzey D�
 *MainLayout.cshtml*:
 
 ```csharp
-@inherits BlazorLayoutComponent
+@inherits LayoutComponentBase
 
 <header>...</header>
 <nav>...</nav>

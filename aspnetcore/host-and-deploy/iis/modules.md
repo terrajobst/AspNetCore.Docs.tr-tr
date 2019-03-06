@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core uygulamaları ve IIS modüllerini yönetmek nasıl etkin ve etkin olmayan IIS modülleri keşfedin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/17/2019
+ms.date: 02/28/2019
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: 8c32a668b3945f0da0194162e19e965b4aed3934
-ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
+ms.openlocfilehash: e5bb1a86453bb945789cc1f4b56616551e316615
+ms.sourcegitcommit: 6ddd8a7675c1c1d997c8ab2d4498538e44954cac
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396278"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57400690"
 ---
 # <a name="iis-modules-with-aspnet-core"></a>ASP.NET Core içeren IIS modülleri
 
@@ -36,11 +36,12 @@ ASP.NET Core uygulamaları ile işlevsel yerel IIS modülleri ve ASP.NET Core mo
 | **Özet kimlik doğrulaması**<br>`DigestAuthenticationModule`                                        | Evet | |
 | **Dizin Tarama**<br>`DirectoryListingModule`                                               | Hayır  | [Dizin tarama ara yazılımı](xref:fundamentals/static-files#enable-directory-browsing) |
 | **Dinamik sıkıştırma**<br>`DynamicCompressionModule`                                            | Evet | [Yanıt Sıkıştırma Ara Yazılımı](xref:performance/response-compression) |
-| **İzleme**<br>`FailedRequestsTracingModule`                                                     | Evet | [ASP.NET Core günlüğe kaydetme](xref:fundamentals/logging/index#tracesource-provider) |
+| **Başarısız istek izleme**<br>`FailedRequestsTracingModule`                                     | Evet | [ASP.NET Core günlüğe kaydetme](xref:fundamentals/logging/index#tracesource-provider) |
 | **Dosyayı önbelleğe alma**<br>`FileCacheModule`                                                            | Hayır  | [Yanıtları Önbelleğe Alma Ara Yazılımı](xref:performance/caching/middleware) |
 | **HTTP önbelleğe alma**<br>`HttpCacheModule`                                                            | Hayır  | [Yanıtları Önbelleğe Alma Ara Yazılımı](xref:performance/caching/middleware) |
 | **HTTP Günlüğü**<br>`HttpLoggingModule`                                                          | Evet | [ASP.NET Core günlüğe kaydetme](xref:fundamentals/logging/index) |
 | **HTTP Yeniden Yönlendirmesi**<br>`HttpRedirectionModule`                                                  | Evet | [URL Yeniden Yazma Ara Yazılımı](xref:fundamentals/url-rewriting) |
+| **HTTP izleme**<br>`TracingModule`                                                              | Evet | |
 | **IIS istemci sertifika eşlemesi kimlik doğrulaması**<br>`IISCertificateMappingAuthenticationModule` | Evet | |
 | **IP ve Etki Alanı Kısıtlamaları**<br>`IpRestrictionModule`                                          | Evet | |
 | **ISAPI Filtreleri**<br>`IsapiFilterModule`                                                         | Evet | [Ara Yazılım](xref:fundamentals/middleware/index) |

@@ -5,12 +5,12 @@ description: Veritabanı ile ASP.NET Core ile çalışmayı açıklar.
 ms.author: riande
 ms.date: 12/07/2017
 uid: tutorials/razor-pages/sql
-ms.openlocfilehash: 3e05f5dbc73c35f1f938346b2eaab8c0fa7d8ab9
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: 9f01f5c9fcf9c423ccc2af8ae6ca55c2f427c9c1
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410303"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346034"
 ---
 # <a name="work-with-a-database-and-aspnet-core"></a>Bir veritabanı ve ASP.NET Core ile çalışma
 
@@ -176,6 +176,10 @@ Uygulama, çekirdeği oluşturulmuş veri gösterilir:
 ![Film verileri gösteren Chrome'da açık film uygulaması](sql/_static/m55.png)
 
 Sonraki öğreticiye verilerin sunuyu temizler.
+
+## <a name="additional-resources"></a>Ek kaynaklar
+
+* [Bu öğreticide YouTube sürümü](https://youtu.be/A_5ff11sDHY)
 
 > [!div class="step-by-step"]
 > [Önceki: Razor sayfaları için iskele kurulmuş](xref:tutorials/razor-pages/page)

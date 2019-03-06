@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/13/2019
 uid: fundamentals/routing
-ms.openlocfilehash: 3dbb2d358ec9e3dcdd96c3771576911d906d796f
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: 622f28f3b4348820c8781e0ba14ae5137136e797
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248439"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346573"
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET Core yönlendirme
 
@@ -583,7 +583,7 @@ Aşağıdaki tabloda örnek rota şablonlarının ve davranışları gösterir.
 | `{Page=Home}`                            | `/Contact`              | Eşleşen ve ayarlar `Page` için `Contact`.                                      |
 | `{controller}/{action}/{id?}`            | `/Products/List`        | Eşlendiği `Products` denetleyicisi ve `List` eylem.                       |
 | `{controller}/{action}/{id?}`            | `/Products/Details/123` | Eşlendiği `Products` denetleyicisi ve `Details` eylem (`id` ayarlamak için 123). |
-| `{controller=Home}/{action=Index}/{id?`} | `/`                     | Eşlendiği `Home` denetleyicisi ve `Index` yöntemi (`id` göz ardı edilir).        |
+| `{controller=Home}/{action=Index}/{id?}` | `/`                     | Eşlendiği `Home` denetleyicisi ve `Index` yöntemi (`id` göz ardı edilir).        |
 
 Şablon kullanarak genel yönlendirme en basit yaklaşımdır. Kısıtlamaları ve varsayılan rota şablonu dışında da belirtilebilir.
 

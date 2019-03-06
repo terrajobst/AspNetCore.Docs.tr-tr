@@ -2,15 +2,15 @@
 title: Azure Active Directory B2C'de ASP.NET Core ile bulut kimlik doğrulaması
 author: camsoper
 description: ASP.NET Core ile Azure Active Directory B2C kimlik doğrulaması kurma keşfedin.
-ms.date: 01/25/2018
+ms.date: 02/27/2019
 ms.custom: mvc
 uid: security/authentication/azure-ad-b2c
-ms.openlocfilehash: 2c544475ccd3eb76f2737fec1cf269ac86add372
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: 86be999e02cfe34193bd594dcf89e8872590cca5
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54098993"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346508"
 ---
 # <a name="cloud-authentication-with-azure-active-directory-b2c-in-aspnet-core"></a>Azure Active Directory B2C'de ASP.NET Core ile bulut kimlik doğrulaması
 
@@ -104,6 +104,30 @@ Adımlar için Azure AD B2C belgeleri kullanmak [kaydolma veya oturum açma ilke
 
 > [!WARNING]
 > İlke adları belgelerinde açıklandığı gibi tam olarak bu ilkeleri de kullanılan gibi emin **kimlik doğrulamayı Değiştir** Visual Studio'da iletişim kutusu. İlke adları içinde doğrulanabilir *appsettings.json*.
+
+## <a name="configure-the-underlying-openidconnectoptionsjwtbearercookie-options"></a>Temel alınan OpenIdConnectOptions/JwtBearer/tanımlama bilgisi seçeneklerini yapılandırın
+
+Doğrudan temel alınan seçeneklerini yapılandırmak için uygun düzeni sabiti kullanın `Startup.ConfigureServices`:
+
+```csharp
+services.Configure<OpenIdConnectOptions>(
+    AzureAD[B2C]Defaults.OpenIdScheme, options => 
+    {
+        // Omitted for brevity
+    });
+
+services.Configure<CookieAuthenticationOptions>(
+    AzureAD[B2C]Defaults.CookieScheme, options => 
+    {
+        // Omitted for brevity
+    });
+
+services.Configure<JwtBearerOptions>(
+    AzureAD[B2C]Defaults.JwtBearerAuthenticationScheme, options => 
+    {
+        // Omitted for brevity
+    });
+```
 
 ## <a name="run-the-app"></a>Uygulamayı çalıştırma
 

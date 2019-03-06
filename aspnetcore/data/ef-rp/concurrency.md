@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/07/2018
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: 71d68a7ee249c31efa78d98247017e85c009ed8b
-ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
+ms.openlocfilehash: a6c264e460855c9f1d6f5a363eb7ee2cf69619ee
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53997324"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346300"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---concurrency---8-of-8"></a>ASP.NET core'da - eşzamanlılık - 8 8 EF çekirdekli Razor sayfaları
 
@@ -306,6 +306,9 @@ Bkz: [devralma](xref:data/ef-mvc/inheritance) nasıl bir veri modeli devralır.
 
 * [EF Core eşzamanlılık belirteçleri](/ef/core/modeling/concurrency)
 * [EF Core eşzamanlılık işleme](/ef/core/saving/concurrency)
+* [YouTube sürümü bu öğreticinin (eşzamanlılık çakışmalarını işleme)](https://youtu.be/EosxHTFgYps)
+* [Bu öğreticide (Bölüm 2) YouTube sürümü](https://www.youtube.com/watch?v=kcxERLnaGO0)
+* [Bu öğreticide (Bölüm 3) YouTube sürümü](https://www.youtube.com/watch?v=d4RbpfvELRs)
 
 > [!div class="step-by-step"]
 > [Önceki](xref:data/ef-rp/update-related-data)

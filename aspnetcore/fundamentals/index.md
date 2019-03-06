@@ -4,7 +4,7 @@ author: rick-anderson
 description: ASP.NET Core uygulamaları oluşturmaya yönelik temel kavramları öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/14/2019
+ms.date: 03/02/2019
 uid: fundamentals/index
 ---
 # <a name="aspnet-core-fundamentals"></a>ASP.NET Core temelleri
@@ -83,7 +83,7 @@ Bir ana bilgisayar oluşturmak için kod `Program.Main` ve izleyen [Oluşturucu 
 
 ::: moniker range="<= aspnetcore-2.2"
 
-ASP.NET Core 2.x kullanan Web ana bilgisayarı ( `WebHost` sınıfı) web uygulamaları için. Bir çerçeve sağlar `CreateDefaultBuilder` kullanılan aşağıdaki gibi seçeneklere sahip bir konak için yaygın olarak ayarlamak genişletme yöntemleri:
+ASP.NET Core 2.x kullanan Web ana bilgisayarı ( `WebHost` sınıfı) web uygulamaları için. Bir çerçeve sağlar `CreateDefaultBuilder` seçenekleri, aşağıdakiler gibi yaygın olarak konakla ayarlamak için kullanılan:
 
 * Kullanım [Kestrel](#servers) web sunucusu ve etkin IIS tümleştirme olarak.
 * Yük yapılandırmasından *appsettings.json*, ortam değişkenleri, komut satırı bağımsız değişkenleri ve diğer kaynakları.
@@ -105,13 +105,13 @@ Daha fazla bilgi için [Web ana bilgisayarı](xref:fundamentals/host/web-host).
 
 ASP.NET Core 3.0, Web ana bilgisayarı (`WebHost` sınıfı) veya genel ana bilgisayar (`Host` sınıfı) bir web uygulamasında kullanılabilir. Genel konak önerilir ve Web ana bilgisayarı, kullanılabilir geriye dönük uyumluluk.
 
-Bir çerçeve sağlar `CreateDefaultBuilder` ve `ConfigureWebHostDefaults` kullanılan aşağıdaki gibi seçeneklere sahip bir konak için yaygın olarak ayarlamak genişletme yöntemleri:
+Bir çerçeve sağlar `CreateDefaultBuilder` ve `ConfigureWebHostDefaults` kullanılan aşağıdaki gibi seçeneklere sahip bir konak için yaygın olarak ayarlamak için yöntemleri:
 
 * Kullanım [Kestrel](#servers) web sunucusu ve etkin IIS tümleştirme olarak.
 * Yük yapılandırmasından *appsettings.json*, *appsettings. [ EnvironmentName] .json*, ortam değişkenleri ve komut satırı bağımsız değişkenleri.
 * Günlük çıktısı, konsol ve hata ayıklama sağlayıcılarına gönderin.
 
-Bir konak yapılar örnek kod aşağıda verilmiştir. Yaygın olarak kullanılan seçenekler konakla ayarlama genişletme yöntemleri vurgulanır.
+Bir konak yapılar örnek kod aşağıda verilmiştir. Yaygın olarak kullanılan seçenekler konakla ayarlama yöntemleri vurgulanır.
 
 [!code-csharp[](index/snapshots/3.x/Program1.cs?highlight=9-10)]
 

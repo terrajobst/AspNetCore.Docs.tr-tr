@@ -4,18 +4,18 @@ author: rick-anderson
 description: Formlarda etiket yardımcılarını kullanılan yerleşik açıklar.
 ms.author: riande
 ms.custom: mvc
-ms.date: 1/11/2019
+ms.date: 02/27/2019
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: cd15c641fbf702071bd57510a1d51737f6ab8e19
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: a0fbeac51bd1bfbc50c4d369a479ce5f3091358b
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54099019"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346261"
 ---
 # <a name="tag-helpers-in-forms-in-aspnet-core"></a>ASP.NET Core formlarda etiket Yardımcıları
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [Dave Paquette](https://twitter.com/Dave_Paquette), ve [Jerrie Pelser](https://github.com/jerriep)
+Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [n'e Taylor Mullen](https://github.com/NTaylorMullen), [Dave Paquette](https://twitter.com/Dave_Paquette), ve [Jerrie Pelser](https://github.com/jerriep)
 
 Bu belge, form ve Form üzerinde kullanılan HTML öğeleri ile çalışma gösterir. HTML [Form](https://www.w3.org/TR/html401/interact/forms.html) öğesi, sunucunun geri veri göndermek için birincil mekanizma web apps kullanımını sağlar. Bu belge çoğunu açıklar [etiket Yardımcıları](tag-helpers/intro.md) ve bunların nasıl verimli sağlam HTML formları oluşturmanıza yardımcı. Okumanızı öneririz [etiket Yardımcıları giriş](tag-helpers/intro.md) önce bu belgeyi okuyun.
 
@@ -67,6 +67,98 @@ Görünümlerde çoğu *görünümler/hesap* klasörü (ile yeni bir web uygulam
 >[!NOTE]
 >Yerleşik şablonlarla `returnUrl` , yetkili bir kaynağa erişmeyi deneyin ancak kimlik doğrulaması veya yetkili yaptığınızda yalnızca otomatik olarak doldurulur. Yetkisiz erişim denediğinizde, güvenlik ara yazılım, oturum açma sayfasına yönlendirir `returnUrl` ayarlayın.
 
+## <a name="the-form-action-tag-helper"></a>Form eylem etiketi Yardımcısı
+
+Form eylemi etiket Yardımcısı oluşturur `formaction` özniteliği oluşturulmuş `<button ...>` veya `<input type="image" ...>` etiketi. `formaction` Özniteliği denetimleri nerede form verilerini gönderir. İçin bağlanan [ \<Giriş >](https://www.w3.org/wiki/HTML/Elements/input) türünde öğeler `image` ve [ \<düğmesi >](https://www.w3.org/wiki/HTML/Elements/button) öğeleri. Form eylemi etiket Yardımcısı birkaç kullanımını etkinleştirir [AnchorTagHelper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) `asp-` ne denetlemek için öznitelikleri `formaction` bağlantı karşılık gelen öğe için oluşturulur.
+
+Desteklenen [AnchorTagHelper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) değerini denetlemek için öznitelikleri `formaction`:
+
+|Öznitelik|Açıklama|
+|---|---|
+|[ASP denetleyicisi](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-controller)|Denetleyicinin adı.|
+|[ASP eylemi](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-action)|Eylem yönteminin adı.|
+|[ASP alanı](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-area)|Alanın adı.|
+|[ASP sayfası](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-page)|Razor sayfası adı.|
+|[ASP sayfası işleyicisi](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-page-handler)|Razor sayfası işleyici adı.|
+|[ASP yol](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-route)|Rotanın adı.|
+|[ASP - route-{value}](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-route-value)|Tek bir URL rota değeri. Örneğin: `asp-route-id="1234"`|
+|[ASP tüm rota veri](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-all-route-data)|Tüm rota değerleri.|
+|[ASP parçası](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-fragment)|URL parçası belirtmesini.|
+
+### <a name="submit-to-controller-example"></a>Denetleyici örneği gönderme
+
+Aşağıdaki biçimlendirme için formu gönderdiği `Index` eylemi `HomeController` düğmesini veya girdi seçili olduğunda:
+
+```cshtml
+<form method="post">
+    <button asp-controller="Home" asp-action="Index">Click Me</button>
+    <input type="image" src="..." alt="Or Click Me" asp-controller="Home" 
+                                asp-action="Index" />
+</form>
+```
+
+Aşağıdaki HTML önceki biçimlendirme oluşturur:
+
+```html
+<form method="post">
+    <button formaction="/Home">Click Me</button>
+    <input type="image" src="..." alt="Or Click Me" formaction="/Home" />
+</form>
+```
+
+### <a name="submit-to-page-example"></a>Gönderme sayfası örneği
+
+Aşağıdaki biçimlendirme için formu gönderdiği `About` Razor sayfası:
+
+```cshtml
+<form method="post">
+    <button asp-page="About">Click Me</button>
+    <input type="image" src="..." alt="Or Click Me" asp-page="About" />
+</form>
+```
+
+Aşağıdaki HTML önceki biçimlendirme oluşturur:
+
+```html
+<form method="post">
+    <button formaction="/About">Click Me</button>
+    <input type="image" src="..." alt="Or Click Me" formaction="/About" />
+</form>
+```
+
+### <a name="submit-to-route-example"></a>Rota örneği gönderme
+
+Göz önünde bulundurun `/Home/Test` uç noktası:
+
+```csharp
+public class HomeController : Controller
+{
+    [Route("/Home/Test", Name = "Custom")]
+    public string Test()
+    {
+        return "This is the test page";
+    }
+}
+```
+
+Aşağıdaki biçimlendirme için formu gönderdiği `/Home/Test` uç noktası.
+
+```cshtml
+<form method="post">
+    <button asp-route="Custom">Click Me</button>
+    <input type="image" src="..." alt="Or Click Me" asp-route="Custom" />
+</form>
+```
+
+Aşağıdaki HTML önceki biçimlendirme oluşturur:
+
+```html
+<form method="post">
+    <button formaction="/Home/Test">Click Me</button>
+    <input type="image" src="..." alt="Or Click Me" formaction="/Home/Test" />
+</form>
+```
+
 ## <a name="the-input-tag-helper"></a>Giriş etiketi Yardımcısı
 
 Bir HTML giriş etiketi Yardımcısı bağlar [ \<Giriş >](https://www.w3.org/wiki/HTML/Elements/input) , razor görünüm modeli ifadesinde öğesi.
@@ -106,12 +198,12 @@ Type expected
 
 |.NET türü|Giriş türü|
 |---|---|
-|bool|tür "onay kutusu" =|
-|Dize|tür = "text"|
+|Bool|type="checkbox"|
+|Dize|type="text"|
 |DateTime|tür =["yerel datetime"](https://developer.mozilla.org/docs/Web/HTML/Element/input/datetime-local)|
-|Bayt|tür = "number"|
-|int|tür = "number"|
-|Tek, Double|tür = "number"|
+|Bayt|type="number"|
+|int|type="number"|
+|Tek, Double|type="number"|
 
 
 Aşağıdaki tablo bazı yaygın gösterir [veri ek açıklamaları](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) giriş etiketi Yardımcısı (her doğrulama özniteliği listelenir) belirli giriş türleri için eşler öznitelikleri:
@@ -120,12 +212,12 @@ Aşağıdaki tablo bazı yaygın gösterir [veri ek açıklamaları](/dotnet/api
 |Öznitelik|Giriş türü|
 |---|---|
 |[EmailAddress]|tür = "email"|
-|[Url]|tür = "url"|
-|[HiddenInput]|tür "gizli" =|
-|[Phone]|tür "tel" =|
-|[DataType(DataType.Password)]| tür = "password"|
-|[DataType(DataType.Date)]| tür "tarih" =|
-|[DataType(DataType.Time)]| tür "zamanda" =|
+|[Url]|type="url"|
+|[HiddenInput]|type="hidden"|
+|[Phone]|type="tel"|
+|[DataType(DataType.Password)]| type="password"|
+|[DataType(DataType.Date)]| type="date"|
+|[DataType(DataType.Time)]| type="time"|
 
 
 Örnek:

@@ -4,14 +4,14 @@ author: rick-anderson
 description: Bilgi nasıl CORS izin verme veya reddetme ASP.NET Core uygulaması çıkış noktaları arası istekleri için standart olarak.
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/08/2019
+ms.date: 02/27/2019
 uid: security/cors
-ms.openlocfilehash: bc3a0883043a4d6fa33c1ff76fcb7be457b6b840
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: eb8dd3b1c96d9060b0164dcd4d0fbe004ed4af84
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56899352"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57346378"
 ---
 # <a name="enable-cross-origin-requests-cors-in-aspnet-core"></a>ASP.NET core'da çıkış noktaları arası istekleri (CORS) etkinleştirme
 
@@ -56,7 +56,7 @@ CORS Ara çıkış noktaları arası istekleri işler. Aşağıdaki kod, uygulam
 
 Yukarıdaki kod:
 
-* İlke adı "_myAllowSpecificOrigins" olarak ayarlar. İlke adı isteğe bağlıdır.
+* İlke adını ayarlar "\_myAllowSpecificOrigins". İlke adı isteğe bağlıdır.
 * Çağrıları <xref:Microsoft.AspNetCore.Builder.CorsMiddlewareExtensions.UseCors*> çekirdek sağlayan genişletme yöntemi.
 * Çağrıları <xref:Microsoft.Extensions.DependencyInjection.CorsServiceCollectionExtensions.AddCors*> ile bir [lambda ifadesi](/dotnet/csharp/programming-guide/statements-expressions-operators/lambda-expressions). Lambda alan bir <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder> nesne. [Yapılandırma seçenekleri](#cors-policy-options), gibi `WithOrigins`, bu makalenin sonraki bölümlerinde açıklanmıştır.
 
@@ -70,9 +70,26 @@ Daha fazla bilgi için [CORS ilkesi seçenekleri](#cpo) bu belgedeki.
 
 [!code-csharp[](cors/sample/Cors/WebAPI/Startup2.cs?name=snippet2)]
 
-Aşağıdaki vurgulanmış kodu tüm uygulamaları uç noktalar için CORS ilkelerini uygular [CORS ara yazılımı](#enable-cors-with-cors-middleware):
+Aşağıdaki vurgulanmış kodu CORS ara yazılımı üzerinden tüm uygulamaları uç noktalar için CORS ilkelerini uygular:
 
-[!code-csharp[](cors/sample/Cors/WebAPI/Startup.cs?name=snippet3&highlight=12)]
+```csharp
+public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+{
+    if (env.IsDevelopment())
+    {
+        app.UseDeveloperExceptionPage();
+    }
+    else
+    {
+        app.UseHsts();
+    }
+
+    app.UseCors(); 
+
+    app.UseHttpsRedirection();
+    app.UseMvc();
+}
+```
 
 Bkz: [Razor sayfaları, denetleyiciler ve eylem yöntemlerine CORS'yi etkinleştirme](#ecors) CORS ilkesini denetleyicisi/sayfa/eylemi düzeyinde uygulamak için.
 
