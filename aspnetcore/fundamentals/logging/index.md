@@ -4,14 +4,8 @@ author: tdykstra
 description: ASP.NET core'da günlüğe kaydetme çerçevesi hakkında bilgi edinin. Yerleşik günlük sağlayıcıları bulmak ve popüler üçüncü taraf sağlayıcılar hakkında daha fazla bilgi edinin.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 01/14/2019
+ms.date: 03/02/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 81620f0c844f3dbb1a2da0e9f1c319f87d9790b6
-ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55667707"
 ---
 # <a name="logging-in-aspnet-core"></a>ASP.NET core'da günlüğe kaydetme
 
@@ -31,7 +25,7 @@ Bir sağlayıcı eklemek için sağlayıcının çağrı `Add{provider name}` uz
 
 [!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_ExpandDefault&highlight=17-19)]
 
-Varsayılan proje şablonu çağrılarının <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder%2A> aşağıdaki günlük kaydı sağlayıcıları ekleyen genişletme yöntemi:
+Varsayılan proje şablonu çağrılarının <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder%2A>, aşağıdaki günlük kaydı sağlayıcıları ekler:
 
 * Konsol
 * Hata ayıklama
@@ -98,7 +92,7 @@ Günlük *düzeyi* günlüğe kaydedilen olayın önem derecesini gösterir. Gü
 
 Günlükleri yazmak için `Startup` sınıfı, içeren bir `ILogger` parametresinde Oluşturucu imzası:
 
-[!code-csharp[](index/samples/2.x/TodoApiSample/Startup.cs?name=snippet_Startup&highlight=3,5,8,19,26)]
+[!code-csharp[](index/samples/2.x/TodoApiSample/Startup.cs?name=snippet_Startup&highlight=3,5,8,20,27)]
 
 ### <a name="create-logs-in-program"></a>Günlükleri oluşturma
 
@@ -270,7 +264,7 @@ Aşağıdaki kod oluşturur `Information` ve `Warning` günlükleri:
 
 ::: moniker-end
 
-Önceki kodda, ilk parametredir [oturum öğesini belirten Olay No.](#log-event-id). İkinci parametre, kalan yöntem parametreleri tarafından sağlanan bağımsız değişken değerleri yer tutucuları olan bir ileti şablonudur. Yöntem parametreleri açıklandığı [ileti şablon bölümü](#log-message-template) bu makalenin ilerleyen bölümlerinde.
+Önceki kodda, ilk parametredir [oturum öğesini belirten Olay No](#log-event-id). İkinci parametre, kalan yöntem parametreleri tarafından sağlanan bağımsız değişken değerleri yer tutucuları olan bir ileti şablonudur. Yöntem parametreleri açıklandığı [ileti şablon bölümü](#log-message-template) bu makalenin ilerleyen bölümlerinde.
 
 Günlük düzeyi yöntem adı'içeren yöntemleri (örneğin, `LogInformation` ve `LogWarning`) olan [için ILogger genişletme yöntemleri](xref:Microsoft.Extensions.Logging.LoggerExtensions). Bu yöntemleri çağırmak bir `Log` gereken yöntemini bir `LogLevel` parametresi. Çağırabilirsiniz `Log` biri bu genişletme yöntemleri, ancak söz dizimi yerine doğrudan yöntemi nispeten karmaşık. Daha fazla bilgi için <xref:Microsoft.Extensions.Logging.ILogger> ve [Günlükçü uzantılarını kaynak kodu](https://github.com/aspnet/Extensions/blob/release/2.2/src/Logging/Logging.Abstractions/src/LoggerExtensions.cs).
 
@@ -340,7 +334,7 @@ info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
 
 ## <a name="log-event-id"></a>Günlük Olay Kimliği
 
-Her günlük belirtebilirsiniz bir *öğesini belirten Olay No.*. Örnek uygulamayı yerel olarak tanımlanan kullanarak bunu yapar `LoggingEvents` sınıfı:
+Her günlük belirtebilirsiniz bir *öğesini belirten Olay No*. Örnek uygulamayı yerel olarak tanımlanan kullanarak bunu yapar `LoggingEvents` sınıfı:
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -806,7 +800,7 @@ Azure'da günlüğe kaydetme hakkında daha fazla bilgi için aşağıdaki böl�
 
 * Açıkça Remove() çağırmayın <xref:Microsoft.Extensions.Logging.AzureAppServicesLoggerFactoryExtensions.AddAzureWebAppDiagnostics*>. Azure App Service'te uygulama dağıtıldığında sağlayıcısı otomatik olarak uygulama için kullanılabilir hale getirilir.
 
-.NET Framework'ü hedefleyen veya başvuru `Microsoft.AspNetCore.App` metapackage, sağlayıcı paketini projeye ekleyin. Çağırma `AddAzureWebAppDiagnostics` üzerinde bir <xref:Microsoft.Extensions.Logging.ILoggerFactory> örneği:
+.NET Framework'ü hedefleyen veya başvuru `Microsoft.AspNetCore.App` metapackage, sağlayıcı paketini projeye ekleyin. Çağırma `AddAzureWebAppDiagnostics`:
 
 ```csharp
 logging.AddAzureWebAppDiagnostics();
@@ -822,19 +816,27 @@ loggerFactory.AddAzureWebAppDiagnostics();
 
 ::: moniker-end
 
-::: moniker range=">= aspnetcore-1.1"
+::: moniker range="<= aspnetcore-2.1"
 
 Bir <xref:Microsoft.Extensions.Logging.AzureAppServicesLoggerFactoryExtensions.AddAzureWebAppDiagnostics*> geçirdiğiniz sağlar aşırı <xref:Microsoft.Extensions.Logging.AzureAppServices.AzureAppServicesDiagnosticsSettings>. Ayarlar nesnesini günlük çıktı şablonu, blob adı ve dosya boyutu sınırını gibi varsayılan ayarları geçersiz kılabilirsiniz. (*Çıkış şablon* ile sağlanan ek olarak, tüm günlükleri uygulanan bir ileti şablonu bir `ILogger` yöntem çağrısı.)
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+Sağlayıcı ayarlarını yapılandırmak için kullanmayı <xref:Microsoft.Extensions.Logging.AzureAppServices.AzureFileLoggerOptions> ve <xref:Microsoft.Extensions.Logging.AzureAppServices.AzureBlobLoggerOptions>, aşağıdaki örnekte gösterildiği gibi:
+
+[!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_AzLogOptions&highlight=19-27)]
+
+::: moniker-end
 
 Bir App Service uygulamasına dağıtmak, uygulama ayarlarında yapılırken [tanılama günlükleri](/azure/app-service/web-sites-enable-diagnostic-log/#enablediag) bölümünü **App Service** Azure Portalı'nın sayfasında. Bu ayarlar güncelleştirildiğinde, değişiklikleri hemen yeniden başlatma veya yeniden dağıtma işlemi uygulamanın gerek olmadan etkinleşir.
 
 ![Azure günlük ayarları](index/_static/azure-logging-settings.png)
 
-Günlük dosyaları için varsayılan konum alıyor *D:\\giriş\\LogFiles\\uygulama* klasörü ve varsayılan dosya adı olan *tanılama yyyymmdd.txt*. Varsayılan dosya boyutu sınırını 10 MB'tır ve korunan dosyaları varsayılan en yüksek sayısı 2'dir. Varsayılan blob adı *{app-name}{timestamp}/yyyy/mm/dd/hh/{guid}-applicationLog.txt*. Varsayılan davranış hakkında daha fazla bilgi için bkz. <xref:Microsoft.Extensions.Logging.AzureAppServices.AzureAppServicesDiagnosticsSettings>.
+Günlük dosyaları için varsayılan konum alıyor *D:\\giriş\\LogFiles\\uygulama* klasörü ve varsayılan dosya adı olan *tanılama yyyymmdd.txt*. Varsayılan dosya boyutu sınırını 10 MB'tır ve korunan dosyaları varsayılan en yüksek sayısı 2'dir. Varsayılan blob adı *{app-name}{timestamp}/yyyy/mm/dd/hh/{guid}-applicationLog.txt*.
 
 Sağlayıcı, yalnızca proje Azure ortamında çalışan olduğunda çalışır. Projeyi yerel olarak çalıştırdığınızda herhangi bir etkisi&mdash;yerel dosyaları ya da yerel geliştirme deposu bloblar için yazma değil.
-
-::: moniker-end
 
 ### <a name="azure-log-streaming"></a>Azure günlük akışı
 

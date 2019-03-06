@@ -326,6 +326,8 @@ items:
     name: SignalR ile SignalR Core Karşılaştırması
   - uid: fundamentals/websockets
     name: SignalR olmadan WebSockets
+  - uid: signalr/diagnostics
+    name: Günlüğe kaydetme ve tanılama
 - name: Test etme, hata ayıklama ve sorun giderme
   items:
   - name: Birim testi
@@ -606,6 +608,8 @@ items:
     items:
     - uid: security/authentication/identity
       name: Kimliğe giriş
+    - uid: security/authentication/identity/spa
+      name: SPA ile kimlik
     - uid: security/authentication/scaffold-identity
       name: İskele Kimliği
     - uid: security/authentication/add-user-data
@@ -638,6 +642,8 @@ items:
         name: Diğer sağlayıcılar
       - uid: security/authentication/social/additional-claims
         name: Ek talepler
+    - uid: security/authentication/policyschemes
+      name: İlke şemaları
     - uid: security/authentication/ws-federation
       name: WS-Federasyon kimlik doğrulaması
     - uid: security/authentication/accconfirm
@@ -814,6 +820,8 @@ items:
   items:
   - uid: fundamentals/middleware/write
     name: Ara yazılım yazma
+  - uid: fundamentals/middleware/request-response
+    name: İstek ve yanıt işlemleri
   - uid: fundamentals/url-rewriting
     name: URL yeniden yazma
   - uid: fundamentals/file-providers
@@ -880,9 +888,9 @@ items:
   href: /dotnet/api/?view=aspnetcore-2.2
 - name: Katkıda Bulun
   href: https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md
-ms.openlocfilehash: e55cfa30103c2a89007f2bc5e9d133dea7f8c6d5
-ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
+ms.openlocfilehash: 51fa497e0de917536dc37684cdebc60dec4c19a5
+ms.sourcegitcommit: 6ddd8a7675c1c1d997c8ab2d4498538e44954cac
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56744004"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57400703"
