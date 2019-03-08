@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core Azure App Service dağıtım sorunlarını tanılamayı öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/11/2019
+ms.date: 03/05/2019
 uid: host-and-deploy/azure-apps/troubleshoot
-ms.openlocfilehash: 65a5e355bc15db6de9060331395c441160c8b62d
-ms.sourcegitcommit: 42a8164b8aba21f322ffefacb92301bdfb4d3c2d
+ms.openlocfilehash: c3732bfab362ec034248eb3912d4b1337c94216e
+ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54341647"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57665434"
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service"></a>Azure App Service'te ASP.NET Core sorunlarını giderme
 
@@ -71,11 +71,56 @@ Başlatma hataları birçok yararlı bilgiler uygulama olay günlüğü'ndeki ü
 
 1. Açık **Gelişmiş Araçlar** içinde **geliştirme araçları** alan. Seçin **Git&rarr;**  düğmesi. Kudu konsolunu bir yeni tarayıcı sekmesinde veya penceresinde açılır.
 1. Sayfanın en üstünde gezinti çubuğunu kullanarak açmak **hata ayıklama konsoluna** seçip **CMD**.
-1. Klasör yolu açın **site** > **wwwroot**.
-1. Konsolda, uygulamanın derleme yürüterek uygulamayı çalıştırın.
-   * Uygulama ise bir [framework bağımlı dağıtım](/dotnet/core/deploying/#framework-dependent-deployments-fdd), uygulamanın bütünleştirilmiş kod ile çalıştırma *dotnet.exe*. Aşağıdaki komutta için uygulamanın derleme adı yerine `<assembly_name>`: `dotnet .\<assembly_name>.dll`
-   * Uygulama ise bir [müstakil dağıtım](/dotnet/core/deploying/#self-contained-deployments-scd)çalıştırın uygulamanın yürütülebilir. Aşağıdaki komutta için uygulamanın derleme adı yerine `<assembly_name>`: `<assembly_name>.exe`
-1. Konsol çıkışını herhangi bir hata gösteren uygulamadan Kudu konsoluna cmdlet'iyle yönetilir.
+
+#### <a name="test-a-32-bit-x86-app"></a>Bir 32-bit (x 86) uygulamayı test etme
+
+##### <a name="current-release"></a>Geçerli yayın
+
+1. `cd d:\home\site\wwwroot`
+1. Uygulamayı çalıştırın:
+   * Uygulama ise bir [framework bağımlı dağıtım](/dotnet/core/deploying/#framework-dependent-deployments-fdd):
+
+     ```console
+     dotnet .\{ASSEMBLY NAME}.dll
+     ```
+   * Uygulama ise bir [müstakil dağıtım](/dotnet/core/deploying/#self-contained-deployments-scd):
+
+     ```console
+     {ASSEMBLY NAME}.exe
+     ```
+   
+Konsol çıkışını herhangi bir hata gösteren uygulamadan Kudu konsoluna cmdlet'iyle yönetilir.
+   
+##### <a name="framework-depdendent-deployment-running-on-a-preview-release"></a>Bir önizleme sürümü üzerinde çalışan framework depdendent dağıtım
+
+*ASP.NET Core {VERSION} (x86) yükleme gerektirir çalışma zamanı site uzantısı.*
+
+1. `cd D:\home\SiteExtensions\AspNetCoreRuntime.{X.Y}.x32` (`{X.Y}` çalışma zamanı sürümü)
+1. Uygulamayı çalıştırın: `dotnet \home\site\wwwroot\{ASSEMBLY NAME}.dll`
+
+Konsol çıkışını herhangi bir hata gösteren uygulamadan Kudu konsoluna cmdlet'iyle yönetilir.
+
+#### <a name="test-a-64-bit-x64-app"></a>Bir 64-bit (x 64) uygulamayı test etme
+
+##### <a name="current-release"></a>Geçerli yayın
+
+* Uygulamanın bir 64-bit (x64) olup olmadığını [framework bağımlı dağıtım](/dotnet/core/deploying/#framework-dependent-deployments-fdd):
+  1. `cd D:\Program Files\dotnet`
+  1. Uygulamayı çalıştırın: `dotnet \home\site\wwwroot\{ASSEMBLY NAME}.dll`
+* Uygulama ise bir [müstakil dağıtım](/dotnet/core/deploying/#self-contained-deployments-scd):
+  1. `cd D:\home\site\wwwroot`
+  1. Uygulamayı çalıştırın: `{ASSEMBLY NAME}.exe`
+
+Konsol çıkışını herhangi bir hata gösteren uygulamadan Kudu konsoluna cmdlet'iyle yönetilir.
+
+##### <a name="framework-depdendent-deployment-running-on-a-preview-release"></a>Bir önizleme sürümü üzerinde çalışan framework depdendent dağıtım
+
+*ASP.NET Core {VERSION} (x64) yükleme gerektirir çalışma zamanı site uzantısı.*
+
+1. `cd D:\home\SiteExtensions\AspNetCoreRuntime.{X.Y}.x64` (`{X.Y}` çalışma zamanı sürümü)
+1. Uygulamayı çalıştırın: `dotnet \home\site\wwwroot\{ASSEMBLY NAME}.dll`
+
+Konsol çıkışını herhangi bir hata gösteren uygulamadan Kudu konsoluna cmdlet'iyle yönetilir.
 
 ### <a name="aspnet-core-module-stdout-log"></a>ASP.NET Core modülü stdout günlüğü
 

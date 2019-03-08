@@ -6,16 +6,16 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 08/09/2018
 uid: client-side/bower
-ms.openlocfilehash: 06edf7ee791aac0984ff71c2f243f61093f0d503
-ms.sourcegitcommit: 408921a932448f66cb46fd53c307a864f5323fe5
+ms.openlocfilehash: 08e6daa537c6c6f92a1cf80d70745e8ef606f580
+ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51570028"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57665619"
 ---
 # <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>ASP.NET core'da Bower ile istemci tarafı paketleri yönetme
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [Noel pirinç](https://blog.falafel.com/falafel-software-recognized-sitefinity-website-year/), ve [Scott Addie](https://scottaddie.com)
+Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [Noel pirinç](https://twitter.com/noelrice1), ve [Scott Addie](https://scottaddie.com)
 
 > [!IMPORTANT]
 > Bower korunur, ancak farklı bir çözüm kullanarak kendi maintainers önerilir. [Kitaplık Yöneticisi](https://blogs.msdn.microsoft.com/webdev/2018/04/18/what-happened-to-bower/) (kısaca LibMan), Visual Studio'nun yeni istemci tarafı kitaplık edinme Aracı (Visual Studio 15,8 veya üzeri). Daha fazla bilgi için bkz. <xref:client-side/libman/index>. Bower Visual Studio'da sürüm 15.5 desteklenir.
@@ -48,7 +48,7 @@ Açık *bower.json* dosya ve "font awesome" bağımlılıklarına ekleyin. Intel
 
 ![IntelliSense bower paket Gezgini](bower/_static/add-package.png)
 
-![bower sürüm IntelliSense](bower/_static/version-intelliSense.png)
+![bower version IntelliSense](bower/_static/version-intelliSense.png)
 
 Bower kullanan [semantic versioning](http://semver.org/) bağımlılıkları düzenlemek için. SemVer olarak da bilinen semantik sürüm oluşturma, numaralandırma düzeni ile paketleri tanımlayan \<ana >.\< küçük >. \<düzeltme eki >. IntelliSense, yalnızca birkaç genel seçenek göstererek semantic versioning basitleştirir. Üst öğeyi IntelliSense listesinde (yukarıdaki örnekte 4.6.3) paketin en son kararlı sürüm olarak kabul edilir. Şapka (^) simgesi en son sürümle eşleşen ve son ikincil sürümle tilde (~) ile eşleşir.
 
@@ -91,7 +91,7 @@ Paketleri listesi sonra *bower.json* dosya, Visual Studio bunları indirir. Aşa
 
 * İle yeni bir ASP.NET Core Web uygulaması oluşturma **ASP.NET Core Web uygulaması (.NET Core)** şablonu. Seçin **boş** proje şablonu ve tıklatın **Tamam**.
 
-* Çözüm Gezgini'nde projeye sağ tıklayın > **Yeni Öğe Ekle** seçip **Bower yapılandırma dosyası**. Not: Bir *.bowerrc* dosya da eklenir.
+* Çözüm Gezgini'nde projeye sağ tıklayın > **Yeni Öğe Ekle** seçip **Bower yapılandırma dosyası**. Not: A *.bowerrc* dosya da eklenir.
 
 * Açık *bower.json*, jquery ekleyin ve için önyükleme `dependencies` bölümü. Ortaya çıkan *bower.json* dosya, aşağıdaki örnekteki gibi görünür. Sürümler, zaman içinde değişir ve aşağıdaki resimde eşleşmeyebilir.
 

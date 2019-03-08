@@ -286,7 +286,7 @@ Yükleyici önceki bir sürümünü almak için:
 1. Kullanarak yükleyiciyi indirin **çalışma zamanı & paketi barındırma** bağlantı.
 
 > [!WARNING]
-> Bazı yükleyiciler, artık Microsoft tarafından desteklenir ve bunların sona erecek (EOL'ye) ulaştınız yayın sürümleri içerir. Daha fazla bilgi için [Destek İlkesi](https://www.microsoft.com/net/download/dotnet-core/2.0).
+> Bazı yükleyiciler, artık Microsoft tarafından desteklenir ve bunların sona erecek (EOL'ye) ulaştınız yayın sürümleri içerir. Daha fazla bilgi için [Destek İlkesi](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 
 ### <a name="install-the-hosting-bundle"></a>Barındırma paket yükleme
 

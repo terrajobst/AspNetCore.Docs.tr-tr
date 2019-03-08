@@ -2,34 +2,28 @@
 uid: web-forms/overview/older-versions-getting-started/index
 title: Eski sürümler - Başlarken Web Forms | Microsoft Docs
 author: rick-anderson
-description: ASP.NET Web Forms 4 ve önceki sürümleri ile ilgili belgeler.
+description: ASP.NET Web Forms 4 ve önceki sürümleri öğretici.
 ms.author: riande
 ms.date: 10/18/2014
 ms.assetid: e03585c2-80bf-4083-99ba-9fcbc883ccd8
 msc.legacyurl: /web-forms/overview/older-versions-getting-started
 msc.type: chapter
-ms.openlocfilehash: 93eed9c2560b8e5106b224114eb1109d3da95daf
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41755648"
 ---
 <a name="older-versions---web-forms-getting-started"></a>Eski sürümler - Başlarken Web formları
 ====================
-> ASP.NET Web Forms 4 ve önceki sürümleri ile ilgili belgeler.
+> ASP.NET Web Forms 4 ve önceki sürümleri öğretici.
 
 
 - [ASP.NET 4 - Tailspin Spyworks](tailspin-spyworks/index.md)
 
-    - [1. Bölüm: Dosya -> Yeni Proje](tailspin-spyworks/tailspin-spyworks-part-1.md)
-    - [2. Bölüm: Veri Erişim Katmanı](tailspin-spyworks/tailspin-spyworks-part-2.md)
-    - [3. Bölüm: Düzen ve Kategori Menüsü](tailspin-spyworks/tailspin-spyworks-part-3.md)
-    - [4. Bölüm: Ürünleri Listeleme](tailspin-spyworks/tailspin-spyworks-part-4.md)
-    - [5. Bölüm: İş Mantığı](tailspin-spyworks/tailspin-spyworks-part-5.md)
-    - [6. Bölüm: ASP.NET Üyeliği](tailspin-spyworks/tailspin-spyworks-part-6.md)
-    - [7. Bölüm: Özellik Ekleme](tailspin-spyworks/tailspin-spyworks-part-7.md)
-    - [8. Bölüm: Son Sayfalar, Özel Durum İşleme ve Sonuç](tailspin-spyworks/tailspin-spyworks-part-8.md)
+    - [Bölüm 1: Dosya -> Yeni Proje](tailspin-spyworks/tailspin-spyworks-part-1.md)
+    - [Bölüm 2: Veri erişim katmanı](tailspin-spyworks/tailspin-spyworks-part-2.md)
+    - [3. Bölüm: Düzen ve kategori menüsü](tailspin-spyworks/tailspin-spyworks-part-3.md)
+    - [4. Bölüm: Ürünleri listeleme](tailspin-spyworks/tailspin-spyworks-part-4.md)
+    - [5. Bölüm: Business Logic](tailspin-spyworks/tailspin-spyworks-part-5.md)
+    - [6. Bölüm: ASP.NET üyelik](tailspin-spyworks/tailspin-spyworks-part-6.md)
+    - [7. Bölüm: Özellik ekleme](tailspin-spyworks/tailspin-spyworks-part-7.md)
+    - [8. Bölüm: Son sayfalar, özel durum işleme ve sonuç](tailspin-spyworks/tailspin-spyworks-part-8.md)
 - [ASP.NET 4 - Entity Framework 4 ve Web Forms ile Çalışmaya Başlama](getting-started-with-ef/index.md)
 
     - [Entity Framework 4.0 Database First ile Çalışmaya Başlama](getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1.md)
@@ -42,9 +36,9 @@ ms.locfileid: "41755648"
     - [Entity Framework 4.0 Database First ile Çalışmaya Başlama - 8. Bölüm](getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-8.md)
 - [ASP.NET 4 - Entity Framework 4 ve Web Forms ile Devam Etme](continuing-with-ef/index.md)
 
-    - [Entity Framework 4.0 ve ObjectDataSource Denetimi, 1. Bölüm: Başlarken](continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started.md)
-    - [Entity Framework 4.0 ve ObjectDataSource Denetimi, 2. Bölüm: İş Mantığı Katmanı ve Birim Testleri Ekleme](continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md)
-    - [Entity Framework 4.0 ve ObjectDataSource Denetimi, 3. Bölüm: Sıralama ve Filtreleme](continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering.md)
+    - [Entity Framework 4.0 ve ObjectDataSource Denetimi, 1. Bölüm: Çalışmaya başlama](continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started.md)
+    - [Entity Framework 4.0 ve ObjectDataSource Denetimi, 2. Bölüm: İş mantığı katmanı ve birim testleri ekleme](continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests.md)
+    - [Entity Framework 4.0 ve ObjectDataSource Denetimi, 3. Bölüm: Sıralama ve filtreleme](continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering.md)
     - [ASP.NET 4 Sürümünde Entity Framework 4.0 ile Eş Zamanlılığı İşleme](continuing-with-ef/handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application.md)
     - [ASP.NET 4 Sürümünde Entity Framework 4.0 ile Performansı En Üst Düzeye Çıkarma](continuing-with-ef/maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application.md)
     - [Entity Framework 4.0 Sürümündeki Yenilikler](continuing-with-ef/what-s-new-in-the-entity-framework-4.md)

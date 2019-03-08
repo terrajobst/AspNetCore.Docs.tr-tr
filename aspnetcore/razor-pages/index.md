@@ -6,12 +6,6 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/12/2018
 uid: razor-pages/index
-ms.openlocfilehash: cc881ff42d57ab1654f492a70006a995939e4844
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53709558"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>ASP.NET Core Razor sayfalar giriş
 
@@ -173,7 +167,7 @@ Giriş sayfası (*Index.cshtml*):
 
 [!code-cshtml[](index/sample/RazorPagesContacts/Pages/Index.cshtml?range=21)]
 
-[Yer işareti etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) kullanılan `asp-route-{value}` düzenleme sayfasına giden bir bağlantı oluşturmak için öznitelik. Rota verilerini kişiyle bağlantısını içeren kimliği Örneğin: `http://localhost:5000/Edit/1`
+[Yer işareti etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) kullanılan `asp-route-{value}` düzenleme sayfasına giden bir bağlantı oluşturmak için öznitelik. Rota verilerini kişiyle bağlantısını içeren kimliği Örneğin: `http://localhost:5000/Edit/1` Kullanım `asp-area` bir alanı belirtmek için özniteliği. Daha fazla bilgi için bkz. <xref:mvc/controllers/areas>.
 
 *Pages/Edit.cshtml* dosyası:
 
@@ -401,6 +395,14 @@ Göreli adı bağlama siteleri karmaşık bir yapısı ile derleme yaparken yara
 
 ::: moniker range=">= aspnetcore-2.1"
 
+Farklı bir sayfasına yeniden yönlendirmek için [alan](xref:mvc/controllers/areas), alan belirtin:
+
+```csharp
+RedirectToPage("/Index", new { area = "Services" });
+```
+
+Daha fazla bilgi için bkz. <xref:mvc/controllers/areas>.
+
 ## <a name="viewdata-attribute"></a>ViewData özniteliği
 
 Veri içeren bir sayfa geçilebilir [ViewDataAttribute](/dotnet/api/microsoft.aspnetcore.mvc.viewdataattribute). Denetleyicilerde veya modellerde Razor sayfası özelliklerini düzenlenmiş ile `[ViewData]` depolanır ve gelen yüklenen değerlerine sahip [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary).
@@ -547,6 +549,7 @@ services.AddMvc()
 
 * <xref:index>
 * <xref:mvc/views/razor>
+* <xref:mvc/controllers/areas>
 * <xref:tutorials/razor-pages/razor-pages-start>
 * <xref:security/authorization/razor-pages-authorization>
 * <xref:razor-pages/razor-pages-conventions>

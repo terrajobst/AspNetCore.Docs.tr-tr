@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 10/04/2018
 uid: client-side/using-gulp
-ms.openlocfilehash: e280eabecbd427f3e1418b3d7a60e0ea3df46a5a
-ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
+ms.openlocfilehash: 43277dc5910971374187f49031e74769c9e29e1f
+ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52450612"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57665632"
 ---
 # <a name="use-gulp-in-aspnet-core"></a>ASP.NET Core Gulp kullanma
 
@@ -24,7 +24,7 @@ Tipik bir modern web uygulamasında, yapı işlemi olabilir:
 * CSS daha az derleme veya SASS dosyalarına.
 * CoffeeScript veya TypeScript dosyaları JavaScript'e derleyin.
 
-A *görev Çalıştırıcı* , bu yordamı geliştirme görevlerini ve daha fazlasını otomatikleştiren bir araçtır. Visual Studio, iki popüler JavaScript tabanlı görev çalıştırıcıların için yerleşik destek sunar: [Gulp](https://gulpjs.com/) ve [Grunt](using-grunt.md).
+A *görev Çalıştırıcı* , bu yordamı geliştirme görevlerini ve daha fazlasını otomatikleştiren bir araçtır. Visual Studio iki popüler JavaScript tabanlı görev çalıştırıcıların için yerleşik destek sağlar: [Gulp](https://gulpjs.com/) ve [Grunt](using-grunt.md).
 
 ## <a name="gulp"></a>Gulp
 
@@ -101,7 +101,7 @@ Aşağıdaki tabloda, yukarıdaki kodda belirtilen görevlerin bir açıklama sa
 |temiz: css|Site.css dosya küçültülmüş sürümünü kaldırmak için rimraf düğüm silme modülü kullanan bir görev.|
 |Temizleme|Çağıran göreve `clean:js` görev, ardından `clean:css` görev.|
 |Min:js|Küçültür ve js klasördeki tüm .js dosyaları birleştiren bir görev. . Min.js dosyaları hariç tutulur.|
-|Min:CSS|Bir görev, küçültür ve css klasördeki tüm .css dosyaları art arda ekler. . Min.css dosyaları hariç tutulur.|
+|min:css|Bir görev, küçültür ve css klasördeki tüm .css dosyaları art arda ekler. . Min.css dosyaları hariç tutulur.|
 |min|Çağıran göreve `min:js` görev, ardından `min:css` görev.|
 
 ## <a name="running-default-tasks"></a>Varsayılan görevleri çalıştırma
@@ -337,7 +337,7 @@ Gulp görev, bir işlev adı ile kaydedilir. Diğer görevlerden önce geçerli 
 |src   |`gulp.src(globs[, options]) { }`|`src` İşlevi glob değerleri eşleşen dosyaları sağlar. `glob` Parametresi bir `string` veya `array` okumak için hangi dosyaların belirler. `options` Parametresi ek dosya seçenekleri sağlar.|
 |Hedef  |`gulp.dest(path[, options]) { }`|`dest` İşlevi olduğu dosyaları yazılabilir bir konuma tanımlar. `path` Parametresi, bir dize veya hedef klasör belirleyen işlev. `options` Parametredir çıkış klasör seçenekleri belirten bir nesne.|
 
-Ek Gulp API başvuru bilgileri için bkz: [Gulp Docs API](https://github.com/gulpjs/gulp/blob/master/docs/API.md).
+Ek Gulp API başvuru bilgileri için bkz: [Gulp Docs API](https://gulpjs.org/API.html).
 
 ## <a name="gulp-recipes"></a>Gulp tarifleri
 

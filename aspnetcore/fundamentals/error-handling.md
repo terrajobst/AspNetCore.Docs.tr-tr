@@ -5,14 +5,14 @@ description: ASP.NET Core uygulamaları hataları işlemek nasıl keşfedin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 03/01/2019
+ms.date: 03/05/2019
 uid: fundamentals/error-handling
-ms.openlocfilehash: a2ae2cb25c8cc5048b189b4035abbfc32a29aaff
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: d809c70b3fae6b2d21d5ec0871298d905b873d5d
+ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57345511"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57665369"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>ASP.NET core'da hatalarını işleme
 
@@ -24,9 +24,9 @@ Bu makalede, ASP.NET Core uygulamalarında hata işleme için ortak bir yaklaş�
 
 ## <a name="developer-exception-page"></a>Geliştirici özel durumu sayfası
 
-Özel durumları hakkında ayrıntılı bilgi gösteren bir sayfasını görüntülemek için bir uygulamayı yapılandırmak için kullanın *Geliştirici özel durum sayfasında*. Sayfa tarafından kullanılabilir hale getirileceğini [Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/) kullanılabilir paketini [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app). Bir satırı `Startup.Configure` yöntemi:
+İstek özel durumları hakkında ayrıntılı bilgi gösteren bir sayfasını görüntülemek için bir uygulamayı yapılandırmak için kullanın *Geliştirici özel durum sayfasında*. Sayfa tarafından kullanılabilir hale getirileceğini [Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/) kullanılabilir paketini [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app). Bir satırı `Startup.Configure` uygulama geliştirmesinde çalışırken yöntemi [ortam](xref:fundamentals/environments):
 
-[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_DevExceptionPage&highlight=5)]
+[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_UseDeveloperExceptionPage)]
 
 Çağrı yapmak <xref:Microsoft.AspNetCore.Builder.DeveloperExceptionPageExtensions.UseDeveloperExceptionPage*> önüne özel durumları yakalamak istediğiniz herhangi bir ara yazılım.
 
@@ -50,7 +50,7 @@ Uygulama geliştirme ortamında çalışmadığı aramanızı <xref:Microsoft.As
 
 Aşağıdaki örnekte, örnek uygulamadan <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*> geliştirme olmayan ortamlarda özel durum işleme ara yazılım ekler. Bir hata sayfası veya denetleyicisinde genişletme yöntemi belirler `/Error` özel durum yakalandı ve günlüğe sonra yeniden yürütülen istekler için uç nokta:
 
-[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_DevExceptionPage&highlight=9)]
+[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_UseExceptionHandler1)]
 
 Bir hata sayfası Razor sayfaları uygulaması şablonunu sunar (*.cshtml*) ve <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> sınıfı (`ErrorModel`) sayfalar klasöründe.
 
@@ -66,6 +66,36 @@ public IActionResult Error()
 ```
 
 HTTP yöntemi öznitelikleriyle hata işleyicisi eylem yöntemi gibi süslemek yoksa `HttpGet`. Açık fiilleri yöntemi bazı istekleri engellenir. Kimliği doğrulanmamış kullanıcılar hata görünümünün alabilirsiniz, böylece yöntemi anonim erişime izin verin.
+
+## <a name="access-the-exception"></a>Erişim özel durumu
+
+Kullanım <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> özel durumu veya özgün istek yolu bir denetleyici veya sayfasına erişmek için:
+
+* Kullanılabilir yoldur <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature.Path> özelliği.
+* Okuma <xref:System.Exception?displayProperty=fullName> öğesinden devralınan [IExceptionHandlerFeature.Error](xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature.Error) özelliği.
+
+```csharp
+// using Microsoft.AspNetCore.Diagnostics;
+
+var exceptionHandlerPathFeature = 
+    HttpContext.Features.Get<IExceptionHandlerPathFeature>();
+var path = exceptionHandlerPathFeature?.Path;
+var error = exceptionHandlerPathFeature?.Error;
+```
+
+> [!WARNING]
+> Yapmak **değil** önemli hata bilgileri hizmet <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature> veya <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> istemcilere. Hataları hizmet veren bir güvenlik riski oluşturur.
+
+## <a name="configure-custom-exception-handling-code"></a>Özel durum işleme kodunu yapılandırın
+
+Hizmet veren bir uç nokta ile hatalar için alternatif bir [özel durum işleme sayfası](#configure-a-custom-exception-handling-page) lambda sağlamaktır <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*>. Bir lambda ile kullanarak <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*> yanıt döndürmeden önce hata erişim sağlar.
+
+Özel durum işleme kodunu, örnek uygulamayı gösterir `Startup.Configure`. İle bir özel durum harekete **özel durum Throw** bağlantısı dizin sayfası. Aşağıdaki lambda çalıştırır:
+
+[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_UseExceptionHandler2)]
+
+> [!WARNING]
+> Yapmak **değil** önemli hata bilgileri hizmet <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature> veya <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> istemcilere. Hataları hizmet veren bir güvenlik riski oluşturur.
 
 ## <a name="configure-status-code-pages"></a>Durum kod sayfaları yapılandırın
 
@@ -265,7 +295,7 @@ Ayrıca, dikkat edin, yanıt üst bilgileri gönderdikten sonra:
 
 ## <a name="server-exception-handling"></a>Sunucu özel durum işleme
 
-Özel durum işleme mantığı, uygulamanıza ek olarak [sunucusu uygulaması](xref:fundamentals/servers/index) bazı özel durumları işleyebilir. Yanıt üst bilgileri gönderilmeden önce sunucunun bir özel durumu yakalar, sunucunun gönderdiği bir *500 - İç sunucu hatası* yanıt gövdesi olmadan yanıt. Yanıt üstbilgileri gönderildikten sonra sunucu bir özel durumu yakalar, sunucu bağlantıyı kapatır. Uygulamanız tarafından işlenmeyen isteği sunucu tarafından işlenir. Oluşan özel sunucu özel durum tarafından işlenir işleme. Herhangi bir özel hata sayfaları yapılandırılmış veya özel durum işleme ara yazılım veya filtreleri bu davranışı etkilemez.
+Özel durum işleme mantığı, uygulamanıza ek olarak [sunucusu uygulaması](xref:fundamentals/servers/index) bazı özel durumları işleyebilir. Yanıt üst bilgileri gönderilmeden önce sunucunun bir özel durumu yakalar, sunucunun gönderdiği bir *500 - İç sunucu hatası* yanıt gövdesi olmadan yanıt. Yanıt üstbilgileri gönderildikten sonra sunucu bir özel durumu yakalar, sunucu bağlantıyı kapatır. Uygulamanız tarafından işlenmeyen isteği sunucu tarafından işlenir. Sunucu isteği işlerken oluşan özel sunucu özel durum tarafından işlenir işleme. Uygulamanın özel hata sayfaları, özel durum işleme ara yazılım ve filtreler bu davranışı etkilemez.
 
 ## <a name="startup-exception-handling"></a>Başlangıç özel durum işleme
 
@@ -285,10 +315,10 @@ Ana bilgisayar adresi/bağlantı noktası sonra bağlama bir hata oluşursa bir 
 
 ### <a name="exception-filters"></a>Özel durum filtreleri
 
-Özel durum filtreleri, genel olarak veya bir MVC uygulamasında her denetleyici veya eylem başına temelinde yapılandırılabilir. Bu filtreler bir denetleyici eylemi veya başka bir filtre yürütülmesi sırasında oluşan tüm işlenmeyen bir özel durumu işle. Bu filtreler, aksi takdirde çağrılır değil. Daha fazla bilgi için bkz: <xref:mvc/controllers/filters>.
+Özel durum filtreleri, genel olarak veya bir MVC uygulamasında her denetleyici veya eylem başına temelinde yapılandırılabilir. Bu filtreler bir denetleyici eylemi veya başka bir filtre yürütülmesi sırasında oluşan tüm işlenmeyen bir özel durumu işle. Bu filtreler, aksi takdirde çağrılır değil. Daha fazla bilgi için bkz. <xref:mvc/controllers/filters#exception-filters>.
 
 > [!TIP]
-> Özel durum filtreleri MVC Eylemler içinde oluşan özel durumları yakalama için kullanışlıdır ancak bunlar ara yazılım işleme hata olarak kadar esnek değildir. Ara yazılım kullanılmasını öneririz. Hata işleme gerçekleştirmek için yalnızca gerek duyduğunuz filtrelerini kullanma *farklı* göre MVC eylemi seçilir.
+> Özel durum filtreleri, MVC Eylemler içinde oluşan özel durumları yakalama için yararlıdır, ancak bunlar özel durum işleme ara yazılımı kadar esnek değildir. Ara yazılım kullanmanızı öneririz. Hata işleme gerçekleştirmek için yalnızca gerek duyduğunuz filtrelerini kullanma *farklı* göre MVC eylemi seçilir.
 
 ### <a name="handle-model-state-errors"></a>Model durumu hataları işleme
 

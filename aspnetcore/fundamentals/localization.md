@@ -5,16 +5,16 @@ description: Nasıl ASP.NET Core hizmetlerini ve ara yazılım içeriği yerelle
 ms.author: riande
 ms.date: 01/14/2017
 uid: fundamentals/localization
-ms.openlocfilehash: af11906f86fe4ea91ed520584daedc094ab2dc0b
-ms.sourcegitcommit: edb9d2d78c9a4d68b397e74ae2aff088b325a143
+ms.openlocfilehash: 70de86f2e8c4a5577b8a4b50c53d66eb3b205c09
+ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51505836"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57665552"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Genelleştirme ve yerelleştirme ASP.NET core'da
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [Damien Bowden](https://twitter.com/damien_bod), [CAN Calixto](https://twitter.com/bartmax), [Nadeem Afana](https://twitter.com/NadeemAfana), ve [Hisham Bin Ateya](https://twitter.com/hishambinateya)
+Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [Damien Bowden](https://twitter.com/damien_bod), [CAN Calixto](https://twitter.com/bartmax), [Nadeem Afana](https://afana.me/), ve [Hisham Bin Ateya](https://twitter.com/hishambinateya)
 
 ASP.NET Core ile çok dilli bir Web sitesi oluşturma, sitenizi bir daha geniş kitlelere ulaşın izin verir. ASP.NET Core, farklı dillere ve kültürlere yerelleştirme için Hizmetler ve ara yazılım sağlar.
 
@@ -44,7 +44,7 @@ Kullanım `IHtmlLocalizer<T>` HTML içeren kaynaklar için uygulama. `IHtmlLocal
 
 [!code-csharp[](../fundamentals/localization/sample/Localization/Controllers/BookController.cs?highlight=3,5,20&start=1&end=24)]
 
-**Not:** genellikle yalnızca metin ve HTML değil Yerelleştirmek istediğiniz.
+**Not:** Genellikle yalnızca metin ve HTML değil yerelleştirmek istersiniz.
 
 En düşük düzeyde alabileceğiniz `IStringLocalizerFactory` tanesi [bağımlılık ekleme](dependency-injection.md):
 
@@ -80,7 +80,7 @@ Fransız kaynak dosyası aşağıdakileri içerebilir:
 
 İşlenen HTML biçimlendirmeyi kaynak dosyasından içerecektir.
 
-**Not:** genellikle yalnızca metin ve HTML değil Yerelleştirmek istediğiniz.
+**Not:** Genellikle yalnızca metin ve HTML değil yerelleştirmek istersiniz.
 
 Paylaşılan kaynak dosyası bir görünümde kullanılacak ekleme `IHtmlLocalizer<T>`:
 
@@ -127,7 +127,7 @@ Bir kaynak dosyası, dize yerelleştirilebilir koddan ayırmak için kullanışl
 
 1. İçinde **Çözüm Gezgini**, kaynak dosyasını içeren klasöre sağ tıklayın > **Ekle** > **yeni öğe**.
 
-    ![İç içe bağlam menüsü: Çözüm Gezgini'nde bir bağlam menüsü kaynaklar için açın. İkinci bir bağlam menüsü Ekle vurgulanmış yeni öğe komut gösteren açıktır.](localization/_static/newi.png)
+    ![İç içe bağlam menüsü: Çözüm Gezgini içinde kaynaklar için bağlamsal menü açıktır. İkinci bir bağlam menüsü Ekle vurgulanmış yeni öğe komut gösteren açıktır.](localization/_static/newi.png)
 
 2. İçinde **yüklü şablonları Ara** kutusuna "kaynak" girin ve dosyayı adlandırın.
 
@@ -330,14 +330,14 @@ Uluslararası duruma getirme genellikle "İçin I18N" olarak kısaltılır. İlk
 
 Koşulları:
 
-* Genelleştirme (G11N): farklı dillerde ve bölgelerde destekleyen bir uygulama yapma işlemi.
+* Genelleştirme (G11N): Farklı dillerde ve bölgelerde destekleyen bir uygulama hale getirme işlemidir.
 * Yerelleştirme (L10N): Belirtilen dil ve bölge için bir uygulamayı özelleştirme işlemi.
-* Uluslararası duruma getirme (I18N): genelleştirme ve yerelleştirme hem açıklar.
-* Kültür: Bir dil ve isteğe bağlı olarak bir bölge olduğundan.
-* Bağımsız kültür: belirtilen bir dile, ancak bir bölgeye sahip bir kültür. (örneğin "en", "es")
-* Belirli bir kültür: Belirtilen dil ve bölge olan bir kültür. (örneğin "en-US", "en-GB", "es-CL")
-* Üst kültür: belirli bir kültür içeren bağımsız bir kültür. (örneğin, "en" üst "en-US" ve "en-GB" kültürüdür)
-* Yerel ayar: Yerel bir kültür ile aynıdır.
+* Uluslararası duruma getirme (I18N): Genelleştirme ve yerelleştirme hem açıklar.
+* Kültür: Bu bir dil ve isteğe bağlı olarak bir bölge olur.
+* Bağımsız kültür: Belirtilen bir dile, ancak bir bölgeye sahip bir kültür. (örneğin "en", "es")
+* Belirli bir kültürün: Belirtilen dil ve bölge olan bir kültür. (örneğin "en-US", "en-GB", "es-CL")
+* Üst kültürü: Belirli bir kültür içeren bağımsız kültür. (örneğin, "en" üst "en-US" ve "en-GB" kültürüdür)
+* Yerel ayar: Bir yerel ayar bir kültür ile aynıdır.
 
 [!INCLUDE[](~/includes/currency.md)]
 

@@ -120,7 +120,7 @@ Aşağıdaki yaklaşımlardan birini kullanın:
 
 ### <a name="install-the-preview-site-extension"></a>Önizleme sitesi uzantısını yükle
 
-Önizleme site uzantısı kullanarak bir sorun ortaya çıkarsa, bir sorun açın [GitHub](https://github.com/aspnet/azureintegration/issues/new).
+Önizleme site uzantısı kullanarak bir sorun meydana gelirse, açık bir [aspnet/AspNetCore sorunu](https://github.com/aspnet/AspNetCore/issues).
 
 1. Azure Portalı'ndan uygulama hizmetine gidin.
 1. Web uygulamasını seçin.

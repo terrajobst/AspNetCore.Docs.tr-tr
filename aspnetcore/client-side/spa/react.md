@@ -5,14 +5,14 @@ description: React ve oluşturma-react-uygulama için ASP.NET Core tek sayfa uyg
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 02/13/2019
+ms.date: 03/07/2019
 uid: spa/react
-ms.openlocfilehash: 3b2b2e67b5d577872bafefef5624a13ca1a22449
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 7b07f696ae071531c88c9f8cf528fc6f0bf97b46
+ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56899183"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57665567"
 ---
 # <a name="use-the-react-project-template-with-aspnet-core"></a>ASP.NET Core ile React proje şablonu kullanın
 
@@ -105,3 +105,7 @@ ASP.NET Core uygulamanızı başlattığınızda CRA sunucusu başlatma olmaz. E
 
 > [!IMPORTANT]
 > "Sunucu tarafı işleme" Bu şablonun desteklenen bir özellik değil. Hedefimiz bu şablonla, "oluşturma-react-app" eşlikli karşılamak sağlamaktır. Bu nedenle, senaryolar ve Özellikler (SSR gibi) bir "Oluştur-react-app" projeye dahil değil desteklenmez ve kullanıcı için bir alıştırma olarak kalır.
+
+## <a name="additional-resources"></a>Ek kaynaklar
+
+* <xref:security/authentication/identity/spa>

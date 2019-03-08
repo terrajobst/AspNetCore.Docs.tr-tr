@@ -231,7 +231,7 @@ ASP.NET Core aşağıdaki ara yazılımı bileşenleri ile birlikte gelir. *Sipa
 | [Kimlik Doğrulaması](xref:security/authentication/identity) | Kimlik doğrulama desteği sağlar. | Önce `HttpContext.User` gereklidir. Terminal OAuth geri çağırmalar için. |
 | [Tanımlama bilgisi ilkesi](xref:security/gdpr) | Onay kullanıcıların kişisel bilgilerini depolamak için ve izler, tanımlama bilgisi alanları için en düşük standartlara zorlayan `secure` ve `SameSite`. | Önce bir ara yazılım, tanımlama bilgileri verir. Örnekler: Kimlik doğrulaması, oturum, MVC (TempData). |
 | [CORS](xref:security/cors) | Çıkış noktaları arası kaynak paylaşımını yapılandırır. | CORS kullanan bileşenleri önce. |
-| [Tanılama](xref:fundamentals/error-handling) | Tanılama yapılandırır. | Bileşenlerinden önce bu hataları oluşturur. |
+| [Özel Durum İşleme](xref:fundamentals/error-handling) | Özel durumları işler. | Bileşenlerinden önce bu hataları oluşturur. |
 | [İletilen üstbilgileri](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions) | Geçerli istek üzerine proxy üstbilgileri iletir. | Bileşenlerinden önce güncelleştirilmiş alanları kullanır. Örnekler: düzeni, ana bilgisayar, istemci IP'si yöntemi. |
 | [Sistem durumu denetimi](xref:host-and-deploy/health-checks) | ASP.NET Core uygulaması ve veritabanı kullanılabilirlik denetimi gibi bağımlılıklarını durumunu denetler. | İstek bir sistem durumu onay uç noktası eşleşiyorsa terminal. |
 | [HTTP yöntemini geçersiz kılma](/dotnet/api/microsoft.aspnetcore.builder.httpmethodoverrideextensions) | Bu yöntemi geçersiz kılmak gelen bir POST isteği sağlar. | Bileşenlerinden önce güncelleştirilen yöntemi kullanır. |
