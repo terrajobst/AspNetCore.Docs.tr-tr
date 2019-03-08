@@ -1,2 +1,10 @@
-* [<span data-ttu-id="8c394-101">Mac 7,7 veya sonraki bir sürümü için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="8c394-101">Visual Studio for Mac version 7.7 or later</span></span>](https://visualstudio.microsoft.com/vs/mac/)
-* [<span data-ttu-id="8c394-102">.NET core SDK 3.0</span><span class="sxs-lookup"><span data-stu-id="8c394-102">.NET Core SDK 3.0</span></span>](https://dotnet.microsoft.com/download/dotnet-core/3.0)
+---
+ms.openlocfilehash: 561fe0b806c4b494dd6d798ab2dbbdd6a00c4afa
+ms.sourcegitcommit: a91e8dd2f4b788114c8bc834507277f4b5e8d6c5
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "57665723"
+---
+* [<span data-ttu-id="d8aba-101">Sürüm 8.0 veya üzerini Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="d8aba-101">Visual Studio for Mac version 8.0 or later</span></span>](https://visualstudio.microsoft.com/vs/mac/)
+* [<span data-ttu-id="d8aba-102">.NET Core SDK 3.0</span><span class="sxs-lookup"><span data-stu-id="d8aba-102">.NET Core SDK 3.0</span></span>](https://dotnet.microsoft.com/download/dotnet-core/3.0)
