@@ -4,14 +4,14 @@ author: guardrex
 description: Kestrel'i, ASP.NET Core için platformlar arası web sunucusu hakkında bilgi edinin.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/13/2019
+ms.date: 03/04/2019
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: dcf027c2c495cbecd8464e43749b9154a4360e36
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: 5fc6c78f3eb76fcf3dd663c8d878250f0051f153
+ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248413"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57665645"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>ASP.NET core'da kestrel web sunucusu uygulaması
 
@@ -417,6 +417,17 @@ Varsayılan olarak, ASP.NET Core bağlar:
 * `http://localhost:5000`
 * `https://localhost:5001` (yerel geliştirme sertifikası mevcut olduğunda)
 
+Kullanarak URL'leri belirtin:
+
+* `ASPNETCORE_URLS` ortam değişkeni.
+* `--urls` komut satırı bağımsız değişkeni.
+* `urls` ana bilgisayar yapılandırma anahtarı.
+* `UseUrls` genişletme yöntemi.
+
+Bu yaklaşımları kullanarak sağlanan değer, bir veya daha fazla HTTP ve HTTPS uç noktası (varsayılan sertifika varsa HTTPS) olabilir. Değer noktalı virgülle ayrılmış listesini yapılandırın (örneğin, `"Urls": "http://localhost:8000; http://localhost:8001"`).
+
+Bu yaklaşımlar hakkında daha fazla bilgi için bkz. [sunucu URL'leri](xref:fundamentals/host/web-host#server-urls) ve [geçersiz kılma yapılandırmasını](xref:fundamentals/host/web-host#override-configuration).
+
 Bir geliştirme sertifikası oluşturulur:
 
 * Zaman [.NET Core SDK'sı](/dotnet/core/sdk) yüklenir.
@@ -430,7 +441,7 @@ ASP.NET Core 2.1 ve üzeri proje şablonları varsayılan olarak HTTPS üzerinde
 
 `UseUrls`, `--urls` komut satırı bağımsız değişkeni `urls` ana bilgisayar yapılandırma anahtarı ve `ASPNETCORE_URLS` ortam değişkeni de çalışır ancak daha sonra (bir varsayılan sertifika için HTTPS uç noktasının kullanılabilir olmalıdır, bu bölümde belirtilen kısıtlamalara sahip Yapılandırma).
 
-ASP.NET Core 2.1 `KestrelServerOptions` yapılandırma:
+ASP.NET Core 2.1 veya üzeri `KestrelServerOptions` yapılandırma:
 
 ### <a name="configureendpointdefaultsactionltlistenoptionsgt"></a>ConfigureEndpointDefaults (Eylem&lt;ListenOptions&gt;)
 
@@ -484,17 +495,6 @@ Sonraki bölümde açıklandığı desteklenen yapılandırmalar:
 *Yapılandırma yok*
 
 Kestrel'i dinlediği `http://localhost:5000` ve `https://localhost:5001` (varsayılan sertifika varsa).
-
-Kullanarak URL'leri belirtin:
-
-* `ASPNETCORE_URLS` ortam değişkeni.
-* `--urls` komut satırı bağımsız değişkeni.
-* `urls` ana bilgisayar yapılandırma anahtarı.
-* `UseUrls` genişletme yöntemi.
-
-Daha fazla bilgi için [sunucu URL'leri](xref:fundamentals/host/web-host#server-urls) ve [geçersiz kılma yapılandırmasını](xref:fundamentals/host/web-host#override-configuration).
-
-Bu yaklaşımları kullanarak sağlanan değer, bir veya daha fazla HTTP ve HTTPS uç noktası (varsayılan sertifika varsa HTTPS) olabilir. Değer noktalı virgülle ayrılmış listesini yapılandırın (örneğin, `"Urls": "http://localhost:8000; http://localhost:8001"`).
 
 *Varsayılan Sertifika yapılandırmasından değiştirin*
 
