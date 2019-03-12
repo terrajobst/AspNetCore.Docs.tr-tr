@@ -866,6 +866,7 @@ Application Insights SDK'sı, toplamak ve ASP.NET Core günlük kaydı altyapıs
 * [Application Insights'a genel bakış](/azure/application-insights/app-insights-overview)
 * [ASP.NET Core için Application Insights](/azure/application-insights/app-insights-asp-net-core)
 * [Application Insights bağdaştırıcılarını günlüğü](https://github.com/Microsoft/ApplicationInsights-dotnet-logging/blob/develop/README.md).
+* [Application Insights ILogger uygulama örnekleri](/azure/azure-monitor/app/ilogger)
 
 ::: moniker-end
 
