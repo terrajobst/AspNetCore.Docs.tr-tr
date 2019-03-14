@@ -3,124 +3,98 @@ title: Hesap onaylama ve parola kurtarma ASP.NET Core
 author: rick-anderson
 description: E-posta onayı ve parola sıfırlama ile ASP.NET Core uygulaması oluşturmayı öğrenin.
 ms.author: riande
-ms.date: 2/11/2019
+ms.date: 3/11/2019
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 77d7b209d57f9ee44f158798ff780ce85c87aaf2
-ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
+ms.openlocfilehash: 05efb75d26558702c88e87d191a780371034282c
+ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56159414"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57841481"
 ---
-# <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a><span data-ttu-id="38130-103">Hesap onaylama ve parola kurtarma ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="38130-103">Account confirmation and password recovery in ASP.NET Core</span></span>
+# <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a><span data-ttu-id="4ee29-103">Hesap onaylama ve parola kurtarma ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="4ee29-103">Account confirmation and password recovery in ASP.NET Core</span></span>
 
 ::: moniker range="<= aspnetcore-2.0"
 
-<span data-ttu-id="38130-104">Bkz: [bu PDF dosyası](https://webpifeed.blob.core.windows.net/webpifeed/Partners/asp.net_repo_pdf_1-16-18.pdf) ASP.NET Core 1.1 ve 2.1 sürümü için.</span><span class="sxs-lookup"><span data-stu-id="38130-104">See [this PDF file](https://webpifeed.blob.core.windows.net/webpifeed/Partners/asp.net_repo_pdf_1-16-18.pdf) for the ASP.NET Core 1.1 and 2.1 version.</span></span>
+<span data-ttu-id="4ee29-104">Bkz: [bu PDF dosyası](https://webpifeed.blob.core.windows.net/webpifeed/Partners/asp.net_repo_pdf_1-16-18.pdf) ASP.NET Core 1.1 ve 2.1 sürümü için.</span><span class="sxs-lookup"><span data-stu-id="4ee29-104">See [this PDF file](https://webpifeed.blob.core.windows.net/webpifeed/Partners/asp.net_repo_pdf_1-16-18.pdf) for the ASP.NET Core 1.1 and 2.1 version.</span></span>
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
 
-<span data-ttu-id="38130-105">Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT) ve [ALi Audette](https://twitter.com/joeaudette)</span><span class="sxs-lookup"><span data-stu-id="38130-105">By [Rick Anderson](https://twitter.com/RickAndMSFT) and [Joe Audette](https://twitter.com/joeaudette)</span></span>
+<span data-ttu-id="4ee29-105">Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [Ponant](https://github.com/Ponant), ve [ALi Audette](https://twitter.com/joeaudette)</span><span class="sxs-lookup"><span data-stu-id="4ee29-105">By [Rick Anderson](https://twitter.com/RickAndMSFT), [Ponant](https://github.com/Ponant), and [Joe Audette](https://twitter.com/joeaudette)</span></span>
 
-<span data-ttu-id="38130-106">Bu öğretici, e-posta onayı ve parola sıfırlama ile ASP.NET Core uygulaması oluşturma işlemi gösterilmektedir.</span><span class="sxs-lookup"><span data-stu-id="38130-106">This tutorial shows how to build an ASP.NET Core app with email confirmation and password reset.</span></span> <span data-ttu-id="38130-107">Bu öğretici **değil** başına konu.</span><span class="sxs-lookup"><span data-stu-id="38130-107">This tutorial is **not** a beginning topic.</span></span> <span data-ttu-id="38130-108">Sahibi olmalısınız:</span><span class="sxs-lookup"><span data-stu-id="38130-108">You should be familiar with:</span></span>
+<span data-ttu-id="4ee29-106">Bu öğretici, e-posta onayı ve parola sıfırlama ile ASP.NET Core uygulaması oluşturma işlemi gösterilmektedir.</span><span class="sxs-lookup"><span data-stu-id="4ee29-106">This tutorial shows how to build an ASP.NET Core app with email confirmation and password reset.</span></span> <span data-ttu-id="4ee29-107">Bu öğretici **değil** başına konu.</span><span class="sxs-lookup"><span data-stu-id="4ee29-107">This tutorial is **not** a beginning topic.</span></span> <span data-ttu-id="4ee29-108">Sahibi olmalısınız:</span><span class="sxs-lookup"><span data-stu-id="4ee29-108">You should be familiar with:</span></span>
 
-* [<span data-ttu-id="38130-109">ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="38130-109">ASP.NET Core</span></span>](xref:tutorials/razor-pages/razor-pages-start)
-* [<span data-ttu-id="38130-110">Kimlik Doğrulaması</span><span class="sxs-lookup"><span data-stu-id="38130-110">Authentication</span></span>](xref:security/authentication/identity)
-* [<span data-ttu-id="38130-111">Entity Framework Core</span><span class="sxs-lookup"><span data-stu-id="38130-111">Entity Framework Core</span></span>](xref:data/ef-mvc/intro)
+* [<span data-ttu-id="4ee29-109">ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="4ee29-109">ASP.NET Core</span></span>](xref:tutorials/razor-pages/razor-pages-start)
+* [<span data-ttu-id="4ee29-110">Kimlik Doğrulaması</span><span class="sxs-lookup"><span data-stu-id="4ee29-110">Authentication</span></span>](xref:security/authentication/identity)
+* [<span data-ttu-id="4ee29-111">Entity Framework Core</span><span class="sxs-lookup"><span data-stu-id="4ee29-111">Entity Framework Core</span></span>](xref:data/ef-mvc/intro)
 
 <!-- see C:/Dropbox/wrk/Code/SendGridConsole/Program.cs -->
 
-## <a name="prerequisites"></a><span data-ttu-id="38130-112">Önkoşullar</span><span class="sxs-lookup"><span data-stu-id="38130-112">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="4ee29-112">Önkoşullar</span><span class="sxs-lookup"><span data-stu-id="4ee29-112">Prerequisites</span></span>
 
-[!INCLUDE [](~/includes/2.1-SDK.md)]
+[<span data-ttu-id="4ee29-113">.NET core 2.2 SDK veya üzeri</span><span class="sxs-lookup"><span data-stu-id="4ee29-113">.NET Core 2.2 SDK or later</span></span>](https://www.microsoft.com/net/download/all)
 
-## <a name="create-a-web--app-and-scaffold-identity"></a><span data-ttu-id="38130-113">Bir web uygulaması oluşturma ve kimlik iskelesini</span><span class="sxs-lookup"><span data-stu-id="38130-113">Create a web  app and scaffold Identity</span></span>
+## <a name="create-a-web--app-and-scaffold-identity"></a><span data-ttu-id="4ee29-114">Bir web uygulaması oluşturma ve kimlik iskelesini</span><span class="sxs-lookup"><span data-stu-id="4ee29-114">Create a web  app and scaffold Identity</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="38130-114">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="38130-114">Visual Studio</span></span>](#tab/visual-studio) 
-
-* <span data-ttu-id="38130-115">Visual Studio'da yeni bir oluşturma **Web uygulaması** adlı proje **WebPWrecover**.</span><span class="sxs-lookup"><span data-stu-id="38130-115">In Visual Studio, create a new **Web Application** project named **WebPWrecover**.</span></span>
-* <span data-ttu-id="38130-116">Seçin **ASP.NET Core 2.1**.</span><span class="sxs-lookup"><span data-stu-id="38130-116">Select **ASP.NET Core 2.1**.</span></span>
-* <span data-ttu-id="38130-117">Varsayılan tutun **kimlik doğrulaması** kümesine **kimlik doğrulaması yok**.</span><span class="sxs-lookup"><span data-stu-id="38130-117">Keep the default **Authentication** set to **No Authentication**.</span></span> <span data-ttu-id="38130-118">Kimlik doğrulaması, bir sonraki adımda eklenir.</span><span class="sxs-lookup"><span data-stu-id="38130-118">Authentication is added in the next step.</span></span>
-
-<span data-ttu-id="38130-119">Sonraki adımda:</span><span class="sxs-lookup"><span data-stu-id="38130-119">In the next step:</span></span>
-
-* <span data-ttu-id="38130-120">Düzen sayfası kümesine *~/Pages/Shared/_Layout.cshtml*</span><span class="sxs-lookup"><span data-stu-id="38130-120">Set the layout page to *~/Pages/Shared/_Layout.cshtml*</span></span>
-* <span data-ttu-id="38130-121">Seçin *hesabı/kaydı*</span><span class="sxs-lookup"><span data-stu-id="38130-121">Select *Account/Register*</span></span>
-* <span data-ttu-id="38130-122">Yeni bir **veri bağlamı sınıfı**</span><span class="sxs-lookup"><span data-stu-id="38130-122">Create a new **Data context class**</span></span>
-
-# <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="38130-123">.NET Core CLI</span><span class="sxs-lookup"><span data-stu-id="38130-123">.NET Core CLI</span></span>](#tab/netcore-cli)
+<span data-ttu-id="4ee29-115">Kimlik doğrulaması ile bir web uygulaması oluşturmak için aşağıdaki komutları çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="4ee29-115">Run the following commands to create a web app with authentication.</span></span>
 
 ```console
-dotnet new webapp -o WebPWrecover
+dotnet new webapp -au Individual -uld -o WebPWrecover
 cd WebPWrecover
-dotnet tool install -g dotnet-aspnet-codegenerator
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 dotnet restore
-dotnet aspnet-codegenerator identity -fi Account.Register -dc WebPWrecover.Models.WebPWrecoverContext
-dotnet ef migrations add CreateIdentitySchema
+dotnet aspnet-codegenerator identity -dc WebPWrecover.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout;Account.ConfirmEmail
 dotnet ef database drop -f
 dotnet ef database update
-dotnet build
+dotnet run
+
 ```
 
-<span data-ttu-id="38130-124">Çalıştırma `dotnet aspnet-codegenerator identity --help` yapı iskelesi aracın Yardım almak için.</span><span class="sxs-lookup"><span data-stu-id="38130-124">Run `dotnet aspnet-codegenerator identity --help` to get help on the scaffolding tool.</span></span>
+## <a name="test-new-user-registration"></a><span data-ttu-id="4ee29-116">Test yeni kullanıcı kaydı</span><span class="sxs-lookup"><span data-stu-id="4ee29-116">Test new user registration</span></span>
 
-------
-
-<span data-ttu-id="38130-125">Bölümündeki yönergeleri [kimlik doğrulamasını etkinleştirme](xref:security/authentication/scaffold-identity#useauthentication):</span><span class="sxs-lookup"><span data-stu-id="38130-125">Follow the instructions in [Enable authentication](xref:security/authentication/scaffold-identity#useauthentication):</span></span>
-
-* <span data-ttu-id="38130-126">Ekleme `app.UseAuthentication();` için `Startup.Configure`</span><span class="sxs-lookup"><span data-stu-id="38130-126">Add `app.UseAuthentication();` to `Startup.Configure`</span></span>
-* <span data-ttu-id="38130-127">Ekleme `<partial name="_LoginPartial" />` Düzen dosyası için.</span><span class="sxs-lookup"><span data-stu-id="38130-127">Add `<partial name="_LoginPartial" />` to the layout file.</span></span>
-
-## <a name="test-new-user-registration"></a><span data-ttu-id="38130-128">Test yeni kullanıcı kaydı</span><span class="sxs-lookup"><span data-stu-id="38130-128">Test new user registration</span></span>
-
-<span data-ttu-id="38130-129">Uygulamayı çalıştırın, seçin **kaydetme** bağlamak ve bir kullanıcı kaydı.</span><span class="sxs-lookup"><span data-stu-id="38130-129">Run the app, select the **Register** link, and register a user.</span></span> <span data-ttu-id="38130-130">Yalnızca e-posta doğrulamasını bu noktada, olan [[EmailAddress]](/dotnet/api/system.componentmodel.dataannotations.emailaddressattribute) özniteliği.</span><span class="sxs-lookup"><span data-stu-id="38130-130">At this point, the only validation on the email is with the [[EmailAddress]](/dotnet/api/system.componentmodel.dataannotations.emailaddressattribute) attribute.</span></span> <span data-ttu-id="38130-131">Kayıt gönderdikten sonra uygulamaya günlüğe kaydedilir.</span><span class="sxs-lookup"><span data-stu-id="38130-131">After submitting the registration, you are logged into the app.</span></span> <span data-ttu-id="38130-132">Yeni kullanıcıların e-postasına doğrulanır kadar oturum açamazsınız için öğreticinin sonraki bölümlerinde kod güncelleştirilir.</span><span class="sxs-lookup"><span data-stu-id="38130-132">Later in the tutorial, the code is updated so new users can't sign in until their email is validated.</span></span>
+<span data-ttu-id="4ee29-117">Uygulamayı çalıştırın, seçin **kaydetme** bağlamak ve bir kullanıcı kaydı.</span><span class="sxs-lookup"><span data-stu-id="4ee29-117">Run the app, select the **Register** link, and register a user.</span></span> <span data-ttu-id="4ee29-118">Yalnızca e-posta doğrulamasını bu noktada, olan [[EmailAddress]](/dotnet/api/system.componentmodel.dataannotations.emailaddressattribute) özniteliği.</span><span class="sxs-lookup"><span data-stu-id="4ee29-118">At this point, the only validation on the email is with the [[EmailAddress]](/dotnet/api/system.componentmodel.dataannotations.emailaddressattribute) attribute.</span></span> <span data-ttu-id="4ee29-119">Kayıt gönderdikten sonra uygulamaya günlüğe kaydedilir.</span><span class="sxs-lookup"><span data-stu-id="4ee29-119">After submitting the registration, you are logged into the app.</span></span> <span data-ttu-id="4ee29-120">Yeni kullanıcıların e-postasına doğrulanır kadar oturum açamazsınız için öğreticinin sonraki bölümlerinde kod güncelleştirilir.</span><span class="sxs-lookup"><span data-stu-id="4ee29-120">Later in the tutorial, the code is updated so new users can't sign in until their email is validated.</span></span>
 
 [!INCLUDE[](~/includes/view-identity-db.md)]
 
-<span data-ttu-id="38130-133">Tablonun Not `EmailConfirmed` alandır `False`.</span><span class="sxs-lookup"><span data-stu-id="38130-133">Note the table's `EmailConfirmed` field is `False`.</span></span>
+<span data-ttu-id="4ee29-121">Tablonun Not `EmailConfirmed` alandır `False`.</span><span class="sxs-lookup"><span data-stu-id="4ee29-121">Note the table's `EmailConfirmed` field is `False`.</span></span>
 
-<span data-ttu-id="38130-134">Bu e-posta uygulaması bir onay e-posta gönderdiğinde, yeniden sonraki adımda kullanmak isteyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="38130-134">You might want to use this email again in the next step when the app sends a confirmation email.</span></span> <span data-ttu-id="38130-135">Sağ tıklatın ve satır **Sil**.</span><span class="sxs-lookup"><span data-stu-id="38130-135">Right-click on the row and select **Delete**.</span></span> <span data-ttu-id="38130-136">E-posta diğer adı silmek, aşağıdaki adımlarda kolaylaştırır.</span><span class="sxs-lookup"><span data-stu-id="38130-136">Deleting the email alias makes it easier in the following steps.</span></span>
+<span data-ttu-id="4ee29-122">Bu e-posta uygulaması bir onay e-posta gönderdiğinde, yeniden sonraki adımda kullanmak isteyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="4ee29-122">You might want to use this email again in the next step when the app sends a confirmation email.</span></span> <span data-ttu-id="4ee29-123">Sağ tıklatın ve satır **Sil**.</span><span class="sxs-lookup"><span data-stu-id="4ee29-123">Right-click on the row and select **Delete**.</span></span> <span data-ttu-id="4ee29-124">E-posta diğer adı silmek, aşağıdaki adımlarda kolaylaştırır.</span><span class="sxs-lookup"><span data-stu-id="4ee29-124">Deleting the email alias makes it easier in the following steps.</span></span>
 
 <a name="prevent-login-at-registration"></a>
-## <a name="require-email-confirmation"></a><span data-ttu-id="38130-137">E-posta onayı gerektir</span><span class="sxs-lookup"><span data-stu-id="38130-137">Require email confirmation</span></span>
+## <a name="require-email-confirmation"></a><span data-ttu-id="4ee29-125">E-posta onayı gerektir</span><span class="sxs-lookup"><span data-stu-id="4ee29-125">Require email confirmation</span></span>
 
-<span data-ttu-id="38130-138">Yeni bir kullanıcı kaydı e-postayı onaylamak için iyi bir uygulamadır.</span><span class="sxs-lookup"><span data-stu-id="38130-138">It's a best practice to confirm the email of a new user registration.</span></span> <span data-ttu-id="38130-139">E-posta, bunlar değil kimliğe bürünerek başka birisi doğrulamak için onay yardımcı olur (diğer bir deyişle, bunlar başka birinin e-posta ile kayıtlı olmayabilirsiniz).</span><span class="sxs-lookup"><span data-stu-id="38130-139">Email confirmation helps to verify they're not impersonating someone else (that is, they haven't registered with someone else's email).</span></span> <span data-ttu-id="38130-140">Tartışma Forumu var ve bu önlemek istediğinizi varsayalım "yli@example.com"olarak kaydetme"Kimdennolivetto@contoso.com".</span><span class="sxs-lookup"><span data-stu-id="38130-140">Suppose you had a discussion forum, and you wanted to prevent "yli@example.com" from registering as "nolivetto@contoso.com".</span></span> <span data-ttu-id="38130-141">E-posta onayı olmadan "nolivetto@contoso.com" istenmeyen e-posta uygulamanızdan alabilir.</span><span class="sxs-lookup"><span data-stu-id="38130-141">Without email confirmation, "nolivetto@contoso.com" could receive unwanted email from your app.</span></span> <span data-ttu-id="38130-142">Kullanıcı olarak yanlışlıkla kayıtlı varsayalım "ylo@example.com" ve "yli", yazım hatası fark yüklediniz.</span><span class="sxs-lookup"><span data-stu-id="38130-142">Suppose the user accidentally registered as "ylo@example.com" and hadn't noticed the misspelling of "yli".</span></span> <span data-ttu-id="38130-143">Parola kurtarma uygulamayı doğru e-postasına olmadığından bunlar saptayamazdınız.</span><span class="sxs-lookup"><span data-stu-id="38130-143">They wouldn't be able to use password recovery because the app doesn't have their correct email.</span></span> <span data-ttu-id="38130-144">E-posta onayı robotlar sınırlı koruma sağlar.</span><span class="sxs-lookup"><span data-stu-id="38130-144">Email confirmation provides limited protection from bots.</span></span> <span data-ttu-id="38130-145">E-posta onayı, çok sayıda e-posta hesaplarına sahip kötü niyetli kullanıcıların koruma sağlamaz.</span><span class="sxs-lookup"><span data-stu-id="38130-145">Email confirmation doesn't provide protection from malicious users with many email accounts.</span></span>
+<span data-ttu-id="4ee29-126">Yeni bir kullanıcı kaydı e-postayı onaylamak için iyi bir uygulamadır.</span><span class="sxs-lookup"><span data-stu-id="4ee29-126">It's a best practice to confirm the email of a new user registration.</span></span> <span data-ttu-id="4ee29-127">E-posta, bunlar değil kimliğe bürünerek başka birisi doğrulamak için onay yardımcı olur (diğer bir deyişle, bunlar başka birinin e-posta ile kayıtlı olmayabilirsiniz).</span><span class="sxs-lookup"><span data-stu-id="4ee29-127">Email confirmation helps to verify they're not impersonating someone else (that is, they haven't registered with someone else's email).</span></span> <span data-ttu-id="4ee29-128">Tartışma Forumu var ve bu önlemek istediğinizi varsayalım "yli@example.com"olarak kaydetme"Kimdennolivetto@contoso.com".</span><span class="sxs-lookup"><span data-stu-id="4ee29-128">Suppose you had a discussion forum, and you wanted to prevent "yli@example.com" from registering as "nolivetto@contoso.com".</span></span> <span data-ttu-id="4ee29-129">E-posta onayı olmadan "nolivetto@contoso.com" istenmeyen e-posta uygulamanızdan alabilir.</span><span class="sxs-lookup"><span data-stu-id="4ee29-129">Without email confirmation, "nolivetto@contoso.com" could receive unwanted email from your app.</span></span> <span data-ttu-id="4ee29-130">Kullanıcı olarak yanlışlıkla kayıtlı varsayalım "ylo@example.com" ve "yli", yazım hatası fark yüklediniz.</span><span class="sxs-lookup"><span data-stu-id="4ee29-130">Suppose the user accidentally registered as "ylo@example.com" and hadn't noticed the misspelling of "yli".</span></span> <span data-ttu-id="4ee29-131">Parola kurtarma uygulamayı doğru e-postasına olmadığından bunlar saptayamazdınız.</span><span class="sxs-lookup"><span data-stu-id="4ee29-131">They wouldn't be able to use password recovery because the app doesn't have their correct email.</span></span> <span data-ttu-id="4ee29-132">E-posta onayı robotlar sınırlı koruma sağlar.</span><span class="sxs-lookup"><span data-stu-id="4ee29-132">Email confirmation provides limited protection from bots.</span></span> <span data-ttu-id="4ee29-133">E-posta onayı, çok sayıda e-posta hesaplarına sahip kötü niyetli kullanıcıların koruma sağlamaz.</span><span class="sxs-lookup"><span data-stu-id="4ee29-133">Email confirmation doesn't provide protection from malicious users with many email accounts.</span></span>
 
-<span data-ttu-id="38130-146">Genellikle, yeni kullanıcıların onaylanan e-posta sahip oldukları önce web sitenizi herhangi bir veri gönderme engellemek istiyorsunuz.</span><span class="sxs-lookup"><span data-stu-id="38130-146">You generally want to prevent new users from posting any data to your web site before they have a confirmed email.</span></span>
+<span data-ttu-id="4ee29-134">Genellikle, yeni kullanıcıların onaylanan e-posta sahip oldukları önce web sitenizi herhangi bir veri gönderme engellemek istiyorsunuz.</span><span class="sxs-lookup"><span data-stu-id="4ee29-134">You generally want to prevent new users from posting any data to your web site before they have a confirmed email.</span></span>
 
-<span data-ttu-id="38130-147">Güncelleştirme *Areas/Identity/IdentityHostingStartup.cs* onaylanan e-posta gerektirmek için:</span><span class="sxs-lookup"><span data-stu-id="38130-147">Update *Areas/Identity/IdentityHostingStartup.cs*  to require a confirmed email:</span></span>
+<span data-ttu-id="4ee29-135">Güncelleştirme `Startup.ConfigureServices` onaylanan e-posta gerektirmek için:</span><span class="sxs-lookup"><span data-stu-id="4ee29-135">Update `Startup.ConfigureServices`  to require a confirmed email:</span></span>
 
-[!code-csharp[](accconfirm/sample/WebPWrecover21/Areas/Identity/IdentityHostingStartup.cs?name=snippet1&highlight=10-13)]
+[!code-csharp[](accconfirm/sample/WebPWrecover22/Startup.cs?name=snippet1&highlight=8-11)]
 
-<span data-ttu-id="38130-148">`config.SignIn.RequireConfirmedEmail = true;` kayıtlı kullanıcıların e-postasına onaylanana kadar oturum açma engeller.</span><span class="sxs-lookup"><span data-stu-id="38130-148">`config.SignIn.RequireConfirmedEmail = true;` prevents registered users from logging in until their email is confirmed.</span></span>
+<span data-ttu-id="4ee29-136">`config.SignIn.RequireConfirmedEmail = true;` kayıtlı kullanıcıların e-postasına onaylanana kadar oturum açma engeller.</span><span class="sxs-lookup"><span data-stu-id="4ee29-136">`config.SignIn.RequireConfirmedEmail = true;` prevents registered users from logging in until their email is confirmed.</span></span>
 
-### <a name="configure-email-provider"></a><span data-ttu-id="38130-149">E-posta sağlayıcısı yapılandırma</span><span class="sxs-lookup"><span data-stu-id="38130-149">Configure email provider</span></span>
+### <a name="configure-email-provider"></a><span data-ttu-id="4ee29-137">E-posta sağlayıcısı yapılandırma</span><span class="sxs-lookup"><span data-stu-id="4ee29-137">Configure email provider</span></span>
 
-<span data-ttu-id="38130-150">Bu öğreticide [SendGrid](https://sendgrid.com) e-posta göndermek için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="38130-150">In this tutorial, [SendGrid](https://sendgrid.com) is used to send email.</span></span> <span data-ttu-id="38130-151">SendGrid hesabı ve e-posta göndermek için anahtar ihtiyacınız var.</span><span class="sxs-lookup"><span data-stu-id="38130-151">You need a SendGrid account and key to send email.</span></span> <span data-ttu-id="38130-152">Diğer e-posta sağlayıcılarının kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="38130-152">You can use other email providers.</span></span> <span data-ttu-id="38130-153">ASP.NET Core 2.x içerir `System.Net.Mail`, uygulamanızdan e-posta göndermenize olanak tanıyan.</span><span class="sxs-lookup"><span data-stu-id="38130-153">ASP.NET Core 2.x includes `System.Net.Mail`, which allows you to send email from your app.</span></span> <span data-ttu-id="38130-154">E-posta göndermek için SendGrid veya başka bir e-posta hizmeti kullanmanızı öneririz.</span><span class="sxs-lookup"><span data-stu-id="38130-154">We recommend you use SendGrid or another email service to send email.</span></span> <span data-ttu-id="38130-155">SMTP güvenli ve doğru bir şekilde ayarlamak zordur.</span><span class="sxs-lookup"><span data-stu-id="38130-155">SMTP is difficult to secure and set up correctly.</span></span>
+<span data-ttu-id="4ee29-138">Bu öğreticide [SendGrid](https://sendgrid.com) e-posta göndermek için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="4ee29-138">In this tutorial, [SendGrid](https://sendgrid.com) is used to send email.</span></span> <span data-ttu-id="4ee29-139">SendGrid hesabı ve e-posta göndermek için anahtar ihtiyacınız var.</span><span class="sxs-lookup"><span data-stu-id="4ee29-139">You need a SendGrid account and key to send email.</span></span> <span data-ttu-id="4ee29-140">Diğer e-posta sağlayıcılarının kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="4ee29-140">You can use other email providers.</span></span> <span data-ttu-id="4ee29-141">ASP.NET Core 2.x içerir `System.Net.Mail`, uygulamanızdan e-posta göndermenize olanak tanıyan.</span><span class="sxs-lookup"><span data-stu-id="4ee29-141">ASP.NET Core 2.x includes `System.Net.Mail`, which allows you to send email from your app.</span></span> <span data-ttu-id="4ee29-142">E-posta göndermek için SendGrid veya başka bir e-posta hizmeti kullanmanızı öneririz.</span><span class="sxs-lookup"><span data-stu-id="4ee29-142">We recommend you use SendGrid or another email service to send email.</span></span> <span data-ttu-id="4ee29-143">SMTP güvenli ve doğru bir şekilde ayarlamak zordur.</span><span class="sxs-lookup"><span data-stu-id="4ee29-143">SMTP is difficult to secure and set up correctly.</span></span>
 
-<span data-ttu-id="38130-156">Güvenli e-posta anahtarı almak için bir sınıf oluşturun.</span><span class="sxs-lookup"><span data-stu-id="38130-156">Create a class to fetch the secure email key.</span></span> <span data-ttu-id="38130-157">Bu örnek için oluşturma *Services/AuthMessageSenderOptions.cs*:</span><span class="sxs-lookup"><span data-stu-id="38130-157">For this sample, create *Services/AuthMessageSenderOptions.cs*:</span></span>
+<span data-ttu-id="4ee29-144">Güvenli e-posta anahtarı almak için bir sınıf oluşturun.</span><span class="sxs-lookup"><span data-stu-id="4ee29-144">Create a class to fetch the secure email key.</span></span> <span data-ttu-id="4ee29-145">Bu örnek için oluşturma *Services/AuthMessageSenderOptions.cs*:</span><span class="sxs-lookup"><span data-stu-id="4ee29-145">For this sample, create *Services/AuthMessageSenderOptions.cs*:</span></span>
 
-[!code-csharp[](accconfirm/sample/WebPWrecover21/Services/AuthMessageSenderOptions.cs?name=snippet1)]
+[!code-csharp[](accconfirm/sample/WebPWrecover22/Services/AuthMessageSenderOptions.cs?name=snippet1)]
 
-#### <a name="configure-sendgrid-user-secrets"></a><span data-ttu-id="38130-158">SendGrid kullanıcı parolaları yapılandırın</span><span class="sxs-lookup"><span data-stu-id="38130-158">Configure SendGrid user secrets</span></span>
+#### <a name="configure-sendgrid-user-secrets"></a><span data-ttu-id="4ee29-146">SendGrid kullanıcı parolaları yapılandırın</span><span class="sxs-lookup"><span data-stu-id="4ee29-146">Configure SendGrid user secrets</span></span>
 
-<span data-ttu-id="38130-159">Benzersiz bir ekleme `<UserSecretsId>` değerini `<PropertyGroup>` proje dosyasının öğe:</span><span class="sxs-lookup"><span data-stu-id="38130-159">Add a unique `<UserSecretsId>` value to the `<PropertyGroup>` element of the project file:</span></span>
-
-[!code-xml[](accconfirm/sample/WebPWrecover21/WebPWrecover.csproj?highlight=5)]
-
-<span data-ttu-id="38130-160">Ayarlama `SendGridUser` ve `SendGridKey` ile [gizli dizi Yöneticisi aracını](xref:security/app-secrets).</span><span class="sxs-lookup"><span data-stu-id="38130-160">Set the `SendGridUser` and `SendGridKey` with the [secret-manager tool](xref:security/app-secrets).</span></span> <span data-ttu-id="38130-161">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="38130-161">For example:</span></span>
+<span data-ttu-id="4ee29-147">Ayarlama `SendGridUser` ve `SendGridKey` ile [gizli dizi Yöneticisi aracını](xref:security/app-secrets).</span><span class="sxs-lookup"><span data-stu-id="4ee29-147">Set the `SendGridUser` and `SendGridKey` with the [secret-manager tool](xref:security/app-secrets).</span></span> <span data-ttu-id="4ee29-148">Örneğin:</span><span class="sxs-lookup"><span data-stu-id="4ee29-148">For example:</span></span>
 
 ```console
 C:/WebAppl>dotnet user-secrets set SendGridUser RickAndMSFT
 info: Successfully saved SendGridUser = RickAndMSFT to the secret store.
 ```
 
-<span data-ttu-id="38130-162">Windows üzerinde gizli dizi Yöneticisi'ni anahtar/değer çiftleri olarak depolar. bir *secrets.json* dosyası `%APPDATA%/Microsoft/UserSecrets/<WebAppName-userSecretsId>` dizin.</span><span class="sxs-lookup"><span data-stu-id="38130-162">On Windows, Secret Manager stores keys/value pairs in a *secrets.json* file in the `%APPDATA%/Microsoft/UserSecrets/<WebAppName-userSecretsId>` directory.</span></span>
+<span data-ttu-id="4ee29-149">Windows üzerinde gizli dizi Yöneticisi'ni anahtar/değer çiftleri olarak depolar. bir *secrets.json* dosyası `%APPDATA%/Microsoft/UserSecrets/<WebAppName-userSecretsId>` dizin.</span><span class="sxs-lookup"><span data-stu-id="4ee29-149">On Windows, Secret Manager stores keys/value pairs in a *secrets.json* file in the `%APPDATA%/Microsoft/UserSecrets/<WebAppName-userSecretsId>` directory.</span></span>
 
-<span data-ttu-id="38130-163">İçeriğini *secrets.json* olmayan dosya şifrelenmiş.</span><span class="sxs-lookup"><span data-stu-id="38130-163">The contents of the *secrets.json* file aren't encrypted.</span></span> <span data-ttu-id="38130-164">*Secrets.json* aşağıda gösterilmektedir dosyanın ( `SendGridKey` değer kaldırıldı.)</span><span class="sxs-lookup"><span data-stu-id="38130-164">The *secrets.json* file is shown below (the `SendGridKey` value has been removed.)</span></span>
+<span data-ttu-id="4ee29-150">İçeriğini *secrets.json* olmayan dosya şifrelenmiş.</span><span class="sxs-lookup"><span data-stu-id="4ee29-150">The contents of the *secrets.json* file aren't encrypted.</span></span> <span data-ttu-id="4ee29-151">Aşağıdaki biçimlendirme gösterildiği *secrets.json* dosya.</span><span class="sxs-lookup"><span data-stu-id="4ee29-151">The following markup shows the *secrets.json* file.</span></span> <span data-ttu-id="4ee29-152">`SendGridKey` Değer kaldırıldı.</span><span class="sxs-lookup"><span data-stu-id="4ee29-152">The `SendGridKey` value has been removed.</span></span>
 
  ```json
   {
@@ -129,25 +103,25 @@ info: Successfully saved SendGridUser = RickAndMSFT to the secret store.
   }
   ```
  
-<span data-ttu-id="38130-165">Daha fazla bilgi için [seçenekleri deseni](xref:fundamentals/configuration/options) ve [yapılandırma](xref:fundamentals/configuration/index).</span><span class="sxs-lookup"><span data-stu-id="38130-165">For more information, see the [Options pattern](xref:fundamentals/configuration/options) and [configuration](xref:fundamentals/configuration/index).</span></span>
+<span data-ttu-id="4ee29-153">Daha fazla bilgi için [seçenekleri deseni](xref:fundamentals/configuration/options) ve [yapılandırma](xref:fundamentals/configuration/index).</span><span class="sxs-lookup"><span data-stu-id="4ee29-153">For more information, see the [Options pattern](xref:fundamentals/configuration/options) and [configuration](xref:fundamentals/configuration/index).</span></span>
 
-### <a name="install-sendgrid"></a><span data-ttu-id="38130-166">SendGrid yükleyin</span><span class="sxs-lookup"><span data-stu-id="38130-166">Install SendGrid</span></span>
+### <a name="install-sendgrid"></a><span data-ttu-id="4ee29-154">SendGrid yükleyin</span><span class="sxs-lookup"><span data-stu-id="4ee29-154">Install SendGrid</span></span>
 
-<span data-ttu-id="38130-167">Bu öğretici, e-posta bildirimleri aracılığıyla ekleneceği gösterilmiştir [SendGrid](https://sendgrid.com/), ancak e-posta SMTP veya başka mekanizmalar kullanılarak gönderebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="38130-167">This tutorial shows how to add email notifications through [SendGrid](https://sendgrid.com/), but you can send email using SMTP and other mechanisms.</span></span>
+<span data-ttu-id="4ee29-155">Bu öğretici, e-posta bildirimleri aracılığıyla ekleneceği gösterilmiştir [SendGrid](https://sendgrid.com/), ancak e-posta SMTP veya başka mekanizmalar kullanılarak gönderebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="4ee29-155">This tutorial shows how to add email notifications through [SendGrid](https://sendgrid.com/), but you can send email using SMTP and other mechanisms.</span></span>
 
-<span data-ttu-id="38130-168">Yükleme `SendGrid` NuGet paketi:</span><span class="sxs-lookup"><span data-stu-id="38130-168">Install the `SendGrid` NuGet package:</span></span>
+<span data-ttu-id="4ee29-156">Yükleme `SendGrid` NuGet paketi:</span><span class="sxs-lookup"><span data-stu-id="4ee29-156">Install the `SendGrid` NuGet package:</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="38130-169">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="38130-169">Visual Studio</span></span>](#tab/visual-studio) 
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="4ee29-157">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="4ee29-157">Visual Studio</span></span>](#tab/visual-studio)
 
-<span data-ttu-id="38130-170">Paket Yöneticisi konsolundan aşağıdaki komutu girin:</span><span class="sxs-lookup"><span data-stu-id="38130-170">From the Package Manager Console, enter the following command:</span></span>
+<span data-ttu-id="4ee29-158">Paket Yöneticisi konsolundan aşağıdaki komutu girin:</span><span class="sxs-lookup"><span data-stu-id="4ee29-158">From the Package Manager Console, enter the following command:</span></span>
 
 ``` PMC
 Install-Package SendGrid
 ```
 
-# <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="38130-171">.NET Core CLI</span><span class="sxs-lookup"><span data-stu-id="38130-171">.NET Core CLI</span></span>](#tab/netcore-cli)
+# <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="4ee29-159">.NET Core CLI</span><span class="sxs-lookup"><span data-stu-id="4ee29-159">.NET Core CLI</span></span>](#tab/netcore-cli)
 
-<span data-ttu-id="38130-172">Konsolundan aşağıdaki komutu girin:</span><span class="sxs-lookup"><span data-stu-id="38130-172">From the console, enter the following command:</span></span>
+<span data-ttu-id="4ee29-160">Konsolundan aşağıdaki komutu girin:</span><span class="sxs-lookup"><span data-stu-id="4ee29-160">From the console, enter the following command:</span></span>
 
 ```cli
 dotnet add package SendGrid
@@ -155,104 +129,126 @@ dotnet add package SendGrid
 
 ------
 
-<span data-ttu-id="38130-173">Bkz: [SendGrid ile ücretsiz olarak kullanmaya başlayın](https://sendgrid.com/free/) ücretsiz SendGrid hesabı kaydedilecek.</span><span class="sxs-lookup"><span data-stu-id="38130-173">See [Get Started with SendGrid for Free](https://sendgrid.com/free/) to register for a free SendGrid account.</span></span>
-### <a name="implement-iemailsender"></a><span data-ttu-id="38130-174">IEmailSender uygulayın</span><span class="sxs-lookup"><span data-stu-id="38130-174">Implement IEmailSender</span></span>
+<span data-ttu-id="4ee29-161">Bkz: [SendGrid ile ücretsiz olarak kullanmaya başlayın](https://sendgrid.com/free/) ücretsiz SendGrid hesabı kaydedilecek.</span><span class="sxs-lookup"><span data-stu-id="4ee29-161">See [Get Started with SendGrid for Free](https://sendgrid.com/free/) to register for a free SendGrid account.</span></span>
+### <a name="implement-iemailsender"></a><span data-ttu-id="4ee29-162">IEmailSender uygulayın</span><span class="sxs-lookup"><span data-stu-id="4ee29-162">Implement IEmailSender</span></span>
 
-<span data-ttu-id="38130-175">Uygulama için `IEmailSender`, oluşturma *Services/EmailSender.cs* kodu aşağıdakine benzer:</span><span class="sxs-lookup"><span data-stu-id="38130-175">To Implement `IEmailSender`, create *Services/EmailSender.cs* with code similar to the following:</span></span>
+<span data-ttu-id="4ee29-163">Uygulama için `IEmailSender`, oluşturma *Services/EmailSender.cs* kodu aşağıdakine benzer:</span><span class="sxs-lookup"><span data-stu-id="4ee29-163">To Implement `IEmailSender`, create *Services/EmailSender.cs* with code similar to the following:</span></span>
 
-[!code-csharp[](accconfirm/sample/WebPWrecover21/Services/EmailSender.cs)]
+[!code-csharp[](accconfirm/sample/WebPWrecover22/Services/EmailSender.cs)]
 
-### <a name="configure-startup-to-support-email"></a><span data-ttu-id="38130-176">Başlangıç e-posta destekleyecek şekilde yapılandırma</span><span class="sxs-lookup"><span data-stu-id="38130-176">Configure startup to support email</span></span>
+### <a name="configure-startup-to-support-email"></a><span data-ttu-id="4ee29-164">Başlangıç e-posta destekleyecek şekilde yapılandırma</span><span class="sxs-lookup"><span data-stu-id="4ee29-164">Configure startup to support email</span></span>
 
-<span data-ttu-id="38130-177">Aşağıdaki kodu ekleyin `ConfigureServices` yönteminde *Startup.cs* dosyası:</span><span class="sxs-lookup"><span data-stu-id="38130-177">Add the following code to the `ConfigureServices` method in the *Startup.cs* file:</span></span>
+<span data-ttu-id="4ee29-165">Aşağıdaki kodu ekleyin `ConfigureServices` yönteminde *Startup.cs* dosyası:</span><span class="sxs-lookup"><span data-stu-id="4ee29-165">Add the following code to the `ConfigureServices` method in the *Startup.cs* file:</span></span>
 
-* <span data-ttu-id="38130-178">Ekleme `EmailSender` geçici bir hizmet olarak.</span><span class="sxs-lookup"><span data-stu-id="38130-178">Add `EmailSender` as a transient service.</span></span>
-* <span data-ttu-id="38130-179">Kayıt `AuthMessageSenderOptions` yapılandırma örneği.</span><span class="sxs-lookup"><span data-stu-id="38130-179">Register the `AuthMessageSenderOptions` configuration instance.</span></span>
+* <span data-ttu-id="4ee29-166">Ekleme `EmailSender` geçici bir hizmet olarak.</span><span class="sxs-lookup"><span data-stu-id="4ee29-166">Add `EmailSender` as a transient service.</span></span>
+* <span data-ttu-id="4ee29-167">Kayıt `AuthMessageSenderOptions` yapılandırma örneği.</span><span class="sxs-lookup"><span data-stu-id="4ee29-167">Register the `AuthMessageSenderOptions` configuration instance.</span></span>
 
-[!code-csharp[](accconfirm/sample/WebPWrecover21/Startup.cs?name=snippet2&highlight=12-99)]
+[!code-csharp[](accconfirm/sample/WebPWrecover22/Startup.cs?name=snippet1&highlight=15-99)]
 
-## <a name="enable-account-confirmation-and-password-recovery"></a><span data-ttu-id="38130-180">Hesap onaylama ve parola kurtarmayı etkinleştir</span><span class="sxs-lookup"><span data-stu-id="38130-180">Enable account confirmation and password recovery</span></span>
+## <a name="enable-account-confirmation-and-password-recovery"></a><span data-ttu-id="4ee29-168">Hesap onaylama ve parola kurtarmayı etkinleştir</span><span class="sxs-lookup"><span data-stu-id="4ee29-168">Enable account confirmation and password recovery</span></span>
 
-<span data-ttu-id="38130-181">Şablon hesap onaylama ve parola kurtarma kodu var.</span><span class="sxs-lookup"><span data-stu-id="38130-181">The template has the code for account confirmation and password recovery.</span></span> <span data-ttu-id="38130-182">Bulma `OnPostAsync` yönteminde *Areas/Identity/Pages/Account/Register.cshtml.cs*.</span><span class="sxs-lookup"><span data-stu-id="38130-182">Find the `OnPostAsync` method in *Areas/Identity/Pages/Account/Register.cshtml.cs*.</span></span>
+<span data-ttu-id="4ee29-169">Şablon hesap onaylama ve parola kurtarma kodu var.</span><span class="sxs-lookup"><span data-stu-id="4ee29-169">The template has the code for account confirmation and password recovery.</span></span> <span data-ttu-id="4ee29-170">Bulma `OnPostAsync` yönteminde *Areas/Identity/Pages/Account/Register.cshtml.cs*.</span><span class="sxs-lookup"><span data-stu-id="4ee29-170">Find the `OnPostAsync` method in *Areas/Identity/Pages/Account/Register.cshtml.cs*.</span></span>
 
-<span data-ttu-id="38130-183">Yeni kaydettiğiniz kullanıcıların otomatik olarak aşağıdaki satırı açıklama satırı yaparak oturum engellemek:</span><span class="sxs-lookup"><span data-stu-id="38130-183">Prevent newly registered users from being automatically logged on by commenting out the following line:</span></span>
+<span data-ttu-id="4ee29-171">Yeni kaydettiğiniz kullanıcıların otomatik olarak aşağıdaki satırı açıklama satırı yaparak oturum açmayı engellemek:</span><span class="sxs-lookup"><span data-stu-id="4ee29-171">Prevent newly registered users from being automatically signed in by commenting out the following line:</span></span>
 
 ```csharp
 await _signInManager.SignInAsync(user, isPersistent: false);
 ```
 
-<span data-ttu-id="38130-184">Vurgulanmış satır ile tam yöntemi gösterilir:</span><span class="sxs-lookup"><span data-stu-id="38130-184">The complete method is shown with the changed line highlighted:</span></span>
+<span data-ttu-id="4ee29-172">Vurgulanmış satır ile tam yöntemi gösterilir:</span><span class="sxs-lookup"><span data-stu-id="4ee29-172">The complete method is shown with the changed line highlighted:</span></span>
 
-[!code-csharp[](accconfirm/sample/WebPWrecover21/Areas/Identity/Pages/Account/Register.cshtml.cs?highlight=22&name=snippet_Register)]
+[!code-csharp[](accconfirm/sample/WebPWrecover22/Areas/Identity/Pages/Account/Register.cshtml.cs?highlight=22&name=snippet_Register)]
 
-## <a name="register-confirm-email-and-reset-password"></a><span data-ttu-id="38130-185">Kaydetme, e-posta onayı ve parola sıfırlama</span><span class="sxs-lookup"><span data-stu-id="38130-185">Register, confirm email, and reset password</span></span>
+## <a name="register-confirm-email-and-reset-password"></a><span data-ttu-id="4ee29-173">Kaydetme, e-posta onayı ve parola sıfırlama</span><span class="sxs-lookup"><span data-stu-id="4ee29-173">Register, confirm email, and reset password</span></span>
 
-<span data-ttu-id="38130-186">Web uygulamasını çalıştırın ve hesap onaylama ve parola kurtarma akışı test edin.</span><span class="sxs-lookup"><span data-stu-id="38130-186">Run the web app, and test the account confirmation and password recovery flow.</span></span>
+<span data-ttu-id="4ee29-174">Web uygulamasını çalıştırın ve hesap onaylama ve parola kurtarma akışı test edin.</span><span class="sxs-lookup"><span data-stu-id="4ee29-174">Run the web app, and test the account confirmation and password recovery flow.</span></span>
 
-* <span data-ttu-id="38130-187">Uygulamayı çalıştırın ve yeni bir kullanıcı kaydı</span><span class="sxs-lookup"><span data-stu-id="38130-187">Run the app and register a new user</span></span>
+* <span data-ttu-id="4ee29-175">Uygulamayı çalıştırın ve yeni bir kullanıcı kaydı</span><span class="sxs-lookup"><span data-stu-id="4ee29-175">Run the app and register a new user</span></span>
+* <span data-ttu-id="4ee29-176">Hesap onay bağlantısı için e-postanızı kontrol edin.</span><span class="sxs-lookup"><span data-stu-id="4ee29-176">Check your email for the account confirmation link.</span></span> <span data-ttu-id="4ee29-177">Bkz: [hata ayıklama, e-posta](#debug) e-posta alırsanız yok.</span><span class="sxs-lookup"><span data-stu-id="4ee29-177">See [Debug email](#debug) if you don't get the email.</span></span>
+* <span data-ttu-id="4ee29-178">E-postanızı doğrulamak için bağlantıya tıklayın.</span><span class="sxs-lookup"><span data-stu-id="4ee29-178">Click the link to confirm your email.</span></span>
+* <span data-ttu-id="4ee29-179">E-postanıza ve parola ile oturum açın.</span><span class="sxs-lookup"><span data-stu-id="4ee29-179">Sign in with your email and password.</span></span>
+* <span data-ttu-id="4ee29-180">Oturumu kapatın.</span><span class="sxs-lookup"><span data-stu-id="4ee29-180">Sign out.</span></span>
 
-  ![Web uygulaması görünümü hesabı Kaydet](accconfirm/_static/loginaccconfirm1.png)
+### <a name="view-the-manage-page"></a><span data-ttu-id="4ee29-181">Yönet sayfasını görüntüle</span><span class="sxs-lookup"><span data-stu-id="4ee29-181">View the manage page</span></span>
 
-* <span data-ttu-id="38130-189">Hesap onay bağlantısı için e-postanızı kontrol edin.</span><span class="sxs-lookup"><span data-stu-id="38130-189">Check your email for the account confirmation link.</span></span> <span data-ttu-id="38130-190">Bkz: [hata ayıklama, e-posta](#debug) e-posta alırsanız yok.</span><span class="sxs-lookup"><span data-stu-id="38130-190">See [Debug email](#debug) if you don't get the email.</span></span>
-* <span data-ttu-id="38130-191">E-postanızı doğrulamak için bağlantıya tıklayın.</span><span class="sxs-lookup"><span data-stu-id="38130-191">Click the link to confirm your email.</span></span>
-* <span data-ttu-id="38130-192">E-postanıza ve parola ile oturum açın.</span><span class="sxs-lookup"><span data-stu-id="38130-192">Sign in with your email and password.</span></span>
-* <span data-ttu-id="38130-193">Oturumu kapatın.</span><span class="sxs-lookup"><span data-stu-id="38130-193">Sign out.</span></span>
+<span data-ttu-id="4ee29-182">Tarayıcıda kullanıcı adınızı seçin: ![tarayıcı penceresi ile kullanıcı adı](accconfirm/_static/un.png)</span><span class="sxs-lookup"><span data-stu-id="4ee29-182">Select your user name in the browser: ![browser window with user name](accconfirm/_static/un.png)</span></span>
 
-### <a name="view-the-manage-page"></a><span data-ttu-id="38130-194">Yönet sayfasını görüntüle</span><span class="sxs-lookup"><span data-stu-id="38130-194">View the manage page</span></span>
+<span data-ttu-id="4ee29-183">İle Yönet sayfasında görüntülenen **profili** sekmesi seçili.</span><span class="sxs-lookup"><span data-stu-id="4ee29-183">The manage page is displayed with the **Profile** tab selected.</span></span> <span data-ttu-id="4ee29-184">**E-posta** e-posta belirten bir onay kutusu onaylanan gösterir.</span><span class="sxs-lookup"><span data-stu-id="4ee29-184">The **Email** shows a check box indicating the email has been confirmed.</span></span>
 
-<span data-ttu-id="38130-195">Tarayıcıda kullanıcı adınızı seçin: ![tarayıcı penceresi ile kullanıcı adı](accconfirm/_static/un.png)</span><span class="sxs-lookup"><span data-stu-id="38130-195">Select your user name in the browser: ![browser window with user name](accconfirm/_static/un.png)</span></span>
+### <a name="test-password-reset"></a><span data-ttu-id="4ee29-185">Test parola sıfırlama</span><span class="sxs-lookup"><span data-stu-id="4ee29-185">Test password reset</span></span>
 
-<span data-ttu-id="38130-196">Kullanıcı adı görmek için Gezinti genişletmeniz gerekebilir.</span><span class="sxs-lookup"><span data-stu-id="38130-196">You might need to expand the navbar to see user name.</span></span>
+* <span data-ttu-id="4ee29-186">Oturum açmadıysanız, seçin **oturum kapatma**.</span><span class="sxs-lookup"><span data-stu-id="4ee29-186">If you're signed in, select **Logout**.</span></span>
+* <span data-ttu-id="4ee29-187">Seçin **oturum** seçin ve bağlama **parolanızı mı unuttunuz?** bağlantı.</span><span class="sxs-lookup"><span data-stu-id="4ee29-187">Select the **Log in** link and select the **Forgot your password?** link.</span></span>
+* <span data-ttu-id="4ee29-188">Hesap kaydolmak için kullandığınız e-posta girin.</span><span class="sxs-lookup"><span data-stu-id="4ee29-188">Enter the email you used to register the account.</span></span>
+* <span data-ttu-id="4ee29-189">Parolanızı sıfırlamak için bir bağlantı içeren bir e-posta gönderilir.</span><span class="sxs-lookup"><span data-stu-id="4ee29-189">An email with a link to reset your password is sent.</span></span> <span data-ttu-id="4ee29-190">E-postanızı kontrol edin ve parolanızı sıfırlamak için bağlantıya tıklayın.</span><span class="sxs-lookup"><span data-stu-id="4ee29-190">Check your email and click the link to reset your password.</span></span> <span data-ttu-id="4ee29-191">Parolanızı başarıyla sıfırladıktan sonra e-posta ve yeni bir parola ile oturum açabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="4ee29-191">After your password has been successfully reset, you can sign in with your email and new password.</span></span>
 
-![navbar](accconfirm/_static/x.png)
+## <a name="change-email-and-activity-timeout"></a><span data-ttu-id="4ee29-192">E-posta ve etkinlik zaman aşımı değiştirme</span><span class="sxs-lookup"><span data-stu-id="4ee29-192">Change email and activity timeout</span></span>
 
-<span data-ttu-id="38130-198">İle Yönet sayfasında görüntülenen **profili** sekmesi seçili.</span><span class="sxs-lookup"><span data-stu-id="38130-198">The manage page is displayed with the **Profile** tab selected.</span></span> <span data-ttu-id="38130-199">**E-posta** e-posta belirten bir onay kutusu onaylanan gösterir.</span><span class="sxs-lookup"><span data-stu-id="38130-199">The **Email** shows a check box indicating the email has been confirmed.</span></span>
+<span data-ttu-id="4ee29-193">Varsayılan boş durma zaman aşımı 14 gündür.</span><span class="sxs-lookup"><span data-stu-id="4ee29-193">The default inactivity timeout is 14 days.</span></span> <span data-ttu-id="4ee29-194">Aşağıdaki kod 5 gün etkin olmama zaman aşımı ayarlar:</span><span class="sxs-lookup"><span data-stu-id="4ee29-194">The following code sets the inactivity timeout to 5 days:</span></span>
 
-### <a name="test-password-reset"></a><span data-ttu-id="38130-200">Test parola sıfırlama</span><span class="sxs-lookup"><span data-stu-id="38130-200">Test password reset</span></span>
+[!code-csharp[](accconfirm/sample/WebPWrecover22/StartupAppCookie.cs?name=snippet1)]
 
-* <span data-ttu-id="38130-201">Oturum açmadıysanız, seçin **oturum kapatma**.</span><span class="sxs-lookup"><span data-stu-id="38130-201">If you're logged in, select **Logout**.</span></span>
-* <span data-ttu-id="38130-202">Seçin **oturum** seçin ve bağlama **parolanızı mı unuttunuz?** bağlantı.</span><span class="sxs-lookup"><span data-stu-id="38130-202">Select the **Log in** link and select the **Forgot your password?** link.</span></span>
-* <span data-ttu-id="38130-203">Hesap kaydolmak için kullandığınız e-posta girin.</span><span class="sxs-lookup"><span data-stu-id="38130-203">Enter the email you used to register the account.</span></span>
-* <span data-ttu-id="38130-204">Parolanızı sıfırlamak için bir bağlantı içeren bir e-posta gönderilir.</span><span class="sxs-lookup"><span data-stu-id="38130-204">An email with a link to reset your password is sent.</span></span> <span data-ttu-id="38130-205">E-postanızı kontrol edin ve parolanızı sıfırlamak için bağlantıya tıklayın.</span><span class="sxs-lookup"><span data-stu-id="38130-205">Check your email and click the link to reset your password.</span></span> <span data-ttu-id="38130-206">Parolanızı başarıyla sıfırladıktan sonra e-posta ve yeni bir parola ile oturum açabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="38130-206">After your password has been successfully reset, you can sign in with your email and new password.</span></span>
+### <a name="change-all-data-protection-token-lifespans"></a><span data-ttu-id="4ee29-195">Tüm veri koruma simge lifespans değiştirme</span><span class="sxs-lookup"><span data-stu-id="4ee29-195">Change all data protection token lifespans</span></span>
+
+<span data-ttu-id="4ee29-196">Aşağıdaki kod tüm veri koruma belirteçleri zaman aşımı süresi 3 saat olarak değiştirir:</span><span class="sxs-lookup"><span data-stu-id="4ee29-196">The following code changes all data protection tokens timeout period to 3 hours:</span></span>
+
+[!code-csharp[](accconfirm/sample/WebPWrecover22/StartupAllTokens.cs?name=snippet1&highlight=15-16)]
+
+<span data-ttu-id="4ee29-197">Yerleşik kimlik kullanıcı belirteçlerinde (bkz [AspNetCore/src/Identity/Extensions.Core/src/TokenOptions.cs](https://github.com/aspnet/AspNetCore/blob/v2.2.2/src/Identity/Extensions.Core/src/TokenOptions.cs) ) sahip bir [günlük bir zaman aşımı](https://github.com/aspnet/AspNetCore/blob/v2.2.2/src/Identity/Core/src/DataProtectionTokenProviderOptions.cs).</span><span class="sxs-lookup"><span data-stu-id="4ee29-197">The built in Identity user tokens (see [AspNetCore/src/Identity/Extensions.Core/src/TokenOptions.cs](https://github.com/aspnet/AspNetCore/blob/v2.2.2/src/Identity/Extensions.Core/src/TokenOptions.cs) )have a [one day timeout](https://github.com/aspnet/AspNetCore/blob/v2.2.2/src/Identity/Core/src/DataProtectionTokenProviderOptions.cs).</span></span>
+
+### <a name="change-the-email-token-lifespan"></a><span data-ttu-id="4ee29-198">E-posta belirteci ömrü değiştirme</span><span class="sxs-lookup"><span data-stu-id="4ee29-198">Change the email token lifespan</span></span>
+
+<span data-ttu-id="4ee29-199">Varsayılan belirteç ömrü [kimlik kullanıcı belirteçleri](https://github.com/aspnet/AspNetCore/blob/v2.2.2/src/Identity/Extensions.Core/src/TokenOptions.cs) olduğu [bir gün](https://github.com/aspnet/AspNetCore/blob/v2.2.2/src/Identity/Core/src/DataProtectionTokenProviderOptions.cs).</span><span class="sxs-lookup"><span data-stu-id="4ee29-199">The default token lifespan of [the Identity user tokens](https://github.com/aspnet/AspNetCore/blob/v2.2.2/src/Identity/Extensions.Core/src/TokenOptions.cs) is [one day](https://github.com/aspnet/AspNetCore/blob/v2.2.2/src/Identity/Core/src/DataProtectionTokenProviderOptions.cs).</span></span> <span data-ttu-id="4ee29-200">Bu bölümde, e-posta belirteci ömrü değiştirme işlemi gösterilmektedir.</span><span class="sxs-lookup"><span data-stu-id="4ee29-200">This section shows how to change the email token lifespan.</span></span>
+
+<span data-ttu-id="4ee29-201">Özel bir ekleme [DataProtectorTokenProvider\<TUser >](/dotnet/api/microsoft.aspnetcore.identity.dataprotectortokenprovider-1) ve <xref:Microsoft.AspNetCore.Identity.DataProtectionTokenProviderOptions>:</span><span class="sxs-lookup"><span data-stu-id="4ee29-201">Add a custom [DataProtectorTokenProvider\<TUser>](/dotnet/api/microsoft.aspnetcore.identity.dataprotectortokenprovider-1) and <xref:Microsoft.AspNetCore.Identity.DataProtectionTokenProviderOptions>:</span></span>
+
+[!code-csharp[](accconfirm/sample/WebPWrecover22/TokenProviders/CustomTokenProvider.cs?name=snippet1)]
+
+<span data-ttu-id="4ee29-202">Özel sağlayıcı hizmet kapsayıcıya ekleyin:</span><span class="sxs-lookup"><span data-stu-id="4ee29-202">Add the custom provider to the service container:</span></span>
+
+[!code-csharp[](accconfirm/sample/WebPWrecover22/StartupEmail.cs?name=snippet1&highlight=10-13)]
+
+### <a name="resend-email-confirmation"></a><span data-ttu-id="4ee29-203">Onay e-postası gönder</span><span class="sxs-lookup"><span data-stu-id="4ee29-203">Resend email confirmation</span></span>
+
+<span data-ttu-id="4ee29-204">Bkz: [bu GitHub sorunu](https://github.com/aspnet/AspNetCore/issues/5410).</span><span class="sxs-lookup"><span data-stu-id="4ee29-204">See [this GitHub issue](https://github.com/aspnet/AspNetCore/issues/5410).</span></span>
 
 <a name="debug"></a>
+### <a name="debug-email"></a><span data-ttu-id="4ee29-205">E-posta hata ayıklama</span><span class="sxs-lookup"><span data-stu-id="4ee29-205">Debug email</span></span>
 
-### <a name="debug-email"></a><span data-ttu-id="38130-207">E-posta hata ayıklama</span><span class="sxs-lookup"><span data-stu-id="38130-207">Debug email</span></span>
+<span data-ttu-id="4ee29-206">E-posta çalışma erişemiyorsanız:</span><span class="sxs-lookup"><span data-stu-id="4ee29-206">If you can't get email working:</span></span>
 
-<span data-ttu-id="38130-208">E-posta çalışma erişemiyorsanız:</span><span class="sxs-lookup"><span data-stu-id="38130-208">If you can't get email working:</span></span>
+* <span data-ttu-id="4ee29-207">Bir kesim noktası `EmailSender.Execute` doğrulamak için `SendGridClient.SendEmailAsync` çağrılır.</span><span class="sxs-lookup"><span data-stu-id="4ee29-207">Set a breakpoint in `EmailSender.Execute` to verify `SendGridClient.SendEmailAsync` is called.</span></span>
+* <span data-ttu-id="4ee29-208">Oluşturma bir [e-posta göndermek için konsol uygulaması](https://sendgrid.com/docs/Integrate/Code_Examples/v2_Mail/csharp.html) benzer bir kod kullanarak `EmailSender.Execute`.</span><span class="sxs-lookup"><span data-stu-id="4ee29-208">Create a [console app to send email](https://sendgrid.com/docs/Integrate/Code_Examples/v2_Mail/csharp.html) using similar code to `EmailSender.Execute`.</span></span>
+* <span data-ttu-id="4ee29-209">Gözden geçirme [e-posta etkinlik](https://sendgrid.com/docs/User_Guide/email_activity.html) sayfası.</span><span class="sxs-lookup"><span data-stu-id="4ee29-209">Review the [Email Activity](https://sendgrid.com/docs/User_Guide/email_activity.html) page.</span></span>
+* <span data-ttu-id="4ee29-210">İstenmeyen posta klasörünüzü kontrol edin.</span><span class="sxs-lookup"><span data-stu-id="4ee29-210">Check your spam folder.</span></span>
+* <span data-ttu-id="4ee29-211">Farklı bir e-posta sağlayıcısı (Microsoft, Yahoo, Gmail, vb.) başka bir e-posta diğer adı deneyin</span><span class="sxs-lookup"><span data-stu-id="4ee29-211">Try another email alias on a different email provider (Microsoft, Yahoo, Gmail, etc.)</span></span>
+* <span data-ttu-id="4ee29-212">Farklı bir e-posta hesaplarına göndermeyi deneyin.</span><span class="sxs-lookup"><span data-stu-id="4ee29-212">Try sending to different email accounts.</span></span>
 
-* <span data-ttu-id="38130-209">Bir kesim noktası `EmailSender.Execute` doğrulamak için `SendGridClient.SendEmailAsync` çağrılır.</span><span class="sxs-lookup"><span data-stu-id="38130-209">Set a breakpoint in `EmailSender.Execute` to verify `SendGridClient.SendEmailAsync` is called.</span></span>
-* <span data-ttu-id="38130-210">Oluşturma bir [e-posta göndermek için konsol uygulaması](https://sendgrid.com/docs/Integrate/Code_Examples/v2_Mail/csharp.html) benzer bir kod kullanarak `EmailSender.Execute`.</span><span class="sxs-lookup"><span data-stu-id="38130-210">Create a [console app to send email](https://sendgrid.com/docs/Integrate/Code_Examples/v2_Mail/csharp.html) using similar code to `EmailSender.Execute`.</span></span>
-* <span data-ttu-id="38130-211">Gözden geçirme [e-posta etkinlik](https://sendgrid.com/docs/User_Guide/email_activity.html) sayfası.</span><span class="sxs-lookup"><span data-stu-id="38130-211">Review the [Email Activity](https://sendgrid.com/docs/User_Guide/email_activity.html) page.</span></span>
-* <span data-ttu-id="38130-212">İstenmeyen posta klasörünüzü kontrol edin.</span><span class="sxs-lookup"><span data-stu-id="38130-212">Check your spam folder.</span></span>
-* <span data-ttu-id="38130-213">Farklı bir e-posta sağlayıcısı (Microsoft, Yahoo, Gmail, vb.) başka bir e-posta diğer adı deneyin</span><span class="sxs-lookup"><span data-stu-id="38130-213">Try another email alias on a different email provider (Microsoft, Yahoo, Gmail, etc.)</span></span>
-* <span data-ttu-id="38130-214">Farklı bir e-posta hesaplarına göndermeyi deneyin.</span><span class="sxs-lookup"><span data-stu-id="38130-214">Try sending to different email accounts.</span></span>
+<span data-ttu-id="4ee29-213">**En iyi güvenlik uygulaması** için **değil** test ve geliştirme üretim gizli dizileri kullanın.</span><span class="sxs-lookup"><span data-stu-id="4ee29-213">**A security best practice** is to **not** use production secrets in test and development.</span></span> <span data-ttu-id="4ee29-214">Uygulamayı Azure'a yayımlama, Web uygulamasını Azure Portalı'nda Uygulama ayarları olarak SendGrid parolaları ayarlayabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="4ee29-214">If you publish the app to Azure, you can set the SendGrid secrets as application settings in the Azure Web App portal.</span></span> <span data-ttu-id="4ee29-215">Yapılandırma sistemi ortam değişkenlerinden anahtarları okumak için ayarlanır.</span><span class="sxs-lookup"><span data-stu-id="4ee29-215">The configuration system is set up to read keys from environment variables.</span></span>
 
-<span data-ttu-id="38130-215">**En iyi güvenlik uygulaması** için **değil** test ve geliştirme üretim gizli dizileri kullanın.</span><span class="sxs-lookup"><span data-stu-id="38130-215">**A security best practice** is to **not** use production secrets in test and development.</span></span> <span data-ttu-id="38130-216">Uygulamayı Azure'a yayımlama, Web uygulamasını Azure Portalı'nda Uygulama ayarları olarak SendGrid parolaları ayarlayabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="38130-216">If you publish the app to Azure, you can set the SendGrid secrets as application settings in the Azure Web App portal.</span></span> <span data-ttu-id="38130-217">Yapılandırma sistemi ortam değişkenlerinden anahtarları okumak için ayarlanır.</span><span class="sxs-lookup"><span data-stu-id="38130-217">The configuration system is set up to read keys from environment variables.</span></span>
+## <a name="combine-social-and-local-login-accounts"></a><span data-ttu-id="4ee29-216">Sosyal ve yerel oturum açma hesabını birleştirin</span><span class="sxs-lookup"><span data-stu-id="4ee29-216">Combine social and local login accounts</span></span>
 
-## <a name="combine-social-and-local-login-accounts"></a><span data-ttu-id="38130-218">Sosyal ve yerel oturum açma hesabını birleştirin</span><span class="sxs-lookup"><span data-stu-id="38130-218">Combine social and local login accounts</span></span>
+<span data-ttu-id="4ee29-217">Bu bölümde tamamlamak için önce bir dış kimlik doğrulama sağlayıcısı etkinleştirmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="4ee29-217">To complete this section, you must first enable an external authentication provider.</span></span> <span data-ttu-id="4ee29-218">Bkz: [Facebook, Google ve dış sağlayıcı kimlik doğrulaması](xref:security/authentication/social/index).</span><span class="sxs-lookup"><span data-stu-id="4ee29-218">See [Facebook, Google, and external provider authentication](xref:security/authentication/social/index).</span></span>
 
-<span data-ttu-id="38130-219">Bu bölümde tamamlamak için önce bir dış kimlik doğrulama sağlayıcısı etkinleştirmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="38130-219">To complete this section, you must first enable an external authentication provider.</span></span> <span data-ttu-id="38130-220">Bkz: [Facebook, Google ve dış sağlayıcı kimlik doğrulaması](xref:security/authentication/social/index).</span><span class="sxs-lookup"><span data-stu-id="38130-220">See [Facebook, Google, and external provider authentication](xref:security/authentication/social/index).</span></span>
-
-<span data-ttu-id="38130-221">Yerel hem de sosyal hesaplar, e-posta bağlantısına tıklayarak birleştirebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="38130-221">You can combine local and social accounts by clicking on your email link.</span></span> <span data-ttu-id="38130-222">Aşağıdaki sırayla "RickAndMSFT@gmail.com" ilk olarak bir yerel oturum açın; oluşturulur ancak, bir sosyal oturum açma ilk hesap oluşturun, sonra bir yerel oturum açma ekleme.</span><span class="sxs-lookup"><span data-stu-id="38130-222">In the following sequence, "RickAndMSFT@gmail.com" is first created as a local login; however, you can create the account as a social login first, then add a local login.</span></span>
+<span data-ttu-id="4ee29-219">Yerel hem de sosyal hesaplar, e-posta bağlantısına tıklayarak birleştirebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="4ee29-219">You can combine local and social accounts by clicking on your email link.</span></span> <span data-ttu-id="4ee29-220">Aşağıdaki sırayla "RickAndMSFT@gmail.com" ilk olarak bir yerel oturum açın; oluşturulur ancak, bir sosyal oturum açma ilk hesap oluşturun, sonra bir yerel oturum açma ekleme.</span><span class="sxs-lookup"><span data-stu-id="4ee29-220">In the following sequence, "RickAndMSFT@gmail.com" is first created as a local login; however, you can create the account as a social login first, then add a local login.</span></span>
 
 ![Web uygulaması: RickAndMSFT@gmail.com kimliği doğrulanmış kullanıcı](accconfirm/_static/rick.png)
 
-<span data-ttu-id="38130-224">Tıklayarak **Yönet** bağlantı.</span><span class="sxs-lookup"><span data-stu-id="38130-224">Click on the **Manage** link.</span></span> <span data-ttu-id="38130-225">Bu hesapla ilişkili 0 dış (sosyal oturum açma bilgileri) unutmayın.</span><span class="sxs-lookup"><span data-stu-id="38130-225">Note the 0 external (social logins) associated with this account.</span></span>
+<span data-ttu-id="4ee29-222">Tıklayarak **Yönet** bağlantı.</span><span class="sxs-lookup"><span data-stu-id="4ee29-222">Click on the **Manage** link.</span></span> <span data-ttu-id="4ee29-223">Bu hesapla ilişkili 0 dış (sosyal oturum açma bilgileri) unutmayın.</span><span class="sxs-lookup"><span data-stu-id="4ee29-223">Note the 0 external (social logins) associated with this account.</span></span>
 
 ![Görünümü yönetme](accconfirm/_static/manage.png)
 
-<span data-ttu-id="38130-227">Başka bir oturum açma hizmeti bağlantısını tıklayın ve uygulama isteklerini kabul etmek.</span><span class="sxs-lookup"><span data-stu-id="38130-227">Click the link to another login service and accept the app requests.</span></span> <span data-ttu-id="38130-228">Aşağıdaki görüntüde, Facebook Dış kimlik doğrulama sağlayıcısı'dır:</span><span class="sxs-lookup"><span data-stu-id="38130-228">In the following image, Facebook is the external authentication provider:</span></span>
+<span data-ttu-id="4ee29-225">Başka bir oturum açma hizmeti bağlantısını tıklayın ve uygulama isteklerini kabul etmek.</span><span class="sxs-lookup"><span data-stu-id="4ee29-225">Click the link to another login service and accept the app requests.</span></span> <span data-ttu-id="4ee29-226">Aşağıdaki görüntüde, Facebook Dış kimlik doğrulama sağlayıcısı'dır:</span><span class="sxs-lookup"><span data-stu-id="4ee29-226">In the following image, Facebook is the external authentication provider:</span></span>
 
 ![Facebook listeleme görünümünüzü harici oturum açmaları yönetme](accconfirm/_static/fb.png)
 
-<span data-ttu-id="38130-230">İki hesap birleştirilmiştir.</span><span class="sxs-lookup"><span data-stu-id="38130-230">The two accounts have been combined.</span></span> <span data-ttu-id="38130-231">Her iki hesabıyla oturum açabilir.</span><span class="sxs-lookup"><span data-stu-id="38130-231">You are able to sign in with either account.</span></span> <span data-ttu-id="38130-232">Kullanıcılarınızın kendi sosyal oturum açma kimlik doğrulama hizmeti çalışmıyor veya bunlar sosyal hesaplarına erişim daha büyük bir olasılıkla kaybettiğinizde durumunda yerel hesaplar eklemek isteyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="38130-232">You might want your users to add local accounts in case their social login authentication service is down, or more likely they've lost access to their social account.</span></span>
+<span data-ttu-id="4ee29-228">İki hesap birleştirilmiştir.</span><span class="sxs-lookup"><span data-stu-id="4ee29-228">The two accounts have been combined.</span></span> <span data-ttu-id="4ee29-229">Her iki hesabıyla oturum açabilir.</span><span class="sxs-lookup"><span data-stu-id="4ee29-229">You are able to sign in with either account.</span></span> <span data-ttu-id="4ee29-230">Kullanıcılarınızın kendi sosyal oturum açma kimlik doğrulama hizmeti çalışmıyor veya bunlar sosyal hesaplarına erişim daha büyük bir olasılıkla kaybettiğinizde durumunda yerel hesaplar eklemek isteyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="4ee29-230">You might want your users to add local accounts in case their social login authentication service is down, or more likely they've lost access to their social account.</span></span>
 
-## <a name="enable-account-confirmation-after-a-site-has-users"></a><span data-ttu-id="38130-233">Kullanıcılar bir siteye sahip olduktan sonra hesap onaylama etkinleştir</span><span class="sxs-lookup"><span data-stu-id="38130-233">Enable account confirmation after a site has users</span></span>
+## <a name="enable-account-confirmation-after-a-site-has-users"></a><span data-ttu-id="4ee29-231">Kullanıcılar bir siteye sahip olduktan sonra hesap onaylama etkinleştir</span><span class="sxs-lookup"><span data-stu-id="4ee29-231">Enable account confirmation after a site has users</span></span>
 
-<span data-ttu-id="38130-234">Var olan tüm kullanıcıları etkinleştirme hesap onaylama sitesinde kullanıcılarla kilitler.</span><span class="sxs-lookup"><span data-stu-id="38130-234">Enabling account confirmation on a site with users locks out all the existing users.</span></span> <span data-ttu-id="38130-235">Varolan kullanıcı hesaplarını onaylanan değildir çünkü kilitlidir.</span><span class="sxs-lookup"><span data-stu-id="38130-235">Existing users are locked out because their accounts aren't confirmed.</span></span> <span data-ttu-id="38130-236">Mevcut kullanıcı kilitlemesinin geçici olarak çözmek için aşağıdaki yaklaşımlardan birini kullanın:</span><span class="sxs-lookup"><span data-stu-id="38130-236">To work around existing user lockout, use one of the following approaches:</span></span>
+<span data-ttu-id="4ee29-232">Var olan tüm kullanıcıları etkinleştirme hesap onaylama sitesinde kullanıcılarla kilitler.</span><span class="sxs-lookup"><span data-stu-id="4ee29-232">Enabling account confirmation on a site with users locks out all the existing users.</span></span> <span data-ttu-id="4ee29-233">Varolan kullanıcı hesaplarını onaylanan değildir çünkü kilitlidir.</span><span class="sxs-lookup"><span data-stu-id="4ee29-233">Existing users are locked out because their accounts aren't confirmed.</span></span> <span data-ttu-id="4ee29-234">Mevcut kullanıcı kilitlemesinin geçici olarak çözmek için aşağıdaki yaklaşımlardan birini kullanın:</span><span class="sxs-lookup"><span data-stu-id="4ee29-234">To work around existing user lockout, use one of the following approaches:</span></span>
 
-* <span data-ttu-id="38130-237">Tüm mevcut kullanıcılar onaylanıp olarak işaretlemek için veritabanı güncelleştirin.</span><span class="sxs-lookup"><span data-stu-id="38130-237">Update the database to mark all existing users as being confirmed.</span></span>
-* <span data-ttu-id="38130-238">Mevcut kullanıcıları onaylayın.</span><span class="sxs-lookup"><span data-stu-id="38130-238">Confirm existing users.</span></span> <span data-ttu-id="38130-239">Örneğin, batch onay bağlantılarının ile e-posta gönderme.</span><span class="sxs-lookup"><span data-stu-id="38130-239">For example, batch-send emails with confirmation links.</span></span>
+* <span data-ttu-id="4ee29-235">Tüm mevcut kullanıcılar onaylanıp olarak işaretlemek için veritabanı güncelleştirin.</span><span class="sxs-lookup"><span data-stu-id="4ee29-235">Update the database to mark all existing users as being confirmed.</span></span>
+* <span data-ttu-id="4ee29-236">Mevcut kullanıcıları onaylayın.</span><span class="sxs-lookup"><span data-stu-id="4ee29-236">Confirm existing users.</span></span> <span data-ttu-id="4ee29-237">Örneğin, batch onay bağlantılarının ile e-posta gönderme.</span><span class="sxs-lookup"><span data-stu-id="4ee29-237">For example, batch-send emails with confirmation links.</span></span>
 
 ::: moniker-end
