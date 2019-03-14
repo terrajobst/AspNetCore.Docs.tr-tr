@@ -3,14 +3,14 @@ title: Hesap onaylama ve parola kurtarma ASP.NET Core
 author: rick-anderson
 description: E-posta onayı ve parola sıfırlama ile ASP.NET Core uygulaması oluşturmayı öğrenin.
 ms.author: riande
-ms.date: 2/11/2019
+ms.date: 3/11/2019
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 77d7b209d57f9ee44f158798ff780ce85c87aaf2
-ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
+ms.openlocfilehash: 05efb75d26558702c88e87d191a780371034282c
+ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56159414"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57841481"
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Hesap onaylama ve parola kurtarma ASP.NET Core
 
@@ -22,7 +22,7 @@ Bkz: [bu PDF dosyası](https://webpifeed.blob.core.windows.net/webpifeed/Partner
 
 ::: moniker range=">= aspnetcore-2.1"
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT) ve [ALi Audette](https://twitter.com/joeaudette)
+Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [Ponant](https://github.com/Ponant), ve [ALi Audette](https://twitter.com/joeaudette)
 
 Bu öğretici, e-posta onayı ve parola sıfırlama ile ASP.NET Core uygulaması oluşturma işlemi gösterilmektedir. Bu öğretici **değil** başına konu. Sahibi olmalısınız:
 
@@ -34,45 +34,23 @@ Bu öğretici, e-posta onayı ve parola sıfırlama ile ASP.NET Core uygulaması
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-[!INCLUDE [](~/includes/2.1-SDK.md)]
+[.NET core 2.2 SDK veya üzeri](https://www.microsoft.com/net/download/all)
 
 ## <a name="create-a-web--app-and-scaffold-identity"></a>Bir web uygulaması oluşturma ve kimlik iskelesini
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
-
-* Visual Studio'da yeni bir oluşturma **Web uygulaması** adlı proje **WebPWrecover**.
-* Seçin **ASP.NET Core 2.1**.
-* Varsayılan tutun **kimlik doğrulaması** kümesine **kimlik doğrulaması yok**. Kimlik doğrulaması, bir sonraki adımda eklenir.
-
-Sonraki adımda:
-
-* Düzen sayfası kümesine *~/Pages/Shared/_Layout.cshtml*
-* Seçin *hesabı/kaydı*
-* Yeni bir **veri bağlamı sınıfı**
-
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+Kimlik doğrulaması ile bir web uygulaması oluşturmak için aşağıdaki komutları çalıştırın.
 
 ```console
-dotnet new webapp -o WebPWrecover
+dotnet new webapp -au Individual -uld -o WebPWrecover
 cd WebPWrecover
-dotnet tool install -g dotnet-aspnet-codegenerator
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 dotnet restore
-dotnet aspnet-codegenerator identity -fi Account.Register -dc WebPWrecover.Models.WebPWrecoverContext
-dotnet ef migrations add CreateIdentitySchema
+dotnet aspnet-codegenerator identity -dc WebPWrecover.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout;Account.ConfirmEmail
 dotnet ef database drop -f
 dotnet ef database update
-dotnet build
+dotnet run
+
 ```
-
-Çalıştırma `dotnet aspnet-codegenerator identity --help` yapı iskelesi aracın Yardım almak için.
-
-------
-
-Bölümündeki yönergeleri [kimlik doğrulamasını etkinleştirme](xref:security/authentication/scaffold-identity#useauthentication):
-
-* Ekleme `app.UseAuthentication();` için `Startup.Configure`
-* Ekleme `<partial name="_LoginPartial" />` Düzen dosyası için.
 
 ## <a name="test-new-user-registration"></a>Test yeni kullanıcı kaydı
 
@@ -91,9 +69,9 @@ Yeni bir kullanıcı kaydı e-postayı onaylamak için iyi bir uygulamadır. E-p
 
 Genellikle, yeni kullanıcıların onaylanan e-posta sahip oldukları önce web sitenizi herhangi bir veri gönderme engellemek istiyorsunuz.
 
-Güncelleştirme *Areas/Identity/IdentityHostingStartup.cs* onaylanan e-posta gerektirmek için:
+Güncelleştirme `Startup.ConfigureServices` onaylanan e-posta gerektirmek için:
 
-[!code-csharp[](accconfirm/sample/WebPWrecover21/Areas/Identity/IdentityHostingStartup.cs?name=snippet1&highlight=10-13)]
+[!code-csharp[](accconfirm/sample/WebPWrecover22/Startup.cs?name=snippet1&highlight=8-11)]
 
 `config.SignIn.RequireConfirmedEmail = true;` kayıtlı kullanıcıların e-postasına onaylanana kadar oturum açma engeller.
 
@@ -103,13 +81,9 @@ Bu öğreticide [SendGrid](https://sendgrid.com) e-posta göndermek için kullan
 
 Güvenli e-posta anahtarı almak için bir sınıf oluşturun. Bu örnek için oluşturma *Services/AuthMessageSenderOptions.cs*:
 
-[!code-csharp[](accconfirm/sample/WebPWrecover21/Services/AuthMessageSenderOptions.cs?name=snippet1)]
+[!code-csharp[](accconfirm/sample/WebPWrecover22/Services/AuthMessageSenderOptions.cs?name=snippet1)]
 
 #### <a name="configure-sendgrid-user-secrets"></a>SendGrid kullanıcı parolaları yapılandırın
-
-Benzersiz bir ekleme `<UserSecretsId>` değerini `<PropertyGroup>` proje dosyasının öğe:
-
-[!code-xml[](accconfirm/sample/WebPWrecover21/WebPWrecover.csproj?highlight=5)]
 
 Ayarlama `SendGridUser` ve `SendGridKey` ile [gizli dizi Yöneticisi aracını](xref:security/app-secrets). Örneğin:
 
@@ -120,7 +94,7 @@ info: Successfully saved SendGridUser = RickAndMSFT to the secret store.
 
 Windows üzerinde gizli dizi Yöneticisi'ni anahtar/değer çiftleri olarak depolar. bir *secrets.json* dosyası `%APPDATA%/Microsoft/UserSecrets/<WebAppName-userSecretsId>` dizin.
 
-İçeriğini *secrets.json* olmayan dosya şifrelenmiş. *Secrets.json* aşağıda gösterilmektedir dosyanın ( `SendGridKey` değer kaldırıldı.)
+İçeriğini *secrets.json* olmayan dosya şifrelenmiş. Aşağıdaki biçimlendirme gösterildiği *secrets.json* dosya. `SendGridKey` Değer kaldırıldı.
 
  ```json
   {
@@ -137,7 +111,7 @@ Bu öğretici, e-posta bildirimleri aracılığıyla ekleneceği gösterilmişti
 
 Yükleme `SendGrid` NuGet paketi:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Paket Yöneticisi konsolundan aşağıdaki komutu girin:
 
@@ -160,7 +134,7 @@ Bkz: [SendGrid ile ücretsiz olarak kullanmaya başlayın](https://sendgrid.com/
 
 Uygulama için `IEmailSender`, oluşturma *Services/EmailSender.cs* kodu aşağıdakine benzer:
 
-[!code-csharp[](accconfirm/sample/WebPWrecover21/Services/EmailSender.cs)]
+[!code-csharp[](accconfirm/sample/WebPWrecover22/Services/EmailSender.cs)]
 
 ### <a name="configure-startup-to-support-email"></a>Başlangıç e-posta destekleyecek şekilde yapılandırma
 
@@ -169,13 +143,13 @@ Aşağıdaki kodu ekleyin `ConfigureServices` yönteminde *Startup.cs* dosyası:
 * Ekleme `EmailSender` geçici bir hizmet olarak.
 * Kayıt `AuthMessageSenderOptions` yapılandırma örneği.
 
-[!code-csharp[](accconfirm/sample/WebPWrecover21/Startup.cs?name=snippet2&highlight=12-99)]
+[!code-csharp[](accconfirm/sample/WebPWrecover22/Startup.cs?name=snippet1&highlight=15-99)]
 
 ## <a name="enable-account-confirmation-and-password-recovery"></a>Hesap onaylama ve parola kurtarmayı etkinleştir
 
 Şablon hesap onaylama ve parola kurtarma kodu var. Bulma `OnPostAsync` yönteminde *Areas/Identity/Pages/Account/Register.cshtml.cs*.
 
-Yeni kaydettiğiniz kullanıcıların otomatik olarak aşağıdaki satırı açıklama satırı yaparak oturum engellemek:
+Yeni kaydettiğiniz kullanıcıların otomatik olarak aşağıdaki satırı açıklama satırı yaparak oturum açmayı engellemek:
 
 ```csharp
 await _signInManager.SignInAsync(user, isPersistent: false);
@@ -183,16 +157,13 @@ await _signInManager.SignInAsync(user, isPersistent: false);
 
 Vurgulanmış satır ile tam yöntemi gösterilir:
 
-[!code-csharp[](accconfirm/sample/WebPWrecover21/Areas/Identity/Pages/Account/Register.cshtml.cs?highlight=22&name=snippet_Register)]
+[!code-csharp[](accconfirm/sample/WebPWrecover22/Areas/Identity/Pages/Account/Register.cshtml.cs?highlight=22&name=snippet_Register)]
 
 ## <a name="register-confirm-email-and-reset-password"></a>Kaydetme, e-posta onayı ve parola sıfırlama
 
 Web uygulamasını çalıştırın ve hesap onaylama ve parola kurtarma akışı test edin.
 
 * Uygulamayı çalıştırın ve yeni bir kullanıcı kaydı
-
-  ![Web uygulaması görünümü hesabı Kaydet](accconfirm/_static/loginaccconfirm1.png)
-
 * Hesap onay bağlantısı için e-postanızı kontrol edin. Bkz: [hata ayıklama, e-posta](#debug) e-posta alırsanız yok.
 * E-postanızı doğrulamak için bağlantıya tıklayın.
 * E-postanıza ve parola ile oturum açın.
@@ -201,10 +172,6 @@ Web uygulamasını çalıştırın ve hesap onaylama ve parola kurtarma akışı
 ### <a name="view-the-manage-page"></a>Yönet sayfasını görüntüle
 
 Tarayıcıda kullanıcı adınızı seçin: ![tarayıcı penceresi ile kullanıcı adı](accconfirm/_static/un.png)
-
-Kullanıcı adı görmek için Gezinti genişletmeniz gerekebilir.
-
-![navbar](accconfirm/_static/x.png)
 
 İle Yönet sayfasında görüntülenen **profili** sekmesi seçili. **E-posta** e-posta belirten bir onay kutusu onaylanan gösterir.
 
@@ -215,8 +182,37 @@ Kullanıcı adı görmek için Gezinti genişletmeniz gerekebilir.
 * Hesap kaydolmak için kullandığınız e-posta girin.
 * Parolanızı sıfırlamak için bir bağlantı içeren bir e-posta gönderilir. E-postanızı kontrol edin ve parolanızı sıfırlamak için bağlantıya tıklayın. Parolanızı başarıyla sıfırladıktan sonra e-posta ve yeni bir parola ile oturum açabilirsiniz.
 
-<a name="debug"></a>
+## <a name="change-email-and-activity-timeout"></a>E-posta ve etkinlik zaman aşımı değiştirme
 
+Varsayılan boş durma zaman aşımı 14 gündür. Aşağıdaki kod 5 gün etkin olmama zaman aşımı ayarlar:
+
+[!code-csharp[](accconfirm/sample/WebPWrecover22/StartupAppCookie.cs?name=snippet1)]
+
+### <a name="change-all-data-protection-token-lifespans"></a>Tüm veri koruma simge lifespans değiştirme
+
+Aşağıdaki kod tüm veri koruma belirteçleri zaman aşımı süresi 3 saat olarak değiştirir:
+
+[!code-csharp[](accconfirm/sample/WebPWrecover22/StartupAllTokens.cs?name=snippet1&highlight=15-16)]
+
+Yerleşik kimlik kullanıcı belirteçlerinde (bkz [AspNetCore/src/Identity/Extensions.Core/src/TokenOptions.cs](https://github.com/aspnet/AspNetCore/blob/v2.2.2/src/Identity/Extensions.Core/src/TokenOptions.cs) ) sahip bir [günlük bir zaman aşımı](https://github.com/aspnet/AspNetCore/blob/v2.2.2/src/Identity/Core/src/DataProtectionTokenProviderOptions.cs).
+
+### <a name="change-the-email-token-lifespan"></a>E-posta belirteci ömrü değiştirme
+
+Varsayılan belirteç ömrü [kimlik kullanıcı belirteçleri](https://github.com/aspnet/AspNetCore/blob/v2.2.2/src/Identity/Extensions.Core/src/TokenOptions.cs) olduğu [bir gün](https://github.com/aspnet/AspNetCore/blob/v2.2.2/src/Identity/Core/src/DataProtectionTokenProviderOptions.cs). Bu bölümde, e-posta belirteci ömrü değiştirme işlemi gösterilmektedir.
+
+Özel bir ekleme [DataProtectorTokenProvider\<TUser >](/dotnet/api/microsoft.aspnetcore.identity.dataprotectortokenprovider-1) ve <xref:Microsoft.AspNetCore.Identity.DataProtectionTokenProviderOptions>:
+
+[!code-csharp[](accconfirm/sample/WebPWrecover22/TokenProviders/CustomTokenProvider.cs?name=snippet1)]
+
+Özel sağlayıcı hizmet kapsayıcıya ekleyin:
+
+[!code-csharp[](accconfirm/sample/WebPWrecover22/StartupEmail.cs?name=snippet1&highlight=10-13)]
+
+### <a name="resend-email-confirmation"></a>Onay e-postası gönder
+
+Bkz: [bu GitHub sorunu](https://github.com/aspnet/AspNetCore/issues/5410).
+
+<a name="debug"></a>
 ### <a name="debug-email"></a>E-posta hata ayıklama
 
 E-posta çalışma erişemiyorsanız:
