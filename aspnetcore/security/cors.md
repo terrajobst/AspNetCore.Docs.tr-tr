@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/27/2019
 uid: security/cors
-ms.openlocfilehash: eb8dd3b1c96d9060b0164dcd4d0fbe004ed4af84
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 6be8b4da1642a9eff021371c229a17071d6e9bfb
+ms.sourcegitcommit: d913bca90373c07f89b1d1df01af5fc01fc908ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346378"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57978477"
 ---
 # <a name="enable-cross-origin-requests-cors-in-aspnet-core"></a>ASP.NET core'da çıkış noktaları arası istekleri (CORS) etkinleştirme
 
@@ -446,11 +446,11 @@ CORS test etmek için:
 
   * Microsoft Edge kullanarak:
 
-    **SEC7120: [CORS] kaynağını 'https://localhost:44375'değil buldunuz mu'https://localhost:44375'Access-Control-Allow-Origin yanıtı üstbilgisi çıkış noktaları arası kaynak için' ın https://webapi.azurewebsites.net/api/values/1'.**
+    **SEC7120: [CORS] kaynağını `https://localhost:44375` değil buldunuz `https://localhost:44375` çıkış noktaları arası kaynak için Access-Control-Allow-Origin yanıtı üstbilgisi içinde `https://webapi.azurewebsites.net/api/values/1`**
 
   * Chrome kullanarak:
 
-    **Erişim sırasında XMLHttpRequest 'https://webapi.azurewebsites.net/api/values/1'kaynaktan'https://localhost:44375' CORS İlkesi tarafından engellendi: İstenen kaynak üzerinde 'Access-Control-Allow-Origin' üst bilgi yok.**
+    **Erişim sırasında XMLHttpRequest `https://webapi.azurewebsites.net/api/values/1` kaynaktan `https://localhost:44375` CORS İlkesi tarafından engellendi: İstenen kaynak üzerinde 'Access-Control-Allow-Origin' üst bilgi yok.**
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

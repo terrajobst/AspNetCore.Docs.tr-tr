@@ -5,12 +5,12 @@ description: ASP.NET Core MVC ile çalışmaya başlama hakkında bilgi edinin.
 ms.author: riande
 ms.date: 12/12/2018
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: c09c06f55c4179e9e2174f0063ab7387b7e4c31b
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 1bc5da7dcab5a5070260ca464a82b650cc4838bf
+ms.sourcegitcommit: d913bca90373c07f89b1d1df01af5fc01fc908ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56899235"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57978464"
 ---
 # <a name="get-started-with-aspnet-core-mvc"></a>ASP.NET Core MVC ile çalışmaya başlama
 
@@ -50,7 +50,7 @@ Tamamlamak **yeni proje** iletişim:
 * (Kod kopyaladığınızda, ad alanı eşleşecek şekilde "MvcMovie" proje adı önemlidir.) "MvcMovie" proje adı
 * Seçin **Tamam**
 
-![Yeni Proje iletişim kutusunda, sol bölmede, ASP.NET Core web'de .net core ](start-mvc/_static/new_project2-21.png)
+![Yeni Proje iletişim kutusunda, sol bölmede, ASP.NET Core web .NET Core ](start-mvc/_static/new_project2-21.png)
 
 Tamamlamak **yeni ASP.NET Core Web uygulaması (.NET Core) - MvcMovie** iletişim:
 
@@ -58,7 +58,7 @@ Tamamlamak **yeni ASP.NET Core Web uygulaması (.NET Core) - MvcMovie** iletişi
 * Seçin **Web uygulaması (Model-View-Controller)**
 * Seçin **Tamam**.
 
-![Yeni Proje iletişim kutusunda, sol bölmede, ASP.NET Core web'de .net core ](start-mvc/_static/new_project22-21.png)
+![Yeni Proje iletişim kutusunda, sol bölmede, ASP.NET Core web .NET Core ](start-mvc/_static/new_project22-21.png)
 
 Visual Studio, yeni oluşturduğunuz MVC projesi için varsayılan bir şablon kullanılır. Çalışan bir uygulamayı şu anda bir proje adı girerek ve bazı Seçenekler'i seçerek sizde. Bu temel başlangıç projesini ve başlatmak için iyi bir yerdir.
 

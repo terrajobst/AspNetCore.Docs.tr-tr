@@ -59,8 +59,8 @@ dotnet dev-certs https --trust
 
 Yukarıdaki komut, şu iletiyi görüntüler:
 
-*HTTPS geliştirme sertifikaya güvenme istendi. Sertifika zaten güvenilir değilse aşağıdaki komutu çalıştıracağız:* `'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain <<certificate>>'`.
- 
+*HTTPS geliştirme sertifikaya güvenme istendi. Sertifika zaten güvenilir değilse aşağıdaki komutu çalıştıracağız:* `'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain <<certificate>>'`
+
 Bu komut komutu üzerinde sistem Anahtarlık sertifikayı yüklemek, parola isteyebilir. Geliştirme sertifikasına güvenmek kabul ediyorsanız, parolanızı girin.
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)

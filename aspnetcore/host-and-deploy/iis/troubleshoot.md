@@ -4,14 +4,14 @@ author: guardrex
 description: Internet Information Services (IIS) ASP.NET Core uygulamaları dağıtımlarına sorunları tanılamayı öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 03/06/2019
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: 68fcd578c051ae9ba6234cad0465a7ef42f1ed14
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: 2f36ae2bda8537e91a3bc925505986bdd6a22a47
+ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637696"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57841559"
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>IIS üzerinde ASP.NET Core sorunlarını giderme
 
@@ -236,13 +236,51 @@ Bkz. <xref:host-and-deploy/azure-iis-errors-reference>. Uygulama başlatma önle
 
 Bir uygulama isteklerini yanıtlayabileceği ise, istek, bağlantı ve ek veri terminal satır içi ara yazılımın kullanılması uygulamayı edinin. Daha fazla bilgi ve örnek kod için bkz. <xref:test/troubleshoot#obtain-data-from-an-app>.
 
-## <a name="slow-or-hanging-app"></a>Yavaş veya asılı uygulama
+## <a name="create-a-dump"></a>Bir döküm oluşturma
 
-Bir uygulamayı yavaş yanıt ya da bir isteği yanıt vermemeye başlıyor almak ve analiz bir [döküm dosyasını](/visualstudio/debugger/using-dump-files). Döküm dosyaları aşağıdaki araçlardan herhangi birini kullanarak elde edilebilir:
+A *döküm* sistem belleğinin anlık görüntüsüdür ve uygulama kilitlenmesi, başlatma hatası ya da yavaş uygulama nedenini belirlemenize yardımcı olabilir.
 
-* [ProcDump](/sysinternals/downloads/procdump)
-* [DebugDiag](https://www.microsoft.com/download/details.aspx?id=49924)
-* WinDbg: [Windows için hata ayıklama araçları'nı indirin](https://developer.microsoft.com/windows/hardware/download-windbg), [WinDbg kullanarak hata ayıklama](/windows-hardware/drivers/debugger/debugging-using-windbg)
+### <a name="app-crashes-or-encounters-an-exception"></a>Uygulama kilitlendiğinde veya özel bir durum karşılaştığında
+
+Almak ve bir dökümü analiz [Windows hata bildirimi (WER)](/windows/desktop/wer/windows-error-reporting):
+
+1. Kilitlenme döküm dosyaları tutmak için bir klasör oluşturun `c:\dumps`. Uygulama havuzu klasöre yazma erişimi olmalıdır.
+1. Çalıştırma [EnableDumps PowerShell Betiği](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/troubleshoot/scripts/EnableDumps.ps1):
+   * Uygulama kullanıyorsa [işlem içi barındırma modeli](xref:fundamentals/servers/index#in-process-hosting-model), komut dosyasını Çalıştır *w3wp.exe*:
+
+     ```console
+     .\EnableDumps w3wp.exe c:\dumps
+     ```
+   * Uygulama kullanıyorsa [işlem dışı barındırma modeli](xref:fundamentals/servers/index#out-of-process-hosting-model), komut dosyasını Çalıştır *dotnet.exe*:
+
+     ```console
+     .\EnableDumps dotnet.exe c:\dumps
+     ```
+1. Kilitlenme durumu oluşmasına neden olan koşulları altında uygulamayı çalıştırın.
+1. Kilitlenme oluştuktan sonra Çalıştır [DisableDumps PowerShell Betiği](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/troubleshoot/scripts/DisableDumps.ps1):
+   * Uygulama kullanıyorsa [işlem içi barındırma modeli](xref:fundamentals/servers/index#in-process-hosting-model), komut dosyasını Çalıştır *w3wp.exe*:
+
+     ```console
+     .\DisableDumps w3wp.exe
+     ```
+   * Uygulama kullanıyorsa [işlem dışı barındırma modeli](xref:fundamentals/servers/index#out-of-process-hosting-model), komut dosyasını Çalıştır *dotnet.exe*:
+
+     ```console
+     .\DisableDumps dotnet.exe
+     ```
+
+Bir uygulama kilitlenmelerini ve döküm toplama tamamlandıktan sonra uygulama normal şekilde sona izin verilmez. PowerShell Betiği, uygulama başına en fazla beş dökümleri toplanacak WER yapılandırır.
+
+> [!WARNING]
+> Kilitlenme bilgi dökümleri, çok miktarda disk alanı (en fazla birkaç gigabayt her)'kurmak alabilir.
+
+### <a name="app-hangs-fails-during-startup-or-runs-normally"></a>Uygulama yanıt vermemeye başlıyor, başlatma sırasında başarısız olursa veya normal bir şekilde çalışır
+
+Bir uygulama *askıda* (yanıt vermiyor ancak kilitlenme değil), bkz. normalde, başlatma veya çalıştırma sırasında başarısız oluyor [kullanıcı modu dökümü dosyaları: En uygun aracı seçme](/windows-hardware/drivers/debugger/user-mode-dump-files#choosing-the-best-tool) döküm oluşturmak için uygun bir aracı seçin.
+
+### <a name="analyze-the-dump"></a>Dökümü analiz edin
+
+Bir döküm çeşitli yaklaşımlar kullanılarak çözümlenebilir. Daha fazla bilgi için [bir kullanıcı modu bilgi döküm dosyası çözümleme](/windows-hardware/drivers/debugger/analyzing-a-user-mode-dump-file).
 
 ## <a name="remote-debugging"></a>Uzaktan hata ayıklama
 

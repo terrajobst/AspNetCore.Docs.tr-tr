@@ -8,14 +8,14 @@ ms.date: 04/10/2014
 ms.assetid: 7958d725-e958-4566-a85b-535eeb985f94
 msc.legacyurl: /mvc/overview/getting-started/recommended-resources-for-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: cbd72233fb5688c27d3675e2621eab58a64db80c
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 9adfba8260aa75751bb18ea612ae07c8809e7d00
+ms.sourcegitcommit: d913bca90373c07f89b1d1df01af5fc01fc908ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48578190"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57978537"
 ---
-<a name="mvc-recommended-resources"></a>MVC tarafından önerilen kaynaklar
+<a name="mvc-recommended-resources"></a>MVC Tarafından Önerilen Kaynaklar
 ====================
 Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
@@ -31,8 +31,8 @@ Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 - [Asp.Net mvc'de anlama Model View Controller](http://www.dotnet-tricks.com/Tutorial/mvc/DIYG060113-Understanding-Model-View-Controller-in-Asp.Net-MVC.html) (kısa blog girişi).
 - [ASP.NET MVC’ye Genel Bakış](../older-versions-1/overview/asp-net-mvc-overview.md)
 - [Ücretsiz 6 saat çevrimiçi kurs - geliştirme ASP.NET MVC 4 Web uygulamalarını hızlı başlangıç](https://weblogs.asp.net/jgalloway/archive/2013/10/09/free-6-hour-online-course-developing-asp-net-mvc-4-web-applications-jump-start.aspx)
-- [Learning MVC - 1. Bölüm: MVC mimarisi ve görev ayrımı nettir giriş](http://www.codeproject.com/Articles/620195/Learning-MVC-Part-1-Introduction-to-MVC-Architectu)
-- Posteri: [bir ASP.NET MVC 5 uygulamasının yaşam döngüsü](lifecycle-of-an-aspnet-mvc-5-application.md)
+- [MVC - 1. Bölüm öğrenme: MVC mimarisi ve görev ayrımı nettir giriş](http://www.codeproject.com/Articles/620195/Learning-MVC-Part-1-Introduction-to-MVC-Architectu)
+- Posteri: [Bir ASP.NET MVC 5 Uygulamasının Yaşam Döngüsü](lifecycle-of-an-aspnet-mvc-5-application.md)
 
 <a id="newfeatured"></a>
 
@@ -56,17 +56,17 @@ Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
     - [David Ebbo tarafından Azure Web siteleri için gizli toprağa değerli taşlar, ipuçları ve püf noktaları derinlemesine bakış](https://channel9.msdn.com/Events/Build/2014/3-624)
     - [ASP.NET ve Visual Studio 2013 güncelleştirme 2 ve ötesinde Web yenilikler](https://channel9.msdn.com/Events/Build/2014/3-602) Scott Hanselman, Scott Hunter ile
-    - [Bulut başarısız önleme: Azure, Mark Russinovich hataları öğrenmek](https://channel9.msdn.com/Events/Build/2014/3-615)
-    - [Yakından bakış: ASP.NET uygulamanız tarafından Levi Broderick performansını iyileştirme](https://channel9.msdn.com/Events/Build/2014/3-605)
+    - [Bulut hata önleme: Azure, Mark Russinovich hataları öğrenmek](https://channel9.msdn.com/Events/Build/2014/3-615)
+    - [Yakından bakış: ASP.NET uygulamanıza Levi Broderick tarafından performansını iyileştirme](https://channel9.msdn.com/Events/Build/2014/3-605)
     - [Visual Studio ve Azure SDK'sı Dan Fernandez, Paul Yuknewicz (MSFT) Azure geliştiricileri için Yenilikler](https://channel9.msdn.com/Events/Build/2014/2-585)
     - [Microsoft Azure depolama – yeni ve en iyi uygulamaları ve desenleri Jai Haridas, Serdar Ozler nedir](https://channel9.msdn.com/Events/Build/2014/3-628)
     - [İpuçları ve püf noktaları, Visual Studio 2013'te](https://channel9.msdn.com/Events/Build/2014/2-582) Cathy Sullivan tarafından
     - [Yeni SDK'lar ile her yerde Otomasyon araçları ve Hizmetleri Azure'da](https://channel9.msdn.com/Events/Build/2014/3-621) Brady Gaster, ALi Levy tarafından
     - [Azure Web siteleri Chris ile Compy, Ben Nir Mashkowski yenilikler nelerdir?](https://channel9.msdn.com/Events/Build/2014/3-625)
-    - [Yapı büyük: Dersler Azure müşterilerinin](https://channel9.msdn.com/Events/Build/2014/3-633) Chris Clayton, Mark Simms'in tarafından   
+    - [Yapı büyük: Dersler, Azure müşterilerinin](https://channel9.msdn.com/Events/Build/2014/3-633) Chris Clayton, Mark Simms'in tarafından   
         [ASP.NET ve AngularJS ile tek sayfalı uygulama oluşturmaya](https://channel9.msdn.com/Events/Build/2014/3-644) David Catuhe, Jon Galloway tarafından
     - [Tasarlama ve karma bulut çözümlerini mimarları için uygulama](https://channel9.msdn.com/Events/Build/2014/3-632)
-    - [Azure kaynak grubu modeli: Modern bulut Modern yönetime](https://channel9.msdn.com/Events/Build/2014/2-607) Gautam Thapar, Nathan Totten tarafından
+    - [Azure kaynak grubu modeli: Modern bulut için modern yönetime](https://channel9.msdn.com/Events/Build/2014/2-607) Gautam Thapar, Nathan Totten tarafından
     - [ASP.NET Web API 2.1 kullanarak mobil uygulamalar için Web API'leri oluşturmaya](https://channel9.msdn.com/Events/Build/2014/3-603) Daniel Roth tarafından
     - [Web, mobil ve bulut uygulamaları Lucas Adams, Stuart Kwan tarafından yeni kimlik doğrulama modeli](https://channel9.msdn.com/Events/Build/2014/2-601)
     - [Şirket içi ağınıza güvenli bir şekilde Azure'a genişletme yazılan ganesh Srinivasan](https://channel9.msdn.com/Events/Build/2014/3-618)
@@ -86,10 +86,10 @@ Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 - [ASP.NET’te yapılmaması gerekenler ve bunların yerine yapılması gerekenler](../../../aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet-and-what-to-do-instead.md)
 - [Oluşturma (ve oluşturma nasıl) güvenli bir "Beni Hatırla" özellik](http://www.troyhunt.com/2013/07/how-to-build-and-how-not-to-build.html) Troy Hunt tarafından
 - Video: [Web, mobil ve bulut uygulamaları Lucas Adams, Stuart Kwan tarafından yeni kimlik doğrulama modeli](https://channel9.msdn.com/Events/Build/2014/2-601)
-- [Video: Yapı Kurumsal ve SaaS Web uygulamaları ve Vittorio Bertocci'nin tarafından oturum açma için Azure Active Directory kullanarak Web API'leri](https://channel9.msdn.com/Events/Build/2014/3-599)
+- [Video: Kurumsal ve SaaS Web uygulamaları ve Vittorio Bertocci'nin tarafından oturum açma için Azure Active Directory kullanarak Web API'leri oluşturma](https://channel9.msdn.com/Events/Build/2014/3-599)
 - [ASP.NET Identity 2.0.0](https://blogs.msdn.com/b/webdev/archive/2014/03/20/test-announcing-rtm-of-asp-net-identity-2-0-0.aspx)
 - [Anlama ASP.NET MVC filtreleri ve öznitelikleri](http://www.dotnet-tricks.com/Tutorial/mvc/b11a280114-Understanding-ASP.NET-MVC-Filters-and-Attributes.html)
-- [ASP.NET MVC 5 kimlik: Genişletme ve rollerini değiştirme](http://typecastexception.com/post/2014/02/13/ASPNET-MVC-5-Identity-Extending-and-Modifying-Roles.aspx)
+- [ASP.NET MVC 5 kimliği: Genişletme ve rollerini değiştirme](http://typecastexception.com/post/2014/02/13/ASPNET-MVC-5-Identity-Extending-and-Modifying-Roles.aspx)
 - [Sahteciliğe karşı koruma belirteçleri MVC, Web API ve AngularJS kullanma](http://www.novanet.no/blog/olav-nybo/dates/2013/12/anti-forgery-tokens-using-mvc-web-api-and-angularjs/)
 - [ASP.NET mvc'de 5 IAuthenticationFilter ile çalışma](http://jameschambers.com/2013/11/working-with-iauthenticationfilter-in-the-mvc-5-framework/)
 - [StackOverflow iş parçacığı güvenliği](http://stackoverflow.com/users/59641/levi?tab=answers&amp;sort=newest) Levi tarafından
@@ -107,7 +107,7 @@ Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 - [Açık yeniden yönlendirme saldırılarını önleme](../security/preventing-open-redirection-attacks.md)
 - [ASP.NET MVC kullanarak bir Intranet sitesi oluşturma](https://msdn.microsoft.com/library/gg703322(v=vs.98).aspx)
 - [Şifrelenmiş bir sorgu dizesi için ASP.NET MVC değer sağlayıcısı](http://www.dotnetexpertguide.com/2013/01/aspnet-mvc-value-provider-for-encrypted-query-string.html?utm_source=dlvr.it&amp;utm_medium=twitter&amp;utm_campaign=Feed:_Dotnetexpertguide)
-- [HaaHa göster: Haack ve Hanselman Microsoft ASP.NET MVC güvenlik](https://channel9.msdn.com/Events/MIX/MIX10/FT05) (video)
+- [HaaHa göster: Microsoft ASP.NET MVC güvenlik Haack ve Hanselman](https://channel9.msdn.com/Events/MIX/MIX10/FT05) (video)
 - [ASP.NET'te talep kullanan kullanıcı kimliği](http://brockallen.com/2013/01/26/replacing-forms-authentication-with-wifs-session-authentication-module-sam-to-enable-claims-aware-identity/)
 - [ASP.NET'te windows rolleri için özel roller ekleme](http://brockallen.com/2013/01/17/adding-custom-roles-to-windows-roles-in-asp-net-using-claims/)
 - [Özel rota kısıtlaması oluşturma](../older-versions-1/controllers-and-routing/creating-a-custom-route-constraint-cs.md)
@@ -157,13 +157,13 @@ Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 ## <a name="performance"></a>Performans
 
-- Video: [yakından bakış: ASP.NET uygulamanıza performans iyileştirme](https://channel9.msdn.com/Events/Build/2014/3-605) Levi Broderick tarafından
-- Video: [ölçek ve performans Charles Sterling'le tarafından bulmak için bulut tabanlı yük testi hizmetini ve Application Insights'ı kullanma](https://channel9.msdn.com/Events/Build/2014/3-595)
+- Video: [Yakından bakış: ASP.NET uygulamanıza performans iyileştirme](https://channel9.msdn.com/Events/Build/2014/3-605) Levi Broderick tarafından
+- Video: [Ölçek ve performans Charles Sterling'le tarafından bulmak için bulut tabanlı yük testi hizmetini ve Application Insights'ı kullanma](https://channel9.msdn.com/Events/Build/2014/3-595)
 - [ASP.NET MVC 4 Sürümünde Zaman Uyumsuz Metotlar Kullanma](../performance/using-asynchronous-methods-in-aspnet-mvc-4.md)
 - [Paketleme, küçültme ve en iyi duruma getirme](../performance/bundling-and-minification.md)
 - [CDN'ler kullanarak ve Web sitesi performansını geliştirmek için süre sonu](https://blogs.msdn.com/b/rickandy/archive/2011/05/21/using-cdns-to-improve-web-site-performance.aspx)
 - [Zaman uyumsuz dosya MVC'de yükler](https://weblogs.asp.net/bryansampica/archive/2013/01/15/AsyncMVCFileUpload.aspx)
-- [Video: Yüksek performanslı Web Platformu: Gerçek sorunları ve çözümleri Tobin tarafından Tıtus](https://channel9.msdn.com/Events/Build/2014/4-556)
+- [Video: Yüksek performanslı Web Platformu: Gerçek dünyadaki sorunları ve çözümleri Tobin tarafından Tıtus](https://channel9.msdn.com/Events/Build/2014/4-556)
 - [Video: Performans sorunlarını ve hataları erken uyarı sağlamak ve Bret Grinslade, Vlad Joanovic uygulamayla birlikte verimli](https://channel9.msdn.com/Events/Build/2014/3-597)
 - [Halka önbelleğe alma ve Halka delik Asp.Net MVC 4 ile önbelleğe alma](http://www.dotnet-tricks.com/Tutorial/mvc/ODJa210113-Donut-Caching-and-Donut-Hole-Caching-with-Asp.Net-MVC-4.html)
 - [Örnek Asp.Net mvc'de anlama önbelleğe alma](http://www.dotnet-tricks.com/Tutorial/mvc/4R5c050113-Understanding-Caching-in-Asp.Net-MVC-with-example.html)
@@ -175,7 +175,7 @@ Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 - [Zaman uyumsuz kısmi görünüm siteleriyle ASP.NET MVC algılanan performansını artırın](http://blog.michaelckennedy.net/2012/11/13/improve-perceived-performance-of-asp-net-mvc-websites-with-async-partialviews/)
 - [Görev tabanlı zaman uyumsuz programlama modeli (TAP) ASP.NET MVC 4 ile zaman uyumsuz veritabanı çağrıları](http://www.tugberkugurlu.com/archive/asynchronous-database-calls-with-task-based-asynchronous-programming-model-tap-in-asp-net-mvc-4)
 - [ASP.NET 4.5 &amp; MVC 4: IBundleTransform hakkında yeniden değerlendirme](http://www.dotnetexpertguide.com/2012/10/aspnet-45-mvc-4-revisiting-IBundleTransform-in-bundling.html)
-- [ASP.NET MVC 4: Paketleme ve statik kaynaklar için Cookieless etki alanı](http://www.dotnetexpertguide.com/2012/10/aspnet-mvc-4-cookieless-domain-for-bundling-and-static-resources.html)
+- [ASP.NET MVC 4: Paketleme ve statik kaynaklar için tanımlama bilgisi olmayan bir etki alanı](http://www.dotnetexpertguide.com/2012/10/aspnet-mvc-4-cookieless-domain-for-bundling-and-static-resources.html)
 - [Gelişmiş Seçenekleri ASP.NET paketleme ve küçültme](https://weblogs.asp.net/imranbaloch/archive/2012/09/30/hidden-options-of-asp-net-bundling-and-minification.aspx)
 - [Hata ayıklama önemi hakkında sert bir anımsatıcı = "false"](http://encosia.com/a-harsh-reminder-about-the-importance-of-debug-false/)
 - [ELMAH ve ASP.NET MVC 4 içinde MiniProfiler](http://odetocode.com/Blogs/scott/archive/2012/09/11/elmah-and-miniprofiler-in-asp-net-mvc-4.aspx)
@@ -209,7 +209,7 @@ Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 - [Bir JavascriptResult oluşturmak için ASP.NET MVC](http://tostring.it/2014/01/14/create-a-javascriptresult-for-asp-net-mvc/?utm_source=feedburner&amp;utm_medium=feed&amp;utm_campaign=Feed%3A+override%2Ftostring%2Fit+%28override.tostring.it%29)
 - [JavaScript için .NET sunucu tarafı veri geçirme](http://blog.mariusschulz.com/2014/02/05/passing-net-server-side-data-to-javascript) Marius Schulz tarafından
 - [Kısmi Razor görünümlerini kullanarak dış JavaScript dosyaları oluşturma](http://blog.mariusschulz.com/2013/07/07/generating-external-javascript-files-using-partial-razor-views) Marius Schulz tarafından
-- [ASP.NET MVC: Show meşgul göstergesi, JQuery ve Ajax kullanarak Form gönderme hakkında](http://typecastexception.com/post/2013/12/22/ASPNET-MVC-Show-Busy-Indicator-on-Form-Submit-using-JQuery-and-Ajax.aspx)
+- [ASP.NET MVC: Meşgul göstergesi, JQuery ve Ajax kullanarak Form gönderilemiyor Göster](http://typecastexception.com/post/2013/12/22/ASPNET-MVC-Show-Busy-Indicator-on-Form-Submit-using-JQuery-and-Ajax.aspx)
 - [ASP.NET mvc'de Store JSON verileri için özel veri kullanarak öznitelikleri](http://www.binaryintellect.net/articles/8b993a74-a84a-42bd-9127-e701a03f5885.aspx)
 - MVC 5 için hala ilgili MVC 4 bağlantıları
 - [Bir eylem yöntemi için JSON gönderme](http://haacked.com/archive/2010/04/15/sending-json-to-an-asp-net-mvc-action-method-argument.aspx)
@@ -316,7 +316,7 @@ Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 - [ASP.NET MVC - başlangıç Öğreticisi birim test edilebilir uygulamalar oluşturma](http://www.codeproject.com/Articles/579035/Creating-Unit-Testable-Applications-in-ASP-NET-MVC)
 - [Yeni başlayanlar için ASP.NET MVC denetleyicisi bağımlılık ekleme](http://www.codeproject.com/Articles/560798/ASP-NET-MVC-controller-dependency-injection-for-be)
 - [Ajax isteği ve Normal istek işleyen bir ASP.NET MVC eylem yöntemi için birim testleri yazma](https://weblogs.asp.net/shijuvarghese/archive/2012/12/09/writing-unit-tests-for-an-asp-net-mvc-action-method-that-handles-ajax-request-and-normal-request.aspx)
-- [Meşe: ASP.NET MVC dinamik özelliği ve başarının geliştirme Getir](http://amirrajan.github.com/Oak/)
+- [Meşe: Dinamik özelliği ve başarının geliştirme için ASP.NET MVC Getir](http://amirrajan.github.com/Oak/)
 - [XUnit ile Moq TDD için bir ASP.NET MVC 4 uygulaması geliştirme](http://www.dotnetcurry.com/ShowArticle.aspx?ID=836)
 - [ASP.NET MVC görünümleri, yeni proje için yapı sunucu sınama](https://channel9.msdn.com/Events/aspConf/aspConf/Testing-ASP-NET-MVC-Views-from-New-Project-to-the-Build-Server) (video)
 - [Hızlı Başlangıç: Test odaklı geliştirme](https://channel9.msdn.com/Events/aspConf/aspConf/Quick-Start-Test-Driven-Development)(video)
@@ -332,7 +332,7 @@ Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 - [ASP.NET’te yapılmaması gerekenler ve bunların yerine yapılması gerekenler](../../../aspnet/overview/web-development-best-practices/what-not-to-do-in-aspnet-and-what-to-do-instead.md)
 - [Web geliştirici denetim listesi](http://webdevchecklist.com/aspnet)
-- [Video: Bunu, bunu yok!](http://vimeo.com/68390507)
+- [Video: Yoksa, bunu, bunu!](http://vimeo.com/68390507)
 - [ASP.NET MVC çözüm en iyi uygulamaları](https://channel9.msdn.com/Events/aspConf/aspConf/ASP-NET-MVC-Solution-Best-Practices) (video)
 - [SignalR, MVC, Web API'si](https://channel9.msdn.com/Events/aspConf/aspConf/Ask-The-Experts) (video)
 - [ASP.NET MVC için en iyi uygulamalar](https://blogs.msdn.com/b/aspnetue/archive/2010/09/17/second_2d00_post.aspx)
@@ -398,7 +398,7 @@ Tarafından [Rick Anderson]((https://twitter.com/RickAndMSFT))
 - [Neden ASP.NET MVC HTML yardımcı yöntemler lambda ifadeleri parametre olarak zaman](http://odetocode.com/blogs/scott/archive/2012/11/26/why-all-the-lambdas.aspx)
 - [MVC4 istek ardışık düzenini Web geliştiricilerin bakma](http://jameschambers.com/2012/10/a-web-developer-s-look-at-the-mvc4-request-pipeline/)
 - [ASP.NET MVC'de metin kodlaması anlama](http://blog.michaelckennedy.net/2012/10/15/understanding-text-encoding-in-asp-net-mvc/)
-- [Visual Studio 2012 ve .net 4.5 ve EF 5 MVC4 Visual Studio 2010 çözümünü yükseltme](http://www.kevinlabranche.com/blog/UpgradingAnMVC4VisualStudio2010SolutionToVisualStudio2012AndNet45AndEF5.aspx)
+- [Visual Studio 2012 ve .NET 4.5 ve EF 5 MVC4 Visual Studio 2010 çözümünü yükseltme](http://www.kevinlabranche.com/blog/UpgradingAnMVC4VisualStudio2010SolutionToVisualStudio2012AndNet45AndEF5.aspx)
 - [ASP.NET MVC DisplayTemplate ve Entity Framework DbGeography uzamsal türler için EditorTemplates](http://www.hanselman.com/blog/ASPNETMVCDisplayTemplateAndEditorTemplatesForEntityFrameworkDbGeographySpatialTypes.aspx)
 - [ASP.NET MVC - geçerli bağlantıyı Vurgula](http://odetocode.com/Blogs/scott/archive/2012/08/25/asp-net-mvc-highlight-current-link.aspx)
 - [ASP.NET MVC: Özel durumları ve 404 hatalarını işleme](http://www.devcurry.com/2012/06/aspnet-mvc-handling-exceptions-and-404.html)

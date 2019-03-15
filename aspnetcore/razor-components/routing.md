@@ -5,14 +5,14 @@ description: Uygulamalar ve NavLink bileşenle ilgili istekleri yönlendirmeyi �
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/01/2019
+ms.date: 03/14/2019
 uid: razor-components/routing
-ms.openlocfilehash: 5c648ba1bb3846f5baa515e808a98a3b33f81438
-ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
+ms.openlocfilehash: 39039c306a0ac0d9838e3c98815a6b1aade8863b
+ms.sourcegitcommit: d913bca90373c07f89b1d1df01af5fc01fc908ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56159468"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57978364"
 ---
 # <a name="razor-components-routing"></a>Razor bileşenleri yönlendirme
 
@@ -20,23 +20,31 @@ Tarafından [Luke Latham](https://github.com/guardrex)
 
 Uygulamalar ve NavLink bileşenle ilgili istekleri yönlendirmeyi öğrenin.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/razor-components/common/samples/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample)). Bkz: [başlama](xref:razor-components/get-started) Önkoşullar için konu.
+## <a name="aspnet-core-endpoint-routing-integration"></a>ASP.NET Core uç noktası yönlendirme tümleştirmesi
+
+Razor bileşenleri tümleştirilir [ASP.NET Core yönlendirme](xref:fundamentals/routing). ASP.NET Core uygulaması ile etkileşimli Razor bileşenleri için gelen bağlantıları kabul edecek şekilde yapılandırılmış `MapComponentHub<TComponent>` içinde `Startup.Configure`. `MapComponentHub` belirten kök bileşeni `App` Seçici eşleşen bir DOM öğesi içinde işleneceğini `app`:
+
+```csharp
+app.UseRouting(routes =>
+{
+    routes.MapRazorPages();
+    routes.MapComponentHub<App>("app");
+});
+```
 
 ## <a name="route-templates"></a>Rota şablonlarının
 
-`<Router>` Bileşen yönlendirme sağlar ve erişilebilir her bileşeni için bir rota şablonu sağlanır. `<Router>` Bileşeni görünür *App.cshtml* dosyası:
+`<Router>` Bileşen yönlendirme sağlar ve erişilebilir her bileşeni için bir rota şablonu sağlanır. `<Router>` Bileşeni görünür *Components/App.razor* dosyası:
 
 ```cshtml
-<Router AppAssembly=typeof(Program).Assembly />
+<Router AppAssembly="typeof(Program).Assembly" />
 ```
 
-Olduğunda bir  *\*.cshtml* ile dosya bir `@page` yönergesi derlendiğinde, oluşturulan sınıfın belirli bir [RouteAttribute](/dotnet/api/microsoft.aspnetcore.mvc.routeattribute) belirten rota şablonu. Çalışma zamanında bileşen sınıfları ile yönlendirici arar bir `RouteAttribute` ve hangi bileşen istenen URL ile eşleşen bir rota şablonuna sahip işler.
+Olduğunda bir *.razor* veya *.cshtml* ile dosya bir `@page` yönergesi derlendiğinde, oluşturulan sınıfın belirli bir <xref:Microsoft.AspNetCore.Mvc.RouteAttribute> belirten rota şablonu. Çalışma zamanında bileşen sınıfları ile yönlendirici arar bir `RouteAttribute` ve hangi bileşen istenen URL ile eşleşen bir rota şablonuna sahip işler.
 
-Bir bileşenin birden çok yol şablonu uygulanabilir. İçinde [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/razor-components/common/samples/), aşağıdaki bileşen isteklerine yanıt veren `/BlazorRoute` ve `/DifferentBlazorRoute`.
+Bir bileşenin birden çok yol şablonu uygulanabilir. Aşağıdaki bileşen isteklerine yanıt veren `/BlazorRoute` ve `/DifferentBlazorRoute`:
 
-*Pages/BlazorRoute.cshtml*:
-
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/BlazorRoute.cshtml?start=1&end=4)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/BlazorRoute.cshtml?name=snippet_BlazorRoute&highlight=1-2)]
 
 `<Router>` İstenen yol, işleme için bir geri dönüş bileşen ayarı destekler çözülmüş değildir. Bu katılımı ayarlayarak senaryoyu `FallbackComponent` geri dönüş bileşen sınıfı türü parametresi.
 
@@ -47,15 +55,13 @@ Aşağıdaki örnek, bir bileşen içinde tanımlanan ayarlar *Pages/MyFallbackR
 ```
 
 > [!IMPORTANT]
-> Yollar düzgün bir şekilde oluşturmak için uygulamayı içermelidir bir `<base>` içindeki kendi *wwwroot/index.html* belirtilen uygulama temel yolu dosyasıyla `href` özniteliği (`<base href="/" />`). Daha fazla bilgi için [konak ve dağıtın: Uygulama temel yolu](xref:host-and-deploy/razor-components/index#app-base-path).
+> Yollar düzgün bir şekilde oluşturmak için uygulamayı içermelidir bir `<base>` içindeki kendi *wwwroot/index.html* belirtilen uygulama temel yolu dosyasıyla `href` özniteliği (`<base href="/" />`). Daha fazla bilgi için bkz. <xref:host-and-deploy/razor-components/index#app-base-path>.
 
 ## <a name="route-parameters"></a>Yol parametreleri
 
-Yönlendirici, aynı adı (büyük küçük harfe duyarlı) karşılık gelen bileşen parametrelerle doldurmak için rota parametrelerini kullanır.
+Yönlendirici, aynı adı (büyük küçük harfe duyarlı) karşılık gelen bileşen parametrelerle doldurmak için rota parametreleri kullanır:
 
-*Pages/RouteParameter.cshtml*:
-
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/RouteParameter.cshtml?start=1&end=8)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/RouteParameter.cshtml?name=snippet_RouteParameter&highlight=2,7-8)]
 
 İsteğe bağlı parametreler henüz desteklenmeyen böylece iki `@page` yönergeleri, yukarıdaki örnekte uygulanır. İlk Gezinti parametresi olmadan bileşenine izin verir. İkinci `@page` yönergesi gereken `{text}` rota parametresi ve değeri atar `Text` özelliği.
 
@@ -68,18 +74,9 @@ Aşağıdaki örnekte, kullanıcılar bileşen yolu yalnızca, eşleşen:
 * Bir `Id` yol kesimi istek URL'si hakkındaki varsa.
 * `Id` Segmenttir tamsayı (`int`).
 
-```cshtml
-@page "/Users/{Id:int}"
+[!code-cshtml[](routing/samples_snapshot/3.x/Constraint.cshtml?highlight=1)]
 
-<h1>The user Id is @Id!</h1>
-
-@functions {
-    [Parameter]
-    private int Id { get; set; }
-}
-```
-
-Aşağıdaki tabloda gösterilen rota kısıtlamalarını kullanılabilir duruma gelir. Sabit kültür ile eşleşen rota kısıtlamaları için daha fazla bilgi için tablonun altındaki bir uyarı görürsünüz.
+Aşağıdaki tabloda gösterilen rota kısıtlamalarını kullanılabilir. Sabit kültür ile eşleşen rota kısıtlamaları için daha fazla bilgi için tablonun altındaki bir uyarı görürsünüz.
 
 | Kısıtlama | Örnek           | Örnek eşleşmeleri                                                                  | Değişmez değer<br>kültür<br>eşleştirme |
 | ---------- | ----------------- | -------------------------------------------------------------------------------- | :------------------------------: |
@@ -97,15 +94,15 @@ Aşağıdaki tabloda gösterilen rota kısıtlamalarını kullanılabilir duruma
 
 ## <a name="navlink-component"></a>NavLink bileşeni
 
-Bir NavLink bileşeni yerine HTML kullanan  **\<bir >** gezinme bağlantıları oluşturulurken öğeleri. NavLink bileşeni gibi davranan bir  **\<bir >** öğesi, onu değiştirir dışında bir `active` CSS sınıfı bağlı kendi `href` geçerli URL ile eşleşen. `active` Sınıfı, bir kullanıcının hangi sayfa etkin sayfa görüntülenen gezinti bağlantıları arasında olduğunu anlamak yardımcı olur.
+Bir NavLink bileşeni yerine HTML kullanan `<a>` gezinme bağlantıları oluşturulurken öğeleri. NavLink bileşeni gibi davranan bir `<a>` öğesi, onu değiştirir dışında bir `active` CSS sınıfı bağlı kendi `href` geçerli URL ile eşleşen. `active` Sınıfı, bir kullanıcının hangi sayfa etkin sayfa görüntülenen gezinti bağlantıları arasında olduğunu anlamak yardımcı olur.
 
-NavMenu bileşeni [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/razor-components/common/samples/) oluşturur bir [önyükleme](https://getbootstrap.com/docs/) gezinti çubuğunda, NavLink bileşenlerinin nasıl kullanılacağı gösterilmektedir. Aşağıdaki biçimlendirme içinde ilk iki NavLinks gösterir *Shared/NavMenu.cshtml* dosya.
+Aşağıdaki NavMenu bileşeni oluşturur bir [önyükleme](https://getbootstrap.com/docs/) gezinti çubuğunda, NavLink bileşenleri gösterilmektedir:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Shared/NavMenu.cshtml?start=13&end=24&highlight=4-6,9-11)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Shared/NavMenu.cshtml?name=snippet_NavLinks&highlight=4-6,9-11)]
 
 İki `NavLinkMatch` seçenekleri:
 
 * `NavLinkMatch.All` &ndash; Tüm geçerli URL eşleştiğinde NavLink etkin olması gerektiğini belirtir.
 * `NavLinkMatch.Prefix` &ndash; Geçerli URL herhangi bir önek eşleştiğinde NavLink etkin olması gerektiğini belirtir.
 
-Yukarıdaki örnekte, giriş NavLink (`href=""`) tüm URL'lerle eşleşir ve her zaman alan `active` CSS sınıfı. İkinci NavLink yalnızca alan `active` sınıfı kullanıcı BlazorRoute bileşen ziyaret ettiğinde (`href="BlazorRoute"`).
+Yukarıdaki örnekte, giriş NavLink (`href=""`) tüm URL'lerle eşleşir ve her zaman alan `active` CSS sınıfı. İkinci NavLink yalnızca alan `active` sınıfı kullanıcı Blazor rota bileşen ziyaret ettiğinde (`href="BlazorRoute"`).

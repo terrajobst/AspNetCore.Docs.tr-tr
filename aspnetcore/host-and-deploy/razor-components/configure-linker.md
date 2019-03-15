@@ -5,14 +5,14 @@ description: Ara dil (IL) bağlayıcı Blazor uygulaması derlerken, denetlemeyi
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/20/2019
+ms.date: 03/11/2019
 uid: host-and-deploy/razor-components/configure-linker
-ms.openlocfilehash: 7c53e7912ec3b0ae471ea38777f874f55a32487d
-ms.sourcegitcommit: 0945078a09c372f17e9b003758ed87e99c2449f4
+ms.openlocfilehash: 6f2c07eec6b98afbaaf21d2c1d172a1a54e6e808
+ms.sourcegitcommit: d913bca90373c07f89b1d1df01af5fc01fc908ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56647947"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57978377"
 ---
 # <a name="configure-the-linker-for-blazor"></a>Blazor için bağlayıcı yapılandırma
 
@@ -20,14 +20,14 @@ Tarafından [Luke Latham](https://github.com/guardrex)
 
 [!INCLUDE[](~/includes/razor-components-preview-notice.md)]
 
-Blazor gerçekleştirir [Ara dil (IL)](/dotnet/standard/managed-code#intermediate-language--execution) gereksiz IL çıkış derlemeleri kaldırmak için her sürüm modu yapı sırasında bağlama.
+Blazor gerçekleştirir [Ara dil (IL)](/dotnet/standard/managed-code#intermediate-language--execution) uygulamadan gereksiz IL kaldırmak için her sürüm modu yapı sırasında bağlama derlemeleri çıkış.
 
-Derleme bağlama aşağıdaki yaklaşımlardan birini kullanarak denetleyebilirsiniz:
+Denetim derleme: aşağıdaki yaklaşımlardan birini kullanarak bağlama
 
-* Bir MSBuild özelliği ile küresel olarak bağlama devre dışı bırakın.
-* Derleme başına temelinde bir yapılandırma dosyası bağlama denetimi.
+* İle küresel olarak bağlama devre dışı bir [MSBuild özelliği](#disable-linking-with-a-msBuild-property).
+* Denetim ile derleme başına temelinde bağlama bir [yapılandırma dosyası](#control-linking-with-a-configuration-file).
 
-## <a name="disable-linking-with-an-msbuild-property"></a>Bir MSBuild özelliği ile bağlama devre dışı bırak
+## <a name="disable-linking-with-a-msbuild-property"></a>Bir MSBuild özellik bağlama devre dışı bırak
 
 Bir uygulama, yayımlama içeren oluşturulduğunda bağlama yayın modunda varsayılan olarak etkindir. Tüm derlemeler için bağlama devre dışı bırakmak için ayarlanmış `<BlazorLinkOnBuild>` MSBuild özelliğini `false` proje dosyasında:
 
@@ -39,9 +39,15 @@ Bir uygulama, yayımlama içeren oluşturulduğunda bağlama yayın modunda vars
 
 ## <a name="control-linking-with-a-configuration-file"></a>Bir yapılandırma dosyası bağlama denetimi
 
-Bağlama derlemesi başına temelinde bir XML yapılandırma dosyasını sağlayarak ve bir MSBuild öğesi olarak proje dosyasının dosya belirtme denetlenebilir.
+Derleme başına temelinde bir XML yapılandırma dosyasını sağlayarak ve bir MSBuild öğesi olarak proje dosyasının dosya belirtme bağlama denetimi:
 
-Örnek bir yapılandırma dosyası verilmiştir (*Linker.xml*):
+```xml
+<ItemGroup>
+  <BlazorLinkerDescriptor Include="Linker.xml" />
+</ItemGroup>
+```
+
+*Linker.xml*:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -73,12 +79,4 @@ Bağlama derlemesi başına temelinde bir XML yapılandırma dosyasını sağlay
 </linker>
 ```
 
-Yapılandırma dosyası için dosya biçimi hakkında daha fazla bilgi için bkz: [IL bağlayıcı: Xml tanımlayıcı sözdizimi](https://github.com/mono/linker/blob/master/src/linker/README.md#syntax-of-xml-descriptor).
-
-Yapılandırma dosyasını proje dosyasında belirtmek `BlazorLinkerDescriptor` öğesi:
-
-```xml
-<ItemGroup>
-  <BlazorLinkerDescriptor Include="Linker.xml" />
-</ItemGroup>
-```
+Daha fazla bilgi için [IL bağlayıcı: Xml tanımlayıcı sözdizimi](https://github.com/mono/linker/blob/master/src/linker/README.md#syntax-of-xml-descriptor).

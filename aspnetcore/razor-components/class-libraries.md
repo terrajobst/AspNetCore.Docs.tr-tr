@@ -5,65 +5,87 @@ description: Bileşenleri Razor bileşenleri uygulamalardan bir dış bileşen k
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/09/2019
+ms.date: 03/14/2019
 uid: razor-components/class-libraries
-ms.openlocfilehash: 0e644627178bae2b8880760335860b3e0ebef156
-ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
+ms.openlocfilehash: 1064ad60d90af15af483ba9bca5ed85fb63c2924
+ms.sourcegitcommit: d913bca90373c07f89b1d1df01af5fc01fc908ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56159233"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57978313"
 ---
 # <a name="razor-components-class-libraries"></a>Razor bileşenleri sınıf kitaplıkları
 
 Tarafından [Simon Timms](https://github.com/stimms)
 
-> [!NOTE]
-> .NET Core 3.0 Önizleme 2 SDK Razor bileşen sınıf kitaplıkları için bir proje şablonu içermez, ancak gelecekteki bir önizlemede şablon eklemek bekliyoruz. Meantime bu konuda açıklanan Blazor bileşen sınıf kitaplığı şablonu kullanabilirsiniz.
-
-Bileşenleri bileşen kitaplıklarında, projeler arasında paylaşılabilir. Bileşenlerin gelen dahil edilebilir:
+Bileşenleri Razor sınıf kitaplıkları, projeler arasında paylaşılabilir. Bileşenlerin gelen dahil edilebilir:
 
 * Çözümdeki başka bir proje.
 * Bir NuGet paketi.
 * Başvurulan bir .NET kitaplığı.
 
-Normal .NET türleri yalnızca bileşenlerdir gibi normal .NET derlemeleri bileşen kitaplıkları vardır.
+Normal .NET türleri yalnızca bileşenlerdir gibi Razor sınıf kitaplığı tarafından sağlanan normal .NET derlemelerini bileşenlerdir.
 
-Yeni bir bileşen kitaplığı oluşturmak için kullanın `blazorlib` şablonuyla [yeni dotnet](/dotnet/core/tools/dotnet-new) komutu. Yüklü Şablonlar bir parçası olan şablondur olduğunda [Razor bileşenleri ayarlama](xref:razor-components/get-started).
+Kullanım `razorclasslib` (Razor sınıf kitaplığı) şablonuyla [yeni dotnet](/dotnet/core/tools/dotnet-new) komutu:
 
 ```console
-dotnet new blazorlib -o MyComponentLib1
+dotnet new razorclasslib -o MyComponentLib1
 ```
 
+Razor bileşen dosyaları ekleyin (*.razor*) Razor sınıf kitaplığı için.
+
 Kitaplık var olan bir projeye eklemek için [dotnet sln](/dotnet/core/tools/dotnet-sln) komutu:
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 ```console
 dotnet sln add .\MyComponentLib1
 ```
 
-Bileşen kitaplıkları, resimler, JavaScript ve stil sayfalarını gibi statik dosyalar içerebilir. Oluşturma zamanında derlenmiş bir bütünleştirilmiş kodu dosyanın gömülü statik dosyalar (*.dll*), kaynaklarını ekleme hakkında endişelenmenize gerek kalmadan tüketim bileşenlerini sağlar. İçindeki tüm dosyaları `content` dizin katıştırılmış bir kaynağı işaretlenir. 
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+
+```console
+dotnet add WebApplication1 reference MyComponentLib1
+```
+
+---
+
+> [!NOTE]
+> Razor sınıf kitaplıkları, ASP.NET Core Preview 3'te Blazor uygulamalarıyla uyumlu değil.
+>
+> Blazor ve Razor bileşenleri uygulamalarla paylaşılabilir bir kitaplıkta bileşenleri oluşturmak için tarafından oluşturulan bir Blazor sınıf kitaplığı kullanma `blazorlib` şablonu.
+>
+> Razor sınıf kitaplıkları, ASP.NET Core Preview 3'te statik varlıklar desteklemez. Bileşen kitaplıkları kullanarak `blazorlib` şablon görüntüleri, JavaScript ve stil sayfalarını gibi statik dosyalar içerebilir. Oluşturma zamanında derlenmiş bir bütünleştirilmiş kodu dosyanın gömülü statik dosyalar (*.dll*), kaynaklarını ekleme hakkında endişelenmenize gerek kalmadan tüketim bileşenlerini sağlar. İçindeki tüm dosyaları `content` dizin katıştırılmış bir kaynağı işaretlenir.
 
 ## <a name="consume-a-library-component"></a>Bir kitaplık bileşeni kullanma
 
-Başka bir projede bir kitaplıkta tanımlanan bileşenleri kullanmak [ @addTagHelper ](/aspnet/core/mvc/views/tag-helpers/intro#add-helper-label) yönergesi kullanılmalıdır. Ada göre tek tek bileşenler eklenebilir. Örneğin, aşağıdaki yönergesi ekler `Component1` , `MyComponentLib1`:
+Başka bir projede bir kitaplıkta tanımlanan bileşenleri kullanmak [ @addTagHelper ](xref:mvc/views/tag-helpers/intro#add-helper-label) yönergesi kullanılmalıdır. Ada göre tek tek bileşenler eklenebilir.
+
+Yönergenin genel biçimi şu şekildedir:
+
+```cshtml
+@addTagHelper MyComponentLib1.Component1, MyComponentLib1
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<Component1 />
+```
+
+Örneğin, aşağıdaki yönergesi ekler `Component1` , `MyComponentLib1`:
 
 ```cshtml
 @addTagHelper MyComponentLib1.Component1, MyComponentLib1
 ```
 
-Yönergenin genel biçimi şu şekildedir:
-
-```cshtml
-@addTagHelper <namespaced component name>, <assembly name>
-```
-
-Ancak, genel olarak bir joker karakter kullanarak bir derlemeden bileşenlerinin tümünü içerir:
+Ancak, bir derlemeden bir joker karakter kullanarak tüm bileşenleri eklemek için ortak olan (`*`):
 
 ```cshtml
 @addTagHelper *, MyComponentLib1
 ```
 
-`@addTagHelper` Yönergesini dahil edilebilir *_ViewImport.cshtml* bileşenleri uygulanan veya bir projenin tamamı için kullanılabilir bir tek sayfalı veya bir klasördeki sayfalar kümesi oluşturmak için. İle `@addTagHelper` uygulama ile aynı derlemedeki oldukları gibi yerinde yönergesi, bileşen kitaplığının bileşenleri tarafından kullanılabilir. 
+`@addTagHelper` Yönergesini dahil edilebilir *_ViewImport.cshtml* bileşenleri uygulanan veya bir projenin tamamı için kullanılabilir bir tek sayfalı veya bir klasördeki sayfalar kümesi oluşturmak için. İle `@addTagHelper` uygulama ile aynı derlemedeki oldukları gibi yerinde yönergesi, bileşen kitaplığının bileşenleri tarafından kullanılabilir.
 
 ## <a name="build-pack-and-ship-to-nuget"></a>Sevkiyat NuGet derleme ve paketi
 
@@ -79,4 +101,4 @@ NuGet kullanarak paket karşıya [dotnet nuget yayımlama](/dotnet/core/tools/do
 dotnet nuget publish
 ```
 
-Dahil edilen tüm statik kaynakları, NuGet paketinin dahil edilir. Kitaplık tüketiciler otomatik olarak betikleri ve stil sayfalarını, almak tüketiciler kaynakları el ile yüklemek için gerekli değildir.
+Kullanırken `blazorlib` şablonu, statik kaynakları, NuGet paketinin dahil edilir. Kitaplık tüketiciler otomatik olarak betikleri ve stil sayfalarını, almak tüketiciler kaynakları el ile yüklemek için gerekli değildir.

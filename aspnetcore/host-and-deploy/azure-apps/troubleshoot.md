@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core Azure App Service dağıtım sorunlarını tanılamayı öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/05/2019
+ms.date: 03/06/2019
 uid: host-and-deploy/azure-apps/troubleshoot
-ms.openlocfilehash: c3732bfab362ec034248eb3912d4b1337c94216e
-ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
+ms.openlocfilehash: 326f66070d51c04298abbf6292d2d350414311de
+ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57665434"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57841413"
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service"></a>Azure App Service'te ASP.NET Core sorunlarını giderme
 
@@ -187,7 +187,10 @@ Bkz. <xref:host-and-deploy/azure-iis-errors-reference>. Uygulama başlatma önle
 
 ## <a name="slow-or-hanging-app"></a>Yavaş veya asılı uygulama
 
-Bir uygulama yavaş yanıt ya da bir isteği yanıt vermemeye başlıyor bkz [sorun giderme yavaş web uygulaması performans sorunlarını Azure App Service'te](/azure/app-service/app-service-web-troubleshoot-performance-degradation) Kılavuzu hata ayıklama.
+Bir uygulamayı yavaş yanıt veya bir isteği yanıt vermemeye başlıyor, aşağıdaki makalelere bakın:
+
+* [Azure App Service'te yavaş web uygulaması performans sorunlarını giderme](/azure/app-service/app-service-web-troubleshoot-performance-degradation)
+* [Aralıklı olarak ortaya çıkan özel durum veya performans sorunları, Azure Web uygulamasında için döküm yakalama için kilitlenme tanılayıcı Site uzantısını kullanma](https://blogs.msdn.microsoft.com/asiatech/2015/12/28/use-crash-diagnoser-site-extension-to-capture-dump-for-intermittent-exception-issues-or-performance-issues-on-azure-web-app/)
 
 ## <a name="remote-debugging"></a>Uzaktan hata ayıklama
 

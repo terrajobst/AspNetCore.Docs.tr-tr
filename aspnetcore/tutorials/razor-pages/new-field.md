@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/5/2018
 uid: tutorials/razor-pages/new-field
-ms.openlocfilehash: f8661a48ddd6fc616c141435edc603117b4925fb
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 3799b072da04e32948b5fc78032f0575e760aa1d
+ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57345903"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57841455"
 ---
 # <a name="add-a-new-field-to-a-razor-page-in-aspnet-core"></a>ASP.NET Core Razor sayfasına yeni bir alan ekleyin
 
@@ -116,37 +116,15 @@ Başka bir seçenek veritabanını silin ve veritabanını yeniden oluşturmaya 
 <!-- Code -------------------------->
 # <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code'u / Visual Studio Mac için](#tab/visual-studio-code+visual-studio-mac)
 
-<!-- copy/paste this tab to the next. Not worth an include  -->
+### <a name="drop-and-re-create-the-database"></a>Bırakın ve veritabanını yeniden oluşturun
 
-Aşağıdaki .NET Core CLI komutları çalıştırın:
+[!INCLUDE[](~/includes/RP-mvc-shared/sqlite-warn.md)]
 
-```console
-dotnet ef migrations add Rating
-dotnet ef database update
-```
-
-`ef migrations add` Komutu framework bildirir:
-
-* Karşılaştırma `Movie` ile model `Movie` DB şema.
-* Yeni modeline DB şema geçişi için kod oluşturun.
-
-Adı "Sıralama" isteğe bağlıdır ve geçiş dosyasını adlandırmak için kullanılır. Geçiş dosya için anlamlı bir ad kullanmak yararlıdır.
-
-`ef database update` Komutu veritabanı için şema değişiklikleri uygulamak için framework bildirir.
-
-DB tüm kayıtların silerseniz, başlatıcı DB çekirdeğini ve dahil `Rating` alan. Delete bağlantıları tarayıcıda veya bir SQLite aracını kullanarak yapın.
-
-Başka bir seçenek veritabanını silin ve veritabanını yeniden oluşturmaya geçişleri kullanmaktır. Veritabanını silmek için veritabanı dosyasını silin (*MvcMovie.db*). Ardından çalıştırın `ef database update` komutu: 
+Veritabanını silin ve veritabanını yeniden oluşturmaya geçişleri kullanın. Veritabanını silmek için veritabanı dosyasını silin (*MvcMovie.db*). Ardından çalıştırın `ef database update` komutu: 
 
 ```console
 dotnet ef database update
 ```
-
-> [!NOTE]
-> Birçok şema değiştirme işlemlerini EF Core SQLite sağlayıcı tarafından desteklenmiyor. Örneğin, sütun ekleme desteklenir, ancak bir sütun kaldırılması desteklenmiyor. Bir sütunu kaldırmak için bir geçiş eklerseniz `ef migrations add` komut başarılı ancak `ef database update` komutu başarısız oluyor. Bazı kısıtlamalar nedeniyle geçici olarak bir tablo yeniden oluşturma gerçekleştirmek için geçiş kodu el ile yazarak çalışabilir. Bir tablo yeniden oluşturma, varolan bir tabloyu yeniden adlandırma, yeni bir tablo oluşturma, yeni tabloya veri kopyalama ve eski tablo bırakılırken içerir. Daha fazla bilgi için aşağıdaki kaynaklara bakın:
-> * [SQLite EF Core veritabanı sağlayıcısı sınırlamaları](/ef/core/providers/sqlite/limitations)
-> * [Geçiş kodu özelleştirme](/ef/core/managing-schemas/migrations/#customize-migration-code)
-> * [Veri çekirdeği oluşturma](/ef/core/modeling/data-seeding)
 
 ---  
 <!-- End of VS tabs -->

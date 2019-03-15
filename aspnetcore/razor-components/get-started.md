@@ -5,14 +5,14 @@ description: Razor bileşenler oluşturma ve Razor bileşenleri projesini deği�
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/03/2019
+ms.date: 03/13/2019
 uid: razor-components/get-started
-ms.openlocfilehash: a9ada603e5ed4e0e75c4aebc5105c331118666e6
-ms.sourcegitcommit: af8a6eb5375ef547a52ffae22465e265837aa82b
+ms.openlocfilehash: 86427f9d8a6bc70a65f58ff1b9f8f37c536a97a6
+ms.sourcegitcommit: d913bca90373c07f89b1d1df01af5fc01fc908ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56159323"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57978335"
 ---
 # <a name="get-started-with-razor-components"></a>Razor bileşenleri ile çalışmaya başlama
 
@@ -29,9 +29,6 @@ Visual Studio'da ilk Razor bileşenleri projenizi oluşturmak için:
 1. Seçin **dosya** > **yeni proje** > **Web** > **ASP.NET Core Web uygulaması**.
 1. Emin **.NET Core** ve **ASP.NET Core 3.0** üstünde seçilir.
 1. Seçin **Razor bileşenleri** şablonu seçip alt **Tamam**.
-
-   ![Yeni uygulama iletişim kutusu](https://msdnshared.blob.core.windows.net/media/2019/01/razor-components-template.png)
-
 1. Tuşuna **F5** uygulamayı çalıştırmak için.
 
 Tebrikler! Yalnızca ilk Razor bileşenleri uygulamanızı çalıştırdığınız!
@@ -113,12 +110,14 @@ Tebrikler! Yalnızca ilk Razor bileşenleri uygulamanızı çalıştırdığın�
 
 ## <a name="razor-components-project"></a>Razor bileşenleri proje
 
-Razor bileşenleri şablon tarafından oluşturulan çözüm iki proje içerir:
+Razor bileşenleri, Razor sözdizimi kullanılarak yazılan ancak Razor sayfaları ve MVC görünümleri farklı derlenir. *.Razor* dosya uzantısı, Razor bileşen belirtmek için kullanılır. Razor sayfaları ve MVC görünümleri kullanmaya devam *.cshtml* dosya uzantısı.
 
-* *WebApplication1.Server* &ndash; bir ASP.NET Core projesi Razor bileşenleri uygulamayı barındırmak için ayarlanmış sunucu projedir.
-* *WebApplication1.App* &ndash; Razor bileşenleri kullanan istemci tarafı web kullanıcı Arabirimi proje.
-
-UI mantığı *WebApplication1.App* proje ayrılmış uygulama ASP.NET Core 3.0 Preview 2 sürümündeki teknik bir sınırlama nedeniyle geri kalanından. Razor dosya uzantısı (*.cshtml*) kullanılan Razor bileşenleri için Razor sayfaları ve MVC görünümleri de kullanılır. Razor bileşenleri Razor dosyaları ayrı tutulur. Bu nedenle şu anda, Razor bileşenleri ve Razor sayfaları/MVC farklı derleme modelleri yok edin. Gelecekteki bir Önizleme'de, yeni bir dosya uzantısı tanıtan Razor bileşenleri için planlıyoruz (*.razor*). Bileşenleri ve sayfa görünümleri barındırılacak *aynı projede*.
+> [!NOTE]
+> Razor bileşenlerini kullanarak yazarı olduğu *.cshtml* dosyaları kullanarak Razor bileşen dosyaları tanımlanmış olduğu sürece dosya uzantısı `_RazorComponentInclude` MSBuild özelliği. Örneğin, Razor bileşen şablonu kullanılarak oluşturulan bir uygulamayı belirtir tüm *.cshtml* altında dosyaları *bileşenleri* klasör Razor bileşenleri olarak kabul:
+>
+> ```xml
+> <_RazorComponentInclude>Components\**\*.cshtml</_RazorComponentInclude>
+> ```
 
 Uygulamayı çalıştırdığınızda, birden çok sayfa sekmeleri Kenar çubuğunda kullanılabilir:
 
@@ -128,9 +127,9 @@ Uygulamayı çalıştırdığınızda, birden çok sayfa sekmeleri Kenar çubuğ
 
 Sayaç sayfasında **me tıklayın** sayfa yenileme olmadan sayaç artmaya düğmesi. Normal olarak artan bir Web sayfasındaki bir sayaç JavaScript Yazma gerektiriyor, ancak Razor bileşenleri sağlayan daha iyi bir yaklaşım kullanarak C#.
 
-*WebApplication1.App/Pages/Counter.cshtml*:
+*WebApplication1/Components/Pages/Counter.razor*:
 
-[!code-cshtml[](get-started/samples_snapshot/3.x/Counter1.cshtml)]
+[!code-cshtml[](get-started/samples_snapshot/3.x/Counter1.razor)]
 
 Bir istek için `/counter` tarayıcıda tarafından belirtilen `@page` yönergesi üst içeriğini işlemek sayacı bileşen neden olur. Bileşenleri UI esnek ve verimli bir şekilde güncelleştirmek için kullanılabilir işleme ağacında bir bellek içi gösterimi halinde işler.
 
@@ -145,9 +144,9 @@ Her zaman **me tıklayın** düğmesi seçili:
 
 Bir bileşen başka bir bileşene bir HTML benzeri sözdizimi kullanarak ekleyin. Bileşen parametreleri, öznitelikleri veya alt içeriğin kullanarak belirtilir. Örneğin, bir sayaç bileşeni uygulamanın giriş sayfasına ekleyerek eklenebilir bir `<Counter />` dizin bileşeni öğesi.
 
-*WebApplication1.App/Pages/Index.cshtml*:
+*WebApplication1/Components/Pages/Index.razor*:
 
-[!code-cshtml[](get-started/samples_snapshot/3.x/Index1.cshtml?highlight=7)]
+[!code-cshtml[](get-started/samples_snapshot/3.x/Index1.razor?highlight=7)]
 
 Uygulamayı çalıştırın. Giriş sayfası, kendi sayaç vardır.
 
@@ -156,15 +155,15 @@ Sayaç bileşenine parametre eklemek için bileşenin güncelleştirme `@functio
 * Bir özelliği için ekleme `IncrementAmount` ile donatılmış `[Parameter]` özniteliği.
 * Değişiklik `IncrementCount` yönteminin kullanılacağını `IncrementAmount` değerini artırmayı olduğunda `currentCount`.
 
-*WebApplication1.App/Pages/Counter.cshtml*:
+*WebApplication1/Components/Pages/Counter.razor*:
 
-[!code-cshtml[](get-started/samples_snapshot/3.x/Counter2.cshtml?highlight=4,8)]
+[!code-cshtml[](get-started/samples_snapshot/3.x/Counter2.razor?highlight=4,8)]
 
 Belirtin bir `IncrementAmount` ana bileşenin parametresinde `<Counter>` öğesini kullanarak bir öznitelik.
 
-*WebApplication1.App/Pages/Index.cshtml*:
+*WebApplication1/Components/Pages/Index.razor*:
 
-[!code-cshtml[](get-started/samples_snapshot/3.x/Index2.cshtml)]
+[!code-cshtml[](get-started/samples_snapshot/3.x/Index2.razor)]
 
 Uygulamayı çalıştırın. Giriş sayfası on tarafından her zaman artırır, kendi sayaç sahip **me tıklayın** düğmesi seçili.
 

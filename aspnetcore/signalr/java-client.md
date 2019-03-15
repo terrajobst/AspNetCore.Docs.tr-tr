@@ -5,14 +5,14 @@ description: ASP.NET Core SignalR Java istemcisi kullanmayı öğrenin.
 monikerRange: '>= aspnetcore-2.2'
 ms.author: mimengis
 ms.custom: mvc
-ms.date: 11/07/2018
+ms.date: 03/14/2019
 uid: signalr/java-client
-ms.openlocfilehash: d0eff38c1f622b896ed1dc3002238aec7b6bfd38
-ms.sourcegitcommit: 8a65f6c2cbe290fb2418eed58f60fb74c95392c8
+ms.openlocfilehash: 09e5ce23ddcc250d212a8cdf1176f39531a9c0ba
+ms.sourcegitcommit: d913bca90373c07f89b1d1df01af5fc01fc908ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52892100"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57978496"
 ---
 # <a name="aspnet-core-signalr-java-client"></a>ASP.NET Core SignalR Java istemci
 
@@ -49,6 +49,9 @@ Kurmak için bir `HubConnection`, `HubConnectionBuilder` kullanılmalıdır. Hub
 Bir çağrı `send` bir hub yöntemini çağırır. Hub yönteminin adını ve hub yöntemi için tanımlanan herhangi bir bağımsız değişken geçirme `send`.
 
 [!code-java[send method](java-client/sample/src/main/java/Chat.java?range=28)]
+
+> [!NOTE]
+> Azure SignalR hizmeti kullanıyorsanız, *sunucusuz modu*, bir istemciden hub yöntemlerini çağıramazsınız. Daha fazla bilgi için [SignalR hizmeti belgeleri](/azure/azure-signalr/signalr-concept-serverless-development-config).
 
 ## <a name="call-client-methods-from-hub"></a>İstemci hub'ından yöntemleri çağırma
 
@@ -105,3 +108,4 @@ HubConnection hubConnection = HubConnectionBuilder.create("YOUR HUB URL HERE")
 * <xref:signalr/hubs>
 * <xref:signalr/javascript-client>
 * <xref:signalr/publish-to-azure-web-app>
+* [Sunucusuz Azure SignalR hizmeti belgeleri](/azure/azure-signalr/signalr-concept-serverless-development-config)

@@ -5,14 +5,14 @@ description: ASP.NET Core uygulaması bir Windows hizmetinde barındırmayı ö�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/13/2019
+ms.date: 03/08/2019
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: 081a631c9c3e74c01e15f4b0b272d650c162bd20
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: ecc7f3a8cd813c2803d03294e38d726905eeb1b8
+ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248257"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57841429"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>ASP.NET Core bir Windows hizmetinde barındırma
 
@@ -21,6 +21,10 @@ Tarafından [Luke Latham](https://github.com/guardrex) ve [Tom Dykstra](https://
 ASP.NET Core uygulaması Windows barındırılabilen bir [Windows hizmeti](/dotnet/framework/windows-services/introduction-to-windows-service-applications) IIS kullanmadan. Bir Windows hizmeti olarak barındırıldığında, uygulama yeniden başlatma sonrasında otomatik olarak başlar.
 
 [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/windows-service/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+
+## <a name="prerequisites"></a>Önkoşullar
+
+* [PowerShell 6](https://github.com/PowerShell/PowerShell)
 
 ## <a name="deployment-type"></a>Dağıtım türü
 
@@ -121,13 +125,13 @@ Aşağıdaki değişiklikleri yapın `Program.Main`:
 
 [!code-csharp[](windows-service/samples/2.x/AspNetCoreService/Program.cs?name=snippet_Program)]
 
-### <a name="publish-the-app"></a>Uygulamayı yayımlama
+## <a name="publish-the-app"></a>Uygulamayı yayımlama
 
 Kullanarak uygulama yayımlamayı [dotnet yayımlama](/dotnet/articles/core/tools/dotnet-publish), [Visual Studio yayımlama profilini](xref:host-and-deploy/visual-studio-publish-profiles), veya Visual Studio Code. Visual Studio kullanırken **FolderProfile** ve yapılandırma **hedef konum** seçmeden önce **Yayımla** düğmesi.
 
 Komut satırı arabirimi (CLI) araçlarını kullanarak örnek uygulamayı yayımlamak için çalıştırma [dotnet yayımlama](/dotnet/core/tools/dotnet-publish) geçirilen bir sürüm yapılandırması ile proje klasöründeki bir komut isteminde komutunu [- c |--yapılandırma](/dotnet/core/tools/dotnet-publish#options)seçeneği. Kullanım [-o |--çıktı](/dotnet/core/tools/dotnet-publish#options) uygulama dışında bir klasöre yayımlamak için bir yol ile seçeneği.
 
-#### <a name="publish-a-framework-dependent-deployment-fdd"></a>Framework bağımlı dağıtım (FDD) yayımlama
+### <a name="publish-a-framework-dependent-deployment-fdd"></a>Framework bağımlı dağıtım (FDD) yayımlama
 
 Aşağıdaki örnekte, uygulama için yayımlanan *c:\\svc* klasörü:
 
@@ -135,7 +139,7 @@ Aşağıdaki örnekte, uygulama için yayımlanan *c:\\svc* klasörü:
 dotnet publish --configuration Release --output c:\svc
 ```
 
-#### <a name="publish-a-self-contained-deployment-scd"></a>Kendi içinde bir dağıtım (SCD) yayımlama
+### <a name="publish-a-self-contained-deployment-scd"></a>Kendi içinde bir dağıtım (SCD) yayımlama
 
 RID belirtilmelidir `<RuntimeIdenfifier>` (veya `<RuntimeIdentifiers>`) özelliği proje dosyasının. Çalışma zamanı kaynağı [- r |--çalışma zamanı](/dotnet/core/tools/dotnet-publish#options) seçeneği `dotnet publish` komutu.
 
@@ -145,11 +149,11 @@ Aşağıdaki örnekte, uygulama için yayımlanan `win7-x64` çalışma zamanın
 dotnet publish --configuration Release --runtime win7-x64 --output c:\svc
 ```
 
-### <a name="create-a-user-account"></a>Bir kullanıcı hesabı oluşturun
+## <a name="create-a-user-account"></a>Bir kullanıcı hesabı oluşturun
 
-Hizmet kullanımı için bir kullanıcı hesabı oluşturma `net user` bir yönetici komut kabuğu komutunu:
+Hizmet kullanımı için bir kullanıcı hesabı oluşturma `net user` bir yönetici PowerShell 6'yı komut kabuğu komutunu:
 
-```console
+```powershell
 net user {USER ACCOUNT} {PASSWORD} /add
 ```
 
@@ -157,13 +161,13 @@ Varsayılan parola süre sonu altı hafta olur.
 
 Örnek uygulama için bir kullanıcı hesabı adı ile oluşturun. `ServiceUser` ve parola. Aşağıdaki komutta `{PASSWORD}` ile bir [güçlü parola](/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements).
 
-```console
+```powershell
 net user ServiceUser {PASSWORD} /add
 ```
 
 Bir gruba kullanıcı eklemeniz gerekiyorsa, kullanın `net localgroup` komutu, burada `{GROUP}` grubunun adıdır:
 
-```console
+```powershell
 net localgroup {GROUP} {USER ACCOUNT} /add
 ```
 
@@ -171,13 +175,11 @@ Daha fazla bilgi için [hizmeti kullanıcı hesaplarını](/windows/desktop/serv
 
 Active Directory kullanarak kullanıcıları yönetme için alternatif bir yaklaşım, yönetilen hizmet hesaplarını kullanmaktır. Daha fazla bilgi için [Grup yönetilen hizmet hesaplarına genel bakış](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview).
 
-### <a name="set-permissions"></a>İzinleri ayarlama
+## <a name="set-permission-log-on-as-a-service"></a>İzin ayarlama: Bir hizmet olarak oturum aç
 
-#### <a name="access-to-the-app-folder"></a>Uygulama klasör erişimi
+Uygulamanın klasörüne yazma/okuma/yürütme erişimi vermek kullanarak [icacls](/windows-server/administration/windows-commands/icacls) komutu:
 
-Uygulamanın klasörüne yazma/okuma/yürütme erişimi vermek kullanarak [icacls](/windows-server/administration/windows-commands/icacls) bir yönetici komut kabuğu komutunu:
-
-```console
+```powershell
 icacls "{PATH}" /grant {USER ACCOUNT}:(OI)(CI){PERMISSION FLAGS} /t
 ```
 
@@ -195,82 +197,69 @@ icacls "{PATH}" /grant {USER ACCOUNT}:(OI)(CI){PERMISSION FLAGS} /t
 
 Örnek uygulamayı yayımlanan *c:\\svc* klasörü ve `ServiceUser` hesap yazma/okuma/Yürütme izinleri, aşağıdaki komutu kullanın:
 
-```console
+```powershell
 icacls "c:\svc" /grant ServiceUser:(OI)(CI)WRX /t
 ```
 
 Daha fazla bilgi için [icacls](/windows-server/administration/windows-commands/icacls).
 
-#### <a name="log-on-as-a-service"></a>Bir hizmet olarak oturum aç
+## <a name="create-the-service"></a>Hizmet oluşturma
 
-Vermek [hizmet oturum açma](/windows/security/threat-protection/security-policy-settings/log-on-as-a-service) ayrıcalıklı kullanıcı hesabı için:
+Kullanım [RegisterService.ps1](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/windows-service/scripts) hizmeti kaydetmek için PowerShell Betiği. Bir yönetici PowerShell 6'yı komut isteminden aşağıdaki komutu yürütün:
 
-1. Bulun **kullanıcı hakları ataması** Yerel Güvenlik İlkesi konsolunu veya yerel Grup İlkesi Düzenleyicisi Konsolu ilkeleri. Yönergeler için, bkz: [Güvenlik İlkesi ayarlarını yapılandırma](/windows/security/threat-protection/security-policy-settings/how-to-configure-security-policy-settings).
-1. Bulun `Log on as a service` ilkesi. Açmak için ilkeye çift tıklayın.
-1. Seçin **kullanıcı veya grup ekleme**.
-1. Seçin **Gelişmiş** seçip **Şimdi Bul**.
-1. Oluşturulan kullanıcı hesabını seçin [bir kullanıcı hesabı oluşturma](#create-a-user-account) bölümüne. Seçin **Tamam** Seçimi kabul etmek için.
-1. Seçin **Tamam** nesne adının doğru olduğunu onayladıktan sonra.
-1. **Uygula**’yı seçin. Seçin **Tamam** İlkesi penceresini kapatın.
-
-## <a name="manage-the-service"></a>Hizmeti yönetme
-
-### <a name="create-the-service"></a>Hizmet oluşturma
-
-Kullanım [sc.exe](https://technet.microsoft.com/library/bb490995) bir yönetim komut kabuğu'ndan bir hizmet oluşturmak için komut satırı aracı. `binPath` Değerdir yürütülebilir dosya adını içeren uygulamanın yürütülebilir dosyanın yolu. **Eşittir işareti ve tırnak karakteri her bir parametre ve değer arasında gerekli bir alandır.**
-
-```console
-sc create {SERVICE NAME} binPath= "{PATH}" obj= "{DOMAIN}\{USER ACCOUNT}" password= "{PASSWORD}"
+```powershell
+.\RegisterService.ps1 
+    -Name {NAME} 
+    -DisplayName "{DISPLAY NAME}" 
+    -Description "{DESCRIPTION}" 
+    -Path "{PATH}" 
+    -Exe {ASSEMBLY}.exe 
+    -User {DOMAIN\USER}
 ```
-
-* `{SERVICE NAME}` &ndash; Hizmete atanacak ad [Hizmet Denetimi Yöneticisi](/windows/desktop/services/service-control-manager).
-* `{PATH}` &ndash; Hizmet yürütülebilir dosya yolu.
-* `{DOMAIN}` &ndash; Etki alanına katılmış bir makine etki alanı. Makine etki alanına katılmış değilse, yerel makine adını kullanın.
-* `{USER ACCOUNT}` &ndash; Hizmetinin çalıştığı kullanıcı hesabı.
-* `{PASSWORD}` &ndash; Kullanıcı hesabı parolası.
-
-> [!WARNING]
-> Yapmak **değil** atlamak `obj` parametresi. İçin varsayılan değer `obj` olduğu [LocalSystem hesabı](/windows/desktop/services/localsystem-account) hesabı. Altında bir hizmeti çalıştıran `LocalSystem` hesabı önemli bir güvenlik riski sunar. Her zaman bir servis ayrıcalıkları sınırlı sahip bir kullanıcı hesabı ile çalıştırın.
 
 Aşağıdaki örnekte örnek uygulama için:
 
 * Adlı hizmetin **MyService**.
-* Yayınlanan hizmet bulunan *c:\\svc* klasör. Uygulama yürütülebilir dosyası adlı *SampleApp.exe*. İçine `binPath` çift tırnak (") değeri.
-* Altında çalışacağı `ServiceUser` hesabı. Değiştirin `{DOMAIN}` kullanıcı hesabının etki alanı veya yerel makine adı. İçine `obj` çift tırnak (") değeri. Örnek: Barındıran sistemde adlı bir yerel makineye ise `MairaPC`ayarlayın `obj` için `"MairaPC\ServiceUser"`.
-* Değiştirin `{PASSWORD}` ile kullanıcı hesabının parolası. İçine `password` çift tırnak (") değeri.
+* Yayınlanan hizmet bulunan *c:\\svc* klasör. Uygulama yürütülebilir dosyası adlı *SampleApp.exe*.
+* Altında çalışacağı `ServiceUser` hesabı. Aşağıdaki örnekte, yerel makine adıdır `Desktop-PC`.
 
-```console
-sc create MyService binPath= "c:\svc\sampleapp.exe" obj= "{DOMAIN}\ServiceUser" password= "{PASSWORD}"
+```powershell
+.\RegisterService.ps1 
+    -Name MyService 
+    -DisplayName "My Cool Service" 
+    -Description "This is the Sample App service." 
+    -Path "c:\svc" 
+    -Exe SampleApp.exe 
+    -User Desktop-PC\ServiceUser
 ```
 
-> [!IMPORTANT]
-> Parametreleri eşittir işareti ve parametrelerin değerleri arasında boşluk bulunmadığından emin olun.
+## <a name="manage-the-service"></a>Hizmeti yönetme
 
 ### <a name="start-the-service"></a>Hizmeti Başlat
 
-Hizmetle başlar `sc start {SERVICE NAME}` komutu.
+Hizmetle başlar `Start-Service -Name {NAME}` PowerShell 6 komutu.
 
 Örnek uygulama hizmeti başlatmak için aşağıdaki komutu kullanın:
 
-```console
-sc start MyService
+```powershell
+Start-Service -Name MyService
 ```
 
 Komut hizmeti başlatmak için birkaç saniye sürer.
 
 ### <a name="determine-the-service-status"></a>Hizmet durumunu belirleme
 
-Hizmet durumunu denetlemek için kullanmak `sc query {SERVICE NAME}` komutu. Durumu aşağıdaki değerlerden biri olarak bildirilir:
+Hizmet durumunu denetlemek için kullanmak `Get-Service -Name {NAME}` PowerShell 6 komutu. Durumu aşağıdaki değerlerden biri olarak bildirilir:
 
-* `START_PENDING`
-* `RUNNING`
-* `STOP_PENDING`
-* `STOPPED`
+* `Starting`
+* `Running`
+* `Stopping`
+* `Stopped`
 
 Örnek uygulama hizmeti durumunu denetlemek için aşağıdaki komutu kullanın:
 
-```console
-sc query MyService
+```powershell
+Get-Service -Name MyService
 ```
 
 ### <a name="browse-a-web-app-service"></a>Bir web app service Gözat
@@ -281,28 +270,22 @@ Hizmet olduğunda `RUNNING` durum ve hizmeti bir web uygulaması ise, uygulama, 
 
 ### <a name="stop-the-service"></a>Hizmeti Durdur
 
-Hizmetle Durdur `sc stop {SERVICE NAME}` komutu.
+Hizmetle Durdur `Stop-Service -Name {NAME}` Powershell 6 komutu.
 
 Aşağıdaki komut örnek uygulama hizmetini durdurur:
 
-```console
-sc stop MyService
+```powershell
+Stop-Service -Name MyService
 ```
 
-### <a name="delete-the-service"></a>Hizmeti Sil
+### <a name="remove-the-service"></a>Hizmeti Kaldır
 
-Hizmeti ile bir hizmeti durdurmak için bir kısa bir gecikmeyle kaldırmanız `sc delete {SERVICE NAME}` komutu.
+Hizmeti ile bir hizmeti durdurmak için bir kısa bir gecikmeyle kaldırmak `Remove-Service -Name {NAME}` Powershell 6 komutu.
 
 Örnek uygulama hizmeti durumunu kontrol edin:
 
-```console
-sc query MyService
-```
-
-Örnek uygulama hizmeti olduğunda `STOPPED` durum, örnek uygulama hizmeti kaldırmak için aşağıdaki komutu kullanın:
-
-```console
-sc delete MyService
+```powershell
+Remove-Service -Name MyService
 ```
 
 ## <a name="handle-starting-and-stopping-events"></a>Başlatma ve durdurma olayları işleme

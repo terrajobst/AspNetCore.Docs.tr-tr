@@ -8,12 +8,12 @@ ms.date: 07/30/2013
 ms.assetid: b83f47c4-8521-4d0a-8644-e8f77e39733e
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 07d4d673b7bb6bad6e9d8cbacbc965a60608db2a
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 5016c08b94ff6eff65cad8a8a01f27c50381bc8a
+ms.sourcegitcommit: d913bca90373c07f89b1d1df01af5fc01fc908ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41754709"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57978508"
 ---
 <a name="handling-concurrency-with-the-entity-framework-in-an-aspnet-mvc-application-7-of-10"></a>Entity Framework bir ASP.NET MVC uygulamasındaki (10 7) ile eşzamanlılığı işleme
 ====================
@@ -83,7 +83,7 @@ Bu öğreticinin geri kalanında, ekleyeceksiniz bir [rowversion](https://msdn.m
 
 [!code-csharp[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs?highlight=18-19)]
 
-[Zaman damgası](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.timestampattribute.aspx) özniteliği belirtir, bu sütun eklenecektir `Where` yan tümcesi `Update` ve `Delete` veritabanına gönderilen komutları. Adlandırılan öznitelik [zaman damgası](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.timestampattribute.aspx) bir SQL SQL Server'ın önceki sürümlerinde kullanılan çünkü [zaman damgası](https://msdn.microsoft.com/library/ms182776(v=SQL.90).aspx) veri türü SQL önce [rowversion](https://msdn.microsoft.com/library/ms182776(v=sql.110).aspx) değiştirildi. .Net türü `rowversion` bir bayt dizisidir. Fluent API'sini kullanmayı tercih ederseniz kullanabilirsiniz [IsConcurrencyToken](https://msdn.microsoft.com/library/gg679501(v=VS.103).aspx) yöntemi izleme özelliği, aşağıdaki örnekte gösterildiği gibi belirtin:
+[Zaman damgası](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.timestampattribute.aspx) özniteliği belirtir, bu sütun eklenecektir `Where` yan tümcesi `Update` ve `Delete` veritabanına gönderilen komutları. Adlandırılan öznitelik [zaman damgası](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.timestampattribute.aspx) bir SQL SQL Server'ın önceki sürümlerinde kullanılan çünkü [zaman damgası](https://msdn.microsoft.com/library/ms182776(v=SQL.90).aspx) veri türü SQL önce [rowversion](https://msdn.microsoft.com/library/ms182776(v=sql.110).aspx) değiştirildi. .NET türü `rowversion` bir bayt dizisidir. Fluent API'sini kullanmayı tercih ederseniz kullanabilirsiniz [IsConcurrencyToken](https://msdn.microsoft.com/library/gg679501(v=VS.103).aspx) yöntemi izleme özelliği, aşağıdaki örnekte gösterildiği gibi belirtin:
 
 [!code-csharp[Main](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample2.cs)]
 

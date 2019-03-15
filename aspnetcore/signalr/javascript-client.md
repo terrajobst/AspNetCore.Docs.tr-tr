@@ -5,14 +5,14 @@ description: ASP.NET Core SignalR JavaScript istemcisi genel bakış.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 11/14/2018
+ms.date: 03/14/2019
 uid: signalr/javascript-client
-ms.openlocfilehash: db9a8bbc8f111728f0827e3639e40785149bf79e
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: a0980dca2eb8d483a9d9f1c5667fb74ee06364f0
+ms.sourcegitcommit: d913bca90373c07f89b1d1df01af5fc01fc908ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56899222"
+ms.lasthandoff: 03/14/2019
+ms.locfileid: "57978348"
 ---
 # <a name="aspnet-core-signalr-javascript-client"></a>ASP.NET Core SignalR JavaScript istemcisi
 
@@ -63,6 +63,9 @@ JavaScript istemcilerinin şirket hub'ları genel yöntemleri çağırmak [çağ
 * Hub yönteminin içinde tanımlanan tüm bağımsız değişkenler. Aşağıdaki örnekte, bağımsız değişkeni addır `message`. Kod örneği, Internet Explorer dışındaki tüm bilinen tarayıcılar'ın geçerli sürümlerinde desteklenen ok işlev sözdizimi kullanır.
 
   [!code-javascript[Call hub methods](javascript-client/sample/wwwroot/js/chat.js?range=24)]
+
+> [!NOTE]
+> Azure SignalR hizmeti kullanıyorsanız, *sunucusuz modu*, bir istemciden hub yöntemlerini çağıramazsınız. Daha fazla bilgi için [SignalR hizmeti belgeleri](/azure/azure-signalr/signalr-concept-serverless-development-config).
 
 ## <a name="call-client-methods-from-hub"></a>İstemci hub'ından yöntemleri çağırma
 
@@ -119,3 +122,4 @@ Gerçek uygulama bir üstel geri alma kullanın veya ancak bir belirtilen sayıd
 * [.NET istemcisi](xref:signalr/dotnet-client)
 * [Azure'a Yayımlama](xref:signalr/publish-to-azure-web-app)
 * [Çıkış noktaları arası istekleri (CORS)](xref:security/cors)
+* [Sunucusuz Azure SignalR hizmeti belgeleri](/azure/azure-signalr/signalr-concept-serverless-development-config)
