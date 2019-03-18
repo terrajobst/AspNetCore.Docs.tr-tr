@@ -5,12 +5,12 @@ description: Oluşturma, okuma, güncelleştirme ve EF Core ile silme işlemini 
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/crud
-ms.openlocfilehash: adb281277599456356251c6ee30772a25f14ac58
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: c104498a4411ac36672ffbb9660948d4e96bf1ee
+ms.sourcegitcommit: a467828b5e4eaae291d961ffe2279a571900de23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346060"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58142387"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---crud---2-of-8"></a>ASP.NET core'da - CRUD - 2 8 EF çekirdekli Razor sayfaları
 
@@ -250,7 +250,7 @@ Her bir Razor sayfası içermelidir `@page` yönergesi.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Bu öğreticide YouTube sürümü](https://www.youtube.com/watch?v=F0SP7Ry4flQ&list=PLnVvOWNfuhGV45HnNgd0vuIIkoQ1UaVBf)
+* [Bu öğreticide YouTube sürümü](https://www.youtube.com/watch?v=K4X1MT2jt6o)
 
 > [!div class="step-by-step"]
 > [Önceki](xref:data/ef-rp/intro)

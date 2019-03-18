@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/13/2018
 uid: web-api/advanced/conventions
-ms.openlocfilehash: 5ae96b213a19464045e1d0b1a76f8eb81089dc5b
-ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
+ms.openlocfilehash: 64be4984779724eb60af3b70d4f52b22eae32213
+ms.sourcegitcommit: a467828b5e4eaae291d961ffe2279a571900de23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55236347"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58142315"
 ---
 # <a name="use-web-api-conventions"></a>Web API kuralları kullanma
 
@@ -25,7 +25,7 @@ Bir kuralı sağlar:
 * En yaygın dönüş türleri ve durum kodları belirli bir eylem türünden döndürülen tanımlayın.
 * Tanımlanmış standart sapma eylemleri tanımlayın.
 
-ASP.NET Core MVC 2.2 ve sonraki sürümleri içeren bir dizi varsayılan kuralları `Microsoft.AspNetCore.Mvc.DefaultApiConventions`. Denetleyicide kurallarını temel alır (*ValuesController.cs*) içinde ASP.NET Core sağlanan **API** proje şablonu. Eylemlerinizi şablondaki desenleri izlerseniz, varsayılan kuralları kullanılarak başarılı olmalıdır. Varsayılan kuralları gereksinimlerinizi karşılamıyorsa bkz [web API'si kuralları oluşturma](#create-web-api-conventions).
+ASP.NET Core MVC 2.2 ve sonraki sürümleri içeren bir dizi varsayılan kuralları <xref:Microsoft.AspNetCore.Mvc.DefaultApiConventions?displayProperty=fullName>. Denetleyicide kurallarını temel alır (*ValuesController.cs*) içinde ASP.NET Core sağlanan **API** proje şablonu. Eylemlerinizi şablondaki desenleri izlerseniz, varsayılan kuralları kullanılarak başarılı olmalıdır. Varsayılan kuralları gereksinimlerinizi karşılamıyorsa bkz [web API'si kuralları oluşturma](#create-web-api-conventions).
 
 Çalışma zamanında, <xref:Microsoft.AspNetCore.Mvc.ApiExplorer> kurallarını anlar. `ApiExplorer` ile iletişim kurmak için MVC'nin soyutlama [Openapı](https://www.openapis.org/) (diğer adıyla Swagger) belgesi üreteçleri. Uygulanan kuralı öznitelikleri bir eylemle ilişkili ve eylemin Openapı belgelerinde yer alır. [API Çözümleyicileri](xref:web-api/advanced/analyzers) ayrıca kurallarını anlama. Eyleminizi sıra dışı ise (örneğin, belgelenen uygulanan kural gereği olmayan bir durum kodu döndürür), bir uyarı, durum kodu belgeye önerir.
 
