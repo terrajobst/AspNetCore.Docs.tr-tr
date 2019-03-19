@@ -1,1 +1,0 @@
-Yeni web uygulaması geliştirme için Razor sayfaları öneririz. Daha fazla bilgi için [Razor sayfaları kullanmaya başlama](/aspnet/core/tutorials/razor-pages/razor-pages-start).
