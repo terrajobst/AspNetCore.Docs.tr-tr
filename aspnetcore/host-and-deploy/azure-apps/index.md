@@ -141,6 +141,7 @@ Aşağıdaki yaklaşımlardan birini kullanın:
    ```powershell
    Test-Path D:\home\SiteExtensions\AspNetCoreRuntime.{X.Y}.{PLATFORM}\
    ```
+
    Komut döndürür `True` olduğunda önizlemesi çalışma zamanı yüklü x64.
 
 > [!NOTE]
@@ -194,11 +195,13 @@ Kendi içinde uygulama dağıtırken:
      <RuntimeIdentifier>win-x86</RuntimeIdentifier>
    </PropertyGroup>
    ```
+
 1. Bir komut kabuğu'ndan, sürüm yapılandırmasında ana bilgisayarın çalışma zamanı ile uygulamayı yayımlama [dotnet yayımlama](/dotnet/core/tools/dotnet-publish) komutu. Aşağıdaki örnekte, uygulama için yayımlanan `win-x86` RID. Sağlanan RID `--runtime` seçeneği sağlanmalıdır `<RuntimeIdentifier>` (veya `<RuntimeIdentifiers>`) proje dosyasındaki özellik.
 
    ```console
    dotnet publish --configuration Release --runtime win-x86
    ```
+
 1. İçeriği Taşı *bin/bırakma / {TARGET FRAMEWORK} / {çalışma zamanı TANIMLAYICISI} / publish* App Service'te bir siteye dizin.
 
 ### <a name="use-docker-with-web-apps-for-containers"></a>Docker, kapsayıcılar için Web Apps ile kullanma

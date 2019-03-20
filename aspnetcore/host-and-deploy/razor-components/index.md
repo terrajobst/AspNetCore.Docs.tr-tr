@@ -1,18 +1,12 @@
 ---
 title: Barındırma ve Razor bileşenleri dağıtma
 author: guardrex
-description: Ana bilgisayar ve ASP.NET Core, içerik teslim ağları (CDN), dosya sunucuları ve GitHub sayfaları kullanarak Razor bileşenleri ve Blazor uygulamaları dağıtmak nasıl keşfedin.
+description: 'Ana bilgisayar ve ASP.NET Core, içerik teslim ağları (CDN), dosya sunucuları ve GitHub sayfaları kullanarak Razor bileşenleri ve Blazor uygulamaları dağıtmak nasıl keşfedin.'
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
 ms.date: 01/29/2019
 uid: host-and-deploy/razor-components/index
-ms.openlocfilehash: 9debd75128ceecb805fc673a8182a785fc9f7942
-ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55668190"
 ---
 # <a name="host-and-deploy-razor-components"></a>Barındırma ve Razor bileşenleri dağıtma
 
@@ -115,8 +109,8 @@ Kullanan uygulamalar Blazor [istemci-tarafı barındırma modeli](xref:razor-com
 * Uygulamayı doğrudan tarayıcıda kullanıcı Arabirimi iş parçacığında yürütülür. Aşağıdaki stratejilerin birini ya da desteklenir:
   * Blazor uygulama, ASP.NET Core uygulaması tarafından sunulur. Ele [istemci-tarafı Blazor barındırılan ASP.NET Core ile dağıtım](#client-side-blazor-hosted-deployment-with-aspnet-core) bölümü.
   * Blazor uygulama bir statik barındırma web sunucusu veya hizmeti .NET Blazor uygulama sunmak için burada kullanılmayan yerleştirilir. Ele [istemci-tarafı Blazor tek başına dağıtımda](#client-side-blazor-standalone-deployment) bölümü.
-  
-### <a name="configure-the-linker"></a>Bağlayıcı yapılandırma
+
+### <a name="configure-the-linker"></a>Bağlayıcıyı yapılandırma
 
 Gereksiz IL çıkış derlemeleri kaldırmak için her derlemede Ara dil (IL) bağlama Blazor gerçekleştirir. Derleme üzerinde derleme bağlama denetleyebilirsiniz. Daha fazla bilgi için bkz. <xref:host-and-deploy/razor-components/configure-linker>.
 
@@ -197,7 +191,8 @@ ASP.NET Core uygulaması barındırma ve dağıtma hakkında daha fazla bilgi i�
 
 Azure App Service'e dağıtma hakkında daha fazla bilgi için aşağıdaki konulara bakın:
 
-<xref:tutorials/publish-to-azure-webapp-using-vs>  
+<xref:tutorials/publish-to-azure-webapp-using-vs>
+
 Visual Studio kullanarak Azure App Service'e bir ASP.NET Core uygulaması yayımlama hakkında bilgi edinin.
 
 ### <a name="client-side-blazor-standalone-deployment"></a>İstemci tarafı Blazor tek başına dağıtım
@@ -273,7 +268,7 @@ Nginx kullanarak docker'da Blazor barındırmak için Dockerfile, Alpine tabanl�
 
 Aşağıdaki örnekte gösterildiği gibi bir satırı Dockerfile içine ekleyin:
 
-```
+```Dockerfile
 FROM nginx:alpine
 COPY ./bin/Release/netstandard2.0/publish /usr/share/nginx/html/
 COPY nginx.conf /etc/nginx/nginx.conf
@@ -305,5 +300,6 @@ ASP.NET Core uygulaması yayımlandığında, ASP.NET Core uygulaması ve Razor 
 
 Azure App Service'e dağıtma hakkında daha fazla bilgi için aşağıdaki konulara bakın:
 
-<xref:tutorials/publish-to-azure-webapp-using-vs>  
+<xref:tutorials/publish-to-azure-webapp-using-vs>
+
 Visual Studio kullanarak Azure App Service'e bir ASP.NET Core uygulaması yayımlama hakkında bilgi edinin.

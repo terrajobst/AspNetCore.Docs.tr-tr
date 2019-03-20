@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/28/2019
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: e5bb1a86453bb945789cc1f4b56616551e316615
-ms.sourcegitcommit: 6ddd8a7675c1c1d997c8ab2d4498538e44954cac
+ms.openlocfilehash: de740775e124298f7c3d3be0c6f5a7311174116d
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57400690"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265487"
 ---
 # <a name="iis-modules-with-aspnet-core"></a>ASP.NET Core içeren IIS modülleri
 
@@ -123,7 +123,7 @@ Bir ayar modülü kaldırmak için kabul edilirse, *web.config*, modülün kilid
     </system.webServer>
    </configuration>
    ```
-   
+
 Eklemek veya kaldırmak için IIS Express kullanarak modüller için *web.config*, değişiklik *applicationHost.config* kilidini açmak için `<modules>` bölümü:
 
 1. Açık *{uygulama KÖKÜ}\\.vs\config\applicationhost.config*.
@@ -131,17 +131,17 @@ Eklemek veya kaldırmak için IIS Express kullanarak modüller için *web.config
 1. Bulun `<section>` öğesi IIS modüllerini ve değişiklik `overrideModeDefault` gelen `Deny` için `Allow`:
 
    ```xml
-   <section name="modules" 
-            allowDefinition="MachineToApplication" 
+   <section name="modules"
+            allowDefinition="MachineToApplication"
             overrideModeDefault="Allow" />
    ```
-   
+
 1. Bulun `<location path="" overrideMode="Allow"><system.webServer><modules>` bölümü. Kaldırmak istediğiniz tüm modüller için ayarlanmış `lockItem` gelen `true` için `false`. Aşağıdaki örnekte, kilitli olduğundan CGI Modülü:
 
    ```xml
    <add name="CgiModule" lockItem="false" />
    ```
-   
+
 1. Sonra `<modules>` eklemek veya uygulamanın kullanarak IIS modülleri kaldırmak ücretsiz, bölüm ve tek tek modüllerinin kilidi *web.config* IIS Express'te uygulamayı çalıştırmak için dosya.
 
 Bir IIS modülü ile de kaldırılabilir *Appcmd.exe*. Sağlamak `MODULE_NAME` ve `APPLICATION_NAME` komutta:

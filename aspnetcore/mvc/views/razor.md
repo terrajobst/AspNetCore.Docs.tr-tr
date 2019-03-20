@@ -5,12 +5,12 @@ description: Kodu sunucu tabanlı Web sayfalarını eklemek için Razor söz diz
 ms.author: riande
 ms.date: 10/26/2018
 uid: mvc/views/razor
-ms.openlocfilehash: 8e9ec3c5040e5a24cd5f773b1232897338741c0c
-ms.sourcegitcommit: 184ba5b44d1c393076015510ac842b77bc9d4d93
+ms.openlocfilehash: 254c85ee9e74dc72170b19d27fbc5f1ae7ccd3dc
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396265"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264751"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>ASP.NET Core Razor söz dizimi başvurusu
 
@@ -69,9 +69,9 @@ Dışında C# `await` anahtar sözcüğü, örtük ifadeleri boşluk içermemeli
 
 Yukarıdaki kod, aşağıdakilerden birini benzer bir derleyici hatası oluşturur:
 
- * "İnt" öğesi kapalı değildi. Tüm öğeleri olmalıdır kendi kendine kapanan veya eşleşen bir bitiş etiketi sahip.
- *  Yöntem grubu 'object' türü temsilci GenericMethod' dönüştürülemiyor. Bir yöntemi çağırmak mı istiyordunuz?' 
- 
+* "İnt" öğesi kapalı değildi. Tüm öğeleri olmalıdır kendi kendine kapanan veya eşleşen bir bitiş etiketi sahip.
+* Yöntem grubu 'object' türü temsilci GenericMethod' dönüştürülemiyor. Bir yöntemi çağırmak mı istiyordunuz?'
+
 Genel yöntem çağrılarını sarmalanmış, içinde bir [Razor açık ifadesi](#explicit-razor-expressions) veya [Razor kodu bloğu](#razor-code-blocks).
 
 ## <a name="explicit-razor-expressions"></a>Açık Razor ifadeleri
@@ -199,7 +199,7 @@ Tarafından HTML etiketleri arasına olmayan HTML oluşturmak için bu yaklaşı
 
 **\<Metin >** etiketi, boşluk içeriği işlenirken denetlemek kullanışlıdır:
 
-* Yalnızca arasında içerik  **\<metin >** etiketi işlenir. 
+* Yalnızca arasında içerik  **\<metin >** etiketi işlenir.
 * Hiçbir boşluk önce veya sonra  **\<metin >** etiketi HTML çıkışında görünür.
 
 ### <a name="explicit-line-transition-with-"></a>Açık satır geçişle @:
@@ -337,7 +337,6 @@ Aşağıdaki döngü deyimi desteklenir:
 
 İçinde C#, `using` deyimi, bir nesne kullanıldığında emin olmak için kullanılır. Razor aynı mekanizmayı ek içeriklere sahip bir HTML Yardımcıları oluşturmak için kullanılır. Aşağıdaki kodda, bir form etiketi ile HTML Yardımcıları oluşturma `@using` deyimi:
 
-
 ```cshtml
 @using (Html.BeginForm())
 {
@@ -425,6 +424,7 @@ public class _Views_Something_cshtml : RazorPage<dynamic>
 Bölümü bu makalenin ilerleyen bölümlerinde [Razor İnceleme C# bir görünümü için oluşturulan sınıf](#inspect-the-razor-c-class-generated-for-a-view) bu oluşturulan sınıf görüntülemek açıklanmaktadır.
 
 <a name="using"></a>
+
 ### <a name="using"></a>@using
 
 `@using` Yönergesi ekler C# `using` yönerge oluşturulmuş görünümü için:
@@ -579,7 +579,7 @@ Bir yöntem bağımsız değişkeni olarak bir satır içi Razor şablonu da sa�
 @using Microsoft.AspNetCore.Html
 
 @functions {
-    public static IHtmlContent Repeat(IEnumerable<dynamic> items, int times, 
+    public static IHtmlContent Repeat(IEnumerable<dynamic> items, int times,
         Func<dynamic, IHtmlContent> template)
     {
         var html = new HtmlContentBuilder();

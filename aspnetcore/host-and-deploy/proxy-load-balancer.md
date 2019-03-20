@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/06/2018
 uid: host-and-deploy/proxy-load-balancer
-ms.openlocfilehash: a03250d6cafe7279c3fcf3957d33214a9b4ed514
-ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
+ms.openlocfilehash: 3ac67f0cb0c7b472e7192f684b1a8fc9685794ce
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523057"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264893"
 ---
 # <a name="configure-aspnet-core-to-work-with-proxy-servers-and-load-balancers"></a>ASP.NET Core, proxy sunucuları ile çalışma ve yük Dengeleyiciler için yapılandırma
 
@@ -32,7 +32,7 @@ Kural gereği, HTTP üst bilgisinde proxy'leri iletin.
 | ------ | ----------- |
 | X-iletilen-için | Proxy, zincirdeki sonraki proxy ve istek başlatılan istemci ile ilgili bilgileri tutar. Bu parametre, IP adresleri (ve isteğe bağlı olarak, bağlantı noktası numaraları) içerebilir. Bir proxy sunucu zincirinde ilk parametre istek ilk yapıldığı istemci gösterir. Sonraki proxy tanımlayıcıları izleyin. Son proxy zincirdeki parametreler listesinde değil. Son proxy IP adresini ve isteğe bağlı olarak bir bağlantı noktası numarası aktarım katmanında uzak IP adresi olarak kullanılabilir. |
 | X iletilen Proto | Kaynak Düzen (HTTP/HTTPS) değeri. İstek birden çok proxy'leri geçiş değilse değer düzenleri listesi de olabilir. |
-| X iletilen konak | Ana bilgisayar üstbilgi alanının özgün değer. Genellikle proxy ana bilgisayar üst bilgisini değiştirmez. Bkz: [Microsoft Güvenlik Danışma CVE-2018-0787](https://github.com/aspnet/Announcements/issues/295) değil proxy burada doğrulama sistemleri etkiler ayrıcalıklar yükseltme güvenlik açığı veya bilinen iyi değerlere restict konak üstbilgileri hakkında bilgi için. |
+| X iletilen konak | Ana bilgisayar üstbilgi alanının özgün değer. Genellikle proxy ana bilgisayar üst bilgisini değiştirmez. Bkz: [Microsoft Güvenlik Danışma CVE-2018-0787](https://github.com/aspnet/Announcements/issues/295) proxy burada değil veya doğrulamak için iyi bilinen değerler barındırma üstbilgileri kısıtlamak sistemleri etkileyen ayrıcalıklar yükseltme güvenlik açığı hakkında bilgi için. |
 
 İletilen üstbilgileri Ara gelen [Microsoft.AspNetCore.HttpOverrides](https://www.nuget.org/packages/Microsoft.AspNetCore.HttpOverrides/) paketi, bu üst bilgilerini okur ve ilişkili alanları doldurur [HttpContext](/dotnet/api/microsoft.aspnetcore.http.httpcontext).
 
@@ -97,11 +97,11 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 ## <a name="nginx-configuration"></a>Ngınx yapılandırma
 
-İletecek şekilde `X-Forwarded-For` ve `X-Forwarded-Proto` üstbilgilerini bkz <xref:host-and-deploy/linux-nginx#configure-nginx>. Daha fazla bilgi için [NGINX: iletilen üst bilgisini kullanarak](https://www.nginx.com/resources/wiki/start/topics/examples/forwarded/).
+İletecek şekilde `X-Forwarded-For` ve `X-Forwarded-Proto` üstbilgilerini bkz <xref:host-and-deploy/linux-nginx#configure-nginx>. Daha fazla bilgi için [NGINX: İletilen üst bilgisini kullanarak](https://www.nginx.com/resources/wiki/start/topics/examples/forwarded/).
 
 ## <a name="apache-configuration"></a>Apache yapılandırma
 
-`X-Forwarded-For` otomatik olarak eklenir (bkz [Apache modülü mod_proxy: Ters Proxy istek üstbilgileri](https://httpd.apache.org/docs/2.4/mod/mod_proxy.html#x-headers)). İletme hakkında bilgi için `X-Forwarded-Proto` başlığını görmek <xref:host-and-deploy/linux-apache#configure-apache>.
+`X-Forwarded-For` otomatik olarak eklenir (bkz [Apache modülü mod_proxy: Ters proxy istek üstbilgilerini](https://httpd.apache.org/docs/2.4/mod/mod_proxy.html#x-headers)). İletme hakkında bilgi için `X-Forwarded-Proto` başlığını görmek <xref:host-and-deploy/linux-apache#configure-apache>.
 
 ## <a name="forwarded-headers-middleware-options"></a>İletilen üstbilgileri ara yazılım seçenekleri
 
@@ -126,7 +126,7 @@ services.Configure<ForwardedHeadersOptions>(options =>
 | ------ | ----------- |
 | AllowedHosts | Ana bilgisayar tarafından sınırlar `X-Forwarded-Host` sağlanan değerler için üst bilgi.<ul><li>Sıra yoksay örneği kullanarak değerleri karşılaştırılır.</li><li>Bağlantı noktası numaralarını tutulması gerekir.</li><li>Liste boşsa, tüm konaklar izin verilir.</li><li>Üst düzey bir joker karakter `*` tüm boş konaklar sağlar.</li><li>Alt etki alanı joker karakterlere izin verilir, ancak kök etki alanı eşleşmiyor. Örneğin, `*.contoso.com` alt etki alanıyla eşleşen `foo.contoso.com` ancak kök etki alanı değil `contoso.com`.</li><li>Unicode ana bilgisayar adları kullanılabilir, ancak dönüştürülür [Punycode](https://tools.ietf.org/html/rfc3492) eşlemek için.</li><li>[IPv6 adresleri](https://tools.ietf.org/html/rfc4291) ayraçlar sınırlayıcı içerir ve olması gereken [geleneksel form](https://tools.ietf.org/html/rfc4291#section-2.2) (örneğin, `[ABCD:EF01:2345:6789:ABCD:EF01:2345:6789]`). IPv6 adresleri farklı biçimler arasında mantıksal eşitlik denetlemek için özel harfleri değil ve yok Standartlaştırma gerçekleştirilir.</li><li>İzin verilen konakları sınırlamak için başarısızlık, bir saldırganın hizmeti tarafından oluşturulan bağlantıları sızmasını.</li></ul>Boş bir varsayılan değer: [IList\<dizesi >](/dotnet/api/system.collections.generic.ilist-1). |
 | [ForwardedForHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedforheadername) | İle belirtilen yerine bu özelliği tarafından belirtilen üst bilgi kullan [ForwardedHeadersDefaults.XForwardedForHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xforwardedforheadername). Proxy/iletici kullanmıyorsa bu seçenek kullanıldığında `X-Forwarded-For` üstbilgisi ancak kullanan başka bir üst bilgi bilgileri iletmek için.<br><br>Varsayılan, `X-Forwarded-For` değeridir. |
-| [ForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedheaders) | Hangi ileticileri işlenmesi gerektiğini tanımlar. Bkz: [ForwardedHeaders Enum](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheaders) için geçerli olan alanların listesi. Bu özelliğe atanmış tipik değerler <code>ForwardedHeaders.XForwardedFor &#124; ForwardedHeaders.XForwardedProto</code>.<br><br>Varsayılan değer [ForwardedHeaders.None](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheaders). |
+| [ForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedheaders) | Hangi ileticileri işlenmesi gerektiğini tanımlar. Bkz: [ForwardedHeaders Enum](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheaders) için geçerli olan alanların listesi. Bu özelliğe atanmış tipik değerler `ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto`.<br><br>Varsayılan değer [ForwardedHeaders.None](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheaders). |
 | [ForwardedHostHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedhostheadername) | İle belirtilen yerine bu özelliği tarafından belirtilen üst bilgi kullan [ForwardedHeadersDefaults.XForwardedHostHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xforwardedhostheadername). Proxy/iletici kullanmıyorsa bu seçenek kullanıldığında `X-Forwarded-Host` üstbilgisi ancak kullanan başka bir üst bilgi bilgileri iletmek için.<br><br>Varsayılan, `X-Forwarded-Host` değeridir. |
 | [ForwardedProtoHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedprotoheadername) | İle belirtilen yerine bu özelliği tarafından belirtilen üst bilgi kullan [ForwardedHeadersDefaults.XForwardedProtoHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xforwardedprotoheadername). Proxy/iletici kullanmıyorsa bu seçenek kullanıldığında `X-Forwarded-Proto` üstbilgisi ancak kullanan başka bir üst bilgi bilgileri iletmek için.<br><br>Varsayılan, `X-Forwarded-Proto` değeridir. |
 | [ForwardLimit](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardlimit) | İşlenen üstbilgileri içerisindeki giriş sayısını sınırlar. Kümesine `null` sınırı, ancak bunu devre dışı bırakmak için yalnızca, yapılmalıdır `KnownProxies` veya `KnownNetworks` yapılandırılır.<br><br>Varsayılan değer 1'dir. |
@@ -144,7 +144,7 @@ services.Configure<ForwardedHeadersOptions>(options =>
 | Seçenek | Açıklama |
 | ------ | ----------- |
 | [ForwardedForHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedforheadername) | İle belirtilen yerine bu özelliği tarafından belirtilen üst bilgi kullan [ForwardedHeadersDefaults.XForwardedForHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xforwardedforheadername). Proxy/iletici kullanmıyorsa bu seçenek kullanıldığında `X-Forwarded-For` üstbilgisi ancak kullanan başka bir üst bilgi bilgileri iletmek için.<br><br>Varsayılan, `X-Forwarded-For` değeridir. |
-| [ForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedheaders) | Hangi ileticileri işlenmesi gerektiğini tanımlar. Bkz: [ForwardedHeaders Enum](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheaders) için geçerli olan alanların listesi. Bu özelliğe atanmış tipik değerler <code>ForwardedHeaders.XForwardedFor &#124; ForwardedHeaders.XForwardedProto</code>.<br><br>Varsayılan değer [ForwardedHeaders.None](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheaders). |
+| [ForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedheaders) | Hangi ileticileri işlenmesi gerektiğini tanımlar. Bkz: [ForwardedHeaders Enum](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheaders) için geçerli olan alanların listesi. Bu özelliğe atanmış tipik değerler `ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto`.<br><br>Varsayılan değer [ForwardedHeaders.None](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheaders). |
 | [ForwardedHostHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedhostheadername) | İle belirtilen yerine bu özelliği tarafından belirtilen üst bilgi kullan [ForwardedHeadersDefaults.XForwardedHostHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xforwardedhostheadername). Proxy/iletici kullanmıyorsa bu seçenek kullanıldığında `X-Forwarded-Host` üstbilgisi ancak kullanan başka bir üst bilgi bilgileri iletmek için.<br><br>Varsayılan, `X-Forwarded-Host` değeridir. |
 | [ForwardedProtoHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedprotoheadername) | İle belirtilen yerine bu özelliği tarafından belirtilen üst bilgi kullan [ForwardedHeadersDefaults.XForwardedProtoHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xforwardedprotoheadername). Proxy/iletici kullanmıyorsa bu seçenek kullanıldığında `X-Forwarded-Proto` üstbilgisi ancak kullanan başka bir üst bilgi bilgileri iletmek için.<br><br>Varsayılan, `X-Forwarded-Proto` değeridir. |
 | [ForwardLimit](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardlimit) | İşlenen üstbilgileri içerisindeki giriş sayısını sınırlar. Kümesine `null` sınırı, ancak bunu devre dışı bırakmak için yalnızca, yapılmalıdır `KnownProxies` veya `KnownNetworks` yapılandırılır.<br><br>Varsayılan değer 1'dir. |

@@ -140,8 +140,8 @@ Temel akışı `OnPostAsync`:
 
 Doğrulama hataları denetleyin.
 
-*  Herhangi bir hata varsa, verileri kaydetmek ve yönlendirin.
-*  Hatalar varsa sayfası yeniden doğrulama iletileri göster. İstemci tarafı doğrulama geleneksel ASP.NET Core MVC uygulamaları için aynıdır. Çoğu durumda, doğrulama hataları istemcide algılandı ve hiçbir zaman sunucuya teslim.
+* Herhangi bir hata varsa, verileri kaydetmek ve yönlendirin.
+* Hatalar varsa sayfası yeniden doğrulama iletileri göster. İstemci tarafı doğrulama geleneksel ASP.NET Core MVC uygulamaları için aynıdır. Çoğu durumda, doğrulama hataları istemcide algılandı ve hiçbir zaman sunucuya teslim.
 
 Verileri başarıyla girildiğinde `OnPostAsync` işleyicisi yöntem çağrılarını `RedirectToPage` örneği döndürmek için yardımcı yöntem `RedirectToPageResult`. `RedirectToPage` Yeni eylem sonucu, benzer olan `RedirectToAction` veya `RedirectToRoute`, ancak özelleştirilmiş sayfalar için. İsteğe bağlı olarak önceki örnekte, kök dizin sayfasına yönlendirir (`/Index`). `RedirectToPage` içinde ayrıntılı [sayfaları için URL üretimi](#url_gen) bölümü.
 
@@ -264,6 +264,7 @@ services.AddMvc()
 Herhangi bir kod yazmanıza gerek kalmaz [antiforgery doğrulama](xref:security/anti-request-forgery). Otomatik olarak antiforgery belirteç oluşturma ve doğrulama Razor sayfaları dahil edilir.
 
 <a name="layout"></a>
+
 ## <a name="using-layouts-partials-templates-and-tag-helpers-with-razor-pages"></a>Razor sayfaları kullanmaya düzenleri, kısmi, şablonları ve etiket yardımcılarını kullanma
 
 Sayfaları Razor görüntüleme motorunu tüm özellikleriyle çalışma. Düzenleri, kısmi, şablonlar, etiket Yardımcıları *_ViewStart.cshtml*, *_viewımports.cshtml* geleneksel Razor görünümleri yaptıkları aynı şekilde çalışır.
@@ -389,7 +390,7 @@ URL üretimi sayfaları için göreli adlarını destekler. Aşağıdaki tabloda
 | RedirectToPage(".. / Dizin") | *Sayfalar/dizin* |
 | RedirectToPage("Index")  | *Müşteriler/sayfalar/dizin* |
 
-`RedirectToPage("Index")`, `RedirectToPage("./Index")`, ve `RedirectToPage("../Index")` olan <em>göreli adlar</em>. `RedirectToPage` Parametresi <em>birleştirilmiş</em> ile hedef sayfanın adını işlem için geçerli sayfasının yolu.  <!-- Review: Original had The provided string is combined with the page name of the current page to compute the name of the destination page.  page name, not page path -->
+`RedirectToPage("Index")`, `RedirectToPage("./Index")`, ve `RedirectToPage("../Index")` olan *göreli adlar*. `RedirectToPage` Parametresi *birleştirilmiş* ile hedef sayfanın adını işlem için geçerli sayfasının yolu.  <!-- Review: Original had The provided string is combined with the page name of the current page to compute the name of the destination page.  page name, not page path -->
 
 Göreli adı bağlama siteleri karmaşık bir yapısı ile derleme yaparken yararlıdır. Bir klasördeki sayfalar arasında bağlamak için göreli adları kullanıyorsa, bu klasörü yeniden adlandırabilirsiniz. (Bunlar klasör adı olmadığından) tüm bağlantıların hala çalıştığından.
 
@@ -465,6 +466,7 @@ public string Message { get; set; }
 Daha fazla bilgi için [TempData](xref:fundamentals/app-state#tempdata) .
 
 <a name="mhpp"></a>
+
 ## <a name="multiple-handlers-per-page"></a>Sayfa başına birden çok işleyicileri
 
 İki sayfa kullanarak işleyicileri için şu sayfaya biçimlendirmeleri oluşturur `asp-page-handler` etiketi Yardımcısı:

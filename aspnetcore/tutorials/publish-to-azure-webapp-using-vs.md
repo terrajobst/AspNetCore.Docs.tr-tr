@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/06/2018
 uid: tutorials/publish-to-azure-webapp-using-vs
-ms.openlocfilehash: e71cb8badbbc852685c845e6bbb0bbb12ab5499f
-ms.sourcegitcommit: 68a3081dd175d6518d1bfa31b4712bd8a2dd3864
+ms.openlocfilehash: b2b5a155d0dff28e471af449731da787f19d1faf
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53577818"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208372"
 ---
 # <a name="publish-an-aspnet-core-app-to-azure-with-visual-studio"></a>Visual Studio ile Azure'a bir ASP.NET Core uygulaması yayımlama
 
@@ -127,7 +127,7 @@ Visual Studio döner **App Service Oluştur** iletişim.
 
 ![SQL veritabanı iletişim yapılandırın](publish-to-azure-webapp-using-vs/_static/conf_final.png)
 
-Visual Studio, Azure üzerinde SQL Server ve Web uygulaması oluşturur. Bu adım birkaç dakika sürebilir. Oluşturulan kaynakları hakkında daha fazla bilgi için bkz: [ek kaynaklar](#additonal-resources).
+Visual Studio, Azure üzerinde SQL Server ve Web uygulaması oluşturur. Bu adım birkaç dakika sürebilir. Oluşturulan kaynakları hakkında daha fazla bilgi için bkz: [ek kaynaklar](#additional-resources).
 
 Dağıtım tamamlandığında, seçin **ayarları**:
 
@@ -135,8 +135,8 @@ Dağıtım tamamlandığında, seçin **ayarları**:
 
 Üzerinde **ayarları** sayfasının **Yayımla** iletişim:
 
-  * Genişletin **veritabanları** ve **çalışma zamanında Bu bağlantı dizesini kullan**.
-  * Genişletin **varlık çerçevesi geçişleriyle** ve **bu geçişi yayımlama Uygula**.
+* Genişletin **veritabanları** ve **çalışma zamanında Bu bağlantı dizesini kullan**.
+* Genişletin **varlık çerçevesi geçişleriyle** ve **bu geçişi yayımlama Uygula**.
 
 * **Kaydet**’i seçin. Visual Studio döner **Yayımla** iletişim. 
 
@@ -184,7 +184,7 @@ Uygulamayı test etme işlemini tamamladığınızda, Git [Azure portalında](ht
 
 * <xref:host-and-deploy/azure-apps/azure-continuous-deployment>
 
-## <a name="additonal-resources"></a>Ek kaynaklar
+## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure uygulama hizmeti](/azure/app-service/app-service-web-overview)
 * [Azure kaynak grupları](/azure/azure-resource-manager/resource-group-overview#resource-groups)

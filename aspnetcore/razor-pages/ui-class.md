@@ -7,12 +7,12 @@ ms.author: riande
 ms.date: 09/07/2018
 ms.custom: seodec18
 uid: razor-pages/ui-class
-ms.openlocfilehash: e5f329dcc423a7b7d6c247d0d359d35d95283de4
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
+ms.openlocfilehash: dc7db9483f2d75fe79ed9a9806f944e4f2a05a9b
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121498"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265341"
 ---
 # <a name="create-reusable-ui-using-the-razor-class-library-project-in-aspnet-core"></a>ASP.NET Core Razor sınıf kitaplığı projesi kullanarak yeniden kullanılabilir kullanıcı Arabirimi oluşturma
 
@@ -48,7 +48,8 @@ dotnet new razorclasslib -o RazorUIClassLib
 
 Daha fazla bilgi için [yeni dotnet](/dotnet/core/tools/dotnet-new). Oluşturulan görünüm kitaplığı ile bir dosya adı çakışması önlemek için kitaplık adını bitmiyor olun `.Views`.
 
-------
+---
+
 Razor dosyaları için RCL ekleyin.
 
 ASP.NET Core şablonları RCL içeriği olduğu varsayılır *alanları* klasör. Bkz: [RCL sayfa düzeni](#afs) kullanıma sunan bir RCL içeriği oluşturmak için `~/Pages` yerine `~/Areas/Pages`.
@@ -60,7 +61,7 @@ RCL tarafından başvurulabilir:
 * NuGet paketi. Bkz: [oluşturma NuGet paketlerini](/nuget/create-packages/creating-a-package) ve [dotnet paketini ekleyin](/dotnet/core/tools/dotnet-add-package) ve [oluştur ve NuGet paket yayımlama](/nuget/quickstart/create-and-publish-a-package-using-visual-studio).
 * *{ProjectName} .csproj*. Bkz: [dotnet-Başvuru Ekle](/dotnet/core/tools/dotnet-add-reference).
 
-## <a name="walkthrough-create-a-razor-class-library-project-and-use-from-a-razor-pages-project"></a>İzlenecek yol: bir Razor sınıf kitaplığı projesi oluşturun ve bir Razor sayfaları projeden kullanın
+## <a name="walkthrough-create-a-razor-class-library-project-and-use-from-a-razor-pages-project"></a>İzlenecek yol: Razor sınıf kitaplığı projesi oluşturun ve bir Razor sayfaları projeden kullanın
 
 İndirebileceğiniz [tam proje](https://github.com/aspnet/Docs/tree/master/aspnetcore/razor-pages/ui-class/samples) ve yerine oluşturma test edin. Örnek indirme, ek kod ve test etmek proje kolaylaştırmak bağlantılar içerir. Geri bildirim bırakabilirsiniz [bu GitHub sorunu](https://github.com/aspnet/Docs/issues/6098) yorumlarınızı üzerinde adım adım yönergeler ve örnekleri indirme ile.
 
@@ -86,7 +87,7 @@ Taşı *WebApp1* dizin ve uygulamayı çalıştırın:
 dotnet run
 ```
 
-------
+---
 
 Bölümündeki yönergeleri [Test WebApp1](#test)
 
@@ -123,7 +124,7 @@ Yukarıdaki komutlar:
 
 *_ViewStart.cshtml* dosyası (sonraki bölümde eklenir) Razor sayfaları proje düzenini kullanmak için gereklidir.
 
-------
+---
 
 ### <a name="add-razor-files-and-folders-to-the-project"></a>Razor dosyaları ve klasörleri projeye ekleyin.
 
@@ -218,7 +219,7 @@ RCL içerik web uygulaması'nın bir parçasıdır ancak başvuru *sayfaları* k
 * *RazorUIClassLib/sayfalar/paylaşılan*
 
 Varsayalım *RazorUIClassLib/sayfaları/paylaşılan* iki kısmi dosyaları içerir: *_Header.cshtml* ve *_Footer.cshtml*. `<partial>` Etiketleri için eklenebiliyordu *_Layout.cshtml* dosyası:
-  
+
 ```cshtml
 <body>
   <partial name="_Header">

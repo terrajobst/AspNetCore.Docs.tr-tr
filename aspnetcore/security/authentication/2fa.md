@@ -7,12 +7,12 @@ ms.author: riande
 ms.date: 09/22/2018
 ms.custom: seodec18
 uid: security/authentication/2fa
-ms.openlocfilehash: 48bfc50378fc0ec212f5b9d4e7ce05bb4fc97b9d
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: 116249a7cd4faebd0c899e383d86f5c5c3c7146a
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54098902"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265248"
 ---
 # <a name="two-factor-authentication-with-sms-in-aspnet-core"></a>ASP.NET Core SMS ile iki öğeli kimlik doğrulama
 
@@ -35,9 +35,13 @@ Adlı yeni bir ASP.NET Core web uygulaması oluşturma `Web2FA` bireysel kullan�
 
 #### <a name="figuring-out-sms-provider-credentials"></a>SMS Sağlayıcısı kimlik bilgilerini başarınızda
 
-**Twilio:** Twilio hesabınızın Pano sekmesinden kopyalama **hesap SID'si** ve **kimlik doğrulama belirteci**.
+**Twilio:**
 
-**ASPSMS:** Hesap ayarlarınıza gidin **Userkey** ve birlikte kopyalayın, **parola**.
+Twilio hesabınızın Pano sekmesinden kopyalama **hesap SID'si** ve **kimlik doğrulama belirteci**.
+
+**ASPSMS:**
+
+Hesap ayarlarınıza gidin **Userkey** ve birlikte kopyalayın, **parola**.
 
 Daha sonra bu değerleri gizli dizi Yöneticisi Aracı anahtarları içinde oturum depolarız `SMSAccountIdentification` ve `SMSAccountPassword`.
 
@@ -49,12 +53,11 @@ Daha sonra bu değerleri gizli dizi Yöneticisi Aracı anahtarları içinde otur
 
 Gizli dizi Yöneticisi Aracı anahtarı içinde bu değer daha sonra depolarız `SMSAccountFrom`.
 
-
 ### <a name="provide-credentials-for-the-sms-service"></a>SMS hizmet için kimlik bilgilerini sağlayın
 
 Kullanacağız [seçenekleri deseni](xref:fundamentals/configuration/options) kullanıcı hesabı ve anahtarı ayarlarına erişmek için.
 
-   * Güvenli SMS anahtarını getirmek için bir sınıf oluşturun. Bu örnek için `SMSoptions` sınıf oluşturulduğu *Services/SMSoptions.cs* dosya.
+* Güvenli SMS anahtarını getirmek için bir sınıf oluşturun. Bu örnek için `SMSoptions` sınıf oluşturulduğu *Services/SMSoptions.cs* dosya.
 
 [!code-csharp[](2fa/sample/Web2FA/Services/SMSoptions.cs)]
 
@@ -64,17 +67,18 @@ Ayarlama `SMSAccountIdentification`, `SMSAccountPassword` ve `SMSAccountFrom` il
 C:/Web2FA/src/WebApp1>dotnet user-secrets set SMSAccountIdentification 12345
 info: Successfully saved SMSAccountIdentification = 12345 to the secret store.
 ```
+
 * SMS Sağlayıcısı için NuGet paketini ekleyin. Paket Yöneticisi Konsolu (çalıştırma PMC'yi gelen):
 
 **Twilio:**
+
 `Install-Package Twilio`
 
 **ASPSMS:**
+
 `Install-Package ASPSMS`
 
-
 * Kodda *Services/MessageServices.cs* SMS etkinleştirmek için dosya. Twilio veya ASPSMS bölüm kullanın:
-
 
 **Twilio:** [!code-csharp[](2fa/sample/Web2FA/Services/MessageServices_twilio.cs)]
 
@@ -88,7 +92,7 @@ Ekleme `SMSoptions` hizmet kapsayıcısını `ConfigureServices` yönteminde *St
 
 ### <a name="enable-two-factor-authentication"></a>İki öğeli kimlik doğrulamayı etkinleştirme
 
-Açık *Views/Manage/Index.cshtml* Razor görünüm dosyası ve yorum karakterleri (hiçbir işaretleme bırakmayın olduğundan) kaldırın.
+Açık *Views/Manage/Index.cshtml* Razor görünüm dosyası ve yorum karakterleri (hiçbir işaretleme devre dışı bırakılmışsa şekilde) kaldırın.
 
 ## <a name="log-in-with-two-factor-authentication"></a>İki öğeli kimlik bilgilerinizle oturum açın
 

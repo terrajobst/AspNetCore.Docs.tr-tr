@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 02/06/2019
 ms.topic: tutorial
 uid: data/ef-mvc/intro
-ms.openlocfilehash: f7b557c8e560393ae886c46fad95c48ccbcc65b4
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: 31fca1b32942f9246e099c01669f77824edf521e
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56102974"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264844"
 ---
 # <a name="tutorial-get-started-with-ef-core-in-an-aspnet-mvc-web-app"></a>Öğretici: Bir ASP.NET MVC web uygulamasında EF Core ile çalışmaya başlama
 
@@ -316,7 +316,7 @@ Sağ **Öğrenci** tablosu ve'ı tıklatın **görünüm verilerini** oluşturul
 
 ![Öğrenci tabloda SSOX](intro/_static/ssox-student-table.png)
 
-<em>.Mdf</em> ve <em>.ldf</em> veritabanı dosyalar, <em>C:\Users\\ <yourusername> </em> klasör.
+*.Mdf* ve *.ldf* veritabanı dosyalar, *C:\Users\\\<kullanıcıadınız >* klasör.
 
 Aradığınız çünkü `EnsureCreated` uygulama başlatıldığında çalıştırılan Başlatıcı yönteminde artık bir değişiklik yapabileceğiniz `Student` sınıfı, veritabanını silin, uygulamayı yeniden çalıştırın ve veritabanı otomatik olarak değişikliğiniz eşleşecek şekilde yeniden oluşturulması. Örneğin, eklediğiniz bir `EmailAddress` özelliğini `Student` sınıfı göreceksiniz yeni bir `EmailAddress` yeniden oluşturulan tablodaki sütun.
 
@@ -330,7 +330,7 @@ Sizin için tam bir veritabanı oluşturmak Entity Framework için sırayla yazm
 
 * Kimliği veya Classnameıd adlı varlık özellikleri birincil anahtar özellik olarak kabul edilir.
 
-* Adlandırılmışsa, bu özellik bir yabancı anahtar özellik olarak yorumlanır *<navigation property name> <primary key property name>* (örneğin, `StudentID` için `Student` gezinti özelliği bu yana `Student` varlığın birincil anahtarı `ID`). Yabancı anahtar özellikleri de adı yalnızca *<primary key property name>* (örneğin, `EnrollmentID` beri `Enrollment` varlığın birincil anahtarı `EnrollmentID`).
+* Adlandırılmışsa, bu özellik bir yabancı anahtar özellik olarak yorumlanır  *\<gezinme özelliği adı >\<birincil anahtar özelliği adı >* (örneğin, `StudentID` için `Student` Gezinti özelliği bu yana `Student` varlığın birincil anahtarı `ID`). Yabancı anahtar özellikleri de adı yalnızca  *\<birincil anahtar özelliği adı >* (örneğin, `EnrollmentID` beri `Enrollment` varlığın birincil anahtarı `EnrollmentID`).
 
 Geleneksel davranışını geçersiz kılınabilir. Örneğin, bu öğreticide daha önce bahsettiğim gibi tablo adları açıkça belirtebilirsiniz. Sütun adları ayarlayın ve görüşelim gibi herhangi bir özelliği birincil anahtar veya yabancı anahtar olarak ayarlayın ve bir [sonraki öğreticide](complex-data-model.md) bu seri.
 

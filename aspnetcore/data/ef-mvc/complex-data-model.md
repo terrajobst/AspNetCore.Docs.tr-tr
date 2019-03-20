@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 02/05/2019
 ms.topic: tutorial
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: c08fd6ff7c19c63161135b4c87609f6edd3edb80
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: 5ab893dd77ff2cc9a735702eb3a547ed8bcb2197
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103130"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264856"
 ---
 # <a name="tutorial-create-a-complex-data-model---aspnet-mvc-with-ef-core"></a>Öğretici: ASP.NET MVC ile EF Core - karmaşık veri modeli oluşturma
 
@@ -287,7 +287,6 @@ public ICollection<CourseAssignment> CourseAssignments { get; set; }
 
 ![Departman varlık](complex-data-model/_static/department-entity.png)
 
-
 Oluşturma *Models/Department.cs* aşağıdaki kod ile:
 
 [!code-csharp[](intro/samples/cu/Models/Department.cs?name=snippet_Begin)]
@@ -322,6 +321,7 @@ public ICollection<Course> Courses { get; set; }
 
 > [!NOTE]
 > Kural gereği, art arda silme için alamayan yabancı anahtarlar ve çoktan çoğa ilişkiler için Entity Framework sağlar. Bu, bir geçiş eklemeye çalıştığınızda bir özel durum neden olur, döngüsel art arda silme kuralları'nda neden olabilir. Örneğin, Department.InstructorID özelliği null olarak tanımlamadığınız varsa EF sorun olmasını istediğiniz değildir departman sildiğinizde Eğitmen silmek için bir cascade delete kuralı yapılandırın. İş kurallarınızı gerekirse `InstructorID` özelliğini alamayan, art arda silme ilişkiyi devre dışı bırakmak için aşağıdaki fluent API'si deyimi kullanılacak olurdu:
+>
 > ```csharp
 > modelBuilder.Entity<Department>()
 >    .HasOne(d => d.Administrator)
@@ -482,6 +482,7 @@ Değişiklik Kaydet *appsettings.json*.
 
 > [!NOTE]
 > Veritabanı adının değiştirilmesi alternatif olarak, veritabanı silebilirsiniz. Kullanım **SQL Server Nesne Gezgini** (SSOX) veya `database drop` CLI komutunu:
+>
 > ```console
 > dotnet ef database drop
 > ```

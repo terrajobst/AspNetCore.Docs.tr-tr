@@ -5,12 +5,12 @@ description: Oluşturma ve web ASP.NET Core API'leri için özel biçimlendirici
 ms.author: tdykstra
 ms.date: 02/08/2017
 uid: web-api/advanced/custom-formatters
-ms.openlocfilehash: 2861a15a80725dcc237d33313a24822cf8aa9c7e
-ms.sourcegitcommit: e1cc4c1ef6c9e07918a609d5ad7fadcb6abe3e12
+ms.openlocfilehash: 611840defd1da3b57b365c99deaf1c67f1568227
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53997298"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264625"
 ---
 # <a name="custom-formatters-in-aspnet-core-web-api"></a>ASP.NET Core Web API'si, özel biçimlendiriciler
 
@@ -85,6 +85,7 @@ Geçersiz kılmak sahip bazı senaryolarda `CanWriteResult` yerine `CanWriteType
 Örneğin, eylem yöntemi imzanızı döndürür varsayalım. bir `Person` türü, ancak döndürebilir bir `Student` veya `Instructor` , türetilen tür `Person`. Yalnızca işlemek için biçimlendirici istiyorsanız `Student` nesneleri kontrol türünü [nesne](/dotnet/api/microsoft.aspnetcore.mvc.formatters.outputformattercanwritecontext#Microsoft_AspNetCore_Mvc_Formatters_OutputFormatterCanWriteContext_Object) sağlanan context nesnesi içinde `CanWriteResult` yöntemi. Kullanmak için gerekli olmadığını göz önünde bulundurun `CanWriteResult` eylem yöntemi döndüğünde `IActionResult`; bu durumda, `CanWriteType` yöntem çalışma zamanı türü alır.
 
 <a id="read-write"></a>
+
 ### <a name="override-readrequestbodyasyncwriteresponsebodyasync"></a>ReadRequestBodyAsync/WriteResponseBodyAsync geçersiz kıl
 
 Seri durumdan çıkarılırken veya seri hale getirme gerçek kitaplıklarımızı `ReadRequestBodyAsync` veya `WriteResponseBodyAsync`. Vurgulanan satırları aşağıdaki örnekte, Hizmetleri (bunları Oluşturucu parametreler alınamıyor) bağımlılık ekleme kapsayıcısını alma gösterilmektedir.

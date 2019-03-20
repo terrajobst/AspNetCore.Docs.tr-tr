@@ -5,12 +5,12 @@ description: ASP.NET Core uygulamaları birden fazla ortam arasında uygulama da
 ms.author: riande
 ms.date: 01/22/2019
 uid: fundamentals/environments
-ms.openlocfilehash: 4120453c36d1fc2a2303c2175df30ef9777bc54f
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 5982f3e51a68dfa29af482067156c42006f50c0c
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57345965"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208465"
 ---
 # <a name="use-multiple-environments-in-aspnet-core"></a>ASP.NET Core birden çok ortam kullanma
 
@@ -31,9 +31,9 @@ Yukarıdaki kod:
 * Çağrıları [UseDeveloperExceptionPage](/dotnet/api/microsoft.aspnetcore.builder.developerexceptionpageextensions.usedeveloperexceptionpage) olduğunda `ASPNETCORE_ENVIRONMENT` ayarlanır `Development`.
 * Çağrıları [UseExceptionHandler](/dotnet/api/microsoft.aspnetcore.builder.exceptionhandlerextensions.useexceptionhandler) zaman değerini `ASPNETCORE_ENVIRONMENT` aşağıdakilerden birine ayarlanır:
 
-    * `Staging`
-    * `Production`
-    * `Staging_2`
+  * `Staging`
+  * `Production`
+  * `Staging_2`
 
 [Ortam etiketi Yardımcısı](xref:mvc/views/tag-helpers/builtin-th/environment-tag-helper) değerini kullanır `IHostingEnvironment.EnvironmentName` dahil edin veya dışlayın öğesinde bulunan işaretleme:
 
@@ -290,7 +290,7 @@ Linux dağıtımları için kullanmak `export` oturum tabanlı değişken ayarla
 
 Yapılandırma ortamı tarafından yüklenecek öneririz:
 
-* *appSettings* dosyaları (* appsettings.&lt; <Environment> &gt;.json). Bkz: [yapılandırma: Dosya yapılandırma sağlayıcısı](xref:fundamentals/configuration/index#file-configuration-provider).
+* *appSettings* dosyaları (*appsettings.\< Ortam > .json*). Bkz: [yapılandırma: Dosya yapılandırma sağlayıcısı](xref:fundamentals/configuration/index#file-configuration-provider).
 * ortam değişkenleri (her sisteminde uygulamanın barındırıldığı ayarlanır). Bkz: [yapılandırma: Dosya yapılandırma sağlayıcısı](xref:fundamentals/configuration/index#file-configuration-provider) ve [geliştirmede uygulama gizli anahtarlarının Güvenli Depolama: Ortam değişkenlerini](xref:security/app-secrets#environment-variables).
 * Gizli dizi Yöneticisi (geliştirme ortamındaki yalnızca). Bkz. <xref:security/app-secrets>.
 

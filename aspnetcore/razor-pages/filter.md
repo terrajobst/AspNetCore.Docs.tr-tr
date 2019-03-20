@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 04/05/2018
 uid: razor-pages/filter
-ms.openlocfilehash: 5b233d95c9fbab09c64072377b85b40b127df7b7
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 32613d75d966a698c6478234f3f5f9d5fc0628bc
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50205944"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264794"
 ---
 # <a name="filter-methods-for-razor-pages-in-aspnet-core"></a>ASP.NET Core Razor sayfaları için filtre yöntemleri
 
@@ -35,14 +35,14 @@ Razor sayfa filtreleri, genel olarak veya sayfa düzeyinde uygulanabilir aşağ�
 
 * Zaman uyumlu metotları:
 
-    * [OnPageHandlerSelected](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter.onpagehandlerselected?view=aspnetcore-2.0) : işleyicisi yöntemi seçildi, ancak önce model bağlama gerçekleşir sonra çağrılır.
-    * [OnPageHandlerExecuting](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter.onpagehandlerexecuting?view=aspnetcore-2.0) : model bağlama işlemi tamamlandıktan sonra işleyicisi yöntemi yürütülmeden önce çağrılır.
-    * [OnPageHandlerExecuted](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter.onpagehandlerexecuted?view=aspnetcore-2.0) : işleyicisi yöntemi, önce eylem sonucu yürütüldükten sonra çağrılır.
+  * [OnPageHandlerSelected](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter.onpagehandlerselected?view=aspnetcore-2.0) : İşleyicisi yöntemi seçildi, ancak önce model bağlama gerçekleşir sonra çağrılır.
+  * [OnPageHandlerExecuting](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter.onpagehandlerexecuting?view=aspnetcore-2.0) : Model bağlama işlemi tamamlandıktan sonra işleyicisi yöntemi yürütülmeden önce çağrılır.
+  * [OnPageHandlerExecuted](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter.onpagehandlerexecuted?view=aspnetcore-2.0) : İşleyicisi yöntemi, önce eylem sonucu yürütüldükten sonra çağrılır.
 
 * Zaman uyumsuz yöntemler:
 
-    * [OnPageHandlerSelectionAsync](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncpagefilter.onpagehandlerselectionasync?view=aspnetcore-2.0) : zaman uyumsuz olarak sonra adlı işleyicisi yöntemi seçilmiş ancak önce model bağlama gerçekleşir.
-    * [OnPageHandlerExecutionAsync](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncpagefilter.onpagehandlerexecutionasync?view=aspnetcore-2.0) : zaman uyumsuz model bağlama işlemi tamamlandıktan sonra işleyicisi yöntemi çağırılmadan önce çağrılır.
+  * [OnPageHandlerSelectionAsync](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncpagefilter.onpagehandlerselectionasync?view=aspnetcore-2.0) : Zaman uyumsuz olarak işleyicisi yöntemi seçtikten sonra ancak model bağlama gerçekleşmeden önce çağrılır.
+  * [OnPageHandlerExecutionAsync](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncpagefilter.onpagehandlerexecutionasync?view=aspnetcore-2.0) : Zaman uyumsuz model bağlama işlemi tamamlandıktan sonra işleyicisi yöntemi çağırılmadan önce çağrılır.
 
 > [!NOTE]
 > Uygulama **ya da** zaman uyumlu veya zaman uyumsuz sürümü filtre arabirimi, her ikisini birden değil. Framework ilk filtre zaman uyumsuz arabirimini uygulayan ve çağrı yaptığı bu durumda olup olmadığını denetler. Aksi durumda, zaman uyumlu arabirim yöntemleri çağırır. Her iki arabirimde uygulanırsa, yalnızca zaman uyumsuz yöntemler olan çağrılabilir. Geçersiz kılmalar sayfalarında aynı kuralın uygulanacağı, zaman uyumlu veya zaman uyumsuz sürümü geçersiz kılma, ikisini birden uygular.
@@ -86,6 +86,7 @@ Aşağıdaki kod, zaman uyumlu bir Razor sayfası filtrelerini geçersiz kılan:
 ::: moniker-end
 
 <a name="ifa"></a>
+
 ## <a name="implement-a-filter-attribute"></a>Bir filtre özniteliğini uygulayın
 
 Yerleşik öznitelik tabanlı filtre [OnResultExecutionAsync](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncresultfilter.onresultexecutionasync?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_Filters_IAsyncResultFilter_OnResultExecutionAsync_Microsoft_AspNetCore_Mvc_Filters_ResultExecutingContext_Microsoft_AspNetCore_Mvc_Filters_ResultExecutionDelegate_) filtre sınıflandırma. Aşağıdaki filtre yanıt olarak bir başlık ekler:
@@ -101,6 +102,7 @@ Bkz: [varsayılan sırası geçersiz kılma](xref:mvc/controllers/filters#overri
 Bkz: [iptal ve kestirmeler](xref:mvc/controllers/filters#cancellation-and-short-circuiting) filtre ardışık düzen bir filtre tarafından iki ilişkin yönergeler için. 
 
 <a name="auth"></a>
+
 ## <a name="authorize-filter-attribute"></a>Filtre özniteliği Yetkilendir
 
 [Authorize](/dotnet/api/microsoft.aspnetcore.authorization.authorizeattribute?view=aspnetcore-2.0) özniteliği uygulanabilir bir `PageModel`:

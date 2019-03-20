@@ -5,12 +5,12 @@ description: Nasıl ASP.NET Core hizmetlerini ve ara yazılım içeriği yerelle
 ms.author: riande
 ms.date: 01/14/2017
 uid: fundamentals/localization
-ms.openlocfilehash: 70de86f2e8c4a5577b8a4b50c53d66eb3b205c09
-ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
+ms.openlocfilehash: 0eda297b7df97a5d20fea035983f426eafa03775
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57665552"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264636"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Genelleştirme ve yerelleştirme ASP.NET core'da
 
@@ -98,6 +98,7 @@ DataAnnotations hata iletileri ile yerelleştirilmiş `IStringLocalizer<T>`. Se�
 ASP.NET Core MVC 1.1.0 ve daha yüksek, doğrulama olmayan öznitelikler yerelleştirilmiştir. ASP.NET Core MVC 1.0 mu **değil** yerelleştirilmiş dizeleri doğrulama olmayan öznitelikler arayın.
 
 <a name="one-resource-string-multiple-classes"></a>
+
 ### <a name="using-one-resource-string-for-multiple-classes"></a>Bir kaynak dizesi için birden çok sınıflarını kullanma
 
 Aşağıdaki kod doğrulama öznitelikleri ile birden fazla sınıfınız için bir kaynak dizesi kullanma işlemini gösterir:
@@ -304,7 +305,6 @@ Kullanım `RequestLocalizationOptions` ekleme veya kaldırma yerelleştirme sağ
 ### <a name="set-the-culture-programmatically"></a>Kültür programlı olarak ayarlama
 
 Bu örnek **Localization.StarterWeb** projesine [GitHub](https://github.com/aspnet/entropy) ayarlamak için kullanıcı Arabirimi içeren `Culture`. *Views/Shared/_SelectLanguagePartial.cshtml* dosya kültürü desteklenen kültürler listesinden olanak tanır:
-
 
 [!code-cshtml[](localization/sample/Localization/Views/Shared/_SelectLanguagePartial.cshtml)]
 

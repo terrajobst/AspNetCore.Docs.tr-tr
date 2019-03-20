@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 02/05/2019
 ms.topic: tutorial
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: f02aa1d6d8e431e7e2613835b3216786aed4ecd4
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: c4804bd6614c7d5a2a30c8f59a645f603929ad52
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103104"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264596"
 ---
 # <a name="tutorial-learn-about-advanced-scenarios---aspnet-mvc-with-ef-core"></a>Öğretici: Gelişmiş senaryoları hakkında - EF çekirdekli ASP.NET MVC ile bilgi edinin.
 
@@ -81,7 +81,7 @@ Contoso University yöneticiler her kurs sonunda verilen kredi sayısı değişt
 
 ![Güncelleştirme kurs KREDİLERİ sayfası](advanced/_static/update-credits.png)
 
-İçinde *CoursesContoller.cs*, HttpGet ve HttpPost UpdateCourseCredits yöntemleri ekleyin:
+İçinde *CoursesController.cs*, HttpGet ve HttpPost UpdateCourseCredits yöntemleri ekleyin:
 
 [!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_UpdateGet)]
 
@@ -202,6 +202,7 @@ Varolan bir veritabanından varlık sınıfları da dahil olmak üzere bir veri 
 Tom Dykstra ve Rick Anderson (twitter @RickAndMSFT) bu Öğreticisi yazdı. Rowan Miller, Diego Vega ve diğer Entity Framework takım üyeleri kod incelemeleriyle Yardımlı ve kod öğreticileri için yazar, çıkan sorunlarında hata ayıklama yardımcı olmuştur. John Parente ve Paul Goldman öğretici ASP.NET Core 2.2 için güncelleştirme üzerinde çalışmıştır.
 
 <a id="common-errors"></a>
+
 ## <a name="troubleshoot-common-errors"></a>Sık karşılaşılan sorunları giderme
 
 ### <a name="contosouniversitydll-used-by-another-process"></a>Başka bir işlem tarafından kullanılan ContosoUniversity.dll

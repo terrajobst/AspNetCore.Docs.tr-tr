@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/06/2019
 uid: host-and-deploy/azure-apps/troubleshoot
-ms.openlocfilehash: 326f66070d51c04298abbf6292d2d350414311de
-ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
+ms.openlocfilehash: 36c2bdfa585a0fd54ca93bf4c0edb4cf6f7d934a
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57841413"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265440"
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service"></a>Azure App Service'te ASP.NET Core sorunlarını giderme
 
@@ -23,8 +23,7 @@ Bu makalede, Azure App Service'nın tanılama araçlarını kullanarak uygulama 
 
 ## <a name="app-startup-errors"></a>Uygulama başlatma hataları
 
-**502.5 işlem hatası**  
-Çalışan işlemi başarısız olur. Uygulama başlamaz.
+**502.5 işlem hatası** çalışan işlemi başarısız olur. Uygulama başlamaz.
 
 [ASP.NET Core Modülü](xref:host-and-deploy/aspnet-core-module) başlatmak çalışan işlemi ancak başlatma girişimleri başarısız. Genellikle uygulama olay günlüğünü inceleyerek bu tür bir sorun gidermenize yardımcı olur. Günlük erişme bölümünde açıklanmıştır [uygulama olay günlüğüne](#application-event-log) bölümü.
 
@@ -32,7 +31,8 @@ Bu makalede, Azure App Service'nın tanılama araçlarını kullanarak uygulama 
 
 ![502.5 işlem hatası sayfasını gösteren bir tarayıcı penceresi](troubleshoot/_static/process-failure-page.png)
 
-**500 İç sunucu hatası**  
+**500 İç sunucu hatası**
+
 Uygulamayı başlatır, ancak bir hata sunucu isteği yerine getirmesini önler.
 
 Bu hata, başlatma sırasında veya bir yanıt oluşturulurken uygulamanın kod içinde oluşur. Yanıtın içerik içerebilir veya yanıt olarak görünebilir bir *500 İç sunucu hatası* tarayıcıda. Uygulama olay günlüğü, genellikle uygulama normal şekilde çalışmaya belirtir. Sunucunun açısından bakıldığında, doğru olmasıdır. Uygulama başladı, ancak geçerli bir yanıt oluşturulamıyor. [Uygulamayı çalıştırın Kudu konsolunda](#run-the-app-in-the-kudu-console) veya [ASP.NET Core modülü stdout günlüğünü etkinleştir](#aspnet-core-module-stdout-log) sorunu gidermek için.
@@ -83,15 +83,16 @@ Başlatma hataları birçok yararlı bilgiler uygulama olay günlüğü'ndeki ü
      ```console
      dotnet .\{ASSEMBLY NAME}.dll
      ```
+
    * Uygulama ise bir [müstakil dağıtım](/dotnet/core/deploying/#self-contained-deployments-scd):
 
      ```console
      {ASSEMBLY NAME}.exe
      ```
-   
+
 Konsol çıkışını herhangi bir hata gösteren uygulamadan Kudu konsoluna cmdlet'iyle yönetilir.
-   
-##### <a name="framework-depdendent-deployment-running-on-a-preview-release"></a>Bir önizleme sürümü üzerinde çalışan framework depdendent dağıtım
+
+##### <a name="framework-dependent-deployment-running-on-a-preview-release"></a>Framework bağımlı dağıtım üzerinde bir önizleme sürümünü çalıştıran
 
 *ASP.NET Core {VERSION} (x86) yükleme gerektirir çalışma zamanı site uzantısı.*
 
@@ -113,7 +114,7 @@ Konsol çıkışını herhangi bir hata gösteren uygulamadan Kudu konsoluna cmd
 
 Konsol çıkışını herhangi bir hata gösteren uygulamadan Kudu konsoluna cmdlet'iyle yönetilir.
 
-##### <a name="framework-depdendent-deployment-running-on-a-preview-release"></a>Bir önizleme sürümü üzerinde çalışan framework depdendent dağıtım
+##### <a name="framework-dependent-deployment-running-on-a-preview-release"></a>Framework bağımlı dağıtım üzerinde bir önizleme sürümünü çalıştıran
 
 *ASP.NET Core {VERSION} (x64) yükleme gerektirir çalışma zamanı site uzantısı.*
 
@@ -170,7 +171,7 @@ ASP.NET Core modülü hata ayıklama günlüğünü ek, daha ayrıntılı günl�
 
 Sorun giderme işlemi tamamlandıktan sonra hata ayıklama günlüğü devre dışı bırakın:
 
-1. Gelişmiş hata ayıklama günlüğü, genellikle aşağıdakilerden birini devre dışı bırakmak için:
+1. Gelişmiş hata ayıklama günlüğünü devre dışı bırakmak için aşağıdakilerden birini gerçekleştirin:
    * Kaldırma `<handlerSettings>` gelen *web.config* dosyasını yerel ve uygulamayı yeniden dağıtın.
    * Düzenlemek için Kudu Konsolu kullanın *web.config* dosya ve kaldırma `<handlerSettings>` bölümü. Dosyayı kaydedin.
 
@@ -230,7 +231,7 @@ Tanılama günlüğüne kaydetmeyi etkinleştirmek için devam edin:
 
 1. Azure portalında **tanılama günlükleri** dikey penceresi.
 1. Seçin **üzerinde** için geçiş **uygulama günlüğü (dosya sistemi)** ve **ayrıntılı hata iletileri**. Seçin **Kaydet** dikey penceresinin üstünde düğme.
-1. Başarısız istek olay arabelleğe alma (FREB) günlük olarak da bilinir, başarısız istek izleme eklemek için işaretleyin **üzerinde** için geçiş **başarısız istek izleme**. 
+1. Başarısız istek olay arabelleğe alma (FREB) günlük olarak da bilinir, başarısız istek izleme eklemek için işaretleyin **üzerinde** için geçiş **başarısız istek izleme**.
 1. Seçin **günlük akışı** hemen altında listelenen dikey penceresinde **tanılama günlükleri** portaldaki dikey pencere.
 1. Uygulamaya bir istek oluşturun.
 1. Hatanın nedenini günlük akış verilerini içinde belirtilir.

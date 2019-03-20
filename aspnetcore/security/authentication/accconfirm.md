@@ -5,12 +5,12 @@ description: E-posta onayı ve parola sıfırlama ile ASP.NET Core uygulaması o
 ms.author: riande
 ms.date: 3/11/2019
 uid: security/authentication/accconfirm
-ms.openlocfilehash: d102ed0a4a75f6273fcda0a8cc7e9d091ff94b50
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 3bfc2ce46cfbc2ee308940f9e04eb2ffeec09073
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209942"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265493"
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Hesap onaylama ve parola kurtarma ASP.NET Core
 
@@ -45,6 +45,7 @@ dotnet new webapp -au Individual -uld -o WebPWrecover
 cd WebPWrecover
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 dotnet restore
+dotnet tool install -g dotnet-aspnet-codegenerator
 dotnet aspnet-codegenerator identity -dc WebPWrecover.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout;Account.ConfirmEmail"
 dotnet ef database drop -f
 dotnet ef database update
@@ -63,6 +64,7 @@ Tablonun Not `EmailConfirmed` alandır `False`.
 Bu e-posta uygulaması bir onay e-posta gönderdiğinde, yeniden sonraki adımda kullanmak isteyebilirsiniz. Sağ tıklatın ve satır **Sil**. E-posta diğer adı silmek, aşağıdaki adımlarda kolaylaştırır.
 
 <a name="prevent-login-at-registration"></a>
+
 ## <a name="require-email-confirmation"></a>E-posta onayı gerektir
 
 Yeni bir kullanıcı kaydı e-postayı onaylamak için iyi bir uygulamadır. E-posta, bunlar değil kimliğe bürünerek başka birisi doğrulamak için onay yardımcı olur (diğer bir deyişle, bunlar başka birinin e-posta ile kayıtlı olmayabilirsiniz). Tartışma Forumu var ve bu önlemek istediğinizi varsayalım "yli@example.com"olarak kaydetme"Kimdennolivetto@contoso.com". E-posta onayı olmadan "nolivetto@contoso.com" istenmeyen e-posta uygulamanızdan alabilir. Kullanıcı olarak yanlışlıkla kayıtlı varsayalım "ylo@example.com" ve "yli", yazım hatası fark yüklediniz. Parola kurtarma uygulamayı doğru e-postasına olmadığından bunlar saptayamazdınız. E-posta onayı robotlar sınırlı koruma sağlar. E-posta onayı, çok sayıda e-posta hesaplarına sahip kötü niyetli kullanıcıların koruma sağlamaz.
@@ -96,13 +98,13 @@ Windows üzerinde gizli dizi Yöneticisi'ni anahtar/değer çiftleri olarak depo
 
 İçeriğini *secrets.json* olmayan dosya şifrelenmiş. Aşağıdaki biçimlendirme gösterildiği *secrets.json* dosya. `SendGridKey` Değer kaldırıldı.
 
- ```json
-  {
-    "SendGridUser": "RickAndMSFT",
-    "SendGridKey": "<key removed>"
-  }
-  ```
- 
+```json
+{
+  "SendGridUser": "RickAndMSFT",
+  "SendGridKey": "<key removed>"
+}
+```
+
 Daha fazla bilgi için [seçenekleri deseni](xref:fundamentals/configuration/options) ve [yapılandırma](xref:fundamentals/configuration/index).
 
 ### <a name="install-sendgrid"></a>SendGrid yükleyin
@@ -130,6 +132,7 @@ dotnet add package SendGrid
 ------
 
 Bkz: [SendGrid ile ücretsiz olarak kullanmaya başlayın](https://sendgrid.com/free/) ücretsiz SendGrid hesabı kaydedilecek.
+
 ### <a name="implement-iemailsender"></a>IEmailSender uygulayın
 
 Uygulama için `IEmailSender`, oluşturma *Services/EmailSender.cs* kodu aşağıdakine benzer:
@@ -213,6 +216,7 @@ Varsayılan belirteç ömrü [kimlik kullanıcı belirteçleri](https://github.c
 Bkz: [bu GitHub sorunu](https://github.com/aspnet/AspNetCore/issues/5410).
 
 <a name="debug"></a>
+
 ### <a name="debug-email"></a>E-posta hata ayıklama
 
 E-posta çalışma erişemiyorsanız:

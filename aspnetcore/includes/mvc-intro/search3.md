@@ -1,13 +1,19 @@
+---
+ms.openlocfilehash: 0a9b5bc4a91607306a9f4a23756a740366b24933
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58207972"
+---
 <!--
 [!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout.cshtml?highlight=7,31)]
-
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_1stSearch)]
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_SearchNull)]
 
 ![Index view](~/tutorials/first-mvc-app/search/_static/ghost.png)
-
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?highlight=5&name=snippet_1)]
 
@@ -31,10 +37,10 @@ Aşağıdaki `MovieGenreViewModel` sınıfının *modelleri* klasörü:
 
 Film Tarz görünüm modeli içerir:
 
-   * Filmler listesi.
-   * A `SelectList` türleri listesini içeren. Bu kullanıcının listeden bir türe izin verir.
-   * `MovieGenre`, seçilen türe içerir.
-   * `SearchString`, kullanıcıların, arama metin kutusuna girdiğiniz metnin içerir.
+* Filmler listesi.
+* A `SelectList` türleri listesini içeren. Bu kullanıcının listeden bir türe izin verir.
+* `MovieGenre`, seçilen türe içerir.
+* `SearchString`, kullanıcıların, arama metin kutusuna girdiğiniz metnin içerir.
 
 Değiştirin `Index` yönteminde `MoviesController.cs` aşağıdaki kod ile:
 

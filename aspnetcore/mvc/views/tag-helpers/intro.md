@@ -4,26 +4,26 @@ author: rick-anderson
 description: Etiket Yardımcıları nelerdir ve bunların içinde ASP.NET Core nasıl kullanılacağını öğrenin.
 ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.date: 2/14/2018
+ms.date: 03/18/2019
 uid: mvc/views/tag-helpers/intro
-ms.openlocfilehash: 4b9bceb3ce0153af2d9a30c402febe09707145b7
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: 7768dd45bdbe40c16176d57a76823cbb9dd0b91b
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477312"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264617"
 ---
 # <a name="tag-helpers-in-aspnet-core"></a>ASP.NET core'da etiket Yardımcıları
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-## <a name="what-are-tag-helpers"></a>Etiket Yardımcıları nelerdir?
+## <a name="what-are-tag-helpers"></a>Etiket Yardımcıları nelerdir
 
 Etiket Yardımcıları oluşturma ve Razor dosyalarında HTML öğeleri işleme katılmak sunucu tarafı kodu etkinleştirin. Örneğin, yerleşik `ImageTagHelper` görüntü adı için bir sürüm numarası ekleyebilirsiniz. Görüntü değiştiğinde geçerli resim (yerine, eski bir önbelleğe alınan görüntü) almak için istemcilerini garanti için sunucu görüntüsü için benzersiz yeni bir sürümü oluşturur. Birçok yerleşik etiket Yardımcıları için formlar, bağlantılar, yükleme varlıklar ve ortak GitHub depoları ve NuGet olarak daha kullanılabilir ve daha fazla - paketleri oluşturma gibi ortak görevler - vardır. Etiket Yardımcıları C# dilinde yazılmış ve öğe adı, öznitelik adı veya üst etiketi dayalı HTML öğeleri hedeflenir. Örneğin, yerleşik `LabelTagHelper` HTML hedefleyebilir `<label>` öğesi olduğunda `LabelTagHelper` öznitelikler uygulanır. Aşina değilseniz [HTML Yardımcıları](http://stephenwalther.com/archive/2009/03/03/chapter-6-understanding-html-helpers), HTML ve C# arasında açık geçişler Razor görünümleri, etiket Yardımcıları azaltın. Çoğu durumda, HTML Yardımcıları, belirli bir etiketi Yardımcısı için alternatif bir yaklaşım sağlar, ancak etiket Yardımcıları HTML Yardımcıları değiştirin yoktur ve her HTML Yardımcısı için bir etiket Yardımcısı olmadığını bilmek önemlidir. [Etiket Yardımcıları için HTML Yardımcıları karşılaştırıldığında](#tag-helpers-compared-to-html-helpers) farklar daha ayrıntılı açıklanmaktadır.
 
 ## <a name="what-tag-helpers-provide"></a>Etiket Yardımcıları neler sağlar
 
-**Bir HTML kullanımı kolay geliştirme deneyimi** en bölümü için etiket Yardımcıları kullanarak Razor işaretlemesi standart HTML gibi görünüyor. HTML/CSS/JavaScript ile conversant ön uç tasarımcılar #c Razor sözdizimi öğrenmeden Razor düzenleyebilirsiniz.
+**Bir HTML kullanımı kolay geliştirme deneyimi** en bölümü için etiket Yardımcıları kullanarak Razor işaretlemesi standart HTML gibi görünüyor. Ön uç tasarımcılar ile HTML/CSS/JavaScript conversant öğrenme olmadan Razor düzenleyebilir C# Razor söz dizimi.
 
 **HTML ve Razor biçimlendirme oluşturmak için zengin IntelliSense ortamı** sharp Karşıtlık HTML Yardımcıları, sunucu tarafı Razor görünümleri işaretlemede oluşturulmasını önceki yaklaşım budur. [Etiket Yardımcıları için HTML Yardımcıları karşılaştırıldığında](#tag-helpers-compared-to-html-helpers) farklar daha ayrıntılı açıklanmaktadır. [Etiket Yardımcıları için IntelliSense desteği](#intellisense-support-for-tag-helpers) IntelliSense ortamı açıklar. C# Razor işaretlemesi yazmaktan etiket Yardımcıları kullanarak daha üretken bile geliştiricilerin Razor C# sözdizimi ile karşılaştı.
 
@@ -122,6 +122,7 @@ Etiket Yardımcısı çevirme karakterin açılış ve kapanış etiketi uygulam
 ```cshtml
 @tagHelperPrefix th:
 ```
+
 Kod aşağıdaki resimde, etiket Yardımcısı ön ek ayarlanır `th:`, bu nedenle yalnızca önekini kullanarak öğeleri `th:` etiket Yardımcıları (etiket Yardımcısı etkin öğeleri sahip farklı bir yazı tipi) destekler. `<label>` Ve `<input>` öğeleri etiketi Yardımcısı önekine sahip ve etiket Yardımcısı etkinleştirilmiş, çalışırken `<span>` öğesi değil.
 
 ![görüntü](intro/_static/thp.png)
@@ -186,37 +187,21 @@ Konumunda (`@`) sembolü söyler Razor kod başlangıcını budur. Sonraki iki p
 new {@class="caption"}
 ```
 
-Bir anonim nesnenin öznitelikleri temsil etmek için kullanılır. Çünkü <strong>sınıfı</strong> ayrılmış bir anahtar sözcük C# ' ta, kullandığınız `@` yorumlamak için C# zorlamak için Sembol "@class=" (özellik adı) sembol olarak. Ön uç tasarımcıya (birisi HTML/CSS/JavaScript ve diğer istemci teknolojileri hakkında bilgi sahibi ancak C# ve Razor ile tanıdık), satır çoğunu yabancı. Tüm satırı IntelliSense hiçbir yardımıyla yazılması gerekir.
+Bir anonim nesnenin öznitelikleri temsil etmek için kullanılır. Çünkü `class` ayrılmış bir anahtar sözcük C#, kullandığınız `@` zorlamak için Sembol C# yorumlamak için `@class=` sembol (özellik adı) olarak. Ön uç tasarımcıya (birisi HTML/CSS/JavaScript ve diğer istemci teknolojileri hakkında bilgi sahibi ancak C# ve Razor ile tanıdık), satır çoğunu yabancı. Tüm satırı IntelliSense hiçbir yardımıyla yazılması gerekir.
 
 Kullanarak `LabelTagHelper`, aynı biçimlendirme olarak yazılabilir:
 
-![görüntü](intro/_static/label2.png)
+```cshtml
+<label class="caption" asp-for="FirstName"></label>
+```
 
 Etiket Yardımcısı sürümüyle girdiğiniz hemen sonra `<l` Visual Studio düzenleyicisinde, IntelliSense eşleşen öğeleri görüntüler:
 
 ![görüntü](intro/_static/label.png)
 
-IntelliSense, tüm satırı yazmanıza yardımcı olur. `LabelTagHelper` İçeriğine ayarını da varsayılanları `asp-for` öznitelik değeri ("FirstName") "İlk adı için"; Özellik adı her yeni büyük harf oluştuğu boşluk oluşan bir cümle başlamalıdır özellikleri dönüştürür. Aşağıdaki biçimlendirmede:
+IntelliSense, tüm satırı yazmanıza yardımcı olur.
 
-![görüntü](intro/_static/label2.png)
-
-oluşturur:
-
-```cshtml
-<label class="caption" for="FirstName">First Name</label>
-```
-
-İçeriği eklerseniz başlamalıdır cümle büyük küçük harfleri içeriğe kullanılmayan `<label>`. Örneğin:
-
-![görüntü](intro/_static/1stName.png)
-
-oluşturur:
-
-```cshtml
-<label class="caption" for="FirstName">Name First</label>
-```
-
-Aşağıdaki kodu görüntüsünü Form bölümü gösterilmektedir *Views/Account/Register.cshtml* eski ASP.NET 4.5.x MVC şablonu ile Visual Studio 2015 dahil oluşturulmuş Razor görünüm.
+Aşağıdaki kodu görüntüsünü Form bölümü gösterilmektedir *Views/Account/Register.cshtml* Visual Studio'ya dahil edildi ASP.NET 4.5.x MVC şablonu oluşturulmuş Razor görünüm.
 
 ![görüntü](intro/_static/regCS.png)
 
@@ -267,5 +252,5 @@ Gelen renklendirme ve yazı tipini özelleştirebilirsiniz **Araçları** > **se
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Yazma etiketi Yardımcıları](xref:mvc/views/tag-helpers/authoring)
-* [Formlarla çalışma ](xref:mvc/views/working-with-forms)
+* [Formlarla Çalışma](xref:mvc/views/working-with-forms)
 * [GitHub üzerinde TagHelperSamples](https://github.com/dpaquette/TagHelperSamples) ile çalışmak için etiket Yardımcısı örnekler içeren [önyükleme](http://getbootstrap.com/).

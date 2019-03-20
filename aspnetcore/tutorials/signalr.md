@@ -6,12 +6,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 11/30/2018
 uid: tutorials/signalr
-ms.openlocfilehash: 53ec924c2d7b4fac227be0c0bf24d93476528167
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: ba36f75dfa40012df3140cdcbf8a7732fb0709fe
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54836564"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264533"
 ---
 # <a name="tutorial-get-started-with-aspnet-core-signalr"></a>Öğretici: ASP.NET Core Signalr'yi kullanmaya başlayın
 
@@ -79,7 +79,7 @@ SignalR server kitaplığı dahil `Microsoft.AspNetCore.App` metapackage. JavaSc
 
 * İçinde **Çözüm Gezgini**projeye sağ tıklayıp seçin **Ekle** > **istemci tarafı kitaplık**.
 
-* İçinde **istemci tarafı kitaplık Ekle** iletişim için **sağlayıcısı** seçin **unpkg**. 
+* İçinde **istemci tarafı kitaplık Ekle** iletişim için **sağlayıcısı** seçin **unpkg**.
 
 * İçin **Kitaplığı**, girin `@aspnet/signalr@1`, Önizleme olmayan en son sürümü seçin.
 
@@ -210,7 +210,7 @@ SignalR sunucusu, SignalR için SignalR isteklerini iletmek için yapılandırı
   ```console
   dotnet run -p SignalRChat.csproj
   ```
-  
+
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
 * Menüden **çalıştırın > hata ayıklama olmadan Başlat**.

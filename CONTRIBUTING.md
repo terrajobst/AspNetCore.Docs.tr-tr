@@ -1,4 +1,12 @@
-# <a name="contribute-to-the-aspnet-documentation"></a>ASP.NET belgelerine katkıda bulunun
+---
+ms.openlocfilehash: f5002ae2d8317b2455298b9c5474d9bff52fa497
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264991"
+---
+# <a name="contribute-to-the-aspnet-core-documentation"></a>ASP.NET Core belgelerine katkıda bulunun
 
 Bu belgede ele alınmaktadır makaleler ve barındırılan kod örnekleri katkıda bulunmak için işlem [ASP.NET belgeleri sitesi](https://docs.microsoft.com/aspnet/). Hoş Geldiniz Katkıları şunlardır: yazım düzeltmeleri ve yeni makaleler.
 
@@ -18,7 +26,7 @@ Temel bir anlayış ihtiyacınız [Git ve GitHub.com](https://guides.github.com/
 
 Bu işlem yeni bir makale yayına nerede yol açan bir örnek için bkz [sorunu &num;67](https://github.com/dotnet/docs/issues/67) ve [çekme isteği &num;798](https://github.com/dotnet/docs/pull/798) .NET belgeleri deposundaki. Yeni makale [kodunuzu belgeleme](https://docs.microsoft.com/dotnet/articles/csharp/codedoc).
 
-## <a name="docs-authoring-pack-extension-in-visual-studio-code"></a>Visual Studio code'da docs yazma paketi uzantısı 
+## <a name="docs-authoring-pack-extension-in-visual-studio-code"></a>Visual Studio code'da docs yazma paketi uzantısı
 
 ASP.NET belgelerine katkıda bulunmak için Visual Studio Code kullanırsanız, yükleyerek, üretkenliğinizi artırabilir [Docs yazma paketi](https://marketplace.visualstudio.com/items?itemName=docsmsft.docs-authoring-pack) uzantısı. Uzantı, Markdown linting, kod yazım ve makale şablonlarının yardımcı olan çeşitli araçlar sağlar.
 
@@ -119,6 +127,7 @@ DocFX gerektirir:
   ```console
   docfx --serve
   ```
+
 * Bir tarayıcıda gidin `http://localhost:8080/group1-dest/`.
 
 ### <a name="mono-instructions"></a>Mono yönergeleri
@@ -128,6 +137,7 @@ DocFX gerektirir:
   ```console
   brew install mono
   ```
+
 * İndirme [DocFX en son sürümünü](https://github.com/dotnet/docfx/releases).
 * Arşive ayıklamak *$ giriş/bin/docfx*.
 * Bir çift için diğer adlar oluşturma **docfx** bir bash kabuğunda. İlk ve diğer belgeler oluşturmak için kullanılır. İkinci ve diğer belgeler derler ve için kullanılır.
@@ -136,11 +146,13 @@ DocFX gerektirir:
   alias docfx='mono $HOME/bin/docfx/docfx.exe'
   alias docfx-serve='mono $HOME/bin/docfx/docfx.exe --serve'
   ```
+
 * Bir komut kabuğu'nda içeren klasöre gidin *docfx.json* dosyası (*aspnet* ASP.NET içeriği veya *aspnetcore* ASP.NET Core içerik için) ve çalıştırma Aşağıdaki komut aracılığıyla diğer adıyla docs derler ve için:
 
   ```console
   docfx-serve
   ```
+
 * Bir tarayıcıda gidin `http://localhost:8080/group1-dest/`.
 
 ## <a name="voice-and-tone"></a>Ses ve sesi

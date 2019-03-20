@@ -5,12 +5,12 @@ description: Bir model için basit bir ASP.NET Core uygulamasını ekleyin.
 ms.author: riande
 ms.date: 02/25/2019
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: ccdb7b920517c94b9154fe73b4ef1633f4ad0157
-ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
+ms.openlocfilehash: ed83ab92c70ea87f3c805787303e24c9ecfc4e12
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833559"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265536"
 ---
 # <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>Bir ASP.NET Core MVC uygulaması için bir model ekleme
 
@@ -26,14 +26,12 @@ Bu öğreticide model sınıfları ilk yazma ve EF Core veritabanı oluşturur. 
 
 ## <a name="add-a-data-model-class"></a>Bir veri modeli sınıfı Ekle
 
-<!-- VS -------------------------->
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Sağ *modelleri* klasör > **Ekle** > **sınıfı**. Sınıf adı **film**.
 
 [!INCLUDE [model 1b](~/includes/mvc-intro/model1b.md)]
 
-<!-- Code -------------------------->
 # <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code'u / Visual Studio Mac için](#tab/visual-studio-code+visual-studio-mac)
 
 * Bir sınıfa eklemek *modelleri* adlı klasöre *Movie.cs*.
@@ -41,14 +39,12 @@ Sağ *modelleri* klasör > **Ekle** > **sınıfı**. Sınıf adı **film**.
 [!INCLUDE [model 1b](~/includes/mvc-intro/model1b.md)]
 [!INCLUDE [model 2](~/includes/mvc-intro/model2.md)]
 
----  
-<!-- End of VS tabs -->
+---
 
 ## <a name="scaffold-the-movie-model"></a>Film modeli iskelesini
 
 Bu bölümde, film modeli iskele kurulmuş. Diğer bir deyişle, yapı iskelesi aracı sayfaları için oluşturma, okuma, güncelleştirme ve silme (CRUD) işlemlerine yönelik film modeli oluşturur.
 
-<!-- VS -------------------------->
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 İçinde **Çözüm Gezgini**, sağ *denetleyicileri* klasör **> Ekle > Yeni iskele kurulmuş öğe**.
@@ -76,11 +72,10 @@ Visual Studio oluşturur:
 
 * Bir Entity Framework Core [veritabanı bağlamı sınıfının](xref:data/ef-mvc/intro#create-the-database-context) (*Data/MvcMovieContext.cs*)
 * Denetleyici filmler (*Controllers/MoviesController.cs*)
-* Razor görünümü oluştur, Sil, Ayrıntılar, düzenleme ve dizin sayfaları için dosyaları (<em>görünümler/filmler/&ast;.cshtml</em>)
+* Razor görünümü oluştur, Sil, Ayrıntılar, düzenleme ve dizin sayfaları için dosyaları (*görünümler/filmler/\*.cshtml*)
 
 Veritabanı bağlamı otomatik olarak oluşturulmasını ve [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) (oluşturma, okuma, güncelleştirme ve silme) eylem metotları ve görünümleri olarak bilinir *yapı iskelesi*.
 
-<!-- Code -------------------------->
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 <!--  Until https://github.com/aspnet/Scaffolding/issues/582 is fixed windows needs backslash or the namespace is namespace RazorPagesMovie.Pages_Movies rather than namespace RazorPagesMovie.Pages.Movies
@@ -313,4 +308,4 @@ Denetleyici filmler oluşturduğunuzda otomatik olarak iskele kurma özelliği a
 
 > [!div class="step-by-step"]
 > [Önceki Görünüm ekleme](adding-view.md)
-> [sonraki SQL ile çalışma](working-with-sql.md)  
+> [sonraki SQL ile çalışma](working-with-sql.md)

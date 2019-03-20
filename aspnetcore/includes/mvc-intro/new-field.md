@@ -1,11 +1,20 @@
-<!-- This include not used by windows version -->
+---
+ms.openlocfilehash: 088f347cee73e745882455e6882d24a1e949f095
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265068"
+---
 # <a name="add-a-new-field-to-an-aspnet-core-mvc-app"></a>Bir ASP.NET Core MVC uygulaması için yeni bir alan ekleyin
+
+<!-- This include not used by windows version -->
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Bu öğretici için yeni bir alan ekleyeceksiniz `Movies` tablo. Biz veritabanını bırakıp şema değiştirdiğimizde yeni bir tane oluşturun (yeni bir alan ekleyin). Biz perserve üretim veri olmadığında bu iş akışı geliştirme erken iyi çalışır.
+Bu öğretici için yeni bir alan ekleyeceksiniz `Movies` tablo. Biz veritabanını bırakıp şema değiştirdiğimizde yeni bir tane oluşturun (yeni bir alan ekleyin). Biz korumak için herhangi bir üretim veri olmadığında bu iş akışı geliştirme erken iyi çalışır.
 
-Şema değiştirmeniz gerektiğinde perserve için ihtiyacınız olan verilere sahip olduğunuz ve uygulamanız dağıtıldıktan sonra veritabanı bırakılamıyor. Entity Framework [Code First Migrations](/ef/core/get-started/aspnetcore/new-db) şemanızı güncelleştirin ve veri kaybı olmadan veritabanını geçirme olanak tanır. Geçişleri bir özelliktir popüler birçok geçiş şema işlemleri SQL Server, ancak SQLlite kullanarak desteklemediğinde bu nedenle yalnızca çok basit geçişleri mümkündür. Bkz: [SQLite sınırlamaları](/ef/core/providers/sqlite/limitations) daha fazla bilgi için.
+Şema değiştirmeniz gerektiğinde korumak için ihtiyacınız olan verilere sahip olduğunuz ve uygulamanız dağıtıldıktan sonra veritabanı bırakılamıyor. Entity Framework [Code First Migrations](/ef/core/get-started/aspnetcore/new-db) şemanızı güncelleştirin ve veri kaybı olmadan veritabanını geçirme olanak tanır. Geçişleri bir özelliktir popüler birçok geçiş şema işlemleri SQL Server, ancak SQLite kullanarak desteklemediğinde bu nedenle yalnızca çok basit geçişleri mümkündür. Bkz: [SQLite sınırlamaları](/ef/core/providers/sqlite/limitations) daha fazla bilgi için.
 
 ## <a name="adding-a-rating-property-to-the-movie-model"></a>Film modeli derecelendirme özellik ekleme
 

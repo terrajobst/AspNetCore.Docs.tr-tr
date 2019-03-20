@@ -5,12 +5,12 @@ description: Entity Framework Core (EF Core) kullanarak bir veritabanında filml
 ms.author: riande
 ms.date: 02/12/2019
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 0ba00750dee1ccbef5d91d8c66f2de0db401c5c1
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: b4f14241d50383ad4d1c1d8c9d00ca439f371b7d
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346365"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265025"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Bir ASP.NET Core Razor sayfaları uygulama için model ekleme
 
@@ -26,8 +26,6 @@ EF Core üzerinde herhangi bir bağımlılığı olmadığından model sınıfla
 
 ## <a name="add-a-data-model"></a>Bir veri modeli ekleme
 
-<!-- VS -------------------------->
-
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Sağ **RazorPagesMovie** Proje > **Ekle** > **yeni klasör**. Klasör adı *modelleri*.
@@ -35,8 +33,6 @@ Sağ **RazorPagesMovie** Proje > **Ekle** > **yeni klasör**. Klasör adı *mode
 Sağ tıklayın *modelleri* klasör. Seçin **ekleme** > **sınıfı**. Sınıf adı **film**.
 
 [!INCLUDE [model 1b](~/includes/RP/model1b.md)]
-
-<!-- Code -------------------------->
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -47,7 +43,6 @@ Sağ tıklayın *modelleri* klasör. Seçin **ekleme** > **sınıfı**. Sınıf 
 
 [!INCLUDE [model 2](~/includes/RP/model2.md)]
 
-<!-- Mac -------------------------->
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
 * Çözüm Gezgini'nde sağ **RazorPagesMovie** proje ve ardından **Ekle** > **yeni klasör**. Klasör adı *modelleri*.
@@ -62,8 +57,6 @@ Sağ tıklayın *modelleri* klasör. Seçin **ekleme** > **sınıfı**. Sınıf 
 
 [!INCLUDE [model 2](~/includes/RP/model2.md)]
 
-<!-- End of VS tabs -->
-
 ---
 
 Derleme hata doğrulamak için projeyi derleyin.
@@ -71,8 +64,6 @@ Derleme hata doğrulamak için projeyi derleyin.
 ## <a name="scaffold-the-movie-model"></a>Film modeli iskelesini
 
 Bu bölümde, film modeli iskele kurulmuş. Diğer bir deyişle, yapı iskelesi aracı sayfaları için oluşturma, okuma, güncelleştirme ve silme (CRUD) işlemlerine yönelik film modeli oluşturur.
-
-<!-- VS -------------------------->
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -98,8 +89,6 @@ Tamamlamak **ekleme Razor sayfaları (CRUD) Entity Framework kullanarak** ileti�
 ![Önceki yönergeleri görüntüden.](model/_static/arp.png)
 
 *Appsettings.json* dosya yerel bir veritabanına bağlanmak için kullanılan bağlantı dizesi ile güncelleştirilir.
-
-<!-- Code -------------------------->
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -127,8 +116,6 @@ Tamamlamak **ekleme Razor sayfaları (CRUD) Entity Framework kullanarak** ileti�
 
 [!INCLUDE [explains scaffold gen params](~/includes/RP/model4.md)]
 
-<!-- Mac -------------------------->
-
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
 * Proje dizininde bir komut penceresi açın (içeren dizine *Program.cs*, *Startup.cs*, ve *.csproj* dosyaları).
@@ -137,6 +124,7 @@ Tamamlamak **ekleme Razor sayfaları (CRUD) Entity Framework kullanarak** ileti�
   ```console
    dotnet tool install --global dotnet-aspnet-codegenerator
    ```
+
 * Şu komutu çalıştırın:
 
   ```console
@@ -164,11 +152,7 @@ Oluşturulan ve güncelleştirilen dosyalar, sonraki bölümde açıklanmıştı
 
 ## <a name="initial-migration"></a>İlk geçiş
 
-<!-- VS -------------------------->
-
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
-
-<!-- VS -------------------------->
 
 Bu bölümde, Paket Yöneticisi Konsolu (PMC'yi) için kullanılır:
 
@@ -186,11 +170,7 @@ Add-Migration Initial
 Update-Database
 ```
 
-<!-- Code -------------------------->
-
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
-
-<!-- Mac -------------------------->
 
 [!INCLUDE [initial migration](~/includes/RP/model3.md)]
 
@@ -198,8 +178,7 @@ Update-Database
 
 [!INCLUDE [initial migration](~/includes/RP/model3.md)]
 
----  
-<!-- End of VS tabs -->
+---
 
 Yukarıdaki komutlarda aşağıdaki uyarı oluştur: "Hiçbir türü ondalık sütunu 'Fiyat' varlık türünün 'Film' için belirtildi. Bu, bunlar varsayılan kesinlik ve ölçek uygun değilse sessizce kesilebilir değerleri neden olur. "Açıkça 'HasColumnType()' kullanarak tüm değerleri uyum SQL server sütun türü belirtin."
 
@@ -208,8 +187,6 @@ Bu uyarıyı yoksayabilirsiniz, bir sonraki öğreticide düzeltilecektir.
 `ef migrations add InitialCreate` Komut, ilk veritabanı şeması oluşturmak için kod oluşturur. Belirtilen model şeması dayanır `DbContext` (içinde *RazorPagesMovieContext.cs* dosyası). `InitialCreate` Bağımsız değişkeni, geçişlerin adlandırmak için kullanılır. Herhangi bir ad kullanılabilir, ancak bir adı seçili kural gereği, geçiş açıklar.
 
 `ef database update` Komutu çalıştırmaları `Up` yönteminde *geçişleri /\<zaman damgası > _InitialCreate.cs* dosya. `Up` Yöntemi veritabanı oluşturur.
-
-<!-- VS -------------------------->
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -230,15 +207,10 @@ Yapı iskelesi aracı otomatik olarak oluşturulmuş bir veritabanı bağlamın�
 Yukarıdaki kod oluşturur bir [ `DbSet<Movie>` ](/dotnet/api/microsoft.entityframeworkcore.dbset-1) varlık kümesi özelliği. Entity Framework terminolojisinde, bir varlık kümesini genellikle bir veritabanı tablosuna karşılık gelir. Bir varlık tablosunda bir satıra karşılık gelir.
 
 Bağlantı dizesi adı için bağlam üzerinde bir yöntemi çağırarak geçirilen bir [DbContextOptions](/dotnet/api/microsoft.entityframeworkcore.dbcontextoptions) nesne. Yerel geliştirme için [ASP.NET Core yapılandırma sistemi](xref:fundamentals/configuration/index) bağlantı dizesinden okur *appsettings.json* dosya.
-<!-- Code -------------------------->
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-<!-- Mac -------------------------->
-
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
-
-<!-- End of VS tabs -->
 
 ---
 
@@ -264,7 +236,7 @@ Eksik [geçişler adım](#pmc).
 * Test **Oluştur** bağlantı.
 
   ![sayfası oluşturma](model/_static/conan.png)
-  
+
   > [!NOTE]
   > Ondalık virgül kullanımı girmeniz mümkün olmayabilir `Price` alan. Desteklemek için [jQuery doğrulama](https://jqueryvalidation.org/) virgül İngilizce olmayan yerel (",") bir ondalık noktasının ve ABD İngilizce olmayan tarih biçimleri, uygulamayı Eğer gerekir. Genelleştirme hakkında yönergeler için bkz. [bu GitHub sorunu](https://github.com/aspnet/Docs/issues/4076#issuecomment-326590420).
 

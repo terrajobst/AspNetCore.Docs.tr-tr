@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/5/2018
 uid: tutorials/razor-pages/new-field
-ms.openlocfilehash: 3799b072da04e32948b5fc78032f0575e760aa1d
-ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
+ms.openlocfilehash: f471e4bd12510b1de78f3281dcb21d73975d0cb8
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57841455"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264734"
 ---
 # <a name="add-a-new-field-to-a-razor-page-in-aspnet-core"></a>ASP.NET Core Razor sayfasına yeni bir alan ekleyin
 
@@ -73,7 +73,6 @@ Bkz: [SeedData.cs dosya tamamlandı](https://github.com/aspnet/Docs/blob/master/
 
 Çözümü oluşturun.
 
-<!-- VS -------------------------->
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 <a name="pmc"></a>
@@ -113,21 +112,19 @@ Başka bir seçenek veritabanını silin ve veritabanını yeniden oluşturmaya 
   Update-Database
   ```
 
-<!-- Code -------------------------->
 # <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code'u / Visual Studio Mac için](#tab/visual-studio-code+visual-studio-mac)
 
 ### <a name="drop-and-re-create-the-database"></a>Bırakın ve veritabanını yeniden oluşturun
 
 [!INCLUDE[](~/includes/RP-mvc-shared/sqlite-warn.md)]
 
-Veritabanını silin ve veritabanını yeniden oluşturmaya geçişleri kullanın. Veritabanını silmek için veritabanı dosyasını silin (*MvcMovie.db*). Ardından çalıştırın `ef database update` komutu: 
+Veritabanını silin ve veritabanını yeniden oluşturmaya geçişleri kullanın. Veritabanını silmek için veritabanı dosyasını silin (*MvcMovie.db*). Ardından çalıştırın `ef database update` komutu:
 
 ```console
 dotnet ef database update
 ```
 
----  
-<!-- End of VS tabs -->
+---
 
 Uygulamayı çalıştırın ve kontrol edebilirsiniz oluşturma/düzenleme/görüntüleme filmlerle bir `Rating` alan. Veritabanı çekirdek değeri oluşturulmuş değil, bir kesme noktası ayarlayın `SeedData.Initialize` yöntemi.
 

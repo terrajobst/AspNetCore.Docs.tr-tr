@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/21/2017
 uid: security/authorization/policies
-ms.openlocfilehash: c2bc626b2dd341dda878a151def6b405884357d7
-ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
+ms.openlocfilehash: e72f15c28fb7b62c671dd6475cc323cacce42de6
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57665408"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208327"
 ---
 # <a name="policy-based-authorization-in-aspnet-core"></a>ASP.NET core'da ilke tabanlı yetkilendirme
 
@@ -19,13 +19,25 @@ Aslında, [rol tabanlı yetkilendirme](xref:security/authorization/roles) ve [be
 
 Bir yetkilendirme ilkesi, bir veya daha fazla gereksinimlerini oluşur. İçinde yetkilendirme hizmet yapılandırmasının bir parçası olarak kayıtlı olduğu `Startup.ConfigureServices` yöntemi:
 
-[!code-csharp[](policies/samples/PoliciesAuthApp1/Startup.cs?range=40-41,50-55,63,72)]
+[!code-csharp[](policies/samples/PoliciesAuthApp1/Startup.cs?range=32-33,48-53,61,66)]
 
 Önceki örnekte, bir "AtLeast21" ilke oluşturulur. Tek bir gereksinim olan&mdash;, gereksinim parametre olarak sağlanan bir en düşük yaş.
 
-İlkeleri kullanarak uygulanır `[Authorize]` özniteliği ile ilke adı. Örneğin:
+## <a name="applying-policies-to-mvc-controllers"></a>MVC denetleyicileri için ilkelerini uygulama
+
+Razor sayfaları kullanıyorsanız, bkz. [ilkeleri Razor sayfaları için uygulama](#applying-policies-to-razor-pages) bu belgedeki.
+
+İlkeleri kullanarak denetleyicilerine uygulanır `[Authorize]` özniteliği ile ilke adı. Örneğin:
 
 [!code-csharp[](policies/samples/PoliciesAuthApp1/Controllers/AlcoholPurchaseController.cs?name=snippet_AlcoholPurchaseControllerClass&highlight=4)]
+
+## <a name="applying-policies-to-razor-pages"></a>Razor sayfaları için ilkelerini uygulama
+
+İlkeleri kullanarak Razor sayfaları için uygulanır `[Authorize]` özniteliği ile ilke adı. Örneğin:
+
+[!code-csharp[](policies/samples/PoliciesAuthApp2/Pages/AlcoholPurchase.cshtml.cs?name=snippet_AlcoholPurchaseModelClass&highlight=4)]
+
+İlkeler ayrıca uygulanabilir Razor sayfaları kullanarak bir [yetkilendirme kuralı](xref:security/authorization/razor-pages-authorization).
 
 ## <a name="requirements"></a>Gereksinimler
 
@@ -70,7 +82,7 @@ Yukarıdaki kod trafiğiyle [PendingRequirements](/dotnet/api/microsoft.aspnetco
 
 İşleyicileri, yapılandırma sırasında Hizmetleri koleksiyondaki kaydedilir. Örneğin:
 
-[!code-csharp[](policies/samples/PoliciesAuthApp1/Startup.cs?range=40-41,50-55,63-65,72)]
+[!code-csharp[](policies/samples/PoliciesAuthApp1/Startup.cs?range=32-33,48-53,61,62-63,66)]
 
 Yukarıdaki kod kaydeder `MinimumAgeHandler` çağırarak singleton olarak `services.AddSingleton<IAuthorizationHandler, MinimumAgeHandler>();`. Yerleşik birini kullanarak işleyicileri kaydedilebilir [hizmet yaşam süreleri](xref:fundamentals/dependency-injection#service-lifetimes).
 
@@ -112,7 +124,7 @@ Hangi getirdikten bir ilke kod içinde ifade basit olduğu durumlar olabilir. Sa
 
 Örneğin, önceki `BadgeEntryHandler` şu şekilde yazılması:
 
-[!code-csharp[](policies/samples/PoliciesAuthApp1/Startup.cs?range=52-53,57-63)]
+[!code-csharp[](policies/samples/PoliciesAuthApp1/Startup.cs?range=50-51,55-61)]
 
 ## <a name="accessing-mvc-request-context-in-handlers"></a>MVC istek bağlamı işleyicilerde erişme
 

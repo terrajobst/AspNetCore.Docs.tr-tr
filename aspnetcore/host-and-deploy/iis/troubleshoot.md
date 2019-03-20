@@ -4,14 +4,14 @@ author: guardrex
 description: Internet Information Services (IIS) ASP.NET Core uygulamaları dağıtımlarına sorunları tanılamayı öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/06/2019
+ms.date: 03/14/2019
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: 2f36ae2bda8537e91a3bc925505986bdd6a22a47
-ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
+ms.openlocfilehash: 1fa90737aadebe3f714c702fbce649629d79dcd4
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57841559"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264548"
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>IIS üzerinde ASP.NET Core sorunlarını giderme
 
@@ -33,17 +33,13 @@ Visual Studio'da varsayılan olarak bir ASP.NET Core projesi [IIS Express](/iis/
 
 Ek sorun giderme konuları:
 
-<xref:host-and-deploy/azure-apps/troubleshoot>  
-App Service kullansa [ASP.NET Core Modülü](xref:host-and-deploy/aspnet-core-module) ve uygulamaları barındırın, IIS, App Service için özel yönergeler için adanmış konusuna bakın.
+<xref:host-and-deploy/azure-apps/troubleshoot> App Service kullansa [ASP.NET Core Modülü](xref:host-and-deploy/aspnet-core-module) ve uygulamaları barındırın, IIS, App Service için özel yönergeler için adanmış konusuna bakın.
 
-<xref:fundamentals/error-handling>  
-Yerel bir sistemde geliştirme sırasında ASP.NET Core uygulamaları hataları işlemek nasıl keşfedin.
+<xref:fundamentals/error-handling> Yerel bir sistemde geliştirme sırasında ASP.NET Core uygulamaları hataları işlemek nasıl keşfedin.
 
-[Visual Studio kullanarak hata ayıklamayı öğrenin](/visualstudio/debugger/getting-started-with-the-debugger)  
-Bu konuda, Visual Studio hata ayıklayıcısını özelliklerini tanıtır.
+[Visual Studio kullanarak hata ayıklamayı öğrenin](/visualstudio/debugger/getting-started-with-the-debugger) Bu konu Visual Studio hata ayıklayıcısını özelliklerini tanıtır.
 
-[Visual Studio kodu ile hata ayıklama](https://code.visualstudio.com/docs/editor/debugging)  
-Visual Studio Code ile oluşturulmuş hata ayıklama desteği hakkında bilgi edinin.
+[Visual Studio kodu ile hata ayıklama](https://code.visualstudio.com/docs/editor/debugging) Visual Studio Code ile oluşturulmuş hata ayıklama desteği hakkında bilgi edinin.
 
 ## <a name="app-startup-errors"></a>Uygulama başlatma hataları
 
@@ -51,7 +47,7 @@ Visual Studio Code ile oluşturulmuş hata ayıklama desteği hakkında bilgi ed
 
 Çalışan işlemi başarısız olur. Uygulama başlamaz.
 
-Arka uç dotnet işlemini başlatmak gereken ASP.NET Core modülü çalışır ancak başlatmak başarısız olur. Bir işlem başlatma hatanın nedeni genellikle içinde girişlerinden belirlenebilir [uygulama olay günlüğüne](#application-event-log) ve [ASP.NET Core modülü stdout günlük](#aspnet-core-module-stdout-log). 
+Arka uç dotnet işlemini başlatmak gereken ASP.NET Core modülü çalışır ancak başlatmak başarısız olur. Bir işlem başlatma hatanın nedeni genellikle içinde girişlerinden belirlenebilir [uygulama olay günlüğüne](#application-event-log) ve [ASP.NET Core modülü stdout günlük](#aspnet-core-module-stdout-log).
 
 Ortak bir hata durumu, uygulamanın mevcut olmayan ASP.NET Core paylaşılan framework sürümü hedefleme nedeniyle yanlış yapılandırılmış ' dir. Hangi sürümlerinin bir ASP.NET Core paylaşılan çerçeve hedef makinede yüklü olduğunu denetleyin.
 
@@ -65,7 +61,7 @@ Ortak bir hata durumu, uygulamanın mevcut olmayan ASP.NET Core paylaşılan fra
 
 Çalışan işlemi başarısız olur. Uygulama başlamaz.
 
-İşlemdeki .NET Core CLR başlatmak gereken ASP.NET Core modülü çalışır, ancak başlatmak başarısız olur. Bir işlem başlatma hatanın nedeni genellikle içinde girişlerinden belirlenebilir [uygulama olay günlüğüne](#application-event-log) ve [ASP.NET Core modülü stdout günlük](#aspnet-core-module-stdout-log). 
+İşlemdeki .NET Core CLR başlatmak gereken ASP.NET Core modülü çalışır, ancak başlatmak başarısız olur. Bir işlem başlatma hatanın nedeni genellikle içinde girişlerinden belirlenebilir [uygulama olay günlüğüne](#application-event-log) ve [ASP.NET Core modülü stdout günlük](#aspnet-core-module-stdout-log).
 
 Ortak bir hata durumu, uygulamanın mevcut olmayan ASP.NET Core paylaşılan framework sürümü hedefleme nedeniyle yanlış yapılandırılmış ' dir. Hangi sürümlerinin bir ASP.NET Core paylaşılan çerçeve hedef makinede yüklü olduğunu denetleyin.
 
@@ -82,7 +78,7 @@ Ortak bir hata durumu, uygulamanın mevcut olmayan ASP.NET Core paylaşılan fra
 
 Çalışan işlemi başarısız olur. Uygulama başlamaz.
 
-İşlem dışı barındırma istek işleyicisi bulmak gereken ASP.NET Core modülü başarısız olur. Emin *aspnetcorev2_outofprocess.dll* yanında bir alt klasöründe yoksa *aspnetcorev2.dll*. 
+İşlem dışı barındırma istek işleyicisi bulmak gereken ASP.NET Core modülü başarısız olur. Emin *aspnetcorev2_outofprocess.dll* yanında bir alt klasöründe yoksa *aspnetcorev2.dll*.
 
 ::: moniker-end
 
@@ -172,7 +168,7 @@ Stdout günlükleri görüntülemek ve etkinleştirmek için:
 
 1. Barındıran sistemde sitenin dağıtım klasörüne gidin.
 1. Varsa *günlükleri* klasör mevcut değilse, bir klasör oluşturun. Oluşturmak MSBuild'ı etkinleştirme hakkında yönergeler için *günlükleri* otomatik olarak dağıtım klasörüne bakın [dizin yapısı](xref:host-and-deploy/directory-structure) konu.
-1. Düzen *web.config* dosya. Ayarlama **stdoutLogEnabled** için `true` değiştirip **stdoutLogFile** yolu işaret edecek şekilde *günlükleri* klasör (örneğin, `.\logs\stdout`). `stdout` Günlük dosyası adı ön eki içinde yoludur. Oturum oluşturulduğunda bir zaman damgası, işlem kimliği ve dosya uzantısı otomatik olarak eklenir. Kullanarak `stdout` dosya adı ön eki genel günlük dosyası adında *stdout_20180205184032_5412.log*. 
+1. Düzen *web.config* dosya. Ayarlama **stdoutLogEnabled** için `true` değiştirip **stdoutLogFile** yolu işaret edecek şekilde *günlükleri* klasör (örneğin, `.\logs\stdout`). `stdout` Günlük dosyası adı ön eki içinde yoludur. Oturum oluşturulduğunda bir zaman damgası, işlem kimliği ve dosya uzantısı otomatik olarak eklenir. Kullanarak `stdout` dosya adı ön eki genel günlük dosyası adında *stdout_20180205184032_5412.log*.
 1. Uygulama havuzunun kimliği için yazma izinlerine sahip olduğundan emin olun *günlükleri* klasör.
 1. Güncelleştirilmiş Kaydet *web.config* dosya.
 1. Uygulamaya bir istek oluşturun.
@@ -245,24 +241,27 @@ A *döküm* sistem belleğinin anlık görüntüsüdür ve uygulama kilitlenmesi
 Almak ve bir dökümü analiz [Windows hata bildirimi (WER)](/windows/desktop/wer/windows-error-reporting):
 
 1. Kilitlenme döküm dosyaları tutmak için bir klasör oluşturun `c:\dumps`. Uygulama havuzu klasöre yazma erişimi olmalıdır.
-1. Çalıştırma [EnableDumps PowerShell Betiği](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/troubleshoot/scripts/EnableDumps.ps1):
+1. Çalıştırma [EnableDumps PowerShell Betiği](https://github.com/aspnet/Docs/blob/master/aspnetcore/host-and-deploy/iis/troubleshoot/scripts/EnableDumps.ps1):
    * Uygulama kullanıyorsa [işlem içi barındırma modeli](xref:fundamentals/servers/index#in-process-hosting-model), komut dosyasını Çalıştır *w3wp.exe*:
 
      ```console
      .\EnableDumps w3wp.exe c:\dumps
      ```
+
    * Uygulama kullanıyorsa [işlem dışı barındırma modeli](xref:fundamentals/servers/index#out-of-process-hosting-model), komut dosyasını Çalıştır *dotnet.exe*:
 
      ```console
      .\EnableDumps dotnet.exe c:\dumps
      ```
+
 1. Kilitlenme durumu oluşmasına neden olan koşulları altında uygulamayı çalıştırın.
-1. Kilitlenme oluştuktan sonra Çalıştır [DisableDumps PowerShell Betiği](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/troubleshoot/scripts/DisableDumps.ps1):
+1. Kilitlenme oluştuktan sonra Çalıştır [DisableDumps PowerShell Betiği](https://github.com/aspnet/Docs/blob/master/aspnetcore/host-and-deploy/iis/troubleshoot/scripts/DisableDumps.ps1):
    * Uygulama kullanıyorsa [işlem içi barındırma modeli](xref:fundamentals/servers/index#in-process-hosting-model), komut dosyasını Çalıştır *w3wp.exe*:
 
      ```console
      .\DisableDumps w3wp.exe
      ```
+
    * Uygulama kullanıyorsa [işlem dışı barındırma modeli](xref:fundamentals/servers/index#out-of-process-hosting-model), komut dosyasını Çalıştır *dotnet.exe*:
 
      ```console

@@ -5,12 +5,12 @@ description: ASP.NET Core veri koruma anahtar depolama biçimi uygulama ayrınt�
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/implementation/key-storage-format
-ms.openlocfilehash: bca19ad001dd20b5d02ae5470f7d928082496037
-ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
+ms.openlocfilehash: 81df124f3dd0cadf8fd895ab55f66eec6415705f
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219283"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208024"
 ---
 # <a name="key-storage-format-in-aspnet-core"></a>ASP.NET core'da anahtar depolama biçimi
 
@@ -65,7 +65,7 @@ Belirli biçimi \<tanımlayıcısı > öğesi kapsüllenmiş anahtarı tarafınd
 
 Bir **&lt;encryptedSecret&gt;** şifrelenmiş gizli anahtar malzemesi içeren öğe mevcut olması durumunda [gizli anahtarlarının, bekleyen veri şifrelemesi etkin](xref:security/data-protection/implementation/key-encryption-at-rest). Öznitelik `decryptorType` uygulayan bir tür bütünleştirilmiş kodla nitelenen adı [IXmlDecryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.ixmldecryptor). Bu tür, iç okumak için sorumlu **&lt;encryptedKey&gt;** öğesi ve özgün düz metin kurtarmak için şifre çözme.
 
-Olduğu gibi \<tanımlayıcısı >, belirli biçimi <encryptedSecret> öğe kullanımda bekleyen şifreleme mekanizması bağlıdır. Yukarıdaki örnekte, ana anahtarı açıklama Windows DPAPI kullanılarak şifrelenir.
+Olduğu gibi `<descriptor>`, belirli biçimi `<encryptedSecret>` öğe kullanımda bekleyen şifreleme mekanizması bağlıdır. Yukarıdaki örnekte, ana anahtarı açıklama Windows DPAPI kullanılarak şifrelenir.
 
 ## <a name="the-revocation-element"></a>\<İptal > öğesi
 

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc, seodec18
 ms.date: 03/10/2019
 uid: fundamentals/configuration/platform-specific-configuration
-ms.openlocfilehash: 6111ae77369608e828eebf6229b5702630bc63f8
-ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
+ms.openlocfilehash: 25564ecebf48f65a209ac48e77856ef36d897959
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57841468"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264978"
 ---
 # <a name="use-hosting-startup-assemblies-in-aspnet-core"></a>ASP.NET Core barındırma başlangıç derlemeleri kullanma
 
@@ -351,6 +351,7 @@ Bir barındırma başlangıç geliştirmesi tarafından sağlanan bir *bin*-Geli
      <RestoreSources>$(RestoreSources);https://api.nuget.org/v3/index.json;../HostingStartupPackage/bin/Debug</RestoreSources>
    </PropertyGroup>
    ```
+
 1. Dizin sayfası tarafından işlenen hizmet yapılandırması anahtar değerleri paketin tarafından ayarlanan değerlerle eşleşen gözlemleyin `ServiceKeyInjection.Configure` yöntemi.
 
 Değişiklikler yaparsanız *HostingStartupPackage* proje ve yeniden derleyin, emin olmak için yerel NuGet paketi önbellekler temizlenir *HostingStartupApp* güncelleştirilmiş paket bir eski alır Paket yerel önbellekten. Yerel NuGet önbellekleri temizlemek için aşağıdakileri yürütün [dotnet nuget Yereller](/dotnet/core/tools/dotnet-nuget-locals) komutu:
@@ -374,6 +375,7 @@ dotnet nuget locals all --clear
      </Reference>
    </ItemGroup>
    ```
+
 1. Dizin sayfası tarafından işlenen hizmet yapılandırması anahtar değerleri sınıf kitaplığının tarafından ayarlanan değerlerle eşleşen gözlemleyin `ServiceKeyInjection.Configure` yöntemi.
 
 **Mağaza tarafından dağıtılan bir çalışma zamanı derlemesindeki etkinleştirme**
@@ -387,6 +389,7 @@ dotnet nuget locals all --clear
    ```console
    dotnet store --manifest StartupDiagnostics.csproj --runtime <RID>
    ```
+
    Windows için komut `win7-x64` [çalışma zamanı tanımlayıcı (RID)](/dotnet/core/rid-catalog). Barındırma için başlangıç için farklı bir çalışma zamanı sağlanırken doğru RID değiştirin.
 1. Ortam değişkenlerini ayarlayın:
    * Derleme adını eklemek *StartupDiagnostics* için `ASPNETCORE_HOSTINGSTARTUPASSEMBLIES` ortam değişkeni.

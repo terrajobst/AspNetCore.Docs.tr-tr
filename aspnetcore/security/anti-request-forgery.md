@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/11/2018
 uid: security/anti-request-forgery
-ms.openlocfilehash: 6e140717834b901e12ef7863fd07b983b0c55107
-ms.sourcegitcommit: ed76cc752966c604a795fbc56d5a71d16ded0b58
+ms.openlocfilehash: 88a2d127407378b9e83df7f48b1938ed081f9bb2
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55667667"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208534"
 ---
 # <a name="prevent-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>ASP.NET core'da önlemek siteler arası istek sahtekarlığı (XSRF/CSRF) saldırılarını
 
@@ -102,12 +102,12 @@ ASP.NET Core 2.0 veya sonraki sürümlerde, [FormTagHelper](xref:mvc/views/worki
 </form>
 ```
 
-Similarily, [IHtmlHelper.BeginForm](/dotnet/api/microsoft.aspnetcore.mvc.rendering.ihtmlhelper.beginform) formun yöntemi GET değilse, varsayılan olarak antiforgery belirteçleri oluşturur.
+Benzer şekilde, [IHtmlHelper.BeginForm](/dotnet/api/microsoft.aspnetcore.mvc.rendering.ihtmlhelper.beginform) formun yöntemi GET değilse, varsayılan olarak antiforgery belirteçleri oluşturur.
 
 Otomatik olarak oluşturulmasını antiforgery belirteçleri için bir HTML form öğelerini olur olduğunda `<form>` etiketinde `method="post"` özniteliği ve aşağıdakilerden birini geçerliyse:
 
-  * Eylem özniteliktir boş (`action=""`).
-  * Eylem öznitelik verilmiyorsa (`<form method="post">`).
+* Eylem özniteliktir boş (`action=""`).
+* Eylem öznitelik verilmiyorsa (`<form method="post">`).
 
 HTML form öğelerini için antiforgery belirteçleri otomatik olarak oluşturulmasını devre dışı bırakılabilir:
 

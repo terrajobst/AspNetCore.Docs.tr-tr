@@ -5,12 +5,12 @@ description: Basit bir ASP.NET Core MVC uygulaması görünüm ekleme
 ms.author: riande
 ms.date: 03/04/2017
 uid: tutorials/first-mvc-app/adding-view
-ms.openlocfilehash: 32eddb233a8a6b9b8f480926673d15d568ce6ede
-ms.sourcegitcommit: c47d7c131eebbcd8811e31edda210d64cf4b9d6b
+ms.openlocfilehash: 6ff706012dabbf9500a805708c1f058b59ebc610
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55236438"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265547"
 ---
 # <a name="add-a-view-to-an-aspnet-core-mvc-app"></a>Bir ASP.NET Core MVC uygulaması için bir Görünüm Ekle
 
@@ -28,7 +28,6 @@ Razor kullanarak görünüm şablon dosyası oluşturun. Razor tabanlı bir gör
 
 ## <a name="add-a-view"></a>Görünüm ekleme
 
-<!-- VS -------------------------->
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Sağ tıklayın *görünümleri* klasörünü ve ardından **Ekle > Yeni klasör** ve klasörünü adlandırın *HelloWorld*.
@@ -47,7 +46,6 @@ Razor kullanarak görünüm şablon dosyası oluşturun. Razor tabanlı bir gör
 
 ![Yeni öğe iletişim kutusu Ekle](adding-view/_static/add_view.png)
 
-<!-- Code -------------------------->
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Ekleme bir `Index` görüntüleme `HelloWorldController`.
@@ -55,7 +53,6 @@ Ekleme bir `Index` görüntüleme `HelloWorldController`.
 * Adlı yeni bir klasör eklemek *görünümler/HelloWorld*.
 * Yeni bir dosya ekleyin *görünümler/HelloWorld* klasör adı *Index.cshtml*.
 
-<!-- Mac -------------------------->
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
 * Sağ tıklayın *görünümleri* klasörünü ve ardından **Ekle > Yeni klasör** ve klasörünü adlandırın *HelloWorld*.
@@ -69,8 +66,7 @@ Ekleme bir `Index` görüntüleme `HelloWorldController`.
 
 ![Yeni öğe iletişim kutusu Ekle](adding-view/_static/add_view.png)
 
----  
-<!-- End of VS tabs -->
+---
 
 Öğesinin içeriğini değiştirin *Views/HelloWorld/Index.cshtml* aşağıdaki Razor görünüm dosyası:
 
@@ -152,7 +148,7 @@ Denetleyicileri sırada bir yanıt işlemek bir görünüm şablon için gerekli
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_5)]
 
-`ViewData` Sözlük nesnesi, görünüme iletilen verileri içerir. 
+`ViewData` Sözlük nesnesi, görünüme iletilen verileri içerir.
 
 Adlı bir Hoş Geldiniz görünüm şablonu oluşturma *Views/HelloWorld/Welcome.cshtml*.
 
@@ -168,7 +164,7 @@ Verileri URL'den gerçekleştirilen ve denetleyicisi kullanarak geçirilen [MVC 
 
 ![Hoş Geldiniz bir etiket ve Hello dört kez gösterilen Rick ifadesini gösteren gizlilik görünümü](~/tutorials/first-mvc-app/adding-view/_static/rick2.png)
 
-Yukarıdaki örnekteki `ViewData` denetleyicisinden bir görünüme veri iletmek için kullanılan sözlüğü. Öğreticinin sonraki bölümlerinde bir görünüm modeli, bir denetleyiciden bir görünüme veri iletmek için kullanılır. Veri geçirme görünüm modeli yaklaşım genellikle çok tercih üzerinden `ViewData` sözlük yaklaşım. Bkz: [ViewBag, ViewData veya TempData kullanıldığı durumlar ](http://www.rachelappel.com/when-to-use-viewbag-viewdata-or-tempdata-in-asp-net-mvc-3-applications/) daha fazla bilgi için.
+Yukarıdaki örnekteki `ViewData` denetleyicisinden bir görünüme veri iletmek için kullanılan sözlüğü. Öğreticinin sonraki bölümlerinde bir görünüm modeli, bir denetleyiciden bir görünüme veri iletmek için kullanılır. Veri geçirme görünüm modeli yaklaşım genellikle çok tercih üzerinden `ViewData` sözlük yaklaşım. Bkz: [ViewBag, ViewData veya TempData kullanıldığı durumlar](http://www.rachelappel.com/when-to-use-viewbag-viewdata-or-tempdata-in-asp-net-mvc-3-applications/) daha fazla bilgi için.
 
 Sonraki öğreticide, filmler, bir veritabanı oluşturulur.
 

@@ -7,12 +7,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 02/07/2019
 uid: signalr/configuration
-ms.openlocfilehash: 070d6fed26b6d14c4b8a35d0f7d94abafb08993b
-ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
+ms.openlocfilehash: 2c1bb8d5e317813d1fdb8d474b7d7d892e6f67ec
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57665421"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264581"
 ---
 # <a name="aspnet-core-signalr-configuration"></a>ASP.NET Core SignalR yapılandırma
 
@@ -27,7 +27,7 @@ JSON seri hale getirme kullanılarak sunucuda yapılandırılabilir [AddJsonProt
 ```csharp
 services.AddSignalR()
     .AddJsonProtocol(options => {
-        options.PayloadSerializerSettings.ContractResolver = 
+        options.PayloadSerializerSettings.ContractResolver =
         new DefaultContractResolver();
     });
 ```
@@ -41,7 +41,7 @@ using Microsoft.Extensions.DependencyInjection;
 // When constructing your connection:
 var connection = new HubConnectionBuilder()
     .AddJsonProtocol(options => {
-        options.PayloadSerializerSettings.ContractResolver = 
+        options.PayloadSerializerSettings.ContractResolver =
             new DefaultContractResolver();
     })
     .Build();
@@ -98,13 +98,13 @@ Kullanım `HttpConnectionDispatcherOptions` aktarımları ve bellek arabellek y�
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 {
-    app.UseSignalR((configure) => 
+    app.UseSignalR((configure) =>
     {
-        var desiredTransports = 
+        var desiredTransports =
             HttpTransportType.WebSockets |
             HttpTransportType.LongPolling;
 
-        configure.MapHub<MyHub>("/myhub", (options) => 
+        configure.MapHub<MyHub>("/myhub", (options) =>
         {
             options.Transports = desiredTransports;
         });
@@ -224,6 +224,7 @@ HubConnection hubConnection = HubConnectionBuilder.create("https://example.com/m
     .withTransport(TransportEnum.WEBSOCKETS)
     .build();
 ```
+
 > [!NOTE]
 > SignalR Java istemci taşıma geri dönüş henüz desteklemiyor.
 
@@ -259,8 +260,7 @@ let connection = new signalR.HubConnectionBuilder()
     .build();
 ```
 
-
-SignalR Java istemci, bir erişim belirteci fabrikası sağlayarak kimlik doğrulaması için kullanılacak bir taşıyıcı belirteç yapılandırabileceğiniz [HttpHubConnectionBuilder](/java/api/com.microsoft.signalr._http_hub_connection_builder?view=aspnet-signalr-java). Kullanım [withAccessTokenFactory](/java/api/com.microsoft.signalr._http_hub_connection_builder.withaccesstokenprovider?view=aspnet-signalr-java#com_microsoft_signalr__http_hub_connection_builder_withAccessTokenProvider_Single_String__) sağlamak için bir [RxJava](https://github.com/ReactiveX/RxJava) [tek<String>](http://reactivex.io/documentation/single.html). Çağrısıyla [Single.defer](http://reactivex.io/RxJava/javadoc/io/reactivex/Single.html#defer-java.util.concurrent.Callable-), istemciniz için erişim belirteci üretmek için mantığı yazabilirsiniz.
+SignalR Java istemci, bir erişim belirteci fabrikası sağlayarak kimlik doğrulaması için kullanılacak bir taşıyıcı belirteç yapılandırabileceğiniz [HttpHubConnectionBuilder](/java/api/com.microsoft.signalr._http_hub_connection_builder?view=aspnet-signalr-java). Kullanım [withAccessTokenFactory](/java/api/com.microsoft.signalr._http_hub_connection_builder.withaccesstokenprovider?view=aspnet-signalr-java#com_microsoft_signalr__http_hub_connection_builder_withAccessTokenProvider_Single_String__) sağlamak için bir [RxJava](https://github.com/ReactiveX/RxJava) [tek\<dizesi >](http://reactivex.io/documentation/single.html). Çağrısıyla [Single.defer](http://reactivex.io/RxJava/javadoc/io/reactivex/Single.html#defer-java.util.concurrent.Callable-), istemciniz için erişim belirteci üretmek için mantığı yazabilirsiniz.
 
 ```java
 HubConnection hubConnection = HubConnectionBuilder.create("https://example.com/myhub")
@@ -319,12 +319,14 @@ Ek seçenekler yapılandırılabilir `WithUrl` (`withUrl` JavaScript'te) metodun
 | `WebSocketConfiguration` | `null` | Ek WebSocket seçeneklerini yapılandırmak için kullanılan bir temsilci. Örneğini alır [ClientWebSocketOptions](/dotnet/api/system.net.websockets.clientwebsocketoptions) seçeneklerini yapılandırmak için kullanılabilir. |
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
 | JavaScript seçeneği | Varsayılan Değer | Açıklama |
 | ----------------- | ------------- | ----------- |
 | `accessTokenFactory` | `null` | HTTP isteklerinde bir taşıyıcı kimlik doğrulaması belirteci olarak sağlanan bir dize döndüren bir işlev. |
 | `skipNegotiation` | `false` | Bu ayar `true` anlaşma adımı atlamak için. **WebSockets aktarım yalnızca etkin aktarım olduğunda yalnızca desteklenen**. Bu ayar, Azure SignalR hizmeti kullanılırken etkinleştirilemez. |
 
 # <a name="javatabjava"></a>[Java](#tab/java)
+
 | Java seçeneği | Varsayılan Değer | Açıklama |
 | ----------- | ------------- | ----------- |
 | `withAccessTokenProvider` | `null` | HTTP isteklerinde bir taşıyıcı kimlik doğrulaması belirteci olarak sağlanan bir dize döndüren bir işlev. |
@@ -357,7 +359,6 @@ let connection = new signalR.HubConnectionBuilder()
 ```
 
 Java istemci, bu seçenekler yöntemleriyle yapılandırılabilir `HttpHubConnectionBuilder` döndürüldüğü `HubConnectionBuilder.create("HUB URL")`
-
 
 ```java
 HubConnection hubConnection = HubConnectionBuilder.create("https://example.com/myhub")

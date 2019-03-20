@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 02/04/2019
 ms.topic: tutorial
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 368b1774ba977ec8020a02d48705200fd54c3bbd
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: 83f5d4bdc3d5872109649818b61a6dbb656fd8be
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56102987"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264831"
 ---
 # <a name="tutorial-implement-crud-functionality---aspnet-mvc-with-ef-core"></a>Öğretici: CRUD işlevselliği - EF çekirdekli ASP.NET MVC uygulama
 
@@ -123,6 +123,7 @@ Dışındaki `Bind` try-catch bloğu özniteliktir iskele kurulan kodu için yap
 `ValidateAntiForgeryToken` Öznitelik, siteler arası istek sahteciliği (CSRF) saldırılarını önlemeye yardımcı olur. Belirteç görünümde tarafından otomatik olarak eklenen [FormTagHelper](xref:mvc/views/working-with-forms#the-form-tag-helper) ve kullanıcı tarafından form gönderildiğinde dahildir. Belirteç tarafından doğrulanır `ValidateAntiForgeryToken` özniteliği. CSRF hakkında daha fazla bilgi için bkz: [istek sahteciliğinden koruma](../../security/anti-request-forgery.md).
 
 <a id="overpost"></a>
+
 ### <a name="security-note-about-overposting"></a>Güvenlik Notu overposting hakkında
 
 `Bind` Üzerinde iskele kurulan kodu içeren bir öznitelik `Create` yöntemdir overposting karşı korumak için bir yol senaryoları oluşturun. Örneğin, Öğrenci varlık içerdiğini varsayın bir `Secret` ayarlamak için bu web sayfası istemediğiniz özelliği.

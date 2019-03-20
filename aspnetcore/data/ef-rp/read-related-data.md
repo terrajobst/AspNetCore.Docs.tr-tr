@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: 140f482e136acf4daba1248fecc87e06db6866f3
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: a264cdaf0f577be6ea2043935b485f4fd16e0229
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57345904"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264950"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>ASP.NET core'da - EF çekirdekli Razor sayfaları 6 8 - ilgili verileri okuma
 
@@ -65,9 +65,10 @@ Atanan bölüm adını kursları listesini görüntülemek için:
 * Alma `Name` özelliğinden `Department` varlık.
 * `Department` Varlık geldiği `Course.Department` gezinme özelliği.
 
-![ourse. Bölüm](read-related-data/_static/dep-crs.png)
+![Course.Department](read-related-data/_static/dep-crs.png)
 
 <a name="scaffold"></a>
+
 ### <a name="scaffold-the-course-model"></a>İskele kurs modeli
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
@@ -115,6 +116,7 @@ Uygulamayı çalıştırmak ve seçmek **kursları** bölüm adları listesini g
 ![Kursları dizin sayfası](read-related-data/_static/courses-index.png)
 
 <a name="select"></a>
+
 ### <a name="loading-related-data-with-select"></a>İlgili belirli verileri yükleniyor
 
 `OnGetAsync` Yöntemi ile ilgili verileri yükler `Include` yöntemi:
@@ -187,7 +189,6 @@ Sorguyu inceleyin *Pages/Instructors/Index.cshtml.cs* dosyası:
 * `OfficeAssignment`: Görüntülenen [Eğitmenler görünümü](#IP).
 * `CourseAssignments`: Hangi verilen derslerimiz getirir.
 
-
 ### <a name="update-the-instructors-index-page"></a>Eğitmenler dizin sayfası
 
 Güncelleştirme *Pages/Instructors/Index.cshtml* aşağıdaki işaretlemeyle:
@@ -198,11 +199,11 @@ Güncelleştirme *Pages/Instructors/Index.cshtml* aşağıdaki işaretlemeyle:
 
 * Güncelleştirmeleri `page` gelen yönerge `@page` için `@page "{id:int?}"`. `"{id:int?}"` bir rota şablonudur. Rota şablonu tamsayı sorgu dizelerine URL rota verilerini değiştirir. Örneğin, tıklayarak **seçin** bağlantı için yalnızca bir eğitmen `@page` yönergesi, aşağıdaki gibi bir URL oluşturur:
 
-    `http://localhost:1234/Instructors?id=2`
+  `http://localhost:1234/Instructors?id=2`
 
-    Sayfa yönergesi olduğunda `@page "{id:int?}"`, önceki URL'si:
+  Sayfa yönergesi olduğunda `@page "{id:int?}"`, önceki URL'si:
 
-    `http://localhost:1234/Instructors/2`
+  `http://localhost:1234/Instructors/2`
 
 * Sayfa başlığı **Eğitmenler**.
 * Eklenen bir **Office** görüntüleyen sütun `item.OfficeAssignment.Location` yalnızca `item.OfficeAssignment` null değil. Bu bir sıfır-veya-bir ilişkisi olduğundan, ilgili OfficeAssignment varlık olmayabilir.

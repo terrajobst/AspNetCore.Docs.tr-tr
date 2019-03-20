@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 01/10/2019
 uid: migration/proper-to-2x/membership-to-core-identity
-ms.openlocfilehash: 0b7001a311eeaaa78e3d52e2ec66d33ad057c381
-ms.sourcegitcommit: cec77d5ad8a0cedb1ecbec32834111492afd0cd2
+ms.openlocfilehash: 3b708da13ff9f2887eee87ea17844312a4fe1b8d
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54207414"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264731"
 ---
 # <a name="migrate-from-aspnet-membership-authentication-to-aspnet-core-20-identity"></a>ASP.NET üyelik kimlik doğrulamasını ASP.NET Core 2.0 Identity'ye geçirme
 
@@ -54,6 +54,7 @@ ASP.NET Core 2.0 kimliği için şemasını görüntülemek için en hızlı yol
       }
     }
     ```
+
 1. Seçin **görünümü** > **SQL Server Nesne Gezgini**. Belirtilen veritabanı adı için karşılık gelen düğümünü `ConnectionStrings:DefaultConnection` özelliği *appsettings.json*.
 
     `Update-Database` Komutu oluşturulan şemasıyla belirtilen veritabanı ve uygulama başlatma için gereken tüm verileri. Aşağıdaki görüntüde ile önceki adımlarda oluşturulan tablo yapısı gösterilmektedir.
@@ -66,7 +67,7 @@ Tablo yapıları ve alanları üyelik hem de ASP.NET Core kimliği için küçü
 
 ### <a name="users"></a>Kullanıcılar
 
-|*Kimlik<br>(dbo. AspNetUsers)*        ||*Üyelik<br>(dbo.aspnet_Users / dbo.aspnet_Membership)*||
+|*Identity<br>(dbo.AspNetUsers)*        ||*Membership<br>(dbo.aspnet_Users / dbo.aspnet_Membership)*||
 |----------------------------------------|-----------------------------------------------------------|
 |**Alan adı**                 |**Tür**|**Alan adı**                                    |**Tür**|
 |`Id`                           |dize  |`aspnet_Users.UserId`                             |dize  |
@@ -91,7 +92,7 @@ Tablo yapıları ve alanları üyelik hem de ASP.NET Core kimliği için küçü
 
 ### <a name="user-roles"></a>Kullanıcı Rolleri
 
-|*Kimlik<br>(dbo. AspNetUserRoles)*||*Üyelik<br>(dbo.aspnet_UsersInRoles)*||
+|*Identity<br>(dbo.AspNetUserRoles)*||*Membership<br>(dbo.aspnet_UsersInRoles)*||
 |------------------------------------|------------------------------------------|
 |**Alan adı**           |**Tür**  |**Alan adı**|**Tür**                   |
 |`RoleId`                 |dize    |`RoleId`      |dize                     |
@@ -127,7 +128,7 @@ SELECT aspnet_Users.UserId,
        -- Creates an empty password since passwords don't map between the 2 schemas
        '',
        /*
-        The SecurityStamp token is used to verify the state of an account and 
+        The SecurityStamp token is used to verify the state of an account and
         is subject to change at any time. It should be initialized as a new ID.
        */
        NewID(),

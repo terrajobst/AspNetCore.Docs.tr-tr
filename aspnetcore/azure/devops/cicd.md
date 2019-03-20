@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.date: 10/24/2018
 ms.custom: seodec18
 uid: azure/devops/cicd
-ms.openlocfilehash: 906aae3fd4b4abd0becc8847b0f54c372bda300a
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 676620b5dd151c9cd009d7cb278ed2c2b122c83f
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346313"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264883"
 ---
 # <a name="continuous-integration-and-deployment"></a>Sürekli tümleştirme ve dağıtım
 
@@ -39,17 +39,23 @@ Bu bölümde, aşağıdaki görevleri tamamlamanız:
 1. Tıklayın **Oluştur depo** düğmesi.
 1. Yerel makinenin komut kabuğunu açın. Dizin gidin *basit akış okuyucu* Git deposunda depolanır.
 1. Var olan Yeniden Adlandır *kaynak* uzak *Yukarı Akış*. Aşağıdaki komutu yürütün:
+
     ```console
     git remote rename origin upstream
     ```
+
 1. Yeni bir *kaynak* github'da depo kopyanızı uzak işaret eden. Aşağıdaki komutu yürütün:
+
     ```console
     git remote add origin https://github.com/<GitHub_username>/simple-feed-reader/
     ```
+
 1. Yerel Git deponuza yeni oluşturulan GitHub deposuna yayımlayın. Aşağıdaki komutu yürütün:
+
     ```console
     git push -u origin master
     ```
+
 1. Bir tarayıcı penceresi açın ve gidin `https://github.com/<GitHub_username>/simple-feed-reader/`. Kodunuz GitHub deposunda göründüğünü doğrulayın.
 
 ## <a name="disconnect-local-git-deployment"></a>Yerel Git dağıtımı bağlantısını kes
@@ -192,6 +198,7 @@ Tamamlamak için üç ayrı adımlar vardır. Aşağıdaki üç bölüm sonuçla
     ```console
     git commit -a -m "upgraded to V4"
     ```
+
 1. Değişiklik itin *ana* dala *kaynak* GitHub deponuzun uzak:
 
     ```console

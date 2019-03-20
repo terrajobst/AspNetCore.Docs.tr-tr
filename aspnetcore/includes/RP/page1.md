@@ -1,8 +1,16 @@
+---
+ms.openlocfilehash: 927f9528eb6ca4fac10ccee47aa255d848b7daaa
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265003"
+---
 # <a name="scaffolded-razor-pages-in-aspnet-core"></a>ASP.NET core'da iskeleli Razor sayfaları
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Bu öğreticide, önceki öğreticide yapı iskelesi oluşturulmuş Razor sayfaları inceler. 
+Bu öğreticide, önceki öğreticide yapı iskelesi oluşturulmuş Razor sayfaları inceler.
 
 [Görüntüleme veya indirme](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie21) örnek.
 
@@ -47,6 +55,7 @@ Aşağıdaki HTML Yardımcısı kullanılan bir lambda ifadesi inceleyin:
 `DisplayNameFor` HTML Yardımcısı inceler `Title` görünen adını belirlemek için lambda ifadesinde başvurulan özelliği. Lambda ifadesi değerlendirilir inceledi yerine. Hiçbir erişim ihlali var. anlamına olduğunda `model`, `model.Movie`, veya `model.Movie[0]` olan `null` veya boş. Ne zaman lambda ifadesi değerlendirilir (örneğin, `@Html.DisplayFor(modelItem => item.Title)`), modelin özellik değerleri değerlendirilir.
 
 <a name="md"></a>
+
 ### <a name="the-model-directive"></a>@model Yönergesi
 
 [!code-cshtml[](~/tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?range=1-2&highlight=2)]
@@ -58,7 +67,8 @@ Aşağıdaki HTML Yardımcısı kullanılan bir lambda ifadesi inceleyin:
 -->
 
 <a name="vd"></a>
-### ViewData ve düzeni
+
+### <a name="viewdata-and-layout"></a>ViewData ve düzeni
 
 Aşağıdaki kodu göz önünde bulundurun:
 
@@ -66,7 +76,7 @@ Aşağıdaki kodu göz önünde bulundurun:
 
 Önceki vurgulanmış kodu, C# koduna geçiş Razor örneğidir. `{` Ve `}` karakter C# kod bloğunun içine alın.
 
-`PageModel` Temel sınıfa sahip değil bir `ViewData` bir görünüme iletmek istediğiniz veri eklemek için kullanılan bir sözlük özelliği. Nesneleri eklemek `ViewData` bir anahtar/değer deseni kullanılarak sözlüğü. Yukarıdaki örnekte, "Title" özelliğini eklenen `ViewData` sözlüğü. 
+`PageModel` Temel sınıfa sahip değil bir `ViewData` bir görünüme iletmek istediğiniz veri eklemek için kullanılan bir sözlük özelliği. Nesneleri eklemek `ViewData` bir anahtar/değer deseni kullanılarak sözlüğü. Yukarıdaki örnekte, "Title" özelliğini eklenen `ViewData` sözlüğü.
 
 ::: moniker range="= aspnetcore-2.0"
 
@@ -106,6 +116,7 @@ Aşağıdaki bağlantı öğe Bul *Pages/Shared/_Layout.cshtml* dosya.
 ```cshtml
 <a asp-page="/Index" class="navbar-brand">RazorPagesMovie</a>
 ```
+
 Önceki öğeyle aşağıdaki biçimlendirme ile değiştirin.
 
 ```cshtml
@@ -132,7 +143,6 @@ Değişikliklerinizi kaydedip tıklayarak uygulamayı test etme **RpMovie** bağ
 
 ::: moniker-end
 
-
 `OnGet` Yöntemi sayfa için gerekli herhangi bir durum başlatır. Oluştur sayfasında başlatmak için bunu herhangi bir duruma sahip olmayan `Page` döndürülür. Daha sonra öğreticide gördüğünüz `OnGet` durumu Initialize yöntemi. `Page` Yöntemi oluşturur bir `PageResult` işleyen nesnesi *Create.cshtml* sayfası.
 
 `Movie` Özelliği kullanan `[BindProperty]` kabul etmek için için öznitelik [model bağlama](xref:mvc/models/model-binding). Form oluştur form değerleri gönderdiğinde, ASP.NET Core çalışma zamanı gönderilen değerine bağlar `Movie` modeli.
@@ -153,7 +163,6 @@ Herhangi bir model hata varsa, verileri kaydedilir ve tarayıcı dizin sayfasın
 
 <!--
 Visual Studio displays the `<form method="post">` tag in a distinctive font used for Tag Helpers. The `<form method="post">` element is a [Form Tag Helper](xref:mvc/views/working-with-forms#the-form-tag-helper). The Form Tag Helper automatically includes an [antiforgery token](xref:security/anti-request-forgery).
-
 
 ![VS17 view of Create.cshtml page](page/_static/th.png)
 -->

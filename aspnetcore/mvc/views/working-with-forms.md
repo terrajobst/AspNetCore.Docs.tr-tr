@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/27/2019
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: a0fbeac51bd1bfbc50c4d369a479ce5f3091358b
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 2d5168ed4b1e14e507262361de9fa959924b82f6
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346261"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209563"
 ---
 # <a name="tag-helpers-in-forms-in-aspnet-core"></a>ASP.NET Core formlarda etiket Yardımcıları
 
@@ -205,9 +205,7 @@ Type expected
 |int|type="number"|
 |Tek, Double|type="number"|
 
-
 Aşağıdaki tablo bazı yaygın gösterir [veri ek açıklamaları](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) giriş etiketi Yardımcısı (her doğrulama özniteliği listelenir) belirli giriş türleri için eşler öznitelikleri:
-
 
 |Öznitelik|Giriş türü|
 |---|---|
@@ -215,10 +213,9 @@ Aşağıdaki tablo bazı yaygın gösterir [veri ek açıklamaları](/dotnet/api
 |[Url]|type="url"|
 |[HiddenInput]|type="hidden"|
 |[Phone]|type="tel"|
-|[DataType(DataType.Password)]| type="password"|
-|[DataType(DataType.Date)]| type="date"|
-|[DataType(DataType.Time)]| type="time"|
-
+|[DataType(DataType.Password)]|type="password"|
+|[DataType(DataType.Date)]|type="date"|
+|[DataType(DataType.Time)]|type="time"|
 
 Örnek:
 
@@ -378,7 +375,7 @@ Aşağıdaki HTML'yi oluşturulur:
 
 ## <a name="the-label-tag-helper"></a>Etiket etiketi Yardımcısı
 
-* Etiket başlığını oluşturur ve `for` özniteliği bir [ <label> ](https://www.w3.org/wiki/HTML/Elements/label) öğesi için bir ifade adı
+* Etiket başlığını oluşturur ve `for` özniteliği bir [ \<etiket >](https://www.w3.org/wiki/HTML/Elements/label) öğesi için bir ifade adı
 
 * HTML Yardımcısı alternatif: `Html.LabelFor`.
 

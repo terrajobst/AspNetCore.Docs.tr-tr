@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 03/07/2019
 uid: spa/react
-ms.openlocfilehash: 7b07f696ae071531c88c9f8cf528fc6f0bf97b46
-ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
+ms.openlocfilehash: 91a71498574d6d96c2c06e896283fed801e8adb3
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57665567"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265235"
 ---
 # <a name="use-the-react-project-template-with-aspnet-core"></a>ASP.NET Core ile React proje şablonu kullanın
 
@@ -85,7 +85,7 @@ Bu varsayılan ayarı bir dezavantajı vardır. C# kodunuzu ve ASP.NET Core uygu
     ```
     BROWSER=none
     ```
-    
+
     Harici olarak CRA sunucunun başlatırken bu web tarayıcınız açılmasını engeller.
 
 2. Komut isteminde, geçiş *ClientApp* alt ve CRA geliştirme sunucusu başlatma:

@@ -5,12 +5,12 @@ description: Alanlar (yönlendirme için) ayrı bir ad ve klasör yapısını (i
 ms.author: riande
 ms.date: 02/14/2019
 uid: mvc/controllers/areas
-ms.openlocfilehash: 8904d217a18fff65113ae3469efe60258d20d5f0
-ms.sourcegitcommit: 6ddd8a7675c1c1d997c8ab2d4498538e44954cac
+ms.openlocfilehash: 79bc023a7bd00a9d4de375e3cddaafd148251469
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57400651"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264764"
 ---
 # <a name="areas-in-aspnet-core"></a>ASP.NET core'da alanları
 
@@ -38,6 +38,7 @@ Alanları denetleyicileri ve görünümleri tipik bir ASP.NET Core web uygulamas
 * [Başlangıç olarak eklenen alan yolu](#add-area-route): [!code-csharp[](areas/samples/MVCareas/Startup.cs?name=snippet2&highlight=3-6)]
 
 ### <a name="area-folder-structure"></a>Alan klasör yapısı
+
 İki mantıksal gruplar olan bir uygulama düşünün *ürünleri* ve *Hizmetleri*. Alanlara kullanarak klasör yapısı şuna benzer olacaktır:
 
 * Proje adı
@@ -172,7 +173,7 @@ Göz önünde bulundurun *Hizmetleri* alan içermiyor örnek kodu bir *_viewımp
 Önceki biçimlendirme içinde:
 
 * Model belirtmek için tam etki alanı adı kullanılmalıdır (`@model RPareas.Areas.Services.Pages.Manage.AboutModel`).
-* [Etiket Yardımcıları]() etkindir `@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers`
+* [Etiket Yardımcıları](xref:mvc/views/tag-helpers/intro) etkindir `@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers`
 
 Örnek indirme aşağıdaki ürünler alanı içeren *_viewımports* dosyası:
 

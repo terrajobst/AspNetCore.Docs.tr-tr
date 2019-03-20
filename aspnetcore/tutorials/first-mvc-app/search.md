@@ -5,12 +5,12 @@ description: Basit bir ASP.NET Core MVC uygulaması için arama ekleme işlemi a
 ms.author: riande
 ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/search
-ms.openlocfilehash: e5dce35b60080ef752f8e6c6004158219015cbf5
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: 41d7494b77edaddbf719cab087142f0132dd3ed6
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410644"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208388"
 ---
 # <a name="add-search-to-an-aspnet-core-mvc-app"></a>Bir ASP.NET Core MVC uygulaması için arama Ekle
 
@@ -37,7 +37,7 @@ Varsa `searchString` parametresi içeren bir dize, filmler sorgu arama dizesinin
 
 `s => s.Title.Contains()` Kodu yukarıdaki bir [Lambda ifadesi](/dotnet/csharp/programming-guide/statements-expressions-operators/lambda-expressions). Lambda ifadeleri yöntem tabanlı kullanılan [LINQ](/dotnet/standard/using-linq) gibi sorgularında standart sorgu işleci yöntemlerinin bağımsız değişkenleri olarak [burada](/dotnet/api/system.linq.enumerable.where) yöntemi veya `Contains` (Yukarıdaki kod kullanılır). LINQ sorguları tanımlanan ya da bunlar bir yöntemi çağırarak değiştirildiğinde yürütülmez `Where`, `Contains`, veya `OrderBy`. Bunun yerine, sorgu yürütme ertelenir.  Anlamına gerçekleşen değeri gerçekten üzerinden yinelenir kadar bir ifade değerlendirmesi ertelendi veya `ToListAsync` yöntemi çağrılır. Ertelenen sorgu yürütme hakkında daha fazla bilgi için bkz. [sorgu yürütme](/dotnet/framework/data/adonet/ef/language-reference/query-execution).
 
-Not: [İçerir](/dotnet/api/system.data.objects.dataclasses.entitycollection-1.contains) yöntemi, yukarıda gösterilen c# kodunda değil, veritabanı üzerinde çalıştırılır. Büyük/küçük harf duyarlılığı sorguda, veritabanı ve harmanlama bağlıdır. SQL Server'da [içerir](/dotnet/api/system.data.objects.dataclasses.entitycollection-1.contains) eşlendiği [SQL gibi](/sql/t-sql/language-elements/like-transact-sql), büyük küçük harfe duyarlı olduğu. SQLlite içinde varsayılan harmanlama ile büyük/küçük harfe duyarlıdır.
+Not: [İçerir](/dotnet/api/system.data.objects.dataclasses.entitycollection-1.contains) yöntemi, yukarıda gösterilen c# kodunda değil, veritabanı üzerinde çalıştırılır. Büyük/küçük harf duyarlılığı sorguda, veritabanı ve harmanlama bağlıdır. SQL Server'da [içerir](/dotnet/api/system.data.objects.dataclasses.entitycollection-1.contains) eşlendiği [SQL gibi](/sql/t-sql/language-elements/like-transact-sql), büyük küçük harfe duyarlı olduğu. SQLite içinde varsayılan harmanlama ile büyük/küçük harfe duyarlıdır.
 
 `/Movies/Index` sayfasına gidin. Bir sorgu dizesi gibi ekleme `?searchString=Ghost` URL'si. Filtrelenmiş filmler görüntülenir.
 
@@ -113,10 +113,10 @@ Aşağıdaki `MovieGenreViewModel` sınıfının *modelleri* klasörü:
 
 Film Tarz görünüm modeli içerir:
 
-   * Filmler listesi.
-   * A `SelectList` türleri listesini içeren. Bu kullanıcının listeden bir türe izin verir.
-   * `MovieGenre`, seçilen türe içerir.
-   * `SearchString`, kullanıcıların, arama metin kutusuna girdiğiniz metnin içerir.
+* Filmler listesi.
+* A `SelectList` türleri listesini içeren. Bu kullanıcının listeden bir türe izin verir.
+* `MovieGenre`, seçilen türe içerir.
+* `SearchString`, kullanıcıların, arama metin kutusuna girdiğiniz metnin içerir.
 
 Değiştirin `Index` yönteminde `MoviesController.cs` aşağıdaki kod ile:
 
@@ -148,4 +148,4 @@ Uygulamayı Tarz, film adı ve her ikisi tarafından arama yaparak test edin:
 
 > [!div class="step-by-step"]
 > [Önceki](controller-methods-views.md)
-> [İleri](new-field.md)  
+> [İleri](new-field.md)

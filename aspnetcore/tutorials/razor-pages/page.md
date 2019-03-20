@@ -5,12 +5,12 @@ description: Yapı iskelesi tarafından oluşturulan Razor sayfaları açıklar.
 ms.author: riande
 ms.date: 12/4/2018
 uid: tutorials/razor-pages/page
-ms.openlocfilehash: 07ad142b369fab92589f63479533a769136a087b
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: c4d0e5c7b7365edc0df5428c250037db7ef3da2a
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346456"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265269"
 ---
 # <a name="scaffolded-razor-pages-in-aspnet-core"></a>ASP.NET core'da iskeleli Razor sayfaları
 
@@ -51,6 +51,7 @@ Aşağıdaki HTML Yardımcısı kullanılan bir lambda ifadesi inceleyin:
 `DisplayNameFor` HTML Yardımcısı inceler `Title` görünen adını belirlemek için lambda ifadesinde başvurulan özelliği. Lambda ifadesi değerlendirilir inceledi yerine. Hiçbir erişim ihlali var. anlamına olduğunda `model`, `model.Movie`, veya `model.Movie[0]` olan `null` veya boş. Ne zaman lambda ifadesi değerlendirilir (örneğin, `@Html.DisplayFor(modelItem => item.Title)`), modelin özellik değerleri değerlendirilir.
 
 <a name="md"></a>
+
 ### <a name="the-model-directive"></a>@model Yönergesi
 
 [!code-cshtml[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?range=1-2&highlight=2)]
@@ -64,6 +65,7 @@ Menü bağlantıyı seçin (**RazorPagesMovie**, **giriş**, ve **gizlilik**). H
 [Düzen](xref:mvc/views/layout) , tek bir yerde sitenizin HTML kapsayıcı düzenini belirtin ve ardından sitenizdeki birden çok sayfada uygulamak şablonlar sağlar. Bulma `@RenderBody()` satır. `RenderBody` olan bir yer tutucu burada tüm sayfaya özgü görünümler oluşturma Göster, *sarmalanmış* Düzen sayfasında. Örneğin, **gizlilik** bağlantı **Pages/Privacy.cshtml** görünümü içinde işlenir `RenderBody` yöntemi.
 
 <a name="vd"></a>
+
 ### <a name="viewdata-and-layout"></a>ViewData ve düzeni
 
 Aşağıdaki kodu düşünün *Pages/Movies/Index.cshtml* dosyası:
@@ -72,12 +74,12 @@ Aşağıdaki kodu düşünün *Pages/Movies/Index.cshtml* dosyası:
 
 Önceki vurgulanmış kodu, C# koduna geçiş Razor örneğidir. `{` Ve `}` karakter C# kod bloğunun içine alın.
 
-`PageModel` Temel sınıfa sahip değil bir `ViewData` bir görünüme iletmek istediğiniz veri eklemek için kullanılan bir sözlük özelliği. Nesneleri eklemek `ViewData` bir anahtar/değer deseni kullanılarak sözlüğü. Yukarıdaki örnekte, "Title" özelliğini eklenen `ViewData` sözlüğü. 
+`PageModel` Temel sınıfa sahip değil bir `ViewData` bir görünüme iletmek istediğiniz veri eklemek için kullanılan bir sözlük özelliği. Nesneleri eklemek `ViewData` bir anahtar/değer deseni kullanılarak sözlüğü. Yukarıdaki örnekte, "Title" özelliğini eklenen `ViewData` sözlüğü.
 
 "Title" özelliğini kullanılan *Pages/Shared/_Layout.cshtml* dosya. İlk birkaç satırı aşağıdaki biçimlendirme gösterir *_Layout.cshtml* dosya.
 
 <!-- we need a snapshot copy of layout because we are
-changing in in the next step. 
+changing in in the next step.
 -->
 [!code-cshtml[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/NU/_Layout.cshtml?highlight=6-99)]
 
@@ -88,7 +90,6 @@ Satır `@*Markup removed for brevity.*@` Düzen dosyanızda görünmez bir Razor
 Değişiklik `<title>` öğesinde *Pages/Shared/_Layout.cshtml* dosya görünen **film** yerine **RazorPagesMovie**.
 
 [!code-cshtml[](razor-pages-start/sample/RazorPagesMovie22/Pages/Shared/_Layout.cshtml?range=1-6&highlight=6)]
-
 
 Aşağıdaki bağlantı öğe Bul *Pages/Shared/_Layout.cshtml* dosya.
 
@@ -141,24 +142,21 @@ Herhangi bir model hata varsa, verileri kaydedilir ve tarayıcı dizin sayfasın
 
 [!code-cshtml[](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml)]
 
-<!-- VS -------------------------->
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Visual Studio görüntüler `<form method="post">` etiket Yardımcıları için kullanılan ayırıcı kalın yazı tipinde etiketi:
 
 ![Create.cshtml sayfasının görünümünü VS17](page/_static/th.png)
-<!-- Code -------------------------->
+
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Etiket yardımcıları gibi daha fazla bilgi için `<form method="post">`, bkz: [etiket Yardımcıları ASP.NET core'da](xref:mvc/views/tag-helpers/intro).
 
-<!-- Mac -------------------------->
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
 Visual Studio Mac görüntüler için `<form method="post">` etiket Yardımcıları için kullanılan ayırıcı kalın yazı tipinde etiketi.
 
----  
-<!-- End of VS tabs -->
+---
 
 `<form method="post">` Öğesi bir [Form etiketi Yardımcısı](xref:mvc/views/working-with-forms#the-form-tag-helper). Form etiketi Yardımcısı otomatik olarak içeren bir [antiforgery belirteci](xref:security/anti-request-forgery).
 
@@ -175,7 +173,6 @@ Yapı iskelesi altyapısı Razor işaretlemesi için her bir alan (ID dışında
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Bu öğreticide YouTube sürümü](https://youtu.be/zxgKjPYnOMM)
-
 
 > [!div class="step-by-step"]
 > [Önceki: Model ekleme](xref:tutorials/razor-pages/model)

@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 03/08/2019
 uid: grpc/migration
-ms.openlocfilehash: 520318cfe87708cf5c453c88a5eb54027350db4b
-ms.sourcegitcommit: a467828b5e4eaae291d961ffe2279a571900de23
+ms.openlocfilehash: 3c6e04694a33e953f6e1575f5ee9b0699cf1cdd3
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58142626"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58207957"
 ---
 # <a name="migrating-grpc-services-from-c-core-to-aspnet-core"></a>Geçirme gRPC hizmetlerden C çekirdekli ASP.NET Core
 
@@ -89,7 +89,7 @@ C / çekirdek tabanlı uygulamalarınızı yapılandırma HTTPS üzerinden [ `Se
 
 ## <a name="interceptors-and-middlewares"></a>Kesiciler ve Middlewares
 
-ASP.NET Core [middlewares](xref:fundamentals/middleware/index) tabanlı gRPC uygulamaları C core'da dinleyicileri karşılaştırdığınızda benzer işlevler sunar. GRPC isteğini işleyen bir pipleline oluşturmak için kullanılan her ikisi de olarak Middlewares ve dinleyicileri kavramsal olarak aynıdır. Her ikisi de, önce veya sonra ardışık düzende sonraki bileşene gerçekleştirilecek işin izin verin. ASP.NET Core middlewares dinleyicileri soyutlama kullanmanın gRPC katmanda çalışır ancak temel alınan HTTP/2 iletileri ancak çalışması [ `ServerCallContext` ](https://grpc.io/grpc/csharp/api/Grpc.Core.ServerCallContext.html).
+ASP.NET Core [middlewares](xref:fundamentals/middleware/index) tabanlı gRPC uygulamaları C core'da dinleyicileri karşılaştırdığınızda benzer işlevler sunar. GRPC isteğini işleyen bir işlem hattı oluşturmak için kullanılan her ikisi de olarak Middlewares ve dinleyicileri kavramsal olarak aynıdır. Her ikisi de, önce veya sonra ardışık düzende sonraki bileşene gerçekleştirilecek işin izin verin. ASP.NET Core middlewares dinleyicileri soyutlama kullanmanın gRPC katmanda çalışır ancak temel alınan HTTP/2 iletileri ancak çalışması [ `ServerCallContext` ](https://grpc.io/grpc/csharp/api/Grpc.Core.ServerCallContext.html).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

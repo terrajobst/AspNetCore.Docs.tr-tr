@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/new-field
-ms.openlocfilehash: f352a9c3573119028d1bc42fd622919ce0560e7c
-ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
+ms.openlocfilehash: 44487b91c8bbd353157a5f5f1b834187e47e2f3e
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57841507"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58264661"
 ---
 # <a name="add-a-new-field-to-an-aspnet-core-mvc-app"></a>Bir ASP.NET Core MVC uygulaması için yeni bir alan ekleyin
 
@@ -49,18 +49,17 @@ Düzen */Views/Movies/Index.cshtml* dosya ve ekleme bir `Rating` alan:
 
 Güncelleştirme */Views/Movies/Create.cshtml* ile bir `Rating` alan.
 
-<!-- VS -------------------------->
 # <a name="visual-studio--visual-studio-for-mactabvisual-studiovisual-studio-mac"></a>[Visual Studio / Visual Studio Mac için](#tab/visual-studio+visual-studio-mac)
 
 Önceki "form grubu" kopyala/yapıştır ve alanları güncelleştirin IntelliSense Yardım sağlar. IntelliSense ile birlikte çalışır [etiket Yardımcıları](xref:mvc/views/tag-helpers/intro).
 
 ![Öznitelik değeri ASP R harfiyle Geliştirici yazdığını-için görünümün ikinci etiket öğesinde. IntelliSense bağlam menüsü listesinde otomatik olarak vurgulanır derecelendirme dahil olmak üzere kullanılabilir alanları gösteren görüntülendi. Geliştirici alana tıkladığında veya klavyedeki Enter tuşuna bastığında için derecelendirme değeri ayarlanır.](new-field/_static/cr.png)
 
-<!-- Code -------------------------->
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
 <!-- This tab intentionally left blank. -->
----  
-<!-- End of VS tabs -->
+
+---
 
 Güncelleştirme `SeedData` böylece yeni bir sütun için bir değer sağlar sınıfını. Aşağıda bir örnek değişikliği gösterilmiştir, ancak her biri için bu değişikliği yapmak istersiniz `new Movie`.
 
@@ -82,7 +81,6 @@ Hatayı çözümlemek için birkaç yaklaşım vardır:
 
 Bu öğreticide, Code First Migrations kullanılır.
 
-<!-- VS -------------------------->
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Gelen **Araçları** menüsünde **NuGet Paket Yöneticisi > Paket Yöneticisi Konsolu**.
@@ -106,17 +104,17 @@ Veritabanındaki tüm kayıtları silinen, Initialize yöntemi DB çekirdeğini 
 
 [!INCLUDE[](~/includes/RP-mvc-shared/sqlite-warn.md)]
 
-Veritabanını silin ve veritabanını yeniden oluşturmaya geçişleri kullanın. Veritabanını silmek için veritabanı dosyasını silin (*MvcMovie.db*). Ardından çalıştırın `ef database update` komutu: 
+Veritabanını silin ve veritabanını yeniden oluşturmaya geçişleri kullanın. Veritabanını silmek için veritabanı dosyasını silin (*MvcMovie.db*). Ardından çalıştırın `ef database update` komutu:
 
 ```console
 dotnet ef database update
 ```
 
----  
+---
 <!-- End of VS tabs -->
 
 Uygulamayı çalıştırın ve kontrol edebilirsiniz oluşturma/düzenleme/görüntüleme filmlerle bir `Rating` alan. Eklemeniz gerekir `Rating` alanı `Edit`, `Details`, ve `Delete` şablonlarını görüntüleyin.
 
 > [!div class="step-by-step"]
 > [Önceki](search.md)
-> [İleri](validation.md)  
+> [İleri](validation.md)

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/28/2019
 uid: host-and-deploy/azure-iis-errors-reference
-ms.openlocfilehash: 1c8cb31b306b38ec17596af0a84f22ca0e3d911c
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 053dcce7f8c59b7afe7e52d2f704c992afce0b67
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346232"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265169"
 ---
 # <a name="common-errors-reference-for-azure-app-service-and-iis-with-aspnet-core"></a>Azure App Service ve IIS ile ASP.NET Core için sık karşılaşılan hatalar başvurusu
 
@@ -61,7 +61,7 @@ Olmayan işletim sistemi dosyaları **C:\Windows\SysWOW64\inetsrv** dizin korunu
 
 *Azure App Services tarafından barındırılan uygulamalar için geçerlidir.*
 
-* **Tarayıcı:** HTTP Hatası 500.0 - ANCM işlem içi işleyici yükleme hatası 
+* **Tarayıcı:** HTTP Hatası 500.0 - ANCM işlem içi işleyici yükleme hatası
 
 * **Uygulama günlüğü:** Yerel bağımlılıkları bulmadan Başarısız InProcess istek işleyicisi bulmak için hostfxr çağrılıyor. InProcess istek işleyicisi bulunamadı. Hostfxr çağırma gelen yakalanan çıktısı: Tüm uyumlu çerçeve sürümü bulmak mümkün değildi. Belirtilen çerçeve 'Microsoft.AspNetCore.App', Sürüm ' {VERSION} - preview -\*' bulunamadı. Uygulama başlatılamadı. '/ LM/W3SVC/1416782824/ROOT', '0x8000ffff' hata kodu.
 
@@ -80,7 +80,7 @@ Sorun giderme:
   * ASP.NET Core {çalışma zamanı sürümü} (x 86) çalışma zamanı
   * ASP.NET Core {çalışma zamanı sürümü} (x 64) çalışma zamanı
 
-  Uygulamayı yeniden başlatın. Uygulama için yeniden başlatmak için birkaç saniye bekleyin. 
+  Uygulamayı yeniden başlatın. Uygulama için yeniden başlatmak için birkaç saniye bekleyin.
 
 * Uygulama önizlemesi çalışma zamanı ve hem 32-bit (x86) hem de 64-bit (x64) üzerinde çalışıyorsa [site uzantıları](xref:host-and-deploy/azure-apps/index#install-the-preview-site-extension) olan uygulama genişliğinde eşleşmeyen bir site uzantısı yüklü kaldırın. Site uzantısı kaldırdıktan sonra uygulamayı yeniden başlatın. Uygulama için yeniden başlatmak için birkaç saniye bekleyin.
 
@@ -201,7 +201,7 @@ Sorun giderme:
   ```xml
   <section name="aspNetCore" overrideModeDefault="Allow" />
   ```
-  
+
   Alternatif olarak, ASP.NET Core barındırma paketin en son sürümünü yükleyin. Geriye dönük uyumlu en son sürümü ile ASP.NET Core uygulamaları desteklenir.
 
 ## <a name="incorrect-processpath-missing-path-variable-hosting-bundle-not-installed-systemiis-not-restarted-vc-redistributable-not-installed-or-dotnetexe-access-violation"></a>Yanlış processPath, eksik PATH değişkenine, yüklü paket barındırma, yeniden system/IIS, VC ++ yüklü yeniden dağıtılabilir veya dotnet.exe erişim ihlali

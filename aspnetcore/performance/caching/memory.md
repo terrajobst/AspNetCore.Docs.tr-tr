@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/11/2019
 uid: performance/caching/memory
-ms.openlocfilehash: 9a7727ad41a05f39d74877af3c8f2e3f7a620c7d
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: c115e43b9dd4f838ab9600c2e105d86732d857ad
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103078"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208282"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>Belleğe yüklenmiş önbellek ASP.NET core'da
 
@@ -111,10 +111,10 @@ Aşağıdaki kod çağrıları [alma](/dotnet/api/microsoft.extensions.caching.m
 
 Aşağıdaki örnek:
 
-- Mutlak zaman aşımı süresi ayarlar. Bu giriş önbelleğe alınacak en uzun süreyi ve öğe olmaadığını sürekli olarak yenilendiğinde çok eski duruma gelmesini engeller.
-- Kayan bir sona erme saati ayarlar. Önbelleğe alınan bu öğenin erişim istekleri kayan sona erme saati sıfırlar.
-- Önbellek önceliği ayarlar `CacheItemPriority.NeverRemove`.
-- Ayarlar bir [PostEvictionDelegate](/dotnet/api/microsoft.extensions.caching.memory.postevictiondelegate) , çağrılacağı sonra giriş önbellekten çıkarılır. Geri çağırma öğeyi önbellekten kaldırır kodundan farklı bir iş parçacığı üzerinde çalıştırın.
+* Mutlak zaman aşımı süresi ayarlar. Bu giriş önbelleğe alınacak en uzun süreyi ve öğe olmaadığını sürekli olarak yenilendiğinde çok eski duruma gelmesini engeller.
+* Kayan bir sona erme saati ayarlar. Önbelleğe alınan bu öğenin erişim istekleri kayan sona erme saati sıfırlar.
+* Önbellek önceliği ayarlar `CacheItemPriority.NeverRemove`.
+* Ayarlar bir [PostEvictionDelegate](/dotnet/api/microsoft.extensions.caching.memory.postevictiondelegate) , çağrılacağı sonra giriş önbellekten çıkarılır. Geri çağırma öğeyi önbellekten kaldırır kodundan farklı bir iş parçacığı üzerinde çalıştırın.
 
 [!code-csharp[](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet_et&highlight=14-21)]
 
@@ -161,14 +161,14 @@ Kullanarak bir `CancellationTokenSource` grup olarak çıkarılacak birden fazla
 
 ## <a name="additional-notes"></a>Ek Notlar
 
-- Bir önbellek öğesi yeniden doldurmak için bir geri çağırma kullanırken:
+* Bir önbellek öğesi yeniden doldurmak için bir geri çağırma kullanırken:
 
-  - Birden çok istek geri çağırma henüz tamamlanmadığından önbelleğe alınan anahtar değeri boş bulabilirsiniz.
-  - Bu, önbelleğe alınan öğeyi yeniden birkaç iş parçacığı neden olabilir.
+  * Birden çok istek geri çağırma henüz tamamlanmadığından önbelleğe alınan anahtar değeri boş bulabilirsiniz.
+  * Bu, önbelleğe alınan öğeyi yeniden birkaç iş parçacığı neden olabilir.
 
-- Bir önbellek girdisi başka oluşturmak için kullanıldığında, alt üst girişin sona erme belirteçleri ve zamana bağlı süre sonu ayarları kopyalar. Alt tarafından el ile temizleme süresi dolmuş veya üst girişinin güncelleştirme yok.
+* Bir önbellek girdisi başka oluşturmak için kullanıldığında, alt üst girişin sona erme belirteçleri ve zamana bağlı süre sonu ayarları kopyalar. Alt tarafından el ile temizleme süresi dolmuş veya üst girişinin güncelleştirme yok.
 
-- Kullanım [PostEvictionCallbacks](/dotnet/api/microsoft.extensions.caching.memory.icacheentry.postevictioncallbacks#Microsoft_Extensions_Caching_Memory_ICacheEntry_PostEvictionCallbacks) önbellek girdisi önbellekten çıkarıldığı sonra harekete geçirilmez geri çağırmaları ayarlamak için.
+* Kullanım [PostEvictionCallbacks](/dotnet/api/microsoft.extensions.caching.memory.icacheentry.postevictioncallbacks#Microsoft_Extensions_Caching_Memory_ICacheEntry_PostEvictionCallbacks) önbellek girdisi önbellekten çıkarıldığı sonra harekete geçirilmez geri çağırmaları ayarlamak için.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

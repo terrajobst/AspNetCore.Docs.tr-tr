@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/5/2018
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 961b41a63a5dd066a51468239bd855b7f723a3ae
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: e9214139c0e6e958445feb13b6350bad376a0152
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346053"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208245"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Doğrulama için bir ASP.NET Core Razor sayfası ekleme
 
@@ -104,7 +104,6 @@ Doğrulama mantığını değişmesi gerektiğinde, yalnızca model içinde yap�
 `DataType` Tarih, saat, telefon numarası, para birimi, EmailAddress ve diğer birçok veri türlerini numaralandırma sağlar. `DataType` Özniteliğini de otomatik olarak türe özgü özellikler sağlamak için uygulamayı etkinleştirin. Örneğin, bir `mailto:` bağlantısını için oluşturulamaz `DataType.EmailAddress`. Bir tarih seçici için sağlanan `DataType.Date` HTML5 destekleyen tarayıcılarda. `DataType` Öznitelikleri yayan HTML 5 `data-` HTML 5 tarayıcılar kullanma (okunur veri dash) öznitelikleri. `DataType` Öznitelikleri yapmak **değil** tüm doğrulama sağlar.
 
 `DataType.Date` Görüntülenen tarih biçimi belirtmiyor. Varsayılan olarak, sunucu üzerinde temel alan varsayılan biçimler göre veri alanı görüntülenir `CultureInfo`.
-
 
 `[Column(TypeName = "decimal(18, 2)")]` Veri ek açıklama, Entity Framework Core doğru şekilde eşleyebilirsiniz biçimde gereklidir `Price` veritabanında para birimi. Daha fazla bilgi için [veri türleri](/ef/core/modeling/relational/data-types).
 

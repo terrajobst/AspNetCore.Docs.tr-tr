@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/26/2019
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: 302cfb00127c223aeb5e51e4d0a9ef3cb69b10eb
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: ead3732d2c272f0868e823726ffd415a6c74f444
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56899378"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265455"
 ---
 # <a name="aspnet-core-module"></a>ASP.NET Core Modülü
 
@@ -72,7 +72,7 @@ Aşağıdaki özellikler, işlem içi barındırırken geçerlidir:
 * ASP.NET core'da 2.2.1 veya daha önce <xref:System.IO.Directory.GetCurrentDirectory*> uygulamanın dizinine yerine IIS tarafından başlatılan işlem alt dizinini döndürür (örneğin, *C:\Windows\System32\inetsrv* için *w3wp.exe*) .
 
   Uygulamanın geçerli dizin ayarlar örnek kod için bkz: [CurrentDirectoryHelpers sınıfı](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/aspnet-core-module/samples_snapshot/2.x/CurrentDirectoryHelpers.cs). Çağrı `SetCurrentDirectory` yöntemi. Yapılan sonraki çağrılar <xref:System.IO.Directory.GetCurrentDirectory*> uygulamanın dizinine sağlayın.
-  
+
 * İşlem içinde barındırırken <xref:Microsoft.AspNetCore.Authentication.AuthenticationService.AuthenticateAsync*> dahili olarak bir kullanıcı başlatmak için çağırılır değil. Bu nedenle, bir <xref:Microsoft.AspNetCore.Authentication.IClaimsTransformation> her kimlik doğrulaması varsayılan olarak etkinleştirilmez sonra talepleri dönüştürmek için kullanılan uygulama. Talepleri ile dönüştürülürken bir <xref:Microsoft.AspNetCore.Authentication.IClaimsTransformation> uygulaması, çağrı <xref:Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions.AddAuthentication*> kimlik doğrulama hizmetlerini eklemek için:
 
   ```csharp
@@ -81,7 +81,7 @@ Aşağıdaki özellikler, işlem içi barındırırken geçerlidir:
       services.AddTransient<IClaimsTransformation, ClaimsTransformer>();
       services.AddAuthentication(IISServerDefaults.AuthenticationScheme);
   }
-  
+
   public void Configure(IApplicationBuilder app)
   {
       app.UseAuthentication();
@@ -173,10 +173,10 @@ Aşağıdaki *web.config* dosya için yayınlanmış bir [framework bağımlı d
       <handlers>
         <add name="aspNetCore" path="*" verb="*" modules="AspNetCoreModuleV2" resourceType="Unspecified" />
       </handlers>
-      <aspNetCore processPath="dotnet" 
-                  arguments=".\MyApp.dll" 
-                  stdoutLogEnabled="false" 
-                  stdoutLogFile=".\logs\stdout" 
+      <aspNetCore processPath="dotnet"
+                  arguments=".\MyApp.dll"
+                  stdoutLogEnabled="false"
+                  stdoutLogFile=".\logs\stdout"
                   hostingModel="InProcess" />
     </system.webServer>
   </location>
@@ -194,9 +194,9 @@ Aşağıdaki *web.config* dosya için yayınlanmış bir [framework bağımlı d
     <handlers>
       <add name="aspNetCore" path="*" verb="*" modules="AspNetCoreModule" resourceType="Unspecified" />
     </handlers>
-    <aspNetCore processPath="dotnet" 
-                arguments=".\MyApp.dll" 
-                stdoutLogEnabled="false" 
+    <aspNetCore processPath="dotnet"
+                arguments=".\MyApp.dll"
+                stdoutLogEnabled="false"
                 stdoutLogFile=".\logs\stdout" />
   </system.webServer>
 </configuration>
@@ -216,9 +216,9 @@ Aşağıdaki *web.config* için yayımlanan bir [müstakil dağıtım](/dotnet/a
       <handlers>
         <add name="aspNetCore" path="*" verb="*" modules="AspNetCoreModuleV2" resourceType="Unspecified" />
       </handlers>
-      <aspNetCore processPath=".\MyApp.exe" 
-                  stdoutLogEnabled="false" 
-                  stdoutLogFile=".\logs\stdout" 
+      <aspNetCore processPath=".\MyApp.exe"
+                  stdoutLogEnabled="false"
+                  stdoutLogFile=".\logs\stdout"
                   hostingModel="InProcess" />
     </system.webServer>
   </location>
@@ -238,8 +238,8 @@ Aşağıdaki *web.config* için yayımlanan bir [müstakil dağıtım](/dotnet/a
     <handlers>
       <add name="aspNetCore" path="*" verb="*" modules="AspNetCoreModule" resourceType="Unspecified" />
     </handlers>
-    <aspNetCore processPath=".\MyApp.exe" 
-                stdoutLogEnabled="false" 
+    <aspNetCore processPath=".\MyApp.exe"
+                stdoutLogEnabled="false"
                 stdoutLogFile=".\logs\stdout" />
   </system.webServer>
 </configuration>
@@ -588,29 +588,29 @@ Barındırma Paket Yükleyici günlükleri modülü için adresten *C:\\kullanı
 
 **IIS (x86/amd64):**
 
-   * %windir%\System32\inetsrv\aspnetcore.dll
+* %windir%\System32\inetsrv\aspnetcore.dll
 
-   * %windir%\SysWOW64\inetsrv\aspnetcore.dll
+* %windir%\SysWOW64\inetsrv\aspnetcore.dll
 
 ::: moniker range=">= aspnetcore-2.2"
 
-   * %ProgramFiles%\IIS\Asp.NET çekirdek Module\V2\aspnetcorev2.dll
+* %ProgramFiles%\IIS\Asp.NET çekirdek Module\V2\aspnetcorev2.dll
 
-   * % ProgramFiles (x86) %\IIS\Asp.Net çekirdek Module\V2\aspnetcorev2.dll
+* % ProgramFiles (x86) %\IIS\Asp.Net çekirdek Module\V2\aspnetcorev2.dll
 
 ::: moniker-end
 
 **IIS Express (x86/amd64):**
 
-   * %ProgramFiles%\IIS Express\aspnetcore.dll
+* %ProgramFiles%\IIS Express\aspnetcore.dll
 
-   * % ProgramFiles (x86) %\IIS Express\aspnetcore.dll
+* % ProgramFiles (x86) %\IIS Express\aspnetcore.dll
 
 ::: moniker range=">= aspnetcore-2.2"
 
-   * %ProgramFiles%\IIS Express\Asp.Net çekirdek Module\V2\aspnetcorev2.dll
+* %ProgramFiles%\IIS Express\Asp.Net çekirdek Module\V2\aspnetcorev2.dll
 
-   * % ProgramFiles (x86) %\IIS Express\Asp.Net çekirdek Module\V2\aspnetcorev2.dll
+* % ProgramFiles (x86) %\IIS Express\Asp.Net çekirdek Module\V2\aspnetcorev2.dll
 
 ::: moniker-end
 
@@ -618,20 +618,21 @@ Barındırma Paket Yükleyici günlükleri modülü için adresten *C:\\kullanı
 
 **IIS**
 
-   * %windir%\System32\inetsrv\config\schema\aspnetcore_schema.XML
+* %windir%\System32\inetsrv\config\schema\aspnetcore_schema.XML
 
 ::: moniker range=">= aspnetcore-2.2"
 
-   * %windir%\System32\inetsrv\config\schema\aspnetcore_schema_v2.XML
+* %windir%\System32\inetsrv\config\schema\aspnetcore_schema_v2.XML
 
 ::: moniker-end
+
 **IIS Express**
 
-   * %ProgramFiles%\IIS Express\config\schema\aspnetcore_schema.xml
+* %ProgramFiles%\IIS Express\config\schema\aspnetcore_schema.xml
 
 ::: moniker range=">= aspnetcore-2.2"
 
-   * %ProgramFiles%\IIS Express\config\schema\aspnetcore_schema_v2.xml
+* %ProgramFiles%\IIS Express\config\schema\aspnetcore_schema_v2.xml
 
 ::: moniker-end
 
@@ -639,13 +640,13 @@ Barındırma Paket Yükleyici günlükleri modülü için adresten *C:\\kullanı
 
 **IIS**
 
-   * %windir%\System32\inetsrv\config\applicationHost.config
+* %windir%\System32\inetsrv\config\applicationHost.config
 
 **IIS Express**
 
-   * Visual Studio: {Uygulama KÖKÜ}\\.vs\config\applicationHost.config
-   
-   * *iisexpress.exe* CLI: %USERPROFILE%\Documents\IISExpress\config\applicationhost.config
+* Visual Studio: {Uygulama KÖKÜ}\\.vs\config\applicationHost.config
+
+* *iisexpress.exe* CLI: %USERPROFILE%\Documents\IISExpress\config\applicationhost.config
 
 Dosyalar için arama yaparak bulunabilir *aspnetcore* içinde *applicationHost.config* dosya.
 

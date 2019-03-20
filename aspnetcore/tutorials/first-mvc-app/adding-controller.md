@@ -5,12 +5,12 @@ description: Bir denetleyici için basit bir ASP.NET Core MVC uygulaması ekleme
 ms.author: riande
 ms.date: 02/28/2017
 uid: tutorials/first-mvc-app/adding-controller
-ms.openlocfilehash: bbb7b06e2c9c63f44cb7f7a8ee63bffa1e316b3e
-ms.sourcegitcommit: 4e87712029de2aceb1cf2c52e9e3dda8195a5b8e
+ms.openlocfilehash: dad9262e544fc216ddc694b11b0dfb88b58db9cd
+ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53381874"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58265019"
 ---
 # <a name="add-a-controller-to-an-aspnet-core-mvc-app"></a>Denetleyici için bir ASP.NET Core MVC uygulaması ekleme
 
@@ -30,7 +30,6 @@ Biz Bu öğretici serisinin bu kavramları kapsar ve bunları bir film uygulamas
 
 ## <a name="add-a-controller"></a>Denetleyici ekleme
 
-<!-- VS -------------------------->
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * İçinde **Çözüm Gezgini**, sağ **denetleyicileri > Ekle > denetleyicisi**
@@ -42,14 +41,12 @@ Biz Bu öğretici serisinin bu kavramları kapsar ve bunları bir film uygulamas
 
 * İçinde **boş MVC denetleyicisi Ekle iletişim**, girin **HelloWorldController** seçip **ekleme**.
 
-<!-- Code -------------------------->
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Seçin **GEZGİNİ** simgesine ve ardından Denetim tıklayın (sağ tıklama) **denetleyicileri > yeni dosya** ve yeni dosya adı *HelloWorldController.cs*.
 
   ![Bağlamsal menü](~/tutorials/first-mvc-app-xplat/adding-controller/_static/new_file.png)
 
-<!-- Mac -------------------------->
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
 İçinde **Çözüm Gezgini**, sağ **denetleyicileri > Ekle > yeni dosya**.
@@ -62,7 +59,6 @@ Denetleyici adı **HelloWorldController**.
 ![MVC denetleyicisi ekleyin ve adlandırın](~/tutorials/first-mvc-app-mac/adding-controller/_static/ac.png)
 
 ---
-<!-- End of VS tabs -->
 
 Öğesinin içeriğini değiştirin *Controllers/HelloWorldController.cs* aşağıdaki:
 
@@ -130,7 +126,6 @@ Bu süre üçüncü URL kesimini eşleşen bir rota parametresini `id`. `Welcome
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
 
 Bu örneklerde denetleyici MVC "VC" kısmını yapmak - diğer bir deyişle, denetleyici ve görünüm iş. Denetleyici HTML doğrudan döndürüyor. Genellikle, kod ve sürdürmek için çok kullanışsız olur beri HTML doğrudan döndürerek denetleyicileri istemezsiniz. Bunun yerine, genellikle ayrı bir Razor görünüm şablon dosyası HTML yanıtı oluşturmak için kullanın. Sonraki öğreticide bunu.
-
 
 > [!div class="step-by-step"]
 > [Önceki](start-mvc.md)
