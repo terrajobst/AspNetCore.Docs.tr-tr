@@ -5,167 +5,167 @@ description: Bu öğreticide, ASP.NET Core MVC uygulaması içindeki veri modeli
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/migrations
-ms.openlocfilehash: ef79aca700068aadf9b5b2b689213b6e78a5d729
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 5848e5e1e45708c3ab5c2a79614111662701aa77
+ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346443"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58320166"
 ---
-# <a name="razor-pages-with-ef-core-in-aspnet-core---migrations---4-of-8"></a><span data-ttu-id="ce734-103">ASP.NET core'da - geçiş - 4 8 EF çekirdekli Razor sayfaları</span><span class="sxs-lookup"><span data-stu-id="ce734-103">Razor Pages with EF Core in ASP.NET Core - Migrations - 4 of 8</span></span>
+# <a name="razor-pages-with-ef-core-in-aspnet-core---migrations---4-of-8"></a><span data-ttu-id="88915-103">ASP.NET core'da - geçiş - 4 8 EF çekirdekli Razor sayfaları</span><span class="sxs-lookup"><span data-stu-id="88915-103">Razor Pages with EF Core in ASP.NET Core - Migrations - 4 of 8</span></span>
 
 [!INCLUDE[2.0 version](~/includes/RP-EF/20-pdf.md)]
 
 ::: moniker range=">= aspnetcore-2.1"
 
-<span data-ttu-id="ce734-104">Tarafından [Tom Dykstra](https://github.com/tdykstra), [Jon P Smith](https://twitter.com/thereformedprog), ve [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="ce734-104">By [Tom Dykstra](https://github.com/tdykstra), [Jon P Smith](https://twitter.com/thereformedprog), and [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
+<span data-ttu-id="88915-104">Tarafından [Tom Dykstra](https://github.com/tdykstra), [Jon P Smith](https://twitter.com/thereformedprog), ve [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="88915-104">By [Tom Dykstra](https://github.com/tdykstra), [Jon P Smith](https://twitter.com/thereformedprog), and [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
 
 [!INCLUDE [about the series](~/includes/RP-EF/intro.md)]
 
-<span data-ttu-id="ce734-105">Bu öğreticide, veri modeli değişikliklerini yönetmek için EF Core geçişleri özelliği kullanılır.</span><span class="sxs-lookup"><span data-stu-id="ce734-105">In this tutorial, the EF Core migrations feature for managing data model changes is used.</span></span>
+<span data-ttu-id="88915-105">Bu öğreticide, veri modeli değişikliklerini yönetmek için EF Core geçişleri özelliği kullanılır.</span><span class="sxs-lookup"><span data-stu-id="88915-105">In this tutorial, the EF Core migrations feature for managing data model changes is used.</span></span>
 
-<span data-ttu-id="ce734-106">Olamaz çözmek sorunlarla karşılaşırsanız, indirme [tamamlanan uygulama](
-https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples).</span><span class="sxs-lookup"><span data-stu-id="ce734-106">If you run into problems you can't solve, download the [completed app](
+<span data-ttu-id="88915-106">Olamaz çözmek sorunlarla karşılaşırsanız, indirme [tamamlanan uygulama](
+https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples).</span><span class="sxs-lookup"><span data-stu-id="88915-106">If you run into problems you can't solve, download the [completed app](
 https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples).</span></span>
 
-<span data-ttu-id="ce734-107">Yeni bir uygulama geliştirdiğinizde, veri değişikliklerini sık model.</span><span class="sxs-lookup"><span data-stu-id="ce734-107">When a new app is developed, the data model changes frequently.</span></span> <span data-ttu-id="ce734-108">Her model veritabanı ile eşitlenmemiş model değişiklikleri alır.</span><span class="sxs-lookup"><span data-stu-id="ce734-108">Each time the model changes, the model gets out of sync with the database.</span></span> <span data-ttu-id="ce734-109">Bu öğreticide, mevcut değilse veritabanını oluşturmak için Entity Framework yapılandırarak başlatıldı.</span><span class="sxs-lookup"><span data-stu-id="ce734-109">This tutorial started by configuring the Entity Framework to create the database if it doesn't exist.</span></span> <span data-ttu-id="ce734-110">Veri değişiklikleri model her zaman:</span><span class="sxs-lookup"><span data-stu-id="ce734-110">Each time the data model changes:</span></span>
+<span data-ttu-id="88915-107">Yeni bir uygulama geliştirdiğinizde, veri değişikliklerini sık model.</span><span class="sxs-lookup"><span data-stu-id="88915-107">When a new app is developed, the data model changes frequently.</span></span> <span data-ttu-id="88915-108">Her model veritabanı ile eşitlenmemiş model değişiklikleri alır.</span><span class="sxs-lookup"><span data-stu-id="88915-108">Each time the model changes, the model gets out of sync with the database.</span></span> <span data-ttu-id="88915-109">Bu öğreticide, mevcut değilse veritabanını oluşturmak için Entity Framework yapılandırarak başlatıldı.</span><span class="sxs-lookup"><span data-stu-id="88915-109">This tutorial started by configuring the Entity Framework to create the database if it doesn't exist.</span></span> <span data-ttu-id="88915-110">Veri değişiklikleri model her zaman:</span><span class="sxs-lookup"><span data-stu-id="88915-110">Each time the data model changes:</span></span>
 
-* <span data-ttu-id="ce734-111">DB bırakılır.</span><span class="sxs-lookup"><span data-stu-id="ce734-111">The DB is dropped.</span></span>
-* <span data-ttu-id="ce734-112">EF modeli eşleşen yeni bir tane oluşturur.</span><span class="sxs-lookup"><span data-stu-id="ce734-112">EF creates a new one that matches the model.</span></span>
-* <span data-ttu-id="ce734-113">Uygulamayı test verilerle bir veritabanı sağlar.</span><span class="sxs-lookup"><span data-stu-id="ce734-113">The app seeds the DB with test data.</span></span>
+* <span data-ttu-id="88915-111">DB bırakılır.</span><span class="sxs-lookup"><span data-stu-id="88915-111">The DB is dropped.</span></span>
+* <span data-ttu-id="88915-112">EF modeli eşleşen yeni bir tane oluşturur.</span><span class="sxs-lookup"><span data-stu-id="88915-112">EF creates a new one that matches the model.</span></span>
+* <span data-ttu-id="88915-113">Uygulamayı test verilerle bir veritabanı sağlar.</span><span class="sxs-lookup"><span data-stu-id="88915-113">The app seeds the DB with test data.</span></span>
 
-<span data-ttu-id="ce734-114">DB veri modeli ile eşitlenmiş tutmak için bu yaklaşım da uygulamayı üretime dağıtma kadar çalışır.</span><span class="sxs-lookup"><span data-stu-id="ce734-114">This approach to keeping the DB in sync with the data model works well until you deploy the app to production.</span></span> <span data-ttu-id="ce734-115">Uygulamayı üretim ortamında çalıştırırken, genellikle sürdürülmesi için gereken verileri depoladığı.</span><span class="sxs-lookup"><span data-stu-id="ce734-115">When the app is running in production, it's usually storing data that needs to be maintained.</span></span> <span data-ttu-id="ce734-116">Uygulama, bir test (yeni bir sütun eklenmesi gibi) her değişiklik yapıldığında DB ile başlayamaz.</span><span class="sxs-lookup"><span data-stu-id="ce734-116">The app can't start with a test DB each time a change is made (such as adding a new column).</span></span> <span data-ttu-id="ce734-117">EF Core geçişleri özelliği, yeni bir veritabanı oluşturmak yerine DB şemayı güncelleştirmenin EF Core sağlayarak bu sorunu çözer.</span><span class="sxs-lookup"><span data-stu-id="ce734-117">The EF Core Migrations feature solves this problem by enabling EF Core to update the DB schema instead of creating a new DB.</span></span>
+<span data-ttu-id="88915-114">DB veri modeli ile eşitlenmiş tutmak için bu yaklaşım da uygulamayı üretime dağıtma kadar çalışır.</span><span class="sxs-lookup"><span data-stu-id="88915-114">This approach to keeping the DB in sync with the data model works well until you deploy the app to production.</span></span> <span data-ttu-id="88915-115">Uygulamayı üretim ortamında çalıştırırken, genellikle sürdürülmesi için gereken verileri depoladığı.</span><span class="sxs-lookup"><span data-stu-id="88915-115">When the app is running in production, it's usually storing data that needs to be maintained.</span></span> <span data-ttu-id="88915-116">Uygulama, bir test (yeni bir sütun eklenmesi gibi) her değişiklik yapıldığında DB ile başlayamaz.</span><span class="sxs-lookup"><span data-stu-id="88915-116">The app can't start with a test DB each time a change is made (such as adding a new column).</span></span> <span data-ttu-id="88915-117">EF Core geçişleri özelliği, yeni bir veritabanı oluşturmak yerine DB şemayı güncelleştirmenin EF Core sağlayarak bu sorunu çözer.</span><span class="sxs-lookup"><span data-stu-id="88915-117">The EF Core Migrations feature solves this problem by enabling EF Core to update the DB schema instead of creating a new DB.</span></span>
 
-<span data-ttu-id="ce734-118">Bırakma ve değişiklikler veri modelini kullanırken DB yeniden yerine geçişleri şemasını güncelleştirir ve mevcut verileri korur.</span><span class="sxs-lookup"><span data-stu-id="ce734-118">Rather than dropping and recreating the DB when the data model changes, migrations updates the schema and retains existing data.</span></span>
+<span data-ttu-id="88915-118">Bırakma ve değişiklikler veri modelini kullanırken DB yeniden yerine geçişleri şemasını güncelleştirir ve mevcut verileri korur.</span><span class="sxs-lookup"><span data-stu-id="88915-118">Rather than dropping and recreating the DB when the data model changes, migrations updates the schema and retains existing data.</span></span>
 
-## <a name="drop-the-database"></a><span data-ttu-id="ce734-119">Veritabanını bırakma</span><span class="sxs-lookup"><span data-stu-id="ce734-119">Drop the database</span></span>
+## <a name="drop-the-database"></a><span data-ttu-id="88915-119">Veritabanını bırakma</span><span class="sxs-lookup"><span data-stu-id="88915-119">Drop the database</span></span>
 
-<span data-ttu-id="ce734-120">Kullanım **SQL Server Nesne Gezgini** (SSOX) veya `database drop` komutu:</span><span class="sxs-lookup"><span data-stu-id="ce734-120">Use **SQL Server Object Explorer** (SSOX) or the `database drop` command:</span></span>
+<span data-ttu-id="88915-120">Kullanım **SQL Server Nesne Gezgini** (SSOX) veya `database drop` komutu:</span><span class="sxs-lookup"><span data-stu-id="88915-120">Use **SQL Server Object Explorer** (SSOX) or the `database drop` command:</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="ce734-121">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="ce734-121">Visual Studio</span></span>](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="88915-121">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="88915-121">Visual Studio</span></span>](#tab/visual-studio)
 
-<span data-ttu-id="ce734-122">İçinde **Paket Yöneticisi Konsolu** (PMC), aşağıdaki komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="ce734-122">In the **Package Manager Console** (PMC), run the following command:</span></span>
+<span data-ttu-id="88915-122">İçinde **Paket Yöneticisi Konsolu** (PMC), aşağıdaki komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="88915-122">In the **Package Manager Console** (PMC), run the following command:</span></span>
 
 ```PMC
 Drop-Database
 ```
 
-<span data-ttu-id="ce734-123">Çalıştırma `Get-Help about_EntityFrameworkCore` Yardım bilgilerini almak için PMC'yi öğesinden.</span><span class="sxs-lookup"><span data-stu-id="ce734-123">Run `Get-Help about_EntityFrameworkCore` from the PMC to get help information.</span></span>
+<span data-ttu-id="88915-123">Çalıştırma `Get-Help about_EntityFrameworkCore` Yardım bilgilerini almak için PMC'yi öğesinden.</span><span class="sxs-lookup"><span data-stu-id="88915-123">Run `Get-Help about_EntityFrameworkCore` from the PMC to get help information.</span></span>
 
-# <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="ce734-124">.NET Core CLI</span><span class="sxs-lookup"><span data-stu-id="ce734-124">.NET Core CLI</span></span>](#tab/netcore-cli)
+# <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="88915-124">.NET Core CLI</span><span class="sxs-lookup"><span data-stu-id="88915-124">.NET Core CLI</span></span>](#tab/netcore-cli)
 
-<span data-ttu-id="ce734-125">Bir komut penceresi açın ve proje klasörüne gidin.</span><span class="sxs-lookup"><span data-stu-id="ce734-125">Open a command window and navigate to the project folder.</span></span> <span data-ttu-id="ce734-126">Proje klasörünü içeren *Startup.cs* dosya.</span><span class="sxs-lookup"><span data-stu-id="ce734-126">The project folder contains the *Startup.cs* file.</span></span>
+<span data-ttu-id="88915-125">Bir komut penceresi açın ve proje klasörüne gidin.</span><span class="sxs-lookup"><span data-stu-id="88915-125">Open a command window and navigate to the project folder.</span></span> <span data-ttu-id="88915-126">Proje klasörünü içeren *Startup.cs* dosya.</span><span class="sxs-lookup"><span data-stu-id="88915-126">The project folder contains the *Startup.cs* file.</span></span>
 
-<span data-ttu-id="ce734-127">Komut penceresinde aşağıdakileri girin:</span><span class="sxs-lookup"><span data-stu-id="ce734-127">Enter the following in the command window:</span></span>
+<span data-ttu-id="88915-127">Komut penceresinde aşağıdakileri girin:</span><span class="sxs-lookup"><span data-stu-id="88915-127">Enter the following in the command window:</span></span>
 
  ```console
  dotnet ef database drop
  ```
 
-------
+---
 
-## <a name="create-an-initial-migration-and-update-the-db"></a><span data-ttu-id="ce734-128">Bir başlangıç geçiş oluşturun ve DB update</span><span class="sxs-lookup"><span data-stu-id="ce734-128">Create an initial migration and update the DB</span></span>
+## <a name="create-an-initial-migration-and-update-the-db"></a><span data-ttu-id="88915-128">Bir başlangıç geçiş oluşturun ve DB update</span><span class="sxs-lookup"><span data-stu-id="88915-128">Create an initial migration and update the DB</span></span>
 
-<span data-ttu-id="ce734-129">Projeyi oluşturun ve ilk geçiş oluşturun.</span><span class="sxs-lookup"><span data-stu-id="ce734-129">Build the project and create the first migration.</span></span>
+<span data-ttu-id="88915-129">Projeyi oluşturun ve ilk geçiş oluşturun.</span><span class="sxs-lookup"><span data-stu-id="88915-129">Build the project and create the first migration.</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="ce734-130">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="ce734-130">Visual Studio</span></span>](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="88915-130">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="88915-130">Visual Studio</span></span>](#tab/visual-studio)
 
 ```PMC
 Add-Migration InitialCreate
 Update-Database
 ```
 
-# <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="ce734-131">.NET Core CLI</span><span class="sxs-lookup"><span data-stu-id="ce734-131">.NET Core CLI</span></span>](#tab/netcore-cli)
+# <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="88915-131">.NET Core CLI</span><span class="sxs-lookup"><span data-stu-id="88915-131">.NET Core CLI</span></span>](#tab/netcore-cli)
 
 ```console
 dotnet ef migrations add InitialCreate
 dotnet ef database update
 ```
 
-------
+---
 
-### <a name="examine-the-up-and-down-methods"></a><span data-ttu-id="ce734-132">Yöntemleri aşağı ve yukarı inceleyin</span><span class="sxs-lookup"><span data-stu-id="ce734-132">Examine the Up and Down methods</span></span>
+### <a name="examine-the-up-and-down-methods"></a><span data-ttu-id="88915-132">Yöntemleri aşağı ve yukarı inceleyin</span><span class="sxs-lookup"><span data-stu-id="88915-132">Examine the Up and Down methods</span></span>
 
-<span data-ttu-id="ce734-133">EF Core `migrations add` bir veritabanı oluşturmak için oluşturulan komut kodu.</span><span class="sxs-lookup"><span data-stu-id="ce734-133">The EF Core `migrations add` command  generated code to create the DB.</span></span> <span data-ttu-id="ce734-134">Bu geçiş kodu *geçişler\<zaman damgası > _InitialCreate.cs* dosya.</span><span class="sxs-lookup"><span data-stu-id="ce734-134">This migrations code is in the *Migrations\<timestamp>_InitialCreate.cs* file.</span></span> <span data-ttu-id="ce734-135">`Up` Yöntemi `InitialCreate` sınıfı, karşılık gelen bir veri modeli varlık kümeleri DB tablolar oluşturur.</span><span class="sxs-lookup"><span data-stu-id="ce734-135">The `Up` method of the `InitialCreate` class creates the DB tables that correspond to the data model entity sets.</span></span> <span data-ttu-id="ce734-136">`Down` Yöntemi siler, bunları, aşağıdaki örnekte gösterildiği gibi:</span><span class="sxs-lookup"><span data-stu-id="ce734-136">The `Down` method deletes them, as shown in the following example:</span></span>
+<span data-ttu-id="88915-133">EF Core `migrations add` bir veritabanı oluşturmak için oluşturulan komut kodu.</span><span class="sxs-lookup"><span data-stu-id="88915-133">The EF Core `migrations add` command  generated code to create the DB.</span></span> <span data-ttu-id="88915-134">Bu geçiş kodu *geçişler\<zaman damgası > _InitialCreate.cs* dosya.</span><span class="sxs-lookup"><span data-stu-id="88915-134">This migrations code is in the *Migrations\<timestamp>_InitialCreate.cs* file.</span></span> <span data-ttu-id="88915-135">`Up` Yöntemi `InitialCreate` sınıfı, karşılık gelen bir veri modeli varlık kümeleri DB tablolar oluşturur.</span><span class="sxs-lookup"><span data-stu-id="88915-135">The `Up` method of the `InitialCreate` class creates the DB tables that correspond to the data model entity sets.</span></span> <span data-ttu-id="88915-136">`Down` Yöntemi siler, bunları, aşağıdaki örnekte gösterildiği gibi:</span><span class="sxs-lookup"><span data-stu-id="88915-136">The `Down` method deletes them, as shown in the following example:</span></span>
 
 [!code-csharp[](intro/samples/cu21/Migrations/20180626224812_InitialCreate.cs?range=7-24,77-88)]
 
-<span data-ttu-id="ce734-137">Geçişleri çağrıları `Up` geçiş için veri modeli değişikliklerini uygulamak için yöntemi.</span><span class="sxs-lookup"><span data-stu-id="ce734-137">Migrations calls the `Up` method to implement the data model changes for a migration.</span></span> <span data-ttu-id="ce734-138">Güncelleştirme, geçişler çağrıları geri almak için bir komutu girdiğinizde `Down` yöntemi.</span><span class="sxs-lookup"><span data-stu-id="ce734-138">When you enter a command to roll back the update, migrations calls the `Down` method.</span></span>
+<span data-ttu-id="88915-137">Geçişleri çağrıları `Up` geçiş için veri modeli değişikliklerini uygulamak için yöntemi.</span><span class="sxs-lookup"><span data-stu-id="88915-137">Migrations calls the `Up` method to implement the data model changes for a migration.</span></span> <span data-ttu-id="88915-138">Güncelleştirme, geçişler çağrıları geri almak için bir komutu girdiğinizde `Down` yöntemi.</span><span class="sxs-lookup"><span data-stu-id="88915-138">When you enter a command to roll back the update, migrations calls the `Down` method.</span></span>
 
-<span data-ttu-id="ce734-139">Yukarıdaki kod, ilk geçiş için ' dir.</span><span class="sxs-lookup"><span data-stu-id="ce734-139">The preceding code is for the initial migration.</span></span> <span data-ttu-id="ce734-140">Kodun ne zaman oluşturulduğu `migrations add InitialCreate` komut çalıştırıldı.</span><span class="sxs-lookup"><span data-stu-id="ce734-140">That code was created when the `migrations add InitialCreate` command was run.</span></span> <span data-ttu-id="ce734-141">Geçiş name parametresi (Bu örnekte "InitialCreate"), dosya adı için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="ce734-141">The migration name parameter ("InitialCreate" in the example) is used for the file name.</span></span> <span data-ttu-id="ce734-142">Geçiş adı geçerli bir dosya adı olabilir.</span><span class="sxs-lookup"><span data-stu-id="ce734-142">The migration name can be any valid file name.</span></span> <span data-ttu-id="ce734-143">Bir sözcük veya tümcecik geçiş yapıldığını özetleyen seçmek en iyisidir.</span><span class="sxs-lookup"><span data-stu-id="ce734-143">It's best to choose a word or phrase that summarizes what is being done in the migration.</span></span> <span data-ttu-id="ce734-144">Örneğin, departman tablosu eklenen bir geçiş "AddDepartmentTable." olarak adlandırılabilir</span><span class="sxs-lookup"><span data-stu-id="ce734-144">For example, a migration that added a department table might be called "AddDepartmentTable."</span></span>
+<span data-ttu-id="88915-139">Yukarıdaki kod, ilk geçiş için ' dir.</span><span class="sxs-lookup"><span data-stu-id="88915-139">The preceding code is for the initial migration.</span></span> <span data-ttu-id="88915-140">Kodun ne zaman oluşturulduğu `migrations add InitialCreate` komut çalıştırıldı.</span><span class="sxs-lookup"><span data-stu-id="88915-140">That code was created when the `migrations add InitialCreate` command was run.</span></span> <span data-ttu-id="88915-141">Geçiş name parametresi (Bu örnekte "InitialCreate"), dosya adı için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="88915-141">The migration name parameter ("InitialCreate" in the example) is used for the file name.</span></span> <span data-ttu-id="88915-142">Geçiş adı geçerli bir dosya adı olabilir.</span><span class="sxs-lookup"><span data-stu-id="88915-142">The migration name can be any valid file name.</span></span> <span data-ttu-id="88915-143">Bir sözcük veya tümcecik geçiş yapıldığını özetleyen seçmek en iyisidir.</span><span class="sxs-lookup"><span data-stu-id="88915-143">It's best to choose a word or phrase that summarizes what is being done in the migration.</span></span> <span data-ttu-id="88915-144">Örneğin, departman tablosu eklenen bir geçiş "AddDepartmentTable." olarak adlandırılabilir</span><span class="sxs-lookup"><span data-stu-id="88915-144">For example, a migration that added a department table might be called "AddDepartmentTable."</span></span>
 
-<span data-ttu-id="ce734-145">İlk geçiş oluşturulur ve bir veritabanı varsa:</span><span class="sxs-lookup"><span data-stu-id="ce734-145">If the initial migration is created and the DB exists:</span></span>
+<span data-ttu-id="88915-145">İlk geçiş oluşturulur ve bir veritabanı varsa:</span><span class="sxs-lookup"><span data-stu-id="88915-145">If the initial migration is created and the DB exists:</span></span>
 
-* <span data-ttu-id="ce734-146">DB oluşturma kod oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="ce734-146">The DB creation code is generated.</span></span>
-* <span data-ttu-id="ce734-147">DB oluşturma kod, bir veritabanı zaten veri modeli ile eşleştiği için çalıştırma gerekmez.</span><span class="sxs-lookup"><span data-stu-id="ce734-147">The DB creation code doesn't need to run because the DB already matches the data model.</span></span> <span data-ttu-id="ce734-148">DB oluşturma kodu çalıştırırsanız, bir veritabanı zaten veri modeli ile eşleştiği için herhangi bir değişiklik yapmaz.</span><span class="sxs-lookup"><span data-stu-id="ce734-148">If the DB creation code is run, it doesn't make any changes because the DB already matches the data model.</span></span>
+* <span data-ttu-id="88915-146">DB oluşturma kod oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="88915-146">The DB creation code is generated.</span></span>
+* <span data-ttu-id="88915-147">DB oluşturma kod, bir veritabanı zaten veri modeli ile eşleştiği için çalıştırma gerekmez.</span><span class="sxs-lookup"><span data-stu-id="88915-147">The DB creation code doesn't need to run because the DB already matches the data model.</span></span> <span data-ttu-id="88915-148">DB oluşturma kodu çalıştırırsanız, bir veritabanı zaten veri modeli ile eşleştiği için herhangi bir değişiklik yapmaz.</span><span class="sxs-lookup"><span data-stu-id="88915-148">If the DB creation code is run, it doesn't make any changes because the DB already matches the data model.</span></span>
 
-<span data-ttu-id="ce734-149">Uygulamanın yeni bir ortama dağıtıldığında, DB oluşumun kodunu bir veritabanı oluşturmak için çalıştırılması gerekir.</span><span class="sxs-lookup"><span data-stu-id="ce734-149">When the app is deployed to a new environment, the DB creation code must be run to create the DB.</span></span>
+<span data-ttu-id="88915-149">Uygulamanın yeni bir ortama dağıtıldığında, DB oluşumun kodunu bir veritabanı oluşturmak için çalıştırılması gerekir.</span><span class="sxs-lookup"><span data-stu-id="88915-149">When the app is deployed to a new environment, the DB creation code must be run to create the DB.</span></span>
 
-<span data-ttu-id="ce734-150">Daha önce DB bırakıldı ve yeni bir veritabanı geçişleri oluşturur. böylece, mevcut değil.</span><span class="sxs-lookup"><span data-stu-id="ce734-150">Previously the DB was dropped and doesn't exist, so migrations creates the new DB.</span></span>
+<span data-ttu-id="88915-150">Daha önce DB bırakıldı ve yeni bir veritabanı geçişleri oluşturur. böylece, mevcut değil.</span><span class="sxs-lookup"><span data-stu-id="88915-150">Previously the DB was dropped and doesn't exist, so migrations creates the new DB.</span></span>
 
-### <a name="the-data-model-snapshot"></a><span data-ttu-id="ce734-151">Veri modeli anlık görüntü</span><span class="sxs-lookup"><span data-stu-id="ce734-151">The data model snapshot</span></span>
+### <a name="the-data-model-snapshot"></a><span data-ttu-id="88915-151">Veri modeli anlık görüntü</span><span class="sxs-lookup"><span data-stu-id="88915-151">The data model snapshot</span></span>
 
-<span data-ttu-id="ce734-152">Geçiş oluşturma bir *anlık görüntü* içinde geçerli veritabanı şeması *Migrations/SchoolContextModelSnapshot.cs*.</span><span class="sxs-lookup"><span data-stu-id="ce734-152">Migrations create a *snapshot* of the current database schema in *Migrations/SchoolContextModelSnapshot.cs*.</span></span> <span data-ttu-id="ce734-153">Bir geçiş eklediğinizde, anlık görüntü dosyası ve veri modelini karşılaştırarak değişiklikler EF belirler.</span><span class="sxs-lookup"><span data-stu-id="ce734-153">When you add a migration, EF determines what changed by comparing the data model to the snapshot file.</span></span>
+<span data-ttu-id="88915-152">Geçiş oluşturma bir *anlık görüntü* içinde geçerli veritabanı şeması *Migrations/SchoolContextModelSnapshot.cs*.</span><span class="sxs-lookup"><span data-stu-id="88915-152">Migrations create a *snapshot* of the current database schema in *Migrations/SchoolContextModelSnapshot.cs*.</span></span> <span data-ttu-id="88915-153">Bir geçiş eklediğinizde, anlık görüntü dosyası ve veri modelini karşılaştırarak değişiklikler EF belirler.</span><span class="sxs-lookup"><span data-stu-id="88915-153">When you add a migration, EF determines what changed by comparing the data model to the snapshot file.</span></span>
 
-<span data-ttu-id="ce734-154">Bir geçiş silmek için aşağıdaki komutu kullanın:</span><span class="sxs-lookup"><span data-stu-id="ce734-154">To delete a migration, use the following command:</span></span>
+<span data-ttu-id="88915-154">Bir geçiş silmek için aşağıdaki komutu kullanın:</span><span class="sxs-lookup"><span data-stu-id="88915-154">To delete a migration, use the following command:</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="ce734-155">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="ce734-155">Visual Studio</span></span>](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="88915-155">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="88915-155">Visual Studio</span></span>](#tab/visual-studio)
 
-<span data-ttu-id="ce734-156">Remove-geçiş</span><span class="sxs-lookup"><span data-stu-id="ce734-156">Remove-Migration</span></span>
+<span data-ttu-id="88915-156">Remove-geçiş</span><span class="sxs-lookup"><span data-stu-id="88915-156">Remove-Migration</span></span>
 
-# <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="ce734-157">.NET Core CLI</span><span class="sxs-lookup"><span data-stu-id="ce734-157">.NET Core CLI</span></span>](#tab/netcore-cli)
+# <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="88915-157">.NET Core CLI</span><span class="sxs-lookup"><span data-stu-id="88915-157">.NET Core CLI</span></span>](#tab/netcore-cli)
 
 ```console
 dotnet ef migrations remove
 ```
 
-<span data-ttu-id="ce734-158">Daha fazla bilgi için [dotnet ef geçişleri Kaldır](/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove).</span><span class="sxs-lookup"><span data-stu-id="ce734-158">For more information, see  [dotnet ef migrations remove](/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove).</span></span>
+<span data-ttu-id="88915-158">Daha fazla bilgi için [dotnet ef geçişleri Kaldır](/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove).</span><span class="sxs-lookup"><span data-stu-id="88915-158">For more information, see  [dotnet ef migrations remove](/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove).</span></span>
 
-------
+---
 
-<span data-ttu-id="ce734-159">Remove geçişleri komutu geçiş siler ve anlık görüntünün doğru şekilde sıfırlama sağlar.</span><span class="sxs-lookup"><span data-stu-id="ce734-159">The remove migrations command deletes the migration and ensures the snapshot is correctly reset.</span></span>
+<span data-ttu-id="88915-159">Remove geçişleri komutu geçiş siler ve anlık görüntünün doğru şekilde sıfırlama sağlar.</span><span class="sxs-lookup"><span data-stu-id="88915-159">The remove migrations command deletes the migration and ensures the snapshot is correctly reset.</span></span>
 
-### <a name="remove-ensurecreated-and-test-the-app"></a><span data-ttu-id="ce734-160">EnsureCreated kaldırın ve uygulamayı test etme</span><span class="sxs-lookup"><span data-stu-id="ce734-160">Remove EnsureCreated and test the app</span></span>
+### <a name="remove-ensurecreated-and-test-the-app"></a><span data-ttu-id="88915-160">EnsureCreated kaldırın ve uygulamayı test etme</span><span class="sxs-lookup"><span data-stu-id="88915-160">Remove EnsureCreated and test the app</span></span>
 
-<span data-ttu-id="ce734-161">Erken geliştirme için `EnsureCreated` kullanıldı.</span><span class="sxs-lookup"><span data-stu-id="ce734-161">For early development, `EnsureCreated` was used.</span></span> <span data-ttu-id="ce734-162">Bu öğreticide, geçişler kullanılır.</span><span class="sxs-lookup"><span data-stu-id="ce734-162">In this tutorial, migrations are used.</span></span> <span data-ttu-id="ce734-163">`EnsureCreated` aşağıdaki sınırlamalara sahiptir:</span><span class="sxs-lookup"><span data-stu-id="ce734-163">`EnsureCreated` has the following limitations:</span></span>
+<span data-ttu-id="88915-161">Erken geliştirme için `EnsureCreated` kullanıldı.</span><span class="sxs-lookup"><span data-stu-id="88915-161">For early development, `EnsureCreated` was used.</span></span> <span data-ttu-id="88915-162">Bu öğreticide, geçişler kullanılır.</span><span class="sxs-lookup"><span data-stu-id="88915-162">In this tutorial, migrations are used.</span></span> <span data-ttu-id="88915-163">`EnsureCreated` aşağıdaki sınırlamalara sahiptir:</span><span class="sxs-lookup"><span data-stu-id="88915-163">`EnsureCreated` has the following limitations:</span></span>
 
-* <span data-ttu-id="ce734-164">Geçişleri atlar ve DB ve şema oluşturur.</span><span class="sxs-lookup"><span data-stu-id="ce734-164">Bypasses migrations and creates the DB and schema.</span></span>
-* <span data-ttu-id="ce734-165">Bir geçiş tablo oluşturmaz.</span><span class="sxs-lookup"><span data-stu-id="ce734-165">Doesn't create a migrations table.</span></span>
-* <span data-ttu-id="ce734-166">İçin *değil* migrations ile kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="ce734-166">Can *not* be used with migrations.</span></span>
-* <span data-ttu-id="ce734-167">İçin tasarlanmış burada DB bırakılan ve sık sık yeniden oluşturulan test veya hızlı prototip oluşturma.</span><span class="sxs-lookup"><span data-stu-id="ce734-167">Is designed for testing or rapid prototyping where the DB is dropped and re-created frequently.</span></span>
+* <span data-ttu-id="88915-164">Geçişleri atlar ve DB ve şema oluşturur.</span><span class="sxs-lookup"><span data-stu-id="88915-164">Bypasses migrations and creates the DB and schema.</span></span>
+* <span data-ttu-id="88915-165">Bir geçiş tablo oluşturmaz.</span><span class="sxs-lookup"><span data-stu-id="88915-165">Doesn't create a migrations table.</span></span>
+* <span data-ttu-id="88915-166">İçin *değil* migrations ile kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="88915-166">Can *not* be used with migrations.</span></span>
+* <span data-ttu-id="88915-167">İçin tasarlanmış burada DB bırakılan ve sık sık yeniden oluşturulan test veya hızlı prototip oluşturma.</span><span class="sxs-lookup"><span data-stu-id="88915-167">Is designed for testing or rapid prototyping where the DB is dropped and re-created frequently.</span></span>
 
-<span data-ttu-id="ce734-168">Aşağıdaki satırı Kaldır `DbInitializer`:</span><span class="sxs-lookup"><span data-stu-id="ce734-168">Remove the following line from `DbInitializer`:</span></span>
+<span data-ttu-id="88915-168">Aşağıdaki satırı Kaldır `DbInitializer`:</span><span class="sxs-lookup"><span data-stu-id="88915-168">Remove the following line from `DbInitializer`:</span></span>
 
 ```csharp
 context.Database.EnsureCreated();
 ```
 
-<span data-ttu-id="ce734-169">Uygulamayı çalıştırın ve DB Çekirdek değeri oluşturulmuş doğrulayın.</span><span class="sxs-lookup"><span data-stu-id="ce734-169">Run the app and verify the DB is seeded.</span></span>
+<span data-ttu-id="88915-169">Uygulamayı çalıştırın ve DB Çekirdek değeri oluşturulmuş doğrulayın.</span><span class="sxs-lookup"><span data-stu-id="88915-169">Run the app and verify the DB is seeded.</span></span>
 
-### <a name="inspect-the-database"></a><span data-ttu-id="ce734-170">Veritabanı inceleyin</span><span class="sxs-lookup"><span data-stu-id="ce734-170">Inspect the database</span></span>
+### <a name="inspect-the-database"></a><span data-ttu-id="88915-170">Veritabanı inceleyin</span><span class="sxs-lookup"><span data-stu-id="88915-170">Inspect the database</span></span>
 
-<span data-ttu-id="ce734-171">Kullanım **SQL Server Nesne Gezgini** DB incelemek için.</span><span class="sxs-lookup"><span data-stu-id="ce734-171">Use **SQL Server Object Explorer** to inspect the DB.</span></span> <span data-ttu-id="ce734-172">Ek fark bir `__EFMigrationsHistory` tablo.</span><span class="sxs-lookup"><span data-stu-id="ce734-172">Notice the addition of an `__EFMigrationsHistory` table.</span></span> <span data-ttu-id="ce734-173">`__EFMigrationsHistory` Tablo, hangi geçişler için DB uygulanmış olduğunu izler.</span><span class="sxs-lookup"><span data-stu-id="ce734-173">The `__EFMigrationsHistory` table keeps track of which migrations have been applied to the DB.</span></span> <span data-ttu-id="ce734-174">Verileri görüntüleme `__EFMigrationsHistory` tablo, ilk geçiş için bir satır gösterir.</span><span class="sxs-lookup"><span data-stu-id="ce734-174">View the data in the `__EFMigrationsHistory` table, it shows one row for the first migration.</span></span> <span data-ttu-id="ce734-175">Son günlük önceki CLI çıktı örnekte bu satırı oluşturur INSERT deyimini gösterir.</span><span class="sxs-lookup"><span data-stu-id="ce734-175">The last log in the preceding CLI output example shows the INSERT statement that creates this row.</span></span>
+<span data-ttu-id="88915-171">Kullanım **SQL Server Nesne Gezgini** DB incelemek için.</span><span class="sxs-lookup"><span data-stu-id="88915-171">Use **SQL Server Object Explorer** to inspect the DB.</span></span> <span data-ttu-id="88915-172">Ek fark bir `__EFMigrationsHistory` tablo.</span><span class="sxs-lookup"><span data-stu-id="88915-172">Notice the addition of an `__EFMigrationsHistory` table.</span></span> <span data-ttu-id="88915-173">`__EFMigrationsHistory` Tablo, hangi geçişler için DB uygulanmış olduğunu izler.</span><span class="sxs-lookup"><span data-stu-id="88915-173">The `__EFMigrationsHistory` table keeps track of which migrations have been applied to the DB.</span></span> <span data-ttu-id="88915-174">Verileri görüntüleme `__EFMigrationsHistory` tablo, ilk geçiş için bir satır gösterir.</span><span class="sxs-lookup"><span data-stu-id="88915-174">View the data in the `__EFMigrationsHistory` table, it shows one row for the first migration.</span></span> <span data-ttu-id="88915-175">Son günlük önceki CLI çıktı örnekte bu satırı oluşturur INSERT deyimini gösterir.</span><span class="sxs-lookup"><span data-stu-id="88915-175">The last log in the preceding CLI output example shows the INSERT statement that creates this row.</span></span>
 
-<span data-ttu-id="ce734-176">Uygulamayı çalıştırın ve her şeyin çalıştığını doğrulayın.</span><span class="sxs-lookup"><span data-stu-id="ce734-176">Run the app and verify that everything works.</span></span>
+<span data-ttu-id="88915-176">Uygulamayı çalıştırın ve her şeyin çalıştığını doğrulayın.</span><span class="sxs-lookup"><span data-stu-id="88915-176">Run the app and verify that everything works.</span></span>
 
-## <a name="applying-migrations-in-production"></a><span data-ttu-id="ce734-177">Üretim geçişleri uygulanıyor</span><span class="sxs-lookup"><span data-stu-id="ce734-177">Applying migrations in production</span></span>
+## <a name="applying-migrations-in-production"></a><span data-ttu-id="88915-177">Üretim geçişleri uygulanıyor</span><span class="sxs-lookup"><span data-stu-id="88915-177">Applying migrations in production</span></span>
 
-<span data-ttu-id="ce734-178">Üretim uygulamaları gereken öneririz **değil** çağrı [Database.Migrate](/dotnet/api/microsoft.entityframeworkcore.relationaldatabasefacadeextensions.migrate?view=efcore-2.0#Microsoft_EntityFrameworkCore_RelationalDatabaseFacadeExtensions_Migrate_Microsoft_EntityFrameworkCore_Infrastructure_DatabaseFacade_) uygulama başlangıcında.</span><span class="sxs-lookup"><span data-stu-id="ce734-178">We recommend production apps should **not** call [Database.Migrate](/dotnet/api/microsoft.entityframeworkcore.relationaldatabasefacadeextensions.migrate?view=efcore-2.0#Microsoft_EntityFrameworkCore_RelationalDatabaseFacadeExtensions_Migrate_Microsoft_EntityFrameworkCore_Infrastructure_DatabaseFacade_) at application startup.</span></span> <span data-ttu-id="ce734-179">`Migrate` sunucu grubundaki bir uygulamadan çağrılabilir olmamalıdır.</span><span class="sxs-lookup"><span data-stu-id="ce734-179">`Migrate` shouldn't be called from an app in server farm.</span></span> <span data-ttu-id="ce734-180">Örneğin, uygulama (uygulama birden çok örneğini çalıştıran) ölçeklendirme ile dağıtılan bulut olmaması durumunda.</span><span class="sxs-lookup"><span data-stu-id="ce734-180">For example, if the app has been cloud deployed with scale-out (multiple instances of the app are running).</span></span>
+<span data-ttu-id="88915-178">Üretim uygulamaları gereken öneririz **değil** çağrı [Database.Migrate](/dotnet/api/microsoft.entityframeworkcore.relationaldatabasefacadeextensions.migrate?view=efcore-2.0#Microsoft_EntityFrameworkCore_RelationalDatabaseFacadeExtensions_Migrate_Microsoft_EntityFrameworkCore_Infrastructure_DatabaseFacade_) uygulama başlangıcında.</span><span class="sxs-lookup"><span data-stu-id="88915-178">We recommend production apps should **not** call [Database.Migrate](/dotnet/api/microsoft.entityframeworkcore.relationaldatabasefacadeextensions.migrate?view=efcore-2.0#Microsoft_EntityFrameworkCore_RelationalDatabaseFacadeExtensions_Migrate_Microsoft_EntityFrameworkCore_Infrastructure_DatabaseFacade_) at application startup.</span></span> <span data-ttu-id="88915-179">`Migrate` sunucu grubundaki bir uygulamadan çağrılabilir olmamalıdır.</span><span class="sxs-lookup"><span data-stu-id="88915-179">`Migrate` shouldn't be called from an app in server farm.</span></span> <span data-ttu-id="88915-180">Örneğin, uygulama (uygulama birden çok örneğini çalıştıran) ölçeklendirme ile dağıtılan bulut olmaması durumunda.</span><span class="sxs-lookup"><span data-stu-id="88915-180">For example, if the app has been cloud deployed with scale-out (multiple instances of the app are running).</span></span>
 
-<span data-ttu-id="ce734-181">Veritabanı geçişi, dağıtım ve denetimli bir şekilde bir parçası olarak yapılmalıdır.</span><span class="sxs-lookup"><span data-stu-id="ce734-181">Database migration should be done as part of deployment, and in a controlled way.</span></span> <span data-ttu-id="ce734-182">Üretim veritabanı geçiş yaklaşımını şunlardır:</span><span class="sxs-lookup"><span data-stu-id="ce734-182">Production database migration approaches include:</span></span>
+<span data-ttu-id="88915-181">Veritabanı geçişi, dağıtım ve denetimli bir şekilde bir parçası olarak yapılmalıdır.</span><span class="sxs-lookup"><span data-stu-id="88915-181">Database migration should be done as part of deployment, and in a controlled way.</span></span> <span data-ttu-id="88915-182">Üretim veritabanı geçiş yaklaşımını şunlardır:</span><span class="sxs-lookup"><span data-stu-id="88915-182">Production database migration approaches include:</span></span>
 
-* <span data-ttu-id="ce734-183">SQL komut dosyaları ve dağıtımda SQL betiklerini kullanarak oluşturmaya geçişleri kullanma.</span><span class="sxs-lookup"><span data-stu-id="ce734-183">Using migrations to create SQL scripts and using the SQL scripts in deployment.</span></span>
-* <span data-ttu-id="ce734-184">Çalışan `dotnet ef database update` denetimli bir ortamda öğesinden.</span><span class="sxs-lookup"><span data-stu-id="ce734-184">Running `dotnet ef database update` from a controlled environment.</span></span>
+* <span data-ttu-id="88915-183">SQL komut dosyaları ve dağıtımda SQL betiklerini kullanarak oluşturmaya geçişleri kullanma.</span><span class="sxs-lookup"><span data-stu-id="88915-183">Using migrations to create SQL scripts and using the SQL scripts in deployment.</span></span>
+* <span data-ttu-id="88915-184">Çalışan `dotnet ef database update` denetimli bir ortamda öğesinden.</span><span class="sxs-lookup"><span data-stu-id="88915-184">Running `dotnet ef database update` from a controlled environment.</span></span>
 
-<span data-ttu-id="ce734-185">EF Core kullanan `__MigrationsHistory` tüm geçişler çalıştırma gerekip gerekmediğini görmek için tabloyu.</span><span class="sxs-lookup"><span data-stu-id="ce734-185">EF Core uses the `__MigrationsHistory` table to see if any migrations need to run.</span></span> <span data-ttu-id="ce734-186">DB güncel ise, hiçbir geçiş çalıştırılır.</span><span class="sxs-lookup"><span data-stu-id="ce734-186">If the DB is up-to-date, no migration is run.</span></span>
+<span data-ttu-id="88915-185">EF Core kullanan `__MigrationsHistory` tüm geçişler çalıştırma gerekip gerekmediğini görmek için tabloyu.</span><span class="sxs-lookup"><span data-stu-id="88915-185">EF Core uses the `__MigrationsHistory` table to see if any migrations need to run.</span></span> <span data-ttu-id="88915-186">DB güncel ise, hiçbir geçiş çalıştırılır.</span><span class="sxs-lookup"><span data-stu-id="88915-186">If the DB is up-to-date, no migration is run.</span></span>
 
-## <a name="troubleshooting"></a><span data-ttu-id="ce734-187">Sorun giderme</span><span class="sxs-lookup"><span data-stu-id="ce734-187">Troubleshooting</span></span>
+## <a name="troubleshooting"></a><span data-ttu-id="88915-187">Sorun giderme</span><span class="sxs-lookup"><span data-stu-id="88915-187">Troubleshooting</span></span>
 
-<span data-ttu-id="ce734-188">İndirme [tamamlanan uygulama](
-https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part4-migrations).</span><span class="sxs-lookup"><span data-stu-id="ce734-188">Download the [completed app](
+<span data-ttu-id="88915-188">İndirme [tamamlanan uygulama](
+https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part4-migrations).</span><span class="sxs-lookup"><span data-stu-id="88915-188">Download the [completed app](
 https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part4-migrations).</span></span>
 
-<span data-ttu-id="ce734-189">Uygulama, şu özel durum oluşturur:</span><span class="sxs-lookup"><span data-stu-id="ce734-189">The app generates the following exception:</span></span>
+<span data-ttu-id="88915-189">Uygulama, şu özel durum oluşturur:</span><span class="sxs-lookup"><span data-stu-id="88915-189">The app generates the following exception:</span></span>
 
 ```text
 SqlException: Cannot open database "ContosoUniversity" requested by the login.
@@ -173,17 +173,17 @@ The login failed.
 Login failed for user 'user name'.
 ```
 
-<span data-ttu-id="ce734-190">Çözüm: `dotnet ef database update`'i çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="ce734-190">Solution: Run `dotnet ef database update`</span></span>
+<span data-ttu-id="88915-190">Çözüm: `dotnet ef database update`'i çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="88915-190">Solution: Run `dotnet ef database update`</span></span>
 
-### <a name="additional-resources"></a><span data-ttu-id="ce734-191">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="ce734-191">Additional resources</span></span>
+### <a name="additional-resources"></a><span data-ttu-id="88915-191">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="88915-191">Additional resources</span></span>
 
-* [<span data-ttu-id="ce734-192">Bu öğreticide YouTube sürümü</span><span class="sxs-lookup"><span data-stu-id="ce734-192">YouTube version of this tutorial</span></span>](https://www.youtube.com/watch?v=OWSUuMLKTJo)
-* <span data-ttu-id="ce734-193">[.NET core CLI](/ef/core/miscellaneous/cli/dotnet).</span><span class="sxs-lookup"><span data-stu-id="ce734-193">[.NET Core CLI](/ef/core/miscellaneous/cli/dotnet).</span></span>
-* [<span data-ttu-id="ce734-194">Paket Yöneticisi Konsolu (Visual Studio)</span><span class="sxs-lookup"><span data-stu-id="ce734-194">Package Manager Console (Visual Studio)</span></span>](/ef/core/miscellaneous/cli/powershell)
+* [<span data-ttu-id="88915-192">Bu öğreticide YouTube sürümü</span><span class="sxs-lookup"><span data-stu-id="88915-192">YouTube version of this tutorial</span></span>](https://www.youtube.com/watch?v=OWSUuMLKTJo)
+* <span data-ttu-id="88915-193">[.NET core CLI](/ef/core/miscellaneous/cli/dotnet).</span><span class="sxs-lookup"><span data-stu-id="88915-193">[.NET Core CLI](/ef/core/miscellaneous/cli/dotnet).</span></span>
+* [<span data-ttu-id="88915-194">Paket Yöneticisi Konsolu (Visual Studio)</span><span class="sxs-lookup"><span data-stu-id="88915-194">Package Manager Console (Visual Studio)</span></span>](/ef/core/miscellaneous/cli/powershell)
 
 ::: moniker-end
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="ce734-195">[Önceki](xref:data/ef-rp/sort-filter-page)
-> [İleri](xref:data/ef-rp/complex-data-model)</span><span class="sxs-lookup"><span data-stu-id="ce734-195">[Previous](xref:data/ef-rp/sort-filter-page)
+> <span data-ttu-id="88915-195">[Önceki](xref:data/ef-rp/sort-filter-page)
+> [İleri](xref:data/ef-rp/complex-data-model)</span><span class="sxs-lookup"><span data-stu-id="88915-195">[Previous](xref:data/ef-rp/sort-filter-page)
 [Next](xref:data/ef-rp/complex-data-model)</span></span>
