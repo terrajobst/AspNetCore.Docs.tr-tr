@@ -5,12 +5,12 @@ description: Nasıl ASP.NET Core hizmetlerini ve ara yazılım içeriği yerelle
 ms.author: riande
 ms.date: 01/14/2017
 uid: fundamentals/localization
-ms.openlocfilehash: 0eda297b7df97a5d20fea035983f426eafa03775
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: 4e87423a02a275eae7e2f6054e7a3b6c22cd7cee
+ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264636"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58320228"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Genelleştirme ve yerelleştirme ASP.NET core'da
 
@@ -76,7 +76,7 @@ Fransız kaynak dosyası aşağıdakileri içerebilir:
 
 | Anahtar | Değer |
 | ----- | ------ |
-| `<i>Hello</i> <b>{0}!</b>` | `<i>Bonjour</i> <b>{0} !</b> ` |
+| `<i>Hello</i> <b>{0}!</b>` | `<i>Bonjour</i> <b>{0} !</b>` |
 
 İşlenen HTML biçimlendirmeyi kaynak dosyasından içerecektir.
 
@@ -173,7 +173,7 @@ Kök ad alanı bir derlemenin derleme adından farklı olduğunda:
 
 Varsa `RootNamespace` farklıdır `AssemblyName`, aşağıdakiler de dahil *AssemblyInfo.cs* (ile parametre değerleri gerçek değerlerle değiştirilen):
 
-```Csharp
+```csharp
 using System.Reflection;
 using Microsoft.Extensions.Localization;
 

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: f5002ae2d8317b2455298b9c5474d9bff52fa497
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: 98a03118954baa85b093a0514e1ac6f0fb6353e8
+ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264991"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58320114"
 ---
 # <a name="contribute-to-the-aspnet-core-documentation"></a>ASP.NET Core belgelerine katkıda bulunun
 
@@ -38,7 +38,7 @@ Makaleler yazılır [DocFx özellikli Markdown](https://dotnet.github.io/docfx/s
 
 Her bir Markdown dosyası için bir klasörü görüntüler ve örnek kod için bir klasör var. Makaleyi ise [fundamentals/configuration/index.md](https://github.com/aspnet/Docs/blob/master/aspnetcore/fundamentals/configuration/index.md), görüntüleri bulunan [temelleri/configuration/dizin/\_statik](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/index/_static) ve örnek uygulama proje dosyaları [ temelleri/configuration/dizin/örnek](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/index/sample). Görüntüdeki *fundamentals/configuration/index.md* dosya aşağıdaki Markdown tarafından işlenir:
 
-```
+```md
 ![description of image for alt attribute](configuration/index/_static/imagename.png)
 ```
 
@@ -50,13 +50,13 @@ Küçük Markdown dosya adlarını ve görüntü dosya adları için kullanın.
 
 İç bağlantı kullanması gereken `uid` hedef makalenin xref bağlantı (bağlantı metni, bağlantılı içeriğin başlık ayarlanır):
 
-```
+```md
 <xref:uid_of_the_topic>
 ```
 
 Makale başlığı (örneğin, bir sözcük veya tümcecik bir tümcedeki bağlantı metindir) bağlantı metni için uygun değilse xref bağlantıyı ve bağlantı metni aşağıdakileri belirtin:
 
-```
+```md
 [link text](xref:uid_of_the_topic)
 ```
 
@@ -81,13 +81,13 @@ Aşağıdaki örnekler gösterir [DFM kod parçacığı söz dizimi](https://dot
 
 Bir kod parçacığı bütün kod dosyasını oluşturmak için:
 
-```
+```md
 [!code-csharp[](configuration/index/sample/Program.cs)]
 ```
 
 Satır numaralarını kullanarak bir kod parçacığı dosyasının bir bölümünü işlemek için:
 
-```
+```md
 [!code-csharp[](configuration/index/sample/Program.cs?range=1-10,20,30,40-50]
 [!code-html[](configuration/index/sample/Views/Home/Index.cshtml?range=1-10,20,30,40-50]
 ```
@@ -96,13 +96,13 @@ Satır numaralarını kullanarak bir kod parçacığı dosyasının bir bölüm�
 
 İşlenecek bir C# "snippet_Example" adlı bölgesi:
 
-```
+```md
 [!code-csharp[](configuration/index/sample/Program.cs?name=snippet_Example)]
 ```
 
 Seçili satırları işlenmiş parçacığında vurgulamak için (genellikle sarı arka plan rengi olarak işler):
 
-```
+```md
 [!code-csharp[](configuration/index/sample/Program.cs?name=snippet_Example&highlight=1-3,10,20-25)]
 [!code-csharp[](configuration/index/sample/Program.cs?range=10-20&highlight=1-3]
 [!code-html[](configuration/index/sample/Views/Home/Index.cshtml?range=10-20&highlight=1-3]

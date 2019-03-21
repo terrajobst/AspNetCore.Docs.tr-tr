@@ -5,12 +5,12 @@ description: Uygulama kaynaklarını özetlerdir, uygulama bölümleri bulmak ve
 ms.author: riande
 ms.date: 01/04/2017
 uid: mvc/extensibility/app-parts
-ms.openlocfilehash: c0d3ad6bcdf2e56df915b176b28759c59e76faf6
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 67bd40adef4cdb0bd781f70114d3954cd9a8ed09
+ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206569"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58320101"
 ---
 # <a name="application-parts-in-aspnet-core"></a>ASP.NET core'da uygulama bölümleri
 
@@ -96,9 +96,9 @@ Varsayılan olarak, yönlendirme için kullanılan genel denetleyicisi adları b
 
 Eşleşen bir rota istendiğinde sonucu:
 
-![Örnek uygulamadan çıktı örneği okur, 'Hello genel Sproket denetleyicisinden.'](app-parts/_static/generic-controller.png)
+![Örnek uygulamadan çıktı örneği okur, 'Hello genel Sprocket denetleyicisinden.'](app-parts/_static/generic-controller.png)
 
-### <a name="sample-display-available-features"></a>Örnek: Görüntü kullanılabilir özellikler
+### <a name="sample-display-available-features"></a>Örnek: Kullanılabilir özellikleri görüntüle
 
 İsteyerek doldurulan özellikleri uygulamanıza yineleyebilirsiniz bir `ApplicationPartManager` aracılığıyla [bağımlılık ekleme](../../fundamentals/dependency-injection.md) ve uygun özellikler örneğini doldurmak için kullanarak:
 

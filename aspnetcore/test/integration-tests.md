@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/25/2019
 uid: test/integration-tests
-ms.openlocfilehash: 50cb6b26be187c7f36f189e77fd29b4559221f2c
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 11a8f4296e1b0b229c736645f1aa598307b88ec4
+ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209245"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58320192"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>ASP.NET core'da tümleştirme testleri
 
@@ -311,7 +311,7 @@ Arama mantığı çalışma zamanında doğru içerik kök genellikle bulur. ço
 
 ## <a name="disable-shadow-copying"></a>Gölge kopyalama devre dışı bırak
 
-Gölge kopyalama çıktı klasörünü farklı bir klasörde yürütülecek testleri neden olur. Gölge kopyalama düzgün çalışması testleri için devre dışı bırakılmalıdır. [Örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/integration-tests/samples) xUnit kullanır ve dahil ederek xUnit için gölge kopyalama devre dışı bırakan bir *xunit.runner.json* doğru yapılandırma ayarı dosyası. Daha fazla bilgi için [xUnit.net ile JSON yapılandırma](https://xunit.github.io/docs/configuring-with-json.html).
+Gölge kopyalama çıktı klasörünü farklı bir klasörde yürütülecek testleri neden olur. Gölge kopyalama düzgün çalışması testleri için devre dışı bırakılmalıdır. [Örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/integration-tests/samples) xUnit kullanır ve dahil ederek xUnit için gölge kopyalama devre dışı bırakan bir *xunit.runner.json* doğru yapılandırma ayarı dosyası. Daha fazla bilgi için [xUnit ile JSON yapılandırma](https://xunit.github.io/docs/configuring-with-json.html).
 
 Ekleme *xunit.runner.json* dosya aşağıdaki içeriğe sahip test projesinin kök:
 

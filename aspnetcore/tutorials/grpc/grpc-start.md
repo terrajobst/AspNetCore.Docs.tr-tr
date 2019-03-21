@@ -2,17 +2,18 @@
 title: "Öğretici: ASP.NET core'da gRPC kullanmaya başlama"
 author: juntaoluo
 description: Bu öğretici serisinde, ASP.NET Core, gRPC bir hizmet oluşturma işlemi gösterilmektedir. GRPC hizmeti projesi oluşturmak, proto dosyasını düzenleyin ve bir çift yönlü çağrı akış ekleme hakkında bilgi edinin.
+monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 2/26/2019
 uid: tutorials/grpc/grpc-start
-ms.openlocfilehash: 793d13d0fbac4f2f46b7cd8490ded294e597ca9d
-ms.sourcegitcommit: a467828b5e4eaae291d961ffe2279a571900de23
+ms.openlocfilehash: 5f7a2f6b57804b3295b23c322dcbac553b05528b
+ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58142627"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58320062"
 ---
-# <a name="tutorial-get-started-with-grpc-service-in-aspnet-core"></a>Öğretici: GRPC hizmetinde ASP.NET Core ile çalışmaya başlama
+# <a name="tutorial-get-started-with-grpc-service-in-aspnet-core"></a>Öğretici: ASP.NET Core’da gRPC hizmeti ile çalışmaya başlama
 
 Tarafından [John Luo](https://github.com/juntaoluo)
 
