@@ -6,22 +6,22 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/27/2018
 uid: fundamentals/httpcontext
-ms.openlocfilehash: 446882297524af3cbaed3ba7f941935debf5e7f4
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 373c036e0839ce51259e23f8503fbe4691b48751
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56899209"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209602"
 ---
-# <a name="access-httpcontext-in-aspnet-core"></a><span data-ttu-id="8b4cd-103">ASP.NET core'da erişim HttpContext</span><span class="sxs-lookup"><span data-stu-id="8b4cd-103">Access HttpContext in ASP.NET Core</span></span>
+# <a name="access-httpcontext-in-aspnet-core"></a><span data-ttu-id="42552-103">ASP.NET core'da erişim HttpContext</span><span class="sxs-lookup"><span data-stu-id="42552-103">Access HttpContext in ASP.NET Core</span></span>
 
-<span data-ttu-id="8b4cd-104">ASP.NET Core uygulamaları erişim `HttpContext` aracılığıyla [IHttpContextAccessor](/dotnet/api/microsoft.aspnetcore.http.ihttpcontextaccessor) arabirimi ile varsayılan uygulaması [HttpContextAccessor](/dotnet/api/microsoft.aspnetcore.http.httpcontextaccessor).</span><span class="sxs-lookup"><span data-stu-id="8b4cd-104">ASP.NET Core apps access the `HttpContext` through the [IHttpContextAccessor](/dotnet/api/microsoft.aspnetcore.http.ihttpcontextaccessor) interface and its default implementation [HttpContextAccessor](/dotnet/api/microsoft.aspnetcore.http.httpcontextaccessor).</span></span> <span data-ttu-id="8b4cd-105">Yalnızca kullanmak gerekli olan `IHttpContextAccessor` erişim gerektiğinde `HttpContext` bir hizmeti içinde.</span><span class="sxs-lookup"><span data-stu-id="8b4cd-105">It's only necessary to use `IHttpContextAccessor` when you need access to the `HttpContext` inside a service.</span></span>
+<span data-ttu-id="42552-104">ASP.NET Core uygulamaları erişim `HttpContext` aracılığıyla [IHttpContextAccessor](/dotnet/api/microsoft.aspnetcore.http.ihttpcontextaccessor) arabirimi ile varsayılan uygulaması [HttpContextAccessor](/dotnet/api/microsoft.aspnetcore.http.httpcontextaccessor).</span><span class="sxs-lookup"><span data-stu-id="42552-104">ASP.NET Core apps access the `HttpContext` through the [IHttpContextAccessor](/dotnet/api/microsoft.aspnetcore.http.ihttpcontextaccessor) interface and its default implementation [HttpContextAccessor](/dotnet/api/microsoft.aspnetcore.http.httpcontextaccessor).</span></span> <span data-ttu-id="42552-105">Yalnızca kullanmak gerekli olan `IHttpContextAccessor` erişim gerektiğinde `HttpContext` bir hizmeti içinde.</span><span class="sxs-lookup"><span data-stu-id="42552-105">It's only necessary to use `IHttpContextAccessor` when you need access to the `HttpContext` inside a service.</span></span>
 
 ::: moniker range=">= aspnetcore-2.0"
 
-## <a name="use-httpcontext-from-razor-pages"></a><span data-ttu-id="8b4cd-106">Razor sayfaları'ndan HttpContext kullanın</span><span class="sxs-lookup"><span data-stu-id="8b4cd-106">Use HttpContext from Razor Pages</span></span>
+## <a name="use-httpcontext-from-razor-pages"></a><span data-ttu-id="42552-106">Razor sayfaları'ndan HttpContext kullanın</span><span class="sxs-lookup"><span data-stu-id="42552-106">Use HttpContext from Razor Pages</span></span>
 
-<span data-ttu-id="8b4cd-107">Razor sayfaları [PageModel](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel) sunan [HttpContext](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel.httpcontext) özelliği:</span><span class="sxs-lookup"><span data-stu-id="8b4cd-107">The Razor Pages [PageModel](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel) exposes the [HttpContext](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel.httpcontext) property:</span></span>
+<span data-ttu-id="42552-107">Razor sayfaları [PageModel](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel) sunan [HttpContext](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel.httpcontext) özelliği:</span><span class="sxs-lookup"><span data-stu-id="42552-107">The Razor Pages [PageModel](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel) exposes the [HttpContext](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel.httpcontext) property:</span></span>
 
 ```csharp
 public class AboutModel : PageModel
@@ -37,9 +37,9 @@ public class AboutModel : PageModel
 
 ::: moniker-end
 
-## <a name="use-httpcontext-from-a-razor-view"></a><span data-ttu-id="8b4cd-108">HttpContext Razor görünümünü kullanın</span><span class="sxs-lookup"><span data-stu-id="8b4cd-108">Use HttpContext from a Razor view</span></span>
+## <a name="use-httpcontext-from-a-razor-view"></a><span data-ttu-id="42552-108">HttpContext Razor görünümünü kullanın</span><span class="sxs-lookup"><span data-stu-id="42552-108">Use HttpContext from a Razor view</span></span>
 
-<span data-ttu-id="8b4cd-109">Razor görünümleri ile açığa `HttpContext` aracılığıyla doğrudan bir [RazorPage.Context](/dotnet/api/microsoft.aspnetcore.mvc.razor.razorpage.context#Microsoft_AspNetCore_Mvc_Razor_RazorPage_Context) görünümü özelliği.</span><span class="sxs-lookup"><span data-stu-id="8b4cd-109">Razor views expose the `HttpContext` directly via a [RazorPage.Context](/dotnet/api/microsoft.aspnetcore.mvc.razor.razorpage.context#Microsoft_AspNetCore_Mvc_Razor_RazorPage_Context) property on the view.</span></span> <span data-ttu-id="8b4cd-110">Aşağıdaki örnek, Windows kimlik doğrulaması kullanarak bir Intranet uygulaması geçerli kullanıcı adını alır:</span><span class="sxs-lookup"><span data-stu-id="8b4cd-110">The following example retrieves the current username in an Intranet app using Windows Authentication:</span></span>
+<span data-ttu-id="42552-109">Razor görünümleri ile açığa `HttpContext` aracılığıyla doğrudan bir [RazorPage.Context](/dotnet/api/microsoft.aspnetcore.mvc.razor.razorpage.context#Microsoft_AspNetCore_Mvc_Razor_RazorPage_Context) görünümü özelliği.</span><span class="sxs-lookup"><span data-stu-id="42552-109">Razor views expose the `HttpContext` directly via a [RazorPage.Context](/dotnet/api/microsoft.aspnetcore.mvc.razor.razorpage.context#Microsoft_AspNetCore_Mvc_Razor_RazorPage_Context) property on the view.</span></span> <span data-ttu-id="42552-110">Aşağıdaki örnek, Windows kimlik doğrulaması kullanarak bir Intranet uygulaması geçerli kullanıcı adını alır:</span><span class="sxs-lookup"><span data-stu-id="42552-110">The following example retrieves the current username in an Intranet app using Windows Authentication:</span></span>
 
 ```cshtml
 @{
@@ -47,9 +47,9 @@ public class AboutModel : PageModel
 }
 ```
 
-## <a name="use-httpcontext-from-a-controller"></a><span data-ttu-id="8b4cd-111">Bir denetleyiciden HttpContext kullanın</span><span class="sxs-lookup"><span data-stu-id="8b4cd-111">Use HttpContext from a controller</span></span>
+## <a name="use-httpcontext-from-a-controller"></a><span data-ttu-id="42552-111">Bir denetleyiciden HttpContext kullanın</span><span class="sxs-lookup"><span data-stu-id="42552-111">Use HttpContext from a controller</span></span>
 
-<span data-ttu-id="8b4cd-112">Denetleyicileri sunmaya [ControllerBase.HttpContext](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.httpcontext) özelliği:</span><span class="sxs-lookup"><span data-stu-id="8b4cd-112">Controllers expose the [ControllerBase.HttpContext](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.httpcontext) property:</span></span>
+<span data-ttu-id="42552-112">Denetleyicileri sunmaya [ControllerBase.HttpContext](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.httpcontext) özelliği:</span><span class="sxs-lookup"><span data-stu-id="42552-112">Controllers expose the [ControllerBase.HttpContext](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.httpcontext) property:</span></span>
 
 ```csharp
 public class HomeController : Controller
@@ -64,9 +64,9 @@ public class HomeController : Controller
 }
 ```
 
-## <a name="use-httpcontext-from-middleware"></a><span data-ttu-id="8b4cd-113">Ara yazılımı HttpContext kullanın</span><span class="sxs-lookup"><span data-stu-id="8b4cd-113">Use HttpContext from middleware</span></span>
+## <a name="use-httpcontext-from-middleware"></a><span data-ttu-id="42552-113">Ara yazılımı HttpContext kullanın</span><span class="sxs-lookup"><span data-stu-id="42552-113">Use HttpContext from middleware</span></span>
 
-<span data-ttu-id="8b4cd-114">Özel bir ara yazılım bileşenleri ile çalışırken `HttpContext` yöntemlere geçirilen `Invoke` veya `InvokeAsync` yöntemi ve ara yazılım yapılandırıldığında erişilebilir:</span><span class="sxs-lookup"><span data-stu-id="8b4cd-114">When working with custom middleware components, `HttpContext` is passed into the `Invoke` or `InvokeAsync` method and can be accessed when the middleware is configured:</span></span>
+<span data-ttu-id="42552-114">Özel bir ara yazılım bileşenleri ile çalışırken `HttpContext` yöntemlere geçirilen `Invoke` veya `InvokeAsync` yöntemi ve ara yazılım yapılandırıldığında erişilebilir:</span><span class="sxs-lookup"><span data-stu-id="42552-114">When working with custom middleware components, `HttpContext` is passed into the `Invoke` or `InvokeAsync` method and can be accessed when the middleware is configured:</span></span>
 
 ```csharp
 public class MyCustomMiddleware
@@ -78,9 +78,9 @@ public class MyCustomMiddleware
 }
 ```
 
-## <a name="use-httpcontext-from-custom-components"></a><span data-ttu-id="8b4cd-115">HttpContext özel bileşenlerini kullanma</span><span class="sxs-lookup"><span data-stu-id="8b4cd-115">Use HttpContext from custom components</span></span>
+## <a name="use-httpcontext-from-custom-components"></a><span data-ttu-id="42552-115">HttpContext özel bileşenlerini kullanma</span><span class="sxs-lookup"><span data-stu-id="42552-115">Use HttpContext from custom components</span></span>
 
-<span data-ttu-id="8b4cd-116">Diğer framework ve erişim gerektiren özel bileşenler için `HttpContext`, yerleşik kullanarak System.Data.sqlclient'ı bağımlılık kaydetmek için önerilen yaklaşımdır [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcı.</span><span class="sxs-lookup"><span data-stu-id="8b4cd-116">For other framework and custom components that require access to `HttpContext`, the recommended approach is to register a dependency using the built-in [dependency injection](xref:fundamentals/dependency-injection) container.</span></span> <span data-ttu-id="8b4cd-117">Bağımlılık ekleme kapsayıcısını kaynakları `IHttpContextAccessor` bağımlılık olarak oluşturucuları bildirme herhangi sınıflar.</span><span class="sxs-lookup"><span data-stu-id="8b4cd-117">The dependency injection container supplies the `IHttpContextAccessor` to any classes that declare it as a dependency in their constructors.</span></span>
+<span data-ttu-id="42552-116">Diğer framework ve erişim gerektiren özel bileşenler için `HttpContext`, yerleşik kullanarak System.Data.sqlclient'ı bağımlılık kaydetmek için önerilen yaklaşımdır [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcı.</span><span class="sxs-lookup"><span data-stu-id="42552-116">For other framework and custom components that require access to `HttpContext`, the recommended approach is to register a dependency using the built-in [dependency injection](xref:fundamentals/dependency-injection) container.</span></span> <span data-ttu-id="42552-117">Bağımlılık ekleme kapsayıcısını kaynakları `IHttpContextAccessor` bağımlılık olarak oluşturucuları bildirme herhangi sınıflar.</span><span class="sxs-lookup"><span data-stu-id="42552-117">The dependency injection container supplies the `IHttpContextAccessor` to any classes that declare it as a dependency in their constructors.</span></span>
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -109,10 +109,10 @@ public void ConfigureServices(IServiceCollection services)
 
 ::: moniker-end
 
-<span data-ttu-id="8b4cd-118">Aşağıdaki örnekte:</span><span class="sxs-lookup"><span data-stu-id="8b4cd-118">In the following example:</span></span>
+<span data-ttu-id="42552-118">Aşağıdaki örnekte:</span><span class="sxs-lookup"><span data-stu-id="42552-118">In the following example:</span></span>
 
-* <span data-ttu-id="8b4cd-119">`UserRepository` üzerinde bağımlılık bildirir `IHttpContextAccessor`.</span><span class="sxs-lookup"><span data-stu-id="8b4cd-119">`UserRepository` declares its dependency on `IHttpContextAccessor`.</span></span>
-* <span data-ttu-id="8b4cd-120">Bağımlılık ekleme bağımlılık zincirinden çözümler ve bir örneğini oluşturur, bağımlılık sağlanan `UserRepository`.</span><span class="sxs-lookup"><span data-stu-id="8b4cd-120">The dependency is supplied when dependency injection resolves the dependency chain and creates an instance of `UserRepository`.</span></span>
+* <span data-ttu-id="42552-119">`UserRepository` üzerinde bağımlılık bildirir `IHttpContextAccessor`.</span><span class="sxs-lookup"><span data-stu-id="42552-119">`UserRepository` declares its dependency on `IHttpContextAccessor`.</span></span>
+* <span data-ttu-id="42552-120">Bağımlılık ekleme bağımlılık zincirinden çözümler ve bir örneğini oluşturur, bağımlılık sağlanan `UserRepository`.</span><span class="sxs-lookup"><span data-stu-id="42552-120">The dependency is supplied when dependency injection resolves the dependency chain and creates an instance of `UserRepository`.</span></span>
 
 ```csharp
 public class UserRepository : IUserRepository
@@ -132,19 +132,19 @@ public class UserRepository : IUserRepository
 }
 ```
 
-## <a name="httpcontext-access-from-a-background-thread"></a><span data-ttu-id="8b4cd-121">Arka plan iş parçacığından HttpContext erişim</span><span class="sxs-lookup"><span data-stu-id="8b4cd-121">HttpContext access from a background thread</span></span>
+## <a name="httpcontext-access-from-a-background-thread"></a><span data-ttu-id="42552-121">Arka plan iş parçacığından HttpContext erişim</span><span class="sxs-lookup"><span data-stu-id="42552-121">HttpContext access from a background thread</span></span>
 
-<span data-ttu-id="8b4cd-122">`HttpContext` iş parçacığı açısından güvenli değildir.</span><span class="sxs-lookup"><span data-stu-id="8b4cd-122">`HttpContext` is not thread-safe.</span></span> <span data-ttu-id="8b4cd-123">Okuma veya yazma özelliklerinin `HttpContext` bir isteği işlerken dışında neden olabilir bir `NullReferenceException`.</span><span class="sxs-lookup"><span data-stu-id="8b4cd-123">Reading or writing properties of the `HttpContext` outside of processing a request can result in a `NullReferenceException`.</span></span>
+<span data-ttu-id="42552-122">`HttpContext` iş parçacığı açısından güvenli değildir.</span><span class="sxs-lookup"><span data-stu-id="42552-122">`HttpContext` is not thread-safe.</span></span> <span data-ttu-id="42552-123">Okuma veya yazma özelliklerinin `HttpContext` bir isteği işlerken dışında neden olabilir bir `NullReferenceException`.</span><span class="sxs-lookup"><span data-stu-id="42552-123">Reading or writing properties of the `HttpContext` outside of processing a request can result in a `NullReferenceException`.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="8b4cd-124">Kullanarak `HttpContext` genellikle bir isteğin işlenmesinin dışında sonuçlanır bir `NullReferenceException`.</span><span class="sxs-lookup"><span data-stu-id="8b4cd-124">Using `HttpContext` outside of processing a request often results in a `NullReferenceException`.</span></span> <span data-ttu-id="8b4cd-125">Uygulamanız kullanımın oluşturuyorsa `NullReferenceException`s, kodun arka plan işlemesi başlatın veya bir istek tamamlandıktan sonra işleme devam gözden geçirme bölümleri.</span><span class="sxs-lookup"><span data-stu-id="8b4cd-125">If your app generates sporadic `NullReferenceException`s , review parts of the code that start background processing, or that continue processing after a request completes.</span></span> <span data-ttu-id="8b4cd-126">Bir denetleyici yöntemi olarak tanımlama gibi bir hataları arayın `async void`.</span><span class="sxs-lookup"><span data-stu-id="8b4cd-126">Look for a mistakes like defining a controller method as `async void`.</span></span>
+> <span data-ttu-id="42552-124">Kullanarak `HttpContext` genellikle bir isteğin işlenmesinin dışında sonuçlanır bir `NullReferenceException`.</span><span class="sxs-lookup"><span data-stu-id="42552-124">Using `HttpContext` outside of processing a request often results in a `NullReferenceException`.</span></span> <span data-ttu-id="42552-125">Uygulamanız kullanımın oluşturuyorsa `NullReferenceException`s, kodun arka plan işlemesi başlatın veya bir istek tamamlandıktan sonra işleme devam gözden geçirme bölümleri.</span><span class="sxs-lookup"><span data-stu-id="42552-125">If your app generates sporadic `NullReferenceException`s , review parts of the code that start background processing, or that continue processing after a request completes.</span></span> <span data-ttu-id="42552-126">Bir denetleyici yöntemi olarak tanımlama gibi bir hataları arayın `async void`.</span><span class="sxs-lookup"><span data-stu-id="42552-126">Look for a mistakes like defining a controller method as `async void`.</span></span>
 
-<span data-ttu-id="8b4cd-127">Arka plan işleri ile güvenli bir şekilde gerçekleştirmek için `HttpContext` veri:</span><span class="sxs-lookup"><span data-stu-id="8b4cd-127">To safely perform background work with `HttpContext` data:</span></span>
+<span data-ttu-id="42552-127">Arka plan işleri ile güvenli bir şekilde gerçekleştirmek için `HttpContext` veri:</span><span class="sxs-lookup"><span data-stu-id="42552-127">To safely perform background work with `HttpContext` data:</span></span>
 
-* <span data-ttu-id="8b4cd-128">İstek işlenirken gerekli verileri kopyalayın.</span><span class="sxs-lookup"><span data-stu-id="8b4cd-128">Copy the required data during request processing.</span></span>
-* <span data-ttu-id="8b4cd-129">Kopyalanan veriler için bir arka plan görevi geçirin.</span><span class="sxs-lookup"><span data-stu-id="8b4cd-129">Pass the copied data to a background task.</span></span>
+* <span data-ttu-id="42552-128">İstek işlenirken gerekli verileri kopyalayın.</span><span class="sxs-lookup"><span data-stu-id="42552-128">Copy the required data during request processing.</span></span>
+* <span data-ttu-id="42552-129">Kopyalanan veriler için bir arka plan görevi geçirin.</span><span class="sxs-lookup"><span data-stu-id="42552-129">Pass the copied data to a background task.</span></span>
 
-<span data-ttu-id="8b4cd-130">Güvenli olmayan kod önlemek için hiçbir zaman geçmesi `HttpContext` çalışma - arka planda bir yönteme ihtiyacınız bunun yerine verileri geçirin.</span><span class="sxs-lookup"><span data-stu-id="8b4cd-130">To avoid unsafe code, never pass the `HttpContext` into a method that does background work - pass the data you need instead.</span></span>
+<span data-ttu-id="42552-130">Güvenli olmayan kod önlemek için hiçbir zaman geçmesi `HttpContext` çalışma - arka planda bir yönteme ihtiyacınız bunun yerine verileri geçirin.</span><span class="sxs-lookup"><span data-stu-id="42552-130">To avoid unsafe code, never pass the `HttpContext` into a method that does background work - pass the data you need instead.</span></span>
 
 ```csharp
 public class EmailController
@@ -163,4 +163,3 @@ public class EmailController
         // send the email
     }
 }
-
