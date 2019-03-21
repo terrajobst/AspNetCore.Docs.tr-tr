@@ -5,24 +5,24 @@ description: ASP.NET Core 2.0 yenilikleri hakkında bilgi edinin.
 ms.author: riande
 ms.date: 07/10/2017
 uid: aspnetcore-2.0
-ms.openlocfilehash: a6d3179c84bfef0b15c2772e696466b88d228de5
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 60e44e64bd1cfada0143e374f6f51dec0e4e84f8
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207127"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209891"
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>ASP.NET Core 2.0 yenilikleri
 
 Bu makalede, ASP.NET Core 2. 0'da, en önemli değişiklikler ile ilgili belgelere bağlantılar vurgulanır.
 
-## <a name="razor-pages"></a>Razor sayfaları
+## <a name="razor-pages"></a>Razor Pages
 
 Razor sayfaları, ASP.NET Core MVC sayfası odaklı senaryolar daha kolay ve daha üretken kodlama sağlayan, yeni bir özelliktir.
 
 Daha fazla bilgi için giriş ve öğreticiye bakın:
 
-* [Razor sayfaları giriş](xref:razor-pages/index)
+* [Razor Pages’e giriş](xref:razor-pages/index)
 * [Razor Sayfaları kullanmaya başlama](xref:tutorials/razor-pages/razor-pages-start)
 
 ## <a name="aspnet-core-metapackage"></a>ASP.NET Core metapackage
@@ -37,7 +37,7 @@ Kullanan uygulamalar `Microsoft.AspNetCore.All` metapackage otomatik olarak yeni
 
 Daha fazla bilgi için [çalışma zamanı deposu](/dotnet/core/deploying/runtime-store)
 
-## <a name="net-standard-20"></a>.NET standard 2.0
+## <a name="net-standard-20"></a>.NET Standard 2.0
 
 ASP.NET Core 2.0 paketleri .NET Standard 2.0 hedefleyin. Paketleri diğer .NET Standard 2.0 kitaplıkları tarafından başvurulabilir ve .NET, .NET Core 2.0 ve .NET Framework 4.6.1 dahil olmak üzere, .NET Standard 2.0 uyumlu uygulamalar üzerinde çalıştırabilirler. 
 
@@ -81,9 +81,9 @@ Tek sayfa uygulama (SPA) proje şablonları Angular, Aurelia Knockout.js React.j
 
 Kestrel'i web sunucusu, Internet'e yönelik olarak daha uygun hale getiren yeni özelliklere sahiptir. İçinde sunucu kısıtlaması yapılandırma seçeneklerinin bir sayı eklenir `KestrelServerOptions` sınıf yeni `Limits` özelliği. Aşağıdaki sınırlar ekleyin:
 
-- En fazla istemci bağlantısı
-- En fazla istek gövdesi boyutu
-- En az bir istek gövdesi veri hızı
+* En fazla istemci bağlantısı
+* En fazla istek gövdesi boyutu
+* En az bir istek gövdesi veri hızı
 
 Daha fazla bilgi için [Kestrel web sunucusu uygulaması ASP.NET core'da](xref:fundamentals/servers/kestrel).
 
