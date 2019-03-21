@@ -5,12 +5,6 @@ description: ASP.NET Core.web için geçirme mevcut ASP.NET MVC veya Web API uyg
 ms.author: scaddie
 ms.date: 12/11/2018
 uid: migration/proper-to-2x/index
-ms.openlocfilehash: a9eef832a68afa1a73e3c7c545378da190602ce2
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284402"
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core"></a>ASP.NET'ten ASP.NET Core geçişi
 
@@ -66,10 +60,10 @@ ASP.NET Core, benzer bir yaklaşım kullanır, ancak giriş işlemek için OWIN 
 
 `Startup` içermelidir bir `Configure` yöntemi. İçinde `Configure`, gerekli bir ara yazılım ardışık düzenine ekleyin. (Şablondan varsayılan web sitesi) aşağıdaki örnekte, genişletme yöntemleri için destek ile işlem hattı yapılandırın:
 
-* Hata sayfaları
-* HTTP katı aktarım güvenliği
-* HTTPS için HTTP yeniden yönlendirmesi
-* ASP.NET Core MVC
+- Hata sayfaları
+- HTTP katı aktarım güvenliği
+- HTTPS için HTTP yeniden yönlendirmesi
+- ASP.NET Core MVC
 
 [!code-csharp[](samples/startup.cs)]
 
@@ -118,15 +112,15 @@ ASP.NET uygulamalarında bağımlılık ekleme uygulamak için bir üçüncü ta
 
 Unity ile bağımlılık ekleme ayarlama örneği uygulama `IDependencyResolver` sonuna geldik bir `UnityContainer`:
 
-[!code-csharp[](../../../aspnet/web-api/overview/advanced/dependency-injection/samples/sample8.cs)]
+[!code-csharp[](samples/sample8.cs)]
 
 Öğesinin bir örneğini oluşturur, `UnityContainer`, hizmetinizi kaydedin ve bağımlılık çözümleyicisini ayarlamak `HttpConfiguration` için yeni bir örneğini `UnityResolver` kapsayıcınız için:
 
-[!code-csharp[](../../../aspnet/web-api/overview/advanced/dependency-injection/samples/sample9.cs)]
+[!code-csharp[](samples/sample9.cs)]
 
 Ekleme `IProductRepository` gerektiğinde:
 
-[!code-csharp[](../../../aspnet/web-api/overview/advanced/dependency-injection/samples/sample5.cs)]
+[!code-csharp[](samples/sample5.cs)]
 
 Bağımlılık ekleme ASP.NET Core parçası olduğundan, hizmetinizde ekleyebilirsiniz `ConfigureServices` yöntemi *Startup.cs*:
 

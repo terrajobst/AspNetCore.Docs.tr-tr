@@ -531,8 +531,6 @@ Aşırı yüklemeler belirtme izin ver:
 * Yoksa dosyayı değiştirirse yapılandırma yeniden yüklendi.
 * <xref:Microsoft.Extensions.FileProviders.IFileProvider> Dosyaya erişmek için kullanılır.
 
-
-
 `AddJsonFile` Yeni bir başlattığınızda iki kez otomatik olarak çağrılır <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> ile <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*>. Yöntem yapılandırmasından yüklenemedi çağrılır:
 
 * *appSettings.JSON* &ndash; bu dosyayı ilk okuyun. Dosyanın ortam sürümü tarafından sağlanan değerleri geçersiz kılabilir *appsettings.json* dosya.

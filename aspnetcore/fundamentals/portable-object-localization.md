@@ -5,12 +5,12 @@ description: Bu makalede, taşınabilir nesne dosyaları tanıtır ve bunları O
 ms.author: scaddie
 ms.date: 09/26/2017
 uid: fundamentals/portable-object-localization
-ms.openlocfilehash: c9f892f5a886d7167b4705595ed2277279495201
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 466759b30e756a7cac8abab7352025df0462bb6f
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207634"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58210099"
 ---
 # <a name="configure-portable-object-localization-in-aspnet-core"></a>ASP.NET Core taşınabilir nesne yerelleştirmesi yapılandırma
 
@@ -18,7 +18,7 @@ Tarafından [Sébastien Ros](https://github.com/sebastienros) ve [Scott Addie](h
 
 Bu makale, bir ASP.NET Core uygulaması ile taşınabilir nesne (SAS) dosyalarında kullanma adımları size [Orchard Core](https://github.com/OrchardCMS/OrchardCore) framework.
 
-**Not:** Orchard Core bir Microsoft ürünü değil. Sonuç olarak, Microsoft bu özellik için destek sağlar.
+**Not:** Orchard Core Microsoft Ürün değildir. Sonuç olarak, Microsoft bu özellik için destek sağlar.
 
 [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/localization/sample/POLocalization) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
@@ -91,7 +91,7 @@ Bir `IViewLocalizer` örneği eklenen ve "Hello world!" metni çevirmek için ku
 
 ### <a name="creating-a-po-file"></a>Bir SAS dosyası oluşturma
 
-Adlı bir dosya oluşturun  *<culture code>.po* uygulama kök klasörünüzde. Bu örnekte, dosya adı olan *fr.po* Fransızca Dil kullanılır çünkü:
+Adlı bir dosya oluşturun  *\<kültür kodu > .po* uygulama kök klasörünüzde. Bu örnekte, dosya adı olan *fr.po* Fransızca Dil kullanılır çünkü:
 
 [!code-text[](localization/sample/POLocalization/fr.po)]
 
@@ -153,7 +153,7 @@ Düzen *Views/Home/About.cshtml* yerelleştirilmiş, plural dizeler için birden
 <p>@Localizer.Plural(5, "There is one item.", "There are {0} items.")</p>
 ```
 
-**Not:** gerçek hayattaki bir senaryoda, bir değişken sayısı temsil etmek için kullanılacak. Burada, aynı kodu belirli bir servis talebi göstermek için üç farklı değerlerle tekrarlayın.
+**Not:** Gerçek hayattaki bir senaryoda, bir değişken sayısı temsil etmek için kullanılacak. Burada, aynı kodu belirli bir servis talebi göstermek için üç farklı değerlerle tekrarlayın.
 
 Kültürler geçiş sırasında aşağıdakilere bakın:
 

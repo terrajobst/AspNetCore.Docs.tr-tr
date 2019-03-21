@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/30/2018
 uid: tutorials/get-started-with-nswag
-ms.openlocfilehash: c03e7513edc3240f3f13f0c190e1ca9480e476af
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: 43f0f04ae63f4e74d8de6001a4a7518e4eb23d77
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54098738"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209154"
 ---
 # <a name="get-started-with-nswag-and-aspnet-core"></a>NSwag ve ASP.NET Core ile çalışmaya başlama
 
@@ -31,8 +31,8 @@ Tarafından [Christoph Nienaber](https://twitter.com/zuckerthoben), [Riko Suter]
 
 NSwag aşağıdaki özellikleri sunar:
 
- * Swagger kullanıcı arabirimini ve Swagger kullanmaya özelliği Oluşturucu.
- * Esnek kod oluşturma özellikleri.
+* Swagger kullanıcı arabirimini ve Swagger kullanmaya özelliği Oluşturucu.
+* Esnek kod oluşturma özellikleri.
 
 NSwag kullanmaya, mevcut bir API'ye ihtiyacınız olmayan&mdash;Swagger birleştirmek ve bir istemci uygulaması oluşturacak üçüncü taraf API'leri kullanabilirsiniz. NSwag geliştirme döngüsü hızlandırmak ve API değişiklikleri kolayca uyum sağlar.
 
@@ -40,8 +40,8 @@ NSwag kullanmaya, mevcut bir API'ye ihtiyacınız olmayan&mdash;Swagger birleşt
 
 NSwag Ara yazılımıyla kaydedin:
 
- * Uygulanan web API'si için Swagger belirtimi oluşturur.
- * Swagger göz atın ve web API'si test etmek için kullanıcı Arabirimi işlevi görür.
+* Uygulanan web API'si için Swagger belirtimi oluşturur.
+* Swagger göz atın ve web API'si test etmek için kullanıcı Arabirimi işlevi görür.
 
 Kullanılacak [NSwag](https://github.com/RSuter/NSwag) ASP.NET Core ara yazılım, yükleme [NSwag.AspNetCore](https://www.nuget.org/packages/NSwag.AspNetCore/) NuGet paketi. Bu paket oluşturmak ve Swagger belirtimi, hizmet için bir ara yazılım içeren Swagger kullanıcı arabirimini (v2 ve v3) ve [ReDoc UI](https://github.com/Rebilly/ReDoc).
 
@@ -101,33 +101,32 @@ dotnet add TodoApi.csproj package NSwag.AspNetCore
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.NSwag/Startup.cs?name=snippet_ConfigureServices&highlight=8)]
 
- * İçinde `Configure` yöntemi, oluşturulan Swagger belirtimi ve Swagger kullanıcı arabirimini sunulması için Ara yazılımlarını etkinleştir:
+* İçinde `Configure` yöntemi, oluşturulan Swagger belirtimi ve Swagger kullanıcı arabirimini sunulması için Ara yazılımlarını etkinleştir:
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.NSwag/Startup.cs?name=snippet_Configure&highlight=6-7)]
 
- * Uygulamayı başlatın. Şuraya gidin:
-   * `http://localhost:<port>/swagger` Swagger kullanıcı arabirimini görüntülemek için.
-   * `http://localhost:<port>/swagger/v1/swagger.json` Swagger belirtimi görüntülemek için.
+* Uygulamayı başlatın. Şuraya gidin:
+  * `http://localhost:<port>/swagger` Swagger kullanıcı arabirimini görüntülemek için.
+  * `http://localhost:<port>/swagger/v1/swagger.json` Swagger belirtimi görüntülemek için.
 
 ## <a name="code-generation"></a>Kod oluşturma
 
 Aşağıdaki seçeneklerden birini seçerek NSwag'ın kod oluşturma özelliklerinden gerçekleştirebilirsiniz:
 
- * [NSwagStudio](https://github.com/NSwag/NSwag/wiki/NSwagStudio) &ndash; API İstemci kodu oluşturmak için bir Windows masaüstü uygulaması C# veya TypeScript.
- * [NSwag.CodeGeneration.CSharp](https://www.nuget.org/packages/NSwag.CodeGeneration.CSharp/) veya [NSwag.CodeGeneration.TypeScript](https://www.nuget.org/packages/NSwag.CodeGeneration.TypeScript/) NuGet paketlerini projenize içinde kod oluşturma için.
+* [NSwagStudio](https://github.com/NSwag/NSwag/wiki/NSwagStudio) &ndash; API İstemci kodu oluşturmak için bir Windows masaüstü uygulaması C# veya TypeScript.
+* [NSwag.CodeGeneration.CSharp](https://www.nuget.org/packages/NSwag.CodeGeneration.CSharp/) veya [NSwag.CodeGeneration.TypeScript](https://www.nuget.org/packages/NSwag.CodeGeneration.TypeScript/) NuGet paketlerini projenize içinde kod oluşturma için.
 * NSwag gelen [komut satırı](https://github.com/NSwag/NSwag/wiki/CommandLine).
- * [NSwag.MSBuild](https://github.com/NSwag/NSwag/wiki/MSBuild) NuGet paketi.
-
+* [NSwag.MSBuild](https://github.com/NSwag/NSwag/wiki/MSBuild) NuGet paketi.
 
 ### <a name="generate-code-with-nswagstudio"></a>NSwagStudio ile kodu oluştur
 
 * Yönergeleri izleyerek NSwagStudio yükleme [NSwagStudio GitHub deposu](https://github.com/RSuter/NSwag/wiki/NSwagStudio).
- * NSwagStudio başlatın ve girin *swagger.json* URL'SİNDE dosya **Swagger belirtimi URL'si** metin kutusu. Örneğin, *http://localhost:44354/swagger/v1/swagger.json*.
+* NSwagStudio başlatın ve girin *swagger.json* URL'SİNDE dosya **Swagger belirtimi URL'si** metin kutusu. Örneğin, *http://localhost:44354/swagger/v1/swagger.json*.
 * Tıklayın **yerel kopya oluşturmak** , Swagger belirtimi JSON temsilini üretmek için düğme.
 
   ![Swagger belirtimi yerel kopyasını oluşturma](web-api-help-pages-using-swagger/_static/CreateLocalCopy-NSwagStudio.PNG)
 
- * İçinde **çıkışları** alanı tıklayın **CSharp istemci** onay kutusu. Projenize bağlı olarak ayrıca seçebilirsiniz **TypeScript istemci** veya **CSharp Web API denetleyicisi**. Seçerseniz **CSharp Web API denetleyicisi**, geriye doğru bir nesil olarak hizmet veren hizmet, hizmet belirtimi oluşturur.
+* İçinde **çıkışları** alanı tıklayın **CSharp istemci** onay kutusu. Projenize bağlı olarak ayrıca seçebilirsiniz **TypeScript istemci** veya **CSharp Web API denetleyicisi**. Seçerseniz **CSharp Web API denetleyicisi**, geriye doğru bir nesil olarak hizmet veren hizmet, hizmet belirtimi oluşturur.
 * Tıklayın **Oluştur çıkışları** tam üretmek için C# istemci uygulaması *TodoApi.NSwag* proje. Oluşturulan istemci kodu görmek için tıklayın **CSharp istemci** sekmesinde:
 
 ```csharp
@@ -142,24 +141,24 @@ namespace MyNamespace
     #pragma warning disable
 
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "12.0.9.0 (NJsonSchema v9.13.10.0 (Newtonsoft.Json v11.0.0.0))")]
-    public partial class TodoClient 
+    public partial class TodoClient
     {
         private string _baseUrl = "https://localhost:44354";
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
-    
+
         public TodoClient(System.Net.Http.HttpClient httpClient)
         {
-            _httpClient = httpClient; 
-            _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
+            _httpClient = httpClient;
+            _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() =>
             {
                 var settings = new Newtonsoft.Json.JsonSerializerSettings();
                 UpdateJsonSerializerSettings(settings);
                 return settings;
             });
         }
-    
-        public string BaseUrl 
+
+        public string BaseUrl
         {
             get { return _baseUrl; }
             set { _baseUrl = value; }
@@ -169,9 +168,9 @@ namespace MyNamespace
 ```
 
 > [!TIP]
- > C# İstemci kodu seçimleri göre oluşturulan **ayarları** sekmesi. Varsayılan ad alanı yeniden adlandırma ve zaman uyumlu yöntemi oluşturma gibi görevleri gerçekleştirmek için ayarları değiştirin.
+> C# İstemci kodu seçimleri göre oluşturulan **ayarları** sekmesi. Varsayılan ad alanı yeniden adlandırma ve zaman uyumlu yöntemi oluşturma gibi görevleri gerçekleştirmek için ayarları değiştirin.
 
- * Oluşturulan kopyalama C# API'yi kullanacak istemci projesindeki bir dosyaya kod.
+* Oluşturulan kopyalama C# API'yi kullanacak istemci projesindeki bir dosyaya kod.
 * Web API'sini kullanan başlatın:
 
 ```csharp
@@ -263,13 +262,13 @@ El ile vurgulanan satırları ekleyin *.csproj* dosyası:
 
 ::: moniker range="<= aspnetcore-2.0"
 
- NSwag kullandığından [yansıma](/dotnet/csharp/programming-guide/concepts/reflection), ve önerilen dönüş türü için web API eylemlerini [IActionResult](xref:Microsoft.AspNetCore.Mvc.IActionResult), eyleminiz ne yaptığını ve hangi döndürür çıkarsanamıyor.
+NSwag kullandığından [yansıma](/dotnet/csharp/programming-guide/concepts/reflection), ve önerilen dönüş türü için web API eylemlerini [IActionResult](xref:Microsoft.AspNetCore.Mvc.IActionResult), eyleminiz ne yaptığını ve hangi döndürür çıkarsanamıyor.
 
 Aşağıdaki örnek göz önünde bulundurun:
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.NSwag/Controllers/TodoController.cs?name=snippet_CreateAction)]
 
- Önceki eylemi döndürür `IActionResult`, ancak eylemi içinde ya da döndürmektir [CreatedAtRoute](xref:System.Web.Http.ApiController.CreatedAtRoute*) veya [BadRequest](xref:System.Web.Http.ApiController.BadRequest*). Veri ek açıklamaları, istemciler bu eylem geri dönmek için bilinen hangi HTTP durum kodları bildirmek için kullanın. Aşağıdaki özniteliklerle eylem süslemek:
+Önceki eylemi döndürür `IActionResult`, ancak eylemi içinde ya da döndürmektir [CreatedAtRoute](xref:System.Web.Http.ApiController.CreatedAtRoute*) veya [BadRequest](xref:System.Web.Http.ApiController.BadRequest*). Veri ek açıklamaları, istemciler bu eylem geri dönmek için bilinen hangi HTTP durum kodları bildirmek için kullanın. Aşağıdaki özniteliklerle eylem süslemek:
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.NSwag/Controllers/TodoController.cs?name=snippet_CreateActionAttributes)]
 
@@ -277,7 +276,7 @@ Aşağıdaki örnek göz önünde bulundurun:
 
 ::: moniker range=">= aspnetcore-2.1"
 
- NSwag kullandığından [yansıma](/dotnet/csharp/programming-guide/concepts/reflection), ve önerilen dönüş türü için web API eylemlerini [actionresult öğesini\<T >](xref:Microsoft.AspNetCore.Mvc.ActionResult`1), dönüş türü tarafından tanımlanan yalnızca çıkarımını `T`. Otomatik olarak diğer olası dönüş türü çıkarsanamıyor. 
+NSwag kullandığından [yansıma](/dotnet/csharp/programming-guide/concepts/reflection), ve önerilen dönüş türü için web API eylemlerini [actionresult öğesini\<T >](xref:Microsoft.AspNetCore.Mvc.ActionResult`1), dönüş türü tarafından tanımlanan yalnızca çıkarımını `T`. Otomatik olarak diğer olası dönüş türü çıkarsanamıyor.
 
 Aşağıdaki örnek göz önünde bulundurun:
 
@@ -291,6 +290,6 @@ ASP.NET Core 2.2 veya sonraki sürümlerde, tek tek eylemlerle açıkça dekoras
 
 ::: moniker-end
 
- Swagger Oluşturucusu artık doğru bir şekilde bu eylem tanımlayabilir ve uç noktası çağrısı yapıldığında ne aldıkları oluşturulan istemciler bildirin. Bir öneri olarak, bu özniteliklere sahip tüm eylemleri süslemek. 
+Swagger Oluşturucusu artık doğru bir şekilde bu eylem tanımlayabilir ve uç noktası çağrısı yapıldığında ne aldıkları oluşturulan istemciler bildirin. Bir öneri olarak, bu özniteliklere sahip tüm eylemleri süslemek.
 
 API eylemlerinizi döndürmelidir HTTP yanıtları hakkında yönergeler için bkz: [RFC 7231 belirtimi](https://tools.ietf.org/html/rfc7231#section-4.3).

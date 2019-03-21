@@ -5,12 +5,12 @@ description: Bu öğreticide yabancı anahtar alanları ve gezinti özellikleri 
 ms.author: riande
 ms.date: 11/15/2017
 uid: data/ef-rp/update-related-data
-ms.openlocfilehash: c3dbfe57a832ba63c5da2f89c0d29e443a1277a7
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: e1407048157fccdbfdd854071a6fbf9785356026
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57345768"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208615"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---update-related-data---7-of-8"></a>ASP.NET core'da - EF çekirdekli Razor sayfaları, ilgili verileri - 7, 8 güncelleştirme
 
@@ -136,9 +136,9 @@ Eğitmenler düzenleme sayfa modeli aşağıdaki kodla güncelleştirin:
 
 Yukarıdaki kod:
 
-- Geçerli alır `Instructor` istekli yükleme için kullanarak veritabanını bir varlıktan `OfficeAssignment` gezinme özelliği.
-- Alınan güncelleştirmeler `Instructor` varlık değerlerle model bağlayıcı. `TryUpdateModel` engeller [overposting](xref:data/ef-rp/crud#overposting).
-- Ofis konumu boş ise, ayarlar `Instructor.OfficeAssignment` null. Zaman `Instructor.OfficeAssignment` null, ilgili satırdaki olan `OfficeAssignment` tablo silinir.
+* Geçerli alır `Instructor` istekli yükleme için kullanarak veritabanını bir varlıktan `OfficeAssignment` gezinme özelliği.
+* Alınan güncelleştirmeler `Instructor` varlık değerlerle model bağlayıcı. `TryUpdateModel` engeller [overposting](xref:data/ef-rp/crud#overposting).
+* Ofis konumu boş ise, ayarlar `Instructor.OfficeAssignment` null. Zaman `Instructor.OfficeAssignment` null, ilgili satırdaki olan `OfficeAssignment` tablo silinir.
 
 ### <a name="update-the-instructor-edit-page"></a>Eğitmen düzenleme sayfası
 

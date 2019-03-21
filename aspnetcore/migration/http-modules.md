@@ -5,12 +5,12 @@ description: ''
 ms.author: tdykstra
 ms.date: 12/07/2016
 uid: migration/http-modules
-ms.openlocfilehash: 601b93fb12ab5b37b7d8ad8fd9825accc6e314cd
-ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
+ms.openlocfilehash: 516230a66ee3edba986c91d79684256aa8e4c994
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56743861"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209852"
 ---
 # <a name="migrate-http-handlers-and-modules-to-aspnet-core-middleware"></a>ASP.NET Core Ara yazılımıyla HTTP işleyicilerini ve modülleri geçirme
 
@@ -26,29 +26,29 @@ ASP.NET Core ara yazılımı için devam etmeden önce şimdi ilk HTTP modüller
 
 **İşleyicileri şunlardır:**
 
-   * Uygulayan sınıflar [IHttpHandler](/dotnet/api/system.web.ihttphandler)
+* Uygulayan sınıflar [IHttpHandler](/dotnet/api/system.web.ihttphandler)
 
-   * Gibi belirli dosya adı veya uzantısı, istekleri işlemek için kullanılan *.report*
+* Gibi belirli dosya adı veya uzantısı, istekleri işlemek için kullanılan *.report*
 
-   * [Yapılandırılmış](/iis/configuration/system.webserver/handlers/) içinde *Web.config*
+* [Yapılandırılmış](/iis/configuration/system.webserver/handlers/) içinde *Web.config*
 
 **Modüller şunlardır:**
 
-   * Uygulayan sınıflar [IHttpModule](/dotnet/api/system.web.ihttpmodule)
+* Uygulayan sınıflar [IHttpModule](/dotnet/api/system.web.ihttpmodule)
 
-   * Her istek için çağrılır
+* Her istek için çağrılır
 
-   * Şunları (bir isteğin diğer işlemleri durdurmak) kısa devre oluşturur
+* Şunları (bir isteğin diğer işlemleri durdurmak) kısa devre oluşturur
 
-   * HTTP yanıtı ekleyin veya kendi oluşturmak için
+* HTTP yanıtı ekleyin veya kendi oluşturmak için
 
-   * [Yapılandırılmış](/iis/configuration/system.webserver/modules/) içinde *Web.config*
+* [Yapılandırılmış](/iis/configuration/system.webserver/modules/) içinde *Web.config*
 
 **Hangi modüllerin gelen istekleri işleme sırası tarafından belirlenir:**
 
-   1. [Uygulama yaşam döngüsü](https://msdn.microsoft.com/library/ms227673.aspx), ASP.NET tarafından tetiklenen bir serisi olayları olduğu: [BeginRequest](/dotnet/api/system.web.httpapplication.beginrequest), [AuthenticateRequest](/dotnet/api/system.web.httpapplication.authenticaterequest), etc. Her modülü, bir veya daha fazla olay işleyicisi oluşturabilirsiniz.
+1. [Uygulama yaşam döngüsü](https://msdn.microsoft.com/library/ms227673.aspx), ASP.NET tarafından tetiklenen bir serisi olayları olduğu: [BeginRequest](/dotnet/api/system.web.httpapplication.beginrequest), [AuthenticateRequest](/dotnet/api/system.web.httpapplication.authenticaterequest), etc. Her modülü, bir veya daha fazla olay işleyicisi oluşturabilirsiniz.
 
-   2. Aynı olay, siparişin, bunlar yapılandırılmış için *Web.config*.
+2. Aynı olay, siparişin, bunlar yapılandırılmış için *Web.config*.
 
 Modüller yanı sıra, yaşam döngüsü olayları için işleyiciler ekleyebilirsiniz, *Global.asax.cs* dosya. Bu işleyiciler, yapılandırılmış modülleri işleyiciler sonra çalıştırın.
 
@@ -56,29 +56,29 @@ Modüller yanı sıra, yaşam döngüsü olayları için işleyiciler ekleyebili
 
 **Ara yazılım HTTP modüller ve işleyiciler basit şunlardır:**
 
-   * Modüller, işleyiciler *Global.asax.cs*, *Web.config* (hariç IIS yapılandırması) ve uygulama yaşam döngüsü kayboldu
+* Modüller, işleyiciler *Global.asax.cs*, *Web.config* (hariç IIS yapılandırması) ve uygulama yaşam döngüsü kayboldu
 
-   * Ara yazılım tarafından devralınırsa hem modüller ve işleyiciler rollerini alınmış
+* Ara yazılım tarafından devralınırsa hem modüller ve işleyiciler rollerini alınmış
 
-   * Ara yazılım, kod kullanarak yapılandırılmış yerine *Web.config*
+* Ara yazılım, kod kullanarak yapılandırılmış yerine *Web.config*
 
-   * [İşlem hattı dallanma](xref:fundamentals/middleware/index#use-run-and-map) yalnızca URL de istek üst bilgileri, sorgu dizeleri, vb. üzerinde dayalı belirli ara yazılımı için istekleri gönderdiğiniz sağlar.
+* [İşlem hattı dallanma](xref:fundamentals/middleware/index#use-run-and-map) yalnızca URL de istek üst bilgileri, sorgu dizeleri, vb. üzerinde dayalı belirli ara yazılımı için istekleri gönderdiğiniz sağlar.
 
 **Ara yazılım modüllerini çok benzer:**
 
-   * Her istek için asıl çağrılır
+* Her istek için asıl çağrılır
 
-   * Bir istek tarafından iki duruma [isteğin sonraki Ara yazılıma geçmiyor.](#http-modules-shortcircuiting-middleware)
+* Bir istek tarafından iki duruma [isteğin sonraki Ara yazılıma geçmiyor.](#http-modules-shortcircuiting-middleware)
 
-   * Kendi HTTP yanıtı oluşturmak için
+* Kendi HTTP yanıtı oluşturmak için
 
 **Ara yazılım ve modülleri farklı bir sırada işlenir:**
 
-   * Ara yazılım sırası içinde eklenir istek ardışık düzende modülleri sırasını çoğunlukla tabanlı çalıştırırken sırasını temel [uygulama yaşam döngüsü](https://msdn.microsoft.com/library/ms227673.aspx) olayları
+* Ara yazılım sırası içinde eklenir istek ardışık düzende modülleri sırasını çoğunlukla tabanlı çalıştırırken sırasını temel [uygulama yaşam döngüsü](https://msdn.microsoft.com/library/ms227673.aspx) olayları
 
-   * Modüller sırasını istekleri ve yanıtları için aynı olsa da Ara yazılım yanıtları için istekleri, tersine sırasıdır
+* Modüller sırasını istekleri ve yanıtları için aynı olsa da Ara yazılım yanıtları için istekleri, tersine sırasıdır
 
-   * Bkz: [IApplicationBuilder ile bir ara yazılım ardışık düzenini oluşturun](xref:fundamentals/middleware/index#create-a-middleware-pipeline-with-iapplicationbuilder)
+* Bkz: [IApplicationBuilder ile bir ara yazılım ardışık düzenini oluşturun](xref:fundamentals/middleware/index#create-a-middleware-pipeline-with-iapplicationbuilder)
 
 ![Ara yazılım](http-modules/_static/middleware.png)
 

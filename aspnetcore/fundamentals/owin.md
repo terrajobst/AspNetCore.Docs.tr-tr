@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 12/18/2018
 uid: fundamentals/owin
-ms.openlocfilehash: 51982c7ebc4f66c2b0b73bf425d9ecbd0bf37826
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: de8548fe2396102fe44a8e6a000b44d4eea63285
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637800"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209943"
 ---
 # <a name="open-web-interface-for-net-owin-with-aspnet-core"></a>ASP.NET Core ile .NET (OWIN) için Web arabirimini açın
 
@@ -256,10 +256,9 @@ OWIN bağımlı bir `IDictionary<string,object>` bir HTTP istek/yanıt exchange 
 | Anahtar               | Değer (tür) | Açıklama |
 | ----------------- | ------------ | ----------- |
 | owin.ResponseStatusCode | `int` | İsteğe Bağlı |
-| owın. ResponseReasonPhrase | `String` | İsteğe Bağlı |
+| owin.ResponseReasonPhrase | `String` | İsteğe Bağlı |
 | owın. ResponseHeaders | `IDictionary<string,string[]>`  | |
 | owın. ResponseBody | `Stream`  | |
-
 
 ### <a name="other-data-owin-v100"></a>Diğer veri (OWIN v1.0.0)
 
@@ -267,7 +266,6 @@ OWIN bağımlı bir `IDictionary<string,object>` bir HTTP istek/yanıt exchange 
 | ----------------- | ------------ | ----------- |
 | owın. CallCancelled | `CancellationToken` |  |
 | owın. Sürüm  | `String` | |   
-
 
 ### <a name="common-keys"></a>Ortak anahtarlar
 
@@ -282,13 +280,11 @@ OWIN bağımlı bir `IDictionary<string,object>` bir HTTP istek/yanıt exchange 
 | Sunucu. IsLocal  | `bool` | |    
 | server.OnSendingHeaders  | `Action<Action<object>,object>` | |
 
-
 ### <a name="sendfiles-v030"></a>SendFiles v0.3.0
 
 | Anahtar               | Değer (tür) | Açıklama |
 | ----------------- | ------------ | ----------- |
 | sendfile. SendAsync | Bkz: [temsilci imzası](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) | İstek başına |
-
 
 ### <a name="opaque-v030"></a>Donuk v0.3.0
 
@@ -298,7 +294,6 @@ OWIN bağımlı bir `IDictionary<string,object>` bir HTTP istek/yanıt exchange 
 | Donuk. Yükseltme | `OpaqueUpgrade` | Bkz: [temsilci imzası](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) |
 | Donuk. Stream | `Stream` |  |
 | Donuk. CallCancelled | `CancellationToken` |  |
-
 
 ### <a name="websocket-v030"></a>WebSocket v0.3.0
 

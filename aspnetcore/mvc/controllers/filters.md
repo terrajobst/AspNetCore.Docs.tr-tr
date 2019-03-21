@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/08/2019
 uid: mvc/controllers/filters
-ms.openlocfilehash: a9081a9938d56b7612bba13937eba384ff02455b
-ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
+ms.openlocfilehash: 4fe04cde2a234302845b2cbded106f1e809842bc
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833741"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209300"
 ---
 # <a name="filters-in-aspnet-core"></a>ASP.NET core'da filtreleri
 
@@ -19,11 +19,11 @@ Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](http
 
 *Filtreler* ASP.NET Core MVC önce veya sonra istek işleme ardışık düzeninde belirli aşamalara kod çalıştırmanıza olanak tanır.
 
- Yerleşik filtreler gibi görevleri işler:
+Yerleşik filtreler gibi görevleri işler:
 
- * Yetkilendirme (bir kullanıcı için yetkili olmayan kaynaklara erişimini engelleme).
- * Tüm istekler için HTTPS kullanmanızı sağlar.
- * Yanıt önbelleğe alma (önbelleğe alınan yanıt döndürmek için istek ardışık düzenini kısa devre). 
+* Yetkilendirme (bir kullanıcı için yetkili olmayan kaynaklara erişimini engelleme).
+* Tüm istekler için HTTPS kullanmanızı sağlar.
+* Yanıt önbelleğe alma (önbelleğe alınan yanıt döndürmek için istek ardışık düzenini kısa devre). 
 
 Özel Filtreler, geniş kapsamlı kritik konular işlemek için oluşturulabilir. Filtreleri, eylemleri arasında kod çoğaltma önleyebilirsiniz. Örneğin, bir hata özel durum filtresi işleme hata işleme birleştirebilir.
 
@@ -373,7 +373,7 @@ Zaman `OnResultExecuted` yöntemi çalıştığında, yanıtı istemciye büyük
 
 `ResultExecutedContext.Exception` Eylem sonucu veya bir sonraki sonuç filtresi bir özel durum oluşturduysa, bir null olmayan değere ayarlanır. Ayar `Exception` için null etkili bir şekilde 'bir özel durum işleme' ve daha sonra işlem hattı, MVC tarafından işlenemezse gelen özel durumu önler. Bir sonuç filtresi bir özel durum işlenirken herhangi bir veri yazma yanıtını mümkün olmayabilir. Eylem sonucu kadar yürütme oluşturur ve üstbilgileri istemciye zaten temizlenmiş, bir hata kodu göndermek için güvenilir bir mekanizma yoktur.
 
-İçin bir `IAsyncResultFilter` çağrısı `await next` üzerinde `ResultExecutionDelegate` herhangi bir sonraki sonuç filtre ve eylem sonucu yürütür. Kısa devre oluşturur, ayarlayın `ResultExecutingContext.Cancel` için doğru ve Remove() çağırmayın `ResultExectionDelegate`.
+İçin bir `IAsyncResultFilter` çağrısı `await next` üzerinde `ResultExecutionDelegate` herhangi bir sonraki sonuç filtre ve eylem sonucu yürütür. Kısa devre oluşturur, ayarlayın `ResultExecutingContext.Cancel` için doğru ve Remove() çağırmayın `ResultExecutionDelegate`.
 
 Bir soyut bir çerçeve sağlar `ResultFilterAttribute` alt olabilir. [AddHeaderAttribute](#add-header-attribute) daha önce gösterilen sınıfı bir sonuç filtre özniteliği örneği verilmiştir.
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 10/14/2016
 uid: web-api/advanced/formatting
-ms.openlocfilehash: 819bf1b49b56e953a9a4398e82866ba0b01ab4db
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: b0fce0632fd2d885cb8e9a056923ec365d2f327d
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207114"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209995"
 ---
 # <a name="format-response-data-in-aspnet-core-web-api"></a>ASP.NET Core Web API'si yanıtı verileri biçimlendirme
 
@@ -129,13 +129,13 @@ services.AddMvc(options =>
 
 XML biçimlendirme desteği ekledikten sonra denetleyici yöntemlerinizi isteğin üzerinde göre uygun biçimde döndürmelidir `Accept` üst bilgisi olarak bu Fiddler örnek gösterir:
 
-![Fiddler konsolu: istek için ham sekme gösterir application/xml Accept üstbilgi değeri. Uygulama/xml Content-Type üstbilgisi değeri ham yanıt sekmesini gösterir.](formatting/_static/xml-response.png)
+![Fiddler konsolu: Ham sekmesini istek için Accept üstbilgi değeri uygulama/xml gösterilir. Uygulama/xml Content-Type üstbilgisi değeri ham yanıt sekmesini gösterir.](formatting/_static/xml-response.png)
 
 Ham GET isteği ile yapılan denetçiler sekmesinde gördüğünüz bir `Accept: application/xml` başlık kümesi. Yanıt bölmesi gösterir `Content-Type: application/xml` başlık ve `Author` nesne, XML'e seri.
 
 Belirtmek için istek değiştirmek için oluşturucu sekmesini kullanın `application/json` içinde `Accept` başlığı. İsteği yürütün ve yanıtı JSON olarak biçimlendirilir:
 
-![Fiddler konsolu: istek için ham sekme gösterir application/json Accept üstbilgi değeri. Uygulama/json Content-Type üstbilgisi değeri ham yanıt sekmesini gösterir.](formatting/_static/json-response-fiddler.png)
+![Fiddler konsolu: İstek için ham sekmesi, uygulama/json Accept üstbilgi değeri gösterir. Uygulama/json Content-Type üstbilgisi değeri ham yanıt sekmesini gösterir.](formatting/_static/json-response-fiddler.png)
 
 Bu ekran görüntüsünde, istek üst bilgisine ayarlar görebilirsiniz `Accept: application/json` ve yanıt aynı belirtir, `Content-Type`. `Author` Nesnesi, JSON biçiminde yanıt gövdesine gösterilir.
 
@@ -180,10 +180,8 @@ public class ProductsController
 
 Bu yol, bir isteğe bağlı dosya uzantısı olarak belirtilmesi istenen biçimi izin verir. `[FormatFilter]` Öznitelik biçimi değeri varlığını denetler `RouteData` ve yanıt oluşturulduğunda yanıt biçimi için uygun bir biçimlendirici eşler.
 
-
 |           yol            |             Biçimlendirici              |
 |----------------------------|------------------------------------|
 |   `/products/GetById/5`    |    Varsayılan çıkış biçimlendirici    |
 | `/products/GetById/5.json` | JSON biçimlendirici (yapılandırılmışsa) |
 | `/products/GetById/5.xml`  | XML biçimlendirici (yapılandırılmışsa)  |
-

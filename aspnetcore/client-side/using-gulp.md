@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 10/04/2018
 uid: client-side/using-gulp
-ms.openlocfilehash: 43277dc5910971374187f49031e74769c9e29e1f
-ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
+ms.openlocfilehash: 9f6d03a1e8a81bceca15cb1e1aa664c22c31e1d3
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57665632"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209878"
 ---
 # <a name="use-gulp-in-aspnet-core"></a>ASP.NET Core Gulp kullanma
 
@@ -86,7 +86,7 @@ gulp.task("min:css", () => {
 });
 
 gulp.task("min", gulp.series(["min:js", "min:css"]));
-    
+
 // A 'default' task is required by Gulp v4
 gulp.task("default", gulp.series(["min"]));
 ```
@@ -108,7 +108,7 @@ Aşağıdaki tabloda, yukarıdaki kodda belirtilen görevlerin bir açıklama sa
 
 Yeni bir Web uygulaması oluşturmadıysanız, Visual Studio'da yeni bir ASP.NET Web uygulaması projesi oluşturun.
 
-1.  Açık *package.json* dosyası (ekleyin Aksi halde var) ve aşağıdakileri ekleyin.
+1. Açık *package.json* dosyası (ekleyin Aksi halde var) ve aşağıdakileri ekleyin.
 
     ```json
     {
@@ -122,71 +122,71 @@ Yeni bir Web uygulaması oluşturmadıysanız, Visual Studio'da yeni bir ASP.NET
     }
     ```
 
-2.  Projenize yeni bir JavaScript dosyası ekleyin ve adlandırın *gulpfile.js*, ardından aşağıdaki kodu kopyalayın.
+2. Projenize yeni bir JavaScript dosyası ekleyin ve adlandırın *gulpfile.js*, ardından aşağıdaki kodu kopyalayın.
 
     ```javascript
     /// <binding Clean='clean' />
     "use strict";
-    
+
     const gulp = require("gulp"),
           rimraf = require("rimraf"),
           concat = require("gulp-concat"),
           cssmin = require("gulp-cssmin"),
           uglify = require("gulp-uglify");
-    
+
     const paths = {
       webroot: "./wwwroot/"
     };
-    
+
     paths.js = paths.webroot + "js/**/*.js";
     paths.minJs = paths.webroot + "js/**/*.min.js";
     paths.css = paths.webroot + "css/**/*.css";
     paths.minCss = paths.webroot + "css/**/*.min.css";
     paths.concatJsDest = paths.webroot + "js/site.min.js";
     paths.concatCssDest = paths.webroot + "css/site.min.css";
-    
+
     gulp.task("clean:js", done => rimraf(paths.concatJsDest, done));
     gulp.task("clean:css", done => rimraf(paths.concatCssDest, done));
     gulp.task("clean", gulp.series(["clean:js", "clean:css"]));
 
     gulp.task("min:js", () => {
       return gulp.src([paths.js, "!" + paths.minJs], { base: "." })
-        .pipe(concat(paths.concatJsDest))
-        .pipe(uglify())
-        .pipe(gulp.dest("."));
+      .pipe(concat(paths.concatJsDest))
+      .pipe(uglify())
+      .pipe(gulp.dest("."));
     });
 
     gulp.task("min:css", () => {
       return gulp.src([paths.css, "!" + paths.minCss])
-        .pipe(concat(paths.concatCssDest))
-        .pipe(cssmin())
-        .pipe(gulp.dest("."));
+      .pipe(concat(paths.concatCssDest))
+      .pipe(cssmin())
+      .pipe(gulp.dest("."));
     });
 
     gulp.task("min", gulp.series(["min:js", "min:css"]));
-    
+
     // A 'default' task is required by Gulp v4
     gulp.task("default", gulp.series(["min"]));
     ```
 
-3.  İçinde **Çözüm Gezgini**, sağ *gulpfile.js*seçip **görev Çalıştırıcı Gezgini**.
-    
+3. İçinde **Çözüm Gezgini**, sağ *gulpfile.js*seçip **görev Çalıştırıcı Gezgini**.
+
     ![Görev Çalıştırıcı Gezgini Çözüm Gezgini'nden açın](using-gulp/_static/02-SolutionExplorer-TaskRunnerExplorer.png)
-    
+
     **Görev Çalıştırıcı Gezgini** Gulp görev listesini gösterir. ('ye tıklamanız gerekebilir **Yenile** proje adının solunda görünen düğme.)
-    
+
     ![Görev Çalıştırıcı Gezgini](using-gulp/_static/03-TaskRunnerExplorer.png)
-    
+
     > [!IMPORTANT]
     > **Görev Çalıştırıcı Gezgini** bağlam menüsü öğesi, yalnızca görünür *gulpfile.js* kök proje dizininde olduğu.
 
-4.  Altındaki **görevleri** içinde **görev Çalıştırıcı Gezgini**, sağ **temiz**seçip **çalıştırma** açılır menüden.
+4. Altındaki **görevleri** içinde **görev Çalıştırıcı Gezgini**, sağ **temiz**seçip **çalıştırma** açılır menüden.
 
     ![Görev Çalıştırıcı Gezgini temizleme görevini](using-gulp/_static/04-TaskRunner-clean.png)
 
     **Görev Çalıştırıcı Gezgini** adlı yeni bir sekme oluşturacak **temiz** ve içinde tanımlanan temizleme görevini yürütün *gulpfile.js*.
 
-5.  Sağ **temiz** görev ve ardından **bağlamaları** > **önce yapı**.
+5. Sağ **temiz** görev ve ardından **bağlamaları** > **önce yapı**.
 
     ![Görev Çalıştırıcı Gezgini BeforeBuild bağlama](using-gulp/_static/05-TaskRunner-BeforeBuild.png)
 
@@ -206,7 +206,7 @@ Artık Visual Studio'da veya bir komut istemi kullanarak proje çalıştırıld�
 
 Yeni Gulp görev tanımlamak için değiştirme *gulpfile.js*.
 
-1.  Aşağıdaki JavaScript sonuna ekleyin *gulpfile.js*:
+1. Aşağıdaki JavaScript sonuna ekleyin *gulpfile.js*:
 
     ```javascript
     gulp.task('first', done => {
@@ -217,11 +217,11 @@ Yeni Gulp görev tanımlamak için değiştirme *gulpfile.js*.
 
     Bu görev adlı `first`, ve yalnızca bir dize görüntüler.
 
-2.  Kaydet *gulpfile.js*.
+2. Kaydet *gulpfile.js*.
 
-3.  İçinde **Çözüm Gezgini**, sağ *gulpfile.js*seçip *görev Çalıştırıcı Gezgini*.
+3. İçinde **Çözüm Gezgini**, sağ *gulpfile.js*seçip *görev Çalıştırıcı Gezgini*.
 
-4.  İçinde **görev Çalıştırıcı Gezgini**, sağ **ilk**seçip **çalıştırma**.
+4. İçinde **görev Çalıştırıcı Gezgini**, sağ **ilk**seçip **çalıştırma**.
 
     ![Görev Çalıştırıcı Gezgini ilk görevi çalıştır](using-gulp/_static/06-TaskRunner-First.png)
 
@@ -231,7 +231,7 @@ Yeni Gulp görev tanımlamak için değiştirme *gulpfile.js*.
 
 Görevler, eşzamanlı olarak birden çok görev çalıştırdığınızda, varsayılan olarak çalışır. Belirli bir sırada görevleri çalıştırmak ihtiyacınız varsa, ancak her görevi de, tamamlandığında belirtmelisiniz hangi görevleri olarak başka bir görev öğesinin tamamlanmasına bağlıdır.
 
-1.  Bir sırada çalıştırılacak görev dizisini tanımlamak için değiştirin `first` , yukarıda eklediğiniz görev *gulpfile.js* aşağıdaki:
+1. Bir sırada çalıştırılacak görev dizisini tanımlamak için değiştirin `first` , yukarıda eklediğiniz görev *gulpfile.js* aşağıdaki:
 
     ```javascript
     gulp.task('series:first', done => {
@@ -240,22 +240,22 @@ Görevler, eşzamanlı olarak birden çok görev çalıştırdığınızda, vars
     });
     gulp.task('series:second', done => {
       console.log('second task! <-----');
-      done(); // signal completion
+        done(); // signal completion
     });
 
     gulp.task('series', gulp.series(['series:first', 'series:second']), () => { });
 
     // A 'default' task is required by Gulp v4
-    gulp.task('default', gulp.series('series'));
+      gulp.task('default', gulp.series('series'));
     ```
- 
+
     Artık üç görev vardır: `series:first`, `series:second`, ve `series`. `series:second` Görevi çalıştırın ve önce tamamlanan görevleri bir dizi belirtir, ikinci bir parametre içeren `series:second` görev çalıştırır. Kodu yalnızca yukarıda belirtildiği gibi `series:first` görevi tamamlandı, önce `series:second` görev çalıştırır.
 
-2.  Kaydet *gulpfile.js*.
+2. Kaydet *gulpfile.js*.
 
-3.  İçinde **Çözüm Gezgini**, sağ *gulpfile.js* seçip **görev Çalıştırıcı Gezgini** zaten açık değilse.
+3. İçinde **Çözüm Gezgini**, sağ *gulpfile.js* seçip **görev Çalıştırıcı Gezgini** zaten açık değilse.
 
-4.  İçinde **görev Çalıştırıcı Gezgini**, sağ **serisi** seçip **çalıştırma**.
+4. İçinde **görev Çalıştırıcı Gezgini**, sağ **serisi** seçip **çalıştırma**.
 
     ![Görev Çalıştırıcı Gezgini serisi görevini Çalıştır](using-gulp/_static/07-TaskRunner-Series.png)
 
@@ -298,27 +298,27 @@ Gulp, istemci tarafı dosyaları hazırlama ve üretim için en iyi duruma getir
 
 Derleme için farklı ortamlar arasında geçiş yapmak için değişiklik **ASPNETCORE_ENVIRONMENT** ortam değişkenin değeri.
 
-1.  İçinde **görev Çalıştırıcı Gezgini**, doğrulayın **min** görev olarak çalıştırmak için ayarlandı **önce yapı**.
+1. İçinde **görev Çalıştırıcı Gezgini**, doğrulayın **min** görev olarak çalıştırmak için ayarlandı **önce yapı**.
 
-2.  İçinde **Çözüm Gezgini**, proje adını sağ tıklatın ve seçin **özellikleri**.
+2. İçinde **Çözüm Gezgini**, proje adını sağ tıklatın ve seçin **özellikleri**.
 
     Web uygulaması için özellik sayfası görüntülenir.
 
-3.  Tıklayın **hata ayıklama** sekmesi.
+3. Tıklayın **hata ayıklama** sekmesi.
 
-4.  Değerini **barındırma: ortam** ortam değişkenine `Production`.
+4. Değerini **barındırma: ortam** ortam değişkenine `Production`.
 
-5.  Tuşuna **F5** uygulamayı tarayıcıda çalıştırın.
+5. Tuşuna **F5** uygulamayı tarayıcıda çalıştırın.
 
-6.  Tarayıcı penceresinde, sayfanın sağ tıklayıp **kaynağı görüntüle** sayfanın HTML görüntülemek için.
+6. Tarayıcı penceresinde, sayfanın sağ tıklayıp **kaynağı görüntüle** sayfanın HTML görüntülemek için.
 
     Stil sayfası bağlantıları küçültülmüş CSS dosyalarının olduğu noktaya dikkat edin.
 
-7.  Web uygulamasını Durdur için tarayıcıyı kapatın.
+7. Web uygulamasını Durdur için tarayıcıyı kapatın.
 
-8.  Visual Studio'da Web uygulaması için özellik sayfasına dönmek ve değiştirmek **barındırma: ortam** ortam değişkeni başa `Development`.
+8. Visual Studio'da Web uygulaması için özellik sayfasına dönmek ve değiştirmek **barındırma: ortam** ortam değişkeni başa `Development`.
 
-9.  Tuşuna **F5** uygulamayı bir tarayıcıda yeniden çalıştırın.
+9. Tuşuna **F5** uygulamayı bir tarayıcıda yeniden çalıştırın.
 
 10. Tarayıcı penceresinde, sayfanın sağ tıklayıp **kaynağı görüntüle** sayfanın HTML görmek için.
 

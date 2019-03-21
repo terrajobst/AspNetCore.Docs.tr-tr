@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 02/05/2019
 ms.topic: tutorial
 uid: data/ef-mvc/update-related-data
-ms.openlocfilehash: ac94f2e2876c2d8d571a451e4641787ffe37b3d2
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: 1606b872df2df839266ef17efee1948065c4efae
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103039"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209420"
 ---
 # <a name="tutorial-update-related-data---aspnet-mvc-with-ef-core"></a>Öğretici: İlgili verileri - EF çekirdekli ASP.NET MVC güncelleştirme
 
@@ -131,11 +131,11 @@ HttpPost değiştirin `Edit` office atama güncelleştirmeleri işlemek için a�
 
 Kod şunları yapar:
 
--  Yöntem adına değişiklikleri `EditPost` imza artık HttpGet aynı olduğu için `Edit` yöntemi ( `ActionName` özniteliği belirtir `/Edit/` URL'si hala kullanılmaktadır).
+* Yöntem adına değişiklikleri `EditPost` imza artık HttpGet aynı olduğu için `Edit` yöntemi ( `ActionName` özniteliği belirtir `/Edit/` URL'si hala kullanılmaktadır).
 
--  Veritabanı kullanımından geçerli Eğitmen varlık için yükleme istekli alır `OfficeAssignment` gezinme özelliği. Bu HttpGet ne yaptığınızı ile aynı olur `Edit` yöntemi.
+* Veritabanı kullanımından geçerli Eğitmen varlık için yükleme istekli alır `OfficeAssignment` gezinme özelliği. Bu HttpGet ne yaptığınızı ile aynı olur `Edit` yöntemi.
 
--  Model bağlayıcı değerlerle alınan Eğitmen varlığı güncelleştirir. `TryUpdateModel` Aşırı sağlar beyaz listeye eklemek istediğiniz özellikleri. Bu aşırı posta açıklandığı şekilde engeller [ikinci öğreticide](crud.md).
+* Model bağlayıcı değerlerle alınan Eğitmen varlığı güncelleştirir. `TryUpdateModel` Aşırı sağlar beyaz listeye eklemek istediğiniz özellikleri. Bu aşırı posta açıklandığı şekilde engeller [ikinci öğreticide](crud.md).
 
     <!-- Snippets don't play well with <ul> [!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?range=241-244)] -->
 
@@ -146,7 +146,7 @@ Kod şunları yapar:
         i => i.FirstMidName, i => i.LastName, i => i.HireDate, i => i.OfficeAssignment))
     ```
 
--   Ofis konumu boş ise, böylece OfficeAssignment tabloda ilgili satır silinecek null olarak Instructor.OfficeAssignment özelliği ayarlar.
+* Ofis konumu boş ise, böylece OfficeAssignment tabloda ilgili satır silinecek null olarak Instructor.OfficeAssignment özelliği ayarlar.
 
     <!-- Snippets don't play well with <ul>  "intro/samples/cu/Controllers/InstructorsController.cs"} -->
 
@@ -157,7 +157,7 @@ Kod şunları yapar:
     }
     ```
 
-- Değişiklikleri veritabanına kaydeder.
+* Değişiklikleri veritabanına kaydeder.
 
 ### <a name="update-the-instructor-edit-view"></a>Eğitmen düzenleme görünümü güncelleştirme
 
@@ -225,7 +225,7 @@ Bir kurs için onay kutusu seçili değildi, ancak kursu bulunduğu `Instructor.
 
 <a id="notepad"></a>
 > [!NOTE]
-> Visual Studio'da kod yapıştırdığınızda, satır sonları kodları keser şekilde değiştirilecektir.  CTRL + Z, otomatik biçimlendirme geri almak için bir kez basın.  Burada gördüğünüz gibi görünürler, bu satır sonları düzeltir. Girinti mükemmel, olması gerekmez ancak `@</tr><tr>`, `@:<td>`, `@:</td>`, ve `@:</tr>` satırları her tek bir satırda gösterilen gibi olmalıdır veya bir çalışma zamanı hatası alırsınız. Seçili yeni kod bloğu ile sekmesindeki yeni kodu mevcut kodu ile hizalamak için üç kez basın. Bu sorunun durumu kontrol edebilirsiniz [burada](https://developercommunity.visualstudio.com/content/problem/147795/razor-editor-malforms-pasted-markup-and-creates-in.html).
+> Visual Studio'da kod yapıştırdığınızda, satır sonları kodları keser şekilde değiştirilecektir. CTRL + Z, otomatik biçimlendirme geri almak için bir kez basın. Burada gördüğünüz gibi görünürler, bu satır sonları düzeltir. Girinti mükemmel, olması gerekmez ancak `@</tr><tr>`, `@:<td>`, `@:</td>`, ve `@:</tr>` satırları her tek bir satırda gösterilen gibi olmalıdır veya bir çalışma zamanı hatası alırsınız. Seçili yeni kod bloğu ile sekmesindeki yeni kodu mevcut kodu ile hizalamak için üç kez basın. Bu sorunun durumu kontrol edebilirsiniz [burada](https://developercommunity.visualstudio.com/content/problem/147795/razor-editor-malforms-pasted-markup-and-creates-in.html).
 
 [!code-html[](intro/samples/cu/Views/Instructors/Edit.cshtml?range=35-61)]
 
@@ -250,7 +250,7 @@ Bazı kurs atamaları değiştirin ve Kaydet'e tıklayın. Dizin sayfasında, ya
 
 Bu kod, aşağıdaki değişiklikleri yapar:
 
-* İçin yükleme mu eager `CourseAssignments` gezinme özelliği.  Bu eklemek zorunda veya EF hakkında ilgili bilmemektedir `CourseAssignment` varlıkları ve bunları silmez.  Onları okumanıza gerek kalmadan Burada, art arda silme veritabanında yapılandırabilirsiniz.
+* İçin yükleme mu eager `CourseAssignments` gezinme özelliği. Bu eklemek zorunda veya EF hakkında ilgili bilmemektedir `CourseAssignment` varlıkları ve bunları silmez. Onları okumanıza gerek kalmadan Burada, art arda silme veritabanında yapılandırabilirsiniz.
 
 * Eğitmen silinecek tüm bölümlerin bir yönetici olarak atanmış ise bu bölümlerden Eğitmen atama kaldırır.
 

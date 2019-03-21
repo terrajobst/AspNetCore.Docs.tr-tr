@@ -5,12 +5,12 @@ description: ''
 ms.author: riande
 ms.date: 07/03/2017
 uid: mvc/controllers/actions
-ms.openlocfilehash: 8289424b3cd3678bea18a25c7850e409795d1577
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: 952e4dbb2c4343ca87ace1535e4a5968faf088cf
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410449"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209021"
 ---
 # <a name="handle-requests-with-controllers-in-aspnet-core-mvc"></a>ASP.NET Core MVC denetleyicileri tanıtıcı istekleri
 
@@ -98,7 +98,7 @@ Uygulamalar genellikle kendi iş akışının bölümlerini paylaşın. Alışve
 En filtre öznitelikleri gibi `[Authorize]`, istediğiniz ayrıntı düzeyi düzeye bağlı olarak denetleyici veya eylem düzeyinde uygulanabilir.
 
 Hata işleme ve yanıt önbelleğe alma genellikle geniş kapsamlı kritik konular şunlardır:
-   * [Hataları işleme](xref:mvc/controllers/filters#exception-filters)
-   * [Yanıtları Önbelleğe Alma](xref:performance/caching/response)
+* [Hataları işleme](xref:mvc/controllers/filters#exception-filters)
+* [Yanıtları Önbelleğe Alma](xref:performance/caching/response)
 
 Çok geniş kapsamlı kritik konular, filtreler veya özel kullanılarak işlenebilir [ara yazılım](xref:fundamentals/middleware/index).

@@ -69,7 +69,7 @@ Daha fazla bilgi için [ara yazılım](xref:fundamentals/middleware/index).
 
 ## <a name="the-host"></a>Ana bilgisayar
 
-ASP.NET Core uygulaması derleme bir *konak* başlangıç. Konak tüm yalıtan bir nesne olan uygulamanın kaynakları gibi:
+ASP.NET Core uygulaması derleme bir *konak* başlangıç. Ana bilgisayar gibi tüm uygulamanın kaynakları yalıtan bir nesne şöyledir:
 
 * Bir HTTP sunucusu uygulamasını
 * Ara yazılım bileşenleri

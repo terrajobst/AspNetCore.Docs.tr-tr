@@ -1,40 +1,40 @@
 ---
-title: ASP.NET Core çekirdek şifreleme genişletilebilirliği
+title: ASP.NET core'da çekirdek şifreleme genişletilebilirliği
 author: rick-anderson
-description: IAuthenticatedEncryptor, IAuthenticatedEncryptorDescriptor, IAuthenticatedEncryptorDescriptorDeserializer ve en üst düzey Fabrika hakkında bilgi edinin.
+description: IAuthenticatedEncryptor, IAuthenticatedEncryptorDescriptor, IAuthenticatedEncryptorDescriptorDeserializer ve üst düzey factory hakkında bilgi edinin.
 ms.author: riande
 ms.date: 8/11/2017
 uid: security/data-protection/extensibility/core-crypto
-ms.openlocfilehash: 47432cfefe0a52c9f815d717f7269ec68fdb6af3
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: cf4a142992efe5b00a75285ef9ad9735fe7be411
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272902"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209076"
 ---
-# <a name="core-cryptography-extensibility-in-aspnet-core"></a>ASP.NET Core çekirdek şifreleme genişletilebilirliği
+# <a name="core-cryptography-extensibility-in-aspnet-core"></a>ASP.NET core'da çekirdek şifreleme genişletilebilirliği
 
 <a name="data-protection-extensibility-core-crypto"></a>
 
 >[!WARNING]
-> Aşağıdaki arabirimleri hiçbirini uygulama türleri iş parçacığı açısından güvenli olması için birden çok arayanlar.
+> Aşağıdaki arabirimlerinden birini uygulayan türler, iş parçacığı açısından güvenli olmalıdır birden çok arayanlar için.
 
 <a name="data-protection-extensibility-core-crypto-iauthenticatedencryptor"></a>
 
 ## <a name="iauthenticatedencryptor"></a>IAuthenticatedEncryptor
 
-**IAuthenticatedEncryptor** şifreleme alt sistemi temel yapı bloğu bir arabirimdir. Genellikle bir IAuthenticatedEncryptor anahtar başına yoktur ve tüm şifreleme anahtar malzemesi ve şifreleme işlemlerini gerçekleştirmek için gerekli olan algoritmik bilgileri IAuthenticatedEncryptor örneği sarmalar.
+**IAuthenticatedEncryptor** şifreleme alt sistemi temel yapı bloğu arabirimidir. Genellikle anahtar başına bir IAuthenticatedEncryptor yoktur ve tüm şifreleme anahtar malzemesi ve şifreleme işlemleri gerçekleştirmesi için gerekli olan algoritmik bilgileri IAuthenticatedEncryptor örneğine sarar.
 
-Adından da anlaşılacağı gibi türü kimliği doğrulanmış şifreleme ve şifre çözme hizmetleri sağlamaktan sorumludur. Aşağıdaki iki API'leri gösterir.
+Adından da anlaşılacağı gibi tür kimliği doğrulanmış şifreleme ve şifre çözme hizmetleri sağlamaktan sorumludur. Bunu, aşağıdaki iki API'lerini kullanıma sunar.
 
-* Şifre çözme (ArraySegment<byte> ciphertext, ArraySegment<byte> additionalAuthenticatedData): byte]
+* `Decrypt(ArraySegment<byte> ciphertext, ArraySegment<byte> additionalAuthenticatedData) : byte[]`
 
-* Şifreleme (ArraySegment<byte> düz metin, ArraySegment<byte> additionalAuthenticatedData): byte]
+* `Encrypt(ArraySegment<byte> plaintext, ArraySegment<byte> additionalAuthenticatedData) : byte[]`
 
-Şifreleme yöntemi enciphered düz metin ve bir kimlik doğrulama etiketi içeren blob döndürür. AAD son yükü kurtarılabilir olması gerekmez ancak kimlik doğrulaması etiketi ek kimliği doğrulanmış veriler (AAD) kapsamalıdır. Şifre çözme yöntemi kimlik doğrulaması etiketi doğrular ve deciphered yükü döndürür. Tüm hataları (ArgumentNullException dışında ve benzer) için CryptographicException homogenized.
+Şifreleme yöntemi enciphered düz metin ve kimlik doğrulaması etiketi içeren bir blob döndürür. AAD son yükten kurtarılabilir olması gerekmez ancak ek kimliği doğrulanmış veriler (AAD) kimlik doğrulaması etiketi kapsamalıdır. Şifre çözme yöntemi, kimlik doğrulaması etiketi doğrular ve deciphered yükü döndürür. Tüm hataları (ArgumentNullException dışında ve benzer) için CryptographicException homogenized.
 
 > [!NOTE]
-> IAuthenticatedEncryptor örneği gerçekte anahtar malzemesi içermesi gerekmez. Örneğin, uygulama için tüm işlemleri için bir HSM atayabilirsiniz.
+> IAuthenticatedEncryptor örneği gerçekten anahtar malzemesi içermesi gerekmez. Örneğin, uygulama tüm işlemler için HSM temsilci seçebilecek.
 
 <a name="data-protection-extensibility-core-crypto-iauthenticatedencryptorfactory"></a>
 <a name="data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptor"></a>
@@ -43,11 +43,11 @@ Adından da anlaşılacağı gibi türü kimliği doğrulanmış şifreleme ve �
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-**IAuthenticatedEncryptorFactory** arabirimi oluşturmak bildiği bir türü temsil eden bir [IAuthenticatedEncryptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptor) örneği. Kendi API aşağıdaki gibidir.
+**IAuthenticatedEncryptorFactory** arabirimi oluşturmak bildiği bir türü temsil eder bir [IAuthenticatedEncryptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptor) örneği. Kendi API aşağıdaki gibidir.
 
 * CreateEncryptorInstance (IKey anahtarı): IAuthenticatedEncryptor
 
-Verilen tüm IKey örneği için kendi CreateEncryptorInstance yöntemi tarafından oluşturulan tüm kimliği doğrulanmış encryptors eşdeğer olarak düşünülmesi gereken örnek kod aşağıda.
+Verilen tüm IKey örneği için kendi CreateEncryptorInstance yöntemi tarafından oluşturulan tüm kimliği doğrulanmış encryptors eşdeğer olarak düşünülmesi gereken aşağıdaki kod örneği.
 
 ```csharp
 // we have an IAuthenticatedEncryptorFactory instance and an IKey instance
@@ -70,13 +70,13 @@ byte[] roundTripped = encryptor2.Decrypt(new ArraySegment<byte>(ciphertext), aad
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-**IAuthenticatedEncryptorDescriptor** arabirimi oluşturmak bildiği bir türü temsil eden bir [IAuthenticatedEncryptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptor) örneği. Kendi API aşağıdaki gibidir.
+**IAuthenticatedEncryptorDescriptor** arabirimi oluşturmak bildiği bir türü temsil eder bir [IAuthenticatedEncryptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptor) örneği. Kendi API aşağıdaki gibidir.
 
-* CreateEncryptorInstance(): IAuthenticatedEncryptor
+* CreateEncryptorInstance() : IAuthenticatedEncryptor
 
-* ExportToXml(): XmlSerializedDescriptorInfo
+* ExportToXml() : XmlSerializedDescriptorInfo
 
-IAuthenticatedEncryptor gibi IAuthenticatedEncryptorDescriptor örneği belirli bir anahtarı sarmalama varsayılır. Verilen tüm IAuthenticatedEncryptorDescriptor örneği için kendi CreateEncryptorInstance yöntemi tarafından oluşturulan tüm kimliği doğrulanmış encryptors eşdeğer olarak düşünülmesi gereken, yani örnek kod aşağıda.
+IAuthenticatedEncryptor gibi belirli bir anahtarı sarmalama IAuthenticatedEncryptorDescriptor örneğini varsayılır. Bu tüm verilen IAuthenticatedEncryptorDescriptor örneği için kendi CreateEncryptorInstance yöntemi tarafından oluşturulan tüm kimliği doğrulanmış encryptors eşdeğer olarak değerlendirilmesi gerektiğini anlamına gelir. aşağıdaki kod örneği.
 
 ```csharp
 // we have an IAuthenticatedEncryptorDescriptor instance
@@ -100,13 +100,13 @@ byte[] roundTripped = encryptor2.Decrypt(new ArraySegment<byte>(ciphertext), aad
 
 <a name="data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptor"></a>
 
-## <a name="iauthenticatedencryptordescriptor-aspnet-core-2x-only"></a>IAuthenticatedEncryptorDescriptor (ASP.NET 2.x yalnızca çekirdek)
+## <a name="iauthenticatedencryptordescriptor-aspnet-core-2x-only"></a>IAuthenticatedEncryptorDescriptor (ASP.NET Core 2.x yalnızca)
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 **IAuthenticatedEncryptorDescriptor** arabirimi kendisini XML biçimine dışa bildiği bir türü temsil eder. Kendi API aşağıdaki gibidir.
 
-* ExportToXml(): XmlSerializedDescriptorInfo
+* ExportToXml() : XmlSerializedDescriptorInfo
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -114,30 +114,30 @@ byte[] roundTripped = encryptor2.Decrypt(new ArraySegment<byte>(ciphertext), aad
 
 ## <a name="xml-serialization"></a>XML seri hale getirme
 
-IAuthenticatedEncryptor IAuthenticatedEncryptorDescriptor arasındaki birincil fark, tanımlayıcı Şifreleyici oluşturma ve geçerli bağımsız değişkenlerle tedarik bilir ' dir. Uygulama SymmetricAlgorithm ve KeyedHashAlgorithm dayanır IAuthenticatedEncryptor göz önünde bulundurun. Bu tür tüketmeye Şifreleyici'nın iş, ancak uygun bir uygulamayı yeniden başlatılırsa kendisini yeniden oluşturmak nasıl açıklama gerçekten yazılamıyor şekilde bu mutlaka, bu tür nereden geldiğini bilmiyor. Bu en üstünde daha yüksek bir düzeye tanımlayıcısı görür. Şifreleyici örneğinin nasıl oluşturulacağını tanımlayıcısı bilir bu yana (örneğin, bunu gerekli algoritmaları oluşturma bilen), böylece uygulamanın sıfırladıktan sonra Şifreleyici örneği yeniden bu bilgi XML formundaki serileştirebilen.
+IAuthenticatedEncryptor IAuthenticatedEncryptorDescriptor arasındaki birincil fark tanımlayıcı Şifreleyici oluşturma ve geçerli bağımsız değişkenlerle tedarik bilir. Uygulaması SymmetricAlgorithm ve KeyedHashAlgorithm kullanır bir IAuthenticatedEncryptor göz önünde bulundurun. Bu tür tüketmeye Şifreleyici'nın iş, ancak uygulama yeniden başlatılırsa kendisi yeniden oluşturmak nasıl uygun açıklamasını gerçekten yazamaz şekilde, mutlaka, bu tür bir nereden geldiğini bilmez. Tanımlayıcı, bu üzerinde daha yüksek bir düzeye olarak görev yapar. Tanımlayıcı Şifreleyici örneği oluşturmak nasıl bilir olduğundan (örneğin, gerekli algoritmalar oluşturma Giden), böylece uygulama sıfırladıktan sonra Şifreleyici örneği yeniden oluşturulabilir, Bilgi Bankası XML formundaki serileştirebiliyorsa.
 
 <a name="data-protection-extensibility-core-crypto-exporttoxml"></a>
 
-Tanımlayıcı kendi ExportToXml yordamı seri hale getirilebilir. Bu yordam iki özellikler içeren bir XmlSerializedDescriptorInfo döndürür: tanımlayıcısı ve temsil eden tür XElement temsili bir [IAuthenticatedEncryptorDescriptorDeserializer](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptordeserializer) olabilen karşılık gelen XElement verilen bu tanımlayıcısı resurrect için kullanılır.
+Tanımlayıcı, ExportToXml yordamı seri hale getirilebilir. Bu yordam, iki özellik içeren bir XmlSerializedDescriptorInfo döndürür: tanımlayıcı ve temsil eden tür XElement temsili bir [IAuthenticatedEncryptorDescriptorDeserializer](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptordeserializer) olabilir. karşılık gelen XElement verilen bu tanımlayıcıyı resurrect için kullanılır.
 
-Serileştirilmiş tanımlayıcısı şifreleme anahtar malzemesi gibi hassas bilgiler içerebilir. Veri koruma sisteminde depolama alanına kalıcı önce bilgilerini şifrelemek için yerleşik desteğe sahiptir. Bu yararlanmak için tanımlayıcı öznitelik adı "boşluğu requiresEncryption" ile hassas bilgiler içeren öğe işaretlemeniz gerekir (xmlns "<http://schemas.asp.net/2015/03/dataProtection>"), değer "true".
+Seri hale getirilmiş tanımlayıcı şifreleme anahtar malzemesi gibi hassas bilgiler içerebilir. Veri koruma sisteminde kalıcı depolama için önce bilgi şifreleme için yerleşik destek sunmaktadır. Bu yararlanmak için tanımlayıcı öznitelik adı "boşluğu requiresEncryption" ile hassas bilgiler içeren öğe işaretlemeniz gerekir (xmlns "<http://schemas.asp.net/2015/03/dataProtection>"), değeri "true".
 
 >[!TIP]
-> Bu öznitelik ayarlamak için bir yardımcı API yoktur. XElement.MarkAsRequiresEncryption() Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel ad alanında bulunan uzantısı yöntemini çağırın.
+> Bu öznitelik ayarlamak için bir yardımcı API yoktur. XElement.MarkAsRequiresEncryption() Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel ad alanında bulunan uzantı yöntemini çağırın.
 
-Durumları serileştirilmiş tanımlayıcısı hassas bilgileri nerede içermiyor olabilir. Yeniden bir HSM'de depolanan bir şifreleme anahtarını durumunu göz önünde bulundurun. Tanımlayıcı anahtar malzemesi HSM malzeme düz metin biçiminde kullanıma olmaz bu yana kendisine serileştirilirken yazamıyor. Bunun yerine, tanımlayıcı (HSM bu şekilde verme izin veriyorsa) anahtar veya anahtar HSM'ın kendi benzersiz tanımlayıcısı anahtar Sarmalanan sürümünü kullanıma yazabilirsiniz.
+Servis taleplerini seri hale getirilmiş tanımlayıcı hassas bilgileri burada içermiyor olabilir. Tekrar bir şifreleme anahtarının bir HSM'de depolanan bir durum düşünün. Tanımlayıcı, HSM malzeme düz metin biçiminde göstermek olmaz bu yana kendisine serileştirilirken anahtar malzemesi yazılamıyor. Bunun yerine, tanımlayıcı (HSM bu biçimde dışa aktarma izin verirse), anahtar veya anahtar HSM'ın kendi benzersiz tanımlayıcısını anahtar sarmalanmış sürümünü kullanıma yazabilirsiniz.
 
 <a name="data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptordeserializer"></a>
 
 ## <a name="iauthenticatedencryptordescriptordeserializer"></a>IAuthenticatedEncryptorDescriptorDeserializer
 
-**IAuthenticatedEncryptorDescriptorDeserializer** arabirimi bir XElement IAuthenticatedEncryptorDescriptor örneğinden seri durumdan çıkarılacak bildiği bir türü temsil eder. Tek bir yöntem sunar:
+**IAuthenticatedEncryptorDescriptorDeserializer** arabirimi bir XElement IAuthenticatedEncryptorDescriptor örneğinden seri durumdan çıkarılacak bildiği bir türü temsil eder. Bu, tek bir yöntemi gösterir:
 
 * ImportFromXml (XElement öğesi): IAuthenticatedEncryptorDescriptor
 
-ImportFromXml yöntemi tarafından döndürülen XElement alır [IAuthenticatedEncryptorDescriptor.ExportToXml](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-exporttoxml) ve özgün IAuthenticatedEncryptorDescriptor bir eşdeğerini oluşturur.
+ImportFromXml yöntem tarafından döndürülen XElement alır [IAuthenticatedEncryptorDescriptor.ExportToXml](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-exporttoxml) ve özgün IAuthenticatedEncryptorDescriptor eşdeğer oluşturur.
 
-IAuthenticatedEncryptorDescriptorDeserializer uygulayan türleri aşağıdaki iki ortak oluşturuculardan birine sahip olmalıdır:
+IAuthenticatedEncryptorDescriptorDeserializer uygulayan türleri, aşağıdaki iki genel oluşturucular biri olmalıdır:
 
 * .ctor(IServiceProvider)
 
@@ -150,26 +150,26 @@ IAuthenticatedEncryptorDescriptorDeserializer uygulayan türleri aşağıdaki ik
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-**AlgorithmConfiguration** sınıfı temsil eder, nasıl oluşturulacağını bildiği bir tür [IAuthenticatedEncryptorDescriptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptor) örnekleri. Tek bir API sunar.
+**AlgorithmConfiguration** sınıfı oluşturmak bildiği bir türü temsil eder [IAuthenticatedEncryptorDescriptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptor) örnekleri. Bu, tek bir API sunar.
 
-* CreateNewDescriptor(): IAuthenticatedEncryptorDescriptor
+* CreateNewDescriptor() : IAuthenticatedEncryptorDescriptor
 
-Üst düzey Fabrika olarak AlgorithmConfiguration düşünün. Yapılandırma şablon olarak görev yapar. Algoritmik bilgi sarmalar (örn., bu yapılandırma bir AES 128 GCM ana anahtar ile tanımlayıcıları üretir), ancak henüz belirli bir anahtarı ile ilişkilendirilmiş.
+Üst düzey Fabrika olarak AlgorithmConfiguration düşünün. Yapılandırma şablon olarak görev yapar. Algoritmik bilgi sarmalar (örneğin, bu yapılandırma bir AES-128-GCM ana anahtar ile tanımlayıcıları üretir), ancak henüz belirli bir anahtar ile ilişkili.
 
-CreateNewDescriptor olarak adlandırılır, yalnızca bu çağrı için yeni anahtar malzemesi oluşturulduğunda ve yeni IAuthenticatedEncryptorDescriptor üretilir, bu anahtar malzeme ve malzeme kullanmak için gereken algoritmik bilgileri sarmalar. Anahtar malzemesi yazılımda oluşturulabilir (ve bellekte tutulan), onu oluşturulabilir ve bir HSM ve benzeri içinde tutulur. CreateNewDescriptor herhangi iki çağrıları eşdeğer IAuthenticatedEncryptorDescriptor örnekleri hiçbir zaman oluşturmalısınız önemli noktasıdır.
+CreateNewDescriptor çağrılır, yeni anahtar malzemesi bu çağrı için yalnızca oluşturulduğunda ve yeni IAuthenticatedEncryptorDescriptor üretilir, bu anahtar malzemesi ve malzeme kullanmak için gereken bilgilerin algoritmik sarmalar. Anahtar malzemesi yazılımda oluşturulabilir (ve bellekte tutulan), bunu oluşturulabilir ve bir HSM ve benzeri tutulan. İki çağrıları CreateNewDescriptor eşdeğer IAuthenticatedEncryptorDescriptor örnekleri hiçbir zaman oluşturmalısınız önemli noktasıdır.
 
-Gibi AlgorithmConfiguration türü anahtar oluşturma yordamları için giriş noktası olarak hizmet [çalışırken otomatik anahtar](xref:security/data-protection/implementation/key-management#key-expiration-and-rolling). Tüm Gelecekteki anahtarların uygulamasını değiştirmek için KeyManagementOptions AuthenticatedEncryptorConfiguration özelliğini ayarlayın.
+Gibi AlgorithmConfiguration türü anahtarı oluşturma rutinleri için giriş noktası olarak hizmet [çalışırken otomatik anahtar](xref:security/data-protection/implementation/key-management#key-expiration-and-rolling). Gelecekteki tüm anahtarların uygulamasını değiştirmek için KeyManagementOptions AuthenticatedEncryptorConfiguration özelliğini ayarlayın.
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-**IAuthenticatedEncryptorConfiguration** arabirimi temsil eder, nasıl oluşturulacağını bildiği bir tür [IAuthenticatedEncryptorDescriptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptor) örnekleri. Tek bir API sunar.
+**IAuthenticatedEncryptorConfiguration** arabirimi oluşturmak bildiği bir türü temsil eder [IAuthenticatedEncryptorDescriptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptordescriptor) örnekleri. Bu, tek bir API sunar.
 
-* CreateNewDescriptor(): IAuthenticatedEncryptorDescriptor
+* CreateNewDescriptor() : IAuthenticatedEncryptorDescriptor
 
-Üst düzey Fabrika olarak IAuthenticatedEncryptorConfiguration düşünün. Yapılandırma şablon olarak görev yapar. Algoritmik bilgi sarmalar (örn., bu yapılandırma bir AES 128 GCM ana anahtar ile tanımlayıcıları üretir), ancak henüz belirli bir anahtarı ile ilişkilendirilmiş.
+Üst düzey Fabrika olarak IAuthenticatedEncryptorConfiguration düşünün. Yapılandırma şablon olarak görev yapar. Algoritmik bilgi sarmalar (örneğin, bu yapılandırma bir AES-128-GCM ana anahtar ile tanımlayıcıları üretir), ancak henüz belirli bir anahtar ile ilişkili.
 
-CreateNewDescriptor olarak adlandırılır, yalnızca bu çağrı için yeni anahtar malzemesi oluşturulduğunda ve yeni IAuthenticatedEncryptorDescriptor üretilir, bu anahtar malzeme ve malzeme kullanmak için gereken algoritmik bilgileri sarmalar. Anahtar malzemesi yazılımda oluşturulabilir (ve bellekte tutulan), onu oluşturulabilir ve bir HSM ve benzeri içinde tutulur. CreateNewDescriptor herhangi iki çağrıları eşdeğer IAuthenticatedEncryptorDescriptor örnekleri hiçbir zaman oluşturmalısınız önemli noktasıdır.
+CreateNewDescriptor çağrılır, yeni anahtar malzemesi bu çağrı için yalnızca oluşturulduğunda ve yeni IAuthenticatedEncryptorDescriptor üretilir, bu anahtar malzemesi ve malzeme kullanmak için gereken bilgilerin algoritmik sarmalar. Anahtar malzemesi yazılımda oluşturulabilir (ve bellekte tutulan), bunu oluşturulabilir ve bir HSM ve benzeri tutulan. İki çağrıları CreateNewDescriptor eşdeğer IAuthenticatedEncryptorDescriptor örnekleri hiçbir zaman oluşturmalısınız önemli noktasıdır.
 
-Gibi IAuthenticatedEncryptorConfiguration türü anahtar oluşturma yordamları için giriş noktası olarak hizmet [çalışırken otomatik anahtar](xref:security/data-protection/implementation/key-management#key-expiration-and-rolling). Tüm Gelecekteki anahtarların uygulamasını değiştirmek için hizmet kapsayıcısında IAuthenticatedEncryptorConfiguration tek kaydedin.
+Gibi IAuthenticatedEncryptorConfiguration türü anahtarı oluşturma rutinleri için giriş noktası olarak hizmet [çalışırken otomatik anahtar](xref:security/data-protection/implementation/key-management#key-expiration-and-rolling). Gelecekteki tüm anahtarların uygulamasını değiştirmek için hizmet kapsayıcısında IAuthenticatedEncryptorConfiguration tek kaydedin.
 
 ---

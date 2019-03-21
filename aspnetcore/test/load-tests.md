@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/04/2019
 uid: test/loadtests
-ms.openlocfilehash: 587df6e216943d3eeec779df4d0554dd0fc2fda0
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 39632af2c92dac548c03e24d35a5e8a03e00890d
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57345434"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209839"
 ---
 # <a name="load-and-stress-testing-aspnet-core"></a>Yük ve stres testi ASP.NET Core
 
@@ -22,7 +22,7 @@ Yük testi ve stres testi yüksek performanslı bir web uygulaması olduğundan 
 **Stres testleri**: Altında aşırı koşullar ve genellikle bir uzun süre çalışan testler uygulama kararlılık:
 
 * Yüksek kullanıcı yükü – ani veya kademeli olarak artırma.
-* Sınırlı bilgi işlem kaynakları.  
+* Sınırlı bilgi işlem kaynakları.
 
 Baskı altında uygulama hatasından kurtarabilmek ve düzgün bir şekilde beklenen bir davranış döndürür? Baskı altında uygulamadır *değil* normal koşullar altında çalıştırın.
 
@@ -44,41 +44,42 @@ Yük testleri, şirket içinde çalıştırın veya Azure DevOps kullanarak bulu
 
 Yük testi çalışmaları kullanılarak başlatılabilir [Azure DevOps Test planları](/azure/devops/test/load-test/index?view=vsts) hizmeti.
 
-![](./load-tests/_static/azure-devops-load-test.png)
+![Azure DevOps yük testi giriş sayfası](./load-tests/_static/azure-devops-load-test.png)
 
 Hizmeti test biçimi aşağıdaki türlerini destekler:
 
-- Visual Studio testi – Visual Studio'da oluşturulan web testi.
-- Arşiv içinde yakalanan HTTP trafiğini HTTP arşivi tabanlı test, test sırasında tekrarlanır.
-- [URL tabanlı test](/azure/devops/test/load-test/get-started-simple-cloud-load-test?view=vsts) – yük testi, istek türleri, üst bilgiler ve sorgu dizeleri için URL'leri belirtmeye izin verir. Süresi gibi parametreleri ayarlanıyor çalıştırın, yük düzeni, kullanıcılar, vb. sayısı yapılandırılabilir.
-- [Apache JMeter](https://jmeter.apache.org/) test edin.
+* Visual Studio testi – Visual Studio'da oluşturulan web testi.
+* Arşiv içinde yakalanan HTTP trafiğini HTTP arşivi tabanlı test, test sırasında tekrarlanır.
+* [URL tabanlı test](/azure/devops/test/load-test/get-started-simple-cloud-load-test?view=vsts) – yük testi, istek türleri, üst bilgiler ve sorgu dizeleri için URL'leri belirtmeye izin verir. Süresi gibi parametreleri ayarlanıyor çalıştırın, yük düzeni, kullanıcılar, vb. sayısı yapılandırılabilir.
+* [Apache JMeter](https://jmeter.apache.org/) test edin.
 
 ## <a name="azure-portal"></a>Azure portal
 
 [Azure portal sağlar ayarlayarak ve Web Apps yük testi çalıştırarak](/azure/devops/test/load-test/app-service-web-app-performance-test?view=vsts) doğrudan Azure portalında App Service'nın performans sekmesinden.
 
-![](./load-tests/_static/azure-appservice-perf-test.png)
+![Azure portalında Azure uygulama hizmeti](./load-tests/_static/azure-appservice-perf-test.png)
 
 Belirtilen URL ya da birden fazla URL test edebilirsiniz bir Visual Studio Web testi dosyası ile el ile test, test olabilir.
 
-![](./load-tests/_static/azure-appservice-perf-test-config.png)
+![Azure portalında yeni performans testi sayfası](./load-tests/_static/azure-appservice-perf-test-config.png)
 
 Testin sonunda, uygulama performans özelliklerini göstermek için raporlar oluşturulur. Örnek istatistikleri şunlardır:
 
-- Ortalama yanıt süresi
-- En fazla aktarım hızı: saniye başına istek sayısı
-- Başarısızlık yüzdesi
+* Ortalama yanıt süresi
+* En fazla aktarım hızı: saniye başına istek sayısı
+* Başarısızlık yüzdesi
 
 ## <a name="third-party-tools"></a>Üçüncü taraf araçları
 
 Aşağıdaki liste, çeşitli özellik kümeleri ile üçüncü taraf web performans araçları içerir:
 
-- [Apache JMeter](https://jmeter.apache.org/) : Yük Test Etme Araçları tam özellikli paketi. İş parçacığı bağlı: kullanıcı başına tek bir iş parçacığı gerekir.
-- [AB - Apache HTTP server değerlendirmesi aracı](https://httpd.apache.org/docs/2.4/programs/ab.html)
-- [Gatling](https://gatling.io/) : Masaüstü aracı ile bir GUI ve test Kaydedici. Daha fazla yüksek performanslı JMeter daha.
-- [Locust.io](https://locust.io/) : İş parçacıkları tarafından sınırlanan değil.
+* [Apache JMeter](https://jmeter.apache.org/) : Yük Test Etme Araçları tam özellikli paketi. İş parçacığı bağlı: kullanıcı başına tek bir iş parçacığı gerekir.
+* [AB - Apache HTTP server değerlendirmesi aracı](https://httpd.apache.org/docs/2.4/programs/ab.html)
+* [Gatling](https://gatling.io/) : Masaüstü aracı ile bir GUI ve test Kaydedici. Daha fazla yüksek performanslı JMeter daha.
+* [Locust.io](https://locust.io/) : İş parçacıkları tarafından sınırlanan değil.
 
 <a name="add"></a>
+
 ## <a name="additional-resources"></a>Ek Kaynaklar
 
 [Yük testi blog dizisini](https://blogs.msdn.microsoft.com/charles_sterling/2015/06/01/load-test-series-part-i-creating-web-performance-tests-for-a-load-test/) Charles Sterling'le tarafından. Tarihli ancak konuları çoğu yine de ilgilidir.

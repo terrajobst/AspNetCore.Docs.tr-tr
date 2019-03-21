@@ -7,12 +7,12 @@ ms.author: jkotalik
 ms.custom: mvc
 ms.date: 02/26/2019
 uid: fundamentals/middleware/request-response
-ms.openlocfilehash: f29c0aff95887d639cf3d1a8c8fe9f9228159f7a
-ms.sourcegitcommit: 6ddd8a7675c1c1d997c8ab2d4498538e44954cac
+ms.openlocfilehash: b6e3cd4b79e0c062b271c65cd5ecbdb4ef80c3a1
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57400997"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208063"
 ---
 # <a name="request-and-response-operations-in-aspnet-core"></a>ASP.NET Core istek ve yanıt işlemlerinde
 
@@ -80,5 +80,5 @@ Artık hem `Body` ve `BodyPipe` özellikler için kullanılabilir `HttpRequest` 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [System.IO.Pipelines ile tanışın](https://devblogs.microsoft.com/dotnet/system-io-pipelines-high-performance-io-in-net/)
-* <xref:fundamentals/middleware/write>
+- [System.IO.Pipelines ile tanışın](https://devblogs.microsoft.com/dotnet/system-io-pipelines-high-performance-io-in-net/)
+- <xref:fundamentals/middleware/write>

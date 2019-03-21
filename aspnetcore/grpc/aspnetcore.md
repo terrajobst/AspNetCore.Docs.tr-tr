@@ -1,25 +1,25 @@
 ---
-title: ASP.NET Core ile gRPC Hizmetleri
+title: ASP.NET Core içeren gRPC Hizmetleri
 author: juntaoluo
 description: GRPC Hizmetleri ile ASP.NET Core yazarken, temel kavramları öğrenin.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 03/08/2019
 uid: grpc/aspnetcore
-ms.openlocfilehash: 92327a5feb3279ac33532b595efa69b4aef8e7ca
-ms.sourcegitcommit: a467828b5e4eaae291d961ffe2279a571900de23
+ms.openlocfilehash: 387c3134efc04bec740fc66a5ca4b84715264d35
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58142621"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209024"
 ---
-# <a name="grpc-services-with-aspnet-core"></a>ASP.NET Core ile gRPC Hizmetleri
+# <a name="grpc-services-with-aspnet-core"></a>ASP.NET Core içeren gRPC Hizmetleri
 
 Bu belge, ASP.NET Core kullanarak gRPC Services'i kullanmaya başlama işlemi gösterilmektedir.
 
 [!INCLUDE[](~/includes/net-core-prereqs-all-3.0.md)]
 
-## <a name="get-started-with-grpc-service-in-aspnet-core"></a>GRPC hizmetinde ASP.NET Core ile çalışmaya başlama
+## <a name="get-started-with-grpc-service-in-aspnet-core"></a>ASP.NET Core’da gRPC hizmeti ile çalışmaya başlama
 
 [!INCLUDE[View or download sample code](~/includes/grpc/download.md)]
 
@@ -40,7 +40,6 @@ gRPC aşağıdaki paketler gereklidir:
 * [Grpc.AspNetCore.Server](https://www.nuget.org/packages/Grpc.AspNetCore.Server)
 * [Google.Protobuf](https://www.nuget.org/packages/Google.Protobuf/) API'leri için protobuf iletisi.
 * [Grpc.Tools](https://www.nuget.org/packages/Grpc.Tools/)
-
 
 ### <a name="configure-grpc"></a>GRPC yapılandırın
 

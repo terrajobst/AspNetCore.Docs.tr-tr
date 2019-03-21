@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 4616e93e0cfc25f3ad66721856a4e48910f2fcf5
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 162586059e3115bc15efaa63a9a0652e09872f1b
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57345969"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209971"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>ASP.NET core'da - EF çekirdekli Razor sayfaları sıralama, filtreleme, sayfalama - 8'in 3
 
@@ -128,7 +128,7 @@ Not: Önceki kod çağrıları `Where` metodunda bir `IQueryable` nesne ve filtr
 
 `Where(s => s.LastName.ToUpper().Contains(searchString.ToUpper())`
 
-Kullanmak için kodu değişirse önceki kod sonuçları büyük/küçük harfe olmasını sağlamak `IEnumerable`. Zaman `Contains` üzerinde çağrılır bir `IEnumerable` koleksiyonu, .NET Core uygulaması kullanılır. Zaman `Contains` üzerinde çağrılır bir `IQueryable` nesnesi, veritabanı uygulama kullanılır. Döndüren bir `IEnumerable` depodan önemli performans penality olabilir:
+Kullanmak için kodu değişirse önceki kod sonuçları büyük/küçük harfe olmasını sağlamak `IEnumerable`. Zaman `Contains` üzerinde çağrılır bir `IEnumerable` koleksiyonu, .NET Core uygulaması kullanılır. Zaman `Contains` üzerinde çağrılır bir `IQueryable` nesnesi, veritabanı uygulama kullanılır. Döndüren bir `IEnumerable` depodan önemli performans cezasına sebep olabilir:
 
 1. DB sunucudan tüm satırlar döndürülür.
 1. Filtre uygulama döndürülen tüm satırları uygulanır.

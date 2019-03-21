@@ -193,7 +193,6 @@ info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
 
 Visual Studio'da örnek uygulamayı çalıştırdığınızda hata ayıklama penceresinde göründükleri gibi aynı günlüklerinin bir örnek aşağıdadır:
 
-
 ```console
 Microsoft.AspNetCore.Hosting.Internal.WebHost:Information: Request starting HTTP/1.1 GET http://localhost:53104/api/todo/0  
 Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker:Information: Executing action method TodoApi.Controllers.TodoController.GetById (TodoApi) with arguments (0) - ModelState is Valid
@@ -214,7 +213,7 @@ Bu makalenin geri kalanında, bazı ayrıntılar ve günlüğe kaydetme seçenek
 
 ## <a name="log-category"></a>Günlük kategorisi
 
-Olduğunda bir `ILogger` nesnesi oluşturulur, bir *kategori* için belirtilir. Bu örneği tarafından oluşturulan her günlük iletisi kategori dahildir `Ilogger`. Kategori herhangi bir dize olabilir, ancak kuralı, "TodoApi.Controllers.TodoController" gibi bir sınıf adı kullanmaktır.
+Olduğunda bir `ILogger` nesnesi oluşturulur, bir *kategori* için belirtilir. Bu örneği tarafından oluşturulan her günlük iletisi kategori dahildir `ILogger`. Kategori herhangi bir dize olabilir, ancak kuralı, "TodoApi.Controllers.TodoController" gibi bir sınıf adı kullanmaktır.
 
 Kullanım `ILogger<T>` almak için bir `ILogger` tam olarak nitelenmiş tür adını kullanan örnek `T` kategori olarak:
 

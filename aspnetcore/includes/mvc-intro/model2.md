@@ -1,9 +1,16 @@
+---
+ms.openlocfilehash: 82c0f3076e846045ca85697e150ff0ab9be75dba
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58214451"
+---
 <a name="dc"></a>
 
 Aşağıdaki `MvcMovieContext` sınıfının *modelleri* klasörü:  
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Data/MvcMovieContext.cs)]
-
 
 Yukarıdaki kod oluşturur bir `DbSet` varlık kümesi özelliği. Entity Framework terminolojisinde, bir varlık kümesini genellikle bir veritabanı tablosuna karşılık gelir ve bir varlık tablosunda bir satıra karşılık gelir.
 

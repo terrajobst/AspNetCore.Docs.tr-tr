@@ -5,12 +5,12 @@ description: Authorize özniteliği için rolleri geçirerek ASP.NET Core denetl
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/authorization/roles
-ms.openlocfilehash: c38e7144166ce7741eee6e3acb4d1c952ad4f024
-ms.sourcegitcommit: 24b1f6decbb17bb22a45166e5fdb0845c65af498
+ms.openlocfilehash: 0e01e1976e2721ca64720a67c6341661f646395c
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56899170"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209102"
 ---
 # <a name="role-based-authorization-in-aspnet-core"></a>ASP.NET core'da rol tabanlı yetkilendirme
 
@@ -108,7 +108,6 @@ public class UpdateModel : PageModel
 > [!IMPORTANT]
 > Özniteliklerini dahil olmak üzere, filtre `AuthorizeAttribute`Pagemodel'a yalnızca uygulanabilir ve belirli bir sayfaya işleyici yöntemleri için uygulanamaz.
 ::: moniker-end
-
 
 <a name="security-authorization-role-policy"></a>
 

@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.date: 12/07/2018
 uid: performance/diagnostic-tools
-ms.openlocfilehash: 0b1de069e7892fff451617f2c6570fa789808c4f
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: 0fb9944d1082090f4f58f641a26ee96286920456
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54099058"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58210008"
 ---
 # <a name="performance-diagnostic-tools"></a>Performans Tanılama araçları
 
@@ -43,9 +43,9 @@ Azure Application Insights ınsights izlenen uygulamaları sağlamak için birde
 
 Application Insights, çeşitli ortamlarda kullanılabilir:
 
-* Azure'da çalışması için en iyi duruma getirilmiş.
-* Üretim, geliştirme ve hazırlama çalışır.
-* Öğesinden yerel olarak çalıştığı [Visual Studio](/azure/application-insights/app-insights-visual-studio) veya diğer barındırma ortamlarında.
+- Azure'da çalışması için en iyi duruma getirilmiş.
+- Üretim, geliştirme ve hazırlama çalışır.
+- Öğesinden yerel olarak çalıştığı [Visual Studio](/azure/application-insights/app-insights-visual-studio) veya diğer barındırma ortamlarında.
 
 Daha fazla bilgi için [ASP.NET Core için Application Insights](/azure/application-insights/app-insights-asp-net-core).
 

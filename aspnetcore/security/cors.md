@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/27/2019
 uid: security/cors
-ms.openlocfilehash: 6be8b4da1642a9eff021371c229a17071d6e9bfb
-ms.sourcegitcommit: d913bca90373c07f89b1d1df01af5fc01fc908ef
+ms.openlocfilehash: 2cad26d0f61519f63888a2bc399bb7e8a0f1ee04
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57978477"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58210138"
 ---
 # <a name="enable-cross-origin-requests-cors-in-aspnet-core"></a>ASP.NET core'da çıkış noktaları arası istekleri (CORS) etkinleştirme
 
@@ -84,7 +84,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         app.UseHsts();
     }
 
-    app.UseCors(); 
+    app.UseCors();
 
     app.UseHttpsRedirection();
     app.UseMvc();
@@ -141,25 +141,25 @@ Bu bölümde, CORS ilke ayarlanabilir çeşitli seçenekler açıklanmaktadır:
 * [Çıkış noktaları arası istekleri kimlik bilgileri](#credentials-in-cross-origin-requests)
 * [Denetim öncesi sona erme saati ayarla](#set-the-preflight-expiration-time)
 
- <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsOptions.AddPolicy*> çağrılma yeri `Startup.ConfigureServices`. Bazı seçenekleri okumak yardımcı olabilecek [CORS nasıl çalıştığını](#how-cors) ilk bölümü.
+<xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsOptions.AddPolicy*> çağrılma yeri `Startup.ConfigureServices`. Bazı seçenekleri okumak yardımcı olabilecek [CORS nasıl çalıştığını](#how-cors) ilk bölümü.
 
 ## <a name="set-the-allowed-origins"></a>İzin verilen çıkış noktaları ayarlama
 
 <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.AllowAnyOrigin*> &ndash; CORS istekleri herhangi şeması ile tüm kaynaklara izin verir (`http` veya `https`). `AllowAnyOrigin` güvenli değil çünkü *herhangi bir Web sitesinde* çıkış noktaları arası istekleri için uygulama yapabilir.
 
-  ::: moniker range=">= aspnetcore-2.2"
+::: moniker range=">= aspnetcore-2.2"
 
-  > [!NOTE]
-  > Belirtme `AllowAnyOrigin` ve `AllowCredentials` güvensiz bir yapılandırmadır ve siteler arası istek sahteciliğini neden olabilir. Bir uygulamanın her iki yöntemde de yapılandırıldığında CORS hizmeti geçersiz bir CORS yanıt döndürür.
+> [!NOTE]
+> Belirtme `AllowAnyOrigin` ve `AllowCredentials` güvensiz bir yapılandırmadır ve siteler arası istek sahteciliğini neden olabilir. Bir uygulamanın her iki yöntemde de yapılandırıldığında CORS hizmeti geçersiz bir CORS yanıt döndürür.
 
-  ::: moniker-end
+::: moniker-end
 
-  ::: moniker range="< aspnetcore-2.2"
+::: moniker range="< aspnetcore-2.2"
 
-  > [!NOTE]
-  > Belirtme `AllowAnyOrigin` ve `AllowCredentials` güvensiz bir yapılandırmadır ve siteler arası istek sahteciliğini neden olabilir. İstemci sunucu kaynaklarına erişmek için yetkilendirmeniz gerekiyorsa güvenli bir uygulama için başlangıç noktaları tam bir listesini belirtin.
+> [!NOTE]
+> Belirtme `AllowAnyOrigin` ve `AllowCredentials` güvensiz bir yapılandırmadır ve siteler arası istek sahteciliğini neden olabilir. İstemci sunucu kaynaklarına erişmek için yetkilendirmeniz gerekiyorsa güvenli bir uygulama için başlangıç noktaları tam bir listesini belirtin.
 
-  ::: moniker-end
+::: moniker-end
 
 <!-- REVIEW required
 I changed from
@@ -167,16 +167,16 @@ Specifying `AllowAnyOrigin` and `AllowCredentials` is an insecure configuration.
 to
 **`AllowAnyOrigin`** affects preflight requests and the
 
-to remove the ambiguous **This**. 
+to remove the ambiguous **This**.
 -->
 
-  `AllowAnyOrigin` etkiler ön kontrol istekleri ve `Access-Control-Allow-Origin` başlığı. Daha fazla bilgi için [öncesi istekleri](#preflight-requests) bölümü.
+`AllowAnyOrigin` etkiler ön kontrol istekleri ve `Access-Control-Allow-Origin` başlığı. Daha fazla bilgi için [öncesi istekleri](#preflight-requests) bölümü.
 
 ::: moniker range=">= aspnetcore-2.0"
 
 <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder.SetIsOriginAllowedToAllowWildcardSubdomains*> &ndash; Kümeleri <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicy.IsOriginAllowed*> yapılandırılmış joker karakter etki alanı kaynağını izin verilip verilmediğini değerlendirirken eşleşecek şekilde kaynakları sağlayan bir işlevi ilkesinin özelliği.
 
-  [!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=100-104&highlight=4)]
+[!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=100-104&highlight=4)]
 
 ::: moniker-end
 
@@ -381,14 +381,14 @@ Bu bölümde, ne açıklar bir [CORS](https://developer.mozilla.org/en-US/docs/W
   * Örneğin, kötü amaçlı bir aktör kullanabilirsiniz [önlemek siteler arası betik (XSS)](xref:security/cross-site-scripting) sitenize karşı ve bilgilerini çalmak için siteler arası istek kendi CORS etkin siteye yürütün.
 * CORS vererek özelliği API'nizi güvenli değil.
   * İstemci (tarayıcı) CORS zorunlu aittir. Sunucusu isteği yürütür ve yanıtı döndürür, hata ve blokları yanıtı döndürür istemcidir. Örneğin, aşağıdaki araçlardan herhangi birini sunucu yanıtı görüntülenir:
-     * [Fiddler](https://www.telerik.com/fiddler)
-     * [Postman](https://www.getpostman.com/)
-     * [.NET HttpClient](/dotnet/csharp/tutorials/console-webapiclient)
-     * Adres çubuğuna URL'yi girerek bir web tarayıcısı.
+    * [Fiddler](https://www.telerik.com/fiddler)
+    * [Postman](https://www.getpostman.com/)
+    * [.NET HttpClient](/dotnet/csharp/tutorials/console-webapiclient)
+    * Adres çubuğuna URL'yi girerek bir web tarayıcısı.
 * Bir çıkış noktaları arası yürütmek için bir yol tarayıcılar izin vermek bir sunucu için olan [XHR](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) veya [Fetch API'sini](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) aksi alınamaz istek.
   * Çıkış noktaları arası istekleri (CORS) olmayan tarayıcıları yapamazsınız. CORS önce [JSONP](https://www.w3schools.com/js/js_json_jsonp.asp) bu kısıtlama aşmak için kullanıldı. JSONP XHR kullanmaz, kullandığı `<script>` yanıtını almak için etiket. Betikleri yüklenen çıkış noktaları arası izin verilir.
 
-[CORS belirtimi]() çıkış noktaları arası istekleri etkinleştirme birkaç yeni HTTP üstbilgileri sunmuştur. Bir tarayıcı CORS destekliyorsa, bu üstbilgileri çıkış noktaları arası istekleri için otomatik olarak ayarlar. Özel JavaScript kodu, CORS'yi etkinleştirmek için gerekli değildir.
+[CORS belirtimi](https://www.w3.org/TR/cors/) çıkış noktaları arası istekleri etkinleştirme birkaç yeni HTTP üstbilgileri sunmuştur. Bir tarayıcı CORS destekliyorsa, bu üstbilgileri çıkış noktaları arası istekleri için otomatik olarak ayarlar. Özel JavaScript kodu, CORS'yi etkinleştirmek için gerekli değildir.
 
 Çıkış noktaları arası isteğinin bir örneği verilmiştir. `Origin` Üst bilgi isteği yapan site etki alanı sağlar:
 
@@ -429,7 +429,7 @@ CORS test etmek için:
 1. Yaklaşımlardan biri bu belgeyi kullanarak CORS'yi etkinleştirin. Örneğin:
 
   [!code-csharp[](cors/sample/Cors/WebAPI/StartupTest.cs?name=snippet2&highlight=13-18)]
-  
+
   > [!WARNING]
   > `WithOrigins("https://localhost:<port>");` benzer şekilde bir örnek uygulamayı test etmek için yalnızca kullanılmalıdır [örnek kodu indirdikten](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/cors/sample/Cors).
 
@@ -444,13 +444,13 @@ CORS test etmek için:
 1. Localhost merkezinden kaldırın `WithOrigins` ve uygulamayı dağıtırsınız. Alternatif olarak, farklı bir bağlantı noktası ile istemci uygulaması çalıştırın. Örneğin, Visual Studio'dan çalıştırma.
 1. İstemci uygulaması ile test edin. CORS hatalarını hata döndürür, ancak hata iletisi, JavaScript için kullanılamaz. Konsolu sekmesine, hatayı görmek için F12 araçlarındaki kullanın. Tarayıcıya bağlı olarak, bir hata (F12 araçları konsolunu) aşağıdakine benzer da alın:
 
-  * Microsoft Edge kullanarak:
+   * Microsoft Edge kullanarak:
 
-    **SEC7120: [CORS] kaynağını `https://localhost:44375` değil buldunuz `https://localhost:44375` çıkış noktaları arası kaynak için Access-Control-Allow-Origin yanıtı üstbilgisi içinde `https://webapi.azurewebsites.net/api/values/1`**
+     **SEC7120: [CORS] kaynağını `https://localhost:44375` değil buldunuz `https://localhost:44375` çıkış noktaları arası kaynak için Access-Control-Allow-Origin yanıtı üstbilgisi içinde `https://webapi.azurewebsites.net/api/values/1`**
 
-  * Chrome kullanarak:
+   * Chrome kullanarak:
 
-    **Erişim sırasında XMLHttpRequest `https://webapi.azurewebsites.net/api/values/1` kaynaktan `https://localhost:44375` CORS İlkesi tarafından engellendi: İstenen kaynak üzerinde 'Access-Control-Allow-Origin' üst bilgi yok.**
+     **Erişim sırasında XMLHttpRequest `https://webapi.azurewebsites.net/api/values/1` kaynaktan `https://localhost:44375` CORS İlkesi tarafından engellendi: İstenen kaynak üzerinde 'Access-Control-Allow-Origin' üst bilgi yok.**
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

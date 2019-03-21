@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 02/21/2019
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: abb426b1a41226e52d9b9b5c00c41ff816890d36
-ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
+ms.openlocfilehash: 6ec9b7bf3da0015b8ac3918a4d47644fffc14cdb
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56744137"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209180"
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>ASP.NET core'da HTTP.sys web sunucusu uygulaması
 
@@ -148,7 +148,7 @@ HTTP/2 varsayılan olarak etkindir. Bir HTTP/2 bağlantı değil, bağlantı, HT
 1. Uygulama ise bir [framework bağımlı dağıtım](/dotnet/core/deploying/#framework-dependent-deployments-fdd), .NET Core, .NET Framework veya her ikisi de (uygulama .NET Framework'ü hedefleyen bir .NET Core uygulaması ise) yükleyin.
 
    * **.NET core** &ndash; uygulama, .NET Core gerektiriyorsa, edinme ve çalıştırma **.NET Core çalışma zamanı** Yükleyicisi'nden [.NET Core indirir](https://dotnet.microsoft.com/download). SDK tamamını sunucuda yüklemeyin.
-   * **.NET framework** &ndash; uygulama .NET Framework gerekiyorsa, bkz. [.NET Framework Yükleme Kılavuzu](/dotnet/framework/install/). Gerekli .NET Framework'ü yükleyin. En son .NET Framework yükleyicisi öğesinden kullanılabilir [.NET Core indirir](https://dotnet.microsoft.com/download) sayfası.
+   * **.NET framework** &ndash; uygulama .NET Framework gerekiyorsa, bkz. [.NET Framework Yükleme Kılavuzu](/dotnet/framework/install/). Gerekli .NET Framework'ü yükleyin. En son .NET Framework yükleyicisi [.NET Core indirir](https://dotnet.microsoft.com/download) sayfası.
 
    Uygulama ise bir [müstakil dağıtım](/dotnet/core/deploying/#framework-dependent-deployments-scd), uygulama çalışma zamanı, dağıtımda içerir. Sunucuda hiçbir framework yüklemesi gerekir.
 

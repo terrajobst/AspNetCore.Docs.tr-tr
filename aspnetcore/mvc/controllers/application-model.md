@@ -5,12 +5,12 @@ description: Okuma ve nasıl ASP.NET Core MVC öğeleri davranacağını değiş
 ms.author: riande
 ms.date: 10/14/2016
 uid: mvc/controllers/application-model
-ms.openlocfilehash: f3e0aafa3e6a352c632e4abbf3943be61f11ea81
-ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
+ms.openlocfilehash: 6b0591a877c0d82e0ee6ab002eb6a6650753677b
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51225505"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208602"
 ---
 # <a name="work-with-the-application-model-in-aspnet-core"></a>ASP.NET Core uygulama modeli ile çalışma
 
@@ -25,9 +25,9 @@ ASP.NET Core MVC uygulama modeli, hem soyut arabirimleri hem de bir MVC uygulama
 ASP.NET Core MVC uygulama modeli aşağıdaki yapıya sahiptir:
 
 * ApplicationModel
-    * Denetleyicileri (ControllerModel)
-        * Eylemler (ActionModel)
-            * Parametreler (ParameterModel)
+  * Denetleyicileri (ControllerModel)
+    * Eylemler (ActionModel)
+      * Parametreler (ParameterModel)
 
 Modelin her düzeyi bir ortak erişimi `Properties` koleksiyonu ve alt düzey erişebilir ve hiyerarşideki üst düzey tarafından ayarlanan özellik değerlerini üzerine yazın. Özellikler için kalıcı `ActionDescriptor.Properties` eylemleri oluşturduğunuzda. İstek işlenirken, ardından herhangi bir özellik eklendiğinde veya değiştirildiğinde bir kural aracılığıyla erişilebilir `ActionContext.ActionDescriptor.Properties`. Özellikleri kullanarak, bir eylem başına temelinde filtreleri, model bağlayıcıları vb. yapılandırmak için harika bir yoludur.
 
@@ -128,7 +128,7 @@ Eylem parametreleri değiştirmek için aşağıdaki kuralı uygulanabilir kendi
 
 [!code-csharp[](./application-model/sample/src/AppModelSample/Controllers/ParameterModelController.cs?name=ParameterModelController&highlight=5)]
 
-### <a name="sample-modifying-the-actionmodel-name"></a>Örnek: ActionModel adını değiştirme
+### <a name="sample-modifying-the-actionmodel-name"></a>Örnek: ActionModel adı değiştirme
 
 Aşağıdaki kural değiştirir `ActionModel` güncelleştirilecek *adı* , uygulandığı eylem. Yeni bir ad, öznitelik bir parametre olarak sağlanır. Bu eylem yöntemine erişmek için kullanılan rota etkileyecek şekilde yönlendirerek, bu yeni adı kullanılır.
 
@@ -143,7 +143,7 @@ Yöntem adı olsa bile `SomeName`, özniteliğin yöntem adını kullanarak MVC 
 > [!NOTE]
 > Bu örnekte temelde yerleşik kullanarak aynıdır [ActionName](/dotnet/api/microsoft.aspnetcore.mvc.actionnameattribute) özniteliği.
 
-### <a name="sample-custom-routing-convention"></a>Örnek: Özel yönlendirme kuralı
+### <a name="sample-custom-routing-convention"></a>Örnek: Özel rota kuralları örneği
 
 Kullanabileceğiniz bir `IApplicationModelConvention` yönlendirmenin nasıl çalıştığını özelleştirmek için. Örneğin, aşağıdaki kuralı denetleyicileri ad alanları değiştirerek kendi yolları birleştirecektir `.` ad ile `/` rotadaki:
 

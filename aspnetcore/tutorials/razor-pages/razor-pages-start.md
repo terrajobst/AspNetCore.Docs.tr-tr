@@ -5,12 +5,12 @@ description: Bu öğretici serisinde, ASP.NET Core Razor sayfaları kullanma iş
 ms.author: riande
 ms.date: 12/5/2018
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 29d9369cfa6a4c76f015b5a819a27dfa280d4075
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 88449a0064dad42d8d2bf9fbdd67078e4c2ba8de
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346417"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58210073"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Öğretici: ASP.NET Core Razor sayfaları kullanmaya başlama
 
@@ -146,7 +146,6 @@ Razor sayfaları ve Destek dosyalarını içerir. Her bir Razor sayfası dosyala
 * A *. cshtml.cs* içeren dosya C# sayfası olayları işleyen kodu.
 
 Destekleyici dosyaları bir alt çizgi ile başlayan adları vardır. Örneğin, *_Layout.cshtml* dosyası tüm sayfalar için ortak kullanıcı Arabirimi öğeleri yapılandırır. Bu dosya sayfanın üst gezinti menüsünde ve sayfanın alt kısmındaki telif hakkı bildirimi ayarlar. Daha fazla bilgi için bkz. <xref:mvc/views/layout>.
-
 
 ### <a name="wwwroot-folder"></a>wwwroot klasörü
 

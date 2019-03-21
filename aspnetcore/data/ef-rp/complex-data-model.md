@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 56c2d783e8c75aad7487aa03309bb962f4354567
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: fbe43e019ddab6f9acc2ea46799f0a39aa7c2e7c
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346534"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58208996"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>ASP.NET core'da - veri modeli - 8'in 5 EF çekirdekli Razor sayfaları
 
@@ -223,8 +223,8 @@ Bir gezinme özelliği birden çok varlık tutuyorsa:
 Gezinti özelliği türleri şunlardır:
 
 * `ICollection<T>`
-*  `List<T>`
-*  `HashSet<T>`
+* `List<T>`
+* `HashSet<T>`
 
 Varsa `ICollection<T>` belirtilirse, EF Core oluşturur bir `HashSet<T>` varsayılan olarak koleksiyon.
 
@@ -267,7 +267,6 @@ Sütunu için tanımlayıcı bir ilişkisi olduğundan varsayılan olarak, olmay
 
 * (Boş değer atanabilir sınıflardır gibi) başvuru türleri.
 * Bir eğitmen bir ofis ataması olmayabilir.
-
 
 `OfficeAssignment` Atanamayan bir varlık olan `Instructor` gezinme özelliği için:
 

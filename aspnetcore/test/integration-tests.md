@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/25/2019
 uid: test/integration-tests
-ms.openlocfilehash: 053713e148df70b0be6bb567b55b2381a78d6c3e
-ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
+ms.openlocfilehash: 50cb6b26be187c7f36f189e77fd29b4559221f2c
+ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833585"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58209245"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>ASP.NET core'da tümleştirme testleri
 
@@ -91,7 +91,7 @@ Test web ana bilgisayarı ve bellek içi test sunucusuna gibi altyapı bileşenl
 [Birim testleri](/dotnet/articles/core/testing/unit-testing-with-dotnet-test) belgeleri nasıl bir test projesi ve test Çalıştırıcısı, testleri ve öneriler için nasıl adı testleri çalıştırmak ve test sınıflarına konusunda ayrıntılı yönergeler birlikte ayarlanacağı açıklanmaktadır.
 
 > [!NOTE]
-> Bir uygulama için bir test projesi oluştururken, birim testleri tümleştirme testleri farklı projelere ayırma ayırın. Bu, birim testlerine dahil altyapı test bileşenlerini yanlışlıkla olmadığından emin olun yardımcı olur. Ayrıca birim ve tümleştirme testleri ayrımı sağlar hangi testler küme üzerinde çalıştırılır denetleyen.
+> Bir uygulama için bir test projesi oluştururken, birim testleri tümleştirme testleri farklı projelere ayırma ayırın. Bu yardımcı olur, altyapı test bileşenleri, birim testleri yanlışlıkla dahil olmayan emin olun. Ayrıca birim ve tümleştirme testleri ayrımı sağlar hangi testler küme üzerinde çalıştırılır denetleyen.
 
 Razor sayfaları uygulamaların testler için yapılandırma ve MVC uygulamaları arasındaki neredeyse hiçbir fark yoktur. Tek fark, testleri nasıl adlandırıldığı ' dir. Bir Razor sayfaları uygulamasında sayfasında uç noktası testleri genellikle sonra sayfa modeli sınıfı adlandırılır (örneğin, `IndexPageTests` bileşen tümleştirme dizin sayfası için test etmek için). Bir MVC uygulamasında testleri genellikle denetleyicisi sınıfları tarafından düzenlenen ve bunlar test denetleyicileri sonra adlı (örneğin, `HomeControllerTests` bileşen tümleştirme giriş denetleyicisine için test etmek için).
 
