@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 5278527c86d5e2c895496663401964b6b9914c46
+ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58327400"
+---
 Gösterildiği eklenmesini film veritabanı bağlamı vurgulanan kod [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcı (içinde *Startup.cs* dosyası). `services.AddDbContext<MvcMovieContext>(options =>` Veritabanı ve bağlantı dizesini belirtir. `=>` olan bir [lambda işleci](/dotnet/articles/csharp/language-reference/operators/lambda-operator).
 
 Açık *Controllers/MoviesController.cs* dosya ve oluşturucu inceleyin:
@@ -6,7 +14,7 @@ Açık *Controllers/MoviesController.cs* dosya ve oluşturucu inceleyin:
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Controllers/MC1.cs?name=snippet_1)] 
 
-Oluşturucu kullanan [bağımlılık ekleme](xref:fundamentals/dependency-injection) veritabanı bağlamı eklemesine (`MvcMovieContext `) içine denetleyici. Her bir veritabanı bağlamı kullanılan [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) denetleyici yöntemleri.
+Oluşturucu kullanan [bağımlılık ekleme](xref:fundamentals/dependency-injection) veritabanı bağlamı eklemesine (`MvcMovieContext`) içine denetleyici. Her bir veritabanı bağlamı kullanılan [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) denetleyici yöntemleri.
 
 <a name="strongly-typed-models-keyword-label"></a>
 <a name="strongly-typed-models-and-the--keyword"></a>

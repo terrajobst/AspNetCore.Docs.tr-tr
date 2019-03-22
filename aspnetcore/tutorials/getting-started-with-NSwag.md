@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/30/2018
 uid: tutorials/get-started-with-nswag
-ms.openlocfilehash: 43f0f04ae63f4e74d8de6001a4a7518e4eb23d77
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 83a088a4cc3f1fc0ae94907c292fce2b3da4644f
+ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209154"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58327332"
 ---
 # <a name="get-started-with-nswag-and-aspnet-core"></a>NSwag ve ASP.NET Core ile çalışmaya başlama
 
@@ -202,9 +202,9 @@ Swagger kullanıcı arabirimini sürüme ait bilgileri görüntüler:
 
 ### <a name="xml-comments"></a>XML açıklamaları
 
- XML açıklamaları etkinleştirmek için aşağıdaki adımları gerçekleştirin:
+XML açıklamaları etkinleştirmek için aşağıdaki adımları gerçekleştirin:
 
-# <a name="visual-studiotabvisual-studio-xml"></a>[Visual Studio](#tab/visual-studio-xml/)
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -222,7 +222,7 @@ Swagger kullanıcı arabirimini sürüme ait bilgileri görüntüler:
 
 ::: moniker-end
 
-# <a name="visual-studio-for-mactabvisual-studio-mac-xml"></a>[Mac için Visual Studio](#tab/visual-studio-mac-xml/)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -240,7 +240,7 @@ Swagger kullanıcı arabirimini sürüme ait bilgileri görüntüler:
 
 ::: moniker-end
 
-# <a name="visual-studio-codetabvisual-studio-code-xml"></a>[Visual Studio Code](#tab/visual-studio-code-xml/)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 El ile vurgulanan satırları ekleyin *.csproj* dosyası:
 
@@ -276,7 +276,7 @@ Aşağıdaki örnek göz önünde bulundurun:
 
 ::: moniker range=">= aspnetcore-2.1"
 
-NSwag kullandığından [yansıma](/dotnet/csharp/programming-guide/concepts/reflection), ve önerilen dönüş türü için web API eylemlerini [actionresult öğesini\<T >](xref:Microsoft.AspNetCore.Mvc.ActionResult`1), dönüş türü tarafından tanımlanan yalnızca çıkarımını `T`. Otomatik olarak diğer olası dönüş türü çıkarsanamıyor.
+ NSwag kullandığından [yansıma](/dotnet/csharp/programming-guide/concepts/reflection), ve önerilen dönüş türü için web API eylemlerini [actionresult öğesini\<T >](xref:Microsoft.AspNetCore.Mvc.ActionResult%601), dönüş türü tarafından tanımlanan yalnızca çıkarımını `T`. Otomatik olarak diğer olası dönüş türü çıkarsanamıyor. 
 
 Aşağıdaki örnek göz önünde bulundurun:
 

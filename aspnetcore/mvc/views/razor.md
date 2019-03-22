@@ -5,12 +5,12 @@ description: Kodu sunucu tabanlı Web sayfalarını eklemek için Razor söz diz
 ms.author: riande
 ms.date: 10/26/2018
 uid: mvc/views/razor
-ms.openlocfilehash: 254c85ee9e74dc72170b19d27fbc5f1ae7ccd3dc
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: 53d4dc608fbfd45bcc015a3af83f5d87f86c7f15
+ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264751"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58327371"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>ASP.NET Core Razor söz dizimi başvurusu
 
@@ -534,7 +534,7 @@ Razor şablonları aşağıdaki biçimde bir kullanıcı Arabirimi parçacığı
 @<tag>...</tag>
 ```
 
-Aşağıdaki örnekte, şablonlu Razor temsilci olarak belirtmek verilmektedir bir <xref:System.Func`2>. [Dinamik tür](/dotnet/csharp/programming-guide/types/using-type-dynamic) temsilci kapsülleyen yönteminin parametresi için belirtilir. Bir [nesne türü](/dotnet/csharp/language-reference/keywords/object) temsilcinin dönüş değeri olarak belirtilir. Şablon ile kullanılan bir <xref:System.Collections.Generic.List`1> , `Pet` olan bir `Name` özelliği.
+Aşağıdaki örnekte, şablonlu Razor temsilci olarak belirtmek verilmektedir bir <xref:System.Func%602>. [Dinamik tür](/dotnet/csharp/programming-guide/types/using-type-dynamic) temsilci kapsülleyen yönteminin parametresi için belirtilir. Bir [nesne türü](/dotnet/csharp/language-reference/keywords/object) temsilcinin dönüş değeri olarak belirtilir. Şablon ile kullanılan bir <xref:System.Collections.Generic.List%601> , `Pet` olan bir `Name` özelliği.
 
 ```csharp
 public class Pet
@@ -599,7 +599,7 @@ Bir yöntem bağımsız değişkeni olarak bir satır içi Razor şablonu da sa�
 
 Önceki örnekte, Evcil Hayvanlar listesi kullanarak `Repeat` yöntemi çağrıldığında:
 
-* <xref:System.Collections.Generic.List`1> ' ın `Pet`.
+* <xref:System.Collections.Generic.List%601> ' ın `Pet`.
 * Her evcil hayvan yineleme sayısı.
 * Satır içi şablon sırasız bir listesini liste öğeleri için kullanın.
 

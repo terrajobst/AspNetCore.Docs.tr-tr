@@ -5,12 +5,12 @@ description: Bu makalede, ASP.NET Core kimliği için Entity Framework Core veri
 ms.author: avickers
 ms.date: 09/24/2018
 uid: security/authentication/customize_identity_model
-ms.openlocfilehash: 55346c571f180fa17a1108a622d991d15f365bae
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 0aa7448ac37a97a4d09a04caf365f641f22f5997
+ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209468"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58327307"
 ---
 # <a name="identity-model-customization-in-aspnet-core"></a>ASP.NET core'da kimlik modeli özelleştirme
 
@@ -253,7 +253,7 @@ public abstract class IdentityDbContext<
          where TUserToken : IdentityUserToken<TKey>
 ```
 
-(Yalnızca talep) rol, bu durumda kimlik kullanmak da mümkündür bir <xref:Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserContext`1> sınıfı kullanılmalıdır:
+(Yalnızca talep) rol, bu durumda kimlik kullanmak da mümkündür bir <xref:Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserContext%601> sınıfı kullanılmalıdır:
 
 ```csharp
 // Uses the built-in non-role Identity types except with a custom User type
@@ -368,7 +368,7 @@ PK türünü değiştirmek için aşağıdaki adımları izleyin:
 
 1. Veritabanı oluşturduysanız çalıştırarak PK değişiklikten önce `Drop-Database` (PMC) veya `dotnet ef database drop` (CLI silmek için .NET Core).
 2. Veritabanının silinmesi, onayladıktan sonra ilk geçiş işlemine kaldırmak `Remove-Migration` (PMC) veya `dotnet ef migrations remove` (.NET Core CLI).
-3. Güncelleştirme `ApplicationDbContext` öğesinden türetilen sınıfın <xref:Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityDbContext`3>. Yeni anahtar türü için belirtin `TKey`. Örneğin, kullanılacak bir `Guid` anahtar türü:
+3. Güncelleştirme `ApplicationDbContext` öğesinden türetilen sınıfın <xref:Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityDbContext%603>. Yeni anahtar türü için belirtin `TKey`. Örneğin, kullanılacak bir `Guid` anahtar türü:
 
     ```csharp
     public class ApplicationDbContext
@@ -383,13 +383,13 @@ PK türünü değiştirmek için aşağıdaki adımları izleyin:
 
     ::: moniker range=">= aspnetcore-2.0"
 
-    Önceki kodda, Genel sınıflar <xref:Microsoft.AspNetCore.Identity.IdentityUser`1> ve <xref:Microsoft.AspNetCore.Identity.IdentityRole`1> yeni anahtar türü kullanmak için belirtilmelidir.
+    Önceki kodda, Genel sınıflar <xref:Microsoft.AspNetCore.Identity.IdentityUser%601> ve <xref:Microsoft.AspNetCore.Identity.IdentityRole%601> yeni anahtar türü kullanmak için belirtilmelidir.
 
     ::: moniker-end
 
     ::: moniker range="<= aspnetcore-1.1"
 
-    Önceki kodda, Genel sınıflar <xref:Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUser`1> ve <xref:Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole`1> yeni anahtar türü kullanmak için belirtilmelidir.
+    Önceki kodda, Genel sınıflar <xref:Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUser%601> ve <xref:Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole%601> yeni anahtar türü kullanmak için belirtilmelidir.
 
     ::: moniker-end
 

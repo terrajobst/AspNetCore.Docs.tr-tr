@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/23/2018
 uid: mvc/controllers/testing
-ms.openlocfilehash: c8a374f3e3ecfdef1a02e685aecc4e2fcbfcbf48
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: 429af1fb6d0388a5c57894851832969e1ef629e2
+ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410368"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58327439"
 ---
 # <a name="test-controller-logic-in-aspnet-core"></a>ASP.NET Core denetleyicisi mantıksal test
 
@@ -126,7 +126,7 @@ Davranışını test etmek için `Create` yöntemi zaman `ModelState` olan geçe
 
 ## <a name="test-actionresultlttgt"></a>Test ActionResult&lt;T&gt;
 
-ASP.NET Core 2.1 veya daha sonra [actionresult öğesini&lt;T&gt; ](xref:web-api/action-return-types#actionresultt-type) (<xref:Microsoft.AspNetCore.Mvc.ActionResult`1>) dönüş türetme bir türü sayesinde `ActionResult` veya belirli bir tür döndürür.
+ASP.NET Core 2.1 veya daha sonra [actionresult öğesini&lt;T&gt; ](xref:web-api/action-return-types#actionresultt-type) (<xref:Microsoft.AspNetCore.Mvc.ActionResult%601>) dönüş türetme bir türü sayesinde `ActionResult` veya belirli bir tür döndürür.
 
 Örnek uygulamayı döndüren bir yöntem içerir. bir `List<IdeaDTO>` belirli bir oturum için `id`. Varsa oturum `id` , denetleyici döndürür yok <xref:Microsoft.AspNetCore.Mvc.ControllerBase.NotFound*>:
 
@@ -144,7 +144,7 @@ ASP.NET Core 2.1 veya daha sonra [actionresult öğesini&lt;T&gt; ](xref:web-api
 Geçerli bir oturum için `id`, ikinci test yöntemi döndürdüğünü onaylar:
 
 * Bir `ActionResult` ile bir `List<IdeaDTO>` türü.
-* [Actionresult öğesini&lt;T&gt;. Değer](xref:Microsoft.AspNetCore.Mvc.ActionResult`1.Value*) olduğu bir `List<IdeaDTO>` türü.
+* [Actionresult öğesini&lt;T&gt;. Değer](xref:Microsoft.AspNetCore.Mvc.ActionResult%601.Value*) olduğu bir `List<IdeaDTO>` türü.
 * Listedeki ilk öğeye sahte oturumda depolanan fikir eşleşen geçerli bir fikir olduğunu (çağırılarak `GetTestSession`).
 
 [!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/ApiIdeasControllerTests.cs?name=snippet_ForSessionActionResult_ReturnsIdeasForSession&highlight=7-8,15-18)]
@@ -170,8 +170,8 @@ Geçerli bir oturum için `id`, ikinci test yöntemi döndürdüğünü onaylar:
 Geçerli bir oturum için `id`, son testte, onaylar:
 
 * Yöntem döndürür bir `ActionResult` ile bir `BrainstormSession` türü.
-* [Actionresult öğesini&lt;T&gt;. Sonuç](xref:Microsoft.AspNetCore.Mvc.ActionResult`1.Result*) olduğu bir <xref:Microsoft.AspNetCore.Mvc.CreatedAtActionResult>. `CreatedAtActionResult` için benzer bir *201 oluşturuldu* yanıtıyla bir `Location` başlığı.
-* [Actionresult öğesini&lt;T&gt;. Değer](xref:Microsoft.AspNetCore.Mvc.ActionResult`1.Value*) olduğu bir `BrainstormSession` türü.
+* [Actionresult öğesini&lt;T&gt;. Sonuç](xref:Microsoft.AspNetCore.Mvc.ActionResult%601.Result*) olduğu bir <xref:Microsoft.AspNetCore.Mvc.CreatedAtActionResult>. `CreatedAtActionResult` için benzer bir *201 oluşturuldu* yanıtıyla bir `Location` başlığı.
+* [Actionresult öğesini&lt;T&gt;. Değer](xref:Microsoft.AspNetCore.Mvc.ActionResult%601.Value*) olduğu bir `BrainstormSession` türü.
 * Oturum güncelleştirmek için sahte arama `UpdateAsync(testSession)`, çağrıldı. `Verifiable` Yöntem çağrısının yürüterek işaretli `mockRepo.Verify()` içinde onaylar.
 * İki `Idea` nesneleri, oturum için döndürülür.
 * Son öğe ( `Idea` sahte çağrısı tarafından eklenen `UpdateAsync`) eşleşen `newIdea` test oturumu eklenir.
