@@ -6,12 +6,12 @@ ms.author: riande
 ms.date: 12/18/2018
 ms.custom: seodec18
 uid: security/authorization/secure-data
-ms.openlocfilehash: bdba706c1ef24ebe35129cb8bb2d9949196245a1
-ms.sourcegitcommit: 97d7a00bd39c83a8f6bccb9daa44130a509f75ce
+ms.openlocfilehash: 748de9264a1b22b50e0832fdd350e06eeefd5cb3
+ms.sourcegitcommit: 7d6019f762fc5b8cbedcd69801e8310f51a17c18
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54098928"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58419465"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Kullanıcı verilerinin yetkilendirme tarafından korunduğu ile bir ASP.NET Core uygulaması oluşturma
 
@@ -89,7 +89,7 @@ ASP.NET Core 2.1 içinde `User.IsInRole` kullanırken başarısız `AddDefaultId
 
 ## <a name="the-starter-and-completed-app"></a>Tamamlanmış uygulama ve başlangıç
 
-[İndirme](xref:index#how-to-download-a-sample) [tamamlandı](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/final2) uygulama. [Test](#test-the-completed-app) tamamlanan uygulama güvenlik özellikleri ile ilgili bilgi sahibi olursunuz.
+[İndirme](xref:index#how-to-download-a-sample) [tamamlandı](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples) uygulama. [Test](#test-the-completed-app) tamamlanan uygulama güvenlik özellikleri ile ilgili bilgi sahibi olursunuz.
 
 ### <a name="the-starter-app"></a>Başlangıç uygulaması
 

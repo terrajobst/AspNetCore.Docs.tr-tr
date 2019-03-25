@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/25/2019
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 72e3ae1c4be18edaa2e7f1906cf65269e5ed2288
-ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
+ms.openlocfilehash: 7ec14ddf1a741da92347825d935316533e8543fe
+ms.sourcegitcommit: 7d6019f762fc5b8cbedcd69801e8310f51a17c18
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57665502"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58419439"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>ASP.NET core'da bağımlılık ekleme
 
@@ -127,6 +127,12 @@ Bu arabirimin somut bir tür tarafından uygulanan `MyDependency`:
 `MyDependency` istekler bir [ILogger&lt;TCategoryName&gt; ](/dotnet/api/microsoft.extensions.logging.ilogger-1) kendi oluşturucusuna. Bağımlılık ekleme zincirleme bir şekilde kullanmak alışılmadık bir durum değildir. İstenen her bağımlılık sırayla kendi bağımlılıkları ister. Kapsayıcı graftaki bağımlılıklarını çözen ve tam olarak çözümlenmiş hizmeti döndürür. Toplu kümesi çözümlenemedi bağımlılıklar, tipik olarak adlandırılır bir *Bağımlılık ağacı*, *bağımlılık grafiği*, veya *Nesne grafiği*.
 
 `IMyDependency` ve `ILogger<TCategoryName>` service kapsayıcısında kayıtlı olması gerekir. `IMyDependency` kaydedilmiştir `Startup.ConfigureServices`. `ILogger<TCategoryName>` senaryomuz için günlük soyutlama altyapısı tarafından kayıtlı bir [framework tarafından sağlanan hizmet](#framework-provided-services) framework tarafından varsayılan olarak kayıtlı.
+
+Kapsayıcı çözümler `ILogger<TCategoryName>` yararlanarak [(Genel) açık türler](/dotnet/csharp/language-reference/language-specification/types#open-and-closed-types), kaydedilecek ihtiyacını her [(Genel) oluşturulan türü](/dotnet/csharp/language-reference/language-specification/types#constructed-types):
+
+```csharp
+services.AddSingleton(typeof(ILogger<T>), typeof(Logger<T>));
+```
 
 Örnek uygulamada `IMyDependency` hizmet somut bir türde ile kayıtlı `MyDependency`. Tek bir isteğin ömrü hizmet ömrü kayıt kapsamları. [Hizmet ömrü](#service-lifetimes) bu konunun ilerleyen bölümlerinde açıklanmıştır.
 

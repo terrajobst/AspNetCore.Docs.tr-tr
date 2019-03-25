@@ -5,14 +5,14 @@ description: Adım adım bir Razor bileşenleri uygulaması derleme ve Razor bil
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/14/2019
+ms.date: 03/24/2019
 uid: tutorials/first-razor-components-app
-ms.openlocfilehash: c0f7b27fdfc770f8001625ecb3bf8d50af517b99
-ms.sourcegitcommit: d913bca90373c07f89b1d1df01af5fc01fc908ef
+ms.openlocfilehash: 2a987b3f2e687cd9d4dffa2c573c938e68ea3cc8
+ms.sourcegitcommit: 7d6019f762fc5b8cbedcd69801e8310f51a17c18
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57978429"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58419371"
 ---
 # <a name="build-your-first-razor-components-app"></a>Razor bileşenleri ilk uygulamanızı oluşturun
 
@@ -67,7 +67,7 @@ Blazor kullanarak bir deneyim için:
 
 Bir HTML benzeri sözdizimi kullanarak başka bir bileşene dönüştürerek bileşen içerir.
 
-1. Sayaç bileşen uygulamanın dizini (giriş sayfası) bileşenine ekleyerek bir `<Counter />` dizin bileşeni öğesi.
+1. Sayaç bileşen uygulamanın dizini (giriş) bileşenine ekleyerek bir `<Counter />` dizin bileşeni öğesi.
 
    Bu deneyim için bir anket istemi bileşeni Blazor kullanıyorsanız (`<SurveyPrompt>` öğesi) dizin bileşenidir. Değiştirin `<SurveyPrompt>` öğeyle `<Counter>` öğesi.
 
@@ -101,7 +101,7 @@ Bileşenleri parametrelerini de sağlayabilirsiniz. Bileşen parametreleri, gene
 
    [!code-cshtml[](build-your-first-razor-components-app/samples/3.x/RazorComponents/Components/Pages/Index.razor?highlight=7)]
 
-1. Sayfayı yeniden yükleyin. Giriş sayfası sayaç artırılır on tarafından her zaman **me tıklayın** düğmesi seçili. Sayaca sağ *sayacı* sayfasında artışlarla bir.
+1. Ana sayfayı yeniden yükleyin. Sayaç artırılır on tarafından her zaman **me tıklayın** düğmesi seçili. Bir sayacı sayfa artışlarla üzerinde sayacı.
 
 ## <a name="route-to-components"></a>Bileşenleri için yol
 
@@ -111,29 +111,38 @@ Bileşenleri parametrelerini de sağlayabilirsiniz. Bileşen parametreleri, gene
 
 Bileşenleri uygulamanın service kapsayıcısında kayıtlı hizmetlerinin kullanılabilir [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection). Halinde bileşenini kullanarak Hizmetleri ekleme `@inject` yönergesi.
 
-Parçalar bileşenin yönergeleri inceleyin. `@inject` Yönergesi örneğini ekleme için kullanılan `WeatherForecastService` hizmet bileşeni içinde:
+Örnek uygulamada parçalar bileşeninin yönergeleri inceleyin.
 
-*Components/Pages/FetchData.razor* (*Pages/FetchData.cshtml* Blazor içinde):
+Razor bileşenleri örnek uygulamada `WeatherForecastService` hizmet olarak kayıtlı bir [tekil](xref:fundamentals/dependency-injection#service-lifetimes), Hizmeti'nin bir örneğini uygulama boyunca kullanılabilir olması. `@inject` Yönergesi örneğini ekleme için kullanılan `WeatherForecastService` halinde bileşenini hizmet.
+
+*Components/Pages/FetchData.razor*:
 
 [!code-cshtml[](build-your-first-razor-components-app/samples_snapshot/3.x/FetchData1.razor?highlight=3)]
-
-`WeatherForecastService` Hizmet olarak kayıtlı bir [singleton](xref:fundamentals/dependency-injection#service-lifetimes), Hizmeti'nin bir örneğini uygulama boyunca kullanılabilir.
 
 Parçalar bileşeni olarak eklenen hizmet kullanan `ForecastService`, bir dizi alınacak `WeatherForecast` nesneler:
 
 [!code-cshtml[](build-your-first-razor-components-app/samples_snapshot/3.x/FetchData2.razor?highlight=6)]
 
-A [ @foreach ](/dotnet/csharp/language-reference/keywords/foreach-in) döngü, her bir tahmin örneği tablosunda bir satıra hava durumu verilerinin işlemek için kullanılır:
+Örnek uygulama Blazor sürümünde `HttpClient` hava durumu tahminini verilerden elde etmek için eklenmiş *weather.json* dosyası *wwwroot/örnek-veri* klasörü:
+
+*Pages/FetchData.cshtml*:
+
+[!code-cshtml[](build-your-first-razor-components-app/samples_snapshot/3.x/FetchData1.cshtml?highlight=7)]
+
+Her iki örnek uygulamalarda bir [ @foreach ](/dotnet/csharp/language-reference/keywords/foreach-in) döngü, her bir tahmin örneği tablosunda bir satıra hava durumu verilerinin işlemek için kullanılır:
 
 [!code-cshtml[](build-your-first-razor-components-app/samples_snapshot/3.x/FetchData3.razor?highlight=11-19)]
 
 ## <a name="build-a-todo-list"></a>Bir Yapılacaklar listesi oluşturun
 
-Bir basit bir Yapılacaklar listesi uygulayan uygulamaya yeni bir sayfa ekleyin.
+Yeni bir bileşen, bir basit bir Yapılacaklar listesi uygulayan uygulamaya ekleyin.
 
-1. Boş bir dosyaya eklemek *bileşenleri/sayfaları* klasörü (*sayfaları* Blazor klasöründe) adlı *Todo.razor*.
+1. Örnek uygulamaya boş bir dosya ekleyin:
 
-1. Sayfa için ilk biçimlendirme sağlar:
+   * Razor bileşenleri deneyimi için ekleme bir *Todo.razor* dosyasını *bileşenleri/sayfaları* klasör.
+   * Blazor deneyimi için ekleme bir *Todo.cshtml* dosyasını *sayfaları* klasör.
+
+1. Bileşen için ilk biçimlendirme sağlar:
 
    ```cshtml
    @page "/todo"
@@ -141,11 +150,11 @@ Bir basit bir Yapılacaklar listesi uygulayan uygulamaya yeni bir sayfa ekleyin.
    <h1>Todo</h1>
    ```
 
-1. Todo sayfa gezinti çubuğuna ekleyin.
+1. Todo bileşeni Gezinti çubuğuna ekleyin.
 
    NavMenu bileşeni (*Components/Shared/NavMenu.razor* veya *Shared/NavMenu.cshtml* Blazor içinde) uygulamanın düzende kullanılır. Düzenleri, uygulama içeriği yinelenmesini önlemek izin bileşenlerdir. Daha fazla bilgi için bkz. <xref:razor-components/layouts>.
 
-   Ekleme bir `<NavLink>` için aşağıda bulunan mevcut liste öğelerini aşağıdaki liste öğesi işaretleme ekleyerek Todo sayfası *Components/Shared/NavMenu.razor* (*Shared/NavMenu.cshtml* Blazor içinde) dosyası:
+   Ekleme bir `<NavLink>` aşağıda bulunan mevcut liste öğelerini aşağıdaki liste öğesi işaretleme ekleyerek Todo bileşeni için *Components/Shared/NavMenu.razor* (*Shared/NavMenu.cshtml* Blazor içinde) dosyası:
 
    ```cshtml
    <li class="nav-item px-3">
@@ -155,7 +164,7 @@ Bir basit bir Yapılacaklar listesi uygulayan uygulamaya yeni bir sayfa ekleyin.
    </li>
    ```
 
-1. Yeniden oluşturun ve uygulamayı çalıştırın. Todo sayfanın bağlantısını çalıştığını onaylamak için yeni Todo sayfasını ziyaret edin.
+1. Yeniden oluşturun ve uygulamayı çalıştırın. Todo bileşen bağlantısını çalıştığını onaylamak için yeni Todo sayfasını ziyaret edin.
 
 1. Ekleme bir *TodoItem.cs* bir todo öğesini temsil eden bir sınıf tutmak için projenin kök dosya. Aşağıdaki C# için kod `TodoItem` sınıfı:
 

@@ -5,7 +5,7 @@ description: 'Bu makalede, Azure konak bağlantı içerir ve kaynakları dağıt
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/26/2019
+ms.date: 03/23/2019
 uid: host-and-deploy/azure-apps/index
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>ASP.NET Core uygulamalarını Azure App Service'e dağıtma
@@ -78,7 +78,17 @@ Bir uygulama kullandığında [genel ana bilgisayar](xref:fundamentals/host/gene
 
 ## <a name="monitoring-and-logging"></a>İzleme ve günlüğe kaydetme
 
-App Service için otomatik olarak dağıtılan bir ASP.NET Core uygulamaları bir App Service uzantısını alma **ASP.NET Core günlüğü uzantıları**. Uzantı Azure günlük kaydını etkinleştirir.
+::: moniker range=">= aspnetcore-3.0"
+
+App Service için otomatik olarak dağıtılan bir ASP.NET Core uygulamaları bir App Service uzantısını alma **ASP.NET Core günlüğü tümleştirmesi**. Uzantı, Azure App Service'te ASP.NET Core uygulamaları için günlük tümleştirme sağlar.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+App Service için otomatik olarak dağıtılan bir ASP.NET Core uygulamaları bir App Service uzantısını alma **ASP.NET Core günlüğü uzantıları**. Uzantı, Azure App Service'te ASP.NET Core uygulamaları için günlük tümleştirme sağlar.
+
+::: moniker-end
 
 İzleme, günlüğe kaydetme ve sorun giderme bilgileri için aşağıdaki makalelere bakın:
 

@@ -5,7 +5,7 @@ description: 'Ana bilgisayar ve ASP.NET Core, içerik teslim ağları (CDN), dos
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/29/2019
+ms.date: 03/22/2019
 uid: host-and-deploy/razor-components/index
 ---
 # <a name="host-and-deploy-razor-components"></a>Barındırma ve Razor bileşenleri dağıtma
@@ -284,7 +284,7 @@ Proje sitesi yerine bir kuruluş site kullanırken, ekleme veya güncelleştirme
 
 İle [sunucu tarafı barındırma modeli](xref:razor-components/hosting-models#server-side-hosting-model), Razor bileşenleri sunucusunda bir ASP.NET Core uygulaması içinde yürütülür. Kullanıcı Arabirimi güncelleştirmeleri, olay işleme ve JavaScript çağrılarını bir SignalR bağlantısı üzerinden işlenir.
 
-Böylece iki uygulamanın birlikte dağıtılan uygulamayı yayımlanan çıktıda ASP.NET Core uygulaması ile birlikte gelir. ASP.NET Core uygulaması barındırma yeteneğine sahip bir web sunucusu gereklidir. Sunucu tarafı dağıtımı için Visual Studio içerir **Blazor (sunucu tarafı ASP.NET core'da)** proje şablonu (`blazorserver` kullanırken şablon [yeni dotnet](/dotnet/core/tools/dotnet-new) komutu).
+Böylece iki uygulamanın birlikte dağıtılan uygulamayı yayımlanan çıktıda ASP.NET Core uygulaması ile birlikte gelir. ASP.NET Core uygulaması barındırma yeteneğine sahip bir web sunucusu gereklidir. Sunucu tarafı dağıtımı için Visual Studio içerir **Razor bileşenleri** proje şablonu (`razorcomponents` kullanırken şablon [yeni dotnet](/dotnet/core/tools/dotnet-new) komutu).
 
 <!--
 

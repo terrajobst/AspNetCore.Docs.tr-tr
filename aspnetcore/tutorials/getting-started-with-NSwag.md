@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/30/2018
 uid: tutorials/get-started-with-nswag
-ms.openlocfilehash: 83a088a4cc3f1fc0ae94907c292fce2b3da4644f
-ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
+ms.openlocfilehash: af07ad771c582cfad80f297748c3c1049ff4a7d6
+ms.sourcegitcommit: 7d6019f762fc5b8cbedcd69801e8310f51a17c18
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58327332"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58419413"
 ---
 # <a name="get-started-with-nswag-and-aspnet-core"></a>NSwag ve ASP.NET Core ile çalışmaya başlama
 
@@ -47,7 +47,7 @@ Kullanılacak [NSwag](https://github.com/RSuter/NSwag) ASP.NET Core ara yazılı
 
 NSwag NuGet paketini yüklemek için aşağıdaki yaklaşımlardan birini kullanın:
 
-### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Gelen **Paket Yöneticisi Konsolu** penceresi:
   * Git **görünümü** > **diğer Windows** > **Paket Yöneticisi Konsolu**
@@ -64,14 +64,14 @@ NSwag NuGet paketini yüklemek için aşağıdaki yaklaşımlardan birini kullan
   * Arama kutusuna "NSwag.AspNetCore"
   * "NSwag.AspNetCore" paketinden seçin **Gözat** sekmesine **yükleyin**
 
-### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
 * Sağ *paketleri* klasöründe **çözüm bölmesi** > **paketleri Ekle...**
 * Ayarlama **paketleri Ekle** pencerenin **kaynak** "nuget.org" açılır menüsünü
 * Arama kutusuna "NSwag.AspNetCore"
 * Sonuçlar bölmesinde "NSwag.AspNetCore" paketi seçin ve tıklayın **' paket Ekle**
 
-### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Aşağıdaki komutu çalıştırın **tümleşik Terminalini**:
 
@@ -79,7 +79,7 @@ Aşağıdaki komutu çalıştırın **tümleşik Terminalini**:
 dotnet add TodoApi.csproj package NSwag.AspNetCore
 ```
 
-### <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
 Şu komutu çalıştırın:
 
@@ -240,7 +240,7 @@ XML açıklamaları etkinleştirmek için aşağıdaki adımları gerçekleştir
 
 ::: moniker-end
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-code--net-core-clitabvisual-studio-codenetcore-cli"></a>[Visual Studio Code / .NET Core CLI](#tab/visual-studio-code+netcore-cli)
 
 El ile vurgulanan satırları ekleyin *.csproj* dosyası:
 
