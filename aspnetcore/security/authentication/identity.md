@@ -3,14 +3,14 @@ title: ASP.NET core'da kimliğe giriş
 author: rick-anderson
 description: Kimlik ile bir ASP.NET Core uygulaması kullanın. Parola gereksinimlerini (RequireDigit, RequiredLength, RequiredUniqueChars ve daha fazlası) ayarlama konusunda bilgi edinin.
 ms.author: riande
-ms.date: 08/08/2018
+ms.date: 03/26/2019
 uid: security/authentication/identity
-ms.openlocfilehash: 355c53e0c957944cb35c37c6b01e724af5f93f44
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: efe8119c2d18db50dce3df57fa0e300d0d0df2cd
+ms.sourcegitcommit: 687ffb15ebe65379f75c84739ea851d5a0d788b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58265466"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58488679"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>ASP.NET core'da kimliğe giriş
 
@@ -64,6 +64,24 @@ Oluşturulan proje sağlar [ASP.NET Core kimliği](xref:security/authentication/
 * / Kimlik/hesabı/oturum açma
 * / Kimlik/hesabı/oturum kapatma
 * / Kimlik/hesabı/yönetme
+
+### <a name="apply-migrations"></a>Geçişleri Uygula
+
+Veritabanı verilerinden Başlat geçişler için geçerlidir.
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+Paket Yöneticisi Konsolu (PMC'de) şu komutu çalıştırın:
+
+```PM> Update-Database```
+
+# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+
+```cli
+dotnet ef database update
+```
+
+---
 
 ### <a name="test-register-and-login"></a>Test kayıt ve oturum açma
 

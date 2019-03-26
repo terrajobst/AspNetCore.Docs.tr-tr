@@ -5,14 +5,14 @@ description: Oluşturma ve Razor bileşenler, bileşen ömürleri yönetme veril
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/13/2019
+ms.date: 03/26/2019
 uid: razor-components/components
-ms.openlocfilehash: c93ea62c7540aca8981294fe90855ff9d4d844dc
-ms.sourcegitcommit: d913bca90373c07f89b1d1df01af5fc01fc908ef
+ms.openlocfilehash: 59c8540ea297f8396d6aac9b3246639667ad0cd7
+ms.sourcegitcommit: 687ffb15ebe65379f75c84739ea851d5a0d788b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57978511"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58488682"
 ---
 # <a name="create-and-use-razor-components"></a>Oluşturma ve Razor bileşenleri kullanma
 
@@ -24,7 +24,15 @@ Razor bileşenleri uygulamaları kullanılarak oluşturulur *bileşenleri*. Bir 
 
 ## <a name="component-classes"></a>Bileşen sınıfları
 
-Bileşenleri Razor bileşen dosyaları genellikle uygulanır (*.razor*) bir birleşimi kullanılarak C# ve HTML biçimlendirmesi. Bir bileşen için kullanıcı Arabirimi, HTML kullanılarak tanımlanır. (Örneğin, döngü, koşullular, ifadeleri) dinamik işleme mantığı, katıştırılmış kullanarak eklenir C# adlı söz dizimi [Razor](xref:mvc/views/razor). Ne zaman bir Razor bileşenleri uygulama derlendiğinde, HTML biçimlendirmesi ve C# işleme mantığı, bir bileşen sınıfı dönüştürülür. Oluşturulan sınıfın adı dosya adıyla aynıdır.
+Bileşenleri Razor bileşen dosyaları genellikle uygulanır (*.razor*) bir birleşimi kullanılarak C# ve HTML biçimlendirmeyi (*.cshtml* dosyaları Blazor uygulamalarda kullanılır).
+
+Bileşenlerini kullanarak Razor bileşenleri uygulamalarında yazılmış *.cshtml* dosyaları kullanarak Razor bileşen dosyaları tanımlanmış olduğu sürece dosya uzantısı `_RazorComponentInclude` MSBuild özelliği. Örneğin, Razor bileşen şablonu kullanılarak oluşturulan bir uygulamayı belirtir tüm *.cshtml* altında dosyaları *bileşenleri* klasör Razor bileşenleri dosyaları olarak kabul:
+
+```xml
+<_RazorComponentInclude>Components\**\*.cshtml</_RazorComponentInclude>
+```
+
+Bir bileşen için kullanıcı Arabirimi, HTML kullanılarak tanımlanır. (Örneğin, döngü, koşullular, ifadeleri) dinamik işleme mantığı, katıştırılmış kullanarak eklenir C# adlı söz dizimi [Razor](xref:mvc/views/razor). Ne zaman bir Razor bileşenleri uygulama derlendiğinde, HTML biçimlendirmesi ve C# işleme mantığı, bir bileşen sınıfı dönüştürülür. Oluşturulan sınıfın adı dosya adıyla aynıdır.
 
 Bileşen sınıfı üyeleri tanımlanmış bir `@functions` blok (birden fazla `@functions` bloğu izin verilen). İçinde `@functions` blok, bileşen durumu (Özellikler, alanlar), olay işleme için veya başka bir bileşen mantığı tanımlamak için yöntemlerle birlikte belirtilir.
 
@@ -766,4 +774,60 @@ Aşağıdaki örnek nasıl belirtileceğini göstermektedir `RenderFragment` ve 
 The time is 10/04/2018 01:26:52.
 
 Your pet's name is Rex.
+```
+
+## <a name="manual-rendertreebuilder-logic"></a>El ile RenderTreeBuilder mantığı
+
+`Microsoft.AspNetCore.Components.RenderTree` bileşenleri ve bileşenleri el ile oluşturma da dahil olmak üzere öğeleri işlemek için yöntemler sağlar C# kod.
+
+> [!NOTE]
+> Kullanım `RenderTreeBuilder` bileşenler oluşturmak için Gelişmiş bir senaryodur. Hatalı biçimlendirilmiş bir bileşen (örneğin, bir kapatılmamış biçimlendirme etiketi) tanımsız davranışlara neden olabilir.
+
+Aşağıdaki evcil hayvan ayrıntıları bileşeni göz önünde bulundurun (*PetDetails.razor* Razor bileşenlerinde; *PetDetails.cshtml* Blazor içinde), hangi el ile oluşturulabilen başka bir bileşene dönüştürerek:
+
+```cshtml
+<h2>Pet Details Component</h2>
+
+<p>@PetDetailsQuote<p>
+
+@functions
+{
+    [Parameter]
+    string PetDetailsQuote { get; set; }
+}
+```
+
+Aşağıdaki örnekte, bir döngüde `CreateComponent` yöntem üç evcil hayvan ayrıntıları bileşeni oluşturur. Çağrılırken `RenderTreeBuilder` bileşenler oluşturmak için yöntemleri (`OpenComponent` ve `AddAttribute`), sıra numaraları olan kaynak kodu satır numaraları. Razor kod değil ayrı ayrı satırlara karşılık gelen sıra numaraları fark algoritması kullanır bileşenleri çağrılarını çağırın. Bir bileşen ile oluştururken `RenderTreeBuilder` yöntemleri, sabit kodlamayın seri numaraları için bağımsız değişkenler. **Sıra numarası oluşturmak için bir hesaplama veya sayaç kullanarak düşük performansa neden olabilir.**
+
+Yerleşik bileşeni (*BuiltContent.razor* Razor bileşenlerinde; *BuiltContent.cshtml* Blazor içinde):
+
+```cshtml
+@page "/BuiltContent"
+
+<h1>Build a component</h1>
+
+@CustomRender
+
+<button type="button" onclick="@RenderComponent">
+    Create three Pet Details components
+</button>
+
+@functions {
+    RenderFragment CustomRender { get; set; }
+    
+    RenderFragment CreateComponent() => builder =>
+    {
+        for (var i = 0; i < 3; i++) 
+        {
+            builder.OpenComponent(0, typeof(PetDetails));
+            builder.AddAttribute(1, "PetDetailsQuote", "Someone's best friend!");
+            builder.CloseComponent();
+        }
+    };    
+    
+    void RenderComponent()
+    {
+        CustomRender = CreateComponent();
+    }
+}
 ```

@@ -4,14 +4,14 @@ author: mjrousos
 description: Geçerli kimliği doğrulanmış kullanıcının kimliğine ve ASP.NET Core Taleplerde alınacak ClaimsPrincipal.Current uzağa geçirmeyi öğrenin.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 05/04/2018
+ms.date: 03/26/2019
 uid: migration/claimsprincipal-current
-ms.openlocfilehash: 35c3389798041e141c45bf0a76fa9d7285212768
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 526cc3cf3a58a656e2a1b162cfaccacc7694dc51
+ms.sourcegitcommit: 687ffb15ebe65379f75c84739ea851d5a0d788b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41757389"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58488648"
 ---
 # <a name="migrate-from-claimsprincipalcurrent"></a>ClaimsPrincipal.Current geçirme
 
@@ -56,4 +56,4 @@ Geçerli kimliği doğrulanmış kullanıcının almak için birkaç seçenek va
   * Bir kopyasını almak `IHttpContextAccessor` başlatma sırasında ve statik bir değişkende depolayın. Örnek bir statik özelliği geçerli kullanıcının daha önce almaya kod için kullanılabilir yapılır.
   * Geçerli kullanıcının almak `ClaimsPrincipal` kullanarak `HttpContextAccessor.HttpContext?.User`. Bu kod, bir HTTP isteği bağlamı dışında kullanılırsa, `HttpContext` null.
 
-En son seçeneği kullanılarak `IHttpContextAccessor`, ASP.NET Core ilkeleri (eklenen bağımlılıkları için statik bağımlılıkları belgelemeyi) aykırı olduğu. Statik bağımlılığı sonunda kaldıracağınızı `IHttpContextAccessor` Yardımcısı. Bu yararlı bir köprü rağmen daha önce kullandığınız büyük varolan ASP.NET uygulamalarını geçirilirken olabilir `ClaimsPrincipal.Current`.
+En son seçeneği kullanılarak bir `IHttpContextAccessor` örneği statik bir değişkende depolanan, ASP.NET Core ilkeleri (eklenen bağımlılıkları için statik bağımlılıkları belgelemeyi) için bulmadýðýný. Sonuç almak planlama `IHttpContextAccessor` bunun yerine bağımlılık ekleme örnekleri. Statik yardımcı, daha önce kullandığınız büyük varolan ASP.NET uygulamalarını geçirirken, kullanışlı bir köprü olabilir `ClaimsPrincipal.Current`.
