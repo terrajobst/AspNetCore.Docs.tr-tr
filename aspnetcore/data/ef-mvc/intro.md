@@ -7,42 +7,40 @@ ms.custom: mvc
 ms.date: 02/06/2019
 ms.topic: tutorial
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 31fca1b32942f9246e099c01669f77824edf521e
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: 282af56eb911aea53a6ce945e7c1177c158fc342
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264844"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750590"
 ---
 # <a name="tutorial-get-started-with-ef-core-in-an-aspnet-mvc-web-app"></a>Öğretici: Bir ASP.NET MVC web uygulamasında EF Core ile çalışmaya başlama
 
 [!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc.md)]
 
-Contoso University örnek web uygulaması, Entity Framework (EF) Core 2.0 ve Visual Studio 2017 kullanarak ASP.NET Core 2.2 MVC web uygulamalarının nasıl oluşturulacağını gösterir.
+Contoso University örnek web uygulaması, Entity Framework (EF) çekirdek 2.2 ve Visual Studio 2017 veya 2019 kullanarak ASP.NET Core 2.2 MVC web uygulamalarının nasıl oluşturulacağını gösterir.
 
 Örnek, bir web sitesi için kurgusal Contoso üniversite uygulamasıdır. Öğrenci giriş, kurs oluşturma ve Eğitmen atamaları gibi işlevleri içerir. Sıfırdan Contoso University örnek uygulamanın nasıl oluşturulacağını açıklayan öğreticileri serisinin ilk budur.
-
-EF Core 2.0 EF en son sürümü, ancak henüz EF özelliklerinin tümünü yok 6.x. EF arasında seçim yapma hakkında bilgi için bkz: 6.x ve EF Core [EF Core vs. EF6.x](/ef/efcore-and-ef6/). EF seçerseniz 6.x, bkz: [Bu öğretici serisinin önceki sürümünü](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
-
-> [!NOTE]
-> Bu öğreticide ASP.NET Core 1.1 sürümü için bkz: [VS 2017 güncelleştirme 2 sürüm PDF biçimindeki bu öğreticinin](https://webpifeed.blob.core.windows.net/webpifeed/Partners/efmvc1.1.pdf).
 
 Bu öğreticide şunları yaptınız:
 
 > [!div class="checklist"]
-> * ASP.NET Core MVC web uygulaması oluşturma
+> * Bir ASP.NET Core MVC web uygulaması oluşturma
 > * Site stili Ayarla
 > * EF Core NuGet paketleri hakkında bilgi edinin
 > * Veri modeli oluşturma
 > * Veritabanı bağlamı oluşturur
-> * SchoolContext kaydetme
-> * DB test verileri ile başlatılamıyor
-> * Denetleyici ve görünümler oluşturma
+> * Bağımlılık ekleme bağlamı Kaydet
+> * Veritabanı test verileri ile başlatılamıyor
+> * Bir denetleyici ve görünümler oluşturma
 > * Veritabanı görünümü
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-[!INCLUDE [](~/includes/net-core-prereqs.md)]
+* [.NET core SDK'sını 2.2](https://www.microsoft.com/net/download)
+* [Visual Studio 2017 veya 2019](https://visualstudio.microsoft.com/downloads/) aşağıdaki iş yükleri ile:
+    * **ASP.NET ve web geliştirme** iş yükü
+    * **.NET core çoklu platform geliştirme** iş yükü
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
@@ -61,11 +59,9 @@ Kullanıcılar görüntüleyebilir ve Öğrenci, kurs ve Eğitmen bilgileri gün
 
 ![Öğrenciler düzenleme sayfası](intro/_static/student-edit.png)
 
-Entity Framework ağırlıklı olarak nasıl kullanılacağı hakkında bir öğretici odaklanabilmeniz için kullanıcı Arabirimi stili bu sitenin yerleşik şablonları tarafından üretilen yakın tutulmuştur.
+## <a name="create-web-app"></a>Web uygulaması oluşturma
 
-## <a name="create-aspnet-core-mvc-web-app"></a>ASP.NET Core MVC web uygulaması oluşturma
-
-Visual Studio'yu açın ve "ContosoUniversity" adlı yeni bir ASP.NET Core C# web projesi oluşturun.
+* Visual Studio'yu açın.
 
 * Gelen **dosya** menüsünde **yeni > Proje**.
 
@@ -77,17 +73,15 @@ Visual Studio'yu açın ve "ContosoUniversity" adlı yeni bir ASP.NET Core C# we
 
   ![Yeni Proje iletişim kutusu](intro/_static/new-project2.png)
 
-* Bekle **yeni ASP.NET Core Web uygulaması (.NET Core)** görüntülenecek iletişim
+* Bekle **yeni ASP.NET Core Web uygulaması** görüntülenecek iletişim.
 
-  ![Yeni ASP.NET Core projesi iletişim kutusu](intro/_static/new-aspnet2.png)
-
-* Seçin **ASP.NET Core 2.2** ve **Web uygulaması (Model-View-Controller)** şablonu.
-
-  **Not:** Bu öğretici, ASP.NET Core 2.2 ve EF Core 2.0 veya sonraki sürümünü gerektirir.
+* Seçin **.NET Core**, **ASP.NET Core 2.2** ve **Web uygulaması (Model-View-Controller)** şablonu.
 
 * Emin **kimlik doğrulaması** ayarlanır **kimlik doğrulaması yok**.
 
-* **Tamam**’a tıklayın.
+* Seçin **Tamam**
+
+  ![Yeni ASP.NET Core projesi iletişim kutusu](intro/_static/new-aspnet2.png)
 
 ## <a name="set-up-the-site-style"></a>Site stili Ayarla
 
@@ -101,7 +95,7 @@ Açık *Views/Shared/_Layout.cshtml* ve aşağıdaki değişiklikleri yapın:
 
 Değişiklikler vurgulanır.
 
-[!code-cshtml[](intro/samples/cu/Views/Shared/_Layout.cshtml?highlight=6,32-36,51)]
+[!code-cshtml[](intro/samples/cu/Views/Shared/_Layout.cshtml?highlight=6,37-48,63)]
 
 İçinde *Views/Home/Index.cshtml*, dosyanın içeriğini bu uygulamayla ilgili metin ile ASP.NET ve MVC hakkında metnin değiştirmek için aşağıdaki kodla değiştirin:
 
@@ -113,9 +107,9 @@ Projeyi çalıştırmak veya seçmek için CTRL + F5 tuşlarına basın **hata a
 
 ## <a name="about-ef-core-nuget-packages"></a>EF Core NuGet paketleri hakkında
 
-EF Core desteği için bir proje eklemek için hedeflemek istediğiniz veritabanı sağlayıcısı yükleyin. Bu öğreticide SQL Server kullanır ve sağlayıcı paketi [Microsoft.EntityFrameworkCore.SqlServer](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/). Bu paket dahil [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app), uygulamanız için bir paket başvurusu varsa paket başvurusu yapmak zorunda kalmazsınız `Microsoft.AspNetCore.App` paket.
+EF Core desteği için bir proje eklemek için hedeflemek istediğiniz veritabanı sağlayıcısı yükleyin. Bu öğreticide SQL Server kullanır ve sağlayıcı paketi [Microsoft.EntityFrameworkCore.SqlServer](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/). Bu paket dahil [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app), paket başvurusu yapmak zorunda kalmazsınız.
 
-Bu paketi ve bağımlılıkları (`Microsoft.EntityFrameworkCore` ve `Microsoft.EntityFrameworkCore.Relational`) EF çalışma zamanı desteği sağlar. Bir araç paketi ekleyeceksiniz daha sonra [geçişler](migrations.md) öğretici.
+EF SQL Server paketi ve bağımlılıkları (`Microsoft.EntityFrameworkCore` ve `Microsoft.EntityFrameworkCore.Relational`) EF çalışma zamanı desteği sağlar. Bir araç paketi ekleyeceksiniz daha sonra [geçişler](migrations.md) öğretici.
 
 Entity Framework Core için kullanılabilen diğer veritabanı sağlayıcıları hakkında daha fazla bilgi için bkz. [veritabanı sağlayıcıları](/ef/core/providers/).
 
@@ -197,7 +191,7 @@ ASP.NET Core uygulayan [bağımlılık ekleme](../../fundamentals/dependency-inj
 
 Kaydedilecek `SchoolContext` bir hizmet olarak açmak *Startup.cs*ve vurgulanan satırları ekleyin `ConfigureServices` yöntemi.
 
-[!code-csharp[](intro/samples/cu/Startup.cs?name=snippet_SchoolContext&highlight=3-4)]
+[!code-csharp[](intro/samples/cu/Startup.cs?name=snippet_SchoolContext&highlight=9-10)]
 
 Bağlantı dizesi adı için bağlam üzerinde bir yöntemi çağırarak geçirilen bir `DbContextOptionsBuilder` nesne. Yerel geliştirme için [ASP.NET Core yapılandırma sistemi](xref:fundamentals/configuration/index) bağlantı dizesinden okur *appsettings.json* dosya.
 
@@ -249,11 +243,6 @@ CRUD eylem yöntemleri ve görünümler otomatik olarak oluşturulmasını, yap�
 
 * Sağ **denetleyicileri** klasöründe **Çözüm Gezgini** seçip **Ekle > Yeni iskele kurulmuş öğe**.
 
-Varsa **MVC bağımlılıkları Ekle** iletişim kutusu görüntülenir:
-
-* [Visual Studio en son sürüme güncelleştirme](https://www.visualstudio.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017). Visual Studio sürümlerini 15.5 önce bu iletişim kutusunu göster.
-* Güncelleştiremiyorsanız, seçin **Ekle**ve ekleme denetleyicisi adımları tekrar uygulayın.
-
 * İçinde **İskele Ekle** iletişim kutusunda:
 
   * Seçin **Entity Framework kullanarak görünümler ile MVC denetleyicisi**.
@@ -292,7 +281,7 @@ Bu kod zaman uyumsuz programlama öğeleri öğreticinin ilerleyen bölümlerind
 
 Projeyi çalıştırmak veya seçmek için CTRL + F5 tuşlarına basın **hata ayıklama > hata ayıklama olmadan Başlat** menüsünde.
 
-Test verileri görmek için Öğrenciler sekmesine tıklayın, `DbInitializer.Initialize` eklenen yöntemi. Bağlı nasıl dar tarayıcı pencerenizin, gördüğünüz `Student` Gezinti bağlantıyı görmek için sağ üst köşedeki simgeyi tıklatın sayfanın veya üst kısmındaki sekme bağlantısına sahip olacaksınız.
+Test verileri görmek için Öğrenciler sekmesine tıklayın, `DbInitializer.Initialize` eklenen yöntemi. Bağlı nasıl dar tarayıcı pencerenizin, gördüğünüz `Students` Gezinti bağlantıyı görmek için sağ üst köşedeki simgeyi tıklatın sayfanın veya üst kısmındaki sekme bağlantısına sahip olacaksınız.
 
 ![Dar contoso University giriş sayfası](intro/_static/home-page-narrow.png)
 
@@ -385,6 +374,7 @@ Bu öğreticide şunları yaptınız:
 
 Aşağıdaki öğreticide, temel CRUD gerçekleştirmeyi öğreneceksiniz (oluşturma, okuma, güncelleştirme ve silme) işlemleri.
 
-Temel CRUD gerçekleştirme hakkında bilgi edinmek için sonraki makaleye ilerleyin (oluşturma, okuma, güncelleştirme ve silme) işlemleri.
+Temel CRUD gerçekleştirme hakkında bilgi edinmek için sonraki öğreticiye ilerleyin (oluşturma, okuma, güncelleştirme ve silme) işlemleri.
+
 > [!div class="nextstepaction"]
 > [Temel CRUD işlevselliği uygulama](crud.md)

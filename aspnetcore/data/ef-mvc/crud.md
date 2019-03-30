@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 02/04/2019
 ms.topic: tutorial
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 83f5d4bdc3d5872109649818b61a6dbb656fd8be
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: cee521eec3172c04b4d9d93c12076c42c9adff18
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264831"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750616"
 ---
 # <a name="tutorial-implement-crud-functionality---aspnet-mvc-with-ef-core"></a>Öğretici: CRUD işlevselliği - EF çekirdekli ASP.NET MVC uygulama
 
@@ -32,7 +32,7 @@ Bu öğreticide şunları yaptınız:
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* [Bir ASP.NET Core MVC web uygulamasında EF Core ile çalışmaya başlama](intro.md)
+* [EF Core ve ASP.NET Core MVC ile çalışmaya başlama](intro.md)
 
 ## <a name="customize-the-details-page"></a>Ayrıntılar sayfasını özelleştirme
 
@@ -243,7 +243,7 @@ Bu kod, değişiklikleri kaydetmek için bir hatadan sonra yöntemi çağrıldı
 
 HttpPost değiştirin `Delete` eylem yöntemine (adlı `DeleteConfirmed`) gerçek silme işlemini gerçekleştirir ve veritabanını güncelleştirme hataları yakalar aşağıdaki kodu.
 
-[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DeleteWithReadFirst&highlight=6,8-11,13-14,18-23)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DeleteWithReadFirst&highlight=6-9,11-12,16-21)]
 
 Bu kod, seçili varlığı alır. ardından çağırır `Remove` varlığın durumu ayarlamak için yöntemi `Deleted`. Zaman `SaveChanges` çağrılır, SQL'i Sil komut oluşturulur.
 
@@ -306,6 +306,7 @@ Bu öğreticide şunları yaptınız:
 > * Silme sayfası güncelleştirildi
 > * Kapalı veritabanı bağlantıları
 
-İşlevlerini genişletmek hakkında bilgi edinmek için sonraki makaleye ilerleyin **dizin** sıralama, filtreleme ve sayfalama ekleyerek, sayfa.
+İşlevlerini genişletmek hakkında bilgi edinmek için sonraki öğreticiye ilerleyin **dizin** sıralama, filtreleme ve sayfalama ekleyerek, sayfa.
+
 > [!div class="nextstepaction"]
-> [Sıralama, filtreleme ve sayfalama](sort-filter-page.md)
+> [Sonraki: Sıralama, filtreleme ve sayfalama](sort-filter-page.md)

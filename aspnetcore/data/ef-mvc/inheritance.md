@@ -4,15 +4,15 @@ description: Bu öğreticide, Entity Framework Core ASP.NET Core uygulamasını 
 author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/05/2019
+ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/inheritance
-ms.openlocfilehash: 0a5eb1aba43bc2adf746202772c7f98eff49b4ff
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: ba688b259206f21045376b6a38a266ad7528aec1
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103013"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750773"
 ---
 # <a name="tutorial-implement-inheritance---aspnet-mvc-with-ef-core"></a>Öğretici: Devralma - EF çekirdekli ASP.NET MVC uygulama
 
@@ -32,7 +32,7 @@ Bu öğreticide şunları yaptınız:
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* [EF çekirdekli ASP.NET Core MVC web uygulamasında tanıtıcı eşzamanlılık](concurrency.md)
+* [Eşzamanlılık işleme](concurrency.md)
 
 ## <a name="map-inheritance-to-database"></a>Devralma için veritabanı eşleme
 
@@ -168,6 +168,7 @@ Bu öğreticide şunları yaptınız:
 > * Oluşturulan ve güncelleştirme geçişleri
 > * Test uygulaması
 
-Çeşitli oldukça gelişmiş Entity Framework senaryoları ele öğrenmek için sonraki makaleye ilerleyin.
+Çeşitli oldukça gelişmiş Entity Framework senaryoları ele öğrenmek için sonraki öğreticiye ilerleyin.
+
 > [!div class="nextstepaction"]
-> [Gelişmiş konular](advanced.md)
+> [Sonraki: Gelişmiş konular](advanced.md)

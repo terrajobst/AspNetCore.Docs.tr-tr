@@ -4,15 +4,15 @@ description: Bu öğreticide, birden çok kullanıcı aynı anda aynı varlık g
 author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/05/2019
+ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: 7b18927d5d528ec2951087502e26b2b30214f389
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: 668cdafc078091b65035ecad854d2ecc62555721
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103026"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750857"
 ---
 # <a name="tutorial-handle-concurrency---aspnet-mvc-with-ef-core"></a>Öğretici: Eşzamanlılık - EF çekirdekli ASP.NET MVC işleme
 
@@ -39,7 +39,7 @@ Bu öğreticide şunları yaptınız:
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* [Bir ASP.NET Core MVC web uygulamasında EF Core ile ilgili verileri güncelleştirme](update-related-data.md)
+* [İlgili verileri güncelleştirme](update-related-data.md)
 
 ## <a name="concurrency-conflicts"></a>Eşzamanlılık çakışmaları
 
@@ -148,7 +148,7 @@ Bu "Bölümler" başlığı değiştirir, RowVersion sütun siler ve yönetici i
 
 Her iki HttpGet içinde `Edit` yöntemi ve `Details` yöntemi ekleme `AsNoTracking`. İçinde HttpGet `Edit` yöntemi istekli yükleme için yönetici ekleyin.
 
-[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EagerLoading&highlight=2,3)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EagerLoading)]
 
 HttpPost için mevcut kodu değiştirin `Edit` yöntemini aşağıdaki kod ile:
 
@@ -309,6 +309,7 @@ Bu öğreticide şunları yaptınız:
 > * Silme sayfası güncelleştirildi
 > * Güncelleştirilen Ayrıntılar ve görünümler oluşturma
 
-Tablo başına hiyerarşi devralma Eğitmen ve Öğrenci varlıkların uygulama hakkında bilgi edinmek için sonraki makaleye ilerleyin.
+Tablo başına hiyerarşi devralma Eğitmen ve Öğrenci varlıkların uygulama hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.
+
 > [!div class="nextstepaction"]
-> [Tablo başına hiyerarşi devralma uygulama](inheritance.md)
+> [Sonraki: Tablo başına hiyerarşi devralma uygulama](inheritance.md)

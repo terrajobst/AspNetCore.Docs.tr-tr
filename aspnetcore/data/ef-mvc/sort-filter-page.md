@@ -3,15 +3,15 @@ title: 'Öğretici: Sıralama, filtreleme ve sayfalama - EF çekirdekli ASP.NET 
 description: Bu öğreticide, Öğrenciler dizin sayfasına sıralama, filtreleme ve sayfalama işlevselliğinin ekleyeceksiniz. Basit gruplandırma yapan bir sayfa da oluşturacaksınız.
 author: rick-anderson
 ms.author: tdykstra
-ms.date: 02/04/2019
+ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/sort-filter-page
-ms.openlocfilehash: 51b6b08d2410652f93427371aec299eb4c8789f1
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: dff5a5b1ba3c8ed07ccc8d134f8cfeb25b9f6689
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103065"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58751044"
 ---
 # <a name="tutorial-add-sorting-filtering-and-paging---aspnet-mvc-with-ef-core"></a>Öğretici: Sıralama, filtreleme ve sayfalama - EF çekirdekli ASP.NET MVC Ekle
 
@@ -33,7 +33,7 @@ Bu öğreticide şunları yaptınız:
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* [Bir ASP.NET Core MVC web uygulamasında EF Core ile CRUD işlevselliği uygulama](crud.md)
+* [CRUD işlevselliği uygulama](crud.md)
 
 ## <a name="add-column-sort-links"></a>Sütun sıralama bağlantılar ekleme
 
@@ -121,7 +121,7 @@ Bu aşamada bir sütun başlığını sıralama bağlantı tıklarsanız girdiğ
 
 Disk belleği Öğrenciler dizin sayfasına eklemek için oluşturacağınız bir `PaginatedList` kullanan sınıf `Skip` ve `Take` yerine her zaman tablonun tüm satırlarının alınırken sunucu üzerindeki verileri filtrelemek için deyimleri. Sonra ek değişiklik yapacaksınız `Index` yöntemi ve disk belleği düğmeleri ekleme `Index` görünümü. Aşağıdaki çizim, disk belleği düğme gösterilmektedir.
 
-![Disk belleği bağlantılarla sayfası Öğrenciler dizin](sort-filter-page/_static/paging.png)
+![disk belleği bağlantılarla Öğrenciler dizin sayfası](sort-filter-page/_static/paging.png)
 
 Proje klasöründe oluşturma `PaginatedList.cs`ve sonra şablon kodunu aşağıdaki kodla değiştirin.
 
@@ -144,7 +144,7 @@ public async Task<IActionResult> Index(
     string sortOrder,
     string currentFilter,
     string searchString,
-    int? page)
+    int? pageNumber)
 ```
 
 Kullanıcı bir disk belleği veya bağlantı sıralama taşınmadığından seçeneğine tıkladıysanız, tüm parametreleri null veya ilk kez sayfası görüntülenir.  Disk belleği bağlantıya tıkladıysanız, sayfa değişkenini görüntülemek için sayfa numarasını içerir.
@@ -158,7 +158,7 @@ Arama dizesi sırasında disk belleği değiştirilirse, yeni filtre görüntül
 ```csharp
 if (searchString != null)
 {
-    page = 1;
+    pageNumber = 1;
 }
 else
 {
@@ -169,10 +169,10 @@ else
 Sonunda `Index` yöntemi `PaginatedList.CreateAsync` yöntemi disk belleği destekleyen bir koleksiyon türü Öğrenci tek sayfalık Öğrenci sorgu dönüştürür. Öğrenciler, tek sayfalık ardından görünüme iletilir.
 
 ```csharp
-return View(await PaginatedList<Student>.CreateAsync(students.AsNoTracking(), page ?? 1, pageSize));
+return View(await PaginatedList<Student>.CreateAsync(students.AsNoTracking(), pageNumber ?? 1, pageSize));
 ```
 
-`PaginatedList.CreateAsync` Yöntemi, bir sayfa numarasını alır. İki soru işareti null birleşim işleci temsil eder. Boş değer atanabilir bir tür için varsayılan bir değer null birleşim işleci tanımlar; ifade `(page ?? 1)` anlamına gelir dönüş değerini `page` bir değere sahip veya 1 döndürür, `page` null.
+`PaginatedList.CreateAsync` Yöntemi, bir sayfa numarasını alır. İki soru işareti null birleşim işleci temsil eder. Boş değer atanabilir bir tür için varsayılan bir değer null birleşim işleci tanımlar; ifade `(pageNumber ?? 1)` anlamına gelir dönüş değerini `pageNumber` bir değere sahip veya 1 döndürür, `pageNumber` null.
 
 ## <a name="add-paging-links"></a>Disk belleği bağlantılar ekleme
 
@@ -193,7 +193,7 @@ Disk belleği düğmeler tarafından etiket Yardımcıları görüntülenir:
 ```html
 <a asp-action="Index"
    asp-route-sortOrder="@ViewData["CurrentSort"]"
-   asp-route-page="@(Model.PageIndex - 1)"
+   asp-route-pageNumber="@(Model.PageIndex - 1)"
    asp-route-currentFilter="@ViewData["CurrentFilter"]"
    class="btn btn-default @prevDisabled">
    Previous
@@ -202,7 +202,7 @@ Disk belleği düğmeler tarafından etiket Yardımcıları görüntülenir:
 
 Uygulamayı çalıştırın ve öğrenciler sayfasına gidin.
 
-![Disk belleği bağlantılarla sayfası Öğrenciler dizin](sort-filter-page/_static/paging.png)
+![disk belleği bağlantılarla Öğrenciler dizin sayfası](sort-filter-page/_static/paging.png)
 
 Disk belleği works emin olmak için farklı sıralamalar sayfalama bağlantıları tıklatın. Ardından bir arama dizesi girin ve yeniden disk belleği de doğru sıralama ve filtreleme ile çalıştığını doğrulamak için disk belleği'ni deneyin.
 
@@ -234,7 +234,7 @@ Hemen sınıfı için açılış kaşlı ayracından sonra veritabanı bağlamı
 
 [!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_AddContext&highlight=3,5,7)]
 
-Değiştirin `About` yöntemini aşağıdaki kod ile:
+Ekleme bir `About` yöntemini aşağıdaki kod ile:
 
 [!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseDbSet)]
 
@@ -244,7 +244,7 @@ LINQ deyiminden Öğrenci varlıkları kayıt tarihe göre gruplar, her grupta v
 
 ### <a name="modify-the-about-view"></a>Değiştirme görünümü hakkında
 
-Değiştirin *Views/Home/About.cshtml* dosyasındaki kodu aşağıdaki kodla:
+Ekleme bir *Views/Home/About.cshtml* dosyasındaki kodu aşağıdaki kodla:
 
 [!code-html[](intro/samples/cu/Views/Home/About.cshtml)]
 
@@ -266,6 +266,7 @@ Bu öğreticide şunları yaptınız:
 > * Disk belleği bağlantılar eklendi
 > * Hakkında bir sayfa oluşturuldu
 
-Veri modeli değişikliklerini migrations'ı kullanarak işleme hakkında bilgi edinmek için sonraki makaleye ilerleyin.
+Veri modeli değişikliklerini migrations'ı kullanarak işleme hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.
+
 > [!div class="nextstepaction"]
-> [Veri modeli değişikliklerini işlemek](migrations.md)
+> [Sonraki: Veri modeli değişikliklerini işlemek](migrations.md)

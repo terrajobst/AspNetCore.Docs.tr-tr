@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc, seodec18
 ms.date: 01/31/2019
 uid: tutorials/first-mongo-app
-ms.openlocfilehash: 91d8be6cd9160eefe56731d23d5dc7ba18eb6a8f
-ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
+ms.openlocfilehash: 5b8a0c963940d65545579b7120edac3571e4ad2a
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57665463"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750686"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-mongodb"></a>MongoDB ile ASP.NET Core ile web API'si oluşturma
 
@@ -242,6 +242,7 @@ Sınıftaki diğer özellikler ile açıklamalı olan `[BsonElement]` özniteli�
 
     * Kullanan `BookService` CRUD işlemleri gerçekleştirmek için sınıf.
     * GET, POST, PUT ve DELETE HTTP isteklerini desteklemek için eylem yöntemleri içerir.
+    * <xref:System.Web.Http.ApiController.CreatedAtRoute*> Yöntemi yeni bir kaynak sunucuda oluşturan bir HTTP POST yöntemi için standart yanıt bir 201 yanıtı döndürür. `CreatedAtRoute` Ayrıca bir konum üst bilgisi yanıta ekler. Location üst bilgisini, yeni oluşturulan yapılacak iş öğesi URI'sini belirtir. Bkz: [10.2.2 oluşturulan 201](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
 1. Uygulamayı derleyin ve çalıştırın.
 1. Gidin `http://localhost:<port>/api/books` tarayıcınızda. Aşağıdaki JSON yanıtı gösterilir:
 

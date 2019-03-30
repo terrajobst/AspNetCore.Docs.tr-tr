@@ -6,30 +6,30 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 12/18/2018
 uid: aspnetcore-2.2
-ms.openlocfilehash: 6dcdf71ec5271690718dd1fe750a9a74d498a0f8
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: cdc761b645b91777bdf6084c3ad4659fcea55039
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410342"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750948"
 ---
 # <a name="whats-new-in-aspnet-core-22"></a>ASP.NET Core 2.2 içinde yenilikler nelerdir?
 
 Bu makalede, ASP.NET Core 2.2 ile ilgili belgelere bağlantılar en önemli değişiklikleri vurgular.
 
-## <a name="open-api-analyzers--conventions"></a>Açık API Çözümleyicileri & kuralları
+## <a name="openapi-analyzers--conventions"></a>Openapı Çözümleyicileri & kuralları
 
-Açık API (Swagger da bilinir), REST API'leri açıklayan bir dilden belirtimdir. Açık API ekosistemi, keşfetme, test ve belirtimi kullanılarak istemci kodu oluşturmayı sağlayan araçlara sahiptir. Oluşturma ve ASP.NET Core MVC açık API belgelerinde görselleştirmek için destek projeleri gibi temelli topluluk sağlanan [NSwag](https://github.com/RSuter/NSwag), ve [Swashbuckle.AspNetCore](https://github.com/domaindrivendev/Swashbuckle.AspNetCore). ASP.NET Core 2.2 Gelişmiş araç sağlar ve açık API belgeleri oluşturmak için çalışma zamanı karşılaşır.
+Openapı (eski adı swagger), REST API'leri açıklayan bir dilden özelliğidir. Openapı ekosistemi, keşfetme, test ve belirtimi kullanılarak istemci kodu oluşturmayı sağlayan araçlara sahiptir. Oluşturma ve ASP.NET Core MVC Openapı belgeleri görselleştirmek için destek projeleri gibi temelli topluluk sağlanan [NSwag](https://github.com/RSuter/NSwag), ve [Swashbuckle.AspNetCore](https://github.com/domaindrivendev/Swashbuckle.AspNetCore). ASP.NET Core 2.2 Gelişmiş araç sağlar ve Openapı belgeleri oluşturmak için çalışma zamanı karşılaşır.
 
 Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 * <xref:web-api/advanced/analyzers>
 * <xref:web-api/advanced/conventions>
-* [ASP.NET Core 2.2.0-preview1: Açık API Çözümleyicileri & kuralları](https://blogs.msdn.microsoft.com/webdev/2018/08/23/asp-net-core-2-20-preview1-open-api-analyzers-conventions/)
+* [ASP.NET Core 2.2.0-preview1: Openapı Çözümleyicileri & kuralları](https://blogs.msdn.microsoft.com/webdev/2018/08/23/asp-net-core-2-20-preview1-open-api-analyzers-conventions/)
 
 ## <a name="problem-details-support"></a>Sorun ayrıntıları desteği
 
-ASP.NET Core 2.1 sunulan `ProblemDetails`göre [RFC 7807](https://tools.ietf.org/html/rfc7807) bir HTTP yanıtı ile ilgili bir hata ayrıntılarını taşınma belirtimi. 2.2 içinde `ProblemDetails` hata kodları denetleyicileri ile oluşturulan istemci için standart yanıt `ApiControllerAttribute`. Bir `IActionResult` istemci hatası durum kodu (4xx) şimdi döndürür döndüren bir `ProblemDetails` gövdesi. Sonuç, ayrıca istek günlükleri kullanarak hatayı ilişkilendirmek için kullanılan bir bağıntı kimliği içerir. İstemci hataları `ProducesResponseType` kullanarak varsayılanlarını `ProblemDetails` yanıt türü. Bu, açık API belgelenen / NSwag veya Swashbuckle.AspNetCore kullanılarak oluşturulan çıktı Swagger.
+ASP.NET Core 2.1 sunulan `ProblemDetails`göre [RFC 7807](https://tools.ietf.org/html/rfc7807) bir HTTP yanıtı ile ilgili bir hata ayrıntılarını taşınma belirtimi. 2.2 içinde `ProblemDetails` hata kodları denetleyicileri ile oluşturulan istemci için standart yanıt `ApiControllerAttribute`. Bir `IActionResult` istemci hatası durum kodu (4xx) şimdi döndürür döndüren bir `ProblemDetails` gövdesi. Sonuç, ayrıca istek günlükleri kullanarak hatayı ilişkilendirmek için kullanılan bir bağıntı kimliği içerir. İstemci hataları `ProducesResponseType` kullanarak varsayılanlarını `ProblemDetails` yanıt türü. Bu Openapı belgelenen / Swagger NSwag veya Swashbuckle.AspNetCore kullanılarak oluşturulan çıktı.
 
 ## <a name="endpoint-routing"></a>Uç noktası yönlendirme
 

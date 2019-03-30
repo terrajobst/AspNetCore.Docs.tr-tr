@@ -5,7 +5,7 @@ description: 'ASP.NET Core Razor bileşenleri, etkileşimli istemci tarafı web 
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/13/2019
+ms.date: 03/27/2019
 uid: razor-components/index
 ---
 # <a name="introduction-to-razor-components"></a>Razor bileşenlerine giriş
@@ -42,7 +42,7 @@ Tarayıcı ile iletişim kurmak için Razor bileşenleri tarafından kullanılan
 
 Daha fazla bilgi için bkz. <xref:razor-components/hosting-models#server-side-hosting-model>.
 
-*Blazor* Razor bileşenlerinin Deneysel istemci-tarafı barındırma modeli. Blazor transpilation eklentileri veya kod olmadan açık web standartları kullanarak tarayıcıda .NET üzerinde çalışır. Daha fazla bilgi için bkz. <xref:razor-components/hosting-models#client-side-hosting-model>.
+*Blazor* Razor bileşenlerinin Deneysel istemci-tarafı barındırma modeli. Blazor transpilation eklentileri veya kod olmadan açık web standartları kullanarak tarayıcıda .NET üzerinde çalışır. Daha fazla bilgi için bkz. <xref:spa/blazor/index> ve <xref:razor-components/hosting-models#client-side-hosting-model>.
 
 ## <a name="components"></a>Bileşenler
 

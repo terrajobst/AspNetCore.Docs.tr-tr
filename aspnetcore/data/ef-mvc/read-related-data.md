@@ -3,15 +3,15 @@ title: 'Öğretici: ASP.NET MVC ile EF Core - ilgili verileri okuma'
 description: Bu öğreticide okuyun ve ilgili verileri--diğer bir deyişle, Entity Framework Gezinti özelliklerini yükler verileri görüntüler.
 author: rick-anderson
 ms.author: tdykstra
-ms.date: 02/05/2019
+ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: 73e225c2cd6d9f88079c54115cccad48f43d7d0c
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: a2ae878fd861b68a17de19af1b33b6ffbf5a268c
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56103052"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58751074"
 ---
 # <a name="tutorial-read-related-data---aspnet-mvc-with-ef-core"></a>Öğretici: ASP.NET MVC ile EF Core - ilgili verileri okuma
 
@@ -33,7 +33,7 @@ Bu öğreticide şunları yaptınız:
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* [Daha karmaşık bir veri modeli EF Core ile ASP.NET Core MVC web uygulaması için oluşturma](complex-data-model.md)
+* [Karmaşık veri modeli oluşturma](complex-data-model.md)
 
 ## <a name="learn-how-to-load-related-data"></a>İlgili veri yükleme konusunda bilgi edinin
 
@@ -257,6 +257,7 @@ Bu öğreticide şunları yaptınız:
 > * Eğitmenler sayfa oluşturuldu
 > * Açık yükleme hakkında bilgi edindiniz
 
-İlgili verileri güncelleştirme hakkında bilgi edinmek için sonraki makaleye ilerleyin.
+İlgili verileri güncelleştirme hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.
+
 > [!div class="nextstepaction"]
 > [İlgili verileri güncelleştirme](update-related-data.md)

@@ -5,14 +5,14 @@ description: Bileşenlerine ekleyerek Blazor ve Razor bileşenleri uygulamaları
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/19/2019
+ms.date: 03/27/2019
 uid: razor-components/dependency-injection
-ms.openlocfilehash: 0228a236c820c76d9ca5186ca829a9606e7b5127
-ms.sourcegitcommit: 7d6019f762fc5b8cbedcd69801e8310f51a17c18
+ms.openlocfilehash: 40aec2e3a5032039c7d921f67d7d333b03c07fb1
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58419374"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750526"
 ---
 # <a name="razor-components-dependency-injection"></a>Razor bileşenleri bağımlılık ekleme
 
@@ -53,8 +53,8 @@ Aşağıdaki tabloda gösterilen ömürleriyle Hizmetleri yapılandırılabilir.
 
 | Ömür | Açıklama |
 | -------- | ----------- |
-| <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Singleton*> | DI oluşturur bir *tek örnek* hizmeti. Bu hizmet gerektiren tüm bileşenleri bu örneğe bir başvuru alırsınız. |
-| <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Transient*> | Bu hizmet bir bileşen gereken her durumda aldığı bir *yeni örneği* hizmeti. |
+| <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Singleton*> | DI oluşturur bir *tek örnek* hizmeti. Tüm bileşenleri gerektiren bir `Singleton` hizmeti aynı Hizmeti'nin bir örneğini alır. |
+| <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Transient*> | Her bir bileşen örneği alır bir `Transient` hizmet hizmet kapsayıcısından aldığı bir *yeni örneği* hizmeti. |
 | <xref:Microsoft.Extensions.DependencyInjection.ServiceDescriptor.Scoped*> | İstemci tarafı Blazor şu anda DI kapsamları kavramı yoktur. `Scoped` gibi davranır `Singleton`. Ancak, ASP.NET Core Razor bileşenleri desteklemek `Scoped` yaşam süresi. Bir Razor bileşeninde bir kapsamlı hizmet kayıt bağlantısı kapsamlıdır. İstemci tarafı çalıştırmak için geçerli amaç olsa bile, bu nedenle, kapsamlı hizmetlerini kullanarak geçerli kullanıcı için kapsamlı hizmetler için tercih edilir tarayıcıda. |
 
 ASP.NET Core DI sistemde DI sistem dayanır. Daha fazla bilgi için bkz. <xref:fundamentals/dependency-injection>.

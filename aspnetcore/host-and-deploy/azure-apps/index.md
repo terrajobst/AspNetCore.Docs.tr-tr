@@ -5,7 +5,7 @@ description: 'Bu makalede, Azure konak bağlantı içerir ve kaynakları dağıt
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/23/2019
+ms.date: 03/30/2019
 uid: host-and-deploy/azure-apps/index
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>ASP.NET Core uygulamalarını Azure App Service'e dağıtma
@@ -14,7 +14,7 @@ uid: host-and-deploy/azure-apps/index
 
 ## <a name="useful-resources"></a>Faydalı kaynaklar
 
-Azure [Web Apps belgeleri](/azure/app-service/) Azure uygulamaları belgeler, öğreticiler, örnekler, nasıl yapılır kılavuzları ve diğer kaynaklar için platformdur. ASP.NET Core uygulamaları barındırmak için ilgilidir iki önemli öğreticiler şunlardır:
+[App Service belgeleri](/azure/app-service/) Azure uygulamaları belgeler, öğreticiler, örnekler, nasıl yapılır kılavuzları ve diğer kaynaklar için platformdur. ASP.NET Core uygulamaları barındırmak için ilgilidir iki önemli öğreticiler şunlardır:
 
 [Azure'da ASP.NET Core web uygulaması oluşturma](/azure/app-service/app-service-web-get-started-dotnet)  
 Visual Studio, oluşturmak ve Windows üzerinde Azure App Service'e bir ASP.NET Core web uygulaması dağıtmak için kullanın.
@@ -30,7 +30,7 @@ Visual Studio kullanarak Azure App Service'e bir ASP.NET Core uygulaması yayım
 <xref:host-and-deploy/azure-apps/azure-continuous-deployment>  
 Visual Studio kullanarak ASP.NET Core web uygulaması oluşturmayı öğrenin ve Git kullanarak sürekli dağıtım için Azure App Service'e dağıtın.
 
-[Azure işlem hattı ile ilk işlem hattınızı oluşturun](/azure/devops/pipelines/get-started-yaml)  
+[İlk işlem hattınızı oluşturun](/azure/devops/pipelines/get-started-yaml)  
 ASP.NET Core uygulaması için bir CI derlemesi ayarlayın ve ardından bir Azure App Service'e sürekli dağıtım yayın oluşturun.
 
 [Azure Web uygulama korumalı alanı](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox)  
@@ -92,10 +92,10 @@ App Service için otomatik olarak dağıtılan bir ASP.NET Core uygulamaları bi
 
 İzleme, günlüğe kaydetme ve sorun giderme bilgileri için aşağıdaki makalelere bakın:
 
-[Nasıl yapılır: Azure App Service'te uygulamaları izleme](/azure/app-service/web-sites-monitor)  
+[Azure App Service'te uygulamaları izleme](/azure/app-service/web-sites-monitor)  
 Kotalar ve uygulamaları ve App Service planları için ölçümleri gözden geçirmeyi öğrenin.
 
-[Azure App Service'te web apps için tanılama günlüğünü etkinleştirme](/azure/app-service/web-sites-enable-diagnostic-log)  
+[Azure App Service'teki uygulamalar için tanılama günlüğünü etkinleştirme](/azure/app-service/web-sites-enable-diagnostic-log)  
 HTTP durum kodları, başarısız istekler ve web sunucusu etkinliğini için tanılama günlüğüne kaydetme erişimi nasıl etkinleştirileceği keşfedin.
 
 <xref:fundamentals/error-handling>  
@@ -220,7 +220,7 @@ Kendi içinde uygulama dağıtırken:
 
 ## <a name="protocol-settings-https"></a>Protokol ayarları (HTTPS)
 
-Güvenli protokol bağlamalar HTTPS üzerinden isteklerine yanıt verirken kullanmak üzere bir sertifika belirtin izin verir. Bağlama, geçerli özel sertifikaları gerektirir (*.pfx*) belirli ana bilgisayar adı için verilmiş. Daha fazla bilgi için [Öğreticisi: Azure Web Apps'e mevcut özel bir SSL sertifikası bağlama](/azure/app-service/app-service-web-tutorial-custom-ssl).
+Güvenli protokol bağlamalar HTTPS üzerinden isteklerine yanıt verirken kullanmak üzere bir sertifika belirtin izin verir. Bağlama, geçerli özel sertifikaları gerektirir (*.pfx*) belirli ana bilgisayar adı için verilmiş. Daha fazla bilgi için [Öğreticisi: Azure App Service'e var olan özel bir SSL sertifikası bağlama](/azure/app-service/app-service-web-tutorial-custom-ssl).
 
 ## <a name="transform-webconfig"></a>Web.config’i dönüştürme
 
@@ -228,7 +228,7 @@ Dönüştürmeniz gerekirse *web.config* (örneğin, ortam değişkenlerini ayar
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Web Apps'e genel bakış (5 dakikalık genel bakış videosu)](/azure/app-service/app-service-web-overview)
+* [App Service'e genel bakış](/azure/app-service/app-service-web-overview)
 * [Azure uygulama hizmeti: En iyi .NET uygulamalarınızı (55 dakikalık genel bakış videosu) konağa yerleştirin.](https://channel9.msdn.com/events/dotnetConf/2017/T222)
 * [Azure Friday: Azure App Service tanılama ve sorun giderme deneyimini (12 dakikalık video)](https://channel9.msdn.com/Shows/Azure-Friday/Azure-App-Service-Diagnostic-and-Troubleshooting-Experience)
 * [Azure App Service tanılama genel bakış](/azure/app-service/app-service-diagnostics)
@@ -239,4 +239,4 @@ Windows Server üzerinde Azure App Service kullanan [Internet Information Servic
 * <xref:host-and-deploy/iis/index>
 * <xref:host-and-deploy/aspnet-core-module>
 * <xref:host-and-deploy/iis/modules>
-* [Microsoft TechNet Kitaplığı: Windows Server](/windows-server/windows-server-versions)
+* [Windows Server - BT yöneticisi içerik için geçerli ve önceki sürümleri](/windows-server/windows-server-versions)

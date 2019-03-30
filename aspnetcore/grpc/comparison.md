@@ -1,17 +1,17 @@
 ---
-title: GRPC Hizmetleri HTTP API ile karşılaştırma
+title: gRPC hizmetlerini HTTP API’leriyle karşılaştırma
 author: jamesnk
 description: Nasıl gRPC karşılaştırır HTTP API'lerini ve ne sahip senaryolar önerilir öğrenin.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
 ms.date: 03/26/2019
 uid: grpc/comparison
-ms.openlocfilehash: fbe1647ab6f5e890700eccf43f920e0ef2b37ce7
-ms.sourcegitcommit: 687ffb15ebe65379f75c84739ea851d5a0d788b7
+ms.openlocfilehash: 280d0c2be2a83e5d80cedeaa472e33c28ac983f9
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58489013"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750497"
 ---
 # <a name="comparing-grpc-and-http-apis"></a>GRPC ve HTTP API ile karşılaştırma
 
@@ -40,7 +40,7 @@ gRPC iletileri kullanarak serileştirilir [Protobuf](https://developers.google.c
 
 gRPC, HTTP/2, HTTP üzerinden önemli performans avantajlarının sağlayan HTTP büyük bir düzeltme için tasarlanmıştır 1.x:
 
-* İkili çerçeveleme ve sıkıştırma. HTTP/2 protokolüne sıkıştırılmış ve verimli gönderme ve alma.
+* İkili çerçeveleme ve sıkıştırma. HTTP/2 protokolüne sıkıştırılmış ve verimli hem de gönderme ve alma.
 * Birden çok HTTP/2 çağrıları tek bir TCP bağlantı üzerinden çoğullama. Çoğullama ortadan [satır baş engelleme](https://en.wikipedia.org/wiki/Head-of-line_blocking).
 
 ### <a name="code-generation"></a>Kod Üretimi
@@ -93,7 +93,9 @@ GRPC ait özelliklerin tümünü gRPC Web tarafından desteklenir. İstemci ve �
 
 HTTP API isteklerinin metin olarak gönderilir ve okunabilir ve insanlar tarafından oluşturuldu.
 
-gRPC iletileri Protobuf ile varsayılan olarak kodlanır. Protobuf göndermek ve almak için etkili olsa da, ikili biçimi İnsan; okunabilir. Protobuf gerektirir belirtilen ileti arabirimi açıklama `*.proto` dosya düzgün bir şekilde seri durumdan çıkarılacak. Bu sorunun geçici çözümü Protobuf iletileri [destek dönüştürme json'a ve json'dan](https://developers.google.com/protocol-buffers/docs/proto3#json). Bu özellik, üretim ortamlarında verimli ikili ileti geçiş geliştirme sırasında insanlar tarafından okunabilen ileti gönderme sağlar.
+gRPC iletileri Protobuf ile varsayılan olarak kodlanır. Protobuf göndermek ve almak için etkili olsa da, ikili biçimi İnsan; okunabilir. Protobuf gerektirir belirtilen ileti arabirimi açıklama `*.proto` dosya düzgün bir şekilde seri durumdan çıkarılacak. Ek araçlar Protobuf yüklerini Kablodaki analiz etmek ve istekleri el ile oluşturmak için kullanılması gerekir.
+Gibi özellikler [sunucu yansıma](https://github.com/grpc/grpc/blob/master/doc/server-reflection.md) ve [gRPC komut satırı aracını](https://github.com/grpc/grpc/blob/master/doc/command_line_tool.md) bu sınırlamayı almak için vardır.
+Ayrıca, destek Protobuf iletileri [dönüştürme json'a ve json'dan](https://developers.google.com/protocol-buffers/docs/proto3#json). Yerleşik JSON dönüştürme, hata ayıklama sırasında protobuf iletileri gönderip buralardan insan tarafından okunabilir formda dönüştürmek için iyi bir yol sağlar.
 
 ## <a name="alternative-framework-scenarios"></a>Alternatif Framework senaryoları
 

@@ -4,15 +4,15 @@ description: Bu öğretici, Entity Framework Core kullanan ASP.NET Core web uygu
 author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/05/2019
+ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: c4804bd6614c7d5a2a30c8f59a645f603929ad52
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: c6255e2b4fc67c6174bab4458ec82035b1886002
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264596"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750629"
 ---
 # <a name="tutorial-learn-about-advanced-scenarios---aspnet-mvc-with-ef-core"></a>Öğretici: Gelişmiş senaryoları hakkında - EF çekirdekli ASP.NET MVC ile bilgi edinin.
 
@@ -33,7 +33,7 @@ Bu öğreticide şunları yaptınız:
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* [Devralma EF Core ile bir ASP.NET Core MVC web uygulamasında uygulama](inheritance.md)
+* [Devralma uygulama](inheritance.md)
 
 ## <a name="perform-raw-sql-queries"></a>Ham SQL sorguları gerçekleştirme
 
@@ -53,7 +53,7 @@ Bir web uygulamasında SQL komutları yürütme her zaman true olduğu gibi site
 
 İçinde *DepartmentsController.cs*, `Details` yöntemi, bir bölümle alan kodu değiştirin bir `FromSql` yöntemi çağrısı, vurgulanan aşağıdaki kodda gösterildiği gibi:
 
-[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_RawSQL&highlight=8,9,10,13)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_RawSQL&highlight=8,9,10)]
 
 Yeni kod düzgün çalıştığını doğrulamak için **Departmanlar** sekmesini ve ardından **ayrıntıları** Departmanlar biri için.
 
@@ -276,6 +276,7 @@ Bu öğreticide şunları yaptınız:
 > * EF Core kaynak kodu ve geliştirme planlar hakkında bilgi edindiniz
 > * Kodu basitleştirmek için dinamik LINQ kullanmayı öğrendiniz
 
-Bu, Bu öğretici serisinde, Entity Framework Core kullanarak bir ASP.NET Core MVC uygulamasındaki tamamlar. EF 6 ile ASP.NET Core kullanma hakkında bilgi edinmek istiyorsanız, sonraki makaleye bakın.
+Bu, Bu öğretici serisinde, Entity Framework Core kullanarak bir ASP.NET Core MVC uygulamasındaki tamamlar. Yeni bir veritabanı ile birlikte çalışarak bu seri; Varolan bir veritabanından tersine mühendislik bir model için bir alternatiftir.
+
 > [!div class="nextstepaction"]
-> [ASP.NET Core ile EF 6](../entity-framework-6.md)
+> [Öğretici: EF Core MVC, var olan veritabanı ile](/ef/core/get-started/aspnetcore/new-db?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json)

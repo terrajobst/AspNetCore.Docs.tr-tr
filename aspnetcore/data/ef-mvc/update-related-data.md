@@ -4,15 +4,15 @@ description: Bu öğreticide yabancı anahtar alanları ve gezinti özellikleri 
 author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/05/2019
+ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/update-related-data
-ms.openlocfilehash: 1606b872df2df839266ef17efee1948065c4efae
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 6add725430380f0855fe660a70b90a4546ef0637
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209420"
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750906"
 ---
 # <a name="tutorial-update-related-data---aspnet-mvc-with-ef-core"></a>Öğretici: İlgili verileri - EF çekirdekli ASP.NET MVC güncelleştirme
 
@@ -35,7 +35,7 @@ Bu öğreticide şunları yaptınız:
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* [EF çekirdekli ASP.NET Core MVC web uygulaması ile ilgili verileri okuma](read-related-data.md)
+* [İlgili verileri okuma](read-related-data.md)
 
 ## <a name="customize-courses-pages"></a>Kursları sayfalarını özelleştirme
 
@@ -123,7 +123,7 @@ Bir eğitmen kaydı düzenlediğinizde, eğitmen ofis ataması güncelleştirile
 
 İçinde *InstructorsController.cs*, HttpGet kodda değişiklik `Edit` BT'nin Eğitmen varlığın yükler. Bu nedenle yöntemi `OfficeAssignment` gezinti özelliği ve çağrıları `AsNoTracking`:
 
-[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?highlight=9,10&name=snippet_EditGetOA)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?highlight=8-11&name=snippet_EditGetOA)]
 
 HttpPost değiştirin `Edit` office atama güncelleştirmeleri işlemek için aşağıdaki kod ile yöntemi:
 
@@ -225,7 +225,7 @@ Bir kurs için onay kutusu seçili değildi, ancak kursu bulunduğu `Instructor.
 
 <a id="notepad"></a>
 > [!NOTE]
-> Visual Studio'da kod yapıştırdığınızda, satır sonları kodları keser şekilde değiştirilecektir. CTRL + Z, otomatik biçimlendirme geri almak için bir kez basın. Burada gördüğünüz gibi görünürler, bu satır sonları düzeltir. Girinti mükemmel, olması gerekmez ancak `@</tr><tr>`, `@:<td>`, `@:</td>`, ve `@:</tr>` satırları her tek bir satırda gösterilen gibi olmalıdır veya bir çalışma zamanı hatası alırsınız. Seçili yeni kod bloğu ile sekmesindeki yeni kodu mevcut kodu ile hizalamak için üç kez basın. Bu sorunun durumu kontrol edebilirsiniz [burada](https://developercommunity.visualstudio.com/content/problem/147795/razor-editor-malforms-pasted-markup-and-creates-in.html).
+> Visual Studio'da kod yapıştırdığınızda, satır sonları kodları keser bir biçimde değiştirilebilir. Kod yapıştırma sonrasında farklı görünüyor olsa da otomatik biçimlendirme geri almak için bir kez Ctrl + Z tuşuna basın. Burada gördüğünüz gibi görünürler, bu satır sonları düzeltir. Girinti mükemmel, olması gerekmez ancak `@</tr><tr>`, `@:<td>`, `@:</td>`, ve `@:</tr>` satırları her tek bir satırda gösterilen gibi olmalıdır veya bir çalışma zamanı hatası alırsınız. Seçili yeni kod bloğu ile sekmesindeki yeni kodu mevcut kodu ile hizalamak için üç kez basın. Bu sorun Visual Studio 2019 içinde düzeltilmiştir.
 
 [!code-html[](intro/samples/cu/Views/Instructors/Edit.cshtml?range=35-61)]
 
@@ -314,6 +314,7 @@ Bu öğreticide şunları yaptınız:
 > * Güncelleştirilmiş silme sayfası
 > * Eklenen ofis konumu ve kurslar Oluştur sayfası
 
-Eşzamanlılık çakışmalarını işleme hakkında bilgi edinmek için sonraki makaleye ilerleyin.
+Eşzamanlılık çakışmalarını işleme hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.
+
 > [!div class="nextstepaction"]
 > [Eşzamanlılık çakışmalarını işleme](concurrency.md)
