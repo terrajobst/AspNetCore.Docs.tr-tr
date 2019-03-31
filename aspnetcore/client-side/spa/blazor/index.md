@@ -1,18 +1,12 @@
 ---
 title: Blazor giriş
 author: guardrex
-description: ASP.NET Core Blazor, tarayıcı WebAssembly ile çalışan etkileşimli istemci tarafı .NET ile uygulama oluşturmak için yeni bir yöntem keşfedin.
+description: 'ASP.NET Core Blazor, tarayıcı WebAssembly ile çalışan etkileşimli istemci tarafı .NET ile uygulama oluşturmak için yeni bir yöntem keşfedin.'
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/11/2019
+ms.date: 03/27/2019
 uid: spa/blazor/index
-ms.openlocfilehash: a83863fa82595a875b73e04604167c7d00d39a81
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410264"
 ---
 # <a name="introduction-to-blazor"></a>Blazor giriş
 
@@ -56,7 +50,7 @@ Ne zaman Blazor uygulama oluşturulur ve bir tarayıcıda çalıştırın:
 
 İndirilen uygulama boyutunu azaltmak için kullanılmayan kod çıkartılır, uygulamadaki oturumunu tarafından yayımlandığında [Ara dil (IL) bağlayıcı](xref:host-and-deploy/razor-components/configure-linker).
 
-Blazor Razor bileşenler için istemci tarafı barındırma modelidir. Kullanıcı Arabirimi güncelleştirmeleri nasıl uygulanacağını gelen bir bileşenin işleme mantığı Razor bileşenleri ayırın olduğundan esneklik nasıl Razor bileşenleri barındırılabilir içinde. Bir SignalR bağlantısı üzerinden kullanıcı Arabirimi güncelleştirmeleri nerede işlenir Razor bileşenleri konak sunucusunda bir ASP.NET Core uygulaması için ASP.NET Core Razor bileşenleri kullanın. Daha fazla bilgi için bkz. <xref:razor-components/hosting-models#server-side-hosting-model>. 
+Blazor Razor bileşenler için istemci tarafı barındırma modelidir. Kullanıcı Arabirimi güncelleştirmeleri nasıl uygulanacağını gelen bir bileşenin işleme mantığı Razor bileşenleri ayırın olduğundan esneklik nasıl Razor bileşenleri barındırılabilir içinde. Bir SignalR bağlantısı üzerinden kullanıcı Arabirimi güncelleştirmeleri nerede işlenir Razor bileşenleri konak sunucusunda bir ASP.NET Core uygulaması için ASP.NET Core Razor bileşenleri kullanın. Daha fazla bilgi için bkz. <xref:razor-components/index> ve <xref:razor-components/hosting-models#server-side-hosting-model>. 
 
 ## <a name="components"></a>Bileşenler
 
