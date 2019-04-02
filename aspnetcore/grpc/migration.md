@@ -4,36 +4,36 @@ author: juntaoluo
 description: ASP.NET Core yığının en üstünde çalıştırmak için mevcut bir C çekirdek tabanlı gRPC uygulamayı taşımayı öğreneceksiniz.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
-ms.date: 03/08/2019
+ms.date: 03/31/2019
 uid: grpc/migration
-ms.openlocfilehash: 3c6e04694a33e953f6e1575f5ee9b0699cf1cdd3
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: ffe5ccbd99c6920e093eddc00fc60a9f66aab527
+ms.sourcegitcommit: 5995f44e9e13d7e7aa8d193e2825381c42184e47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58207957"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58809159"
 ---
 # <a name="migrating-grpc-services-from-c-core-to-aspnet-core"></a>Geçirme gRPC hizmetlerden C çekirdekli ASP.NET Core
 
 Tarafından [John Luo](https://github.com/juntaoluo)
 
-Temel alınan yığın uygulanması nedeniyle, tüm özellikler arasında aynı şekilde çalışır. [C-çekirdek tabanlı gRPC](https://grpc.io/blog/grpc-stacks) uygulamaları ve ASP.NET Core tabanlı uygulamalar. Bu belge iki yığınları arasında geçiş yaparken dikkat edilecek önemli farklar vurgulanmaktadır.
+Temel alınan yığın uygulanması nedeniyle, tüm özellikler arasında aynı şekilde çalışır. [C-çekirdek tabanlı gRPC](https://grpc.io/blog/grpc-stacks) uygulamaları ve ASP.NET Core tabanlı uygulamalar. Bu belge, iki yığın arasında geçirmek için temel farklılıklar vurgular.
 
 ## <a name="grpc-service-implementation-lifetime"></a>gRPC hizmet uygulama ömrü
 
-ASP.NET Core yığınında gRPC Hizmetleri, varsayılan olarak, ile oluşturulur bir [kapsamındaki ömrü](xref:fundamentals/dependency-injection). Buna karşılık, varsayılan olarak gRPC C çekirdekli bir Singleton yaşam süresi ile bir hizmeti bağlar.
+ASP.NET Core yığınında gRPC Hizmetleri, varsayılan olarak, ile oluşturulan bir [kapsamlı ömrü](xref:fundamentals/dependency-injection#service-lifetimes). Buna karşılık, varsayılan olarak gRPC C çekirdekli bir hizmetle bağlar bir [tekil ömrü](xref:fundamentals/dependency-injection#service-lifetimes).
 
-Kapsamındaki ömrü kapsamındaki ömürleriyle diğer hizmetlerin çözümlenmesi hizmet uygulaması sağlar. Örneğin kapsamındaki yaşam süresi de çözebilirsiniz `DBContext`, oluşturucu ekleme yoluyla DI kapsayıcısından. Kapsamındaki ömrü kullanarak:
+Kapsamı belirlenmiş bir yaşam süresi, kapsamlı ömürleriyle diğer hizmetlerin çözümlenmesi hizmet uygulaması sağlar. Örneğin, kapsamlı bir yaşam süresi de çözebilirsiniz `DBContext` Oluşturucu ekleme yoluyla DI kapsayıcısından. Kapsamı belirlenmiş bir yaşam süresi'ı kullanma:
 
 * Hizmet uygulaması yeni bir örneğini her istek için oluşturulur.
 * Uygulama türü üzerindeki örnek üyelerinden keşfi arasında durum paylaşma mümkün değildir.
 * Paylaşılan durumlar DI kapsayıcıdaki tek bir hizmet depolamak için kullanılan beklenir. Depolanan paylaşılan durumlar gRPC hizmet uygulamasının oluşturucuda çözümlenir. 
 
-Kapsamındaki ve tekil ömrü hakkında daha fazla bilgi için bkz. <xref:fundamentals/dependency-injection>.
+Hizmet ömrü hakkında daha fazla bilgi için bkz. <xref:fundamentals/dependency-injection#service-lifetimes>.
 
 ### <a name="add-a-singleton-service"></a>Tek bir hizmet ekleyin
 
-GRPC C çekirdek uygulamadan ASP.NET Core geçişi kolaylaştırmak için hizmet uygulamasının hizmet ömrü kapsamındaki tekliye değiştirmek mümkündür. Bu hizmet uygulaması örneğini DI kapsayıcıya ekleme içerir:
+GRPC C çekirdek uygulamadan ASP.NET Core geçişi kolaylaştırmak için tekliye kapsamlı hizmet uygulamasından hizmet ömrü değiştirmek mümkündür. Bu hizmet uygulaması örneğini DI kapsayıcıya ekleme içerir:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -43,11 +43,11 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Ancak, tekil ömrü ile hizmet uygulaması artık kapsamındaki Hizmetleri Oluşturucu ekleme yoluyla çözmek mümkün olacaktır.
+Ancak, bir singleton yaşam süresi ile bir hizmet uygulaması artık Oluşturucu ekleme kapsamlı hizmetleriyle çözümlemeleri değil.
 
 ## <a name="configure-grpc-services-options"></a>GRPC Hizmetleri seçeneklerini yapılandırma
 
-C-çekirdek tabanlı uygulamalar, ayarlar gibi `grpc.max_receive_message_length` ve `grpc.max_send_message_length` ile yapılandırılmış `ChannelOption` olduğunda [oluşturmak `Server` örneği](https://grpc.io/grpc/csharp/api/Grpc.Core.Server.html#Grpc_Core_Server__ctor_System_Collections_Generic_IEnumerable_Grpc_Core_ChannelOption__).
+Ayarları gibi C-çekirdek tabanlı uygulamalarda `grpc.max_receive_message_length` ve `grpc.max_send_message_length` ile yapılandırılmış `ChannelOption` olduğunda [sunucu örneği oluşturmak](https://grpc.io/grpc/csharp/api/Grpc.Core.Server.html#Grpc_Core_Server__ctor_System_Collections_Generic_IEnumerable_Grpc_Core_ChannelOption__).
 
 ASP.NET core'da `GrpcServiceOptions` bu ayarları yapılandırmak için bir yol sağlar. Ayarları, genel olarak tüm gRPC hizmetlere ya da bir bireysel hizmet uygulama türü için uygulanabilir. Bireysel hizmet uygulaması türleri için belirtilen seçenekler yapılandırıldığında genel ayarları geçersiz kılar.
 
@@ -72,7 +72,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="logging"></a>Günlüğe Kaydetme
 
-C / çekirdek tabanlı uygulamalarınızı Bel `GrpcEnvironment` için [günlükçüden yapılandırma](https://grpc.io/grpc/csharp/api/Grpc.Core.GrpcEnvironment.html?q=size#Grpc_Core_GrpcEnvironment_SetLogger_Grpc_Core_Logging_ILogger_) hata ayıklama amacıyla. ASP.NET Core yığını aracılığıyla bu işlevselliği sağlar [günlüğe kaydetme API'si](xref:fundamentals/logging/index). Örneğin bir Günlükçü Oluşturucu ekleme yoluyla gRPC hizmeti eklenebilir:
+C-çekirdek tabanlı uygulamaları Bel `GrpcEnvironment` için [günlükçüden yapılandırma](https://grpc.io/grpc/csharp/api/Grpc.Core.GrpcEnvironment.html?q=size#Grpc_Core_GrpcEnvironment_SetLogger_Grpc_Core_Logging_ILogger_) hata ayıklama amacıyla. ASP.NET Core yığını aracılığıyla bu işlevselliği sağlar [API'si günlük kaydını](xref:fundamentals/logging/index). Örneğin, bir Günlükçü Oluşturucu ekleme yoluyla gRPC hizmeti eklenebilir:
 
 ```csharp
 public class GreeterService : Greeter.GreeterBase
@@ -85,11 +85,11 @@ public class GreeterService : Greeter.GreeterBase
 
 ## <a name="https"></a>HTTPS
 
-C / çekirdek tabanlı uygulamalarınızı yapılandırma HTTPS üzerinden [ `Server.Ports` özelliği](https://grpc.io/grpc/csharp/api/Grpc.Core.Server.html#Grpc_Core_Server_Ports). Benzer bir kavram, ASP.NET Core sunucularını yapılandırmak için kullanılır. Örneğin, Kestrel kullanır [uç nokta Yapılandırması](xref:fundamentals/servers/kestrel#endpoint-configuration) bu işlevselliği.
+C-çekirdek tabanlı uygulamalarını yapılandırma HTTPS üzerinden [Server.Ports özelliği](https://grpc.io/grpc/csharp/api/Grpc.Core.Server.html#Grpc_Core_Server_Ports). Benzer bir kavram, ASP.NET Core sunucularını yapılandırmak için kullanılır. Örneğin, Kestrel kullanır [uç nokta Yapılandırması](xref:fundamentals/servers/kestrel#endpoint-configuration) bu işlevselliği.
 
-## <a name="interceptors-and-middlewares"></a>Kesiciler ve Middlewares
+## <a name="interceptors-and-middleware"></a>Kesiciler ve ara yazılım
 
-ASP.NET Core [middlewares](xref:fundamentals/middleware/index) tabanlı gRPC uygulamaları C core'da dinleyicileri karşılaştırdığınızda benzer işlevler sunar. GRPC isteğini işleyen bir işlem hattı oluşturmak için kullanılan her ikisi de olarak Middlewares ve dinleyicileri kavramsal olarak aynıdır. Her ikisi de, önce veya sonra ardışık düzende sonraki bileşene gerçekleştirilecek işin izin verin. ASP.NET Core middlewares dinleyicileri soyutlama kullanmanın gRPC katmanda çalışır ancak temel alınan HTTP/2 iletileri ancak çalışması [ `ServerCallContext` ](https://grpc.io/grpc/csharp/api/Grpc.Core.ServerCallContext.html).
+ASP.NET Core [ara yazılım](xref:fundamentals/middleware/index) gRPC C-çekirdek tabanlı uygulamalarda dinleyicileri ile karşılaştırıldığında benzer işlevler sunar. GRPC isteğini işleyen bir işlem hattı oluşturmak için kullanılan her ikisi de olarak ara yazılım ve dinleyicileri kavramsal olarak aynıdır. Her ikisi de, önce veya sonra ardışık düzende sonraki bileşene gerçekleştirilecek işin izin verin. ASP.NET Core ara yazılım dinleyicileri soyutlama kullanmanın gRPC katmanda çalışması sırasında temel alınan HTTP/2 iletilerde ancak çalışır [ServerCallContext](https://grpc.io/grpc/csharp/api/Grpc.Core.ServerCallContext.html).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

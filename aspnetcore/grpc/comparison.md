@@ -4,20 +4,20 @@ author: jamesnk
 description: Nasıl gRPC karşılaştırır HTTP API'lerini ve ne sahip senaryolar önerilir öğrenin.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
-ms.date: 03/26/2019
+ms.date: 03/31/2019
 uid: grpc/comparison
-ms.openlocfilehash: 280d0c2be2a83e5d80cedeaa472e33c28ac983f9
-ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
+ms.openlocfilehash: 05bd0357ada2d9a2c876469c533605ee7cbab5b3
+ms.sourcegitcommit: 5995f44e9e13d7e7aa8d193e2825381c42184e47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2019
-ms.locfileid: "58750497"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58809230"
 ---
-# <a name="comparing-grpc-and-http-apis"></a>GRPC ve HTTP API ile karşılaştırma
+# <a name="comparing-grpc-services-with-http-apis"></a>gRPC hizmetlerini HTTP API’leriyle karşılaştırma
 
 Tarafından [James Newton-King](https://twitter.com/jamesnk)
 
-Bu makalede arasında bir karşılaştırma sağlanmaktadır [gRPC](https://grpc.io/docs/guides/) ve HTTP API'lerini ve gRPC diğer teknolojileri kullanarak senaryoları önerir.
+Bu makalede açıklanır nasıl [gRPC Hizmetleri](https://grpc.io/docs/guides/) HTTP API'lerini karşılaştırın. Uygulamanız için bir API sağlamak için kullanılan teknoloji önemli bir seçenektir ve gRPC HTTP API'lerini karşılaştırıldığında benzersiz avantajları sunar. Bu makalede, güçlü ve zayıf gRPC birini açıklar ve diğer teknolojileri gRPC kullanma senaryoları önerir.
 
 #### <a name="overview"></a>Genel Bakış
 
@@ -43,15 +43,17 @@ gRPC, HTTP/2, HTTP üzerinden önemli performans avantajlarının sağlayan HTTP
 * İkili çerçeveleme ve sıkıştırma. HTTP/2 protokolüne sıkıştırılmış ve verimli hem de gönderme ve alma.
 * Birden çok HTTP/2 çağrıları tek bir TCP bağlantı üzerinden çoğullama. Çoğullama ortadan [satır baş engelleme](https://en.wikipedia.org/wiki/Head-of-line_blocking).
 
-### <a name="code-generation"></a>Kod Üretimi
+### <a name="code-generation"></a>Kod oluşturma
 
-Tüm gRPC çerçeveleri kod oluşturma için birinci sınıf destek sağlar. GRPC geliştirme için çekirdek dosyasıdır [ `*.proto` dosya](https://developers.google.com/protocol-buffers/docs/proto3), ilgili kişinin gRPC Hizmetleri ve iletileri tanımlar. Bu dosya gRPC çerçevelerini hizmet temel sınıfı, iletileri ve eksiksiz bir istemci kodu oluşturur.
+Tüm gRPC çerçeveleri kod oluşturma için birinci sınıf destek sağlar. GRPC geliştirme için çekirdek dosyasıdır [ `*.proto` dosya](https://developers.google.com/protocol-buffers/docs/proto3), sözleşmenin gRPC Hizmetleri ve iletilerin tanımlar. Bu dosya gRPC çerçevelerini hizmet temel sınıfı, iletileri ve eksiksiz bir istemci kodu oluşturur.
 
 Paylaşımı tarafından `*.proto` dosya sunucu ve istemci, iletileri ve istemci kodu arasında oluşturulabilir uçtan uca. İstemci kod üretimi iletilerin istemci ve sunucu üzerinde çoğaltma ortadan kaldırır ve kesin tür belirtilmiş bir istemci sizin için oluşturur. Bir istemci yazmak zorunda değil önemli geliştirme süresini birçok hizmet uygulamalarla kaydeder.
 
 ### <a name="strict-specification"></a>Katı belirtimi
 
-gRPC, Basitlik aracılığıyla Geliştirici zaman tasarrufu sağlar. [GRPC belirtimi](https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-HTTP2.md) gRPC hizmet yöntemi nasıl göründüğünü açıklayıcı olduğundan. Var olan herhangi bir biçimsel sözleşmesi JSON ile bir HTTP API'sinin ne gibi görünmelidir. Bir anlaşma eksikliği tartışılması URL biçimi üzerinde oluşturur. HTTP fiilleri ve yanıt kodları. gRPC tartışılması gRPC yöntemi gibi benzemelidir bildiren belirtilerek ortadan kaldırır.
+Bir resmi belirtimi JSON ile HTTP API'si için mevcut değil. Geliştiriciler debate URL'ler, en iyi biçimi HTTP fiilleri ve yanıt kodları.
+
+[GRPC belirtimi](https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-HTTP2.md) gRPC hizmet izlemelidir biçimi hakkında açıklayıcı olduğundan. gRPC tartışılması ortadan kaldırır ve gPRC platformlar ve uygulamalar arasında tutarlı olduğu için geliştirici zaman tasarrufu sağlar.
 
 ### <a name="streaming"></a>Akış
 
@@ -70,14 +72,14 @@ gRPC ne kadar bir RPC tamamlanması beklenecek iradeye sahip oldukları belirtin
 
 Son tarih ve alt gRPC aracılığıyla iptal yayma çağrıları yardımcı olan kaynak kullanımı sınırlarını zorunlu.
 
-## <a name="grpc-recommended-scenarios"></a>gRPC önerilen senaryolar
+## <a name="grpc-recommended-scenarios"></a>gRPC senaryolar önerilir
 
 gRPC aşağıdaki senaryolar için uygundur:
 
-* **Mikro Hizmetler** -gRPC olan tasarlanmış düşük gecikme süresi ve yüksek hacimli iletişim. gRPC verimliliği kritik olduğu basit mikro hizmetler için idealdir.
-* **Noktadan noktaya gerçek zamanlı iletişim** -gRPC yönlü akış için mükemmel destek vardır. gRPC Hizmetleri iletileri yoklama olmadan gerçek zamanlı gönderebilir.
-* **Polygot ortamları** -gRPC araçları gRPC çok dilli ortamlarda iyi bir seçim yaparak, tüm popüler geliştirme dilleri destekler.
-* **Kısıtlanmış ortamları ağ** -gRPC iletileri Protobuf, bir basit bir ileti biçimine serileştirilir. Her zaman bir gRPC ileti eşdeğer bir JSON ileti daha küçük olur.
+* **Mikro Hizmetler** &ndash; gRPC olan tasarlanmış düşük gecikme süresi ve yüksek hacimli iletişim. gRPC verimliliği kritik olduğu basit mikro hizmetler için idealdir.
+* **Noktadan noktaya gerçek zamanlı iletişim** &ndash; gRPC yönlü akış için mükemmel destek vardır. gRPC Hizmetleri iletileri yoklama olmadan gerçek zamanlı gönderebilir.
+* **Polygot ortamları** &ndash; gRPC araçları gRPC çok dilli ortamlarda iyi bir seçim yaparak, tüm popüler geliştirme dilleri destekler.
+* **Kısıtlanmış ortamları ağ** &ndash; gRPC iletileri Protobuf, bir basit bir ileti biçimine serileştirilir. GRPC ileti her zaman eşdeğer bir JSON ileti küçüktür.
 
 ## <a name="grpc-weaknesses"></a>gRPC zayıf
 
@@ -93,17 +95,17 @@ GRPC ait özelliklerin tümünü gRPC Web tarafından desteklenir. İstemci ve �
 
 HTTP API isteklerinin metin olarak gönderilir ve okunabilir ve insanlar tarafından oluşturuldu.
 
-gRPC iletileri Protobuf ile varsayılan olarak kodlanır. Protobuf göndermek ve almak için etkili olsa da, ikili biçimi İnsan; okunabilir. Protobuf gerektirir belirtilen ileti arabirimi açıklama `*.proto` dosya düzgün bir şekilde seri durumdan çıkarılacak. Ek araçlar Protobuf yüklerini Kablodaki analiz etmek ve istekleri el ile oluşturmak için kullanılması gerekir.
-Gibi özellikler [sunucu yansıma](https://github.com/grpc/grpc/blob/master/doc/server-reflection.md) ve [gRPC komut satırı aracını](https://github.com/grpc/grpc/blob/master/doc/command_line_tool.md) bu sınırlamayı almak için vardır.
-Ayrıca, destek Protobuf iletileri [dönüştürme json'a ve json'dan](https://developers.google.com/protocol-buffers/docs/proto3#json). Yerleşik JSON dönüştürme, hata ayıklama sırasında protobuf iletileri gönderip buralardan insan tarafından okunabilir formda dönüştürmek için iyi bir yol sağlar.
+gRPC iletileri Protobuf ile varsayılan olarak kodlanır. İkili biçimi Protobuf göndermek ve almak için etkili olsa da, İnsan olmayan okunabilir. Protobuf gerektirir belirtilen ileti arabirimi açıklama `*.proto` dosya düzgün bir şekilde seri durumdan çıkarılacak. Ek araçlar Protobuf yüklerini Kablodaki analiz etmek ve istekleri el ile oluşturmak için gereklidir.
 
-## <a name="alternative-framework-scenarios"></a>Alternatif Framework senaryoları
+Gibi özellikleri [sunucu yansıma](https://github.com/grpc/grpc/blob/master/doc/server-reflection.md) ve [gRPC komut satırı aracını](https://github.com/grpc/grpc/blob/master/doc/command_line_tool.md) ikili Protobuf iletilerle yardımcı olmak üzere mevcut. Ayrıca, destek Protobuf iletileri [dönüştürme json'a ve json'dan](https://developers.google.com/protocol-buffers/docs/proto3#json). Yerleşik JSON dönüştürme Protobuf iletileri insan tarafından okunabilir formda gelen ve hata ayıklama sırasında dönüştürmek için etkili bir yol sağlar.
+
+## <a name="alternative-framework-scenarios"></a>Alternatif framework senaryoları
 
 Aşağıdaki senaryolarda gRPC üzerinden diğer çerçeveler önerilir:
 
-* **Tarayıcı erişilebilir API'leri** -gRPC tamamen tarayıcıda desteklenmiyor. gRPC Web tarayıcısı desteği sağlayabilir, ancak sınırlamaları vardır ve bir sunucu proxy tanıtır.
-* **Gerçek zamanlı iletişim yayın** - gRPC akış üzerinden gerçek zamanlı iletişim destekler, ancak kayıtlı bağlantılara bir ileti yayın kavramı yok. Örneğin, burada yeni sohbet iletileri sohbet odası tüm istemcilere gönderilmesi gereken bir sohbet odası senaryosunda, tek tek istemci için yeni sohbet iletileri akışını her gRPC çağrı gerekir. [SignalR](xref:signalr/introduction) bu senaryo için iyi bir çerçevedir. Bu kavramı kalıcı bağlantılar ve ileti yayınlamak için yerleşik desteği vardır.
-* **Arası iletişimi işlem** -gelen çağrıları kabul etmek için bir HTTP/2 gRPC sunucusunu barındırmak bir işlem gerekir. Windows için arası iletişimi işlem [adlandırılmış kanallar WCF ile](/dotnet/framework/wcf/feature-details/choosing-a-transport#when-to-use-the-named-pipe-transport) iletişim hızlı ve basit yöntemdir.
+* **Tarayıcı erişilebilir API'leri** &ndash; gRPC tamamen tarayıcıda desteklenmiyor. gRPC Web tarayıcısı desteği sağlayabilir, ancak sınırlamaları vardır ve bir sunucu proxy tanıtır.
+* **Gerçek zamanlı iletişim yayın** &ndash; gRPC akış üzerinden gerçek zamanlı iletişim destekler, ancak iletiye kayıtlı bağlantıları için yayın kavramı yok. Örneğin burada yeni sohbet iletileri sohbet odası tüm istemcilere gönderilmesi gereken bir sohbet odası senaryosunda, tek tek istemci için yeni sohbet iletileri akışını sağlamak için her gRPC çağrı gereklidir. [SignalR](xref:signalr/introduction) bu senaryo için kullanışlı bir çerçevedir. SignalR kalıcı bağlantılar ve ileti yayınlamak için yerleşik destek kavramı vardır.
+* **Arası iletişimi işlem** &ndash; gelen gRPC çağrıları kabul etmek için bir HTTP/2 sunucu ana bilgisayar bir işlemi gerekir. Windows için arası iletişimi işlem [kanallar](/dotnet/standard/io/pipe-operations) iletişim hızlı ve basit yöntemdir.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

@@ -2,15 +2,17 @@
 title: ASP.NET Core birden çok ortam kullanma
 author: rick-anderson
 description: ASP.NET Core uygulamaları birden fazla ortam arasında uygulama davranışını denetleme konusunda bilgi edinin.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 01/22/2019
+ms.custom: mvc
+ms.date: 03/30/2019
 uid: fundamentals/environments
-ms.openlocfilehash: 5982f3e51a68dfa29af482067156c42006f50c0c
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 4fc43935aa058efc4497d3d9eb607df6c0899443
+ms.sourcegitcommit: 5995f44e9e13d7e7aa8d193e2825381c42184e47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58208465"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58809243"
 ---
 # <a name="use-multiple-environments-in-aspnet-core"></a>ASP.NET Core birden çok ortam kullanma
 
@@ -91,8 +93,6 @@ Aşağıdaki JSON üç profillerden gösterir bir *launchSettings.json* dosyası
 }
 ```
 
-::: moniker range=">= aspnetcore-2.1"
-
 > [!NOTE]
 > `applicationUrl` Özelliğinde *launchSettings.json* sunucu URL'lerin bir listesini belirtebilirsiniz. Listedeki URL'leri arasında noktalı virgül kullanın:
 >
@@ -106,8 +106,6 @@ Aşağıdaki JSON üç profillerden gösterir bir *launchSettings.json* dosyası
 >    }
 > }
 > ```
-
-::: moniker-end
 
 Ne zaman uygulama başlatıldığında ile [çalıştırma dotnet](/dotnet/core/tools/dotnet-run), ilk profiliyle `"commandName": "Project"` kullanılır. Değerini `commandName` başlatmak için web sunucusunu belirtir. `commandName` aşağıdakilerden herhangi biri olabilir:
 
@@ -349,8 +347,6 @@ public class Startup
 
 Kullanım [UseStartup (IWebHostBuilder, String)](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usestartup) bir derleme adı kabul eden aşırı yükleme:
 
-::: moniker range=">= aspnetcore-2.1"
-
 ```csharp
 public static void Main(string[] args)
 {
@@ -366,53 +362,11 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args)
 }
 ```
 
-::: moniker-end
-
-::: moniker range="= aspnetcore-2.0"
-
-```csharp
-public static void Main(string[] args)
-{
-    CreateWebHost(args).Run();
-}
-
-public static IWebHost CreateWebHost(string[] args)
-{
-    var assemblyName = typeof(Startup).GetTypeInfo().Assembly.FullName;
-
-    return WebHost.CreateDefaultBuilder(args)
-        .UseStartup(assemblyName)
-        .Build();
-}
-```
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-```csharp
-public class Program
-{
-    public static void Main(string[] args)
-    {
-        var assemblyName = typeof(Startup).GetTypeInfo().Assembly.FullName;
-
-        var host = new WebHostBuilder()
-            .UseStartup(assemblyName)
-            .Build();
-
-        host.Run();
-    }
-}
-```
-
-::: moniker-end
-
 ### <a name="startup-method-conventions"></a>Başlangıç yöntem kuralları
 
 [Yapılandırma](/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configure) ve [Createservicereplicalisteners()](/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configureservices) formun ortama özgü sürümlerini destekleyen `Configure<EnvironmentName>` ve `Configure<EnvironmentName>Services`:
 
-[!code-csharp[](environments/sample/EnvironmentsSample/Startup.cs?name=snippet_all&highlight=15,51)]
+[!code-csharp[](environments/sample/EnvironmentsSample/Startup.cs?name=snippet_all&highlight=15,42)]
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

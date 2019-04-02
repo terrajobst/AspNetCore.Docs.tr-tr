@@ -5,14 +5,14 @@ description: ASP.NET core'da mantıksal HttpClient örneğini yönetmek için IH
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 01/25/2019
+ms.date: 03/30/2019
 uid: fundamentals/http-requests
-ms.openlocfilehash: a4026addaa55d463c41aadd0a7a39606c88fcb84
-ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
+ms.openlocfilehash: 270727443f091306ac3e4ce4e2ceb99b88bbc609
+ms.sourcegitcommit: 5995f44e9e13d7e7aa8d193e2825381c42184e47
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56744215"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58809214"
 ---
 # <a name="make-http-requests-using-ihttpclientfactory-in-aspnet-core"></a>ASP.NET Core IHttpClientFactory kullanarak HTTP istekleri
 
@@ -199,7 +199,7 @@ Birden fazla işleyici sırayla yürütülmesi gerektiğini kaydedilebilir. Her 
 
 Genişletme yöntemleri, Polly ilkeleriyle kullanımını etkinleştirmek için yapılandırılmış sağlanan `HttpClient` örnekleri. Polly uzantıları kullanılabilir [Microsoft.Extensions.Http.Polly](https://www.nuget.org/packages/Microsoft.Extensions.Http.Polly/) NuGet paketi. Bu paket bulunup bulunmadığına [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app). Açık bir uzantıları kullanmak için `<PackageReference />` projeye eklenmelidir.
 
-[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/HttpClientFactorySample.csproj?highlight=9)]
+[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/HttpClientFactorySample.csproj?highlight=10)]
 
 Bu paket geri yükledikten sonra istemcileri Polly tabanlı işleyicileri ekleme desteklemek genişletme yöntemleri kullanılabilir.
 
