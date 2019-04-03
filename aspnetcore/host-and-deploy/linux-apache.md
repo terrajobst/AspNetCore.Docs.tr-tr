@@ -1,18 +1,18 @@
 ---
 title: ASP.NET Core Apache ile Linux'ta barındırma
-author: spboyer
+author: guardrex
 description: Apache CentOS, ters Ara sunucu olarak Kestrel üzerinde çalışan ASP.NET Core web uygulaması için HTTP trafiğini yönlendirmek için nasıl kuracağınızı öğrenin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: spboyer
 ms.custom: mvc
-ms.date: 03/28/2019
+ms.date: 03/31/2019
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: fbdfe9c19f3cbf6d12678187bb07e58e82395d2f
-ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
-ms.translationtype: HT
+ms.openlocfilehash: 34da0653ff29acf3044e69e032307d1a3da7044a
+ms.sourcegitcommit: 5995f44e9e13d7e7aa8d193e2825381c42184e47
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2019
-ms.locfileid: "58750646"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58809282"
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>ASP.NET Core Apache ile Linux'ta barındırma
 
@@ -197,7 +197,7 @@ WantedBy=multi-user.target
 
 Kullanıcının *apache* kullanılmayan yapılandırmaya göre kullanıcı ilk oluşturulmalı ve uygun dosyaları sahipliğini verilen.
 
-Kullanım `TimeoutStopSec` uygulama ilk kesme sinyallerini aldığı sonra kapatmak beklenecek süre yapılandırmak için. Uygulama bu dönemde değil kapatırsanız SIGKILL uygulamayı sonlandırmak için verilir. Unitless saniye değer sağlayın (örneğin, `150`), bir zaman aralığı değeri (örneğin, `2min 30s`), veya `infinity` zaman aşımı devre dışı bırakmak için. `TimeoutStopSec` değerini varsayılan olarak `DefaultTimeoutStopSec` Yöneticisi yapılandırma dosyasında (*systemd system.conf*, *system.conf.d*, *systemd user.conf*, * User.conf.d*). Çoğu dağıtımlar için varsayılan zaman aşımı değeri 90 saniyedir.
+Kullanım `TimeoutStopSec` uygulama ilk kesme sinyallerini aldığı sonra kapatmak beklenecek süre yapılandırmak için. Uygulama bu dönemde değil kapatırsanız SIGKILL uygulamayı sonlandırmak için verilir. Unitless saniye değer sağlayın (örneğin, `150`), bir zaman aralığı değeri (örneğin, `2min 30s`), veya `infinity` zaman aşımı devre dışı bırakmak için. `TimeoutStopSec` değerini varsayılan olarak `DefaultTimeoutStopSec` Yöneticisi yapılandırma dosyasında (*systemd system.conf*, *system.conf.d*, *systemd user.conf*,  *User.conf.d*). Çoğu dağıtımlar için varsayılan zaman aşımı değeri 90 saniyedir.
 
 ```
 # The default value is 90 seconds for most distributions.
@@ -208,6 +208,12 @@ Ortam değişkenlerini okumak yapılandırma sağlayıcıları için bazı değe
 
 ```console
 systemd-escape "<value-to-escape>"
+```
+
+İki nokta üst üste (`:`) ortamı değişken adları ayırıcılar desteklenmez. Çift alt çizgi kullanın (`__`) yerine bir iki nokta üst üste. [Ortam değişkenlerini yapılandırma sağlayıcısı](xref:fundamentals/configuration/index#environment-variables-configuration-provider) ortam değişkenlerini yapılandırma okuduğunuzda çift alt çizgi iki nokta üst üste dönüştürür. Aşağıdaki örnekte, bağlantı dizesi anahtar `ConnectionStrings:DefaultConnection` Hizmet tanım dosyası ayarlanan `ConnectionStrings__DefaultConnection`:
+
+```
+Environment=ConnectionStrings__DefaultConnection={Connection String}
 ```
 
 Dosyayı kaydedin ve hizmeti etkinleştirin:
@@ -310,7 +316,7 @@ rich rules:
 
 **Güvenli (HTTPS) yerel bağlantılar için uygulamayı yapılandırma**
 
-[Çalıştırma dotnet](/dotnet/core/tools/dotnet-run) komutunu kullanan uygulamanın *Properties/launchSettings.json* uygulama tarafından sağlanan URL'leri dinleyecek şekilde yapılandıran dosya `applicationUrl` özelliği (örneğin, `https://localhost:5001;http://localhost:5000`) .
+[Çalıştırma dotnet](/dotnet/core/tools/dotnet-run) komutunu kullanan uygulamanın *Properties/launchSettings.json* uygulama tarafından sağlanan URL'leri dinleyecek şekilde yapılandıran dosya `applicationUrl` özelliği (örneğin, `https://localhost:5001; http://localhost:5000`) .
 
 Geliştirme için bir sertifika kullanmak üzere uygulamayı yapılandırır `dotnet run` komut veya şunlardan birini yaklaşıyor geliştirme ortamı (F5 veya Visual Studio code'da Ctrl + F5) kullanarak:
 
