@@ -1,11 +1,17 @@
 ---
 title: ASP.NET Core’a Giriş
 author: rick-anderson
-description: 'Modern, bulut tabanlı, İnternet bağlantılı uygulamalar oluşturmaya yönelik platformlar arası, yüksek performanslı, açık kaynak bir çerçeve olan ASP.NET Core’a giriş yapın.'
+description: Modern, bulut tabanlı, İnternet bağlantılı uygulamalar oluşturmaya yönelik platformlar arası, yüksek performanslı, açık kaynak bir çerçeve olan ASP.NET Core’a giriş yapın.
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/14/2019
 uid: index
+ms.openlocfilehash: fa1c9d3ee095b3affe5b152a96fd51c58a14089d
+ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56743806"
 ---
 # <a name="introduction-to-aspnet-core"></a><span data-ttu-id="e9a4d-103">ASP.NET Core’a Giriş</span><span class="sxs-lookup"><span data-stu-id="e9a4d-103">Introduction to ASP.NET Core</span></span>
 

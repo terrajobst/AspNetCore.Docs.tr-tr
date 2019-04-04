@@ -1,12 +1,18 @@
 ---
 title: Blazor giriş
 author: guardrex
-description: 'ASP.NET Core Blazor, tarayıcı WebAssembly ile çalışan etkileşimli istemci tarafı .NET ile uygulama oluşturmak için yeni bir yöntem keşfedin.'
+description: ASP.NET Core Blazor, tarayıcı WebAssembly ile çalışan etkileşimli istemci tarafı .NET ile uygulama oluşturmak için yeni bir yöntem keşfedin.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
 ms.date: 03/27/2019
 uid: spa/blazor/index
+ms.openlocfilehash: c42363b0ce70a1a8edc19b1c428ee802a6eff3dd
+ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/30/2019
+ms.locfileid: "58750484"
 ---
 # <a name="introduction-to-blazor"></a><span data-ttu-id="9e9d3-103">Blazor giriş</span><span class="sxs-lookup"><span data-stu-id="9e9d3-103">Introduction to Blazor</span></span>
 

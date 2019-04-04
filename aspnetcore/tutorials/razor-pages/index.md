@@ -1,10 +1,16 @@
 ---
 title: 'Öğretici: ASP.NET Core Razor sayfaları web uygulaması oluşturma'
 author: rick-anderson
-description: 'Visual Studio, ASP.NET Core ve EF Core ile Windows üzerinde Razor sayfaları web uygulaması oluşturun.'
+description: Visual Studio, ASP.NET Core ve EF Core ile Windows üzerinde Razor sayfaları web uygulaması oluşturun.
 ms.author: riande
 ms.date: 09/08/2017
 uid: tutorials/razor-pages/index
+ms.openlocfilehash: c3dcc18844f2a12a2a116b11cb007cb833203dc3
+ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57345606"
 ---
 # <a name="tutorial-create-a-razor-pages-web-app-with-aspnet-core"></a><span data-ttu-id="37860-103">Öğretici: ASP.NET Core Razor sayfaları web uygulaması oluşturma</span><span class="sxs-lookup"><span data-stu-id="37860-103">Tutorial: Create a Razor Pages web app with ASP.NET Core</span></span>
 
