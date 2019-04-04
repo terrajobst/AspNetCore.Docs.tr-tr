@@ -3,14 +3,14 @@ title: ASP.NET Core MVC görünümleri
 author: ardalis
 description: Uygulamanın verilerini sunumu ve kullanıcı etkileşimine karşılık olarak ASP.NET Core MVC görünümleri nasıl işleneceğini öğrenin.
 ms.author: riande
-ms.date: 12/12/2017
+ms.date: 04/03/2019
 uid: mvc/views/overview
-ms.openlocfilehash: 0ee1fef9e9da15d91427a2eb5b5f530a0b77ce33
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: 766996645bc6ef2b6be42d729baf5d57f55b6ddd
+ms.sourcegitcommit: 1a7000630e55da90da19b284e1b2f2f13a393d74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58265385"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59012805"
 ---
 # <a name="views-in-aspnet-core-mvc"></a>ASP.NET Core MVC görünümleri
 
@@ -202,7 +202,7 @@ Kesin türü belirtilmiş görünümler yanı sıra görünümleri erişimi bir 
 | Görünüm ve [görünümü](xref:mvc/views/layout)   | Ayarı  **\<başlığı >** düzeni görünümünde bir görünüm dosyasından öğe içeriği.  |
 | [Kısmi Görünüm](xref:mvc/views/partial) ve bir görünüm | Kullanıcının istenen Web sayfasına göre verileri görüntüleyen bir pencere öğesi.      |
 
-Bu koleksiyonu aracılığıyla başvurulabilir `ViewData` veya `ViewBag` denetleyicileri ve görünümleri özellikleri. `ViewData` Özelliktir zayıf yazılan nesnelerin bir sözlük. `ViewBag` Özelliği çevresinde bir sarmalayıcı `ViewData` Dinamik özellikler için temel sağlayan `ViewData` koleksiyonu.
+Bu koleksiyonu aracılığıyla başvurulabilir `ViewData` veya `ViewBag` denetleyicileri ve görünümleri özellikleri. `ViewData` Özelliktir zayıf yazılan nesnelerin bir sözlük. `ViewBag` Özelliği çevresinde bir sarmalayıcı `ViewData` Dinamik özellikler için temel sağlayan `ViewData` koleksiyonu. Not: Anahtar aramaları için hem de büyük küçük harf duyarsız `ViewData` ve `ViewBag`.
 
 `ViewData` ve `ViewBag` çalışma zamanında dinamik olarak çözümlenir. Derleme zamanı tür denetimini sundukları yoksa, her ikisi de genellikle daha bir viewmodel kullanmaktan hataya olduğundan. Bu nedenle, en düşük düzeyde ya da hiç kullanmak bazı geliştiriciler tercih `ViewData` ve `ViewBag`.
 

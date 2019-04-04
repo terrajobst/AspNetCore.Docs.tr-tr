@@ -1,12 +1,18 @@
 ---
 title: Barındırma ve Razor bileşenleri dağıtma
 author: guardrex
-description: 'Ana bilgisayar ve ASP.NET Core, içerik teslim ağları (CDN), dosya sunucuları ve GitHub sayfaları kullanarak Razor bileşenleri ve Blazor uygulamaları dağıtmak nasıl keşfedin.'
+description: Ana bilgisayar ve ASP.NET Core, içerik teslim ağları (CDN), dosya sunucuları ve GitHub sayfaları kullanarak Razor bileşenleri ve Blazor uygulamaları dağıtmak nasıl keşfedin.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
 ms.date: 03/22/2019
 uid: host-and-deploy/razor-components/index
+ms.openlocfilehash: 236e8da27b80dbdb3e0ea885413b6cfd563dde60
+ms.sourcegitcommit: 7d6019f762fc5b8cbedcd69801e8310f51a17c18
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58419426"
 ---
 # <a name="host-and-deploy-razor-components"></a>Barındırma ve Razor bileşenleri dağıtma
 

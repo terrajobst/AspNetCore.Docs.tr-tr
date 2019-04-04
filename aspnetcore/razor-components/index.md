@@ -1,18 +1,24 @@
 ---
-title: Razor bileşenlerine giriş
+title: ASP.NET Core Razor bileşenlerine giriş
 author: guardrex
-description: 'ASP.NET Core Razor bileşenleri, etkileşimli istemci tarafı web kullanıcı Arabirimi ile .NET, ASP.NET Core uygulaması oluşturmak için bir yöntem keşfedin.'
+description: ASP.NET Core Razor bileşenleri, etkileşimli istemci tarafı web kullanıcı Arabirimi ile .NET, ASP.NET Core uygulaması oluşturmak için bir yöntem keşfedin.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
-ms.custom: mvc
+ms.custom: seoapril2019
 ms.date: 03/27/2019
 uid: razor-components/index
+ms.openlocfilehash: 43d5cf1d752b66a531c8d974deeb5a5fc8e94b43
+ms.sourcegitcommit: 1a7000630e55da90da19b284e1b2f2f13a393d74
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59012662"
 ---
 # <a name="introduction-to-razor-components"></a>Razor bileşenlerine giriş
 
 Tarafından [Daniel Roth](https://github.com/danroth27) ve [Luke Latham](https://github.com/guardrex)
 
-*Razor bileşenleri* etkileşimli istemci tarafı web kullanıcı Arabirimi ile .NET derleme yolu:
+*Razor bileşenleri*, ASP.NET Core 3.0 (Önizleme) sunulan, etkileşimli istemci tarafı web kullanıcı Arabirimi ile .NET derleme yolu:
 
 * Kullanarak zengin etkileşimli kullanıcı arabirimleri oluşturun C# JavaScript yerine.
 * .NET ile yazılan tüm sunucu tarafı ve istemci tarafı uygulama mantığı paylaşın.

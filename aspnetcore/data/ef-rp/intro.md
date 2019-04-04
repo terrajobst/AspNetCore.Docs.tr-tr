@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: seodec18
 ms.date: 11/22/2018
 uid: data/ef-rp/intro
-ms.openlocfilehash: 7723f7ca6c5f9a21b2628933c6e7dabde20c3af6
-ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
+ms.openlocfilehash: aff62d760cf0899983cf841f6715f2658b113f82
+ms.sourcegitcommit: 1a7000630e55da90da19b284e1b2f2f13a393d74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58320205"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59012688"
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>ASP.NET Core - Öğreticisi 1. 8'de Entity Framework Core ile Razor sayfaları
 
@@ -29,11 +29,11 @@ Contoso University örnek web uygulamasını, Entity Framework (EF) çekirdek ku
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
 
 [!INCLUDE [](~/includes/net-core-prereqs-windows.md)]
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# [<a name="net-core-cli"></a>.NET core CLI](#tab/netcore-cli)
 
 [!INCLUDE [](~/includes/2.1-SDK.md)]
 
@@ -59,7 +59,7 @@ Bu sitenin UI Stili yerleşik şablonları tarafından üretilen yakın ' dir. E
 
 ## <a name="create-the-contosouniversity-razor-pages-web-app"></a>ContosoUniversity Razor sayfaları web uygulaması oluşturma
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
 
 * Visual Studio'dan **dosya** menüsünde **yeni** > **proje**.
 * Yeni bir ASP.NET Core Web uygulaması oluşturun. Projeyi adlandırın **ContosoUniversity**. Projeyi adlandırın önemlidir *ContosoUniversity* kod kopyalanıp/yapıştırılmış ad alanları eşleştirmek için.
@@ -68,7 +68,7 @@ Bu sitenin UI Stili yerleşik şablonları tarafından üretilen yakın ' dir. E
 Önceki adımlarda görüntüleri için bkz: [Razor web uygulaması oluşturma](xref:tutorials/razor-pages/razor-pages-start#create-a-razor-pages-web-app).
 Uygulamayı çalıştırın.
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# [<a name="net-core-cli"></a>.NET core CLI](#tab/netcore-cli)
 
 ```CLI
 dotnet new webapp -o ContosoUniversity
@@ -155,7 +155,7 @@ Bu bölümde, Öğrenci modeli iskele kurulmuş. Diğer bir deyişle, yapı iske
 * Projeyi oluşturun.
 * Oluşturma *sayfaları/Öğrenciler* klasör.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
 
 * İçinde **Çözüm Gezgini**, sağ tıklayın *sayfaları/Öğrenciler* klasör > **Ekle** > **yeni iskele kurulmuş öğe**.
 * İçinde **İskele Ekle** iletişim kutusunda **Entity Framework (CRUD) kullanarak Razor sayfaları** > **ekleme**.
@@ -171,7 +171,7 @@ Tamamlamak **ekleme Razor sayfaları (CRUD) Entity Framework kullanarak** ileti�
 
 Bkz: [film modeli iskelesini](xref:tutorials/razor-pages/model#scaffold-the-movie-model) önceki adımı ile ilgili bir sorun varsa.
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# [<a name="net-core-cli"></a>.NET core CLI](#tab/netcore-cli)
 
 Öğrenci modeli iskelesini için aşağıdaki komutları çalıştırın.
 
@@ -278,8 +278,9 @@ Tüm Öğrenci kayıtlarını silin ve uygulamayı yeniden başlatın. DB başla
 
 ## <a name="view-the-db"></a>DB görüntüleyin
 
+Veritabanı adı bir tire ve bir GUID daha önce sağlanan bağlam adı oluşturulur. Bu nedenle, veritabanı adı "SchoolContext-{GUID}" olur. GUID, her kullanıcı için farklı olacaktır.
 Açık **SQL Server Nesne Gezgini** (SSOX) öğesinden **görünümü** Visual Studio'daki menü.
-SSOX içinde tıklayın **(localdb) \MSSQLLocalDB > veritabanları > ContosoUniversity1**.
+SSOX içinde tıklayın **(localdb) \MSSQLLocalDB > veritabanları > SchoolContext-{GUID}**.
 
 Genişletin **tabloları** düğümü.
 

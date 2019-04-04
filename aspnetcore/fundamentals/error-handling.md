@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 03/05/2019
 uid: fundamentals/error-handling
-ms.openlocfilehash: d809c70b3fae6b2d21d5ec0871298d905b873d5d
-ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
+ms.openlocfilehash: ae0b80baed814cd4c7c1dddce2f26a6facfdbaad
+ms.sourcegitcommit: 1a7000630e55da90da19b284e1b2f2f13a393d74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57665369"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59012714"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>ASP.NET core'da hatalarını işleme
 
@@ -103,7 +103,9 @@ Varsayılan olarak, ASP.NET Core uygulaması durumu kod sayfası için HTTP duru
 
 Ara yazılım tarafından kullanılabilir hale getirileceğini [Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/) kullanılabilir paketini [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).
 
-Bir satırı `Startup.Configure` yöntemi:
+### <a name="usestatuscodepages"></a>UseStatusCodePages
+
+Genel hata durum kodları için varsayılan salt metin işleyicileri etkinleştirmek için aşağıdaki kodu ekleyin. `Startup.Configure` yöntemi:
 
 ```csharp
 app.UseStatusCodePages();
@@ -111,7 +113,7 @@ app.UseStatusCodePages();
 
 Çağrı <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> önce ara (örneğin, statik dosya ara yazılımlarını ve MVC ara yazılım) işleme istek yöntemi.
 
-Gibi yaygın durum kodları için salt metin işleyiciler varsayılan olarak, durum kodu sayfa ara yazılımı ekler *404 - Bulunamadı*:
+Varsayılan işleyici tarafından görüntülenen metnin bir örnek aşağıda verilmiştir:
 
 ```
 Status Code: 404; Not Found
@@ -119,9 +121,13 @@ Status Code: 404; Not Found
 
 Ara yazılım davranışını özelleştirmenizi birkaç genişletme yöntemleri destekler.
 
+### <a name="usestatuscodepages-with-lambda"></a>Lambda ile UseStatusCodePages
+
 Bir aşırı yüklemesini <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> özel hata işleme mantığı işlemek ve el ile yanıt yazmak için kullanabileceğiniz bir lambda ifadesini alır:
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePages)]
+
+### <a name="usestatuscodepages-with-format-string"></a>Biçim dizesi ile UseStatusCodePages
 
 Bir aşırı yüklemesini <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> içerik türü ve yanıt metni özelleştirmek için kullanabileceğiniz bir içerik türü ve biçim dizesini alır:
 
@@ -129,7 +135,7 @@ Bir aşırı yüklemesini <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExte
 app.UseStatusCodePages("text/plain", "Status code page, status code: {0}");
 ```
 
-### <a name="redirect-and-re-execute-extension-methods"></a>Yeniden yönlendirme uzantısı yöntemleri ve yeniden yürütme
+### <a name="usestatuscodepageswithredirects"></a>UseStatusCodePagesWithRedirects
 
 <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePagesWithRedirects*>:
 
@@ -142,6 +148,8 @@ app.UseStatusCodePages("text/plain", "Status code page, status code: {0}");
 
 * Genellikle, farklı bir uygulama hatası burada işler durumlarda farklı bir uç noktası için istemci yönlendirmelidir. Web apps için yeniden yönlendirilen uç nokta istemcinin tarayıcınızın adres çubuğuna yansıtır.
 * Olmamalıdır korumak ve özgün ilk yönlendirme yanıt durum koduyla döndürür.
+
+### <a name="usestatuscodepageswithreexecute"></a>UseStatusCodePagesWithReExecute
 
 <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePagesWithReExecute*>:
 
@@ -163,6 +171,17 @@ app.UseStatusCodePagesWithReExecute("/Error/{0}");
 @page "{code?}"
 ```
 
+Hata işleme uç noktasını, aşağıdaki örnekte gösterildiği gibi hatayı oluşturan özgün URL'yi alabilirsiniz:
+
+```csharp
+var statusCodeReExecuteFeature = HttpContext.Features.Get<IStatusCodeReExecuteFeature>();
+var originalPathBase = statusCodeReExecuteFeature?.OriginalPathBase;
+var originalPath = statusCodeReExecuteFeature?.OriginalPath;
+var originalQueryString = statusCodeReExecuteFeature?.OriginalQueryString;
+```
+
+### <a name="disable-status-code-pages"></a>Durum kod sayfaları devre dışı bırak
+
 Durum kod sayfaları için Razor sayfaları işleyicisi yöntemi veya MVC denetleyicisi belirli isteklere devre dışı bırakılabilir. Durum kod sayfaları devre dışı bırakmak için alma denemesi <xref:Microsoft.AspNetCore.Diagnostics.IStatusCodePagesFeature> gelen isteğin [HttpContext.Features](xref:Microsoft.AspNetCore.Http.HttpContext.Features) toplama ve varsa bu özelliği devre dışı bırak:
 
 ```csharp
@@ -173,6 +192,8 @@ if (statusCodePagesFeature != null)
     statusCodePagesFeature.Enabled = false;
 }
 ```
+
+### <a name="status-code-page-endpoints"></a>Durum kodu sayfasında uç noktaları
 
 Kullanılacak bir <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> noktaları bir uç noktaya uygulama içinde oluşturduğunuz bir MVC görünümü ya da bir Razor sayfası uç nokta için aşırı yükleme. Razor sayfaları uygulama şablonu, örneğin, aşağıdaki sayfasını ve sayfa modeli sınıfı üretir:
 

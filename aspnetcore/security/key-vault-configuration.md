@@ -5,14 +5,14 @@ description: Azure Key Vault yapılandırma sağlayıcısı, çalışma zamanın
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/22/2019
+ms.date: 02/25/2019
 uid: security/key-vault-configuration
-ms.openlocfilehash: 2188929d6f380327465e8ce0fd8ad659188416d3
-ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
+ms.openlocfilehash: 8fd1cca1803d3f1d44d80ec63c5cfc259cbdaf55
+ms.sourcegitcommit: 1a7000630e55da90da19b284e1b2f2f13a393d74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56743991"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59012701"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>ASP.NET core'da Azure anahtar kasası yapılandırma sağlayıcısı
 
@@ -34,13 +34,13 @@ Azure Key Vault yapılandırma sağlayıcısı kullanmak için bir paket başvur
 Benimsemeye [kimliklerini Azure kaynakları için yönetilen](/azure/active-directory/managed-identities-azure-resources/overview) senaryosu için bir paket başvurusu ekleme [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/) paket.
 
 > [!NOTE]
-> En son kararlı sürümünü yazma zamanında `Microsoft.Azure.Services.AppAuthentication`, sürüm `1.0.3`, için destek sağlar [sistem tarafından atanan kimlikleri yönetilen](/azure/active-directory/managed-identities-azure-resources/overview#how-does-the-managed-identities-for-azure-resources-worka-namehow-does-it-worka). Destek *kullanıcı tarafından atanan kimlikleri yönetilen* kullanılabilir `1.0.2-preview` paket. Bu konu, sistem tarafından yönetilen kimlikleri kullanımını gösterir ve sağlanan örnek uygulama sürümünü kullanan `1.0.3` , `Microsoft.Azure.Services.AppAuthentication` paket.
+> En son kararlı sürümünü yazma zamanında `Microsoft.Azure.Services.AppAuthentication`, sürüm `1.0.3`, için destek sağlar [sistem tarafından atanan kimlikleri yönetilen](/azure/active-directory/managed-identities-azure-resources/overview#how-does-the-managed-identities-for-azure-resources-worka-namehow-does-it-worka). Destek *kullanıcı tarafından atanan kimlikleri yönetilen* kullanılabilir `1.2.0-preview2` paket. Bu konu, sistem tarafından yönetilen kimlikleri kullanımını gösterir ve sağlanan örnek uygulama sürümünü kullanan `1.0.3` , `Microsoft.Azure.Services.AppAuthentication` paket.
 
 ## <a name="sample-app"></a>Örnek uygulama
 
 Örnek uygulama tarafından belirlenen iki moddan birini çalıştıran `#define` en üstündeki deyimi *Program.cs* dosyası:
 
-* `Basic` &ndash; Bir Azure anahtar kasası uygulama kimliği ve parolası (gizli) anahtar Kasası'nda depolanan gizli erişmek için kullanımını gösterir. Dağıtma `Basic` herhangi bir ana bilgisayara bir ASP.NET Core uygulaması hizmet örneğinin sürümü. Sunulan yönergeleri [uygulama Kimliğini kullanın ve Azure'da barındırılan uygulamalar için gizli](#use-application-id-and-client-secret-for-non-azure-hosted-apps) bölümü.
+* `Certificate` &ndash; Bir Azure anahtar kasası istemci kimliği ve X.509 sertifikası için erişim gizli dizilerini Azure Key Vault'ta depolanan kullanımını gösterir. Örnek bu sürümü, Azure App Service veya ASP.NET Core uygulaması hizmet herhangi bir konağa dağıtılan herhangi bir yerden çalıştırılabilir.
 * `Managed` &ndash; Nasıl kullanılacağını gösteren [kimliklerini Azure kaynakları için yönetilen](/azure/active-directory/managed-identities-azure-resources/overview) uygulamanın kod veya yapılandırma depolanan kimlik bilgileri olmadan Azure anahtar kasası uygulama Azure AD kimlik doğrulaması ile kimlik doğrulaması için. Yönetilen kimlik doğrulamaya kullanırken, bir Azure AD uygulama kimliği ve parolası (gizli) gerekli değildir. `Managed` Sürümünü Azure'a dağıtılması gerekir. Sunulan yönergeleri [Azure kaynakları için yönetilen kimlikleri kullanmak](#use-managed-identities-for-azure-resources) bölümü.
 
 Önişlemci yönergeleri kullanarak örnek bir uygulama yapılandırma hakkında daha fazla bilgi için (`#define`), bkz: <xref:index#preprocessor-directives-in-sample-code>.
@@ -113,15 +113,19 @@ Tarafından sağlanan yönergeleri [hızlı başlangıç: Ayarlayın ve Azure CL
 
 ## <a name="use-application-id-and-client-secret-for-non-azure-hosted-apps"></a>Azure'da barındırılan uygulamalar için uygulama kimliği ve istemci gizli anahtarını kullanın
 
-Azure AD'yi yapılandırma Azure anahtar kasası ve uygulama kimliğini doğrulamak için bir uygulama kimliği ve parolası (gizli) bir anahtar kasasına kullanacak şekilde **uygulamayı Azure dışında barındırılan zaman**.
+Azure AD'yi yapılandırma, bir anahtar kasasına kimlik doğrulaması için Azure anahtar kasası ve uygulamayı bir Azure Active Directory Uygulama kimliği ve X.509 Sertifika **uygulamayı Azure dışında barındırılan zaman**. Daha fazla bilgi için [anahtarlara, parolalara ve sertifikalara hakkında](/azure/key-vault/about-keys-secrets-and-certificates).
 
 > [!NOTE]
-> Azure'da barındırılan uygulamalar için bir uygulama kimliği ve parolası (gizli) kullanarak desteklenir, ancak kullanarak öneririz [kimliklerini Azure kaynakları için yönetilen](#use-managed-identities-for-azure-resources) uygulamanızı Azure'a barındırırken. Yönetilen kimlikleri, genellikle daha güvenli bir yaklaşım kabul edilir, böylece uygulama veya özelliğin yapılandırmasından kimlik bilgilerini depolama gerektirmez.
+> Azure'da barındırılan uygulamalar için bir uygulama kimliği ve X.509 sertifikası kullanarak desteklenir, ancak kullanarak öneririz [kimliklerini Azure kaynakları için yönetilen](#use-managed-identities-for-azure-resources) uygulamanızı Azure'a barındırırken. Yönetilen kimlikleri, uygulamaya veya geliştirme ortamında bir sertifika depolanması gerekmez.
 
-Örnek uygulama bir uygulama kimliği ve parolası (gizli) kullandığında `#define` en üstündeki deyimi *Program.cs* dosya ayarlanmış `Basic`.
+Bir uygulama kimliği ve X.509 sertifikası olduğunda örnek uygulamanın kullandığı `#define` en üstündeki deyimi *Program.cs* dosya ayarlanmış `Certificate`.
 
-1. Uygulamayı Azure AD'ye kaydetme ve uygulama kimliği için bir parola (gizli) oluşturun.
-1. Anahtar kasası adı, uygulama kimliği ve parola/gizli uygulamanın Store *appsettings.json* dosya.
+1. Uygulamayı Azure AD'ye kaydetme (**uygulama kayıtları**).
+1. Ortak anahtarı karşıya yükle:
+   1. Azure AD'de uygulamayı seçin.
+   1. Gidin **ayarları** > **anahtarları**.
+   1. Seçin **ortak anahtarı karşıya** ortak anahtarı içeren sertifikayı karşıya yüklemek için. Kullanmanın yanı sıra bir *.cer*, *.pem*, veya *.crt* sertifika bir *.pfx* sertifika karşıya yüklenebilir.
+1. Uygulamanın uygulama kimliği ve anahtar kasası adı Store *appsettings.json* dosya. Uygulamanın veya uygulamaların sertifika deposunda kök sertifika yerleştirin&dagger;.
 1. Gidin **anahtar kasalarını** Azure portalında.
 1. Oluşturduğunuz anahtar kasasını seçin [Azure Key Vault ile üretim ortamında gizli depolama](#secret-storage-in-the-production-environment-with-azure-key-vault) bölümü.
 1. Seçin **erişim ilkeleri**.
@@ -132,7 +136,9 @@ Azure AD'yi yapılandırma Azure anahtar kasası ve uygulama kimliğini doğrula
 1. **Kaydet**’i seçin.
 1. Uygulamayı dağıtın.
 
-`Basic` Örnek uygulaması edinir, yapılandırma değerlerinden `IConfigurationRoot` gizli dizi adı olarak aynı ada sahip:
+&dagger;Örnek uygulamada, sertifika doğrudan uygulama köküne fiziksel sertifika dosyasından yeni bir oluşturarak tüketilen `X509Certificate2` çağırırken `AddAzureKeyVault`. Alternatif bir yaklaşım, sertifika yönetmek işletim sistemi izin vermektir. Daha fazla bilgi için [X.509 sertifikası yönetmek işletim sistemi izin](#allow-the-os-to-manage-the-x509-certificate) bölümü.
+
+`Certificate` Örnek uygulaması edinir, yapılandırma değerlerinden `IConfigurationRoot` gizli dizi adı olarak aynı ada sahip:
 
 * Hiyerarşik olmayan değerler: Değeri `SecretName` ile elde edilen `config["SecretName"]`.
 * Hiyerarşik değerleri (bölümleri): Kullanım `:` (virgül) gösterimi veya `GetSection` genişletme yöntemi. Yapılandırma değeri elde etmek için Bu yaklaşımlardan birini kullanın:
@@ -141,13 +147,12 @@ Azure AD'yi yapılandırma Azure anahtar kasası ve uygulama kimliğini doğrula
 
 Uygulama çağrıları `AddAzureKeyVault` tarafından sağlanan değerlerle *appsettings.json* dosyası:
 
-[!code-csharp[](key-vault-configuration/sample/Program.cs?name=snippet1&highlight=11-14)]
+[!code-csharp[](key-vault-configuration/sample/Program.cs?name=snippet1&highlight=12-15)]
 
 Örnek değerler:
 
 * Anahtar kasası adı: `contosovault`
 * Uygulama Kimliği: `627e911e-43cc-61d4-992e-12db9c81b413`
-* Parola: `g58K3dtg59o1Pa+e59v2Tx829w6VxTB2yv9sv/101di=`
 
 *appsettings.json*:
 
@@ -257,27 +262,43 @@ Bu yaklaşım ne zaman uygulanır:
 > [!NOTE]
 > Ayrıca kendi sağlayabilirsiniz `KeyVaultClient` uygulamasına `AddAzureKeyVault`. Özel bir istemci, istemcinin tek bir örnek uygulama paylaşımı izin verir.
 
-## <a name="authenticate-to-azure-key-vault-with-an-x509-certificate"></a>Azure anahtar Kasası'na bir X.509 sertifikası ile kimlik doğrulaması
+## <a name="allow-the-os-to-manage-the-x509-certificate"></a>İşletim sistemi X.509 sertifikası yönetmek izin ver
 
-Sertifikalar'ı destekleyen bir ortamda bir .NET Framework uygulama geliştirirken, Azure anahtar Kasası'na bir X.509 sertifikası ile kimlik doğrulaması yapabilir. X.509 sertifikasının özel anahtar, işletim sistemi tarafından yönetilir. Daha fazla bilgi için [bir sertifika yerine istemci gizli anahtarı ile kimlik doğrulama](/azure/key-vault/key-vault-use-from-web-application#authenticate-with-a-certificate-instead-of-a-client-secret). Kullanım `AddAzureKeyVault` kabul eden aşırı bir `X509Certificate2` (`_env` aşağıdaki örnekte:
+X.509 Sertifika, işletim sistemi tarafından yönetilebilir. Aşağıdaki örnekte `AddAzureKeyVault` kabul eden aşırı bir `X509Certificate2` makinenin geçerli kullanıcı sertifika deposu ve yapılandırması tarafından sağlanan bir sertifika parmak izi:
 
 ```csharp
-var builtConfig = config.Build();
+// using System.Linq;
+// using System.Security.Cryptography.X509Certificates;
+// using Microsoft.Extensions.Configuration;
 
-var store = new X509Store(StoreLocation.CurrentUser);
-store.Open(OpenFlags.ReadOnly);
-var cert = store.Certificates
-    .Find(X509FindType.FindByThumbprint, 
-        config["CertificateThumbprint"], false);
+WebHost.CreateDefaultBuilder(args)
+    .ConfigureAppConfiguration((context, config) =>
+    {
+        if (context.HostingEnvironment.IsProduction())
+        {
+            var builtConfig = config.Build();
 
-config.AddAzureKeyVault(
-    builtConfig["KeyVaultName"],
-    builtConfig["AzureADApplicationId"],
-    cert.OfType<X509Certificate2>().Single(),
-    new EnvironmentSecretManager(context.HostingEnvironment.ApplicationName));
+            using (var store = new X509Store(StoreName.My, 
+                StoreLocation.CurrentUser))
+            {
+                store.Open(OpenFlags.ReadOnly);
+                var certs = store.Certificates
+                    .Find(X509FindType.FindByThumbprint, 
+                        builtConfig["CertificateThumbprint"], false);
 
-store.Close();
+                config.AddAzureKeyVault(
+                    builtConfig["KeyVaultName"], 
+                    builtConfig["AzureADApplicationId"], 
+                    certs.OfType<X509Certificate2>().Single());
+
+                store.Close();
+            }
+        }
+    })
+    .UseStartup<Startup>();
 ```
+
+Daha fazla bilgi için [bir sertifika yerine istemci gizli anahtarı ile kimlik doğrulama](/azure/key-vault/key-vault-use-from-web-application#authenticate-with-a-certificate-instead-of-a-client-secret).
 
 ## <a name="bind-an-array-to-a-class"></a>Bir dizi bir sınıfa Bağla
 
@@ -285,7 +306,7 @@ Sağlayıcı bir POCO diziye bağlama için bir dizi halinde yapılandırma değ
 
 İki nokta üst üste içerecek şekilde anahtarları izin veren bir yapılandırma kaynaktan okunurken (`:`) ayırıcı, sayısal bir anahtar kesimi bir dizi kurulumu yapın anahtarları ayırt etmek için kullanılır (`:0:`, `:1:`,... `:{n}:`). Daha fazla bilgi için [yapılandırma: Bir sınıf için bir dizi bağlama](xref:fundamentals/configuration/index#bind-an-array-to-a-class).
 
-Azure anahtar kasası anahtarlarını bir iki nokta üst üste ayırıcı olarak kullanamazsınız. Bu konuda açıklanan yaklaşımı çift tire kullanır (`--`) hiyerarşik değerleri (bölümleri) için ayırıcı olarak. Dizi anahtarları, Azure anahtar Kasası'nda depolanır, çift çizgi ve sayısal anahtar kesimlerini (`--0--`, `--1--`,... `--{n}--`).
+Azure anahtar kasası anahtarlarını bir iki nokta üst üste ayırıcı olarak kullanamazsınız. Bu konuda açıklanan yaklaşımı çift tire kullanır (`--`) hiyerarşik değerleri (bölümleri) için ayırıcı olarak. Dizi anahtarları, Azure anahtar Kasası'nda depolanır, çift çizgi ve sayısal anahtar kesimlerini (`--0--`, `--1--`, &hellip; `--{n}--`).
 
 Aşağıdaki inceleyin [Serilog](https://serilog.net/) bir JSON dosyası tarafından sağlanan sağlayıcı yapılandırması günlüğe kaydetme. İki nesne içinde tanımlanan sabit değerler vardır `WriteTo` iki Serilog yansıtan bir dizi *havuzlarını*, günlük çıktısı hedefler açıklanmaktadır:
 
@@ -349,7 +370,9 @@ Yapılandırma Sağlayıcısı'nı kullanarak yüklemek uygulama başarısız ol
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * <xref:fundamentals/configuration/index>
-* [Microsoft Azure: Anahtar kasası](https://azure.microsoft.com/services/key-vault/)
+* [Microsoft Azure: Key Vault](https://azure.microsoft.com/services/key-vault/)
 * [Microsoft Azure: Anahtar kasası belgeleri](/azure/key-vault/)
 * [Azure anahtar kasası için nasıl oluşturma ve aktarma HSM korumalı anahtarlar](/azure/key-vault/key-vault-hsm-protected-keys)
 * [KeyVaultClient Class](/dotnet/api/microsoft.azure.keyvault.keyvaultclient)
+* [Hızlı Başlangıç: .NET web uygulaması kullanarak Azure Key Vault'tan bir gizli dizi alma ve ayarlama](/azure/key-vault/quick-create-net)
+* [Öğretici: Azure Key Vault ile Azure Windows sanal makinesine .NET kullanma](/azure/key-vault/tutorial-net-windows-virtual-machine)

@@ -5,12 +5,12 @@ description: Bir model için basit bir ASP.NET Core uygulamasını ekleyin.
 ms.author: riande
 ms.date: 02/25/2019
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: 224b8d7622b691df65e217fc9b963c0ba64c8baf
-ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
+ms.openlocfilehash: 08d8e9679bfee11f03e61cb4b9ae9b5b36186049
+ms.sourcegitcommit: 1a7000630e55da90da19b284e1b2f2f13a393d74
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58320088"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59012831"
 ---
 # <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>Bir ASP.NET Core MVC uygulaması için bir model ekleme
 
@@ -26,13 +26,13 @@ Bu öğreticide model sınıfları ilk yazma ve EF Core veritabanı oluşturur. 
 
 ## <a name="add-a-data-model-class"></a>Bir veri modeli sınıfı Ekle
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
 
 Sağ *modelleri* klasör > **Ekle** > **sınıfı**. Sınıf adı **film**.
 
 [!INCLUDE [model 1b](~/includes/mvc-intro/model1b.md)]
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code'u / Visual Studio Mac için](#tab/visual-studio-code+visual-studio-mac)
+# [<a name="visual-studio-code--visual-studio-for-mac"></a>Visual Studio Code'u / Visual Studio Mac için](#tab/visual-studio-code+visual-studio-mac)
 
 * Bir sınıfa eklemek *modelleri* adlı klasöre *Movie.cs*.
 
@@ -45,7 +45,7 @@ Sağ *modelleri* klasör > **Ekle** > **sınıfı**. Sınıf adı **film**.
 
 Bu bölümde, film modeli iskele kurulmuş. Diğer bir deyişle, yapı iskelesi aracı sayfaları için oluşturma, okuma, güncelleştirme ve silme (CRUD) işlemlerine yönelik film modeli oluşturur.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
 
 İçinde **Çözüm Gezgini**, sağ *denetleyicileri* klasör **> Ekle > Yeni iskele kurulmuş öğe**.
 
@@ -76,7 +76,7 @@ Visual Studio oluşturur:
 
 Veritabanı bağlamı otomatik olarak oluşturulmasını ve [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) (oluşturma, okuma, güncelleştirme ve silme) eylem metotları ve görünümleri olarak bilinir *yapı iskelesi*.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# [<a name="visual-studio-code"></a>Visual Studio Code](#tab/visual-studio-code)
 
 <!--  Until https://github.com/aspnet/Scaffolding/issues/582 is fixed windows needs backslash or the namespace is namespace RazorPagesMovie.Pages_Movies rather than namespace RazorPagesMovie.Pages.Movies
 -->
@@ -98,7 +98,7 @@ Veritabanı bağlamı otomatik olarak oluşturulmasını ve [CRUD](https://wikip
 
 <!-- Mac -------------------------->
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
+# [<a name="visual-studio-for-mac"></a>Mac için Visual Studio](#tab/visual-studio-mac)
 
 * Proje dizininde bir komut penceresi açın (içeren dizine *Program.cs*, *Startup.cs*, ve *.csproj* dosyaları).
 * Yapı iskelesi Aracı'nı yükleyin:
@@ -141,7 +141,7 @@ Bu bölümde, aşağıdaki görevler tamamlanır:
 * Bir başlangıç geçiş ekleyin.
 * Veritabanı, ilk geçiş ile güncelleştirin.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
 
 1. Gelen **Araçları** menüsünde **NuGet Paket Yöneticisi** > **Paket Yöneticisi Konsolu** (PMC).
 
@@ -160,7 +160,7 @@ Bu bölümde, aşağıdaki görevler tamamlanır:
 
    `Update-Database` Komutu çalıştırmaları `Up` yöntemi *geçişleri / {zaman damgası} _InitialCreate.cs* dosyasını veritabanı oluşturur.
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code'u / Visual Studio Mac için](#tab/visual-studio-code+visual-studio-mac)
+# [<a name="visual-studio-code--visual-studio-for-mac"></a>Visual Studio Code'u / Visual Studio Mac için](#tab/visual-studio-code+visual-studio-mac)
 
 [!INCLUDE [initial migration](~/includes/RP/model3.md)]
 
@@ -174,7 +174,7 @@ Belirtilen model veritabanı şeması dayanır `MvcMovieContext` sınıfı (içi
 
 ASP.NET Core ile oluşturulmuş [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection). Hizmetler (örneğin, EF Core DB bağlamı) DI, uygulama başlatma sırasında kaydedilir. Bu hizmetler (örneğin, Razor sayfaları) gerektiren bileşenler bu hizmetler Oluşturucu parametresi üzerinden sağlanır. Bir DB bağlamı örneği alır Oluşturucu kodu öğreticinin ilerleyen bölümlerinde gösterilmektedir.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
 
 Yapı iskelesi aracı otomatik olarak oluşturulmuş bir veritabanı bağlamını ve DI kapsayıcı ile kayıtlı.
 
@@ -190,7 +190,7 @@ Yukarıdaki kod oluşturur bir [olan DB\<film >](/dotnet/api/microsoft.entityfra
 
 Bağlantı dizesi adı için bağlam üzerinde bir yöntemi çağırarak geçirilen bir [DbContextOptions](/dotnet/api/microsoft.entityframeworkcore.dbcontextoptions) nesne. Yerel geliştirme için [ASP.NET Core yapılandırma sistemi](xref:fundamentals/configuration/index) bağlantı dizesinden okur *appsettings.json* dosya.
 
-# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code'u / Visual Studio Mac için](#tab/visual-studio-code+visual-studio-mac)
+# [<a name="visual-studio-code--visual-studio-for-mac"></a>Visual Studio Code'u / Visual Studio Mac için](#tab/visual-studio-code+visual-studio-mac)
 
 Bir DB bağlamı oluşturduğunuz ve DI kapsayıcı ile kayıtlı.
 
@@ -211,7 +211,7 @@ Login failed for user 'User-name'.
 
 Eksik [geçişler adım](#pmc).
 
-* Test **Oluştur** bağlantı.
+* Test **Oluştur** bağlantı. Veri göndermek ve girin.
 
   > [!NOTE]
   > Ondalık virgül kullanımı girmeniz mümkün olmayabilir `Price` alan. Desteklemek için [jQuery doğrulama](https://jqueryvalidation.org/) virgül İngilizce olmayan yerel (",") bir ondalık noktasının ve ABD İngilizce olmayan tarih biçimleri, uygulamayı Eğer gerekir. Genelleştirme hakkında yönergeler için bkz. [bu GitHub sorunu](https://github.com/aspnet/Docs/issues/4076#issuecomment-326590420).
