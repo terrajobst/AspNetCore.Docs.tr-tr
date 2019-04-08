@@ -5,14 +5,14 @@ description: IIS Express, IIS ve HTTP.sys kullanarak ASP.NET Core Windows kimlik
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 02/25/2019
+ms.date: 04/03/2019
 uid: security/authentication/windowsauth
-ms.openlocfilehash: 15fc41efba77f88fc8129f875b85836ac1b5f886
-ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
+ms.openlocfilehash: 9b53f523cf579aeb0e7dd37ccf5f161269a54913
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833702"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068267"
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>ASP.NET Core Windows kimlik doğrulamasını yapılandırma
 
@@ -26,15 +26,19 @@ Windows kimlik doğrulaması, ASP.NET Core uygulamaları, kullanıcıların kiml
 
 **Web uygulaması** şablonu Visual Studio veya .NET Core CLI aracılığıyla kullanılabilir, Windows kimlik doğrulamayı destekleyecek şekilde yapılandırılabilir.
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
 
 ### <a name="use-the-windows-authentication-app-template-for-a-new-project"></a>Yeni bir proje için Windows kimlik doğrulama uygulaması şablonunu kullanma
 
 Visual Studio'da:
 
-1. Yeni bir **ASP.NET Core Web uygulaması**.
-1. Seçin **Web uygulaması** şablonları listesinden.
-1. Seçin **kimlik doğrulamayı Değiştir** düğmesini tıklatın ve seçin **Windows kimlik doğrulaması**.
+1. Yeni bir proje oluşturun.
+1. Seçin **ASP.NET Core Web uygulaması**. **İleri**’yi seçin.
+1. Bir ad sağlayın **proje adı** alan. Onayla **konumu** giriş doğru olduğundan veya proje için bir konum sağlayın. **Oluştur**’u seçin.
+1. Seçin **değişiklik** altında **kimlik doğrulaması**.
+1. İçinde **kimlik doğrulamayı Değiştir** penceresinde **Windows kimlik doğrulaması**. **Tamam**’ı seçin.
+1. Seçin **Web uygulaması**.
+1. **Oluştur**’u seçin.
 
 Uygulamayı çalıştırın. Kullanıcı işlenen uygulamanın kullanıcı arabiriminde görüntülenir.
 
@@ -51,7 +55,7 @@ Alternatif olarak, özellikler, yapılandırılabilir `iisSettings` düğümün�
 
 [!code-json[](windowsauth/sample_snapshot/launchSettings.json?highlight=2-3)]
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# [<a name="net-core-cli"></a>.NET core CLI](#tab/netcore-cli)
 
 Kullanım **Windows kimlik doğrulaması** uygulaması şablonu.
 
@@ -129,7 +133,7 @@ Visual Studio veya .NET Core CLI'yı kullanarak, yayımlayın ve hedef klasöre 
 
 IIS ile barındırma ile ilgili daha fazla bilgi için yayımlama ve dağıtım, aşağıdaki konulara bakın:
 
-* [dotnet publish](/dotnet/core/tools/dotnet-publish)
+* [DotNet yayımlama](/dotnet/core/tools/dotnet-publish)
 * <xref:host-and-deploy/iis/index>
 * <xref:host-and-deploy/aspnet-core-module>
 * <xref:host-and-deploy/visual-studio-publish-profiles>

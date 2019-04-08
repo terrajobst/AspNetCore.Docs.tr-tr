@@ -5,14 +5,14 @@ description: Oluşturma ve Razor bileşenler, bileşen ömürleri yönetme veril
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/26/2019
+ms.date: 04/07/2019
 uid: razor-components/components
-ms.openlocfilehash: 59c8540ea297f8396d6aac9b3246639667ad0cd7
-ms.sourcegitcommit: 687ffb15ebe65379f75c84739ea851d5a0d788b7
+ms.openlocfilehash: 00e07d496f4471f56d4184d1cb7c07c0715bea3f
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58488682"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068358"
 ---
 # <a name="create-and-use-razor-components"></a>Oluşturma ve Razor bileşenleri kullanma
 
@@ -34,7 +34,7 @@ Bileşenlerini kullanarak Razor bileşenleri uygulamalarında yazılmış *.csht
 
 Bir bileşen için kullanıcı Arabirimi, HTML kullanılarak tanımlanır. (Örneğin, döngü, koşullular, ifadeleri) dinamik işleme mantığı, katıştırılmış kullanarak eklenir C# adlı söz dizimi [Razor](xref:mvc/views/razor). Ne zaman bir Razor bileşenleri uygulama derlendiğinde, HTML biçimlendirmesi ve C# işleme mantığı, bir bileşen sınıfı dönüştürülür. Oluşturulan sınıfın adı dosya adıyla aynıdır.
 
-Bileşen sınıfı üyeleri tanımlanmış bir `@functions` blok (birden fazla `@functions` bloğu izin verilen). İçinde `@functions` blok, bileşen durumu (Özellikler, alanlar), olay işleme için veya başka bir bileşen mantığı tanımlamak için yöntemlerle birlikte belirtilir.
+Bileşen sınıfı üyeleri tanımlanmış bir `@functions` blok (birden fazla `@functions` bloğu izin verilen). İçinde `@functions` blok, bileşen durumu (Özellikler, alanlar) olay işleme için veya başka bir bileşen mantığı tanımlamak için yöntemleri ile belirtilir.
 
 Bileşen üyeleri, ardından bileşenin parçası mantığı kullanarak işleme olarak kullanılabilir C# ile başlayan ifadeleri `@`. Örneğin, bir C# alan ekleyerek işlenen `@` alan adı. Aşağıdaki örnek, değerlendirir ve işler:
 
@@ -51,6 +51,25 @@ Bileşen üyeleri, ardından bileşenin parçası mantığı kullanarak işleme 
 ```
 
 Bileşen, bileşen başlangıçta işlenen sonra olaylara yanıt olarak, işleme ağacında yeniden oluşturur. Razor bileşenleri yeni bir işleme ağacı Öncekine karşı karşılaştırır ve herhangi bir değişiklik tarayıcının belge nesne modeli (DOM) için geçerlidir.
+
+## <a name="integrate-components-into-razor-pages-and-mvc-apps"></a>Bileşenleri Razor sayfaları ve MVC uygulamalarla tümleştirin
+
+Bileşenleri ile mevcut Razor sayfaları ve MVC uygulamaları kullanın. Var olan sayfaları veya Razor bileşenler kullanmaya görünümleri yeniden gerek yoktur. Sayfa veya Görünüm işlendiğinde bileşenleri prerendered&dagger; aynı anda. 
+
+> [!NOTE]
+> &dagger;Sunucu tarafı prerendering Razor bileşenleri uygulamaları için varsayılan olarak etkindir. İstemci tarafı Blazor uygulamaları prerendering yaklaşan Preview 4 sürümünde destekleyecek. Daha fazla bilgi için [MapFallbackToPage/dosyasını kullanmak için şablonlar/ara yazılım güncelleştirmesi](https://github.com/aspnet/AspNetCore/issues/8852).
+
+Bir bileşenden bir sayfa ya da Görünüm işlemek için `RenderComponentAsync<TComponent>` HTML yardımcı yöntemi:
+
+```cshtml
+<div id="Counter">
+    @(await Html.RenderComponentAsync<Counter>(new { IncrementAmount = 10 }))
+</div>
+```
+
+Sayfalar ve görünümlerden işlenen bileşenleri henüz Preview 3 sürümündeki etkileşimli değil. Örneğin, bir düğmeyi seçerek bir yöntem çağrısının tetiklemediğini. Gelecekteki bir önizleme bu sınırlama adres ve normal bir öğe ve öznitelik sözdizimini kullanarak işleme bileşenleri için destek eklendi.
+
+Sayfalar ve görünümler bileşenleri kullanabilirsiniz, ancak listesiyse true değil. Bileşenler, kısmi görünümleri ve bölümler gibi görünümü ve sayfa belirli senaryoları kullanamazsınız. Bir bileşene dönüştürerek bir bileşende kısmi görünümü, kısmi görünümü mantıksal çarpanını mantığı kullanılacak.
 
 ## <a name="using-components"></a>Bileşenleri kullanma
 
@@ -464,7 +483,7 @@ Bileşen dosyaları (*.cshtml*) HTML biçimlendirmeyi karışımı ve C# aynı d
 
 [!code-csharp[](common/samples/3.x/BlazorSample/Pages/BlazorRocksBase.cs)]
 
-Temel sınıfın türetilmesi `BlazorComponent`.
+Temel sınıfın türetilmesi `ComponentBase`.
 
 ## <a name="razor-support"></a>Razor desteği
 
@@ -599,7 +618,7 @@ Alternatif olarak, belirtebileceğiniz `Context` bileşen öğesindeki özniteli
 
 *Components/ListViewTemplate.cshtml*:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Components/ListViewTemplate.cshtml?highlight=1)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Components/ListViewTemplate.cshtml)]
 
 Tür parametresi, genel yazılmış bileşenler kullanırken, mümkünse algılanır:
 

@@ -5,14 +5,14 @@ description: Razor bileşenleri uygulamalar için yeniden kullanılabilir Düzen
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/13/2019
+ms.date: 04/07/2019
 uid: razor-components/layouts
-ms.openlocfilehash: ae2fe0208de1439958cf1e5ef1897a3a0c2dfb3f
-ms.sourcegitcommit: d913bca90373c07f89b1d1df01af5fc01fc908ef
+ms.openlocfilehash: 31ed940ce40e3ae6e3744418cf241d396308f4fe
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57978297"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068112"
 ---
 # <a name="razor-components-layouts"></a>Razor bileşenleri düzenleri
 
@@ -29,7 +29,7 @@ Teknik olarak, bir düzen başka bir bileşendir. Bir düzen Razor şablonu veya
 
 Aşağıdaki kod örneği, Razor şablonu Düzen bileşeninin gösterir. Kullanımına dikkat edin `LayoutComponentBase` ve `@Body`:
 
-[!code-cshtml[](layouts/sample_snapshot/3.x/MasterLayout.cshtml?highlight=1,13)]
+[!code-cshtml[](layouts/sample_snapshot/3.x/MasterLayout.cshtml)]
 
 ## <a name="use-a-layout-in-a-component"></a>Bir bileşenin bir düzen kullanın
 

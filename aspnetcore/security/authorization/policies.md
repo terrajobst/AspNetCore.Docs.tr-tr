@@ -4,14 +4,14 @@ author: rick-anderson
 description: Oluşturma ve ASP.NET Core uygulaması yetkilendirme gereksinimlerini zorunlu tutmak için yetkilendirme ilkesi işleyicileri kullanma hakkında bilgi edinin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/21/2017
+ms.date: 04/05/2019
 uid: security/authorization/policies
-ms.openlocfilehash: e72f15c28fb7b62c671dd6475cc323cacce42de6
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: ea9d687d3810c104d5b3fa39033849c21569709b
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58208327"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068176"
 ---
 # <a name="policy-based-authorization-in-aspnet-core"></a>ASP.NET core'da ilke tabanlı yetkilendirme
 
@@ -96,7 +96,10 @@ Unutmayın `Handle` yönteminde [işleyici örnek](#security-authorization-handl
 
 * Diğer gereksinim işleyicilerine başarılı olsa bile hata, garanti çağrısı `context.Fail`.
 
-Ayarlandığında `false`, [InvokeHandlersAfterFailure](/dotnet/api/microsoft.aspnetcore.authorization.authorizationoptions.invokehandlersafterfailure#Microsoft_AspNetCore_Authorization_AuthorizationOptions_InvokeHandlersAfterFailure) özelliği (ASP.NET Core 1.1 bulunan ve üzeri) short-circuits işleyicileri yürütülmesi zaman `context.Fail` çağrılır. `InvokeHandlersAfterFailure` Varsayılan olarak `true`, bu durumda tüm işleyicileri olarak da adlandırılır. Böylece, her zaman gerçekleşmesi etkilere, günlük kaydı gibi üretmek gereksinimleri bile `context.Fail` başka bir işleyicisinde çağrılır.
+Bir işleyici çağırırsa `context.Succeed` veya `context.Fail`, diğer tüm işleyiciler yine de denir. Bu, yan etkileri gibi başka bir işleyiciye başarıyla doğrulandı veya bir gereksinim başarısız olsa bile gerçekleşir günlüğünü üretmek gereksinimleri sağlar. Ayarlandığında `false`, [InvokeHandlersAfterFailure](/dotnet/api/microsoft.aspnetcore.authorization.authorizationoptions.invokehandlersafterfailure#Microsoft_AspNetCore_Authorization_AuthorizationOptions_InvokeHandlersAfterFailure) özelliği (ASP.NET Core 1.1 bulunan ve üzeri) short-circuits işleyicileri yürütülmesi zaman `context.Fail` çağrılır. `InvokeHandlersAfterFailure` Varsayılan olarak `true`, bu durumda tüm işleyicileri olarak da adlandırılır.
+
+> [!NOTE]
+> Kimlik doğrulaması başarısız olursa yetkilendirme işleyicileri çağrılır.
 
 <a name="security-authorization-policies-based-multiple-handlers"></a>
 

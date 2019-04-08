@@ -5,14 +5,14 @@ description: Uygulamalar ve NavLink bileşenle ilgili istekleri yönlendirmeyi �
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/14/2019
+ms.date: 04/07/2019
 uid: razor-components/routing
-ms.openlocfilehash: 39039c306a0ac0d9838e3c98815a6b1aade8863b
-ms.sourcegitcommit: d913bca90373c07f89b1d1df01af5fc01fc908ef
+ms.openlocfilehash: 8f917c94300bd21dde92d4533bee856adee98478
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57978364"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068109"
 ---
 # <a name="razor-components-routing"></a>Razor bileşenleri yönlendirme
 
@@ -44,7 +44,7 @@ Olduğunda bir *.razor* veya *.cshtml* ile dosya bir `@page` yönergesi derlendi
 
 Bir bileşenin birden çok yol şablonu uygulanabilir. Aşağıdaki bileşen isteklerine yanıt veren `/BlazorRoute` ve `/DifferentBlazorRoute`:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/BlazorRoute.cshtml?name=snippet_BlazorRoute&highlight=1-2)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/BlazorRoute.cshtml?name=snippet_BlazorRoute)]
 
 `<Router>` İstenen yol, işleme için bir geri dönüş bileşen ayarı destekler çözülmüş değildir. Bu katılımı ayarlayarak senaryoyu `FallbackComponent` geri dönüş bileşen sınıfı türü parametresi.
 
@@ -55,7 +55,7 @@ Aşağıdaki örnek, bir bileşen içinde tanımlanan ayarlar *Pages/MyFallbackR
 ```
 
 > [!IMPORTANT]
-> Yollar düzgün bir şekilde oluşturmak için uygulamayı içermelidir bir `<base>` içindeki kendi *wwwroot/index.html* belirtilen uygulama temel yolu dosyasıyla `href` özniteliği (`<base href="/" />`). Daha fazla bilgi için bkz. <xref:host-and-deploy/razor-components/index#app-base-path>.
+> Yollar düzgün bir şekilde oluşturmak için uygulamayı içermelidir bir `<base>` içindeki kendi *wwwroot/index.html* belirtilen uygulama temel yolu dosyasıyla `href` özniteliği (`<base href="/" />`). Daha fazla bilgi için bkz. <xref:host-and-deploy/razor-components-blazor/blazor#app-base-path>.
 
 ## <a name="route-parameters"></a>Yol parametreleri
 

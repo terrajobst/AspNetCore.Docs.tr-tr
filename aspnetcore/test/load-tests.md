@@ -1,44 +1,39 @@
 ---
 title: ASP.NET Core yük/stres testi
 author: Jeremy-Meng
-description: Birkaç önemli araçlar ve yük testi ve ASP.NET Core uygulamalarını stres yaklaşımları açıklanmaktadır.
+description: Birkaç önemli araçlar ve yük testi ve ASP.NET Core uygulamalarını stres yaklaşımlar hakkında bilgi edinin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/04/2019
+ms.date: 04/05/2019
 uid: test/loadtests
-ms.openlocfilehash: 08c4251059b7d9f4549ad710054d8299c4943465
-ms.sourcegitcommit: 7d6019f762fc5b8cbedcd69801e8310f51a17c18
+ms.openlocfilehash: 0a8449ea2c9df0f2ac93058f03af0a1a2aa66508
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58419387"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068189"
 ---
-# <a name="load-and-stress-testing-aspnet-core"></a>Yük ve stres testi ASP.NET Core
+# <a name="aspnet-core-loadstress-testing"></a>ASP.NET Core yük/stres testi
 
 Yük testi ve stres testi yüksek performanslı bir web uygulaması olduğundan emin olmak önemli ve ölçeklenebilir. Benzer testleri genellikle paylaştıkları olsa bile hedeflerine farklıdır.
 
-**Yük testleri**: Uygulamayı hala yanıt hedefi uyarlarken kullanıcıların belirli bir senaryo için belirtilen bir yük işleyebilir olup olmadığını sınar. Uygulama, normal koşullar altında çalıştırılır.
+**Yük testleri** &ndash; uygulama hala yanıt hedefi uyarlarken kullanıcıların belirli bir senaryo için belirtilen bir yük işleyebilir olup olmadığını test edin. Uygulama, normal koşullar altında çalıştırılır.
 
-**Stres testleri**: Altında aşırı koşullar ve genellikle bir uzun süre çalışan testler uygulama kararlılık:
+**Stres testleri** &ndash; genellikle uzun bir süre için aşırı koşullar altında çalıştırıldığı sırada uygulamanın kararlılığını Test. Testleri, uygulamanın yüksek kullanıcı yükü, ani veya aşamalı artan yük yerleştirin veya bunlar uygulamanın bilgi işlem kaynaklarını sınırlayın.
 
-* Yüksek kullanıcı yükü – ani veya kademeli olarak artırma.
-* Sınırlı bilgi işlem kaynakları.
+Yük testi, yük altında uygulama ve hatadan kurtarmak için beklenen davranışı düzgün biçimde döndürür belirleyin. Baskı altında uygulama normal koşullar altında çalıştırma değil.
 
-Baskı altında uygulama hatasından kurtarabilmek ve düzgün bir şekilde beklenen bir davranış döndürür? Baskı altında uygulamadır *değil* normal koşullar altında çalıştırın.
-
-Yük test etme özelliklerine sahip son Visual Studio sürümü, Visual Studio 2019 olacaktır. Yük test etme araçlarına ihtiyaç duyan müşteriler için Apache JMeter, Akamai CloudTest, Blazemeter gibi alternatif yük test etme araçlarının kullanılmasını öneririz. Daha fazla bilgi için [Visual Studio 2019 Preview sürüm notları](/visualstudio/releases/2019/release-notes-preview#test-tools).
+Visual Studio 2019 son Visual Studio Yük testi özellikleriyle sürümüdür. Yük testi araçları gelecekte isteyen müşteriler için Apache JMeter ve Akamai CloudTest BlazeMeter gibi diğer araçları öneririz. Daha fazla bilgi için [Visual Studio 2019 sürüm notları](/visualstudio/releases/2019/release-notes#test-tools).
 
 Yük testi hizmetinin Azure DevOps 2020'de sona eriyor. Daha fazla bilgi için [bulut tabanlı yük test etme hizmeti sona erecek](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/).
 
 ## <a name="visual-studio-tools"></a>Visual Studio Araçları
 
-Visual Studio oluşturma, geliştirme ve web performansı ve yük testleri hata ayıklama olanağı sağlar. Web tarayıcısında eylemlerini kaydederek testleri oluşturmak bir seçenek kullanılabilir.
+Visual Studio oluşturma, geliştirme ve web performansı ve yük testleri hata ayıklama olanağı sağlar. Bir seçenek, bir web tarayıcısında eylemlerini kaydederek testleri oluşturmak kullanılabilir.
 
-[Hızlı Başlangıç: Bir yük testi projesi oluşturma](/visualstudio/test/quickstart-create-a-load-test-project?view=vs-2017) oluşturmanızı, yapılandırmanızı ve projeleri Visual Studio 2017'yi kullanarak yük testi çalıştırma işlemi gösterilmektedir.
+Oluşturma, yapılandırma ve projeleri Visual Studio 2017'yi kullanarak yük testi çalıştırma hakkında daha fazla bilgi için bkz. [hızlı başlangıç: Bir yük testi projesi oluşturma](/visualstudio/test/quickstart-create-a-load-test-project?view=vs-2017). Daha fazla bilgi için [ek kaynaklar](#additional-resources) bölümü.
 
-Bkz: [ek kaynaklar](#add) daha fazla bilgi için.
-
-Yük testleri, şirket içinde çalıştırın veya Azure DevOps kullanarak bulutta çalıştırmak için yapılandırılabilir.
+Yük testleri, şirket içi veya çalışma Azure DevOps kullanarak bulutta çalıştırmak için yapılandırılabilir.
 
 ## <a name="azure-devops"></a>Azure DevOps
 
@@ -46,24 +41,24 @@ Yük testi çalışmaları kullanılarak başlatılabilir [Azure DevOps Test pla
 
 ![Azure DevOps yük testi giriş sayfası](./load-tests/_static/azure-devops-load-test.png)
 
-Hizmeti test biçimi aşağıdaki türlerini destekler:
+Hizmet şu test biçimlerini destekler:
 
-* Visual Studio testi – Visual Studio'da oluşturulan web testi.
-* Arşiv içinde yakalanan HTTP trafiğini HTTP arşivi tabanlı test, test sırasında tekrarlanır.
-* [URL tabanlı test](/azure/devops/test/load-test/get-started-simple-cloud-load-test?view=vsts) – yük testi, istek türleri, üst bilgiler ve sorgu dizeleri için URL'leri belirtmeye izin verir. Süresi gibi parametreleri ayarlanıyor çalıştırın, yük düzeni, kullanıcılar, vb. sayısı yapılandırılabilir.
-* [Apache JMeter](https://jmeter.apache.org/) test edin.
+* Visual Studio &ndash; Visual Studio'da oluşturulan Web testi.
+* HTTP arşivi &ndash; arşiv içinde yakalanan HTTP trafiğini yeniden test sırasında.
+* [URL tabanlı](/azure/devops/test/load-test/get-started-simple-cloud-load-test?view=vsts) &ndash; yük testi, istek türleri, üst bilgiler ve sorgu dizeleri için URL'leri belirtme sağlar. Süresi gibi parametreleri ayarlanıyor çalıştırın, yük düzeni ve kullanıcı sayısı yapılandırılabilir.
+* [Apache JMeter](https://jmeter.apache.org/).
 
 ## <a name="azure-portal"></a>Azure portal
 
-[Azure portal sağlar ayarlayarak ve Web Apps yük testi çalıştırarak](/azure/devops/test/load-test/app-service-web-app-performance-test?view=vsts) doğrudan Azure portalında App Service'nın performans sekmesinden.
+[Azure portal sağlar ayarlayarak ve web uygulamalarına yük testi çalıştırarak](/azure/devops/test/load-test/app-service-web-app-performance-test?view=vsts) doğrudan **performans** Azure portalında App Service için sekmesinde.
 
-![Azure portalında Azure uygulama hizmeti](./load-tests/_static/azure-appservice-perf-test.png)
+![Azure portalında Azure App Service](./load-tests/_static/azure-appservice-perf-test.png)
 
 Belirtilen URL ya da birden fazla URL test edebilirsiniz bir Visual Studio Web testi dosyası ile el ile test, test olabilir.
 
 ![Azure portalında yeni performans testi sayfası](./load-tests/_static/azure-appservice-perf-test-config.png)
 
-Testin sonunda, uygulama performans özelliklerini göstermek için raporlar oluşturulur. Örnek istatistikleri şunlardır:
+Testin sonunda, oluşturulan raporlar uygulama performans özellikleri gösterir. Örnek istatistikleri şunlardır:
 
 * Ortalama yanıt süresi
 * En fazla aktarım hızı: saniye başına istek sayısı
@@ -73,13 +68,13 @@ Testin sonunda, uygulama performans özelliklerini göstermek için raporlar olu
 
 Aşağıdaki liste, çeşitli özellik kümeleri ile üçüncü taraf web performans araçları içerir:
 
-* [Apache JMeter](https://jmeter.apache.org/) : Yük Test Etme Araçları tam özellikli paketi. İş parçacığı bağlı: kullanıcı başına tek bir iş parçacığı gerekir.
-* [AB - Apache HTTP server değerlendirmesi aracı](https://httpd.apache.org/docs/2.4/programs/ab.html)
-* [Gatling](https://gatling.io/) : Masaüstü aracı ile bir GUI ve test Kaydedici. Daha fazla yüksek performanslı JMeter daha.
-* [Locust.io](https://locust.io/) : İş parçacıkları tarafından sınırlanan değil.
+* [Apache JMeter](https://jmeter.apache.org/)
+* [ApacheBench (ab)](https://httpd.apache.org/docs/2.4/programs/ab.html)
+* [Gatling](https://gatling.io/)
+* [Locust](https://locust.io/)
+* [Batı Rüzgar WebSurge](http://websurge.west-wind.com/)
+* [Netling](https://github.com/hallatore/Netling)
 
-<a name="add"></a>
+## <a name="additional-resources"></a>Ek kaynaklar
 
-## <a name="additional-resources"></a>Ek Kaynaklar
-
-[Yük testi blog dizisini](https://blogs.msdn.microsoft.com/charles_sterling/2015/06/01/load-test-series-part-i-creating-web-performance-tests-for-a-load-test/) Charles Sterling'le tarafından. Tarihli ancak konuları çoğu yine de ilgilidir.
+* [Yük testi blog serisi](https://blogs.msdn.microsoft.com/charles_sterling/2015/06/01/load-test-series-part-i-creating-web-performance-tests-for-a-load-test/)

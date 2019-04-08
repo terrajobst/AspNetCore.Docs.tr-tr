@@ -5,14 +5,14 @@ description: ASP.NET Core uygulaması bir Windows hizmetinde barındırmayı ö�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 03/08/2019
+ms.date: 04/04/2019
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: ecc7f3a8cd813c2803d03294e38d726905eeb1b8
-ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
+ms.openlocfilehash: 544eefa87898e82ec2bf8f9f61ce4e26dd554bb7
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57841429"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068342"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>ASP.NET Core bir Windows hizmetinde barındırma
 
@@ -20,11 +20,19 @@ Tarafından [Luke Latham](https://github.com/guardrex) ve [Tom Dykstra](https://
 
 ASP.NET Core uygulaması Windows barındırılabilen bir [Windows hizmeti](/dotnet/framework/windows-services/introduction-to-windows-service-applications) IIS kullanmadan. Bir Windows hizmeti olarak barındırıldığında, uygulama yeniden başlatma sonrasında otomatik olarak başlar.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/windows-service/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/windows-service/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* [PowerShell 6](https://github.com/PowerShell/PowerShell)
+* [PowerShell 6.2 veya üstü](https://github.com/PowerShell/PowerShell)
+
+> [!NOTE]
+> Windows 10 Ekim 2018'den önceki Windows işletim sistemi için Update (sürüm 1809/derleme 10.0.17763) [Microsoft.PowerShell.LocalAccounts](/powershell/module/microsoft.powershell.localaccounts) modülü içeri ile [WindowsCompatibility Modülü](https://github.com/PowerShell/WindowsCompatibility)erişim kazanmak için [yeni LocalUser](/powershell/module/microsoft.powershell.localaccounts/new-localuser) kullanılan cmdlet'i [bir kullanıcı hesabı oluşturma](#create-a-user-account) bölümü:
+>
+> ```powershell
+> Install-Module WindowsCompatibility -Scope CurrentUser
+> Import-WinModule Microsoft.PowerShell.LocalAccounts
+> ```
 
 ## <a name="deployment-type"></a>Dağıtım türü
 
@@ -129,7 +137,7 @@ Aşağıdaki değişiklikleri yapın `Program.Main`:
 
 Kullanarak uygulama yayımlamayı [dotnet yayımlama](/dotnet/articles/core/tools/dotnet-publish), [Visual Studio yayımlama profilini](xref:host-and-deploy/visual-studio-publish-profiles), veya Visual Studio Code. Visual Studio kullanırken **FolderProfile** ve yapılandırma **hedef konum** seçmeden önce **Yayımla** düğmesi.
 
-Komut satırı arabirimi (CLI) araçlarını kullanarak örnek uygulamayı yayımlamak için çalıştırma [dotnet yayımlama](/dotnet/core/tools/dotnet-publish) geçirilen bir sürüm yapılandırması ile proje klasöründeki bir komut isteminde komutunu [- c |--yapılandırma](/dotnet/core/tools/dotnet-publish#options)seçeneği. Kullanım [-o |--çıktı](/dotnet/core/tools/dotnet-publish#options) uygulama dışında bir klasöre yayımlamak için bir yol ile seçeneği.
+Komut satırı arabirimi (CLI) araçlarını kullanarak örnek uygulamayı yayımlamak için çalıştırma [dotnet yayımlama](/dotnet/core/tools/dotnet-publish) proje klasöründeki geçirilen bir yayın yapılandırmasına sahip bir Windows komut kabuğu komutunu [- c |--yapılandırma ](/dotnet/core/tools/dotnet-publish#options) seçeneği. Kullanım [-o |--çıktı](/dotnet/core/tools/dotnet-publish#options) uygulama dışında bir klasöre yayımlamak için bir yol ile seçeneği.
 
 ### <a name="publish-a-framework-dependent-deployment-fdd"></a>Framework bağımlı dağıtım (FDD) yayımlama
 
@@ -151,36 +159,32 @@ dotnet publish --configuration Release --runtime win7-x64 --output c:\svc
 
 ## <a name="create-a-user-account"></a>Bir kullanıcı hesabı oluşturun
 
-Hizmet kullanımı için bir kullanıcı hesabı oluşturma `net user` bir yönetici PowerShell 6'yı komut kabuğu komutunu:
+Hizmet kullanımı için bir kullanıcı hesabı oluşturma [yeni LocalUser](/powershell/module/microsoft.powershell.localaccounts/new-localuser) cmdlet'i bir yönetim PowerShell 6'yı komut kabuğundan:
 
 ```powershell
-net user {USER ACCOUNT} {PASSWORD} /add
+New-LocalUser -Name {NAME}
 ```
 
-Varsayılan parola süre sonu altı hafta olur.
+Sağlayan bir [güçlü parola](/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements) istendiğinde.
 
-Örnek uygulama için bir kullanıcı hesabı adı ile oluşturun. `ServiceUser` ve parola. Aşağıdaki komutta `{PASSWORD}` ile bir [güçlü parola](/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements).
+Örnek uygulama için bir kullanıcı hesabı adı ile oluşturun. `ServiceUser`.
 
 ```powershell
-net user ServiceUser {PASSWORD} /add
+New-LocalUser -Name ServiceUser
 ```
 
-Bir gruba kullanıcı eklemeniz gerekiyorsa, kullanın `net localgroup` komutu, burada `{GROUP}` grubunun adıdır:
+Sürece `-AccountExpires` parametre tarafından sağlanan [yeni LocalUser](/powershell/module/microsoft.powershell.localaccounts/new-localuser) bir sona erme cmdlet'iyle <xref:System.DateTime>, hesabın süresi sona ermiyor.
 
-```powershell
-net localgroup {GROUP} {USER ACCOUNT} /add
-```
-
-Daha fazla bilgi için [hizmeti kullanıcı hesaplarını](/windows/desktop/services/service-user-accounts).
+Daha fazla bilgi için [Microsoft.PowerShell.LocalAccounts](/powershell/module/microsoft.powershell.localaccounts/) ve [hizmeti kullanıcı hesaplarını](/windows/desktop/services/service-user-accounts).
 
 Active Directory kullanarak kullanıcıları yönetme için alternatif bir yaklaşım, yönetilen hizmet hesaplarını kullanmaktır. Daha fazla bilgi için [Grup yönetilen hizmet hesaplarına genel bakış](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview).
 
 ## <a name="set-permission-log-on-as-a-service"></a>İzin ayarlama: Bir hizmet olarak oturum aç
 
-Uygulamanın klasörüne yazma/okuma/yürütme erişimi vermek kullanarak [icacls](/windows-server/administration/windows-commands/icacls) komutu:
+Uygulamanın klasörüne yazma/okuma/yürütme erişimi vermek kullanarak [icacls](/windows-server/administration/windows-commands/icacls) bir yönetici PowerShell 6'yı komut kabuğu komut.
 
 ```powershell
-icacls "{PATH}" /grant {USER ACCOUNT}:(OI)(CI){PERMISSION FLAGS} /t
+icacls "{PATH}" /grant "{USER ACCOUNT}:(OI)(CI){PERMISSION FLAGS}" /t
 ```
 
 * `{PATH}` &ndash; Uygulamanın klasörün yolu.
@@ -195,25 +199,24 @@ icacls "{PATH}" /grant {USER ACCOUNT}:(OI)(CI){PERMISSION FLAGS} /t
   * Değiştir (`M`)
 * `/t` &ndash; Yinelemeli olarak mevcut alt klasörler ve dosyalar için geçerlidir.
 
-Örnek uygulamayı yayımlanan *c:\\svc* klasörü ve `ServiceUser` hesap yazma/okuma/Yürütme izinleri, aşağıdaki komutu kullanın:
+Örnek uygulamayı yayımlanan *c:\\svc* klasörü ve `ServiceUser` hesap yazma/okuma/Yürütme izinleri ile bir yönetici PowerShell 6'yı komut kabuğuna şu komutu kullanın.
 
 ```powershell
-icacls "c:\svc" /grant ServiceUser:(OI)(CI)WRX /t
+icacls "c:\svc" /grant "ServiceUser:(OI)(CI)WRX" /t
 ```
 
 Daha fazla bilgi için [icacls](/windows-server/administration/windows-commands/icacls).
 
 ## <a name="create-the-service"></a>Hizmet oluşturma
 
-Kullanım [RegisterService.ps1](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/windows-service/scripts) hizmeti kaydetmek için PowerShell Betiği. Bir yönetici PowerShell 6'yı komut isteminden aşağıdaki komutu yürütün:
+Kullanım [RegisterService.ps1](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/windows-service/scripts) hizmeti kaydetmek için PowerShell Betiği. Bir yönetici PowerShell 6'yı komut kabuğundan betiği aşağıdaki komutu yürütün:
 
 ```powershell
 .\RegisterService.ps1 
     -Name {NAME} 
     -DisplayName "{DISPLAY NAME}" 
     -Description "{DESCRIPTION}" 
-    -Path "{PATH}" 
-    -Exe {ASSEMBLY}.exe 
+    -Exe "{PATH TO EXE}\{ASSEMBLY NAME}.exe" 
     -User {DOMAIN\USER}
 ```
 
@@ -221,15 +224,14 @@ Aşağıdaki örnekte örnek uygulama için:
 
 * Adlı hizmetin **MyService**.
 * Yayınlanan hizmet bulunan *c:\\svc* klasör. Uygulama yürütülebilir dosyası adlı *SampleApp.exe*.
-* Altında çalışacağı `ServiceUser` hesabı. Aşağıdaki örnekte, yerel makine adıdır `Desktop-PC`.
+* Altında çalışacağı `ServiceUser` hesabı. Aşağıdaki örnek komut yerel makine adıdır `Desktop-PC`. Değiştirin `Desktop-PC` bilgisayar adı veya etki alanı sistemi.
 
 ```powershell
 .\RegisterService.ps1 
     -Name MyService 
     -DisplayName "My Cool Service" 
     -Description "This is the Sample App service." 
-    -Path "c:\svc" 
-    -Exe SampleApp.exe 
+    -Exe "c:\svc\SampleApp.exe" 
     -User Desktop-PC\ServiceUser
 ```
 

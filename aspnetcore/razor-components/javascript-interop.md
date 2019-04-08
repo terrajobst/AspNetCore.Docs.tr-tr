@@ -5,14 +5,14 @@ description: .NET ve JavaScript işlevleri çağırmak nasıl öğrenin Blazor v
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/29/2019
+ms.date: 03/26/2019
 uid: razor-components/javascript-interop
-ms.openlocfilehash: ac772b052a8f61937350b0d999013b7ba06dfd74
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: c45c04d849ba4b3b017a65e79aa758effd5ba8eb
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58265006"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068121"
 ---
 # <a name="razor-components-javascript-interop"></a>Razor bileşenleri JavaScript birlikte çalışma
 
@@ -104,7 +104,7 @@ Aşağıdaki bileşen:
 
 Kullanılacak `IJSRuntime` soyutlama, aşağıdaki yaklaşımlardan birini benimseme:
 
-* Ekleme `IJSRuntime` soyutlama Razor dosyasına (*.cshtml*):
+* Ekleme `IJSRuntime` soyutlama Razor dosyasına (*.razor*, *.cshtml*):
 
   ```cshtml
   @inject IJSRuntime JSRuntime
@@ -126,22 +126,23 @@ Kullanılacak `IJSRuntime` soyutlama, aşağıdaki yaklaşımlardan birini benim
 * Ekleme `IJSRuntime` Özet bir sınıf içinde (*.cs*):
 
   ```csharp
-  public class MyJsInterop
+  public class JsInteropClasses
   {
       private readonly IJSRuntime _jsRuntime;
 
-      public MyJsInterop(IJSRuntime jsRuntime)
+      public JsInteropClasses(IJSRuntime jsRuntime)
       {
           _jsRuntime = jsRuntime;
       }
 
-      public Task<string> DoSomething(string data)
+      public Task<string> TickerChanged(string data)
       {
-          // The doSomething JavaScript method is implemented
-          // in a JavaScript file, such as 'wwwroot/MyJsInterop.js'.
-          return _jsRuntime.InvokeAsync<string>(
-              "myJsFunctions.doSomething",
-              data);
+          // The handleTickerChanged JavaScript method is implemented
+          // in a JavaScript file, such as 'wwwroot/tickerJsInterop.js'.
+          return _jsRuntime.InvokeAsync<object>(
+              "handleTickerChanged",
+              stockUpdate.symbol,
+              stockUpdate.price);
       }
   }
   ```
@@ -169,12 +170,6 @@ Yerleştirmeyin bir `<script>` çünkü bir bileşen dosyasında etiketi `<scrip
 
 JavaScript ile .NET yöntemleri birlikte çalışır *exampleJsInterop.js* çağırarak dosya `IJSRuntime.InvokeAsync<T>`.
 
-Örnek uygulamayı kullanan bir çift C# yöntemleri `Prompt` ve `Display`, çağrılacak `showPrompt` ve `displayWelcome` JavaScript işlevleri:
-
-*JsInteropClasses/ExampleJsInterop.cs*:
-
-[!code-csharp[](./common/samples/3.x/BlazorSample/JsInteropClasses/ExampleJsInterop.cs?name=snippet1&highlight=13-15,21-23)]
-
 `IJSRuntime` Soyutlamadır için sunucu tarafı senaryoları için zaman uyumsuz. İstemci tarafı uygulama çalışır ve eşzamanlı olarak, bir JavaScript işlevi çağırmak istiyorsanız alta `IJSInProcessRuntime` ve çağrı `Invoke<T>` yerine. Çoğu JavaScript birlikte çalışma kitaplıkları tüm senaryolarda, istemci tarafı ve sunucu tarafı kitaplıklar emin olmak için zaman uyumsuz API'leri kullanmanızı öneririz.
 
 Örnek uygulamayı JavaScript birlikte çalışma göstermek için bir bileşeni içerir. Bileşeni:
@@ -185,13 +180,11 @@ JavaScript ile .NET yöntemleri birlikte çalışır *exampleJsInterop.js* çağ
 
 *Pages/JSInterop.cshtml*:
 
-[!code-cshtml[](./common/samples/3.x/BlazorSample/Pages/JsInterop.cshtml?start=1&end=21)]
+[!code-cshtml[](./common/samples/3.x/BlazorSample/Pages/JsInterop.cshtml?name=snippet_JSInterop1&highlight=3,19-21,23-25)]
 
-1. Zaman `TriggerJsPrompt` bileşenin seçerek yürütülür **tetikleyici JavaScript istemi** düğmesini `ExampleJsInterop.Prompt` yönteminde C# kod çağrılır.
-1. `Prompt` Yöntemini yürütür JavaScript `showPrompt` sağlanan işlev *wwwroot/exampleJsInterop.js* dosya.
-1. `showPrompt` İşlevi olan HTML olarak kodlanan ve iade (kullanıcı adı), kullanıcı girişi kabul eden `Prompt` yöntemi ve sonuçta bileşenine yedekleyin. Bileşen kullanıcı adının bir yerel değişkende depolar `name`.
-1. Dize depolanan `name` ikinci bir geçirilen bir karşılama iletisi eklenmiştir C# yöntemi `ExampleJsInterop.Display`.
-1. `Display` bir JavaScript işlevini çağıran `displayWelcome`, bir başlık etiketine Hoş Geldiniz iletisi oluşturur.
+1. Zaman `TriggerJsPrompt` bileşenin seçerek yürütülür **tetikleyici JavaScript istemi** button, JavaScript `showPrompt` sağlanan işlev *wwwroot/exampleJsInterop.js* dosyasıdır çağrılır.
+1. `showPrompt` İşlevi olan HTML olarak kodlanan ve döndürülen bileşenine (kullanıcı adı), kullanıcı girişi kabul eder. Bileşen kullanıcı adının bir yerel değişkende depolar `name`.
+1. Dize depolanan `name` bir JavaScript işleve geçirilir, bir karşılama iletisi dahil `displayWelcome`, bir başlık etiketine Hoş Geldiniz iletisi oluşturur.
 
 ## <a name="capture-references-to-elements"></a>Öğelere başvurular yakalama
 
@@ -216,60 +209,33 @@ Aşağıdaki örnek, bir kullanıcı adı giriş öğeye başvuru yakalama göst
 
 Örneğin, aşağıdaki kod, bir öğede odak ayarlama sağlayan bir .NET genişletme yöntemi tanımlar:
 
-*mylib.js*:
+*exampleJsInterop.js*:
 
 ```javascript
-window.myLib = {
+window.exampleJsFunctions = {
   focusElement : function (element) {
     element.focus();
   }
 }
 ```
 
-*ElementRefExtensions.cs*:
+Kullanım `IJSRuntime.InvokeAsync<T>` ve çağrı `exampleJsFunctions.focusElement` ile bir `ElementRef` öğenin odaklanmak için:
+
+[!code-cshtml[](javascript-interop/samples_snapshot/component1.cshtml?highlight=1,3,7,11-12)]
+
+Bir öğe odaklanmak için bir genişletme yöntemi kullanmak için alan bir statik genişletme yöntemi oluşturma `IJSRuntime` örneği:
 
 ```csharp
-using Microsoft.AspNetCore.Components;
-using Microsoft.JSInterop;
-using System.Threading.Tasks;
-
-namespace MyLib
+public static Task Focus(this ElementRef elementRef, IJSRuntime jsRuntime)
 {
-    public static class MyLibElementRefExtensions
-    {
-        private readonly IJSRuntime _jsRuntime;
-
-        public MyJsInterop(IJSRuntime jsRuntime)
-        {
-            _jsRuntime = jsRuntime;
-        }
-
-        public static Task Focus(this ElementRef elementRef)
-        {
-            return _jsRuntime.InvokeAsync<object>(
-                "myLib.focusElement", elementRef);
-        }
-    }
+    return jsRuntime.InvokeAsync<object>(
+        "exampleJsFunctions.focusElement", elementRef);
 }
 ```
 
-Kullanım `MyLib` ve çağrı `Focus` üzerinde bir `ElementRef` odak girişlerinde herhangi bir bileşeni için:
+Yöntem doğrudan nesne üzerinde çağrılır. Aşağıdaki örnek olduğunu varsayar statik `Focus` yöntemi kullanılabilir `JsInteropClasses` ad alanı:
 
-```cshtml
-@using MyLib
-
-<input ref="username" />
-<button onclick="@SetFocus">Set focus</button>
-
-@functions {
-    ElementRef username;
-
-    void SetFocus()
-    {
-        username.Focus();
-    }
-}
-```
+[!code-cshtml[](javascript-interop/samples_snapshot/component2.cshtml?highlight=1,4,8,12)]
 
 > [!IMPORTANT]
 > `username` Değişkeni bileşeni işler ve çıktısını içeren sonra yalnızca doldurulmuş `<input>` öğesi. Bir doldurulmamış geçirmeye çalışırsanız `ElementRef` JavaScript kodu için JavaScript kodunu alır `null`. Bileşen kullanın (bir öğede ilk odağı ayarlamak için) işleme tamamlandıktan sonra öğesi başvuruları işlemek için `OnAfterRenderAsync` veya `OnAfterRender` [bileşen yaşam döngüsü yöntemleri](xref:razor-components/components#lifecycle-methods).
@@ -284,13 +250,13 @@ JavaScript .NET statik bir yöntemi çağırmak için `DotNet.invokeMethod` veya
 
 *Pages/JsInterop.cshtml*:
 
-[!code-cshtml[](./common/samples/3.x/BlazorSample/Pages/JsInterop.cshtml?start=48&end=59&highlight=7-11)]
+[!code-cshtml[](./common/samples/3.x/BlazorSample/Pages/JsInterop.cshtml?name=snippet_JSInterop2&highlight=7-11)]
 
 Çağıran istemciye sunulan JavaScript C# .NET yöntemi.
 
 *wwwroot/exampleJsInterop.js*:
 
-[!code-javascript[](./common/samples/3.x/BlazorSample/wwwroot/exampleJsInterop.js?highlight=8-12)]
+[!code-javascript[](./common/samples/3.x/BlazorSample/wwwroot/exampleJsInterop.js?highlight=8-14)]
 
 Zaman **tetikleyici .NET statik yöntem ReturnArrayAsync** düğmesi seçildiğinde, tarayıcının web geliştirici araçları konsol çıkışını dikkatle inceleyin.
 
@@ -313,17 +279,17 @@ Zaman **tetikleyici .NET örnek yöntemi HelloHelper.SayHello** düğmesi seçil
 
 *Pages/JsInterop.cshtml*:
 
-[!code-cshtml[](./common/samples/3.x/BlazorSample/Pages/JsInterop.cshtml?start=61&end=71&highlight=8-9)]
+[!code-cshtml[](./common/samples/3.x/BlazorSample/Pages/JsInterop.cshtml?name=snippet_JSInterop3&highlight=8-9)]
 
 `CallHelloHelperSayHello` JavaScript işlevini çağıran `sayHello` ile yeni bir örneğini `HelloHelper`.
 
 *JsInteropClasses/ExampleJsInterop.cs*:
 
-[!code-csharp[](./common/samples/3.x/BlazorSample/JsInteropClasses/ExampleJsInterop.cs?name=snippet1&highlight=26-32)]
+[!code-csharp[](./common/samples/3.x/BlazorSample/JsInteropClasses/ExampleJsInterop.cs?name=snippet1&highlight=10-16)]
 
 *wwwroot/exampleJsInterop.js*:
 
-[!code-javascript[](./common/samples/3.x/BlazorSample/wwwroot/exampleJsInterop.js?highlight=15-17)]
+[!code-javascript[](./common/samples/3.x/BlazorSample/wwwroot/exampleJsInterop.js?highlight=15-18)]
 
 Adı geçirilir `HelloHelper`ait ayarlar Oluşturucu `HelloHelper.Name` özelliği. Zaman JavaScript işlevinin `sayHello` yürütüldüğünde, `HelloHelper.SayHello` döndürür `Hello, {Name}!` ileti konsola JavaScript işlevi yazılır.
 

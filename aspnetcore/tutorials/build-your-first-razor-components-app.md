@@ -5,14 +5,14 @@ description: Adım adım bir Razor bileşenleri uygulaması derleme ve Razor bil
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/24/2019
+ms.date: 03/28/2019
 uid: tutorials/first-razor-components-app
-ms.openlocfilehash: 2a987b3f2e687cd9d4dffa2c573c938e68ea3cc8
-ms.sourcegitcommit: 7d6019f762fc5b8cbedcd69801e8310f51a17c18
+ms.openlocfilehash: 40bf5728193c854589e072730554b4f54086fb6a
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58419371"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068134"
 ---
 # <a name="build-your-first-razor-components-app"></a>Razor bileşenleri ilk uygulamanızı oluşturun
 
@@ -221,4 +221,4 @@ Yeni bir bileşen, bir basit bir Yapılacaklar listesi uygulayan uygulamaya ekle
 
 ## <a name="publish-and-deploy-the-app"></a>Yayımlama ve uygulama dağıtma
 
-Uygulamayı yayımlamak için bkz: <xref:host-and-deploy/razor-components/index#publish-the-app>.
+Uygulamayı yayımlamak için bkz: <xref:host-and-deploy/razor-components-blazor/index>.

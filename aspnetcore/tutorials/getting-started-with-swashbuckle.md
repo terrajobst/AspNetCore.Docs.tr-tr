@@ -4,14 +4,14 @@ author: zuckerthoben
 description: Swagger kullanıcı arabirimini tümleştirmek için ASP.NET Core web API projesi için Swashbuckle eklemeyi öğrenin.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 02/06/2019
+ms.date: 04/04/2019
 uid: tutorials/get-started-with-swashbuckle
-ms.openlocfilehash: 9239a46889691135dce5c99f8fc9b8c7b38ab457
-ms.sourcegitcommit: 3c2ba9a0d833d2a096d9d800ba67a1a7f9491af0
+ms.openlocfilehash: 31d45eaa684118ab78d1b3ecac594e95712f631f
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55854425"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068355"
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Swashbuckle'ı ve ASP.NET Core ile çalışmaya başlama
 
@@ -31,7 +31,7 @@ Swashbuckle'ı için üç ana bileşeni vardır:
 
 Swashbuckle'ı ile aşağıdaki yaklaşımlardan eklenebilir:
 
-### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+### [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
 
 * Gelen **Paket Yöneticisi Konsolu** penceresi:
   * Git **görünümü** > **diğer Windows** > **Paket Yöneticisi Konsolu**
@@ -48,14 +48,14 @@ Swashbuckle'ı ile aşağıdaki yaklaşımlardan eklenebilir:
   * Arama kutusuna "Swashbuckle.AspNetCore"
   * "Swashbuckle.AspNetCore" paketinden seçin **Gözat** sekmesine **yükleyin**
 
-### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
+### [<a name="visual-studio-for-mac"></a>Mac için Visual Studio](#tab/visual-studio-mac)
 
 * Sağ *paketleri* klasöründe **çözüm bölmesi** > **paketleri Ekle...**
 * Ayarlama **paketleri Ekle** pencerenin **kaynak** "nuget.org" açılır menüsünü
 * Arama kutusuna "Swashbuckle.AspNetCore"
 * Sonuçlar bölmesinde "Swashbuckle.AspNetCore" paketi seçin ve tıklayın **' paket Ekle**
 
-### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+### [<a name="visual-studio-code"></a>Visual Studio Code](#tab/visual-studio-code)
 
 Aşağıdaki komutu çalıştırın **tümleşik Terminalini**:
 
@@ -63,7 +63,7 @@ Aşağıdaki komutu çalıştırın **tümleşik Terminalini**:
 dotnet add TodoApi.csproj package Swashbuckle.AspNetCore
 ```
 
-### <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+### [<a name="net-core-cli"></a>.NET core CLI](#tab/netcore-cli)
 
 Şu komutu çalıştırın:
 
@@ -128,7 +128,7 @@ Swagger kullanıcı arabirimini sürüme ait bilgileri görüntüler:
 
 XML açıklamaları aşağıdaki yaklaşımlardan ile etkin hale getirilebilir:
 
-#### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+#### [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -146,7 +146,7 @@ XML açıklamaları aşağıdaki yaklaşımlardan ile etkin hale getirilebilir:
 
 ::: moniker-end
 
-#### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
+#### [<a name="visual-studio-for-mac"></a>Mac için Visual Studio](#tab/visual-studio-mac)
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -164,7 +164,7 @@ XML açıklamaları aşağıdaki yaklaşımlardan ile etkin hale getirilebilir:
 
 ::: moniker-end
 
-#### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+#### [<a name="visual-studio-code"></a>Visual Studio Code](#tab/visual-studio-code)
 
 El ile vurgulanan satırları ekleyin *.csproj* dosyası:
 
@@ -180,7 +180,7 @@ El ile vurgulanan satırları ekleyin *.csproj* dosyası:
 
 ::: moniker-end
 
-#### <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+#### [<a name="net-core-cli"></a>.NET core CLI](#tab/netcore-cli)
 
 El ile vurgulanan satırları ekleyin *.csproj* dosyası:
 
@@ -238,7 +238,7 @@ namespace TodoApi
 }
 ```
 
-Oluşturulan XML dosyasını kullanmak için Swagger'ı yapılandırın. Linux veya Windows olmayan işletim sistemleri için dosya adlarını ve yollarını büyük küçük harfe duyarlı olabilir. Örneğin, bir *TodoApi.XML* dosya, Windows ancak değil CentOS geçerlidir.
+Oluşturulan XML dosyası yukarıdaki yönergeleri ile kullanmak için Swagger'ı yapılandırın. Linux veya Windows olmayan işletim sistemleri için dosya adlarını ve yollarını büyük küçük harfe duyarlı olabilir. Örneğin, bir *TodoApi.XML* dosya, Windows ancak değil CentOS geçerlidir.
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -258,7 +258,7 @@ Oluşturulan XML dosyasını kullanmak için Swagger'ı yapılandırın. Linux v
 
 ::: moniker-end
 
-Önceki kodda, [yansıma](/dotnet/csharp/programming-guide/concepts/reflection) web API projesi, eşleşen bir XML dosya adı oluşturmak için kullanılır. [AppContext.BaseDirectory](xref:System.AppContext.BaseDirectory*) özelliği, bir XML dosyasının yolu oluşturmak için kullanılır.
+Önceki kodda, [yansıma](/dotnet/csharp/programming-guide/concepts/reflection) web API projesi, eşleşen bir XML dosya adı oluşturmak için kullanılır. [AppContext.BaseDirectory](xref:System.AppContext.BaseDirectory*) özelliği, bir XML dosyasının yolu oluşturmak için kullanılır. XML belge dosyası kullanmadan bazı Swagger özellikler (örneğin, şemaların giriş parametreleri veya HTTP yöntemleri ve ilgili özniteliklerden yanıt kodları) çalışır. Çoğu özelliği için yöntemi özetler ve açıklamalar parametrelerinin ve yanıt kodları, bir XML dosyasının zorunludur.
 
 Swagger kullanıcı arabirimini üç eğik çizgi açıklama eklemek için bir eylem için bölüm başlığı açıklama ekleyerek geliştirir. Ekleme bir [ \<Özet >](/dotnet/csharp/programming-guide/xmldoc/summary) öğesi yukarıdaki `Delete` eylem:
 

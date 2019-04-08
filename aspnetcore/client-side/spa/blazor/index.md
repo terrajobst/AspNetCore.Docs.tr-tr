@@ -5,14 +5,14 @@ description: ASP.NET Core Blazor, tarayıcı WebAssembly ile çalışan etkileş
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/27/2019
+ms.date: 03/28/2019
 uid: spa/blazor/index
-ms.openlocfilehash: c42363b0ce70a1a8edc19b1c428ee802a6eff3dd
-ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
+ms.openlocfilehash: 87e294a975e4168add046166a95e02e485db131d
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2019
-ms.locfileid: "58750484"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068254"
 ---
 # <a name="introduction-to-blazor"></a>Blazor giriş
 
@@ -54,7 +54,7 @@ Ne zaman Blazor uygulama oluşturulur ve bir tarayıcıda çalıştırın:
 * Şablon oluşturma
 * Basamaklı değerler
 
-İndirilen uygulama boyutunu azaltmak için kullanılmayan kod çıkartılır, uygulamadaki oturumunu tarafından yayımlandığında [Ara dil (IL) bağlayıcı](xref:host-and-deploy/razor-components/configure-linker).
+Tarafından yayımlandığında indirilen uygulama boyutunu azaltmak için kullanılmayan kod uygulama oturumunu yapılandırıldıktan [Ara dil (IL) bağlayıcı](xref:host-and-deploy/razor-components-blazor/configure-linker).
 
 Blazor Razor bileşenler için istemci tarafı barındırma modelidir. Kullanıcı Arabirimi güncelleştirmeleri nasıl uygulanacağını gelen bir bileşenin işleme mantığı Razor bileşenleri ayırın olduğundan esneklik nasıl Razor bileşenleri barındırılabilir içinde. Bir SignalR bağlantısı üzerinden kullanıcı Arabirimi güncelleştirmeleri nerede işlenir Razor bileşenleri konak sunucusunda bir ASP.NET Core uygulaması için ASP.NET Core Razor bileşenleri kullanın. Daha fazla bilgi için bkz. <xref:razor-components/index> ve <xref:razor-components/hosting-models#server-side-hosting-model>. 
 
@@ -92,7 +92,7 @@ Bileşenleri oluşturma DOM adlı tarayıcı bellek içi gösterimine bir *ağa�
 
 ## <a name="code-sharing-and-net-standard"></a>Kod paylaşımı ve .NET Standard
 
-Uygulamaları başvurmak ve mevcut olanı kullan [.NET Standard](/dotnet/standard/net-standard) kitaplıkları. .NET standart, .NET API'leri, .NET uygulamaları arasında ortak olan bir resmi belirtimi olan. .NET standard 2.0 veya üzeri desteklenir. Bir web tarayıcısı içinde (örneğin, dosya sistemine erişen bir yuva açma, iş parçacığı oluşturma ve diğer özellikleri) uygun olmayan API'leri throw <xref:System.PlatformNotSupportedException>. .NET standart sınıf kitaplıkları, tarayıcı tabanlı uygulamalar ve sunucu kodu arasında paylaşılabilir.
+Uygulamaları başvurmak ve mevcut olanı kullan [.NET Standard](/dotnet/standard/net-standard) kitaplıkları. .NET standart, .NET API'leri, .NET uygulamaları arasında ortak olan bir resmi belirtimi olan. .NET Standard 2.0 Blazor uygular. Bir web tarayıcısı içinde (örneğin, dosya sistemine erişen bir yuva açma, iş parçacığı oluşturma ve diğer özellikleri) uygun olmayan API'leri throw <xref:System.PlatformNotSupportedException>. .NET standart sınıf kitaplıkları Blazor, .NET Framework, .NET Core, Xamarin, Mono ve Unity gibi farklı .NET platformlar arasında paylaşılabilir.
 
 ## <a name="optimization"></a>İyileştirme
 

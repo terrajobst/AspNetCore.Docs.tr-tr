@@ -4,14 +4,14 @@ author: rick-anderson
 description: Bilgi nasıl CORS izin verme veya reddetme ASP.NET Core uygulaması çıkış noktaları arası istekleri için standart olarak.
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/27/2019
+ms.date: 04/07/2019
 uid: security/cors
-ms.openlocfilehash: 2cad26d0f61519f63888a2bc399bb7e8a0f1ee04
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: fe5b750c44e5fad9ba80efb2cc8116d0a64b1a17
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58210138"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068303"
 ---
 # <a name="enable-cross-origin-requests-cors-in-aspnet-core"></a>ASP.NET core'da çıkış noktaları arası istekleri (CORS) etkinleştirme
 
@@ -57,7 +57,7 @@ CORS Ara çıkış noktaları arası istekleri işler. Aşağıdaki kod, uygulam
 Yukarıdaki kod:
 
 * İlke adını ayarlar "\_myAllowSpecificOrigins". İlke adı isteğe bağlıdır.
-* Çağrıları <xref:Microsoft.AspNetCore.Builder.CorsMiddlewareExtensions.UseCors*> çekirdek sağlayan genişletme yöntemi.
+* Çağrıları <xref:Microsoft.AspNetCore.Builder.CorsMiddlewareExtensions.UseCors*> CORS sağlayan genişletme yöntemi.
 * Çağrıları <xref:Microsoft.Extensions.DependencyInjection.CorsServiceCollectionExtensions.AddCors*> ile bir [lambda ifadesi](/dotnet/csharp/programming-guide/statements-expressions-operators/lambda-expressions). Lambda alan bir <xref:Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder> nesne. [Yapılandırma seçenekleri](#cors-policy-options), gibi `WithOrigins`, bu makalenin sonraki bölümlerinde açıklanmıştır.
 
 <xref:Microsoft.Extensions.DependencyInjection.MvcCorsMvcCoreBuilderExtensions.AddCors*> Yöntem çağrısının CORS Hizmetleri uygulamanın hizmet kapsayıcıya ekler:
@@ -170,7 +170,7 @@ to
 to remove the ambiguous **This**.
 -->
 
-`AllowAnyOrigin` etkiler ön kontrol istekleri ve `Access-Control-Allow-Origin` başlığı. Daha fazla bilgi için [öncesi istekleri](#preflight-requests) bölümü.
+`AllowAnyOrigin` Etkiler ön kontrol istekleri ve `Access-Control-Allow-Origin` başlığı. Daha fazla bilgi için [öncesi istekleri](#preflight-requests) bölümü.
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -454,4 +454,4 @@ CORS test etmek için:
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Çıkış noktaları arası kaynak paylaşımı (CORS)](https://developer.mozilla.org/docs/Web/HTTP/CORS)
+* [Çıkış Noktaları Arası Kaynak Paylaşımı (CORS)](https://developer.mozilla.org/docs/Web/HTTP/CORS)

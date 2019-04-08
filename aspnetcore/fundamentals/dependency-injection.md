@@ -5,14 +5,14 @@ description: ASP.NET Core bağımlılık ekleme nasıl uyguladığını ve nası
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/28/2019
+ms.date: 04/07/2019
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 8312f3375296a8530ac2db3db46d062b7b9e76b9
-ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
+ms.openlocfilehash: da6ddf1f0efd164a58f017ff55ce216bbefa7cc6
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2019
-ms.locfileid: "58750596"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068329"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>ASP.NET core'da bağımlılık ekleme
 
@@ -416,13 +416,46 @@ Aşağıdaki örnek yerleşik kapsayıcıyla değiştirir [Autofac](https://auto
 
 ## <a name="recommendations"></a>Öneriler
 
-* `async/await` ve `Task` tabanlı hizmet çözümlemesi desteklenmiyor. C#, zaman uyumsuz oluşturucuları desteklemez, dolayısıyla önerilen Düzen zaman uyumsuz yöntemleri zaman uyumlu olarak hizmet çözdükten sonra kullanmaktır.
+* `async/await` ve `Task` tabanlı hizmet çözümlemesi desteklenmiyor. C#zaman uyumsuz oluşturucuları desteklemez; Bu nedenle, önerilen Düzen zaman uyumsuz yöntemleri zaman uyumlu olarak hizmet çözdükten sonra kullanmaktır.
 
 * Verileri ve Yapılandırma hizmeti kapsayıcısında doğrudan depolama kaçının. Örneğin, bir kullanıcının alışveriş sepeti genellikle hizmet kapsayıcıya eklenen olmamalıdır. Yapılandırma kullanması gereken [seçenekleri deseni](xref:fundamentals/configuration/options). Benzer şekilde, yalnızca başka bir nesnenin erişmesine izin vermek için mevcut "veri sahibi" nesneleri kaçının. İstek DI aracılığıyla gerçek öğesi daha iyidir.
 
 * Statik hizmetlere erişimi önlemek (örneğin, statik olarak yazmaya [IApplicationBuilder.ApplicationServices](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder.applicationservices) kullanan başka bir yerde için).
 
-* Kullanmaktan kaçının *hizmet bulucu deseni*. Örneğin, çağırma yoksa <xref:System.IServiceProvider.GetService*> DI yerine kullandığınızda, bir hizmet örneği elde edilir. Çalışma zamanında bağımlılıklarını çözen bir Fabrika önlemek için başka bir hizmet bulucu değişim çalıştırıyorsunuzdur. Bu yöntemler karışımı [tersine çevirme denetim](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) stratejiler.
+* Kullanmaktan kaçının *hizmet bulucu deseni*. Örneğin, çağırma yoksa <xref:System.IServiceProvider.GetService*> DI yerine kullandığınızda bir hizmet örneği elde etmek için:
+
+  **Yanlış:**
+
+  ```csharp
+  public void MyMethod()
+  {
+      var options = 
+          _services.GetService<IOptionsMonitor<MyOptions>>();
+      var option = options.CurrentValue.Option;
+
+      ...
+  }
+  ```
+
+  **Doğru**:
+
+  ```csharp
+  private readonly MyOptions _options;
+
+  public MyClass(IOptionsMonitor<MyOptions> options)
+  {
+      _options = options.CurrentValue;
+  }
+
+  public void MyMethod()
+  {
+      var option = _options.Option;
+
+      ...
+  }
+  ```
+
+* Çalışma zamanında bağımlılıklarını çözen bir Fabrika önlemek için başka bir hizmet bulucu değişim çalıştırıyorsunuzdur. Bu yöntemler karışımı [tersine çevirme denetim](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#dependency-inversion) stratejiler.
 
 * Statik erişimi önlemek `HttpContext` (örneğin, [IHttpContextAccessor.HttpContext](/dotnet/api/microsoft.aspnetcore.http.ihttpcontextaccessor.httpcontext)).
 

@@ -4,14 +4,14 @@ author: rick-anderson
 description: ASP.NET arasında kimlik doğrulaması tanımlama bilgilerini paylaşma hakkında bilgi edinin 4.x ve ASP.NET Core uygulamaları.
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/19/2017
+ms.date: 04/06/2019
 uid: security/cookie-sharing
-ms.openlocfilehash: 504d3369c908aabddeaa2fc3d1ef16a42b5cb771
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 7a049ed8787808e228859afc051b8697a6261c21
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58208521"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068316"
 ---
 # <a name="share-cookies-among-apps-with-aspnet-and-aspnet-core"></a>ASP.NET ve ASP.NET Core ile uygulamalar arasında tanımlama bilgilerini paylaşma
 
@@ -157,7 +157,7 @@ ASP.NET 4.x Katana tanımlama bilgisi kimlik doğrulaması ara yazılımı kulla
 
 Bir uygulamayı Katana tanımlama bilgisi kimlik doğrulaması ara yazılımı kullanırken çağırdığı `UseCookieAuthentication` projenin *Startup.Auth.cs* dosya. ASP.NET 4.x web uygulaması projeleri, Visual Studio 2013 ile oluşturulan ve daha sonra Katana tanımlama bilgisi kimlik doğrulaması ara yazılımı varsayılan olarak kullanın. Ancak `UseCookieAuthentication` artık kullanılmıyor ve ASP.NET Core uygulamaları, arama için desteklenmeyen `UseCookieAuthentication` Katana kullanan ASP.NET 4.x uygulaması tanımlama bilgisi kimlik doğrulaması ara yazılımı geçerlidir.
 
-ASP.NET 4.x uygulama .NET Framework 4.5.1'i hedefleyen gerekir ya da daha yüksek. Aksi takdirde yüklemek gerekli NuGet paketlerini başarısız.
+ASP.NET 4.x uygulama .NET Framework 4.5.1'i hedefleyen gerekir veya üzeri. Aksi takdirde yüklemek gerekli NuGet paketlerini başarısız.
 
 ASP.NET Core uygulaması ile bir ASP.NET 4.x uygulama arasındaki kimlik doğrulaması tanımlama bilgileri paylaşmak için yukarıda belirtildiği gibi ASP.NET Core uygulaması yapılandırın ve aşağıdaki adımları izleyerek ASP.NET 4.x uygulamayı yapılandırır:
 

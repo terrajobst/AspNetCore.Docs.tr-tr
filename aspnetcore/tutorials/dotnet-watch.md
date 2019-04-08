@@ -5,12 +5,12 @@ description: Bu öğreticide, aracı yükleme ve .NET Core CLI'ın dosya İzleyi
 ms.author: riande
 ms.date: 05/31/2018
 uid: tutorials/dotnet-watch
-ms.openlocfilehash: f1e0d91b27df4af7cbfb6f2547c94c0370c65d0d
-ms.sourcegitcommit: cec77d5ad8a0cedb1ecbec32834111492afd0cd2
+ms.openlocfilehash: 40ecca1c6f9d519b24649d0c28946d95b820c07c
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54207508"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068202"
 ---
 # <a name="develop-aspnet-core-apps-using-a-file-watcher"></a>Bir dosya İzleyicisi'ni kullanarak ASP.NET Core uygulamaları geliştirin
 
@@ -27,6 +27,9 @@ Komut kabuğu'na gidin *WebApp* klasör. Şu komutu çalıştırın:
 ```console
 dotnet run
 ```
+
+> [!NOTE]
+> Kullanabileceğiniz `dotnet run --project <PROJECT>` çalıştırmak için bir projeyi belirtmek için. Örneğin, çalışan `dotnet run --project WebApp` örnek kökünden uygulama da çalıştırılır *WebApp* proje.
 
 Konsol çıktısı aşağıdakine benzer iletiler gösterir (uygulama çalıştıran ve istekleri bekleyen gösterir):
 
@@ -77,6 +80,9 @@ Tüm [.NET Core CLI komutunu](/dotnet/core/tools#cli-commands) ile çalıştır�
 
 Çalıştırma `dotnet watch run` içinde *WebApp* klasör. Konsol çıkışını gösterir `watch` başlatıldı.
 
+> [!NOTE]
+> Kullanabileceğiniz `dotnet watch --project <PROJECT>` izlemek için bir projeyi belirtmek için. Örneğin, çalışan `dotnet watch --project WebApp run` örnek kökünden uygulama de izleyin ve çalıştırılır *WebApp* proje.
+
 ## <a name="make-changes-with-dotnet-watch"></a>İle değişiklik `dotnet watch`
 
 Emin `dotnet watch` çalışıyor.
@@ -86,7 +92,7 @@ Hatayı düzeltmek `Product` yöntemi *MathController.cs* ürün ve toplamı dö
 ```csharp
 public static int Product(int a, int b)
 {
-  return a * b;
+    return a * b;
 }
 ```
 

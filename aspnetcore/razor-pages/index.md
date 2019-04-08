@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/12/2018
 uid: razor-pages/index
-ms.openlocfilehash: afdaa11c55b66366badf8facde62e3f215b6deb2
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: 50db8cd9b0523239acb1d439b472ea5d3cb6cb7c
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264813"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068384"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>ASP.NET Core Razor sayfalar giriş
 
@@ -31,11 +31,11 @@ Bu belge, Razor sayfaları için bir giriş sağlar. Bir adım adım öğretici 
 
 ## <a name="create-a-razor-pages-project"></a>Razor sayfaları proje oluşturma
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
 
 Bkz: [Razor sayfaları kullanmaya başlama](xref:tutorials/razor-pages/razor-pages-start) Razor sayfaları proje oluşturma konusunda ayrıntılı yönergeler için.
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
+# [<a name="visual-studio-for-mac"></a>Mac için Visual Studio](#tab/visual-studio-mac)
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -51,7 +51,7 @@ Bkz: [Razor sayfaları kullanmaya başlama](xref:tutorials/razor-pages/razor-pag
 
 Oluşturulan açın *.csproj* Mac için Visual Studio'dan dosyası
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# [<a name="visual-studio-code"></a>Visual Studio Code](#tab/visual-studio-code)
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -77,7 +77,7 @@ Temel sayfa göz önünde bulundurun: <a name="OnGet"></a>
 
 [!code-cshtml[](index/sample/RazorPagesIntro/Pages/Index.cshtml)]
 
-Yukarıdaki kod, çok Razor görünüm dosyası gibi görünüyor. Neler farklı kılan unsurdur `@page` yönergesi. `@page` Dosya, istekleri doğrudan bir denetleyici geçmeden işleme anlamına gelir ve MVC eyleme - yapar. `@page` ilk Razor yönergesi bir sayfa üzerinde olmalıdır. `@page` diğer Razor yapıları davranışını etkiler.
+Yukarıdaki kod çok benzer bir [Razor görünüm dosyası](xref:tutorials/first-mvc-app/adding-view) denetleyicileri ve görünümleri ile ASP.NET Core uygulaması kullanılır. Neler farklı kılan unsurdur `@page` yönergesi. `@page` Dosya, istekleri doğrudan bir denetleyici geçmeden işleme anlamına gelir ve MVC eyleme - yapar. `@page` ilk Razor yönergesi bir sayfa üzerinde olmalıdır. `@page` diğer Razor yapıları davranışını etkiler.
 
 Benzer bir sayfa, kullanarak bir `PageModel` sınıfında, aşağıdaki iki dosyada gösterilir. *Pages/Index2.cshtml* dosyası:
 
@@ -151,7 +151,7 @@ Doğrulama hataları denetleyin.
 
 Verileri başarıyla girildiğinde `OnPostAsync` işleyicisi yöntem çağrılarını `RedirectToPage` örneği döndürmek için yardımcı yöntem `RedirectToPageResult`. `RedirectToPage` Yeni eylem sonucu, benzer olan `RedirectToAction` veya `RedirectToRoute`, ancak özelleştirilmiş sayfalar için. İsteğe bağlı olarak önceki örnekte, kök dizin sayfasına yönlendirir (`/Index`). `RedirectToPage` içinde ayrıntılı [sayfaları için URL üretimi](#url_gen) bölümü.
 
-Gönderilen bir formu, (yani sunucuya geçirilir) doğrulama hataları olduğunda`OnPostAsync` işleyicisi yöntem çağrılarını `Page` yardımcı yöntemi. `Page` örneği döndürür `PageResult`. Döndüren `Page` denetleyicileri eylemleri nasıl döndürmek için benzer `View`. `PageResult` Varsayılan değer <!-- Review  --> dönüş türü için bir işleyici yöntemi. Döndürür bir işleyici yönteminin `void` sayfasını işler.
+Gönderilen bir formu, (yani sunucuya geçirilir) doğrulama hataları olduğunda`OnPostAsync` işleyicisi yöntem çağrılarını `Page` yardımcı yöntemi. `Page` Örneği döndürür `PageResult`. Döndüren `Page` denetleyicileri eylemleri nasıl döndürmek için benzer `View`. `PageResult` Varsayılan değer <!-- Review  --> dönüş türü için bir işleyici yöntemi. Döndürür bir işleyici yönteminin `void` sayfasını işler.
 
 `Customer` Özelliği kullanan `[BindProperty]` model bağlama için katılım için özniteliği.
 

@@ -5,20 +5,20 @@ description: Razor bileşenler oluşturma ve Razor bileşenleri projesini deği�
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/13/2019
+ms.date: 04/07/2019
 uid: razor-components/get-started
-ms.openlocfilehash: 026bc5b3222a8ffa35a064bef8bbf64834b67a90
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 151e58497b0f22fa7c5a9bde1f665eeb73fd5dc3
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209698"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068150"
 ---
 # <a name="get-started-with-razor-components"></a>Razor bileşenleri ile çalışmaya başlama
 
 Tarafından [Daniel Roth](https://github.com/danroth27) ve [Luke Latham](https://github.com/guardrex)
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
 
 Önkoşullar:
 
@@ -26,9 +26,16 @@ Tarafından [Daniel Roth](https://github.com/danroth27) ve [Luke Latham](https:/
 
 Visual Studio'da ilk Razor bileşenleri projenizi oluşturmak için:
 
-1. Seçin **dosya** > **yeni proje** > **Web** > **ASP.NET Core Web uygulaması**.
+1. Son yükleme [.NET Core 3.0 Önizleme SDK'sı](https://dotnet.microsoft.com/download/dotnet-core/3.0) bırakın.
+1. Visual Studio Önizleme SDK'ları kullanmak etkinleştir:
+   1. Açık **Araçları** > **seçenekleri** menü çubuğundaki.
+   1. Açık **projeler ve çözümler** düğümü. Açık **.NET Core** sekmesi.
+   1. İçin kutuyu **önizlemeleri .NET Core SDK'sını kullanma**. **Tamam**’ı seçin.
+1. Yeni bir proje oluşturun.
+1. Seçin **ASP.NET Core Web uygulaması**. **İleri**’yi seçin.
+1. Bir ad sağlayın **proje adı** alan. Onayla **konumu** giriş doğru olduğundan veya proje için bir konum sağlayın. **Oluştur**’u seçin.
 1. Emin **.NET Core** ve **ASP.NET Core 3.0** üstünde seçilir.
-1. Seçin **Razor bileşenleri** şablonu seçip alt **Tamam**.
+1. Seçin **Razor bileşenleri** şablonu seçip alt **Oluştur**.
 1. Tuşuna **F5** uygulamayı çalıştırmak için.
 
 Tebrikler! Yalnızca ilk Razor bileşenleri uygulamanızı çalıştırdığınız!
@@ -87,7 +94,7 @@ To create your first project Razor Components project in Visual Studio for Mac:
 Congratulations! You just ran your first Razor Components app!
 -->
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli/)
+# [<a name="net-core-cli"></a>.NET core CLI](#tab/netcore-cli/)
 
 Önkoşullar:
 

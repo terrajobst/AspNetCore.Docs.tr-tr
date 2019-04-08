@@ -5,13 +5,14 @@ description: Razor sayfaları ile ASP.NET Core MVC, model doğrulama hakkında b
 ms.author: riande
 ms.custom: mvc
 ms.date: 04/01/2019
+monikerRange: '>= aspnetcore-2.1'
 uid: mvc/models/validation
-ms.openlocfilehash: 621c379521bb711728b00c412bf63f90ff6d9ef4
-ms.sourcegitcommit: 1a7000630e55da90da19b284e1b2f2f13a393d74
+ms.openlocfilehash: 8d3d19791861b09d87eb3c85e8da0a8db061d4e9
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59012818"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068371"
 ---
 # <a name="model-validation-in-aspnet-core-mvc-and-razor-pages"></a>Razor sayfaları ile ASP.NET Core MVC, model doğrulama
 
@@ -23,23 +24,11 @@ Bu makalede, bir ASP.NET Core MVC veya Razor sayfaları uygulamada kullanıcı g
 
 Model durumu gösteren iki alt sistemlerin gelen hataları: model bağlama ve model doğrulama. Kaynaklanan hatalar [model bağlama](model-binding.md) genellikle veri dönüştürme hataları (örneğin, "x" girilen bir tamsayı bekliyor. bir alanda) olan. Model doğrulama gerçekleşir model bağlama ve raporları hataları sonra verileri nerede iş kuralları için uygun değil (örneğin, 0, 1 ile 5 arasında bir derecelendirme bekliyor alanındaki girilir).
 
-::: moniker range=">= aspnetcore-2.1"
-
-Model bağlama hem doğrulamayı bir denetleyici eylemi ya da bir Razor sayfaları işleyicisi yöntem yürütmeden önce oluşur. Bunu denetlemek için uygulamanın sorumluluğudur `ModelState.IsValid` ve uygun şekilde tepki verin. Web uygulamaları, genellikle sayfanın bir hata iletisi ile yeniden:
-
-[!code-csharp[](validation/sample_snapshot/Create.cshtml.cs?name=snippet&highlight=3-6)]
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.1"
-
 Model bağlama hem doğrulamayı bir denetleyici eylemi ya da bir Razor sayfaları işleyicisi yöntem yürütmeden önce oluşur. Web apps için bunu denetlemek için uygulamanın sorumluluğudur `ModelState.IsValid` ve uygun şekilde tepki verin. Web uygulamaları, genellikle sayfanın bir hata iletisi ile yeniden:
 
 [!code-csharp[](validation/sample_snapshot/Create.cshtml.cs?name=snippet&highlight=3-6)]
 
 Web API denetleyicisi, denetlenecek yok `ModelState.IsValid` oluşturulduysa `[ApiController]` özniteliği. Bu durumda, bir otomatik HTTP 400 yanıt içeren sorun ayrıntıları döndürülür model durumu geçersiz. Daha fazla bilgi için [otomatik HTTP 400 yanıtları](xref:web-api/index#automatic-http-400-responses).
-
-::: moniker-end
 
 ## <a name="rerun-validation"></a>Doğrulama yeniden çalıştırın
 
@@ -180,8 +169,6 @@ Yukarıdaki örnekte, yalnızca çalışır `Movie` türleri. Sınıf düzeyinde
 
 [!code-csharp[](validation/sample/Models/MovieIValidatable.cs?name=snippet&highlight=1,26-34)]
 
-::: moniker range=">= aspnetcore-2.1"
-
 ## <a name="top-level-node-validation"></a>Üst düzey düğüm doğrulama
 
 Üst düzey düğümleri içerir:
@@ -209,15 +196,11 @@ Yaş kontrol edin sayfasında ikinci formu gönderdiği `Age` doğrulama başar�
 
 [!code-csharp[](validation/sample_snapshot/Startup.cs?name=snippet_AddMvc&highlight=4)]
 
-::: moniker-end
-
 ## <a name="maximum-errors"></a>En yüksek hata sayısı
 
 Doğrulama hataları sayısı (varsayılan olarak, 200) ulaşıldığında durur. Bu sayı aşağıdaki kod ile yapılandırabileceğiniz `Startup.ConfigureServices`:
 
 [!code-csharp[](validation/sample/Startup.cs?name=snippet_MaxModelValidationErrors&highlight=3)]
-
-::: moniker range=">= aspnetcore-2.1"
 
 ## <a name="maximum-recursion"></a>Özyineleme sayısı üst sınırı
 
@@ -226,8 +209,6 @@ Doğrulama hataları sayısı (varsayılan olarak, 200) ulaşıldığında durur
 ## <a name="automatic-short-circuit"></a>Otomatik kısa devre oluşturur
 
 Model graf doğrulama gerektirmiyorsa doğrulama otomatik olarak (atlandı) kısa devre yapılma. Çalışma zamanı için doğrulamayı atlar nesneler temel elemanlar koleksiyonları içerir (gibi `byte[]`, `string[]`, `Dictionary<string, string>`) ve tüm doğrulayıcıları yoksa karmaşık nesne grafikler.
-
-::: moniker-end
 
 ## <a name="disable-validation"></a>Doğrulama devre dışı bırak
 
