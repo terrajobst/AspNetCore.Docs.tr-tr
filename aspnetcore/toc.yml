@@ -561,10 +561,14 @@ items:
       name: Genel Bakış
     - uid: razor-components/get-started
       name: Kullanmaya başlayın
+    - uid: razor-components/hosting-models
+      name: Barındırma modelleri
     - uid: tutorials/first-razor-components-app
       name: İlk uygulamanızı oluşturma
     - uid: razor-components/components
       name: Bileşenler
+    - uid: razor-components/forms-validation
+      name: Formlar ve doğrulama
     - uid: razor-components/class-libraries
       name: Bileşen kitaplıkları
     - uid: razor-components/layouts
@@ -577,14 +581,12 @@ items:
       name: JavaScript ile birlikte çalışma
     - uid: razor-components/debug
       name: Hata ayıklama
-    - uid: razor-components/hosting-models
-      name: Barındırma modelleri
     - name: Barındırma ve dağıtma
       items:
-      - uid: host-and-deploy/razor-components/index
+      - uid: host-and-deploy/razor-components-blazor/index
         name: Genel Bakış
-      - uid: host-and-deploy/razor-components/configure-linker
-        name: Bağlayıcıyı yapılandırma
+      - uid: host-and-deploy/razor-components-blazor/razor-components
+        name: Razor Bileşenleri
   - name: Tek Sayfalı Uygulamalar
     items:
     - name: Blazor
@@ -593,10 +595,14 @@ items:
         name: Genel Bakış
       - uid: spa/blazor/get-started
         name: Kullanmaya başlayın
+      - uid: razor-components/hosting-models
+        name: Barındırma modelleri
       - uid: tutorials/first-razor-components-app
         name: İlk uygulamanızı oluşturma
       - uid: razor-components/components
         name: Bileşenler
+      - uid: razor-components/forms-validation
+        name: Formlar ve doğrulama
       - uid: razor-components/class-libraries
         name: Bileşen kitaplıkları
       - uid: razor-components/layouts
@@ -609,13 +615,13 @@ items:
         name: JavaScript ile birlikte çalışma
       - uid: razor-components/debug
         name: Hata ayıklama
-      - uid: razor-components/hosting-models
-        name: Barındırma modelleri
       - name: Barındırma ve dağıtma
         items:
-        - uid: host-and-deploy/razor-components/index
+        - uid: host-and-deploy/razor-components-blazor/index
           name: Genel Bakış
-        - uid: host-and-deploy/razor-components/configure-linker
+        - uid: host-and-deploy/razor-components-blazor/blazor
+          name: Blazor
+        - uid: host-and-deploy/razor-components-blazor/configure-linker
           name: Bağlayıcıyı yapılandırma
     - uid: spa/angular
       name: Angular
@@ -774,11 +780,15 @@ items:
   - uid: host-and-deploy/health-checks
     name: Sistem durumu denetimleri
     displayName: deploy, publish
-  - name: Razor Bileşenleri
+  - name: Razor Bileşenleri/Blazor
     items:
-    - uid: host-and-deploy/razor-components/index
+    - uid: host-and-deploy/razor-components-blazor/index
       name: Genel Bakış
-    - uid: host-and-deploy/razor-components/configure-linker
+    - uid: host-and-deploy/razor-components-blazor/blazor
+      name: Blazor
+    - uid: host-and-deploy/razor-components-blazor/razor-components
+      name: Razor Bileşenleri
+    - uid: host-and-deploy/razor-components-blazor/configure-linker
       name: Bağlayıcıyı yapılandırma
 - name: Güvenlik ve Kimlik
   displayName: authentication, authorization
@@ -1083,9 +1093,9 @@ items:
   href: /dotnet/api/?view=aspnetcore-2.2
 - name: Katkıda Bulun
   href: https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md
-ms.openlocfilehash: d9ab9beacab19a0e004878d2645b1106bf5dc0d6
-ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
+ms.openlocfilehash: 0065707eeaf77327e553b3c43b65e11063edd7e0
+ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2019
-ms.locfileid: "58751103"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59068397"
