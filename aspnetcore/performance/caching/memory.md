@@ -4,14 +4,14 @@ author: rick-anderson
 description: ASP.NET Core bellekte önbelleğe öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/11/2019
+ms.date: 04/11/2019
 uid: performance/caching/memory
-ms.openlocfilehash: c115e43b9dd4f838ab9600c2e105d86732d857ad
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 6433df36023b79bc679186bee8b0a92371661dbe
+ms.sourcegitcommit: 258a97159da206f9009f23fdf6f8fa32f178e50b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58208282"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425055"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>Belleğe yüklenmiş önbellek ASP.NET core'da
 
@@ -21,9 +21,9 @@ Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [John Luo](https:/
 
 ## <a name="caching-basics"></a>Temel bilgileri önbelleğe alma
 
-Önbelleğe alma işlemi önemli ölçüde performans ve ölçeklenebilirlik, bir uygulamanın içeriği oluşturmak için gereken iş azaltarak artırabilir. Seyrek değişen verilerle iyi önbelleğe alma çalışır. Önbelleğe alma, çok döndürülen verilerin bir kopyasını yapar özgün kaynaktan daha hızlı. Yazın ve hiçbir zaman önbelleğe alınmış veri bağımlı uygulamanızı test etmek.
+Önbelleğe alma işlemi önemli ölçüde performans ve ölçeklenebilirlik, bir uygulamanın içeriği oluşturmak için gereken iş azaltarak artırabilir. Seyrek değişen verilerle iyi önbelleğe alma çalışır. Önbelleğe alma, çok döndürülen verilerin bir kopyasını yapar özgün kaynaktan daha hızlı. Uygulamaları yazılan verilecek ve için test **hiçbir zaman** önbelleğe alınmış veri bağlıdır.
 
-ASP.NET Core, birkaç farklı önbellek destekler. En basit önbellek dayanır [IMemoryCache](/dotnet/api/microsoft.extensions.caching.memory.imemorycache), web sunucusu bellekte bir önbellek temsil eder. Bir sunucu grubu birden çok sunucu üzerinde çalışan uygulamalar oturumları bellek içi önbelleği kullanırken Yapışkan emin olmalısınız. Yapışkan oturumlar tüm istemciden gelen sonraki istekleri aynı sunucuya gittiğinden emin olun. Örneğin, Azure Web apps kullanımını [uygulama isteği yönlendirme](https://www.iis.net/learn/extensions/planning-for-arr) sonraki isteklere aynı sunucuya yönlendirmek için (ARR).
+ASP.NET Core, birkaç farklı önbellek destekler. En basit önbellek dayanır [IMemoryCache](/dotnet/api/microsoft.extensions.caching.memory.imemorycache), web sunucusu bellekte bir önbellek temsil eder. Bir sunucu grubunda birden çok sunucu üzerinde çalışan uygulamalar oturumları bellek içi önbelleği kullanırken Yapışkan emin olmalısınız. Yapışkan oturumlar tüm istemciden gelen sonraki istekleri aynı sunucuya gittiğinden emin olun. Örneğin, Azure Web apps kullanımını [uygulama isteği yönlendirme](https://www.iis.net/learn/extensions/planning-for-arr) sonraki isteklere aynı sunucuya yönlendirmek için (ARR).
 
 Bir web grubunda olmayan Yapışkan oturumlar gerektiren bir [dağıtılmış önbellek](distributed.md) önbellek tutarlılığı sorunları önlemek için. Bazı uygulamalar için bir bellek içi önbelleğe göre daha yüksek ölçeği genişletilmiş dağıtılmış önbellek destekleyebilir. Bir paylaşılan önbellek kullanarak, bir dış işlem önbelleği üzerinizden alır.
 
@@ -43,7 +43,7 @@ Bellek içi önbellek, herhangi bir nesne kaydedebilir; Dağıtılmış önbelle
 * Tüm [.NET uygulaması](/dotnet/standard/net-standard#net-implementation-support) hedefleyen .NET Standard 2.0 veya üzeri. Örneğin, ASP.NET Core 2.0 veya üzeri.
 * .NET framework 4.5 veya üzeri.
 
-[Microsoft.Extensions.Caching.Memory](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Memory/) / `IMemoryCache` (Bu konuda açıklanan) üzerinden önerilen `System.Runtime.Caching` / `MemoryCache` daha iyi ASP.NET Core ile tümleşik olduğundan. Örneğin, `IMemoryCache` çalıştığı yerel olarak ASP.NET Core ile [bağımlılık ekleme](xref:fundamentals/dependency-injection).
+[Microsoft.Extensions.Caching.Memory](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Memory/) / `IMemoryCache` (Bu makalede açıklanan) üzerinden önerilen `System.Runtime.Caching` / `MemoryCache` daha iyi ASP.NET Core ile tümleşik olduğundan. Örneğin, `IMemoryCache` çalıştığı yerel olarak ASP.NET Core ile [bağımlılık ekleme](xref:fundamentals/dependency-injection).
 
 Kullanım `System.Runtime.Caching` / `MemoryCache` ASP.NET koddan taşırken uyumluluk köprü olarak 4.x ASP.NET Core için.
 
@@ -53,7 +53,7 @@ Kullanım `System.Runtime.Caching` / `MemoryCache` ASP.NET koddan taşırken uyu
 * Önbellek bellek nadir kaynak kullanır. Önbellek büyüme sınırla:
   * Yapmak **değil** dış girdi önbellek anahtarları kullanın.
   * Süre sonu önbellek büyümesini sınırlamak için kullanın.
-  * [SetSize, boyutu ve SizeLimit önbellek boyutunu sınırlamak için kullanın](#use-setsize-size-and-sizelimit-to-limit-cache-size)
+  * [Önbellek boyutunu sınırlamak için SetSize, boyutu ve SizeLimit kullanın](#use-setsize-size-and-sizelimit-to-limit-cache-size). ASP.NET Core çalışma zamanı bellek Basıncı önbellek boyutunu sınırlamaz. Bu önbellek boyutunu sınırlamak için geliştirici aittir.
 
 ## <a name="using-imemorycache"></a>IMemoryCache kullanma
 
@@ -93,7 +93,7 @@ Geçerli saat ve önbelleğe alınan zaman görüntülenir:
 
 [!code-cshtml[](memory/sample/WebCache/Views/Home/Cache.cshtml)]
 
-Önbelleğe alınan `DateTime` değeri, zaman aşımı süresi (ve bellek baskısı nedeniyle hiçbir çıkarma) içinde istekler varken önbellekte kalır. Aşağıdaki görüntüde, geçerli saat ve önbellekten daha eski bir zaman gösterilmektedir:
+Önbelleğe alınan `DateTime` değeri, zaman aşımı süresi içinde istekler varken önbellekte kalır. Aşağıdaki görüntüde, geçerli saat ve önbellekten daha eski bir zaman gösterilmektedir:
 
 ![Dizin görünümünün görüntülenen iki farklı saatler](memory/_static/time.png)
 
@@ -122,7 +122,7 @@ Aşağıdaki örnek:
 
 ## <a name="use-setsize-size-and-sizelimit-to-limit-cache-size"></a>SetSize, boyutu ve SizeLimit önbellek boyutunu sınırlamak için kullanın
 
-A `MemoryCache` örnek isteğe bağlı olarak belirtin ve boyut sınırını uygular. Önbellek giriş boyutu ölçmek için bir mekanizma bulunmadığından olduğundan bellek boyutu sınırı tanımlı ölçü yok. Önbellek boyutu sınırı ayarlarsanız, tüm girişleri boyutu belirtmeniz gerekir. Belirtilen birim Geliştirici seçer boyutudur.
+A `MemoryCache` örnek isteğe bağlı olarak belirtin ve boyut sınırını uygular. Önbellek giriş boyutu ölçmek için bir mekanizma bulunmadığından olduğundan bellek boyutu sınırı tanımlı ölçü yok. Önbellek boyutu sınırı ayarlarsanız, tüm girişleri boyutu belirtmeniz gerekir. ASP.NET Core çalışma zamanı bellek Basıncı önbellek boyutunu sınırlamaz. Bu önbellek boyutunu sınırlamak için geliştirici aittir. Belirtilen birim Geliştirici seçer boyutudur.
 
 Örneğin:
 

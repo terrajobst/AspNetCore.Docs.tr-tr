@@ -5,14 +5,14 @@ description: Uygulama Ihostingstartup kullanarak dış bütünleştirilmiş kodd
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 03/23/2019
+ms.date: 04/06/2019
 uid: fundamentals/configuration/platform-specific-configuration
-ms.openlocfilehash: c174d658c84ada88eef17528c663735a91347ba7
-ms.sourcegitcommit: 7d6019f762fc5b8cbedcd69801e8310f51a17c18
+ms.openlocfilehash: c2a2e1fbd288ff292c6759d03fae51876cdb5704
+ms.sourcegitcommit: 258a97159da206f9009f23fdf6f8fa32f178e50b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58419452"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425081"
 ---
 # <a name="use-hosting-startup-assemblies-in-aspnet-core"></a>ASP.NET Core barındırma başlangıç derlemeleri kullanma
 
@@ -315,7 +315,7 @@ NuGet paketlerini ve çalışma zamanı mağazası hakkında daha fazla bilgi i�
 
 * [Platformlar arası araçlarla NuGet paketi oluşturma](/dotnet/core/deploying/creating-nuget-packages)
 * [Paket yayımlama](/nuget/create-packages/publish-a-package)
-* [Çalışma zamanı paket deposu](/dotnet/core/deploying/runtime-store)
+* [Çalışma zamanı Paket Deposu](/dotnet/core/deploying/runtime-store)
 
 ### <a name="project-bin-folder"></a>Proje bin klasörü
 
@@ -381,7 +381,14 @@ dotnet nuget locals all --clear
 **Mağaza tarafından dağıtılan bir çalışma zamanı derlemesindeki etkinleştirme**
 
 1. *StartupDiagnostics* proje kullandığı [PowerShell](/powershell/scripting/powershell-scripting) değiştirmek için kendi *StartupDiagnostics.deps.json* dosya. PowerShell, Windows 7 SP1 ve Windows Server 2008 R2 SP1 ile başlayarak Windows üzerinde varsayılan olarak yüklenir. PowerShell diğer platformlarda edinmek için bkz. [Windows PowerShell'i yükleme](/powershell/scripting/setup/installing-powershell#powershell-core).
-1. Yürütme *build.ps1* betiğini *RuntimeStore* klasör. `dotnet store` Komut dosyasındaki kullanan `win7-x64` [çalışma zamanı tanımlayıcı (RID)](/dotnet/core/rid-catalog) dağıtılan Windows için bir barındırma başlangıç. Barındırma için başlangıç için farklı bir çalışma zamanı sağlanırken doğru RID değiştirin.
-1. Çalıştırma *deploy.ps1* betiğini *dağıtım* klasör.
+1. Yürütme *build.ps1* betiğini *RuntimeStore* klasör. Komut dosyası:
+   * Oluşturur `StartupDiagnostics` paket.
+   * Çalışma zamanı mağazada oluşturur `StartupDiagnostics` içinde *depolamak* klasör. `dotnet store` Komut dosyasındaki kullanan `win7-x64` [çalışma zamanı tanımlayıcı (RID)](/dotnet/core/rid-catalog) dağıtılan Windows için bir barındırma başlangıç. Barındırma için başlangıç için farklı bir çalışma zamanı sağlanırken komut satırında 37 doğru RID değiştirin.
+   * Oluşturur `additionalDeps` için `StartupDiagnostics` içinde *additionalDeps/shared/Microsoft.AspNetCore.App/{Shared Framework sürümü} /* klasör.
+   * Basamak *deploy.ps1* dosyası *dağıtım* klasör.
+1. Çalıştırma *deploy.ps1* betiğini *dağıtım* klasör. Betik ekler:
+   * `StartupDiagnostics` için `ASPNETCORE_HOSTINGSTARTUPASSEMBLIES` ortam değişkeni.
+   * Barındırma başlangıç bağımlılıkları yolunu `DOTNET_ADDITIONAL_DEPS` ortam değişkeni.
+   * Çalışma zamanı deposu yolu `DOTNET_SHARED_STORE` ortam değişkeni.
 1. Örnek uygulamayı çalıştırın.
 1. İstek `/services` uygulamanın görmek için uç nokta Hizmetleri kayıtlı. İstek `/diag` tanılama bilgileri görmek için uç nokta.

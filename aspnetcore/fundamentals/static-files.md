@@ -4,14 +4,14 @@ author: rick-anderson
 description: Hizmet ve statik dosyaların güvenliğini sağlamak ve ASP.NET Core web uygulaması ara yazılım davranışları barındırma statik dosya yapılandırma hakkında bilgi edinin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 04/08/2019
 uid: fundamentals/static-files
-ms.openlocfilehash: 114fee0795977043f3a74a81a15923a8bf5faf6b
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 12c7b39bee462ff83188a5a0f10b133ca273863b
+ms.sourcegitcommit: 258a97159da206f9009f23fdf6f8fa32f178e50b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58208641"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425068"
 ---
 # <a name="static-files-in-aspnet-core"></a>ASP.NET core'da statik dosyalar
 
@@ -47,7 +47,7 @@ Statik dosyalar, web kökü göreli bir yol aracılığıyla erişilebilir. Örn
 
 * **wwwroot**
   * **CSS**
-  * **Görüntüleri**
+  * **görüntüler**
   * **js**
 
 Bir dosyaya erişmek için URI biçimi *görüntüleri* alt *http://\<server_address > /images/\<image_file_name >*. Örneğin, *http://localhost:9189/images/banner3.svg*.
@@ -90,10 +90,10 @@ Statik dosyaların sunulmasını web kökünün dışında bulunduğu dizin sır
 
 * **wwwroot**
   * **CSS**
-  * **Görüntüleri**
+  * **görüntüler**
   * **js**
 * **MyStaticFiles**
-  * **Görüntüleri**
+  * **görüntüler**
     * *banner1.svg*
 
 Bir isteği erişip *banner1.svg* statik dosya ara yazılımlarını şu şekilde yapılandırarak dosyası:
@@ -159,7 +159,7 @@ Varsayılan giriş sayfası ayarı ziyaretçiler mantıksal bir başlangıç nok
 İle `UseDefaultFiles`, istekleri için bir klasörü arayın:
 
 * *default.htm*
-* *default.HTML*
+* *default.html*
 * *index.htm*
 * *index.HTML*
 
@@ -189,12 +189,12 @@ Aşağıdaki dizin hiyerarşi göz önünde bulundurun:
 
 * **wwwroot**
   * **CSS**
-  * **Görüntüleri**
+  * **görüntüler**
   * **js**
 * **MyStaticFiles**
-  * **Görüntüleri**
+  * **görüntüler**
     * *banner1.svg*
-  * *default.HTML*
+  * *default.html*
 
 Aşağıdaki kod, statik dosyalar, varsayılan dosya ve Dizin tarama etkinleştirir `MyStaticFiles`:
 
@@ -208,7 +208,7 @@ Aşağıdaki kod, statik dosyalar, varsayılan dosya ve Dizin tarama etkinleşti
 
 | URI            |                             Yanıt  |
 | ------- | ------|
-| *http://\<server_address>/StaticFiles/images/banner1.svg*    |      MyStaticFiles/images/banner1.svg |
+| *http://\<server_address > /StaticFiles/images/banner1.svg*    |      MyStaticFiles/images/banner1.svg |
 | *http://\<server_address > / StaticFiles*             |     MyStaticFiles/default.html |
 
 Varsayılan adlı dosya varsa *MyStaticFiles* dizin *http://\<server_address > / StaticFiles* dizin ile tıklanabilir bağlantılar listesi döndürür:
@@ -216,7 +216,7 @@ Varsayılan adlı dosya varsa *MyStaticFiles* dizin *http://\<server_address > /
 ![Statik dosyaları listesi](static-files/_static/db2.png)
 
 > [!NOTE]
-> `UseDefaultFiles` ve `UseDirectoryBrowser` URL'sini kullanarak *http://\<server_address > / StaticFiles* istemci tarafı tetiklemek için sondaki eğik çizgi yeniden yönlendirme *http://\<server_address > / StaticFiles /*. Eğik eklenmesini dikkat edin. Belgelerde göreli URL'ler, sonunda bir eğik çizgi geçersiz sayılan.
+> <xref:Microsoft.AspNetCore.Builder.DefaultFilesExtensions.UseDefaultFiles*> ve <xref:Microsoft.AspNetCore.Builder.DirectoryBrowserExtensions.UseDirectoryBrowser*> istemci-tarafı yeniden yönlendirme gerçekleştirmek `http://{SERVER ADDRESS}/StaticFiles` (olmadan, sonunda eğik çizgi) için `http://{SERVER ADDRESS}/StaticFiles/` (sonunda eğik çizgi ile). İçinde göreli URL'ler *StaticFiles* dizini sonunda bir eğik çizgi geçersizdir.
 
 ## <a name="fileextensioncontenttypeprovider"></a>FileExtensionContentTypeProvider
 
@@ -260,5 +260,5 @@ Yukarıdaki kod ile bir isteği bir dosyayla bilinmeyen bir içerik türü için
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Ara Yazılım](xref:fundamentals/middleware/index)
-* [ASP.NET Core'a giriş](xref:index)
+* [Ara yazılım](xref:fundamentals/middleware/index)
+* [ASP.NET Core’a Giriş](xref:index)
