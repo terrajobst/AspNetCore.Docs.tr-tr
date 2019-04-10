@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/07/2019
 uid: razor-components/routing
-ms.openlocfilehash: 8f917c94300bd21dde92d4533bee856adee98478
-ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
+ms.openlocfilehash: ef82fa7e0d571979a43fd8ce712bf4f22c06f9a7
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59068109"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468827"
 ---
 # <a name="razor-components-routing"></a>Razor bileşenleri yönlendirme
 
@@ -55,7 +55,7 @@ Aşağıdaki örnek, bir bileşen içinde tanımlanan ayarlar *Pages/MyFallbackR
 ```
 
 > [!IMPORTANT]
-> Yollar düzgün bir şekilde oluşturmak için uygulamayı içermelidir bir `<base>` içindeki kendi *wwwroot/index.html* belirtilen uygulama temel yolu dosyasıyla `href` özniteliği (`<base href="/" />`). Daha fazla bilgi için bkz. <xref:host-and-deploy/razor-components-blazor/blazor#app-base-path>.
+> Yollar düzgün bir şekilde oluşturmak için uygulamayı içermelidir bir `<base>` içindeki kendi *wwwroot/index.html* belirtilen uygulama temel yolu dosyasıyla `href` özniteliği (`<base href="/">`). Daha fazla bilgi için bkz. <xref:host-and-deploy/razor-components-blazor/blazor#app-base-path>.
 
 ## <a name="route-parameters"></a>Yol parametreleri
 

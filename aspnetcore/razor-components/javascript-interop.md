@@ -5,14 +5,14 @@ description: .NET ve JavaScript işlevleri çağırmak nasıl öğrenin Blazor v
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/26/2019
+ms.date: 04/08/2019
 uid: razor-components/javascript-interop
-ms.openlocfilehash: c45c04d849ba4b3b017a65e79aa758effd5ba8eb
-ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
+ms.openlocfilehash: f2588f4ed1ec2f01218283625fae4632d0a8ae58
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59068121"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468675"
 ---
 # <a name="razor-components-javascript-interop"></a>Razor bileşenleri JavaScript birlikte çalışma
 
@@ -90,7 +90,7 @@ Aşağıdaki bileşen:
             105, 118, 101, 114, 115, 101, 10, 10,
         };
 
-    async void ConvertArray()
+    private async void ConvertArray()
     {
         var text =
             await JsRuntime.InvokeAsync<string>("ConvertArray", QuoteArray);
@@ -195,7 +195,7 @@ HTML öğesi sayısında ciddi bir bileşen başvuruları ekleyerek yakalamak i�
 Aşağıdaki örnek, bir kullanıcı adı giriş öğeye başvuru yakalama gösterir:
 
 ```cshtml
-<input ref="username" ... />
+<input ref="username" ...>
 
 @functions {
     ElementRef username;
@@ -238,7 +238,7 @@ Yöntem doğrudan nesne üzerinde çağrılır. Aşağıdaki örnek olduğunu va
 [!code-cshtml[](javascript-interop/samples_snapshot/component2.cshtml?highlight=1,4,8,12)]
 
 > [!IMPORTANT]
-> `username` Değişkeni bileşeni işler ve çıktısını içeren sonra yalnızca doldurulmuş `<input>` öğesi. Bir doldurulmamış geçirmeye çalışırsanız `ElementRef` JavaScript kodu için JavaScript kodunu alır `null`. Bileşen kullanın (bir öğede ilk odağı ayarlamak için) işleme tamamlandıktan sonra öğesi başvuruları işlemek için `OnAfterRenderAsync` veya `OnAfterRender` [bileşen yaşam döngüsü yöntemleri](xref:razor-components/components#lifecycle-methods).
+> `username` Değişkeni bileşeni işler ve çıktısını içeren sonra yalnızca doldurulmuş `>` öğesi. Bir doldurulmamış geçirmeye çalışırsanız `ElementRef` JavaScript kodu için JavaScript kodunu alır `null`. Bileşen kullanın (bir öğede ilk odağı ayarlamak için) işleme tamamlandıktan sonra öğesi başvuruları işlemek için `OnAfterRenderAsync` veya `OnAfterRender` [bileşen yaşam döngüsü yöntemleri](xref:razor-components/components#lifecycle-methods).
 
 ## <a name="invoke-net-methods-from-javascript-functions"></a>JavaScript işlevleri .NET yöntemleri çağırma
 

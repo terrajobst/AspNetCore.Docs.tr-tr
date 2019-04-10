@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 01/17/2019
 uid: fundamentals/startup
-ms.openlocfilehash: 9556ec076fce3500115cf0e934202f11b175ccd3
-ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
+ms.openlocfilehash: 362186be6feeeefeca3c56688ee6420de5fb9659
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2019
-ms.locfileid: "58750792"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468630"
 ---
 # <a name="app-startup-in-aspnet-core"></a>ASP.NET core'da uygulama başlatma
 
@@ -63,9 +63,11 @@ Bazı hizmetler önce konak yapılandırabilirsiniz `Startup` yöntemi çağrıl
 
 Önemli kurulum gerektiren özellikler için vardır `Add{Service}` üzerinde genişletme yöntemleri <xref:Microsoft.Extensions.DependencyInjection.IServiceCollection>. Tipik bir ASP.NET Core uygulaması için Entity Framework, kimlik ve MVC Hizmetleri kaydeder:
 
-[!code-csharp[](startup/sample_snapshot/Startup3.cs?highlight=4,7,11)]
+[!code-csharp[](startup/sample_snapshot/Startup3.cs)]
 
 Hizmet kapsayıcıya Hizmetleri ekleme kullanımınıza bunları uygulama içinde hem de `Configure` yöntemi. Hizmetleri aracılığıyla çözümlenir [bağımlılık ekleme](xref:fundamentals/dependency-injection) veya <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder.ApplicationServices*>.
+
+Bkz: [SetCompatibilityVersion](xref:mvc/compatibility-version) hakkında daha fazla bilgi için `SetCompatibilityVersion`.
 
 ## <a name="the-configure-method"></a>Yapılandırma yöntemi
 
@@ -74,7 +76,7 @@ Hizmet kapsayıcıya Hizmetleri ekleme kullanımınıza bunları uygulama içind
 [ASP.NET Core şablonları](/dotnet/core/tools/dotnet-new) desteği ile işlem hattı yapılandırın:
 
 * [Geliştirici özel durumu sayfası](xref:fundamentals/error-handling#developer-exception-page)
-* [Özel durum işleyicisi](xref:fundamentals/error-handling#configure-a-custom-exception-handling-page)
+* [Özel durum işleyicisi](xref:fundamentals/error-handling#exception-handler-page)
 * [HTTP katı aktarım güvenliği (HSTS)](xref:security/enforcing-ssl#http-strict-transport-security-protocol-hsts)
 * [HTTPS yeniden yönlendirmesi](xref:security/enforcing-ssl)
 * [Statik dosyalar](xref:fundamentals/static-files)

@@ -1,19 +1,29 @@
 ---
-ms.openlocfilehash: 33772d3ad8bbb1ffc54792f8c31834849d0f9567
-ms.sourcegitcommit: 34bf9fc6ea814c039401fca174642f0acb14be3c
+ms.openlocfilehash: 2ec079606cb48670dbc3852482fd8d401e7db44b
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57964305"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59472306"
 ---
-Mac için Visual Studio aşağıdaki iletiyi içeren bir iletişim kutusu görüntüler:
+* Aşağıdaki komutu çalıştırarak HTTPS geliştirme sertifikası güven:
 
-*Bu proje, SSL kullanacak şekilde yapılandırılır. Tarayıcıda SSL uyarılarından kaçınmak için kendinden imzalı sertfikaya güvenmeyi seçebilirsiniz. IIS Express SSL sertifikasına güvenmek ister misiniz?*
+    ```console
+    dotnet dev-certs https --trust
+    ```
 
-Seçin **Evet** ve aşağıdaki iletişim kutusu görüntülenir:
+* Yukarıdaki komut, aşağıdaki çıkışı görüntüler:
 
-![Güvenlik Uyarısı iletişim kutusu](~/getting-started/_static/cert.png)
+    ```console
+    Trusting the HTTPS development certificate was requested. If the certificate 
+    is not already trusted we will run the following command:
+    'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain 
+    <<certificate>>'
+    This command might prompt you for your password to install the certificate on the 
+    system keychain.
+    The HTTPS developer certificate was generated successfully.
+    ```
 
-Seçin **Evet** geliştirme sertifikasına güvenmek kabul etmesi durumunda.
+* Yönetici kullanıcı adı ve parola istenirse girin.  Sertifika artık güvenilir ve yüklenir.
 
-Bkz: [ASP.NET Core HTTPS geliştirme sertifikasına güvenmek](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos) daha fazla bilgi için.
+    Bkz: [ASP.NET Core HTTPS geliştirme sertifikasına güvenmek](xref:security/enforcing-ssl#trust-the-aspnet-core-https-development-certificate-on-windows-and-macos) daha fazla bilgi için.

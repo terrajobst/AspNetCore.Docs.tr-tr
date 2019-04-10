@@ -4,14 +4,14 @@ author: pkellner
 description: Görüntü etiketi Yardımcısı ile çalışma işlemi gösterilmektedir.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/10/2018
+ms.date: 04/06/2019
 uid: mvc/views/tag-helpers/builtin-th/image-tag-helper
-ms.openlocfilehash: 5eb74a6698911a1c594d11573192cb1b9ed53b49
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 916a68c187cbf516a59d3c5d7578cdb6ada01b86
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49325841"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468824"
 ---
 # <a name="image-tag-helper-in-aspnet-core"></a>ASP.NET core'da görüntü etiketi Yardımcısı
 
@@ -43,13 +43,13 @@ Zaman `asp-append-version` ile belirtilen bir `true` değer ile birlikte bir `sr
 Aşağıdaki örnek, bir görüntü etiketi Yardımcısı kullanır:
 
 ```cshtml
-<img src="~/images/asplogo.png" asp-append-version="true" />
+<img src="~/images/asplogo.png" asp-append-version="true">
 ```
 
 Statik dosya dizininde bulunuyorsa */wwwroot/resimler/*, oluşturulan HTML (karma farklı olacaktır) aşağıdakine benzer:
 
 ```html
-<img src="/images/asplogo.png?v=Kl_dqr9NVtnMdsM2MUg4qthUnWZm5T1fCEimBPWDNgM" />
+<img src="/images/asplogo.png?v=Kl_dqr9NVtnMdsM2MUg4qthUnWZm5T1fCEimBPWDNgM">
 ```
 
 Parametresine atanan değer `v` karma değeri *asplogo.png* diskteki dosya. Web sunucusu statik dosya için okuma erişimi alamadı ise hiçbir `v` parametresi eklenir `src` biçimlendirmenin özniteliği.

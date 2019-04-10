@@ -5,14 +5,14 @@ description: Oluşturma ve Razor bileşenler, bileşen ömürleri yönetme veril
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/07/2019
+ms.date: 04/08/2019
 uid: razor-components/components
-ms.openlocfilehash: 00e07d496f4471f56d4184d1cb7c07c0715bea3f
-ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
+ms.openlocfilehash: f8ac7f3844b94a162e8d1c45f80ae153d89536ee
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59068358"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468811"
 ---
 # <a name="create-and-use-razor-components"></a>Oluşturma ve Razor bileşenleri kullanma
 
@@ -116,18 +116,18 @@ Veri bağlama bileşenleri hem DOM öğeleri ile gerçekleştirilir `bind` özni
 
 ```cshtml
 <input type="checkbox" class="form-check-input" id="italicsCheck" 
-    bind="@_italicsCheck" />
+    bind="@_italicsCheck">
 ```
 
 Onay kutusunu işaretli ve seçildiğinde özelliğin değerini şekilde güncelleştirilir `true` ve `false`sırasıyla.
 
 Yalnızca bileşen, özelliğin değerinin değiştirilmesi için değil yanıt oluşturulduğunda onay kutusunu kullanıcı Arabiriminde güncelleştirilir. Olay işleyici kodu yürütüldükten sonra bileşenleri kendilerini işleme olduğundan, özellik güncelleştirmeleri genellikle kullanıcı Arabiriminde hemen yansıtılır.
 
-Kullanarak `bind` ile bir `CurrentValue` özelliği (`<input bind="@CurrentValue" />`) aslında aşağıdakine eşdeğerdir:
+Kullanarak `bind` ile bir `CurrentValue` özelliği (`<input bind="@CurrentValue">`) aslında aşağıdakine eşdeğerdir:
 
 ```cshtml
 <input value="@CurrentValue" 
-    onchange="@((UIChangeEventArgs __e) => CurrentValue = __e.Value)" />
+    onchange="@((UIChangeEventArgs __e) => CurrentValue = __e.Value)">
 ```
 
 Bileşen işlendiğinde `value` giriş öğesinin geldiği `CurrentValue` özelliği. Kullanıcı, metin kutusuna yazdığında `onchange` olay tetiklenir ve `CurrentValue` özelliği değiştirilmiş değerine ayarlanır. Gerçekte, kod oluşturma biraz daha karmaşık olduğundan `bind` tür dönüştürmeleri gerçekleştirildiği birkaç durum işler. Giren İlkesi `bind` geçerli değerini bir ifade ile ilişkilendirir bir `value` kayıtlı işleyici kullanarak öznitelik ve işleyicilerini değişiklikler.
@@ -135,7 +135,7 @@ Bileşen işlendiğinde `value` giriş öğesinin geldiği `CurrentValue` özell
 Ek olarak `onchange`, özelliği gibi diğer olayları kullanarak bağlanabilir `oninput` bağlamak gerekenler hakkında daha fazla açık olan tarafından:
 
 ```cshtml
-<input type="text" bind-value-oninput="@CurrentValue" />
+<input type="text" bind-value-oninput="@CurrentValue">
 ```
 
 Farklı `onchange`, `oninput` metin kutusuna giriş her karakter için ateşlenir.
@@ -145,7 +145,7 @@ Farklı `onchange`, `oninput` metin kutusuna giriş her karakter için ateşleni
 Veri bağlama ile birlikte çalışır <xref:System.DateTime> biçim dizeleri. Para birimi veya sayı biçimleri gibi diğer biçim ifadeleri şu anda kullanılamıyor.
 
 ```cshtml
-<input bind="@StartDate" format-value="yyyy-MM-dd" />
+<input bind="@StartDate" format-value="yyyy-MM-dd">
 
 @functions {
     [Parameter]
@@ -180,7 +180,7 @@ Ana bileşenin:
     [Parameter]
     private int ParentYear { get; set; } = 1978;
 
-    void ChangeTheYear()
+    private void ChangeTheYear()
     {
         ParentYear = 1986;
     }
@@ -249,7 +249,7 @@ Aşağıdaki kod çağrıları `UpdateHeading` Arabiriminde düğme seçildiğin
 </button>
 
 @functions {
-    void UpdateHeading(UIMouseEventArgs e)
+    private void UpdateHeading(UIMouseEventArgs e)
     {
         ...
     }
@@ -259,10 +259,10 @@ Aşağıdaki kod çağrıları `UpdateHeading` Arabiriminde düğme seçildiğin
 Aşağıdaki kod çağrıları `CheckboxChanged` onay kutusunu kullanıcı Arabiriminde değiştirildiğinde yöntemi:
 
 ```cshtml
-<input type="checkbox" class="form-check-input" onchange="@CheckboxChanged" />
+<input type="checkbox" class="form-check-input" onchange="@CheckboxChanged">
 
 @functions {
-    void CheckboxChanged()
+    private void CheckboxChanged()
     {
         ...
     }
@@ -277,7 +277,7 @@ Olay işleyicileri zaman uyumsuz ve dönüş ayrıca olabilir bir <xref:System.T
 </button>
 
 @functions {
-    async Task UpdateHeading(UIMouseEventArgs e)
+    private async Task UpdateHeading(UIMouseEventArgs e)
     {
         ...
     }
@@ -315,9 +315,9 @@ Genellikle gibi ek değerler kapatmak uygun olan öğeleri kümesi yineleme oldu
 }
 
 @functions {
-    string message = "Select a button to learn its position.";
+    private string message = "Select a button to learn its position.";
 
-    void UpdateHeading(UIMouseEventArgs e, int buttonNumber)
+    private void UpdateHeading(UIMouseEventArgs e, int buttonNumber)
     {
         message = $"You selected Button #{buttonNumber} at " +
             "mouse position: {e.ClientX} X {e.ClientY}.";
@@ -336,9 +336,9 @@ Bileşen başvuruları komutları gibi bu örneğe verebilir böylece bu şekild
 <MyLoginDialog ref="loginDialog" ... />
 
 @functions {
-    MyLoginDialog loginDialog;
+    private MyLoginDialog loginDialog;
 
-    void OnSomething()
+    private void OnSomething()
     {
         loginDialog.Show();
     }
@@ -509,7 +509,7 @@ Razor yönergeleri, aşağıdaki tabloda gösterilmiştir.
 Aşağıdaki örnekte, `IsCompleted` belirler `checked` denetimin biçimlendirme içinde işlenir:
 
 ```cshtml
-<input type="checkbox" checked="@IsCompleted" />
+<input type="checkbox" checked="@IsCompleted">
 
 @functions {
     [Parameter]
@@ -520,13 +520,13 @@ Aşağıdaki örnekte, `IsCompleted` belirler `checked` denetimin biçimlendirme
 Varsa `IsCompleted` olduğu `true`, onay kutusunu olarak işlenir:
 
 ```html
-<input type="checkbox" checked />
+<input type="checkbox" checked>
 ```
 
 Varsa `IsCompleted` olduğu `false`, onay kutusunu olarak işlenir:
 
 ```html
-<input type="checkbox" />
+<input type="checkbox">
 ```
 
 **Razor hakkında daha fazla bilgi**
@@ -546,7 +546,8 @@ Aşağıdaki örnek, gösterir kullanarak `MarkupString` bir bileşenin işlenen
 @((MarkupString)myMarkup)
 
 @functions {
-    string myMarkup = "<p class='markup'>This is a <em>markup string</em>.</p>";
+    private string myMarkup = 
+        "<p class='markup'>This is a <em>markup string</em>.</p>";
 }
 ```
 
@@ -683,7 +684,7 @@ public class ThemeInfo
 </div>
 
 @functions {
-    ThemeInfo theme = new ThemeInfo { ButtonClass = "btn-success" };
+    private ThemeInfo theme = new ThemeInfo { ButtonClass = "btn-success" };
 }
 ```
 
@@ -692,7 +693,8 @@ Yapmak için geçişli değerlerini kullanmak, bileşenlerini kullanarak basamak
 ```cshtml
 <CascadingValue Value=@PermInfo Name="UserPermissions">...</CascadingValue>
 
-[CascadingParameter(Name = "UserPermissions")] PermInfo Permissions { get; set; }
+[CascadingParameter(Name = "UserPermissions")]
+private PermInfo Permissions { get; set; }
 ```
 
 Bir dize adı değeri bağlamayla aynı türde birden fazla basamaklı değerler varsa ve aynı alt ağacı içinde ayrılmaları gerekiyorsa geçerlidir.
@@ -725,11 +727,11 @@ Basamaklı değerler türüne göre geçişli parametrelerine bağlı.
 </p>
 
 @functions {
-    int currentCount = 0;
+    private int currentCount = 0;
 
     [CascadingParameter] protected ThemeInfo ThemeInfo { get; set; }
 
-    void IncrementCount()
+    private void IncrementCount()
     {
         currentCount++;
     }
@@ -832,9 +834,9 @@ Yerleşik bileşeni (*BuiltContent.razor* Razor bileşenlerinde; *BuiltContent.c
 </button>
 
 @functions {
-    RenderFragment CustomRender { get; set; }
+    private RenderFragment CustomRender { get; set; }
     
-    RenderFragment CreateComponent() => builder =>
+    private RenderFragment CreateComponent() => builder =>
     {
         for (var i = 0; i < 3; i++) 
         {
@@ -844,7 +846,7 @@ Yerleşik bileşeni (*BuiltContent.razor* Razor bileşenlerinde; *BuiltContent.c
         }
     };    
     
-    void RenderComponent()
+    private void RenderComponent()
     {
         CustomRender = CreateComponent();
     }

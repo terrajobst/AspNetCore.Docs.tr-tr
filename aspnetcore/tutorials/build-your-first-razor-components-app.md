@@ -5,14 +5,14 @@ description: Adım adım bir Razor bileşenleri uygulaması derleme ve Razor bil
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/28/2019
+ms.date: 04/06/2019
 uid: tutorials/first-razor-components-app
-ms.openlocfilehash: 40bf5728193c854589e072730554b4f54086fb6a
-ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
+ms.openlocfilehash: 697c4659bcc9952ffe9868fe9b3c0d28019bc369
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59068134"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468782"
 ---
 # <a name="build-your-first-razor-components-app"></a>Razor bileşenleri ilk uygulamanızı oluşturun
 
@@ -194,7 +194,7 @@ Yeni bir bileşen, bir basit bir Yapılacaklar listesi uygulayan uygulamaya ekle
    [!code-cshtml[](build-your-first-razor-components-app/samples_snapshot/3.x/ToDo7.razor?highlight=2)]
 
    ```cshtml
-   <input placeholder="Something todo" bind="@newTodo" />
+   <input placeholder="Something todo" bind="@newTodo">
    ```
 
 1. Güncelleştirme `AddTodo` ekleme yöntemi `TodoItem` listesine belirtilen başlığa sahip. Metin girişi değerini ayarlayarak Temizle `newTodo` boş bir dize:

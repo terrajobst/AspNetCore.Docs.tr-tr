@@ -5,12 +5,12 @@ description: Bu öğretici serisinde, ASP.NET Core Razor sayfaları kullanma iş
 ms.author: riande
 ms.date: 12/5/2018
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 88449a0064dad42d8d2bf9fbdd67078e4c2ba8de
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 1d264ca4a605d8291e273a8f054c92e7eefa5548
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58210073"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468853"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Öğretici: ASP.NET Core Razor sayfaları kullanmaya başlama
 
@@ -39,7 +39,7 @@ Bu öğreticinin sonunda çalışan bir sonraki öğreticilerde oluşturacağın
 
 ## <a name="create-a-razor-pages-web-app"></a>Razor sayfaları web uygulaması oluşturma
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
 
 * Visual Studio'dan **dosya** menüsünde **yeni** > **proje**.
 
@@ -55,7 +55,7 @@ Bu öğreticinin sonunda çalışan bir sonraki öğreticilerde oluşturacağın
 
   ![Çözüm Gezgini](razor-pages-start/_static/se2.2.png)
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+# [<a name="visual-studio-code"></a>Visual Studio Code](#tab/visual-studio-code)
 
 * Açık [tümleşik Terminalini](https://code.visualstudio.com/docs/editor/integrated-terminal).
 
@@ -75,15 +75,14 @@ Bu öğreticinin sonunda çalışan bir sonraki öğreticilerde oluşturacağın
 
 * Seçin **Evet**
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
+# [<a name="visual-studio-for-mac"></a>Mac için Visual Studio](#tab/visual-studio-mac)
 
-Bir terminalde aşağıdaki komutları çalıştırın:
+Bir terminalde aşağıdaki komutu çalıştırın:
 
 <!-- TODO: update these instruction once mac support 2.2 projects -->
 
 ```console
 dotnet new webapp -o RazorPagesMovie
-cd RazorPagesMovie
 ```
 
 Kullanım komutları önceki [.NET Core CLI](/dotnet/core/tools/dotnet) Razor sayfaları projesi oluşturmak için.
@@ -98,31 +97,13 @@ Visual Studio'dan seçin **Dosya > Aç**ve ardından *RazorPagesMovie.csproj* do
 
 ## <a name="run-the-app"></a>Uygulamayı çalıştırma
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+# [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
 
 * Hata Ayıklayıcı olmadan çalıştırmak için CTRL + F5 tuşlarına basın.
 
   [!INCLUDE[](~/includes/trustCertVS.md)]
 
   Visual Studio başlatır [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) ve uygulamayı çalıştırır. Adres çubuğu gösterir `localhost:port#` gibi bir şey `example.com`. Çünkü `localhost` standart yerel bilgisayar adıdır. Localhost yalnızca yerel bilgisayara gelen web isteklerini işlevi görür. Visual Studio, bir web projesi oluşturduğunda, web sunucusu için rastgele bir bağlantı noktası kullanılır.
-  
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
-
-* Tuşuna **Ctrl-F5** hata ayıklayıcı olmadan çalıştırılacak.
-
-  [!INCLUDE[](~/includes/trustCertVSC.md)]
-
-  Visual Studio Code başlar [Kestrel](xref:fundamentals/servers/kestrel), bir tarayıcı başlatır ve gider `http://localhost:5001`. Adres çubuğu gösterir `localhost:port#` gibi bir şey `example.com`. Çünkü `localhost` standart yerel bilgisayar adıdır. Localhost yalnızca yerel bilgisayara gelen web isteklerini işlevi görür.
-  
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
-
-Seçin **çalıştırın > hata ayıklama olmadan Başlat** uygulamayı başlatın. Visual Studio başlatır [Kestrel](xref:fundamentals/servers/kestrel), bir tarayıcı başlatır ve gider `http://localhost:5001`.
-
-[!INCLUDE[](~/includes/trustCertMac.md)]
-
-<!-- End of VS tabs -->
-
----
 
 * Uygulamanın giriş sayfasında, seçin **kabul** izleme için onay verme.
 
@@ -133,6 +114,46 @@ Seçin **çalıştırın > hata ayıklama olmadan Başlat** uygulamayı başlat�
   İzleme için onay verdikten sonra aşağıdaki görüntüde uygulama gösterilir:
 
   ![Giriş ya da dizin sayfası](razor-pages-start/_static/home2.2.png)
+  
+# [<a name="visual-studio-code"></a>Visual Studio Code](#tab/visual-studio-code)
+
+  [!INCLUDE[](~/includes/trustCertVSC.md)]
+
+* Tuşuna **Ctrl-F5** hata ayıklayıcı olmadan çalıştırılacak.
+
+  Visual Studio Code başlar [Kestrel](xref:fundamentals/servers/kestrel), bir tarayıcı başlatır ve gider `http://localhost:5001`. Adres çubuğu gösterir `localhost:port#` gibi bir şey `example.com`. Çünkü `localhost` standart yerel bilgisayar adıdır. Localhost yalnızca yerel bilgisayara gelen web isteklerini işlevi görür.
+
+* Uygulamanın giriş sayfasında, seçin **kabul** izleme için onay verme.
+
+  Bu uygulama, kişisel bilgi izlemez ancak Avrupa Birliği'ile nin uymak için ihtiyaç durumunda proje şablonu, onay özelliği içerir. [genel veri koruma yönetmeliği (GDPR)](xref:security/gdpr).
+
+  ![Giriş ya da dizin sayfası](razor-pages-start/_static/homeGDPR2.2.png)
+
+  İzleme için onay verdikten sonra aşağıdaki görüntüde uygulama gösterilir:
+
+  ![Giriş ya da dizin sayfası](razor-pages-start/_static/home2.2.png)
+  
+# [<a name="visual-studio-for-mac"></a>Mac için Visual Studio](#tab/visual-studio-mac)
+
+  [!INCLUDE[](~/includes/trustCertMac.md)]
+
+* Tuşuna **Cmd iyileştirilmiş F5** hata ayıklayıcı olmadan çalıştırılacak.
+
+  Visual Studio başlatır [Kestrel](xref:fundamentals/servers/kestrel), bir tarayıcı başlatır ve gider `http://localhost:5001`.
+
+* Uygulamanın giriş sayfasında, seçin **kabul** izleme için onay verme.
+
+  Bu uygulama, kişisel bilgi izlemez ancak Avrupa Birliği'ile nin uymak için ihtiyaç durumunda proje şablonu, onay özelliği içerir. [genel veri koruma yönetmeliği (GDPR)](xref:security/gdpr).
+
+  ![Giriş ya da dizin sayfası](razor-pages-start/_static/homeGDPR2.2_safari.png)
+
+  İzleme için onay verdikten sonra aşağıdaki görüntüde uygulama gösterilir:
+
+  ![Giriş ya da dizin sayfası](razor-pages-start/_static/home2.2_safari.png)
+
+<!-- End of VS tabs -->
+
+---
 
 ## <a name="examine-the-project-files"></a>Proje dosyalarını inceleyin
 

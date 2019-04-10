@@ -4,14 +4,14 @@ author: ardalis
 description: Kısmi görünümler büyük işaretleme dosyaları bölün ve ASP.NET Core uygulamaları, web sayfaları arasında ortak biçimlendirme çoğaltma azaltmak için nasıl kullanılacağını keşfedin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/11/2018
+ms.date: 04/06/2019
 uid: mvc/views/partial
-ms.openlocfilehash: b7c1545007086053e879bce6781802959da77901
-ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
+ms.openlocfilehash: 65da78d6df3f179df9bdfa3a32af8736b71bbac5
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58327384"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468714"
 ---
 # <a name="partial-views-in-aspnet-core"></a>ASP.NET Core, kısmi görünümleri
 
@@ -74,7 +74,7 @@ Kısmi görünüm dosya adları, genellikle bir alt çizgiyle başlayan (`_`). B
 
 Bir işaretleme dosyasının içinde kısmi görünüm başvurmak için birkaç yolu vardır. Uygulamaları aşağıdaki zaman uyumsuz işleme yaklaşımlardan birini kullanmanızı öneririz:
 
-* [Kısmi Etiket Yardımcısı](#partial-tag-helper)
+* [Kısmi etiket Yardımcısı](#partial-tag-helper)
 * [Zaman uyumsuz HTML Yardımcısı](#asynchronous-html-helper)
 
 ::: moniker-end
@@ -110,7 +110,7 @@ Bir dosya uzantısı varsa, etiket Yardımcısı kısmi görünüm çağırma bi
 
 Aşağıdaki örnek, uygulama kök kısmi görünüm başvuruyor. Bir tilde-eğik çizgi ile başlayan yollar (`~/`) veya eğik çizgi (`/`) uygulama kök dizinine bakın:
 
-**Razor Sayfaları**
+**Razor Pages**
 
 ```cshtml
 <partial name="~/Pages/Folder/_PartialName.cshtml" />
@@ -152,7 +152,7 @@ Aşağıdaki örnek, uygulama kök kısmi görünüm başvuruyor. Bir tilde-eği
 
 ::: moniker range=">= aspnetcore-2.1"
 
-**Razor Sayfaları**
+**Razor Pages**
 
 ```cshtml
 @await Html.PartialAsync("~/Pages/Folder/_PartialName.cshtml")
@@ -203,7 +203,7 @@ Kısmi Görünüm adı olmayan bir dosya uzantısı tarafından başvurulduğund
 
 ::: moniker range=">= aspnetcore-2.1"
 
-**Razor Sayfaları**
+**Razor Pages**
 
 1. Sayfanın klasörü şu anda yürütülüyor
 1. Dizin graph sayfanın klasörün üstünde
@@ -259,7 +259,7 @@ Kısmi görünüme, bir model geçirebilirsiniz. Modeli, özel bir nesne olabili
 
 ::: moniker range=">= aspnetcore-2.1"
 
-**Razor Sayfaları**
+**Razor Pages**
 
 Örnek uygulama aşağıdaki biçimlendirmede dandır *Pages/ArticlesRP/ReadRP.cshtml* sayfası. İki kısmi görünüm sayfası içerir. Bir modeldeki ikinci kısmi görünüm geçirir ve `ViewData` kısmi görünüm için. `ViewDataDictionary` Oluşturucu aşırı yüklemesi, yeni bir geçirmek için kullanılır `ViewData` varolan korurken sözlük `ViewData` sözlüğü.
 

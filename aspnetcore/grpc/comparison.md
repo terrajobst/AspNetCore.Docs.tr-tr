@@ -6,18 +6,18 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
 ms.date: 03/31/2019
 uid: grpc/comparison
-ms.openlocfilehash: 05bd0357ada2d9a2c876469c533605ee7cbab5b3
-ms.sourcegitcommit: 5995f44e9e13d7e7aa8d193e2825381c42184e47
+ms.openlocfilehash: 0e9ef0e7ca8fb6d847b45f6dd7bd0aaa35fd149f
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58809230"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468604"
 ---
 # <a name="comparing-grpc-services-with-http-apis"></a>gRPC hizmetlerini HTTP API’leriyle karşılaştırma
 
 Tarafından [James Newton-King](https://twitter.com/jamesnk)
 
-Bu makalede açıklanır nasıl [gRPC Hizmetleri](https://grpc.io/docs/guides/) HTTP API'lerini karşılaştırın. Uygulamanız için bir API sağlamak için kullanılan teknoloji önemli bir seçenektir ve gRPC HTTP API'lerini karşılaştırıldığında benzersiz avantajları sunar. Bu makalede, güçlü ve zayıf gRPC birini açıklar ve diğer teknolojileri gRPC kullanma senaryoları önerir.
+Bu makalede açıklanır nasıl [gRPC Hizmetleri](https://grpc.io/docs/guides/) HTTP API'lerini Karşılaştır (ASP.NET Core içeren [Web API'leri](xref: web-api/index)). Uygulamanız için bir API sağlamak için kullanılan teknoloji önemli bir seçenektir ve gRPC HTTP API'lerini karşılaştırıldığında benzersiz avantajları sunar. Bu makalede, güçlü ve zayıf gRPC birini açıklar ve diğer teknolojileri gRPC kullanma senaryoları önerir.
 
 #### <a name="overview"></a>Genel Bakış
 

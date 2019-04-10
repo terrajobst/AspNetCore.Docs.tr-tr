@@ -4,14 +4,14 @@ author: scottaddie
 description: Etiket Yardımcısı bileşenler nelerdir ve ASP.NET Core nasıl kullanacağınızı öğrenin.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: scaddie
-ms.date: 09/18/2018
+ms.date: 04/06/2019
 uid: mvc/views/tag-helpers/th-components
-ms.openlocfilehash: 3d21e12650d844f05bdfdf5b3451ab6219e3c3b7
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: fdad4ae367245cd3beabaf90587c1fe5e9162afe
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206880"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468601"
 ---
 # <a name="tag-helper-components-in-aspnet-core"></a>ASP.NET core'da etiket Yardımcısı bileşenleri
 
@@ -23,7 +23,7 @@ ASP.NET Core, iki yerleşik etiket Yardımcısı bileşenleri içerir: `head` ve
 
 [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/th-components/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
-## <a name="use-cases"></a>Kullanım örnekleri
+## <a name="use-cases"></a>Uygulama alanları
 
 Etiket Yardımcısı bileşenlerinin iki yaygın kullanım örnekleri şunlardır:
 
@@ -40,7 +40,7 @@ HTML içinde `<head>` öğesi, CSS dosyaları HTML ile sık alınan `<link>` ö�
 
 Yukarıdaki kodda:
 
-* `AddressStyleTagHelperComponent` uygulayan <xref:Microsoft.AspNetCore.Razor.TagHelpers.TagHelperComponent>. Özet:
+* `AddressStyleTagHelperComponent` Implements <xref:Microsoft.AspNetCore.Razor.TagHelpers.TagHelperComponent>. Özet:
   * Başlatma ile sınıfının sağlayan bir <xref:Microsoft.AspNetCore.Razor.TagHelpers.TagHelperContext>.
   * Etiket Yardımcısı bileşenleri, ekleyin veya HTML öğeleri değiştirmek için kullanılmasını sağlar.
 * <xref:Microsoft.AspNetCore.Razor.TagHelpers.TagHelperComponent.Order*> Özelliği bileşenleri işlenir sırasını tanımlar. `Order` Etiket Yardımcısı bileşenlerin bir uygulamada birden fazla kullanımları olduğunda gereklidir.
@@ -112,7 +112,7 @@ Bir özel etiket Yardımcısı bileşeni oluşturmak için:
 
 * Türetilen bir ortak sınıf oluşturun <xref:Microsoft.AspNetCore.Mvc.Razor.TagHelpers.TagHelperComponentTagHelper>.
 * Geçerli bir [[HtmlTargetElement]](xref:Microsoft.AspNetCore.Razor.TagHelpers.HtmlTargetElementAttribute) öznitelik sınıfı. Hedef HTML öğesinin adını belirtin.
-* *İsteğe bağlı*: geçerli bir [[EditorBrowsable(EditorBrowsableState.Never)]](xref:System.ComponentModel.EditorBrowsableAttribute) türün görüntülenmesine IntelliSense içinde Sınıf özniteliği.
+* *İsteğe bağlı*: Geçerli bir [[EditorBrowsable(EditorBrowsableState.Never)]](xref:System.ComponentModel.EditorBrowsableAttribute) türün görüntülenmesine IntelliSense içinde Sınıf özniteliği.
 
 Aşağıdaki kod bir özel etiket Yardımcısı bileşen hedefleyen oluşturur `<address>` HTML öğesi:
 

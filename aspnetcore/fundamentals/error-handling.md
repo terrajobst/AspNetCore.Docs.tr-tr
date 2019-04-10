@@ -5,14 +5,14 @@ description: ASP.NET Core uygulamaları hataları işlemek nasıl keşfedin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 03/05/2019
+ms.date: 04/07/2019
 uid: fundamentals/error-handling
-ms.openlocfilehash: ae0b80baed814cd4c7c1dddce2f26a6facfdbaad
-ms.sourcegitcommit: 1a7000630e55da90da19b284e1b2f2f13a393d74
+ms.openlocfilehash: cbb9462a3c6010e074dc391aa128ac2cbb901456
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59012714"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468756"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>ASP.NET core'da hatalarını işleme
 
@@ -20,41 +20,40 @@ Tarafından [Tom Dykstra](https://github.com/tdykstra/), [Luke Latham](https://g
 
 Bu makalede, ASP.NET Core uygulamalarında hata işleme için ortak bir yaklaşım ele alınmaktadır.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples/2.x) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples). ([Nasıl indirileceğini](xref:index#how-to-download-a-sample).) Makale önişlemci yönergeleri ayarlama hakkında yönergeler içerir (`#if`, `#endif`, `#define`) farklı senaryoları etkinleştirmek için örnek uygulama.
 
 ## <a name="developer-exception-page"></a>Geliştirici özel durumu sayfası
 
-İstek özel durumları hakkında ayrıntılı bilgi gösteren bir sayfasını görüntülemek için bir uygulamayı yapılandırmak için kullanın *Geliştirici özel durum sayfasında*. Sayfa tarafından kullanılabilir hale getirileceğini [Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/) kullanılabilir paketini [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app). Bir satırı `Startup.Configure` uygulama geliştirmesinde çalışırken yöntemi [ortam](xref:fundamentals/environments):
+*Geliştirici özel durum sayfasında* istek özel durumları hakkında ayrıntılı bilgiler görüntüler. Sayfa tarafından kullanılabilir hale getirileceğini [Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/) bulunduğu paketini [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app). Kodu `Startup.Configure` uygulama geliştirmesinde çalışırken sayfa etkinleştirme yöntemi [ortam](xref:fundamentals/environments):
 
-[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_UseDeveloperExceptionPage)]
+[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_DevPageAndHandlerPage&highlight=1-4)]
 
-Çağrı yapmak <xref:Microsoft.AspNetCore.Builder.DeveloperExceptionPageExtensions.UseDeveloperExceptionPage*> önüne özel durumları yakalamak istediğiniz herhangi bir ara yazılım.
+Çağrı yapmak <xref:Microsoft.AspNetCore.Builder.DeveloperExceptionPageExtensions.UseDeveloperExceptionPage*> önce özel durumları yakalamak istediğiniz herhangi bir ara yazılım.
 
 > [!WARNING]
 > Geliştirici özel durumu sayfası etkinleştirme **yalnızca geliştirme ortamında uygulama çalışırken**. Üretim ortamında uygulama çalıştığında ayrıntılı özel durum bilgileri herkese açık şekilde paylaşma istemezsiniz. Ortamları yapılandırma hakkında daha fazla bilgi için bkz. <xref:fundamentals/environments>.
 
-Geliştirici özel durumu sayfasını görmek için ortamı ayarlamak örnek uygulamayı çalıştırma `Development` ve ekleme `?throw=true` uygulamasının temel URL'si. Sayfasında, özel durum ve isteği hakkında aşağıdaki bilgileri içerir:
+Sayfasında, özel durum ve isteği hakkında aşağıdaki bilgileri içerir:
 
 * Yığın izlemesi
 * Dize parametreleri (varsa) sorgulama
 * Tanımlama bilgileri (varsa)
 * Üst bilgileri
 
-## <a name="configure-a-custom-exception-handling-page"></a>Sayfa işleme özel bir özel durum yapılandırın
+Geliştirici özel durum sayfasında görmek için [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), kullanın `DevEnvironment` önişlemci yönergesi ve select **bir özel durum harekete** giriş sayfasında.
 
-Uygulama geliştirme ortamında çalışmadığı aramanızı <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*> özel durum işleme ara yazılım eklemek için genişletme yöntemi. Ara yazılım:
+## <a name="exception-handler-page"></a>Özel durum işleyicisi sayfası
 
-* Özel durumu yakalar.
-* Özel durumları günlüğe kaydeder.
+Bir özel hata sayfası üretim ortamı için işleme yapılandırmak için özel durum işleme ara yazılım kullanın. Ara yazılım:
+
+* Yakalar ve özel durumları günlüğe kaydeder.
 * Belirtilen denetleyici ve sayfa için alternatif bir işlem hattı istekte yeniden yürütür. İstek, yanıt başladıysa, yeniden çalıştırılır değildir.
 
-Aşağıdaki örnekte, örnek uygulamadan <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*> geliştirme olmayan ortamlarda özel durum işleme ara yazılım ekler. Bir hata sayfası veya denetleyicisinde genişletme yöntemi belirler `/Error` özel durum yakalandı ve günlüğe sonra yeniden yürütülen istekler için uç nokta:
+Aşağıdaki örnekte, <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*> geliştirme olmayan ortamlarda özel durum işleme ara yazılım ekler:
 
-[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_UseExceptionHandler1)]
+[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_DevPageAndHandlerPage&highlight=5-9)]
 
-Bir hata sayfası Razor sayfaları uygulaması şablonunu sunar (*.cshtml*) ve <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> sınıfı (`ErrorModel`) sayfalar klasöründe.
-
-Aşağıdaki hata işleyicisi yöntemi bir MVC uygulamasında MVC uygulama şablonuna dahil edilir ve giriş denetleyicisine içinde görünür:
+Bir hata sayfası Razor sayfaları uygulaması şablonunu sunar (*.cshtml*) ve <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> sınıfı (`ErrorModel`) içinde *sayfaları* klasör. Bir MVC uygulaması için proje şablonu, bir hata eylem yöntemi ve bir hata görünümü içerir. Eylem yöntemi aşağıda verilmiştir:
 
 ```csharp
 [AllowAnonymous]
@@ -67,51 +66,41 @@ public IActionResult Error()
 
 HTTP yöntemi öznitelikleriyle hata işleyicisi eylem yöntemi gibi süslemek yoksa `HttpGet`. Açık fiilleri yöntemi bazı istekleri engellenir. Kimliği doğrulanmamış kullanıcılar hata görünümünün alabilirsiniz, böylece yöntemi anonim erişime izin verin.
 
-## <a name="access-the-exception"></a>Erişim özel durumu
+### <a name="access-the-exception"></a>Erişim özel durumu
 
-Kullanım <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> özel durumu veya özgün istek yolu bir denetleyici veya sayfasına erişmek için:
+Kullanım <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> özel durum ve hata işleyicisi denetleyici ya da sayfa özgün istek yolu erişmek için:
 
-* Kullanılabilir yoldur <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature.Path> özelliği.
-* Okuma <xref:System.Exception?displayProperty=fullName> öğesinden devralınan [IExceptionHandlerFeature.Error](xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature.Error) özelliği.
+[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Pages/Error.cshtml.cs?name=snippet_ExceptionHandlerPathFeature&3,7)]
 
-```csharp
-// using Microsoft.AspNetCore.Diagnostics;
+> [!WARNING]
+> Yapmak **değil** önemli hata bilgilerini istemcilere hizmet. Hataları hizmet veren bir güvenlik riski oluşturur.
 
-var exceptionHandlerPathFeature = 
-    HttpContext.Features.Get<IExceptionHandlerPathFeature>();
-var path = exceptionHandlerPathFeature?.Path;
-var error = exceptionHandlerPathFeature?.Error;
-```
+Özel durum işleme sayfasında görmek için [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), kullanın `ProdEnvironment` ve `ErrorHandlerPage` önişlemci yönergeleri ve select **bir özel durum harekete** giriş sayfasında.
+
+## <a name="exception-handler-lambda"></a>Özel durum işleyici lambda
+
+Alternatif bir [özel durum işleyicisi sayfa](#exception-handler-page) lambda sağlamaktır <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*>. Bir lambda kullanarak yanıt döndürmeden önce hata erişim izni verir.
+
+Özel durum işleme için bir lambda kullanma örneği aşağıda verilmiştir:
+
+[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_HandlerPageLambda)]
 
 > [!WARNING]
 > Yapmak **değil** önemli hata bilgileri hizmet <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature> veya <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> istemcilere. Hataları hizmet veren bir güvenlik riski oluşturur.
 
-## <a name="configure-custom-exception-handling-code"></a>Özel durum işleme kodunu yapılandırın
+Özel durum işleme lambda içinde sonucunu görmek için [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), kullanın `ProdEnvironment` ve `ErrorHandlerLambda` önişlemci yönergeleri ve select **bir özel durum harekete** giriş sayfasında.
 
-Hizmet veren bir uç nokta ile hatalar için alternatif bir [özel durum işleme sayfası](#configure-a-custom-exception-handling-page) lambda sağlamaktır <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*>. Bir lambda ile kullanarak <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*> yanıt döndürmeden önce hata erişim sağlar.
+## <a name="usestatuscodepages"></a>UseStatusCodePages
 
-Özel durum işleme kodunu, örnek uygulamayı gösterir `Startup.Configure`. İle bir özel durum harekete **özel durum Throw** bağlantısı dizin sayfası. Aşağıdaki lambda çalıştırır:
+Varsayılan olarak, ASP.NET Core uygulaması durumu kod sayfası için HTTP durum kodları, gibi sağlamaz *404 - Bulunamadı*. Uygulama, durum kodu ve boş yanıt gövdesi döndürür. Kod sayfaları durumu sağlamak için durum kod sayfası ara yazılımını kullanın.
 
-[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_UseExceptionHandler2)]
+Ara yazılım tarafından kullanılabilir hale getirileceğini [Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/) bulunduğu paketini [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).
 
-> [!WARNING]
-> Yapmak **değil** önemli hata bilgileri hizmet <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature> veya <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> istemcilere. Hataları hizmet veren bir güvenlik riski oluşturur.
+Genel hata durum kodları için varsayılan salt metin işleyicileri etkinleştirmek için çağrı <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> içinde `Startup.Configure` yöntemi:
 
-## <a name="configure-status-code-pages"></a>Durum kod sayfaları yapılandırın
+[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePages)]
 
-Varsayılan olarak, ASP.NET Core uygulaması durumu kod sayfası için HTTP durum kodları, gibi sağlamaz *404 - Bulunamadı*. Uygulama, durum kodu ve boş yanıt gövdesi döndürür. Kod sayfaları durumu sağlamak için durum kodu sayfa ara yazılımı kullanın.
-
-Ara yazılım tarafından kullanılabilir hale getirileceğini [Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/) kullanılabilir paketini [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).
-
-### <a name="usestatuscodepages"></a>UseStatusCodePages
-
-Genel hata durum kodları için varsayılan salt metin işleyicileri etkinleştirmek için aşağıdaki kodu ekleyin. `Startup.Configure` yöntemi:
-
-```csharp
-app.UseStatusCodePages();
-```
-
-Çağrı <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> önce ara (örneğin, statik dosya ara yazılımlarını ve MVC ara yazılım) işleme istek yöntemi.
+Çağrı `UseStatusCodePages` istek işleme Ara (örneğin, statik dosya ara yazılımlarını ve MVC ara yazılım) önce.
 
 Varsayılan işleyici tarafından görüntülenen metnin bir örnek aşağıda verilmiştir:
 
@@ -119,53 +108,53 @@ Varsayılan işleyici tarafından görüntülenen metnin bir örnek aşağıda v
 Status Code: 404; Not Found
 ```
 
-Ara yazılım davranışını özelleştirmenizi birkaç genişletme yöntemleri destekler.
+Çeşitli durumu kod sayfası biçimlerinden birini görmek için [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), önişlemci yönergeleri ile başlayan birini kullanın `StatusCodePages`seçip **404 bir tetikleyici** giriş sayfasında.
 
-### <a name="usestatuscodepages-with-lambda"></a>Lambda ile UseStatusCodePages
+## <a name="usestatuscodepages-with-format-string"></a>Biçim dizesi ile UseStatusCodePages
 
-Bir aşırı yüklemesini <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> özel hata işleme mantığı işlemek ve el ile yanıt yazmak için kullanabileceğiniz bir lambda ifadesini alır:
+Yanıt içerik türü ve metin özelleştirmek için aşırı yüklemesini kullanın. <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> , bir içerik türü ve biçim dizesini alır:
 
-[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePages)]
+[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePagesFormatString)]
 
-### <a name="usestatuscodepages-with-format-string"></a>Biçim dizesi ile UseStatusCodePages
+## <a name="usestatuscodepages-with-lambda"></a>Lambda ile UseStatusCodePages
 
-Bir aşırı yüklemesini <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> içerik türü ve yanıt metni özelleştirmek için kullanabileceğiniz bir içerik türü ve biçim dizesini alır:
+Özel hata işleme ve yazma yanıtını belirtmek için kod, aşırı yüklemesini kullanın <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> , bir lambda ifadesini alır:
 
-```csharp
-app.UseStatusCodePages("text/plain", "Status code page, status code: {0}");
-```
+[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePagesLambda)]
 
-### <a name="usestatuscodepageswithredirects"></a>UseStatusCodePagesWithRedirects
+## <a name="usestatuscodepageswithredirect"></a>UseStatusCodePagesWithRedirect
 
-<xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePagesWithRedirects*>:
+<xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePagesWithRedirects*> Genişletme yöntemi:
 
 * Gönderen bir *302 bulundu -* istemciye durum kodu.
 * İstemci URL'si şablonda verilen konuma yönlendirir.
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePagesWithRedirect)]
 
-<xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePagesWithRedirects*> yaygın olarak kullanıldığında uygulama:
+URL şablonu içerebilir bir `{0}` için durum kodunu, örnekte gösterildiği gibi yer tutucu. URL şablonu bir tilde (~) ile başlıyorsa tilde uygulamanın tarafından değiştirilir `PathBase`. Uygulamadaki bir uç noktaya işaret ederseniz, bir MVC görünümü ya da uç noktası için Razor sayfası oluşturun. Razor sayfaları örnek için bkz: [StatusCode.cshtml](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples/2.x/Pages/StatusCode.cshtml) içinde [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples).
+
+Bu yaygın bir yöntemdir kullanılabilir uygulama:
 
 * Genellikle, farklı bir uygulama hatası burada işler durumlarda farklı bir uç noktası için istemci yönlendirmelidir. Web apps için yeniden yönlendirilen uç nokta istemcinin tarayıcınızın adres çubuğuna yansıtır.
 * Olmamalıdır korumak ve özgün ilk yönlendirme yanıt durum koduyla döndürür.
 
-### <a name="usestatuscodepageswithreexecute"></a>UseStatusCodePagesWithReExecute
+## <a name="usestatuscodepageswithreexecute"></a>UseStatusCodePagesWithReExecute
 
-<xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePagesWithReExecute*>:
+<xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePagesWithReExecute*> Genişletme yöntemi:
 
 * Özgün durum kodunu istemciye döndürür.
 * Yanıt gövdesi, alternatif bir yol kullanarak istek ardışık düzenini yeniden yürüterek oluşturur.
 
-```csharp
-app.UseStatusCodePagesWithReExecute("/Error/{0}");
-```
+[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePagesWithReExecute)]
 
-<xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePagesWithReExecute*> Uygulama sırasında yaygın olarak kullanılır:
+Uygulamadaki bir uç noktaya işaret ederseniz, bir MVC görünümü ya da uç noktası için Razor sayfası oluşturun. Razor sayfaları örnek için bkz: [StatusCode.cshtml](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples/2.x/Pages/StatusCode.cshtml) içinde [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples).
+
+Bu yöntem, uygulamayı gerektiğinde yaygın olarak kullanılır:
 
 * İstek farklı bir uç noktasına yönlendirme olmadan işlem. Web apps için başlangıçta istenen uç noktası istemcinin tarayıcınızın adres çubuğuna yansıtır.
 * Korumak ve özgün durum koduyla bir yanıt döndürür.
 
-Şablonları, bir yer tutucu içerebilir (`{0}`) durum kodu. Şablonu bir eğik çizgi ile başlamalıdır (`/`). Bir yer tutucu kullanırken, uç noktayı (sayfa veya denetleyicisi) yol kesimi işleyebilir onaylayın. Örneğin, hatalar için bir Razor sayfası ile isteğe bağlı yol kesimi değerini kabul etmelidir `@page` yönergesi:
+URL ve sorgu dize şablonları, bir yer tutucu içerebilir (`{0}`) durum kodu. URL şablonu bir eğik çizgiyle başlamalıdır (`/`). Bir yer tutucu yolunda kullanırken, uç noktayı (sayfa veya denetleyicisi) yol kesimi işleyebilir onaylayın. Örneğin, hatalar için bir Razor sayfası ile isteğe bağlı yol kesimi değerini kabul etmelidir `@page` yönergesi:
 
 ```cshtml
 @page "{code?}"
@@ -173,16 +162,11 @@ app.UseStatusCodePagesWithReExecute("/Error/{0}");
 
 Hata işleme uç noktasını, aşağıdaki örnekte gösterildiği gibi hatayı oluşturan özgün URL'yi alabilirsiniz:
 
-```csharp
-var statusCodeReExecuteFeature = HttpContext.Features.Get<IStatusCodeReExecuteFeature>();
-var originalPathBase = statusCodeReExecuteFeature?.OriginalPathBase;
-var originalPath = statusCodeReExecuteFeature?.OriginalPath;
-var originalQueryString = statusCodeReExecuteFeature?.OriginalQueryString;
-```
+[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Pages/StatusCode.cshtml.cs?name=snippet_StatusCodeReExecute)]
 
-### <a name="disable-status-code-pages"></a>Durum kod sayfaları devre dışı bırak
+## <a name="disable-status-code-pages"></a>Durum kod sayfaları devre dışı bırak
 
-Durum kod sayfaları için Razor sayfaları işleyicisi yöntemi veya MVC denetleyicisi belirli isteklere devre dışı bırakılabilir. Durum kod sayfaları devre dışı bırakmak için alma denemesi <xref:Microsoft.AspNetCore.Diagnostics.IStatusCodePagesFeature> gelen isteğin [HttpContext.Features](xref:Microsoft.AspNetCore.Http.HttpContext.Features) toplama ve varsa bu özelliği devre dışı bırak:
+Durum kod sayfaları için Razor sayfaları işleyicisi yöntemi veya MVC denetleyicisi belirli isteklere devre dışı bırakılabilir. Durum kod sayfaları devre dışı bırakmak için <xref:Microsoft.AspNetCore.Diagnostics.IStatusCodePagesFeature>:
 
 ```csharp
 var statusCodePagesFeature = HttpContext.Features.Get<IStatusCodePagesFeature>();
@@ -193,159 +177,54 @@ if (statusCodePagesFeature != null)
 }
 ```
 
-### <a name="status-code-page-endpoints"></a>Durum kodu sayfasında uç noktaları
-
-Kullanılacak bir <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> noktaları bir uç noktaya uygulama içinde oluşturduğunuz bir MVC görünümü ya da bir Razor sayfası uç nokta için aşırı yükleme. Razor sayfaları uygulama şablonu, örneğin, aşağıdaki sayfasını ve sayfa modeli sınıfı üretir:
-
-*Error.cshtml*:
-
-::: moniker range=">= aspnetcore-2.2"
-
-```cshtml
-@page
-@model ErrorModel
-@{
-    ViewData["Title"] = "Error";
-}
-
-<h1 class="text-danger">Error.</h1>
-<h2 class="text-danger">An error occurred while processing your request.</h2>
-
-@if (Model.ShowRequestId)
-{
-    <p>
-        <strong>Request ID:</strong> <code>@Model.RequestId</code>
-    </p>
-}
-
-<h3>Development Mode</h3>
-<p>
-    Swapping to the <strong>Development</strong> environment displays 
-    detailed information about the error that occurred.
-</p>
-<p>
-    <strong>The Development environment shouldn't be enabled for deployed 
-    applications.</strong> It can result in displaying sensitive information 
-    from exceptions to end users. For local debugging, enable the 
-    <strong>Development</strong> environment by setting the 
-    <strong>ASPNETCORE_ENVIRONMENT</strong> environment variable to 
-    <strong>Development</strong> and restarting the app.
-</p>
-```
-
-*Error.cshtml.cs*:
-
-```csharp
-[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-public class ErrorModel : PageModel
-{
-    public string RequestId { get; set; }
-
-    public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
-
-    public void OnGet()
-    {
-        RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
-    }
-}
-```
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.2"
-
-```cshtml
-@page
-@model ErrorModel
-@{
-    ViewData["Title"] = "Error";
-}
-
-<h1 class="text-danger">Error.</h1>
-<h2 class="text-danger">An error occurred while processing your request.</h2>
-
-@if (Model.ShowRequestId)
-{
-    <p>
-        <strong>Request ID:</strong> <code>@Model.RequestId</code>
-    </p>
-}
-
-<h3>Development Mode</h3>
-<p>
-    Swapping to <strong>Development</strong> environment will display more detailed 
-    information about the error that occurred.
-</p>
-<p>
-    <strong>Development environment should not be enabled in deployed applications
-    </strong>, as it can result in sensitive information from exceptions being 
-    displayed to end users. For local debugging, development environment can be 
-    enabled by setting the <strong>ASPNETCORE_ENVIRONMENT</strong> environment 
-    variable to <strong>Development</strong>, and restarting the application.
-</p>
-```
-
-*Error.cshtml.cs*:
-
-```csharp
-public class ErrorModel : PageModel
-{
-    public string RequestId { get; set; }
-
-    public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
-
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, 
-        NoStore = true)]
-    public void OnGet()
-    {
-        RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
-    }
-}
-```
-
-::: moniker-end
-
 ## <a name="exception-handling-code"></a>Özel durum işleme kodu
 
 Özel durum işleme sayfaları kodda özel durumlar. Genellikle, tamamen statik içeriği oluşmalıdır üretim hata sayfaları için iyi bir fikir olduğunu.
 
-Ayrıca, dikkat edin, yanıt üst bilgileri gönderdikten sonra:
+### <a name="response-headers"></a>Yanıt Üstbilgileri
+
+Yanıt Üstbilgileri gönderdikten sonra:
 
 * Uygulama, yanıtın durum kodu değiştiremezsiniz.
 * Herhangi bir özel durum sayfaları veya işleyicileri çalıştıramazsınız. Yanıt tamamlanması gereken veya bağlantı kesildi.
 
 ## <a name="server-exception-handling"></a>Sunucu özel durum işleme
 
-Özel durum işleme mantığı, uygulamanıza ek olarak [sunucusu uygulaması](xref:fundamentals/servers/index) bazı özel durumları işleyebilir. Yanıt üst bilgileri gönderilmeden önce sunucunun bir özel durumu yakalar, sunucunun gönderdiği bir *500 - İç sunucu hatası* yanıt gövdesi olmadan yanıt. Yanıt üstbilgileri gönderildikten sonra sunucu bir özel durumu yakalar, sunucu bağlantıyı kapatır. Uygulamanız tarafından işlenmeyen isteği sunucu tarafından işlenir. Sunucu isteği işlerken oluşan özel sunucu özel durum tarafından işlenir işleme. Uygulamanın özel hata sayfaları, özel durum işleme ara yazılım ve filtreler bu davranışı etkilemez.
+Özel durum işleme mantığı, uygulamanıza ek olarak [HTTP sunucusu uygulamasını](xref:fundamentals/servers/index) bazı özel durumları işleyebilir. Yanıt üst bilgileri gönderilmeden önce sunucunun bir özel durumu yakalar, sunucunun gönderdiği bir *500 - İç sunucu hatası* yanıt gövdesi olmadan yanıt. Yanıt üstbilgileri gönderildikten sonra sunucu bir özel durumu yakalar, sunucu bağlantıyı kapatır. Uygulamanız tarafından işlenmeyen isteği sunucu tarafından işlenir. Sunucu isteği işlerken oluşan özel sunucu özel durum tarafından işlenir işleme. Uygulamanın özel hata sayfaları, özel durum işleme ara yazılım ve filtreler bu davranışı etkilemez.
 
 ## <a name="startup-exception-handling"></a>Başlangıç özel durum işleme
 
-Yalnızca barındırma katmanı, uygulama başlatma sırasında gerçekleşmesi özel durumları işleyebilir. Kullanarak [Web ana bilgisayarı](xref:fundamentals/host/web-host), yapabilecekleriniz [nasıl konak hatalara yanıt başlatma sırasında davranacağını yapılandırmak](xref:fundamentals/host/web-host#detailed-errors) ile `captureStartupErrors` ve `detailedErrors` anahtarları.
+Yalnızca barındırma katmanı, uygulama başlatma sırasında gerçekleşmesi özel durumları işleyebilir. Konak için yapılandırılabilir [yakalama başlatma hataları](xref:fundamentals/host/web-host#capture-startup-errors) ve [ayrıntılı hataları yakalamaya](xref:fundamentals/host/web-host#detailed-errors).
 
-Ana bilgisayar adresi/bağlantı noktası sonra bağlama bir hata oluşursa bir hata sayfası için yakalanan başlatma hatası barındırma yalnızca gösterebilirsiniz. Bağlama için herhangi bir nedenle başarısız olursa:
+Ana bilgisayar adresi/bağlantı noktası sonra bağlama yalnızca hata oluşursa bir hata sayfası için yakalanan başlatma hatası barındırma katman gösterebilirsiniz. Bağlama başarısız olursa:
 
 * Barındırma katman kritik bir özel durumu günlüğe kaydeder.
 * Dotnet işlem kilitleniyor.
-* Uygulama çalışırken, hiçbir hata sayfası görüntülenir [Kestrel](xref:fundamentals/servers/kestrel) sunucusu.
+* HTTP sunucusu olduğunda hiçbir hata sayfası görüntülenir [Kestrel](xref:fundamentals/servers/kestrel).
 
 Çalışırken [IIS](/iis) veya [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview), *502.5 - işlem hatası* tarafından döndürülen [ASP.NET Core Modülü](xref:host-and-deploy/aspnet-core-module) işlemi başlatılamazsa . Daha fazla bilgi için bkz. <xref:host-and-deploy/iis/troubleshoot>. Azure App Service ile başlatma sorunlarını giderme hakkında daha fazla bilgi için bkz: <xref:host-and-deploy/azure-apps/troubleshoot>.
 
-## <a name="aspnet-core-mvc-error-handling"></a>ASP.NET Core MVC hata işleme
+## <a name="database-error-page"></a>Veritabanı hata sayfası
 
-[MVC](xref:mvc/overview) uygulamalara sahip özel durum filtreleri yapılandırma ve model doğrulama gerçekleştirme gibi hataları işlemek için bazı ek seçenekler.
+[Veritabanı hata sayfası](<xref:Microsoft.AspNetCore.Builder.DatabaseErrorPageExtensions.UseDatabaseErrorPage*>) ara yazılım, Entity Framework geçişleri kullanarak çözülebilir, veritabanı ile ilgili özel durumları yakalar. Bu özel durumlar oluştuğunda, bu sorunu çözmek için olası Eylemler ilgili ayrıntıları içeren bir HTML yanıtını oluşturulur. Bu sayfa yalnızca geliştirme ortamında etkinleştirilmesi gerekir. Kod ekleyerek sayfası etkinleştirme `Startup.Configure`:
 
-### <a name="exception-filters"></a>Özel durum filtreleri
+```csharp
+if (env.IsDevelopment())
+{
+    app.UseDatabaseErrorPage();
+}
+```
 
-Özel durum filtreleri, genel olarak veya bir MVC uygulamasında her denetleyici veya eylem başına temelinde yapılandırılabilir. Bu filtreler bir denetleyici eylemi veya başka bir filtre yürütülmesi sırasında oluşan tüm işlenmeyen bir özel durumu işle. Bu filtreler, aksi takdirde çağrılır değil. Daha fazla bilgi için bkz. <xref:mvc/controllers/filters#exception-filters>.
+## <a name="exception-filters"></a>Özel durum filtreleri
+
+MVC uygulamalarında özel durum filtreleri genel olarak veya her denetleyici veya eylem başına temelinde yapılandırılabilir. Razor sayfaları uygulamalar, bunlar genel olarak veya sayfa modeli başına yapılandırılabilir. Bu filtreler bir denetleyici eylemi veya başka bir filtre yürütülmesi sırasında oluşan tüm işlenmeyen bir özel durumu işle. Daha fazla bilgi için bkz. <xref:mvc/controllers/filters#exception-filters>.
 
 > [!TIP]
-> Özel durum filtreleri, MVC Eylemler içinde oluşan özel durumları yakalama için yararlıdır, ancak bunlar özel durum işleme ara yazılımı kadar esnek değildir. Ara yazılım kullanmanızı öneririz. Hata işleme gerçekleştirmek için yalnızca gerek duyduğunuz filtrelerini kullanma *farklı* göre MVC eylemi seçilir.
+> Özel durum filtreleri, MVC Eylemler içinde oluşan özel durumları yakalama için yararlıdır, ancak bunlar özel durum işleme ara yazılımı kadar esnek değildir. Ara yazılım kullanmanızı öneririz. MVC eylemi seçilen farklı tabanlı hata işleme gerçekleştirmek için yalnızca gerek duyduğunuz filtreleri kullanın.
 
-### <a name="handle-model-state-errors"></a>Model durumu hataları işleme
+## <a name="model-state-errors"></a>Model durumu hataları
 
-[Model doğrulama](xref:mvc/models/validation) her denetleyici eylemi çağırma öncesinde gerçekleşir ve incelemek için eylem yönteminin sorumluluğu olan [ModelState.IsValid](xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary.IsValid) ve uygun şekilde tepki verin.
-
-Başa çıkmak için standart bir kural izlemek bazı uygulamalar seçin [model doğrulama](xref:mvc/models/validation) durumda hataları bir [filtre](xref:mvc/controllers/filters) böyle bir ilke uygulamak için uygun bir yere olabilir. Eylemlerinizi ile geçersiz model durumlarının nasıl davranacağını test etmeniz gerekir. Daha fazla bilgi için bkz. <xref:mvc/controllers/testing>.
+Model durumu hatalarının nasıl işleneceğini hakkında daha fazla bilgi için bkz. [Model bağlama](xref:mvc/models/model-binding) ve [Model doğrulama](xref:mvc/models/validation).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

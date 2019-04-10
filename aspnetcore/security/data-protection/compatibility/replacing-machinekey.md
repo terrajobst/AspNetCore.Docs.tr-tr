@@ -5,12 +5,12 @@ description: Yeni ve daha güvenli veri koruma sisteminde kullanımına olanak t
 ms.author: riande
 ms.date: 04/06/2019
 uid: security/data-protection/compatibility/replacing-machinekey
-ms.openlocfilehash: ff36382d22a218a228b42a31ae4f8ad2eb2d5b5f
-ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
+ms.openlocfilehash: 2317cb50cfe63226baf336ebfc5d681d1cebe5c6
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59068290"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468572"
 ---
 # <a name="replace-the-aspnet-machinekey-in-aspnet-core"></a>ASP.NET core'da ASP.NET machineKey değiştirin
 
@@ -35,7 +35,7 @@ Paket yükleme sırasında bir satıra ekler. *Web.config* ASP.NET için kullan�
 > Yeni veri koruma sisteminde gibi alanlarını inceleyerek etkin olup olmadığını söyleyebilir `__VIEWSTATE`, aşağıdaki örnekte olduğu gibi "CfDJ8" ile başlatılması. "CfDJ8" Sihirli "09 F0 C9 F0" üstbilgisinin veri koruma sistemi tarafından korunan bir yükü tanımlayan base64 gösterimidir.
 
 ```html
-<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="CfDJ8AWPr2EQPTBGs3L2GCZOpk..." />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="CfDJ8AWPr2EQPTBGs3L2GCZOpk...">
 ```
 
 ## <a name="package-configuration"></a>Paketi yapılandırması

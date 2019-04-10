@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/28/2019
 uid: host-and-deploy/razor-components-blazor/blazor
-ms.openlocfilehash: bffdad8816e3d9cfb849d0710e2b370af13b4d15
-ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
+ms.openlocfilehash: 1bf929ed37713f62511447524c8c47be6177f4c9
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59069782"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468769"
 ---
 # <a name="host-and-deploy-blazor"></a>Barındırma ve Blazor dağıtma
 
@@ -51,7 +51,7 @@ Kullanan uygulamalar Blazor [istemci-tarafı barındırma modeli](xref:razor-com
 `--pathbase` Bağımsız değişken ayarlar kök olmayan sanal yol ile yerel olarak çalıştırmak için bir uygulama için uygulama temel yolu ( `<base>` etiketi `href` yolu dışında ayarlı `/` hazırlama ve üretim için). Aşağıdaki örneklerde, `/virtual-path` uygulamanın temel yoludur. Daha fazla bilgi için [uygulama temel yolu](#app-base-path) bölümü.
 
 > [!IMPORTANT]
-> Sağlanan yol aksine `href` , `<base>` etiketinde, sonunda bir eğik çizgi eklemeyin (`/`) geçerken `--pathbase` bağımsız değişken değeri. Uygulama temel yolu sağlanmazsa `<base>` olarak etiketleyin `<base href="/CoolApp/" />` (sonunda eğik çizgi içerir), komut satırı bağımsız değişkeni değer olarak geçirmeniz `--pathbase=/CoolApp` (Bitiş eğik).
+> Sağlanan yol aksine `href` , `<base>` etiketinde, sonunda bir eğik çizgi eklemeyin (`/`) geçerken `--pathbase` bağımsız değişken değeri. Uygulama temel yolu sağlanmazsa `<base>` olarak etiketleyin `<base href="/CoolApp/">` (sonunda eğik çizgi içerir), komut satırı bağımsız değişkeni değer olarak geçirmeniz `--pathbase=/CoolApp` (Bitiş eğik).
 
 * Bağımsız değişken, uygulamayı bir komut isteminde yerel olarak çalıştırılırken geçirin. Uygulamanın dizinden yürütün:
 
@@ -130,9 +130,9 @@ Tarayıcılar istemci-tarafı sayfaları için Internet tabanlı konakların ist
 
 *Uygulama temel yolu* sunucusundaki sanal uygulama kök yolu. Örneğin, Contoso sunucusunda bir sanal klasöründeki bulunan uygulama `/CoolApp/` en üst sınırına `https://www.contoso.com/CoolApp` ve sanal bir temel yolu `/CoolApp/`. Uygulama temel yolu ayarlayarak `CoolApp/`, uygulamayı kullanan sanal sunucu üzerinde bulunduğu yapılır. Uygulama, uygulama temel yolu kök dizininde değil bir bileşeni uygulama köküne URL'lerini oluşturmak için kullanabilirsiniz. Bu uygulamada konumlarda diğer kaynakların bağlantılarını oluşturmak için dizin yapısının farklı düzeylerde mevcut bileşenleri sağlar. Uygulama temel yolu da ele alınması için kullanılan köprüyü tıklattığında nerede `href` bağlantının hedefi olan uygulama temel yolu URI alanı içinde&mdash;iç Gezinti Blazor yönlendirici işler.
 
-Birçok barındırma senaryolarında sunucu uygulamasının sanal yolu uygulamayı köküdür. Bu gibi durumlarda, uygulama temel yolu bir eğik çizgi olan (`<base href="/" />`), bir uygulama için varsayılan yapılandırma olduğu. GitHub sayfaları ve IIS sanal dizinler veya alt uygulamalar gibi diğer barındırma senaryolarında, uygulama temel yolu sunucu uygulamasının sanal yolu için ayarlanması gerekir. Uygulamanın temel yolunu ayarlamak için ekleme veya güncelleştirme `<base>` içindeki *index.html* içinde bulunan `<head>` öğeleri etiketleyin. Ayarlayın `href` öznitelik değerine `virtual-path/` (sonunda eğik çizgi gereklidir), burada `virtual-path/` uygulama için sunucuda tam sanal uygulama kök yolu. Önceki örnekte, sanal yol kümesi `CoolApp/`: `<base href="CoolApp/" />`.
+Birçok barındırma senaryolarında sunucu uygulamasının sanal yolu uygulamayı köküdür. Bu gibi durumlarda, uygulama temel yolu bir eğik çizgi olan (`<base href="/" />`), bir uygulama için varsayılan yapılandırma olduğu. GitHub sayfaları ve IIS sanal dizinler veya alt uygulamalar gibi diğer barındırma senaryolarında, uygulama temel yolu sunucu uygulamasının sanal yolu için ayarlanması gerekir. Uygulamanın temel yolunu ayarlamak için ekleme veya güncelleştirme `<base>` içindeki *index.html* içinde bulunan `<head>` öğeleri etiketleyin. Ayarlayın `href` öznitelik değerine `virtual-path/` (sonunda eğik çizgi gereklidir), burada `virtual-path/` uygulama için sunucuda tam sanal uygulama kök yolu. Önceki örnekte, sanal yol kümesi `CoolApp/`: `<base href="CoolApp/">`.
 
-Yapılandırılmış bir kök olmayan sanal yol ile bir uygulama için (örneğin, `<base href="CoolApp/" />`), kaynaklarını bulmak uygulamanın başarısız *yerel olarak çalıştırdığınızda*. Yerel geliştirme ve test sırasında bu sorunu çözmek için size sağlayabilir bir *yolu tabanı* eşleşen bağımsız değişken `href` değerini `<base>` zamanında etiketi.
+Yapılandırılmış bir kök olmayan sanal yol ile bir uygulama için (örneğin, `<base href="CoolApp/">`), kaynaklarını bulmak uygulamanın başarısız *yerel olarak çalıştırdığınızda*. Yerel geliştirme ve test sırasında bu sorunu çözmek için size sağlayabilir bir *yolu tabanı* eşleşen bağımsız değişken `href` değerini `<base>` zamanında etiketi.
 
 Yol, kök yolu ile temel bağımsız değişken geçmek için (`/`) uygulamayı yerel olarak çalıştırırken, uygulamanın dizininden aşağıdaki komutu yürütün:
 

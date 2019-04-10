@@ -5,14 +5,14 @@ description: Formlar ve alan doğrulama senaryoları Razor bileşenlerde kullanm
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/01/2019
+ms.date: 04/08/2019
 uid: razor-components/forms-validation
-ms.openlocfilehash: b80b553a224ff439865d0e3554746d1788f9dfcb
-ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
+ms.openlocfilehash: a4ed75efc6b5a733ce4ff4e82f354a8e2fd48500
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59069767"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468520"
 ---
 # <a name="razor-components-forms-and-validation"></a>Razor bileşenleri formlar ve doğrulama
 
@@ -51,7 +51,7 @@ Bir form kullanılarak tanımlanan `<EditForm>` bileşeni. Aşağıdaki formu ti
 @functions {
     private ExampleModel exampleModel = new ExampleModel();
 
-    void HandleValidSubmit()
+    private void HandleValidSubmit()
     {
         Console.WriteLine("OnValidSubmit");
     }
@@ -164,7 +164,7 @@ Aşağıdaki formu içinde tanımlanan doğrulama kullanan kullanıcı girişi d
 @functions {
     private Starship starship = new Starship();
 
-    void HandleValidSubmit()
+    private void HandleValidSubmit()
     {
         Console.WriteLine("OnValidSubmit");
     }

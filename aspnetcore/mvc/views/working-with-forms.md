@@ -4,14 +4,14 @@ author: rick-anderson
 description: Formlarda etiket yardımcılarını kullanılan yerleşik açıklar.
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/27/2019
+ms.date: 04/06/2019
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: 2d5168ed4b1e14e507262361de9fa959924b82f6
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 6eff3bf03e650e154b5c767c9bcdd915e7db8b47
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209563"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468808"
 ---
 # <a name="tag-helpers-in-forms-in-aspnet-core"></a>ASP.NET Core formlarda etiket Yardımcıları
 
@@ -44,7 +44,7 @@ Yukarıdaki Form etiketi Yardımcısı aşağıdaki HTML'yi oluşturur:
 ```HTML
 <form method="post" action="/Demo/Register">
     <!-- Input and Submit elements -->
-    <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>" />
+    <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>">
 </form>
 ```
 
@@ -93,7 +93,7 @@ Aşağıdaki biçimlendirme için formu gönderdiği `Index` eylemi `HomeControl
 <form method="post">
     <button asp-controller="Home" asp-action="Index">Click Me</button>
     <input type="image" src="..." alt="Or Click Me" asp-controller="Home" 
-                                asp-action="Index" />
+                                asp-action="Index">
 </form>
 ```
 
@@ -102,7 +102,7 @@ Aşağıdaki HTML önceki biçimlendirme oluşturur:
 ```html
 <form method="post">
     <button formaction="/Home">Click Me</button>
-    <input type="image" src="..." alt="Or Click Me" formaction="/Home" />
+    <input type="image" src="..." alt="Or Click Me" formaction="/Home">
 </form>
 ```
 
@@ -113,7 +113,7 @@ Aşağıdaki biçimlendirme için formu gönderdiği `About` Razor sayfası:
 ```cshtml
 <form method="post">
     <button asp-page="About">Click Me</button>
-    <input type="image" src="..." alt="Or Click Me" asp-page="About" />
+    <input type="image" src="..." alt="Or Click Me" asp-page="About">
 </form>
 ```
 
@@ -122,7 +122,7 @@ Aşağıdaki HTML önceki biçimlendirme oluşturur:
 ```html
 <form method="post">
     <button formaction="/About">Click Me</button>
-    <input type="image" src="..." alt="Or Click Me" formaction="/About" />
+    <input type="image" src="..." alt="Or Click Me" formaction="/About">
 </form>
 ```
 
@@ -146,7 +146,7 @@ Aşağıdaki biçimlendirme için formu gönderdiği `/Home/Test` uç noktası.
 ```cshtml
 <form method="post">
     <button asp-route="Custom">Click Me</button>
-    <input type="image" src="..." alt="Or Click Me" asp-route="Custom" />
+    <input type="image" src="..." alt="Or Click Me" asp-route="Custom">
 </form>
 ```
 
@@ -155,7 +155,7 @@ Aşağıdaki HTML önceki biçimlendirme oluşturur:
 ```html
 <form method="post">
     <button formaction="/Home/Test">Click Me</button>
-    <input type="image" src="..." alt="Or Click Me" formaction="/Home/Test" />
+    <input type="image" src="..." alt="Or Click Me" formaction="/Home/Test">
 </form>
 ```
 
@@ -166,7 +166,7 @@ Bir HTML giriş etiketi Yardımcısı bağlar [ \<Giriş >](https://www.w3.org/w
 Sözdizimi:
 
 ```HTML
-<input asp-for="<Expression Name>" />
+<input asp-for="<Expression Name>">
 ```
 
 Giriş etiketi Yardımcısı:
@@ -227,17 +227,17 @@ Yukarıdaki kod, aşağıdaki HTML'yi oluşturur:
 
 ```HTML
   <form method="post" action="/Demo/RegisterInput">
-       Email:
-       <input type="email" data-val="true"
-              data-val-email="The Email Address field is not a valid email address."
-              data-val-required="The Email Address field is required."
-              id="Email" name="Email" value="" /> <br>
-       Password:
-       <input type="password" data-val="true"
-              data-val-required="The Password field is required."
-              id="Password" name="Password" /><br>
-       <button type="submit">Register</button>
-     <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>" />
+      Email:
+      <input type="email" data-val="true"
+             data-val-email="The Email Address field is not a valid email address."
+             data-val-required="The Email Address field is required."
+             id="Email" name="Email" value=""><br>
+      Password:
+      <input type="password" data-val="true"
+             data-val-required="The Password field is required."
+             id="Password" name="Password"><br>
+      <button type="submit">Register</button>
+      <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>">
    </form>
 ```
 
@@ -264,18 +264,18 @@ Uygulanan veri ek açıklamaları `Email` ve `Password` özellikleri model meta 
 @{
        var joe = "Joe";
    }
-   <input asp-for="@joe" />
+   <input asp-for="@joe">
 ```
 
 Aşağıdakileri oluşturur:
 
 ```HTML
-<input type="text" id="joe" name="joe" value="Joe" />
+<input type="text" id="joe" name="joe" value="Joe">
 ```
 
 Koleksiyon Özellikleri ile `asp-for="CollectionProperty[23].Member"` aynı adı taşıyan oluşturur `asp-for="CollectionProperty[i].Member"` olduğunda `i` değerine sahip `23`.
 
-Zaman değerini hesaplar ASP.NET Core MVC `ModelExpression`, dahil, çeşitli kaynaklardan inceler `ModelState`. Göz önünde bulundurun `<input type="text" asp-for="@Name" />`. Hesaplanan `value` özniteliktir boş olmayan ilk değeri:
+Zaman değerini hesaplar ASP.NET Core MVC `ModelExpression`, dahil, çeşitli kaynaklardan inceler `ModelState`. Göz önünde bulundurun `<input type="text" asp-for="@Name">`. Hesaplanan `value` özniteliktir boş olmayan ilk değeri:
 
 * `ModelState` "Name" anahtarla girişi.
 * İfadenin sonucu `Model.Name`.
@@ -295,7 +295,7 @@ Görünümü'nde, biz bağlamak `Address.AddressLine1`:
 Aşağıdaki HTML'yi için oluşturulan `Address.AddressLine1`:
 
 ```HTML
-<input type="text" id="Address_AddressLine1" name="Address.AddressLine1" value="" />
+<input type="text" id="Address_AddressLine1" name="Address.AddressLine1" value="">
 ```
 
 ### <a name="expression-names-and-collections"></a>İfade adlarının ve koleksiyonları
@@ -369,7 +369,7 @@ Aşağıdaki HTML'yi oluşturulur:
    id="Description" name="Description">
   </textarea>
   <button type="submit">Test</button>
-  <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>" />
+  <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>">
 </form>
 ```
 
@@ -453,7 +453,7 @@ MVC (örneğin, sahip olduğunuz özel sunucu tarafı doğrulama veya istemci ta
 |--- |--- |
 |ValidationSummary.All|Özellik ve model düzeyi|
 |ValidationSummary.ModelOnly|Model|
-|ValidationSummary.None|Hiçbiri|
+|ValidationSummary.None|Yok.|
 
 ### <a name="sample"></a>Örnek
 
@@ -472,7 +472,7 @@ Oluşturulan HTML (model geçerli olduğunda):
   Email:  <input name="Email" id="Email" type="email" value=""
    data-val-required="The Email field is required."
    data-val-email="The Email field is not a valid email address."
-   data-val="true"> <br>
+   data-val="true"><br>
   <span class="field-validation-valid" data-valmsg-replace="true"
    data-valmsg-for="Email"></span><br>
   Password: <input name="Password" id="Password" type="password"
@@ -480,7 +480,7 @@ Oluşturulan HTML (model geçerli olduğunda):
   <span class="field-validation-valid" data-valmsg-replace="true"
    data-valmsg-for="Password"></span><br>
   <button type="submit">Register</button>
-  <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>" />
+  <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>">
 </form>
 ```
 
@@ -520,7 +520,7 @@ Hangi ("CA" Seçili ile) aşağıdaki HTML'yi oluşturur:
        <option value="US">USA</option>
      </select>
        <br /><button type="submit">Register</button>
-     <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>" />
+     <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>">
    </form>
 ```
 
@@ -563,7 +563,7 @@ Aşağıdaki HTML'yi oluşturulur:
              <option selected="selected" value="5">Spain</option>
          </select>
          <br /><button type="submit">Register</button>
-         <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>" />
+         <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>">
     </form>
 ```
 
@@ -596,7 +596,7 @@ Oluşturulan HTML:
           </optgroup>
       </select>
       <br /><button type="submit">Register</button>
-      <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>" />
+      <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>">
  </form>
 ```
 
@@ -624,7 +624,7 @@ Aşağıdaki HTML'yi oluşturur:
 <option value="DE">Germany</option>
 </select>
     <br /><button type="submit">Register</button>
-  <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>" />
+  <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>">
 </form>
 ```
 
@@ -655,7 +655,7 @@ Doğru `<option>` öğe seçilir (içeren `selected="selected"` özniteliği) ge
           <option value="US">USA</option>
       </select>
       <br /><button type="submit">Register</button>
-   <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>" />
+   <input name="__RequestVerificationToken" type="hidden" value="<removed for brevity>">
  </form>
  ```
 
