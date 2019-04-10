@@ -5,56 +5,55 @@ description: ASP.NET Core uygulamaları hataları işlemek nasıl keşfedin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 03/05/2019
+ms.date: 04/07/2019
 uid: fundamentals/error-handling
-ms.openlocfilehash: ae0b80baed814cd4c7c1dddce2f26a6facfdbaad
-ms.sourcegitcommit: 1a7000630e55da90da19b284e1b2f2f13a393d74
+ms.openlocfilehash: cbb9462a3c6010e074dc391aa128ac2cbb901456
+ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59012714"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59468756"
 ---
-# <a name="handle-errors-in-aspnet-core"></a><span data-ttu-id="14609-103">ASP.NET core'da hatalarını işleme</span><span class="sxs-lookup"><span data-stu-id="14609-103">Handle errors in ASP.NET Core</span></span>
+# <a name="handle-errors-in-aspnet-core"></a><span data-ttu-id="581bc-103">ASP.NET core'da hatalarını işleme</span><span class="sxs-lookup"><span data-stu-id="581bc-103">Handle errors in ASP.NET Core</span></span>
 
-<span data-ttu-id="14609-104">Tarafından [Tom Dykstra](https://github.com/tdykstra/), [Luke Latham](https://github.com/guardrex), ve [Steve Smith](https://ardalis.com/)</span><span class="sxs-lookup"><span data-stu-id="14609-104">By [Tom Dykstra](https://github.com/tdykstra/), [Luke Latham](https://github.com/guardrex), and [Steve Smith](https://ardalis.com/)</span></span>
+<span data-ttu-id="581bc-104">Tarafından [Tom Dykstra](https://github.com/tdykstra/), [Luke Latham](https://github.com/guardrex), ve [Steve Smith](https://ardalis.com/)</span><span class="sxs-lookup"><span data-stu-id="581bc-104">By [Tom Dykstra](https://github.com/tdykstra/), [Luke Latham](https://github.com/guardrex), and [Steve Smith](https://ardalis.com/)</span></span>
 
-<span data-ttu-id="14609-105">Bu makalede, ASP.NET Core uygulamalarında hata işleme için ortak bir yaklaşım ele alınmaktadır.</span><span class="sxs-lookup"><span data-stu-id="14609-105">This article covers common approaches to handling errors in ASP.NET Core apps.</span></span>
+<span data-ttu-id="581bc-105">Bu makalede, ASP.NET Core uygulamalarında hata işleme için ortak bir yaklaşım ele alınmaktadır.</span><span class="sxs-lookup"><span data-stu-id="581bc-105">This article covers common approaches to handling errors in ASP.NET Core apps.</span></span>
 
-<span data-ttu-id="14609-106">[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples/2.x) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))</span><span class="sxs-lookup"><span data-stu-id="14609-106">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples/2.x) ([how to download](xref:index#how-to-download-a-sample))</span></span>
+<span data-ttu-id="581bc-106">[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples).</span><span class="sxs-lookup"><span data-stu-id="581bc-106">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples).</span></span> <span data-ttu-id="581bc-107">([Nasıl indirileceğini](xref:index#how-to-download-a-sample).) Makale önişlemci yönergeleri ayarlama hakkında yönergeler içerir (`#if`, `#endif`, `#define`) farklı senaryoları etkinleştirmek için örnek uygulama.</span><span class="sxs-lookup"><span data-stu-id="581bc-107">([How to download](xref:index#how-to-download-a-sample).) The article includes instructions about how to set preprocessor directives (`#if`, `#endif`, `#define`) in the sample app to enable different scenarios.</span></span>
 
-## <a name="developer-exception-page"></a><span data-ttu-id="14609-107">Geliştirici özel durumu sayfası</span><span class="sxs-lookup"><span data-stu-id="14609-107">Developer Exception Page</span></span>
+## <a name="developer-exception-page"></a><span data-ttu-id="581bc-108">Geliştirici özel durumu sayfası</span><span class="sxs-lookup"><span data-stu-id="581bc-108">Developer Exception Page</span></span>
 
-<span data-ttu-id="14609-108">İstek özel durumları hakkında ayrıntılı bilgi gösteren bir sayfasını görüntülemek için bir uygulamayı yapılandırmak için kullanın *Geliştirici özel durum sayfasında*.</span><span class="sxs-lookup"><span data-stu-id="14609-108">To configure an app to display a page that shows detailed information about request exceptions, use the *Developer Exception Page*.</span></span> <span data-ttu-id="14609-109">Sayfa tarafından kullanılabilir hale getirileceğini [Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/) kullanılabilir paketini [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span><span class="sxs-lookup"><span data-stu-id="14609-109">The page is made available by the [Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/) package, which is available in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span> <span data-ttu-id="14609-110">Bir satırı `Startup.Configure` uygulama geliştirmesinde çalışırken yöntemi [ortam](xref:fundamentals/environments):</span><span class="sxs-lookup"><span data-stu-id="14609-110">Add a line to the `Startup.Configure` method when the app is running in the Development [environment](xref:fundamentals/environments):</span></span>
+<span data-ttu-id="581bc-109">*Geliştirici özel durum sayfasında* istek özel durumları hakkında ayrıntılı bilgiler görüntüler.</span><span class="sxs-lookup"><span data-stu-id="581bc-109">The *Developer Exception Page* displays detailed information about request exceptions.</span></span> <span data-ttu-id="581bc-110">Sayfa tarafından kullanılabilir hale getirileceğini [Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/) bulunduğu paketini [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span><span class="sxs-lookup"><span data-stu-id="581bc-110">The page is made available by the [Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/) package, which is in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span> <span data-ttu-id="581bc-111">Kodu `Startup.Configure` uygulama geliştirmesinde çalışırken sayfa etkinleştirme yöntemi [ortam](xref:fundamentals/environments):</span><span class="sxs-lookup"><span data-stu-id="581bc-111">Add code to the `Startup.Configure` method to enable the page when the app is running in the Development [environment](xref:fundamentals/environments):</span></span>
 
-[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_UseDeveloperExceptionPage)]
+[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_DevPageAndHandlerPage&highlight=1-4)]
 
-<span data-ttu-id="14609-111">Çağrı yapmak <xref:Microsoft.AspNetCore.Builder.DeveloperExceptionPageExtensions.UseDeveloperExceptionPage*> önüne özel durumları yakalamak istediğiniz herhangi bir ara yazılım.</span><span class="sxs-lookup"><span data-stu-id="14609-111">Place the call to <xref:Microsoft.AspNetCore.Builder.DeveloperExceptionPageExtensions.UseDeveloperExceptionPage*> in front of any middleware where you want to catch exceptions.</span></span>
+<span data-ttu-id="581bc-112">Çağrı yapmak <xref:Microsoft.AspNetCore.Builder.DeveloperExceptionPageExtensions.UseDeveloperExceptionPage*> önce özel durumları yakalamak istediğiniz herhangi bir ara yazılım.</span><span class="sxs-lookup"><span data-stu-id="581bc-112">Place the call to <xref:Microsoft.AspNetCore.Builder.DeveloperExceptionPageExtensions.UseDeveloperExceptionPage*> before any middleware that you want to catch exceptions.</span></span>
 
 > [!WARNING]
-> <span data-ttu-id="14609-112">Geliştirici özel durumu sayfası etkinleştirme **yalnızca geliştirme ortamında uygulama çalışırken**.</span><span class="sxs-lookup"><span data-stu-id="14609-112">Enable the Developer Exception Page **only when the app is running in the Development environment**.</span></span> <span data-ttu-id="14609-113">Üretim ortamında uygulama çalıştığında ayrıntılı özel durum bilgileri herkese açık şekilde paylaşma istemezsiniz.</span><span class="sxs-lookup"><span data-stu-id="14609-113">You don't want to share detailed exception information publicly when the app runs in production.</span></span> <span data-ttu-id="14609-114">Ortamları yapılandırma hakkında daha fazla bilgi için bkz. <xref:fundamentals/environments>.</span><span class="sxs-lookup"><span data-stu-id="14609-114">For more information on configuring environments, see <xref:fundamentals/environments>.</span></span>
+> <span data-ttu-id="581bc-113">Geliştirici özel durumu sayfası etkinleştirme **yalnızca geliştirme ortamında uygulama çalışırken**.</span><span class="sxs-lookup"><span data-stu-id="581bc-113">Enable the Developer Exception Page **only when the app is running in the Development environment**.</span></span> <span data-ttu-id="581bc-114">Üretim ortamında uygulama çalıştığında ayrıntılı özel durum bilgileri herkese açık şekilde paylaşma istemezsiniz.</span><span class="sxs-lookup"><span data-stu-id="581bc-114">You don't want to share detailed exception information publicly when the app runs in production.</span></span> <span data-ttu-id="581bc-115">Ortamları yapılandırma hakkında daha fazla bilgi için bkz. <xref:fundamentals/environments>.</span><span class="sxs-lookup"><span data-stu-id="581bc-115">For more information on configuring environments, see <xref:fundamentals/environments>.</span></span>
 
-<span data-ttu-id="14609-115">Geliştirici özel durumu sayfasını görmek için ortamı ayarlamak örnek uygulamayı çalıştırma `Development` ve ekleme `?throw=true` uygulamasının temel URL'si.</span><span class="sxs-lookup"><span data-stu-id="14609-115">To see the Developer Exception Page, run the sample app with the environment set to `Development` and add `?throw=true` to the base URL of the app.</span></span> <span data-ttu-id="14609-116">Sayfasında, özel durum ve isteği hakkında aşağıdaki bilgileri içerir:</span><span class="sxs-lookup"><span data-stu-id="14609-116">The page includes the following information about the exception and the request:</span></span>
+<span data-ttu-id="581bc-116">Sayfasında, özel durum ve isteği hakkında aşağıdaki bilgileri içerir:</span><span class="sxs-lookup"><span data-stu-id="581bc-116">The page includes the following information about the exception and the request:</span></span>
 
-* <span data-ttu-id="14609-117">Yığın izlemesi</span><span class="sxs-lookup"><span data-stu-id="14609-117">Stack trace</span></span>
-* <span data-ttu-id="14609-118">Dize parametreleri (varsa) sorgulama</span><span class="sxs-lookup"><span data-stu-id="14609-118">Query string parameters (if any)</span></span>
-* <span data-ttu-id="14609-119">Tanımlama bilgileri (varsa)</span><span class="sxs-lookup"><span data-stu-id="14609-119">Cookies (if any)</span></span>
-* <span data-ttu-id="14609-120">Üst bilgileri</span><span class="sxs-lookup"><span data-stu-id="14609-120">Headers</span></span>
+* <span data-ttu-id="581bc-117">Yığın izlemesi</span><span class="sxs-lookup"><span data-stu-id="581bc-117">Stack trace</span></span>
+* <span data-ttu-id="581bc-118">Dize parametreleri (varsa) sorgulama</span><span class="sxs-lookup"><span data-stu-id="581bc-118">Query string parameters (if any)</span></span>
+* <span data-ttu-id="581bc-119">Tanımlama bilgileri (varsa)</span><span class="sxs-lookup"><span data-stu-id="581bc-119">Cookies (if any)</span></span>
+* <span data-ttu-id="581bc-120">Üst bilgileri</span><span class="sxs-lookup"><span data-stu-id="581bc-120">Headers</span></span>
 
-## <a name="configure-a-custom-exception-handling-page"></a><span data-ttu-id="14609-121">Sayfa işleme özel bir özel durum yapılandırın</span><span class="sxs-lookup"><span data-stu-id="14609-121">Configure a custom exception handling page</span></span>
+<span data-ttu-id="581bc-121">Geliştirici özel durum sayfasında görmek için [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), kullanın `DevEnvironment` önişlemci yönergesi ve select **bir özel durum harekete** giriş sayfasında.</span><span class="sxs-lookup"><span data-stu-id="581bc-121">To see the Developer Exception Page in the [sample app](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), use the `DevEnvironment` preprocessor directive and select **Trigger an exception** on the home page.</span></span>
 
-<span data-ttu-id="14609-122">Uygulama geliştirme ortamında çalışmadığı aramanızı <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*> özel durum işleme ara yazılım eklemek için genişletme yöntemi.</span><span class="sxs-lookup"><span data-stu-id="14609-122">When the app isn't running in the Development environment, call the <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*> extension method to add Exception Handling Middleware.</span></span> <span data-ttu-id="14609-123">Ara yazılım:</span><span class="sxs-lookup"><span data-stu-id="14609-123">The middleware:</span></span>
+## <a name="exception-handler-page"></a><span data-ttu-id="581bc-122">Özel durum işleyicisi sayfası</span><span class="sxs-lookup"><span data-stu-id="581bc-122">Exception handler page</span></span>
 
-* <span data-ttu-id="14609-124">Özel durumu yakalar.</span><span class="sxs-lookup"><span data-stu-id="14609-124">Catches exceptions.</span></span>
-* <span data-ttu-id="14609-125">Özel durumları günlüğe kaydeder.</span><span class="sxs-lookup"><span data-stu-id="14609-125">Logs exceptions.</span></span>
-* <span data-ttu-id="14609-126">Belirtilen denetleyici ve sayfa için alternatif bir işlem hattı istekte yeniden yürütür.</span><span class="sxs-lookup"><span data-stu-id="14609-126">Re-executes the request in an alternate pipeline for the page or controller indicated.</span></span> <span data-ttu-id="14609-127">İstek, yanıt başladıysa, yeniden çalıştırılır değildir.</span><span class="sxs-lookup"><span data-stu-id="14609-127">The request isn't re-executed if the response has started.</span></span>
+<span data-ttu-id="581bc-123">Bir özel hata sayfası üretim ortamı için işleme yapılandırmak için özel durum işleme ara yazılım kullanın.</span><span class="sxs-lookup"><span data-stu-id="581bc-123">To configure a custom error handling page for the Production environment, use the Exception Handling Middleware.</span></span> <span data-ttu-id="581bc-124">Ara yazılım:</span><span class="sxs-lookup"><span data-stu-id="581bc-124">The middleware:</span></span>
 
-<span data-ttu-id="14609-128">Aşağıdaki örnekte, örnek uygulamadan <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*> geliştirme olmayan ortamlarda özel durum işleme ara yazılım ekler.</span><span class="sxs-lookup"><span data-stu-id="14609-128">In the following example from the sample app, <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*> adds the Exception Handling Middleware in non-Development environments.</span></span> <span data-ttu-id="14609-129">Bir hata sayfası veya denetleyicisinde genişletme yöntemi belirler `/Error` özel durum yakalandı ve günlüğe sonra yeniden yürütülen istekler için uç nokta:</span><span class="sxs-lookup"><span data-stu-id="14609-129">The extension method specifies an error page or controller at the `/Error` endpoint for re-executed requests after exceptions are caught and logged:</span></span>
+* <span data-ttu-id="581bc-125">Yakalar ve özel durumları günlüğe kaydeder.</span><span class="sxs-lookup"><span data-stu-id="581bc-125">Catches and logs exceptions.</span></span>
+* <span data-ttu-id="581bc-126">Belirtilen denetleyici ve sayfa için alternatif bir işlem hattı istekte yeniden yürütür.</span><span class="sxs-lookup"><span data-stu-id="581bc-126">Re-executes the request in an alternate pipeline for the page or controller indicated.</span></span> <span data-ttu-id="581bc-127">İstek, yanıt başladıysa, yeniden çalıştırılır değildir.</span><span class="sxs-lookup"><span data-stu-id="581bc-127">The request isn't re-executed if the response has started.</span></span>
 
-[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_UseExceptionHandler1)]
+<span data-ttu-id="581bc-128">Aşağıdaki örnekte, <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*> geliştirme olmayan ortamlarda özel durum işleme ara yazılım ekler:</span><span class="sxs-lookup"><span data-stu-id="581bc-128">In the following example, <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*> adds the Exception Handling Middleware in non-Development environments:</span></span>
 
-<span data-ttu-id="14609-130">Bir hata sayfası Razor sayfaları uygulaması şablonunu sunar (*.cshtml*) ve <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> sınıfı (`ErrorModel`) sayfalar klasöründe.</span><span class="sxs-lookup"><span data-stu-id="14609-130">The Razor Pages app template provides an Error page (*.cshtml*) and <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> class (`ErrorModel`) in the Pages folder.</span></span>
+[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_DevPageAndHandlerPage&highlight=5-9)]
 
-<span data-ttu-id="14609-131">Aşağıdaki hata işleyicisi yöntemi bir MVC uygulamasında MVC uygulama şablonuna dahil edilir ve giriş denetleyicisine içinde görünür:</span><span class="sxs-lookup"><span data-stu-id="14609-131">In an MVC app, the following error handler method is included in the MVC app template and appears in the Home controller:</span></span>
+<span data-ttu-id="581bc-129">Bir hata sayfası Razor sayfaları uygulaması şablonunu sunar (*.cshtml*) ve <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> sınıfı (`ErrorModel`) içinde *sayfaları* klasör.</span><span class="sxs-lookup"><span data-stu-id="581bc-129">The Razor Pages app template provides an Error page (*.cshtml*) and <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> class (`ErrorModel`) in the *Pages* folder.</span></span> <span data-ttu-id="581bc-130">Bir MVC uygulaması için proje şablonu, bir hata eylem yöntemi ve bir hata görünümü içerir.</span><span class="sxs-lookup"><span data-stu-id="581bc-130">For an MVC app, the project template includes an Error action method and an Error view.</span></span> <span data-ttu-id="581bc-131">Eylem yöntemi aşağıda verilmiştir:</span><span class="sxs-lookup"><span data-stu-id="581bc-131">Here's the action method:</span></span>
 
 ```csharp
 [AllowAnonymous]
@@ -65,124 +64,109 @@ public IActionResult Error()
 }
 ```
 
-<span data-ttu-id="14609-132">HTTP yöntemi öznitelikleriyle hata işleyicisi eylem yöntemi gibi süslemek yoksa `HttpGet`.</span><span class="sxs-lookup"><span data-stu-id="14609-132">Don't decorate the error handler action method with HTTP method attributes, such as `HttpGet`.</span></span> <span data-ttu-id="14609-133">Açık fiilleri yöntemi bazı istekleri engellenir.</span><span class="sxs-lookup"><span data-stu-id="14609-133">Explicit verbs prevent some requests from reaching the method.</span></span> <span data-ttu-id="14609-134">Kimliği doğrulanmamış kullanıcılar hata görünümünün alabilirsiniz, böylece yöntemi anonim erişime izin verin.</span><span class="sxs-lookup"><span data-stu-id="14609-134">Allow anonymous access to the method so that unauthenticated users are able to receive the error view.</span></span>
+<span data-ttu-id="581bc-132">HTTP yöntemi öznitelikleriyle hata işleyicisi eylem yöntemi gibi süslemek yoksa `HttpGet`.</span><span class="sxs-lookup"><span data-stu-id="581bc-132">Don't decorate the error handler action method with HTTP method attributes, such as `HttpGet`.</span></span> <span data-ttu-id="581bc-133">Açık fiilleri yöntemi bazı istekleri engellenir.</span><span class="sxs-lookup"><span data-stu-id="581bc-133">Explicit verbs prevent some requests from reaching the method.</span></span> <span data-ttu-id="581bc-134">Kimliği doğrulanmamış kullanıcılar hata görünümünün alabilirsiniz, böylece yöntemi anonim erişime izin verin.</span><span class="sxs-lookup"><span data-stu-id="581bc-134">Allow anonymous access to the method so that unauthenticated users are able to receive the error view.</span></span>
 
-## <a name="access-the-exception"></a><span data-ttu-id="14609-135">Erişim özel durumu</span><span class="sxs-lookup"><span data-stu-id="14609-135">Access the exception</span></span>
+### <a name="access-the-exception"></a><span data-ttu-id="581bc-135">Erişim özel durumu</span><span class="sxs-lookup"><span data-stu-id="581bc-135">Access the exception</span></span>
 
-<span data-ttu-id="14609-136">Kullanım <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> özel durumu veya özgün istek yolu bir denetleyici veya sayfasına erişmek için:</span><span class="sxs-lookup"><span data-stu-id="14609-136">Use <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> to access the exception or the original request path in a controller or page:</span></span>
+<span data-ttu-id="581bc-136">Kullanım <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> özel durum ve hata işleyicisi denetleyici ya da sayfa özgün istek yolu erişmek için:</span><span class="sxs-lookup"><span data-stu-id="581bc-136">Use <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> to access the exception and the original request path in an error handler controller or page:</span></span>
 
-* <span data-ttu-id="14609-137">Kullanılabilir yoldur <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature.Path> özelliği.</span><span class="sxs-lookup"><span data-stu-id="14609-137">The path is available from the <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature.Path> property.</span></span>
-* <span data-ttu-id="14609-138">Okuma <xref:System.Exception?displayProperty=fullName> öğesinden devralınan [IExceptionHandlerFeature.Error](xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature.Error) özelliği.</span><span class="sxs-lookup"><span data-stu-id="14609-138">Read the <xref:System.Exception?displayProperty=fullName> from the inherited [IExceptionHandlerFeature.Error](xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature.Error) property.</span></span>
-
-```csharp
-// using Microsoft.AspNetCore.Diagnostics;
-
-var exceptionHandlerPathFeature = 
-    HttpContext.Features.Get<IExceptionHandlerPathFeature>();
-var path = exceptionHandlerPathFeature?.Path;
-var error = exceptionHandlerPathFeature?.Error;
-```
+[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Pages/Error.cshtml.cs?name=snippet_ExceptionHandlerPathFeature&3,7)]
 
 > [!WARNING]
-> <span data-ttu-id="14609-139">Yapmak **değil** önemli hata bilgileri hizmet <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature> veya <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> istemcilere.</span><span class="sxs-lookup"><span data-stu-id="14609-139">Do **not** serve sensitive error information from <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature> or <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> to clients.</span></span> <span data-ttu-id="14609-140">Hataları hizmet veren bir güvenlik riski oluşturur.</span><span class="sxs-lookup"><span data-stu-id="14609-140">Serving errors is a security risk.</span></span>
+> <span data-ttu-id="581bc-137">Yapmak **değil** önemli hata bilgilerini istemcilere hizmet.</span><span class="sxs-lookup"><span data-stu-id="581bc-137">Do **not** serve sensitive error information to clients.</span></span> <span data-ttu-id="581bc-138">Hataları hizmet veren bir güvenlik riski oluşturur.</span><span class="sxs-lookup"><span data-stu-id="581bc-138">Serving errors is a security risk.</span></span>
 
-## <a name="configure-custom-exception-handling-code"></a><span data-ttu-id="14609-141">Özel durum işleme kodunu yapılandırın</span><span class="sxs-lookup"><span data-stu-id="14609-141">Configure custom exception handling code</span></span>
+<span data-ttu-id="581bc-139">Özel durum işleme sayfasında görmek için [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), kullanın `ProdEnvironment` ve `ErrorHandlerPage` önişlemci yönergeleri ve select **bir özel durum harekete** giriş sayfasında.</span><span class="sxs-lookup"><span data-stu-id="581bc-139">To see the exception handling page in the [sample app](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), use the `ProdEnvironment` and `ErrorHandlerPage` preprocessor directives, and select **Trigger an exception** on the home page.</span></span>
 
-<span data-ttu-id="14609-142">Hizmet veren bir uç nokta ile hatalar için alternatif bir [özel durum işleme sayfası](#configure-a-custom-exception-handling-page) lambda sağlamaktır <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*>.</span><span class="sxs-lookup"><span data-stu-id="14609-142">An alternative to serving an endpoint for errors with a [custom exception handling page](#configure-a-custom-exception-handling-page) is to provide a lambda to <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*>.</span></span> <span data-ttu-id="14609-143">Bir lambda ile kullanarak <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*> yanıt döndürmeden önce hata erişim sağlar.</span><span class="sxs-lookup"><span data-stu-id="14609-143">Using a lambda with <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*> allows access to the error before returning the response.</span></span>
+## <a name="exception-handler-lambda"></a><span data-ttu-id="581bc-140">Özel durum işleyici lambda</span><span class="sxs-lookup"><span data-stu-id="581bc-140">Exception handler lambda</span></span>
 
-<span data-ttu-id="14609-144">Özel durum işleme kodunu, örnek uygulamayı gösterir `Startup.Configure`.</span><span class="sxs-lookup"><span data-stu-id="14609-144">The sample app demonstrates custom exception handling code in `Startup.Configure`.</span></span> <span data-ttu-id="14609-145">İle bir özel durum harekete **özel durum Throw** bağlantısı dizin sayfası.</span><span class="sxs-lookup"><span data-stu-id="14609-145">Trigger an exception with the **Throw Exception** link on the Index page.</span></span> <span data-ttu-id="14609-146">Aşağıdaki lambda çalıştırır:</span><span class="sxs-lookup"><span data-stu-id="14609-146">The following lambda runs:</span></span>
+<span data-ttu-id="581bc-141">Alternatif bir [özel durum işleyicisi sayfa](#exception-handler-page) lambda sağlamaktır <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*>.</span><span class="sxs-lookup"><span data-stu-id="581bc-141">An alternative to a [custom exception handler page](#exception-handler-page) is to provide a lambda to <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler*>.</span></span> <span data-ttu-id="581bc-142">Bir lambda kullanarak yanıt döndürmeden önce hata erişim izni verir.</span><span class="sxs-lookup"><span data-stu-id="581bc-142">Using a lambda allows access to the error before returning the response.</span></span>
 
-[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_UseExceptionHandler2)]
+<span data-ttu-id="581bc-143">Özel durum işleme için bir lambda kullanma örneği aşağıda verilmiştir:</span><span class="sxs-lookup"><span data-stu-id="581bc-143">Here's an example of using a lambda for exception handling:</span></span>
+
+[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_HandlerPageLambda)]
 
 > [!WARNING]
-> <span data-ttu-id="14609-147">Yapmak **değil** önemli hata bilgileri hizmet <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature> veya <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> istemcilere.</span><span class="sxs-lookup"><span data-stu-id="14609-147">Do **not** serve sensitive error information from <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature> or <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> to clients.</span></span> <span data-ttu-id="14609-148">Hataları hizmet veren bir güvenlik riski oluşturur.</span><span class="sxs-lookup"><span data-stu-id="14609-148">Serving errors is a security risk.</span></span>
+> <span data-ttu-id="581bc-144">Yapmak **değil** önemli hata bilgileri hizmet <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature> veya <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> istemcilere.</span><span class="sxs-lookup"><span data-stu-id="581bc-144">Do **not** serve sensitive error information from <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerFeature> or <xref:Microsoft.AspNetCore.Diagnostics.IExceptionHandlerPathFeature> to clients.</span></span> <span data-ttu-id="581bc-145">Hataları hizmet veren bir güvenlik riski oluşturur.</span><span class="sxs-lookup"><span data-stu-id="581bc-145">Serving errors is a security risk.</span></span>
 
-## <a name="configure-status-code-pages"></a><span data-ttu-id="14609-149">Durum kod sayfaları yapılandırın</span><span class="sxs-lookup"><span data-stu-id="14609-149">Configure status code pages</span></span>
+<span data-ttu-id="581bc-146">Özel durum işleme lambda içinde sonucunu görmek için [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), kullanın `ProdEnvironment` ve `ErrorHandlerLambda` önişlemci yönergeleri ve select **bir özel durum harekete** giriş sayfasında.</span><span class="sxs-lookup"><span data-stu-id="581bc-146">To see the result of the exception handling lambda in the [sample app](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), use the `ProdEnvironment` and `ErrorHandlerLambda` preprocessor directives, and select **Trigger an exception** on the home page.</span></span>
 
-<span data-ttu-id="14609-150">Varsayılan olarak, ASP.NET Core uygulaması durumu kod sayfası için HTTP durum kodları, gibi sağlamaz *404 - Bulunamadı*.</span><span class="sxs-lookup"><span data-stu-id="14609-150">By default, an ASP.NET Core app doesn't provide a status code page for HTTP status codes, such as *404 - Not Found*.</span></span> <span data-ttu-id="14609-151">Uygulama, durum kodu ve boş yanıt gövdesi döndürür.</span><span class="sxs-lookup"><span data-stu-id="14609-151">The app returns a status code and an empty response body.</span></span> <span data-ttu-id="14609-152">Kod sayfaları durumu sağlamak için durum kodu sayfa ara yazılımı kullanın.</span><span class="sxs-lookup"><span data-stu-id="14609-152">To provide status code pages, use Status Code Pages Middleware.</span></span>
+## <a name="usestatuscodepages"></a><span data-ttu-id="581bc-147">UseStatusCodePages</span><span class="sxs-lookup"><span data-stu-id="581bc-147">UseStatusCodePages</span></span>
 
-<span data-ttu-id="14609-153">Ara yazılım tarafından kullanılabilir hale getirileceğini [Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/) kullanılabilir paketini [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span><span class="sxs-lookup"><span data-stu-id="14609-153">The middleware is made available by the [Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/) package, which is available in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span>
+<span data-ttu-id="581bc-148">Varsayılan olarak, ASP.NET Core uygulaması durumu kod sayfası için HTTP durum kodları, gibi sağlamaz *404 - Bulunamadı*.</span><span class="sxs-lookup"><span data-stu-id="581bc-148">By default, an ASP.NET Core app doesn't provide a status code page for HTTP status codes, such as *404 - Not Found*.</span></span> <span data-ttu-id="581bc-149">Uygulama, durum kodu ve boş yanıt gövdesi döndürür.</span><span class="sxs-lookup"><span data-stu-id="581bc-149">The app returns a status code and an empty response body.</span></span> <span data-ttu-id="581bc-150">Kod sayfaları durumu sağlamak için durum kod sayfası ara yazılımını kullanın.</span><span class="sxs-lookup"><span data-stu-id="581bc-150">To provide status code pages, use Status Code Pages middleware.</span></span>
 
-### <a name="usestatuscodepages"></a><span data-ttu-id="14609-154">UseStatusCodePages</span><span class="sxs-lookup"><span data-stu-id="14609-154">UseStatusCodePages</span></span>
+<span data-ttu-id="581bc-151">Ara yazılım tarafından kullanılabilir hale getirileceğini [Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/) bulunduğu paketini [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span><span class="sxs-lookup"><span data-stu-id="581bc-151">The middleware is made available by the [Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/) package, which is in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span>
 
-<span data-ttu-id="14609-155">Genel hata durum kodları için varsayılan salt metin işleyicileri etkinleştirmek için aşağıdaki kodu ekleyin. `Startup.Configure` yöntemi:</span><span class="sxs-lookup"><span data-stu-id="14609-155">To enable default text-only handlers for common error status codes, add the following code to the `Startup.Configure` method:</span></span>
+<span data-ttu-id="581bc-152">Genel hata durum kodları için varsayılan salt metin işleyicileri etkinleştirmek için çağrı <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> içinde `Startup.Configure` yöntemi:</span><span class="sxs-lookup"><span data-stu-id="581bc-152">To enable default text-only handlers for common error status codes, call <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> in the `Startup.Configure` method:</span></span>
 
-```csharp
-app.UseStatusCodePages();
-```
+[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePages)]
 
-<span data-ttu-id="14609-156">Çağrı <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> önce ara (örneğin, statik dosya ara yazılımlarını ve MVC ara yazılım) işleme istek yöntemi.</span><span class="sxs-lookup"><span data-stu-id="14609-156">Call the <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> method before request handling middleware (for example, Static File Middleware and MVC Middleware).</span></span>
+<span data-ttu-id="581bc-153">Çağrı `UseStatusCodePages` istek işleme Ara (örneğin, statik dosya ara yazılımlarını ve MVC ara yazılım) önce.</span><span class="sxs-lookup"><span data-stu-id="581bc-153">Call `UseStatusCodePages` before request handling middleware (for example, Static File Middleware and MVC Middleware).</span></span>
 
-<span data-ttu-id="14609-157">Varsayılan işleyici tarafından görüntülenen metnin bir örnek aşağıda verilmiştir:</span><span class="sxs-lookup"><span data-stu-id="14609-157">Here's an example of text displayed by the default handlers:</span></span>
+<span data-ttu-id="581bc-154">Varsayılan işleyici tarafından görüntülenen metnin bir örnek aşağıda verilmiştir:</span><span class="sxs-lookup"><span data-stu-id="581bc-154">Here's an example of text displayed by the default handlers:</span></span>
 
 ```
 Status Code: 404; Not Found
 ```
 
-<span data-ttu-id="14609-158">Ara yazılım davranışını özelleştirmenizi birkaç genişletme yöntemleri destekler.</span><span class="sxs-lookup"><span data-stu-id="14609-158">The middleware supports several extension methods that allow you to customize its behavior.</span></span>
+<span data-ttu-id="581bc-155">Çeşitli durumu kod sayfası biçimlerinden birini görmek için [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), önişlemci yönergeleri ile başlayan birini kullanın `StatusCodePages`seçip **404 bir tetikleyici** giriş sayfasında.</span><span class="sxs-lookup"><span data-stu-id="581bc-155">To see one of the various status code page formats in the [sample app](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples), use one of the preprocessor directives that begin with `StatusCodePages`, and select **Trigger a 404** on the home page.</span></span>
 
-### <a name="usestatuscodepages-with-lambda"></a><span data-ttu-id="14609-159">Lambda ile UseStatusCodePages</span><span class="sxs-lookup"><span data-stu-id="14609-159">UseStatusCodePages with lambda</span></span>
+## <a name="usestatuscodepages-with-format-string"></a><span data-ttu-id="581bc-156">Biçim dizesi ile UseStatusCodePages</span><span class="sxs-lookup"><span data-stu-id="581bc-156">UseStatusCodePages with format string</span></span>
 
-<span data-ttu-id="14609-160">Bir aşırı yüklemesini <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> özel hata işleme mantığı işlemek ve el ile yanıt yazmak için kullanabileceğiniz bir lambda ifadesini alır:</span><span class="sxs-lookup"><span data-stu-id="14609-160">An overload of <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> takes a lambda expression, which you can use to process custom error-handling logic and manually write the response:</span></span>
+<span data-ttu-id="581bc-157">Yanıt içerik türü ve metin özelleştirmek için aşırı yüklemesini kullanın. <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> , bir içerik türü ve biçim dizesini alır:</span><span class="sxs-lookup"><span data-stu-id="581bc-157">To customize the response content type and text, use the overload of <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> that takes a content type and format string:</span></span>
 
-[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePages)]
+[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePagesFormatString)]
 
-### <a name="usestatuscodepages-with-format-string"></a><span data-ttu-id="14609-161">Biçim dizesi ile UseStatusCodePages</span><span class="sxs-lookup"><span data-stu-id="14609-161">UseStatusCodePages with format string</span></span>
+## <a name="usestatuscodepages-with-lambda"></a><span data-ttu-id="581bc-158">Lambda ile UseStatusCodePages</span><span class="sxs-lookup"><span data-stu-id="581bc-158">UseStatusCodePages with lambda</span></span>
 
-<span data-ttu-id="14609-162">Bir aşırı yüklemesini <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> içerik türü ve yanıt metni özelleştirmek için kullanabileceğiniz bir içerik türü ve biçim dizesini alır:</span><span class="sxs-lookup"><span data-stu-id="14609-162">An overload of <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> takes a content type and format string, which you can use to customize the content type and response text:</span></span>
+<span data-ttu-id="581bc-159">Özel hata işleme ve yazma yanıtını belirtmek için kod, aşırı yüklemesini kullanın <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> , bir lambda ifadesini alır:</span><span class="sxs-lookup"><span data-stu-id="581bc-159">To specify custom error-handling and response-writing code, use the overload of <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> that takes a lambda expression:</span></span>
 
-```csharp
-app.UseStatusCodePages("text/plain", "Status code page, status code: {0}");
-```
+[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePagesLambda)]
 
-### <a name="usestatuscodepageswithredirects"></a><span data-ttu-id="14609-163">UseStatusCodePagesWithRedirects</span><span class="sxs-lookup"><span data-stu-id="14609-163">UseStatusCodePagesWithRedirects</span></span>
+## <a name="usestatuscodepageswithredirect"></a><span data-ttu-id="581bc-160">UseStatusCodePagesWithRedirect</span><span class="sxs-lookup"><span data-stu-id="581bc-160">UseStatusCodePagesWithRedirect</span></span>
 
-<xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePagesWithRedirects*><span data-ttu-id="14609-164">:</span><span class="sxs-lookup"><span data-stu-id="14609-164">:</span></span>
+<span data-ttu-id="581bc-161"><xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePagesWithRedirects*> Genişletme yöntemi:</span><span class="sxs-lookup"><span data-stu-id="581bc-161">The <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePagesWithRedirects*> extension method:</span></span>
 
-* <span data-ttu-id="14609-165">Gönderen bir *302 bulundu -* istemciye durum kodu.</span><span class="sxs-lookup"><span data-stu-id="14609-165">Sends a *302 - Found* status code to the client.</span></span>
-* <span data-ttu-id="14609-166">İstemci URL'si şablonda verilen konuma yönlendirir.</span><span class="sxs-lookup"><span data-stu-id="14609-166">Redirects the client to the location provided in the URL template.</span></span>
+* <span data-ttu-id="581bc-162">Gönderen bir *302 bulundu -* istemciye durum kodu.</span><span class="sxs-lookup"><span data-stu-id="581bc-162">Sends a *302 - Found* status code to the client.</span></span>
+* <span data-ttu-id="581bc-163">İstemci URL'si şablonda verilen konuma yönlendirir.</span><span class="sxs-lookup"><span data-stu-id="581bc-163">Redirects the client to the location provided in the URL template.</span></span>
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePagesWithRedirect)]
 
-<xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePagesWithRedirects*> <span data-ttu-id="14609-167">yaygın olarak kullanıldığında uygulama:</span><span class="sxs-lookup"><span data-stu-id="14609-167">is commonly used when the app:</span></span>
+<span data-ttu-id="581bc-164">URL şablonu içerebilir bir `{0}` için durum kodunu, örnekte gösterildiği gibi yer tutucu.</span><span class="sxs-lookup"><span data-stu-id="581bc-164">The URL template can include a `{0}` placeholder for the status code, as shown in the example.</span></span> <span data-ttu-id="581bc-165">URL şablonu bir tilde (~) ile başlıyorsa tilde uygulamanın tarafından değiştirilir `PathBase`.</span><span class="sxs-lookup"><span data-stu-id="581bc-165">If the URL template starts with a tilde (~), the tilde is replaced by the app's `PathBase`.</span></span> <span data-ttu-id="581bc-166">Uygulamadaki bir uç noktaya işaret ederseniz, bir MVC görünümü ya da uç noktası için Razor sayfası oluşturun.</span><span class="sxs-lookup"><span data-stu-id="581bc-166">If you point to an endpoint within the app, create an MVC view or Razor page for the endpoint.</span></span> <span data-ttu-id="581bc-167">Razor sayfaları örnek için bkz: [StatusCode.cshtml](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples/2.x/Pages/StatusCode.cshtml) içinde [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples).</span><span class="sxs-lookup"><span data-stu-id="581bc-167">For a Razor Pages example, see [StatusCode.cshtml](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples/2.x/Pages/StatusCode.cshtml) in the [sample app](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples).</span></span>
 
-* <span data-ttu-id="14609-168">Genellikle, farklı bir uygulama hatası burada işler durumlarda farklı bir uç noktası için istemci yönlendirmelidir.</span><span class="sxs-lookup"><span data-stu-id="14609-168">Should redirect the client to a different endpoint, usually in cases where a different app processes the error.</span></span> <span data-ttu-id="14609-169">Web apps için yeniden yönlendirilen uç nokta istemcinin tarayıcınızın adres çubuğuna yansıtır.</span><span class="sxs-lookup"><span data-stu-id="14609-169">For web apps, the client's browser address bar reflects the redirected endpoint.</span></span>
-* <span data-ttu-id="14609-170">Olmamalıdır korumak ve özgün ilk yönlendirme yanıt durum koduyla döndürür.</span><span class="sxs-lookup"><span data-stu-id="14609-170">Shouldn't preserve and return the original status code with the initial redirect response.</span></span>
+<span data-ttu-id="581bc-168">Bu yaygın bir yöntemdir kullanılabilir uygulama:</span><span class="sxs-lookup"><span data-stu-id="581bc-168">This method is commonly used when the app:</span></span>
 
-### <a name="usestatuscodepageswithreexecute"></a><span data-ttu-id="14609-171">UseStatusCodePagesWithReExecute</span><span class="sxs-lookup"><span data-stu-id="14609-171">UseStatusCodePagesWithReExecute</span></span>
+* <span data-ttu-id="581bc-169">Genellikle, farklı bir uygulama hatası burada işler durumlarda farklı bir uç noktası için istemci yönlendirmelidir.</span><span class="sxs-lookup"><span data-stu-id="581bc-169">Should redirect the client to a different endpoint, usually in cases where a different app processes the error.</span></span> <span data-ttu-id="581bc-170">Web apps için yeniden yönlendirilen uç nokta istemcinin tarayıcınızın adres çubuğuna yansıtır.</span><span class="sxs-lookup"><span data-stu-id="581bc-170">For web apps, the client's browser address bar reflects the redirected endpoint.</span></span>
+* <span data-ttu-id="581bc-171">Olmamalıdır korumak ve özgün ilk yönlendirme yanıt durum koduyla döndürür.</span><span class="sxs-lookup"><span data-stu-id="581bc-171">Shouldn't preserve and return the original status code with the initial redirect response.</span></span>
 
-<xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePagesWithReExecute*><span data-ttu-id="14609-172">:</span><span class="sxs-lookup"><span data-stu-id="14609-172">:</span></span>
+## <a name="usestatuscodepageswithreexecute"></a><span data-ttu-id="581bc-172">UseStatusCodePagesWithReExecute</span><span class="sxs-lookup"><span data-stu-id="581bc-172">UseStatusCodePagesWithReExecute</span></span>
 
-* <span data-ttu-id="14609-173">Özgün durum kodunu istemciye döndürür.</span><span class="sxs-lookup"><span data-stu-id="14609-173">Returns the original status code to the client.</span></span>
-* <span data-ttu-id="14609-174">Yanıt gövdesi, alternatif bir yol kullanarak istek ardışık düzenini yeniden yürüterek oluşturur.</span><span class="sxs-lookup"><span data-stu-id="14609-174">Generates the response body by re-executing the request pipeline using an alternate path.</span></span>
+<span data-ttu-id="581bc-173"><xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePagesWithReExecute*> Genişletme yöntemi:</span><span class="sxs-lookup"><span data-stu-id="581bc-173">The <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePagesWithReExecute*> extension method:</span></span>
 
-```csharp
-app.UseStatusCodePagesWithReExecute("/Error/{0}");
-```
+* <span data-ttu-id="581bc-174">Özgün durum kodunu istemciye döndürür.</span><span class="sxs-lookup"><span data-stu-id="581bc-174">Returns the original status code to the client.</span></span>
+* <span data-ttu-id="581bc-175">Yanıt gövdesi, alternatif bir yol kullanarak istek ardışık düzenini yeniden yürüterek oluşturur.</span><span class="sxs-lookup"><span data-stu-id="581bc-175">Generates the response body by re-executing the request pipeline using an alternate path.</span></span>
 
-<xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePagesWithReExecute*> <span data-ttu-id="14609-175">Uygulama sırasında yaygın olarak kullanılır:</span><span class="sxs-lookup"><span data-stu-id="14609-175">is commonly used when the app should:</span></span>
+[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePagesWithReExecute)]
 
-* <span data-ttu-id="14609-176">İstek farklı bir uç noktasına yönlendirme olmadan işlem.</span><span class="sxs-lookup"><span data-stu-id="14609-176">Process the request without redirecting to a different endpoint.</span></span> <span data-ttu-id="14609-177">Web apps için başlangıçta istenen uç noktası istemcinin tarayıcınızın adres çubuğuna yansıtır.</span><span class="sxs-lookup"><span data-stu-id="14609-177">For web apps, the client's browser address bar reflects the originally requested endpoint.</span></span>
-* <span data-ttu-id="14609-178">Korumak ve özgün durum koduyla bir yanıt döndürür.</span><span class="sxs-lookup"><span data-stu-id="14609-178">Preserve and return the original status code with the response.</span></span>
+<span data-ttu-id="581bc-176">Uygulamadaki bir uç noktaya işaret ederseniz, bir MVC görünümü ya da uç noktası için Razor sayfası oluşturun.</span><span class="sxs-lookup"><span data-stu-id="581bc-176">If you point to an endpoint within the app, create an MVC view or Razor page for the endpoint.</span></span> <span data-ttu-id="581bc-177">Razor sayfaları örnek için bkz: [StatusCode.cshtml](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples/2.x/Pages/StatusCode.cshtml) içinde [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples).</span><span class="sxs-lookup"><span data-stu-id="581bc-177">For a Razor Pages example, see [StatusCode.cshtml](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples/2.x/Pages/StatusCode.cshtml) in the [sample app](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/samples).</span></span>
 
-<span data-ttu-id="14609-179">Şablonları, bir yer tutucu içerebilir (`{0}`) durum kodu.</span><span class="sxs-lookup"><span data-stu-id="14609-179">Templates may include a placeholder (`{0}`) for the status code.</span></span> <span data-ttu-id="14609-180">Şablonu bir eğik çizgi ile başlamalıdır (`/`).</span><span class="sxs-lookup"><span data-stu-id="14609-180">The template must start with a forward slash (`/`).</span></span> <span data-ttu-id="14609-181">Bir yer tutucu kullanırken, uç noktayı (sayfa veya denetleyicisi) yol kesimi işleyebilir onaylayın.</span><span class="sxs-lookup"><span data-stu-id="14609-181">When using a placeholder, confirm that the endpoint (page or controller) can process the path segment.</span></span> <span data-ttu-id="14609-182">Örneğin, hatalar için bir Razor sayfası ile isteğe bağlı yol kesimi değerini kabul etmelidir `@page` yönergesi:</span><span class="sxs-lookup"><span data-stu-id="14609-182">For example, a Razor Page for errors should accept the optional path segment value with the `@page` directive:</span></span>
+<span data-ttu-id="581bc-178">Bu yöntem, uygulamayı gerektiğinde yaygın olarak kullanılır:</span><span class="sxs-lookup"><span data-stu-id="581bc-178">This method is commonly used when the app should:</span></span>
+
+* <span data-ttu-id="581bc-179">İstek farklı bir uç noktasına yönlendirme olmadan işlem.</span><span class="sxs-lookup"><span data-stu-id="581bc-179">Process the request without redirecting to a different endpoint.</span></span> <span data-ttu-id="581bc-180">Web apps için başlangıçta istenen uç noktası istemcinin tarayıcınızın adres çubuğuna yansıtır.</span><span class="sxs-lookup"><span data-stu-id="581bc-180">For web apps, the client's browser address bar reflects the originally requested endpoint.</span></span>
+* <span data-ttu-id="581bc-181">Korumak ve özgün durum koduyla bir yanıt döndürür.</span><span class="sxs-lookup"><span data-stu-id="581bc-181">Preserve and return the original status code with the response.</span></span>
+
+<span data-ttu-id="581bc-182">URL ve sorgu dize şablonları, bir yer tutucu içerebilir (`{0}`) durum kodu.</span><span class="sxs-lookup"><span data-stu-id="581bc-182">The URL and query string templates may include a placeholder (`{0}`) for the status code.</span></span> <span data-ttu-id="581bc-183">URL şablonu bir eğik çizgiyle başlamalıdır (`/`).</span><span class="sxs-lookup"><span data-stu-id="581bc-183">The URL template must start with a slash (`/`).</span></span> <span data-ttu-id="581bc-184">Bir yer tutucu yolunda kullanırken, uç noktayı (sayfa veya denetleyicisi) yol kesimi işleyebilir onaylayın.</span><span class="sxs-lookup"><span data-stu-id="581bc-184">When using a placeholder in the path, confirm that the endpoint (page or controller) can process the path segment.</span></span> <span data-ttu-id="581bc-185">Örneğin, hatalar için bir Razor sayfası ile isteğe bağlı yol kesimi değerini kabul etmelidir `@page` yönergesi:</span><span class="sxs-lookup"><span data-stu-id="581bc-185">For example, a Razor Page for errors should accept the optional path segment value with the `@page` directive:</span></span>
 
 ```cshtml
 @page "{code?}"
 ```
 
-<span data-ttu-id="14609-183">Hata işleme uç noktasını, aşağıdaki örnekte gösterildiği gibi hatayı oluşturan özgün URL'yi alabilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="14609-183">The endpoint that processes the error can get the original URL that generated the error, as shown in the following example:</span></span>
+<span data-ttu-id="581bc-186">Hata işleme uç noktasını, aşağıdaki örnekte gösterildiği gibi hatayı oluşturan özgün URL'yi alabilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="581bc-186">The endpoint that processes the error can get the original URL that generated the error, as shown in the following example:</span></span>
 
-```csharp
-var statusCodeReExecuteFeature = HttpContext.Features.Get<IStatusCodeReExecuteFeature>();
-var originalPathBase = statusCodeReExecuteFeature?.OriginalPathBase;
-var originalPath = statusCodeReExecuteFeature?.OriginalPath;
-var originalQueryString = statusCodeReExecuteFeature?.OriginalQueryString;
-```
+[!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Pages/StatusCode.cshtml.cs?name=snippet_StatusCodeReExecute)]
 
-### <a name="disable-status-code-pages"></a><span data-ttu-id="14609-184">Durum kod sayfaları devre dışı bırak</span><span class="sxs-lookup"><span data-stu-id="14609-184">Disable status code pages</span></span>
+## <a name="disable-status-code-pages"></a><span data-ttu-id="581bc-187">Durum kod sayfaları devre dışı bırak</span><span class="sxs-lookup"><span data-stu-id="581bc-187">Disable status code pages</span></span>
 
-<span data-ttu-id="14609-185">Durum kod sayfaları için Razor sayfaları işleyicisi yöntemi veya MVC denetleyicisi belirli isteklere devre dışı bırakılabilir.</span><span class="sxs-lookup"><span data-stu-id="14609-185">Status code pages can be disabled for specific requests in a Razor Pages handler method or in an MVC controller.</span></span> <span data-ttu-id="14609-186">Durum kod sayfaları devre dışı bırakmak için alma denemesi <xref:Microsoft.AspNetCore.Diagnostics.IStatusCodePagesFeature> gelen isteğin [HttpContext.Features](xref:Microsoft.AspNetCore.Http.HttpContext.Features) toplama ve varsa bu özelliği devre dışı bırak:</span><span class="sxs-lookup"><span data-stu-id="14609-186">To disable status code pages, attempt to retrieve the <xref:Microsoft.AspNetCore.Diagnostics.IStatusCodePagesFeature> from the request's [HttpContext.Features](xref:Microsoft.AspNetCore.Http.HttpContext.Features) collection and disable the feature if it's available:</span></span>
+<span data-ttu-id="581bc-188">Durum kod sayfaları için Razor sayfaları işleyicisi yöntemi veya MVC denetleyicisi belirli isteklere devre dışı bırakılabilir.</span><span class="sxs-lookup"><span data-stu-id="581bc-188">Status code pages can be disabled for specific requests in a Razor Pages handler method or in an MVC controller.</span></span> <span data-ttu-id="581bc-189">Durum kod sayfaları devre dışı bırakmak için <xref:Microsoft.AspNetCore.Diagnostics.IStatusCodePagesFeature>:</span><span class="sxs-lookup"><span data-stu-id="581bc-189">To disable status code pages, use the <xref:Microsoft.AspNetCore.Diagnostics.IStatusCodePagesFeature>:</span></span>
 
 ```csharp
 var statusCodePagesFeature = HttpContext.Features.Get<IStatusCodePagesFeature>();
@@ -193,161 +177,56 @@ if (statusCodePagesFeature != null)
 }
 ```
 
-### <a name="status-code-page-endpoints"></a><span data-ttu-id="14609-187">Durum kodu sayfasında uç noktaları</span><span class="sxs-lookup"><span data-stu-id="14609-187">Status code page endpoints</span></span>
+## <a name="exception-handling-code"></a><span data-ttu-id="581bc-190">Özel durum işleme kodu</span><span class="sxs-lookup"><span data-stu-id="581bc-190">Exception-handling code</span></span>
 
-<span data-ttu-id="14609-188">Kullanılacak bir <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> noktaları bir uç noktaya uygulama içinde oluşturduğunuz bir MVC görünümü ya da bir Razor sayfası uç nokta için aşırı yükleme.</span><span class="sxs-lookup"><span data-stu-id="14609-188">To use a <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> overload that points to an endpoint within the app, create an MVC view or Razor Page for the endpoint.</span></span> <span data-ttu-id="14609-189">Razor sayfaları uygulama şablonu, örneğin, aşağıdaki sayfasını ve sayfa modeli sınıfı üretir:</span><span class="sxs-lookup"><span data-stu-id="14609-189">For example, the Razor Pages app template produces the following page and page model class:</span></span>
+<span data-ttu-id="581bc-191">Özel durum işleme sayfaları kodda özel durumlar.</span><span class="sxs-lookup"><span data-stu-id="581bc-191">Code in exception handling pages can throw exceptions.</span></span> <span data-ttu-id="581bc-192">Genellikle, tamamen statik içeriği oluşmalıdır üretim hata sayfaları için iyi bir fikir olduğunu.</span><span class="sxs-lookup"><span data-stu-id="581bc-192">It's often a good idea for production error pages to consist of purely static content.</span></span>
 
-<span data-ttu-id="14609-190">*Error.cshtml*:</span><span class="sxs-lookup"><span data-stu-id="14609-190">*Error.cshtml*:</span></span>
+### <a name="response-headers"></a><span data-ttu-id="581bc-193">Yanıt Üstbilgileri</span><span class="sxs-lookup"><span data-stu-id="581bc-193">Response headers</span></span>
 
-::: moniker range=">= aspnetcore-2.2"
+<span data-ttu-id="581bc-194">Yanıt Üstbilgileri gönderdikten sonra:</span><span class="sxs-lookup"><span data-stu-id="581bc-194">Once the headers for a response are sent:</span></span>
 
-```cshtml
-@page
-@model ErrorModel
-@{
-    ViewData["Title"] = "Error";
-}
+* <span data-ttu-id="581bc-195">Uygulama, yanıtın durum kodu değiştiremezsiniz.</span><span class="sxs-lookup"><span data-stu-id="581bc-195">The app can't change the response's status code.</span></span>
+* <span data-ttu-id="581bc-196">Herhangi bir özel durum sayfaları veya işleyicileri çalıştıramazsınız.</span><span class="sxs-lookup"><span data-stu-id="581bc-196">Any exception pages or handlers can't run.</span></span> <span data-ttu-id="581bc-197">Yanıt tamamlanması gereken veya bağlantı kesildi.</span><span class="sxs-lookup"><span data-stu-id="581bc-197">The response must be completed or the connection aborted.</span></span>
 
-<h1 class="text-danger">Error.</h1>
-<h2 class="text-danger">An error occurred while processing your request.</h2>
+## <a name="server-exception-handling"></a><span data-ttu-id="581bc-198">Sunucu özel durum işleme</span><span class="sxs-lookup"><span data-stu-id="581bc-198">Server exception handling</span></span>
 
-@if (Model.ShowRequestId)
-{
-    <p>
-        <strong>Request ID:</strong> <code>@Model.RequestId</code>
-    </p>
-}
+<span data-ttu-id="581bc-199">Özel durum işleme mantığı, uygulamanıza ek olarak [HTTP sunucusu uygulamasını](xref:fundamentals/servers/index) bazı özel durumları işleyebilir.</span><span class="sxs-lookup"><span data-stu-id="581bc-199">In addition to the exception handling logic in your app, the [HTTP server implementation](xref:fundamentals/servers/index) can handle some exceptions.</span></span> <span data-ttu-id="581bc-200">Yanıt üst bilgileri gönderilmeden önce sunucunun bir özel durumu yakalar, sunucunun gönderdiği bir *500 - İç sunucu hatası* yanıt gövdesi olmadan yanıt.</span><span class="sxs-lookup"><span data-stu-id="581bc-200">If the server catches an exception before response headers are sent, the server sends a *500 - Internal Server Error* response without a response body.</span></span> <span data-ttu-id="581bc-201">Yanıt üstbilgileri gönderildikten sonra sunucu bir özel durumu yakalar, sunucu bağlantıyı kapatır.</span><span class="sxs-lookup"><span data-stu-id="581bc-201">If the server catches an exception after response headers are sent, the server closes the connection.</span></span> <span data-ttu-id="581bc-202">Uygulamanız tarafından işlenmeyen isteği sunucu tarafından işlenir.</span><span class="sxs-lookup"><span data-stu-id="581bc-202">Requests that aren't handled by your app are handled by the server.</span></span> <span data-ttu-id="581bc-203">Sunucu isteği işlerken oluşan özel sunucu özel durum tarafından işlenir işleme.</span><span class="sxs-lookup"><span data-stu-id="581bc-203">Any exception that occurs when the server is handling the request is handled by the server's exception handling.</span></span> <span data-ttu-id="581bc-204">Uygulamanın özel hata sayfaları, özel durum işleme ara yazılım ve filtreler bu davranışı etkilemez.</span><span class="sxs-lookup"><span data-stu-id="581bc-204">The app's custom error pages, exception handling middleware, and filters don't affect this behavior.</span></span>
 
-<h3>Development Mode</h3>
-<p>
-    Swapping to the <strong>Development</strong> environment displays 
-    detailed information about the error that occurred.
-</p>
-<p>
-    <strong>The Development environment shouldn't be enabled for deployed 
-    applications.</strong> It can result in displaying sensitive information 
-    from exceptions to end users. For local debugging, enable the 
-    <strong>Development</strong> environment by setting the 
-    <strong>ASPNETCORE_ENVIRONMENT</strong> environment variable to 
-    <strong>Development</strong> and restarting the app.
-</p>
-```
+## <a name="startup-exception-handling"></a><span data-ttu-id="581bc-205">Başlangıç özel durum işleme</span><span class="sxs-lookup"><span data-stu-id="581bc-205">Startup exception handling</span></span>
 
-<span data-ttu-id="14609-191">*Error.cshtml.cs*:</span><span class="sxs-lookup"><span data-stu-id="14609-191">*Error.cshtml.cs*:</span></span>
+<span data-ttu-id="581bc-206">Yalnızca barındırma katmanı, uygulama başlatma sırasında gerçekleşmesi özel durumları işleyebilir.</span><span class="sxs-lookup"><span data-stu-id="581bc-206">Only the hosting layer can handle exceptions that take place during app startup.</span></span> <span data-ttu-id="581bc-207">Konak için yapılandırılabilir [yakalama başlatma hataları](xref:fundamentals/host/web-host#capture-startup-errors) ve [ayrıntılı hataları yakalamaya](xref:fundamentals/host/web-host#detailed-errors).</span><span class="sxs-lookup"><span data-stu-id="581bc-207">The host can be configured to [capture startup errors](xref:fundamentals/host/web-host#capture-startup-errors) and [capture detailed errors](xref:fundamentals/host/web-host#detailed-errors).</span></span>
+
+<span data-ttu-id="581bc-208">Ana bilgisayar adresi/bağlantı noktası sonra bağlama yalnızca hata oluşursa bir hata sayfası için yakalanan başlatma hatası barındırma katman gösterebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="581bc-208">The hosting layer can show an error page for a captured startup error only if the error occurs after host address/port binding.</span></span> <span data-ttu-id="581bc-209">Bağlama başarısız olursa:</span><span class="sxs-lookup"><span data-stu-id="581bc-209">If binding fails:</span></span>
+
+* <span data-ttu-id="581bc-210">Barındırma katman kritik bir özel durumu günlüğe kaydeder.</span><span class="sxs-lookup"><span data-stu-id="581bc-210">The hosting layer logs a critical exception.</span></span>
+* <span data-ttu-id="581bc-211">Dotnet işlem kilitleniyor.</span><span class="sxs-lookup"><span data-stu-id="581bc-211">The dotnet process crashes.</span></span>
+* <span data-ttu-id="581bc-212">HTTP sunucusu olduğunda hiçbir hata sayfası görüntülenir [Kestrel](xref:fundamentals/servers/kestrel).</span><span class="sxs-lookup"><span data-stu-id="581bc-212">No error page is displayed when the HTTP server is [Kestrel](xref:fundamentals/servers/kestrel).</span></span>
+
+<span data-ttu-id="581bc-213">Çalışırken [IIS](/iis) veya [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview), *502.5 - işlem hatası* tarafından döndürülen [ASP.NET Core Modülü](xref:host-and-deploy/aspnet-core-module) işlemi başlatılamazsa .</span><span class="sxs-lookup"><span data-stu-id="581bc-213">When running on [IIS](/iis) or [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview), a *502.5 - Process Failure* is returned by the [ASP.NET Core Module](xref:host-and-deploy/aspnet-core-module) if the process can't start.</span></span> <span data-ttu-id="581bc-214">Daha fazla bilgi için bkz. <xref:host-and-deploy/iis/troubleshoot>.</span><span class="sxs-lookup"><span data-stu-id="581bc-214">For more information, see <xref:host-and-deploy/iis/troubleshoot>.</span></span> <span data-ttu-id="581bc-215">Azure App Service ile başlatma sorunlarını giderme hakkında daha fazla bilgi için bkz: <xref:host-and-deploy/azure-apps/troubleshoot>.</span><span class="sxs-lookup"><span data-stu-id="581bc-215">For information on troubleshooting startup issues with Azure App Service, see <xref:host-and-deploy/azure-apps/troubleshoot>.</span></span>
+
+## <a name="database-error-page"></a><span data-ttu-id="581bc-216">Veritabanı hata sayfası</span><span class="sxs-lookup"><span data-stu-id="581bc-216">Database error page</span></span>
+
+<span data-ttu-id="581bc-217">[Veritabanı hata sayfası](<xref:Microsoft.AspNetCore.Builder.DatabaseErrorPageExtensions.UseDatabaseErrorPage*>) ara yazılım, Entity Framework geçişleri kullanarak çözülebilir, veritabanı ile ilgili özel durumları yakalar.</span><span class="sxs-lookup"><span data-stu-id="581bc-217">The [Database Error Page](<xref:Microsoft.AspNetCore.Builder.DatabaseErrorPageExtensions.UseDatabaseErrorPage*>) middleware captures database-related exceptions that can be resolved by using Entity Framework migrations.</span></span> <span data-ttu-id="581bc-218">Bu özel durumlar oluştuğunda, bu sorunu çözmek için olası Eylemler ilgili ayrıntıları içeren bir HTML yanıtını oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="581bc-218">When these exceptions occur, an HTML response with details of possible actions to resolve the issue is generated.</span></span> <span data-ttu-id="581bc-219">Bu sayfa yalnızca geliştirme ortamında etkinleştirilmesi gerekir.</span><span class="sxs-lookup"><span data-stu-id="581bc-219">This page should be enabled only in the Development environment.</span></span> <span data-ttu-id="581bc-220">Kod ekleyerek sayfası etkinleştirme `Startup.Configure`:</span><span class="sxs-lookup"><span data-stu-id="581bc-220">Enable the page by adding code to `Startup.Configure`:</span></span>
 
 ```csharp
-[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-public class ErrorModel : PageModel
+if (env.IsDevelopment())
 {
-    public string RequestId { get; set; }
-
-    public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
-
-    public void OnGet()
-    {
-        RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
-    }
+    app.UseDatabaseErrorPage();
 }
 ```
 
-::: moniker-end
+## <a name="exception-filters"></a><span data-ttu-id="581bc-221">Özel durum filtreleri</span><span class="sxs-lookup"><span data-stu-id="581bc-221">Exception filters</span></span>
 
-::: moniker range="< aspnetcore-2.2"
-
-```cshtml
-@page
-@model ErrorModel
-@{
-    ViewData["Title"] = "Error";
-}
-
-<h1 class="text-danger">Error.</h1>
-<h2 class="text-danger">An error occurred while processing your request.</h2>
-
-@if (Model.ShowRequestId)
-{
-    <p>
-        <strong>Request ID:</strong> <code>@Model.RequestId</code>
-    </p>
-}
-
-<h3>Development Mode</h3>
-<p>
-    Swapping to <strong>Development</strong> environment will display more detailed 
-    information about the error that occurred.
-</p>
-<p>
-    <strong>Development environment should not be enabled in deployed applications
-    </strong>, as it can result in sensitive information from exceptions being 
-    displayed to end users. For local debugging, development environment can be 
-    enabled by setting the <strong>ASPNETCORE_ENVIRONMENT</strong> environment 
-    variable to <strong>Development</strong>, and restarting the application.
-</p>
-```
-
-<span data-ttu-id="14609-192">*Error.cshtml.cs*:</span><span class="sxs-lookup"><span data-stu-id="14609-192">*Error.cshtml.cs*:</span></span>
-
-```csharp
-public class ErrorModel : PageModel
-{
-    public string RequestId { get; set; }
-
-    public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
-
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, 
-        NoStore = true)]
-    public void OnGet()
-    {
-        RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
-    }
-}
-```
-
-::: moniker-end
-
-## <a name="exception-handling-code"></a><span data-ttu-id="14609-193">Özel durum işleme kodu</span><span class="sxs-lookup"><span data-stu-id="14609-193">Exception-handling code</span></span>
-
-<span data-ttu-id="14609-194">Özel durum işleme sayfaları kodda özel durumlar.</span><span class="sxs-lookup"><span data-stu-id="14609-194">Code in exception handling pages can throw exceptions.</span></span> <span data-ttu-id="14609-195">Genellikle, tamamen statik içeriği oluşmalıdır üretim hata sayfaları için iyi bir fikir olduğunu.</span><span class="sxs-lookup"><span data-stu-id="14609-195">It's often a good idea for production error pages to consist of purely static content.</span></span>
-
-<span data-ttu-id="14609-196">Ayrıca, dikkat edin, yanıt üst bilgileri gönderdikten sonra:</span><span class="sxs-lookup"><span data-stu-id="14609-196">Also, be aware that once the headers for a response are sent:</span></span>
-
-* <span data-ttu-id="14609-197">Uygulama, yanıtın durum kodu değiştiremezsiniz.</span><span class="sxs-lookup"><span data-stu-id="14609-197">The app can't change the response's status code.</span></span>
-* <span data-ttu-id="14609-198">Herhangi bir özel durum sayfaları veya işleyicileri çalıştıramazsınız.</span><span class="sxs-lookup"><span data-stu-id="14609-198">Any exception pages or handlers can't run.</span></span> <span data-ttu-id="14609-199">Yanıt tamamlanması gereken veya bağlantı kesildi.</span><span class="sxs-lookup"><span data-stu-id="14609-199">The response must be completed or the connection aborted.</span></span>
-
-## <a name="server-exception-handling"></a><span data-ttu-id="14609-200">Sunucu özel durum işleme</span><span class="sxs-lookup"><span data-stu-id="14609-200">Server exception handling</span></span>
-
-<span data-ttu-id="14609-201">Özel durum işleme mantığı, uygulamanıza ek olarak [sunucusu uygulaması](xref:fundamentals/servers/index) bazı özel durumları işleyebilir.</span><span class="sxs-lookup"><span data-stu-id="14609-201">In addition to the exception handling logic in your app, the [server implementation](xref:fundamentals/servers/index) can handle some exceptions.</span></span> <span data-ttu-id="14609-202">Yanıt üst bilgileri gönderilmeden önce sunucunun bir özel durumu yakalar, sunucunun gönderdiği bir *500 - İç sunucu hatası* yanıt gövdesi olmadan yanıt.</span><span class="sxs-lookup"><span data-stu-id="14609-202">If the server catches an exception before response headers are sent, the server sends a *500 - Internal Server Error* response without a response body.</span></span> <span data-ttu-id="14609-203">Yanıt üstbilgileri gönderildikten sonra sunucu bir özel durumu yakalar, sunucu bağlantıyı kapatır.</span><span class="sxs-lookup"><span data-stu-id="14609-203">If the server catches an exception after response headers are sent, the server closes the connection.</span></span> <span data-ttu-id="14609-204">Uygulamanız tarafından işlenmeyen isteği sunucu tarafından işlenir.</span><span class="sxs-lookup"><span data-stu-id="14609-204">Requests that aren't handled by your app are handled by the server.</span></span> <span data-ttu-id="14609-205">Sunucu isteği işlerken oluşan özel sunucu özel durum tarafından işlenir işleme.</span><span class="sxs-lookup"><span data-stu-id="14609-205">Any exception that occurs when the server is handling the request is handled by the server's exception handling.</span></span> <span data-ttu-id="14609-206">Uygulamanın özel hata sayfaları, özel durum işleme ara yazılım ve filtreler bu davranışı etkilemez.</span><span class="sxs-lookup"><span data-stu-id="14609-206">The app's custom error pages, exception handling middleware, and filters don't affect this behavior.</span></span>
-
-## <a name="startup-exception-handling"></a><span data-ttu-id="14609-207">Başlangıç özel durum işleme</span><span class="sxs-lookup"><span data-stu-id="14609-207">Startup exception handling</span></span>
-
-<span data-ttu-id="14609-208">Yalnızca barındırma katmanı, uygulama başlatma sırasında gerçekleşmesi özel durumları işleyebilir.</span><span class="sxs-lookup"><span data-stu-id="14609-208">Only the hosting layer can handle exceptions that take place during app startup.</span></span> <span data-ttu-id="14609-209">Kullanarak [Web ana bilgisayarı](xref:fundamentals/host/web-host), yapabilecekleriniz [nasıl konak hatalara yanıt başlatma sırasında davranacağını yapılandırmak](xref:fundamentals/host/web-host#detailed-errors) ile `captureStartupErrors` ve `detailedErrors` anahtarları.</span><span class="sxs-lookup"><span data-stu-id="14609-209">Using [Web Host](xref:fundamentals/host/web-host), you can [configure how the host behaves in response to errors during startup](xref:fundamentals/host/web-host#detailed-errors) with the `captureStartupErrors` and `detailedErrors` keys.</span></span>
-
-<span data-ttu-id="14609-210">Ana bilgisayar adresi/bağlantı noktası sonra bağlama bir hata oluşursa bir hata sayfası için yakalanan başlatma hatası barındırma yalnızca gösterebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="14609-210">Hosting can only show an error page for a captured startup error if the error occurs after host address/port binding.</span></span> <span data-ttu-id="14609-211">Bağlama için herhangi bir nedenle başarısız olursa:</span><span class="sxs-lookup"><span data-stu-id="14609-211">If any binding fails for any reason:</span></span>
-
-* <span data-ttu-id="14609-212">Barındırma katman kritik bir özel durumu günlüğe kaydeder.</span><span class="sxs-lookup"><span data-stu-id="14609-212">The hosting layer logs a critical exception.</span></span>
-* <span data-ttu-id="14609-213">Dotnet işlem kilitleniyor.</span><span class="sxs-lookup"><span data-stu-id="14609-213">The dotnet process crashes.</span></span>
-* <span data-ttu-id="14609-214">Uygulama çalışırken, hiçbir hata sayfası görüntülenir [Kestrel](xref:fundamentals/servers/kestrel) sunucusu.</span><span class="sxs-lookup"><span data-stu-id="14609-214">No error page is displayed when the app is running on the [Kestrel](xref:fundamentals/servers/kestrel) server.</span></span>
-
-<span data-ttu-id="14609-215">Çalışırken [IIS](/iis) veya [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview), *502.5 - işlem hatası* tarafından döndürülen [ASP.NET Core Modülü](xref:host-and-deploy/aspnet-core-module) işlemi başlatılamazsa .</span><span class="sxs-lookup"><span data-stu-id="14609-215">When running on [IIS](/iis) or [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview), a *502.5 - Process Failure* is returned by the [ASP.NET Core Module](xref:host-and-deploy/aspnet-core-module) if the process can't start.</span></span> <span data-ttu-id="14609-216">Daha fazla bilgi için bkz. <xref:host-and-deploy/iis/troubleshoot>.</span><span class="sxs-lookup"><span data-stu-id="14609-216">For more information, see <xref:host-and-deploy/iis/troubleshoot>.</span></span> <span data-ttu-id="14609-217">Azure App Service ile başlatma sorunlarını giderme hakkında daha fazla bilgi için bkz: <xref:host-and-deploy/azure-apps/troubleshoot>.</span><span class="sxs-lookup"><span data-stu-id="14609-217">For information on troubleshooting startup issues with Azure App Service, see <xref:host-and-deploy/azure-apps/troubleshoot>.</span></span>
-
-## <a name="aspnet-core-mvc-error-handling"></a><span data-ttu-id="14609-218">ASP.NET Core MVC hata işleme</span><span class="sxs-lookup"><span data-stu-id="14609-218">ASP.NET Core MVC error handling</span></span>
-
-<span data-ttu-id="14609-219">[MVC](xref:mvc/overview) uygulamalara sahip özel durum filtreleri yapılandırma ve model doğrulama gerçekleştirme gibi hataları işlemek için bazı ek seçenekler.</span><span class="sxs-lookup"><span data-stu-id="14609-219">[MVC](xref:mvc/overview) apps have some additional options for handling errors, such as configuring exception filters and performing model validation.</span></span>
-
-### <a name="exception-filters"></a><span data-ttu-id="14609-220">Özel durum filtreleri</span><span class="sxs-lookup"><span data-stu-id="14609-220">Exception filters</span></span>
-
-<span data-ttu-id="14609-221">Özel durum filtreleri, genel olarak veya bir MVC uygulamasında her denetleyici veya eylem başına temelinde yapılandırılabilir.</span><span class="sxs-lookup"><span data-stu-id="14609-221">Exception filters can be configured globally or on a per-controller or per-action basis in an MVC app.</span></span> <span data-ttu-id="14609-222">Bu filtreler bir denetleyici eylemi veya başka bir filtre yürütülmesi sırasında oluşan tüm işlenmeyen bir özel durumu işle.</span><span class="sxs-lookup"><span data-stu-id="14609-222">These filters handle any unhandled exception that occurs during the execution of a controller action or another filter.</span></span> <span data-ttu-id="14609-223">Bu filtreler, aksi takdirde çağrılır değil.</span><span class="sxs-lookup"><span data-stu-id="14609-223">These filters aren't called otherwise.</span></span> <span data-ttu-id="14609-224">Daha fazla bilgi için bkz. <xref:mvc/controllers/filters#exception-filters>.</span><span class="sxs-lookup"><span data-stu-id="14609-224">For more information, see <xref:mvc/controllers/filters#exception-filters>.</span></span>
+<span data-ttu-id="581bc-222">MVC uygulamalarında özel durum filtreleri genel olarak veya her denetleyici veya eylem başına temelinde yapılandırılabilir.</span><span class="sxs-lookup"><span data-stu-id="581bc-222">In MVC apps, exception filters can be configured globally or on a per-controller or per-action basis.</span></span> <span data-ttu-id="581bc-223">Razor sayfaları uygulamalar, bunlar genel olarak veya sayfa modeli başına yapılandırılabilir.</span><span class="sxs-lookup"><span data-stu-id="581bc-223">In Razor Pages apps, they can be configured globally or per page model.</span></span> <span data-ttu-id="581bc-224">Bu filtreler bir denetleyici eylemi veya başka bir filtre yürütülmesi sırasında oluşan tüm işlenmeyen bir özel durumu işle.</span><span class="sxs-lookup"><span data-stu-id="581bc-224">These filters handle any unhandled exception that occurs during the execution of a controller action or another filter.</span></span> <span data-ttu-id="581bc-225">Daha fazla bilgi için bkz. <xref:mvc/controllers/filters#exception-filters>.</span><span class="sxs-lookup"><span data-stu-id="581bc-225">For more information, see <xref:mvc/controllers/filters#exception-filters>.</span></span>
 
 > [!TIP]
-> <span data-ttu-id="14609-225">Özel durum filtreleri, MVC Eylemler içinde oluşan özel durumları yakalama için yararlıdır, ancak bunlar özel durum işleme ara yazılımı kadar esnek değildir.</span><span class="sxs-lookup"><span data-stu-id="14609-225">Exception filters are useful for trapping exceptions that occur within MVC actions, but they're not as flexible as the Exception Handling Middleware.</span></span> <span data-ttu-id="14609-226">Ara yazılım kullanmanızı öneririz.</span><span class="sxs-lookup"><span data-stu-id="14609-226">We recommend using the middleware.</span></span> <span data-ttu-id="14609-227">Hata işleme gerçekleştirmek için yalnızca gerek duyduğunuz filtrelerini kullanma *farklı* göre MVC eylemi seçilir.</span><span class="sxs-lookup"><span data-stu-id="14609-227">Use filters only where you need to perform error handling *differently* based on which MVC action is chosen.</span></span>
+> <span data-ttu-id="581bc-226">Özel durum filtreleri, MVC Eylemler içinde oluşan özel durumları yakalama için yararlıdır, ancak bunlar özel durum işleme ara yazılımı kadar esnek değildir.</span><span class="sxs-lookup"><span data-stu-id="581bc-226">Exception filters are useful for trapping exceptions that occur within MVC actions, but they're not as flexible as the Exception Handling Middleware.</span></span> <span data-ttu-id="581bc-227">Ara yazılım kullanmanızı öneririz.</span><span class="sxs-lookup"><span data-stu-id="581bc-227">We recommend using the middleware.</span></span> <span data-ttu-id="581bc-228">MVC eylemi seçilen farklı tabanlı hata işleme gerçekleştirmek için yalnızca gerek duyduğunuz filtreleri kullanın.</span><span class="sxs-lookup"><span data-stu-id="581bc-228">Use filters only where you need to perform error handling differently based on which MVC action is chosen.</span></span>
 
-### <a name="handle-model-state-errors"></a><span data-ttu-id="14609-228">Model durumu hataları işleme</span><span class="sxs-lookup"><span data-stu-id="14609-228">Handle model state errors</span></span>
+## <a name="model-state-errors"></a><span data-ttu-id="581bc-229">Model durumu hataları</span><span class="sxs-lookup"><span data-stu-id="581bc-229">Model state errors</span></span>
 
-<span data-ttu-id="14609-229">[Model doğrulama](xref:mvc/models/validation) her denetleyici eylemi çağırma öncesinde gerçekleşir ve incelemek için eylem yönteminin sorumluluğu olan [ModelState.IsValid](xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary.IsValid) ve uygun şekilde tepki verin.</span><span class="sxs-lookup"><span data-stu-id="14609-229">[Model validation](xref:mvc/models/validation) occurs prior to invoking each controller action, and it's the action method's responsibility to inspect [ModelState.IsValid](xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary.IsValid) and react appropriately.</span></span>
+<span data-ttu-id="581bc-230">Model durumu hatalarının nasıl işleneceğini hakkında daha fazla bilgi için bkz. [Model bağlama](xref:mvc/models/model-binding) ve [Model doğrulama](xref:mvc/models/validation).</span><span class="sxs-lookup"><span data-stu-id="581bc-230">For information about how to handle model state errors, see [Model binding](xref:mvc/models/model-binding) and [Model validation](xref:mvc/models/validation).</span></span>
 
-<span data-ttu-id="14609-230">Başa çıkmak için standart bir kural izlemek bazı uygulamalar seçin [model doğrulama](xref:mvc/models/validation) durumda hataları bir [filtre](xref:mvc/controllers/filters) böyle bir ilke uygulamak için uygun bir yere olabilir.</span><span class="sxs-lookup"><span data-stu-id="14609-230">Some apps choose to follow a standard convention for dealing with [model validation](xref:mvc/models/validation) errors, in which case a [filter](xref:mvc/controllers/filters) may be an appropriate place to implement such a policy.</span></span> <span data-ttu-id="14609-231">Eylemlerinizi ile geçersiz model durumlarının nasıl davranacağını test etmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="14609-231">You should test how your actions behave with invalid model states.</span></span> <span data-ttu-id="14609-232">Daha fazla bilgi için bkz. <xref:mvc/controllers/testing>.</span><span class="sxs-lookup"><span data-stu-id="14609-232">For more information, see <xref:mvc/controllers/testing>.</span></span>
-
-## <a name="additional-resources"></a><span data-ttu-id="14609-233">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="14609-233">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="581bc-231">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="581bc-231">Additional resources</span></span>
 
 * <xref:host-and-deploy/azure-iis-errors-reference>
 * <xref:host-and-deploy/iis/troubleshoot>
