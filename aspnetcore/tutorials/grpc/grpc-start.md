@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 2/26/2019
 uid: tutorials/grpc/grpc-start
-ms.openlocfilehash: 5f7a2f6b57804b3295b23c322dcbac553b05528b
-ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
+ms.openlocfilehash: 84c98ed341adc48d4ecbeda4305100c492ffb5e1
+ms.sourcegitcommit: 9b7fcb4ce00a3a32e153a080ebfaae4ef417aafa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58320062"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59516241"
 ---
 # <a name="tutorial-get-started-with-grpc-service-in-aspnet-core"></a>Öğretici: ASP.NET Core’da gRPC hizmeti ile çalışmaya başlama
 
@@ -93,7 +93,7 @@ Visual Studio'dan seçin **Dosya > Aç**ve ardından *GrpcGreeter.sln* dosya.
 
   ![Yeni ASP.NET Core Web uygulaması](grpc-start/_static/server_start.png)
 
-* Hizmet çalışmaya başladıktan sonra ayarlanmış **GrpcGreeter.Client** başlangıç projesi olarak ayarlayın ve hata ayıklayıcı olmadan istemciyi çalıştırmak için Ctrl + F5 tuşlarına basın.
+* Hizmet çalışmaya başladıktan sonra ayarlanmış **GrpcGreeter.Client** hata ayıklayıcı olmadan istemciyi çalıştırmak için başlangıç projesi ve Ctrl + F5 tuşuna basın.
 
   İstemci bir karşılama "GreeterClient" adını içeren bir iletiyle hizmetine gönderir. Hizmet, komut satırında görüntülenen yanıt olarak bir "Hello GreeterClient" ileti gönderir.
 

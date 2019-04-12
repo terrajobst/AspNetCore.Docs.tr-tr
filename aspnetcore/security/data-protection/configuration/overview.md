@@ -4,14 +4,14 @@ author: rick-anderson
 description: ASP.NET Core veri korumasını yapılandırma konusunda bilgi edinin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/08/2019
+ms.date: 04/11/2019
 uid: security/data-protection/configuration/overview
-ms.openlocfilehash: 36a06246513215ec29891df02688d113db11f914
-ms.sourcegitcommit: 32bc00435767189fa3ae5fb8a91a307bf889de9d
+ms.openlocfilehash: ee43427fa1e82a365d49df50567b4ca7afb5a5d3
+ms.sourcegitcommit: 9b7fcb4ce00a3a32e153a080ebfaae4ef417aafa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57733499"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59516254"
 ---
 # <a name="configure-aspnet-core-data-protection"></a>ASP.NET Core veri korumasını yapılandırma
 
@@ -44,7 +44,7 @@ public void ConfigureServices(IServiceCollection services)
 
 Anahtar halkası depolama konumunu ayarlayın (örneğin, [PersistKeysToAzureBlobStorage](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.persistkeystoazureblobstorage)). Konum, arama için ayarlamanız gerekir `ProtectKeysWithAzureKeyVault` uygulayan bir [IXmlEncryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.ixmlencryptor) , devre dışı bırakır anahtar halkası depolama konumu dahil olmak üzere otomatik veri koruma ayarları. Yukarıdaki örnekte, anahtar halkası kalıcı hale getirmek için Azure Blob Depolama kullanır. Daha fazla bilgi için [anahtar depolama sağlayıcıları: Azure ve Redis](xref:security/data-protection/implementation/key-storage-providers#azure-and-redis). Anahtar halkası ile yerel olarak da devam edebilir [PersistKeysToFileSystem](xref:security/data-protection/implementation/key-storage-providers#file-system).
 
-`keyIdentifier` Anahtar şifreleme için kullanılan anahtar kasası anahtar tanımlayıcısı (örneğin, `https://contosokeyvault.vault.azure.net/keys/dataprotection/`).
+`keyIdentifier` Anahtar şifreleme için kullanılan anahtar kasası anahtar tanımlayıcısı. Örneğin, adlı anahtar Kasası'nda oluşturulmuş bir anahtar `dataprotection` içinde `contosokeyvault` anahtar tanımlayıcısı `https://contosokeyvault.vault.azure.net/keys/dataprotection/`. Uygulamayla sağlamak **Unwrap Key** ve **Wrap Key** anahtar kasasındaki izinleri.
 
 `ProtectKeysWithAzureKeyVault` aşırı yüklemeler:
 
@@ -154,7 +154,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="disableautomatickeygeneration"></a>DisableAutomaticKeyGeneration
 
-Burada, sona erme yaklaştıkça (yeni anahtar oluştur) anahtarları otomatik olarak geri almak için bir uygulama istemediğiniz bir senaryo olabilir. Bunun bir örneği burada yalnızca birincil uygulama ile ilgili anahtar yönetimi konuları sorumludur ve ikincil uygulamaları yalnızca bir salt okunur anahtar halkası görüntüleyebilmek bir birincil/ikincil ilişkide, ayarlanan uygulamalar olabilir. İkincil uygulamaları sistemiyle yapılandırarak anahtar halkası salt okunur işlemek için yapılandırılabilir [DisableAutomaticKeyGeneration](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.disableautomatickeygeneration):
+Burada, sona erme yaklaştıkça (yeni anahtar oluştur) anahtarları otomatik olarak geri almak için bir uygulama istemediğiniz bir senaryo olabilir. Bunun bir örneği burada yalnızca birincil uygulama ile ilgili anahtar yönetimi konuları sorumludur ve ikincil uygulamaları yalnızca bir salt okunur anahtar halkası görüntüleyebilmek bir birincil/ikincil ilişkide, ayarlanan uygulamalar olabilir. İkincil uygulamaları sistemiyle yapılandırarak anahtar halkası salt okunur işlemek için yapılandırılabilir <xref:Microsoft.AspNetCore.DataProtection.DataProtectionBuilderExtensions.DisableAutomaticKeyGeneration*>:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -166,15 +166,14 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="per-application-isolation"></a>Uygulama başına yalıtımı
 
-Veri koruma sisteminde bir ASP.NET Core ana bilgisayar tarafından sağlandığında, bu uygulamaları aynı çalışan işlem hesabı altında çalıştığından ve aynı ana anahtar malzemesini kullanıyorsanız bile otomatik olarak birbirinden, uygulamaları yalıtır. Bu System.Web 's IsolateApps değiştiricisi için biraz benzer  **\<machineKey >** öğesi.
+Veri koruma sisteminde bir ASP.NET Core ana bilgisayar tarafından sağlandığında, bu uygulamaları aynı çalışan işlem hesabı altında çalıştığından ve aynı ana anahtar malzemesini kullanıyorsanız bile otomatik olarak birbirinden, uygulamaları yalıtır. Bu System.Web 's IsolateApps değiştiricisi için biraz benzer `<machineKey>` öğesi.
 
-Yalıtım mekanizması çalıştığı yerel makinede bulunan her bir uygulama benzersiz bir kiracı, bu nedenle dikkate alarak [Idataprotector](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotector) belirli bir uygulamanın uygulama Kimliğini bir ayrıştırıcı olarak otomatik olarak içerir. kök erişim izni verilmemiş. Uygulamanın benzersiz Kimliğini iki yerlerden biri sunulur:
+Yalıtım mekanizması çalıştığı yerel makinede bulunan her bir uygulama benzersiz bir kiracı, bu nedenle dikkate alarak <xref:Microsoft.AspNetCore.DataProtection.IDataProtector> belirli bir uygulamanın uygulama Kimliğini bir ayrıştırıcı olarak otomatik olarak içerir. kök erişim izni verilmemiş. Uygulamanın benzersiz Kimliğini uygulamanın fiziksel yoludur:
 
-1. Uygulama IIS'de barındırılıyorsa, uygulamanın yapılandırma yolu kimliktir. Bir uygulama bir web çiftliği ortamında dağıttıysanız, bu değer IIS ortamları benzer şekilde web grubundaki tüm makinelerdeki yapılandırıldığını varsayarak kararlı olmalıdır.
+* Barındırılan uygulamalar için [IIS](xref:fundamentals/servers/index#iis-http-server), uygulamayı IIS fiziksel yolunu benzersiz kimliğidir. Bir uygulama bir web çiftliği ortamında dağıttıysanız, IIS ortamları benzer şekilde web grubundaki tüm makinelerdeki yapılandırıldığını varsayarak, bu değer kararlı olur.
+* Şirket içinde barındırılan uygulamaları üzerinde çalışan [Kestrel sunucu](xref:fundamentals/servers/index#kestrel), diskteki uygulamasının fiziksel yolu benzersiz kimliğidir.
 
-2. Uygulama IIS'de barındırılıyorsa, bu değilse uygulamanın fiziksel yolu kimliktir.
-
-Benzersiz tanımlayıcı sıfırlar varlığını sürdürmesi için tasarlanmış &mdash; hem tek tek uygulama ve makine.
+Benzersiz tanımlayıcı sıfırlar varlığını sürdürmesi için tasarlanmış&mdash;hem tek tek uygulama ve makine.
 
 Uygulamaları kötü amaçlı olmayan bu yalıtım mekanizması varsayar. Kötü amaçlı bir uygulama her zaman aynı çalışan işlem hesabı altında çalışan diğer herhangi bir uygulamayı etkiler. Uygulamaları birbirini güvenilmeyen olduğu bir paylaşılan barındırma ortamında, barındırma sağlayıcısı, anahtar deposu uygulamaların temel ayırarak dahil olmak üzere, uygulamalar arasında işletim sistemi düzeyinde yalıtımı sağlamak üzere önlem almanız gerekir.
 

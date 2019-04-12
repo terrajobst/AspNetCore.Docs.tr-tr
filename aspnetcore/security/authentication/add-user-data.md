@@ -2,17 +2,16 @@
 title: Ekleme, indirmek ve bir ASP.NET Core projesi kimliği için kullanıcı verilerini silme
 author: rick-anderson
 description: Bir ASP.NET Core projesi içinde kimlik için özel kullanıcı veri eklemeyi öğrenin. GDPR başına verileri silin.
-monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 6/16/2018
 ms.custom: seodec18
 uid: security/authentication/add-user-data
-ms.openlocfilehash: 529aa0bf369f8a635bd8d39948585cf2a530e2d9
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 8c0413a16d92b717619387748ee78f0d14d6c852
+ms.sourcegitcommit: 9b7fcb4ce00a3a32e153a080ebfaae4ef417aafa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58208492"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59516215"
 ---
 # <a name="add-download-and-delete-custom-user-data-to-identity-in-an-aspnet-core-project"></a>Ekleme, indirmek ve kimlik için bir ASP.NET Core projesi özel kullanıcı verilerini silme
 
@@ -25,11 +24,11 @@ Bu makale nasıl yapılır:
 
 Bir Razor sayfaları web uygulaması proje örneği oluşturulur, ancak yönergeleri ASP.NET Core MVC web uygulaması için benzerdir.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/authentication/add-user-data/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/authentication/add-user-data) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-[!INCLUDE [](~/includes/2.1-SDK.md)]
+[!INCLUDE [](~/includes/2.2-SDK.md)]
 
 ## <a name="create-a-razor-web-app"></a>Razor web uygulaması oluşturma
 
@@ -37,7 +36,7 @@ Bir Razor sayfaları web uygulaması proje örneği oluşturulur, ancak yönerge
 
 * Visual Studio'dan **dosya** menüsünde **yeni** > **proje**. Projeyi adlandırın **WebApp1** için istiyorsanız ad alanı eşleşen [örneği indirin](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/authentication/add-user-data/sample) kod.
 * Seçin **ASP.NET Core Web uygulaması** > **Tamam**
-* Seçin **ASP.NET Core 2.1** açılır
+* Seçin **ASP.NET Core 2.2** açılır
 * Seçin **Web uygulaması**  > **Tamam**
 * Derleme ve projeyi çalıştırın.
 
@@ -109,7 +108,7 @@ Verilen yönergeleri izleyin [düzeni geçişleri ve UseAuthentication](xref:sec
 
 Güncelleştirme `IdentityUser` türetilmiş sınıf özel özelliklere sahip. ' % S'proje WebApp1 adlı, dosyanın nasıl adlandırıldığı *Areas/Identity/Data/WebApp1User.cs*. Dosya, aşağıdaki kod ile güncelleştirin:
 
-[!code-csharp[Main](add-user-data/sample/Areas/Identity/Data/WebApp1User.cs)]
+[!code-csharp[Main](add-user-data/sample-2.2/Areas/Identity/Data/WebApp1User.cs)]
 
 Düzenlenmiş özellikler ile [PersonalData](/dotnet/api/microsoft.aspnetcore.identity.personaldataattribute?view=aspnetcore-2.1) öznitelik şunlardır:
 
@@ -120,21 +119,21 @@ Düzenlenmiş özellikler ile [PersonalData](/dotnet/api/microsoft.aspnetcore.id
 
 Güncelleştirme `InputModel` içinde *Areas/Identity/Pages/Account/Manage/Index.cshtml.cs* aşağıdaki vurgulanmış kodu:
 
-[!code-csharp[Main](add-user-data/sample/Areas/Identity/Pages/Account/Manage/Index.cshtml.cs?name=snippet&highlight=28-36,63-64,87-95,120)]
+[!code-csharp[Main](add-user-data/sample-2.2/Areas/Identity/Pages/Account/Manage/Index.cshtml.cs?name=snippet&highlight=28-36,63-64,98-106,119)]
 
 Güncelleştirme *Areas/Identity/Pages/Account/Manage/Index.cshtml* aşağıdaki vurgulanmış biçimlendirmeye sahip:
 
-[!code-html[Main](add-user-data/sample/Areas/Identity/Pages/Account/Manage/Index.cshtml?highlight=34-41)]
+[!code-html[Main](add-user-data/sample-2.2/Areas/Identity/Pages/Account/Manage/Index.cshtml?highlight=35-42)]
 
 ### <a name="update-the-accountregistercshtml-page"></a>Account/Register.cshtml sayfası
 
 Güncelleştirme `InputModel` içinde *Areas/Identity/Pages/Account/Register.cshtml.cs* aşağıdaki vurgulanmış kodu:
 
-[!code-csharp[Main](add-user-data/sample/Areas/Identity/Pages/Account/Register.cshtml.cs?name=snippet&highlight=8-16,43,44)]
+[!code-csharp[Main](add-user-data/sample-2.2/Areas/Identity/Pages/Account/Register.cshtml.cs?name=snippet&highlight=28-36,67,66)]
 
 Güncelleştirme *Areas/Identity/Pages/Account/Register.cshtml* aşağıdaki vurgulanmış biçimlendirmeye sahip:
 
-[!code-html[Main](add-user-data/sample/Areas/Identity/Pages/Account/Register.cshtml?highlight=16-25)]
+[!code-html[Main](add-user-data/sample-2.2/Areas/Identity/Pages/Account/Register.cshtml?highlight=16-25)]
 
 Projeyi oluşturun.
 

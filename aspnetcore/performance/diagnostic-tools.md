@@ -4,14 +4,14 @@ author: mjrousos
 description: ASP.NET Core uygulamalarında performans sorunlarını tanılamak için faydalı araçlar.
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
-ms.date: 12/07/2018
+ms.date: 04/11/2019
 uid: performance/diagnostic-tools
-ms.openlocfilehash: 0fb9944d1082090f4f58f641a26ee96286920456
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 66676b5a2b95b87bfbbd50022e279e35a12b9793
+ms.sourcegitcommit: 9b7fcb4ce00a3a32e153a080ebfaae4ef417aafa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58210008"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59516228"
 ---
 # <a name="performance-diagnostic-tools"></a>Performans Tanılama araçları
 
@@ -32,7 +32,7 @@ Daha fazla bilgi kullanılabilir [Visual Studio belgeleri](/visualstudio/profili
 Azure Application Insights ınsights izlenen uygulamaları sağlamak için birden çok yol sağlar:
 
 - [Uygulama Haritası](/azure/application-insights/app-insights-app-map) – nokta performans sorunlarını veya sık erişimli hatası-nokta dağıtılmış uygulamaların tüm bileşenler genelinde yardımcı olur.
-- [Application Insights portalında ölçümler dikey penceresine](/azure/application-insights/app-insights-metrics-explorer?toc=/azure/azure-monitor/toc.json) ölçülen değerleri gösterir ve olay sayar.
+- [Azure ölçüm Gezgini](/azure/azure-monitor/platform/metrics-getting-started) grafikleri, eğilimler ve görsel olarak bağıntı çizim sağlayan Microsoft Azure portalında bir bileşenidir ve araştırma ani artışlar ve düşüşler ölçümleri değerleri.
 - [Application Insights portalında performans dikey penceresini](/azure/application-insights/app-insights-tutorial-performance):
 
   - İzlenen uygulamada farklı işlemlerin performans ayrıntılarını gösterir.
