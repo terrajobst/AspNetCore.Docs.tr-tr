@@ -4,14 +4,14 @@ author: rick-anderson
 description: ASP.NET core'da etiket Yardımcıları yazmak öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 10/24/2018
+ms.date: 04/12/2019
 uid: mvc/views/tag-helpers/authoring
-ms.openlocfilehash: ddfd7cb8c67e28709b8ce75d5a4d0a8c0c0cc43c
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 19b7df1abc8765cb9a77487e39c4365fdacf2b65
+ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58210086"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59614428"
 ---
 # <a name="author-tag-helpers-in-aspnet-core"></a>ASP.NET core'da Yazar etiket Yardımcıları
 
@@ -65,7 +65,9 @@ Diğer bir deyişle, bir yer işareti etiketi, bu e-posta bağlantısı sağlar.
    public class Email : TagHelper
    ```
 
-1. Yapmak `EmailTagHelper` bizim Razor görünümleri tüm kullanılabilir sınıf, ekleme `addTagHelper` yönergesini *Views/_ViewImports.cshtml* dosyası: [!code-html[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopyEmail.cshtml?highlight=2,3)]
+1. Yapmak `EmailTagHelper` bizim Razor görünümleri tüm kullanılabilir sınıf, ekleme `addTagHelper` yönergesini *Views/_ViewImports.cshtml* dosyası:
+
+   [!code-html[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopyEmail.cshtml?highlight=2,3)]
 
    Yukarıdaki kod, bizim derlemedeki tüm etiket Yardımcıları kullanılabilir olacağını belirtmek için joker karakter sözdizimini kullanır. Sonra ilk dize `@addTagHelper` yüklemek için etiket Yardımcısı belirtir (kullan "*" tüm etiket Yardımcıları için), ve ikinci dize "AuthoringTagHelpers" etiketi Yardımcısı olan derlemeyi belirtir. Ayrıca, ikinci satır joker karakter sözdizimini kullanarak ASP.NET Core MVC etiket Yardımcıları getirir unutmayın (Bu Yardımcıları ele alınmıştır [etiket Yardımcıları giriş](intro.md).) Bu `@addTagHelper` etiketi Yardımcısı Razor görünüm kullanılabilmesini yönergesi. Alternatif olarak, aşağıda gösterildiği gibi bir etiket Yardımcısı'nın (FQN) tam nitelikli ad sağlayabilirsiniz:
 

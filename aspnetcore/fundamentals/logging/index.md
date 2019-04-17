@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 03/02/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 065b2016d3a2dcc2243ec6869e027c5fabe4dad8
-ms.sourcegitcommit: 6bde1fdf686326c080a7518a6725e56e56d8886e
+ms.openlocfilehash: f0e4dbb6fda4f676ad8e769c71cc9548a4d61d66
+ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59068410"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59614441"
 ---
 # <a name="logging-in-aspnet-core"></a>ASP.NET core'da günlüğe kaydetme
 
@@ -497,7 +497,8 @@ Her bir sağlayıcı tanımlar bir *diğer* yapılandırmasında tam nitelikli t
 * Konsol
 * Hata ayıklama
 * EventLog
-* AzureAppServices
+* AzureAppServicesFile
+* AzureAppServicesBlob
 * TraceSource
 * EventSource
 
@@ -610,7 +611,7 @@ warn: TodoApi.Controllers.TodoController[4000]
 
 ASP.NET Core aşağıdaki sağlayıcıları birlikte gelir:
 
-* [Konsol](#console-provider)
+* [Console](#console-provider)
 * [Hata ayıklama](#debug-provider)
 * [EventSource](#eventsource-provider)
 * [EventLog](#windows-eventlog-provider)
