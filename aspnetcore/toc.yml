@@ -261,10 +261,82 @@ items:
       name: Bağımlılık ekleme - görünümler
     - uid: mvc/controllers/testing
       name: Birim testi
-  - uid: razor-components/index
-    name: Razor Bileşenleri
+  - name: Blazor
+    items:
+    - uid: blazor/index
+      name: Genel Bakış
+    - uid: blazor/get-started
+      name: Kullanmaya başlayın
+    - uid: blazor/hosting-models
+      name: Barındırma modelleri
+    - uid: tutorials/first-blazor-app
+      name: İlk uygulamanızı oluşturma
+    - uid: blazor/components
+      name: Bileşenler
+    - uid: blazor/forms-validation
+      name: Formlar ve doğrulama
+    - uid: blazor/class-libraries
+      name: Bileşen kitaplıkları
+    - uid: blazor/layouts
+      name: Düzenler
+    - uid: blazor/dependency-injection
+      name: Bağımlılık ekleme
+    - uid: blazor/routing
+      name: Yönlendirme
+    - uid: blazor/javascript-interop
+      name: JavaScript ile birlikte çalışma
+    - uid: blazor/debug
+      name: Hata ayıklama
+    - name: Barındırma ve dağıtma
+      items:
+      - uid: host-and-deploy/blazor/index
+        name: Genel Bakış
+      - uid: host-and-deploy/blazor/client-side
+        name: İstemci tarafı
+      - uid: host-and-deploy/blazor/server-side
+        name: Sunucu tarafı
+      - uid: host-and-deploy/blazor/configure-linker
+        name: Bağlayıcıyı yapılandırma
+  - name: İstemci tarafı geliştirme
+    items:
+    - name: Tek Sayfalı Uygulamalar
+      items:
+      - uid: spa/angular
+        name: Angular
+      - uid: spa/react
+        name: React
+      - uid: spa/react-with-redux
+        name: Redux ile React
+      - uid: client-side/spa-services
+        name: JavaScriptServices
+    - name: LibMan
+      items:
+      - uid: client-side/libman/index
+        name: Genel Bakış
+      - uid: client-side/libman/libman-cli
+        name: CLI
+      - uid: client-side/libman/libman-vs
+        name: Visual Studio
+    - uid: client-side/using-gulp
+      name: Gulp
+    - uid: client-side/using-grunt
+      name: Grunt
+    - uid: client-side/bower
+      name: Bower
+    - uid: client-side/bundling-and-minification
+      name: Paketleme ve küçültme
+    - uid: client-side/using-browserlink
+      name: Tarayıcı Bağlantısı
   - uid: fundamentals/app-state
     name: Oturum ve uygulama durumu
+  - uid: mvc/views/layout
+    name: Düzen
+  - uid: mvc/models/model-binding
+    name: Model bağlama
+  - uid: mvc/models/validation
+    name: Model doğrulaması
+  - uid: mvc/views/razor
+    name: Razor söz dizimi
   - name: Etiket Yardımcıları
     items:
     - uid: mvc/views/tag-helpers/intro
@@ -303,14 +375,6 @@ items:
         href: mvc/views/working-with-forms.md#the-validation-message-tag-helper
       - name: Doğrulama Özeti
         href: mvc/views/working-with-forms.md#the-validation-summary-tag-helper
-  - uid: mvc/views/layout
-    name: Düzen
-  - uid: mvc/models/model-binding
-    name: Model bağlama
-  - uid: mvc/models/validation
-    name: Model doğrulaması
-  - uid: mvc/views/razor
-    name: Razor söz dizimi
   - name: Gelişmiş
     items:
     - uid: mvc/views/view-components
@@ -553,102 +617,6 @@ items:
       href: /azure/visual-studio/vs-storage-aspnet5-getting-started-queues?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
     - name: Tablo depolama
       href: /azure/visual-studio/vs-storage-aspnet5-getting-started-tables?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
-- name: İstemci tarafı geliştirme
-  items:
-  - name: Razor Bileşenleri
-    items:
-    - uid: razor-components/index
-      name: Genel Bakış
-    - uid: razor-components/get-started
-      name: Kullanmaya başlayın
-    - uid: razor-components/hosting-models
-      name: Barındırma modelleri
-    - uid: tutorials/first-razor-components-app
-      name: İlk uygulamanızı oluşturma
-    - uid: razor-components/components
-      name: Bileşenler
-    - uid: razor-components/forms-validation
-      name: Formlar ve doğrulama
-    - uid: razor-components/class-libraries
-      name: Bileşen kitaplıkları
-    - uid: razor-components/layouts
-      name: Düzenler
-    - uid: razor-components/dependency-injection
-      name: Bağımlılık ekleme
-    - uid: razor-components/routing
-      name: Yönlendirme
-    - uid: razor-components/javascript-interop
-      name: JavaScript ile birlikte çalışma
-    - uid: razor-components/debug
-      name: Hata ayıklama
-    - name: Barındırma ve dağıtma
-      items:
-      - uid: host-and-deploy/razor-components-blazor/index
-        name: Genel Bakış
-      - uid: host-and-deploy/razor-components-blazor/razor-components
-        name: Razor Bileşenleri
-  - name: Tek Sayfalı Uygulamalar
-    items:
-    - name: Blazor
-      items:
-      - uid: spa/blazor/index
-        name: Genel Bakış
-      - uid: spa/blazor/get-started
-        name: Kullanmaya başlayın
-      - uid: razor-components/hosting-models
-        name: Barındırma modelleri
-      - uid: tutorials/first-razor-components-app
-        name: İlk uygulamanızı oluşturma
-      - uid: razor-components/components
-        name: Bileşenler
-      - uid: razor-components/forms-validation
-        name: Formlar ve doğrulama
-      - uid: razor-components/class-libraries
-        name: Bileşen kitaplıkları
-      - uid: razor-components/layouts
-        name: Düzenler
-      - uid: razor-components/dependency-injection
-        name: Bağımlılık ekleme
-      - uid: razor-components/routing
-        name: Yönlendirme
-      - uid: razor-components/javascript-interop
-        name: JavaScript ile birlikte çalışma
-      - uid: razor-components/debug
-        name: Hata ayıklama
-      - name: Barındırma ve dağıtma
-        items:
-        - uid: host-and-deploy/razor-components-blazor/index
-          name: Genel Bakış
-        - uid: host-and-deploy/razor-components-blazor/blazor
-          name: Blazor
-        - uid: host-and-deploy/razor-components-blazor/configure-linker
-          name: Bağlayıcıyı yapılandırma
-    - uid: spa/angular
-      name: Angular
-    - uid: spa/react
-      name: React
-    - uid: spa/react-with-redux
-      name: Redux ile React
-    - uid: client-side/spa-services
-      name: JavaScriptServices
-  - name: LibMan
-    items:
-    - uid: client-side/libman/index
-      name: Genel Bakış
-    - uid: client-side/libman/libman-cli
-      name: CLI
-    - uid: client-side/libman/libman-vs
-      name: Visual Studio
-  - uid: client-side/using-gulp
-    name: Gulp
-  - uid: client-side/using-grunt
-    name: Grunt
-  - uid: client-side/bower
-    name: Bower
-  - uid: client-side/bundling-and-minification
-    name: Paketleme ve küçültme
-  - uid: client-side/using-browserlink
-    name: Tarayıcı Bağlantısı
 - name: Barındırma ve dağıtım
   displayName: publish
   items:
@@ -777,15 +745,15 @@ items:
   - uid: host-and-deploy/health-checks
     name: Sistem durumu denetimleri
     displayName: deploy, publish
-  - name: Razor Bileşenleri/Blazor
+  - name: Blazor
     items:
-    - uid: host-and-deploy/razor-components-blazor/index
+    - uid: host-and-deploy/blazor/index
       name: Genel Bakış
-    - uid: host-and-deploy/razor-components-blazor/blazor
-      name: Blazor
-    - uid: host-and-deploy/razor-components-blazor/razor-components
-      name: Razor Bileşenleri
-    - uid: host-and-deploy/razor-components-blazor/configure-linker
+    - uid: host-and-deploy/blazor/client-side
+      name: İstemci tarafı
+    - uid: host-and-deploy/blazor/server-side
+      name: Sunucu tarafı
+    - uid: host-and-deploy/blazor/configure-linker
       name: Bağlayıcıyı yapılandırma
 - name: Güvenlik ve Kimlik
   displayName: authentication, authorization
@@ -1090,9 +1058,9 @@ items:
   href: /dotnet/api/?view=aspnetcore-2.2
 - name: Katkıda Bulun
   href: https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md
-ms.openlocfilehash: e788460a2de31aa570907b4561d30ad0da2ca854
-ms.sourcegitcommit: 9b7fcb4ce00a3a32e153a080ebfaae4ef417aafa
+ms.openlocfilehash: 1863125cec772262c41884af343f66ec8fcb53ad
+ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59516280"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59614304"
