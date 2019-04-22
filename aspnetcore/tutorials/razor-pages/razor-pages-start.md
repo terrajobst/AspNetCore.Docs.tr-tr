@@ -6,78 +6,78 @@ ms.author: riande
 ms.date: 12/5/2018
 uid: tutorials/razor-pages/razor-pages-start
 ms.openlocfilehash: 1d264ca4a605d8291e273a8f054c92e7eefa5548
-ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/10/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59468853"
 ---
-# <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a><span data-ttu-id="7fab3-104">Öğretici: ASP.NET Core Razor sayfaları kullanmaya başlama</span><span class="sxs-lookup"><span data-stu-id="7fab3-104">Tutorial: Get started with Razor Pages in ASP.NET Core</span></span>
+# <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a><span data-ttu-id="7bf83-104">Öğretici: ASP.NET Core Razor sayfaları kullanmaya başlama</span><span class="sxs-lookup"><span data-stu-id="7bf83-104">Tutorial: Get started with Razor Pages in ASP.NET Core</span></span>
 
-<span data-ttu-id="7fab3-105">Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="7fab3-105">By [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
+<span data-ttu-id="7bf83-105">Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="7bf83-105">By [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
 
-<span data-ttu-id="7fab3-106">Bu, bir serinin ilk öğreticidir.</span><span class="sxs-lookup"><span data-stu-id="7fab3-106">This is the first tutorial of a series.</span></span> <span data-ttu-id="7fab3-107">[Serinin](xref:tutorials/razor-pages/index) bir ASP.NET Core Razor sayfaları web uygulaması oluşturmaya ilişkin temel bilgileri size öğretir.</span><span class="sxs-lookup"><span data-stu-id="7fab3-107">[The series](xref:tutorials/razor-pages/index) teaches the basics of building an ASP.NET Core Razor Pages web app.</span></span>
+<span data-ttu-id="7bf83-106">Bu, bir serinin ilk öğreticidir.</span><span class="sxs-lookup"><span data-stu-id="7bf83-106">This is the first tutorial of a series.</span></span> <span data-ttu-id="7bf83-107">[Serinin](xref:tutorials/razor-pages/index) bir ASP.NET Core Razor sayfaları web uygulaması oluşturmaya ilişkin temel bilgileri size öğretir.</span><span class="sxs-lookup"><span data-stu-id="7bf83-107">[The series](xref:tutorials/razor-pages/index) teaches the basics of building an ASP.NET Core Razor Pages web app.</span></span>
 
 [!INCLUDE[](~/includes/advancedRP.md)]
 
-<span data-ttu-id="7fab3-108">Serinin sonunda bir film veritabanı yöneten bir uygulaması oluşturmuş olacaksınız.</span><span class="sxs-lookup"><span data-stu-id="7fab3-108">At the end of the series you'll have an app that manages a database of movies.</span></span>  
+<span data-ttu-id="7bf83-108">Serinin sonunda bir film veritabanı yöneten bir uygulaması oluşturmuş olacaksınız.</span><span class="sxs-lookup"><span data-stu-id="7bf83-108">At the end of the series you'll have an app that manages a database of movies.</span></span>  
 
 [!INCLUDE[View or download sample code](~/includes/rp/download.md)]
 
-<span data-ttu-id="7fab3-109">Bu öğreticide şunları yaptınız:</span><span class="sxs-lookup"><span data-stu-id="7fab3-109">In this tutorial, you:</span></span>
+<span data-ttu-id="7bf83-109">Bu öğreticide şunları yaptınız:</span><span class="sxs-lookup"><span data-stu-id="7bf83-109">In this tutorial, you:</span></span>
 
 > [!div class="checklist"]
-> * <span data-ttu-id="7fab3-110">Razor sayfaları web uygulaması oluşturun.</span><span class="sxs-lookup"><span data-stu-id="7fab3-110">Create a Razor Pages web app.</span></span>
-> * <span data-ttu-id="7fab3-111">Uygulamayı çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="7fab3-111">Run the app.</span></span>
-> * <span data-ttu-id="7fab3-112">Proje dosyalarını inceleyin.</span><span class="sxs-lookup"><span data-stu-id="7fab3-112">Examine the project files.</span></span>
+> * <span data-ttu-id="7bf83-110">Razor sayfaları web uygulaması oluşturun.</span><span class="sxs-lookup"><span data-stu-id="7bf83-110">Create a Razor Pages web app.</span></span>
+> * <span data-ttu-id="7bf83-111">Uygulamayı çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="7bf83-111">Run the app.</span></span>
+> * <span data-ttu-id="7bf83-112">Proje dosyalarını inceleyin.</span><span class="sxs-lookup"><span data-stu-id="7bf83-112">Examine the project files.</span></span>
 
-<span data-ttu-id="7fab3-113">Bu öğreticinin sonunda çalışan bir sonraki öğreticilerde oluşturacağınız Razor sayfaları web uygulaması gerekir.</span><span class="sxs-lookup"><span data-stu-id="7fab3-113">At the end of this tutorial you'll have a working Razor Pages web app that you'll build on in later tutorials.</span></span>
+<span data-ttu-id="7bf83-113">Bu öğreticinin sonunda çalışan bir sonraki öğreticilerde oluşturacağınız Razor sayfaları web uygulaması gerekir.</span><span class="sxs-lookup"><span data-stu-id="7bf83-113">At the end of this tutorial you'll have a working Razor Pages web app that you'll build on in later tutorials.</span></span>
 
 ![Giriş ya da dizin sayfası](razor-pages-start/_static/home2.2.png)
 
 [!INCLUDE[](~/includes/net-core-prereqs-all-2.2.md)]
 
-## <a name="create-a-razor-pages-web-app"></a><span data-ttu-id="7fab3-115">Razor sayfaları web uygulaması oluşturma</span><span class="sxs-lookup"><span data-stu-id="7fab3-115">Create a Razor Pages web app</span></span>
+## <a name="create-a-razor-pages-web-app"></a><span data-ttu-id="7bf83-115">Razor sayfaları web uygulaması oluşturma</span><span class="sxs-lookup"><span data-stu-id="7bf83-115">Create a Razor Pages web app</span></span>
 
-# [<a name="visual-studio"></a><span data-ttu-id="7fab3-116">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="7fab3-116">Visual Studio</span></span>](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="7bf83-116">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="7bf83-116">Visual Studio</span></span>](#tab/visual-studio)
 
-* <span data-ttu-id="7fab3-117">Visual Studio'dan **dosya** menüsünde **yeni** > **proje**.</span><span class="sxs-lookup"><span data-stu-id="7fab3-117">From the Visual Studio **File** menu, select **New** > **Project**.</span></span>
+* <span data-ttu-id="7bf83-117">Visual Studio'dan **dosya** menüsünde **yeni** > **proje**.</span><span class="sxs-lookup"><span data-stu-id="7bf83-117">From the Visual Studio **File** menu, select **New** > **Project**.</span></span>
 
-* <span data-ttu-id="7fab3-118">Yeni bir ASP.NET Core Web uygulaması oluşturun.</span><span class="sxs-lookup"><span data-stu-id="7fab3-118">Create a new ASP.NET Core Web Application.</span></span> <span data-ttu-id="7fab3-119">Projeyi adlandırın **RazorPagesMovie**.</span><span class="sxs-lookup"><span data-stu-id="7fab3-119">Name the project **RazorPagesMovie**.</span></span> <span data-ttu-id="7fab3-120">Projeyi adlandırın önemlidir *RazorPagesMovie* kodu kopyalayıp, ad alanlarını eşleşecek şekilde.</span><span class="sxs-lookup"><span data-stu-id="7fab3-120">It's important to name the project *RazorPagesMovie* so the namespaces will match when you copy and paste code.</span></span>
+* <span data-ttu-id="7bf83-118">Yeni bir ASP.NET Core Web uygulaması oluşturun.</span><span class="sxs-lookup"><span data-stu-id="7bf83-118">Create a new ASP.NET Core Web Application.</span></span> <span data-ttu-id="7bf83-119">Projeyi adlandırın **RazorPagesMovie**.</span><span class="sxs-lookup"><span data-stu-id="7bf83-119">Name the project **RazorPagesMovie**.</span></span> <span data-ttu-id="7bf83-120">Projeyi adlandırın önemlidir *RazorPagesMovie* kodu kopyalayıp, ad alanlarını eşleşecek şekilde.</span><span class="sxs-lookup"><span data-stu-id="7bf83-120">It's important to name the project *RazorPagesMovie* so the namespaces will match when you copy and paste code.</span></span>
 
   ![Yeni ASP.NET Core Web uygulaması](razor-pages-start/_static/np_2.1.png)
 
-* <span data-ttu-id="7fab3-122">Seçin **ASP.NET Core 2.2** açılır ve ardından **Web uygulaması**.</span><span class="sxs-lookup"><span data-stu-id="7fab3-122">Select **ASP.NET Core 2.2** in the dropdown, and then select **Web Application**.</span></span>
+* <span data-ttu-id="7bf83-122">Seçin **ASP.NET Core 2.2** açılır ve ardından **Web uygulaması**.</span><span class="sxs-lookup"><span data-stu-id="7bf83-122">Select **ASP.NET Core 2.2** in the dropdown, and then select **Web Application**.</span></span>
 
   ![Yeni ASP.NET Core Web uygulaması](razor-pages-start/_static/np_2_2.2.png)
 
-  <span data-ttu-id="7fab3-124">Aşağıdaki başlangıç projesini oluşturulur:</span><span class="sxs-lookup"><span data-stu-id="7fab3-124">The following starter project is created:</span></span>
+  <span data-ttu-id="7bf83-124">Aşağıdaki başlangıç projesini oluşturulur:</span><span class="sxs-lookup"><span data-stu-id="7bf83-124">The following starter project is created:</span></span>
 
   ![Çözüm Gezgini](razor-pages-start/_static/se2.2.png)
 
-# [<a name="visual-studio-code"></a><span data-ttu-id="7fab3-126">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="7fab3-126">Visual Studio Code</span></span>](#tab/visual-studio-code)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="7bf83-126">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="7bf83-126">Visual Studio Code</span></span>](#tab/visual-studio-code)
 
-* <span data-ttu-id="7fab3-127">Açık [tümleşik Terminalini](https://code.visualstudio.com/docs/editor/integrated-terminal).</span><span class="sxs-lookup"><span data-stu-id="7fab3-127">Open the [integrated terminal](https://code.visualstudio.com/docs/editor/integrated-terminal).</span></span>
+* <span data-ttu-id="7bf83-127">Açık [tümleşik Terminalini](https://code.visualstudio.com/docs/editor/integrated-terminal).</span><span class="sxs-lookup"><span data-stu-id="7bf83-127">Open the [integrated terminal](https://code.visualstudio.com/docs/editor/integrated-terminal).</span></span>
 
-* <span data-ttu-id="7fab3-128">Dizinleri (`cd`) proje içeren bir klasör.</span><span class="sxs-lookup"><span data-stu-id="7fab3-128">Change directories (`cd`) to a folder which will contain the project.</span></span>
+* <span data-ttu-id="7bf83-128">Dizinleri (`cd`) proje içeren bir klasör.</span><span class="sxs-lookup"><span data-stu-id="7bf83-128">Change directories (`cd`) to a folder which will contain the project.</span></span>
 
-* <span data-ttu-id="7fab3-129">Aşağıdaki komutları çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="7fab3-129">Run the following commands:</span></span>
+* <span data-ttu-id="7bf83-129">Aşağıdaki komutları çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="7bf83-129">Run the following commands:</span></span>
 
   ```console
   dotnet new webapp -o RazorPagesMovie
   code -r RazorPagesMovie
   ```
 
-  * <span data-ttu-id="7fab3-130">`dotnet new` Komut yeni bir Razor sayfaları projesindeki oluşturur *RazorPagesMovie* klasör.</span><span class="sxs-lookup"><span data-stu-id="7fab3-130">The `dotnet new` command creates a new Razor Pages project in the *RazorPagesMovie* folder.</span></span>
-  * <span data-ttu-id="7fab3-131">`code` Komutu açılır *RazorPagesMovie* Visual Studio Code yeni bir örneğini klasöründe.</span><span class="sxs-lookup"><span data-stu-id="7fab3-131">The `code` command opens the *RazorPagesMovie* folder in a new instance of Visual Studio Code.</span></span>
+  * <span data-ttu-id="7bf83-130">`dotnet new` Komut yeni bir Razor sayfaları projesindeki oluşturur *RazorPagesMovie* klasör.</span><span class="sxs-lookup"><span data-stu-id="7bf83-130">The `dotnet new` command creates a new Razor Pages project in the *RazorPagesMovie* folder.</span></span>
+  * <span data-ttu-id="7bf83-131">`code` Komutu açılır *RazorPagesMovie* Visual Studio Code yeni bir örneğini klasöründe.</span><span class="sxs-lookup"><span data-stu-id="7bf83-131">The `code` command opens the *RazorPagesMovie* folder in a new instance of Visual Studio Code.</span></span>
 
-  <span data-ttu-id="7fab3-132">Bir iletişim kutusu görünür **gerekli varlıkları oluşturun ve hata ayıklama 'RazorPagesMovie' eksik. Bunları eklensin mi?**</span><span class="sxs-lookup"><span data-stu-id="7fab3-132">A dialog box appears with **Required assets to build and debug are missing from 'RazorPagesMovie'. Add them?**</span></span>
+  <span data-ttu-id="7bf83-132">Bir iletişim kutusu görünür **gerekli varlıkları oluşturun ve hata ayıklama 'RazorPagesMovie' eksik. Bunları eklensin mi?**</span><span class="sxs-lookup"><span data-stu-id="7bf83-132">A dialog box appears with **Required assets to build and debug are missing from 'RazorPagesMovie'. Add them?**</span></span>
 
-* <span data-ttu-id="7fab3-133">Seçin **Evet**</span><span class="sxs-lookup"><span data-stu-id="7fab3-133">Select **Yes**</span></span>
+* <span data-ttu-id="7bf83-133">Seçin **Evet**</span><span class="sxs-lookup"><span data-stu-id="7bf83-133">Select **Yes**</span></span>
 
-# [<a name="visual-studio-for-mac"></a><span data-ttu-id="7fab3-134">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="7fab3-134">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="7bf83-134">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="7bf83-134">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
 
-<span data-ttu-id="7fab3-135">Bir terminalde aşağıdaki komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="7fab3-135">From a terminal, run the following command:</span></span>
+<span data-ttu-id="7bf83-135">Bir terminalde aşağıdaki komutu çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="7bf83-135">From a terminal, run the following command:</span></span>
 
 <!-- TODO: update these instruction once mac support 2.2 projects -->
 
@@ -85,69 +85,69 @@ ms.locfileid: "59468853"
 dotnet new webapp -o RazorPagesMovie
 ```
 
-<span data-ttu-id="7fab3-136">Kullanım komutları önceki [.NET Core CLI](/dotnet/core/tools/dotnet) Razor sayfaları projesi oluşturmak için.</span><span class="sxs-lookup"><span data-stu-id="7fab3-136">The preceding commands use the [.NET Core CLI](/dotnet/core/tools/dotnet) to create a Razor Pages project.</span></span>
+<span data-ttu-id="7bf83-136">Kullanım komutları önceki [.NET Core CLI](/dotnet/core/tools/dotnet) Razor sayfaları projesi oluşturmak için.</span><span class="sxs-lookup"><span data-stu-id="7bf83-136">The preceding commands use the [.NET Core CLI](/dotnet/core/tools/dotnet) to create a Razor Pages project.</span></span>
 
-## <a name="open-the-project"></a><span data-ttu-id="7fab3-137">Projeyi açın</span><span class="sxs-lookup"><span data-stu-id="7fab3-137">Open the project</span></span>
+## <a name="open-the-project"></a><span data-ttu-id="7bf83-137">Projeyi açın</span><span class="sxs-lookup"><span data-stu-id="7bf83-137">Open the project</span></span>
 
-<span data-ttu-id="7fab3-138">Visual Studio'dan seçin **Dosya > Aç**ve ardından *RazorPagesMovie.csproj* dosya.</span><span class="sxs-lookup"><span data-stu-id="7fab3-138">From Visual Studio, select **File > Open**, and then select the *RazorPagesMovie.csproj* file.</span></span>
+<span data-ttu-id="7bf83-138">Visual Studio'dan seçin **Dosya > Aç**ve ardından *RazorPagesMovie.csproj* dosya.</span><span class="sxs-lookup"><span data-stu-id="7bf83-138">From Visual Studio, select **File > Open**, and then select the *RazorPagesMovie.csproj* file.</span></span>
 
 <!-- End of VS tabs -->
 
 ---
 
-## <a name="run-the-app"></a><span data-ttu-id="7fab3-139">Uygulamayı çalıştırma</span><span class="sxs-lookup"><span data-stu-id="7fab3-139">Run the app</span></span>
+## <a name="run-the-app"></a><span data-ttu-id="7bf83-139">Uygulamayı çalıştırma</span><span class="sxs-lookup"><span data-stu-id="7bf83-139">Run the app</span></span>
 
-# [<a name="visual-studio"></a><span data-ttu-id="7fab3-140">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="7fab3-140">Visual Studio</span></span>](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="7bf83-140">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="7bf83-140">Visual Studio</span></span>](#tab/visual-studio)
 
-* <span data-ttu-id="7fab3-141">Hata Ayıklayıcı olmadan çalıştırmak için CTRL + F5 tuşlarına basın.</span><span class="sxs-lookup"><span data-stu-id="7fab3-141">Press Ctrl+F5 to run without the debugger.</span></span>
+* <span data-ttu-id="7bf83-141">Hata Ayıklayıcı olmadan çalıştırmak için CTRL + F5 tuşlarına basın.</span><span class="sxs-lookup"><span data-stu-id="7bf83-141">Press Ctrl+F5 to run without the debugger.</span></span>
 
   [!INCLUDE[](~/includes/trustCertVS.md)]
 
-  <span data-ttu-id="7fab3-142">Visual Studio başlatır [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) ve uygulamayı çalıştırır.</span><span class="sxs-lookup"><span data-stu-id="7fab3-142">Visual Studio starts [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) and runs the app.</span></span> <span data-ttu-id="7fab3-143">Adres çubuğu gösterir `localhost:port#` gibi bir şey `example.com`.</span><span class="sxs-lookup"><span data-stu-id="7fab3-143">The address bar shows `localhost:port#` and not something like `example.com`.</span></span> <span data-ttu-id="7fab3-144">Çünkü `localhost` standart yerel bilgisayar adıdır.</span><span class="sxs-lookup"><span data-stu-id="7fab3-144">That's because `localhost` is the standard hostname for the local computer.</span></span> <span data-ttu-id="7fab3-145">Localhost yalnızca yerel bilgisayara gelen web isteklerini işlevi görür.</span><span class="sxs-lookup"><span data-stu-id="7fab3-145">Localhost only serves web requests from the local computer.</span></span> <span data-ttu-id="7fab3-146">Visual Studio, bir web projesi oluşturduğunda, web sunucusu için rastgele bir bağlantı noktası kullanılır.</span><span class="sxs-lookup"><span data-stu-id="7fab3-146">When Visual Studio creates a web project, a random port is used for the web server.</span></span>
+  <span data-ttu-id="7bf83-142">Visual Studio başlatır [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) ve uygulamayı çalıştırır.</span><span class="sxs-lookup"><span data-stu-id="7bf83-142">Visual Studio starts [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) and runs the app.</span></span> <span data-ttu-id="7bf83-143">Adres çubuğu gösterir `localhost:port#` gibi bir şey `example.com`.</span><span class="sxs-lookup"><span data-stu-id="7bf83-143">The address bar shows `localhost:port#` and not something like `example.com`.</span></span> <span data-ttu-id="7bf83-144">Çünkü `localhost` standart yerel bilgisayar adıdır.</span><span class="sxs-lookup"><span data-stu-id="7bf83-144">That's because `localhost` is the standard hostname for the local computer.</span></span> <span data-ttu-id="7bf83-145">Localhost yalnızca yerel bilgisayara gelen web isteklerini işlevi görür.</span><span class="sxs-lookup"><span data-stu-id="7bf83-145">Localhost only serves web requests from the local computer.</span></span> <span data-ttu-id="7bf83-146">Visual Studio, bir web projesi oluşturduğunda, web sunucusu için rastgele bir bağlantı noktası kullanılır.</span><span class="sxs-lookup"><span data-stu-id="7bf83-146">When Visual Studio creates a web project, a random port is used for the web server.</span></span>
 
-* <span data-ttu-id="7fab3-147">Uygulamanın giriş sayfasında, seçin **kabul** izleme için onay verme.</span><span class="sxs-lookup"><span data-stu-id="7fab3-147">On the app's home page, select **Accept** to consent to tracking.</span></span>
+* <span data-ttu-id="7bf83-147">Uygulamanın giriş sayfasında, seçin **kabul** izleme için onay verme.</span><span class="sxs-lookup"><span data-stu-id="7bf83-147">On the app's home page, select **Accept** to consent to tracking.</span></span>
 
-  <span data-ttu-id="7fab3-148">Bu uygulama, kişisel bilgi izlemez ancak Avrupa Birliği'ile nin uymak için ihtiyaç durumunda proje şablonu, onay özelliği içerir. [genel veri koruma yönetmeliği (GDPR)](xref:security/gdpr).</span><span class="sxs-lookup"><span data-stu-id="7fab3-148">This app doesn't track personal information, but the project template includes the consent feature in case you need it to comply with the European Union's [General Data Protection Regulation (GDPR)](xref:security/gdpr).</span></span>
+  <span data-ttu-id="7bf83-148">Bu uygulama, kişisel bilgi izlemez ancak Avrupa Birliği'ile nin uymak için ihtiyaç durumunda proje şablonu, onay özelliği içerir. [genel veri koruma yönetmeliği (GDPR)](xref:security/gdpr).</span><span class="sxs-lookup"><span data-stu-id="7bf83-148">This app doesn't track personal information, but the project template includes the consent feature in case you need it to comply with the European Union's [General Data Protection Regulation (GDPR)](xref:security/gdpr).</span></span>
 
   ![Giriş ya da dizin sayfası](razor-pages-start/_static/homeGDPR2.2.png)
 
-  <span data-ttu-id="7fab3-150">İzleme için onay verdikten sonra aşağıdaki görüntüde uygulama gösterilir:</span><span class="sxs-lookup"><span data-stu-id="7fab3-150">The following image shows the app after you give consent to tracking:</span></span>
+  <span data-ttu-id="7bf83-150">İzleme için onay verdikten sonra aşağıdaki görüntüde uygulama gösterilir:</span><span class="sxs-lookup"><span data-stu-id="7bf83-150">The following image shows the app after you give consent to tracking:</span></span>
 
   ![Giriş ya da dizin sayfası](razor-pages-start/_static/home2.2.png)
   
-# [<a name="visual-studio-code"></a><span data-ttu-id="7fab3-152">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="7fab3-152">Visual Studio Code</span></span>](#tab/visual-studio-code)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="7bf83-152">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="7bf83-152">Visual Studio Code</span></span>](#tab/visual-studio-code)
 
   [!INCLUDE[](~/includes/trustCertVSC.md)]
 
-* <span data-ttu-id="7fab3-153">Tuşuna **Ctrl-F5** hata ayıklayıcı olmadan çalıştırılacak.</span><span class="sxs-lookup"><span data-stu-id="7fab3-153">Press **Ctrl-F5** to run without the debugger.</span></span>
+* <span data-ttu-id="7bf83-153">Tuşuna **Ctrl-F5** hata ayıklayıcı olmadan çalıştırılacak.</span><span class="sxs-lookup"><span data-stu-id="7bf83-153">Press **Ctrl-F5** to run without the debugger.</span></span>
 
-  <span data-ttu-id="7fab3-154">Visual Studio Code başlar [Kestrel](xref:fundamentals/servers/kestrel), bir tarayıcı başlatır ve gider `http://localhost:5001`.</span><span class="sxs-lookup"><span data-stu-id="7fab3-154">Visual Studio Code starts [Kestrel](xref:fundamentals/servers/kestrel), launches a browser, and navigates to `http://localhost:5001`.</span></span> <span data-ttu-id="7fab3-155">Adres çubuğu gösterir `localhost:port#` gibi bir şey `example.com`.</span><span class="sxs-lookup"><span data-stu-id="7fab3-155">The address bar shows `localhost:port#` and not something like `example.com`.</span></span> <span data-ttu-id="7fab3-156">Çünkü `localhost` standart yerel bilgisayar adıdır.</span><span class="sxs-lookup"><span data-stu-id="7fab3-156">That's because `localhost` is the standard hostname for  local computer.</span></span> <span data-ttu-id="7fab3-157">Localhost yalnızca yerel bilgisayara gelen web isteklerini işlevi görür.</span><span class="sxs-lookup"><span data-stu-id="7fab3-157">Localhost only serves web requests from the local computer.</span></span>
+  <span data-ttu-id="7bf83-154">Visual Studio Code başlar [Kestrel](xref:fundamentals/servers/kestrel), bir tarayıcı başlatır ve gider `http://localhost:5001`.</span><span class="sxs-lookup"><span data-stu-id="7bf83-154">Visual Studio Code starts [Kestrel](xref:fundamentals/servers/kestrel), launches a browser, and navigates to `http://localhost:5001`.</span></span> <span data-ttu-id="7bf83-155">Adres çubuğu gösterir `localhost:port#` gibi bir şey `example.com`.</span><span class="sxs-lookup"><span data-stu-id="7bf83-155">The address bar shows `localhost:port#` and not something like `example.com`.</span></span> <span data-ttu-id="7bf83-156">Çünkü `localhost` standart yerel bilgisayar adıdır.</span><span class="sxs-lookup"><span data-stu-id="7bf83-156">That's because `localhost` is the standard hostname for  local computer.</span></span> <span data-ttu-id="7bf83-157">Localhost yalnızca yerel bilgisayara gelen web isteklerini işlevi görür.</span><span class="sxs-lookup"><span data-stu-id="7bf83-157">Localhost only serves web requests from the local computer.</span></span>
 
-* <span data-ttu-id="7fab3-158">Uygulamanın giriş sayfasında, seçin **kabul** izleme için onay verme.</span><span class="sxs-lookup"><span data-stu-id="7fab3-158">On the app's home page, select **Accept** to consent to tracking.</span></span>
+* <span data-ttu-id="7bf83-158">Uygulamanın giriş sayfasında, seçin **kabul** izleme için onay verme.</span><span class="sxs-lookup"><span data-stu-id="7bf83-158">On the app's home page, select **Accept** to consent to tracking.</span></span>
 
-  <span data-ttu-id="7fab3-159">Bu uygulama, kişisel bilgi izlemez ancak Avrupa Birliği'ile nin uymak için ihtiyaç durumunda proje şablonu, onay özelliği içerir. [genel veri koruma yönetmeliği (GDPR)](xref:security/gdpr).</span><span class="sxs-lookup"><span data-stu-id="7fab3-159">This app doesn't track personal information, but the project template includes the consent feature in case you need it to comply with the European Union's [General Data Protection Regulation (GDPR)](xref:security/gdpr).</span></span>
+  <span data-ttu-id="7bf83-159">Bu uygulama, kişisel bilgi izlemez ancak Avrupa Birliği'ile nin uymak için ihtiyaç durumunda proje şablonu, onay özelliği içerir. [genel veri koruma yönetmeliği (GDPR)](xref:security/gdpr).</span><span class="sxs-lookup"><span data-stu-id="7bf83-159">This app doesn't track personal information, but the project template includes the consent feature in case you need it to comply with the European Union's [General Data Protection Regulation (GDPR)](xref:security/gdpr).</span></span>
 
   ![Giriş ya da dizin sayfası](razor-pages-start/_static/homeGDPR2.2.png)
 
-  <span data-ttu-id="7fab3-161">İzleme için onay verdikten sonra aşağıdaki görüntüde uygulama gösterilir:</span><span class="sxs-lookup"><span data-stu-id="7fab3-161">The following image shows the app after you give consent to tracking:</span></span>
+  <span data-ttu-id="7bf83-161">İzleme için onay verdikten sonra aşağıdaki görüntüde uygulama gösterilir:</span><span class="sxs-lookup"><span data-stu-id="7bf83-161">The following image shows the app after you give consent to tracking:</span></span>
 
   ![Giriş ya da dizin sayfası](razor-pages-start/_static/home2.2.png)
   
-# [<a name="visual-studio-for-mac"></a><span data-ttu-id="7fab3-163">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="7fab3-163">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="7bf83-163">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="7bf83-163">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
 
   [!INCLUDE[](~/includes/trustCertMac.md)]
 
-* <span data-ttu-id="7fab3-164">Tuşuna **Cmd iyileştirilmiş F5** hata ayıklayıcı olmadan çalıştırılacak.</span><span class="sxs-lookup"><span data-stu-id="7fab3-164">Press **Cmd-Opt-F5** to run without the debugger.</span></span>
+* <span data-ttu-id="7bf83-164">Tuşuna **Cmd iyileştirilmiş F5** hata ayıklayıcı olmadan çalıştırılacak.</span><span class="sxs-lookup"><span data-stu-id="7bf83-164">Press **Cmd-Opt-F5** to run without the debugger.</span></span>
 
-  <span data-ttu-id="7fab3-165">Visual Studio başlatır [Kestrel](xref:fundamentals/servers/kestrel), bir tarayıcı başlatır ve gider `http://localhost:5001`.</span><span class="sxs-lookup"><span data-stu-id="7fab3-165">Visual Studio starts [Kestrel](xref:fundamentals/servers/kestrel), launches a browser, and navigates to `http://localhost:5001`.</span></span>
+  <span data-ttu-id="7bf83-165">Visual Studio başlatır [Kestrel](xref:fundamentals/servers/kestrel), bir tarayıcı başlatır ve gider `http://localhost:5001`.</span><span class="sxs-lookup"><span data-stu-id="7bf83-165">Visual Studio starts [Kestrel](xref:fundamentals/servers/kestrel), launches a browser, and navigates to `http://localhost:5001`.</span></span>
 
-* <span data-ttu-id="7fab3-166">Uygulamanın giriş sayfasında, seçin **kabul** izleme için onay verme.</span><span class="sxs-lookup"><span data-stu-id="7fab3-166">On the app's home page, select **Accept** to consent to tracking.</span></span>
+* <span data-ttu-id="7bf83-166">Uygulamanın giriş sayfasında, seçin **kabul** izleme için onay verme.</span><span class="sxs-lookup"><span data-stu-id="7bf83-166">On the app's home page, select **Accept** to consent to tracking.</span></span>
 
-  <span data-ttu-id="7fab3-167">Bu uygulama, kişisel bilgi izlemez ancak Avrupa Birliği'ile nin uymak için ihtiyaç durumunda proje şablonu, onay özelliği içerir. [genel veri koruma yönetmeliği (GDPR)](xref:security/gdpr).</span><span class="sxs-lookup"><span data-stu-id="7fab3-167">This app doesn't track personal information, but the project template includes the consent feature in case you need it to comply with the European Union's [General Data Protection Regulation (GDPR)](xref:security/gdpr).</span></span>
+  <span data-ttu-id="7bf83-167">Bu uygulama, kişisel bilgi izlemez ancak Avrupa Birliği'ile nin uymak için ihtiyaç durumunda proje şablonu, onay özelliği içerir. [genel veri koruma yönetmeliği (GDPR)](xref:security/gdpr).</span><span class="sxs-lookup"><span data-stu-id="7bf83-167">This app doesn't track personal information, but the project template includes the consent feature in case you need it to comply with the European Union's [General Data Protection Regulation (GDPR)](xref:security/gdpr).</span></span>
 
   ![Giriş ya da dizin sayfası](razor-pages-start/_static/homeGDPR2.2_safari.png)
 
-  <span data-ttu-id="7fab3-169">İzleme için onay verdikten sonra aşağıdaki görüntüde uygulama gösterilir:</span><span class="sxs-lookup"><span data-stu-id="7fab3-169">The following image shows the app after you give consent to tracking:</span></span>
+  <span data-ttu-id="7bf83-169">İzleme için onay verdikten sonra aşağıdaki görüntüde uygulama gösterilir:</span><span class="sxs-lookup"><span data-stu-id="7bf83-169">The following image shows the app after you give consent to tracking:</span></span>
 
   ![Giriş ya da dizin sayfası](razor-pages-start/_static/home2.2_safari.png)
 
@@ -155,49 +155,49 @@ dotnet new webapp -o RazorPagesMovie
 
 ---
 
-## <a name="examine-the-project-files"></a><span data-ttu-id="7fab3-171">Proje dosyalarını inceleyin</span><span class="sxs-lookup"><span data-stu-id="7fab3-171">Examine the project files</span></span>
+## <a name="examine-the-project-files"></a><span data-ttu-id="7bf83-171">Proje dosyalarını inceleyin</span><span class="sxs-lookup"><span data-stu-id="7bf83-171">Examine the project files</span></span>
 
-<span data-ttu-id="7fab3-172">Sonraki öğreticilerde ile çalışacaksınız dosyaları ve klasörleri ana proje genel bakış aşağıda verilmiştir.</span><span class="sxs-lookup"><span data-stu-id="7fab3-172">Here's an overview of the main project folders and files that you'll work with in later tutorials.</span></span>
+<span data-ttu-id="7bf83-172">Sonraki öğreticilerde ile çalışacaksınız dosyaları ve klasörleri ana proje genel bakış aşağıda verilmiştir.</span><span class="sxs-lookup"><span data-stu-id="7bf83-172">Here's an overview of the main project folders and files that you'll work with in later tutorials.</span></span>
 
-### <a name="pages-folder"></a><span data-ttu-id="7fab3-173">Sayfaları klasörü</span><span class="sxs-lookup"><span data-stu-id="7fab3-173">Pages folder</span></span>
+### <a name="pages-folder"></a><span data-ttu-id="7bf83-173">Sayfaları klasörü</span><span class="sxs-lookup"><span data-stu-id="7bf83-173">Pages folder</span></span>
 
-<span data-ttu-id="7fab3-174">Razor sayfaları ve Destek dosyalarını içerir.</span><span class="sxs-lookup"><span data-stu-id="7fab3-174">Contains Razor pages and supporting files.</span></span> <span data-ttu-id="7fab3-175">Her bir Razor sayfası dosyalarının bir çiftini şöyledir:</span><span class="sxs-lookup"><span data-stu-id="7fab3-175">Each Razor page is a pair of files:</span></span>
+<span data-ttu-id="7bf83-174">Razor sayfaları ve Destek dosyalarını içerir.</span><span class="sxs-lookup"><span data-stu-id="7bf83-174">Contains Razor pages and supporting files.</span></span> <span data-ttu-id="7bf83-175">Her bir Razor sayfası dosyalarının bir çiftini şöyledir:</span><span class="sxs-lookup"><span data-stu-id="7bf83-175">Each Razor page is a pair of files:</span></span>
 
-* <span data-ttu-id="7fab3-176">A *.cshtml* ile HTML biçimlendirmesini içeren dosya C# Razor söz dizimini kullanarak kodu.</span><span class="sxs-lookup"><span data-stu-id="7fab3-176">A *.cshtml* file that contains HTML markup with C# code using Razor syntax.</span></span>
-* <span data-ttu-id="7fab3-177">A *. cshtml.cs* içeren dosya C# sayfası olayları işleyen kodu.</span><span class="sxs-lookup"><span data-stu-id="7fab3-177">A *.cshtml.cs* file that contains C# code that handles page events.</span></span>
+* <span data-ttu-id="7bf83-176">A *.cshtml* ile HTML biçimlendirmesini içeren dosya C# Razor söz dizimini kullanarak kodu.</span><span class="sxs-lookup"><span data-stu-id="7bf83-176">A *.cshtml* file that contains HTML markup with C# code using Razor syntax.</span></span>
+* <span data-ttu-id="7bf83-177">A *. cshtml.cs* içeren dosya C# sayfası olayları işleyen kodu.</span><span class="sxs-lookup"><span data-stu-id="7bf83-177">A *.cshtml.cs* file that contains C# code that handles page events.</span></span>
 
-<span data-ttu-id="7fab3-178">Destekleyici dosyaları bir alt çizgi ile başlayan adları vardır.</span><span class="sxs-lookup"><span data-stu-id="7fab3-178">Supporting files have names that begin with an underscore.</span></span> <span data-ttu-id="7fab3-179">Örneğin, *_Layout.cshtml* dosyası tüm sayfalar için ortak kullanıcı Arabirimi öğeleri yapılandırır.</span><span class="sxs-lookup"><span data-stu-id="7fab3-179">For example, the *_Layout.cshtml* file configures UI elements common to all pages.</span></span> <span data-ttu-id="7fab3-180">Bu dosya sayfanın üst gezinti menüsünde ve sayfanın alt kısmındaki telif hakkı bildirimi ayarlar.</span><span class="sxs-lookup"><span data-stu-id="7fab3-180">This file sets up the navigation menu at the top of the page and the copyright notice at the bottom of the page.</span></span> <span data-ttu-id="7fab3-181">Daha fazla bilgi için bkz. <xref:mvc/views/layout>.</span><span class="sxs-lookup"><span data-stu-id="7fab3-181">For more information, see <xref:mvc/views/layout>.</span></span>
+<span data-ttu-id="7bf83-178">Destekleyici dosyaları bir alt çizgi ile başlayan adları vardır.</span><span class="sxs-lookup"><span data-stu-id="7bf83-178">Supporting files have names that begin with an underscore.</span></span> <span data-ttu-id="7bf83-179">Örneğin, *_Layout.cshtml* dosyası tüm sayfalar için ortak kullanıcı Arabirimi öğeleri yapılandırır.</span><span class="sxs-lookup"><span data-stu-id="7bf83-179">For example, the *_Layout.cshtml* file configures UI elements common to all pages.</span></span> <span data-ttu-id="7bf83-180">Bu dosya sayfanın üst gezinti menüsünde ve sayfanın alt kısmındaki telif hakkı bildirimi ayarlar.</span><span class="sxs-lookup"><span data-stu-id="7bf83-180">This file sets up the navigation menu at the top of the page and the copyright notice at the bottom of the page.</span></span> <span data-ttu-id="7bf83-181">Daha fazla bilgi için bkz. <xref:mvc/views/layout>.</span><span class="sxs-lookup"><span data-stu-id="7bf83-181">For more information, see <xref:mvc/views/layout>.</span></span>
 
-### <a name="wwwroot-folder"></a><span data-ttu-id="7fab3-182">wwwroot klasörü</span><span class="sxs-lookup"><span data-stu-id="7fab3-182">wwwroot folder</span></span>
+### <a name="wwwroot-folder"></a><span data-ttu-id="7bf83-182">wwwroot klasörü</span><span class="sxs-lookup"><span data-stu-id="7bf83-182">wwwroot folder</span></span>
 
-<span data-ttu-id="7fab3-183">HTML dosyaları, JavaScript dosyaları ve CSS dosyaları gibi statik dosyalar içerir.</span><span class="sxs-lookup"><span data-stu-id="7fab3-183">Contains static files, such as HTML files, JavaScript files, and CSS files.</span></span> <span data-ttu-id="7fab3-184">Daha fazla bilgi için bkz. <xref:fundamentals/static-files>.</span><span class="sxs-lookup"><span data-stu-id="7fab3-184">For more information, see <xref:fundamentals/static-files>.</span></span>
+<span data-ttu-id="7bf83-183">HTML dosyaları, JavaScript dosyaları ve CSS dosyaları gibi statik dosyalar içerir.</span><span class="sxs-lookup"><span data-stu-id="7bf83-183">Contains static files, such as HTML files, JavaScript files, and CSS files.</span></span> <span data-ttu-id="7bf83-184">Daha fazla bilgi için bkz. <xref:fundamentals/static-files>.</span><span class="sxs-lookup"><span data-stu-id="7bf83-184">For more information, see <xref:fundamentals/static-files>.</span></span>
 
-### <a name="appsettingsjson"></a><span data-ttu-id="7fab3-185">appSettings.json</span><span class="sxs-lookup"><span data-stu-id="7fab3-185">appSettings.json</span></span>
+### <a name="appsettingsjson"></a><span data-ttu-id="7bf83-185">appSettings.json</span><span class="sxs-lookup"><span data-stu-id="7bf83-185">appSettings.json</span></span>
 
-<span data-ttu-id="7fab3-186">Bağlantı dizeleri gibi yapılandırma verilerini içerir.</span><span class="sxs-lookup"><span data-stu-id="7fab3-186">Contains configuration data, such as connection strings.</span></span> <span data-ttu-id="7fab3-187">Daha fazla bilgi için bkz. <xref:fundamentals/configuration/index>.</span><span class="sxs-lookup"><span data-stu-id="7fab3-187">For more information, see <xref:fundamentals/configuration/index>.</span></span>
+<span data-ttu-id="7bf83-186">Bağlantı dizeleri gibi yapılandırma verilerini içerir.</span><span class="sxs-lookup"><span data-stu-id="7bf83-186">Contains configuration data, such as connection strings.</span></span> <span data-ttu-id="7bf83-187">Daha fazla bilgi için bkz. <xref:fundamentals/configuration/index>.</span><span class="sxs-lookup"><span data-stu-id="7bf83-187">For more information, see <xref:fundamentals/configuration/index>.</span></span>
 
-### <a name="programcs"></a><span data-ttu-id="7fab3-188">Program.cs</span><span class="sxs-lookup"><span data-stu-id="7fab3-188">Program.cs</span></span>
+### <a name="programcs"></a><span data-ttu-id="7bf83-188">Program.cs</span><span class="sxs-lookup"><span data-stu-id="7bf83-188">Program.cs</span></span>
 
-<span data-ttu-id="7fab3-189">Programın giriş noktası içerir.</span><span class="sxs-lookup"><span data-stu-id="7fab3-189">Contains the entry point for the program.</span></span> <span data-ttu-id="7fab3-190">Daha fazla bilgi için bkz. <xref:fundamentals/host/web-host>.</span><span class="sxs-lookup"><span data-stu-id="7fab3-190">For more information, see <xref:fundamentals/host/web-host>.</span></span>
+<span data-ttu-id="7bf83-189">Programın giriş noktası içerir.</span><span class="sxs-lookup"><span data-stu-id="7bf83-189">Contains the entry point for the program.</span></span> <span data-ttu-id="7bf83-190">Daha fazla bilgi için bkz. <xref:fundamentals/host/web-host>.</span><span class="sxs-lookup"><span data-stu-id="7bf83-190">For more information, see <xref:fundamentals/host/web-host>.</span></span>
 
-### <a name="startupcs"></a><span data-ttu-id="7fab3-191">Startup.cs</span><span class="sxs-lookup"><span data-stu-id="7fab3-191">Startup.cs</span></span>
+### <a name="startupcs"></a><span data-ttu-id="7bf83-191">Startup.cs</span><span class="sxs-lookup"><span data-stu-id="7bf83-191">Startup.cs</span></span>
 
-<span data-ttu-id="7fab3-192">Olup olmadığı için tanımlama bilgileri onayı gerektirir gibi uygulama davranışını yapılandıran kodunu içerir.</span><span class="sxs-lookup"><span data-stu-id="7fab3-192">Contains code that configures app behavior, such as whether it requires consent for cookies.</span></span> <span data-ttu-id="7fab3-193">Daha fazla bilgi için bkz. <xref:fundamentals/startup>.</span><span class="sxs-lookup"><span data-stu-id="7fab3-193">For more information, see <xref:fundamentals/startup>.</span></span>
+<span data-ttu-id="7bf83-192">Olup olmadığı için tanımlama bilgileri onayı gerektirir gibi uygulama davranışını yapılandıran kodunu içerir.</span><span class="sxs-lookup"><span data-stu-id="7bf83-192">Contains code that configures app behavior, such as whether it requires consent for cookies.</span></span> <span data-ttu-id="7bf83-193">Daha fazla bilgi için bkz. <xref:fundamentals/startup>.</span><span class="sxs-lookup"><span data-stu-id="7bf83-193">For more information, see <xref:fundamentals/startup>.</span></span>
 
-## <a name="additional-resources"></a><span data-ttu-id="7fab3-194">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="7fab3-194">Additional resources</span></span>
+## <a name="additional-resources"></a><span data-ttu-id="7bf83-194">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="7bf83-194">Additional resources</span></span>
 
-* [<span data-ttu-id="7fab3-195">Bu öğreticide YouTube sürümü</span><span class="sxs-lookup"><span data-stu-id="7fab3-195">Youtube version of this tutorial</span></span>](https://www.youtube.com/watch?v=F0SP7Ry4flQ&feature=youtu.be)
+* [<span data-ttu-id="7bf83-195">Bu öğreticide YouTube sürümü</span><span class="sxs-lookup"><span data-stu-id="7bf83-195">Youtube version of this tutorial</span></span>](https://www.youtube.com/watch?v=F0SP7Ry4flQ&feature=youtu.be)
 
-## <a name="next-steps"></a><span data-ttu-id="7fab3-196">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="7fab3-196">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="7bf83-196">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="7bf83-196">Next steps</span></span>
 
-<span data-ttu-id="7fab3-197">Bu öğreticide şunları yaptınız:</span><span class="sxs-lookup"><span data-stu-id="7fab3-197">In this tutorial, you:</span></span>
+<span data-ttu-id="7bf83-197">Bu öğreticide şunları yaptınız:</span><span class="sxs-lookup"><span data-stu-id="7bf83-197">In this tutorial, you:</span></span>
 
 > [!div class="checklist"]
-> * <span data-ttu-id="7fab3-198">Razor sayfaları web uygulaması oluşturdunuz.</span><span class="sxs-lookup"><span data-stu-id="7fab3-198">Created a Razor Pages web app.</span></span>
-> * <span data-ttu-id="7fab3-199">Bir uygulamayı çalıştırdınız.</span><span class="sxs-lookup"><span data-stu-id="7fab3-199">Ran the app.</span></span>
-> * <span data-ttu-id="7fab3-200">Proje dosyalarını incelenir.</span><span class="sxs-lookup"><span data-stu-id="7fab3-200">Examined the project files.</span></span>
+> * <span data-ttu-id="7bf83-198">Razor sayfaları web uygulaması oluşturdunuz.</span><span class="sxs-lookup"><span data-stu-id="7bf83-198">Created a Razor Pages web app.</span></span>
+> * <span data-ttu-id="7bf83-199">Bir uygulamayı çalıştırdınız.</span><span class="sxs-lookup"><span data-stu-id="7bf83-199">Ran the app.</span></span>
+> * <span data-ttu-id="7bf83-200">Proje dosyalarını incelenir.</span><span class="sxs-lookup"><span data-stu-id="7bf83-200">Examined the project files.</span></span>
 
-<span data-ttu-id="7fab3-201">Serinin sonraki öğreticiye ilerleyin:</span><span class="sxs-lookup"><span data-stu-id="7fab3-201">Advance to the next tutorial in the series:</span></span>
+<span data-ttu-id="7bf83-201">Serinin sonraki öğreticiye ilerleyin:</span><span class="sxs-lookup"><span data-stu-id="7bf83-201">Advance to the next tutorial in the series:</span></span>
 
 > [!div class="step-by-step"]
-> [<span data-ttu-id="7fab3-202">Model ekleme</span><span class="sxs-lookup"><span data-stu-id="7fab3-202">Add a model</span></span>](xref:tutorials/razor-pages/model)
+> [<span data-ttu-id="7bf83-202">Model ekleme</span><span class="sxs-lookup"><span data-stu-id="7bf83-202">Add a model</span></span>](xref:tutorials/razor-pages/model)
