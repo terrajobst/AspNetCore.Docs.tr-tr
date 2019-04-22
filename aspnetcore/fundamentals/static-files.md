@@ -7,10 +7,10 @@ ms.custom: mvc
 ms.date: 04/08/2019
 uid: fundamentals/static-files
 ms.openlocfilehash: 12c7b39bee462ff83188a5a0f10b133ca273863b
-ms.sourcegitcommit: 258a97159da206f9009f23fdf6f8fa32f178e50b
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59425068"
 ---
 # <a name="static-files-in-aspnet-core"></a>ASP.NET core'da statik dosyalar
@@ -47,7 +47,7 @@ Statik dosyalar, web kökü göreli bir yol aracılığıyla erişilebilir. Örn
 
 * **wwwroot**
   * **CSS**
-  * **görüntüler**
+  * **Görüntüleri**
   * **js**
 
 Bir dosyaya erişmek için URI biçimi *görüntüleri* alt *http://\<server_address > /images/\<image_file_name >*. Örneğin, *http://localhost:9189/images/banner3.svg*.
@@ -90,10 +90,10 @@ Statik dosyaların sunulmasını web kökünün dışında bulunduğu dizin sır
 
 * **wwwroot**
   * **CSS**
-  * **görüntüler**
+  * **Görüntüleri**
   * **js**
 * **MyStaticFiles**
-  * **görüntüler**
+  * **Görüntüleri**
     * *banner1.svg*
 
 Bir isteği erişip *banner1.svg* statik dosya ara yazılımlarını şu şekilde yapılandırarak dosyası:
@@ -159,7 +159,7 @@ Varsayılan giriş sayfası ayarı ziyaretçiler mantıksal bir başlangıç nok
 İle `UseDefaultFiles`, istekleri için bir klasörü arayın:
 
 * *default.htm*
-* *default.html*
+* *default.HTML*
 * *index.htm*
 * *index.HTML*
 
@@ -189,12 +189,12 @@ Aşağıdaki dizin hiyerarşi göz önünde bulundurun:
 
 * **wwwroot**
   * **CSS**
-  * **görüntüler**
+  * **Görüntüleri**
   * **js**
 * **MyStaticFiles**
-  * **görüntüler**
+  * **Görüntüleri**
     * *banner1.svg*
-  * *default.html*
+  * *default.HTML*
 
 Aşağıdaki kod, statik dosyalar, varsayılan dosya ve Dizin tarama etkinleştirir `MyStaticFiles`:
 
@@ -208,7 +208,7 @@ Aşağıdaki kod, statik dosyalar, varsayılan dosya ve Dizin tarama etkinleşti
 
 | URI            |                             Yanıt  |
 | ------- | ------|
-| *http://\<server_address > /StaticFiles/images/banner1.svg*    |      MyStaticFiles/images/banner1.svg |
+| *http://\<server_address>/StaticFiles/images/banner1.svg*    |      MyStaticFiles/images/banner1.svg |
 | *http://\<server_address > / StaticFiles*             |     MyStaticFiles/default.html |
 
 Varsayılan adlı dosya varsa *MyStaticFiles* dizin *http://\<server_address > / StaticFiles* dizin ile tıklanabilir bağlantılar listesi döndürür:
@@ -260,5 +260,5 @@ Yukarıdaki kod ile bir isteği bir dosyayla bilinmeyen bir içerik türü için
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Ara yazılım](xref:fundamentals/middleware/index)
-* [ASP.NET Core’a Giriş](xref:index)
+* [Ara Yazılım](xref:fundamentals/middleware/index)
+* [ASP.NET Core'a giriş](xref:index)

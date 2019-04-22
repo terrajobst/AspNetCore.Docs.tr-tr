@@ -6,10 +6,10 @@ ms.author: riande
 ms.date: 12/5/2018
 uid: tutorials/razor-pages/razor-pages-start
 ms.openlocfilehash: 1d264ca4a605d8291e273a8f054c92e7eefa5548
-ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/10/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59468853"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Öğretici: ASP.NET Core Razor sayfaları kullanmaya başlama
@@ -39,7 +39,7 @@ Bu öğreticinin sonunda çalışan bir sonraki öğreticilerde oluşturacağın
 
 ## <a name="create-a-razor-pages-web-app"></a>Razor sayfaları web uygulaması oluşturma
 
-# [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Visual Studio'dan **dosya** menüsünde **yeni** > **proje**.
 
@@ -55,7 +55,7 @@ Bu öğreticinin sonunda çalışan bir sonraki öğreticilerde oluşturacağın
 
   ![Çözüm Gezgini](razor-pages-start/_static/se2.2.png)
 
-# [<a name="visual-studio-code"></a>Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 * Açık [tümleşik Terminalini](https://code.visualstudio.com/docs/editor/integrated-terminal).
 
@@ -75,7 +75,7 @@ Bu öğreticinin sonunda çalışan bir sonraki öğreticilerde oluşturacağın
 
 * Seçin **Evet**
 
-# [<a name="visual-studio-for-mac"></a>Mac için Visual Studio](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
 Bir terminalde aşağıdaki komutu çalıştırın:
 
@@ -97,7 +97,7 @@ Visual Studio'dan seçin **Dosya > Aç**ve ardından *RazorPagesMovie.csproj* do
 
 ## <a name="run-the-app"></a>Uygulamayı çalıştırma
 
-# [<a name="visual-studio"></a>Visual Studio](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Hata Ayıklayıcı olmadan çalıştırmak için CTRL + F5 tuşlarına basın.
 
@@ -115,7 +115,7 @@ Visual Studio'dan seçin **Dosya > Aç**ve ardından *RazorPagesMovie.csproj* do
 
   ![Giriş ya da dizin sayfası](razor-pages-start/_static/home2.2.png)
   
-# [<a name="visual-studio-code"></a>Visual Studio Code](#tab/visual-studio-code)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
   [!INCLUDE[](~/includes/trustCertVSC.md)]
 
@@ -133,7 +133,7 @@ Visual Studio'dan seçin **Dosya > Aç**ve ardından *RazorPagesMovie.csproj* do
 
   ![Giriş ya da dizin sayfası](razor-pages-start/_static/home2.2.png)
   
-# [<a name="visual-studio-for-mac"></a>Mac için Visual Studio](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
   [!INCLUDE[](~/includes/trustCertMac.md)]
 

@@ -8,10 +8,10 @@ ms.date: 02/06/2019
 ms.topic: tutorial
 uid: data/ef-mvc/intro
 ms.openlocfilehash: 5a2ec9a8d85925e55840962cc90b3092953e7920
-ms.sourcegitcommit: 1a7000630e55da90da19b284e1b2f2f13a393d74
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59012857"
 ---
 # <a name="tutorial-get-started-with-ef-core-in-an-aspnet-mvc-web-app"></a>Öğretici: Bir ASP.NET MVC web uygulamasında EF Core ile çalışmaya başlama
@@ -37,7 +37,7 @@ Bu öğreticide şunları yaptınız:
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* [.NET Core SDK 2.2](https://www.microsoft.com/net/download)
+* [.NET core SDK'sını 2.2](https://www.microsoft.com/net/download)
 * [Visual Studio 2017 veya 2019](https://visualstudio.microsoft.com/downloads/) aşağıdaki iş yükleri ile:
   * **ASP.NET ve web geliştirme** iş yükü
   * **.NET core çoklu platform geliştirme** iş yükü

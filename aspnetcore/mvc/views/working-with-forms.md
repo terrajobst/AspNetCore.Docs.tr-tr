@@ -7,10 +7,10 @@ ms.custom: mvc
 ms.date: 04/06/2019
 uid: mvc/views/working-with-forms
 ms.openlocfilehash: 6eff3bf03e650e154b5c767c9bcdd915e7db8b47
-ms.sourcegitcommit: 948e533e02c2a7cb6175ada20b2c9cabb7786d0b
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/10/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59468808"
 ---
 # <a name="tag-helpers-in-forms-in-aspnet-core"></a>ASP.NET Core formlarda etiket Yardımcıları
@@ -453,7 +453,7 @@ MVC (örneğin, sahip olduğunuz özel sunucu tarafı doğrulama veya istemci ta
 |--- |--- |
 |ValidationSummary.All|Özellik ve model düzeyi|
 |ValidationSummary.ModelOnly|Model|
-|ValidationSummary.None|Yok.|
+|ValidationSummary.None|None|
 
 ### <a name="sample"></a>Örnek
 

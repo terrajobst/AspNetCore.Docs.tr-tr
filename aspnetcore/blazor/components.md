@@ -5,14 +5,14 @@ description: Oluşturma ve Razor bileşenler, bileşen ömürleri yönetme veril
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/15/2019
+ms.date: 04/17/2019
 uid: blazor/components
-ms.openlocfilehash: f657b4ad82028881d04292b8ba54b8be0b1fa419
-ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
+ms.openlocfilehash: 610572c232f41210c60afcae0a660cbb808be65e
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59614907"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59705627"
 ---
 # <a name="create-and-use-razor-components"></a>Oluşturma ve Razor bileşenleri kullanma
 
@@ -527,6 +527,40 @@ Bileşen dosyaları karıştırmak HTML biçimlendirmesi ve C# aynı dosyada kod
 
 Temel sınıfın türetilmesi `ComponentBase`.
 
+## <a name="import-components"></a>İçeri aktarma bileşenleri
+
+Ad alanı, Razor ile yazılmış bir bileşenin dayanır:
+
+* Projenin `RootNamespace`.
+* Bileşen yolu proje kök. Örneğin, `ComponentsSample/Pages/Index.razor` ad alanındaki `ComponentsSample.Pages`. Bileşenleri izleyin C# bağlama kurallarını olarak adlandırın. Durumunda, *Index.razor*, tüm bileşenleri aynı klasörde *sayfaları*ve üst klasör *ComponentsSample*, kapsam içindedir.
+
+Farklı bir ad alanında tanımlanan bileşenleri Razor'ın kullanarak kapsamına alınabilir [ \@kullanarak](xref:mvc/views/razor#using) yönergesi.
+
+Başka bir bileşen `NavMenu.razor`, klasörde mevcut `ComponentsSample/Shared/`, bileşen kullanılabilir `Index.razor` aşağıdaki `@using` deyimi:
+
+```cshtml
+@using ComponentsSample.Shared
+
+This is the Index page.
+
+<NavMenu></NavMenu>
+```
+
+Bileşenleri de başvurabilir bunların tam nitelikli adlarını kullanarak gereksinimini kaldıran [ \@kullanarak](xref:mvc/views/razor#using) yönergesi:
+
+```cshtml
+This is the Index page.
+
+<ComponentsSample.Shared.NavMenu></ComponentsSample.Shared.NavMenu>
+```
+
+> [!NOTE]
+> `global::` Nitelik desteklenmez.
+>
+> Diğer adlı bileşenleriyle alma `using` deyimleri (örneğin, `@using Foo = Bar`) desteklenmiyor.
+>
+> Kısmen nitelenmiş adlar desteklenmez. Örneğin, ekleme `@using ComponentsSample` ve bunlara başvurma `NavMenu.razor` ile `<Shared.NavMenu></Shared.NavMenu>` desteklenmiyor.
+
 ## <a name="razor-support"></a>Razor desteği
 
 **Razor yönergesi**
@@ -541,8 +575,7 @@ Razor yönergeleri, aşağıdaki tabloda gösterilmiştir.
 | [\@ekleme](xref:mvc/views/razor#section-4) | Hizmet ekleme gelen etkinleştirir [hizmet kapsayıcı](xref:fundamentals/dependency-injection). Daha fazla bilgi için [görünümlere bağımlılık ekleme](xref:mvc/views/dependency-injection). |
 | `@layout` | Bir düzen bileşeni belirtir. Düzen bileşenleri, kod yinelemesi ve tutarsızlık önlemek için kullanılır. |
 | [\@Sayfa](xref:razor-pages/index#razor-pages) | Bileşen doğrudan istekleri işleyeceğini belirtir. `@page` Yönergesi, bir rota ve isteğe bağlı parametreler ile belirtilebilir. Razor sayfaları aksine `@page` yönergesi üst dosyanın ilk yönerge olması gerekmez. Daha fazla bilgi için [yönlendirme](xref:blazor/routing). |
-| [\@kullanma](xref:mvc/views/razor#using) | Ekler C# `using` yönergesini oluşturulan bileşen sınıfı. |
-| [\@addTagHelper](xref:mvc/views/razor#tag-helpers) | Kullanma `@addTagHelper` uygulamanın derleme farklı bir derleme bir bileşeni kullanmak için. |
+| [\@kullanma](xref:mvc/views/razor#using) | Ekler C# `using` yönergesini oluşturulan bileşen sınıfı. Bu kapsamın içine o ad alanında tanımlanan tüm bileşenleri de getirir. |
 
 **Koşullu öznitelikleri**
 

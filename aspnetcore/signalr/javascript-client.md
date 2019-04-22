@@ -5,14 +5,14 @@ description: ASP.NET Core SignalR JavaScript istemcisi genel bakış.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 03/14/2019
+ms.date: 04/17/2019
 uid: signalr/javascript-client
-ms.openlocfilehash: a0980dca2eb8d483a9d9f1c5667fb74ee06364f0
-ms.sourcegitcommit: d913bca90373c07f89b1d1df01af5fc01fc908ef
+ms.openlocfilehash: e58015221497a9f962edf9f9fdba7ea3025d7694
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57978348"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59705612"
 ---
 # <a name="aspnet-core-signalr-javascript-client"></a>ASP.NET Core SignalR JavaScript istemcisi
 
@@ -104,7 +104,140 @@ Kullanım [configureLogging](/javascript/api/%40aspnet/signalr/hubconnectionbuil
 
 ## <a name="reconnect-clients"></a>İstemcileri yeniden
 
-SignalR için JavaScript istemci otomatik olarak yeniden değil. İstemcinizi el ile yeniden kod yazmanız gerekir. Aşağıdaki kod tipik yeniden yaklaşımı gösterir:
+::: moniker range=">= aspnetcore-3.0"
+
+### <a name="automatically-reconnect"></a>Otomatik olarak yeniden
+
+SignalR JavaScript istemcisi kullanarak otomatik olarak yeniden yapılandırılabilir `withAutomaticReconnect` metodunda [HubConnectionBuilder](/javascript/api/%40aspnet/signalr/hubconnectionbuilder). Varsayılan olarak otomatik olarak yeniden olmaz.
+
+```javascript
+const connection = new signalR.HubConnectionBuilder()
+    .withUrl("/chatHub")
+    .withAutomaticReconnect()
+    .build();
+```
+
+Herhangi bir parametre olmadan `withAutomaticReconnect()` dört girişimi başarısız olduktan sonra durduruluyor, her bir yeniden bağlanma denemesi denemeden önce sırasıyla 0, 2, 10 ve 30 saniye bekleyin üzere istemciyi yapılandırır.
+
+Yeniden bağlanma girişimleri başlatmadan önce `HubConnection` geçiş olur `HubConnectionState.Reconnecting` belirtin ve yangın kendi `onreconnecting` geçiş yerine geri çağırmaları `Disconnected` durumu ve tetikleme kendi `onclose` geri çağırmaları ister bir `HubConnection`otomatik yeniden olmadan yapılandırılmış. Bu, bağlantısı kesilmiş kullanıcıları uyarın ve UI öğelerini devre dışı bırakmak için bir fırsat sağlar.
+
+```javascript
+connection.onreconnecting((error) => {
+  console.assert(connection.state === signalR.HubConnectionState.Reconnecting);
+
+  document.getElementById("messageInput").disabled = true;
+
+  const li = document.createElement("li");
+  li.textContent = `Connection lost due to error "${error}". Reconnecting.`;
+  document.getElementById("messagesList").appendChild(li);
+});
+```
+
+İstemci ilk dört girişimlerinin içinde başarıyla bağlanırsa `HubConnection` geri geçeceğiyle `Connected` belirtin ve yangın kendi `onreconnected` geri çağırmaları. Bu, bağlantı yeniden kurulmadan kullanıcılara bildirmek için bir fırsat sağlar.
+
+Bağlantı tamamen yeni sunucuya baktığı yeni `connectionId` için sağlanan `onreconnected` geri çağırma.
+
+> [!WARNING]
+> `onreconnected` Geri çağırma'nın `connectionId` varsa parametresi tanımsız olur `HubConnection` için yapılandırılan [anlaşma atla](xref:signalr/configuration#configure-client-options).
+
+```javascript
+connection.onreconnected((connectionId) => {
+  console.assert(connection.state === signalR.HubConnectionState.Connected);
+
+  document.getElementById("messageInput").disabled = false;
+
+  const li = document.createElement("li");
+  li.textContent = `Connection reestablished. Connected with connectionId "${connectionId}".`;
+  document.getElementById("messagesList").appendChild(li);
+});
+```
+
+`withAutomaticReconnect()` Yapılandırma olmayacaktır `HubConnection` başlangıç hataları elle gerek ilk hataları yeniden denemek için:
+
+```javascript
+async function start() {
+    try {
+        await connection.start();
+        console.assert(connection.state === signalR.HubConnectionState.Connected);
+        console.log("connected");
+    } catch (err) {
+        console.assert(connection.state === signalR.HubConnectionState.Disconnected);
+        console.log(err);
+        setTimeout(() => start(), 5000);
+    }
+};
+```
+
+İstemci ilk dört girişimlerinin içinde başarıyla yeniden değil `HubConnection` geçiş olur `Disconnected` belirtin ve yangın kendi [onclose](/javascript/api/%40aspnet/signalr/hubconnection#onclose) geri çağırmalar. Bu bağlantıyı kalıcı olarak kesildi ve sayfayı yenilemeyi önerilir kullanıcılara bildirmek için bir fırsat sağlar:
+
+```javascript
+connection.onclose((error) => {
+  console.assert(connection.state === signalR.HubConnectionState.Disconnected);
+
+  document.getElementById("messageInput").disabled = true;
+
+  const li = document.createElement("li");
+  li.textContent = `Connection closed due to error "${error}". Try refreshing this page to restart the connection.`;
+  document.getElementById("messagesList").appendChild(li);
+})
+```
+
+Özel bir bağlantıyı kesmeden önce yeniden bağlanma denemesi sayısını yapılandırma veya yeniden zamanlamayı değiştirmek için `withAutomaticReconnect` yeniden bağlanma girişimleri başlatmadan önce beklenecek milisaniye cinsinden gecikme değeri temsil eden sayı dizisi kabul eder.
+
+```javascript
+const connection = new signalR.HubConnectionBuilder()
+    .withUrl("/chatHub")
+    .withAutomaticReconnect([0, 0, 10000])
+    .build();
+
+    // .withAutomaticReconnect([0, 2000, 10000, 30000]) yields the default behavior
+```
+
+Yukarıdaki örnekte yapılandırır `HubConnection` hemen bağlantı kaybedildikten sonra yeniden bağlantılar denemesi başlatılacak. Bu aynı zamanda varsayılan yapılandırması için geçerlidir.
+
+İlk yeniden deneme başarısız olursa, ikinci yeniden bağlanma denemesi de 2 Varsayılan yapılandırmada gibi saniye beklemek yerine başlayacaktır.
+
+İkinci yeniden bağlanma denemesi başarısız olursa, üçüncü yeniden denemede yeniden gibi varsayılan yapılandırması olan 10 saniye içinde başlar.
+
+Bir çalışan yerine hata üçüncü yeniden bağlanma girişimi yapıldıktan sonra özel davranış ardından tekrar varsayılan davranış durdurarak kareninkinden daha girişimi 30 başka bir Varsayılan yapılandırmada gibi saniye içinde yeniden.
+
+Zamanlama ve otomatik sayısı daha fazla denetime yeniden bağlanma girişimleri, isterseniz `withAutomaticReconnect` kabul eden bir nesneyi uygulama `IReconnectPolicy` adlı tek bir yöntem olan arabirimi `nextRetryDelayInMilliseconds`.
+
+`nextRetryDelayInMilliseconds` iki bağımsız değişkeni alır `previousRetryCount` ve `elapsedMilliseconds`, her iki numarayı olduğu. Yeniden bağlanma denemesi ilk önce her ikisini de `previousRetryCount` ve `elapsedMilliseconds` sıfır olur. Başarısız tekrar deneme girişimleri sonra `previousRetryCount` birer birer artar ve `elapsedMilliseconds` şimdiye milisaniye cinsinden yeniden bağlanmayı harcanan süreyi yansıtacak şekilde güncelleştirilir.
+
+`nextRetryDelayInMilliseconds` bir sonraki yeniden denemeden önce beklenecek milisaniye sayısını temsil eden bir sayı döndürmelidir veya `null` varsa `HubConnection` yeniden bağlanmayı durdurmanız gerekir.
+
+```javascript
+const connection = new signalR.HubConnectionBuilder()
+    .withUrl("/chatHub")
+    .withAutomaticReconnect({
+        nextRetryDelayInMilliseconds: (previousRetryCount, elapsedMilliseconds) => {
+          if (elapsedMilliseconds < 60000) {
+            // If we've been reconnecting for less than 60 seconds so far,
+            // wait between 0 and 10 seconds before the next reconnect attempt.
+            return Math.random() * 10000;
+          } else {
+            // If we've been reconnecting for more than 60 seconds so far, stop reconnecting.
+            return null;
+          }
+        })
+    .build();
+```
+
+Alternatif olarak, istemci gösterildiği şekilde el ile yeniden bağlanacak kod yazabileceğiniz [el ile yeniden](#manually-reconnect).
+
+::: moniker-end
+
+### <a name="manually-reconnect"></a>El ile yeniden
+
+::: moniker range="< aspnetcore-3.0"
+
+> [!WARNING]
+> Önce 3.0, SignalR için JavaScript istemci otomatik olarak yeniden değil. İstemcinizi el ile yeniden kod yazmanız gerekir.
+
+::: moniker-end
+
+Aşağıdaki kod tipik el ile yeniden yaklaşımı gösterir:
 
 1. Bir işlev (Bu durumda, `start` işlevi) bağlantıyı başlatmak için oluşturulur.
 1. Çağrı `start` bağlantının işlevinde `onclose` olay işleyicisi.

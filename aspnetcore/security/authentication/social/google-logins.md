@@ -6,18 +6,18 @@ ms.author: riande
 ms.custom: mvc, seodec18
 ms.date: 1/11/2019
 uid: security/authentication/google-logins
-ms.openlocfilehash: 1328bcbce3e6e4786f9d410d1f28f309dc9d2722
-ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
+ms.openlocfilehash: 44c79b3279db7946b6d89a726bd3f5acfb5f51af
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2019
-ms.locfileid: "58750544"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59705597"
 ---
 # <a name="google-external-login-setup-in-aspnet-core"></a>ASP.NET core'da Google dış oturum açma Kurulumu
 
 Tarafından [Valeriy Novytskyy](https://github.com/01binary) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Google Ocak 2019 başladı [kapatma](https://developers.google.com/+/api-shutdown) Google + oturum açın ve geliştiricilerin konumsa için yeni bir Google oturum sistemde Mart tarafından. ASP.NET Core 2.1 ve Google kimlik doğrulaması için 2.2 paketleri değişiklikleri uyum sağlamak için Şubat ayında güncelleştirilir. Daha fazla bilgi ve ASP.NET Core için geçici risk azaltma işlemleri için bkz. [bu GitHub sorunu](https://github.com/aspnet/AspNetCore/issues/6486). Bu öğreticide yeni Kurulum işlemine güncelleştirildi.
+[Eski Google + API kapatma 7 Mart 2019 tarihinde](https://developers.google.com/+/api-shutdown). Google + oturum açın ve geliştiriciler için yeni bir Google oturum sistemine taşımanız gerekir. Google kimlik doğrulaması için ASP.NET Core 2.1 ve 2.2 paketleri sahip güncelleştirilmesi değişiklikleri uyum sağlamak için. Daha fazla bilgi ve ASP.NET Core için geçici risk azaltma işlemleri için bkz. [bu GitHub sorunu](https://github.com/aspnet/AspNetCore/issues/6486). Bu öğreticide yeni Kurulum işlemine güncelleştirildi.
 
 Bu öğreticide oluşturulan ASP.NET Core 2.2 projesini kullanarak kendi Google hesabıyla oturum açmasını sağlamak gösterilmektedir [önceki sayfaya](xref:security/authentication/social/index).
 

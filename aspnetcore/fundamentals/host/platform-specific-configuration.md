@@ -8,10 +8,10 @@ ms.custom: mvc, seodec18
 ms.date: 04/06/2019
 uid: fundamentals/configuration/platform-specific-configuration
 ms.openlocfilehash: c2a2e1fbd288ff292c6759d03fae51876cdb5704
-ms.sourcegitcommit: 258a97159da206f9009f23fdf6f8fa32f178e50b
+ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59425081"
 ---
 # <a name="use-hosting-startup-assemblies-in-aspnet-core"></a>ASP.NET Core barındırma başlangıç derlemeleri kullanma
@@ -315,7 +315,7 @@ NuGet paketlerini ve çalışma zamanı mağazası hakkında daha fazla bilgi i�
 
 * [Platformlar arası araçlarla NuGet paketi oluşturma](/dotnet/core/deploying/creating-nuget-packages)
 * [Paket yayımlama](/nuget/create-packages/publish-a-package)
-* [Çalışma zamanı Paket Deposu](/dotnet/core/deploying/runtime-store)
+* [Çalışma zamanı paket deposu](/dotnet/core/deploying/runtime-store)
 
 ### <a name="project-bin-folder"></a>Proje bin klasörü
 
