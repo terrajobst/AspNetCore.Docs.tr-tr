@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/15/2019
 uid: blazor/dependency-injection
-ms.openlocfilehash: f0bc7d3a948763827ae859475410fcf6d6ee4edb
-ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
+ms.openlocfilehash: 9e19596dec5582e11212d95a9fea72862baa2046
+ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59614899"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59983006"
 ---
 # <a name="blazor-dependency-injection"></a>Blazor bağımlılık ekleme
 
@@ -73,7 +73,7 @@ Varsayılan şablon tarafından eklenen varsayılan hizmet sağlayıcısı yerin
 
 ## <a name="request-a-service-in-a-component"></a>Bir bileşen içinde bir hizmet isteği
 
-Hizmetleri hizmet koleksiyonuna eklendikten sonra hizmetleri kullanarak bileşenleri Razor şablonlarına ekleme [ @inject ](xref:mvc/views/razor#section-4) Razor yönergesi. `@inject` iki parametreye sahiptir:
+Hizmetleri hizmet koleksiyonuna eklendikten sonra hizmetleri kullanarak bileşenleri Razor şablonlarına ekleme [ \@ekleme](xref:mvc/views/razor#section-4) Razor yönergesi. `@inject` iki parametreye sahiptir:
 
 * Tür adı: Eklenecek hizmetin türü.
 * Özellik adı: Eklenen app service alma özelliğinin adı. Not, özelliği el ile oluşturma gerektirmez. Derleyici, bir özellik oluşturur.
@@ -84,7 +84,7 @@ Birden çok kullanın `@inject` farklı Hizmetleri eklemesine deyimleri.
 
 Aşağıdaki örnek nasıl kullanılacağını gösterir `@inject`. Uygulama hizmeti `Services.IDataAccess` bileşenin özelliğine eklenen `DataRepository`. Kodu yalnızca nasıl kullandığını unutmayın `IDataAccess` Özet:
 
-[!code-cshtml[](dependency-injection/samples_snapshot/3.x/CustomerList.cshtml?highlight=2-3,23)]
+[!code-cshtml[](dependency-injection/samples_snapshot/3.x/CustomerList.razor?highlight=2-3,23)]
 
 Dahili olarak oluşturulan özelliğe (`DataRepository`) ile donatılmış `InjectAttribute` özniteliği. Genellikle, bu öznitelik, doğrudan kullanılmaz. Bir temel sınıf bileşenleri için gereklidir ve eklenen özellikler için temel sınıf, gerekli ayrıca `InjectAttribute` elle eklenebilir:
 

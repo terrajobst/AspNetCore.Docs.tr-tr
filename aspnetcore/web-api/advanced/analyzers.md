@@ -7,12 +7,12 @@ ms.author: pranavkm
 ms.custom: mvc
 ms.date: 12/14/2018
 uid: web-api/advanced/analyzers
-ms.openlocfilehash: 7558552586d3056c43d8bfd9ef74cbcb3396726f
-ms.sourcegitcommit: 6548c19f345850ee22b50f7ef9fca732895d9e08
+ms.openlocfilehash: 5bfda6f19e4739c52a4b7c9d6e751634a4af438a
+ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53425100"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59982926"
 ---
 # <a name="use-web-api-analyzers"></a>Web API Çözümleyicileri kullanma
 
@@ -73,6 +73,8 @@ Paketteki Çözümleyicileri birini inceler denetleyicileri ile açıklanan <xre
 [!code-csharp[](conventions/sample/Controllers/ContactsController.cs?name=missing404docs&highlight=9)]
 
 Önceki eylemi HTTP başarı dönüş türü, ancak belge olmayan HTTP 404 hatası durum kodu 200 belgeler. Çözümleyici eksik HTTP 404 durum kodu belgelerine bir uyarı olarak bildirir. Sorunu düzeltmek için bir seçenek sağlanır.
+
+![Uyarı raporlama Çözümleyicisi](conventions/_static/Analyzer.gif)
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

@@ -5,14 +5,14 @@ description: ASP.NET Core SignalR .NET istemcisi hakkında bilgi
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 03/14/2019
+ms.date: 04/17/2019
 uid: signalr/dotnet-client
-ms.openlocfilehash: a03abef53aa44f0a1016b8f72d8e3a7af2f9bed1
-ms.sourcegitcommit: d913bca90373c07f89b1d1df01af5fc01fc908ef
+ms.openlocfilehash: 640d75157e42ffa6d78235c5be03e4846e8dcde9
+ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57978310"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59982952"
 ---
 # <a name="aspnet-core-signalr-net-client"></a>ASP.NET Core SignalR .NET istemcisi
 
@@ -63,6 +63,10 @@ Zaman uyumsuz desteği için temel nedeni olduğundan, bağlantı yeniden başla
 `InvokeAsync` hub yöntemleri çağırır. Hub yönteminin adını ve hub yöntemi için tanımlanan herhangi bir bağımsız değişken geçirme `InvokeAsync`. SignalR zaman uyumsuz, bu nedenle kullanın `async` ve `await` çağrıları yapılırken.
 
 [!code-csharp[InvokeAsync method](dotnet-client/sample/signalrchatclient/MainWindow.xaml.cs?name=snippet_InvokeAsync)]
+
+`InvokeAsync` Yöntemi döndürür bir `Task` sunucu yöntem döndürüldüğünde tamamlar. Sonucu olarak dönüş değeri varsa, sağlanan `Task`. Sunucuda yöntemi tarafından oluşturulan özel durumlar bir hatalı üretmek `Task`. Kullanım `await` tamamlamak sunucu yöntemi için beklenecek söz dizimi ve `try...catch` sözdizimi hataları işlemek için.
+
+`SendAsync` Yöntemi döndürür bir `Task` sunucuya ileti gönderildiğinde tamamlar. Dönüş değeri bu sağlanan `Task` Metoda tamamlanana kadar beklemez. İstemcide ileti gönderilirken karşılaşılan özel durumlar bir hatalı üretmek `Task`. Kullanım `await` ve `try...catch` işlemek için söz dizimi hatalarını gönderme.
 
 > [!NOTE]
 > Azure SignalR hizmeti kullanıyorsanız, *sunucusuz modu*, bir istemciden hub yöntemlerini çağıramazsınız. Daha fazla bilgi için [SignalR hizmeti belgeleri](/azure/azure-signalr/signalr-concept-serverless-development-config).

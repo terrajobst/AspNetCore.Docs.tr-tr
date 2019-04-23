@@ -4,15 +4,15 @@ description: Bu öğreticide, daha fazla varlıklar ve ilişkiler ekleyin ve ver
 author: rick-anderson
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/05/2019
+ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: 5ab893dd77ff2cc9a735702eb3a547ed8bcb2197
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: 2f1acb8d0d665b0ae809e596891b2487fd17e63e
+ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264856"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59983048"
 ---
 # <a name="tutorial-create-a-complex-data-model---aspnet-mvc-with-ef-core"></a>Öğretici: ASP.NET MVC ile EF Core - karmaşık veri modeli oluşturma
 
@@ -40,7 +40,7 @@ Bu öğreticide şunları yaptınız:
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* [EF Core geçişleri özelliği için ASP.NET Core bir MVC web uygulamasında kullanma](migrations.md)
+* [EF Core migrations'ı kullanma](migrations.md)
 
 ## <a name="customize-the-data-model"></a>Veri modelini özelleştirin
 
@@ -320,7 +320,7 @@ public ICollection<Course> Courses { get; set; }
 ```
 
 > [!NOTE]
-> Kural gereği, art arda silme için alamayan yabancı anahtarlar ve çoktan çoğa ilişkiler için Entity Framework sağlar. Bu, bir geçiş eklemeye çalıştığınızda bir özel durum neden olur, döngüsel art arda silme kuralları'nda neden olabilir. Örneğin, Department.InstructorID özelliği null olarak tanımlamadığınız varsa EF sorun olmasını istediğiniz değildir departman sildiğinizde Eğitmen silmek için bir cascade delete kuralı yapılandırın. İş kurallarınızı gerekirse `InstructorID` özelliğini alamayan, art arda silme ilişkiyi devre dışı bırakmak için aşağıdaki fluent API'si deyimi kullanılacak olurdu:
+> Kural gereği, art arda silme için alamayan yabancı anahtarlar ve çoktan çoğa ilişkiler için Entity Framework sağlar. Bu, bir geçiş eklemeye çalıştığınızda bir özel durum neden olur, döngüsel art arda silme kuralları'nda neden olabilir. Örneğin, Department.InstructorID özelliği null olarak tanımlamadığınız varsa EF sorun olmasını istediğiniz değil Eğitmen sildiğinizde bölümü silmek için bir cascade delete kuralı yapılandırın. İş kurallarınızı gerekirse `InstructorID` özelliğini alamayan, art arda silme ilişkiyi devre dışı bırakmak için aşağıdaki fluent API'si deyimi kullanılacak olurdu:
 >
 > ```csharp
 > modelBuilder.Entity<Department>()
@@ -529,6 +529,7 @@ Bu öğreticide şunları yaptınız:
 > * Bağlantı dizesi değişti
 > * Veritabanı güncelleştirildi
 
-İlgili veri erişimi hakkında daha fazla bilgi edinmek için sonraki makaleye ilerleyin.
+İlgili veri erişimi hakkında daha fazla bilgi edinmek için sonraki öğreticiye ilerleyin.
+
 > [!div class="nextstepaction"]
-> [İlgili verileri erişimi](read-related-data.md)
+> [Sonraki: İlgili verileri erişimi](read-related-data.md)

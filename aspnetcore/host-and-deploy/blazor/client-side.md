@@ -5,24 +5,22 @@ description: Ana bilgisayar ve ASP.NET Core, içerik teslim ağları (CDN), dosy
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/15/2019
+ms.date: 04/18/2019
 uid: host-and-deploy/blazor/client-side
-ms.openlocfilehash: 01a612029f415f583908c3bf2adc2e6d35167acb
-ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
+ms.openlocfilehash: 0a913dafafc5c17d2ff98e2c0a0319b591e02201
+ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59614921"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59983032"
 ---
 # <a name="host-and-deploy-blazor-client-side"></a>Barındırma ve Blazor istemci-tarafı dağıtma
 
 Tarafından [Luke Latham](https://github.com/guardrex), [Rainer Stropek](https://www.timecockpit.com), ve [Daniel Roth](https://github.com/danroth27)
 
-[!INCLUDE[](~/includes/razor-components-preview-notice.md)]
-
 ## <a name="host-configuration-values"></a>Ana bilgisayar yapılandırma değerleri
 
-Kullanan uygulamalar Blazor [istemci-tarafı barındırma modeli](xref:blazor/hosting-models#client-side-hosting-model) geliştirme ortamında çalışma zamanında komut satırı bağımsız değişkenleri olarak aşağıdaki ana bilgisayar yapılandırma değerlerini kabul edebilir.
+Kullanan uygulamalar Blazor [istemci-tarafı barındırma modeli](xref:blazor/hosting-models#client-side) geliştirme ortamında çalışma zamanında komut satırı bağımsız değişkenleri olarak aşağıdaki ana bilgisayar yapılandırma değerlerini kabul edebilir.
 
 ### <a name="content-root"></a>İçerik kök
 
@@ -95,7 +93,7 @@ Kullanan uygulamalar Blazor [istemci-tarafı barındırma modeli](xref:blazor/ho
 
 ## <a name="deployment"></a>Dağıtım
 
-İle [istemci-tarafı barındırma modeli](xref:blazor/hosting-models#client-side-hosting-model):
+İle [istemci-tarafı barındırma modeli](xref:blazor/hosting-models#client-side):
 
 * Tarayıcıya .NET çalışma zamanı Blazor uygulamayı ve bağımlılıkları indirilir.
 * Uygulamayı doğrudan tarayıcıda kullanıcı Arabirimi iş parçacığında yürütülür. Aşağıdaki stratejilerin birini ya da desteklenir:
@@ -110,15 +108,15 @@ Gereksiz IL çıkış derlemeleri kaldırmak için her derlemede Ara dil (IL) ba
 
 İstekler sayfası bileşenler için bir istemci-tarafı uygulaması yönlendirme yönlendirme isteklerini bir sunucu tarafı, barındırılan uygulama kadar basit değildir. İki sayfa ile bir istemci-tarafı uygulaması göz önünde bulundurun:
 
-* **_Main.cshtml_**  &ndash; uygulama köküne yükler ve hakkında sayfanın bağlantısını içeren (`href="About"`).
-* **_About.cshtml_**  &ndash; hakkında sayfası.
+* **_Main.Razor** &ndash; uygulama köküne yükler ve hakkında sayfanın bağlantısını içeren (`href="About"`).
+* **_About.Razor** &ndash; hakkında sayfası.
 
 Tarayıcı Adres çubuğunun kullanarak uygulamanın varsayılan belge istendiğinde (örneğin, `https://www.contoso.com/`):
 
 1. Tarayıcı, bir istek gönderir.
 1. Varsayılan sayfayı döndürülen, genellikle olduğu *index.html*.
 1. *index.HTML* uygulama bootstraps.
-1. Blazor'ın yönlendirici yükler ve Razor ana sayfa (*Main.cshtml*) görüntülenir.
+1. Blazor'ın yönlendirici yükler ve Razor ana sayfa (*Main.razor*) görüntülenir.
 
 Ana sayfada hakkında sayfasının bağlantısını seçme hakkında sayfası yükler. Hakkında sayfasının bağlantısını seçerek çalışan istemcide Internet üzerindeki bir isteği yapan tarayıcının Blazor yönlendirici durdurulur çünkü `www.contoso.com` için `About` ve hakkında sayfası görevi görür. Tüm istekler için iç sayfaları *istemci-tarafı uygulaması içinde* aynı şekilde çalışır: İstek sunucu tarafından barındırılan kaynaklara İnternet'e tarayıcı tabanlı istekleri tetikleyin yok. Yönlendirici isteklerini dahili olarak işler.
 
@@ -144,7 +142,7 @@ Uygulama yanıt veren yerel olarak adresindeki `http://localhost:port/CoolApp`.
 
 Daha fazla bilgi için üzerinde bölümüne bakın. [yolu temel konak yapılandırma değeri](#path-base).
 
-Bir uygulama kullanıyorsa [istemci-tarafı barındırma modeli](xref:blazor/hosting-models#client-side-hosting-model) (temel **Blazor** proje şablonu) ve barındırılan bir IIS alt uygulamada ASP.NET Core uygulaması, bu devralınan ASP.NET Core devre dışı bırakmanız önemlidir Modül işleyicisi veya kök (üst) uygulamanın emin `<handlers>` konusundaki *web.config* dosya alt uygulama tarafından devralınan değil.
+Bir uygulama kullanıyorsa [istemci-tarafı barındırma modeli](xref:blazor/hosting-models#client-side) (temel **Blazor** proje şablonu; `blazor` kullanırken şablon [yeni dotnet](/dotnet/core/tools/dotnet-new) komut) ve barındırılan IIS alt uygulamada ASP.NET Core uygulaması, devralınan ASP.NET Core modülü işleyici devre dışı bırakın veya kök (üst) uygulamanın emin olmak önemlidir `<handlers>` konusundaki *web.config* dosya tarafından devralınan değil alt uygulama.
 
 Uygulama işleyicisinde yayımlanan Kaldır *web.config* dosyasını ekleyerek bir `<handlers>` dosya bölümüne:
 

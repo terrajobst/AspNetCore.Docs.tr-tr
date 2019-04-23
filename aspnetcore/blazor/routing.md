@@ -5,14 +5,14 @@ description: Uygulamalar ve NavLink bileşenle ilgili istekleri yönlendirmeyi �
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/15/2019
+ms.date: 04/18/2019
 uid: blazor/routing
-ms.openlocfilehash: bf2a2f6218b0fb4637d60565711c08aa31cebeef
-ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
+ms.openlocfilehash: d3356ceccd5a6ed3375b7eada9cac295ef7ad53b
+ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59614917"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59982868"
 ---
 # <a name="blazor-routing"></a>Blazor yönlendirme
 
@@ -22,33 +22,43 @@ Uygulamalar ve NavLink bileşenle ilgili istekleri yönlendirmeyi öğrenin.
 
 ## <a name="aspnet-core-endpoint-routing-integration"></a>ASP.NET Core uç noktası yönlendirme tümleştirmesi
 
-Blazor bütünleştirilmiştir [ASP.NET Core yönlendirme](xref:fundamentals/routing). ASP.NET Core uygulaması ile etkileşimli bileşenleri için gelen bağlantıları kabul edecek şekilde yapılandırılmış `MapComponentHub<TComponent>` içinde `Startup.Configure`. `MapComponentHub` belirten kök bileşeni `App` Seçici eşleşen bir DOM öğesi içinde işleneceğini `app`:
+Sunucu tarafı Blazor bütünleştirilmiştir [ASP.NET Core uç noktası yönlendirme](xref:fundamentals/routing). ASP.NET Core uygulaması ile etkileşimli bileşenleri için gelen bağlantıları kabul edecek şekilde yapılandırılmış `MapBlazorHub` içinde `Startup.Configure`:
 
 ```csharp
-app.UseRouting(routes =>
+app.UseRouting();
+
+app.UseEndpoints(endpoints =>
 {
-    routes.MapRazorPages();
-    routes.MapComponentHub<App>("app");
+    endpoints.MapBlazorHub();
+    endpoints.MapFallbackToPage("/_Host");
 });
 ```
 
 ## <a name="route-templates"></a>Rota şablonlarının
 
-`<Router>` Bileşen yönlendirme sağlar ve erişilebilir her bileşeni için bir rota şablonu sağlanır. `<Router>` Bileşeni görünür *Components/App.razor* dosyası:
+`<Router>` Bileşen yönlendirme sağlar ve erişilebilir her bileşeni için bir rota şablonu sağlanır. `<Router>` Bileşeni görünür *App.razor* dosyası:
+
+Bir Blazor sunucu-tarafı uygulaması için:
+
+```cshtml
+<Router AppAssembly="typeof(Startup).Assembly" />
+```
+
+Bir Blazor istemci-tarafı uygulaması için:
 
 ```cshtml
 <Router AppAssembly="typeof(Program).Assembly" />
 ```
 
-Olduğunda bir *.razor* veya *.cshtml* ile dosya bir `@page` yönergesi derlendiğinde, oluşturulan sınıfın belirli bir <xref:Microsoft.AspNetCore.Mvc.RouteAttribute> belirten rota şablonu. Çalışma zamanında bileşen sınıfları ile yönlendirici arar bir `RouteAttribute` ve hangi bileşen istenen URL ile eşleşen bir rota şablonuna sahip işler.
+Olduğunda bir *.razor* ile dosya bir `@page` yönergesi derlendiğinde, oluşturulan sınıfın belirli bir <xref:Microsoft.AspNetCore.Mvc.RouteAttribute> belirten rota şablonu. Çalışma zamanında bileşen sınıfları ile yönlendirici arar bir `RouteAttribute` ve hangi bileşen istenen URL ile eşleşen bir rota şablonuna sahip işler.
 
 Bir bileşenin birden çok yol şablonu uygulanabilir. Aşağıdaki bileşen isteklerine yanıt veren `/BlazorRoute` ve `/DifferentBlazorRoute`:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/BlazorRoute.cshtml?name=snippet_BlazorRoute)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/BlazorRoute.razor?name=snippet_BlazorRoute)]
 
 `<Router>` İstenen yol, işleme için bir geri dönüş bileşen ayarı destekler çözülmüş değildir. Bu katılımı ayarlayarak senaryoyu `FallbackComponent` geri dönüş bileşen sınıfı türü parametresi.
 
-Aşağıdaki örnek, bir bileşen içinde tanımlanan ayarlar *Pages/MyFallbackRazorComponent.cshtml* geri dönüş bileşeni için bir `<Router>`:
+Aşağıdaki örnek, bir bileşen içinde tanımlanan ayarlar *Pages/MyFallbackRazorComponent.razor* geri dönüş bileşeni için bir `<Router>`:
 
 ```cshtml
 <Router ... FallbackComponent="typeof(Pages.MyFallbackRazorComponent)" />
@@ -61,7 +71,7 @@ Aşağıdaki örnek, bir bileşen içinde tanımlanan ayarlar *Pages/MyFallbackR
 
 Yönlendirici, aynı adı (büyük küçük harfe duyarlı) karşılık gelen bileşen parametrelerle doldurmak için rota parametreleri kullanır:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/RouteParameter.cshtml?name=snippet_RouteParameter&highlight=2,7-8)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/RouteParameter.razor?name=snippet_RouteParameter&highlight=2,7-8)]
 
 İsteğe bağlı parametreler henüz desteklenmeyen böylece iki `@page` yönergeleri, yukarıdaki örnekte uygulanır. İlk Gezinti parametresi olmadan bileşenine izin verir. İkinci `@page` yönergesi gereken `{text}` rota parametresi ve değeri atar `Text` özelliği.
 
@@ -74,7 +84,7 @@ Aşağıdaki örnekte, kullanıcılar bileşen yolu yalnızca, eşleşen:
 * Bir `Id` yol kesimi istek URL'si hakkındaki varsa.
 * `Id` Segmenttir tamsayı (`int`).
 
-[!code-cshtml[](routing/samples_snapshot/3.x/Constraint.cshtml?highlight=1)]
+[!code-cshtml[](routing/samples_snapshot/3.x/Constraint.razor?highlight=1)]
 
 Aşağıdaki tabloda gösterilen rota kısıtlamalarını kullanılabilir. Sabit kültür ile eşleşen rota kısıtlamaları için daha fazla bilgi için tablonun altındaki bir uyarı görürsünüz.
 
@@ -98,7 +108,7 @@ Bir NavLink bileşeni yerine HTML kullanan `<a>` gezinme bağlantıları oluştu
 
 Aşağıdaki NavMenu bileşeni oluşturur bir [önyükleme](https://getbootstrap.com/docs/) gezinti çubuğunda, NavLink bileşenleri gösterilmektedir:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Shared/NavMenu.cshtml?name=snippet_NavLinks&highlight=4-6,9-11)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Shared/NavMenu.razor?name=snippet_NavLinks&highlight=4-6,9-11)]
 
 İki `NavLinkMatch` seçenekleri:
 

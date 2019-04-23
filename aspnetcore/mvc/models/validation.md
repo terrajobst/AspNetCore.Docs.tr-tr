@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 04/06/2019
 monikerRange: '>= aspnetcore-2.1'
 uid: mvc/models/validation
-ms.openlocfilehash: 1ae3c20478b02d6f654e65fdf34c88e1ffb837f8
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.openlocfilehash: bd6585c9eec4412fe70c17b5ca94269027803733
+ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59468743"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59982778"
 ---
 # <a name="model-validation-in-aspnet-core-mvc-and-razor-pages"></a>Razor sayfaları ile ASP.NET Core MVC, model doğrulama
 
@@ -367,7 +367,11 @@ Aşağıdaki kod, istemci doğrulama MVC görünümleri devre dışı bırakır:
 
 [!code-csharp[](validation/sample_snapshot/Startup2.cs?name=snippet_DisableClientValidation)]
 
-Bu MVC görünümleri, Razor sayfaları içinde değil, yalnızca çalışır. İstemci doğrulamasını devre dışı bırakmak için başka bir başvuru açıklama seçenektir `_ValidationScriptsPartial` içinde *.cshtml* dosya.
+Razor sayfaları ve:
+
+[!code-csharp[](validation/sample_snapshot/Startup3.cs?name=snippet_DisableClientValidation)]
+
+İstemci doğrulamasını devre dışı bırakmak için başka bir başvuru açıklama seçenektir `_ValidationScriptsPartial` içinde *.cshtml* dosya.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

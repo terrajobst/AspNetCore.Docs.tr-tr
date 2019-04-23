@@ -5,14 +5,14 @@ description: Blazor uygulamalar için yeniden kullanılabilir Düzen bileşenler
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/15/2019
+ms.date: 04/18/2019
 uid: blazor/layouts
-ms.openlocfilehash: 42d5d03c50c525c3d819f6dac39109eff6534800
-ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
+ms.openlocfilehash: 4a412b86d72cf4489dc2244a23c8b5c334f31e62
+ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59614835"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59982649"
 ---
 # <a name="blazor-layouts"></a>Blazor düzenleri
 
@@ -29,7 +29,7 @@ Teknik olarak, bir düzen başka bir bileşendir. Bir düzen Razor şablonu veya
 
 Aşağıdaki kod örneği, Razor şablonu Düzen bileşeninin gösterir. Kullanımına dikkat edin `LayoutComponentBase` ve `@Body`:
 
-[!code-cshtml[](layouts/sample_snapshot/3.x/MasterLayout.cshtml)]
+[!code-cshtml[](layouts/sample_snapshot/3.x/MasterLayout.razor)]
 
 ## <a name="use-a-layout-in-a-component"></a>Bir bileşenin bir düzen kullanın
 
@@ -46,17 +46,31 @@ Aşağıdaki kod örneği kavramı gösterir. Bu bileşen içeriği eklendiği *
 
 ## <a name="centralized-layout-selection"></a>Merkezi Yerleşim Seçimi
 
-Her bir klasör, bir uygulama, isteğe bağlı olarak adlandırılmış bir şablon dosyası içerebilir *_viewımports.cshtml*. Derleyici, Razor şablonları aynı klasörde yer alan ve yinelemeli olarak tüm alt klasörlerindeki tüm görünümü içeri aktarmalar dosyasında belirtilen yönergeleri içerir. Bu nedenle, bir *_viewımports.cshtml* dosyasını içeren `@layout MainLayout` klasör kullanımda bileşenlerinin tümünü sağlar *MainLayout* düzeni. Sürekli olarak eklemeniz gerekmez `@layout` tüm *.razor* dosyaları.
+Her bir klasör, bir uygulama, isteğe bağlı olarak adlandırılmış bir şablon dosyası içerebilir *_Imports.razor*. Derleyici, Razor şablonları aynı klasörde yer alan ve yinelemeli olarak tüm alt klasörlerindeki tüm görünümü içeri aktarmalar dosyasında belirtilen yönergeleri içerir. Bu nedenle, bir *_Imports.razor* dosyasını içeren `@layout MainLayout` klasör kullanımda bileşenlerinin tümünü sağlar *MainLayout* düzeni. Sürekli olarak eklemeniz gerekmez `@layout` tüm *.razor* dosyaları. `@using` yönergeleri de aynı klasörde veya herhangi bir alt klasörde bileşenlerde uygulanır.
 
-Varsayılan şablon kullanan Not *_viewımports.cshtml* Düzen seçim mekanizması. Yeni oluşturulan bir uygulamayı içeren *_viewımports.cshtml* dosyası *bileşenleri/sayfaları* klasör.
+Örneğin, aşağıdaki *_Imports.razor* dosya alır:
+
+* `MainLayout`.
+* Tüm Razor bileşenlerin bir aynı klasörde ve alt klasörleri.
+* `BlazorApp1.Data` Ad alanı.
+ 
+```cshtml
+@layout MainLayout
+@using Microsoft.AspNetCore.Components.
+@using BlazorApp1.Data
+```
+
+Kullanım *_Imports.razor* dosya nasıl kullanabileceğiniz benzer *_viewımports.cshtml* Razor görünümleri ve sayfaları, ancak özellikle Razor bileşen dosyaları için uygulanır.
+
+Varsayılan şablon kullanan Not *_Imports.razor* Düzen seçim mekanizması. Yeni oluşturulan bir uygulamayı içeren *_Imports.razor* dosyası *sayfaları* klasör.
 
 ## <a name="nested-layouts"></a>İç içe geçmiş düzenleri
 
 Uygulamalar, iç içe geçmiş yerleşimlerinin oluşabilir. Başka bir düzen sırayla başvuran bir düzen bir bileşene başvuruda bulunabilir. Örneğin, iç içe geçme düzenleri, çok düzeyli menü yapısını yansıtmak için kullanılabilir.
 
-Aşağıdaki kod örnekleri, iç içe geçmiş düzenlerini kullanmayı göstermektedir. *EpisodesComponent.cshtml* göstermek için bileşeni dosyasıdır. Bileşen düzenini başvuran Not `MasterListLayout`.
+Aşağıdaki kod örnekleri, iç içe geçmiş düzenlerini kullanmayı göstermektedir. *EpisodesComponent.razor* göstermek için bileşeni dosyasıdır. Bileşen düzenini başvuran Not `MasterListLayout`.
 
-*EpisodesComponent.cshtml*:
+*EpisodesComponent.razor*:
 
 ```cshtml
 @layout MasterListLayout
@@ -65,9 +79,9 @@ Aşağıdaki kod örnekleri, iç içe geçmiş düzenlerini kullanmayı gösterm
 <h1>Episodes</h1>
 ```
 
-*MasterListLayout.cshtml* dosyası sağlar `MasterListLayout`. Başka bir düzen düzenini başvuran `MasterLayout`, burada katıştırılmış geçiyor.
+*MasterListLayout.razor* dosyası sağlar `MasterListLayout`. Başka bir düzen düzenini başvuran `MasterLayout`, burada katıştırılmış geçiyor.
 
-*MasterListLayout.cshtml*:
+*MasterListLayout.razor*:
 
 ```cshtml
 @layout MasterLayout
@@ -83,7 +97,7 @@ Aşağıdaki kod örnekleri, iç içe geçmiş düzenlerini kullanmayı gösterm
 
 Son olarak, `MasterLayout` üstbilgi, altbilgi ve ana menüsü gibi üst düzey Düzen öğeleri içerir.
 
-*MasterLayout.cshtml*:
+*MasterLayout.razor*:
 
 ```cshtml
 @inherits LayoutComponentBase

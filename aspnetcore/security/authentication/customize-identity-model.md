@@ -3,14 +3,14 @@ title: ASP.NET core'da kimlik modeli özelleştirme
 author: ajcvickers
 description: Bu makalede, ASP.NET Core kimliği için Entity Framework Core veri modeli özelleştirmeyi açıklar.
 ms.author: avickers
-ms.date: 09/24/2018
+ms.date: 04/24/2019
 uid: security/authentication/customize_identity_model
-ms.openlocfilehash: 0aa7448ac37a97a4d09a04caf365f641f22f5997
-ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
+ms.openlocfilehash: ae5f4567a8921ce277cd6153f37a5558bcf4e261
+ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58327307"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59982791"
 ---
 # <a name="identity-model-customization-in-aspnet-core"></a>ASP.NET core'da kimlik modeli özelleştirme
 
@@ -34,7 +34,7 @@ Ekleme ve geçiş uygulamak için aşağıdaki yaklaşımlardan birini kullanın
 * .NET Core komut satırı kullanılarak, CLI. Daha fazla bilgi için [EF Core .NET komut satırı araçları](/ef/core/miscellaneous/cli/dotnet).
 * Tıklayarak **geçerli geçişleri** düğmesi uygulamayı çalıştırdığınızda hata sayfasında.
 
-ASP.NET Core geliştirme zamanı hata sayfası işleyicisine sahiptir. Uygulamayı çalıştırdığınızda, işleyici geçişler uygulayabilirsiniz. Üretim uygulamaları için genellikle daha fazla olur geçişleri SQL komut dosyaları üret ve veritabanı değişikliklerinin denetlenen bir uygulama ve veritabanı dağıtımının bir parçası dağıtmak uygun.
+ASP.NET Core geliştirme zamanı hata sayfası işleyicisine sahiptir. Uygulamayı çalıştırdığınızda, işleyici geçişler uygulayabilirsiniz. Üretim uygulamaları, genellikle geçişleri SQL komut dosyaları üret ve denetlenen uygulama ve dağıtım veritabanı kapsamında veritabanı değişiklikleri dağıtın.
 
 Kimlik kullanarak yeni bir uygulama oluşturduğunuzda, 1 ve 2 numaralı adımları zaten tamamlanmış. Diğer bir deyişle, ilk veri modelini zaten var ve ilk geçiş projeye eklendi. İlk geçişten hala veritabanına uygulanması gerekiyor. İlk geçişten aşağıdaki yaklaşımlardan birini uygulanabilir:
 
@@ -300,6 +300,16 @@ Geçersiz kılarken `OnModelCreating`, `base.OnModelCreating` ilk kez çağrılm
 
 ### <a name="custom-user-data"></a>Özel kullanıcı verileri
 
+<!--
+set projNam=WebApp1
+dotnet new webapp -o %projNam%
+cd %projNam%
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design 
+dotnet aspnet-codegenerator identity  -dc ApplicationDbContext --useDefaultUI 
+dotnet ef migrations add CreateIdentitySchema
+dotnet ef database update
+ -->
+
 [Özel kullanıcı verilerini](xref:security/authentication/add-user-data) devralarak desteklenen `IdentityUser`. Bu tür adı uygulamadır `ApplicationUser`:
 
 ```csharp
@@ -318,14 +328,26 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
         : base(options)
     {
     }
+
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        base.OnModelCreating(builder);
+    }
 }
 ```
 
 Geçersiz kılmak için gerek yoktur `OnModelCreating` içinde `ApplicationDbContext` sınıfı. EF Core eşler `CustomTag` gereği özelliği. Ancak, veritabanını yeni bir güncelleştirilmesi gerekiyor `CustomTag` sütun. Sütun oluşturmak için bir geçiş ekleyin ve ardından veritabanını açıklandığı gibi güncelleştirin [kimlik ve EF Core geçişleri](#identity-and-ef-core-migrations).
 
-Güncelleştirme `Startup.ConfigureServices` yeni `ApplicationUser` sınıfı:
+Güncelleştirme *Pages/Shared/_LoginPartial.cshtml* değiştirin `IdentityUser` ile `ApplicationUser`:
 
-::: moniker range=">= aspnetcore-2.1"
+```
+@using Microsoft.AspNetCore.Identity
+@using WebApp1.Areas.Identity.Data
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+```
+
+Güncelleştirme *Areas/Identity/IdentityHostingStartup.cs* veya `Startup.ConfigureServices` değiştirin `IdentityUser` ile `ApplicationUser`.
 
 ```csharp
 services.AddDefaultIdentity<ApplicationUser>()
@@ -337,28 +359,6 @@ ASP.NET Core 2.1 veya daha sonra kimlik Razor sınıf kitaplığı sağlanır. D
 
 * [İskele Kimliği](xref:security/authentication/scaffold-identity)
 * [Ekleme, indirmek ve kimlik için özel kullanıcı verilerini sil](xref:security/authentication/add-user-data)
-
-::: moniker-end
-
-::: moniker range="= aspnetcore-2.0"
-
-```csharp
-services.AddIdentity<ApplicationUser, IdentityRole>()
-        .AddEntityFrameworkStores<ApplicationDbContext>()
-        .AddDefaultTokenProviders();
-```
-
-::: moniker-end
-
-::: moniker range="<= aspnetcore-1.1"
-
-```csharp
-services.AddIdentity<ApplicationUser, IdentityRole>()
-        .AddEntityFrameworkStores<ApplicationDbContext, Guid>()
-        .AddDefaultTokenProviders();
-```
-
-::: moniker-end
 
 ### <a name="change-the-primary-key-type"></a>Birincil anahtar türünü değiştirme
 

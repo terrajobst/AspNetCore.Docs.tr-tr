@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 311f72699b6291996a43d56247bd3d2bfab596e6
-ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
+ms.openlocfilehash: 9f22841a55fd2c2db76e36a5f5389c220a8d2acd
+ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58320254"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59982897"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>ASP.NET core'da - veri modeli - 8'in 5 EF çekirdekli Razor sayfaları
 
@@ -385,19 +385,18 @@ public ICollection<Course> Courses { get; set; }
 
 Not: Kural gereği, EF Core art arda silme için alamayan FKs ve çoktan çoğa ilişkiler için etkinleştirir. Basamaklı silme döngüsel cascade delete kurallarında neden olabilir. Döngüsel art arda silme kuralları nedenleri özel bir durum geçiş eklendiğinde.
 
-Örneğin, varsa `Department.InstructorID` özelliği değildi tanımlı olarak boş değer atanabilir:
+Örneğin, varsa `Department.InstructorID` özelliği atanamayan olarak tanımlandı:
 
-* EF Core departman silindiğinde Eğitmen silmek için bir cascade delete kuralı yapılandırır.
-* Eğitmen departman silindiğinde, silme, amaçlanan bir davranış değildir.
+* EF Core Eğitmen silindiğinde bölümü silmek için bir cascade delete kuralı yapılandırır.
+* Eğitmen silindiğinde bölüm silme amaçlanan bir davranış değildir.
+* Aşağıdaki fluent API'si cascade yerine bir kısıtlama kuralı ayarlamanız gerekir.
 
-İş kuralları gerekirse `InstructorID` özelliği NULL olmayan, aşağıdaki fluent API'si deyimi kullanın:
-
- ```csharp
- modelBuilder.Entity<Department>()
-    .HasOne(d => d.Administrator)
-    .WithMany()
-    .OnDelete(DeleteBehavior.Restrict)
- ```
+   ```csharp
+   modelBuilder.Entity<Department>()
+      .HasOne(d => d.Administrator)
+      .WithMany()
+      .OnDelete(DeleteBehavior.Restrict)
+  ```
 
 Yukarıdaki kod art arda silme departmanı Eğitmen ilişkiyi devre dışı bırakır.
 

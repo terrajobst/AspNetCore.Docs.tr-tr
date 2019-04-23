@@ -1,35 +1,35 @@
 ---
 title: Oluşturma ve Razor bileşenleri kullanma
 author: guardrex
-description: Oluşturma ve Razor bileşenler, bileşen ömürleri yönetme verilere bağlayın ve olayları işlemek nasıl dahil olmak üzere kullanma hakkında bilgi edinin.
+description: Oluşturma ve bileşen ömürleri yönetme verilere bağlayın ve olayları işlemek nasıl dahil olmak üzere, Razor bileşenlerini kullanma hakkında bilgi edinin.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/17/2019
+ms.date: 04/18/2019
 uid: blazor/components
-ms.openlocfilehash: 610572c232f41210c60afcae0a660cbb808be65e
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.openlocfilehash: e318d262063c83fc17068ef65018174e2a4c953c
+ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59705627"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59983035"
 ---
 # <a name="create-and-use-razor-components"></a>Oluşturma ve Razor bileşenleri kullanma
 
 Tarafından [Luke Latham](https://github.com/guardrex), [Daniel Roth](https://github.com/danroth27), ve [Morné Zaayman](https://github.com/MorneZaayman)
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/blazor/common/samples/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample)). Bkz: [başlama](xref:blazor/get-started) Önkoşullar için konu.
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/blazor/common/samples/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 Blazor uygulamaları kullanılarak oluşturulur *bileşenleri*. Bir bileşen, kullanıcı arabirimi (UI), sayfa, iletişim veya form gibi kendi içinde bir öbektir. Bir bileşeni, HTML biçimlendirmesi ve veri ekleme veya UI olaylarına yanıt vermek için gereken işleme mantığı içerir. Esnek ve basit bileşenlerdir. Bunlar iç içe geçmiş, yeniden kullanılabilir ve projeler arasında paylaşılan.
 
 ## <a name="component-classes"></a>Bileşen sınıfları
 
-Bileşenleri Razor bileşen dosyaları genellikle uygulanır (*.razor*) bir birleşimi kullanılarak C# ve HTML biçimlendirmeyi (*.cshtml* dosyaları Blazor uygulamalarda kullanılır).
+Bileşenler, Razor bileşen dosyaları uygulanır (*.razor*) bir birleşimi kullanılarak C# ve HTML biçimlendirmesi.
 
-Bileşenlerini kullanarak Blazor uygulamalarında yazılmış *.cshtml* dosyaları kullanarak Razor bileşen dosyaları tanımlanmış olduğu sürece dosya uzantısı `_RazorComponentInclude` MSBuild özelliği. Örneğin, Razor bileşen şablonu kullanılarak oluşturulan bir uygulamayı belirtir tüm *.cshtml* altında dosyaları *bileşenleri* klasör Razor bileşenleri dosyaları olarak kabul:
+Bileşenlerini kullanarak yazarı olduğu *.cshtml* dosyaları kullanarak Razor bileşen dosyaları tanımlanmış olduğu sürece dosya uzantısı `_RazorComponentInclude` MSBuild özelliği. Örneğin, Razor bileşen şablonu kullanılarak oluşturulan bir uygulamayı belirtir tüm *.cshtml* altında dosyaları *sayfaları* klasör Razor bileşenleri dosyaları kabul:
 
 ```xml
-<_RazorComponentInclude>Components\**\*.cshtml</_RazorComponentInclude>
+<_RazorComponentInclude>Pages\**\*.cshtml</_RazorComponentInclude>
 ```
 
 Bir bileşen için kullanıcı Arabirimi, HTML kullanılarak tanımlanır. (Örneğin, döngü, koşullular, ifadeleri) dinamik işleme mantığı, katıştırılmış kullanarak eklenir C# adlı söz dizimi [Razor](xref:mvc/views/razor). Bir uygulamanın ne zaman derlenir, HTML biçimlendirmesi ve C# işleme mantığı, bir bileşen sınıfı dönüştürülür. Oluşturulan sınıfın adı dosya adıyla aynıdır.
@@ -57,7 +57,7 @@ Bileşen, bileşen başlangıçta işlenen sonra olaylara yanıt olarak, işleme
 Bileşenleri ile mevcut Razor sayfaları ve MVC uygulamaları kullanın. Var olan sayfaları veya Razor bileşenler kullanmaya görünümleri yeniden gerek yoktur. Sayfa veya Görünüm işlendiğinde bileşenleri prerendered&dagger; aynı anda. 
 
 > [!NOTE]
-> &dagger;Sunucu tarafı prerendering Blazor sunucu tarafı uygulamalar için varsayılan olarak etkindir. İstemci tarafı Blazor uygulamaları prerendering yaklaşan Preview 4 sürümünde destekleyecek. Daha fazla bilgi için [MapFallbackToPage/dosyasını kullanmak için şablonlar/ara yazılım güncelleştirmesi](https://github.com/aspnet/AspNetCore/issues/8852).
+> &dagger;Sunucu tarafı prerendering Blazor sunucu tarafı uygulamalar için varsayılan olarak etkindir. İstemci tarafı Blazor uygulamaları prerendering yaklaşan Preview 5 sürümüne destekler. Daha fazla bilgi için [MapFallbackToPage/dosyasını kullanmak için şablonlar/ara yazılım güncelleştirmesi](https://github.com/aspnet/AspNetCore/issues/8852).
 
 Bir bileşenden bir sayfa ya da Görünüm işlemek için `RenderComponentAsync<TComponent>` HTML yardımcı yöntemi:
 
@@ -67,9 +67,9 @@ Bir bileşenden bir sayfa ya da Görünüm işlemek için `RenderComponentAsync<
 </div>
 ```
 
-Sayfalar ve görünümlerden işlenen bileşenleri henüz Preview 3 sürümündeki etkileşimli değil. Örneğin, bir düğmeyi seçerek bir yöntem çağrısının tetiklemediğini. Gelecekteki bir önizleme bu sınırlama adres ve normal bir öğe ve öznitelik sözdizimini kullanarak işleme bileşenleri için destek eklendi.
-
 Sayfalar ve görünümler bileşenleri kullanabilirsiniz, ancak listesiyse true değil. Bileşenler, kısmi görünümleri ve bölümler gibi görünümü ve sayfa belirli senaryoları kullanamazsınız. Bir bileşene dönüştürerek bir bileşende kısmi görünümü, kısmi görünümü mantıksal çarpanını mantığı kullanılacak.
+
+Blazor sunucu tarafı uygulamalar yönetilen bileşenleri işlenmiş ve bileşen durumunu şeklini hakkında daha fazla bilgi için bkz: <xref:blazor/hosting-models> makalesi.
 
 ## <a name="using-components"></a>Bileşenleri kullanma
 
@@ -77,7 +77,7 @@ Bileşenleri, diğer bileşenlerin bunları bildirerek içerebilir HTML öğesi 
 
 Aşağıdaki biçimlendirmede işleyen bir `HeadingComponent` örneği:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/Index.cshtml?name=snippet_HeadingComponent)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/Index.razor?name=snippet_HeadingComponent)]
 
 ## <a name="component-parameters"></a>Bileşen parametreleri
 
@@ -87,11 +87,11 @@ Aşağıdaki örnekte, `ParentComponent` değerini ayarlar `Title` özelliği `C
 
 *Ana bileşenin*:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/ParentComponent.cshtml?name=snippet_ParentComponent&highlight=5-6)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/ParentComponent.razor?name=snippet_ParentComponent&highlight=5-6)]
 
 *Alt bileşen*:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/ChildComponent.cshtml?highlight=11-12)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/ChildComponent.razor?highlight=11-12)]
 
 ## <a name="child-content"></a>Alt içeriğin
 
@@ -99,13 +99,13 @@ Bileşenleri başka bir bileşen içeriğini ayarlayabilirsiniz. Atama bileşen 
 
 *Ana bileşenin*:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/ParentComponent.cshtml?name=snippet_ParentComponent&highlight=7-8)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/ParentComponent.razor?name=snippet_ParentComponent&highlight=7-8)]
 
 Alt bileşen bir `ChildContent` temsil eden özellik bir `RenderFragment`. Değerini `ChildContent` alt bileşen işaretlemede içerik nerede oluşturulması gerekip konumlandırıldı. Aşağıdaki örnekte, değerini `ChildContent` ana bileşenden alınan ve önyükleme bölmenin içinde işlenen `panel-body`.
 
 *Alt bileşen*:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/ChildComponent.cshtml?highlight=3,14-15)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/ChildComponent.razor?highlight=3,14-15)]
 
 > [!NOTE]
 > Özellik Alma `RenderFragment` içeriği adlı `ChildContent` kural tarafından.
@@ -239,7 +239,7 @@ Genel olarak, bir özelliği karşılık gelen olay işleyicisi kullanarak bir b
 
 ## <a name="event-handling"></a>Olay işleme
 
-Razor bileşenleri olay işleme özellikleri sağlar. İçin bir HTML öğesi öznitelik adlı `on<event>` (örneğin, `onclick`, `onsubmit`) temsilci türü belirtilmiş bir değer ile Razor bileşenleri özniteliğinin değeri bir olay işleyicisi değerlendirir. Özniteliğin adı her zaman ile başlayan `on`.
+Razor bileşenleri olay işleme özellikleri sağlar. İçin bir HTML öğesi öznitelik adlı `on<event>` (örneğin, `onclick`, `onsubmit`) temsilci türü belirtilmiş bir değer ile Razor bileşenlerini değerlendirir özniteliğin değeri bir olay işleyicisi. Özniteliğin adı her zaman ile başlayan `on`.
 
 Aşağıdaki kod çağrıları `UpdateHeading` Arabiriminde düğme seçildiğinde yöntemi:
 
@@ -334,11 +334,11 @@ Genellikle gibi ek değerler kapatmak uygun olan öğeleri kümesi yineleme oldu
 
 Örnek uygulamada alt bileşen bir düğme nasıl 's gösterir `onclick` işleyici ayarlandığından almak için bir `EventCallback` temsilci örneği'nın ana bileşeni. `EventCallback` İle yazılan `UIMouseEventArgs`, uygun olduğu bir `onclick` çevre cihazı olay:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/ChildComponent.cshtml?highlight=5-7,17-18)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/ChildComponent.razor?highlight=5-7,17-18)]
 
 Ana bileşenin çocuğun ayarlar `EventCallback<T>` için kendi `ShowMessage` yöntemi:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/ParentComponent.cshtml?name=snippet_ParentComponent&highlight=6,16-19)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/ParentComponent.razor?name=snippet_ParentComponent&highlight=6,16-19)]
 
 Düğme alt bileşeni seçildiğinde:
 
@@ -499,7 +499,7 @@ Bir Razor dosya ile bir `@page` yönergesi derlendiğinde, oluşturulan sınıf�
 
 Bir bileşenin birden çok yol şablonu uygulanabilir. Aşağıdaki bileşen isteklerine yanıt veren `/BlazorRoute` ve `/DifferentBlazorRoute`:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/BlazorRoute.cshtml?name=snippet_BlazorRoute)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/BlazorRoute.razor?name=snippet_BlazorRoute)]
 
 ## <a name="route-parameters"></a>Yol parametreleri
 
@@ -507,7 +507,7 @@ Sağlanan yol şablondan, rota parametrelerinin bileşenleri alabilir `@page` y�
 
 *Rota parametresinin bileşen*:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/RouteParameter.cshtml?name=snippet_RouteParameter)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/RouteParameter.razor?name=snippet_RouteParameter)]
 
 İsteğe bağlı parametreler desteklenmez, bu nedenle iki `@page` yönergeleri, yukarıdaki örnekte uygulanır. İlk Gezinti parametresi olmadan bileşenine izin verir. İkinci `@page` yönergesi gereken `{text}` rota parametresi ve değeri atar `Text` özelliği.
 
@@ -519,7 +519,7 @@ Bileşen dosyaları karıştırmak HTML biçimlendirmesi ve C# aynı dosyada kod
 
 *Blazor Rocks bileşen*:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/BlazorRocks.cshtml?name=snippet_BlazorRocks)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/BlazorRocks.razor?name=snippet_BlazorRocks)]
 
 *BlazorRocksBase.cs*:
 
@@ -639,7 +639,7 @@ Aşağıdaki örnek, gösterir kullanarak `MarkupString` bir bileşenin işlenen
 
 *Tablo şablon bileşeni*:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Components/TableTemplate.cshtml)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Components/TableTemplate.razor)]
 
 Şablonlu bir bileşen kullanırken, şablon parametrelerinin parametrelerinin adları eşleşen alt öğeleri kullanılarak belirtilebilir (`TableHeader` ve `RowTemplate` aşağıdaki örnekte):
 
@@ -694,7 +694,7 @@ Alternatif olarak, belirtebileceğiniz `Context` bileşen öğesindeki özniteli
 
 *ListView şablonu bileşen*:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Components/ListViewTemplate.cshtml)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Components/ListViewTemplate.razor)]
 
 Tür parametresi, genel yazılmış bileşenler kullanırken, mümkünse algılanır:
 
@@ -823,19 +823,19 @@ Geçişli parametreleri, bileşen hiyerarşi işbirliği yapmak bileşenler de o
 
 Basamaklı değerler parametreleri TabSet bileşen birden fazla sekme bileşenleri içeren sekmesinin bileşeni kullanır:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/CascadingValuesParametersTabSet.cshtml?name=snippet_TabSet)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Pages/CascadingValuesParametersTabSet.razor?name=snippet_TabSet)]
 
 Alt sekmesinde bileşenleri sekmesini ayarlamak için parametre olarak açıkça geçirilen değildir. Bunun yerine, alt sekmesinde bileşenleri alt içeriğin sekme kümesi'nin parçasıdır. Ancak sekme kümesi yine de üst bilgiler ve etkin sekmede işleyebilir, böylece her sekme bileşeni hakkında bilmesi gerekir. Ek kod, sekme kümesini bileşen gerek kalmadan bu koordinasyon sağlamak *kendisini basamaklı bir değer sağlayabilirsiniz* , ardından alındığından bloğun sekmesini bileşenleri tarafından.
 
 *TabSet bileşen*:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Components/TabSet.cshtml)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Components/TabSet.razor)]
 
 Descendent sekmesini bileşenleri yakalama sekmesini içeren ayarlayın basamaklı bir parametre olarak sekmesini ayarlamak ve koordinat sekmesini bileşenleri kendilerini ekleme hangi sekmesinde olduğundan etkin.
 
 *Sekme bileşen*:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Components/Tab.cshtml)]
+[!code-cshtml[](common/samples/3.x/BlazorSample/Components/Tab.razor)]
 
 ## <a name="razor-templates"></a>Razor şablonları
 

@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 03/31/2019
 uid: grpc/migration
-ms.openlocfilehash: 4d489b5aecf2e15fbbe3ac472b991a4365cd47c1
-ms.sourcegitcommit: 57a974556acd09363a58f38c26f74dc21e0d4339
+ms.openlocfilehash: 47d74edd821124f0c8390d704ca7931b7eb6c4cd
+ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59672625"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59982607"
 ---
 # <a name="migrating-grpc-services-from-c-core-to-aspnet-core"></a>Geçirme gRPC hizmetlerden C çekirdekli ASP.NET Core
 
@@ -49,26 +49,19 @@ Ancak, bir singleton yaşam süresi ile bir hizmet uygulaması artık Oluşturuc
 
 Ayarları gibi C-çekirdek tabanlı uygulamalarda `grpc.max_receive_message_length` ve `grpc.max_send_message_length` ile yapılandırılmış `ChannelOption` olduğunda [sunucu örneği oluşturmak](https://grpc.io/grpc/csharp/api/Grpc.Core.Server.html#Grpc_Core_Server__ctor_System_Collections_Generic_IEnumerable_Grpc_Core_ChannelOption__).
 
-ASP.NET core'da `GrpcServiceOptions` bu ayarları yapılandırmak için bir yol sağlar. Ayarları, genel olarak tüm gRPC hizmetlere ya da bir bireysel hizmet uygulama türü için uygulanabilir. Bireysel hizmet uygulaması türleri için belirtilen seçenekler yapılandırıldığında genel ayarları geçersiz kılar.
+ASP.NET Core gRPC konfigürasyonuyla sağlar `GrpcServiceOptions` türü. En büyük gelen ileti boyutu, aracılığıyla yapılandırılabilir Örneğin, bir gRPC hizmetin `AddGrpc`:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
-    services
-        .AddGrpc(globalOptions =>
-        {
-            // Global settings
-            globalOptions.SendMaxMessageSize = 4096
-            globalOptions.ReceiveMaxMessageSize = 4096
-        })
-        .AddServiceOptions<GreeterService>(greeterOptions =>
-        {
-            // GreeterService settings. These will override global settings
-            globalOptions.SendMaxMessageSize = 2048
-            globalOptions.ReceiveMaxMessageSize = 2048
-        })
+    services.AddGrpc(options =>
+    {
+        options.ReceiveMaxMessageSize = 16384; // 16 MB
+    });
 }
 ```
+
+Yapılandırma hakkında daha fazla bilgi için bkz. <xref:grpc/configuration>.
 
 ## <a name="logging"></a>Günlüğe Kaydetme
 

@@ -7,18 +7,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/15/2019
 uid: blazor/debug
-ms.openlocfilehash: 9d5924fbca300f0423fc3130ef749ae5a6639b4f
-ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
+ms.openlocfilehash: 40457b942061fb910a6311af78ff29ac3a1699de
+ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59614844"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59982794"
 ---
 # <a name="debug-blazor"></a>Blazor hata ayıklama
 
 [Daniel Roth](https://github.com/danroth27)
-
-[!INCLUDE[](~/includes/razor-components-preview-notice.md)]
 
 *Erken* destek var. WebAssembly chrome'da çalışan istemci-tarafı Blazor uygulamalarındaki hataları ayıklamak için.
 
@@ -56,7 +54,7 @@ Uzaktan hata ayıklama devre dışı ise bir **hata ayıklanabilir tarayıcı se
 
 ## <a name="debug-the-app"></a>Uygulamasında hata ayıklama
 
-Uzaktan hata ayıklama etkin olan Chrome çalıştırıldıktan sonra hata ayıklama klavye kısayolunu yeni bir hata ayıklayıcı sekmesi açılır. Kısa bir süre sonra **kaynakları** sekmesi, uygulamada .NET derlemelerin bir listesini gösterir. Her derleme genişletin ve bulma *.cs*/*.cshtml* kaynak dosyaları, hata ayıklama için kullanılabilir. Kod yürütüldüğünde kesme noktaları belirleyin, uygulamanın sekmesine dönün ve kesme noktaları isabet. Sonra bir kesme noktası İsabeti, tek adımlı olduğu (`F10`) aracılığıyla kod veya sürdürme (`F8`) yürütme normalde kod.
+Uzaktan hata ayıklama etkin olan Chrome çalıştırıldıktan sonra hata ayıklama klavye kısayolunu yeni bir hata ayıklayıcı sekmesi açılır. Kısa bir süre sonra **kaynakları** sekmesi, uygulamada .NET derlemelerin bir listesini gösterir. Her derleme genişletin ve bulma *.cs*/*.razor* kaynak dosyaları, hata ayıklama için kullanılabilir. Kod yürütüldüğünde kesme noktaları belirleyin, uygulamanın sekmesine dönün ve kesme noktaları isabet. Sonra bir kesme noktası İsabeti, tek adımlı olduğu (`F10`) aracılığıyla kod veya sürdürme (`F8`) yürütme normalde kod.
 
 Blazor uygulayan bir hata ayıklama proxy'si sağlar [Chrome DevTools Protokolü](https://chromedevtools.github.io/devtools-protocol/) ve protokolü ile artırmaktadır. NET özgü bilgileri. Hata ayıklama klavye kısayolu basıldığında Blazor Chrome DevTools proxy işaret eder. Hata ayıklamak için aradığınız tarayıcı penceresine proxy bağlar (Bu nedenle uzaktan hata ayıklamayı etkinleştirmek için gereken).
 

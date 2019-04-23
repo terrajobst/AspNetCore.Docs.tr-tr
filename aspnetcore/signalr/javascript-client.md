@@ -7,12 +7,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 04/17/2019
 uid: signalr/javascript-client
-ms.openlocfilehash: e58015221497a9f962edf9f9fdba7ea3025d7694
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.openlocfilehash: f1f072e63928502fa1bad62e808ff035e57f2fd3
+ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59705612"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59983019"
 ---
 # <a name="aspnet-core-signalr-javascript-client"></a>ASP.NET Core SignalR JavaScript istemcisi
 
@@ -66,6 +66,13 @@ JavaScript istemcilerinin şirket hub'ları genel yöntemleri çağırmak [çağ
 
 > [!NOTE]
 > Azure SignalR hizmeti kullanıyorsanız, *sunucusuz modu*, bir istemciden hub yöntemlerini çağıramazsınız. Daha fazla bilgi için [SignalR hizmeti belgeleri](/azure/azure-signalr/signalr-concept-serverless-development-config).
+
+`invoke` Yöntemi döndürür bir JavaScript [Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise). `Promise` Dönüş değeriyle (varsa) sunucusundaki yöntemi döndüğünde çözümlenir. Yöntem sunucuda bir hata oluşturursa `Promise` hata iletisiyle reddedildi. Kullanım `then` ve `catch` yöntemlerde `Promise` bu durumları idare kendisine (veya `await` sözdizimi).
+
+`send` Yöntemi döndürür bir JavaScript `Promise`. `Promise` Zaman sunucuya ileti gönderildi çözümlenir. İleti gönderilirken bir hata varsa `Promise` hata iletisiyle reddedildi. Kullanım `then` ve `catch` yöntemlerde `Promise` bu durumları idare kendisine (veya `await` sözdizimi).
+
+> [!NOTE]
+> Kullanarak `send` sunucunun bir ileti aldı kadar beklemez. Sonuç olarak, veri ya da hataları sunucudan döndürmek mümkün değildir.
 
 ## <a name="call-client-methods-from-hub"></a>İstemci hub'ından yöntemleri çağırma
 

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/15/2019
 uid: blazor/class-libraries
-ms.openlocfilehash: 6c0b741de1e3b9ad2b226cc376f06ad8365542e8
-ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
+ms.openlocfilehash: f7c9ce20bf23bc532e664764d6e48d9163db727f
+ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59614908"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59982984"
 ---
 # <a name="razor-components-class-libraries"></a>Razor bileşenleri sınıf kitaplıkları
 
@@ -51,41 +51,44 @@ dotnet add WebApplication1 reference MyComponentLib1
 ---
 
 > [!NOTE]
-> Razor sınıf kitaplıkları, ASP.NET Core Preview 3'te Blazor uygulamalarıyla uyumlu değil.
+> Razor sınıf kitaplıkları, ASP.NET Core Preview 4'te Blazor uygulamalarıyla uyumlu değil.
 >
 > Blazor istemci tarafı ve Razor bileşenleri sunucu tarafı uygulamalar ile paylaşılan bir kitaplıktaki bileşenleri oluşturmak için tarafından oluşturulan bir Blazor sınıf kitaplığı kullanma `blazorlib` şablonu.
 >
-> Razor sınıf kitaplıkları, ASP.NET Core Preview 3'te statik varlıklar desteklemez. Bileşen kitaplıkları kullanarak `blazorlib` şablon görüntüleri, JavaScript ve stil sayfalarını gibi statik dosyalar içerebilir. Oluşturma zamanında derlenmiş bir bütünleştirilmiş kodu dosyanın gömülü statik dosyalar (*.dll*), kaynaklarını ekleme hakkında endişelenmenize gerek kalmadan tüketim bileşenlerini sağlar. İçindeki tüm dosyaları `content` dizin katıştırılmış bir kaynağı işaretlenir.
+> Razor sınıf kitaplıkları, ASP.NET Core Preview 4'te statik varlıklar desteklemez. Bileşen kitaplıkları kullanarak `blazorlib` şablon görüntüleri, JavaScript ve stil sayfalarını gibi statik dosyalar içerebilir. Oluşturma zamanında derlenmiş bir bütünleştirilmiş kodu dosyanın gömülü statik dosyalar (*.dll*), kaynaklarını ekleme hakkında endişelenmenize gerek kalmadan tüketim bileşenlerini sağlar. İçindeki tüm dosyaları `content` dizin katıştırılmış bir kaynağı işaretlenir.
 
 ## <a name="consume-a-library-component"></a>Bir kitaplık bileşeni kullanma
 
-Başka bir projede bir kitaplıkta tanımlanan bileşenleri kullanmak [ @addTagHelper ](xref:mvc/views/tag-helpers/intro#add-helper-label) yönergesi kullanılmalıdır. Ada göre tek tek bileşenler eklenebilir.
+Başka bir projede bir kitaplıkta tanımlanan bileşenleri kullanmak için aşağıdaki yaklaşımlardan birini kullanın:
 
-Yönergenin genel biçimi şu şekildedir:
+* Ad alanı ile tam tür adı.
+* Razor'ın [ \@kullanarak](xref:mvc/views/razor#using) yönergesi. Ada göre tek tek bileşenler eklenebilir.
+
+Aşağıdaki örneklerde, `MyComponentLibrary` olduğu satış raporu içeren bir bileşen kitaplığı (`SalesReport`) bileşeni.
+
+Satış Raporu bileşen ad alanı ile tam tür adını kullanarak başvurulabilir:
 
 ```cshtml
-@addTagHelper MyComponentLib1.Component1, MyComponentLib1
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<MyComponentLibrary.SalesReport />
+```
+
+Bileşen de kitaplık kapsama alınırsa başvurulabilir bir `@using` yönergesi:
+
+```cshtml
+@using MyComponentLibrary
 
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
 
-<Component1 />
+<SalesReport />
 ```
 
-Örneğin, aşağıdaki yönergesi ekler `Component1` , `MyComponentLib1`:
-
-```cshtml
-@addTagHelper MyComponentLib1.Component1, MyComponentLib1
-```
-
-Ancak, bir derlemeden bir joker karakter kullanarak tüm bileşenleri eklemek için ortak olan (`*`):
-
-```cshtml
-@addTagHelper *, MyComponentLib1
-```
-
-`@addTagHelper` Yönergesini dahil edilebilir *_ViewImport.cshtml* bileşenleri uygulanan veya bir projenin tamamı için kullanılabilir bir tek sayfalı veya bir klasördeki sayfalar kümesi oluşturmak için. İle `@addTagHelper` uygulama ile aynı derlemedeki oldukları gibi yerinde yönergesi, bileşen kitaplığının bileşenleri tarafından kullanılabilir.
+`@using` Yönergesini dahil edilebilir *_Import.razor* bileşenleri uygulanan veya bir projenin tamamı için kullanılabilir bir tek sayfalı veya bir klasördeki sayfalar kümesi oluşturmak için.
 
 ## <a name="build-pack-and-ship-to-nuget"></a>Sevkiyat NuGet derleme ve paketi
 

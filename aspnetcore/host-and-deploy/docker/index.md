@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/08/2018
 uid: host-and-deploy/docker/index
-ms.openlocfilehash: e56f90ec7272ce0411651ee6f8e7c754ae44b78d
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.openlocfilehash: 9189e1fbb21abcc8c8bdea947e672ee53b59bc4f
+ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59516267"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59982633"
 ---
 # <a name="host-aspnet-core-in-docker-containers"></a>ASP.NET Core, Docker kapsayıcılarında barındırın
 
@@ -28,6 +28,8 @@ Terim ve tanımları için Docker teknolojisini öğrenin.
 
 [Docker kapsayıcıları, görüntüleri ve kayıt defterleri](/dotnet/standard/microservices-architecture/container-docker-introduction/docker-containers-images-registries)  
 Nasıl Docker kapsayıcı görüntüleri tutarlı dağıtım için bir görüntü kayıt defterinde ortamlar genelinde depolandığını bulun.
+
+<xref:host-and-deploy/docker/building-net-docker-images> Derleme ve ASP.NET Core uygulaması docker kapsayıcılarında çalıştırın hakkında bilgi edinin. Microsoft tarafından yönetilen Docker görüntüleri keşfedin ve kullanım örneklerini inceleyin.
 
 [Docker için Visual Studio Araçları](xref:host-and-deploy/docker/visual-studio-tools-for-docker)  
 Visual Studio 2017 derleme, hata ayıklama ve ASP.NET Core, .NET Framework veya .NET Core için Docker Windows üzerinde hedefleyen uygulamaları çalıştıran nasıl desteklediğini öğrenin. Hem Windows hem de Linux kapsayıcıları desteklenmektedir.

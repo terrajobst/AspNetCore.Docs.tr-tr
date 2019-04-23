@@ -5,14 +5,14 @@ description: .NET ve JavaScript işlevleri çağırmak nasıl öğrenin Blazor u
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/15/2019
+ms.date: 04/19/2019
 uid: blazor/javascript-interop
-ms.openlocfilehash: a211504389cbde18e5c146c8e607ca68fa48573a
-ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
+ms.openlocfilehash: bed1e3d33de5e8fb2d246b066803cdc95d6731ef
+ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59614916"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59982668"
 ---
 # <a name="blazor-javascript-interop"></a>Blazor JavaScript birlikte çalışma
 
@@ -30,6 +30,7 @@ Sunucu tarafı uygulamalar için:
 
 * Birden çok kullanıcı isteklerini, sunucu tarafı uygulama tarafından işlenir. Remove() çağırmayın `JSRuntime.Current` JavaScript işlevleri çağırmak için bir bileşende.
 * Ekleme `IJSRuntime` soyutlama ve eklenen nesnenin JavaScript birlikte çalışma çağrıları kullanın.
+* Blazor uygulama prerendering karşın, bir tarayıcı bağlantı kuran taşınmadığından olası JavaScript çağırma değildir. Daha fazla bilgi için [algılamak Blazor uygulama prerendering olduğunda](#detect-when-a-blazor-app-is-prerendering) bölümü.
 
 Aşağıdaki örnek dayanır [TextDecoder](https://developer.mozilla.org/docs/Web/API/TextDecoder), Deneysel bir JavaScript tabanlı kod çözücü. Örnek bir JavaScript işlevini çağırmak nasıl gösterir bir C# yöntemi. JavaScript işlevi, bir bayt dizisinden kabul eden bir C# yöntemi, dizinin kodunu çözer ve bileşenine görüntülenmesi için metni döndürür.
 
@@ -104,7 +105,7 @@ Aşağıdaki bileşen:
 
 Kullanılacak `IJSRuntime` soyutlama, aşağıdaki yaklaşımlardan birini benimseme:
 
-* Ekleme `IJSRuntime` soyutlama Razor dosyasına (*.razor*, *.cshtml*):
+* Ekleme `IJSRuntime` soyutlama Razor dosyasına (*.razor*):
 
   ```cshtml
   @inject IJSRuntime JSRuntime
@@ -178,13 +179,17 @@ JavaScript ile .NET yöntemleri birlikte çalışır *exampleJsInterop.js* çağ
 * İşleme bileşenine metni döndürür.
 * Bir karşılama iletisi görüntüleyecek şekilde DOM ile etkileşime giren ikinci bir JavaScript işlevi çağırır.
 
-*Pages/JSInterop.cshtml*:
+*Pages/JSInterop.razor*:
 
-[!code-cshtml[](./common/samples/3.x/BlazorSample/Pages/JsInterop.cshtml?name=snippet_JSInterop1&highlight=3,19-21,23-25)]
+[!code-cshtml[](./common/samples/3.x/BlazorSample/Pages/JsInterop.razor?name=snippet_JSInterop1&highlight=3,19-21,23-25)]
 
 1. Zaman `TriggerJsPrompt` bileşenin seçerek yürütülür **tetikleyici JavaScript istemi** button, JavaScript `showPrompt` sağlanan işlev *wwwroot/exampleJsInterop.js* dosyasıdır çağrılır.
 1. `showPrompt` İşlevi olan HTML olarak kodlanan ve döndürülen bileşenine (kullanıcı adı), kullanıcı girişi kabul eder. Bileşen kullanıcı adının bir yerel değişkende depolar `name`.
 1. Dize depolanan `name` bir JavaScript işleve geçirilir, bir karşılama iletisi dahil `displayWelcome`, bir başlık etiketine Hoş Geldiniz iletisi oluşturur.
+
+## <a name="detect-when-a-blazor-app-is-prerendering"></a>Blazor uygulama prerendering Algıla
+ 
+[!INCLUDE[](~/includes/blazor-prerendering.md)]
 
 ## <a name="capture-references-to-elements"></a>Öğelere başvurular yakalama
 
@@ -221,7 +226,7 @@ window.exampleJsFunctions = {
 
 Kullanım `IJSRuntime.InvokeAsync<T>` ve çağrı `exampleJsFunctions.focusElement` ile bir `ElementRef` öğenin odaklanmak için:
 
-[!code-cshtml[](javascript-interop/samples_snapshot/component1.cshtml?highlight=1,3,7,11-12)]
+[!code-cshtml[](javascript-interop/samples_snapshot/component1.razor?highlight=1,3,7,11-12)]
 
 Bir öğe odaklanmak için bir genişletme yöntemi kullanmak için alan bir statik genişletme yöntemi oluşturma `IJSRuntime` örneği:
 
@@ -235,7 +240,7 @@ public static Task Focus(this ElementRef elementRef, IJSRuntime jsRuntime)
 
 Yöntem doğrudan nesne üzerinde çağrılır. Aşağıdaki örnek olduğunu varsayar statik `Focus` yöntemi kullanılabilir `JsInteropClasses` ad alanı:
 
-[!code-cshtml[](javascript-interop/samples_snapshot/component2.cshtml?highlight=1,4,8,12)]
+[!code-cshtml[](javascript-interop/samples_snapshot/component2.razor?highlight=1,4,8,12)]
 
 > [!IMPORTANT]
 > `username` Değişkeni bileşeni işler ve çıktısını içeren sonra yalnızca doldurulmuş `>` öğesi. Bir doldurulmamış geçirmeye çalışırsanız `ElementRef` JavaScript kodu için JavaScript kodunu alır `null`. Bileşen kullanın (bir öğede ilk odağı ayarlamak için) işleme tamamlandıktan sonra öğesi başvuruları işlemek için `OnAfterRenderAsync` veya `OnAfterRender` [bileşen yaşam döngüsü yöntemleri](xref:blazor/components#lifecycle-methods).
@@ -248,9 +253,9 @@ JavaScript .NET statik bir yöntemi çağırmak için `DotNet.invokeMethod` veya
 
 Örnek uygulamayı içeren bir C# bir dizi döndürmek için yöntemin `int`s. Yöntem ile donatılmış `JSInvokable` özniteliği.
 
-*Pages/JsInterop.cshtml*:
+*Pages/JsInterop.razor*:
 
-[!code-cshtml[](./common/samples/3.x/BlazorSample/Pages/JsInterop.cshtml?name=snippet_JSInterop2&highlight=7-11)]
+[!code-cshtml[](./common/samples/3.x/BlazorSample/Pages/JsInterop.razor?name=snippet_JSInterop2&highlight=7-11)]
 
 Çağıran istemciye sunulan JavaScript C# .NET yöntemi.
 
@@ -277,9 +282,9 @@ JavaScript'ten .NET örnek yöntemler de çağırabilir. JavaScript bir .NET ör
 
 Zaman **tetikleyici .NET örnek yöntemi HelloHelper.SayHello** düğmesi seçili `ExampleJsInterop.CallHelloHelperSayHello` olarak adlandırılır ve bir ad geçirmeden `Blazor`, yönteme.
 
-*Pages/JsInterop.cshtml*:
+*Pages/JsInterop.razor*:
 
-[!code-cshtml[](./common/samples/3.x/BlazorSample/Pages/JsInterop.cshtml?name=snippet_JSInterop3&highlight=8-9)]
+[!code-cshtml[](./common/samples/3.x/BlazorSample/Pages/JsInterop.razor?name=snippet_JSInterop3&highlight=8-9)]
 
 `CallHelloHelperSayHello` JavaScript işlevini çağıran `sayHello` ile yeni bir örneğini `HelloHelper`.
 
@@ -303,11 +308,11 @@ Konsol, web geliştirici araçları tarayıcının çıktısı:
 Hello, Blazor!
 ```
 
-## <a name="share-interop-code-in-a-razor-component-class-library"></a>Bir Razor bileşen Sınıf Kitaplığı'nda birlikte çalışma kod paylaşın
+## <a name="share-interop-code-in-a-blazor-class-library"></a>Birlikte çalışma kodu Blazor Sınıf Kitaplığı'nda paylaşın
 
-JavaScript birlikte çalışma kodu Razor bileşen sınıf kitaplığında dahil edilebilir (`dotnet new razorclasslib`), bir NuGet paketi kod paylaşmanıza imkan tanıyan.
+JavaScript birlikte çalışma kodu Blazor sınıf kitaplığında dahil edilebilir (`dotnet new blazorlib`), bir NuGet paketi kod paylaşmanıza imkan tanıyan.
 
-Razor bileşen sınıf kitaplığı ekleme JavaScript kaynakları derlemesi işler. JavaScript dosyaları yerleştirilir *wwwroot* klasör. Alet kullanımı dışındaki kaynaklar ekleme kitaplık oluşturulduğunda üstlenir.
+Blazor sınıf kitaplığı ekleme JavaScript kaynakları derlemesi işler. JavaScript dosyaları yerleştirilir *wwwroot* klasör. Alet kullanımı dışındaki kaynaklar ekleme kitaplık oluşturulduğunda üstlenir.
 
 Yalnızca normal bir NuGet paketi başvurulduğu yerleşik NuGet paketini uygulamanın proje dosyasında başvurulan. Uygulama geri yüklendikten sonra olarak bulunuyorlarmış uygulama kodu içinde JavaScript çağırabilirsiniz C#.
 
