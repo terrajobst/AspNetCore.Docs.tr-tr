@@ -5,14 +5,14 @@ description: ASP.NET core'da FileUpload sınıfını kullanarak bir Razor sayfas
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 11/10/2018
-ms.custom: seodec18
+ms.custom: mvc, seodec18
 uid: razor-pages/upload-files
-ms.openlocfilehash: 80929c6c1a95b46b942958def1540ac8ed5abc81
-ms.sourcegitcommit: 49faca2644590fc081d86db46ea5e29edfc28b7b
-ms.translationtype: MT
+ms.openlocfilehash: a12653e5dc99ad731de63e151af6dbdbe38ffefc
+ms.sourcegitcommit: 8a84ce880b4c40d6694ba6423038f18fc2eb5746
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2018
-ms.locfileid: "53121407"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60165228"
 ---
 # <a name="upload-files-to-a-razor-page-in-aspnet-core"></a>Bir ASP.NET Core Razor sayfa dosya yükleme
 
@@ -113,7 +113,7 @@ public async Task<IActionResult> OnPostAsync()
 > Kod örneği, kötü amaçlı dosya yüklemeleri karşı sunucu tarafı koruma sağlar. Kullanıcıların dosyaları kabul ederken saldırı yüzey alanı azaltma hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 >
 > * [Sınırsız dosya karşıya yükleme](https://www.owasp.org/index.php/Unrestricted_File_Upload)
-> * [Azure güvenlik: uygun denetimleri kullanıcıların dosyaları kabul ederken karşılandığından emin](/azure/security/azure-security-threat-modeling-tool-input-validation#controls-users)
+> * [Azure güvenlik: Kullanıcıların dosyaları kabul ederken uygun denetimleri yerinde olduğundan emin olun](/azure/security/azure-security-threat-modeling-tool-input-validation#controls-users)
 
 ### <a name="save-the-file-to-azure-blob-storage"></a>Dosyayı Azure Blob depolama alanına kaydedin
 
@@ -159,7 +159,7 @@ Belirtin bir `DbSet` içinde `MovieContext` (*Models/MovieContext.cs*) zamanlama
 
 ## <a name="add-the-schedule-table-to-the-database"></a>Zamanlama tablo veritabanına ekleme
 
-Paket Yöneticisi Konsolu (PMC): **Araçları** > **NuGet Paket Yöneticisi** > **Paket Yöneticisi Konsolu**.
+Paket Yöneticisi Konsolu (PMC) açın: **Araçlar** > **NuGet Paket Yöneticisi** > **Paket Yöneticisi Konsolu**.
 
 ![PMC menüsü](upload-files/_static/pmc.png)
 
@@ -345,4 +345,4 @@ Kullanıcının tıklayabileceği **Sil** buradan onaylayın ya da silme işlemi
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
-Sorun giderme bilgileri ile `IFormFile` yüklemek bkz [dosyasını karşıya yükler, ASP.NET Core: sorun giderme](xref:mvc/models/file-uploads#troubleshooting).
+Sorun giderme bilgileri ile `IFormFile` yüklemek bkz [dosyasını karşıya yükler, ASP.NET Core: Sorun giderme](xref:mvc/models/file-uploads#troubleshooting).

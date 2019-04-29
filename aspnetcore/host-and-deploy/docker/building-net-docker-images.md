@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 04/09/2019
 uid: host-and-deploy/docker/building-net-docker-images
-ms.openlocfilehash: d4031ee94194800176b90676b74afa42e33e5f5b
-ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
-ms.translationtype: MT
+ms.openlocfilehash: e2673e64e18f942515f17982ab374a23392eb473
+ms.sourcegitcommit: 8a84ce880b4c40d6694ba6423038f18fc2eb5746
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59984522"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60165111"
 ---
 # <a name="docker-images-for-aspnet-core"></a>ASP.NET Core için docker görüntüleri
 
@@ -47,10 +47,10 @@ Dockerfile'ı kullanan örnek [Docker çok aşamalı yapı özelliği](https://d
 * Docker istemcisi 18.03 veya üzeri
 
   * Linux dağıtımları
-     * [CentOS](https://docs.docker.com/install/linux/docker-ce/centos/)
-     * [Debian](https://docs.docker.com/install/linux/docker-ce/debian/)
-     * [Fedora](https://docs.docker.com/install/linux/docker-ce/fedora/)
-     * [Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
+    * [CentOS](https://docs.docker.com/install/linux/docker-ce/centos/)
+    * [Debian](https://docs.docker.com/install/linux/docker-ce/debian/)
+    * [Fedora](https://docs.docker.com/install/linux/docker-ce/fedora/)
+    * [Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
   * [macOS](https://docs.docker.com/docker-for-mac/install/)
   * [Windows](https://docs.docker.com/docker-for-windows/install/)
 

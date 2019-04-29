@@ -1,21 +1,21 @@
 ---
-title: Microsoft.AspNetCore.App metapackage ASP.NET Core 2.1 ve üzeri
+title: Microsoft.AspNetCore.App metapackage ASP.NET Core 2.1 veya üzeri
 author: Rick-Anderson
 description: Microsoft.AspNetCore.App metapackage desteklenen tüm ASP.NET Core ve Entity Framework Core paketleri içerir.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 09/20/2017
+ms.date: 04/21/2019
 uid: fundamentals/metapackage-app
-ms.openlocfilehash: 68b5aca60273a8c6ef03c0a29842e6a5305adeb3
-ms.sourcegitcommit: 517bb1366da2a28b0014e384fa379755c21b47d8
-ms.translationtype: MT
+ms.openlocfilehash: 04cd628e2a2e4650fb4396b352aef008b430550e
+ms.sourcegitcommit: 8a84ce880b4c40d6694ba6423038f18fc2eb5746
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47230171"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60165215"
 ---
-# <a name="microsoftaspnetcoreapp-metapackage-for-aspnet-core-21"></a>ASP.NET Core 2.1 için Microsoft.AspNetCore.App metapackage
+# <a name="microsoftaspnetcoreapp-metapackage-for-aspnet-core-21-or-later"></a>Microsoft.AspNetCore.App metapackage ASP.NET Core 2.1 veya üzeri
 
-Bu özellik, ASP.NET Core 2.1 ve üzeri hedefleyen .NET Core 2.1 ve üzeri gerektirir.
+Bu özellik, ASP.NET Core 2.1 veya üzeri hedefleyen .NET Core 2.1 veya üzeri gerekir.
 
 [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App) [metapackage](/dotnet/core/packages#metapackages) ASP.NET Core için:
 
@@ -57,12 +57,17 @@ Kullanan uygulamalar `Microsoft.AspNetCore.App` metapackage otomatik olarak ASP.
 
 Sürüm numarasını belirtme `Microsoft.AspNetCore.App` başvuru yapar **değil** paylaşılan sürümünün garanti framework seçilebilir. Örneğin, sürümü "2.1.1" belirtildi, ancak "2.1.3" yüklü olduğunu varsayalım. Bu durumda, uygulama "2.1.3" kullanır. Önerilmemesine rağmen ileri sarma (düzeltme eki ve/veya ikincil) devre dışı bırakabilirsiniz. Dotnet konak sarma ve davranışını yapılandırma hakkında daha fazla bilgi için bkz. [dotnet konak ileri sarma](https://github.com/dotnet/core-setup/blob/master/Documentation/design-docs/roll-forward-on-no-candidate-fx.md).
 
-`<Project Sdk` ayarlanmalıdır `Microsoft.NET.Sdk.Web` örtük sürümünü kullanacak şekilde `Microsoft.AspNetCore.App`.  Zaman `<Project Sdk="Microsoft.NET.Sdk">` (sondaki olmadan `.Web`) kullanılır:
+::: moniker range="= aspnetcore-2.1"
+
+`<Project Sdk` ayarlanmalıdır `Microsoft.NET.Sdk.Web` örtük sürümünü kullanacak şekilde `Microsoft.AspNetCore.App`. Zaman `<Project Sdk="Microsoft.NET.Sdk">` (sondaki olmadan `.Web`) kullanılır:
 
 * Aşağıdaki uyarısı oluşturulur:
 
-     *Uyarı NU1604: Proje bağımlılığı Microsoft.AspNetCore.App kapsamlı bir alt sınırı içermiyor. Alt sınır tutarlı geri yükleme sonuçları emin olmak için bağımlılık sürümünü içerir.*
-* Bu, .NET Core 2.1 SDK'sı ile bilinen bir sorundur ve .NET Core 2.2 SDK düzeltilecektir.
+  *Uyarı NU1604: Proje bağımlılığı Microsoft.AspNetCore.App kapsamlı bir alt sınırı içermiyor. Alt sınır tutarlı geri yükleme sonuçları emin olmak için bağımlılık sürümünü içerir.*
+
+* Bu, .NET Core 2.1 SDK'sı ile bilinen bir sorundur.
+
+::: moniker-end
 
 <a name="update"></a>
 
@@ -72,8 +77,8 @@ Sürüm numarasını belirtme `Microsoft.AspNetCore.App` başvuru yapar **değil
 
 ASP.NET Core güncelleştirmek için:
 
-* Geliştirme makineler ve yapı sunucularını: indirme ve yükleme [.NET Core SDK'sı](https://www.microsoft.com/net/download).
-* Dağıtım sunucularında: indirme ve yükleme [.NET Core çalışma zamanı](https://www.microsoft.com/net/download).
+* Makineleri geliştirme ve derleme sunucuları: İndirme ve yükleme [.NET Core SDK'sı](https://www.microsoft.com/net/download).
+* Dağıtım sunucularında: İndirme ve yükleme [.NET Core çalışma zamanı](https://www.microsoft.com/net/download).
 
  Uygulamalar için en son yüklenen sürüm uygulama başlatmada İleri dökümünü yapar. Güncelleştirme gerekli değil `Microsoft.AspNetCore.App` proje dosyasındaki sürüm numarası. Daha fazla bilgi için [Framework bağımlı uygulamaları alma İleri](/dotnet/core/versions/selection#framework-dependent-apps-roll-forward).
 

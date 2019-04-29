@@ -5,14 +5,14 @@ description: Oluşturma ve bileşen ömürleri yönetme verilere bağlayın ve o
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/18/2019
+ms.date: 04/21/2019
 uid: blazor/components
-ms.openlocfilehash: e318d262063c83fc17068ef65018174e2a4c953c
-ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
-ms.translationtype: MT
+ms.openlocfilehash: 19fdf2b87299ebdaf2c2cac10280192db73c4c7a
+ms.sourcegitcommit: 8a84ce880b4c40d6694ba6423038f18fc2eb5746
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59983035"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60165231"
 ---
 # <a name="create-and-use-razor-components"></a>Oluşturma ve Razor bileşenleri kullanma
 
@@ -320,7 +320,7 @@ Genellikle gibi ek değerler kapatmak uygun olan öğeleri kümesi yineleme oldu
     private void UpdateHeading(UIMouseEventArgs e, int buttonNumber)
     {
         message = $"You selected Button #{buttonNumber} at " +
-            "mouse position: {e.ClientX} X {e.ClientY}.";
+            $"mouse position: {e.ClientX} X {e.ClientY}.";
     }
 }
 ```

@@ -7,12 +7,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 04/12/2019
 uid: signalr/streaming
-ms.openlocfilehash: 83bbb231482d9c1606be3c5bbbeb1cc3b8efcf7d
-ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
-ms.translationtype: MT
+ms.openlocfilehash: d185056d3bdda089eaa46ae9b8e13ab7a4354f93
+ms.sourcegitcommit: 8a84ce880b4c40d6694ba6423038f18fc2eb5746
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59982662"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60165082"
 ---
 # <a name="use-streaming-in-aspnet-core-signalr"></a>ASP.NET Core SignalR öğesinde akışı
 
@@ -36,13 +36,13 @@ ASP.NET Core SignalR sunucusunu yöntemlerin dönüş değerlerini akış destek
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Bir hub yöntemini döndürür, otomatik olarak bir akış hub'yöntemini olur. bir <xref:System.Threading.Channels.ChannelReader`1>, `IAsyncEnumerable<T>`, `Task<ChannelReader<T>>`, veya `Task<IAsyncEnumerable<T>>`.
+Bir hub yöntemini döndürür, otomatik olarak bir akış hub'yöntemini olur. bir <xref:System.Threading.Channels.ChannelReader%601>, `IAsyncEnumerable<T>`, `Task<ChannelReader<T>>`, veya `Task<IAsyncEnumerable<T>>`.
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
 
-Bir hub yöntemini döndürür, otomatik olarak bir akış hub'yöntemini olur. bir <xref:System.Threading.Channels.ChannelReader`1> veya `Task<ChannelReader<T>>`.
+Bir hub yöntemini döndürür, otomatik olarak bir akış hub'yöntemini olur. bir <xref:System.Threading.Channels.ChannelReader%601> veya `Task<ChannelReader<T>>`.
 
 ::: moniker-end
 
@@ -58,7 +58,7 @@ Hub yöntemlerinde akış döndürebilir `IAsyncEnumerable<T>` ek olarak `Channe
 
 ::: moniker-end
 
-Aşağıdaki örnek, akış kanalları kullanarak bir istemciye ilişkin temel bilgileri gösterir. Her bir nesne yazılır <xref:System.Threading.Channels.ChannelWriter`1>, nesneyi hemen istemciye gönderilir. Sonunda, `ChannelWriter` Akış kapalı istemci bildirmek için tamamlandı.
+Aşağıdaki örnek, akış kanalları kullanarak bir istemciye ilişkin temel bilgileri gösterir. Her bir nesne yazılır <xref:System.Threading.Channels.ChannelWriter%601>, nesneyi hemen istemciye gönderilir. Sonunda, `ChannelWriter` Akış kapalı istemci bildirmek için tamamlandı.
 
 > [!NOTE]
 > Yazma `ChannelWriter<T>` arka plan iş parçacığı ve dönüş `ChannelReader` olabildiğince çabuk. Diğer hub çağrılarını kadar engellenen bir `ChannelReader` döndürülür.

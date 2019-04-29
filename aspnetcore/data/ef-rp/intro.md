@@ -3,15 +3,15 @@ title: ASP.NET Core - Öğreticisi 1. 8'de Entity Framework Core ile Razor sayfa
 author: rick-anderson
 description: Entity Framework Core kullanan bir Razor sayfaları uygulamasının nasıl oluşturulacağını gösterir
 ms.author: riande
-ms.custom: seodec18
+ms.custom: mvc, seodec18
 ms.date: 11/22/2018
 uid: data/ef-rp/intro
-ms.openlocfilehash: aff62d760cf0899983cf841f6715f2658b113f82
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
-ms.translationtype: MT
+ms.openlocfilehash: 61bc1ab8f63fa2288bdb6aaffb4f6b557586ad94
+ms.sourcegitcommit: 8a84ce880b4c40d6694ba6423038f18fc2eb5746
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59012688"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60165268"
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>ASP.NET Core - Öğreticisi 1. 8'de Entity Framework Core ile Razor sayfaları
 

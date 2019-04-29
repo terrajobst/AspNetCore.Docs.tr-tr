@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/4/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 24c87f2ad0446aef51f9d648fd20c181cbeaed2e
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
-ms.translationtype: MT
+ms.openlocfilehash: a5c0140b70a30acd05b532d32525f6df92619075
+ms.sourcegitcommit: 8a84ce880b4c40d6694ba6423038f18fc2eb5746
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346482"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60165296"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core-mvc"></a>Öğretici: ASP.NET Core MVC ile bir web API'si oluşturma
 
@@ -216,7 +216,7 @@ Yukarıdaki kod:
 Yukarıdaki kod:
 
 * Bir API denetleyicisi sınıfı yöntemleri olmadan tanımlar.
-* Sınıf ile düzenler [ `[ApiController]` ](/dotnet/api/microsoft.aspnetcore.mvc.apicontrollerattribute) özniteliği. Bu öznitelik, denetleyicinin web API'si isteklerine yanıt verdiğini gösterir. Özniteliği sağlayan belirli davranışları hakkında daha fazla bilgi için bkz: [ApiController özniteliğiyle ek açıklama](xref:web-api/index#annotation-with-apicontroller-attribute).
+* Sınıf ile düzenler [[ApiController]](/dotnet/api/microsoft.aspnetcore.mvc.apicontrollerattribute) özniteliği. Bu öznitelik, denetleyicinin web API'si isteklerine yanıt verdiğini gösterir. Özniteliği sağlayan belirli davranışları hakkında daha fazla bilgi için bkz: <xref:web-api/index>.
 * Veritabanı bağlamı eklemesine DI kullanır (`TodoContext`) içine denetleyici. Her bir veritabanı bağlamı kullanılan [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) denetleyici yöntemleri.
 * Adlı bir öğe ekler `Item1` veritabanı boşsa veritabanı. Her çalıştığında bu kod oluşturucusunun içinde yeni bir HTTP isteği olduğundan. Tüm öğeleri silerseniz, oluşturucu oluşturur `Item1` API yöntemi çağrıldığında tekrar başlattığınızda. Bu nedenle, gerçekten işe yaradı silme işlemi işe yaramadı gibi görünebilir.
 

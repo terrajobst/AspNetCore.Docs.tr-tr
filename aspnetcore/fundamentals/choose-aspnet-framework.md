@@ -3,15 +3,15 @@ title: Seçin arasında ASP.NET 4.x ve ASP.NET Core
 author: rick-anderson
 description: ASP.NET Core vs açıklar. ASP.NET 4.x ve bunlar arasında seçim yapma.
 ms.author: riande
-ms.custom: seodec18
+ms.custom: mvc, seodec18
 ms.date: 09/11/2018
 uid: fundamentals/choose-between-aspnet-and-aspnetcore
-ms.openlocfilehash: eb216bdac7dd029c3d985f2edd9e70eb91f42883
-ms.sourcegitcommit: a16352c1c88a71770ab3922200a8cd148fb278a6
-ms.translationtype: MT
+ms.openlocfilehash: a89af3ba8d95c80356439ee89601bda00d171d3b
+ms.sourcegitcommit: 8a84ce880b4c40d6694ba6423038f18fc2eb5746
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53335355"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60165147"
 ---
 # <a name="choose-between-aspnet-4x-and-aspnet-core"></a>Seçin arasında ASP.NET 4.x ve ASP.NET Core
 
