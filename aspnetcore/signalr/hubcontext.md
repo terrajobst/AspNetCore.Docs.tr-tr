@@ -7,41 +7,41 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 11/01/2018
 uid: signalr/hubcontext
-ms.openlocfilehash: 73cf2c9d30ed5e409a75827fdab1f22b20427884
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.openlocfilehash: 7ec52d4711fc191dcb83120cf54b1dc28c41f947
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54837942"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64900695"
 ---
-# <a name="send-messages-from-outside-a-hub"></a><span data-ttu-id="33357-103">Bir hub dışında ileti gönderme</span><span class="sxs-lookup"><span data-stu-id="33357-103">Send messages from outside a hub</span></span>
+# <a name="send-messages-from-outside-a-hub"></a><span data-ttu-id="891af-103">Bir hub dışında ileti gönderme</span><span class="sxs-lookup"><span data-stu-id="891af-103">Send messages from outside a hub</span></span>
 
-<span data-ttu-id="33357-104">Tarafından [Mikael Mengistu](https://twitter.com/MikaelM_12)</span><span class="sxs-lookup"><span data-stu-id="33357-104">By [Mikael Mengistu](https://twitter.com/MikaelM_12)</span></span>
+<span data-ttu-id="891af-104">Tarafından [Mikael Mengistu](https://twitter.com/MikaelM_12)</span><span class="sxs-lookup"><span data-stu-id="891af-104">By [Mikael Mengistu](https://twitter.com/MikaelM_12)</span></span>
 
-<span data-ttu-id="33357-105">SignalR hub'ı, SignalR sunucuya bağlı istemcilere ileti göndermek için çekirdek soyutlamadır.</span><span class="sxs-lookup"><span data-stu-id="33357-105">The SignalR hub is the core abstraction for sending messages to clients connected to the SignalR server.</span></span> <span data-ttu-id="33357-106">Diğer yerlerden uygulama kullanarak ileti göndermek mümkündür `IHubContext` hizmeti.</span><span class="sxs-lookup"><span data-stu-id="33357-106">It's also possible to send messages from other places in your app using the `IHubContext` service.</span></span> <span data-ttu-id="33357-107">Bu makalede, bir SignalR erişmeye açıklanmaktadır `IHubContext` hub dışında istemcilere bildirimleri göndermek için.</span><span class="sxs-lookup"><span data-stu-id="33357-107">This article explains how to access a SignalR `IHubContext` to send notifications to clients from outside a hub.</span></span>
+<span data-ttu-id="891af-105">SignalR hub'ı, SignalR sunucuya bağlı istemcilere ileti göndermek için çekirdek soyutlamadır.</span><span class="sxs-lookup"><span data-stu-id="891af-105">The SignalR hub is the core abstraction for sending messages to clients connected to the SignalR server.</span></span> <span data-ttu-id="891af-106">Diğer yerlerden uygulama kullanarak ileti göndermek mümkündür `IHubContext` hizmeti.</span><span class="sxs-lookup"><span data-stu-id="891af-106">It's also possible to send messages from other places in your app using the `IHubContext` service.</span></span> <span data-ttu-id="891af-107">Bu makalede, bir SignalR erişmeye açıklanmaktadır `IHubContext` hub dışında istemcilere bildirimleri göndermek için.</span><span class="sxs-lookup"><span data-stu-id="891af-107">This article explains how to access a SignalR `IHubContext` to send notifications to clients from outside a hub.</span></span>
 
-<span data-ttu-id="33357-108">[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/hubcontext/sample/) [(karşıdan yükleme)](xref:index#how-to-download-a-sample)</span><span class="sxs-lookup"><span data-stu-id="33357-108">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/hubcontext/sample/) [(how to download)](xref:index#how-to-download-a-sample)</span></span>
+<span data-ttu-id="891af-108">[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/hubcontext/sample/) [(karşıdan yükleme)](xref:index#how-to-download-a-sample)</span><span class="sxs-lookup"><span data-stu-id="891af-108">[View or download sample code](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/signalr/hubcontext/sample/) [(how to download)](xref:index#how-to-download-a-sample)</span></span>
 
-## <a name="get-an-instance-of-ihubcontext"></a><span data-ttu-id="33357-109">IHubContext örneğini al</span><span class="sxs-lookup"><span data-stu-id="33357-109">Get an instance of IHubContext</span></span>
+## <a name="get-an-instance-of-ihubcontext"></a><span data-ttu-id="891af-109">IHubContext örneğini al</span><span class="sxs-lookup"><span data-stu-id="891af-109">Get an instance of IHubContext</span></span>
 
-<span data-ttu-id="33357-110">ASP.NET Core SignalR öğesinde bir örneğini erişebileceğiniz `IHubContext` aracılığıyla bağımlılık ekleme.</span><span class="sxs-lookup"><span data-stu-id="33357-110">In ASP.NET Core SignalR, you can access an instance of `IHubContext` via dependency injection.</span></span> <span data-ttu-id="33357-111">Örneği ekleyebilir `IHubContext` bir denetleyici, ara yazılım veya diğer DI hizmeti.</span><span class="sxs-lookup"><span data-stu-id="33357-111">You can inject an instance of `IHubContext` into a controller, middleware, or other DI service.</span></span> <span data-ttu-id="33357-112">İstemcilere göndermek için örneği kullanın.</span><span class="sxs-lookup"><span data-stu-id="33357-112">Use the instance to send messages to clients.</span></span>
+<span data-ttu-id="891af-110">ASP.NET Core SignalR öğesinde bir örneğini erişebileceğiniz `IHubContext` aracılığıyla bağımlılık ekleme.</span><span class="sxs-lookup"><span data-stu-id="891af-110">In ASP.NET Core SignalR, you can access an instance of `IHubContext` via dependency injection.</span></span> <span data-ttu-id="891af-111">Örneği ekleyebilir `IHubContext` bir denetleyici, ara yazılım veya diğer DI hizmeti.</span><span class="sxs-lookup"><span data-stu-id="891af-111">You can inject an instance of `IHubContext` into a controller, middleware, or other DI service.</span></span> <span data-ttu-id="891af-112">İstemcilere göndermek için örneği kullanın.</span><span class="sxs-lookup"><span data-stu-id="891af-112">Use the instance to send messages to clients.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="33357-113">Bu, ASP.NET tarafından farklıdır 4.x GlobalHost erişim sağlamak için kullanılan SignalR `IHubContext`.</span><span class="sxs-lookup"><span data-stu-id="33357-113">This differs from ASP.NET 4.x SignalR which used GlobalHost to provide access to the `IHubContext`.</span></span> <span data-ttu-id="33357-114">ASP.NET Core, bu genel tekil gereksinimini ortadan kaldırır, bir bağımlılık ekleme çerçeve vardır.</span><span class="sxs-lookup"><span data-stu-id="33357-114">ASP.NET Core has a dependency injection framework that removes the need for this global singleton.</span></span>
+> <span data-ttu-id="891af-113">Bu, ASP.NET tarafından farklıdır 4.x GlobalHost erişim sağlamak için kullanılan SignalR `IHubContext`.</span><span class="sxs-lookup"><span data-stu-id="891af-113">This differs from ASP.NET 4.x SignalR which used GlobalHost to provide access to the `IHubContext`.</span></span> <span data-ttu-id="891af-114">ASP.NET Core, bu genel tekil gereksinimini ortadan kaldırır, bir bağımlılık ekleme çerçeve vardır.</span><span class="sxs-lookup"><span data-stu-id="891af-114">ASP.NET Core has a dependency injection framework that removes the need for this global singleton.</span></span>
 
-### <a name="inject-an-instance-of-ihubcontext-in-a-controller"></a><span data-ttu-id="33357-115">Bir denetleyici IHubContext örneğinde ekleme</span><span class="sxs-lookup"><span data-stu-id="33357-115">Inject an instance of IHubContext in a controller</span></span>
+### <a name="inject-an-instance-of-ihubcontext-in-a-controller"></a><span data-ttu-id="891af-115">Bir denetleyici IHubContext örneğinde ekleme</span><span class="sxs-lookup"><span data-stu-id="891af-115">Inject an instance of IHubContext in a controller</span></span>
 
-<span data-ttu-id="33357-116">Örneği ekleyebilir `IHubContext` , oluşturucuya ekleyerek bir denetleyici içinde:</span><span class="sxs-lookup"><span data-stu-id="33357-116">You can inject an instance of `IHubContext` into a controller by adding it to your constructor:</span></span>
+<span data-ttu-id="891af-116">Örneği ekleyebilir `IHubContext` , oluşturucuya ekleyerek bir denetleyici içinde:</span><span class="sxs-lookup"><span data-stu-id="891af-116">You can inject an instance of `IHubContext` into a controller by adding it to your constructor:</span></span>
 
 [!code-csharp[IHubContext](hubcontext/sample/Controllers/HomeController.cs?range=12-19,57)]
 
-<span data-ttu-id="33357-117">Şimdi, örneğine erişimi olan `IHubContext`, hub içinde değilmiş gibi hub yöntemlerini çağırabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="33357-117">Now, with access to an instance of `IHubContext`, you can call hub methods as if you were in the hub itself.</span></span>
+<span data-ttu-id="891af-117">Şimdi, örneğine erişimi olan `IHubContext`, hub içinde değilmiş gibi hub yöntemlerini çağırabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="891af-117">Now, with access to an instance of `IHubContext`, you can call hub methods as if you were in the hub itself.</span></span>
 
 [!code-csharp[IHubContext](hubcontext/sample/Controllers/HomeController.cs?range=21-25)]
 
-### <a name="get-an-instance-of-ihubcontext-in-middleware"></a><span data-ttu-id="33357-118">Ara yazılım IHubContext örneğinde Al</span><span class="sxs-lookup"><span data-stu-id="33357-118">Get an instance of IHubContext in middleware</span></span>
+### <a name="get-an-instance-of-ihubcontext-in-middleware"></a><span data-ttu-id="891af-118">Ara yazılım IHubContext örneğinde Al</span><span class="sxs-lookup"><span data-stu-id="891af-118">Get an instance of IHubContext in middleware</span></span>
 
-<span data-ttu-id="33357-119">Erişim `IHubContext` ara yazılım ardışık düzenini içinde şu şekilde:</span><span class="sxs-lookup"><span data-stu-id="33357-119">Access the `IHubContext` within the middleware pipeline like so:</span></span>
+<span data-ttu-id="891af-119">Erişim `IHubContext` ara yazılım ardışık düzenini içinde şu şekilde:</span><span class="sxs-lookup"><span data-stu-id="891af-119">Access the `IHubContext` within the middleware pipeline like so:</span></span>
 
 ```csharp
 app.Use(async (context, next) =>
@@ -53,11 +53,11 @@ app.Use(async (context, next) =>
 ```
 
 > [!NOTE]
-> <span data-ttu-id="33357-120">Ne zaman hub yöntemleri çağrıldığında gelen dışında `Hub` çağırmayla ilgili hiçbir arayan olduğunda, sınıf.</span><span class="sxs-lookup"><span data-stu-id="33357-120">When hub methods are called from outside of the `Hub` class, there's no caller associated with the invocation.</span></span> <span data-ttu-id="33357-121">Bu nedenle, erişim yoktur `ConnectionId`, `Caller`, ve `Others` özellikleri.</span><span class="sxs-lookup"><span data-stu-id="33357-121">Therefore, there's no access to the `ConnectionId`, `Caller`, and `Others` properties.</span></span>
+> <span data-ttu-id="891af-120">Ne zaman hub yöntemleri çağrıldığında gelen dışında `Hub` çağırmayla ilgili hiçbir arayan olduğunda, sınıf.</span><span class="sxs-lookup"><span data-stu-id="891af-120">When hub methods are called from outside of the `Hub` class, there's no caller associated with the invocation.</span></span> <span data-ttu-id="891af-121">Bu nedenle, erişim yoktur `ConnectionId`, `Caller`, ve `Others` özellikleri.</span><span class="sxs-lookup"><span data-stu-id="891af-121">Therefore, there's no access to the `ConnectionId`, `Caller`, and `Others` properties.</span></span>
 
-### <a name="inject-a-strongly-typed-hubcontext"></a><span data-ttu-id="33357-122">Kesin türü belirtilmiş bir HubContext ekleme</span><span class="sxs-lookup"><span data-stu-id="33357-122">Inject a strongly-typed HubContext</span></span>
+### <a name="inject-a-strongly-typed-hubcontext"></a><span data-ttu-id="891af-122">Kesin türü belirtilmiş bir HubContext ekleme</span><span class="sxs-lookup"><span data-stu-id="891af-122">Inject a strongly-typed HubContext</span></span>
 
-<span data-ttu-id="33357-123">Hub'ınıza devraldığı kesin türü belirtilmiş bir HubContext eklemesine olun `Hub<T>`.</span><span class="sxs-lookup"><span data-stu-id="33357-123">To inject a strongly-typed HubContext, ensure your Hub inherits from `Hub<T>`.</span></span> <span data-ttu-id="33357-124">Kullanarak ekleme `IHubContext<THub, T>` arabirimi yerine `IHubContext<THub>`.</span><span class="sxs-lookup"><span data-stu-id="33357-124">Inject it using the `IHubContext<THub, T>` interface rather than `IHubContext<THub>`.</span></span>
+<span data-ttu-id="891af-123">Hub'ınıza devraldığı kesin türü belirtilmiş bir HubContext eklemesine olun `Hub<T>`.</span><span class="sxs-lookup"><span data-stu-id="891af-123">To inject a strongly-typed HubContext, ensure your Hub inherits from `Hub<T>`.</span></span> <span data-ttu-id="891af-124">Kullanarak ekleme `IHubContext<THub, T>` arabirimi yerine `IHubContext<THub>`.</span><span class="sxs-lookup"><span data-stu-id="891af-124">Inject it using the `IHubContext<THub, T>` interface rather than `IHubContext<THub>`.</span></span>
 
 ```csharp
 public class ChatController : Controller
@@ -76,8 +76,8 @@ public class ChatController : Controller
 }
 ```
 
-## <a name="related-resources"></a><span data-ttu-id="33357-125">İlgili kaynaklar</span><span class="sxs-lookup"><span data-stu-id="33357-125">Related resources</span></span>
+## <a name="related-resources"></a><span data-ttu-id="891af-125">İlgili kaynaklar</span><span class="sxs-lookup"><span data-stu-id="891af-125">Related resources</span></span>
 
-* [<span data-ttu-id="33357-126">Kullanmaya başlama</span><span class="sxs-lookup"><span data-stu-id="33357-126">Get started</span></span>](xref:tutorials/signalr)
-* [<span data-ttu-id="33357-127">Merkezler</span><span class="sxs-lookup"><span data-stu-id="33357-127">Hubs</span></span>](xref:signalr/hubs)
-* [<span data-ttu-id="33357-128">Azure'a Yayımlama</span><span class="sxs-lookup"><span data-stu-id="33357-128">Publish to Azure</span></span>](xref:signalr/publish-to-azure-web-app)
+* [<span data-ttu-id="891af-126">Kullanmaya başlama</span><span class="sxs-lookup"><span data-stu-id="891af-126">Get started</span></span>](xref:tutorials/signalr)
+* [<span data-ttu-id="891af-127">Merkezler</span><span class="sxs-lookup"><span data-stu-id="891af-127">Hubs</span></span>](xref:signalr/hubs)
+* [<span data-ttu-id="891af-128">Azure'a Yayımlama</span><span class="sxs-lookup"><span data-stu-id="891af-128">Publish to Azure</span></span>](xref:signalr/publish-to-azure-web-app)
