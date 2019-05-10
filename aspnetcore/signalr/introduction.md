@@ -8,11 +8,11 @@ ms.custom: mvc
 ms.date: 04/25/2018
 uid: signalr/introduction
 ms.openlocfilehash: 673efafce60dfa46cb99f9537fda2bca42bf9822
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54836369"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64898754"
 ---
 # <a name="introduction-to-aspnet-core-signalr"></a>ASP.NET Core signalr'a giriş
 
@@ -48,7 +48,7 @@ SignalR, gerçek zamanlı iletişimler işlemek için çeşitli teknikler destek
 
 SignalR istemci ve sunucu kapasitesini en iyi aktarım yöntemi otomatik olarak seçer.
 
-## <a name="hubs"></a>Hubs
+## <a name="hubs"></a>Merkezler
 
 SignalR kullanan *hubs* istemciler ve sunucular arasında iletişim kurmak için.
 

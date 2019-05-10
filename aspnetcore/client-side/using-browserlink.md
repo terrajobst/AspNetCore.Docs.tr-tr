@@ -7,11 +7,11 @@ ms.custom: H1Hack27Feb2017
 ms.date: 09/22/2017
 uid: client-side/using-browserlink
 ms.openlocfilehash: 452ba5149563c186750466f471c7b950f0017614
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41754264"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64900851"
 ---
 # <a name="browser-link-in-aspnet-core"></a>ASP.NET core'da tarayıcı bağlantısı
 
@@ -83,7 +83,7 @@ Tarayıcı bağlantısı araç denetiminden şunları yapabilirsiniz:
 
 * Web uygulamasını aynı anda birkaç tarayıcılarda yenileyin.
 * Açık **tarayıcı bağlantı Panosu**.
-* Etkinleştirmek veya devre dışı **tarayıcı bağlantısı**. Not: Tarayıcı bağlantısı Visual Studio 2017 (15.3) varsayılan olarak devre dışıdır.
+* Etkinleştirmek veya devre dışı **tarayıcı bağlantısı**. Not: Tarayıcı bağlantısı, Visual Studio 2017 (15.3) varsayılan olarak devre dışıdır.
 * Etkinleştirmek veya devre dışı [CSS otomatik eşitleme](#enable-or-disable-css-auto-sync).
 
 > [!NOTE]

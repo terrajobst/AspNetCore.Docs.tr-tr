@@ -6,7 +6,7 @@
 
   ![Türe, fiyat, yayın tarihi ve başlık alanlarla görünümü oluşturma](~/tutorials/first-mvc-app/adding-model/_static/movies.png)
 
-* Ondalık nokta veya virgül, girmeniz mümkün olmayabilir `Price` alan. Desteklemek için [jQuery doğrulama](https://jqueryvalidation.org/) virgül İngilizce olmayan yerel ayarlar için (",") ondalık ve ABD İngilizce olmayan tarih biçimleri için uygulamanızı globalleştirmek için adımları izlemelisiniz. Bkz: [ https://github.com/aspnet/Docs/issues/4076 ](https://github.com/aspnet/Docs/issues/4076) ve [ek kaynaklar](#additional-resources) daha fazla bilgi için. Şimdilik yalnızca 10 gibi tam sayı girin.
+* Ondalık nokta veya virgül, girmeniz mümkün olmayabilir `Price` alan. Desteklemek için [jQuery doğrulama](https://jqueryvalidation.org/) virgül İngilizce olmayan yerel ayarlar için (",") ondalık ve ABD İngilizce olmayan tarih biçimleri için uygulamanızı globalleştirmek için adımları izlemelisiniz. Bkz: [ https://github.com/aspnet/AspNetCore.Docs/issues/4076 ](https://github.com/aspnet/AspNetCore.Docs/issues/4076) ve [ek kaynaklar](#additional-resources) daha fazla bilgi için. Şimdilik yalnızca 10 gibi tam sayı girin.
 
 <a name="displayformatdatelocal"></a>
 

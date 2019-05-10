@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/07/2019
 uid: razor-pages/razor-pages-conventions
-ms.openlocfilehash: c160d93e22fc5b3511ba4e5539cce8576346898b
-ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
+ms.openlocfilehash: 4e07b5803adbce94982584212fa65afbfd427b64
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57665556"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64899738"
 ---
 # <a name="razor-pages-route-and-app-conventions-in-aspnet-core"></a>İçinde ASP.NET Core Razor sayfalar yol ve uygulama kuralları
 
@@ -26,7 +26,7 @@ Bir sayfa yolu belirtin, yol kesimleri ekleyin veya bir rota için parametreleri
 
 Yol segmentlerini veya parametre adları kullanılamaz, ayrılmış sözcükler vardır. Daha fazla bilgi için [yönlendirme: Yönlendirme adları ayrılmış](xref:fundamentals/routing#reserved-routing-names).
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 | Senaryo | Örnek gösterir... |
 | -------- | --------------------------- |
@@ -94,7 +94,7 @@ Kullanım <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Convention
 
 Mümkün olduğunda, ayarlamamanız `Order`, içindeki sonuçlar `Order = 0`. Doğru yol seçmek için yönlendirme kullanır.
 
-Razor sayfaları seçenekleri ekleme gibi <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions>, MVC hizmet koleksiyona eklendiğinde, eklenen `Startup.ConfigureServices`. Bir örnek için bkz. [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/).
+Razor sayfaları seçenekleri ekleme gibi <xref:Microsoft.AspNetCore.Mvc.RazorPages.RazorPagesOptions.Conventions>, MVC hizmet koleksiyona eklendiğinde, eklenen `Startup.ConfigureServices`. Bir örnek için bkz. [örnek uygulaması](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/razor-pages-conventions/samples/).
 
 [!code-csharp[](razor-pages-conventions/samples/2.x/SampleApp/Startup.cs?name=snippet1)]
 

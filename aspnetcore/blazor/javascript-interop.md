@@ -5,14 +5,14 @@ description: .NET ve JavaScript işlevleri çağırmak nasıl öğrenin Blazor u
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/19/2019
+ms.date: 04/25/2019
 uid: blazor/javascript-interop
-ms.openlocfilehash: bed1e3d33de5e8fb2d246b066803cdc95d6731ef
-ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
+ms.openlocfilehash: f249d96d310c3d28b56e4920adda145ba07b34ee
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59982668"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64898655"
 ---
 # <a name="blazor-javascript-interop"></a>Blazor JavaScript birlikte çalışma
 
@@ -36,17 +36,7 @@ Aşağıdaki örnek dayanır [TextDecoder](https://developer.mozilla.org/docs/We
 
 İçinde `<head>` öğesinin *wwwroot/index.html*, kullanan bir işlev sağlayan `TextDecoder` geçirilen dizisinin kodunu çözmek için:
 
-```html
-<script>
-  window.ConvertArray = (win1251Array) => {
-    var win1251decoder = new TextDecoder('windows-1251');
-    var bytes = new Uint8Array(win1251Array);
-    var decodedArray = win1251decoder.decode(bytes);
-    console.log(decodedArray);
-    return decodedArray;
-  };
-</script>
-```
+[!code-html[](javascript-interop/samples_snapshot/index-script.html)]
 
 Kod önceki örnekte gösterildiği gibi JavaScript kodunu da bir JavaScript dosyasından yüklenemiyor (*.js*) içindeki betik dosyasının başvurusuyla *wwwroot/index.html* dosyası:
 
@@ -59,99 +49,23 @@ Aşağıdaki bileşen:
 * Çağırır `ConvertArray` JavaScript işlevini kullanarak `JsRuntime` bir bileşen düğme (**dönüştürme dizi**) seçilir.
 * JavaScript işlev çağrıldıktan sonra geçirilen dizinin bir dizeye dönüştürülür. Dize, görüntü bileşenine döndürülür.
 
-```cshtml
-@page "/"
-@inject IJSRuntime JsRuntime;
-
-<h1>Call JavaScript Function Example</h1>
-
-<button type="button" class="btn btn-primary" onclick="@ConvertArray">
-    Convert Array
-</button>
-
-<p class="mt-2" style="font-size:1.6em">
-    <span class="badge badge-success">
-        @ConvertedText
-    </span>
-</p>
-
-@functions {
-    // Quote (c)2005 Universal Pictures: Serenity
-    // https://www.uphe.com/movies/serenity
-    // David Krumholtz on IMDB: https://www.imdb.com/name/nm0472710/
-
-    private MarkupString ConvertedText =
-        new MarkupString("Select the <b>Convert Array</b> button.");
-
-    private uint[] QuoteArray = new uint[]
-        {
-            60, 101, 109, 62, 67, 97, 110, 39, 116, 32, 115, 116, 111, 112, 32,
-            116, 104, 101, 32, 115, 105, 103, 110, 97, 108, 44, 32, 77, 97,
-            108, 46, 60, 47, 101, 109, 62, 32, 45, 32, 77, 114, 46, 32, 85, 110,
-            105, 118, 101, 114, 115, 101, 10, 10,
-        };
-
-    private async void ConvertArray()
-    {
-        var text =
-            await JsRuntime.InvokeAsync<string>("ConvertArray", QuoteArray);
-
-        ConvertedText = new MarkupString(text);
-
-        StateHasChanged();
-    }
-}
-```
+[!code-cshtml[](javascript-interop/samples_snapshot/call-js-example.razor?highlight=2,34-35)]
 
 Kullanılacak `IJSRuntime` soyutlama, aşağıdaki yaklaşımlardan birini benimseme:
 
-* Ekleme `IJSRuntime` soyutlama Razor dosyasına (*.razor*):
+* Ekleme `IJSRuntime` soyutlama Razor bileşen içine (*.razor*):
 
-  ```cshtml
-  @inject IJSRuntime JSRuntime
-
-  @functions {
-      public override void OnInit()
-      {
-          StocksService.OnStockTickerUpdated += stockUpdate =>
-          {
-              JSRuntime.InvokeAsync<object>(
-                  "handleTickerChanged",
-                  stockUpdate.symbol,
-                  stockUpdate.price);
-          };
-      }
-  }
-  ```
+  [!code-cshtml[](javascript-interop/samples_snapshot/inject-abstraction.razor?highlight=1)]
 
 * Ekleme `IJSRuntime` Özet bir sınıf içinde (*.cs*):
 
-  ```csharp
-  public class JsInteropClasses
-  {
-      private readonly IJSRuntime _jsRuntime;
+  [!code-csharp[](javascript-interop/samples_snapshot/inject-abstraction-class.cs?highlight=5)]
 
-      public JsInteropClasses(IJSRuntime jsRuntime)
-      {
-          _jsRuntime = jsRuntime;
-      }
-
-      public Task<string> TickerChanged(string data)
-      {
-          // The handleTickerChanged JavaScript method is implemented
-          // in a JavaScript file, such as 'wwwroot/tickerJsInterop.js'.
-          return _jsRuntime.InvokeAsync<object>(
-              "handleTickerChanged",
-              stockUpdate.symbol,
-              stockUpdate.price);
-      }
-  }
-  ```
-
-* Dinamik içerik oluşturma ile `BuildRenderTree`, kullanın `[Inject]` özniteliği:
+* Dinamik içerik oluşturma ile [BuildRenderTree](xref:blazor/components#manual-rendertreebuilder-logic), kullanın `[Inject]` özniteliği:
 
   ```csharp
-  [Inject] IJSRuntime JSRuntime { get; set; }
+  [Inject]
+  IJSRuntime JSRuntime { get; set; }
   ```
 
 Bu konuda eşlik eden istemci-tarafı örnek uygulamada, kullanıcı girişini alır ve bir karşılama iletisi görüntüleyecek şekilde DOM ile etkileşim kuran istemci-tarafı uygulaması için iki JavaScript işlevleri kullanılabilir:
@@ -195,9 +109,12 @@ JavaScript ile .NET yöntemleri birlikte çalışır *exampleJsInterop.js* çağ
 
 Bazı [JavaScript birlikte çalışma](xref:blazor/javascript-interop) senaryoları HTML öğeleri için başvuru gerektirir. Örneğin, bir kullanıcı Arabirimi kitaplığı başlatma için öğe başvurusu gerektirebilir veya bir öğe üzerinde komut benzeri API'leri çağırmak ihtiyacınız olabilecek `focus` veya `play`.
 
-HTML öğesi sayısında ciddi bir bileşen başvuruları ekleyerek yakalamak için bir `ref` öznitelik HTML öğesine ve ardından türünde bir alan tanımlama `ElementRef` adıyla eşleşen `ref` özniteliği.
+HTML öğeleri aşağıdaki yaklaşımı kullanarak bir bileşende başvuruları yakalayabilirsiniz:
 
-Aşağıdaki örnek, bir kullanıcı adı giriş öğeye başvuru yakalama gösterir:
+* Ekleme bir `ref` özniteliği için HTML öğesi.
+* Türünde bir alan tanımlayın `ElementRef` adıyla eşleşen `ref` özniteliği.
+
+Aşağıdaki örnek, bir başvuru yakalama gösterir `username` `<input>` öğesi:
 
 ```cshtml
 <input ref="username" ...>
@@ -249,9 +166,9 @@ Yöntem doğrudan nesne üzerinde çağrılır. Aşağıdaki örnek olduğunu va
 
 ### <a name="static-net-method-call"></a>Statik .NET yöntem çağrısı
 
-JavaScript .NET statik bir yöntemi çağırmak için `DotNet.invokeMethod` veya `DotNet.invokeMethodAsync` işlevleri. Statik yöntem çağırmak istediğiniz işlevin yanı sıra, herhangi bir bağımsız değişken içeren derlemenin adını tanımlayıcıda geçirin. Zaman uyumsuz sürümü, sunucu tarafı senaryoları desteklemek için tercih edilir. JavaScript'ten çağırma olması için .NET yöntemi genel, statik ve ile donatılmış olmalıdır `[JSInvokable]`. Varsayılan olarak, yöntem tanımlayıcısı yöntemi adıdır, ancak farklı bir kimlik kullanarak bir belirtebilirsiniz `JSInvokableAttribute` Oluşturucusu. Açık genel yöntemleri çağırma şu anda desteklenmemektedir.
+JavaScript .NET statik bir yöntemi çağırmak için `DotNet.invokeMethod` veya `DotNet.invokeMethodAsync` işlevleri. Statik yöntem çağırmak istediğiniz işlevin yanı sıra, herhangi bir bağımsız değişken içeren derlemenin adını tanımlayıcıda geçirin. Zaman uyumsuz sürümü, sunucu tarafı senaryoları desteklemek için tercih edilir. JavaScript'ten bir .NET yöntemini çağırmak için .NET yöntemi ortak olmalıdır, statik ve `[JSInvokable]` özniteliği. Varsayılan olarak, yöntem tanımlayıcısı yöntemi adıdır, ancak farklı bir kimlik kullanarak bir belirtebilirsiniz `JSInvokableAttribute` Oluşturucusu. Açık genel yöntemleri çağırma şu anda desteklenmemektedir.
 
-Örnek uygulamayı içeren bir C# bir dizi döndürmek için yöntemin `int`s. Yöntem ile donatılmış `JSInvokable` özniteliği.
+Örnek uygulamayı içeren bir C# bir dizi döndürmek için yöntemin `int`s. `JSInvokable` Özniteliği yönteme uygulanır.
 
 *Pages/JsInterop.razor*:
 
@@ -275,7 +192,10 @@ Dördüncü dizi değeri diziye gönderilir (`data.push(4);`) tarafından dönd�
 
 ### <a name="instance-method-call"></a>Örnek yöntem çağrısı
 
-JavaScript'ten .NET örnek yöntemler de çağırabilir. JavaScript bir .NET örneği yöntemi çağırmak için ilk .NET örnek JavaScript sarmalama tarafından başarılı bir `DotNetObjectRef` örneği. .NET örnek JavaScript başvurusu tarafından geçirilir ve örneği kullanarak .NET örnek yöntemler çağırabilirsiniz `invokeMethod` veya `invokeMethodAsync` işlevleri. .NET örnek JavaScript diğer .NET yöntemleri çağrılırken bağımsız değişken olarak de geçirilebilir.
+JavaScript'ten .NET örnek yöntemler de çağırabilir. JavaScript bir .NET örneği yöntemi çağırmak için:
+
+* .NET örnek içinde sarmalama için JavaScript geçirin. bir `DotNetObjectRef` örneği. .NET örnek JavaScript başvurusu tarafından geçirilir.
+* .NET örnek yöntemlerini kullanma örneği `invokeMethod` veya `invokeMethodAsync` işlevleri. .NET örnek JavaScript diğer .NET yöntemleri çağrılırken bağımsız değişken olarak de geçirilebilir.
 
 > [!NOTE]
 > Örnek uygulama, istemci tarafı konsola iletileri günlüğe kaydeder. Örnek uygulama tarafından gösterilen aşağıdaki örneklerde, tarayıcının geliştirici araçları konsol çıkışında tarayıcının inceleyin.
@@ -308,11 +228,11 @@ Konsol, web geliştirici araçları tarayıcının çıktısı:
 Hello, Blazor!
 ```
 
-## <a name="share-interop-code-in-a-blazor-class-library"></a>Birlikte çalışma kodu Blazor Sınıf Kitaplığı'nda paylaşın
+## <a name="share-interop-code-in-a-class-library"></a>Bir sınıf kitaplığı'nda birlikte çalışma kod paylaşın
 
-JavaScript birlikte çalışma kodu Blazor sınıf kitaplığında dahil edilebilir (`dotnet new blazorlib`), bir NuGet paketi kod paylaşmanıza imkan tanıyan.
+JavaScript birlikte çalışma kodu, bir NuGet paketi kod paylaşmanıza olanak sağlayan bir sınıf kitaplığı'nda bulunabilir.
 
-Blazor sınıf kitaplığı ekleme JavaScript kaynakları derlemesi işler. JavaScript dosyaları yerleştirilir *wwwroot* klasör. Alet kullanımı dışındaki kaynaklar ekleme kitaplık oluşturulduğunda üstlenir.
+Sınıf kitaplığı ekleme JavaScript kaynakları derlemesi işler. JavaScript dosyaları yerleştirilir *wwwroot* klasör. Alet kullanımı dışındaki kaynaklar ekleme kitaplık oluşturulduğunda üstlenir.
 
 Yalnızca normal bir NuGet paketi başvurulduğu yerleşik NuGet paketini uygulamanın proje dosyasında başvurulan. Uygulama geri yüklendikten sonra olarak bulunuyorlarmış uygulama kodu içinde JavaScript çağırabilirsiniz C#.
 

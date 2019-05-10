@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: 740573c3c6e23e6c9e48354d5b5a4a3c0a94a766
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58265277"
----
 # <a name="work-with-sqlite-in-an-aspnet-core-razor-pages-app"></a>ASP.NET core'da SQLite ile çalışma Razor sayfaları uygulama
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/27/2017
 uid: test/razor-pages-tests
-ms.openlocfilehash: 5116ec3c3d6c27f9b0e098f82c82dd7b7337b8f6
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: f1526b8803f43ec8cbe77c1d2c100d9daf6cd316
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207504"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64900038"
 ---
 # <a name="razor-pages-unit-tests-in-aspnet-core"></a>ASP.NET Core Razor sayfalar birim testleri
 
@@ -26,20 +26,20 @@ ASP.NET Core Razor sayfaları uygulamalarının birim testlerini destekler. Test
 
 Bu konu, Razor sayfaları uygulamaları ve birim testleri temel bir anlayışa sahip olduğunuzu varsayar. Razor sayfaları uygulamaları veya test kavramlar ile bilmiyorsanız, aşağıdaki konulara bakın:
 
-* [Razor sayfaları giriş](xref:razor-pages/index)
+* [Razor Pages’e giriş](xref:razor-pages/index)
 * [Razor Sayfaları kullanmaya başlama](xref:tutorials/razor-pages/razor-pages-start)
 * [Birim testi C# .NET Core dotnet testi ve xUnit kullanma](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/razor-pages-tests/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/razor-pages-tests/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 Örnek Proje iki uygulama oluşur:
 
 | Uygulama         | Proje klasörü                        | Açıklama |
 | ----------- | ------------------------------------- | ----------- |
 | İleti uygulaması | *src/RazorPagesTestSample*            | Eklemek, silmek, tüm silmek ve iletileri çözümleme açmasına olanak sağlar. |
-| Test uygulaması    | *tests/RazorPagesTestSample.Tests*    | Birim testi ileti uygulaması için kullanılan: veri erişim katmanı (DAL) ve dizin sayfa modeli. |
+| Test uygulaması    | *tests/RazorPagesTestSample.Tests*    | Birim testi ileti uygulaması için kullanılır: Veri erişim katmanı (DAL) ve dizin sayfa modeli. |
 
-Bir IDE özelliklerini yerleşik test gibi kullanarak testler çalıştırılabilir [Visual Studio](https://www.visualstudio.com/vs/). Kullanıyorsanız [Visual Studio Code](https://code.visualstudio.com/) veya bir komut isteminde aşağıdaki komutu yürütün komut satırının *tests/RazorPagesTestSample.Tests* klasörü:
+Bir IDE özelliklerini yerleşik test gibi kullanarak testler çalıştırılabilir [Visual Studio](https://visualstudio.microsoft.com). Kullanıyorsanız [Visual Studio Code](https://code.visualstudio.com/) veya bir komut isteminde aşağıdaki komutu yürütün komut satırının *tests/RazorPagesTestSample.Tests* klasörü:
 
 ```console
 dotnet test
@@ -109,8 +109,8 @@ using (var db = new AppDbContext(Utilities.TestingDbContextOptions()))
 Her test yönteminde `DataAccessLayerTest` sınıfı (*UnitTests/DataAccessLayerTest.cs*) benzer bir Düzenle-Yasası onaylama deseni izler:
 
 1. Düzenleyin: Veritabanı test için yapılandırılır ve/veya beklenen sonucu tanımlanır.
-1. ACT: Test yürütülür.
-1. Assert: Onaylar, test sonucu başarılı olup olmadığını belirlemek için yapılır.
+1. Eylem: Test yürütülür.
+1. Assert: Onaylar, test sonucu başarılı olup olmadığını belirlemek için gerçekleştirilir.
 
 Örneğin, `DeleteMessageAsync` yöntemi tarafından tanımlanmış tek bir ileti kaldırmak için sorumlu kendi `Id` (*src/RazorPagesTestSample/Data/AppDbContext.cs*):
 
@@ -124,7 +124,7 @@ Bu yöntem için iki test vardır. Bir test yöntemi iletiyi veritabanında mevc
 
 [!code-csharp[](razor-pages-tests/samples/2.x/tests/RazorPagesTestSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet1)]
 
-Yöntem davranır: `DeleteMessageAsync` tümleştirilmesidir yöntemi yürütüldüğünde `recId` , `1`:
+Yöntem çalışır: `DeleteMessageAsync` Tümleştirilmesidir yöntemi yürütüldüğünde `recId` , `1`:
 
 [!code-csharp[](razor-pages-tests/samples/2.x/tests/RazorPagesTestSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet2)]
 

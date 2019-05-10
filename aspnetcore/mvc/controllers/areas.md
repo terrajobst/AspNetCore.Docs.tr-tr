@@ -3,14 +3,14 @@ title: ASP.NET core'da alanları
 author: rick-anderson
 description: Alanlar (yönlendirme için) ayrı bir ad ve klasör yapısını (için görünümler) bir gruba ilgili işlevleri düzenlemek için kullanılan bir ASP.NET MVC özelliği nasıl olduğunu öğrenin.
 ms.author: riande
-ms.date: 02/14/2019
+ms.date: 05/06/2019
 uid: mvc/controllers/areas
-ms.openlocfilehash: 79bc023a7bd00a9d4de375e3cddaafd148251469
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: 35c7682861f7392b0bcda7326e4d7f5ccc356bda
+ms.sourcegitcommit: b508b115107e0f8d7f62b25cfcc8ad45e1373459
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264764"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65212595"
 ---
 # <a name="areas-in-aspnet-core"></a>ASP.NET core'da alanları
 
@@ -25,7 +25,7 @@ Bir proje alanlarını kullanmayı olduğunda:
 * Uygulama, mantıksal olarak ayrılabilen birden çok üst düzey işlevsel bileşenden.
 * Böylece her işlevsel alan üzerinde bağımsız olarak çalışılabilecek uygulamasını bölümleme istiyorsunuz.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/areas/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample)). İndirme örnek alanları test etmek için temel bir uygulama sağlar.
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/areas/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample)). İndirme örnek alanları test etmek için temel bir uygulama sağlar.
 
 Razor sayfaları kullanıyorsanız, bkz. [Razor sayfalarıyla alanlarını](#areas-with-razor-pages) bu belgedeki.
 
@@ -34,8 +34,13 @@ Razor sayfaları kullanıyorsanız, bkz. [Razor sayfalarıyla alanlarını](#are
 Alanları denetleyicileri ve görünümleri tipik bir ASP.NET Core web uygulaması şunları içerir:
 
 * Bir [alan klasör yapısını](#area-folder-structure).
-* Denetleyicileri düzenlenmiş ile [ &lbrack;alan&rbrack; ](#attribute) denetleyici alanı ile ilişkilendirilecek özniteliği: [!code-csharp[](areas/samples/MVCareas/Areas/Products/Controllers/ManageController.cs?name=snippet2)]
-* [Başlangıç olarak eklenen alan yolu](#add-area-route): [!code-csharp[](areas/samples/MVCareas/Startup.cs?name=snippet2&highlight=3-6)]
+* Denetleyicileri düzenlenmiş ile [ &lbrack;alan&rbrack; ](#attribute) denetleyici alanı ile ilişkilendirilecek özniteliği:
+
+  [!code-csharp[](areas/samples/MVCareas/Areas/Products/Controllers/ManageController.cs?name=snippet2)]
+
+* [Başlangıç olarak eklenen alan yolu](#add-area-route):
+
+  [!code-csharp[](areas/samples/MVCareas/Startup.cs?name=snippet2&highlight=3-6)]
 
 ### <a name="area-folder-structure"></a>Alan klasör yapısı
 
@@ -99,7 +104,7 @@ Daha fazla bilgi için [alan yönlendirme](xref:mvc/controllers/routing#areas).
 
 ### <a name="link-generation-with-mvc-areas"></a>MVC alanları ile bağlantı oluşturma
 
-Aşağıdaki kodu [örnek indirme](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/areas/samples) gösterir, belirtilen alanla nesil bağlantı:
+Aşağıdaki kodu [örnek indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/areas/samples) gösterir, belirtilen alanla nesil bağlantı:
 
 [!code-cshtml[](areas/samples/MVCareas/Views/Shared/_testLinksPartial.cshtml?name=snippet)]
 
@@ -127,24 +132,24 @@ Varsayılan alan klasöründen aşağıdaki kod değişiklikleri `"Areas"` için
 
 ## <a name="areas-with-razor-pages"></a>Razor sayfalarıyla alanlarını
 
-Razor sayfalarıyla alanlarını gerektirir ve *alanlar /&lt;alan adı&gt;/sayfaları* uygulamanın kök klasöründe. Aşağıdaki klasör yapısına ile kullanılan [örnek indirme](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/areas/samples)
+Razor sayfalarıyla alanlarını gerektirir ve *alanlar /&lt;alan adı&gt;/sayfaları* uygulamanın kök klasöründe. Aşağıdaki klasör yapısına ile kullanılan [örnek indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/areas/samples)
 
 * Proje adı
   * Alanlar
     * Ürünler
-      * Sayfaları
+      * Sayfalar
         * _Viewımports
         * Hakkında
         * Dizin
     * Hizmetler
-      * Sayfaları
+      * Sayfalar
         * yönetme
           * Hakkında
           * Dizin
 
 ### <a name="link-generation-with-razor-pages-and-areas"></a>Razor sayfaları ve alanları ile bağlantı oluşturma
 
-Aşağıdaki kodu [örnek indirme](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/areas/samples/RPareas) gösterir, belirtilen alanla nesil bağlantı (örneğin, `asp-area="Products"`):
+Aşağıdaki kodu [örnek indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/areas/samples/RPareas) gösterir, belirtilen alanla nesil bağlantı (örneğin, `asp-area="Products"`):
 
 [!code-cshtml[](areas/samples/RPareas/Pages/Shared/_testLinksPartial.cshtml?name=snippet)]
 
@@ -160,7 +165,7 @@ Yukarıdaki kod için:
 
 * Üretilen bağlantı `<a asp-page="/Manage/About">` yalnızca ne son isteği sayfası için zaman doğrudur `Services` alan. Örneğin, `/Services/Manage/`, `/Services/Manage/Index`, veya `/Services/Manage/About`.
 * Üretilen bağlantı `<a asp-page="/About">` yalnızca ne son isteği sayfası için zaman doğrudur `/Home`.
-* Kod dandır [örnek indirme](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/areas/samples/RPareas).
+* Kod dandır [örnek indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/areas/samples/RPareas).
 
 ### <a name="import-namespace-and-tag-helpers-with-viewimports-file"></a>Ad alanı ve etiket Yardımcıları ile _viewımports dosyasını içeri aktarın.
 
@@ -179,9 +184,11 @@ Göz önünde bulundurun *Hizmetleri* alan içermiyor örnek kodu bir *_viewımp
 
 [!code-cshtml[](areas/samples/RPareas/Areas/Products/Pages/_ViewImports.cshtml)]
 
-Aşağıdaki biçimlendirme gösterildiği */ürünler/hakkında* Razor sayfası: [!code-cshtml[](areas/samples/RPareas/Areas/Products/Pages/About.cshtml)]
+Aşağıdaki biçimlendirme gösterildiği */ürünler/hakkında* Razor sayfası:
 
-Önceki dosyasında, ad alanı ve `@addTagHelper` yönergesi tarafından dosyasına aktarılır *Areas/Products/Pages/_ViewImports.cshtml* dosyası:
+[!code-cshtml[](areas/samples/RPareas/Areas/Products/Pages/About.cshtml)]
+
+Önceki dosyasında, ad alanı ve `@addTagHelper` yönergesi tarafından dosyasına aktarılır *Areas/Products/Pages/_ViewImports.cshtml* dosya.
 
 Daha fazla bilgi için [yönetme etiketi Yardımcısı kapsam](xref:mvc/views/tag-helpers/intro?view=aspnetcore-2.2#managing-tag-helper-scope) ve [paylaşılan yönergeleri alma](xref:mvc/views/layout#importing-shared-directives).
 

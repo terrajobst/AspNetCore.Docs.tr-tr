@@ -6,29 +6,29 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 09/12/2018
 uid: host-and-deploy/docker/visual-studio-tools-for-docker
-ms.openlocfilehash: 42f8071eadabba3eb8cb738be1720f4c6195808c
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 3bf3d8d0a627d97090e3ce9fef7e380f03c7626d
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207244"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64901310"
 ---
 # <a name="visual-studio-tools-for-docker-with-aspnet-core"></a>ASP.NET Core ile Docker için Visual Studio Araçları
 
 Visual Studio 2017, oluşturma, hata ayıklama ve kapsayıcılı ASP.NET Core .NET Core'u hedefleyen uygulamaların çalıştırılmasını destekler. Hem Windows hem de Linux kapsayıcıları desteklenmektedir.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/docker/visual-studio-tools-for-docker/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/docker/visual-studio-tools-for-docker/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 * [Windows için docker](https://docs.docker.com/docker-for-windows/install/)
-* [Visual Studio 2017](https://www.visualstudio.com/) ile **.NET Core çoklu platform geliştirme** iş yükü
+* [Visual Studio 2017](https://visualstudio.microsoft.com) ile **.NET Core çoklu platform geliştirme** iş yükü
 
 ## <a name="installation-and-setup"></a>Yükleme ve Kurulum
 
-Docker yükleme için bölümündeki bilgileri gözden geçirin [için Docker Windows: yüklemeden önce bilinmesi gerekenler](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install). Ardından, yükleme [için Docker Windows](https://docs.docker.com/docker-for-windows/install/).
+Docker yükleme için bölümündeki bilgileri gözden geçirin [için Docker Windows: Yüklemeden önce bilinmesi gerekenler](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install). Ardından, yükleme [için Docker Windows](https://docs.docker.com/docker-for-windows/install/).
 
-**[Sürücüleri paylaşılan](https://docs.docker.com/docker-for-windows/#shared-drives)**  Windows için Docker birimi eşlemenin ve hata ayıklamayı destekleyecek şekilde yapılandırılması gerekir. Sistem tepsisi'nın Docker simgesine sağ tıklayın, **ayarları**seçip **paylaşılan sürücüleri**. Docker dosyaları depoladığı sürücü seçin. Tıklayın **uygulamak**.
+**[Sürücüleri paylaşılan](https://docs.docker.com/docker-for-windows/#shared-drives)**  Windows için Docker birimi eşlemenin ve hata ayıklamayı destekleyecek şekilde yapılandırılması gerekir. Sistem tepsisi'nın Docker simgesine sağ tıklayın, **ayarları**seçip **paylaşılan sürücüleri**. Docker dosyaları depoladığı sürücü seçin. **Uygula**'ya tıklayın.
 
 ![Kapsayıcılar için paylaşımı yerel C sürücüsüne seçmek için iletişim kutusu](visual-studio-tools-for-docker/_static/settings-shared-drives-win.png)
 
@@ -232,7 +232,7 @@ Bir karşılaştırma için boyut olarak daha küçük üretim ya da sürüm res
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Visual Studio ile kapsayıcı geliştirme](/visualstudio/containers)
-* [Azure Service Fabric: geliştirme ortamınızı hazırlama](/azure/service-fabric/service-fabric-get-started)
+* [Azure Service Fabric: Geliştirme ortamınızı hazırlama](/azure/service-fabric/service-fabric-get-started)
 * [Azure Service Fabric'e Windows kapsayıcısındaki bir .NET uygulaması dağıtma](/azure/service-fabric/service-fabric-host-app-in-a-container)
 * [Visual Studio 2017 geliştirme Docker ile ilgili sorunları giderme](/azure/vs-azure-tools-docker-troubleshooting-docker-errors)
 * [Docker GitHub deposu için Visual Studio Araçları](https://github.com/Microsoft/DockerTools)

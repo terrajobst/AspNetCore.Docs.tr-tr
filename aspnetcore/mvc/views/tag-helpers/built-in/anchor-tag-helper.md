@@ -4,14 +4,14 @@ author: pkellner
 description: ASP.NET Core yer işareti etiketi Yardımcısı öznitelikleri ve her bir öznitelik HTML yer işareti etiketi davranışını genişletmek oynadığı rolü keşfedin.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 4/18/2019
 uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
-ms.openlocfilehash: 60fa0c00e40878a8227ca2bc8bdb0bc2bf9f8336
-ms.sourcegitcommit: ea215df889e89db44037a6ac2f01baede0450da9
+ms.openlocfilehash: de45c99194d4825c1e404aa193b0f076ba659748
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53595347"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64898577"
 ---
 # <a name="anchor-tag-helper-in-aspnet-core"></a>ASP.NET core'da yer işareti etiketi Yardımcısı
 
@@ -21,15 +21,15 @@ Tarafından [Peter Kellner](http://peterkellner.net) ve [Scott Addie](https://gi
 
 Etiket Yardımcıları genel bakış için bkz. <xref:mvc/views/tag-helpers/intro>.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/built-in/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/tag-helpers/built-in/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 *SpeakerController* örnekleri bu belge boyunca kullanılır:
 
 [!code-csharp[](samples/TagHelpersBuiltIn/Controllers/SpeakerController.cs?name=snippet_SpeakerController)]
 
-Bir envanterini `asp-` aşağıdaki öznitelikleri.
+## <a name="anchor-tag-helper-attributes"></a>Yer işareti etiketi Yardımcısı öznitelikleri
 
-## <a name="asp-controller"></a>ASP denetleyicisi
+### <a name="asp-controller"></a>ASP denetleyicisi
 
 [Asp denetleyicisi](xref:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Controller*) öznitelik, URL'yi oluşturmak için kullanılan denetleyici atar. Aşağıdaki biçimlendirmede tüm konuşmacılarını listeler:
 
@@ -63,7 +63,7 @@ Hayır ise `asp-controller` özniteliği belirtilmezse, geçerli görünüm yür
 
 Varsa `asp-action` öznitelik değeri `Index`, hiçbir eylem için varsayılan çağırma giden URL, eklenecek sonra `Index` eylem. Eylem belirtilen (veya varsayılan), başvurulan denetleyicisindeki bulunmalıdır `asp-controller`.
 
-## <a name="asp-route-value"></a>ASP - route-{value}
+### <a name="asp-route-value"></a>ASP - route-{value}
 
 [Asp - route-{value}](xref:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.RouteValues*) öznitelik joker karakter rota öneki sağlar. Herhangi bir değer kaplayan `{value}` yer tutucusu, olası bir rota parametresini yorumlanır. Varsayılan bir yol bulunmazsa, bu rota öneki eklenir oluşturulan `href` bir istek parametresi ve değeri olarak özniteliği. Aksi takdirde, bu rota şablonu konur.
 
@@ -117,7 +117,7 @@ Aşağıdaki HTML'yi çünkü oluşturulan `speakerid` eşleşen yolda bulunamad
 
 Ya da `asp-controller` veya `asp-action` belirtilmemişse, sonra aynı varsayılan işlem olduğundan ardından `asp-route` özniteliği.
 
-## <a name="asp-route"></a>ASP yol
+### <a name="asp-route"></a>ASP yol
 
 [Asp rota](xref:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Route*) öznitelik, URL'yi doğrudan adlandırılmış bir rotayı bağlama oluşturmak için kullanılır. Kullanarak [yönlendirme öznitelikleri](xref:mvc/controllers/routing#attribute-routing), gösterildiği gibi bir yol adlandırılabilir `SpeakerController` ve kullanılan kendi `Evaluations` eylem:
 
@@ -155,7 +155,7 @@ Yukarıdaki kod, aşağıdaki HTML'yi oluşturur:
 
 Sözlükteki tüm anahtarları rota parametrelerinin eşleşiyorsa, bu değerleri uygun şekilde rotadaki yerine kullanılır. Eşleşmeyen diğer değerleri, istek parametreleri oluşturulur.
 
-## <a name="asp-fragment"></a>ASP parçası
+### <a name="asp-fragment"></a>ASP parçası
 
 [Asp parça](xref:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Fragment*) özniteliği URL'ye için URL parçası belirtmesini tanımlar. Yer işareti etiketi Yardımcısı karma karakteri ekler (#). Aşağıdaki biçimlendirmede göz önünde bulundurun:
 
@@ -169,7 +169,7 @@ Oluşturulan HTML:
 
 Karma etiketleri, istemci tarafı uygulamalar oluştururken yararlı olur. Bunlar, kolay işaretleme ve JavaScript'te, örneğin arama için kullanılabilir.
 
-## <a name="asp-area"></a>ASP alanı
+### <a name="asp-area"></a>ASP alanı
 
 [Asp alan](xref:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Area*) özniteliği uygun bir yol ayarlamak için kullanılan alan adını ayarlar. Aşağıdaki örnekler tarif nasıl `asp-area` özniteliği, yeniden eşleme yollarını neden olur.
 
@@ -239,7 +239,7 @@ Oluşturulan HTML:
 >
 > [!code-csharp[](samples/TagHelpersBuiltIn/Startup.cs?name=snippet_UseMvc&highlight=5)]
 
-## <a name="asp-protocol"></a>ASP Protokolü
+### <a name="asp-protocol"></a>ASP Protokolü
 
 [Asp Protokolü](xref:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Protocol*) özniteliği, bir protokol belirtmek için (gibi `https`), URL. Örneğin:
 
@@ -253,7 +253,7 @@ Oluşturulan HTML:
 
 Ana bilgisayar adı örnekteki localhost'tur. Yer işareti etiketi Yardımcısı Web sitesinin genel etki alanı için URL oluşturulurken kullanır.
 
-## <a name="asp-host"></a>ASP konak
+### <a name="asp-host"></a>ASP konak
 
 [Asp konak](xref:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Host*) özniteliği, bir ana bilgisayar adı, URL belirtmek için. Örneğin:
 
@@ -265,7 +265,7 @@ Oluşturulan HTML:
 <a href="https://microsoft.com/Home/About">About</a>
 ```
 
-## <a name="asp-page"></a>ASP sayfası
+### <a name="asp-page"></a>ASP sayfası
 
 [Asp sayfasının](xref:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.Page*) özniteliği, Razor sayfaları ile kullanılır. Bir yer işareti etiketin ayarlamak için kullanın `href` belirli bir sayfaya öznitelik değeri. Sayfanın adını bir eğik çizgi ("/"), URL oluşturur.
 
@@ -289,7 +289,7 @@ Oluşturulan HTML:
 <a href="/Attendee?attendeeid=10">View Attendee</a>
 ```
 
-## <a name="asp-page-handler"></a>ASP sayfası işleyicisi
+### <a name="asp-page-handler"></a>ASP sayfası işleyicisi
 
 [Asp sayfasını işleyici](xref:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper.PageHandler*) özniteliği, Razor sayfaları ile kullanılır. Belirli bir sayfaya işleyicilerine bağlamak için tasarlanmıştır.
 

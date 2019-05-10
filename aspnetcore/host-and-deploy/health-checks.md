@@ -5,14 +5,14 @@ description: Uygulamaları ve veritabanları gibi ASP.NET Core altyapısı için
 monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/11/2019
+ms.date: 04/23/2019
 uid: host-and-deploy/health-checks
-ms.openlocfilehash: 0bb80a5fccc8240c6f1fb8e59b379766bfd90d9e
-ms.sourcegitcommit: 687ffb15ebe65379f75c84739ea851d5a0d788b7
+ms.openlocfilehash: 5119267a8da5c950989b14b7c2e818aa22806506
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58488721"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64901130"
 ---
 # <a name="health-checks-in-aspnet-core"></a>ASP.NET Core durum denetimleri
 
@@ -26,7 +26,7 @@ Sistem durumu denetimleri, bir uygulama tarafından HTTP uç noktaları olarak k
 * Bellek, disk ve diğer fiziksel sunucu kaynakları için sistem durumunu izlenebilir.
 * Sistem durumu denetimleri, veritabanları ve dış hizmet uç noktaları, kullanılabilirlik ve normal çalışmasına onaylamak için gibi bir uygulamanın bağımlılıklarını test edebilirsiniz.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/health-checks/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/health-checks/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 Örnek uygulama, bu konuda açıklanan senaryo örnekleri içerir. Belirli bir senaryo için örnek uygulama çalıştırmak için kullandığınız [çalıştırma dotnet](/dotnet/core/tools/dotnet-run) proje klasöründeki bir komut kabuğu komut. Örnek uygulamanın bkz *README.md* dosya ve örnek uygulama kullanma hakkında ayrıntılı bilgi için bu konudaki senaryo açıklamaları.
 
@@ -36,7 +36,7 @@ Sistem durumu denetimleri, genellikle bir uygulama durumunu denetlemek için bir
 
 Başvuru [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app) veya paket başvurusu ekleme [Microsoft.AspNetCore.Diagnostics.HealthChecks](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics.HealthChecks) paket.
 
-Başlangıç kodu için birkaç senaryo durum denetimleri göstermek için örnek uygulamayı sağlar. [Veritabanı araştırma](#database-probe) senaryo denetimleri kullanarak bir veritabanı bağlantı durumu [BeatPulse](https://github.com/Xabaril/BeatPulse). [DbContext araştırma](#entity-framework-core-dbcontext-probe) senaryo denetler EF Core kullanarak veritabanı `DbContext`. Örnek uygulamayı veritabanına senaryolarını keşfetmek için:
+Başlangıç kodu için birkaç senaryo durum denetimleri göstermek için örnek uygulamayı sağlar. [Veritabanı araştırma](#database-probe) senaryo denetimleri kullanarak bir veritabanı bağlantı durumu [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks). [DbContext araştırma](#entity-framework-core-dbcontext-probe) senaryo denetler EF Core kullanarak veritabanı `DbContext`. Örnek uygulamayı veritabanına senaryolarını keşfetmek için:
 
 * Bir veritabanı oluşturur ve kendi bağlantı dizesinde sağlar *appsettings.json* dosya.
 * Aşağıdaki paket başvuruları, proje dosyasında sahiptir:
@@ -44,7 +44,7 @@ Başlangıç kodu için birkaç senaryo durum denetimleri göstermek için örne
   * [Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore](https://www.nuget.org/packages/Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore/)
 
 > [!NOTE]
-> [BeatPulse](https://github.com/Xabaril/BeatPulse) tutulan veya Microsoft tarafından desteklenmiyor.
+> [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) bir bağlantı noktası [BeatPulse](https://github.com/xabaril/beatpulse) ve tutulan veya Microsoft tarafından desteklenmiyor.
 
 Başka bir sistem durumu denetimi senaryo, bir yönetim noktasına sistem durumu denetimlerini filtrelemek gösterilmektedir. Örnek uygulama oluşturmanızı gerektiren bir *Properties/launchSettings.json* yönetim bağlantı noktası ve yönetim URL'si içeren dosya. Daha fazla bilgi için [bağlantı noktasına göre filtre](#filter-by-port) bölümü.
 
@@ -286,18 +286,18 @@ private static Task WriteResponse(HttpContext httpContext,
 
 Sistem durumu denetimi, veritabanı normalde yanıt verip vermediğini belirten bir boolean test olarak çalıştırmak için bir veritabanı sorgusu belirtebilirsiniz.
 
-Örnek uygulama kullandığı [BeatPulse](https://github.com/Xabaril/BeatPulse), SQL Server veritabanında sistem durumu denetimi gerçekleştirmek için ASP.NET Core uygulamaları için bir sistem durumu denetimi kitaplığı. BeatPulse yürüten bir `SELECT 1` veritabanı bağlantısını doğrulamak için veritabanında sorgu iyi durumda.
+Örnek uygulama kullandığı [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks), SQL Server veritabanında sistem durumu denetimi gerçekleştirmek için ASP.NET Core uygulamaları için bir sistem durumu denetimi kitaplığı. `AspNetCore.Diagnostics.HealthChecks` yürüten bir `SELECT 1` veritabanı bağlantısını doğrulamak için veritabanında sorgu iyi durumda.
 
 > [!WARNING]
 > Bir sorgu ile bir veritabanı bağlantısı kontrol ediliyor hızla döndüren bir sorgu seçin. Sorgu yaklaşım veritabanı aşırı yükleme ve performansının düşmesinde riskini çalıştırır. Çoğu durumda, bir test sorgusu çalıştırarak gerekli değildir. Yalnızca veritabanı başarılı bir bağlantı yapmadan yeterli olur. Bir sorgu çalıştırmak gerekli fark ederseniz, basit bir SELECT sorgusunu gibi seçin `SELECT 1`.
 
-BeatPulse kitaplığı kullanmak için bir paket başvuru içeren [AspNetCore.HealthChecks.SqlServer](https://www.nuget.org/packages/AspNetCore.HealthChecks.SqlServer/).
+Bir paket başvuru eklemek [AspNetCore.HealthChecks.SqlServer](https://www.nuget.org/packages/AspNetCore.HealthChecks.SqlServer/).
 
 Geçerli veritabanı bağlantı dizesini sağlamanız *appsettings.json* örnek uygulamanın dosya. Adlı bir SQL Server veritabanı uygulamanın kullandığı `HealthCheckSample`:
 
 [!code-json[](health-checks/samples/2.x/HealthChecksSample/appsettings.json?highlight=3)]
 
-Sistem durumu denetimi hizmetleriyle kaydetme <xref:Microsoft.Extensions.DependencyInjection.HealthCheckServiceCollectionExtensions.AddHealthChecks*> içinde `Startup.ConfigureServices`. Örnek uygulamayı çağırır BeatPulse'nın `AddSqlServer` veritabanının bağlantı dizesiyle yöntemi (*DbHealthStartup.cs*):
+Sistem durumu denetimi hizmetleriyle kaydetme <xref:Microsoft.Extensions.DependencyInjection.HealthCheckServiceCollectionExtensions.AddHealthChecks*> içinde `Startup.ConfigureServices`. Örnek Uygulama çağrıları `AddSqlServer` veritabanının bağlantı dizesiyle yöntemi (*DbHealthStartup.cs*):
 
 [!code-csharp[](health-checks/samples/2.x/HealthChecksSample/DbHealthStartup.cs?name=snippet_ConfigureServices)]
 
@@ -312,7 +312,7 @@ dotnet run --scenario db
 ```
 
 > [!NOTE]
-> [BeatPulse](https://github.com/Xabaril/BeatPulse) tutulan veya Microsoft tarafından desteklenmiyor.
+> [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) bir bağlantı noktası [BeatPulse](https://github.com/xabaril/beatpulse) ve tutulan veya Microsoft tarafından desteklenmiyor.
 
 ## <a name="entity-framework-core-dbcontext-probe"></a>Entity Framework Core DbContext araştırma
 
@@ -469,9 +469,9 @@ dotnet run --scenario writer
 ```
 
 > [!NOTE]
-> [BeatPulse](https://github.com/Xabaril/BeatPulse) disk depolama ve en yüksek değer canlılık denetimleri de dahil olmak üzere, ölçüm tabanlı bir sistem durumu denetimi senaryolar içerir.
+> [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) disk depolama ve en yüksek değer canlılık denetimleri de dahil olmak üzere, ölçüm tabanlı bir sistem durumu denetimi senaryolar içerir.
 >
-> [BeatPulse](https://github.com/Xabaril/BeatPulse) tutulan veya Microsoft tarafından desteklenmiyor.
+> [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) bir bağlantı noktası [BeatPulse](https://github.com/xabaril/beatpulse) ve tutulan veya Microsoft tarafından desteklenmiyor.
 
 ## <a name="filter-by-port"></a>Bağlantı noktası göre filtrele
 
@@ -681,6 +681,6 @@ Task PublishAsync(HealthReport report, CancellationToken cancellationToken);
 ::: moniker-end
 
 > [!NOTE]
-> [BeatPulse](https://github.com/Xabaril/BeatPulse) dahil olmak üzere çeşitli sistemler için yayımcılar içerir [Application Insights](/azure/application-insights/app-insights-overview).
+> [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) dahil olmak üzere çeşitli sistemler için yayımcılar içerir [Application Insights](/azure/application-insights/app-insights-overview).
 >
-> [BeatPulse](https://github.com/Xabaril/BeatPulse) tutulan veya Microsoft tarafından desteklenmiyor.
+> [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) bir bağlantı noktası [BeatPulse](https://github.com/xabaril/beatpulse) ve tutulan veya Microsoft tarafından desteklenmiyor.

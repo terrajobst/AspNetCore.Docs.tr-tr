@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/25/2019
 uid: test/integration-tests
-ms.openlocfilehash: 11a8f4296e1b0b229c736645f1aa598307b88ec4
-ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
+ms.openlocfilehash: 46c3b227ca0b3def5ab7d527a2f6ef2497d55f83
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58320192"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64898658"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>ASP.NET core'da tümleştirme testleri
 
@@ -22,7 +22,7 @@ Tümleştirme testleri, bir uygulamanın bileşenleri içeren bir veritabanı, d
 
 Bu konuda, birim testleri temel bir anlayış varsayılır. Bilinmeyen test kavramlarına aşina değilse [birim testi .NET Core ve .NET Standard](/dotnet/core/testing/) konu ve bağlantılı içeriği.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/integration-tests/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 Örnek uygulama bir Razor sayfaları uygulamasıdır ve Razor sayfaları temel bir anlayış varsayar. Tanınmayan Razor sayfalarıyla istiyorsanız, aşağıdaki konulara bakın:
 
@@ -104,7 +104,7 @@ Test projesi gerekir:
   * [Microsoft.AspNetCore.Mvc.Testing](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Testing/)
 * Proje dosyasında Web SDK'sı belirtin (`<Project Sdk="Microsoft.NET.Sdk.Web">`). Web SDK'sı başvururken gereklidir [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).
 
-Bu Önkoşullar şurada görülebilir [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/integration-tests/samples/). İnceleme *tests/RazorPagesProject.Tests/RazorPagesProject.Tests.csproj* dosya. Örnek uygulama kullandığı [xUnit](https://xunit.github.io/) test çerçevesi ve [AngleSharp](https://anglesharp.github.io/) örnek uygulamasını da başvurduğu için ayrıştırıcı kitaplığı:
+Bu Önkoşullar şurada görülebilir [örnek uygulaması](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples/). İnceleme *tests/RazorPagesProject.Tests/RazorPagesProject.Tests.csproj* dosya. Örnek uygulama kullandığı [xUnit](https://xunit.github.io/) test çerçevesi ve [AngleSharp](https://anglesharp.github.io/) örnek uygulamasını da başvurduğu için ayrıştırıcı kitaplığı:
 
 * [xunit](https://www.nuget.org/packages/xunit/)
 * [xunit.Runner.VisualStudio](https://www.nuget.org/packages/xunit.runner.visualstudio/)
@@ -155,7 +155,7 @@ Web ana bilgisayar yapılandırması oluşturulabilir bağımsız olarak test s�
 
    [!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/CustomWebApplicationFactory.cs?name=snippet1)]
 
-   Veritabanı içinde dengeli dağıtım [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/integration-tests/samples) tarafından gerçekleştirilen `InitializeDbForTests` yöntemi. Yöntem açıklanan [tümleştirme testleri örnek: Test uygulama kuruluş](#test-app-organization) bölümü.
+   Veritabanı içinde dengeli dağıtım [örnek uygulaması](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) tarafından gerçekleştirilen `InitializeDbForTests` yöntemi. Yöntem açıklanan [tümleştirme testleri örnek: Test uygulama kuruluş](#test-app-organization) bölümü.
 
 2. Özel kullanmanın `CustomWebApplicationFactory` test sınıflarında. Aşağıdaki örnek, fabrikada kullanır `IndexPageTests` sınıfı:
 
@@ -173,7 +173,7 @@ SUT yapılan tüm POST istekleri otomatik olarak uygulama tarafından yapılan a
 1. İstek Doğrulama belirtecini yanıtından ve antiforgery tanımlama bilgisi ayrıştırılamıyor.
 1. POST isteğini antiforgery tanımlama bilgisi ve istek doğrulama ile yerinde belirteci olun.
 
-`SendAsync` Yardımcı uzantı yöntemleri (*Helpers/HttpClientExtensions.cs*) ve `GetDocumentAsync` yardımcı yöntemini (*Helpers/HtmlHelpers.cs*) içinde [örnekuygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/integration-tests/samples/) kullanın [AngleSharp](https://anglesharp.github.io/) aşağıdaki yöntemlerle antiforgery onay işlemek için ayrıştırıcı:
+`SendAsync` Yardımcı uzantı yöntemleri (*Helpers/HttpClientExtensions.cs*) ve `GetDocumentAsync` yardımcı yöntemini (*Helpers/HtmlHelpers.cs*) içinde [örnekuygulaması](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples/) kullanın [AngleSharp](https://anglesharp.github.io/) aşağıdaki yöntemlerle antiforgery onay işlemek için ayrıştırıcı:
 
 * `GetDocumentAsync` &ndash; Alan [HttpResponseMessage](/dotnet/api/system.net.http.httpresponsemessage) ve döndüren bir `IHtmlDocument`. `GetDocumentAsync` hazırlayan bir Fabrika kullanan bir *sanal yanıt* özgün tabanlı `HttpResponseMessage`. Daha fazla bilgi için [AngleSharp belgeleri](https://github.com/AngleSharp/AngleSharp#documentation).
 * `SendAsync` için genişletme yöntemleri `HttpClient` oluşturan bir [HttpRequestMessage](/dotnet/api/system.net.http.httprequestmessage) ve çağrı [SendAsync(HttpRequestMessage)](/dotnet/api/system.net.http.httpclient.sendasync#System_Net_Http_HttpClient_SendAsync_System_Net_Http_HttpRequestMessage_) SUT istekleri göndermek için. İçin aşırı yüklediği `SendAsync` HTML formu kabul (`IHtmlFormElement`) ve aşağıdaki:
@@ -188,7 +188,7 @@ SUT yapılan tüm POST istekleri otomatik olarak uygulama tarafından yapılan a
 
 Bir test yöntemi içinde ek yapılandırma gerektiğinde [WithWebHostBuilder](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1.withwebhostbuilder) yeni bir oluşturur `WebApplicationFactory` ile bir [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder) , daha fazla özelleştirilmiş yapılandırma.
 
-`Post_DeleteMessageHandler_ReturnsRedirectToRoot` Test yöntemi [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/integration-tests/samples) kullanımını gösteren `WithWebHostBuilder`. Bu test, bir form gönderimi SUT tetikleyerek, veritabanında bir kayıt silme gerçekleştirir.
+`Post_DeleteMessageHandler_ReturnsRedirectToRoot` Test yöntemi [örnek uygulaması](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) kullanımını gösteren `WithWebHostBuilder`. Bu test, bir form gönderimi SUT tetikleyerek, veritabanında bir kayıt silme gerçekleştirir.
 
 Çünkü başka test `IndexPageTests` sınıfı tüm veritabanındaki kayıtları siler ve önce çalıştırılabilir bir işlem gerçekleştiren `Post_DeleteMessageHandler_ReturnsRedirectToRoot` yöntem, veritabanı çekirdek değeri oluşturulmuş bir kaydı silmek için SUT mevcut olduğundan emin olmak için bu test yönteminde. Seçme `deleteBtn1` düğmesini `messages` SUT biçiminde benzetimli SUT isteğinde:
 
@@ -311,7 +311,7 @@ Arama mantığı çalışma zamanında doğru içerik kök genellikle bulur. ço
 
 ## <a name="disable-shadow-copying"></a>Gölge kopyalama devre dışı bırak
 
-Gölge kopyalama çıktı klasörünü farklı bir klasörde yürütülecek testleri neden olur. Gölge kopyalama düzgün çalışması testleri için devre dışı bırakılmalıdır. [Örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/integration-tests/samples) xUnit kullanır ve dahil ederek xUnit için gölge kopyalama devre dışı bırakan bir *xunit.runner.json* doğru yapılandırma ayarı dosyası. Daha fazla bilgi için [xUnit ile JSON yapılandırma](https://xunit.github.io/docs/configuring-with-json.html).
+Gölge kopyalama çıktı klasörünü farklı bir klasörde yürütülecek testleri neden olur. Gölge kopyalama düzgün çalışması testleri için devre dışı bırakılmalıdır. [Örnek uygulaması](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) xUnit kullanır ve dahil ederek xUnit için gölge kopyalama devre dışı bırakan bir *xunit.runner.json* doğru yapılandırma ayarı dosyası. Daha fazla bilgi için [xUnit ile JSON yapılandırma](https://xunit.github.io/docs/configuring-with-json.html).
 
 Ekleme *xunit.runner.json* dosya aşağıdaki içeriğe sahip test projesinin kök:
 
@@ -327,14 +327,14 @@ Testleri sonra `IClassFixture` uygulama yürütüldüğünde, [TestServer](/dotn
 
 ## <a name="integration-tests-sample"></a>Tümleştirme testleri örneği
 
-[Örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/test/integration-tests/samples) iki uygulama oluşur:
+[Örnek uygulaması](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) iki uygulama oluşur:
 
 | Uygulama | Proje klasörü | Açıklama |
 | --- | -------------- | ----------- |
 | İleti uygulaması (SUT) | *src/RazorPagesProject* | Eklemek, silmek, tüm silmek ve iletileri çözümleme açmasına olanak sağlar. |
 | Test uygulaması | *tests/RazorPagesProject.Tests* | Tümleştirme testi SUT için kullanılır. |
 
-Bir IDE özelliklerini yerleşik test gibi kullanarak testler çalıştırılabilir [Visual Studio](https://www.visualstudio.com/vs/). Kullanıyorsanız [Visual Studio Code](https://code.visualstudio.com/) veya bir komut isteminde aşağıdaki komutu yürütün komut satırının *tests/RazorPagesProject.Tests* klasörü:
+Bir IDE özelliklerini yerleşik test gibi kullanarak testler çalıştırılabilir [Visual Studio](https://visualstudio.microsoft.com). Kullanıyorsanız [Visual Studio Code](https://code.visualstudio.com/) veya bir komut isteminde aşağıdaki komutu yürütün komut satırının *tests/RazorPagesProject.Tests* klasörü:
 
 ```console
 dotnet test

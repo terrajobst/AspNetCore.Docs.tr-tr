@@ -1,7 +1,7 @@
 # <a name="aspnet-core-response-caching-sample"></a>ASP.NET Core yanıt önbelleğe alma örneği
 
-Bu örnek ASP.NET Core kullanımını göstermektedir [yanıt önbelleğe alma Ara](https://docs.microsoft.com/aspnet/core/performance/caching/middleware).
+Bu örnek ASP.NET Core kullanımını [yanıt önbelleğe alma ara yazılımı](https://docs.microsoft.com/aspnet/core/performance/caching/middleware).
 
-Uygulama, dizin sayfasıyla yanıt dahil olmak üzere bir `Cache-Control` önbelleğe alma davranışını yapılandırmak için üstbilgi. Uygulama ayrıca ayarlar `Vary` yanıt eksikse hizmet önbelleğini yapılandırmak için üstbilgi `Accept-Encoding` sonraki istekleri üstbilgisinin eşleşir, özgün istekteki veriye.
+Uygulama, dizin sayfasıyla yanıt dahil olmak üzere bir `Cache-Control` önbelleğe alma davranışını yapılandırmak için üst bilgi. Uygulama ayrıca ayarlar `Vary` yanıt yalnızca şu durumlarda hizmet önbelleğini yapılandırmak için üst bilgi `Accept-Encoding` sonraki istekleri üstbilgisinin özgün istekteki eşleşen.
 
-Örnek çalıştırırken, dizin sayfası depolandığında ve 10 saniye için önbelleğe önbelleğinden sunulur.
+Örnek çalışırken, dizin sayfası depolandığında ve 10 saniye boyunca önbelleğe önbelleğinden sunulur.

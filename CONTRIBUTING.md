@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: 98a03118954baa85b093a0514e1ac6f0fb6353e8
-ms.sourcegitcommit: 088e6744cd67a62f214f25146313a53949b17d35
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58320114"
----
 # <a name="contribute-to-the-aspnet-core-documentation"></a>ASP.NET Core belgelerine katkıda bulunun
 
 Bu belgede ele alınmaktadır makaleler ve barındırılan kod örnekleri katkıda bulunmak için işlem [ASP.NET belgeleri sitesi](https://docs.microsoft.com/aspnet/). Hoş Geldiniz Katkıları şunlardır: yazım düzeltmeleri ve yeni makaleler.

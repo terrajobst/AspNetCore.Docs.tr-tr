@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 02/21/2019
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: 6ec9b7bf3da0015b8ac3918a4d47644fffc14cdb
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 7ba27b404cd10752ff9e304cd0a272eff7fa627a
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209180"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65087051"
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>ASP.NET core'da HTTP.sys web sunucusu uygulaması
 
@@ -38,7 +38,7 @@ Desteklenen Windows sürümleri:
 * Windows 7 veya üzeri
 * Windows Server 2008 R2 veya üzeri
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/httpsys/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/servers/httpsys/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-httpsys"></a>HTTP.sys kullanıldığı durumlar
 
@@ -141,7 +141,7 @@ HTTP/2 varsayılan olarak etkindir. Bir HTTP/2 bağlantı değil, bağlantı, HT
 
 1. Edinin ve gerektiğinde X.509 sertifikaları yükleyin.
 
-   Otomatik olarak imzalanan sertifikaları kullanarak Windows üzerinde oluşturun [New-SelfSignedCertificate PowerShell cmdlet'i](/powershell/module/pkiclient/new-selfsignedcertificate). Desteklenmeyen bir örnek için bkz [UpdateIISExpressSSLForChrome.ps1](https://github.com/aspnet/Docs/tree/master/aspnetcore/includes/make-x509-cert/UpdateIISExpressSSLForChrome.ps1).
+   Otomatik olarak imzalanan sertifikaları kullanarak Windows üzerinde oluşturun [New-SelfSignedCertificate PowerShell cmdlet'i](/powershell/module/pkiclient/new-selfsignedcertificate). Desteklenmeyen bir örnek için bkz [UpdateIISExpressSSLForChrome.ps1](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/includes/make-x509-cert/UpdateIISExpressSSLForChrome.ps1).
 
    Sunucunun otomatik olarak imzalanan veya CA imzalı sertifika yükleme **yerel makine** > **kişisel** depolayın.
 

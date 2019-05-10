@@ -7,18 +7,18 @@ ms.custom: mvc
 ms.date: 04/06/2019
 monikerRange: '>= aspnetcore-2.1'
 uid: mvc/models/validation
-ms.openlocfilehash: bd6585c9eec4412fe70c17b5ca94269027803733
-ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
+ms.openlocfilehash: acb0ae989f6e82a5bc80935a8acfc96e51073d2f
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59982778"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64898397"
 ---
 # <a name="model-validation-in-aspnet-core-mvc-and-razor-pages"></a>Razor sayfaları ile ASP.NET Core MVC, model doğrulama
 
 Bu makalede, bir ASP.NET Core MVC veya Razor sayfaları uygulamada kullanıcı girişini doğrulama açıklanmaktadır.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/models/validation/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample)).
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/validation/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample)).
 
 ## <a name="model-state"></a>Model durumu
 
@@ -38,7 +38,7 @@ Doğrulama işlemi otomatiktir ancak el ile yinelemek isteyebilirsiniz. Örneği
 
 ## <a name="validation-attributes"></a>Doğrulama öznitelikleri
 
-Doğrulama özniteliklerinin model özelliklerini doğrulama kurallarını belirtmenizi sağlar. Aşağıdaki örnekte [örnek uygulamasını](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/models/validation/sample) doğrulama özniteliklerle ek açıklama bir model sınıfı gösterir. `[ClassicMovie]` Diğer yerleşik ve özel doğrulama özniteliği bir özniteliktir. (Gösterilmemiştir olan `[ClassicMovie2]`, özel bir öznitelik uygulamak için alternatif bir yolu gösterir.)
+Doğrulama özniteliklerinin model özelliklerini doğrulama kurallarını belirtmenizi sağlar. Aşağıdaki örnekte [örnek uygulamasını](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/models/validation/sample) doğrulama özniteliklerle ek açıklama bir model sınıfı gösterir. `[ClassicMovie]` Diğer yerleşik ve özel doğrulama özniteliği bir özniteliktir. (Gösterilmemiştir olan `[ClassicMovie2]`, özel bir öznitelik uygulamak için alternatif bir yolu gösterir.)
 
 [!code-csharp[](validation/sample/Models/Movie.cs?name=snippet_ModelClass)]
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/06/2019
 uid: security/cookie-sharing
-ms.openlocfilehash: 7a049ed8787808e228859afc051b8697a6261c21
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.openlocfilehash: 94fafc91012b5a7e0888a6ebf37f517c129af2ac
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59068316"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64899054"
 ---
 # <a name="share-cookies-among-apps-with-aspnet-and-aspnet-core"></a>ASP.NET ve ASP.NET Core ile uygulamalar arasında tanımlama bilgilerini paylaşma
 
@@ -19,7 +19,7 @@ Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT) ve [Luke Latham](ht
 
 Web siteleri, genellikle birlikte çalışan tek tek web uygulamalarını oluşur. Bir çoklu oturum açma (SSO) deneyimi sağlamak için bir site içinde web apps kimlik doğrulaması tanımlama bilgileri paylaşmanız gerekir. Bu senaryoyu desteklemek için veri koruma yığın Katana tanımlama bilgisi kimlik doğrulamasını ve ASP.NET Core tanımlama bilgisi kimlik doğrulama biletlerini paylaşımı sağlar.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/cookie-sharing/sample/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/cookie-sharing/sample/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 Örnek paylaşımı tanımlama bilgisi kimlik doğrulamasını kullanan üç uygulamalar arasında tanımlama bilgisi gösterilmektedir:
 
@@ -57,7 +57,7 @@ Alt etki alanları arasında tanımlama bilgilerini paylaşma uygulamayı barın
 options.Cookie.Domain = ".contoso.com";
 ```
 
-Bkz: *CookieAuthWithIdentity.Core* projesi [örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/cookie-sharing/sample/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample)).
+Bkz: *CookieAuthWithIdentity.Core* projesi [örnek kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/cookie-sharing/sample/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample)).
 
 ::: moniker-end
 
@@ -105,7 +105,7 @@ Alt etki alanları arasında tanımlama bilgilerini paylaşma uygulamayı barın
 options.Cookie.Domain = ".contoso.com";
 ```
 
-Bkz: *CookieAuth.Core* projesi [örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/cookie-sharing/sample/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample)).
+Bkz: *CookieAuth.Core* projesi [örnek kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/cookie-sharing/sample/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample)).
 
 ::: moniker-end
 
@@ -167,7 +167,7 @@ ASP.NET Core uygulaması ile bir ASP.NET 4.x uygulama arasındaki kimlik doğrul
 
 [!code-csharp[](cookie-sharing/sample/CookieAuthWithIdentity.NETFramework/CookieAuthWithIdentity.NETFramework/App_Start/Startup.Auth.cs?name=snippet1)]
 
-Bkz: *CookieAuthWithIdentity.NETFramework* projesi [örnek kod](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/cookie-sharing/sample/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample)).
+Bkz: *CookieAuthWithIdentity.NETFramework* projesi [örnek kod](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/cookie-sharing/sample/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample)).
 
 Bir kullanıcı kimliği oluştururken, kimlik doğrulama türü içinde tanımlanan tür eşleşmelidir `AuthenticationType` kümesi `UseCookieAuthentication`.
 

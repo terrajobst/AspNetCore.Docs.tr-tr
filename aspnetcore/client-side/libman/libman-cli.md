@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 08/30/2018
 uid: client-side/libman/libman-cli
 ms.openlocfilehash: 5667f79648a60b8fd9496f8041ef08891ab766af
-ms.sourcegitcommit: 9bdba90b2c97a4016188434657194b2d7027d6e3
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47402091"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64900884"
 ---
 # <a name="use-the-libman-command-line-interface-cli-with-aspnet-core"></a>LibMan komut satırı arabirimi (CLI) ile ASP.NET Core kullanın
 
@@ -94,7 +94,7 @@ Aşağıdaki bölümlerde kullanılabilir CLI komutları özetler.
 
 `libman init` Komut oluşturur bir *libman.json* yoksa dosya. Dosyanın varsayılan öğe şablonu içeriği ile oluşturulur.
 
-### <a name="synopsis"></a>Özeti
+### <a name="synopsis"></a>Synopsis
 
 ```console
 libman init [-d|--default-destination] [-p|--default-provider] [--verbosity]
@@ -148,7 +148,7 @@ A *libman.json* dosya aşağıdaki içeriğe sahip proje kök eklenir:
 
 `libman install` Komut indirir ve projeye kitaplık dosyalarını yükler. A *libman.json* dosya yoksa eklenir. *Libman.json* yapılandırma ayrıntıları için kitaplık dosyalarını depolamak için dosya değiştirilmiş.
 
-### <a name="synopsis"></a>Özeti
+### <a name="synopsis"></a>Synopsis
 
 ```console
 libman install <LIBRARY> [-d|--destination] [--files] [-p|--provider] [--verbosity]
@@ -171,7 +171,7 @@ Aşağıdaki seçenekler kullanılabilir `libman install` komutu:
 
 * `--files <FILE>`
 
-  Kitaplıktan yüklenecek dosyanın adını belirtin. Belirtilmezse, tüm dosyaları Kitaplığı'ndan yüklenir. Bir tane sağlayın `--files` yüklenmesi için dosya başına seçeneği. Göreli yollar çok desteklenir. Örneğin: `--files dist/browser/signalr.js`.
+  Kitaplıktan yüklenecek dosyanın adını belirtin. Belirtilmezse, tüm dosyaları Kitaplığı'ndan yüklenir. Bir tane sağlayın `--files` yüklenmesi için dosya başına seçeneği. Göreli yollar çok desteklenir. Örneğin: `--files dist/browser/signalr.js`
 
 * `-p|--provider <PROVIDER>`
 
@@ -267,7 +267,7 @@ Sonra varsayılan hedef olarak kabul *libman.json* dosyası aşağıdakine benze
 * Kitaplığa bir sağlayıcı belirtiyorsa `defaultProvider` özelliğinde *libman.json* göz ardı edilir.
 * Kitaplığa bir hedef belirtiyorsa `defaultDestination` özelliğinde *libman.json* göz ardı edilir.
 
-### <a name="synopsis"></a>Özeti
+### <a name="synopsis"></a>Synopsis
 
 ```console
 libman restore [--verbosity]
@@ -292,7 +292,7 @@ libman restore
 
 `libman clean` Komut, daha önce LibMan geri kitaplık dosyalarını siler. Bu işlemden sonra boş duruma klasörler silinir. Kitaplık dosyaları ilişkili yapılandırmalarında `libraries` özelliği *libman.json* kaldırılmaz.
 
-### <a name="synopsis"></a>Özeti
+### <a name="synopsis"></a>Synopsis
 
 ```console
 libman clean [--verbosity]
@@ -327,7 +327,7 @@ Bir hata meydana gelir olduğunda:
 
 Aynı ada sahip birden fazla kitaplık yüklüyse bunlardan birini seçmeniz istenir.
 
-### <a name="synopsis"></a>Özeti
+### <a name="synopsis"></a>Synopsis
 
 ```console
 libman uninstall <LIBRARY> [--verbosity]
@@ -379,7 +379,7 @@ Bir hata meydana gelir olduğunda:
 
 Aynı ada sahip birden fazla kitaplık yüklüyse bunlardan birini seçmeniz istenir.
 
-### <a name="synopsis"></a>Özeti
+### <a name="synopsis"></a>Synopsis
 
 ```console
 libman update <LIBRARY> [-pre] [--to] [--verbosity]
@@ -430,7 +430,7 @@ Aşağıdaki seçenekler kullanılabilir `libman update` komutu:
 
 `libman cache` Komut LibMan kitaplığı önbelleğini yönetir. `filesystem` Sağlayıcısı, kitaplık önbelleği kullanmaz.
 
-### <a name="synopsis"></a>Özeti
+### <a name="synopsis"></a>Synopsis
 
 ```console
 libman cache clean [<PROVIDER>] [--verbosity]

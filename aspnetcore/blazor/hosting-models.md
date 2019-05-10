@@ -5,20 +5,22 @@ description: İstemci tarafı ve sunucu tarafı Blazor modelleri barındırma an
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/19/2019
+ms.date: 04/25/2019
 uid: blazor/hosting-models
-ms.openlocfilehash: 7de93e8721b06e545b3125d78d5e9e0e34c04511
-ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
+ms.openlocfilehash: e5d0d74b6ad3f6b7d53c4fc2cb962daf6566287e
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59982990"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64898631"
 ---
 # <a name="blazor-hosting-models"></a>Blazor barındırma modelleri
 
 Tarafından [Daniel Roth](https://github.com/danroth27)
 
-Blazor istemci-tarafı çalışmak üzere tasarlanmış bir web çerçevesi olan tarayıcıda bir [WebAssembly](http://webassembly.org/)-.NET çalışma zamanı tabanlı (*Blazor istemci-tarafı*) veya sunucu tarafı ASP.NET Core (*Blazor sunucu tarafı* ). Barındırma modeli, uygulama ve bileşen modelleri bakılmaksızın *aynı kalması*.
+Blazor istemci-tarafı çalışmak üzere tasarlanmış bir web çerçevesi olan tarayıcıda bir [WebAssembly](http://webassembly.org/)-.NET çalışma zamanı tabanlı (*Blazor istemci-tarafı*) veya sunucu tarafı ASP.NET Core (*Blazor sunucu tarafı* ). Barındırma modeli, uygulama ve bileşen modelleri bakılmaksızın *aynı*.
+
+Bu makalede açıklanan barındırma modellerine yönelik bir proje oluşturmak için bkz: <xref:blazor/get-started>.
 
 ## <a name="client-side"></a>İstemci tarafı
 
@@ -28,7 +30,7 @@ Asıl barındırma için Blazor WebAssembly tarayıcıda çalışan istemci-tara
 
 İstemci tarafı barındırma modeli kullanarak bir Blazor uygulaması oluşturmak için aşağıdaki şablonlardan birini kullanın:
 
-* **Blazor** ([dotnet yeni blazor](/dotnet/core/tools/dotnet-new)) &ndash; statik dosyalar bir dizi dağıtılabilir.
+* **(İstemci-tarafı) Blazor** ([dotnet yeni blazor](/dotnet/core/tools/dotnet-new)) &ndash; statik dosyalar bir dizi dağıtılabilir.
 * **Blazor (ASP.NET Core barındırılan)** ([dotnet yeni blazorhosted](/dotnet/core/tools/dotnet-new)) &ndash; bir ASP.NET Core sunucusu tarafından barındırılan. ASP.NET Core uygulaması Blazor uygulama istemcilere hizmet. Web API çağrıları kullanarak ağ üzerinden istemci-tarafı Blazor uygulama sunucusu ile etkileşim kurabilir veya [SignalR](xref:signalr/introduction).
 
 Şablonları içerir *blazor.webassembly.js* işleyen betik:
@@ -69,10 +71,10 @@ ASP.NET Core uygulaması uygulamanın başvuran `Startup` sınıfı eklemek içi
 
 Sunucu tarafı barındırma modeli, çeşitli avantajlar sunar:
 
-* Önemli ölçüde daha küçük uygulama bir istemci-tarafı uygulaması boyut ve çok daha hızlı yükleyin.
-* Sunucu özellikleri, herhangi bir .NET Core uyumlu API'sini kullanma dahil olmak üzere tüm avantajlarından yararlanın.
-* Araç, hata ayıklama gibi mevcut .NET beklendiği gibi çalışır. Bu nedenle .NET Core üzerine sunucusunda çalıştırın.
-* Çalışan ince istemciler (örneğin, WebAssembly ve kaynak desteklemeyen tarayıcılar cihazları kısıtlı).
+* Bir istemci-tarafı uygulaması daha önemli ölçüde daha küçük bir uygulama boyutuna sahiptir ve çok daha hızlı yükler.
+* Sunucu özellikleri, herhangi bir .NET Core uyumlu API'sini kullanma dahil olmak üzere tüm avantajlarından alır.
+* Araç, hata ayıklama gibi mevcut .NET beklendiği gibi çalışır. Bu nedenle .NET Core üzerinde sunucu üzerinde çalışır.
+* İnce istemciler ile çalışır. Örneğin, WebAssembly ve kaynak desteklemeyen tarayıcılar ile çalışır, cihazları sınırlı.
 * .NET /C# kod tabanına uygulama bileşeni kod dahil olmak üzere, istemcilere hizmet değil.
 
 Sunucu tarafı barındırma downsides vardır:
@@ -86,7 +88,7 @@ Sunucu tarafı barındırma downsides vardır:
 
 ### <a name="reconnection-to-the-same-server"></a>Aynı sunucuya yeniden bağlanma
 
-Sunucu tarafı uygulamalar Blazor sunucunun etkin bir SignalR bağlantısı gerektirir. Bir bağlantı kaybedilirse uygulamanın sunucuya yeniden dener. Bellekte hala istemcinin durum olduğu sürece, herhangi bir durumu kaybetmeden istemci oturum sürdürür.
+Sunucu tarafı uygulamalar Blazor sunucunun etkin bir SignalR bağlantısı gerektirir. Bir bağlantı kaybedilirse uygulamanın sunucuya yeniden dener. Bellekte hala istemcinin durum olduğu sürece, istemci oturum durumunu kaybetmeden sürdürür.
  
 İstemci bağlantısı kesildi algıladığında, istemci yeniden bağlanmayı dener ancak bir varsayılan kullanıcı arabirimini kullanıcıya görüntülenir. Yeniden bağlanma başarısız olursa, kullanıcı yeniden denemek için seçeneği sağlanır. Kullanıcı arabirimini özelleştirmek için bir öğe ile tanımlama `components-reconnect-modal` olarak kendi `id`. İstemci bu öğe, bağlantı durumuna bağlı aşağıdaki CSS sınıflarının biri ile güncelleştirir:
  
@@ -106,7 +108,7 @@ Blazor sunucu tarafı uygulamalar varsayılan olarak sunucuya istemci bağlantı
 </body>
 ```
  
-İstemci uygulama prerender için kullanılan aynı duruma sunucusuna bağlanır. Uygulamanın durumu bellekte hala ise, bileşen durumu SignalR bağlantı kurulduktan sonra rerendered gerekmez.
+İstemci uygulama prerender için kullanılan aynı duruma sunucusuna bağlanır. Uygulamanın durumu bellekte hala varsa, SignalR bağlantı kurulduktan sonra bileşen durumu rerendered değil.
 
 ### <a name="render-stateful-interactive-components-from-razor-pages-and-views"></a>Durum bilgisi olan etkileşimli bileşenleri Razor sayfaları ve görünümler oluşturma
  
@@ -141,7 +143,7 @@ Bazen, Blazor sunucu tarafı uygulamalar tarafından kullanılan SignalR istemci
 SignalR istemcisinde yapılandırmak zorunda *wwwroot/index.htm* dosyası:
 
 * Ekleme bir `autostart="false"` özniteliğini `<script>` etiketinde *blazor.server.js* betiği.
-* Çağrı `Blazor.start` ve SignalR Oluşturucu belirten bir yapılandırma nesnesi içinde geçirin:
+* Çağrı `Blazor.start` ve SignalR Oluşturucu belirten bir yapılandırma nesnesi içinde geçirin.
  
 ```html
 <script src="_framework/blazor.server.js" autostart="false"></script>
@@ -167,7 +169,7 @@ const connection = new signalR.HubConnectionBuilder()
 
 Parametreleri belirtmeden `withAutomaticReconnect` her girişimden 0, 2, 10 ve 30 saniye bekledikten sonra yeniden bağlanmayı deneyin üzere istemciyi yapılandırır.
 
-Hatasından önce sitede yeniden bağlanma denemesi sayısı varsayılan olmayan yapılandırma veya yeniden zamanlamasını değiştirmek için `withAutomaticReconnect` yeniden bağlanma girişimleri başlatmadan önce beklenecek milisaniye cinsinden gecikme değeri temsil eden sayı dizisi kabul eder.
+Hatasından önce sitede yeniden bağlanma denemesi sayısı varsayılan olmayan yapılandırma veya yeniden zamanlamasını değiştirmek için `withAutomaticReconnect` yeniden bağlanma girişimleri başlatmadan önce beklenecek milisaniye cinsinden gecikme değeri temsil eden sayı dizisi kabul eder:
 
 ```csharp
 const connection = new signalR.HubConnectionBuilder()
@@ -178,7 +180,7 @@ const connection = new signalR.HubConnectionBuilder()
 
 ### <a name="improved-disconnect-and-reconnect-handling"></a>Bağlantı kesme geliştirdik ve yeniden işleme
 
-Yeniden bağlanma girişimleri HubConnection geçişleri başlatmadan önce `Reconnecting` durumu ve ateşlenir kendi `onreconnecting` geri çağırma. Bu, bağlantı kesildi kullanıcıları uyarmak, devre dışı kullanıcı Arabirimi öğeleri ve bağlantısı kesilmiş durumu nedeniyle ortaya çıkabilecek karmaşık kullanıcı senaryolarını kolaylaştırmak için bir fırsat sağlar.
+Yeniden bağlanma girişimleri başlatmadan önce `HubConnection` geçer `Reconnecting` durumu ve ateşlenir kendi `onreconnecting` geri çağırma. Bu, bağlantı kesildi kullanıcıları uyarmak, devre dışı kullanıcı Arabirimi öğeleri ve bağlantısı kesilmiş durumu nedeniyle ortaya çıkabilecek karmaşık kullanıcı senaryolarını kolaylaştırmak için bir fırsat sağlar:
 
 ```javascript
 connection.onreconnecting((error) => {
@@ -192,7 +194,7 @@ connection.onreconnecting((error) => {
 });
 ```
 
-İstemci ilk dört girişimlerinin içinde başarıyla bağlanırsa `HubConnection`geçişleri başa `Connected` durumu ve ateşlenir `onreconnected` geri çağırmalar. Bu, geliştiricilerin bağlantı yeniden kurulur kullanıcılara bildirmek için bir fırsat sağlar.
+İstemci ilk dört girişimlerinin içinde başarıyla bağlanırsa `HubConnection` geçişleri başa `Connected` durumu ve ateşlenir `onreconnected` geri çağırma. Bu bağlantı yeniden kurulur kullanıcılara bildirmek için bir fırsat sağlar:
 
 ```javascript
 connection.onreconnected((connectionId) => {
@@ -206,7 +208,7 @@ connection.onreconnected((connectionId) => {
 });
 ```
 
-İstemci ilk dört girişimlerinin içinde başarıyla yeniden değil `HubConnection` geçer `Disconnected` durumu ve ateşlenir kendi `onclosed` geri çağırmalar. Bu bağlantıyı kalıcı olarak kaybolur varsayılandır ve sayfayı yenilemeyi önermek için iyi bir fırsattır.
+İstemci ilk dört girişimlerinin içinde başarıyla yeniden değil `HubConnection` geçer `Disconnected` durumu ve ateşlenir kendi `onclosed` geri çağırma. Kullanıcılar bağlantıyı kalıcı olarak kaybolur ve sayfayı yenilemeyi önermek için bir fırsat budur.
 
 ```javascript
 connection.onclose((error) => {
@@ -222,4 +224,5 @@ connection.onclose((error) => {
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
+* <xref:blazor/get-started>
 * <xref:signalr/introduction>

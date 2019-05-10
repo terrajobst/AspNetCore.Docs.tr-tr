@@ -6,12 +6,12 @@ ms.author: riande
 ms.date: 12/18/2018
 ms.custom: mvc, seodec18
 uid: security/authorization/secure-data
-ms.openlocfilehash: 9b01aca0cb2b33f5561193ffdce4aa4950485fce
-ms.sourcegitcommit: 8a84ce880b4c40d6694ba6423038f18fc2eb5746
-ms.translationtype: HT
+ms.openlocfilehash: 7013a88aac26426d1f84d1f52e35e319b3764cdb
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60165244"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64900662"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Kullanıcı verilerinin yetkilendirme tarafından korunduğu ile bir ASP.NET Core uygulaması oluşturma
 
@@ -19,7 +19,7 @@ Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT) ve [ALi Audette](ht
 
 ::: moniker range="<= aspnetcore-1.1"
 
-Bkz: [bu PDF](https://webpifeed.blob.core.windows.net/webpifeed/Partners/asp.net_repo_pdf_1-16-18.pdf) ASP.NET Core MVC sürümü için. Bu öğreticide ASP.NET Core 1.1 sürümü [bu](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data) klasör. ASP.NET Core örnek konusu 1.1 [örnekleri](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/final2).
+Bkz: [bu PDF](https://webpifeed.blob.core.windows.net/webpifeed/Partners/asp.net_repo_pdf_1-16-18.pdf) ASP.NET Core MVC sürümü için. Bu öğreticide ASP.NET Core 1.1 sürümü [bu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data) klasör. ASP.NET Core örnek konusu 1.1 [örnekleri](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/final2).
 
 ::: moniker-end
 
@@ -89,11 +89,11 @@ ASP.NET Core 2.1 içinde `User.IsInRole` kullanırken başarısız `AddDefaultId
 
 ## <a name="the-starter-and-completed-app"></a>Tamamlanmış uygulama ve başlangıç
 
-[İndirme](xref:index#how-to-download-a-sample) [tamamlandı](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples) uygulama. [Test](#test-the-completed-app) tamamlanan uygulama güvenlik özellikleri ile ilgili bilgi sahibi olursunuz.
+[İndirme](xref:index#how-to-download-a-sample) [tamamlandı](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples) uygulama. [Test](#test-the-completed-app) tamamlanan uygulama güvenlik özellikleri ile ilgili bilgi sahibi olursunuz.
 
 ### <a name="the-starter-app"></a>Başlangıç uygulaması
 
-[İndirme](xref:index#how-to-download-a-sample) [başlangıç](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter2) uygulama.
+[İndirme](xref:index#how-to-download-a-sample) [başlangıç](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter2) uygulama.
 
 Uygulamayı çalıştırın, dokunun **ContactManager** bağlamak ve oluşturmak, düzenlemek ve bir kişi Sil doğrulayın.
 
@@ -275,7 +275,7 @@ Güncelleştirme ayrıntıları sayfa modeli:
 
 ## <a name="add-or-remove-a-user-to-a-role"></a>Ekleme veya bir rolü için bir kullanıcıyı kaldırma
 
-Bkz: [bu sorunu](https://github.com/aspnet/Docs/issues/8502) hakkında bilgi için:
+Bkz: [bu sorunu](https://github.com/aspnet/AspNetCore.Docs/issues/8502) hakkında bilgi için:
 
 * Bir kullanıcıdan ayrıcalıklarının kaldırılması. Örneğin, bir kullanıcı bir sohbet uygulaması ses kapatma.
 * Bir kullanıcı ayrıcalıkları ekleniyor.
@@ -346,7 +346,7 @@ Bir kişi, yöneticinin tarayıcıda oluşturur. Silme için URL'yi kopyalayın 
 
 ### <a name="seed-the-database"></a>Veritabanının çekirdeğini oluşturma
 
-Ekleme [SeedData](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter2.1/Data/SeedData.cs) sınıfının *veri* klasör.
+Ekleme [SeedData](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter2.1/Data/SeedData.cs) sınıfının *veri* klasör.
 
 Çağrı `SeedData.Initialize` gelen `Main`:
 

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/25/2018
 uid: fundamentals/metapackage
-ms.openlocfilehash: d95bafd412969bb8db38499bd2ff01af510d872c
-ms.sourcegitcommit: 54655f1e1abf0b64d19506334d94cfdb0caf55f6
+ms.openlocfilehash: 5d49213e6d694f121d8301c94ba71782b2dc45cf
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50148856"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65086940"
 ---
 # <a name="microsoftaspnetcoreall-metapackage-for-aspnet-core-20"></a>ASP.NET Core 2.0 için Microsoft.AspNetCore.All metapackage
 
@@ -21,7 +21,9 @@ ms.locfileid: "50148856"
 
 Bu özellik, ASP.NET Core 2.x hedefleme .NET gerektirir 2.x çekirdek.
 
-[Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) metapackage ASP.NET Core içerir:
+[Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) için paylaşılan bir çerçeve başvuran bir metapackage olduğu. A *paylaşılan çerçeve* derlemeleri kümesidir (*.dll* dosyaları) uygulamanın klasörlerinde olmayan. Paylaşılan framework uygulamasını çalıştırmak için makinede yüklü olmalıdır. Daha fazla bilgi için [paylaşılan çerçeve](https://natemcmaster.com/blog/2018/08/29/netcore-primitives-2/).
+
+Paylaşılan çerçeve, `Microsoft.AspNetCore.All` içeren ifade eder:
 
 * Tüm paketleri ASP.NET Core ekibi tarafından desteklenir.
 * Tüm paketleri Entity Framework Core tarafından desteklenmiyor.
@@ -29,11 +31,7 @@ Bu özellik, ASP.NET Core 2.x hedefleme .NET gerektirir 2.x çekirdek.
 
 ASP.NET Core özelliklerinin tümünü 2.x ve Entity Framework Core 2.x dahil edilecek `Microsoft.AspNetCore.All` paket. Bu paket hedefleyen ASP.NET Core 2.0 varsayılan proje şablonları kullanın.
 
-Sürüm numarasını `Microsoft.AspNetCore.All` metapackage sürümü Entity Framework Core ve ASP.NET Core sürümünü temsil eder.
-
-Kullanan uygulamalar `Microsoft.AspNetCore.All` metapackage otomatik olarak avantajından [.NET Core çalışma zamanı Store](/dotnet/core/deploying/runtime-store). Çalışma zamanı Store, ASP.NET Core 2.x uygulamaları çalıştırmak için gerekli olan tüm çalışma zamanı varlıkları içerir. Kullanırken `Microsoft.AspNetCore.All` metapackage, **hiçbir** başvurulan bir ASP.NET Core NuGet paket varlıklarından uygulamayla dağıtılan &mdash; .NET Core çalışma zamanı Store bu varlıkları içerir. Uygulama başlatma süresini iyileştirmek için çalışma zamanı Store varlıkları önceden derlenmiş.
-
-Paket kesme işlemi kullanmadığınız paketlerini kaldırmak için kullanabilirsiniz. Yayımlanmış uygulama çıktıda kırpılmış paketler bırakılır.
+Sürüm numarasını `Microsoft.AspNetCore.All` sürümü Entity Framework Core ve ASP.NET Core ve üstünü metapackage temsil eder.
 
 Aşağıdaki *.csproj* dosya başvuruları `Microsoft.AspNetCore.All` metapackage ASP.NET Core için:
 
@@ -43,7 +41,7 @@ Aşağıdaki *.csproj* dosya başvuruları `Microsoft.AspNetCore.All` metapackag
 
 ## <a name="implicit-versioning"></a>Örtük sürüm oluşturma
 
-ASP.NET Core 2.1 veya daha sonra belirtebilirsiniz `Microsoft.AspNetCore.All` paketini başvuru olmadan bir sürüm. Version belirtilmediğinde, SDK tarafından belirtilen örtük bir sürüm (`Microsoft.NET.Sdk.Web`). SDK'sı tarafından belirtilen sürüm numarası paket başvurusu üzerinde açıkça ayarlamak örtük sürümü güvenmek öneririz. Bu yaklaşım hakkında sorularınız varsa, GitHub yorum [Microsoft.AspNetCore.App örtük sürümü için tartışma](https://github.com/aspnet/Docs/issues/6430).
+ASP.NET Core 2.1 veya daha sonra belirtebilirsiniz `Microsoft.AspNetCore.All` paketini başvuru olmadan bir sürüm. Version belirtilmediğinde, SDK tarafından belirtilen örtük bir sürüm (`Microsoft.NET.Sdk.Web`). SDK'sı tarafından belirtilen sürüm numarası paket başvurusu üzerinde açıkça ayarlamak örtük sürümü güvenmek öneririz. Bu yaklaşım hakkında sorularınız varsa, GitHub yorum [Microsoft.AspNetCore.App örtük sürümü için tartışma](https://github.com/aspnet/AspNetCore.Docs/issues/6430).
 
 Örtük sürüm kümesine `major.minor.0` taşınabilir uygulamalar için. Paylaşılan çerçeve sarma mekanizması uygulamanın en yeni uyumlu sürümü yüklü paylaşılan çerçeveleri arasında çalışır. Aynı sürüm, geliştirme, test ve üretim kullanılan sağlamak için paylaşılan framework sürümüyle aynı sürümü, tüm ortamlara yüklenen emin olun. Bağımsız uygulamalar için örtük bir sürüm numarası ayarlanır `major.minor.patch` yüklü SDK'yı paketlenmiş paylaşılan framework'ün.
 
@@ -90,6 +88,6 @@ Aksi takdirde, bağımlılıkları olmayan yukarıdaki paketlerin herhangi bir b
 
 Geçiş öneririz `Microsoft.AspNetCore.App` metapackage 2.1 ve üzeri. Kullanmaya devam etmek için `Microsoft.AspNetCore.All` metapackage ve en son düzeltme eki sürümü dağıtıldığı emin olun:
 
-* Geliştirme makineler ve yapı sunucularını: en yeni [.NET Core SDK'sı](https://www.microsoft.com/net/download).
-* Dağıtım sunucularında: en yeni [.NET Core çalışma zamanı](https://www.microsoft.com/net/download).
+* Makineleri geliştirme ve derleme sunucuları: Son yükleme [.NET Core SDK'sı](https://www.microsoft.com/net/download).
+* Dağıtım sunucularında: Son yükleme [.NET Core çalışma zamanı](https://www.microsoft.com/net/download).
  Uygulamanız için en son yüklenen sürüm üzerinde uygulama yeniden başlatma İleri dökümünü yapar.

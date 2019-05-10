@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 07/16/2018
 uid: security/data-protection/implementation/key-encryption-at-rest
 ms.openlocfilehash: 52c3137dbe467096364b42430c92aecc7c15e313
-ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219296"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64898775"
 ---
 # <a name="key-encryption-at-rest-in-aspnet-core"></a>ASP.NET core'da bekleme durumunda anahtar şifreleme
 
@@ -21,7 +21,7 @@ Veri koruma sisteminde [bulma mekanizmasından varsayılan olarak kullandığı]
 
 ::: moniker range=">= aspnetcore-2.1"
 
-## <a name="azure-key-vault"></a>Azure anahtar kasası
+## <a name="azure-key-vault"></a>Azure Key Vault
 
 İçindeki anahtarları depolamak için [Azure anahtar kasası](https://azure.microsoft.com/services/key-vault/), sistemle yapılandırma [ProtectKeysWithAzureKeyVault](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.protectkeyswithazurekeyvault) içinde `Startup` sınıfı:
 
@@ -34,7 +34,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Daha fazla bilgi için [ASP.NET Core veri korumayı yapılandır: ProtectKeysWithAzureKeyVault](xref:security/data-protection/configuration/overview#protectkeyswithazurekeyvault).
+Daha fazla bilgi için [ASP.NET Core veri koruma yapılandırın: ProtectKeysWithAzureKeyVault](xref:security/data-protection/configuration/overview#protectkeyswithazurekeyvault).
 
 ::: moniker-end
 

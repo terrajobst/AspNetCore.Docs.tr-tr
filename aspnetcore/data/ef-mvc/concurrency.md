@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: 668cdafc078091b65035ecad854d2ecc62555721
-ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
+ms.openlocfilehash: d3954800f4f1358565a627768e34465215dc4f6e
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2019
-ms.locfileid: "58750857"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64900512"
 ---
 # <a name="tutorial-handle-concurrency---aspnet-mvc-with-ef-core"></a>Öğretici: Eşzamanlılık - EF çekirdekli ASP.NET MVC işleme
 
@@ -51,7 +51,7 @@ Uygulamanızı eşzamanlılık senaryolarda yanlışlıkla veri kaybı önleme i
 
 Kilitleri yönetmek dezavantajları vardır. Programa karmaşık olabilir. Önemli bir veritabanı yönetim kaynakları gerektirir ve bu uygulamanın kullanıcı sayısı performans sorunlarına neden olabilir artırır. Bu nedenle, tüm veritabanı yönetim sistemleri kötümser eşzamanlılık destekler. Entity Framework Core yerleşik desteği yok sağlar ve Bu öğreticide nasıl göstermez.
 
-### <a name="optimistic-concurrency"></a>İyimser eşzamanlılık
+### <a name="optimistic-concurrency"></a>İyimser Eşzamanlılık
 
 İyimser eşzamanlılık kötümser eşzamanlılık alternatiftir. İyimser eşzamanlılık, eşzamanlılık çakışmalarını olmasını sağlar ve eğer uygun şekilde tepki anlamına gelir. Örneğin, Jane departmanı Düzen sayfasını ziyaret ve bütçe tutar İngilizce bölümü için 350,000.00 $0,00 değiştirir.
 
@@ -288,7 +288,7 @@ Değiştirin *Views/Departments/Create.cshtml* Seç seçeneğini aşağı açıl
 
 ## <a name="get-the-code"></a>Kodu alma
 
-[İndirme veya tamamlanmış uygulamanın görüntüleyin.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
+[İndirme veya tamamlanmış uygulamanın görüntüleyin.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

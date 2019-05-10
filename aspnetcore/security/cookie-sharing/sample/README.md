@@ -2,7 +2,7 @@
 
 Örnek paylaşımı tanımlama bilgisi kimlik doğrulamasını kullanan üç uygulamalar arasında tanımlama bilgisi gösterilmektedir:
 
-| Proje                             | Açıklama |
+| Project                             | Açıklama |
 | ----------------------------------- | ----------- |
 | CookieAuth.Core                     | ASP.NET Core Razor sayfalar uygulamasını kullanarak ASP.NET Core kimliği olmadan |
 | CookieAuthWithIdentity.Core         | ASP.NET Core kimliği ile ASP.NET Core MVC uygulaması |

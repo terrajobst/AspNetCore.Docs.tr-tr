@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: de093954fedc0fef1f945e881e1c7a6a24178bdb
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58265409"
----
 ## <a name="add-initial-migration-and-update-the-database"></a>İlk geçiş ekleyin ve veritabanını güncelleştir
 
 * Bir komut istemi açın ve proje dizinine gidin. (Dizinini içeren *Startup.cs* dosyası).

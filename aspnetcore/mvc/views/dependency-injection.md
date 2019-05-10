@@ -5,12 +5,12 @@ description: ASP.NET Core MVC görünümlere bağımlılık ekleme nasıl destek
 ms.author: riande
 ms.date: 10/14/2016
 uid: mvc/views/dependency-injection
-ms.openlocfilehash: 940e237fd73a864d9fd59f5447fe486f93648f62
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
-ms.translationtype: HT
+ms.openlocfilehash: b411b164bfea81f82c5c9fc1052e0ecfe65f0bc2
+ms.sourcegitcommit: 3376f224b47a89acf329b2d2f9260046a372f924
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087467"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65517044"
 ---
 # <a name="dependency-injection-into-views-in-aspnet-core"></a>ASP.NET core'da görünümlere bağımlılık ekleme
 
@@ -20,13 +20,38 @@ ASP.NET Core destekler [bağımlılık ekleme](xref:fundamentals/dependency-inje
 
 [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/dependency-injection/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
-## <a name="a-simple-example"></a>Basit bir örnek
+## <a name="configuration-injection"></a>Yapılandırma ekleme
 
-Bir görünümü kullanarak bir hizmet ekleyebilir `@inject` yönergesi. Düşünebilirsiniz `@inject` görünümünüzü özellik ekleme ve DI kullanan özellik dolduruluyor.
+*appSettings.JSON* değerleri doğrudan bir görünüme eklenmiş.
+
+Örnek bir *appsettings.json* dosyası:
+
+```json
+{
+   "root": {
+      "parent": {
+         "child": "myvalue"
+      }
+   }
+}
+```
 
 Sözdizimi `@inject`: `@inject <type> <name>`
 
-Örneği `@inject` eylem:
+Bir örnek kullanarak `@inject`:
+
+```csharp
+@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+   string myValue = Configuration["root:parent:child"];
+   ...
+}
+```
+
+## <a name="service-injection"></a>Hizmet ekleme
+
+Bir görünümü kullanarak bir hizmet yerleştirilebilir `@inject` yönergesi. Düşünebilirsiniz `@inject` görünüme özellik ekleme ve DI kullanan özellik dolduruluyor.
 
 [!code-csharp[](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Views/ToDo/Index.cshtml?highlight=4,5,15,16,17)]
 

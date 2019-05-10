@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: d794058f533c4b617f641fa3cb3e6d63fd807c2d
-ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59615411"
----
 ASP.NET Core aşağıdaki avantajları sağlar:
 
 * Web kullanıcı arabirimi ve web API’leri oluşturmak için birleşik bir öykü.

@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/entity-framework-6
-ms.openlocfilehash: b7679afbe4c364386fe8f16d22d7e9797a3e0c27
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 50f51a72341cbad017872df581da214211b9920a
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090065"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64900617"
 ---
 # <a name="get-started-with-aspnet-core-and-entity-framework-6"></a>ASP.NET Core ve Entity Framework 6 ile çalışmaya başlama
 
@@ -23,7 +23,7 @@ Bu makalede, bir ASP.NET Core uygulaması Entity Framework 6 kullanmayı göster
 
 Entity Framework 6 .NET Core desteklemediğinden Entity Framework 6 kullanmak için projeniz .NET Framework karşı derleme gerekir. Platformlar arası özelliklerine ihtiyacınız varsa, yükseltme gerekecektir [Entity Framework Core](/ef/).
 
-Entity Framework 6 içinde ASP.NET Core uygulamasını kullanmak için önerilen yöntem EF6 bağlam eklemektir ve model sınıfları bir sınıf kitaplığı'nda, Framework'ün tamamını hedefleyen proje. Sınıf kitaplığı ASP.NET Core projesi bir başvuru ekleyin. Örnek görmek [EF6 ve ASP.NET Core projeleri Visual Studio çözümüyle](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/entity-framework-6/sample/).
+Entity Framework 6 içinde ASP.NET Core uygulamasını kullanmak için önerilen yöntem EF6 bağlam eklemektir ve model sınıfları bir sınıf kitaplığı'nda, Framework'ün tamamını hedefleyen proje. Sınıf kitaplığı ASP.NET Core projesi bir başvuru ekleyin. Örnek görmek [EF6 ve ASP.NET Core projeleri Visual Studio çözümüyle](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/entity-framework-6/sample/).
 
 .NET Core projeleri EF6 gibi komutlar işlevlerin desteklenmediği bir ASP.NET Core projesinde EF6 bağlam konulamıyor *etkinleştir geçişleri* gerektirir.
 
@@ -61,7 +61,7 @@ Ardından bağlam örneğini, DI kullanarak denetleyicilerinizi alabilirsiniz. K
 
 ## <a name="sample-application"></a>Örnek uygulama
 
-Çalışan bir örnek uygulama için bkz. [örnek Visual Studio çözümü](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/entity-framework-6/sample/) bu makalede, eşlik.
+Çalışan bir örnek uygulama için bkz. [örnek Visual Studio çözümü](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/entity-framework-6/sample/) bu makalede, eşlik.
 
 Bu örnek, aşağıdaki adımlarda Visual Studio tarafından sıfırdan oluşturulabilir:
 

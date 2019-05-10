@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 08/14/2018
 uid: client-side/libman/index
 ms.openlocfilehash: a6ff0cc3342cfac74739387aa17046ed5050232f
-ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43312365"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64900152"
 ---
 # <a name="client-side-library-acquisition-in-aspnet-core-with-libman"></a>ASP.NET Core LibMan ile istemci tarafı kitaplık edinme
 
@@ -27,7 +27,7 @@ LibMan aşağıdaki avantajları sunar:
 * Ek, gibi araçları [Node.js](https://nodejs.org), [npm](https://www.npmjs.com), ve [Web](https://webpack.js.org), kitaplıktaki dosyaların bir alt kümesine almak gerekli değildir.
 * Derleme görevleri veya el ile dosya kopyalama başvurmadan dosyaları belirli bir konumda yerleştirilebilir.
 
-LibMan'ın avantajları hakkında daha fazla bilgi için izleme [Modern ön uç web geliştirme Visual Studio 2017'de: LibMan segment](https://channel9.msdn.com/Events/Build/2017/B8073#time=43m34s).
+LibMan'ın avantajları hakkında daha fazla bilgi için izleme [Visual Studio 2017'deki Modern ön uç web geliştirme: LibMan segment](https://channel9.msdn.com/Events/Build/2017/B8073#time=43m34s).
 
 LibMan bir paket yönetim sistemi değildir. Npm gibi bir paket Yöneticisi zaten kullanıyorsanız veya [yarn](https://yarnpkg.com), bunu yapmaya devam edin. LibMan araçlarda değiştirilecek gelişmemişti.
 

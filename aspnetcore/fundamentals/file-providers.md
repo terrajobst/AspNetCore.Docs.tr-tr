@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/30/2019
 uid: fundamentals/file-providers
-ms.openlocfilehash: 2ce40ea0d576d08a6b42c3eb6693754f2a0bddce
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.openlocfilehash: 93eb48d81a853061a874641e84b4875849690a93
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "58809227"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64900500"
 ---
 # <a name="file-providers-in-aspnet-core"></a>ASP.NET core'da dosya sağlayıcıları
 
@@ -25,7 +25,7 @@ ASP.NET Core, dosya sistemi erişimini kullanarak dosya sağlayıcıları soyutl
 * [Razor](xref:mvc/views/razor) sayfaları ve görünümlerini bulmak için dosya sağlayıcıları kullanır.
 * .NET core araçları, hangi dosyaların yayımlandığını belirtmek için dosya sağlayıcıları ve glob desenleri kullanır.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/file-providers/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/file-providers/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="file-provider-interfaces"></a>Dosya sağlayıcısı arabirimleri
 

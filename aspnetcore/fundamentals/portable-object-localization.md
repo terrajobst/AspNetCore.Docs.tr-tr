@@ -5,12 +5,12 @@ description: Bu makalede, taşınabilir nesne dosyaları tanıtır ve bunları O
 ms.author: scaddie
 ms.date: 09/26/2017
 uid: fundamentals/portable-object-localization
-ms.openlocfilehash: 466759b30e756a7cac8abab7352025df0462bb6f
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 6ec7afc59d6dfd2629a3d6d83ae619575397a9df
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58210099"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64899426"
 ---
 # <a name="configure-portable-object-localization-in-aspnet-core"></a>ASP.NET Core taşınabilir nesne yerelleştirmesi yapılandırma
 
@@ -20,7 +20,7 @@ Bu makale, bir ASP.NET Core uygulaması ile taşınabilir nesne (SAS) dosyaları
 
 **Not:** Orchard Core Microsoft Ürün değildir. Sonuç olarak, Microsoft bu özellik için destek sağlar.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/localization/sample/POLocalization) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/localization/sample/POLocalization) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="what-is-a-po-file"></a>Bir SAS dosyası nedir?
 

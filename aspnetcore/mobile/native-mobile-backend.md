@@ -5,12 +5,12 @@ description: Yerel mobil uygulamaları desteklemek için ASP.NET Core MVC kullan
 ms.author: riande
 ms.date: 10/14/2016
 uid: mobile/native-mobile-backend
-ms.openlocfilehash: 13149dd4b877b8c17d33d428779ad31d8c51ae9e
-ms.sourcegitcommit: 687ffb15ebe65379f75c84739ea851d5a0d788b7
+ms.openlocfilehash: b50d2593d7dc4b89472033898373e3a22fc9a7a3
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58488734"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64899081"
 ---
 # <a name="create-backend-services-for-native-mobile-apps-with-aspnet-core"></a>ASP.NET Core ile yerel mobil uygulamalar için arka uç hizmetleri oluşturma
 
@@ -18,7 +18,7 @@ Tarafından [Steve Smith](https://ardalis.com/)
 
 Mobil uygulamalar, ASP.NET Core arka uç Hizmetleri ile iletişim kurabilir. Android öykünücüleri ve iOS simülatörleri yerel web hizmetlerine bağlanma ile ilgili yönergeler için bkz: [iOS Simülatörleri ve Android Öykünücüleri yerel Web hizmetlerine Connect'ten](/xamarin/cross-platform/deploy-test/connect-to-local-web-services).
 
-[Görüntüleme veya indirme örnek arka uç Hizmetleri kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/mobile/native-mobile-backend/sample)
+[Görüntüleme veya indirme örnek arka uç Hizmetleri kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mobile/native-mobile-backend/sample)
 
 ## <a name="the-sample-native-mobile-app"></a>Örnek yerel mobil uygulama
 

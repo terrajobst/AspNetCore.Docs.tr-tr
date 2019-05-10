@@ -6,18 +6,14 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 162586059e3115bc15efaa63a9a0652e09872f1b
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 06de728096b91b128c6bc3eb7791609d2161cd9b
+ms.sourcegitcommit: 3376f224b47a89acf329b2d2f9260046a372f924
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209971"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65516991"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>ASP.NET core'da - EF çekirdekli Razor sayfaları sıralama, filtreleme, sayfalama - 8'in 3
-
-[!INCLUDE[2.0 version](~/includes/RP-EF/20-pdf.md)]
-
-::: moniker range=">= aspnetcore-2.1"
 
 Tarafından [Tom Dykstra](https://github.com/tdykstra), [Rick Anderson](https://twitter.com/RickAndMSFT), ve [Jon P Smith](https://twitter.com/thereformedprog)
 
@@ -29,7 +25,7 @@ Aşağıda, tamamlanan bir sayfa görüntülenir. Sütun başlıkları sütunu s
 
 ![Öğrenciler dizin sayfası](sort-filter-page/_static/paging.png)
 
-Olamaz çözmek sorunlarla karşılaşırsanız, indirme [tamamlanan uygulama](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples).
+Olamaz çözmek sorunlarla karşılaşırsanız, indirme [tamamlanan uygulama](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples).
 
 ## <a name="add-sorting-to-the-index-page"></a>Dizin sayfasına sıralama Ekle
 
@@ -275,18 +271,18 @@ Değiştirin *Pages/About.cshtml* dosyasındaki kodu aşağıdaki kodla:
 
 Uygulamayı çalıştırın ve hakkında sayfasına gidin. Bir tablodaki her kayıt tarihi için Öğrenci sayısı görüntülenir.
 
-Olamaz çözmek sorunlarla karşılaşırsanız, indirme [Bu aşama için tamamlanan uygulama](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part3-sorting).
+Olamaz çözmek sorunlarla karşılaşırsanız, indirme [Bu aşama için tamamlanan uygulama](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part3-sorting).
 
 ![Sayfa hakkında](sort-filter-page/_static/about.png)
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [ASP.NET Core 2.x kaynak hata ayıklama](https://github.com/aspnet/Docs/issues/4155)
+* [ASP.NET Core 2.x kaynak hata ayıklama](https://github.com/aspnet/AspNetCore.Docs/issues/4155)
 * [Bu öğreticide YouTube sürümü](https://www.youtube.com/watch?v=MDs7PFpoMqI)
 
 Sonraki öğreticide uygulama, veri modeli güncelleştirmek için geçişleri kullanır.
 
-::: moniker-end
+
 
 > [!div class="step-by-step"]
 > [Önceki](xref:data/ef-rp/crud)

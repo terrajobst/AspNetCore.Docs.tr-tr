@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 03/24/2019
 uid: web-api/jsonpatch
-ms.openlocfilehash: c5330f778ef202d366db5cdff5345d0db43a5c1b
-ms.sourcegitcommit: 1a7000630e55da90da19b284e1b2f2f13a393d74
+ms.openlocfilehash: 14710e6431a2a7ce60fa7f190bef184da85281a0
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59013216"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64901328"
 ---
 # <a name="jsonpatch-in-aspnet-core-web-api"></a>ASP.NET Core Web API JsonPatch
 
@@ -208,7 +208,7 @@ Aşağıdaki örnek yama belgesi etkisizdir başlangıç değeri oluşan `Custom
 
 ## <a name="get-the-code"></a>Kodu alma
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/jsonpatch/samples/2.2). ([Nasıl indirileceğini](xref:index#how-to-download-a-sample)).
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/jsonpatch/samples/2.2). ([Nasıl indirileceğini](xref:index#how-to-download-a-sample)).
 
 Örnek test etmek için uygulamayı çalıştırın ve aşağıdaki ayarlarla HTTP istekleri göndermek için:
 

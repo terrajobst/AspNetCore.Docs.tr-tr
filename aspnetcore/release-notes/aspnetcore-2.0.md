@@ -5,12 +5,12 @@ description: ASP.NET Core 2.0 yenilikleri hakkında bilgi edinin.
 ms.author: riande
 ms.date: 07/10/2017
 uid: aspnetcore-2.0
-ms.openlocfilehash: 60e44e64bd1cfada0143e374f6f51dec0e4e84f8
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 07e490fd844f0f9044afce37651ef680ed0c894d
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209891"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64898355"
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>ASP.NET Core 2.0 yenilikleri
 
@@ -47,7 +47,7 @@ ASP.NET Core 2.0 paketleri .NET Standard 2.0 hedefleyin. Paketleri diğer .NET S
 
 Bir `IConfiguration` örneği, varsayılan olarak ASP.NET Core 2.0 Hizmetleri kapsayıcıya eklenir. `IConfiguration` Hizmetleri kapsayıcı kapsayıcıdan yapılandırma değerlerini almak uygulamaları kolaylaştırır.
 
-Planlanan belgeleri durumu hakkında daha fazla bilgi için bkz [GitHub sorunu](https://github.com/aspnet/Docs/issues/3387).
+Planlanan belgeleri durumu hakkında daha fazla bilgi için bkz [GitHub sorunu](https://github.com/aspnet/AspNetCore.Docs/issues/3387).
 
 ## <a name="logging-update"></a>Güncelleştirme günlüğü
 
@@ -61,7 +61,7 @@ Yeni bir kimlik doğrulama modeli DI kullanarak bir uygulama için kimlik doğru
 
 Yeni şablonlar web apps için kimlik doğrulaması yapılandırmak için kullanılabilir ve web API'leri [Azure AD B2C] kullanarak (https://azure.microsoft.com/services/active-directory-b2c/).
 
-Planlanan belgeleri durumu hakkında daha fazla bilgi için bkz [GitHub sorunu](https://github.com/aspnet/Docs/issues/3054).
+Planlanan belgeleri durumu hakkında daha fazla bilgi için bkz [GitHub sorunu](https://github.com/aspnet/AspNetCore.Docs/issues/3054).
 
 ## <a name="identity-update"></a>Kimlik güncelleştirme
 
@@ -113,7 +113,7 @@ Barındırma ortamları artık ek paket bağımlılıkları ekleme ve kod uygula
 
 ASP.NET Core 2.0 sürümünde bu özellik otomatik olarak (sonra seçim) ve Visual Studio'da hata ayıklama sırasında Application Insights Tanılama'yı etkinleştirmek için kullanılan Azure uygulama hizmetleri çalışırken. Sonuç olarak, proje şablonları artık Application Insights paketlerini ve kod varsayılan olarak ekleyin.
 
-Planlanan belgeleri durumu hakkında daha fazla bilgi için bkz [GitHub sorunu](https://github.com/aspnet/Docs/issues/3389).
+Planlanan belgeleri durumu hakkında daha fazla bilgi için bkz [GitHub sorunu](https://github.com/aspnet/AspNetCore.Docs/issues/3389).
 
 ## <a name="automatic-use-of-anti-forgery-tokens"></a>Sahteciliğe karşı koruma belirteçleri otomatik kullanımı
 

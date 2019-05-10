@@ -11,7 +11,7 @@ Aşağıdaki tabloda, proje klasörleri ve dosyaları listeler. Bu öğretici i�
 | Dosya veya klasör              | Amaç |
 | ----------------- | ------------ |
 | wwwroot | Statik dosyaları içerir. Bkz: [statik dosyalar](xref:fundamentals/static-files). |
-| Sayfaları | Klasör [Razor sayfaları](xref:razor-pages/index). |
+| Sayfalar | Klasör [Razor sayfaları](xref:razor-pages/index). |
 | *appsettings.json* | [Yapılandırma](xref:fundamentals/configuration/index) |
 | *Program.cs* | [Konaklar](xref:fundamentals/index#host) ASP.NET Core uygulaması.|
 | *Startup.cs* | Hizmetler ve istek ardışık düzenini yapılandırır. Bkz: [başlangıç](xref:fundamentals/startup).|

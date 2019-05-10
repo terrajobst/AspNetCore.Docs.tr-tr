@@ -5,12 +5,12 @@ description: Yapılandırma, bir ASP.NET Core MVC projesini ASP.NET MVC projesin
 ms.author: riande
 ms.date: 10/14/2016
 uid: migration/configuration
-ms.openlocfilehash: 5a1c4d0cbbdf74a00073c654e78a05f44948caae
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: c379f1f64dc5ab8aeb48055124e86e4e60d93785
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50205918"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64900995"
 ---
 # <a name="migrate-configuration-to-aspnet-core"></a>ASP.NET Core yapılandırma geçirme
 
@@ -18,7 +18,7 @@ Tarafından [Steve Smith](https://ardalis.com/) ve [Scott Addie](https://scottad
 
 Önceki makalede biz başlangıcından [bir ASP.NET MVC projesi için ASP.NET Core MVC geçirme](xref:migration/mvc). Bu makalede, biz yapılandırma geçirin.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/migration/configuration/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/migration/configuration/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="setup-configuration"></a>Kurulum yapılandırması
 

@@ -6,4 +6,4 @@ EF Core üzerinde herhangi bir bağımlılığı olmadığından oluşturduğunu
 
 Bu öğreticide model sınıfları ilk yazma ve EF Core veritabanı oluşturur. Burada ele alınmamaktadır alternatif bir yaklaşım [varolan bir veritabanından model sınıfları oluşturma](/ef/core/get-started/aspnetcore/existing-db).
 
-[Görüntüleme veya indirme](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie) örnek.
+[Görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie) örnek.

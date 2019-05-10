@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/02/2018
 uid: fundamentals/middleware/extensibility-third-party-container
-ms.openlocfilehash: 6af775c66a1de7f1a4f06a4a639ade20c6493b2a
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 9e4d4c6c0232ebc51ad08923e10164262b652280
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206815"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64901184"
 ---
 # <a name="middleware-activation-with-a-third-party-container-in-aspnet-core"></a>Bir üçüncü taraf kapsayıcısında ASP.NET Core ile Ara yazılım etkinleştirme
 
@@ -19,7 +19,7 @@ Tarafından [Luke Latham](https://github.com/guardrex)
 
 Bu makalede nasıl yapılacağı açıklanır [IMiddlewareFactory](/dotnet/api/microsoft.aspnetcore.http.imiddlewarefactory) ve [IMiddleware](/dotnet/api/microsoft.aspnetcore.http.imiddleware) için genişletilebilirlik noktası olarak [ara yazılım](xref:fundamentals/middleware/index) bir üçüncü taraf kapsayıcı ile etkinleştirme. Hakkında tanıtıcı bilgi `IMiddlewareFactory` ve `IMiddleware`, bkz: [Fabrika tabanlı ara yazılım etkinleştirme](xref:fundamentals/middleware/extensibility) konu.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/extensibility-third-party-container/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/middleware/extensibility-third-party-container/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 Örnek uygulama tarafından ara yazılım etkinleştirme gösterir bir `IMiddlewareFactory` uygulaması `SimpleInjectorMiddlewareFactory`. Örnek kullanır [basit Enjektörü](https://simpleinjector.org) bağımlılık ekleme (dı) kapsayıcı.
 

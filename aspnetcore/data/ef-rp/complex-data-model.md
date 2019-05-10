@@ -6,18 +6,14 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 9f22841a55fd2c2db76e36a5f5389c220a8d2acd
-ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
+ms.openlocfilehash: a65543f805b197031bd46ef1974d4d4a5018b2d1
+ms.sourcegitcommit: 3376f224b47a89acf329b2d2f9260046a372f924
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59982897"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65516911"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>ASP.NET core'da - veri modeli - 8'in 5 EF çekirdekli Razor sayfaları
-
-[!INCLUDE[2.0 version](~/includes/RP-EF/20-pdf.md)]
-
-::: moniker range=">= aspnetcore-2.1"
 
 Tarafından [Tom Dykstra](https://github.com/tdykstra) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -33,7 +29,7 @@ Varlık sınıflarının tamamlanmış veri modeli için aşağıdaki çizimde g
 ![Varlık diyagramı](complex-data-model/_static/diagram.png)
 
 Olamaz çözmek sorunlarla karşılaşırsanız, indirme [tamamlanan uygulama](
-https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples).
+https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples).
 
 ## <a name="customize-the-data-model-with-attributes"></a>Veri modeli öznitelikleri ile özelleştirme
 
@@ -670,7 +666,7 @@ Sonraki öğreticiye ilgili verileri içerir.
 * [Bu öğreticide (Kısım 1) YouTube sürümü](https://www.youtube.com/watch?v=0n2f0ObgCoA)
 * [Bu öğreticide (Bölüm 2) YouTube sürümü](https://www.youtube.com/watch?v=Je0Z5K1TNmY)
 
-::: moniker-end
+
 
 > [!div class="step-by-step"]
 > [Önceki](xref:data/ef-rp/migrations)

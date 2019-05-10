@@ -5,12 +5,12 @@ description: Oluşturma ve web ASP.NET Core API'leri için özel biçimlendirici
 ms.author: tdykstra
 ms.date: 02/08/2017
 uid: web-api/advanced/custom-formatters
-ms.openlocfilehash: 611840defd1da3b57b365c99deaf1c67f1568227
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: ece60b47f345235a084faacf8e59b792856614d2
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264625"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64900665"
 ---
 # <a name="custom-formatters-in-aspnet-core-web-api"></a>ASP.NET Core Web API'si, özel biçimlendiriciler
 
@@ -18,7 +18,7 @@ tarafından [Tom Dykstra](https://github.com/tdykstra)
 
 ASP.NET Core MVC, JSON veya XML kullanarak, web API'leri veri değişimi için yerleşik destek sunmaktadır. Bu makalede, özel biçimlendiriciler oluşturarak ek biçimleri için destek eklenecek şekilde gösterilmektedir.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-custom-formatters"></a>Özel biçimlendiriciler kullanıldığı durumlar
 
@@ -51,7 +51,7 @@ Metin medya türleri için (örneğin, vCard) öğesinden türetilen [TextInputF
 
 [!code-csharp[](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=classdef)]
 
-Giriş biçimlendiricisi örneği için bkz. [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample).
+Giriş biçimlendiricisi örneği için bkz. [örnek uygulaması](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample).
 
 İkili türleri için türetilen [InputFormatter](/dotnet/api/microsoft.aspnetcore.mvc.formatters.inputformatter) veya [OutputFormatter](/dotnet/api/microsoft.aspnetcore.mvc.formatters.outputformatter) temel sınıfı.
 
@@ -61,7 +61,7 @@ Ekleyerek oluşturucusunun içinde geçerli bir medya türleri ve kodlamayı bel
 
 [!code-csharp[](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=ctor&highlight=3,5-6)]
 
-Giriş biçimlendiricisi örneği için bkz. [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample).
+Giriş biçimlendiricisi örneği için bkz. [örnek uygulaması](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample).
 
 > [!NOTE]
 > Bir biçimlendirici sınıftaki Oluşturucu bağımlılık ekleme yapamazsınız. Örneğin, oluşturucuya bir Günlükçü parametre ekleyerek bir Günlükçü alınamıyor. Hizmetlere erişmek için yönteme geçirilen bağlam nesnesi kullanmak zorunda. Bir kod örneği [aşağıda](#read-write) bunun nasıl yapılacağı gösterilmektedir.
@@ -72,7 +72,7 @@ Giriş biçimlendiricisi örneği için bkz. [örnek uygulaması](https://github
 
 [!code-csharp[](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=canwritetype)]
 
-Giriş biçimlendiricisi örneği için bkz. [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample).
+Giriş biçimlendiricisi örneği için bkz. [örnek uygulaması](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample).
 
 #### <a name="the-canwriteresult-method"></a>CanWriteResult yöntemi
 
@@ -92,7 +92,7 @@ Seri durumdan çıkarılırken veya seri hale getirme gerçek kitaplıklarımız
 
 [!code-csharp[](custom-formatters/sample/Formatters/VcardOutputFormatter.cs?name=writeresponse&highlight=3-4)]
 
-Giriş biçimlendiricisi örneği için bkz. [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample).
+Giriş biçimlendiricisi örneği için bkz. [örnek uygulaması](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample).
 
 ## <a name="how-to-configure-mvc-to-use-a-custom-formatter"></a>MVC özel bir biçimlendirici kullanmak için yapılandırma
 
@@ -105,7 +105,7 @@ Biçimlendiricileri ekledikten sırayla değerlendirilir. Birinci öncelik kazan
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Düz metin GitHub üzerinde örnek kod biçimlendiricisi.](https://github.com/aspnet/Entropy/tree/master/samples/Mvc.Formatters)
-* [Bu belge için örnek uygulama](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample), uygulayan basit vCard giriş ve çıkış biçimlendiricileri. Uygulamaları okur ve aşağıdaki gibi görünen vCard Yazar:
+* [Bu belge için örnek uygulama](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample), uygulayan basit vCard giriş ve çıkış biçimlendiricileri. Uygulamaları okur ve aşağıdaki gibi görünen vCard Yazar:
 
 ```
 BEGIN:VCARD
