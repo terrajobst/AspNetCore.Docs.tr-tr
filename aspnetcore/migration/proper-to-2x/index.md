@@ -6,11 +6,11 @@ ms.author: scaddie
 ms.date: 12/11/2018
 uid: migration/proper-to-2x/index
 ms.openlocfilehash: 7b6aec621efa5e1400fcfd4396a2322733113ec1
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209151"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64902213"
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core"></a>ASP.NET'ten ASP.NET Core geçişi
 
@@ -22,7 +22,7 @@ Bu makalede, ASP.NET Core geçirme ASP.NET uygulamaları için bir başvuru kıl
 
 [.NET core SDK 2.2 veya üzeri](https://www.microsoft.com/net/download)
 
-## <a name="target-frameworks"></a>Hedef Çerçeve
+## <a name="target-frameworks"></a>Hedef çerçeveler
 
 ASP.NET Core projeleri, geliştiricilerin .NET Core, .NET Framework veya her ikisi de hedefleme esnekliği sunar. Bkz: [sunucu uygulamaları için .NET Core ve .NET Framework arasında seçim](/dotnet/standard/choosing-core-framework-server) hangi hedef çerçeveden en uygun olduğunu belirlemek için.
 

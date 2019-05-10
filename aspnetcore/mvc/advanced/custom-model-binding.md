@@ -5,12 +5,12 @@ description: Model bağlama denetleyici eylemleri doğrudan model türleri için
 ms.author: riande
 ms.date: 11/13/2018
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: 33551c9fc22561b992b4a09a4c7187ade136c09c
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
+ms.openlocfilehash: 3623a29976a2e2a7b1bdb22d35716b8a3b448958
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410251"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64903356"
 ---
 # <a name="custom-model-binding-in-aspnet-core"></a>ASP.NET core'da özel Model bağlama
 
@@ -18,7 +18,7 @@ Tarafından [Steve Smith](https://ardalis.com/)
 
 Model bağlama (yöntemi bağımsız değişken olarak geçirilen), doğrudan model türleri yerine HTTP isteklerini daha çalışmak denetleyici eylemleri sağlar. Gelen istek veri ve uygulama modelleri arasında eşleme model bağlayıcılar tarafından işlenir. Geliştiriciler, özel model bağlayıcıları (genellikle, kendi sağlayıcınızı yazmanız gerekmez ancak) uygulayarak yerleşik model bağlama işlevselliğini genişletebilirsiniz.
 
-[Github'dan örnek görüntüleme veya indirme](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/custom-model-binding/)
+[Github'dan örnek görüntüleme veya indirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/advanced/custom-model-binding/)
 
 ## <a name="default-model-binder-limitations"></a>Varsayılan model Bağlayıcısı sınırlamaları
 
@@ -40,7 +40,7 @@ Kodlanmış dizeyi küçük bir kısmı, aşağıdaki görüntüde gösterilmiş
 
 ![dotnet bot kodlanmış](custom-model-binding/images/encoded-bot.png "kodlanmış dotnet Robotu")
 
-Bölümündeki yönergeleri [örnek'ın Benioku](https://github.com/aspnet/Docs/blob/master/aspnetcore/mvc/advanced/custom-model-binding/sample/CustomModelBindingSample/README.md) base64 ile kodlanmış dize bir dosyasına dönüştürmek için.
+Bölümündeki yönergeleri [örnek'ın Benioku](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/advanced/custom-model-binding/sample/CustomModelBindingSample/README.md) base64 ile kodlanmış dize bir dosyasına dönüştürmek için.
 
 ASP.NET Core MVC base64 ile kodlanmış bir dize alabilir ve kullanmak bir `ByteArrayModelBinder` Bayt dizisine dönüştürmek için. [ByteArrayModelBinderProvider](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.binders.bytearraymodelbinderprovider) uygulayan [IModelBinderProvider](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.imodelbinderprovider) eşler `byte[]` bağımsız değişkenleri `ByteArrayModelBinder`:
 

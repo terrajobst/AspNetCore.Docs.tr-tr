@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 12/06/2018
 uid: host-and-deploy/index
 ms.openlocfilehash: f443a8ee28a859b5075a8bb03016407af9a3ddb1
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284532"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64899261"
 ---
 # <a name="host-and-deploy-aspnet-core"></a>Barındırma ve ASP.NET Core dağıtma
 
@@ -78,7 +78,7 @@ Bkz: <xref:tutorials/publish-to-azure-webapp-using-vs> Visual Studio'yu kullanar
 
 Bkz: <xref:host-and-deploy/visual-studio-publish-profiles> yayımlama profilini bir Visual Studio ile uygulama yayımlama konusunda yönergeler için kullanarak bir Windows komut istemi dahil olmak üzere [dotnet msbuild](/dotnet/core/tools/dotnet-msbuild) komutu.
 
-## <a name="host-in-a-web-farm"></a>Bir web grubunda barındırın
+## <a name="host-in-a-web-farm"></a>Web grubunda barındırma
 
 (Örneğin, uygulamanız ölçeklenebilirlik için birden çok örneğini dağıtımı) web grubu ortamında ASP.NET Core uygulamaları barındırmak için yapılandırma hakkında daha fazla bilgi için bkz: <xref:host-and-deploy/web-farm>.
 

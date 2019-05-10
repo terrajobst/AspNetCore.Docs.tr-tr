@@ -5,18 +5,14 @@ description: Oluşturma, okuma, güncelleştirme ve EF Core ile silme işlemini 
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/crud
-ms.openlocfilehash: c104498a4411ac36672ffbb9660948d4e96bf1ee
-ms.sourcegitcommit: a467828b5e4eaae291d961ffe2279a571900de23
+ms.openlocfilehash: 43d133c61c0387ebcb4bcb2d22c800588d8534c3
+ms.sourcegitcommit: 3376f224b47a89acf329b2d2f9260046a372f924
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58142387"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65516917"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---crud---2-of-8"></a>ASP.NET core'da - CRUD - 2 8 EF çekirdekli Razor sayfaları
-
-[!INCLUDE[2.0 version](~/includes/RP-EF/20-pdf.md)]
-
-::: moniker range=">= aspnetcore-2.1"
 
 Tarafından [Tom Dykstra](https://github.com/tdykstra), [Jon P Smith](https://twitter.com/thereformedprog), ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -161,7 +157,7 @@ Aşağıdaki kod `StudentVM` görünüm modeli yeni bir öğrenci oluşturmak i�
 
 [SetValues](/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyvalues.setvalues#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyValues_SetValues_System_Object_) yöntemi, başka değerleri okuyarak bu nesnenin değerleri ayarlar [PropertyValues](/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyvalues) nesne. `SetValues` özellik adıyla eşleşen kullanır. Görünüm modeli türü modeli türüyle ilişkili gerekmez, bunu yalnızca eşleşen özelliklere sahip olması.
 
-Kullanarak `StudentVM` gerektirir [CreateVM.cshtml](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu21/Pages/Students/CreateVM.cshtml) güncelleştirilmesi kullanılacak `StudentVM` yerine `Student`.
+Kullanarak `StudentVM` gerektirir [CreateVM.cshtml](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu21/Pages/Students/CreateVM.cshtml) güncelleştirilmesi kullanılacak `StudentVM` yerine `Student`.
 
 Razor sayfalarında `PageModel` türetilmiş sınıf, görünüm modeli.
 
@@ -246,7 +242,7 @@ Razor sayfası doğru içerdiğini doğrulayın `@page` yönergesi. Örneğin, �
 
 Her bir Razor sayfası içermelidir `@page` yönergesi.
 
-::: moniker-end
+
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

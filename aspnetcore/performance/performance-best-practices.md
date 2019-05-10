@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 04/13/2019
 uid: performance/performance-best-practices
-ms.openlocfilehash: 095db38cf3102f6e18930efdbbaeeb90dffad8af
-ms.sourcegitcommit: 017b673b3c700d2976b77201d0ac30172e2abc87
+ms.openlocfilehash: 28dc7fb40c1b60f643108dcb44593a08942a1650
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59614454"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65087492"
 ---
 # <a name="aspnet-core-performance-best-practices"></a>ASP.NET Core performansı en iyi uygulamalar
 
@@ -44,7 +44,7 @@ ASP.NET Core uygulamalarında ortak bir performans sorunu, zaman uyumsuz çağr�
 * Veri erişimi ve uzun süre çalışan işlemleri API zaman uyumsuz olarak çağırın.
 * Denetleyici/Razor sayfa eylemleri zaman uyumsuz olarak yapın. Bütün çağrı yığını sayesinde bir avantaj elde için zaman uyumsuz [async/await](/dotnet/csharp/programming-guide/concepts/async/) desenleri.
 
-Profil Oluşturucu, bir gibi [PerfView](https://github.com/Microsoft/perfview), sık eklenen iş parçacıklarını bulmak için kullanılan [iş parçacığı havuzu](/windows/desktop/procthread/thread-pool). `Microsoft-Windows-DotNETRuntime/ThreadPoolWorkerThread/Start` Olay iş parçacığı havuzuna eklenmiş bir iş parçacığı gösterir. <!--  For more information, see [async guidance docs](TBD-Link_To_Davifowl_Doc  -->
+Profil Oluşturucu, bir gibi [PerfView](https://github.com/Microsoft/perfview), sık eklenen iş parçacıklarını bulmak için kullanılan [iş parçacığı havuzu](/windows/desktop/procthread/thread-pools). `Microsoft-Windows-DotNETRuntime/ThreadPoolWorkerThread/Start` Olay iş parçacığı havuzuna eklenmiş bir iş parçacığı gösterir. <!--  For more information, see [async guidance docs](TBD-Link_To_Davifowl_Doc  -->
 
 ## <a name="minimize-large-object-allocations"></a>Büyük nesne ayırma simge durumuna küçült
 

@@ -5,12 +5,12 @@ description: ASP.NET Core MVC görünümlere bağımlılık ekleme nasıl destek
 ms.author: riande
 ms.date: 10/14/2016
 uid: mvc/views/dependency-injection
-ms.openlocfilehash: dfadafe9ebb5799b45ef68653f20c5fc1a2506b5
-ms.sourcegitcommit: d75d8eb26c2cce19876c8d5b65ac8a4b21f625ef
-ms.translationtype: MT
+ms.openlocfilehash: 940e237fd73a864d9fd59f5447fe486f93648f62
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56410566"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65087467"
 ---
 # <a name="dependency-injection-into-views-in-aspnet-core"></a>ASP.NET core'da görünümlere bağımlılık ekleme
 
@@ -18,7 +18,7 @@ Tarafından [Steve Smith](https://ardalis.com/)
 
 ASP.NET Core destekler [bağımlılık ekleme](xref:fundamentals/dependency-injection) görünümlere. Bu, yerelleştirme veya yalnızca görünüm öğeleri doldurmak için gerekli veriler gibi özel görünüm Hizmetleri için yararlı olabilir. Korunacak denemelisiniz [görev ayrımı nettir](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#separation-of-concerns) denetleyici ve görünüm arasında. Kendi görünümlerinizi görüntüleyin verilerden en iyi şekilde denetleyicisinden geçirilmelidir.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/dependency-injection/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/dependency-injection/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="a-simple-example"></a>Basit bir örnek
 

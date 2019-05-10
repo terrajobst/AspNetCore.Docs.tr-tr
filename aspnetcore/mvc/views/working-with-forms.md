@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/06/2019
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: 6eff3bf03e650e154b5c767c9bcdd915e7db8b47
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.openlocfilehash: 380d47d33706b3197dba3b9f7e3e1f186e27115f
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59468808"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64902897"
 ---
 # <a name="tag-helpers-in-forms-in-aspnet-core"></a>ASP.NET Core formlarda etiket Yardımcıları
 
@@ -453,7 +453,7 @@ MVC (örneğin, sahip olduğunuz özel sunucu tarafı doğrulama veya istemci ta
 |--- |--- |
 |ValidationSummary.All|Özellik ve model düzeyi|
 |ValidationSummary.ModelOnly|Model|
-|ValidationSummary.None|None|
+|ValidationSummary.None|Yok.|
 
 ### <a name="sample"></a>Örnek
 
@@ -667,4 +667,4 @@ Doğru `<option>` öğe seçilir (içeren `selected="selected"` özniteliği) ge
 * <xref:mvc/models/model-binding>
 * <xref:mvc/models/validation>
 * [IAttributeAdapter arabirimi](/dotnet/api/Microsoft.AspNetCore.Mvc.DataAnnotations.IAttributeAdapter)
-* [Bu belge için kod parçacıkları](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/working-with-forms/sample/final)
+* [Bu belge için kod parçacıkları](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/working-with-forms/sample/final)

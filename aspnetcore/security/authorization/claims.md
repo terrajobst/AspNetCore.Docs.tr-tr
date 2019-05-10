@@ -1,34 +1,34 @@
 ---
-title: ASP.NET Core talep tabanlı yetkilendirme
+title: ASP.NET core'da talep tabanlı yetkilendirme
 author: rick-anderson
-description: Bir ASP.NET Core uygulamada yetkilendirme talep denetler eklemeyi öğrenin.
+description: Yetkilendirme talep olup olmadığını denetler ASP.NET Core uygulaması eklemeyi öğrenin.
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/authorization/claims
 ms.openlocfilehash: 6b60ae5515819b017ab577f655ed91ee4d8ed0dd
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36275233"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65086149"
 ---
-# <a name="claims-based-authorization-in-aspnet-core"></a>ASP.NET Core talep tabanlı yetkilendirme
+# <a name="claims-based-authorization-in-aspnet-core"></a>ASP.NET core'da talep tabanlı yetkilendirme
 
 <a name="security-authorization-claims-based"></a>
 
-Kimlikteki oluşturulduğunda, güvenilen bir taraf tarafından verilen bir veya daha fazla talep atanabilir. Bir talep hangi konu temsil eden bir ad değer çifti olan, değil hangi konu yapabilirsiniz. Örneğin, bir yerel yönlendirmeli lisans yetkilisi tarafından verilen bir sürücünün lisansına sahip olabilir. Sürücünüzün lisansı Doğum tarihiniz üzerinde yok. Bu durumda talep adı olacaktır `DateOfBirth`, talep değeri, Doğum tarihiniz örneğin olur `8th June 1970` ve veren yönlendirmeli lisans yetkilisi olacaktır. En basit şekliyle, talep tabanlı yetkilendirme, bir talebin değerini denetler ve bu değer temel bir kaynağa erişim izni verir. Yetkilendirme işlemi için gece kulübü erişmek isterseniz örnek olabilir için:
+Bir kimlik oluşturulduğunda güvenilen bir taraf tarafından verilen bir veya daha fazla talep atanabilir. Bir talep hangi konu temsil eden bir ad değer çifti olan, olmayan hangi konu yapabilirsiniz. Örneğin, yerel bir sürüş lisans yetkilisi tarafından verilen bir sürücünün lisansı olabilir. Sürücünüzün lisansı Doğum tarihinize üzerinde yok. Talep adı bu durumda olacaktır `DateOfBirth`, talep değerini Doğum, örneğin olacaktır `8th June 1970` ve sürüş lisans yetki veren olur. En basit şekliyle, talep tabanlı yetkilendirme, bir talebin değerini denetler ve bu değeri alarak bir kaynağa erişim izni verir. Yetkilendirme işlemi için bir gece kulübü erişmek isterseniz örnek olabilir için:
 
-Kapı güvenlik yetkilisi Doğum talep ve bunlar veren (yönlendirmeli lisans yetkilisi), erişim vermeden önce güvenip tarih değeri değerlendirmek.
+Kapı güvenlik Müdürü, tarihini Doğum talep ve olup (sürüş lisans yetkilisi) veren size erişim vermeden önce güvendikleri değerini değerlendirecek.
 
-Kimlikteki birden çok değer ile birden fazla talep içerebilir ve aynı türde birden fazla talep içerebilir.
+Bir kimlik ile birden çok değer birden fazla talep içerebilir ve aynı türde birden fazla talep içerebilir.
 
-## <a name="adding-claims-checks"></a>Talep denetimleri ekleme
+## <a name="adding-claims-checks"></a>Denetimleri talep ekleme
 
-Talep tabanlı yetkilendirme denetimleri bildirim temelli - Geliştirici bunları kendi kodundaki bir denetleyici veya eylemin bir denetleyici içinde karşı geçerli kullanıcının sahip olması gerekir ve isteğe bağlı olarak değeri talep erişimi taşıması gerekir taleplerini belirtme eklemeler İstenen kaynak. Talepler, ilke tabanlı gereksinimleridir Geliştirici oluşturma ve talep gereksinimleri ifade bir ilkeyi kaydetmek gerekir.
+Talep tabanlı yetkilendirme denetimleri bildirim temelli - Geliştirici bunları kendi kodundaki bir denetleyici veya eylem bir denetleyici içinde karşı geçerli kullanıcı verilerine sahip olması gerekir ve isteğe bağlı olarak, talep değeri erişimi tutmanız gereken talepleri belirtme ekler İstenen kaynak. Talepler, ilke tabanlı gereksinimleridir Geliştirici oluşturun ve talep gereksinimleri ifade bir ilkeyi kaydetmek gerekir.
 
-En basit türünü bir talep varlığını ilke arar talep ve değeri denetlemez.
+En basit türü talep İlkesi talebi varlığı arar ve değeri denetlemez.
 
-İlk yapı ve ilke kaydetmeniz gerekir. Bu bölümü normalde alan içinde yetkilendirme hizmet yapılandırmasının parçası olarak gerçekleşir `ConfigureServices()` içinde *haline* dosya.
+İlk oluşturun ve ilkeyi kaydetmeniz gerekir. Bu normalde bölümü alır, yetkilendirme hizmet yapılandırmasının parçası olarak gerçekleşmeden `ConfigureServices()` içinde *Startup.cs* dosya.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -44,7 +44,7 @@ public void ConfigureServices(IServiceCollection services)
 
 Bu durumda `EmployeeOnly` ilke varlığını denetler bir `EmployeeNumber` geçerli kimliğini talep.
 
-Ardından İlkesi kullanarak uygulama `Policy` özellikte `AuthorizeAttribute` ilke adı; belirtmek için özniteliği
+Ardından ilkeyi kullanan uygulama `Policy` özelliği `AuthorizeAttribute` ; ilke adını belirtmek için özniteliği
 
 ```csharp
 [Authorize(Policy = "EmployeeOnly")]
@@ -54,7 +54,7 @@ public IActionResult VacationBalance()
 }
 ```
 
-`AuthorizeAttribute` Özniteliği bu örnekte bir tüm denetleyicisine denetleyicisinde herhangi bir eylem erişimin ilkeyle eşleşen kimlikler izin verilecek yalnızca uygulanabilir.
+`AuthorizeAttribute` Özniteliği bu örnekte, tüm bir denetleyici için kimlikleri ilkeyle eşleşen herhangi bir işlem erişim denetleyicisinde izin verilecek yalnızca uygulanabilir.
 
 ```csharp
 [Authorize(Policy = "EmployeeOnly")]
@@ -66,7 +66,7 @@ public class VacationController : Controller
 }
 ```
 
-Tarafından korunan bir denetleyiciniz varsa `AuthorizeAttribute` özniteliği, ancak uyguladığınız belirli eylemlere anonim erişime izin vermek istediğiniz `AllowAnonymousAttribute` özniteliği.
+Tarafından korunan bir denetleyici varsa `AuthorizeAttribute` özniteliği ancak uyguladığınız belirli eylemlere anonim erişime izin vermek istediğiniz `AllowAnonymousAttribute` özniteliği.
 
 ```csharp
 [Authorize(Policy = "EmployeeOnly")]
@@ -83,7 +83,7 @@ public class VacationController : Controller
 }
 ```
 
-Çoğu talep değeri ile gelir. İlke oluştururken, izin verilen değerler listesini belirtebilirsiniz. Aşağıdaki örnek 1, 2, 3, 4 veya 5 çalışan sayıda olan çalışanlar için yalnızca başarılı.
+Çoğu talep değeri ile gelir. İlkeyi oluştururken, izin verilen değerlerin bir listesini belirtebilirsiniz. Aşağıdaki örnek 1, 2, 3, 4 veya 5 ayarlanmış çalışan numarası olan çalışanlar için yalnızca başarılı olabilir.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -98,13 +98,13 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-### <a name="add-a-generic-claim-check"></a>Genel talep denetimi ekleme
+### <a name="add-a-generic-claim-check"></a>Genel talep Denetimi Ekle
 
-Talep değeri tek bir değer değil veya bir dönüşüm gereklidir, kullanın [RequireAssertion](/dotnet/api/microsoft.aspnetcore.authorization.authorizationpolicybuilder.requireassertion). Daha fazla bilgi için bkz: [bir ilke karşılamak üzere bir func kullanarak](xref:security/authorization/policies#using-a-func-to-fulfill-a-policy).
+Talep değeri tek bir değer değil veya bir dönüştürme gerekli değildir, kullanın [RequireAssertion](/dotnet/api/microsoft.aspnetcore.authorization.authorizationpolicybuilder.requireassertion). Daha fazla bilgi için [bir ilkeyi karşılamak için bir func kullanarak](xref:security/authorization/policies#using-a-func-to-fulfill-a-policy).
 
 ## <a name="multiple-policy-evaluation"></a>Birden çok ilke değerlendirmesi
 
-Denetleyici veya eylem için birden çok ilke uygularsanız, erişim verilmeden önce tüm ilkeler geçmesi gerekir. Örneğin:
+Bir denetleyici veya eylem için birden çok ilke uygularsanız, erişim sağlanmadan önce tüm ilkeleri geçmesi gerekir. Örneğin:
 
 ```csharp
 [Authorize(Policy = "EmployeeOnly")]
@@ -121,6 +121,6 @@ public class SalaryController : Controller
 }
 ```
 
-Yukarıdaki örnekte karşılayan tüm kimlik `EmployeeOnly` İlkesi erişebilir `Payslip` eylemi olarak bu ilkeyi denetleyicisinde zorlanır. Ancak çağırmak için `UpdateSalary` gerekir kimliğini karşılamak eylem *her ikisi de* `EmployeeOnly` İlkesi ve `HumanResources` ilkesi.
+Yukarıdaki örnekte, karşıladığı tüm kimlik `EmployeeOnly` erişim ilkesi `Payslip` denetleyicisinde eylemi olarak bu ilke zorunlu tutulur. Ancak çağırmak için `UpdateSalary` gerekir kimlik karşılamak eylem *hem* `EmployeeOnly` ilke ve `HumanResources` ilkesi.
 
-Daha karmaşık ilkeleri isterseniz, Doğum talep tarihi alma gibi bir yaş dışarı hesaplama sonra geçerlilik süresi denetimi 21 ya da eski sonra yazmanız gereken [özel ilke işleyicileri](xref:security/authorization/policies).
+Daha karmaşık ilkeleri istiyorsanız, talep doğum tarihi alma gibi verilerden bir yaş hesaplama sonra geçerlilik süresi denetimi 21 veya eski rolüyse yazmanız gereken [özel ilke işleyicileri](xref:security/authorization/policies).

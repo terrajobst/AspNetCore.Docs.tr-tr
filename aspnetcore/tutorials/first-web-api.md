@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/4/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: a5c0140b70a30acd05b532d32525f6df92619075
-ms.sourcegitcommit: 8a84ce880b4c40d6694ba6423038f18fc2eb5746
-ms.translationtype: HT
+ms.openlocfilehash: dce2926e3cb19d6ac8d2af0e9b96c31dee1d92fd
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60165296"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65087519"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core-mvc"></a>Öğretici: ASP.NET Core MVC ile bir web API'si oluşturma
 
@@ -350,7 +350,7 @@ Aşağıdaki `PutTodoItem` yöntemi:
 
 `PutTodoItem` benzer `PostTodoItem`, HTTP PUT kullanır. Yanıt [204 (içerik yok)](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html). HTTP belirtimine göre bir PUT İsteği tüm güncelleştirilmiş varlık yalnızca değişiklikler değil göndermek istemci gerektirir. Kısmi güncelleştirmeleri desteklemek için kullanma [HTTP PATCH](xref:Microsoft.AspNetCore.Mvc.HttpPatchAttribute).
 
-Hata arama alırsanız `PutTodoItem`, çağrı `GET` olduğundan emin olmak için bir veritabanı içinde bir öğe.
+Hata arama alırsanız `PutTodoItem`, çağrı `GET` veritabanında bir öğe var. olmak.
 
 ### <a name="test-the-puttodoitem-method"></a>Test PutTodoItem yöntemi
 
@@ -443,7 +443,7 @@ Yapılacak iş öğesi silme gerçekleştirilir ayarlayarak `type` AJAX çağrı
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-[Görüntülemek veya Bu öğretici için örnek kodu indirdikten](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-web-api/samples). Bkz: [nasıl indirileceğini](xref:index#how-to-download-a-sample).
+[Görüntülemek veya Bu öğretici için örnek kodu indirdikten](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/first-web-api/samples). Bkz: [nasıl indirileceğini](xref:index#how-to-download-a-sample).
 
 Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 

@@ -5,14 +5,14 @@ description: LoggerMessage yüksek performanslı günlük kaydı senaryoları i�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/31/2019
+ms.date: 04/24/2019
 uid: fundamentals/logging/loggermessage
-ms.openlocfilehash: 7a030b4bb754f65f8d93e51f203344c2dc02a634
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.openlocfilehash: a82dfa36330e987f03f576d0f80198e3bad7b429
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "58809269"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65085596"
 ---
 # <a name="high-performance-logging-with-loggermessage-in-aspnet-core"></a>ASP.NET core'da LoggerMessage ile yüksek performans günlüğü
 
@@ -25,7 +25,7 @@ Tarafından [Luke Latham](https://github.com/guardrex)
 * Günlükçü genişletme yöntemleri gerektirir "kutulama (dönüştürme)" değer türleri gibi `int`, içine `object`. <xref:Microsoft.Extensions.Logging.LoggerMessage> Deseni statik kullanarak kutulama önler <xref:System.Action> alanları ve kesin tür belirtilmiş parametrelere sahip genişletme yöntemleri.
 * Günlükçü genişletme yöntemleri, her bir günlük iletisine yazılır ileti şablonunu (adlandırılmış bir biçim dizesi) ayrıştırma gerekir. <xref:Microsoft.Extensions.Logging.LoggerMessage> yalnızca bir şablon ileti tanımlandığında kez ayrıştırma gerektirir.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/loggermessage/samples/2.x/LoggerMessageSamples/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/logging/loggermessage/samples/2.x/LoggerMessageSample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 Örnek uygulamayı gösterir <xref:Microsoft.Extensions.Logging.LoggerMessage> özelliklerle izleme sistemi temel bir teklif. Uygulama ekler ve bir bellek içi veritabanı kullanarak siler. Bu işlemler gerçekleşirken, günlük iletilerini kullanılarak oluşturulmuş <xref:Microsoft.Extensions.Logging.LoggerMessage> deseni.
 

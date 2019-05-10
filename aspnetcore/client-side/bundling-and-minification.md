@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 11/20/2018
 uid: client-side/bundling-and-minification
 ms.openlocfilehash: 5d5f0aadb7740c9b2b959d12a585cd8c91758ce8
-ms.sourcegitcommit: 4225e2c49a0081e6ac15acff673587201f54b4aa
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282153"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64900452"
 ---
 # <a name="bundle-and-minify-static-assets-in-aspnet-core"></a>Paketleme ve küçültme ASP.NET Core statik varlıkları
 
@@ -85,14 +85,14 @@ ASP.NET Core 2.1 veya daha sonra adlı yeni bir JSON dosyası ekleme *bundleconf
 
 Yapılandırma seçenekleri şunlardır:
 
-* `outputFileName`: Çıkış paket dosyasının adı. Bir göreli yol içerebilir *bundleconfig.json* dosya. **Gerekli**
-* `inputFiles`: Paket dosyaları bir dizi. Yapılandırma dosyası için göreli yollar şunlardır. **İsteğe bağlı**, * bir boş çıkış dosyası boş değer sonuçlanır. [Genelleştirme](http://www.tldp.org/LDP/abs/html/globbingref.html) desenler desteklenir.
-* `minify`: Çıkış türü küçültmeye seçenekleri. **İsteğe bağlı**, *varsayılan - `minify: { enabled: true }`*
+* `outputFileName`: Çıkış için paket dosyasının adı. Bir göreli yol içerebilir *bundleconfig.json* dosya. **Gerekli**
+* `inputFiles`: Paket dosyaları dizisi. Yapılandırma dosyası için göreli yollar şunlardır. **İsteğe bağlı**, * bir boş çıkış dosyası boş değer sonuçlanır. [Genelleştirme](http://www.tldp.org/LDP/abs/html/globbingref.html) desenler desteklenir.
+* `minify`: Çıktı türü küçültme seçenekleri. **İsteğe bağlı**, *varsayılan - `minify: { enabled: true }`*
   * Çıkış dosyasının türünü yapılandırma seçenekleri kullanılabilir.
     * [CSS Minifier](https://github.com/madskristensen/BundlerMinifier/wiki/cssminifier)
     * [JavaScript küçültücü](https://github.com/madskristensen/BundlerMinifier/wiki/JavaScript-Minifier-settings)
     * [HTML Minifier](https://github.com/madskristensen/BundlerMinifier/wiki)
-* `includeInProject`: Sorunlarını giderme proje dosyasına oluşturulan dosyaları eklenip eklenmeyeceğini belirten bayrak. **İsteğe bağlı**, *varsayılan - yanlış*
+* `includeInProject`: Proje dosyasına oluşturulan dosyaları eklenip eklenmeyeceğini belirten bayrak. **İsteğe bağlı**, *varsayılan - yanlış*
 * `sourceMap`: Bir kaynak eşlemesi ile birlikte gelen dosyası oluşturulup oluşturulmayacağını belirten bayrak. **İsteğe bağlı**, *varsayılan - yanlış*
 * `sourceMapRootPath`: Oluşturulan kaynak eşleme dosyası depolamak için kök yolu.
 
@@ -218,7 +218,7 @@ Küçültülecek *custom.css* ve ile paket *site.css* içine bir *site.min.css* 
 >
 > Bu Glob deseni ile eşleşen tüm CSS dosyaları ve küçültülmüş dosya düzeni dahil değildir.
 
-Uygulamayı oluşturun. Açık *site.min.css* ve içeriğini fark *custom.css* dosyasının sonuna eklenir.
+Uygulamayı derleyin. Açık *site.min.css* ve içeriğini fark *custom.css* dosyasının sonuna eklenir.
 
 ## <a name="environment-based-bundling-and-minification"></a>Ortam tabanlı paketleme ve küçültme
 

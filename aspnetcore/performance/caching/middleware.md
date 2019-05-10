@@ -7,18 +7,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/20/2019
 uid: performance/caching/middleware
-ms.openlocfilehash: c7c3dbd0c9cf029fa6921d77450e780768c8aa6e
-ms.sourcegitcommit: 0945078a09c372f17e9b003758ed87e99c2449f4
+ms.openlocfilehash: ddbd547ec0fdd09da1f3e3ce30f8fa35a34870c2
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56647921"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64903020"
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Yanıt önbelleğe alma ara yazılımı ASP.NET core'da
 
 Tarafından [Luke Latham](https://github.com/guardrex) ve [John Luo](https://github.com/JunTaoLuo)
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/middleware/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample)).
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/caching/middleware/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample)).
 
 Bu makalede, yanıtları önbelleğe alma ara yazılımı ASP.NET Core uygulaması yapılandırma açıklanmaktadır. Ara yazılım, yanıtları önbelleğe olduğunda, depoları yanıtları ve önbelleğe alınan hizmet etmesi yanıtları belirler. HTTP önbelleğe alma için giriş ve `ResponseCache` özniteliği için bkz: [yanıt önbelleğe alma](xref:performance/caching/response).
 

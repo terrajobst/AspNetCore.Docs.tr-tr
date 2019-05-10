@@ -5,14 +5,14 @@ description: ASP.NET Core uygulaması bir Windows hizmetinde barındırmayı ö�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 04/04/2019
+ms.date: 05/04/2019
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: 544eefa87898e82ec2bf8f9f61ce4e26dd554bb7
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.openlocfilehash: ec3a37fd859df7592fa0d6d9cc0109942a570e7a
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59068342"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65086983"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>ASP.NET Core bir Windows hizmetinde barındırma
 
@@ -20,7 +20,7 @@ Tarafından [Luke Latham](https://github.com/guardrex) ve [Tom Dykstra](https://
 
 ASP.NET Core uygulaması Windows barındırılabilen bir [Windows hizmeti](/dotnet/framework/windows-services/introduction-to-windows-service-applications) IIS kullanmadan. Bir Windows hizmeti olarak barındırıldığında, uygulama yeniden başlatma sonrasında otomatik olarak başlar.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/windows-service/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/windows-service/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -209,7 +209,7 @@ Daha fazla bilgi için [icacls](/windows-server/administration/windows-commands/
 
 ## <a name="create-the-service"></a>Hizmet oluşturma
 
-Kullanım [RegisterService.ps1](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/windows-service/scripts) hizmeti kaydetmek için PowerShell Betiği. Bir yönetici PowerShell 6'yı komut kabuğundan betiği aşağıdaki komutu yürütün:
+Kullanım [RegisterService.ps1](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/windows-service/scripts) hizmeti kaydetmek için PowerShell Betiği. Bir yönetici PowerShell 6'yı komut kabuğundan betiği aşağıdaki komutu yürütün:
 
 ```powershell
 .\RegisterService.ps1 
@@ -284,7 +284,7 @@ Stop-Service -Name MyService
 
 Hizmeti ile bir hizmeti durdurmak için bir kısa bir gecikmeyle kaldırmak `Remove-Service -Name {NAME}` Powershell 6 komutu.
 
-Örnek uygulama hizmeti durumunu kontrol edin:
+Aşağıdaki komut, örnek uygulama hizmeti kaldırır:
 
 ```powershell
 Remove-Service -Name MyService

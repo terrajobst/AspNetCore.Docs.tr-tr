@@ -4,14 +4,14 @@ author: guardrex
 description: ASP.NET Core uygulamaları Windows Server Internet Information Services (IIS) üzerinde barındırmayı öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/16/2019
+ms.date: 05/07/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 65721a734cb35a2b20fd283ad54237eb896083a9
-ms.sourcegitcommit: 57a974556acd09363a58f38c26f74dc21e0d4339
+ms.openlocfilehash: c8e742047230339434b910de9a8a2492bc4da1ff
+ms.sourcegitcommit: a3926eae3f687013027a2828830c12a89add701f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59672651"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65450987"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Windows IIS üzerinde ASP.NET Core barındırma
 
@@ -158,6 +158,23 @@ services.Configure<IISServerOptions>(options =>
     options.AutomaticAuthentication = false;
 });
 ```
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+
+| Seçenek                         | Varsayılan | Ayar |
+| ------------------------------ | :-----: | ------- |
+| `AutomaticAuthentication`      | `true`  | Varsa `true`, IIS sunucusu ayarlar `HttpContext.User` tarafından kimliği doğrulanmış [Windows kimlik doğrulaması](xref:security/authentication/windowsauth). Varsa `false`, sunucu için bir kimlik yalnızca sağlar `HttpContext.User` ve açıkça tarafından istendiğinde zorlukları yanıtlar `AuthenticationScheme`. Windows kimlik doğrulaması etkin, IIS için `AutomaticAuthentication` işlevi. Daha fazla bilgi için [Windows kimlik doğrulaması](xref:security/authentication/windowsauth). |
+| `AuthenticationDisplayName`    | `null`  | Oturum açma sayfaları kullanıcılara gösterilen görünen adını ayarlar. |
+| `AllowSynchronousIO`           | `false` | Zaman uyumlu g/ç için izin verilip verilmediğini `HttpContext.Request` ve `HttpContext.Response`. |
+| `MaxRequestBodySize`           | `30000000`  | Alır veya ayarlar için en fazla istek gövdesi boyutu `HttpRequest`. IIS'nin sınırına sahip olduğuna dikkat edin `maxAllowedContentLength` hangi işlenmeyecek önce `MaxRequestBodySize` kümesinde `IISServerOptions`. Değiştirme `MaxRequestBodySize` etkilemez `maxAllowedContentLength`. Artırmak için `maxAllowedContentLength`, bir giriş ekleyin *web.config* ayarlanacak `maxAllowedContentLength` daha yüksek bir değer. Daha fazla ayrıntı için [yapılandırma](/iis/configuration/system.webServer/security/requestFiltering/requestLimits/#configuration). |
+
+**İşlem dışı barındırma modeli**
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.2"
 
 | Seçenek                         | Varsayılan | Ayar |
 | ------------------------------ | :-----: | ------- |

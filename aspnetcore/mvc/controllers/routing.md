@@ -5,12 +5,12 @@ description: Ara yazılım yönlendirme ASP.NET Core MVC URL'leri gelen istekler
 ms.author: riande
 ms.date: 01/24/2019
 uid: mvc/controllers/routing
-ms.openlocfilehash: f5104bc53581a41fa8c25d8c67e08e038c275391
-ms.sourcegitcommit: c6db8b14521814f1f7e528d7aa06e474e4c04a1f
+ms.openlocfilehash: b4d5cd3add3fda6b70873eb5cce1dcee651f9185
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "55065015"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65087513"
 ---
 # <a name="routing-to-controller-actions-in-aspnet-core"></a>ASP.NET core'da denetleyici eylemlerine yönlendirme
 
@@ -559,7 +559,7 @@ Eylemler genel yönlendirilir veya öznitelik yönlendirilir. Bir rota denetleyi
 
 ## <a name="complex-segments"></a>Karmaşık segmentleri
 
-Karmaşık bir segment (örneğin, `[Route("/dog{token}cat")]`), değişmez değerlerden soldan sağa'kurmak doyumsuz olmayan bir yolla eşleşen tarafından işlenir. Bkz: [kaynak kodu](https://github.com/aspnet/Routing/blob/9cea167cfac36cf034dbb780e3f783114ef94780/src/Microsoft.AspNetCore.Routing/Patterns/RoutePatternMatcher.cs#L296) için bir açıklama. Daha fazla bilgi için [bu sorunu](https://github.com/aspnet/Docs/issues/8197).
+Karmaşık bir segment (örneğin, `[Route("/dog{token}cat")]`), değişmez değerlerden soldan sağa'kurmak doyumsuz olmayan bir yolla eşleşen tarafından işlenir. Bkz: [kaynak kodu](https://github.com/aspnet/Routing/blob/9cea167cfac36cf034dbb780e3f783114ef94780/src/Microsoft.AspNetCore.Routing/Patterns/RoutePatternMatcher.cs#L296) için bir açıklama. Daha fazla bilgi için [bu sorunu](https://github.com/aspnet/AspNetCore.Docs/issues/8197).
 
 <a name="routing-url-gen-ref-label"></a>
 
@@ -675,7 +675,7 @@ Adanmış geleneksel rotalar kullanan özel bir davranışa yol engeller karşı
 
 <a name="routing-areas-ref-label"></a>
 
-## <a name="areas"></a>Alanları
+## <a name="areas"></a>Alanlar
 
 [Alanları](areas.md) ilgili işlevleri ayrı yönlendirme-için ad alanı (denetleyici eylemleri) ve klasör yapısını (için görünümler) bir gruba düzenlemek için kullanılan bir MVC özelliğidir. Alanlara kullanarak sağlar - aynı ada sahip birden çok denetleyicilerine sahip bir uygulama farklı sahip oldukları sürece *alanları*. Alanlara kullanarak başka bir rota parametresini ekleyerek yönlendirme amacıyla hiyerarşi oluşturur `area` için `controller` ve `action`. Bu bölümde, yönlendirme - alanları ile nasıl etkileştiğini ele alınacaktır bkz [alanları](areas.md) alanları görünümlerle nasıl kullanıldığı hakkında ayrıntılar için.
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/23/2018
 uid: mvc/controllers/testing
-ms.openlocfilehash: 429af1fb6d0388a5c57894851832969e1ef629e2
-ms.sourcegitcommit: a1c43150ed46aa01572399e8aede50d4668745ca
+ms.openlocfilehash: 2e58be2c9818a6fb39d4cbcf0e77a51623ca3aef
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58327439"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64903215"
 ---
 # <a name="test-controller-logic-in-aspnet-core"></a>ASP.NET Core denetleyicisi mantıksal test
 
@@ -19,7 +19,7 @@ Tarafından [Steve Smith](https://ardalis.com/)
 
 [Denetleyicileri](xref:mvc/controllers/actions) merkezi bir rol herhangi bir ASP.NET Core MVC uygulamasında Yürüt. Bu nedenle, denetleyicileri beklendiği gibi davranan bir güven olması gerekir. Uygulamayı bir üretim ortamına dağıtılmadan önce otomatikleştirilmiş testleri hatalar da algılanabilir.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/testing/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/testing/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="unit-tests-of-controller-logic"></a>Denetleyici mantıksal birim testleri
 
@@ -75,7 +75,7 @@ Adı olmayan sahte çağrıları normalde yoksayıldı, ancak arama `Verifiable`
 > [!NOTE]
 > Bu örnekte kullanılan Moq kitaplığı doğrulanabilir ya da "strict" mocks doğrulanamaz mocks ("belirsiz" mocks veya yer tutucular olarak da bilinir) ile birlikte mümkün kılar. Daha fazla bilgi edinin [Moq ile sahte davranışını özelleştirme](https://github.com/Moq/moq4/wiki/Quickstart#customizing-mock-behavior).
 
-[SessionController](https://github.com/aspnet/Docs/blob/master/aspnetcore/mvc/controllers/testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs) örnek uygulama belirli fırtınası oturumuyla ilgili bilgileri görüntüler. Denetleyici geçersiz dağıtılacak mantığı içerir `id` değerleri (iki `return` bu senaryolarınızı kapsaması amacıyla aşağıdaki örnek senaryolarda). En son `return` yeni bir ifade döndürür `StormSessionViewModel` görünümüne (*Controllers/SessionController.cs*):
+[SessionController](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/mvc/controllers/testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs) örnek uygulama belirli fırtınası oturumuyla ilgili bilgileri görüntüler. Denetleyici geçersiz dağıtılacak mantığı içerir `id` değerleri (iki `return` bu senaryolarınızı kapsaması amacıyla aşağıdaki örnek senaryolarda). En son `return` yeni bir ifade döndürür `StormSessionViewModel` görünümüne (*Controllers/SessionController.cs*):
 
 [!code-csharp[](testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs?name=snippet_SessionController&highlight=12-16,18-22,31)]
 

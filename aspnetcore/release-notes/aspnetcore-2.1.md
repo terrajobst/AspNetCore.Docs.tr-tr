@@ -4,14 +4,14 @@ author: isaac2004
 description: ASP.NET Core 2.1 yeni özellikler hakkında bilgi edinin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/13/2019
+ms.date: 04/30/2019
 uid: aspnetcore-2.1
-ms.openlocfilehash: 8299af819f86d3d2371650ce3d87deb817f0feb8
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.openlocfilehash: 359f961db768b9048427c8ab296ee3e035879408
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248179"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65086401"
 ---
 # <a name="whats-new-in-aspnet-core-21"></a>ASP.NET Core 2.1 yenilikler nelerdir?
 
@@ -28,7 +28,7 @@ SignalR, ASP.NET Core 2.1 için yazılmıştır. ASP.NET Core SignalR geliştirm
 * Yeni akış yanıt modeli.
 * Üzerinde tam WebSockets tabanlı istemciler için destek.
 
-Daha fazla bilgi için [ASP.NET Core SignalR](xref:signalr/index).
+Daha fazla bilgi için [ASP.NET Core SignalR](xref:signalr/introduction).
 
 ## <a name="razor-class-libraries"></a>Razor sınıf kitaplıkları
 
@@ -75,7 +75,7 @@ HTTPS kullanımı daha fazla zorunlu kullanarak [HTTP katı Aktarım güvenlik p
 
 ## <a name="gdpr"></a>GDPR
 
-ASP.NET Core API'leri ve şablonları bazı karşılamanıza yardımcı olmak üzere sağlar [AB genel veri koruma yönetmeliği (GDPR)](https://www.eugdpr.org/) gereksinimleri. Daha fazla bilgi için [GDPR desteği de ASP.NET Core](xref:security/gdpr). A [örnek uygulaması](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr/sample) nasıl kullanılacağını gösterir ve GDPR uzantı noktaları ve ASP.NET Core 2.1 şablonlarına eklenen API'leri çoğunu sınamanızı sağlar.
+ASP.NET Core API'leri ve şablonları bazı karşılamanıza yardımcı olmak üzere sağlar [AB genel veri koruma yönetmeliği (GDPR)](https://www.eugdpr.org/) gereksinimleri. Daha fazla bilgi için [GDPR desteği de ASP.NET Core](xref:security/gdpr). A [örnek uygulaması](https://github.com/aspnet/AspNetCore.Docs/tree/live/aspnetcore/security/gdpr/sample) nasıl kullanılacağını gösterir ve GDPR uzantı noktaları ve ASP.NET Core 2.1 şablonlarına eklenen API'leri çoğunu sınamanızı sağlar.
 
 ## <a name="integration-tests"></a>Tümleştirme testleri
 

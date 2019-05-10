@@ -5,14 +5,14 @@ description: Uygulamalar ve NavLink bileşenle ilgili istekleri yönlendirmeyi �
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/18/2019
+ms.date: 05/06/2019
 uid: blazor/routing
-ms.openlocfilehash: d3356ceccd5a6ed3375b7eada9cac295ef7ad53b
-ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
+ms.openlocfilehash: fc61b8998682d519f7b936d95645c6311ffa5c09
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59982868"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65086134"
 ---
 # <a name="blazor-routing"></a>Blazor yönlendirme
 
@@ -24,39 +24,31 @@ Uygulamalar ve NavLink bileşenle ilgili istekleri yönlendirmeyi öğrenin.
 
 Sunucu tarafı Blazor bütünleştirilmiştir [ASP.NET Core uç noktası yönlendirme](xref:fundamentals/routing). ASP.NET Core uygulaması ile etkileşimli bileşenleri için gelen bağlantıları kabul edecek şekilde yapılandırılmış `MapBlazorHub` içinde `Startup.Configure`:
 
-```csharp
-app.UseRouting();
-
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapBlazorHub();
-    endpoints.MapFallbackToPage("/_Host");
-});
-```
+[!code-cshtml[](routing/samples_snapshot/3.x/Startup.cs?highlight=5)]
 
 ## <a name="route-templates"></a>Rota şablonlarının
 
 `<Router>` Bileşen yönlendirme sağlar ve erişilebilir her bileşeni için bir rota şablonu sağlanır. `<Router>` Bileşeni görünür *App.razor* dosyası:
 
-Bir Blazor sunucu-tarafı uygulaması için:
+Blazor sunucu tarafı uygulamasında:
 
 ```cshtml
 <Router AppAssembly="typeof(Startup).Assembly" />
 ```
 
-Bir Blazor istemci-tarafı uygulaması için:
+Bir Blazor istemci-tarafı uygulaması:
 
 ```cshtml
 <Router AppAssembly="typeof(Program).Assembly" />
 ```
 
-Olduğunda bir *.razor* ile dosya bir `@page` yönergesi derlendiğinde, oluşturulan sınıfın belirli bir <xref:Microsoft.AspNetCore.Mvc.RouteAttribute> belirten rota şablonu. Çalışma zamanında bileşen sınıfları ile yönlendirici arar bir `RouteAttribute` ve hangi bileşen istenen URL ile eşleşen bir rota şablonuna sahip işler.
+Olduğunda bir *.razor* ile dosya bir `@page` yönergesi derlendiğinde, oluşturulan sınıfın sağlanan bir <xref:Microsoft.AspNetCore.Mvc.RouteAttribute> belirten rota şablonu. Çalışma zamanında bileşen sınıfları ile yönlendirici arar bir `RouteAttribute` ve istenen URL ile eşleşen bir rota şablonuyla bileşeni işler.
 
 Bir bileşenin birden çok yol şablonu uygulanabilir. Aşağıdaki bileşen isteklerine yanıt veren `/BlazorRoute` ve `/DifferentBlazorRoute`:
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Pages/BlazorRoute.razor?name=snippet_BlazorRoute)]
 
-`<Router>` İstenen yol, işleme için bir geri dönüş bileşen ayarı destekler çözülmüş değildir. Bu katılımı ayarlayarak senaryoyu `FallbackComponent` geri dönüş bileşen sınıfı türü parametresi.
+`<Router>` İstenen yol olduğunda işlemek için bir geri dönüş bileşen ayarı destekler çözülmüş değildir. Bu katılımı ayarlayarak senaryoyu `FallbackComponent` geri dönüş bileşen sınıfı türü parametresi.
 
 Aşağıdaki örnek, bir bileşen içinde tanımlanan ayarlar *Pages/MyFallbackRazorComponent.razor* geri dönüş bileşeni için bir `<Router>`:
 
@@ -73,7 +65,7 @@ Yönlendirici, aynı adı (büyük küçük harfe duyarlı) karşılık gelen bi
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Pages/RouteParameter.razor?name=snippet_RouteParameter&highlight=2,7-8)]
 
-İsteğe bağlı parametreler henüz desteklenmeyen böylece iki `@page` yönergeleri, yukarıdaki örnekte uygulanır. İlk Gezinti parametresi olmadan bileşenine izin verir. İkinci `@page` yönergesi gereken `{text}` rota parametresi ve değeri atar `Text` özelliği.
+İsteğe bağlı parametreler, ASP.NET Core 3.0 Önizleme Blazor uygulamalar için desteklenmez. İki `@page` yönergeleri, önceki örnekte uygulanır. İlk Gezinti parametresi olmadan bileşenine izin verir. İkinci `@page` yönergesi gereken `{text}` rota parametresi ve değeri atar `Text` özelliği.
 
 ## <a name="route-constraints"></a>Rota kısıtlamaları
 

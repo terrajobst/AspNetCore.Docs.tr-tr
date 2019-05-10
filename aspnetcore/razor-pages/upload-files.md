@@ -7,24 +7,24 @@ ms.author: riande
 ms.date: 11/10/2018
 ms.custom: mvc, seodec18
 uid: razor-pages/upload-files
-ms.openlocfilehash: a12653e5dc99ad731de63e151af6dbdbe38ffefc
-ms.sourcegitcommit: 8a84ce880b4c40d6694ba6423038f18fc2eb5746
-ms.translationtype: HT
+ms.openlocfilehash: 07457d57b7d3b444c8cea818149569407f1dd8e8
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60165228"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65085725"
 ---
 # <a name="upload-files-to-a-razor-page-in-aspnet-core"></a>Bir ASP.NET Core Razor sayfa dosya yükleme
 
 Tarafından [Luke Latham](https://github.com/guardrex)
 
-Bu konuda bağlı derlemeler [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample) içinde <xref:tutorials/razor-pages/razor-pages-start>.
+Bu konuda bağlı derlemeler [örnek uygulaması](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample) içinde <xref:tutorials/razor-pages/razor-pages-start>.
 
 Bu konuda, küçük dosyalar da karşıya yükleme için çalışan basit bir model bağlama dosyaları, karşıya yüklemek için nasıl kullanılacağı gösterilmektedir. Büyük dosyaları akış hakkında daha fazla bilgi için bkz: [akış ile büyük dosyaları karşıya yükleme](xref:mvc/models/file-uploads#uploading-large-files-with-streaming).
 
 Aşağıdaki adımlarda, örnek uygulamaya bir film zamanlaması dosyası karşıya yükleme özelliğini eklenir. Bir film zamanlama tarafından temsil edilen bir `Schedule` sınıfı. Sınıfı, zamanlama iki sürümünü içerir. Bir sürüm müşterilere sağlanan `PublicSchedule`. Başka bir sürüm şirket çalışanlarının kullanılan `PrivateSchedule`. Her sürümü ayrı bir dosya olarak yüklenir. Bu öğreticide, tek bir GÖNDERİ ile sayfasından sunucuya iki dosya yüklemelerini gerçekleştirmek gösterilmektedir.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/razor-pages/upload-files/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/upload-files/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="security-considerations"></a>Güvenlik konuları
 

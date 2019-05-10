@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/07/2019
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: da6ddf1f0efd164a58f017ff55ce216bbefa7cc6
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.openlocfilehash: f4be1559c3b4c17cd09f1360d954c837d84d5058
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59068329"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65085601"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>ASP.NET core'da bağımlılık ekleme
 
@@ -22,7 +22,7 @@ ASP.NET Core destekleyen bir tekniktir elde etmek için bağımlılık ekleme (d
 
 Özel bağımlılık ekleme MVC denetleyicileri içinde daha fazla bilgi için bkz. <xref:mvc/controllers/dependency-injection>.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/dependency-injection/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/dependency-injection/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="overview-of-dependency-injection"></a>Bağımlılık ekleme genel bakış
 
@@ -72,7 +72,7 @@ Bağımlılık ekleme aracılığıyla bu sorunları ele alır:
 * Bir hizmet kapsayıcısı bağımlılığı kaydı. ASP.NET Core sağlayan bir yerleşik hizmet kapsayıcı [IServiceProvider](/dotnet/api/system.iserviceprovider). Hizmetleri uygulamanın kayıtlı `Startup.ConfigureServices` yöntemi.
 * *Ekleme* hizmetinin, kullanıldığı sınıfının oluşturucusu, içine. Framework bağımlılığı örneği oluşturma ve artık gerekli değilse bunun atılması sorumluluğu alır.
 
-İçinde [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/dependency-injection/samples), `IMyDependency` arabirim uygulamasına hizmet sağlayan bir yöntem tanımlar:
+İçinde [örnek uygulaması](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/dependency-injection/samples), `IMyDependency` arabirim uygulamasına hizmet sağlayan bir yöntem tanımlar:
 
 [!code-csharp[](dependency-injection/samples/2.x/DependencyInjectionSample/Interfaces/IMyDependency.cs?name=snippet1)]
 

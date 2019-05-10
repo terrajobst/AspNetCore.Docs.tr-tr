@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 11/26/2018
 uid: host-and-deploy/web-farm
 ms.openlocfilehash: 4873665e6174a6acf885e1ebb41fb005d646bd1f
-ms.sourcegitcommit: e9b99854b0a8021dafabee0db5e1338067f250a9
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52450677"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64899246"
 ---
 # <a name="host-aspnet-core-in-a-web-farm"></a>Bir web grubundaki ASP.NET Core barındırma
 
@@ -61,8 +61,8 @@ Aşağıdaki senaryoları, ek bir yapılandırma gerekmez, ancak yapılandırma 
 | -------- | ------------------- |
 | Kimlik doğrulaması | Veri koruma (bkz <xref:security/data-protection/configuration/overview>).<br><br>Daha fazla bilgi için bkz. <xref:security/authentication/cookie> ve <xref:security/cookie-sharing>. |
 | Kimlik | Kimlik doğrulaması ve veritabanı yapılandırması.<br><br>Daha fazla bilgi için bkz. <xref:security/authentication/identity>. |
-| Oturum | Veri koruma (şifrelenmiş tanımlama bilgileri) (bkz <xref:security/data-protection/configuration/overview>) ve önbelleğe alma (bkz <xref:performance/caching/distributed>).<br><br>Daha fazla bilgi için [oturum ve uygulama durumu: oturum durumunu](xref:fundamentals/app-state#session-state). |
-| TempData | Veri koruma (şifrelenmiş tanımlama bilgileri) (bkz <xref:security/data-protection/configuration/overview>) veya oturumu (bkz [oturum ve uygulama durumu: oturum durumunu](xref:fundamentals/app-state#session-state)).<br><br>Daha fazla bilgi için [oturum ve uygulama durumu: TempData](xref:fundamentals/app-state#tempdata). |
+| Oturum | Veri koruma (şifrelenmiş tanımlama bilgileri) (bkz <xref:security/data-protection/configuration/overview>) ve önbelleğe alma (bkz <xref:performance/caching/distributed>).<br><br>Daha fazla bilgi için [oturum ve uygulama durumu: Oturum durumu](xref:fundamentals/app-state#session-state). |
+| TempData | Veri koruma (şifrelenmiş tanımlama bilgileri) (bkz <xref:security/data-protection/configuration/overview>) veya oturumu (bkz [oturum ve uygulama durumu: Oturum durumu](xref:fundamentals/app-state#session-state)).<br><br>Daha fazla bilgi için [oturum ve uygulama durumu: TempData](xref:fundamentals/app-state#tempdata). |
 | Sahteciliğe karşı koruma | Veri koruma (bkz <xref:security/data-protection/configuration/overview>).<br><br>Daha fazla bilgi için bkz. <xref:security/anti-request-forgery>. |
 
 ## <a name="troubleshoot"></a>Sorun giderme

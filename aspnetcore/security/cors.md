@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/07/2019
 uid: security/cors
-ms.openlocfilehash: fe5b750c44e5fad9ba80efb2cc8116d0a64b1a17
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.openlocfilehash: 655d9be894c677f8adf0fecc2b465d5ae7af2b61
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59068303"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64903053"
 ---
 # <a name="enable-cross-origin-requests-cors-in-aspnet-core"></a>ASP.NET core'da çıkış noktaları arası istekleri (CORS) etkinleştirme
 
@@ -28,7 +28,7 @@ Tarayıcı güvenlik, bir web sayfası web sayfada sunulandan daha farklı bir e
 * Açıkça bazı çıkış noktaları arası istekleri izin verirken diğerlerini sunucuya sağlar.
 * Güvenli ve önceki teknikleri, daha esnek olduğu gibi [JSONP](/dotnet/framework/wcf/samples/jsonp).
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/2.2-stage-samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/cors/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="same-origin"></a>Aynı kaynak
 
@@ -425,13 +425,13 @@ Yanıt içermiyorsa `Access-Control-Allow-Origin` üst bilgi çıkış noktalar�
 
 CORS test etmek için:
 
-1. [Bir API projesi oluşturma](xref:tutorials/first-web-api). Alternatif olarak, [örneği indirin](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/cors/sample/Cors).
+1. [Bir API projesi oluşturma](xref:tutorials/first-web-api). Alternatif olarak, [örneği indirin](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/cors/sample/Cors).
 1. Yaklaşımlardan biri bu belgeyi kullanarak CORS'yi etkinleştirin. Örneğin:
 
   [!code-csharp[](cors/sample/Cors/WebAPI/StartupTest.cs?name=snippet2&highlight=13-18)]
 
   > [!WARNING]
-  > `WithOrigins("https://localhost:<port>");` benzer şekilde bir örnek uygulamayı test etmek için yalnızca kullanılmalıdır [örnek kodu indirdikten](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/cors/sample/Cors).
+  > `WithOrigins("https://localhost:<port>");` benzer şekilde bir örnek uygulamayı test etmek için yalnızca kullanılmalıdır [örnek kodu indirdikten](https://github.com/aspnet/AspNetCore.Docs/tree/live/aspnetcore/security/cors/sample/Cors).
 
 1. (Razor sayfaları veya MVC) bir web uygulaması projesi oluşturun. Razor sayfaları örnek kullanır. API projesi olarak aynı çözüm içindeki web uygulaması oluşturabilirsiniz.
 1. Aşağıdaki vurgulanmış kodu ekleyin *Index.cshtml* dosyası:

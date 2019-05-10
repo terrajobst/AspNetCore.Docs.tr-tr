@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 08/31/2018
 uid: security/ip-safelist
-ms.openlocfilehash: 286f199c0d9164fa70d511aba523210c85c2fdfd
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: cfbb50ea33ae3af577f13b00bccc75fe0be57f79
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207738"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64903374"
 ---
 # <a name="client-ip-safelist-for-aspnet-core"></a>İstemci IP Güvenli ASP.NET Core için liste
 
@@ -25,7 +25,7 @@ Bu makalede, bir IP güvenli liste (beyaz liste olarak da bilinir) ASP.NET Core 
 
 Örnek uygulamayı her iki yaklaşımı da gösterir. Her durumda, bir uygulama ayarı onaylı istemci IP adreslerini içeren bir dize olarak depolanır. Ara yazılım veya filtre bir listeye dizeyi ayrıştırır ve uzak IP listesinde olup olmadığını denetler. Aksi durumda, bir HTTP 403 Yasak durum kodu döndürülür.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/ip-safelist/samples/2.x/ClientIpAspNetCore) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/ip-safelist/samples/2.x/ClientIpAspNetCore) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="the-safelist"></a>Güvenli liste
 

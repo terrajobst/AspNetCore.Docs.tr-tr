@@ -6,18 +6,18 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 04/04/2019
 uid: tutorials/get-started-with-swashbuckle
-ms.openlocfilehash: 31d45eaa684118ab78d1b3ecac594e95712f631f
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.openlocfilehash: ebbdfa4cfeb3013cd961167439dd261f2e058a4b
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59068355"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65087608"
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Swashbuckle'ı ve ASP.NET Core ile çalışmaya başlama
 
 Tarafından [Shayne boyer'ın](https://twitter.com/spboyer) ve [Scott Addie](https://twitter.com/Scott_Addie)
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/web-api-help-pages-using-swagger/samples/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/web-api-help-pages-using-swagger/samples/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 Swashbuckle'ı için üç ana bileşeni vardır:
 
@@ -75,6 +75,10 @@ dotnet add TodoApi.csproj package Swashbuckle.AspNetCore
 
 ## <a name="add-and-configure-swagger-middleware"></a>Ekleme ve Swagger ara yazılımını yapılandırma
 
+Kullanmak için aşağıdaki ad alanı içe `Info` sınıfı:
+
+[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup2.cs?name=snippet_InfoClassNamespace)]
+
 Swagger oluşturucusunu Hizmetleri koleksiyona eklemek `Startup.ConfigureServices` yöntemi:
 
 ::: moniker range="<= aspnetcore-2.0"
@@ -88,10 +92,6 @@ Swagger oluşturucusunu Hizmetleri koleksiyona eklemek `Startup.ConfigureService
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.Swashbuckle/Startup2.cs?name=snippet_ConfigureServices&highlight=9-12)]
 
 ::: moniker-end
-
-Kullanmak için aşağıdaki ad alanı içe `Info` sınıfı:
-
-[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup2.cs?name=snippet_InfoClassNamespace)]
 
 İçinde `Startup.Configure` yöntemi, oluşturulan JSON belgesini ve Swagger kullanıcı arabirimini sunulması için Ara yazılımlarını etkinleştir:
 

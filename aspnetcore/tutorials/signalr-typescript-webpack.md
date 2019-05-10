@@ -4,14 +4,14 @@ author: ssougnez
 description: Bu öğreticide, Web, istemci, içinde TypeScript yazılmış bir ASP.NET Core SignalR web uygulaması derleme ve paket için yapılandırın.
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 02/11/2019
+ms.date: 04/23/2019
 uid: tutorials/signalr-typescript-webpack
-ms.openlocfilehash: aaf9aa59928ed6b17bc0586d97dbdefc9e30362c
-ms.sourcegitcommit: 5e3797a02ff3c48bb8cb9ad4320bfd169ebe8aba
+ms.openlocfilehash: 8bebdd9102f93d2b2a8bf142db1053def9d001a0
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56102958"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64899537"
 ---
 # <a name="use-aspnet-core-signalr-with-typescript-and-webpack"></a>TypeScript ve Web ile ASP.NET Core SignalR kullanma
 
@@ -19,7 +19,7 @@ Tarafından [Sébastien Sougnez](https://twitter.com/ssougnez) ve [Scott Addie](
 
 [Web](https://webpack.js.org/) geliştiricilerin paket ve derleme bir web uygulamasının istemci-tarafı kaynakları sağlar. Web istemcisi yazılmış bir ASP.NET Core SignalR web uygulaması kullanarak bu eğitimde [TypeScript](https://www.typescriptlang.org/).
 
-Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+Bu öğreticide şunların nasıl yapıladığını öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Bir başlangıç ASP.NET Core SignalR uygulaması iskelesini
@@ -28,9 +28,24 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * SignalR sunucusunu yapılandırma
 > * İstemci ve sunucu arasında iletişimi etkinleştirin
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/signalr-typescript-webpack/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/signalr-typescript-webpack/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
-[!INCLUDE [Prerequisites](~/includes/net-core-prereqs-vs-vsc-2.2.md)]
+## <a name="prerequisites"></a>Önkoşullar
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+* [Visual Studio 2017 sürüm 15,9 veya üzeri](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017) ile **ASP.NET ve web geliştirme** iş yükü
+* [.NET core SDK 2.2 veya üzeri](https://www.microsoft.com/net/download/all)
+* [Node.js](https://nodejs.org/) ile [npm](https://www.npmjs.com/)
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+
+* [Visual Studio Code](https://code.visualstudio.com/download)
+* [.NET core SDK 2.2 veya üzeri](https://www.microsoft.com/net/download/all)
+* [C#Visual Studio Code sürümü 1.17.1 veya üzeri](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+* [Node.js](https://nodejs.org/) ile [npm](https://www.npmjs.com/)
+
+---
 
 ## <a name="create-the-aspnet-core-web-app"></a>ASP.NET Core web uygulaması oluşturma
 

@@ -5,12 +5,12 @@ description: Bu öğreticide, aracı yükleme ve .NET Core CLI'ın dosya İzleyi
 ms.author: riande
 ms.date: 05/31/2018
 uid: tutorials/dotnet-watch
-ms.openlocfilehash: 40ecca1c6f9d519b24649d0c28946d95b820c07c
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.openlocfilehash: 03b4f7f4ade5268915482a659890c7edc2d9a852
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59068202"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64902171"
 ---
 # <a name="develop-aspnet-core-apps-using-a-file-watcher"></a>Bir dosya İzleyicisi'ni kullanarak ASP.NET Core uygulamaları geliştirin
 
@@ -20,7 +20,7 @@ Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT) ve [Victor Hurdugac
 
 Bu öğreticide iki uç nokta ile mevcut bir web API'si:, toplam ve bir ürün döndüren bir döndürür. Bu öğreticide sabit bir hata, ürün yöntemi vardır.
 
-İndirme [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/dotnet-watch/sample). Bu iki projeden oluşan: *WebApp* (bir ASP.NET Core web API'si) ve *WebAppTests* (web API'si için birim testleri).
+İndirme [örnek uygulaması](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/dotnet-watch/sample). Bu iki projeden oluşan: *WebApp* (bir ASP.NET Core web API'si) ve *WebAppTests* (web API'si için birim testleri).
 
 Komut kabuğu'na gidin *WebApp* klasör. Şu komutu çalıştırın:
 

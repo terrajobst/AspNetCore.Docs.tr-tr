@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: ccd56d0c15639e1ad29094e947f8055702ee2264
-ms.sourcegitcommit: 2c7ffe349eabdccf2ed748dd303ffd0ba6e1cfe3
+ms.openlocfilehash: 5a0797fcfe93d49b941b61688ae8f58a1b5d7614
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833676"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65086344"
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>ASP.NET Core kimliği için özel depolama sağlayıcıları
 
@@ -19,7 +19,7 @@ Tarafından [Steve Smith](https://ardalis.com/)
 
 ASP.NET Core kimliği bir özel depolama sağlayıcısı oluşturmanıza ve bunu uygulamanıza bağlamanıza olanak tanıyan genişletilebilir bir sistemdir. Bu konuda, bir ASP.NET Core kimliği için özelleştirilmiş depolama sağlayıcısı oluşturmayı açıklar. Kendi depolama sağlayıcısı oluşturmak için önemli kavramlar ele alınmaktadır ancak adım adım bir kılavuz değildir.
 
-[Görüntülemek veya örnek Github'dan indirin](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/identity/sample).
+[Görüntülemek veya örnek Github'dan indirin](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/authentication/identity/sample).
 
 ## <a name="introduction"></a>Giriş
 
@@ -139,7 +139,7 @@ Oluşturma bir `UserStore` kullanıcının tüm veri işlemleri için yöntemler
 * [Iusertwofactorstore](/dotnet/api/microsoft.aspnetcore.identity.iusertwofactorstore-1)
 * [Iuserlockoutstore](/dotnet/api/microsoft.aspnetcore.identity.iuserlockoutstore-1)
 
-İsteğe bağlı arabirimler devralınacak `IUserStore<TUser>`. Depolar kısmen uygulanan örnek kullanıcı gördüğünüz [örnek uygulaması](https://github.com/aspnet/Docs/blob/master/aspnetcore/security/authentication/identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/CustomUserStore.cs).
+İsteğe bağlı arabirimler devralınacak `IUserStore<TUser>`. Depolar kısmen uygulanan örnek kullanıcı gördüğünüz [örnek uygulaması](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/security/authentication/identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/CustomUserStore.cs).
 
 İçinde `UserStore` sınıfı, işlemleri gerçekleştirmek için oluşturduğunuz veri erişim sınıfları kullanın. Bu bağımlılık ekleme kullanılarak geçirilir. Örneğin, Dapper uygulaması, SQL Server'da `UserStore` sınıfında `CreateAsync` bir örneği kullanan yöntemi `DapperUsersTable` yeni bir kayıt eklemek için:
 

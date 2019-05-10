@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/sort-filter-page
-ms.openlocfilehash: dff5a5b1ba3c8ed07ccc8d134f8cfeb25b9f6689
-ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
+ms.openlocfilehash: 921e27bf56587813f835357c9090c91a155c087b
+ms.sourcegitcommit: b508b115107e0f8d7f62b25cfcc8ad45e1373459
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2019
-ms.locfileid: "58751044"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65212555"
 ---
 # <a name="tutorial-add-sorting-filtering-and-paging---aspnet-mvc-with-ef-core"></a>Öğretici: Sıralama, filtreleme ve sayfalama - EF çekirdekli ASP.NET MVC Ekle
 
@@ -211,10 +211,8 @@ Disk belleği works emin olmak için farklı sıralamalar sayfalama bağlantıla
 Contoso University Web sitesinin için **hakkında** sayfasında, her kayıt tarihi için kaç Öğrenciler kaydedilmiş görüntüleyeceksiniz. Bu gruplar üzerinde gruplandırma ve basit hesaplama gerektirir. Bunu yapmak için aşağıdakileri:
 
 * Görünüme iletmek için gereken verileri için bir görünüm modeli sınıfı oluşturun.
-
-* Giriş denetleyicisine hakkında yöntemi değiştirin.
-
-* Hakkında görünümü değiştirin.
+* İçinde giriş denetleyicisine hakkında yöntemi oluşturun.
+* Hakkında görünümü oluşturun.
 
 ### <a name="create-the-view-model"></a>Görünüm modeli oluşturun
 
@@ -239,10 +237,8 @@ Ekleme bir `About` yöntemini aşağıdaki kod ile:
 [!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseDbSet)]
 
 LINQ deyiminden Öğrenci varlıkları kayıt tarihe göre gruplar, her grupta varlık sayısını hesaplar ve sonuçları bir koleksiyonda depolar `EnrollmentDateGroup` model nesneleri görüntüleyin.
-> [!NOTE]
-> Entity Framework Core 1.0 sürümünde, sonuç kümesinin tamamı istemciye döndürülür ve gruplandırma istemcide gerçekleştirilir. Bazı senaryolarda bu performans sorunlarını oluşturabilirsiniz. Veri hacimleri üretim performansını test edin ve gerekirse, ham SQL sunucu üzerinde gruplandırma yapmak için kullanın emin olun. Ham SQL kullanma hakkında daha fazla bilgi için bkz: [bu serinin son öğreticide](advanced.md).
 
-### <a name="modify-the-about-view"></a>Değiştirme görünümü hakkında
+### <a name="create-the-about-view"></a>Oluşturma görünümü hakkında
 
 Ekleme bir *Views/Home/About.cshtml* dosyasındaki kodu aşağıdaki kodla:
 
@@ -252,7 +248,7 @@ Uygulamayı çalıştırın ve hakkında sayfasına gidin. Bir tablodaki her kay
 
 ## <a name="get-the-code"></a>Kodu alma
 
-[İndirme veya tamamlanmış uygulamanın görüntüleyin.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
+[İndirme veya tamamlanmış uygulamanın görüntüleyin.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/18/2018
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: d2dd5e9b7f196bcbd1940f7ef58331dabd2367a1
-ms.sourcegitcommit: 816f39e852a8f453e8682081871a31bc66db153a
+ms.openlocfilehash: 72d5b2e902a95442ccffb7a149b917c50373775b
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53637813"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64902204"
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>URL yeniden yazma ara yazılımı ASP.NET core'da
 
@@ -38,7 +38,7 @@ URL yeniden yazma URL bir veya daha fazla önceden tanımlanmış kurallara gör
 > [!NOTE]
 > URL yeniden yazma uygulama performansını düşürebilir. Uygun olduğunda, sayısı ve karmaşıklığı kurallar sınırlayın.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="url-redirect-and-url-rewrite"></a>URL yeniden yönlendirme ve URL yeniden yazma
 
@@ -68,7 +68,7 @@ Varsa `/resource` olduğu *yazılan* için `/different-resource`, sunucunun *dah
 
 ## <a name="url-rewriting-sample-app"></a>URL yeniden yazma örnek uygulaması
 
-URL yeniden yazma ara yazılımı ile özelliklerini inceleyebilirsiniz [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/). Uygulama yeniden yönlendirme uygulanır ve yeniden yazma kuralları ve çeşitli senaryolar için yeniden yönlendirilen veya yeniden URL gösterir.
+URL yeniden yazma ara yazılımı ile özelliklerini inceleyebilirsiniz [örnek uygulaması](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/). Uygulama yeniden yönlendirme uygulanır ve yeniden yazma kuralları ve çeşitli senaryolar için yeniden yönlendirilen veya yeniden URL gösterir.
 
 ## <a name="when-to-use-url-rewriting-middleware"></a>URL yeniden yazma ara yazılımı kullanma zamanı
 

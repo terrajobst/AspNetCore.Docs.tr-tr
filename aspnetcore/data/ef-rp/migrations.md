@@ -5,12 +5,12 @@ description: Bu öğreticide, ASP.NET Core MVC uygulaması içindeki veri modeli
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/migrations
-ms.openlocfilehash: 1803c6d3956121e4e7091f4f951917425e87c335
-ms.sourcegitcommit: 7d6019f762fc5b8cbedcd69801e8310f51a17c18
-ms.translationtype: MT
+ms.openlocfilehash: 5b8228130378059aebe21c9c3ea1eb72e4c6aad9
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58419478"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65086165"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---migrations---4-of-8"></a>ASP.NET core'da - geçiş - 4 8 EF çekirdekli Razor sayfaları
 
@@ -25,7 +25,7 @@ Tarafından [Tom Dykstra](https://github.com/tdykstra), [Jon P Smith](https://tw
 Bu öğreticide, veri modeli değişikliklerini yönetmek için EF Core geçişleri özelliği kullanılır.
 
 Olamaz çözmek sorunlarla karşılaşırsanız, indirme [tamamlanan uygulama](
-https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples).
+https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples).
 
 Yeni bir uygulama geliştirdiğinizde, veri değişikliklerini sık model. Her model veritabanı ile eşitlenmemiş model değişiklikleri alır. Bu öğreticide, mevcut değilse veritabanını oluşturmak için Entity Framework yapılandırarak başlatıldı. Veri değişiklikleri model her zaman:
 
@@ -161,7 +161,7 @@ EF Core kullanan `__MigrationsHistory` tüm geçişler çalıştırma gerekip ge
 ## <a name="troubleshooting"></a>Sorun giderme
 
 İndirme [tamamlanan uygulama](
-https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part4-migrations).
+https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part4-migrations).
 
 Uygulama, şu özel durum oluşturur:
 

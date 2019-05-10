@@ -1,7 +1,7 @@
 # <a name="data-protection-key-folder"></a>Veri koruma anahtarı klasörü
 
-Bu dosya veri koruma anahtarları için paylaşılan bir klasör oluşturmak için bir yer tutucudur.
+Veri koruma anahtarları için paylaşılan bir klasör oluşturmak için yer tutucu dosyasıdır.
 
-Bir üretim dağıtımında asla iade Bu dizindeki dosyaların ve geliştirme kök dışında anahtarları kaynak denetimine yerleştirin. Veri koruma DPAPI ya da bir X509Certificate dosyalarıyla anahtarlarında koruyun.
+Bir üretim dağıtımında, anahtarları asla iade bu dizinde dosya ve geliştirme kök dışında kaynak denetimine yerleştirin. Veri koruma anahtarları dosyalarında DPAPI veya bir X509Certificate ile koruyun.
 
-Bkz: [ASP.NET Core veri koruması: tüketici API'leri, yapılandırma, genişletilebilirlik API'leri ve uygulama](https://docs.microsoft.com/aspnet/core/security/data-protection/) daha fazla bilgi için.
+Bkz: [ASP.NET Core veri koruması: Tüketici API'leri, yapılandırma, genişletilebilirlik API'leri ve uygulama](https://docs.microsoft.com/aspnet/core/security/data-protection/) daha fazla bilgi için.

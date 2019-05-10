@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: scaddie
 ms.date: 04/06/2019
 uid: mvc/views/tag-helpers/th-components
-ms.openlocfilehash: fdad4ae367245cd3beabaf90587c1fe5e9162afe
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.openlocfilehash: 777bbcca3d1c2f03f386fa62df2a2e0b00409318
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59468601"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64902084"
 ---
 # <a name="tag-helper-components-in-aspnet-core"></a>ASP.NET core'da etiket Yardımcısı bileşenleri
 
@@ -21,7 +21,7 @@ Bir etiket Yardımcısı koşullu olarak değiştirmek veya HTML öğelerinin su
 
 ASP.NET Core, iki yerleşik etiket Yardımcısı bileşenleri içerir: `head` ve `body`. Bulunan <xref:Microsoft.AspNetCore.Mvc.Razor.TagHelpers> ad alanı ve MVC ve Razor sayfaları için kullanılabilir. Etiket Yardımcısı bileşenleri yoksa uygulamayı kayıt gerektiren *_viewımports.cshtml*.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/th-components/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/tag-helpers/th-components/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="use-cases"></a>Uygulama alanları
 

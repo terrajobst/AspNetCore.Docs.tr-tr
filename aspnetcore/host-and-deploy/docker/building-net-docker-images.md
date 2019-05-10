@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 04/09/2019
 uid: host-and-deploy/docker/building-net-docker-images
-ms.openlocfilehash: e2673e64e18f942515f17982ab374a23392eb473
-ms.sourcegitcommit: 8a84ce880b4c40d6694ba6423038f18fc2eb5746
-ms.translationtype: HT
+ms.openlocfilehash: 48fc53a4c2139960c0f696af5732ff68fc6c4b8a
+ms.sourcegitcommit: a3926eae3f687013027a2828830c12a89add701f
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60165111"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65451003"
 ---
 # <a name="docker-images-for-aspnet-core"></a>ASP.NET Core için docker görüntüleri
 
@@ -211,7 +211,7 @@ Bu öğreticide şunları yaptınız:
 > * Windows kapsayıcıları ile örneği çalıştırma
 > * Yerleşik ve el ile dağıtılabilir
 
-Ardından, Docker'la çalışmak için Visual Studio olan araçları hakkında bilgi edinin.
+Örnek uygulamayı içeren bir Git deposu belgeleri de içerir. Depodaki kaynakları genel bakış için bkz. [Benioku dosyasını](https://github.com/dotnet/dotnet-docker/blob/master/samples/aspnetapp/README.md). Özellikle, HTTPS uygulamayı öğrenin:
 
 > [!div class="nextstepaction"]
-> <xref:host-and-deploy/docker/visual-studio-tools-for-docker>
+> [HTTPS üzerinden Docker ile ASP.NET Core uygulamaları geliştirme](https://github.com/dotnet/dotnet-docker/blob/master/samples/aspnetapp/aspnetcore-docker-https-development.md)

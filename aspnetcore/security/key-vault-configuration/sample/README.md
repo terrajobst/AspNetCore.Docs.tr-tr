@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: 209b5c41e17897693962954b1e795bdbb41f9384
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59012740"
----
 # <a name="key-vault-configuration-provider-sample-app"></a>Anahtar kasası yapılandırma sağlayıcısı örnek uygulaması
 
 Bu örnek, Azure Key Vault yapılandırma sağlayıcısı kullanımını gösterir.

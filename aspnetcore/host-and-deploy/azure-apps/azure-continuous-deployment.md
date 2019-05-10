@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/06/2018
 uid: host-and-deploy/azure-apps/azure-continuous-deployment
-ms.openlocfilehash: e12c2ee0b78db105b431770e8644e7d19d915765
-ms.sourcegitcommit: b34b25da2ab68e6495b2460ff570468f16a9bf0d
+ms.openlocfilehash: 3b344505739bb4292ed1683c73ff314b6e4e01e9
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53284450"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64902333"
 ---
 # <a name="continuous-deployment-to-azure-with-visual-studio-and-git-with-aspnet-core"></a>ASP.NET Core ile Visual Studio ve Git kullanarak Azure’a sürekli dağıtım
 
@@ -30,7 +30,7 @@ Ayrıca bkz: [Azure işlem hattı ile ilk işlem hattınızı oluşturma](/azure
 
 Bu öğreticide, aşağıdaki yazılımın yüklü olduğu varsayılır:
 
-* [Visual Studio](https://www.visualstudio.com)
+* [Visual Studio](https://visualstudio.microsoft.com)
 * [!INCLUDE [](~/includes/net-core-sdk-download-link.md)]
 * [Git](https://git-scm.com/downloads) Windows için
 

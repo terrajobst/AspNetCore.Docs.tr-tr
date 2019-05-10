@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 04/11/2019
 uid: web-api/index
-ms.openlocfilehash: 334e5732269921a62356e7854824deccc051c291
-ms.sourcegitcommit: 8a84ce880b4c40d6694ba6423038f18fc2eb5746
+ms.openlocfilehash: d804a7f1b4f0e89f433a3674116c97804705f7cc
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60165182"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64902582"
 ---
 # <a name="create-web-apis-with-aspnet-core"></a>ASP.NET Core ile Web API'leri oluşturma
 
@@ -20,7 +20,7 @@ Tarafından [Scott Addie](https://github.com/scottaddie) ve [Tom Dykstra](https:
 
 ASP.NET Core web API'leri kullanarak, olarak da bilinir oluşturma RESTful hizmetleri destekleyen C#. İsteklerini işlemek için bir web API denetleyicisi kullanır. *Denetleyicileri* bir web API'SİNDE türetilen sınıflardır `ControllerBase`. Bu makalede, API istekleri işlemek için denetleyicileri kullanmayı gösterir.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/index/samples). ([Nasıl indirileceğini](xref:index#how-to-download-a-sample)).
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/index/samples). ([Nasıl indirileceğini](xref:index#how-to-download-a-sample)).
 
 ## <a name="controllerbase-class"></a>ControllerBase sınıfı
 

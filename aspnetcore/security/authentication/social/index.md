@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 4/19/2019
 uid: security/authentication/social/index
-ms.openlocfilehash: 61482481358256dc9ddd1a0a894541040a8a452f
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.openlocfilehash: e2d68ac93bdcfa2fc015e8447ea38626787cdb02
+ms.sourcegitcommit: a3926eae3f687013027a2828830c12a89add701f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59516332"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65451050"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Facebook, Google ve ASP.NET Core dış sağlayıcı kimlik doğrulaması
 
@@ -47,11 +47,13 @@ Kullanıcıların mevcut kimlik bilgileriyle oturum açmasına etkinleştirme:
 * Aşağıdaki komutları çalıştırın:
 
   ```console
-  dotnet new webapp -o WebApp1
+  dotnet new webapp -o WebApp1 -au Individual -uld
   code -r WebApp1
   ```
 
   * `dotnet new` Komut yeni bir Razor sayfaları projesindeki oluşturur *WebApp1* klasör.
+  * `-uld` LocalDB yerine SQLite kullanır. Atlamak `-uld` SQLite kullanılacak.
+  * `-au Individual` Bireysel kimlik doğrulama için kod oluşturur.
   * `code` Komutu açılır *WebApp1* Visual Studio Code yeni bir örneğini klasöründe.
 
   Bir iletişim kutusu görünür **gerekli varlıkları oluşturun ve hata ayıklama 'WebApp1' eksik. Bunları eklensin mi?**
@@ -65,7 +67,7 @@ Bir terminalde aşağıdaki komutu çalıştırın:
 <!-- TODO: update these instruction once mac support 2.2 projects -->
 
 ```console
-dotnet new webapp -o WebApp1
+dotnet new webapp -o WebApp1 -au Individual
 ```
 
 Kullanım komutları önceki [.NET Core CLI](/dotnet/core/tools/dotnet) Razor sayfaları projesi oluşturmak için.

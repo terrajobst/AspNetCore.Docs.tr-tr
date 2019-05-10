@@ -1,6 +1,6 @@
 # <a name="response-compression-sample-application-aspnet-core-1x"></a>Yanıt sıkıştırma örnek uygulaması (ASP.NET Core 1.x)
 
-Bu örnek kullanımını ASP.NET Core 1.x yanıt sıkıştırma ara yazılımı için HTTP yanıtları sıkıştırma. Örnek GZIP ve metin ve resim yanıtları için özel sıkıştırmasını sağlayıcıları gösterir ve sıkıştırma için MIME türü ekleme işlemi gösterilmektedir. ASP.NET Core 2.x örnek için bkz: [yanıt sıkıştırma örnek uygulaması (ASP.NET Core 2.x)](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/response-compression/samples/2.x).
+Bu örnek kullanımını ASP.NET Core 1.x yanıt sıkıştırma ara yazılımı için HTTP yanıtları sıkıştırma. Örnek GZIP ve metin ve resim yanıtları için özel sıkıştırmasını sağlayıcıları gösterir ve sıkıştırma için MIME türü ekleme işlemi gösterilmektedir. ASP.NET Core 2.x örnek için bkz: [yanıt sıkıştırma örnek uygulaması (ASP.NET Core 2.x)](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/performance/response-compression/samples/2.x).
 
 ## <a name="examples-in-this-sample"></a>Bu örnekte örnekleri
 

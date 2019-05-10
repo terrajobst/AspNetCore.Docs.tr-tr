@@ -5,12 +5,12 @@ description: ASP.NET Core iki öğeli kimlik doğrulama ile çalışmasını TOT
 ms.author: riande
 ms.date: 08/14/2018
 uid: security/authentication/identity-enable-qrcodes
-ms.openlocfilehash: 5581f2001036746974a858d8a664db16df50edb2
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: a7fdc86b3fe94e714e5147c89a32fce13757d1c1
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209232"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64902714"
 ---
 # <a name="enable-qr-code-generation-for-totp-authenticator-apps-in-aspnet-core"></a>ASP.NET core'da TOTP authenticator uygulamaları için QR kodu oluşturmayı etkinleştirme
 
@@ -85,7 +85,7 @@ Uygulamanızı çalıştırın ve QR kodunu tarayın ve Doğrulayıcı kanıtlar
 
 ::: moniker range=">= aspnetcore-2.1"
 
-QR kodunu site adı, başlangıçta, projeyi oluştururken seçtiğiniz proje adından alınır. Bakarak değiştirebilirsiniz `GenerateQrCodeUri(string email, string unformattedKey)` yönteminde */Areas/Identity/Pages/Account/Manage/EnableAuthenticator.cshtml*.
+QR kodunu site adı, başlangıçta, projeyi oluştururken seçtiğiniz proje adından alınır. Bakarak değiştirebilirsiniz `GenerateQrCodeUri(string email, string unformattedKey)` yönteminde */Areas/Identity/Pages/Account/Manage/EnableAuthenticator.cshtml.cs*.
 
 ::: moniker-end
 

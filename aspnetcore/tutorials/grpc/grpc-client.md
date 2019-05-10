@@ -1,19 +1,19 @@
 ---
-title: 'Öğretici: Bir .NET Core gRPC istemcisi oluşturma'
+title: 'Öğretici: .NET Core gRPC istemcisi oluşturma'
 author: juntaoluo
 description: Bu öğretici serisinde, ASP.NET Core, gRPC bir hizmet oluşturma işlemi gösterilmektedir. GRPC hizmeti projesi oluşturmak, proto dosyasını düzenleyin ve bir çift yönlü çağrı akış ekleme hakkında bilgi edinin.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 4/10/2019
 uid: tutorials/grpc/grpc-client
-ms.openlocfilehash: 031afbfaf097c518a85400b0b6abbc135c1bc611
-ms.sourcegitcommit: 57a974556acd09363a58f38c26f74dc21e0d4339
+ms.openlocfilehash: ec6bf5072c76de640a78b2c3f13dd1fc552b9d04
+ms.sourcegitcommit: b508b115107e0f8d7f62b25cfcc8ad45e1373459
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59675793"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65212643"
 ---
-# <a name="tutorial-create-a-net-core-grpc-client"></a>Öğretici: Bir .NET Core gRPC istemcisi oluşturma
+# <a name="tutorial-create-a-net-core-grpc-client"></a>Öğretici: .NET Core gRPC istemcisi oluşturma
 
 Tarafından [John Luo](https://github.com/juntaoluo)
 
@@ -36,15 +36,15 @@ Bu öğreticide şunları yaptınız:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-Yönergeleri izleyerek [burada](https://docs.microsoft.com/en-us/dotnet/core/tutorials/with-visual-studio) adıyla bir konsol uygulaması oluşturmak için *GrpcGreeterClient*.
+Yönergeleri izleyerek [burada](/dotnet/core/tutorials/with-visual-studio) adıyla bir konsol uygulaması oluşturmak için *GrpcGreeterClient*.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-Yönergeleri izleyerek [burada](https://docs.microsoft.com/en-us/dotnet/core/tutorials/with-visual-studio-code) adıyla bir konsol uygulaması oluşturmak için *GrpcGreeterClient*.
+Yönergeleri izleyerek [burada](/dotnet/core/tutorials/with-visual-studio-code) adıyla bir konsol uygulaması oluşturmak için *GrpcGreeterClient*.
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-Yönergeleri izleyerek [burada](https://docs.microsoft.com/en-us/dotnet/core/tutorials/using-on-mac-vs-full-solution) adıyla bir konsol uygulaması oluşturmak için *GrpcGreeterClient*.
+Yönergeleri izleyerek [burada](/dotnet/core/tutorials/using-on-mac-vs-full-solution) adıyla bir konsol uygulaması oluşturmak için *GrpcGreeterClient*.
 
 <!-- End of VS tabs -->
 
@@ -89,7 +89,7 @@ Paketleri ile aşağıdaki yaklaşımlardan eklenebilir:
 Aşağıdaki komutu çalıştırın **tümleşik Terminalini**:
 
 ```console
-dotnet add TodoApi.csproj package Grpc.Core
+dotnet add GrpcGreeterClient.csproj package Grpc.Core
 ```
 
 Google.Protobuf ve Grpc.Tools için yineleyin.

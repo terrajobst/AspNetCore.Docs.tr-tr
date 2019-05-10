@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/02/2019
 uid: mvc/views/view-compilation
-ms.openlocfilehash: 11195f00e922f6817a0fa0988fad9d8082dea30a
-ms.sourcegitcommit: a467828b5e4eaae291d961ffe2279a571900de23
+ms.openlocfilehash: eba9de26e1af8c4df06b846748d8aa9380fc1862
+ms.sourcegitcommit: a3926eae3f687013027a2828830c12a89add701f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58142328"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65450876"
 ---
 # <a name="razor-file-compilation-in-aspnet-core"></a>ASP.NET Core Razor dosyası derleme
 
@@ -133,9 +133,9 @@ Yönergeler ve cihazın uyumluluk sürümü ayarlama örnekleri için bkz. <xref
       .AddRazorRuntimeCompilation()
   ```
 
-Çalışma zamanı derlemesi dağıtıldığında çalışacak şekilde ayarlamak için proje dosyaları ayrıca uygulamaları değiştirmelisiniz `PreserveCompilationReferences` için `true`.
+Çalışma zamanı derlemesi dağıtıldığında çalışmak uygulamalar ayarlamak için proje dosyaları değiştirmeniz gerekir `PreserveCompilationReferences` için `true`:
 
-[!code-xml[](view-compilation/sample/RuntimeCompilation.csproj?highlight=3)]
+[!code-xml[](view-compilation/sample/RuntimeCompilation.csproj?highlight=4)]
 
 ::: moniker-end
 

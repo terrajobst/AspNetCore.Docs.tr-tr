@@ -5,12 +5,12 @@ description: ASP.NET Core MVC denetleyicileri bağımlılıklarını oluşturucu
 ms.author: riande
 ms.date: 02/24/2019
 uid: mvc/controllers/dependency-injection
-ms.openlocfilehash: 898e98f4c5d472ca96c6a8ad07dddd1a4ef54fe9
-ms.sourcegitcommit: b3894b65e313570e97a2ab78b8addd22f427cac8
+ms.openlocfilehash: 6b08c321f4cae1f4efd8ea40300eaf4dfc2f63a1
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56743835"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64903071"
 ---
 # <a name="dependency-injection-into-controllers-in-aspnet-core"></a>ASP.NET core'da denetleyicilere bağımlılık ekleme
 
@@ -20,7 +20,7 @@ Tarafından [Shadi Namrouti](https://github.com/shadinamrouti), [Rick Anderson](
 
 ASP.NET Core MVC denetleyicileri oluşturucular açıkça aracılığıyla bağımlılıkları isteyin. ASP.NET Core için yerleşik desteği vardır [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection). DI uygulamaları test edin ve bakımını kolaylaştırır.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/dependency-injection/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/controllers/dependency-injection/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="constructor-injection"></a>Oluşturucu ekleme
 

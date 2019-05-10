@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 04/21/2019
 uid: fundamentals/metapackage-app
-ms.openlocfilehash: 04cd628e2a2e4650fb4396b352aef008b430550e
-ms.sourcegitcommit: 8a84ce880b4c40d6694ba6423038f18fc2eb5746
-ms.translationtype: HT
+ms.openlocfilehash: 913e3d83fbf1af7ea995a88202f86c60b359a7e2
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60165215"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65085661"
 ---
 # <a name="microsoftaspnetcoreapp-metapackage-for-aspnet-core-21-or-later"></a>Microsoft.AspNetCore.App metapackage ASP.NET Core 2.1 veya üzeri
 
@@ -25,7 +25,7 @@ Bu özellik, ASP.NET Core 2.1 veya üzeri hedefleyen .NET Core 2.1 veya üzeri g
 
 Tüm özellikleri ASP.NET Core 2.1 ve üzeri ve Entity Framework Core 2.1 ve üzeri dahil edilen `Microsoft.AspNetCore.App` paket. Varsayılan proje şablonları ASP.NET Core 2.1 hedefleme ve daha sonra bu paketi kullanın. ASP.NET Core 2.1 ve üzeri ve Entity Framework Core 2.1 hedefleyen uygulamalar önerilir ve daha sonra `Microsoft.AspNetCore.App` paket.
 
-Sürüm numarasını `Microsoft.AspNetCore.App` metapackage sürümü Entity Framework Core ve ASP.NET Core sürümünü temsil eder.
+Sürüm numarasını `Microsoft.AspNetCore.App` sürümü Entity Framework Core ve ASP.NET Core ve üstünü metapackage temsil eder.
 
 Kullanarak `Microsoft.AspNetCore.App` metapackage uygulamanızı korumak sürüm kısıtlamaları sağlar:
 
@@ -33,7 +33,7 @@ Kullanarak `Microsoft.AspNetCore.App` metapackage uygulamanızı korumak sürüm
 * Uygulamanıza eklediğiniz diğer paketleri dahil paketleri sürümünü değiştiremezsiniz `Microsoft.AspNetCore.App`.
 * Sürüm tutarlılık, güvenilir bir deneyim sağlar. `Microsoft.AspNetCore.App` ilgili BITS birlikte aynı uygulamada kullanılan test edilmemiş sürümü bileşimleri önlemek için tasarlanmıştır.
 
-Kullanan uygulamalar `Microsoft.AspNetCore.App` metapackage otomatik olarak ASP.NET Core paylaşılan çerçeve avantajlarından yararlanın. Kullanırken `Microsoft.AspNetCore.App` metapackage, **hiçbir** başvurulan bir ASP.NET Core NuGet paket varlıklarından uygulamayla dağıtılan&mdash;ASP.NET Core paylaşılan çerçeve bu varlıkları içerir. Uygulama başlatma süresini kısaltmak için paylaşılan çerçevesindeki varlıkları önceden derlenmiş. Daha fazla bilgi için bkz: "paylaşılan çerçeve" [.NET Core dağıtımı paketleme](/dotnet/core/build/distribution-packaging).
+Kullanan uygulamalar `Microsoft.AspNetCore.App` metapackage otomatik olarak ASP.NET Core paylaşılan çerçeve avantajlarından yararlanın. Kullanırken `Microsoft.AspNetCore.App` metapackage, **hiçbir** başvurulan bir ASP.NET Core NuGet paket varlıklarından uygulamayla dağıtılan&mdash;ASP.NET Core paylaşılan çerçeve bu varlıkları içerir. Uygulama başlatma süresini kısaltmak için paylaşılan çerçevesindeki varlıkları önceden derlenmiş. Daha fazla bilgi için [paylaşılan çerçeve](https://natemcmaster.com/blog/2018/08/29/netcore-primitives-2/).
 
 Şu proje dosya başvuruları `Microsoft.AspNetCore.App` metapackage ASP.NET Core ve tipik bir ASP.NET Core 2.1 temsil şablonu için:
 
@@ -51,7 +51,7 @@ Kullanan uygulamalar `Microsoft.AspNetCore.App` metapackage otomatik olarak ASP.
 </Project>
 ```
 
-Önceki biçimlendirme, normal ASP.NET Core 2.1 ve üzeri şablonu temsil eder. İçin bir sürüm numarası belirtmeyen `Microsoft.AspNetCore.App` paket başvurusu. Version belirtilmediğinde, bir [örtük](https://github.com/dotnet/core/blob/master/release-notes/1.0/sdk/1.0-rc3-implicit-package-refs.md) sürümü belirtildi SDK tarafından diğer bir deyişle, `Microsoft.NET.Sdk.Web`. SDK'sı tarafından belirtilen sürüm numarası paket başvurusu üzerinde açıkça ayarlamak örtük sürümü güvenmek öneririz. Bu yaklaşım hakkında sorularınız varsa, GitHub yorum [Microsoft.AspNetCore.App örtük sürümü için tartışma](https://github.com/aspnet/Docs/issues/6430).
+Önceki biçimlendirme, normal ASP.NET Core 2.1 ve üzeri şablonu temsil eder. İçin bir sürüm numarası belirtmeyen `Microsoft.AspNetCore.App` paket başvurusu. Version belirtilmediğinde, bir [örtük](https://github.com/dotnet/core/blob/master/release-notes/1.0/sdk/1.0-rc3-implicit-package-refs.md) sürümü belirtildi SDK tarafından diğer bir deyişle, `Microsoft.NET.Sdk.Web`. SDK'sı tarafından belirtilen sürüm numarası paket başvurusu üzerinde açıkça ayarlamak örtük sürümü güvenmek öneririz. Bu yaklaşım hakkında sorularınız varsa, GitHub yorum [Microsoft.AspNetCore.App örtük sürümü için tartışma](https://github.com/aspnet/AspNetCore.Docs/issues/6430).
 
 Örtük sürüm kümesine `major.minor.0` taşınabilir uygulamalar için. Paylaşılan çerçeve sarma mekanizması, uygulama, en son uyumlu sürümü yüklü paylaşılan çerçeveleri arasında çalıştırılır. Aynı sürüm, geliştirme, test ve üretim kullanılan sağlamak için paylaşılan framework sürümüyle aynı sürümü, tüm ortamlara yüklenen emin olun. Kendi uygulamaları'için örtük bir sürüm numarası ayarlanır `major.minor.patch` yüklü SDK'yı paketlenmiş paylaşılan framework'ün.
 

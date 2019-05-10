@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 03/27/2019
 ms.topic: tutorial
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: c6255e2b4fc67c6174bab4458ec82035b1886002
-ms.sourcegitcommit: 3e9e1f6d572947e15347e818f769e27dea56b648
+ms.openlocfilehash: caa821d36c192a06891a7b3d47c47436aea25a30
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2019
-ms.locfileid: "58750629"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64900176"
 ---
 # <a name="tutorial-learn-about-advanced-scenarios---aspnet-mvc-with-ef-core"></a>Öğretici: Gelişmiş senaryoları hakkında - EF çekirdekli ASP.NET MVC ile bilgi edinin.
 
@@ -251,7 +251,7 @@ Bağlantı dizesini kontrol edin. Veritabanı dosyasını el ile sildiyseniz, ye
 
 ## <a name="get-the-code"></a>Kodu alma
 
-[İndirme veya tamamlanmış uygulamanın görüntüleyin.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
+[İndirme veya tamamlanmış uygulamanın görüntüleyin.](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

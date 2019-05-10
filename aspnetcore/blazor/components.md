@@ -5,28 +5,28 @@ description: Oluşturma ve bileşen ömürleri yönetme verilere bağlayın ve o
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/21/2019
+ms.date: 05/02/2019
 uid: blazor/components
-ms.openlocfilehash: 19fdf2b87299ebdaf2c2cac10280192db73c4c7a
-ms.sourcegitcommit: 8a84ce880b4c40d6694ba6423038f18fc2eb5746
-ms.translationtype: HT
+ms.openlocfilehash: 6c174fc16ecc755c5c43e59a77db7d4ce9e00da3
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60165231"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65085617"
 ---
 # <a name="create-and-use-razor-components"></a>Oluşturma ve Razor bileşenleri kullanma
 
 Tarafından [Luke Latham](https://github.com/guardrex), [Daniel Roth](https://github.com/danroth27), ve [Morné Zaayman](https://github.com/MorneZaayman)
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/blazor/common/samples/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 Blazor uygulamaları kullanılarak oluşturulur *bileşenleri*. Bir bileşen, kullanıcı arabirimi (UI), sayfa, iletişim veya form gibi kendi içinde bir öbektir. Bir bileşeni, HTML biçimlendirmesi ve veri ekleme veya UI olaylarına yanıt vermek için gereken işleme mantığı içerir. Esnek ve basit bileşenlerdir. Bunlar iç içe geçmiş, yeniden kullanılabilir ve projeler arasında paylaşılan.
 
 ## <a name="component-classes"></a>Bileşen sınıfları
 
-Bileşenler, Razor bileşen dosyaları uygulanır (*.razor*) bir birleşimi kullanılarak C# ve HTML biçimlendirmesi.
+Bileşenleri içinde uygulanan [Razor](xref:mvc/views/razor) bileşen dosyaları (*.razor*) bir birleşimi kullanılarak C# ve HTML biçimlendirmesi.
 
-Bileşenlerini kullanarak yazarı olduğu *.cshtml* dosyaları kullanarak Razor bileşen dosyaları tanımlanmış olduğu sürece dosya uzantısı `_RazorComponentInclude` MSBuild özelliği. Örneğin, Razor bileşen şablonu kullanılarak oluşturulan bir uygulamayı belirtir tüm *.cshtml* altında dosyaları *sayfaları* klasör Razor bileşenleri dosyaları kabul:
+Bileşenlerini kullanarak yazarı olduğu *.cshtml* dosyaları kullanarak Razor bileşen dosyaları tanımlanmış olduğu sürece dosya uzantısı `_RazorComponentInclude` MSBuild özelliği. Örneğin, belirten bir uygulamayı tüm *.cshtml* altında dosyaları *sayfaları* klasör Razor bileşenleri dosyaları kabul:
 
 ```xml
 <_RazorComponentInclude>Pages\**\*.cshtml</_RazorComponentInclude>
@@ -75,13 +75,13 @@ Blazor sunucu tarafı uygulamalar yönetilen bileşenleri işlenmiş ve bileşen
 
 Bileşenleri, diğer bileşenlerin bunları bildirerek içerebilir HTML öğesi söz dizimini kullanarak. Bir bileşen kullanma için işaretleme, etiketin adını bileşen türü olduğu gibi HTML etiketleri arar.
 
-Aşağıdaki biçimlendirmede işleyen bir `HeadingComponent` örneği:
+Aşağıdaki biçimlendirmede *Index.razor* işleyen bir `HeadingComponent` başka bir dosyada var, örneği *HeadingComponent.razor*:
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Pages/Index.razor?name=snippet_HeadingComponent)]
 
 ## <a name="component-parameters"></a>Bileşen parametreleri
 
-Bileşenleri olabilir *bileşeni parametreleri*, hangi kullanılarak tanımlanır *genel olmayan* bileşen sınıfı özellikleri düzenlenmiş ile `[Parameter]`. Öznitelikleri bir bileşen için bağımsız değişken biçimlendirme içinde belirtmek için kullanın.
+Bileşenleri olabilir *bileşeni parametreleri*, hangi kullanılarak tanımlanır *genel olmayan* ile bileşen sınıfı özellikleri `[Parameter]` özniteliği. Öznitelikleri bir bileşen için bağımsız değişken biçimlendirme içinde belirtmek için kullanın.
 
 Aşağıdaki örnekte, `ParentComponent` değerini ayarlar `Title` özelliği `ChildComponent`:
 
@@ -112,7 +112,7 @@ Alt bileşen bir `ChildContent` temsil eden özellik bir `RenderFragment`. Değe
 
 ## <a name="data-binding"></a>Veri bağlama
 
-Veri bağlama bileşenleri hem DOM öğeleri ile gerçekleştirilir `bind` özniteliği. Aşağıdaki örnek bağlar `ItalicsCheck` özelliğini onay kutusunun işaretli durumu:
+Veri bağlama bileşenleri hem DOM öğeleri ile gerçekleştirilir `bind` özniteliği. Aşağıdaki örnek bağlar `_italicsCheck` alan için onay kutusunun işaretli durumu:
 
 ```cshtml
 <input type="checkbox" class="form-check-input" id="italicsCheck" 
@@ -199,9 +199,11 @@ Alt bileşeni:
     private int Year { get; set; }
 
     [Parameter]
-    private Action<int> YearChanged { get; set; }
+    private EventCallback<int> YearChanged { get; set; }
 }
 ```
+
+`EventCallback<T>` açıklanan [EventCallback](#eventcallback) bölümü.
 
 Yükleme `ParentComponent` aşağıdaki biçimlendirme oluşturur:
 
@@ -232,7 +234,7 @@ Varsa değerini `ParentYear` düğmesini seçerek özelliği değiştirildiğind
 Kural olarak, `<ChildComponent bind-Year="@ParentYear" />` yazmak, temelde eşdeğerdir
 
 ```cshtml
-    <ChildComponent bind-Year-YearChanged="@ParentYear" />
+<ChildComponent bind-Year-YearChanged="@ParentYear" />
 ```
 
 Genel olarak, bir özelliği karşılık gelen olay işleyicisi kullanarak bir bağlanabilir `bind-property-event` özniteliği.
@@ -347,7 +349,7 @@ Düğme alt bileşeni seçildiğinde:
 
 `EventCallback` ve `EventCallback<T>` zaman uyumsuz temsilciler izin verir. `EventCallback<T>` türü kesin olarak belirtilmiş ve belirli bir bağımsız değişken türü gerektirir. `EventCallback` zayıf yazılmış ve herhangi bir bağımsız değişken türü sağlar.
 
-```chstml
+```cshtml
 <p><b>@messageText</b></p>
 
 @{ var message = "Default Text"; }
@@ -356,7 +358,7 @@ Düğme alt bileşeni seçildiğinde:
     OnClick="@(async () => { await Task.Yield(); messageText = "Blaze It!"; }" />
 
 @function {
-    string messageText;
+    private string messageText;
 }
 ```
 
@@ -372,7 +374,7 @@ Kesin olarak belirlenmiş tercih `EventCallback<T>`, bileşen kullanıcıları i
 
 ## <a name="capture-references-to-components"></a>Bileşenleri başvurular yakalama
 
-Bileşen başvuruları komutları gibi bu örneğe verebilir böylece bu şekilde get bileşen örneğe bir başvuru sağlar `Show` veya `Reset`. Bir bileşen başvurusunu yakalamak için ekleme bir `ref` özniteliği alt bileşen ve aynı ada ve aynı türe sahip bir alan alt bileşeni olarak tanımlayabilirsiniz.
+Bileşen başvurularını komutları gibi bu örneğe verebilir böylece bileşen örneğinin başvurmak için bir yol sağlar `Show` veya `Reset`. Bir bileşen başvurusunu yakalamak için ekleme bir `ref` özniteliği alt bileşen ve aynı ada ve aynı türe sahip bir alan alt bileşeni olarak tanımlayabilirsiniz.
 
 ```cshtml
 <MyLoginDialog ref="loginDialog" ... />
@@ -392,7 +394,7 @@ Bileşen işlendiğinde `loginDialog` alanı ile doldurulur `MyLoginDialog` alt 
 > [!IMPORTANT]
 > `loginDialog` Değişkeni bileşeni işlenir ve çıktısını içeren sonra yalnızca doldurulmuş `MyLoginDialog` öğesi. O noktaya kadar hiçbir şey yoktur başvurmak için. Bileşen oluşturma işlemini tamamladıktan sonra bileşenleri başvurularını değiştirmek üzere `OnAfterRenderAsync` veya `OnAfterRender` yöntemleri.
 
-Bileşen başvurularını yakalama için benzer bir sözdizimi kullanırken [öğesi başvuruları yakalama](xref:blazor/javascript-interop#capture-references-to-elements), öyle bir [JavaScript birlikte çalışma](xref:blazor/javascript-interop) özelliği. Bileşen başvurularını JavaScript koduna geçen değildir; Bunlar, yalnızca .NET kodda kullanılırlar.
+Bileşen başvurularını yakalarken kullanmak için benzer bir sözdizimi [öğesi başvuruları yakalama](xref:blazor/javascript-interop#capture-references-to-elements), öyle bir [JavaScript birlikte çalışma](xref:blazor/javascript-interop) özelliği. Bileşen başvurularını JavaScript kodunu geçirilen olmayan&mdash;yalnızca .NET kodda kullanılırlar.
 
 > [!NOTE]
 > Yapmak **değil** alt bileşenlerin durumunu kesilecek bileşen başvuruları kullanın. Bunun yerine, normal bildirim temelli parametreler alt bileşenler için veri aktarmak için kullanın. Bu alt bileşenleri otomatik olarak doğru zamanlarda rerender neden olur.
@@ -417,7 +419,7 @@ protected override void OnInit()
 }
 ```
 
-`OnParametersSetAsync` ve `OnParametersSet` bir bileşen üst öğesinden parametreleri aldı ve özelliklerine değerler atanır çağırılır. Bu yöntemler bileşen başlatmadan sonra yürütülür ve her bileşenin sonra işlenir:
+`OnParametersSetAsync` ve `OnParametersSet` bir bileşen üst öğesinden parametreleri aldı ve özelliklerine değerler atanır çağırılır. Bu yöntemler bileşen başlatmadan sonra yürütülür ve her bileşenin oluşturulur:
 
 ```csharp
 protected override async Task OnParametersSetAsync()
@@ -515,7 +517,7 @@ Sağlanan yol şablondan, rota parametrelerinin bileşenleri alabilir `@page` y�
 
 Bileşen dosyaları karıştırmak HTML biçimlendirmesi ve C# aynı dosyada kod işleme. `@inherits` Yönergesi, bileşen biçimlendirme işleme koddan ayıran bir "code-behind" deneyimiyle Blazor uygulamaları sağlamak için kullanılabilir.
 
-[Örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/blazor/common/samples/) nasıl bir bileşen bir temel sınıf devralma işlemi yapabileceğini gösterir `BlazorRocksBase`, bileşenin özellikleri ve yöntemleri sağlar.
+[Örnek uygulaması](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) nasıl bir bileşen bir temel sınıf devralma işlemi yapabileceğini gösterir `BlazorRocksBase`, bileşenin özellikleri ve yöntemleri sağlar.
 
 *Blazor Rocks bileşen*:
 

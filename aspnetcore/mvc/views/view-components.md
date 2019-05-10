@@ -5,18 +5,18 @@ description: ASP.NET Core görünümü bileşenlerin nasıl kullanıldığı ve 
 ms.author: riande
 ms.date: 1/30/2019
 uid: mvc/views/view-components
-ms.openlocfilehash: b18473c6a76c4dc9030f0a032db1aff733f5acb7
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.openlocfilehash: 2bcf6411933b884c2f96d926827079dfbc25ca74
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58264778"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64903380"
 ---
 # <a name="view-components-in-aspnet-core"></a>ASP.NET core'da görünüm bileşenleri
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/view-components/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/view-components/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="view-components"></a>Görünüm bileşenleri
 
@@ -144,7 +144,7 @@ Bu örnekte, doğrudan denetleyiciden görünüm bileşen çağrılır:
 
 ## <a name="walkthrough-creating-a-simple-view-component"></a>İzlenecek yol: Basit Görünüm bileşeni oluşturma
 
-[İndirme](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/view-components/sample), derleme ve Başlatıcı kodu test edin. Basit bir proje olan bir `ToDo` listesini görüntüler denetleyicisi *ToDo* öğeleri.
+[İndirme](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/mvc/views/view-components/sample), derleme ve Başlatıcı kodu test edin. Basit bir proje olan bir `ToDo` listesini görüntüler denetleyicisi *ToDo* öğeleri.
 
 ![Açıklamada listesi](view-components/_static/2dos.png)
 
@@ -176,7 +176,10 @@ Kod ile ilgili notlar:
 
 * Oluşturma *görünümler/paylaşılan/bileşenleri/PriorityList* klasör. Bu klasör adı görünümü bileşen sınıfının adı ve soneki eksi sınıfının adı eşleşmelidir (kuralını izleyen ve kullandıysanız *ViewComponent* sınıf adı soneki). Kullandıysanız `ViewComponent` özniteliği, sınıf adı öznitelik atamasını eşleşmesi gerekir.
 
-* Oluşturma bir *Views/Shared/Components/PriorityList/Default.cshtml* Razor Görünüm: [!code-cshtml[](view-components/sample/ViewCompFinal/Views/Shared/Components/PriorityList/Default1.cshtml)]
+* Oluşturma bir *Views/Shared/Components/PriorityList/Default.cshtml* Razor Görünüm:
+
+
+  [!code-cshtml[](view-components/sample/ViewCompFinal/Views/Shared/Components/PriorityList/Default1.cshtml)]
 
    Razor görünümü listesini alır `TodoItem` ve bunları görüntüler. Varsa görünümü bileşen `InvokeAsync` yöntemi (olduğu gibi örneğimizi), görünüm adını geçirin değil *varsayılan* görünümü adı için kural olarak kullanılır. Öğreticinin sonraki bölümlerinde miyim, görünümün adının ona nasıl iletileceğini göstereceğiz. Belirli bir denetleyicinin varsayılan stillerini geçersiz kılmak için bir görünüm denetleyicisine özgü görünüm klasöre ekleyin (örneğin *Views/ToDo/Components/PriorityList/Default.cshtml)*.
 

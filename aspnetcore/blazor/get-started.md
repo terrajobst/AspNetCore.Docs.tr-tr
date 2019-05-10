@@ -1,31 +1,31 @@
 ---
 title: Blazor ile çalışmaya başlama
 author: guardrex
-description: Blazor ile çalışmaya başlama hakkında bilgi edinin.
+description: Blazor ile kendi tercih ettiğiniz araçları Blazor uygulamayla oluşturarak başlayın.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/19/2019
+ms.date: 05/06/2019
 uid: blazor/get-started
-ms.openlocfilehash: 45ae0acc6aaee433cce4eddb2fe9c59c306581d7
-ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
+ms.openlocfilehash: 348927e38c686df8f6509ab066342c2002741c72
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59982671"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65085839"
 ---
 # <a name="get-started-with-blazor"></a>Blazor ile çalışmaya başlama
 
 Tarafından [Daniel Roth](https://github.com/danroth27) ve [Luke Latham](https://github.com/guardrex)
 
-Birkaç adımda Blazor ile kullanmaya başlayın:
+Blazor ile kullanmaya başlayın:
 
 1. Son yükleme [.NET Core 3.0 Önizleme SDK'sı](https://dotnet.microsoft.com/download/dotnet-core/3.0) bırakın.
 
 1. Blazor şablonları, bir komut kabuğu'nda aşağıdaki komutu çalıştırarak yükleyin:
 
    ```console
-   dotnet new -i Microsoft.AspNetCore.Blazor.Templates::3.0.0-preview4-19216-03
+   dotnet new -i Microsoft.AspNetCore.Blazor.Templates::3.0.0-preview5-19227-01
    ```
 
 1. Tercih ettiğiniz araçları için yönergeleri izleyin:
@@ -36,17 +36,17 @@ Birkaç adımda Blazor ile kullanmaya başlayın:
 
    2.&nbsp;en son yükleme [Blazor uzantısı](https://go.microsoft.com/fwlink/?linkid=870389) Visual Studio Market'ten. Bu adım Blazor şablonları Visual Studio için kullanılabilir hale getirir.
 
-   3.&nbsp;Önizleme SDK'ları kullanmak için Visual Studio etkinleştir: Açık **Araçları** > **seçenekleri** menü çubuğundaki. Açık **projeler ve çözümler** düğümü. Açık **.NET Core** sekmesi. İçin kutuyu **önizlemeleri .NET Core SDK'sını kullanma**. **Tamam**’ı seçin.
+   3.&nbsp;Önizleme SDK'ları kullanmak Visual Studio, Visual Studio (Önizleme sürümü değil) en son kararlı sürümünü kullanıyorsanız, etkinleştir: Açık **Araçları** > **seçenekleri** menü çubuğundaki. Açık **projeler ve çözümler** düğümü. Açık **.NET Core** sekmesi. İçin kutuyu **önizlemeleri .NET Core SDK'sını kullanma**. **Tamam**’ı seçin.
 
    4.&nbsp;yeni bir proje oluşturun.
 
    5.&nbsp;seçin **ASP.NET Core Web uygulaması**. **İleri**’yi seçin.
 
-   6.&nbsp;bir adı belirtin **proje adı** alan. Onayla **konumu** giriş doğru olduğundan veya proje için bir konum sağlayın. **Oluştur**’u seçin.
+   6.&nbsp;bir proje adı belirtin **proje adı** alan veya varsayılan proje adı kabul edin. Onayla **konumu** giriş doğru olduğundan veya proje için bir konum sağlayın. **Oluştur**’u seçin.
 
-   7.&nbsp;emin **.NET Core** ve **ASP.NET Core 3.0** üstünde seçilir.
+   7.&nbsp;içinde **yeni bir ASP.NET Core Web uygulaması oluşturma** iletişim kutusunda onaylayın **.NET Core** ve **ASP.NET Core 3.0** seçilir.
 
-   8.&nbsp;Blazor istemci-tarafı bir deneyim için seçin **Blazor (istemci-tarafı)** şablonu. Sunucu tarafı Blazor bir deneyim için seçin **Blazor (sunucu tarafı)** şablonu. **Oluştur**’u seçin.
+   8.&nbsp;Blazor istemci-tarafı deneyimi için seçin **Blazor (istemci-tarafı)** şablonu. Blazor sunucu tarafı deneyimi için seçin **Blazor (sunucu tarafı)** şablonu. **Oluştur**’u seçin. İki Blazor barındırma modeli, sunucu tarafı ve istemci tarafı hakkında daha fazla bilgi için bkz: <xref:blazor/hosting-models>.
 
    9.&nbsp;tuşuna **F5** uygulamayı çalıştırmak için.
 
@@ -56,24 +56,23 @@ Birkaç adımda Blazor ile kullanmaya başlayın:
 
    2.&nbsp;en son yükleme [ C# Visual Studio Code uzantısı için](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
 
-   3.&nbsp;Blazor istemci-tarafı bir deneyim için bir komut kabuğu'ndan aşağıdaki komutu yürütün:
+   3.&nbsp;Blazor istemci-tarafı deneyimi için bir komut kabuğu'ndan aşağıdaki komutu yürütün:
 
       ```console
       dotnet new blazor -o WebApplication1
       ```
 
-      Sunucu tarafı Blazor bir deneyim için bir komut kabuğu'ndan aşağıdaki komutu yürütün:
+      Blazor sunucu tarafı deneyimi için bir komut kabuğu'ndan aşağıdaki komutu yürütün:
 
       ```console
       dotnet new blazorserverside -o WebApplication1
       ```
 
-      > [!NOTE]
-      > Yalnızca Blazor istemci-tarafı macOS ASP.NET Core 3.0 Preview 4'te desteklenir. Daha fazla bilgi için [Blazor sunucu tarafı: çalıştırma dotnet macos'ta InvalidOperationException ile başarısız oluyor](https://github.com/aspnet/AspNetCore/issues/9402).
+      İki Blazor barındırma modeli, sunucu tarafı ve istemci tarafı hakkında daha fazla bilgi için bkz: <xref:blazor/hosting-models>.
 
    4.&nbsp;açık *WebApplication1* Visual Studio code'da klasörü.
 
-   5.&nbsp;Visual Studio yapı ve proje hatalarını ayıklamaya, seçmek için gerekli varlıkları eklemek için kod tarafından Blazor sunucu tarafı projesi için istendiğinde **Evet**.
+   5.&nbsp;bir Blazor için sunucu tarafı proje, IDE istekleri oluşturmak ve projede hata ayıklamak için varlıklar ekleyin. Seçin **Evet**.
 
    6.&nbsp;Blazor sunucu-tarafı uygulaması kullanıyorsanız, Visual Studio Code hata ayıklayıcıyı kullanarak uygulamayı çalıştırın. Blazor istemci-tarafı uygulaması kullanıyorsanız yürütme `dotnet run` uygulama proje klasöründen.
 
@@ -87,7 +86,7 @@ Birkaç adımda Blazor ile kullanmaya başlayın:
 
    3.&nbsp;In the sidebar, select **.NET Core** > **App**.
 
-   4.&nbsp;For an experience with Blazor server-side, select the **ASP.NET Core Blazor (server-side)** template. For an experience with Blazor server-side, select the **ASP.NET Core Blazor (client-side)** template. Select **Next**.
+   4.&nbsp;For a Blazor server-side experience, select the **ASP.NET Core Blazor (server-side)** template. For a Blazor client-side experience, select the **ASP.NET Core Blazor (client-side)** template. Select **Next**. For information on the two Blazor hosting models, server-side and client-side, see <xref:blazor/hosting-models>.
 
    5.&nbsp;The **Target Framework** defaults to **.NET Core 3.0**. Select **Next**.
 
@@ -99,7 +98,7 @@ Birkaç adımda Blazor ile kullanmaya başlayın:
 
    # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli/)
 
-   İstemci tarafı Blazor bir deneyim için bir komut kabuğu'ndan aşağıdaki komutları yürütün:
+   Blazor istemci-tarafı deneyimi için bir komut kabuğu'ndan aşağıdaki komutları yürütün:
 
    ```console
    dotnet new blazor -o WebApplication1
@@ -107,7 +106,7 @@ Birkaç adımda Blazor ile kullanmaya başlayın:
    dotnet run
    ```
 
-   Sunucu tarafı Blazor bir deneyim için bir komut kabuğu'ndan aşağıdaki komutları yürütün:
+   Blazor sunucu tarafı deneyimi için bir komut kabuğu'ndan aşağıdaki komutları yürütün:
 
    ```console
    dotnet new blazorserverside -o WebApplication1
@@ -115,8 +114,7 @@ Birkaç adımda Blazor ile kullanmaya başlayın:
    dotnet run
    ```
 
-   > [!NOTE]
-   > MacOS üzerinde bir Blazor istemci-tarafı uygulaması kullanın. Sunucu tarafı Blazor macOS üzerinde ASP.NET Core 3.0 Preview 4 için desteklenmiyor. Daha fazla bilgi için [Blazor sunucu tarafı: çalıştırma dotnet macos'ta InvalidOperationException ile başarısız oluyor](https://github.com/aspnet/AspNetCore/issues/9402).
+   İki Blazor barındırma modeli, sunucu tarafı ve istemci tarafı hakkında daha fazla bilgi için bkz: <xref:blazor/hosting-models>.
 
    ---
 
@@ -132,7 +130,7 @@ Sayaç sayfasında **me tıklayın** sayfa yenileme olmadan sayaç artmaya düğ
 
 *Pages/Counter.razor*:
 
-[!code-cshtml[](get-started/samples_snapshot/3.x/Counter1.razor)]
+[!code-cshtml[](get-started/samples_snapshot/3.x/Counter1.razor?highlight=7,12-15)]
 
 Bir istek için `/counter` tarayıcıda tarafından belirtilen `@page` yönergesi üst içeriğini işlemek sayacı bileşen neden olur. Bileşenleri UI esnek ve verimli bir şekilde güncelleştirmek için kullanılabilir işleme ağacında bir bellek içi gösterimi halinde işler.
 
@@ -145,30 +143,30 @@ Her zaman **me tıklayın** düğmesi seçili:
 
 Çalışma zamanı, önceki içeriği için yeni içerik karşılaştırır ve yalnızca değiştirilen içerik belge nesne modeli (DOM) için geçerlidir.
 
-Bir bileşen başka bir bileşene bir HTML benzeri sözdizimi kullanarak ekleyin. Bileşen parametreleri, öznitelikleri veya alt içeriğin kullanarak belirtilir. Örneğin, bir sayaç bileşeni uygulamanın giriş sayfasına ekleyerek eklenebilir bir `<Counter />` dizin bileşeni öğesi.
+Bir bileşen başka bir bileşene HTML söz dizimi kullanılarak ekleyin. Bileşen parametreleri, öznitelikleri veya alt içeriğin kullanarak belirtilir. Örneğin, bir sayaç bileşeni uygulamanın giriş sayfasına ekleyerek eklenebilir bir `<Counter />` dizin bileşeni öğesi.
 
 *Pages/Index.razor*:
 
 [!code-cshtml[](get-started/samples_snapshot/3.x/Index1.razor?highlight=7)]
 
-Uygulamayı çalıştırın. Giriş sayfası, kendi sayaç vardır.
+Uygulamayı çalıştırın. Giriş sayfası sayacı bileşen tarafından sağlanan kendi sayaç vardır.
 
 Sayaç bileşenine parametre eklemek için bileşenin güncelleştirme `@functions` engelle:
 
-* Bir özelliği için ekleme `IncrementAmount` ile donatılmış `[Parameter]` özniteliği.
+* Bir özelliği için ekleme `IncrementAmount` ile bir `[Parameter]` özniteliği.
 * Değişiklik `IncrementCount` yönteminin kullanılacağını `IncrementAmount` değerini artırmayı olduğunda `currentCount`.
 
 *Pages/Counter.razor*:
 
-[!code-cshtml[](get-started/samples_snapshot/3.x/Counter2.razor?highlight=4-5,9)]
+[!code-cshtml[](get-started/samples_snapshot/3.x/Counter2.razor?highlight=12-13,17)]
 
-Belirtin bir `IncrementAmount` ana bileşenin parametresinde `<Counter>` öğesini kullanarak bir öznitelik.
+Belirtin `IncrementAmount` dizin bileşenin içinde `<Counter>` öğesini kullanarak bir öznitelik.
 
 *Pages/Index.razor*:
 
-[!code-cshtml[](get-started/samples_snapshot/3.x/Index2.razor)]
+[!code-cshtml[](get-started/samples_snapshot/3.x/Index2.razor?highlight=7)]
 
-Uygulamayı çalıştırın. Giriş sayfası on tarafından her zaman artırır, kendi sayaç sahip **me tıklayın** düğmesi seçili.
+Uygulamayı çalıştırın. Dizin bileşenini on tarafından her zaman artırır, kendi sayaç sahip **me tıklayın** düğmesi seçili. Sayaç bileşeni (*Counter.razor*) adresindeki `/counter` bir ilerlemeye devam eder.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

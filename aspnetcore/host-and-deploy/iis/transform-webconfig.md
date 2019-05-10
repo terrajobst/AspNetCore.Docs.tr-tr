@@ -1,5 +1,5 @@
 ---
-title: Web.config Dönüştür
+title: Web.config’i dönüştürme
 author: guardrex
 description: ASP.NET Core uygulaması yayımlama sırasında web.config dosyasına dönüştürme hakkında bilgi edinin.
 monikerRange: '>= aspnetcore-2.2'
@@ -8,13 +8,13 @@ ms.custom: mvc
 ms.date: 02/07/2019
 uid: host-and-deploy/iis/transform-webconfig
 ms.openlocfilehash: bd8cf7d8515e874eefd2c326727f56d0a4b502a7
-ms.sourcegitcommit: 6ba5fb1fd0b7f9a6a79085b0ef56206e462094b7
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56248618"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65087073"
 ---
-# <a name="transform-webconfig"></a>Web.config Dönüştür
+# <a name="transform-webconfig"></a>Web.config’i dönüştürme
 
 Tarafından [Vijay Ramakrishnan](https://github.com/vijayrkn) ve [Luke Latham](https://github.com/guardrex)
 

@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: migration/1x-to-2x/index
-ms.openlocfilehash: f5bd2bc9862a7487658125e14837798886efad11
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: fb6157205ab5280eb982a61e834eea5074864830
+ms.sourcegitcommit: a3926eae3f687013027a2828830c12a89add701f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090536"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65450959"
 ---
 # <a name="migrate-from-aspnet-core-1x-to-20"></a>ASP.NET Core geçiş 1.x sürümünden 2.0 sürümüne
 
@@ -41,6 +41,8 @@ Bkz: [ASP.NET Core ile çalışmaya başlama](xref:getting-started).
 
 > [!NOTE]
 > .NET core 2.0 sunan bir çok büyük yüzey alanını daha .NET Core 1.x. .NET Framework yalnızca .NET Core 1.x, .NET Core 2.0 hedefleyen çalışması olasıdır API'leri eksik hedefliyorsanız.
+
+Proje dosyası içeriyorsa `<RuntimeFrameworkVersion>1.{sub-version}</RuntimeFrameworkVersion>`, bkz: [bu GitHub sorunu](https://github.com/aspnet/AspNetCore/issues/3221#issuecomment-413094268).
 
 <a name="global-json"></a>
 

@@ -5,12 +5,12 @@ description: Uygulamanın verilerini sunumu ve kullanıcı etkileşimine karşı
 ms.author: riande
 ms.date: 04/03/2019
 uid: mvc/views/overview
-ms.openlocfilehash: 766996645bc6ef2b6be42d729baf5d57f55b6ddd
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.openlocfilehash: 5e56c6bb18cb5d2389c11eb3e4aa9869228da47d
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59012805"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64903407"
 ---
 # <a name="views-in-aspnet-core-mvc"></a>ASP.NET Core MVC görünümleri
 
@@ -135,7 +135,7 @@ Belirtmek için en güçlü yaklaşımdır bir [modeli](xref:mvc/models/model-bi
 
 Bir görünüme veri iletmek için bir viewmodel kullanarak yararlanmak görünüm sağlayan *güçlü* tür denetimi. *Güçlü yazım, yazım* (veya *kesin tür belirtilmiş*) her değişken ve sabit açıkça tanımlanmış bir tür olduğu anlamına gelir (örneğin, `string`, `int`, veya `DateTime`). Bir görünümde kullanılan türler geçerliliğini derleme sırasında denetlenir.
 
-[Visual Studio](https://www.visualstudio.com/vs/) ve [Visual Studio Code](https://code.visualstudio.com/) denilen bir özelliği kullanarak türü kesin belirlenmiş sınıf üyelerini listeleyin [IntelliSense](/visualstudio/ide/using-intellisense). Bir viewmodel özelliklerini görmek istediğinizde, bir nokta viewmodel değişken adını yazın (`.`). Bu kod, daha az hatayla daha hızlı yazmanıza yardımcı olur.
+[Visual Studio](https://visualstudio.microsoft.com) ve [Visual Studio Code](https://code.visualstudio.com/) denilen bir özelliği kullanarak türü kesin belirlenmiş sınıf üyelerini listeleyin [IntelliSense](/visualstudio/ide/using-intellisense). Bir viewmodel özelliklerini görmek istediğinizde, bir nokta viewmodel değişken adını yazın (`.`). Bu kod, daha az hatayla daha hızlı yazmanıza yardımcı olur.
 
 Kullanarak bir model belirtin `@model` yönergesi. Modelinizle `@Model`:
 

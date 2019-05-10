@@ -7,18 +7,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/08/2019
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: 6f555858239b4432d252f8b3ac7add5c3e8bfe62
-ms.sourcegitcommit: 78339e9891c8676db01a6e81e9cb0cdaa280162f
+ms.openlocfilehash: d2b2456c7ab6b72f2270b6edc17000695061cc2b
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59425107"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64901046"
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>Geliştirme zamanı IIS, ASP.NET Core için Visual Studio desteği
 
 Tarafından [Sourabh Shirhatti](https://twitter.com/sshirhatti) ve [Luke Latham](https://github.com/guardrex)
 
-Bu makalede [Visual Studio](https://www.visualstudio.com/vs/) IIS ile Windows Server üzerinde çalışan ASP.NET Core uygulamalarında hata ayıklama için destek. Bu konuda bu senaryoyu etkinleştirmek ve bir proje ayarlama gösterilmektedir.
+Bu makalede [Visual Studio](https://visualstudio.microsoft.com) IIS ile Windows Server üzerinde çalışan ASP.NET Core uygulamalarında hata ayıklama için destek. Bu konuda bu senaryoyu etkinleştirmek ve bir proje ayarlama gösterilmektedir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 

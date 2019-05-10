@@ -4,14 +4,14 @@ author: tdykstra
 description: ASP.NET core'da günlüğe kaydetme çerçevesi hakkında bilgi edinin. Yerleşik günlük sağlayıcıları bulmak ve popüler üçüncü taraf sağlayıcılar hakkında daha fazla bilgi edinin.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 03/02/2019
+ms.date: 05/01/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 8a2e310b47e32e9015b0c127ed79d8f6bdf2e44d
-ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
-ms.translationtype: HT
+ms.openlocfilehash: ee7d4b2ae04b5f6c262acc5da0f86f90ab50585f
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59982859"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65085665"
 ---
 # <a name="logging-in-aspnet-core"></a>ASP.NET core'da günlüğe kaydetme
 
@@ -19,7 +19,7 @@ Tarafından [Steve Smith](https://ardalis.com/) ve [Tom Dykstra](https://github.
 
 ASP.NET Core çeşitli günlük yerleşik ve üçüncü taraf sağlayıcılar ile çalışan bir günlüğe kaydetme API'si destekler. Bu makalede, yerleşik sağlayıcılar ile günlüğe kaydetme API'si kullanmayı gösterir.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/index/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/logging/index/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="add-providers"></a>Sağlayıcıları Ekle
 
@@ -54,7 +54,7 @@ Bir sağlayıcı kullanmak için kendi NuGet paketini yükleyin ve bir örneği 
 ASP.NET Core [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection) sağlar `ILoggerFactory` örneği. `AddConsole` Ve `AddDebug` genişletme yöntemleri tanımlanmış [Microsoft.Extensions.Logging.Console](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console/) ve [Microsoft.Extensions.Logging.Debug](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Debug/) paketleri. Her bir genişletme yöntemi çağıran `ILoggerFactory.AddProvider` sağlayıcının bir örneğini geçirerek yöntemi.
 
 > [!NOTE]
-> [Örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/index/samples/1.x) günlük sağlayıcıları ekler `Startup.Configure` yöntemi. Daha önce yürüten koddan günlük çıktısını almak için günlüğe kaydetme hizmeti sağlayıcıları Ekle `Startup` sınıf oluşturucusu.
+> [Örnek uygulaması](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/logging/index/samples/1.x) günlük sağlayıcıları ekler `Startup.Configure` yöntemi. Daha önce yürüten koddan günlük çıktısını almak için günlüğe kaydetme hizmeti sağlayıcıları Ekle `Startup` sınıf oluşturucusu.
 
 ::: moniker-end
 
@@ -496,11 +496,12 @@ Her bir sağlayıcı tanımlar bir *diğer* yapılandırmasında tam nitelikli t
 
 * Konsol
 * Hata ayıklama
+* EventSource
 * EventLog
+* TraceSource
 * AzureAppServicesFile
 * AzureAppServicesBlob
-* TraceSource
-* EventSource
+* ApplicationInsights
 
 ### <a name="default-minimum-level"></a>Varsayılan en düşük düzeyi
 
@@ -616,8 +617,9 @@ ASP.NET Core aşağıdaki sağlayıcıları birlikte gelir:
 * [EventSource](#eventsource-provider)
 * [EventLog](#windows-eventlog-provider)
 * [TraceSource](#tracesource-provider)
-
-Seçenekler [Azure'da oturum](#logging-in-azure) bu makalenin sonraki bölümlerinde ele alınmaktadır.
+* [AzureAppServicesFile](#azure-app-service-provider)
+* [AzureAppServicesBlob](#azure-app-service-provider)
+* [ApplicationInsights](#azure-application-insights-trace-logging)
 
 Stdout günlüğü hakkında daha fazla bilgi için bkz. <xref:host-and-deploy/iis/troubleshoot#aspnet-core-module-stdout-log> ve <xref:host-and-deploy/azure-apps/troubleshoot#aspnet-core-module-stdout-log>.
 
@@ -767,19 +769,6 @@ Aşağıdaki örnek yapılandırır bir `TraceSource` günlükleri sağlayıcıs
 
 ::: moniker-end
 
-## <a name="logging-in-azure"></a>Azure'da günlüğe kaydetme
-
-Azure'da günlüğe kaydetme hakkında daha fazla bilgi için aşağıdaki bölümlere bakın:
-
-* [Azure App Service sağlayıcısı](#azure-app-service-provider)
-* [Azure günlük akışı](#azure-log-streaming)
-
-::: moniker range=">= aspnetcore-1.1"
-
-* [Azure Application Insights izleme günlüğü](#azure-application-insights-trace-logging)
-
-::: moniker-end
-
 ### <a name="azure-app-service-provider"></a>Azure App Service sağlayıcısı
 
 [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) sağlayıcı paketi metin dosyalarını bir Azure App Service uygulamanın dosya sistemi ve çok günlükler Yazar [blob depolama](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#what-is-blob-storage) bir Azure depolama hesabındaki. Sağlayıcı paketi, .NET Core 1.1 hedefleyen uygulamalar için veya sonraki kullanılabilir.
@@ -842,7 +831,7 @@ Günlük dosyaları için varsayılan konum alıyor *D:\\giriş\\LogFiles\\uygul
 
 Sağlayıcı, yalnızca proje Azure ortamında çalışan olduğunda çalışır. Projeyi yerel olarak çalıştırdığınızda herhangi bir etkisi&mdash;yerel dosyaları ya da yerel geliştirme deposu bloblar için yazma değil.
 
-### <a name="azure-log-streaming"></a>Azure günlük akışı
+#### <a name="azure-log-streaming"></a>Azure günlük akışı
 
 Azure günlük akışını gerçek zamanlı günlüğünü etkinliği görüntülemenize olanak tanır:
 
@@ -865,14 +854,23 @@ Gidin **günlük akışını** uygulama iletilerini görüntülemek için sayfa.
 
 ### <a name="azure-application-insights-trace-logging"></a>Azure Application Insights izleme günlüğü
 
-Application Insights SDK'sı, toplamak ve ASP.NET Core günlük kaydı altyapısı tarafından oluşturulan günlükleri bildirin. Daha fazla bilgi için aşağıdaki kaynaklara bakın:
+[Microsoft.Extensions.Logging.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights) sağlayıcı paketi için Azure Application Insights günlükler yazar. Application Insights, web uygulamasını izler ve sorgulama ve telemetri verilerini analiz etmek için araçlar sağlayan bir hizmettir. Bu sağlayıcı kullanıyorsanız, sorgu ve Application Insights araçlarını kullanarak günlüklerinizi analiz edin.
+
+Oturum açma sağlayıcısı bir bağımlılık olarak dahil edilen [Microsoft.ApplicationInsights.AspNetCore](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore), ASP.NET Core için tüm mevcut telemetri sağlayan paket olduğu. Bu paket kullanırsanız, sağlayıcı paketi yüklemenize gerek yoktur.
+
+Kullanmayın [Microsoft.applicationınsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) paket&mdash;olan ASP.NET 4.x.
+
+Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 * [Application Insights'a genel bakış](/azure/application-insights/app-insights-overview)
-* [ASP.NET Core için Application Insights](/azure/application-insights/app-insights-asp-net-core)
+* [ASP.NET Core uygulamaları için Application Insights](/azure/azure-monitor/app/asp-net-core-no-visualstudio) -günlük kaydı ile birlikte tam aralığı, Application Insights telemetri uygulamak istiyorsanız, buradan başlayın.
+* [.NET Core ILogger için ApplicationInsightsLoggerProvider günlükleri](/azure/azure-monitor/app/ilogger) -Application Insights telemetri kalan olmadan oturum açma sağlayıcısı uygulamak istiyorsanız, buradan başlayın.
 * [Application Insights bağdaştırıcılarını günlüğü](https://github.com/Microsoft/ApplicationInsights-dotnet-logging/blob/develop/README.md).
-* [Application Insights ILogger uygulama örnekleri](/azure/azure-monitor/app/ilogger)
-
+* [Yükleme, yapılandırma ve Application Insights SDK'sını başlatmak](/learn/modules/instrument-web-app-code-with-application-insights) - etkileşimli Microsoft Learn sitesindeki öğretici.
 ::: moniker-end
+
+> [!NOTE]
+> 5/1/2019 tarihinde başlıklı makaleyi [ASP.NET Core için Application Insights](/azure/azure-monitor/app/asp-net-core) tarih ve adımları çalışmıyor öğretici dışında. Başvurmak [ASP.NET Core uygulamaları için Application Insights](/azure/azure-monitor/app/asp-net-core-no-visualstudio) yerine. Biz, sorunun farkındayız ve onu düzeltmeye çalışıyoruz.
 
 ## <a name="third-party-logging-providers"></a>Üçüncü taraf günlük sağlayıcıları
 
@@ -885,7 +883,7 @@ ASP.NET Core ile çalışan üçüncü taraf günlük altyapılarına:
 * [Loggr](http://loggr.net/) ([GitHub deposunu](https://github.com/imobile3/Loggr.Extensions.Logging))
 * [NLog](http://nlog-project.org/) ([GitHub deposunu](https://github.com/NLog/NLog.Extensions.Logging))
 * [Sentry](https://sentry.io/welcome/) ([GitHub deposunu](https://github.com/getsentry/sentry-dotnet))
-* [Serilog](https://serilog.net/) ([GitHub deposunu](https://github.com/serilog/serilog-extensions-logging))
+* [Serilog](https://serilog.net/) ([GitHub deposunu](https://github.com/serilog/serilog-aspnetcore))
 * [Stackdriver](https://cloud.google.com/dotnet/docs/stackdriver#logging) ([Github deposunu](https://github.com/googleapis/google-cloud-dotnet))
 
 Bazı üçüncü taraf çerçeveleri gerçekleştirebilirsiniz [yapılandırılmış günlük kaydı olarak da bilinen anlamlı günlük kaydını](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).

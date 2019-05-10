@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 10/24/2018
 uid: security/data-protection/introduction
 ms.openlocfilehash: 37f170a3e8a46ef2215b0999358d46dd402636df
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50089554"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64903281"
 ---
 # <a name="aspnet-core-data-protection"></a>ASP.NET Core veri koruması
 
@@ -21,7 +21,7 @@ ASP.NET Core veri koruma yığın uzun vadeli ardılı olarak hizmet vermek içi
 
 ## <a name="problem-statement"></a>Sorun bildirimi
 
-Genel Sorun bildirimi temellerini tek bir cümlede belirtilebilir: sonraki alma için güvenilen bilgilerini kalıcı hale gerekir, ancak Kalıcılık mekanizması güven yok. "Güvenilmeyen bir istemci aracılığıyla güvenilen gidiş dönüş durumu istiyorum."olarak web bağlamında, bu yazılı olabilir
+Genel Sorun bildirimi temellerini tek bir cümlede belirtilebilir: Sonraki alma için güvenilen bilgilerini kalıcı hale gerekir, ancak Kalıcılık mekanizması güven yok. "Güvenilmeyen bir istemci aracılığıyla güvenilen gidiş dönüş durumu istiyorum."olarak web bağlamında, bu yazılı olabilir
 
 Kurallı örnek bir kimlik doğrulama tanımlama bilgisi taşıyıcı mi belirteci. Sunucu oluşturur bir "I Groot am ve xyz izinlere sahip" belirtecini ve istemciye uygulamalı. İleriki bir tarihte istemci sunucuya geri belirtecini sunar ancak sunucu istemci belirteci sahte taşınmadığından güvencesi tür gerekiyor. Bu nedenle ilk gereksinim: Orijinallik Sertifikası (yani) bütünlüğü, kurcalamaya sağlama).
 
