@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/13/2019
 uid: fundamentals/routing
-ms.openlocfilehash: 622f28f3b4348820c8781e0ba14ae5137136e797
-ms.sourcegitcommit: 036d4b03fd86ca5bb378198e29ecf2704257f7b2
+ms.openlocfilehash: 0c2df3ec63f393b961754f496830cccb26f1cb76
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57346573"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64899513"
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET Core yönlendirme
 
@@ -70,7 +70,7 @@ services.AddMvc()
 > [!IMPORTANT]
 > Bu belge, alt düzey ASP.NET Core yönlendirme kapsar. ASP.NET Core MVC yönlendirme hakkında daha fazla bilgi için bkz: <xref:mvc/controllers/routing>. Razor sayfaları yönlendirme kuralları hakkında daha fazla bilgi için bkz: <xref:razor-pages/razor-pages-conventions>.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="routing-basics"></a>Yönlendirme Temelleri
 
@@ -734,7 +734,7 @@ Aşağıdaki örnek, rota değerleri sözlüğü belirtilen bir rotaya bir bağl
 
 [!code-csharp[](routing/samples/2.x/RoutingSample/Startup.cs?name=snippet_Dictionary)]
 
-<xref:Microsoft.AspNetCore.Routing.VirtualPathData.VirtualPath> Önceki sonunda oluşturulan örnek `/package/create/123`. Sözlük sağlayan `operation` ve `id` rota değerleri "İzleme paketi yol" şablonunun `package/{operation}/{id}`. Örnek kodda Ayrıntılar için bkz [kullanım yönlendirme ara yazılım](#use-routing-middleware) bölüm veya [örnek uygulaması](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/samples).
+<xref:Microsoft.AspNetCore.Routing.VirtualPathData.VirtualPath> Önceki sonunda oluşturulan örnek `/package/create/123`. Sözlük sağlayan `operation` ve `id` rota değerleri "İzleme paketi yol" şablonunun `package/{operation}/{id}`. Örnek kodda Ayrıntılar için bkz [kullanım yönlendirme ara yazılım](#use-routing-middleware) bölüm veya [örnek uygulaması](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/routing/samples).
 
 İkinci parametresi <xref:Microsoft.AspNetCore.Routing.VirtualPathContext> oluşturucudur koleksiyonu *ortam değerlerini*. Ortam değerlerini, bunların değerleri bir geliştirici, bir istek bağlamı içinde belirtmelisiniz sayısını sınırlamak kullanışlıdır. Geçerli isteğin geçerli rota değerleri için bağlantı oluşturma ortam değerleri olarak kabul edilir. Bir ASP.NET Core MVC uygulamasının `About` eylemi `HomeController`, bağlanmak için denetleyici rota değeri belirtmeniz gerekmez `Index` eylem&mdash;ortam değerini `Home` kullanılır.
 

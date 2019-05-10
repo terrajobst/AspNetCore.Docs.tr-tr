@@ -5,12 +5,12 @@ description: Değişiklikleri izlemek için değişiklik belirteçleri kullanmay
 ms.author: riande
 ms.date: 11/10/2017
 uid: fundamentals/change-tokens
-ms.openlocfilehash: 7ad580a7e999a4eae006ce5dd07cca0cbdbe9ab6
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: f7dad52fc19b6dc5c8668ad852e69acd65a72162
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206490"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64900599"
 ---
 # <a name="detect-changes-with-change-tokens-in-aspnet-core"></a>ASP.NET Core değişiklik belirteçleri ile değişiklikleri algılama
 
@@ -18,7 +18,7 @@ Tarafından [Luke Latham](https://github.com/guardrex)
 
 A *belirteç değiştirme* bir genel amaçlı, alt düzey yapı değişiklikleri izlemek için kullanılan blok.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/change-tokens/sample/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/change-tokens/sample/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="ichangetoken-interface"></a>IChangeToken arabirimi
 

@@ -1,4 +1,5 @@
-<!-- THIS INCLUDE USED BY MVC AND RP --> Aşağıdaki özellikleri `Movie` sınıfı:
+<!-- THIS INCLUDE USED BY MVC AND RP -->
+Aşağıdaki özellikleri `Movie` sınıfı:
 
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Models/Movie.cs?name=snippet1)]
 

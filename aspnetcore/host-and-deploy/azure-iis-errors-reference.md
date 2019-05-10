@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 02/28/2019
 uid: host-and-deploy/azure-iis-errors-reference
 ms.openlocfilehash: 053dcce7f8c59b7afe7e52d2f704c992afce0b67
-ms.sourcegitcommit: 57792e5f594db1574742588017c708350958bdf0
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58265169"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64901172"
 ---
 # <a name="common-errors-reference-for-azure-app-service-and-iis-with-aspnet-core"></a>Azure App Service ve IIS ile ASP.NET Core için sık karşılaşılan hatalar başvurusu
 
@@ -45,7 +45,7 @@ Bu konudaki hataların listesi kapsamlı değildir. Burada listelenmeyen bir hat
 
   &#8224;Günlük şu konumdadır *C:\Users\{USER}\AppData\Local\Temp\dd_DotNetCoreWinSvrHosting__{TIMESTAMP}.log*.
 
-Sorun giderme:
+Sorun Giderme:
 
 Sistem, Internet erişimi yoksa, [.NET Core barındırma paket yükleme](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle), yükleyici elde edilen engellendiğinde, bu özel durum oluştu *Microsoft Visual C++ 2015 yeniden dağıtılabilir*. Bir Yükleyicisi'nden elde [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53840). Yükleyici başarısız olursa sunucunun barındırmak için gereken .NET Core çalışma zamanı almayabilir bir [framework bağımlı dağıtım (FDD)](/dotnet/core/deploying/#framework-dependent-deployments-fdd). Bir FDD barındırma, çalışma zamanı içinde yüklü olduğunu onaylayın **programlar ve Özellikler** veya **uygulamalar ve Özellikler**. Belirli bir çalışma zamanı gerekiyorsa, çalışma zamanını şuradan indirin [.NET indirme arşivleri](https://dotnet.microsoft.com/download/archives) ve sisteme yükleyin. Çalışma zamanını yükledikten sonra sistemi yeniden başlatın veya yürüterek IIS'yi yeniden **net stop olan /y** ardından **net start w3svc** bir komut isteminden.
 
@@ -53,7 +53,7 @@ Sistem, Internet erişimi yoksa, [.NET Core barındırma paket yükleme](xref:ho
 
 **Uygulama günlüğü:** Modülü DLL **C:\WINDOWS\system32\inetsrv\aspnetcore.dll** yüklenemedi. Veride hata yer almaktadır.
 
-Sorun giderme:
+Sorun Giderme:
 
 Olmayan işletim sistemi dosyaları **C:\Windows\SysWOW64\inetsrv** dizin korunur olmayan bir işletim sistemi yükseltme. Öncesinde ASP.NET Core Modülü yüklü bir işletim sistemi yükseltmesi ve ardından bir uygulama havuzu çalıştırılır 32-bit modunda işletim sistemi yükseltme sonrasında, bu sorunla karşılaştık. Bir işletim sistemi yükseltme sonrasında ASP.NET Core Modülü'nü onarın. Bkz: [.NET Core barındırma paketini yüklemeniz](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle). Seçin **onarım** yükleyici ne zaman çalıştırılır.
 
@@ -73,7 +73,7 @@ Olmayan işletim sistemi dosyaları **C:\Windows\SysWOW64\inetsrv** dizin korunu
 
 ::: moniker-end
 
-Sorun giderme:
+Sorun Giderme:
 
 * Uygulamayı bir önizleme çalışma zamanı üzerinde çalışan 32-bit (x86) yükleyin **veya** 64-bit (x64) site mi uygulama ve uygulamanın çalışma zamanı sürümü eşleşen uzantısı. **Uzantıları veya uzantı birden fazla çalışma zamanı sürümünü hem yüklemeyin.**
 
@@ -106,7 +106,7 @@ Daha fazla bilgi için bkz. <xref:host-and-deploy/azure-apps/index#install-the-p
 
 Bu senaryo, kendi içinde bir uygulama yayımlama sırasında SDK tarafından yakalanır. Platform hedefi RID eşleşmiyorsa SDK'sı bir hata oluşturur. (örneğin, `win10-x64` ile RID `<PlatformTarget>x86</PlatformTarget>` proje dosyasında).
 
-Sorun giderme:
+Sorun Giderme:
 
 X x86 için framework bağımlı dağıtım (`<PlatformTarget>x86</PlatformTarget>`), 32-bit uygulamalar için IIS uygulama havuzu etkinleştirin. IIS Yöneticisi'nde açın ve uygulama havuzun **Gelişmiş ayarlar** ve **etkinleştirme 32-Bit uygulamaları** için **True**.
 
@@ -118,7 +118,7 @@ X x86 için framework bağımlı dağıtım (`<PlatformTarget>x86</PlatformTarge
 
 * **ASP.NET Core modülü stdout günlüğü:** İşlenmeyen özel durum: : System.BadImageFormatException '{} DERLEMESİ .dll' dosya veya derleme yüklenemedi. Bir programı hatalı biçimde yüklemek için girişimde bulunuldu.
 
-Sorun giderme:
+Sorun Giderme:
 
 * Uygulamayı yerel olarak Kestrel üzerinde çalıştığını doğrulayın. Bir işlem hatası sonucu uygulama içinde ilgili bir sorun olabilir. Daha fazla bilgi için [sorun giderme (IIS)](xref:host-and-deploy/iis/troubleshoot) veya [sorun giderme (Azure App Service)](xref:host-and-deploy/azure-apps/troubleshoot).
 
@@ -138,7 +138,7 @@ Sorun giderme:
 
 ::: moniker-end
 
-Sorun giderme:
+Sorun Giderme:
 
 * Uygulama için doğru URI uç nokta kullanımda olduğunu onaylayın. Bağlamaları kontrol edin.
 
@@ -148,7 +148,7 @@ Sorun giderme:
 
 **İşletim sistemi özel durum:** ASP.NET Core modülü kullanmak için IIS 7.0 CoreWebEngine ve W3SVC özelliklerini yüklenmesi gerekir.
 
-Sorun giderme:
+Sorun Giderme:
 
 Uygun rol ve özellikleri etkinleştirildiğini doğrulayın. Bkz: [IIS yapılandırması](xref:host-and-deploy/iis/index#iis-configuration).
 
@@ -166,7 +166,7 @@ Uygun rol ve özellikleri etkinleştirildiğini doğrulayın. Bkz: [IIS yapılan
 
 ::: moniker-end
 
-Sorun giderme:
+Sorun Giderme:
 
 IIS Web sitesini denetleyin **temel ayarları** ve fiziksel uygulaması klasörü. Uygulama IIS Web sitesinde bir klasör olduğunu onaylayın **fiziksel yolu**.
 
@@ -184,7 +184,7 @@ IIS Web sitesini denetleyin **temel ayarları** ve fiziksel uygulaması klasör�
 
 ::: moniker-end
 
-Sorun giderme:
+Sorun Giderme:
 
 * Uygun rol etkin olduğunu onaylayın. Bkz: [IIS yapılandırması](xref:host-and-deploy/iis/index#iis-configuration).
 
@@ -228,7 +228,7 @@ Sorun giderme:
 
 ::: moniker-end
 
-Sorun giderme:
+Sorun Giderme:
 
 * Uygulamayı yerel olarak Kestrel üzerinde çalıştığını doğrulayın. Bir işlem hatası sonucu uygulama içinde ilgili bir sorun olabilir. Daha fazla bilgi için [sorun giderme (IIS)](xref:host-and-deploy/iis/troubleshoot) veya [sorun giderme (Azure App Service)](xref:host-and-deploy/azure-apps/troubleshoot).
 
@@ -274,7 +274,7 @@ Sorun giderme:
 
 ::: moniker-end
 
-Sorun giderme:
+Sorun Giderme:
 
 * Uygulamayı yerel olarak Kestrel üzerinde çalıştığını doğrulayın. Bir işlem hatası sonucu uygulama içinde ilgili bir sorun olabilir. Daha fazla bilgi için [sorun giderme (IIS)](xref:host-and-deploy/iis/troubleshoot) veya [sorun giderme (Azure App Service)](xref:host-and-deploy/azure-apps/troubleshoot).
 
@@ -296,7 +296,7 @@ Uygulama başlatılamadı. '/ LM/W3SVC/5/ROOT', '0x8000ffff' hata kodu.
 
 ::: moniker-end
 
-Sorun giderme:
+Sorun Giderme:
 
 Framework bağımlı dağıtım (FDD), doğru çalışma zamanı için sistemde yüklü olduğunu onaylayın.
 
@@ -314,7 +314,7 @@ Framework bağımlı dağıtım (FDD), doğru çalışma zamanı için sistemde 
 
 ::: moniker-end
 
-Sorun giderme:
+Sorun Giderme:
 
 Uygulama havuzu içinde olmadığını onaylayın *durduruldu* durumu.
 
@@ -332,7 +332,7 @@ Uygulama havuzu içinde olmadığını onaylayın *durduruldu* durumu.
 
 ::: moniker-end
 
-Sorun giderme:
+Sorun Giderme:
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -370,7 +370,7 @@ Onaylayın alt uygulamanın *web.config* dosya içermez bir `<handlers>` bölüm
 
 ::: moniker-end
 
-Sorun giderme:
+Sorun Giderme:
 
 * `stdoutLogFile` Belirtilen yola `<aspNetCore>` öğesinin *web.config* yok. Daha fazla bilgi için [ASP.NET Core Modülü: Günlük oluşturma ve yönlendirme](xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection).
 
@@ -400,7 +400,7 @@ Sorun giderme:
 
 ::: moniker-end
 
-Sorun giderme:
+Sorun Giderme:
 
 İşlem, büyük olasılıkla bir uygulama yapılandırma veya programlama sorunu nedeniyle başlatılamadı.
 

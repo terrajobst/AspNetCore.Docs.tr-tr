@@ -3,14 +3,14 @@ title: 'Öğretici: ASP.NET Core Razor sayfaları kullanmaya başlama'
 author: rick-anderson
 description: Bu öğretici serisinde, ASP.NET Core Razor sayfaları kullanma işlemi gösterilmektedir. Model oluşturma, Razor sayfaları için kod oluşturmak, veri erişimi için Entity Framework Core ve SQL Server kullanmak, arama işlevi eklemek, giriş doğrulaması eklemek ve modeli güncelleştirmek için geçişleri kullanma hakkında bilgi edinin.
 ms.author: riande
-ms.date: 12/5/2018
+ms.date: 05/09/2019
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: 1d264ca4a605d8291e273a8f054c92e7eefa5548
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
-ms.translationtype: HT
+ms.openlocfilehash: 9307291756baf1bef714d6dae2f8d25d3aa6f922
+ms.sourcegitcommit: 3376f224b47a89acf329b2d2f9260046a372f924
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64903296"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65517096"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Öğretici: ASP.NET Core Razor sayfaları kullanmaya başlama
 
@@ -59,7 +59,7 @@ Bu öğreticinin sonunda çalışan bir sonraki öğreticilerde oluşturacağın
 
 * Açık [tümleşik Terminalini](https://code.visualstudio.com/docs/editor/integrated-terminal).
 
-* Dizinleri (`cd`) proje içeren bir klasör.
+* Dizine değiştirin (`cd`) proje içerir.
 
 * Aşağıdaki komutları çalıştırın:
 
@@ -69,7 +69,7 @@ Bu öğreticinin sonunda çalışan bir sonraki öğreticilerde oluşturacağın
   ```
 
   * `dotnet new` Komut yeni bir Razor sayfaları projesindeki oluşturur *RazorPagesMovie* klasör.
-  * `code` Komutu açılır *RazorPagesMovie* Visual Studio Code yeni bir örneğini klasöründe.
+  * `code` Komutu açılır *RazorPagesMovie* klasöründe, Visual Studio Code geçerli örneği.
 
   Bir iletişim kutusu görünür **gerekli varlıkları oluşturun ve hata ayıklama 'RazorPagesMovie' eksik. Bunları eklensin mi?**
 

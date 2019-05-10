@@ -8,11 +8,11 @@ ms.custom: mvc
 ms.date: 11/28/2018
 uid: signalr/scale
 ms.openlocfilehash: 4ac4509acc89d0091a3757c7cfbc9981614f29ad
-ms.sourcegitcommit: ebf4e5a7ca301af8494edf64f85d4a8deb61d641
+ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54836928"
+ms.lasthandoff: 04/27/2019
+ms.locfileid: "64901202"
 ---
 # <a name="aspnet-core-signalr-hosting-and-scaling"></a>ASP.NET Core SignalR barındırma ve ölçeklendirme
 
@@ -66,7 +66,7 @@ Bu nedenlerle, App Service, VM'ler ve kapsayıcılar dahil olmak üzere, Azure �
 
 Daha fazla bilgi için [Azure SignalR hizmeti belgeleri](/azure/azure-signalr/signalr-overview).
 
-## <a name="redis-backplane"></a>Redis devre kartı
+## <a name="redis-backplane"></a>Redis kartı
 
 [Redis](https://redis.io/) bir Mesajlaşma sistemi ile bir yayımlama/abone olma modelini destekleyen bir bellek içi anahtar-değer deposudur. SignalR Redis devre kartına ileti başka bir sunucuya iletmek için pub/sub özelliğini kullanır. Bir istemci bir bağlantı kurar, bağlantı bilgilerini devre kartına geçirilir. Tüm istemciler için bir ileti göndermek bir sunucu istediğinde devre kartına gönderir. Devre kartına tüm bağlı istemcileri ve hangi bilir sunucuları oldukları üzerinde. Tüm istemciler kendi ilgili sunucuları aracılığıyla ileti gönderir. Bu işlem, aşağıdaki diyagramda gösterilmiştir:
 
