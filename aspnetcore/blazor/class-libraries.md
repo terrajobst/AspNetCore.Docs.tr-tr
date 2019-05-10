@@ -5,81 +5,108 @@ description: Bileşenleri Blazor uygulamalardan bir dış bileşen kitaplığı 
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/15/2019
+ms.date: 05/06/2019
 uid: blazor/class-libraries
-ms.openlocfilehash: f7c9ce20bf23bc532e664764d6e48d9163db727f
-ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
+ms.openlocfilehash: 9ca1d54da584c2957be98708782437e28b619e3b
+ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59982984"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65085844"
 ---
-# <a name="razor-components-class-libraries"></a><span data-ttu-id="36822-103">Razor bileşenleri sınıf kitaplıkları</span><span class="sxs-lookup"><span data-stu-id="36822-103">Razor components class libraries</span></span>
+# <a name="razor-components-class-libraries"></a><span data-ttu-id="1b880-103">Razor bileşenleri sınıf kitaplıkları</span><span class="sxs-lookup"><span data-stu-id="1b880-103">Razor components class libraries</span></span>
 
-<span data-ttu-id="36822-104">Tarafından [Simon Timms](https://github.com/stimms)</span><span class="sxs-lookup"><span data-stu-id="36822-104">By [Simon Timms](https://github.com/stimms)</span></span>
+<span data-ttu-id="1b880-104">Tarafından [Simon Timms](https://github.com/stimms)</span><span class="sxs-lookup"><span data-stu-id="1b880-104">By [Simon Timms](https://github.com/stimms)</span></span>
 
-<span data-ttu-id="36822-105">Bileşenleri Razor sınıf kitaplıkları, projeler arasında paylaşılabilir.</span><span class="sxs-lookup"><span data-stu-id="36822-105">Components can be shared in Razor class libraries across projects.</span></span> <span data-ttu-id="36822-106">Bileşenlerin gelen dahil edilebilir:</span><span class="sxs-lookup"><span data-stu-id="36822-106">Components can be included from:</span></span>
+<span data-ttu-id="1b880-105">Bileşenleri Razor sınıf kitaplıkları, projeler arasında paylaşılabilir.</span><span class="sxs-lookup"><span data-stu-id="1b880-105">Components can be shared in Razor class libraries across projects.</span></span> <span data-ttu-id="1b880-106">Bileşenlerin gelen dahil edilebilir:</span><span class="sxs-lookup"><span data-stu-id="1b880-106">Components can be included from:</span></span>
 
-* <span data-ttu-id="36822-107">Çözümdeki başka bir proje.</span><span class="sxs-lookup"><span data-stu-id="36822-107">Another project in the solution.</span></span>
-* <span data-ttu-id="36822-108">Bir NuGet paketi.</span><span class="sxs-lookup"><span data-stu-id="36822-108">A NuGet package.</span></span>
-* <span data-ttu-id="36822-109">Başvurulan bir .NET kitaplığı.</span><span class="sxs-lookup"><span data-stu-id="36822-109">A referenced .NET library.</span></span>
+* <span data-ttu-id="1b880-107">Çözümdeki başka bir proje.</span><span class="sxs-lookup"><span data-stu-id="1b880-107">Another project in the solution.</span></span>
+* <span data-ttu-id="1b880-108">Bir NuGet paketi.</span><span class="sxs-lookup"><span data-stu-id="1b880-108">A NuGet package.</span></span>
+* <span data-ttu-id="1b880-109">Başvurulan bir .NET kitaplığı.</span><span class="sxs-lookup"><span data-stu-id="1b880-109">A referenced .NET library.</span></span>
 
-<span data-ttu-id="36822-110">Normal .NET türleri yalnızca bileşenlerdir gibi Razor sınıf kitaplığı tarafından sağlanan normal .NET derlemelerini bileşenlerdir.</span><span class="sxs-lookup"><span data-stu-id="36822-110">Just as components are regular .NET types, components provided by Razor class libraries are normal .NET assemblies.</span></span>
+<span data-ttu-id="1b880-110">Normal .NET türleri yalnızca bileşenlerdir gibi Razor sınıf kitaplığı tarafından sağlanan normal .NET derlemelerini bileşenlerdir.</span><span class="sxs-lookup"><span data-stu-id="1b880-110">Just as components are regular .NET types, components provided by Razor class libraries are normal .NET assemblies.</span></span>
 
-<span data-ttu-id="36822-111">Kullanım `razorclasslib` (Razor sınıf kitaplığı) şablonuyla [yeni dotnet](/dotnet/core/tools/dotnet-new) komutu:</span><span class="sxs-lookup"><span data-stu-id="36822-111">Use the `razorclasslib` (Razor class library) template with the [dotnet new](/dotnet/core/tools/dotnet-new) command:</span></span>
+## <a name="create-a-razor-class-library"></a><span data-ttu-id="1b880-111">Razor sınıf kitaplığı oluşturma</span><span class="sxs-lookup"><span data-stu-id="1b880-111">Create a Razor class library</span></span>
 
-```console
-dotnet new razorclasslib -o MyComponentLib1
-```
+<span data-ttu-id="1b880-112">Sunulan yönergeleri <xref:blazor/get-started> makale Blazor için ortamınızı yapılandırmak için.</span><span class="sxs-lookup"><span data-stu-id="1b880-112">Follow the guidance in the <xref:blazor/get-started> article to configure your environment for Blazor.</span></span>
 
-<span data-ttu-id="36822-112">Razor bileşen dosyaları ekleyin (*.razor*) Razor sınıf kitaplığı için.</span><span class="sxs-lookup"><span data-stu-id="36822-112">Add Razor component files (*.razor*) to the Razor class library.</span></span>
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="1b880-113">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="1b880-113">Visual Studio</span></span>](#tab/visual-studio)
 
-<span data-ttu-id="36822-113">Kitaplık var olan bir projeye eklemek için [dotnet sln](/dotnet/core/tools/dotnet-sln) komutu:</span><span class="sxs-lookup"><span data-stu-id="36822-113">To add the library to an existing project, use the [dotnet sln](/dotnet/core/tools/dotnet-sln) command:</span></span>
+1. <span data-ttu-id="1b880-114">Yeni bir proje oluşturun.</span><span class="sxs-lookup"><span data-stu-id="1b880-114">Create a new project.</span></span>
+1. <span data-ttu-id="1b880-115">Seçin **ASP.NET Core Web uygulaması**.</span><span class="sxs-lookup"><span data-stu-id="1b880-115">Select **ASP.NET Core Web Application**.</span></span> <span data-ttu-id="1b880-116">**İleri**’yi seçin.</span><span class="sxs-lookup"><span data-stu-id="1b880-116">Select **Next**.</span></span>
+1. <span data-ttu-id="1b880-117">Bir proje adı belirtin **proje adı** alan veya varsayılan proje adı kabul edin.</span><span class="sxs-lookup"><span data-stu-id="1b880-117">Provide a project name in the **Project name** field or accept the default project name.</span></span> <span data-ttu-id="1b880-118">Örneklerde proje adı bu konudaki `MyComponentLib1`.</span><span class="sxs-lookup"><span data-stu-id="1b880-118">The examples in this topic use the project name `MyComponentLib1`.</span></span> <span data-ttu-id="1b880-119">**Oluştur**’u seçin.</span><span class="sxs-lookup"><span data-stu-id="1b880-119">Select **Create**.</span></span>
+1. <span data-ttu-id="1b880-120">İçinde **yeni bir ASP.NET Core Web uygulaması oluşturma** iletişim kutusunda onaylayın **.NET Core** ve **ASP.NET Core 3.0** seçilir.</span><span class="sxs-lookup"><span data-stu-id="1b880-120">In the **Create a new ASP.NET Core Web Application** dialog, confirm that **.NET Core** and **ASP.NET Core 3.0** are selected.</span></span>
+1. <span data-ttu-id="1b880-121">Seçin **Razor sınıf kitaplığı** şablonu.</span><span class="sxs-lookup"><span data-stu-id="1b880-121">Select the **Razor Class Library** template.</span></span> <span data-ttu-id="1b880-122">**Oluştur**’u seçin.</span><span class="sxs-lookup"><span data-stu-id="1b880-122">Select **Create**.</span></span>
+1. <span data-ttu-id="1b880-123">Razor sınıf kitaplığı, bir çözüme ekleyin:</span><span class="sxs-lookup"><span data-stu-id="1b880-123">Add the Razor class library to a solution:</span></span>
+   1. <span data-ttu-id="1b880-124">Çözüme sağ tıklayın.</span><span class="sxs-lookup"><span data-stu-id="1b880-124">Right-click the solution.</span></span> <span data-ttu-id="1b880-125">Seçin **ekleme** > **mevcut proje**.</span><span class="sxs-lookup"><span data-stu-id="1b880-125">Select **Add** > **Existing Project**.</span></span>
+   1. <span data-ttu-id="1b880-126">Razor Sınıf Kitaplığı'nızın proje dosyasına gidin.</span><span class="sxs-lookup"><span data-stu-id="1b880-126">Navigate to the Razor class library's project file.</span></span>
+   1. <span data-ttu-id="1b880-127">Razor Sınıf Kitaplığı'nızın proje dosyası seçin (*.csproj*).</span><span class="sxs-lookup"><span data-stu-id="1b880-127">Select the Razor class library's project file (*.csproj*).</span></span>
+1. <span data-ttu-id="1b880-128">Razor sınıf kitaplığı başvurusu uygulamadan ekleyin:</span><span class="sxs-lookup"><span data-stu-id="1b880-128">Add a reference the Razor class library from the app:</span></span>
+   1. <span data-ttu-id="1b880-129">Uygulama projesine sağ tıklayın.</span><span class="sxs-lookup"><span data-stu-id="1b880-129">Right-click the app project.</span></span> <span data-ttu-id="1b880-130">Seçin **ekleme** > **başvuru**.</span><span class="sxs-lookup"><span data-stu-id="1b880-130">Select **Add** > **Reference**.</span></span>
+   1. <span data-ttu-id="1b880-131">Razor sınıf kitaplığı Projesi'ni seçin.</span><span class="sxs-lookup"><span data-stu-id="1b880-131">Select the Razor class library project.</span></span> <span data-ttu-id="1b880-132">**Tamam**’ı seçin.</span><span class="sxs-lookup"><span data-stu-id="1b880-132">Select **OK**.</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="36822-114">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="36822-114">Visual Studio</span></span>](#tab/visual-studio)
+# <a name="visual-studio-code--net-core-clitabvisual-studio-codenetcore-cli"></a>[<span data-ttu-id="1b880-133">Visual Studio Code / .NET Core CLI</span><span class="sxs-lookup"><span data-stu-id="1b880-133">Visual Studio Code / .NET Core CLI</span></span>](#tab/visual-studio-code+netcore-cli)
 
-```console
-dotnet sln add .\MyComponentLib1
-```
+1. <span data-ttu-id="1b880-134">Razor sınıf kitaplığı kullanma (`razorclasslib`) şablonuyla [yeni dotnet](/dotnet/core/tools/dotnet-new) komut kabuğundan komutu.</span><span class="sxs-lookup"><span data-stu-id="1b880-134">Use the Razor class library (`razorclasslib`) template with the [dotnet new](/dotnet/core/tools/dotnet-new) command from a command shell.</span></span> <span data-ttu-id="1b880-135">Aşağıdaki örnekte, bir Razor sınıf kitaplığı adlandırılmış oluşturulan `MyComponentLib1`.</span><span class="sxs-lookup"><span data-stu-id="1b880-135">In the following example, a Razor class library is created named `MyComponentLib1`.</span></span> <span data-ttu-id="1b880-136">Bulunduğu klasöre `MyComponentLib1` komut yürütülürken otomatik olarak oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="1b880-136">The folder that holds `MyComponentLib1` is created automatically when the command is executed.</span></span>
 
-# <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="36822-115">.NET Core CLI</span><span class="sxs-lookup"><span data-stu-id="36822-115">.NET Core CLI</span></span>](#tab/netcore-cli)
+   ```console
+   dotnet new razorclasslib -o MyComponentLib1
+   ```
 
-```console
-dotnet add WebApplication1 reference MyComponentLib1
-```
+1. <span data-ttu-id="1b880-137">Kitaplık var olan bir projeye eklemek için [dotnet Başvuru Ekle](/dotnet/core/tools/dotnet-add-reference) komut kabuğu komutunu.</span><span class="sxs-lookup"><span data-stu-id="1b880-137">To add the library to an existing project, use the [dotnet add reference](/dotnet/core/tools/dotnet-add-reference) command from a command shell.</span></span> <span data-ttu-id="1b880-138">Aşağıdaki örnekte, Razor sınıf kitaplığı, uygulamaya eklenir.</span><span class="sxs-lookup"><span data-stu-id="1b880-138">In the following example, the Razor class library is added to the app.</span></span> <span data-ttu-id="1b880-139">Kitaplığa yoluna sahip uygulama proje klasöründen aşağıdaki komutu yürütün:</span><span class="sxs-lookup"><span data-stu-id="1b880-139">Execute the following command from the app's project folder with the path to the library:</span></span>
+
+   ```console
+   dotnet add reference {PATH TO LIBRARY}
+   ```
 
 ---
+
+<span data-ttu-id="1b880-140">Razor bileşen dosyaları ekleyin (*.razor*) Razor sınıf kitaplığı için.</span><span class="sxs-lookup"><span data-stu-id="1b880-140">Add Razor component files (*.razor*) to the Razor class library.</span></span>
+
+## <a name="razor-class-libraries-not-supported-for-client-side-apps"></a><span data-ttu-id="1b880-141">Razor sınıf kitaplıkları için istemci tarafı uygulamalar desteklenmiyor</span><span class="sxs-lookup"><span data-stu-id="1b880-141">Razor class libraries not supported for client-side apps</span></span>
+
+<span data-ttu-id="1b880-142">ASP.NET Core 3.0 Önizleme'de, Razor sınıf kitaplıkları Blazor istemci tarafı uygulamalar ile uyumlu değildir.</span><span class="sxs-lookup"><span data-stu-id="1b880-142">In ASP.NET Core 3.0 Preview, Razor class libraries aren't compatible with Blazor client-side apps.</span></span>
+
+<span data-ttu-id="1b880-143">Tarafından oluşturulan bir Blazor bileşen kitaplık Blazor istemci tarafı uygulamalar için kullanmak `blazorlib` komut kabuğundan şablonu:</span><span class="sxs-lookup"><span data-stu-id="1b880-143">For Blazor client-side apps, use a Blazor component library created by the `blazorlib` template from a command shell:</span></span>
+
+```console
+dotnet new blazorlib -o MyComponentLib1
+```
+
+<span data-ttu-id="1b880-144">Bileşen kitaplıkları kullanarak `blazorlib` şablon görüntüleri, JavaScript ve stil sayfalarını gibi statik dosyalar içerebilir.</span><span class="sxs-lookup"><span data-stu-id="1b880-144">Component libraries using the `blazorlib` template can include static files, such as images, JavaScript, and stylesheets.</span></span> <span data-ttu-id="1b880-145">Oluşturma zamanında derlenmiş bir bütünleştirilmiş kodu dosyanın gömülü statik dosyalar (*.dll*), kaynaklarını ekleme hakkında endişelenmenize gerek kalmadan tüketim bileşenlerini sağlar.</span><span class="sxs-lookup"><span data-stu-id="1b880-145">At build time, static files are embedded into the built assembly file (*.dll*), which allows consumption of the components without having to worry about how to include their resources.</span></span> <span data-ttu-id="1b880-146">İçindeki tüm dosyaları `content` dizin katıştırılmış bir kaynağı işaretlenir.</span><span class="sxs-lookup"><span data-stu-id="1b880-146">Any files included in the `content` directory are marked as an embedded resource.</span></span>
+
+## <a name="static-assets-not-supported-for-server-side-apps"></a><span data-ttu-id="1b880-147">Sunucu tarafı uygulamalar için desteklenmeyen statik varlıklar</span><span class="sxs-lookup"><span data-stu-id="1b880-147">Static assets not supported for server-side apps</span></span>
+
+<span data-ttu-id="1b880-148">ASP.NET Core 3.0 Önizleme'de, statik ya da bir Razor sınıf kitaplığı varlıklarından Blazor sunucu tarafı uygulamalar kullanamıyor (`razorclasslib`) veya Blazor kitaplığı (`blazorlib`).</span><span class="sxs-lookup"><span data-stu-id="1b880-148">In ASP.NET Core 3.0 Preview, Blazor server-side apps can't consume static assets from either a Razor class library (`razorclasslib`) or a Blazor library (`blazorlib`).</span></span>
+
+<span data-ttu-id="1b880-149">Geçici bir çözüm, deneyebileceğiniz [BlazorEmbedLibrary](https://www.nuget.org/packages/BlazorEmbedLibrary/).</span><span class="sxs-lookup"><span data-stu-id="1b880-149">As a temporary workaround, you can try [BlazorEmbedLibrary](https://www.nuget.org/packages/BlazorEmbedLibrary/).</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="36822-116">Razor sınıf kitaplıkları, ASP.NET Core Preview 4'te Blazor uygulamalarıyla uyumlu değil.</span><span class="sxs-lookup"><span data-stu-id="36822-116">Razor class libraries aren't compatible with Blazor apps in ASP.NET Core Preview 4.</span></span>
->
-> <span data-ttu-id="36822-117">Blazor istemci tarafı ve Razor bileşenleri sunucu tarafı uygulamalar ile paylaşılan bir kitaplıktaki bileşenleri oluşturmak için tarafından oluşturulan bir Blazor sınıf kitaplığı kullanma `blazorlib` şablonu.</span><span class="sxs-lookup"><span data-stu-id="36822-117">To create components in a library that can be shared with Blazor client-side and Razor components server-side apps, use a Blazor class library created by the `blazorlib` template.</span></span>
->
-> <span data-ttu-id="36822-118">Razor sınıf kitaplıkları, ASP.NET Core Preview 4'te statik varlıklar desteklemez.</span><span class="sxs-lookup"><span data-stu-id="36822-118">Razor class libraries don't support static assets in ASP.NET Core Preview 4.</span></span> <span data-ttu-id="36822-119">Bileşen kitaplıkları kullanarak `blazorlib` şablon görüntüleri, JavaScript ve stil sayfalarını gibi statik dosyalar içerebilir.</span><span class="sxs-lookup"><span data-stu-id="36822-119">Component libraries using the `blazorlib` template can include static files, such as images, JavaScript, and stylesheets.</span></span> <span data-ttu-id="36822-120">Oluşturma zamanında derlenmiş bir bütünleştirilmiş kodu dosyanın gömülü statik dosyalar (*.dll*), kaynaklarını ekleme hakkında endişelenmenize gerek kalmadan tüketim bileşenlerini sağlar.</span><span class="sxs-lookup"><span data-stu-id="36822-120">At build time, static files are embedded into the built assembly file (*.dll*), which allows consumption of the components without having to worry about how to include their resources.</span></span> <span data-ttu-id="36822-121">İçindeki tüm dosyaları `content` dizin katıştırılmış bir kaynağı işaretlenir.</span><span class="sxs-lookup"><span data-stu-id="36822-121">Any files included in the `content` directory are marked as an embedded resource.</span></span>
+> <span data-ttu-id="1b880-150">[BlazorEmbedLibrary](https://www.nuget.org/packages/BlazorEmbedLibrary/) tutulan veya Microsoft tarafından desteklenmiyor.</span><span class="sxs-lookup"><span data-stu-id="1b880-150">[BlazorEmbedLibrary](https://www.nuget.org/packages/BlazorEmbedLibrary/) isn't maintained or supported by Microsoft.</span></span>
 
-## <a name="consume-a-library-component"></a><span data-ttu-id="36822-122">Bir kitaplık bileşeni kullanma</span><span class="sxs-lookup"><span data-stu-id="36822-122">Consume a library component</span></span>
+## <a name="consume-a-library-component"></a><span data-ttu-id="1b880-151">Bir kitaplık bileşeni kullanma</span><span class="sxs-lookup"><span data-stu-id="1b880-151">Consume a library component</span></span>
 
-<span data-ttu-id="36822-123">Başka bir projede bir kitaplıkta tanımlanan bileşenleri kullanmak için aşağıdaki yaklaşımlardan birini kullanın:</span><span class="sxs-lookup"><span data-stu-id="36822-123">In order to consume components defined in a library in another project, use either of the following approaches:</span></span>
+<span data-ttu-id="1b880-152">Başka bir projede bir kitaplıkta tanımlanan bileşenleri kullanmak için aşağıdaki yaklaşımlardan birini kullanın:</span><span class="sxs-lookup"><span data-stu-id="1b880-152">In order to consume components defined in a library in another project, use either of the following approaches:</span></span>
 
-* <span data-ttu-id="36822-124">Ad alanı ile tam tür adı.</span><span class="sxs-lookup"><span data-stu-id="36822-124">Full type name with the namespace.</span></span>
-* <span data-ttu-id="36822-125">Razor'ın [ \@kullanarak](xref:mvc/views/razor#using) yönergesi.</span><span class="sxs-lookup"><span data-stu-id="36822-125">Razor's [\@using](xref:mvc/views/razor#using) directive.</span></span> <span data-ttu-id="36822-126">Ada göre tek tek bileşenler eklenebilir.</span><span class="sxs-lookup"><span data-stu-id="36822-126">Individual components may be added by name.</span></span>
+* <span data-ttu-id="1b880-153">Tam tür adı, ad alanı ile kullanın.</span><span class="sxs-lookup"><span data-stu-id="1b880-153">Use the full type name with the namespace.</span></span>
+* <span data-ttu-id="1b880-154">Razor'ın kullanın [ \@kullanarak](xref:mvc/views/razor#using) yönergesi.</span><span class="sxs-lookup"><span data-stu-id="1b880-154">Use Razor's [\@using](xref:mvc/views/razor#using) directive.</span></span> <span data-ttu-id="1b880-155">Ada göre tek tek bileşenler eklenebilir.</span><span class="sxs-lookup"><span data-stu-id="1b880-155">Individual components can be added by name.</span></span>
 
-<span data-ttu-id="36822-127">Aşağıdaki örneklerde, `MyComponentLibrary` olduğu satış raporu içeren bir bileşen kitaplığı (`SalesReport`) bileşeni.</span><span class="sxs-lookup"><span data-stu-id="36822-127">In the following examples, `MyComponentLibrary` is a component library containing the Sales Report (`SalesReport`) component.</span></span>
+<span data-ttu-id="1b880-156">Aşağıdaki örneklerde, `MyComponentLib1` olduğu satış raporunu içeren bir bileşen kitaplığı (`SalesReport`) bileşeni.</span><span class="sxs-lookup"><span data-stu-id="1b880-156">In the following examples, `MyComponentLib1` is a component library containing a Sales Report (`SalesReport`) component.</span></span>
 
-<span data-ttu-id="36822-128">Satış Raporu bileşen ad alanı ile tam tür adını kullanarak başvurulabilir:</span><span class="sxs-lookup"><span data-stu-id="36822-128">The Sales Report component can be referenced using its full type name with namespace:</span></span>
+<span data-ttu-id="1b880-157">Satış Raporu bileşen ad alanı ile tam tür adını kullanarak başvurulabilir:</span><span class="sxs-lookup"><span data-stu-id="1b880-157">The Sales Report component can be referenced using its full type name with namespace:</span></span>
 
 ```cshtml
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
 
-<MyComponentLibrary.SalesReport />
+<MyComponentLib1.SalesReport />
 ```
 
-<span data-ttu-id="36822-129">Bileşen de kitaplık kapsama alınırsa başvurulabilir bir `@using` yönergesi:</span><span class="sxs-lookup"><span data-stu-id="36822-129">The component can also be referenced if the library is brought into scope with an `@using` directive:</span></span>
+<span data-ttu-id="1b880-158">Bileşen de kitaplık kapsama alınırsa başvurulabilir bir `@using` yönergesi:</span><span class="sxs-lookup"><span data-stu-id="1b880-158">The component can also be referenced if the library is brought into scope with an `@using` directive:</span></span>
 
 ```cshtml
-@using MyComponentLibrary
+@using MyComponentLib1
 
 <h1>Hello, world!</h1>
 
@@ -88,20 +115,20 @@ Welcome to your new app.
 <SalesReport />
 ```
 
-<span data-ttu-id="36822-130">`@using` Yönergesini dahil edilebilir *_Import.razor* bileşenleri uygulanan veya bir projenin tamamı için kullanılabilir bir tek sayfalı veya bir klasördeki sayfalar kümesi oluşturmak için.</span><span class="sxs-lookup"><span data-stu-id="36822-130">The `@using` directive can be included in *_Import.razor* to make the components available for an entire project or applied to a single page or set of pages within a folder.</span></span>
+<span data-ttu-id="1b880-159">Dahil `@using MyComponentLib1` üst düzey yönerge *_Import.razor* kitaplığın bileşenleri tüm bir projeye kullanılabilir hale getirmek için dosya.</span><span class="sxs-lookup"><span data-stu-id="1b880-159">Include the `@using MyComponentLib1` directive in the top-level *_Import.razor* file to make the library's components available to an entire project.</span></span> <span data-ttu-id="1b880-160">Öğesine yönerge ekleyin bir *_Import.razor* ad alanı bir tek sayfalı veya bir klasördeki sayfalar kümesi uygulamak için herhangi bir düzeyde dosya.</span><span class="sxs-lookup"><span data-stu-id="1b880-160">Add the directive to an *_Import.razor* file at any level to apply the namespace to a single page or set of pages within a folder.</span></span>
 
-## <a name="build-pack-and-ship-to-nuget"></a><span data-ttu-id="36822-131">Sevkiyat NuGet derleme ve paketi</span><span class="sxs-lookup"><span data-stu-id="36822-131">Build, pack, and ship to NuGet</span></span>
+## <a name="build-pack-and-ship-to-nuget"></a><span data-ttu-id="1b880-161">Sevkiyat NuGet derleme ve paketi</span><span class="sxs-lookup"><span data-stu-id="1b880-161">Build, pack, and ship to NuGet</span></span>
 
-<span data-ttu-id="36822-132">Bileşen kitaplıkları, .NET standart kitaplıkları olduğundan, paketleme ve bunları için NuGet sevkiyat paketleme ve herhangi bir kitaplığı NuGet sevkiyat farklı.</span><span class="sxs-lookup"><span data-stu-id="36822-132">Because component libraries are standard .NET libraries, packaging and shipping them to NuGet is no different from packaging and shipping any library to NuGet.</span></span> <span data-ttu-id="36822-133">Paketleme kullanarak gerçekleştirilir [dotnet paketi](/dotnet/core/tools/dotnet-pack) komutu:</span><span class="sxs-lookup"><span data-stu-id="36822-133">Packaging is performed using the [dotnet pack](/dotnet/core/tools/dotnet-pack) command:</span></span>
+<span data-ttu-id="1b880-162">Bileşen kitaplıkları, .NET standart kitaplıkları olduğundan, paketleme ve bunları için NuGet sevkiyat paketleme ve herhangi bir kitaplığı NuGet sevkiyat farklı.</span><span class="sxs-lookup"><span data-stu-id="1b880-162">Because component libraries are standard .NET libraries, packaging and shipping them to NuGet is no different from packaging and shipping any library to NuGet.</span></span> <span data-ttu-id="1b880-163">Paketleme kullanarak gerçekleştirilir [dotnet paketi](/dotnet/core/tools/dotnet-pack) komut kabuğu komutunu:</span><span class="sxs-lookup"><span data-stu-id="1b880-163">Packaging is performed using the [dotnet pack](/dotnet/core/tools/dotnet-pack) command from a command shell:</span></span>
 
 ```console
 dotnet pack
 ```
 
-<span data-ttu-id="36822-134">NuGet kullanarak paket karşıya [dotnet nuget yayımlama](/dotnet/core/tools/dotnet-nuget-push) komutu:</span><span class="sxs-lookup"><span data-stu-id="36822-134">Upload the package to NuGet using the [dotnet nuget publish](/dotnet/core/tools/dotnet-nuget-push) command:</span></span>
+<span data-ttu-id="1b880-164">NuGet kullanarak paket karşıya [dotnet nuget yayımlama](/dotnet/core/tools/dotnet-nuget-push) komut kabuğu komutunu:</span><span class="sxs-lookup"><span data-stu-id="1b880-164">Upload the package to NuGet using the [dotnet nuget publish](/dotnet/core/tools/dotnet-nuget-push) command from a command shell:</span></span>
 
 ```console
 dotnet nuget publish
 ```
 
-<span data-ttu-id="36822-135">Kullanırken `blazorlib` şablonu, statik kaynakları, NuGet paketinin dahil edilir.</span><span class="sxs-lookup"><span data-stu-id="36822-135">When using the `blazorlib` template, static resources are included in the NuGet package.</span></span> <span data-ttu-id="36822-136">Kitaplık tüketiciler otomatik olarak betikleri ve stil sayfalarını, almak tüketiciler kaynakları el ile yüklemek için gerekli değildir.</span><span class="sxs-lookup"><span data-stu-id="36822-136">Library consumers automatically receive scripts and stylesheets, so consumers aren't required to manually install the resources.</span></span>
+<span data-ttu-id="1b880-165">Kullanırken `blazorlib` şablonu, statik kaynakları, NuGet paketinin dahil edilir.</span><span class="sxs-lookup"><span data-stu-id="1b880-165">When using the `blazorlib` template, static resources are included in the NuGet package.</span></span> <span data-ttu-id="1b880-166">Kitaplık tüketiciler otomatik olarak betikleri ve stil sayfalarını, almak tüketiciler kaynakları el ile yüklemek için gerekli değildir.</span><span class="sxs-lookup"><span data-stu-id="1b880-166">Library consumers automatically receive scripts and stylesheets, so consumers aren't required to manually install the resources.</span></span> <span data-ttu-id="1b880-167">Unutmayın [statik varlıklar, sunucu tarafı uygulamalar için desteklenmeyen](#static-assets-not-supported-for-server-side-apps), Blazor kitaplığı da dahil olmak üzere (`blazorlib`) bir sunucu tarafı uygulama tarafından başvuruluyor.</span><span class="sxs-lookup"><span data-stu-id="1b880-167">Note that [static assets aren't supported for server-side apps](#static-assets-not-supported-for-server-side-apps), including when a Blazor library (`blazorlib`) is referenced by a server-side app.</span></span>
