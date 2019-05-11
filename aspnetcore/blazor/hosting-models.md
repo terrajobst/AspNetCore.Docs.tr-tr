@@ -5,14 +5,14 @@ description: İstemci tarafı ve sunucu tarafı Blazor modelleri barındırma an
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/25/2019
+ms.date: 05/10/2019
 uid: blazor/hosting-models
-ms.openlocfilehash: e5d0d74b6ad3f6b7d53c4fc2cb962daf6566287e
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 9bd177e05b9108e82fd76ba78a92710330930bb2
+ms.sourcegitcommit: ffe3ed7921ec6c7c70abaac1d10703ec9a43374c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64898631"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65535894"
 ---
 # <a name="blazor-hosting-models"></a>Blazor barındırma modelleri
 
@@ -84,7 +84,7 @@ Sunucu tarafı barındırma downsides vardır:
 * Sınırlı ölçeklenebilirlik: Sunucu, birden çok istemci bağlantılarını yönetme ve istemci durumu işleme.
 * Bir ASP.NET Core sunucusu uygulama hizmet vermek için gereklidir. Dağıtım bir sunucudan (örneğin, bir CDN) olmadan mümkün değildir.
 
-&dagger;*Blazor.server.js* betik aşağıdaki yola yayımlanan: *bin / {hata ayıklama | Yayın} / {hedef çerçeve} /publish/ {uygulama-adı}. Uygulama/dağıtım/_framework*.
+&dagger;*Blazor.server.js* betik sunulan ASP.NET Core paylaşılan Framework katıştırılmış bir kaynaktan.
 
 ### <a name="reconnection-to-the-same-server"></a>Aynı sunucuya yeniden bağlanma
 

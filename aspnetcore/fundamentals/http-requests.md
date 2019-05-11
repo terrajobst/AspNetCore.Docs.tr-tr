@@ -5,14 +5,14 @@ description: ASP.NET core'da mantıksal HttpClient örneğini yönetmek için IH
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 03/30/2019
+ms.date: 05/10/2019
 uid: fundamentals/http-requests
-ms.openlocfilehash: 84cdbca20e7c7aaa1941c78483cc36a9f0b24505
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 540f14ad2b290d276436033a94d4c815888e5a95
+ms.sourcegitcommit: ffe3ed7921ec6c7c70abaac1d10703ec9a43374c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64901571"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65536010"
 ---
 # <a name="make-http-requests-using-ihttpclientfactory-in-aspnet-core"></a>ASP.NET Core IHttpClientFactory kullanarak HTTP istekleri
 
@@ -27,9 +27,13 @@ Bir <xref:System.Net.Http.IHttpClientFactory> kayıtlı ve oluşturma ve yapıla
 
 [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/http-requests/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
+::: moniker range="<= aspnetcore-2.2"
+
 ## <a name="prerequisites"></a>Önkoşullar
 
 .NET Framework'ü hedefleyen projeleri yüklenmesini gerektiren [Microsoft.Extensions.Http](https://www.nuget.org/packages/Microsoft.Extensions.Http/) NuGet paketi. .NET Core ve başvuru hedefleyen projeler [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app) zaten dahil `Microsoft.Extensions.Http` paket.
+
+::: moniker-end
 
 ## <a name="consumption-patterns"></a>Tüketim modelleri
 
@@ -197,11 +201,10 @@ Birden fazla işleyici sırayla yürütülmesi gerektiğini kaydedilebilir. Her 
 
 `IHttpClientFactory` adlı bir popüler üçüncü taraf kitaplığı ile tümleştirilir [Polly](https://github.com/App-vNext/Polly). Polly kapsamlı esnekliği ve .NET için geçici hata işleme Kitaplığı ' dir. Bu hizmet sayesinde geliştiriciler, yeniden deneme, devre kesici, zaman aşımı, bölme perdesi yalıtım ve geri dönüş gibi ilkeleri fluent ve iş parçacığı açısından güvenli bir şekilde ifade etmek.
 
-Genişletme yöntemleri, Polly ilkeleriyle kullanımını etkinleştirmek için yapılandırılmış sağlanan `HttpClient` örnekleri. Polly uzantıları kullanılabilir [Microsoft.Extensions.Http.Polly](https://www.nuget.org/packages/Microsoft.Extensions.Http.Polly/) NuGet paketi. Bu paket bulunup bulunmadığına [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app). Açık bir uzantıları kullanmak için `<PackageReference />` projeye eklenmelidir.
+Genişletme yöntemleri, Polly ilkeleriyle kullanımını etkinleştirmek için yapılandırılmış sağlanan `HttpClient` örnekleri. Polly uzantıları:
 
-[!code-csharp[](http-requests/samples/2.x/HttpClientFactorySample/HttpClientFactorySample.csproj?highlight=10)]
-
-Bu paket geri yükledikten sonra istemcileri Polly tabanlı işleyicileri ekleme desteklemek genişletme yöntemleri kullanılabilir.
+* Polly tabanlı istemcilere işleyicileri destekler.
+* Yükledikten sonra kullanılabilir [Microsoft.Extensions.Http.Polly](https://www.nuget.org/packages/Microsoft.Extensions.Http.Polly/) NuGet paketi. Paket ASP.NET Core paylaşılan framework dahil değildir.
 
 ### <a name="handle-transient-faults"></a>Geçici hataları işleme
 
@@ -219,7 +222,7 @@ Polly tabanlı işleyicileri eklemek için kullanılabilecek ek genişletme yön
 
 [!code-csharp[Main](http-requests/samples/2.x/HttpClientFactorySample/Startup.cs?name=snippet8)]
 
-Önceki kodda, giden istek bir GET ise 10 saniyelik zaman aşımı uygulanır. Diğer HTTP yöntemi için 30 saniyelik zaman aşımı kullanılır.
+Önceki kodda, giden istek bir HTTP GET ise 10 saniyelik zaman aşımı uygulanır. Diğer HTTP yöntemi için 30 saniyelik zaman aşımı kullanılır.
 
 ### <a name="add-multiple-polly-handlers"></a>Birden çok Polly işleyicileri ekleme
 

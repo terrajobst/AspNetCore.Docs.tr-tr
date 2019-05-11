@@ -4,14 +4,14 @@ author: scottaddie
 description: Bir ASP.NET Core web uygulaması, statik kaynakları paketleme ve küçültme tekniklerini uygulayarak en iyi duruma getirmeyi öğrenin.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 11/20/2018
+ms.date: 05/10/2019
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: 5d5f0aadb7740c9b2b959d12a585cd8c91758ce8
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: ba01d365a25dfbd13fed89263d7489b2ce2a8771
+ms.sourcegitcommit: ffe3ed7921ec6c7c70abaac1d10703ec9a43374c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64900452"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65535928"
 ---
 # <a name="bundle-and-minify-static-assets-in-aspnet-core"></a>Paketleme ve küçültme ASP.NET Core statik varlıkları
 
@@ -63,7 +63,7 @@ Tarayıcılar HTTP istek üstbilgilerinin açısından oldukça ayrıntılıdır
 
 ## <a name="choose-a-bundling-and-minification-strategy"></a>Paketleme ve küçültme stratejisi seçme
 
-MVC ve Razor sayfaları proje şablonları, paketleme ve küçültme içeren bir JSON yapılandırma dosyası için kullanıma hazır bir çözüm sağlar. Gibi üçüncü taraf araçları [Gulp](xref:client-side/using-gulp) ve [Grunt](xref:client-side/using-grunt) görev çalıştırıcıların, biraz daha karmaşık görevlerin gerçekleştirilmesi. Geliştirme iş akışınızın paketleme ve küçültme ötesinde işleme gerektirdiğinde mükemmel bir uyum üçüncü taraf bir araç olan&mdash;linting ve görüntü iyileştirme gibi. Tasarım zamanı paketleme ve küçültme kullanarak küçültülmüş dosyaları uygulamanın dağıtımdan önce oluşturulur. Paketleme ve küçültme dağıtımdan önce düşük sunucu yükü avantajı sağlar. Ancak, bu tasarım zamanı paketleme bilmek önemlidir ve küçültme yapıyı karmaşıklık artar ve yalnızca statik dosyalar ile çalışır.
+MVC ve Razor sayfaları proje şablonları, paketleme ve küçültme içeren bir JSON yapılandırma dosyası için kullanıma hazır bir çözüm sağlar. Gibi üçüncü taraf araçları [Grunt](xref:client-side/using-grunt) görev Çalıştırıcı, biraz daha karmaşık aynı görevleri gerçekleştirin. Geliştirme iş akışınızın paketleme ve küçültme ötesinde işleme gerektirdiğinde mükemmel bir uyum üçüncü taraf bir araç olan&mdash;linting ve görüntü iyileştirme gibi. Tasarım zamanı paketleme ve küçültme kullanarak küçültülmüş dosyaları uygulamanın dağıtımdan önce oluşturulur. Paketleme ve küçültme dağıtımdan önce düşük sunucu yükü avantajı sağlar. Ancak, bu tasarım zamanı paketleme bilmek önemlidir ve küçültme yapıyı karmaşıklık artar ve yalnızca statik dosyalar ile çalışır.
 
 ## <a name="configure-bundling-and-minification"></a>Paketleme ve küçültme yapılandırın
 
@@ -325,11 +325,9 @@ Bu örnekte, herhangi bir görev içinde tanımlanan. `MyPreCompileTarget` önce
 ========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
 ```
 
-Alternatif olarak, Visual Studio'nun görev Çalıştırıcı Gezgini Gulp görevleri için belirli Visual Studio olaylar bağlamak için kullanılabilir. Bkz: [varsayılan görevleri çalıştıran](xref:client-side/using-gulp#running-default-tasks) , bunu ilgili yönergeler için.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Gulp kullanma](xref:client-side/using-gulp)
 * [Grunt kullanma](xref:client-side/using-grunt)
 * [Birden çok ortam kullanma](xref:fundamentals/environments)
 * [Etiket Yardımcıları](xref:mvc/views/tag-helpers/intro)

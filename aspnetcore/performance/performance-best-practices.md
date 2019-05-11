@@ -4,14 +4,14 @@ author: mjrousos
 description: Genel performans sorunlarını önleme ve ASP.NET Core uygulamaları performansını artırmak için ipuçları.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 04/13/2019
+ms.date: 05/10/2019
 uid: performance/performance-best-practices
-ms.openlocfilehash: 28dc7fb40c1b60f643108dcb44593a08942a1650
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 7651dff18f98c60057660c8946c3daa66d272f6a
+ms.sourcegitcommit: ffe3ed7921ec6c7c70abaac1d10703ec9a43374c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087492"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65536079"
 ---
 # <a name="aspnet-core-performance-best-practices"></a>ASP.NET Core performansı en iyi uygulamalar
 
@@ -130,7 +130,7 @@ ASP.NET Core uygulamaları karmaşık ön uç ile sık birçok JavaScript, CSS v
 Öneriler:
 
 * **Yapmak** kullanan ASP.NET Core'nın [yerleşik destek](xref:client-side/bundling-and-minification) paketleme ve küçültme istemci varlıklar için.
-* **Yapmak** diğer üçüncü taraf araçları gibi düşünün [Gulp](xref:client-side/using-gulp) veya [Web](https://webpack.js.org/) karmaşık istemci varlık yönetimi.
+* **Yapmak** diğer üçüncü taraf araçları gibi düşünün [Web](https://webpack.js.org/), karmaşık istemci varlık yönetimi.
 
 ## <a name="compress-responses"></a>Yanıtları sıkıştırma
 

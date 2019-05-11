@@ -3,14 +3,14 @@ title: ASP.NET core'da alanları
 author: rick-anderson
 description: Alanlar (yönlendirme için) ayrı bir ad ve klasör yapısını (için görünümler) bir gruba ilgili işlevleri düzenlemek için kullanılan bir ASP.NET MVC özelliği nasıl olduğunu öğrenin.
 ms.author: riande
-ms.date: 05/06/2019
+ms.date: 05/10/2019
 uid: mvc/controllers/areas
-ms.openlocfilehash: 35c7682861f7392b0bcda7326e4d7f5ccc356bda
-ms.sourcegitcommit: b508b115107e0f8d7f62b25cfcc8ad45e1373459
+ms.openlocfilehash: f3a75bc307a206e43241b421f448b09011868d08
+ms.sourcegitcommit: ffe3ed7921ec6c7c70abaac1d10703ec9a43374c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65212595"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65535964"
 ---
 # <a name="areas-in-aspnet-core"></a>ASP.NET core'da alanları
 
@@ -169,9 +169,9 @@ Yukarıdaki kod için:
 
 ### <a name="import-namespace-and-tag-helpers-with-viewimports-file"></a>Ad alanı ve etiket Yardımcıları ile _viewımports dosyasını içeri aktarın.
 
-A *_viewımports* her alanı için dosya eklenebilir *sayfaları* ad alanı ve etiket Yardımcıları klasöründeki her bir Razor sayfası içe aktarmak için klasör.
+A *_viewımports.cshtml* her alanı için dosya eklenebilir *sayfaları* ad alanı ve etiket Yardımcıları klasöründeki her bir Razor sayfası içe aktarmak için klasör.
 
-Göz önünde bulundurun *Hizmetleri* alan içermiyor örnek kodu bir *_viewımports* dosya. Aşağıdaki biçimlendirme gösterildiği */Services/Manage/About* Razor sayfası:
+Göz önünde bulundurun *Hizmetleri* alan içermiyor örnek kodu bir *_viewımports.cshtml* dosya. Aşağıdaki biçimlendirme gösterildiği */Services/Manage/About* Razor sayfası:
 
 [!code-cshtml[](areas/samples/RPareas/Areas/Services/Pages/Manage/About.cshtml)]
 
@@ -180,7 +180,7 @@ Göz önünde bulundurun *Hizmetleri* alan içermiyor örnek kodu bir *_viewımp
 * Model belirtmek için tam etki alanı adı kullanılmalıdır (`@model RPareas.Areas.Services.Pages.Manage.AboutModel`).
 * [Etiket Yardımcıları](xref:mvc/views/tag-helpers/intro) etkindir `@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers`
 
-Örnek indirme aşağıdaki ürünler alanı içeren *_viewımports* dosyası:
+Örnek indirme aşağıdaki ürünler alanı içeren *_viewımports.cshtml* dosyası:
 
 [!code-cshtml[](areas/samples/RPareas/Areas/Products/Pages/_ViewImports.cshtml)]
 
@@ -198,4 +198,4 @@ Uygulamanın tamamında için yaygın bir düzen paylaşmak için taşıma *_Vie
 
 ### <a name="publishing-areas"></a>Yayımlama alanları
 
-Tüm `*.cshtml` ve `wwwroot/**` dosyaları ne zaman çıkış yayımlanır `<Project Sdk="Microsoft.NET.Sdk.Web">` the.csproj* dosyasına dahil edilir.
+Tüm *.cshtml dosyaları ve içinde dosyaları *wwwroot* ne zaman çıkış dizinine yayımlanır `<Project Sdk="Microsoft.NET.Sdk.Web">` *.csproj dosyasına dahil edilir.
