@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/01/2018
 uid: security/enforcing-ssl
-ms.openlocfilehash: ab407436afb16687fa285a836b608ad2e6a4802f
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: e27e0c31b128cbd7d71bf7b83a2d33cc89ea3ab1
+ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64900749"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610431"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>ASP.NET core'da HTTPS'yi zorunlu kılma
 
@@ -256,6 +256,17 @@ dotnet dev-certs https --help
 Bkz: [bu GitHub sorunu](https://github.com/aspnet/AspNetCore.Docs/issues/6199).
 
 ::: moniker-end
+
+<a name="wsl"></a>
+
+## <a name="trust-https-certificate-from-windows-subsystem-for-linux"></a>Linux için Windows alt sistemi HTTPS sertifika güven
+
+Linux (WSL) için Windows alt sistemi HTTPS otomatik olarak imzalanan bir sertifika oluşturur. WSL sertifikasına güvenmek için Windows sertifika deposunu yapılandırmak için:
+
+* Oluşturulan WSL sertifikasını dışarı aktarmak için aşağıdaki komutu çalıştırın: `dotnet dev-certs https -ep %USERPROFILE%\.aspnet\https\aspnetapp.pfx -p <cryptic-password>`
+* Bir WSL penceresinde aşağıdaki komutu çalıştırın: `ASPNETCORE_Kestrel__Certificates__Default__Password="<cryptic-password>" ASPNETCORE_Kestrel__Certificates__Default__Path=/mnt/c/Users/user-name/.aspnet/https/aspnetapp.pfx dotnet watch run`
+
+  Linux, Windows güvenilir sertifika kullanması için yukarıdaki komut ortam değişkenlerini ayarlar.
 
 ## <a name="additional-information"></a>Ek bilgiler
 

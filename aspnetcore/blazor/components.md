@@ -5,14 +5,14 @@ description: Oluşturma ve bileşen ömürleri yönetme verilere bağlayın ve o
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/02/2019
+ms.date: 05/10/2019
 uid: blazor/components
-ms.openlocfilehash: 6c174fc16ecc755c5c43e59a77db7d4ce9e00da3
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: e4a9e4a229304fa9d984b035a834c6f3bbb24186
+ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65085617"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610162"
 ---
 # <a name="create-and-use-razor-components"></a>Oluşturma ve Razor bileşenleri kullanma
 
@@ -895,7 +895,7 @@ Başka bir bileşene dönüştürerek el ile oluşturulabilir aşağıdaki evcil
 }
 ```
 
-Aşağıdaki örnekte, bir döngüde `CreateComponent` yöntem üç evcil hayvan ayrıntıları bileşeni oluşturur. Çağrılırken `RenderTreeBuilder` bileşenler oluşturmak için yöntemleri (`OpenComponent` ve `AddAttribute`), sıra numaraları olan kaynak kodu satır numaraları. Kod, değil ayrı çağrı çağrılarını ayrı satırlara karşılık gelen sıra numaraları Blazor fark algoritması kullanır. Bir bileşen ile oluştururken `RenderTreeBuilder` yöntemleri, sabit kodlamayın seri numaraları için bağımsız değişkenler. **Sıra numarası oluşturmak için bir hesaplama veya sayaç kullanarak düşük performansa neden olabilir.**
+Aşağıdaki örnekte, bir döngüde `CreateComponent` yöntem üç evcil hayvan ayrıntıları bileşeni oluşturur. Çağrılırken `RenderTreeBuilder` bileşenler oluşturmak için yöntemleri (`OpenComponent` ve `AddAttribute`), sıra numaraları olan kaynak kodu satır numaraları. Kod, değil ayrı çağrı çağrılarını ayrı satırlara karşılık gelen sıra numaraları Blazor fark algoritması kullanır. Bir bileşen ile oluştururken `RenderTreeBuilder` yöntemleri, sabit kodlamayın seri numaraları için bağımsız değişkenler. **Sıra numarası oluşturmak için bir hesaplama veya sayaç kullanarak düşük performansa neden olabilir.** Daha fazla bilgi için [sıra numaraları ilişkilendirmek için kod satır numaraları ve değil yürütme sırası](#sequence-numbers-relate-to-code-line-numbers-and-not-execution-order) bölümü.
 
 *İçerik bileşen yerleşik*:
 
@@ -929,3 +929,90 @@ Aşağıdaki örnekte, bir döngüde `CreateComponent` yöntem üç evcil hayvan
     }
 }
 ```
+
+### <a name="sequence-numbers-relate-to-code-line-numbers-and-not-execution-order"></a>Seri numaraları için kod satır numaraları ve değil yürütme sırası arasında bir ilişki
+
+Blazor `.razor` dosyaları her zaman derlenir. Bu büyük olasılıkla için harika bir avantajı, `.razor` çünkü derleme adımı çalışma zamanında uygulama performansını bilgi eklenmek üzere kullanılabilir.
+
+Bu geliştirmeler anahtar bir örnek içeren *sıra numaraları*. Sıra numaraları, hangi kod ayrı ve sıralı satırlarından çıkışları gelen çalışma zamanı gösterir. Çalışma zamanı, genel ağaç fark algoritması için normalde mümkün olandan çok daha hızlı doğrusal zamanda verimli ağaç farkları oluşturmak için bu bilgileri kullanır.
+
+Aşağıdakileri göz önünde bulundurun basit `.razor` dosyası:
+
+```cshtml
+@if (someFlag)
+{
+    <text>First</text>
+}
+
+Second
+```
+
+Bu, aşağıdakine benzer bir şey derler:
+
+```csharp
+if (someFlag)
+{
+    builder.AddContent(0, "First");
+}
+
+builder.AddContent(1, "Second");
+```
+
+Ne zaman bu kodu yürütür, ilk kez, `someFlag` olduğu `true`, oluşturucu alır:
+
+| Dizisi | Tür      | Veri   |
+| :------: | --------- | :----: |
+| 0        | Metin düğümü | ilk  |
+| 1.        | Metin düğümü | Saniye |
+
+Şimdi, Imagine `someFlag` olur `false`, ve yeniden oluşturun. Bu kez, oluşturucu alır:
+
+| Dizisi | Tür       | Veri   |
+| :------: | ---------- | :----: |
+| 1.        | Metin düğümü  | Saniye |
+
+Çalışma zamanı bir fark gerçekleştirdiğinde, görür öğe dizisi `0` kaldırıldı, aşağıdaki Önemsiz oluşturmasını sağlayacak şekilde *betiğini Düzenle*:
+
+* İlk metin düğümü kaldırın.
+
+#### <a name="what-goes-wrong-if-you-generate-sequence-numbers-programmatically"></a>Sıra numaraları programlı olarak oluşturursanız yanlış unsurları
+
+Bunun yerine aşağıdaki rendertree Oluşturucu mantığı yazdığınız varsayalım:
+
+```csharp
+var seq = 0;
+
+if (someFlag)
+{
+    builder.AddContent(seq++, "First");
+}
+
+builder.AddContent(seq++, "Second");
+```
+
+Artık ilk çıktı aşağıdaki gibi olur:
+
+| Dizisi | Tür | Veri || :------: | --------- | :--- : | | 0 | Metin düğümü | İlk || 1 | Metin düğümü | İkinci |
+
+Bu sonuç için önceki durum, aynı olduğundan negatif hiçbir sorun yoktur. İkinci işleme `someFlag` olduğu `false`, çıktı şu şekildedir:
+
+| Dizisi | Tür      | Veri   |
+| :------: | --------- | ------ |
+| 0        | Metin düğümü | Saniye |
+
+Fark algoritması, bu kez görür *iki* değişiklikleri oluşmuş ve algoritma aşağıdaki düzenleme komut dosyası oluşturur:
+
+* İlk metin düğümü değiştirin `Second`.
+* İkinci metin düğümü kaldırın.
+
+Sıra numaraları oluşturma tüm hakkında yararlı bilgiler nerede kaybetti `if/else` dallar ve döngüler özgün koda mevcut. Bu bir fark sonuçlarını **iki kez sürece** önceki gibi.
+
+Bu basit bir örnektir. Karmaşık ve iç içe yapılar ve özellikle döngüler daha gerçekçi durumda da, performans maliyeti daha ciddi. Hemen hangi döngü blokları veya dallar eklenen veya kaldırılan tanımlamak yerine, derin bir şekilde işleme ağaçlara recurse ve onu hakkında misinformed çünkü genellikle derleme çok uzun düzenleme betiklerini fark algoritmasına sahip eski ve yeni yapılar birbiriyle ilgilidir.
+
+#### <a name="guidance-and-conclusions"></a>Yönergeler ve sonuçları
+
+* Sıra numaraları dinamik olarak üretilen uygulama performans düşebilir.
+* Framework'te derleme zamanında yakalanır sürece gerekli bilgileri mevcut olmadığından kendi sıra numaraları çalışma zamanında otomatik olarak oluşturulamıyor.
+* El ile uygulanan uzun bloklarını yazmayın `RenderTreeBuilder` mantığı. Tercih ettiğiniz `.razor` dosyaları ve sıra numaraları ile dağıtılacak derleyici sağlar. El ile önlemek zamanınız yoksa `RenderTreeBuilder` mantığı da uzun kod blokları içinde sarmalanmış küçük parçalara bölmek `OpenRegion` / `CloseRegion` çağırır. Sıfırdan yeniden başlatabilir, kendi ayrı seri numaraları alanının her bölgede bulunduğundan (veya herhangi bir rastgele sayı) her bir bölge içinde.
+* Sıra numaraları sabittir, fark algoritması yalnızca bir sıra numaraları değeri artırmak gerektirir. İlk değer ve boşluklar önemli değildir. Yasal bir seçenek olan sıra numarası kod satır numarasını kullanın veya sıfırdan başlayın ve olanlara ya da yüz artırmak için (veya herhangi bir tercih edilen aralığı). 
+* Ağaç ayırırken diğer UI çerçeveleri bunları kullanmayın Blazor seri numaraları kullanır. Sıra numaraları kullanılır ve Blazor sıra numaraları ile otomatik olarak yazma geliştiriciler için ilgilenen bir derleme adımı avantajlarından fark alma işlemini çok daha hızlı `.razor` dosyaları.

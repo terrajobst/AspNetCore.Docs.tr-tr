@@ -5,12 +5,12 @@ description: ASP.NET Core ile Azure Active Directory B2C kimlik doğrulaması ku
 ms.date: 02/27/2019
 ms.custom: mvc
 uid: security/authentication/azure-ad-b2c
-ms.openlocfilehash: 86be999e02cfe34193bd594dcf89e8872590cca5
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 46654e38c780cfc9c44e7ba479419320ee684b76
+ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64903302"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610692"
 ---
 # <a name="cloud-authentication-with-azure-active-directory-b2c-in-aspnet-core"></a>Azure Active Directory B2C'de ASP.NET Core ile bulut kimlik doğrulaması
 
@@ -34,7 +34,7 @@ Bu öğreticide, bilgi nasıl yapılır:
 Bu kılavuz için aşağıdakiler gereklidir:
 
 * [Microsoft Azure aboneliği](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-* [Visual Studio 2017](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs) (herhangi bir sürümü)
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019)
 
 ## <a name="create-the-azure-active-directory-b2c-tenant"></a>Azure Active Directory B2C kiracısı oluşturma
 
@@ -62,7 +62,7 @@ Uygulama kaydedildikten sonra kiracıdaki uygulamalar listesinde görüntülenir
 
 Hiçbir şey daha şu anda Azure AD B2C kiracısında yapılandırılabilir, ancak tarayıcı penceresini açık bırakın. ASP.NET Core uygulaması oluşturduktan sonra daha fazla yapılandırma yoktur.
 
-## <a name="create-an-aspnet-core-app-in-visual-studio-2017"></a>Visual Studio 2017'de bir ASP.NET Core uygulaması oluşturma
+## <a name="create-an-aspnet-core-app-in-visual-studio"></a>Visual Studio'da ASP.NET Core uygulaması oluşturma
 
 Visual Studio Web uygulama şablonu, kimlik doğrulaması için Azure AD B2C kiracınızı kullanacak şekilde yapılandırılabilir.
 

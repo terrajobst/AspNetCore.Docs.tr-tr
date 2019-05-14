@@ -1,16 +1,16 @@
 ---
 title: ASP.NET Core Grunt kullanma
 author: rick-anderson
-description: ''
+description: ASP.NET Core Grunt kullanma
 ms.author: riande
 ms.date: 05/10/2019
 uid: client-side/using-grunt
-ms.openlocfilehash: 73b7704726db9d93588dddd3f3b05a23fb3425b3
-ms.sourcegitcommit: ffe3ed7921ec6c7c70abaac1d10703ec9a43374c
+ms.openlocfilehash: 718a1358c0474711b05bb2c90dc86ec9edacbf1e
+ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65535948"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610220"
 ---
 # <a name="use-grunt-in-aspnet-core"></a>ASP.NET Core Grunt kullanma
 

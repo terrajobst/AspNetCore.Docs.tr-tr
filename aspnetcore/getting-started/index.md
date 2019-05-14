@@ -1,27 +1,27 @@
 ---
 title: ASP.NET Core kullanmaya başlayın
 author: rick-anderson
-description: Oluşturur ve ASP.NET Core kullanarak basit bir Hello World uygulaması çalıştıran bir hızlı öğretici.
+description: Oluşturur ve ASP.NET Core kullanarak basit bir Hello World uygulaması çalıştıran kısa bir öğretici.
 ms.author: riande
 ms.custom: mvc
-ms.date: 01/15/2019
+ms.date: 5/15/2019
 uid: getting-started
-ms.openlocfilehash: 76728c484368a8b63130c259a9663473970846d3
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: 9227dcfbc84376d9d73bc6fc0dd76085779acae1
+ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58209482"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610317"
 ---
 # <a name="tutorial-get-started-with-aspnet-core"></a>Öğretici: ASP.NET Core kullanmaya başlayın
 
-Bu öğreticide, ASP.NET Core web uygulaması oluşturmak için .NET Core komut satırı arabirimi kullanmayı gösterir.
+Bu öğreticide, .NET Core komut satırı arabirimi oluşturmak ve bir ASP.NET Core web uygulaması çalıştırmak için kullanılacak gösterilmektedir.
 
 Öğreneceksiniz nasıl yapılır:
 
 > [!div class="checklist"]
 > * Bir web uygulaması projesi oluşturun.
-> * Yerel HTTPS etkinleştirin.
+> * Geliştirme sertifikasına güvenmek.
 > * Uygulamayı çalıştırın.
 > * Bir Razor sayfası düzenleyin.
 
@@ -41,7 +41,7 @@ Bir komut kabuğunu açın ve aşağıdaki komutu girin:
 dotnet new webapp -o aspnetcoreapp
 ```
 
-## <a name="enable-local-https"></a>Yerel HTTPS'yi etkinleştirme
+### <a name="trust-the-development-certificate"></a>Geliştirme sertifikasına güvenmek
 
 HTTPS geliştirme sertifikasına güvenmek:
 
@@ -70,6 +70,8 @@ Yukarıdaki komut, şu iletiyi görüntüler:
 Bu komut, üzerinde sistem Anahtarlık sertifikayı yüklemek, parola isteyebilir. Geliştirme sertifikasına güvenmek kabul ediyorsanız, parolanızı girin.
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+Linux için Windows alt sistemi için bkz: [Linux için Windows alt sistemi güven HTTPS sertifikadan](xref:security/enforcing-ssl#wsl).
 
 HTTPS geliştirme sertifikasına güvenmek nasıl Linux dağıtımınız için belgelere bakın.
 
@@ -102,7 +104,7 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
 > * Bir web uygulaması projesi oluşturun.
-> * Yerel HTTPS etkinleştirin.
+> * Geliştirme sertifikasına güvenmek.
 > * Projeyi çalıştırın.
 > * Bir değişiklik yapın.
 

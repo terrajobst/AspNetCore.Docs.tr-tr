@@ -4,14 +4,14 @@ author: guardrex
 description: Uygulama başlatma ve ömür yönetimi için sorumlu olan ASP.NET Core Web ana bilgisayar hakkında bilgi edinin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/18/2018
+ms.date: 05/11/2019
 uid: fundamentals/host/web-host
-ms.openlocfilehash: b391b5e514e750f64f30d33cf4eb91e489242eba
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 48f3b664d901bdfb27cdf9e798fa60c0587d1def
+ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64901580"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610281"
 ---
 # <a name="aspnet-core-web-host"></a>ASP.NET Core Web ana bilgisayarı
 
@@ -39,7 +39,9 @@ Bu makalede, ASP.NET Core Web ana bilgisayarı yer almaktadır ([IWebHostBuilder
 
 ## <a name="set-up-a-host"></a>Bir ana bilgisayar kümesi
 
-Bir konak örneği kullanarak oluşturma [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder). Bu, genellikle uygulamanın Giriş noktasında gerçekleştirilir `Main` yöntemi. Proje şablonlarındaki `Main` bulunan *Program.cs*. Tipik bir *Program.cs* çağrıları [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) bir konak kurulumunu başlatmak için:
+Bir konak örneği kullanarak oluşturma [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder). Bu, genellikle uygulamanın Giriş noktasında gerçekleştirilir `Main` yöntemi. Oluşturucu yöntemi adını `CreateWebHostBuilder`, gibi dış bileşenlere Oluşturucu yöntemi tanımlayan özel adı [Entity Framework](/ef/core/).
+
+Proje şablonlarındaki `Main` bulunan *Program.cs*. Normal bir uygulama çağrıları [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) bir konak kurulumunu başlatmak için:
 
 ```csharp
 public class Program

@@ -6,23 +6,23 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 09/12/2018
 uid: host-and-deploy/docker/visual-studio-tools-for-docker
-ms.openlocfilehash: 3bf3d8d0a627d97090e3ce9fef7e380f03c7626d
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: b0d884fe2fe56f267ad70c388a08cd3fe6256364
+ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64901310"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610371"
 ---
 # <a name="visual-studio-tools-for-docker-with-aspnet-core"></a>ASP.NET Core ile Docker için Visual Studio Araçları
 
-Visual Studio 2017, oluşturma, hata ayıklama ve kapsayıcılı ASP.NET Core .NET Core'u hedefleyen uygulamaların çalıştırılmasını destekler. Hem Windows hem de Linux kapsayıcıları desteklenmektedir.
+Visual Studio 2017 ve sonraki sürümler oluşturma, hata ayıklama ve kapsayıcılı ASP.NET Core .NET Core'u hedefleyen uygulamaların çalıştırılmasını destekler. Hem Windows hem de Linux kapsayıcıları desteklenmektedir.
 
 [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/host-and-deploy/docker/visual-studio-tools-for-docker/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 * [Windows için docker](https://docs.docker.com/docker-for-windows/install/)
-* [Visual Studio 2017](https://visualstudio.microsoft.com) ile **.NET Core çoklu platform geliştirme** iş yükü
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) ile **.NET Core çoklu platform geliştirme** iş yükü
 
 ## <a name="installation-and-setup"></a>Yükleme ve Kurulum
 
@@ -112,7 +112,7 @@ Yapılandırmaya özgü geçersiz kılma dosyalarını kullanarak, hata ayıklam
 Temel yanı sıra [önkoşulları](#prerequisites), [Service Fabric](/azure/service-fabric/) düzenleme çözümüne aşağıdaki önkoşulları gerektirir:
 
 * [Microsoft Azure Service Fabric SDK'sı](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK) 2.6 veya sonraki bir sürümü
-* Visual Studio 2017'in **Azure geliştirme** iş yükü
+* Visual Studio'nun **Azure geliştirme** iş yükü
 
 Service Fabric, yerel geliştirme kümesinde Windows üzerinde çalışan Linux kapsayıcıları desteklemiyor. Proje zaten bir Linux kapsayıcı kullanıyorsanız, Windows kapsayıcıları için geçiş yapmak için Visual Studio ister.
 

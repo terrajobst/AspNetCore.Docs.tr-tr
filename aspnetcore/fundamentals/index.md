@@ -5,14 +5,14 @@ description: ASP.NET Core uygulamaları oluşturmaya yönelik temel kavramları 
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/31/2019
+ms.date: 05/11/2019
 uid: fundamentals/index
-ms.openlocfilehash: a1fed574db0baab391ebb9cfc44664ceddbfa69b
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 9c7bc25d813ad17825ef03f5176882993cc2dd63
+ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64901568"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610322"
 ---
 # <a name="aspnet-core-fundamentals"></a>ASP.NET Core temelleri
 
@@ -78,6 +78,8 @@ Bir ana bilgisayar oluşturmak için kod `Program.Main` ve izleyen [Oluşturucu 
 
 ::: moniker range=">= aspnetcore-3.0"
 
+`CreateHostBuilder` Oluşturucu dış bileşenleri gibi aşırı yükleme yöntemini tanımlayan özel adı [Entity Framework](/ef/core/).
+
 ASP.NET Core 3.0 veya üstü, genel ana bilgisayar (`Host` sınıfı) veya Web ana bilgisayarı (`WebHost` sınıfı) bir web uygulamasında kullanılabilir. Genel konak önerilir ve Web ana bilgisayarı, kullanılabilir geriye dönük uyumluluk.
 
 Bir çerçeve sağlar `CreateDefaultBuilder` ve `ConfigureWebHostDefaults` kullanılan aşağıdaki gibi seçeneklere sahip bir konak için yaygın olarak ayarlamak için yöntemleri:
@@ -95,6 +97,8 @@ Daha fazla bilgi için bkz. <xref:fundamentals/host/generic-host> ve <xref:funda
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
+
+`CreateWebHostBuilder` Oluşturucu dış bileşenleri gibi aşırı yükleme yöntemini tanımlayan özel adı [Entity Framework](/ef/core/).
 
 ASP.NET Core 2.x kullanan Web ana bilgisayarı (`WebHost` sınıfı) web uygulamaları için. Bir çerçeve sağlar `CreateDefaultBuilder` seçenekleri, aşağıdakiler gibi yaygın olarak konakla ayarlamak için kullanılan:
 
