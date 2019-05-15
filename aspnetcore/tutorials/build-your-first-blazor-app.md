@@ -5,14 +5,14 @@ description: Adım adım bir Blazor uygulaması oluşturun.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/18/2019
+ms.date: 05/14/2019
 uid: tutorials/first-blazor-app
-ms.openlocfilehash: d235fec4e128ad8622a06d301eeac15c4862c159
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: c1b142ebdbd85eb10ddf8c8b70edd9782732a4f1
+ms.sourcegitcommit: 3ee6ee0051c3d2c8d47a58cb17eef1a84a4c46a0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087763"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65621097"
 ---
 # <a name="build-your-first-blazor-app"></a>İlk Blazor uygulamanızı oluşturun
 
@@ -151,6 +151,14 @@ Yeni bir bileşen, bir basit bir Yapılacaklar listesi uygulayan uygulamaya ekle
    ```
 
 1. Yeniden oluşturun ve uygulamayı çalıştırın. Todo bileşen bağlantısını çalıştığını onaylamak için yeni Todo sayfasını ziyaret edin.
+
+1. Uygulamanın ad alanına bir Blazor sunucu-tarafı uygulaması oluşturuyorsanız, ekleme  *\_Imports.razor* dosya. Aşağıdaki `@using` deyimi, uygulamanın ad alanı olduğunu varsayar `WebApplication`:
+
+   ```cshtml
+   @using WebApplication
+   ```
+   
+   Blazor istemci tarafı uygulamalar varsayılan olarak uygulamanın ad alanı dahil  *\_Imports.razor* dosya.
 
 1. Ekleme bir *TodoItem.cs* bir todo öğesini temsil eden bir sınıf tutmak için projenin kök dosya. Aşağıdaki C# için kod `TodoItem` sınıfı:
 

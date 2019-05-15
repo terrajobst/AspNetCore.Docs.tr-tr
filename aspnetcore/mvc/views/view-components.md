@@ -3,14 +3,15 @@ title: ASP.NET core'da görünüm bileşenleri
 author: rick-anderson
 description: ASP.NET Core görünümü bileşenlerin nasıl kullanıldığı ve bunları için uygulamaları nasıl ekleyeceğinizi öğrenin.
 ms.author: riande
-ms.date: 1/30/2019
+ms.custom: mvc
+ms.date: 5/14/2019
 uid: mvc/views/view-components
-ms.openlocfilehash: 2bcf6411933b884c2f96d926827079dfbc25ca74
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 17fd7aa977868d522df9f27e0c23d07b016bfb7c
+ms.sourcegitcommit: 3ee6ee0051c3d2c8d47a58cb17eef1a84a4c46a0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64903380"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65621078"
 ---
 # <a name="view-components-in-aspnet-core"></a>ASP.NET core'da görünüm bileşenleri
 
@@ -40,6 +41,8 @@ Görünüm bileşenleri herhangi bir kısmi görünüm için çok karmaşık old
 * Bir oturum açma paneli her sayfada işlenir ve oturumu kapatmayın veya kullanıcının durumunu günlüğünde bağlı olarak, oturum için ya da bağlantılarını göster
 
 Bileşeni görüntüle iki bölümden oluşur: sınıfı (genellikle türetilen [ViewComponent](/dotnet/api/microsoft.aspnetcore.mvc.viewcomponent)) ve isteğe bağlı olarak sonucu (genellikle bir görünüm) döndürür. Denetleyicileri gibi bir POCO görünümü bileşen olabilir, ancak çoğu Geliştirici türetme tarafından kullanılabilen özellikler ve yöntemler yararlanmak isteyeceksiniz `ViewComponent`.
+
+Görünüm bileşenleri uygulamanın belirtimleri karşılayıp karşılamadığınızı düşünürken, Razor bileşenleri kullanmayı düşünün. Razor bileşenleri de biçimlendirme ile birleştirerek C# yeniden kullanılabilir kullanıcı Arabirimi birimleri üretmek için kod. Razor bileşenler, istemci tarafı UI mantığı ve kompozisyon sağlanırken Geliştirici üretkenliğini için tasarlanmıştır. Daha fazla bilgi için bkz. <xref:blazor/components>.
 
 ## <a name="creating-a-view-component"></a>Bir görünümü bileşeni oluşturma
 

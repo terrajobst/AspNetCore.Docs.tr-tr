@@ -5,14 +5,14 @@ description: Azure Key Vault yapılandırma sağlayıcısı, çalışma zamanın
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/25/2019
+ms.date: 05/13/2019
 uid: security/key-vault-configuration
-ms.openlocfilehash: 45eca05b5eb41815924ca48f60c3b00046c6bdaf
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 78c63cf135ca92f0b5f6c6828b2ae34a44a7b36c
+ms.sourcegitcommit: 3ee6ee0051c3d2c8d47a58cb17eef1a84a4c46a0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64901040"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65621028"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>ASP.NET core'da Azure anahtar kasası yapılandırma sağlayıcısı
 
@@ -111,7 +111,7 @@ Tarafından sağlanan yönergeleri [hızlı başlangıç: Ayarlayın ve Azure CL
    az keyvault secret set --vault-name "{KEY VAULT NAME}" --name "Section--SecretName" --value "secret_value_2_prod"
    ```
 
-## <a name="use-application-id-and-client-secret-for-non-azure-hosted-apps"></a>Azure'da barındırılan uygulamalar için uygulama kimliği ve istemci gizli anahtarını kullanın
+## <a name="use-application-id-and-x509-certificate-for-non-azure-hosted-apps"></a>Azure'da barındırılan uygulamalar için uygulama kimliği ve X.509 sertifika kullan
 
 Azure AD'yi yapılandırma, bir anahtar kasasına kimlik doğrulaması için Azure anahtar kasası ve uygulamayı bir Azure Active Directory Uygulama kimliği ve X.509 Sertifika **uygulamayı Azure dışında barındırılan zaman**. Daha fazla bilgi için [anahtarlara, parolalara ve sertifikalara hakkında](/azure/key-vault/about-keys-secrets-and-certificates).
 
@@ -120,12 +120,15 @@ Azure AD'yi yapılandırma, bir anahtar kasasına kimlik doğrulaması için Azu
 
 Bir uygulama kimliği ve X.509 sertifikası olduğunda örnek uygulamanın kullandığı `#define` en üstündeki deyimi *Program.cs* dosya ayarlanmış `Certificate`.
 
+1. Bir PKCS #12 arşiv oluştur (*.pfx*) sertifika. Sertifikaları oluşturmaya yönelik seçenekleri içeren [Windows üzerinde MakeCert](/windows/desktop/seccrypto/makecert) ve [OpenSSL](https://www.openssl.org/).
+1. Sertifikayı geçerli kullanıcının kişisel sertifika deposuna yükleyin. İşaretleme anahtar dışarı aktarılabilir olarak isteğe bağlıdır. Daha sonra bu işlemde kullanılan sertifikanın parmak izini unutmayın.
+1. PKCS #12 arşiv dışarı aktar (*.pfx*) sertifikası olarak DER kodlu bir sertifika (*.cer*).
 1. Uygulamayı Azure AD'ye kaydetme (**uygulama kayıtları**).
-1. Ortak anahtarı karşıya yükle:
+1. DER ile kodlanmış sertifikasını karşıya yükle (*.cer*) Azure AD'ye:
    1. Azure AD'de uygulamayı seçin.
-   1. Gidin **ayarları** > **anahtarları**.
-   1. Seçin **ortak anahtarı karşıya** ortak anahtarı içeren sertifikayı karşıya yüklemek için. Kullanmanın yanı sıra bir *.cer*, *.pem*, veya *.crt* sertifika bir *.pfx* sertifika karşıya yüklenebilir.
-1. Uygulamanın uygulama kimliği ve anahtar kasası adı Store *appsettings.json* dosya. Uygulamanın veya uygulamaların sertifika deposunda kök sertifika yerleştirin&dagger;.
+   1. Gidin **sertifikaları ve parolaları**.
+   1. Seçin **sertifikayı karşıya yükle** ortak anahtarı içeren sertifikayı karşıya yüklemek için. A *.cer*, *.pem*, veya *.crt* sertifikadır kabul edilebilir.
+1. Anahtar kasası adı, uygulama kimliği ve sertifika parmak izi uygulamanın Store *appsettings.json* dosya.
 1. Gidin **anahtar kasalarını** Azure portalında.
 1. Oluşturduğunuz anahtar kasasını seçin [Azure Key Vault ile üretim ortamında gizli depolama](#secret-storage-in-the-production-environment-with-azure-key-vault) bölümü.
 1. Seçin **erişim ilkeleri**.
@@ -136,8 +139,6 @@ Bir uygulama kimliği ve X.509 sertifikası olduğunda örnek uygulamanın kulla
 1. **Kaydet**’i seçin.
 1. Uygulamayı dağıtın.
 
-&dagger;Örnek uygulamada, sertifika doğrudan uygulama köküne fiziksel sertifika dosyasından yeni bir oluşturarak tüketilen `X509Certificate2` çağırırken `AddAzureKeyVault`. Alternatif bir yaklaşım, sertifika yönetmek işletim sistemi izin vermektir. Daha fazla bilgi için [X.509 sertifikası yönetmek işletim sistemi izin](#allow-the-os-to-manage-the-x509-certificate) bölümü.
-
 `Certificate` Örnek uygulaması edinir, yapılandırma değerlerinden `IConfigurationRoot` gizli dizi adı olarak aynı ada sahip:
 
 * Hiyerarşik olmayan değerler: Değeri `SecretName` ile elde edilen `config["SecretName"]`.
@@ -145,14 +146,15 @@ Bir uygulama kimliği ve X.509 sertifikası olduğunda örnek uygulamanın kulla
   * `config["Section:SecretName"]`
   * `config.GetSection("Section")["SecretName"]`
 
-Uygulama çağrıları `AddAzureKeyVault` tarafından sağlanan değerlerle *appsettings.json* dosyası:
+X.509 Sertifika, işletim sistemi tarafından yönetilir. Uygulama çağrıları `AddAzureKeyVault` tarafından sağlanan değerlerle *appsettings.json* dosyası:
 
-[!code-csharp[](key-vault-configuration/sample/Program.cs?name=snippet1&highlight=12-15)]
+[!code-csharp[](key-vault-configuration/sample/Program.cs?name=snippet1&highlight=20-23)]
 
 Örnek değerler:
 
 * Anahtar kasası adı: `contosovault`
 * Uygulama Kimliği: `627e911e-43cc-61d4-992e-12db9c81b413`
+* Sertifika parmak izi: `fe14593dd66b2406c5269d742d04b6e1ab03adb1`
 
 *appsettings.json*:
 
@@ -203,17 +205,7 @@ Aşağıdaki örnekte, gizli anahtar kurulur kasası (ve geliştirme ortamı iç
 
 `AddAzureKeyVault` özel bir adlı `IKeyVaultSecretManager`:
 
-[!code-csharp[](key-vault-configuration/sample_snapshot/Program.cs?name=snippet1&highlight=22)]
-
-Anahtar kasası adı, uygulama kimliği ve parolası (gizli) için değerleri tarafından sağlanan *appsettings.json* dosyası:
-
-[!code-json[](key-vault-configuration/sample/appsettings.json)]
-
-Örnek değerler:
-
-* Anahtar kasası adı: `contosovault`
-* Uygulama Kimliği: `627e911e-43cc-61d4-992e-12db9c81b413`
-* Parola: `g58K3dtg59o1Pa+e59v2Tx829w6VxTB2yv9sv/101di=`
+[!code-csharp[](key-vault-configuration/sample_snapshot/Program.cs?highlight=30-34)]
 
 `IKeyVaultSecretManager` Uygulama parolaları doğru parolayı yapılandırmasını yüklemek için sürüm öneklerini tepki verir:
 
@@ -261,44 +253,6 @@ Bu yaklaşım ne zaman uygulanır:
 
 > [!NOTE]
 > Ayrıca kendi sağlayabilirsiniz `KeyVaultClient` uygulamasına `AddAzureKeyVault`. Özel bir istemci, istemcinin tek bir örnek uygulama paylaşımı izin verir.
-
-## <a name="allow-the-os-to-manage-the-x509-certificate"></a>İşletim sistemi X.509 sertifikası yönetmek izin ver
-
-X.509 Sertifika, işletim sistemi tarafından yönetilebilir. Aşağıdaki örnekte `AddAzureKeyVault` kabul eden aşırı bir `X509Certificate2` makinenin geçerli kullanıcı sertifika deposu ve yapılandırması tarafından sağlanan bir sertifika parmak izi:
-
-```csharp
-// using System.Linq;
-// using System.Security.Cryptography.X509Certificates;
-// using Microsoft.Extensions.Configuration;
-
-WebHost.CreateDefaultBuilder(args)
-    .ConfigureAppConfiguration((context, config) =>
-    {
-        if (context.HostingEnvironment.IsProduction())
-        {
-            var builtConfig = config.Build();
-
-            using (var store = new X509Store(StoreName.My, 
-                StoreLocation.CurrentUser))
-            {
-                store.Open(OpenFlags.ReadOnly);
-                var certs = store.Certificates
-                    .Find(X509FindType.FindByThumbprint, 
-                        builtConfig["CertificateThumbprint"], false);
-
-                config.AddAzureKeyVault(
-                    builtConfig["KeyVaultName"], 
-                    builtConfig["AzureADApplicationId"], 
-                    certs.OfType<X509Certificate2>().Single());
-
-                store.Close();
-            }
-        }
-    })
-    .UseStartup<Startup>();
-```
-
-Daha fazla bilgi için [bir sertifika yerine istemci gizli anahtarı ile kimlik doğrulama](/azure/key-vault/key-vault-use-from-web-application#authenticate-with-a-certificate-instead-of-a-client-secret).
 
 ## <a name="bind-an-array-to-a-class"></a>Bir dizi bir sınıfa Bağla
 
@@ -358,13 +312,12 @@ Devre dışı bırakılmış ve süresi dolan gizli diziler throw bir `KeyVaultC
 
 Yapılandırma Sağlayıcısı'nı kullanarak yüklemek uygulama başarısız olduğunda, bir hata iletisi yazılan [ASP.NET Core günlüğü altyapı](xref:fundamentals/logging/index). Aşağıdaki koşullar yapılandırma yüklenmesini engeller.
 
-* Uygulamayı Azure Active Directory'de doğru şekilde yapılandırılmamış.
+* Uygulama veya sertifika, Azure Active Directory'de doğru şekilde yapılandırılmamış.
 * Anahtar kasası, Azure anahtar Kasası'nda mevcut değil.
 * Uygulama, anahtar kasasına erişmek için yetkili değil.
 * Erişim İlkesi içermez `Get` ve `List` izinleri.
 * Anahtar Kasası'nda yapılandırma verileri (ad-değer çifti) yanlış, eksik, devre dışı veya süresi dolmuş olarak adlandırılır.
-* Uygulama, yanlış anahtar kasası adına sahip (`KeyVaultName`), Azure AD uygulama kimliği (`AzureADApplicationId`), veya Azure AD parola (gizli) (`AzureADPassword`).
-* Azure AD parola (gizli) (`AzureADPassword`) süresi doldu.
+* Uygulama, yanlış anahtar kasası adına sahip (`KeyVaultName`), Azure AD uygulama kimliği (`AzureADApplicationId`), veya Azure AD sertifika parmak izi (`AzureADCertThumbprint`).
 * Yapılandırma anahtarı (ad), uygulamayı yüklemeye çalıştığınız değeri geçersiz.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
