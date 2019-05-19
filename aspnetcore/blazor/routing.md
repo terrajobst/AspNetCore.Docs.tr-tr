@@ -5,14 +5,14 @@ description: Uygulamalar ve NavLink bileşenle ilgili istekleri yönlendirmeyi �
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/06/2019
+ms.date: 05/13/2019
 uid: blazor/routing
-ms.openlocfilehash: fc61b8998682d519f7b936d95645c6311ffa5c09
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 154e6c4a05059d21bdd0f7819d015f3f6d50eda1
+ms.sourcegitcommit: ccbb84ae307a5bc527441d3d509c20b5c1edde05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65086134"
+ms.lasthandoff: 05/19/2019
+ms.locfileid: "65874862"
 ---
 # <a name="blazor-routing"></a>Blazor yönlendirme
 
@@ -57,7 +57,7 @@ Aşağıdaki örnek, bir bileşen içinde tanımlanan ayarlar *Pages/MyFallbackR
 ```
 
 > [!IMPORTANT]
-> Yollar düzgün bir şekilde oluşturmak için uygulamayı içermelidir bir `<base>` içindeki kendi *wwwroot/index.html* belirtilen uygulama temel yolu dosyasıyla `href` özniteliği (`<base href="/">`). Daha fazla bilgi için bkz. <xref:host-and-deploy/blazor/client-side#app-base-path>.
+> Yollar düzgün bir şekilde oluşturmak için uygulamayı içermelidir bir `<base>` içindeki kendi *wwwroot/index.html* (Blazor istemci-tarafı) dosya veya *sayfaları /\_Host.cshtml* dosyasıyla (Blazor sunucu-tarafı) Belirtilen uygulama temel yolu `href` özniteliği (`<base href="/">`). Daha fazla bilgi için bkz. <xref:host-and-deploy/blazor/client-side#app-base-path>.
 
 ## <a name="route-parameters"></a>Yol parametreleri
 

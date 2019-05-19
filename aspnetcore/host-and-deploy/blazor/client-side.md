@@ -5,14 +5,14 @@ description: Ana bilgisayar ve ASP.NET Core, içerik teslim ağları (CDN), dosy
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/18/2019
+ms.date: 05/13/2019
 uid: host-and-deploy/blazor/client-side
-ms.openlocfilehash: 0a913dafafc5c17d2ff98e2c0a0319b591e02201
-ms.sourcegitcommit: eb784a68219b4829d8e50c8a334c38d4b94e0cfa
+ms.openlocfilehash: ea8ece266809913e32ac212bc55cb3c2499c234f
+ms.sourcegitcommit: ccbb84ae307a5bc527441d3d509c20b5c1edde05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59983032"
+ms.lasthandoff: 05/19/2019
+ms.locfileid: "65874969"
 ---
 # <a name="host-and-deploy-blazor-client-side"></a>Barındırma ve Blazor istemci-tarafı dağıtma
 
@@ -126,13 +126,19 @@ Tarayıcılar istemci-tarafı sayfaları için Internet tabanlı konakların ist
 
 ## <a name="app-base-path"></a>Uygulama temel yolu
 
-*Uygulama temel yolu* sunucusundaki sanal uygulama kök yolu. Örneğin, Contoso sunucusunda bir sanal klasöründeki bulunan uygulama `/CoolApp/` en üst sınırına `https://www.contoso.com/CoolApp` ve sanal bir temel yolu `/CoolApp/`. Uygulama temel yolu ayarlayarak `CoolApp/`, uygulamayı kullanan sanal sunucu üzerinde bulunduğu yapılır. Uygulama, uygulama temel yolu kök dizininde değil bir bileşeni uygulama köküne URL'lerini oluşturmak için kullanabilirsiniz. Bu uygulamada konumlarda diğer kaynakların bağlantılarını oluşturmak için dizin yapısının farklı düzeylerde mevcut bileşenleri sağlar. Uygulama temel yolu da ele alınması için kullanılan köprüyü tıklattığında nerede `href` bağlantının hedefi olan uygulama temel yolu URI alanı içinde&mdash;iç Gezinti Blazor yönlendirici işler.
+*Uygulama temel yolu* sunucusundaki sanal uygulama kök yolu. Örneğin, Contoso sunucusunda bir sanal klasöründeki bulunan uygulama `/CoolApp/` en üst sınırına `https://www.contoso.com/CoolApp` ve sanal bir temel yolu `/CoolApp/`. Uygulama temel yolu sanal yola ayarlayarak (`<base href="/CoolApp/">`), uygulamayı kullanan sanal sunucu üzerinde bulunduğu yapılır. Uygulama, uygulama temel yolu kök dizininde değil bir bileşeni uygulama köküne URL'lerini oluşturmak için kullanabilirsiniz. Bu uygulamada konumlarda diğer kaynakların bağlantılarını oluşturmak için dizin yapısının farklı düzeylerde mevcut bileşenleri sağlar. Uygulama temel yolu da ele alınması için kullanılan köprüyü tıklattığında nerede `href` bağlantının hedefi olan uygulama temel yolu URI alanı içinde&mdash;iç Gezinti Blazor yönlendirici işler.
 
-Birçok barındırma senaryolarında sunucu uygulamasının sanal yolu uygulamayı köküdür. Bu gibi durumlarda, uygulama temel yolu bir eğik çizgi olan (`<base href="/" />`), bir uygulama için varsayılan yapılandırma olduğu. GitHub sayfaları ve IIS sanal dizinler veya alt uygulamalar gibi diğer barındırma senaryolarında, uygulama temel yolu sunucu uygulamasının sanal yolu için ayarlanması gerekir. Uygulamanın temel yolunu ayarlamak için ekleme veya güncelleştirme `<base>` içindeki *index.html* içinde bulunan `<head>` öğeleri etiketleyin. Ayarlayın `href` öznitelik değerine `virtual-path/` (sonunda eğik çizgi gereklidir), burada `virtual-path/` uygulama için sunucuda tam sanal uygulama kök yolu. Önceki örnekte, sanal yol kümesi `CoolApp/`: `<base href="CoolApp/">`.
+Birçok barındırma senaryolarında sunucu uygulamasının sanal yolu uygulamayı köküdür. Bu gibi durumlarda, uygulama temel yolu bir eğik çizgi olan (`<base href="/" />`), bir uygulama için varsayılan yapılandırma olduğu. GitHub sayfaları ve IIS sanal dizinler veya alt uygulamalar gibi diğer barındırma senaryolarında, uygulama temel yolu sunucu uygulamasının sanal yolu için ayarlanması gerekir. Uygulamanın taban yolu belirlemek için güncelleştirme `<base>` içinde etiketi `<head>` etiketi öğeleri *wwwroot/index.html* dosya. Ayarlayın `href` öznitelik değerine `/virtual-path/` (sonunda eğik çizgi gereklidir), burada `/virtual-path/` uygulama için sunucuda tam sanal uygulama kök yolu. Önceki örnekte, sanal yol kümesi `/CoolApp/`: `<base href="/CoolApp/">`.
 
-Yapılandırılmış bir kök olmayan sanal yol ile bir uygulama için (örneğin, `<base href="CoolApp/">`), kaynaklarını bulmak uygulamanın başarısız *yerel olarak çalıştırdığınızda*. Yerel geliştirme ve test sırasında bu sorunu çözmek için size sağlayabilir bir *yolu tabanı* eşleşen bağımsız değişken `href` değerini `<base>` zamanında etiketi.
+Yapılandırılmış bir kök olmayan sanal yol ile bir uygulama için (örneğin, `<base href="/CoolApp/">`), kaynaklarını bulmak uygulamanın başarısız *yerel olarak çalıştırdığınızda*. Yerel geliştirme ve test sırasında bu sorunu çözmek için size sağlayabilir bir *yolu tabanı* eşleşen bağımsız değişken `href` değerini `<base>` zamanında etiketi.
 
-Yol, kök yolu ile temel bağımsız değişken geçmek için (`/`) uygulamayı yerel olarak çalıştırırken, uygulamanın dizininden aşağıdaki komutu yürütün:
+Yol, kök yolu ile temel bağımsız değişken geçmek için (`/`) uygulamayı yerel olarak çalışırken, yürütme `dotnet run` ile uygulamanın dizinine komutunu `--pathbase` seçeneği:
+
+```console
+dotnet run --pathbase=/{Virtual Path (no trailing slash)}
+```
+
+Bir sanal taban yolu ile bir uygulama için `/CoolApp/` (`<base href="/CoolApp/">`), komut:
 
 ```console
 dotnet run --pathbase=/CoolApp

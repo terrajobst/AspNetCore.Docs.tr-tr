@@ -5,12 +5,12 @@ description: Nasıl bir ASP.NET Core uygulamasına doğrulama ekleme.
 ms.author: riande
 ms.date: 04/13/2017
 uid: tutorials/first-mvc-app/validation
-ms.openlocfilehash: 49db8d7c1d3e54f416c66685c19b3a2e3b14251c
-ms.sourcegitcommit: 191d21c1e37b56f0df0187e795d9a56388bbf4c7
+ms.openlocfilehash: 6c59d0188f67872c7dd5599967551d7d390bfdcf
+ms.sourcegitcommit: ccbb84ae307a5bc527441d3d509c20b5c1edde05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57665450"
+ms.lasthandoff: 05/19/2019
+ms.locfileid: "65875022"
 ---
 # <a name="add-validation-to-an-aspnet-core-mvc-app"></a>Bir ASP.NET Core MVC uygulamasına doğrulama ekleme
 
@@ -27,25 +27,9 @@ MVC tasarım İlkesi biri [KURU](https://wikipedia.org/wiki/Don%27t_repeat_yours
 
 MVC ve Entity Framework Core Code First tarafından sağlanan doğrulama desteği, uygulamada KURU İlkesi iyi bir örnektir. Kuralları uygulamada her yerde uygulanır ve tek bir yerde (model sınıfında) doğrulama kuralları bildirimli olarak belirtebilirsiniz.
 
-## <a name="adding-validation-rules-to-the-movie-model"></a>Film modeli doğrulama kuralları ekleme
+[!INCLUDE[](~/includes/RP-MVC/validation.md)]
 
-Açık *Movie.cs* dosya. DataAnnotations yerleşik herhangi bir sınıf veya özellik bildirimli olarak uygulanan doğrulama öznitelikleri kümesi sağlar. (Ayrıca gibi biçimlendirme öznitelikleri içeren `DataType` biçimlendirmesinde yardımcı olabilecek ve tüm doğrulama sağlaması gerekmez.)
-
-Güncelleştirme `Movie` yerleşik yararlanmak için sınıf `Required`, `StringLength`, `RegularExpression`, ve `Range` doğrulama öznitelikleri.
-
-[!code-csharp[](~/tutorials/first-mvc-app/start-mvc//sample/MvcMovie22/Models/MovieDateRatingDA.cs?name=snippet1)]
-
-Doğrulama özniteliklerinin uygulandığı model özellikleri uygulamak istediğiniz davranışı belirtin:
-
-* `Required` Ve `MinimumLength` öznitelikleri belirtir bir özellik değeri; olmalıdır, ancak hiçbir şey bir kullanıcı bu doğrulamayı gerçekleştirmek için boşluk girişini engeller. 
-* `RegularExpression` Özniteliği hangi karakter olabilir sınırlamak için kullanılan giriş. Yukarıdaki kodda `Genre` ve `Rating` yalnızca harf (ilk harfi büyük harf, beyaz alanı, sayılar ve özel karakterler kullanılamaz) kullanmanız gerekir.
-* `Range` Öznitelik değerine belirtilen bir aralıktaki kısıtlar. 
-* `StringLength` Özniteliği bir dize özelliğini en fazla uzunluğu ve isteğe bağlı olarak, minimum uzunluk ayarlamanızı sağlar. 
-* Değer türleri (gibi `decimal`, `int`, `float`, `DateTime`) kendiliğinden gereklidir ve gerekmeyen `[Required]` özniteliği.
-
-Doğrulama kuralları otomatik olarak ASP.NET Core tarafından zorlanan sahip uygulamanızı daha sağlam hale getirmeye yardımcı olur. Ayrıca, bir şey doğrulamak ve yanlışlıkla veritabanına bozuk veri unutursanız olamaz sağlar.
-
-## <a name="validation-error-ui-in-mvc"></a>MVC kullanıcı Arabiriminde doğrulama hatası
+## <a name="validation-error-ui"></a>Doğrulama hatası kullanıcı Arabirimi
 
 Uygulamayı çalıştırın ve filmler denetleyiciye gidin.
 

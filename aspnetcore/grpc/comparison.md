@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: jamesnk
 ms.date: 03/31/2019
 uid: grpc/comparison
-ms.openlocfilehash: 8f4cefe1dedcf4cfd9650e73e6a1ba30dbbfeffa
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 655c921788deb30f3c0f3b47f4440dc8701c0f59
+ms.sourcegitcommit: ccbb84ae307a5bc527441d3d509c20b5c1edde05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087407"
+ms.lasthandoff: 05/19/2019
+ms.locfileid: "65874932"
 ---
 # <a name="comparing-grpc-services-with-http-apis"></a>gRPC hizmetlerini HTTP API’leriyle karşılaştırma
 
@@ -76,7 +76,7 @@ Son tarih ve alt gRPC aracılığıyla iptal yayma çağrıları yardımcı olan
 
 gRPC aşağıdaki senaryolar için uygundur:
 
-* **Mikro Hizmetler** &ndash; gRPC olan tasarlanmış düşük gecikme süresi ve yüksek hacimli iletişim. gRPC verimliliği kritik olduğu basit mikro hizmetler için idealdir.
+* **Mikro Hizmetler** &ndash; gRPC, düşük gecikme süresi ve yüksek hacimli iletişim için tasarlanmıştır. gRPC verimliliği kritik olduğu basit mikro hizmetler için idealdir.
 * **Noktadan noktaya gerçek zamanlı iletişim** &ndash; gRPC yönlü akış için mükemmel destek vardır. gRPC Hizmetleri iletileri yoklama olmadan gerçek zamanlı gönderebilir.
 * **Polygot ortamları** &ndash; gRPC araçları gRPC çok dilli ortamlarda iyi bir seçim yaparak, tüm popüler geliştirme dilleri destekler.
 * **Kısıtlanmış ortamları ağ** &ndash; gRPC iletileri Protobuf, bir basit bir ileti biçimine serileştirilir. GRPC ileti her zaman eşdeğer bir JSON ileti küçüktür.

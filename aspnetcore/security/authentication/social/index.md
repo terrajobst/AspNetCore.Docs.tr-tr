@@ -4,14 +4,14 @@ author: rick-anderson
 description: Bu öğreticide bir ASP.NET Core ile dış kimlik doğrulama sağlayıcıları için OAuth 2.0 kullanarak 2.x uygulamasının nasıl oluşturulacağını gösterir.
 ms.author: riande
 ms.custom: mvc
-ms.date: 4/19/2019
+ms.date: 05/10/2019
 uid: security/authentication/social/index
-ms.openlocfilehash: e2d68ac93bdcfa2fc015e8447ea38626787cdb02
-ms.sourcegitcommit: a3926eae3f687013027a2828830c12a89add701f
+ms.openlocfilehash: 8dac8a8a2276388414b6bb1211e970617b001637
+ms.sourcegitcommit: ccbb84ae307a5bc527441d3d509c20b5c1edde05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65451050"
+ms.lasthandoff: 05/19/2019
+ms.locfileid: "65874818"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Facebook, Google ve ASP.NET Core dış sağlayıcı kimlik doğrulaması
 
@@ -33,10 +33,12 @@ Kullanıcıların mevcut kimlik bilgileriyle oturum açmasına etkinleştirme:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Visual Studio'dan **dosya** menüsünde **yeni** > **proje**.
-* Yeni bir ASP.NET Core Web uygulaması oluşturun.
-* Seçin **ASP.NET Core 2.2** açılır ve ardından **Web uygulaması**.
-* Seçin **kimlik doğrulamayı Değiştir** ve kimlik doğrulaması için **bireysel kullanıcı hesapları**.
+* Yeni bir proje oluşturun.
+* Seçin **ASP.NET Core Web uygulaması** ve **sonraki**.
+* Sağlayan bir **proje adı** ve onaylamak veya değiştirmek **konumu**. **Oluştur**’u seçin.
+* Seçin **ASP.NET Core 2.2** açılır. Seçin **Web uygulaması** şablon listesinde.
+* Altında **kimlik doğrulaması**seçin **değişiklik** ve kimlik doğrulamasını ayarlamak **bireysel kullanıcı hesapları**. **Tamam**’ı seçin.
+* İçinde **yeni bir ASP.NET Core Web uygulaması oluşturma** penceresinde **Oluştur**.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -56,27 +58,14 @@ Kullanıcıların mevcut kimlik bilgileriyle oturum açmasına etkinleştirme:
   * `-au Individual` Bireysel kimlik doğrulama için kod oluşturur.
   * `code` Komutu açılır *WebApp1* Visual Studio Code yeni bir örneğini klasöründe.
 
-  Bir iletişim kutusu görünür **gerekli varlıkları oluşturun ve hata ayıklama 'WebApp1' eksik. Bunları eklensin mi?**
-
-* Seçin **Evet**
+* Bir iletişim kutusu görünür **gerekli varlıkları oluşturun ve hata ayıklama 'WebApp1' eksik. Bunları eklensin mi?** Seçin **Evet**.
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-Bir terminalde aşağıdaki komutu çalıştırın:
-
-<!-- TODO: update these instruction once mac support 2.2 projects -->
-
-```console
-dotnet new webapp -o WebApp1 -au Individual
-```
-
-Kullanım komutları önceki [.NET Core CLI](/dotnet/core/tools/dotnet) Razor sayfaları projesi oluşturmak için.
-
-## <a name="open-the-project"></a>Projeyi açın
-
-Visual Studio'dan seçin **Dosya > Aç**ve ardından *WebApp1.csproj* dosya.
-
-<!-- End of VS tabs -->
+* Seçin **dosya** > **yeni çözüm**.
+* Seçin **.NET Core** > **uygulama** Kenar çubuğunda. Seçin **Web uygulaması** şablonu. **İleri**’yi seçin.
+* Ayarlama **hedef Framework'ü** açılan menüsünü **.NET Core 2.2**. **İleri**’yi seçin.
+* Sağlayan bir **proje adı**. Onaylamak veya değiştirmek **konumu**. **Oluştur**’u seçin.
 
 ---
 

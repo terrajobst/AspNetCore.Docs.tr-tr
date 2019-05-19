@@ -1,4 +1,4 @@
-Aşağıdaki tabloda, ASP.NET Core Kod Oluşturucu parametreleri ayrıntıları:
+<a name="codegenerator"></a> Aşağıdaki tabloda, ASP.NET Core Kod Oluşturucu parametreleri ayrıntıları:
 
 | Parametre               | Açıklama|
 | ----------------- | ------------ |

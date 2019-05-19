@@ -5,14 +5,14 @@ description: .NET ve JavaScript işlevleri çağırmak nasıl öğrenin Blazor u
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/25/2019
+ms.date: 05/13/2019
 uid: blazor/javascript-interop
-ms.openlocfilehash: f249d96d310c3d28b56e4920adda145ba07b34ee
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 8711c9ec0dd5d9bf59fc74b44285329165a21ba4
+ms.sourcegitcommit: ccbb84ae307a5bc527441d3d509c20b5c1edde05
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64898655"
+ms.lasthandoff: 05/19/2019
+ms.locfileid: "65874857"
 ---
 # <a name="blazor-javascript-interop"></a>Blazor JavaScript birlikte çalışma
 
@@ -34,11 +34,11 @@ Sunucu tarafı uygulamalar için:
 
 Aşağıdaki örnek dayanır [TextDecoder](https://developer.mozilla.org/docs/Web/API/TextDecoder), Deneysel bir JavaScript tabanlı kod çözücü. Örnek bir JavaScript işlevini çağırmak nasıl gösterir bir C# yöntemi. JavaScript işlevi, bir bayt dizisinden kabul eden bir C# yöntemi, dizinin kodunu çözer ve bileşenine görüntülenmesi için metni döndürür.
 
-İçinde `<head>` öğesinin *wwwroot/index.html*, kullanan bir işlev sağlayan `TextDecoder` geçirilen dizisinin kodunu çözmek için:
+İçinde `<head>` öğesinin *wwwroot/index.html* (Blazor istemci-tarafı) veya *sayfaları /\_Host.cshtml* (Blazor sunucu-tarafı), kullanan bir işlev sağlayan `TextDecoder` için geçirilen dizi kod çözme:
 
 [!code-html[](javascript-interop/samples_snapshot/index-script.html)]
 
-Kod önceki örnekte gösterildiği gibi JavaScript kodunu da bir JavaScript dosyasından yüklenemiyor (*.js*) içindeki betik dosyasının başvurusuyla *wwwroot/index.html* dosyası:
+Kod önceki örnekte gösterildiği gibi JavaScript kodunu da bir JavaScript dosyasından yüklenemiyor (*.js*) betik dosyasına bir başvuru ile:
 
 ```html
 <script src="exampleJsInterop.js"></script>
@@ -77,9 +77,15 @@ Bu konuda eşlik eden istemci-tarafı örnek uygulamada, kullanıcı girişini a
 
 [!code-javascript[](./common/samples/3.x/BlazorSample/wwwroot/exampleJsInterop.js?highlight=2-7)]
 
-Bir yerde `<script>` JavaScript dosyasında başvuruda etiketi *wwwroot/index.html* dosyası:
+Bir yerde `<script>` JavaScript dosyasında başvuruda etiketi *wwwroot/index.html* dosyası (Blazor istemci-tarafı) veya *sayfaları /\_Host.cshtml* dosyası (Blazor sunucu-tarafı).
+
+*wwwroot/index.HTML* (Blazor istemci-tarafı):
 
 [!code-html[](./common/samples/3.x/BlazorSample/wwwroot/index.html?highlight=15)]
+
+*Sayfa /\_Host.cshtml* (Blazor sunucu-tarafı):
+
+[!code-cshtml[](javascript-interop/samples_snapshot/_Host.cshtml?highlight=29)]
 
 Yerleştirmeyin bir `<script>` çünkü bir bileşen dosyasında etiketi `<script>` etiketi dinamik olarak güncelleştirilemiyor.
 
