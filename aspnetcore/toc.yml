@@ -92,7 +92,11 @@
     - name: Uzaktan Yordam Çağrısı uygulamaları
       items:
         - name: ASP.NET Core’da gRPC hizmeti ile çalışmaya başlama
+          uid: tutorials/grpc/index
+        - name: Bir ASP.NET Core gRPC Greeter Hizmeti oluşturma
           uid: tutorials/grpc/grpc-start
+        - name: .NET Core gRPC istemcisi oluşturma
+          uid: tutorials/grpc/grpc-client
     - name: Veri erişimi
       items:
         - name: Razor Pages ile EF Core
@@ -230,8 +234,9 @@
         - name: Genel Bakış
           uid: mvc/overview
         - name: Eğitmen
-          uid: tutorials/first-mvc-app/index
           items:
+            - name: Genel Bakış
+              uid: tutorials/first-mvc-app/index
             - name: Kullanmaya başlayın
               uid: tutorials/first-mvc-app/start-mvc
             - name: Denetleyici ekleme
@@ -324,8 +329,6 @@
               uid: client-side/libman/libman-cli
             - name: Visual Studio
               uid: client-side/libman/libman-vs
-        - name: Gulp
-          uid: client-side/using-gulp
         - name: Grunt
           uid: client-side/using-grunt
         - name: Bower
@@ -338,13 +341,10 @@
       uid: fundamentals/app-state
     - name: Düzen
       uid: mvc/views/layout
-    - name: Model bağlama
-      uid: mvc/models/model-binding
-    - name: Model doğrulaması
-      uid: mvc/models/validation
     - name: Razor söz dizimi
       uid: mvc/views/razor
     - name: Etiket Yardımcıları
+      uid: mvc/views/tag-helpers/builtin-th/Index
       items:
         - name: Genel Bakış
           uid: mvc/views/tag-helpers/intro
@@ -396,10 +396,6 @@
           uid: mvc/controllers/areas
         - name: Uygulama bölümleri
           uid: mvc/extensibility/app-parts
-        - name: Özel model bağlama
-          uid: mvc/advanced/custom-model-binding
-        - name: Uyumluluk sürümü
-          uid: mvc/compatibility-version
 - name: Web API’si uygulamaları
   items:
     - name: Genel Bakış
@@ -1000,6 +996,14 @@
       uid: fundamentals/troubleshoot-aspnet-core-localization
 - name: Gelişmiş
   items:
+    - name: Model bağlama
+      uid: mvc/models/model-binding
+    - name: Özel model bağlama
+      uid: mvc/advanced/custom-model-binding
+    - name: Model doğrulaması
+      uid: mvc/models/validation
+    - name: Uyumluluk sürümü
+      uid: mvc/compatibility-version
     - name: Ara yazılım yazma
       uid: fundamentals/middleware/write
     - name: İstek ve yanıt işlemleri
@@ -1076,4 +1080,4 @@
 - name: API başvurusu
   href: /dotnet/api/?view=aspnetcore-2.2
 - name: Katkıda Bulun
-  href: 'https://github.com/aspnet/Docs/blob/master/CONTRIBUTING.md'
+  href: 'https://github.com/aspnet/AspNetCore.Docs/blob/master/CONTRIBUTING.md'
