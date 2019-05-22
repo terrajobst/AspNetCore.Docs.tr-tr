@@ -2,16 +2,17 @@
 title: Bir web grubundaki ASP.NET Core barındırma
 author: guardrex
 description: ASP.NET Core uygulaması bir web grubu ortamında paylaşılan kaynaklar ile birden çok örneğini barındırmayı öğrenin.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/26/2018
+ms.date: 05/12/2019
 uid: host-and-deploy/web-farm
-ms.openlocfilehash: 4873665e6174a6acf885e1ebb41fb005d646bd1f
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: df1be8cc76a5017923f26636a241b69881dfcc81
+ms.sourcegitcommit: b4ef2b00f3e1eb287138f8b43c811cb35a100d3e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64899246"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65970104"
 ---
 # <a name="host-aspnet-core-in-a-web-farm"></a>Bir web grubundaki ASP.NET Core barındırma
 

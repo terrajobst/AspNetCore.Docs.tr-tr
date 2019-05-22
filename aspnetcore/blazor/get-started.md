@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/06/2019
 uid: blazor/get-started
-ms.openlocfilehash: 348927e38c686df8f6509ab066342c2002741c72
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 09613f5d8a4d130f7dca53f31bdd33de527fc776
+ms.sourcegitcommit: b4ef2b00f3e1eb287138f8b43c811cb35a100d3e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65085839"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969864"
 ---
 # <a name="get-started-with-blazor"></a>Blazor ile çalışmaya başlama
 
@@ -32,7 +32,7 @@ Blazor ile kullanmaya başlayın:
 
    # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-   1.&nbsp;en son önizlemesi yükleme [Visual Studio 2019](https://visualstudio.com/preview) ile **ASP.NET ve web geliştirme** iş yükü.
+   1.&nbsp;en son yükleme [Visual Studio Önizleme](https://visualstudio.com/preview) ile **ASP.NET ve web geliştirme** iş yükü.
 
    2.&nbsp;en son yükleme [Blazor uzantısı](https://go.microsoft.com/fwlink/?linkid=870389) Visual Studio Market'ten. Bu adım Blazor şablonları Visual Studio için kullanılabilir hale getirir.
 

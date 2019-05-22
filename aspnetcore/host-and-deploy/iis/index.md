@@ -2,16 +2,17 @@
 title: Windows IIS üzerinde ASP.NET Core barındırma
 author: guardrex
 description: ASP.NET Core uygulamaları Windows Server Internet Information Services (IIS) üzerinde barındırmayı öğrenin.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/07/2019
+ms.date: 05/19/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: c8e742047230339434b910de9a8a2492bc4da1ff
-ms.sourcegitcommit: a3926eae3f687013027a2828830c12a89add701f
+ms.openlocfilehash: aff4b857394c554e94dd8929dca809eb1a4387f2
+ms.sourcegitcommit: b4ef2b00f3e1eb287138f8b43c811cb35a100d3e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65450987"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65970042"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Windows IIS üzerinde ASP.NET Core barındırma
 
@@ -42,8 +43,6 @@ Azure'da barındırma hakkında daha fazla bilgi için bkz: <xref:host-and-deplo
 
 ### <a name="enable-the-iisintegration-components"></a>IISIntegration bileşenlerini etkinleştir
 
-::: moniker range=">= aspnetcore-2.1"
-
 Tipik bir *Program.cs* çağrıları <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> bir konak kurulumunu başlatmak için:
 
 ```csharp
@@ -51,20 +50,6 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
     WebHost.CreateDefaultBuilder(args)
         ...
 ```
-
-::: moniker-end
-
-::: moniker range="= aspnetcore-2.0"
-
-Tipik bir *Program.cs* çağrıları <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*> bir konak kurulumunu başlatmak için:
-
-```csharp
-public static IWebHost BuildWebHost(string[] args) =>
-    WebHost.CreateDefaultBuilder(args)
-        ...
-```
-
-::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -90,7 +75,7 @@ ASP.NET Core modülü arka uç işleme atamak için dinamik bir bağlantı nokta
 
 ::: moniker-end
 
-::: moniker range="= aspnetcore-2.1"
+::: moniker range="< aspnetcore-2.2"
 
 `CreateDefaultBuilder` yapılandırır [Kestrel](xref:fundamentals/servers/kestrel) web sunucusu olarak ve bağlantı noktası ve temel yolunu yapılandırarak IIS tümleştirme sağlar [ASP.NET Core Modülü](xref:host-and-deploy/aspnet-core-module).
 
@@ -101,44 +86,6 @@ ASP.NET Core modülü arka uç işleme atamak için dinamik bir bağlantı nokta
 * [Yapılandırma](xref:fundamentals/configuration/index) (veya [--URL'leri komut satırı seçeneği](xref:fundamentals/host/web-host#override-configuration))
 
 Çağrılar `UseUrls` veya Kestrel'ın `Listen` Modülü'nü kullanırken API gerekli değildir. Varsa `UseUrls` veya `Listen` çağrılır, yalnızca IIS gerekmeden uygulamayı çalıştırırken belirtilen bağlantı noktasında dinleyen Kestrel.
-
-::: moniker-end
-
-::: moniker range="= aspnetcore-2.0"
-
-`CreateDefaultBuilder` yapılandırır [Kestrel](xref:fundamentals/servers/kestrel) web sunucusu olarak ve bağlantı noktası ve temel yolunu yapılandırarak IIS tümleştirme sağlar [ASP.NET Core Modülü](xref:host-and-deploy/aspnet-core-module).
-
-ASP.NET Core modülü arka uç işleme atamak için dinamik bir bağlantı noktası oluşturur. `CreateDefaultBuilder` çağrıları <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> yöntemi. `UseIISIntegration` Kestrel'i localhost IP adresi dinamik bir bağlantı noktası dinleyecek şekilde yapılandırır (`localhost`). Dinamik bağlantı noktası 1234 ise sırasında Kestrel dinler `localhost:1234`. Bu yapılandırma tarafından sağlanan diğer URL'yi yapılandırmaları değiştirir:
-
-* `UseUrls`
-* [Kestrel'i'nın dinleme API](xref:fundamentals/servers/kestrel#endpoint-configuration)
-* [Yapılandırma](xref:fundamentals/configuration/index) (veya [--URL'leri komut satırı seçeneği](xref:fundamentals/host/web-host#override-configuration))
-
-Çağrılar `UseUrls` veya Kestrel'ın `Listen` Modülü'nü kullanırken API gerekli değildir. Varsa `UseUrls` veya `Listen` çağrılır, yalnızca IIS gerekmeden uygulamayı çalıştırırken belirtilen bağlantı noktasında dinleyen Kestrel.
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-Bir bağımlılık dahil [Microsoft.AspNetCore.Server.IISIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IISIntegration/) uygulamanın bağımlılıklarını bir pakette. Ekleyerek IIS tümleştirme Ara yazılımları kullanmayı <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> genişletme yöntemi için <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder>:
-
-```csharp
-var host = new WebHostBuilder()
-    .UseKestrel()
-    .UseIISIntegration()
-    ...
-```
-
-Her ikisi de <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions.UseKestrel*> ve <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> gereklidir. Kod arama `UseIISIntegration` kod taşınabilirliği etkilemez. Uygulamanın IIS çalıştırırsanız değildir (örneğin, uygulamayı doğrudan Kestrel üzerinde çalıştırılan) `UseIISIntegration` çalışmaz.
-
-ASP.NET Core modülü arka uç işleme atamak için dinamik bir bağlantı noktası oluşturur. `UseIISIntegration` Kestrel'i localhost IP adresi dinamik bir bağlantı noktası dinleyecek şekilde yapılandırır (`localhost`). Dinamik bağlantı noktası 1234 ise sırasında Kestrel dinler `localhost:1234`. Bu yapılandırma tarafından sağlanan diğer URL'yi yapılandırmaları değiştirir:
-
-* `UseUrls`
-* [Yapılandırma](xref:fundamentals/configuration/index) (veya [--URL'leri komut satırı seçeneği](xref:fundamentals/host/web-host#override-configuration))
-
-Bir çağrı `UseUrls` Modülü'nü kullanırken gerekli değildir. Varsa `UseUrls` çağrılır, yalnızca IIS gerekmeden uygulamayı çalıştırırken belirtilen bağlantı noktasında dinleyen Kestrel.
-
-`UseUrls` Olan bir ASP.NET Core 1.0 uygulamada çağrılır, çağrı **önce** çağırma `UseIISIntegration` böylece modül yapılandırılan bağlantı noktası üzerine değil. Ayarı modülü geçersiz kıldığından bu arama sırası ASP.NET Core 1.1 ile gerekli değildir `UseUrls`.
 
 ::: moniker-end
 
@@ -174,12 +121,16 @@ services.Configure<IISServerOptions>(options =>
 
 ::: moniker-end
 
-::: moniker range="= aspnetcore-2.2"
+::: moniker range="< aspnetcore-3.0"
 
 | Seçenek                         | Varsayılan | Ayar |
 | ------------------------------ | :-----: | ------- |
 | `AutomaticAuthentication`      | `true`  | Varsa `true`, IIS sunucusu ayarlar `HttpContext.User` tarafından kimliği doğrulanmış [Windows kimlik doğrulaması](xref:security/authentication/windowsauth). Varsa `false`, sunucu için bir kimlik yalnızca sağlar `HttpContext.User` ve açıkça tarafından istendiğinde zorlukları yanıtlar `AuthenticationScheme`. Windows kimlik doğrulaması etkin, IIS için `AutomaticAuthentication` işlevi. Daha fazla bilgi için [Windows kimlik doğrulaması](xref:security/authentication/windowsauth). |
 | `AuthenticationDisplayName`    | `null`  | Oturum açma sayfaları kullanıcılara gösterilen görünen adını ayarlar. |
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
 
 **İşlem dışı barındırma modeli**
 
@@ -352,7 +303,7 @@ Uygulamaları olan sunuculara dağıtırken [Web dağıtımı](/iis/publish/usin
 
    ![Yönetilen kod yok, .NET CLR sürümü için ayarlayın.](index/_static/edit-apppool-ws2016.png)
 
-    ASP.NET Core, ayrı bir işlemde çalıştırır ve çalışma zamanı yönetir. ASP.NET Core, Masaüstü CLR yüklemede de içermez. Ayarı **.NET CLR sürümü** için **yönetilen kod yok** isteğe bağlıdır.
+    ASP.NET Core, ayrı bir işlemde çalıştırır ve çalışma zamanı yönetir. ASP.NET Core değil kullanan masaüstü CLR (.NET CLR) yüklemede de&mdash;çekirdek ortak dil çalışma zamanı (CoreCLR) .NET Core için çalışan işlemi uygulamayı barındırmak için önyüklenir. Ayarı **.NET CLR sürümü** için **yönetilen kod yok** isteğe bağlı ancak önerilir.
 
 1. *ASP.NET Core 2.2 veya üzeri*: Bir 64-bit (x64) için [müstakil dağıtım](/dotnet/core/deploying/#self-contained-deployments-scd) kullanan [işlem içi barındırma modeli](xref:fundamentals/servers/index#in-process-hosting-model), 32 bit (x 86) işlemleri için uygulama havuzunu devre dışı bırakır.
 
@@ -505,7 +456,7 @@ Statik bir varlık, ın `src` özniteliği için mutlak bir yol ayarlayın (örn
 
 ASP.NET Core uygulaması başka bir ASP.NET Core uygulaması altında bir alt uygulama olarak barındırmak için:
 
-1. Alt uygulama için bir uygulama havuzu oluşturun. Ayarlama **.NET CLR sürümü** için **yönetilen kod yok**.
+1. Alt uygulama için bir uygulama havuzu oluşturun. Ayarlama **.NET CLR sürümü** için **yönetilen kod yok** .NET Core için çekirdek ortak dil çalışma zamanı (CoreCLR) değil Masaüstü CLR (.NET CLR) çalışan işlemindeki uygulamayı barındırmak için önyüklendiğinde olduğundan.
 
 1. IIS Yöneticisi'nde kök sitenin kök site altında bir klasöre alt uygulama ekleyin.
 
@@ -629,6 +580,83 @@ HTTP/2 varsayılan olarak etkindir. Bir HTTP/2 bağlantı değil, bağlantılar,
 *Bu bölüm, yalnızca .NET Framework'ü hedefleyen ASP.NET Core uygulamaları için geçerlidir.*
 
 ASP.NET Core uygulaması için hedefleyen .NET Framework'IIS içinde varsayılan olarak OPTIONS istekleri uygulamaya geçirilen değildir. Uygulamanın IIS işleyicileri yapılandırma hakkında bilgi edinmek için *web.config* seçenekleri isteklerini iletmek için bkz: [ASP.NET Web API 2'de kaynaklar arası istekleri etkinleştirme: CORS işleyişi](/aspnet/web-api/overview/security/enabling-cross-origin-requests-in-web-api#how-cors-works).
+
+::: moniker range=">= aspnetcore-2.2"
+
+## <a name="application-initialization-module-and-idle-timeout"></a>Uygulama Başlatma modülü ve boşta kalma zaman aşımı
+
+IIS içinde ASP.NET Core modülü sürüm 2 barındırıldığında:
+
+* [Uygulama Başlatma modülü](#application-initialization-module) &ndash; uygulamanın barındırılan [işlem içi](xref:fundamentals/servers/index#in-process-hosting-model) veya [işlem dışı](xref:fundamentals/servers/index#out-of-process-hosting-model), bir çalışan işlemin yeniden veya sunucuda otomatik olarak başlatılacak şekilde yapılandırılabilir yeniden başlatın.
+* [Boşta kalma zaman aşımı](#idle-timeout) &ndash; uygulamanın barındırılan [işlem içi](xref:fundamentals/servers/index#in-process-hosting-model) için zaman aşımı etkin olmadığı dönemler sırasında yapılandırılabilir.
+
+### <a name="application-initialization-module"></a>Uygulama Başlatma modülü
+
+*İşlemdeki barındırılan uygulamaları ve işlem dışı için geçerlidir.*
+
+[IIS uygulama başlatma](/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization) uygulama havuzunu başlatır veya geri dönüştürüldüğünde, uygulamaya bir HTTP isteği gönderir, bir IIS özelliğidir. İstek, uygulamanın başlatılması tetikler. Varsayılan olarak, IIS uygulama kök URL'si için bir istek sorunları (`/`) uygulamayı başlatmak için (bkz [ek kaynaklar](#application-initialization-module-and-idle-timeout-additional-resources) yapılandırması hakkında daha fazla ayrıntı için).
+
+IIS uygulama başlatma rolü özelliği etkin olduğunu doğrulayın:
+
+Windows 7 veya üzeri Masaüstü sistemlerinde IIS yerel olarak kullanırken:
+
+1. Gidin **Denetim Masası** > **programlar** > **programlar ve Özellikler** > **kapatma Windows özellikleri hakkında ya da kapalı** (ekranın sol).
+1. Açık **Internet Information Services** > **World Wide Web Hizmetleri** > **uygulama geliştirme özellikleri**.
+1. Onay kutusunu seçin **uygulama başlatma**.
+
+Windows Server 2008 R2 veya sonraki sürümlerde:
+
+1. Açık **rol ve Özellik Ekle Sihirbazı**.
+1. İçinde **rol hizmetlerini seçin** paneli, açık **uygulama geliştirme** düğümü.
+1. Onay kutusunu seçin **uygulama başlatma**.
+
+Site için uygulama başlatma modülü etkinleştirmek için aşağıdaki yaklaşımlardan birini kullanın:
+
+* IIS Yöneticisi'ni kullanarak:
+
+  1. Seçin **uygulama havuzları** içinde **bağlantıları** paneli.
+  1. Uygulamanın uygulama havuzu listesi seçip sağ **Gelişmiş ayarlar**.
+  1. Varsayılan **modunu Başlat** olduğu **OnDemand**. Ayarlama **başlangıç modu** için **AlwaysRunning**. **Tamam**’ı seçin.
+  1. Açık **siteleri** düğümünde **bağlantıları** paneli.
+  1. Uygulamayı sağ tıklayıp **Web sitesini Yönet** > **Gelişmiş ayarlar**.
+  1. Varsayılan **önceden yükleme etkin** ayardır **False**. Ayarlama **önceden yükleme etkin** için **True**. **Tamam**’ı seçin.
+
+* Kullanarak *web.config*, ekleme `<applicationInitialization>` öğeyle `doAppInitAfterRestart` kümesine `true` için `<system.webServer>` uygulamanın öğelerindeki *web.config* dosyası:
+
+  ```xml
+  <?xml version="1.0" encoding="utf-8"?>
+  <configuration>
+    <location path="." inheritInChildApplications="false">
+      <system.webServer>
+        <applicationInitialization doAppInitAfterRestart="true" />
+      </system.webServer>
+    </location>
+  </configuration>
+  ```
+
+### <a name="idle-timeout"></a>Boşta kalma zaman aşımı
+
+*Yalnızca barındırılan uygulamaları işlem içinde geçerlidir.*
+
+Uygulama boşa gelen önlemek için IIS Yöneticisi'ni kullanarak uygulama havuzunun boşta kalma zaman aşımını ayarlayın:
+
+1. Seçin **uygulama havuzları** içinde **bağlantıları** paneli.
+1. Uygulamanın uygulama havuzu listesi seçip sağ **Gelişmiş ayarlar**.
+1. Varsayılan **boşta kalma zaman aşımı (dakika)** olduğu **20** dakika. Ayarlama **boşta kalma zaman aşımı (dakika)** için **0** (sıfır). **Tamam**’ı seçin.
+1. Çalışan işlemi geri dönüştürün.
+
+Barındırılan uygulamaları engellemek için [işlem dışı](xref:fundamentals/servers/index#out-of-process-hosting-model) gelen aşımından aşağıdaki yaklaşımlardan birini kullanın:
+
+* Uygulamayı bir dış hizmetten çalışmasını sağlamak için ping yapın.
+* Uygulamayı yalnızca arka plan Hizmetleri barındırıyorsa, IIS barındırma kaçının ve kullanan bir [ASP.NET Core uygulaması barındırmak üzere Windows hizmet](xref:host-and-deploy/windows-service).
+
+### <a name="application-initialization-module-and-idle-timeout-additional-resources"></a>Uygulama Başlatma modülü ve boşta kalma zaman aşımı ek kaynaklar
+
+* [IIS 8.0 uygulama başlatma](/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization)
+* [Uygulama başlatma \<applicationInitialization >](/iis/configuration/system.webserver/applicationinitialization/).
+* [İşlem modeli ayarları için bir uygulama havuzu \<processModel >](/iis/configuration/system.applicationhost/applicationpools/add/processmodel).
+
+::: moniker-end
 
 ## <a name="deployment-resources-for-iis-administrators"></a>IIS Yöneticiler için dağıtım kaynakları
 

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/10/2019
 uid: blazor/components
-ms.openlocfilehash: e4a9e4a229304fa9d984b035a834c6f3bbb24186
-ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
+ms.openlocfilehash: db99ee4460dfa3def4d8b8f5fec26eff3bb73d6b
+ms.sourcegitcommit: b4ef2b00f3e1eb287138f8b43c811cb35a100d3e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610162"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969866"
 ---
 # <a name="create-and-use-razor-components"></a>Oluşturma ve Razor bileşenleri kullanma
 
@@ -355,9 +355,9 @@ Düğme alt bileşeni seçildiğinde:
 @{ var message = "Default Text"; }
 
 <ChildComponent 
-    OnClick="@(async () => { await Task.Yield(); messageText = "Blaze It!"; }" />
+    OnClick="@(async () => { await Task.Yield(); messageText = "Blaze It!"; })" />
 
-@function {
+@functions {
     private string messageText;
 }
 ```
@@ -960,14 +960,14 @@ builder.AddContent(1, "Second");
 
 Ne zaman bu kodu yürütür, ilk kez, `someFlag` olduğu `true`, oluşturucu alır:
 
-| Dizisi | Tür      | Veri   |
+| Sequence | Tür      | Veri   |
 | :------: | --------- | :----: |
 | 0        | Metin düğümü | ilk  |
 | 1.        | Metin düğümü | Saniye |
 
 Şimdi, Imagine `someFlag` olur `false`, ve yeniden oluşturun. Bu kez, oluşturucu alır:
 
-| Dizisi | Tür       | Veri   |
+| Sequence | Tür       | Veri   |
 | :------: | ---------- | :----: |
 | 1.        | Metin düğümü  | Saniye |
 
@@ -996,7 +996,7 @@ Artık ilk çıktı aşağıdaki gibi olur:
 
 Bu sonuç için önceki durum, aynı olduğundan negatif hiçbir sorun yoktur. İkinci işleme `someFlag` olduğu `false`, çıktı şu şekildedir:
 
-| Dizisi | Tür      | Veri   |
+| Sequence | Tür      | Veri   |
 | :------: | --------- | ------ |
 | 0        | Metin düğümü | Saniye |
 
