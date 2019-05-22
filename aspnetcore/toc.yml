@@ -277,6 +277,8 @@
       items:
         - name: Genel Bakış
           uid: blazor/index
+        - name: Desteklenen platformlar
+          uid: blazor/supported-platforms
         - name: Kullanmaya başlayın
           uid: blazor/get-started
         - name: Barındırma modelleri

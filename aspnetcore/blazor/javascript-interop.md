@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/13/2019
 uid: blazor/javascript-interop
-ms.openlocfilehash: 8711c9ec0dd5d9bf59fc74b44285329165a21ba4
-ms.sourcegitcommit: ccbb84ae307a5bc527441d3d509c20b5c1edde05
+ms.openlocfilehash: 2cd0ae66c8d0ee26badbf640a00267acc774feb8
+ms.sourcegitcommit: e67356f5e643a5d43f6d567c5c998ce6002bdeb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/19/2019
-ms.locfileid: "65874857"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004913"
 ---
 # <a name="blazor-javascript-interop"></a>Blazor JavaScript birlikte çalışma
 
@@ -131,7 +131,7 @@ Aşağıdaki örnek, bir başvuru yakalama gösterir `username` `<input>` öğes
 ```
 
 > [!NOTE]
-> Yapmak **değil** yakalanan öğesi başvuruları yerli doldurma bir yol kullan Bunun yapılması bildirim temelli işleme modeliyle etkileyebilir.
+> Yapmak **değil** yakalanan öğesi başvuruları doldurma veya Blazor başvurulan öğeler ile etkileşim kurduğunda DOM düzenleme bir yolu olarak kullanın. Bunun yapılması bildirim temelli işleme modeliyle etkileyebilir.
 
 .NET kodu ilgili olduğu kadar bir `ElementRef` donuk bir işleyicisidir. *Yalnızca* ile yapabileceğiniz bir şey `ElementRef` olan JavaScript kodu aracılığıyla JavaScript birlikte çalışma geçirin. Bunu yaptığınızda, JavaScript tarafı kodunu alır bir `HTMLElement` normal DOM API'leri ile kullanabileceğiniz örnek.
 

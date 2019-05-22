@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/19/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: aff4b857394c554e94dd8929dca809eb1a4387f2
-ms.sourcegitcommit: b4ef2b00f3e1eb287138f8b43c811cb35a100d3e
+ms.openlocfilehash: 6ba4da913ef712ef897a4c8418263e3060ea85ac
+ms.sourcegitcommit: e67356f5e643a5d43f6d567c5c998ce6002bdeb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65970042"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004975"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Windows IIS üzerinde ASP.NET Core barındırma
 
@@ -33,11 +33,13 @@ Azure'da barındırma hakkında daha fazla bilgi için bkz: <xref:host-and-deplo
 
 ## <a name="supported-platforms"></a>Desteklenen platformlar
 
-(X86) 32-bit ve 64-bit (x 64) dağıtım desteklenen yayımlanan uygulamalar. 32 bit uygulama sürece dağıtma uygulama:
+(X86) 32 bit veya 64-bit (x 64) dağıtım desteklenir için yayımlanan uygulamalar. .NET Core SDK'sı sürece bir 32-bit (x86) 32-bit uygulamayla dağıtma uygulama:
 
 * Bir 64-bit uygulamalar tarafından kullanılabilecek daha büyük sanal bellek adres alanı gerektirir.
 * Daha büyük IIS yığın boyutu gerektirir.
 * 64-bit yerel bağımlılıkları vardır.
+
+64 bitlik bir uygulamayı yayımlamak için bir 64-bit (x 64) .NET Core SDK'sını kullanın. Bir 64 bit çalışma zamanı ana bilgisayar sisteminde mevcut olmalıdır.
 
 ## <a name="application-configuration"></a>Uygulama yapılandırması
 
@@ -169,7 +171,7 @@ Varsa bir *web.config* dosyası projesinde, dosyanın doğru dönüştürülür 
 
 *Web.config* etkin IIS modüllerini denetleyen ek IIS yapılandırması ayarları dosyası sağlayabilir. ASP.NET Core uygulamaları istekleri işleyebilen IIS modülleri hakkında daha fazla bilgi için bkz: [IIS modüllerini](xref:host-and-deploy/iis/modules) konu.
 
-Dönüştürme gelen Web SDK'sı önlemek için *web.config* dosya, kullanın  **\<IsTransformWebConfigDisabled >** özelliği proje dosyasında:
+Dönüştürme gelen Web SDK'sı önlemek için *web.config* dosya, kullanın **\<IsTransformWebConfigDisabled >** özelliği proje dosyasında:
 
 ```xml
 <PropertyGroup>
@@ -183,7 +185,7 @@ Dosya dönüştürme gelen Web SDK'yı devre dışı bırakılırken *processPat
 
 Ayarlamak için [ASP.NET Core Modülü](xref:host-and-deploy/aspnet-core-module) doğru *web.config* dosya dağıtılan uygulamayı içerik kök yolda (genellikle uygulama temel yolu) mevcut olmalıdır. IIS için sağlanan Web sitesi fiziksel yol ile aynı konumda budur. *Web.config* dosya, Web dağıtımı kullanarak birden fazla uygulama yayımlamayı etkinleştirmek için uygulamanın kök dizininde gereklidir.
 
-Mevcut uygulamanın fiziksel yola gibi hassas dosyalar  *\<derleme >. runtimeconfig.json*,  *\<derleme > .xml* (XML belgeleri açıklamaları) ve  *\<derleme >. deps.json*. Zaman *web.config* dosya varsa ve siteyi normalde başlatır, IIS bunların istenmesi halinde bu hassas dosyalar hizmet değil. Varsa *web.config* dosyası eksik, yanlış adlandırılan veya site için normal başlangıç yapılandırılamıyor, IIS hassas dosyalar genel olarak hizmet verebilir.
+Mevcut uygulamanın fiziksel yola gibi hassas dosyalar *\<derleme >. runtimeconfig.json*, *\<derleme > .xml* (XML belgeleri açıklamaları) ve *\<derleme >. deps.json*. Zaman *web.config* dosya varsa ve siteyi normalde başlatır, IIS bunların istenmesi halinde bu hassas dosyalar hizmet değil. Varsa *web.config* dosyası eksik, yanlış adlandırılan veya site için normal başlangıç yapılandırılamıyor, IIS hassas dosyalar genel olarak hizmet verebilir.
 
 ***Web.config* doğru adlı, dağıtımdaki her zaman mevcut ve yukarı site normal başlangıç için yapılandırmak için dosya olmalıdır. Hiçbir zaman Kaldır *web.config* dosyasından bir üretim dağıtımı.**
 

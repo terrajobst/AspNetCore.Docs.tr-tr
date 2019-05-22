@@ -4,14 +4,14 @@ author: ardalis
 description: ASP.NET Core Web API'si yanıtı verilerinde biçimlendirmeyi öğrenin.
 ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.date: 10/14/2016
+ms.date: 05/21/2019
 uid: web-api/advanced/formatting
-ms.openlocfilehash: 04f5b3c544cf3fc47c8321c8233535400fcf55f4
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: bd86015773068b6f75f64a0599d710281f7d4d60
+ms.sourcegitcommit: e67356f5e643a5d43f6d567c5c998ce6002bdeb4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64902867"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004962"
 ---
 # <a name="format-response-data-in-aspnet-core-web-api"></a>ASP.NET Core Web API'si yanıtı verileri biçimlendirme
 
@@ -101,30 +101,49 @@ services.AddMvc(options =>
 
 Uygulamanız varsayılan değer olan JSON ek biçimleri için destek gerekiyorsa, NuGet paketlerini ekleyip, bunları desteklemek için MVC yapılandırabilirsiniz. Girdi ve çıktı ayrı biçimlendiricileri vardır. Tarafından kullanılan giriş biçimlendiricileri [Model bağlama](xref:mvc/models/model-binding); çıkış biçimlendiricileri yanıtları biçimlendirmek için kullanılır. Ayrıca [özel Biçimlendiricileri](xref:web-api/advanced/custom-formatters).
 
-### <a name="adding-xml-format-support"></a>XML biçim desteği ekleme
+::: moniker range=">= aspnetcore-3.0"
 
-XML biçimlendirme için destek eklemek üzere yükleme `Microsoft.AspNetCore.Mvc.Formatters.Xml` NuGet paketi.
+### <a name="configure-systemtextjson-based-formatters"></a>Biçimlendiricileri System.Text.Json tabanlı yapılandırma
 
-MVC'nin yapılandırmasında XmlSerializerFormatters eklemek *Startup.cs*:
-
-[!code-csharp[](./formatting/sample/Startup.cs?name=snippet1&highlight=2)]
-
-Alternatif olarak, yalnızca çıkış biçimlendirici ekleyebilirsiniz:
+Özellikleri `System.Text.Json`-tabanlı biçimlendiricileri kullanarak yapılandırılabilir `Microsoft.AspNetCore.Mvc.MvcOptions.SerializerOptions`.
 
 ```csharp
 services.AddMvc(options =>
 {
-    options.OutputFormatters.Add(new XmlSerializerOutputFormatter());
+    options.SerializerOptions.WriterSettings.Indented = true;
 });
 ```
 
-Bu iki yaklaşımı kullanarak sonuçları seri hale `System.Xml.Serialization.XmlSerializer`. Tercih ederseniz kullanabilirsiniz `System.Runtime.Serialization.DataContractSerializer` kendi ilişkili biçimlendirici ekleyerek:
+### <a name="add-newtonsoftjson-based-json-format-support"></a>Newtonsoft.Json tabanlı JSON biçimi desteği eklendi
+
+ASP.NET Core 3.0 önce MVC kullanarak JSON biçimlendiricileri kullanılarak uygulanan varsayılan `Newtonsoft.Json` paket. ASP.NET Core 3.0 veya sonraki sürümlerde, varsayılan JSON biçimlendiricileri dayalı `System.Text.Json`. Destek `Newtonsoft.Json`-tabanlı biçimlendiricileri ve özellikler kullanılabilir yükleyerek [Microsoft.AspNetCore.Mvc.NewtonsoftJson](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.NewtonsoftJson/) NuGet paketi ve onu yapılandırma `Startup.ConfigureServices`.
 
 ```csharp
-services.AddMvc(options =>
-{
-    options.OutputFormatters.Add(new XmlDataContractSerializerOutputFormatter());
-});
+services.AddMvc()
+    .AddNewtonsoftJson();
+```
+
+İle bazı özellikler çalışmayabilir `System.Text.Json`-biçimlendiricileri temel alır ve bir başvuru gerektirir `Newtonsoft.Json`-tabanlı ASP.NET Core 3.0 sürümü için biçimlendiricileri. Kullanmaya devam `Newtonsoft.Json`-biçimlendiricileri, temel ASP.NET Core 3.0 veya üzeri uygulama:
+
+* Kullanan `Newtonsoft.Json` öznitelikleri (örneğin, `[JsonProperty]` veya `[JsonIgnore]`), serileştirme ayarları özelleştirdikten veya kullanır üzerinde özelliklerinin `Newtonsoft.Json` sağlar.
+* Yapılandırır `Microsoft.AspNetCore.Mvc.JsonResult.SerializerSettings`. ASP.NET Core 3.0 önce `JsonResult.SerializerSettings` kabul eden bir örneğini `JsonSerializerSettings` özgü olan `Newtonsoft.Json`.
+* Oluşturur [Openapı](<xref:tutorials/web-api-help-pages-using-swagger>) belgeleri.
+
+::: moniker-end
+
+### <a name="add-xml-format-support"></a>XML biçimi desteği eklendi
+
+XML biçimlendirme desteği eklemek için yükleme [Microsoft.AspNetCore.Mvc.Formatters.Xml](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Formatters.Xml/) NuGet paketi.
+
+XML biçimlendiricileri kullanılarak uygulanan `System.Xml.Serialization.XmlSerializer` yapılandırılabilir `Startup.ConfigureServices` gibi:
+
+[!code-csharp[](./formatting/sample/Startup.cs?name=snippet1&highlight=2)]
+
+Alternatif olarak, XML biçimlendiricileri kullanılarak uygulanan `System.Runtime.Serialization.DataContractSerializer` yapılandırılabilir `Startup.ConfigureServices` gibi:
+
+```csharp
+services.AddMvc()
+    .AddXmlDataContractSerializerFormatters();
 ```
 
 XML biçimlendirme desteği ekledikten sonra denetleyici yöntemlerinizi isteğin üzerinde göre uygun biçimde döndürmelidir `Accept` üst bilgisi olarak bu Fiddler örnek gösterir:
