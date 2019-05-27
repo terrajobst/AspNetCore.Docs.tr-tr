@@ -5,14 +5,14 @@ description: Ana bilgisayar ve ASP.NET Core, içerik teslim ağları (CDN), dosy
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/13/2019
+ms.date: 05/21/2019
 uid: host-and-deploy/blazor/client-side
-ms.openlocfilehash: ea8ece266809913e32ac212bc55cb3c2499c234f
-ms.sourcegitcommit: ccbb84ae307a5bc527441d3d509c20b5c1edde05
+ms.openlocfilehash: b572067e688d7e7f7c654a7a25703009c1a7e855
+ms.sourcegitcommit: e1623d8279b27ff83d8ad67a1e7ef439259decdf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/19/2019
-ms.locfileid: "65874969"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66223197"
 ---
 # <a name="host-and-deploy-blazor-client-side"></a>Barındırma ve Blazor istemci-tarafı dağıtma
 
@@ -210,8 +210,8 @@ Blazor proje yayımlandığında bir *web.config* dosyası, aşağıdaki IIS yap
   * `application/octet-stream`
   * `application/wasm`
 * URL yeniden yazma modülü kuralları oluşturulur:
-  * Uygulamanın statik varlıklar bulunduğu alt dizini hizmet (*{derleme adı} /dist/ {yolu İSTENEN}*).
-  * Böylece uygulamanın varsayılan belge, statik varlıklar klasöründeki dosya olmayan varlıklar için istekleri yönlendirilirsiniz SPA geri dönüş yönlendirme oluşturma (*{derleme NAME}/dist/index.html*).
+  * Uygulamanın statik varlıklar bulunduğu alt dizini hizmet ( *{derleme adı} /dist/ {yolu İSTENEN}* ).
+  * Böylece uygulamanın varsayılan belge, statik varlıklar klasöründeki dosya olmayan varlıklar için istekleri yönlendirilirsiniz SPA geri dönüş yönlendirme oluşturma ( *{derleme NAME}/dist/index.html*).
 
 #### <a name="install-the-url-rewrite-module"></a>URL yeniden yazma modülünü yükleme
 
@@ -232,6 +232,17 @@ Web sitesinin ayarlamak **fiziksel yolu** uygulamanın klasörüne. Klasör içe
 Varsa bir *500 - İç sunucu hatası* alınır ve IIS Yöneticisi'ni çalışırken Web sitenizin yapılandırmasına erişim, URL yeniden yazma Modülü yüklü olduğundan emin olmak hataları oluşturur. Modül yüklenmediğinde *web.config* IIS tarafından dosya ayrıştırılamıyor. Bu IIS Yöneticisi'ni Web sitesinin yapılandırması ve Web sitesi Blazor'ın statik dosyalar hizmetinden yüklenmesini engeller.
 
 IIS dağıtım sorunlarını giderme hakkında daha fazla bilgi için bkz: <xref:host-and-deploy/iis/troubleshoot>.
+
+### <a name="azure-storage"></a>Azure Depolama
+
+Azure depolama statik dosya barındırma sunucusuz Blazor uygulama barındırma sağlar. Özel etki alanı adları, Azure Content Delivery Network (CDN) ve HTTPS desteklenir.
+
+Blob hizmetini statik Web sitesi bir depolama hesabında barındırmak için etkinleştirildiğinde:
+
+* Ayarlama **dizin belgesi adı** için `index.html`.
+* Ayarlama **hata belgesi yolu** için `index.html`. Razor bileşenleri ve diğer dosya olmayan uç noktaları fiziksel yollarda blob hizmeti tarafından depolanan statik içeriğin yer yok. Blazor yönlendirici işlemesi gerekir, bu kaynakları biri için bir istek alındığında *404 - Bulunamadı* blob hizmeti tarafından oluşturulan hata isteğe yönlendiren **hata belgesi yolu**. *İndex.html* blob döndürülür ve Blazor yönlendirici yükler ve yolun işler.
+
+Daha fazla bilgi için [Azure Depolama'da statik Web sitesi barındırma](/azure/storage/blobs/storage-blob-static-website).
 
 ### <a name="nginx"></a>Nginx
 

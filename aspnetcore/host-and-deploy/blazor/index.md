@@ -5,14 +5,14 @@ description: Ana bilgisayar ve Blazor uygulamaları dağıtmak nasıl keşfedin.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/24/2019
+ms.date: 05/23/2019
 uid: host-and-deploy/blazor/index
-ms.openlocfilehash: c8a65b08582102af9129cf71ac4a108a905e49fc
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 5def0356d13975211dd234f6a6a9f5a993d003b7
+ms.sourcegitcommit: e1623d8279b27ff83d8ad67a1e7ef439259decdf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65085526"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66223175"
 ---
 # <a name="host-and-deploy-blazor"></a>Barındırma ve Blazor dağıtma
 
@@ -51,3 +51,9 @@ Dağıtım yönergeleri için aşağıdaki konulara bakın:
 
 * <xref:host-and-deploy/blazor/client-side>
 * <xref:host-and-deploy/blazor/server-side>
+
+## <a name="blazor-serverless-hosting-with-azure-storage"></a>Azure Depolama'yı barındıran sunucusuz Blazor
+
+Gelen istemci tarafı uygulamalar Blazor sunulduğundan [Azure depolama](https://azure.microsoft.com/services/storage/) statik içeriği doğrudan bir depolama kapsayıcısı olarak.
+
+Daha fazla bilgi için [konak ve Blazor istemci-tarafı (tek başına dağıtımı) dağıtın: Azure depolama](xref:host-and-deploy/blazor/client-side#azure-storage).

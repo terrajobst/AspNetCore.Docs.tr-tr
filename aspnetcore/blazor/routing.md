@@ -5,14 +5,14 @@ description: Uygulamalar ve NavLink bileşenle ilgili istekleri yönlendirmeyi �
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/13/2019
+ms.date: 05/14/2019
 uid: blazor/routing
-ms.openlocfilehash: 8402089dd818d519eeecfdd3c85e309bffd4d20d
-ms.sourcegitcommit: b4ef2b00f3e1eb287138f8b43c811cb35a100d3e
+ms.openlocfilehash: b7f040292484f77c3cd12d9a0c07019782597882
+ms.sourcegitcommit: e1623d8279b27ff83d8ad67a1e7ef439259decdf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969862"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66223125"
 ---
 # <a name="blazor-routing"></a>Blazor yönlendirme
 
@@ -108,3 +108,37 @@ Aşağıdaki NavMenu bileşeni oluşturur bir [önyükleme](https://getbootstrap
 * `NavLinkMatch.Prefix` &ndash; Geçerli URL herhangi bir önek eşleştiğinde NavLink etkin olması gerektiğini belirtir.
 
 Yukarıdaki örnekte, giriş NavLink (`href=""`) tüm URL'lerle eşleşir ve her zaman alan `active` CSS sınıfı. İkinci NavLink yalnızca alan `active` sınıfı kullanıcı Blazor rota bileşen ziyaret ettiğinde (`href="BlazorRoute"`).
+
+## <a name="uri-and-navigation-state-helpers"></a>URI ve gezinti durumu Yardımcıları
+
+Kullanım `Microsoft.AspNetCore.Components.IUriHelper` gezintisi ve bir URI'leri ile çalışmak için C# kod. `IUriHelper` Olay ve aşağıdaki tabloda gösterilen yöntemler sağlar.
+
+| Üye | Açıklama |
+| ------ | ----------- |
+| `GetAbsoluteUri` | Geçerli bir mutlak URI alır. |
+| `GetBaseUri` | (Eğik ile) bir mutlak URI oluşturmak için göreli URI yolları başına temel URI'sini alır. Genellikle, `GetBaseUri` karşılık gelen `href` belgenin özniteliği `<base>` öğesinde *wwwroot/index.html* (Blazor istemci-tarafı) veya *sayfaları /\_Host.cshtml* (Blazor sunucu-tarafı). |
+| `NavigateTo` | Belirtilen URI'ye gider. Varsa `forceLoad` olduğu `true`:<ul><li>İstemci tarafı yönlendirmesi atlanır.</li><li>URI genellikle istemci tarafı yönlendirici tarafından işlenen olup olmadığını tarayıcı sunucusundan yeni sayfa yükleme zorlanır.</li></ul> |
+| `OnLocationChanged` | Gezinti konumu değiştirildiğinde ateşlenir olay. |
+| `ToAbsoluteUri` | Bir göreli URİ'yi mutlak bir URI dönüştürür. |
+| `ToBaseRelativePath` | Belirtilen temel URI (örneğin, bir URI daha önce döndürülen tarafından `GetBaseUri`), temel URI'si ön ek göreli bir URI mutlak URİ'ye dönüştürür. |
+
+Düğme seçildiğinde aşağıdaki bileşen uygulamanın sayacı bileşenine varlıklardan:
+
+```cshtml
+@page "/navigate"
+@using Microsoft.AspNetCore.Components
+@inject IUriHelper UriHelper
+
+<h1>Navigate in Code Example</h1>
+
+<button class="btn btn-primary" onclick="@NavigateToCounterComponent">
+    Navigate to the Counter component
+</button>
+
+@functions {
+    private void NavigateToCounterComponent()
+    {
+        UriHelper.NavigateTo("counter");
+    }
+}
+```

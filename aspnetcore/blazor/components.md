@@ -5,14 +5,14 @@ description: Oluşturma ve bileşen ömürleri yönetme verilere bağlayın ve o
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/10/2019
+ms.date: 05/21/2019
 uid: blazor/components
-ms.openlocfilehash: db99ee4460dfa3def4d8b8f5fec26eff3bb73d6b
-ms.sourcegitcommit: b4ef2b00f3e1eb287138f8b43c811cb35a100d3e
+ms.openlocfilehash: 57f8debb4e13967ceadab96d448e5825b2ef4669
+ms.sourcegitcommit: e1623d8279b27ff83d8ad67a1e7ef439259decdf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969866"
+ms.lasthandoff: 05/25/2019
+ms.locfileid: "66223132"
 ---
 # <a name="create-and-use-razor-components"></a>Oluşturma ve Razor bileşenleri kullanma
 
@@ -24,7 +24,7 @@ Blazor uygulamaları kullanılarak oluşturulur *bileşenleri*. Bir bileşen, ku
 
 ## <a name="component-classes"></a>Bileşen sınıfları
 
-Bileşenleri içinde uygulanan [Razor](xref:mvc/views/razor) bileşen dosyaları (*.razor*) bir birleşimi kullanılarak C# ve HTML biçimlendirmesi.
+Bileşenleri içinde uygulanan [Razor](xref:mvc/views/razor) bileşen dosyaları ( *.razor*) bir birleşimi kullanılarak C# ve HTML biçimlendirmesi.
 
 Bileşenlerini kullanarak yazarı olduğu *.cshtml* dosyaları kullanarak Razor bileşen dosyaları tanımlanmış olduğu sürece dosya uzantısı `_RazorComponentInclude` MSBuild özelliği. Örneğin, belirten bir uygulamayı tüm *.cshtml* altında dosyaları *sayfaları* klasör Razor bileşenleri dosyaları kabul:
 
@@ -116,18 +116,18 @@ Veri bağlama bileşenleri hem DOM öğeleri ile gerçekleştirilir `bind` özni
 
 ```cshtml
 <input type="checkbox" class="form-check-input" id="italicsCheck" 
-    bind="@_italicsCheck">
+    bind="@_italicsCheck" />
 ```
 
 Onay kutusunu işaretli ve seçildiğinde özelliğin değerini şekilde güncelleştirilir `true` ve `false`sırasıyla.
 
 Yalnızca bileşen, özelliğin değerinin değiştirilmesi için değil yanıt oluşturulduğunda onay kutusunu kullanıcı Arabiriminde güncelleştirilir. Olay işleyici kodu yürütüldükten sonra bileşenleri kendilerini işleme olduğundan, özellik güncelleştirmeleri genellikle kullanıcı Arabiriminde hemen yansıtılır.
 
-Kullanarak `bind` ile bir `CurrentValue` özelliği (`<input bind="@CurrentValue">`) aslında aşağıdakine eşdeğerdir:
+Kullanarak `bind` ile bir `CurrentValue` özelliği (`<input bind="@CurrentValue" />`) aslında aşağıdakine eşdeğerdir:
 
 ```cshtml
 <input value="@CurrentValue" 
-    onchange="@((UIChangeEventArgs __e) => CurrentValue = __e.Value)">
+    onchange="@((UIChangeEventArgs __e) => CurrentValue = __e.Value)" />
 ```
 
 Bileşen işlendiğinde `value` giriş öğesinin geldiği `CurrentValue` özelliği. Kullanıcı, metin kutusuna yazdığında `onchange` olay tetiklenir ve `CurrentValue` özelliği değiştirilmiş değerine ayarlanır. Gerçekte, kod oluşturma biraz daha karmaşık olduğundan `bind` tür dönüştürmeleri gerçekleştirildiği birkaç durum işler. Giren İlkesi `bind` geçerli değerini bir ifade ile ilişkilendirir bir `value` kayıtlı işleyici kullanarak öznitelik ve işleyicilerini değişiklikler.
@@ -135,7 +135,7 @@ Bileşen işlendiğinde `value` giriş öğesinin geldiği `CurrentValue` özell
 Ek olarak `onchange`, özelliği gibi diğer olayları kullanarak bağlanabilir `oninput` bağlamak gerekenler hakkında daha fazla açık olan tarafından:
 
 ```cshtml
-<input type="text" bind-value-oninput="@CurrentValue">
+<input type="text" bind-value-oninput="@CurrentValue" />
 ```
 
 Farklı `onchange`, `oninput` metin kutusuna giriş her karakter için ateşlenir.
@@ -145,7 +145,7 @@ Farklı `onchange`, `oninput` metin kutusuna giriş her karakter için ateşleni
 Veri bağlama ile birlikte çalışır <xref:System.DateTime> biçim dizeleri. Para birimi veya sayı biçimleri gibi diğer biçim ifadeleri şu anda kullanılamıyor.
 
 ```cshtml
-<input bind="@StartDate" format-value="yyyy-MM-dd">
+<input bind="@StartDate" format-value="yyyy-MM-dd" />
 
 @functions {
     [Parameter]
@@ -261,7 +261,7 @@ Aşağıdaki kod çağrıları `UpdateHeading` Arabiriminde düğme seçildiğin
 Aşağıdaki kod çağrıları `CheckboxChanged` onay kutusunu kullanıcı Arabiriminde değiştirildiğinde yöntemi:
 
 ```cshtml
-<input type="checkbox" class="form-check-input" onchange="@CheckboxChanged">
+<input type="checkbox" class="form-check-input" onchange="@CheckboxChanged" />
 
 @functions {
     private void CheckboxChanged()
@@ -586,7 +586,7 @@ Razor yönergeleri, aşağıdaki tabloda gösterilmiştir.
 Aşağıdaki örnekte, `IsCompleted` belirler `checked` denetimin biçimlendirme içinde işlenir:
 
 ```cshtml
-<input type="checkbox" checked="@IsCompleted">
+<input type="checkbox" checked="@IsCompleted" />
 
 @functions {
     [Parameter]
@@ -597,13 +597,13 @@ Aşağıdaki örnekte, `IsCompleted` belirler `checked` denetimin biçimlendirme
 Varsa `IsCompleted` olduğu `true`, onay kutusunu olarak işlenir:
 
 ```html
-<input type="checkbox" checked>
+<input type="checkbox" checked />
 ```
 
 Varsa `IsCompleted` olduğu `false`, onay kutusunu olarak işlenir:
 
 ```html
-<input type="checkbox">
+<input type="checkbox" />
 ```
 
 **Razor hakkında daha fazla bilgi**
