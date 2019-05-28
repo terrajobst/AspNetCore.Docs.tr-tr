@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/17/2019
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: 9a9e5b37d5e54d3b1d47d713cbb7443e8bdc6394
-ms.sourcegitcommit: e1623d8279b27ff83d8ad67a1e7ef439259decdf
+ms.openlocfilehash: 504e5d35f11531a5752b3c8e23d96db3cbe40d1a
+ms.sourcegitcommit: b8ed594ab9f47fa32510574f3e1b210cff000967
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66223206"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66251441"
 ---
 # <a name="aspnet-core-module"></a>ASP.NET Core Modülü
 
@@ -140,7 +140,7 @@ Aşağıdaki diyagramda, IIS, ASP.NET Core modülü ve uygulama arasındaki ili�
 
 İstekleri için çekirdek modu HTTP.sys sürücüsünü Web'den ulaşır. Sürücü istekler IIS Web sitesinin yapılandırılan bağlantı noktası, genellikle 80 (HTTP) veya 443 (HTTPS) üzerinde yönlendirir. Modül Kestrel rastgele bağlantı noktası için 80 veya 443 bağlantı noktası olmadığından uygulama isteklerini iletir.
 
-Modülü başlatma sırasında bir ortam değişkeni aracılığıyla bağlantı noktasını belirtir ve IIS tümleştirme ara yazılımı üzerinde dinlemek üzere yapılandırır `http://localhost:{port}`. Ek denetimler gerçekleştirilir ve modülünden değilsiniz kaynaklı istekler reddedilir. İstekler HTTP üzerinden HTTPS üzerinden IIS tarafından alınan bile iletilir modülü HTTPS iletmeyi desteklemez.
+Modül, başlangıçta bir ortam değişkeni aracılığıyla bağlantı noktasını belirtir ve [IIS tümleştirme ara yazılımı](xref:host-and-deploy/iis/index#enable-the-iisintegration-components) dinleyecek şekilde yapılandırır `http://localhost:{port}`. Ek denetimler gerçekleştirilir ve modülünden değilsiniz kaynaklı istekler reddedilir. İstekler HTTP üzerinden HTTPS üzerinden IIS tarafından alınan bile iletilir modülü HTTPS iletmeyi desteklemez.
 
 Modül istekten Kestrel seçer sonra ASP.NET Core ara yazılım ardışık düzende isteği gönderilir. Ara yazılım ardışık düzenini isteği işler ve olarak geçirir bir `HttpContext` örneği uygulama mantığına. IIS tümleştirme tarafından eklenen bir ara yazılım istek için Kestrel iletmek için hesap için şema, uzak IP ve pathbase güncelleştirir. Uygulamanın yanıt IIS, yeniden istek başlatılan HTTP istemcisi için hangi bildirim geçirilir.
 

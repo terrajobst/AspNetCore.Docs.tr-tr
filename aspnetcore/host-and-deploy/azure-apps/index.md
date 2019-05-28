@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/30/2019
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 009ee97d954a21f5fca1713b2b45218cac235e33
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 8ce969739d9d98941d4d7670395c74e0e25c92a7
+ms.sourcegitcommit: b8ed594ab9f47fa32510574f3e1b210cff000967
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64901166"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66251393"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>ASP.NET Core uygulamalarını Azure App Service'e dağıtma
 
@@ -80,7 +80,7 @@ Bir uygulama kullandığında [genel ana bilgisayar](xref:fundamentals/host/gene
 
 ## <a name="proxy-server-and-load-balancer-scenarios"></a>Ara sunucu ve yük dengeleyici senaryoları
 
-İletilen üstbilgileri ara yazılım ve ASP.NET Core modülü yapılandırır IIS tümleştirme Ara şema (HTTP/HTTPS) ve isteğin geldiği uzak IP adresine iletecek şekilde yapılandırılır. Ek Ara sunucuları ve yük dengeleyici barındırılan uygulamalar için ek yapılandırma gerekebilir. Daha fazla bilgi için [proxy sunucuları ile çalışma ve yük Dengeleyiciler için ASP.NET Core yapılandırma](xref:host-and-deploy/proxy-load-balancer).
+[IIS tümleştirme ara yazılımı](xref:host-and-deploy/iis/index#enable-the-iisintegration-components), barındırırken iletilen üstbilgileri ara yazılım yapılandırır [işlem dışı](xref:fundamentals/servers/index#out-of-process-hosting-model), ve ASP.NET Core modülü, ' % s'şema (HTTP/HTTPS) iletmek için yapılandırılır ve İsteğin geldiği uzak IP adresi. Ek Ara sunucuları ve yük dengeleyici barındırılan uygulamalar için ek yapılandırma gerekebilir. Daha fazla bilgi için [proxy sunucuları ile çalışma ve yük Dengeleyiciler için ASP.NET Core yapılandırma](xref:host-and-deploy/proxy-load-balancer).
 
 ## <a name="monitoring-and-logging"></a>İzleme ve günlüğe kaydetme
 
@@ -227,7 +227,7 @@ Kendi içinde uygulama dağıtırken:
 
 ## <a name="protocol-settings-https"></a>Protokol ayarları (HTTPS)
 
-Güvenli protokol bağlamalar HTTPS üzerinden isteklerine yanıt verirken kullanmak üzere bir sertifika belirtin izin verir. Bağlama, geçerli özel sertifikaları gerektirir (*.pfx*) belirli ana bilgisayar adı için verilmiş. Daha fazla bilgi için [Öğreticisi: Azure App Service'e var olan özel bir SSL sertifikası bağlama](/azure/app-service/app-service-web-tutorial-custom-ssl).
+Güvenli protokol bağlamalar HTTPS üzerinden isteklerine yanıt verirken kullanmak üzere bir sertifika belirtin izin verir. Bağlama, geçerli özel sertifikaları gerektirir ( *.pfx*) belirli ana bilgisayar adı için verilmiş. Daha fazla bilgi için [Öğreticisi: Azure App Service'e var olan özel bir SSL sertifikası bağlama](/azure/app-service/app-service-web-tutorial-custom-ssl).
 
 ## <a name="transform-webconfig"></a>Web.config’i dönüştürme
 

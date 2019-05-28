@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/24/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: f0efe6c0edc71c5e2c45aeaa175c8a5643ef0fde
-ms.sourcegitcommit: e1623d8279b27ff83d8ad67a1e7ef439259decdf
+ms.openlocfilehash: 12aa1b86e0b9078566f1c64cb4b83c4dddef09f7
+ms.sourcegitcommit: b8ed594ab9f47fa32510574f3e1b210cff000967
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66223140"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66251364"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Windows IIS üzerinde ASP.NET Core barındırma
 
@@ -57,7 +57,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
 
 **İşlem içi barındırma modeli**
 
-`CreateDefaultBuilder` çağrıları `UseIIS` önyükleme yöntemi [CoreCLR](/dotnet/standard/glossary#coreclr) ve IIS çalışan işlemi uygulama barındırın (*w3wp.exe* veya *iisexpress.exe*). Performans testleri belirten bir .NET Core uygulaması işlem içi barındırma için uygulama işlem dışı ve proxy isteklerini barındırma kıyasla önemli ölçüde daha yüksek istek üretilen işini teslim [Kestrel](xref:fundamentals/servers/kestrel) sunucusu.
+`CreateDefaultBuilder` ekler bir <xref:Microsoft.AspNetCore.Hosting.Server.IServer> çağırarak örneği <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIIS*> önyükleme yöntemi [CoreCLR](/dotnet/standard/glossary#coreclr) ve IIS çalışan işlemi uygulama barındırın (*w3wp.exe* veya *iisexpress.exe*). Performans testleri belirten bir .NET Core uygulaması işlem içi barındırma için uygulama işlem dışı ve proxy isteklerini barındırma kıyasla önemli ölçüde daha yüksek istek üretilen işini teslim [Kestrel](xref:fundamentals/servers/kestrel) sunucusu.
 
 İşlem içi barındırma modeli, .NET Framework'ü hedefleyen ASP.NET Core uygulamaları için desteklenmez.
 
@@ -65,7 +65,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
 
 IIS ile işlem dışı barındırmak için `CreateDefaultBuilder` yapılandırır [Kestrel](xref:fundamentals/servers/kestrel) web sunucusu olarak ve bağlantı noktası ve temel yolunu yapılandırarak IIS tümleştirme sağlar [ASP.NET Core Modülü](xref:host-and-deploy/aspnet-core-module).
 
-ASP.NET Core modülü arka uç işleme atamak için dinamik bir bağlantı noktası oluşturur. `CreateDefaultBuilder` çağrıları <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> yöntemi. `UseIISIntegration` Kestrel'i localhost IP adresi dinamik bir bağlantı noktası dinleyecek şekilde yapılandırır (`127.0.0.1`). Dinamik bağlantı noktası 1234 ise sırasında Kestrel dinler `127.0.0.1:1234`. Bu yapılandırma tarafından sağlanan diğer URL'yi yapılandırmaları değiştirir:
+ASP.NET Core modülü arka uç işleme atamak için dinamik bir bağlantı noktası oluşturur. `CreateDefaultBuilder` IIS tümleştirme ara yazılımı ekler ve [iletilen üstbilgileri ara yazılım](xref:host-and-deploy/proxy-load-balancer) çağırarak <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> yöntemi. `UseIISIntegration` Kestrel'i localhost IP adresi dinamik bir bağlantı noktası dinleyecek şekilde yapılandırır (`127.0.0.1`). Dinamik bağlantı noktası 1234 ise sırasında Kestrel dinler `127.0.0.1:1234`. Bu yapılandırma tarafından sağlanan diğer URL'yi yapılandırmaları değiştirir:
 
 * `UseUrls`
 * [Kestrel'i'nın dinleme API](xref:fundamentals/servers/kestrel#endpoint-configuration)
@@ -149,13 +149,13 @@ services.Configure<IISOptions>(options =>
 
 | Seçenek                         | Varsayılan | Ayar |
 | ------------------------------ | :-----: | ------- |
-| `AutomaticAuthentication`      | `true`  | Varsa `true`, IIS tümleştirme ara yazılımı ayarlar `HttpContext.User` tarafından kimliği doğrulanmış [Windows kimlik doğrulaması](xref:security/authentication/windowsauth). Varsa `false`, ara yazılım için bir kimlik yalnızca sağlar `HttpContext.User` ve açıkça tarafından istendiğinde zorlukları yanıtlar `AuthenticationScheme`. Windows kimlik doğrulaması etkin, IIS için `AutomaticAuthentication` işlevi. Daha fazla bilgi için [Windows kimlik doğrulaması](xref:security/authentication/windowsauth) konu. |
+| `AutomaticAuthentication`      | `true`  | Varsa `true`, [IIS tümleştirme ara yazılımı](#enable-the-iisintegration-components) ayarlar `HttpContext.User` tarafından kimliği doğrulanmış [Windows kimlik doğrulaması](xref:security/authentication/windowsauth). Varsa `false`, ara yazılım için bir kimlik yalnızca sağlar `HttpContext.User` ve açıkça tarafından istendiğinde zorlukları yanıtlar `AuthenticationScheme`. Windows kimlik doğrulaması etkin, IIS için `AutomaticAuthentication` işlevi. Daha fazla bilgi için [Windows kimlik doğrulaması](xref:security/authentication/windowsauth) konu. |
 | `AuthenticationDisplayName`    | `null`  | Oturum açma sayfaları kullanıcılara gösterilen görünen adını ayarlar. |
 | `ForwardClientCertificate`     | `true`  | Varsa `true` ve `MS-ASPNETCORE-CLIENTCERT` istek üstbilgisi mevcutsa, `HttpContext.Connection.ClientCertificate` doldurulur. |
 
 ### <a name="proxy-server-and-load-balancer-scenarios"></a>Ara sunucu ve yük dengeleyici senaryoları
 
-İletilen üstbilgileri ara yazılım ve ASP.NET Core modülü yapılandırır IIS tümleştirme Ara şema (HTTP/HTTPS) ve isteğin geldiği uzak IP adresine iletecek şekilde yapılandırılır. Ek Ara sunucuları ve yük dengeleyici barındırılan uygulamalar için ek yapılandırma gerekebilir. Daha fazla bilgi için [proxy sunucuları ile çalışma ve yük Dengeleyiciler için ASP.NET Core yapılandırma](xref:host-and-deploy/proxy-load-balancer).
+[IIS tümleştirme ara yazılımı](#enable-the-iisintegration-components)iletilen üstbilgileri ara yazılımını yapılandırır ve ASP.NET Core modülü, ' % s'şema (HTTP/HTTPS) ve isteğin geldiği uzak IP adresine iletecek şekilde yapılandırılır. Ek Ara sunucuları ve yük dengeleyici barındırılan uygulamalar için ek yapılandırma gerekebilir. Daha fazla bilgi için [proxy sunucuları ile çalışma ve yük Dengeleyiciler için ASP.NET Core yapılandırma](xref:host-and-deploy/proxy-load-balancer).
 
 ### <a name="webconfig-file"></a>Web.config dosyası
 

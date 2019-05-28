@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 05/17/2019
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 6f9eee1ed46f02232bed977f8f60a3d77db48784
-ms.sourcegitcommit: e1623d8279b27ff83d8ad67a1e7ef439259decdf
+ms.openlocfilehash: 37274873f2bd4127f8743399d95d3cf7fef435c5
+ms.sourcegitcommit: b8ed594ab9f47fa32510574f3e1b210cff000967
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66223150"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66251327"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>ASP.NET core'da kestrel web sunucusu uygulaması
 
@@ -69,7 +69,7 @@ HTTP/2 varsayılan olarak devre dışıdır. Yapılandırma hakkında daha fazla
 
 ## <a name="when-to-use-kestrel-with-a-reverse-proxy"></a>Ne zaman Kestrel ters Ara sunucu ile kullanılır.
 
-Tek başına veya birlikte Kestrel kullanabileceğiniz bir *ters Ara sunucu*, gibi [Internet Information Services (IIS)](https://www.iis.net/), [Ngınx](http://nginx.org), veya [Apache](https://httpd.apache.org/). Ters Ara sunucu HTTP isteklerinin ağdan alır ve bunları Kestrel için iletir.
+Tek başına veya birlikte kestrel kullanılabilir bir *ters Ara sunucu*, gibi [Internet Information Services (IIS)](https://www.iis.net/), [Ngınx](http://nginx.org), veya [Apache](https://httpd.apache.org/). Ters Ara sunucu HTTP isteklerinin ağdan alır ve bunları Kestrel için iletir.
 
 Bir edge (Internet'e yönelik) web sunucusu olarak kullanılan kestrel:
 
@@ -160,6 +160,12 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
 Kestrel'i web sunucusu Internet'e yönelik dağıtımlarda özellikle yararlı olan kısıtlaması yapılandırma seçenekleri vardır.
 
 Kısıtlamaları ayarlama <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.Limits> özelliği <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions> sınıfı. `Limits` Özelliği bir örneğini tutan <xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerLimits> sınıfı.
+
+Aşağıdaki örneklerde <xref:Microsoft.AspNetCore.Server.Kestrel.Core> ad alanı:
+
+```csharp
+using Microsoft.AspNetCore.Server.Kestrel.Core;
+```
 
 ### <a name="keep-alive-timeout"></a>Tutma zaman aşımı
 
@@ -473,7 +479,7 @@ Kullanarak URL'leri belirtin:
 * `urls` ana bilgisayar yapılandırma anahtarı.
 * `UseUrls` genişletme yöntemi.
 
-Bu yaklaşımları kullanarak sağlanan değer, bir veya daha fazla HTTP ve HTTPS uç noktası (varsayılan sertifika varsa HTTPS) olabilir. Değer noktalı virgülle ayrılmış listesini yapılandırın (örneğin, `"Urls": "http://localhost:8000; http://localhost:8001"`).
+Bu yaklaşımları kullanarak sağlanan değer, bir veya daha fazla HTTP ve HTTPS uç noktası (varsayılan sertifika varsa HTTPS) olabilir. Değer noktalı virgülle ayrılmış listesini yapılandırın (örneğin, `"Urls": "http://localhost:8000;http://localhost:8001"`).
 
 Bu yaklaşımlar hakkında daha fazla bilgi için bkz. [sunucu URL'leri](xref:fundamentals/host/web-host#server-urls) ve [geçersiz kılma yapılandırmasını](xref:fundamentals/host/web-host#override-configuration).
 
@@ -650,7 +656,7 @@ Aşağıdaki *appsettings.json* örneği:
       "Url": "https://localhost:5002",
       "Certificate": {
         "Subject": "<subject; required>",
-        "Store": "<certificate store; defaults to My>",
+        "Store": "<certificate store; required>",
         "Location": "<location; defaults to CurrentUser>",
         "AllowInvalid": "<true or false; defaults to false>"
       }
@@ -683,7 +689,7 @@ Kullanmaya alternatif **yolu** ve **parola** herhangi bir sertifikayı sertifika
 ```json
 "Default": {
   "Subject": "<subject; required>",
-  "Store": "<cert store; defaults to My>",
+  "Store": "<cert store; required>",
   "Location": "<location; defaults to CurrentUser>",
   "AllowInvalid": "<true or false; defaults to false>"
 }

@@ -5,14 +5,14 @@ description: Proxy sunucuları ve yük Dengeleyiciler, genellikle önemli bilgi 
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/12/2019
+ms.date: 05/24/2019
 uid: host-and-deploy/proxy-load-balancer
-ms.openlocfilehash: 7a81715b0d08fe6f0085647d9bc61ecf80c4b093
-ms.sourcegitcommit: b4ef2b00f3e1eb287138f8b43c811cb35a100d3e
+ms.openlocfilehash: 2423b5bed760ad879d1c47c5e64b0f815b50397e
+ms.sourcegitcommit: b8ed594ab9f47fa32510574f3e1b210cff000967
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65970093"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66251389"
 ---
 # <a name="configure-aspnet-core-to-work-with-proxy-servers-and-load-balancers"></a>ASP.NET Core, proxy sunucuları ile çalışma ve yük Dengeleyiciler için yapılandırma
 
@@ -53,11 +53,11 @@ Tüm ağ Gereçleri ekleyin `X-Forwarded-For` ve `X-Forwarded-Proto` ek yapılan
 
 ## <a name="iisiis-express-and-aspnet-core-module"></a>IIS/IIS Express ve ASP.NET Core Modülü
 
-IIS ve ASP.NET Core modülü arkasındaki uygulama çalıştırıldığında iletilen üstbilgileri ara yazılım IIS tümleştirme ara yazılımı tarafından varsayılan olarak etkindir. İletilen üstbilgileri ara yazılım, ASP.NET Core modülü iletilen üst bilgilerine güven sorunları nedeniyle ilk ara yazılım ardışık düzenini belirli kısıtlı bir yapılandırma ile olarak çalıştırmak için etkinleştirilir (örneğin, [IP yanıltma](https://www.iplocation.net/ip-spoofing)). Ara yazılım iletecek şekilde yapılandırılmış `X-Forwarded-For` ve `X-Forwarded-Proto` üst bilgileri ve tek localhost proxy ile sınırlıdır. Ek yapılandırma gerekli olup olmadığını, [iletilen üstbilgileri ara yazılım seçenekleri](#forwarded-headers-middleware-options).
+İletilen üstbilgileri ara yazılım, varsayılan olarak etkindir [IIS tümleştirme ara yazılımı](xref:host-and-deploy/iis/index#enable-the-iisintegration-components) uygulamayı barındırılan zaman [işlem dışı](xref:fundamentals/servers/index#out-of-process-hosting-model) IIS ve ASP.NET Core modülü. İletilen üstbilgileri ara yazılım, ASP.NET Core modülü iletilen üst bilgilerine güven sorunları nedeniyle ilk ara yazılım ardışık düzenini belirli kısıtlı bir yapılandırma ile olarak çalıştırmak için etkinleştirilir (örneğin, [IP yanıltma](https://www.iplocation.net/ip-spoofing)). Ara yazılım iletecek şekilde yapılandırılmış `X-Forwarded-For` ve `X-Forwarded-Proto` üst bilgileri ve tek localhost proxy ile sınırlıdır. Ek yapılandırma gerekli olup olmadığını, [iletilen üstbilgileri ara yazılım seçenekleri](#forwarded-headers-middleware-options).
 
 ## <a name="other-proxy-server-and-load-balancer-scenarios"></a>Diğer bir ara sunucu ve yük dengeleyici senaryoları
 
-IIS tümleştirme ara yazılımı kullanarak dışında iletilen üstbilgileri ara yazılımı varsayılan olarak etkin değil. İletilen üstbilgileri ara yazılım etkin, iletilen işlemi üst bilgilerine bir uygulama için <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions.UseForwardedHeaders*>. Hayır ise, ara yazılım etkinleştirdikten sonra <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions> ara yazılımı varsayılan belirtilen [ForwardedHeadersOptions.ForwardedHeaders](xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedHeaders) olan [ForwardedHeaders.None](xref:Microsoft.AspNetCore.HttpOverrides.ForwardedHeaders).
+Kullanarak dışında [IIS tümleştirme](xref:host-and-deploy/iis/index#enable-the-iisintegration-components) barındırırken [işlem dışı](xref:fundamentals/servers/index#out-of-process-hosting-model), iletilen üstbilgileri ara yazılım, varsayılan olarak etkin değildir. İletilen üstbilgileri ara yazılım etkin, iletilen işlemi üst bilgilerine bir uygulama için <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions.UseForwardedHeaders*>. Hayır ise, ara yazılım etkinleştirdikten sonra <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions> ara yazılımı varsayılan belirtilen [ForwardedHeadersOptions.ForwardedHeaders](xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedHeaders) olan [ForwardedHeaders.None](xref:Microsoft.AspNetCore.HttpOverrides.ForwardedHeaders).
 
 Ara yazılımla yapılandırma <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions> iletecek şekilde `X-Forwarded-For` ve `X-Forwarded-Proto` üst bilgilerinde `Startup.ConfigureServices`. Çağırma <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersExtensions.UseForwardedHeaders*> yönteminde `Startup.Configure` diğer ara yazılımdan çağırmadan önce:
 
