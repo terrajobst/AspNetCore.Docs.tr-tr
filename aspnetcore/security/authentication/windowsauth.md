@@ -1,18 +1,18 @@
 ---
 title: ASP.NET Core Windows kimlik doğrulamasını yapılandırma
 author: scottaddie
-description: IIS Express, IIS ve HTTP.sys kullanarak ASP.NET Core Windows kimlik doğrulaması yapılandırmayı öğrenin.
+description: Windows kimlik doğrulaması için IIS ve HTTP.sys içinde ASP.NET Core yapılandırmayı öğrenin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 04/03/2019
+ms.date: 05/29/2019
 uid: security/authentication/windowsauth
-ms.openlocfilehash: 46c9e054b6e9228a709f93c6b73772708f6c6eb0
-ms.sourcegitcommit: b8ed594ab9f47fa32510574f3e1b210cff000967
+ms.openlocfilehash: 9dfff5dcba409ddca7e05c771b864ab121e0ea85
+ms.sourcegitcommit: 06c4f2910dd54ded25e1b8750e09c66578748bc9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66251220"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66395923"
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>ASP.NET Core Windows kimlik doğrulamasını yapılandırma
 
@@ -22,15 +22,15 @@ Tarafından [Scott Addie](https://twitter.com/Scott_Addie) ve [Luke Latham](http
 
 Windows kimlik doğrulaması, ASP.NET Core uygulamaları, kullanıcıların kimliklerini doğrulamak için işletim sistemi kullanır. Sunucunuz, kullanıcıları tanımlamak için Active Directory etki alanı kimlikleri veya Windows hesaplarını kullanarak bir şirket ağında çalıştığında, Windows kimlik doğrulaması kullanabilirsiniz. Windows kimlik doğrulaması nerede kullanıcılar, istemci uygulamaları ve web sunucuları aynı Windows etki alanına ait intranet ortamları için idealdir.
 
-## <a name="enable-windows-authentication-in-an-aspnet-core-app"></a>ASP.NET Core uygulaması Windows kimlik doğrulamasını etkinleştirin
+## <a name="launch-settings-debugger"></a>Başlatma ayarları (hata ayıklayıcı)
 
-**Web uygulaması** şablonu Visual Studio veya .NET Core CLI aracılığıyla kullanılabilir, Windows kimlik doğrulamayı destekleyecek şekilde yapılandırılabilir.
+Başlatma ayarları yapılandırması yalnızca etkiler *Properties/launchSettings.json* dosyası ve Windows kimlik doğrulaması için IIS veya HTTP.sys sunucu yapılandırmaz. Yapılandırma sunucusunun içinde açıklanan [etkinleştirmek için IIS veya HTTP.sys kimlik doğrulama hizmetleri](#authentication-services-for-iis-or-httpsys) bölümü.
+
+**Web uygulaması** şablonu Visual Studio veya .NET Core CLI aracılığıyla kullanılabilir, Windows kimlik doğrulamasını güncelleştiren destekleyecek şekilde yapılandırılabilir *Properties/launchSettings.json* dosyası otomatik olarak.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-### <a name="use-the-windows-authentication-app-template-for-a-new-project"></a>Yeni bir proje için Windows kimlik doğrulama uygulaması şablonunu kullanma
-
-Visual Studio'da:
+**Yeni Proje**
 
 1. Yeni bir proje oluşturun.
 1. Seçin **ASP.NET Core Web uygulaması**. **İleri**’yi seçin.
@@ -42,22 +42,23 @@ Visual Studio'da:
 
 Uygulamayı çalıştırın. Kullanıcı işlenen uygulamanın kullanıcı arabiriminde görüntülenir.
 
-### <a name="manual-configuration-for-an-existing-project"></a>Var olan bir proje için el ile yapılandırma
+**Mevcut proje**
 
-Projenin özelliklerini Windows kimlik doğrulamasını etkinleştirmenizi ve anonim kimlik doğrulamasını devre dışı izin ver:
+Projenin özelliklerini Windows kimlik doğrulamasını etkinleştirmek ve anonim kimlik doğrulamasını devre dışı bırakın:
 
-1. Visual Studio'nun'nde projeye sağ **Çözüm Gezgini** seçip **özellikleri**.
+1. Projeye sağ **Çözüm Gezgini** seçip **özellikleri**.
 1. Seçin **hata ayıklama** sekmesi.
 1. Onay kutusunu temizleyin **anonim kimlik doğrulamasını etkinleştir**.
 1. Onay kutusunu seçin **Windows kimlik doğrulamasını etkinleştir**.
+1. Kaydet ve özellik sayfasını kapatın.
 
 Alternatif olarak, özellikler, yapılandırılabilir `iisSettings` düğümünün *launchSettings.json* dosyası:
 
 [!code-json[](windowsauth/sample_snapshot/launchSettings.json?highlight=2-3)]
 
-# <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
+# <a name="visual-studio-code--net-core-clitabvisual-studio-codenetcore-cli"></a>[Visual Studio Code / .NET Core CLI](#tab/visual-studio-code+netcore-cli)
 
-Kullanım **Windows kimlik doğrulaması** uygulaması şablonu.
+**Yeni Proje**
 
 Yürütme [yeni dotnet](/dotnet/core/tools/dotnet-new) komutunu `webapp` bağımsız değişken (ASP.NET Core Web uygulaması) ve `--auth Windows` geçin:
 
@@ -65,18 +66,32 @@ Yürütme [yeni dotnet](/dotnet/core/tools/dotnet-new) komutunu `webapp` bağım
 dotnet new webapp --auth Windows
 ```
 
+**Mevcut proje**
+
+Güncelleştirme `iisSettings` düğümünün *launchSettings.json* dosyası:
+
+[!code-json[](windowsauth/sample_snapshot/launchSettings.json?highlight=2-3)]
+
 ---
 
 Mevcut bir projeyi değiştirirken, proje dosyası için bir paket başvurusu içerdiğini onaylamak [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app) **veya** [ Microsoft.AspNetCore.Authentication](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication/) NuGet paketi.
 
-## <a name="enable-windows-authentication-with-iis"></a>IIS ile Windows kimlik doğrulamasını etkinleştirme
+## <a name="authentication-services-for-iis-or-httpsys"></a>IIS veya HTTP.sys için kimlik doğrulama hizmetleri
+
+Barındırma senaryoya bağlı olarak sunulan yönergeleri **ya da** [IIS](#iis) bölümü **veya** [HTTP.sys](#httpsys) bölümü.
+
+### <a name="iis"></a>IIS
+
+Kimlik doğrulama hizmetleri çağırarak ekleme <xref:Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions.AddAuthentication*> (<xref:Microsoft.AspNetCore.Server.IISIntegration?displayProperty=fullName> ad alanı) içinde `Startup.ConfigureServices`:
+
+```csharp
+services.AddAuthentication(IISDefaults.AuthenticationScheme);
+```
 
 IIS kullanan [ASP.NET Core Modülü](xref:host-and-deploy/aspnet-core-module) konak ASP.NET Core uygulamaları için. Windows kimlik doğrulaması için IIS yapılandırılır *web.config* dosya. Aşağıdaki bölümlerde show nasıl yapılır:
 
 * Yerel bir sağlamak *web.config* dosya uygulama dağıtıldığında, sunucu üzerinde Windows kimlik doğrulamasını etkinleştirir.
 * IIS Yöneticisi'ni yapılandırmak için kullanın *web.config* dosyası sunucuda zaten dağıtılmış bir ASP.NET Core uygulaması.
-
-### <a name="iis-configuration"></a>IIS yapılandırması
 
 Zaten yapmadıysanız, IIS için ASP.NET Core uygulamaları barındırın etkinleştirin. Daha fazla bilgi için bkz. <xref:host-and-deploy/iis/index>.
 
@@ -86,65 +101,55 @@ Windows kimlik doğrulaması için IIS rolü hizmetini etkinleştirin. Daha fazl
 
 ASP.NET Core modülü varsayılan olarak, varsayılan olarak Windows kimlik doğrulaması belirteci uygulamaya iletmek için yapılandırılır. Daha fazla bilgi için [ASP.NET Core Module yapılandırma başvurusu: AspNetCore öğenin öznitelikleri](xref:host-and-deploy/aspnet-core-module#attributes-of-the-aspnetcore-element).
 
-### <a name="create-a-new-iis-site"></a>Yeni bir IIS sitesi oluşturun
-
-Bir ad ve klasör belirtin ve yeni bir uygulama havuzu oluşturmak için izin verin.
-
-### <a name="enable-windows-authentication-for-the-app-in-iis"></a>IIS uygulama için Windows kimlik doğrulamasını etkinleştirme
-
 Kullanım **ya da** aşağıdaki yaklaşımlardan biri:
 
-* [Uygulamayı yayımlamadan önce geliştirme tarafı Yapılandırması](#development-side-configuration-with-a-local-webconfig-file) (*önerilen*)
-* [Uygulamayı yayımladıktan sonra sunucu tarafı yapılandırması](#server-side-configuration-with-the-iis-manager)
+* **Projeyi dağıtma ve yayımlama önce** aşağıdaki *web.config* proje kök dosya:
 
-#### <a name="development-side-configuration-with-a-local-webconfig-file"></a>Yerel web.config dosyasıyla geliştirme tarafında yapılandırma
+  [!code-xml[](windowsauth/sample_snapshot/web_2.config)]
 
-Aşağıdaki adımları gerçekleştirin **önce** , [projenizi dağıtma ve yayımlama](#publish-and-deploy-your-project-to-the-iis-site-folder).
+  Proje .NET Core SDK'sı tarafından yayımlanmıştır ne zaman (olmadan `<IsTransformWebConfigDisabled>` özelliğini `true` proje dosyasında), yayımlanan *web.config* dosyasını içeren `<location><system.webServer><security><authentication>` bölümü. Daha fazla bilgi için `<IsTransformWebConfigDisabled>` özelliği bkz <xref:host-and-deploy/iis/index#webconfig-file>.
 
-Aşağıdaki *web.config* proje kök dosya:
+* **Sonra projeyi dağıtma ve yayımlama** sunucu tarafı yapılandırması IIS Yöneticisi ile gerçekleştirin:
 
-[!code-xml[](windowsauth/sample_snapshot/web_2.config)]
+  1. IIS Yöneticisi'nde IIS sitesi altında seçin **siteleri** düğümünün **bağlantıları** kenar çubuğu.
+  1. Çift **kimlik doğrulaması** içinde **IIS** alan.
+  1. Seçin **anonim kimlik doğrulaması**. Seçin **devre dışı** içinde **eylemleri** kenar çubuğu.
+  1. Seçin **Windows kimlik doğrulaması**. Seçin **etkinleştirme** içinde **eylemleri** kenar çubuğu.
 
-Proje SDK'sı tarafından yayımlanmıştır ne zaman (olmadan `<IsTransformWebConfigDisabled>` özelliğini `true` proje dosyasında), yayımlanan *web.config* dosyasını içeren `<location><system.webServer><security><authentication>` bölümü. Daha fazla bilgi için `<IsTransformWebConfigDisabled>` özelliği bkz <xref:host-and-deploy/iis/index#webconfig-file>.
+  Bu eylemler gerçekleştirildikçe, IIS Yöneticisi'ni uygulamanın değiştirir *web.config* dosya. A `<system.webServer><security><authentication>` düğümü için güncelleştirilmiş ayarlarla eklenir `anonymousAuthentication` ve `windowsAuthentication`:
 
-#### <a name="server-side-configuration-with-the-iis-manager"></a>IIS Yöneticisi ile sunucu tarafı yapılandırması
+  [!code-xml[](windowsauth/sample_snapshot/web_1.config?highlight=4-5)]
 
-Aşağıdaki adımları gerçekleştirin **sonra** , [projenizi dağıtma ve yayımlama](#publish-and-deploy-your-project-to-the-iis-site-folder).
+  `<system.webServer>` Bölümüne eklenen *web.config* dosyasıdır IIS Yöneticisi tarafından uygulamanın dışında `<location>` uygulama yayımlandığında, .NET Core SDK'sı tarafından eklenen bölümü. Bölümün dışında eklendiğinden `<location>` düğümünü ayarları tarafından devralınır [alt uygulamaları](xref:host-and-deploy/iis/index#sub-applications) geçerli uygulama. Devralma önlemek için ek taşıma `<security>` içine bölümünde `<location><system.webServer>` .NET Core SDK'sını sağlanan bölüm.
 
-1. IIS Yöneticisi'nde IIS sitesi altında seçin **siteleri** düğümünün **bağlantıları** kenar çubuğu.
-1. Çift **kimlik doğrulaması** içinde **IIS** alan.
-1. Seçin **anonim kimlik doğrulaması**. Seçin **devre dışı** içinde **eylemleri** kenar çubuğu.
-1. Seçin **Windows kimlik doğrulaması**. Seçin **etkinleştirme** içinde **eylemleri** kenar çubuğu.
+  IIS Yöneticisi, IIS yapılandırması eklemek için kullanıldığında, uygulamanın yalnızca etkiler *web.config* dosya sunucusunda. Uygulamanın bir sonraki dağıtım sunucudaki ayarları varsa üzerine yazabilir sunucunun kopyasını *web.config* projenin tarafından değiştirilir *web.config* dosya. Kullanım **ya da** ayarlarını yönetmek için aşağıdaki yaklaşımlardan biri:
 
-Bu eylemler gerçekleştirildikçe, IIS Yöneticisi'ni uygulamanın değiştirir *web.config* dosya. A `<system.webServer><security><authentication>` düğümü için güncelleştirilmiş ayarlarla eklenir `anonymousAuthentication` ve `windowsAuthentication`:
+  * Ayarlar sıfırlamak için IIS Yöneticisi'ni kullanın *web.config* dağıtımı dosyanın üzerine yazılır sonra dosya.
+  * Ekleme bir *web.config dosyasını* uygulamada yerel olarak ayarlar.
 
-[!code-xml[](windowsauth/sample_snapshot/web_1.config?highlight=4-5)]
+### <a name="httpsys"></a>HTTP.sys
 
-`<system.webServer>` Bölümüne eklenen *web.config* dosyasıdır IIS Yöneticisi tarafından uygulamanın dışında `<location>` uygulama yayımlandığında, .NET Core SDK'sı tarafından eklenen bölümü. Bölümün dışında eklendiğinden `<location>` düğümünü ayarları tarafından devralınır [alt uygulamaları](xref:host-and-deploy/iis/index#sub-applications) geçerli uygulama. Devralma önlemek için ek taşıma `<security>` içine bölümünde `<location><system.webServer>` SDK'da bölümü.
+Ancak [Kestrel](xref:fundamentals/servers/kestrel) Windows kimlik doğrulamasını desteklemiyor kullanabileceğiniz [HTTP.sys](xref:fundamentals/servers/httpsys) Windows üzerinde şirket içinde barındırılan senaryoları desteklemek için.
 
-IIS Yöneticisi, IIS yapılandırması eklemek için kullanıldığında, uygulamanın yalnızca etkiler *web.config* dosya sunucusunda. Uygulamanın bir sonraki dağıtım sunucudaki ayarları varsa üzerine yazabilir sunucunun kopyasını *web.config* projenin tarafından değiştirilir *web.config* dosya. Kullanım **ya da** ayarlarını yönetmek için aşağıdaki yaklaşımlardan biri:
+Kimlik doğrulama hizmetleri çağırarak ekleme <xref:Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions.AddAuthentication*> (<xref:Microsoft.AspNetCore.Server.HttpSys?displayProperty=fullName> ad alanı) içinde `Startup.ConfigureServices`:
 
-* Ayarlar sıfırlamak için IIS Yöneticisi'ni kullanın *web.config* dağıtımı dosyanın üzerine yazılır sonra dosya.
-* Ekleme bir *web.config dosyasını* uygulamada yerel olarak ayarlar. Daha fazla bilgi için [geliştirme tarafı Yapılandırması](#development-side-configuration-with-a-local-webconfig-file) bölümü.
+```csharp
+services.AddAuthentication(HttpSysDefaults.AuthenticationScheme);
+```
 
-### <a name="publish-and-deploy-your-project-to-the-iis-site-folder"></a>Yayımlama ve IIS site klasöre projenizi dağıtın
+Uygulamanın web ana HTTP.sys Windows kimlik doğrulaması için yapılandırma (*Program.cs*). <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderHttpSysExtensions.UseHttpSys*> içinde <xref:Microsoft.AspNetCore.Server.HttpSys?displayProperty=fullName> ad alanı.
 
-Visual Studio veya .NET Core CLI'yı kullanarak, yayımlayın ve hedef klasöre uygulamayı dağıtın.
+::: moniker range=">= aspnetcore-3.0"
 
-IIS ile barındırma ile ilgili daha fazla bilgi için yayımlama ve dağıtım, aşağıdaki konulara bakın:
+[!code-csharp[](windowsauth/sample_snapshot/Program_GenericHost.cs?highlight=13-19)]
 
-* [dotnet publish](/dotnet/core/tools/dotnet-publish)
-* <xref:host-and-deploy/iis/index>
-* <xref:host-and-deploy/aspnet-core-module>
-* <xref:host-and-deploy/visual-studio-publish-profiles>
+::: moniker-end
 
-Windows kimlik doğrulaması çalıştığını doğrulamak için uygulamayı başlatın.
+::: moniker range="< aspnetcore-3.0"
 
-## <a name="enable-windows-authentication-with-httpsys"></a>HTTP.sys ile Windows kimlik doğrulamasını etkinleştirme
+[!code-csharp[](windowsauth/sample_snapshot/Program_WebHost.cs?highlight=9-15)]
 
-Windows kimlik doğrulaması Kestrel desteklemiyor olsa da, kullanabileceğiniz [HTTP.sys](xref:fundamentals/servers/httpsys) Windows üzerinde şirket içinde barındırılan senaryoları desteklemek için. Aşağıdaki örnek, HTTP.sys ile Windows kimlik doğrulaması kullanmak için uygulamanın web ana bilgisayarı yapılandırır:
-
-[!code-csharp[](windowsauth/sample_snapshot/Program.cs?highlight=9-14)]
+::: moniker-end
 
 > [!NOTE]
 > Çekirdek modu kimlik doğrulaması Kerberos kimlik doğrulama protokolü HTTP.sys temsil eder. Kullanıcı modu kimlik doğrulaması, Kerberos ve HTTP.sys ile desteklenmez. Makine hesabı Kerberos belirteci/Active Directory'den elde edilen anahtar şifresini çözmek için kullanılan ve kullanıcının kimliğini doğrulamak için istemcinin sunucuya iletilir. Hizmet asıl adı (SPN) konak için değil uygulamanın kullanıcı kaydedin.
@@ -152,51 +157,36 @@ Windows kimlik doğrulaması Kestrel desteklemiyor olsa da, kullanabileceğiniz 
 > [!NOTE]
 > HTTP.sys sürüm 1709 veya üzeri Nano Sunucu'da desteklenmemektedir. Windows kimlik doğrulaması ve HTTP.sys Nano Server ile kullanmak için bir [(microsoft/windowsservercore) Server Core kapsayıcı](https://hub.docker.com/r/microsoft/windowsservercore/). Sunucu Çekirdeği hakkında daha fazla bilgi için bkz. [Windows Server'da Sunucu Çekirdeği yükleme seçeneği nedir?](/windows-server/administration/server-core/what-is-server-core).
 
-## <a name="work-with-windows-authentication"></a>Windows kimlik doğrulaması ile çalışma
+## <a name="authorize-users"></a>Kullanıcıları yetkilendirme
 
 Anonim erişim yapılandırma durumunu yolla belirler `[Authorize]` ve `[AllowAnonymous]` öznitelikleri, uygulamada kullanılır. Aşağıdaki iki bölümü anonim erişime izin verilmeyen ve izin verilen yapılandırma durumunu nasıl ele alınacağını açıklar.
 
 ### <a name="disallow-anonymous-access"></a>Anonim erişime izin verme
 
-Windows kimlik doğrulaması etkinleştirildiğinde ve adsız erişim devre dışıysa, `[Authorize]` ve `[AllowAnonymous]` özniteliklerinin etkisi yoktur. IIS sitesi (veya HTTP.sys), anonim erişime izin vermeyecek şekilde yapılandırıldığından, istek, uygulamanızı hiçbir zaman ulaşır. Bu nedenle, `[AllowAnonymous]` özniteliği geçerli değil.
+Windows kimlik doğrulaması etkinleştirildiğinde ve adsız erişim devre dışıysa, `[Authorize]` ve `[AllowAnonymous]` özniteliklerinin etkisi yoktur. İstek, hiçbir zaman bir IIS sitesi anonim erişime izin vermeyecek şekilde yapılandırılmışsa, uygulama ulaşır. Bu nedenle, `[AllowAnonymous]` özniteliği geçerli değil.
 
 ### <a name="allow-anonymous-access"></a>Anonim erişime izin ver
 
-Windows kimlik doğrulaması hem anonim erişim etkin olduğunda, kullanmak `[Authorize]` ve `[AllowAnonymous]` öznitelikleri. `[Authorize]` Özniteliği gerçekten Windows kimlik doğrulaması gerektiren uygulama parçalarını güvenli olanak tanır. `[AllowAnonymous]` Öznitelik geçersiz kılmalarını `[Authorize]` anonim erişime izin veren uygulamaların içindeki kullanım özniteliği. Bkz: [basit yetkilendirme](xref:security/authorization/simple) özniteliği kullanım ayrıntıları için.
-
-ASP.NET core'da 2.x `[Authorize]` öznitelik ek yapılandırma gerektirir *Startup.cs* anonim istekler için Windows kimlik doğrulaması meydan okuyun. Önerilen yapılandırma kullanılan web sunucusu göre biraz farklılık gösterir.
+Windows kimlik doğrulaması hem anonim erişim etkin olduğunda, kullanmak `[Authorize]` ve `[AllowAnonymous]` öznitelikleri. `[Authorize]` Özniteliği güvenli kimlik doğrulaması gerektiren uygulama uç olanak tanır. `[AllowAnonymous]` Öznitelik geçersiz kılmalarını `[Authorize]` anonim erişime izin veren uygulamalarında öznitelik. Öznitelik kullanım ayrıntıları için bkz. <xref:security/authorization/simple>.
 
 > [!NOTE]
 > Varsayılan olarak, yetersiz bir sayfaya erişmek için yetkilendirme kullanıcılar ile boş bir HTTP 403 yanıtı sunulur. [StatusCodePages ara yazılım](xref:fundamentals/error-handling#usestatuscodepages) kullanıcılar daha iyi bir "Erişim engellendi" deneyimi sunmak için yapılandırılabilir.
 
-#### <a name="iis"></a>IIS
+## <a name="impersonation"></a>Kimliğe bürünme
 
-IIS kullanarak aşağıdakileri ekleyin `ConfigureServices` yöntemi:
-
-```csharp
-// IISDefaults requires the following import:
-// using Microsoft.AspNetCore.Server.IISIntegration;
-services.AddAuthentication(IISDefaults.AuthenticationScheme);
-```
-
-#### <a name="httpsys"></a>HTTP.sys
-
-HTTP.sys kullanıyorsanız, ekleyin `ConfigureServices` yöntemi:
-
-```csharp
-// HttpSysDefaults requires the following import:
-// using Microsoft.AspNetCore.Server.HttpSys;
-services.AddAuthentication(HttpSysDefaults.AuthenticationScheme);
-```
-
-### <a name="impersonation"></a>Kimliğe bürünme
-
-ASP.NET Core, kimliğe bürünme uygulamaz. Uygulamalar, uygulama havuzu veya işlem kimliğini kullanarak, tüm istekler için uygulamanın kimlik ile çalıştırın. Açıkça bir kullanıcı adına eylem gerçekleştirmek ihtiyacınız varsa [WindowsIdentity.RunImpersonated](xref:System.Security.Principal.WindowsIdentity.RunImpersonated*) içinde bir [terminal satır içi ara yazılım](xref:fundamentals/middleware/index#create-a-middleware-pipeline-with-iapplicationbuilder) içinde `Startup.Configure`. Bu bağlamda tek bir eylem çalıştırın ve ardından bağlam kapatın.
+ASP.NET Core, kimliğe bürünme uygulamaz. Uygulamalar, uygulama havuzu veya işlem kimliğini kullanarak, tüm istekler için uygulamanın kimlik ile çalıştırın. Uygulamanın kullanıcı adına bir eylem gerçekleştirmeniz gereken kullanırsanız [WindowsIdentity.RunImpersonated](xref:System.Security.Principal.WindowsIdentity.RunImpersonated*) içinde bir [terminal satır içi ara yazılım](xref:fundamentals/middleware/index#create-a-middleware-pipeline-with-iapplicationbuilder) içinde `Startup.Configure`. Bu bağlamda tek bir eylem çalıştırın ve ardından bağlam kapatın.
 
 [!code-csharp[](windowsauth/sample_snapshot/Startup.cs?highlight=10-19)]
 
 `RunImpersonated` zaman uyumsuz işlemleri desteklemeyen ve karmaşık senaryolar için kullanılmamalıdır. Örneğin, tüm istekleri veya bir ara yazılım zincirleri sarmalama desteklenen önerilen veya değil.
 
-### <a name="claims-transformations"></a>Talep dönüştürmeleri
+## <a name="claims-transformations"></a>Talep dönüştürmeleri
 
 IIS işlem içi moduyla barındırırken <xref:Microsoft.AspNetCore.Authentication.AuthenticationService.AuthenticateAsync*> dahili olarak bir kullanıcı başlatmak için çağırılır değil. Bu nedenle, bir <xref:Microsoft.AspNetCore.Authentication.IClaimsTransformation> her kimlik doğrulaması varsayılan olarak etkinleştirilmez sonra talepleri dönüştürmek için kullanılan uygulama. Daha fazla bilgi ve barındırma işlemi içinde talep dönüştürmeleri etkinleştiren bir kod örneği için bkz: <xref:host-and-deploy/aspnet-core-module#in-process-hosting-model>.
+
+## <a name="additional-resources"></a>Ek kaynaklar
+
+* [dotnet publish](/dotnet/core/tools/dotnet-publish)
+* <xref:host-and-deploy/iis/index>
+* <xref:host-and-deploy/aspnet-core-module>
+* <xref:host-and-deploy/visual-studio-publish-profiles>

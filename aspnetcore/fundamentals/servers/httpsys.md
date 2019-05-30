@@ -5,14 +5,14 @@ description: HTTP.sys, ASP.NET Core, Windows için bir web sunucusu hakkında bi
 monikerRange: '>= aspnetcore-2.0'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 02/21/2019
+ms.date: 05/27/2019
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: 7ba27b404cd10752ff9e304cd0a272eff7fa627a
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: d91a0f7b83fb073147978319edfbed0bda9a1c44
+ms.sourcegitcommit: 06c4f2910dd54ded25e1b8750e09c66578748bc9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087051"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66395949"
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>ASP.NET core'da HTTP.sys web sunucusu uygulaması
 
@@ -271,7 +271,7 @@ Internet'ten veya kurumsal ağ istekleri etkileşim HTTP.sys tarafından barınd
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [HTTP.sys ile Windows kimlik doğrulamasını etkinleştirme](xref:security/authentication/windowsauth#enable-windows-authentication-with-httpsys)
+* [HTTP.sys ile Windows kimlik doğrulamasını etkinleştirme](xref:security/authentication/windowsauth#httpsys)
 * [HTTP Sunucusu API](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx)
 * [ASP.NET/HttpSysServer GitHub deposu (kaynak kodu)](https://github.com/aspnet/HttpSysServer/)
 * [Ana bilgisayar](xref:fundamentals/index#host)

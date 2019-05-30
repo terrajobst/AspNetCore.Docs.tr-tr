@@ -5,14 +5,14 @@ description: Razor dosyaları derleme içinde ASP.NET Core uygulaması nasıl ge
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/02/2019
+ms.date: 05/30/2019
 uid: mvc/views/view-compilation
-ms.openlocfilehash: df25c9ad03ff52c43aac1a761462772547b3b954
-ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
+ms.openlocfilehash: b78831dd95a721e35d4bf5b44cdd8823472f6aa2
+ms.sourcegitcommit: 06c4f2910dd54ded25e1b8750e09c66578748bc9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610135"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66395885"
 ---
 # <a name="razor-file-compilation-in-aspnet-core"></a>ASP.NET Core Razor dosyası derleme
 
@@ -45,7 +45,7 @@ Razor dosyaları her iki yapı derlenir ve saat kullanarak yayımlama [Razor SDK
 ## <a name="razor-compilation"></a>Razor derleme
 
 ::: moniker range=">= aspnetcore-3.0"
-Razor dosyaları derleme ve yayımlama-zamanı derlemesini Razor SDK'sı tarafından varsayılan olarak etkindir. Etkinleştirildiğinde, çalışma zamanı derlemesi tamamlayıcı editied olmaları durumunda güncelleştirilecek Razor dosyaları izin vererek zamanında derleme oluşturacaksınız.
+Razor dosyaları derleme ve yayımlama-zamanı derlemesini Razor SDK'sı tarafından varsayılan olarak etkindir. Etkin olduğunda, derleme zamanı derlemesi, bunlar düzenlediyseniz güncelleştirilecek Razor dosyaları izin vererek çalışma zamanı derlemesi tamamlar.
 
 ::: moniker-end
 

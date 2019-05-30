@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/17/2019
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: 504e5d35f11531a5752b3c8e23d96db3cbe40d1a
-ms.sourcegitcommit: b8ed594ab9f47fa32510574f3e1b210cff000967
+ms.openlocfilehash: 11906f34f4aa358fda126772e2147dc805c28e81
+ms.sourcegitcommit: 06c4f2910dd54ded25e1b8750e09c66578748bc9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66251441"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66395937"
 ---
 # <a name="aspnet-core-module"></a>ASP.NET Core Modülü
 
@@ -483,6 +483,26 @@ Düzeyleri (en az sırası için en ayrıntılı):
 ::: moniker-end
 
 Bkz: [web.config yapılandırmasıyla](#configuration-with-webconfig) ilişkin bir örnek `aspNetCore` öğesinde *web.config* dosya.
+
+::: moniker range=">= aspnetcore-3.0"
+
+## <a name="modify-the-stack-size"></a>Yığın boyutunu değiştirme
+
+Yönetilen yığın boyutu kullanarak yapılandırma `stackSize` bayt olarak ayarlama. Varsayılan boyutu `1048576` bayt (1 MB).
+
+```xml
+<aspNetCore processPath="dotnet"
+    arguments=".\MyApp.dll"
+    stdoutLogEnabled="false"
+    stdoutLogFile="\\?\%home%\LogFiles\stdout"
+    hostingModel="InProcess">
+  <handlerSettings>
+    <handlerSetting name="stackSize" value="2097152" />
+  </handlerSettings>
+</aspNetCore>
+```
+
+::: moniker-end
 
 ## <a name="proxy-configuration-uses-http-protocol-and-a-pairing-token"></a>HTTP protokolü ve eşleştirme simgesi Ara sunucu yapılandırmasını kullanır.
 
