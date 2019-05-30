@@ -2,7 +2,7 @@
 
 ### <a name="add-a-database-context-class"></a>Veritabanı bağlamı sınıfının Ekle
 
-Aşağıdaki `RazorPagesMovieContext` sınıfının *modelleri* klasörü:
+Aşağıdaki `RazorPagesMovieContext` sınıfının *veri* klasörü:
 
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Data/RazorPagesMovieContext.cs)]
 

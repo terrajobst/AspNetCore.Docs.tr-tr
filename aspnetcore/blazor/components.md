@@ -5,14 +5,14 @@ description: Oluşturma ve bileşen ömürleri yönetme verilere bağlayın ve o
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/21/2019
+ms.date: 05/26/2019
 uid: blazor/components
-ms.openlocfilehash: 57f8debb4e13967ceadab96d448e5825b2ef4669
-ms.sourcegitcommit: e1623d8279b27ff83d8ad67a1e7ef439259decdf
+ms.openlocfilehash: c048568952c4757bcd5ac3ed0f7e5616409c88b2
+ms.sourcegitcommit: 4d05e30567279072f1b070618afe58ae1bcefd5a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66223132"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66376332"
 ---
 # <a name="create-and-use-razor-components"></a>Oluşturma ve Razor bileşenleri kullanma
 
@@ -1013,6 +1013,6 @@ Bu basit bir örnektir. Karmaşık ve iç içe yapılar ve özellikle döngüler
 
 * Sıra numaraları dinamik olarak üretilen uygulama performans düşebilir.
 * Framework'te derleme zamanında yakalanır sürece gerekli bilgileri mevcut olmadığından kendi sıra numaraları çalışma zamanında otomatik olarak oluşturulamıyor.
-* El ile uygulanan uzun bloklarını yazmayın `RenderTreeBuilder` mantığı. Tercih ettiğiniz `.razor` dosyaları ve sıra numaraları ile dağıtılacak derleyici sağlar. El ile önlemek zamanınız yoksa `RenderTreeBuilder` mantığı da uzun kod blokları içinde sarmalanmış küçük parçalara bölmek `OpenRegion` / `CloseRegion` çağırır. Sıfırdan yeniden başlatabilir, kendi ayrı seri numaraları alanının her bölgede bulunduğundan (veya herhangi bir rastgele sayı) her bir bölge içinde.
+* El ile uygulanan uzun bloklarını yazmayın `RenderTreeBuilder` mantığı. Tercih ettiğiniz `.razor` dosyaları ve sıra numaraları ile dağıtılacak derleyici sağlar.
 * Sıra numaraları sabittir, fark algoritması yalnızca bir sıra numaraları değeri artırmak gerektirir. İlk değer ve boşluklar önemli değildir. Yasal bir seçenek olan sıra numarası kod satır numarasını kullanın veya sıfırdan başlayın ve olanlara ya da yüz artırmak için (veya herhangi bir tercih edilen aralığı). 
 * Ağaç ayırırken diğer UI çerçeveleri bunları kullanmayın Blazor seri numaraları kullanır. Sıra numaraları kullanılır ve Blazor sıra numaraları ile otomatik olarak yazma geliştiriciler için ilgilenen bir derleme adımı avantajlarından fark alma işlemini çok daha hızlı `.razor` dosyaları.

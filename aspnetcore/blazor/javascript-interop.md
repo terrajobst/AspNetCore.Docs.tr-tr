@@ -5,14 +5,14 @@ description: .NET ve JavaScript işlevleri çağırmak nasıl öğrenin Blazor u
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/21/2019
+ms.date: 05/29/2019
 uid: blazor/javascript-interop
-ms.openlocfilehash: bc9aef78311355cb388a1f573e89a84a5febcbfc
-ms.sourcegitcommit: e1623d8279b27ff83d8ad67a1e7ef439259decdf
+ms.openlocfilehash: ae95cc05d6773813aefbbf4c1f5884dcc09c0a98
+ms.sourcegitcommit: 4d05e30567279072f1b070618afe58ae1bcefd5a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66223127"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66376326"
 ---
 # <a name="blazor-javascript-interop"></a>Blazor JavaScript birlikte çalışma
 
@@ -106,6 +106,10 @@ JavaScript ile .NET yöntemleri birlikte çalışır *exampleJsInterop.js* çağ
 1. Zaman `TriggerJsPrompt` bileşenin seçerek yürütülür **tetikleyici JavaScript istemi** button, JavaScript `showPrompt` sağlanan işlev *wwwroot/exampleJsInterop.js* dosyasıdır çağrılır.
 1. `showPrompt` İşlevi olan HTML olarak kodlanan ve döndürülen bileşenine (kullanıcı adı), kullanıcı girişi kabul eder. Bileşen kullanıcı adının bir yerel değişkende depolar `name`.
 1. Dize depolanan `name` bir JavaScript işleve geçirilir, bir karşılama iletisi dahil `displayWelcome`, bir başlık etiketine Hoş Geldiniz iletisi oluşturur.
+
+## <a name="call-a-void-javascript-function"></a>Void bir JavaScript işlevi çağırma
+
+JavaScript işlevleri döndüren [(0) void / 0 void](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Operators/void) veya [tanımlanmamış](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined) ile adlı `IJSRuntime.InvokeAsync<object>`, döndüren `null`.
 
 ## <a name="detect-when-a-blazor-app-is-prerendering"></a>Blazor uygulama prerendering Algıla
  

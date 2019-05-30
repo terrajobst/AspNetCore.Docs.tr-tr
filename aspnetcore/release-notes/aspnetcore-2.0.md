@@ -3,14 +3,15 @@ title: ASP.NET Core 2.0 yenilikleri
 author: rick-anderson
 description: ASP.NET Core 2.0 yenilikleri hakkında bilgi edinin.
 ms.author: riande
-ms.date: 07/10/2017
+ms.custom: mvc
+ms.date: 05/28/2019
 uid: aspnetcore-2.0
-ms.openlocfilehash: 07e490fd844f0f9044afce37651ef680ed0c894d
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 5cf7b9aa7ccf86f1a89e6145cfc185c5ef803e66
+ms.sourcegitcommit: 4d05e30567279072f1b070618afe58ae1bcefd5a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64898355"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66376408"
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>ASP.NET Core 2.0 yenilikleri
 
@@ -75,7 +76,7 @@ Kimlik doğrulaması değişiklikleri 2.0 hakkında daha fazla bilgi için aşa�
 
 ## <a name="spa-templates"></a>SPA şablonları
 
-Tek sayfa uygulama (SPA) proje şablonları Angular, Aurelia Knockout.js React.js ve Redux ile React.js için kullanılabilir. Angular şablonu Angular 4'e güncelleştirilmiştir. Angular ve React şablonları, varsayılan olarak mevcuttur; diğer şablonları alma hakkında daha fazla bilgi için bkz: [yeni bir SPA proje oluşturma](xref:client-side/spa-services#creating-a-new-project). ASP.NET core'da bir SPA oluşturma hakkında daha fazla bilgi için bkz: [oluşturma tek sayfalı uygulamalar için JavaScriptServices kullanma](xref:client-side/spa-services).
+Tek sayfa uygulama (SPA) proje şablonları Angular, Aurelia Knockout.js React.js ve Redux ile React.js için kullanılabilir. Angular şablonu Angular 4'e güncelleştirilmiştir. Angular ve React şablonları, varsayılan olarak mevcuttur; diğer şablonları alma hakkında daha fazla bilgi için bkz: [yeni bir SPA proje oluşturma](xref:client-side/spa-services#create-a-new-project). ASP.NET core'da bir SPA oluşturma hakkında daha fazla bilgi için bkz: <xref:client-side/spa-services>.
 
 ## <a name="kestrel-improvements"></a>Kestrel'i geliştirmeleri
 

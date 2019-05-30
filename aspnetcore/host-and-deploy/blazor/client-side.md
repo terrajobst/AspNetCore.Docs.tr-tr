@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/21/2019
 uid: host-and-deploy/blazor/client-side
-ms.openlocfilehash: b572067e688d7e7f7c654a7a25703009c1a7e855
-ms.sourcegitcommit: e1623d8279b27ff83d8ad67a1e7ef439259decdf
+ms.openlocfilehash: b50516b4dce28a6b105b2ab8b9386060d5392983
+ms.sourcegitcommit: 4d05e30567279072f1b070618afe58ae1bcefd5a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66223197"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66376399"
 ---
 # <a name="host-and-deploy-blazor-client-side"></a>Barındırma ve Blazor istemci-tarafı dağıtma
 
@@ -188,7 +188,9 @@ Azure App Service'e dağıtma hakkında daha fazla bilgi için bkz. <xref:tutori
 
 ## <a name="standalone-deployment"></a>Tek başına dağıtım
 
-A *tek başına dağıtımda* doğrudan istemcileri tarafından istenen statik dosyalar bir dizi istemci-tarafı Blazor uygulama görür. Bir web sunucusu Blazor uygulama sunmak için kullanılmaz.
+A *tek başına dağıtımda* doğrudan istemcileri tarafından istenen statik dosyalar bir dizi istemci-tarafı Blazor uygulama görür. Herhangi bir statik dosya sunucusu Blazor uygulama hizmet kuramıyor.
+
+Tek başına dağıtım varlıklar yayımlanır *bin/bırakma / {TARGET FRAMEWORK} /publish/ {derleme adı} / dist* klasör.
 
 ### <a name="iis"></a>IIS
 
