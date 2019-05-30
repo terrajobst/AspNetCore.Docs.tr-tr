@@ -92,10 +92,6 @@
     - name: Uzaktan Yordam Çağrısı uygulamaları
       items:
         - name: ASP.NET Core’da gRPC hizmeti ile çalışmaya başlama
-          uid: tutorials/grpc/index
-        - name: Bir ASP.NET Core gRPC Greeter Hizmeti oluşturma
-          uid: tutorials/grpc/grpc-start
-        - name: .NET Core gRPC istemcisi oluşturma
           uid: tutorials/grpc/grpc-client
     - name: Veri erişimi
       items:
@@ -321,7 +317,7 @@
               uid: spa/react
             - name: Redux ile React
               uid: spa/react-with-redux
-            - name: JavaScriptServices
+            - name: JavaScript Hizmetleri
               uid: client-side/spa-services
         - name: LibMan
           items:
@@ -534,14 +530,8 @@
       uid: grpc/migration
     - name: gRPC hizmetlerini HTTP API’leriyle karşılaştırma
       uid: grpc/comparison
-    - name: Öğreticiler
-      items:
-        - name: ASP.NET Core’da gRPC hizmeti ile çalışmaya başlama
-          uid: tutorials/grpc/index
-        - name: ASP.NET Core gRPC Greeter Service oluşturma
-          uid: tutorials/grpc/grpc-start
-        - name: .NET Core gRPC istemcisi oluşturma
-          uid: tutorials/grpc/grpc-client
+    - name: gRPC istemcisi ve sunucusu oluşturma
+      uid: tutorials/grpc/grpc-client
 - name: 'Test etme, hata ayıklama ve sorun giderme'
   items:
     - name: Birim testi
