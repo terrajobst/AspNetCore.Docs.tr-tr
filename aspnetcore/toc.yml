@@ -92,7 +92,7 @@
     - name: Uzaktan Yordam Çağrısı uygulamaları
       items:
         - name: ASP.NET Core’da gRPC hizmeti ile çalışmaya başlama
-          uid: tutorials/grpc/grpc-client
+          uid: tutorials/grpc/grpc-start
     - name: Veri erişimi
       items:
         - name: Razor Pages ile EF Core
@@ -530,8 +530,6 @@
       uid: grpc/migration
     - name: gRPC hizmetlerini HTTP API’leriyle karşılaştırma
       uid: grpc/comparison
-    - name: gRPC istemcisi ve sunucusu oluşturma
-      uid: tutorials/grpc/grpc-client
 - name: 'Test etme, hata ayıklama ve sorun giderme'
   items:
     - name: Birim testi
