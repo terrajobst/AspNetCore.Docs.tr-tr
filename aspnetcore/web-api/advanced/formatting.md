@@ -4,14 +4,14 @@ author: ardalis
 description: ASP.NET Core Web API'si yanıtı verilerinde biçimlendirmeyi öğrenin.
 ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.date: 05/21/2019
+ms.date: 05/29/2019
 uid: web-api/advanced/formatting
-ms.openlocfilehash: bd86015773068b6f75f64a0599d710281f7d4d60
-ms.sourcegitcommit: e67356f5e643a5d43f6d567c5c998ce6002bdeb4
+ms.openlocfilehash: 7628565d8646c0a057e28aa54dc9ce9198750c15
+ms.sourcegitcommit: 9ae1fd11f39b0a72b2ae42f0b450345e6e306bc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004962"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66415684"
 ---
 # <a name="format-response-data-in-aspnet-core-web-api"></a>ASP.NET Core Web API'si yanıtı verileri biçimlendirme
 
@@ -133,13 +133,17 @@ services.AddMvc()
 
 ### <a name="add-xml-format-support"></a>XML biçimi desteği eklendi
 
-XML biçimlendirme desteği eklemek için yükleme [Microsoft.AspNetCore.Mvc.Formatters.Xml](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Formatters.Xml/) NuGet paketi.
+::: moniker range="<= aspnetcore-2.2"
 
-XML biçimlendiricileri kullanılarak uygulanan `System.Xml.Serialization.XmlSerializer` yapılandırılabilir `Startup.ConfigureServices` gibi:
+XML biçimlendirme desteği ASP.NET Core 2.2 veya önceki eklemek için yükleme [Microsoft.AspNetCore.Mvc.Formatters.Xml](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Formatters.Xml/) NuGet paketi.
+
+::: moniker-end
+
+XML biçimlendiricileri kullanılarak uygulanan `System.Xml.Serialization.XmlSerializer` çağırarak yapılandırılabilir <xref:Microsoft.Extensions.DependencyInjection.MvcXmlMvcBuilderExtensions.AddXmlSerializerFormatters*> içinde `Startup.ConfigureServices`:
 
 [!code-csharp[](./formatting/sample/Startup.cs?name=snippet1&highlight=2)]
 
-Alternatif olarak, XML biçimlendiricileri kullanılarak uygulanan `System.Runtime.Serialization.DataContractSerializer` yapılandırılabilir `Startup.ConfigureServices` gibi:
+Alternatif olarak, XML biçimlendiricileri kullanılarak uygulanan `System.Runtime.Serialization.DataContractSerializer` çağırarak yapılandırılabilir <xref:Microsoft.Extensions.DependencyInjection.MvcXmlMvcBuilderExtensions.AddXmlDataContractSerializerFormatters*> içinde `Startup.ConfigureServices`:
 
 ```csharp
 services.AddMvc()
