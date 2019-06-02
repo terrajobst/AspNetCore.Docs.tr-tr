@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 05/03/2019
 uid: fundamentals/error-handling
-ms.openlocfilehash: 36cd9fdac0b9159900e82327705a73d561e7ce6b
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 6b92cb6b68b1c70d67f42284d548729e598f9a8b
+ms.sourcegitcommit: c5339594101d30b189f61761275b7d310e80d18a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65086979"
+ms.lasthandoff: 06/02/2019
+ms.locfileid: "66458438"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>ASP.NET core'da hatalarını işleme
 
@@ -53,7 +53,7 @@ Aşağıdaki örnekte, <xref:Microsoft.AspNetCore.Builder.ExceptionHandlerExtens
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_DevPageAndHandlerPage&highlight=5-9)]
 
-Bir hata sayfası Razor sayfaları uygulaması şablonunu sunar (*.cshtml*) ve <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> sınıfı (`ErrorModel`) içinde *sayfaları* klasör. Bir MVC uygulaması için proje şablonu, bir hata eylem yöntemi ve bir hata görünümü içerir. Eylem yöntemi aşağıda verilmiştir:
+Bir hata sayfası Razor sayfaları uygulaması şablonunu sunar ( *.cshtml*) ve <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> sınıfı (`ErrorModel`) içinde *sayfaları* klasör. Bir MVC uygulaması için proje şablonu, bir hata eylem yöntemi ve bir hata görünümü içerir. Eylem yöntemi aşağıda verilmiştir:
 
 ```csharp
 [AllowAnonymous]
@@ -166,7 +166,9 @@ Hata işleme uç noktasını, aşağıdaki örnekte gösterildiği gibi hatayı 
 
 ## <a name="disable-status-code-pages"></a>Durum kod sayfaları devre dışı bırak
 
-Durum kod sayfaları için Razor sayfaları işleyicisi yöntemi veya MVC denetleyicisi belirli isteklere devre dışı bırakılabilir. Durum kod sayfaları devre dışı bırakmak için <xref:Microsoft.AspNetCore.Diagnostics.IStatusCodePagesFeature>:
+MVC denetleyici veya eylem yöntemi için kod sayfaları durumu devre dışı bırakmak için [[SkipStatusCodePages]](xref:Microsoft.AspNetCore.Mvc.SkipStatusCodePagesAttribute) özniteliği.
+
+Razor sayfaları işleyicisi yöntemi veya MVC denetleyicisi belirli istekler için durum kod sayfaları devre dışı bırakmak için <xref:Microsoft.AspNetCore.Diagnostics.IStatusCodePagesFeature>:
 
 ```csharp
 var statusCodePagesFeature = HttpContext.Features.Get<IStatusCodePagesFeature>();

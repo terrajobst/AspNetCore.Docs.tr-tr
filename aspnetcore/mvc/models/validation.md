@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 04/06/2019
 monikerRange: '>= aspnetcore-2.1'
 uid: mvc/models/validation
-ms.openlocfilehash: acb0ae989f6e82a5bc80935a8acfc96e51073d2f
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 9737e45729b4e5abd9a33824c4d6610ca21681c0
+ms.sourcegitcommit: c5339594101d30b189f61761275b7d310e80d18a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64898397"
+ms.lasthandoff: 06/02/2019
+ms.locfileid: "66458480"
 ---
 # <a name="model-validation-in-aspnet-core-mvc-and-razor-pages"></a>Razor sayfaları ile ASP.NET Core MVC, model doğrulama
 
@@ -122,7 +122,9 @@ Uzak doğrulama uygulamak için:
 1. Model sınıfında, ek açıklama özelliğiyle bir `[Remote]` doğrulama eylem yöntemine, aşağıdaki örnekte gösterildiği gibi işaret eden bir öznitelik:
 
    [!code-csharp[](validation/sample/Models/User.cs?name=snippet_UserEmailProperty)]
-
+ 
+   `[Remote]` Özniteliktir içinde `Microsoft.AspNetCore.Mvc` ad alanı. Yükleme [Microsoft.AspNetCore.Mvc.ViewFeatures](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.ViewFeatures) kullanmıyorsanız, NuGet paketi `Microsoft.AspNetCore.App` veya `Microsoft.AspNetCore.All` metapackage.
+   
 ### <a name="additional-fields"></a>Ek alanlar
 
 `AdditionalFields` Özelliği `[Remote]` özniteliği karşı sunucuda veri alanlarının kombinasyonları doğrulamanıza olanak sağlar. Örneğin, varsa `User` modeli olan `FirstName` ve `LastName` özellikleri, mevcut hiçbir kullanıcı adları bu çifti zaten sahip olduğunuzu doğrulayın isteyebilirsiniz. Aşağıdaki örnek nasıl kullanılacağını gösterir `AdditionalFields`:

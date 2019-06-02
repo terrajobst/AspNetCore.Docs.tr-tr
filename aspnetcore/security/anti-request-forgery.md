@@ -6,18 +6,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/11/2018
 uid: security/anti-request-forgery
-ms.openlocfilehash: 4498bd88e7188ea6c0063aeec054bc20e13ed5f1
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: a32e0e2dbd7fab95562a562cb88767d4c1e8049d
+ms.sourcegitcommit: c5339594101d30b189f61761275b7d310e80d18a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65086435"
+ms.lasthandoff: 06/02/2019
+ms.locfileid: "66458490"
 ---
 # <a name="prevent-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>ASP.NET core'da önlemek siteler arası istek sahtekarlığı (XSRF/CSRF) saldırılarını
 
 Tarafından [Steve Smith](https://ardalis.com/), [Fiyaz Hasan](https://twitter.com/FiyazBinHasan), ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Siteler arası istek sahteciliği (XSRF veya CSRF, olarak da telaffuz *bakın surf*) barındırılan web uygulamaları ile bir kötü amaçlı web uygulaması etkilemek istemci tarayıcısı, güvenen bir web uygulaması arasındaki etkileşimi karşı bir saldırı olma Tarayıcı. Web tarayıcıları, bir Web sitesine kimlik doğrulama belirteçlerinizi bazı türleri her istek ile otomatik olarak göndermek için bu saldırıları mümkündür. Olarak da bilinen bu yararlanma biçiminde olan bir *tek tıklamayla saldırı* veya *arabası oturumu* saldırı yararlanır çünkü kullanıcı daha önce oturum kimliği doğrulanmış.
+Siteler arası istek sahteciliği (XSRF veya CSRF olarak da bilinir), barındırılan web uygulamaları kötü amaçlı web uygulaması istemci tarayıcısına ve bu tarayıcı güvendiği bir web uygulaması arasındaki etkileşimi yapabildiği etkileyebilir karşı bir saldırıdır. Web tarayıcıları, bir Web sitesine kimlik doğrulama belirteçlerinizi bazı türleri her istek ile otomatik olarak göndermek için bu saldırıları mümkündür. Olarak da bilinen bu yararlanma biçiminde olan bir *tek tıklamayla saldırı* veya *arabası oturumu* saldırı yararlanır çünkü kullanıcı daha önce oturum kimliği doğrulanmış.
 
 CSRF saldırı örneği:
 

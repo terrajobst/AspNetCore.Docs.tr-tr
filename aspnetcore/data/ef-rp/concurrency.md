@@ -4,14 +4,14 @@ author: rick-anderson
 description: Bu öğreticide, birden çok kullanıcı aynı anda aynı varlık güncelleştirdiğinizde çakışmalarına gösterilmektedir.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/07/2018
+ms.date: 05/31/2019
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: 17ce0c111daabe2c7bbf4795b658856568c85158
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 8430f8e720870a7b541655ea8bcfe2f67c942bb3
+ms.sourcegitcommit: c5339594101d30b189f61761275b7d310e80d18a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64900260"
+ms.lasthandoff: 06/02/2019
+ms.locfileid: "66458421"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---concurrency---8-of-8"></a>ASP.NET core'da - eşzamanlılık - 8 8 EF çekirdekli Razor sayfaları
 
@@ -189,7 +189,7 @@ Güncelleştirilen sayfaya aşağıdaki işaretlemeyi gösterir:
 
 ### <a name="update-the-edit-page-model"></a>Düzenleme sayfa modeli güncelleştirme
 
-Güncelleştirme *pages\departments\edit.cshtml.cs* aşağıdaki kod ile:
+Güncelleştirme *Pages\Departments\Edit.cshtml.cs* aşağıdaki kod ile:
 
 [!code-csharp[](intro/samples/cu/Pages/Departments/Edit.cshtml.cs?name=snippet)]
 

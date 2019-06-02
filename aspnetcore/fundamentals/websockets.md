@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 05/10/2019
 uid: fundamentals/websockets
-ms.openlocfilehash: bba9cf051deaf57efdd82ca2fb1318fce79bd6cc
-ms.sourcegitcommit: e1623d8279b27ff83d8ad67a1e7ef439259decdf
+ms.openlocfilehash: 4c49a5349c0718e5c59f30e6d51caf7a43fa0454
+ms.sourcegitcommit: c5339594101d30b189f61761275b7d310e80d18a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66223213"
+ms.lasthandoff: 06/02/2019
+ms.locfileid: "66458452"
 ---
 # <a name="websockets-support-in-aspnet-core"></a>ASP.NET Core WebSockets desteği
 
@@ -20,7 +20,13 @@ Tarafından [Tom Dykstra](https://github.com/tdykstra) ve [Andrew Stanton-Nurse]
 
 Bu makalede, WebSockets içinde ASP.NET Core ile çalışmaya başlama açıklanmaktadır. [WebSocket](https://wikipedia.org/wiki/WebSocket) ([RFC 6455](https://tools.ietf.org/html/rfc6455)) üzerinden TCP bağlantıları kalıcı iki yönlü iletişim kanalı sağlayan bir protokoldür. Sohbet, Pano ve oyun uygulamaları gibi hızlı, gerçek zamanlı iletişim yararlanan uygulamalarda kullanılır.
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/websockets/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample)). Bkz: [sonraki adımlar](#next-steps) bölümünde daha fazla bilgi için.
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/websockets/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample)). [Çalıştırma](#sample-app).
+
+## <a name="signalr"></a>SignalR
+
+[ASP.NET Core SignalR](xref:signalr/introduction) , uygulamalara gerçek zamanlı web işlevselliği ekleme basitleştiren bir kitaplık. Mümkün olduğunda WebSockets kullanır.
+
+Çoğu uygulama için ham WebSockets üzerinden SignalR öneririz. SignalR taşıma geri dönüş WebSockets kullanılabilir olduğu ortamlar için sağlar. Ayrıca, bir basit uzaktan yordam çağrısı uygulama modeli sağlar. Ve çoğu senaryoda, SignalR ham WebSockets kullanmaya kıyasla hiçbir önemli performans dezavantajı vardır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -43,34 +49,20 @@ Bu makalede, WebSockets içinde ASP.NET Core ile çalışmaya başlama açıklan
 
 * Desteklenen tarayıcılar için bkz: https://caniuse.com/#feat=websockets.
 
-## <a name="when-to-use-websockets"></a>Ne zaman WebSockets kullanılır?
+::: moniker range="< aspnetcore-2.1"
 
-WebSockets, doğrudan bir yuva bağlantı ile çalışması için kullanın. Örneğin, gerçek zamanlı oyun ile mümkün olan en iyi performansı için WebSockets kullanın.
+## <a name="nuget-package"></a>NuGet paketi
 
-[ASP.NET Core SignalR](xref:signalr/introduction) , uygulamalara gerçek zamanlı web işlevselliği ekleme basitleştiren bir kitaplık. Mümkün olduğunda WebSockets kullanır.
+Yükleme [Microsoft.AspNetCore.WebSockets](https://www.nuget.org/packages/Microsoft.AspNetCore.WebSockets/) paket.
 
-## <a name="how-to-use-websockets"></a>WebSockets kullanma
+::: moniker-end
 
-* Yükleme [Microsoft.AspNetCore.WebSockets](https://www.nuget.org/packages/Microsoft.AspNetCore.WebSockets/) paket.
-* Ara yazılımını yapılandırın.
-* WebSocket isteklerini kabul etmek.
-* İletileri gönderip yeniden açın.
+## <a name="configure-the-middleware"></a>Ara yazılımını yapılandırma
 
-### <a name="configure-the-middleware"></a>Ara yazılımını yapılandırma
 
 WebSockets Ara yazılımında ekleme `Configure` yöntemi `Startup` sınıfı:
 
-::: moniker range=">= aspnetcore-2.0"
-
 [!code-csharp[](websockets/samples/2.x/WebSocketsSample/Startup.cs?name=UseWebSockets)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-[!code-csharp[](websockets/samples/1.x/WebSocketsSample/Startup.cs?name=UseWebSockets)]
-
-::: moniker-end
 
 ::: moniker range="< aspnetcore-2.2"
 
@@ -91,35 +83,15 @@ Aşağıdaki ayarlar yapılandırılabilir:
 
 ::: moniker-end
 
-::: moniker range=">= aspnetcore-2.0"
-
 [!code-csharp[](websockets/samples/2.x/WebSocketsSample/Startup.cs?name=UseWebSocketsOptions)]
 
-::: moniker-end
+## <a name="accept-websocket-requests"></a>WebSocket isteklerini kabul etmek
 
-::: moniker range="< aspnetcore-2.0"
-
-[!code-csharp[](websockets/samples/1.x/WebSocketsSample/Startup.cs?name=UseWebSocketsOptions)]
-
-::: moniker-end
-
-### <a name="accept-websocket-requests"></a>WebSocket isteklerini kabul etmek
-
-İsteği yaşam döngüsünün sonraki yere (daha sonra `Configure` yöntemi veya örneğin bir MVC eylemi) bir Web yuvası isteği olup olmadığını denetleyin ve WebSocket isteğini kabul edin.
+İsteği yaşam döngüsünün sonraki yere (daha sonra `Configure` yöntemi veya örneğin bir eylem yöntemi) bir Web yuvası isteği olup olmadığını denetleyin ve WebSocket isteğini kabul edin.
 
 Aşağıdaki örnek daha sonra buna dandır `Configure` yöntemi:
 
-::: moniker range=">= aspnetcore-2.0"
-
 [!code-csharp[](websockets/samples/2.x/WebSocketsSample/Startup.cs?name=AcceptWebSocket&highlight=7)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-[!code-csharp[](websockets/samples/1.x/WebSocketsSample/Startup.cs?name=AcceptWebSocket&highlight=7)]
-
-::: moniker-end
 
 Web yuvası isteğini herhangi bir URL gelebilir, ancak bu örnek kod, yalnızca isteklerini kabul eder `/ws`.
 
@@ -130,37 +102,41 @@ System.Net.WebSockets.WebSocketException (0x80004005): The remote party closed t
 Object name: 'HttpResponseStream'.
 ```
 
-Bir Web yuvası için veri yazmak için bir arka plan hizmeti kullanıyorsanız, çalışan bir ara yazılım ardışık düzenini tutmak emin olun. Kullanarak bunu bir <xref:System.Threading.Tasks.TaskCompletionSource%601>. Geçirmek `TaskCompletionSource` arka plan için hizmet ve bu çağrı <xref:System.Threading.Tasks.TaskCompletionSource%601.TrySetResult%2A> ile WebSocket bitirdiğinizde. Ardından `await` <xref:System.Threading.Tasks.TaskCompletionSource%601.Task> istek sırasında özelliği.
+Bir Web yuvası için veri yazmak için bir arka plan hizmeti kullanıyorsanız, çalışan bir ara yazılım ardışık düzenini tutmak emin olun. Kullanarak bunu bir <xref:System.Threading.Tasks.TaskCompletionSource%601>. Geçirmek `TaskCompletionSource` arka plan için hizmet ve bu çağrı <xref:System.Threading.Tasks.TaskCompletionSource%601.TrySetResult%2A> ile WebSocket bitirdiğinizde. Ardından `await` <xref:System.Threading.Tasks.TaskCompletionSource%601.Task> aşağıdaki örnekte gösterildiği gibi istek sırasında özelliği:
 
-### <a name="send-and-receive-messages"></a>İleti gönderin ve alın
+```csharp
+app.Use(async (context, next) => {
+    var socket = await context.WebSockets.AcceptWebSocketAsync();
+    var socketFinishedTcs = new TaskCompletionSource<object>();
+
+    BackgroundSocketProcessor.AddSocket(socket, socketFinishedTcs); 
+
+    await socketFinishedTcs.Task;
+});
+```
+Çok yakında bir eylem yönteminden dönerseniz kapalı WebSocket özel durum de oluşabilir. Bir eylem yöntemi bir yuvaya kabul ederseniz, eylem yönteminden döndürmeden önce tamamlamak için yuva kullanan kod için bekleyin.
+
+Hiçbir zaman kullanmayın `Task.Wait()`, `Task.Result`, veya iş parçacığı oluşturma sorunları, ciddi neden olabileceği yuva tamamlamak beklenecek benzer engelleme çağrıları. Her zaman `await`.
+
+## <a name="send-and-receive-messages"></a>İleti gönderin ve alın
 
 `AcceptWebSocketAsync` Yöntemi TCP bağlantısı WebSocket bağlantısı yükseltir ve sağlayan bir [WebSocket](/dotnet/core/api/system.net.websockets.websocket) nesne. Kullanım `WebSocket` ileti göndermek ve almak için nesne.
 
 Web yuvası isteğini kabul eden daha önce gösterilen kod geçirir `WebSocket` nesnesini bir `Echo` yöntemi. Kod, bir ileti alır ve hemen aynı iletiyi gönderir. Gönderilen ve istemci bağlantı kapatana kadar bir döngüde alınan ileti:
 
-::: moniker range=">= aspnetcore-2.0"
-
 [!code-csharp[](websockets/samples/2.x/WebSocketsSample/Startup.cs?name=Echo)]
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-[!code-csharp[](websockets/samples/1.x/WebSocketsSample/Startup.cs?name=Echo)]
-
-::: moniker-end
 
 Döngü başlamadan önce WebSocket bağlantısı kabul ederek, ara yazılım ardışık düzenini sona erer. Yuva kapatıldıktan sonra işlem hattını geriye doğru izler. Diğer bir deyişle, işlem hattı, WebSocket kabul edildiğinde ilerletme isteğini durdurur. Döngü tamamlandıktan ve yuva kapalı olduğunda, isteği yeniden işlem hattı devam eder.
 
 ::: moniker range=">= aspnetcore-2.2"
 
-### <a name="handle-client-disconnects"></a>Tanıtıcı istemci bağlantısını keser
+## <a name="handle-client-disconnects"></a>Tanıtıcı istemci bağlantısını keser
 
 İstemci bağlantı kaybı nedeniyle kestiğinde sunucu otomatik olarak haberdar değildir. Yalnızca istemci, internet bağlantısı kaybolursa, yapılamaz gönderirse, sunucunun bir bağlantı kesme iletisi alır. Bu durum oluştuğunda bazı işlemler yapması istiyorsanız, hiçbir şey belirli bir zaman penceresi içinde bir istemciden alındıktan sonra bir zaman aşımını ayarlayın.
 
 İstemci her zaman ileti gönderme değildir ve yalnızca bağlantı boşta gittiği zaman aşımına uğramak üzere istemiyorsanız, istemci her X saniyede bir ping ileti göndermek için bir zamanlayıcı kullanmak vardır. Bir ileti 2 içinde geldiyseniz henüz sunucuda\*X saniye sonra önceki bir, bağlantı ve istemci bağlantısı kesildi rapor sonlandırın. Ping yapılacak tutabilir ağ gecikmeleri için ek süre bırakmak iki kez beklenen zaman aralığı için bekleyin.
 
-### <a name="websocket-origin-restriction"></a>WebSocket kaynak kısıtlama
+## <a name="websocket-origin-restriction"></a>WebSocket kaynak kısıtlama
 
 CORS tarafından sağlanan korumaları WebSockets için geçerli değildir. Tarayıcılar **değil**:
 
@@ -220,7 +196,7 @@ WebSocket desteği kullanıyorsanız [socket.io](https://socket.io/) üzerinde [
 </system.webServer>
 ```
 
-## <a name="next-steps"></a>Sonraki adımlar
+## <a name="sample-app"></a>Örnek uygulama
 
 [Örnek uygulaması](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/websockets/samples) bu eşlik Yankı uygulama makaledir. WebSocket bağlantılarını sağlayan bir web sayfasına sahip ve sunucu istemciye herhangi bir ileti aldıktan sonra yeniden gönderir. (Bunu ayarlanmadı IIS Express ile Visual Studio'dan çalıştırmak için) bir komut isteminden uygulamayı çalıştırın ve gidin http://localhost:5000. Web sayfasının sol üst bağlantı durumunu gösterir:
 
@@ -229,3 +205,4 @@ WebSocket desteği kullanıyorsanız [socket.io](https://socket.io/) üzerinde [
 Seçin **Connect** gösterilen URL'yi bir Web yuvası isteğini göndermek için. Test iletisi girin ve seçin **Gönder**. İşiniz bittiğinde, seçin **Kapat yuva**. **İletişim günlük** bölüm açık, her gönderme bildirir ve kapatma eylemi,'olmuyor.
 
 ![Web sayfasının ilk durumu](websockets/_static/end.png)
+
