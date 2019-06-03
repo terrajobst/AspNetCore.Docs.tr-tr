@@ -91,7 +91,7 @@
           uid: tutorials/signalr-typescript-webpack
     - name: Uzaktan Yordam Çağrısı uygulamaları
       items:
-        - name: ASP.NET Core’da gRPC hizmeti ile çalışmaya başlama
+        - name: gRPC hizmetini kullanmaya başlama
           uid: tutorials/grpc/grpc-start
     - name: Veri erişimi
       items:
