@@ -3,14 +3,14 @@ title: 'Öğretici: ASP.NET Core Razor sayfaları kullanmaya başlama'
 author: rick-anderson
 description: Bu öğretici serisinde, ASP.NET Core Razor sayfaları kullanma işlemi gösterilmektedir. Model oluşturma, Razor sayfaları için kod oluşturmak, veri erişimi için Entity Framework Core ve SQL Server kullanmak, arama işlevi eklemek, giriş doğrulaması eklemek ve modeli güncelleştirmek için geçişleri kullanma hakkında bilgi edinin.
 ms.author: riande
-ms.date: 05/30/2019
+ms.date: 6/3/2019
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: e9f11f68aa138ab74a0ffbbd0e32067bc984606d
-ms.sourcegitcommit: 9ae1fd11f39b0a72b2ae42f0b450345e6e306bc0
+ms.openlocfilehash: d843e47ccb5180fab34b4c4c4a4b5cbda21289bf
+ms.sourcegitcommit: a1364109d11d414121a6337b611bee61d6e489e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66415668"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66491211"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Öğretici: ASP.NET Core Razor sayfaları kullanmaya başlama
 
@@ -43,13 +43,17 @@ Bu öğreticinin sonunda, çalışan bir sonraki öğreticilerde oluşturacağı
 
 * Visual Studio'dan **dosya** menüsünde **yeni** > **proje**.
 
-* Yeni bir ASP.NET Core Web uygulaması oluşturun. Projeyi adlandırın **RazorPagesMovie**. Projeyi adlandırın önemlidir *RazorPagesMovie* kodu kopyalayıp, ad alanlarını eşleşecek şekilde.
+* Yeni bir ASP.NET Core Web uygulaması oluşturun ve seçin **sonraki**.
 
   ![Yeni ASP.NET Core Web uygulaması](razor-pages-start/_static/np_2.1.png)
 
-* Seçin **ASP.NET Core 2.2** açılır ve ardından **Web uygulaması**.
+* Projeyi adlandırın **RazorPagesMovie**. Projeyi adlandırın önemlidir *RazorPagesMovie* kodundan kopyalayıp olduğunda ad alanlarını eşleşecek şekilde.
 
-  ![Yeni ASP.NET Core Web uygulaması](razor-pages-start/_static/np_2_2.2.png)
+  ![Yeni ASP.NET Core Web uygulaması](razor-pages-start/_static/config.png)
+
+* Seçin **ASP.NET Core 2.2** açılır **Web uygulaması**ve ardından **Oluştur**.
+
+![Yeni ASP.NET Core Web uygulaması](razor-pages-start/_static/np_2_2.2.png)
 
   Aşağıdaki başlangıç projesini oluşturulur:
 

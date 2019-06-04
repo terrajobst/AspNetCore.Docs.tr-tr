@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 5/30/2019
 uid: tutorials/grpc/grpc-start
-ms.openlocfilehash: a0bb5c087a712ccd890344d2fc52cc58adc914ab
-ms.sourcegitcommit: a04eb20e81243930ec829a9db5dd5de49f669450
+ms.openlocfilehash: 2e1768e82f670750621257fec10457c11e9b601b
+ms.sourcegitcommit: a1364109d11d414121a6337b611bee61d6e489e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66470412"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66491228"
 ---
 # <a name="tutorial-create-a-grpc-client-and-server-in-aspnet-core"></a>Öğretici: ASP.NET Core gRPC istemci ve sunucu oluşturma
 
@@ -169,7 +169,7 @@ Paket Yöneticisi Konsolu (PMC) veya NuGet paketlerini Yönet'i kullanarak paket
 
  ```powershell
 Install-Package Grpc.Core
-Install-Package Grpc.Protobuf
+Install-Package Google.Protobuf
 Install-Package Grpc.Tools
 ```
 
