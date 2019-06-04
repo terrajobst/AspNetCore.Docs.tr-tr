@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 5/30/2019
 uid: tutorials/grpc/grpc-start
-ms.openlocfilehash: 2b4325d2413e335a3061a7695def88a1b23ee52b
-ms.sourcegitcommit: 4d05e30567279072f1b070618afe58ae1bcefd5a
+ms.openlocfilehash: a0bb5c087a712ccd890344d2fc52cc58adc914ab
+ms.sourcegitcommit: a04eb20e81243930ec829a9db5dd5de49f669450
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66376366"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66470412"
 ---
 # <a name="tutorial-create-a-grpc-client-and-server-in-aspnet-core"></a>Öğretici: ASP.NET Core gRPC istemci ve sunucu oluşturma
 
@@ -161,7 +161,7 @@ Aşağıdaki paketler gRPC istemci projeye ekleyin:
 
 Paket Yöneticisi Konsolu (PMC) veya NuGet paketlerini Yönet'i kullanarak paketleri yükleyin
 
-####  <a name="pmc-option-to-install-packages"></a>PMC seçeneği paketleri yüklemek için
+#### <a name="pmc-option-to-install-packages"></a>PMC seçeneği paketleri yüklemek için
 
 * Visual Studio'dan seçin **Araçları** > **NuGet Paket Yöneticisi** > **Paket Yöneticisi Konsolu**
 * Gelen **Paket Yöneticisi Konsolu** penceresinde olduğu dizine gidin *GrpcGreeterClient.csproj* dosya yok.
@@ -218,7 +218,7 @@ dotnet add GrpcGreeterClient.csproj package Grpc.Tools
 
   Projeyi sağ tıklatın ve seçin **Araçlar > Dosya Düzenle**.
 
-  ------
+  ---
 
 * Ekleme **greet.proto** dosyasını `<Protobuf>` GrpcGreeterClient proje dosyasının öğesi grubu:
 

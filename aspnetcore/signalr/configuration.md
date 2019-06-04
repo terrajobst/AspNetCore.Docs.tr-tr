@@ -5,14 +5,14 @@ description: ASP.NET Core SignalR uygulamalarını yapılandırmayı öğrenin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 04/15/2019
+ms.date: 06/03/2019
 uid: signalr/configuration
-ms.openlocfilehash: 703357fd52805e01515e5bac3b1a364ce7fe00f0
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 6c7bd602e621917c491bfb1e26ff0fcfc3a565b0
+ms.sourcegitcommit: a04eb20e81243930ec829a9db5dd5de49f669450
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087646"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66470361"
 ---
 # <a name="aspnet-core-signalr-configuration"></a>ASP.NET Core SignalR yapılandırma
 
@@ -61,6 +61,8 @@ MessagePack serileştirme için temsilci sağlayarak yapılandırılabilir [AddM
 
 Aşağıdaki tabloda, SignalR hub'ları yapılandırma seçenekleri açıklanmaktadır:
 
+::: moniker range=">= aspnetcore-3.0"
+
 | Seçenek | Varsayılan Değer | Açıklama |
 | ------ | ------------- | ----------- |
 | `ClientTimeoutInterval` | 30 saniye | Sunucunun istemci dikkate alacaktır (tutma dahil) bir ileti bu aralıkta yer aldığı edilmemiş olursa bağlantısı kesildi. Aslında, nasıl bu uygulandığını nedeniyle, bağlantısız işaretlenmesini istemcisi için bu zaman aşımı aralığından daha uzun sürebilir. Önerilen değer çift `KeepAliveInterval` değeri.|
@@ -68,6 +70,21 @@ Aşağıdaki tabloda, SignalR hub'ları yapılandırma seçenekleri açıklanmak
 | `KeepAliveInterval` | 15 saniye | Sunucu bu aralıkta bir ileti gönderdi taşınmadığından, PING iletisi bağlantıyı açık tutma için otomatik olarak gönderilir. Değiştirilirken `KeepAliveInterval`, değiştirme `ServerTimeout` / `serverTimeoutInMilliseconds` istemcide ayarlama. Önerilen `ServerTimeout` / `serverTimeoutInMilliseconds` değeri çift `KeepAliveInterval` değeri.  |
 | `SupportedProtocols` | Yüklü tüm protokolleri | Bu hub tarafından desteklenen protokoller. Varsayılan olarak, sunucuda kayıtlı tüm protokollere izin verilir, ancak belirli protokoller için tek tek hub'ları devre dışı bırakmak için bu listedeki protokolleri kaldırılabilir. |
 | `EnableDetailedErrors` | `false` | Varsa `true`, ayrıntılı bir Hub yöntemi bir özel durum oluştuğunda, özel durum iletileri istemcilere döndürülür. Varsayılan `false`gibi bu özel durum iletileri, hassas bilgiler içerebilir. |
+| `StreamBufferCapacity` | `10` | İstemci için arabelleğe alınan öğelerin sayısı akışları karşıya yükleyin. Bu sınıra ulaşıldığında, çağrıları işlenmesini akışı öğeleri sunucu işler kadar engellenir.|
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-2.2"
+
+| Seçenek | Varsayılan Değer | Açıklama |
+| ------ | ------------- | ----------- |
+| `ClientTimeoutInterval` | 30 saniye | Sunucunun istemci dikkate alacaktır (tutma dahil) bir ileti bu aralıkta yer aldığı edilmemiş olursa bağlantısı kesildi. Aslında, nasıl bu uygulandığını nedeniyle, bağlantısız işaretlenmesini istemcisi için bu zaman aşımı aralığından daha uzun sürebilir. Önerilen değer çift `KeepAliveInterval` değeri.|
+| `HandshakeTimeout` | 15 saniye | İstemci, bu zaman aralığı içinde bir ilk el sıkışma iletisi göndermediği durumlarda bağlantı kapalı. Bu zaman aşımı hataları el sıkışması ciddi ağ gecikmesi nedeniyle gerçekleşiyor, yalnızca değiştirilmesi gereken gelişmiş bir ayardır. Anlaşma işlemi hakkında daha fazla ayrıntı için [SignalR hub'ı protokol belirtimi](https://github.com/aspnet/SignalR/blob/master/specs/HubProtocol.md). |
+| `KeepAliveInterval` | 15 saniye | Sunucu bu aralıkta bir ileti gönderdi taşınmadığından, PING iletisi bağlantıyı açık tutma için otomatik olarak gönderilir. Değiştirilirken `KeepAliveInterval`, değiştirme `ServerTimeout` / `serverTimeoutInMilliseconds` istemcide ayarlama. Önerilen `ServerTimeout` / `serverTimeoutInMilliseconds` değeri çift `KeepAliveInterval` değeri.  |
+| `SupportedProtocols` | Yüklü tüm protokolleri | Bu hub tarafından desteklenen protokoller. Varsayılan olarak, sunucuda kayıtlı tüm protokollere izin verilir, ancak belirli protokoller için tek tek hub'ları devre dışı bırakmak için bu listedeki protokolleri kaldırılabilir. |
+| `EnableDetailedErrors` | `false` | Varsa `true`, ayrıntılı bir Hub yöntemi bir özel durum oluştuğunda, özel durum iletileri istemcilere döndürülür. Varsayılan `false`gibi bu özel durum iletileri, hassas bilgiler içerebilir. |
+
+::: moniker-end
 
 Seçenekler yapılandırılabilir tüm hub'ları için bir seçenekler temsilciye sağlayarak `AddSignalR` Çağır `Startup.ConfigureServices`.
 

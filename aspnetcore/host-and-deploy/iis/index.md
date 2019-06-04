@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/24/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 12aa1b86e0b9078566f1c64cb4b83c4dddef09f7
-ms.sourcegitcommit: b8ed594ab9f47fa32510574f3e1b210cff000967
+ms.openlocfilehash: 41c07b86b50ea50df7420cb81f7b10133d395231
+ms.sourcegitcommit: a04eb20e81243930ec829a9db5dd5de49f669450
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66251364"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66470392"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Windows IIS üzerinde ASP.NET Core barındırma
 
@@ -117,7 +117,7 @@ services.Configure<IISServerOptions>(options =>
 | `AutomaticAuthentication`      | `true`  | Varsa `true`, IIS sunucusu ayarlar `HttpContext.User` tarafından kimliği doğrulanmış [Windows kimlik doğrulaması](xref:security/authentication/windowsauth). Varsa `false`, sunucu için bir kimlik yalnızca sağlar `HttpContext.User` ve açıkça tarafından istendiğinde zorlukları yanıtlar `AuthenticationScheme`. Windows kimlik doğrulaması etkin, IIS için `AutomaticAuthentication` işlevi. Daha fazla bilgi için [Windows kimlik doğrulaması](xref:security/authentication/windowsauth). |
 | `AuthenticationDisplayName`    | `null`  | Oturum açma sayfaları kullanıcılara gösterilen görünen adını ayarlar. |
 | `AllowSynchronousIO`           | `false` | Zaman uyumlu g/ç için izin verilip verilmediğini `HttpContext.Request` ve `HttpContext.Response`. |
-| `MaxRequestBodySize`           | `30000000`  | Alır veya ayarlar için en fazla istek gövdesi boyutu `HttpRequest`. IIS'nin sınırına sahip olduğuna dikkat edin `maxAllowedContentLength` hangi işlenmeyecek önce `MaxRequestBodySize` kümesinde `IISServerOptions`. Değiştirme `MaxRequestBodySize` etkilemez `maxAllowedContentLength`. Artırmak için `maxAllowedContentLength`, bir giriş ekleyin *web.config* ayarlanacak `maxAllowedContentLength` daha yüksek bir değer. Daha fazla ayrıntı için [yapılandırma](/iis/configuration/system.webServer/security/requestFiltering/requestLimits/#configuration). |
+| `MaxRequestBodySize`           | `30000000`  | İçin en fazla istek gövdesi boyutunu alır veya ayarlar `HttpRequest`. IIS'nin sınırına sahip olduğuna dikkat edin `maxAllowedContentLength` hangi işlenmeyecek önce `MaxRequestBodySize` kümesinde `IISServerOptions`. Değiştirme `MaxRequestBodySize` etkilemez `maxAllowedContentLength`. Artırmak için `maxAllowedContentLength`, bir giriş ekleyin *web.config* ayarlanacak `maxAllowedContentLength` daha yüksek bir değer. Daha fazla ayrıntı için [yapılandırma](/iis/configuration/system.webServer/security/requestFiltering/requestLimits/#configuration). |
 
 **İşlem dışı barındırma modeli**
 
@@ -458,7 +458,7 @@ Statik bir varlık, ın `src` özniteliği için mutlak bir yol ayarlayın (örn
 
 ASP.NET Core uygulaması başka bir ASP.NET Core uygulaması altında bir alt uygulama olarak barındırmak için:
 
-1. Alt uygulama için bir uygulama havuzu oluşturun. Ayarlama **.NET CLR sürümü** için **yönetilen kod yok** .NET Core için çekirdek ortak dil çalışma zamanı (CoreCLR) değil Masaüstü CLR (.NET CLR) çalışan işlemindeki uygulamayı barındırmak için önyüklendiğinde olduğundan.
+1. Alt uygulama için bir uygulama havuzu oluşturun. Ayarlama **.NET CLR sürümü** için **yönetilen kod yok** .NET Core, çalışan uygulamada barındırmak için önyükleme için çekirdek ortak dil çalışma zamanı (CoreCLR) işlemek için değil Masaüstü CLR (.NET CLR).
 
 1. IIS Yöneticisi'nde kök sitenin kök site altında bir klasöre alt uygulama ekleyin.
 

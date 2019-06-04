@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/30/2018
 uid: tutorials/get-started-with-nswag
-ms.openlocfilehash: 566d402fbbb71f6b2cc46fc401cdf915a29cccda
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 787f51629b044e638d2790b3dda8723c2644c2d8
+ms.sourcegitcommit: a04eb20e81243930ec829a9db5dd5de49f669450
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087442"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66470435"
 ---
 # <a name="get-started-with-nswag-and-aspnet-core"></a>NSwag ve ASP.NET Core ile çalışmaya başlama
 
@@ -117,11 +117,12 @@ Aşağıdaki seçeneklerden birini seçerek NSwag'ın kod oluşturma özellikler
 * [NSwag.CodeGeneration.CSharp](https://www.nuget.org/packages/NSwag.CodeGeneration.CSharp/) veya [NSwag.CodeGeneration.TypeScript](https://www.nuget.org/packages/NSwag.CodeGeneration.TypeScript/) NuGet paketlerini projenize içinde kod oluşturma için.
 * NSwag gelen [komut satırı](https://github.com/NSwag/NSwag/wiki/CommandLine).
 * [NSwag.MSBuild](https://github.com/NSwag/NSwag/wiki/MSBuild) NuGet paketi.
+* [Unchase Openapı (Swagger) bağlı hizmet](https://marketplace.visualstudio.com/items?itemName=Unchase.unchaseopenapiconnectedservice) &ndash; API İstemci kodu oluşturmak için bir Visual Studio bağlı hizmeti C# veya TypeScript. Ayrıca oluşturur C# NSwag Openapı hizmetleriyle denetleyicileri.
 
 ### <a name="generate-code-with-nswagstudio"></a>NSwagStudio ile kodu oluştur
 
 * Yönergeleri izleyerek NSwagStudio yükleme [NSwagStudio GitHub deposu](https://github.com/RSuter/NSwag/wiki/NSwagStudio).
-* NSwagStudio başlatın ve girin *swagger.json* URL'SİNDE dosya **Swagger belirtimi URL'si** metin kutusu. Örneğin, *http://localhost:44354/swagger/v1/swagger.json*.
+* NSwagStudio başlatın ve girin *swagger.json* URL'SİNDE dosya **Swagger belirtimi URL'si** metin kutusu. Örneğin, *http://localhost:44354/swagger/v1/swagger.json* .
 * Tıklayın **yerel kopya oluşturmak** , Swagger belirtimi JSON temsilini üretmek için düğme.
 
   ![Swagger belirtimi yerel kopyasını oluşturma](web-api-help-pages-using-swagger/_static/CreateLocalCopy-NSwagStudio.PNG)

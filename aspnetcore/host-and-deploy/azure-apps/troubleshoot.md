@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/06/2019
 uid: host-and-deploy/azure-apps/troubleshoot
-ms.openlocfilehash: 36c2bdfa585a0fd54ca93bf4c0edb4cf6f7d934a
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 7a0bb7df27ebbea0eac79771452295846fad563a
+ms.sourcegitcommit: a04eb20e81243930ec829a9db5dd5de49f669450
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64900608"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66470446"
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service"></a>Azure App Service'te ASP.NET Core sorunlarını giderme
 
@@ -36,6 +36,99 @@ Bu makalede, Azure App Service'nın tanılama araçlarını kullanarak uygulama 
 Uygulamayı başlatır, ancak bir hata sunucu isteği yerine getirmesini önler.
 
 Bu hata, başlatma sırasında veya bir yanıt oluşturulurken uygulamanın kod içinde oluşur. Yanıtın içerik içerebilir veya yanıt olarak görünebilir bir *500 İç sunucu hatası* tarayıcıda. Uygulama olay günlüğü, genellikle uygulama normal şekilde çalışmaya belirtir. Sunucunun açısından bakıldığında, doğru olmasıdır. Uygulama başladı, ancak geçerli bir yanıt oluşturulamıyor. [Uygulamayı çalıştırın Kudu konsolunda](#run-the-app-in-the-kudu-console) veya [ASP.NET Core modülü stdout günlüğünü etkinleştir](#aspnet-core-module-stdout-log) sorunu gidermek için.
+
+::: moniker range="= aspnetcore-2.2"
+
+### <a name="50030-in-process-startup-failure"></a>500.30 işlemdeki başlatma hatası
+
+Çalışan işlemi başarısız olur. Uygulama başlamaz.
+
+İşlemdeki .NET Core CLR başlatmak gereken ASP.NET Core modülü çalışır, ancak başlatmak başarısız olur. Bir işlem başlatma hatanın nedeni genellikle içinde girişlerinden belirlenir [uygulama olay günlüğüne](#application-event-log) ve [ASP.NET Core modülü stdout günlük](#aspnet-core-module-stdout-log).
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+
+### <a name="50031-ancm-failed-to-find-native-dependencies"></a>500.31 yerel bağımlılıkları bulmak ANCM başarısız oldu
+
+Çalışan işlemi başarısız olur. Uygulama başlamaz.
+
+.NET Core çalışma zamanı işlemdeki başlatmak gereken ASP.NET Core modülü çalışır, ancak başlatmak başarısız olur. En yaygın nedeni bu başlatma başarısız olduğunda `Microsoft.NETCore.App` veya `Microsoft.AspNetCore.App` çalışma zamanı yüklü değil. ASP.NET Core 3.0 hedefine uygulamanın dağıtıldığı ve bu sürüm makinede mevcut değil, bu hata oluşur. Bir örnek hata iletisi aşağıdaki gibidir:
+
+```
+The specified framework 'Microsoft.NETCore.App', version '3.0.0' was not found.
+  - The following frameworks were found:
+      2.2.1 at [C:\Program Files\dotnet\x64\shared\Microsoft.NETCore.App]
+      3.0.0-preview5-27626-15 at [C:\Program Files\dotnet\x64\shared\Microsoft.NETCore.App]
+      3.0.0-preview6-27713-13 at [C:\Program Files\dotnet\x64\shared\Microsoft.NETCore.App]
+      3.0.0-preview6-27714-15 at [C:\Program Files\dotnet\x64\shared\Microsoft.NETCore.App]
+      3.0.0-preview6-27723-08 at [C:\Program Files\dotnet\x64\shared\Microsoft.NETCore.App]
+```
+
+Hata iletisi, tüm yüklü .NET Core sürümleri ve uygulama tarafından istenen sürümü listelenir. Ya da bu hatayı düzeltmek için:
+
+* Makine üzerinde .NET Core uygun sürümünü yükleyin.
+* Uygulama makinede mevcut olan .NET Core sürümünü hedefleyecek şekilde değiştirin.
+* Uygulama olarak Yayımla bir [müstakil dağıtım](/dotnet/core/deploying/#self-contained-deployments-scd).
+
+Geliştirme çalıştırırken ( `ASPNETCORE_ENVIRONMENT` ortam değişkeni ayarlandığında `Development`), HTTP yanıtı belirli bir hata yazılır. Bir işlem başlatma hatanın nedenini ayrıca şurada bulunur [uygulama olay günlüğüne](#application-event-log).
+
+### <a name="50032-ancm-failed-to-load-dll"></a>500.32 yük dll ANCM başarısız oldu
+
+Çalışan işlemi başarısız olur. Uygulama başlamaz.
+
+Bu hatanın en yaygın nedeni, uygulama için bir uyumsuz işlemciye mimari yayımlanır. Çalışan işlemin bir 32 bit uygulama olarak çalıştığı ve uygulama 64-bit hedefine yayımlandı, bu hata oluşur.
+
+Ya da bu hatayı düzeltmek için:
+
+* Çalışan işlemi olarak aynı işlemci mimarisi için uygulamayı yeniden yayımlayın.
+* Uygulama olarak Yayımla bir [framework bağımlı dağıtım](/dotnet/core/deploying/#framework-dependent-executables-fde).
+
+### <a name="50033-ancm-request-handler-load-failure"></a>500.33 ANCM istek işleyicisi yükleme hatası
+
+Çalışan işlemi başarısız olur. Uygulama başlamaz.
+
+Uygulamaya başvurmak yaramadı `Microsoft.AspNetCore.App` framework. Yalnızca hedefleyen uygulamaları `Microsoft.AspNetCore.App` Framework'te ASP.NET Core modülü tarafından barındırılabilir.
+
+Bu hatayı düzeltmek için uygulamayı hedeflediği onaylayın `Microsoft.AspNetCore.App` framework. Denetleme `.runtimeconfig.json` uygulama tarafından hedeflenen framework doğrulayın.
+
+### <a name="50034-ancm-mixed-hosting-models-not-supported"></a>500.34 desteklenmeyen barındırma modelleri ANCM karma
+
+Çalışan işlemi, hem bir işlem içi uygulamayı hem de işlem dışı uygulama aynı işlem içinde çalıştırılamaz.
+
+Bu hatayı düzeltmek için ayrı IIS uygulama havuzları, uygulamaları çalıştırma.
+
+### <a name="50035-ancm-multiple-in-process-applications-in-same-process"></a>500.35 aynı işlemde birden çok işlem içi uygulama ANCM
+
+Çalışan işlemi, hem bir işlem içi uygulamayı hem de işlem dışı uygulama aynı işlem içinde çalıştırılamaz.
+
+Bu hatayı düzeltmek için ayrı IIS uygulama havuzları, uygulamaları çalıştırma.
+
+### <a name="50036-ancm-out-of-process-handler-load-failure"></a>500.36 ANCM giden işlem işleyicisi yükleme hatası
+
+İşlem dışı istek işleyicisi *aspnetcorev2_outofprocess.dll*, yanındaki değil *aspnetcorev2.dll* dosya. Bu, bozuk bir ASP.NET Core modülü yüklemesini belirtir.
+
+Bu hatayı düzeltmek için yüklemesini onarmak [.NET Core barındırma paket](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle) (IIS için) ya da Visual Studio (için IIS Express).
+
+### <a name="50037-ancm-failed-to-start-within-startup-time-limit"></a>500.37 ANCM başlangıç süre sınırı içinde başlatılamadı
+
+ANCM bulunduğunda başlangıç süre sınırı içinde başlatılamadı. Varsayılan olarak, zaman aşımı süresi, 120 saniyedir.
+
+Çok sayıda uygulamalar aynı makinede başlatırken bu hata oluşabilir. Sunucuda CPU/bellek ani başlatma sırasında kontrol edin. Birden fazla uygulama başlatma işlemi basamaklandırmak gerekebilir.
+
+### <a name="50030-in-process-startup-failure"></a>500.30 işlemdeki başlatma hatası
+
+Çalışan işlemi başarısız olur. Uygulama başlamaz.
+
+.NET Core çalışma zamanı işlemdeki başlatmak gereken ASP.NET Core modülü çalışır, ancak başlatmak başarısız olur. Bir işlem başlatma hatanın nedeni genellikle içinde girişlerinden belirlenir [uygulama olay günlüğüne](#application-event-log) ve [ASP.NET Core modülü stdout günlük](#aspnet-core-module-stdout-log).
+
+### <a name="5000-in-process-handler-load-failure"></a>500.0 işlem içi işleyici yükleme hatası
+
+Çalışan işlemi başarısız olur. Uygulama başlamaz.
+
+Bir işlem başlatma hatanın nedenini ayrıca şurada bulunur [uygulama olay günlüğüne](#application-event-log).
+
+::: moniker-end
 
 **Bağlantı sıfırlama**
 
