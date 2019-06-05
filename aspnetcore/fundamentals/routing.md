@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/13/2019
 uid: fundamentals/routing
-ms.openlocfilehash: 0c2df3ec63f393b961754f496830cccb26f1cb76
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 2a7a942f43de94326e84977f09dc9a2e24dd00f0
+ms.sourcegitcommit: 5dd2ce9709c9e41142771e652d1a4bd0b5248cec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64899513"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66692583"
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET Core yönlendirme
 
@@ -165,7 +165,9 @@ Birincil Giriş <xref:Microsoft.AspNetCore.Routing.IRouter.RouteAsync*> olduğu 
 
 [RouteData.Routers](xref:Microsoft.AspNetCore.Routing.RouteData.Routers) isteği başarıyla eşleşen yer alan yolları bir listesidir. Yollar başka içinde yuvalanabilir. <xref:Microsoft.AspNetCore.Routing.RouteData.Routers> Özelliği üzerinden bir eşleşme ile sonuçlandı yolların mantıksal ağaç yolu gösterir. Genel olarak, listedeki ilk öğe <xref:Microsoft.AspNetCore.Routing.RouteData.Routers> rota koleksiyonu ve URL üretmek için kullanılmamalıdır. Son öğenin <xref:Microsoft.AspNetCore.Routing.RouteData.Routers> eşleşen bir rota işleyicisi.
 
-### <a name="url-generation"></a>URL üretimi
+<a name="lg"></a>
+
+### <a name="url-generation-with-linkgenerator"></a>URL üretimi LinkGenerator ile
 
 ::: moniker range=">= aspnetcore-2.2"
 

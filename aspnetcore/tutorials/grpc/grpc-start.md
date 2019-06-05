@@ -4,14 +4,14 @@ author: juntaoluo
 description: Bu öğreticide, ASP.NET Core, hizmet ve gRPC gRPC istemci oluşturma işlemi gösterilmektedir. GRPC hizmeti projesi oluşturmak, proto dosyasını düzenleyin ve bir çift yönlü çağrı akış ekleme hakkında bilgi edinin.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
-ms.date: 5/30/2019
+ms.date: 06/05/2019
 uid: tutorials/grpc/grpc-start
-ms.openlocfilehash: 2e1768e82f670750621257fec10457c11e9b601b
-ms.sourcegitcommit: a1364109d11d414121a6337b611bee61d6e489e9
+ms.openlocfilehash: 71e3321819eb7169f0896abe3e07849f59ea6fc7
+ms.sourcegitcommit: 5dd2ce9709c9e41142771e652d1a4bd0b5248cec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66491228"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66692524"
 ---
 # <a name="tutorial-create-a-grpc-client-and-server-in-aspnet-core"></a>Öğretici: ASP.NET Core gRPC istemci ve sunucu oluşturma
 
@@ -230,7 +230,7 @@ dotnet add GrpcGreeterClient.csproj package Grpc.Tools
 
 Nesil tetiklemek için istemci projesinin oluşturun C# istemci varlıklar.
 
-### <a name="create-the-greater-client"></a>Büyük istemcisi oluşturma
+### <a name="create-the-greeter-client"></a>Greeter istemcisi oluşturma
 
 Türlerini oluşturmak için projeyi derleyin **Greeter** ad alanı. `Greeter` Türleri yapı işlemi tarafından otomatik olarak oluşturulur.
 
@@ -240,14 +240,14 @@ GRPC istemci güncelleştirmesi *Program.cs* dosyasındaki kodu aşağıdaki kod
 
 *Program.cs* gRPC istemci için giriş noktası ve mantığı içerir.
 
-Daha fazla istemci tarafından oluşturulur:
+Greeter istemci tarafından oluşturulur:
 
 * Örnekleme bir `Channel` gRPC hizmeti bağlantısı oluşturma hakkında bilgi içeren.
-* Kullanarak `Channel` büyük istemci oluşturmak için:
+* Kullanarak `Channel` Greeter istemci oluşturmak için:
 
 [!code-cs[](~/tutorials/grpc/grpc-start/sample/GrpcGreeterClient/Program.cs?name=snippet&highlight=4-6)]
 
-Daha fazla istemci zaman uyumsuz olarak çağırır `SayHello` yöntemi. Sonucu `SayHello` çağrı görüntülenir:
+Greeter istemci zaman uyumsuz olarak çağırır `SayHello` yöntemi. Sonucu `SayHello` çağrı görüntülenir:
 
 [!code-cs[](~/tutorials/grpc/grpc-start/sample/GrpcGreeterClient/Program.cs?name=snippet&highlight=7-9)]
 

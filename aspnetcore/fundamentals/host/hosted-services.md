@@ -5,14 +5,14 @@ description: ASP.NET Core barındırılan hizmetler ile arka plan görevleri uyg
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/25/2019
+ms.date: 06/03/2019
 uid: fundamentals/host/hosted-services
-ms.openlocfilehash: 613227cdead1d0b62a0dead2fca9fab68fd534cc
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 2dbb1a84a380ab06a4be7ecf628799a070afc9e3
+ms.sourcegitcommit: 5dd2ce9709c9e41142771e652d1a4bd0b5248cec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64901589"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66692519"
 ---
 # <a name="background-tasks-with-hosted-services-in-aspnet-core"></a>ASP.NET core'da barındırılan hizmetler ile arka plan görevleri
 
@@ -30,6 +30,32 @@ ASP.NET Core, arka plan görevleri olarak uygulanabilir *barındırılan hizmetl
 
 * Web ana bilgisayar &ndash; Web ana bilgisayarı, web uygulamalarını barındırmak için kullanışlıdır. Bu konu başlığında gösterilen örnek kodunu Web ana bilgisayar örneği sürümünden ' dir. Daha fazla bilgi için [Web ana bilgisayarı](xref:fundamentals/host/web-host) konu.
 * Genel konak &ndash; ASP.NET Core 2.1 içinde genel ana bilgisayar içindir. Daha fazla bilgi için [genel ana bilgisayar](xref:fundamentals/host/generic-host) konu.
+
+::: moniker range=">= aspnetcore-3.0"
+
+## <a name="worker-service-template"></a>Çalışan hizmet şablonu
+
+ASP.NET Core çalışan hizmet şablonu yazmak için bir başlangıç noktası sağlar. hizmet uygulamaları uzun süre çalışan. Şablon, bir barındırılan hizmet uygulaması için temel olarak kullanmak için:
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+1. Yeni bir proje oluşturun.
+1. Seçin **ASP.NET Core Web uygulaması**. **İleri**’yi seçin.
+1. Bir proje adı belirtin **proje adı** alan veya varsayılan proje adı kabul edin. **Oluştur**’u seçin.
+1. İçinde **yeni bir ASP.NET Core Web uygulaması oluşturma** iletişim kutusunda onaylayın **.NET Core** ve **ASP.NET Core 3.0** seçilir.
+1. Seçin **çalışan hizmet** şablonu. **Oluştur**’u seçin.
+
+# <a name="visual-studio-code--net-core-clitabvisual-studio-codenetcore-cli"></a>[Visual Studio Code / .NET Core CLI](#tab/visual-studio-code+netcore-cli)
+
+Çalışan hizmetin kullanın (`worker`) şablonuyla [yeni dotnet](/dotnet/core/tools/dotnet-new) komut kabuğu komutunu. Aşağıdaki örnekte, bir çalışan hizmet uygulaması adlandırılmış oluşturulduğunda `ContosoWorkerService`. İçin bir klasör `ContosoWorkerService` uygulama komut yürütülürken otomatik olarak oluşturulur.
+
+```console
+dotnet new worker -o ContosoWorkerService
+```
+
+---
+
+::: moniker-end
 
 ## <a name="package"></a>Paket
 

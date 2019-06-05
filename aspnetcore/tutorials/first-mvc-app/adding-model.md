@@ -5,12 +5,12 @@ description: Bir model için basit bir ASP.NET Core uygulamasını ekleyin.
 ms.author: riande
 ms.date: 02/25/2019
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: 0580c2cb7717a89d0d16cd3f431a63db78fa27cb
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 0de1b7e69298af8299e0ca6c8ebd3c2b995b7471
+ms.sourcegitcommit: 5dd2ce9709c9e41142771e652d1a4bd0b5248cec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64900857"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66692490"
 ---
 # <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>Bir ASP.NET Core MVC uygulaması için bir model ekleme
 
@@ -156,7 +156,7 @@ Bu bölümde, aşağıdaki görevler tamamlanır:
 
    `Add-Migration` Komut, ilk veritabanı şeması oluşturmak için kod oluşturur.
 
-   Belirtilen model veritabanı şeması dayanır `MvcMovieContext` sınıfı (içinde *Data/MvcMovieContext.cs* dosyası). `Initial` Geçiş adı olmayan bağımsız değişken. Herhangi bir ad kullanılabilir, ancak kural olarak, geçiş tanımlayan bir ad kullanılır. Daha fazla bilgi için bkz. <xref:data/ef-mvc/migrations>.
+   Belirtilen model veritabanı şeması dayanır `MvcMovieContext` sınıfı. `Initial` Geçiş adı olmayan bağımsız değişken. Herhangi bir ad kullanılabilir, ancak kural olarak, geçiş tanımlayan bir ad kullanılır. Daha fazla bilgi için bkz. <xref:data/ef-mvc/migrations>.
 
    `Update-Database` Komutu çalıştırmaları `Up` yöntemi *geçişleri / {zaman damgası} _InitialCreate.cs* dosyasını veritabanı oluşturur.
 

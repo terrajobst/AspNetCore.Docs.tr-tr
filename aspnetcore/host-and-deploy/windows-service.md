@@ -5,14 +5,14 @@ description: ASP.NET Core uygulaması bir Windows hizmetinde barındırmayı ö�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 05/21/2019
+ms.date: 06/03/2019
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: ab36bc1b2827c80bb1e7b9e8cee558b346a991f8
-ms.sourcegitcommit: b8ed594ab9f47fa32510574f3e1b210cff000967
+ms.openlocfilehash: 4cfca4b38543ff073bb98dc09b483d96096928ae
+ms.sourcegitcommit: 5dd2ce9709c9e41142771e652d1a4bd0b5248cec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66251429"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66692563"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>ASP.NET Core bir Windows hizmetinde barındırma
 
@@ -26,6 +26,35 @@ ASP.NET Core uygulaması Windows barındırılabilen bir [Windows hizmeti](/dotn
 
 * [ASP.NET Core SDK 2.1 veya üzeri](https://dotnet.microsoft.com/download)
 * [PowerShell 6.2 veya üstü](https://github.com/PowerShell/PowerShell)
+
+::: moniker range=">= aspnetcore-3.0"
+
+## <a name="worker-service-template"></a>Çalışan hizmet şablonu
+
+ASP.NET Core çalışan hizmet şablonu yazmak için bir başlangıç noktası sağlar. hizmet uygulamaları uzun süre çalışan. Şablon, bir Windows hizmeti uygulaması için temel olarak kullanmak için:
+
+1. .NET Core şablonundan bir çalışan Service uygulaması oluşturun.
+1. Sunulan yönergeleri [uygulama yapılandırması](#app-configuration) bir Windows hizmeti olarak çalıştırabilmeniz için çalışan hizmet uygulamasını güncelleştirmek için bölüm.
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+
+1. Yeni bir proje oluşturun.
+1. Seçin **ASP.NET Core Web uygulaması**. **İleri**’yi seçin.
+1. Bir proje adı belirtin **proje adı** alan veya varsayılan proje adı kabul edin. **Oluştur**’u seçin.
+1. İçinde **yeni bir ASP.NET Core Web uygulaması oluşturma** iletişim kutusunda onaylayın **.NET Core** ve **ASP.NET Core 3.0** seçilir.
+1. Seçin **çalışan hizmet** şablonu. **Oluştur**’u seçin.
+
+# <a name="visual-studio-code--net-core-clitabvisual-studio-codenetcore-cli"></a>[Visual Studio Code / .NET Core CLI](#tab/visual-studio-code+netcore-cli)
+
+Çalışan hizmetin kullanın (`worker`) şablonuyla [yeni dotnet](/dotnet/core/tools/dotnet-new) komut kabuğu komutunu. Aşağıdaki örnekte, bir çalışan hizmet uygulaması adlandırılmış oluşturulduğunda `ContosoWorkerService`. İçin bir klasör `ContosoWorkerService` uygulama komut yürütülürken otomatik olarak oluşturulur.
+
+```console
+dotnet new worker -o ContosoWorkerService
+```
+
+---
+
+::: moniker-end
 
 ## <a name="app-configuration"></a>Uygulama yapılandırması
 
