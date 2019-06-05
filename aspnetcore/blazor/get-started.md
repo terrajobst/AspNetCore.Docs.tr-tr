@@ -5,14 +5,14 @@ description: Blazor ile kendi tercih ettiğiniz araçları Blazor uygulamayla ol
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/26/2019
+ms.date: 06/05/2019
 uid: blazor/get-started
-ms.openlocfilehash: a67f9742184716338bf6235c0b340900b17b19dc
-ms.sourcegitcommit: b8ed594ab9f47fa32510574f3e1b210cff000967
+ms.openlocfilehash: 9df18b25f6d82d655c093a17fe498615c0ff535e
+ms.sourcegitcommit: c716ea9155a6b404c1f3d3d34e2388454cd276d7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66251193"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66716286"
 ---
 # <a name="get-started-with-blazor"></a>Blazor ile çalışmaya başlama
 
@@ -32,29 +32,29 @@ Blazor ile kullanmaya başlayın:
 
    # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-   1.&nbsp;en son yükleme [Visual Studio Önizleme](https://visualstudio.com/preview) ile **ASP.NET ve web geliştirme** iş yükü.
+   1\. Son yükleme [Visual Studio Önizleme](https://visualstudio.com/preview) ile **ASP.NET ve web geliştirme** iş yükü.
 
-   2.&nbsp;en son yükleme [Blazor uzantısı](https://go.microsoft.com/fwlink/?linkid=870389) Visual Studio Market'ten. Bu adım Blazor şablonları Visual Studio için kullanılabilir hale getirir.
+   2\. Son yükleme [Blazor uzantısı](https://go.microsoft.com/fwlink/?linkid=870389) Visual Studio Market'ten. Bu adım Blazor şablonları Visual Studio için kullanılabilir hale getirir.
 
-   3.&nbsp;yeni bir proje oluşturun.
+   3\. Yeni bir proje oluşturun.
 
-   4.&nbsp;seçin **ASP.NET Core Web uygulaması**. **İleri**’yi seçin.
+   4\. Seçin **ASP.NET Core Web uygulaması**. **İleri**’yi seçin.
 
-   5.&nbsp;bir proje adı belirtin **proje adı** alan veya varsayılan proje adı kabul edin. Onayla **konumu** giriş doğru olduğundan veya proje için bir konum sağlayın. **Oluştur**’u seçin.
+   5\. Bir proje adı belirtin **proje adı** alan veya varsayılan proje adı kabul edin. Onayla **konumu** giriş doğru olduğundan veya proje için bir konum sağlayın. **Oluştur**’u seçin.
 
-   6.&nbsp;içinde **yeni bir ASP.NET Core Web uygulaması oluşturma** iletişim kutusunda onaylayın **.NET Core** ve **ASP.NET Core 3.0** seçilir.
+   6\. İçinde **yeni bir ASP.NET Core Web uygulaması oluşturma** iletişim kutusunda onaylayın **.NET Core** ve **ASP.NET Core 3.0** seçilir.
 
-   7.&nbsp;Blazor istemci-tarafı deneyimi için seçin **Blazor (istemci-tarafı)** şablonu. Blazor sunucu tarafı deneyimi için seçin **Blazor (sunucu tarafı)** şablonu. **Oluştur**’u seçin. İki Blazor barındırma modeli, sunucu tarafı ve istemci tarafı hakkında daha fazla bilgi için bkz: <xref:blazor/hosting-models>.
+   7\. Blazor istemci-tarafı deneyimi için seçin **Blazor (istemci-tarafı)** şablonu. Blazor sunucu tarafı deneyimi için seçin **Blazor (sunucu tarafı)** şablonu. **Oluştur**’u seçin. İki Blazor barındırma modeli, sunucu tarafı ve istemci tarafı hakkında daha fazla bilgi için bkz: <xref:blazor/hosting-models>.
 
-   8.&nbsp;tuşuna **F5** uygulamayı çalıştırmak için.
+   8\. Tuşuna **F5** uygulamayı çalıştırmak için.
 
    # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
    
-   1.&nbsp;yükleme [Visual Studio Code'u](https://code.visualstudio.com/).
+   1\. Yükleme [Visual Studio Code'u](https://code.visualstudio.com/).
 
-   2.&nbsp;en son yükleme [ C# Visual Studio Code uzantısı için](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
+   2\. Son yükleme [ C# Visual Studio Code uzantısı için](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
 
-   3.&nbsp;Blazor istemci-tarafı deneyimi için bir komut kabuğu'ndan aşağıdaki komutu yürütün:
+   3\. Blazor istemci-tarafı deneyimi için bir komut kabuğu'ndan aşağıdaki komutu yürütün:
 
       ```console
       dotnet new blazor -o WebApplication1
@@ -68,29 +68,29 @@ Blazor ile kullanmaya başlayın:
 
       İki Blazor barındırma modeli, sunucu tarafı ve istemci tarafı hakkında daha fazla bilgi için bkz: <xref:blazor/hosting-models>.
 
-   4.&nbsp;açık *WebApplication1* Visual Studio code'da klasörü.
+   4\. Açık *WebApplication1* Visual Studio code'da klasörü.
 
-   5.&nbsp;bir Blazor için sunucu tarafı proje, IDE istekleri oluşturmak ve projede hata ayıklamak için varlıklar ekleyin. Seçin **Evet**.
+   5\. Blazor sunucu tarafı proje için yapı ve proje hatalarını ayıklamaya varlıklar ekleme IDE ister. Seçin **Evet**.
 
-   6.&nbsp;Blazor sunucu-tarafı uygulaması kullanıyorsanız, Visual Studio Code hata ayıklayıcıyı kullanarak uygulamayı çalıştırın. Blazor istemci-tarafı uygulaması kullanıyorsanız yürütme `dotnet run` uygulama proje klasöründen.
+   6\. Blazor sunucu-tarafı uygulaması kullanıyorsanız, Visual Studio Code hata ayıklayıcıyı kullanarak uygulamayı çalıştırın. Blazor istemci-tarafı uygulaması kullanıyorsanız yürütme `dotnet run` uygulama proje klasöründen.
 
    <!--
 
    # [Visual Studio for Mac](#tab/visual-studio-mac)
 
-   1.&nbsp;Install [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/). Switch the [Update channel to Preview](/visualstudio/mac/install-preview).
+   1\. Install [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/). Switch the [Update channel to Preview](/visualstudio/mac/install-preview).
 
-   2.&nbsp;Select **File** > **New Solution** or **New Project**.
+   2\. Select **File** > **New Solution** or **New Project**.
 
-   3.&nbsp;In the sidebar, select **.NET Core** > **App**.
+   3\. In the sidebar, select **.NET Core** > **App**.
 
-   4.&nbsp;For a Blazor server-side experience, select the **ASP.NET Core Blazor (server-side)** template. For a Blazor client-side experience, select the **ASP.NET Core Blazor (client-side)** template. Select **Next**. For information on the two Blazor hosting models, server-side and client-side, see <xref:blazor/hosting-models>.
+   4\. For a Blazor server-side experience, select the **ASP.NET Core Blazor (server-side)** template. For a Blazor client-side experience, select the **ASP.NET Core Blazor (client-side)** template. Select **Next**. For information on the two Blazor hosting models, server-side and client-side, see <xref:blazor/hosting-models>.
 
-   5.&nbsp;The **Target Framework** defaults to **.NET Core 3.0**. Select **Next**.
+   5\. The **Target Framework** defaults to **.NET Core 3.0**. Select **Next**.
 
-   6.&nbsp;In the **Project Name** field, enter `WebApplication1`. Select **Create**.
+   6\. In the **Project Name** field, enter `WebApplication1`. Select **Create**.
 
-   7.&nbsp;Select **Run** > **Run Without Debugging** to run the app *without the debugger*. Running with the debugger isn't supported at this time.
+   7\. Select **Run** > **Run Without Debugging** to run the app *without the debugger*. Running with the debugger isn't supported at this time.
 
    -->
 
@@ -141,7 +141,7 @@ Her zaman **me tıklayın** düğmesi seçili:
 
 Çalışma zamanı, önceki içeriği için yeni içerik karşılaştırır ve yalnızca değiştirilen içerik belge nesne modeli (DOM) için geçerlidir.
 
-Bir bileşen başka bir bileşene HTML söz dizimi kullanılarak ekleyin. Bileşen parametreleri, öznitelikleri veya alt içeriğin kullanarak belirtilir. Örneğin, bir sayaç bileşeni uygulamanın giriş sayfasına ekleyerek eklenebilir bir `<Counter />` dizin bileşeni öğesi.
+Bir bileşen başka bir bileşene HTML sözdizimini kullanarak ekleyin. Örneğin, bir sayaç bileşeni uygulamanın giriş sayfasına ekleyerek eklenebilir bir `<Counter />` dizin bileşeni öğesi.
 
 *Pages/Index.razor*:
 
@@ -149,7 +149,7 @@ Bir bileşen başka bir bileşene HTML söz dizimi kullanılarak ekleyin. Bileş
 
 Uygulamayı çalıştırın. Giriş sayfası sayacı bileşen tarafından sağlanan kendi sayaç vardır.
 
-Sayaç bileşenine parametre eklemek için bileşenin güncelleştirme `@functions` engelle:
+Bileşen parametreleri, öznitelikleri kullanarak belirtilir veya [alt içeriğin](xref:blazor/components#child-content), en alt bileşen özelliklerini ayarlama sağlar. Sayaç bileşenine parametre eklemek için bileşenin güncelleştirme `@functions` engelle:
 
 * Bir özelliği için ekleme `IncrementAmount` ile bir `[Parameter]` özniteliği.
 * Değişiklik `IncrementCount` yönteminin kullanılacağını `IncrementAmount` değerini artırmayı olduğunda `currentCount`.

@@ -5,14 +5,14 @@ description: Bir uygulamanın bileşenleri doğru veritabanı, dosya sistemi ve 
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/25/2019
+ms.date: 06/05/2019
 uid: test/integration-tests
-ms.openlocfilehash: 46c3b227ca0b3def5ab7d527a2f6ef2497d55f83
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 3af2a1f7c6a65d7ff42597972ee151a50fc95fb6
+ms.sourcegitcommit: c716ea9155a6b404c1f3d3d34e2388454cd276d7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64898658"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66716370"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>ASP.NET core'da tümleştirme testleri
 
@@ -84,7 +84,7 @@ Test web ana bilgisayarı ve bellek içi test sunucusuna gibi altyapı bileşenl
 
 `Microsoft.AspNetCore.Mvc.Testing` Paket, aşağıdaki görevleri gerçekleştirir:
 
-* Bağımlılıkları dosyayı kopyalar (*\*.deps*) test projesinin içine SUT gelen *bin* klasör.
+* Bağımlılıkları dosyayı kopyalar ( *\*.deps*) test projesinin içine SUT gelen *bin* dizin.
 * Böylece, testler yürütülmeden statik dosyalar ve sayfalar/görünümler bulunur içerik kök SUT'ın Proje kök dizinine ayarlar.
 * Sağlar [WebApplicationFactory](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1) ile SUT önyükleme kolaylaştırmak için sınıf `TestServer`.
 
@@ -127,6 +127,8 @@ Aşağıdaki test sınıfı `BasicTests`, kullandığı `WebApplicationFactory` 
 [CreateClient](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactory-1.createclient) örneği oluşturur `HttpClient` otomatik olarak yeniden yönlendirmeleri takip eden ve tanımlama bilgilerini işler.
 
 [!code-csharp[](integration-tests/samples/2.x/IntegrationTestsSample/tests/RazorPagesProject.Tests/IntegrationTests/BasicTests.cs?name=snippet1)]
+
+Varsayılan olarak, gerekli olmayan tanımlama bilgilerini korunmaz boyunca istekleri zaman [GDPR onay İlkesi](xref:security/gdpr) etkinleştirilir. TempData sağlayıcısı tarafından kullanılanlar gibi gerekli olmayan tanımlama bilgilerini korumak için bunları testlerinizde temel olarak işaretleyin. Bir tanımlama bilgisi gerekli olarak işaretlemek ile ilgili yönergeler için bkz: [temel tanımlama bilgilerini](xref:security/gdpr#essential-cookies).
 
 ### <a name="test-a-secure-endpoint"></a>Güvenli bir uç nokta test
 
@@ -270,7 +272,7 @@ Test yürütme sırasında üretilen biçimlendirme tarafından sağlanan teklif
 
 ## <a name="how-the-test-infrastructure-infers-the-app-content-root-path"></a>Sınama altyapının uygulama içerik kök yolu nasıl algılar
 
-`WebApplicationFactory` Oluşturucusu çıkarsar uygulama içerik kök yolu arayarak bir [WebApplicationFactoryContentRootAttribute](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactorycontentrootattribute) eşit bir anahtarla tümleştirme testleri içeren derleme üzerinde `TEntryPoint` derleme`System.Reflection.Assembly.FullName`. Özniteliğin doğru anahtarla bulunamadığında durumda `WebApplicationFactory` bir çözüm dosyası için aramaya geri döner (*\*.sln*) ve ekler `TEntryPoint` çözüm dizinine derleme adı. Uygulama kök dizinindeki (içerik kök yol), görünümleri ve içerik dosyalarını bulmak için kullanılır.
+`WebApplicationFactory` Oluşturucusu çıkarsar uygulama içerik kök yolu arayarak bir [WebApplicationFactoryContentRootAttribute](/dotnet/api/microsoft.aspnetcore.mvc.testing.webapplicationfactorycontentrootattribute) eşit bir anahtarla tümleştirme testleri içeren derleme üzerinde `TEntryPoint` derleme`System.Reflection.Assembly.FullName`. Özniteliğin doğru anahtarla bulunamadığında durumda `WebApplicationFactory` bir çözüm dosyası için aramaya geri döner ( *\*.sln*) ve ekler `TEntryPoint` çözüm dizinine derleme adı. Uygulama kök dizinindeki (içerik kök yol), görünümleri ve içerik dosyalarını bulmak için kullanılır.
 
 Arama mantığı çalışma zamanında doğru içerik kök genellikle bulur. çoğu durumda, bu uygulama içerik kök açıkça ayarlamak gerekli değildir. İçerik kök bulunduğu değil özel senaryolarda yerleşik arama algoritması, uygulama kök açıkça veya özel mantığı kullanarak belirtilen içerik kullanma. Bu senaryolarda uygulama içerik kök ayarlamak için çağrı `UseSolutionRelativeContentRoot` şuradan genişleme metodu [Microsoft.AspNetCore.TestHost](https://www.nuget.org/packages/Microsoft.AspNetCore.TestHost) paket. Çözümün göreli yol ve dosya adı veya glob deseni isteğe bağlı bir çözüm sağlamak (varsayılan = `*.sln`).
 
@@ -311,7 +313,7 @@ Arama mantığı çalışma zamanında doğru içerik kök genellikle bulur. ço
 
 ## <a name="disable-shadow-copying"></a>Gölge kopyalama devre dışı bırak
 
-Gölge kopyalama çıktı klasörünü farklı bir klasörde yürütülecek testleri neden olur. Gölge kopyalama düzgün çalışması testleri için devre dışı bırakılmalıdır. [Örnek uygulaması](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) xUnit kullanır ve dahil ederek xUnit için gölge kopyalama devre dışı bırakan bir *xunit.runner.json* doğru yapılandırma ayarı dosyası. Daha fazla bilgi için [xUnit ile JSON yapılandırma](https://xunit.github.io/docs/configuring-with-json.html).
+Gölge kopyalama çıktı dizini farklı bir dizine yürütülecek testleri neden olur. Gölge kopyalama düzgün çalışması testleri için devre dışı bırakılmalıdır. [Örnek uygulaması](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) xUnit kullanır ve dahil ederek xUnit için gölge kopyalama devre dışı bırakan bir *xunit.runner.json* doğru yapılandırma ayarı dosyası. Daha fazla bilgi için [xUnit ile JSON yapılandırma](https://xunit.github.io/docs/configuring-with-json.html).
 
 Ekleme *xunit.runner.json* dosya aşağıdaki içeriğe sahip test projesinin kök:
 
@@ -329,12 +331,12 @@ Testleri sonra `IClassFixture` uygulama yürütüldüğünde, [TestServer](/dotn
 
 [Örnek uygulaması](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/test/integration-tests/samples) iki uygulama oluşur:
 
-| Uygulama | Proje klasörü | Açıklama |
-| --- | -------------- | ----------- |
+| Uygulama | Proje dizini | Açıklama |
+| --- | ----------------- | ----------- |
 | İleti uygulaması (SUT) | *src/RazorPagesProject* | Eklemek, silmek, tüm silmek ve iletileri çözümleme açmasına olanak sağlar. |
 | Test uygulaması | *tests/RazorPagesProject.Tests* | Tümleştirme testi SUT için kullanılır. |
 
-Bir IDE özelliklerini yerleşik test gibi kullanarak testler çalıştırılabilir [Visual Studio](https://visualstudio.microsoft.com). Kullanıyorsanız [Visual Studio Code](https://code.visualstudio.com/) veya bir komut isteminde aşağıdaki komutu yürütün komut satırının *tests/RazorPagesProject.Tests* klasörü:
+Bir IDE özelliklerini yerleşik test gibi kullanarak testler çalıştırılabilir [Visual Studio](https://visualstudio.microsoft.com). Kullanıyorsanız [Visual Studio Code](https://code.visualstudio.com/) veya bir komut isteminde aşağıdaki komutu yürütün komut satırının *tests/RazorPagesProject.Tests* dizini:
 
 ```console
 dotnet test
@@ -357,10 +359,10 @@ Uygulama deposu düzeni kullanmaz ve etkili bir örneği değil ancak [iş birim
 
 ### <a name="test-app-organization"></a>Test uygulama kuruluş
 
-Bir konsol uygulaması içinde test uygulamasıdır *tests/RazorPagesProject.Tests* klasör.
+Bir konsol uygulaması içinde test uygulamasıdır *tests/RazorPagesProject.Tests* dizin.
 
-| Test uygulama klasörü | Açıklama |
-| --------------- | ----------- |
+| Test uygulama dizini | Açıklama |
+| ------------------ | ----------- |
 | *BasicTests* | *BasicTests.cs* yönlendirme, güvenli bir sayfa kimliği doğrulanmamış bir kullanıcı tarafından erişme ve GitHub kullanıcı profili edinme ve profilinin kullanıcı oturum açma denetimi için test yöntemleri içerir. |
 | *IntegrationTests* | *IndexPageTests.cs* özel kullanarak dizin sayfasına için tümleştirme testleri içeren `WebApplicationFactory` sınıfı. |
 | *Yardımcıları/yardımcı programları* | <ul><li>*Utilities.cs* içeren `InitializeDbForTests` test verileri ile veritabanının çekirdeğini oluşturma için kullanılan yöntem.</li><li>*HtmlHelpers.cs* bir AngleSharp döndürmek için bir yöntem sağlar `IHtmlDocument` test yöntemleri tarafından kullanılacak.</li><li>*HttpClientExtensions.cs* için aşırı yüklemeler sağlar `SendAsync` SUT istekleri göndermek için.</li></ul> |
