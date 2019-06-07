@@ -5,12 +5,12 @@ description: Nasıl ASP.NET Core hizmetlerini ve ara yazılım içeriği yerelle
 ms.author: riande
 ms.date: 01/14/2017
 uid: fundamentals/localization
-ms.openlocfilehash: 3192ad150b914c00b315f38bd9fe077ebf402b37
-ms.sourcegitcommit: 687ffb15ebe65379f75c84739ea851d5a0d788b7
+ms.openlocfilehash: ec78d35daf6823779fca491aca7b7b309db4b02e
+ms.sourcegitcommit: e7e04a45195d4e0527af6f7cf1807defb56dc3c3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58488708"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66750033"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Genelleştirme ve yerelleştirme ASP.NET core'da
 
@@ -30,7 +30,7 @@ Uygulama yerelleştirme aşağıdakileri içerir:
 
 3. Her istek için dili/kültürü seçmek için bir strateji yürütmelidir
 
-[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/localization/sample/Localization) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
+[Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/localization/sample/Localization) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
 ## <a name="make-the-apps-content-localizable"></a>Uygulamanın içeriği yerelleştirilebilir olun
 
@@ -348,3 +348,4 @@ Koşulları:
 * [.NET uygulamaları Genelleştirme ve yerelleştirme](/dotnet/standard/globalization-localization/index)
 * [.Resx dosyalarındaki kaynaklar](/dotnet/framework/resources/working-with-resx-files-programmatically)
 * [Microsoft çok dilli uygulama araç seti](https://marketplace.visualstudio.com/items?itemName=MultilingualAppToolkit.MultilingualAppToolkit-18308)
+* [Yerelleştirme ve genel türler](https://github.com/hishamco/hishambinateya.com/blob/master/Posts/localization-and-generics.md)

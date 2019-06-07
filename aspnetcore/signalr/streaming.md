@@ -5,14 +5,14 @@ description: İstemci ve sunucu arasında veri akışı yapmayı öğrenin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 04/12/2019
+ms.date: 06/05/2019
 uid: signalr/streaming
-ms.openlocfilehash: 8f39fdfa45766b5bbec572970f009abefefdc419
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: a75156f398e113393ddb891d16eec3f09de80c09
+ms.sourcegitcommit: e7e04a45195d4e0527af6f7cf1807defb56dc3c3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64902951"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66750194"
 ---
 # <a name="use-streaming-in-aspnet-core-signalr"></a>ASP.NET Core SignalR öğesinde akışı
 
@@ -36,7 +36,7 @@ ASP.NET Core SignalR sunucusunu yöntemlerin dönüş değerlerini akış destek
 
 ::: moniker range=">= aspnetcore-3.0"
 
-Bir hub yöntemini döndürür, otomatik olarak bir akış hub'yöntemini olur. bir <xref:System.Threading.Channels.ChannelReader%601>, `IAsyncEnumerable<T>`, `Task<ChannelReader<T>>`, veya `Task<IAsyncEnumerable<T>>`.
+Döndürür bir hub yöntemini otomatik olarak bir akış hub'yöntemini olur <xref:System.Collections.Generic.IAsyncEnumerable`1>, <xref:System.Threading.Channels.ChannelReader%601>, `Task<IAsyncEnumerable<T>>`, veya `Task<ChannelReader<T>>`.
 
 ::: moniker-end
 
@@ -93,9 +93,23 @@ Server istemcisi akış hub yöntemleri kabul edebileceği bir `CancellationToke
 
 ### <a name="client-to-server-streaming"></a>İstemci sunucu akış
 
-Bir hub yöntemini bir veya daha fazla kabul ettiğinde, otomatik olarak bir istemci-sunucu akış hub yönteminin olur <xref:System.Threading.Channels.ChannelReader`1>s. Aşağıdaki örnek istemci tarafından gönderilen veri akışı okuma temellerini gösterir. Her istemci Yazar <xref:System.Threading.Channels.ChannelWriter`1>, veri yazılır `ChannelReader` hub yönteminin okuma sunucuda.
+Bir hub yöntemini veya daha fazla nesne türü kabul ettiğinde, otomatik olarak bir istemci-sunucu akış hub yöntemini olur <xref:System.Threading.Channels.ChannelReader%601> veya <xref:System.Collections.Generic.IAsyncEnumerable%601>. Aşağıdaki örnek istemci tarafından gönderilen veri akışı okuma temellerini gösterir. Her istemci Yazar <xref:System.Threading.Channels.ChannelWriter%601>, veri yazılır `ChannelReader` hub yönteminin okuma içinden sunucusunda.
 
 [!code-csharp[Streaming upload hub method](streaming/samples/3.0/Hubs/StreamHub.cs?name=snippet2)]
+
+Bir <xref:System.Collections.Generic.IAsyncEnumerable%601> yöntem sürümünü izler.
+
+[!INCLUDE[](~/includes/csharp-8-required.md)]
+
+```csharp
+public async Task UploadStream(IAsyncEnumerable<Stream> stream) 
+{
+    await foreach (var item in stream)
+    {
+        Console.WriteLine(item);
+    }
+}
+```
 
 ::: moniker-end
 
@@ -103,9 +117,55 @@ Bir hub yöntemini bir veya daha fazla kabul ettiğinde, otomatik olarak bir ist
 
 ### <a name="server-to-client-streaming"></a>Server istemcisi akış
 
-`StreamAsChannelAsync` Metodunda `HubConnection` sunucusu istemci akışı yöntemi çağırmak için kullanılır. Hub yönteminin adı ve bağımsız değişkenler için hub yönteminin tanımlandığı `StreamAsChannelAsync`. Genel parametre üzerinde `StreamAsChannelAsync<T>` akış yöntemi tarafından döndürülen nesne türünü belirtir. A `ChannelReader<T>` stream çağrısından döndürülen ve istemcinin akışta temsil eder.
+
+::: moniker range=">= aspnetcore-3.0"
+
+`StreamAsync` Ve `StreamAsChannelAsync` yöntemlerde `HubConnection` server istemcisi akış yöntemlerini çağırmak için kullanılır. Hub yönteminin adı ve bağımsız değişkenler için hub yönteminin tanımlandığı `StreamAsync` veya `StreamAsChannelAsync`. Genel parametre üzerinde `StreamAsync<T>` ve `StreamAsChannelAsync<T>` akış yöntemi tarafından döndürülen nesne türünü belirtir. Bir nesne türü `IAsyncEnumerable<T>` veya `ChannelReader<T>` stream çağrısından döndürülen ve istemcinin akışta temsil eder.
+
+A `StreamAsync` döndüren örnek `IAsyncEnumerable<int>`:
+
+```csharp
+// Call "Cancel" on this CancellationTokenSource to send a cancellation message to
+// the server, which will trigger the corresponding token in the hub method.
+var cancellationTokenSource = new CancellationTokenSource();
+var stream = await hubConnection.StreamAsync<int>(
+    "Counter", 10, 500, cancellationTokenSource.Token);
+
+await foreach (var count in stream)
+{
+    Console.WriteLine($"{count}");
+}
+
+Console.WriteLine("Streaming completed");
+```
+
+Karşılık gelen `StreamAsChannelAsync` döndüren örnek `ChannelReader<int>`:
+
+```csharp
+// Call "Cancel" on this CancellationTokenSource to send a cancellation message to
+// the server, which will trigger the corresponding token in the hub method.
+var cancellationTokenSource = new CancellationTokenSource();
+var channel = await hubConnection.StreamAsChannelAsync<int>(
+    "Counter", 10, 500, cancellationTokenSource.Token);
+
+// Wait asynchronously for data to become available
+while (await channel.WaitToReadAsync())
+{
+    // Read all currently available data synchronously, before waiting for more data
+    while (channel.TryRead(out var count))
+    {
+        Console.WriteLine($"{count}");
+    }
+}
+
+Console.WriteLine("Streaming completed");
+```
+
+::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.2"
+
+`StreamAsChannelAsync` Metodunda `HubConnection` sunucusu istemci akışı yöntemi çağırmak için kullanılır. Hub yönteminin adı ve bağımsız değişkenler için hub yönteminin tanımlandığı `StreamAsChannelAsync`. Genel parametre üzerinde `StreamAsChannelAsync<T>` akış yöntemi tarafından döndürülen nesne türünü belirtir. A `ChannelReader<T>` stream çağrısından döndürülen ve istemcinin akışta temsil eder.
 
 ```csharp
 // Call "Cancel" on this CancellationTokenSource to send a cancellation message to
@@ -131,6 +191,8 @@ Console.WriteLine("Streaming completed");
 
 ::: moniker range="= aspnetcore-2.1"
 
+`StreamAsChannelAsync` Metodunda `HubConnection` sunucusu istemci akışı yöntemi çağırmak için kullanılır. Hub yönteminin adı ve bağımsız değişkenler için hub yönteminin tanımlandığı `StreamAsChannelAsync`. Genel parametre üzerinde `StreamAsChannelAsync<T>` akış yöntemi tarafından döndürülen nesne türünü belirtir. A `ChannelReader<T>` stream çağrısından döndürülen ve istemcinin akışta temsil eder.
+
 ```csharp
 var channel = await hubConnection
     .StreamAsChannelAsync<int>("Counter", 10, 500, CancellationToken.None);
@@ -154,11 +216,29 @@ Console.WriteLine("Streaming completed");
 
 ### <a name="client-to-server-streaming"></a>İstemci sunucu akış
 
-Bir istemci-sunucu akış hub'yöntemini .NET istemcisinden çağırmak için oluşturma bir `Channel` ve `ChannelReader` bağımsız değişkeni olarak `SendAsync`, `InvokeAsync`, veya `StreamAsChannelAsync`hub yönteminin çağrılması bağlı olarak.
+Bir istemci-sunucu akış hub'yöntemini .NET istemcisinden çağırmak için iki yolu vardır. Ya da geçişinde olabilir bir `IAsyncEnumerable<T>` veya `ChannelReader` bağımsız değişkeni olarak `SendAsync`, `InvokeAsync`, veya `StreamAsChannelAsync`hub yönteminin çağrılması bağlı olarak.
 
-Her veri yazılır `ChannelWriter`, sunucudaki hub yönteminin istemciden veri içeren yeni bir öğe alır.
+Her veri yazılır `IAsyncEnumerable` veya `ChannelWriter` nesnesi, sunucudaki hub yönteminin istemciden veri içeren yeni bir öğe alır.
 
-Akış sonuna kanalıyla tamamlamak `channel.Writer.Complete()`.
+Kullanılıyorsa bir `IAsyncEnumerable` nesnesi, akışın akış öğelerini çıkar döndüren yöntem sonra sona erer.
+
+[!INCLUDE[](~/includes/csharp-8-required.md)]
+
+```csharp
+async IAsyncEnumerable<string> clientStreamData()
+{
+    for (var i = 0; i < 5; i++)
+    {
+        var data = await FetchSomeData();
+        yield return data;
+    }
+    //After the for loop has completed and the local function exits the stream completion will be sent.
+}
+
+await connection.SendAsync("UploadStream", clientStreamData());
+```
+
+Veya kullanıyorsanız bir `ChannelWriter`, kanalıyla tamamlamak `channel.Writer.Complete()`:
 
 ```csharp
 var channel = Channel.CreateBounded<string>(10);

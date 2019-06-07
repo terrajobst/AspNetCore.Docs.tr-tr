@@ -5,12 +5,12 @@ description: Oluşturma, okuma, güncelleştirme ve EF Core ile silme işlemini 
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/crud
-ms.openlocfilehash: 43d133c61c0387ebcb4bcb2d22c800588d8534c3
-ms.sourcegitcommit: 3376f224b47a89acf329b2d2f9260046a372f924
+ms.openlocfilehash: ec22c82b3b70399017b5b9aa61896440db647062
+ms.sourcegitcommit: e7e04a45195d4e0527af6f7cf1807defb56dc3c3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65516917"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66750021"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---crud---2-of-8"></a>ASP.NET core'da - CRUD - 2 8 EF çekirdekli Razor sayfaları
 
@@ -123,7 +123,7 @@ Güncelleştirme `OnPostAsync` yönteminde *Pages/Students/Create.cshtml.cs* aş
 Önceki örnekte:
 
 * İkinci bağımsız değişkeni (`"student", // Prefix`) öneki değerleri aramak için kullanılır. Büyük/küçük harfe duyarlı değildir.
-* Gönderilen form değerleri türleri dönüştürülür `Student` modelini [model bağlama](xref:mvc/models/model-binding#how-model-binding-works).
+* Gönderilen form değerleri türleri dönüştürülür `Student` modelini [model bağlama](xref:mvc/models/model-binding).
 
 <a id="overpost"></a>
 

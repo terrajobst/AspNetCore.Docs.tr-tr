@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.date: 02/04/2019
 ms.topic: tutorial
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 61669dca24b552012ee057b89de28b7de1702c2b
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 442570cdc79fe7c496392ffbcbc527cf841aefa9
+ms.sourcegitcommit: e7e04a45195d4e0527af6f7cf1807defb56dc3c3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64900257"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66750076"
 ---
 # <a name="tutorial-implement-crud-functionality---aspnet-mvc-with-ef-core"></a>Öğretici: CRUD işlevselliği - EF çekirdekli ASP.NET MVC uygulama
 
@@ -177,7 +177,7 @@ HttpPost düzenleme eylem yöntemini aşağıdaki kodla değiştirin.
 
 Bu değişiklikler overposting önlemek için güvenlik en iyi uygulama uygulayın. Oluşturulan iskele kurucu bir `Bind` öznitelik veya varlık kümesi için model bağlayıcı tarafından oluşturulan varlık eklenebilir bir `Modified` bayrağı. Kod için birçok senaryo için önerilmez `Bind` özniteliği temizler içinde listelenmeyen alanlar önceden mevcut olan tüm verileri dışarı `Include` parametresi.
 
-Yeni kod çağrıları ve var olan bir varlığa okur `TryUpdateModel` alınan varlık alanları güncelleştirmek için [gönderilen form verilerini kullanıcı girişini temel](xref:mvc/models/model-binding#how-model-binding-works). Entity Framework'ün otomatik değişiklik kümeleri izleme `Modified` form girişi tarafından değiştirilen alanları bayrağı. Zaman `SaveChanges` yöntemi çağrıldığında, Entity Framework veritabanı satırı güncelleştirmek için SQL deyimleri oluşturur. Eşzamanlılık çakışmalarını göz ardı edilir ve yalnızca kullanıcı tarafından güncelleştirildiği tablo sütunları veritabanında güncelleştirilir. (Bir sonraki öğreticide eşzamanlılık çakışmalarını nasıl ele alınacağını gösterir.)
+Yeni kod çağrıları ve var olan bir varlığa okur `TryUpdateModel` alınan varlık alanları güncelleştirmek için [gönderilen form verilerini kullanıcı girişini temel](xref:mvc/models/model-binding). Entity Framework'ün otomatik değişiklik kümeleri izleme `Modified` form girişi tarafından değiştirilen alanları bayrağı. Zaman `SaveChanges` yöntemi çağrıldığında, Entity Framework veritabanı satırı güncelleştirmek için SQL deyimleri oluşturur. Eşzamanlılık çakışmalarını göz ardı edilir ve yalnızca kullanıcı tarafından güncelleştirildiği tablo sütunları veritabanında güncelleştirilir. (Bir sonraki öğreticide eşzamanlılık çakışmalarını nasıl ele alınacağını gösterir.)
 
 Tarafından güncelleştirilebilmesi için istediğiniz alanları overposting önlemek için en iyi uygulama olarak **Düzenle** sayfası olan içinde beyaz listeye `TryUpdateModel` parametreleri. (Form alanları adları ile kullanılacak bir ön eki parametre listesindeki alanlar listesinde önceki boş bir dize içindir.) Şu anda koruduğunuz hiçbir ek alanlar vardır, ancak bağlamak için model bağlayıcı istediğiniz alanları listesi alanları veri modeli gelecekte eklerseniz, siz açıkça burada ekleyinceye kadar otomatik olarak korumalı olup olmadıklarını olduğunu sağlar.
 

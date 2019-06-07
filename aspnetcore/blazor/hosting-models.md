@@ -5,14 +5,14 @@ description: İstemci tarafı ve sunucu tarafı Blazor modelleri barındırma an
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/28/2019
+ms.date: 06/05/2019
 uid: blazor/hosting-models
-ms.openlocfilehash: d9e430c90d9a01976a8e6222a15504b43f91e2ed
-ms.sourcegitcommit: 4d05e30567279072f1b070618afe58ae1bcefd5a
+ms.openlocfilehash: 27a0387990d4a268cde854583c76ec03cd50a026
+ms.sourcegitcommit: e7e04a45195d4e0527af6f7cf1807defb56dc3c3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66376329"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66750139"
 ---
 # <a name="blazor-hosting-models"></a>Blazor barındırma modelleri
 
@@ -152,72 +152,6 @@ SignalR istemcisinde yapılandırmak zorunda *sayfaları /\_Host.cshtml* dosyas�
     }
   });
 </script>
-```
-
-### <a name="improved-signalr-connection-lifetime-handling"></a>Geliştirilmiş SignalR bağlantı ömrü işleme
-
-Otomatik yeniden bağlantılar çağrılarak etkinleştirilebilir `withAutomaticReconnect` metodunda `HubConnectionBuilder`:
-
-```csharp
-const connection = new signalR.HubConnectionBuilder()
-    .withUrl("/chatHub")
-    .withAutomaticReconnect()
-    .build();
-```
-
-Parametreleri belirtmeden `withAutomaticReconnect` her girişimden 0, 2, 10 ve 30 saniye bekledikten sonra yeniden bağlanmayı deneyin üzere istemciyi yapılandırır.
-
-Hatasından önce sitede yeniden bağlanma denemesi sayısı varsayılan olmayan yapılandırma veya yeniden zamanlamasını değiştirmek için `withAutomaticReconnect` yeniden bağlanma girişimleri başlatmadan önce beklenecek milisaniye cinsinden gecikme değeri temsil eden sayı dizisi kabul eder:
-
-```csharp
-const connection = new signalR.HubConnectionBuilder()
-    .withUrl("/chatHub")
-    .withAutomaticReconnect([0, 0, 2000, 5000]) // defaults to [0, 2000, 10000, 30000]
-    .build();
-```
-
-### <a name="improved-disconnect-and-reconnect-handling"></a>Bağlantı kesme geliştirdik ve yeniden işleme
-
-Yeniden bağlanma girişimleri başlatmadan önce `HubConnection` geçer `Reconnecting` durumu ve ateşlenir kendi `onreconnecting` geri çağırma. Bu, bağlantı kesildi kullanıcıları uyarmak, devre dışı kullanıcı Arabirimi öğeleri ve bağlantısı kesilmiş durumu nedeniyle ortaya çıkabilecek karmaşık kullanıcı senaryolarını kolaylaştırmak için bir fırsat sağlar:
-
-```javascript
-connection.onreconnecting((error) => {
-  console.assert(connection.state === signalR.HubConnectionState.Reconnecting);
-
-  document.getElementById("messageInput").disabled = true;
-
-  const li = document.createElement("li");
-  li.textContent = `Connection lost due to error "${error}". Reconnecting.`;
-  document.getElementById("messagesList").appendChild(li);
-});
-```
-
-İstemci ilk dört girişimlerinin içinde başarıyla bağlanırsa `HubConnection` geçişleri başa `Connected` durumu ve ateşlenir `onreconnected` geri çağırma. Bu bağlantı yeniden kurulur kullanıcılara bildirmek için bir fırsat sağlar:
-
-```javascript
-connection.onreconnected((connectionId) => {
-  console.assert(connection.state === signalR.HubConnectionState.Connected);
-
-  document.getElementById("messageInput").disabled = false;
-
-  const li = document.createElement("li");
-  li.textContent = `Connection reestablished. Connected with connectionId "${connectionId}".`;
-  document.getElementById("messagesList").appendChild(li);
-});
-```
-
-İstemci ilk dört girişimlerinin içinde başarıyla yeniden değil `HubConnection` geçer `Disconnected` durumu ve ateşlenir kendi `onclosed` geri çağırma. Kullanıcılar bağlantıyı kalıcı olarak kaybolur ve sayfayı yenilemeyi önermek için bir fırsat budur.
-
-```javascript
-connection.onclose((error) => {
-  console.assert(connection.state === signalR.HubConnectionState.Disconnected);
-
-  document.getElementById("messageInput").disabled = true;
-
-  const li = document.createElement("li");
-  li.textContent = `Connection closed due to error "${error}". Try refreshing this page to restart the connection.`;
-  document.getElementById("messagesList").appendChild(li);
-})
 ```
 
 ## <a name="additional-resources"></a>Ek kaynaklar

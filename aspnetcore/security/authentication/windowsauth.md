@@ -5,14 +5,14 @@ description: Windows kimlik doğrulaması için IIS ve HTTP.sys içinde ASP.NET 
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 05/29/2019
+ms.date: 06/05/2019
 uid: security/authentication/windowsauth
-ms.openlocfilehash: 9dfff5dcba409ddca7e05c771b864ab121e0ea85
-ms.sourcegitcommit: 06c4f2910dd54ded25e1b8750e09c66578748bc9
+ms.openlocfilehash: 900bbf5f14b1876ad537b2b77e4ba07d7aa168f2
+ms.sourcegitcommit: e7e04a45195d4e0527af6f7cf1807defb56dc3c3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66395923"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66750159"
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>ASP.NET Core Windows kimlik doğrulamasını yapılandırma
 
@@ -22,9 +22,17 @@ Tarafından [Scott Addie](https://twitter.com/Scott_Addie) ve [Luke Latham](http
 
 Windows kimlik doğrulaması, ASP.NET Core uygulamaları, kullanıcıların kimliklerini doğrulamak için işletim sistemi kullanır. Sunucunuz, kullanıcıları tanımlamak için Active Directory etki alanı kimlikleri veya Windows hesaplarını kullanarak bir şirket ağında çalıştığında, Windows kimlik doğrulaması kullanabilirsiniz. Windows kimlik doğrulaması nerede kullanıcılar, istemci uygulamaları ve web sunucuları aynı Windows etki alanına ait intranet ortamları için idealdir.
 
-## <a name="launch-settings-debugger"></a>Başlatma ayarları (hata ayıklayıcı)
+## <a name="iisiis-express"></a>IIS/IIS Express
 
-Başlatma ayarları yapılandırması yalnızca etkiler *Properties/launchSettings.json* dosyası ve Windows kimlik doğrulaması için IIS veya HTTP.sys sunucu yapılandırmaz. Yapılandırma sunucusunun içinde açıklanan [etkinleştirmek için IIS veya HTTP.sys kimlik doğrulama hizmetleri](#authentication-services-for-iis-or-httpsys) bölümü.
+Kimlik doğrulama hizmetleri çağırarak ekleme <xref:Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions.AddAuthentication*> (<xref:Microsoft.AspNetCore.Server.IISIntegration?displayProperty=fullName> ad alanı) içinde `Startup.ConfigureServices`:
+
+```csharp
+services.AddAuthentication(IISDefaults.AuthenticationScheme);
+```
+
+### <a name="launch-settings-debugger"></a>Başlatma ayarları (hata ayıklayıcı)
+
+Başlatma ayarları yapılandırması yalnızca etkiler *Properties/launchSettings.json* dosya için IIS Express ve IIS için Windows kimlik doğrulaması yapılandırmaz. Sunucu Yapılandırması içinde açıklanan [IIS](#iis) bölümü.
 
 **Web uygulaması** şablonu Visual Studio veya .NET Core CLI aracılığıyla kullanılabilir, Windows kimlik doğrulamasını güncelleştiren destekleyecek şekilde yapılandırılabilir *Properties/launchSettings.json* dosyası otomatik olarak.
 
@@ -76,17 +84,7 @@ Güncelleştirme `iisSettings` düğümünün *launchSettings.json* dosyası:
 
 Mevcut bir projeyi değiştirirken, proje dosyası için bir paket başvurusu içerdiğini onaylamak [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app) **veya** [ Microsoft.AspNetCore.Authentication](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication/) NuGet paketi.
 
-## <a name="authentication-services-for-iis-or-httpsys"></a>IIS veya HTTP.sys için kimlik doğrulama hizmetleri
-
-Barındırma senaryoya bağlı olarak sunulan yönergeleri **ya da** [IIS](#iis) bölümü **veya** [HTTP.sys](#httpsys) bölümü.
-
 ### <a name="iis"></a>IIS
-
-Kimlik doğrulama hizmetleri çağırarak ekleme <xref:Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions.AddAuthentication*> (<xref:Microsoft.AspNetCore.Server.IISIntegration?displayProperty=fullName> ad alanı) içinde `Startup.ConfigureServices`:
-
-```csharp
-services.AddAuthentication(IISDefaults.AuthenticationScheme);
-```
 
 IIS kullanan [ASP.NET Core Modülü](xref:host-and-deploy/aspnet-core-module) konak ASP.NET Core uygulamaları için. Windows kimlik doğrulaması için IIS yapılandırılır *web.config* dosya. Aşağıdaki bölümlerde show nasıl yapılır:
 
@@ -127,9 +125,9 @@ Kullanım **ya da** aşağıdaki yaklaşımlardan biri:
   * Ayarlar sıfırlamak için IIS Yöneticisi'ni kullanın *web.config* dağıtımı dosyanın üzerine yazılır sonra dosya.
   * Ekleme bir *web.config dosyasını* uygulamada yerel olarak ayarlar.
 
-### <a name="httpsys"></a>HTTP.sys
+## <a name="httpsys"></a>HTTP.sys
 
-Ancak [Kestrel](xref:fundamentals/servers/kestrel) Windows kimlik doğrulamasını desteklemiyor kullanabileceğiniz [HTTP.sys](xref:fundamentals/servers/httpsys) Windows üzerinde şirket içinde barındırılan senaryoları desteklemek için.
+Şirket içinde barındırılan senaryolarda [Kestrel](xref:fundamentals/servers/kestrel) kullanabilirsiniz değil Windows kimlik doğrulaması desteği, ancak [HTTP.sys](xref:fundamentals/servers/httpsys).
 
 Kimlik doğrulama hizmetleri çağırarak ekleme <xref:Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions.AddAuthentication*> (<xref:Microsoft.AspNetCore.Server.HttpSys?displayProperty=fullName> ad alanı) içinde `Startup.ConfigureServices`:
 

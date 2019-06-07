@@ -5,14 +5,14 @@ description: Nasıl ASP.NET Core Razor sayfalar kodlama sayfa odaklı senaryolar
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 10/25/2018
+ms.date: 06/05/2019
 uid: razor-pages/sdk
-ms.openlocfilehash: de51c9443e639cd64c234b6975cf7252bb7a2b9a
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 8c4e882af93b043afaa0bcf86fd1583405f84be9
+ms.sourcegitcommit: e7e04a45195d4e0527af6f7cf1807defb56dc3c3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64901895"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66750171"
 ---
 # <a name="aspnet-core-razor-sdk"></a>ASP.NET Core Razor SDK'sı
 
@@ -71,8 +71,8 @@ Aşağıdaki özellikler proje derlemesi bir parçası olarak Razor'ın SDK davr
 
 | Öğeler | Açıklama |
 | ----- | ----------- |
-| `RazorGenerate` | Öğe öğeleri (*.cshtml* dosyaları) girişleri kod oluşturma hedefleri olan. |
-| `RazorCompile` | Öğe öğeleri (*.cs* dosyaları) girişleri Razor derleme hedefleri olan. Bu ItemGroup Razor bütünleştirilmiş kod içine derlenmiş için ek dosyaları belirtmek için kullanın. |
+| `RazorGenerate` | Öğe öğeleri ( *.cshtml* dosyaları) girişleri kod oluşturma hedefleri olan. |
+| `RazorCompile` | Öğe öğeleri ( *.cs* dosyaları) girişleri Razor derleme hedefleri olan. Bu ItemGroup Razor bütünleştirilmiş kod içine derlenmiş için ek dosyaları belirtmek için kullanın. |
 | `RazorTargetAssemblyAttribute` | Kod için kullanılan öğeler için Razor derleme öznitelikleri oluşturur. Örneğin:  <br>`RazorAssemblyAttribute`<br>`Include="System.Reflection.AssemblyMetadataAttribute"`<br>`_Parameter1="BuildSource" _Parameter2="https://docs.microsoft.com/">` |
 | `RazorEmbeddedResource` | Oluşturulan Razor derlemesine katıştırılmış kaynakları olarak eklenen öğeler. |
 
@@ -85,10 +85,10 @@ Aşağıdaki özellikler proje derlemesi bir parçası olarak Razor'ın SDK davr
 | `EnableDefaultRazorGenerateItems` | Zaman `true`, içeren *.cshtml* dosyalarını `Content` öğeler `RazorGenerate` öğeleri. |
 | `GenerateRazorTargetAssemblyInfo` | Zaman `true`, oluşturur bir *.cs* tarafından belirtilen öznitelikler içeren dosya `RazorAssemblyAttribute` ve derleme çıkış dosyası içerir. |
 | `EnableDefaultRazorTargetAssemblyInfoAttributes` | Zaman `true`, derleme öznitelikleri için varsayılan ayarı ekler `RazorAssemblyAttribute`. |
-| `CopyRazorGenerateFilesToPublishDirectory` | Zaman `true`, kopya `RazorGenerate` öğeleri (*.cshtml*) dosyalarını yayımlama dizinine kopyalayın. Genellikle, derleme zamanı veya yayımlama zamanı derleme katıldıkları, Razor dosyaları bir yayımlanan uygulama için gerekli değildir. Varsayılan olarak `false`. |
+| `CopyRazorGenerateFilesToPublishDirectory` | Zaman `true`, kopya `RazorGenerate` öğeleri ( *.cshtml*) dosyalarını yayımlama dizinine kopyalayın. Genellikle, derleme zamanı veya yayımlama zamanı derleme katıldıkları, Razor dosyaları bir yayımlanan uygulama için gerekli değildir. Varsayılan olarak `false`. |
 | `CopyRefAssembliesToPublishDirectory` | Zaman `true`, başvuru bütünleştirilmiş kod öğeleri Yayımla dizinine kopyalayın. Genellikle, Razor derleme, derleme zamanı veya yayımlama zamanı oluşursa başvuru bütünleştirilmiş kodları yayınlanmış bir uygulama için gerekli değildir. Kümesine `true` yayımlanmış uygulamanızın çalışma zamanı derlemesi gerekiyorsa. Örneğin, değer kümesine `true` uygulama değiştirirse *.cshtml* çalışma zamanında dosya veya katıştırılmış görünümlerini kullanır. Varsayılan olarak `false`. |
-| `IncludeRazorContentInPack` | Zaman `true`, tüm Razor içerik öğeleri (*.cshtml* dosyaları) üretilen NuGet paketini eklenmek üzere işaretlenir. Varsayılan olarak `false`. |
-| `EmbedRazorGenerateSources` | Zaman `true`, RazorGenerate ekler (*.cshtml*) öğeleri olarak oluşturulmuş Razor derlemesine katıştırılmış dosyaları. Varsayılan olarak `false`. |
+| `IncludeRazorContentInPack` | Zaman `true`, tüm Razor içerik öğeleri ( *.cshtml* dosyaları) üretilen NuGet paketini eklenmek üzere işaretlenir. Varsayılan olarak `false`. |
+| `EmbedRazorGenerateSources` | Zaman `true`, RazorGenerate ekler ( *.cshtml*) öğeleri olarak oluşturulmuş Razor derlemesine katıştırılmış dosyaları. Varsayılan olarak `false`. |
 | `UseRazorBuildServer` | Zaman `true`, kod oluşturma iş yüklerini boşaltmak üzere bir sürekli derleme sunucu işlemi kullanır. Varsayılan olarak, değeri olarak `UseSharedCompilation`. |
 
 Özellikler hakkında daha fazla bilgi için bkz. [MSBuild özellikleri](/visualstudio/msbuild/msbuild-properties).
@@ -105,3 +105,13 @@ Razor SDK'sı iki birincil hedefleri tanımlar:
 * Varsayılan olarak, Razor SDK'sı, çalışma zamanı derleme gerçekleştirmek için gereken başvuru derlemelerini yayımlama değil. Çalışma zamanı derleme sırasında uygulama modeli kullanır, bu derleme hataları sonuçları&mdash;Örneğin, uygulama yayımlandıktan sonra uygulamayı katıştırılmış görünümleri ya da değişiklikleri görünümler kullanır. Ayarlama `CopyRefAssembliesToPublishDirectory` için `true` başvuru bütünleştirilmiş kodları yayımlamaya devam etmek için.
 
 * Bir web uygulaması için uygulamanızın hedeflediği olun `Microsoft.NET.Sdk.Web` SDK.
+
+## <a name="razor-language-version"></a>Razor dil sürümü
+
+Hedeflenirken `Microsoft.NET.Sdk.Web` SDK'sı, Razor dil sürümü çıkarılan gelen uygulamanın hedef framework sürümü. Hedefleyen projeler için `Microsoft.NET.Sdk.Razor` SDK veya uygulama çıkarsanan değerinden farklı bir Razor dil sürümü gerektirdiğini nadir durumlarda, bir sürüm ayarlanarak yapılandırılabilir `<RazorLangVersion>` uygulamanın proje dosyasında özelliği:
+
+```xml
+<PropertyGroup>
+  <RazorLangVersion>{VERSION}</RazorLangVersion>
+</PropertyGroup>
+```

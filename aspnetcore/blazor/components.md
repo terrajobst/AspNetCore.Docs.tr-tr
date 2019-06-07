@@ -5,14 +5,14 @@ description: Oluşturma ve bileşen ömürleri yönetme verilere bağlayın ve o
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/26/2019
+ms.date: 06/05/2019
 uid: blazor/components
-ms.openlocfilehash: f9964dfdc3ae3108b6dbd6d0f5290254e2fc09cd
-ms.sourcegitcommit: a1364109d11d414121a6337b611bee61d6e489e9
+ms.openlocfilehash: fdd755a245b0ef9697b500c734a44fac8942f068
+ms.sourcegitcommit: e7e04a45195d4e0527af6f7cf1807defb56dc3c3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66491205"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66750142"
 ---
 # <a name="create-and-use-razor-components"></a>Oluşturma ve Razor bileşenleri kullanma
 
@@ -51,6 +51,12 @@ Bileşen üyeleri, ardından bileşenin parçası mantığı kullanarak işleme 
 ```
 
 Bileşen, bileşen başlangıçta işlenen sonra olaylara yanıt olarak, işleme ağacında yeniden oluşturur. Blazor yeni bir işleme ağacı Öncekine karşı karşılaştırır ve herhangi bir değişiklik tarayıcının belge nesne modeli (DOM) için geçerlidir.
+
+Bileşenleri sıradan C# sınıfları ve bir projesi içinde her yerden yerleştirilebilir. Web sayfaları genellikle üreten bileşenler bulunan *sayfaları* klasör. Sayfası olmayan bileşenleri içine yerleştirildiğinde sık *paylaşılan* klasör veya özel bir klasör projeye eklendi. Özel bir klasör kullanmayı ekleyin ya da özel klasör ad alanı ana bileşen veya uygulamanın  *\_Imports.razor* dosya. Örneğin, aşağıdaki ad alanı bileşenlerde yapar bir *bileşenleri* klasör uygulamanın kök ad alanı olduğunda kullanılabilen `WebApplication`:
+
+```cshtml
+@using WebApplication.Components
+```
 
 ## <a name="integrate-components-into-razor-pages-and-mvc-apps"></a>Bileşenleri Razor sayfaları ve MVC uygulamalarla tümleştirin
 
