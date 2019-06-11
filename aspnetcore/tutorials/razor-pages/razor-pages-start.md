@@ -5,12 +5,12 @@ description: Bu öğretici serisinde, ASP.NET Core Razor sayfaları kullanma iş
 ms.author: riande
 ms.date: 6/3/2019
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: d843e47ccb5180fab34b4c4c4a4b5cbda21289bf
-ms.sourcegitcommit: a1364109d11d414121a6337b611bee61d6e489e9
+ms.openlocfilehash: e7d0312bd4b54586f4a3d403f464ded1aa49bcac
+ms.sourcegitcommit: 9691b742134563b662948b0ed63f54ef7186801e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66491211"
+ms.lasthandoff: 06/10/2019
+ms.locfileid: "66824705"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Öğretici: ASP.NET Core Razor sayfaları kullanmaya başlama
 
@@ -47,7 +47,7 @@ Bu öğreticinin sonunda, çalışan bir sonraki öğreticilerde oluşturacağı
 
   ![Yeni ASP.NET Core Web uygulaması](razor-pages-start/_static/np_2.1.png)
 
-* Projeyi adlandırın **RazorPagesMovie**. Projeyi adlandırın önemlidir *RazorPagesMovie* kodundan kopyalayıp olduğunda ad alanlarını eşleşecek şekilde.
+* Projeyi adlandırın **RazorPagesMovie**. Projeyi adlandırın önemlidir *RazorPagesMovie* kodu kopyalayıp, ad alanlarını eşleşecek şekilde.
 
   ![Yeni ASP.NET Core Web uygulaması](razor-pages-start/_static/config.png)
 

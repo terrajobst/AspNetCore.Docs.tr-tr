@@ -5,14 +5,14 @@ description: Proxy sunucuları ve yük Dengeleyiciler, genellikle önemli bilgi 
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/24/2019
+ms.date: 06/07/2019
 uid: host-and-deploy/proxy-load-balancer
-ms.openlocfilehash: 2423b5bed760ad879d1c47c5e64b0f815b50397e
-ms.sourcegitcommit: b8ed594ab9f47fa32510574f3e1b210cff000967
+ms.openlocfilehash: 582664071e8eb3d817cab10ea12c1df7c6d09ea7
+ms.sourcegitcommit: 9691b742134563b662948b0ed63f54ef7186801e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66251389"
+ms.lasthandoff: 06/10/2019
+ms.locfileid: "66824823"
 ---
 # <a name="configure-aspnet-core-to-work-with-proxy-servers-and-load-balancers"></a>ASP.NET Core, proxy sunucuları ile çalışma ve yük Dengeleyiciler için yapılandırma
 
@@ -225,6 +225,38 @@ services.Configure<ForwardedHeadersOptions>(options =>
         IPAddress.Parse("::ffff:10.11.12.1"), 104));
 });
 ```
+
+::: moniker range=">= aspnetcore-2.1 <= aspnetcore-2.2"
+
+## <a name="forward-the-scheme-for-linux-and-non-iis-reverse-proxies"></a>Linux ve IIS olmayan Düzen ters proxy'ler ileriye doğru
+
+.NET core şablonları çağrı <xref:Microsoft.AspNetCore.Builder.HttpsPolicyBuilderExtensions.UseHttpsRedirection*> ve <xref:Microsoft.AspNetCore.Builder.HstsBuilderExtensions.UseHsts*>. Bu yöntemler bir site için bir Azure Linux App Service, Azure Linux sanal makinesini (VM) veya diğer ters proxy IIS yanı sıra arkasında dağıtılırsa sonsuz döngüye yerleştirin. TLS ters proxy tarafından sonlandırılır ve Kestrel doğru istek düzeni haberdar değildir. OAuth ve OIDC, bu yapılandırmada Ayrıca bunlar yanlış yeniden yönlendirmeleri oluşturması nedeniyle başarısız. <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> ekler ve IIS çalıştırırken iletilen üstbilgileri ara yazılım yapılandırır ancak Linux (Apache veya Ngınx tümleştirme) için eşleşen bir otomatik yapılandırma yok.
+
+IIS olmayan senaryolarda Proxy'den gelen düzeni iletmek için ekleme ve iletilen üstbilgileri ara yazılımını yapılandırma. İçinde `Startup.ConfigureServices`, aşağıdaki kodu kullanın:
+
+```csharp
+// using Microsoft.AspNetCore.HttpOverrides;
+
+if (string.Equals(
+    Environment.GetEnvironmentVariable("ASPNETCORE_FORWARDEDHEADERS_ENABLED"), 
+    "true", StringComparison.OrdinalIgnoreCase))
+{
+    services.Configure<ForwardedHeadersOptions>(options =>
+    {
+        options.ForwardedHeaders = ForwardedHeaders.XForwardedFor | 
+            ForwardedHeaders.XForwardedProto;
+        // Only loopback proxies are allowed by default.
+        // Clear that restriction because forwarders are enabled by explicit 
+        // configuration.
+        options.KnownNetworks.Clear();
+        options.KnownProxies.Clear();
+    });
+}
+```
+
+Yeni kapsayıcı görüntülerini Azure'da sağlanana kadar için bir uygulama ayarı (ortam değişkeni) oluşturmalısınız `ASPNETCORE_FORWARDEDHEADERS_ENABLED` kümesine `true`. Daha fazla bilgi için [şablonları çalışmaz Antares Linux'ta düzeni ileticileri eksik olduğundan (aspnet/AspNetCore #4135)](https://github.com/aspnet/AspNetCore/issues/4135).
+
+::: moniker-end
 
 ## <a name="troubleshoot"></a>Sorun giderme
 

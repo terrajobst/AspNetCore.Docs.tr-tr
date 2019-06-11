@@ -6,18 +6,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/06/2019
 uid: mvc/views/partial
-ms.openlocfilehash: e13b2ea974697bb12c121d1a70fb5079d6aadb2d
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 9564639dcff0cff7f21b123cec39f0c96ebda208
+ms.sourcegitcommit: 9691b742134563b662948b0ed63f54ef7186801e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64900875"
+ms.lasthandoff: 06/10/2019
+ms.locfileid: "66824851"
 ---
 # <a name="partial-views-in-aspnet-core"></a>ASP.NET Core, kısmi görünümleri
 
 Tarafından [Steve Smith](https://ardalis.com/), [Luke Latham](https://github.com/guardrex), [Maher JENDOUBI](https://twitter.com/maherjend), [Rick Anderson](https://twitter.com/RickAndMSFT), ve [Scott Sauber](https://twitter.com/scottsauber)
 
-Kısmi bir görünümü bir [Razor](xref:mvc/views/razor) işaretleme dosyasının (*.cshtml*) HTML çıkışı işleyen *içinde* başka bir işaretleme dosyasının çıkış işlenen.
+Kısmi bir görünümü bir [Razor](xref:mvc/views/razor) işaretleme dosyasının ( *.cshtml*) HTML çıkışı işleyen *içinde* başka bir işaretleme dosyasının çıkış işlenen.
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -48,7 +48,7 @@ Kısmi görünüm karmaşık işleme mantığı ya da kod yürütme biçimlendir
 
 Kısmi bir görünümü bir *.cshtml* işaretleme dosyasının tutulan içinde *görünümleri* klasörü (MVC) veya *sayfaları* klasörü (Razor sayfaları).
 
-ASP.NET Core MVC, denetleyici 's, <xref:Microsoft.AspNetCore.Mvc.ViewResult> bir görünüm veya kısmi görünüm döndürme özelliğine sahiptir. ASP.NET Core 2.2 Razor sayfaları için benzer bir yetenek planlanmaktadır. Razor sayfaları içinde bir <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> döndürebilir bir <xref:Microsoft.AspNetCore.Mvc.PartialViewResult>. Başvuru ve kısmi görünümleri işlemeye açıklanan [kısmi görünüm başvuru](#reference-a-partial-view) bölümü.
+ASP.NET Core MVC, denetleyici 's, <xref:Microsoft.AspNetCore.Mvc.ViewResult> bir görünüm veya kısmi görünüm döndürme özelliğine sahiptir. Razor sayfaları içinde bir <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> döndürebilir bir <xref:Microsoft.AspNetCore.Mvc.PartialViewResult>. Başvuru ve kısmi görünümleri işlemeye açıklanan [kısmi görünüm başvuru](#reference-a-partial-view) bölümü.
 
 MVC görünümü veya sayfa işleme aksine, kısmi görünüm çalıştırmaz *_ViewStart.cshtml*. Daha fazla bilgi için *_ViewStart.cshtml*, bkz: <xref:mvc/views/layout>.
 
@@ -263,7 +263,7 @@ Kısmi görünüme, bir model geçirebilirsiniz. Modeli, özel bir nesne olabili
 
 Örnek uygulama aşağıdaki biçimlendirmede dandır *Pages/ArticlesRP/ReadRP.cshtml* sayfası. İki kısmi görünüm sayfası içerir. Bir modeldeki ikinci kısmi görünüm geçirir ve `ViewData` kısmi görünüm için. `ViewDataDictionary` Oluşturucu aşırı yüklemesi, yeni bir geçirmek için kullanılır `ViewData` varolan korurken sözlük `ViewData` sözlüğü.
 
-[!code-cshtml[](partial/sample/PartialViewsSample/Pages/ArticlesRP/ReadRP.cshtml?name=snippet_ReadPartialViewRP&highlight=5,15-19)]
+[!code-cshtml[](partial/sample/PartialViewsSample/Pages/ArticlesRP/ReadRP.cshtml?name=snippet_ReadPartialViewRP&highlight=5,15-20)]
 
 *Pages/Shared/_AuthorPartialRP.cshtml* tarafından başvurulan ilk kısmi Görünüm *ReadRP.cshtml* işaretleme dosyasının:
 
@@ -279,7 +279,7 @@ Kısmi görünüme, bir model geçirebilirsiniz. Modeli, özel bir nesne olabili
 
 Aşağıdaki örnek uygulamanın gösterildiği biçimlendirmede *Views/Articles/Read.cshtml* görünümü. İki kısmi görünümler görünümün içerir. Bir modeldeki ikinci kısmi görünüm geçirir ve `ViewData` kısmi görünüm için. `ViewDataDictionary` Oluşturucu aşırı yüklemesi, yeni bir geçirmek için kullanılır `ViewData` varolan korurken sözlük `ViewData` sözlüğü.
 
-[!code-cshtml[](partial/sample/PartialViewsSample/Views/Articles/Read.cshtml?name=snippet_ReadPartialView&highlight=5,15-19)]
+[!code-cshtml[](partial/sample/PartialViewsSample/Views/Articles/Read.cshtml?name=snippet_ReadPartialView&highlight=5,15-20)]
 
 *Views/Shared/_AuthorPartial.cshtml* tarafından başvurulan ilk kısmi Görünüm *ReadRP.cshtml* işaretleme dosyasının:
 

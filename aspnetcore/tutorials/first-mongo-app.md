@@ -4,14 +4,14 @@ author: prkhandelwal
 description: Bu öğreticide bir ASP.NET Core web API'sini kullanarak bir MongoDB NoSQL veritabanı oluşturma işlemini gösterir.
 ms.author: scaddie
 ms.custom: mvc, seodec18
-ms.date: 06/04/2019
+ms.date: 06/10/2019
 uid: tutorials/first-mongo-app
-ms.openlocfilehash: 6a8c5d75f562b38015101e039a2f5d96a5491595
-ms.sourcegitcommit: 5dd2ce9709c9e41142771e652d1a4bd0b5248cec
+ms.openlocfilehash: 5e3bdb10f0e192ba98df442959ceb68dc7c7adc5
+ms.sourcegitcommit: 9691b742134563b662948b0ed63f54ef7186801e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66692555"
+ms.lasthandoff: 06/10/2019
+ms.locfileid: "66824783"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-mongodb"></a>MongoDB ile ASP.NET Core ile web API'si oluşturma
 
@@ -26,6 +26,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * MongoDB veritabanı oluşturma
 > * MongoDB koleksiyonu ve şema tanımlayın
 > * Bir web API'sini MongoDB CRUD işlemleri gerçekleştirme
+> * JSON seri hale getirme özelleştirmek
 
 [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/first-mongo-app/sample) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
@@ -187,7 +188,29 @@ Veritabanı hazırdır. ASP.NET Core web API'si oluşturmaya başlayabilirsiniz.
 1. Ekleme bir *modelleri* proje kök dizini.
 1. Ekleme bir `Book` sınıfının *modelleri* aşağıdaki kod ile dizin:
 
-    [!code-csharp[](first-mongo-app/sample/BooksApi/Models/Book.cs)]
+    ```csharp
+    using MongoDB.Bson;
+    using MongoDB.Bson.Serialization.Attributes;
+    
+    namespace BooksApi.Models
+    {
+        public class Book
+        {
+            [BsonId]
+            [BsonRepresentation(BsonType.ObjectId)]
+            public string Id { get; set; }
+    
+            [BsonElement("Name")]
+            public string BookName { get; set; }
+    
+            public decimal Price { get; set; }
+    
+            public string Category { get; set; }
+    
+            public string Author { get; set; }
+        }
+    }
+    ```
 
     Önceki sınıfında `Id` özelliği:
     
@@ -195,7 +218,7 @@ Veritabanı hazırdır. ASP.NET Core web API'si oluşturmaya başlayabilirsiniz.
     * İle açıklanıyor [[BsonId]](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonIdAttribute.htm) belgenin birincil anahtarı olarak bu özellik belirlemek için.
     * İle açıklanıyor [[BsonRepresentation(BsonType.ObjectId)]](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonRepresentationAttribute.htm) parametre türü olarak geçirerek izin vermek için `string` yerine bir [objectID](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_ObjectId.htm) yapısı. Mongo işleme dönüştürme `string` için `ObjectId`.
     
-    Sınıftaki diğer özellikler ile açıklamalı olan [[BsonElement]](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonElementAttribute.htm) özniteliği. Özniteliğin değeri, özellik adı, MongoDB koleksiyonu temsil eder.
+    `BookName` Özelliği ile ek açıklamalı [[BsonElement]](https://api.mongodb.com/csharp/current/html/T_MongoDB_Bson_Serialization_Attributes_BsonElementAttribute.htm) özniteliği. Özniteliğin değerini `Name` özellik adında MongoDB koleksiyonu temsil eder.
 
 ## <a name="add-a-configuration-model"></a>Yapılandırma modeli ekleme
 
@@ -209,9 +232,9 @@ Veritabanı hazırdır. ASP.NET Core web API'si oluşturmaya başlayabilirsiniz.
 
     Önceki `BookstoreDatabaseSettings` depolamak için kullanılan sınıf *appsettings.json* dosyanın `BookstoreDatabaseSettings` özellik değerleri. JSON ve C# özellik adları adlı aynı şekilde eşleme işlemini kolaylaştırmak için.
 
-1. Aşağıdaki kodu ekleyin `Startup.ConfigureServices`, çağırmadan önce `AddMvc`:
+1. Aşağıdaki vurgulanmış kodu ekleyin `Startup.ConfigureServices`:
 
-    [!code-csharp[](first-mongo-app/sample/BooksApi/Startup.cs?name=snippet_ConfigureDatabaseSettings)]
+    [!code-csharp[](first-mongo-app/sample_snapshot/BooksApi/Startup.ConfigureServices.AddDbSettings.cs?highlight=3-7)]
 
     Yukarıdaki kodda:
 
@@ -231,9 +254,9 @@ Veritabanı hazırdır. ASP.NET Core web API'si oluşturmaya başlayabilirsiniz.
 
     Önceki kodda, bir `IBookstoreDatabaseSettings` Oluşturucu ekleme örneği DI alınır. Bu tekniği erişim sağlayan *appsettings.json* eklenmiştir yapılandırma değerlerini [yapılandırma modeli ekleme](#add-a-configuration-model) bölümü.
 
-1. İçinde `Startup.ConfigureServices`, kayıt `BookService` sınıfıyla dı:
+1. Aşağıdaki vurgulanmış kodu ekleyin `Startup.ConfigureServices`:
 
-    [!code-csharp[](first-mongo-app/sample/BooksApi/Startup.cs?name=snippet_ConfigureServices&highlight=9)]
+    [!code-csharp[](first-mongo-app/sample_snapshot/BooksApi/Startup.ConfigureServices.AddSingletonService.cs?highlight=9)]
 
     Önceki kodda, `BookService` sınıfı Oluşturucu ekleme sınıfları tüketen desteklemek için DI ile kaydedilir. Singleton hizmet ömrü uygundur çünkü `BookService` doğrudan bağımlılık vereceğine `MongoClient`. Resmi başına [Mongo istemci yeniden yönergeleri](https://mongodb.github.io/mongo-csharp-driver/2.8/reference/driver/connecting/#re-use), `MongoClient` DI tekil hizmet ömrü ile kayıtlı olması gerekir.
 
@@ -306,6 +329,33 @@ Ekleme bir `BooksController` sınıfının *denetleyicileri* aşağıdaki kod il
       "author":"Robert C. Martin"
     }
     ```
+
+## <a name="configure-json-serialization-options"></a>JSON seri hale getirme seçenekleri yapılandırın
+
+Döndürülen JSON yanıtları değiştirmek için iki ayrıntı [web API'si Test](#test-the-web-api) bölümü:
+
+* Özellik adlarını ortası büyük olan varsayılan büyük/küçük harf Pascal eşleşecek şekilde değiştirilmesi gereken CLR nesnenin özellik adları büyük/küçük harfleri.
+* `bookName` Özelliği olarak döndürülmesi `Name`.
+
+Yukarıdaki gereksinimleri karşılamak için aşağıdaki değişiklikleri yapın:
+
+1. İçinde `Startup.ConfigureServices`, aşağıdaki vurgulanmış kodu için zincir `AddMvc` yöntem çağrısı:
+
+    [!code-csharp[](first-mongo-app/sample/BooksApi/Startup.cs?name=snippet_ConfigureServices&highlight=12)]
+
+    Önceki değişiklikle, web API'SİNİN özellik adlarını JSON yanıtı eşleşme karşılık gelen özellik adlarını CLR nesne türü seri hale. Örneğin, `Book` sınıfın `Author` serileştiren özelliğini olarak `Author`.
+
+1. İçinde *Models/Book.cs*, açıklama `BookName` aşağıdaki özellik [[Item]](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_JsonPropertyAttribute.htm) özniteliği:
+
+    [!code-csharp[](first-mongo-app/sample/BooksApi/Models/Book.cs?name=snippet_BookNameProperty&highlight=2)]
+
+    `[JsonProperty]` Özniteliğin değerini `Name` seri hale getirilmiş JSON yanıtı web API'SİNİN name özelliği temsil eder.
+
+1. Üstüne aşağıdaki kodu ekleyin *Models/Book.cs* çözümlenecek `[JsonProperty]` öznitelik başvurusu:
+
+    [!code-csharp[](first-mongo-app/sample/BooksApi/Models/Book.cs?name=snippet_NewtonsoftJsonImport)]
+
+1. Tanımlı adımları yineleyin [web API'si Test](#test-the-web-api) bölümü. JSON özellik adları fark dikkat edin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
