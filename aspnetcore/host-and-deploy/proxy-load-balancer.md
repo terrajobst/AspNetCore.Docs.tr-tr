@@ -5,14 +5,14 @@ description: Proxy sunucuları ve yük Dengeleyiciler, genellikle önemli bilgi 
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/07/2019
+ms.date: 06/11/2019
 uid: host-and-deploy/proxy-load-balancer
-ms.openlocfilehash: 582664071e8eb3d817cab10ea12c1df7c6d09ea7
-ms.sourcegitcommit: 9691b742134563b662948b0ed63f54ef7186801e
+ms.openlocfilehash: bcafc33b8faf81912d536d3df8941d196685ecad
+ms.sourcegitcommit: 1bb3f3f1905b4e7d4ca1b314f2ce6ee5dd8be75f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/10/2019
-ms.locfileid: "66824823"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66837359"
 ---
 # <a name="configure-aspnet-core-to-work-with-proxy-servers-and-load-balancers"></a>ASP.NET Core, proxy sunucuları ile çalışma ve yük Dengeleyiciler için yapılandırma
 
@@ -342,6 +342,53 @@ services.Configure<ForwardedHeadersOptions>(options =>
 
 > [!IMPORTANT]
 > Yalnızca güvenilen proxy'leri ve ağları üst bilgiler iletmek izin verilir. Aksi takdirde, [IP yanıltma](https://www.iplocation.net/ip-spoofing) saldırıları mümkündür.
+
+## <a name="certificate-forwarding"></a>Sertifika iletme 
+
+### <a name="on-azure"></a>Azure üzerinde
+
+Bkz: [Azure belgeleri](/azure/app-service/app-service-web-configure-tls-mutual-auth) Azure Web Apps yapılandırmak için. Uygulamanızın `Startup.Configure` yöntemi çağırmadan önce aşağıdaki kodu ekleyin `app.UseAuthentication();`:
+
+```csharp
+app.UseCertificateForwarding();
+```
+
+Azure kullanan üst bilgi adı belirtmek için sertifika iletme ara yazılımını yapılandırma gerekir. Uygulamanızın `Startup.ConfigureServices` yöntemi, ara yazılım bir sertifika oluşturur üst bilgi yapılandırmak için aşağıdaki kodu ekleyin:
+
+```csharp
+services.AddCertificateForwarding(options =>
+    options.CertificateHeader = "X-ARR-ClientCert");
+```
+
+### <a name="with-other-web-proxies"></a>Diğer web proxy'leri
+
+IIS veya Azure'nın Web Apps uygulama isteği yönlendirme bulunmayan bir ara sunucu kullanıyorsanız Ara sunucunuz bir HTTP üst bilgisinde alınan sertifika iletecek şekilde yapılandırın. Uygulamanızın `Startup.Configure` yöntemi çağırmadan önce aşağıdaki kodu ekleyin `app.UseAuthentication();`:
+
+```csharp
+app.UseCertificateForwarding();
+```
+
+Üst bilgi adı belirtmek için sertifika iletme ara yazılımını yapılandırma gerekir. Uygulamanızın `Startup.ConfigureServices` yöntemi, ara yazılım bir sertifika oluşturur üst bilgi yapılandırmak için aşağıdaki kodu ekleyin:
+
+```csharp
+services.AddCertificateForwarding(options =>
+    options.CertificateHeader = "YOUR_CERTIFICATE_HEADER_NAME");
+```
+
+Son olarak, base64 dışında bir sertifika (Ngınx ile olduğu gibi) kodlama proxy yapıyorsa, ayarlayın `HeaderConverter` seçeneği. Aşağıdaki örnekte göz önünde bulundurun `Startup.ConfigureServices`:
+
+```csharp
+services.AddCertificateForwarding(options =>
+{
+    options.CertificateHeader = "YOUR_CUSTOM_HEADER_NAME";
+    options.HeaderConverter = (headerValue) => 
+    {
+        var clientCertificate = 
+           /* some conversion logic to create an X509Certificate2 */
+        return clientCertificate;
+    }
+});
+```
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

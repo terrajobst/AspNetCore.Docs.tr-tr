@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 05/01/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: ee7d4b2ae04b5f6c262acc5da0f86f90ab50585f
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 435f06b85af4a1a5a78a870c2add3e15ff1ffe89
+ms.sourcegitcommit: 1bb3f3f1905b4e7d4ca1b314f2ce6ee5dd8be75f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65085665"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66837270"
 ---
 # <a name="logging-in-aspnet-core"></a>ASP.NET core'da günlüğe kaydetme
 
@@ -823,9 +823,10 @@ Sağlayıcı ayarlarını yapılandırmak için kullanmayı <xref:Microsoft.Exte
 
 ::: moniker-end
 
-Bir App Service uygulamasına dağıtmak, uygulama ayarlarında yapılırken [tanılama günlükleri](/azure/app-service/web-sites-enable-diagnostic-log/#enablediag) bölümünü **App Service** Azure Portalı'nın sayfasında. Bu ayarlar güncelleştirildiğinde, değişiklikleri hemen yeniden başlatma veya yeniden dağıtma işlemi uygulamanın gerek olmadan etkinleşir.
+Bir App Service uygulamasına dağıtmak, uygulama ayarlarında yapılırken [App Service günlükleri](/azure/app-service/web-sites-enable-diagnostic-log/#enablediag) bölümünü **App Service** Azure Portalı'nın sayfasında. Aşağıdaki ayarları güncelleştirildiğinde, değişiklikleri hemen yeniden başlatma veya yeniden dağıtma işlemi uygulamanın gerek olmadan etkinleşir.
 
-![Azure günlük ayarları](index/_static/azure-logging-settings.png)
+* **Uygulama günlüğü (dosya sistemi)**
+* **Uygulama günlüğü (Blob)**
 
 Günlük dosyaları için varsayılan konum alıyor *D:\\giriş\\LogFiles\\uygulama* klasörü ve varsayılan dosya adı olan *tanılama yyyymmdd.txt*. Varsayılan dosya boyutu sınırını 10 MB'tır ve korunan dosyaları varsayılan en yüksek sayısı 2'dir. Varsayılan blob adı *{app-name}{timestamp}/yyyy/mm/dd/hh/{guid}-applicationLog.txt*.
 
@@ -841,14 +842,11 @@ Azure günlük akışını gerçek zamanlı günlüğünü etkinliği görüntü
 
 Azure günlük akışını yapılandırmak için:
 
-* Gidin **tanılama günlükleri** sayfasından uygulamanızın portal sayfası.
+* Gidin **App Service günlükleri** sayfasından uygulamanızın portal sayfası.
 * Ayarlama **uygulama günlüğü (dosya sistemi)** için **üzerinde**.
+* Günlüğü seçin **düzeyi**.
 
-![Azure portalı tanılama günlükleri sayfası](index/_static/azure-diagnostic-logs.png)
-
-Gidin **günlük akışını** uygulama iletilerini görüntülemek için sayfa. Tarafından uygulama üzerinden oturum açmadıysanız `ILogger` arabirimi.
-
-![Azure portal uygulaması günlük akışı](index/_static/azure-log-streaming.png)
+Gidin **günlük Stream** uygulama iletilerini görüntülemek için sayfa. Tarafından uygulama üzerinden oturum açmadıysanız `ILogger` arabirimi.
 
 ::: moniker range=">= aspnetcore-1.1"
 

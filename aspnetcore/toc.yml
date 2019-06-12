@@ -832,6 +832,8 @@
           href: /azure/app-service/overview-authentication-authorization?toc=/aspnet/core/toc.json&bc=/aspnet/core/breadcrumb/toc.json
         - name: Bireysel kullanıcı hesapları
           uid: security/authentication/individual
+        - name: Sertifika kimlik doğrulamasını yapılandırma
+          uid: security/authentication/certauth
     - name: Yetkilendirme
       items:
         - name: Genel Bakış

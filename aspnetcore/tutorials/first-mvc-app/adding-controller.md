@@ -5,12 +5,12 @@ description: Bir denetleyici için basit bir ASP.NET Core MVC uygulaması ekleme
 ms.author: riande
 ms.date: 02/28/2017
 uid: tutorials/first-mvc-app/adding-controller
-ms.openlocfilehash: dad9262e544fc216ddc694b11b0dfb88b58db9cd
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 9dbfb52109260dbfe0c6c094a7ac4edae47d24e7
+ms.sourcegitcommit: 1bb3f3f1905b4e7d4ca1b314f2ce6ee5dd8be75f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64900770"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66837332"
 ---
 # <a name="add-a-controller-to-an-aspnet-core-mvc-app"></a>Denetleyici için bir ASP.NET Core MVC uygulaması ekleme
 
@@ -102,7 +102,7 @@ Bazı parametre bilgileri URL'den denetleyiciye geçirmek için kodu değiştiri
 Yukarıdaki kod:
 
 * C# isteğe bağlı parametre özelliği belirtmek için kullanılan `numTimes` parametre varsayılan olarak 1 için bu parametre için değer iletilmezse. <!-- remove for simplified -->
-* Kullanan`HtmlEncoder.Default.Encode` kötü amaçlı giriş (yani, JavaScript) uygulama korumak için.
+* Kullanan `HtmlEncoder.Default.Encode` kötü amaçlı giriş (yani, JavaScript) uygulama korumak için.
 * Kullanan [Ara değerli dizeler](/dotnet/articles/csharp/language-reference/keywords/interpolated-strings) içinde `$"Hello {name}, NumTimes is: {numTimes}"`. <!-- remove for simplified -->
 
 Uygulamayı çalıştırın ve göz atın:

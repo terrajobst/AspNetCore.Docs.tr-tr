@@ -3,14 +3,14 @@ title: Tüketici API'lerine genel bakış için ASP.NET Core
 author: rick-anderson
 description: ASP.NET Core veri koruma kitaplığı içinde mevcut API'lere çeşitli tüketici kısa bir genel bakış alırsınız.
 ms.author: riande
-ms.date: 10/14/2016
+ms.date: 06/11/2019
 uid: security/data-protection/consumer-apis/overview
-ms.openlocfilehash: b0d11d097ee2d448b6781f6fa84445f6400fbc76
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: ff9badb55813cae0aa72d3a95dc53792332f109b
+ms.sourcegitcommit: 1bb3f3f1905b4e7d4ca1b314f2ce6ee5dd8be75f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087549"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66837373"
 ---
 # <a name="consumer-apis-overview-for-aspnet-core"></a>Tüketici API'lerine genel bakış için ASP.NET Core
 
@@ -32,7 +32,7 @@ Aynı kavram farklı karşılaştırması `IDataProtector` TIES amaçlı kavram�
 
 ## <a name="consuming-these-interfaces"></a>Bu arabirimler kullanma
 
-DI algılayan bir bileşen için bileşen yapmanızı hedeflenen kullanım olduğu bir `IDataProtectionProvider` oluşturucusuna parametre ve bileşen örneği oluşturulduğunda DI sistemi bu hizmeti otomatik olarak sağlar.
+DI algılayan bir bileşen için bileşen aldığını hedeflenen kullanım olduğu bir `IDataProtectionProvider` oluşturucusuna parametre ve bileşen örneği oluşturulduğunda DI sistemi bu hizmeti otomatik olarak sağlar.
 
 > [!NOTE]
 > Bazı uygulamalar (örneğin konsol uygulamaları veya ASP.NET 4.x uygulamaları) DI burada açıklanan mekanizması kullanamazlar uyumlu olmayabilir. Bu senaryolar doldurulamayabilir [olmayan dı kullanmayan senaryolar](xref:security/data-protection/configuration/non-di-scenarios) belge örneği alma hakkında daha fazla bilgi için bir `IDataProtection` DI giderek olmadan sağlayıcısı.
