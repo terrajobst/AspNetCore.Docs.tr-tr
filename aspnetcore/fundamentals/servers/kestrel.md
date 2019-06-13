@@ -5,14 +5,14 @@ description: Kestrel'i, ASP.NET Core için platformlar arası web sunucusu hakk�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 05/17/2019
+ms.date: 05/28/2019
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 37274873f2bd4127f8743399d95d3cf7fef435c5
-ms.sourcegitcommit: b8ed594ab9f47fa32510574f3e1b210cff000967
+ms.openlocfilehash: 0ba207bf6c78476a8c778b95710fd89be50d397a
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66251327"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034838"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>ASP.NET core'da kestrel web sunucusu uygulaması
 
@@ -285,7 +285,7 @@ Belirli bir istekte Ara yazılımında ayarı geçersiz kılabilirsiniz:
 
 Uygulama isteği okumak başlatıldıktan sonra bir istekte sınırını yapılandırmak çalışırsanız, bir özel durum oluşturulur. Var. bir `IsReadOnly` gösterir özelliği `MaxRequestBodySize` özelliği olan salt okunur durumda olduğu çok geç sınırını yapılandırmak için anlamına gelir.
 
-Bir uygulamayı çalıştırdığınızda [işlem dışı](xref:fundamentals/servers/index#out-of-process-hosting-model) arkasında [ASP.NET Core Modülü](xref:host-and-deploy/aspnet-core-module), IIS sınırı IGNORE_DUP_KEY Kestrel'ın istek gövdesi boyutu sınırını devre dışı.
+Bir uygulamayı çalıştırdığınızda [işlem dışı](xref:host-and-deploy/iis/index#out-of-process-hosting-model) arkasında [ASP.NET Core Modülü](xref:host-and-deploy/aspnet-core-module), IIS sınırı IGNORE_DUP_KEY Kestrel'ın istek gövdesi boyutu sınırını devre dışı.
 
 ### <a name="minimum-request-body-data-rate"></a>En az bir istek gövdesi veri hızı
 
