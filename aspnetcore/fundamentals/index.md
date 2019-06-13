@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/11/2019
 uid: fundamentals/index
-ms.openlocfilehash: 9c7bc25d813ad17825ef03f5176882993cc2dd63
-ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
+ms.openlocfilehash: 3cf311f8e6be4ed12c79ceecc15ccc1babfb0117
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610322"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034866"
 ---
 # <a name="aspnet-core-fundamentals"></a>ASP.NET Core temelleri
 
@@ -22,11 +22,12 @@ Bu makalede, ASP.NET Core uygulamaları geliştirmek nasıl anlamaya yönelik ö
 
 `Startup` Sınıftır yeri:
 
-* Uygulama tarafından gereken diğer hizmetler yapılandırılır.
+* Uygulama tarafından gereken hizmetleri yapılandırılır.
 * Ardışık Düzen işleme isteği tanımlanır.
 
-* Kod yapılandırmak için (veya *kaydetme*) Hizmetleri eklenir `Startup.ConfigureServices` yöntemi. *Hizmetleri* uygulama tarafından kullanılan bileşenlerdir. Örneğin, bir Entity Framework Core bağlam nesnesi bir hizmettir.
-* Ardışık Düzen işleme isteği yapılandırmak için kod eklenir `Startup.Configure` yöntemi. İşlem hattı, bir dizi olarak oluşan *ara yazılım* bileşenleri. Örneğin, bir ara yazılım bir statik dosyaları için istekleri işleyecek veya HTTP isteklerini HTTPS'ye yönlendiriyor. Zaman uyumsuz işlemler gerçekleştirir her bir ara yazılım bir `HttpContext` ve ardışık düzende sonraki ara yazılımı çağırır veya istek sonlandırır.
+*Hizmetleri* uygulama tarafından kullanılan bileşenlerdir. Örneğin, bir günlük bileşeni bir hizmettir. Kod yapılandırmak için (veya *kaydetme*) Hizmetleri eklenir `Startup.ConfigureServices` yöntemi.
+
+Ardışık Düzen işleme isteği oluşan bir dizi olarak *ara yazılım* bileşenleri. Örneğin, bir ara yazılım bir statik dosyaları için istekleri işleyecek veya HTTP isteklerini HTTPS'ye yönlendiriyor. Zaman uyumsuz işlemler gerçekleştirir her bir ara yazılım bir `HttpContext` ve ardışık düzende sonraki ara yazılımı çağırır veya istek sonlandırır. Ardışık Düzen işleme isteği yapılandırmak için kod eklenir `Startup.Configure` yöntemi.
 
 Bir örneği aşağıdadır `Startup` sınıfı:
 
@@ -60,9 +61,7 @@ ASP.NET Core içeren zengin bir yerleşik ara yazılım ve özel bir ara yazıl�
 
 Daha fazla bilgi için bkz. <xref:fundamentals/middleware/index>.
 
-<a id="host"/>
-
-## <a name="the-host"></a>Ana bilgisayar
+## <a name="host"></a>Ana bilgisayar
 
 ASP.NET Core uygulaması derleme bir *konak* başlangıç. Ana bilgisayar gibi tüm uygulamanın kaynakları yalıtan bir nesne şöyledir:
 
@@ -74,61 +73,45 @@ ASP.NET Core uygulaması derleme bir *konak* başlangıç. Ana bilgisayar gibi t
 
 Tüm bağımlı kaynakları uygulamanın bir nesnesinde de dahil olmak üzere ana nedeni ömrü yönetimi,: uygulama başlatma ve normal şekilde kapatılmasını üzerinde denetim.
 
-Bir ana bilgisayar oluşturmak için kod `Program.Main` ve izleyen [Oluşturucu deseni](https://wikipedia.org/wiki/Builder_pattern). Konak bir parçası olan her bir kaynak yapılandırmak için yöntem çağrılır. Bu istek için bir oluşturucu yöntemi çağrılır hep birlikte ve konak nesnesi örneği oluşturun.
-
 ::: moniker range=">= aspnetcore-3.0"
 
-`CreateHostBuilder` Oluşturucu dış bileşenleri gibi aşırı yükleme yöntemini tanımlayan özel adı [Entity Framework](/ef/core/).
+İki ana kullanılabilir: Genel yönetici ve Web ana bilgisayarı. Genel konak önerilir ve Web ana bilgisayarı geriye yalnızca kullanılabilir uyumluluk.
 
-ASP.NET Core 3.0 veya üstü, genel ana bilgisayar (`Host` sınıfı) veya Web ana bilgisayarı (`WebHost` sınıfı) bir web uygulamasında kullanılabilir. Genel konak önerilir ve Web ana bilgisayarı, kullanılabilir geriye dönük uyumluluk.
+Bir ana bilgisayar oluşturmak için kod `Program.Main`:
 
-Bir çerçeve sağlar `CreateDefaultBuilder` ve `ConfigureWebHostDefaults` kullanılan aşağıdaki gibi seçeneklere sahip bir konak için yaygın olarak ayarlamak için yöntemleri:
+[!code-csharp[](index/snapshots/3.x/Program1.cs)]
+
+`CreateDefaultBuilder` Ve `ConfigureWebHostDefaults` yöntemler aşağıdaki gibi yaygın olarak kullanılan seçeneklere sahip bir konak yapılandırın:
 
 * Kullanım [Kestrel](#servers) web sunucusu ve etkin IIS tümleştirme olarak.
 * Yük yapılandırmasından *appsettings.json*, *appsettings. { Ortam adı} .json*, ortam değişkenleri, komut satırı bağımsız değişkenleri ve diğer yapılandırma kaynaklarını.
 * Günlük çıktısı, konsol ve hata ayıklama sağlayıcılarına gönderin.
 
-Bir konak yapılar örnek kod aşağıda verilmiştir. Yaygın olarak kullanılan seçenekler konakla ayarlama yöntemleri vurgulanmıştır:
-
-[!code-csharp[](index/snapshots/3.x/Program1.cs?highlight=9-10)]
-
-Daha fazla bilgi için bkz. <xref:fundamentals/host/generic-host> ve <xref:fundamentals/host/web-host>.
+Daha fazla bilgi için bkz. <xref:fundamentals/host/generic-host>.
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-3.0"
 
-`CreateWebHostBuilder` Oluşturucu dış bileşenleri gibi aşırı yükleme yöntemini tanımlayan özel adı [Entity Framework](/ef/core/).
+İki ana kullanılabilir: Web ana bilgisayarı ve genel ana bilgisayar. ASP.NET core'da 2.x genel konağın olduğundan yalnızca web olmayan senaryolar için.
 
-ASP.NET Core 2.x kullanan Web ana bilgisayarı (`WebHost` sınıfı) web uygulamaları için. Bir çerçeve sağlar `CreateDefaultBuilder` seçenekleri, aşağıdakiler gibi yaygın olarak konakla ayarlamak için kullanılan:
+Bir ana bilgisayar oluşturmak için kod `Program.Main`:
+
+[!code-csharp[](index/snapshots/2.x/Program1.cs)]
+
+`CreateDefaultBuilder` Yöntemi aşağıdaki gibi yaygın olarak kullanılan seçeneklere sahip bir konak yapılandırır:
 
 * Kullanım [Kestrel](#servers) web sunucusu ve etkin IIS tümleştirme olarak.
 * Yük yapılandırmasından *appsettings.json*, *appsettings. { Ortam adı} .json*, ortam değişkenleri, komut satırı bağımsız değişkenleri ve diğer yapılandırma kaynaklarını.
 * Günlük çıktısı, konsol ve hata ayıklama sağlayıcılarına gönderin.
-
-Bir konak yapılar örnek kod aşağıda verilmiştir:
-
-[!code-csharp[](index/snapshots/2.x/Program1.cs?highlight=9)]
 
 Daha fazla bilgi için bkz. <xref:fundamentals/host/web-host>.
 
 ::: moniker-end
 
-### <a name="advanced-host-scenarios"></a>Gelişmiş Ana senaryoları
+### <a name="non-web-scenarios"></a>Olmayan web senaryoları
 
-::: moniker range=">= aspnetcore-3.0"
-
-Genel konak kullanmak .NET Core için herhangi bir uygulama kullanılabilir&mdash;yalnızca ASP.NET Core uygulamaları. Genel ana bilgisayar (`Host` sınıfı) günlüğe kaydetme, DI, yapılandırma ve uygulama ömrü yönetimi gibi çapraz kesme framework uzantıları kullanmak için uygulama diğer türleri sağlar. Daha fazla bilgi için bkz. <xref:fundamentals/host/generic-host>.
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-3.0"
-
-Web ana bilgisayarı, hangi .NET uygulamalarının diğer türleri için gerekli olmayan bir HTTP sunucusu uygulamasını dahil etmek için tasarlanmıştır. ASP.NET Core 2.1 genel konak başlatılıyor (`Host` sınıfı) bir .NET Core uygulaması kullanmak kullanılabilir&mdash;yalnızca ASP.NET Core uygulamaları. Genel konak günlüğe kaydetme, DI, yapılandırma ve uygulama ömrü yönetimi gibi çapraz kesme framework uzantıları kullanmak için uygulama diğer türleri sağlar. Daha fazla bilgi için bkz. <xref:fundamentals/host/generic-host>.
-
-::: moniker-end
-
-Konak, arka plan görevleri çalıştırmak için de kullanabilirsiniz. Daha fazla bilgi için bkz. <xref:fundamentals/host/hosted-services>.
+Genel konak günlüğe kaydetme, bağımlılık ekleme (dı), yapılandırma ve uygulama ömrü yönetimi gibi çapraz kesme framework uzantıları kullanmak için uygulama diğer türleri sağlar. Daha fazla bilgi için bkz. <xref:fundamentals/host/generic-host> ve <xref:fundamentals/host/hosted-services>.
 
 ## <a name="servers"></a>Sunucular
 
@@ -287,6 +270,6 @@ Daha fazla bilgi için [içerik kök](xref:fundamentals/host/web-host#content-ro
 
 Web kökü (diğer adıyla *webroot*) genel, statik kaynakları, CSS, JavaScript ve görüntü dosyaları gibi temel yolu. Statik dosya ara yazılımı, varsayılan olarak yalnızca bir hizmet web kök dizinine (ve alt dizinleri) dosyalarından verecektir. Varsayılan olarak web kök yolu *{içerik kök} / wwwroot*, ancak farklı bir konuma A'da belirtildiği zaman [konak oluşturmaya](#host).
 
-Razor'daki (*.cshtml*) dosyaları, eğik çizgi tilde `~/` web kök dizinine işaret eder. İle başlayan yollar `~/` sanal yol adlandırılır.
+Razor'daki ( *.cshtml*) dosyaları, eğik çizgi tilde `~/` web kök dizinine işaret eder. İle başlayan yollar `~/` sanal yol adlandırılır.
 
 Daha fazla bilgi için bkz. <xref:fundamentals/static-files>.

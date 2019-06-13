@@ -4,14 +4,14 @@ author: ardalis
 description: Kısmi görünümler büyük işaretleme dosyaları bölün ve ASP.NET Core uygulamaları, web sayfaları arasında ortak biçimlendirme çoğaltma azaltmak için nasıl kullanılacağını keşfedin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/06/2019
+ms.date: 06/12/2019
 uid: mvc/views/partial
-ms.openlocfilehash: 9564639dcff0cff7f21b123cec39f0c96ebda208
-ms.sourcegitcommit: 9691b742134563b662948b0ed63f54ef7186801e
+ms.openlocfilehash: 901fd52f89969141713e443890781a77308bd901
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/10/2019
-ms.locfileid: "66824851"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034907"
 ---
 # <a name="partial-views-in-aspnet-core"></a>ASP.NET Core, kısmi görünümleri
 
@@ -48,7 +48,7 @@ Kısmi görünüm karmaşık işleme mantığı ya da kod yürütme biçimlendir
 
 Kısmi bir görünümü bir *.cshtml* işaretleme dosyasının tutulan içinde *görünümleri* klasörü (MVC) veya *sayfaları* klasörü (Razor sayfaları).
 
-ASP.NET Core MVC, denetleyici 's, <xref:Microsoft.AspNetCore.Mvc.ViewResult> bir görünüm veya kısmi görünüm döndürme özelliğine sahiptir. Razor sayfaları içinde bir <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> döndürebilir bir <xref:Microsoft.AspNetCore.Mvc.PartialViewResult>. Başvuru ve kısmi görünümleri işlemeye açıklanan [kısmi görünüm başvuru](#reference-a-partial-view) bölümü.
+ASP.NET Core MVC, denetleyici 's, <xref:Microsoft.AspNetCore.Mvc.ViewResult> bir görünüm veya kısmi görünüm döndürme özelliğine sahiptir. Razor sayfaları içinde bir <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageModel> olarak temsil edilen bir kısmi görünüm döndürebilir bir <xref:Microsoft.AspNetCore.Mvc.PartialViewResult> nesne. Başvuru ve kısmi görünümleri işlemeye açıklanan [kısmi görünüm başvuru](#reference-a-partial-view) bölümü.
 
 MVC görünümü veya sayfa işleme aksine, kısmi görünüm çalıştırmaz *_ViewStart.cshtml*. Daha fazla bilgi için *_ViewStart.cshtml*, bkz: <xref:mvc/views/layout>.
 
@@ -60,7 +60,7 @@ Kısmi görünüm dosya adları, genellikle bir alt çizgiyle başlayan (`_`). B
 
 Kısmi bir görünümü bir *.cshtml* işaretleme dosyasının tutulan içinde *görünümleri* klasör.
 
-Bir denetleyicinin <xref:Microsoft.AspNetCore.Mvc.ViewResult> bir görünüm veya kısmi görünüm döndürme özelliğine sahiptir.
+Bir denetleyicinin <xref:Microsoft.AspNetCore.Mvc.ViewResult> bir görünüm veya kısmi görünüm döndürme özelliğine sahiptir. Başvuru ve kısmi görünümleri işlemeye açıklanan [kısmi görünüm başvuru](#reference-a-partial-view) bölümü.
 
 MVC görünümü işleme aksine, kısmi görünüm çalıştırmaz *_ViewStart.cshtml*. Daha fazla bilgi için *_ViewStart.cshtml*, bkz: <xref:mvc/views/layout>.
 
@@ -69,6 +69,33 @@ Kısmi görünüm dosya adları, genellikle bir alt çizgiyle başlayan (`_`). B
 ::: moniker-end
 
 ## <a name="reference-a-partial-view"></a>Kısmi görünüm başvurusu
+
+::: moniker range=">= aspnetcore-2.0"
+
+### <a name="use-a-partial-view-in-a-razor-pages-pagemodel"></a>Razor sayfaları PageModel içinde kısmi görünüm kullanın
+
+ASP.NET Core 2.0 veya 2.1, aşağıdaki işleyicisi yöntem işler  *\_AuthorPartialRP.cshtml* yanıta kısmi Görünüm:
+
+```csharp
+public IActionResult OnGetPartial() =>
+    new PartialViewResult
+    {
+        ViewName = "_AuthorPartialRP",
+        ViewData = ViewData,
+    };
+```
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+ASP.NET Core 2.2 veya sonraki sürümlerde, alternatif olarak bir işleyici yöntemi çağırabilirsiniz <xref:Microsoft.AspNetCore.Mvc.RazorPages.PageBase.Partial*> üretmek için yöntemi bir `PartialViewResult` nesnesi:
+
+[!code-csharp[](partial/sample/PartialViewsSample/Pages/DiscoveryRP.cshtml.cs?name=snippet_OnGetPartial)]
+
+::: moniker-end
+
+### <a name="use-a-partial-view-in-a-markup-file"></a>Kısmi görünüm biçimlendirme dosyasında kullanın
 
 ::: moniker range=">= aspnetcore-2.1"
 

@@ -5,14 +5,14 @@ description: Adım adım bir Blazor uygulaması oluşturun.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/19/2019
+ms.date: 06/12/2019
 uid: tutorials/first-blazor-app
-ms.openlocfilehash: d48b891127f4db929b631c0ddf199c07658e604c
-ms.sourcegitcommit: b4ef2b00f3e1eb287138f8b43c811cb35a100d3e
+ms.openlocfilehash: df27dad17133f287b1c73dc308b4cc69426e0a63
+ms.sourcegitcommit: 739a3d7ca4fd2908ea0984940eca589a96359482
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65970116"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67040717"
 ---
 # <a name="build-your-first-blazor-app"></a>İlk Blazor uygulamanızı oluşturun
 
@@ -36,7 +36,7 @@ Sunulan yönergeleri <xref:blazor/get-started> makalenin Bu öğreticide bir Bla
 
    Kullanıcı arabirimini sayacı bileşenin HTML kullanılarak tanımlanır. (Örneğin, döngü, koşullular, ifadeleri) dinamik işleme mantığı, katıştırılmış kullanarak eklenir C# adlı söz dizimi [Razor](xref:mvc/views/razor). HTML biçimlendirmesi ve C# işleme mantığı, oluşturma zamanında bir bileşen sınıfı dönüştürülür. Oluşturulan .NET sınıf adı dosya adıyla eşleşen.
 
-   Bileşen sınıfı üyeleri tanımlanmış bir `@functions` blok. İçinde `@functions` blok, bileşen durumu (Özellikler, alanlar) ve olay işleme için veya başka bir bileşen mantığı tanımlamak için yöntemleri belirtilir. Bu üyeleri, ardından bileşenin işleme mantığı ve olayları işlemek için kullanılır.
+   Bileşen sınıfı üyeleri tanımlanmış bir `@code` blok. İçinde `@code` blok, bileşen durumu (Özellikler, alanlar) ve olay işleme için veya başka bir bileşen mantığı tanımlamak için yöntemleri belirtilir. Bu üyeleri, ardından bileşenin işleme mantığı ve olayları işlemek için kullanılır.
 
    Zaman **me tıklayın** düğmesi seçili:
 
@@ -69,7 +69,7 @@ Bir bileşen HTML söz dizimi kullanılarak başka bir bileşeni içerir.
 
 Bileşenleri parametrelerini de sağlayabilirsiniz. Bileşen parametreleri, genel olmayan özellikler ile donatılmış bileşen sınıfı kullanarak tanımlanan `[Parameter]`. Öznitelikleri bir bileşen için bağımsız değişken biçimlendirme içinde belirtmek için kullanın.
 
-1. Bileşenin güncelleştirme `@functions` C# kod:
+1. Bileşenin güncelleştirme `@code` C# kod:
 
    * Ekleme bir `IncrementAmount` özelliği düzenlenmiş ile `[Parameter]` özniteliği.
    * Değişiklik `IncrementCount` yönteminin kullanılacağını `IncrementAmount` değerini artırmayı olduğunda `currentCount`.
@@ -152,21 +152,13 @@ Yeni bir bileşen, bir basit bir Yapılacaklar listesi uygulayan uygulamaya ekle
 
 1. Yeniden oluşturun ve uygulamayı çalıştırın. Todo bileşen bağlantısını çalıştığını onaylamak için yeni Todo sayfasını ziyaret edin.
 
-1. Uygulamanın ad alanına bir Blazor sunucu-tarafı uygulaması oluşturuyorsanız, ekleme  *\_Imports.razor* dosya. Aşağıdaki `@using` deyimi, uygulamanın ad alanı olduğunu varsayar `WebApplication`:
-
-   ```cshtml
-   @using WebApplication
-   ```
-   
-   Blazor istemci tarafı uygulamalar varsayılan olarak uygulamanın ad alanı dahil  *\_Imports.razor* dosya.
-
 1. Ekleme bir *TodoItem.cs* bir todo öğesini temsil eden bir sınıf tutmak için projenin kök dosya. Aşağıdaki C# için kod `TodoItem` sınıfı:
 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/TodoItem.cs)]
 
 1. Todo bileşenine döndürür (*Pages/Todo.razor*):
 
-   * Todo öğeleri için bir alan eklemek bir `@functions` blok. Todo bileşeni, yapılacaklar listesi durumunu korumak için bu alanı kullanır.
+   * Todo öğeleri için bir alan eklemek bir `@code` blok. Todo bileşeni, yapılacaklar listesi durumunu korumak için bu alanı kullanır.
    * Sırasız liste biçimlendirme eklemek ve `foreach` her bir todo öğesi bir liste öğesi olarak işlenecek döngü.
 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo4.razor?highlight=5-10,12-14)]
@@ -177,7 +169,7 @@ Yeni bir bileşen, bir basit bir Yapılacaklar listesi uygulayan uygulamaya ekle
 
 1. Yeniden oluşturun ve uygulamayı çalıştırın. Zaman **todo ekleyin** düğmesi seçilirse, hiçbir şey olmaz kadar düğmesi olay işleyicisi kablolu değildir çünkü.
 
-1. Ekleme bir `AddTodo` Todo bileşen ve düğme için tıkladığında kullanarak kayıt yöntemi `onclick` özniteliği:
+1. Ekleme bir `AddTodo` Todo bileşen ve düğme için tıkladığında kullanarak kayıt yöntemi `@onclick` özniteliği:
 
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo6.razor?highlight=2,7-10)]
 
@@ -188,7 +180,7 @@ Yeni bir bileşen, bir basit bir Yapılacaklar listesi uygulayan uygulamaya ekle
    [!code-cshtml[](build-your-first-blazor-app/samples_snapshot/3.x/ToDo7.razor?highlight=2)]
 
    ```cshtml
-   <input placeholder="Something todo" bind="@newTodo" />
+   <input placeholder="Something todo" @bind="@newTodo" />
    ```
 
 1. Güncelleştirme `AddTodo` ekleme yöntemi `TodoItem` listesine belirtilen başlığa sahip. Metin girişi değerini ayarlayarak Temizle `newTodo` boş bir dize:

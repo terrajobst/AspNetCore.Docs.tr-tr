@@ -5,14 +5,14 @@ description: Formlar ve alan doğrulama senaryoları Blazor içinde kullanmayı 
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/15/2019
+ms.date: 06/12/2019
 uid: blazor/forms-validation
-ms.openlocfilehash: ebd2e1294b4fb78f47f505e1aa8e77c7fb035a6e
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 52f53cbfbb335a4a0d681a378d383924c901ef57
+ms.sourcegitcommit: 739a3d7ca4fd2908ea0984940eca589a96359482
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64898466"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67040696"
 ---
 # <a name="blazor-forms-and-validation"></a>Blazor formlar ve doğrulama
 
@@ -43,12 +43,12 @@ Bir form kullanılarak tanımlanan `<EditForm>` bileşeni. Aşağıdaki formu ti
     <DataAnnotationsValidator />
     <ValidationSummary />
 
-    <InputText id="name" bind-Value="@exampleModel.Name" />
+    <InputText id="name" @bind-Value="@exampleModel.Name" />
 
     <button type="submit">Submit</button>
 </EditForm>
 
-@functions {
+@code {
     private ExampleModel exampleModel = new ExampleModel();
 
     private void HandleValidSubmit()
@@ -58,7 +58,7 @@ Bir form kullanılarak tanımlanan `<EditForm>` bileşeni. Aşağıdaki formu ti
 }
 ```
 
-* Form uygulamasında kullanıcı girdisi doğrulama `name` tanımlanan doğrulama kullanarak alan `ExampleModel` türü. Model bileşenin içinde oluşturulur `@functions` engelleme ve özel bir alanda tutulan (`exampleModel`). Alana atanan `Model` özniteliği `<EditForm>`.
+* Form uygulamasında kullanıcı girdisi doğrulama `name` tanımlanan doğrulama kullanarak alan `ExampleModel` türü. Model bileşenin içinde oluşturulur `@code` engelleme ve özel bir alanda tutulan (`exampleModel`). Alana atanan `Model` özniteliği `<EditForm>`.
 * Veri ek açıklamaları Doğrulayıcısı bileşeni (`<DataAnnotationsValidator>`) veri ek açıklamalarını kullanma doğrulama desteği ekler.
 * Doğrulama Özeti bileşeni (`<ValidationSummary>`) doğrulama iletilerinin özetler.
 * `HandleValidSubmit` formu başarıyla (Pass doğrulama) gönderdiğinde tetiklenir.
@@ -73,6 +73,8 @@ Bir dizi yerleşik giriş bileşenlerini almak ve kullanıcı girişini doğrula
 | `<InputNumber>`   | `<input type="number">`   |
 | `<InputCheckbox>` | `<input type="checkbox">` |
 | `<InputDate>`     | `<input type="date">`     |
+
+Tüm giriş bileşenlerin dahil olmak üzere `<EditForm>`, rastgele öznitelikler destekler. Bir parametre eşleşmeyen herhangi bir öznitelik eklenir oluşturulan `<form>`, `<input>`, `<select>`, veya `<textarea>` öğesi.
 
 Giriş bileşenleri düzenlendiğinde doğrulama ve değiştirme alanı durumunu yansıtacak şekilde onların CSS sınıfı için varsayılan davranış sağlar. Bazı bileşenler yararlı ayrıştırma mantığı içerir. Örneğin, `<InputDate>` ve `<InputNumber>` ayrıştırılamayan değerler işleme düzgün bir şekilde doğrulama hataları kaydederek. Null değerlerini kabul edebilir türleri de hedef alan NULL atanabilirliği destekler (örneğin, `int?`).
 
@@ -123,16 +125,16 @@ Aşağıdaki formu içinde tanımlanan doğrulama kullanan kullanıcı girişi d
 
     <p>
         <label for="identifier">Identifier: </label>
-        <InputText id="identifier" bind-Value="@starship.Identifier" />
+        <InputText id="identifier" @bind-Value="@starship.Identifier" />
     </p>
     <p>
         <label for="description">Description (optional): </label>
-        <InputTextArea Id="description" bind-Value="@starship.Description" />
+        <InputTextArea Id="description" @bind-Value="@starship.Description" />
     </p>
     <p>
         <label for="classification">Primary Classification: </label>
-        <InputSelect id="classification" bind-Value="@starship.Classification">
-            <option value"">Select classification ...</option>
+        <InputSelect id="classification" @bind-Value="@starship.Classification">
+            <option value="">Select classification ...</option>
             <option value="Defense">Defense</option>
             <option value="Exploration">Exploration</option>
             <option value="Diplomacy">Diplomacy</option>
@@ -141,15 +143,15 @@ Aşağıdaki formu içinde tanımlanan doğrulama kullanan kullanıcı girişi d
     <p>
         <label for="accommodation">Maximum Accommodation: </label>
         <InputNumber id="accommodation" 
-            bind-Value="@starship.MaximumAccommodation" />
+            @bind-Value="@starship.MaximumAccommodation" />
     </p>
     <p>
         <label for="valid">Engineering Approval: </label>
-        <InputCheckbox id="valid" bind-Value="@starship.IsValidatedDesign" />
+        <InputCheckbox id="valid" @bind-Value="@starship.IsValidatedDesign" />
     </p>
     <p>
         <label for="productionDate">Production Date: </label>
-        <InputDate Id="productionDate" bind-Value="@starship.ProductionDate" />
+        <InputDate Id="productionDate" @bind-Value="@starship.ProductionDate" />
     </p>
 
     <button type="submit">Submit</button>
@@ -161,7 +163,7 @@ Aşağıdaki formu içinde tanımlanan doğrulama kullanan kullanıcı girişi d
     </p>
 </EditForm>
 
-@functions {
+@code {
     private Starship starship = new Starship();
 
     private void HandleValidSubmit()
@@ -183,5 +185,4 @@ Doğrulama iletisi bileşeni (`<ValidationMessage>`) için benzer bir özel alan
 <ValidationMessage For="@(() => starship.MaximumAccommodation)" />
 ```
 
-> [!NOTE]
-> Yerleşik giriş bileşenleri, gelecek sürümlerde çözmek için bekliyoruz sınırlamaları vardır. Örneğin, isteğe bağlı öznitelikleri üzerinde oluşturulan belirtilemez `<input>` etiketler. Kullanılamayan senaryoları işlemek için kendi bileşeni alt sınıflar oluşturun.
+`<ValidationMessage>` Ve `<ValidationSummary>` bileşenleri isteğe bağlı öznitelikleri destekler. Bir parametre eşleşmeyen herhangi bir öznitelik eklenir oluşturulan `<div>` veya `<ul>` öğesi.

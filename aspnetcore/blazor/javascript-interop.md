@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/29/2019
 uid: blazor/javascript-interop
-ms.openlocfilehash: 0e4f6640beb77602edf1abd5d03b27b8badefd0c
-ms.sourcegitcommit: a04eb20e81243930ec829a9db5dd5de49f669450
+ms.openlocfilehash: be5afcc33e527e36892e409cc87d6d8725d40290
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66470255"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034417"
 ---
 # <a name="blazor-javascript-interop"></a>Blazor JavaScript birlikte çalışma
 
@@ -121,15 +121,15 @@ Bazı [JavaScript birlikte çalışma](xref:blazor/javascript-interop) senaryola
 
 HTML öğeleri aşağıdaki yaklaşımı kullanarak bir bileşende başvuruları yakalayabilirsiniz:
 
-* Ekleme bir `ref` özniteliği için HTML öğesi.
-* Türünde bir alan tanımlayın `ElementRef` adıyla eşleşen `ref` özniteliği.
+* Ekleme bir `@ref` özniteliği için HTML öğesi.
+* Türünde bir alan tanımlayın `ElementRef` adıyla eşleşen `@ref` özniteliği.
 
 Aşağıdaki örnek, bir başvuru yakalama gösterir `username` `<input>` öğesi:
 
 ```cshtml
-<input ref="username" ... />
+<input @ref="username" ... />
 
-@functions {
+@code {
     ElementRef username;
 }
 ```

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/05/2019
 uid: blazor/get-started
-ms.openlocfilehash: 9df18b25f6d82d655c093a17fe498615c0ff535e
-ms.sourcegitcommit: c716ea9155a6b404c1f3d3d34e2388454cd276d7
+ms.openlocfilehash: 417f2ad79c14351487763888a9a3b022232b3766
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66716286"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034436"
 ---
 # <a name="get-started-with-blazor"></a>Blazor ile çalışmaya başlama
 
@@ -25,7 +25,7 @@ Blazor ile kullanmaya başlayın:
 1. Blazor şablonları, bir komut kabuğu'nda aşağıdaki komutu çalıştırarak yükleyin:
 
    ```console
-   dotnet new -i Microsoft.AspNetCore.Blazor.Templates::3.0.0-preview5-19227-01
+   dotnet new -i Microsoft.AspNetCore.Blazor.Templates::3.0.0-preview6.19307.2
    ```
 
 1. Tercih ettiğiniz araçları için yönergeleri izleyin:
@@ -149,7 +149,7 @@ Bir bileşen başka bir bileşene HTML sözdizimini kullanarak ekleyin. Örneği
 
 Uygulamayı çalıştırın. Giriş sayfası sayacı bileşen tarafından sağlanan kendi sayaç vardır.
 
-Bileşen parametreleri, öznitelikleri kullanarak belirtilir veya [alt içeriğin](xref:blazor/components#child-content), en alt bileşen özelliklerini ayarlama sağlar. Sayaç bileşenine parametre eklemek için bileşenin güncelleştirme `@functions` engelle:
+Bileşen parametreleri, öznitelikleri kullanarak belirtilir veya [alt içeriğin](xref:blazor/components#child-content), en alt bileşen özelliklerini ayarlama sağlar. Sayaç bileşenine parametre eklemek için bileşenin güncelleştirme `@code` engelle:
 
 * Bir özelliği için ekleme `IncrementAmount` ile bir `[Parameter]` özniteliği.
 * Değişiklik `IncrementCount` yönteminin kullanılacağını `IncrementAmount` değerini artırmayı olduğunda `currentCount`.

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/11/2019
 uid: security/data-protection/configuration/overview
-ms.openlocfilehash: ee43427fa1e82a365d49df50567b4ca7afb5a5d3
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 65a927b6288ca6cc41ee1bedd1080e52ffe0d3e1
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64902993"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034928"
 ---
 # <a name="configure-aspnet-core-data-protection"></a>ASP.NET Core veri korumasını yapılandırma
 
@@ -23,7 +23,7 @@ Veri koruma sisteminde başlatıldığında, geçerli [varsayılan ayarları](xr
 Bu senaryolar için veri koruma sisteminde zengin yapılandırma API sunar.
 
 > [!WARNING]
-> Benzer şekilde yapılandırma dosyalarını, veri koruma anahtarı halka uygun izinleri kullanarak korunmalıdır. Bekleyen anahtarlarını şifrelemek seçebilirsiniz, ancak bu saldırganlar yeni anahtarları oluşturmanızı engellemez. Sonuç olarak, uygulamanızın güvenlik etkilenir. Veri koruma ile yapılandırılmış depolama konumu uygulamanın kendi, benzer şekilde, yapılandırma dosyalarını korur sınırlı erişimini olması gerekir. Örneğin, diskte, anahtar halkası depolamayı seçerseniz, dosya sistemi izinlerini kullanın. Yalnızca kimliği altında emin olun, web uygulamanızın çalıştırdığı okuma, yazma ve bu dizine erişim oluşturun. Yalnızca web uygulaması, Azure tablo depolama hizmetini kullanıyorsanız, okuma, yazma veya yeni girişler, tablo depolama, vb. oluşturma olanağı sahip olmalıdır.
+> Benzer şekilde yapılandırma dosyalarını, veri koruma anahtarı halka uygun izinleri kullanarak korunmalıdır. Bekleyen anahtarlarını şifrelemek seçebilirsiniz, ancak bu saldırganlar yeni anahtarları oluşturmanızı engellemez. Sonuç olarak, uygulamanızın güvenlik etkilenir. Veri koruma ile yapılandırılmış depolama konumu uygulamanın kendi, benzer şekilde, yapılandırma dosyalarını korur sınırlı erişimini olması gerekir. Örneğin, diskte, anahtar halkası depolamayı seçerseniz, dosya sistemi izinlerini kullanın. Yalnızca kimliği altında emin olun, web uygulamanızın çalıştırdığı okuma, yazma ve bu dizine erişim oluşturun. Azure Blob Depolama hizmetini kullanıyorsanız, yalnızca web uygulaması okuma, yazma veya yeni girişler, blob depolama, vb. oluşturma yeteneği olmalıdır.
 >
 > Genişletme yöntemi [AddDataProtection](/dotnet/api/microsoft.extensions.dependencyinjection.dataprotectionservicecollectionextensions.adddataprotection) döndürür bir [IDataProtectionBuilder](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotectionbuilder). `IDataProtectionBuilder` genişletme yöntemleri birlikte veri korumayı yapılandırmak için seçenekleri bağlayabilirsiniz(ekleyebilirsiniz) olduğunu gösterir.
 
@@ -42,7 +42,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Anahtar halkası depolama konumunu ayarlayın (örneğin, [PersistKeysToAzureBlobStorage](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.persistkeystoazureblobstorage)). Konum, arama için ayarlamanız gerekir `ProtectKeysWithAzureKeyVault` uygulayan bir [IXmlEncryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.ixmlencryptor) , devre dışı bırakır anahtar halkası depolama konumu dahil olmak üzere otomatik veri koruma ayarları. Yukarıdaki örnekte, anahtar halkası kalıcı hale getirmek için Azure Blob Depolama kullanır. Daha fazla bilgi için [anahtar depolama sağlayıcıları: Azure ve Redis](xref:security/data-protection/implementation/key-storage-providers#azure-and-redis). Anahtar halkası ile yerel olarak da devam edebilir [PersistKeysToFileSystem](xref:security/data-protection/implementation/key-storage-providers#file-system).
+Anahtar halkası depolama konumunu ayarlayın (örneğin, [PersistKeysToAzureBlobStorage](/dotnet/api/microsoft.aspnetcore.dataprotection.azuredataprotectionbuilderextensions.persistkeystoazureblobstorage)). Konum, arama için ayarlamanız gerekir `ProtectKeysWithAzureKeyVault` uygulayan bir [IXmlEncryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.ixmlencryptor) , devre dışı bırakır anahtar halkası depolama konumu dahil olmak üzere otomatik veri koruma ayarları. Yukarıdaki örnekte, anahtar halkası kalıcı hale getirmek için Azure Blob Depolama kullanır. Daha fazla bilgi için [anahtar depolama sağlayıcıları: Azure depolama](xref:security/data-protection/implementation/key-storage-providers#azure-storage). Anahtar halkası ile yerel olarak da devam edebilir [PersistKeysToFileSystem](xref:security/data-protection/implementation/key-storage-providers#file-system).
 
 `keyIdentifier` Anahtar şifreleme için kullanılan anahtar kasası anahtar tanımlayıcısı. Örneğin, adlı anahtar Kasası'nda oluşturulmuş bir anahtar `dataprotection` içinde `contosokeyvault` anahtar tanımlayıcısı `https://contosokeyvault.vault.azure.net/keys/dataprotection/`. Uygulamayla sağlamak **Unwrap Key** ve **Wrap Key** anahtar kasasındaki izinleri.
 
@@ -170,7 +170,7 @@ Veri koruma sisteminde bir ASP.NET Core ana bilgisayar tarafından sağlandığ�
 
 Yalıtım mekanizması çalıştığı yerel makinede bulunan her bir uygulama benzersiz bir kiracı, bu nedenle dikkate alarak <xref:Microsoft.AspNetCore.DataProtection.IDataProtector> belirli bir uygulamanın uygulama Kimliğini bir ayrıştırıcı olarak otomatik olarak içerir. kök erişim izni verilmemiş. Uygulamanın benzersiz Kimliğini uygulamanın fiziksel yoludur:
 
-* Barındırılan uygulamalar için [IIS](xref:fundamentals/servers/index#iis-http-server), uygulamayı IIS fiziksel yolunu benzersiz kimliğidir. Bir uygulama bir web çiftliği ortamında dağıttıysanız, IIS ortamları benzer şekilde web grubundaki tüm makinelerdeki yapılandırıldığını varsayarak, bu değer kararlı olur.
+* IIS'de barındırılan uygulamalar için uygulamayı IIS fiziksel yolunu kimliktir. Bir uygulama bir web çiftliği ortamında dağıttıysanız, IIS ortamları benzer şekilde web grubundaki tüm makinelerdeki yapılandırıldığını varsayarak, bu değer kararlı olur.
 * Şirket içinde barındırılan uygulamaları üzerinde çalışan [Kestrel sunucu](xref:fundamentals/servers/index#kestrel), diskteki uygulamasının fiziksel yolu benzersiz kimliğidir.
 
 Benzersiz tanımlayıcı sıfırlar varlığını sürdürmesi için tasarlanmış&mdash;hem tek tek uygulama ve makine.

@@ -4,14 +4,14 @@ author: juntaoluo
 description: Bu öğreticide, ASP.NET Core, hizmet ve gRPC gRPC istemci oluşturma işlemi gösterilmektedir. GRPC hizmeti projesi oluşturmak, proto dosyasını düzenleyin ve bir çift yönlü çağrı akış ekleme hakkında bilgi edinin.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
-ms.date: 06/05/2019
+ms.date: 06/12/2019
 uid: tutorials/grpc/grpc-start
-ms.openlocfilehash: 71e3321819eb7169f0896abe3e07849f59ea6fc7
-ms.sourcegitcommit: 5dd2ce9709c9e41142771e652d1a4bd0b5248cec
+ms.openlocfilehash: 919db3f31310342657c89100a6e25e8293648a9f
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66692524"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034812"
 ---
 # <a name="tutorial-create-a-grpc-client-and-server-in-aspnet-core"></a>Öğretici: ASP.NET Core gRPC istemci ve sunucu oluşturma
 
@@ -86,13 +86,13 @@ Visual Studio'dan seçin **Dosya > Aç**ve ardından *GrpcGreeter.sln* dosya.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Hata Ayıklayıcı olmadan gRPC hizmeti çalıştırmak için CTRL + F5 tuşlarına basın.
+* Tuşuna `Ctrl+F5` hata ayıklayıcı olmadan gRPC hizmeti çalıştırmak için.
 
   Visual Studio hizmeti, bir komut istemi'nde çalışır.
 
 # <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code'u / Visual Studio Mac için](#tab/visual-studio-code+visual-studio-mac)
 
-* GRPC Greeter projeyi GrpcGreeter kullanılarak komut satırından çalıştırmak `dotnet run`.
+* GRPC Greeter projeyi Çalıştır *GrpcGreeter* kullanarak komut satırından `dotnet run`.
 
 <!-- End of combined VS/Mac tabs -->
 
@@ -112,7 +112,7 @@ info: Microsoft.Hosting.Lifetime[0]
 
 ### <a name="examine-the-project-files"></a>Proje dosyalarını inceleyin
 
-GrpcGreeter dosyaları:
+*GrpcGreeter* proje dosyaları:
 
 * *greet.proto*: *Protos/greet.proto* dosyası tanımlar `Greeter` gRPC ve gRPC sunucu varlıkları oluşturmak için kullanılır. Daha fazla bilgi için [gRPC giriş](xref:grpc/index).
 * *Hizmetleri* klasörü: Uygulamasını içerir `Greeter` hizmeti.
@@ -153,13 +153,13 @@ Yönergeleri izleyerek [burada](/dotnet/core/tutorials/using-on-mac-vs-full-solu
 
 Aşağıdaki paketler gRPC istemci projeye ekleyin:
 
-* [Grpc.Core](https://www.nuget.org/packages/Grpc.Core), içeren C# C çekirdek istemci API'si.
+* [Grpc.Net.Client](https://www.nuget.org/packages/Grpc.Net.Client), .NET Core istemci içerir.
 * [Google.Protobuf](https://www.nuget.org/packages/Google.Protobuf/), protobuf içeren API'leri için ileti C#.
 * [Grpc.Tools](https://www.nuget.org/packages/Grpc.Tools/), içeren C# protobuf dosyaları için araç desteği. Bağımlılık ile işaretlenmiş şekilde araçları paket çalışma zamanında gerekli değil `PrivateAssets="All"`.
 
 ### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-Paket Yöneticisi Konsolu (PMC) veya NuGet paketlerini Yönet'i kullanarak paketleri yükleyin
+Paket Yöneticisi Konsolu (PMC) veya NuGet paketlerini Yönet'i kullanarak paketleri yükleyin.
 
 #### <a name="pmc-option-to-install-packages"></a>PMC seçeneği paketleri yüklemek için
 
@@ -168,7 +168,7 @@ Paket Yöneticisi Konsolu (PMC) veya NuGet paketlerini Yönet'i kullanarak paket
 * Aşağıdaki komutları çalıştırın:
 
  ```powershell
-Install-Package Grpc.Core
+Install-Package Grpc.Net.Client
 Install-Package Google.Protobuf
 Install-Package Grpc.Tools
 ```
@@ -186,7 +186,7 @@ Install-Package Grpc.Tools
 Aşağıdaki komutları çalıştırın **tümleşik Terminalini**:
 
 ```console
-dotnet add GrpcGreeterClient.csproj package Grpc.Core
+dotnet add GrpcGreeterClient.csproj package Grpc.Net.Client
 dotnet add GrpcGreeterClient.csproj package Google.Protobuf
 dotnet add GrpcGreeterClient.csproj package Grpc.Tools
 ```
@@ -194,8 +194,8 @@ dotnet add GrpcGreeterClient.csproj package Grpc.Tools
 ### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
 * Sağ **paketleri** klasöründe **çözüm bölmesi** > **paketleri Ekle**
-* Girin **Grpc.Core** arama kutusuna.
-* Seçin **Grpc.Core** seçin ve sonuçlar bölmesinden paketini **' paket Ekle**
+* Girin **Grpc.Net.Client** arama kutusuna.
+* Seçin **Grpc.Net.Client** seçin ve sonuçlar bölmesinden paketini **' paket Ekle**
 * Yineleme için `Google.Protobuf` ve `Grpc.Tools`.
 
 ---
@@ -216,7 +216,7 @@ dotnet add GrpcGreeterClient.csproj package Grpc.Tools
 
   # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-  Projeyi sağ tıklatın ve seçin **Araçlar > Dosya Düzenle**.
+  Projeye sağ tıklayıp **Araçlar > Dosya Düzenle**.
 
   ---
 
@@ -242,23 +242,21 @@ GRPC istemci güncelleştirmesi *Program.cs* dosyasındaki kodu aşağıdaki kod
 
 Greeter istemci tarafından oluşturulur:
 
-* Örnekleme bir `Channel` gRPC hizmeti bağlantısı oluşturma hakkında bilgi içeren.
-* Kullanarak `Channel` Greeter istemci oluşturmak için:
+* Örnekleme bir `HttpClient` gRPC hizmeti bağlantısı oluşturma hakkında bilgi içeren.
+* Kullanarak `HttpClient` Greeter istemci oluşturmak için:
 
-[!code-cs[](~/tutorials/grpc/grpc-start/sample/GrpcGreeterClient/Program.cs?name=snippet&highlight=4-6)]
+[!code-cs[](~/tutorials/grpc/grpc-start/sample/GrpcGreeterClient/Program.cs?name=snippet&highlight=3-9)]
 
 Greeter istemci zaman uyumsuz olarak çağırır `SayHello` yöntemi. Sonucu `SayHello` çağrı görüntülenir:
 
-[!code-cs[](~/tutorials/grpc/grpc-start/sample/GrpcGreeterClient/Program.cs?name=snippet&highlight=7-9)]
-
-Kapatma `Channel` tüm kaynakları serbest bırakmak için işlemleri tamamladığınızda, istemci tarafından kullanılmış.
+[!code-cs[](~/tutorials/grpc/grpc-start/sample/GrpcGreeterClient/Program.cs?name=snippet&highlight=10-12)]
 
 ## <a name="test-the-grpc-client-with-the-grpc-greeter-service"></a>GRPC Greeter hizmet gRPC istemciyle test etme
 
 ### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Greeter hizmetinde hata ayıklayıcı olmadan sunucu başlatmak için Ctrl + F5 tuşlarına basın.
-* GrpcGreeterClient projesinde hata ayıklayıcı olmadan sunucu başlatmak için Ctrl + F5 tuşlarına basın.
+* Greeter hizmetinde basın `Ctrl+F5` hata ayıklayıcı olmadan sunucu başlatma.
+* İçinde `GrpcGreeterClient` tuşuna basın, proje `Ctrl+F5` hata ayıklayıcı olmadan sunucu başlatma.
 
 ### <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[Visual Studio Code'u / Visual Studio Mac için](#tab/visual-studio-code+visual-studio-mac)
 

@@ -2,22 +2,41 @@
 title: ASP.NET Core Web sunucu uygulamalarında
 author: guardrex
 description: ASP.NET Core için web sunucuları Kestrel ve HTTP.sys keşfedin. Bir sunucu seçin ve ne zaman bir ters proxy sunucusu kullanmayı öğrenin.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 05/24/2019
+ms.date: 06/01/2019
 uid: fundamentals/servers/index
-ms.openlocfilehash: 82a4bd0173b0aab094ac5ac9f89d5358ba585d3d
-ms.sourcegitcommit: b8ed594ab9f47fa32510574f3e1b210cff000967
+ms.openlocfilehash: 6b4debdaf386bb596c600d3216e78c0cd0380f93
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66251345"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034851"
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>ASP.NET Core Web sunucu uygulamalarında
 
 Tarafından [Tom Dykstra](https://github.com/tdykstra), [Steve Smith](https://ardalis.com/), [Stephen Halter](https://twitter.com/halter73), ve [Chris Ross](https://github.com/Tratcher)
 
 ASP.NET Core uygulaması bir işlemde HTTP sunucusu uygulamasını ile çalışır. HTTP istekleri ve bunları uygulamaya bir dizi ortaya çıkarır sunucusu uygulaması dinler [istek özellikleri](xref:fundamentals/request-features) içine oluşan bir <xref:Microsoft.AspNetCore.Http.HttpContext>.
+
+## <a name="kestrel"></a>Kestrel
+
+Kestrel'i ASP.NET Core proje şablonları dahil varsayılan web sunucusudur.
+
+Kestrel'i kullanın:
+
+* Tek başına bir uç sunucusu olarak doğrudan Internet dahil olmak üzere, bir ağ isteği işleniyor.
+
+  ![Kestrel'i ters Ara sunucu olmadan Internet ile doğrudan iletişim kurar](kestrel/_static/kestrel-to-internet2.png)
+
+* İle bir *ters Ara sunucu*, gibi [Internet Information Services (IIS)](https://www.iis.net/), [Ngınx](http://nginx.org), veya [Apache](https://httpd.apache.org/). Bir tersine Ara sunucunun Internet'ten HTTP isteklerini alır ve bunları Kestrel için iletir.
+
+  ![Kestrel'i dolaylı olarak IIS, Ngınx veya Apache gibi bir ters Ara sunucu üzerinden Internet ile iletişim kurar](kestrel/_static/kestrel-to-internet.png)
+
+Barındırma ya da yapılandırma&mdash;ile veya ters Ara sunucu olmadan&mdash;ASP.NET Core 2.1 veya daha sonraki uygulamalar için desteklenir.
+
+Kestrel'i Yapılandırma Kılavuzu ve ne zaman bir ters proxy yapılandırma Kestrel kullanılacağı hakkında bilgi için bkz. <xref:fundamentals/servers/kestrel>.
 
 ::: moniker range=">= aspnetcore-2.2"
 
@@ -26,56 +45,23 @@ ASP.NET Core uygulaması bir işlemde HTTP sunucusu uygulamasını ile çalış�
 ASP.NET Core aşağıdaki ile birlikte gelir:
 
 * [Kestrel'i sunucu](xref:fundamentals/servers/kestrel) platformlar arası HTTP sunucusu uygulamasını, varsayılan olan.
-* IIS HTTP sunucusu bir [işlem sunucusu](#in-process-hosting-model) IIS için.
+* IIS HTTP sunucusu bir [işlem sunucusu](#hosting-models) IIS için.
 * [HTTP.sys sunucu](xref:fundamentals/servers/httpsys) yalnızca Windows HTTP sunucu dayanır [HTTP.sys çekirdek sürücüsü ve HTTP Sunucusu API](/windows/desktop/Http/http-api-start-page).
 
 Kullanırken [IIS](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture) veya [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview), uygulama ya da çalışır:
 
-* IIS çalışan işlemi ile aynı işlemde ( [işlem içi barındırma modeli](#in-process-hosting-model)) ile [IIS HTTP sunucusu](#iis-http-server). *İşlem içi* önerilen yapılandırmadır.
-* Bir işlemde ayrı IIS çalışan işleminden ( [işlem dışı barındırma modeli](#out-of-process-hosting-model)) ile [Kestrel sunucu](#kestrel).
+* IIS çalışan işlemi ile aynı işlemde ( [işlem içi barındırma modeli](#hosting-models)) IIS HTTP sunucusuyla. *İşlem içi* önerilen yapılandırmadır.
+* Bir işlemde ayrı IIS çalışan işleminden ( [işlem dışı barındırma modeli](#hosting-models)) ile [Kestrel sunucu](#kestrel).
 
 [ASP.NET Core Modülü](xref:host-and-deploy/aspnet-core-module) IIS ve işlem içi IIS HTTP sunucusu veya Kestrel arasında yerel IIS istekleri işleyen yerel bir IIS modülüdür. Daha fazla bilgi için bkz. <xref:host-and-deploy/aspnet-core-module>.
 
 ## <a name="hosting-models"></a>Barındırma modelleri
 
-### <a name="in-process-hosting-model"></a>İşlem içi barındırma modeli
-
 İşlemdeki barındırma, bir ASP.NET Core kullanarak uygulama IIS çalışan işlemi ile aynı işlemde çalıştırır. Barındırma işlemi içinde istekleri geri döngü bağdaştırıcı, giden ağ trafiğini aynı makinede geri döndüren bir ağ arabirimi üzerinden proxy olmadığından işlem dışı barındırma üzerinden geliştirilmiş performans sağlar. IIS işleme Süreci Yönetimi ile [Windows İşlem Etkinleştirme Hizmeti (WAS)](/iis/manage/provisioning-and-managing-iis/features-of-the-windows-process-activation-service-was).
 
-ASP.NET Core Modülü:
+Barındırma işlemi çıkış kullanarak ASP.NET Core uygulamaları IIS çalışan işlemi ve modül tanıtıcıları işlem Yönetimi'nden ayrı bir işlem içinde çalıştırın. İlk istek ulaştığında ve kapatılır veya çöküyor uygulama yeniden başlatmalarını modülü ASP.NET Core uygulaması için bir işlem başlar. Bu aslında aynı işlemde çalışan tarafından yönetilen uygulamalarla görüldüğü gibi davranıştır [Windows İşlem Etkinleştirme Hizmeti (WAS)](/iis/manage/provisioning-and-managing-iis/features-of-the-windows-process-activation-service-was).
 
-* Uygulama başlatmayı gerçekleştirir.
-  * Yükleri [CoreCLR](/dotnet/standard/glossary#coreclr).
-  * Çağrıları `Program.Main`.
-* Yerel IIS istek ömrünü işler.
-
-İşlem içi barındırma modeli, .NET Framework'ü hedefleyen ASP.NET Core uygulamaları için desteklenmez.
-
-Aşağıdaki diyagram IIS, ASP.NET Core modülü arasındaki ilişkiyi gösterir ve uygulama işlemde barındırılan:
-
-![ASP.NET Core Modülü](_static/ancm-inprocess.png)
-
-Bir istek için çekirdek modu HTTP.sys sürücüsünü Web'den ulaşır. Sürücü IIS Web sitesinin yapılandırılan bağlantı noktası, genellikle 80 (HTTP) veya 443 (HTTPS) üzerinde yerel istek yönlendirir. Modülün yerel isteği alır ve IIS HTTP sunucusuna geçirir (`IISHttpServer`). IIS HTTP isteği Yerelden yönetilene dönüştürür IIS için bir işlem sunucusu uygulama sunucusudur.
-
-IIS HTTP sunucusu isteği işledikten sonra ASP.NET Core ara yazılım ardışık düzende isteği gönderilir. Ara yazılım ardışık düzenini isteği işler ve olarak geçirir bir `HttpContext` örneği uygulama mantığına. Uygulamanın yanıt IIS IIS HTTP sunucusu üzerinden geçirilir. IIS istek başlatılan istemci yanıta gönderir.
-
-Barındırma işlemi içinde olan mevcut uygulamalar için katılımı ancak [yeni dotnet](/dotnet/core/tools/dotnet-new) işlemdeki tüm IIS ve IIS Express senaryoları için barındırma modelini varsayılan şablonları.
-
-### <a name="out-of-process-hosting-model"></a>İşlem dışı barındırma modeli
-
-Bir işlem içinde çalıştırmak, ASP.NET Core uygulamaları IIS çalışan işleminden ayrı olduğundan, işlem yönetimi modül işler. İlk istek ulaştığında ve kapatılır veya çöküyor uygulama yeniden başlatmalarını modülü ASP.NET Core uygulaması için bir işlem başlar. Bu aslında aynı işlemde çalışan tarafından yönetilen uygulamalarla görüldüğü gibi davranıştır [Windows İşlem Etkinleştirme Hizmeti (WAS)](/iis/manage/provisioning-and-managing-iis/features-of-the-windows-process-activation-service-was).
-
-Aşağıdaki diyagram IIS, ASP.NET Core modülü arasındaki ilişkiyi gösterir ve uygulama barındırılan işlem dışı:
-
-![ASP.NET Core Modülü](_static/ancm-outofprocess.png)
-
-İstekleri için çekirdek modu HTTP.sys sürücüsünü Web'den ulaşır. Sürücü istekler IIS Web sitesinin yapılandırılan bağlantı noktası, genellikle 80 (HTTP) veya 443 (HTTPS) üzerinde yönlendirir. Modül Kestrel rastgele bağlantı noktası için 80 veya 443 bağlantı noktası olmadığından uygulama isteklerini iletir.
-
-Modül, başlangıçta bir ortam değişkeni aracılığıyla bağlantı noktasını belirtir ve <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> uzantısını yapılandırır üzerinde dinlemek üzere `http://localhost:{PORT}`. Ek denetimler gerçekleştirilir ve modülünden değilsiniz kaynaklı istekler reddedilir. İstekler HTTP üzerinden HTTPS üzerinden IIS tarafından alınan bile iletilir modülü HTTPS iletmeyi desteklemez.
-
-Modül istekten Kestrel seçer sonra ASP.NET Core ara yazılım ardışık düzende isteği gönderilir. Ara yazılım ardışık düzenini isteği işler ve olarak geçirir bir `HttpContext` örneği uygulama mantığına. IIS tümleştirme tarafından eklenen bir ara yazılım istek için Kestrel iletmek için hesap için şema, uzak IP ve pathbase güncelleştirir. Uygulamanın yanıt IIS, yeniden istek başlatılan HTTP istemcisi için hangi bildirim geçirilir.
-
-IIS ve ASP.NET Core Module yapılandırma yönergeleri için aşağıdaki konulara bakın:
+Daha fazla bilgi ve yapılandırma yönergeleri için aşağıdaki konulara bakın:
 
 * <xref:host-and-deploy/iis/index>
 * <xref:host-and-deploy/aspnet-core-module>
@@ -132,42 +118,6 @@ ASP.NET Core ile birlikte gelir [Kestrel sunucu](xref:fundamentals/servers/kestr
 
 ::: moniker-end
 
-## <a name="kestrel"></a>Kestrel
-
-Kestrel'i ASP.NET Core proje şablonları dahil varsayılan web sunucusudur.
-
-::: moniker range=">= aspnetcore-2.0"
-
-Kestrel'i kullanılabilir:
-
-* Tek başına bir uç sunucusu olarak doğrudan Internet dahil olmak üzere, bir ağ isteği işleniyor.
-
-  ![Kestrel'i ters Ara sunucu olmadan Internet ile doğrudan iletişim kurar](kestrel/_static/kestrel-to-internet2.png)
-
-* İle bir *ters Ara sunucu*, gibi [Internet Information Services (IIS)](https://www.iis.net/), [Ngınx](http://nginx.org), veya [Apache](https://httpd.apache.org/). Bir tersine Ara sunucunun Internet'ten HTTP isteklerini alır ve bunları Kestrel için iletir.
-
-  ![Kestrel'i dolaylı olarak IIS, Ngınx veya Apache gibi bir ters Ara sunucu üzerinden Internet ile iletişim kurar](kestrel/_static/kestrel-to-internet.png)
-
-Barındırma ya da yapılandırma&mdash;ile veya ters Ara sunucu olmadan&mdash;ASP.NET Core 2.1 veya daha sonraki uygulamalar için desteklenir.
-
-::: moniker-end
-
-::: moniker range="< aspnetcore-2.0"
-
-Uygulamayı yalnızca bir iç ağ gelen istekleri kabul ederse Kestrel kendisi tarafından kullanılabilir.
-
-![Kestrel'i iç ağa ile doğrudan iletişim kurar.](kestrel/_static/kestrel-to-internal.png)
-
-Uygulamayı Internet erişimine açıktır, Kestrel kullanmalısınız bir *ters Ara sunucu*, gibi [Internet Information Services (IIS)](https://www.iis.net/), [Ngınx](http://nginx.org), veya [Apache ](https://httpd.apache.org/). Bir tersine Ara sunucunun Internet'ten HTTP isteklerini alır ve bunları Kestrel için iletir.
-
-![Kestrel'i dolaylı olarak IIS, Ngınx veya Apache gibi bir ters Ara sunucu üzerinden Internet ile iletişim kurar](kestrel/_static/kestrel-to-internet.png)
-
-Internet güvenlik olduğundan doğrudan sunulan genel kullanıma yönelik uç sunucusu dağıtımları için ters Ara sunucu kullanmak için en önemli nedeni. Kestrel'i 1.x sürümlerini Internet'ten saldırılarına karşı korumak için önemli güvenlik özellikleri dahil değildir. Bu, içerir, ancak bunlarla sınırlı uygun bir zaman aşımı, istek boyutu sınırları ve eş zamanlı bağlantı sınırları değildir.
-
-::: moniker-end
-
-Kestrel'i Yapılandırma Kılavuzu ve ne zaman bir ters proxy yapılandırma Kestrel kullanılacağı hakkında bilgi için bkz. <xref:fundamentals/servers/kestrel>.
-
 ### <a name="nginx-with-kestrel"></a>Ngınx Kestrel ile
 
 Ngınx Linux üzerinde bir ters proxy sunucusu olarak Kestrel için nasıl kullanılacağı hakkında daha fazla bilgi için bkz: <xref:host-and-deploy/linux-nginx>.
@@ -175,14 +125,6 @@ Ngınx Linux üzerinde bir ters proxy sunucusu olarak Kestrel için nasıl kulla
 ### <a name="apache-with-kestrel"></a>Kestrel'i Apache
 
 Apache Linux üzerinde bir ters proxy sunucusu olarak Kestrel için nasıl kullanılacağı hakkında daha fazla bilgi için bkz: <xref:host-and-deploy/linux-apache>.
-
-::: moniker range=">= aspnetcore-2.2"
-
-## <a name="iis-http-server"></a>IIS HTTP sunucusu
-
-IIS HTTP sunucusu bir [işlem sunucusu](#in-process-hosting-model) IIS ve işlem içi dağıtımlar için gerekli. [ASP.NET Core Modülü](xref:host-and-deploy/aspnet-core-module) IIS ve IIS HTTP sunucusu arasındaki yerel IIS isteklerini işler. Daha fazla bilgi için bkz. <xref:host-and-deploy/aspnet-core-module>.
-
-::: moniker-end
 
 ## <a name="httpsys"></a>HTTP.sys
 

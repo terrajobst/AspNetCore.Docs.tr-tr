@@ -5,14 +5,14 @@ description: Internet Information Services (IIS) ASP.NET Core uygulamaları dağ
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/12/2019
+ms.date: 05/28/2019
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: e4c93459f2030c7c0a55ea90e0cc8c8d30b76c51
-ms.sourcegitcommit: a04eb20e81243930ec829a9db5dd5de49f669450
+ms.openlocfilehash: cb42a262c89c27fa350e936184f8ddb3a02788f0
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66470451"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034749"
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>IIS üzerinde ASP.NET Core sorunlarını giderme
 
@@ -330,13 +330,13 @@ Almak ve bir dökümü analiz [Windows hata bildirimi (WER)](/windows/desktop/we
 
 1. Kilitlenme döküm dosyaları tutmak için bir klasör oluşturun `c:\dumps`. Uygulama havuzu klasöre yazma erişimi olmalıdır.
 1. Çalıştırma [EnableDumps PowerShell Betiği](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/host-and-deploy/iis/troubleshoot/scripts/EnableDumps.ps1):
-   * Uygulama kullanıyorsa [işlem içi barındırma modeli](xref:fundamentals/servers/index#in-process-hosting-model), komut dosyasını Çalıştır *w3wp.exe*:
+   * Uygulama kullanıyorsa [işlem içi barındırma modeli](xref:host-and-deploy/iis/index#in-process-hosting-model), komut dosyasını Çalıştır *w3wp.exe*:
 
      ```console
      .\EnableDumps w3wp.exe c:\dumps
      ```
 
-   * Uygulama kullanıyorsa [işlem dışı barındırma modeli](xref:fundamentals/servers/index#out-of-process-hosting-model), komut dosyasını Çalıştır *dotnet.exe*:
+   * Uygulama kullanıyorsa [işlem dışı barındırma modeli](xref:host-and-deploy/iis/index#out-of-process-hosting-model), komut dosyasını Çalıştır *dotnet.exe*:
 
      ```console
      .\EnableDumps dotnet.exe c:\dumps
@@ -344,13 +344,13 @@ Almak ve bir dökümü analiz [Windows hata bildirimi (WER)](/windows/desktop/we
 
 1. Kilitlenme durumu oluşmasına neden olan koşulları altında uygulamayı çalıştırın.
 1. Kilitlenme oluştuktan sonra Çalıştır [DisableDumps PowerShell Betiği](https://github.com/aspnet/AspNetCore.Docs/blob/master/aspnetcore/host-and-deploy/iis/troubleshoot/scripts/DisableDumps.ps1):
-   * Uygulama kullanıyorsa [işlem içi barındırma modeli](xref:fundamentals/servers/index#in-process-hosting-model), komut dosyasını Çalıştır *w3wp.exe*:
+   * Uygulama kullanıyorsa [işlem içi barındırma modeli](xref:host-and-deploy/iis/index#in-process-hosting-model), komut dosyasını Çalıştır *w3wp.exe*:
 
      ```console
      .\DisableDumps w3wp.exe
      ```
 
-   * Uygulama kullanıyorsa [işlem dışı barındırma modeli](xref:fundamentals/servers/index#out-of-process-hosting-model), komut dosyasını Çalıştır *dotnet.exe*:
+   * Uygulama kullanıyorsa [işlem dışı barındırma modeli](xref:host-and-deploy/iis/index#out-of-process-hosting-model), komut dosyasını Çalıştır *dotnet.exe*:
 
      ```console
      .\DisableDumps dotnet.exe

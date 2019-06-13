@@ -3,14 +3,14 @@ title: ASP.NET Core Razor söz dizimi başvurusu
 author: rick-anderson
 description: Kodu sunucu tabanlı Web sayfalarını eklemek için Razor söz dizimi biçimlendirme hakkında bilgi edinin.
 ms.author: riande
-ms.date: 10/26/2018
+ms.date: 06/12/2019
 uid: mvc/views/razor
-ms.openlocfilehash: 7f97be651c067e94f29eef4956c10d87ec031bed
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 87c5b97a653c139b8b79f4270e0d9d0081815433
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64901109"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034945"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>ASP.NET Core Razor söz dizimi başvurusu
 
@@ -574,9 +574,39 @@ Kod aşağıdaki HTML'yi oluşturur:
 
 ::: moniker-end
 
+### <a name="attribute"></a>@attribute
+
+`@attribute` Yönergesi, oluşturulan sayfa veya Görünüm sınıfı için belirli bir öznitelik ekler. Aşağıdaki örnek ekler `[Authorize]` özniteliği:
+
+```cshtml
+@attribute [Authorize]
+```
+
+> [!WARNING]
+> ASP.NET Core 3.0 Önizleme 6 sürümde, bilinen bir sorun var. burada `@attribute` yönergeleri çalışmıyor  *\_Imports.razor* ve  *\_ViewImports.cshtml* dosyaları. Bu çözüm getirilecektir Önizleme 7 sürümü.
+
+### <a name="namespace"></a>@namespace
+
+`@namespace` Yönergesi, oluşturulan sayfa veya Görünüm sınıfının ad alanını ayarlar:
+
+```cshtml
+@namespace Your.Namespace.Here
+```
+
+Bir sayfa ya da Görünüm API'si ile Açıklama alıyorsa bir `@namespace` yönergesi, özgün dosyanın ad alanı göre bu ad alanı da ayarlanır. 
+
+Varsa *MyApp/sayfaları/\_ViewImports.cshtml* içeren `@namespace Hello.World`, ad alanı sayfalar veya içe görünümler `Hello.World` ad alanı aşağıdaki tabloda gösterilen şekilde ayarlayın.
+
+| Sayfa (veya Görünüm)                     | Ad Alanı               |
+| ---------------------------------- | ----------------------- |
+| *MyApp/Pages/Index.cshtml*         | `Hello.World`           |
+| *MyApp/Pages/MorePages/Bar.cshtml* | `Hello.World.MorePages` |
+
+Birden çok içeri aktarma dosyanız varsa `@namespace` yönerge, en yakın bir sayfaya veya dizin zinciri görünümünde dosya kullanılır.
+
 ### <a name="section"></a>@section
 
-`@section` Yönergesi ile birlikte kullanılan [Düzen](xref:mvc/views/layout) içeriği HTML sayfasının farklı bölümlerini işlemek görünümlerini etkinleştirmek için. Daha fazla bilgi için [bölümleri](xref:mvc/views/layout#layout-sections-label).
+`@section` Yönergesi ile birlikte kullanılan [Düzen](xref:mvc/views/layout) sayfalarını veya HTML sayfasının farklı bölümlerini içeriğini işlemek için görünümleri etkinleştirmek için. Daha fazla bilgi için [bölümleri](xref:mvc/views/layout#layout-sections-label).
 
 ## <a name="templated-razor-delegates"></a>Şablonlu Razor temsilciler
 

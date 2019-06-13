@@ -5,14 +5,14 @@ description: Oluşturma ve bileşen ömürleri yönetme verilere bağlayın ve o
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/05/2019
+ms.date: 06/12/2019
 uid: blazor/components
-ms.openlocfilehash: fdd755a245b0ef9697b500c734a44fac8942f068
-ms.sourcegitcommit: e7e04a45195d4e0527af6f7cf1807defb56dc3c3
+ms.openlocfilehash: f88497195d9a108a4b8890522078736e335c5b0a
+ms.sourcegitcommit: 739a3d7ca4fd2908ea0984940eca589a96359482
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66750142"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67040693"
 ---
 # <a name="create-and-use-razor-components"></a>Oluşturma ve Razor bileşenleri kullanma
 
@@ -34,7 +34,10 @@ Bileşenlerini kullanarak yazarı olduğu *.cshtml* dosyaları kullanarak Razor 
 
 Bir bileşen için kullanıcı Arabirimi, HTML kullanılarak tanımlanır. (Örneğin, döngü, koşullular, ifadeleri) dinamik işleme mantığı, katıştırılmış kullanarak eklenir C# adlı söz dizimi [Razor](xref:mvc/views/razor). Bir uygulamanın ne zaman derlenir, HTML biçimlendirmesi ve C# işleme mantığı, bir bileşen sınıfı dönüştürülür. Oluşturulan sınıfın adı dosya adıyla aynıdır.
 
-Bileşen sınıfı üyeleri tanımlanmış bir `@functions` blok (birden fazla `@functions` bloğu izin verilen). İçinde `@functions` blok, bileşen durumu (Özellikler, alanlar) olay işleme için veya başka bir bileşen mantığı tanımlamak için yöntemleri ile belirtilir.
+Bileşen sınıfı üyeleri tanımlanmış bir `@code` blok. İçinde `@code` blok, bileşen durumu (Özellikler, alanlar) olay işleme için veya başka bir bileşen mantığı tanımlamak için yöntemleri ile belirtilir. Birden fazla `@code` bloğu izin verilebilir.
+
+> [!NOTE]
+> ASP.NET Core, önceki sürümlerinde `@functions` blokları için aynı amaca kullanılmış `@code` engeller. `@functions` çalışmaya devam blokları, ancak kullanmanızı öneririz `@code` yönergesi.
 
 Bileşen üyeleri, ardından bileşenin parçası mantığı kullanarak işleme olarak kullanılabilir C# ile başlayan ifadeleri `@`. Örneğin, bir C# alan ekleyerek işlenen `@` alan adı. Aşağıdaki örnek, değerlendirir ve işler:
 
@@ -44,7 +47,7 @@ Bileşen üyeleri, ardından bileşenin parçası mantığı kullanarak işleme 
 ```cshtml
 <h1 style="font-style:@_headingFontStyle">@_headingText</h1>
 
-@functions {
+@code {
     private string _headingFontStyle = "italic";
     private string _headingText = "Put on your new Blazor!";
 }
@@ -122,30 +125,30 @@ Alt bileşen bir `ChildContent` temsil eden özellik bir `RenderFragment`. Değe
 
 ## <a name="data-binding"></a>Veri bağlama
 
-Veri bağlama bileşenleri hem DOM öğeleri ile gerçekleştirilir `bind` özniteliği. Aşağıdaki örnek bağlar `_italicsCheck` alan için onay kutusunun işaretli durumu:
+Veri bağlama bileşenleri hem DOM öğeleri ile gerçekleştirilir `@bind` özniteliği. Aşağıdaki örnek bağlar `_italicsCheck` alan için onay kutusunun işaretli durumu:
 
 ```cshtml
 <input type="checkbox" class="form-check-input" id="italicsCheck" 
-    bind="@_italicsCheck" />
+    @bind="_italicsCheck" />
 ```
 
 Onay kutusunu işaretli ve seçildiğinde özelliğin değerini şekilde güncelleştirilir `true` ve `false`sırasıyla.
 
 Yalnızca bileşen, özelliğin değerinin değiştirilmesi için değil yanıt oluşturulduğunda onay kutusunu kullanıcı Arabiriminde güncelleştirilir. Olay işleyici kodu yürütüldükten sonra bileşenleri kendilerini işleme olduğundan, özellik güncelleştirmeleri genellikle kullanıcı Arabiriminde hemen yansıtılır.
 
-Kullanarak `bind` ile bir `CurrentValue` özelliği (`<input bind="@CurrentValue" />`) aslında aşağıdakine eşdeğerdir:
+Kullanarak `@bind` ile bir `CurrentValue` özelliği (`<input @bind="CurrentValue" />`) aslında aşağıdakine eşdeğerdir:
 
 ```cshtml
 <input value="@CurrentValue" 
-    onchange="@((UIChangeEventArgs __e) => CurrentValue = __e.Value)" />
+    @onchange="@((UIChangeEventArgs __e) => CurrentValue = __e.Value)" />
 ```
 
-Bileşen işlendiğinde `value` giriş öğesinin geldiği `CurrentValue` özelliği. Kullanıcı, metin kutusuna yazdığında `onchange` olay tetiklenir ve `CurrentValue` özelliği değiştirilmiş değerine ayarlanır. Gerçekte, kod oluşturma biraz daha karmaşık olduğundan `bind` tür dönüştürmeleri gerçekleştirildiği birkaç durum işler. Giren İlkesi `bind` geçerli değerini bir ifade ile ilişkilendirir bir `value` kayıtlı işleyici kullanarak öznitelik ve işleyicilerini değişiklikler.
+Bileşen işlendiğinde `value` giriş öğesinin geldiği `CurrentValue` özelliği. Kullanıcı, metin kutusuna yazdığında `onchange` olay tetiklenir ve `CurrentValue` özelliği değiştirilmiş değerine ayarlanır. Gerçekte, kod oluşturma biraz daha karmaşık olduğundan `@bind` tür dönüştürmeleri gerçekleştirildiği birkaç durum işler. Giren İlkesi `@bind` geçerli değerini bir ifade ile ilişkilendirir bir `value` kayıtlı işleyici kullanarak öznitelik ve işleyicilerini değişiklikler.
 
-Ek olarak `onchange`, özelliği gibi diğer olayları kullanarak bağlanabilir `oninput` bağlamak gerekenler hakkında daha fazla açık olan tarafından:
+Ek olarak `onchange`, özelliği gibi diğer olayları kullanarak bağlanabilir `oninput` ekleyerek bir `@bind` özniteliğini bir `event` parametresi:
 
 ```cshtml
-<input type="text" bind-value-oninput="@CurrentValue" />
+<input type="text" @bind-value="@CurrentValue" @bind-value:event="oninput" />
 ```
 
 Farklı `onchange`, `oninput` metin kutusuna giriş her karakter için ateşlenir.
@@ -155,19 +158,19 @@ Farklı `onchange`, `oninput` metin kutusuna giriş her karakter için ateşleni
 Veri bağlama ile birlikte çalışır <xref:System.DateTime> biçim dizeleri. Para birimi veya sayı biçimleri gibi diğer biçim ifadeleri şu anda kullanılamıyor.
 
 ```cshtml
-<input bind="@StartDate" format-value="yyyy-MM-dd" />
+<input @bind="StartDate" @bind:format="yyyy-MM-dd" />
 
-@functions {
+@code {
     [Parameter]
     private DateTime StartDate { get; set; } = new DateTime(2020, 1, 1);
 }
 ```
 
-`format-value` Özniteliği uygulamak için tarih biçimini belirtir `value` , `input` öğesi. Biçimi de değer ayrıştırmak için kullanılan zaman bir `onchange` olayı oluşur.
+`@bind:format` Özniteliği uygulamak için tarih biçimini belirtir `value` , `<input>` öğesi. Biçimi de değer ayrıştırmak için kullanılan zaman bir `onchange` olayı oluşur.
 
 **Bileşen parametreleri**
 
-Bağlama bileşeni parametreleri de tanır burada `bind-{property}` bir özellik değeri bileşenlerinde bağlayabilirsiniz.
+Bağlama bileşeni parametreleri de tanır burada `@bind-{property}` bir özellik değeri bileşenlerinde bağlayabilirsiniz.
 
 Aşağıdaki bileşen `ChildComponent` ve bağlar `ParentYear` üst parametresinden `Year` alt bileşen parametresi:
 
@@ -180,13 +183,13 @@ Ana bileşenin:
 
 <p>ParentYear: @ParentYear</p>
 
-<ChildComponent bind-Year="@ParentYear" />
+<ChildComponent @bind-Year="ParentYear" />
 
-<button class="btn btn-primary" onclick="@ChangeTheYear">
+<button class="btn btn-primary" @onclick="@ChangeTheYear">
     Change Year to 1986
 </button>
 
-@functions {
+@code {
     [Parameter]
     private int ParentYear { get; set; } = 1978;
 
@@ -204,7 +207,7 @@ Alt bileşeni:
 
 <p>Year: @Year</p>
 
-@functions {
+@code {
     [Parameter]
     private int Year { get; set; }
 
@@ -241,26 +244,30 @@ Varsa değerini `ParentYear` düğmesini seçerek özelliği değiştirildiğind
 
 `Year` Bir yardımcı olduğundan parametre bağlanabilir `YearChanged` türüyle eşleşen olay `Year` parametresi.
 
-Kural olarak, `<ChildComponent bind-Year="@ParentYear" />` yazmak, temelde eşdeğerdir
+Kural olarak, `<ChildComponent @bind-Year="ParentYear" />` yazmak, temelde eşdeğerdir
 
 ```cshtml
-<ChildComponent bind-Year-YearChanged="@ParentYear" />
+<ChildComponent @bind-Year="ParentYear" @bind-Year:event="YearChanged" />
 ```
 
-Genel olarak, bir özelliği karşılık gelen olay işleyicisi kullanarak bir bağlanabilir `bind-property-event` özniteliği.
+Genel olarak, bir özelliği karşılık gelen olay işleyicisi kullanarak bir bağlanabilir `@bind-property:event` özniteliği. Örneğin, özellik `MyProp` bağlanabilir `MyEventHandler` aşağıdaki iki öznitelikleri kullanarak:
+
+```cshtml
+<FooComponent @bind-MyProp="MyValue" @bind-MyProp:event="MyEventHandler" />
+```
 
 ## <a name="event-handling"></a>Olay işleme
 
-Razor bileşenleri olay işleme özellikleri sağlar. İçin bir HTML öğesi öznitelik adlı `on<event>` (örneğin, `onclick`, `onsubmit`) temsilci türü belirtilmiş bir değer ile Razor bileşenlerini değerlendirir özniteliğin değeri bir olay işleyicisi. Özniteliğin adı her zaman ile başlayan `on`.
+Razor bileşenleri olay işleme özellikleri sağlar. İçin bir HTML öğesi öznitelik adlı `on<event>` (örneğin, `onclick`, `onsubmit`) temsilci türü belirtilmiş bir değer ile Razor bileşenlerini değerlendirir özniteliğin değeri bir olay işleyicisi. Özniteliğin adı her zaman ile başlayan `@on`.
 
 Aşağıdaki kod çağrıları `UpdateHeading` Arabiriminde düğme seçildiğinde yöntemi:
 
 ```cshtml
-<button class="btn btn-primary" onclick="@UpdateHeading">
+<button class="btn btn-primary" @onclick="@UpdateHeading">
     Update heading
 </button>
 
-@functions {
+@code {
     private void UpdateHeading(UIMouseEventArgs e)
     {
         ...
@@ -271,9 +278,9 @@ Aşağıdaki kod çağrıları `UpdateHeading` Arabiriminde düğme seçildiğin
 Aşağıdaki kod çağrıları `CheckboxChanged` onay kutusunu kullanıcı Arabiriminde değiştirildiğinde yöntemi:
 
 ```cshtml
-<input type="checkbox" class="form-check-input" onchange="@CheckboxChanged" />
+<input type="checkbox" class="form-check-input" @onchange="@CheckboxChanged" />
 
-@functions {
+@code {
     private void CheckboxChanged()
     {
         ...
@@ -284,11 +291,11 @@ Aşağıdaki kod çağrıları `CheckboxChanged` onay kutusunu kullanıcı Arabi
 Olay işleyicileri zaman uyumsuz ve dönüş ayrıca olabilir bir <xref:System.Threading.Tasks.Task>. El ile çağırmaya gerek yoktur `StateHasChanged()`. Ortaya çıkan özel durumlar günlüğe kaydedilir.
 
 ```cshtml
-<button class="btn btn-primary" onclick="@UpdateHeading">
+<button class="btn btn-primary" @onclick="@UpdateHeading">
     Update heading
 </button>
 
-@functions {
+@code {
     private async Task UpdateHeading(UIMouseEventArgs e)
     {
         ...
@@ -308,7 +315,7 @@ Desteklenen olay bağımsız değişkenleri listesi verilmiştir:
 Lambda ifadeleri de kullanılabilir:
 
 ```cshtml
-<button onclick="@(e => Console.WriteLine("Hello, world!"))">Say hello</button>
+<button @onclick="@(e => Console.WriteLine("Hello, world!"))">Say hello</button>
 ```
 
 Genellikle gibi ek değerler kapatmak uygun olan öğeleri kümesi yineleme olduğunda. Aşağıdaki örnek, üç oluşturur düğmeler, her biri çağıran `UpdateHeading` olay bağımsız değişken geçirme (`UIMouseEventArgs`) ve düğme sayısı (`buttonNumber`) kullanıcı Arabiriminde seçili olduğunda:
@@ -321,12 +328,12 @@ Genellikle gibi ek değerler kapatmak uygun olan öğeleri kümesi yineleme oldu
     var buttonNumber = i;
 
     <button class="btn btn-primary"
-            onclick="@(e => UpdateHeading(e, buttonNumber))">
+            @onclick="@(e => UpdateHeading(e, buttonNumber))">
         Button #@i
     </button>
 }
 
-@functions {
+@code {
     private string message = "Select a button to learn its position.";
 
     private void UpdateHeading(UIMouseEventArgs e, int buttonNumber)
@@ -367,7 +374,7 @@ Düğme alt bileşeni seçildiğinde:
 <ChildComponent 
     OnClick="@(async () => { await Task.Yield(); messageText = "Blaze It!"; })" />
 
-@functions {
+@code {
     private string messageText;
 }
 ```
@@ -384,12 +391,12 @@ Kesin olarak belirlenmiş tercih `EventCallback<T>`, bileşen kullanıcıları i
 
 ## <a name="capture-references-to-components"></a>Bileşenleri başvurular yakalama
 
-Bileşen başvurularını komutları gibi bu örneğe verebilir böylece bileşen örneğinin başvurmak için bir yol sağlar `Show` veya `Reset`. Bir bileşen başvurusunu yakalamak için ekleme bir `ref` özniteliği alt bileşen ve aynı ada ve aynı türe sahip bir alan alt bileşeni olarak tanımlayabilirsiniz.
+Bileşen başvurularını komutları gibi bu örneğe verebilir böylece bileşen örneğinin başvurmak için bir yol sağlar `Show` veya `Reset`. Bir bileşen başvurusunu yakalamak için ekleme bir `@ref` özniteliği alt bileşen ve aynı ada ve aynı türe sahip bir alan alt bileşeni olarak tanımlayabilirsiniz.
 
 ```cshtml
-<MyLoginDialog ref="loginDialog" ... />
+<MyLoginDialog @ref="loginDialog" ... />
 
-@functions {
+@code {
     private MyLoginDialog loginDialog;
 
     private void OnSomething()
@@ -408,6 +415,80 @@ Bileşen başvurularını yakalarken kullanmak için benzer bir sözdizimi [öğ
 
 > [!NOTE]
 > Yapmak **değil** alt bileşenlerin durumunu kesilecek bileşen başvuruları kullanın. Bunun yerine, normal bildirim temelli parametreler alt bileşenler için veri aktarmak için kullanın. Bu alt bileşenleri otomatik olarak doğru zamanlarda rerender neden olur.
+
+## <a name="use-key-to-control-the-preservation-of-elements-and-components"></a>Kullanım @key öğeleri ve bileşenleri korunması denetlemek için
+
+Öğeleri veya bileşenleri ve öğeleri veya bileşenleri listesini sonradan işleme değiştirdiğinizde Blazor'ın ayırırken algoritması, önceki öğeleri veya bileşenleri tutulabilir ve model nesneleri için bunları nasıl eşlemelisiniz karar vermeniz gerekir. Genellikle bu işlemi otomatik olarak yüklenir ve göz ardı edilebilir, ancak işlemini denetlemek için burada isteyebileceğiniz durumlar vardır.
+
+Aşağıdaki örnek göz önünde bulundurun:
+
+```csharp
+@foreach (var person in People)
+{
+    <DetailsEditor Details="@person.Details" />
+}
+
+@code {
+    [Parameter]
+    private IEnumerable<Person> People { get; set; }
+}
+```
+
+İçeriğini `People` koleksiyon değişebilir ile eklenen, silinen veya Girişleri'yeniden sıralanabilir. Bileşen rerenders, `<DetailsEditor>` bileşeni farklı almak için değişebilir `Details` parametre değerleri. Bu işlem, beklenenden daha karmaşık rerendering neden olabilir. Bazı durumlarda, rerendering kayıp öğesi odak gibi görünür davranış farklılıklarının neden olabilir.
+
+Eşleme işlemi ile denetlenebilir `@key` yönerge özniteliği. `@key` öğeleri veya bileşenleri anahtarın değerine göre korunmasını sağlamak fark alma işlemini algoritması neden olur:
+
+```csharp
+@foreach (var person in People)
+{
+    <DetailsEditor @key="@person" Details="@person.Details" />
+}
+
+@code {
+    [Parameter]
+    private IEnumerable<Person> People { get; set; }
+}
+```
+
+Zaman `People` koleksiyonu değişiklikleri ayırırken algoritması korur arasındaki ilişkiyi `<DetailsEditor>` örnekleri ve `person` örnekleri:
+
+* Varsa bir `Person` hizmetinden silinir `People` listesi, yalnızca ilgili `<DetailsEditor>` örneği, kullanıcı Arabiriminden kaldırılır. Diğer örnekleri sol değişmez.
+* Varsa bir `Person` listesinde yeni bir tane bazı konumunda eklenen `<DetailsEditor>` örneğine karşılık gelen o konumdan eklenir. Diğer örnekleri sol değişmez.
+* Varsa `Person` girişleri yeniden sıralanır, karşılık gelen `<DetailsEditor>` örnekleri korunur ve kullanıcı Arabiriminde yeniden sıralanabilir.
+
+Bazı senaryolarda kullanım `@key` rerendering karmaşıklığını en aza indirir ve durum bilgisi olan bölümleri DOM, odak konumu gibi değiştirme ile ilgili olası sorunları önler.
+
+> [!IMPORTANT]
+> Anahtarlar, her bir kapsayıcı öğe veya bileşeni için yereldir. Anahtarlar *değil* genel belge boyunca karşılaştırılan.
+
+### <a name="when-to-use-key"></a>Ne zaman kullanılır? @key
+
+Genellikle, kullanılacak mantıklıdır `@key` listesini işlenen her (örneğin, bir `@foreach` bloğu) ve tanımlamak için uygun bir değer var. `@key`.
+
+Ayrıca `@key` bir nesne değiştirildiğinde bir öğe veya bileşen alt koruma gelen Blazor önlemek için:
+
+```cshtml
+<div @key="@currentPerson">
+    ... content that depends on @currentPerson ...
+</div>
+```
+
+Varsa `@currentPerson` değişiklikleri `@key` özniteliği yönergesi, tüm atmak Blazor zorlar `<div>` ve alt öğeler ve alt ağacı içinde yeni öğeler ve bileşenleri ile kullanıcı arabirimini yeniden oluşturma. Bu, hiçbir kullanıcı Arabirimi durumu ne zaman korunduğunu garantilemeye ihtiyacınız varsa yararlı olabilir `@currentPerson` değişiklikler.
+
+### <a name="when-not-to-use-key"></a>Kullanılmayacağı zaman @key
+
+Performans maliyetine ne zaman yoktur ile ayırırken `@key`. Performans maliyetini büyük değildir, ancak yalnızca belirtin `@key` öğe veya bileşen korunması denetleme kuralları yararlı uygulama ise.
+
+Bile `@key` değil kullanılan Blazor alt öğe ve bileşen örnekleri mümkün olduğunca korur. Yalnızca önyüklenebildiği `@key` üzerinden denetimdir *nasıl* modeli örnek eşleme seçme ayırırken algoritması yerine korunan bileşen örneklerine eşleştirilir.
+
+### <a name="what-values-to-use-for-key"></a>Hangi için kullanılacak değerleri @key
+
+Aşağıdaki tür için değer birini sağlamak mantıklı genellikle `@key`:
+
+* Model nesne örnekleri (örneğin, bir `Person` örneği önceki örnekte olduğu gibi). Bu, üzerinde nesne başvuru eşitliğine dayalı korunmasını sağlar.
+* Benzersiz tanımlayıcıları (örneğin, birincil anahtar değerlerini türü `int`, `string`, veya `Guid`).
+
+Beklenmedik bir şekilde bırakmayan bir değeri sağlama kaçının. Varsa `@key="@someObject.GetHashCode()"` karma kodları ilgisiz nesnelerin aynı olabileceğinden, beklenmeyen çakışmaları oluşabilir sağlanır. Çakışan varsa `@key` değerleri aynı üst öğe içinde istenen `@key` değerleri olmaz dikkate alınır.
 
 ## <a name="lifecycle-methods"></a>Yaşam döngüsü yöntemleri
 
@@ -495,7 +576,7 @@ Bir bileşen uyguluyorsa <xref:System.IDisposable>, [Dispose yöntemini](/dotnet
 
 ...
 
-@functions {
+@code {
     public void Dispose()
     {
         ...
@@ -581,13 +662,16 @@ Razor yönergeleri, aşağıdaki tabloda gösterilmiştir.
 
 | Yönergesi | Açıklama |
 | --------- | ----------- |
-| [\@İşlevleri](xref:mvc/views/razor#section-5) | Ekler bir C# bileşenine kod bloğu. |
+| [\@Kod](xref:mvc/views/razor#section-5) | Ekler bir C# bileşenine kod bloğu. `@code` bir diğer adıdır `@functions`. `@code` üzerinden önerilen `@functions`. Birden fazla `@code` bloğu izin verilebilir. |
+| [\@İşlevleri](xref:mvc/views/razor#section-5) | Ekler bir C# bileşenine kod bloğu. Seçin `@code` üzerinden `@functions` için C# kod blokları. |
 | `@implements` | Oluşturulan bileşen sınıfı için bir arabirim uygular. |
 | [\@Devralan](xref:mvc/views/razor#section-3) | Bileşen devralan sınıf tam denetim sağlar. |
 | [\@ekleme](xref:mvc/views/razor#section-4) | Hizmet ekleme gelen etkinleştirir [hizmet kapsayıcı](xref:fundamentals/dependency-injection). Daha fazla bilgi için [görünümlere bağımlılık ekleme](xref:mvc/views/dependency-injection). |
 | `@layout` | Bir düzen bileşeni belirtir. Düzen bileşenleri, kod yinelemesi ve tutarsızlık önlemek için kullanılır. |
 | [\@Sayfa](xref:razor-pages/index#razor-pages) | Bileşen doğrudan istekleri işleyeceğini belirtir. `@page` Yönergesi, bir rota ve isteğe bağlı parametreler ile belirtilebilir. Razor sayfaları aksine `@page` yönergesi üst dosyanın ilk yönerge olması gerekmez. Daha fazla bilgi için [yönlendirme](xref:blazor/routing). |
 | [\@kullanma](xref:mvc/views/razor#using) | Ekler C# `using` yönergesini oluşturulan bileşen sınıfı. Bu kapsamın içine o ad alanında tanımlanan tüm bileşenleri de getirir. |
+| [\@Namespace](xref:mvc/views/razor#section-6) | Ad alanı oluşturulan bileşen sınıfının ayarlar. |
+| [\@Özniteliği](xref:mvc/views/razor#section-7) | Bir öznitelik için oluşturulan bileşen sınıfı ekler. |
 
 **Koşullu öznitelikleri**
 
@@ -598,7 +682,7 @@ Aşağıdaki örnekte, `IsCompleted` belirler `checked` denetimin biçimlendirme
 ```cshtml
 <input type="checkbox" checked="@IsCompleted" />
 
-@functions {
+@code {
     [Parameter]
     private bool IsCompleted { get; set; }
 }
@@ -632,7 +716,7 @@ Aşağıdaki örnek, gösterir kullanarak `MarkupString` bir bileşenin işlenen
 ```html
 @((MarkupString)myMarkup)
 
-@functions {
+@code {
     private string myMarkup = 
         "<p class='markup'>This is a <em>markup string</em>.</p>";
 }
@@ -770,7 +854,7 @@ public class ThemeInfo
     </div>
 </div>
 
-@functions {
+@code {
     private ThemeInfo theme = new ThemeInfo { ButtonClass = "btn-success" };
 }
 ```
@@ -802,18 +886,18 @@ Basamaklı değerler türüne göre geçişli parametrelerine bağlı.
 <p>Current count: @currentCount</p>
 
 <p>
-    <button class="btn" onclick="@IncrementCount">
+    <button class="btn" @onclick="@IncrementCount">
         Increment Counter (Unthemed)
     </button>
 </p>
 
 <p>
-    <button class="btn @ThemeInfo.ButtonClass" onclick="@IncrementCount">
+    <button class="btn @ThemeInfo.ButtonClass" @onclick="@IncrementCount">
         Increment Counter (Themed)
     </button>
 </p>
 
-@functions {
+@code {
     private int currentCount = 0;
 
     [CascadingParameter] protected ThemeInfo ThemeInfo { get; set; }
@@ -898,7 +982,7 @@ Başka bir bileşene dönüştürerek el ile oluşturulabilir aşağıdaki evcil
 
 <p>@PetDetailsQuote<p>
 
-@functions
+@code
 {
     [Parameter]
     string PetDetailsQuote { get; set; }
@@ -916,11 +1000,11 @@ Aşağıdaki örnekte, bir döngüde `CreateComponent` yöntem üç evcil hayvan
 
 @CustomRender
 
-<button type="button" onclick="@RenderComponent">
+<button type="button" @onclick="@RenderComponent">
     Create three Pet Details components
 </button>
 
-@functions {
+@code {
     private RenderFragment CustomRender { get; set; }
     
     private RenderFragment CreateComponent() => builder =>

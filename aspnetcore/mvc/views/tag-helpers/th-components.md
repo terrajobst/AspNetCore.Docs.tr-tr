@@ -4,14 +4,14 @@ author: scottaddie
 description: Etiket Yardımcısı bileşenler nelerdir ve ASP.NET Core nasıl kullanacağınızı öğrenin.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: scaddie
-ms.date: 04/06/2019
+ms.date: 06/12/2019
 uid: mvc/views/tag-helpers/th-components
-ms.openlocfilehash: 777bbcca3d1c2f03f386fa62df2a2e0b00409318
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: b5b3abea6492cfaa7d6acd0e54073a8db12eb2a5
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64902084"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034758"
 ---
 # <a name="tag-helper-components-in-aspnet-core"></a>ASP.NET core'da etiket Yardımcısı bileşenleri
 
@@ -62,9 +62,16 @@ Yukarıdaki kod bağlayan bir [Bootstrap araç ipucu pencere öğesi](https://ge
 
 Bir etiket Yardımcısı bileşeni uygulamanın etiket Yardımcısı bileşenleri koleksiyona eklenmesi gerekir. Koleksiyona eklemenin üç yolu vardır:
 
-1. [Kapsayıcı Hizmetleri üzerinden kayıt](#registration-via-services-container)
-1. [Razor dosya üzerinden kayıt](#registration-via-razor-file)
-1. [Sayfa modeli veya denetleyicisi üzerinden kayıt](#registration-via-page-model-or-controller)
+* [ASP.NET core'da etiket Yardımcısı bileşenleri](#tag-helper-components-in-aspnet-core)
+  * [Kullanım örnekleri](#use-cases)
+    * [HTML baş öğesinin içine ekleme](#inject-into-html-head-element)
+    * [HTML gövde öğesi ekleme](#inject-into-html-body-element)
+  * [Bir bileşeni kayıt](#register-a-component)
+    * [Kapsayıcı Hizmetleri üzerinden kayıt](#registration-via-services-container)
+    * [Razor dosya üzerinden kayıt](#registration-via-razor-file)
+    * [Sayfa modeli veya denetleyicisi üzerinden kayıt](#registration-via-page-model-or-controller)
+  * [Bir bileşen oluşturun](#create-a-component)
+  * [Ek kaynaklar](#additional-resources)
 
 ### <a name="registration-via-services-container"></a>Kapsayıcı Hizmetleri üzerinden kayıt
 

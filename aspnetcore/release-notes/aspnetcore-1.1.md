@@ -5,12 +5,12 @@ description: ASP.NET Core 1.1 yeni özellikler hakkında bilgi edinin.
 ms.author: riande
 ms.date: 12/18/2018
 uid: aspnetcore-1.1
-ms.openlocfilehash: a21b2b82bfefb5b24898cf58ef97284a143e2e4a
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 167842a7376a6bb0a88e6f41159730f076bb2bdb
+ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65086410"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67034723"
 ---
 # <a name="whats-new-in-aspnet-core-11"></a>ASP.NET Core 1.1 yenilikler
 
@@ -23,7 +23,7 @@ ASP.NET Core 1.1 aşağıdaki yeni özellikler içerir:
 - [Tanımlama bilgisi tabanlı TempData sağlayıcısı](xref:fundamentals/app-state#tempdata)
 - [Azure App Service oturum açma sağlayıcısı](xref:fundamentals/logging/index#azure-app-service-provider)
 - [Azure Key Vault yapılandırma sağlayıcısı](xref:security/key-vault-configuration)
-- [Azure ve Redis depolama veri koruma anahtar deposu](xref:security/data-protection/implementation/key-storage-providers#azure-and-redis)
+- [Azure ve Redis depolama veri koruma anahtar deposu](xref:security/data-protection/implementation/key-storage-providers)
 - WebListener Windows Server'de
 - [WebSockets desteği](xref:fundamentals/websockets)
 
