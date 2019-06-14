@@ -166,10 +166,10 @@
       uid: fundamentals/middleware/index
     - name: Ana bilgisayar
       items:
-        - name: Web Konağı
-          uid: fundamentals/host/web-host
         - name: Genel Konak
           uid: fundamentals/host/generic-host
+        - name: Web Konağı
+          uid: fundamentals/host/web-host
     - name: Sunucular
       uid: fundamentals/servers/index
     - name: Yapılandırma
