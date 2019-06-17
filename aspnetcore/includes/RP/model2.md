@@ -12,7 +12,7 @@ Yukarıdaki kod oluşturur bir `DbSet` varlık kümesi özelliği. Entity Framew
 
 ### <a name="add-a-database-connection-string"></a>Bir veritabanı bağlantı dizesi Ekle
 
-Bir bağlantı dizesi Ekle *appsettings.json* dosyası:
+Bir bağlantı dizesi Ekle *appsettings.json* vurgulanan aşağıdaki kodda gösterildiği gibi dosya:
 
 [!code-json[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/appsettings_SQLite.json?highlight=8-10)]
 

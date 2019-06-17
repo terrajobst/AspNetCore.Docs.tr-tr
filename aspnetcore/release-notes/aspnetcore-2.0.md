@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/28/2019
 uid: aspnetcore-2.0
-ms.openlocfilehash: 5cf7b9aa7ccf86f1a89e6145cfc185c5ef803e66
-ms.sourcegitcommit: 4d05e30567279072f1b070618afe58ae1bcefd5a
+ms.openlocfilehash: dac5a48042a71774cb884e30a166be68bee69691
+ms.sourcegitcommit: f5762967df3be8b8c868229e679301f2f7954679
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66376408"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048115"
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>ASP.NET Core 2.0 yenilikleri
 
@@ -60,7 +60,7 @@ Daha fazla bilgi için [günlük giriş](xref:fundamentals/logging/index).
 
 Yeni bir kimlik doğrulama modeli DI kullanarak bir uygulama için kimlik doğrulamasını yapılandırmak kolaylaştırır.
 
-Yeni şablonlar web apps için kimlik doğrulaması yapılandırmak için kullanılabilir ve web API'leri [Azure AD B2C] kullanarak (https://azure.microsoft.com/services/active-directory-b2c/).
+Web uygulamalarını ve web API'lerini kullanarak kimlik doğrulaması yapılandırmak için yeni şablonlar kullanılabilir [Azure AD B2C](https://azure.microsoft.com/services/active-directory-b2c/).
 
 Planlanan belgeleri durumu hakkında daha fazla bilgi için bkz [GitHub sorunu](https://github.com/aspnet/AspNetCore.Docs/issues/3054).
 
@@ -138,7 +138,7 @@ Razor görünüm altyapısı yeni Roslyn derleyicisi ile çalışacak şekilde g
 
 C# 7.1 özelliklerini durumu hakkında daha fazla bilgi için bkz. [Roslyn GitHub deposunu](https://github.com/dotnet/roslyn/blob/master/docs/Language%20Feature%20Status.md).
 
-## <a name="other-documentation-updates-for-20"></a>2.0 için diğer belge güncelleştirmeleri
+## <a name="other-documentation-updates-for-20"></a>2\.0 için diğer belge güncelleştirmeleri
 
 * [Visual Studio yayımlama profilleri için ASP.NET Core uygulaması dağıtımı](xref:host-and-deploy/visual-studio-publish-profiles)
 * [Anahtar Yönetimi](xref:security/data-protection/implementation/key-management)
