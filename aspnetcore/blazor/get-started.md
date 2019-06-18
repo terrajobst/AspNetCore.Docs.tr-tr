@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/14/2019
 uid: blazor/get-started
-ms.openlocfilehash: 11637ef1c4b54961cc3094c263196be222cc2c60
-ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
+ms.openlocfilehash: 7b235fea5b85516b9e3ececf6509a369cd483c8d
+ms.sourcegitcommit: 516f166c5f7cec54edf3d9c71e6e2ba53fb3b0e5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67152697"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67196275"
 ---
 # <a name="get-started-with-aspnet-core-blazor"></a>ASP.NET Core Blazor ile çalışmaya başlama
 
@@ -74,6 +74,8 @@ Blazor ile kullanmaya başlayın:
 
    6\. Blazor sunucu-tarafı uygulaması kullanıyorsanız, Visual Studio Code hata ayıklayıcıyı kullanarak uygulamayı çalıştırın. Blazor istemci-tarafı uygulaması kullanıyorsanız yürütme `dotnet run` uygulama proje klasöründen.
 
+   7\. Bir tarayıcıda gidin `https://localhost:5001`.
+
    <!--
 
    # [Visual Studio for Mac](#tab/visual-studio-mac)
@@ -114,9 +116,9 @@ Blazor ile kullanmaya başlayın:
 
    İki Blazor barındırma modeli, sunucu tarafı ve istemci tarafı hakkında daha fazla bilgi için bkz: <xref:blazor/hosting-models>.
 
-   ---
+   Bir tarayıcıda gidin `https://localhost:5001`.
 
-Bir tarayıcıda gidin `https://localhost:5001`.
+   ---
 
 Birden çok sayfa sekmeleri Kenar çubuğunda kullanılabilir:
 
@@ -141,7 +143,7 @@ Her zaman **me tıklayın** düğmesi seçili:
 
 Çalışma zamanı, önceki içeriği için yeni içerik karşılaştırır ve yalnızca değiştirilen içerik belge nesne modeli (DOM) için geçerlidir.
 
-Bir bileşen başka bir bileşene HTML sözdizimini kullanarak ekleyin. Örneğin, bir sayaç bileşeni uygulamanın giriş sayfasına ekleyerek eklenebilir bir `<Counter />` dizin bileşeni öğesi.
+Bir bileşen başka bir bileşene HTML sözdizimini kullanarak ekleyin. Örneğin, sayaç bileşen uygulamanın giriş sayfasına ekleyerek bir `<Counter />` dizin bileşeni öğesi.
 
 *Pages/Index.razor*:
 

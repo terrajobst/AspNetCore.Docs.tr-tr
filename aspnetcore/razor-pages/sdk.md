@@ -5,29 +5,43 @@ description: Nasıl ASP.NET Core Razor sayfalar kodlama sayfa odaklı senaryolar
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 06/05/2019
+ms.date: 06/18/2019
 uid: razor-pages/sdk
-ms.openlocfilehash: 8c4e882af93b043afaa0bcf86fd1583405f84be9
-ms.sourcegitcommit: e7e04a45195d4e0527af6f7cf1807defb56dc3c3
+ms.openlocfilehash: fa69e4840377e0c1c8291c7ba9305a27bd3e6b82
+ms.sourcegitcommit: 516f166c5f7cec54edf3d9c71e6e2ba53fb3b0e5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66750171"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67196371"
 ---
 # <a name="aspnet-core-razor-sdk"></a>ASP.NET Core Razor SDK'sı
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
+
+## <a name="overview"></a>Genel Bakış
 
 [!INCLUDE[](~/includes/2.1-SDK.md)] İçerir `Microsoft.NET.Sdk.Razor` MSBuild SDK'sı (Razor SDK). Razor SDK:
 
 * Oluşturma, paketleme ve içeren proje yayımlama deneyimi standartlaştırır [Razor](xref:mvc/views/razor) dosyaları ASP.NET Core MVC tabanlı projeler için.
 * Bir dizi önceden tanımlanmış hedefleri, özellikler ve Razor dosyaları derleme özelleştirme izin veren öğeleri içerir.
 
+::: moniker range=">= aspnetcore-2.1 <= aspnetcore-2.2"
+
+Razor SDK'sını içeren bir `<Content>` öğesi ile bir `Include` özniteliğini `**\*.cshtml` Glob deseni. Eşleşen dosyaları yayımlanır.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+
+Razor SDK'sı içerir `<Content>` öğelerle `Include` öznitelikleri kümesine `**\*.cshtml` ve `**\*.razor` Glob desenlerinin. Eşleşen dosyaları yayımlanır.
+
+::: moniker-end
+
 ## <a name="prerequisites"></a>Önkoşullar
 
 [!INCLUDE[](~/includes/2.1-SDK.md)]
 
-## <a name="using-the-razor-sdk"></a>Razor SDK'sını kullanma
+## <a name="use-the-razor-sdk"></a>Razor SDK'sını kullanma
 
 Çoğu web uygulaması açıkça Razor SDK'ya başvurmak için gerekli değildir.
 
@@ -37,7 +51,7 @@ Razor görünümleri ya da Razor sayfaları içeren sınıf kitaplıkları oluş
 
   ```xml
   <Project SDK="Microsoft.NET.Sdk.Razor">
-    ...
+    <!-- omitted for brevity -->
   </Project>
   ```
 
@@ -72,7 +86,7 @@ Aşağıdaki özellikler proje derlemesi bir parçası olarak Razor'ın SDK davr
 | Öğeler | Açıklama |
 | ----- | ----------- |
 | `RazorGenerate` | Öğe öğeleri ( *.cshtml* dosyaları) girişleri kod oluşturma hedefleri olan. |
-| `RazorCompile` | Öğe öğeleri ( *.cs* dosyaları) girişleri Razor derleme hedefleri olan. Bu ItemGroup Razor bütünleştirilmiş kod içine derlenmiş için ek dosyaları belirtmek için kullanın. |
+| `RazorCompile` | Öğe öğeleri ( *.cs* dosyaları) girişleri Razor derleme hedefleri olan. Bunu kullanın `ItemGroup` Razor bütünleştirilmiş kod içine derlenmiş için ek dosyaları belirtmek için. |
 | `RazorTargetAssemblyAttribute` | Kod için kullanılan öğeler için Razor derleme öznitelikleri oluşturur. Örneğin:  <br>`RazorAssemblyAttribute`<br>`Include="System.Reflection.AssemblyMetadataAttribute"`<br>`_Parameter1="BuildSource" _Parameter2="https://docs.microsoft.com/">` |
 | `RazorEmbeddedResource` | Oluşturulan Razor derlemesine katıştırılmış kaynakları olarak eklenen öğeler. |
 
@@ -115,3 +129,8 @@ Hedeflenirken `Microsoft.NET.Sdk.Web` SDK'sı, Razor dil sürümü çıkarılan 
   <RazorLangVersion>{VERSION}</RazorLangVersion>
 </PropertyGroup>
 ```
+
+## <a name="additional-resources"></a>Ek kaynaklar
+
+* [.NET Core csproj biçimine eklemeler](/dotnet/core/tools/csproj)
+* [Yaygın MSBuild proje öğeleri](/visualstudio/msbuild/common-msbuild-project-items)

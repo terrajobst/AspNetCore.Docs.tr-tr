@@ -3,26 +3,32 @@ title: Kimlik doğrulaması ve kimlik için ASP.NET Core 2.0 geçirme
 author: scottaddie
 description: Bu makalede, ASP.NET Core 2.0 için geçirme ASP.NET Core 1.x kimlik doğrulaması ve kimlik için en yaygın adımlar özetlenmektedir.
 ms.author: scaddie
-ms.date: 12/18/2018
+ms.date: 06/13/2019
 uid: migration/1x-to-2x/identity-2x
-ms.openlocfilehash: 086deac51af186012315d5b6a1236c92c8980037
-ms.sourcegitcommit: 5d384db2fa9373a93b5d15e985fb34430e49ad7a
+ms.openlocfilehash: 3e8bc75b87a85159c9668b52eea32bb7d700be6c
+ms.sourcegitcommit: 516f166c5f7cec54edf3d9c71e6e2ba53fb3b0e5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66039237"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67196377"
 ---
 # <a name="migrate-authentication-and-identity-to-aspnet-core-20"></a>Kimlik doğrulaması ve kimlik için ASP.NET Core 2.0 geçirme
 
 Tarafından [Scott Addie](https://github.com/scottaddie) ve [Hao Kung](https://github.com/HaoK)
 
-ASP.NET Core 2.0 kimlik doğrulaması için yeni bir modeli vardır ve [kimlik](xref:security/authentication/identity) sadeleştiren yapılandırma hizmetlerini kullanarak. Kimlik doğrulaması veya kimlik kullanan ASP.NET Core 1.x uygulamaları, aşağıda belirtildiği gibi yeni modeli kullanmak için güncelleştirilebilir.
+ASP.NET Core 2.0 kimlik doğrulaması için yeni bir modeli vardır ve [kimlik](xref:security/authentication/identity) , basitleştirir yapılandırma hizmetlerini kullanarak. Kimlik doğrulaması veya kimlik kullanan ASP.NET Core 1.x uygulamaları, aşağıda belirtildiği gibi yeni modeli kullanmak için güncelleştirilebilir.
+
+## <a name="update-namespaces"></a>Güncelleştirme ad alanları
+
+1\.x içinde gibi sınıfları `IdentityRole` ve `IdentityUser` bulundu `Microsoft.AspNetCore.Identity.EntityFrameworkCore` ad alanı.
+
+2\.0, <xref:Microsoft.AspNetCore.Identity> ad alanı birkaç tür sınıflar için yeni giriş dönüştü. Varsayılan kimlik koduyla etkilenen sınıflarını `ApplicationUser` ve `Startup`. Ayarlama, `using` etkilenen başvurularını çözümlemek için deyimleri.
 
 <a name="auth-middleware"></a>
 
 ## <a name="authentication-middleware-and-services"></a>Kimlik doğrulaması ara yazılımı ve Hizmetleri
 
-1.x projelerinde, kimlik doğrulaması ara yazılımı üzerinden yapılandırılır. Desteklemek istediğiniz her bir kimlik doğrulama düzeni için bir ara yazılım yöntemi çağrılır.
+1\.x projelerinde, kimlik doğrulaması ara yazılımı üzerinden yapılandırılır. Desteklemek istediğiniz her bir kimlik doğrulama düzeni için bir ara yazılım yöntemi çağrılır.
 
 Aşağıdaki 1.x örnek kimliği ile Facebook kimlik doğrulamasını yapılandırır *Startup.cs*:
 
@@ -43,7 +49,7 @@ public void Configure(IApplicationBuilder app, ILoggerFactory loggerfactory)
 }
 ```
 
-2.0 projelerinde, kimlik doğrulama hizmetleri aracılığıyla yapılandırılır. Her kimlik doğrulama düzeni kaydedilmiştir `ConfigureServices` yöntemi *Startup.cs*. `UseIdentity` Yöntemi ile değiştirilir `UseAuthentication`.
+2\.0 projelerinde, kimlik doğrulama hizmetleri aracılığıyla yapılandırılır. Her kimlik doğrulama düzeni kaydedilmiştir `ConfigureServices` yöntemi *Startup.cs*. `UseIdentity` Yöntemi ile değiştirilir `UseAuthentication`.
 
 Aşağıdaki 2.0 örnek kimliği ile Facebook kimlik doğrulamasını yapılandırır *Startup.cs*:
 
@@ -68,7 +74,7 @@ public void Configure(IApplicationBuilder app, ILoggerFactory loggerfactory) {
 }
 ```
 
-`UseAuthentication` Yöntemi otomatik kimlik doğrulama ve Uzaktan kimlik doğrulama isteklerinin işlenmesi için sorumlu tek bir kimlik doğrulaması ara yazılım bileşeni ekler. Tek bir ara yazılım bileşenlerinin tümünü tek, ortak bir ara yazılım bileşeni ile değiştirir.
+`UseAuthentication` Yöntemi otomatik kimlik doğrulaması ve Uzaktan kimlik doğrulama isteklerinin işlenmesini sorumlu tek bir kimlik doğrulaması ara yazılım bileşeni ekler. Tek bir ara yazılım bileşenlerinin tümünü tek, ortak bir ara yazılım bileşeni ile değiştirir.
 
 Her temel kimlik doğrulaması düzeni için 2.0 geçiş yönergeleri aşağıda verilmiştir.
 
@@ -253,9 +259,9 @@ Aşağıdaki değişiklikleri yapın *Startup.cs*:
 
 ### <a name="setting-default-authentication-schemes"></a>Varsayılan kimlik doğrulama düzenleri ayarlama
 
-1.x içinde `AutomaticAuthenticate` ve `AutomaticChallenge` özelliklerini [AuthenticationOptions](/dotnet/api/Microsoft.AspNetCore.Builder.AuthenticationOptions?view=aspnetcore-1.1) temel sınıfı yönelik tek bir kimlik doğrulama şemasını temel ayarlanacak. Bunu zorunlu kılmak için iyi bir yolu yoktu.
+1\.x içinde `AutomaticAuthenticate` ve `AutomaticChallenge` özelliklerini [AuthenticationOptions](/dotnet/api/Microsoft.AspNetCore.Builder.AuthenticationOptions?view=aspnetcore-1.1) temel sınıfı yönelik tek bir kimlik doğrulama şemasını temel ayarlanacak. Bunu zorunlu kılmak için iyi bir yolu yoktu.
 
-2. 0 ', bu iki özellik özellikleri ayrı ayrı olarak kaldırılan `AuthenticationOptions` örneği. İçinde yapılandırılabilir `AddAuthentication` yöntem çağrısı içinde `ConfigureServices` yöntemi *Startup.cs*:
+2\. 0 ', bu iki özellik özellikleri ayrı ayrı olarak kaldırılan `AuthenticationOptions` örneği. İçinde yapılandırılabilir `AddAuthentication` yöntem çağrısı içinde `ConfigureServices` yöntemi *Startup.cs*:
 
 ```csharp
 services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme);
@@ -289,7 +295,7 @@ Bu kuralın istisnası `AddIdentity` yöntemi. Bu yöntem, siz ve varsayılan ki
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Controllers/AccountController.cs?name=snippet_AuthenticationProperty)]
 
-2.0 projelerinde, içeri aktarma `Microsoft.AspNetCore.Authentication` ad alanını ve silme `Authentication` özelliği başvuruları:
+2\.0 projelerinde, içeri aktarma `Microsoft.AspNetCore.Authentication` ad alanını ve silme `Authentication` özelliği başvuruları:
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Controllers/AccountController.cs?name=snippet_AuthenticationProperty)]
 
@@ -309,7 +315,7 @@ Yukarıda açıklanan İkincisiyse 2.0 değişikliklerden etkilenir. Örneğin, 
 services.AddAuthentication(IISDefaults.AuthenticationScheme);
 ```
 
-Varsayılan düzen ayarlanamadı uygun şekilde çalışmasını eşleşip eşleşmediğini authorize isteğinin engeller.
+Varsayılan düzen ayarlanamadı authorize isteğinin eşleşip eşleşmediğini çalışmasını engeller.
 
 <a name="identity-cookie-options"></a>
 
@@ -317,7 +323,7 @@ Varsayılan düzen ayarlanamadı uygun şekilde çalışmasını eşleşip eşle
 
 Bir yan etkisi 2.0 değişiklikleri seçeneklerini tanımlama bilgisi seçenekleri örnek yerine adlandırılmış kullanarak anahtardır. Kimlik tanımlama bilgisi düzeni adları özelleştirme yeteneği kaldırılır.
 
-Örneğin, 1.x projelerin [Oluşturucu ekleme](xref:mvc/controllers/dependency-injection#constructor-injection) geçirilecek bir `IdentityCookieOptions` parametrede *AccountController.cs*. Dış tanımlama bilgisi kimlik doğrulaması düzeni sağlanan örneğinden erişilebilir:
+Örneğin, 1.x projelerin [Oluşturucu ekleme](xref:mvc/controllers/dependency-injection#constructor-injection) geçirilecek bir `IdentityCookieOptions` parametrede *AccountController.cs* ve *ManageController.cs*. Dış tanımlama bilgisi kimlik doğrulaması düzeni sağlanan örneğinden erişilebilir:
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Controllers/AccountController.cs?name=snippet_AccountControllerConstructor&highlight=4,11)]
 
@@ -325,9 +331,17 @@ Yukarıda sözü edilen Oluşturucu ekleme 2.0 projelerinde, gereksiz olur ve `_
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Controllers/AccountController.cs?name=snippet_AccountControllerConstructor)]
 
-`IdentityConstants.ExternalScheme` Sabiti doğrudan kullanılabilir:
+kullanılan 1.x projelerini `_externalCookieScheme` gibi alan:
+
+[!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Controllers/AccountController.cs?name=snippet_AuthenticationProperty)]
+
+2\.0 projelerinde, önceki kodu aşağıdakiyle değiştirin. `IdentityConstants.ExternalScheme` Sabiti doğrudan kullanılabilir.
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Controllers/AccountController.cs?name=snippet_AuthenticationProperty)]
+
+Yeni eklenen çözmek `SignOutAsync` aşağıdaki ad alanını içeri aktararak çağırın:
+
+[!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Controllers/AccountController.cs?name=snippet_AuthenticationImport)]
 
 <a name="navigation-properties"></a>
 
@@ -389,27 +403,27 @@ protected override void OnModelCreating(ModelBuilder builder)
 
 ## <a name="replace-getexternalauthenticationschemes"></a>GetExternalAuthenticationSchemes değiştirin
 
-Zaman uyumlu yöntem `GetExternalAuthenticationSchemes` yerine zaman uyumsuz bir sürümü kaldırıldı. 1.x projelerini olmayan aşağıdaki kodu *ManageController.cs*:
+Zaman uyumlu yöntem `GetExternalAuthenticationSchemes` yerine zaman uyumsuz bir sürümü kaldırıldı. 1.x projelerini olmayan aşağıdaki kodu *Controllers/ManageController.cs*:
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Controllers/ManageController.cs?name=snippet_GetExternalAuthenticationSchemes)]
 
-Bu yöntem görünür *Login.cshtml* çok:
+Bu yöntem görünür *Views/Account/Login.cshtml* çok:
 
-[!code-cshtml[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Views/Account/Login.cshtml?range=62,75-84)]
+[!code-cshtml[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Views/Account/Login.cshtml?name=snippet_GetExtAuthNSchemes&highlight=2)]
 
-2.0 projelerinde kullanma `GetExternalAuthenticationSchemesAsync` yöntemi:
+2\.0 projelerinde kullanma <xref:Microsoft.AspNetCore.Identity.SignInManager`1.GetExternalAuthenticationSchemesAsync*> yöntemi. Değişiklik *ManageController.cs* aşağıdaki koda benzer:
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Controllers/ManageController.cs?name=snippet_GetExternalAuthenticationSchemesAsync)]
 
 İçinde *Login.cshtml*, `AuthenticationScheme` erişilebilir özellik `foreach` döngü değişiklikleri `Name`:
 
-[!code-cshtml[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Views/Account/Login.cshtml?range=62,75-84)]
+[!code-cshtml[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Views/Account/Login.cshtml?name=snippet_GetExtAuthNSchemesAsync&highlight=2,19)]
 
 <a name="property-change"></a>
 
 ## <a name="manageloginsviewmodel-property-change"></a>ManageLoginsViewModel özellik değişikliği
 
-A `ManageLoginsViewModel` nesnesi kullanılır `ManageLogins` eylemi *ManageController.cs*. 1.x projelerinde, nesne 's `OtherLogins` özelliği döndürme türü `IList<AuthenticationDescription>`. Bu dönüş türü alma gerektirir `Microsoft.AspNetCore.Http.Authentication`:
+A `ManageLoginsViewModel` nesnesi kullanılır `ManageLogins` eylemi *ManageController.cs*. 1\.x projelerinde, nesne 's `OtherLogins` özelliği döndürme türü `IList<AuthenticationDescription>`. Bu dönüş türü alma gerektirir `Microsoft.AspNetCore.Http.Authentication`:
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Models/ManageViewModels/ManageLoginsViewModel.cs?name=snippet_ManageLoginsViewModel&highlight=2,11)]
 
@@ -421,4 +435,4 @@ Dönüş türü değişikliklerini 2.0 projelerinde `IList<AuthenticationScheme>
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-Ek ayrıntılar ve tartışma için bkz: [Auth 2.0 için tartışma](https://github.com/aspnet/Security/issues/1338) github'da sorun.
+Daha fazla bilgi için [Auth 2.0 için tartışma](https://github.com/aspnet/Security/issues/1338) github'da sorun.

@@ -2,16 +2,17 @@
 title: Özel ASP.NET Core ara yazılım yazma
 author: rick-anderson
 description: Özel ASP.NET Core ara yazılım yazmayı öğrenin.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/14/2019
+ms.date: 06/17/2019
 uid: fundamentals/middleware/write
-ms.openlocfilehash: 2c5577394a10370d92c8a83f9d806b63f3245c8b
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 352db93dd7061070c76e34f6c03883f68e2041ee
+ms.sourcegitcommit: 28a2874765cefe9eaa068dceb989a978ba2096aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64901685"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67167104"
 ---
 # <a name="write-custom-aspnet-core-middleware"></a>Özel ASP.NET Core ara yazılım yazma
 
@@ -27,33 +28,28 @@ Ara yazılım genellikle bir sınıfta kapsüllenmiş ve bir genişletme yöntem
 
 Yukarıdaki örnek kod, bir ara yazılım bileşeni oluşturma göstermek için kullanılır. Bkz: ASP.NET Core'nın yerleşik yerelleştirme desteğini <xref:fundamentals/localization>.
 
-Ara yazılım, kültürü geçirerek test edebilirsiniz. Örneğin: `http://localhost:7997/?culture=no`
+Ara yazılım, kültürü geçirerek test edin. Örneğin, istek `https://localhost:5001/?culture=no`.
 
 Aşağıdaki kod, bir sınıf için ara yazılım temsilci taşır:
 
 [!code-csharp[](index/snapshot/Culture/RequestCultureMiddleware.cs)]
 
-::: moniker range="< aspnetcore-2.0"
+Ara yazılım sınıfı içermelidir:
 
-Ara yazılım `Task` yöntemin adı olmalıdır `Invoke`. ASP.NET Core 2.0 veya sonraki sürümlerde, ad ya da olabilir `Invoke` veya `InvokeAsync`.
+* Türünde bir parametre içeren bir genel oluşturucuya <xref:Microsoft.AspNetCore.Http.RequestDelegate>.
+* Adlı bir genel yöntem `Invoke` veya `InvokeAsync`. Bu yöntem gerekir:
+  * Döndürür bir `Task`.
+  * Türünde bir ilk parametre kabul <xref:Microsoft.AspNetCore.Http.HttpContext>.
+  
+Oluşturucu için ek parametreler ve `Invoke` / `InvokeAsync` tarafından doldurulur [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection).
 
-::: moniker-end
+## <a name="middleware-dependencies"></a>Ara yazılım bağımlılıkları
 
-## <a name="middleware-extension-method"></a>Ara yazılım genişletme yöntemi
-
-Aşağıdaki uzantı yöntemi ara yazılımı üzerinden kullanıma sunan <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder>:
-
-[!code-csharp[](index/snapshot/Culture/RequestCultureMiddlewareExtensions.cs)]
-
-Aşağıdaki kod ara yazılımı gelen çağrıları `Startup.Configure`:
-
-[!code-csharp[](index/snapshot/Culture/Startup.cs?name=snippet1&highlight=5)]
-
-Ara yazılım izlemelidir [açık bağımlılıkları İlkesi](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies) tarafından kendi oluşturucusuna bağımlılıkları gösterme. Ara yazılım yapılandırılmıştır kez başına *uygulama ömrü*. Bkz: [istek başına bağımlılıkları](#per-request-dependencies) istek içinde ara yazılım ile Hizmetleri paylaşan gerekiyorsa bölümü.
+Ara yazılım izlemelidir [açık bağımlılıkları İlkesi](/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles#explicit-dependencies) tarafından kendi oluşturucusuna bağımlılıkları gösterme. Ara yazılım yapılandırılmıştır kez başına *uygulama ömrü*. Bkz: [istek başına ara yazılım bağımlılıkları](#per-request-middleware-dependencies) istek içinde ara yazılım ile Hizmetleri paylaşan gerekiyorsa bölümü.
 
 Ara yazılım bileşenleri, bunların bağımlılıklarını giderebilir [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection) Oluşturucu parametresi üzerinden. [UseMiddleware&lt;T&gt; ](/dotnet/api/microsoft.aspnetcore.builder.usemiddlewareextensions.usemiddleware#Microsoft_AspNetCore_Builder_UseMiddlewareExtensions_UseMiddleware_Microsoft_AspNetCore_Builder_IApplicationBuilder_System_Type_System_Object___) ek parametreler doğrudan da kabul edebilir.
 
-## <a name="per-request-dependencies"></a>İstek başına bağımlılıkları
+## <a name="per-request-middleware-dependencies"></a>İstek başına ara yazılım bağımlılıkları
 
 Ara yazılım değil istek, uygulama başlatma sırasında oluşturulur çünkü *kapsamlı* ara yazılım oluşturucular tarafından kullanılan etkin kalma süresi olmayan paylaşılan hizmetler diğer bağımlılık eklenen türleriyle her isteği sırasında. Paylaşmanız gerekir durumunda bir *kapsamlı* hizmet Ara yazılımınızı ve diğer türleri arasında bu hizmetlere ekleme `Invoke` yöntemin imzası. `Invoke` Yöntemi tarafından DI doldurulur ek parametreleri kabul edebilir:
 
@@ -75,6 +71,16 @@ public class CustomMiddleware
     }
 }
 ```
+
+## <a name="middleware-extension-method"></a>Ara yazılım genişletme yöntemi
+
+Aşağıdaki uzantı yöntemi ara yazılımı üzerinden kullanıma sunan <xref:Microsoft.AspNetCore.Builder.IApplicationBuilder>:
+
+[!code-csharp[](index/snapshot/Culture/RequestCultureMiddlewareExtensions.cs)]
+
+Aşağıdaki kod ara yazılımı gelen çağrıları `Startup.Configure`:
+
+[!code-csharp[](index/snapshot/Culture/Startup.cs?name=snippet1&highlight=5)]
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

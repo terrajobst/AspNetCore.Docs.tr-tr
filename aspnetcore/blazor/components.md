@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/12/2019
 uid: blazor/components
-ms.openlocfilehash: 34800a9235892a6462f6d0f43b33ab40e847c628
-ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
+ms.openlocfilehash: 25743550c60e1d027066cdefe137148de74b0715
+ms.sourcegitcommit: 516f166c5f7cec54edf3d9c71e6e2ba53fb3b0e5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67152748"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67196291"
 ---
 # <a name="create-and-use-razor-components"></a>Oluşturma ve Razor bileşenleri kullanma
 
@@ -673,11 +673,11 @@ Razor yönergeleri, aşağıdaki tabloda gösterilmiştir.
 | [\@Namespace](xref:mvc/views/razor#section-6) | Ad alanı oluşturulan bileşen sınıfının ayarlar. |
 | [\@Özniteliği](xref:mvc/views/razor#section-7) | Bir öznitelik için oluşturulan bileşen sınıfı ekler. |
 
-**Koşullu öznitelikleri**
+**Koşullu HTML öğesi özniteliklerini**
 
-Öznitelikleri .NET değerine göre koşullu olarak işlenir. Değer ise `false` veya `null`, öznitelik işlenen değil. Değer ise `true`, öznitelik işlenen simge.
+HTML öğesi özniteliklerini .NET değerine göre koşullu olarak işlenir. Değer ise `false` veya `null`, öznitelik işlenen değil. Değer ise `true`, öznitelik işlenen simge.
 
-Aşağıdaki örnekte, `IsCompleted` belirler `checked` denetimin biçimlendirme içinde işlenir:
+Aşağıdaki örnekte, `IsCompleted` belirler `checked` öğenin biçimlendirmesi içinde işlenir:
 
 ```cshtml
 <input type="checkbox" checked="@IsCompleted" />

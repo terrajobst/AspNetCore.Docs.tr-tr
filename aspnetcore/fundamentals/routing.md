@@ -4,14 +4,14 @@ author: rick-anderson
 description: Nasıl ASP.NET Core yönlendirme uç noktaları için eşleme isteği için uç nokta seçici bir URI'leri ve dispatching gelen istekleri sorumludur keşfedin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/13/2019
+ms.date: 06/17/2019
 uid: fundamentals/routing
-ms.openlocfilehash: 2a7a942f43de94326e84977f09dc9a2e24dd00f0
-ms.sourcegitcommit: 5dd2ce9709c9e41142771e652d1a4bd0b5248cec
+ms.openlocfilehash: 71cb7215651a263e588531c9be644326c0b6eda6
+ms.sourcegitcommit: 28a2874765cefe9eaa068dceb989a978ba2096aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66692583"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67167091"
 ---
 # <a name="routing-in-aspnet-core"></a>ASP.NET Core yönlendirme
 
@@ -140,6 +140,21 @@ Yönlendirme bağlı olduğu [ara yazılım](xref:fundamentals/middleware/index)
 ::: moniker range=">= aspnetcore-2.2"
 
 URL ile eşleşen işlemdir hangi yönlendirme dağıtımları tarafından gelen bir istek için bir *uç nokta*. Bu işlem URL yolunda verileri temel alır, ancak istekteki herhangi bir veri dikkate alınması gereken genişletilebilir. İşleyicileri ayırmak için istekleri gönderme olanağı, büyüklüğü ve karmaşıklığı ile bir uygulama, ölçeklendirme için anahtardır.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+
+Bir yönlendirme ara yazılımı yürütüldüğünde, bir uç nokta ayarlar (`Endpoint`) ve rota değerleri için bir özellik üzerinde <xref:Microsoft.AspNetCore.Http.HttpContext>. Geçerli istek için:
+
+* Çağırma `HttpContext.GetEndpoint` uç noktasını alır.
+* `HttpRequest.RouteValues` Rota değerleri koleksiyonunu alır.
+
+Yönlendirme Ara yazılımdan sonra çalışan bir ara yazılım, uç nokta bakın ve eylemi gerçekleştirin. Örneğin, bir yetkilendirme ara yazılımı, uç noktanın bir yetkilendirme ilkesi için meta veri koleksiyonu sorgulayın. Seçili uç noktanın temsilci, tüm ara yazılımların istek işleme ardışık düzeninde yürütülür sonra çağrılır.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
 
 Uç nokta akışındaki yönlendirme sistemi için tüm dispatching kararlarını sorumludur. Ara yazılım seçilen uç noktasına göre ilkeleri uygulayan olduğundan, gönderme etkileyebilecek herhangi bir karar veya güvenlik ilkeleri uygulamayı, yönlendirme sistemin içine yapılan önemlidir.
 

@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 03/08/2019
 uid: grpc/aspnetcore
-ms.openlocfilehash: 190004de8b70a463f9f58a25164d5a86ecc266d6
-ms.sourcegitcommit: 4d05e30567279072f1b070618afe58ae1bcefd5a
+ms.openlocfilehash: ca06478e6168c59d9abf43d99213fa8a7091e178
+ms.sourcegitcommit: 756114cab5e24e99ec23de62b0c1c16b15197ac2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66376361"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67169526"
 ---
 # <a name="grpc-services-with-aspnet-core"></a>ASP.NET Core içeren gRPC Hizmetleri
 
@@ -45,11 +45,11 @@ gRPC aşağıdaki paketler gereklidir:
 
 gRPC ile etkin `AddGrpc` yöntemi:
 
-[!code-cs[](~/tutorials/grpc/grpc-start/sample/GrpcGreeter/Startup.cs?name=snippet&highlight=5)]
+[!code-cs[](~/tutorials/grpc/grpc-start/sample/GrpcGreeter/Startup.cs?name=snippet&highlight=7)]
 
 Yönlendirme işlem hattı her gRPC hizmet eklenir `MapGrpcService` yöntemi:
 
-[!code-cs[](~/tutorials/grpc/grpc-start/sample/GrpcGreeter/Startup.cs?name=snippet&highlight=21)]
+[!code-cs[](~/tutorials/grpc/grpc-start/sample/GrpcGreeter/Startup.cs?name=snippet&highlight=24)]
 
 ASP.NET Core middlewares ve özellikleri yönlendirme işlem hattı paylaşın ve bu nedenle uygulama ek istek işleyicileri sunmak için yapılandırılabilir. MVC denetleyicileri gibi ek istek işleyicileri yapılandırılmış gRPC hizmetleriyle paralel çalışır.
 
@@ -76,7 +76,7 @@ GRPC API yöntemi, konak, başlığı ve tanıtımları gibi bazı HTTP/2 ileti 
 
 `ServerCallContext` tam erişim sağlamaz `HttpContext` tüm ASP.NET API'lerindeki. `GetHttpContext` Genişletme yöntemi için tam erişim sağlar `HttpContext` ASP.NET API'leri temel alınan HTTP/2 iletiyi temsil eden:
 
-[!code-cs[](~/tutorials/grpc/grpc-start/sample/GrpcGreeter/Services/GreeterService.cs?name=snippet1)]
+[!code-cs[](~/tutorials/grpc/grpc-start/sample/GrpcGreeter/Services/GreeterService.cs?name=snippet)]
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
