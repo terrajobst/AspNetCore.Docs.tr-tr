@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/12/2019
 uid: blazor/components
-ms.openlocfilehash: f88497195d9a108a4b8890522078736e335c5b0a
-ms.sourcegitcommit: 739a3d7ca4fd2908ea0984940eca589a96359482
+ms.openlocfilehash: 34800a9235892a6462f6d0f43b33ab40e847c628
+ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67040693"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152748"
 ---
 # <a name="create-and-use-razor-components"></a>Oluşturma ve Razor bileşenleri kullanma
 
@@ -385,9 +385,9 @@ Düğme alt bileşeni seçildiğinde:
 await callback.InvokeAsync(arg);
 ```
 
-Kullanım `EventCallback` ve `EventCallback<T>` olay işleme ve bileşen parametre bağlama için. Kullanmayın `EventCallback` ve `EventCallback<T>` alt içerik&mdash;kullanmaya devam `RenderFragment` ve `RenderFragment<T>` alt içeriği.
+Kullanım `EventCallback` ve `EventCallback<T>` olay işleme ve bileşen parametre bağlama için.
 
-Kesin olarak belirlenmiş tercih `EventCallback<T>`, bileşen kullanıcıları için daha iyi hata geri bildirim sağlar. Diğer UI olay işleyicilerine benzer, olay parametresi belirten isteğe bağlıdır. Kullanım `EventCallback` çağırma işlemine geçirilen değer olduğunda.
+Kesin olarak belirlenmiş tercih `EventCallback<T>` üzerinden `EventCallback`. `EventCallback<T>` Bileşen kullanıcıları için daha iyi hata geri bildirim sağlar. Diğer UI olay işleyicilerine benzer, olay parametresi belirten isteğe bağlıdır. Kullanım `EventCallback` çağırma işlemine geçirilen değer olduğunda.
 
 ## <a name="capture-references-to-components"></a>Bileşenleri başvurular yakalama
 
@@ -1057,13 +1057,13 @@ Ne zaman bu kodu yürütür, ilk kez, `someFlag` olduğu `true`, oluşturucu al�
 | Sequence | Tür      | Veri   |
 | :------: | --------- | :----: |
 | 0        | Metin düğümü | ilk  |
-| 1.        | Metin düğümü | Saniye |
+| 1\.        | Metin düğümü | Saniye |
 
 Şimdi, Imagine `someFlag` olur `false`, ve yeniden oluşturun. Bu kez, oluşturucu alır:
 
 | Sequence | Tür       | Veri   |
 | :------: | ---------- | :----: |
-| 1.        | Metin düğümü  | Saniye |
+| 1\.        | Metin düğümü  | Saniye |
 
 Çalışma zamanı bir fark gerçekleştirdiğinde, görür öğe dizisi `0` kaldırıldı, aşağıdaki Önemsiz oluşturmasını sağlayacak şekilde *betiğini Düzenle*:
 

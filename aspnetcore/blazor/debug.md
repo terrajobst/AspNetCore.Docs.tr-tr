@@ -1,20 +1,20 @@
 ---
-title: Blazor hata ayıklama
+title: ASP.NET Core Blazor hata ayıklama
 author: guardrex
 description: Blazor uygulamalarında hata ayıklama hakkında bilgi edinin.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/15/2019
+ms.date: 06/14/2019
 uid: blazor/debug
-ms.openlocfilehash: 40457b942061fb910a6311af78ff29ac3a1699de
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 887edcd1db6942ba163857d48adfcf8efc8d7f5a
+ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64898454"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152705"
 ---
-# <a name="debug-blazor"></a>Blazor hata ayıklama
+# <a name="debug-aspnet-core-blazor"></a>ASP.NET Core Blazor hata ayıklama
 
 [Daniel Roth](https://github.com/danroth27)
 
@@ -54,7 +54,7 @@ Uzaktan hata ayıklama devre dışı ise bir **hata ayıklanabilir tarayıcı se
 
 ## <a name="debug-the-app"></a>Uygulamasında hata ayıklama
 
-Uzaktan hata ayıklama etkin olan Chrome çalıştırıldıktan sonra hata ayıklama klavye kısayolunu yeni bir hata ayıklayıcı sekmesi açılır. Kısa bir süre sonra **kaynakları** sekmesi, uygulamada .NET derlemelerin bir listesini gösterir. Her derleme genişletin ve bulma *.cs*/*.razor* kaynak dosyaları, hata ayıklama için kullanılabilir. Kod yürütüldüğünde kesme noktaları belirleyin, uygulamanın sekmesine dönün ve kesme noktaları isabet. Sonra bir kesme noktası İsabeti, tek adımlı olduğu (`F10`) aracılığıyla kod veya sürdürme (`F8`) yürütme normalde kod.
+Uzaktan hata ayıklama etkin olan Chrome çalıştırıldıktan sonra hata ayıklama klavye kısayolunu yeni bir hata ayıklayıcı sekmesi açılır. Kısa bir süre sonra **kaynakları** sekmesi, uygulamada .NET derlemelerin bir listesini gösterir. Her derleme genişletin ve bulma *.cs*/ *.razor* kaynak dosyaları, hata ayıklama için kullanılabilir. Kod yürütüldüğünde kesme noktaları belirleyin, uygulamanın sekmesine dönün ve kesme noktaları isabet. Sonra bir kesme noktası İsabeti, tek adımlı olduğu (`F10`) aracılığıyla kod veya sürdürme (`F8`) yürütme normalde kod.
 
 Blazor uygulayan bir hata ayıklama proxy'si sağlar [Chrome DevTools Protokolü](https://chromedevtools.github.io/devtools-protocol/) ve protokolü ile artırmaktadır. NET özgü bilgileri. Hata ayıklama klavye kısayolu basıldığında Blazor Chrome DevTools proxy işaret eder. Hata ayıklamak için aradığınız tarayıcı penceresine proxy bağlar (Bu nedenle uzaktan hata ayıklamayı etkinleştirmek için gereken).
 

@@ -1,20 +1,20 @@
 ---
-title: Barındırma ve Blazor istemci-tarafı dağıtma
+title: Barındırma ve ASP.NET Core Blazor istemci-tarafı dağıtma
 author: guardrex
 description: Ana bilgisayar ve ASP.NET Core, içerik teslim ağları (CDN), dosya sunucuları ve GitHub sayfaları kullanarak Blazor uygulamasını dağıtma hakkında bilgi edinin.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/21/2019
+ms.date: 06/14/2019
 uid: host-and-deploy/blazor/client-side
-ms.openlocfilehash: b50516b4dce28a6b105b2ab8b9386060d5392983
-ms.sourcegitcommit: 4d05e30567279072f1b070618afe58ae1bcefd5a
+ms.openlocfilehash: 7567473ae8acd9e1072954907f0fe9c7beea29ad
+ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66376399"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67153186"
 ---
-# <a name="host-and-deploy-blazor-client-side"></a>Barındırma ve Blazor istemci-tarafı dağıtma
+# <a name="host-and-deploy-aspnet-core-blazor-client-side"></a>Barındırma ve ASP.NET Core Blazor istemci-tarafı dağıtma
 
 Tarafından [Luke Latham](https://github.com/guardrex), [Rainer Stropek](https://www.timecockpit.com), ve [Daniel Roth](https://github.com/danroth27)
 

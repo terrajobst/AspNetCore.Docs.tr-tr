@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-3.0'
 ms.author: johluo
 ms.date: 06/12/2019
 uid: tutorials/grpc/grpc-start
-ms.openlocfilehash: 76c40d108bc0ce9dec7099b10812c896f0b7777d
-ms.sourcegitcommit: f5762967df3be8b8c868229e679301f2f7954679
+ms.openlocfilehash: 6aef56ecd61ad71e166c03c12b28b25b931cdd88
+ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67048205"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152924"
 ---
 # <a name="tutorial-create-a-grpc-client-and-server-in-aspnet-core"></a>Öğretici: ASP.NET Core gRPC istemci ve sunucu oluşturma
 
@@ -124,6 +124,7 @@ info: Microsoft.Hosting.Lifetime[0]
 
 ## <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
+* Visual Studio ikinci bir örneğini açın.
 * Seçin **dosya** > **yeni** > **proje** menü çubuğundan.
 * İçinde **yeni bir proje oluşturma** iletişim kutusunda **konsol uygulaması (.NET Core)** .
 * Seçin **İleri**
@@ -151,7 +152,7 @@ Yönergeleri izleyerek [burada](/dotnet/core/tutorials/using-on-mac-vs-full-solu
 
 ### <a name="add-required-packages"></a>Gerekli paketleri Ekle
 
-Aşağıdaki paketler gRPC istemci projeye ekleyin:
+GRPC istemci projesi, aşağıdaki paketler gereklidir:
 
 * [Grpc.Net.Client](https://www.nuget.org/packages/Grpc.Net.Client), .NET Core istemci içerir.
 * [Google.Protobuf](https://www.nuget.org/packages/Google.Protobuf/), protobuf içeren API'leri için ileti C#.
@@ -208,7 +209,7 @@ dotnet add GrpcGreeterClient.csproj package Grpc.Tools
 
   # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
 
-  Projeye sağ tıklayıp **Düzenle GrpcGreeterClient.csproj**.
+  Projeye sağ tıklayıp **proje dosyası düzenleme**.
 
   # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code) 
 
@@ -220,7 +221,7 @@ dotnet add GrpcGreeterClient.csproj package Grpc.Tools
 
   ---
 
-* Ekleme **greet.proto** dosyasını `<Protobuf>` GrpcGreeterClient proje dosyasının öğesi grubu:
+* Bir öğe grubuna ekleme bir `<Protobuf>` başvurduğu öğesi **greet.proto** dosyası:
 
   ```XML
   <ItemGroup>
@@ -228,11 +229,9 @@ dotnet add GrpcGreeterClient.csproj package Grpc.Tools
   </ItemGroup>
   ```
 
-Nesil tetiklemek için istemci projesinin oluşturun C# istemci varlıklar.
-
 ### <a name="create-the-greeter-client"></a>Greeter istemcisi oluşturma
 
-Türlerini oluşturmak için projeyi derleyin **Greeter** ad alanı. `Greeter` Türleri yapı işlemi tarafından otomatik olarak oluşturulur.
+Türlerini oluşturmak için projeyi derleyin `GrpcGreeter` ad alanı. `GrpcGreeter` Türleri yapı işlemi tarafından otomatik olarak oluşturulur.
 
 GRPC istemci güncelleştirmesi *Program.cs* dosyasındaki kodu aşağıdaki kodla:
 

@@ -1,20 +1,20 @@
 ---
-title: Blazor düzenleri
+title: ASP.NET Core Blazor düzenleri
 author: guardrex
 description: Blazor uygulamalar için yeniden kullanılabilir Düzen bileşenlerinin nasıl oluşturulacağını öğrenin.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/24/2019
+ms.date: 06/14/2019
 uid: blazor/layouts
-ms.openlocfilehash: 8641400cd97a74572d1bcd8c6eb6891656903e1b
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: c389eb15d6a3e359d2d282e4aba8f5e2a6079bec
+ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64898490"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152780"
 ---
-# <a name="blazor-layouts"></a>Blazor düzenleri
+# <a name="aspnet-core-blazor-layouts"></a>ASP.NET Core Blazor düzenleri
 
 By [Rainer Stropek](https://www.timecockpit.com)
 

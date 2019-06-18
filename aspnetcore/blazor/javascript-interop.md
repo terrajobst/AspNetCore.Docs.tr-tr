@@ -1,20 +1,20 @@
 ---
-title: Blazor JavaScript birlikte çalışma
+title: ASP.NET Core Blazor JavaScript birlikte çalışma
 author: guardrex
 description: .NET ve JavaScript işlevleri çağırmak nasıl öğrenin Blazor uygulamalarındaki JavaScript yöntemleri.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/29/2019
+ms.date: 06/14/2019
 uid: blazor/javascript-interop
-ms.openlocfilehash: be5afcc33e527e36892e409cc87d6d8725d40290
-ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
+ms.openlocfilehash: df511fe77661cd1474e869b28e6858e0452eaae5
+ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67034417"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152799"
 ---
-# <a name="blazor-javascript-interop"></a>Blazor JavaScript birlikte çalışma
+# <a name="aspnet-core-blazor-javascript-interop"></a>ASP.NET Core Blazor JavaScript birlikte çalışma
 
 Tarafından [Javier Calvarro Nelson](https://github.com/javiercn), [Daniel Roth](https://github.com/danroth27), ve [Luke Latham](https://github.com/guardrex)
 

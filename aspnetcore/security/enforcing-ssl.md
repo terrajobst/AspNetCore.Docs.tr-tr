@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/01/2018
 uid: security/enforcing-ssl
-ms.openlocfilehash: 8d48877153d6d75348e29299c669125904236de8
-ms.sourcegitcommit: 5dd2ce9709c9e41142771e652d1a4bd0b5248cec
+ms.openlocfilehash: 08ce50775d1b5348cb0528a1724cec2e5c72dae2
+ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66692596"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152906"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>ASP.NET core'da HTTPS'yi zorunlu kılma
 
@@ -24,11 +24,32 @@ Bu belge gösterir nasıl yapılır:
 
 Hiçbir API, bir istemci ilk istek üzerine hassas verileri göndermesini engelleyebilir.
 
+::: moniker range="< aspnetcore-3.0"
+
 > [!WARNING]
+> ## <a name="api-projects"></a>API projeleri
+>
 > Yapmak **değil** kullanın [RequireHttpsAttribute](/dotnet/api/microsoft.aspnetcore.mvc.requirehttpsattribute) üzerinde Web API'leri, hassas bilgiler alırsınız. `RequireHttpsAttribute` tarayıcılar HTTP'den HTTPS'ye yönlendirmek için HTTP durum kodları kullanır. API istemcileri değil anlamak veya yeniden yönlendirmeleri HTTP'den HTTPS'ye uymaktadır. Bu tür istemciler HTTP üzerinden bilgi gönderebilir. Web API'leri aşağıdakilerden birini yapmalısınız:
 >
 > * HTTP dinleme değil.
 > * 400 (Hatalı istek) durum koduyla bağlantıyı kapatın ve hizmet isteği yok.
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+
+> [!WARNING]
+> ## <a name="api-projects"></a>API projeleri
+>
+> Yapmak **değil** kullanın [RequireHttpsAttribute](/dotnet/api/microsoft.aspnetcore.mvc.requirehttpsattribute) üzerinde Web API'leri, hassas bilgiler alırsınız. `RequireHttpsAttribute` tarayıcılar HTTP'den HTTPS'ye yönlendirmek için HTTP durum kodları kullanır. API istemcileri değil anlamak veya yeniden yönlendirmeleri HTTP'den HTTPS'ye uymaktadır. Bu tür istemciler HTTP üzerinden bilgi gönderebilir. Web API'leri aşağıdakilerden birini yapmalısınız:
+>
+> * HTTP dinleme değil.
+> * 400 (Hatalı istek) durum koduyla bağlantıyı kapatın ve hizmet isteği yok.
+>
+> ## <a name="hsts-and-api-projects"></a>HSTS ve API projeleriniz
+>
+> Varsayılan API projeleri içermez [HSTS](#hsts) HSTS genellikle bir tarayıcı yalnızca yönergesi olduğu için. Telefon veya Masaüstü uygulamaları gibi diğer çağıranlar yapmak **değil** yönerge uymaktadır. Bile tarayıcılar içinde tek bir kimlik doğrulaması çağrısı HTTP üzerinden bir API'ye güvenli olmayan ağlarda riskleri taşır. Güvenli bir yöntem yalnızca dinlemek ve HTTPS üzerinden yanıt vermek için API projeleri yapılandırmaktır.
+
+::: moniker-end
 
 ## <a name="require-https"></a>HTTPS'yi zorunlu
 
@@ -159,6 +180,8 @@ Genel olarak HTTPS'yi zorunlu (`options.Filters.Add(new RequireHttpsAttribute())
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
+
+<a name="hsts"></a>
 
 ## <a name="http-strict-transport-security-protocol-hsts"></a>HTTP taşıma katı güvenlik protokolü (HSTS)
 

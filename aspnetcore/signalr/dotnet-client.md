@@ -7,12 +7,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 04/17/2019
 uid: signalr/dotnet-client
-ms.openlocfilehash: b59af0f9c84a008f778709970dba2273abdfcd4f
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 97c553874cb1e4b678fa0e5cd65074f135193861
+ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087711"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67153123"
 ---
 # <a name="aspnet-core-signalr-net-client"></a>ASP.NET Core SignalR .NET istemcisi
 
@@ -37,6 +37,162 @@ Bir bağlantı kurmak için oluşturma bir `HubConnectionBuilder` ve çağrı `B
 [!code-csharp[Build hub connection](dotnet-client/sample/signalrchatclient/MainWindow.xaml.cs?name=snippet_MainWindowClass&highlight=15-17,39)]
 
 ## <a name="handle-lost-connection"></a>Tanıtıcı bağlantısı kesildi
+
+::: moniker range=">= aspnetcore-3.0"
+
+### <a name="automatically-reconnect"></a>Otomatik olarak yeniden
+
+<xref:Microsoft.AspNetCore.SignalR.Client.HubConnection> Kullanarak otomatik olarak yeniden yapılandırılabilir `WithAutomaticReconnect` metodunda <xref:Microsoft.AspNetCore.SignalR.Client.HubConnectionBuilder>. Varsayılan olarak otomatik olarak yeniden olmaz.
+
+```csharp
+HubConnection connection= new HubConnectionBuilder()
+    .WithUrl(new Uri("http://127.0.0.1:5000/chatHub"))
+    .WithAutomaticReconnect()
+    .Build();
+```
+
+Herhangi bir parametre olmadan `WithAutomaticReconnect()` dört girişimi başarısız olduktan sonra durduruluyor, her bir yeniden bağlanma denemesi denemeden önce sırasıyla 0, 2, 10 ve 30 saniye bekleyin üzere istemciyi yapılandırır.
+
+Yeniden bağlanma girişimleri başlatmadan önce `HubConnection` geçiş olur `HubConnectionState.Reconnecting` belirtin ve yangın `Reconnecting` olay.  Bu, bağlantısı kesilmiş kullanıcıları uyarın ve UI öğelerini devre dışı bırakmak için bir fırsat sağlar. Etkileşimli olmayan uygulamalar, sıraya alma veya iletileri bırakarak başlatabilirsiniz.
+
+```csharp
+connection.Reconnecting += error =>
+{
+    Debug.Assert(connection.State == HubConnectionState.Reconnecting);
+
+    // Notify users the connection was lost and the client is reconnecting.
+    // Start queuing or dropping messages.
+
+    return Task.CompletedTask;
+};
+```
+
+İstemci ilk dört girişimlerinin içinde başarıyla bağlanırsa `HubConnection` geri geçeceğiyle `Connected` belirtin ve yangın `Reconnected` olay. Bu bağlantı kuruldu ve sıraya alınan iletileri sıradan kullanıcılara bildirmek için bir fırsat sağlar.
+
+Bağlantı tamamen yeni sunucuya baktığı yeni `ConnectionId` için sağlanan `Reconnected` olay işleyicileri.
+
+> [!WARNING]
+> `Reconnected` Olay işleyicinin `connectionId` parametresi null olacaktır, `HubConnection` için yapılandırılan [anlaşma atla](xref:signalr/configuration#configure-client-options).
+
+```csharp
+connection.Reconnected += connectionId =>
+{
+    Debug.Assert(connection.State == HubConnectionState.Connected);
+
+    // Notify users the connection was reestablished.
+    // Start dequeuing messages queued while reconnecting if any.
+
+    return Task.CompletedTask;
+};
+```
+
+`WithAutomaticReconnect()` Yapılandırma olmayacaktır `HubConnection` başlangıç hataları elle gerek ilk hataları yeniden denemek için:
+
+```csharp
+public static async Task<bool> ConnectWithRetryAsync(HubConnection connection, CancellationToken token)
+{
+    // Keep trying to until we can start or the token is canceled.
+    while (true)
+    {
+        try
+        {
+            await connection.StartAsync(token);
+            Debug.Assert(connection.State == HubConnectionState.Connected);
+            return true;
+        }
+        catch when (token.IsCancellationRequested)
+        {
+            return false;
+        }
+        catch
+        {
+            // Failed to connect, trying again in 5000 ms.
+            Debug.Assert(connection.State == HubConnectionState.Disconnected);
+            await Task.Delay(5000);
+        }
+    }
+}
+```
+
+İstemci ilk dört girişimlerinin içinde başarıyla yeniden değil `HubConnection` geçiş olur `Disconnected` belirtin ve yangın <xref:Microsoft.AspNetCore.SignalR.Client.HubConnection.Closed> olay. Bu bağlantıyı el ile yeniden başlatmak veya bağlantı kalıcı olarak kesildi kullanıcılara bildirmek deneme fırsatı sağlar.
+
+```csharp
+connection.Closed += error =>
+{
+    Debug.Assert(connection.State == HubConnectionState.Disconnected);
+
+    // Notify users the connection has been closed or manually try to restart the connection.
+
+    return Task.CompletedTask;
+};
+```
+
+Özel bir bağlantıyı kesmeden önce yeniden bağlanma denemesi sayısını yapılandırma veya yeniden zamanlamayı değiştirmek için `WithAutomaticReconnect` yeniden bağlanma girişimleri başlatmadan önce beklenecek milisaniye cinsinden gecikme değeri temsil eden sayı dizisi kabul eder.
+
+```csharp
+HubConnection connection= new HubConnectionBuilder()
+    .WithUrl(new Uri("http://127.0.0.1:5000/chatHub"))
+    .WithAutomaticReconnect(new[] { TimeSpan.Zero, TimeSpan.Zero, TimeSpan.FromSeconds(10) })
+    .Build();
+
+    // .WithAutomaticReconnect(new[] { TimeSpan.Zero, TimeSpan.FromSeconds(2), TimeSpan.FromSeconds(10), TimeSpan.FromSeconds(30) }) yields the default behavior.
+```
+
+Yukarıdaki örnekte yapılandırır `HubConnection` hemen bağlantı kaybedildikten sonra yeniden bağlantılar denemesi başlatılacak. Bu aynı zamanda varsayılan yapılandırması için geçerlidir.
+
+İlk yeniden deneme başarısız olursa, ikinci yeniden bağlanma denemesi de 2 Varsayılan yapılandırmada gibi saniye beklemek yerine başlayacaktır.
+
+İkinci yeniden bağlanma denemesi başarısız olursa, üçüncü yeniden denemede yeniden gibi varsayılan yapılandırması olan 10 saniye içinde başlar.
+
+Özel davranış daha sonra yeniden varsayılan davranışı hatası üçüncü yeniden bağlanma girişimi yapıldıktan sonra durdurarak kareninkinden. Varsayılan yapılandırmasında yok olması bir daha yeniden denemesi başka bir 30 saniye.
+
+Zamanlama ve otomatik sayısı daha fazla denetime yeniden bağlanma girişimleri, isterseniz `WithAutomaticReconnect` kabul eden bir nesneyi uygulama `IRetryPolicy` adlı tek bir yöntem olan arabirimi `NextRetryDelay`.
+
+`NextRetryDelay` tek bir bağımsız değişken alan türüyle `RetryContext`. `RetryContext` Üç özelliğe sahiptir: `PreviousRetryCount`, `ElapsedTime` ve `RetryReason` olduğu bir `long`, `TimeSpan` ve `Exception` sırasıyla. Yeniden bağlanma denemesi ilk önce her ikisini de `PreviousRetryCount` ve `ElapsedTime` sıfır olur ve `RetryReason` bağlantı kaybolmasına neden olan özel durum olacaktır. Başarısız tekrar deneme girişimleri sonra `PreviousRetryCount` biri tarafından artırılacaktır `ElapsedTime` şu ana kadar yeniden bağlanmayı harcanan süreyi yansıtacak şekilde güncelleştirilir ve `RetryReason` özel durum nedeniyle son yeniden bağlanma denemesi başarısız olur.
+
+`NextRetryDelay` bir sonraki yeniden denemeden önce beklenecek süreyi temsil eden ya da bir TimeSpan döndürmelidir veya `null` varsa `HubConnection` yeniden bağlanmayı durdurmanız gerekir.
+
+```csharp
+public class RandomRetryPolicy : IRetryPolicy
+{
+    private readonly Random _random = new Random();
+
+    public TimeSpan? NextRetryDelay(RetryContext retryContext)
+    {
+        // If we've been reconnecting for less than 60 seconds so far,
+        // wait between 0 and 10 seconds before the next reconnect attempt.
+        if (retryContext.ElapsedTime < TimeSpan.FromSeconds(60))
+        {
+            return TimeSpan.FromSeconds(_random.Next() * 10);
+        }
+        else
+        {
+            // If we've been reconnecting for more than 60 seconds so far, stop reconnecting.
+            return null;
+        }
+    }
+}
+```
+
+```csharp
+HubConnection connection = new HubConnectionBuilder()
+    .WithUrl(new Uri("http://127.0.0.1:5000/chatHub"))
+    .WithAutomaticReconnect(new RandomRetryPolicy())
+    .Build();
+```
+
+Alternatif olarak, istemci gösterildiği şekilde el ile yeniden bağlanacak kod yazabileceğiniz [el ile yeniden](#manually-reconnect).
+
+::: moniker-end
+
+### <a name="manually-reconnect"></a>El ile yeniden
+
+::: moniker range="< aspnetcore-3.0"
+
+> [!WARNING]
+> Önce 3.0, SignalR için .NET istemci otomatik olarak yeniden değil. İstemcinizi el ile yeniden kod yazmanız gerekir.
+
+::: moniker-end
 
 Kullanım <xref:Microsoft.AspNetCore.SignalR.Client.HubConnection.Closed> olay yanıt bağlantı kesildi. Örneğin, yeniden bağlanma otomatikleştirmek isteyebilirsiniz.
 

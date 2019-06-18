@@ -1,20 +1,20 @@
 ---
-title: Blazor yönlendirme
+title: ASP.NET Core Blazor yönlendirme
 author: guardrex
 description: Uygulamalar ve NavLink bileşenle ilgili istekleri yönlendirmeyi öğrenin.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/14/2019
+ms.date: 06/14/2019
 uid: blazor/routing
-ms.openlocfilehash: b2a703a8dda87812fce1e52b165ad6de901393a7
-ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
+ms.openlocfilehash: 4aba864c4d780591fb91b216eb128b9bf26a1662
+ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67034699"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152766"
 ---
-# <a name="blazor-routing"></a>Blazor yönlendirme
+# <a name="aspnet-core-blazor-routing"></a>ASP.NET Core Blazor yönlendirme
 
 Tarafından [Luke Latham](https://github.com/guardrex)
 

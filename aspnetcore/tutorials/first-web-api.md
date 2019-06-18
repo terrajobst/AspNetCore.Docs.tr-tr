@@ -1,19 +1,19 @@
 ---
-title: "Öğretici: ASP.NET Core MVC ile bir web API'si oluşturma"
+title: "Öğretici: ASP.NET Core web API'si oluşturma"
 author: rick-anderson
-description: Bir web API ASP.NET Core MVC ile oluşturma
+description: Bir web API ASP.NET Core ile oluşturmayı öğrenin.
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/4/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: dce2926e3cb19d6ac8d2af0e9b96c31dee1d92fd
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 7e37e408f32b2e490a0d248a14940fc68d4bda0a
+ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087519"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67153232"
 ---
-# <a name="tutorial-create-a-web-api-with-aspnet-core-mvc"></a>Öğretici: ASP.NET Core MVC ile bir web API'si oluşturma
+# <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Öğretici: ASP.NET Core web API'si oluşturma
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT) ve [Mike Wasson](https://github.com/mikewasson)
 
@@ -88,7 +88,7 @@ Aşağıdaki diyagramda, bu uygulamanın tasarımını gösterir.
 
   ![macOS yeni proje iletişim kutusu](first-web-api-mac/_static/1.png)
   
-* İçinde **, yeni ASP.NET Core Web API'sini yapılandırma** iletişim kutusunda varsayılan değerleri kabul **hedef Framework'ü** , **.NET Core 2.2*.
+* İçinde **, yeni ASP.NET Core Web API'sini yapılandırma** iletişim kutusunda varsayılan değerleri kabul **hedef Framework'ü** , * *.NET Core 2.2*.
 
 * Girin *TodoApi* için **proje adı** seçip **Oluştur**.
 
@@ -315,7 +315,7 @@ Yukarıdaki kod tarafından belirtildiği gibi bir HTTP POST yöntemi olup [[Htt
 * Postman HTTP yöntemi kümesine `POST`.
 * Seçin **gövdesi** sekmesi.
 * Seçin **ham** radyo düğmesi.
-* Tür kümesine **JSON (application/json)**.
+* Tür kümesine **JSON (application/json)** .
 * İstek gövdesinde bir yapılacak iş öğesi için JSON girin:
 
     ```json
