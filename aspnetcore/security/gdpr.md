@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/05/2019
 uid: security/gdpr
-ms.openlocfilehash: 967f3246836c93a1af56f7109edb056220606b58
-ms.sourcegitcommit: c716ea9155a6b404c1f3d3d34e2388454cd276d7
+ms.openlocfilehash: 1580187afef56e8e2f5be7a4bae32912e6305c5a
+ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66716341"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152862"
 ---
 # <a name="eu-general-data-protection-regulation-gdpr-support-in-aspnet-core"></a>ASP.NET Core AB genel veri koruma yönetmeliği (GDPR) desteği
 
@@ -32,7 +32,17 @@ ASP.NET Core API'leri ve şablonları bazı karşılamanıza yardımcı olmak ü
 
 ## <a name="aspnet-core-gdpr-support-in-template-generated-code"></a>ASP.NET Core GDPR şablon tarafından oluşturulan kodda desteği
 
+::: moniker range="< aspnetcore-2.2"
+
+Razor sayfaları ve MVC proje şablonları ile oluşturulan projeleri sahip GDPR veya tanımlama bilgisi onayı için destek yok. GDPR eklemek, ASP.NET Core 2.2 şablonlarında oluşturulan kodu kopyalayın.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
 Razor sayfaları ve MVC proje şablonları ile oluşturulan projeleri aşağıdaki GDPR desteği içerir:
+
+::: moniker-end
 
 * [CookiePolicyOptions](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions) ve [UseCookiePolicy](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyappbuilderextensions.usecookiepolicy) ayarlanan `Startup` sınıfı.
 * *\_CookieConsentPartial.cshtml* [kısmi Görünüm](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper). Bir **kabul** düğmesi bu dosyasına eklenir. Kullanıcı tıkladığında **kabul** düğmesi, tanımlama bilgilerini depolamak için onay sağlanır.
