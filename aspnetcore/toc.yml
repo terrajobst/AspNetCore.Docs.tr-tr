@@ -70,6 +70,9 @@
               uid: tutorials/first-mvc-app/validation
             - name: Details ve Delete yöntemlerini inceleme
               uid: tutorials/first-mvc-app/details
+        - name: Blazor
+          displayName: tutorial
+          uid: tutorials/first-blazor-app
     - name: Web API’si uygulamaları
       items:
         - name: Web API’si oluşturma
