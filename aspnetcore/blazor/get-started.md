@@ -5,14 +5,14 @@ description: Blazor ile kendi tercih ettiğiniz araçları Blazor uygulamayla ol
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/14/2019
+ms.date: 06/18/2019
 uid: blazor/get-started
-ms.openlocfilehash: 7b235fea5b85516b9e3ececf6509a369cd483c8d
-ms.sourcegitcommit: 516f166c5f7cec54edf3d9c71e6e2ba53fb3b0e5
+ms.openlocfilehash: c614ff52600434158c75e288e0b15985c0eb8e68
+ms.sourcegitcommit: a1283d486ac1dcedfc7ea302e1cc882833e2c515
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/18/2019
-ms.locfileid: "67196275"
+ms.locfileid: "67207658"
 ---
 # <a name="get-started-with-aspnet-core-blazor"></a>ASP.NET Core Blazor ile çalışmaya başlama
 
@@ -32,7 +32,7 @@ Blazor ile kullanmaya başlayın:
 
    # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-   1\. Son yükleme [Visual Studio Önizleme](https://visualstudio.com/preview) ile **ASP.NET ve web geliştirme** iş yükü.
+   1\. Son yükleme [Visual Studio Önizleme](https://visualstudio.com/vs/preview) ile **ASP.NET ve web geliştirme** iş yükü.
 
    2\. Son yükleme [Blazor uzantısı](https://go.microsoft.com/fwlink/?linkid=870389) Visual Studio Market'ten. Bu adım Blazor şablonları Visual Studio için kullanılabilir hale getirir.
 

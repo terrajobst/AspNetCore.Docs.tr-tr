@@ -4,14 +4,14 @@ author: tdykstra
 description: Docker kayıt defterinden yayımlanan .NET Core Docker görüntüleri kullanmayı öğrenin. Görüntüleri çekmek ve kendi görüntülerinizi oluşturun.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 04/09/2019
+ms.date: 06/18/2019
 uid: host-and-deploy/docker/building-net-docker-images
-ms.openlocfilehash: 48fc53a4c2139960c0f696af5732ff68fc6c4b8a
-ms.sourcegitcommit: a3926eae3f687013027a2828830c12a89add701f
+ms.openlocfilehash: ea96ae6d36c7e8320ea49e666a807ece72645865
+ms.sourcegitcommit: a1283d486ac1dcedfc7ea302e1cc882833e2c515
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65451003"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67207790"
 ---
 # <a name="docker-images-for-aspnet-core"></a>ASP.NET Core için docker görüntüleri
 
@@ -140,7 +140,7 @@ Bazı senaryolarda, uygulama için çalışma zamanında gereken uygulama dosyal
 
 * Proje klasörüne gidin *dotnet-docker/samples/aspnetapp/aspnetapp*.
 
-* Çalıştırma [dotnet yayımlama](https://docs.microsoft.com/dotnet/core/tools/dotnet-publish.md) komutu:
+* Çalıştırma [dotnet yayımlama](/dotnet/core/tools/dotnet-publish) komutu:
 
   ```console
   dotnet publish -c Release -o published

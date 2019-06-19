@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/18/2019
 uid: host-and-deploy/visual-studio-publish-profiles
-ms.openlocfilehash: 7006b73ea9a424a3c9530cf526727bc71a88838f
-ms.sourcegitcommit: 516f166c5f7cec54edf3d9c71e6e2ba53fb3b0e5
+ms.openlocfilehash: ac243a3898553b2e14a6c15d311afaf62f112a24
+ms.sourcegitcommit: a1283d486ac1dcedfc7ea302e1cc882833e2c515
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/18/2019
-ms.locfileid: "67196308"
+ms.locfileid: "67207823"
 ---
 # <a name="visual-studio-publish-profiles-for-aspnet-core-app-deployment"></a>Visual Studio yayımlama profilleri için ASP.NET Core uygulaması dağıtımı
 
@@ -402,7 +402,10 @@ Done Building Project "C:\Webs\Web1\Web1.csproj" (default targets).
 
 ## <a name="include-files"></a>Dosyaları Ekle
 
-Aşağıdaki biçimlendirme içeren bir *görüntüleri* klasörü için proje dizininin dışına *wwwroot/görüntülerinden* Yayımla sitenin klasörü:
+Aşağıdaki biçimlendirmede:
+
+* İçeren bir *görüntüleri* klasörü için proje dizininin dışına *wwwroot/görüntülerinden* Yayımla sitenin klasörü.
+* Eklenebilir *.csproj* dosya veya yayımlama profili. Kümeye eklenirse *.csproj* dosyası, onu eklendi projedeki her yayımlama profilinde.
 
 ```xml
 <ItemGroup>
@@ -412,8 +415,6 @@ Aşağıdaki biçimlendirme içeren bir *görüntüleri* klasörü için proje d
   </DotnetPublishFiles>
 </ItemGroup>
 ```
-
-Biçimlendirme eklenebilir *.csproj* dosya veya yayımlama profili. Kümeye eklenirse *.csproj* dosyası, onu eklendi projedeki her yayımlama profilinde.
 
 Aşağıdaki biçimlendirme gösterir nasıl vurgulanmış için:
 
@@ -454,7 +455,7 @@ MSBuild file.
 </Project>
 ```
 
-Bkz: [WebSDK Benioku](https://github.com/aspnet/websdk) daha fazla dağıtım örneği için.
+Bkz: [Web SDK'sı depoya Benioku](https://github.com/aspnet/websdk) daha fazla dağıtım örneği için.
 
 ## <a name="run-a-target-before-or-after-publishing"></a>Bir hedef önce veya sonra yayımlama çalıştırın
 
@@ -493,6 +494,6 @@ Seçin [hata ayıklama konsolunu](https://github.com/projectkudu/kudu/wiki/Kudu-
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Web Deploy](https://www.iis.net/downloads/microsoft/web-deploy) web uygulamaları ve IIS sunucuları için Web siteleri dağıtımı (MSDeploy) basitleştirir.
-* [https://github.com/aspnet/websdk](https://github.com/aspnet/websdk/issues): Dosya sorunları ve istek için dağıtım özellikleri.
+* [Web SDK'sı GitHub deposu](https://github.com/aspnet/websdk/issues): Dosya sorunları ve istek için dağıtım özellikleri.
 * [Visual Studio'dan Azure VM için bir ASP.NET Web uygulaması yayımlama](/azure/virtual-machines/windows/publish-web-app-from-visual-studio)
 * <xref:host-and-deploy/iis/transform-webconfig>

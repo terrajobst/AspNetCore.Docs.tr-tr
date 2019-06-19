@@ -4,14 +4,14 @@ author: rick-anderson
 description: Bir web API ASP.NET Core ile oluşturmayı öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 02/4/2019
+ms.date: 06/18/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 7e37e408f32b2e490a0d248a14940fc68d4bda0a
-ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
+ms.openlocfilehash: 17e8ee08fca775b8fccc3f2e6cd6067caca9c79f
+ms.sourcegitcommit: a1283d486ac1dcedfc7ea302e1cc882833e2c515
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67153232"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67207776"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Öğretici: ASP.NET Core web API'si oluşturma
 
@@ -276,7 +276,7 @@ Dönüş türünü `GetTodoItems` ve `GetTodoItem` yöntemler [actionresult öğ
 
 Bu öğreticide Postman web API'si test etmek için kullanılır.
 
-* Yükleme [Postman](https://www.getpostman.com/apps)
+* Yükleme [Postman](https://www.getpostman.com/downloads/)
 * Web uygulaması başlatın.
 * Postman'i başlatın.
 * Devre dışı **SSL sertifika doğrulama**

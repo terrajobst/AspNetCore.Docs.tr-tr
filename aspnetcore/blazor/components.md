@@ -7,16 +7,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/12/2019
 uid: blazor/components
-ms.openlocfilehash: 25743550c60e1d027066cdefe137148de74b0715
-ms.sourcegitcommit: 516f166c5f7cec54edf3d9c71e6e2ba53fb3b0e5
+ms.openlocfilehash: 3a3940f6862a6699f47ac9b5622008bb1953a4d9
+ms.sourcegitcommit: a1283d486ac1dcedfc7ea302e1cc882833e2c515
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/18/2019
-ms.locfileid: "67196291"
+ms.locfileid: "67207654"
 ---
 # <a name="create-and-use-razor-components"></a>Oluşturma ve Razor bileşenleri kullanma
 
-Tarafından [Luke Latham](https://github.com/guardrex), [Daniel Roth](https://github.com/danroth27), ve [Morné Zaayman](https://github.com/MorneZaayman)
+Tarafından [Luke Latham](https://github.com/guardrex) ve [Daniel Roth](https://github.com/danroth27)
 
 [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/blazor/common/samples/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
