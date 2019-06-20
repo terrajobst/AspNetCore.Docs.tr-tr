@@ -5,14 +5,14 @@ description: Kestrel'i, ASP.NET Core için platformlar arası web sunucusu hakk�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 05/28/2019
+ms.date: 06/18/2019
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 0ba207bf6c78476a8c778b95710fd89be50d397a
-ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
+ms.openlocfilehash: b18e7139970accd504a83e458afb2c7f9035a921
+ms.sourcegitcommit: a1283d486ac1dcedfc7ea302e1cc882833e2c515
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67034838"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67207769"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>ASP.NET core'da kestrel web sunucusu uygulaması
 
@@ -479,7 +479,7 @@ Kullanarak URL'leri belirtin:
 * `urls` ana bilgisayar yapılandırma anahtarı.
 * `UseUrls` genişletme yöntemi.
 
-Bu yaklaşımları kullanarak sağlanan değer, bir veya daha fazla HTTP ve HTTPS uç noktası (varsayılan sertifika varsa HTTPS) olabilir. Değer noktalı virgülle ayrılmış listesini yapılandırın (örneğin, `"Urls": "http://localhost:8000;http://localhost:8001"`).
+Bu yaklaşımları kullanarak sağlanan değer, bir veya daha fazla HTTP ve HTTPS uç noktası (varsayılan sertifika varsa HTTPS) olabilir. Değer noktalı virgülle ayrılmış listesini yapılandırın (örneğin, `"Urls": "http://localhost:8000; http://localhost:8001"`).
 
 Bu yaklaşımlar hakkında daha fazla bilgi için bkz. [sunucu URL'leri](xref:fundamentals/host/web-host#server-urls) ve [geçersiz kılma yapılandırmasını](xref:fundamentals/host/web-host#override-configuration).
 
@@ -639,7 +639,7 @@ Aşağıdaki *appsettings.json* örneği:
 ```json
 {
 "Kestrel": {
-  "EndPoints": {
+  "Endpoints": {
     "Http": {
       "Url": "http://localhost:5000"
     },
@@ -1056,7 +1056,7 @@ Aşağıdaki *appsettings.json* örnek, bir varsayılan bağlantı protokol (HTT
 ```json
 {
   "Kestrel": {
-    "EndPointDefaults": {
+    "EndpointDefaults": {
       "Protocols": "Http1AndHttp2"
     }
   }
@@ -1068,7 +1068,7 @@ Aşağıdaki yapılandırma dosyası örneği, belirli bir uç noktası için bi
 ```json
 {
   "Kestrel": {
-    "EndPoints": {
+    "Endpoints": {
       "HttpsDefaultCert": {
         "Url": "https://localhost:5001",
         "Protocols": "Http1AndHttp2"
