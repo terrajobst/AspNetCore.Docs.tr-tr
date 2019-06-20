@@ -5,14 +5,14 @@ description: Oluşturmayı Visual Studio'da yayımlama profilleri ve ASP.NET Cor
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/18/2019
+ms.date: 06/20/2019
 uid: host-and-deploy/visual-studio-publish-profiles
-ms.openlocfilehash: ac243a3898553b2e14a6c15d311afaf62f112a24
-ms.sourcegitcommit: a1283d486ac1dcedfc7ea302e1cc882833e2c515
+ms.openlocfilehash: f1711f3ee73b773cee82161668e76bcbcee55507
+ms.sourcegitcommit: 3eedd6180fbbdcb81a8e1ebdbeb035bf4f2feb92
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67207823"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67284536"
 ---
 # <a name="visual-studio-publish-profiles-for-aspnet-core-app-deployment"></a>Visual Studio yayımlama profilleri için ASP.NET Core uygulaması dağıtımı
 
@@ -20,7 +20,7 @@ Tarafından [Sayed Ibrahim Hashimi](https://github.com/sayedihashimi) ve [Rick A
 
 Bu belge, Visual Studio 2017 kullanarak veya daha sonra oluşturma ve kullanma odaklanır yayımlama profilleri. Visual Studio ile oluşturulan yayımlama profillerine MSBuild ve Visual Studio çalıştırabilirsiniz. Bkz: [Visual Studio kullanarak Azure App Service'e bir ASP.NET Core web uygulaması yayımlama](xref:tutorials/publish-to-azure-webapp-using-vs) Azure'da yayımlamak için yönergeler.
 
-`dotnet new mvc` Komutu, aşağıdaki üst düzey içeren bir proje dosyası üretir `<Project>` öğesi:
+`dotnet new mvc` Komutu, aşağıdaki kök düzeyinde içeren bir proje dosyası üretir [ \<Proje > öğesi](/visualstudio/msbuild/project-element-msbuild):
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -83,7 +83,7 @@ dotnet new mvc
 dotnet publish
 ```
 
-[Dotnet yayımlama](/dotnet/core/tools/dotnet-publish) komut aşağıdakine benzer bir çıktı üretir:
+[Dotnet yayımlama](/dotnet/core/tools/dotnet-publish) komutu, bir çeşitlemesi aşağıdaki çıktıyı üretir:
 
 ```console
 C:\Webs\Web1>dotnet publish
@@ -402,57 +402,44 @@ Done Building Project "C:\Webs\Web1\Web1.csproj" (default targets).
 
 ## <a name="include-files"></a>Dosyaları Ekle
 
-Aşağıdaki biçimlendirmede:
+Aşağıdaki bölümlerde anahat farklı yaklaşımlara dosya eklemek için zaman yayımlayın. [Genel dosya ekleme](#general-file-inclusion) bölümünde kullanan `DotNetPublishFiles` Yayımla hedefleri dosyasında Web SDK'sı tarafından sağlanan öğesi. [Seçici dosya eklemeyi](#selective-file-inclusion) bölümünde kullanır `ResolvedFileToPublish` Yayımla hedefleri dosyasında .NET Core SDK'sı tarafından sağlanan öğesi. Web SDK'sı üzerinde .NET Core SDK'sı bağlı olduğundan, bir ASP.NET Core projesi içinde her iki öğe kullanılabilir. 
 
-* İçeren bir *görüntüleri* klasörü için proje dizininin dışına *wwwroot/görüntülerinden* Yayımla sitenin klasörü.
-* Eklenebilir *.csproj* dosya veya yayımlama profili. Kümeye eklenirse *.csproj* dosyası, onu eklendi projedeki her yayımlama profilinde.
+### <a name="general-file-inclusion"></a>Genel dosya ekleme
+
+Aşağıdaki örnekteki `<ItemGroup>` öğesi yayımlanmış siteyi klasöre proje dizininin dışında bulunan bir klasöre kopyalama gösterir. Aşağıdaki biçimlendirme için kullanıcının eklenen dosyaları `<ItemGroup>` varsayılan olarak eklenir.
 
 ```xml
 <ItemGroup>
   <_CustomFiles Include="$(MSBuildProjectDirectory)/../images/**/*" />
-  <DotnetPublishFiles Include="@(_CustomFiles)">
+  <DotNetPublishFiles Include="@(_CustomFiles)">
     <DestinationRelativePath>wwwroot/images/%(RecursiveDir)%(Filename)%(Extension)</DestinationRelativePath>
-  </DotnetPublishFiles>
+  </DotNetPublishFiles>
 </ItemGroup>
 ```
 
-Aşağıdaki biçimlendirme gösterir nasıl vurgulanmış için:
+Önceki işaretlemesi:
 
-* Projeye dışında dosyasından kopyalama *wwwroot* klasör.
-* Dışlama *wwwroot\Content* klasör.
-* Dışlama *Views\Home\About2.cshtml*.
+* Eklenebilir *.csproj* dosya veya yayımlama profili. Kümeye eklenirse *.csproj* dosyası, onu eklendi projedeki her yayımlama profilinde.
+* Bildiren bir `_CustomFiles` depolamak için öğe dosyaları eşleşen `Include` özniteliğin Glob deseni. *Görüntüleri* düzende başvurulan klasörü, proje dizininin dışında bulunur. A [ayrılmış özelliği](/visualstudio/msbuild/msbuild-reserved-and-well-known-properties), adlandırılmış `$(MSBuildProjectDirectory)`, proje dosyasının mutlak yolu çözümler.
+* Dosyaları bir listesini sağlar `DotNetPublishFiles` öğesi. Varsayılan olarak, öğenin ait `<DestinationRelativePath>` öğesi boş. Varsayılan değer kullanır ve biçimlendirme içinde geçersiz [tanınmış öğe meta verileri](/visualstudio/msbuild/msbuild-well-known-item-metadata) gibi `%(RecursiveDir)`. İç metni temsil eder *wwwroot/görüntülerinden* yayımlanmış siteyi klasörü.
+
+### <a name="selective-file-inclusion"></a>Seçici dosya ekleme
+
+Aşağıdaki örnekte vurgulanmış biçimlendirmeyi gösterir:
+
+* Projenin dışında yayımlanan site içinde bulunan bir dosya kopyalama *wwwroot* klasör. Dosya adını *ReadMe2.md* korunur.
+* Hariç *wwwroot\Content* klasör.
+* Hariç *Views\Home\About2.cshtml*.
+
+[!code-xml[](visual-studio-publish-profiles/samples/Web1.pubxml?highlight=18-23)]
+
+Önceki örnekte `ResolvedFileToPublish` , varsayılan davranış, sağlanan dosyaları her zaman Kopyala öğesini `Include` özniteliği için yayımlanmış siteyi. Dahil ederek varsayılan davranışın üzerine bir `<CopyToPublishDirectory>` iç metni ya da alt öğesiyle `Never` veya `PreserveNewest`. Örneğin:
 
 ```xml
-<?xml version="1.0" encoding="utf-8"?>
-<!--
-This file is used by the publish/package process of your Web project.
-You can customize the behavior of this process by editing this 
-MSBuild file.
--->
-<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup>
-    <WebPublishMethod>FileSystem</WebPublishMethod>
-    <PublishProvider>FileSystem</PublishProvider>
-    <LastUsedBuildConfiguration>Release</LastUsedBuildConfiguration>
-    <LastUsedPlatform>Any CPU</LastUsedPlatform>
-    <SiteUrlToLaunchAfterPublish />
-    <LaunchSiteAfterPublish>True</LaunchSiteAfterPublish>
-    <ExcludeApp_Data>False</ExcludeApp_Data>
-    <PublishFramework />
-    <ProjectGuid>afa9f185-7ce0-4935-9da1-ab676229d68a</ProjectGuid>
-    <publishUrl>bin\Release\PublishOutput</publishUrl>
-    <DeleteExistingFiles>False</DeleteExistingFiles>
-  </PropertyGroup>
-  <ItemGroup>
-    <ResolvedFileToPublish Include="..\ReadMe2.MD">
-      <RelativePath>wwwroot\ReadMe2.MD</RelativePath>
-    </ResolvedFileToPublish>
-
-    <Content Update="wwwroot\Content\**\*" CopyToPublishDirectory="Never" />
-    <Content Update="Views\Home\About2.cshtml" CopyToPublishDirectory="Never" />
-
-  </ItemGroup>
-</Project>
+<ResolvedFileToPublish Include="..\ReadMe2.md">
+  <RelativePath>wwwroot\ReadMe2.md</RelativePath>
+  <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+</ResolvedFileToPublish>
 ```
 
 Bkz: [Web SDK'sı depoya Benioku](https://github.com/aspnet/websdk) daha fazla dağıtım örneği için.
