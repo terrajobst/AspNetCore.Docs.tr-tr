@@ -4,14 +4,14 @@ author: zuckerthoben
 description: NSwag belgeler oluşturmak ve Yardım sayfaları için bir ASP.NET Core web API'sini kullanmayı öğrenin.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 12/30/2018
+ms.date: 06/21/2019
 uid: tutorials/get-started-with-nswag
-ms.openlocfilehash: 787f51629b044e638d2790b3dda8723c2644c2d8
-ms.sourcegitcommit: a04eb20e81243930ec829a9db5dd5de49f669450
+ms.openlocfilehash: c5b2dc47328d6d3c271a87579fa8c300109bd734
+ms.sourcegitcommit: 06a455d63ff7d6b571ca832e8117f4ac9d646baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66470435"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67316550"
 ---
 # <a name="get-started-with-nswag-and-aspnet-core"></a>NSwag ve ASP.NET Core ile çalışmaya başlama
 
@@ -43,7 +43,7 @@ NSwag Ara yazılımıyla kaydedin:
 * Uygulanan web API'si için Swagger belirtimi oluşturur.
 * Swagger göz atın ve web API'si test etmek için kullanıcı Arabirimi işlevi görür.
 
-Kullanılacak [NSwag](https://github.com/RSuter/NSwag) ASP.NET Core ara yazılım, yükleme [NSwag.AspNetCore](https://www.nuget.org/packages/NSwag.AspNetCore/) NuGet paketi. Bu paket oluşturmak ve Swagger belirtimi, hizmet için bir ara yazılım içeren Swagger kullanıcı arabirimini (v2 ve v3) ve [ReDoc UI](https://github.com/Rebilly/ReDoc).
+Kullanılacak [NSwag](https://github.com/RicoSuter/NSwag) ASP.NET Core ara yazılım, yükleme [NSwag.AspNetCore](https://www.nuget.org/packages/NSwag.AspNetCore/) NuGet paketi. Bu paket oluşturmak ve Swagger belirtimi, hizmet için bir ara yazılım içeren Swagger kullanıcı arabirimini (v2 ve v3) ve [ReDoc UI](https://github.com/Rebilly/ReDoc).
 
 NSwag NuGet paketini yüklemek için aşağıdaki yaklaşımlardan birini kullanın:
 
@@ -91,17 +91,13 @@ dotnet add TodoApi.csproj package NSwag.AspNetCore
 
 ## <a name="add-and-configure-swagger-middleware"></a>Ekleme ve Swagger ara yazılımını yapılandırma
 
- Ekleme ve aşağıdaki adımları gerçekleştirerek Swagger kullanarak ASP.NET Core uygulamanızı yapılandırma `Startup` sınıfı:
+Ekleyin ve aşağıdaki adımları uygulayarak Swagger kullanarak ASP.NET Core uygulamanızı yapılandırın:
 
-* Aşağıdaki ad alanlarını içeri aktarın:
-
-[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.NSwag/Startup.cs?name=snippet_StartupConfigureImports)]
-
-* İçinde `ConfigureServices` yöntemi, gerekli Swagger hizmetler kaydedin:
+* İçinde `Startup.ConfigureServices` yöntemi, gerekli Swagger hizmetler kaydedin:
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.NSwag/Startup.cs?name=snippet_ConfigureServices&highlight=8)]
 
-* İçinde `Configure` yöntemi, oluşturulan Swagger belirtimi ve Swagger kullanıcı arabirimini sunulması için Ara yazılımlarını etkinleştir:
+* İçinde `Startup.Configure` yöntemi, oluşturulan Swagger belirtimi ve Swagger kullanıcı arabirimini sunulması için Ara yazılımlarını etkinleştir:
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.NSwag/Startup.cs?name=snippet_Configure&highlight=6-7)]
 
@@ -113,15 +109,15 @@ dotnet add TodoApi.csproj package NSwag.AspNetCore
 
 Aşağıdaki seçeneklerden birini seçerek NSwag'ın kod oluşturma özelliklerinden gerçekleştirebilirsiniz:
 
-* [NSwagStudio](https://github.com/NSwag/NSwag/wiki/NSwagStudio) &ndash; API İstemci kodu oluşturmak için bir Windows masaüstü uygulaması C# veya TypeScript.
+* [NSwagStudio](https://github.com/RicoSuter/NSwag/wiki/NSwagStudio) &ndash; API İstemci kodu oluşturmak için bir Windows masaüstü uygulaması C# veya TypeScript.
 * [NSwag.CodeGeneration.CSharp](https://www.nuget.org/packages/NSwag.CodeGeneration.CSharp/) veya [NSwag.CodeGeneration.TypeScript](https://www.nuget.org/packages/NSwag.CodeGeneration.TypeScript/) NuGet paketlerini projenize içinde kod oluşturma için.
-* NSwag gelen [komut satırı](https://github.com/NSwag/NSwag/wiki/CommandLine).
-* [NSwag.MSBuild](https://github.com/NSwag/NSwag/wiki/MSBuild) NuGet paketi.
+* NSwag gelen [komut satırı](https://github.com/RicoSuter/NSwag/wiki/CommandLine).
+* [NSwag.MSBuild](https://github.com/RicoSuter/NSwag/wiki/MSBuild) NuGet paketi.
 * [Unchase Openapı (Swagger) bağlı hizmet](https://marketplace.visualstudio.com/items?itemName=Unchase.unchaseopenapiconnectedservice) &ndash; API İstemci kodu oluşturmak için bir Visual Studio bağlı hizmeti C# veya TypeScript. Ayrıca oluşturur C# NSwag Openapı hizmetleriyle denetleyicileri.
 
 ### <a name="generate-code-with-nswagstudio"></a>NSwagStudio ile kodu oluştur
 
-* Yönergeleri izleyerek NSwagStudio yükleme [NSwagStudio GitHub deposu](https://github.com/RSuter/NSwag/wiki/NSwagStudio).
+* Yönergeleri izleyerek NSwagStudio yükleme [NSwagStudio GitHub deposu](https://github.com/RicoSuter/NSwag/wiki/NSwagStudio).
 * NSwagStudio başlatın ve girin *swagger.json* URL'SİNDE dosya **Swagger belirtimi URL'si** metin kutusu. Örneğin, *http://localhost:44354/swagger/v1/swagger.json* .
 * Tıklayın **yerel kopya oluşturmak** , Swagger belirtimi JSON temsilini üretmek için düğme.
 
@@ -277,7 +273,7 @@ Aşağıdaki örnek göz önünde bulundurun:
 
 ::: moniker range=">= aspnetcore-2.1"
 
- NSwag kullandığından [yansıma](/dotnet/csharp/programming-guide/concepts/reflection), ve önerilen dönüş türü için web API eylemlerini [actionresult öğesini\<T >](xref:Microsoft.AspNetCore.Mvc.ActionResult%601), dönüş türü tarafından tanımlanan yalnızca çıkarımını `T`. Otomatik olarak diğer olası dönüş türü çıkarsanamıyor. 
+ NSwag kullandığından [yansıma](/dotnet/csharp/programming-guide/concepts/reflection), ve önerilen dönüş türü için web API eylemlerini [actionresult öğesini\<T >](xref:Microsoft.AspNetCore.Mvc.ActionResult%601), dönüş türü tarafından tanımlanan yalnızca çıkarımını `T`. Otomatik olarak diğer olası dönüş türü çıkarsanamıyor.
 
 Aşağıdaki örnek göz önünde bulundurun:
 

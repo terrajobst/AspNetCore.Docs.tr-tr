@@ -5,14 +5,14 @@ description: Razor dosyaları derleme içinde ASP.NET Core uygulaması nasıl ge
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/30/2019
+ms.date: 06/20/2019
 uid: mvc/views/view-compilation
-ms.openlocfilehash: b78831dd95a721e35d4bf5b44cdd8823472f6aa2
-ms.sourcegitcommit: 06c4f2910dd54ded25e1b8750e09c66578748bc9
+ms.openlocfilehash: ff66148fc9aad2871f9f55ce76b5a0dacb0ad10c
+ms.sourcegitcommit: 9f11685382eb1f4dd0fb694dea797adacedf9e20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66395885"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67313779"
 ---
 # <a name="razor-file-compilation-in-aspnet-core"></a>ASP.NET Core Razor dosyası derleme
 
@@ -125,17 +125,13 @@ Yönergeler ve cihazın uyumluluk sürümü ayarlama örnekleri için bkz. <xref
 Çalışma zamanı derlemesi kullanarak etkin `Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation` paket. Çalışma zamanı derlemesi etkinleştirmek için uygulamaları gerekir:
 
 * Yükleme [Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation/) NuGet paketi.
-* Uygulamanın güncelleştirme `ConfigureServices` çağrısı içerecek şekilde `AddMvcRazorRuntimeCompilation`:
+* Projenin güncelleştirme `Startup.ConfigureServices` yöntemi çağrısı içerecek şekilde `AddRazorRuntimeCompilation`:
 
   ```csharp
   services
-      .AddMvc()
-      .AddRazorRuntimeCompilation()
+      .AddControllersWithViews()
+      .AddRazorRuntimeCompilation();
   ```
-
-Çalışma zamanı derlemesi dağıtıldığında çalışmak uygulamalar ayarlamak için proje dosyaları değiştirmeniz gerekir `PreserveCompilationReferences` için `true`:
-
-[!code-xml[](view-compilation/sample/RuntimeCompilation.csproj?highlight=4)]
 
 ::: moniker-end
 

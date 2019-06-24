@@ -4,14 +4,14 @@ author: guardrex
 description: Uygulama başlatma ve ömür yönetimi için sorumlu olan ASP.NET Core Web ana bilgisayar hakkında bilgi edinin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/11/2019
+ms.date: 06/14/2019
 uid: fundamentals/host/web-host
-ms.openlocfilehash: 48f3b664d901bdfb27cdf9e798fa60c0587d1def
-ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
+ms.openlocfilehash: c5d5b723b31a5c211a47e378e50be858fda0b2bd
+ms.sourcegitcommit: 9f11685382eb1f4dd0fb694dea797adacedf9e20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610281"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67313795"
 ---
 # <a name="aspnet-core-web-host"></a>ASP.NET Core Web ana bilgisayarı
 
@@ -19,27 +19,21 @@ Tarafından [Luke Latham](https://github.com/guardrex)
 
 ASP.NET Core uygulamaları yapılandırmak ve başlatmak bir *konak*. Uygulama başlatma ve ömür yönetimi için konak sorumludur. En az bir sunucu ve istek işleme ardışık konak yapılandırır. Konak, günlüğe kaydetme, bağımlılık ekleme ve yapılandırma de ayarlayabilirsiniz.
 
-::: moniker range="<= aspnetcore-1.1"
+::: moniker range=">= aspnetcore-3.0"
 
-Bu konuda 1.1 sürümü için indirme [ASP.NET Core Web ana bilgisayarı (sürüm 1.1, PDF)](https://webpifeed.blob.core.windows.net/webpifeed/Partners/Web-Host_1.1.pdf).
-
-::: moniker-end
-
-::: moniker range=">= aspnetcore-2.1 <= aspnetcore-2.2"
-
-Bu makalede, ASP.NET Core Web ana bilgisayarı yer almaktadır (<xref:Microsoft.AspNetCore.Hosting.IWebHostBuilder>), web uygulamalarını barındırmak için olduğu. .NET genel ana bilgisayar hakkında bilgi için ([IHostBuilder](/dotnet/api/microsoft.extensions.hosting.ihostbuilder)), bkz: <xref:fundamentals/host/generic-host>.
+Bu makale yalnızca geriye dönük uyumluluk için kullanılabilir olmaya devam ettiğinden Web ana kapsar. [Genel ana bilgisayar](xref:fundamentals/host/generic-host) tüm uygulama türleri için önerilir.
 
 ::: moniker-end
 
-::: moniker range="> aspnetcore-2.2"
+::: moniker range="<= aspnetcore-2.2"
 
-Bu makalede, ASP.NET Core Web ana bilgisayarı yer almaktadır ([IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder)). ASP.NET Core 3.0 sürümünde, Web barındırma genel ana bilgisayar değiştirir. Daha fazla bilgi için [konak](xref:fundamentals/index#host).
+Bu makale, web uygulamalarını barındırmak için olan Web ana kapsar. Diğer uygulama türleri için kullanın [genel ana bilgisayar](xref:fundamentals/host/generic-host).
 
 ::: moniker-end
 
 ## <a name="set-up-a-host"></a>Bir ana bilgisayar kümesi
 
-Bir konak örneği kullanarak oluşturma [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder). Bu, genellikle uygulamanın Giriş noktasında gerçekleştirilir `Main` yöntemi. Oluşturucu yöntemi adını `CreateWebHostBuilder`, gibi dış bileşenlere Oluşturucu yöntemi tanımlayan özel adı [Entity Framework](/ef/core/).
+Bir konak örneği kullanarak oluşturma [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder). Bu, genellikle uygulamanın Giriş noktasında gerçekleştirilir `Main` yöntemi.
 
 Proje şablonlarındaki `Main` bulunan *Program.cs*. Normal bir uygulama çağrıları [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) bir konak kurulumunu başlatmak için:
 
@@ -56,6 +50,8 @@ public class Program
             .UseStartup<Startup>();
 }
 ```
+
+Çağıran kodu `CreateDefaultBuilder` adlı bir yöntemde olduğu `CreateWebHostBuilder`, hangi ayırır, koddan `Main` çağrılarının `Run` Oluşturucu nesne üzerinde. Bu ayrımı kullanırsanız gereklidir [Entity Framework Core Araçları](/ef/core/miscellaneous/cli/). Araçlar bulmayı beklediğinize bir `CreateWebHostBuilder` uygulamayı başlatmadan ana bilgisayarı yapılandırmak için tasarım zamanında çağırabilirsiniz yöntemi. Alternatif uygulamaktır `IDesignTimeDbContextFactory`. Daha fazla bilgi için [tasarım zamanında DbContext oluşturma](/ef/core/miscellaneous/cli/dbcontext-creation).
 
 `CreateDefaultBuilder` Aşağıdaki görevleri gerçekleştirir:
 
@@ -131,9 +127,9 @@ Tarafından tanımlanan yapılandırma `CreateDefaultBuilder` geçersiz kılınd
 Uygulama yapılandırması hakkında daha fazla bilgi için bkz. <xref:fundamentals/configuration/index>.
 
 > [!NOTE]
-> Statik kullanmaya alternatif olarak `CreateDefaultBuilder` konaktan oluşturma yöntemi, [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) desteklenen bir yaklaşım ile ASP.NET Core 2.x. Daha fazla bilgi için ASP.NET Core 1.x sekmesine bakın.
+> Statik kullanmaya alternatif olarak `CreateDefaultBuilder` konaktan oluşturma yöntemi, [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) desteklenen bir yaklaşım ile ASP.NET Core 2.x.
 
-Bir ana bilgisayar, ayarlarken [yapılandırma](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configure?view=aspnetcore-1.1) ve [Createservicereplicalisteners()](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder.configureservices?view=aspnetcore-1.1) yöntemleri sağlanabilir. Varsa bir `Startup` sınıf belirtilmişse, tanımlamanız gerekir bir `Configure` yöntemi. Daha fazla bilgi için bkz. <xref:fundamentals/startup>. Birden çok çağrılar `ConfigureServices` birbirine ekleyin. Birden çok çağrılar `Configure` veya `UseStartup` üzerinde `WebHostBuilder` önceki ayarları değiştirin.
+Bir ana bilgisayar, ayarlarken [yapılandırma](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configure) ve [Createservicereplicalisteners()](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder.configureservices) yöntemleri sağlanabilir. Varsa bir `Startup` sınıf belirtilmişse, tanımlamanız gerekir bir `Configure` yöntemi. Daha fazla bilgi için bkz. <xref:fundamentals/startup>. Birden çok çağrılar `ConfigureServices` birbirine ekleyin. Birden çok çağrılar `Configure` veya `UseStartup` üzerinde `WebHostBuilder` önceki ayarları değiştirin.
 
 ## <a name="host-configuration-values"></a>Ana bilgisayar yapılandırma değerleri
 
@@ -509,7 +505,7 @@ using (var host = WebHost.Start("http://localhost:8080", app => app.Response.Wri
 }
 ```
 
-Aynı sonucu üretir **başlangıç (RequestDelegate uygulama)**, uygulama dışında yanıt üzerinde `http://localhost:8080`.
+Aynı sonucu üretir **başlangıç (RequestDelegate uygulama)** , uygulama dışında yanıt üzerinde `http://localhost:8080`.
 
 **Başlat (Eylem&lt;IRouteBuilder&gt; routeBuilder)**
 
@@ -566,7 +562,7 @@ using (var host = WebHost.Start("http://localhost:8080", router => router
 }
 ```
 
-Aynı sonucu üretir **Başlat (Eylem&lt;IRouteBuilder&gt; routeBuilder)**, uygulama dışında yanıt `http://localhost:8080`.
+Aynı sonucu üretir **Başlat (Eylem&lt;IRouteBuilder&gt; routeBuilder)** , uygulama dışında yanıt `http://localhost:8080`.
 
 **StartWith (Eylem&lt;IApplicationBuilder&gt; uygulama)**
 
@@ -608,7 +604,7 @@ using (var host = WebHost.StartWith("http://localhost:8080", app =>
 }
 ```
 
-Aynı sonucu üretir **StartWith (Eylem&lt;IApplicationBuilder&gt; uygulama)**, uygulama dışında yanıt üzerinde `http://localhost:8080`.
+Aynı sonucu üretir **StartWith (Eylem&lt;IApplicationBuilder&gt; uygulama)** , uygulama dışında yanıt üzerinde `http://localhost:8080`.
 
 ## <a name="ihostingenvironment-interface"></a>IHostingEnvironment arabirimi
 

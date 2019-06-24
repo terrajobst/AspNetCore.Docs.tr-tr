@@ -4,14 +4,14 @@ author: Rick-Anderson
 description: Anlama ve uyarıları ve ASP.NET Core projeleriyle hataları giderebilirsiniz.
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/13/2019
+ms.date: 06/19/2019
 uid: test/troubleshoot
-ms.openlocfilehash: 3d755b2f0c509d65dea86bbe719e42935d87d546
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: bcec8a55a5111e1f3acf53ae2f57b45e6e609d25
+ms.sourcegitcommit: 9f11685382eb1f4dd0fb694dea797adacedf9e20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64901949"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67313681"
 ---
 # <a name="troubleshoot-aspnet-core-projects"></a>ASP.NET Core projelerinde sorun giderme
 
@@ -27,11 +27,11 @@ Aşağıdaki bağlantılar, sorun giderme kılavuzu sağlar:
 
 ## <a name="net-core-sdk-warnings"></a>.NET core SDK'sı uyarıları
 
-### <a name="both-the-32-bit-and-64-bit-versions-of-the-net-core-sdk-are-installed"></a>Hem 32 bit hem de .NET Core SDK'sını 64 bit sürümlerinde yüklenir
+### <a name="both-the-32-bit-and-64-bit-versions-of-the-net-core-sdk-are-installed"></a>.NET Core SDK'yı 32-bit ve 64-bit sürümlerinin yüklü
 
 İçinde **yeni proje** iletişim için ASP.NET Core, aşağıdaki uyarı görebilirsiniz:
 
-> .NET Core SDK'sı hem 32 hem de 64 bit sürümlerinde yüklenir. Yalnızca 64 bit sürümleri yüklü şablonlardan ' C:\\Program dosyaları\\dotnet\\sdk\\' görüntülenir.
+> .NET Core SDK'sı hem 32-bit hem de 64 bit sürümlerinde yüklenir. Yalnızca yüklü 64-bit sürümleri şablonlardan ' C:\\Program dosyaları\\dotnet\\sdk\\' görüntülenir.
 
 Bu uyarı görüntülenir hem 32-bit (x86) hem de 64-bit (x 64) sürümleri [.NET Core SDK'sı](https://www.microsoft.com/net/download/all) yüklenir. Her iki sürümü yüklü olmayabilir yaygın nedenler şunlardır:
 
@@ -45,9 +45,9 @@ Bu uyarıyı engellemek için 32-bit .NET Core SDK kaldırın. Kaldırın **Dene
 
 İçinde **yeni proje** iletişim için ASP.NET Core, aşağıdaki uyarı görebilirsiniz:
 
-> .NET Core SDK'sı, birden çok konumda yüklenir. Yalnızca yüklü SDK'sı sürümünü şablonlardan ' C:\\Program dosyaları\\dotnet\\sdk\\' görüntülenir.
+> .NET Core SDK'sı, birden çok konumda yüklenir. Yalnızca yüklü SDK'ları şablonlardan ' C:\\Program dosyaları\\dotnet\\sdk\\' görüntülenir.
 
-.NET Core SDK'sının en az bir yükleme dışında bir dizinde sahip olduğunuzda bu iletiyi görmeye *C:\\Program dosyaları\\dotnet\\sdk\\*. Bu genellikle .NET Core SDK'sı yerine MSI yükleyicisini kopyala/yapıştır kullanarak bir makine üzerinde dağıtılan gerçekleşir.
+.NET Core SDK'sının en az bir yükleme dışında bir dizinde sahip olduğunuzda bu iletiyi görmeye *C:\\Program dosyaları\\dotnet\\sdk\\* . Bu genellikle .NET Core SDK'sı yerine MSI yükleyicisini kopyala/yapıştır kullanarak bir makine üzerinde dağıtılan gerçekleşir.
 
 Tüm 32-bit .NET Core SDK'ları ve çalışma zamanları bu uyarıyı engellemek için kaldırın. Kaldırın **Denetim Masası** > **programlar ve Özellikler** > **Kaldır veya Değiştir bir program**. Uyarı neden oluşur ve kendi uygulamalarını anlarsanız, uyarıyı yoksayabilirsiniz.
 

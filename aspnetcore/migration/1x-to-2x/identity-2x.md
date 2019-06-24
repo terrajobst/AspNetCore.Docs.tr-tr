@@ -3,14 +3,14 @@ title: Kimlik doğrulaması ve kimlik için ASP.NET Core 2.0 geçirme
 author: scottaddie
 description: Bu makalede, ASP.NET Core 2.0 için geçirme ASP.NET Core 1.x kimlik doğrulaması ve kimlik için en yaygın adımlar özetlenmektedir.
 ms.author: scaddie
-ms.date: 06/13/2019
+ms.date: 06/21/2019
 uid: migration/1x-to-2x/identity-2x
-ms.openlocfilehash: 3e8bc75b87a85159c9668b52eea32bb7d700be6c
-ms.sourcegitcommit: 516f166c5f7cec54edf3d9c71e6e2ba53fb3b0e5
+ms.openlocfilehash: c83356e12fa5ae581b369265b9d857b08445ed51
+ms.sourcegitcommit: 9f11685382eb1f4dd0fb694dea797adacedf9e20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67196377"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67313738"
 ---
 # <a name="migrate-authentication-and-identity-to-aspnet-core-20"></a>Kimlik doğrulaması ve kimlik için ASP.NET Core 2.0 geçirme
 
@@ -304,18 +304,31 @@ Bu kuralın istisnası `AddIdentity` yöntemi. Bu yöntem, siz ve varsayılan ki
 ## <a name="windows-authentication-httpsys--iisintegration"></a>Windows kimlik doğrulaması (HTTP.sys / IISIntegration)
 
 Windows kimlik doğrulamasının iki çeşidi vardır:
-1. Konak, yalnızca kimliği doğrulanmış kullanıcılara izin verir
-2. Ana bilgisayar hem anonim verir ve kimliği doğrulanmış kullanıcılar
 
-Yukarıda açıklanan Birincisi 2.0 değişikliklerden etkilenmez.
+* Konak, yalnızca kimliği doğrulanmış kullanıcılara izin verir. Bu farklılığa 2.0 değişikliklerden etkilenmez.
+* Ana bilgisayar hem anonim verir ve kimliği doğrulanmış kullanıcılar. Bu farklılığa 2.0 değişikliklerden etkilenir. Örneğin, altındaki anonim kullanıcılar izin [IIS](xref:host-and-deploy/iis/index) veya [HTTP.sys](xref:fundamentals/servers/httpsys) katman ancak denetleyici düzeyinde kullanıcıları yetkilendirme. Bu senaryoda, varsayılan düzenini kümesinde `Startup.ConfigureServices` yöntemi.
 
-Yukarıda açıklanan İkincisiyse 2.0 değişikliklerden etkilenir. Örneğin, anonim kullanıcılar uygulamanıza IIS sağlayan veya [HTTP.sys](xref:fundamentals/servers/httpsys) katman denetleyici düzeyinde ancak yetki verme kullanıcılar. Bu senaryoda, varsayılan düzenini ayarlayın `IISDefaults.AuthenticationScheme` içinde `Startup.ConfigureServices` yöntemi:
+  İçin [Microsoft.AspNetCore.Server.IISIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IISIntegration/), varsayılan düzenini ayarlayın `IISDefaults.AuthenticationScheme`:
 
-```csharp
-services.AddAuthentication(IISDefaults.AuthenticationScheme);
-```
+  ```csharp
+  using Microsoft.AspNetCore.Server.IISIntegration;
 
-Varsayılan düzen ayarlanamadı authorize isteğinin eşleşip eşleşmediğini çalışmasını engeller.
+  services.AddAuthentication(IISDefaults.AuthenticationScheme);
+  ```
+
+  İçin [Microsoft.AspNetCore.Server.HttpSys](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.HttpSys/), varsayılan düzenini ayarlayın `HttpSysDefaults.AuthenticationScheme`:
+
+  ```csharp
+  using Microsoft.AspNetCore.Server.HttpSys;
+
+  services.AddAuthentication(HttpSysDefaults.AuthenticationScheme);
+  ```
+
+  Varsayılan düzen ayarlanamadı (sınama) authorize isteğinin, şu özel durumla çalışmasını engeller:
+
+  > `System.InvalidOperationException`: Hiçbir authenticationScheme belirtildiğinden ve bulunan hiçbir DefaultChallengeScheme vardı.
+
+Daha fazla bilgi için bkz. <xref:security/authentication/windowsauth>.
 
 <a name="identity-cookie-options"></a>
 

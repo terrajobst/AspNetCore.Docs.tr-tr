@@ -4,14 +4,14 @@ author: zuckerthoben
 description: Swagger kullanıcı arabirimini tümleştirmek için ASP.NET Core web API projesi için Swashbuckle eklemeyi öğrenin.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 04/04/2019
+ms.date: 06/21/2019
 uid: tutorials/get-started-with-swashbuckle
-ms.openlocfilehash: ebbdfa4cfeb3013cd961167439dd261f2e058a4b
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 033f2dda9942f91f23158cf2d986062157a3b69e
+ms.sourcegitcommit: 06a455d63ff7d6b571ca832e8117f4ac9d646baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087608"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67316606"
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Swashbuckle'ı ve ASP.NET Core ile çalışmaya başlama
 
@@ -39,7 +39,7 @@ Swashbuckle'ı ile aşağıdaki yaklaşımlardan eklenebilir:
   * Aşağıdaki komutu yürütün:
 
     ```powershell
-    Install-Package Swashbuckle.AspNetCore
+    Install-Package Swashbuckle.AspNetCore -Version 5.0.0-rc2
     ```
 
 * Gelen **NuGet paketlerini Yönet** iletişim:
@@ -60,7 +60,7 @@ Swashbuckle'ı ile aşağıdaki yaklaşımlardan eklenebilir:
 Aşağıdaki komutu çalıştırın **tümleşik Terminalini**:
 
 ```console
-dotnet add TodoApi.csproj package Swashbuckle.AspNetCore
+dotnet add TodoApi.csproj package Swashbuckle.AspNetCore -v 5.0.0-rc2
 ```
 
 ### <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
@@ -68,14 +68,14 @@ dotnet add TodoApi.csproj package Swashbuckle.AspNetCore
 Şu komutu çalıştırın:
 
 ```console
-dotnet add TodoApi.csproj package Swashbuckle.AspNetCore
+dotnet add TodoApi.csproj package Swashbuckle.AspNetCore -v 5.0.0-rc2
 ```
 
 ---
 
 ## <a name="add-and-configure-swagger-middleware"></a>Ekleme ve Swagger ara yazılımını yapılandırma
 
-Kullanmak için aşağıdaki ad alanı içe `Info` sınıfı:
+İçinde `Startup` sınıfı, kullanmak için aşağıdaki ad alanı alma `OpenApiInfo` sınıfı:
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup2.cs?name=snippet_InfoClassNamespace)]
 

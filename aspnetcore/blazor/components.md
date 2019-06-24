@@ -5,14 +5,14 @@ description: Oluşturma ve bileşen ömürleri yönetme verilere bağlayın ve o
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/12/2019
+ms.date: 06/16/2019
 uid: blazor/components
-ms.openlocfilehash: 3a3940f6862a6699f47ac9b5622008bb1953a4d9
-ms.sourcegitcommit: a1283d486ac1dcedfc7ea302e1cc882833e2c515
+ms.openlocfilehash: eb8f72147c98ff1dab17c130122c441a2dd4de4d
+ms.sourcegitcommit: 28646e8ca62fb094db1557b5c0c02d5b45531824
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67207654"
+ms.lasthandoff: 06/23/2019
+ms.locfileid: "67333430"
 ---
 # <a name="create-and-use-razor-components"></a>Oluşturma ve Razor bileşenleri kullanma
 
@@ -145,13 +145,13 @@ Kullanarak `@bind` ile bir `CurrentValue` özelliği (`<input @bind="CurrentValu
 
 Bileşen işlendiğinde `value` giriş öğesinin geldiği `CurrentValue` özelliği. Kullanıcı, metin kutusuna yazdığında `onchange` olay tetiklenir ve `CurrentValue` özelliği değiştirilmiş değerine ayarlanır. Gerçekte, kod oluşturma biraz daha karmaşık olduğundan `@bind` tür dönüştürmeleri gerçekleştirildiği birkaç durum işler. Giren İlkesi `@bind` geçerli değerini bir ifade ile ilişkilendirir bir `value` kayıtlı işleyici kullanarak öznitelik ve işleyicilerini değişiklikler.
 
-Ek olarak `onchange`, özelliği gibi diğer olayları kullanarak bağlanabilir `oninput` ekleyerek bir `@bind` özniteliğini bir `event` parametresi:
+İşleme yanı sıra `onchange` olaylarıyla `@bind` söz dizimi, özelliği veya alanı belirterek diğer olayları kullanarak bağlanabilir bir `@bind-value` özniteliğini bir `event` parametresi. Aşağıdaki örnek bağlar `CurrentValue` özelliği `oninput` olay:
 
 ```cshtml
-<input type="text" @bind-value="@CurrentValue" @bind-value:event="oninput" />
+<input @bind-value="CurrentValue" @bind-value:event="oninput" />
 ```
 
-Farklı `onchange`, `oninput` metin kutusuna giriş her karakter için ateşlenir.
+Farklı `onchange`, öğe odağından çıktığında tetiklenen `oninput` değeri metin kutusunda değiştiğinde harekete geçirilir.
 
 **Biçim dizeleri**
 
@@ -305,13 +305,24 @@ Olay işleyicileri zaman uyumsuz ve dönüş ayrıca olabilir bir <xref:System.T
 
 Bazı olaylar için olaya özgü olay bağımsız değişken türleri de izin verilir. Bu olay türleri birine erişimi gerekli değilse, yöntem çağrısında gerekli değildir.
 
-Desteklenen olay bağımsız değişkenleri listesi verilmiştir:
+Desteklenen [UIEventArgs](https://github.com/aspnet/AspNetCore/blob/master/src/Components/Components/src/UIEventArgs.cs) aşağıdaki tabloda gösterilmiştir.
 
-* UIEventArgs
-* UIChangeEventArgs
-* UIKeyboardEventArgs
-* UIMouseEventArgs
+| Olay | örneği |
+| ----- | ----- |
+| Pano | `UIClipboardEventArgs` |
+| Sürükle  | `UIDragEventArgs` &ndash; `DataTransfer` bir Sürükle ve bırak işlemi sırasında sürüklenen verileri tutmak için kullanılır ve bir veya daha fazla tutabilir `UIDataTransferItem`. `UIDataTransferItem` temsil eder bir veri öğesi sürükleyin. |
+| Hata | `UIErrorEventArgs` |
+| Odağı | `UIFocusEventArgs` &ndash; İçin destek içermez `relatedTarget`. |
+| `<input>` Değişiklik | `UIChangeEventArgs` |
+| Klavye | `UIKeyboardEventArgs` |
+| Fare | `UIMouseEventArgs` |
+| Fare işaretçisi | `UIPointerEventArgs` |
+| Fare tekerleği | `UIWheelEventArgs` |
+| İlerleme durumu | `UIProgressEventArgs` |
+| Dokunma | `UITouchEventArgs` &ndash; `UITouchPoint` dokunmaya duyarlı cihazda tek bir iletişim noktası temsil eder. |
 
+Özellikleri ve olay davranışını önceki tabloda olayları işleme hakkında daha fazla bilgi için bkz: [UIEventArgs](https://github.com/aspnet/AspNetCore/blob/master/src/Components/Components/src/UIEventArgs.cs) başvuru kaynak.
+  
 Lambda ifadeleri de kullanılabilir:
 
 ```cshtml

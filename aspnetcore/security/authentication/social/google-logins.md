@@ -4,14 +4,14 @@ author: rick-anderson
 description: Bu öğreticide, mevcut bir ASP.NET Core uygulamasına Google hesabı kullanıcı kimlik doğrulaması tümleştirmesini gösterilmektedir.
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 1/11/2019
+ms.date: 06/19/2019
 uid: security/authentication/google-logins
-ms.openlocfilehash: 44c79b3279db7946b6d89a726bd3f5acfb5f51af
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: b0edac411e73cd2eec7c4e212b99971577f59cfb
+ms.sourcegitcommit: 06a455d63ff7d6b571ca832e8117f4ac9d646baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64902063"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67316447"
 ---
 # <a name="google-external-login-setup-in-aspnet-core"></a>ASP.NET core'da Google dış oturum açma Kurulumu
 
@@ -44,7 +44,9 @@ API kimlik bilgileri ve kullanımı ile yönetebileceğiniz [API Konsolu](https:
 
 ## <a name="configure-google-authentication"></a>Google kimlik doğrulamasını yapılandırma
 
-Google hizmetine ekleme `Startup.ConfigureServices`.
+Google hizmetine ekleme `Startup.ConfigureServices`:
+
+[!code-csharp[](~/security/authentication/social/social-code/StartupGoogle.cs?name=snippet_ConfigureServices&highlight=10-18)]
 
 [!INCLUDE [default settings configuration](includes/default-settings2-2.md)]
 
@@ -58,7 +60,7 @@ Google hizmetine ekleme `Startup.ConfigureServices`.
 
 [!INCLUDE[](includes/chain-auth-providers.md)]
 
-Bkz: [GoogleOptions](/dotnet/api/microsoft.aspnetcore.authentication.google.googleoptions) Google kimlik doğrulama tarafından desteklenen yapılandırma seçenekleri hakkında daha fazla bilgi için API Başvurusu. Bu kullanıcı ile ilgili farklı bilgi istemek için kullanılabilir.
+Bkz: <xref:Microsoft.AspNetCore.Authentication.Google.GoogleOptions> Google kimlik doğrulama tarafından desteklenen yapılandırma seçenekleri hakkında daha fazla bilgi için API Başvurusu. Bu kullanıcı ile ilgili farklı bilgi istemek için kullanılabilir.
 
 ## <a name="change-the-default-callback-uri"></a>Varsayılan geri arama URI'si değiştirme
 
@@ -68,7 +70,7 @@ URI segmenti `/signin-google` Google kimlik doğrulama sağlayıcısı varsayıl
 
 * Hataları almıyor olabilirler ve oturum açma işe yaramazsa, sorunu hata ayıklama daha kolay hale getirmek için geliştirme moduna geçin.
 * Kimlik çağırarak yapılandırılmazsa `services.AddIdentity` içinde `ConfigureServices`, sonuçları kimlik doğrulaması girişimi sırasında *ArgumentException: 'SignInScheme' seçeneği belirtilmelidir*. Bu öğreticide kullanılan proje şablonu, bu gerçekleştirilir sağlar.
-* Site veritabanı, ilk geçiş uygulayarak oluşturulmamış varsa *bir veritabanı işlemi başarısız istek işlenirken* hata. Dokunun **geçerli geçişleri** veritabanı oluşturma ve hata devam etmek için yenilemek için.
+* Site veritabanı, ilk geçiş uygulayarak oluşturulmamış varsa *bir veritabanı işlemi başarısız istek işlenirken* hata. Seçin **geçerli geçişleri** veritabanı oluşturma ve hata devam etmek için sayfayı yenileyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

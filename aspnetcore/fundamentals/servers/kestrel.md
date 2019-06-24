@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/18/2019
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: fe74583cdc1c8fa40ab12b4b31dc47f5e0296a6c
-ms.sourcegitcommit: 3eedd6180fbbdcb81a8e1ebdbeb035bf4f2feb92
+ms.openlocfilehash: b96aff5c41bbca80caf0d2d11bc52b9b7b55043e
+ms.sourcegitcommit: 9f11685382eb1f4dd0fb694dea797adacedf9e20
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67284525"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67313767"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>ASP.NET core'da kestrel web sunucusu uygulaması
 
@@ -327,7 +327,15 @@ Ara yazılım istek başına en düşük oran sınırları geçersiz kılabilirs
 
 [!code-csharp[](kestrel/samples/2.x/KestrelSample/Startup.cs?name=snippet_Limits&highlight=6-21)]
 
-::: moniker range=">= aspnetcore-2.2"
+::: moniker range=">= aspnetcore-3.0"
+
+<xref:Microsoft.AspNetCore.Server.Kestrel.Core.Features.IHttpMinResponseDataRateFeature> Önceki başvurulan örnek olarak mevcut değil `HttpContext.Features` istek başına temelinde oran sınırlarını değiştirme genellikle HTTP/2 için istek çoğullama protokolün desteği nedeniyle desteklenmediğinden HTTP/2 istekleri için. Ancak, <xref:Microsoft.AspNetCore.Server.Kestrel.Core.Features.IHttpMinRequestBodyDataRateFeature> hala mevcut olduğu `HttpContext.Features` HTTP/2 istekleri için Okuma Hız sınırını hala olabileceğinden *tamamen devre dışı* ayarlayarak istek başına temelinde `IHttpMinRequestBodyDataRateFeature.MinDataRate` için `null` bir HTTP/2 için bile İstek. Okumaya `IHttpMinRequestBodyDataRateFeature.MinDataRate` veya dışında bir değere ayarlama girişimi `null` sonuçlanır bir `NotSupportedException` bir HTTP/2 isteği oluşturulan.
+
+Sunucu çapında hız sınırları ile yapılandırılmış `KestrelServerOptions.Limits` HTTP/1.x hem de HTTP/2 bağlantıları için hala geçerlidir.
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.2"
 
 Önceki örnekte başvurulan hiçbiri oranı özelliği mevcut `HttpContext.Features` istek başına temelinde oran sınırlarını değiştirme HTTP/2 için istek çoğullama protokolün desteği nedeniyle desteklenmediğinden, HTTP/2 istekleri için. Sunucu çapında hız sınırları ile yapılandırılmış `KestrelServerOptions.Limits` HTTP/1.x hem de HTTP/2 bağlantıları için hala geçerlidir.
 

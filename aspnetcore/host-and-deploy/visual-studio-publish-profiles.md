@@ -5,20 +5,20 @@ description: Oluşturmayı Visual Studio'da yayımlama profilleri ve ASP.NET Cor
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/20/2019
+ms.date: 06/21/2019
 uid: host-and-deploy/visual-studio-publish-profiles
-ms.openlocfilehash: f1711f3ee73b773cee82161668e76bcbcee55507
-ms.sourcegitcommit: 3eedd6180fbbdcb81a8e1ebdbeb035bf4f2feb92
+ms.openlocfilehash: 50be5a20f6d927270ef2d9dbc6c1cbf24196978f
+ms.sourcegitcommit: 28646e8ca62fb094db1557b5c0c02d5b45531824
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67284536"
+ms.lasthandoff: 06/23/2019
+ms.locfileid: "67333418"
 ---
 # <a name="visual-studio-publish-profiles-for-aspnet-core-app-deployment"></a>Visual Studio yayımlama profilleri için ASP.NET Core uygulaması dağıtımı
 
 Tarafından [Sayed Ibrahim Hashimi](https://github.com/sayedihashimi) ve [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Bu belge, Visual Studio 2017 kullanarak veya daha sonra oluşturma ve kullanma odaklanır yayımlama profilleri. Visual Studio ile oluşturulan yayımlama profillerine MSBuild ve Visual Studio çalıştırabilirsiniz. Bkz: [Visual Studio kullanarak Azure App Service'e bir ASP.NET Core web uygulaması yayımlama](xref:tutorials/publish-to-azure-webapp-using-vs) Azure'da yayımlamak için yönergeler.
+Bu belge, Visual Studio 2019 kullanma veya daha sonra oluşturma ve kullanma odaklanır yayımlama profilleri. Visual Studio ile oluşturulan yayımlama profillerine, MSBuild ve Visual Studio ile kullanılabilir. Azure'da yayımlamak için yönergeler için bkz: <xref:tutorials/publish-to-azure-webapp-using-vs>.
 
 `dotnet new mvc` Komutu, aşağıdaki kök düzeyinde içeren bir proje dosyası üretir [ \<Proje > öğesi](/visualstudio/msbuild/project-element-msbuild):
 
@@ -42,7 +42,7 @@ MSBuild veya Visual Studio bir projeyi yüklediğinde, aşağıdaki üst düzey 
 
 Proje yüklendiğinde [MSBuild proje öğeleri](/visualstudio/msbuild/common-msbuild-project-items) (dosyalar) hesaplanır. Öğe türü, dosyanın nasıl işleneceğini belirler. Varsayılan olarak, *.cs* dosyaları dahil edilecek `Compile` öğe listesi. Dosyalar `Compile` öğe listesi derlenir.
 
-`Content` Öğesi listesinin yanı sıra derleme çıktılarını yayımlanan dosyaları içerir. Varsayılan olarak, dosyaları desenlerle eşleşen `wwwroot\**`, `**\*.config`, ve `**\*.json` dahil `Content` öğe listesi. Örneğin, `wwwroot\**` [Glob deseni](https://gruntjs.com/configuring-tasks#globbing-patterns) eşleşen tüm dosyaları *wwwroot* klasör **ve** klasörlerinden.
+`Content` Öğesi listesinin yanı sıra derleme çıktılarını yayımlanan dosyaları içerir. Varsayılan olarak, dosyaları desenlerle eşleşen `wwwroot\**`, `**\*.config`, ve `**\*.json` dahil `Content` öğe listesi. Örneğin, `wwwroot\**` [Glob deseni](https://gruntjs.com/configuring-tasks#globbing-patterns) eşleşen tüm dosyaları *wwwroot* klasör ve alt klasörleri.
 
 ::: moniker range=">= aspnetcore-3.0"
 
@@ -70,7 +70,7 @@ Bir ASP.NET Core projesi başvurduğunda `Microsoft.NET.Sdk.Web` proje dosyasın
 
 ## <a name="basic-command-line-publishing"></a>Temel bir komut satırı yayımlama
 
-Komut satırı yayımlama, .NET Core tarafından desteklenen tüm platformlarda çalışır ve Visual Studio gerektirmez. Aşağıdaki örnekte [dotnet yayımlama](/dotnet/core/tools/dotnet-publish) komutu proje dizininden çalıştırın (içeren *.csproj* dosyası). Aksi durumda proje klasöründe proje dosya yolu açıkça geçirebilirsiniz. Örneğin:
+Komut satırı yayımlama, .NET Core tarafından desteklenen tüm platformlarda çalışır ve Visual Studio gerektirmez. Aşağıdaki örneklerde, .NET Core CLI's [dotnet yayımlama](/dotnet/core/tools/dotnet-publish) komutu proje dizininden çalıştırın (içeren *.csproj* dosyası). Proje klasörü geçerli çalışma dizini değilse, proje dosyası yolu açıkça geçirebilirsiniz. Örneğin:
 
 ```console
 dotnet publish C:\Webs\Web1
@@ -83,22 +83,20 @@ dotnet new mvc
 dotnet publish
 ```
 
-[Dotnet yayımlama](/dotnet/core/tools/dotnet-publish) komutu, bir çeşitlemesi aşağıdaki çıktıyı üretir:
+`dotnet publish` Komutu, bir çeşitlemesi aşağıdaki çıktıyı üretir:
 
 ```console
 C:\Webs\Web1>dotnet publish
-Microsoft (R) Build Engine version {version} for .NET Core
+Microsoft (R) Build Engine version {VERSION} for .NET Core
 Copyright (C) Microsoft Corporation. All rights reserved.
 
   Restore completed in 36.81 ms for C:\Webs\Web1\Web1.csproj.
-  Web1 -> C:\Webs\Web1\bin\Debug\netcoreapp{X.Y}\Web1.dll
-  Web1 -> C:\Webs\Web1\bin\Debug\netcoreapp{X.Y}\Web1.Views.dll
-  Web1 -> C:\Webs\Web1\bin\Debug\netcoreapp{X.Y}\publish\
+  Web1 -> C:\Webs\Web1\bin\Debug\{TARGET FRAMEWORK MONIKER}\Web1.dll
+  Web1 -> C:\Webs\Web1\bin\Debug\{TARGET FRAMEWORK MONIKER}\Web1.Views.dll
+  Web1 -> C:\Webs\Web1\bin\Debug\{TARGET FRAMEWORK MONIKER}\publish\
 ```
 
-Varsayılan publish klasörüne olan `bin\$(Configuration)\netcoreapp<version>\publish`. İçin varsayılan `$(Configuration)` olduğu *hata ayıklama*. Önceki örnekte, `<TargetFramework>` olduğu `netcoreapp{X.Y}`.
-
-`dotnet publish -h` bilgi yayımlama için yardımı görüntüler.
+Varsayılan klasör yayımlama biçimi *bin\Debug\\{hedef çerçeve adı} \publish\\* . Örneğin, *bin\Debug\netcoreapp2.2\publish\\* .
 
 Aşağıdaki komut belirtir bir `Release` derleme ve yayımlama dizini:
 
@@ -106,73 +104,69 @@ Aşağıdaki komut belirtir bir `Release` derleme ve yayımlama dizini:
 dotnet publish -c Release -o C:\MyWebs\test
 ```
 
-[Dotnet yayımlama](/dotnet/core/tools/dotnet-publish) çağrıları çağıran MSBuild komut `Publish` hedef. Herhangi bir parametre geçirilen `dotnet publish` MSBuild'e geçirilir. `-c` Parametre eşlenen `Configuration` MSBuild özelliği. `-o` Parametre eşlenen `OutputPath`.
+`dotnet publish` Çağrıları çağıran MSBuild komut `Publish` hedef. Herhangi bir parametre geçirilen `dotnet publish` MSBuild'e geçirilir. `-c` Ve `-o` MSBuild'e ait eşleme parametreleri `Configuration` ve `OutputPath` özellikleri, sırasıyla.
 
 MSBuild özellikleri, aşağıdaki biçimlerden birini kullanarak geçirilebilir:
 
 * `p:<NAME>=<VALUE>`
 * `/p:<NAME>=<VALUE>`
 
-Aşağıdaki komutu yayımlar bir `Release` bir ağ paylaşımına oluşturun:
+Örneğin, aşağıdaki komutu yayımlar bir `Release` bir ağ paylaşımına oluşturun. Ağ paylaşımı eğik çizgi ile belirtilen ( *//r8/* ) ve .NET Core desteklenen tüm platformlarda çalışır.
 
 `dotnet publish -c Release /p:PublishDir=//r8/release/AdminWeb`
-
-Ağ paylaşımı eğik çizgi ile belirtilen ( *//r8/* ) ve .NET Core desteklenen tüm platformlarda çalışır.
 
 Yayımlanan uygulama dağıtımı için çalışmadığından emin onaylayın. Dosyalar *yayımlama* klasörü, uygulama çalışırken kilitlenir. Dağıtım kilitli olduğundan dosya kopyalanamadı oluşamaz.
 
 ## <a name="publish-profiles"></a>Yayımlama profilleri
 
-Bu bölümde Visual Studio 2017 veya sonraki bir yayımlama profili oluşturmak için kullanılır. Visual Studio ya da komut satırından yayımlama profili oluşturulduktan sonra kullanılabilir.
+Bu bölümde Visual Studio 2019 veya üzeri bir yayımlama profili oluşturmak için kullanılır. Visual Studio ya da komut satırından yayımlama profili oluşturulduktan sonra kullanılabilir. Yayımlama profilleri yayımlama işlemini basitleştirmek ve herhangi bir sayıda profilleri bulunabilir.
 
-Yayımlama profilleri yayımlama işlemini basitleştirmek ve herhangi bir sayıda profilleri bulunabilir. Bir yayımlama profili, aşağıdaki yollardan birini seçerek Visual Studio'da oluşturun:
+Bir yayımlama profili, aşağıdaki yollardan birini seçerek Visual Studio'da oluşturun:
 
 * Projeye sağ **Çözüm Gezgini** seçip **Yayımla**.
 * Seçin **yayımlama {proje adı}** gelen **derleme** menüsü.
 
-**Yayımla** uygulama kapasiteler sayfasının sekmesi görüntülenir. Proje bir yayımlama profili sahip değilse, aşağıdaki sayfası görüntülenir:
-
-![Yayımlama sekmesindeki uygulama kapasiteler sayfasının](visual-studio-publish-profiles/_static/az.png)
-
-Zaman **klasör** olduğu belirlenirse, yayımlanan varlıkları depolamak için bir klasör yolu belirtin. Varsayılan klasör *bin\Release\PublishOutput*. Tıklayın **profili oluştur** düğmesini tamamlayın.
-
-Bir yayımlama profili oluşturulduktan sonra **Yayımla** sekmesinde değişiklikler. Yeni oluşturulan profil aşağı açılan listede görünür. Tıklayın **yeni profil oluşturma** başka bir yeni profili oluşturmak için.
-
-![Yayımlama sekmesindeki FolderProfile gösteren uygulama kapasiteler sayfasının](visual-studio-publish-profiles/_static/create_new.png)
-
-Yayımlama Sihirbazı'nı aşağıdaki Yayımla hedeflerini destekler:
+**Yayımla** uygulama özellikleri sayfasının sekmesi görüntülenir. Proje bir yayımlama profili yoksa **yayımlama hedefi seçin** sayfası görüntülenir. Aşağıdaki yayımlama hedeflerinden birini seçin istenir:
 
 * Azure uygulama hizmeti
+* Linux üzerinde Azure App Service
 * Azure sanal makineleri
-* IIS, FTP, vb. (için herhangi bir web sunucusu)
 * Klasör
+* IIS, FTP, Web dağıtımı (için herhangi bir web sunucusu)
 * Profili içeri aktar
 
-Daha fazla bilgi için [hangi Yayımlama seçenekleri benim için en uygun](/visualstudio/ide/not-in-toc/web-publish-options).
+En uygun yayımlama hedef belirlemek için bkz: [hangi Yayımlama seçenekleri benim için en uygun](/visualstudio/ide/not-in-toc/web-publish-options).
 
-Visual Studio ile bir yayımlama profili oluştururken, bir *özellikleri/PublishProfiles / {PROFİL adı} .pubxml* MSBuild dosyası oluşturulur. *.Pubxml* dosyanın MSBuild dosyası ve içeren yapılandırma ayarlarını yayımlayın. Bu dosya, yapı özelleştirme ve yayımlama işlemi için değiştirilebilir. Bu dosya yayımlama işlemi tarafından okunur. `<LastUsedBuildConfiguration>` Genel bir özellik olduğundan ve yapı alınan herhangi bir dosya olmamalıdır özeldir. Bkz: [MSBuild: Yapılandırma özelliğinin nasıl ayarlandığını](http://sedodream.com/2012/10/27/MSBuildHowToSetTheConfigurationProperty.aspx) daha fazla bilgi için.
+Zaman **klasör** yayımlama hedef seçildiğinde, yayımlanan varlıkları depolamak için bir klasör yolu belirtin. Varsayılan klasör yolu *bin\\{PROJECT Yapılandırması}\\{hedef çerçeve adı} \publish\\* . Örneğin, *bin\Release\netcoreapp2.2\publish\\* . Seçin **profili oluştur** düğmesini tamamlayın.
+
+Bir yayımlama profili oluşturulduktan sonra **Yayımla** sekmenin içerik değişiklikleri. Yeni oluşturulan profil aşağı açılan listede görünür. Açılır listede seçin **yeni profil oluşturma** başka bir yeni profili oluşturmak için.
+
+Visual Studio'nun Yayımla aracı üreten bir *özellikleri/PublishProfiles / {PROFİL adı} .pubxml* yayımlama profili açıklayan MSBuild dosyası. *.Pubxml* dosyası:
+
+* İçeren yapılandırma ayarlarını yayımlayın ve yayımlama işlemi tarafından kullanılır.
+* Yapı özelleştirme ve yayımlama işlemi için değiştirilebilir.
 
 Azure bir hedefe, yayımlama sırasında *.pubxml* dosyası, Azure abonelik tanımlayıcısı içeriyor. Bu dosya kaynak denetimine eklemeye, hedef türüyle önerilmez. Azure dışı hedef yayımlama sırasında iade etmeye güvenli *.pubxml* dosya.
 
 (Yayımlama parola gibi) hassas bilgiler şifreli bir kullanıcı/makine düzeyinde başına. İçinde depolanan *özellikleri/PublishProfiles / {PROFİL adı}.pubxml.user* dosya. Bu dosya, hassas bilgileri depolayabileceğiniz için kaynak denetimine iade olmamalıdır.
 
-Nasıl bir ASP.NET Core web uygulaması yayımlamak genel bakış için bkz. [konak dağıtıp](xref:host-and-deploy/index). MSBuild görevleri ve hedefleri ASP.NET Core uygulaması yayımlamak için gerekli açık kaynaklı, [aspnet/websdk depo](https://github.com/aspnet/websdk).
+Nasıl bir ASP.NET Core web uygulaması yayımlamak genel bakış için bkz. <xref:host-and-deploy/index>. Açık kaynaklı bir ASP.NET Core web uygulaması yayımlamak için gerekli olan hedefler ve MSBuild görevleri sırasında [aspnet/websdk depo](https://github.com/aspnet/websdk).
 
-`dotnet publish` MSDeploy, klasörü kullanabilirsiniz ve [Kudu](https://github.com/projectkudu/kudu/wiki) yayımlama profilleri:
+`dotnet publish` Komutu, klasör, MSDeploy, kullanabilir ve [Kudu](https://github.com/projectkudu/kudu/wiki) yayımlama profilleri. Platformlar arası destek MSDeploy olmadığı için aşağıdaki MSDeploy seçenekleri yalnızca Windows üzerinde desteklenir.
 
-(Çalışan platformlar arası) klasörü:
+**(Çalışan platformlar arası) klasörü:**
 
 ```console
 dotnet publish WebApplication.csproj /p:PublishProfile=<FolderProfileName>
 ```
 
-MSDeploy (şu anda bu tek çalışır platformlar arası MSDeploy olmadığından bu yana Windows):
+**MSDeploy:**
 
 ```console
 dotnet publish WebApplication.csproj /p:PublishProfile=<MsDeployProfileName> /p:Password=<DeploymentPassword>
 ```
 
-MSDeploy paket (şu anda bu tek çalışır platformlar arası MSDeploy olmadığından bu yana Windows):
+**MSDeploy paketi:**
 
 ```console
 dotnet publish WebApplication.csproj /p:PublishProfile=<MsDeployPackageProfileName>
@@ -184,7 +178,7 @@ Daha fazla bilgi için [Microsoft.NET.Sdk.Publish](https://github.com/aspnet/web
 
 `dotnet publish` her platformda dizinden Azure'da yayımlamak için Kudu API'leri destekler. Visual Studio yayımlama Kudu API'leri, ancak desteklenen WebSDK ile platformlar arası yayımlamak için Azure'a destekler.
 
-Eklemek için bir yayımlama profili *özellikleri/PublishProfiles* klasöründe aşağıdaki içeriğe sahip:
+Projenin bir yayımlama profili Ekle *özellikleri/PublishProfiles* klasöründe aşağıdaki içeriğe sahip:
 
 ```xml
 <Project>
@@ -213,7 +207,10 @@ Adlı bir profille yayımlarken *FolderProfile*, aşağıdaki komutlardan birini
 * `dotnet build /p:DeployOnBuild=true /p:PublishProfile=FolderProfile`
 * `msbuild      /p:DeployOnBuild=true /p:PublishProfile=FolderProfile`
 
-Çağrılırken [dotnet derleme](/dotnet/core/tools/dotnet-build), çağrı `msbuild` yapıyı çalıştırmak ve işlem yayınlamak için. Ya da çağırma `dotnet build` veya `msbuild` klasör profilinde geçerken eşdeğerdir. MSBuild doğrudan Windows üzerinde çağrıldığında, MSBuild .NET Framework sürümü kullanılır. MSDeploy yayımlama için Windows makineleri için şu anda sınırlıdır. Çağırma `dotnet build` klasördeki olmayan profili çağırır MSBuild ve MSBuild olmayan klasör profillerde MSDeploy kullanır. Çağırma `dotnet build` klasörü olmayan profilinde (MSDeploy kullanarak) MSBuild çağırır ve (hatta Windows platformunda çalışırken) içinde bir hata oluşur. Bir klasörü olmayan profili ile yayımlamak için MSBuild doğrudan çağırabilir.
+.NET Core CLI'ın [dotnet derleme](/dotnet/core/tools/dotnet-build) komut çağrıları `msbuild` yapıyı çalıştırmak ve işlem yayınlamak için. `dotnet build` Ve `msbuild` klasör profilinde geçerken komutlar eşdeğerdir. Çağrılırken `msbuild` doğrudan Windows üzerinde MSBuild .NET Framework sürümü kullanılır. Çağırma `dotnet build` klasörü olmayan profilindeki:
+
+* Çağıran `msbuild`, MSDeploy kullanır.
+* (Hatta Windows üzerinde çalışırken) bir hatayla sonuçlanır. Bir klasörü olmayan profili ile yayımlamak için çağrı `msbuild` doğrudan.
 
 Aşağıdaki klasörü yayımlama profili Visual Studio ile oluşturulmuş ve bir ağ paylaşımına yayımlar:
 
@@ -241,19 +238,24 @@ MSBuild file.
 </Project>
 ```
 
-Önceki örnekte `<LastUsedBuildConfiguration>` ayarlanır `Release`. Visual Studio'dan yayımlama sırasında `<LastUsedBuildConfiguration>` yapılandırma özellik değeri, yayımlama işlemi başlatıldığında değeri kullanılarak ayarlanır. `<LastUsedBuildConfiguration>` Yapılandırma özelliği özeldir ve içeri aktarılan bir MSBuild dosyasında geçersiz kılınan olmamalıdır. Bu özellik komut satırından geçersiz kılınabilir.
+Önceki örnekte:
 
-.NET Core CLI kullanarak:
+* `<ExcludeApp_Data>` Özelliği yalnızca bir XML Şeması gereksinimi karşılamak için mevcut. `<ExcludeApp_Data>` Özellik üzerinde hiçbir etkisi yayımlama işlemi olsa bile bir *App_Data* proje kök klasöründe. *App_Data* ASP.NET 4.x projelerinde olduğu gibi klasör özel olarak değerlendirilmesi alma değil.
 
-```console
-dotnet build -c Release /p:DeployOnBuild=true /p:PublishProfile=FolderProfile
-```
+* `<LastUsedBuildConfiguration>` Özelliği `Release`. Visual Studio'dan değerini yayımlarken `<LastUsedBuildConfiguration>` yayımlama işlemi başlatıldığında değeri kullanılarak yapılır. `<LastUsedBuildConfiguration>` Özel ve içeri aktarılan bir MSBuild dosyasında geçersiz kılınan olmamalıdır. Bu özellik ancak olabilir aşağıdaki yaklaşımlardan birini kullanarak komut satırından geçersiz kılındı.
+  * .NET Core CLI kullanarak:
 
-MSBuild kullanarak:
+    ```console
+    dotnet build -c Release /p:DeployOnBuild=true /p:PublishProfile=FolderProfile
+    ```
 
-```console
-msbuild /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=FolderProfile
-```
+  * MSBuild kullanarak:
+
+    ```console
+    msbuild /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=FolderProfile
+    ```
+
+  Daha fazla bilgi için [MSBuild: Yapılandırma özelliğinin nasıl ayarlandığını](http://sedodream.com/2012/10/27/MSBuildHowToSetTheConfigurationProperty.aspx).
 
 ## <a name="publish-to-an-msdeploy-endpoint-from-the-command-line"></a>Komut satırından bir MSDeploy uç noktasına yayımlama
 
@@ -275,7 +277,7 @@ msbuild {PATH}
 * {} PROFİLİ &ndash; Yayımlama profilinin adı.
 * {USERNAME} &ndash; MSDeploy kullanıcı adı. {USERNAME} yayımlama profilinde bulunabilir.
 * {PASSWORD} &ndash; MSDeploy parola. {PASSWORD} almak *{profili}. PublishSettings* dosya. İndirme *. PublishSettings* dosyasından ya da:
-  * Çözüm Gezgini için: Seçin **görünümü** > **Cloud Explorer**. Azure aboneliğinizle bağlanın. Açık **uygulama hizmetleri**. Uygulamaya sağ tıklayın. Seçin **yayımlama profili indir**.
+  * **Çözüm Gezgini**: Seçin **görünümü** > **Cloud Explorer**. Azure aboneliğinizle bağlanın. Açık **uygulama hizmetleri**. Uygulamaya sağ tıklayın. Seçin **yayımlama profili indir**.
   * Azure portalı: Seçin **yayımlama profili Al** web uygulamasının **genel bakış** paneli.
 
 Aşağıdaki örnekte adlı bir yayımlama profili *AzureWebApp - Web dağıtımı*:
@@ -288,7 +290,7 @@ msbuild "AzureWebApp.csproj"
     /p:Password=".........."
 ```
 
-Bir yayımlama profili, .NET Core CLI ile de kullanılabilir [dotnet msbuild](/dotnet/core/tools/dotnet-msbuild) bir Windows komut isteminden komutu:
+Bir yayımlama profili, .NET Core CLI ile de kullanılabilir [dotnet msbuild](/dotnet/core/tools/dotnet-msbuild) bir Windows komut kabuğu komutunu:
 
 ```console
 dotnet msbuild "AzureWebApp.csproj"
@@ -298,8 +300,8 @@ dotnet msbuild "AzureWebApp.csproj"
     /p:Password=".........."
 ```
 
-> [!NOTE]
-> [Dotnet msbuild](/dotnet/core/tools/dotnet-msbuild) komut kullanılabilir platformlar arası ve macOS ve Linux'ta ASP.NET Core uygulamaları derleyebilirsiniz. Ancak, MSBuild MacOS ve Linux Azure veya başka bir MSDeploy uç noktası için bir uygulama dağıtmaya yeteneğine sahip değildir. MSDeploy, yalnızca Windows üzerinde kullanılabilir.
+> [!IMPORTANT]
+> `dotnet msbuild` Komut bir platformlar arası komut ve macOS ve Linux'ta ASP.NET Core uygulamaları derleyebilirsiniz. Ancak, MSBuild MacOS ve Linux Azure veya diğer MSDeploy uç noktalar için uygulama dağıtma uyumlu değil.
 
 ## <a name="set-the-environment"></a>Ortamı ayarlama
 
@@ -381,11 +383,11 @@ Aşağıdaki `<Content>` öğesi dağıtım sitede hedeflenen dosyaları siler:
 </ItemGroup>
 ```
 
-Önceki komut satırı dağıtımı kullanarak `<Content>` öğesi aşağıdaki çıktıyı üretir:
+Önceki komut satırı dağıtımı kullanarak `<Content>` öğesi çeşitlemesi aşağıdaki çıktıyı üretir:
 
 ```console
 MSDeployPublish:
-  Starting Web deployment task from source: manifest(C:\Webs\Web1\obj\Release\netcoreapp1.1\PubTmp\Web1.SourceManifest.
+  Starting Web deployment task from source: manifest(C:\Webs\Web1\obj\Release\{TARGET FRAMEWORK MONIKER}\PubTmp\Web1.SourceManifest.
   xml) to Destination: auto().
   Deleting file (Web11112\Views\Home\About1.cshtml).
   Deleting file (Web11112\Views\Home\About2.cshtml).
@@ -402,7 +404,7 @@ Done Building Project "C:\Webs\Web1\Web1.csproj" (default targets).
 
 ## <a name="include-files"></a>Dosyaları Ekle
 
-Aşağıdaki bölümlerde anahat farklı yaklaşımlara dosya eklemek için zaman yayımlayın. [Genel dosya ekleme](#general-file-inclusion) bölümünde kullanan `DotNetPublishFiles` Yayımla hedefleri dosyasında Web SDK'sı tarafından sağlanan öğesi. [Seçici dosya eklemeyi](#selective-file-inclusion) bölümünde kullanır `ResolvedFileToPublish` Yayımla hedefleri dosyasında .NET Core SDK'sı tarafından sağlanan öğesi. Web SDK'sı üzerinde .NET Core SDK'sı bağlı olduğundan, bir ASP.NET Core projesi içinde her iki öğe kullanılabilir. 
+Aşağıdaki bölümlerde anahat farklı yaklaşımlara dosya eklemek için zaman yayımlayın. [Genel dosya ekleme](#general-file-inclusion) bölümünde kullanan `DotNetPublishFiles` Yayımla hedefleri dosyasında Web SDK'sı tarafından sağlanan öğesi. [Seçici dosya eklemeyi](#selective-file-inclusion) bölümünde kullanır `ResolvedFileToPublish` Yayımla hedefleri dosyasında .NET Core SDK'sı tarafından sağlanan öğesi. Web SDK'sı üzerinde .NET Core SDK'sı bağlı olduğundan, bir ASP.NET Core projesi içinde her iki öğe kullanılabilir.
 
 ### <a name="general-file-inclusion"></a>Genel dosya ekleme
 
@@ -442,7 +444,7 @@ Aşağıdaki örnekte vurgulanmış biçimlendirmeyi gösterir:
 </ResolvedFileToPublish>
 ```
 
-Bkz: [Web SDK'sı depoya Benioku](https://github.com/aspnet/websdk) daha fazla dağıtım örneği için.
+Daha fazla dağıtım örneği için bkz. [Web SDK'sı depoya Benioku](https://github.com/aspnet/websdk).
 
 ## <a name="run-a-target-before-or-after-publishing"></a>Bir hedef önce veya sonra yayımlama çalıştırın
 

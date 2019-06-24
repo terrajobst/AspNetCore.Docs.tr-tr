@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 09/20/2018
 uid: tutorials/web-api-help-pages-using-swagger
-ms.openlocfilehash: d7a6ed158dcb464bb80c83773ed7d455b25ce44b
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: fb65b84b781b5c19040b559f0d7635ceb00cf4a0
+ms.sourcegitcommit: 06a455d63ff7d6b571ca832e8117f4ac9d646baf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64901025"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67316570"
 ---
 # <a name="aspnet-core-web-api-help-pages-with-swagger--openapi"></a>ASP.NET Core web API Yardım sayfaları ile Swagger / Openapı
 
@@ -19,7 +19,7 @@ Tarafından [Christoph Nienaber](https://twitter.com/zuckerthoben) ve [Riko Sute
 
 Bir Web API'si kullanılırken, çeşitli metotlarını anlama bir geliştirici için zor olabilir. [Swagger](https://swagger.io/)olarak da bilinen [Openapı](https://www.openapis.org/), Web API'leri için kullanışlı belgeler ve Yardım sayfaları oluşturma sorununu çözer. Bu, etkileşimli belgeleri, istemci SDK oluşturma ve API keşfedilebilirliğini gibi avantajlar sağlar.
 
-Bu makalede, [Swashbuckle.AspNetCore](https://github.com/domaindrivendev/Swashbuckle.AspNetCore) ve [NSwag](https://github.com/RSuter/NSwag) uygulamaları .NET Swagger büyütmüş:
+Bu makalede, [Swashbuckle.AspNetCore](https://github.com/domaindrivendev/Swashbuckle.AspNetCore) ve [NSwag](https://github.com/RicoSuter/NSwag) uygulamaları .NET Swagger büyütmüş:
 
 * **Swashbuckle.AspNetCore** Swagger belgeler için ASP.NET Core Web API'leri oluşturmak için açık kaynak bir projedir.
 
@@ -108,7 +108,7 @@ Swagger akışa çekirdek Swagger belirtimidir&mdash;varsayılan olarak, bir bel
 
 ![Swagger kullanıcı Arabirimi](web-api-help-pages-using-swagger/_static/swagger-ui.png)
 
-Kullanıcı Arabiriminden denetleyicilerinizi her genel bir eylem yöntemi test edilebilir. Bir yöntem adı bölümü genişletmek için tıklayın. Gerekli tüm parametreleri ekleyin ve **deneyin!**.
+Kullanıcı Arabiriminden denetleyicilerinizi her genel bir eylem yöntemi test edilebilir. Bir yöntem adı bölümü genişletmek için tıklayın. Gerekli tüm parametreleri ekleyin ve **deneyin!** .
 
 ![Örnek Swagger alma test](web-api-help-pages-using-swagger/_static/get-try-it-out.png)
 
