@@ -2,17 +2,17 @@
 title: ASP.NET core'da HTTP.sys web sunucusu uygulaması
 author: guardrex
 description: HTTP.sys, ASP.NET Core, Windows için bir web sunucusu hakkında bilgi edinin. HTTP.sys çekirdek modu sürücüsü üzerinde oluşturulmuş, HTTP.sys için IIS olmadan İnternet'e doğrudan bağlantı için kullanılan Kestrel alternatiftir.
-monikerRange: '>= aspnetcore-2.0'
+monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 05/27/2019
+ms.date: 06/20/2019
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: 1b5e26171e5f807fdb918ccf8ae1ff1231ad5356
-ms.sourcegitcommit: f5762967df3be8b8c868229e679301f2f7954679
+ms.openlocfilehash: eefe507efadb5ef0a03854d931402f9eaa23a266
+ms.sourcegitcommit: 763af2cbdab0da62d1f1cfef4bcf787f251dfb5c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67048185"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67394766"
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>ASP.NET core'da HTTP.sys web sunucusu uygulaması
 
@@ -86,13 +86,56 @@ HTTP/2 varsayılan olarak etkindir. Bir HTTP/2 bağlantı değil, bağlantı, HT
 
 1. Proje dosyasındaki bir paket başvurusu kullanırken gerekli değildir [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app) ([nuget.org](https://www.nuget.org/packages/Microsoft.AspNetCore.App/)) (ASP.NET Core 2.1 veya üzeri). Değil kullanırken `Microsoft.AspNetCore.App` metapackage, paket başvurusu ekleme [Microsoft.AspNetCore.Server.HttpSys](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.HttpSys/).
 
-2. Çağrı <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderHttpSysExtensions.UseHttpSys*> gerekli belirtme konak oluştururken genişletme yöntemi <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions>:
+2. Çağrı <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderHttpSysExtensions.UseHttpSys*> gerekli belirtme konak oluştururken genişletme yöntemi <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions>. Aşağıdaki örnek, varsayılan değerlerine seçeneklerini ayarlar:
+
+::: moniker range=">= aspnetcore-3.0"
+
+   ```csharp
+   public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+      WebHost.CreateDefaultBuilder(args)
+          .UseStartup<Startup>()
+          .UseHttpSys(options =>
+          {
+              options.AllowSynchronousIO = false;
+              options.Authentication.Schemes = AuthenticationSchemes.None;
+              options.Authentication.AllowAnonymous = true;
+              options.MaxConnections = null;
+              options.MaxRequestBodySize = 30000000;
+              options.UrlPrefixes.Add("http://localhost:5000");
+          });
+   ```
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
    [!code-csharp[](httpsys/sample/Program.cs?name=snippet1&highlight=4-12)]
+
+::: moniker-end
 
    Ek HTTP.sys yapılandırma aracılığıyla işlenir [kayıt defteri ayarları](https://support.microsoft.com/help/820129/http-sys-registry-settings-for-windows).
 
    **HTTP.sys seçenekleri**
+
+::: moniker range=">= aspnetcore-3.0"
+
+   | Özellik | Açıklama | Varsayılan |
+   | -------- | ----------- | :-----: |
+   | [AllowSynchronousIO](xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.AllowSynchronousIO) | Zaman uyumlu giriş/çıkış için izin verilip verilmediğini `HttpContext.Request.Body` ve `HttpContext.Response.Body`. | `false` |
+   | [Authentication.AllowAnonymous](xref:Microsoft.AspNetCore.Server.HttpSys.AuthenticationManager.AllowAnonymous) | Anonim isteklere izin verin. | `true` |
+   | [Authentication.Schemes](xref:Microsoft.AspNetCore.Server.HttpSys.AuthenticationManager.Schemes) | İzin verilen kimlik doğrulama şemasını belirtin. Dinleyici disposing önce herhangi bir zamanda değiştirilebilir. Değerleri tarafından sağlanan [AuthenticationSchemes enum](xref:Microsoft.AspNetCore.Server.HttpSys.AuthenticationSchemes): `Basic`, `Kerberos`, `Negotiate`, `None`, ve `NTLM`. | `None` |
+   | [EnableResponseCaching](xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.EnableResponseCaching) | Girişimi [çekirdek modu](/windows-hardware/drivers/gettingstarted/user-mode-and-kernel-mode) uygun üst bilgilerini içeren yanıtlar için önbelleğe alma. Yanıta dahil `Set-Cookie`, `Vary`, veya `Pragma` üstbilgileri. İçermesi gerekir bir `Cache-Control` üst bilgisi bu `public` ve ya da bir `shared-max-age` veya `max-age` değeri veya bir `Expires` başlığı. | `true` |
+   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.MaxAccepts> | En fazla eşzamanlı sayısı kabul eder. | 5 &times; [ortam.<br> ProcessorCount](xref:System.Environment.ProcessorCount) |
+   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.MaxConnections> | Kabul etmek üzere kullanılan eşzamanlı bağlantı sayısı. Kullanım `-1` sonsuz için. Kullanma `null` kayıt defterinin makine genelindeki ayarını kullanmak için. | `null`<br>(sınırsız) |
+   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.MaxRequestBodySize> | Bkz: <a href="#maxrequestbodysize">MaxRequestBodySize</a> bölümü. | 30000000 bayt<br>(~28.6 MB) |
+   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.RequestQueueLimit> | Sıraya alınabilecek isteklerinin sayısı. | 1000 |
+   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.ThrowWriteExceptions> | Yanıt gövdesi yazma, hata nedeniyle istemci bağlantısını keser veya özel durumlar genellikle tamamlamak gösterir. | `false`<br>(normalde Tamamla) |
+   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.Timeouts> | HTTP.sys kullanıma <xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager> yapılandırma, kayıt defterinde da yapılandırılabilir. Varsayılan değerleri dahil olmak üzere, her ayar hakkında daha fazla bilgi için API bağlantıları izleyin:<ul><li>[TimeoutManager.DrainEntityBody](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.DrainEntityBody) &ndash; HTTP Sunucusu API varlık gövdesini bir canlı bağlantı boşaltma zaman izin verilir.</li><li>[TimeoutManager.EntityBody](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.EntityBody) &ndash; ulaşması istek Varlık gövdesi için izin verilen süresi.</li><li>[TimeoutManager.HeaderWait](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.HeaderWait) &ndash; süresi izin verilen HTTP Sunucusu API istek üstbilgisi ayrıştırılamıyor.</li><li>[TimeoutManager.IdleConnection](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.IdleConnection) &ndash; boştaki bir bağlantının için izin verilen süresi.</li><li>[TimeoutManager.MinSendBytesPerSecond](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.MinSendBytesPerSecond) &ndash; en düşük yanıt hızı gönderin.</li><li>[TimeoutManager.RequestQueue](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.RequestQueue) &ndash; zaman izin isteğinin, uygulamayı alır önce isteği kuyruğunda kalır.</li></ul> |  |
+   | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.UrlPrefixes> | Belirtin <xref:Microsoft.AspNetCore.Server.HttpSys.UrlPrefixCollection> HTTP.sys ile kaydetmek için. Kullanışlı [UrlPrefixCollection.Add](xref:Microsoft.AspNetCore.Server.HttpSys.UrlPrefixCollection.Add*), bir önek koleksiyona eklemek için kullanılır. Bu dinleyici disposing önce herhangi bir zamanda değiştirilebilir. |  |
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
 
    | Özellik | Açıklama | Varsayılan |
    | -------- | ----------- | :-----: |
@@ -107,6 +150,8 @@ HTTP/2 varsayılan olarak etkindir. Bir HTTP/2 bağlantı değil, bağlantı, HT
    | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.ThrowWriteExceptions> | Yanıt gövdesi yazma, hata nedeniyle istemci bağlantısını keser veya özel durumlar genellikle tamamlamak gösterir. | `false`<br>(normalde Tamamla) |
    | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.Timeouts> | HTTP.sys kullanıma <xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager> yapılandırma, kayıt defterinde da yapılandırılabilir. Varsayılan değerleri dahil olmak üzere, her ayar hakkında daha fazla bilgi için API bağlantıları izleyin:<ul><li>[TimeoutManager.DrainEntityBody](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.DrainEntityBody) &ndash; HTTP Sunucusu API varlık gövdesini bir canlı bağlantı boşaltma zaman izin verilir.</li><li>[TimeoutManager.EntityBody](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.EntityBody) &ndash; ulaşması istek Varlık gövdesi için izin verilen süresi.</li><li>[TimeoutManager.HeaderWait](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.HeaderWait) &ndash; süresi izin verilen HTTP Sunucusu API istek üstbilgisi ayrıştırılamıyor.</li><li>[TimeoutManager.IdleConnection](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.IdleConnection) &ndash; boştaki bir bağlantının için izin verilen süresi.</li><li>[TimeoutManager.MinSendBytesPerSecond](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.MinSendBytesPerSecond) &ndash; en düşük yanıt hızı gönderin.</li><li>[TimeoutManager.RequestQueue](xref:Microsoft.AspNetCore.Server.HttpSys.TimeoutManager.RequestQueue) &ndash; zaman izin isteğinin, uygulamayı alır önce isteği kuyruğunda kalır.</li></ul> |  |
    | <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.UrlPrefixes> | Belirtin <xref:Microsoft.AspNetCore.Server.HttpSys.UrlPrefixCollection> HTTP.sys ile kaydetmek için. Kullanışlı [UrlPrefixCollection.Add](xref:Microsoft.AspNetCore.Server.HttpSys.UrlPrefixCollection.Add*), bir önek koleksiyona eklemek için kullanılır. Bu dinleyici disposing önce herhangi bir zamanda değiştirilebilir. |  |
+
+::: moniker-end
 
    <a name="maxrequestbodysize"></a>
 
@@ -163,7 +208,7 @@ HTTP/2 varsayılan olarak etkindir. Bir HTTP/2 bağlantı değil, bağlantı, HT
 
    Aşağıdaki kod örneği kullanma işlemini gösterir <xref:Microsoft.AspNetCore.Server.HttpSys.HttpSysOptions.UrlPrefixes> sunucunun yerel IP adresi ile `10.0.0.4` 443 numaralı bağlantı noktasında:
 
-   [!code-csharp[](httpsys/sample_snapshot/Program.cs?name=snippet1&highlight=11)]
+   [!code-csharp[](httpsys/sample_snapshot/Program.cs?name=snippet1&highlight=6)]
 
    Bir avantajı `UrlPrefixes` bir hata iletisi hemen düzgün biçimlendirilmemiş ön ekleri için oluşturuldu.
 

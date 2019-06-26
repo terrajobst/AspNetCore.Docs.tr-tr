@@ -5,28 +5,28 @@ description: Bileşenleri Blazor uygulamalardan bir dış bileşen kitaplığı 
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/14/2019
+ms.date: 06/24/2019
 uid: blazor/class-libraries
-ms.openlocfilehash: 40dc029b35e0997e526fdfc02c275da5a84450b9
-ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
+ms.openlocfilehash: 8676e0fd660b7d281c80d06d24d5593c2df6348b
+ms.sourcegitcommit: 763af2cbdab0da62d1f1cfef4bcf787f251dfb5c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67152880"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67394622"
 ---
 # <a name="aspnet-core-razor-components-class-libraries"></a>ASP.NET Core Razor bileşenleri sınıf kitaplıkları
 
 Tarafından [Simon Timms](https://github.com/stimms)
 
-Bileşenleri Razor sınıf kitaplıkları, projeler arasında paylaşılabilir. Bileşenlerin gelen dahil edilebilir:
+Bileşenleri paylaşılabilir bir [Razor sınıf kitaplığı (RCL)](xref:razor-pages/ui-class) projeler arasında. A *Razor bileşenleri sınıf kitaplığı* gelen dahil edilebilir:
 
 * Çözümdeki başka bir proje.
 * Bir NuGet paketi.
 * Başvurulan bir .NET kitaplığı.
 
-Normal .NET türleri yalnızca bileşenlerdir gibi Razor sınıf kitaplığı tarafından sağlanan normal .NET derlemelerini bileşenlerdir.
+Normal .NET türleri yalnızca bileşenlerdir gibi bir RCL tarafından sağlanan normal .NET derlemelerini bileşenlerdir.
 
-## <a name="create-a-razor-class-library"></a>Razor sınıf kitaplığı oluşturma
+## <a name="create-an-rcl"></a>Bir RCL oluşturma
 
 Sunulan yönergeleri <xref:blazor/get-started> makale Blazor için ortamınızı yapılandırmak için.
 
@@ -37,23 +37,23 @@ Sunulan yönergeleri <xref:blazor/get-started> makale Blazor için ortamınızı
 1. Bir proje adı belirtin **proje adı** alan veya varsayılan proje adı kabul edin. Örneklerde proje adı bu konudaki `MyComponentLib1`. **Oluştur**’u seçin.
 1. İçinde **yeni bir ASP.NET Core Web uygulaması oluşturma** iletişim kutusunda onaylayın **.NET Core** ve **ASP.NET Core 3.0** seçilir.
 1. Seçin **Razor sınıf kitaplığı** şablonu. **Oluştur**’u seçin.
-1. Razor sınıf kitaplığı, bir çözüme ekleyin:
+1. RCL bir çözüme ekleyin:
    1. Çözüme sağ tıklayın. Seçin **ekleme** > **mevcut proje**.
-   1. Razor Sınıf Kitaplığı'nızın proje dosyasına gidin.
-   1. Razor Sınıf Kitaplığı'nızın proje dosyası seçin ( *.csproj*).
-1. Razor sınıf kitaplığı başvurusu uygulamadan ekleyin:
+   1. RCL'ın proje dosyasına gidin.
+   1. RCL'ın proje dosyası seçin ( *.csproj*).
+1. Bir başvuru RCL uygulamadan ekleyin:
    1. Uygulama projesine sağ tıklayın. Seçin **ekleme** > **başvuru**.
-   1. Razor sınıf kitaplığı Projesi'ni seçin. **Tamam**’ı seçin.
+   1. RCL projeyi seçin. **Tamam**’ı seçin.
 
 # <a name="visual-studio-code--net-core-clitabvisual-studio-codenetcore-cli"></a>[Visual Studio Code / .NET Core CLI](#tab/visual-studio-code+netcore-cli)
 
-1. Razor sınıf kitaplığı kullanma (`razorclasslib`) şablonuyla [yeni dotnet](/dotnet/core/tools/dotnet-new) komut kabuğundan komutu. Aşağıdaki örnekte, bir Razor sınıf kitaplığı adlandırılmış oluşturulan `MyComponentLib1`. Bulunduğu klasöre `MyComponentLib1` komut yürütülürken otomatik olarak oluşturulur.
+1. Razor sınıf kitaplığı şablonu (`razorclasslib`) ile [yeni dotnet](/dotnet/core/tools/dotnet-new) komut kabuğundan komutu. Aşağıdaki örnekte, bir RCL adlandırılmış oluşturulan `MyComponentLib1`. Bulunduğu klasöre `MyComponentLib1` komut yürütülürken otomatik olarak oluşturulur.
 
    ```console
    dotnet new razorclasslib -o MyComponentLib1
    ```
 
-1. Kitaplık var olan bir projeye eklemek için [dotnet Başvuru Ekle](/dotnet/core/tools/dotnet-add-reference) komut kabuğu komutunu. Aşağıdaki örnekte, Razor sınıf kitaplığı, uygulamaya eklenir. Kitaplığa yoluna sahip uygulama proje klasöründen aşağıdaki komutu yürütün:
+1. Kitaplık var olan bir projeye eklemek için [dotnet Başvuru Ekle](/dotnet/core/tools/dotnet-add-reference) komut kabuğu komutunu. Aşağıdaki örnekte, RCL uygulamaya eklenir. Kitaplığa yoluna sahip uygulama proje klasöründen aşağıdaki komutu yürütün:
 
    ```console
    dotnet add reference {PATH TO LIBRARY}
@@ -61,9 +61,9 @@ Sunulan yönergeleri <xref:blazor/get-started> makale Blazor için ortamınızı
 
 ---
 
-Razor bileşen dosyaları ekleyin ( *.razor*) Razor sınıf kitaplığı için.
+Razor bileşen dosyaları ekleyin ( *.razor*) RCL için.
 
-## <a name="razor-class-libraries-not-supported-for-client-side-apps"></a>Razor sınıf kitaplıkları için istemci tarafı uygulamalar desteklenmiyor
+## <a name="rcls-not-supported-for-client-side-apps"></a>İstemci tarafı uygulamalar için desteklenmeyen RCLs
 
 ASP.NET Core 3.0 Önizleme'de, Razor sınıf kitaplıkları Blazor istemci tarafı uygulamalar ile uyumlu değildir.
 
@@ -74,15 +74,6 @@ dotnet new blazorlib -o MyComponentLib1
 ```
 
 Bileşen kitaplıkları kullanarak `blazorlib` şablon görüntüleri, JavaScript ve stil sayfalarını gibi statik dosyalar içerebilir. Oluşturma zamanında derlenmiş bir bütünleştirilmiş kodu dosyanın gömülü statik dosyalar ( *.dll*), kaynaklarını ekleme hakkında endişelenmenize gerek kalmadan tüketim bileşenlerini sağlar. İçindeki tüm dosyaları `content` dizin katıştırılmış bir kaynağı işaretlenir.
-
-## <a name="static-assets-not-supported-for-server-side-apps"></a>Sunucu tarafı uygulamalar için desteklenmeyen statik varlıklar
-
-ASP.NET Core 3.0 Önizleme'de, statik ya da bir Razor sınıf kitaplığı varlıklarından Blazor sunucu tarafı uygulamalar kullanamıyor (`razorclasslib`) veya Blazor kitaplığı (`blazorlib`).
-
-Geçici bir çözüm, deneyebileceğiniz [BlazorEmbedLibrary](https://www.nuget.org/packages/BlazorEmbedLibrary/).
-
-> [!NOTE]
-> [BlazorEmbedLibrary](https://www.nuget.org/packages/BlazorEmbedLibrary/) tutulan veya Microsoft tarafından desteklenmiyor.
 
 ## <a name="consume-a-library-component"></a>Bir kitaplık bileşeni kullanma
 
@@ -131,29 +122,12 @@ NuGet kullanarak paket karşıya [dotnet nuget yayımlama](/dotnet/core/tools/do
 dotnet nuget publish
 ```
 
-Kullanırken `blazorlib` şablonu, statik kaynakları, NuGet paketinin dahil edilir. Kitaplık tüketiciler otomatik olarak betikleri ve stil sayfalarını, almak tüketiciler kaynakları el ile yüklemek için gerekli değildir. Unutmayın [statik varlıklar, sunucu tarafı uygulamalar için desteklenmeyen](#static-assets-not-supported-for-server-side-apps), Blazor kitaplığı da dahil olmak üzere (`blazorlib`) bir sunucu tarafı uygulama tarafından başvuruluyor.
+Kullanırken `blazorlib` şablonu, statik kaynakları, NuGet paketinin dahil edilir. Kitaplık tüketiciler otomatik olarak betikleri ve stil sayfalarını, almak tüketiciler kaynakları el ile yüklemek için gerekli değildir.
 
-## <a name="create-a-razor-class-library-with-static-assets"></a>Razor sınıf kitaplığı ile statik varlıkları oluşturma
+## <a name="create-a-razor-components-class-library-with-static-assets"></a>Bir Razor bileşenleri sınıf kitaplığı ile statik varlıkları oluşturma
 
-Razor sınıf kitaplıkları (RCL) sık RCL kullanan uygulama tarafından başvurulan statik varlıklar Yardımcısı gerektirir. ASP.NET Core, kullanan bir uygulama için kullanılabilir olan statik varlıkları içeren RCLs oluşturulmasını sağlar.
+Bir RCL statik varlıklar içerebilir. Statik varlıkları, kitaplığı kullanan tüm uygulamaları için kullanılabilir. Daha fazla bilgi için bkz. <xref:razor-pages/ui-class#create-an-rcl-with-static-assets>.
 
-Yardımcı varlıklar bir Razor sınıf kitaplığının bir parçası dahil etmek için oluşturma bir *wwwroot* sınıf kitaplığı klasöründe ve tüm gerekli dosyaları bu klasörde içerir.
+## <a name="additional-resources"></a>Ek kaynaklar
 
-Razor sınıf kitaplığı paketleme, tüm varlıkları Yahoo! companion *wwwroot* klasörü paketine otomatik olarak dahil edilen ve bu paketi uygulamaları için kullanılabilir hale getirilir.
-
-### <a name="consume-content-from-a-referenced-razor-class-library"></a>Başvurulan bir Razor sınıf kitaplığı ait içerikleri kullanabilirsiniz
-
-Eklenen dosyalar *wwwroot* klasör Razor sınıf kitaplığı kullanan uygulamaya önek altında sunulur `_content/{LIBRARY NAME}/`. Aracılığıyla bu varlıkları kullanan uygulama başvuran `<script>`, `<style>`, `<img>`ve diğer HTML etiketleri.
-
-### <a name="multi-project-development-flow"></a>Birden çok proje geliştirme akış
-
-Uygulama çalıştırıldığında:
-
-* Varlıklar, özgün konumlarında haberdar olun.
-* Sınıf kitaplığı içinde herhangi bir değişiklik *wwwroot* klasörü, uygulamada derlenmeden yansıtılır.
-
-Derleme zamanında bildirim ile tüm statik web varlık konumlarda oluşturulur. Bildirimi, çalışma zamanında okuyun ve başvurulan projeler ve paketleri varlıklarından kullanmasına izin verir.
-
-### <a name="publish"></a>Yayımlama
-
-Uygulama yayınlandıktan sonra başvuruda bulunulan tüm projelerin ve paketleri Yardımcısı varlıklarından içine kopyalanır *wwwroot* klasörü altında yayımlanan uygulamanın `_content/{LIBRARY NAME}/`.
+* <xref:razor-pages/ui-class>

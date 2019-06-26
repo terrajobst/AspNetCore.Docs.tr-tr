@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/28/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 7906891599b90fa73926781ca1a111e687798f63
-ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
+ms.openlocfilehash: 2dab8b4839d6778d5dc6a3daf96c1719eecfe0fb
+ms.sourcegitcommit: 763af2cbdab0da62d1f1cfef4bcf787f251dfb5c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67034788"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67394633"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Windows IIS üzerinde ASP.NET Core barındırma
 
@@ -69,6 +69,17 @@ IIS HTTP sunucusu isteği işledikten sonra ASP.NET Core ara yazılım ardışı
 Barındırma işlemi içinde olan mevcut uygulamalar için katılımı ancak [yeni dotnet](/dotnet/core/tools/dotnet-new) işlemdeki tüm IIS ve IIS Express senaryoları için barındırma modelini varsayılan şablonları.
 
 `CreateDefaultBuilder` ekler bir <xref:Microsoft.AspNetCore.Hosting.Server.IServer> çağırarak örneği <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIIS*> önyükleme yöntemi [CoreCLR](/dotnet/standard/glossary#coreclr) ve IIS çalışan işlemi uygulama barındırın (*w3wp.exe* veya *iisexpress.exe*). Performans testleri belirten bir .NET Core uygulaması işlem içi barındırma için uygulama işlem dışı ve proxy isteklerini barındırma kıyasla önemli ölçüde daha yüksek istek üretilen işini teslim [Kestrel](xref:fundamentals/servers/kestrel) sunucusu.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-3.0"
+
+> [!NOTE]
+> Tek tek dosya yürütülebilir dosya işlem içi barındırma modeli tarafından yüklenemiyor gibi uygulamalar yayımladı.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
 
 ### <a name="out-of-process-hosting-model"></a>İşlem dışı barındırma modeli
 

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/27/2017
 uid: test/razor-pages-tests
-ms.openlocfilehash: f1526b8803f43ec8cbe77c1d2c100d9daf6cd316
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: f0e47f975579dc114eaeda375028ec62696f58ed
+ms.sourcegitcommit: 763af2cbdab0da62d1f1cfef4bcf787f251dfb5c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64900038"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67394733"
 ---
 # <a name="razor-pages-unit-tests-in-aspnet-core"></a>ASP.NET Core Razor sayfalar birim testleri
 
@@ -66,7 +66,7 @@ Bir konsol uygulaması içinde test uygulamasıdır *tests/RazorPagesTestSample.
 | Test uygulama klasörü | Açıklama |
 | --------------- | ----------- |
 | *UnitTests*     | <ul><li>*DataAccessLayerTest.cs* DAL için birim testlerini içerir.</li><li>*IndexPageTests.cs* dizin sayfa modeli için birim testlerini içerir.</li></ul> |
-| *Yardımcı programları*     | İçeren `TestingDbContextOptions` veritabanı her test için kendi temel koşul sıfırlanır her DAL birim testi için içerik seçeneklerini yeni veritabanı oluşturmak için kullanılan yöntem. |
+| *Yardımcı programları*     | İçeren `TestDbContextOptions` veritabanı her test için kendi temel koşul sıfırlanır her DAL birim testi için içerik seçeneklerini yeni veritabanı oluşturmak için kullanılan yöntem. |
 
 Test çerçevesi [xUnit](https://xunit.github.io/). Framework sahte işlem nesnesi [Moq](https://github.com/moq/moq4).
 
@@ -93,14 +93,14 @@ using (var db = new AppDbContext(optionsBuilder.Options))
 }
 ```
 
-Bu yaklaşım sorun, her test ne olursa olsun durumu önceki testte, sol veritabanı almaya başlar. Birbiriyle uğratmaz atomik birim testleri yazma çalışırken bu sorunlara neden olabilir. Zorlamak için `AppDbContext` her test için yeni bir veritabanı bağlamı kullanmak için tedarik bir `DbContextOptions` yeni bir hizmet sağlayıcısını temel örneği. Test uygulaması kullanarak bunun nasıl yapılacağını gösterir, `Utilities` sınıfı yöntemi `TestingDbContextOptions` (*tests/RazorPagesTestSample.Tests/Utilities/Utilities.cs*):
+Bu yaklaşım sorun, her test ne olursa olsun durumu önceki testte, sol veritabanı almaya başlar. Birbiriyle uğratmaz atomik birim testleri yazma çalışırken bu sorunlara neden olabilir. Zorlamak için `AppDbContext` her test için yeni bir veritabanı bağlamı kullanmak için tedarik bir `DbContextOptions` yeni bir hizmet sağlayıcısını temel örneği. Test uygulaması kullanarak bunun nasıl yapılacağını gösterir, `Utilities` sınıfı yöntemi `TestDbContextOptions` (*tests/RazorPagesTestSample.Tests/Utilities/Utilities.cs*):
 
 [!code-csharp[](razor-pages-tests/samples/2.x/tests/RazorPagesTestSample.Tests/Utilities/Utilities.cs?name=snippet1)]
 
 Kullanarak `DbContextOptions` DAL birimi testleri atomik olarak ile yeni veritabanı örneği çalıştırmak her bir testi sağlar:
 
 ```csharp
-using (var db = new AppDbContext(Utilities.TestingDbContextOptions()))
+using (var db = new AppDbContext(Utilities.TestDbContextOptions()))
 {
     // Use the db here in the unit test.
 }

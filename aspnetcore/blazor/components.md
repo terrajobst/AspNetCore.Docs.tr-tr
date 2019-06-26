@@ -1,20 +1,20 @@
 ---
-title: Oluşturma ve Razor bileşenleri kullanma
+title: Oluşturma ve ASP.NET Core Razor bileşenleri kullanma
 author: guardrex
 description: Oluşturma ve bileşen ömürleri yönetme verilere bağlayın ve olayları işlemek nasıl dahil olmak üzere, Razor bileşenlerini kullanma hakkında bilgi edinin.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/16/2019
+ms.date: 06/24/2019
 uid: blazor/components
-ms.openlocfilehash: eb8f72147c98ff1dab17c130122c441a2dd4de4d
-ms.sourcegitcommit: 28646e8ca62fb094db1557b5c0c02d5b45531824
+ms.openlocfilehash: cd4d4f9d85f2fad6fe769340ab7a49e6ccb05861
+ms.sourcegitcommit: 763af2cbdab0da62d1f1cfef4bcf787f251dfb5c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2019
-ms.locfileid: "67333430"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67394689"
 ---
-# <a name="create-and-use-razor-components"></a>Oluşturma ve Razor bileşenleri kullanma
+# <a name="create-and-use-aspnet-core-razor-components"></a>Oluşturma ve ASP.NET Core Razor bileşenleri kullanma
 
 Tarafından [Luke Latham](https://github.com/guardrex) ve [Daniel Roth](https://github.com/danroth27)
 
@@ -55,7 +55,7 @@ Bileşen üyeleri, ardından bileşenin parçası mantığı kullanarak işleme 
 
 Bileşen, bileşen başlangıçta işlenen sonra olaylara yanıt olarak, işleme ağacında yeniden oluşturur. Blazor yeni bir işleme ağacı Öncekine karşı karşılaştırır ve herhangi bir değişiklik tarayıcının belge nesne modeli (DOM) için geçerlidir.
 
-Bileşenleri sıradan C# sınıfları ve bir projesi içinde her yerden yerleştirilebilir. Web sayfaları genellikle üreten bileşenler bulunan *sayfaları* klasör. Sayfası olmayan bileşenleri içine yerleştirildiğinde sık *paylaşılan* klasör veya özel bir klasör projeye eklendi. Özel bir klasör kullanmayı ekleyin ya da özel klasör ad alanı ana bileşen veya uygulamanın  *\_Imports.razor* dosya. Örneğin, aşağıdaki ad alanı bileşenlerde yapar bir *bileşenleri* klasör uygulamanın kök ad alanı olduğunda kullanılabilen `WebApplication`:
+Bileşenleri sıradan C# sınıfları ve bir projesi içinde her yerden yerleştirilebilir. Web sayfaları genellikle üreten bileşenler bulunan *sayfaları* klasör. Sayfası olmayan bileşenleri yerleştirildiğinde sık *paylaşılan* klasör veya özel bir klasör projeye eklendi. Özel bir klasör kullanmayı ekleyin ya da özel klasör ad alanı ana bileşen veya uygulamanın *_Imports.razor* dosya. Örneğin, aşağıdaki ad alanı bileşenlerde yapar bir *bileşenleri* klasör uygulamanın kök ad alanı olduğunda kullanılabilen `WebApplication`:
 
 ```cshtml
 @using WebApplication.Components
@@ -553,6 +553,18 @@ protected override void OnAfterRender()
 }
 ```
 
+### <a name="handle-incomplete-async-actions-at-render"></a>Tamamlanmamış zaman uyumsuz işleme eylemlerini işlemek
+
+Yaşam döngüsü olayları zaman uyumsuz eylemlerin bileşeni işlenmeden önce tamamlanmamış olabilir. Nesneleri olabilir `null` veya yaşam döngüsü metodu yürütülürken verilerle doldurulmuş önişlemcinin. Nesneleri başlatıldığını onaylamak için işleme mantığı sağlar. Yer tutucu nesneleri sırasında kullanıcı Arabirimi öğeleri (örneğin, bir yükleme iletisi) işleme olan `null`.
+
+Veri getirme bileşende Blazor şablonlarının `OnInitAsync` kopyalanmamasına için geçersiz kılındı tahmin veri alma (`forecasts`). Zaman `forecasts` olduğu `null`, kullanıcıya yüklenirken bir ileti görüntülenir. Sonra `Task` tarafından döndürülen `OnInitAsync` tamamlandıktan, bileşen, güncelleştirilmiş durumuyla rerendered.
+
+*Pages/FetchData.razor*:
+
+[!code-cshtml[](components/samples_snapshot/3.x/FetchData.razor?highlight=9)]
+
+### <a name="execute-code-before-parameters-are-set"></a>Parametreleri ayarlamadan önce kod yürütme
+
 `SetParameters` parametreleri ayarlamadan önce kodu çalıştırmak için geçersiz kılınabilir:
 
 ```csharp
@@ -565,6 +577,8 @@ public override void SetParameters(ParameterCollection parameters)
 ```
 
 Varsa `base.SetParameters` değilse çağrılır, özel kod yolu gerekli gelen parametre değeri yorumlayabilir. Örneğin, gelen parametreleri sınıfındaki özellikleri atanması için gerekli değildir.
+
+### <a name="suppress-refreshing-of-the-ui"></a>Kullanıcı Arabiriminde yenileme Gizle
 
 `ShouldRender` Kullanıcı Arabiriminde yenilemeyi engellemek için geçersiz kılınabilir. Uygulama döndürürse `true`, UI yenilenir. Bile `ShouldRender` olan geçersiz kılınan, bileşen her zaman başlangıçta işlenir.
 

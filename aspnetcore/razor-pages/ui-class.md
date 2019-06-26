@@ -4,21 +4,21 @@ author: Rick-Anderson
 description: Yeniden kullanılabilir Razor kısmi görünümler, ASP.NET Core sınıf kitaplığında kullanarak kullanıcı Arabirimi oluşturma açıklanır.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 09/07/2018
+ms.date: 06/24/2019
 ms.custom: mvc, seodec18
 uid: razor-pages/ui-class
-ms.openlocfilehash: 7ec36cc8f4832fb1e1a50831dfcb88f3cafb5ca9
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 96ef8fc055a6b92cd0808d02031d917b8446f305
+ms.sourcegitcommit: 763af2cbdab0da62d1f1cfef4bcf787f251dfb5c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64901889"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67394752"
 ---
 # <a name="create-reusable-ui-using-the-razor-class-library-project-in-aspnet-core"></a>ASP.NET Core Razor sınıf kitaplığı projesi kullanarak yeniden kullanılabilir kullanıcı Arabirimi oluşturma
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Razor görünümleri, sayfalar, denetleyicileri, sayfa modelleri [görüntülemek bileşenleri](xref:mvc/views/view-components), ve veri modelleri bir Razor sınıf kitaplığı (RCL) içine derlenebilir. RCL paketlenir ve yeniden kullanılabilir. Uygulamalar RCL içerir ve görünümlere ve sayfalara içerdiği geçersiz kılar. Zaman görünümü, kısmi görünüm veya Razor sayfası hem web uygulaması hem de RCL Razor işaretlemesi bulunur (*.cshtml* dosya) web uygulaması önceliklidir.
+Razor görünümleri, sayfalar, denetleyicileri, sayfa modelleri [Razor bileşenleri](xref:blazor/class-libraries), [görüntülemek bileşenleri](xref:mvc/views/view-components), ve veri modelleri bir Razor sınıf kitaplığı (RCL) derlenebilir. RCL paketlenir ve yeniden kullanılabilir. Uygulamalar RCL içerir ve görünümlere ve sayfalara içerdiği geçersiz kılar. Zaman görünümü, kısmi görünüm veya Razor sayfası hem web uygulaması hem de RCL Razor işaretlemesi bulunur ( *.cshtml* dosya) web uygulaması önceliklidir.
 
 Bu özellik gerektirir [!INCLUDE[](~/includes/2.1-SDK.md)]
 
@@ -34,7 +34,7 @@ Bu özellik gerektirir [!INCLUDE[](~/includes/2.1-SDK.md)]
 * Doğrulama **ASP.NET Core 2.1** veya daha sonra seçilir.
 * Seçin **Razor sınıf kitaplığı** > **Tamam**.
 
-Razor sınıf kitaplığı aşağıdaki proje dosyası vardır:
+Bir RCL aşağıdaki proje dosyası vardır:
 
 [!code-xml[Main](ui-class/samples/cli/RazorUIClassLib/RazorUIClassLib.csproj)]
 
@@ -54,20 +54,20 @@ Razor dosyaları için RCL ekleyin.
 
 ASP.NET Core şablonları RCL içeriği olduğu varsayılır *alanları* klasör. Bkz: [RCL sayfa düzeni](#afs) kullanıma sunan bir RCL içeriği oluşturmak için `~/Pages` yerine `~/Areas/Pages`.
 
-## <a name="referencing-razor-class-library-content"></a>Razor sınıf kitaplığı içeriği başvurma
+## <a name="referencing-rcl-content"></a>Başvuru RCL içeriği
 
 RCL tarafından başvurulabilir:
 
 * NuGet paketi. Bkz: [oluşturma NuGet paketlerini](/nuget/create-packages/creating-a-package) ve [dotnet paketini ekleyin](/dotnet/core/tools/dotnet-add-package) ve [oluştur ve NuGet paket yayımlama](/nuget/quickstart/create-and-publish-a-package-using-visual-studio).
 * *{ProjectName} .csproj*. Bkz: [dotnet-Başvuru Ekle](/dotnet/core/tools/dotnet-add-reference).
 
-## <a name="walkthrough-create-a-razor-class-library-project-and-use-from-a-razor-pages-project"></a>İzlenecek yol: Razor sınıf kitaplığı projesi oluşturun ve bir Razor sayfaları projeden kullanın
+## <a name="walkthrough-create-an-rcl-project-and-use-from-a-razor-pages-project"></a>İzlenecek yol: Bir RCL projesi oluşturun ve bir Razor sayfaları projeden kullanın
 
 İndirebileceğiniz [tam proje](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/razor-pages/ui-class/samples) ve yerine oluşturma test edin. Örnek indirme, ek kod ve test etmek proje kolaylaştırmak bağlantılar içerir. Geri bildirim bırakabilirsiniz [bu GitHub sorunu](https://github.com/aspnet/AspNetCore.Docs/issues/6098) yorumlarınızı üzerinde adım adım yönergeler ve örnekleri indirme ile.
 
 ### <a name="test-the-download-app"></a>İndirme uygulamayı test etme
 
-Tamamlanmış uygulamayı karşıdan henüz ve bunun yerine izlenecek projesi oluşturacak, atlamak [sonraki bölümde](#create-a-razor-class-library).
+Tamamlanmış uygulamayı karşıdan henüz ve bunun yerine izlenecek projesi oluşturacak, atlamak [sonraki bölümde](#create-an-rcl).
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -91,9 +91,9 @@ dotnet run
 
 Bölümündeki yönergeleri [Test WebApp1](#test)
 
-## <a name="create-a-razor-class-library"></a>Razor sınıf kitaplığı oluşturma
+## <a name="create-an-rcl"></a>Bir RCL oluşturma
 
-Bu bölümde, Razor sınıf kitaplığı (RCL) oluşturulur. Razor dosyaları için RCL eklenir.
+Bu bölümde, bir RCL oluşturulur. Razor dosyaları için RCL eklenir.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
@@ -118,7 +118,7 @@ dotnet new viewstart -o RazorUIClassLib/Areas/MyFeature/Pages
 
 Yukarıdaki komutlar:
 
-* Oluşturur `RazorUIClassLib` Razor sınıf kitaplığı (RCL).
+* Oluşturur `RazorUIClassLib` RCL.
 * Bir Razor il_eti sayfası oluşturur ve için RCL ekler. `-np` Parametresi olmadan sayfa oluşturur bir `PageModel`.
 * Oluşturur bir [_ViewStart.cshtml](xref:mvc/views/layout#running-code-before-each-view) dosya ve için RCL ekler.
 
@@ -174,7 +174,7 @@ Uygulamayı çalıştırın.
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
-Razor sayfaları web uygulaması ve Razor sayfaları uygulama ve Razor sınıf kitaplığı içeren bir çözüm dosyası oluşturun:
+Razor sayfaları web uygulaması ve Razor sayfaları uygulama ve RCL içeren bir çözüm dosyası oluşturun:
 
 ```console
 dotnet new webapp -o WebApp1
@@ -197,13 +197,13 @@ dotnet run
 
 ### <a name="test-webapp1"></a>Test WebApp1
 
-Razor UI sınıf kitaplığı kullanılan doğrulayın.
+Razor Arabirimi sınıf kitaplığını kullanımda olmadığını doğrulayın:
 
 * konumuna gözatın `/MyFeature/Page1`.
 
 ## <a name="override-views-partial-views-and-pages"></a>Görünümleri, kısmi görünümleri ve sayfa geçersiz kıl
 
-Zaman görünümü, kısmi görünüm veya Razor sayfası hem web uygulaması hem de Razor sınıf kitaplığı, Razor işaretlemesi bulunur (*.cshtml* dosya) web uygulaması önceliklidir. Örneğin, ekleme *WebApp1/Areas/MyFeature/Pages/Page1.cshtml* WebApp1 için ve Sayfa1 WebApp1 içinde önceliklidir Sayfa1 Razor Sınıf Kitaplığı'nda.
+Zaman görünümü, kısmi görünüm veya Razor sayfası hem web uygulaması hem de RCL Razor işaretlemesi bulunur ( *.cshtml* dosya) web uygulaması önceliklidir. Örneğin, ekleme *WebApp1/Areas/MyFeature/Pages/Page1.cshtml* WebApp1 için ve Sayfa1 WebApp1 içinde önceliklidir Sayfa1 RCL içinde.
 
 Örnek indirme Yeniden Adlandır *WebApp1/alanlar/MyFeature2* için *WebApp1/alanlar/MyFeature* öncelik test etmek için.
 
@@ -227,3 +227,30 @@ Varsayalım *RazorUIClassLib/sayfaları/paylaşılan* iki kısmi dosyaları içe
   <partial name="_Footer">
 </body>
 ```
+
+## <a name="create-an-rcl-with-static-assets"></a>Bir RCL ile statik varlıkları oluşturma
+
+Bir RCL RCL kullanan uygulama tarafından başvurulan statik varlıklar Yardımcısı gerektirebilir. ASP.NET Core, kullanan bir uygulama için kullanılabilir olan statik varlıkları içeren RCLs oluşturulmasını sağlar.
+
+Yardımcı varlıklar bir RCL bir parçası olarak dahil etmek için oluşturma bir *wwwroot* sınıf kitaplığı klasöründe ve tüm gerekli dosyaları bu klasörde içerir.
+
+Bir RCL paketleme, tüm varlıkları Yahoo! companion *wwwroot* klasörü paketine otomatik olarak dahil edilen ve bu paketi uygulamaları için kullanılabilir hale getirilir.
+
+### <a name="consume-content-from-a-referenced-rcl"></a>Başvurulan RCL ait içerikleri kullanabilirsiniz
+
+Eklenen dosyalar *wwwroot* RCL klasörü altında önek kullanan uygulamaya sunulur `_content/{LIBRARY NAME}/`. `{LIBRARY NAME}` Kitaplığı proje adı dönüştürülür nokta ile küçük harf (`.`) kaldırıldı. Örneğin, adında bir kitaplığı *Razor.Class.Lib* statik içeriği bir yolda sonuçlarını `_content/razorclasslib/`.
+
+Kitaplıkla sağlanan statik varlıkları kullanan uygulama başvuran `<script>`, `<style>`, `<img>`ve diğer HTML etiketleri. Alıcı uygulamasına sahip olmanız gerekir [statik dosya desteği](xref:fundamentals/static-files) etkin.
+
+### <a name="multi-project-development-flow"></a>Birden çok proje geliştirme akış
+
+Kullanıcı uygulamayı çalıştırdığında:
+
+* Varlıkları RCL özgün konumlarında kalır. Varlıkları kullanan uygulamaya taşınabilir değildir.
+* RCL'ın içinde herhangi bir değişiklik *wwwroot* klasör RCL yeniden oluşturulduktan sonra kullanan uygulamada ve alıcı uygulamanın yeniden olmadan yansıtılır.
+
+RCL oluşturulduğunda, statik web varlık konumlarını tanımlayan bir bildirim oluşturulur. Tüketim uygulama bildirimi, başvurulan projeler ve paketleri varlıklarından kullanmak için çalışma zamanında okur. Yeni bir varlık için bir RCL eklendiğinde, yeni varlık kullanan bir uygulamaya erişmeniz bildirimi güncelleştirilecek RCL yeniden oluşturulması gerekir.
+
+### <a name="publish"></a>Yayımlama
+
+Uygulama yayınlandıktan sonra başvuruda bulunulan tüm projelerin ve paketleri Yardımcısı varlıklarından içine kopyalanır *wwwroot* klasörü altında yayımlanan uygulamanın `_content/{LIBRARY NAME}/`.

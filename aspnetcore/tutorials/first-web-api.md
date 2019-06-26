@@ -4,14 +4,14 @@ author: rick-anderson
 description: Bir web API ASP.NET Core ile oluşturmayı öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/18/2019
+ms.date: 06/23/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: 17e8ee08fca775b8fccc3f2e6cd6067caca9c79f
-ms.sourcegitcommit: a1283d486ac1dcedfc7ea302e1cc882833e2c515
+ms.openlocfilehash: 0f069a75868bcbb988ade3f80d1f64c2cef4e972
+ms.sourcegitcommit: 763af2cbdab0da62d1f1cfef4bcf787f251dfb5c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67207776"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67394770"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Öğretici: ASP.NET Core web API'si oluşturma
 
@@ -49,7 +49,7 @@ Bu öğretici yandaki API oluşturur:
 
 Aşağıdaki diyagramda, bu uygulamanın tasarımını gösterir.
 
-![İstemci, sol taraftaki kutuyu temsil edilir ve bir istek gönderdiğini ve sağ tarafta çizilmiş bir kutu uygulamasından bir yanıt alır. Uygulama kutusu içinde üç kutular, denetleyici, modeli ve veri erişim katmanı temsil eder. İstek uygulamanın denetleyicisi ile gelir ve okuma/yazma işlemleri, denetleyici ve veri erişim katmanı arasında oluşur. Model serileştirilmiş ve istemciye yanıt döndürdü.](first-web-api/_static/architecture.png)
+![İstemci, sol taraftaki kutuyu temsil edilir. Bu, bir istek gönderir ve sağ tarafta çizilmiş bir kutu uygulamasından bir yanıt alır. Uygulama kutusu içinde üç kutular, denetleyici, modeli ve veri erişim katmanı temsil eder. İstek uygulamanın denetleyicisi ile gelir ve okuma/yazma işlemleri, denetleyici ve veri erişim katmanı arasında oluşur. Model serileştirilmiş ve istemciye yanıt döndürdü.](first-web-api/_static/architecture.png)
 
 [!INCLUDE[](~/includes/net-core-prereqs-all-2.2.md)]
 
@@ -58,8 +58,9 @@ Aşağıdaki diyagramda, bu uygulamanın tasarımını gösterir.
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Gelen **dosya** menüsünde **yeni** > **proje**.
-* Seçin **ASP.NET Core Web uygulaması** şablonu. Projeyi adlandırın *TodoApi* tıklatıp **Tamam**.
-* İçinde **yeni ASP.NET Core Web uygulaması - TodoApi** iletişim kutusunda, ASP.NET Core sürümünü seçin. Seçin **API** şablonu ve tıklatın **Tamam**. Yapmak **değil** seçin **Docker desteğini etkinleştir**.
+* Seçin **ASP.NET Core Web uygulaması** şablonu ve tıklatın **sonraki**.
+* Projeyi adlandırın *TodoApi* tıklatıp **Oluştur**.
+* İçinde **yeni bir ASP.NET Core Web uygulaması oluşturma** iletişim kutusunda onaylayın **.NET Core** ve **ASP.NET Core 2.2** seçilir. Seçin **API** şablonu ve tıklatın **Oluştur**. **Yoksa** seçin **Docker desteğini etkinleştir**.
 
 ![VS yeni proje iletişim kutusu](first-web-api/_static/vs.png)
 
@@ -386,13 +387,13 @@ Postman bir yapılacak iş öğesini silmek için kullanın:
 * Silmek, örneğin nesnenin URI ayarlayın `https://localhost:5001/api/todo/1`
 * Seçin **Gönder**
 
-Örnek uygulamayı tüm öğeleri silmenize olanak sağlar, ancak son öğe silindiğinde, yeni bir model sınıfı Oluşturucu tarafından API'sı çağrılan başlatıldığında oluşturulur.
+Örnek uygulamayı tüm öğeleri silmenize olanak sağlar. Bununla birlikte, son öğe silindiğinde, yeni bir API bir sonraki zamana model sınıfı Oluşturucu tarafından oluşturulur.
 
 ## <a name="call-the-api-with-jquery"></a>JQuery ile API çağırma
 
 Bu bölümde, Web'i çağırmaya jQuery kullanan bir HTML sayfasına eklenen API. jQuery isteği başlatır ve API'nin yanıt Ayrıntıları sayfası güncelleştirir.
 
-İçin uygulamayı yapılandırma [statik dosyaları işleme](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions.usestaticfiles#Microsoft_AspNetCore_Builder_StaticFileExtensions_UseStaticFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) ve [varsayılan dosya eşlemesini etkinleştir](/dotnet/api/microsoft.aspnetcore.builder.defaultfilesextensions.usedefaultfiles#Microsoft_AspNetCore_Builder_DefaultFilesExtensions_UseDefaultFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_):
+İçin uygulamayı yapılandırma [statik dosyaları işleme](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions.usestaticfiles#Microsoft_AspNetCore_Builder_StaticFileExtensions_UseStaticFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) ve [varsayılan dosya eşlemesini etkinleştir](/dotnet/api/microsoft.aspnetcore.builder.defaultfilesextensions.usedefaultfiles#Microsoft_AspNetCore_Builder_DefaultFilesExtensions_UseDefaultFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) güncelleştirerek *Startup.cs* aşağıdaki vurgulanmış kodu:
 
 [!code-csharp[](first-web-api/samples/2.2/TodoApi/Startup.cs?highlight=14-15&name=snippet_configure)]
 
