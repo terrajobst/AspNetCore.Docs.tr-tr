@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc, seodec18
 ms.date: 05/02/2019
 uid: fundamentals/choose-between-aspnet-and-aspnetcore
-ms.openlocfilehash: a51d9946c9e65bd1665c610153f724c6087c9f7f
-ms.sourcegitcommit: b8ed594ab9f47fa32510574f3e1b210cff000967
+ms.openlocfilehash: 97d65df8df1e27694d818098958288874e8ab92e
+ms.sourcegitcommit: 47cc13ab90913af9a2887cef0896bb4e9aba4dd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66251375"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67399171"
 ---
 # <a name="choose-between-aspnet-4x-and-aspnet-core"></a>Seçin arasında ASP.NET 4.x ve ASP.NET Core
 
@@ -36,7 +36,7 @@ Aşağıdaki tabloda karşılaştırılmıştır ASP.NET Core, ASP.NET 4.x.
 |Windows, macOS veya Linux için derleme|Windows için derleme|
 |[Razor sayfaları](xref:razor-pages/index) itibarıyla ASP.NET Core Web kullanıcı Arabirimi oluşturmak için önerilen yaklaşımdır 2.x. Ayrıca bkz: [MVC](xref:mvc/overview), [Web API](xref:tutorials/first-web-api), ve [SignalR](xref:signalr/introduction).|Kullanım [Web Forms](/aspnet/web-forms), [SignalR](/aspnet/signalr), [MVC](/aspnet/mvc), [Web API](/aspnet/web-api/), [Web kancaları](/aspnet/webhooks/), veya [Web sayfaları](/aspnet/web-pages)|
 |Makine başına birden çok sürümü|Makine başına bir sürümü|
-|Visual Studio ile geliştirin [Mac için Visual Studio](https://visualstudio.microsoft.com/vs/mac/), veya [Visual Studio Code](https://code.visualstudio.com/) kullanarak C# veyaF#|Visual Studio kullanarak ile geliştirme C#, VB, veyaF#|
+|Geliştirme [Visual Studio](https://visualstudio.microsoft.com/vs/), [Mac için Visual Studio](https://visualstudio.microsoft.com/vs/mac/), veya [Visual Studio Code](https://code.visualstudio.com/) kullanarak C# veyaF#|Geliştirme [Visual Studio](https://visualstudio.microsoft.com/vs/) kullanarak C#, VB, veyaF#|
 |Daha yüksek performansa ASP.NET 4.x|İyi bir performans|
 |[.NET Framework veya .NET Core çalışma zamanı seçin](/dotnet/standard/choosing-core-framework-server)|.NET Framework çalışma zamanını kullanma|
 
