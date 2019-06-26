@@ -5,14 +5,14 @@ description: Kestrel'i, ASP.NET Core için platformlar arası web sunucusu hakk�
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 06/18/2019
+ms.date: 06/24/2019
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: b96aff5c41bbca80caf0d2d11bc52b9b7b55043e
-ms.sourcegitcommit: 9f11685382eb1f4dd0fb694dea797adacedf9e20
+ms.openlocfilehash: 7d66d04ec3b91d0ab1a67cacb2030cf52054454b
+ms.sourcegitcommit: 763af2cbdab0da62d1f1cfef4bcf787f251dfb5c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67313767"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67394721"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>ASP.NET core'da kestrel web sunucusu uygulaması
 
@@ -464,6 +464,47 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
 ```
 
 96 KB'lık (98,304) varsayılan değerdir.
+
+::: moniker-end
+
+### <a name="synchronous-io"></a>Zaman uyumlu g/ç
+
+::: moniker range=">= aspnetcore-3.0"
+
+<xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.AllowSynchronousIO> zaman uyumlu g/ç istek ve yanıt için izin verilip verilmediğini denetler. Varsayılan değer `false` şeklindedir.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+<xref:Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerOptions.AllowSynchronousIO> zaman uyumlu g/ç istek ve yanıt için izin verilip verilmediğini denetler. Varsayılan değer `true`.
+
+::: moniker-end
+
+> [!WARNING]
+> Zaman uyumlu g/ç işlemleri engelleme çok sayıda uygulama yanıt sağlayan iş parçacığı havuzu gereksinimine yol, yol açabilir. Yalnızca etkinleştirme `AllowSynchronousIO` zaman uyumsuz g/ç desteklemeyen bir kitaplığı kullanıldığında.
+
+::: moniker range=">= aspnetcore-2.2"
+
+Aşağıdaki örnek, zaman uyumlu g/ç sağlar:
+
+[!code-csharp[](kestrel/samples/2.x/KestrelSample/Program.cs?name=snippet_SyncIO&highlight=3)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
+Aşağıdaki örnek zaman uyumlu g/ç devre dışı bırakır:
+
+```csharp
+public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+        .UseStartup<Startup>()
+        .UseKestrel(options =>
+        {
+            options.AllowSynchronousIO = false;
+        });
+```
 
 ::: moniker-end
 
