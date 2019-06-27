@@ -5,20 +5,20 @@ description: Uygulamalar ve NavLink bileşenle ilgili istekleri yönlendirmeyi �
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/14/2019
+ms.date: 06/26/2019
 uid: blazor/routing
-ms.openlocfilehash: 4aba864c4d780591fb91b216eb128b9bf26a1662
-ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
+ms.openlocfilehash: ddbb43f897decc94218ad950ef8dda6ea153d0d3
+ms.sourcegitcommit: 9bb29f9ba6f0645ee8b9cabda07e3a5aa52cd659
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67152766"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67406087"
 ---
 # <a name="aspnet-core-blazor-routing"></a>ASP.NET Core Blazor yönlendirme
 
 Tarafından [Luke Latham](https://github.com/guardrex)
 
-Uygulamalar ve NavLink bileşenle ilgili istekleri yönlendirmeyi öğrenin.
+Uygulamaları ve ilgili istekleri yönlendirmeyi öğrenin `NavLink` bileşeni.
 
 ## <a name="aspnet-core-endpoint-routing-integration"></a>ASP.NET Core uç noktası yönlendirme tümleştirmesi
 
@@ -28,7 +28,7 @@ Sunucu tarafı Blazor bütünleştirilmiştir [ASP.NET Core uç noktası yönlen
 
 ## <a name="route-templates"></a>Rota şablonlarının
 
-`<Router>` Bileşen yönlendirme sağlar ve erişilebilir her bileşeni için bir rota şablonu sağlanır. `<Router>` Bileşeni görünür *App.razor* dosyası:
+`Router` Bileşen yönlendirme sağlar ve erişilebilir her bileşeni için bir rota şablonu sağlanır. `Router` Bileşeni görünür *App.razor* dosyası:
 
 Blazor sunucu tarafı uygulamasında:
 
@@ -48,16 +48,25 @@ Bir bileşenin birden çok yol şablonu uygulanabilir. Aşağıdaki bileşen ist
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Pages/BlazorRoute.razor?name=snippet_BlazorRoute)]
 
-`<Router>` İstenen yol olduğunda işlemek için bir geri dönüş bileşen ayarı destekler çözülmüş değildir. Bu katılımı ayarlayarak senaryoyu `FallbackComponent` geri dönüş bileşen sınıfı türü parametresi.
+> [!IMPORTANT]
+> Yollar düzgün bir şekilde oluşturmak için uygulamayı içermelidir bir `<base>` içindeki kendi *wwwroot/index.html* (Blazor istemci-tarafı) dosya veya *Pages/_Host.cshtml* dosyası (Blazor sunucu-tarafı) ile uygulama temel yolu Belirtilen `href` özniteliği (`<base href="/">`). Daha fazla bilgi için bkz. <xref:host-and-deploy/blazor/client-side#app-base-path>.
 
-Aşağıdaki örnek, bir bileşen içinde tanımlanan ayarlar *Pages/MyFallbackRazorComponent.razor* geri dönüş bileşeni için bir `<Router>`:
+## <a name="provide-custom-content-when-content-isnt-found"></a>İçerik bulunamadığında, özel içerik sağlayın
+
+`Router` Bileşen, uygulama içeriği için istenen yol bulunamazsa özel içeriği belirtmek sağlar.
+
+İçinde *App.razor* dosyası içinde özel içerik kümesi `<NotFoundContent>` öğesinin `Router` bileşeni:
 
 ```cshtml
-<Router ... FallbackComponent="typeof(Pages.MyFallbackRazorComponent)" />
+<Router AppAssembly="typeof(Startup).Assembly">
+    <NotFoundContent>
+        <h1>Sorry</h1>
+        <p>Sorry, there's nothing at this address.</p> b
+    </NotFoundContent>
+</Router>
 ```
 
-> [!IMPORTANT]
-> Yollar düzgün bir şekilde oluşturmak için uygulamayı içermelidir bir `<base>` içindeki kendi *wwwroot/index.html* (Blazor istemci-tarafı) dosya veya *sayfaları /\_Host.cshtml* dosyasıyla (Blazor sunucu-tarafı) Belirtilen uygulama temel yolu `href` özniteliği (`<base href="/">`). Daha fazla bilgi için bkz. <xref:host-and-deploy/blazor/client-side#app-base-path>.
+İçeriği `<NotFoundContent>` etkileşimli diğer bileşenler gibi rastgele öğeler içerebilir.
 
 ## <a name="route-parameters"></a>Yol parametreleri
 
@@ -71,7 +80,7 @@ Yönlendirici, aynı adı (büyük küçük harfe duyarlı) karşılık gelen bi
 
 Türü bir bileşeni için bir yol kesimi üzerinde eşleşen bir rota kısıtlaması zorlar.
 
-Aşağıdaki örnekte, kullanıcılar bileşen yolu yalnızca, eşleşen:
+Aşağıdaki örnekte, rotaya `Users` bileşen yalnızca eşleşip eşleşmediğini:
 
 * Bir `Id` yol kesimi istek URL'si hakkındaki varsa.
 * `Id` Segmenttir tamsayı (`int`).
@@ -96,9 +105,9 @@ Aşağıdaki tabloda gösterilen rota kısıtlamalarını kullanılabilir. Sabit
 
 ## <a name="navlink-component"></a>NavLink bileşeni
 
-Bir NavLink bileşeni yerine HTML kullanan `<a>` gezinme bağlantıları oluşturulurken öğeleri. NavLink bileşeni gibi davranan bir `<a>` öğesi, onu değiştirir dışında bir `active` CSS sınıfı bağlı kendi `href` geçerli URL ile eşleşen. `active` Sınıfı, bir kullanıcının hangi sayfa etkin sayfa görüntülenen gezinti bağlantıları arasında olduğunu anlamak yardımcı olur.
+Kullanım bir `NavLink` HTML yerine bileşen `<a>` gezinme bağlantıları oluşturulurken öğeleri. A `NavLink` bileşeni davranacağını gibi bir `<a>` öğesi, onu değiştirir dışında bir `active` CSS sınıfı bağlı kendi `href` geçerli URL ile eşleşen. `active` Sınıfı, bir kullanıcının hangi sayfa etkin sayfa görüntülenen gezinti bağlantıları arasında olduğunu anlamak yardımcı olur.
 
-Aşağıdaki NavMenu bileşeni oluşturur bir [önyükleme](https://getbootstrap.com/docs/) gezinti çubuğunda, NavLink bileşenleri gösterilmektedir:
+Aşağıdaki `NavMenu` bileşeni oluşturur bir [önyükleme](https://getbootstrap.com/docs/) nasıl kullanılacağını gösteren bir gezinti çubuğu `NavLink` bileşenler:
 
 [!code-cshtml[](common/samples/3.x/BlazorSample/Shared/NavMenu.razor?name=snippet_NavLinks&highlight=4-6,9-11)]
 
@@ -107,7 +116,7 @@ Aşağıdaki NavMenu bileşeni oluşturur bir [önyükleme](https://getbootstrap
 * `NavLinkMatch.All` &ndash; Tüm geçerli URL eşleştiğinde NavLink etkin olması gerektiğini belirtir.
 * `NavLinkMatch.Prefix` &ndash; Geçerli URL herhangi bir önek eşleştiğinde NavLink etkin olması gerektiğini belirtir.
 
-Yukarıdaki örnekte, giriş NavLink (`href=""`) tüm URL'lerle eşleşir ve her zaman alan `active` CSS sınıfı. İkinci NavLink yalnızca alan `active` sınıfı kullanıcı Blazor rota bileşen ziyaret ettiğinde (`href="BlazorRoute"`).
+Yukarıdaki örnekte, giriş NavLink (`href=""`) tüm URL'lerle eşleşir ve her zaman alan `active` CSS sınıfı. İkinci NavLink yalnızca alan `active` sınıfı kullanıcı ziyaret ettiğinde `BlazorRoute` bileşeni (`href="BlazorRoute"`).
 
 ## <a name="uri-and-navigation-state-helpers"></a>URI ve gezinti durumu Yardımcıları
 
@@ -116,7 +125,7 @@ Kullanım `Microsoft.AspNetCore.Components.IUriHelper` gezintisi ve bir URI'leri
 | Üye | Açıklama |
 | ------ | ----------- |
 | `GetAbsoluteUri` | Geçerli bir mutlak URI alır. |
-| `GetBaseUri` | (Eğik ile) bir mutlak URI oluşturmak için göreli URI yolları başına temel URI'sini alır. Genellikle, `GetBaseUri` karşılık gelen `href` belgenin özniteliği `<base>` öğesinde *wwwroot/index.html* (Blazor istemci-tarafı) veya *sayfaları /\_Host.cshtml* (Blazor sunucu-tarafı). |
+| `GetBaseUri` | (Eğik ile) bir mutlak URI oluşturmak için göreli URI yolları başına temel URI'sini alır. Genellikle, `GetBaseUri` karşılık gelen `href` belgenin özniteliği `<base>` öğesinde *wwwroot/index.html* (Blazor istemci-tarafı) veya *Pages/_Host.cshtml* () Blazor sunucu tarafı). |
 | `NavigateTo` | Belirtilen URI'ye gider. Varsa `forceLoad` olduğu `true`:<ul><li>İstemci tarafı yönlendirmesi atlanır.</li><li>URI genellikle istemci tarafı yönlendirici tarafından işlenen olup olmadığını tarayıcı sunucusundan yeni sayfa yükleme zorlanır.</li></ul> |
 | `OnLocationChanged` | Gezinti konumu değiştirildiğinde ateşlenir olay. |
 | `ToAbsoluteUri` | Bir göreli URİ'yi mutlak bir URI dönüştürür. |

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/14/2019
 uid: blazor/layouts
-ms.openlocfilehash: c389eb15d6a3e359d2d282e4aba8f5e2a6079bec
-ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
+ms.openlocfilehash: 9f59f21a4c8477bdca1fe68bad4a41d0f62ffd9f
+ms.sourcegitcommit: 9bb29f9ba6f0645ee8b9cabda07e3a5aa52cd659
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67152780"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67406084"
 ---
 # <a name="aspnet-core-blazor-layouts"></a>ASP.NET Core Blazor düzenleri
 
@@ -46,7 +46,7 @@ Bir uygulamanın her klasör isteğe bağlı olarak adlandırılmış bir şablo
 Aşağıdaki *_Imports.razor* dosya alır:
 
 * `MainLayout`.
-* Tüm Razor bileşenlerin bir klasöre ve alt klasörleri.
+* Tüm Razor bileşenlerin aynı klasöre ve alt klasörleri.
 * `BlazorApp1.Data` Ad alanı.
  
 [!code-cshtml[](layouts/sample_snapshot/3.x/_Imports.razor)]

@@ -1,18 +1,18 @@
 ---
-title: Ana bilgisayar ve sunucu tarafı Blazor dağıtma
+title: Barındırma ve ASP.NET Core Blazor sunucu tarafı dağıtma
 author: guardrex
 description: Ana bilgisayar ve ASP.NET Core kullanarak Blazor sunucu-tarafı uygulamasını dağıtma hakkında bilgi edinin.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/26/2019
+ms.date: 06/11/2019
 uid: host-and-deploy/blazor/server-side
-ms.openlocfilehash: 8e44be09a4cceba2509f3e86abf3ce5fd2d077bd
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 8b332c2fb439e9832d604ed26f972b266eed2507
+ms.sourcegitcommit: 9bb29f9ba6f0645ee8b9cabda07e3a5aa52cd659
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64901049"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67406117"
 ---
 # <a name="host-and-deploy-blazor-server-side"></a>Ana bilgisayar ve sunucu tarafı Blazor dağıtma
 
@@ -28,19 +28,19 @@ Kullanan bir sunucu tarafı uygulamalar [sunucu tarafı barındırma modeli](xre
 
 ASP.NET Core uygulaması barındırma uyumlu bir web sunucusu gereklidir. Visual Studio içerir **Blazor (sunucu tarafı)** proje şablonu (`blazorserverside` kullanırken şablon [yeni dotnet](/dotnet/core/tools/dotnet-new) komutu).
 
-<!--
+## <a name="connection-scale-out"></a>Bağlantı ölçeği genişletme
 
-**INSERT: Concerns are the same as publishing an ASP.NET Core SignalR app**
+Blazor sunucu tarafı uygulamalar, her kullanıcı için etkin bir SignalR bağlantısı gerektirir. Bir üretim Blazor sunucu tarafı dağıtım, uygulamanın gerektirdiği sayıda eş zamanlı bağlantı desteklemek için bir çözüm gerektirir. [Azure SignalR hizmeti](/azure/azure-signalr/) bağlantıları ölçeklendirme işler ve Blazor sunucu tarafı uygulamalar için ölçeklendirme çözümü olarak önerilir. Daha fazla bilgi için bkz. <xref:signalr/publish-to-azure-web-app>.
 
-**INSERT: Content on the Azure SignalR Service**
+## <a name="signalr-configuration"></a>SignalR yapılandırma
 
-**INSERT: Manually turn on WebSockets support**
-
--->
+SignalR en yaygın Blazor sunucu tarafı senaryolar için ASP.NET Core tarafından yapılandırılır. Özel ve Gelişmiş senaryolar için SignalR makalelerinde başvurun [ek kaynaklar](#additional-resources) bölümü.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * <xref:signalr/introduction>
+* [Azure SignalR hizmeti belgeleri](/azure/azure-signalr/)
+* [Hızlı Başlangıç: SignalR hizmetini kullanarak sohbet odası oluşturamadı.](/azure/azure-signalr/signalr-quickstart-dotnet-core)
 * <xref:host-and-deploy/index>
 * <xref:tutorials/publish-to-azure-webapp-using-vs>
 * [ASP.NET Core Önizleme sürümü, Azure App Service'e dağıtma](xref:host-and-deploy/azure-apps/index#deploy-aspnet-core-preview-release-to-azure-app-service)

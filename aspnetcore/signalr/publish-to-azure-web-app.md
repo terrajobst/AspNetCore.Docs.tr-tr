@@ -1,68 +1,92 @@
 ---
-title: Bir ASP.NET Core yayımlama SignalR uygulamasına Azure Web uygulaması
+title: Bir ASP.NET Core yayımlama SignalR uygulamasını Azure App Service'e
 author: bradygaster
-description: Bir ASP.NET Core yayımlama SignalR uygulamasına Azure Web uygulaması
+description: Azure App Service'e bir ASP.NET Core SignalR uygulama yayımlama hakkında bilgi edinin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: bradyg
 ms.custom: mvc
-ms.date: 04/20/2018
+ms.date: 06/26/2019
 uid: signalr/publish-to-azure-web-app
-ms.openlocfilehash: 1c472711a86edae8dc6e207734aa54e48c02d47d
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 87a9c93add373b24e3c473912cdbfcc00bbebf7e
+ms.sourcegitcommit: 9bb29f9ba6f0645ee8b9cabda07e3a5aa52cd659
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087691"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67406106"
 ---
-# <a name="publish-an-aspnet-core-signalr-app-to-an-azure-web-app"></a>Bir ASP.NET Core yayımlama SignalR uygulama için bir Azure Web uygulaması
+# <a name="publish-an-aspnet-core-signalr-app-to-azure-app-service"></a>Bir ASP.NET Core yayımlama SignalR uygulamasını Azure App Service'e
 
-[Azure Web uygulaması](/azure/app-service/app-service-web-overview) olduğu bir [Microsoft bulut bilgi işlem](https://azure.microsoft.com/) ASP.NET Core web uygulamaları barındırmak için bir hizmet.
+Tarafından [Brady Gaster](https://twitter.com/bradygaster)
+
+[Azure App Service](/azure/app-service/app-service-web-overview) olduğu bir [Microsoft bulut bilgi işlem](https://azure.microsoft.com/) ASP.NET Core web uygulamaları barındırmak için bir hizmet.
 
 > [!NOTE]
-> Bu makalede, bir ASP.NET Core SignalR uygulamayı Visual Studio'dan yayımlama için ifade eder. Ziyaret [Azure SignalR hizmeti](https://azure.microsoft.com/services/signalr-service) Azure'da SignalR kullanma hakkında daha fazla bilgi için.
+> Bu makalede, bir ASP.NET Core SignalR uygulamayı Visual Studio'dan yayımlama için ifade eder. Daha fazla bilgi için [Azure SignalR hizmeti](https://azure.microsoft.com/services/signalr-service).
 
 ## <a name="publish-the-app"></a>Uygulamayı yayımlama
 
-Visual Studio, bir Azure Web uygulaması için yayımlama için yerleşik araçlar sağlar. Visual Studio Code kullanıcı kullanabileceğiniz [Azure CLI](/cli/azure) komutlarını uygulamalarını Azure'da yayımlayabilir. Bu makale, Visual Studio'da yayımlama araçları kullanarak kapsar. Azure CLI kullanarak bir uygulamayı yayımlamak için bkz: [komut satırı araçları ile Azure'da ASP.NET Core uygulaması yayımlama](/azure/app-service/app-service-web-get-started-dotnet).
+Bu makale, Visual Studio'da yayımlama araçları kullanarak kapsar. Visual Studio Code kullanıcılar [Azure CLI](/cli/azure) komutlarını uygulamalarını Azure'da yayımlayabilir. Daha fazla bilgi için [komut satırı araçları ile Azure'da ASP.NET Core uygulaması yayımlama](/azure/app-service/app-service-web-get-started-dotnet).
 
-Projeye sağ tıklayarak **Çözüm Gezgini** seçip **Yayımla**. Onaylayın **Yeni Oluştur** iade **yayımlama hedefi seçin** iletişim ve select **Yayımla**.
+1. Projeye sağ tıklayarak **Çözüm Gezgini** seçip **Yayımla**.
 
-![Yayımlama hedefi seçme](publish-to-azure-web-app/_static/pick-publish-target-dialog.png)
+1. Onaylayın **App Service** ve **Yeni Oluştur** seçili **yayımlama hedefi seçin** iletişim.
 
-Aşağıdaki bilgileri girin **App Service Oluştur** iletişim ve select **Oluştur**.
+1. Seçin **profili oluştur** gelen **Yayımla** aşağı açılır düğme.
 
-| Öğe | Açıklama |
-| ---- | ----------- |
-| **Uygulama adı** | Uygulamanın benzersiz bir ad. |
-| **Abonelik** | Uygulamanın kullandığı Azure aboneliği. |
-| **Kaynak Grubu** | İlgili kaynakları uygulamanın ait olduğu grubu.  |
-| **Barındırma planı** | Web uygulaması için fiyatlandırma planı. |
+   Aşağıdaki tabloda açıklanan bilgileri girin **App Service Oluştur** iletişim ve select **Oluştur**.
 
-![App service oluştur](publish-to-azure-web-app/_static/create-app-service-dialog.png)
+   | Öğe               | Açıklama |
+   | ------------------ | ----------- |
+   | **Ad**           | Uygulamanın benzersiz adı. |
+   | **Abonelik**   | Uygulamanın kullandığı azure aboneliği. |
+   | **Kaynak Grubu** | İlgili kaynakları uygulamanın ait olduğu grubu. |
+   | **Barındırma planı**   | Web uygulamanız için fiyatlandırma planı. |
+
+1. Seçin **Azure SignalR hizmeti** içinde **bağımlılıkları** > **Ekle** aşağı açılan listesi:
+
+   ![Azure SignalR hizmeti seçimini Ekle aşağı açılan listede gösteren bağımlılıkları alanı](publish-to-azure-web-app/_static/signalr-service-dependency.png)
+
+1. İçinde **Azure SignalR hizmeti** iletişim kutusunda **yeni bir Azure SignalR hizmeti örneği oluşturma**.
+
+1. Sağlayan bir **adı**, **kaynak grubu**, ve **konumu**. Geri dönüp **Azure SignalR hizmeti** iletişim ve select **Ekle**.
 
 Visual Studio aşağıdaki görevleri tamamlar:
 
 * Bir yayımlama profili oluşturur içeren yayımlama ayarları.
-* Oluşturur veya mevcut bir kullanan *Azure Web uygulaması* sağlanan ayrıntılara sahip.
+* Oluşturur bir *Azure Web uygulaması* sağlanan ayrıntılara sahip.
 * Uygulamanın yayınlar.
-* Bir tarayıcı ile yüklenen yayımlanan web uygulaması başlatır.
+* Web uygulamasını yükleyen bir tarayıcı başlatır.
 
-Uygulama için URL biçimi fark *{uygulamanızın adı} .azurewebsites .net*. Örneğin, adlı bir uygulama `SignalRChattR` şuna benzer bir URL'ye sahip `https://signalrchattr.azurewebsites.net`.
+Uygulamanın URL'si biçimi `{APP SERVICE NAME}.azurewebsites.net`. Örneğin, adlı bir uygulama `SignalRChatApp` , bir URL'ye sahip `https://signalrchatapp.azurewebsites.net`.
 
-Bir HTTP 502.2 hata oluşursa bkz [Azure App Service'e dağıtma ASP.NET Core Önizleme sürümü](xref:host-and-deploy/azure-apps/index) bu sorunu çözmek için.
+Bir HTTP, *502.2 - bozuk ağ geçidi* .NET Core yayın önizlemesini hedefleyen bir uygulama dağıtımı hatası oluşur, bkz: [Azure App Service'e dağıtma ASP.NET Core Önizleme sürümü](xref:host-and-deploy/azure-apps/index#deploy-aspnet-core-preview-release-to-azure-app-service) bu sorunu çözmek için.
 
-## <a name="configure-signalr-web-app"></a>SignalR web uygulamasını yapılandırma
+## <a name="configure-the-app-in-azure-app-service"></a>Azure App Service'te uygulama yapılandırma
 
-Bir Azure Web uygulaması olarak yayımlanan ASP.NET Core SignalR uygulamalara [ARR benzeşimi](https://en.wikipedia.org/wiki/Application_Request_Routing) etkin. [WebSockets](xref:fundamentals/websockets) , işlev WebSockets aktarıma izin vermek için etkinleştirilmesi gerekir.
+> [!NOTE]
+> *Bu bölüm, yalnızca Azure SignalR hizmeti kullanmayan uygulamalar için geçerlidir.*
+>
+> Azure SignalR hizmeti uygulama kullanıyorsa, App Service uygulama isteği yönlendirme (ARR) benzeşimi ve Web yuvaları Bu bölümde açıklanan yapılandırma gerektirmez. İstemciler kendi Web yuvalarını Azure SignalR hizmeti, uygulama için doğrudan bağlanır.
 
-Azure portalında gidin **uygulama ayarları** web uygulamanız için. Ayarlama **WebSockets** için **üzerinde**ve doğrulama **ARR benzeşimi** olduğu **üzerinde**.
+Azure SignalR hizmeti olmadan barındırılan uygulamalar için etkinleştir:
 
-![Azure portalında Azure Web uygulaması ayarları](publish-to-azure-web-app/_static/azure-web-app-settings.png)
+* [ARR benzeşimi](https://azure.github.io/AppService/2016/05/16/Disable-Session-affinity-cookie-(ARR-cookie)-for-Azure-web-apps.html) aynı App Service örneğine geri bir kullanıcıdan gelen istekleri. Varsayılan ayar **üzerinde**.
+* [Web yuvaları](xref:fundamentals/websockets) işlevi Web yuvalarını aktarıma izin vermek için. Varsayılan ayar **kapalı**.
 
- WebSockets ve diğer taşımaları [App Service planı üzerinde temel sınırlıdır](/azure/azure-subscription-service-limits#app-service-limits).
+1. Azure portalında web uygulamasında gidin **uygulama hizmetleri**.
+1. Açık **yapılandırma** > **genel ayarlar**.
+1. Ayarlama **Web yuvaları** için **üzerinde**.
+1. Doğrulayın **ARR benzeşimi** ayarlanır **üzerinde**.
 
-## <a name="related-resources"></a>İlgili kaynaklar
+## <a name="app-service-plan-limits"></a>App Service planı sınırları
 
+Web yuvaları ve diğer taşımaları, uygulama hizmeti seçili planınıza göre sınırlıdır. Daha fazla bilgi için *Azure Cloud Services sınırlar* ve *App Service limitleri* bölümlerini [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar](/azure/azure-subscription-service-limits#app-service-limits) makale.
+
+## <a name="additional-resources"></a>Ek kaynaklar
+
+* [Azure SignalR hizmeti nedir?](/azure/azure-signalr/signalr-overview)
+* <xref:signalr/introduction>
+* <xref:host-and-deploy/index>
+* <xref:tutorials/publish-to-azure-webapp-using-vs>
 * [Komut satırı araçları ile Azure'da ASP.NET Core uygulaması yayımlama](/azure/app-service/app-service-web-get-started-dotnet)
-* [Visual Studio ile Azure'a bir ASP.NET Core uygulaması yayımlama](xref:tutorials/publish-to-azure-webapp-using-vs)
 * [Barındırma ve azure'da ASP.NET Core Önizleme uygulamaları dağıtma](xref:host-and-deploy/azure-apps/index#deploy-aspnet-core-preview-release-to-azure-app-service)
