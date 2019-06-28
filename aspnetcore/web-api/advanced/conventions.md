@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 12/13/2018
 uid: web-api/advanced/conventions
-ms.openlocfilehash: 671e39ded50e50bbfe6d12879895bee74367f754
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: ae409158defe15ffaa7454039b302cf3c6437e54
+ms.sourcegitcommit: 6d9cf728465cdb0de1037633a8b7df9a8989cccb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64902870"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67463288"
 ---
 # <a name="use-web-api-conventions"></a>Web API kuralları kullanma
 
@@ -50,7 +50,7 @@ Kuralları oluşturma yok; Her eylem, tam olarak bir kuralı ile ilişkilendiril
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     ```
 
-Daha fazla bilgi için `[ProducesDefaultResponseType]`, bkz: [varsayılan yanıt](https://swagger.io/docs/specification/describing-responses/#default).
+    Daha fazla bilgi için `[ProducesDefaultResponseType]`, bkz: [varsayılan yanıt](https://swagger.io/docs/specification/describing-responses/#default).
 
 1. `Microsoft.AspNetCore.Mvc.ApiConventionTypeAttribute` bir denetleyiciye uygulanan &mdash; belirtilen kural türü denetleyicinin tüm eylemleri için geçerlidir. Bir kural yöntem kuralı yöntemi uygulandığı eylemleri belirlemek ve ipuçları ile sunulur. İpuçları hakkında daha fazla bilgi için bkz. [web API'si kuralları oluşturma](#create-web-api-conventions)).
 

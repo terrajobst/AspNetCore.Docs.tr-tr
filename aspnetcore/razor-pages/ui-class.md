@@ -4,15 +4,15 @@ author: Rick-Anderson
 description: Yeniden kullanılabilir Razor kısmi görünümler, ASP.NET Core sınıf kitaplığında kullanarak kullanıcı Arabirimi oluşturma açıklanır.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 06/24/2019
+ms.date: 06/28/2019
 ms.custom: mvc, seodec18
 uid: razor-pages/ui-class
-ms.openlocfilehash: 96ef8fc055a6b92cd0808d02031d917b8446f305
-ms.sourcegitcommit: 763af2cbdab0da62d1f1cfef4bcf787f251dfb5c
+ms.openlocfilehash: d59f643a23b48ccbddf498ef534ee8432b010f40
+ms.sourcegitcommit: 6d9cf728465cdb0de1037633a8b7df9a8989cccb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67394752"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67463262"
 ---
 # <a name="create-reusable-ui-using-the-razor-class-library-project-in-aspnet-core"></a>ASP.NET Core Razor sınıf kitaplığı projesi kullanarak yeniden kullanılabilir kullanıcı Arabirimi oluşturma
 
@@ -228,6 +228,8 @@ Varsayalım *RazorUIClassLib/sayfaları/paylaşılan* iki kısmi dosyaları içe
 </body>
 ```
 
+::: moniker range=">= aspnetcore-3.0"
+
 ## <a name="create-an-rcl-with-static-assets"></a>Bir RCL ile statik varlıkları oluşturma
 
 Bir RCL RCL kullanan uygulama tarafından başvurulan statik varlıklar Yardımcısı gerektirebilir. ASP.NET Core, kullanan bir uygulama için kullanılabilir olan statik varlıkları içeren RCLs oluşturulmasını sağlar.
@@ -254,3 +256,5 @@ RCL oluşturulduğunda, statik web varlık konumlarını tanımlayan bir bildiri
 ### <a name="publish"></a>Yayımlama
 
 Uygulama yayınlandıktan sonra başvuruda bulunulan tüm projelerin ve paketleri Yardımcısı varlıklarından içine kopyalanır *wwwroot* klasörü altında yayımlanan uygulamanın `_content/{LIBRARY NAME}/`.
+
+::: moniker-end
