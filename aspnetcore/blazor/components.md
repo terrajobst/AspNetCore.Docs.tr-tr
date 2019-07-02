@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/24/2019
 uid: blazor/components
-ms.openlocfilehash: cd4d4f9d85f2fad6fe769340ab7a49e6ccb05861
-ms.sourcegitcommit: 763af2cbdab0da62d1f1cfef4bcf787f251dfb5c
+ms.openlocfilehash: 2f0447fa6fbc5e57954558d521e4ce047bdb6ab1
+ms.sourcegitcommit: eb3e51d58dd713eefc242148f45bd9486be3a78a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67394689"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67500435"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Oluşturma ve ASP.NET Core Razor bileşenleri kullanma
 
@@ -66,7 +66,7 @@ Bileşenleri sıradan C# sınıfları ve bir projesi içinde her yerden yerleşt
 Bileşenleri ile mevcut Razor sayfaları ve MVC uygulamaları kullanın. Var olan sayfaları veya Razor bileşenler kullanmaya görünümleri yeniden gerek yoktur. Sayfa veya Görünüm işlendiğinde bileşenleri prerendered&dagger; aynı anda. 
 
 > [!NOTE]
-> &dagger;Sunucu tarafı prerendering Blazor sunucu tarafı uygulamalar için varsayılan olarak etkindir. İstemci tarafı Blazor uygulamaları prerendering yaklaşan Preview 5 sürümüne destekler. Daha fazla bilgi için [MapFallbackToPage/dosyasını kullanmak için şablonlar/ara yazılım güncelleştirmesi](https://github.com/aspnet/AspNetCore/issues/8852).
+> &dagger;Sunucu tarafı prerendering Blazor sunucu tarafı uygulamalar için varsayılan olarak etkindir. Blazor istemci tarafı uygulamalar Preview 5 piyasaya sürülecek prerendering destekler. Daha fazla bilgi için [MapFallbackToPage/dosyasını kullanmak için şablonlar/ara yazılım güncelleştirmesi](https://github.com/aspnet/AspNetCore/issues/8852).
 
 Bir bileşenden bir sayfa ya da Görünüm işlemek için `RenderComponentAsync<TComponent>` HTML yardımcı yöntemi:
 

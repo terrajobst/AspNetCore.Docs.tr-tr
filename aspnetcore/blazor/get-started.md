@@ -5,14 +5,14 @@ description: Blazor ile kendi tercih ettiğiniz araçları Blazor uygulamayla ol
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/18/2019
+ms.date: 07/01/2019
 uid: blazor/get-started
-ms.openlocfilehash: c614ff52600434158c75e288e0b15985c0eb8e68
-ms.sourcegitcommit: a1283d486ac1dcedfc7ea302e1cc882833e2c515
+ms.openlocfilehash: 51fb531c07de35b08911c8475b192f3bda281ea4
+ms.sourcegitcommit: eb3e51d58dd713eefc242148f45bd9486be3a78a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67207658"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67500437"
 ---
 # <a name="get-started-with-aspnet-core-blazor"></a>ASP.NET Core Blazor ile çalışmaya başlama
 
@@ -54,13 +54,13 @@ Blazor ile kullanmaya başlayın:
 
    2\. Son yükleme [ C# Visual Studio Code uzantısı için](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
 
-   3\. Blazor istemci-tarafı deneyimi için bir komut kabuğu'ndan aşağıdaki komutu yürütün:
+   3\. Blazor istemci-tarafı deneyimi için bir komut kabuğu'nda aşağıdaki komutu yürütün:
 
       ```console
       dotnet new blazor -o WebApplication1
       ```
 
-      Blazor sunucu tarafı deneyimi için bir komut kabuğu'ndan aşağıdaki komutu yürütün:
+      Blazor sunucu tarafı deneyimi için bir komut kabuğu'nda aşağıdaki komutu yürütün:
 
       ```console
       dotnet new blazorserverside -o WebApplication1
@@ -98,7 +98,7 @@ Blazor ile kullanmaya başlayın:
 
    # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli/)
 
-   Blazor istemci-tarafı deneyimi için bir komut kabuğu'ndan aşağıdaki komutları yürütün:
+   Blazor istemci-tarafı deneyimi için bir komut kabuğu'nda aşağıdaki komutları yürütün:
 
    ```console
    dotnet new blazor -o WebApplication1
@@ -106,7 +106,7 @@ Blazor ile kullanmaya başlayın:
    dotnet run
    ```
 
-   Blazor sunucu tarafı deneyimi için bir komut kabuğu'ndan aşağıdaki komutları yürütün:
+   Blazor sunucu tarafı deneyimi için bir komut kabuğu'nda aşağıdaki komutları yürütün:
 
    ```console
    dotnet new blazorserverside -o WebApplication1
@@ -132,7 +132,7 @@ Sayaç sayfasında **me tıklayın** sayfa yenileme olmadan sayaç artmaya düğ
 
 [!code-cshtml[](get-started/samples_snapshot/3.x/Counter1.razor?highlight=7,12-15)]
 
-Bir istek için `/counter` tarayıcıda tarafından belirtilen `@page` yönergesi üst içeriğini işlemek sayacı bileşen neden olur. Bileşenleri UI esnek ve verimli bir şekilde güncelleştirmek için kullanılabilir işleme ağacında bir bellek içi gösterimi halinde işler.
+Bir istek için `/counter` tarayıcıda tarafından belirtilen `@page` yönergesi üst neden `Counter` içeriğini işlemek için bileşen. Bileşenleri UI esnek ve verimli bir şekilde güncelleştirmek için kullanılabilir işleme ağacında bir bellek içi gösterimi halinde işler.
 
 Her zaman **me tıklayın** düğmesi seçili:
 
@@ -143,15 +143,15 @@ Her zaman **me tıklayın** düğmesi seçili:
 
 Çalışma zamanı, önceki içeriği için yeni içerik karşılaştırır ve yalnızca değiştirilen içerik belge nesne modeli (DOM) için geçerlidir.
 
-Bir bileşen başka bir bileşene HTML sözdizimini kullanarak ekleyin. Örneğin, sayaç bileşen uygulamanın giriş sayfasına ekleyerek bir `<Counter />` dizin bileşeni öğesi.
+Bir bileşen başka bir bileşene HTML sözdizimini kullanarak ekleyin. Örneğin, ekleme `Counter` bileşeni ekleyerek, uygulamanın giriş sayfası için bir `<Counter />` öğesine `Index` bileşeni.
 
 *Pages/Index.razor*:
 
 [!code-cshtml[](get-started/samples_snapshot/3.x/Index1.razor?highlight=7)]
 
-Uygulamayı çalıştırın. Giriş sayfası sayacı bileşen tarafından sağlanan kendi sayaç vardır.
+Uygulamayı çalıştırın. Giriş sayfası tarafından sağlanan kendi sayaç sahip `Counter` bileşeni.
 
-Bileşen parametreleri, öznitelikleri kullanarak belirtilir veya [alt içeriğin](xref:blazor/components#child-content), en alt bileşen özelliklerini ayarlama sağlar. Sayaç bileşenine parametre eklemek için bileşenin güncelleştirme `@code` engelle:
+Bileşen parametreleri, öznitelikleri kullanarak belirtilir veya [alt içeriğin](xref:blazor/components#child-content), en alt bileşen özelliklerini ayarlama sağlar. Bir parametre eklemek için `Counter` bileşeni, bileşenin güncelleştirme `@code` engelle:
 
 * Bir özelliği için ekleme `IncrementAmount` ile bir `[Parameter]` özniteliği.
 * Değişiklik `IncrementCount` yönteminin kullanılacağını `IncrementAmount` değerini artırmayı olduğunda `currentCount`.
@@ -160,13 +160,13 @@ Bileşen parametreleri, öznitelikleri kullanarak belirtilir veya [alt içeriği
 
 [!code-cshtml[](get-started/samples_snapshot/3.x/Counter2.razor?highlight=12-13,17)]
 
-Belirtin `IncrementAmount` dizin bileşenin içinde `<Counter>` öğesini kullanarak bir öznitelik.
+Belirtin `IncrementAmount` içinde `Index` bileşenin `<Counter>` öğesini kullanarak bir öznitelik.
 
 *Pages/Index.razor*:
 
 [!code-cshtml[](get-started/samples_snapshot/3.x/Index2.razor?highlight=7)]
 
-Uygulamayı çalıştırın. Dizin bileşenini on tarafından her zaman artırır, kendi sayaç sahip **me tıklayın** düğmesi seçili. Sayaç bileşeni (*Counter.razor*) adresindeki `/counter` bir ilerlemeye devam eder.
+Uygulamayı çalıştırın. `Index` Bileşeniyse on tarafından her zaman artırır, kendi sayaç **me tıklayın** düğmesi seçili. `Counter` Bileşeni (*Counter.razor*) adresindeki `/counter` bir ilerlemeye devam eder.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

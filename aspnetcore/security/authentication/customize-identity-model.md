@@ -3,14 +3,14 @@ title: ASP.NET core'da kimlik modeli özelleştirme
 author: ajcvickers
 description: Bu makalede, ASP.NET Core kimliği için Entity Framework Core veri modeli özelleştirmeyi açıklar.
 ms.author: avickers
-ms.date: 04/24/2019
+ms.date: 07/01/2019
 uid: security/authentication/customize_identity_model
-ms.openlocfilehash: 53ce77e20722f3ba3282ff4455a0b70d30e635b0
-ms.sourcegitcommit: ffe3ed7921ec6c7c70abaac1d10703ec9a43374c
+ms.openlocfilehash: f549fdff4a416b5fadcb2b1078b051bbab8e402e
+ms.sourcegitcommit: eb3e51d58dd713eefc242148f45bd9486be3a78a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65536019"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67500482"
 ---
 # <a name="identity-model-customization-in-aspnet-core"></a>ASP.NET core'da kimlik modeli özelleştirme
 
@@ -72,7 +72,7 @@ Aşağıdaki varlık türlerini kimlik modeli oluşur.
 
 ### <a name="default-model-configuration"></a>Varsayılan model yapılandırma
 
-Kimlik birçok tanımlar *bağlamı sınıfları* türünden devralınır <xref:Microsoft.EntityFrameworkCore.DbContext> yapılandırıp modelini kullanın. Bu yapılandırma yapılır kullanarak [EF Core kod ilk Fluent API'si](/ef/core/modeling/) içinde <xref:Microsoft.EntityFrameworkCore.DbContext.OnModelCreating*> bağlamı sınıfının yöntemi. Varsayılan yapılandırma verilmiştir:
+Kimlik birçok tanımlar *bağlamı sınıfları* türünden devralınır [DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext) yapılandırıp modelini kullanın. Bu yapılandırma yapılır kullanarak [EF Core kod ilk Fluent API'si](/ef/core/modeling/) içinde [OnModelCreating](/dotnet/api/microsoft.entityframeworkcore.dbcontext.onmodelcreating) bağlamı sınıfının yöntemi. Varsayılan yapılandırma verilmiştir:
 
 ```csharp
 builder.Entity<TUser>(b =>
@@ -463,7 +463,7 @@ PK türünü değiştirmek için aşağıdaki adımları izleyin:
             .AddDefaultTokenProviders();
     ```
 
-    Birincil anahtarın veri türü analiz ederek algılanır <xref:Microsoft.EntityFrameworkCore.DbContext> nesne.
+    Birincil anahtarın veri türü analiz ederek algılanır [DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext) nesne.
 
     ASP.NET Core 2.1 veya daha sonra kimlik Razor sınıf kitaplığı sağlanır. Daha fazla bilgi için bkz. <xref:security/authentication/scaffold-identity>. Sonuç olarak, önceki kod yapılan bir çağrı gerektirir. <xref:Microsoft.AspNetCore.Identity.IdentityBuilderUIExtensions.AddDefaultUI*>. Kimlik iskele kurucu kimlik dosyalar projeye eklemek için kullanıldıysa çağrısını kaldırın `AddDefaultUI`.
 
@@ -477,7 +477,7 @@ PK türünü değiştirmek için aşağıdaki adımları izleyin:
             .AddDefaultTokenProviders();
     ```
 
-    Birincil anahtarın veri türü analiz ederek algılanır <xref:Microsoft.EntityFrameworkCore.DbContext> nesne.
+    Birincil anahtarın veri türü analiz ederek algılanır [DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext) nesne.
 
     ::: moniker-end
 
@@ -507,7 +507,7 @@ PK türünü değiştirmek için aşağıdaki adımları izleyin:
 
     [!code-csharp[](customize-identity-model/samples/2.1/RazorPagesSampleApp/Startup.cs?name=snippet_ConfigureServices&highlight=13-16)]
 
-    Birincil anahtarın veri türü analiz ederek algılanır <xref:Microsoft.EntityFrameworkCore.DbContext> nesne.
+    Birincil anahtarın veri türü analiz ederek algılanır [DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext) nesne.
 
     ASP.NET Core 2.1 veya daha sonra kimlik Razor sınıf kitaplığı sağlanır. Daha fazla bilgi için bkz. <xref:security/authentication/scaffold-identity>. Sonuç olarak, önceki kod yapılan bir çağrı gerektirir. <xref:Microsoft.AspNetCore.Identity.IdentityBuilderUIExtensions.AddDefaultUI*>. Kimlik iskele kurucu kimlik dosyalar projeye eklemek için kullanıldıysa çağrısını kaldırın `AddDefaultUI`.
 
@@ -521,7 +521,7 @@ PK türünü değiştirmek için aşağıdaki adımları izleyin:
 
     [!code-csharp[](customize-identity-model/samples/2.0/RazorPagesSampleApp/Startup.cs?name=snippet_ConfigureServices&highlight=7-9)]
 
-    Birincil anahtarın veri türü analiz ederek algılanır <xref:Microsoft.EntityFrameworkCore.DbContext> nesne.
+    Birincil anahtarın veri türü analiz ederek algılanır [DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext) nesne.
 
     ::: moniker-end
 
@@ -962,7 +962,7 @@ Bu bölümde, yavaş yükleniyor proxy'si kimlik modeli için destek eklendi. Ge
 Varlık türleri yapılabilir uygun çeşitli yollarla yavaş yükleniyor açıklandığı [EF Core belgeleri](/ef/core/querying/related-data#lazy-loading). Kolaylık olması için Gecikmeli yükleme proxy'leri gerektiren kullanın:
 
 * Yüklenmesini [Microsoft.EntityFrameworkCore.Proxies](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Proxies/) paket.
-* Bir çağrı <xref:Microsoft.EntityFrameworkCore.ProxiesExtensions.UseLazyLoadingProxies*> içinde <xref:Microsoft.Extensions.DependencyInjection.EntityFrameworkServiceCollectionExtensions.AddDbContext*>.
+* Bir çağrı <xref:Microsoft.EntityFrameworkCore.ProxiesExtensions.UseLazyLoadingProxies*> içinde [AddDbContext\<TContext >](/dotnet/api/microsoft.extensions.dependencyinjection.entityframeworkservicecollectionextensions.adddbcontext).
 * Genel varlık türleri ile `public virtual` Gezinti özellikleri.
 
 Aşağıdaki örnek, arama gösterir `UseLazyLoadingProxies` içinde `Startup.ConfigureServices`:

@@ -5,14 +5,14 @@ description: Windows kimlik doğrulaması için IIS ve HTTP.sys içinde ASP.NET 
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 06/12/2019
+ms.date: 07/01/2019
 uid: security/authentication/windowsauth
-ms.openlocfilehash: 93f833adff95f25d570947cd1a9035d652f522c2
-ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
+ms.openlocfilehash: 30f1f554a29412ed6b84115d457d2da1aba91c17
+ms.sourcegitcommit: eb3e51d58dd713eefc242148f45bd9486be3a78a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67034957"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67500510"
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>ASP.NET Core Windows kimlik doğrulamasını yapılandırma
 
@@ -145,7 +145,10 @@ Kullanım **ya da** aşağıdaki yaklaşımlardan biri:
  [Microsoft.AspNetCore.Authentication.Negotiate](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Negotiate) NuGet paketi ile kullanılabilir [Kestrel](xref:fundamentals/servers/kestrel) Windows Windows, Linux ve Macos'ta anlaşma, Kerberos ve NTLM kullanarak kimlik doğrulamasını desteklemek için.
 
 > [!WARNING]
-> Kimlik bilgileri bağlantı istekleri arasında kalıcı. *Anlaşma kimlik doğrulaması değil kullanılmalıdır proxy'leriyle sürece proxy Kestrel ile 1:1 bağlantı benzeşimi (kalıcı bir bağlantı) korur.* Anlaşma kimlik doğrulamasını Kestrel arkasında IIS ile kullanılmamalıdır, yani [ASP.NET Core Modülü (ANCM) giden işlem](xref:host-and-deploy/iis/index#out-of-process-hosting-model).
+> Kimlik bilgileri bağlantı istekleri arasında kalıcı. *Anlaşma kimlik doğrulaması değil kullanılmalıdır proxy'leriyle sürece proxy Kestrel ile 1:1 bağlantı benzeşimi (kalıcı bir bağlantı) korur.*
+
+> [!NOTE]
+> Görüşme işleyicisi, temel alınan sunucusunda yerel olarak Windows kimlik doğrulamayı destekliyorsa ve etkin olduğunda algılar. Sunucusu Windows kimlik doğrulamasını destekliyor, ancak devre dışı sunucusu uygulaması etkinleştirmek isteyen bir hata oluşturulur. Sunucuda Windows kimlik doğrulaması etkinleştirildiğinde, Negotiate işleyici şeffaf bir şekilde kendisine iletir.
 
  Kimlik doğrulama hizmetleri çağırarak ekleme <xref:Microsoft.Extensions.DependencyInjection.AuthenticationServiceCollectionExtensions.AddAuthentication*> (`Microsoft.AspNetCore.Authentication.Negotiate` ad alanı) ve `AddNegotitate` (`Microsoft.AspNetCore.Authentication.Negotiate` ad alanı) içinde `Startup.ConfigureServices`:
 
@@ -255,7 +258,17 @@ Sırada [Microsoft.AspNetCore.Authentication.Negotiate](https://www.nuget.org/pa
 
 ## <a name="claims-transformations"></a>Talep dönüştürmeleri
 
+::: moniker range=">= aspnetcore-3.0"
+
+IIS ile barındırırken <xref:Microsoft.AspNetCore.Authentication.AuthenticationService.AuthenticateAsync*> dahili olarak bir kullanıcı başlatmak için çağırılır değil. Bu nedenle, bir <xref:Microsoft.AspNetCore.Authentication.IClaimsTransformation> her kimlik doğrulaması varsayılan olarak etkinleştirilmez sonra talepleri dönüştürmek için kullanılan uygulama. Daha fazla bilgi ve talep dönüştürmeleri etkinleştiren bir kod örneği için bkz: <xref:host-and-deploy/aspnet-core-module#in-process-hosting-model>.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
 IIS işlem içi moduyla barındırırken <xref:Microsoft.AspNetCore.Authentication.AuthenticationService.AuthenticateAsync*> dahili olarak bir kullanıcı başlatmak için çağırılır değil. Bu nedenle, bir <xref:Microsoft.AspNetCore.Authentication.IClaimsTransformation> her kimlik doğrulaması varsayılan olarak etkinleştirilmez sonra talepleri dönüştürmek için kullanılan uygulama. Daha fazla bilgi ve barındırma işlemi içinde talep dönüştürmeleri etkinleştiren bir kod örneği için bkz: <xref:host-and-deploy/aspnet-core-module#in-process-hosting-model>.
+
+::: moniker-end
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

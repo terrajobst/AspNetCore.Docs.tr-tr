@@ -7,18 +7,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/14/2019
 uid: blazor/debug
-ms.openlocfilehash: 887edcd1db6942ba163857d48adfcf8efc8d7f5a
-ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
+ms.openlocfilehash: 6d71296417c57f01e675bdbb31a0d4fe2fd7db63
+ms.sourcegitcommit: eb3e51d58dd713eefc242148f45bd9486be3a78a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67152705"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67500431"
 ---
 # <a name="debug-aspnet-core-blazor"></a>ASP.NET Core Blazor hata ayıklama
 
 [Daniel Roth](https://github.com/danroth27)
 
-*Erken* destek var. WebAssembly chrome'da çalışan istemci-tarafı Blazor uygulamalarındaki hataları ayıklamak için.
+*Erken* destek var. WebAssembly chrome'da çalışan Blazor istemci-tarafı uygulamalarındaki hataları ayıklamak için.
 
 Hata ayıklayıcı özellikleri sınırlıdır. Kullanılabilir senaryolar şunlardır:
 
@@ -40,7 +40,7 @@ Daha fazla hata ayıklama senaryoları biri geliştirme bir devam eden mühendis
 
 ## <a name="procedure"></a>Yordam
 
-Bir istemci-tarafı Blazor Chrome uygulamasında hata ayıklamak için:
+Chrome Blazor istemci-tarafı uygulamada hata ayıklamak için:
 
 * Blazor uygulama yapı içinde `Debug` yapılandırma (yayımlanmamış uygulamalar için varsayılan).
 * (Sürüm 70 veya sonrası) Chrome'da Blazor uygulamayı çalıştırın.

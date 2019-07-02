@@ -9,7 +9,7 @@ Birlikte çalışma JavaScript gecikme, tarayıcı bağlantısı kurulduktan son
 <input @ref="myInput" value="Value set during render" />
 
 @code {
-    ElementRef myInput;
+    private ElementRef myInput;
 
     protected override void OnAfterRender()
     {
@@ -19,11 +19,9 @@ Birlikte çalışma JavaScript gecikme, tarayıcı bağlantısı kurulduktan son
 }
 ```
 
-Bu aşağıdaki bileşen prerendering ile uyumlu bir şekilde bir bileşenin başlatma mantığının parçası olarak JavaScript birlikte çalışma nasıl yapılacağı açıklanır.
+Aşağıdaki bileşen prerendering ile uyumlu bir şekilde bir bileşenin başlatma mantığının parçası olarak JavaScript birlikte çalışma nasıl yapılacağı açıklanır. Bileşen içinde bir işleme güncelleştirmesi tetiklemek mümkün olduğunu gösterir. `OnAfterRenderAsync`. Geliştirici, bu senaryoda, sonsuz bir döngüye oluşturmaktan kaçının gerekir.
 
-Bileşen içinde bir işleme güncelleştirmesi tetiklemek mümkün olduğunu gösterir. `OnAfterRenderAsync`. Bu senaryo için. Geliştirici, sonsuz bir döngüye oluşturmaktan kaçının gerekir.
-
-Burada `JSRuntime.InvokeAsync` çağrıldığında `ElementRef` yalnızca kullanılan `OnAfterRenderAsync` ve önceki hiçbir yaşam döngüsü yöntemi olduğundan herhangi bir JavaScript öğe kadar bileşen oluşturulduğunda.
+Burada `JSRuntime.InvokeAsync` çağrıldığında `ElementRef` yalnızca kullanılan `OnAfterRenderAsync` ve değil herhangi bir önceki yaşam döngüsü yöntemdeki sonra kadar hiçbir JavaScript öğe olduğundan bileşen işlenir.
 
 `StateHasChanged` JavaScript birlikte çalışma çağrısından alınan yeni durumu ile birlikte bileşen rerender için çağrılır. Kodun sonsuz bir döngüye oluşturmaz, çünkü `StateHasChanged` yalnızca aldığında çağrılan `infoFromJs` olduğu `null`.
 
@@ -41,12 +39,12 @@ Burada `JSRuntime.InvokeAsync` çağrıldığında `ElementRef` yalnızca kullan
 
 <p>
     Set value via JS interop call:
-    <input id="val-set-by-interop" @ref="@myElem" />
+    <input id="val-set-by-interop" @ref="myElem" />
 </p>
 
 @code {
-    string infoFromJs;
-    ElementRef myElem;
+    private string infoFromJs;
+    private ElementRef myElem;
 
     protected override async Task OnAfterRenderAsync()
     {

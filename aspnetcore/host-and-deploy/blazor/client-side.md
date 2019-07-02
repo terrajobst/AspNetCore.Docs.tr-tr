@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/14/2019
 uid: host-and-deploy/blazor/client-side
-ms.openlocfilehash: 7567473ae8acd9e1072954907f0fe9c7beea29ad
-ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
+ms.openlocfilehash: b6d08189280e9ca58362265d9b6f2536a3ad1d38
+ms.sourcegitcommit: eb3e51d58dd713eefc242148f45bd9486be3a78a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67153186"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67500494"
 ---
 # <a name="host-and-deploy-aspnet-core-blazor-client-side"></a>Barındırma ve ASP.NET Core Blazor istemci-tarafı dağıtma
 
@@ -178,7 +178,7 @@ Alternatif olarak, kök (üst) uygulamanın devralma devre dışı `<system.webS
 
 ## <a name="hosted-deployment-with-aspnet-core"></a>ASP.NET Core ile barındırılan dağıtım
 
-A *dağıtım barındırılan* tarayıcılardan istemci-tarafı Blazor uygulama yarar bir [ASP.NET Core uygulaması](xref:index) bir sunucuda çalışır.
+A *dağıtım barındırılan* Blazor istemci-tarafı uygulaması, tarayıcılardan hizmet veren bir [ASP.NET Core uygulaması](xref:index) bir sunucuda çalışır.
 
 Böylece iki uygulamanın birlikte dağıtılan Blazor uygulama yayımlanan çıktıda ASP.NET Core uygulaması ile birlikte gelir. ASP.NET Core uygulaması barındırma yeteneğine sahip bir web sunucusu gereklidir. Barındırılan dağıtım için Visual Studio içerir **Blazor (barındırılan ASP.NET Core)** proje şablonu (`blazorhosted` kullanırken şablon [yeni dotnet](/dotnet/core/tools/dotnet-new) komutu).
 
@@ -188,7 +188,7 @@ Azure App Service'e dağıtma hakkında daha fazla bilgi için bkz. <xref:tutori
 
 ## <a name="standalone-deployment"></a>Tek başına dağıtım
 
-A *tek başına dağıtımda* doğrudan istemcileri tarafından istenen statik dosyalar bir dizi istemci-tarafı Blazor uygulama görür. Herhangi bir statik dosya sunucusu Blazor uygulama hizmet kuramıyor.
+A *tek başına dağıtımda* doğrudan istemcileri tarafından istenen statik dosyaları kümesini Blazor istemci-tarafı uygulaması görür. Herhangi bir statik dosya sunucusu Blazor uygulama hizmet kuramıyor.
 
 Tek başına dağıtım varlıklar yayımlanır *bin/bırakma / {TARGET FRAMEWORK} /publish/ {derleme adı} / dist* klasör.
 
