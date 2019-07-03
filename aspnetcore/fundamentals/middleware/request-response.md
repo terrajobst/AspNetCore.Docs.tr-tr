@@ -3,16 +3,16 @@ title: ASP.NET Core istek ve yanıt işlemlerinde
 author: jkotalik
 description: İstek gövdesini okuyup yanıt gövdesi içinde ASP.NET Core hakkında bilgi edinin.
 monikerRange: '>= aspnetcore-3.0'
-ms.author: jkotalik
+ms.author: jukotali
 ms.custom: mvc
 ms.date: 02/26/2019
 uid: fundamentals/middleware/request-response
-ms.openlocfilehash: b6e3cd4b79e0c062b271c65cd5ecbdb4ef80c3a1
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 0c321dad256e239b61907980c09d2c088c1407ff
+ms.sourcegitcommit: 0b9e767a09beaaaa4301915cdda9ef69daaf3ff2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65085503"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67538582"
 ---
 # <a name="request-and-response-operations-in-aspnet-core"></a>ASP.NET Core istek ve yanıt işlemlerinde
 
@@ -22,7 +22,7 @@ Bu makalede, gövdeden okuma ve yazma için yanıt gövdesini açıklanmaktadır
 
 ASP.NET Core 3. 0 ', istek ve yanıt gövdeleri için iki soyutlama vardır: <xref:System.IO.Stream> ve <xref:System.IO.Pipelines.Pipe>. İsteği okumak için [HttpRequest.Body](xref:Microsoft.AspNetCore.Http.HttpRequest.Body) olduğu bir <xref:System.IO.Stream>, ve `HttpRequest.BodyPipe` olduğu bir <xref:System.IO.Pipelines.PipeReader>. Yanıt yazmak için [HttpResponse.Body](xref:Microsoft.AspNetCore.Http.HttpResponse.Body) olduğu bir `HttpResponse.BodyPipe` olduğu bir <xref:System.IO.Pipelines.PipeWriter>.
 
-İşlem hatları üzerinde akışları öneririz. Akışları kullanmak için bazı basit işlemler daha kolay olabilir, ancak işlem hatları performans avantajı vardır ve çoğu senaryoda kullanmak daha kolaydır. 3. 0 ', işlem hatları akışları yerine dahili olarak kullanmak üzere ASP.NET Core başlatıyor. Örnekler:
+İşlem hatları üzerinde akışları öneririz. Akışları kullanmak için bazı basit işlemler daha kolay olabilir, ancak işlem hatları performans avantajı vardır ve çoğu senaryoda kullanmak daha kolaydır. 3\. 0 ', işlem hatları akışları yerine dahili olarak kullanmak üzere ASP.NET Core başlatıyor. Örnekler:
 
 - `FormReader`
 - `TextReader`
@@ -72,7 +72,7 @@ Bu örnekte akışları uygulamaları olan çok sayıda sorunu giderir:
 
 ## <a name="adapters"></a>Bağdaştırıcıları
 
-Artık hem `Body` ve `BodyPipe` özellikler için kullanılabilir `HttpRequest` ve `HttpResponse`, ayarladığınızda ne `Body` farklı bir akışa? 3. 0'bağdaştırıcıları yeni bir dizi otomatik olarak diğer her tür uyarlayın. Örneğin, ayarlarsanız `HttpRequest.Body` yeni bir akışa `HttpRequest.BodyPipe` otomatik olarak yeni bir için ayarlanır `PipeReader` sonuna geldik `HttpRequest.Body`. Aynı davranışı ayarı için geçerli `BodyPipe` özelliği. Varsa `HttpResponse.BodyPipe` yeni bir için ayarlanır `PipeWriter`, `HttpResponse.Body` sarmalayan yeni bir akış için otomatik olarak ayarlanır `HttpResponse.BodyPipe`.
+Artık hem `Body` ve `BodyPipe` özellikler için kullanılabilir `HttpRequest` ve `HttpResponse`, ayarladığınızda ne `Body` farklı bir akışa? 3\. 0'bağdaştırıcıları yeni bir dizi otomatik olarak diğer her tür uyarlayın. Örneğin, ayarlarsanız `HttpRequest.Body` yeni bir akışa `HttpRequest.BodyPipe` otomatik olarak yeni bir için ayarlanır `PipeReader` sonuna geldik `HttpRequest.Body`. Aynı davranışı ayarı için geçerli `BodyPipe` özelliği. Varsa `HttpResponse.BodyPipe` yeni bir için ayarlanır `PipeWriter`, `HttpResponse.Body` sarmalayan yeni bir akış için otomatik olarak ayarlanır `HttpResponse.BodyPipe`.
 
 ## <a name="startasync"></a>StartAsync
 

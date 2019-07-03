@@ -5,14 +5,14 @@ description: .NET ve JavaScript işlevleri çağırmak nasıl öğrenin Blazor u
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/14/2019
+ms.date: 07/02/2019
 uid: blazor/javascript-interop
-ms.openlocfilehash: df511fe77661cd1474e869b28e6858e0452eaae5
-ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
+ms.openlocfilehash: 5d90a83acae3864c40ce38b6259d1938e56a2c54
+ms.sourcegitcommit: 0b9e767a09beaaaa4301915cdda9ef69daaf3ff2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67152799"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67538542"
 ---
 # <a name="aspnet-core-blazor-javascript-interop"></a>ASP.NET Core Blazor JavaScript birlikte çalışma
 
@@ -34,7 +34,7 @@ Sunucu tarafı uygulamalar için:
 
 Aşağıdaki örnek dayanır [TextDecoder](https://developer.mozilla.org/docs/Web/API/TextDecoder), Deneysel bir JavaScript tabanlı kod çözücü. Örnek bir JavaScript işlevini çağırmak nasıl gösterir bir C# yöntemi. JavaScript işlevi, bir bayt dizisinden kabul eden bir C# yöntemi, dizinin kodunu çözer ve bileşenine görüntülenmesi için metni döndürür.
 
-İçinde `<head>` öğesinin *wwwroot/index.html* (Blazor istemci-tarafı) veya *sayfaları /\_Host.cshtml* (Blazor sunucu-tarafı), kullanan bir işlev sağlayan `TextDecoder` için geçirilen dizi kod çözme:
+İçinde `<head>` öğesinin *wwwroot/index.html* (Blazor istemci-tarafı) veya *Pages/_Host.cshtml* (Blazor sunucu-tarafı), kullanan bir işlev sağlayan `TextDecoder` bir geçirilen kodu çözülecek dizi:
 
 [!code-html[](javascript-interop/samples_snapshot/index-script.html)]
 
@@ -77,13 +77,13 @@ Bu konuda eşlik eden istemci-tarafı örnek uygulamada, kullanıcı girişini a
 
 [!code-javascript[](./common/samples/3.x/BlazorSample/wwwroot/exampleJsInterop.js?highlight=2-7)]
 
-Bir yerde `<script>` JavaScript dosyasında başvuruda etiketi *wwwroot/index.html* dosyası (Blazor istemci-tarafı) veya *sayfaları /\_Host.cshtml* dosyası (Blazor sunucu-tarafı).
+Bir yerde `<script>` JavaScript dosyasında başvuruda etiketi *wwwroot/index.html* dosyası (Blazor istemci-tarafı) veya *Pages/_Host.cshtml* dosyası (Blazor sunucu-tarafı).
 
 *wwwroot/index.HTML* (Blazor istemci-tarafı):
 
 [!code-html[](./common/samples/3.x/BlazorSample/wwwroot/index.html?highlight=15)]
 
-*Sayfa /\_Host.cshtml* (Blazor sunucu-tarafı):
+*Pages/_Host.cshtml* (Blazor sunucu-tarafı):
 
 [!code-cshtml[](javascript-interop/samples_snapshot/_Host.cshtml?highlight=29)]
 
@@ -170,7 +170,7 @@ Yöntem doğrudan nesne üzerinde çağrılır. Aşağıdaki örnek olduğunu va
 [!code-cshtml[](javascript-interop/samples_snapshot/component2.razor?highlight=1,4,8,12)]
 
 > [!IMPORTANT]
-> `username` Değişkeni bileşeni işler ve çıktısını içeren sonra yalnızca doldurulmuş `>` öğesi. Bir doldurulmamış geçirmeye çalışırsanız `ElementRef` JavaScript kodu için JavaScript kodunu alır `null`. Bileşen kullanın (bir öğede ilk odağı ayarlamak için) işleme tamamlandıktan sonra öğesi başvuruları işlemek için `OnAfterRenderAsync` veya `OnAfterRender` [bileşen yaşam döngüsü yöntemleri](xref:blazor/components#lifecycle-methods).
+> `username` Değişkeni bileşen oluşturulduğunda yalnızca doldurulur. Bir doldurulmamış varsa `ElementRef` JavaScript kodunu, kodu bir değeri aldığında JavaScript geçirilen `null`. Bileşen kullanın (bir öğede ilk odağı ayarlamak için) işleme tamamlandıktan sonra öğesi başvuruları işlemek için `OnAfterRenderAsync` veya `OnAfterRender` [bileşen yaşam döngüsü yöntemleri](xref:blazor/components#lifecycle-methods).
 
 ## <a name="invoke-net-methods-from-javascript-functions"></a>JavaScript işlevleri .NET yöntemleri çağırma
 
@@ -244,6 +244,6 @@ JavaScript birlikte çalışma kodu, bir NuGet paketi kod paylaşmanıza olanak 
 
 Sınıf kitaplığı ekleme JavaScript kaynakları derlemesi işler. JavaScript dosyaları yerleştirilir *wwwroot* klasör. Alet kullanımı dışındaki kaynaklar ekleme kitaplık oluşturulduğunda üstlenir.
 
-Yalnızca normal bir NuGet paketi başvurulduğu yerleşik NuGet paketini uygulamanın proje dosyasında başvurulan. Uygulama geri yüklendikten sonra olarak bulunuyorlarmış uygulama kodu içinde JavaScript çağırabilirsiniz C#.
+Yerleşik NuGet paketini uygulamanın proje dosyasında aynı şekilde herhangi bir NuGet paketi başvuruluyor başvuruluyor. Paket geri yüklendikten sonra olarak bulunuyorlarmış uygulama kodu içinde JavaScript çağırabilirsiniz C#.
 
 Daha fazla bilgi için bkz. <xref:blazor/class-libraries>.

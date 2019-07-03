@@ -5,20 +5,20 @@ description: Uygulamalar ve NavLink bileşenle ilgili istekleri yönlendirmeyi �
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/26/2019
+ms.date: 07/02/2019
 uid: blazor/routing
-ms.openlocfilehash: ddbb43f897decc94218ad950ef8dda6ea153d0d3
-ms.sourcegitcommit: 9bb29f9ba6f0645ee8b9cabda07e3a5aa52cd659
+ms.openlocfilehash: d2f0ce608d7368871f508754d7bbe4f75cc9701f
+ms.sourcegitcommit: 0b9e767a09beaaaa4301915cdda9ef69daaf3ff2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67406087"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67538525"
 ---
 # <a name="aspnet-core-blazor-routing"></a>ASP.NET Core Blazor yönlendirme
 
 Tarafından [Luke Latham](https://github.com/guardrex)
 
-Uygulamaları ve ilgili istekleri yönlendirmeyi öğrenin `NavLink` bileşeni.
+İstek yönlendirme hakkında ve nasıl kullanılacağını öğrenin `NavLink` Blazor uygulamalarda gezinme bağlantıları oluşturmak için bileşen.
 
 ## <a name="aspnet-core-endpoint-routing-integration"></a>ASP.NET Core uç noktası yönlendirme tümleştirmesi
 
@@ -105,18 +105,18 @@ Aşağıdaki tabloda gösterilen rota kısıtlamalarını kullanılabilir. Sabit
 
 ## <a name="navlink-component"></a>NavLink bileşeni
 
-Kullanım bir `NavLink` HTML yerine bileşen `<a>` gezinme bağlantıları oluşturulurken öğeleri. A `NavLink` bileşeni davranacağını gibi bir `<a>` öğesi, onu değiştirir dışında bir `active` CSS sınıfı bağlı kendi `href` geçerli URL ile eşleşen. `active` Sınıfı, bir kullanıcının hangi sayfa etkin sayfa görüntülenen gezinti bağlantıları arasında olduğunu anlamak yardımcı olur.
+Kullanım bir `NavLink` HTML Köprü öğeleri yerine bileşen (`<a>`) gezinme bağlantıları oluşturulurken. A `NavLink` bileşeni davranacağını gibi bir `<a>` öğesi, onu değiştirir dışında bir `active` CSS sınıfı bağlı kendi `href` geçerli URL ile eşleşen. `active` Sınıfı, bir kullanıcının hangi sayfa etkin sayfa görüntülenen gezinti bağlantıları arasında olduğunu anlamak yardımcı olur.
 
 Aşağıdaki `NavMenu` bileşeni oluşturur bir [önyükleme](https://getbootstrap.com/docs/) nasıl kullanılacağını gösteren bir gezinti çubuğu `NavLink` bileşenler:
 
-[!code-cshtml[](common/samples/3.x/BlazorSample/Shared/NavMenu.razor?name=snippet_NavLinks&highlight=4-6,9-11)]
+[!code-cshtml[](routing/samples_snapshot/3.x/NavMenu.razor?highlight=4,9)]
 
-İki `NavLinkMatch` seçenekleri:
+İki `NavLinkMatch` atayabileceğiniz seçenekleri `Match` özniteliği `<NavLink>` öğesi:
 
-* `NavLinkMatch.All` &ndash; Tüm geçerli URL eşleştiğinde NavLink etkin olması gerektiğini belirtir.
-* `NavLinkMatch.Prefix` &ndash; Geçerli URL herhangi bir önek eşleştiğinde NavLink etkin olması gerektiğini belirtir.
+* `NavLinkMatch.All` &ndash; `NavLink` Tüm geçerli URL eşleştiğinde etkindir.
+* `NavLinkMatch.Prefix` (*varsayılan*) &ndash; `NavLink` geçerli URL herhangi bir önek eşleştiğinde etkindir.
 
-Yukarıdaki örnekte, giriş NavLink (`href=""`) tüm URL'lerle eşleşir ve her zaman alan `active` CSS sınıfı. İkinci NavLink yalnızca alan `active` sınıfı kullanıcı ziyaret ettiğinde `BlazorRoute` bileşeni (`href="BlazorRoute"`).
+Yukarıdaki örnekte, giriş `NavLink` `href=""` giriş URL ile eşleşen ve yalnızca alan `active` CSS sınıfı uygulamanın varsayılan temel yol URL'si (örneğin, `https://localhost:5001/`). İkinci `NavLink` alır `active` kullanıcı herhangi bir URL ile ziyaret ettiğinde sınıfı bir `MyComponent` önek (örneğin, `https://localhost:5001/MyComponent` ve `https://localhost:5001/MyComponent/AnotherSegment`).
 
 ## <a name="uri-and-navigation-state-helpers"></a>URI ve gezinti durumu Yardımcıları
 
@@ -131,7 +131,7 @@ Kullanım `Microsoft.AspNetCore.Components.IUriHelper` gezintisi ve bir URI'leri
 | `ToAbsoluteUri` | Bir göreli URİ'yi mutlak bir URI dönüştürür. |
 | `ToBaseRelativePath` | Belirtilen temel URI (örneğin, bir URI daha önce döndürülen tarafından `GetBaseUri`), temel URI'si ön ek göreli bir URI mutlak URİ'ye dönüştürür. |
 
-Düğme seçildiğinde aşağıdaki bileşen uygulamanın sayacı bileşenine varlıklardan:
+Uygulamanın aşağıdaki bileşen gider `Counter` düğme seçildiğinde bileşeni:
 
 ```cshtml
 @page "/navigate"

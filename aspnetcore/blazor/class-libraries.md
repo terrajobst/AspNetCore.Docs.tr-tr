@@ -5,14 +5,14 @@ description: Bileşenleri Blazor uygulamalardan bir dış bileşen kitaplığı 
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/24/2019
+ms.date: 07/02/2019
 uid: blazor/class-libraries
-ms.openlocfilehash: 8676e0fd660b7d281c80d06d24d5593c2df6348b
-ms.sourcegitcommit: 763af2cbdab0da62d1f1cfef4bcf787f251dfb5c
+ms.openlocfilehash: e99dd63200dc863552f099b5d715f78a9732165c
+ms.sourcegitcommit: 0b9e767a09beaaaa4301915cdda9ef69daaf3ff2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67394622"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67538506"
 ---
 # <a name="aspnet-core-razor-components-class-libraries"></a>ASP.NET Core Razor bileşenleri sınıf kitaplıkları
 
@@ -47,13 +47,13 @@ Sunulan yönergeleri <xref:blazor/get-started> makale Blazor için ortamınızı
 
 # <a name="visual-studio-code--net-core-clitabvisual-studio-codenetcore-cli"></a>[Visual Studio Code / .NET Core CLI](#tab/visual-studio-code+netcore-cli)
 
-1. Razor sınıf kitaplığı şablonu (`razorclasslib`) ile [yeni dotnet](/dotnet/core/tools/dotnet-new) komut kabuğundan komutu. Aşağıdaki örnekte, bir RCL adlandırılmış oluşturulan `MyComponentLib1`. Bulunduğu klasöre `MyComponentLib1` komut yürütülürken otomatik olarak oluşturulur.
+1. Kullanım **Razor sınıf kitaplığı** şablonu (`razorclasslib`) ile [yeni dotnet](/dotnet/core/tools/dotnet-new) komutu bir komut kabuğu'nda. Aşağıdaki örnekte, bir RCL adlandırılmış oluşturulan `MyComponentLib1`. Bulunduğu klasöre `MyComponentLib1` komut yürütülürken otomatik olarak oluşturulur:
 
    ```console
    dotnet new razorclasslib -o MyComponentLib1
    ```
 
-1. Kitaplık var olan bir projeye eklemek için [dotnet Başvuru Ekle](/dotnet/core/tools/dotnet-add-reference) komut kabuğu komutunu. Aşağıdaki örnekte, RCL uygulamaya eklenir. Kitaplığa yoluna sahip uygulama proje klasöründen aşağıdaki komutu yürütün:
+1. Kitaplık var olan bir projeye eklemek için [dotnet Başvuru Ekle](/dotnet/core/tools/dotnet-add-reference) komutu bir komut kabuğu'nda. Aşağıdaki örnekte, RCL uygulamaya eklenir. Kitaplığa yoluna sahip uygulama proje klasöründen aşağıdaki komutu yürütün:
 
    ```console
    dotnet add reference {PATH TO LIBRARY}
@@ -61,13 +61,9 @@ Sunulan yönergeleri <xref:blazor/get-started> makale Blazor için ortamınızı
 
 ---
 
-Razor bileşen dosyaları ekleyin ( *.razor*) RCL için.
-
 ## <a name="rcls-not-supported-for-client-side-apps"></a>İstemci tarafı uygulamalar için desteklenmeyen RCLs
 
-ASP.NET Core 3.0 Önizleme'de, Razor sınıf kitaplıkları Blazor istemci tarafı uygulamalar ile uyumlu değildir.
-
-Tarafından oluşturulan bir Blazor bileşen kitaplık Blazor istemci tarafı uygulamalar için kullanmak `blazorlib` komut kabuğundan şablonu:
+Geçerli ASP.NET Core 3.0 önizlemede, Razor sınıf kitaplıkları Blazor istemci tarafı uygulamalar ile uyumlu değildir. Tarafından oluşturulan bir Blazor bileşen kitaplık Blazor istemci tarafı uygulamalar için kullanmak `blazorlib` şablonu bir komut kabuğu'nda:
 
 ```console
 dotnet new blazorlib -o MyComponentLib1
@@ -82,9 +78,9 @@ Başka bir projede bir kitaplıkta tanımlanan bileşenleri kullanmak için aşa
 * Tam tür adı, ad alanı ile kullanın.
 * Razor'ın kullanın [ \@kullanarak](xref:mvc/views/razor#using) yönergesi. Ada göre tek tek bileşenler eklenebilir.
 
-Aşağıdaki örneklerde, `MyComponentLib1` olduğu satış raporunu içeren bir bileşen kitaplığı (`SalesReport`) bileşeni.
+Aşağıdaki örneklerde, `MyComponentLib1` olan bir bileşen kitaplığını içeren bir `SalesReport` bileşeni.
 
-Satış Raporu bileşen ad alanı ile tam tür adını kullanarak başvurulabilir:
+`SalesReport` Bileşen ad alanı ile tam tür adını kullanarak başvurulabilir:
 
 ```cshtml
 <h1>Hello, world!</h1>
@@ -110,13 +106,13 @@ Dahil `@using MyComponentLib1` üst düzey yönerge *_Import.razor* kitaplığı
 
 ## <a name="build-pack-and-ship-to-nuget"></a>Sevkiyat NuGet derleme ve paketi
 
-Bileşen kitaplıkları, .NET standart kitaplıkları olduğundan, paketleme ve bunları için NuGet sevkiyat paketleme ve herhangi bir kitaplığı NuGet sevkiyat farklı. Paketleme kullanarak gerçekleştirilir [dotnet paketi](/dotnet/core/tools/dotnet-pack) komut kabuğu komutunu:
+Bileşen kitaplıkları, .NET standart kitaplıkları olduğundan, paketleme ve bunları için NuGet sevkiyat paketleme ve herhangi bir kitaplığı NuGet sevkiyat farklı. Paketleme kullanarak gerçekleştirilir [dotnet paketi](/dotnet/core/tools/dotnet-pack) komutu bir komut kabuğu'nda:
 
 ```console
 dotnet pack
 ```
 
-NuGet kullanarak paket karşıya [dotnet nuget yayımlama](/dotnet/core/tools/dotnet-nuget-push) komut kabuğu komutunu:
+NuGet kullanarak paket karşıya [dotnet nuget yayımlama](/dotnet/core/tools/dotnet-nuget-push) komutu bir komut kabuğu'nda:
 
 ```console
 dotnet nuget publish

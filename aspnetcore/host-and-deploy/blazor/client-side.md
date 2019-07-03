@@ -5,14 +5,14 @@ description: Ana bilgisayar ve ASP.NET Core, içerik teslim ağları (CDN), dosy
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/14/2019
+ms.date: 07/02/2019
 uid: host-and-deploy/blazor/client-side
-ms.openlocfilehash: b6d08189280e9ca58362265d9b6f2536a3ad1d38
-ms.sourcegitcommit: eb3e51d58dd713eefc242148f45bd9486be3a78a
+ms.openlocfilehash: 46c99364098557557bff0c38cab5a91ee2d3979b
+ms.sourcegitcommit: 0b9e767a09beaaaa4301915cdda9ef69daaf3ff2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67500494"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67538641"
 ---
 # <a name="host-and-deploy-aspnet-core-blazor-client-side"></a>Barındırma ve ASP.NET Core Blazor istemci-tarafı dağıtma
 
@@ -106,19 +106,19 @@ Gereksiz IL çıkış derlemeleri kaldırmak için her derlemede Ara dil (IL) ba
 
 ## <a name="rewrite-urls-for-correct-routing"></a>Doğru yönlendirme URL yeniden yazma
 
-İstekler sayfası bileşenler için bir istemci-tarafı uygulaması yönlendirme yönlendirme isteklerini bir sunucu tarafı, barındırılan uygulama kadar basit değildir. İki sayfa ile bir istemci-tarafı uygulaması göz önünde bulundurun:
+İstekler sayfası bileşenler için bir istemci-tarafı uygulaması yönlendirme yönlendirme isteklerini bir sunucu tarafı, barındırılan uygulama kadar basit değildir. İki bileşeni ile bir istemci-tarafı uygulaması göz önünde bulundurun:
 
-* **_Main.Razor** &ndash; uygulama köküne yükler ve hakkında sayfanın bağlantısını içeren (`href="About"`).
-* **_About.Razor** &ndash; hakkında sayfası.
+* *Main.Razor* &ndash; uygulama köküne yükler ve bir bağlantı içeren `About` bileşeni (`href="About"`).
+* *About.Razor* &ndash; `About` bileşeni.
 
 Tarayıcı Adres çubuğunun kullanarak uygulamanın varsayılan belge istendiğinde (örneğin, `https://www.contoso.com/`):
 
 1. Tarayıcı, bir istek gönderir.
 1. Varsayılan sayfayı döndürülen, genellikle olduğu *index.html*.
 1. *index.HTML* uygulama bootstraps.
-1. Blazor'ın yönlendirici yükler ve Razor ana sayfa (*Main.razor*) görüntülenir.
+1. Blazor'ın yönlendirici yükler ve Razor `Main` bileşen işlenir.
 
-Ana sayfada hakkında sayfasının bağlantısını seçme hakkında sayfası yükler. Hakkında sayfasının bağlantısını seçerek çalışan istemcide Internet üzerindeki bir isteği yapan tarayıcının Blazor yönlendirici durdurulur çünkü `www.contoso.com` için `About` ve hakkında sayfası görevi görür. Tüm istekler için iç sayfaları *istemci-tarafı uygulaması içinde* aynı şekilde çalışır: İstek sunucu tarafından barındırılan kaynaklara İnternet'e tarayıcı tabanlı istekleri tetikleyin yok. Yönlendirici isteklerini dahili olarak işler.
+Ana sayfanın bağlantısını seçerek `About` bileşeni çalışır istemcide Internet üzerindeki bir isteği yapan tarayıcının Blazor yönlendirici durdurulur çünkü `www.contoso.com` için `About` ve işlenen `About` bileşene. Tüm istekler için iç uç nokta *istemci-tarafı uygulaması içinde* aynı şekilde çalışır: İstek sunucu tarafından barındırılan kaynaklara İnternet'e tarayıcı tabanlı istekleri tetikleyin yok. Yönlendirici isteklerini dahili olarak işler.
 
 Bir istek için tarayıcının adres çubuğuna kullanarak denenirse `www.contoso.com/About`, istek başarısız olur. Böyle bir kaynak uygulamanın Internet konakta, bu nedenle mevcut bir *404 - Bulunamadı* yanıt döndürülür.
 
@@ -148,7 +148,7 @@ Uygulama yanıt veren yerel olarak adresindeki `http://localhost:port/CoolApp`.
 
 Daha fazla bilgi için üzerinde bölümüne bakın. [yolu temel konak yapılandırma değeri](#path-base).
 
-Bir uygulama kullanıyorsa [istemci-tarafı barındırma modeli](xref:blazor/hosting-models#client-side) (temel **Blazor** proje şablonu; `blazor` kullanırken şablon [yeni dotnet](/dotnet/core/tools/dotnet-new) komut) ve barındırılan IIS alt uygulamada ASP.NET Core uygulaması, devralınan ASP.NET Core modülü işleyici devre dışı bırakın veya kök (üst) uygulamanın emin olmak önemlidir `<handlers>` konusundaki *web.config* dosya tarafından devralınan değil alt uygulama.
+Bir uygulama kullanıyorsa [istemci-tarafı barındırma modeli](xref:blazor/hosting-models#client-side) (temel **Blazor (istemci-tarafı)** proje şablonu, `blazor` kullanırken şablon [yeni dotnet](/dotnet/core/tools/dotnet-new) Komut) ve barındırılan bir IIS alt uygulama ASP.NET Core uygulaması olarak, devralınan ASP.NET Core modülü işleyici devre dışı bırakın veya kök (üst) uygulamanın emin olmak önemlidir `<handlers>` konusundaki *web.config* dosyası değil alt uygulama tarafından devralınır.
 
 Uygulama işleyicisinde yayımlanan Kaldır *web.config* dosyasını ekleyerek bir `<handlers>` dosya bölümüne:
 
@@ -178,7 +178,7 @@ Alternatif olarak, kök (üst) uygulamanın devralma devre dışı `<system.webS
 
 ## <a name="hosted-deployment-with-aspnet-core"></a>ASP.NET Core ile barındırılan dağıtım
 
-A *dağıtım barındırılan* Blazor istemci-tarafı uygulaması, tarayıcılardan hizmet veren bir [ASP.NET Core uygulaması](xref:index) bir sunucuda çalışır.
+A *dağıtım barındırılan* Blazor istemci-tarafı uygulaması, tarayıcılardan hizmet veren bir [ASP.NET Core uygulaması](xref:index) bir web sunucusunda çalışır.
 
 Böylece iki uygulamanın birlikte dağıtılan Blazor uygulama yayımlanan çıktıda ASP.NET Core uygulaması ile birlikte gelir. ASP.NET Core uygulaması barındırma yeteneğine sahip bir web sunucusu gereklidir. Barındırılan dağıtım için Visual Studio içerir **Blazor (barındırılan ASP.NET Core)** proje şablonu (`blazorhosted` kullanırken şablon [yeni dotnet](/dotnet/core/tools/dotnet-new) komutu).
 
