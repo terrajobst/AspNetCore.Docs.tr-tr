@@ -5,29 +5,29 @@ description: Ara dil (IL) bağlayıcı Blazor uygulaması derlerken, denetlemeyi
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/14/2019
+ms.date: 07/02/2019
 uid: host-and-deploy/blazor/configure-linker
-ms.openlocfilehash: bdddae16885f45df2c10e4d98b1c33eb11dfdf24
-ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
+ms.openlocfilehash: 03be18e7ee6ca8103e1a666da9e693ff67267d83
+ms.sourcegitcommit: 0b9e767a09beaaaa4301915cdda9ef69daaf3ff2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67153212"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67538625"
 ---
-# <a name="configure-the-linker-for-aspnet-core-blazor"></a><span data-ttu-id="603a3-103">ASP.NET Core Blazor için bağlayıcı yapılandırma</span><span class="sxs-lookup"><span data-stu-id="603a3-103">Configure the Linker for ASP.NET Core Blazor</span></span>
+# <a name="configure-the-linker-for-aspnet-core-blazor"></a><span data-ttu-id="3ded9-103">ASP.NET Core Blazor için bağlayıcı yapılandırma</span><span class="sxs-lookup"><span data-stu-id="3ded9-103">Configure the Linker for ASP.NET Core Blazor</span></span>
 
-<span data-ttu-id="603a3-104">Tarafından [Luke Latham](https://github.com/guardrex)</span><span class="sxs-lookup"><span data-stu-id="603a3-104">By [Luke Latham](https://github.com/guardrex)</span></span>
+<span data-ttu-id="3ded9-104">Tarafından [Luke Latham](https://github.com/guardrex)</span><span class="sxs-lookup"><span data-stu-id="3ded9-104">By [Luke Latham](https://github.com/guardrex)</span></span>
 
-<span data-ttu-id="603a3-105">Blazor gerçekleştirir [Ara dil (IL)](/dotnet/standard/managed-code#intermediate-language--execution) uygulamadan gereksiz IL kaldırmak için bir yayın derlemesi sırasında bağlama derlemeleri çıkış.</span><span class="sxs-lookup"><span data-stu-id="603a3-105">Blazor performs [Intermediate Language (IL)](/dotnet/standard/managed-code#intermediate-language--execution) linking during a Release build to remove unnecessary IL from the app's output assemblies.</span></span>
+<span data-ttu-id="3ded9-105">Blazor gerçekleştirir [Ara dil (IL)](/dotnet/standard/managed-code#intermediate-language--execution) uygulamadan gereksiz IL kaldırmak için bir yayın derlemesi sırasında bağlama derlemeleri çıkış.</span><span class="sxs-lookup"><span data-stu-id="3ded9-105">Blazor performs [Intermediate Language (IL)](/dotnet/standard/managed-code#intermediate-language--execution) linking during a Release build to remove unnecessary IL from the app's output assemblies.</span></span>
 
-<span data-ttu-id="603a3-106">Denetim derleme: aşağıdaki yaklaşımlardan birini kullanarak bağlama</span><span class="sxs-lookup"><span data-stu-id="603a3-106">Control assembly linking using either of the following approaches:</span></span>
+<span data-ttu-id="3ded9-106">Denetim derleme: aşağıdaki yaklaşımlardan birini kullanarak bağlama</span><span class="sxs-lookup"><span data-stu-id="3ded9-106">Control assembly linking using either of the following approaches:</span></span>
 
-* <span data-ttu-id="603a3-107">İle küresel olarak bağlama devre dışı bir [MSBuild özelliği](#disable-linking-with-a-msbuild-property).</span><span class="sxs-lookup"><span data-stu-id="603a3-107">Disable linking globally with a [MSBuild property](#disable-linking-with-a-msbuild-property).</span></span>
-* <span data-ttu-id="603a3-108">Denetim ile derleme başına temelinde bağlama bir [yapılandırma dosyası](#control-linking-with-a-configuration-file).</span><span class="sxs-lookup"><span data-stu-id="603a3-108">Control linking on a per-assembly basis with a [configuration file](#control-linking-with-a-configuration-file).</span></span>
+* <span data-ttu-id="3ded9-107">İle küresel olarak bağlama devre dışı bir [MSBuild özelliği](#disable-linking-with-a-msbuild-property).</span><span class="sxs-lookup"><span data-stu-id="3ded9-107">Disable linking globally with a [MSBuild property](#disable-linking-with-a-msbuild-property).</span></span>
+* <span data-ttu-id="3ded9-108">Denetim ile derleme başına temelinde bağlama bir [yapılandırma dosyası](#control-linking-with-a-configuration-file).</span><span class="sxs-lookup"><span data-stu-id="3ded9-108">Control linking on a per-assembly basis with a [configuration file](#control-linking-with-a-configuration-file).</span></span>
 
-## <a name="disable-linking-with-a-msbuild-property"></a><span data-ttu-id="603a3-109">Bir MSBuild özellik bağlama devre dışı bırak</span><span class="sxs-lookup"><span data-stu-id="603a3-109">Disable linking with a MSBuild property</span></span>
+## <a name="disable-linking-with-a-msbuild-property"></a><span data-ttu-id="3ded9-109">Bir MSBuild özellik bağlama devre dışı bırak</span><span class="sxs-lookup"><span data-stu-id="3ded9-109">Disable linking with a MSBuild property</span></span>
 
-<span data-ttu-id="603a3-110">Bir uygulama, yayımlama içeren oluşturulduğunda bağlama yayın modunda varsayılan olarak etkindir.</span><span class="sxs-lookup"><span data-stu-id="603a3-110">Linking is enabled by default in Release mode when an app is built, which includes publishing.</span></span> <span data-ttu-id="603a3-111">Tüm derlemeler için bağlama devre dışı bırakmak için ayarlanmış `<BlazorLinkOnBuild>` MSBuild özelliğini `false` proje dosyasında:</span><span class="sxs-lookup"><span data-stu-id="603a3-111">To disable linking for all assemblies, set the `<BlazorLinkOnBuild>` MSBuild property to `false` in the project file:</span></span>
+<span data-ttu-id="3ded9-110">Bir uygulama, yayımlama içeren oluşturulduğunda bağlama yayın modunda varsayılan olarak etkindir.</span><span class="sxs-lookup"><span data-stu-id="3ded9-110">Linking is enabled by default in Release mode when an app is built, which includes publishing.</span></span> <span data-ttu-id="3ded9-111">Tüm derlemeler için bağlama devre dışı bırakmak için ayarlanmış `BlazorLinkOnBuild` MSBuild özelliğini `false` proje dosyasında:</span><span class="sxs-lookup"><span data-stu-id="3ded9-111">To disable linking for all assemblies, set the `BlazorLinkOnBuild` MSBuild property to `false` in the project file:</span></span>
 
 ```xml
 <PropertyGroup>
@@ -35,9 +35,9 @@ ms.locfileid: "67153212"
 </PropertyGroup>
 ```
 
-## <a name="control-linking-with-a-configuration-file"></a><span data-ttu-id="603a3-112">Bir yapılandırma dosyası bağlama denetimi</span><span class="sxs-lookup"><span data-stu-id="603a3-112">Control linking with a configuration file</span></span>
+## <a name="control-linking-with-a-configuration-file"></a><span data-ttu-id="3ded9-112">Bir yapılandırma dosyası bağlama denetimi</span><span class="sxs-lookup"><span data-stu-id="3ded9-112">Control linking with a configuration file</span></span>
 
-<span data-ttu-id="603a3-113">Derleme başına temelinde bir XML yapılandırma dosyasını sağlayarak ve bir MSBuild öğesi olarak proje dosyasının dosya belirtme bağlama denetimi:</span><span class="sxs-lookup"><span data-stu-id="603a3-113">Control linking on a per-assembly basis by providing an XML configuration file and specifying the file as a MSBuild item in the project file:</span></span>
+<span data-ttu-id="3ded9-113">Derleme başına temelinde bir XML yapılandırma dosyasını sağlayarak ve bir MSBuild öğesi olarak proje dosyasının dosya belirtme bağlama denetimi:</span><span class="sxs-lookup"><span data-stu-id="3ded9-113">Control linking on a per-assembly basis by providing an XML configuration file and specifying the file as a MSBuild item in the project file:</span></span>
 
 ```xml
 <ItemGroup>
@@ -45,7 +45,7 @@ ms.locfileid: "67153212"
 </ItemGroup>
 ```
 
-<span data-ttu-id="603a3-114">*Linker.xml*:</span><span class="sxs-lookup"><span data-stu-id="603a3-114">*Linker.xml*:</span></span>
+<span data-ttu-id="3ded9-114">*Linker.xml*:</span><span class="sxs-lookup"><span data-stu-id="3ded9-114">*Linker.xml*:</span></span>
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -77,4 +77,4 @@ ms.locfileid: "67153212"
 </linker>
 ```
 
-<span data-ttu-id="603a3-115">Daha fazla bilgi için [IL bağlayıcı: Xml tanımlayıcı sözdizimi](https://github.com/mono/linker/blob/master/src/linker/README.md#syntax-of-xml-descriptor).</span><span class="sxs-lookup"><span data-stu-id="603a3-115">For more information, see [IL Linker: Syntax of xml descriptor](https://github.com/mono/linker/blob/master/src/linker/README.md#syntax-of-xml-descriptor).</span></span>
+<span data-ttu-id="3ded9-115">Daha fazla bilgi için [IL bağlayıcı: Xml tanımlayıcı sözdizimi](https://github.com/mono/linker/blob/master/src/linker/README.md#syntax-of-xml-descriptor).</span><span class="sxs-lookup"><span data-stu-id="3ded9-115">For more information, see [IL Linker: Syntax of xml descriptor](https://github.com/mono/linker/blob/master/src/linker/README.md#syntax-of-xml-descriptor).</span></span>
