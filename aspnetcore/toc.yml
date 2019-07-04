@@ -816,6 +816,8 @@
           uid: security/authentication/2fa
         - name: Kimlik olmadan Tanımlama Bilgisi Kimlik Doğrulaması kullanma
           uid: security/authentication/cookie
+        - name: Kimlik olmadan sosyal Kimlik Doğrulaması kullanma
+          uid: security/authentication/social/social-without-identity
         - name: Azure Active Directory
           items:
             - name: Genel Bakış
