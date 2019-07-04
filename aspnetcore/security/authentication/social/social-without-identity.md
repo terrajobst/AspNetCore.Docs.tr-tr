@@ -5,12 +5,12 @@ description: Facebook, Google, Twitter, ASP.NET Core kimliği olmadan vb. hesab�
 ms.author: riande
 ms.date: 07/04/2019
 uid: security/authentication/social/social-without-identity
-ms.openlocfilehash: e67da513fef1ce453110c465b08e9c7965e71df5
-ms.sourcegitcommit: d6e51c60439f03a8992bda70cc982ddb15d3f100
+ms.openlocfilehash: 1e7124e8b07c0faf2d005ec3ef55c0414a697d64
+ms.sourcegitcommit: f6e6730872a7d6f039f97d1df762f0d0bd5e34cf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67557667"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561562"
 ---
 # <a name="use-social-sign-in-provider-authentication-without-aspnet-core-identity"></a>ASP.NET Core kimliği olmadan sosyal oturum açma sağlayıcısı kimlik doğrulaması kullan
 
@@ -47,7 +47,7 @@ Uygulama ayarı `DefaultScheme` için [CookieAuthenticationDefaults.Authenticati
 
 Kimlik doğrulama düzenleri ve tanımlama bilgisi kimlik doğrulaması hakkında daha fazla bilgi için bkz: <xref:security/authentication/cookie>.
 
-## <a name="applying-basic-authorization"></a>Temel uygulama yetkilendirme
+## <a name="applying-authorization"></a>Uygulama yetkilendirme
 
 Uygulamanın kimlik doğrulama yapılandırmasına uygulayarak test `AuthorizeAttribute` öznitelik bir denetleyicide, eylemde veya sayfa. Aşağıdaki kod erişimi sınırlar *gizlilik* doğrulanan kullanıcılara sayfası:
 

@@ -1,0 +1,3 @@
+# <a name="aspnet-core-middleware-extensibility-sample"></a>ASP.NET Core ara yazılım genişletilebilirlik örneği
+
+Bu örnek kullanımını gösterir [IMiddleware](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.http.imiddleware) ve [IMiddlewareFactory](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.http.imiddlewarefactory) ile 3 bir taraf bağımlılık ekleme kapsayıcısını, [basit Enjektörü](https://simpleinjector.org). Bu örnek, açıklanan özellikleri gösterir. [bir üçüncü taraf kapsayıcısında ASP.NET Core ile Ara yazılım etkinleştirme](https://docs.microsoft.com/aspnet/core/fundamentals/middleware/extensibility-third-party-container).
