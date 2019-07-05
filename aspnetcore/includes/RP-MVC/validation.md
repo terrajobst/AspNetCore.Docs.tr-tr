@@ -1,3 +1,4 @@
+
 ## <a name="add-validation-rules-to-the-movie-model"></a>Film modeli için doğrulama kuralları ekleme
 
 Açık *Movie.cs* dosya. DataAnnotations ad alanı, sınıf ya da özellik bildirimli olarak uygulanan yerleşik doğrulama öznitelikleri kümesi sağlar. DataAnnotations gibi biçimlendirme öznitelikleri de içeren `DataType` biçimlendirmesinde yardımcı olabilecek ve tüm doğrulama sağlaması gerekmez.
