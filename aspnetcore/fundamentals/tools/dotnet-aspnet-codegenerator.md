@@ -1,16 +1,17 @@
 ---
 title: DotNet aspnet codegenerator komutu
 author: rick-anderson
+description: Dotnet aspnet codegenerator komut iskele oluşturulduğunu ASP.NET Core projeleri.
+monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-description: ASP.NET Core projeleri dotnet aspnet codegenerator komut iskele oluşturulduğunu
 ms.date: 07/04/2019
 uid: fundamentals/tools/dotnet-aspnet-codegenerator
-ms.openlocfilehash: 55b592d9d203970777c84438e210519957abb35d
-ms.sourcegitcommit: f6e6730872a7d6f039f97d1df762f0d0bd5e34cf
+ms.openlocfilehash: c96362f320efd84c35dc07294a2968a2c687ee94
+ms.sourcegitcommit: b9e914ef274b5ec359582f299724af6234dce135
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561741"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67596132"
 ---
 # <a name="dotnet-aspnet-codegenerator"></a>DotNet aspnet CodeGenerator öğesinden
 
@@ -18,20 +19,20 @@ Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 `dotnet aspnet-codegenerator` -ASP.NET Core yapı iskelesi altyapısı çalıştırır. `dotnet aspnet-codegenerator` olduğunu komut satırından iskelesini gerekli yalnızca, yapı iskelesi Visual Studio ile kullanmak için gereksinim değildir.
 
-Bu makalede açıklanan [.NET Core 2.2 SDK](https://dotnet.microsoft.com/download/dotnet-core/2.2) ve daha sonra.
+Bu makalede açıklanan [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/2.1) ve daha sonra.
 
 ## <a name="installing-aspnet-codegenerator"></a>ASP.NET codegenerator yükleme
 
-`aspnet-codegenerator` olan bir [genel aracı](/dotnet/core/tools/global-tools) , yüklü olması gerekir. Aşağıdaki komut, en son kararlı sürümünü yükler `aspnet-codegenerator` aracı:
+`dotnet-aspnet-codegenerator` olan bir [genel aracı](/dotnet/core/tools/global-tools) , yüklü olması gerekir. Aşağıdaki komut, en son kararlı sürümünü yükler `dotnet-aspnet-codegenerator` aracı:
 
 ```console
-dotnet tool install -g aspnet-codegenerator
+dotnet tool install -g dotnet-aspnet-codegenerator
 ```
 
-Aşağıdaki komutu kullanarak güncelleştirmeleri `aspnet-codegenerator` en son kararlı sürümü kullanıma yüklü .NET Core SDK'ları için:
+Aşağıdaki komutu kullanarak güncelleştirmeleri `dotnet-aspnet-codegenerator` en son kararlı sürümü kullanıma yüklü .NET Core SDK'ları için:
 
 ```console
-dotnet tool update -g aspnet-codegenerator
+dotnet tool update -g dotnet-aspnet-codegenerator
 ```
 
 ## <a name="synopsis"></a>Synopsis
@@ -43,7 +44,7 @@ dotnet aspnet-codegenerator [-h|--help]
 
 ## <a name="description"></a>Açıklama
 
-`dotnet aspnet-codegenerator ` Genel komutu, ASP.NET Core Kod Oluşturucusu ve yapı iskelesi altyapısı çalıştırır.
+`dotnet aspnet-codegenerator` Genel komutu, ASP.NET Core Kod Oluşturucusu ve yapı iskelesi altyapısı çalıştırır.
 
 ## <a name="arguments"></a>Arguments
 
@@ -96,7 +97,7 @@ Aşağıdaki bölümlerde seçenekler için desteklenen oluşturucuları vermekt
 * Alan
 * Denetleyici
 * Kimlik  
-* Razorpage
+* razorpage
 * Görüntüle
 
 <a name="area"></a>
@@ -142,7 +143,7 @@ dotnet aspnet-codegenerator controller -h
 
 Bkz: [film modeli iskelesini](/aspnet/core/tutorials/razor-pages/model) ilişkin bir örnek `dotnet aspnet-codegenerator controller`.
 
-### <a name="razorpage"></a>Razorpage
+### <a name="razorpage"></a>razorpage
 
 <a name="rp"></a>
 

@@ -5,14 +5,14 @@ description: Oluşturma ve bileşen ömürleri yönetme verilere bağlayın ve o
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/01/2019
+ms.date: 07/05/2019
 uid: blazor/components
-ms.openlocfilehash: c52f23ea319d30d871ecdfc9648a4e30aa877324
-ms.sourcegitcommit: 0b9e767a09beaaaa4301915cdda9ef69daaf3ff2
+ms.openlocfilehash: ca715457604f08e50628d1c1189ea3c570321112
+ms.sourcegitcommit: b9e914ef274b5ec359582f299724af6234dce135
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67538507"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67596104"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Oluşturma ve ASP.NET Core Razor bileşenleri kullanma
 
@@ -961,34 +961,34 @@ Bloğun `Tab` bileşenleri yakalama içeren `TabSet` basamaklı bir parametre ol
 İşleme parçaları, Razor şablon söz dizimi kullanılarak tanımlanabilir. Razor şablonları UI parçacık tanımlayın ve aşağıdaki biçimi varsayar için bir yol sağlar:
 
 ```cshtml
-@<tag>...</tag>
+@<{HTML tag}>...</{HTML tag}>
 ```
 
-Aşağıdaki örnek nasıl belirtileceğini göstermektedir `RenderFragment` ve `RenderFragment<T>` değerleri.
-
-`RazorTemplates` Bileşen:
+Aşağıdaki örnek nasıl belirtileceğini göstermektedir `RenderFragment` ve `RenderFragment<T>` değerleri ve doğrudan bir bileşen şablonlarını işlemesi. İşleme parçaları de geçirilebilir bağımsız değişkenleri olarak [şablonlu bileşenleri](#templated-components).
 
 ```cshtml
-@{
-    RenderFragment template = @<p>The time is @DateTime.Now.</p>;
-    RenderFragment<Pet> petTemplate = (pet) => @<p>Your pet's name is @pet.Name.</p>;
+@timeTemplate
+
+@petTemplate(new Pet { Name = "Rex" })
+
+@code {
+    private RenderFragment timeTemplate = @<p>The time is @DateTime.Now.</p>;
+    private RenderFragment<Pet> petTemplate = 
+        (pet) => @<p>Your pet's name is @pet.Name.</p>;
+
+    private class Pet
+    {
+        public string Name { get; set; }
+    }
 }
 ```
 
-Şablonları şablonlu bileşenleri için bağımsız değişken olarak geçirilen veya doğrudan işlenmiş Razor kullanılarak tanımlanan parçalarının işleyin. Örneğin, önceki şablonları aşağıdaki Razor işaretlemesi ile doğrudan işlenir:
+Önceki kodun çıktısı oluşturulur:
 
-```cshtml
-@template
+```html
+<p>The time is 10/04/2018 01:26:52.</p>
 
-@petTemplate(new Pet { Name = "Rex" })
-```
-
-İşlenmiş çıkışı:
-
-```
-The time is 10/04/2018 01:26:52.
-
-Your pet's name is Rex.
+<p>Your pet's name is Rex.</p>
 ```
 
 ## <a name="manual-rendertreebuilder-logic"></a>El ile RenderTreeBuilder mantığı
@@ -1003,12 +1003,12 @@ Aşağıdakileri göz önünde bulundurun `PetDetails` el ile başka bir bileşe
 ```cshtml
 <h2>Pet Details Component</h2>
 
-<p>@PetDetailsQuote<p>
+<p>@PetDetailsQuote</p>
 
 @code
 {
     [Parameter]
-    string PetDetailsQuote { get; set; }
+    private string PetDetailsQuote { get; set; }
 }
 ```
 
