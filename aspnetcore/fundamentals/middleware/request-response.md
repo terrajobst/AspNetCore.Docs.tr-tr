@@ -7,12 +7,12 @@ ms.author: jukotali
 ms.custom: mvc
 ms.date: 02/26/2019
 uid: fundamentals/middleware/request-response
-ms.openlocfilehash: 0c321dad256e239b61907980c09d2c088c1407ff
-ms.sourcegitcommit: 0b9e767a09beaaaa4301915cdda9ef69daaf3ff2
+ms.openlocfilehash: c9f6509738ef6290666a58268fbb0584913db9d6
+ms.sourcegitcommit: 357a7120632b20465801c093e4e5bd4a315496a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67538582"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67649236"
 ---
 # <a name="request-and-response-operations-in-aspnet-core"></a>ASP.NET Core istek ve yanıt işlemlerinde
 
@@ -26,7 +26,7 @@ ASP.NET Core 3. 0 ', istek ve yanıt gövdeleri için iki soyutlama vardır: <xr
 
 - `FormReader`
 - `TextReader`
-- `TexWriter`
+- `TextWriter`
 - `HttpResponse.WriteAsync`
 
 Akışları kullanımdan kaldırılıyor değildir. .NET içinde kullanılacak devam etmek ve birçok akış türleri gibi kanal eşdeğerleri olmayan `FileStreams` ve `ResponseCompression`.
