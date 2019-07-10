@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/07/2019
 uid: razor-pages/razor-pages-conventions
-ms.openlocfilehash: 4e07b5803adbce94982584212fa65afbfd427b64
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 59c8af648b50deb51f3762c14348d08acd48886e
+ms.sourcegitcommit: bee530454ae2b3c25dc7ffebf93536f479a14460
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64899738"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67724450"
 ---
 # <a name="razor-pages-route-and-app-conventions-in-aspnet-core"></a>İçinde ASP.NET Core Razor sayfalar yol ve uygulama kuralları
 
@@ -270,7 +270,7 @@ Kullanım <xref:Microsoft.AspNetCore.Mvc.ApplicationModels.PageConventionCollect
 
 Sayfa uygulama modeli Page2 sayfasına yol kesimleri için göreli yolu denetlemek için kullanılan *OtherPages* klasör. Koşul başarılı olursa, bir üst bilgi eklenir. Aksi takdirde, `EmptyFilter` uygulanır.
 
-`EmptyFilter` olan bir [eylem filtresi](xref:mvc/controllers/filters#action-filters). Eylem filtreleri Razor sayfaları tarafından göz ardı edilir beri `EmptyFilter` no-yolu içermiyor beklendiği gibi ops `OtherPages/Page2`.
+`EmptyFilter` olan bir [eylem filtresi](xref:mvc/controllers/filters#action-filters). Eylem filtreleri Razor sayfaları tarafından göz ardı edilir beri `EmptyFilter` yolu içermiyor beklendiği gibi hiçbir etkisi `OtherPages/Page2`.
 
 Örnek kullanıcının Page2 sayfanın istek `localhost:5000/OtherPages/Page2` ve sonucu görüntülemek için üst bilgileri inceleyin:
 
