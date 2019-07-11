@@ -5,12 +5,12 @@ description: Basit bir ASP.NET Core MVC uygulaması için arama ekleme işlemi a
 ms.author: riande
 ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/search
-ms.openlocfilehash: ca3b0baeddd31e10243689091d435767079bb979
-ms.sourcegitcommit: a3926eae3f687013027a2828830c12a89add701f
+ms.openlocfilehash: fbec03d71e247c58fb5968290c4baf6b28120e1c
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65450852"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815062"
 ---
 # <a name="add-search-to-an-aspnet-core-mvc-app"></a>Bir ASP.NET Core MVC uygulaması için arama Ekle
 
@@ -39,7 +39,7 @@ Varsa `searchString` parametresi içeren bir dize, filmler sorgu arama dizesinin
 
 Not: [İçerir](/dotnet/api/system.data.objects.dataclasses.entitycollection-1.contains) yöntemi, yukarıda gösterilen c# kodunda değil, veritabanı üzerinde çalıştırılır. Büyük/küçük harf duyarlılığı sorguda, veritabanı ve harmanlama bağlıdır. SQL Server'da [içerir](/dotnet/api/system.data.objects.dataclasses.entitycollection-1.contains) eşlendiği [SQL gibi](/sql/t-sql/language-elements/like-transact-sql), büyük küçük harfe duyarlı olduğu. SQLite içinde varsayılan harmanlama ile büyük/küçük harfe duyarlıdır.
 
-`/Movies/Index` sayfasına gidin. Bir sorgu dizesi gibi ekleme `?searchString=Ghost` URL'si. Filtrelenmiş filmler görüntülenir.
+          `/Movies/Index` sayfasına gidin. Bir sorgu dizesi gibi ekleme `?searchString=Ghost` URL'si. Filtrelenmiş filmler görüntülenir.
 
 ![Dizini görüntüle](~/tutorials/first-mvc-app/search/_static/ghost.png)
 
@@ -85,7 +85,7 @@ Eylem çağırıcısı, bu yöntem eklerseniz, BC `[HttpPost] Index` yöntemi ve
 
 ![Tarayıcı penceresi ile HttpPost dizininin'ndan uygulama yanıt: ghost filtreleme](~/tutorials/first-mvc-app/search/_static/fo.png)
 
-Ancak, bu eklediğiniz bile `[HttpPost]` sürümünü `Index` yöntemi nasıl bu tüm uygulanmıştır içinde bir sınırlama yoktur. Belirli bir arama yer işareti koymak istediğiniz veya bunlar filmler aynı filtrelenmiş listesini görmek için tıklayabilirsiniz arkadaşlarınıza bağlantı göndermek istediğiniz düşünün. HTTP POST isteği URL'sini GET isteği (localhost:xxxxx filmler/dizin) URL'si ile aynıdır; hiçbir arama bilgisi URL'sindeki dikkat edin. Arama dizesi bilgilerini sunucuya olarak gönderilen bir [form alanının değeri](https://developer.mozilla.org/docs/Learn/HTML/Forms/Sending_and_retrieving_form_data). Tarayıcının geliştirici araçları veya mükemmel ile doğrulayabilirsiniz [Fiddler aracı](http://www.telerik.com/fiddler). Aşağıdaki resimde Chrome tarayıcı geliştirici araçları gösterilmektedir:
+Ancak, bu eklediğiniz bile `[HttpPost]` sürümünü `Index` yöntemi nasıl bu tüm uygulanmıştır içinde bir sınırlama yoktur. Belirli bir arama yer işareti koymak istediğiniz veya bunlar filmler aynı filtrelenmiş listesini görmek için tıklayabilirsiniz arkadaşlarınıza bağlantı göndermek istediğiniz düşünün. HTTP POST isteği URL'sini GET isteği (localhost:xxxxx filmler/dizin) URL'si ile aynıdır; hiçbir arama bilgisi URL'sindeki dikkat edin. Arama dizesi bilgilerini sunucuya olarak gönderilen bir [form alanının değeri](https://developer.mozilla.org/docs/Learn/HTML/Forms/Sending_and_retrieving_form_data). Tarayıcının geliştirici araçları veya mükemmel ile doğrulayabilirsiniz [Fiddler aracı](https://www.telerik.com/fiddler). Aşağıdaki resimde Chrome tarayıcı geliştirici araçları gösterilmektedir:
 
 ![Ghost AramaDizesi değeri istek gövdesi gösteren Microsoft edge'de Geliştirici Araçları'nın Ağ sekmesi](~/tutorials/first-mvc-app/search/_static/f12_rb.png)
 

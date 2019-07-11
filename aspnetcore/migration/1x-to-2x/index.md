@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: migration/1x-to-2x/index
-ms.openlocfilehash: fb6157205ab5280eb982a61e834eea5074864830
-ms.sourcegitcommit: a3926eae3f687013027a2828830c12a89add701f
+ms.openlocfilehash: 056930f3c586153d13555bbb6036f46587e2352d
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65450959"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815098"
 ---
 # <a name="migrate-from-aspnet-core-1x-to-20"></a>ASP.NET Core geçiş 1.x sürümünden 2.0 sürümüne
 
@@ -31,7 +31,7 @@ Bkz: [ASP.NET Core ile çalışmaya başlama](xref:getting-started).
 
 ## <a name="update-target-framework-moniker-tfm"></a>Hedef Çerçeve adı (TFM) güncelleştirme
 
-.NET Core'u hedefleyen projeler kullanması gereken [TFM](/dotnet/standard/frameworks#referring-to-frameworks) büyüktür veya eşittir .NET Core 2.0 sürümü. Arama `<TargetFramework>` düğümünde *.csproj* dosya ve kendi iç metinle `netcoreapp2.0`:
+.NET Core'u hedefleyen projeler kullanması gereken [TFM](/dotnet/standard/frameworks) büyüktür veya eşittir .NET Core 2.0 sürümü. Arama `<TargetFramework>` düğümünde *.csproj* dosya ve kendi iç metinle `netcoreapp2.0`:
 
 [!code-xml[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App.csproj?range=3)]
 
@@ -96,11 +96,11 @@ Düğüm ve değişkeni Yeniden Adlandır `AssetTargetFallback`:
 
 ## <a name="update-main-method-in-programcs"></a>Program.CS'de Webhostbuilder'a güncelleştirme Main yöntemi
 
-1.x projelerinde `Main` yöntemi *Program.cs* şöyle Aranan:
+1\.x projelerinde `Main` yöntemi *Program.cs* şöyle Aranan:
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Program.cs?name=snippet_ProgramCs&highlight=8-19)]
 
-2.0 projelerinde `Main` yöntemi *Program.cs* basitleştirilmiştir:
+2\.0 projelerinde `Main` yöntemi *Program.cs* basitleştirilmiştir:
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Program.cs?highlight=8-11)]
 
@@ -114,13 +114,13 @@ Unable to create an object of type '<Context>'. Add an implementation of 'IDesig
 
 ## <a name="add-configuration-providers"></a>Yapılandırma Sağlayıcıları Ekle
 
-1.x projelerinde, bir yapılandırma sağlayıcısı bir uygulamaya ekleme yoluyla gerçekleştirilebilir `Startup` Oluşturucusu. Bir örneğini oluşturmaktan adımla daha uğraşmanız `ConfigurationBuilder`geçerli (ortam değişkenleri, uygulama ayarları, vb.) sağlayıcıları yükleniyor ve üye başlatma `IConfigurationRoot`.
+1\.x projelerinde, bir yapılandırma sağlayıcısı bir uygulamaya ekleme yoluyla gerçekleştirilebilir `Startup` Oluşturucusu. Bir örneğini oluşturmaktan adımla daha uğraşmanız `ConfigurationBuilder`geçerli (ortam değişkenleri, uygulama ayarları, vb.) sağlayıcıları yükleniyor ve üye başlatma `IConfigurationRoot`.
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Startup.cs?name=snippet_1xStartup)]
 
 Yukarıdaki örnekte yükler `Configuration` aracılığıyla yapılandırma ayarlarınızı üyesiyle *appsettings.json* herhangi yanı sıra *appsettings.\< EnvironmentName\>.json* dosya eşleşen `IHostingEnvironment.EnvironmentName` özelliği. Bu dosyalar aynı yolda konumudur *Startup.cs*.
 
-2.0 projelerinde 1.x projelerini devralınan ortak yapılandırma kod arkası olarak çalışır. Örneğin, ortam değişkenleri ve uygulama ayarlarını başlatma sırasında yüklenir. Eşdeğer *Startup.cs* kod azaltıldı `IConfiguration` eklenen örneği ile başlatma:
+2\.0 projelerinde 1.x projelerini devralınan ortak yapılandırma kod arkası olarak çalışır. Örneğin, ortam değişkenleri ve uygulama ayarlarını başlatma sırasında yüklenir. Eşdeğer *Startup.cs* kod azaltıldı `IConfiguration` eklenen örneği ile başlatma:
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetFx2.0App/AspNetCoreDotNetFx2.0App/Startup.cs?name=snippet_2xStartup)]
 
@@ -136,19 +136,19 @@ Daha fazla bilgi için [ASP.NET Core yapılandırmasında](xref:fundamentals/con
 
 ## <a name="move-database-initialization-code"></a>Veritabanı başlatma kodu Taşı
 
-1.x projelerinde kullanarak EF Core 1.x, gibi bir komutun `dotnet ef migrations add` şunları yapar:
+1\.x projelerinde kullanarak EF Core 1.x, gibi bir komutun `dotnet ef migrations add` şunları yapar:
 
 1. Örnekleyen bir `Startup` örneği
 1. Çağıran `ConfigureServices` tüm hizmetleri bağımlılık ekleme ile kaydetmek için yöntemi (dahil olmak üzere `DbContext` türleri)
 1. Önkoşul görevleri gerçekleştirir
 
-EF Core 2.0 kullanarak 2.0 projelerinde `Program.BuildWebHost` uygulama hizmetlerini almak için çağrılır. 1.x bu çağırma ek yan etkisi olan `Startup.Configure`. 1.x uygulamanızı veritabanı başlatma kodunda çağırdıysanız, `Configure` yöntemi, beklenmeyen bir sorun meydana gelebilir. Örneğin, veritabanı henüz mevcut değilse dengeli dağıtım kod EF Core geçişleri komutu yürütmeden önce çalışır. Bu soruna neden olan bir `dotnet ef migrations list` veritabanı henüz mevcut değilse başarısız için komutu.
+EF Core 2.0 kullanarak 2.0 projelerinde `Program.BuildWebHost` uygulama hizmetlerini almak için çağrılır. 1\.x bu çağırma ek yan etkisi olan `Startup.Configure`. 1\.x uygulamanızı veritabanı başlatma kodunda çağırdıysanız, `Configure` yöntemi, beklenmeyen bir sorun meydana gelebilir. Örneğin, veritabanı henüz mevcut değilse dengeli dağıtım kod EF Core geçişleri komutu yürütmeden önce çalışır. Bu soruna neden olan bir `dotnet ef migrations list` veritabanı henüz mevcut değilse başarısız için komutu.
 
 Aşağıdaki 1.x çekirdek başlatma kodu göz önünde bulundurun `Configure` yöntemi *Startup.cs*:
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Startup.cs?name=snippet_ConfigureSeedData&highlight=8)]
 
-2.0 projelerinde taşıma `SeedData.Initialize` çağrısı `Main` yöntemi *Program.cs*:
+2\.0 projelerinde taşıma `SeedData.Initialize` çağrısı `Main` yöntemi *Program.cs*:
 
 [!code-csharp[](../1x-to-2x/samples/AspNetCoreDotNetCore2App/AspNetCoreDotNetCore2App/Program2.cs?name=snippet_Main2Code&highlight=10)]
 
@@ -186,7 +186,7 @@ ASP.NET Core 1.1 projelerini Visual Studio 2017'de oluşturulan varsayılan olar
 
     [!code-cshtml[](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Views/Shared/_Layout.cshtml?range=1,19&dedent=4)]
 
-Application Insights SDK'sını doğrudan kullanıyorsanız, bunu yapmak devam edin. 2.0 [metapackage](xref:fundamentals/metapackage) Application Insights'ın en son sürümünü içerir, böylece daha eski bir sürümü başvuran paket indirgeme hatası görüntülenir.
+Application Insights SDK'sını doğrudan kullanıyorsanız, bunu yapmak devam edin. 2\.0 [metapackage](xref:fundamentals/metapackage) Application Insights'ın en son sürümünü içerir, böylece daha eski bir sürümü başvuran paket indirgeme hatası görüntülenir.
 
 <a name="auth-and-identity"></a>
 

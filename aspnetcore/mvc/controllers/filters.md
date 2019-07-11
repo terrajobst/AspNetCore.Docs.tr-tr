@@ -4,14 +4,14 @@ author: ardalis
 description: Filtreleri nasıl çalıştığını ve ASP.NET Core nasıl kullanacağınızı öğrenin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 5/08/2019
+ms.date: 05/08/2019
 uid: mvc/controllers/filters
-ms.openlocfilehash: cdf121b97396cb23103d49cd141b9ef19b8c0cc6
-ms.sourcegitcommit: e1623d8279b27ff83d8ad67a1e7ef439259decdf
+ms.openlocfilehash: df6f144f23f36d8009a5638859846e3cfb768b37
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/25/2019
-ms.locfileid: "66223032"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815441"
 ---
 # <a name="filters-in-aspnet-core"></a>ASP.NET core'da filtreleri
 
@@ -132,7 +132,7 @@ Aşağıdaki örnek filtre yöntemleri zaman uyumlu eylem filtreleri için çağ
 
 | Sequence | Filtre kapsamı | Filter yöntemi |
 |:--------:|:------------:|:-------------:|
-| 1. | Global | `OnActionExecuting` |
+| 1\. | Global | `OnActionExecuting` |
 | 2 | Denetleyici | `OnActionExecuting` |
 | 3 | Yöntem | `OnActionExecuting` |
 | 4 | Yöntem | `OnActionExecuted` |
@@ -192,11 +192,11 @@ Varsayılan sıralı yürütme uygulama tarafından geçersiz kılınabilir <xre
 
 | Sequence | Filtre kapsamı | `Order` Özelliği | Filter yöntemi |
 |:--------:|:------------:|:-----------------:|:-------------:|
-| 1. | Yöntem | 0 | `OnActionExecuting` |
-| 2 | Denetleyici | 1.  | `OnActionExecuting` |
+| 1\. | Yöntem | 0 | `OnActionExecuting` |
+| 2 | Denetleyici | 1\.  | `OnActionExecuting` |
 | 3 | Global | 2  | `OnActionExecuting` |
 | 4 | Global | 2  | `OnActionExecuted` |
-| 5 | Denetleyici | 1.  | `OnActionExecuted` |
+| 5 | Denetleyici | 1\.  | `OnActionExecuted` |
 | 6 | Yöntem | 0  | `OnActionExecuted` |
 
 `Order` Özelliğini çalıştırma hangi filtreleri sırayla belirlerken kapsamı geçersiz kılar. Filtreleri ilk sıraya göre sıralanır ve kapsam TIES ayırmak için kullanılır. Tüm yerleşik filtreleri uygulamak `IOrderedFilter` ve varsayılan `Order` 0 değeri. Yerleşik filtreleri için sürece kapsam sırasını belirleyen `Order` sıfır olmayan bir değere ayarlanır.
@@ -279,7 +279,7 @@ Aşağıdaki kodda, `ServiceFilter` özniteliği bir örneğini alır `AddHeader
 * Kullanılarak başvurulan türleri `TypeFilterAttribute` DI kapsayıcı ile kayıtlı olması gerekmez.  DI kapsayıcı tarafından yerine bunların bağımlılıklarını sahiptirler.
 * `TypeFilterAttribute` İsteğe bağlı olarak tür için oluşturucu bağımsız değişkenleri kabul edebilir.
 
-Kullanırken `TypeFilterAttribute`ayarını `IsReusable` bir ipucudur, filtre örneğini *olabilir* içinde oluşturulduğu istek kapsamı dışında yeniden kullanılabilir. ASP.NET Core çalışma zamanı filtre tek bir örneği oluşturulur tutarlılık garantisi sağlar. `IsReusable` singleton dışında bir yaşam süresi hizmetleriyle bağımlı bir filtre ile kullanılmamalıdır.
+Kullanırken `TypeFilterAttribute`ayarını `IsReusable` bir ipucudur, filtre örneğini *olabilir* içinde oluşturulduğu istek kapsamı dışında yeniden kullanılabilir. ASP.NET Core çalışma zamanı filtre tek bir örneği oluşturulur tutarlılık garantisi sağlar. `IsReusable` Singleton dışında bir yaşam süresi hizmetleriyle bağımlı bir filtre ile kullanılmamalıdır.
 
 Aşağıdaki örneği kullanarak bir tür bağımsız değişkenleri geçirmek gösterilmektedir `TypeFilterAttribute`:
 

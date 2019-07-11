@@ -5,12 +5,12 @@ description: Siteler arası betik (XSS) ve ASP.NET Core uygulaması, bu güvenli
 ms.author: riande
 ms.date: 10/02/2018
 uid: security/cross-site-scripting
-ms.openlocfilehash: 50f0211a2c64708d9b788dd10ce9064e66014d55
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 1e9e988be68313cfd493832519c1be89335d6e48
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64901958"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815205"
 ---
 # <a name="prevent-cross-site-scripting-xss-in-aspnet-core"></a>Siteler arası betik kullanmayı (XSS) ASP.NET core'da engelle
 
@@ -214,7 +214,7 @@ Bu örnekte, Unicode aralığı CjkUnifiedIdeographs dahil etmek için güvenli 
 <p>This link text is in Chinese: <a href="/">汉语/漢語</a></p>
    ```
 
-Güvenli listeye aralıkları Unicode kod grafikleri, değil diller belirtilir. [Unicode standart](http://unicode.org/) listesine sahip [kod grafikleri](http://www.unicode.org/charts/index.html) , karakterler içeren grafik bulmak için kullanabilirsiniz. Her Kodlayıcı, Html, JavaScript ve Url, ayrı olarak yapılandırılması gerekir.
+Güvenli listeye aralıkları Unicode kod grafikleri, değil diller belirtilir. [Unicode standart](https://unicode.org/) listesine sahip [kod grafikleri](https://www.unicode.org/charts/index.html) , karakterler içeren grafik bulmak için kullanabilirsiniz. Her Kodlayıcı, Html, JavaScript ve Url, ayrı olarak yapılandırılması gerekir.
 
 > [!NOTE]
 > Güvenli listeye özelleştirmesini yalnızca DI kaynaklanan kodlayıcılar etkiler. Bir kodlayıcı aracılığıyla doğrudan erişirseniz `System.Text.Encodings.Web.*Encoder.Default` sonra varsayılan olarak, temel Latin yalnızca güvenli liste kullanılır.

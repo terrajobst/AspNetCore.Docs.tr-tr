@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 06/17/2019
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: c3ec67d9f5c2b8eb44b5ced911ccfd0fa40a52a7
-ms.sourcegitcommit: 4ef0362ef8b6e5426fc5af18f22734158fe587e1
+ms.openlocfilehash: 6254a74fd0a11669706a2a89b156a3223e300d1c
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67152779"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67813504"
 ---
 # <a name="bundle-and-minify-static-assets-in-aspnet-core"></a>Paketleme ve küçültme ASP.NET Core statik varlıkları
 
@@ -86,7 +86,7 @@ ASP.NET Core 2.1 veya daha sonra adlı yeni bir JSON dosyası ekleme *bundleconf
 Yapılandırma seçenekleri şunlardır:
 
 * `outputFileName`: Çıkış için paket dosyasının adı. Bir göreli yol içerebilir *bundleconfig.json* dosya. **Gerekli**
-* `inputFiles`: Paket dosyaları dizisi. Yapılandırma dosyası için göreli yollar şunlardır. **İsteğe bağlı**, * bir boş çıkış dosyası boş değer sonuçlanır. [Genelleştirme](http://www.tldp.org/LDP/abs/html/globbingref.html) desenler desteklenir.
+* `inputFiles`: Paket dosyaları dizisi. Yapılandırma dosyası için göreli yollar şunlardır. **İsteğe bağlı**, * bir boş çıkış dosyası boş değer sonuçlanır. [Genelleştirme](https://www.tldp.org/LDP/abs/html/globbingref.html) desenler desteklenir.
 * `minify`: Çıktı türü küçültme seçenekleri. **İsteğe bağlı**, *varsayılan - `minify: { enabled: true }`*
   * Çıkış dosyasının türünü yapılandırma seçenekleri kullanılabilir.
     * [CSS Minifier](https://github.com/madskristensen/BundlerMinifier/wiki/cssminifier)

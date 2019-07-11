@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: a65543f805b197031bd46ef1974d4d4a5018b2d1
-ms.sourcegitcommit: 3376f224b47a89acf329b2d2f9260046a372f924
+ms.openlocfilehash: f995f3f74da4910de518af875eb89349a8457573
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65516911"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67813706"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>ASP.NET core'da - veri modeli - 8'in 5 EF çekirdekli Razor sayfaları
 
@@ -486,7 +486,7 @@ Yukarıdaki kod, yeni varlıkları ekleyen ve yapılandırır `CourseAssignment`
 
 ## <a name="fluent-api-alternative-to-attributes"></a>Fluent API'si alternatif öznitelikleri
 
-`OnModelCreating` Önceki yöntemidir kod *fluent API'si* EF Core davranışı yapılandırmak için. API, genellikle bir dizi yöntem çağrılarını birleştirerek tek bir deyimde stringing kullanıldığı için "fluent" olarak adlandırılır. [Koddan](/ef/core/modeling/#methods-of-configuration) fluent API'si örneğidir:
+`OnModelCreating` Önceki yöntemidir kod *fluent API'si* EF Core davranışı yapılandırmak için. API, genellikle bir dizi yöntem çağrılarını birleştirerek tek bir deyimde stringing kullanıldığı için "fluent" olarak adlandırılır. [Koddan](/ef/core/modeling/#use-fluent-api-to-configure-a-model) fluent API'si örneğidir:
 
 ```csharp
 protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -512,7 +512,7 @@ Bu konuda kullanılan öznitelikler bazıları öğreticisi için kullanılır:
 * EF Core yalnızca yapılandırmayı (örneğin, `HasKey`).
 * Doğrulama ve EF Core yapılandırma (örneğin, `[StringLength(50)]`).
 
-Fluent API'si ve öznitelikler hakkında daha fazla bilgi için bkz. [yapılandırma yöntemleri,](/ef/core/modeling/#methods-of-configuration).
+Fluent API'si ve öznitelikler hakkında daha fazla bilgi için bkz. [yapılandırma yöntemleri,](/ef/core/modeling/).
 
 ## <a name="entity-diagram-showing-relationships"></a>Varlık diyagramda gösteren ilişkileri
 

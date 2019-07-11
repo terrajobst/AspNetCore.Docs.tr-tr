@@ -4,14 +4,14 @@ author: rick-anderson
 description: ASP.NET Core Razor sayfasına doğrulamanın nasıl keşfedin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/5/2018
+ms.date: 12/05/2018
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 38e1fff9c7a212af992951dbf57e124cae69d36f
-ms.sourcegitcommit: ccbb84ae307a5bc527441d3d509c20b5c1edde05
+ms.openlocfilehash: 8495849c89ca3d6fd2b2006b61ce2ec75ff504a5
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/19/2019
-ms.locfileid: "65874982"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815647"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Doğrulama için bir ASP.NET Core Razor sayfası ekleme
 
@@ -47,7 +47,7 @@ Form otomatik olarak işlenen geçersiz bir değer içeren her bir alan bir doğ
 Form verileri, istemci tarafı doğrulama hata kalmayana kadar sunucusuna gönderilen değil. Form verileri bir veya daha fazla aşağıdaki yaklaşımlardan tarafından gönderilen değil doğrulayın:
 
 * Bir kesme noktası koymak `OnPostAsync` yöntemi. Form gönderilemiyor (seçin **Oluştur** veya **Kaydet**). Kesme noktası hiçbir zaman ulaşılır.
-* Kullanım [Fiddler aracı](http://www.telerik.com/fiddler).
+* Kullanım [Fiddler aracı](https://www.telerik.com/fiddler).
 * Ağ trafiğini izlemek için tarayıcı geliştirici araçlarını kullanın.
 
 ### <a name="server-side-validation"></a>Sunucu tarafı doğrulama

@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc, seodec18
 ms.date: 07/10/2019
 uid: tutorials/first-mongo-app
-ms.openlocfilehash: c64f6e69a19e294a18cc72c860af0a03ef70d444
-ms.sourcegitcommit: 357a7120632b20465801c093e4e5bd4a315496a8
+ms.openlocfilehash: 99b28407a249a5c0bc6a0cf3a285c04f1d6187a7
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67649187"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815666"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-mongodb"></a>MongoDB ile ASP.NET Core ile web API'si oluşturma
 
@@ -294,7 +294,7 @@ Ekleme bir `BooksController` sınıfının *denetleyicileri* aşağıdaki kod il
 
 * Kullanan `BookService` CRUD işlemleri gerçekleştirmek için sınıf.
 * GET, POST, PUT ve DELETE HTTP isteklerini desteklemek için eylem yöntemleri içerir.
-* Çağrıları <xref:System.Web.Http.ApiController.CreatedAtRoute*> içinde `Create` döndürülecek eylem yöntemi bir [HTTP 201](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) yanıt. Durum kodu 201 sunucuda yeni bir kaynak oluşturan bir HTTP POST yöntemi için standart yanıttır. `CreatedAtRoute` Ayrıca ekler bir `Location` yanıt üst bilgisi. `Location` Üst bilgisi, yeni oluşturulan kitap URI'sini belirtir.
+* Çağrıları <xref:System.Web.Http.ApiController.CreatedAtRoute*> içinde `Create` döndürülecek eylem yöntemi bir [HTTP 201](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) yanıt. Durum kodu 201 sunucuda yeni bir kaynak oluşturan bir HTTP POST yöntemi için standart yanıttır. `CreatedAtRoute` Ayrıca ekler bir `Location` yanıt üst bilgisi. `Location` Üst bilgisi, yeni oluşturulan kitap URI'sini belirtir.
 
 ## <a name="test-the-web-api"></a>Web API'sini test etme
 

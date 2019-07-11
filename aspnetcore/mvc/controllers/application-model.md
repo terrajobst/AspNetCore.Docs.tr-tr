@@ -5,12 +5,12 @@ description: Okuma ve nasıl ASP.NET Core MVC öğeleri davranacağını değiş
 ms.author: riande
 ms.date: 10/14/2016
 uid: mvc/controllers/application-model
-ms.openlocfilehash: 6b0591a877c0d82e0ee6ab002eb6a6650753677b
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: f7f64c8b3a63ec66936772e724edb57037654059
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64903179"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815502"
 ---
 # <a name="work-with-the-application-model-in-aspnet-core"></a>ASP.NET Core uygulama modeli ile çalışma
 
@@ -63,7 +63,7 @@ Ardından (`Order=-990`):
 * Eylem yöntemi parametrelerine bağlamına ekleme
 * Yol ve diğer özniteliklerini uygulama
 
-Bazı yerleşik davranışları tarafından uygulanan `DefaultApplicationModelProvider`. Bu sağlayıcı oluşturmaktan sorumlu [ `ControllerModel` ](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.controllermodel), sırayla başvuran [ `ActionModel` ](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.actionmodel#Microsoft_AspNetCore_Mvc_ApplicationModels_ActionModel), [ `PropertyModel` ](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.propertymodel), ve [ `ParameterModel` ](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.parametermodel#Microsoft_AspNetCore_Mvc_ApplicationModels_ParameterModel) örnekleri. `DefaultApplicationModelProvider` Sınıfı, bir iç uygulama ayrıntısı ve gelecekte değişecektir. 
+Bazı yerleşik davranışları tarafından uygulanan `DefaultApplicationModelProvider`. Bu sağlayıcı oluşturmaktan sorumlu [ `ControllerModel` ](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.controllermodel), sırayla başvuran [ `ActionModel` ](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.actionmodel), [ `PropertyModel` ](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.propertymodel), ve [ `ParameterModel` ](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.parametermodel) örnekleri. `DefaultApplicationModelProvider` Sınıfı, bir iç uygulama ayrıntısı ve gelecekte değişecektir. 
 
 `AuthorizationApplicationModelProvider` İle ilişkili davranışı uygulamak için sorumlu `AuthorizeFilter` ve `AllowAnonymousFilter` öznitelikleri. [Bu öznitelikler hakkında daha fazla bilgi](xref:security/authorization/simple).
 

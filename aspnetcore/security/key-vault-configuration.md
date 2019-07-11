@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/13/2019
 uid: security/key-vault-configuration
-ms.openlocfilehash: 78c63cf135ca92f0b5f6c6828b2ae34a44a7b36c
-ms.sourcegitcommit: 3ee6ee0051c3d2c8d47a58cb17eef1a84a4c46a0
+ms.openlocfilehash: be176ed612be0773c4a5b52607c023da3856ac14
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65621028"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815324"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>ASP.NET core'da Azure anahtar kasası yapılandırma sağlayıcısı
 
@@ -34,7 +34,7 @@ Azure Key Vault yapılandırma sağlayıcısı kullanmak için bir paket başvur
 Benimsemeye [kimliklerini Azure kaynakları için yönetilen](/azure/active-directory/managed-identities-azure-resources/overview) senaryosu için bir paket başvurusu ekleme [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/) paket.
 
 > [!NOTE]
-> En son kararlı sürümünü yazma zamanında `Microsoft.Azure.Services.AppAuthentication`, sürüm `1.0.3`, için destek sağlar [sistem tarafından atanan kimlikleri yönetilen](/azure/active-directory/managed-identities-azure-resources/overview#how-does-the-managed-identities-for-azure-resources-worka-namehow-does-it-worka). Destek *kullanıcı tarafından atanan kimlikleri yönetilen* kullanılabilir `1.2.0-preview2` paket. Bu konu, sistem tarafından yönetilen kimlikleri kullanımını gösterir ve sağlanan örnek uygulama sürümünü kullanan `1.0.3` , `Microsoft.Azure.Services.AppAuthentication` paket.
+> En son kararlı sürümünü yazma zamanında `Microsoft.Azure.Services.AppAuthentication`, sürüm `1.0.3`, için destek sağlar [sistem tarafından atanan kimlikleri yönetilen](/azure/active-directory/managed-identities-azure-resources/overview#how-does-the-managed-identities-for-azure-resources-work). Destek *kullanıcı tarafından atanan kimlikleri yönetilen* kullanılabilir `1.2.0-preview2` paket. Bu konu, sistem tarafından yönetilen kimlikleri kullanımını gösterir ve sağlanan örnek uygulama sürümünü kullanan `1.0.3` , `Microsoft.Azure.Services.AppAuthentication` paket.
 
 ## <a name="sample-app"></a>Örnek uygulama
 
@@ -120,11 +120,11 @@ Azure AD'yi yapılandırma, bir anahtar kasasına kimlik doğrulaması için Azu
 
 Bir uygulama kimliği ve X.509 sertifikası olduğunda örnek uygulamanın kullandığı `#define` en üstündeki deyimi *Program.cs* dosya ayarlanmış `Certificate`.
 
-1. Bir PKCS #12 arşiv oluştur (*.pfx*) sertifika. Sertifikaları oluşturmaya yönelik seçenekleri içeren [Windows üzerinde MakeCert](/windows/desktop/seccrypto/makecert) ve [OpenSSL](https://www.openssl.org/).
+1. Bir PKCS #12 arşiv oluştur ( *.pfx*) sertifika. Sertifikaları oluşturmaya yönelik seçenekleri içeren [Windows üzerinde MakeCert](/windows/desktop/seccrypto/makecert) ve [OpenSSL](https://www.openssl.org/).
 1. Sertifikayı geçerli kullanıcının kişisel sertifika deposuna yükleyin. İşaretleme anahtar dışarı aktarılabilir olarak isteğe bağlıdır. Daha sonra bu işlemde kullanılan sertifikanın parmak izini unutmayın.
-1. PKCS #12 arşiv dışarı aktar (*.pfx*) sertifikası olarak DER kodlu bir sertifika (*.cer*).
+1. PKCS #12 arşiv dışarı aktar ( *.pfx*) sertifikası olarak DER kodlu bir sertifika ( *.cer*).
 1. Uygulamayı Azure AD'ye kaydetme (**uygulama kayıtları**).
-1. DER ile kodlanmış sertifikasını karşıya yükle (*.cer*) Azure AD'ye:
+1. DER ile kodlanmış sertifikasını karşıya yükle ( *.cer*) Azure AD'ye:
    1. Azure AD'de uygulamayı seçin.
    1. Gidin **sertifikaları ve parolaları**.
    1. Seçin **sertifikayı karşıya yükle** ortak anahtarı içeren sertifikayı karşıya yüklemek için. A *.cer*, *.pem*, veya *.crt* sertifikadır kabul edilebilir.
@@ -201,7 +201,7 @@ Alırsanız bir `Access denied` hata, uygulamayı Azure AD'ye kayıtlı ve anaht
 > [!WARNING]
 > Ön ekleri için birden fazla uygulama gizli dizilerini aynı anahtar kasasının yerleştirmek için veya çevre gizli dizileri yerleştirmek için anahtar kasası parolaları kullanmayın (örneğin, *geliştirme* karşı *üretim* gizli Diziler) aynı içine Kasa. Farklı uygulama ve geliştirme veya üretim ortamları ayrı anahtar kasalarını yüksek düzeyde güvenlik için uygulama ortamları ayırmak için kullanmanızı öneririz.
 
-Aşağıdaki örnekte, gizli anahtar kurulur kasası (ve geliştirme ortamı için gizli dizi Yöneticisi aracını kullanarak) için `5000-AppSecret` (anahtar kasası gizli dizi adları nokta izin verilmiyor). Bu gizli dizi sürümü 5.0.0.0 uygulama için bir uygulama gizli anahtarı temsil eder. 5.1.0.0, uygulama başka bir sürümü için gizli anahtarına eklenen kasası (ve gizli dizi Yöneticisi aracını kullanarak) için `5100-AppSecret`. Her uygulama sürümü tutulan gizli değeri yapılandırmasına yükler `AppSecret`, çıkarma sürümü gibi gizli dizi yükler.
+Aşağıdaki örnekte, gizli anahtar kurulur kasası (ve geliştirme ortamı için gizli dizi Yöneticisi aracını kullanarak) için `5000-AppSecret` (anahtar kasası gizli dizi adları nokta izin verilmiyor). Bu gizli dizi sürümü 5.0.0.0 uygulama için bir uygulama gizli anahtarı temsil eder. 5\.1.0.0, uygulama başka bir sürümü için gizli anahtarına eklenen kasası (ve gizli dizi Yöneticisi aracını kullanarak) için `5100-AppSecret`. Her uygulama sürümü tutulan gizli değeri yapılandırmasına yükler `AppSecret`, çıkarma sürümü gibi gizli dizi yükler.
 
 `AddAzureKeyVault` özel bir adlı `IKeyVaultSecretManager`:
 

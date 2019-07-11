@@ -5,12 +5,12 @@ description: ASP.NET Core veri koruma uygulama ayrıntılarını alt anahtarın�
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/implementation/subkeyderivation
-ms.openlocfilehash: 37e7b01700e8a6b755b5ed16a9d7d75a9eeb970e
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: bbfde378755b09cd5b1217b8cf66249b9fa1d6ad
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64898436"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67814383"
 ---
 # <a name="subkey-derivation-and-authenticated-encryption-in-aspnet-core"></a>Alt anahtar türetme ve ASP.NET Core kimliği doğrulanmış şifreleme
 
@@ -37,7 +37,7 @@ AAD üç bileşen tanımlama grubu için benzersiz olduğundan, bu yeni anahtarl
 
 ( K_E, K_H ) = SP800_108_CTR_HMACSHA512(K_M, AAD, contextHeader || keyModifier)
 
-Burada, biz sayacı modunda NIST SP800 108 KDF arıyoruz (bkz [NIST SP800-108](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf), Sec. 5.1) şu parametrelerle:
+Burada, biz sayacı modunda NIST SP800 108 KDF arıyoruz (bkz [NIST SP800-108](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf), Sec. 5.1) şu parametrelerle:
 
 * Anahtar türetme anahtarı (KDK) K_M =
 
@@ -71,4 +71,4 @@ Yukarıdaki mekanizması K_E oluşturulduktan sonra size rastgele 96 bit nonce o
 *Çıkış: keyModifier = || nonce || E_gcm (K_E, nonce, veriler) || authTag*
 
 > [!NOTE]
-> GCM yerel olarak AAD kavramını destekler olsa da, biz yine de AAD yalnızca özgün KDF GCM, AAD parametresi için boş bir dize geçirilecek edilmesiyle besleme. Bunun nedeni, iki Katlama. İlk olarak, [çevikliği desteklemek için](xref:security/data-protection/implementation/context-headers#data-protection-implementation-context-headers) hiçbir zaman K_M doğrudan şifreleme anahtarı kullanılacak istiyoruz. Ayrıca, GCM girişleri üzerinde çok sıkı benzersizlik gereksinimleri karşılamalıdır. GCM şifreleme yordamı hiç olmadığı kadar çağrılan iki veya daha farklı olma olasılığını aynı (anahtar, nonce) giriş veri kümelerini çifti aşmamalıdır 2 ^ 32. Biz K_E düzeltin, 2'den yerine getiremez ^ 32 şifreleme işlemleri biz çalıştırma afoul 2 ve önce ^ -32 sınırlayın. Bu işlemlerin çok büyük bir sayı gibi görünebilir, ancak trafiği yüksek web sunucusu, 4 milyarı aşan istekleri aracılığıyla da bu anahtarları için normal kullanım ömrü içinde yalnızca gün içinde gidebilirsiniz. 2. uyumlu kalmak için ^-32 olasılık sınırı devam 128 bit anahtar değiştiricisi ve herhangi belirli K_M için kullanılabilir işlem sayısını önemli ölçüde genişleten 96 bit nonce kullanılacak. Tasarım kolaylık olması için biz KDF kod yolu CBC ve GCM işlemleri arasında paylaşın ve AAD içinde KDF zaten değerlendirilir olmadığından, GCM yordamına iletme gereği yok.
+> GCM yerel olarak AAD kavramını destekler olsa da, biz yine de AAD yalnızca özgün KDF GCM, AAD parametresi için boş bir dize geçirilecek edilmesiyle besleme. Bunun nedeni, iki Katlama. İlk olarak, [çevikliği desteklemek için](xref:security/data-protection/implementation/context-headers#data-protection-implementation-context-headers) hiçbir zaman K_M doğrudan şifreleme anahtarı kullanılacak istiyoruz. Ayrıca, GCM girişleri üzerinde çok sıkı benzersizlik gereksinimleri karşılamalıdır. GCM şifreleme yordamı hiç olmadığı kadar çağrılan iki veya daha farklı olma olasılığını aynı (anahtar, nonce) giriş veri kümelerini çifti aşmamalıdır 2 ^ 32. Biz K_E düzeltin, 2'den yerine getiremez ^ 32 şifreleme işlemleri biz çalıştırma afoul 2 ve önce ^ -32 sınırlayın. Bu işlemlerin çok büyük bir sayı gibi görünebilir, ancak trafiği yüksek web sunucusu, 4 milyarı aşan istekleri aracılığıyla da bu anahtarları için normal kullanım ömrü içinde yalnızca gün içinde gidebilirsiniz. 2\. uyumlu kalmak için ^-32 olasılık sınırı devam 128 bit anahtar değiştiricisi ve herhangi belirli K_M için kullanılabilir işlem sayısını önemli ölçüde genişleten 96 bit nonce kullanılacak. Tasarım kolaylık olması için biz KDF kod yolu CBC ve GCM işlemleri arasında paylaşın ve AAD içinde KDF zaten değerlendirilir olmadığından, GCM yordamına iletme gereği yok.

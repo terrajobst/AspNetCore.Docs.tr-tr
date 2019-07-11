@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/05/2019
 uid: test/loadtests
-ms.openlocfilehash: 3c21da6c799bc3080a1a16cb62ae4535b8890a1b
-ms.sourcegitcommit: bee530454ae2b3c25dc7ffebf93536f479a14460
+ms.openlocfilehash: 4b07dd1af7e0c1d3ce9baa167b69fd8f80df204a
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67724494"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815168"
 ---
 # <a name="aspnet-core-loadstress-testing"></a>ASP.NET Core yük/stres testi
 
@@ -23,7 +23,7 @@ Yük testi ve stres testi yüksek performanslı bir web uygulaması olduğundan 
 
 Yük testi, yük altında uygulama ve hatadan kurtarmak için beklenen davranışı düzgün biçimde döndürür belirleyin. Baskı altında uygulama normal koşullar altında çalıştırma değil.
 
-Visual Studio 2019 son Visual Studio Yük testi özellikleriyle sürümüdür. Yük testi araçları gelecekte isteyen müşteriler için Apache JMeter ve Akamai CloudTest BlazeMeter gibi diğer araçları öneririz. Daha fazla bilgi için [Visual Studio 2019 sürüm notları](/visualstudio/releases/2019/release-notes#test-tools).
+Visual Studio 2019 son Visual Studio Yük testi özellikleriyle sürümüdür. Yük testi araçları gelecekte isteyen müşteriler için Apache JMeter ve Akamai CloudTest BlazeMeter gibi diğer araçları öneririz. Daha fazla bilgi için [Visual Studio 2019 sürüm notları](/visualstudio/releases/2019/release-notes-v16.0#test-tools).
 
 Yük testi hizmetinin Azure DevOps 2020'de sona eriyor. Daha fazla bilgi için [bulut tabanlı yük test etme hizmeti sona erecek](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/).
 
@@ -72,7 +72,7 @@ Aşağıdaki liste, çeşitli özellik kümeleri ile üçüncü taraf web perfor
 * [ApacheBench (ab)](https://httpd.apache.org/docs/2.4/programs/ab.html)
 * [Gatling](https://gatling.io/)
 * [Locust](https://locust.io/)
-* [Batı Rüzgar WebSurge](http://websurge.west-wind.com/)
+* [Batı Rüzgar WebSurge](https://websurge.west-wind.com/)
 * [Netling](https://github.com/hallatore/Netling)
 * [Vegeta](https://github.com/tsenart/vegeta)
 

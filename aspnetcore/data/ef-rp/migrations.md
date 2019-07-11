@@ -3,14 +3,14 @@ title: ASP.NET core'da - geçiş - 4 8 EF çekirdekli Razor sayfaları
 author: rick-anderson
 description: Bu öğreticide, ASP.NET Core MVC uygulaması içindeki veri modeli değişikliklerini yönetmek için EF Core geçişleri özelliğini kullanarak başlatın.
 ms.author: riande
-ms.date: 6/31/2017
+ms.date: 06/31/2017
 uid: data/ef-rp/migrations
-ms.openlocfilehash: 406b94d74a99dcec3b2ce01a5eb3313c48819148
-ms.sourcegitcommit: 3376f224b47a89acf329b2d2f9260046a372f924
+ms.openlocfilehash: b887be91a0c8332e7bd5fb7b1acc90eae138d9ed
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65517009"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67813635"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---migrations---4-of-8"></a>ASP.NET core'da - geçiş - 4 8 EF çekirdekli Razor sayfaları
 
@@ -167,7 +167,8 @@ The login failed.
 Login failed for user 'user name'.
 ```
 
-Çözüm: `dotnet ef database update`'i çalıştırın.
+Çözüm: 
+          `dotnet ef database update`'i çalıştırın.
 
 ### <a name="additional-resources"></a>Ek kaynaklar
 

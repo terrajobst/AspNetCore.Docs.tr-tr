@@ -4,14 +4,14 @@ author: rick-anderson
 description: Entity Framework Core ile bir Razor sayfası için yeni bir alan ekleme işlemi açıklanır
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/5/2018
+ms.date: 12/05/2018
 uid: tutorials/razor-pages/new-field
-ms.openlocfilehash: f73af673afebe0531f228dc0041dc708ba794047
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 904207ed775cc689c36953c29d202788580d8f60
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64900968"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815318"
 ---
 # <a name="add-a-new-field-to-a-razor-page-in-aspnet-core"></a>ASP.NET Core Razor sayfasına yeni bir alan ekleyin
 

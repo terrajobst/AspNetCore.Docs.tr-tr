@@ -5,12 +5,12 @@ description: Denetleyici yöntemlerinde, görünümler ve ASP.NET core'da DataAn
 ms.author: riande
 ms.date: 12/13/2018
 uid: tutorials/first-mvc-app/controller-methods-views
-ms.openlocfilehash: 36c8141ba5827366572dabcfd0fdf9600c745706
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 6d960da5acecbb95893bd339b4391560bedffb3d
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64902099"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815412"
 ---
 # <a name="controller-methods-and-views-in-aspnet-core"></a>Denetleyici metotları ve görünümleri ASP.NET Core
 
@@ -76,7 +76,7 @@ Aşağıdaki kodda gösterildiği `HTTP POST Edit` gönderilen film değerleri i
 
 ::: moniker-end
 
-`[Bind]` Özniteliktir karşı korumak için bir yol [aşırı yayınlayarak](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost). Özellikler yalnızca içermelidir `[Bind]` değiştirmek istediğiniz özniteliği. Daha fazla bilgi için [denetleyicinizin atlayarak nakil korumak](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application). [Viewmodel'lar](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/) atlayarak önlemek için alternatif bir yaklaşım sağlar.
+`[Bind]` Özniteliktir karşı korumak için bir yol [aşırı yayınlayarak](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost). Özellikler yalnızca içermelidir `[Bind]` değiştirmek istediğiniz özniteliği. Daha fazla bilgi için [denetleyicinizin atlayarak nakil korumak](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application). [Viewmodel'lar](https://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/) atlayarak önlemek için alternatif bir yaklaşım sağlar.
 
 İkinci fark `Edit` eylem yöntemine öncesinde `[HttpPost]` özniteliği.
 
@@ -151,7 +151,7 @@ Tüm `HttpGet` film denetleyici yöntemleri benzer bir desen uygulayın. Bir fil
 * [Yazma etiketi Yardımcıları](xref:mvc/views/tag-helpers/authoring)
 * [İstek Sahteciliğinden Koruma](xref:security/anti-request-forgery)
 * Denetleyicinizden korumak [aşırı gönderme](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application)
-* [Viewmodel'lar](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/)
+* [Viewmodel'lar](https://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/)
 * [Form Etiketi Yardımcısı](xref:mvc/views/working-with-forms)
 * [Giriş Etiketi Yardımcısı](xref:mvc/views/working-with-forms)
 * [Etiket Etiketi Yardımcısı](xref:mvc/views/working-with-forms)

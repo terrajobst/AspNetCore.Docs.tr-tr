@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 12/18/2018
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: 72d5b2e902a95442ccffb7a149b917c50373775b
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 5be53baf4b9eb8774501fbf7f781370f7f687d0c
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64902204"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67814946"
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>URL yeniden yazma ara yazılımı ASP.NET core'da
 
@@ -111,7 +111,7 @@ URL yeniden yazma oluşturmak ve bir örneğini oluşturarak kuralları yeniden 
 
 ### <a name="url-redirect"></a>URL yeniden yönlendirme
 
-Kullanım <xref:Microsoft.AspNetCore.Rewrite.RewriteOptionsExtensions.AddRedirect*> isteklerini yeniden yönlendirmek için. İlk parametre, normal ifade gelen URL yolunda eşleşen içerir. İkinci değiştirme dizesi parametresidir. Üçüncü parametre varsa, durum kodu belirtir. Durum kodu durum kodu belirtmezseniz varsayılan *302 bulundu -*, kaynak geçici olarak taşındı veya değiştirilinceye olduğunu gösterir.
+Kullanım <xref:Microsoft.AspNetCore.Rewrite.RewriteOptionsExtensions.AddRedirect*> isteklerini yeniden yönlendirmek için. İlk parametre, normal ifade gelen URL yolunda eşleşen içerir. İkinci değiştirme dizesi parametresidir. Üçüncü parametre varsa, durum kodu belirtir. Durum kodu durum kodu belirtmezseniz varsayılan *302 bulundu -* , kaynak geçici olarak taşındı veya değiştirilinceye olduğunu gösterir.
 
 [!code-csharp[](url-rewriting/samples/2.x/SampleApp/Startup.cs?name=snippet1&highlight=9)]
 
@@ -123,7 +123,7 @@ Geliştirici Araçları etkin bir tarayıcıda yolu kullanarak örnek uygulamaya
 Bir gidiş dönüş yapılan sunucuya bir URL olduğunda *yeniden yönlendirilen*.
 
 > [!WARNING]
-> Yeniden yönlendirme kuralları oluştururken dikkatli olun. Yeniden yönlendirme kuralları, sonra bir yeniden yönlendirme de dahil olmak üzere uygulama her istekte değerlendirilir. Yanlışlıkla oluşturmak kolaydır bir *döngü sonsuz yeniden yönlendirmeleri,*.
+> Yeniden yönlendirme kuralları oluştururken dikkatli olun. Yeniden yönlendirme kuralları, sonra bir yeniden yönlendirme de dahil olmak üzere uygulama her istekte değerlendirilir. Yanlışlıkla oluşturmak kolaydır bir *döngü sonsuz yeniden yönlendirmeleri,* .
 
 Özgün istek: `/redirect-rule/1234/5678`
 
@@ -135,7 +135,7 @@ Değiştirme dizesinde yakalanan gruplar dolar işareti ile dizesine eklenen (`$
 
 ### <a name="url-redirect-to-a-secure-endpoint"></a>Güvenli bir uç noktası için URL yeniden yönlendirme
 
-Kullanım <xref:Microsoft.AspNetCore.Rewrite.RewriteOptionsExtensions.AddRedirectToHttps*> aynı konak ve yol HTTPS protokolünü kullanarak HTTP isteklerini yeniden yönlendirmek için. Durum kodu verilmiyorsa, ara yazılım için varsayılan olarak *302 bulundu -*. Bağlantı noktası verilmiyorsa varsa:
+Kullanım <xref:Microsoft.AspNetCore.Rewrite.RewriteOptionsExtensions.AddRedirectToHttps*> aynı konak ve yol HTTPS protokolünü kullanarak HTTP isteklerini yeniden yönlendirmek için. Durum kodu verilmiyorsa, ara yazılım için varsayılan olarak *302 bulundu -* . Bağlantı noktası verilmiyorsa varsa:
 
 * Varsayılan olarak ara yazılım `null`.
 * Şema değişikliklerini `https` (HTTPS protokolü) ve istemci kaynak bağlantı noktası 443 üzerinden erişir.
@@ -223,7 +223,7 @@ A <xref:System.IO.StreamReader> kurallardan okumak için kullanılan *ApacheModR
 
 [!code-csharp[](url-rewriting/samples/2.x/SampleApp/Startup.cs?name=snippet1&highlight=3-4,12)]
 
-Örnek uygulama isteklerinden yönlendiren `/apache-mod-rules-redirect/(.\*)` için `/redirected?id=$1`. Yanıt durum kodu *302 bulundu -*.
+Örnek uygulama isteklerinden yönlendiren `/apache-mod-rules-redirect/(.\*)` için `/redirected?id=$1`. Yanıt durum kodu *302 bulundu -* .
 
 [!code[](url-rewriting/samples/2.x/SampleApp/ApacheModRewrite.txt)]
 
@@ -384,5 +384,5 @@ Kullanma <xref:Microsoft.AspNetCore.Rewrite.RewriteOptionsExtensions.Add*> kural
 * [URL yeniden yazma Module yapılandırma başvurusu](/iis/extensions/url-rewrite-module/url-rewrite-module-configuration-reference)
 * [IIS URL yeniden yazma modülü Forumu](https://forums.iis.net/1152.aspx)
 * [Basit bir URL yapısı tutun](https://support.google.com/webmasters/answer/76329?hl=en)
-* [10 URL yeniden yazma, ipuçları ve püf noktaları](http://ruslany.net/2009/04/10-url-rewriting-tips-and-tricks/)
+* [10 URL yeniden yazma, ipuçları ve püf noktaları](https://ruslany.net/2009/04/10-url-rewriting-tips-and-tricks/)
 * [Eğik çizgi veya değil eğik çizgi](https://webmasters.googleblog.com/2010/04/to-slash-or-not-to-slash.html)

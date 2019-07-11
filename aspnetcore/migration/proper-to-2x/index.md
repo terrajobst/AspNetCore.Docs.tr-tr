@@ -5,12 +5,12 @@ description: ASP.NET Core.web için geçirme mevcut ASP.NET MVC veya Web API uyg
 ms.author: scaddie
 ms.date: 12/11/2018
 uid: migration/proper-to-2x/index
-ms.openlocfilehash: 7b6aec621efa5e1400fcfd4396a2322733113ec1
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 9c97b9c0f13a265ab5c90225dcd5a581a1272701
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64902213"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815473"
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core"></a>ASP.NET'ten ASP.NET Core geçişi
 
@@ -54,7 +54,7 @@ ASP.NET Core önyükleme bir uygulama için yeni bir mekanizma sunmuştur. ASP.N
 
 [!code-csharp[](samples/globalasax-sample.cs)]
 
-Bu yaklaşım couples: uygulama ve sunucu, bir uygulama ile uğratan şekilde dağıtılır. İçinde ayırmak için çaba [OWIN](http://owin.org/) birden çok çerçeveyi birlikte kullanmak için temiz bir yol sağlamak üzere kullanılmıştır. OWIN yalnızca gerekli modül eklemek için bir işlem hattı sağlar. Barındırma ortamı alır bir [başlangıç](xref:fundamentals/startup) hizmetler ve uygulamanın istek ardışık düzenini yapılandırmak için işlevi. `Startup` Ara yazılım bir dizi uygulama ile kaydeder. Her istek için uygulamanın baş işleyicileri var olan bir dizi bağlı bir liste işaretçisi ile Ara yazılım bileşenlerinin her biri çağırır. Her bir ara yazılım bileşeni ardışık düzen işleme isteği için bir veya daha fazla işleyicileri ekleyebilirsiniz. Bu, listenin başındaki yeni işleyici için bir başvuru döndürerek gerçekleştirilir. Her işleyici anımsanmasını ve listedeki sonraki işleyicisini çağırarak sorumludur. ASP.NET Core ile bir uygulama için giriş noktasıdır `Startup`, ve bir bağımlılık artık sahip *Global.asax*. OWIN .NET Framework ile kullanırken, şunun gibi bir işlem hattı kullanın:
+Bu yaklaşım couples: uygulama ve sunucu, bir uygulama ile uğratan şekilde dağıtılır. İçinde ayırmak için çaba [OWIN](https://owin.org/) birden çok çerçeveyi birlikte kullanmak için temiz bir yol sağlamak üzere kullanılmıştır. OWIN yalnızca gerekli modül eklemek için bir işlem hattı sağlar. Barındırma ortamı alır bir [başlangıç](xref:fundamentals/startup) hizmetler ve uygulamanın istek ardışık düzenini yapılandırmak için işlevi. `Startup` Ara yazılım bir dizi uygulama ile kaydeder. Her istek için uygulamanın baş işleyicileri var olan bir dizi bağlı bir liste işaretçisi ile Ara yazılım bileşenlerinin her biri çağırır. Her bir ara yazılım bileşeni ardışık düzen işleme isteği için bir veya daha fazla işleyicileri ekleyebilirsiniz. Bu, listenin başındaki yeni işleyici için bir başvuru döndürerek gerçekleştirilir. Her işleyici anımsanmasını ve listedeki sonraki işleyicisini çağırarak sorumludur. ASP.NET Core ile bir uygulama için giriş noktasıdır `Startup`, ve bir bağımlılık artık sahip *Global.asax*. OWIN .NET Framework ile kullanırken, şunun gibi bir işlem hattı kullanın:
 
 [!code-csharp[](samples/webapi-owin.cs)]
 
@@ -143,7 +143,7 @@ Web geliştirme önemli bir parçası, statik, istemci tarafı varlıklar sunabi
 
 ASP.NET'te, statik dosyalar çeşitli dizinlerinde depolanan ve görünümleri başvuru.
 
-ASP.NET Core, statik dosyalar "web root" depolanır (*&lt;içerik kök&gt;/wwwroot*), aksi şekilde yapılandırılmadıkça. İstek ardışık düzende çağırarak dosyalar yüklenir `UseStaticFiles` şuradan genişleme metodu `Startup.Configure`:
+ASP.NET Core, statik dosyalar "web root" depolanır ( *&lt;içerik kök&gt;/wwwroot*), aksi şekilde yapılandırılmadıkça. İstek ardışık düzende çağırarak dosyalar yüklenir `UseStaticFiles` şuradan genişleme metodu `Startup.Configure`:
 
 [!code-csharp[](../../fundamentals/static-files/samples/1x/StartupStaticFiles.cs?highlight=3&name=snippet_ConfigureMethod)]
 

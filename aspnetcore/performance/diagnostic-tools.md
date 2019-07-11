@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.date: 04/11/2019
 uid: performance/diagnostic-tools
-ms.openlocfilehash: 66676b5a2b95b87bfbbd50022e279e35a12b9793
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: d273897b9ad26d57eb94b196b58f14019a96d07d
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64900383"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815630"
 ---
 # <a name="performance-diagnostic-tools"></a>Performans Tanılama araçları
 
@@ -53,7 +53,7 @@ Daha fazla bilgi için [ASP.NET Core için Application Insights](/azure/applicat
 
 [PerfView](https://github.com/Microsoft/perfview) .NET Performans sorunlarını tanılamak için özel olarak .NET ekibi tarafından oluşturulan bir Performans Analizi aracıdır. PerfView CPU kullanımı, bellek ve GC davranışı, performans olayları ve duvar saati süresi analizini sağlar.
 
-PerfView ve kullanmaya başlama hakkında daha fazla bilgi [PerfView video öğreticiler](http://channel9.msdn.com/Series/PerfView-Tutorial) veya Kullanıcı Kılavuzu Aracı'nda kullanılabilir okuyarak veya [github'da](https://github.com/Microsoft/perfview).
+PerfView ve kullanmaya başlama hakkında daha fazla bilgi [PerfView video öğreticiler](https://channel9.msdn.com/Series/PerfView-Tutorial) veya Kullanıcı Kılavuzu Aracı'nda kullanılabilir okuyarak veya [github'da](https://github.com/Microsoft/perfview).
 
 ## <a name="windows-performance-toolkit"></a>Windows Performans Araç Seti
 

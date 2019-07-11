@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 12/18/2018
 uid: fundamentals/owin
-ms.openlocfilehash: 9d6ce79c15fe768c260c6361ac3babecab5f3f9b
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 7edb4db026f1b778d43ac72883690a0b2a18ee31
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087295"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67814891"
 ---
 # <a name="open-web-interface-for-net-owin-with-aspnet-core"></a>ASP.NET Core ile .NET (OWIN) için Web arabirimini açın
 
@@ -35,7 +35,7 @@ Bu, ASP.NET Core, ASP.NET Core üzerinde çalıştırılacak diğer OWIN uyumlu 
 
 ASP.NET Core'nın OWIN desteği parçası olarak dağıtılan `Microsoft.AspNetCore.Owin` paket. Bu paketi yükleyerek projenize OWIN destek alabilirsiniz.
 
-OWIN ara yazılımı uygun şekilde [OWIN belirtimi](http://owin.org/spec/spec/owin-1.0.0.html), gerektiren bir `Func<IDictionary<string, object>, Task>` arabirimi ve özel anahtarları ayarlanabilir (gibi `owin.ResponseBody`). Aşağıdaki basit OWIN ara yazılımı "Hello World" görüntüler:
+OWIN ara yazılımı uygun şekilde [OWIN belirtimi](https://owin.org/spec/spec/owin-1.0.0.html), gerektiren bir `Func<IDictionary<string, object>, Task>` arabirimi ve özel anahtarları ayarlanabilir (gibi `owin.ResponseBody`). Aşağıdaki basit OWIN ara yazılımı "Hello World" görüntüler:
 
 ```csharp
 public Task OwinHello(IDictionary<string, object> environment)
@@ -43,7 +43,7 @@ public Task OwinHello(IDictionary<string, object> environment)
     string responseText = "Hello World via OWIN";
     byte[] responseBytes = Encoding.UTF8.GetBytes(responseText);
 
-    // OWIN Environment Keys: http://owin.org/spec/spec/owin-1.0.0.html
+    // OWIN Environment Keys: https://owin.org/spec/spec/owin-1.0.0.html
     var responseStream = (Stream)environment["owin.ResponseBody"];
     var responseHeaders = (IDictionary<string, string[]>)environment["owin.ResponseHeaders"];
 
@@ -230,7 +230,7 @@ Bir OWIN ortamı kullanarak oluşturabilirsiniz `HttpContext`.
 
 ## <a name="owin-keys"></a>OWIN anahtarları
 
-OWIN bağımlı bir `IDictionary<string,object>` bir HTTP istek/yanıt exchange içinde bilgi iletişim kurmak için nesne. ASP.NET Core, aşağıda listelenen anahtarları uygular. Bkz: [birincil belirtimi, uzantıları](http://owin.org/#spec), ve [OWIN anahtar yönergeleri ve ortak anahtarları](http://owin.org/spec/spec/CommonKeys.html).
+OWIN bağımlı bir `IDictionary<string,object>` bir HTTP istek/yanıt exchange içinde bilgi iletişim kurmak için nesne. ASP.NET Core, aşağıda listelenen anahtarları uygular. Bkz: [birincil belirtimi, uzantıları](https://owin.org/#spec), ve [OWIN anahtar yönergeleri ve ortak anahtarları](https://owin.org/spec/spec/CommonKeys.html).
 
 ### <a name="request-data-owin-v100"></a>İstek verileri (OWIN v1.0.0)
 
@@ -284,14 +284,14 @@ OWIN bağımlı bir `IDictionary<string,object>` bir HTTP istek/yanıt exchange 
 
 | Anahtar               | Değer (tür) | Açıklama |
 | ----------------- | ------------ | ----------- |
-| sendfile. SendAsync | Bkz: [temsilci imzası](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) | İstek başına |
+| sendfile. SendAsync | Bkz: [temsilci imzası](https://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) | İstek başına |
 
 ### <a name="opaque-v030"></a>Donuk v0.3.0
 
 | Anahtar               | Değer (tür) | Açıklama |
 | ----------------- | ------------ | ----------- |
 | Donuk. Sürüm | `String` |  |
-| Donuk. Yükseltme | `OpaqueUpgrade` | Bkz: [temsilci imzası](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) |
+| Donuk. Yükseltme | `OpaqueUpgrade` | Bkz: [temsilci imzası](https://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) |
 | Donuk. Stream | `Stream` |  |
 | Donuk. CallCancelled | `CancellationToken` |  |
 
@@ -300,12 +300,12 @@ OWIN bağımlı bir `IDictionary<string,object>` bir HTTP istek/yanıt exchange 
 | Anahtar               | Değer (tür) | Açıklama |
 | ----------------- | ------------ | ----------- |
 | websocket. Sürüm | `String` |  |
-| websocket. Kabul et | `WebSocketAccept` | Bkz: [temsilci imzası](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) |
+| websocket. Kabul et | `WebSocketAccept` | Bkz: [temsilci imzası](https://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) |
 | websocket. AcceptAlt |  | Non-spec |
 | websocket. Geçersizdir | `String` | Bkz: [RFC6455 bölüm 4.2.2](https://tools.ietf.org/html/rfc6455#section-4.2.2) adım 5.5 |
-| websocket. SendAsync | `WebSocketSendAsync` | Bkz: [temsilci imzası](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)  |
-| websocket.ReceiveAsync | `WebSocketReceiveAsync` | Bkz: [temsilci imzası](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)  |
-| websocket.CloseAsync | `WebSocketCloseAsync` | Bkz: [temsilci imzası](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)  |
+| websocket. SendAsync | `WebSocketSendAsync` | Bkz: [temsilci imzası](https://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)  |
+| websocket.ReceiveAsync | `WebSocketReceiveAsync` | Bkz: [temsilci imzası](https://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)  |
+| websocket.CloseAsync | `WebSocketCloseAsync` | Bkz: [temsilci imzası](https://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm)  |
 | websocket. CallCancelled | `CancellationToken` |  |
 | websocket. ClientCloseStatus | `int` | İsteğe Bağlı |
 | websocket.ClientCloseDescription | `String` | İsteğe Bağlı |

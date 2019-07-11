@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/06/2019
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: 380d47d33706b3197dba3b9f7e3e1f186e27115f
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: a07bb4f539c8bd38b08402c598924e14c748921d
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64902897"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815229"
 ---
 # <a name="tag-helpers-in-forms-in-aspnet-core"></a>ASP.NET Core formlarda etiket Yardımcıları
 
@@ -81,7 +81,7 @@ Desteklenen [AnchorTagHelper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-h
 |[ASP sayfası](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-page)|Razor sayfası adı.|
 |[ASP sayfası işleyicisi](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-page-handler)|Razor sayfası işleyici adı.|
 |[ASP yol](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-route)|Rotanın adı.|
-|[ASP - route-{value}](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-route-value)|Tek bir URL rota değeri. Örneğin: `asp-route-id="1234"`|
+|[ASP - route-{value}](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-route-value)|Tek bir URL rota değeri. Örneğin: `asp-route-id="1234"`.|
 |[ASP tüm rota veri](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-all-route-data)|Tüm rota değerleri.|
 |[ASP parçası](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#asp-fragment)|URL parçası belirtmesini.|
 
@@ -602,7 +602,7 @@ Oluşturulan HTML:
 
 ### <a name="multiple-select"></a>Çoklu seçim
 
-Seçin etiketi Yardımcısı otomatik olarak oluşturacak [birden çok "birden çok" =](http://w3c.github.io/html-reference/select.html) özelliği belirtilen özniteliği `asp-for` özniteliği bir `IEnumerable`. Örneğin, şu model verilen:
+Seçin etiketi Yardımcısı otomatik olarak oluşturacak [birden çok "birden çok" =](https://w3c.github.io/html-reference/select.html) özelliği belirtilen özniteliği `asp-for` özniteliği bir `IEnumerable`. Örneğin, şu model verilen:
 
 [!code-csharp[](../../mvc/views/working-with-forms/sample/final/ViewModels/CountryViewModelIEnumerable.cs?highlight=6)]
 

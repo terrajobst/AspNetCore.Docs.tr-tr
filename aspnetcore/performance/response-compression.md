@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 02/13/2019
 uid: performance/response-compression
-ms.openlocfilehash: e312d43fb62106f6ecb98367c29daa377bb227c9
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: d5d2da3dc0a8a452de97d98161d429389d2f7638
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64899639"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815610"
 ---
 # <a name="response-compression-in-aspnet-core"></a>ASP.NET core'da yanıt sıkıştırma
 
@@ -30,7 +30,7 @@ Yanıt sıkıştırma ara yazılımı, işiniz kullanın:
 
 * Aşağıdaki sunucu tabanlı sıkıştırma teknolojileri kullanılamıyor:
   * [IIS dinamik sıkıştırması Modülü](https://www.iis.net/overview/reliability/dynamiccachingandcompression)
-  * [Apache mod_deflate Modülü](http://httpd.apache.org/docs/current/mod/mod_deflate.html)
+  * [Apache mod_deflate Modülü](https://httpd.apache.org/docs/current/mod/mod_deflate.html)
   * [Ngınx sıkıştırma ve açma](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)
 * Doğrudan barındırma:
   * [HTTP.sys sunucu](xref:fundamentals/servers/httpsys) (eski adıyla WebListener olarak adlandırılır)
@@ -70,7 +70,7 @@ Sıkıştırılmış içerik işleme bir istemci, istemci yeteneklerini sunucusu
 
 ::: moniker-end
 
-Daha fazla bilgi için [IANA resmi içerik kodlama listesi](http://www.iana.org/assignments/http-parameters/http-parameters.xml#http-content-coding-registry).
+Daha fazla bilgi için [IANA resmi içerik kodlama listesi](https://www.iana.org/assignments/http-parameters/http-parameters.xml#http-content-coding-registry).
 
 Ara yazılım özel ek sıkıştırmasını sağlayıcıları eklemenizi sağlayan `Accept-Encoding` üstbilgi değerleri. Daha fazla bilgi için [özel sağlayıcılar](#custom-providers) aşağıda.
 
@@ -146,7 +146,7 @@ public class Startup
 Notlar:
 
 * `app.UseResponseCompression` önce çağrılmalıdır `app.UseMvc`.
-* Gibi bir araç kullanın [Fiddler](http://www.telerik.com/fiddler), [Firebug](http://getfirebug.com/), veya [Postman](https://www.getpostman.com/) ayarlanacak `Accept-Encoding` istek üst bilgisi ve yanıt üstbilgileri, boyutu ve gövde çalışın.
+* Gibi bir araç kullanın [Fiddler](https://www.telerik.com/fiddler), [Firebug](https://getfirebug.com/), veya [Postman](https://www.getpostman.com/) ayarlanacak `Accept-Encoding` istek üst bilgisi ve yanıt üstbilgileri, boyutu ve gövde çalışın.
 
 Örnek uygulamaya talebinizi `Accept-Encoding` üstbilgi ve yanıt sıkıştırılmamış olup olmadığına bakın. `Content-Encoding` Ve `Vary` üstbilgileri yanıtta mevcut değildir.
 
@@ -385,4 +385,4 @@ Gibi bir araç kullanın [Fiddler](https://www.telerik.com/fiddler), [Firebug](h
 * [Mozilla Geliştirici ağ: Kabul kodlama](https://developer.mozilla.org/docs/Web/HTTP/Headers/Accept-Encoding)
 * [RFC 7231 bölüm 3.1.2.1: Content Codings](https://tools.ietf.org/html/rfc7231#section-3.1.2.1)
 * [RFC 7230 bölüm 4.2.3: Gzip kodlama](https://tools.ietf.org/html/rfc7230#section-4.2.3)
-* [GZIP dosyası biçim belirtimi sürümü 4.3](http://www.ietf.org/rfc/rfc1952.txt)
+* [GZIP dosyası biçim belirtimi sürümü 4.3](https://www.ietf.org/rfc/rfc1952.txt)

@@ -22,6 +22,6 @@ Bu örnek kullanımını ASP.NET Core 2.x yanıt sıkıştırma ara yazılımı 
 
 ## <a name="use-the-sample"></a>Kullanım örneği
 
-1. Bir istek kullanarak olun [Fiddler](http://www.telerik.com/fiddler), [Firebug](http://getfirebug.com/), veya [Postman](https://www.getpostman.com/) olmadan uygulamasına bir `Accept-Encoding` üstbilgi ve Not yanıt yükünde yanıt boyutu ve yanıt üstbilgileri.
+1. Bir istek kullanarak olun [Fiddler](https://www.telerik.com/fiddler), [Firebug](https://getfirebug.com/), veya [Postman](https://www.getpostman.com/) olmadan uygulamasına bir `Accept-Encoding` üstbilgi ve Not yanıt yükünde yanıt boyutu ve yanıt üstbilgileri.
 1. Ekleme bir `Accept-Encoding: br` veya `Accept-Encoding: gzip` üstbilgisi ve sıkıştırılmış yanıt boyutu ve yanıt üst bilgilerini not edin. Yanıt boyutu bırakır ve `Content-Encoding` yanıt üst bilgisi belirten ya da Gzip ile bu sıkıştırma ara yazılımı tarafından eklenir veya Brotli oluştu. Yanıt gövdesi için Lorem Ipsum baktığınızda veya **testfile1kb.txt** yanıt, gördüğünüz sıkıştırılmış ve okunamaz metindir.
 1. Ekleme bir `Accept-Encoding: mycustomcompression` üstbilgi ve yanıt üst bilgilerini not edin. `CustomCompressionProvider` Gerçekten yanıt sıkıştırma olmayan boş bir uygulama olduğu halde için özel sıkıştırma stream sarmalayıcı oluşturabilirsiniz `CreateStream()` yöntemi.

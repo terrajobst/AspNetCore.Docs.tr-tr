@@ -5,12 +5,12 @@ description: ASP.NET Core MVC web uygulamaları oluşturmaya yönelik zengin bir
 ms.author: riande
 ms.date: 01/08/2018
 uid: mvc/overview
-ms.openlocfilehash: eb636616ab952f506993ae5f4692e5e966bb20f4
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 819bc93a7580626bf586b984b0ce169306df56d9
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087316"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815350"
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>ASP.NET Core MVC’ye Genel Bakış
 
@@ -179,7 +179,7 @@ ASP.NET Core MVC, web siteleri oluşturmak için harika bir platform olmaya ek o
 
 HTTP İçerik anlaşma desteği için yerleşik destekle framework içerir [veri biçimlendirme](xref:web-api/advanced/formatting) JSON veya XML. Yazma [özel biçimlendiriciler](xref:web-api/advanced/custom-formatters) kendi biçimleri için destek eklemek için.
 
-Bağlantı oluşturma, Hiper medyayı desteğini etkinleştirmek için kullanın. Kolayca desteğini etkinleştirme [çıkış noktaları arası kaynak paylaşımı (CORS)](http://www.w3.org/TR/cors/) böylece Web API'leri, birden çok Web uygulaması arasında paylaşılabilir.
+Bağlantı oluşturma, Hiper medyayı desteğini etkinleştirmek için kullanın. Kolayca desteğini etkinleştirme [çıkış noktaları arası kaynak paylaşımı (CORS)](https://www.w3.org/TR/cors/) böylece Web API'leri, birden çok Web uygulaması arasında paylaşılabilir.
 
 ### <a name="testability"></a>Test Edilebilirlik
 

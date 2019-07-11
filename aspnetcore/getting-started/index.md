@@ -4,14 +4,14 @@ author: rick-anderson
 description: Oluşturur ve ASP.NET Core kullanarak basit bir Hello World uygulaması çalıştıran kısa bir öğretici.
 ms.author: riande
 ms.custom: mvc
-ms.date: 5/15/2019
+ms.date: 05/15/2019
 uid: getting-started
-ms.openlocfilehash: 9227dcfbc84376d9d73bc6fc0dd76085779acae1
-ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
+ms.openlocfilehash: c35251a0e49fbbffee7b8f5ea6905322b9042261
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610317"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67814930"
 ---
 # <a name="tutorial-get-started-with-aspnet-core"></a>Öğretici: ASP.NET Core kullanmaya başlayın
 

@@ -5,12 +5,12 @@ description: Uygulama kaynaklarını özetlerdir, uygulama bölümleri bulmak ve
 ms.author: riande
 ms.date: 01/04/2017
 uid: mvc/extensibility/app-parts
-ms.openlocfilehash: 5d5e79d3afe0eee6d0b126d4642ccd5f61bff409
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 9d0b4b5fadcc287172f23fa36c421f04ca2ade4a
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64901211"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815475"
 ---
 # <a name="application-parts-in-aspnet-core"></a>ASP.NET core'da uygulama bölümleri
 
@@ -20,7 +20,7 @@ Bir *uygulama bölümü* etiket Yardımcıları bulunabileceğini veya MVC denet
 
 ## <a name="introducing-application-parts"></a>Uygulama Bölümleri ile tanışın
 
-MVC uygulamaları yüklemek, özelliklerinden [uygulama bölümleri](/dotnet/api/microsoft.aspnetcore.mvc.applicationparts.applicationpart). Özellikle, [AssemblyPart](/dotnet/api/microsoft.aspnetcore.mvc.applicationparts.assemblypart#Microsoft_AspNetCore_Mvc_ApplicationParts_AssemblyPart) sınıfı, bir derleme tarafından desteklenen bir uygulama bölümü temsil eder. Bu sınıfların bulmak ve MVC denetleyicileri, görünüm bileşenleri, etiket yardımcıları ve razor derleme kaynakları gibi özellikleri yüklemek için kullanabilirsiniz. [ApplicationPartManager](/dotnet/api/microsoft.aspnetcore.mvc.applicationparts.applicationpartmanager) uygulama bölümleri ve özellik sağlayıcıları kullanılabilir MVC uygulaması için izleme sorumludur. Etkileşim kurabileceğiniz `ApplicationPartManager` içinde `Startup` MVC yapılandırırken:
+MVC uygulamaları yüklemek, özelliklerinden [uygulama bölümleri](/dotnet/api/microsoft.aspnetcore.mvc.applicationparts.applicationpart). Özellikle, [AssemblyPart](/dotnet/api/microsoft.aspnetcore.mvc.applicationparts.assemblypart) sınıfı, bir derleme tarafından desteklenen bir uygulama bölümü temsil eder. Bu sınıfların bulmak ve MVC denetleyicileri, görünüm bileşenleri, etiket yardımcıları ve razor derleme kaynakları gibi özellikleri yüklemek için kullanabilirsiniz. [ApplicationPartManager](/dotnet/api/microsoft.aspnetcore.mvc.applicationparts.applicationpartmanager) uygulama bölümleri ve özellik sağlayıcıları kullanılabilir MVC uygulaması için izleme sorumludur. Etkileşim kurabileceğiniz `ApplicationPartManager` içinde `Startup` MVC yapılandırırken:
 
 ```csharp
 // create an assembly part from a class's assembly

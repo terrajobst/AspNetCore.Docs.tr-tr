@@ -5,12 +5,12 @@ description: ASP.NET Core veri koruma bağlam üst bilgileri uygulama ayrıntıl
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/implementation/context-headers
-ms.openlocfilehash: 2b8fd594672bf623d38bfae90d05a984f92ce6a3
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: 518423f5df93924d3df144994e4beb1755cd0bfc
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65087560"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67814024"
 ---
 # <a name="context-headers-in-aspnet-core"></a>ASP.NET core'da bağlam üst bilgileri
 
@@ -48,7 +48,7 @@ Bir bağlam başlığını oluşturmak için bu kavramı güçlü PRPs ve PRFs k
 
 K_E ve K_H için tüm sıfır vektörleri ideal olarak, geçirebiliriz. Bununla birlikte, burada temel algoritma, tüm sıfır vektör gibi basit veya tekrarlanabilir bir deseni kullanılarak ışığının (özellikle DES ve 3DES), herhangi bir işlem gerçekleştirmeden önce bulunup bulunmadığını zayıf anahtarları kontrol eder önlemek istiyoruz.
 
-Bunun yerine, biz NIST SP800 108 KDF sayacı modunda kullanın (bkz [NIST SP800-108](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf), Sec. 5.1) sıfır uzunluklu anahtar, etiket ve bağlam ve temel alınan PRF olarak HMACSHA512. Biz türetilen | K_E | + | K_H | Çıktı, bayt ardından ayırmak sonucu K_E ve K_H kendilerini. Matematiksel olarak, bunu şu şekilde gösterilir.
+Bunun yerine, biz NIST SP800 108 KDF sayacı modunda kullanın (bkz [NIST SP800-108](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf), Sec. 5.1) sıfır uzunluklu anahtar, etiket ve bağlam ve temel alınan PRF olarak HMACSHA512. Biz türetilen | K_E | + | K_H | Çıktı, bayt ardından ayırmak sonucu K_E ve K_H kendilerini. Matematiksel olarak, bunu şu şekilde gösterilir.
 
 ( K_E || K_H ) = SP800_108_CTR(prf = HMACSHA512, key = "", label = "", context = "")
 

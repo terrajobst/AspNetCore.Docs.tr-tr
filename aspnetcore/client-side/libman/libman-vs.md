@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 08/20/2018
 uid: client-side/libman/libman-vs
-ms.openlocfilehash: d0494b96447ad2b256acbde7748209ff430ae7c1
-ms.sourcegitcommit: 6afe57fb8d9055f88fedb92b16470398c4b9b24a
+ms.openlocfilehash: ebfb405516d968bf5d5b8cff956a9892457027f2
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610178"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67813468"
 ---
 # <a name="use-libman-with-aspnet-core-in-visual-studio"></a>Visual Studio'da ASP.NET Core ile LibMan kullanın
 
@@ -94,13 +94,13 @@ Açmak için *libman.json* düzenlemek için aşağıdaki seçenekler mevcuttur:
 
 **&#8224;** Varsa *libman.json* dosya proje kök dizininde zaten yoksa, varsayılan öğe şablonu içeriği ile oluşturulur.
 
-Visual Studio düzenleme desteği renklendirme gibi biçimlendirme, IntelliSense ve şema doğrulama zengin JSON sunar. LibMan bildirim JSON şeması bulunduğu [ http://json.schemastore.org/libman ](http://json.schemastore.org/libman).
+Visual Studio düzenleme desteği renklendirme gibi biçimlendirme, IntelliSense ve şema doğrulama zengin JSON sunar. LibMan bildirim JSON şeması bulunduğu [ https://json.schemastore.org/libman ](https://json.schemastore.org/libman).
 
 Aşağıdaki bildirim dosyası ile tanımlanan yapılandırma başına LibMan alır `libraries` özelliği. Bir açıklama içinde tanımlanan nesne değişmez değerlerinin `libraries` izler:
 
 * Bir alt kümesini [jQuery](https://jquery.com/) sürüm 3.3.1 CDNJS sağlayıcısından alınır. Alt tanımlanan `files` özelliği&mdash;*jquery.min.js*, *jquery.js*, ve *jquery.min.map*. Dosyalar projesinin yerleştirilir *wwwroot/lib/jquery* klasör.
 * Tamamen [önyükleme](https://getbootstrap.com/) sürüm 4.1.3 alınır ve yerleştirilmiş bir *wwwroot/lib/önyükleme* klasör. Nesne sabit değeri `provider` özelliklerine `defaultProvider` özellik değeri. LibMan unpkg sağlayıcısından önyükleme dosyaları alır.
-* Bir alt kümesini [Lodash](https://lodash.com/) unsurun kuruluştaki tarafından onaylandı. *Lodash.js* ve *lodash.min.js* dosyaları yerel dosya sisteminden alınır *C:\\temp\\lodash\\*. Dosyalar projenin kopyalanır *wwwroot/lib/lodash* klasör.
+* Bir alt kümesini [Lodash](https://lodash.com/) unsurun kuruluştaki tarafından onaylandı. *Lodash.js* ve *lodash.min.js* dosyaları yerel dosya sisteminden alınır *C:\\temp\\lodash\\* . Dosyalar projenin kopyalanır *wwwroot/lib/lodash* klasör.
 
 [!code-json[](samples/LibManSample/libman.json)]
 
@@ -201,7 +201,7 @@ Kitaplık dosyaları kaldırmak için:
 
 * Açık *libman.json*.
 * Giriş işaretini içinde karşılık gelen konum `libraries` nesne sabit değeri.
-* Sol kenar boşluğunda görünür ampul simgesini tıklatın ve seçin **kaldırma \<library_name > @\<library_version >**:
+* Sol kenar boşluğunda görünür ampul simgesini tıklatın ve seçin **kaldırma \<library_name > @\<library_version >** :
 
   ![Kitaplık bağlam menüsü seçeneği kaldırın](_static/uninstall-menu-option.png)
 

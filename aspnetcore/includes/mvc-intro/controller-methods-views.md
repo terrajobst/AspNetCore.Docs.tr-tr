@@ -51,7 +51,7 @@ Aşağıdaki kodda gösterildiği `HTTP POST Edit` gönderilen film değerleri i
 
 ::: moniker-end
 
-`[Bind]` Özniteliktir karşı korumak için bir yol [aşırı yayınlayarak](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost). Özellikler yalnızca içermelidir `[Bind]` değiştirmek istediğiniz özniteliği. Bkz: [denetleyicinizin atlayarak nakil korumak](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application) daha fazla bilgi için. [Viewmodel'lar](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/) atlayarak önlemek için alternatif bir yaklaşım sağlar.
+`[Bind]` Özniteliktir karşı korumak için bir yol [aşırı yayınlayarak](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost). Özellikler yalnızca içermelidir `[Bind]` değiştirmek istediğiniz özniteliği. Bkz: [denetleyicinizin atlayarak nakil korumak](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application) daha fazla bilgi için. [Viewmodel'lar](https://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/) atlayarak önlemek için alternatif bir yaklaşım sağlar.
 
 İkinci fark `Edit` eylem yöntemine öncesinde `[HttpPost]` özniteliği.
 
@@ -136,7 +136,7 @@ Tüm `HttpGet` film denetleyici yöntemleri benzer bir desen uygulayın. Bir fil
 * [Yazma etiketi Yardımcıları](xref:mvc/views/tag-helpers/authoring)
 * [İstek Sahteciliğinden Koruma](xref:security/anti-request-forgery)
 * Denetleyicinizden korumak [aşırı gönderme](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application)
-* [Viewmodel'lar](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/)
+* [Viewmodel'lar](https://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/)
 * [Form Etiketi Yardımcısı](xref:mvc/views/working-with-forms)
 * [Giriş Etiketi Yardımcısı](xref:mvc/views/working-with-forms)
 * [Etiket Etiketi Yardımcısı](xref:mvc/views/working-with-forms)

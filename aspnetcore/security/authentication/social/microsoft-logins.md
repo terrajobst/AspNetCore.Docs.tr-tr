@@ -4,14 +4,14 @@ author: rick-anderson
 description: Bu örnek, mevcut bir ASP.NET Core uygulamasına Microsoft hesabı kullanıcı kimlik doğrulaması tümleştirmesini gösterir.
 ms.author: riande
 ms.custom: mvc
-ms.date: 5/11/2019
+ms.date: 05/11/2019
 uid: security/authentication/microsoft-logins
-ms.openlocfilehash: 16ec2d5f2bccc59958b884869ef42af9cfa13df0
-ms.sourcegitcommit: 06a455d63ff7d6b571ca832e8117f4ac9d646baf
+ms.openlocfilehash: 2c690e5bd8465806d42091616917cfdd747ef8f0
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67316598"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815570"
 ---
 # <a name="microsoft-account-external-login-setup-with-aspnet-core"></a>ASP.NET Core ile Microsoft Account dış oturum açma Kurulumu
 
@@ -28,7 +28,7 @@ Bir Microsoft hesabınız yoksa, seçin **oluşturmak**. Oturum açtıktan sonra
 * Seçin **yeni kayıt**
 * Girin bir **adı**.
 * Bir seçeneğini **desteklenen hesap türleri**.  <!-- Accounts for any org work with MS domain accounts. Most folks probably want the last option, personal MS accounts -->
-* Altında **yeniden yönlendirme URI'si**, geliştirme URL'nizi girin `/signin-microsoft` eklenir. Örneğin: `https://localhost:44389/signin-microsoft` Bu örnekte, yapılandırılmış Microsoft kimlik doğrulama düzeni istekleri otomatik olarak işleyecek `/signin-microsoft` OAuth akışını uygulamak için rota.
+* Altında **yeniden yönlendirme URI'si**, geliştirme URL'nizi girin `/signin-microsoft` eklenir. Örneğin: `https://localhost:44389/signin-microsoft`. Bu örnekte, yapılandırılmış Microsoft kimlik doğrulama düzeni istekleri otomatik olarak işleyecek `/signin-microsoft` OAuth akışını uygulamak için rota.
 * Seçin **kaydetme**
 
 ### <a name="create-client-secret"></a>İstemci gizli anahtarı oluşturma

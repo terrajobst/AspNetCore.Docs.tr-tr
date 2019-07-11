@@ -5,12 +5,12 @@ description: Nasıl bir ASP.NET Core uygulamasına doğrulama ekleme.
 ms.author: riande
 ms.date: 04/13/2017
 uid: tutorials/first-mvc-app/validation
-ms.openlocfilehash: 6c59d0188f67872c7dd5599967551d7d390bfdcf
-ms.sourcegitcommit: e7e04a45195d4e0527af6f7cf1807defb56dc3c3
+ms.openlocfilehash: f94d1003732b8ff04ec8aba3005f8c95a876cd67
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "65875022"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815112"
 ---
 # <a name="add-validation-to-an-aspnet-core-mvc-app"></a>Bir ASP.NET Core MVC uygulamasına doğrulama ekleme
 
@@ -43,7 +43,7 @@ Form otomatik olarak işlenen bir uygun doğrulama hata iletisi geçersiz bir de
 
 Önemli bir avantajı, tek satırlık bir kod içinde değiştirmek ihtiyacım kalmadı olan `MoviesController` sınıfı veya *Create.cshtml* bu doğrulama kullanıcı arabirimini etkinleştirmek için görünümü. Yukarı doğrulama kuralları özelliklerini doğrulama özniteliklerini kullanarak belirtilen denetleyici ve otomatik olarak Bu öğreticide daha önce oluşturduğunuz görünümleri çekilen `Movie` model sınıfı. Doğrulama testi kullanılarak `Edit` eylem yöntemi ve aynı doğrulama uygulanır.
 
-İstemci tarafı doğrulama hata kalmayana kadar form verilerini ve sunucuya gönderilen değil. Bu bir kesme noktası koyarak doğrulayabilirsiniz `HTTP Post` yöntemi kullanarak [Fiddler aracı](http://www.telerik.com/fiddler) , veya [F12 geliştirici araçlarını](/microsoft-edge/devtools-guide).
+İstemci tarafı doğrulama hata kalmayana kadar form verilerini ve sunucuya gönderilen değil. Bu bir kesme noktası koyarak doğrulayabilirsiniz `HTTP Post` yöntemi kullanarak [Fiddler aracı](https://www.telerik.com/fiddler) , veya [F12 geliştirici araçlarını](/microsoft-edge/devtools-guide).
 
 ## <a name="how-validation-works"></a>Doğrulama nasıl çalışır?
 

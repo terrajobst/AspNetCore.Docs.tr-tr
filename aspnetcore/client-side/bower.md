@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 08/09/2018
 uid: client-side/bower
-ms.openlocfilehash: 08e6daa537c6c6f92a1cf80d70745e8ef606f580
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 1292b75bdfe1cea56d9c8bc282b0dd90fc945a33
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64899285"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67813523"
 ---
 # <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>ASP.NET core'da Bower ile istemci tarafı paketleri yönetme
 
@@ -22,9 +22,9 @@ Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT), [Noel pirinç](htt
 >
 > Yarn Web ile olan popüler bir alternatif, için [geçiş yönergeleri](https://bower.io/blog/2017/how-to-migrate-away-from-bower/) kullanılabilir.
 
-[Bower](https://bower.io/) kendisini "Web için bir paket Yöneticisi" çağırır. .NET ekosistemlerinde statik içerik dosyalarını NuGet verilmemesine göre sola void doldurur. ASP.NET Core projeleri için bu statik dosyalar gibi istemci tarafı kitaplıkları için devralınmış [jQuery](http://jquery.com/) ve [önyükleme](http://getbootstrap.com/). .NET kitaplıkları için kullanmaya devam [NuGet](https://www.nuget.org/) Paket Yöneticisi.
+[Bower](https://bower.io/) kendisini "Web için bir paket Yöneticisi" çağırır. .NET ekosistemlerinde statik içerik dosyalarını NuGet verilmemesine göre sola void doldurur. ASP.NET Core projeleri için bu statik dosyalar gibi istemci tarafı kitaplıkları için devralınmış [jQuery](https://jquery.com/) ve [önyükleme](https://getbootstrap.com/). .NET kitaplıkları için kullanmaya devam [NuGet](https://www.nuget.org/) Paket Yöneticisi.
 
-İşlem istemci tarafında ayarlamak ASP.NET Core proje şablonları ile oluşturulan yeni projeler oluşturun. [jQuery](http://jquery.com/) ve [önyükleme](http://getbootstrap.com/) yüklü olan ve Bower desteklenir.
+İşlem istemci tarafında ayarlamak ASP.NET Core proje şablonları ile oluşturulan yeni projeler oluşturun. [jQuery](https://jquery.com/) ve [önyükleme](https://getbootstrap.com/) yüklü olan ve Bower desteklenir.
 
 İstemci tarafı paketleri listelenir *bower.json* dosya. ASP.NET Core proje şablonları yapılandırır *bower.json* jQuery, jQuery doğrulama ve önyükleme.
 
@@ -50,7 +50,7 @@ Açık *bower.json* dosya ve "font awesome" bağımlılıklarına ekleyin. Intel
 
 ![bower version IntelliSense](bower/_static/version-intelliSense.png)
 
-Bower kullanan [semantic versioning](http://semver.org/) bağımlılıkları düzenlemek için. SemVer olarak da bilinen semantik sürüm oluşturma, numaralandırma düzeni ile paketleri tanımlayan \<ana >.\< küçük >. \<düzeltme eki >. IntelliSense, yalnızca birkaç genel seçenek göstererek semantic versioning basitleştirir. Üst öğeyi IntelliSense listesinde (yukarıdaki örnekte 4.6.3) paketin en son kararlı sürüm olarak kabul edilir. Şapka (^) simgesi en son sürümle eşleşen ve son ikincil sürümle tilde (~) ile eşleşir.
+Bower kullanan [semantic versioning](https://semver.org/) bağımlılıkları düzenlemek için. SemVer olarak da bilinen semantik sürüm oluşturma, numaralandırma düzeni ile paketleri tanımlayan \<ana >.\< küçük >. \<düzeltme eki >. IntelliSense, yalnızca birkaç genel seçenek göstererek semantic versioning basitleştirir. Üst öğeyi IntelliSense listesinde (yukarıdaki örnekte 4.6.3) paketin en son kararlı sürüm olarak kabul edilir. Şapka (^) simgesi en son sürümle eşleşen ve son ikincil sürümle tilde (~) ile eşleşir.
 
 Kaydet *bower.json* dosya. Visual Studio izleyen *bower.json* dosyasındaki değişiklikleri. Kaydedilmesi, *bower yükleme* komutu yürütülür. Çıkış pencere bkz **Bower/npm** görünümü için tam komut yürütüldü.
 

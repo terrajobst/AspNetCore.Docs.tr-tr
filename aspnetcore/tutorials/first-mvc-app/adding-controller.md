@@ -5,12 +5,12 @@ description: Bir denetleyici için basit bir ASP.NET Core MVC uygulaması ekleme
 ms.author: riande
 ms.date: 02/28/2017
 uid: tutorials/first-mvc-app/adding-controller
-ms.openlocfilehash: 9dbfb52109260dbfe0c6c094a7ac4edae47d24e7
-ms.sourcegitcommit: 1bb3f3f1905b4e7d4ca1b314f2ce6ee5dd8be75f
+ms.openlocfilehash: f28dc96b66fce736242d26a2584fea0a23375e23
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66837332"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815199"
 ---
 # <a name="add-a-controller-to-an-aspnet-core-mvc-app"></a>Denetleyici için bir ASP.NET Core MVC uygulaması ekleme
 
@@ -68,7 +68,7 @@ Her `public` bir denetleyici yöntemi bir HTTP uç noktası olarak çağrılabil
 
 Web uygulamasındaki hedeflenebilir bir URL bir HTTP uç noktası olduğu gibi `https://localhost:5001/HelloWorld`ve kullanılan protokol birleştirir: `HTTPS`, (TCP bağlantı noktası dahil) web sunucusu ağ konumu: `localhost:5001` ve hedef URI `HelloWorld`.
 
-İlk yorum durumları bu bir [HTTP GET](https://www.w3schools.com/tags/ref_httpmethods.asp) ekleyerek çağrılan yöntem `/HelloWorld/` temel URL'si. İkinci yorumu belirtir bir [HTTP GET](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) ekleyerek çağrılan yöntem `/HelloWorld/Welcome/` URL'si. Daha sonra öğreticide yapı iskelesi altyapısı oluşturmak için kullanılan `HTTP POST` verileri güncelleştirme yöntemleri.
+İlk yorum durumları bu bir [HTTP GET](https://www.w3schools.com/tags/ref_httpmethods.asp) ekleyerek çağrılan yöntem `/HelloWorld/` temel URL'si. İkinci yorumu belirtir bir [HTTP GET](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) ekleyerek çağrılan yöntem `/HelloWorld/Welcome/` URL'si. Daha sonra öğreticide yapı iskelesi altyapısı oluşturmak için kullanılan `HTTP POST` verileri güncelleştirme yöntemleri.
 
 Uygulamayı hata ayıklama olmayan modda çalıştırın ve adres çubuğuna yoluna "HelloWorld" ekleyin. `Index` Yöntemi bir dize döndürür.
 
@@ -95,7 +95,7 @@ konumuna gözatın `https://localhost:xxxx/HelloWorld/Welcome`. `Welcome` Yönte
 
 ![Bu bir uygulama yanıtı gösteren tarayıcı penceresi olan Hoş Geldiniz eylem yöntemi](~/tutorials/first-mvc-app/adding-controller/_static/welcome.png)
 
-Bazı parametre bilgileri URL'den denetleyiciye geçirmek için kodu değiştirin. Örneğin: `/HelloWorld/Welcome?name=Rick&numtimes=4` Değişiklik `Welcome` aşağıdaki kodda gösterildiği gibi iki parametre eklemek için yöntemi.
+Bazı parametre bilgileri URL'den denetleyiciye geçirmek için kodu değiştirin. Örneğin: `/HelloWorld/Welcome?name=Rick&numtimes=4`. Değişiklik `Welcome` aşağıdaki kodda gösterildiği gibi iki parametre eklemek için yöntemi.
 
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_2)]
 

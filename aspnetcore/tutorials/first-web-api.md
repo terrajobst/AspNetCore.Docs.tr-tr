@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/23/2019
 uid: tutorials/first-web-api
-ms.openlocfilehash: a53f7019c1079296f073e743ddbf9d90fc5abad3
-ms.sourcegitcommit: d6e51c60439f03a8992bda70cc982ddb15d3f100
+ms.openlocfilehash: 1c3d911593a288aa897373dc01616498706e7069
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67555876"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815141"
 ---
 # <a name="tutorial-create-a-web-api-with-aspnet-core"></a>Öğretici: ASP.NET Core web API'si oluşturma
 
@@ -99,7 +99,7 @@ Aşağıdaki diyagramda, bu uygulamanın tasarımını gösterir.
 
   ![Yeni çözüm macOS](first-web-api-mac/_static/sln.png)
 
-* Seçin **.NET Core uygulaması** > **ASP.NET Core Web API'sini** > **sonraki**.
+* Seçin **.NET Core** > **uygulama** > **API** > **sonraki**.
 
   ![macOS yeni proje iletişim kutusu](first-web-api-mac/_static/1.png)
   
@@ -127,7 +127,7 @@ Uygulamayı çalıştırmak için CTRL + F5 tuşlarına basın. Bir tarayıcıda
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-Seçin **çalıştırma** > **ile Start Debugging** uygulamayı başlatın. Mac için Visual Studio bir tarayıcı ile başlatarak `https://localhost:<port>`burada `<port>` bir rastgele seçilen bağlantı noktası numarasıdır. HTTP 404 (bulunamadı) hatası döndürülür. Append `/api/values` URL'sine (URL'yi `https://localhost:<port>/api/values`).
+Seçin **çalıştırma** > **hata ayıklamayı Başlat** uygulamayı başlatın. Mac için Visual Studio bir tarayıcı ile başlatarak `https://localhost:<port>`burada `<port>` bir rastgele seçilen bağlantı noktası numarasıdır. HTTP 404 (bulunamadı) hatası döndürülür. Append `/api/values` URL'sine (URL'yi `https://localhost:<port>/api/values`).
 
 ---
 
@@ -245,6 +245,8 @@ Yapılacak iş öğeleri alır bir API sağlamak için aşağıdaki yöntemi ekl
 
 * `GET /api/todo`
 * `GET /api/todo/{id}`
+
+Uygulamayı hala çalışıyorsa durdurun. Daha sonra yeniden en son değişiklikleri içerecek şekilde çalıştırın.
 
 Bir tarayıcıdan iki uç nokta çağırarak uygulamayı test edin. Örneğin:
 

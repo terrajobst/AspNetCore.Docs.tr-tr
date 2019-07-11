@@ -46,7 +46,7 @@ Form otomatik olarak işlenen bir uygun doğrulama hata iletisi geçersiz bir de
 
 Önemli bir avantajı, tek satırlık bir kod içinde değiştirmek ihtiyacım kalmadı olan `MoviesController` sınıfı veya *Create.cshtml* bu doğrulama kullanıcı arabirimini etkinleştirmek için görünümü. Yukarı doğrulama kuralları özelliklerini doğrulama özniteliklerini kullanarak belirtilen denetleyici ve otomatik olarak Bu öğreticide daha önce oluşturduğunuz görünümleri çekilen `Movie` model sınıfı. Doğrulama testi kullanılarak `Edit` eylem yöntemi ve aynı doğrulama uygulanır.
 
-İstemci tarafı doğrulama hata kalmayana kadar form verilerini ve sunucuya gönderilen değil. Bu bir kesme noktası koyarak doğrulayabilirsiniz `HTTP Post` yöntemi kullanarak [Fiddler aracı](http://www.telerik.com/fiddler) , veya [F12 geliştirici araçlarını](/microsoft-edge/devtools-guide).
+İstemci tarafı doğrulama hata kalmayana kadar form verilerini ve sunucuya gönderilen değil. Bu bir kesme noktası koyarak doğrulayabilirsiniz `HTTP Post` yöntemi kullanarak [Fiddler aracı](https://www.telerik.com/fiddler) , veya [F12 geliştirici araçlarını](/microsoft-edge/devtools-guide).
 
 ## <a name="how-validation-works"></a>Doğrulama nasıl çalışır?
 

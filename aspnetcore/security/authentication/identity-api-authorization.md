@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 03/07/2019
 uid: security/authentication/identity/spa
-ms.openlocfilehash: 4afc9ac0a3c54b452c6a1b23e4de31d7e2fc5284
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 302a5e10a70e40e75ab9fe4b3e5a98c4e847b822
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64900350"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815227"
 ---
 # <a name="authentication-and-authorization-for-spas"></a>Kimlik doğrulama ve yetkilendirme Spa'lar için
 
@@ -251,7 +251,7 @@ Bu bölümde, uygulama sertifika depolama alanında depolanan bir sertifika kull
 
 Yer alan adımları uygulayarak bir uygulamayı Azure Web siteleri'ne dağıtma [uygulamasını Azure'a dağıtma](xref:tutorials/publish-to-azure-webapp-using-vs#deploy-the-app-to-azure) gerekli Azure kaynakları oluşturmak ve uygulamayı üretime dağıtın.
 
-Yukarıdaki yönergeleri izleyerek sonra uygulamayı Azure'a dağıtılır, ancak henüz işlevsel değil. Uygulama tarafından kullanılan sertifikayı yine de ayarlanması gerekir. Kullanılacak sertifika parmak izini bulun ve açıklanan adımları [sertifikalarınızı yüklemek](/azure/app-service/app-service-web-ssl-cert-load#load-your-certificates).
+Yukarıdaki yönergeleri izleyerek sonra uygulamayı Azure'a dağıtılır, ancak henüz işlevsel değil. Uygulama tarafından kullanılan sertifikayı yine de ayarlanması gerekir. Kullanılacak sertifika parmak izini bulun ve açıklanan adımları [sertifikalarınızı yüklemek](/azure/app-service/app-service-web-ssl-cert-load#load-the-certificate-in-code).
 
 While bu adımları bahsetmek SSL, bir **özel sertifikaları** Portal karşıya yüklersiniz uygulamayla kullanmak için sağlanan sertifikanın bölümü.
 

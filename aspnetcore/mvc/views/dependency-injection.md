@@ -5,12 +5,12 @@ description: ASP.NET Core MVC görünümlere bağımlılık ekleme nasıl destek
 ms.author: riande
 ms.date: 10/14/2016
 uid: mvc/views/dependency-injection
-ms.openlocfilehash: b411b164bfea81f82c5c9fc1052e0ecfe65f0bc2
-ms.sourcegitcommit: 3376f224b47a89acf329b2d2f9260046a372f924
+ms.openlocfilehash: 63feea5ddf286dd3e659f3a622cfb0f7451b9bba
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65517044"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815333"
 ---
 # <a name="dependency-injection-into-views-in-aspnet-core"></a>ASP.NET core'da görünümlere bağımlılık ekleme
 
@@ -106,4 +106,4 @@ Var olan hizmetleri genişletmek isterseniz, dan devralan veya mevcut bir uygula
 
 ## <a name="see-also"></a>Ayrıca Bkz.
 
-* Simon Timms Blog: [Arama verileri görünümünüzü alma](http://blog.simontimms.com/2015/06/09/getting-lookup-data-into-you-view/)
+* Simon Timms Blog: [Arama verileri görünümünüzü alma](https://blog.simontimms.com/2015/06/09/getting-lookup-data-into-you-view/)

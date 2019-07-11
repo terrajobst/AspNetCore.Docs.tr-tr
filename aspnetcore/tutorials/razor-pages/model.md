@@ -5,12 +5,12 @@ description: Entity Framework Core (EF Core) kullanarak bir veritabanında filml
 ms.author: riande
 ms.date: 02/12/2019
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 44e6f53d517b0470c5e6fa785a4061e59cda9ce6
-ms.sourcegitcommit: 20ca93d72cb0b3998637724b44523e57b089c8fd
+ms.openlocfilehash: be9f515178d0169a69487f917c7d39c6f11f1292
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65473606"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815058"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Bir ASP.NET Core Razor sayfaları uygulama için model ekleme
 
@@ -81,8 +81,12 @@ Sağ tıklayın *sayfaları/filmler* klasör > **Ekle** > **yeni iskele kurulmu�
 ![Önceki yönergeleri görüntüden.](model/_static/add_scaffold.png)
 
 Tamamlamak **ekleme Razor sayfaları (CRUD) Entity Framework kullanarak** iletişim:
+<!-- In the next section, change 
+(plus) sign and accept the generated name 
+to use Data, it should not use models. That will make the namespace the same for the VS version and the CLI version
+-->
 
-* İçinde **Model sınıfı** seçin, açılan menü **film (RazorPagesMovie.Models)**.
+* İçinde **Model sınıfı** seçin, açılan menü **film (RazorPagesMovie.Models)** .
 * İçinde **veri bağlamı sınıfının** satır, select **+** (artı) oturum açın ve oluşturulan adı kabul **RazorPagesMovie.Models.RazorPagesMovieContext**.
 * **Add (Ekle)** seçeneğini belirleyin.
 

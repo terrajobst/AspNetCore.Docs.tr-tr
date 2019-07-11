@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: migration/mvc2
-ms.openlocfilehash: 7f048f2f95f1a51a0b6ce3d36665420ff28ec26f
-ms.sourcegitcommit: 5f299daa7c8102d56a63b214b9a34cc4bc87bc42
+ms.openlocfilehash: e9dffe8bce502e48a09af04ea0be9952a68aa46f
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58208479"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815449"
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core-20"></a>ASP.NET'ten ASP.NET Core 2.0 geçirme
 
@@ -28,7 +28,7 @@ Yükleme **bir** birini [.NET indirir: Windows](https://www.microsoft.com/net/do
   * **ASP.NET ve web geliştirme** iş yükü
   * **.NET core çoklu platform geliştirme** iş yükü
 
-## <a name="target-frameworks"></a>Hedef Çerçeve
+## <a name="target-frameworks"></a>Hedef çerçeveler
 
 ASP.NET Core 2.0 projeleri geliştiricilerin, .NET Core, .NET Framework veya her ikisi de hedefleme esnekliği sunar. Bkz: [sunucu uygulamaları için .NET Core ve .NET Framework arasında seçim](/dotnet/standard/choosing-core-framework-server) hangi hedef çerçeveden en uygun olduğunu belirlemek için.
 
@@ -60,7 +60,7 @@ ASP.NET Core önyükleme bir uygulama için yeni bir mekanizma sunmuştur. ASP.N
 
 [!code-csharp[](samples/globalasax-sample.cs)]
 
-Bu yaklaşım couples: uygulama ve sunucu, bir uygulama ile uğratan şekilde dağıtılır. İçinde ayırmak için çaba [OWIN](http://owin.org/) birden çok çerçeveyi birlikte kullanmak için temiz bir yol sağlamak üzere kullanılmıştır. OWIN yalnızca gerekli modül eklemek için bir işlem hattı sağlar. Barındırma ortamı alır bir [başlangıç](xref:fundamentals/startup) hizmetler ve uygulamanın istek ardışık düzenini yapılandırmak için işlevi. `Startup` Ara yazılım bir dizi uygulama ile kaydeder. Her istek için uygulamanın baş işleyicileri var olan bir dizi bağlı bir liste işaretçisi ile Ara yazılım bileşenlerinin her biri çağırır. Her bir ara yazılım bileşeni ardışık düzen işleme isteği için bir veya daha fazla işleyicileri ekleyebilirsiniz. Bu, listenin başındaki yeni işleyici için bir başvuru döndürerek gerçekleştirilir. Her işleyici anımsanmasını ve listedeki sonraki işleyicisini çağırarak sorumludur. ASP.NET Core ile bir uygulama için giriş noktasıdır `Startup`, ve bir bağımlılık artık sahip *Global.asax*. OWIN .NET Framework ile kullanırken, şunun gibi bir işlem hattı kullanın:
+Bu yaklaşım couples: uygulama ve sunucu, bir uygulama ile uğratan şekilde dağıtılır. İçinde ayırmak için çaba [OWIN](https://owin.org/) birden çok çerçeveyi birlikte kullanmak için temiz bir yol sağlamak üzere kullanılmıştır. OWIN yalnızca gerekli modül eklemek için bir işlem hattı sağlar. Barındırma ortamı alır bir [başlangıç](xref:fundamentals/startup) hizmetler ve uygulamanın istek ardışık düzenini yapılandırmak için işlevi. `Startup` Ara yazılım bir dizi uygulama ile kaydeder. Her istek için uygulamanın baş işleyicileri var olan bir dizi bağlı bir liste işaretçisi ile Ara yazılım bileşenlerinin her biri çağırır. Her bir ara yazılım bileşeni ardışık düzen işleme isteği için bir veya daha fazla işleyicileri ekleyebilirsiniz. Bu, listenin başındaki yeni işleyici için bir başvuru döndürerek gerçekleştirilir. Her işleyici anımsanmasını ve listedeki sonraki işleyicisini çağırarak sorumludur. ASP.NET Core ile bir uygulama için giriş noktasıdır `Startup`, ve bir bağımlılık artık sahip *Global.asax*. OWIN .NET Framework ile kullanırken, şunun gibi bir işlem hattı kullanın:
 
 [!code-csharp[](samples/webapi-owin.cs)]
 
@@ -72,7 +72,7 @@ ASP.NET Core, benzer bir yaklaşım kullanır, ancak giriş işlemek için OWIN 
 
 `Startup` içermelidir bir `Configure` yöntemi. İçinde `Configure`, gerekli bir ara yazılım ardışık düzenine ekleyin. (Şablondan varsayılan web sitesi) aşağıdaki örnekte, birkaç genişletme yöntemleri için destek ile işlem hattını yapılandırmak için kullanılır:
 
-* [BrowserLink](http://vswebessentials.com/features/browserlink)
+* [BrowserLink](https://vswebessentials.com/features/browserlink)
 * Hata sayfaları
 * Statik dosyalar
 * ASP.NET Core MVC
@@ -147,7 +147,7 @@ Web geliştirme önemli bir parçası, statik, istemci tarafı varlıklar sunabi
 
 ASP.NET'te, statik dosyalar çeşitli dizinlerinde depolanan ve görünümleri başvuru.
 
-ASP.NET Core, statik dosyalar "web root" depolanır (*&lt;içerik kök&gt;/wwwroot*), aksi şekilde yapılandırılmadıkça. İstek ardışık düzende çağırarak dosyalar yüklenir `UseStaticFiles` şuradan genişleme metodu `Startup.Configure`:
+ASP.NET Core, statik dosyalar "web root" depolanır ( *&lt;içerik kök&gt;/wwwroot*), aksi şekilde yapılandırılmadıkça. İstek ardışık düzende çağırarak dosyalar yüklenir `UseStaticFiles` şuradan genişleme metodu `Startup.Configure`:
 
 [!code-csharp[](../../fundamentals/static-files/samples/1x/StartupStaticFiles.cs?highlight=3&name=snippet_ConfigureMethod)]
 

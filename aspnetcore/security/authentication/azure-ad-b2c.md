@@ -6,12 +6,12 @@ ms.author: casoper
 ms.custom: mvc
 ms.date: 02/27/2019
 uid: security/authentication/azure-ad-b2c
-ms.openlocfilehash: 3cb878aff7bf0c6c8efe7f3f0c0f06c74acef477
-ms.sourcegitcommit: 0b9e767a09beaaaa4301915cdda9ef69daaf3ff2
+ms.openlocfilehash: 54117bf0dd45305d060eef5fecfb98ed45f8ecdb
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67538738"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815299"
 ---
 # <a name="cloud-authentication-with-azure-active-directory-b2c-in-aspnet-core"></a>Azure Active Directory B2C'de ASP.NET Core ile bulut kimlik doğrulaması
 
@@ -43,7 +43,7 @@ Bir Azure Active Directory B2C kiracısı oluşturmayı [belgelerinde açıklana
 
 ## <a name="register-the-app-in-azure-ad-b2c"></a>Azure AD B2C'de uygulamayı kaydetme
 
-Kullanıp uygulamanızın yeni oluşturulan Azure AD B2C kiracısında kaydetme [belgelerindeki adımları](/azure/active-directory-b2c/active-directory-b2c-app-registration#register-a-web-app) altında **bir web uygulaması kaydetme** bölümü. Adresindeki Durdur **web uygulama gizli anahtarı oluşturma** bölümü. Bir istemci parolası, Bu öğretici için gerekli değildir. 
+Kullanıp uygulamanızın yeni oluşturulan Azure AD B2C kiracısında kaydetme [belgelerindeki adımları](/azure/active-directory-b2c/tutorial-register-applications#register-a-web-application) altında **bir web uygulaması kaydetme** bölümü. Adresindeki Durdur **web uygulama gizli anahtarı oluşturma** bölümü. Bir istemci parolası, Bu öğretici için gerekli değildir. 
 
 Aşağıdaki değerleri kullanın:
 
@@ -57,7 +57,7 @@ Aşağıdaki değerleri kullanın:
 | **Yerel istemci Ekle**     | Hayır                        |                                                                                                                                                                                                    |
 
 > [!WARNING]
-> Localhost olmayan yanıt URL'si ayarı farkında olmanız durumunda [yanıt URL'si listede izin verilen üzerindeki kısıtlamaları](/azure/active-directory-b2c/active-directory-b2c-app-registration#choosing-a-web-app-or-api-reply-url). 
+> Localhost olmayan yanıt URL'si ayarı farkında olmanız durumunda [yanıt URL'si listede izin verilen üzerindeki kısıtlamaları](/azure/active-directory-b2c/tutorial-register-applications#register-a-web-application). 
 
 Uygulama kaydedildikten sonra kiracıdaki uygulamalar listesinde görüntülenir. Yalnızca kayıtlı uygulamayı seçin. Seçin **kopyalama** simgesinin sağındaki **uygulama kimliği** panoya kopyalamak için alana.
 
@@ -101,7 +101,7 @@ B2C uygulaması özelliklerde hala açık tarayıcı penceresine dönün. Geçic
 
 ## <a name="configure-policies"></a>ilkeleri yapılandırma
 
-Adımlar için Azure AD B2C belgeleri kullanmak [kaydolma veya oturum açma ilkesi oluşturma](/azure/active-directory-b2c/active-directory-b2c-reference-policies#create-a-sign-up-or-sign-in-policy)ve ardından [bir parola sıfırlama ilkesi oluşturma](/azure/active-directory-b2c/active-directory-b2c-reference-policies#create-a-password-reset-policy). Belgeler için sağlanan örnek değerleri kullanın **kimlik sağlayıcıları**, **kaydolma özniteliklerini**, ve **uygulama taleplerini**. Kullanarak **Şimdi Çalıştır** ilkeleri belgelerinde açıklanan şekilde test etmek için düğmeyi, isteğe bağlıdır.
+Adımlar için Azure AD B2C belgeleri kullanmak [kaydolma veya oturum açma ilkesi oluşturma](/azure/active-directory-b2c/active-directory-b2c-reference-policies#user-flow-versions)ve ardından [bir parola sıfırlama ilkesi oluşturma](/azure/active-directory-b2c/active-directory-b2c-reference-policies#user-flow-versions). Belgeler için sağlanan örnek değerleri kullanın **kimlik sağlayıcıları**, **kaydolma özniteliklerini**, ve **uygulama taleplerini**. Kullanarak **Şimdi Çalıştır** ilkeleri belgelerinde açıklanan şekilde test etmek için düğmeyi, isteğe bağlıdır.
 
 > [!WARNING]
 > İlke adları belgelerinde açıklandığı gibi tam olarak bu ilkeleri de kullanılan gibi emin **kimlik doğrulamayı Değiştir** Visual Studio'da iletişim kutusu. İlke adları içinde doğrulanabilir *appsettings.json*.

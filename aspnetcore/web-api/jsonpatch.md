@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 03/24/2019
 uid: web-api/jsonpatch
-ms.openlocfilehash: 14710e6431a2a7ce60fa7f190bef184da85281a0
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 97264903d85dbb397e85fdbf7b070e2aaae74bc8
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64901328"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815552"
 ---
 # <a name="jsonpatch-in-aspnet-core-web-api"></a>ASP.NET Core Web API JsonPatch
 
@@ -71,7 +71,7 @@ Kaynak JSON yama belgesi uygulayarak yapılan değişiklikler atomiktir: listede
 
 ## <a name="path-syntax"></a>Yolu sözdizimi
 
-[Yolu](http://tools.ietf.org/html/rfc6901) işlem nesnesi özelliğine düzeyleri arasında eğik çizgi sahiptir. Örneğin: `"/address/zipCode"`
+[Yolu](https://tools.ietf.org/html/rfc6901) işlem nesnesi özelliğine düzeyleri arasında eğik çizgi sahiptir. Örneğin: `"/address/zipCode"`.
 
 Sıfır tabanlı dizin, dizi öğeleri belirtmek için kullanılır. İlk öğesi `addresses` dizi konumunda olacak `/addresses/0`. İçin `add` bir dizinin sonuna bir tire (-) yerine bir dizin numarasını kullanın: `/addresses/-`.
 
@@ -221,6 +221,6 @@ Aşağıdaki örnek yama belgesi etkisizdir başlangıç değeri oluşan `Custom
 
 * [IETF RFC 5789 düzeltme eki yöntemi belirtimi](https://tools.ietf.org/html/rfc5789)
 * [IETF RFC 6902 JSON Patch belirtimi](https://tools.ietf.org/html/rfc6902)
-* [IETF RFC 6901 JSON Patch yolu biçim belirtimi](http://tools.ietf.org/html/rfc6901)
-* [JSON yaması belgeleri](http://jsonpatch.com/). JSON yaması belgeleri oluşturmak için kaynakların bağlantılarını içerir.
+* [IETF RFC 6901 JSON Patch yolu biçim belirtimi](https://tools.ietf.org/html/rfc6901)
+* [JSON yaması belgeleri](https://jsonpatch.com/). JSON yaması belgeleri oluşturmak için kaynakların bağlantılarını içerir.
 * [ASP.NET Core JSON Patch kaynak kodu](https://github.com/aspnet/AspNetCore/tree/master/src/Features/JsonPatch/src)

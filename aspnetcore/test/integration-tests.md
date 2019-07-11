@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/05/2019
 uid: test/integration-tests
-ms.openlocfilehash: 3af2a1f7c6a65d7ff42597972ee151a50fc95fb6
-ms.sourcegitcommit: c716ea9155a6b404c1f3d3d34e2388454cd276d7
+ms.openlocfilehash: a4e22e53b4658a7c6da3c9e15671a355b212f559
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66716370"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815361"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>ASP.NET core'da tümleştirme testleri
 
@@ -184,7 +184,7 @@ SUT yapılan tüm POST istekleri otomatik olarak uygulama tarafından yapılan a
   * Gönder düğmesine (`IHtmlElement`) ve form değerleri (`IEnumerable<KeyValuePair<string, string>>`)
 
 > [!NOTE]
-> [AngleSharp](https://anglesharp.github.io/) üçüncü taraf ayrıştırma olan bu konu ve örnek uygulamayı tanıtım amacıyla kullanılan kitaplığı. AngleSharp desteklenen veya tümleştirme ASP.NET Core uygulamalarını test etmek için gerekli değildir. Diğer Çözümleyicileri, aşağıdaki gibi kullanılabilir [Html çevikliği paketi (HAP)](http://html-agility-pack.net/). Başka bir yaklaşım antiforgery sistemin istek Doğrulama belirtecini ve antiforgery tanımlama bilgisi doğrudan işlemek için kod yazmaktır.
+> [AngleSharp](https://anglesharp.github.io/) üçüncü taraf ayrıştırma olan bu konu ve örnek uygulamayı tanıtım amacıyla kullanılan kitaplığı. AngleSharp desteklenen veya tümleştirme ASP.NET Core uygulamalarını test etmek için gerekli değildir. Diğer Çözümleyicileri, aşağıdaki gibi kullanılabilir [Html çevikliği paketi (HAP)](https://html-agility-pack.net/). Başka bir yaklaşım antiforgery sistemin istek Doğrulama belirtecini ve antiforgery tanımlama bilgisi doğrudan işlemek için kod yazmaktır.
 
 ## <a name="customize-the-client-with-withwebhostbuilder"></a>WithWebHostBuilder istemcisiyle özelleştirme
 

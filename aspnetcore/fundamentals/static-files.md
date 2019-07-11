@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/08/2019
 uid: fundamentals/static-files
-ms.openlocfilehash: bcd179bd89b90d80fc81645b24296a1fa70cca0a
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 8d75db7b6e21da39949a7f7c04be826d4d10008e
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64901319"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67814849"
 ---
 # <a name="static-files-in-aspnet-core"></a>ASP.NET core'da statik dosyalar
 
@@ -50,7 +50,7 @@ Statik dosyalar, web kökü göreli bir yol aracılığıyla erişilebilir. Örn
   * **Görüntüleri**
   * **js**
 
-Bir dosyaya erişmek için URI biçimi *görüntüleri* alt *http://\<server_address > /images/\<image_file_name >*. Örneğin, *http://localhost:9189/images/banner3.svg*.
+Bir dosyaya erişmek için URI biçimi *görüntüleri* alt *http://\<server_address > /images/\<image_file_name >* . Örneğin, *http://localhost:9189/images/banner3.svg* .
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -224,7 +224,7 @@ Varsayılan adlı dosya varsa *MyStaticFiles* dizin *http://\<server_address > /
 
 [!code-csharp[](static-files/samples/1x/StartupFileExtensionContentTypeProvider.cs?name=snippet_ConfigureMethod&highlight=3-12,19)]
 
-Bkz: [MIME içerik türleri](http://www.iana.org/assignments/media-types/media-types.xhtml).
+Bkz: [MIME içerik türleri](https://www.iana.org/assignments/media-types/media-types.xhtml).
 
 ## <a name="non-standard-content-types"></a>Standart olmayan içerik türleri
 

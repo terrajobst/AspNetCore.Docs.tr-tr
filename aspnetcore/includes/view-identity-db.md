@@ -9,6 +9,6 @@
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
-Birçok üçüncü taraf araçları indirebileceğiniz yönetmek ve örneğin bir SQLite veritabanından görüntülemek için [DB tarayıcı sqlite](http://sqlitebrowser.org/).
+Birçok üçüncü taraf araçları indirebileceğiniz yönetmek ve örneğin bir SQLite veritabanından görüntülemek için [DB tarayıcı sqlite](https://sqlitebrowser.org/).
 
 ---

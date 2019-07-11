@@ -5,12 +5,12 @@ description: Basit bir ASP.NET Core MVC uygulaması görünüm ekleme
 ms.author: riande
 ms.date: 03/04/2017
 uid: tutorials/first-mvc-app/adding-view
-ms.openlocfilehash: 70c96b4838b37ea2c193c328f00a410642338369
-ms.sourcegitcommit: 28a2874765cefe9eaa068dceb989a978ba2096aa
+ms.openlocfilehash: c86e5aba6dbd1e39460cc3d2c266ce704282ee09
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67167077"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815427"
 ---
 # <a name="add-a-view-to-an-aspnet-core-mvc-app"></a>Bir ASP.NET Core MVC uygulaması için bir Görünüm Ekle
 
@@ -72,7 +72,7 @@ Ekleme bir `Index` görüntüleme `HelloWorldController`.
 
 [!code-HTML[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie22/Views/HelloWorld/Index1.cshtml?highlight=7)]
 
-`https://localhost:xxxx/HelloWorld` sayfasına gidin. `Index` Yönteminde `HelloWorldController` çok başarmadık; çalıştığını deyim `return View();`, hangi belirtilen tarayıcı yanıt işlemek için yöntemi bir görünüm şablon dosyası kullanmanız gerekir. MVC görünümü şablon dosyası adı belirtilmedi çünkü varsayılan görünüm dosyası kullanarak varsayılan olarak. Varsayılan görünüm dosyası yöntemi olarak aynı ada sahip (`Index`), dolayısıyla */Views/HelloWorld/Index.cshtml* kullanılır. Aşağıdaki görüntüde "Bizim görünümü şablondan Merhaba!" dizesini gösterir. sabit kodlanmış görüntüleme.
+          `https://localhost:xxxx/HelloWorld` sayfasına gidin. `Index` Yönteminde `HelloWorldController` çok başarmadık; çalıştığını deyim `return View();`, hangi belirtilen tarayıcı yanıt işlemek için yöntemi bir görünüm şablon dosyası kullanmanız gerekir. MVC görünümü şablon dosyası adı belirtilmedi çünkü varsayılan görünüm dosyası kullanarak varsayılan olarak. Varsayılan görünüm dosyası yöntemi olarak aynı ada sahip (`Index`), dolayısıyla */Views/HelloWorld/Index.cshtml* kullanılır. Aşağıdaki görüntüde "Bizim görünümü şablondan Merhaba!" dizesini gösterir. sabit kodlanmış görüntüleme.
 
 ![Tarayıcı penceresi](~/tutorials/first-mvc-app/adding-view/_static/hell_template.png)
 
@@ -164,7 +164,7 @@ Verileri URL'den gerçekleştirilen ve denetleyicisi kullanarak geçirilen [MVC 
 
 ![Hoş Geldiniz bir etiket ve Hello dört kez gösterilen Rick ifadesini gösteren gizlilik görünümü](~/tutorials/first-mvc-app/adding-view/_static/rick2.png)
 
-Yukarıdaki örnekteki `ViewData` denetleyicisinden bir görünüme veri iletmek için kullanılan sözlüğü. Öğreticinin sonraki bölümlerinde bir görünüm modeli, bir denetleyiciden bir görünüme veri iletmek için kullanılır. Veri geçirme görünüm modeli yaklaşım genellikle çok tercih üzerinden `ViewData` sözlük yaklaşım. Bkz: [ViewBag, ViewData veya TempData kullanıldığı durumlar](http://www.rachelappel.com/when-to-use-viewbag-viewdata-or-tempdata-in-asp-net-mvc-3-applications/) daha fazla bilgi için.
+Yukarıdaki örnekteki `ViewData` denetleyicisinden bir görünüme veri iletmek için kullanılan sözlüğü. Öğreticinin sonraki bölümlerinde bir görünüm modeli, bir denetleyiciden bir görünüme veri iletmek için kullanılır. Veri geçirme görünüm modeli yaklaşım genellikle çok tercih üzerinden `ViewData` sözlük yaklaşım. Bkz: [ViewBag, ViewData veya TempData kullanıldığı durumlar](https://www.rachelappel.com/when-to-use-viewbag-viewdata-or-tempdata-in-asp-net-mvc-3-applications/) daha fazla bilgi için.
 
 Sonraki öğreticide, filmler, bir veritabanı oluşturulur.
 

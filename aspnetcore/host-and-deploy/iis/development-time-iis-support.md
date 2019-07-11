@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/08/2019
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: d2b2456c7ab6b72f2270b6edc17000695061cc2b
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: f2d5dbbdc80eec035616ddea234ee5d3343eeae8
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64901046"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815187"
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>Geliştirme zamanı IIS, ASP.NET Core için Visual Studio desteği
 
@@ -108,7 +108,7 @@ Geliştirme zamanı IIS desteği eklemek için yeni bir başlatma profili oluşt
 
 ::: moniker-end
 
-Ne zaman Visual Studio kullanmayan el ile eklemek için bir başlatma profili [launchSettings.json](http://json.schemastore.org/launchsettings) dosyası *özellikleri* klasör. Aşağıdaki örnek, HTTPS protokolünü kullanmak için profil yapılandırır:
+Ne zaman Visual Studio kullanmayan el ile eklemek için bir başlatma profili [launchSettings.json](https://json.schemastore.org/launchsettings) dosyası *özellikleri* klasör. Aşağıdaki örnek, HTTPS protokolünü kullanmak için profil yapılandırır:
 
 ```json
 {

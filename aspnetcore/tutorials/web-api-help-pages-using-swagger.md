@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 09/20/2018
 uid: tutorials/web-api-help-pages-using-swagger
-ms.openlocfilehash: fb65b84b781b5c19040b559f0d7635ceb00cf4a0
-ms.sourcegitcommit: 06a455d63ff7d6b571ca832e8117f4ac9d646baf
+ms.openlocfilehash: 456e1dcac583705d815c7578c0dba5c52c5dbb3a
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67316570"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67815395"
 ---
 # <a name="aspnet-core-web-api-help-pages-with-swagger--openapi"></a>ASP.NET Core web API Yardım sayfaları ile Swagger / Openapı
 
@@ -113,7 +113,7 @@ Kullanıcı Arabiriminden denetleyicilerinizi her genel bir eylem yöntemi test 
 ![Örnek Swagger alma test](web-api-help-pages-using-swagger/_static/get-try-it-out.png)
 
 > [!NOTE]
-> Ekran görüntüleri için kullanılan Swagger kullanıcı arabirimini sürüm sürüm 2 ' dir. Sürüm 3 örnek için bkz: [Petstore örnek](http://petstore.swagger.io/).
+> Ekran görüntüleri için kullanılan Swagger kullanıcı arabirimini sürüm sürüm 2 ' dir. Sürüm 3 örnek için bkz: [Petstore örnek](https://petstore.swagger.io/).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
