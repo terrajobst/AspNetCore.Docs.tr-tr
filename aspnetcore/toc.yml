@@ -981,6 +981,8 @@
           uid: performance/caching/distributed
         - name: Yanıtları önbelleğe alma ara yazılımı
           uid: performance/caching/middleware
+        - name: ObjectPool ile yeniden nesne kullanımı
+          uid: performance/ObjectPool
     - name: Yanıt sıkıştırma
       uid: performance/response-compression
     - name: Tanılama araçları
