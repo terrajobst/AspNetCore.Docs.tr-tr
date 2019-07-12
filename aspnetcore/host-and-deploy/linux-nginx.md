@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/31/2019
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: 29b80b59f474f6a775d1eba315597e55e1e37781
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: d9db2a251820d0dab26f8a6bd2eb755090154165
+ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64899282"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67813341"
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>ASP.NET Core Nginx ile Linux'ta barındırma
 
@@ -308,7 +308,7 @@ Linux güvenlik modülleri (LSM) itibaren Linux 2.6 Linux çekirdeğinin parças
 Kullanılmayan tüm dış bağlantı devre dışı kapatın. Karmaşık güvenlik duvarı (ufw) sağlayan bir ön uç için `iptables` güvenlik duvarını yapılandırmak için bir komut satırı arabirimi sağlayarak.
 
 > [!WARNING]
-> Bir güvenlik duvarı tüm sisteme erişimini engelleyecek değilse doğru yapılandırılmamış. Bağlanmak için SSH kullanıyorsanız hata doğru SSH bağlantı noktası belirtmek için etkili bir şekilde, sistemin dışında kilitleyecek. Varsayılan bağlantı noktası 22'dir. Daha fazla bilgi için [ufw giriş](https://help.ubuntu.com/community/UFW) ve [el ile](http://manpages.ubuntu.com/manpages/bionic/man8/ufw.8.html).
+> Bir güvenlik duvarı tüm sisteme erişimini engelleyecek değilse doğru yapılandırılmamış. Bağlanmak için SSH kullanıyorsanız hata doğru SSH bağlantı noktası belirtmek için etkili bir şekilde, sistemin dışında kilitleyecek. Varsayılan bağlantı noktası 22'dir. Daha fazla bilgi için [ufw giriş](https://help.ubuntu.com/community/UFW) ve [el ile](https://manpages.ubuntu.com/manpages/bionic/man8/ufw.8.html).
 
 Yükleme `ufw` ve gerekli herhangi bir bağlantı noktası üzerinde trafiğe izin verecek şekilde yapılandırın.
 
