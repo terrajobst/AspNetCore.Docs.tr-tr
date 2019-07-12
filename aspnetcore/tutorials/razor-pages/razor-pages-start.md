@@ -3,14 +3,14 @@ title: 'Öğretici: ASP.NET Core Razor sayfaları kullanmaya başlama'
 author: rick-anderson
 description: Bu öğretici serisinde, ASP.NET Core Razor sayfaları kullanma işlemi gösterilmektedir. Model oluşturma, Razor sayfaları için kod oluşturmak, veri erişimi için Entity Framework Core ve SQL Server kullanmak, arama işlevi eklemek, giriş doğrulaması eklemek ve modeli güncelleştirmek için geçişleri kullanma hakkında bilgi edinin.
 ms.author: riande
-ms.date: 06/3/2019
+ms.date: 06/03/2019
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: b0cbb4dda5328d305686f21a0b3e8f8e83575a39
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: 7e228c99b4d55c14cea9c915cf06a7fbbbd5af44
+ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815258"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67855732"
 ---
 # <a name="tutorial-get-started-with-razor-pages-in-aspnet-core"></a>Öğretici: ASP.NET Core Razor sayfaları kullanmaya başlama
 

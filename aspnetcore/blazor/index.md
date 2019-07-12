@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc, seoapril2019
 ms.date: 07/01/2019
 uid: blazor/index
-ms.openlocfilehash: d91ba4fd5ada714a539375715745241f05e9fc70
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: e0af0f27d79973f10493251c3f6c6daebe1b99a8
+ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67813365"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67855777"
 ---
 # <a name="introduction-to-blazor"></a>Blazor giriş
 
@@ -105,7 +105,7 @@ Bileşenleri bir bellek içi gösterimine, tarayıcının belge nesne modeli (ad
 
 Blazor istemci tarafı .NET ile etkileşimli istemci tarafı web uygulamaları oluşturmak için bir tek sayfalı uygulama çerçevesidir. Blazor istemci-tarafı açık web standartları transpilation eklentileri veya kod olmadan kullanır ve mobil tarayıcılar dahil tüm modern web tarayıcılarında çalışır.
 
-Çalışan tarayıcılar içinde .NET kod tarafından yapılır [WebAssembly](http://webassembly.org) (kısaltılmış *wasm*). WebAssembly hızlı indirme ve maksimum yürütme hızı için iyileştirilmiş bir compact bayt biçimidir. WebAssembly standart ve desteklenen web tarayıcılarından eklentileri olmadan'de açık bir web API'sidir.
+Çalışan tarayıcılar içinde .NET kod tarafından yapılır [WebAssembly](https://webassembly.org) (kısaltılmış *wasm*). WebAssembly hızlı indirme ve maksimum yürütme hızı için iyileştirilmiş bir compact bayt biçimidir. WebAssembly standart ve desteklenen web tarayıcılarından eklentileri olmadan'de açık bir web API'sidir.
 
 WebAssembly kod tarayıcısı adlı JavaScript aracılığıyla tam işlevselliğini erişebilir *JavaScript birlikte çalışabilirlik* (veya *JavaScript birlikte çalışma*). .NET kodu WebAssembly tarayıcıda çalıştırılan tarayıcı JavaScript sandbox istemci makineye kötü amaçlı Eylemler karşı korumalı alan sağlayan korumaları ile çalıştırır.
 

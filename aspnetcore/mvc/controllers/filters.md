@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/08/2019
 uid: mvc/controllers/filters
-ms.openlocfilehash: df6f144f23f36d8009a5638859846e3cfb768b37
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: 50b199744f32ad19335080da406db69665ec1ae9
+ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815441"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67856156"
 ---
 # <a name="filters-in-aspnet-core"></a>ASP.NET core'da filtreleri
 
@@ -259,7 +259,7 @@ Aşağıdaki kodda, `ServiceFilter` özniteliği bir örneğini alır `AddHeader
 
 [!code-csharp[](./filters/sample/FiltersSample/Controllers/HomeController.cs?name=snippet_ServiceFilter&highlight=1)]
 
-[ServiceFilterAttribute.IsReusable](xref:Microsoft.AspNetCore.Mvc.ServiceFilterAttribute.IsReusable):
+Kullanırken `ServiceFilterAttribute`ayarını [ServiceFilterAttribute.IsReusable](xref:Microsoft.AspNetCore.Mvc.ServiceFilterAttribute.IsReusable):
 
 * Bir ipucu sağlayan filtre örneğini *olabilir* içinde oluşturulduğu istek kapsamı dışında yeniden kullanılabilir. ASP.NET Core çalışma zamanı garantisi vermez:
 
@@ -279,7 +279,10 @@ Aşağıdaki kodda, `ServiceFilter` özniteliği bir örneğini alır `AddHeader
 * Kullanılarak başvurulan türleri `TypeFilterAttribute` DI kapsayıcı ile kayıtlı olması gerekmez.  DI kapsayıcı tarafından yerine bunların bağımlılıklarını sahiptirler.
 * `TypeFilterAttribute` İsteğe bağlı olarak tür için oluşturucu bağımsız değişkenleri kabul edebilir.
 
-Kullanırken `TypeFilterAttribute`ayarını `IsReusable` bir ipucudur, filtre örneğini *olabilir* içinde oluşturulduğu istek kapsamı dışında yeniden kullanılabilir. ASP.NET Core çalışma zamanı filtre tek bir örneği oluşturulur tutarlılık garantisi sağlar. `IsReusable` Singleton dışında bir yaşam süresi hizmetleriyle bağımlı bir filtre ile kullanılmamalıdır.
+Kullanırken `TypeFilterAttribute`ayarını [TypeFilterAttribute.IsReusable](xref:Microsoft.AspNetCore.Mvc.TypeFilterAttribute.IsReusable):
+* İpucu sağlayan filtre örneğini *olabilir* içinde oluşturulduğu istek kapsamı dışında yeniden kullanılabilir. ASP.NET Core çalışma zamanı filtre tek bir örneği oluşturulur tutarlılık garantisi sağlar.
+
+* Singleton dışında bir yaşam süresi hizmetleriyle bağımlı bir filtre ile kullanılmamalıdır.
 
 Aşağıdaki örneği kullanarak bir tür bağımsız değişkenleri geçirmek gösterilmektedir `TypeFilterAttribute`:
 

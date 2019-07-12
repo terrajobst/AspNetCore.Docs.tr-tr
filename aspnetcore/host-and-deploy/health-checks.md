@@ -5,14 +5,14 @@ description: Uygulamaları ve veritabanları gibi ASP.NET Core altyapısı için
 monikerRange: '>= aspnetcore-2.2'
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/23/2019
+ms.date: 07/11/2019
 uid: host-and-deploy/health-checks
-ms.openlocfilehash: 5119267a8da5c950989b14b7c2e818aa22806506
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 43b6c3b55170eaf3a989d0f2779edac5290df823
+ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64901130"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67855907"
 ---
 # <a name="health-checks-in-aspnet-core"></a>ASP.NET Core durum denetimleri
 
@@ -684,3 +684,20 @@ Task PublishAsync(HealthReport report, CancellationToken cancellationToken);
 > [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) dahil olmak üzere çeşitli sistemler için yayımcılar içerir [Application Insights](/azure/application-insights/app-insights-overview).
 >
 > [AspNetCore.Diagnostics.HealthChecks](https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks) bir bağlantı noktası [BeatPulse](https://github.com/xabaril/beatpulse) ve tutulan veya Microsoft tarafından desteklenmiyor.
+
+## <a name="restrict-health-checks-with-mapwhen"></a>Sistem durumu denetimleri MapWhen ile sınırla
+
+Kullanım <xref:Microsoft.AspNetCore.Builder.MapWhenExtensions.MapWhen*> uç noktaları koşullu dalı sistem durumu için istek ardışık düzenini denetleyin.
+
+Aşağıdaki örnekte, `MapWhen` sistem durumu denetleme ara yazılım için bir GET isteği alınırsa etkinleştirmek için istek ardışık düzenini dallar `api/HealthCheck` uç noktası:
+
+```csharp
+app.MapWhen(
+    context => context.Request.Method == HttpMethod.Get.Method && 
+        context.Request.Path.StartsWith("/api/HealthCheck"),
+    builder => builder.UseHealthChecks());
+
+app.UseMvc();
+```
+
+Daha fazla bilgi için bkz. <xref:fundamentals/middleware/index#use-run-and-map>.

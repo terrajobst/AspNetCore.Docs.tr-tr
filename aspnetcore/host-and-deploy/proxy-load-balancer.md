@@ -5,14 +5,14 @@ description: Proxy sunucuları ve yük Dengeleyiciler, genellikle önemli bilgi 
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/11/2019
+ms.date: 07/12/2019
 uid: host-and-deploy/proxy-load-balancer
-ms.openlocfilehash: ab48d80c9cb1c09b5164ed732e76a59687683e97
-ms.sourcegitcommit: 335a88c1b6e7f0caa8a3a27db57c56664d676d34
+ms.openlocfilehash: 4f04e6cae120ee88734855252542e2bfc2f194a0
+ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67034735"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67856166"
 ---
 # <a name="configure-aspnet-core-to-work-with-proxy-servers-and-load-balancers"></a>ASP.NET Core, proxy sunucuları ile çalışma ve yük Dengeleyiciler için yapılandırma
 
@@ -123,12 +123,12 @@ services.Configure<ForwardedHeadersOptions>(options =>
 
 | Seçenek | Açıklama |
 | ------ | ----------- |
-| AllowedHosts | Ana bilgisayar tarafından sınırlar `X-Forwarded-Host` sağlanan değerler için üst bilgi.<ul><li>Sıra yoksay örneği kullanarak değerleri karşılaştırılır.</li><li>Bağlantı noktası numaralarını tutulması gerekir.</li><li>Liste boşsa, tüm konaklar izin verilir.</li><li>Üst düzey bir joker karakter `*` tüm boş konaklar sağlar.</li><li>Alt etki alanı joker karakterlere izin verilir, ancak kök etki alanı eşleşmiyor. Örneğin, `*.contoso.com` alt etki alanıyla eşleşen `foo.contoso.com` ancak kök etki alanı değil `contoso.com`.</li><li>Unicode ana bilgisayar adları kullanılabilir, ancak dönüştürülür [Punycode](https://tools.ietf.org/html/rfc3492) eşlemek için.</li><li>[IPv6 adresleri](https://tools.ietf.org/html/rfc4291) ayraçlar sınırlayıcı içerir ve olması gereken [geleneksel form](https://tools.ietf.org/html/rfc4291#section-2.2) (örneğin, `[ABCD:EF01:2345:6789:ABCD:EF01:2345:6789]`). IPv6 adresleri farklı biçimler arasında mantıksal eşitlik denetlemek için özel harfleri değil ve yok Standartlaştırma gerçekleştirilir.</li><li>İzin verilen konakları sınırlamak için başarısızlık, bir saldırganın hizmeti tarafından oluşturulan bağlantıları sızmasını.</li></ul>Boş bir varsayılan değer: `IList<string>`. |
+| <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.AllowedHosts> | Ana bilgisayar tarafından sınırlar `X-Forwarded-Host` sağlanan değerler için üst bilgi.<ul><li>Sıra yoksay örneği kullanarak değerleri karşılaştırılır.</li><li>Bağlantı noktası numaralarını tutulması gerekir.</li><li>Liste boşsa, tüm konaklar izin verilir.</li><li>Üst düzey bir joker karakter `*` tüm boş konaklar sağlar.</li><li>Alt etki alanı joker karakterlere izin verilir, ancak kök etki alanı eşleşmiyor. Örneğin, `*.contoso.com` alt etki alanıyla eşleşen `foo.contoso.com` ancak kök etki alanı değil `contoso.com`.</li><li>Unicode ana bilgisayar adları kullanılabilir, ancak dönüştürülür [Punycode](https://tools.ietf.org/html/rfc3492) eşlemek için.</li><li>[IPv6 adresleri](https://tools.ietf.org/html/rfc4291) ayraçlar sınırlayıcı içerir ve olması gereken [geleneksel form](https://tools.ietf.org/html/rfc4291#section-2.2) (örneğin, `[ABCD:EF01:2345:6789:ABCD:EF01:2345:6789]`). IPv6 adresleri farklı biçimler arasında mantıksal eşitlik denetlemek için özel harfleri değil ve yok Standartlaştırma gerçekleştirilir.</li><li>İzin verilen konakları sınırlamak için başarısızlık, bir saldırganın hizmeti tarafından oluşturulan bağlantıları sızmasını.</li></ul>Boş bir varsayılan değer: `IList<string>`. |
 | <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedForHeaderName> | İle belirtilen yerine bu özelliği tarafından belirtilen üst bilgi kullan [ForwardedHeadersDefaults.XForwardedForHeaderName](xref:Microsoft.AspNetCore.HttpOverrides.ForwardedHeadersDefaults.XForwardedForHeaderName). Proxy/iletici kullanmıyorsa bu seçenek kullanıldığında `X-Forwarded-For` üstbilgisi ancak kullanan başka bir üst bilgi bilgileri iletmek için.<br><br>Varsayılan, `X-Forwarded-For` değeridir. |
 | <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedHeaders> | Hangi ileticileri işlenmesi gerektiğini tanımlar. Bkz: [ForwardedHeaders Enum](xref:Microsoft.AspNetCore.HttpOverrides.ForwardedHeaders) için geçerli olan alanların listesi. Bu özelliğe atanmış tipik değerler ' ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto`.<br><br>Varsayılan değer [ForwardedHeaders.None](xref:Microsoft.AspNetCore.HttpOverrides.ForwardedHeaders). |
 | <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedHostHeaderName> | İle belirtilen yerine bu özelliği tarafından belirtilen üst bilgi kullan [ForwardedHeadersDefaults.XForwardedHostHeaderName](xref:Microsoft.AspNetCore.HttpOverrides.ForwardedHeadersDefaults.XForwardedHostHeaderName). Proxy/iletici kullanmıyorsa bu seçenek kullanıldığında `X-Forwarded-Host` üstbilgisi ancak kullanan başka bir üst bilgi bilgileri iletmek için.<br><br>Varsayılan, `X-Forwarded-Host` değeridir. |
 | <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardedProtoHeaderName> | İle belirtilen yerine bu özelliği tarafından belirtilen üst bilgi kullan [ForwardedHeadersDefaults.XForwardedProtoHeaderName](xref:Microsoft.AspNetCore.HttpOverrides.ForwardedHeadersDefaults.XForwardedProtoHeaderName). Proxy/iletici kullanmıyorsa bu seçenek kullanıldığında `X-Forwarded-Proto` üstbilgisi ancak kullanan başka bir üst bilgi bilgileri iletmek için.<br><br>Varsayılan, `X-Forwarded-Proto` değeridir. |
-| <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardLimit> | İşlenen üstbilgileri içerisindeki giriş sayısını sınırlar. Kümesine `null` sınırı, ancak bunu devre dışı bırakmak için yalnızca, yapılmalıdır `KnownProxies` veya `KnownNetworks` yapılandırılır.<br><br>Varsayılan değer 1'dir. |
+| <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.ForwardLimit> | İşlenen üstbilgileri içerisindeki giriş sayısını sınırlar. Kümesine `null` sınırı, ancak bunu devre dışı bırakmak için yalnızca, yapılmalıdır `KnownProxies` veya `KnownNetworks` yapılandırılır. Ayarlama olmayan bir`null` değerdir yanlış yapılandırılmış bir proxy ve ağ üzerinde yan kanaldan gelen kötü amaçlı istekleri karşı koruma sağlamak için bir önlem (ancak değişmeyeceğini garanti etmez).<br><br>İletilen üstbilgileri ara yazılım başlıkları ters sırada sağdan sola işler. Varsa varsayılan değer (`1`) olan kullanıldığında, yalnızca en sağdaki değer başlıklarından sürece işlenir değerini `ForwardLimit` artırılır.<br><br>Varsayılan, `1` değeridir. |
 | <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.KnownNetworks> | Adres aralıklarını iletilen üst bilgiler kabul etmek için bilinen ağlar. Sınıfsız etki alanları arası yönlendirme (CIDR) gösterimi kullanan IP aralıklarını belirtin.<br><br>Çift modlu yuva sunucusu kullanıyorsanız, IPv4 adresleri bir IPv6 biçiminde sağlanır (örneğin, `10.0.0.1` IPv6 temsil IPv4'te `::ffff:10.0.0.1`). Bkz: [IPAddress.MapToIPv6](xref:System.Net.IPAddress.MapToIPv6*). Bu biçim bakarak gerekip gerekmediğini belirleyin [HttpContext.Connection.RemoteIpAddress](xref:Microsoft.AspNetCore.Http.ConnectionInfo.RemoteIpAddress*). Daha fazla bilgi için [yapılandırma bir IPv4 adresi için bir IPv6 adresi olarak temsil edilen](#configuration-for-an-ipv4-address-represented-as-an-ipv6-address) bölümü.<br><br>Varsayılan bir `IList` \< <xref:Microsoft.AspNetCore.HttpOverrides.IPNetwork>> için tek bir giriş içeren `IPAddress.Loopback`. |
 | <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.KnownProxies> | İletilen üst bilgiler kabul etmek için bilinen Proxy adresleri. Kullanım `KnownProxies` tam IP adresini belirtmek için eşleşir.<br><br>Çift modlu yuva sunucusu kullanıyorsanız, IPv4 adresleri bir IPv6 biçiminde sağlanır (örneğin, `10.0.0.1` IPv6 temsil IPv4'te `::ffff:10.0.0.1`). Bkz: [IPAddress.MapToIPv6](xref:System.Net.IPAddress.MapToIPv6*). Bu biçim bakarak gerekip gerekmediğini belirleyin [HttpContext.Connection.RemoteIpAddress](xref:Microsoft.AspNetCore.Http.ConnectionInfo.RemoteIpAddress*). Daha fazla bilgi için [yapılandırma bir IPv4 adresi için bir IPv6 adresi olarak temsil edilen](#configuration-for-an-ipv4-address-represented-as-an-ipv6-address) bölümü.<br><br>Varsayılan bir `IList` \< <xref:System.Net.IPAddress>> için tek bir giriş içeren `IPAddress.IPv6Loopback`. |
 | <xref:Microsoft.AspNetCore.Builder.ForwardedHeadersOptions.OriginalForHeaderName> | İle belirtilen yerine bu özelliği tarafından belirtilen üst bilgi kullan [ForwardedHeadersDefaults.XOriginalForHeaderName](xref:Microsoft.AspNetCore.HttpOverrides.ForwardedHeadersDefaults.XOriginalForHeaderName).<br><br>Varsayılan, `X-Original-For` değeridir. |
@@ -226,11 +226,9 @@ services.Configure<ForwardedHeadersOptions>(options =>
 });
 ```
 
-::: moniker range=">= aspnetcore-2.1 <= aspnetcore-2.2"
-
 ## <a name="forward-the-scheme-for-linux-and-non-iis-reverse-proxies"></a>Linux ve IIS olmayan Düzen ters proxy'ler ileriye doğru
 
-.NET core şablonları çağrı <xref:Microsoft.AspNetCore.Builder.HttpsPolicyBuilderExtensions.UseHttpsRedirection*> ve <xref:Microsoft.AspNetCore.Builder.HstsBuilderExtensions.UseHsts*>. Bu yöntemler bir site için bir Azure Linux App Service, Azure Linux sanal makinesini (VM) veya diğer ters proxy IIS yanı sıra arkasında dağıtılırsa sonsuz döngüye yerleştirin. TLS ters proxy tarafından sonlandırılır ve Kestrel doğru istek düzeni haberdar değildir. OAuth ve OIDC, bu yapılandırmada Ayrıca bunlar yanlış yeniden yönlendirmeleri oluşturması nedeniyle başarısız. <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> ekler ve IIS çalıştırırken iletilen üstbilgileri ara yazılım yapılandırır ancak Linux (Apache veya Ngınx tümleştirme) için eşleşen bir otomatik yapılandırma yok.
+Çağıran uygulamalar <xref:Microsoft.AspNetCore.Builder.HttpsPolicyBuilderExtensions.UseHttpsRedirection*> ve <xref:Microsoft.AspNetCore.Builder.HstsBuilderExtensions.UseHsts*> başka bir ters proxy IIS yanı sıra veya bir site bir Azure Linux App Service için Azure Linux sanal makinesini (VM) dağıtılmışsa, sonsuz bir döngü yerleştirin. TLS ters proxy tarafından sonlandırılır ve Kestrel doğru istek düzeni haberdar değildir. OAuth ve OIDC, bu yapılandırmada Ayrıca bunlar yanlış yeniden yönlendirmeleri oluşturması nedeniyle başarısız. <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderIISExtensions.UseIISIntegration*> ekler ve IIS çalıştırırken iletilen üstbilgileri ara yazılım yapılandırır ancak Linux (Apache veya Ngınx tümleştirme) için eşleşen bir otomatik yapılandırma yok.
 
 IIS olmayan senaryolarda Proxy'den gelen düzeni iletmek için ekleme ve iletilen üstbilgileri ara yazılımını yapılandırma. İçinde `Startup.ConfigureServices`, aşağıdaki kodu kullanın:
 
@@ -253,10 +251,6 @@ if (string.Equals(
     });
 }
 ```
-
-Yeni kapsayıcı görüntülerini Azure'da sağlanana kadar için bir uygulama ayarı (ortam değişkeni) oluşturmalısınız `ASPNETCORE_FORWARDEDHEADERS_ENABLED` kümesine `true`. Daha fazla bilgi için [şablonları çalışmaz Antares Linux'ta düzeni ileticileri eksik olduğundan (aspnet/AspNetCore #4135)](https://github.com/aspnet/AspNetCore/issues/4135).
-
-::: moniker-end
 
 ## <a name="troubleshoot"></a>Sorun giderme
 
@@ -323,7 +317,7 @@ app.Use(async (context, next) =>
 });
 ```
 
-İşlendiğinde `X-Forwarded-{For|Proto|Host}` değerleri taşınmıştır `X-Original-{For|Proto|Host}`. Belirli bir üst bilgisinde birden çok değer varsa, ters sırada sağdan sola iletilen üstbilgileri ara yazılım işlemleri üstbilgileri unutmayın. Varsayılan `ForwardLimit` 1 (bir), bu nedenle olduğu sürece yalnızca başlıklarından en sağdaki değer işlenen değerini `ForwardLimit` artırılır.
+İşlendiğinde `X-Forwarded-{For|Proto|Host}` değerleri taşınmıştır `X-Original-{For|Proto|Host}`. Belirli bir üst bilgisinde birden çok değer varsa iletilen üstbilgileri ara yazılım başlıkları ters sırada sağdan sola işler. Varsayılan `ForwardLimit` olduğu `1` (tek), yalnızca üst bilgilerin en sağdaki değerini sürece işlenen değerini `ForwardLimit` artırılır.
 
 İsteğin özgün uzak IP bir girişe eşleşmelidir `KnownProxies` veya `KnownNetworks` iletilen üstbilgileri işlenmeden önce listeler. Bu, güvenilir olmayan proxy'si İleticilerden kabul etmeyerek üst bilgi sızdırma sınırlar. Bilinmeyen bir proxy algılandığında, günlüğe kaydetme proxy adresini belirtir:
 

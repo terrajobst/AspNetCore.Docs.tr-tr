@@ -6,16 +6,16 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/06/2019
 uid: mvc/views/tag-helpers/builtin-th/image-tag-helper
-ms.openlocfilehash: 916a68c187cbf516a59d3c5d7578cdb6ada01b86
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 964072ad276f7e3e411ee41cb03a2efb9d05c585
+ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64901001"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67856123"
 ---
 # <a name="image-tag-helper-in-aspnet-core"></a>ASP.NET core'da görüntü etiketi Yardımcısı
 
-Tarafından [Peter Kellner](http://peterkellner.net)
+Tarafından [Peter Kellner](https://peterkellner.net)
 
 Görüntü etiketi Yardımcısı geliştirir `<img>` statik resim dosyaları için önbellek busting davranışı sağlamak için etiket.
 
@@ -46,7 +46,7 @@ Aşağıdaki örnek, bir görüntü etiketi Yardımcısı kullanır:
 <img src="~/images/asplogo.png" asp-append-version="true">
 ```
 
-Statik dosya dizininde bulunuyorsa */wwwroot/resimler/*, oluşturulan HTML (karma farklı olacaktır) aşağıdakine benzer:
+Statik dosya dizininde bulunuyorsa */wwwroot/resimler/* , oluşturulan HTML (karma farklı olacaktır) aşağıdakine benzer:
 
 ```html
 <img src="/images/asplogo.png?v=Kl_dqr9NVtnMdsM2MUg4qthUnWZm5T1fCEimBPWDNgM">

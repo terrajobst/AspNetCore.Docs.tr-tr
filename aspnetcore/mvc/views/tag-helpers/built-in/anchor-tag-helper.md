@@ -6,16 +6,16 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 04/18/2019
 uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
-ms.openlocfilehash: 9fd41b049104e99f1701354c40a05e5ee30e9c2f
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: 44fc4ff6334e33630974181021aa1a6880a89917
+ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67815005"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67856217"
 ---
 # <a name="anchor-tag-helper-in-aspnet-core"></a>ASP.NET core'da yer işareti etiketi Yardımcısı
 
-Tarafından [Peter Kellner](http://peterkellner.net) ve [Scott Addie](https://github.com/scottaddie)
+Tarafından [Peter Kellner](https://peterkellner.net) ve [Scott Addie](https://github.com/scottaddie)
 
 [Yer işareti etiketi Yardımcısı](xref:Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper) standart HTML tutturucusu geliştirir (`<a ... ></a>`) yeni özellikler ekleyerek etiketi. Kural gereği, öznitelik adları ile ön ekli `asp-`. İşlenen bağlantı öğenin `href` öznitelik değeri, değerleri tarafından belirlenir `asp-` öznitelikleri.
 

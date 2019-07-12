@@ -5,14 +5,14 @@ description: ASP.NET Core uygulaması yapılandırmak için yapılandırma API's
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/24/2019
+ms.date: 07/11/2019
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 81820e8161965fcca2f97d00708df5a29df668de
-ms.sourcegitcommit: 9691b742134563b662948b0ed63f54ef7186801e
+ms.openlocfilehash: 3351ab743ce38b78b1c5857e52020fdeda12cbe7
+ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/10/2019
-ms.locfileid: "66824829"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67855825"
 ---
 # <a name="configuration-in-aspnet-core"></a>ASP.NET core'da yapılandırma
 
@@ -21,6 +21,7 @@ Tarafından [Luke Latham](https://github.com/guardrex)
 ASP.NET core'da uygulama yapılandırması tarafından kurulan anahtar-değer çiftleri temel *yapılandırma sağlayıcıları*. Yapılandırma sağlayıcıları, yapılandırma kaynaklarını çeşitli anahtar-değer çiftlerine yapılandırma verilerini okuyun:
 
 * Azure Key Vault
+* Azure uygulama yapılandırması
 * Komut satırı bağımsız değişkenleri
 * (Yüklü veya oluşturulan) özel sağlayıcılar
 * Dizin dosyaları
@@ -38,7 +39,7 @@ using Microsoft.Extensions.Configuration;
 
 [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/configuration/index/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
-## <a name="host-vs-app-configuration"></a>Uygulama yapılandırması barındırın
+## <a name="host-versus-app-configuration"></a>Uygulama yapılandırması barındırın
 
 Uygulama yapılandırılmış ve başlatıldı, önce bir *konak* başlatılan ve yapılandırılır. Uygulama başlatma ve ömür yönetimi için konak sorumludur. Bu konuda açıklanan yapılandırma sağlayıcıları kullanarak, hem uygulama hem de konak yapılandırılır. Ana bilgisayar yapılandırma anahtar-değer çiftleri uygulamanın genel yapılandırmasının bir parçası haline gelir. Yapılandırma sağlayıcıları konak oluşturulduğunda kullanılan yapılandırma ve yapılandırma kaynaklarını nasıl etkileyeceğini nasıl barındırmak daha fazla bilgi için bkz: [konak](xref:fundamentals/index#host).
 
@@ -145,6 +146,7 @@ Aşağıdaki tabloda, ASP.NET Core uygulamaları için kullanılabilir yapıland
 | Sağlayıcı | Yapılandırmasından sağlar&hellip; |
 | -------- | ----------------------------------- |
 | [Azure Key Vault yapılandırma sağlayıcısı](xref:security/key-vault-configuration) (*güvenlik* konuları) | Azure Key Vault |
+| [Azure uygulama yapılandırma sağlayıcısı](/azure/azure-app-configuration/quickstart-aspnet-core-app) (Azure belgeleri) | Azure uygulama yapılandırması |
 | [Komut satırı yapılandırma sağlayıcısı](#command-line-configuration-provider) | Komut satırı parametreleri |
 | [Özel yapılandırma sağlayıcısı](#custom-configuration-provider) | Özel kaynak |
 | [Ortam değişkenlerini yapılandırma sağlayıcısı](#environment-variables-configuration-provider) | Ortam değişkenleri |
@@ -331,7 +333,7 @@ Ortam değişkenlerini yapılandırma etkinleştirmek için çağrı <xref:Micro
 
 [Azure App Service](https://azure.microsoft.com/services/app-service/) ortam değişkenlerini yapılandırma Sağlayıcısı'nı kullanarak uygulama yapılandırması geçersiz kılabilirsiniz Azure portalında ortam değişkenlerini ayarlamak için verir. Daha fazla bilgi için [Azure uygulamaları: Azure portalını kullanarak uygulama yapılandırmasını geçersiz kılma](xref:host-and-deploy/azure-apps/index#override-app-configuration-using-the-azure-portal).
 
-`AddEnvironmentVariables` ortam değişkenlerini ön ekine sahip yüklemek için kullanılan `ASPNETCORE_` için [ana bilgisayar yapılandırması](#host-vs-app-configuration) yeni bir <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> başlatılır. Daha fazla bilgi için [Web ana bilgisayarı: Bir konak ayarlamanız](xref:fundamentals/host/web-host#set-up-a-host).
+`AddEnvironmentVariables` ortam değişkenlerini ön ekine sahip yüklemek için kullanılan `ASPNETCORE_` için [ana bilgisayar yapılandırması](#host-versus-app-configuration) yeni bir <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder> başlatılır. Daha fazla bilgi için [Web ana bilgisayarı: Bir konak ayarlamanız](xref:fundamentals/host/web-host#set-up-a-host).
 
 `CreateDefaultBuilder` Ayrıca yükler:
 
@@ -966,7 +968,7 @@ Aşağıdaki yapılandırma anahtar-değer çiftleri oluşturulur:
 | starship:class        | Anayasa                                      |
 | starship:length       | 304.8                                             |
 | starship: yetkilendirilen | False                                             |
-| Ticari marka             | Paramount resimleri Corp. http://www.paramount.com |
+| Ticari marka             | Paramount resimleri Corp. https://www.paramount.com |
 
 Örnek Uygulama çağrıları `GetSection` ile `starship` anahtarı. `starship` Anahtar-değer çiftleridir yalıtılmış. `Bind` Bir örneğini geçirerek Altbölüm yöntemi çağrıldığında `Starship` sınıfı. Örnek değerleri bağlandıktan sonra işleme için bir özellik için örneği atanır:
 
@@ -1049,7 +1051,7 @@ _config.GetSection("array").Bind(arrayExample);
 | `ArrayExample.Entries` Dizin | `ArrayExample.Entries` Değer |
 | :--------------------------: | :--------------------------: |
 | 0                            | value0                       |
-| 1.                            | Değer1                       |
+| 1\.                            | Değer1                       |
 | 2                            | Value2                       |
 | 3                            | Değer4                       |
 | 4                            | Değeri5                       |
@@ -1083,7 +1085,7 @@ Varsa `ArrayExample` sınıf örneği bağlı dizin için giriş JSON yapıland�
 | `ArrayExample.Entries` Dizin | `ArrayExample.Entries` Değer |
 | :--------------------------: | :--------------------------: |
 | 0                            | value0                       |
-| 1.                            | Değer1                       |
+| 1\.                            | Değer1                       |
 | 2                            | Value2                       |
 | 3                            | Değeri3                       |
 | 4                            | Değer4                       |
@@ -1113,7 +1115,7 @@ Bağlama sonra `JsonArrayExample.Key` değerine `valueA`. Alt değerleri POCO di
 | `JsonArrayExample.Subsection` Dizin | `JsonArrayExample.Subsection` Değer |
 | :---------------------------------: | :---------------------------------: |
 | 0                                   | Değerb                              |
-| 1.                                   | valueC                              |
+| 1\.                                   | valueC                              |
 | 2                                   | Değerli                              |
 
 ## <a name="custom-configuration-provider"></a>Özel yapılandırma sağlayıcısı
