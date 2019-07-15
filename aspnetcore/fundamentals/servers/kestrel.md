@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/24/2019
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 7d66d04ec3b91d0ab1a67cacb2030cf52054454b
-ms.sourcegitcommit: 763af2cbdab0da62d1f1cfef4bcf787f251dfb5c
+ms.openlocfilehash: 0a2072c3c97faaf51c36df63a5751246d344a971
+ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67394721"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67856185"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>ASP.NET core'da kestrel web sunucusu uygulaması
 
@@ -69,7 +69,7 @@ HTTP/2 varsayılan olarak devre dışıdır. Yapılandırma hakkında daha fazla
 
 ## <a name="when-to-use-kestrel-with-a-reverse-proxy"></a>Ne zaman Kestrel ters Ara sunucu ile kullanılır.
 
-Tek başına veya birlikte kestrel kullanılabilir bir *ters Ara sunucu*, gibi [Internet Information Services (IIS)](https://www.iis.net/), [Ngınx](http://nginx.org), veya [Apache](https://httpd.apache.org/). Ters Ara sunucu HTTP isteklerinin ağdan alır ve bunları Kestrel için iletir.
+Tek başına veya birlikte kestrel kullanılabilir bir *ters Ara sunucu*, gibi [Internet Information Services (IIS)](https://www.iis.net/), [Ngınx](https://nginx.org), veya [Apache](https://httpd.apache.org/). Ters Ara sunucu HTTP isteklerinin ağdan alır ve bunları Kestrel için iletir.
 
 Bir edge (Internet'e yönelik) web sunucusu olarak kullanılan kestrel:
 
