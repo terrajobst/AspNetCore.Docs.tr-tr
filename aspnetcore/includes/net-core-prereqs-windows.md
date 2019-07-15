@@ -1,4 +1,4 @@
-[Visual Studio 2017 sürüm 15.7.3 veya üzeri](https://visualstudio.microsoft.com/downloads/) aşağıdaki iş yükleri ile:
+[Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) aşağıdaki iş yükleri ile:
 
 * **ASP.NET ve web geliştirme**
 * **.NET core platformlar arası geliştirme**

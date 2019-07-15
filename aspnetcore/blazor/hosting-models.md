@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/01/2019
 uid: blazor/hosting-models
-ms.openlocfilehash: 80f5e3260ce991ef67fa2a0dd36f8be1f70b6271
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: 2f5a8a037534f4a881b474dd8bcc3119f504123a
+ms.sourcegitcommit: 040aedca220ed24ee1726e6886daf6906f95a028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67813376"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67892242"
 ---
 # <a name="aspnet-core-blazor-hosting-models"></a>ASP.NET Core Blazor barındırma modelleri
 
@@ -58,7 +58,7 @@ Sunucu tarafı barındırma modeli ile uygulama sunucusunda bir ASP.NET Core uyg
 
 ![Tarayıcı uygulaması (bir ASP.NET Core uygulaması içinde barındırılan) ile sunucu üzerinde bir SignalR bağlantısı üzerinden etkileşim kurar.](hosting-models/_static/server-side.png)
 
-Sunucu tarafı barındırma modeli kullanarak bir Blazor uygulaması oluşturmak için ASP.NET Core kullanan **Blazor (sunucu tarafı)** şablonu ([dotnet yeni blazorserverside](/dotnet/core/tools/dotnet-new)). ASP.NET Core uygulaması, sunucu tarafı uygulamayı barındıran ve istemcilerin eriştikleri SignalR uç noktası oluşturur.
+Sunucu tarafı barındırma modeli kullanarak bir Blazor uygulaması oluşturmak için ASP.NET Core kullanan **Blazor sunucu uygulaması** şablonu ([dotnet yeni blazorserverside](/dotnet/core/tools/dotnet-new)). ASP.NET Core uygulaması, sunucu tarafı uygulamayı barındıran ve istemcilerin eriştikleri SignalR uç noktası oluşturur.
 
 ASP.NET Core uygulaması uygulamanın başvuran `Startup` sınıfı eklemek için:
 

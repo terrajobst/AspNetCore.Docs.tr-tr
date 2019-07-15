@@ -6,12 +6,12 @@ ms.author: bradyg
 ms.custom: mvc
 ms.date: 07/08/2019
 uid: tutorials/signalr
-ms.openlocfilehash: 5588cab1ebbe8fbd6d134025f07f9580ecafd89f
-ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
+ms.openlocfilehash: 53d3763a93cc72b6bcf85b64a706500299b3597f
+ms.sourcegitcommit: 040aedca220ed24ee1726e6886daf6906f95a028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67855786"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67893709"
 ---
 # <a name="tutorial-get-started-with-aspnet-core-signalr"></a>Öğretici: ASP.NET Core Signalr'yi kullanmaya başlayın
 
@@ -494,8 +494,6 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > * Bir SignalR hub'ı oluşturun.
 > * Projeyi SignalR kullanacak şekilde yapılandırın.
 > * Bağlanan tüm istemciler için herhangi bir istemciden ileti göndermek için hub'ı kullanan kodu ekleyin.
-
-## <a name="next-steps"></a>Sonraki adımlar
 
 SignalR hakkında daha fazla bilgi için girişine bakın:
 

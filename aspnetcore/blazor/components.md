@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/05/2019
 uid: blazor/components
-ms.openlocfilehash: ca715457604f08e50628d1c1189ea3c570321112
-ms.sourcegitcommit: b9e914ef274b5ec359582f299724af6234dce135
+ms.openlocfilehash: 81100ebb0fdaf877df8c9e696c81b86324f8c0d0
+ms.sourcegitcommit: 040aedca220ed24ee1726e6886daf6906f95a028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67596104"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67892246"
 ---
 # <a name="create-and-use-aspnet-core-razor-components"></a>Oluşturma ve ASP.NET Core Razor bileşenleri kullanma
 
@@ -1109,7 +1109,10 @@ builder.AddContent(seq++, "Second");
 
 Şimdi ilk çıktı.
 
-| Dizisi | Tür | Veri || :------: | --------- | :--- : | | 0 | Metin düğümü | İlk || 1 | Metin düğümü | İkinci |
+| Sequence | Tür      | Veri   |
+| :------: | --------- | :----: |
+| 0        | Metin düğümü | ilk  |
+| 1\.        | Metin düğümü | Saniye |
 
 Bu sonuç için önceki durum, aynı olduğundan negatif hiçbir sorun yoktur. `someFlag` olan `false` işleme ve çıktısını ikinci olan:
 
