@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 08/31/2018
 uid: security/ip-safelist
-ms.openlocfilehash: cfbb50ea33ae3af577f13b00bccc75fe0be57f79
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: ca05989efabea3a71c6912e98055a6746e0f5966
+ms.sourcegitcommit: 1bf80f4acd62151ff8cce517f03f6fa891136409
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64903374"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68223930"
 ---
 # <a name="client-ip-safelist-for-aspnet-core"></a>İstemci IP Güvenli ASP.NET Core için liste
 
@@ -23,7 +23,7 @@ Bu makalede, bir IP güvenli liste (beyaz liste olarak da bilinir) ASP.NET Core 
 * Uzak IP adresi belirli denetleyicileri veya eylem yöntemleri için isteklerin denetlemek için eylem filtreleri.
 * Razor sayfaları filtreleri Razor sayfaları için isteklerin uzak IP adresini denetleyin.
 
-Örnek uygulamayı her iki yaklaşımı da gösterir. Her durumda, bir uygulama ayarı onaylı istemci IP adreslerini içeren bir dize olarak depolanır. Ara yazılım veya filtre bir listeye dizeyi ayrıştırır ve uzak IP listesinde olup olmadığını denetler. Aksi durumda, bir HTTP 403 Yasak durum kodu döndürülür.
+Her durumda, bir uygulama ayarı onaylı istemci IP adreslerini içeren bir dize olarak depolanır. Ara yazılım veya filtre bir listeye dizeyi ayrıştırır ve uzak IP listesinde olup olmadığını denetler. Aksi durumda, bir HTTP 403 Yasak durum kodu döndürülür.
 
 [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/security/ip-safelist/samples/2.x/ClientIpAspNetCore) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
@@ -37,7 +37,7 @@ Listenin yapılandırılan *appsettings.json* dosya. Bu, noktalı virgülle ayr�
 
 `Configure` Yöntemi ara yazılımı ekler ve güvenli liste dize bir oluşturucu parametresi geçirilir.
 
-[!code-csharp[](ip-safelist/samples/2.x/ClientIpAspNetCore/Startup.cs?name=snippet_Configure&highlight=7)]
+[!code-csharp[](ip-safelist/samples/2.x/ClientIpAspNetCore/Startup.cs?name=snippet_Configure&highlight=10)]
 
 Ara yazılım bir diziye dizeyi ayrıştırır ve dizideki uzak IP adresi arar. Uzak IP adresi bulunmazsa, ara yazılım 401 HTTP Yasak döndürür. Bu doğrulama işlemi, HTTP Get isteklerini atlanır.
 
