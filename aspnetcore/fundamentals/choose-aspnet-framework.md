@@ -4,14 +4,14 @@ author: rick-anderson
 description: ASP.NET Core vs açıklar. ASP.NET 4.x ve bunlar arasında seçim yapma.
 ms.author: riande
 ms.custom: mvc, seodec18
-ms.date: 05/02/2019
+ms.date: 07/15/2019
 uid: fundamentals/choose-between-aspnet-and-aspnetcore
-ms.openlocfilehash: 97d65df8df1e27694d818098958288874e8ab92e
-ms.sourcegitcommit: 47cc13ab90913af9a2887cef0896bb4e9aba4dd5
+ms.openlocfilehash: 9e093e83a1f6367cbb244076a8351644244f9874
+ms.sourcegitcommit: 7e00e8236ca4eabf058f07020a5a3882daf7564f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67399171"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68239221"
 ---
 # <a name="choose-between-aspnet-4x-and-aspnet-core"></a>Seçin arasında ASP.NET 4.x ve ASP.NET Core
 
@@ -38,7 +38,7 @@ Aşağıdaki tabloda karşılaştırılmıştır ASP.NET Core, ASP.NET 4.x.
 |Makine başına birden çok sürümü|Makine başına bir sürümü|
 |Geliştirme [Visual Studio](https://visualstudio.microsoft.com/vs/), [Mac için Visual Studio](https://visualstudio.microsoft.com/vs/mac/), veya [Visual Studio Code](https://code.visualstudio.com/) kullanarak C# veyaF#|Geliştirme [Visual Studio](https://visualstudio.microsoft.com/vs/) kullanarak C#, VB, veyaF#|
 |Daha yüksek performansa ASP.NET 4.x|İyi bir performans|
-|[.NET Framework veya .NET Core çalışma zamanı seçin](/dotnet/standard/choosing-core-framework-server)|.NET Framework çalışma zamanını kullanma|
+|[.NET Core çalışma zamanı kullanın](/dotnet/standard/choosing-core-framework-server)|.NET Framework çalışma zamanını kullanma|
 
 Bkz: [.NET Framework'ü hedefleyen ASP.NET Core](xref:index#target-framework) .NET Framework üzerinde ASP.NET Core 2.x desteği hakkında daha fazla bilgi için.
 

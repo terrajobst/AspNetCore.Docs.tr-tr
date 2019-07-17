@@ -5,14 +5,14 @@ description: ASP.NET Core uygulamaları Windows Server Internet Information Serv
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/28/2019
+ms.date: 07/16/2019
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 2dab8b4839d6778d5dc6a3daf96c1719eecfe0fb
-ms.sourcegitcommit: 763af2cbdab0da62d1f1cfef4bcf787f251dfb5c
+ms.openlocfilehash: 644d84f9adba650b3ef10ba69cc75c22845be211
+ms.sourcegitcommit: 7e00e8236ca4eabf058f07020a5a3882daf7564f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67394633"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68239229"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Windows IIS üzerinde ASP.NET Core barındırma
 
@@ -338,7 +338,7 @@ Uygulamaları olan sunuculara dağıtırken [Web dağıtımı](/iis/install/inst
 
 ## <a name="create-the-iis-site"></a>IIS sitesi oluştur
 
-1. Barındıran sistemde, uygulamanın yayımlanmış klasörleri ve dosyaları saklamak için bir klasör oluşturun. Bir uygulamanın dağıtım Düzen açıklanan [dizin yapısı](xref:host-and-deploy/directory-structure) konu.
+1. Barındıran sistemde, uygulamanın yayımlanmış klasörleri ve dosyaları saklamak için bir klasör oluşturun. Aşağıdaki bir adımda klasörün yolu IIS uygulaması fiziksel yolu olarak sağlanır. Bir uygulamanın dağıtım klasörünü ve dosya düzeni hakkında daha fazla bilgi için bkz. <xref:host-and-deploy/directory-structure>.
 
 1. IIS Yöneticisi'nde açın sunucu düğümünde **bağlantıları** paneli. Sağ **siteleri** klasör. Seçin **Web sitesi Ekle** bağlam menüsünde.
 
@@ -372,11 +372,11 @@ Daha fazla bilgi için [yapılandırma Windows kimlik doğrulaması](xref:securi
 
 ## <a name="deploy-the-app"></a>Uygulamayı dağıtma
 
-Uygulamayı barındıran sistemde oluşturduğunuz klasöre dağıtın. [Web Deploy](/iis/publish/using-web-deploy/introduction-to-web-deploy) dağıtımı için önerilen mekanizmadır.
+Uygulamayı dağıtmak için IIS **fiziksel yolu** içinde belirlenen klasör [IIS sitesi oluşturmak](#create-the-iis-site) bölümü. [Web Deploy](/iis/publish/using-web-deploy/introduction-to-web-deploy) dağıtımı için önerilen mekanizmadır, ancak projenin uygulama taşımak için çeşitli seçenekler mevcut *yayımlama* barındırma sisteminin dağıtım klasörü klasörü.
 
 ### <a name="web-deploy-with-visual-studio"></a>Visual Studio ile Web dağıtımı
 
-Bkz: [uygulama dağıtımı ASP.NET Core için Visual Studio yayımlama profilleri](xref:host-and-deploy/visual-studio-publish-profiles#publish-profiles) konu için Web dağıtımı ile kullanmak için bir yayımlama profili oluşturmayı öğrenin. Barındırma sağlayıcısı oluşturmak için bir yayımlama profili veya destek sağlar, bunların profilini indirin ve Visual Studio kullanarak içe aktarın **Yayımla** iletişim.
+Bkz: [uygulama dağıtımı ASP.NET Core için Visual Studio yayımlama profilleri](xref:host-and-deploy/visual-studio-publish-profiles#publish-profiles) konu için Web dağıtımı ile kullanmak için bir yayımlama profili oluşturmayı öğrenin. Barındırma sağlayıcısı oluşturmak için bir yayımlama profili veya destek sağlar, bunların profilini indirin ve Visual Studio kullanarak içe aktarın **Yayımla** iletişim:
 
 ![Yayımlama iletişim kutusu sayfası](index/_static/pub-dialog.png)
 
@@ -386,11 +386,15 @@ Bkz: [uygulama dağıtımı ASP.NET Core için Visual Studio yayımlama profille
 
 ### <a name="alternatives-to-web-deploy"></a>Alternatif Web dağıtımı
 
-Uygulama barındırma sistemin el ile kopyalama, Xcopy, Robocopy ve PowerShell gibi taşımak için birkaç yöntemden herhangi birini kullanın.
+Uygulama barındırma sistemin el ile kopyalama gibi taşımak için çeşitli yöntemlerden birini kullanın [Xcopy](/windows-server/administration/windows-commands/xcopy), [Robocopy](/windows-server/administration/windows-commands/robocopy), veya [PowerShell](/powershell/).
 
 IIS'ye ASP.NET Core dağıtımı hakkında daha fazla bilgi için bkz. [IIS Yöneticiler için dağıtım kaynakları](#deployment-resources-for-iis-administrators) bölümü.
 
 ## <a name="browse-the-website"></a>Web sitesine Gözat
+
+Uygulama barındırma sisteme dağıtıldıktan sonra bir isteği bir uygulamanın genel uç noktaları oluşturun.
+
+Aşağıdaki örnekte, sitenin bir IIS'ye bağlı olduğu **ana bilgisayar adı** , `www.mysite.com` üzerinde **bağlantı noktası** `80`. İçin bir istekte `http://www.mysite.com`:
 
 ![Microsoft Edge tarayıcısı IIS başlangıç sayfası yüklendi.](index/_static/browsewebsite.png)
 
