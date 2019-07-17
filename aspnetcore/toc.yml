@@ -431,6 +431,8 @@
       uid: web-api/advanced/analyzers
     - name: Kurallar
       uid: web-api/advanced/conventions
+    - name: HTTP REPL ile Test API'leri
+      uid: web-api/http-repl
 - name: Gerçek zamanlı uygulamalar
   displayName: signalr
   items:
