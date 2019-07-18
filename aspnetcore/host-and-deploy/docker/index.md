@@ -1,41 +1,41 @@
 ---
-title: ASP.NET Core, Docker kapsayıcılarında barındırın
+title: Docker kapsayıcılarında konak ASP.NET Core
 author: rick-anderson
-description: ASP.NET Core uygulamalarınızı Docker kapsayıcılarında barındırmak öğrenme için kaynakların bağlantılarını keşfedin.
+description: Docker kapsayıcılarında ASP.NET Core uygulamaları nasıl barındırdığınızı öğrenmek için kaynakların bağlantılarını bulun.
 ms.author: riande
 ms.custom: mvc
 ms.date: 01/08/2018
 uid: host-and-deploy/docker/index
-ms.openlocfilehash: 9189e1fbb21abcc8c8bdea947e672ee53b59bc4f
-ms.sourcegitcommit: dd9c73db7853d87b566eef136d2162f648a43b85
+ms.openlocfilehash: cb5f774db5fab46a57f8ca4bbbca148f20f371ba
+ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65085473"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68308041"
 ---
-# <a name="host-aspnet-core-in-docker-containers"></a>ASP.NET Core, Docker kapsayıcılarında barındırın
+# <a name="host-aspnet-core-in-docker-containers"></a>Docker kapsayıcılarında konak ASP.NET Core
 
-Aşağıdaki makaleler, ASP.NET Core uygulamaları docker'da barındırma hakkında öğrenmeye yönelik kullanılabilir:
+Docker 'da ASP.NET Core uygulamalar barındırma hakkında bilgi edinmek için aşağıdaki makaleler sunulmaktadır:
 
 [Kapsayıcılar ve Docker’a Giriş](/dotnet/standard/microservices-architecture/container-docker-introduction/index)  
-Kapsayıcı bir yaklaşım, bir uygulama veya hizmeti ve bağımlılıklarını yapılandırmasıyla birlikte bir kapsayıcı görüntüsü paketlenmiş yazılım geliştirme için nasıl olduğunu görün. Görüntü, test ve ardından bir konağa dağıtılmış.
+Kapsayıcının bir uygulama veya hizmetin, bağımlılıklarının ve yapılandırmasının bir kapsayıcı görüntüsü olarak birlikte paketlendiği yazılım geliştirme konusunda nasıl yaklaşım olduğunu öğrenin. Görüntü test edilebilir ve bir konağa dağıtılabilir.
 
-[Docker nedir](/dotnet/standard/microservices-architecture/container-docker-introduction/docker-defined)  
-Docker uygulamaları bulutta veya şirket içinde çalışan taşınabilir, kendi kendine yeterli kapsayıcılar olarak dağıtımını otomatik hale getirme için açık kaynak bir projedir nasıl olduğunu öğrenin.
+[Docker nedir?](/dotnet/standard/microservices-architecture/container-docker-introduction/docker-defined)  
+Docker 'ın, bulutta veya şirket içinde çalışabilen, taşınabilir, kendi kendine yeterli kapsayıcı olarak uygulama dağıtımını otomatik hale getirmeye yönelik açık kaynaklı bir proje olduğunu öğrenin.
 
-[Docker terimleri](/dotnet/standard/microservices-architecture/container-docker-introduction/docker-terminology)  
-Terim ve tanımları için Docker teknolojisini öğrenin.
+[Docker terminolojisi](/dotnet/standard/microservices-architecture/container-docker-introduction/docker-terminology)  
+Docker teknolojisine yönelik hüküm ve tanımlar hakkında bilgi edinin.
 
 [Docker kapsayıcıları, görüntüleri ve kayıt defterleri](/dotnet/standard/microservices-architecture/container-docker-introduction/docker-containers-images-registries)  
-Nasıl Docker kapsayıcı görüntüleri tutarlı dağıtım için bir görüntü kayıt defterinde ortamlar genelinde depolandığını bulun.
+Docker kapsayıcı görüntülerinin, ortamlar genelinde tutarlı dağıtım için bir görüntü kayıt defterinde nasıl depolandığını öğrenin.
 
-<xref:host-and-deploy/docker/building-net-docker-images> Derleme ve ASP.NET Core uygulaması docker kapsayıcılarında çalıştırın hakkında bilgi edinin. Microsoft tarafından yönetilen Docker görüntüleri keşfedin ve kullanım örneklerini inceleyin.
+<xref:host-and-deploy/docker/building-net-docker-images>ASP.NET Core bir uygulamayı nasıl oluşturacağınızı ve kullanabileceğinizi öğrenin. Microsoft tarafından tutulan Docker görüntülerini araştırın ve kullanım örneklerini inceleyin.
 
-[Docker için Visual Studio Araçları](xref:host-and-deploy/docker/visual-studio-tools-for-docker)  
-Visual Studio 2017 derleme, hata ayıklama ve ASP.NET Core, .NET Framework veya .NET Core için Docker Windows üzerinde hedefleyen uygulamaları çalıştıran nasıl desteklediğini öğrenin. Hem Windows hem de Linux kapsayıcıları desteklenmektedir.
+[Visual Studio kapsayıcı araçları](xref:host-and-deploy/docker/visual-studio-tools-for-docker)  
+Visual Studio 'Nun Docker for Windows .NET Framework veya .NET Core 'u hedefleyen ASP.NET Core uygulamaları oluşturmayı, hata ayıklamayı ve çalıştırmayı nasıl desteklediğini öğrenin. Hem Windows hem de Linux kapsayıcıları desteklenir.
 
-[Docker Görüntüsüne Yayımlama](/azure/vs-azure-tools-docker-hosting-web-apps-in-docker)  
-PowerShell kullanarak azure'da bir Docker konağı için bir ASP.NET Core uygulaması dağıtmak için Visual Studio Araçları için Docker uzantısını kullanmayı öğrenin.
+[Azure Container Registry yayımlama](/azure/vs-azure-tools-docker-hosting-web-apps-in-docker)  
+Azure 'da PowerShell kullanarak bir ASP.NET Core uygulamasını Docker konağına dağıtmak için Visual Studio kapsayıcı araçları uzantısı 'nın nasıl kullanılacağını öğrenin.
 
-[ASP.NET Core, proxy sunucuları ile çalışma ve yük Dengeleyiciler için yapılandırma](xref:host-and-deploy/proxy-load-balancer)  
-Proxy sunucuları ve yük dengeleyici arkasında barındırılan uygulamalar için ek yapılandırma gerekebilir. Bir ara sunucu aracılığıyla istekler genellikle geçirerek şema ve istemci IP gibi özgün isteğiyle ilgili bilgileri gizler. İletilen el ile uygulama isteği hakkında bazı bilgiler gerekli olabilir.
+[Proxy sunucularıyla ve yük dengeleyicilerle çalışacak ASP.NET Core yapılandırma](xref:host-and-deploy/proxy-load-balancer)  
+Proxy sunucularının ve yük dengeleyiciler arkasında barındırılan uygulamalar için ek yapılandırma gerekebilir. İsteklerin bir ara sunucu üzerinden geçirilmesi, genellikle orijinal istekle ilgili olarak düzen ve istemci IP 'si gibi bilgileri gizler. İstekle ilgili bazı bilgilerin uygulamaya el ile iletilmesi gerekebilir.

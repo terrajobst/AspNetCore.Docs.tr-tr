@@ -4,14 +4,14 @@ author: rick-anderson
 description: Visual Studio kullanarak Azure App Service'e bir ASP.NET Core uygulaması yayımlama hakkında bilgi edinin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 12/06/2018
+ms.date: 07/10/2019
 uid: tutorials/publish-to-azure-webapp-using-vs
-ms.openlocfilehash: c0251032d83349d4d3925d1ec594c9230ed6ad2d
-ms.sourcegitcommit: 6d9cf728465cdb0de1037633a8b7df9a8989cccb
+ms.openlocfilehash: dbb8229a52c8c93da94406ad64d03eff9631afb4
+ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67207653"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68308328"
 ---
 # <a name="publish-an-aspnet-core-app-to-azure-with-visual-studio"></a>Visual Studio ile Azure'a bir ASP.NET Core uygulaması yayımlama
 
@@ -21,7 +21,7 @@ Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Bkz: [Mac için Visual Studio'dan azure'a Yayımla](https://blog.xamarin.com/publish-azure-visual-studio-mac/) macOS üzerinde çalışıyorsanız ve o.
 
-App Service dağıtım sorun gidermek için bkz: <xref:host-and-deploy/azure-apps/troubleshoot>.
+App Service dağıtım sorun gidermek için bkz: <xref:test/troubleshoot-azure-iis>.
 
 ## <a name="set-up"></a>Ayarlama
 
@@ -68,10 +68,10 @@ Visual Studio çözüm oluşturur.
 
 * Seçin **kaydetme** ve yeni bir kullanıcı kaydı. Kurgusal bir e-posta adresini kullanabilirsiniz. Gönderdiğinizde, sayfa şu iletiyi görüntüler:
 
-    *"İç sunucu hatası: İstek işlenirken bir veritabanı işlemi başarısız. SQL özel durum: Veritabanı açılamıyor. Uygulama DB bağlamı için mevcut geçişler uygulama bu sorunu çözebilir."*
+    *"İç sunucu hatası: İstek işlenirken bir veritabanı işlemi başarısız oldu. SQL özel durumu: Veritabanı açılamıyor. Uygulama DB bağlamı için mevcut geçişler uygulama bu sorunu çözebilir."*
 * Seçin **geçerli geçişleri** ve Sayfa güncelleştirmelerini yenileyin sonra sayfa.
 
-![İç sunucu hatası: İstek işlenirken bir veritabanı işlemi başarısız. SQL özel durum: Veritabanı açılamıyor. Uygulama DB bağlamı için mevcut geçişler uygulama, bu sorunu çözebilir.](publish-to-azure-webapp-using-vs/_static/mig.png)
+![İç sunucu hatası: İstek işlenirken bir veritabanı işlemi başarısız oldu. SQL özel durumu: Veritabanı açılamıyor. Uygulama DB bağlamı için mevcut geçişler uygulama, bu sorunu çözebilir.](publish-to-azure-webapp-using-vs/_static/mig.png)
 
 Yeni kullanıcı kaydetmek için kullanılan e-posta uygulaması görüntüler ve **oturumunuzu** bağlantı.
 
@@ -154,7 +154,7 @@ Tıklayın **yayımlama**. Visual Studio, uygulamanızı Azure'a yayımlar. Dağ
 
 ### <a name="update-the-app"></a>Uygulamayı güncelleştirme
 
-* Düzen *Pages/About.cshtml* Razor sayfasını ve içeriğini değiştirin. Örneğin, "Hello ASP.NET Core!" söylemek paragraf değiştirebilirsiniz:
+* Düzen *Pages/About.cshtml* Razor sayfasını ve içeriğini değiştirin. Örneğin, paragrafı "Merhaba ASP.NET Core!" olacak şekilde değiştirebilirsiniz:
 
     [!code-html[About](publish-to-azure-webapp-using-vs/sample/about.cshtml?highlight=9&range=1-9)]
 
@@ -172,7 +172,7 @@ Uygulamayı test etme işlemini tamamladığınızda, Git [Azure portalında](ht
 
 * Seçin **kaynak grupları**, ardından oluşturduğunuz kaynak grubunu seçin.
 
-![Azure portalı: Kenar menüsündeki kaynak grupları](publish-to-azure-webapp-using-vs/_static/portalrg.png)
+![Azure portalı: Kenar çubuğu menüsündeki kaynak grupları](publish-to-azure-webapp-using-vs/_static/portalrg.png)
 
 * İçinde **kaynak grupları** sayfasında **Sil**.
 
@@ -186,9 +186,9 @@ Uygulamayı test etme işlemini tamamladığınızda, Git [Azure portalında](ht
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* Visual Studio Code için bkz. [yayımlama profillerini](xref:host-and-deploy/visual-studio-publish-profiles#publish-profiles).
+* Visual Studio Code için bkz. [Yayımlama profilleri](xref:host-and-deploy/visual-studio-publish-profiles#publish-profiles).
 * [Azure uygulama hizmeti](/azure/app-service/app-service-web-overview)
 * [Azure kaynak grupları](/azure/azure-resource-manager/resource-group-overview#resource-groups)
 * [Azure SQL Veritabanı](/azure/sql-database/)
 * <xref:host-and-deploy/visual-studio-publish-profiles>
-* <xref:host-and-deploy/azure-apps/troubleshoot>
+* <xref:test/troubleshoot-azure-iis>

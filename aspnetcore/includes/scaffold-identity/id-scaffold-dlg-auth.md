@@ -1,21 +1,21 @@
-Kimlik iskele kurucu çalıştırın:
+Identity scaffolder öğesini çalıştırın:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * Gelen **Çözüm Gezgini**, projeye sağ tıklayın > **Ekle** > **yeni iskele kurulmuş öğe**.
-* Sol bölmeden **İskele Ekle** iletişim kutusunda **kimlik** > **ekleme**.
-* İçinde **ADD kimliğini** iletişim kutusunda, istediğiniz seçenekleri seçin.
-  * Varolan bir düzen sayfası seçin veya hatalı biçimlendirme Düzen dosyanızın üzerine yazılacak. Var olan bir zaman  *\_Layout.cshtml* dosya seçildiğinde, **değil** üzerine.
+* **Yapı iskelesi Ekle** iletişim kutusunun sol bölmesinde, **kimlik** > **Ekle**' yi seçin.
+* **Kimlik Ekle** iletişim kutusunda istediğiniz seçenekleri belirleyin.
+  * Var olan düzen sayfanızı seçin veya Düzen dosyanızın üzerine yanlış biçimlendirme uygulanır. Var olan  *\_bir Layout. cshtml* dosyası seçildiğinde, **üzerine yazılmaz.**
 
- Örneğin `~/Pages/Shared/_Layout.cshtml` Razor sayfaları için `~/Views/Shared/_Layout.cshtml` MVC projeleri
-* Mevcut veri Bağlamınızı kullanmak için geçersiz kılmak için en az bir dosya seçin. Veri Bağlamınızı eklemek için en az bir dosya seçmelisiniz.
-  * Veri bağlamı sınıfı seçin.
-  * Seçin **ekleme**.
-* Yeni bir kullanıcı bağlam oluşturur ve muhtemelen kimlik için bir özel kullanıcı sınıfı oluşturmak için:
+ Örneğin: `~/Pages/Shared/_Layout.cshtml` MVC projeleri için `~/Views/Shared/_Layout.cshtml` Razor Pages için
+* Mevcut veri bağlamınızı kullanmak için, geçersiz kılmak üzere en az bir dosya seçin. Veri bağlamınızı eklemek için en az bir dosya seçmeniz gerekir.
+  * Veri bağlamı sınıfınızı seçin.
+  * **Add (Ekle)** seçeneğini belirleyin.
+* Yeni bir kullanıcı bağlamı oluşturmak ve muhtemelen kimlik için özel bir Kullanıcı sınıfı oluşturmak için:
   * Seçin **+** yeni bir düğme **veri bağlamı sınıfının**.
-  * Seçin **ekleme**.
+  * **Add (Ekle)** seçeneğini belirleyin.
 
-Not: Yeni bir kullanıcı bağlamı oluşturuyorsanız, geçersiz kılmak için bir dosya seçmek gerekmez.
+Not: Yeni bir kullanıcı bağlamı oluşturuyorsanız, geçersiz kılmak için bir dosya seçmeniz gerekmez.
 
 # <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
@@ -25,7 +25,7 @@ ASP.NET Core iskele kurucu daha önce yüklemediyseniz şimdi yükleyin:
 dotnet tool install -g dotnet-aspnet-codegenerator
 ```
 
-Paket başvurusu ekleme [Microsoft.VisualStudio.Web.CodeGeneration.Design](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.CodeGeneration.Design/) projesine (\*.csproj) dosyası. Proje dizininde aşağıdaki komutu çalıştırın:
+Proje (\*. csproj) dosyasına [Microsoft. VisualStudio. Web. CodeGeneration. Design](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.CodeGeneration.Design/) öğesine bir paket başvurusu ekleyin. Proje dizininde aşağıdaki komutu çalıştırın:
 
 ```console
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
@@ -38,18 +38,18 @@ Kimlik destek seçeneklerini listelemek için aşağıdaki komutu çalıştırı
 dotnet aspnet-codegenerator identity -h
 ```
 
-Proje klasöründe kimlik iskele kurucu istediğiniz seçeneği ile çalıştırın. Örneğin, kimliği ' % s'varsayılan kullanıcı Arabirimi ile ve en az sayıda dosya kurmak için aşağıdaki komutu çalıştırın. DB Bağlamınızı doğru tam adını kullanın:
+Proje klasöründe, kimlik desteği ' ı istediğiniz seçeneklerle çalıştırın. Örneğin, kimliği varsayılan UI ve minimum dosya sayısı ile ayarlamak için aşağıdaki komutu çalıştırın. DB içeriğiniz için doğru tam adı kullanın:
 
 ```console
 dotnet aspnet-codegenerator identity -dc MyWeb.Data.ApplicationDbContext --files Account.Register
 ```
 
-PowerShell komut ayırıcı olarak virgül kullanır. PowerShell kullanarak, dosya listesinde noktalı kaçış veya dosya listesi çift tırnak işaretleri içine alın. Örneğin:
+PowerShell, bir komut ayırıcısı olarak noktalı virgül kullanır. PowerShell kullanırken, dosya listesinde noktalı virgül karakterini kaçış veya dosya listesini çift tırnak içine koyun. Örneğin:
 
 ```console
 dotnet aspnet-codegenerator identity -dc MyWeb.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout"
 ```
 
-Kimlik iskele kurucu belirtmeden çalıştırırsanız `--files` bayrağı veya `--useDefaultUI` bayrak, tüm kullanılabilir kimlik UI sayfaları projenizde oluşturulur.
+Identity desteği `--files` bayrağını `--useDefaultUI` veya bayrağını belirtmeden çalıştırırsanız, tüm kullanılabilir kimlik Kullanıcı arabirimi sayfaları projenizde oluşturulur.
 
 ---

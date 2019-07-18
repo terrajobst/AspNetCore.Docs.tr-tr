@@ -1,35 +1,35 @@
 ---
-title: ASP.NET core'da statik dosyalar
+title: ASP.NET Core statik dosyalar
 author: rick-anderson
-description: Hizmet ve statik dosyaların güvenliğini sağlamak ve ASP.NET Core web uygulaması ara yazılım davranışları barındırma statik dosya yapılandırma hakkında bilgi edinin.
+description: Statik dosyaları sunma ve güvenli hale getirme ve bir ASP.NET Core Web uygulamasındaki statik dosya barındırma ara yazılım davranışlarını yapılandırma hakkında bilgi edinin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/08/2019
+ms.date: 07/8/2019
 uid: fundamentals/static-files
-ms.openlocfilehash: 8d75db7b6e21da39949a7f7c04be826d4d10008e
-ms.sourcegitcommit: 8516b586541e6ba402e57228e356639b85dfb2b9
+ms.openlocfilehash: 1c665d1206e984fe41e9f57bb5356839c354dde2
+ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67814849"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68308188"
 ---
-# <a name="static-files-in-aspnet-core"></a>ASP.NET core'da statik dosyalar
+# <a name="static-files-in-aspnet-core"></a>ASP.NET Core statik dosyalar
 
-Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT) ve [Scott Addie](https://twitter.com/Scott_Addie)
+By [Rick Anderson](https://twitter.com/RickAndMSFT) ve [Scott Ade](https://twitter.com/Scott_Addie)
 
-Statik dosyaları, HTML, CSS, görüntü ve JavaScript gibi ASP.NET Core uygulaması doğrudan istemcilere hizmet varlıklardır. Bazı yapılandırma hizmeti bu dosyaların etkinleştirmek için gereklidir.
+HTML, CSS, resim ve JavaScript gibi statik dosyalar, ASP.NET Core bir uygulamanın doğrudan istemcilere hizmet verdiği varlıklardır. Bu dosyalara hizmet sunma özelliğini etkinleştirmek için bazı yapılandırmalar gerekir.
 
 [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/static-files/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
-## <a name="serve-static-files"></a>Statik dosyaları işleme
+## <a name="serve-static-files"></a>Statik dosyaları sunma
 
-Statik dosyaları, projenizin web kök dizininde depolanır. Varsayılan dizin,  *\<content_root > / wwwroot*, ancak aracılığıyla değiştirilebilir [UseWebRoot](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usewebroot#Microsoft_AspNetCore_Hosting_HostingAbstractionsWebHostBuilderExtensions_UseWebRoot_Microsoft_AspNetCore_Hosting_IWebHostBuilder_System_String_) yöntemi. Bkz: [içerik kök](xref:fundamentals/index#content-root) ve [Web kök](xref:fundamentals/index#web-root) daha fazla bilgi için.
+Statik dosyalar projenin Web kök dizininde depolanır. Varsayılan dizin,  *\<content_root >/Wwwroot*olur, ancak [usewebroot](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usewebroot#Microsoft_AspNetCore_Hosting_HostingAbstractionsWebHostBuilderExtensions_UseWebRoot_Microsoft_AspNetCore_Hosting_IWebHostBuilder_System_String_) yöntemi aracılığıyla değiştirilebilir. Daha fazla bilgi için bkz. [içerik kökü](xref:fundamentals/index#content-root) ve [Web kök](xref:fundamentals/index#web-root) .
 
-Uygulamanın web ana bilgisayarı, içerik kök dizini kullanan yapılmalıdır.
+Uygulamanın Web ana bilgisayarı, içerik kök dizininden haberdar olmalıdır.
 
 ::: moniker range=">= aspnetcore-2.0"
 
-`WebHost.CreateDefaultBuilder` Yöntemini, geçerli dizine içerik kök ayarlar:
+`WebHost.CreateDefaultBuilder` Yöntemi, içerik kökünü geçerli dizine ayarlar:
 
 [!code-csharp[](../common/samples/WebApplication1DotNetCore2.0App/Program.cs?name=snippet_Main&highlight=9)]
 
@@ -37,226 +37,226 @@ Uygulamanın web ana bilgisayarı, içerik kök dizini kullanan yapılmalıdır.
 
 ::: moniker range="< aspnetcore-2.0"
 
-İçerik kök çağırarak geçerli dizine ayarlayın [UseContentRoot](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usecontentroot#Microsoft_AspNetCore_Hosting_HostingAbstractionsWebHostBuilderExtensions_UseContentRoot_Microsoft_AspNetCore_Hosting_IWebHostBuilder_System_String_) içine `Program.Main`:
+Içinde`Program.Main` [usecontentroot](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usecontentroot#Microsoft_AspNetCore_Hosting_HostingAbstractionsWebHostBuilderExtensions_UseContentRoot_Microsoft_AspNetCore_Hosting_IWebHostBuilder_System_String_) 'yi çağırarak içerik kökünü geçerli dizine ayarlayın:
 
 [!code-csharp[](static-files/samples/1x/Program.cs?name=snippet_ProgramClass&highlight=7)]
 
 ::: moniker-end
 
-Statik dosyalar, web kökü göreli bir yol aracılığıyla erişilebilir. Örneğin, **Web uygulaması** proje şablonu içeren birkaç klasörler *wwwroot* klasörü:
+Statik dosyalara, Web köküne göre bir yol aracılığıyla erişilebilir. Örneğin, **Web uygulaması** proje şablonu *Wwwroot* klasörü içinde birkaç klasör içerir:
 
-* **wwwroot**
-  * **CSS**
-  * **Görüntüleri**
+* **Wwwroot**
+  * **Self**
+  * **yansımasını**
   * **js**
 
-Bir dosyaya erişmek için URI biçimi *görüntüleri* alt *http://\<server_address > /images/\<image_file_name >* . Örneğin, *http://localhost:9189/images/banner3.svg* .
+*Images* alt klasöründeki bir dosyaya erişmek için URI biçimi *\<http://server_address >\</images/image_file_name >* . Örneğin, *http://localhost:9189/images/banner3.svg* .
 
 ::: moniker range=">= aspnetcore-2.1"
 
-.NET Framework'ü hedefleyen, ekleme [Microsoft.AspNetCore.StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles/) paketini projenize. .NET Core'u hedefleyen, [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app) bu paketi içerir.
+.NET Framework hedefliyorsanız, [Microsoft. AspNetCore. StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles/) paketini projeye ekleyin. .NET Core hedefleniyorsa, [Microsoft. AspNetCore. app metapackage](xref:fundamentals/metapackage-app) bu paketi içerir.
 
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"
 
-.NET Framework'ü hedefleyen, ekleme [Microsoft.AspNetCore.StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles/) paketini projenize. .NET Core'u hedefleyen, [Microsoft.AspNetCore.All metapackage](xref:fundamentals/metapackage) bu paketi içerir.
+.NET Framework hedefliyorsanız, [Microsoft. AspNetCore. StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles/) paketini projeye ekleyin. .NET Core hedefleniyorsa, [Microsoft. AspNetCore. All metapackage](xref:fundamentals/metapackage) bu paketi içerir.
 
 ::: moniker-end
 
 ::: moniker range="< aspnetcore-2.0"
 
-Ekleme [Microsoft.AspNetCore.StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles/) paketini projenize.
+Projeye [Microsoft. AspNetCore. StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles/) paketini ekleyin.
 
 ::: moniker-end
 
-Yapılandırma [ara yazılım](xref:fundamentals/middleware/index) statik dosyaları sunma sağlar.
+Statik dosyaları sunmaya izin veren [ara yazılımı](xref:fundamentals/middleware/index) yapılandırın.
 
-### <a name="serve-files-inside-of-web-root"></a>İçinde web kök dosyaları işleme
+### <a name="serve-files-inside-of-web-root"></a>Web kökünün içindeki dosyaları sunma
 
-Çağırma [UseStaticFiles](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions.usestaticfiles#Microsoft_AspNetCore_Builder_StaticFileExtensions_UseStaticFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) yöntemi içinde `Startup.Configure`:
+Içinde`Startup.Configure` [usestaticfiles](/dotnet/api/microsoft.aspnetcore.builder.staticfileextensions.usestaticfiles#Microsoft_AspNetCore_Builder_StaticFileExtensions_UseStaticFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) yöntemini çağır:
 
 [!code-csharp[](static-files/samples/1x/StartupStaticFiles.cs?name=snippet_ConfigureMethod&highlight=3)]
 
-Parametresiz `UseStaticFiles` yöntemi aşırı yüklemesini dosyaları web kök servable olarak işaretler. Aşağıdaki biçimlendirme başvuruları *wwwroot/images/banner1.svg*:
+Parametresiz `UseStaticFiles` yöntemi aşırı yüklemesi, Web kökündeki dosyaları servable olarak işaretler. Aşağıdaki biçimlendirme *Wwwroot/Images/banner1. SVG*öğesine başvuruyor:
 
 [!code-cshtml[](static-files/samples/1x/Views/Home/Index.cshtml?name=snippet_static_file_wwwroot)]
 
-Önceki kodda, tilde karakteri `~/` webroot için işaret eder. Daha fazla bilgi için [Web kök](xref:fundamentals/index#web-root).
+Yukarıdaki kodda, tilde karakteri `~/` Webroot öğesine işaret eder. Daha fazla bilgi için bkz. [Web root](xref:fundamentals/index#web-root).
 
-### <a name="serve-files-outside-of-web-root"></a>Web kökünün dışında dosyaları işleme
+### <a name="serve-files-outside-of-web-root"></a>Dosyaları Web kökünün dışında sunma
 
-Statik dosyaların sunulmasını web kökünün dışında bulunduğu dizin sıradüzeni göz önünde bulundurun:
+Sunulacak statik dosyaların Web kökünün dışında yer aldığı bir dizin hiyerarşisini göz önünde bulundurun:
 
-* **wwwroot**
-  * **CSS**
-  * **Görüntüleri**
+* **Wwwroot**
+  * **Self**
+  * **yansımasını**
   * **js**
 * **MyStaticFiles**
-  * **Görüntüleri**
-    * *banner1.svg*
+  * **yansımasını**
+    * *banner1. SVG*
 
-Bir isteği erişip *banner1.svg* statik dosya ara yazılımlarını şu şekilde yapılandırarak dosyası:
+Bir istek statik dosya ara yazılımını aşağıdaki şekilde yapılandırarak *banner1. SVG* dosyasına erişebilir:
 
 [!code-csharp[](static-files/samples/1x/StartupTwoStaticFiles.cs?name=snippet_ConfigureMethod&highlight=5-10)]
 
-Önceki kodda, *MyStaticFiles* dizin hiyerarşisi sunulmuştur herkese açık şekilde aracılığıyla *StaticFiles* URI segmenti. Bir istek *http://\<server_address > /StaticFiles/images/banner1.svg* hizmet *banner1.svg* dosya.
+Yukarıdaki kodda, *mystaticfiles* dizin hiyerarşisi, *staticfiles* URI segmenti aracılığıyla herkese açıktır. *Http://\<server_address >/StaticFiles/images/banner1.SVG* için bir istek *banner1. SVG* dosyasına hizmet verir.
 
-Aşağıdaki biçimlendirme başvuruları *MyStaticFiles/images/banner1.svg*:
+Aşağıdaki biçimlendirme *Mystaticfiles/Images/banner1. SVG*' ye başvurur:
 
 [!code-cshtml[](static-files/samples/1x/Views/Home/Index.cshtml?name=snippet_static_file_outside)]
 
-### <a name="set-http-response-headers"></a>HTTP yanıt üstbilgilerini Ayarla
+### <a name="set-http-response-headers"></a>HTTP yanıt üstbilgilerini ayarla
 
-A [StaticFileOptions](/dotnet/api/microsoft.aspnetcore.builder.staticfileoptions) nesne, HTTP yanıt üst bilgilerini ayarlayacak şekilde kullanılabilir. Statik dosya sunucusu web kök yapılandırmaya ek olarak, aşağıdaki kod kümeleri `Cache-Control` üst bilgi:
+[Staticfileoptions](/dotnet/api/microsoft.aspnetcore.builder.staticfileoptions) NESNESI, http yanıt üst bilgilerini ayarlamak için kullanılabilir. Web kökünden statik dosya sunma yapılandırmasına ek olarak, aşağıdaki kod `Cache-Control` üst bilgisini ayarlar:
 
 [!code-csharp[](static-files/samples/1x/StartupAddHeader.cs?name=snippet_ConfigureMethod)]
 
-[HeaderDictionaryExtensions.Append](/dotnet/api/microsoft.aspnetcore.http.headerdictionaryextensions.append) yöntem bulunmaktadır [Microsoft.AspNetCore.Http](https://www.nuget.org/packages/Microsoft.AspNetCore.Http/) paket.
+[Headerdictionaryextensions. Append](/dotnet/api/microsoft.aspnetcore.http.headerdictionaryextensions.append) yöntemi, [Microsoft. Aspnetcore. http](https://www.nuget.org/packages/Microsoft.AspNetCore.Http/) paketinde bulunur.
 
-Dosyalarını geliştirme ortamında 10 dakika (600 saniye) halka açık bir şekilde önbelleğe yapılmıştır:
+Dosyalar, geliştirme ortamında 10 dakika (600 saniye) için genel olarak önbelleklenebilir hale getirilir:
 
-![Cache-Control üst bilgisi gösteren yanıt üst bilgileri eklendi](static-files/_static/add-header.png)
+![Cache-Control üst bilgisini gösteren yanıt üstbilgileri eklendi](static-files/_static/add-header.png)
 
 ## <a name="static-file-authorization"></a>Statik dosya yetkilendirmesi
 
-Statik dosya ara yazılımlarını yetkilendirme denetimleri sağlamaz. Tüm dosyaları sunulan işlem tarafından altında dahil olmak üzere *wwwroot*, genel olarak erişilebilir. Kimlik tabanlı dosyaları işleme için:
+Statik dosya ara yazılımı yetkilendirme denetimleri sağlamıyor. *Wwwroot*altındakiler de dahil olmak üzere hizmet tarafından sunulan tüm dosyalar herkese açık olarak erişilebilir. Dosyalara yetkilendirme temelinde hizmeti sağlamak için:
 
-* Bunları dışında Store *wwwroot* ve herhangi bir dizin için statik dosya ara yazılımlarını erişilebilir.
-* Bunları, yetkilendirme uygulandığı bir eylem yöntemi işlevi görür. Döndürür bir [FileResult](/dotnet/api/microsoft.aspnetcore.mvc.fileresult) nesnesi:
+* Onları *Wwwroot* dışında ve statik dosya ara yazılımı tarafından erişilebilen herhangi bir dizinle saklayın.
+* Yetkilendirmeyi uygulanan bir eylem yöntemi aracılığıyla onlara sunar. Bir [FileResult](/dotnet/api/microsoft.aspnetcore.mvc.fileresult) nesnesi döndürür:
 
   [!code-csharp[](static-files/samples/1x/Controllers/HomeController.cs?name=snippet_BannerImageAction)]
 
 ## <a name="enable-directory-browsing"></a>Dizin taramayı etkinleştir
 
-Dizin tarama dizin listesini görmek, kullanıcıların web uygulamanızın sağlar ve belirtilen bir dizin içinde dosyaları. Dizin tarama varsayılan olarak devre dışıdır güvenlik nedenleriyle (bkz [konuları](#considerations)). Etkin Dizin çağırarak gözatma [UseDirectoryBrowser](/dotnet/api/microsoft.aspnetcore.builder.directorybrowserextensions.usedirectorybrowser#Microsoft_AspNetCore_Builder_DirectoryBrowserExtensions_UseDirectoryBrowser_Microsoft_AspNetCore_Builder_IApplicationBuilder_Microsoft_AspNetCore_Builder_DirectoryBrowserOptions_) yönteminde `Startup.Configure`:
+Dizin tarama, Web uygulamanızın kullanıcılarına belirtilen bir dizin içindeki bir dizin listesini ve dosyalarını görmesini sağlar. Dizin tarama, güvenlik nedenleriyle varsayılan olarak devre dışıdır (bkz. [hususlar](#considerations)). Içinde`Startup.Configure` [usedirectorybrowser](/dotnet/api/microsoft.aspnetcore.builder.directorybrowserextensions.usedirectorybrowser#Microsoft_AspNetCore_Builder_DirectoryBrowserExtensions_UseDirectoryBrowser_Microsoft_AspNetCore_Builder_IApplicationBuilder_Microsoft_AspNetCore_Builder_DirectoryBrowserOptions_) metodunu çağırarak dizin taramayı etkinleştirin:
 
 [!code-csharp[](static-files/samples/1x/StartupBrowse.cs?name=snippet_ConfigureMethod&highlight=12-17)]
 
-Gerekli hizmetler çağırarak ekleme [AddDirectoryBrowser](/dotnet/api/microsoft.extensions.dependencyinjection.directorybrowserserviceextensions.adddirectorybrowser#Microsoft_Extensions_DependencyInjection_DirectoryBrowserServiceExtensions_AddDirectoryBrowser_Microsoft_Extensions_DependencyInjection_IServiceCollection_) yönteminden `Startup.ConfigureServices`:
+Adresinden`Startup.ConfigureServices` [adddirectorybrowser](/dotnet/api/microsoft.extensions.dependencyinjection.directorybrowserserviceextensions.adddirectorybrowser#Microsoft_Extensions_DependencyInjection_DirectoryBrowserServiceExtensions_AddDirectoryBrowser_Microsoft_Extensions_DependencyInjection_IServiceCollection_) yöntemini çağırarak gerekli hizmetleri ekleyin:
 
 [!code-csharp[](static-files/samples/1x/StartupBrowse.cs?name=snippet_ConfigureServicesMethod&highlight=3)]
 
-Yukarıdaki kod, dizin tarama sağlayan *wwwroot/görüntülerinden* URL'yi kullanarak klasör *http://\<server_address > / Myımages*, her dosya ve klasör için bağlantılarla birlikte:
+Yukarıdaki kod, her bir dosya ve klasörün bağlantılarıyla birlikte *http://\<server_address >/myImages*URL 'sini kullanarak *Wwwroot/görüntüler* klasöründe Dizin taramasına izin verir:
 
 ![Dizin tarama](static-files/_static/dir-browse.png)
 
-Bkz: [konuları](#considerations) gözatma etkinleştirilirken güvenlik risklerini üzerinde.
+Göz atmayı etkinleştirirken güvenlik riskleri hakkındaki [noktalara](#considerations) göz atın.
 
-İki Not `UseStaticFiles` aşağıdaki örnekte çağırır. İlk çağrıda statik dosyaları sunma sağlayan *wwwroot* klasör. İkinci çağrı, dizin taramayı etkinleştirir *wwwroot/görüntülerinden* URL'yi kullanarak klasör *http://\<server_address > / Myımages*:
+Aşağıdaki örnekteki iki `UseStaticFiles` çağrının olduğunu aklınızda edin. İlk çağrı *Wwwroot* klasöründeki statik dosyaları sunmaya izin veriyor. İkinci çağrı, *http://\<server_address >/myImages*URL 'sini kullanarak *Wwwroot/görüntüler* klasöründe dizin taramayı mümkün bir şekilde sunar:
 
 [!code-csharp[](static-files/samples/1x/StartupBrowse.cs?name=snippet_ConfigureMethod&highlight=3,5)]
 
-## <a name="serve-a-default-document"></a>Hizmet bir varsayılan belge
+## <a name="serve-a-default-document"></a>Varsayılan bir belge sunar
 
-Varsayılan giriş sayfası ayarı ziyaretçiler mantıksal bir başlangıç noktası sitenizi ziyaret eden sağlar. Varsayılan sayfa tam URI uygun olmayan kullanıcı hizmet vermek için çağrı [UseDefaultFiles](/dotnet/api/microsoft.aspnetcore.builder.defaultfilesextensions.usedefaultfiles#Microsoft_AspNetCore_Builder_DefaultFilesExtensions_UseDefaultFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) yönteminden `Startup.Configure`:
+Varsayılan ana sayfanın ayarlanması, ziyaretçi sitenizi ziyaret ederken mantıksal bir başlangıç noktası sağlar. Kullanıcı URI 'yi tamamen nitelemeden varsayılan bir sayfaya hizmeti sağlamak için, şu `Startup.Configure`kaynaktan [usedefaultfiles](/dotnet/api/microsoft.aspnetcore.builder.defaultfilesextensions.usedefaultfiles#Microsoft_AspNetCore_Builder_DefaultFilesExtensions_UseDefaultFiles_Microsoft_AspNetCore_Builder_IApplicationBuilder_) metodunu çağırın:
 
 [!code-csharp[](static-files/samples/1x/StartupEmpty.cs?name=snippet_ConfigureMethod&highlight=3)]
 
 > [!IMPORTANT]
-> `UseDefaultFiles` önce çağrılmalıdır `UseStaticFiles` varsayılan dosya yapacak. `UseDefaultFiles` dosyanın gerçekten görmese bir URL rewriter olur. Aracılığıyla statik dosya ara yazılımlarını etkinleştir `UseStaticFiles` dosya yapacak.
+> `UseDefaultFiles`Varsayılan dosyaya kullanılmadan önce `UseStaticFiles` çağrılmalıdır. `UseDefaultFiles`, dosyayı gerçekten sunan bir URL yeniden yazar. Dosya hizmeti `UseStaticFiles` sağlamak için statik dosya ara yazılımını etkinleştirin.
 
-İle `UseDefaultFiles`, istekleri için bir klasörü arayın:
+İle `UseDefaultFiles`, bir klasör için arama istekleri:
 
-* *default.htm*
-* *default.HTML*
-* *index.htm*
-* *index.HTML*
+* *default. htm*
+* *default. html*
+* *index. htm*
+* *index. html*
 
-İlk listede bulunan dosya istek gibi davranarak tam uygun URI sunulur. Tarayıcı URL, istenen URI'yi yansıtacak şekilde devam eder.
+Listedeki ilk dosya, istek tam URI olmasına rağmen olarak sunulur. Tarayıcı URL 'SI, istenen URI 'yi yansıtacak şekilde devam ediyor.
 
-Varsayılan dosya adına aşağıdaki kod değişiklikleri *mydefault.html*:
+Aşağıdaki kod varsayılan dosya adını *mydefault. html*olarak değiştirir:
 
 [!code-csharp[](static-files/samples/1x/StartupDefault.cs?name=snippet_ConfigureMethod)]
 
-## <a name="usefileserver"></a>UseFileServer
+## <a name="usefileserver"></a>Usedosya sunucusu
 
-[UseFileServer](/dotnet/api/microsoft.aspnetcore.builder.fileserverextensions.usefileserver#Microsoft_AspNetCore_Builder_FileServerExtensions_UseFileServer_Microsoft_AspNetCore_Builder_IApplicationBuilder_) işlevlerini birleştiren `UseStaticFiles`, `UseDefaultFiles`, ve `UseDirectoryBrowser`.
+[Usedosyasunucusu](/dotnet/api/microsoft.aspnetcore.builder.fileserverextensions.usefileserver#Microsoft_AspNetCore_Builder_FileServerExtensions_UseFileServer_Microsoft_AspNetCore_Builder_IApplicationBuilder_) `UseStaticFiles`, `UseDefaultFiles`, ve `UseDirectoryBrowser`işlevlerini birleştirir.
 
-Aşağıdaki kod, statik dosyalar ve varsayılan dosya sunma etkinleştirir. Dizin tarama etkin değil.
+Aşağıdaki kod, statik dosyaların ve varsayılan dosyanın kullanılmasına izin veriyor. Dizin tarama etkin değil.
 
 ```csharp
 app.UseFileServer();
 ```
 
-Aşağıdaki kod, dizin tarama etkinleştirerek parametresiz aşırı yüklemesi sırasında oluşturur:
+Aşağıdaki kod, dizin taramayı etkinleştirerek Parametresiz aşırı yüklemeden sonra oluşturulur:
 
 ```csharp
 app.UseFileServer(enableDirectoryBrowsing: true);
 ```
 
-Aşağıdaki dizin hiyerarşi göz önünde bulundurun:
+Aşağıdaki dizin hiyerarşisini göz önünde bulundurun:
 
-* **wwwroot**
-  * **CSS**
-  * **Görüntüleri**
+* **Wwwroot**
+  * **Self**
+  * **yansımasını**
   * **js**
 * **MyStaticFiles**
-  * **Görüntüleri**
-    * *banner1.svg*
-  * *default.HTML*
+  * **yansımasını**
+    * *banner1. SVG*
+  * *default. html*
 
-Aşağıdaki kod, statik dosyalar, varsayılan dosya ve Dizin tarama etkinleştirir `MyStaticFiles`:
+Aşağıdaki kod statik dosyaları, varsayılan dosyaları ve dizin taramayı mümkün bir `MyStaticFiles`şekilde sunar:
 
 [!code-csharp[](static-files/samples/1x/StartupUseFileServer.cs?name=snippet_ConfigureMethod&highlight=5-11)]
 
-`AddDirectoryBrowser` ne zaman çağrılmalıdır `EnableDirectoryBrowsing` özellik değeri `true`:
+`AddDirectoryBrowser``EnableDirectoryBrowsing` Özellik değeri şu `true`olduğunda çağrılmalıdır:
 
 [!code-csharp[](static-files/samples/1x/StartupUseFileServer.cs?name=snippet_ConfigureServicesMethod)]
 
-İse dosya hiyerarşisini kullanarak ve önceki kod, URL şu şekilde çözün:
+Dosya hiyerarşisini ve önceki kodu kullanarak, URL 'Ler aşağıdaki şekilde çözümlenir:
 
 | URI            |                             Yanıt  |
 | ------- | ------|
-| *http://\<server_address>/StaticFiles/images/banner1.svg*    |      MyStaticFiles/images/banner1.svg |
-| *http://\<server_address > / StaticFiles*             |     MyStaticFiles/default.html |
+| *http://\<server_address >/StaticFiles/images/banner1.SVG*    |      MyStaticFiles/Images/banner1. SVG |
+| *http://\<server_address >/staticfiles*             |     MyStaticFiles/default.html |
 
-Varsayılan adlı dosya varsa *MyStaticFiles* dizin *http://\<server_address > / StaticFiles* dizin ile tıklanabilir bağlantılar listesi döndürür:
+*Mystaticfiles* dizininde varsayılan adlı dosya yoksa, *\<http://server_address >/staticfiles* , tıklatılabilir bağlantılarla dizin listesini döndürür:
 
-![Statik dosyaları listesi](static-files/_static/db2.png)
+![Statik dosyalar listesi](static-files/_static/db2.png)
 
 > [!NOTE]
-> <xref:Microsoft.AspNetCore.Builder.DefaultFilesExtensions.UseDefaultFiles*> ve <xref:Microsoft.AspNetCore.Builder.DirectoryBrowserExtensions.UseDirectoryBrowser*> istemci-tarafı yeniden yönlendirme gerçekleştirmek `http://{SERVER ADDRESS}/StaticFiles` (olmadan, sonunda eğik çizgi) için `http://{SERVER ADDRESS}/StaticFiles/` (sonunda eğik çizgi ile). İçinde göreli URL'ler *StaticFiles* dizini sonunda bir eğik çizgi geçersizdir.
+> <xref:Microsoft.AspNetCore.Builder.DefaultFilesExtensions.UseDefaultFiles*>ve <xref:Microsoft.AspNetCore.Builder.DirectoryBrowserExtensions.UseDirectoryBrowser*> `http://{SERVER ADDRESS}/StaticFiles` (sonunda eğik çizgi olmadan) `http://{SERVER ADDRESS}/StaticFiles/` ile (sonunda eğik çizgiyle) bir istemci tarafı yeniden yönlendirmesi gerçekleştirin. *Staticfiles* dizinindeki göreli URL 'ler, sondaki eğik çizgi olmadan geçersizdir.
 
 ## <a name="fileextensioncontenttypeprovider"></a>FileExtensionContentTypeProvider
 
-[FileExtensionContentTypeProvider](/dotnet/api/microsoft.aspnetcore.staticfiles.fileextensioncontenttypeprovider) sınıfı içeren bir `Mappings` MIME içerik türleri için dosya uzantıları eşlemesi olarak hizmet veren özellik. Aşağıdaki örnekte, çeşitli dosya uzantıları bilinen MIME türleri için kaydedilir. *.Rtf* uzantısı değiştirilir ve *.mp4* kaldırılır.
+[Fileextensioncontenttypeprovider](/dotnet/api/microsoft.aspnetcore.staticfiles.fileextensioncontenttypeprovider) sınıfı, MIME içerik `Mappings` türlerine dosya uzantılarının eşlemesi olarak hizmet veren bir özellik içerir. Aşağıdaki örnekte, bazı dosya uzantıları bilinen MIME türlerine kaydedilir. *. Rtf* uzantısı değiştirilmiştir ve *. mp4* kaldırılır.
 
 [!code-csharp[](static-files/samples/1x/StartupFileExtensionContentTypeProvider.cs?name=snippet_ConfigureMethod&highlight=3-12,19)]
 
-Bkz: [MIME içerik türleri](https://www.iana.org/assignments/media-types/media-types.xhtml).
+Bkz. [MIME içerik türleri](https://www.iana.org/assignments/media-types/media-types.xhtml).
 
 ## <a name="non-standard-content-types"></a>Standart olmayan içerik türleri
 
-Statik dosya ara yazılımlarını hemen 400 bilinen dosya içerik türlerinin bilincindedir. Kullanıcı bir bilinmeyen dosya türü ile bir dosya isterse, statik dosya ara yazılımlarını istek ardışık düzende sonraki ara yazılımı geçirir. Hiçbir ara yazılım istek işliyorsa bir *404 Bulunamadı* yanıt döndürülür. Dizin tarama etkin olduğunda, dosyanın bir bağlantısını bir dizin listesinde görüntülenir.
+Statik dosya ara yazılımı, neredeyse 400 bilinen dosya içerik türlerini anlamıştır. Kullanıcı bilinmeyen bir dosya türüne sahip bir dosya isterse, statik dosya ara yazılımı isteği ardışık düzendeki bir sonraki ara yazılıma geçirir. Bir ara yazılım, isteği işlediğinde, bir *404 bulunamadı* yanıtı döndürülür. Dizin tarama etkinse, bir dizin listesinde dosyaya bir bağlantı görüntülenir.
 
-Aşağıdaki kod, bilinmeyen tür tanıtıcısıyla sağlar ve bilinmeyen dosya bir görüntü olarak işler:
+Aşağıdaki kod, bilinmeyen türlere hizmet olarak bilinmeyen türler sunar ve bilinmeyen dosyayı görüntü olarak işler:
 
 [!code-csharp[](static-files/samples/1x/StartupServeUnknownFileTypes.cs?name=snippet_ConfigureMethod)]
 
-Yukarıdaki kod ile bir isteği bir dosyayla bilinmeyen bir içerik türü için bir görüntü olarak döndürülür.
+Yukarıdaki kodla, bilinmeyen içerik türüne sahip bir dosya isteği görüntü olarak döndürülür.
 
 > [!WARNING]
-> Etkinleştirme [ServeUnknownFileTypes](/dotnet/api/microsoft.aspnetcore.builder.staticfileoptions.serveunknownfiletypes#Microsoft_AspNetCore_Builder_StaticFileOptions_ServeUnknownFileTypes) bir güvenlik riski oluşturur. Varsayılan olarak devre dışıdır ve kullanımı önerilmez. [FileExtensionContentTypeProvider](#fileextensioncontenttypeprovider) standart uzantılı dosyaları sunma için güvenli bir alternatif sunar.
+> [ServeUnknownFileTypes](/dotnet/api/microsoft.aspnetcore.builder.staticfileoptions.serveunknownfiletypes#Microsoft_AspNetCore_Builder_StaticFileOptions_ServeUnknownFileTypes) etkinleştirme bir güvenlik riskidir. Varsayılan olarak devre dışıdır ve kullanımı önerilmez. [Fileextensioncontenttypeprovider](#fileextensioncontenttypeprovider) standart olmayan uzantılara sahip dosyalara hizmet vermeye yönelik daha güvenli bir alternatif sağlar.
 
 ### <a name="considerations"></a>Dikkat Edilecekler
 
 > [!WARNING]
-> `UseDirectoryBrowser` ve `UseStaticFiles` gizli dizileri sızabilir. Devre dışı bırakma dizin üretimde tarama önemle tavsiye edilir. Hangi dizinler aracılığıyla etkinleştirilir dikkatle inceleyin `UseStaticFiles` veya `UseDirectoryBrowser`. Tüm dizin ve alt dizinlerinin genel olarak erişilebilir duruma gelir. Store dosyaları genel kullanımı için uygun bir adanmış dizinde gibi  *\<content_root > / wwwroot*. Bu dosyalar, MVC görünümleri, Razor sayfaları (yalnızca 2.x), yapılandırma dosyaları, vb. ayırın.
+> `UseDirectoryBrowser`ve `UseStaticFiles` gizli dizileri sızdırabilirsiniz. Üretimde dizin taramayı devre dışı bırakmak önemle önerilir. `UseStaticFiles` Veya`UseDirectoryBrowser`ile hangi dizinlerin etkinleştirildiğini dikkatle gözden geçirin. Tüm dizin ve alt dizinleri herkese açık şekilde erişilebilir hale gelir. Content_root >/Wwwroot gibi özel bir dizinde  *\<* herkese sunma için uygun dosyaları depolayın. Bu dosyaları MVC görünümlerinden ayırın, Razor Pages (yalnızca 2. x), yapılandırma dosyaları vb.
 
-* İle kullanıma sunulan içerik için URL'leri `UseDirectoryBrowser` ve `UseStaticFiles` büyük küçük harf duyarlılığı ve temel alınan dosya sisteminin karakter kısıtlamaları tabidir. Örneğin, Windows büyük küçük harfe duyarlı&mdash;macOS ve Linux değildir.
+* `UseDirectoryBrowser` Ve`UseStaticFiles` ile sunulan içerik URL 'leri, temel dosya sisteminin büyük küçük harf duyarlılığı ve karakter kısıtlamalarına tabidir. Örneğin, Windows büyük/küçük harfe&mdash;duyarsız MacOS ve Linux değildir.
 
-* IIS kullanımda barındırılan ASP.NET Core uygulamaları [ASP.NET Core Modülü](xref:host-and-deploy/aspnet-core-module) tüm statik dosya istekleri dahil olmak üzere uygulama isteklerini iletmek için. IIS statik dosya işleyicisi kullanılmaz. Modül tarafından işlenen önce isteklerini işlemek için bir şans var.
+* IIS 'de barındırılan ASP.NET Core uygulamalar, statik dosya istekleri de dahil olmak üzere tüm istekleri uygulamaya iletmek için [ASP.NET Core modülünü](xref:host-and-deploy/aspnet-core-module) kullanır. IIS statik dosya işleyicisi kullanılmıyor. Modül tarafından işlenmek üzere istekleri işleme şansı yoktur.
 
-* Sunucu veya Web sitesi düzeyinde IIS statik dosya işleyicisi kaldırmak için IIS Yöneticisi'nde aşağıdaki adımları tamamlayın:
-    1. Gidin **modülleri** özelliği.
-    1. Seçin **StaticFileModule** listesinde.
-    1. Tıklayın **Kaldır** içinde **eylemleri** kenar çubuğu.
+* Sunucu veya Web sitesi düzeyinde IIS statik dosya işleyicisini kaldırmak için IIS Yöneticisi ' nde aşağıdaki adımları uygulayın:
+    1. **Modüller** özelliğine gidin.
+    1. Listeden **StaticFileModule ' ü** seçin.
+    1. **Eylemler** kenar çubuğunda **Kaldır** ' a tıklayın.
 
 > [!WARNING]
-> IIS statik dosya işleyicisi etkinse **ve** statik dosyalar sunulan, ASP.NET Core modülü yanlış yapılandırılmış. Bu, örneğin, olur *web.config* değil dosya dağıtılır.
+> IIS statik dosya işleyicisi etkinse **ve** ASP.NET Core modülü yanlış yapılandırılmışsa, statik dosyalar sunulur. Bu, örneğin, *Web. config* dosyası dağıtılmamışsa oluşur.
 
-* Kod dosyaları yerleştirmek (dahil olmak üzere *.cs* ve *.cshtml*) uygulama projenin web kökünün dışında. Mantıksal ayrılığı, bu nedenle uygulamanın istemci-tarafı içerik ve sunucu tabanlı kod arasında oluşturulur. Bu, sunucu tarafı kodu sızmasını engeller.
+* Kod dosyalarını ( *. cs* ve *. cshtml*dahil) uygulama projesinin Web kökünün dışına yerleştirin. Bu nedenle, uygulamanın istemci tarafı içeriği ile sunucu tabanlı kod arasında bir mantıksal ayrım oluşturulur. Bu, sunucu tarafı kodun sızmasını önler.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

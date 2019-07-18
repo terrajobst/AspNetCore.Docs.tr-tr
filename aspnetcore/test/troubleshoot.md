@@ -1,92 +1,91 @@
 ---
-title: ASP.NET Core projelerinde sorun giderme
+title: ASP.NET Core projeleri sorunlarını giderme
 author: Rick-Anderson
-description: Anlama ve uyarıları ve ASP.NET Core projeleriyle hataları giderebilirsiniz.
+description: ASP.NET Core projelerle uyarıları ve hataları anlayın ve sorun giderin.
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/19/2019
+ms.date: 07/10/2019
 uid: test/troubleshoot
-ms.openlocfilehash: bcec8a55a5111e1f3acf53ae2f57b45e6e609d25
-ms.sourcegitcommit: 9f11685382eb1f4dd0fb694dea797adacedf9e20
+ms.openlocfilehash: b434af2dd046045836d2f6f7f7b7b2d57699bedc
+ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67313681"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68308277"
 ---
-# <a name="troubleshoot-aspnet-core-projects"></a>ASP.NET Core projelerinde sorun giderme
+# <a name="troubleshoot-aspnet-core-projects"></a>ASP.NET Core projeleri sorunlarını giderme
 
 Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Aşağıdaki bağlantılar, sorun giderme kılavuzu sağlar:
+Aşağıdaki bağlantılar sorun giderme kılavuzunu sağlar:
 
-* <xref:host-and-deploy/azure-apps/troubleshoot>
-* <xref:host-and-deploy/iis/troubleshoot>
+* <xref:test/troubleshoot-azure-iis>
 * <xref:host-and-deploy/azure-iis-errors-reference>
-* [NDC konferansı (Londra, 2018): ASP.NET Core uygulamalarında sorunları tanılama](https://www.youtube.com/watch?v=RYI0DHoIVaA)
-* [ASP.NET Web günlüğü: ASP.NET Core performans sorunlarını giderme](https://blogs.msdn.microsoft.com/webdev/2018/05/23/asp-net-core-performance-improvements/)
+* [NDC Konferansı (Londra, 2018): ASP.NET Core uygulamalardaki sorunları tanılama](https://www.youtube.com/watch?v=RYI0DHoIVaA)
+* [ASP.NET blogu: ASP.NET Core performans sorunlarını giderme](https://blogs.msdn.microsoft.com/webdev/2018/05/23/asp-net-core-performance-improvements/)
 
-## <a name="net-core-sdk-warnings"></a>.NET core SDK'sı uyarıları
+## <a name="net-core-sdk-warnings"></a>.NET Core SDK uyarılar
 
-### <a name="both-the-32-bit-and-64-bit-versions-of-the-net-core-sdk-are-installed"></a>.NET Core SDK'yı 32-bit ve 64-bit sürümlerinin yüklü
+### <a name="both-the-32-bit-and-64-bit-versions-of-the-net-core-sdk-are-installed"></a>.NET Core SDK hem 32-bit hem de 64-bit sürümleri yüklenir
 
-İçinde **yeni proje** iletişim için ASP.NET Core, aşağıdaki uyarı görebilirsiniz:
+**Yeni proje** iletişim kutusunda ASP.NET Core için aşağıdaki uyarıyı görebilirsiniz:
 
-> .NET Core SDK'sı hem 32-bit hem de 64 bit sürümlerinde yüklenir. Yalnızca yüklü 64-bit sürümleri şablonlardan ' C:\\Program dosyaları\\dotnet\\sdk\\' görüntülenir.
+> .NET Core SDK hem 32-bit hem de 64-bit sürümleri yüklenir. Yalnızca\\' C: Program Files\\DotNet\\SDK\\' konumunda yüklü olan 64 bitlik sürümlerden alınan şablonlar görüntülenir.
 
-Bu uyarı görüntülenir hem 32-bit (x86) hem de 64-bit (x 64) sürümleri [.NET Core SDK'sı](https://www.microsoft.com/net/download/all) yüklenir. Her iki sürümü yüklü olmayabilir yaygın nedenler şunlardır:
+Bu uyarı, [.NET Core SDK](https://www.microsoft.com/net/download/all) hem 32-bit (x86) hem de 64-bit (x64) sürümleri yüklendiğinde görüntülenir. Her iki sürümün de sık yüklenebileceği yaygın nedenler şunlardır:
 
-* İlk olarak kullanarak bir 32-bit makinede .NET Core SDK'sı yükleyicisi indirdiğiniz ancak ardından üzerinden kopyalanır ve bir 64-bit makinede yüklü.
-* 32-bit .NET Core SDK'sı, başka bir uygulama tarafından yüklendi.
-* Yanlış sürümü indirildi ve yüklendi.
+* İlk olarak 32 bitlik bir makine kullanarak .NET Core SDK yükleyicisini indirdiniz, ancak bu dosyayı bir 64 bit makineye kopyaladınız ve bu makinede yüklediniz.
+* 32 bit .NET Core SDK başka bir uygulama tarafından yüklendi.
+* Yanlış sürüm indirildi ve yüklendi.
 
-Bu uyarıyı engellemek için 32-bit .NET Core SDK kaldırın. Kaldırın **Denetim Masası** > **programlar ve Özellikler** > **Kaldır veya Değiştir bir program**. Uyarı neden oluşur ve kendi uygulamalarını anlarsanız, uyarıyı yoksayabilirsiniz.
+Bu uyarıyı engellemek için 32 bit .NET Core SDK kaldırın. **Denetim Masası** > **Programlar ve Özellikler** > 'den Kaldır**bir programı kaldırma veya değiştirme**. Uyarının neden oluştuğunu ve etkilerini anladıysanız, uyarıyı yoksayabilirsiniz.
 
-### <a name="the-net-core-sdk-is-installed-in-multiple-locations"></a>.NET Core SDK'sını birden çok konumda yüklenir
+### <a name="the-net-core-sdk-is-installed-in-multiple-locations"></a>.NET Core SDK birden çok konuma yüklendi
 
-İçinde **yeni proje** iletişim için ASP.NET Core, aşağıdaki uyarı görebilirsiniz:
+**Yeni proje** iletişim kutusunda ASP.NET Core için aşağıdaki uyarıyı görebilirsiniz:
 
-> .NET Core SDK'sı, birden çok konumda yüklenir. Yalnızca yüklü SDK'ları şablonlardan ' C:\\Program dosyaları\\dotnet\\sdk\\' görüntülenir.
+> .NET Core SDK birden çok konuma yüklenir. Yalnızca\\' C: Program Files\\DotNet\\SDK\\' konumunda yüklü SDK 'lardan şablonlar görüntülenir.
 
-.NET Core SDK'sının en az bir yükleme dışında bir dizinde sahip olduğunuzda bu iletiyi görmeye *C:\\Program dosyaları\\dotnet\\sdk\\* . Bu genellikle .NET Core SDK'sı yerine MSI yükleyicisini kopyala/yapıştır kullanarak bir makine üzerinde dağıtılan gerçekleşir.
+*C:\\Program Files\\DotNet\\SDKdışındabirdizindeenazbir.NETCoreSDKyüklemenizolduğundabuiletiyigörürsünüz.\\* Genellikle bu, .NET Core SDK MSI yükleyicisi yerine Kopyala/Yapıştır kullanılarak bir makineye dağıtıldığında meydana gelir.
 
-Tüm 32-bit .NET Core SDK'ları ve çalışma zamanları bu uyarıyı engellemek için kaldırın. Kaldırın **Denetim Masası** > **programlar ve Özellikler** > **Kaldır veya Değiştir bir program**. Uyarı neden oluşur ve kendi uygulamalarını anlarsanız, uyarıyı yoksayabilirsiniz.
+Bu uyarıyı engellemek için tüm 32-bit .NET Core SDK 'larını ve çalışma zamanlarını kaldırın. **Denetim Masası** > **Programlar ve Özellikler** > 'den Kaldır**bir programı kaldırma veya değiştirme**. Uyarının neden oluştuğunu ve etkilerini anladıysanız, uyarıyı yoksayabilirsiniz.
 
-### <a name="no-net-core-sdks-were-detected"></a>.NET çekirdek SDK algılanmadı
+### <a name="no-net-core-sdks-were-detected"></a>.NET Core SDK 'Ları algılanmadı
 
-* Visual Studio **yeni proje** iletişim için ASP.NET Core, aşağıdaki uyarı görebilirsiniz:
+* ASP.NET Core için Visual Studio **Yeni proje** iletişim kutusunda aşağıdaki uyarıyı görebilirsiniz:
 
-  > .NET çekirdek SDK algılanmadı, ortam değişkenine dahil oldukları olun `PATH`.
+  > .NET Core SDK 'Ları algılanmadı, ortam değişkenine `PATH`dahil olduklarından emin olun.
 
-* Yürütülürken bir `dotnet` komutu olarak bir uyarı görüntülenir:
+* Bir `dotnet` komut yürütürken, uyarı şöyle görünür:
 
-  > Herhangi bir yüklü dotnet SDK'ları bulmak mümkün değildi.
+  > Yüklü olan DotNet SDK 'Ları bulmak mümkün değildi.
 
-Bu uyarılar görünür ortam değişkenini `PATH` tüm .NET Core SDK'ları makinede işaret etmiyor. Bu sorunu çözmek için:
+Bu uyarılar, ortam değişkeni `PATH` makinede herhangi bir .NET Core SDK 'sı üzerine işaret etmez görüntülenir. Bu sorunu çözmek için:
 
-* .NET Core SDK'sını yükleyin. En son Yükleyicisi'nden elde [.NET indirir](https://dotnet.microsoft.com/download).
-* Doğrulayın `PATH` ortam değişkeni, SDK'sı yüklü olduğu konuma işaret (`C:\Program Files\dotnet\` için 64-bit/x64 veya `C:\Program Files (x86)\dotnet\` 32-bit/x86 için). SDK'sı Yükleyicisi normalde ayarlar `PATH`. Her zaman aynı bit genişliği SDK ve çalışma zamanları, aynı makineye yükleyin.
+* .NET Core SDK 'i yükler. [.Net Indirmelerinde](https://dotnet.microsoft.com/download)en son yükleyiciyi edinin.
+* Ortam değişkeninin SDK 'nın yüklü olduğu konuma işaret ettiğini doğrulayın (`C:\Program Files\dotnet\` 64 bit/x64 veya `C:\Program Files (x86)\dotnet\` 32 bit/x86 için). `PATH` SDK yükleyicisi normalde ' i ayarlar `PATH`. Aynı bit genişliği SDK 'larını ve çalışma zamanlarını aynı makineye her zaman yükler.
 
-### <a name="missing-sdk-after-installing-the-net-core-hosting-bundle"></a>.NET Core barındırma paketini yükledikten sonra SDK'sı eksik
+### <a name="missing-sdk-after-installing-the-net-core-hosting-bundle"></a>.NET Core barındırma paketi yüklendikten sonra SDK eksik
 
-Yükleme [.NET Core barındırma paket](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle) değiştirir `PATH` .NET core'un 32-bit (x 86) sürümüne işaret edecek şekilde .NET Core çalışma zamanı yüklendiğinde (`C:\Program Files (x86)\dotnet\`). Bu SDK'ları eksik neden olduğunda 32-bit (x 86) .NET Core `dotnet` komutu kullanılır ([.NET Core SDK algılandı](#no-net-core-sdks-were-detected)). Bu sorunu çözmek için taşıma `C:\Program Files\dotnet\` önce bir konuma `C:\Program Files (x86)\dotnet\` üzerinde `PATH`.
+.NET Core [barındırma](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle) paketinin yüklenmesi, `PATH` .NET Core 'un 32-bit (x86) sürümünü (`C:\Program Files (x86)\dotnet\`) işaret etmek üzere .NET Core çalışma zamanını yüklerken değiştirir. Bu, 32-bit (x86) .NET Core `dotnet` komutu kullanıldığında ([.NET Core SDK 'ları algılanmadığında](#no-net-core-sdks-were-detected)) eksik SDK 'lara yol açabilir. Bu sorunu çözmek için, öncesinde `C:\Program Files\dotnet\` `C:\Program Files (x86)\dotnet\` `PATH`bir konuma geçin.
 
 ## <a name="obtain-data-from-an-app"></a>Bir uygulamadan veri alın
 
-Bir uygulama isteklerini yanıtlayabileceği ise, ara yazılımın kullanılması uygulamayı aşağıdaki veriler elde edebilirsiniz:
+Bir uygulama isteklere yanıt veriyorsa, ara yazılım kullanarak uygulamadan aşağıdaki verileri alabilirsiniz:
 
-* İstek &ndash; yöntemi, şema, konak, pathbase, yol, sorgu dizesi, üst bilgileri
+* İstek &ndash; yöntemi, düzen, ana bilgisayar, pathbase, yol, sorgu dizesi, üst bilgiler
 * Bağlantı &ndash; uzak IP adresi, uzak bağlantı noktası, yerel IP adresi, yerel bağlantı noktası, istemci sertifikası
-* Kimlik &ndash; adı, görünen adı
+* Kimlik &ndash; adı, görünen ad
 * Yapılandırma ayarları
 * Ortam değişkenleri
 
-Aşağıdaki yerleştirin [ara yazılım](xref:fundamentals/middleware/index#create-a-middleware-pipeline-with-iapplicationbuilder) başındaki kod `Startup.Configure` yöntemin istek işleme ardışık düzeni. Kod geliştirme ortamında yalnızca yürütülür emin olmak için bir ara yazılım çalıştırılmadan önce ortamı denetlenir.
+Aşağıdaki [Ara yazılım](xref:fundamentals/middleware/index#create-a-middleware-pipeline-with-iapplicationbuilder) kodunu `Startup.Configure` metodun istek işleme işlem hattının başına yerleştirin. Bu ortam, kodun yalnızca geliştirme ortamında yürütülmesini sağlamak için, ara yazılım çalıştırılmadan önce denetlenir.
 
-Ortamı elde etmek için aşağıdaki yaklaşımlardan birini kullanın:
+Ortamı edinmek için aşağıdaki yaklaşımlardan birini kullanın:
 
-* Ekleme `IHostingEnvironment` içine `Startup.Configure` yöntemi ve onay yerel değişken ortamı. Aşağıdaki örnek kod, bu yaklaşım gösterilmektedir.
+* Metodunuyöntemine`Startup.Configure` ekleyin ve yerel değişkenle ortamı kontrol edin. `IHostingEnvironment` Aşağıdaki örnek kodda bu yaklaşım gösterilmektedir.
 
-* Ortamı bir özelliğine atayın `Startup` sınıfı. Özelliğini kullanarak ortam denetleyin (örneğin, `if (Environment.IsDevelopment())`).
+* Ortamı `Startup` sınıfındaki bir özelliğe atayın. Özelliğini kullanarak ortamı denetleyin (örneğin, `if (Environment.IsDevelopment())`).
 
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env, 

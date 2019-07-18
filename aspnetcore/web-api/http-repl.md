@@ -1,39 +1,39 @@
 ---
-title: Web API HTTP REPL ile test
+title: HTTP REPL ile Web API 'Lerini test etme
 author: scottaddie
-description: HTTP REPL .NET Core genel aracı göz atın ve bir ASP.NET Core web API'sini test etmek için kullanmayı öğrenin.
+description: HTTP REPL .NET Core küresel aracının bir ASP.NET Core Web API 'sini taramak ve test etmek için nasıl kullanılacağını öğrenin.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 07/12/2019
 uid: web-api/http-repl
-ms.openlocfilehash: 920561fc86ed90eef64af49fa5936a080a096de2
-ms.sourcegitcommit: 040aedca220ed24ee1726e6886daf6906f95a028
+ms.openlocfilehash: 1774382305cc3d479291700390807d277a24bfa7
+ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67919263"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68308349"
 ---
-# <a name="test-web-apis-with-the-http-repl"></a>Web API HTTP REPL ile test
+# <a name="test-web-apis-with-the-http-repl"></a>HTTP REPL ile Web API 'Lerini test etme
 
-Tarafından [Scott Addie](https://twitter.com/Scott_Addie)
+[Scott Ade](https://twitter.com/Scott_Addie) tarafından
 
-HTTP okuma-Eval-Print Loop (REPL) aşağıdaki gibidir:
+HTTP okuma-değerlendirme-yazdırma döngüsü (REPL):
 
-* .NET Core her yerde desteklenen basit, platformlar arası komut satırı aracı desteklenir.
-* ASP.NET Core web API'ları sınamak ve sonuçları görüntülemek için HTTP isteği yapmak için kullanılır.
+* .NET Core 'un her yerde desteklenen basit, platformlar arası bir komut satırı aracı desteklenir.
+* ASP.NET Core Web API 'Lerini test etmek ve sonuçlarını görüntülemek için HTTP istekleri yapmak amacıyla kullanılır.
 
-Aşağıdaki [HTTP fiilleri](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#74-supported-methods) desteklenir:
+Aşağıdaki [http fiilleri](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#74-supported-methods) desteklenir:
 
-* [DELETE](#test-http-delete-requests)
+* [SILMELI](#test-http-delete-requests)
 * [GET](#test-http-get-requests)
-* [HEAD](#test-http-head-requests)
+* [BAŞLI](#test-http-head-requests)
 * [SEÇENEKLER](#test-http-options-requests)
-* [DÜZELTME EKİ](#test-http-patch-requests)
+* [DÜZELTMESI](#test-http-patch-requests)
 * [POST](#test-http-post-requests)
-* [PUT](#test-http-put-requests)
+* [KONUR](#test-http-put-requests)
 
-Örneği takip etmek için [görüntüleme veya indirme örnek ASP.NET Core web API'si](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/http-repl/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample)).
+Takip etmek için, [örnek ASP.NET Core Web API](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/web-api/http-repl/samples) 'sini ([indirme](xref:index#how-to-download-a-sample)) görüntüleyin veya indirin.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -41,7 +41,7 @@ Aşağıdaki [HTTP fiilleri](https://github.com/microsoft/api-guidelines/blob/vN
 
 ## <a name="installation"></a>Yükleme
 
-HTTP REPL yüklemek için aşağıdaki komutu çalıştırın:
+HTTP REPL 'u yüklemek için aşağıdaki komutu çalıştırın:
 
 ```console
 dotnet tool install -g dotnet-httprepl
@@ -49,18 +49,18 @@ dotnet tool install -g dotnet-httprepl
     --add-source https://dotnet.myget.org/F/dotnet-core/api/v3/index.json
 ```
 
-A [.NET Core genel aracı](/dotnet/core/tools/global-tools#install-a-global-tool) gelen yüklü [dotnet httprepl](https://dotnet.myget.org/feed/dotnet-core/package/nuget/dotnet-httprepl
-) NuGet paketini Myget'te barındırılan.
+[.NET Core küresel aracı](/dotnet/core/tools/global-tools#install-a-global-tool) , [myget üzerinde barındırılan DotNet-httprepl](https://dotnet.myget.org/feed/dotnet-core/package/nuget/dotnet-httprepl
+) NuGet paketinden yüklenir.
 
 ## <a name="usage"></a>Kullanım
 
-Aracı başarıyla yüklendikten sonra HTTP REPL başlatmak için aşağıdaki komutu çalıştırın:
+Aracın başarıyla yüklenmesinden sonra, HTTP REPL 'u başlatmak için aşağıdaki komutu çalıştırın:
 
 ```console
 dotnet httprepl
 ```
 
-Kullanılabilir tüm HTTP REPL komutları görmek için aşağıdaki komutlardan birini çalıştırın:
+Kullanılabilir HTTP REPL komutlarını görüntülemek için aşağıdaki komutlardan birini çalıştırın:
 
 ```console
 dotnet httprepl -h
@@ -81,7 +81,7 @@ Arguments:
 Options:
   --help - Show help information.
 
-REPL Commands:
+Once the REPL starts, these commands are valid:
 
 HTTP Commands:
 Use these commands to execute requests against your application.
@@ -122,23 +122,23 @@ ui             Displays the Swagger UI page, if available, in the default browse
 Use help <COMMAND> to learn more details about individual commands. e.g. `help get`
 ```
 
-HTTP REPL komut tamamlama sunar. Tuşuna basarak <kbd>sekmesini</kbd> anahtar tam karakter veya yazdığınız API uç noktası komutları listesi üzerinden yinelenir. Aşağıdaki bölümlerde kullanılabilir CLI komutları özetler.
+HTTP REPL komut tamamlama sağlar. <kbd>Sekme</kbd> tuşuna basıldığında, yazdığınız KARAKTERLERI veya API uç noktasını tamamlayacak komutların listesi üzerinden yinelenir. Aşağıdaki bölümlerde kullanılabilir CLı komutları ana hatlarıyla verilmiştir.
 
-## <a name="connect-to-the-web-api"></a>Web API'sine bağlanma
+## <a name="connect-to-the-web-api"></a>Web API 'sine bağlanma
 
-Aşağıdaki komutu çalıştırarak bir web API'sine bağlanma:
+Aşağıdaki komutu çalıştırarak bir Web API 'sine bağlanın:
 
 ```console
 dotnet httprepl <BASE URI>
 ```
 
-`<BASE URI>` web API'si için temel URI'dir. Örneğin:
+`<BASE URI>`, Web API 'sinin temel URI 'sidir. Örneğin:
 
 ```console
 dotnet httprepl https://localhost:5001
 ```
 
-Alternatif olarak, HTTP REPL çalışırken herhangi bir zamanda aşağıdaki komutu çalıştırın:
+Alternatif olarak, HTTP REPL çalışırken istediğiniz zaman aşağıdaki komutu çalıştırın:
 
 ```console
 set base <BASE URI>
@@ -150,9 +150,9 @@ set base <BASE URI>
 (Disconnected)~ set base https://localhost:5001
 ```
 
-## <a name="point-to-the-swagger-document-for-the-web-api"></a>Web API'si için Swagger belgesinin noktası
+## <a name="point-to-the-swagger-document-for-the-web-api"></a>Web API 'SI için Swagger belgesine işaret edin
 
-Web API'si düzgün bir şekilde incelemek için web API'si için Swagger belgesinin göreli URI ayarlayın. Şu komutu çalıştırın:
+Web API 'sini düzgün bir şekilde incelemek için göreli URI 'yi Web API 'SI için Swagger belgesine ayarlayın. Şu komutu çalıştırın:
 
 ```console
 set swagger <RELATIVE URI>
@@ -164,17 +164,17 @@ set swagger <RELATIVE URI>
 https://localhost:5001/~ set swagger /swagger/v1/swagger.json
 ```
 
-## <a name="navigate-the-web-api"></a>Web API'si gidin
+## <a name="navigate-the-web-api"></a>Web API 'sinde gezin
 
-### <a name="view-available-endpoints"></a>Kullanılabilir uç noktalarını görüntüle
+### <a name="view-available-endpoints"></a>Kullanılabilir uç noktaları görüntüle
 
-Web API adresi geçerli yolda farklı uç noktalar (denetleyiciler) listelemek için çalıştırma `ls` veya `dir` komutu:
+Web API adresinin geçerli yolundaki farklı uç noktaları (denetleyiciler) listelemek için, `ls` veya `dir` komutunu çalıştırın:
 
 ```console
 https://localhot:5001/~ ls
 ```
 
-Aşağıdaki çıktı biçimi görüntülenir:
+Aşağıdaki çıkış biçimi görüntülenir:
 
 ```console
 .        []
@@ -184,9 +184,9 @@ People   [get|post]
 https://localhost:5001/~
 ```
 
-Önceki çıkış iki denetleyici kullanılabilir olduğunu gösterir: `Fruits` ve `People`. Her iki denetleyicilerinin parametresiz bir HTTP GET ve POST işlemleri destekler.
+Yukarıdaki çıkış, kullanılabilir iki denetleyici olduğunu gösterir: `Fruits` ve. `People` Her iki denetleyici de parametresiz HTTP GET ve POST işlemlerini destekler.
 
-Belirli bir Denetleyicisi'nde giderek daha fazla ayrıntı ortaya çıkarır. Örneğin, aşağıdaki komutu gösterir çıkışını `Fruits` denetleyicisi Ayrıca HTTP GET, PUT ve DELETE işlemlerini destekler. Bu işlemlerden her biriyle bekliyor bir `id` rota parametresi:
+Belirli bir denetleyicide gezinmek daha ayrıntılı bilgi gösterir. Örneğin, aşağıdaki komut çıktısı, `Fruits` denetleyiciyi de http get, put ve DELETE işlemlerini destekler. Bu işlemlerin her biri, rotada `id` bir parametre bekler:
 
 ```console
 https://localhost:5001/fruits~ ls
@@ -197,21 +197,21 @@ https://localhost:5001/fruits~ ls
 https://localhost:5001/fruits~
 ```
 
-Alternatif olarak, çalıştırma `ui` web API'SİNİN Swagger kullanıcı arabirimini sayfasını bir tarayıcıda açmak için komutu. Örneğin:
+Alternatif olarak, Web `ui` API 'sinin Swagger Kullanıcı Arabirimi sayfasını bir tarayıcıda açmak için komutunu çalıştırın. Örneğin:
 
 ```console
 https://localhost:5001/~ ui
 ```
 
-### <a name="navigate-to-an-endpoint"></a>Bir uç noktasına gidin
+### <a name="navigate-to-an-endpoint"></a>Bir uç noktaya gitme
 
-Web API üzerinde farklı bir uç noktasına gitmek için çalıştırma `cd` komutu:
+Web API 'sindeki farklı bir uç noktaya gitmek için `cd` komutunu çalıştırın:
 
 ```console
 https://localhost:5001/~ cd people
 ```
 
-Yol aşağıdaki `cd` komutu büyük küçük harfe duyarlı. Aşağıdaki çıktı biçimi görüntülenir:
+`cd` Komutu izleyen yol büyük/küçük harfe duyarlıdır. Aşağıdaki çıkış biçimi görüntülenir:
 
 ```console
 /people    [get|post]
@@ -219,35 +219,35 @@ Yol aşağıdaki `cd` komutu büyük küçük harfe duyarlı. Aşağıdaki çık
 https://localhost:5001/people~
 ```
 
-## <a name="customize-the-http-repl"></a>HTTP REPL özelleştirme
+## <a name="customize-the-http-repl"></a>HTTP REPL 'ı özelleştirme
 
-HTTP REPL varsayılan [renkleri](#set-color-preferences) özelleştirilebilir. Ayrıca, bir [varsayılan metin düzenleyici](#set-the-default-text-editor) tanımlanabilir. HTTP REPL tercihleri geçerli oturumu arasında kalıcıdır ve gelecek oturumlar yerine getirilmez. Değiştirilen sonra aşağıdaki dosya tercihleri depolanır:
+HTTP REPL 'un varsayılan [renkleri](#set-color-preferences) özelleştirilebilir. Ayrıca, [varsayılan bir metin Düzenleyicisi](#set-the-default-text-editor) tanımlanabilir. HTTP REPL tercihleri geçerli oturum genelinde kalıcı hale getirilir ve gelecekteki oturumlarda kabul edilir. Değiştirildikten sonra, Tercihler aşağıdaki dosyada depolanır:
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
-*%HOME%/.httpreplprefs*
+*% GIRIŞ%/. httpreplprefs*
 
 # <a name="macostabmacos"></a>[macOS](#tab/macos)
 
-*%HOME%/.httpreplprefs*
+*% GIRIŞ%/. httpreplprefs*
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
-*% USERPROFILE %\\.httpreplprefs*
+*% USERPROFILE%\\. httpreplprefs*
 
 ---
 
-*.Httpreplprefs* dosya başlangıçta yüklendi ve değişikliklerin çalışma zamanında izlenen değil. Dosyayı el ile yapılan değişiklikler yalnızca bir aracı yeniden başlatıldıktan sonra etkili olur.
+*. Httpreplprefs* dosyası başlangıçta yüklendi ve çalışma zamanında değişiklikler için izlenmiyor. Dosyada el ile yapılan değişiklikler yalnızca araç yeniden başlatıldıktan sonra devreye girer.
 
 ### <a name="view-the-settings"></a>Ayarları görüntüleyin
 
-Kullanılabilir ayarları görüntülemek için çalıştırın `pref get` komutu. Örneğin:
+Kullanılabilir ayarları görüntülemek için `pref get` komutunu çalıştırın. Örneğin:
 
 ```console
 https://localhost:5001/~ pref get
 ```
 
-Önceki komutta, mevcut anahtar-değer çiftleri görüntüler:
+Yukarıdaki komut, kullanılabilir anahtar-değer çiftlerini görüntüler:
 
 ```console
 colors.json=Green
@@ -260,72 +260,26 @@ colors.protocol=BoldGreen
 colors.status=BoldYellow
 ```
 
-### <a name="set-color-preferences"></a>Rengi tercihlerini ayarlama
+### <a name="set-color-preferences"></a>Renk tercihlerini ayarla
 
-Yanıt renklendirme şu anda yalnızca JSON için desteklenir. Renklendirme varsayılan HTTP REPL aracı özelleştirmek için anahtar karşılık gelen rengi değiştirilecek bulun. Anahtarların bulma hakkında yönergeler için bkz: [ayarları görüntüleyin](#view-the-settings) bölümü. Örneğin, değiştirme `colors.json` anahtar değerinden `Green` için `White` gibi:
+Yanıt renklendirme Şu anda yalnızca JSON için destekleniyor. Varsayılan HTTP REPL aracı renklendirmesini özelleştirmek için, değiştirilecek renge karşılık gelen anahtarı bulun. Anahtarları bulma hakkında yönergeler için bkz. [ayarları görüntüleme](#view-the-settings) bölümü. Örneğin, `colors.json` anahtar `Green` değerini şu şekilde olacak `White` şekilde değiştirin:
 
 ```console
 https://localhost:5001/people~ pref set colors.json White
 ```
 
-Yalnızca [renkleri izin](https://github.com/aspnet/HttpRepl/blob/01d5c3c3373e98fe566ff5ef8a17c571de880293/src/Microsoft.Repl/ConsoleHandling/AllowedColors.cs) kullanılabilir. Sonraki HTTP yeni renklendirme ile görüntü çıkış ister.
+Yalnızca [izin verilen renkler](https://github.com/aspnet/HttpRepl/blob/01d5c3c3373e98fe566ff5ef8a17c571de880293/src/Microsoft.Repl/ConsoleHandling/AllowedColors.cs) kullanılabilir. Sonraki HTTP istekleri, yeni renklendirmesi ile çıktıyı görüntüler.
 
-Belirli renk anahtarları olmayan ayarlarken daha genel anahtarlar olarak kabul edilir. Bu geri dönüş davranışını göstermek için aşağıdaki örneği göz önünde bulundurun:
+Belirli renk anahtarları ayarlanmamışsa, daha genel anahtarlar kabul edilir. Bu geri dönüş davranışını göstermek için aşağıdaki örneği göz önünde bulundurun:
 
-* Varsa `colors.json.name` bir değere sahip `colors.json.string` kullanılır.
-* Varsa `colors.json.string` bir değere sahip `colors.json.literal` kullanılır.
-* Varsa `colors.json.literal` bir değere sahip `colors.json` kullanılır. 
-* Varsa `colors.json` komut kabuğu'nın varsayılan metin rengi bir değere sahip değil (`AllowedColors.None`) kullanılır.
+* Eğer `colors.json.name` bir değeri yoksa, `colors.json.string` kullanılır.
+* Eğer `colors.json.string` bir değeri yoksa, `colors.json.literal` kullanılır.
+* Eğer `colors.json.literal` bir değeri yoksa, `colors.json` kullanılır. 
+* Bir `colors.json` değere sahip değilse, komut kabuğun varsayılan metin rengi (`AllowedColors.None`) kullanılır.
 
-### <a name="set-indentation-size"></a>Girinti boyutunu Ayarla
+### <a name="set-indentation-size"></a>Girinti boyutunu ayarla
 
-Yanıt girinti boyutu özelleştirmesi şu anda yalnızca JSON için desteklenir. Varsayılan iki boşluk boyutudur. Örneğin:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Apple"
-  },
-  {
-    "id": 2,
-    "name": "Orange"
-  },
-  {
-    "id": 3,
-    "name": "Strawberry"
-  }
-]
-```
-
-Varsayılan boyutu değiştirmek için Ayarla `formatting.json.indentSize` anahtarı. Örneğin, her zaman dört alanları kullanın:
-
-```console
-pref set formatting.json.indentSize 4
-```
-
-Dört alan ayarını yanıtlar sonraki dikkate:
-
-```json
-[
-    {
-        "id": 1,
-        "name": "Apple"
-    },
-    {
-        "id": 2,
-        "name": "Orange"
-    },
-    {
-        "id": 3,
-        "name": "Strawberry"
-    }
-]
-```
-
-### <a name="set-indentation-size"></a>Girinti boyutunu Ayarla
-
-Yanıt girinti boyutu özelleştirmesi şu anda yalnızca JSON için desteklenir. Varsayılan iki boşluk boyutudur. Örneğin:
+Yanıt girintileme boyut özelleştirmesi Şu anda yalnızca JSON için destekleniyor. Varsayılan boyut iki boşluklardan oluşamaz. Örneğin:
 
 ```json
 [
@@ -344,13 +298,13 @@ Yanıt girinti boyutu özelleştirmesi şu anda yalnızca JSON için desteklenir
 ]
 ```
 
-Varsayılan boyutu değiştirmek için Ayarla `formatting.json.indentSize` anahtarı. Örneğin, her zaman dört alanları kullanın:
+Varsayılan boyutu değiştirmek için `formatting.json.indentSize` anahtarı ayarlayın. Örneğin, her zaman dört boşluk kullanmak için:
 
 ```console
 pref set formatting.json.indentSize 4
 ```
 
-Dört alan ayarını yanıtlar sonraki dikkate:
+Sonraki yanıtlar dört boşluk ayarına uyar:
 
 ```json
 [
@@ -369,15 +323,61 @@ Dört alan ayarını yanıtlar sonraki dikkate:
 ]
 ```
 
-### <a name="set-the-default-text-editor"></a>Varsayılan metin Düzenleyicisi'ni ayarlayın
+### <a name="set-indentation-size"></a>Girinti boyutunu ayarla
 
-Varsayılan olarak, HTTP REPL kullanılmak üzere yapılandırılmış hiçbir metin düzenleyicisi içerir. Bir HTTP isteği gövdesinin gerektiren web API yöntemleri test etmek için bir varsayılan metin düzenleyicisi ayarlamanız gerekir. HTTP REPL aracı yapılandırılmış metin düzenleyici tek amacı, istek gövdesi oluşturma işlemi başlatır. Varsayılan olarak, tercih edilen metin düzenleyiciyi ayarlamak için aşağıdaki komutu çalıştırın:
+Yanıt girintileme boyut özelleştirmesi Şu anda yalnızca JSON için destekleniyor. Varsayılan boyut iki boşluklardan oluşamaz. Örneğin:
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Apple"
+  },
+  {
+    "id": 2,
+    "name": "Orange"
+  },
+  {
+    "id": 3,
+    "name": "Strawberry"
+  }
+]
+```
+
+Varsayılan boyutu değiştirmek için `formatting.json.indentSize` anahtarı ayarlayın. Örneğin, her zaman dört boşluk kullanmak için:
+
+```console
+pref set formatting.json.indentSize 4
+```
+
+Sonraki yanıtlar dört boşluk ayarına uyar:
+
+```json
+[
+    {
+        "id": 1,
+        "name": "Apple"
+    },
+    {
+        "id": 2,
+        "name": "Orange"
+    },
+    {
+        "id": 3,
+        "name": "Strawberry"
+    }
+]
+```
+
+### <a name="set-the-default-text-editor"></a>Varsayılan metin düzenleyiciyi ayarlama
+
+Varsayılan olarak, HTTP REPL 'un kullanılmak üzere yapılandırılmış metin Düzenleyicisi yok. HTTP istek gövdesi gerektiren Web API yöntemlerini test etmek için varsayılan metin Düzenleyicisi ayarlanmalıdır. HTTP REPL Aracı, istek gövdesini oluşturma amacıyla yapılandırılmış metin düzenleyicisini başlatır. Tercih ettiğiniz metin düzenleyiciyi varsayılan olarak ayarlamak için aşağıdaki komutu çalıştırın:
 
 ```console
 pref set editor.command.default "<EXECUTABLE>"
 ```
 
-Önceki komutta `<EXECUTABLE>` Metin Düzenleyicisi'nin yürütülebilir dosyasının tam yoludur. Örneğin, varsayılan metin düzenleyici olarak Visual Studio Code ayarlamak için aşağıdaki komutu çalıştırın:
+Yukarıdaki komutta, `<EXECUTABLE>` metin düzenleyicisinin yürütülebilir dosyasının tam yoludur. Örneğin, Visual Studio Code varsayılan metin düzenleyicisi olarak ayarlamak için aşağıdaki komutu çalıştırın:
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
@@ -399,15 +399,15 @@ pref set editor.command.default "C:\Program Files\Microsoft VS Code\Code.exe"
 
 ---
 
-Belirli CLI bağımsız değişkenlerle varsayılan metin düzenleyiciyi başlatmak için ayarlanmış `editor.command.default.arguments` anahtarı. Örneğin, varsayılan metin düzenleyicisi Visual Studio Code, ve her zaman Visual Studio Code uzantıları devre dışı yeni bir oturum açmak için HTTP REPL istediğinizi varsayalım. Şu komutu çalıştırın:
+Varsayılan metin düzenleyiciyi belirli CLI bağımsız değişkenleriyle başlatmak için `editor.command.default.arguments` anahtarı ayarlayın. Örneğin, Visual Studio Code varsayılan metin Düzenleyicisi olduğunu ve her zaman HTTP REPL 'un uzantıları devre dışı bırakılmış yeni bir oturumda Visual Studio Code açmasını istediğinizi varsayalım. Şu komutu çalıştırın:
 
 ```console
 pref set editor.command.default.arguments "--disable-extensions --new-window"
 ```
 
-## <a name="test-http-get-requests"></a>HTTP GET isteklerini test
+## <a name="test-http-get-requests"></a>HTTP GET isteklerini test etme
 
-### <a name="synopsis"></a>Synopsis
+### <a name="synopsis"></a>Özeti
 
 ```console
 get <PARAMETER> [-F|--no-formatting] [-h|--header] [--response] [--response:body] [--response:headers] [-s|--streaming]
@@ -417,25 +417,25 @@ get <PARAMETER> [-F|--no-formatting] [-h|--header] [--response] [--response:body
 
 `PARAMETER`
 
-Rota parametresi varsa, ilişkilendirilen denetleyiciye eylem yöntemi tarafından bekleniyor.
+Varsa, ilişkili denetleyici eylem yöntemi tarafından beklenen rota parametresi.
 
 ### <a name="options"></a>Seçenekler
 
-Aşağıdaki seçenekler kullanılabilir `get` komutu:
+`get` Komutu için aşağıdaki seçenekler kullanılabilir:
 
 [!INCLUDE [standard CLI options](~/includes/http-repl/standard-options.md)]
 
 ### <a name="example"></a>Örnek
 
-Bir HTTP GET isteği göndermektir almak için:
+HTTP GET isteği vermek için:
 
-1. Çalıştırma `get` desteklediği uç noktasında komutu:
+1. `get` Komutu onu destekleyen bir uç noktada çalıştırın:
 
     ```console
     https://localhost:5001/people~ get
     ```
 
-    Yukarıdaki komut, aşağıdaki çıkış biçimi görüntüler:
+    Yukarıdaki komut aşağıdaki çıkış biçimini görüntüler:
 
     ```console
     HTTP/1.1 200 OK
@@ -463,13 +463,13 @@ Bir HTTP GET isteği göndermektir almak için:
     https://localhost:5001/people~
     ```
 
-1. Belirli bir kaydı için bir parametre geçirerek almak `get` komutu:
+1. `get` Komutuna bir parametre geçirerek belirli bir kaydı alın:
 
     ```console
     https://localhost:5001/people~ get 2
     ```
 
-    Yukarıdaki komut, aşağıdaki çıkış biçimi görüntüler:
+    Yukarıdaki komut aşağıdaki çıkış biçimini görüntüler:
 
     ```console
     HTTP/1.1 200 OK
@@ -489,9 +489,9 @@ Bir HTTP GET isteği göndermektir almak için:
     https://localhost:5001/people~
     ```
 
-## <a name="test-http-post-requests"></a>Testi HTTP POST istekleri
+## <a name="test-http-post-requests"></a>HTTP POST isteklerini test et
 
-### <a name="synopsis"></a>Synopsis
+### <a name="synopsis"></a>Özeti
 
 ```console
 post <PARAMETER> [-c|--content] [-f|--file] [-h|--header] [--no-body] [-F|--no-formatting] [--response] [--response:body] [--response:headers] [-s|--streaming]
@@ -501,7 +501,7 @@ post <PARAMETER> [-c|--content] [-f|--file] [-h|--header] [--no-body] [-F|--no-f
 
 `PARAMETER`
 
-Rota parametresi varsa, ilişkilendirilen denetleyiciye eylem yöntemi tarafından bekleniyor.
+Varsa, ilişkili denetleyici eylem yöntemi tarafından beklenen rota parametresi.
 
 ### <a name="options"></a>Seçenekler
 
@@ -511,15 +511,15 @@ Rota parametresi varsa, ilişkilendirilen denetleyiciye eylem yöntemi tarafınd
 
 ### <a name="example"></a>Örnek
 
-Bir HTTP POST isteği göndermektir almak için:
+HTTP POST isteği vermek için:
 
-1. Çalıştırma `post` desteklediği uç noktasında komutu:
+1. `post` Komutu onu destekleyen bir uç noktada çalıştırın:
 
     ```console
     https://localhost:5001/people~ post -h Content-Type=application/json
     ```
 
-    Önceki komutta `Content-Type` HTTP isteği üst bilgisi, JSON isteği gövdesi medya türünü belirtmek için ayarlanır. Varsayılan metin düzenleyicisi açılır bir *.tmp* HTTP isteği gövdesinin temsil eden bir JSON şablon dosyası. Örneğin:
+    Önceki komutta, `Content-Type` http istek üst bilgisi, JSON türünde bir istek gövdesi medya türünü gösterecek şekilde ayarlanır. Varsayılan metin Düzenleyicisi, HTTP istek gövdesini temsil eden bir JSON şablonuyla bir *. tmp* dosyası açar. Örneğin:
 
     ```json
     {
@@ -529,9 +529,9 @@ Bir HTTP POST isteği göndermektir almak için:
     ```
 
     > [!TIP]
-    > Varsayılan metin Düzenleyicisi'ni ayarlamak için bkz [kümesi varsayılan metin düzenleyici](#set-the-default-text-editor) bölümü.
+    > Varsayılan metin düzenleyicisini ayarlamak için [varsayılan metin düzenleyiciyi ayarlama](#set-the-default-text-editor) bölümüne bakın.
 
-1. Model doğrulama gereksinimlerini karşılamak için JSON şablonunu değiştirin:
+1. JSON şablonunu model doğrulama gereksinimlerini karşılayacak şekilde değiştirin:
 
   ```json
   {
@@ -540,7 +540,7 @@ Bir HTTP POST isteği göndermektir almak için:
   }
   ```
 
-1. Kaydet *.tmp* dosya ve Metin Düzenleyicisi'ni kapatın. Komut kabuğu'nda aşağıdaki çıktı görünür:
+1. *. Tmp* dosyasını kaydedin ve metin düzenleyicisini kapatın. Aşağıdaki çıktı komut kabuğu 'nda görünür:
 
     ```console
     HTTP/1.1 201 Created
@@ -559,9 +559,9 @@ Bir HTTP POST isteği göndermektir almak için:
     https://localhost:5001/people~
     ```
 
-## <a name="test-http-put-requests"></a>HTTP PUT isteklerini test
+## <a name="test-http-put-requests"></a>HTTP PUT isteklerini test etme
 
-### <a name="synopsis"></a>Synopsis
+### <a name="synopsis"></a>Özeti
 
 ```console
 put <PARAMETER> [-c|--content] [-f|--file] [-h|--header] [--no-body] [-F|--no-formatting] [--response] [--response:body] [--response:headers] [-s|--streaming]
@@ -571,7 +571,7 @@ put <PARAMETER> [-c|--content] [-f|--file] [-h|--header] [--no-body] [-F|--no-fo
 
 `PARAMETER`
 
-Rota parametresi varsa, ilişkilendirilen denetleyiciye eylem yöntemi tarafından bekleniyor.
+Varsa, ilişkili denetleyici eylem yöntemi tarafından beklenen rota parametresi.
 
 ### <a name="options"></a>Seçenekler
 
@@ -581,9 +581,9 @@ Rota parametresi varsa, ilişkilendirilen denetleyiciye eylem yöntemi tarafınd
 
 ### <a name="example"></a>Örnek
 
-Bir HTTP PUT isteği göndermek için:
+HTTP PUT isteği vermek için:
 
-1. *İsteğe bağlı*: Çalıştırma `get` değiştirmeden önce verileri görüntülemek için komut:
+1. *Isteğe bağlı*: Verileri değiştirmeden önce görüntülemek için komutunuçalıştırın:`get`
 
     ```console
     https://localhost:5001/fruits~ get
@@ -614,7 +614,7 @@ Bir HTTP PUT isteği göndermek için:
     https://localhost:5001/fruits~ put 2 -h Content-Type=application/json
     ```
 
-    Önceki komutta `Content-Type` HTTP isteği üst bilgisi, JSON isteği gövdesi medya türünü belirtmek için ayarlanır. Varsayılan metin düzenleyicisi açılır bir *.tmp* HTTP isteği gövdesinin temsil eden bir JSON şablon dosyası. Örneğin:
+    Önceki komutta, `Content-Type` http istek üst bilgisi, JSON türünde bir istek gövdesi medya türünü gösterecek şekilde ayarlanır. Varsayılan metin Düzenleyicisi, HTTP istek gövdesini temsil eden bir JSON şablonuyla bir *. tmp* dosyası açar. Örneğin:
 
     ```json
     {
@@ -624,9 +624,9 @@ Bir HTTP PUT isteği göndermek için:
     ```
 
     > [!TIP]
-    > Varsayılan metin Düzenleyicisi'ni ayarlamak için bkz [kümesi varsayılan metin düzenleyici](#set-the-default-text-editor) bölümü.
+    > Varsayılan metin düzenleyicisini ayarlamak için [varsayılan metin düzenleyiciyi ayarlama](#set-the-default-text-editor) bölümüne bakın.
 
-1. Model doğrulama gereksinimlerini karşılamak için JSON şablonunu değiştirin:
+1. JSON şablonunu model doğrulama gereksinimlerini karşılayacak şekilde değiştirin:
 
     ```json
     {
@@ -635,7 +635,7 @@ Bir HTTP PUT isteği göndermek için:
     }
     ```
 
-1. Kaydet *.tmp* dosya ve Metin Düzenleyicisi'ni kapatın. Komut kabuğu'nda aşağıdaki çıktı görünür:
+1. *. Tmp* dosyasını kaydedin ve metin düzenleyicisini kapatın. Aşağıdaki çıktı komut kabuğu 'nda görünür:
 
     ```console
     [main 2019-06-28T17:27:01.805Z] update#setState idle
@@ -644,7 +644,7 @@ Bir HTTP PUT isteği göndermek için:
     Server: Kestrel
     ```
 
-1. *İsteğe bağlı*: Sorun bir `get` değişiklikleri görmek için komutu. Örneğin, Metin Düzenleyici'de "Tek tek seçme" yazılı bir `get` aşağıdaki döndürür:
+1. *Isteğe bağlı*: Değişiklikleri görmek `get` için bir komut verin. Örneğin, metin düzenleyicisinde "chraz" yazdıysanız, bir `get` , şunu döndürür:
 
     ```console
     https://localhost:5001/fruits~ get
@@ -673,9 +673,9 @@ Bir HTTP PUT isteği göndermek için:
     https://localhost:5001/fruits~
     ```
 
-## <a name="test-http-delete-requests"></a>HTTP DELETE isteklerini test
+## <a name="test-http-delete-requests"></a>HTTP SILME isteklerini test etme
 
-### <a name="synopsis"></a>Synopsis
+### <a name="synopsis"></a>Özeti
 
 ```console
 delete <PARAMETER> [-F|--no-formatting] [-h|--header] [--response] [--response:body] [--response:headers] [-s|--streaming]
@@ -685,7 +685,7 @@ delete <PARAMETER> [-F|--no-formatting] [-h|--header] [--response] [--response:b
 
 `PARAMETER`
 
-Rota parametresi varsa, ilişkilendirilen denetleyiciye eylem yöntemi tarafından bekleniyor.
+Varsa, ilişkili denetleyici eylem yöntemi tarafından beklenen rota parametresi.
 
 ### <a name="options"></a>Seçenekler
 
@@ -693,9 +693,9 @@ Rota parametresi varsa, ilişkilendirilen denetleyiciye eylem yöntemi tarafınd
 
 ### <a name="example"></a>Örnek
 
-Bir HTTP DELETE isteği göndermek için:
+HTTP SILME isteği vermek için:
 
-1. *İsteğe bağlı*: Çalıştırma `get` değiştirmeden önce verileri görüntülemek için komut:
+1. *Isteğe bağlı*: Verileri değiştirmeden önce görüntülemek için komutunuçalıştırın:`get`
 
     ```console
     https://localhost:5001/fruits~ get
@@ -726,7 +726,7 @@ Bir HTTP DELETE isteği göndermek için:
     https://localhost:5001/fruits~ delete 2
     ```
 
-    Yukarıdaki komut, aşağıdaki çıkış biçimi görüntüler:
+    Yukarıdaki komut aşağıdaki çıkış biçimini görüntüler:
 
     ```console
     HTTP/1.1 204 No Content
@@ -734,7 +734,7 @@ Bir HTTP DELETE isteği göndermek için:
     Server: Kestrel
     ```
 
-1. *İsteğe bağlı*: Sorun bir `get` değişiklikleri görmek için komutu. Bu örnekte, bir `get` aşağıdaki döndürür:
+1. *Isteğe bağlı*: Değişiklikleri görmek `get` için bir komut verin. Bu örnekte, bir `get` , şunu döndürür:
 
     ```console
     https://localhost:5001/fruits~ get
@@ -759,9 +759,9 @@ Bir HTTP DELETE isteği göndermek için:
     https://localhost:5001/fruits~
     ```
 
-## <a name="test-http-patch-requests"></a>HTTP PATCH isteği test
+## <a name="test-http-patch-requests"></a>HTTP PATCH isteklerini test etme
 
-### <a name="synopsis"></a>Synopsis
+### <a name="synopsis"></a>Özeti
 
 ```console
 patch <PARAMETER> [-c|--content] [-f|--file] [-h|--header] [--no-body] [-F|--no-formatting] [--response] [--response:body] [--response:headers] [-s|--streaming]
@@ -771,7 +771,7 @@ patch <PARAMETER> [-c|--content] [-f|--file] [-h|--header] [--no-body] [-F|--no-
 
 `PARAMETER`
 
-Rota parametresi varsa, ilişkilendirilen denetleyiciye eylem yöntemi tarafından bekleniyor.
+Varsa, ilişkili denetleyici eylem yöntemi tarafından beklenen rota parametresi.
 
 ### <a name="options"></a>Seçenekler
 
@@ -779,9 +779,9 @@ Rota parametresi varsa, ilişkilendirilen denetleyiciye eylem yöntemi tarafınd
 
 [!INCLUDE [HTTP request body CLI options](~/includes/http-repl/requires-body-options.md)]
 
-## <a name="test-http-head-requests"></a>HTTP HEAD isteklerini test
+## <a name="test-http-head-requests"></a>HTTP HEAD isteklerini test etme
 
-### <a name="synopsis"></a>Synopsis
+### <a name="synopsis"></a>Özeti
 
 ```console
 head <PARAMETER> [-F|--no-formatting] [-h|--header] [--response] [--response:body] [--response:headers] [-s|--streaming]
@@ -791,15 +791,15 @@ head <PARAMETER> [-F|--no-formatting] [-h|--header] [--response] [--response:bod
 
 `PARAMETER`
 
-Rota parametresi varsa, ilişkilendirilen denetleyiciye eylem yöntemi tarafından bekleniyor.
+Varsa, ilişkili denetleyici eylem yöntemi tarafından beklenen rota parametresi.
 
 ### <a name="options"></a>Seçenekler
 
 [!INCLUDE [standard CLI options](~/includes/http-repl/standard-options.md)]
 
-## <a name="test-http-options-requests"></a>HTTP OPTIONS istekleri test
+## <a name="test-http-options-requests"></a>Sınama HTTP SEÇENEKLERI istekleri
 
-### <a name="synopsis"></a>Synopsis
+### <a name="synopsis"></a>Özeti
 
 ```console
 options <PARAMETER> [-F|--no-formatting] [-h|--header] [--response] [--response:body] [--response:headers] [-s|--streaming]
@@ -809,50 +809,50 @@ options <PARAMETER> [-F|--no-formatting] [-h|--header] [--response] [--response:
 
 `PARAMETER`
 
-Rota parametresi varsa, ilişkilendirilen denetleyiciye eylem yöntemi tarafından bekleniyor.
+Varsa, ilişkili denetleyici eylem yöntemi tarafından beklenen rota parametresi.
 
 ### <a name="options"></a>Seçenekler
 
 [!INCLUDE [standard CLI options](~/includes/http-repl/standard-options.md)]
 
-## <a name="set-http-request-headers"></a>HTTP istek üstbilgilerini Ayarla
+## <a name="set-http-request-headers"></a>HTTP istek üst bilgilerini ayarla
 
-Bir HTTP isteği üstbilgisini ayarlamak için aşağıdaki yaklaşımlardan birini kullanın:
+Bir HTTP istek üst bilgisi ayarlamak için aşağıdaki yaklaşımlardan birini kullanın:
 
-1. Satır içi HTTP isteği ile ayarlayın. Örneğin:
+1. HTTP isteğiyle satır içi ayarlayın. Örneğin:
 
   ```console
   https://localhost:5001/people~ post -h Content-Type=application/json
   ```
 
-  Önceki yaklaşımda her ayrı HTTP isteği üstbilgisini kendi gerektirir `-h` seçeneği.
+  Önceki yaklaşımla, her ayrı http istek üst bilgisi kendi `-h` seçeneğini gerektirir.
 
-1. HTTP isteği göndermeden önce ayarlayın. Örneğin:
+1. HTTP isteğini göndermeden önce ayarlayın. Örneğin:
 
   ```console
   https://localhost:5001/people~ set header Content-Type application/json
   ```
 
-  Üst bilgi isteği göndermeden önce ayarlarken, üst bilgi komut kabuk oturumu süresi için ayarlanmış olarak kalır. Üst bilgi temizlemek için boş bir değer sağlayın. Örneğin:
+  Bir isteği göndermeden önce üst bilgi ayarlanırken üst bilgi, komut kabuğu oturumunun süresi boyunca ayarlanmış olarak kalır. Üstbilgiyi temizlemek için boş bir değer sağlayın. Örneğin:
 
   ```console
   https://localhost:5001/people~ set header Content-Type
   ```
 
-## <a name="toggle-http-request-display"></a>HTTP isteği görüntüleme Değiştir
+## <a name="toggle-http-request-display"></a>HTTP istek görüntüsünü değiştirme
 
-Varsayılan olarak, görüntü gönderilen HTTP isteğinin bastırılır. Komut kabuk oturumu süresi için karşılık gelen ayarı değiştirmek mümkündür.
+Varsayılan olarak, gönderilmekte olan HTTP isteğinin görüntüsü bastırılır. Komut kabuğu oturumunun süresi boyunca ilgili ayarı değiştirmek mümkündür.
 
-### <a name="enable-request-display"></a>Etkinleştirme isteği görüntüleme
+### <a name="enable-request-display"></a>İstek görüntülemesini etkinleştir
 
-Çalıştırarak gönderilmekte olan HTTP isteğini `echo on` komutu. Örneğin:
+`echo on` Komutunu çalıştırarak gönderilmekte olan http isteğini görüntüleyin. Örneğin:
 
 ```console
 https://localhost:5001/people~ echo on
 Request echoing is on
 ```
 
-Geçerli oturumda sonraki HTTP istekleri, istek üst bilgilerini görüntüler. Örneğin:
+Geçerli oturumdaki sonraki HTTP istekleri, istek üst bilgilerini görüntüler. Örneğin:
 
 ```console
 https://localhost:5001/people~ post
@@ -888,9 +888,9 @@ Transfer-Encoding: chunked
 https://localhost:5001/people~
 ```
 
-### <a name="disable-request-display"></a>İstek ekran devre dışı bırak
+### <a name="disable-request-display"></a>İstek görüntüsünü devre dışı bırak
 
-Çalışan tarafından gönderilen HTTP isteğinin bastır `echo off` komutu. Örneğin:
+`echo off` Komutunu çalıştırarak gönderilen http isteğinin görüntülenmesini gizleyin. Örneğin:
 
 ```console
 https://localhost:5001/people~ echo off
@@ -899,9 +899,9 @@ Request echoing is off
 
 ## <a name="run-a-script"></a>Betik çalıştırma
 
-Sık aynı HTTP REPL komutları kümesi yürütün, bir metin dosyasına saklamadan göz önünde bulundurun. Bu komut satırında el ile yürütülen aynı biçime dosyasındaki komutlar yararlanın. Komutları kullanarak bir toplu şekilde yürütülebilir `run` komutu. Örneğin:
+Aynı HTTP REPL komutları kümesini sıklıkla yürütüyorsanız bunları bir metin dosyasında depolamayı göz önünde bulundurun. Dosyadaki komutlar, komut satırında el ile çalıştıranlarla aynı formu alır. Komutlar, `run` komutu kullanılarak toplanmış bir biçimde yürütülebilir. Örneğin:
 
-1. Yeni satır ayrılmış komut kümesini içeren bir metin dosyası oluşturun. Göstermek için göz önünde bir *kişiler script.txt* aşağıdaki komutları içeren dosya:
+1. Yeni satır için ayrılmış komutlar kümesini içeren bir metin dosyası oluşturun. Göstermek için aşağıdaki komutları içeren bir *People-Script. txt* dosyası düşünün:
 
     ```text
     set base https://localhost:5001
@@ -911,13 +911,13 @@ Sık aynı HTTP REPL komutları kümesi yürütün, bir metin dosyasına saklama
     get 1
     ```
 
-1. Yürütme `run` komutu, metin dosyasının yolu geçirme. Örneğin:
+1. Metin dosyasının yolunu geçirerek komutunuyürütün.`run` Örneğin:
 
     ```console
     https://localhost:5001/~ run C:\http-repl-scripts\people-script.txt
     ```
 
-    Aşağıdaki çıktı görünür:
+    Aşağıdaki çıktı görüntülenir:
 
     ```console
     https://localhost:5001/~ set base https://localhost:5001
@@ -952,9 +952,9 @@ Sık aynı HTTP REPL komutları kümesi yürütün, bir metin dosyasına saklama
     https://localhost:5001/People~
     ```
 
-## <a name="clear-the-output"></a>Çıkışı Temizle
+## <a name="clear-the-output"></a>Çıktıyı temizle
 
-Komut kabuğu için HTTP REPL araç tarafından yazılan tüm çıkış kaldırmak için çalıştırın `clear` veya `cls` komutu. Göstermek için aşağıdaki çıktıyı Komut kabuğunu içerir düşünün:
+HTTP REPL aracı tarafından komut kabuğu 'na yazılan tüm çıktıyı kaldırmak için `clear` veya `cls` komutunu çalıştırın. Göstermek için komut kabuğu 'nun aşağıdaki çıktıyı içerdiğini düşünün:
 
 ```console
 dotnet httprepl https://localhost:5001
@@ -969,13 +969,13 @@ People   [get|post]
 https://localhost:5001/~
 ```
 
-Çıkış temizlemek için aşağıdaki komutu çalıştırın:
+Çıktıyı temizlemek için aşağıdaki komutu çalıştırın:
 
 ```console
 https://localhost:5001/~ clear
 ```
 
-Önceki komutu çalıştırdıktan sonra yalnızca aşağıdaki çıktıyı Komut kabuğunu içerir:
+Yukarıdaki komutu çalıştırdıktan sonra, komut kabuğu yalnızca şu çıktıyı içerir:
 
 ```console
 https://localhost:5001/~

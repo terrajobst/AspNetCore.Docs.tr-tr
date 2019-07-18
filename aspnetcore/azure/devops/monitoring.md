@@ -4,14 +4,14 @@ author: CamSoper
 description: İzleme ve ASP.NET Core ve Azure ile DevOps çözümün bir parçası kodunuzun hatalarını ayıklama
 ms.author: casoper
 ms.custom: mvc, seodec18
-ms.date: 10/24/2018
+ms.date: 07/10/2019
 uid: azure/devops/monitor
-ms.openlocfilehash: 00489bd92dfff8fd80bd24c2e60193d32031d7c4
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 1d8ed99f4387dbc99929164c558cc2ce14bd9ea0
+ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64899381"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68307953"
 ---
 # <a name="monitor-and-debug"></a>İzleme ve hata ayıklama
 
@@ -37,11 +37,11 @@ App Service web uygulamalarını kolayca gerçek zamanlı olarak izlenir. Azure 
 
     ![Ekran gösteren genel bakış paneli](./media/monitoring/overview.png)
 
-    * **HTTP 5xx**: Sunucu tarafı hataları, genellikle ASP.NET Core kod özel durum sayısı.
-    * **Verileri**: Web uygulamanıza gelen veri girişi.
-    * **Veri çıkışı**: İstemcilere web uygulamanızdan veri çıkışı.
-    * **İstekleri**: HTTP isteği sayısı.
-    * **Ortalama yanıt süresi**: HTTP isteklerine yanıt vermek web uygulaması için ortalama süre.
+    * **Http 5xx**: Sunucu tarafı hatalarının sayısı, genellikle ASP.NET Core kodundaki özel durumlar.
+    * **Veri**: Web uygulamanıza gelen veri girişi.
+    * **Giden veri**: Web uygulamanızdan istemcilere giden veri çıkışı.
+    * **Istek sayısı**: HTTP isteklerinin sayısı.
+    * **Ortalama yanıt süresi**: Web uygulamasının HTTP isteklerine yanıt vermesi için geçen ortalama süre.
 
     Sorun giderme ve en iyi duruma getirme için Self Servis çeşitli araçlar Ayrıca bu sayfada bulunur.
 
@@ -89,7 +89,7 @@ Web sunucusu ve uygulama günlüklerini Azure App Service'te varsayılan olarak 
 
     ![Tanılama günlükleri bağlantı](./media/monitoring/logging.png)
 
-1. Açma **uygulama günlüğü (dosya sistemi)**. İstenirse, web uygulamasında oturum uygulamasını etkinleştirmek için uzantıları yüklemek için kutusuna tıklayın.
+1. Açma **uygulama günlüğü (dosya sistemi)** . İstenirse, web uygulamasında oturum uygulamasını etkinleştirmek için uzantıları yüklemek için kutusuna tıklayın.
 1. Ayarlama **Web sunucusu günlüğü** için **dosya sistemi**.
 1. Girin **saklama süresi** gün. Örneğin, 30.
 1. **Kaydet**'e tıklayın.
@@ -111,7 +111,7 @@ Günlükleri de olabilir [Azure CLI veya Azure PowerShell](/azure/app-service/we
 
 Azure İzleyici ayrıca sağlar [gerçek zamanlı uyarılar](/azure/monitoring-and-diagnostics/insights-alerts-portal) ölçümleri, yönetim olayları ve diğer ölçütlere göre.
 
-> *Not: Şu anda üzerinde web uygulaması ölçümleri uyarı yalnızca uyarılar (Klasik) hizmeti kullanılabilir.*
+> *Not: Web uygulaması ölçümlerinde Şu anda uyarı verme yalnızca uyarılar (klasik) hizmetinde kullanılabilir.*
 
 [Uyarılar (Klasik) hizmeti](/azure/monitoring-and-diagnostics/monitor-quick-resource-metric-alert-portal) Azure İzleyicisi'nde veya altında bulunabilir **izleme** App Service ayarları bölümü.
 
@@ -135,7 +135,7 @@ Bu bölümde, aşağıdaki görevleri tamamlandı:
 
 ## <a name="additional-reading"></a>Ek okuma
 
-* <xref:host-and-deploy/azure-apps/troubleshoot>
+* <xref:test/troubleshoot-azure-iis>
 * <xref:host-and-deploy/azure-iis-errors-reference>
 * [Application Insights ile Azure web uygulaması performansını izleme](/azure/application-insights/app-insights-azure-web-apps)
 * [Azure App Service'te web apps için tanılama günlüğünü etkinleştirme](/azure/app-service/web-sites-enable-diagnostic-log)

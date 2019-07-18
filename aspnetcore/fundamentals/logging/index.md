@@ -1,47 +1,47 @@
 ---
-title: ASP.NET core'da günlüğe kaydetme
+title: ASP.NET Core oturum açma
 author: tdykstra
-description: ASP.NET core'da günlüğe kaydetme çerçevesi hakkında bilgi edinin. Yerleşik günlük sağlayıcıları bulmak ve popüler üçüncü taraf sağlayıcılar hakkında daha fazla bilgi edinin.
+description: ASP.NET Core 'de günlük çerçevesini öğrenin. Yerleşik günlük sağlayıcılarını bulun ve popüler üçüncü taraf sağlayıcılar hakkında daha fazla bilgi edinin.
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 07/11/2019
 uid: fundamentals/logging/index
-ms.openlocfilehash: 51433cbf35e434300fbefae29f33594e765bcc7b
-ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
+ms.openlocfilehash: cdb5cad2302cc8ec02107021005b8590efce7533
+ms.sourcegitcommit: b40613c603d6f0cc71f3232c16df61550907f550
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67855919"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68308213"
 ---
-# <a name="logging-in-aspnet-core"></a>ASP.NET core'da günlüğe kaydetme
+# <a name="logging-in-aspnet-core"></a>ASP.NET Core oturum açma
 
-Tarafından [Steve Smith](https://ardalis.com/) ve [Tom Dykstra](https://github.com/tdykstra)
+[Steve Smith](https://ardalis.com/) ve [Tom Dykstra](https://github.com/tdykstra) tarafından
 
-ASP.NET Core çeşitli günlük yerleşik ve üçüncü taraf sağlayıcılar ile çalışan bir günlüğe kaydetme API'si destekler. Bu makalede, yerleşik sağlayıcılar ile günlüğe kaydetme API'si kullanmayı gösterir.
+ASP.NET Core, çeşitli yerleşik ve üçüncü taraf günlük sağlayıcılarıyla birlikte çalışarak bir günlüğe kaydetme API 'sini destekler. Bu makalede, yerleşik sağlayıcılarla günlüğe kaydetme API 'sinin nasıl kullanılacağı gösterilmektedir.
 
 [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/logging/index/samples) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
-## <a name="add-providers"></a>Sağlayıcıları Ekle
+## <a name="add-providers"></a>Sağlayıcı Ekle
 
-Oturum açma sağlayıcısı görüntüler veya günlüklerinde depolar. Örneğin, konsolu sağlayıcısı günlükleri konsolda görüntüler ve Azure Application Insights sağlayıcısı bunları Azure Application Insights içinde depolar. Günlükleri, birden çok sağlayıcı ekleyerek, birden çok hedefe gönderilebilir.
+Günlük sağlayıcısı günlükleri görüntüler veya depolar. Örneğin, konsol sağlayıcısı günlükleri konsolunda görüntüler ve Azure Application Insights sağlayıcısı bunları Azure Application Insights depolar. Birden çok sağlayıcı eklenerek Günlükler birden çok hedefe gönderilebilir.
 
 ::: moniker range=">= aspnetcore-2.0"
 
-Bir sağlayıcı eklemek için sağlayıcının çağrı `Add{provider name}` uzantı yönteminde *Program.cs*:
+Bir sağlayıcı eklemek için sağlayıcının `Add{provider name}` uzantı yöntemini *program.cs*içinde çağırın:
 
 [!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_ExpandDefault&highlight=18-20)]
 
-Yukarıdaki kod başvurularını gerektirir `Microsoft.Extensions.Logging` ve `Microsoft.Extensions.Configuration`.
+Yukarıdaki kod, ve `Microsoft.Extensions.Logging` `Microsoft.Extensions.Configuration`için başvuruları gerektirir.
 
-Varsayılan proje şablonu çağrılarının <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder%2A>, aşağıdaki günlük kaydı sağlayıcıları ekler:
+Varsayılan proje şablonu, aşağıdaki <xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder%2A>günlük sağlayıcılarını ekleyen çağırır:
 
 * Konsol
 * Hata ayıklama
-* EventSource (ASP.NET Core 2.2 içinde başlayarak)
+* EventSource (ASP.NET Core 2,2 ' den başlayarak)
 
 [!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_TemplateCode&highlight=7)]
 
-Kullanırsanız `CreateDefaultBuilder`, varsayılan sağlayıcıları kendi seçtiklerinizle değiştirin. Çağrı <xref:Microsoft.Extensions.Logging.LoggingBuilderExtensions.ClearProviders%2A>, istediğiniz sağlayıcıları ekleyin.
+`CreateDefaultBuilder`Kullanıyorsanız, varsayılan sağlayıcıları kendi seçimlerinizle değiştirebilirsiniz. Öğesini <xref:Microsoft.Extensions.Logging.LoggingBuilderExtensions.ClearProviders%2A>çağırın ve istediğiniz sağlayıcıları ekleyin.
 
 [!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_LogFromMain&highlight=18-22)]
 
@@ -49,32 +49,32 @@ Kullanırsanız `CreateDefaultBuilder`, varsayılan sağlayıcıları kendi seç
 
 ::: moniker range="< aspnetcore-2.0"
 
-Bir sağlayıcı kullanmak için kendi NuGet paketini yükleyin ve bir örneği üzerinde sağlayıcının uzantı metodu çağırma <xref:Microsoft.Extensions.Logging.ILoggerFactory>:
+Bir sağlayıcıyı kullanmak için, NuGet paketini yükleyip sağlayıcının uzantı yöntemini bir örneğine <xref:Microsoft.Extensions.Logging.ILoggerFactory>çağırın:
 
 [!code-csharp[](index/samples/1.x/TodoApiSample/Startup.cs?name=snippet_AddConsoleAndDebug&highlight=3,5-7)]
 
-ASP.NET Core [bağımlılık ekleme (dı)](xref:fundamentals/dependency-injection) sağlar `ILoggerFactory` örneği. `AddConsole` Ve `AddDebug` genişletme yöntemleri tanımlanmış [Microsoft.Extensions.Logging.Console](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console/) ve [Microsoft.Extensions.Logging.Debug](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Debug/) paketleri. Her bir genişletme yöntemi çağıran `ILoggerFactory.AddProvider` sağlayıcının bir örneğini geçirerek yöntemi.
+ASP.NET Core [bağımlılığı ekleme (dı)](xref:fundamentals/dependency-injection) `ILoggerFactory` örneği sağlar. Ve genişletme yöntemleri [Microsoft. Extensions. Logging. Console](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console/) ve [Microsoft. Extensions. Logging. Debug](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Debug/) paketlerinde tanımlanmıştır. `AddDebug` `AddConsole` Her genişletme yöntemi, sağlayıcının `ILoggerFactory.AddProvider` bir örneğini geçirerek yöntemini çağırır.
 
 > [!NOTE]
-> [Örnek uygulaması](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/logging/index/samples/1.x) günlük sağlayıcıları ekler `Startup.Configure` yöntemi. Daha önce yürüten koddan günlük çıktısını almak için günlüğe kaydetme hizmeti sağlayıcıları Ekle `Startup` sınıf oluşturucusu.
+> [Örnek uygulama](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/fundamentals/logging/index/samples/1.x) , `Startup.Configure` yöntemine günlük sağlayıcıları ekler. Daha önce yürütülen koddan günlük çıktısını almak için, `Startup` sınıf oluşturucusunda günlük sağlayıcılarını ekleyin.
 
 ::: moniker-end
 
-Daha fazla bilgi edinin [yerleşik günlük sağlayıcıları](#built-in-logging-providers) ve [üçüncü taraf günlük sağlayıcıları](#third-party-logging-providers) makalenin ilerleyen bölümlerinde.
+Makalenin ilerleyen kısımlarında [yerleşik günlük sağlayıcıları](#built-in-logging-providers) ve [üçüncü taraf günlüğü sağlayıcıları](#third-party-logging-providers) hakkında daha fazla bilgi edinin.
 
-## <a name="create-logs"></a>Günlükleri oluşturma
+## <a name="create-logs"></a>Günlükleri oluştur
 
-Alma bir <xref:Microsoft.Extensions.Logging.ILogger%601> DI nesne.
+Dı 'dan <xref:Microsoft.Extensions.Logging.ILogger%601> bir nesne al.
 
 ::: moniker range=">= aspnetcore-2.0"
 
-Aşağıdaki denetleyici örneği oluşturur `Information` ve `Warning` günlükleri. *Kategori* olduğu `TodoApiSample.Controllers.TodoController` (tam sınıf adını `TodoController` örnek uygulamada):
+Aşağıdaki denetleyici örneği ve `Information` `Warning` günlüklerini oluşturur. `TodoController` *Kategori* `TodoApiSample.Controllers.TodoController` (örnek uygulamadaki tam sınıf adı):
 
 [!code-csharp[](index/samples/2.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_LoggerDI&highlight=4,7)]
 
 [!code-csharp[](index/samples/2.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_CallLogMethods&highlight=3,7)]
 
-Aşağıdaki Razor sayfaları örnek günlükleriyle oluşturur `Information` olarak *düzeyi* ve `TodoApiSample.Pages.AboutModel` olarak *kategori*:
+Aşağıdaki Razor Pages örnek `Information` , *düzeyi* ve `TodoApiSample.Pages.AboutModel` *Kategori*olarak içeren Günlükler oluşturur:
 
 [!code-csharp[](index/samples/2.x/TodoApiSample/Pages/About.cshtml.cs?name=snippet_LoggerDI&highlight=3, 7)]
 
@@ -88,45 +88,45 @@ Aşağıdaki Razor sayfaları örnek günlükleriyle oluşturur `Information` ol
 
 [!code-csharp[](index/samples/1.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_CallLogMethods&highlight=3,7)]
 
-Yukarıdaki örnekte günlükleriyle oluşturur `Information` ve `Warning` olarak *düzeyi* ve `TodoController` olarak sınıf *kategori*. 
+Yukarıdaki örnek, ve ile, `Information` *kategorisi*olarak `Warning` ve *düzeyi* `TodoController` olan Günlükler oluşturur. 
 
 ::: moniker-end
 
-Günlük *düzeyi* günlüğe kaydedilen olayın önem derecesini gösterir. Günlük *kategori* her bir günlük ilişkilendirilmiş bir dizedir. `ILogger<T>` Örneği oluşturur türünde tam olarak nitelenmiş ada sahip günlükleri `T` kategori olarak. [Düzeyleri](#log-level) ve [kategorileri](#log-category) bu makalenin ilerleyen bölümlerinde daha ayrıntılı açıklanmıştır. 
+Günlük *düzeyi* günlüğe kaydedilen etkinliğin önem derecesini gösterir. Günlük *kategorisi* , her günlük ile ilişkili bir dizedir. Örnek, kategori olarak türünde `T` tam adı olan Günlükler oluşturur. `ILogger<T>` [Düzeyler](#log-level) ve [Kategoriler](#log-category) Bu makalenin ilerleyen kısımlarında daha ayrıntılı olarak açıklanmıştır. 
 
 ::: moniker range=">= aspnetcore-2.0"
 
-### <a name="create-logs-in-startup"></a>Başlangıç günlükleri oluşturma
+### <a name="create-logs-in-startup"></a>Başlangıçta günlük oluşturma
 
-Günlükleri yazmak için `Startup` sınıfı, içeren bir `ILogger` parametresinde Oluşturucu imzası:
+`Startup` Sınıf içindeki günlükleri yazmak için, Oluşturucu imzasına bir `ILogger` parametre ekleyin:
 
 [!code-csharp[](index/samples/2.x/TodoApiSample/Startup.cs?name=snippet_Startup&highlight=3,5,8,20,27)]
 
-### <a name="create-logs-in-program"></a>Günlükleri oluşturma
+### <a name="create-logs-in-program"></a>Programda günlük oluşturma
 
-Günlükleri yazmak için `Program` sınıfı, Al bir `ILogger` örneğinden dı:
+`Program` Sınıf içindeki günlükleri yazmak için, dı 'den bir `ILogger` örnek alın:
 
 [!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_LogFromMain&highlight=9,10)]
 
 ::: moniker-end
 
-### <a name="no-asynchronous-logger-methods"></a>Hiçbir zaman uyumsuz Günlükçü yöntemi
+### <a name="no-asynchronous-logger-methods"></a>Zaman uyumsuz günlükçü yöntemi yok
 
-Günlük hızlı şekilde zaman uyumsuz kodun performans maliyeti karşılıyor olmadığından emin olmanız gerekir. Günlük veri deponuz yavaşsa, kendisine doğrudan yazmayın. Günlük iletilerini başlangıçta hızlı bir depoya yazmayı düşünebilirsiniz, sonra bunları daha sonra yavaş deposuna taşıyın. Örneğin, SQL Server oturum açtığınızdan, doğrudan Bunu yapmak istemediğiniz bir `Log` yöntemi, bu yana `Log` yöntemleri zaman uyumludur. Bunun yerine, zaman uyumlu bir bellek içi kuyruğuna günlük iletilerini ve SQL Server veri gönderme, zaman uyumsuz işi yapmak için sıradaki iletilerin çekme arka plan çalışanı vardır.
+Günlüğe kaydetme, zaman uyumsuz kodun performans maliyetine değer olmaması kadar hızlı olmalıdır. Günlüğe kaydetme veri depoluizin yavaşsa, doğrudan buna yazmayın. Başlangıç olarak günlük iletilerini hızlı bir mağazaya yazmayı ve sonra yavaş depoya daha sonra taşımayı düşünün. Örneğin, SQL Server için oturum açıyorsanız `Log` `Log` Yöntemler zaman uyumlu olduğundan, bunu doğrudan bir yöntemde yapmak istemezsiniz. Bunun yerine, günlük iletilerini bir bellek içi kuyruğa eşzamanlı olarak ekleyin ve bir arka plan çalışanı, SQL Server veri gönderme zaman uyumsuz çalışmasını sağlamak için iletileri kuyruktan çekin.
 
 ## <a name="configuration"></a>Yapılandırma
 
-Sağlayıcı Yapılandırması günlüğe kaydetme, bir veya daha fazla yapılandırma sağlayıcıları tarafından sağlanır:
+Günlüğe kaydetme sağlayıcısı yapılandırması bir veya daha fazla yapılandırma sağlayıcısı tarafından sağlanır:
 
-* Dosya biçimleri (INI, JSON ve XML).
+* Dosya biçimleri (ıNı, JSON ve XML).
 * Komut satırı bağımsız değişkenleri.
 * Ortam değişkenleri.
 * Bellek içi .NET nesneleri.
-* Şifrelenmemiş [gizli dizi Yöneticisi](xref:security/app-secrets) depolama.
-* Gibi bir şifrelenmiş kullanıcı depolamak [Azure anahtar kasası](xref:security/key-vault-configuration).
-* Özel sağlayıcılar (veya oluşturulan yüklü).
+* Şifrelenmemiş [gizli dizi Yöneticisi](xref:security/app-secrets) depolaması.
+* [Azure Key Vault](xref:security/key-vault-configuration)gibi şifreli bir kullanıcı deposu.
+* Özel sağlayıcılar (yüklü veya oluşturulmuş).
 
-Örneğin, günlük kaydı yapılandırması sık tarafından sağlanan `Logging` uygulama ayarları dosyaları bölümü. Aşağıdaki örnek, tipik bir içeriğini gösterir *appsettings. Development.JSON* dosyası:
+Örneğin, günlük yapılandırma genellikle uygulama ayarları dosyalarının `Logging` bölümü tarafından sağlanır. Aşağıdaki örnek tipik bir appSettings 'in içeriğini gösterir *. Development. JSON* dosyası:
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -146,13 +146,13 @@ Sağlayıcı Yapılandırması günlüğe kaydetme, bir veya daha fazla yapılan
 }
 ```
 
-`Logging` Özelliği olabilir `LogLevel` ve günlük sağlayıcısı özellikleri (konsol gösterilmiştir).
+Özelliği `Logging` , ve günlük `LogLevel` sağlayıcısı özelliklerine sahip olabilir (konsol gösterilir).
 
-`LogLevel` Özelliği altında `Logging` en düşük belirtir [düzeyi](#log-level) için seçili kategorilerdeki oturum. Örnekte, `System` ve `Microsoft` kategorileri oturum sırasında `Information` düzeyi ve diğer tüm oturum sırasında `Debug` düzeyi.
+Altındaki `LogLevel` özelliği`Logging` , Seçili kategoriler için günlüğe kaydedilecek minimum [düzeyi](#log-level) belirtir. Örnekte `System` ve `Microsoft` kategoriler `Information` düzeyinde günlüğe kaydedilir ve diğer tüm diğerleri `Debug` düzeyinde günlüğe kaydedilir.
 
-Diğer özellikleri altında `Logging` günlük sağlayıcılarını belirtin. Örnek için konsol sağlayıcısıdır. Bir sağlayıcı destekliyorsa [oturum kapsamları](#log-scopes), `IncludeScopes` ayarların etkinleştirildiğinden olup olmadığını gösterir. Sağlayıcı özelliği (gibi `Console` örnekte) ayrıca bir `LogLevel` özelliği. `LogLevel` bir sağlayıcı altında bu sağlayıcı için oturum düzeyleri belirtir.
+Günlük sağlayıcılarını belirt `Logging` altındaki diğer özellikler. Örnek, konsol sağlayıcısına yöneliktir. Bir sağlayıcı, [günlük kapsamlarını](#log-scopes)destekliyorsa, `IncludeScopes` etkinleştirilip etkinleştirilmeyeceğini belirtir. Bir sağlayıcı özelliği (örnekte olduğu `Console` gibi), bir `LogLevel` özellik de belirtebilir. `LogLevel`sağlayıcı altında, bu sağlayıcının günlüğe kaydedilecek düzeyleri belirtir.
 
-Düzeyleri belirtilirse `Logging.{providername}.LogLevel`, herhangi bir şey kümesinde geçersiz kılma `Logging.LogLevel`.
+' De `Logging.{providername}.LogLevel`düzeyler belirtilirse, içinde `Logging.LogLevel`ayarlanan her şeyi geçersiz kılar.
 
 ::: moniker-end
 
@@ -170,15 +170,15 @@ Düzeyleri belirtilirse `Logging.{providername}.LogLevel`, herhangi bir şey kü
 }
 ```
 
-`LogLevel` anahtarları günlük adlarını temsil eder. `Default` Anahtarı açıkça listelenen günlükler için geçerlidir. Değeri temsil [günlük düzeyi](#log-level) verilen günlüğe uygulanır.
+`LogLevel`Anahtarlar günlük adlarını temsil eder. `Default` Anahtar açıkça listelenmemiş Günlükler için geçerlidir. Değer, belirtilen günlüğe uygulanan [günlük düzeyini](#log-level) temsil eder.
 
 ::: moniker-end
 
-Uygulama yapılandırma sağlayıcıları hakkında daha fazla bilgi için bkz: <xref:fundamentals/configuration/index>.
+Yapılandırma sağlayıcılarını uygulama hakkında daha fazla bilgi için <xref:fundamentals/configuration/index>bkz.
 
-## <a name="sample-logging-output"></a>Örnek günlük çıktısı
+## <a name="sample-logging-output"></a>Örnek günlüğe kaydetme çıkışı
 
-Komut satırından uygulama çalıştırıldığında önceki bölümde gösterilen örnek kod ile günlükleri konsolda görünür. Konsol çıktının bir örneği aşağıda verilmiştir:
+Yukarıdaki bölümde gösterilen örnek kodla, uygulama komut satırından çalıştırıldığında Günlükler konsolunda görüntülenir. Konsol çıkışının bir örneği aşağıda verilmiştir:
 
 ```console
 info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
@@ -197,9 +197,9 @@ info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
       Request finished in 148.889ms 404
 ```
 
-Önceki günlükleri konumundaki örnek uygulamaya bir HTTP Get isteği yapılarak oluşturulan `http://localhost:5000/api/todo/0`.
+Yukarıdaki Günlükler, üzerinde `http://localhost:5000/api/todo/0`örnek uygulamaya bir http get isteği yapılarak oluşturulmuştur.
 
-Visual Studio'da örnek uygulamayı çalıştırdığınızda hata ayıklama penceresinde göründükleri gibi aynı günlüklerinin bir örnek aşağıdadır:
+Visual Studio 'da örnek uygulamayı çalıştırdığınızda hata ayıklama penceresinde göründükleri günlüklere yönelik bir örnek aşağıda verilmiştir:
 
 ```console
 Microsoft.AspNetCore.Hosting.Internal.WebHost:Information: Request starting HTTP/1.1 GET http://localhost:53104/api/todo/0  
@@ -211,19 +211,19 @@ Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker:Information: Executed 
 Microsoft.AspNetCore.Hosting.Internal.WebHost:Information: Request finished in 316.3195ms 404
 ```
 
-Tarafından oluşturulan günlükleri `ILogger` çağrıları önceki bölümde gösterilen "TodoApi.Controllers.TodoController" ile başlar. "Microsoft" Kategoriler ile başlayan ASP.NET Core framework koddan günlüklerdir. ASP.NET Core ve uygulama kodu aynı günlüğe kaydetme API'si ve sağlayıcıları kullanmaktadır.
+Yukarıdaki bölümde gösterilen `ILogger` çağrılar tarafından oluşturulan Günlükler "TodoApi. Controllers. TodoController" ile başlar. "Microsoft" kategorileri ile başlayan Günlükler ASP.NET Core Framework kodundan alınır. ASP.NET Core ve uygulama kodu aynı günlük API 'sini ve sağlayıcılarını kullanıyor.
 
-Bu makalenin geri kalanında, bazı ayrıntılar ve günlüğe kaydetme seçeneklerini açıklar.
+Bu makalenin geri kalanında günlüğe kaydetme için bazı ayrıntılar ve seçenekler açıklanmaktadır.
 
 ## <a name="nuget-packages"></a>NuGet paketleri
 
-`ILogger` Ve `ILoggerFactory` arabirimdir içinde [Microsoft.Extensions.Logging.Abstractions](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Abstractions/), ve bunlar için varsayılan uygulamalarıdır içinde [Microsoft.Extensions.Logging](https://www.nuget.org/packages/microsoft.extensions.logging/).
+Ve arabirimleri Microsoft [. Extensions. Logging. soyutlamalar](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Abstractions/)içinde ve bu uygulamalar için varsayılan uygulamalar [Microsoft. Extensions. Logging](https://www.nuget.org/packages/microsoft.extensions.logging/)içinde bulunur. `ILoggerFactory` `ILogger`
 
 ## <a name="log-category"></a>Günlük kategorisi
 
-Olduğunda bir `ILogger` nesnesi oluşturulur, bir *kategori* için belirtilir. Bu örneği tarafından oluşturulan her günlük iletisi kategori dahildir `ILogger`. Kategori herhangi bir dize olabilir, ancak kuralı, "TodoApi.Controllers.TodoController" gibi bir sınıf adı kullanmaktır.
+Bir `ILogger` nesne oluşturulduğunda, için bir *Kategori* belirtilir. Bu kategori, bu örneği `ILogger`tarafından oluşturulan her günlük iletisine dahildir. Kategori herhangi bir dize olabilir, ancak kural, "TodoApi. Controllers. TodoController" gibi sınıf adını kullanmaktır.
 
-Kullanım `ILogger<T>` almak için bir `ILogger` tam olarak nitelenmiş tür adını kullanan örnek `T` kategori olarak:
+Kategori `ILogger<T>` olarak`T` tam nitelikli `ILogger` tür adını kullanan bir örnek almak için kullanın:
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -237,7 +237,7 @@ Kullanım `ILogger<T>` almak için bir `ILogger` tam olarak nitelenmiş tür ad�
 
 ::: moniker-end
 
-Kategori açıkça belirtmek için çağrı `ILoggerFactory.CreateLogger`:
+Kategoriyi açıkça belirtmek için şunu çağırın `ILoggerFactory.CreateLogger`:
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -251,11 +251,11 @@ Kategori açıkça belirtmek için çağrı `ILoggerFactory.CreateLogger`:
 
 ::: moniker-end
 
-`ILogger<T>` çağırmakla eşdeğerdir `CreateLogger` tam olarak nitelenmiş tür adını `T`.
+`ILogger<T>`, tam nitelikli tür `CreateLogger` `T`adı ile çağırma ile eşdeğerdir.
 
 ## <a name="log-level"></a>Günlük düzeyi
 
-Her günlük belirtir bir <xref:Microsoft.Extensions.Logging.LogLevel> değeri. Önem derecesi veya önem günlük düzeyini belirtir. Örneğin, yazabilirsiniz bir `Information` normalde bir yöntem sona erdiğinde ve günlük `Warning` oturum bir yöntem döndürüldüğünde bir *404 Bulunamadı* durum kodu.
+Her günlük bir <xref:Microsoft.Extensions.Logging.LogLevel> değer belirtir. Günlük düzeyi önem derecesini veya önemini gösterir. Örneğin, bir yöntem normal olarak sona `Information` erdiğinde `Warning` ve bir yöntem *404* bulunmayan bir durum kodu döndürdüğünde bir günlük yazabilirsiniz.
 
 Aşağıdaki kod oluşturur `Information` ve `Warning` günlükleri:
 
@@ -271,44 +271,44 @@ Aşağıdaki kod oluşturur `Information` ve `Warning` günlükleri:
 
 ::: moniker-end
 
-Önceki kodda, ilk parametredir [oturum öğesini belirten Olay No.](#log-event-id) İkinci parametre, kalan yöntem parametreleri tarafından sağlanan bağımsız değişken değerleri yer tutucuları olan bir ileti şablonudur. Yöntem parametreleri açıklandığı [ileti şablon bölümü](#log-message-template) bu makalenin ilerleyen bölümlerinde.
+Önceki kodda, ilk parametredir [oturum öğesini belirten Olay No.](#log-event-id) İkinci parametre, kalan Yöntem parametreleri tarafından belirtilen bağımsız değişken değerleri için yer tutucuları olan bir ileti şablonudur. Yöntem parametreleri bu makalenin ilerleyen kısımlarında bulunan [ileti şablonu bölümünde](#log-message-template) açıklanmaktadır.
 
-Günlük düzeyi yöntem adı'içeren yöntemleri (örneğin, `LogInformation` ve `LogWarning`) olan [için ILogger genişletme yöntemleri](xref:Microsoft.Extensions.Logging.LoggerExtensions). Bu yöntemleri çağırmak bir `Log` gereken yöntemini bir `LogLevel` parametresi. Çağırabilirsiniz `Log` biri bu genişletme yöntemleri, ancak söz dizimi yerine doğrudan yöntemi nispeten karmaşık. Daha fazla bilgi için <xref:Microsoft.Extensions.Logging.ILogger> ve [Günlükçü uzantılarını kaynak kodu](https://github.com/aspnet/Extensions/blob/release/2.2/src/Logging/Logging.Abstractions/src/LoggerExtensions.cs).
+Yöntem adında düzeyi (örneğin, `LogInformation` ve `LogWarning`) içeren günlük yöntemleri, [ILogger için uzantı yöntemleridir](xref:Microsoft.Extensions.Logging.LoggerExtensions). Bu yöntemler bir `LogLevel` parametre `Log` alan bir yöntemi çağırır. `Log` Yöntemi bu uzantı yöntemlerinden biri yerine doğrudan çağırabilirsiniz, ancak söz dizimi görece karmaşıktır. Daha fazla bilgi için bkz <xref:Microsoft.Extensions.Logging.ILogger> . ve [günlükçü uzantıları kaynak kodu](https://github.com/aspnet/Extensions/blob/release/2.2/src/Logging/Logging.Abstractions/src/LoggerExtensions.cs).
 
-ASP.NET Core burada en düşük en üst derecesi sıralı aşağıdaki günlük düzeyleri tanımlar.
+ASP.NET Core, en küçükten en yüksek öneme doğru sıralanan aşağıdaki günlük düzeylerini tanımlar.
 
 * İzleme = 0
 
-  Yalnızca hata ayıklama için genellikle değerli bilgiler. Bu iletiler, uygulama hassas verileri içerebilir ve bir üretim ortamında bu nedenle etkin olmamalıdır. *Varsayılan olarak devre dışıdır.*
+  Genellikle yalnızca hata ayıklama için değerli bilgiler için. Bu iletiler hassas uygulama verileri içerebilir, bu nedenle bir üretim ortamında etkinleştirilmemelidir. *Varsayılan olarak devre dışıdır.*
 
-* Hata ayıklama = 1
+* Hata Ayıkla = 1
 
-  Bilgi için geliştirme ve hata ayıklama için yararlı olabilir. Örnek: `Entering method Configure with flag set to true.` Etkinleştirme `Debug` düzeyi yalnızca, yüksek hacimli günlükleri nedeniyle sorun giderme sırasında üretimde günlüğe kaydeder.
+  Geliştirme ve hata ayıklama konusunda yararlı olabilecek bilgiler için. Örnek: `Entering method Configure with flag set to true.`En `Debug` yüksek günlük hacimden dolayı yalnızca sorun giderirken üretimde düzey günlüklerini etkinleştirin.
 
 * Bilgi = 2
 
-  Uygulama'nın genel akışı izlemek için. Bu günlükler genellikle uzun vadeli bir değer var. Örnek: `Request received for path /api/todo`
+  Uygulamanın genel akışını izlemek için. Bu günlüklerde genellikle uzun süreli bir değer vardır. Örnek: `Request received for path /api/todo`
 
 * Uyarı = 3
 
-  Olağan dışı ya da beklenmeyen olaylarını için uygulama akışı. Bunlar, hatalar veya durdurmak uygulamayı neden olmaz ancak incelenmesi gerekebilecek diğer koşulları olabilir. İşlenmiş istisnaları kullanmak için ortak bir yerde `Warning` günlük düzeyi. Örnek: `FileNotFoundException for file quotes.txt.`
+  Uygulama akışında anormal veya beklenmedik olaylar için. Bunlar, uygulamanın durmasına neden olmayan ancak araştırılması gerekebilecek hataları veya diğer koşulları içerebilir. İşlenmiş özel durumlar, `Warning` günlük düzeyini kullanmak için yaygın bir yerdir. Örnek: `FileNotFoundException for file quotes.txt.`
 
 * Hata = 4
 
-  Hatalar ve özel durumlar için işlenemez. Bu iletiler, geçerli etkinliği ya da (örneğin, geçerli HTTP isteği) işlemi bir hata, uygulama genelinde hata gösterir. Örnek günlük iletisi: `Cannot insert record due to duplicate key violation.`
+  İşlenemeyen hatalar ve özel durumlar için. Bu iletiler, uygulama genelinde bir hata değil geçerli etkinlikte veya işlemde (geçerli HTTP isteği gibi) bir hata olduğunu gösterir. Örnek günlük iletisi:`Cannot insert record due to duplicate key violation.`
 
 * Kritik = 5
 
-  Hemen ilgilenilmesi gereken hataları. Örnekler: veri kaybı senaryolarına, disk alanı yetersiz.
+  Anında ilgilenilmesi gereken hatalarda. Örnekler: veri kaybı senaryoları, disk alanı yetersiz.
 
-Ne kadar günlük çıktısını bir belirli depolama ortamına yazılır denetlemek için günlük düzeyi kullanın veya penceresini görüntüleyin. Örneğin:
+Belirli bir depolama ortamında veya görüntüleme penceresinde ne kadar günlük çıkışının yazıldığını denetlemek için günlük düzeyini kullanın. Örneğin:
 
-* Üretim ortamında, gönderme `Trace` aracılığıyla `Information` toplu veri deposuna düzeyi. Gönderme `Warning` aracılığıyla `Critical` için bir değer veri deposu.
-* Geliştirme sırasında Gönder `Warning` aracılığıyla `Critical` konsola ekleyin `Trace` aracılığıyla `Information` sorunlarını giderirken.
+* Üretimde, birim veri `Trace` deposuna `Information` geçiş düzeyi olarak gönderin. ' İ bir değer veri deposuna gönderin `Warning`. `Critical`
+* Geliştirme sırasında konsola gönderin `Warning` `Critical` ve sorun giderme sırasında aracılığıyla `Information` ekleyin `Trace` .
 
-[Günlük filtreleme](#log-filtering) bu makalenin devamındaki bölümüne bir sağlayıcı işleme hangi günlük düzeyleri denetlemek nasıl açıklar.
+Bu makalede daha sonra bulunan [günlük filtreleme](#log-filtering) bölümünde, bir sağlayıcının hangi günlük düzeylerinin işlediğini nasıl denetleneceği açıklanmaktadır.
 
-ASP.NET Core framework olayları için günlükler yazar. Günlük örnekleri, bu makalede daha önce günlüklere hariç tutuldu. `Information` düzeyi, dolayısıyla `Debug` veya `Trace` düzeyi günlükleri oluşturulmuş. İşte bir örnek konsol günlüklerinin göstermek için örnek uygulamayı çalıştırarak üretilmiş `Debug` günlükleri:
+ASP.NET Core çerçeve olayları için günlükleri yazar. Bu makalenin önceki kısımlarında yer alınan günlük örnekleri, günlüklerin `Information` altında tutulur, bu `Debug` nedenle `Trace` hiçbir veya düzeyi günlük oluşturulmaz. Günlükleri göstermek `Debug` için yapılandırılmış örnek uygulama çalıştırılarak oluşturulan konsol günlüklerinin bir örneği aşağıda verilmiştir:
 
 ```console
 info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
@@ -339,9 +339,9 @@ info: Microsoft.AspNetCore.Hosting.Internal.WebHost[2]
       Request finished in 2.7286ms 404
 ```
 
-## <a name="log-event-id"></a>Günlük Olay Kimliği
+## <a name="log-event-id"></a>Günlüğe olay KIMLIĞI
 
-Her günlük belirtebilirsiniz bir *öğesini belirten Olay No*. Örnek uygulamayı yerel olarak tanımlanan kullanarak bunu yapar `LoggingEvents` sınıfı:
+Her günlük belirtebilirsiniz bir *öğesini belirten Olay No*. Örnek uygulama bunu yerel olarak tanımlanmış `LoggingEvents` bir sınıf kullanarak yapar:
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -359,9 +359,9 @@ Her günlük belirtebilirsiniz bir *öğesini belirten Olay No*. Örnek uygulama
 
 ::: moniker-end
 
-Olay Kimliği bir etkinlik kümesi ilişkilendirir. Örneğin, bir sayfada öğelerinin listesini görüntülemek için ilgili tüm günlükler 1001 olabilir.
+Olay KIMLIĞI bir olay kümesini ilişkilendirir. Örneğin, bir sayfadaki öğelerin listesini görüntülemek için ilgili tüm Günlükler 1001 olabilir.
 
-Oturum açma sağlayıcısı, bir Kimliği alanında günlük iletisi ya da hiç olay kimliği depolayabilir. Hata ayıklama sağlayıcısı olay kimlikleri göstermez. Konsolu sağlayıcısı olay kimlikleri, köşeli ayraç içinde kategori sonra gösterir:
+Günlüğe kaydetme sağlayıcısı, olay KIMLIĞINI günlüğe kaydetme iletisindeki kimlik alanında veya hiç değil, bir kimlik alanında saklayabilir. Hata ayıklama sağlayıcısı olay kimliklerini göstermiyor. Konsol sağlayıcısı, etkinlik kimliklerini kategoriden sonra parantez içinde gösterir:
 
 ```console
 info: TodoApi.Controllers.TodoController[1002]
@@ -370,9 +370,9 @@ warn: TodoApi.Controllers.TodoController[4000]
       GetById(invalidid) NOT FOUND
 ```
 
-## <a name="log-message-template"></a>Günlük ileti şablonu
+## <a name="log-message-template"></a>Günlük iletisi şablonu
 
-Her günlük iletisi şablonu belirtir. İleti şablonunu argüman sağlanmıyorsa yer tutucuları içerebilir. Sayılar değil yer tutucu adları kullanın.
+Her günlük bir ileti şablonunu belirtir. İleti şablonu, bağımsız değişkenlerin sağlandığı yer tutucuları içerebilir. Sayılar değil, yer tutucular için adları kullanın.
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -386,7 +386,7 @@ Her günlük iletisi şablonu belirtir. İleti şablonunu argüman sağlanmıyor
 
 ::: moniker-end
 
-Hangi parametrelerin değerlerini sağlamak için kullanılan yer tutucuları, bunların adları sırasını belirler. Aşağıdaki kodda, parametre adları ileti şablonunu sırayla dışında olduğuna dikkat edin:
+Adlarının, değerlerinin sağlanması için hangi parametrelerin kullanılacağını belirleyen yer tutucular sırası. Aşağıdaki kodda, parametre adlarının ileti şablonunda sıra dışı olduğuna dikkat edin:
 
 ```csharp
 string p1 = "parm1";
@@ -394,23 +394,23 @@ string p2 = "parm2";
 _logger.LogInformation("Parameter values: {p2}, {p1}", p1, p2);
 ```
 
-Bu kod, parametre değerleriniz ile sırada bir günlük iletisi oluşturur:
+Bu kod, sırasıyla parametre değerleriyle bir günlük iletisi oluşturur:
 
 ```
 Parameter values: parm1, parm2
 ```
 
-Günlüğe kaydetme çerçevesi, bu şekilde çalışır, böylece günlük sağlayıcıları uygulayabilirsiniz [yapılandırılmış günlük kaydı olarak da bilinen anlamlı günlük kaydını](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging). Bağımsız değişkenleri kendilerini yalnızca biçimlendirilmiş ileti şablonunu, günlüğe kaydetme sistemi geçirilir. Günlüğe kaydetme sağlayıcıları alanları olarak parametre değerlerini depolamak bu bilgileri sağlar. Örneğin, Günlükçü yöntemi çağrıları görünüm şöyle düşünün:
+Günlüğe kaydetme altyapısı bu şekilde çalışarak, günlük sağlayıcılarının [yapılandırılmış günlüğe yazma olarak da bilinen anlamsal günlüğü](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging)uygulayabilmesini sağlayabilir. Bağımsız değişkenler yalnızca biçimli ileti şablonuna değil, günlük sistemine geçirilir. Bu bilgiler, günlük sağlayıcılarının parametre değerlerini alan olarak depolamasına olanak sağlar. Örneğin, günlükçü yönteminin şuna benzer şekilde göründüğünü varsayın:
 
 ```csharp
 _logger.LogInformation("Getting item {ID} at {RequestTime}", id, DateTime.Now);
 ```
 
-Azure tablo depolaması için günlükleri gönderiyorsanız, her Azure Tablo varlığı olabilir `ID` ve `RequestTime` sorgu günlüğü verilerini kolaylaştıran özellikler. Bir sorgu içinde belirli bir tüm günlükler bulabilirsiniz `RequestTime` olmadan ayrıştırma, kısa mesaj zaman aşımı aralığı.
+Günlükleri Azure Tablo depolama alanına gönderiyorsanız, her bir Azure Tablo varlığı, günlük verilerinde sorguları basitleştiren `ID` ve `RequestTime` özelliklere sahip olabilir. Bir sorgu, belirli `RequestTime` bir aralıktaki tüm günlükleri, kısa mesajdan zaman aşımını ayrıştırmadan bulabilir.
 
-## <a name="logging-exceptions"></a>Özel durumları
+## <a name="logging-exceptions"></a>Günlüğe kaydetme özel durumları
 
-Günlükçü yöntemleri aşağıdaki örnekteki gibi bir özel durum geçirmenize olanak tanıyan aşırı yüklemeleri vardır:
+Günlükçü yöntemlerinin, aşağıdaki örnekte olduğu gibi bir özel durum iletmenizi sağlayan aşırı yüklemeleri vardır:
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -424,7 +424,7 @@ Günlükçü yöntemleri aşağıdaki örnekteki gibi bir özel durum geçirmeni
 
 ::: moniker-end
 
-Farklı sağlayıcıları, özel durum bilgilerini farklı yollarla işler. Yukarıda gösterilen koddan hata ayıklama sağlayıcısı çıktının bir örneği aşağıda verilmiştir.
+Özel durum bilgileri farklı yollarla farklı sağlayıcılarda işler. Yukarıda gösterilen koddan hata ayıklama sağlayıcısı çıktısına bir örnek aşağıda verilmiştir.
 
 ```
 TodoApi.Controllers.TodoController:Warning: GetById(036dd898-fb01-47e8-9a65-f92eb73cf924) NOT FOUND
@@ -433,68 +433,68 @@ System.Exception: Item not found exception.
  at TodoApi.Controllers.TodoController.GetById(String id) in C:\logging\sample\src\TodoApi\Controllers\TodoController.cs:line 226
 ```
 
-## <a name="log-filtering"></a>Günlük Filtresi
+## <a name="log-filtering"></a>Günlük filtreleme
 
 ::: moniker range=">= aspnetcore-2.0"
 
-En düşük günlük düzeyi veya tüm sağlayıcıları ya da tüm kategorileri özel sağlayıcı ve kategori için belirtebilirsiniz. Bunlar görüntülenen veya depolanan olmayan şekilde en düşük düzeyin herhangi bir günlük bu sağlayıcısına geçirilen değildir.
+Belirli bir sağlayıcı ve kategori için en az bir günlük düzeyi veya tüm sağlayıcılar ya da tüm kategoriler için belirtebilirsiniz. Minimum düzeyin altındaki tüm Günlükler bu sağlayıcıya aktarılmaz, bu nedenle görüntülenmez veya depolanmaz.
 
-Tüm günlükler bastırmak için belirtin `LogLevel.None` en düşük günlük düzeyi olarak. Tamsayı değerini `LogLevel.None` daha yüksek olduğu 6 olduğu `LogLevel.Critical` (5).
+Tüm günlükleri gizlemek için en düşük `LogLevel.None` günlük düzeyi olarak belirtin. Öğesinin `LogLevel.None` tamsayı değeri 6 ' dır `LogLevel.Critical` (5) daha yüksektir.
 
-### <a name="create-filter-rules-in-configuration"></a>Yapılandırma filtresi kuralları oluşturabilir
+### <a name="create-filter-rules-in-configuration"></a>Yapılandırmada filtre kuralları oluşturma
 
-Proje şablonu kod çağrıları `CreateDefaultBuilder` konsol ve hata ayıklama sağlayıcıları için günlük kaydı ayarlamak için. `CreateDefaultBuilder` Yöntemi ayrıca ayarlar günlüğünü yapılandırmasında aramak için bir `Logging` bölümünde, aşağıdaki gibi kod kullanarak:
+Proje şablonu kodu, konsol `CreateDefaultBuilder` ve hata ayıklama sağlayıcılarının günlüğünü ayarlamak için çağırır. Yöntemi, aşağıdaki gibi bir kod kullanarak bir `Logging` bölümde yapılandırmayı aramak için günlüğe kaydetmeyi de ayarlar: `CreateDefaultBuilder`
 
 [!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_ExpandDefault&highlight=17)]
 
-Yapılandırma verileri sağlayıcısı ve kategorisi, aşağıdaki örnekte olduğu gibi en az günlük düzeyleri belirtir:
+Yapılandırma verileri aşağıdaki örnekte olduğu gibi sağlayıcıya ve kategoriye göre en düşük günlük düzeylerini belirtir:
 
 [!code-json[](index/samples/2.x/TodoApiSample/appsettings.json)]
 
-Bu JSON altı bir filtre kuralları oluşturur: bir hata ayıklama sağlayıcısı, dört Konsolu sağlayıcısı için ve biri tüm sağlayıcılar için. Tek bir kural her sağlayıcısı için seçilen zaman bir `ILogger` nesnesi oluşturulur.
+Bu JSON altı filtre kuralı oluşturur: biri hata ayıklama sağlayıcısı, konsol sağlayıcısı için dört ve diğeri tüm sağlayıcılar için. Bir `ILogger` nesne oluşturulduğunda her sağlayıcı için tek bir kural seçilir.
 
-### <a name="filter-rules-in-code"></a>Kod içinde filtre kuralları
+### <a name="filter-rules-in-code"></a>Koddaki filtre kuralları
 
-Aşağıdaki örnek, kod içinde filtre kuralları kaydedebilir gösterilmektedir:
+Aşağıdaki örnek, koddaki filtre kurallarının nasıl kaydedileceği gösterilmektedir:
 
 [!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_FilterInCode&highlight=4-5)]
 
-İkinci `AddFilter` , tür adını kullanarak hata ayıklama sağlayıcıyı belirtir. İlk `AddFilter` bir sağlayıcı türü belirtmeyen çünkü tüm sağlayıcılar için geçerlidir.
+İkincisi `AddFilter` , hata ayıklama sağlayıcısını tür adını kullanarak belirtir. Birincisi `AddFilter` bir sağlayıcı türü belirtmediğinden, tüm sağlayıcılar için geçerlidir.
 
-### <a name="how-filtering-rules-are-applied"></a>Nasıl filtreleme kuralları uygulanır
+### <a name="how-filtering-rules-are-applied"></a>Filtreleme kuralları nasıl uygulanır
 
-Yapılandırma verilerini ve `AddFilter` Yukarıdaki örneklerde gösterilen kod aşağıdaki tabloda gösterilen kuralları oluşturun. İlk altı yapılandırma örnekten gelmesi ve son iki kod örneğindeki gelir.
+Yapılandırma verileri ve `AddFilter` önceki örneklerde gösterilen kod, aşağıdaki tabloda gösterilen kuralları oluşturur. İlk altı yapılandırma örneğinde ve son iki ise kod örneğinde gelir.
 
-| Sayı | Sağlayıcı      | Şununla kategori...          | En düşük günlük düzeyi |
+| Sayı | Sağlayıcı      | Şununla başlayan Kategoriler...          | En düşük günlük düzeyi |
 | :----: | ------------- | --------------------------------------- | ----------------- |
-| 1\.      | Hata ayıklama         | Tüm kategoriler                          | Bilgiler       |
+| 1\.      | Hata ayıklama         | Tüm Kategoriler                          | Bilgiler       |
 | 2      | Konsol       | Microsoft.AspNetCore.Mvc.Razor.Internal | Uyarı           |
 | 3      | Konsol       | Microsoft.AspNetCore.Mvc.Razor.Razor    | Hata ayıklama             |
 | 4      | Konsol       | Microsoft.AspNetCore.Mvc.Razor          | Hata             |
-| 5      | Konsol       | Tüm kategoriler                          | Bilgiler       |
-| 6      | Tüm sağlayıcılar | Tüm kategoriler                          | Hata ayıklama             |
+| 5      | Konsol       | Tüm Kategoriler                          | Bilgiler       |
+| 6      | Tüm sağlayıcılar | Tüm Kategoriler                          | Hata ayıklama             |
 | 7      | Tüm sağlayıcılar | Sistem                                  | Hata ayıklama             |
-| 8      | Hata ayıklama         | Microsoft                               | İzleme             |
+| 8      | Hata ayıklama         | Microsoft                               | İzlemesinin             |
 
-Olduğunda bir `ILogger` nesnesi oluşturulur, `ILoggerFactory` nesne bu Günlükçü için uygulanacak sağlayıcı başına tek bir kural seçer. Tüm iletileri tarafından yazılmış bir `ILogger` örneği seçili kuralları göre filtrelenir. Her bir sağlayıcı ve kategori çifti için olası en belirgin kural kullanılabilir kurallardan seçilir.
+Bir `ILogger` nesne oluşturulduğunda `ILoggerFactory` , nesne bu günlükçü için uygulanacak her sağlayıcı için tek bir kural seçer. Bir `ILogger` örnek tarafından yazılan tüm iletiler, seçilen kurallara göre filtrelenmiştir. Her sağlayıcı ve kategori çifti için mümkün olan en özel kural kullanılabilir kurallardan seçilir.
 
-Aşağıdaki algoritmadan her sağlayıcısı için kullanılan zaman bir `ILogger` için belirli bir kategori oluşturulur:
+Belirli bir kategori için oluşturulan her sağlayıcı `ILogger` için aşağıdaki algoritma kullanılır:
 
-* Sağlayıcı veya diğer adıyla eşleşen tüm kuralları'nı seçin. Eşleşme bulunursa, tüm kuralları ile boş bir sağlayıcı seçin.
-* Önceki adımda sonuçtan seçme kuralları ile en uzun kategori ön ek eşleştirme. Eşleşme bulunursa, bir kategori belirtmeyin tüm kuralları'nı seçin.
-* Birden çok kural seçtiyseniz ele **son** biri.
-* Hiçbir kural seçtiyseniz, kullanın `MinimumLevel`.
+* Sağlayıcı veya diğer adıyla eşleşen tüm kuralları seçin. Hiçbir eşleşme bulunmazsa, boş bir sağlayıcıya sahip tüm kurallar ' ı seçin.
+* Önceki adımın sonucunda, en uzun eşleşen kategori ön ekine sahip kurallar ' ı seçin. Eşleşme bulunmazsa, kategori belirtmeyen tüm kuralları seçin.
+* Birden çok kural seçilirse, **son** olanı götürün.
+* Hiçbir kural seçilmezse, kullanın `MinimumLevel`.
 
-İle önceki kurallar listesinde, oluşturduğunuz düşünün bir `ILogger` nesne kategorisi "Microsoft.AspNetCore.Mvc.Razor.RazorViewEngine" için:
+Yukarıdaki kurallar listesinde, "Microsoft. aspnetcore. Mvc `ILogger` . Razor. RazorViewEngine" kategorisi için bir nesne oluşturduğunuzu varsayalım:
 
-* Hata ayıklama sağlayıcısı için 1, 6 ve 8 kuralları geçerlidir. Kural 8 en belirgin olduğundan, seçili durumdaki.
-* Konsolu sağlayıcısı için 3, 4, 5 ve 6 kuralları geçerlidir. Kural 3 en belirgin değil.
+* Hata ayıklama sağlayıcısı, kurallar 1, 6 ve 8 için geçerlidir. Kural 8 ' i en özeldir, yani seçili olanı seçilidir.
+* Konsol sağlayıcısı için, kurallar 3, 4, 5 ve 6 geçerlidir. Kural 3 en özeldir.
 
-Ortaya çıkan `ILogger` örneği gönderir günlüklerini `Trace` düzeyi ve yukarıdaki hata ayıklama sağlayıcısı. Günlükleri `Debug` düzeyi ve konsol sağlayıcısına yukarıdaki gönderilir.
+Elde edilen `ILogger` örnek, hata ayıklama `Trace` sağlayıcısına düzeyi ve üzeri Günlükler gönderir. `Debug` Düzeyi ve üzeri Günlükler konsol sağlayıcısına gönderilir.
 
 ### <a name="provider-aliases"></a>Sağlayıcı diğer adları
 
-Her bir sağlayıcı tanımlar bir *diğer* yapılandırmasında tam nitelikli tür adı yerine kullanılabilir.  Yerleşik sağlayıcılar için aşağıdaki diğer adlar kullanın:
+Her sağlayıcı, tam nitelikli tür adı yerine yapılandırmada kullanılabilecek bir *diğer ad* tanımlar.  Yerleşik sağlayıcılar için aşağıdaki diğer adları kullanın:
 
 * Konsol
 * Hata ayıklama
@@ -505,17 +505,17 @@ Her bir sağlayıcı tanımlar bir *diğer* yapılandırmasında tam nitelikli t
 * AzureAppServicesBlob
 * ApplicationInsights
 
-### <a name="default-minimum-level"></a>Varsayılan en düşük düzeyi
+### <a name="default-minimum-level"></a>Varsayılan en düşük düzey
 
-Yalnızca yapılandırma veya kod hiçbir kural belirtilen sağlayıcı ve kategori için uygularsanız, etkinleşir en az bir düzeyi ayarı yoktur. Aşağıdaki örnek, en düşük düzeyi gösterilmektedir:
+Yalnızca belirli bir sağlayıcı ve kategori için yapılandırma veya koddan kural uygulanmaz geçerli olan en düşük düzey ayar vardır. Aşağıdaki örnekte, en düşük düzeyin nasıl ayarlanacağı gösterilmektedir:
 
 [!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_MinLevel&highlight=3)]
 
-En düşük düzey açıkça ayarlamazsanız, varsayılan değer: `Information`, anlamına `Trace` ve `Debug` günlükleri yok sayılır.
+En düşük düzeyi açıkça ayarlamazsanız, varsayılan değer olur `Information`ve `Debug` bu `Trace` , günlüklerin yok sayılacağı anlamına gelir.
 
 ### <a name="filter-functions"></a>Filtre işlevleri
 
-Tüm sağlayıcıları ve yapılandırma veya kod tarafından atanmış kural kategorisi için bir filtre işlevi çağrılır. İşlev kodu, sağlayıcı türü, kategori ve günlük düzeyi erişimi vardır. Örneğin:
+Configuration veya Code tarafından kendisine atanmış kuralları olmayan tüm sağlayıcılar ve kategoriler için bir filtre işlevi çağırılır. İşlevindeki kodun sağlayıcı türü, kategorisi ve günlük düzeyine erişimi vardır. Örneğin:
 
 [!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_FilterFunction&highlight=5-13)]
 
@@ -523,49 +523,49 @@ Tüm sağlayıcıları ve yapılandırma veya kod tarafından atanmış kural ka
 
 ::: moniker range="< aspnetcore-2.0"
 
-Bazı günlük sağlayıcıları, ne zaman günlükleri bir depolama ortamına veya göz ardı belirtin günlük düzeyi ve kategoriye göre olanak tanır.
+Bazı günlük sağlayıcıları, günlüklerin bir depolama ortamına ne zaman yazılacağını veya günlük düzeyi ve kategorisine göre yoksayılacağını belirtmenize olanak tanır.
 
-`AddConsole` Ve `AddDebug` genişletme yöntemleri filtreleme ölçütleri kabul eden aşırı yükler sağlar. Aşağıdaki örnek kod konsol sağlayıcı günlüklere yok saymak neden `Warning` düzey sırasında hata ayıklama sağlayıcısı framework oluşturduğu günlükleri yok sayar.
+`AddConsole` Ve`AddDebug` genişletme yöntemleri, filtreleme ölçütlerini kabul eden aşırı yüklemeler sağlar. Aşağıdaki örnek kod, hata ayıklama sağlayıcısı Framework 'ün oluşturduğu günlükleri yok `Warning` sayırken, konsol sağlayıcısının düzeyi aşağıdaki günlükleri yoksaymasına neden olur.
 
 [!code-csharp[](index/samples/1.x/TodoApiSample/Startup.cs?name=snippet_AddConsoleAndDebugWithFilter&highlight=6-7)]
 
-`AddEventLog` Yöntemi olan alan bir aşırı yüklemesini bir `EventLogSettings` filtreleme bir işlevde içerebilen örneği kendi `Filter` özelliği. Kendi günlük düzeyi ve diğer parametrelere dayanır beri TraceSource sağlayıcısı bu aşırı yüklemeler hiçbirini sağlamaz `SourceSwitch` ve `TraceListener` kullanır.
+Yönteminde bir `EventLogSettings` örnek alan bir aşırı yükleme vardır ve bu, `Filter` özelliğinde bir filtreleme işlevi içerebilir. `AddEventLog` Kendi günlük düzeyi ve diğer parametreleri temel aldığı ve `SourceSwitch` `TraceListener` kullandığı için, TraceSource sağlayıcısı bu aşırı yüklemelerin hiçbirini sağlamıyor.
 
-Filtreleme kuralları ile kayıtlı tüm sağlayıcılar için ayarlanacak bir `ILoggerFactory` kullanın, örnek `WithFilter` genişletme yöntemi. Aşağıdaki örnek, uygulama kodu tarafından oluşturulan günlükleri için hata ayıklama düzeyinde açılırken uyarıları framework günlükleri (kategorisi "Microsoft" veya "Sistem" ile başlayan) sınırlar.
+Bir `ILoggerFactory` örnekle kayıtlı tüm sağlayıcıların filtreleme kurallarını ayarlamak için, `WithFilter` genişletme yöntemini kullanın. Aşağıdaki örnek, çerçeve günlüklerini kısıtlar (kategori, uygulama kodu tarafından oluşturulan Günlükler için hata ayıklama düzeyinde günlüğe yazılırken uyarılar için "Microsoft" veya "sistem" ile başlar).
 
 [!code-csharp[](index/samples/1.x/TodoApiSample/Startup.cs?name=snippet_FactoryFilter&highlight=6-11)]
 
-Yazılmakta olan herhangi bir günlük önlemek için şunu belirtin `LogLevel.None` en düşük günlük düzeyi olarak. Tamsayı değerini `LogLevel.None` daha yüksek olduğu 6 olduğu `LogLevel.Critical` (5).
+Tüm günlüklerin yazılmasını engellemek için, en düşük günlük `LogLevel.None` düzeyi olarak belirtin. Öğesinin `LogLevel.None` tamsayı değeri 6 ' dır `LogLevel.Critical` (5) daha yüksektir.
 
-`WithFilter` Genişletme yöntemi tarafından sağlanır [Microsoft.Extensions.Logging.Filter](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Filter) NuGet paketi. Yeni bir yöntem döndürür `ILoggerFactory` tüm Günlükçü sağlayıcıları için geçirilen günlük iletileri filtreler örneği ile kayıtlı. Diğer etkilemez `ILoggerFactory` örnekleri, özgün dahil olmak üzere `ILoggerFactory` örneği.
+Genişletme yöntemi [Microsoft. Extensions. Logging. Filter](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Filter) NuGet paketi tarafından sağlanır. `WithFilter` Yöntemi, ile kaydedilen tüm `ILoggerFactory` günlükçü sağlayıcılarına geçirilen günlük iletilerini filtreleyecek yeni bir örnek döndürür. `ILoggerFactory` Özgün`ILoggerFactory` örnek dahil diğer örnekleri etkilemez.
 
 ::: moniker-end
 
-## <a name="system-categories-and-levels"></a>Sistem kategorileri ve düzeyleri
+## <a name="system-categories-and-levels"></a>Sistem kategorileri ve Düzeyler
 
-Hangi günlüklerin bunları beklediğiniz hakkında notlar ile ASP.NET Core ve Entity Framework Core tarafından kullanılan bazı kategorileri şunlardır:
+ASP.NET Core ve Entity Framework Core tarafından kullanılan bazı kategoriler şunlardır ve bunlardan beklenen Günlükler hakkında notlar bulunur:
 
 | Kategori                            | Notlar |
 | ----------------------------------- | ----- |
-| Microsoft.AspNetCore                | ASP.NET Core genel tanılama. |
-| Microsoft.AspNetCore.DataProtection | Hangi anahtarları kabul bulundu kullanılan ve. |
-| Microsoft.AspNetCore.HostFiltering  | İzin verilen bir ana bilgisayar. |
-| Microsoft.AspNetCore.Hosting        | Tamamlanması için geçen süreyi HTTP istekleri ve ne zaman başladıklarını. Hangi barındırma başlangıç derlemeler yüklü. |
-| Microsoft.AspNetCore.Mvc            | MVC ve Razor tanılama. Model bağlama, filtre yürütme, görünüm derlemesi eylem seçimi. |
-| Microsoft.AspNetCore.Routing        | Bilgi eşleşen rota. |
-| Microsoft.AspNetCore.Server         | Bağlantı başlatma, durdurma ve canlı tutma yanıtlar. HTTPS sertifika bilgileri. |
-| Microsoft.AspNetCore.StaticFiles    | Dosyaları sunulur. |
-| Microsoft.EntityFrameworkCore       | Genel Entity Framework Core tanılama. Veritabanı geçişlerini etkinlik ve değişiklik algılama yapılandırması. |
+| Microsoft. AspNetCore                | Genel ASP.NET Core tanılama. |
+| Microsoft. AspNetCore. DataProtection | Hangi anahtarların kabul edildiği, bulunduğu ve kullanıldığı. |
+| Microsoft. AspNetCore. HostFiltering  | İzin verilen konaklar. |
+| Microsoft. AspNetCore. Hosting        | HTTP isteklerinin tamamlanması için geçen süre ve ne zaman başladıkları. Hangi barındırma başlangıç derlemeleri yüklendi. |
+| Microsoft. AspNetCore. Mvc            | MVC ve Razor tanılama. Model bağlama, filtre yürütme, derlemeyi görüntüleme, eylem seçimi. |
+| Microsoft. AspNetCore. Routing        | Eşleşen bilgileri yönlendirin. |
+| Microsoft. AspNetCore. Server         | Bağlantı başlatın, durdurun ve canlı yanıtları koruyun. HTTPS sertifika bilgileri. |
+| Microsoft. AspNetCore. StaticFiles    | Sunulan dosyalar. |
+| Microsoft. EntityFrameworkCore       | Genel Entity Framework Core tanılama. Veritabanı etkinliği ve yapılandırması, değişiklik algılama, geçişler. |
 
 ## <a name="log-scopes"></a>Günlük kapsamları
 
- A *kapsam* mantıksal işlem kümesi gruplayabilirsiniz. Bu gruplandırma, aynı veri kümesinin bir parçası oluşturulan her bir günlüğe eklemek için kullanılabilir. Örneğin, bir işlem işleme bir parçası olarak oluşturulan her günlük işlem kimliği içerebilir
+ *Kapsam* bir mantıksal işlemler kümesini gruplandırabilir. Bu gruplandırma, kümenin bir parçası olarak oluşturulan her günlüğe aynı verileri eklemek için kullanılabilir. Örneğin, bir işlemin işlenmesi kapsamında oluşturulan her günlük işlem KIMLIĞI içerebilir.
 
-Bir kapsam bir `IDisposable` tarafından döndürülen tür <xref:Microsoft.Extensions.Logging.ILogger.BeginScope*> yöntemi ve bırakılana kadar bağlanabilmelerini. Günlükçü çağrılarında sarmalama tarafından bir kapsamı kullanan bir `using` engelle:
+Kapsam, `IDisposable` <xref:Microsoft.Extensions.Logging.ILogger.BeginScope*> yöntemi tarafından döndürülen ve atılana kadar sürer olan bir türdür. Bir `using` blok içinde günlükçü çağrılarını sarmalayarak kapsam kullanın:
 
 [!code-csharp[](index/samples/1.x/TodoApiSample/Controllers/TodoController.cs?name=snippet_Scopes&highlight=4-5,13)]
 
-Aşağıdaki kod, konsolu sağlayıcısı için kapsamları etkinleştirir:
+Aşağıdaki kod konsol sağlayıcısı için kapsamları etkinleştirilir:
 
 ::: moniker range="> aspnetcore-2.0"
 
@@ -574,9 +574,9 @@ Aşağıdaki kod, konsolu sağlayıcısı için kapsamları etkinleştirir:
 [!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_Scopes&highlight=4)]
 
 > [!NOTE]
-> Yapılandırma `IncludeScopes` kapsam tabanlı günlük kaydını etkinleştirmek için konsol Günlükçü seçeneği gereklidir.
+> Kapsam tabanlı günlüğe kaydetmeyi etkinleştirmek için konsolgünlükçüseçeneğininyapılandırılmasıgerekir.`IncludeScopes`
 >
-> Yapılandırması hakkında daha fazla bilgi için bkz: [yapılandırma](#configuration) bölümü.
+> Yapılandırma hakkında bilgi için [yapılandırma](#configuration) bölümüne bakın.
 
 ::: moniker-end
 
@@ -587,7 +587,7 @@ Aşağıdaki kod, konsolu sağlayıcısı için kapsamları etkinleştirir:
 [!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_Scopes&highlight=4)]
 
 > [!NOTE]
-> Yapılandırma `IncludeScopes` kapsam tabanlı günlük kaydını etkinleştirmek için konsol Günlükçü seçeneği gereklidir.
+> Kapsam tabanlı günlüğe kaydetmeyi etkinleştirmek için konsolgünlükçüseçeneğininyapılandırılmasıgerekir.`IncludeScopes`
 
 ::: moniker-end
 
@@ -610,9 +610,9 @@ warn: TodoApi.Controllers.TodoController[4000]
       GetById(0) NOT FOUND
 ```
 
-## <a name="built-in-logging-providers"></a>Yerleşik günlük sağlayıcıları
+## <a name="built-in-logging-providers"></a>Yerleşik günlük oluşturma sağlayıcıları
 
-ASP.NET Core aşağıdaki sağlayıcıları birlikte gelir:
+ASP.NET Core aşağıdaki sağlayıcıları sevk eder:
 
 * [Console](#console-provider)
 * [Hata ayıklama](#debug-provider)
@@ -623,11 +623,11 @@ ASP.NET Core aşağıdaki sağlayıcıları birlikte gelir:
 * [AzureAppServicesBlob](#azure-app-service-provider)
 * [ApplicationInsights](#azure-application-insights-trace-logging)
 
-Stdout günlüğü hakkında daha fazla bilgi için bkz. <xref:host-and-deploy/iis/troubleshoot#aspnet-core-module-stdout-log> ve <xref:host-and-deploy/azure-apps/troubleshoot#aspnet-core-module-stdout-log>.
+Stdout ve ASP.NET Core modüllü hata ayıklama günlüğü hakkında bilgi için bkz <xref:test/troubleshoot-azure-iis> . ve. <xref:host-and-deploy/aspnet-core-module#log-creation-and-redirection>
 
-### <a name="console-provider"></a>Konsolu sağlayıcısı
+### <a name="console-provider"></a>Konsol sağlayıcısı
 
-[Microsoft.Extensions.Logging.Console](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console) sağlayıcı paketi konsola günlük çıktısını gönderir. 
+[Microsoft. Extensions. Logging. Console](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console) sağlayıcı paketi, günlük çıktısını konsola gönderir. 
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -643,37 +643,37 @@ logging.AddConsole();
 loggerFactory.AddConsole();
 ```
 
-[AddConsole aşırı](xref:Microsoft.Extensions.Logging.ConsoleLoggerExtensions) en düşük günlük düzeyi, bir filtre işlevi ve kapsamları desteklenip desteklenmediğini belirten bir Boole değeri geçirdiğiniz sağlar. Başka bir seçenek de geçirmektir bir `IConfiguration` kapsamları desteği ve günlüğe kaydetme düzeylerini belirleyebilirsiniz nesnesidir.
+[Addconsole aşırı yüklemeleri](xref:Microsoft.Extensions.Logging.ConsoleLoggerExtensions) , en az bir günlük düzeyi, bir filtre işlevi ve kapsamların desteklenip desteklenmediğini belirten bir Boole değeri geçirmenize olanak sağlar. Diğer bir seçenek de `IConfiguration` bir nesneyi geçirmektir ve bu da kapsamları destekler ve günlüğe kaydetme düzeylerini belirtebilir.
 
-Konsol sağlayıcı seçenekleri için bkz <xref:Microsoft.Extensions.Logging.Console.ConsoleLoggerOptions>.
+Konsol sağlayıcısı seçenekleri için bkz <xref:Microsoft.Extensions.Logging.Console.ConsoleLoggerOptions>.
 
-Konsolu sağlayıcısı performansı üzerinde önemli bir etkisi vardır ve genellikle üretim amaçlı kullanım için uygun değildir.
+Konsol sağlayıcısının performansı önemli ölçüde etkiler ve genellikle üretimde kullanım için uygun değildir.
 
-Visual Studio'da yeni bir proje oluşturduğunuzda `AddConsole` yöntemi aşağıdaki gibi görünür:
+Visual Studio 'da yeni bir proje oluşturduğunuzda, `AddConsole` Yöntem şöyle görünür:
 
 ```csharp
 loggerFactory.AddConsole(Configuration.GetSection("Logging"));
 ```
 
-Bu kod başvurduğu `Logging` bölümünü *appSettings.json* dosyası:
+Bu kod, `Logging` *appSettings. JSON* dosyasının bölümüne başvurur:
 
 [!code-json[](index/samples/1.x/TodoApiSample/appsettings.json)]
 
-Hata ayıklama düzeyinde açıklandığı şekilde oturum sınırı framework günlükleri uyarılar için uygulama izin verirken gösterilen ayarları [günlük filtreleme](#log-filtering) bölümü. Daha fazla bilgi için [yapılandırma](xref:fundamentals/configuration/index).
+Gösterilen ayarlar, [günlük filtreleme](#log-filtering) bölümünde açıklandığı gibi uygulamanın hata ayıklama düzeyinde oturum açmasına izin verirken çerçeveyi uyarılarla günlüğe kaydeder. Daha fazla bilgi için [yapılandırma](xref:fundamentals/configuration/index).
 
 ::: moniker-end
 
-Konsol çıkış günlüğü görmek için proje klasöründeki bir komut istemi açın ve aşağıdaki komutu çalıştırın:
+Konsol günlüğü çıkışını görmek için proje klasöründe bir komut istemi açın ve aşağıdaki komutu çalıştırın:
 
 ```console
 dotnet run
 ```
 
-### <a name="debug-provider"></a>Sağlayıcı hata ayıklama
+### <a name="debug-provider"></a>Hata ayıklama sağlayıcısı
 
-[Microsoft.Extensions.Logging.Debug](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Debug) sağlayıcı paketi kullanarak günlük çıktı Yazar [System.Diagnostics.Debug](/dotnet/api/system.diagnostics.debug) sınıfı (`Debug.WriteLine` yöntem çağrılarını).
+[Microsoft. Extensions. Logging. Debug](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Debug) sağlayıcı paketi, [System. Diagnostics. Debug](/dotnet/api/system.diagnostics.debug) sınıfını (`Debug.WriteLine` Yöntem çağrıları) kullanarak günlük çıktısını yazar.
 
-Linux üzerinde bu sağlayıcı günlüklerine Yazar */var/log/message*.
+Linux 'ta, bu sağlayıcı günlükleri */var/log/Message*dosyasına yazar.
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -689,13 +689,13 @@ logging.AddDebug();
 loggerFactory.AddDebug();
 ```
 
-[AddDebug aşırı](xref:Microsoft.Extensions.Logging.DebugLoggerFactoryExtensions) en düşük günlük düzeyi veya bir filtre işlevi geçirdiğiniz sağlar.
+[Adddebug aşırı yüklemeleri](xref:Microsoft.Extensions.Logging.DebugLoggerFactoryExtensions) , en az bir günlük düzeyinde veya bir filtre işlevinde geçiş yapmanızı sağlar.
 
 ::: moniker-end
 
-### <a name="eventsource-provider"></a>EventSource sağlayıcısı
+### <a name="eventsource-provider"></a>EventSource sağlayıcı
 
-ASP.NET Core 1.1.0 hedefleyen uygulamalar için veya sonraki bir sürümü [Microsoft.Extensions.Logging.EventSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.EventSource) sağlayıcı paketi, olay izleme uygulayabilirsiniz. Windows üzerinde kullandığı [ETW](https://msdn.microsoft.com/library/windows/desktop/bb968803). Platformlar arası sağlayıcısıdır, ancak henüz Linux veya macOS için toplama ve görüntüleme araçları hiçbir olay yok.
+ASP.NET Core 1.1.0 veya üzeri bir sürümü hedefleyen uygulamalar için, [Microsoft. Extensions. Logging. EventSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.EventSource) sağlayıcı paketi olay izlemeyi uygulayabilir. Windows üzerinde [ETW](https://msdn.microsoft.com/library/windows/desktop/bb968803)kullanır. Sağlayıcı platformlar arası, ancak Linux veya macOS için henüz bir olay koleksiyonu ve görüntüleme aracı yok.
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -713,15 +713,15 @@ loggerFactory.AddEventSourceLogger();
 
 ::: moniker-end
 
-Toplamak ve günlükleri görüntülemek için en iyi yolu kullanmaktır [PerfView yardımcı programı](https://github.com/Microsoft/perfview). ETW günlükleri görüntülemek için diğer araçları vardır, ancak PerfView ASP.NET tarafından yayılan ETW olayları ile çalışmak için en iyi deneyimi sağlar.
+Günlükleri toplamanın ve görüntülemenin iyi bir yolu, [PerfView yardımcı programını](https://github.com/Microsoft/perfview)kullanmaktır. ETW günlüklerini görüntülemeye yönelik başka araçlar da mevcuttur, ancak PerfView, ASP.NET tarafından yayınlanan ETW olaylarıyla çalışmak için en iyi deneyimi sağlar.
 
-Bu sağlayıcı tarafından günlüğe kaydedilen olayları toplamak için PerfView yapılandırmak için dize Ekle `*Microsoft-Extensions-Logging` için **ek sağlayıcılar** listesi. (Yıldız işareti dizenin başlangıcında kaçırmayın.)
+Bu sağlayıcı tarafından günlüğe kaydedilen olayları toplamak için PerfView 'ı yapılandırmak için, dizeyi `*Microsoft-Extensions-Logging` **ek sağlayıcılar** listesine ekleyin. (Dizenin başlangıcında yıldız işaretini kaçırmayın.)
 
-![Perfview ek sağlayıcılar](index/_static/perfview-additional-providers.png)
+![PerfView ek sağlayıcıları](index/_static/perfview-additional-providers.png)
 
 ### <a name="windows-eventlog-provider"></a>Windows olay günlüğü sağlayıcısı
 
-[Microsoft.Extensions.Logging.EventLog](https://www.nuget.org/packages/Microsoft.Extensions.Logging.EventLog) sağlayıcı paketi, Windows olay günlüğüne günlük çıktısını gönderir.
+[Microsoft. Extensions. Logging. EventLog](https://www.nuget.org/packages/Microsoft.Extensions.Logging.EventLog) sağlayıcı paketi, Windows olay günlüğüne günlük çıktısı gönderir.
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -737,13 +737,13 @@ logging.AddEventLog();
 loggerFactory.AddEventLog();
 ```
 
-[AddEventLog aşırı](xref:Microsoft.Extensions.Logging.EventLoggerFactoryExtensions) geçirdiğiniz let `EventLogSettings` veya en düşük günlük düzeyi.
+[AddEventLog aşırı yüklemeleri](xref:Microsoft.Extensions.Logging.EventLoggerFactoryExtensions) , en az `EventLogSettings` bir günlük düzeyinde geçiş yapmanızı sağlar.
 
 ::: moniker-end
 
 ### <a name="tracesource-provider"></a>TraceSource sağlayıcısı
 
-[Microsoft.Extensions.Logging.TraceSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.TraceSource) sağlayıcı paketi kullanan <xref:System.Diagnostics.TraceSource> kitaplıkları ve sağlayıcıları.
+[Microsoft. Extensions. Logging. TraceSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.TraceSource) sağlayıcı paketi <xref:System.Diagnostics.TraceSource> kitaplıklarını ve sağlayıcıları kullanır.
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -761,43 +761,43 @@ loggerFactory.AddTraceSource(sourceSwitchName);
 
 ::: moniker-end
 
-[AddTraceSource aşırı](xref:Microsoft.Extensions.Logging.TraceSourceFactoryExtensions) kaynak anahtarı ve bir izleme dinleyicisi geçirdiğiniz sağlar.
+[Addtracesource aşırı yüklemeleri](xref:Microsoft.Extensions.Logging.TraceSourceFactoryExtensions) , bir kaynak anahtarı ve bir izleme dinleyicisi geçirmenize olanak sağlar.
 
-Bu sağlayıcıyı kullanmak için .NET Framework (yerine üzerinde .NET Core) çalıştırmak bir uygulama vardır. Sağlayıcı için çeşitli iletiler yönlendirebilirsiniz [dinleyicileri](/dotnet/framework/debug-trace-profile/trace-listeners), gibi <xref:System.Diagnostics.TextWriterTraceListener> örnek uygulamada kullanılan.
+Bu sağlayıcıyı kullanmak için, bir uygulamanın .NET Framework çalışması gerekir (.NET Core yerine). Sağlayıcı, iletileri örnek uygulamada <xref:System.Diagnostics.TextWriterTraceListener> kullanılan gibi çeşitli [dinleyicilerine](/dotnet/framework/debug-trace-profile/trace-listeners)yönlendirebilir.
 
 ::: moniker range="< aspnetcore-2.0"
 
-Aşağıdaki örnek yapılandırır bir `TraceSource` günlükleri sağlayıcısı `Warning` ve konsol penceresinde daha yüksek ileti.
+Aşağıdaki örnek, konsol penceresine `TraceSource` ve daha yüksek `Warning` iletileri günlüğe kaydeden bir sağlayıcıyı yapılandırır.
 
 [!code-csharp[](index/samples/1.x/TodoApiSample/Startup.cs?name=snippet_TraceSource&highlight=9-12)]
 
 ::: moniker-end
 
-### <a name="azure-app-service-provider"></a>Azure App Service sağlayıcısı
+### <a name="azure-app-service-provider"></a>Azure App Service sağlayıcı
 
-[Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) sağlayıcı paketi metin dosyalarını bir Azure App Service uygulamanın dosya sistemi ve çok günlükler Yazar [blob depolama](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#what-is-blob-storage) bir Azure depolama hesabındaki. Sağlayıcı paketi, .NET Core 1.1 hedefleyen uygulamalar için veya sonraki kullanılabilir.
+[Microsoft. Extensions. Logging. AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) sağlayıcı paketi, günlükleri bir Azure App Service uygulamasının dosya sistemindeki metin dosyalarına ve bir Azure depolama hesabındaki [BLOB depolama](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#what-is-blob-storage) alanına yazar. Sağlayıcı paketi, .NET Core 1,1 veya üstünü hedefleyen uygulamalar tarafından kullanılabilir.
 
 ::: moniker range=">= aspnetcore-2.0"
 
-.NET Core'u hedefleyen, aşağıdaki noktalara dikkat edin:
+.NET Core hedefleniyorsa aşağıdaki noktalara göz önünde kalın:
 
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"
 
-* ASP.NET Core sağlayıcısı paketinde [Microsoft.AspNetCore.All metapackage](xref:fundamentals/metapackage).
+* Sağlayıcı paketi [Microsoft. AspNetCore. All metapackage](xref:fundamentals/metapackage)ASP.NET Core dahildir.
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
 
-* Sağlayıcı paketi bulunup bulunmadığına [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app). Sağlayıcıyı kullanmak için paketi yükleyin.
+* Sağlayıcı paketi [Microsoft. AspNetCore. app metapackage](xref:fundamentals/metapackage-app)'e dahil değildir. Sağlayıcıyı kullanmak için paketini yükledikten sonra.
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.0"
 
-.NET Framework'ü hedefleyen veya başvuru `Microsoft.AspNetCore.App` metapackage, sağlayıcı paketini projeye ekleyin. Çağırma `AddAzureWebAppDiagnostics`:
+.NET Framework veya `Microsoft.AspNetCore.App` metapackage 'e başvurabiliyorsa, sağlayıcı paketini projeye ekleyin. Çağır `AddAzureWebAppDiagnostics`:
 
 ```csharp
 logging.AddAzureWebAppDiagnostics();
@@ -815,30 +815,30 @@ loggerFactory.AddAzureWebAppDiagnostics();
 
 ::: moniker range="<= aspnetcore-2.1"
 
-Bir <xref:Microsoft.Extensions.Logging.AzureAppServicesLoggerFactoryExtensions.AddAzureWebAppDiagnostics*> geçirdiğiniz sağlar aşırı <xref:Microsoft.Extensions.Logging.AzureAppServices.AzureAppServicesDiagnosticsSettings>. Ayarlar nesnesini günlük çıktı şablonu, blob adı ve dosya boyutu sınırını gibi varsayılan ayarları geçersiz kılabilirsiniz. (*Çıkış şablon* ile sağlanan ek olarak, tüm günlükleri uygulanan bir ileti şablonu bir `ILogger` yöntem çağrısı.)
+Aşırı yükleme, <xref:Microsoft.Extensions.Logging.AzureAppServices.AzureAppServicesDiagnosticsSettings>geçiş yapmanızı sağlar. <xref:Microsoft.Extensions.Logging.AzureAppServicesLoggerFactoryExtensions.AddAzureWebAppDiagnostics*> Ayarlar nesnesi, günlük çıkış şablonu, blob adı ve dosya boyutu sınırı gibi varsayılan ayarları geçersiz kılabilir. (*Çıktı şablonu* , bir `ILogger` yöntem çağrısıyla birlikte sağlandığının yanı sıra tüm günlüklere uygulanan bir ileti şablonudur.)
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.2"
 
-Sağlayıcı ayarlarını yapılandırmak için kullanmayı <xref:Microsoft.Extensions.Logging.AzureAppServices.AzureFileLoggerOptions> ve <xref:Microsoft.Extensions.Logging.AzureAppServices.AzureBlobLoggerOptions>, aşağıdaki örnekte gösterildiği gibi:
+Sağlayıcı ayarlarını yapılandırmak için aşağıdaki örnekte <xref:Microsoft.Extensions.Logging.AzureAppServices.AzureFileLoggerOptions> gösterildiği <xref:Microsoft.Extensions.Logging.AzureAppServices.AzureBlobLoggerOptions>gibi ve kullanın:
 
 [!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_AzLogOptions&highlight=19-27)]
 
 ::: moniker-end
 
-Bir App Service uygulamasına dağıtmak, uygulama ayarlarında yapılırken [App Service günlükleri](/azure/app-service/web-sites-enable-diagnostic-log/#enablediag) bölümünü **App Service** Azure Portalı'nın sayfasında. Aşağıdaki ayarları güncelleştirildiğinde, değişiklikleri hemen yeniden başlatma veya yeniden dağıtma işlemi uygulamanın gerek olmadan etkinleşir.
+App Service uygulamasına dağıtırken, uygulama, Azure portal **App Service** sayfasının [App Service Günlükler](/azure/app-service/web-sites-enable-diagnostic-log/#enablediag) bölümündeki ayarları kabul eder. Aşağıdaki ayarlar güncelleştirilirken, değişiklikler uygulamanın yeniden başlatılmasını veya yeniden dağıtımı gerekmeden hemen etkili olur.
 
 * **Uygulama günlüğü (dosya sistemi)**
-* **Uygulama günlüğü (Blob)**
+* **Uygulama günlüğü (blob)**
 
-Günlük dosyaları için varsayılan konum alıyor *D:\\giriş\\LogFiles\\uygulama* klasörü ve varsayılan dosya adı olan *tanılama yyyymmdd.txt*. Varsayılan dosya boyutu sınırını 10 MB'tır ve korunan dosyaları varsayılan en yüksek sayısı 2'dir. Varsayılan blob adı *{app-name}{timestamp}/yyyy/mm/dd/hh/{guid}-applicationLog.txt*.
+Günlük dosyaları için varsayılan konum *D:\\Home\\LogFiles\\uygulama* klasöründedir ve varsayılan dosya adı *Diagnostics-YYYYMMDD. txt*' dir. Varsayılan dosya boyutu sınırı 10 MB 'tır ve tutulan varsayılan en fazla dosya sayısı 2 ' dir. Varsayılan blob adı *{app-name} {timestamp}/yyyy/mm/dd/ss/{Guid}-ApplicationLog.txt*.
 
-Sağlayıcı, yalnızca proje Azure ortamında çalışan olduğunda çalışır. Projeyi yerel olarak çalıştırdığınızda herhangi bir etkisi&mdash;yerel dosyaları ya da yerel geliştirme deposu bloblar için yazma değil.
+Sağlayıcı yalnızca proje Azure ortamında çalıştırıldığında çalışır. Proje yerel olarak&mdash;çalıştırıldığında, yerel dosyalara veya blob 'lar için yerel geliştirme depolamasına yazmazsa, bu, hiçbir etkiye sahip değildir.
 
 #### <a name="azure-log-streaming"></a>Azure günlük akışı
 
-Azure günlük akışını gerçek zamanlı günlüğünü etkinliği görüntülemenize olanak tanır:
+Azure günlük akışı, günlük etkinliklerini gerçek zamanlı olarak görüntülemenize izin verir:
 
 * Uygulama sunucusu
 * Web sunucusu
@@ -846,56 +846,56 @@ Azure günlük akışını gerçek zamanlı günlüğünü etkinliği görüntü
 
 Azure günlük akışını yapılandırmak için:
 
-* Gidin **App Service günlükleri** sayfasından uygulamanızın portal sayfası.
-* Ayarlama **uygulama günlüğü (dosya sistemi)** için **üzerinde**.
-* Günlüğü seçin **düzeyi**.
+* Uygulamanızın Portal sayfasından **App Service günlükleri** sayfasına gidin.
+* **Uygulama günlüğünü (FileSystem)** **Açık**olarak ayarlayın.
+* Günlük **düzeyini**seçin.
 
-Gidin **günlük Stream** uygulama iletilerini görüntülemek için sayfa. Tarafından uygulama üzerinden oturum açmadıysanız `ILogger` arabirimi.
+Uygulama iletilerini görüntülemek için **günlük akışı** sayfasına gidin. Uygulama tarafından `ILogger` arabirim aracılığıyla günlüğe kaydedilir.
 
 ::: moniker range=">= aspnetcore-1.1"
 
 ### <a name="azure-application-insights-trace-logging"></a>Azure Application Insights izleme günlüğü
 
-[Microsoft.Extensions.Logging.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights) sağlayıcı paketi için Azure Application Insights günlükler yazar. Application Insights, web uygulamasını izler ve sorgulama ve telemetri verilerini analiz etmek için araçlar sağlayan bir hizmettir. Bu sağlayıcı kullanıyorsanız, sorgu ve Application Insights araçlarını kullanarak günlüklerinizi analiz edin.
+[Microsoft. Extensions. Logging. ApplicationInsights](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights) sağlayıcı paketi günlükleri Azure Application Insights yazar. Application Insights, bir Web uygulamasını izleyen ve telemetri verilerini sorgulamak ve analiz etmek için araçlar sağlayan bir hizmettir. Bu sağlayıcıyı kullanıyorsanız, Application Insights araçlarını kullanarak günlüklerinizi sorgulayabilir ve analiz edebilirsiniz.
 
-Oturum açma sağlayıcısı bir bağımlılık olarak dahil edilen [Microsoft.ApplicationInsights.AspNetCore](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore), ASP.NET Core için tüm mevcut telemetri sağlayan paket olduğu. Bu paket kullanırsanız, sağlayıcı paketi yüklemenize gerek yoktur.
+Günlüğe kaydetme sağlayıcısı, ASP.NET Core için tüm kullanılabilir telemetri sağlayan paket olan [Microsoft. ApplicationInsights. AspNetCore](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore)'un bağımlılığı olarak eklenmiştir. Bu paketi kullanırsanız, sağlayıcı paketini yüklemek zorunda kalmazsınız.
 
-Kullanmayın [Microsoft.applicationınsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) paket&mdash;olan ASP.NET 4.x.
+ASP.NET 4. x için [Microsoft. ApplicationInsights. Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) paketini&mdash;kullanmayın.
 
 Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-* [Application Insights'a genel bakış](/azure/application-insights/app-insights-overview)
-* [ASP.NET Core uygulamaları için Application Insights](/azure/azure-monitor/app/asp-net-core-no-visualstudio) -günlük kaydı ile birlikte tam aralığı, Application Insights telemetri uygulamak istiyorsanız, buradan başlayın.
-* [.NET Core ILogger için ApplicationInsightsLoggerProvider günlükleri](/azure/azure-monitor/app/ilogger) -Application Insights telemetri kalan olmadan oturum açma sağlayıcısı uygulamak istiyorsanız, buradan başlayın.
-* [Application Insights bağdaştırıcılarını günlüğü](https://github.com/Microsoft/ApplicationInsights-dotnet-logging/blob/develop/README.md).
-* [Yükleme, yapılandırma ve Application Insights SDK'sını başlatmak](/learn/modules/instrument-web-app-code-with-application-insights) - etkileşimli Microsoft Learn sitesindeki öğretici.
+* [Application Insights genel bakış](/azure/application-insights/app-insights-overview)
+* [ASP.NET Core uygulamalar için Application Insights](/azure/azure-monitor/app/asp-net-core-no-visualstudio) -günlük kaydı ile birlikte Application Insights telemetrinin tam aralığını uygulamak istiyorsanız buraya başlayın.
+* [.NET Core ILogger günlükleri Için Applicationınsightsloggerprovider](/azure/azure-monitor/app/ilogger) -günlük sağlayıcısını Application Insights telemetri olmadan uygulamak istiyorsanız buraya başlayın.
+* [Günlüğe kaydetme bağdaştırıcılarını Application Insights](https://github.com/Microsoft/ApplicationInsights-dotnet-logging/blob/develop/README.md).
+* Microsoft Learn sitede Application Insights SDK-etkileşimli öğreticisini [yükleyip başlatın](/learn/modules/instrument-web-app-code-with-application-insights) .
 ::: moniker-end
 
 > [!NOTE]
-> 5/1/2019 tarihinde başlıklı makaleyi [ASP.NET Core için Application Insights](/azure/azure-monitor/app/asp-net-core) tarih ve adımları çalışmıyor öğretici dışında. Başvurmak [ASP.NET Core uygulamaları için Application Insights](/azure/azure-monitor/app/asp-net-core-no-visualstudio) yerine. Biz, sorunun farkındayız ve onu düzeltmeye çalışıyoruz.
+> 5/1/2019 itibariyle, [ASP.NET Core için Application Insights](/azure/azure-monitor/app/asp-net-core) başlıklı makale güncel değildir ve öğretici adımları çalışmaz. Bunun yerine [ASP.NET Core uygulamalar için Application Insights](/azure/azure-monitor/app/asp-net-core-no-visualstudio) bakın. Sorunun farkındayız ve düzeltmek için çalışıyoruz.
 
-## <a name="third-party-logging-providers"></a>Üçüncü taraf günlük sağlayıcıları
+## <a name="third-party-logging-providers"></a>Üçüncü taraf günlük oluşturma sağlayıcıları
 
-ASP.NET Core ile çalışan üçüncü taraf günlük altyapılarına:
+ASP.NET Core ile birlikte çalışan üçüncü taraf günlük çerçeveleri:
 
-* [elmah.io](https://elmah.io/) ([GitHub deposunu](https://github.com/elmahio/Elmah.Io.Extensions.Logging))
-* [Gelf](https://docs.graylog.org/en/2.3/pages/gelf.html) ([GitHub deposunu](https://github.com/mattwcole/gelf-extensions-logging))
-* [JSNLog](https://jsnlog.com/) ([GitHub deposunu](https://github.com/mperdeck/jsnlog))
-* [KissLog.net](https://kisslog.net/) ([GitHub deposunu](https://github.com/catalingavan/KissLog-net))
-* [Loggr](https://loggr.net/) ([GitHub deposunu](https://github.com/imobile3/Loggr.Extensions.Logging))
-* [NLog](https://nlog-project.org/) ([GitHub deposunu](https://github.com/NLog/NLog.Extensions.Logging))
-* [Sentry](https://sentry.io/welcome/) ([GitHub deposunu](https://github.com/getsentry/sentry-dotnet))
-* [Serilog](https://serilog.net/) ([GitHub deposunu](https://github.com/serilog/serilog-aspnetcore))
-* [Stackdriver](https://cloud.google.com/dotnet/docs/stackdriver#logging) ([Github deposunu](https://github.com/googleapis/google-cloud-dotnet))
+* [ELMAH.io](https://elmah.io/) ([GitHub deposu](https://github.com/elmahio/Elmah.Io.Extensions.Logging))
+* [Gelf](https://docs.graylog.org/en/2.3/pages/gelf.html) ([GitHub deposu](https://github.com/mattwcole/gelf-extensions-logging))
+* [Jsnlog](https://jsnlog.com/) ([GitHub deposu](https://github.com/mperdeck/jsnlog))
+* [KissLog.net](https://kisslog.net/) ([GitHub deposu](https://github.com/catalingavan/KissLog-net))
+* [Loggr](https://loggr.net/) ([GitHub deposu](https://github.com/imobile3/Loggr.Extensions.Logging))
+* [NLog](https://nlog-project.org/) ([GitHub deposu](https://github.com/NLog/NLog.Extensions.Logging))
+* [Sentry](https://sentry.io/welcome/) ([GitHub deposu](https://github.com/getsentry/sentry-dotnet))
+* [Serilog](https://serilog.net/) ([GitHub deposu](https://github.com/serilog/serilog-aspnetcore))
+* [Stackdriver](https://cloud.google.com/dotnet/docs/stackdriver#logging) ([GitHub deposu](https://github.com/googleapis/google-cloud-dotnet))
 
-Bazı üçüncü taraf çerçeveleri gerçekleştirebilirsiniz [yapılandırılmış günlük kaydı olarak da bilinen anlamlı günlük kaydını](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
+Bazı üçüncü taraf çerçeveler [, yapılandırılmış günlük olarak da bilinen anlam günlüğe kaydetme](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging)işlemini gerçekleştirebilir.
 
-Bir üçüncü taraf framework kullanarak, yerleşik sağlayıcılardan birini kullanmaya benzer:
+Bir üçüncü taraf çerçevesinin kullanılması, yerleşik sağlayıcılardan birini kullanmaya benzer:
 
-1. Bir NuGet paketini projenize ekleyin.
-1. Çağrısı bir `ILoggerFactory`.
+1. Projenize bir NuGet paketi ekleyin.
+1. Bir `ILoggerFactory`çağırın.
 
-Daha fazla bilgi için her sağlayıcının belgelerine bakın. Üçüncü taraf günlük sağlayıcıları, Microsoft tarafından desteklenmez.
+Daha fazla bilgi için bkz. her sağlayıcının belgeleri. Üçüncü taraf günlüğü sağlayıcıları Microsoft tarafından desteklenmez.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
