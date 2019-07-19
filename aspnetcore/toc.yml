@@ -534,6 +534,10 @@
       uid: grpc/aspnetcore
     - name: Yapılandırma
       uid: grpc/configuration
+    - name: Kimlik doğrulaması ve yetkilendirme
+      uid: grpc/authn-and-authz
+    - name: Güvenlik konuları
+      uid: grpc/security
     - name: gRPC hizmetlerini C Core’dan ASP.NET Core’a geçirme
       uid: grpc/migration
     - name: gRPC hizmetlerini HTTP API’leriyle karşılaştırma
@@ -560,6 +564,10 @@
       uid: test/troubleshoot
     - name: Günlüğe Kaydetme
       uid: fundamentals/logging/index
+    - name: Azure ve IIS sorunlarını giderme
+      uid: test/troubleshoot-azure-iis
+    - name: Azure ve IIS hataları başvurusu
+      uid: host-and-deploy/azure-iis-errors-reference
 - name: Veri erişimi
   items:
     - name: Öğreticiler
@@ -656,7 +664,7 @@
           uid: host-and-deploy/aspnet-core-module
         - name: Sorun giderme
           displayName: 'azure, deploy, publish'
-          uid: host-and-deploy/azure-apps/troubleshoot
+          uid: test/troubleshoot-azure-iis
         - name: Hata başvurusu
           displayName: 'azure, deploy, publish'
           uid: host-and-deploy/azure-iis-errors-reference
@@ -697,7 +705,7 @@
           uid: host-and-deploy/iis/modules
         - name: Sorun giderme
           displayName: 'deploy, publish'
-          uid: host-and-deploy/iis/troubleshoot
+          uid: test/troubleshoot-azure-iis
         - name: Hata başvurusu
           displayName: 'deploy, publish'
           uid: host-and-deploy/azure-iis-errors-reference
