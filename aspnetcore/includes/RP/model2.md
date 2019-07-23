@@ -1,24 +1,60 @@
 <a name="dc"></a>
 
-### <a name="add-a-database-context-class"></a>Veritabanı bağlamı sınıfının Ekle
+### <a name="add-a-database-context-class"></a>Veritabanı bağlamı sınıfı ekleme
 
-Aşağıdaki `RazorPagesMovieContext` sınıfının *veri* klasörü:
+Aşağıdaki `RazorPagesMovieContext` sınıfı *veri* klasörüne ekleyin:
 
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Data/RazorPagesMovieContext.cs)]
 
-Yukarıdaki kod oluşturur bir `DbSet` varlık kümesi özelliği. Entity Framework terminolojisinde, bir varlık kümesini genellikle bir veritabanı tablosuna karşılık gelir ve bir varlık tablosunda bir satıra karşılık gelir.
+Önceki kod, varlık kümesi `DbSet` için bir özellik oluşturur. Entity Framework terimlerinde, genellikle bir varlık kümesi bir veritabanı tablosuna karşılık gelir ve bir varlık tablodaki bir satıra karşılık gelir.
 
 <a name="cs"></a>
 
-### <a name="add-a-database-connection-string"></a>Bir veritabanı bağlantı dizesi Ekle
+### <a name="add-a-database-connection-string"></a>Veritabanı bağlantı dizesi Ekle
 
-Bir bağlantı dizesi Ekle *appsettings.json* vurgulanan aşağıdaki kodda gösterildiği gibi dosya:
+Aşağıdaki Vurgulanan kodda gösterildiği gibi *appSettings. JSON* dosyasına bir bağlantı dizesi ekleyin:
 
-[!code-json[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/appsettings_SQLite.json?highlight=8-10)]
+::: moniker range=">= aspnetcore-3.0"
 
-### <a name="add-required-nuget-packages"></a>Gerekli NuGet paketleri Ekle
+[!code-json[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie30/appsettings_SQLite.json?highlight=10-12)]
 
-SQLite ve CodeGeneration.Design projeye eklemek için aşağıdaki .NET Core CLI komutunu çalıştırın:
+### <a name="add-required-nuget-packages"></a>Gerekli NuGet paketlerini ekleyin
+
+SQLite, Entity Framework Core ve CodeGeneration eklemek için aşağıdaki .NET Core CLI komutlarını çalıştırın. projeye tasarım:
+
+```console
+dotnet add package Microsoft.EntityFrameworkCore.SQLite --version 3.0.0-*
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 3.0.0-*
+dotnet add package Microsoft.EntityFrameworkCore.Design --version 3.0.0-*
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer --version 3.0.0-*
+```
+
+Paket `Microsoft.VisualStudio.Web.CodeGeneration.Design` , yapı iskelesi için gereklidir.
+
+<a name="reg"></a>
+
+### <a name="register-the-database-context"></a>Veritabanı bağlamı Kaydet
+
+Aşağıdaki `using` deyimlerini *Startup.cs*üst kısmına ekleyin:
+
+```csharp
+using RazorPagesMovie.Models;
+using Microsoft.EntityFrameworkCore;
+```
+
+Veritabanı bağlamını içindeki `Startup.ConfigureServices` [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısına kaydedin.
+
+[!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie30/Startup.cs?name=snippet_UseSqlite&highlight=11-12)]
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+[!code-json[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/appsettings_SQLite.json?highlight=8-9)]
+
+### <a name="add-required-nuget-packages"></a>Gerekli NuGet paketlerini ekleyin
+
+SQLite ve CodeGeneration eklemek için aşağıdaki .NET Core CLI komutunu çalıştırın. projeye tasarım:
 
 ```console
 dotnet add package Microsoft.EntityFrameworkCore.SQLite
@@ -27,21 +63,22 @@ dotnet add package Microsoft.EntityFrameworkCore.Design
 
 ```
 
-`Microsoft.VisualStudio.Web.CodeGeneration.Design` Paket iskele oluşturma için gereklidir.
+Paket `Microsoft.VisualStudio.Web.CodeGeneration.Design` , yapı iskelesi için gereklidir.
 
 <a name="reg"></a>
 
 ### <a name="register-the-database-context"></a>Veritabanı bağlamı Kaydet
 
-Aşağıdaki `using` deyimleri en üstündeki *Startup.cs*:
+Aşağıdaki `using` deyimlerini *Startup.cs*üst kısmına ekleyin:
 
 ```csharp
 using RazorPagesMovie.Models;
 using Microsoft.EntityFrameworkCore;
 ```
 
-Veritabanı bağlamı ile kaydetme [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısında `Startup.ConfigureServices`.
+Veritabanı bağlamını içindeki `Startup.ConfigureServices` [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısına kaydedin.
 
 [!code-csharp[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie22/Startup.cs?name=snippet_UseSqlite&highlight=11-12)]
 
-Hatalar için bir onay olarak, projeyi derleyin.
+Hataları denetlemek için projeyi bir denetim olarak derleyin.
+::: moniker-end

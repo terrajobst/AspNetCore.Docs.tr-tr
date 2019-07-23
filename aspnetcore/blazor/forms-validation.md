@@ -1,29 +1,29 @@
 ---
-title: ASP.NET Core Blazor formlar ve doğrulama
+title: ASP.NET Core Blazor formları ve doğrulaması
 author: guardrex
-description: Formlar ve alan doğrulama senaryoları Blazor içinde kullanmayı öğrenin.
+description: Blazor içinde Forms ve alan doğrulama senaryolarını nasıl kullanacağınızı öğrenin.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
 ms.date: 07/02/2019
 uid: blazor/forms-validation
 ms.openlocfilehash: e1b7de6e31adae8102bbefba5d08418c4daac687
-ms.sourcegitcommit: 7a40c56bf6a6aaa63a7ee83a2cac9b3a1d77555e
+ms.sourcegitcommit: 849af69ee3c94cdb9fd8fa1f1bb8f5a5dda7b9eb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2019
+ms.lasthandoff: 07/22/2019
 ms.locfileid: "67855783"
 ---
-# <a name="aspnet-core-blazor-forms-and-validation"></a>ASP.NET Core Blazor formlar ve doğrulama
+# <a name="aspnet-core-blazor-forms-and-validation"></a>ASP.NET Core Blazor formları ve doğrulaması
 
-Tarafından [Daniel Roth](https://github.com/danroth27) ve [Luke Latham](https://github.com/guardrex)
+[Daniel Roth](https://github.com/danroth27) ve [Luke Latham](https://github.com/guardrex) tarafından
 
-Formlar ve doğrulama Blazor içinde desteklenen kullanarak [veri ek açıklamaları](xref:mvc/models/validation).
+Forms ve doğrulama, Blazor içinde [veri ek açıklamaları](xref:mvc/models/validation)kullanılarak desteklenir.
 
 > [!NOTE]
-> Formlar ve doğrulama senaryoları her Önizleme sürümü ile değiştirme olasılığı düşüktür.
+> Formlar ve doğrulama senaryoları, her önizleme sürümü ile değiştirilebilir.
 
-Aşağıdaki `ExampleModel` doğrulama mantığını veri ek açıklamalarını kullanma türünü tanımlar:
+Aşağıdaki `ExampleModel` tür, veri ek açıklamalarını kullanarak doğrulama mantığını tanımlar:
 
 ```csharp
 using System.ComponentModel.DataAnnotations;
@@ -36,7 +36,7 @@ public class ExampleModel
 }
 ```
 
-Bir form kullanılarak tanımlanan `EditForm` bileşeni. Aşağıdaki formu tipik öğeleri, bileşenler ve Razor kod gösterir:
+Bir form, `EditForm` bileşeni kullanılarak tanımlanır. Aşağıdaki formda tipik öğeler, bileşenler ve Razor kodu gösterilmektedir:
 
 ```csharp
 <EditForm Model="@exampleModel" OnValidSubmit="@HandleValidSubmit">
@@ -58,14 +58,14 @@ Bir form kullanılarak tanımlanan `EditForm` bileşeni. Aşağıdaki formu tipi
 }
 ```
 
-* Form uygulamasında kullanıcı girdisi doğrulama `name` tanımlanan doğrulama kullanarak alan `ExampleModel` türü. Model bileşenin içinde oluşturulur `@code` engelleme ve özel bir alanda tutulan (`exampleModel`). Alana atanan `Model` özniteliği `<EditForm>` öğesi.
-* `DataAnnotationsValidator` Bileşen veri ek açıklamalarını kullanma doğrulama desteği ekler.
-* `ValidationSummary` Bileşeni doğrulama iletilerinin özetler.
-* `HandleValidSubmit` formu başarıyla (Pass doğrulama) gönderdiğinde tetiklenir.
+* Form, `name` `ExampleModel` türünde tanımlanan doğrulamayı kullanarak alanda Kullanıcı girişini doğrular. Model bileşen `@code` bloğunda oluşturulur ve özel bir alanda (`exampleModel`) tutulur. Alanı, `Model` `<EditForm>` öğesinin özniteliğine atanır.
+* Bileşen `DataAnnotationsValidator` , veri ek açıklamalarını kullanarak doğrulama desteği ekler.
+* `ValidationSummary` Bileşen doğrulama iletilerini özetler.
+* `HandleValidSubmit`Form başarıyla gönderdiğinde tetiklenir (doğrulamayı geçirir).
 
-Bir dizi yerleşik giriş bileşenlerini almak ve kullanıcı girişini doğrulama kullanılabilir. Girişler, bunlar değiştirilme zamanı ve bir form gönderildiğinde doğrulanır. Aşağıdaki tabloda kullanılabilir giriş bileşenleri gösterilmektedir.
+Kullanıcı girişini almak ve doğrulamak için yerleşik bir giriş bileşenleri kümesi vardır. Girişler değiştirildiklerinde ve bir form gönderildiğinde onaylanır. Kullanılabilir giriş bileşenleri aşağıdaki tabloda gösterilmiştir.
 
-| Giriş bileşeni | Çizilir&hellip;       |
+| Giriş bileşeni | Olarak işlendi&hellip;       |
 | --------------- | ------------------------- |
 | `InputText`     | `<input>`                 |
 | `InputTextArea` | `<textarea>`              |
@@ -74,11 +74,11 @@ Bir dizi yerleşik giriş bileşenlerini almak ve kullanıcı girişini doğrula
 | `InputCheckbox` | `<input type="checkbox">` |
 | `InputDate`     | `<input type="date">`     |
 
-Tüm giriş bileşenlerin dahil olmak üzere `EditForm`, rastgele öznitelikler destekler. Bir bileşen parametresi eşleşmeyen herhangi bir öznitelik için işlenen HTML öğesine eklenir.
+Dahil olmak üzere `EditForm`tüm giriş bileşenleri, rastgele öznitelikleri destekler. Bir bileşen parametresiyle eşleşmeyen herhangi bir öznitelik işlenmiş HTML öğesine eklenir.
 
-Giriş bileşenleri düzenlendiğinde doğrulama ve değiştirme alanı durumunu yansıtacak şekilde onların CSS sınıfı için varsayılan davranış sağlar. Bazı bileşenler yararlı ayrıştırma mantığı içerir. Örneğin, `InputDate` ve `InputNumber` ayrıştırılamayan değerler işleme düzgün bir şekilde doğrulama hataları kaydederek. Null değerlerini kabul edebilir türleri de hedef alan NULL atanabilirliği destekler (örneğin, `int?`).
+Giriş bileşenleri, düzenleme sırasında doğrulamak ve CSS sınıfını alan durumunu yansıtacak şekilde değiştirmek için varsayılan davranışı sağlar. Bazı bileşenler, yararlı ayrıştırma mantığını içerir. Örneğin, `InputDate` `InputNumber` bunları doğrulama hatası olarak kaydederek düzeltilemez değerleri düzgün şekilde işleyin. Null değerleri kabul edebilecek türler, hedef alanın null değer alabilme durumunu da destekler (örneğin, `int?`).
 
-Aşağıdaki `Starship` türünü tanımlayan özellikleri ve veri ek açıklamaları daha büyük bir önceki değerinden kullanarak Doğrulama mantığı `ExampleModel`:
+Aşağıdaki `Starship` tür, daha önce daha büyük bir özellik kümesi ve daha önceki `ExampleModel`veri açıklamalarını kullanarak doğrulama mantığını tanımlar:
 
 ```csharp
 using System;
@@ -108,9 +108,9 @@ public class Starship
 }
 ```
 
-Önceki örnekte `Description` hiçbir veri ek açıklama olmadığı için isteğe bağlıdır.
+Önceki örnekte, `Description` hiçbir veri ek açıklaması mevcut olmadığından isteğe bağlıdır.
 
-Aşağıdaki formu içinde tanımlanan doğrulama kullanan kullanıcı girişi doğrulama `Starship` modeli:
+Aşağıdaki form, `Starship` modelde tanımlanan doğrulamayı kullanarak Kullanıcı girişini doğrular:
 
 ```cshtml
 @page "/FormsValidation"
@@ -173,16 +173,16 @@ Aşağıdaki formu içinde tanımlanan doğrulama kullanan kullanıcı girişi d
 }
 ```
 
-`EditForm` Oluşturur bir `EditContext` olarak bir [basamaklı değeri](xref:blazor/components#cascading-values-and-parameters) düzenleme işlemi, hangi alanların değiştirilmiş dahil olmak üzere hakkındaki meta verileri ve geçerli doğrulama iletileri izler. `EditForm` De uygun olayları sağlar için geçerli ve geçersiz gönderir (`OnValidSubmit`, `OnInvalidSubmit`). Alternatif olarak, `OnSubmit` doğrulamayı tetiklemek için ve özel doğrulama kodu ile alan değerlerini denetleyin.
+, `EditForm` Hangi alanların `EditContext` değiştirildiği ve geçerli doğrulama iletileri de dahil olmak üzere düzenleme işlemiyle ilgili meta verileri izleyen [basamaklı bir değer](xref:blazor/components#cascading-values-and-parameters) olarak oluşturur. Ayrıca geçerli ve geçersiz Gönderimlerle (`OnValidSubmit`, `OnInvalidSubmit`) uygun olaylar sağlar. `EditForm` Alternatif olarak, `OnSubmit` doğrulamayı tetiklemek ve alan değerlerini özel doğrulama kodu ile denetlemek için kullanın.
 
-`DataAnnotationsValidator` Bileşeni art arda için veri ek açıklamalarını kullanma doğrulama desteği ekler `EditContext`. Bu açık hareket veri ek açıklamaları şu anda kullanarak doğrulama için desteği etkinleştirme gerektirir, ancak bu daha sonra geçersiz varsayılan davranışı yapmadan düşündüğümüz. Veri ek açıklamaları farklı doğrulama sistemdekinden kullanmak için değiştirin `DataAnnotationsValidator` özel bir uygulama. ASP.NET Core uygulaması için başvuru kaynağı incelemesinin kullanılabilir: [DataAnnotationsValidator](https://github.com/aspnet/AspNetCore/blob/master/src/Components/Components/src/Forms/DataAnnotationsValidator.cs)/[AddDataAnnotationsValidation](https://github.com/aspnet/AspNetCore/blob/master/src/Components/Components/src/Forms/EditContextDataAnnotationsExtensions.cs). *ASP.NET Core uygulaması Önizleme yayın süresince hızlı güncelleştirmeler tabidir.*
+Bileşen, Basamaklandırılan `EditContext`veri açıklamalarını kullanarak doğrulama desteğini iliştirir. `DataAnnotationsValidator` Veri ek açıklamalarını kullanarak doğrulama desteğinin etkinleştirilmesi Şu anda bu açık hareketi gerektirir, ancak bunu daha sonra geçersiz kılabileceğiniz varsayılan davranışı yapmayı düşünüyoruz. Veri ek açıklamalarıyla farklı bir doğrulama sistemi kullanmak için, `DataAnnotationsValidator` öğesini özel bir uygulamayla değiştirin. ASP.NET Core uygulama, başvuru kaynağında İnceleme için kullanılabilir: [Dataannotationsvalidator](https://github.com/aspnet/AspNetCore/blob/master/src/Components/Components/src/Forms/DataAnnotationsValidator.cs)/[adddataannotationsvalidation](https://github.com/aspnet/AspNetCore/blob/master/src/Components/Components/src/Forms/EditContextDataAnnotationsExtensions.cs). *ASP.NET Core uygulama, önizleme sürümü döneminde hızlı güncelleştirmelere tabidir.*
 
-`ValidationSummary` Bileşeni benzer olduğu tüm doğrulama iletilerinin özetler [doğrulama özeti etiketi Yardımcısı](xref:mvc/views/working-with-forms#the-validation-summary-tag-helper).
+Bileşen, [doğrulama özeti etiketi Yardımcısı](xref:mvc/views/working-with-forms#the-validation-summary-tag-helper)'na benzer olan tüm doğrulama iletilerini özetler. `ValidationSummary`
 
-`ValidationMessage` Bileşen görüntüler için benzer bir özel alan doğrulama iletilerinin [doğrulama iletisi etiketi Yardımcısı](xref:mvc/views/working-with-forms#the-validation-message-tag-helper). Alan ile doğrulama için belirttiğiniz `For` özniteliğini ve model özelliğine adlandırma bir lambda ifadesi:
+Bileşeni, [doğrulama iletisi etiketi Yardımcısı](xref:mvc/views/working-with-forms#the-validation-message-tag-helper)'na benzer şekilde belirli bir alan için doğrulama iletileri görüntüler. `ValidationMessage` `For` Özniteliği ile doğrulama için alanı ve model özelliğini adlandırırken bir lambda ifadesini belirtin:
 
 ```cshtml
 <ValidationMessage For="@(() => starship.MaximumAccommodation)" />
 ```
 
-`ValidationMessage` Ve `ValidationSummary` bileşenleri isteğe bağlı öznitelikleri destekler. Bir bileşen parametresi eşleşmeyen herhangi bir öznitelik eklenir oluşturulan `<div>` veya `<ul>` öğesi.
+`ValidationMessage` Ve`ValidationSummary` bileşenleri, rastgele öznitelikleri destekler. Bir bileşen parametresiyle eşleşmeyen herhangi bir öznitelik oluşturulan `<div>` or `<ul>` öğesine eklenir.

@@ -1,102 +1,102 @@
 ---
-title: ASP.NET Core Blazor barındırma modelleri
+title: Blazor barındırma modellerini ASP.NET Core
 author: guardrex
-description: İstemci tarafı ve sunucu tarafı modelleri barındırma Blazor anlayın.
+description: Blazor istemci tarafı ve sunucu tarafı barındırma modellerini anlayın.
 monikerRange: '>= aspnetcore-3.0'
 ms.author: riande
 ms.custom: mvc
 ms.date: 07/01/2019
 uid: blazor/hosting-models
-ms.openlocfilehash: 2f5a8a037534f4a881b474dd8bcc3119f504123a
-ms.sourcegitcommit: 040aedca220ed24ee1726e6886daf6906f95a028
+ms.openlocfilehash: 9dd96ff6e3539bf1c3e932b33776b16d0fbb2d34
+ms.sourcegitcommit: 849af69ee3c94cdb9fd8fa1f1bb8f5a5dda7b9eb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67892242"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371794"
 ---
-# <a name="aspnet-core-blazor-hosting-models"></a>ASP.NET Core Blazor barındırma modelleri
+# <a name="aspnet-core-blazor-hosting-models"></a>Blazor barındırma modellerini ASP.NET Core
 
-Tarafından [Daniel Roth](https://github.com/danroth27)
+[Daniel Roth](https://github.com/danroth27) tarafından
 
-Blazor istemci-tarafı çalışmak üzere tasarlanmış bir web çerçevesi olan tarayıcıda bir [WebAssembly](https://webassembly.org/)-.NET çalışma zamanı tabanlı (*Blazor istemci-tarafı*) veya sunucu tarafı ASP.NET Core (*Blazor sunucu tarafı* ). Barındırma modeli, uygulama ve bileşen modelleri bakılmaksızın *aynı*.
+Blazor, bir [Webassembly](https://webassembly.org/)tabanlı .NET çalışma zamanı (*Blazor istemci tarafı*) veya ASP.NET Core (*Blazor sunucu tarafı*) içindeki sunucu tarafında tarayıcıda istemci tarafı çalıştırmak için tasarlanan bir Web çerçevesidir. Barındırma modelinden bağımsız olarak, uygulama ve bileşen modelleri *aynıdır*.
 
-Bu makalede açıklanan barındırma modellerine yönelik bir proje oluşturmak için bkz: <xref:blazor/get-started>.
+Bu makalede açıklanan barındırma modelleriyle ilgili bir proje oluşturmak için, bkz <xref:blazor/get-started>.
 
 ## <a name="client-side"></a>İstemci tarafı
 
-Asıl barındırma için Blazor WebAssembly tarayıcıda çalışan istemci-tarafı modelidir. Tarayıcıya .NET çalışma zamanı Blazor uygulamayı ve bağımlılıkları indirilir. Uygulamayı doğrudan tarayıcıda kullanıcı Arabirimi iş parçacığında yürütülür. Kullanıcı Arabirimi güncelleştirmeleri ve olay işleme, aynı işlem içinde oluşur. Statik dosya olarak bir web sunucusu veya hizmeti statik içeriği istemcilere hizmet uygulamasının varlıklarını dağıtılır.
+Blazor için sorumlu barındırma modeli, WebAssembly üzerinde tarayıcıda istemci tarafında çalışmaktadır. Blazor uygulaması, bağımlılıkları ve .NET çalışma zamanı tarayıcıya indirilir. Uygulama doğrudan tarayıcı kullanıcı arabirimi iş parçacığında yürütülür. UI güncelleştirmeleri ve olay işleme aynı işlem içinde oluşur. Uygulamanın varlıkları, istemcilere statik içerik sunan bir Web sunucusuna veya hizmete statik dosyalar olarak dağıtılır.
 
-![Blazor istemci-tarafı: Tarayıcı içinde bir kullanıcı Arabirimi iş parçacığında Blazor uygulama çalışır.](hosting-models/_static/client-side.png)
+![Blazor istemci tarafı: Blazor uygulaması, tarayıcı içindeki bir kullanıcı arabirimi iş parçacığında çalışır.](hosting-models/_static/client-side.png)
 
-İstemci tarafı barındırma modeli kullanarak bir Blazor uygulaması oluşturmak için aşağıdaki şablonlardan birini kullanın:
+İstemci tarafı barındırma modelini kullanarak bir Blazor uygulaması oluşturmak için aşağıdaki şablonlardan birini kullanın:
 
-* **(İstemci-tarafı) Blazor** ([dotnet yeni blazor](/dotnet/core/tools/dotnet-new)) &ndash; statik dosyalar bir dizi dağıtılabilir.
-* **Blazor (ASP.NET Core barındırılan)** ([dotnet yeni blazorhosted](/dotnet/core/tools/dotnet-new)) &ndash; bir ASP.NET Core sunucusu tarafından barındırılan. ASP.NET Core uygulaması Blazor uygulama istemcilere hizmet. Web API çağrıları kullanarak ağ üzerinden Blazor istemci tarafı uygulama sunucusu ile etkileşim kurabilir veya [SignalR](xref:signalr/introduction).
+* **Blazor (istemci tarafı)** ([DotNet New blazor](/dotnet/core/tools/dotnet-new)) &ndash; Statik dosyalar kümesi olarak dağıtılır.
+* **Blazor (ASP.NET Core barındırılan)** ([DotNet New blazorhosted](/dotnet/core/tools/dotnet-new)) &ndash; Bir ASP.NET Core sunucusu tarafından barındırılır. ASP.NET Core uygulaması, Blazor uygulamasını istemcilere sunar. Blazor istemci tarafı uygulaması, Web API çağrıları veya [SignalR](xref:signalr/introduction)kullanarak ağ üzerinden sunucu ile etkileşime geçebilir.
 
-Şablonları içerir *blazor.webassembly.js* işleyen betik:
+Şablonlar şunları ele alan *blazor. webassembly. js* betiğini içerir:
 
-* .NET çalışma zamanı, uygulama ve uygulamanın bağımlılıklarını karşıdan yükleniyor.
-* Uygulamayı çalıştırmak için çalışma zamanı başlatma.
+* .NET çalışma zamanını, uygulamayı ve uygulamanın bağımlılıklarını indirme.
+* Uygulamayı çalıştırmak için çalışma zamanının başlatılması.
 
-İstemci tarafı barındırma modeli, çeşitli avantajlar sunar:
+İstemci tarafı barındırma modeli çeşitli avantajlar sunar:
 
-* Hiçbir .NET sunucu tarafı bağımlılık yoktur. Uygulama için istemciyi indirdikten sonra tam olarak çalışır.
-* İstemci kaynakları ve özellikleri tam olarak yararlanabilirsiniz.
-* İş, sunucudan istemciye boşaltılır.
-* Uygulamayı barındırmak için bir ASP.NET Core web sunucusu gerekli değildir. Sunucusuz dağıtım senaryolarında (örneğin, uygulamayı bir CDN'den sunulması) mümkündür.
+* .NET sunucu tarafı bağımlılığı yoktur. Uygulama, istemciye indirildikten sonra tamamen çalışır.
+* İstemci kaynakları ve yetenekleri tamamen yararlanılabilir.
+* İş sunucudan istemciye boşaltılır.
+* Uygulamayı barındırmak için bir ASP.NET Core Web sunucusu gerekli değildir. Sunucusuz dağıtım senaryoları mümkündür (örneğin, bir CDN 'den uygulama sunma).
 
-İstemci tarafı barındırma downsides vardır:
+İstemci tarafı barındırma için aşağı taraf vardır:
 
-* Uygulama, tarayıcının yeteneklerini sınırlıdır.
-* Özellikli istemci donanım ve yazılım (örneğin, WebAssembly desteği) gereklidir.
-* İndirme boyutu ve uygulamaların yüklenmesi daha uzun sürecektir.
-* .NET çalışma zamanı ve araç desteği daha az olgun. Sınırlamalar, mevcut [.NET Standard](/dotnet/standard/net-standard) desteği ve hata ayıklama.
+* Uygulama tarayıcının özelliklerine kısıtlıdır.
+* Uyumlu istemci donanımı ve yazılımı (örneğin, WebAssembly desteği) gereklidir.
+* İndirme boyutu daha büyüktür ve uygulamaların yüklenmesi daha uzun sürer.
+* .NET çalışma zamanı ve araç desteği daha az olgun. Örneğin, [.NET Standard](/dotnet/standard/net-standard) desteğinin ve hata ayıklamada sınırlamalar mevcuttur.
 
 ## <a name="server-side"></a>Sunucu tarafı
 
-Sunucu tarafı barındırma modeli ile uygulama sunucusunda bir ASP.NET Core uygulaması içinde yürütülür. Kullanıcı Arabirimi güncelleştirmeleri, olay işleme ve JavaScript çağrılarını üzerinden işlenir bir [SignalR](xref:signalr/introduction) bağlantı.
+Sunucu tarafı barındırma modeliyle, uygulama sunucuda ASP.NET Core bir uygulama içinden yürütülür. Kullanıcı Arabirimi güncelleştirmeleri, olay işleme ve JavaScript çağrıları bir [SignalR](xref:signalr/introduction) bağlantısı üzerinden işlenir.
 
-![Tarayıcı uygulaması (bir ASP.NET Core uygulaması içinde barındırılan) ile sunucu üzerinde bir SignalR bağlantısı üzerinden etkileşim kurar.](hosting-models/_static/server-side.png)
+![Tarayıcı, bir SignalR bağlantısı üzerinden sunucusunda (bir ASP.NET Core uygulamasının içinde barındırılan) uygulamayla etkileşime girer.](hosting-models/_static/server-side.png)
 
-Sunucu tarafı barındırma modeli kullanarak bir Blazor uygulaması oluşturmak için ASP.NET Core kullanan **Blazor sunucu uygulaması** şablonu ([dotnet yeni blazorserverside](/dotnet/core/tools/dotnet-new)). ASP.NET Core uygulaması, sunucu tarafı uygulamayı barındıran ve istemcilerin eriştikleri SignalR uç noktası oluşturur.
+Sunucu tarafı barındırma modelini kullanarak bir Blazor uygulaması oluşturmak için ASP.NET Core **Blazor Server uygulama** şablonunu ([DotNet New blazorserverside](/dotnet/core/tools/dotnet-new)) kullanın. ASP.NET Core uygulaması, sunucu tarafı uygulamayı barındırır ve istemcilerin bağlanacağı SignalR uç noktasını oluşturur.
 
-ASP.NET Core uygulaması uygulamanın başvuran `Startup` sınıfı eklemek için:
+ASP.NET Core uygulama, eklenecek uygulamanın `Startup` sınıfına başvurur:
 
 * Sunucu tarafı hizmetler.
-* Ardışık Düzen işleme isteği için uygulama.
+* İstek işleme işlem hattının uygulaması.
 
-*Blazor.server.js* betik&dagger; istemci bağlantı kurar. Bunu kalıcı hale getirmek ve gerektiğinde (örneğin, durumunda kayıp ağ bağlantısı) uygulama durumunu geri yüklemek için uygulamanın sorumluluğudur.
+*Blazor. Server. js* betiği&dagger; , istemci bağlantısını oluşturur. Uygulamanın, uygulama durumunu (örneğin, kayıp ağ bağlantısı durumunda) kalıcı hale getirmek ve geri yüklemek, uygulamanın sorumluluğundadır.
 
-Sunucu tarafı barındırma modeli, çeşitli avantajlar sunar:
+Sunucu tarafı barındırma modeli çeşitli avantajlar sunar:
 
-* Bir istemci-tarafı uygulaması önemli ölçüde daha küçük indirme boyutu ve uygulamayı çok daha hızlı yükler.
-* Uygulama sunucusu özellikleri, herhangi bir .NET Core uyumlu API kullanımı dahil olmak üzere tam yararlanır.
-* Sunucu üzerinde .NET core araçları, hata ayıklama gibi mevcut .NET beklendiği gibi çalışır. Bu nedenle, uygulamayı çalıştırmak için kullanılır.
-* İnce istemciler desteklenir. Örneğin, sunucu tarafı uygulamalar ile WebAssembly desteklemeyen tarayıcılar ve kaynak kısıtlı cihazlarda çalışır.
-* Uygulamanın .NET /C# kod tabanına uygulama bileşeni kod dahil olmak üzere, istemcilere hizmet değil.
+* İndirme boyutu bir istemci tarafı uygulamadan önemli ölçüde küçüktür ve uygulama çok daha hızlı yüklenir.
+* Uygulama, .NET Core ile uyumlu API 'lerin kullanımı dahil olmak üzere sunucu olanaklarından tam olarak yararlanır.
+* Sunucuda .NET Core, uygulamayı çalıştırmak için kullanılır, bu nedenle hata ayıklama gibi mevcut .NET araçları beklendiği gibi çalışır.
+* Ölçülü istemciler desteklenir. Örneğin, sunucu tarafı uygulamalar, WebAssembly ve kaynak kısıtlı cihazlarda bulunan tarayıcılarla çalışır.
+* Uygulamanın bileşen kodu da dahilC# olmak üzere, uygulamanın .NET/kod tabanı istemcilere sunulmuyor.
 
-Sunucu tarafı barındırma downsides vardır:
+Sunucu tarafı barındırma için aşağı taraf vardır:
 
-* Daha yüksek gecikme süresi genellikle var. Her bir kullanıcı etkileşimi bir ağ atlama içerir.
-* Çevrimdışı desteği yoktur. İstemci bağlantı başarısız olursa, Uygulama çalışmayı durduruyor.
-* Ölçeklenebilirlik, çok sayıda kullanıcı içeren uygulamalar için zordur. Sunucu, birden çok istemci bağlantılarını yönetme ve istemci durumu işleme.
-* Bir ASP.NET Core sunucusu uygulama hizmet vermek için gereklidir. Sunucusuz dağıtım senaryolarında (örneğin, uygulamayı bir CDN'den sunulması) mümkün değildir.
+* Daha yüksek gecikme süresi genellikle vardır. Her Kullanıcı etkileşimi bir ağ atmasını içerir.
+* Çevrimdışı destek yoktur. İstemci bağlantısı başarısız olursa, uygulama çalışmayı durduruyor.
+* Ölçeklenebilirlik, çok sayıda kullanıcısı olan uygulamalar için zorlayıcı bir uygulamalardır. Sunucunun birden çok istemci bağlantısını yönetmesi ve istemci durumunu işlemesi gerekir.
+* Uygulamayı çalıştırmak için bir ASP.NET Core sunucusu gerekir. Sunucusuz dağıtım senaryoları mümkün değildir (örneğin, bir CDN 'den uygulama sunma).
 
-&dagger;*Blazor.server.js* betik sunulan ASP.NET Core paylaşılan Framework katıştırılmış bir kaynaktan.
+&dagger;*Blazor. Server. js* betiği ASP.NET Core paylaşılan çerçevede eklenmiş bir kaynaktan sunulur.
 
 ### <a name="reconnection-to-the-same-server"></a>Aynı sunucuya yeniden bağlanma
 
-Sunucu tarafı uygulamalar Blazor sunucunun etkin bir SignalR bağlantısı gerektirir. Bağlantı kaybedilirse uygulamanın sunucuya yeniden dener. Bellekte hala istemcinin durum olduğu sürece, istemci oturum durumunu kaybetmeden sürdürür.
+Blazor sunucu tarafı uygulamalar sunucuya etkin bir SignalR bağlantısı gerektirir. Bağlantı kaybolursa, uygulama sunucuya yeniden bağlanmaya çalışır. İstemcinin durumu hala bellekte olduğu sürece, istemci oturumu durum kaybı olmadan devam eder.
  
-İstemci bağlantısı kesildi algıladığında, istemci yeniden bağlanmayı dener ancak bir varsayılan kullanıcı arabirimini kullanıcıya görüntülenir. Yeniden bağlanma başarısız olursa, kullanıcı yeniden denemek için seçeneği sağlanır. Kullanıcı arabirimini özelleştirmek için bir öğe ile tanımlama `components-reconnect-modal` olarak kendi `id`. İstemci bu öğe, bağlantı durumuna bağlı aşağıdaki CSS sınıflarının biri ile güncelleştirir:
+İstemci bağlantının kaybolduğunu algıladığında, istemci yeniden bağlanmayı denediğinde kullanıcıya varsayılan bir kullanıcı arabirimi görüntülenir. Yeniden bağlantı başarısız olursa, kullanıcıya yeniden deneme seçeneği sağlanır. Kullanıcı arabirimini özelleştirmek için, `components-reconnect-modal` *_host. cshtml* Razor sayfasında `id` olarak bir öğesi tanımlayın. İstemci bu öğeyi bağlantı durumuna göre aşağıdaki CSS sınıflarından biriyle güncelleştirir:
  
-* `components-reconnect-show` &ndash; Bağlantı kesildi ve istemci yeniden bağlanmayı deniyor göstermek için uygulamanın UI göstermesi.
-* `components-reconnect-hide` &ndash; İstemci UI Gizle etkin bir bağlantı vardır.
-* `components-reconnect-failed` &ndash; Yeniden bağlanma başarısız oldu. Yeniden bağlanmayı yeniden denemek için çağrı `window.Blazor.reconnect()`.
+* `components-reconnect-show`&ndash; Bağlantının kaybolduğunu ve istemcinin yeniden bağlanmaya çalışıyor olduğunu göstermek için Kullanıcı arabirimini görüntüleyin.
+* `components-reconnect-hide`&ndash; İstemcinin etkin bir bağlantısı vardır ve Kullanıcı arabirimini gizleyin.
+* `components-reconnect-failed`&ndash; Yeniden bağlantı kurulamadı. Yeniden bağlanmayı yeniden denemek için çağrısı `window.Blazor.reconnect()`yapın.
 
-### <a name="stateful-reconnection-after-prerendering"></a>Prerendering sonra durum bilgisi olan yeniden bağlanma
+### <a name="stateful-reconnection-after-prerendering"></a>Prerendering sonrasında durum bilgisi olan yeniden bağlanma
  
-Blazor sunucu tarafı uygulamalar varsayılan olarak sunucuya istemci bağlantı kurulmadan önce sunucuda UI prerender şekilde ayarlanmıştır. Bu, ayarlanır *_Host.cshtml* Razor sayfası:
+Blazor sunucu tarafında bulunan uygulamalar, sunucu bağlantısı yapılmadan önce sunucu üzerindeki kullanıcı arabirimini varsayılan olarak PreRender 'a ayarlar. Bu, *_Host. cshtml* Razor sayfasında ayarlanır:
  
 ```cshtml
 <body>
@@ -106,13 +106,13 @@ Blazor sunucu tarafı uygulamalar varsayılan olarak sunucuya istemci bağlantı
 </body>
 ```
  
-İstemci uygulama prerender için kullanılan aynı duruma sunucusuna bağlanır. Uygulamanın durumu bellekte hala varsa, SignalR bağlantı kurulduktan sonra bileşen durumu rerendered değil.
+İstemci, uygulamayı PreRender 'da kullanılan aynı durum ile sunucuya yeniden bağlanır. Uygulamanın durumu hala bellekte ise, SignalR bağlantısı kurulduktan sonra bileşen durumu tekrar verilmez.
 
-### <a name="render-stateful-interactive-components-from-razor-pages-and-views"></a>Durum bilgisi olan etkileşimli bileşenleri Razor sayfaları ve görünümler oluşturma
+### <a name="render-stateful-interactive-components-from-razor-pages-and-views"></a>Razor sayfaları ve görünümlerinden durum bilgisi olan etkileşimli bileşenleri işleme
  
-Durum bilgisi olan etkileşimli bileşenleri bir Razor sayfası ya da Görünüm eklenebilir. Sayfa veya Görünüm oluşturulduğunda, bileşeni ile prerendered. Durumu bellekte hala olduğu sürece, istemci bağlantısı kurulduktan sonra uygulama için bileşen durumu daha sonra yeniden bağlanır.
+Durum bilgisi olan etkileşimli bileşenler Razor sayfasına veya görünümüne eklenebilir. Sayfa veya görünüm ne zaman işler, bileşen onunla birlikte gelir. Daha sonra uygulama, durum hala bellekte olduğu sürece istemci bağlantısı kurulduktan sonra bileşen durumuna yeniden bağlanır.
  
-Örneğin, aşağıdaki Razor sayfası oluşturur bir `Counter` bileşeni ile form kullanarak belirtilen bir başlangıç sayısı:
+Örneğin, aşağıdaki Razor sayfası bir form kullanılarak belirtilen `Counter` başlangıç sayısıyla bir bileşen oluşturur:
  
 ```cshtml
 <h1>My Razor Page</h1>
@@ -130,18 +130,18 @@ Durum bilgisi olan etkileşimli bileşenleri bir Razor sayfası ya da Görünüm
 }
 ```
 
-### <a name="detect-when-the-app-is-prerendering"></a>Uygulama prerendering Algıla
+### <a name="detect-when-the-app-is-prerendering"></a>Uygulamanın ne zaman prerendering olduğunu Algıla
  
 [!INCLUDE[](~/includes/blazor-prerendering.md)]
 
-### <a name="configure-the-signalr-client-for-blazor-server-side-apps"></a>SignalR istemcisi Blazor sunucu tarafı uygulamalar için yapılandırma
+### <a name="configure-the-signalr-client-for-blazor-server-side-apps"></a>Blazor sunucu tarafı uygulamaları için SignalR istemcisini yapılandırma
  
-Bazen, Blazor sunucu tarafı uygulamalar tarafından kullanılan SignalR istemci yapılandırma gerekebilir. Örneğin, bir bağlantı sorunu tanılamak için SignalR istemci günlüğe kaydetmeyi yapılandırmak isteyebilirsiniz.
+Bazen, Blazor sunucu tarafı uygulamaları tarafından kullanılan SignalR istemcisini yapılandırmanız gerekir. Örneğin, bir bağlantı sorununu tanılamak için SignalR istemcisinde günlüğe kaydetmeyi yapılandırmak isteyebilirsiniz.
  
-SignalR istemcisinde yapılandırmak zorunda *Pages/_Host.cshtml* dosyası:
+*/_Host. cshtml* dosyasında SignalR istemcisini yapılandırmak için:
 
-* Ekleme bir `autostart="false"` özniteliğini `<script>` etiketinde *blazor.server.js* betiği.
-* Çağrı `Blazor.start` ve SignalR Oluşturucu belirten bir yapılandırma nesnesi içinde geçirin.
+* `autostart="false"` *Blazor. Server. js* betiği için `<script>` etikete bir öznitelik ekleyin.
+* SignalR oluşturucuyu belirten bir yapılandırma nesnesi çağırın `Blazor.start` ve geçirin.
  
 ```html
 <script src="_framework/blazor.server.js" autostart="false"></script>
