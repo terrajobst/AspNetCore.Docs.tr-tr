@@ -1,106 +1,90 @@
 ---
-title: Bir veritabanı ve ASP.NET Core ile çalışma
+title: Veritabanı ve ASP.NET Core çalışma
 author: rick-anderson
-description: Veritabanı ile ASP.NET Core ile çalışmayı açıklar.
+description: Bir veritabanı ve ASP.NET Core çalışmayı açıklar.
 ms.author: riande
-ms.date: 12/07/2017
+ms.date: 7/22/2019
 uid: tutorials/razor-pages/sql
-ms.openlocfilehash: 6cef55382d8c77e95280ea4eea2dbc2af1c81987
-ms.sourcegitcommit: 5b0eca8c21550f95de3bb21096bd4fd4d9098026
+ms.openlocfilehash: 197697f28e9faa45c1ac2b7f993bde15994957e5
+ms.sourcegitcommit: 051f068c78931432e030b60094c38376d64d013e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/27/2019
-ms.locfileid: "64899822"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68440384"
 ---
-# <a name="work-with-a-database-and-aspnet-core"></a><span data-ttu-id="7ba17-103">Bir veritabanı ve ASP.NET Core ile çalışma</span><span class="sxs-lookup"><span data-stu-id="7ba17-103">Work with a database and ASP.NET Core</span></span>
+# <a name="work-with-a-database-and-aspnet-core"></a><span data-ttu-id="b60d3-103">Veritabanı ve ASP.NET Core çalışma</span><span class="sxs-lookup"><span data-stu-id="b60d3-103">Work with a database and ASP.NET Core</span></span>
 
-<span data-ttu-id="7ba17-104">Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT) ve [ALi Audette](https://twitter.com/joeaudette)</span><span class="sxs-lookup"><span data-stu-id="7ba17-104">By [Rick Anderson](https://twitter.com/RickAndMSFT) and [Joe Audette](https://twitter.com/joeaudette)</span></span>
+<span data-ttu-id="b60d3-104">Tarafından [Rick Anderson](https://twitter.com/RickAndMSFT) ve [ALi Audette](https://twitter.com/joeaudette)</span><span class="sxs-lookup"><span data-stu-id="b60d3-104">By [Rick Anderson](https://twitter.com/RickAndMSFT) and [Joe Audette](https://twitter.com/joeaudette)</span></span>
+
+::: moniker range=">= aspnetcore-3.0"
 
 [!INCLUDE[](~/includes/rp/download.md)]
 
-<span data-ttu-id="7ba17-105">`RazorPagesMovieContext` Nesne veritabanına bağlanma ve eşleme görevi işleme `Movie` veritabanı kayıtlarını nesneleri.</span><span class="sxs-lookup"><span data-stu-id="7ba17-105">The `RazorPagesMovieContext` object handles the task of connecting to the database and mapping `Movie` objects to database records.</span></span> <span data-ttu-id="7ba17-106">Veritabanı bağlamı kayıtlı [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısında `ConfigureServices` yönteminde *Startup.cs*:</span><span class="sxs-lookup"><span data-stu-id="7ba17-106">The database context is registered with the [Dependency Injection](xref:fundamentals/dependency-injection) container in the `ConfigureServices` method in *Startup.cs*:</span></span>
+<span data-ttu-id="b60d3-105">Nesnesi veritabanına bağlanma ve nesneleri veritabanı kayıtlarına eşleme `Movie` görevini işler. `RazorPagesMovieContext`</span><span class="sxs-lookup"><span data-stu-id="b60d3-105">The `RazorPagesMovieContext` object handles the task of connecting to the database and mapping `Movie` objects to database records.</span></span> <span data-ttu-id="b60d3-106">Veritabanı bağlamı, `ConfigureServices` *Startup.cs*içindeki yöntemde [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısına kaydedilir:</span><span class="sxs-lookup"><span data-stu-id="b60d3-106">The database context is registered with the [Dependency Injection](xref:fundamentals/dependency-injection) container in the `ConfigureServices` method in *Startup.cs*:</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="7ba17-107">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="7ba17-107">Visual Studio</span></span>](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="b60d3-107">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="b60d3-107">Visual Studio</span></span>](#tab/visual-studio)
 
-[!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Startup.cs?name=snippet_ConfigureServices&highlight=15-18)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie30/Startup.cs?name=snippet_ConfigureServices&highlight=15-18)]
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="7ba17-108">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="7ba17-108">Visual Studio Code</span></span>](#tab/visual-studio-code)
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[<span data-ttu-id="b60d3-108">Visual Studio Code/Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="b60d3-108">Visual Studio Code / Visual Studio for Mac</span></span>](#tab/visual-studio-code+visual-studio-mac)
 
-[!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Startup.cs?name=snippet_UseSqlite&highlight=11-12)]
-
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="7ba17-109">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="7ba17-109">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
-
-[!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Startup.cs?name=snippet_UseSqlite&highlight=11-12)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie30/Startup.cs?name=snippet_UseSqlite&highlight=11-12)]
 
 ---
 
-<span data-ttu-id="7ba17-110">Kullanılan yöntemler hakkında daha fazla bilgi için `ConfigureServices`, bkz:</span><span class="sxs-lookup"><span data-stu-id="7ba17-110">For more information on the methods used in `ConfigureServices`, see:</span></span>
+<span data-ttu-id="b60d3-109">ASP.NET Core [yapılandırma](xref:fundamentals/configuration/index) sistemi okur `ConnectionString`.</span><span class="sxs-lookup"><span data-stu-id="b60d3-109">The ASP.NET Core [Configuration](xref:fundamentals/configuration/index) system reads the `ConnectionString`.</span></span> <span data-ttu-id="b60d3-110">Yerel geliştirme için, *appSettings. JSON* dosyasından bağlantı dizesini alır.</span><span class="sxs-lookup"><span data-stu-id="b60d3-110">For local development, it gets the connection string from the *appsettings.json* file.</span></span>
 
-* <span data-ttu-id="7ba17-111">[ASP.NET Core AB genel veri koruma yönetmeliği (GDPR) desteği](xref:security/gdpr) için `CookiePolicyOptions`.</span><span class="sxs-lookup"><span data-stu-id="7ba17-111">[EU General Data Protection Regulation (GDPR) support in ASP.NET Core](xref:security/gdpr) for `CookiePolicyOptions`.</span></span>
-* [<span data-ttu-id="7ba17-112">SetCompatibilityVersion</span><span class="sxs-lookup"><span data-stu-id="7ba17-112">SetCompatibilityVersion</span></span>](xref:mvc/compatibility-version)
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="b60d3-111">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="b60d3-111">Visual Studio</span></span>](#tab/visual-studio)
 
-<span data-ttu-id="7ba17-113">ASP.NET Core [yapılandırma](xref:fundamentals/configuration/index) sistem okuma `ConnectionString`.</span><span class="sxs-lookup"><span data-stu-id="7ba17-113">The ASP.NET Core [Configuration](xref:fundamentals/configuration/index) system reads the `ConnectionString`.</span></span> <span data-ttu-id="7ba17-114">İsteğe bağlı olarak yerel geliştirme için bağlantı dizesinden alır *appsettings.json* dosya.</span><span class="sxs-lookup"><span data-stu-id="7ba17-114">For local development, it gets the connection string from the *appsettings.json* file.</span></span>
+<span data-ttu-id="b60d3-112">Veritabanı (`Database={Database name}`) için ad değeri, üretilen kodunuz için farklı olacaktır.</span><span class="sxs-lookup"><span data-stu-id="b60d3-112">The name value for the database (`Database={Database name}`) will be different for your generated code.</span></span> <span data-ttu-id="b60d3-113">Ad değeri rastgele.</span><span class="sxs-lookup"><span data-stu-id="b60d3-113">The name value is arbitrary.</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="7ba17-115">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="7ba17-115">Visual Studio</span></span>](#tab/visual-studio)
+[!code-json[](razor-pages-start/sample/RazorPagesMovie30/appsettings.json)]
 
-<span data-ttu-id="7ba17-116">Veritabanı adı değeri (`Database={Database name}`) oluşturulan kodunuz için farklı olacaktır.</span><span class="sxs-lookup"><span data-stu-id="7ba17-116">The name value for the database (`Database={Database name}`) will be different for your generated code.</span></span> <span data-ttu-id="7ba17-117">Ad değeri isteğe bağlıdır.</span><span class="sxs-lookup"><span data-stu-id="7ba17-117">The name value is arbitrary.</span></span>
-
-[!code-json[](razor-pages-start/sample/RazorPagesMovie22/appsettings.json)]
-
-# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="7ba17-118">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="7ba17-118">Visual Studio Code</span></span>](#tab/visual-studio-code)
-
-[!code-json[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/appsettings_SQLite.json?highlight=8-10)]
-
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="7ba17-119">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="7ba17-119">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[<span data-ttu-id="b60d3-114">Visual Studio Code/Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="b60d3-114">Visual Studio Code / Visual Studio for Mac</span></span>](#tab/visual-studio-code+visual-studio-mac)
 
 [!code-json[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/appsettings_SQLite.json?highlight=8-10)]
 
 ---
 
-<span data-ttu-id="7ba17-120">Bir test veya üretim sunucusuna uygulama dağıtıldığında, bir ortam değişkeni gerçek veritabanı sunucusuna bağlantı dizesini ayarlamak için kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="7ba17-120">When the app is deployed to a test or production server, an environment variable can be used to set the connection string to a real database server.</span></span> <span data-ttu-id="7ba17-121">Bkz: [yapılandırma](xref:fundamentals/configuration/index) daha fazla bilgi için.</span><span class="sxs-lookup"><span data-stu-id="7ba17-121">See [Configuration](xref:fundamentals/configuration/index) for more information.</span></span>
+<span data-ttu-id="b60d3-115">Uygulama bir test veya üretim sunucusuna dağıtıldığında, bağlantı dizesini gerçek bir veritabanı sunucusuna ayarlamak için bir ortam değişkeni kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="b60d3-115">When the app is deployed to a test or production server, an environment variable can be used to set the connection string to a real database server.</span></span> <span data-ttu-id="b60d3-116">Daha fazla bilgi için bkz. [yapılandırma](xref:fundamentals/configuration/index) .</span><span class="sxs-lookup"><span data-stu-id="b60d3-116">See [Configuration](xref:fundamentals/configuration/index) for more information.</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="7ba17-122">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="7ba17-122">Visual Studio</span></span>](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="b60d3-117">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="b60d3-117">Visual Studio</span></span>](#tab/visual-studio)
 
-## <a name="sql-server-express-localdb"></a><span data-ttu-id="7ba17-123">SQL Server Express LocalDB</span><span class="sxs-lookup"><span data-stu-id="7ba17-123">SQL Server Express LocalDB</span></span>
+## <a name="sql-server-express-localdb"></a><span data-ttu-id="b60d3-118">SQL Server Express LocalDB</span><span class="sxs-lookup"><span data-stu-id="b60d3-118">SQL Server Express LocalDB</span></span>
 
-<span data-ttu-id="7ba17-124">LocalDB, hedeflenen SQL Server Express Veritabanı Altyapısı'nın program geliştirme için basit bir sürümüdür.</span><span class="sxs-lookup"><span data-stu-id="7ba17-124">LocalDB is a lightweight version of the SQL Server Express database engine that's targeted for program development.</span></span> <span data-ttu-id="7ba17-125">LocalDB, isteğe bağlı olarak başlar ve karmaşık yapılandırma olduğundan kullanıcı modunda çalışır.</span><span class="sxs-lookup"><span data-stu-id="7ba17-125">LocalDB starts on demand and runs in user mode, so there's no complex configuration.</span></span> <span data-ttu-id="7ba17-126">Varsayılan olarak LocalDB veritabanına oluşturur `*.mdf` dosyalar `C:/Users/<user/>` dizin.</span><span class="sxs-lookup"><span data-stu-id="7ba17-126">By default, LocalDB database creates `*.mdf` files in the `C:/Users/<user/>` directory.</span></span>
+<span data-ttu-id="b60d3-119">LocalDB, program geliştirmeye yönelik SQL Server Express veritabanı altyapısının hafif bir sürümüdür.</span><span class="sxs-lookup"><span data-stu-id="b60d3-119">LocalDB is a lightweight version of the SQL Server Express database engine that's targeted for program development.</span></span> <span data-ttu-id="b60d3-120">LocalDB, isteğe bağlı olarak başlar ve karmaşık yapılandırma olduğundan kullanıcı modunda çalışır.</span><span class="sxs-lookup"><span data-stu-id="b60d3-120">LocalDB starts on demand and runs in user mode, so there's no complex configuration.</span></span> <span data-ttu-id="b60d3-121">Varsayılan olarak, LocalDB veritabanı `*.mdf` `C:/Users/<user/>` dizinde dosya oluşturur.</span><span class="sxs-lookup"><span data-stu-id="b60d3-121">By default, LocalDB database creates `*.mdf` files in the `C:/Users/<user/>` directory.</span></span>
 
 <a name="ssox"></a>
-* <span data-ttu-id="7ba17-127">Gelen **görünümü** menüsünde, açık **SQL Server Nesne Gezgini** (SSOX).</span><span class="sxs-lookup"><span data-stu-id="7ba17-127">From the **View** menu, open **SQL Server Object Explorer** (SSOX).</span></span>
+* <span data-ttu-id="b60d3-122">**Görünüm** menüsünden **SQL Server Nesne Gezgini** (ssox) öğesini açın.</span><span class="sxs-lookup"><span data-stu-id="b60d3-122">From the **View** menu, open **SQL Server Object Explorer** (SSOX).</span></span>
 
   ![Görünüm menüsü](sql/_static/ssox.png)
 
-* <span data-ttu-id="7ba17-129">Sağ tıklayın `Movie` tablosunu seçip **Görünüm Tasarımcısı**:</span><span class="sxs-lookup"><span data-stu-id="7ba17-129">Right click on the `Movie` table and select **View Designer**:</span></span>
+* <span data-ttu-id="b60d3-124">`Movie` Tabloya sağ tıklayıp **Görünüm Tasarımcısı**' nı seçin:</span><span class="sxs-lookup"><span data-stu-id="b60d3-124">Right click on the `Movie` table and select **View Designer**:</span></span>
 
-  ![Bağlamsal menüyü film tablosunda Aç](sql/_static/design.png)
+  ![Film tablosunda açık bağlamsal menüler](sql/_static/design.png)
 
-  ![Film Tablo Tasarımcısı'nda Aç](sql/_static/dv.png)
+  ![Tasarımcı 'da açık film tabloları](sql/_static/dv.png)
 
-<span data-ttu-id="7ba17-132">Anahtar simgesinin yanındaki Not `ID`.</span><span class="sxs-lookup"><span data-stu-id="7ba17-132">Note the key icon next to `ID`.</span></span> <span data-ttu-id="7ba17-133">Varsayılan olarak EF adlı bir özellik oluşturur. `ID` birincil anahtar.</span><span class="sxs-lookup"><span data-stu-id="7ba17-133">By default, EF creates a property named `ID` for the primary key.</span></span>
+<span data-ttu-id="b60d3-127">Seçeneğinin yanında `ID`bulunan anahtar simgesine göz önünde edin.</span><span class="sxs-lookup"><span data-stu-id="b60d3-127">Note the key icon next to `ID`.</span></span> <span data-ttu-id="b60d3-128">Varsayılan olarak, EF birincil anahtar için adlı `ID` bir özellik oluşturur.</span><span class="sxs-lookup"><span data-stu-id="b60d3-128">By default, EF creates a property named `ID` for the primary key.</span></span>
 
-* <span data-ttu-id="7ba17-134">Sağ tıklayın `Movie` tablosunu seçip **görünüm verilerini**:</span><span class="sxs-lookup"><span data-stu-id="7ba17-134">Right click on the `Movie` table and select **View Data**:</span></span>
+* <span data-ttu-id="b60d3-129">`Movie` Tabloya sağ tıklayın ve **verileri görüntüle**' yi seçin:</span><span class="sxs-lookup"><span data-stu-id="b60d3-129">Right click on the `Movie` table and select **View Data**:</span></span>
 
-  ![Tablo verilerini gösteren açık film tablo](sql/_static/vd22.png)
+  ![Tablo verilerini gösteren film tablosu açma](sql/_static/vd22.png)
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="7ba17-136">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="7ba17-136">Visual Studio Code</span></span>](#tab/visual-studio-code)
-
-[!INCLUDE[](~/includes/rp/sqlite.md)]
-[!INCLUDE[](~/includes/RP-mvc-shared/sqlite-warn.md)]
-
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="7ba17-137">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="7ba17-137">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[<span data-ttu-id="b60d3-131">Visual Studio Code/Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="b60d3-131">Visual Studio Code / Visual Studio for Mac</span></span>](#tab/visual-studio-code+visual-studio-mac)
 
 [!INCLUDE[](~/includes/rp/sqlite.md)]
 [!INCLUDE[](~/includes/RP-mvc-shared/sqlite-warn.md)]
 
 ---
 
-## <a name="seed-the-database"></a><span data-ttu-id="7ba17-138">Veritabanının çekirdeğini oluşturma</span><span class="sxs-lookup"><span data-stu-id="7ba17-138">Seed the database</span></span>
+## <a name="seed-the-database"></a><span data-ttu-id="b60d3-132">Veritabanının çekirdeğini oluşturma</span><span class="sxs-lookup"><span data-stu-id="b60d3-132">Seed the database</span></span>
 
-<span data-ttu-id="7ba17-139">Adlı yeni bir sınıf oluşturun `SeedData` içinde *modelleri* aşağıdaki kodla klasörü:</span><span class="sxs-lookup"><span data-stu-id="7ba17-139">Create a new class named `SeedData` in the *Models* folder with the following code:</span></span>
+<span data-ttu-id="b60d3-133">Modeller klasöründe aşağıdaki kodla adlı `SeedData` yeni bir  sınıf oluşturun:</span><span class="sxs-lookup"><span data-stu-id="b60d3-133">Create a new class named `SeedData` in the *Models* folder with the following code:</span></span>
 
-[!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Models/SeedData.cs?name=snippet_1)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie30/Models/SeedData.cs?name=snippet_1)]
 
-<span data-ttu-id="7ba17-140">Varsa tüm film DB'de, çekirdek Başlatıcı döndürür ve film eklenir.</span><span class="sxs-lookup"><span data-stu-id="7ba17-140">If there are any movies in the DB, the seed initializer returns and no movies are added.</span></span>
+<span data-ttu-id="b60d3-134">VERITABANıNDA herhangi bir film varsa, tohum başlatıcısı döner ve hiçbir film eklenmez.</span><span class="sxs-lookup"><span data-stu-id="b60d3-134">If there are any movies in the DB, the seed initializer returns and no movies are added.</span></span>
 
 ```csharp
 if (context.Movie.Any())
@@ -111,64 +95,211 @@ if (context.Movie.Any())
 
 <a name="si"></a>
 
-### <a name="add-the-seed-initializer"></a><span data-ttu-id="7ba17-141">Çekirdek Başlatıcı Ekle</span><span class="sxs-lookup"><span data-stu-id="7ba17-141">Add the seed initializer</span></span>
+### <a name="add-the-seed-initializer"></a><span data-ttu-id="b60d3-135">Tohum başlatıcısı ekleme</span><span class="sxs-lookup"><span data-stu-id="b60d3-135">Add the seed initializer</span></span>
 
-<span data-ttu-id="7ba17-142">İçinde *Program.cs*, değişiklik `Main` yöntemi aşağıdakileri yapmak için:</span><span class="sxs-lookup"><span data-stu-id="7ba17-142">In *Program.cs*, modify the `Main` method to do the following:</span></span>
+<span data-ttu-id="b60d3-136">İçinde *Program.cs*, değişiklik `Main` yöntemi aşağıdakileri yapmak için:</span><span class="sxs-lookup"><span data-stu-id="b60d3-136">In *Program.cs*, modify the `Main` method to do the following:</span></span>
 
-* <span data-ttu-id="7ba17-143">Bir DB bağlamı örneği bağımlılık ekleme kapsayıcısını alın.</span><span class="sxs-lookup"><span data-stu-id="7ba17-143">Get a DB context instance from the dependency injection container.</span></span>
-* <span data-ttu-id="7ba17-144">Bağlam iletmeden seed yöntemi çağırın.</span><span class="sxs-lookup"><span data-stu-id="7ba17-144">Call the seed method, passing to it the context.</span></span>
-* <span data-ttu-id="7ba17-145">Seed yöntemi tamamlandığında bağlamını siler.</span><span class="sxs-lookup"><span data-stu-id="7ba17-145">Dispose the context when the seed method completes.</span></span>
+* <span data-ttu-id="b60d3-137">Bir DB bağlamı örneği bağımlılık ekleme kapsayıcısını alın.</span><span class="sxs-lookup"><span data-stu-id="b60d3-137">Get a DB context instance from the dependency injection container.</span></span>
+* <span data-ttu-id="b60d3-138">Temel yöntemi çağırın ve bu yönteme geçerek bağlamı geçer.</span><span class="sxs-lookup"><span data-stu-id="b60d3-138">Call the seed method, passing to it the context.</span></span>
+* <span data-ttu-id="b60d3-139">Çekirdek yöntemi tamamlandığında bağlamı atın.</span><span class="sxs-lookup"><span data-stu-id="b60d3-139">Dispose the context when the seed method completes.</span></span>
 
-<span data-ttu-id="7ba17-146">Aşağıdaki kod güncelleştirilmiş gösterir *Program.cs* dosya.</span><span class="sxs-lookup"><span data-stu-id="7ba17-146">The following code shows the updated *Program.cs* file.</span></span>
+<span data-ttu-id="b60d3-140">Aşağıdaki kod güncelleştirilmiş gösterir *Program.cs* dosya.</span><span class="sxs-lookup"><span data-stu-id="b60d3-140">The following code shows the updated *Program.cs* file.</span></span>
 
-[!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Program.cs)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie30/Program.cs)]
 
-<span data-ttu-id="7ba17-147">Bir üretim uygulaması değil çağırırsınız `Database.Migrate`.</span><span class="sxs-lookup"><span data-stu-id="7ba17-147">A production app would not call `Database.Migrate`.</span></span> <span data-ttu-id="7ba17-148">Aşağıdaki özel durumu önlemek için önceki koda eklenir, `Update-Database` değil çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="7ba17-148">It's added to the preceding code to prevent the following exception when `Update-Database` has not been run:</span></span>
+<span data-ttu-id="b60d3-141">Bir üretim uygulaması çağırmaz `Database.Migrate`.</span><span class="sxs-lookup"><span data-stu-id="b60d3-141">A production app would not call `Database.Migrate`.</span></span> <span data-ttu-id="b60d3-142">Çalıştırılmayan aşağıdaki özel durumu `Update-Database` engellemek için önceki koda eklenir:</span><span class="sxs-lookup"><span data-stu-id="b60d3-142">It's added to the preceding code to prevent the following exception when `Update-Database` has not been run:</span></span>
 
-<span data-ttu-id="7ba17-149">SqlException: "21 RazorPagesMovieContext" oturum açma tarafından istenen veritabanı açılamıyor.</span><span class="sxs-lookup"><span data-stu-id="7ba17-149">SqlException: Cannot open database "RazorPagesMovieContext-21" requested by the login.</span></span> <span data-ttu-id="7ba17-150">Oturum açma başarısız.</span><span class="sxs-lookup"><span data-stu-id="7ba17-150">The login failed.</span></span>
-<span data-ttu-id="7ba17-151">Oturum açma 'kullanıcı adı' kullanıcı için başarısız oldu.</span><span class="sxs-lookup"><span data-stu-id="7ba17-151">Login failed for user 'user name'.</span></span>
+<span data-ttu-id="b60d3-143">SqlException Oturum açma tarafından istenen "RazorPagesMovieContext-21" veritabanı açılamıyor.</span><span class="sxs-lookup"><span data-stu-id="b60d3-143">SqlException: Cannot open database "RazorPagesMovieContext-21" requested by the login.</span></span> <span data-ttu-id="b60d3-144">Oturum açılamadı.</span><span class="sxs-lookup"><span data-stu-id="b60d3-144">The login failed.</span></span>
+<span data-ttu-id="b60d3-145">' Kullanıcı adı ' kullanıcısı için oturum açma başarısız.</span><span class="sxs-lookup"><span data-stu-id="b60d3-145">Login failed for user 'user name'.</span></span>
 
-### <a name="test-the-app"></a><span data-ttu-id="7ba17-152">Uygulamayı test etme</span><span class="sxs-lookup"><span data-stu-id="7ba17-152">Test the app</span></span>
+### <a name="test-the-app"></a><span data-ttu-id="b60d3-146">Uygulamayı test etme</span><span class="sxs-lookup"><span data-stu-id="b60d3-146">Test the app</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="7ba17-153">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="7ba17-153">Visual Studio</span></span>](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="b60d3-147">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="b60d3-147">Visual Studio</span></span>](#tab/visual-studio)
 
-* <span data-ttu-id="7ba17-154">Veritabanındaki tüm kayıtları silin.</span><span class="sxs-lookup"><span data-stu-id="7ba17-154">Delete all the records in the DB.</span></span> <span data-ttu-id="7ba17-155">Tarayıcıda veya gelen silme bağlantıları kullanarak bunu yapabilirsiniz [SSOX](xref:tutorials/razor-pages/new-field#ssox)</span><span class="sxs-lookup"><span data-stu-id="7ba17-155">You can do this with the delete links in the browser or from [SSOX](xref:tutorials/razor-pages/new-field#ssox)</span></span>
-* <span data-ttu-id="7ba17-156">Başlatmaya zorlamak (yöntemleri çağırmak `Startup` sınıfı) bu nedenle seed yöntemi çalıştırılır.</span><span class="sxs-lookup"><span data-stu-id="7ba17-156">Force the app to initialize (call the methods in the `Startup` class) so the seed method runs.</span></span> <span data-ttu-id="7ba17-157">Başlatma zorlamak için IIS Express durdurulup yeniden gerekir.</span><span class="sxs-lookup"><span data-stu-id="7ba17-157">To force initialization, IIS Express must be stopped and restarted.</span></span> <span data-ttu-id="7ba17-158">Bunu aşağıdaki yaklaşımlardan birini yapabilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="7ba17-158">You can do this with any of the following approaches:</span></span>
+* <span data-ttu-id="b60d3-148">VERITABANıNDAKI tüm kayıtları silin.</span><span class="sxs-lookup"><span data-stu-id="b60d3-148">Delete all the records in the DB.</span></span> <span data-ttu-id="b60d3-149">Bunu, tarayıcıda veya [Ssox](xref:tutorials/razor-pages/new-field#ssox) 'ten silme bağlantılarıyla yapabilirsiniz</span><span class="sxs-lookup"><span data-stu-id="b60d3-149">You can do this with the delete links in the browser or from [SSOX](xref:tutorials/razor-pages/new-field#ssox)</span></span>
+* <span data-ttu-id="b60d3-150">Çekirdek yöntemin çalışması için uygulamayı başlamaya zorlayın ( `Startup` sınıftaki yöntemleri çağırın).</span><span class="sxs-lookup"><span data-stu-id="b60d3-150">Force the app to initialize (call the methods in the `Startup` class) so the seed method runs.</span></span> <span data-ttu-id="b60d3-151">Başlatmayı zorlamak için IIS Express durdurulup yeniden başlatılması gerekir.</span><span class="sxs-lookup"><span data-stu-id="b60d3-151">To force initialization, IIS Express must be stopped and restarted.</span></span> <span data-ttu-id="b60d3-152">Bunu aşağıdaki yaklaşımlardan biriyle yapabilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="b60d3-152">You can do this with any of the following approaches:</span></span>
 
-  * <span data-ttu-id="7ba17-159">IIS Express sistem tepsisi simgesi bildirim alanında sağ tıklayın ve dokunun **çıkış** veya **Durdur Site**:</span><span class="sxs-lookup"><span data-stu-id="7ba17-159">Right click the IIS Express system tray icon in the notification area and tap **Exit** or **Stop Site**:</span></span>
+  * <span data-ttu-id="b60d3-153">Bildirim alanında IIS Express sistem tepsisi simgesine sağ tıklayın ve **Çıkış** veya **siteyi durdur**' a dokunun:</span><span class="sxs-lookup"><span data-stu-id="b60d3-153">Right click the IIS Express system tray icon in the notification area and tap **Exit** or **Stop Site**:</span></span>
 
     ![IIS Express sistem tepsisi simgesi](../first-mvc-app/working-with-sql/_static/iisExIcon.png)
 
     ![Bağlamsal menü](sql/_static/stopIIS.png)
 
-    * <span data-ttu-id="7ba17-162">VS hata ayıklama olmayan modunda çalışmakta olan hata ayıklama modunda çalıştırmak için F5 tuşuna basın.</span><span class="sxs-lookup"><span data-stu-id="7ba17-162">If you were running VS in non-debug mode, press F5 to run in debug mode.</span></span>
-    * <span data-ttu-id="7ba17-163">VS hata ayıklama modunda çalıştırdığınız, hata ayıklayıcıyı durdurun ve F5 tuşuna basın.</span><span class="sxs-lookup"><span data-stu-id="7ba17-163">If you were running VS in debug mode, stop the debugger and press F5.</span></span>
+    * <span data-ttu-id="b60d3-156">VS hata ayıklama modunda çalıştırıyorsanız, hata ayıklama modunda çalıştırmak için F5 tuşuna basın.</span><span class="sxs-lookup"><span data-stu-id="b60d3-156">If you were running VS in non-debug mode, press F5 to run in debug mode.</span></span>
+    * <span data-ttu-id="b60d3-157">Ile hata ayıklama modunda çalıştırıyorsanız, hata ayıklayıcıyı durdurun ve F5 tuşuna basın.</span><span class="sxs-lookup"><span data-stu-id="b60d3-157">If you were running VS in debug mode, stop the debugger and press F5.</span></span>
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="7ba17-164">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="7ba17-164">Visual Studio Code</span></span>](#tab/visual-studio-code)
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[<span data-ttu-id="b60d3-158">Visual Studio Code/Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="b60d3-158">Visual Studio Code / Visual Studio for Mac</span></span>](#tab/visual-studio-code+visual-studio-mac)
 
-<span data-ttu-id="7ba17-165">Bu nedenle (seed yöntemi çalıştırılır) veritabanındaki tüm kayıtları silin.</span><span class="sxs-lookup"><span data-stu-id="7ba17-165">Delete all the records in the DB (So the seed method will run).</span></span> <span data-ttu-id="7ba17-166">Veritabanının çekirdeğini oluşturma için app durdurup yeniden açın.</span><span class="sxs-lookup"><span data-stu-id="7ba17-166">Stop and start the app to seed the database.</span></span>
+<span data-ttu-id="b60d3-159">VERITABANıNDAKI tüm kayıtları silin (Bu nedenle çekirdek yöntemi çalışacaktır).</span><span class="sxs-lookup"><span data-stu-id="b60d3-159">Delete all the records in the DB (So the seed method will run).</span></span> <span data-ttu-id="b60d3-160">Veritabanını temel alarak uygulamayı durdurup başlatın.</span><span class="sxs-lookup"><span data-stu-id="b60d3-160">Stop and start the app to seed the database.</span></span>
 
-<span data-ttu-id="7ba17-167">Uygulama, çekirdeği oluşturulmuş veri gösterir.</span><span class="sxs-lookup"><span data-stu-id="7ba17-167">The app shows the seeded data.</span></span>
-
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="7ba17-168">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="7ba17-168">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
-
-<span data-ttu-id="7ba17-169">Bu nedenle (seed yöntemi çalıştırılır) veritabanındaki tüm kayıtları silin.</span><span class="sxs-lookup"><span data-stu-id="7ba17-169">Delete all the records in the DB (So the seed method will run).</span></span> <span data-ttu-id="7ba17-170">Veritabanının çekirdeğini oluşturma için app durdurup yeniden açın.</span><span class="sxs-lookup"><span data-stu-id="7ba17-170">Stop and start the app to seed the database.</span></span>
-
-<span data-ttu-id="7ba17-171">Uygulama, çekirdeği oluşturulmuş veri gösterir.</span><span class="sxs-lookup"><span data-stu-id="7ba17-171">The app shows the seeded data.</span></span>
+<span data-ttu-id="b60d3-161">Uygulama, sağlanan verileri gösterir.</span><span class="sxs-lookup"><span data-stu-id="b60d3-161">The app shows the seeded data.</span></span>
 
 ---
 
-<span data-ttu-id="7ba17-172">Uygulama, çekirdeği oluşturulmuş veri gösterilir:</span><span class="sxs-lookup"><span data-stu-id="7ba17-172">The app shows the seeded data:</span></span>
+<span data-ttu-id="b60d3-162">Sonraki öğreticide, verilerin sunumu gelişmeyecektir.</span><span class="sxs-lookup"><span data-stu-id="b60d3-162">The next tutorial will improve the presentation of the data.</span></span>
 
-![Film verileri gösteren Chrome'da açık film uygulaması](sql/_static/m55.png)
-
-<span data-ttu-id="7ba17-174">Sonraki öğreticiye verilerin sunuyu temizler.</span><span class="sxs-lookup"><span data-stu-id="7ba17-174">The next tutorial will clean up the presentation of the data.</span></span>
-
-## <a name="additional-resources"></a><span data-ttu-id="7ba17-175">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="7ba17-175">Additional resources</span></span>
-
-* [<span data-ttu-id="7ba17-176">Bu öğreticide YouTube sürümü</span><span class="sxs-lookup"><span data-stu-id="7ba17-176">YouTube version of this tutorial</span></span>](https://youtu.be/A_5ff11sDHY)
+## <a name="additional-resources"></a><span data-ttu-id="b60d3-163">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="b60d3-163">Additional resources</span></span>
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="7ba17-177">[Önceki: Razor sayfaları için iskele kurulmuş](xref:tutorials/razor-pages/page)
-> [sonraki: Sayfaları güncelleştirme](xref:tutorials/razor-pages/da1)</span><span class="sxs-lookup"><span data-stu-id="7ba17-177">[Previous: Scaffolded Razor Pages](xref:tutorials/razor-pages/page)
+> <span data-ttu-id="b60d3-164">[Öncekini Yapı iskelesi Razor Pages](xref:tutorials/razor-pages/page)
+> [ileri: Sayfaları güncelleştirme](xref:tutorials/razor-pages/da1)</span><span class="sxs-lookup"><span data-stu-id="b60d3-164">[Previous: Scaffolded Razor Pages](xref:tutorials/razor-pages/page)
 [Next: Updating the pages](xref:tutorials/razor-pages/da1)</span></span>
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-3.0"
+
+[!INCLUDE[](~/includes/rp/download.md)]
+
+<span data-ttu-id="b60d3-165">Nesnesi veritabanına bağlanma ve nesneleri veritabanı kayıtlarına eşleme `Movie` görevini işler. `RazorPagesMovieContext`</span><span class="sxs-lookup"><span data-stu-id="b60d3-165">The `RazorPagesMovieContext` object handles the task of connecting to the database and mapping `Movie` objects to database records.</span></span> <span data-ttu-id="b60d3-166">Veritabanı bağlamı, `ConfigureServices` *Startup.cs*içindeki yöntemde [bağımlılık ekleme](xref:fundamentals/dependency-injection) kapsayıcısına kaydedilir:</span><span class="sxs-lookup"><span data-stu-id="b60d3-166">The database context is registered with the [Dependency Injection](xref:fundamentals/dependency-injection) container in the `ConfigureServices` method in *Startup.cs*:</span></span>
+
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="b60d3-167">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="b60d3-167">Visual Studio</span></span>](#tab/visual-studio)
+
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Startup.cs?name=snippet_ConfigureServices&highlight=15-18)]
+
+# <a name="visual-studio-code--visual-studio-for-mactabvisual-studio-codevisual-studio-mac"></a>[<span data-ttu-id="b60d3-168">Visual Studio Code/Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="b60d3-168">Visual Studio Code / Visual Studio for Mac</span></span>](#tab/visual-studio-code+visual-studio-mac)
+
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Startup.cs?name=snippet_UseSqlite&highlight=11-12)]
+
+---
+
+<span data-ttu-id="b60d3-169">İçinde `ConfigureServices`kullanılan yöntemler hakkında daha fazla bilgi için bkz.:</span><span class="sxs-lookup"><span data-stu-id="b60d3-169">For more information on the methods used in `ConfigureServices`, see:</span></span>
+
+* <span data-ttu-id="b60d3-170">`CookiePolicyOptions` [ASP.NET Core IÇIN AB genel veri koruma yönetmeliği (GDPR) desteği](xref:security/gdpr) .</span><span class="sxs-lookup"><span data-stu-id="b60d3-170">[EU General Data Protection Regulation (GDPR) support in ASP.NET Core](xref:security/gdpr) for `CookiePolicyOptions`.</span></span>
+* [<span data-ttu-id="b60d3-171">SetCompatibilityVersion</span><span class="sxs-lookup"><span data-stu-id="b60d3-171">SetCompatibilityVersion</span></span>](xref:mvc/compatibility-version)
+
+<span data-ttu-id="b60d3-172">ASP.NET Core [yapılandırma](xref:fundamentals/configuration/index) sistemi okur `ConnectionString`.</span><span class="sxs-lookup"><span data-stu-id="b60d3-172">The ASP.NET Core [Configuration](xref:fundamentals/configuration/index) system reads the `ConnectionString`.</span></span> <span data-ttu-id="b60d3-173">Yerel geliştirme için, *appSettings. JSON* dosyasından bağlantı dizesini alır.</span><span class="sxs-lookup"><span data-stu-id="b60d3-173">For local development, it gets the connection string from the *appsettings.json* file.</span></span>
+
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="b60d3-174">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="b60d3-174">Visual Studio</span></span>](#tab/visual-studio)
+
+<span data-ttu-id="b60d3-175">Veritabanı (`Database={Database name}`) için ad değeri, üretilen kodunuz için farklı olacaktır.</span><span class="sxs-lookup"><span data-stu-id="b60d3-175">The name value for the database (`Database={Database name}`) will be different for your generated code.</span></span> <span data-ttu-id="b60d3-176">Ad değeri rastgele.</span><span class="sxs-lookup"><span data-stu-id="b60d3-176">The name value is arbitrary.</span></span>
+
+[!code-json[](razor-pages-start/sample/RazorPagesMovie22/appsettings.json)]
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="b60d3-177">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="b60d3-177">Visual Studio Code</span></span>](#tab/visual-studio-code)
+
+[!code-json[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/appsettings_SQLite.json?highlight=8-10)]
+
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="b60d3-178">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="b60d3-178">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
+
+[!code-json[](~/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/appsettings_SQLite.json?highlight=8-10)]
+
+---
+
+<span data-ttu-id="b60d3-179">Uygulama bir test veya üretim sunucusuna dağıtıldığında, bağlantı dizesini gerçek bir veritabanı sunucusuna ayarlamak için bir ortam değişkeni kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="b60d3-179">When the app is deployed to a test or production server, an environment variable can be used to set the connection string to a real database server.</span></span> <span data-ttu-id="b60d3-180">Daha fazla bilgi için bkz. [yapılandırma](xref:fundamentals/configuration/index) .</span><span class="sxs-lookup"><span data-stu-id="b60d3-180">See [Configuration](xref:fundamentals/configuration/index) for more information.</span></span>
+
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="b60d3-181">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="b60d3-181">Visual Studio</span></span>](#tab/visual-studio)
+
+## <a name="sql-server-express-localdb"></a><span data-ttu-id="b60d3-182">SQL Server Express LocalDB</span><span class="sxs-lookup"><span data-stu-id="b60d3-182">SQL Server Express LocalDB</span></span>
+
+<span data-ttu-id="b60d3-183">LocalDB, program geliştirmeye yönelik SQL Server Express veritabanı altyapısının hafif bir sürümüdür.</span><span class="sxs-lookup"><span data-stu-id="b60d3-183">LocalDB is a lightweight version of the SQL Server Express database engine that's targeted for program development.</span></span> <span data-ttu-id="b60d3-184">LocalDB, isteğe bağlı olarak başlar ve karmaşık yapılandırma olduğundan kullanıcı modunda çalışır.</span><span class="sxs-lookup"><span data-stu-id="b60d3-184">LocalDB starts on demand and runs in user mode, so there's no complex configuration.</span></span> <span data-ttu-id="b60d3-185">Varsayılan olarak, LocalDB veritabanı `*.mdf` `C:/Users/<user/>` dizinde dosya oluşturur.</span><span class="sxs-lookup"><span data-stu-id="b60d3-185">By default, LocalDB database creates `*.mdf` files in the `C:/Users/<user/>` directory.</span></span>
+
+<a name="ssox"></a>
+* <span data-ttu-id="b60d3-186">**Görünüm** menüsünden **SQL Server Nesne Gezgini** (ssox) öğesini açın.</span><span class="sxs-lookup"><span data-stu-id="b60d3-186">From the **View** menu, open **SQL Server Object Explorer** (SSOX).</span></span>
+
+  ![Görünüm menüsü](sql/_static/ssox.png)
+
+* <span data-ttu-id="b60d3-188">`Movie` Tabloya sağ tıklayıp **Görünüm Tasarımcısı**' nı seçin:</span><span class="sxs-lookup"><span data-stu-id="b60d3-188">Right click on the `Movie` table and select **View Designer**:</span></span>
+
+  ![Film tablosunda bağlam menüsü açık](sql/_static/design.png)
+
+  ![Tasarımcıda film tablosu aç](sql/_static/dv.png)
+
+<span data-ttu-id="b60d3-191">Seçeneğinin yanında `ID`bulunan anahtar simgesine göz önünde edin.</span><span class="sxs-lookup"><span data-stu-id="b60d3-191">Note the key icon next to `ID`.</span></span> <span data-ttu-id="b60d3-192">Varsayılan olarak, EF birincil anahtar için adlı `ID` bir özellik oluşturur.</span><span class="sxs-lookup"><span data-stu-id="b60d3-192">By default, EF creates a property named `ID` for the primary key.</span></span>
+
+* <span data-ttu-id="b60d3-193">`Movie` Tabloya sağ tıklayın ve **verileri görüntüle**' yi seçin:</span><span class="sxs-lookup"><span data-stu-id="b60d3-193">Right click on the `Movie` table and select **View Data**:</span></span>
+
+  ![Tablo verilerini gösteren film tablosu açma](sql/_static/vd22.png)
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="b60d3-195">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="b60d3-195">Visual Studio Code</span></span>](#tab/visual-studio-code)
+
+[!INCLUDE[](~/includes/rp/sqlite.md)]
+[!INCLUDE[](~/includes/RP-mvc-shared/sqlite-warn.md)]
+
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="b60d3-196">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="b60d3-196">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
+
+[!INCLUDE[](~/includes/rp/sqlite.md)]
+[!INCLUDE[](~/includes/RP-mvc-shared/sqlite-warn.md)]
+
+---
+
+## <a name="seed-the-database"></a><span data-ttu-id="b60d3-197">Veritabanının çekirdeğini oluşturma</span><span class="sxs-lookup"><span data-stu-id="b60d3-197">Seed the database</span></span>
+
+<span data-ttu-id="b60d3-198">Modeller klasöründe aşağıdaki kodla adlı `SeedData` yeni bir  sınıf oluşturun:</span><span class="sxs-lookup"><span data-stu-id="b60d3-198">Create a new class named `SeedData` in the *Models* folder with the following code:</span></span>
+
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Models/SeedData.cs?name=snippet_1)]
+
+<span data-ttu-id="b60d3-199">VERITABANıNDA herhangi bir film varsa, tohum başlatıcısı döner ve hiçbir film eklenmez.</span><span class="sxs-lookup"><span data-stu-id="b60d3-199">If there are any movies in the DB, the seed initializer returns and no movies are added.</span></span>
+
+```csharp
+if (context.Movie.Any())
+{
+    return;   // DB has been seeded.
+}
+```
+
+<a name="si"></a>
+
+### <a name="add-the-seed-initializer"></a><span data-ttu-id="b60d3-200">Tohum başlatıcısı ekleme</span><span class="sxs-lookup"><span data-stu-id="b60d3-200">Add the seed initializer</span></span>
+
+<span data-ttu-id="b60d3-201">İçinde *Program.cs*, değişiklik `Main` yöntemi aşağıdakileri yapmak için:</span><span class="sxs-lookup"><span data-stu-id="b60d3-201">In *Program.cs*, modify the `Main` method to do the following:</span></span>
+
+* <span data-ttu-id="b60d3-202">Bir DB bağlamı örneği bağımlılık ekleme kapsayıcısını alın.</span><span class="sxs-lookup"><span data-stu-id="b60d3-202">Get a DB context instance from the dependency injection container.</span></span>
+* <span data-ttu-id="b60d3-203">Temel yöntemi çağırın ve bu yönteme geçerek bağlamı geçer.</span><span class="sxs-lookup"><span data-stu-id="b60d3-203">Call the seed method, passing to it the context.</span></span>
+* <span data-ttu-id="b60d3-204">Çekirdek yöntemi tamamlandığında bağlamı atın.</span><span class="sxs-lookup"><span data-stu-id="b60d3-204">Dispose the context when the seed method completes.</span></span>
+
+<span data-ttu-id="b60d3-205">Aşağıdaki kod güncelleştirilmiş gösterir *Program.cs* dosya.</span><span class="sxs-lookup"><span data-stu-id="b60d3-205">The following code shows the updated *Program.cs* file.</span></span>
+
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie22/Program.cs)]
+
+<span data-ttu-id="b60d3-206">Bir üretim uygulaması çağırmaz `Database.Migrate`.</span><span class="sxs-lookup"><span data-stu-id="b60d3-206">A production app would not call `Database.Migrate`.</span></span> <span data-ttu-id="b60d3-207">Çalıştırılmayan aşağıdaki özel durumu `Update-Database` engellemek için önceki koda eklenir:</span><span class="sxs-lookup"><span data-stu-id="b60d3-207">It's added to the preceding code to prevent the following exception when `Update-Database` has not been run:</span></span>
+
+<span data-ttu-id="b60d3-208">SqlException Oturum açma tarafından istenen "RazorPagesMovieContext-21" veritabanı açılamıyor.</span><span class="sxs-lookup"><span data-stu-id="b60d3-208">SqlException: Cannot open database "RazorPagesMovieContext-21" requested by the login.</span></span> <span data-ttu-id="b60d3-209">Oturum açılamadı.</span><span class="sxs-lookup"><span data-stu-id="b60d3-209">The login failed.</span></span>
+<span data-ttu-id="b60d3-210">' Kullanıcı adı ' kullanıcısı için oturum açma başarısız.</span><span class="sxs-lookup"><span data-stu-id="b60d3-210">Login failed for user 'user name'.</span></span>
+
+### <a name="test-the-app"></a><span data-ttu-id="b60d3-211">Uygulamayı test etme</span><span class="sxs-lookup"><span data-stu-id="b60d3-211">Test the app</span></span>
+
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="b60d3-212">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="b60d3-212">Visual Studio</span></span>](#tab/visual-studio)
+
+* <span data-ttu-id="b60d3-213">VERITABANıNDAKI tüm kayıtları silin.</span><span class="sxs-lookup"><span data-stu-id="b60d3-213">Delete all the records in the DB.</span></span> <span data-ttu-id="b60d3-214">Bunu, tarayıcıda veya [Ssox](xref:tutorials/razor-pages/new-field#ssox) 'ten silme bağlantılarıyla yapabilirsiniz</span><span class="sxs-lookup"><span data-stu-id="b60d3-214">You can do this with the delete links in the browser or from [SSOX](xref:tutorials/razor-pages/new-field#ssox)</span></span>
+* <span data-ttu-id="b60d3-215">Çekirdek yöntemin çalışması için uygulamayı başlamaya zorlayın ( `Startup` sınıftaki yöntemleri çağırın).</span><span class="sxs-lookup"><span data-stu-id="b60d3-215">Force the app to initialize (call the methods in the `Startup` class) so the seed method runs.</span></span> <span data-ttu-id="b60d3-216">Başlatmayı zorlamak için IIS Express durdurulup yeniden başlatılması gerekir.</span><span class="sxs-lookup"><span data-stu-id="b60d3-216">To force initialization, IIS Express must be stopped and restarted.</span></span> <span data-ttu-id="b60d3-217">Bunu aşağıdaki yaklaşımlardan biriyle yapabilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="b60d3-217">You can do this with any of the following approaches:</span></span>
+
+  * <span data-ttu-id="b60d3-218">Bildirim alanında IIS Express sistem tepsisi simgesine sağ tıklayın ve **Çıkış** veya **siteyi durdur**' a dokunun:</span><span class="sxs-lookup"><span data-stu-id="b60d3-218">Right-click the IIS Express system tray icon in the notification area and tap **Exit** or **Stop Site**:</span></span>
+
+    ![IIS Express sistem tepsisi simgesi](../first-mvc-app/working-with-sql/_static/iisExIcon.png)
+
+    ![Bağlamsal menü](sql/_static/stopIIS.png)
+
+    * <span data-ttu-id="b60d3-221">VS hata ayıklama modunda çalıştırıyorsanız, hata ayıklama modunda çalıştırmak için F5 tuşuna basın.</span><span class="sxs-lookup"><span data-stu-id="b60d3-221">If you were running VS in non-debug mode, press F5 to run in debug mode.</span></span>
+    * <span data-ttu-id="b60d3-222">Ile hata ayıklama modunda çalıştırıyorsanız, hata ayıklayıcıyı durdurun ve F5 tuşuna basın.</span><span class="sxs-lookup"><span data-stu-id="b60d3-222">If you were running VS in debug mode, stop the debugger and press F5.</span></span>
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="b60d3-223">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="b60d3-223">Visual Studio Code</span></span>](#tab/visual-studio-code)
+
+<span data-ttu-id="b60d3-224">VERITABANıNDAKI tüm kayıtları silin (Bu nedenle çekirdek yöntemi çalışacaktır).</span><span class="sxs-lookup"><span data-stu-id="b60d3-224">Delete all the records in the DB (So the seed method will run).</span></span> <span data-ttu-id="b60d3-225">Veritabanını temel alarak uygulamayı durdurup başlatın.</span><span class="sxs-lookup"><span data-stu-id="b60d3-225">Stop and start the app to seed the database.</span></span>
+
+<span data-ttu-id="b60d3-226">Uygulama, sağlanan verileri gösterir.</span><span class="sxs-lookup"><span data-stu-id="b60d3-226">The app shows the seeded data.</span></span>
+
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="b60d3-227">Mac için Visual Studio</span><span class="sxs-lookup"><span data-stu-id="b60d3-227">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
+
+<span data-ttu-id="b60d3-228">VERITABANıNDAKI tüm kayıtları silin (Bu nedenle çekirdek yöntemi çalışacaktır).</span><span class="sxs-lookup"><span data-stu-id="b60d3-228">Delete all the records in the DB (So the seed method will run).</span></span> <span data-ttu-id="b60d3-229">Veritabanını temel alarak uygulamayı durdurup başlatın.</span><span class="sxs-lookup"><span data-stu-id="b60d3-229">Stop and start the app to seed the database.</span></span>
+
+<span data-ttu-id="b60d3-230">Uygulama, sağlanan verileri gösterir.</span><span class="sxs-lookup"><span data-stu-id="b60d3-230">The app shows the seeded data.</span></span>
+
+---
+
+<span data-ttu-id="b60d3-231">Uygulama, sağlanan verileri gösterir:</span><span class="sxs-lookup"><span data-stu-id="b60d3-231">The app shows the seeded data:</span></span>
+
+![Film verilerini gösteren Chrome 'da film uygulaması açık](sql/_static/m55.png)
+
+<span data-ttu-id="b60d3-233">Sonraki öğretici, verilerin sunumunu temizler.</span><span class="sxs-lookup"><span data-stu-id="b60d3-233">The next tutorial will clean up the presentation of the data.</span></span>
+
+## <a name="additional-resources"></a><span data-ttu-id="b60d3-234">Ek kaynaklar</span><span class="sxs-lookup"><span data-stu-id="b60d3-234">Additional resources</span></span>
+
+* [<span data-ttu-id="b60d3-235">Bu öğreticinin YouTube sürümü</span><span class="sxs-lookup"><span data-stu-id="b60d3-235">YouTube version of this tutorial</span></span>](https://youtu.be/A_5ff11sDHY)
+
+> [!div class="step-by-step"]
+> <span data-ttu-id="b60d3-236">[Öncekini Yapı iskelesi Razor Pages](xref:tutorials/razor-pages/page)
+> [ileri: Sayfaları güncelleştirme](xref:tutorials/razor-pages/da1)</span><span class="sxs-lookup"><span data-stu-id="b60d3-236">[Previous: Scaffolded Razor Pages](xref:tutorials/razor-pages/page)
+[Next: Updating the pages](xref:tutorials/razor-pages/da1)</span></span>
+
+::: moniker-end
