@@ -1,63 +1,65 @@
 ---
-title: Swashbuckle'ı ve ASP.NET Core ile çalışmaya başlama
+title: Swashbuckle ve ASP.NET Core kullanmaya başlayın
 author: zuckerthoben
-description: Swagger kullanıcı arabirimini tümleştirmek için ASP.NET Core web API projesi için Swashbuckle eklemeyi öğrenin.
+description: Swagger Kullanıcı arabirimini bütünleştirmek için ASP.NET Core Web API Projenize swashbuckle ekleme hakkında bilgi edinin.
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 06/21/2019
 uid: tutorials/get-started-with-swashbuckle
-ms.openlocfilehash: 033f2dda9942f91f23158cf2d986062157a3b69e
-ms.sourcegitcommit: 06a455d63ff7d6b571ca832e8117f4ac9d646baf
+ms.openlocfilehash: 0ffd437bbb48ef1c7a9159fbf3ac41441613f434
+ms.sourcegitcommit: 849af69ee3c94cdb9fd8fa1f1bb8f5a5dda7b9eb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67316606"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68372066"
 ---
-# <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Swashbuckle'ı ve ASP.NET Core ile çalışmaya başlama
+# <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Swashbuckle ve ASP.NET Core kullanmaya başlayın
 
-Tarafından [Shayne boyer'ın](https://twitter.com/spboyer) ve [Scott Addie](https://twitter.com/Scott_Addie)
+, [Shayne Boyer](https://twitter.com/spboyer) ve [Scott Ade](https://twitter.com/Scott_Addie) tarafından
 
 [Görüntüleme veya indirme örnek kodu](https://github.com/aspnet/AspNetCore.Docs/tree/master/aspnetcore/tutorials/web-api-help-pages-using-swagger/samples/) ([nasıl indirileceğini](xref:index#how-to-download-a-sample))
 
-Swashbuckle'ı için üç ana bileşeni vardır:
+Swashbuckle için üç ana bileşen vardır:
 
-* [Swashbuckle.AspNetCore.Swagger](https://www.nuget.org/packages/Swashbuckle.AspNetCore.Swagger/): Swagger nesne modeli ve kullanıma sunmak için bir ara yazılım `SwaggerDocument` JSON uç noktalar olarak nesneleri.
+* [Swashbuckle. aspnetcore. Swagger](https://www.nuget.org/packages/Swashbuckle.AspNetCore.Swagger/): nesneleri JSON uç noktaları olarak göstermek `SwaggerDocument` için Swagger nesne modeli ve ara yazılımı.
 
-* [Swashbuckle.AspNetCore.SwaggerGen](https://www.nuget.org/packages/Swashbuckle.AspNetCore.SwaggerGen/): oluşturan bir Swagger Oluşturucusu `SwaggerDocument` nesneleri doğrudan, rotalara, denetleyicilere ve modeller. Bu genellikle otomatik olarak Swagger JSON kullanıma sunmak için Swagger uç nokta ara yazılımı ile birleştirilir.
+* [Swashbuckle. aspnetcore. SwaggerGen](https://www.nuget.org/packages/Swashbuckle.AspNetCore.SwaggerGen/): `SwaggerDocument` nesneleri doğrudan rotalarınız, Denetleyicilerinizden ve modellerden oluşturan bir Swagger Oluşturucu. Swagger JSON 'yi otomatik olarak göstermek için genellikle Swagger uç nokta ara yazılımı ile birleştirilir.
 
-* [Swashbuckle.AspNetCore.SwaggerUI](https://www.nuget.org/packages/Swashbuckle.AspNetCore.SwaggerUI/): katıştırılmış bir Swagger kullanıcı arabirimini aracı sürümü. Bu, web API işlevleri tanımlamak için zengin, özelleştirilebilir bir deneyim oluşturmak için Swagger JSON yorumlar. Genel metotlar için yerleşik test harnesses içerir.
+* [Swashbuckle. AspNetCore. SwaggerUI](https://www.nuget.org/packages/Swashbuckle.AspNetCore.SwaggerUI/): Swagger Kullanıcı arabirimi aracının gömülü bir sürümü. Web API işlevlerini açıklamak için bir zengin ve özelleştirilebilir deneyim oluşturmak üzere Swagger JSON 'u yorumlar. Ortak yöntemler için yerleşik test gücünden içerir.
 
 ## <a name="package-installation"></a>Paket yüklemesi
 
-Swashbuckle'ı ile aşağıdaki yaklaşımlardan eklenebilir:
+Aşağıdaki yaklaşımlar ile swashbuckle eklenebilir:
 
 ### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Gelen **Paket Yöneticisi Konsolu** penceresi:
-  * Git **görünümü** > **diğer Windows** > **Paket Yöneticisi Konsolu**
-  * Dizin gidin *TodoApi.csproj* dosya var
+* **Paket Yöneticisi konsol** penceresinde:
+  *  > **Diğer**Windowspaket > **Yöneticisi konsolunu** görüntüle ' ye git
+  * *TodoApi. csproj* dosyasının bulunduğu dizine gidin
   * Aşağıdaki komutu yürütün:
 
     ```powershell
     Install-Package Swashbuckle.AspNetCore -Version 5.0.0-rc2
     ```
 
-* Gelen **NuGet paketlerini Yönet** iletişim:
-  * Projeye sağ **Çözüm Gezgini** > **NuGet paketlerini Yönet**
-  * Ayarlama **paket kaynağı** "nuget.org'da"
-  * Arama kutusuna "Swashbuckle.AspNetCore"
-  * "Swashbuckle.AspNetCore" paketinden seçin **Gözat** sekmesine **yükleyin**
+* **NuGet Paketlerini Yönet** iletişim kutusunda:
+  * **Çözüm Gezgini** > **NuGet Paketlerini Yönet** ' de projeye sağ tıklayın
+  * **Paket kaynağını** "NuGet.org" olarak ayarlayın
+  * "Ön sürümü dahil et" seçeneğinin etkinleştirildiğinden emin olun
+  * Arama kutusuna "swashbuckle. AspNetCore" yazın
+  * **Araştır** sekmesinden en son "swashbuckle. aspnetcore" paketini seçin ve sonra da **yüklensin** ' e tıklayın.
 
 ### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Mac için Visual Studio](#tab/visual-studio-mac)
 
-* Sağ *paketleri* klasöründe **çözüm bölmesi** > **paketleri Ekle...**
-* Ayarlama **paketleri Ekle** pencerenin **kaynak** "nuget.org" açılır menüsünü
-* Arama kutusuna "Swashbuckle.AspNetCore"
-* Sonuçlar bölmesinde "Swashbuckle.AspNetCore" paketi seçin ve tıklayın **' paket Ekle**
+* **Çözüm bölmesi**  paket > **Ekle...** ' da paketler klasörüne sağ tıklayın.
+* **Paket Ekle** penceresinin **kaynak** açılan penceresini "NuGet.org" olarak ayarlayın
+* "Yayın öncesi paketleri göster" seçeneğinin etkin olduğundan emin olun
+* Arama kutusuna "swashbuckle. AspNetCore" yazın
+* Sonuçlar bölmesinden en son "swashbuckle. AspNetCore" paketini seçin ve **paket Ekle** ' ye tıklayın.
 
 ### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-Aşağıdaki komutu çalıştırın **tümleşik Terminalini**:
+**Tümleşik terminalden**aşağıdaki komutu çalıştırın:
 
 ```console
 dotnet add TodoApi.csproj package Swashbuckle.AspNetCore -v 5.0.0-rc2
@@ -73,13 +75,13 @@ dotnet add TodoApi.csproj package Swashbuckle.AspNetCore -v 5.0.0-rc2
 
 ---
 
-## <a name="add-and-configure-swagger-middleware"></a>Ekleme ve Swagger ara yazılımını yapılandırma
+## <a name="add-and-configure-swagger-middleware"></a>Swagger ara yazılım ekleme ve yapılandırma
 
-İçinde `Startup` sınıfı, kullanmak için aşağıdaki ad alanı alma `OpenApiInfo` sınıfı:
+Sınıfında, `OpenApiInfo` sınıfını kullanmak için aşağıdaki ad alanını içeri aktarın: `Startup`
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup2.cs?name=snippet_InfoClassNamespace)]
 
-Swagger oluşturucusunu Hizmetleri koleksiyona eklemek `Startup.ConfigureServices` yöntemi:
+`Startup.ConfigureServices` Yöntemdeki Services koleksiyonuna Swagger oluşturucuyu ekleyin:
 
 ::: moniker range="<= aspnetcore-2.0"
 
@@ -93,47 +95,47 @@ Swagger oluşturucusunu Hizmetleri koleksiyona eklemek `Startup.ConfigureService
 
 ::: moniker-end
 
-İçinde `Startup.Configure` yöntemi, oluşturulan JSON belgesini ve Swagger kullanıcı arabirimini sunulması için Ara yazılımlarını etkinleştir:
+`Startup.Configure` Yönteminde, oluşturulan JSON belgesine ve Swagger Kullanıcı arabirimine hizmet veren ara yazılımı etkinleştirin:
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup2.cs?name=snippet_Configure&highlight=4,8-11)]
 
-Önceki `UseSwaggerUI` yöntem çağrısının sağlayan [statik dosya ara yazılımlarını](xref:fundamentals/static-files). .NET Framework veya .NET targeting, Core 1.x sürümüne, ekleme [Microsoft.AspNetCore.StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles/) NuGet paketini projeye.
+Önceki `UseSwaggerUI` Yöntem çağrısı [statik dosya ara yazılımını](xref:fundamentals/static-files)sunar. .NET Framework veya .NET Core 1. x 'i hedefliyorsanız, projeye [Microsoft. AspNetCore. StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles/) NuGet paketini ekleyin.
 
-Uygulamayı başlatın ve gidin `http://localhost:<port>/swagger/v1/swagger.json`. Uç noktaları açıklayan oluşturulan belgenin gösterildiği görünür [Swagger belirtimi (swagger.json)](xref:tutorials/web-api-help-pages-using-swagger#swagger-specification-swaggerjson).
+Uygulamayı başlatın ve adresine `http://localhost:<port>/swagger/v1/swagger.json`gidin. Uç noktaları tanımlayan oluşturulan belge, [Swagger belirtiminde (Swagger. JSON)](xref:tutorials/web-api-help-pages-using-swagger#swagger-specification-swaggerjson)gösterildiği gibi görünür.
 
-Swagger kullanıcı arabirimini şu yolda bulunabilir: `http://localhost:<port>/swagger`. Swagger kullanıcı Arabirimi API'yi keşfedin ve diğer programlarda dahil edilip derecelendirilir.
+Swagger Kullanıcı arabirimi adresinde `http://localhost:<port>/swagger`bulunabilir. Swagger Kullanıcı arabirimi aracılığıyla API 'YI keşfet ve diğer programlarda birleştirme.
 
 > [!TIP]
-> Swagger kullanıcı arabirimini uygulamanın kök dizininde hizmet (`http://localhost:<port>/`) ayarlayın `RoutePrefix` boş bir dize özelliğini:
+> Swagger Kullanıcı arabirimine uygulamanın kökünde (`http://localhost:<port>/`) hizmeti sağlamak için, `RoutePrefix` özelliğini boş bir dizeye ayarlayın:
 >
 > [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup3.cs?name=snippet_UseSwaggerUI&highlight=4)]
 
-IIS veya ters bir proxy ile #using Directories ayarlarsanız Swagger uç nokta kullanarak bir göreli yol `./` önek. Örneğin: `./swagger/v1/swagger.json` Kullanarak `/swagger/v1/swagger.json` URL (artı kullandıysanız rota öneki) true kökünde JSON dosyasını bulmak için uygulama bildirir. Örneğin, `http://localhost:<port>/<route_prefix>/swagger/v1/swagger.json` yerine `http://localhost:<port>/<virtual_directory>/<route_prefix>/swagger/v1/swagger.json`.
+IIS veya ters proxy ile dizin kullanıyorsanız, Swagger uç noktasını, `./` öneki kullanılarak göreli bir yol olarak ayarlayın. Örneğin: `./swagger/v1/swagger.json`. Kullanarak `/swagger/v1/swagger.json` , uygulamanın URL 'nin gerçek kökünde json dosyasını aramasını söyler (Ayrıca kullanılıyorsa rota öneki). Örneğin, `http://localhost:<port>/<route_prefix>/swagger/v1/swagger.json` `http://localhost:<port>/<virtual_directory>/<route_prefix>/swagger/v1/swagger.json`yerine kullanın.
 
 ## <a name="customize-and-extend"></a>Özelleştirme ve genişletme
 
-Swagger temanızı eşleştirmek için nesne modeli belgelemekten ve kullanıcı arabirimini özelleştirme seçenekleri sağlar.
+Swagger, nesne modelini belgeleme ve Kullanıcı arabirimini temanızla eşleşecek şekilde özelleştirme seçenekleri sağlar.
 
-### <a name="api-info-and-description"></a>API bilgisi ve açıklama
+### <a name="api-info-and-description"></a>API bilgisi ve açıklaması
 
-Yapılandırma eylemi geçirilen `AddSwaggerGen` yöntemi yazar, lisans ve açıklaması gibi bilgileri ekler:
+`AddSwaggerGen` Yöntemine geçirilen yapılandırma eylemi yazar, lisans ve açıklama gibi bilgileri ekler:
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup4.cs?name=snippet_AddSwaggerGen)]
 
-Swagger kullanıcı arabirimini sürüme ait bilgileri görüntüler:
+Swagger Kullanıcı arabirimi, sürümün bilgilerini görüntüler:
 
-![Swagger kullanıcı Arabirimi ile sürüm bilgisi: açıklama, yazar ve daha fazla bağlantıya göz atın](web-api-help-pages-using-swagger/_static/custom-info.png)
+![Sürüm bilgileriyle Swagger Kullanıcı arabirimi: Açıklama, yazar ve daha fazla bağlantı görüntüle](web-api-help-pages-using-swagger/_static/custom-info.png)
 
 ### <a name="xml-comments"></a>XML açıklamaları
 
-XML açıklamaları aşağıdaki yaklaşımlardan ile etkin hale getirilebilir:
+XML açıklamaları aşağıdaki yaklaşımlar ile etkinleştirilebilir:
 
 #### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 ::: moniker range=">= aspnetcore-2.0"
 
-* Projeye sağ **Çözüm Gezgini** seçip **< project_name > .csproj Düzenle**.
-* El ile vurgulanan satırları ekleyin *.csproj* dosyası:
+* **Çözüm Gezgini** projeye sağ tıklayın ve **düzenle < Project_Name >. csproj**' yı seçin.
+* Vurgulanan satırları *. csproj* dosyasına el ile ekleyin:
 
 [!code-xml[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.Swashbuckle/TodoApi.csproj?name=snippet_SuppressWarnings&highlight=1-2,4)]
 
@@ -142,7 +144,7 @@ XML açıklamaları aşağıdaki yaklaşımlardan ile etkin hale getirilebilir:
 ::: moniker range="<= aspnetcore-1.1"
 
 * Projeye sağ **Çözüm Gezgini** seçip **özellikleri**.
-* Denetleme **XML belge dosyası** altında kutusunda **çıkış** bölümünü **derleme** sekmesi.
+* **Build** sekmesinin **output** bölümünün altındaki **XML belge dosyası** kutusunu işaretleyin.
 
 ::: moniker-end
 
@@ -150,8 +152,8 @@ XML açıklamaları aşağıdaki yaklaşımlardan ile etkin hale getirilebilir:
 
 ::: moniker range=">= aspnetcore-2.0"
 
-* Gelen *çözüm bölmesi*, basın **denetim** ve proje adına tıklayın. Gidin **Araçları** > **dosyasını düzenleyin**.
-* El ile vurgulanan satırları ekleyin *.csproj* dosyası:
+* *Çözüm bölmesi*, **Denetim** ' e basın ve proje adına tıklayın. **Araçlar** > **dosya düzenleme**sayfasına gidin.
+* Vurgulanan satırları *. csproj* dosyasına el ile ekleyin:
 
 [!code-xml[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.Swashbuckle/TodoApi.csproj?name=snippet_SuppressWarnings&highlight=1-2,4)]
 
@@ -159,14 +161,14 @@ XML açıklamaları aşağıdaki yaklaşımlardan ile etkin hale getirilebilir:
 
 ::: moniker range="<= aspnetcore-1.1"
 
-* Açık **proje seçenekleri** iletişim > **derleme** > **derleyici**
-* Denetleme **xml belgeleri oluştur** altında kutusunda **genel seçenekleri** bölümü
+* **Derleme**   derleyicisi>proje> seçenekleri iletişim kutusunu açın
+* **Genel Seçenekler** bölümünün altındaki **XML oluştur belge** kutusunu işaretleyin
 
 ::: moniker-end
 
 #### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-El ile vurgulanan satırları ekleyin *.csproj* dosyası:
+Vurgulanan satırları *. csproj* dosyasına el ile ekleyin:
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -182,7 +184,7 @@ El ile vurgulanan satırları ekleyin *.csproj* dosyası:
 
 #### <a name="net-core-clitabnetcore-cli"></a>[.NET Core CLI](#tab/netcore-cli)
 
-El ile vurgulanan satırları ekleyin *.csproj* dosyası:
+Vurgulanan satırları *. csproj* dosyasına el ile ekleyin:
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -198,13 +200,13 @@ El ile vurgulanan satırları ekleyin *.csproj* dosyası:
 
 ---
 
-XML açıklamaları'nı etkinleştirme, belgelenmemiş genel türler ve üyeler için hata ayıklama bilgileri sağlar. Belgelenmemiş türleri ve üyeleri tarafından uyarı iletisinde gösterilir. Örneğin, aşağıdaki ileti uyarı kodu 1591 ihlalini gösterir:
+XML açıklamalarını etkinleştirmek, belgelenmemiş ortak türler ve Üyeler için hata ayıklama bilgileri sağlar. Belgelenmemiş türler ve Üyeler uyarı iletisiyle belirtilir. Örneğin, aşağıdaki ileti 1591 uyarı kodunu ihlal eder:
 
 ```text
 warning CS1591: Missing XML comment for publicly visible type or member 'TodoController.GetAll()'
 ```
 
-Proje genelinde uyarıları bastırmak için proje dosyasında yok saymak için uyarı kodlarının noktalı virgülle ayrılmış bir listesini tanımlar. Ekleme için uyarı kodlarının `$(NoWarn);` geçerlidir [ C# varsayılan değerler](https://github.com/dotnet/sdk/blob/2eb6c546931b5bcb92cd3128b93932a980553ea1/src/Tasks/Microsoft.NET.Build.Tasks/targets/Microsoft.NET.Sdk.CSharp.props#L16) çok.
+Uyarıları proje genelinde gizlemek için, proje dosyasında yoksayılacak uyarı kodlarının noktalı virgülle ayrılmış bir listesini tanımlayın. Uyarı kodlarının `$(NoWarn);` eklenmesi [ C# varsayılan değerleri](https://github.com/dotnet/sdk/blob/2eb6c546931b5bcb92cd3128b93932a980553ea1/src/Tasks/Microsoft.NET.Build.Tasks/targets/Microsoft.NET.Sdk.CSharp.props#L16) de uygular.
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -218,7 +220,7 @@ Proje genelinde uyarıları bastırmak için proje dosyasında yok saymak için 
 
 ::: moniker-end
 
-Yalnızca belirli üyeleri için uyarıları bastırmak için kod içine [#pragma Uyarısı](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-pragma-warning) önişlemci yönergeleri. Bu yaklaşım, API belgeleri kullanıma sunulan olmamalıdır kod için kullanışlıdır. Aşağıdaki örnekte, tüm uyarı kodu CS1591 göz ardı edilir `Program` sınıfı. Zorlama uyarı kodun sınıf tanımının kapanışında geri yüklenir. Birden çok uyarı kodlarının virgülle ayrılmış bir liste belirtin.
+Yalnızca belirli Üyeler için uyarıları gizlemek için, kodu [#pragma uyarı](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-pragma-warning) Önişlemci yönergeleri arasına alın. Bu yaklaşım, API belgeleri aracılığıyla sunulmaması gereken kod için yararlıdır. Aşağıdaki örnekte, tüm `Program` sınıf için uyarı kodu CS1591 yok sayılır. Uyarı kodu zorlaması sınıf tanımının kapandığına geri yüklenir. Virgülle ayrılmış bir liste ile birden çok uyarı kodu belirtin.
 
 ```csharp
 namespace TodoApi
@@ -238,7 +240,7 @@ namespace TodoApi
 }
 ```
 
-Oluşturulan XML dosyası yukarıdaki yönergeleri ile kullanmak için Swagger'ı yapılandırın. Linux veya Windows olmayan işletim sistemleri için dosya adlarını ve yollarını büyük küçük harfe duyarlı olabilir. Örneğin, bir *TodoApi.XML* dosya, Windows ancak değil CentOS geçerlidir.
+Swagger 'yi yukarıdaki yönergelerle oluşturulan XML dosyasını kullanacak şekilde yapılandırın. Linux veya Windows dışı işletim sistemleri için dosya adları ve yolları büyük/küçük harfe duyarlı olabilir. Örneğin, *TodoApi. xml* dosyası Windows üzerinde geçerlidir ancak CentOS değildir.
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -258,17 +260,17 @@ Oluşturulan XML dosyası yukarıdaki yönergeleri ile kullanmak için Swagger'�
 
 ::: moniker-end
 
-Önceki kodda, [yansıma](/dotnet/csharp/programming-guide/concepts/reflection) web API projesi, eşleşen bir XML dosya adı oluşturmak için kullanılır. [AppContext.BaseDirectory](xref:System.AppContext.BaseDirectory*) özelliği, bir XML dosyasının yolu oluşturmak için kullanılır. XML belge dosyası kullanmadan bazı Swagger özellikler (örneğin, şemaların giriş parametreleri veya HTTP yöntemleri ve ilgili özniteliklerden yanıt kodları) çalışır. Çoğu özelliği için yöntemi özetler ve açıklamalar parametrelerinin ve yanıt kodları, bir XML dosyasının zorunludur.
+Yukarıdaki kodda, [yansıma](/dotnet/csharp/programming-guide/concepts/reflection) , Web API projesi ile eşleşen bir XML dosya adı oluşturmak için kullanılır. [AppContext. BaseDirectory](xref:System.AppContext.BaseDirectory*) ÖZELLIĞI, XML dosyasının yolunu oluşturmak için kullanılır. Bazı Swagger özellikleri (örneğin, bir XML belge dosyası kullanılmadan, giriş parametrelerinin veya HTTP yöntemlerinin ve yanıt kodlarının) bir bölümü çalışır. Çoğu özellik için, yöntem özetleri ve parametrelerin ve yanıt kodlarının açıklamaları, bir XML dosyası kullanımı zorunludur.
 
-Swagger kullanıcı arabirimini üç eğik çizgi açıklama eklemek için bir eylem için bölüm başlığı açıklama ekleyerek geliştirir. Ekleme bir [ \<Özet >](/dotnet/csharp/programming-guide/xmldoc/summary) öğesi yukarıdaki `Delete` eylem:
+Bir eyleme Üçlü eğik çizgi açıklamaları eklemek, Bölüm üstbilgisine açıklama ekleyerek Swagger Kullanıcı arabirimini geliştirir. Eylemin`Delete` üstüne bir [ \<Summary >](/dotnet/csharp/programming-guide/xmldoc/summary) öğesi ekleyin:
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Controllers/TodoController.cs?name=snippet_Delete&highlight=1-3)]
 
-Önceki kodun iç metni Swagger kullanıcı arabirimini görüntüler `<summary>` öğesi:
+Swagger Kullanıcı arabirimi, önceki kodun `<summary>` öğesinin iç metnini görüntüler:
 
-![Swagger 'Belirli bir Todoıtem siler.' XML açıklama gösteren bir kullanıcı Arabirimi DELETE yöntemi için](web-api-help-pages-using-swagger/_static/triple-slash-comments.png)
+![XML açıklamasını gösteren Swagger Kullanıcı arabirimi, belirli bir TodoItem siler. DELETE yöntemi için](web-api-help-pages-using-swagger/_static/triple-slash-comments.png)
 
-Kullanıcı Arabirimi tarafından oluşturulan JSON şema yönetilir:
+Kullanıcı arabirimi, oluşturulan JSON şeması tarafından çalıştırılır:
 
 ```json
 "delete": {
@@ -297,7 +299,7 @@ Kullanıcı Arabirimi tarafından oluşturulan JSON şema yönetilir:
 }
 ```
 
-Ekleme bir [ \<remarks >](/dotnet/csharp/programming-guide/xmldoc/remarks) öğesine `Create` eylem yöntemi belgeleri. Belirtilen bilgilerini tamamlayan `<summary>` öğesi ve daha güçlü bir Swagger kullanıcı Arabirimi sağlar. `<remarks>` Metin, JSON veya XML öğesi içeriği oluşabilir.
+Eylem yöntemi belgelerine bir [ \<açıklama >](/dotnet/csharp/programming-guide/xmldoc/remarks) öğesi ekleyin. `Create` `<summary>` Öğesinde belirtilen bilgileri tamamlar ve daha sağlam bir Swagger Kullanıcı arabirimi sağlar. `<remarks>` Öğe içeriği metin, JSON veya XML içerebilir.
 
 ::: moniker range="<= aspnetcore-2.0"
 
@@ -311,19 +313,19 @@ Ekleme bir [ \<remarks >](/dotnet/csharp/programming-guide/xmldoc/remarks) öğe
 
 ::: moniker-end
 
-Bu ek açıklamaları olan kullanıcı Arabirimi geliştirmeleri dikkat edin:
+Bu ek açıklamalarla UI geliştirmelerini göz unutmayın:
 
-![Swagger kullanıcı Arabirimi ile gösterilen ek açıklamaları](web-api-help-pages-using-swagger/_static/xml-comments-extended.png)
+![Ek açıklamaların gösterildiği Swagger Kullanıcı arabirimi](web-api-help-pages-using-swagger/_static/xml-comments-extended.png)
 
 ### <a name="data-annotations"></a>Veri açıklamaları
 
-Öznitelikler bulundu, modeliyle süslemek [System.ComponentModel.DataAnnotations](/dotnet/api/system.componentmodel.dataannotations) Swagger kullanıcı Arabirimi bileşenleri sürücü yardımcı olması için ad alanı.
+[System. ComponentModel. datanot](/dotnet/api/system.componentmodel.dataannotations) ad alanında bulunan ve bu modeli, Swagger Kullanıcı Arabirimi bileşenlerini kullanmanıza yardımcı olacak şekilde görüntüler.
 
-Ekleme `[Required]` özniteliğini `Name` özelliği `TodoItem` sınıfı:
+`[Required]` Özniteliğini sınıfının`TodoItem` özelliğine ekleyin: `Name`
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Models/TodoItem.cs?highlight=10)]
 
-Bu öznitelik varlığını UI davranışını değiştirir ve temel alınan JSON şemasını değiştirir:
+Bu özniteliğin varlığı, Kullanıcı arabirimi davranışını değiştirir ve temel alınan JSON şemasını değiştirir:
 
 ```json
 "definitions": {
@@ -349,7 +351,7 @@ Bu öznitelik varlığını UI davranışını değiştirir ve temel alınan JSO
 },
 ```
 
-Ekleme `[Produces("application/json")]` özniteliği için API denetleyicisi. Denetleyicinin eylemleri bir yanıt içerik türü desteği bildirmek için amacı olan *application/json*:
+`[Produces("application/json")]` Özniteliği API denetleyicisine ekleyin. Amaç, denetleyicinin eylemlerinin bir *uygulama/JSON*yanıt içerik türünü desteklediğini bildirsağlamaktır:
 
 ::: moniker range="<= aspnetcore-2.0"
 
@@ -363,17 +365,17 @@ Ekleme `[Produces("application/json")]` özniteliği için API denetleyicisi. De
 
 ::: moniker-end
 
-**Yanıt içerik türü** açılan denetleyicinin GET eylemler için varsayılan olarak bu içerik türünü seçer:
+**Yanıt Içerik türü** açılan liste, denetleyicinin al eylemleri için varsayılan olarak bu içerik türünü seçer:
 
-![Swagger kullanıcı Arabirimi ile varsayılan yanıt içerik türü](web-api-help-pages-using-swagger/_static/json-response-content-type.png)
+![Varsayılan yanıt içerik türüyle Swagger Kullanıcı arabirimi](web-api-help-pages-using-swagger/_static/json-response-content-type.png)
 
-Web API'SİNDEKİ veri ek açıklamaları kullanımı arttıkça, UI ve API tarafından Yardım sayfaları daha açıklayıcı ve yararlı olur.
+Web API 'sindeki veri ek açıklamaların kullanımı arttıkça, UI ve API Yardım sayfaları daha açıklayıcı ve yararlı hale gelir.
 
-### <a name="describe-response-types"></a>Yanıt türleri açıklanmaktadır
+### <a name="describe-response-types"></a>Yanıt türlerini açıkla
 
-Bir web API'sini kullanan geliştiriciler hangi iade ile en ilgili&mdash;özellikle yanıt türleri ve hata kodları (standart varsa). Hata kodları ve yanıt türleri XML açıklamaları ve verileri ek açıklamalar içinde belirtilir.
+Bir Web API 'si kullanan geliştiriciler, özellikle yanıt türleri ve hata&mdash;kodları (Standart değilse) döndürülmesiyle ilgilidir. Yanıt türleri ve hata kodları XML açıklamaları ve veri ek açıklamalarında gösterilir.
 
-`Create` Eylem başarılı olduğunda bir HTTP 201 durum kodunu döndürür. Gönderilen istek gövdesi null olduğunda, bir HTTP 400 durum kodu döndürülür. Swagger kullanıcı arabirimini uygun belgelerinde tüketici bu beklenen sonuçları bilgisine sahip değil. Aşağıdaki örnekte vurgulanan satırları ekleyerek bu sorunu düzeltin:
+`Create` Eylem başarılı olduğunda bir http 201 durum kodu döndürür. Postalanan istek gövdesi null olduğunda bir HTTP 400 durum kodu döndürülür. Swagger Kullanıcı arabiriminde doğru belgeler olmadan, tüketici beklenen bu sonuçlar hakkında bilgi sahibi yoktur. Aşağıdaki örneğe vurgulanan satırları ekleyerek bu sorunu giderebilirsiniz:
 
 ::: moniker range="<= aspnetcore-2.0"
 
@@ -387,46 +389,46 @@ Bir web API'sini kullanan geliştiriciler hangi iade ile en ilgili&mdash;özelli
 
 ::: moniker-end
 
-Swagger kullanıcı arabirimini açıkça beklenen HTTP yanıt kodları artık belgeler:
+Swagger Kullanıcı arabirimi artık beklenen HTTP yanıt kodlarını açıkça belgelemektedir:
 
-![Swagger kullanıcı Arabirimi POST yanıt sınıf açıklaması 'yeni oluşturulan bir Todo öğesini döndürür' gösteren ve '400 - öğe null ise' durum kodu ve yanıt iletilerinin altında nedeni](web-api-help-pages-using-swagger/_static/data-annotations-response-types.png)
+![Yanıt Iletileri ' ndeki durum kodu ve nedeni için, POST Response sınıfının Description ', yeni oluşturulan Todo öğesini döndürür ve ' 400-öğesi null ise '](web-api-help-pages-using-swagger/_static/data-annotations-response-types.png)
 
 ::: moniker range=">= aspnetcore-2.2"
 
-Açıkça bireysel eylemleri dekore etmeye alternatif olarak ASP.NET Core 2.2 veya sonraki sürümlerde, kuralları kullanılabilir `[ProducesResponseType]`. Daha fazla bilgi için bkz. <xref:web-api/advanced/conventions>.
+ASP.NET Core 2,2 veya üzeri sürümlerde kurallar, ile `[ProducesResponseType]`tek tek eylemleri açıkça dekorasyon alternatifi olarak kullanılabilir. Daha fazla bilgi için bkz. <xref:web-api/advanced/conventions>.
 
 ::: moniker-end
 
 ### <a name="customize-the-ui"></a>Kullanıcı arabirimini özelleştirme
 
-Hem işlevsel hem de edileni hisse senedi kullanıcı Arabirimi. Ancak, API belgeleri sayfaları markanız veya tema temsil etmelidir. Swashbuckle bileşenleri marka statik dosyaları sunmak için kaynak ekleme ve bu dosyaları barındırmak için klasör yapısını oluşturma gerektirir.
+Hisse senedi Kullanıcı arabirimi hem işlevsel hem de edileni. Ancak, API belge sayfaları markanızı veya temanızı temsil etmelidir. Marka, swashbuckle bileşenleri, statik dosyalara ve bu dosyaları barındırmak için klasör yapısını oluşturmaya yönelik kaynakların eklenmesini gerektirir.
 
-.NET Framework veya .NET targeting, Core 1.x sürümüne, ekleme [Microsoft.AspNetCore.StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles) NuGet paketini projeye:
+.NET Framework veya .NET Core 1. x 'i hedefliyorsanız, [Microsoft. AspNetCore. StaticFiles](https://www.nuget.org/packages/Microsoft.AspNetCore.StaticFiles) NuGet paketini projeye ekleyin:
 
 ```xml
 <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.0.0" />
 ```
 
-Önceki NuGet paketini, .NET Core'u hedefleyen zaten yüklü 2.x ve kullanarak [metapackage](xref:fundamentals/metapackage).
+Önceki NuGet paketi, .NET Core 2. x hedefleniyorsa ve [metapackage](xref:fundamentals/metapackage)kullanılarak zaten yüklüdür.
 
-Statik dosya ara yazılımlarını etkinleştir:
+Statik dosya ara yazılımını etkinleştir:
 
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup.cs?name=snippet_Configure&highlight=3)]
 
-İçeriğini alma *dist* klasöründen [Swagger kullanıcı Arabirimi GitHub deposunu](https://github.com/swagger-api/swagger-ui/tree/master/dist). Bu klasör, Swagger kullanıcı Arabirimi sayfası için gerekli varlıkları içerir.
+[Swagger Kullanıcı arabirimi GitHub deposundan](https://github.com/swagger-api/swagger-ui/tree/master/dist) *Dist* klasörünün içeriğini alın. Bu klasör, Swagger Kullanıcı arabirimi sayfası için gerekli varlıkları içerir.
 
-Oluşturma bir *wwwroot/swagger/UI* klasörü ve içeriği dosyaya kopyalayın *dist* klasör.
+Bir *Wwwroot/Swagger/UI* klasörü oluşturun ve bunu *Dist* klasörünün içeriğine kopyalayın.
 
-Oluşturma bir *custom.css* dosyasındaki *wwwroot/swagger/UI*, sayfa üstbilgisindeki özelleştirmek için aşağıdaki CSS ile:
+Sayfa üstbilgisini özelleştirmek için aşağıdaki CSS ile *Wwwroot/Swagger/UI*içinde *özel bir. css* dosyası oluşturun:
 
 [!code-css[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/wwwroot/swagger/ui/custom.css)]
 
-Başvuru *custom.css* içinde *index.html* dosya, herhangi bir CSS dosyaları sonra:
+Diğer CSS dosyalarından sonra *index. html* dosyasındaki *Custom. css* dosyasına başvurun:
 
 [!code-html[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/wwwroot/swagger/ui/index.html?name=snippet_SwaggerUiCss&highlight=3)]
 
-Gözat *index.html* , sayfa `http://localhost:<port>/swagger/ui/index.html`. Girin `http://localhost:<port>/swagger/v1/swagger.json` başlığının metin seçeneğine tıklayıp **Araştır** düğmesi. Sonuçta elde edilen sayfanın şu şekilde görünür:
+Konumundaki`http://localhost:<port>/swagger/ui/index.html` *index. html* sayfasına gidin. Üstbilginin `http://localhost:<port>/swagger/v1/swagger.json` metin kutusuna girip **keşfet** düğmesine tıklayın. Elde edilen sayfa şu şekilde görünür:
 
-![Swagger kullanıcı Arabirimi ile özel üst bilgi başlığı](web-api-help-pages-using-swagger/_static/custom-header.png)
+![Özel üstbilgi başlıklı Swagger Kullanıcı arabirimi](web-api-help-pages-using-swagger/_static/custom-header.png)
 
-Sayfa ile yapabileceğiniz çok daha fazla yoktur. UI kaynakları, tam özelliklerine bakın [Swagger kullanıcı Arabirimi GitHub deposunu](https://github.com/swagger-api/swagger-ui).
+Sayfada yapabileceğiniz çok daha fazla şey vardır. [Swagger Kullanıcı arabirimi GitHub DEPOSUNDAKI](https://github.com/swagger-api/swagger-ui)UI kaynakları için tam yeteneklere bakın.
